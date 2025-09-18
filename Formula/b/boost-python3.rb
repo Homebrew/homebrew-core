@@ -13,6 +13,7 @@ class BoostPython3 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "19318e145dda8b1a0033e8d4c50b14e8d28bfb4372fd847c6b5bce1a118b5258"
     sha256 cellar: :any,                 arm64_sequoia: "9fc78a9b25bc31ea5d2e5252709b685d5c8a8bd7fb4c0f4e89113f61f0d85135"
     sha256 cellar: :any,                 arm64_sonoma:  "f6fc46a18f6c019e3279a23f62fedf624f7eeb08f05e14e667e5de401155f4fc"
     sha256                               arm64_ventura: "f30ee8fdeb54b9a69be3d397dc3d56513859ddc709dcb0642cc1fbf27f9198f8"

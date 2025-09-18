@@ -14,6 +14,7 @@ class GitCrypt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d2043dcab1b31eb1a886ebb3d060faa2db97eb311ea0a72ad1dac57c7ba1d8c9"
     sha256 cellar: :any,                 arm64_sequoia:  "2183efc250bd46ddc922be9a3be21a8843699267bd2a2f12e5cfd04a3af99478"
     sha256 cellar: :any,                 arm64_sonoma:   "a9e4eda2135a14c3a3a87fa5b3812858185361d5c4f04bf6d8c8603cc1700fdd"
     sha256 cellar: :any,                 arm64_ventura:  "4b3a389b9dbf8a9f3e03009ec3b591dbe4814799b42e8708dc7690d1cce6b362"

@@ -9,6 +9,7 @@ class Sysaidmin < Formula
   revision 5
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2d789ec09be8c9f3b4f1855572a3051298b904b7df11672cdd5185fbc2cf29a3"
     sha256 cellar: :any,                 arm64_sequoia: "4901f3d1bd6bf16b50799b2dc15eebe5ccdb5b04c87b9824a8921936f551ff94"
     sha256 cellar: :any,                 arm64_sonoma:  "7774b413b177217a0ddbf237e6628d6b66e47730b8e7b4d240501485a5fc32b4"
     sha256 cellar: :any,                 arm64_ventura: "f938f04483fd2fc58879671611cf3e82df613a4b61a126eef210f7cad3bedfc8"

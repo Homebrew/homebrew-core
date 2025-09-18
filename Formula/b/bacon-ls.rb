@@ -7,6 +7,7 @@ class BaconLs < Formula
   head "https://github.com/crisidev/bacon-ls.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ba1148ff7fd597cfa2d14a5530115a7575e06c8023c8140fd9361dcf820aefd5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0df0d775c1457b55c04a688505e6376104ebdcd6529733b7f4070ca98c5d0139"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ecea0916bac30c51414c9c499eec50e3f32ec56dab4a6a9ce9e229628e90019"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "165e8c9f8643b5df200004739650877fd0b4f0c311783209de19fdd7f1cbb98a"

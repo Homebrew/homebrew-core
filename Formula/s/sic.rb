@@ -14,6 +14,7 @@ class Sic < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7d152ce0d8b3a19197f66e697c611d405ce241c2bc5a05cd48dafbc9e358e381"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f028ab4b890ec81ff5bf82098d31f3f805d3a9efed26328bc83fc3929980af92"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "181b20a9474e97e9650248f715220259b3716ee65258beb6e511d9513fd7d752"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c210a33d10989dd50a31cabeee9e2a560befb330f79e13a0a561a7be515cbae"

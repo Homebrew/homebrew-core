@@ -6,6 +6,7 @@ class Alda < Formula
   license "EPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "15cca23ada93bef0ee4ba3f6451f965e5ef456ac9ffe73a646ee8b7f842eba03"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9ad08ff6305f79d36937d90a192a61f9843ee941b94b81983036ea885185cb7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d7b43e3fcf177044bbf79bf1232e6e6b68515576ee984c4b387225f48ec92c6f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c5243492f9b3514302f73a0280191529a5c95b2c3b66b7da2ff032d2a23d9ce7"
@@ -15,7 +16,8 @@ class Alda < Formula
   end
 
   depends_on "go" => :build
-  depends_on "gradle" => :build
+  # Issue ref: https://github.com/alda-lang/alda/issues/510
+  depends_on "gradle@8" => :build
   depends_on "openjdk"
 
   def install

@@ -9,6 +9,7 @@ class Physfs < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "0944ba1768fe03b03b2705b401890c25dccd9598ef9a0113796b95b6aeebdb49"
     sha256 cellar: :any,                 arm64_sequoia:  "e6b0663f9c6fd2b671825e510c705706dfccc018571c20e689ef082d5b701fdb"
     sha256 cellar: :any,                 arm64_sonoma:   "7556de6af5b763d6ce5fbb4e56acd432aefd2752a8bd27b38377de64f7f0ffc6"
     sha256 cellar: :any,                 arm64_ventura:  "033ca59ee6e8065927dc2c9e9161c5c673cc479d6d5991fe797c7677e474617d"
@@ -31,6 +32,13 @@ class Physfs < Formula
   end
 
   def install
+    # Workaround for CMake 4.0+. Remove on next release.
+    if build.stable?
+      odie "Remove CMake 4 workaround!" if version > "3.2.0"
+      inreplace "CMakeLists.txt", "cmake_minimum_required(VERSION 3.0)",
+                                  "cmake_minimum_required(VERSION 3.10)"
+    end
+
     system "cmake", "-S", ".", "-B", "build",
                     "-DPHYSFS_BUILD_TEST=TRUE",
                     "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}",

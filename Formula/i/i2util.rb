@@ -1,8 +1,8 @@
 class I2util < Formula
   desc "Internet2 utility tools"
   homepage "https://github.com/perfsonar/i2util"
-  url "https://github.com/perfsonar/i2util/archive/refs/tags/v5.2.1.tar.gz"
-  sha256 "8ef7fa11be1c8f753b4cf9a365520a35e632ac8c5a5815e0fae38fce698caa5f"
+  url "https://github.com/perfsonar/i2util/archive/refs/tags/v5.2.2.tar.gz"
+  sha256 "8fd453aa4e753bbf6a336728a9ab096e197c327e54809fa6c836f95c7049a3c3"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,14 @@ class I2util < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4fbf969c2d9f258937ca9a0a00cf073fa03c5616e7820b1c006cc7338b36158e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dfcba46e38b4f248933df5e573b389e33736ea5af165fe777e79a1d895ba46ca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "833e11396752fbd08c116ef443fae135b9e376eba4adba095f07a6b84ca42800"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3b77b419849ddf0f4ccf3411ad8ca8387a41acb5756a0a753e67f6937a2e144c"
-    sha256 cellar: :any_skip_relocation, ventura:       "ad49de8d4542cbc69f2d54175bb09ea8985711cd1599dd211c0bb9023fd6732a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be12cb5f38ee8f41c1f6e8cfc06b541512cd1efdff3c72d40ca2c8531a96c2d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a5d553ba2f6bbbba5e43f76248c25a871f4f45eaa9b86098fbd74751a2c557d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "468ef98c290cb91da0d8fb20a3c05053bf41a1b61b300bc070240ff9166dfdf8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d149ea9bb20335ddb149183f1edc5ee7376273a65c2338320abbebb70adab4c1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec79d9711f9c27234f9749543d1107b5e6065cea07c02a8a529ca8646b6a5bc9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5f5bcae5324cc0b081e48e27daf749b0c9f87dec744563231ce206c0792f908a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a813c30f3dc8abe4f69836c3b8d817db4430cb1075a350c743fcc5c404aab9b1"
+    sha256 cellar: :any_skip_relocation, ventura:       "7c654dce4bfcad68df19891a48fa3aa385b3af783ffaa6b43508ad20bb79d17b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fb332b7b80af0fe05cdaf19272c3a74cb9ff31cdc617f536efd8b4878c92b67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c8c063fb4ff305204791607b8d6e59499041405441c529addd210fb254b6eae"
   end
 
   depends_on "autoconf" => :build

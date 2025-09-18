@@ -13,6 +13,7 @@ class Clamav < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "401a63faaaabfef9425362d26c76e27ee9c46e551b0cdca6b3d9ad99bd284825"
     sha256 arm64_sequoia: "251bf418c7dc47d360294ce30fdc3ff488999350856fd7d2b5389fb763563c3d"
     sha256 arm64_sonoma:  "527382622ca74f0c7e5510b14d76ba2f62dcf8eab59e557d4239d73c612520f8"
     sha256 arm64_ventura: "f67aac9831164aa14f229686286fb5e539b3d6628bd0b19531f93fcb933a04e1"

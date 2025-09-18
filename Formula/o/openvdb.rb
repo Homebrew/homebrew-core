@@ -8,6 +8,7 @@ class Openvdb < Formula
   head "https://github.com/AcademySoftwareFoundation/openvdb.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4a3ddd7eeea8feb94dcb164a5e63053bc4002af989223029e954cdefa0d1637e"
     sha256 cellar: :any,                 arm64_sequoia: "f7b1ae1b4714ee2a3054ed21f7614fbf558806b8ac712036f859da671804493f"
     sha256 cellar: :any,                 arm64_sonoma:  "b12361d329988e7e23f9d09f74869171caff33520419ec0a9333d076c8b6af4b"
     sha256 cellar: :any,                 arm64_ventura: "6147b904295c5d09e05b80d3e3d345c9a3d4b085562e0e3c8b97339323c43ed9"

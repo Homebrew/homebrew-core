@@ -3,18 +3,19 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/36/a5/0cf693f3fa51cba1d36765939e0d9956c0487426ad581868a2507c208bad/copier-9.10.1.tar.gz"
-  sha256 "ba2d729465508da04a62bc9b76eed13d952aa7634a74a69519252fcf8a54d94e"
+  url "https://files.pythonhosted.org/packages/fc/88/11f7279c994526855576c3d1860fb9bfb950baf4d545b172089352a806de/copier-9.10.2.tar.gz"
+  sha256 "495159b796bc745a90238b2097053555f9e4283efc7181ee3b5402a5cbe21614"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5f38bbafcfb3adac75bee7fe1cc3596e0034683b66f739b4d6863d562295a8ca"
-    sha256 cellar: :any,                 arm64_sonoma:  "4ad14da43e03f616ed3ea19902d7f481f493e1e73cfdd2d45eaf2f21a82dffff"
-    sha256 cellar: :any,                 arm64_ventura: "6fdcbb835a1a0dfca2edc41fe02b5dda52d01e6c3179da70b5d63286050f463b"
-    sha256 cellar: :any,                 sonoma:        "f1da607d7900f550993720f07606a4fea9a14d7b172459acbcf9ddc622221d13"
-    sha256 cellar: :any,                 ventura:       "073a937e255cbdce6442cdc5d468a2985d7f24d901b3fb4efdcecfe39c413098"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "db7910e756f959d28018a18282583f314db645a1a7a55e4316440f3d05361773"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0a3565f9fd1e22d5b51f2022ac1f4ad973f0aa03d72b311cd0420a8d57be636"
+    sha256 cellar: :any,                 arm64_tahoe:   "4b576d1da9c24fda1867d9a8c4c10754fea7ae312887b1effafe2c8e9712e48d"
+    sha256 cellar: :any,                 arm64_sequoia: "d1c3b14afe2892fe4a8206dd5ee4d6426e9c695177d4059ac3dbdc53c4d09114"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d850e27a27ac3019c6aa33e1f0580cfc0dda6f41678bd25090a8b870cf86dca"
+    sha256 cellar: :any,                 arm64_ventura: "0f375b22fe84f9689de00405a5ea009a4d3e12c175ee95ef5a2bb251de0d38f3"
+    sha256 cellar: :any,                 sonoma:        "3d6155eca24920903c86ca2785e810c0ba8ffc34f35501aa7726d356f3262799"
+    sha256 cellar: :any,                 ventura:       "5446276d8040c7f6a39a1cc156a940b455c38d71a88db56ba569d84fd17f8622"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "69555f3902ba15318bfcfe0d39af02fb253cedafbb89730e24b7748e47b4cb5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b831f49dc1bae0f0f20b38b151ecf811119a45304b43140c25524ef8b2b722d8"
   end
 
   depends_on "rust" => :build
@@ -77,8 +78,8 @@ class Copier < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
-    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
+    url "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz"
+    sha256 "28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"
   end
 
   resource "pydantic" do
@@ -102,8 +103,8 @@ class Copier < Formula
   end
 
   resource "questionary" do
-    url "https://files.pythonhosted.org/packages/a8/b8/d16eb579277f3de9e56e5ad25280fab52fc5774117fb70362e8c2e016559/questionary-2.1.0.tar.gz"
-    sha256 "6302cdd645b19667d8f6e6634774e9538bfcd1aad9be287e743d96cacaf95587"
+    url "https://files.pythonhosted.org/packages/f6/45/eafb0bba0f9988f6a2520f9ca2df2c82ddfa8d67c95d6625452e97b204a5/questionary-2.1.1.tar.gz"
+    sha256 "3d7e980292bb0107abaa79c68dd3eee3c561b83a0f89ae482860b181c8bd412d"
   end
 
   resource "typing-extensions" do

@@ -10,6 +10,7 @@ class TerraformLsp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e520989a451215fc8aa36173dbce765df4d6abfa73ada73699898677a0c76baf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e98d5085bd970cb5d03bc97f210858c8de0115a912ac62dd7859749b84fd5a98"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42d32b5aa73ae3c3cb86c68edfcd9d244dc42f78adfc93967529961648625255"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "219f8480f5b9bbee461552d88a1f4da1539a7c1592b3b04be6c46e0a6dd9dadd"

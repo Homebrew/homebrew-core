@@ -8,6 +8,7 @@ class Heartbeat < Formula
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a396be067087dfd0454adcae4cdab51fc3b02cd001dd97230c612cc3bfb5f32"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "72d30c8421254c428358fcfed9664c5db3fceb81edda47e95fcdb229f11a2519"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "54a93112b9f23d9c6814d96e736747a6dc9f3e195a8fd46075505e218067bb89"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "757269d1b395b328213cac1e1b634ab587f809e033e4037f1e2b7d06ceef6b81"

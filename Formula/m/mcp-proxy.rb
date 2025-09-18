@@ -8,6 +8,7 @@ class McpProxy < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "be13e418b093c3d16b371bfc95ab1348f2196830458df8172c75af16da4bacfc"
     sha256 cellar: :any,                 arm64_sequoia: "877e627a035e20034023858fb2133a68834dc3b460327d8a155a733e49c89e37"
     sha256 cellar: :any,                 arm64_sonoma:  "84138641f3341965e3cba000cc5acfe97d3e059e279becb8a8ff1f5dff62dd74"
     sha256 cellar: :any,                 arm64_ventura: "db0e337fa40f65d37fd59e3fe33888a58466dbe1a4f78b680ba2940c09bd6403"

@@ -14,6 +14,7 @@ class Enigma < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "9478e81c3ee868cd66ce678e1f1ab6954b10e6bd8f0e7684582fff08a7f7d3c4"
     sha256 arm64_sequoia: "74e171cc98605dac471473d3b109615436da5f01efe97a6bef87863df29228e6"
     sha256 arm64_sonoma:  "80d1c3b6996e2654de90d74c8b64156f0ab114e9f6a0ca23a9ef8ac2ad4e15b6"
     sha256 arm64_ventura: "72b381ad60a3599e47c1e0a76b74ab074645c75e21fcf007849eb9b3461604ca"

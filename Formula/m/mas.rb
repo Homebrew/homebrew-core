@@ -15,6 +15,7 @@ class Mas < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1f595639e93d5ad5c1cdadfb39a1ce190393a5fdbdcf34dbabdaf6dbe58ade6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1dbec5f7cc97c21b9c41aff384531d3bc065611d9e5f6377afbec4a59010ab5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf056bf44898315518be7c9de6c53de45b3f8bcd83e2aa62ee1ce501239217c2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0777dcb10e7d45e2ce5299a58bcf41b99897eb18184f2af532911f2a5f0d0cc9"

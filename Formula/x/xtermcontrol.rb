@@ -13,6 +13,7 @@ class Xtermcontrol < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3d4a267b1c10ee1076e61d3d07f3145f6162f85f8105aa40c5f637a24372d61f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "91e3dd1b814e1b6fb24ddff2fbc094d1126e9c88e156e8f66291dd0c25a84aa9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1631d01a3eee1cf04f37e7d01dcdb6d7066221ea94990b6a429f322acabcc5db"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "816846a55ddf739e1d3f34f7e11c7280fd3ecca79c51a65a42e749bda0e80f0c"

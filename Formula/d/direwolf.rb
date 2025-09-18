@@ -23,6 +23,7 @@ class Direwolf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:   "9cc1935dc9cdff6065923b9b6881beaba7334bb2681f1383713c962e0ed2303a"
     sha256                               arm64_sequoia: "f99bcf9fef1cc83130d68c43ae4da0bb86cf3020c53898272c9f3dc3fe1a69b6"
     sha256                               arm64_sonoma:  "d99b828167a2e694d76319a97c1a5806be165f0005849fad1f3c2ed31b8b3486"
     sha256                               arm64_ventura: "32e606d1d65f94fb27a348abf01abadd78c74601c89c47d4ad84bc957fe0c071"

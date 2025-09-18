@@ -9,6 +9,7 @@ class Mktorrent < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "933acd62ccfd2b56d26d97b232f9dd96fb291c1efb60dd00a7f4b0e5e30fee71"
     sha256 cellar: :any,                 arm64_sequoia:  "7710b5cf4314030f0c38e8ade9ef142c269decf770b77527ae931882dcc5b921"
     sha256 cellar: :any,                 arm64_sonoma:   "2a6c0b4358e1b70f05757b6e016d039c645cfbc6e92cece0b69b1fc12dc5e97b"
     sha256 cellar: :any,                 arm64_ventura:  "5ecd805a7cab873d9a32dbecca561cb49cdc1e200dc1eb5e009e0e02a7202b78"

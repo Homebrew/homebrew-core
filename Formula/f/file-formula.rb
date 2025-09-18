@@ -15,6 +15,7 @@ class FileFormula < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "65b81cd6df1455e32335632e523b2dc5a8401714d3425dcb5c6d8661043a8b03"
     sha256 cellar: :any,                 arm64_sequoia: "5fe19d9d579de777487bbaa3722d672da01bcfae88f92af992918069bb5a0ac0"
     sha256 cellar: :any,                 arm64_sonoma:  "573bef480b6d3091dac30e1c279c18285ad25df7a30eea2805abe96aadce828a"
     sha256 cellar: :any,                 arm64_ventura: "99647711bffd2202b37256b511b365f4d1896b4ff6c0434d280dcff204d7ff10"

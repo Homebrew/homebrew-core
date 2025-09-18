@@ -10,6 +10,7 @@ class Apngasm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:   "8d4cb366969b69d558489a3225602608880d1618caa18f597b2ee57997affcb9"
     sha256                               arm64_sequoia: "909813b7286d5c3dbff8d6b13497fe607037fc65fe0ea065b676e2b831789073"
     sha256                               arm64_sonoma:  "e0d5bf50c94003d87095dcdd397ede2dcff470f208dfd60a63a49f2a5713490f"
     sha256                               arm64_ventura: "1eaf62b76489a8137ce94807e4620bb9858aa5fe14c2aae549ee21225549a6c8"
@@ -24,7 +25,6 @@ class Apngasm < Formula
   depends_on "icu4c@77"
   depends_on "libpng"
   depends_on "lzlib"
-  depends_on macos: :catalina
 
   uses_from_macos "zlib"
 

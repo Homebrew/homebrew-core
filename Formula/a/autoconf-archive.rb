@@ -8,6 +8,7 @@ class AutoconfArchive < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "75991b9174b35f768e55c113e3cca5f1b88939590ea865b4072426230fdef4ae"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7652c1e3d7ef6dc9cc8d6ef298f1bfe80d9888876052bedba5f5638b5e280945"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7652c1e3d7ef6dc9cc8d6ef298f1bfe80d9888876052bedba5f5638b5e280945"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7652c1e3d7ef6dc9cc8d6ef298f1bfe80d9888876052bedba5f5638b5e280945"

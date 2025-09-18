@@ -7,6 +7,7 @@ class Opa < Formula
   head "https://github.com/open-policy-agent/opa.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8029dd0e55dc189a078d364ba5cbe200e92307dedc93cd0cfae8a54830dabe39"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4660ed252a6c442c9c9de921efc14a4a72a71c9ae7c009c08ef7590bee10d054"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cae863293d08e4d2ad9010a570217132f68107350994f5d749587cf1dbb0877c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "71e2b6c349dc354803013d1d61ffc72e3f862899e2fdfba7c4a99cdeb9069eae"

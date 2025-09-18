@@ -12,6 +12,7 @@ class Dwarfs < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "2697e428eef2e29f1e8ae0bf08753a671b57dbc568f12fe8bcff8990f81cb8b5"
     sha256                               arm64_sequoia: "e042bc7ba514d04af91dcab3af3edf91c4d6865fb9aa0b50c5587d1234eb54f5"
     sha256                               arm64_sonoma:  "708b6313f17ef0813e2ba3fe07923f675893953a780e5b3f2b92a348b4b9b283"
     sha256                               arm64_ventura: "0ae44a58627292f7e4ff95b2b74d8420182b3e68d7e7fe3dd595dce6448e3171"

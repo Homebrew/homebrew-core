@@ -13,6 +13,7 @@ class GitAnnex < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "47d6abacf43d0fe49d170c3938509491c54d4d342794ba06cd1666b5dcd434e9"
     sha256 cellar: :any,                 arm64_sequoia: "8561c60c88793801ac71225bdda9241ccb3cb1445458eb7d6d0b1bcc82cb3824"
     sha256 cellar: :any,                 arm64_sonoma:  "b89cfccefbc9a0ca1cf54b18f314cad05f182ecc58e679d6d67fe793bb95a31e"
     sha256 cellar: :any,                 arm64_ventura: "d8c71ff887cb7937bf32552777f3fa793329d00e16c78bfa801cce064e9f0e12"

@@ -1,8 +1,8 @@
 class Rofi < Formula
   desc "Window switcher, application launcher and dmenu replacement"
   homepage "https://davatorium.github.io/rofi/"
-  url "https://github.com/davatorium/rofi/releases/download/1.7.9.1/rofi-1.7.9.1.tar.gz"
-  sha256 "bb2c0f073b4422acc51a3f97d05275a82464750a33d2f4b120e3d866bb7b9ae5"
+  url "https://github.com/davatorium/rofi/releases/download/2.0.0/rofi-2.0.0.tar.gz"
+  sha256 "f81659b175306ff487e35d88d6b36128e85a793bfb56b64fa22c62eb54c4abd0"
   license "MIT"
   head "https://github.com/davatorium/rofi.git", branch: "next"
 
@@ -12,18 +12,20 @@ class Rofi < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "5c626909b1b293d203588b80ed5d8221eeabbda74a52eb1097d7c309631a45ad"
-    sha256 arm64_sonoma:  "0b314c3080bb26ad2db79ead55a11c77a6c7e619203b3da7b43bdb061336c261"
-    sha256 arm64_ventura: "15c48971ba5a436e4ffb87b43b6b5a5e4041024e5b3083df70d83b40b57a1177"
-    sha256 sonoma:        "3d87e7e89049147de89401787624bfec3db06fd772ff6f1167d5c6e3c3f458bd"
-    sha256 ventura:       "ebe1fee45adf82c9324374d2ae33eb4af4ab1454b39872a9a1ca2d2620f2b8ad"
-    sha256 arm64_linux:   "162d955726717cd43a5daada701228401f9b1b3ea66e988f44c445f93da05f12"
-    sha256 x86_64_linux:  "73a4c5573499a78fefd0d2a58c15ba6069bf5169b6a3064f2951c650e1dfa889"
+    sha256 arm64_tahoe:   "56cf0ce09c7e1c24b44a42074ce27963461dc6f1494a231d67878607cc4445da"
+    sha256 arm64_sequoia: "d0b9f23ea3e63509aaa2dd9bf00c033973ead42dc9e3a4f25c3d62726195ec66"
+    sha256 arm64_sonoma:  "0fd77e4788c2add3bc3b4b9ff0ccd525c18ee084da1aa236ed788e0ba4c89e33"
+    sha256 arm64_ventura: "d428713688ec3c0966f0ad16c465bb683db9fa66690ff1b906694b63963d5fbd"
+    sha256 sonoma:        "9b93ea8da34ccd6ba683b62e20d354377704b272e5f288fc09e786d549a027f2"
+    sha256 ventura:       "4fece57aedd09cdb2b7c65ddcd55f42eecb446570ba26d58d46416ed39b99c05"
+    sha256 arm64_linux:   "481b5771288fe8bdda79947b5662d8660b3db1d497259bcf251954d3a9ec000d"
+    sha256 x86_64_linux:  "fcfbd2f40d45b02ada2b790949354a4b17382edd6fb84a16815f57045e1e6793"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "bison" => :build
   depends_on "check" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
 
   depends_on "cairo"
@@ -40,20 +42,12 @@ class Rofi < Formula
   depends_on "xcb-util-wm"
   depends_on "xorg-server"
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
-  on_macos do
-    depends_on "xcb-util-keysyms"
-  end
-
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
-
-    mkdir "build" do
-      system "../configure", "--disable-silent-rules", *std_configure_args
-      system "make", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

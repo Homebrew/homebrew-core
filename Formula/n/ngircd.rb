@@ -14,6 +14,7 @@ class Ngircd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "1573a4080383c514d2f99460f1b06abc21d858e22cdd7965d12196746b0cdc07"
     sha256 arm64_sequoia:  "a5f1ec87f22aab290866fe3c59d3a3750354af29dd410c458b7dae0f3188b058"
     sha256 arm64_sonoma:   "b3230f61b1aece2cffd949a060abd8a8ff1d61a47f63b728839cda70a38cc685"
     sha256 arm64_ventura:  "2b428f0da716c05f7eaf374b55fb3afa078d216f2c115e995d6bfc8dc4806025"

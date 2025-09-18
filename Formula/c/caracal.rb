@@ -9,6 +9,7 @@ class Caracal < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "736248b14af4194e38b8d5d8103f2f649cc1293391d0ca147f1ead5529e2d3d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b8b9b99080c463030eb02044b0db946992bba13ef79f693498b6f154a41d5407"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ad1176b86b6cac2c478e4728cb7212521b8875c5454f3f5775287759d4f3edd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c586d3c8ef371164a618263e0227375fb6f235a8eb0a1565613dd5f1d01228e3"

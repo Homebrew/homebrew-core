@@ -8,6 +8,7 @@ class ValaLanguageServer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "6de961a16d8c01a87334d3e5f8952bccde9d82e321719c8b7606a173b6a4f79b"
     sha256 cellar: :any, arm64_sequoia:  "7b298f02d9378880231ad35d238897b5fa76e7a0c92efc802676f114fe20ab9f"
     sha256 cellar: :any, arm64_sonoma:   "ac975caa3ddb69b060ade26f3fd96eb26d1ea002cb52742c0418a4edc23058ff"
     sha256 cellar: :any, arm64_ventura:  "8bceda4daa8845f577ab8133fff13b22ff342e9d9bc567a3b0e9c97eb6de8ab8"

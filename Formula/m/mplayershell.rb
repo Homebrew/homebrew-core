@@ -9,6 +9,7 @@ class Mplayershell < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "60d548374e75eccb8dfb8ebb31df066dbb482f8bbd0ec5bf273c62392d323de6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b95550c4987ef7c396da3dccfdd64e309be1d1945fec7f520215c674615174c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e13d71055ed301f6cb2ce85ad882a79d6d9bb89768a65d343924683fec3eedc2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bead3e2b5b52cc95ff824b0ff5fce66e0abade2cb0b6dc423ff95234e0f3d607"
@@ -19,10 +20,6 @@ class Mplayershell < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "394a7fd5b3beef51cc57058e2210cccfd9fda7ae045fba2551c1e62149bae6df"
     sha256 cellar: :any_skip_relocation, big_sur:        "4d08f027c84780edc46b13b1e45a8255de0ec6a35798a1ea5230ef8cb4396e13"
     sha256 cellar: :any_skip_relocation, catalina:       "09cfdf5d08af35a3be96623c6535fece3acfbc60cf81247b118778cb2b68acc3"
-    sha256 cellar: :any_skip_relocation, mojave:         "1be2bb2a8eccce7fa190b85af6e67fb7fe36393c32a8295852af0e6e390b6ee9"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c0b558e0508d80fe05a1d9617b7aa1986066c54bc0a3da585631eb406da5eb93"
-    sha256 cellar: :any_skip_relocation, sierra:         "e9377eaebb65903037105bf3ed6ee301a182452791e9daeaadd08ccb732d9d1b"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "ae4c1c9d069053afa7e71867256b577e23bd0dec87a90ccab2ebeab089a3634b"
   end
 
   depends_on xcode: :build

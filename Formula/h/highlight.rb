@@ -12,6 +12,7 @@ class Highlight < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "d5a1ccd54b916d9a9c8373084b60a28c3cba706904e423f34a1da8d1a8acdab7"
     sha256 arm64_sequoia: "d95a78c12eb84a96b8c0f86f26732cc3954c3c22ca04e26edc239d4ec1994b6d"
     sha256 arm64_sonoma:  "82cb217618b5972d2db87b0f43c318c1bc8cc8c2ba70727e7c2c2ae32896d438"
     sha256 arm64_ventura: "9a6537b5b06c050ebf31214d45e1eb847a142fd4a5b0ac6a85dcc90a9ebc8d9b"

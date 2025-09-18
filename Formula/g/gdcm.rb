@@ -1,8 +1,8 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://github.com/malaterre/GDCM/archive/refs/tags/v3.0.24.tar.gz"
-  sha256 "d88519a094797c645ca34797a24a14efc10965829c4c3352c8ef33782a556336"
+  url "https://github.com/malaterre/GDCM/archive/refs/tags/v3.2.1.tar.gz"
+  sha256 "63d4fbbb487d450bc8004542892a45349bdc9f4400f7010c07170c127ef0f9e3"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,14 @@ class Gdcm < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia: "29f4afca40589ee225e365d19784cefaea6a645bb74c8846fc380b4ab6182020"
-    sha256 arm64_sonoma:  "fde25b20f1705d89a85dec3c6e159877d6725b90ca38574083a3ba6beac9c0b3"
-    sha256 arm64_ventura: "5de66afd7a971ab36ee2a088d9cad724e664a9c54f86de0487097d4100603537"
-    sha256 sonoma:        "709bd1ed5c21684c70b26bc5eb01557c1651be434a17a7d29bec098c3c4d695b"
-    sha256 ventura:       "23c61e5a51e3c5d5b0abb2a9df18b06c4a5eda9e14c05850643bca44a9bdbae1"
-    sha256 arm64_linux:   "fd227edb28e56e51c23bf3bbc1d00ab4986e0c0b34ce8927baeb35b74e3741d9"
-    sha256 x86_64_linux:  "8bc43d0b2244b3218545c1aa4fba961b365c514d85bb3a158087e4fbe421350d"
+    sha256 arm64_tahoe:   "1accde6746b52fa9b27e456f8e2d54deb80c9d7c2c463c5a882028f53dbcf2ea"
+    sha256 arm64_sequoia: "0798219ea8b286ffe4b4cf9206165a32f84779c534d12b7110e1b90699c5a817"
+    sha256 arm64_sonoma:  "3db7f3de8175f2c554bdae0b22aa5c813148193a485ccaca8c2cfbf8a00d8133"
+    sha256 arm64_ventura: "6cdab0da0f1460b9b39575bb26545c42926990ca42a9887207cd4de2494ee81a"
+    sha256 sonoma:        "84a2cabb234de2e71a278f498e23f8156282453feb598bfbf863021914e54156"
+    sha256 ventura:       "a96e29d7231dd85cf7e501c7ca21cc5417cb5a7f45f5653490559acbaa3f42b6"
+    sha256 arm64_linux:   "f7d8115cad4617130aef4d80cad9e94dec1170586c8066289f065cf9a75a56bc"
+    sha256 x86_64_linux:  "971fc04f0b4ad8391afcecafe90e7b3b4191bf01113cd8819bbb212f0d9d9294"
   end
 
   depends_on "cmake" => :build
@@ -97,7 +97,7 @@ class Gdcm < Formula
       }
     CPP
 
-    system ENV.cxx, "-std=c++11", "test.cxx", "-o", "test", "-I#{include}/gdcm-3.0", "-L#{lib}", "-lgdcmDSED"
+    system ENV.cxx, "-std=c++11", "test.cxx", "-o", "test", "-I#{include}/gdcm-#{version.major_minor}", "-L#{lib}", "-lgdcmDSED"
     system "./test"
 
     system python3, "-c", "import gdcm"

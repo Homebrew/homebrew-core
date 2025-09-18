@@ -8,6 +8,7 @@ class Confuse < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "8c9faf9f2e1e5d1d0745acf79b46347b499053b9bcba4e4f4f89296bd5f8aad3"
     sha256 cellar: :any, arm64_sequoia:  "4a559294bf3ec51132b479ee9b90c5e90dea6183c11707471b89a4d06b0ab371"
     sha256 cellar: :any, arm64_sonoma:   "6d46500c283c20fcf41348fc34293d30a85e0fac9955ea849369deeaf84b3a2b"
     sha256 cellar: :any, arm64_ventura:  "1c7aa3d075082f2742747ac5034f60c90b448c694ccc5b3330b71f1afdd81f81"
@@ -18,8 +19,6 @@ class Confuse < Formula
     sha256 cellar: :any, monterey:       "bcdcdab60caa250aa1a5b38346dda7bd0a88ffb6359d73d8fab8aa046d5bc2fe"
     sha256 cellar: :any, big_sur:        "370cd5df07249d44cbf0a848001be19d41341f404d229dcdcb3b5ae6ead4300c"
     sha256 cellar: :any, catalina:       "13ad01ca606e746ab7f6bcd42b0da08abdcc29ccaaa9e8106f9d28bfe96bffd7"
-    sha256 cellar: :any, mojave:         "d6038fe2a7fcfea4ba6e3c29174cb6201ce7d05e22ef4c76b881b9f12dabcff6"
-    sha256 cellar: :any, high_sierra:    "371f699488d7e4459251c55e4ef4d9087b08e07b4fedfc553476bc30070ca9c1"
     sha256               arm64_linux:    "0be4562183f1ec990e0a9f2e082e82528048a0261b292013a8fc5b3f06e4b7db"
     sha256               x86_64_linux:   "a5fbe815c75f10344684dab03501ecab39cec4b157e46d955f6e2c70062d120b"
   end

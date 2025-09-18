@@ -15,6 +15,7 @@ class X8664ElfGdb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "d0b8420e2234ef7eca8d459fe72bf7933ea026ab5d892c2ab977e8753aceca05"
     sha256 arm64_sequoia: "1a4c275dd54c82d2fb7565983fb7258ac7ef8d69f21e6d8a0c2c33b24f67e70f"
     sha256 arm64_sonoma:  "06ec3ddcb48354b451944b928999451d75ce5fbea906257cd3181ccc9f18e090"
     sha256 arm64_ventura: "921cea748af120a02e9feb5b9a2e13922171f1bf31607f8687c7fe5e761fe3e9"

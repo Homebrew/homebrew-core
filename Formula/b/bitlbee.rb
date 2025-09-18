@@ -15,6 +15,7 @@ class Bitlbee < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "efb34682e8ec26936cb35959a177ba9b4242223b70a4d3c2596960d13f2d3bf0"
     sha256 arm64_sequoia:  "b657d232b9e5c995bad586bebabccbf58cab67a71f81dcc20ef65ba7685c7c5c"
     sha256 arm64_sonoma:   "5405ccb44de475193bc30f0c57d9794ede440f7c3d8e608404cd2aee0431713b"
     sha256 arm64_ventura:  "d5abbf75f2d71752b48051f6072394422a338650a187b53f0bcb528981da9e3a"

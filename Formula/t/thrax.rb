@@ -16,6 +16,7 @@ class Thrax < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ad8474853f18f938c66f2e08a7e97587999b298f56638cbd55cc19f652e1e14a"
     sha256 cellar: :any,                 arm64_sequoia: "1eb8c3d01b8131ea4cc7040397c4eb266c02d517d9076722f322075c93521674"
     sha256 cellar: :any,                 arm64_sonoma:  "b3bfcb2f229d5709774df18f6bd4d4915a03218b430bc4cae498cfc98b387569"
     sha256 cellar: :any,                 arm64_ventura: "87aea2fcc77a37ff7eb3118757a6e224c8e4704a26cae719a8a123bac9b8a3bb"

@@ -7,6 +7,7 @@ class Amber < Formula
   revision 2
 
   bottle do
+    sha256 arm64_tahoe:   "aab42dadcba980b950797c53d051d76831f90e4457d6f70aa18553d4f67e4e6e"
     sha256 arm64_sequoia: "c8bb8c22fe777f8058380a9193fa2128127a80e5b4e5a695fdd5b3684db1cbc0"
     sha256 arm64_sonoma:  "aedf640540270738aa662506e1a34e9853c4c7474310b2b7a5d4dc86d6c3a5c9"
     sha256 arm64_ventura: "b48cb05e8b797ee829115cc6c60e89172169a0f68c4122fa8f9aaa07be7df8d0"

@@ -1,18 +1,19 @@
 class Parca < Formula
   desc "Continuous profiling for analysis of CPU and memory usage"
   homepage "https://www.parca.dev/"
-  url "https://github.com/parca-dev/parca/archive/refs/tags/v0.24.0.tar.gz"
-  sha256 "a6e70f0687a583e6dfe5adfac9a05722bdc264c3c6017c54b713d8d57603f170"
+  url "https://github.com/parca-dev/parca/archive/refs/tags/v0.24.2.tar.gz"
+  sha256 "5f8485d622bfb052a893beec796083d9238595c501eff20508928ac44712881d"
   license "Apache-2.0"
   head "https://github.com/parca-dev/parca.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6fa27fe43d36fbc20c435166dba3a6c9469185c36c9e20662ed2242261cf99fd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "990936082e88d67e290dd68c4deabe8128bcf0014801ce6e33acc0cada5c6c99"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e57cdf205a217af6f088fc1faf5f9a733b3d4b571f36701545c3b7e7431f365"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9c84f3604a5c71a4f7b4563eba865a161d52136587d4b871d481c3585c8f8be1"
-    sha256 cellar: :any_skip_relocation, ventura:       "cdc41c2a248ad03df9ce846575b33d78e6bd69f1c329e6220a9e605fb758fffc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3325bbd56f7414fb392a234865e50147209c5fc4595e727bb3fe8d06eea558dc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b3d6c3b49e0d76dfb28ab6478cc79546fd02987d1f8dc3c1425c8b221d37df8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8dfb07487e2874a72ca29a1eb3ed85e1a7981c560c91119b303e4be05f554a0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "05f27047351b0582c6f5fb772250541eea7aefe83c356c338ceabf5368ac36f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "16ada657b4d2f78fc3315be1739a7d6ac5172c6c5c56be65c53af0014d086397"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1fac35e98d19d1922d942b2801dd6e33872a2162a2a9845eb45b4649359896c"
+    sha256 cellar: :any_skip_relocation, ventura:       "0e0dc6dde558aa5baa521c5182d92dbe359afbaf407db05b16811bb7b52e2bbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "243125d3d4e13b662a1439f2d9f0a0a482788bc6890645f6a2a24f3076a578f9"
   end
 
   depends_on "go" => :build

@@ -6,6 +6,7 @@ class Tmuxai < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "04bef56cdc97d84a09c2006b5c941ad15bba4e87a43bddfce6a518ca119a78ad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b09a604e48cade9d253a488e41ed82a0e734478b14654a95314edd8dcf4c7ca"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b09a604e48cade9d253a488e41ed82a0e734478b14654a95314edd8dcf4c7ca"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6b09a604e48cade9d253a488e41ed82a0e734478b14654a95314edd8dcf4c7ca"

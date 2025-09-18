@@ -12,6 +12,7 @@ class Rover < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f2a3fcceeaa63a549947e42de05b2a9482f8a717c0b910e5293a396dcc7789a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc80cc14363b750794696eab6e5e8261b361766a625897b7a06894236dce8e25"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee2417a2c55c355a0e5105bb4447e9869109733b29c32156817e234cb018051c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "177325ce99b866531f9966a6e114c1602659757ad3e4b1afa790ac6ef5da9f20"

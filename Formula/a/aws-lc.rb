@@ -1,8 +1,8 @@
 class AwsLc < Formula
   desc "General-purpose cryptographic library"
   homepage "https://github.com/aws/aws-lc"
-  url "https://github.com/aws/aws-lc/archive/refs/tags/v1.59.0.tar.gz"
-  sha256 "fcc179ab0f7801b8416bf27cb16cfb8ee7dff78df364afdf432ba5eb50f42b22"
+  url "https://github.com/aws/aws-lc/archive/refs/tags/v1.61.1.tar.gz"
+  sha256 "d9112d79d4c22a65725100de5dc933835320c09dbe008cfc03faf96807b1ad45"
   license all_of: ["Apache-2.0", "ISC", "OpenSSL", "MIT", "BSD-3-Clause"]
 
   livecheck do
@@ -11,13 +11,12 @@ class AwsLc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce884a36da03cdea0c4caaf1ea85122a984d40177e71cf56d71c9a0d5c98c7ae"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7d6e9867079474d2fffc8b9c93ce4cdf1797b71b984635402bf8a0717a1b012"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "07c09860f5040a02a694bf4e9b14baa697ace441a7101b40fe1c6720bc509f5b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6ad43f387394f4db77fd5dc34108e2c9b7da35c36d3a30c8dcdcc4091b3676e6"
-    sha256 cellar: :any_skip_relocation, ventura:       "751c15c5f65461e2d15b479109fe9c6c15268948bac3c628afe2fc811805e8ce"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5604f8d28393cff8a66cfef57e3ac11d0da81f3ded55ec955aff051b83cc8fe3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a16b47844e40303cb841cb06f516faecc8a26510a6c0918e56b367b3affea159"
+    sha256 cellar: :any,                 arm64_tahoe:   "f20a36ab2c09b66871e029993c54aae5571b02ca35b2e0862130c86653bee640"
+    sha256 cellar: :any,                 arm64_sequoia: "65d820c91ac1e6a75d692d03a7fb1d4acd44360d0cd3154ee6d434a0d417e058"
+    sha256 cellar: :any,                 arm64_sonoma:  "0fecdcc37bd5601ec738dbbedda48fc190d5cd99a27b0e2cdecd4eb4a2dbba9f"
+    sha256 cellar: :any,                 sonoma:        "bc4e49a1a84cec576f1ada7b5bd76d7a63668a9f08a7268d731d86d9160248b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f54c9f432cdba4de708668e1432f9d87ba2c9603025c7068f7b84e1b732cea4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "829c212fed7d72ce5404ea24c24e75b16282a6f1a8a1f3bd0df5adbbdb506d25"
   end
 
   keg_only "it conflicts with OpenSSL"
@@ -28,11 +27,17 @@ class AwsLc < Formula
   uses_from_macos "perl"
 
   def install
-    args = %w[
-      -DCMAKE_INSTALL_INCLUDEDIR=include
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_BINDIR=bin
+      -DCMAKE_INSTALL_INCLUDEDIR=include
+      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+
+    # The jitter entropy collector must be built without optimisations
+    ENV.O0 { system "cmake", "--build", "build", "--target", "jitterentropy" }
+
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

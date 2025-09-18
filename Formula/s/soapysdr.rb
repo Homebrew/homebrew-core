@@ -18,6 +18,7 @@ class Soapysdr < Formula
 
   bottle do
     rebuild 3
+    sha256                               arm64_tahoe:   "35b5d5fc4077ff538ad538f0faaf4ef3862c698e3dde5b743e539ce1f32f0510"
     sha256 cellar: :any,                 arm64_sequoia: "2cd1b0106c59df55ee3022f0e426718979343f8c0791a1cbf189a0230b582967"
     sha256 cellar: :any,                 arm64_sonoma:  "037c6ec56ece7b022d890f8c42f9e8b7e012ec9a641901d4d73a961a8f7f069d"
     sha256 cellar: :any,                 arm64_ventura: "d091d29209ae4319ddb8db5f2bc8c3f828953db36b619f2288df08c6cb2f2db1"
@@ -42,6 +43,12 @@ class Soapysdr < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
     args << "-DSOAPY_SDR_EXTVER=release" if build.stable?
+
+    # Workaround until next release to avoid backporting multiple commits
+    if build.stable?
+      args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+      odie "Remove `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`" if version > "0.8.1"
+    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

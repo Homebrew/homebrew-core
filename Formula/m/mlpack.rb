@@ -8,6 +8,7 @@ class Mlpack < Formula
   head "https://github.com/mlpack/mlpack.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fafb84f8935480c1acd9292b35c7f9182630c3470b57208affd1ce91183e5c66"
     sha256 cellar: :any,                 arm64_sequoia: "0f231088b602989d6095850417438746516ef210652387a9f0f61c3e313dbcdb"
     sha256 cellar: :any,                 arm64_sonoma:  "6e454187ba47af0f60ee2b2078019609334a7150bf1e32cf275806578e0209aa"
     sha256 cellar: :any,                 arm64_ventura: "fbea7810d131e9dbc46934e12b099668d489245ff4ff0e713ad389fc6e0c7446"

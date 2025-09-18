@@ -14,6 +14,7 @@ class Gitg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "abbdc8fc35ce728c48bbe65c9343d17768755954947cfc919141ea6c7eb0e90b"
     sha256 arm64_sequoia: "4028f294581707bbf199f5ff73c017cf8f038c42624be131fefa85604743f42e"
     sha256 arm64_sonoma:  "685263322a42dacb348f6df3e00a7feb5c1848277e8acd4630e009c29814d324"
     sha256 arm64_ventura: "67c8e9d95c5a1245c3fa87a32a769b63e404926e2a38a18bf769131a3f85effc"

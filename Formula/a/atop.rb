@@ -14,7 +14,6 @@ class Atop < Formula
   depends_on "pkgconf" => :build
   depends_on "glib"
   depends_on :linux
-  depends_on "linux-headers@5.15"
   depends_on "ncurses"
   depends_on "zlib"
 

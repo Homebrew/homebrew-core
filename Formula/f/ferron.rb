@@ -7,6 +7,7 @@ class Ferron < Formula
   head "https://github.com/ferronweb/ferron.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8fcb602e5d00405d0d723012b5b456386003d763b826e1d6cef0b9377bb75b91"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1222b8597170ae0e8e1a802cdc0be7759d516526fbf66af44784ac7ea4dac0e5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc3d493eed9e331b294d1520834a6ff1443bb6aaea8b8f3620c3f2e5a5a48a6d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4944aa253d2a09a11048ab777180177e61be015b703ed6270d06484a1e2d4665"

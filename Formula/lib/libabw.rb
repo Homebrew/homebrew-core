@@ -13,6 +13,7 @@ class Libabw < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "b05fc409964a522f49facea70e05860b9ce3d041d44d2eebe4724621a35a9386"
     sha256 cellar: :any,                 arm64_sequoia:  "a458a7c83461966a67f75a3cb31fa042af7e20befe3ef21de818ca036a8263e7"
     sha256 cellar: :any,                 arm64_sonoma:   "8ac829af4a67294bc85e6959843282df8944dc88c3d295dca20a1f7914881119"
     sha256 cellar: :any,                 arm64_ventura:  "6ad85dc29ed6262c148bd70631ea06886e1e7fce5d6c8abf66b9486d85e8055b"

@@ -12,6 +12,7 @@ class Exult < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "e894b5a6a3c9ef84ac4a8c0b7d75a5e7bede5406fa07f990314e9c9a0057f0a6"
     sha256                               arm64_sequoia: "1ed78e83f24d86ad6d99ae555cb0c3f5f7082ba6ca58c7b6035866b340d3baf7"
     sha256                               arm64_sonoma:  "3a6f16cd3a42e05e5d15fad08325e060b3fb8af4aaaa587ef4443c1a4fabed76"
     sha256                               arm64_ventura: "5c59fa4711bac90f846e57cc711ee14f1b95e01c4e75c5d735820247039e760f"

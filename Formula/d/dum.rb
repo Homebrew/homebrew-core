@@ -8,6 +8,7 @@ class Dum < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "975c574d188d562cd6a96ea7596200dc1af0863b800472f19ca4e790e3c8b3d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc1a2eb6d29975956f3f6d0197d900dffe8c053bd27454276d59a74d66303250"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b543985f14ec40fe02d399547c13d7c590248a1a04755b80992a63cc9e42a15"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d893cad55e091b873833d75218ac6e5ff2ebdb0a65b6af0f819f784ea5e487da"

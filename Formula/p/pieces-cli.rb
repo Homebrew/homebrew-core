@@ -9,6 +9,7 @@ class PiecesCli < Formula
   head "https://github.com/pieces-app/cli-agent.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e4bf6429c8ee37f4a4bb9e28627d2c309bb8e59ac26b1cba59ef0e0e52599ad6"
     sha256 cellar: :any,                 arm64_sequoia: "9ba3fc49c68293b5ee0be2e984bf78a3b08954105ba511cbab1238370a927b61"
     sha256 cellar: :any,                 arm64_sonoma:  "1908445739436ffca66387d2dccb3b3cdf8dc5e07c70603a164779655d2c3ec5"
     sha256 cellar: :any,                 arm64_ventura: "5a2634ad8bd015c9a21bc3084cfc8c2f8834bf1640b54aa6c9bdedd81c0bc4be"

@@ -7,6 +7,7 @@ class Gcli < Formula
   head "https://github.com/herrhotzenplotz/gcli.git", branch: "trunk"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "61e49986f4a05c2f350567c523198272a75ea193ea35ee7f1f0a43b37527828f"
     sha256 cellar: :any,                 arm64_sequoia: "ec6206908dcc72271e908e15bf83903772b2daafd26436684f9ba59b437f4298"
     sha256 cellar: :any,                 arm64_sonoma:  "7f23f53fbb12c73c5ad1749ab30c327459e6ed2100326993889ed1601d6348d4"
     sha256 cellar: :any,                 arm64_ventura: "3188b97d42c609ce2f1ce0756d9f032991168e38ff44ca2724d3011c03bcb9a9"

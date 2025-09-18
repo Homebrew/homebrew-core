@@ -10,6 +10,7 @@ class KeepkeyAgent < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ecf478d2618fa269b67bf48de04df51692c72b6c6906f2f9214b8ebc5c3197ec"
     sha256 cellar: :any,                 arm64_sequoia: "4ef9604e5cdd45c1cd054e8e9d3be0cc25b7473a784a276129d621d7dd316114"
     sha256 cellar: :any,                 arm64_sonoma:  "d5204bced64588374c8271149e09a929ac222cb83a39ce82992f18600afc36a8"
     sha256 cellar: :any,                 arm64_ventura: "13776ec6e720d1df734940c512c73ebaa4c2990080c0e8d6414f40e806a1f78d"

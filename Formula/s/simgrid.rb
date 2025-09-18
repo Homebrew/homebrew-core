@@ -14,6 +14,7 @@ class Simgrid < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "8a9ef744237a4a0dab7f6b8d84516ce35a42f3c6d6de4dd836991549ca0b36c0"
     sha256 arm64_sequoia: "ac101cf85a869860757c25a7463cb30a434e13ea38286f395c684c49d7dc68d6"
     sha256 arm64_sonoma:  "d9ccec719f56ea2a7308a6d1d8c69913d36ca54cd7e5883fd346a22fe03a1997"
     sha256 arm64_ventura: "7368d7542432d8e4de0694962fcbeaa1b59df7cae46cc8f63d84e59b9f10cb0a"

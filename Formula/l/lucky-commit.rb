@@ -6,6 +6,7 @@ class LuckyCommit < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "07d58a7fd30317d98c7d3ee2a5b78afe8b274b6272ec68dbb12a519c04c71eca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c93d4a4678944faa2b8d4a7144081fbb2e58cb2fd90a9738f955f257ad604d1f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4df456578bbb007849607cecb96e916bc4df5201846a2ea5b57cc6cf033c0250"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "eabaed3df8acebb03dfc099f24ab40d7a070346c5b9d926bb9a4cf8afca6987b"

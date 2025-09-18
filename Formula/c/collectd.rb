@@ -23,6 +23,7 @@ class Collectd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "b5f482fbf1af2823274e44bcb25a86fc6b402c26e635f3f8666b5f504cbc7540"
     sha256 arm64_sequoia: "58f7a44814b1a467e4f68fcf719069fe352920ce6e800fc5d60e8ad2e6af1332"
     sha256 arm64_sonoma:  "ceb6cf730de48b1f6eadfc3784060f0b6ed437c3a4fcb7f991e75853eb0d8295"
     sha256 arm64_ventura: "756fa1c1b080652bc6654718c11f5955b1a674b319eb848609e0416415a0cde1"

@@ -6,6 +6,7 @@ class GatsbyCli < Formula
   license "MIT"
 
   bottle do
+    sha256                               arm64_tahoe:   "b919c17d7ef90bad899e0f5edac1e66a8e43188387c0aa431a3b8bef71c33a6c"
     sha256                               arm64_sequoia: "60c32c25f7895358b0b2debd6101c7d8398836cf7a8c94e0a31f38c60e82f78a"
     sha256                               arm64_sonoma:  "ae8617098d7c76f819ea7b9622498499948d7ed50485b70afa27e9e75a153f90"
     sha256                               arm64_ventura: "d8249abdf0fa71a4aff5bd81b35c07e15ec472e412398c3ac5dd6412687003f4"

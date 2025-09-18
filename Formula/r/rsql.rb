@@ -1,19 +1,20 @@
 class Rsql < Formula
   desc "CLI for relational databases and common data file formats"
   homepage "https://github.com/theseus-rs/rsql"
-  url "https://github.com/theseus-rs/rsql/archive/refs/tags/v0.19.1.tar.gz"
-  sha256 "4dc7f6bdbf1fe9646ca64e307db4249f1f28adaa0858a9fb0ae1a04ebf199e82"
+  url "https://github.com/theseus-rs/rsql/archive/refs/tags/v0.19.2.tar.gz"
+  sha256 "a6bf445998062dbb1a840895d42783ed947e42265422aba2bbdb8a669d2177d6"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/theseus-rs/rsql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "650a113cd30642141965df714e358d4e3514fafaafafab32fdd37536fcb07f4b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d0d3d70afcbc6cf516739e54c062dc57a1f7f86ce0d076c29d7c97ffcff3c9f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d7cceec29196c5cde0b164aa6fadb57b6b3d3d00caf4d74e55afc8fcf1eea20"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3344174d3044d782629662e1d01ff66b38bc640d8accb367c1ea5ffafdc16b04"
-    sha256 cellar: :any_skip_relocation, ventura:       "9c283478412fbdd4e2af1d3b2de915da9fdc486ecfb504a3ccadc99f0c18a9ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a88a3be80460820a4165efaf48da5b71220a3a87b97009e0598260c3fe951bdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45cd0f1bca34f7f7be730252ee3815f7f255c2a53b1b1bc8b993368c31c73a02"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a936612adb0d6ea4764621131bf0604a23549355bc64f8f578344dd475505693"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b31ac7cc12a1f3a71885c4d0c53b023ea7d7d2a9709128e2ae712253937b6ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84a95550759893530a734322482d93f9e6456494e56706d9f93d23bfdcf6715a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c44f42187d6962c11a4a30194753555258ef609fb23dd972adef96354b0ecbc9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f1ac82644cfa85718929241a5061bfc4f58232102a689b8a526cafb7a7e71fc"
+    sha256 cellar: :any_skip_relocation, ventura:       "d6e10c5392373900a7bb9635cb5bddb140908d4d8937cb0a5ff01c7af36a89bd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfa5d0128b0e49f2eb21e60348fd68cb7946b5e036d6802a03cbb62ff09ad3e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e8fe12b46214d9dea30d9cfb74696447421c3907759862628d83035eb5e7599"
   end
 
   depends_on "pkgconf" => :build

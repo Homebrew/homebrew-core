@@ -1,10 +1,19 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/refs/tags/v12.1.0.tar.gz"
-  sha256 "9e2f3f11eff01f8b86c2c232c6a3c3a32fa303589ea9829538ffc867684a4436"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
+
+  stable do
+    url "https://github.com/grafana/grafana/archive/refs/tags/v12.1.0.tar.gz"
+    sha256 "9e2f3f11eff01f8b86c2c232c6a3c3a32fa303589ea9829538ffc867684a4436"
+
+    # Backport fix for node 22.18.0
+    patch do
+      url "https://github.com/grafana/grafana/commit/20c14c48f4c7f13610b105d17f54b66d0062b212.patch?full_index=1"
+      sha256 "180ecb3eadb594211479875f9340055b6ccd250ca27eaf00b31e8ff08b15ec1b"
+    end
+  end
 
   livecheck do
     url :stable
@@ -12,6 +21,7 @@ class Grafana < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b49b84b062b638291eaada0c0775af8a70c9b520b00a97d7b4e6daef3b8518e2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6639b084a92df9ee36e004f42f4e6b9408e987bfd16bea116c3065c6c3e27a9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "308c3471f361ba71cd9b2045f57e403187047d0b559d87d0c8e2fe2db3b96757"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0c241cdd832abfdbd10e8f6d8b470248734a2c995fe3a1bb999bbd045c6a0215"

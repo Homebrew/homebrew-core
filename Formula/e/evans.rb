@@ -7,6 +7,7 @@ class Evans < Formula
   head "https://github.com/ktr0731/evans.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4efc3133e03efac5aa569a21940849391c45005e017502b2bff9326b932cb2ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d1bb213d01116bdef091ca159ddeba2e97315958cfecc1526d65d67e5e29ae7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4d1bb213d01116bdef091ca159ddeba2e97315958cfecc1526d65d67e5e29ae7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4d1bb213d01116bdef091ca159ddeba2e97315958cfecc1526d65d67e5e29ae7"

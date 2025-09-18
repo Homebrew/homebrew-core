@@ -11,6 +11,7 @@ class Libserdes < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2d14c0904a6396fc3b7d63bff0fac59cdbaa5c30f6f758df178125e1dcb6b821"
     sha256 cellar: :any,                 arm64_sequoia: "319bea2747221a48f11a7c3d6e8363793610293f32404bbd91dc2eb61f7b6dd1"
     sha256 cellar: :any,                 arm64_sonoma:  "7e614941c2920db28479be0d9854510739862a5b40caaa8529d4c876f1c2e5ff"
     sha256 cellar: :any,                 arm64_ventura: "7ed196b9eea5699f8f4df9e45111f01ee30685b558e980100a77d9ec8705eabe"

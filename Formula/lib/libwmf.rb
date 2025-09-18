@@ -12,6 +12,7 @@ class Libwmf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "605434c1ac87dd6e0a72de4e8d74a6e2701f1048c3da2ebbe6af570c18dd3ee6"
     sha256 arm64_sequoia: "8349a368a01bc74f298eb1f7ba3a7b66ce7807d4fd32957c7713caaa52107317"
     sha256 arm64_sonoma:  "ba24f0c59a437bf0e82d7cb946b841894544cd1c23e2c867a0d171cdfd2ea672"
     sha256 arm64_ventura: "9e85223008fa0b081256f5c6e94200dfb4610394be5dc25b782125c36b69417a"

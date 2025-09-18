@@ -7,6 +7,7 @@ class Aiac < Formula
   head "https://github.com/gofireflyio/aiac.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd35116079cf1351dad53d6753863a5301638121559915331c21dcd2a8a10173"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4db2b9d958b304727cdaa0a7147908f4f01bdbe3ee2d43ade18426b9dfb6aeaa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4db2b9d958b304727cdaa0a7147908f4f01bdbe3ee2d43ade18426b9dfb6aeaa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4db2b9d958b304727cdaa0a7147908f4f01bdbe3ee2d43ade18426b9dfb6aeaa"

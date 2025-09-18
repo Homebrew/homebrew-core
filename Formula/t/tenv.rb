@@ -12,6 +12,7 @@ class Tenv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d16ed18031c65fdc3abcdb0076c45406104b1c0fc97855fa481c45c2a0e59bdd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b96df51a328414e2ad5d4bb8f95cb94953dadbb516c456ef940e8a6cda6740ac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b96df51a328414e2ad5d4bb8f95cb94953dadbb516c456ef940e8a6cda6740ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b96df51a328414e2ad5d4bb8f95cb94953dadbb516c456ef940e8a6cda6740ac"

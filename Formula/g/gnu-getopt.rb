@@ -38,6 +38,7 @@ class GnuGetopt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a05a0ca7ba9c3cb7922a097d3d9ca749d5d46264cc61e43e95d1b836aa8e54fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff408edae3f7daaa4a2caa43375edcbb8c3fd76c923a830db7f1a3d1fa09f4b0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e7120d4356c61045a30db969e84861cb68d25b09ac79932863dbbfb9da1a903"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1d984297f3cb3d49e0d0c1b170f5f7a53c5059e346a6e95dc201a921779d5bfb"

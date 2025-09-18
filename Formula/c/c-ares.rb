@@ -13,6 +13,7 @@ class CAres < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f1ea4e3a48f43370fac2a1d2c285e87fadc48ab3dbda63b39d8eb04b025925d7"
     sha256 cellar: :any,                 arm64_sequoia: "76858a7f6dd6df68f7e9d13aca30a299d5947b5b6d6ce979ee660dd4ecca2bb6"
     sha256 cellar: :any,                 arm64_sonoma:  "5bc958432063e6dc18633d06f1ef2a6939c60bfc60d3d9162183c71556e21198"
     sha256 cellar: :any,                 arm64_ventura: "60dcb45f4148187db1aa35a2ea1fd195126448b0c013fb04ec2412788c09156a"

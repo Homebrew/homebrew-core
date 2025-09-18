@@ -7,6 +7,7 @@ class CargoAuditable < Formula
   head "https://github.com/rust-secure-code/cargo-auditable.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50b2c2c712fb799b9d83798e89ea68d98d0c54b36063aabcde2fc09e7de7cab8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f262f7d8bc92cf558929c88d60ef8571114c887182767a885589430bf0b76445"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "291a8a2bac8d70e740eea6a9517623a5dee17b02d3c9e1b452336ae9012f4bf2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8c4aaabef81a8470c68222551b72ca770d053799fefe5524e5abb4a81118f209"

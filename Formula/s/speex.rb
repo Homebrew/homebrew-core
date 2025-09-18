@@ -14,6 +14,7 @@ class Speex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a7608ef62c92fd11d5eed0e3643e769087e4f0eb6de3a321fa602d6dd041387d"
     sha256 cellar: :any,                 arm64_sequoia:  "885ccb79dee4ad080d2c5ee20ab55569b0dfee064535a537568dd78adff88dcb"
     sha256 cellar: :any,                 arm64_sonoma:   "8dcf1981467ac7b19763ef294c2ef1cbb5fdbe98100043c95f4617a89a930a22"
     sha256 cellar: :any,                 arm64_ventura:  "e8e8cbefa65f7819b2feb27b9067248d97f2e5607253c0a5c8a49a495d7fc824"

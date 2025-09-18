@@ -6,6 +6,7 @@ class Cobalt < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7c5f464f3fb3a1cae88d92fc3b8bb50218ab2e9a68ca76f3c98771002008b27"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7905ef78bb3e756be2089f0bf7957d77349548ca9252c023d47934b73ac990c0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e49c03ac7d5cbd1b84aeaa2d00853edcebb901e5d2586abc9324f0f850ee0d7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2c22c2fe56beb9508ea4a8b17fde0b753d5e280cf7f9a6ed8f472fae0a3e2d79"

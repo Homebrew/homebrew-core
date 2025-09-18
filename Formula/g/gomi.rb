@@ -7,6 +7,7 @@ class Gomi < Formula
   head "https://github.com/babarot/gomi.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f65ce65608b32def7274c0e37cdfd4173c767bfe48875cbea862dfa79edae182"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ebe115f655c00e6755d3e0eae1208fe80ba957b51a291574b109268dd8d6bcb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ebe115f655c00e6755d3e0eae1208fe80ba957b51a291574b109268dd8d6bcb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6ebe115f655c00e6755d3e0eae1208fe80ba957b51a291574b109268dd8d6bcb"

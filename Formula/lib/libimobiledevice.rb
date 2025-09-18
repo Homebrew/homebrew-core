@@ -10,6 +10,7 @@ class Libimobiledevice < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "143f1a7ff777e30e4737bd1dfb8a706d0a9f35c4ba878a02b7ea54a037b44acb"
     sha256 cellar: :any,                 arm64_sequoia: "9bc550fcfb5ee4613073831691cda4cc54a88180e833a0f754886f1a34af4134"
     sha256 cellar: :any,                 arm64_sonoma:  "2fc25461e9305a7cadd0ec50326048641a67a6231d73a4ccf69e0d90c4783a19"
     sha256 cellar: :any,                 arm64_ventura: "7017a85a4322e960abb9cc122ed45cf159eddc90c45a30d4a24aef14173ea0c6"

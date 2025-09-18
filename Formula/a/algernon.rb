@@ -13,6 +13,7 @@ class Algernon < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c494e6fd80f964a17b6f267c6c8a539ff1fcd2541d03fd424ba1c81a3b4b012d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "373c1718ad869193e8052898edefdafd7f148402c52e40278ba79cb8261638cf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef49ed9df5d3b02e086635c1646da9b6cb091f9de33528e24f05511169ad2435"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "422ad3c58512082f42a176927c5381a4e04389216c213c448974f66c52c7aae6"

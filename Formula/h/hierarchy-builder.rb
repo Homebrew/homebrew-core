@@ -1,8 +1,8 @@
 class HierarchyBuilder < Formula
   desc "High level commands to declare a hierarchy based on packed classes"
   homepage "https://github.com/math-comp/hierarchy-builder"
-  url "https://github.com/math-comp/hierarchy-builder/releases/download/v1.10.0/hierarchy-builder-1.10.0.tar.gz"
-  sha256 "a1de2ae6b5583f26c57db62e337f02c60d0b51c621b686d91dec3650479c0970"
+  url "https://github.com/math-comp/hierarchy-builder/releases/download/v1.10.1/hierarchy-builder-1.10.1.tar.gz"
+  sha256 "8fa555024ffee5892b3bf516db2ade1378d9902479fa6109c8f047bf760cdfa4"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,14 @@ class HierarchyBuilder < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4c7f356c6c0ea6ddcb8b3dba5de33967f17540a66f2c474625ef2671839d170"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6dd8f078055ccaeaa927289af06eb2a48953e7fdfadbfd42ab2f9bc32ef6d2a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "973b5d3834b34bfaf12d93e4162fe4bc3e757434ddb54dc8640191a8d8bc5a71"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d8f7287ab60415236f12ea6b6b7372a70ee9be011be44b7a90d6ecdba49967af"
-    sha256 cellar: :any_skip_relocation, ventura:       "272ea5e5c32b59016f754f50fbb584a4520bd8892c6e84b3b69ab4a34a2afc40"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8dce0efb758f0035c32755833212250959387c9d3c53bf8f1513eaca1a34fc8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f58dee9ca573ce03f534459081e7332c5e0ed49dcbe0ff967ab0696b4baacd45"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b596ee3cfb1c054d136163cc636869e11c343fbd10778750cae303d6123edb71"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1cb39a2337b16388228d5efbc29eb0b358c6efd47b843246ae82d9398ca5800"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "10429ee84f930e6ce3111647820c2f8c941a4bc0fe3784cbe7bc0fd2b2c9b572"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "289d661ef28a03a4d0fa042a61a523f5f3c6bfe33032ceab6f427db93f2d0327"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43688cdf9f6b15306d69aa02becfea9bea883a9e0c0d8936d5b7fe051b537811"
+    sha256 cellar: :any_skip_relocation, ventura:       "28f73a673c7ab41b112cb84e65871bb44871c5b066064ed9feb9ce4f9d1422a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10420e9b3f416c64b133a4ab7e445524869a77b721d478be8301b6b5343cd4f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65473696ae3f70c57055500d9ff29a60c40ca126b760a520a7927526ad3095dd"
   end
 
   depends_on "rocq"

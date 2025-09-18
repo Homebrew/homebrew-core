@@ -7,6 +7,7 @@ class Bkcrack < Formula
   head "https://github.com/kimci86/bkcrack.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "89c5ba07c0e195f7c116ad1c2a07e5509eb1ef1e31f1e65ec801b207d94715f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4a31c28bdf29afc7f70ae5a310943754f640413902460e3df23481eff08bcc4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a46f30de08bf5af1af30791c920601b9870c9a8e4930afe140b2517b54cd12b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6ff0fb17764fc575d258f5ebe49c14bf9ece374710a5a0fd13289236df0b89e9"

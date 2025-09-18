@@ -6,6 +6,7 @@ class Grex < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1276a5d2ba9580ba1a3ceccf109a82af649c84f63d3925b6bf908308cd38c023"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "62f1c138b89ba5eb7905c9a69a0e603fb08a15fe2581179e68a1b44cc1653e55"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "648f037498a0a75daa32f8f66205a4f8ee106f1da3cfb1169d973ed786dbdb3c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b67b1b26968582e6383cf09cc0f31e3d5a62d8a2c45b5246609114ed85762e5"

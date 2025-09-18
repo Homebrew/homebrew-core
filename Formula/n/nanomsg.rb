@@ -14,6 +14,7 @@ class Nanomsg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "cbebcfb6e3fae4e753ffa93885dd350335b7fa08092048b7189ac314748cf70f"
     sha256 cellar: :any,                 arm64_sequoia:  "16e338dbc680d97de181c2e8d8aae40cd825a7f7bf4c10415d0c802e7b442c89"
     sha256 cellar: :any,                 arm64_sonoma:   "643d76f342c533285619f3be66314377ace8a7a99dc5536a65f6971dcabd88fd"
     sha256 cellar: :any,                 arm64_ventura:  "308cf4314ea400020c0b85222f3fe0fb09f80ad204c1e2bc6271f0011df14feb"
@@ -31,7 +32,9 @@ class Nanomsg < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -6,6 +6,7 @@ class GumboParser < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c7ea823bbc414304986e981cfc0cb322c6b2ecf13b337645f6a8615284529122"
     sha256 cellar: :any,                 arm64_sequoia: "431e4134fa525f0c69f3ae3ee54bb7213dbbbbbaaa32921eddc0f899811f890d"
     sha256 cellar: :any,                 arm64_sonoma:  "790c2342eda7b07cfcaf46464dea8e376b68f790cb891d6567fb58c840b3e18b"
     sha256 cellar: :any,                 arm64_ventura: "dbd212e34262be85283b0f8f7474bb9420350005de5b751f046d9f788444a381"

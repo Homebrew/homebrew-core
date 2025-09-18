@@ -22,6 +22,7 @@ class Abook < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "4179f858a3406d98bbf021e5a431cf064b6430839a4210643925af38a9c037af"
     sha256 arm64_sequoia: "b0113dcc3ee161e37ed8c9fbdab0175486bf04c3a5e802b46dde3b015fe67cac"
     sha256 arm64_sonoma:  "bbdac04e9da720845e5ee41ba19af9541a62d953c4c9929170400c84dcad3e32"
     sha256 arm64_ventura: "7ac157f6847b43e07454da28ffefc1911c891c1a7d642d3ad31d7d12166ee42b"

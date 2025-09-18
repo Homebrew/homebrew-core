@@ -9,6 +9,7 @@ class ExtractUrl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b43b0bb3cd6d6a9257bf56ef5abc259ed7b3db24722f893841ec4754e44d5c26"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "07d5950507abddf2124e3327888d40a80fe013caab73fcb3ee917258cb541859"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "388031e9b2d1cc1bb1769b5ff6c0dfc2970d331ef77b773e9c91e09a1c9b1c03"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0b97be35fd8b8f65e9279919a8591b68ec203d62bca48a770c18e7ba68df773f"

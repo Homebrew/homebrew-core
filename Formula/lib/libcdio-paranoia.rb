@@ -10,6 +10,7 @@ class LibcdioParanoia < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5107f894005e9d2dd51fbd16b522d244335231b572232e18a95ac838e2495d29"
     sha256 cellar: :any,                 arm64_sequoia: "fb138d8a79b5fa0eecf89a7ca0bcd3b294120aeb05200767558b61d3e4e51533"
     sha256 cellar: :any,                 arm64_sonoma:  "d91bce7e9b1ecda7021bea7ede886f35e7414f691f06e7f5ca76ffce1d8693f3"
     sha256 cellar: :any,                 arm64_ventura: "0d2130ca34ade60885f0838c9032563a1cac1267b9c88c99c6e87c1922f8b513"

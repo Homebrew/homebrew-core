@@ -4,6 +4,7 @@ class MysqlAT84 < Formula
   # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
   homepage "https://github.com/mysql/mysql-server"
   url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.6.tar.gz"
+  mirror "https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/mysql-8.4/8.4.6-0ubuntu0.25.04.1/mysql-8.4_8.4.6.orig.tar.gz"
   sha256 "a1e523dc8be96d18a5ade106998661285ca01b6f5b46c08b2654110e40df2fb7"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
   revision 3
@@ -16,6 +17,7 @@ class MysqlAT84 < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 arm64_tahoe:   "296ac4cd0d3536ac2003bde5597f272490309ac4cddb8f5417e86c797d802e09"
     sha256 arm64_sequoia: "92fff5ec339efebd67c46d123731cef0eabf5ef569d10bf6c0422768e707d022"
     sha256 arm64_sonoma:  "8df8013e792d84259b10ad6a27f8254fdc9022f9328f1307f81031781b09c94c"
     sha256 arm64_ventura: "acb0d1983d48207de9e8cfe0d356fecff1a1f644fe3c14ebff54782d0146a2a4"

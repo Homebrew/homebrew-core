@@ -14,6 +14,7 @@ class DamaskGrid < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8e4188c0bb643b8d0144c3d7498f4baa723b4c53bc06050e09df43dcd0b59cf8"
     sha256 cellar: :any,                 arm64_sequoia: "9faa7cc36c504f186b2a789967ca7484506198ebbd91758047e1ef56a8723070"
     sha256 cellar: :any,                 arm64_sonoma:  "cd02c102d83f9162e978cda2973457a8315e5718f309fda514f7bbcf1e472c9c"
     sha256 cellar: :any,                 arm64_ventura: "54e10a41cc02bd30f299539ec959fe7ca12ca06fd01ace878c2129fc524e0461"

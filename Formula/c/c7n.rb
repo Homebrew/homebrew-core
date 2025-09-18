@@ -13,6 +13,7 @@ class C7n < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4b7ec06c9e4643dea099093e2f6369726c4a0691cdece13a92824ace16669471"
     sha256 cellar: :any,                 arm64_sequoia: "f09e089137771b9a90f161456a08bc4844f31ad6d8caefc76ddd5b674262ae7e"
     sha256 cellar: :any,                 arm64_sonoma:  "6f6896140e27d4855cb8dffe19d1d252e82fcdc0d99bb5e1250bb4f6c768ffe1"
     sha256 cellar: :any,                 arm64_ventura: "04699e3ac708c6a5e5112c1b8e9ae656d2a2e275c6f78ad511555197df380989"

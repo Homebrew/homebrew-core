@@ -7,6 +7,7 @@ class Xan < Formula
   head "https://github.com/medialab/xan.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1246746dae0ab6db7460cdbeec016bff903eaef4e9fb5cd06acb1ec74dbf386f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "44c5ca5bacb95cf74f415e4b43d30eea08be880c7e0b7258f1fe4ec48657b0de"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a2bd365b4a9f10ca7cf88cd976d642575a52b1d0e8d3f356c208d0985abcc19"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "052b14c1bbca1ab59fd22598d2f49d3b96fa0a6b57f0bba955f9543107e5eab2"

@@ -17,6 +17,7 @@ class Httrack < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "6410409541dfb5b45914a08f4c18aec17fbdaa323a72e7d280787a84d7d707e4"
     sha256 arm64_sequoia:  "49d241f3883e9342da2bc7b3344f3bb4ae0e17fb2bd4f476834dbdaf3c190c6d"
     sha256 arm64_sonoma:   "38f84248540e95dd51ab69cc3ec049b03b7193e0e4b628e2d1d5ab9d9bc3e56b"
     sha256 arm64_ventura:  "82366a7496c4dad900d7c5de609becac2493bfaca4101e77b43120450ab9ff4b"

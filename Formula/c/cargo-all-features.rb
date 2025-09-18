@@ -9,6 +9,7 @@ class CargoAllFeatures < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "26b2427a7cfce5edf64fae69e10fc1089993f5e53044fdd1fd9c30acac7ac2c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3230194ce2a1aaf67cf633477a254f8bea2e1661c6849598c31e1e9dee4866a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b12a3968ae8ee10062526525c6cc07c5d288529204b51696e9f3ea104dffb1f3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d72b4b7f454143ec36fbaa284c2564c60c97ed8eb0de568e634c18dc485284c8"

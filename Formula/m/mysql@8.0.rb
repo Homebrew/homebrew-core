@@ -4,6 +4,7 @@ class MysqlAT80 < Formula
   # homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   homepage "https://github.com/mysql/mysql-server"
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.43.tar.gz"
+  mirror "https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/mysql-8.0/8.0.43-0ubuntu0.24.04.2/mysql-8.0_8.0.43.orig.tar.gz"
   sha256 "85fd5c3ac88884dc5ac4522ce54ad9c11a91f9396fecaa27152c757a3e6e936f"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
   revision 3
@@ -16,6 +17,7 @@ class MysqlAT80 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "beb7fdd760760aaefbee111e2c79881662f7d306ce977f839f50dd17d3c913b3"
     sha256 arm64_sequoia: "439c907122db68dae5bccd5bd64d4cd61b56337586183462a370dde96c5bec44"
     sha256 arm64_sonoma:  "0c774e4e3af7def9666283b902d288811722dc7dd10b29340ed8765c1d501117"
     sha256 arm64_ventura: "b3bc3ca9b2a54cd06cab9d53cff256bdee1fd02646e4277ae938645f81e50cc4"

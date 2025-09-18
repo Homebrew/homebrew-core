@@ -12,6 +12,7 @@ class Goctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "14c2d5d54ba935c525d98813531642ce43e79c50e10152ee34d14467e46e30cf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ea8ca9f52f2229a8a7591d6782c0f0602a635bf8eee5c5f5e4214386c0e0020"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b07dea1fbc88665820951fccd5cc9dd469f9a454e23aadc2d57c52354ceaf487"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dbe1c3d03175074a9a7a3207fe14e633669b1c2270cd2e71ebbfa8e42fb98257"

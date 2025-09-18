@@ -8,6 +8,7 @@ class Beanquery < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "052855aec908ee3f0ba7447a123854481ec0299e23f5259d585e0c709473806c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ad89c13a41f3bdc16fa426ba7eebb808e4da0a45ffe551ea6783c7f7843117e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "374503a428b9d2045e122d01d6a3117270cea9381c8eb71dfa0843d19b7328f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ed4a1c6dbf258526c55a81d1d727336cd8d0e6230926a74e84d6f6a3dd66e162"

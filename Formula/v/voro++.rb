@@ -14,6 +14,7 @@ class Voroxx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e92608286d7f5525760a291095fffa5174353cd4360288b3b370734e266e332a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c76ccd2f7c88492a312735928f7b629188da9bac80b579effbf140eaff73cb7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e400aeb0f042dc4b3bfb00bf1a165ce714dd25bbfe8535457bfbec22f9c838c6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2d9115a80aa1515ed06f302a722c50a2f2a986c348ebc4934b45368c4ab4afde"

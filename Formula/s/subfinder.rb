@@ -7,6 +7,7 @@ class Subfinder < Formula
   head "https://github.com/projectdiscovery/subfinder.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5480d18f26f0a7f42d10cee406cb6eda4978315581bea9644d29d3cfbf71b5d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4bb33f0b28d7c5a0582927b1fbb47543dfc495af2f8ca6b8ac36585e6a061b7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d016d52ab0e1fd1a47cbcd4175d16436f0fc148e0883ce021324ce5f149b4ec"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7284c7ab3e13f87e17c2ca36d4f52ac2a1fe9fff5a1182d50e88e3de2498ff59"

@@ -7,6 +7,7 @@ class Stu < Formula
   head "https://github.com/lusingander/stu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a89bb0ee5bed4206d13d29014f001efb152efecd6f3650381aca7115b44ce129"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd15fda0f289e3fa64d17eb9fd5be7e31bf70124d63912287abf072fe0acd750"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "278807db070bfb54437999e70c39fc8f4e2a685b177e771533a58eaf134f5bf7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a1f36f7806d04a7fd7fe4168ce13df0b49fa52818981eedab4256f3751fc504c"

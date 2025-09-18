@@ -6,6 +6,7 @@ class Libcbor < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f5c20790e57a940c90412368e2b013905e348111d24c3c1094b216d78aa5e79e"
     sha256 cellar: :any,                 arm64_sequoia: "84fbaeb706c5bade3a0ec2aa6be556b7545e85a5460be62cb3103d023c0ad07c"
     sha256 cellar: :any,                 arm64_sonoma:  "279cb56460419e5db108f86468657903311097eaec5936d628d8e52e0f619ef9"
     sha256 cellar: :any,                 arm64_ventura: "5347e4152dffb63f01f26460af587f182e55278fc515ab91490309412e319fd1"

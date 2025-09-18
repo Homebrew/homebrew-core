@@ -8,6 +8,7 @@ class TRec < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cb5c8d1f7926b19c4911d6a2007a7f2b0dea7b0e8bf75682fb5d07a40fed2d3a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "31e705c01ca086aeb97ea2ab92f97cdc982e8a2c003fa1262352c282c9e184f1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f6104c42e6d8dc1dd9c33f8d9a62b2c331054878b475991b1ed32ad72012cc6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3697e02ec5dfa92fc7168ffac442b767fc4d3a2a6ec994e8ca90f22720e52e96"

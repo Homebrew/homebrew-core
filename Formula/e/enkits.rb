@@ -8,6 +8,7 @@ class Enkits < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "994e77e132e38c13f2fc03c20f2e8d27b0cdce0ce9e46becec51ae93d079a05a"
     sha256 cellar: :any,                 arm64_sequoia:  "fb8f0de48f38276feca170ec6d67751843fb86cd993ed8d0009e7a93cfe4d078"
     sha256 cellar: :any,                 arm64_sonoma:   "6103b95cf96db9cb41120c8f73de2e7f4bac475249dd0cb6d97e1376620006e3"
     sha256 cellar: :any,                 arm64_ventura:  "3c5711ce533d47c9a34560e89fb023a33a55d795e73c9f1ecab5d1a6a759e656"
@@ -25,12 +26,14 @@ class Enkits < Formula
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DENKITS_BUILD_EXAMPLES=OFF
       -DENKITS_INSTALL=ON
       -DENKITS_BUILD_SHARED=ON
     ]
-    system "cmake", "-S", ".", "-B", "build", *args
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     lib.install_symlink "#{lib}/enkiTS/#{shared_library("libenkiTS")}"

@@ -6,6 +6,7 @@ class Tcpreplay < Formula
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause", "GPL-3.0-or-later", "ISC"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b176ea94713287877a7ea7070827e6c878b02dc5b041fbb72d86959844067489"
     sha256 cellar: :any,                 arm64_sequoia: "e1d0937d05aafd45c31f68cc66122d3bbd37d7fddca7772af45bd17f9d7ad16b"
     sha256 cellar: :any,                 arm64_sonoma:  "151b9f95a3924504efbd0458e1136d24eee4555989cacd7f3289daaae63c1d8e"
     sha256 cellar: :any,                 arm64_ventura: "bebe392ee113e4351695149aa69c3a5f49a23141e29d5a1d87653994add8266c"

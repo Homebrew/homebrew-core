@@ -12,6 +12,7 @@ class Flatbuffers < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d93646a4ab9d9e51f5690216f8a550cf28db5e2287ada87af3c69f0bff908a3d"
     sha256 cellar: :any,                 arm64_sequoia: "6a66a964c0cf6b035df7377945002013e1a7ff0111926d91fa9024b058663ecf"
     sha256 cellar: :any,                 arm64_sonoma:  "c25c90d8626319975d8898a41b873f77d0f4691c1fd699956d5cf940d2c01212"
     sha256 cellar: :any,                 arm64_ventura: "6968b4b2efa0d5139761970ff456a1ed5d6d5ad7b41e80f4cc9b80fa1c519b7f"

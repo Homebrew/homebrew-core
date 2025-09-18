@@ -9,6 +9,7 @@ class Pipgrip < Formula
   head "https://github.com/ddelange/pipgrip.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e0956ab51da11b1fca04b9415ea25f052933e5cb52b1cf491ad22e1ad43ef795"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0956ab51da11b1fca04b9415ea25f052933e5cb52b1cf491ad22e1ad43ef795"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0956ab51da11b1fca04b9415ea25f052933e5cb52b1cf491ad22e1ad43ef795"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e0956ab51da11b1fca04b9415ea25f052933e5cb52b1cf491ad22e1ad43ef795"

@@ -8,6 +8,7 @@ class Lsd < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa4f3cb1818e5eb7bd9d99114b974bb7808641d335118ee0791498e6eab19cb7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c24da4584b7d539fe43d4a9bc0b685ca163098415ffcddd6498222d4f94878b8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f163dc5b5f3d5d4f6aad560a96d3a8997c98083e062eac8136aa27d844fec65b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1f7ad3497b4db2afca045c3434cfc3e35acf17f70f668d4fd507de802b8dee04"

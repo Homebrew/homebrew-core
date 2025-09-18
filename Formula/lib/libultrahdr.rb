@@ -6,6 +6,7 @@ class Libultrahdr < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4fb20ac81780814aa810c0009477f2a2c5a72a3a4be8a085cd62745c1fe87fad"
     sha256 cellar: :any,                 arm64_sequoia: "ea42ab96abe5c0222dc6699bc23f7258be3c8063a3091f49f6995ae46ad3bad8"
     sha256 cellar: :any,                 arm64_sonoma:  "b73d5876637e5adce9edaffdb21d41aaee2af45027246e034a5387364025a796"
     sha256 cellar: :any,                 arm64_ventura: "09d834c256bf1b6cf18ed1031d4ca817c91bb32bbbcb14efa4bc94ddfd76da56"

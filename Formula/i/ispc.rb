@@ -14,6 +14,7 @@ class Ispc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6b2f9628e1bbc50896ad5969619868d413f5d9c5c0943d16d1fb6d9d31124d1d"
     sha256 cellar: :any,                 arm64_sequoia: "7bce067a968e68bdb1af3b611241c5c5e727fc482da79357cb5e10db4113d497"
     sha256 cellar: :any,                 arm64_sonoma:  "e78330df348801db8269d9f5509302b3a762da40c5fbdcdde6f0d559b6018901"
     sha256 cellar: :any,                 arm64_ventura: "ea833f40e798cba9e0ba5688b552c88cfd7720f4d69d3c5c7fa6e6a71ddc7d26"

@@ -8,6 +8,7 @@ class Latino < Formula
   head "https://github.com/lenguaje-latino/latino.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6cf212c61bd3713e4a553669d53d6e8f151e2c7e4e87bc438a49d112219c8426"
     sha256 cellar: :any,                 arm64_sequoia: "844abdcfdef8d27337343bf5545836b23adf30738de6b146a35090f23de90c90"
     sha256 cellar: :any,                 arm64_sonoma:  "3f71439866df37de2cbe8fb5c711b770d70186e57a2e3a586dfddd95264aa3df"
     sha256 cellar: :any,                 arm64_ventura: "dbe2fc1ead1951d6c44a9b96638e3ae889322eb7ebb634a826618bed50b16e06"

@@ -6,6 +6,7 @@ class Silicon < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8c4f89277fc20079a76958b8b4f6fe533cb555ecdea671f3c852ea2bbc530627"
     sha256 cellar: :any,                 arm64_sequoia: "3344abcb48d22efadadc415e5beff9ba197e3309e813549a3afdd459a99324f3"
     sha256 cellar: :any,                 arm64_sonoma:  "27d8515dce15d3bef3d394794192c6b8b6b33786152c6df4ef524ca6de112126"
     sha256 cellar: :any,                 arm64_ventura: "8e64e4602354dff22bd4b5a7ca430842491c3b18ada1c63fc7f5cbb2ed9da945"

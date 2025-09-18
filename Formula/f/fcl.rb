@@ -10,6 +10,7 @@ class Fcl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "bd6336e3163c45d2b6a7966cafc3a3dac0f48919e43e189b52e564684ed2b35c"
     sha256 cellar: :any,                 arm64_sequoia:  "0ab8eb79ee5ae022e186975198bd18da7cde25c41cb9e52e70366bf20de59e48"
     sha256 cellar: :any,                 arm64_sonoma:   "6a4d2a1e04f17fb6cf2d7ed92524f09a841c3b212f3ecf22d9dc00dd294bb895"
     sha256 cellar: :any,                 arm64_ventura:  "d147e210255b79430e8fed2455325c53aa0975c2f081b39c44050c5921efd813"

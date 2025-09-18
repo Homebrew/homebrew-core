@@ -6,6 +6,7 @@ class Sn0int < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1118ce08023c035b3b612fb228f0cd9054f47e29e96ed42a4253e5ea6ab92060"
     sha256 cellar: :any,                 arm64_sequoia: "a547abaa3d17a2f4cae9faddc776c31076e73d6444d8e44eed29db9a7b702d51"
     sha256 cellar: :any,                 arm64_sonoma:  "3e152a8c520739277a569718374479eab1623e54b7df52a73ac173c11a187830"
     sha256 cellar: :any,                 arm64_ventura: "367b3eb6203589309734ce6419f41f318287dcbf395fd8410e5e61b5b722557f"

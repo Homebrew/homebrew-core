@@ -7,6 +7,7 @@ class Favirecon < Formula
   head "https://github.com/edoardottt/favirecon.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "78ef3cfd54fa6fd77ceece4382eec6297cb905d6ae8a161f1a3dcca471675a6d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ebc4ff865a852564480d49a059d2ec8b4fbbac34e72c6af365557f2a6bd16a9c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ebc4ff865a852564480d49a059d2ec8b4fbbac34e72c6af365557f2a6bd16a9c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ebc4ff865a852564480d49a059d2ec8b4fbbac34e72c6af365557f2a6bd16a9c"

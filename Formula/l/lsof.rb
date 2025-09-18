@@ -6,6 +6,7 @@ class Lsof < Formula
   license "lsof"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00f765358cfc137b0e6f1cea785ca0adc2503d1c098fe490633cd40454eab652"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ee0274d10c70990a175776c2e81e4994e7e250a507f68c4629134e84841d00a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e16498ba8a8a06aa57619b9dbefec05da361f04d937c103f0ddf906685674fe"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2ece295b0bd6dcf63cd66d840220ff1c3e8de7d0ac26cf811cc8e698442751ad"

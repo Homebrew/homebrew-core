@@ -8,6 +8,7 @@ class Tlx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "24a8426be33e4421b2f636ba05b6784352bd1a559e5b2dde90ecae8420e0f591"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5e35cf4b2cf66334a3c6782fef229a96684942f5aa07063874e0020fb319e15b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2be507f7ba45c99557ac676c7c47b0288b5e364a2c61b33e2abf173865e8f9b3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5bf4de79e505634d807afd511f8c30b43e1f770a0d727549f8428fa504308f2"
@@ -24,7 +25,9 @@ class Tlx < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround for CMake 4.0+
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

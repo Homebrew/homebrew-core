@@ -10,6 +10,7 @@ class Vcdimager < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4fc5cf3e045233757dcf29a78fb731148d3c5ce9692df7825024b0b3ae66619e"
     sha256 cellar: :any,                 arm64_sequoia: "2dbaab4b58479eca7337c3648f97c5f77bb8fb2ee40fd065b931215a16d52330"
     sha256 cellar: :any,                 arm64_sonoma:  "3b3614dbce9b743fb1f7e31e2dfdd0a59ac7949277c5fb712c09d0fbdef0751d"
     sha256 cellar: :any,                 arm64_ventura: "826dc8ca62806a582b3f6380e63c459e7f720a4a1d038fd9a3e9ddd0b6b0e260"

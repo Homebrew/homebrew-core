@@ -1,8 +1,8 @@
 class Sdl3 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://libsdl.org/"
-  url "https://github.com/libsdl-org/SDL/releases/download/release-3.2.20/SDL3-3.2.20.tar.gz"
-  sha256 "467600ae090dd28616fa37369faf4e3143198ff1da37729b552137e47f751a67"
+  url "https://github.com/libsdl-org/SDL/releases/download/release-3.2.22/SDL3-3.2.22.tar.gz"
+  sha256 "f29d00cbcee273c0a54f3f32f86bf5c595e8823a96b1d92a145aac40571ebfcc"
   license "Zlib"
   head "https://github.com/libsdl-org/SDL.git", branch: "main"
 
@@ -13,13 +13,14 @@ class Sdl3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9290c0f8a75009a4c074799833b8ff427797a201f69a931051a636a296cb48d3"
-    sha256 cellar: :any,                 arm64_sonoma:  "b1944cd551a27e15b6041aedd3273f5766dcd18551168c943f20177c2fdd908d"
-    sha256 cellar: :any,                 arm64_ventura: "69a898e6743ade46e4642cc35ca9b228f474f61dd63ff48068b808add66cd1d0"
-    sha256 cellar: :any,                 sonoma:        "48b8a7901b191265056021d34ca78599b33f5713ff600022b3a4dcea393837ea"
-    sha256 cellar: :any,                 ventura:       "70a1519a3d2922a0ea1148748cd059a30c5e0f16917b65ed1bc784310516ef81"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b4e680681508d50fe8cd68996937cd07f1fe083b616998f3d5087a87c762f47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c9a216f9229c78544fd96f3f36903674d4bf5573cbd4f8fae1c40126970733a"
+    sha256 cellar: :any,                 arm64_tahoe:   "a2284f75bc7fd0a84ce2410efddbc637a2903c2be73a83e6a4ff008762c902a5"
+    sha256 cellar: :any,                 arm64_sequoia: "e8f94c94ee5a7ac70b84488f274bfad726da22f9a87b95e11e502129c6b0cafc"
+    sha256 cellar: :any,                 arm64_sonoma:  "ae9c02119ef1559ead149460e0479fc3edfc0a86fb5c64dcf39721435ef5d204"
+    sha256 cellar: :any,                 arm64_ventura: "7fc2aac80a434868e9736165ba7cba3a94c74b9bbcc90b0e9d4c78c1926d7edc"
+    sha256 cellar: :any,                 sonoma:        "596d0680c040b9f0042da4c9df7ae4a67956b8c8ab6c880fa4eae3d1f138ed54"
+    sha256 cellar: :any,                 ventura:       "761a2b603e8eb92a8f558b1f61545d7e5565bfcd86d53b9b91a5698ab7d433bc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f6bae46a1bc5622502a59f15c6ab01d74d879cb302a4abe7c41dca2d2549988"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0168e51694161204dd09eabd545557334a4f7248d7023ec0633054eaf0bb3124"
   end
 
   depends_on "cmake" => :build

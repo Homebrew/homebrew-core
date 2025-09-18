@@ -9,6 +9,7 @@ class Uhubctl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3d264b405111b616523248b1de4a0998b9c73f0c670a00e20358dcaeeed033cc"
     sha256 cellar: :any,                 arm64_sequoia: "45506e121cd1c2bdf1077b0086f6dae8adcf1b24c48c32882d2c06eee848b87a"
     sha256 cellar: :any,                 arm64_sonoma:  "28e0b5ad40356523caf8b0e489af4f5a18cfcebafb21f323800068a3cb591f18"
     sha256 cellar: :any,                 arm64_ventura: "9aa4d8a4629679ba2346d33a5afa11d0b90a27c32f75de3eaf6c67859c35a2b5"

@@ -7,6 +7,7 @@ class Cntb < Formula
   head "https://github.com/contabo/cntb.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac6cd4334a1e67e96476b417a43f127487bfdeda97f793e7abd2cda8b205e5c9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef9426c451eb50163a08bb2f0275194db90e6a560582add3fd63f45b758c4429"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef9426c451eb50163a08bb2f0275194db90e6a560582add3fd63f45b758c4429"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ef9426c451eb50163a08bb2f0275194db90e6a560582add3fd63f45b758c4429"

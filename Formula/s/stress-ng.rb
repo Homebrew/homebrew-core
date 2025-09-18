@@ -11,6 +11,7 @@ class StressNg < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c5929884e1fc3d0fd48044d49f78e08e4a063a5d8e9c7fe0dc6b0eb33e160db6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7f299a500d58baa7be598d2f44163c253c15ce70ddc665a47375412ce5e0f0a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e59089b8b27412c858d156cbe6047593904d0ad2639a89c8c2b17cb012e44c1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ba2497c3c73f7a74897e7e3aba416da97bb066cf1a9fa6b17be87998ffc36077"
@@ -19,8 +20,6 @@ class StressNg < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "abe0aef12dd4faf7d1328b60faba819e6cae4aa40c4be72ad2f9601888ba5f67"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "06d2d805d44da3a4387efebc7182697e7ff372c4fa722b60d7ce3082f065d033"
   end
-
-  depends_on macos: :sierra
 
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"

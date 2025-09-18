@@ -6,6 +6,7 @@ class Dav1d < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "827dcbe91d5be03f521bc0e1e5536f0665f82d517d3170b714106c672ff2eb64"
     sha256 cellar: :any,                 arm64_sequoia: "2cfb486c742fb8c46159b99a193f3c1ae221e7d460df6a01a0daf1bb33de0bb8"
     sha256 cellar: :any,                 arm64_sonoma:  "1c9d516532c87c8a065e4d98750a3a2d187c1f89f4ddb569315a61055e7ada5d"
     sha256 cellar: :any,                 arm64_ventura: "554aac9fa65b6d94e721c59a4974182d1d77e5be4ebc31f1408ec1e3fe460ae2"

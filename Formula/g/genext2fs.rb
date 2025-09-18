@@ -8,6 +8,7 @@ class Genext2fs < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7404279f8152781c963a7d4c49d98b1d03a7e236e03e31c19b1ec2cc241fd2b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cc9fdd7364d47e9a525a63f18f8556678f95c84785aafa586cfd3ccf22ae29cf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "77fe02e5ebd064e2a70deb8e2a69dbc105f5f7535c7a01cf599575856b02940e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "566e773ad73882df019f3b1963a37837e22db06d6b1f622da0187fbf0b86244d"
@@ -18,7 +19,6 @@ class Genext2fs < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "253c8839c029932c41351dac2820708133c9574d2825f3974e290f545b40a4b5"
     sha256 cellar: :any_skip_relocation, big_sur:        "73555ddf605c31d1ab998686f18291bb857bf0194e46b14ee6c42232d74d857c"
     sha256 cellar: :any_skip_relocation, catalina:       "2223acb79fe730270f9dea81b2835d5fa72c099c91e817fb502d22ecb6b974df"
-    sha256 cellar: :any_skip_relocation, mojave:         "2523dcf597e5caa415a2be9a0a4b2ab472b573326bfbb894ce5983427a0419d0"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "fa03849514f1ad13f20f5f6b97b9db4c4a4cb7929dba82ac08cd28bc4b8bdd37"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f5a8f86d48986b97ac6d364d0c2963d2447b9d767f9c3f229080b481e41ce11"
   end

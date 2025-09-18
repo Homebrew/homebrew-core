@@ -5,7 +5,7 @@ class Synfig < Formula
   url "https://github.com/synfig/synfig/releases/download/v1.5.3/synfig-1.5.3.tar.gz"
   sha256 "913c9cee6e5ad8fd6db3b3607c5b5ae0312f9ee6720c60619e3a97da98501ea8"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/synfig/synfig.git", branch: "master"
 
   livecheck do
@@ -16,11 +16,11 @@ class Synfig < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256                               arm64_sonoma:  "3c3a98577381b53308561bed6a7b384fe937e07a90370920e99ec8961baa7ee4"
-    sha256                               arm64_ventura: "417d5f08a21f086cac5f783e38c25c0892dd926e6c68b56be06480a58cc3e918"
-    sha256                               sonoma:        "2e3ba3584439484f6b26d6f83c4479862eabc64a72b8a1fc4ac69bd819055af4"
-    sha256                               ventura:       "5aecf1d776296f38eaeb436669755a56bc2e2e87ad7cb16bb3bf688393a7e171"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf67766653f8f6273dbf9b5285dbbbd16aeb1d11032505d11ef142b178cc42fb"
+    sha256                               arm64_sonoma:  "ef3a37a8ab7358f2ab0f9f57a8175e1a769d33c6828545f8ebf38e5dedb427b8"
+    sha256                               arm64_ventura: "68483a37438ba702052fa92732b2728b9be185f2568a1e67a32a8a19f407f63f"
+    sha256                               sonoma:        "c6fc59da6e3a82ea0b1ba17e8122d84b24ec9eab7fade3663925c557e40b6ac8"
+    sha256                               ventura:       "92e95f7a48ffe21f00ca3df61e3bbe048e7687420f173c6e0e52b82f5aefe66b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0538580f2f6c5deb7a0b6cc1225db0403eb24df11182224ed8ab584a743263f"
   end
 
   depends_on "autoconf" => :build

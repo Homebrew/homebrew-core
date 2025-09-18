@@ -12,6 +12,7 @@ class Webp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "11a19ac5db13a8485d4d6f712d65d48531f99e8d7237407ab42718777eefacb3"
     sha256 cellar: :any,                 arm64_sequoia: "ad74e4538a799bc21e85fb2899c2267f7b6c8761212d195ec3cb3583062ad19e"
     sha256 cellar: :any,                 arm64_sonoma:  "2c0172632efa4d17103aad0d82dd27addce7db290b5cf52cd9afcbff3c39a497"
     sha256 cellar: :any,                 arm64_ventura: "984de8caf92ff3492d12b9c0afabd97e07139f212222021a6813a2c99f66855d"

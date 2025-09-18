@@ -1,8 +1,8 @@
 class Xk6 < Formula
   desc "Build k6 with extensions"
   homepage "https://k6.io"
-  url "https://github.com/grafana/xk6/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "0325c267631c564f21aa6e7924647204d2a6562552310070e3581b2a34bf25fe"
+  url "https://github.com/grafana/xk6/archive/refs/tags/v1.1.4.tar.gz"
+  sha256 "06ccc19a36f7a4d28ae48d509bcd0c0509db92fadb93061366a8612b54d91c98"
   license "Apache-2.0"
   head "https://github.com/grafana/xk6.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Xk6 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "beb64fa0e1a2512f668fa08dc0b842725a0ac702f2d4bdbb794f045c89a41349"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "beb64fa0e1a2512f668fa08dc0b842725a0ac702f2d4bdbb794f045c89a41349"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "beb64fa0e1a2512f668fa08dc0b842725a0ac702f2d4bdbb794f045c89a41349"
-    sha256 cellar: :any_skip_relocation, sonoma:        "019b86d740b669c6620b8eff55da2553b953b68ceadad8b26ad8dcb89a61d3a0"
-    sha256 cellar: :any_skip_relocation, ventura:       "019b86d740b669c6620b8eff55da2553b953b68ceadad8b26ad8dcb89a61d3a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e36bca0aad516d86869c001b61f8442dd401efa99c2644a33b09bfa4ebeb0e7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b54203055be8230ee493f379ffa9511603a0d6b5cf1d0b13308da533da52bba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b54203055be8230ee493f379ffa9511603a0d6b5cf1d0b13308da533da52bba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b54203055be8230ee493f379ffa9511603a0d6b5cf1d0b13308da533da52bba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b54203055be8230ee493f379ffa9511603a0d6b5cf1d0b13308da533da52bba"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eeea081d6761dcb9639bc2a7458543b4738d2f8f014e415fae520b649fce5aaf"
+    sha256 cellar: :any_skip_relocation, ventura:       "eeea081d6761dcb9639bc2a7458543b4738d2f8f014e415fae520b649fce5aaf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "151ddeaabd723c66ad304431ca7bc35140a69ae816f50ca3919b117d2ad76c7b"
   end
 
   depends_on "go"

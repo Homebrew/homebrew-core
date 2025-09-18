@@ -12,6 +12,7 @@ class Fnm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "64782e66d6b171629e37d30437799aeada431a3c6be452f263656753433b37df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e9803d57adb2d02e7880b8bd607248edcf60a2f1987d2a43c12bf42ceae62a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9ed0f6e703bc246c9f9728c26948f4d7671e3b79ff42e0e44a455be57b3e5fd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "69b22dacd824d71438a318fe052ea47e0e1b21fa1ce018e582f0466025fceac2"

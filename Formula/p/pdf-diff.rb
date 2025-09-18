@@ -9,6 +9,7 @@ class PdfDiff < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3109937918e55155cabbc7db5bbe153bf22cc27f0f315e13c8539ccf8cf94529"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "33b71b6dcebe2687113628450e3a414db0c5abc4c27b4eda4090477c089f102f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9880f5520ed55ad05c505196a7d9c826c1a9afebefd1c96b56d9f38fca232a6d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe08862077f15673639f22904af5e0e6d3953e29f5df8b8a231b38f748e6af05"

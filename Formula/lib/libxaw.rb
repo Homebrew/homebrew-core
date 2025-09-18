@@ -9,6 +9,7 @@ class Libxaw < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "4ecd7079a01f9f836d228420134c77a0c4948760ddc1dad19f816fe5ef6ae6f0"
     sha256 arm64_sequoia:  "fffcdd2fd7d440a43218e33fe5e4de0c4fca96641deb2c832abaca62b04e3b2f"
     sha256 arm64_sonoma:   "3682eac9ae16a794bcea9e0bb4b52a76caf44ca4894f93f1a5fcb2971cf83c04"
     sha256 arm64_ventura:  "822beca8cfc5df449c8c2616f41074357e5a10a9fe8d294912687cd2decd9094"

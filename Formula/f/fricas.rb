@@ -9,6 +9,7 @@ class Fricas < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fdc7e5b8b6fb9ed31b3bb661aa50b1761772e87e1506371c5ea49d94468f5dc5"
     sha256 cellar: :any,                 arm64_sequoia: "7fbe73c52677676edec374061a9889381f7b8dd79d231cd5db743e8b47b83be4"
     sha256 cellar: :any,                 arm64_sonoma:  "f80b27d9b594c6161a4b882f13cdb0c62f883d42760bb62d8563791d3ce3660b"
     sha256 cellar: :any,                 arm64_ventura: "e78686fad2f37772d9d575453720622bd63af29ecc888a369672b14f2ca3e1d7"

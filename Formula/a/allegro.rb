@@ -13,6 +13,7 @@ class Allegro < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "279a66b4096e22b8b252632d8daf3f83e1c378a7d470699ffebda7e779be9db8"
     sha256 cellar: :any,                 arm64_sequoia: "b5a0bac3386f3bce78af4bf6e938a21bd329178d7055dd811f33ea8299a916d9"
     sha256 cellar: :any,                 arm64_sonoma:  "c09db091d2391cd5cb51e00e4857ceabdf279ebcc111fd501b1331dd990ad091"
     sha256 cellar: :any,                 arm64_ventura: "a72784c6d7f9dad5f653e8d16e20e12c9f4d718494003e2efe12bd9e4dc9377e"

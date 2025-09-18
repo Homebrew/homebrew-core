@@ -10,6 +10,7 @@ class ColladaDom < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "79f4fe2716ff40c5d428aa426e196a4e7f4d35650ba98aa8e94ff6b7240872d1"
     sha256 cellar: :any,                 arm64_sequoia: "121ac6caf851ce8419fdcd32022e39581347816399d24dcb831c042d0a4e1ff9"
     sha256 cellar: :any,                 arm64_sonoma:  "4369bf4e5c16cf901edbbdaec4b1e374fa42dee2a527c6cfc6c55bdc5e7dd4c2"
     sha256 cellar: :any,                 arm64_ventura: "c3386425b2597b815b79002e2bfa629e4c8c92b50119def90c2e63153f86eacb"

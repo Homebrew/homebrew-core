@@ -7,6 +7,7 @@ class Crd2pulumi < Formula
   head "https://github.com/pulumi/crd2pulumi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "621a8cdcaeeb7e7c59d31fcbe961d0ac3d8e9426490bc271ff43964ca1cc105a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8170fedbf98664acb53a30c8534c6c879b1726ccf71d11a15a43005e76e3db3e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd3797b91aa02e1f26a4f8a38e9eed076ba077c801eaa258fcc14b5b6c9f5ec3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "34e1288847de72027899d4fd4ad491a98b1182f1a7d601dec396435dcd79fbaa"

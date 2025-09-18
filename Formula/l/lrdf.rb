@@ -8,6 +8,7 @@ class Lrdf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c09fe231441b197696150fc815ddabbcad7a895048555bf374f2064eaf277d09"
     sha256 cellar: :any,                 arm64_sequoia:  "e4f7f5611084a0b10affb934cbec578c9b021da49d439b605539da12666ee47c"
     sha256 cellar: :any,                 arm64_sonoma:   "2088f2cfbf3cac00eccd96cc9b7afdc8462d2e8a8e191cd2832f476270fd6daa"
     sha256 cellar: :any,                 arm64_ventura:  "8a0af2e4b47ceacad5f819b793adc705ffa969031d21959cfa415f5d94ab6899"
@@ -18,10 +19,6 @@ class Lrdf < Formula
     sha256 cellar: :any,                 monterey:       "72177ed02a2a3e336775a7e0296f29bbe9923b8a4b3d1a994f9ffd8f29c3d928"
     sha256 cellar: :any,                 big_sur:        "860779b7babd494a2fa8833581bf5b518a7a8ec9c9b9ad7815f33fca52087e57"
     sha256 cellar: :any,                 catalina:       "38b2c487542d1e264b31f560eb582829f178f2aa1abb28ce055475c9dffce9f4"
-    sha256 cellar: :any,                 mojave:         "1940f0eb408453bc179cc15c2588ad90eedeef608ec830a10881faee75c00d87"
-    sha256 cellar: :any,                 high_sierra:    "e15d0f6129cd4ba502860f0ab0367eceadf2a377be9dd25af30c52ebffd064c6"
-    sha256 cellar: :any,                 sierra:         "27f0d95eed42b70eb6685ffe8608465b0f39b88b544dbee080fe3decf81512ed"
-    sha256 cellar: :any,                 el_capitan:     "f615e775140216eff74cd0fe751ace5993030c00921574da635a44b41d8bba57"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7ebc904f67f824e682d13f0ca1f0176c17b8aadcea4270c1cf476a4bcfd40835"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4cb0169c0f75331b17aedb8d9f54283c5487230015b284429f6a6ee9f72344d2"
   end

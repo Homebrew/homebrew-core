@@ -10,6 +10,7 @@ class Blink < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f2fd0aa42196ee52060b934e6a3be257ad1326c062c8fa83bc6bf3888f38aec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bcc500f8fe348d17be88e78813f689ad5f27a065db6112f5fa7e867e7c7f0139"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3682378ea5beb74906a12760147ddcae882095aa4a183f4fb328994ef9f8bb64"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cd18d0ceff9589f1ad6ea1dc5183c5c61f0234705d7789f6b26df8a47d830d94"

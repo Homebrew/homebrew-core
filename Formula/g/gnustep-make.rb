@@ -16,6 +16,7 @@ class GnustepMake < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a29d1ad79d1152ed28bc6546a528883d211c120b55c83ba848a210f1d68e773"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1408996d17615db43b394bef9a1bda04059ee607901189ec75b7fd824e12a78d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a1dc5ebf1c4abc7ee6df941f4fec23ab549a41634715e06747bdead843ed657"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9c5609ff238b2cd81172d4127d84283ac2c46c2f4e1134ab0e46110744e91d86"

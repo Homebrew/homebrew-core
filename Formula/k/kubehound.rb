@@ -12,6 +12,7 @@ class Kubehound < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "99c9c87538558092c8a62136c16e7f196035f6a92400b92e1a83dbd8684518ab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "46205128162d5b6426da41d995af1a4b7ffc80922bf7be21d88b53b051b0bfde"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4efa0e3d2f31f208b9f6362e9d5a9a45dec95f63c1cffcc627e847aad8fc428b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "83b3bc446f6498809bb4aec69bd21599647b687bfe0070531d5242da25213adc"

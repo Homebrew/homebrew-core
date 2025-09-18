@@ -7,6 +7,7 @@ class Oauth2c < Formula
   head "https://github.com/cloudentity/oauth2c.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "749022dfe7dea28b09f5799eb7792bc2e5571b2fbb085a8ce972d6946002e42a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fdb852aae32c487c08fb06513333b27f4539d2d67ab250d01c22c17adb8be630"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdb852aae32c487c08fb06513333b27f4539d2d67ab250d01c22c17adb8be630"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fdb852aae32c487c08fb06513333b27f4539d2d67ab250d01c22c17adb8be630"

@@ -6,6 +6,7 @@ class LiquidDsp < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "de67d0f577325b67c1130c3c0b851da268184c5b0d7110f61dcaa24166dc6a74"
     sha256 cellar: :any,                 arm64_sequoia: "b8a80ea89fa4390be08e71b263f9117e094277ca8832db34a2ade2acc4442766"
     sha256 cellar: :any,                 arm64_sonoma:  "1959fe41645657d0d27b65a27e4106b8ebb7453b6b4933dc89f4e971df308c1d"
     sha256 cellar: :any,                 arm64_ventura: "ef0b0fffea38cbbd424d1cea2398c998f62fc1b000bd990217fec502b25514d8"

@@ -8,6 +8,7 @@ class Cloog < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "398e809f0432ab4350d43531f5918d4d2610c63a69e3ff3d7843275c8eb332bd"
     sha256 cellar: :any,                 arm64_sequoia:  "a094bf71fc868a36e66ae12b4a3de5ad0c887f9f92278a473722273bad35fd64"
     sha256 cellar: :any,                 arm64_sonoma:   "ead03f190330ee52bead39f8d29fdb67667882b5acecaa490f6d63c2bc750cac"
     sha256 cellar: :any,                 arm64_ventura:  "cead91fed1a94c7121eb28dbd53060c3bf70a83c62a0546e50d2ec486e1e1e63"

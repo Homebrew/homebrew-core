@@ -7,6 +7,7 @@ class Television < Formula
   head "https://github.com/alexpasmantier/television.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e62e615efc79b0ea86957369073b965456d85c6763a9c04793a68fce6232b97"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a46a9786c469f3104946cf5297eda933f27045c8ca452590048c7e95d5cad2c9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7063dcf8cec1e2327fe4377ddcca8e154a80e9be3079c8498148cfd2fcd0e6a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "199216b737b901b42b4dea99e6e57b8fab1b5b4066efdb6fbd3c363004404f01"

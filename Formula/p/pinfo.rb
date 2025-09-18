@@ -9,6 +9,7 @@ class Pinfo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "667ab0c89a77262f57669ed57148c06df889bdc835231752a1dd4fd279142263"
     sha256 arm64_sequoia:  "156abee096126843dea45d4b863b41cfaf28f9acd4fd8932b1388b981b299e5f"
     sha256 arm64_sonoma:   "8cd30c690fd15b9a98a0c7ebf41c7529d6c1fd06467290d228eb585d5de04d9e"
     sha256 arm64_ventura:  "40d137796340727ecdbb3d1c82a2fe46852cd944eec6cc30d18fe2b8a11e1e97"
@@ -19,9 +20,6 @@ class Pinfo < Formula
     sha256 monterey:       "46b86e8f4ff8565977416468316300d749bc65850d5c6fb6afc4b5d8cbcf9162"
     sha256 big_sur:        "9d4ae5da430d85f09f2ef7a2b5292976c3db781f80fd1b249e9d0caa05f74c4e"
     sha256 catalina:       "a41b568910292b2119d0f63f53d5015d781b03576a58f08d397535560d407bf5"
-    sha256 mojave:         "b81b1202add75d938802681618f5bf95dd245e03ff80f5f0ca67a5ba8b7bfb84"
-    sha256 high_sierra:    "84edf6ec00f570004abc6f3d0335196b513a4a52e589919ca1e70c35b31525cc"
-    sha256 sierra:         "9b8e3d359081d68626f86cab8b048926b6471f8ca1be8e47ca8625e22da5021f"
     sha256 arm64_linux:    "0fc3fd25aa157f655c7c9e98252b638f7233bb98de481e07808270df7f390a8f"
     sha256 x86_64_linux:   "9823885d8c5febf0b8415e6ac455fec62834b65b75333eec2a314dfeaf2bfd61"
   end

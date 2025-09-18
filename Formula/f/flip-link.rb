@@ -8,6 +8,7 @@ class FlipLink < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "740bdc600861c9f0b5d343d6294c94965c854f26938d2e0d36979e6b1058f46b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f7946a65b6cc5748c00e69297f119478baf555d89d4d9ca36f7952e8763b463"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79535fccaccc327856b6a65d873732f073267f69b00d60f4fb564c8c30abf645"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2bef1a06d7567d3cac57a6ec36a0b07cb365b2ebcc0f82392a5e460edea593b0"

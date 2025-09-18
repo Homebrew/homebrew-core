@@ -7,6 +7,7 @@ class Doggo < Formula
   head "https://github.com/mr-karan/doggo.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d471b8706aef800238df8e97420f6a444e524d11dc6f74e6180f6e0092be812e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "659e186849f180769977ef2af67b9880c454b72d32853222ab69f396e51094f7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "659e186849f180769977ef2af67b9880c454b72d32853222ab69f396e51094f7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "659e186849f180769977ef2af67b9880c454b72d32853222ab69f396e51094f7"

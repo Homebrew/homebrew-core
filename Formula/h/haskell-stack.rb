@@ -16,6 +16,7 @@ class HaskellStack < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af23e3d97a6a29edecd7d64cebe979329a4a1acb873e30fa9f3bb47469deebca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3231702c5fcba9e516315148b1d002bd8a992b023a9c9d792e319e707c3fc49"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa271a60946b01b795002384e6de6aec40e0b7183bb52210be9ff385845f4f75"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0c53dca7b80ae751d1b41730be17e01a437cfca9a1118360f41566ed52434150"

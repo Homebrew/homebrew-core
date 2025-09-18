@@ -14,6 +14,7 @@ class Hashcash < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "4f0504fa7b4b3ae51ffb3163090b4b4309557b5327cac38f203fdf11dfb8e026"
     sha256 cellar: :any,                 arm64_sequoia:  "ff46dc55af54e0d3f0e20308536a4ebd0d08fa18c8ae1797fbc75bf2be97c79f"
     sha256 cellar: :any,                 arm64_sonoma:   "3b7abf77630bc94b21eb0c23dc42ae2922ee662d724958baf8cd4c24df10db15"
     sha256 cellar: :any,                 arm64_ventura:  "8aeaabfc6febb7e6b9c7c163d896f3dd425ea41e74ed49e18312146cdbc66112"

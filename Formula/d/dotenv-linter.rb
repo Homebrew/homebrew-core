@@ -8,6 +8,7 @@ class DotenvLinter < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d96d5471e6c6db4a9dae33f2cb5f6da527c9badde10abff122bf1be14ae5ea3b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e74128c4d30c2a6528fc6a02f79e6e33ccd6a742110726025f02b71ea19e46df"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "981a11e38772c78552307b2c72983ca365ca9f40778a7cfce3f313d202d9ccf3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "061184afd4a55c9b9a1095ab0adc9306fea34473b79908e31d63b3322952b4fa"

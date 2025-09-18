@@ -1,8 +1,8 @@
 class TofuLs < Formula
   desc "OpenTofu Language Server"
   homepage "https://github.com/opentofu/tofu-ls"
-  url "https://github.com/opentofu/tofu-ls/archive/refs/tags/v0.0.9.tar.gz"
-  sha256 "b51402936314f4495a440a99eecedccc07c0175f81c9533eb3510f9e4f76d879"
+  url "https://github.com/opentofu/tofu-ls/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "d0bc52c62ff64d69180f34d3afd3af2c1662fb2abfd7b2501c20aacd9ec0ba36"
   license "MPL-2.0"
   head "https://github.com/opentofu/tofu-ls.git", branch: "main"
 
@@ -12,12 +12,11 @@ class TofuLs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eeb813558e7c0b53839efb0be344b9bce8e704cb37dad5d161bd6cbe362611a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eeb813558e7c0b53839efb0be344b9bce8e704cb37dad5d161bd6cbe362611a5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eeb813558e7c0b53839efb0be344b9bce8e704cb37dad5d161bd6cbe362611a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2393223139ffd08bc902c9b42fc6f3a4d0a5d26fa87720cc8ab719bd9f659a92"
-    sha256 cellar: :any_skip_relocation, ventura:       "2393223139ffd08bc902c9b42fc6f3a4d0a5d26fa87720cc8ab719bd9f659a92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11af98ca5b53dbbb4d4d3459def3b6d5a18a9c2ec84e8e813651e5b248eae808"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d2d8f16af504aa1c90ce82406a9efc8e2088e6ea15671f9caddde2be60302d2b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2d8f16af504aa1c90ce82406a9efc8e2088e6ea15671f9caddde2be60302d2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2d8f16af504aa1c90ce82406a9efc8e2088e6ea15671f9caddde2be60302d2b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d2256eda2b4338cef197a77a978dff0a27e81e73da2e370339b61f88c5350e8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "889195511b320eb2a74946e39061867f4c9c357642483e8f7c4e57eeaee2c8e1"
   end
 
   depends_on "go" => :build

@@ -7,6 +7,7 @@ class Codesnap < Formula
   head "https://github.com/codesnap-rs/codesnap.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "51fd38e40ee4449d051120d754d2cf003a0d5e6b8eab0015cf18be8f8f6d0bee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b652969b9ad9931a999c2b3b78ac75371349949d491e8cd758838746b77c5cf7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad11570c9eeddf4afcd9e67003988bedbe32a1505c21b7e1b11bc6d89ed0fb1c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c02757f660660e4dc81828cd43c7821a037ab52bc9fa76853bd65bf97200390f"

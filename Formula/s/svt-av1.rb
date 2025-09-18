@@ -7,6 +7,7 @@ class SvtAv1 < Formula
   head "https://gitlab.com/AOMediaCodec/SVT-AV1.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b59de84414e36b3651703cdbcbe068a738fb5376639be5acb73944b826dff121"
     sha256 cellar: :any,                 arm64_sequoia: "8c2b600f85d7ff7280fbfb1eadf0c184389851b0b45181e38ab83471b172e5d9"
     sha256 cellar: :any,                 arm64_sonoma:  "e99263f68834a04809be5b69f86f009ba5907b0fbb053c74ca30ab19ccd48090"
     sha256 cellar: :any,                 arm64_ventura: "4b18d8c80857d654acfff1ba38f33d8571be5e26832cd6cdcfb9d0225dd56d6f"

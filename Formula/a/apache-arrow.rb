@@ -1,21 +1,29 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
-  sha256 "5d3f8db7e72fb9f65f4785b7a1634522e8d8e9657a445af53d4a34a3849857b5"
   license "Apache-2.0"
-  revision 5
+  revision 7
   head "https://github.com/apache/arrow.git", branch: "main"
 
+  stable do
+    url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
+    mirror "https://archive.apache.org/dist/arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
+    sha256 "5d3f8db7e72fb9f65f4785b7a1634522e8d8e9657a445af53d4a34a3849857b5"
+
+    # Backport support for LLVM 21
+    patch do
+      url "https://github.com/apache/arrow/commit/57b4b4b77df5ae77910a91b171fa924d4ce78247.patch?full_index=1"
+      sha256 "8331efaf6ed21cba8d90ee802e685a8f113af11aa92da59457c36c06aa21dab6"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "eba5d4c9a454c16ded50064c80bb320f90ba445eca8c77c6017eb7cde2a8c504"
-    sha256 cellar: :any, arm64_sonoma:  "af749d9e8df7978ac004bcf05c38f4a6ba507f104580e2059389135a689cb011"
-    sha256 cellar: :any, arm64_ventura: "fc6d23d58ccc71935689628183b3aa840c66b1ff5b9abeb3b5d7977dd542a716"
-    sha256 cellar: :any, sonoma:        "507bffe11e9ae71a249e4850efe8a456460a76f10de7ad6284bd1c70f5839bba"
-    sha256 cellar: :any, ventura:       "a3b31372594423387c0a0bd459742b59f0514362171bc4d3f62d0747003d3fd2"
-    sha256               arm64_linux:   "f7c33c06cc5a2e7c4150bf09be9768487fa871f330205b3a9f4e711965c03ba1"
-    sha256               x86_64_linux:  "daa359dbdab868134e045b05eea76d9b227cff4137bca8e615b859dbadd28c2c"
+    sha256 cellar: :any, arm64_tahoe:   "f3f49be13431539ab80f3ad138bc3ef0aa9c7e199613ac76cd04c38d26cf3eb4"
+    sha256 cellar: :any, arm64_sequoia: "5f2bc6b35bc4d1f0348671ccabd7b997e7b42b47cd5924c99c9cc586ad7318b6"
+    sha256 cellar: :any, arm64_sonoma:  "ad65bb753b7eb7f9159200bdd85e21f1071b538403daaa4fb03b058637fa5fd1"
+    sha256 cellar: :any, sonoma:        "868560857fb1beb932b5422c3acac627f7b224acffcb7aa7e49d4d054b53b446"
+    sha256               arm64_linux:   "9c79d62b3fba0264922c0a9f9fc315373906e922dd348e9fe8ac001a5d2b8ac0"
+    sha256               x86_64_linux:  "344c9cebf5a5c519edb98f386d02ffe3ae7626b836318719876e9f2e201e571e"
   end
 
   depends_on "boost" => :build
@@ -28,7 +36,7 @@ class ApacheArrow < Formula
   depends_on "aws-sdk-cpp"
   depends_on "brotli"
   depends_on "grpc"
-  depends_on "llvm@20"
+  depends_on "llvm"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
@@ -46,7 +54,7 @@ class ApacheArrow < Formula
     # We set `ARROW_ORC=OFF` because it fails to build with Protobuf 27.0
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DLLVM_ROOT=#{Formula["llvm@20"].opt_prefix}
+      -DLLVM_ROOT=#{Formula["llvm"].opt_prefix}
       -DARROW_DEPENDENCY_SOURCE=SYSTEM
       -DARROW_ACERO=ON
       -DARROW_COMPUTE=ON

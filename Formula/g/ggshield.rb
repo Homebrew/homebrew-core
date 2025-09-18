@@ -9,6 +9,7 @@ class Ggshield < Formula
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a68a0a0610f9724b7282bbd1897998d7f3812fde262912dc459288e7f21dd670"
     sha256 cellar: :any,                 arm64_sequoia: "6969448478249cbf959c7b8c9293dceca5bfe3a03338ec4e0112203011b7c6cc"
     sha256 cellar: :any,                 arm64_sonoma:  "2c563ff1815792f5124b834a847a56058c1ff2e509eb20a9d6517c397166052b"
     sha256 cellar: :any,                 arm64_ventura: "73152a4709b23b8ce3436c7ca3104bfad8d53dbe6a6730314324521e3501b418"

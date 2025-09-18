@@ -12,6 +12,7 @@ class ImmichGo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "39b6a7a60c75265f87e502a79f569d13543776d99bded4a9f0357384638310a7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "44aecd18a7d5aa28cb087bcb83072d1d02c4be22b7cf8e09a5de65b019a997c4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67b1d74ac9c887a5b51073e6c9fc848f7cacd3d57bedd750ce0746ed02b90b88"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e9ae40632254cf4468eae608027a1878009d6fe8d792ce426ef0cefffe1033b9"

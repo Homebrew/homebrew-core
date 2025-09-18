@@ -13,6 +13,7 @@ class Ascii2binary < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "04f82b33a8a3806b57864a4295dc727744275e1d57494803780ea373cadaff54"
     sha256 cellar: :any,                 arm64_sequoia:  "5fa97a3db89565045338e7d0a725a0dfe87995651b8987d271bfb5eeb07e7728"
     sha256 cellar: :any,                 arm64_sonoma:   "fa4789ecc58d9510294d6ceb7e88865abecf9b50237def8dde810cea6a9a8477"
     sha256 cellar: :any,                 arm64_ventura:  "ab0651840367c796ed21eeceb7b6299338c7b0b42fe2fad395f3494da144470d"

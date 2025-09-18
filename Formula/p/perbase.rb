@@ -7,6 +7,7 @@ class Perbase < Formula
   head "https://github.com/sstadick/perbase.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ceb372e69ea48b07aad48b2cd16ff196464553101ad6c733729562923548a806"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5b4e4b6a8bde8efb516cc81688eafefd9ace4cc2759f315713f32af2221e7bd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d585cde8edf189742687519dfd326902b16de1e16f1eac67620dd68cb96d50b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8c332dbefe601d6b26675c09d6150b7dfedc50a13f106cf68507acc6d1e4f211"

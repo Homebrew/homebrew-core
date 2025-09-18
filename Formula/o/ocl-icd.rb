@@ -7,6 +7,7 @@ class OclIcd < Formula
   head "https://github.com/OCL-dev/ocl-icd.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2463903559d459dba9984bdb551db3f5fb97bd86ecf61f3f83596e8cc2bc4549"
     sha256 cellar: :any,                 arm64_sequoia: "d7c8afe9e6b8ffe2a22f19d6e5c83308d667b9900ecbbeea099877edd9158eb6"
     sha256 cellar: :any,                 arm64_sonoma:  "8a01c3947a0c26d9838becad8e921973b537e082a3eeaeaec6fd096451f63aa5"
     sha256 cellar: :any,                 arm64_ventura: "a1a5c38cc3f5225611ae2bb8d374150bbcb6477df308cda5f2794578f1fa2741"

@@ -12,13 +12,15 @@ class Mednafen < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "e100baeaab0eb1f32d42f02ed07741683c6e344d9df1a73498b5ae1388d69329"
-    sha256 arm64_sonoma:  "1a44117a0ab7696c1fc8a53fe01857dc50c79687f22191b669cb3fb0ba2eb762"
-    sha256 arm64_ventura: "41f73f24d64c67f03e321ca8c5e69cb63af7335865894bd977d1733ffc47a2dd"
-    sha256 sonoma:        "64d38f660b3c5b464efe66424b0cbd5b20601a69a00b138733bc706ffa88cc55"
-    sha256 ventura:       "b40afba5777537935fe7c79d0b275e0ef186d91d4220cdc82de150d31d212575"
-    sha256 arm64_linux:   "3a7871f139d7ab711a311bf62be6de85445694aa79e0fb11f1e532d5600bce61"
-    sha256 x86_64_linux:  "dfd1940dfa9917d20668ee7f53f30b682d49b6674a768b43dd77db6f181d135d"
+    rebuild 1
+    sha256 arm64_tahoe:   "2e8e7a500b841dcafc2bfcd58f95fbbf514ffcfb14646bf70d261934e1916c18"
+    sha256 arm64_sequoia: "3ebf9988b2e260b9a1f755f8fcbcc0c9fa3411aae100594a99c03cded175f65c"
+    sha256 arm64_sonoma:  "e52bfc223726a04f7d2b656a57ea9f24b5922e281c7cc3eb63260897dc4e11a7"
+    sha256 arm64_ventura: "687f37db2e0fb19df00cca7bede658f0c368e5f603f09426bdac47a84e21868d"
+    sha256 sonoma:        "a02749da55b8a46eda51ff89764d32975c0394ef28f9536958c33242f9b13e1d"
+    sha256 ventura:       "6773d3660de92be32485d0330f751f38711356b0891bcdc1eaad88d1538e8a77"
+    sha256 arm64_linux:   "35d7424987d439d2836e2d36c6c619285a9c97a854de09503502fa04d8294d4f"
+    sha256 x86_64_linux:  "1c664519605f10515de616e8d8559b33c46764c1d259f66e21ef5c2fa3131d9a"
   end
 
   depends_on "gettext" => :build
@@ -27,7 +29,7 @@ class Mednafen < Formula
   depends_on "flac"
   depends_on "libsndfile"
   depends_on "lzo"
-  depends_on macos: :sierra # needs clock_gettime
+  depends_on "musepack"
   depends_on "sdl2"
   depends_on "zstd"
 
@@ -35,9 +37,6 @@ class Mednafen < Formula
 
   on_macos do
     depends_on "gettext"
-    # musepack is not bottled on Linux
-    # https://github.com/Homebrew/homebrew-core/pull/92041
-    depends_on "musepack"
   end
 
   on_linux do
@@ -49,9 +48,9 @@ class Mednafen < Formula
     args = %w[
       --with-external-lzo
       --with-external-libzstd
+      --with-external-mpcdec
       --enable-ss
     ]
-    args << "--with-external-mpcdec" if OS.mac? # musepack
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

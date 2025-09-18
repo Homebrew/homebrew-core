@@ -7,6 +7,7 @@ class SoftServe < Formula
   head "https://github.com/charmbracelet/soft-serve.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "29a82e5fea3132e8e8372157008e6fbf4f25bb15339110a52102a21b934dfa37"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d644e5ddd272a9e8951324a4d27465dc8762eb44e06537ae2b5bc8eea9ce2eb3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2fe6013df08f946f18e3acd3cc675f69065e5d33333c19343e807f9e12a139c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5548ba229f68f6102cde4dfb0947403776305ffb6455663e5fdf3241de7bfa00"

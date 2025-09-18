@@ -8,6 +8,7 @@ class Evtx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c8d03f8dbd914cab8d435ee83474bb77e9f155049f6d681ec5f4ee31afc1a1a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bbf48bed0be78aaee845e20b9ffca25cca24994a0bba85a1b26c9e7c295e3fe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa8ccb06035b4b5e5876ead4f44adeb3eb301663ad97268a552320a679879216"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "50ad5fc49b1cc7eb1a6f1d55e3a4b0ae9a2635eb8bdbd78d68016a69c531c15d"

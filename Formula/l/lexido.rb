@@ -7,6 +7,7 @@ class Lexido < Formula
   head "https://github.com/micr0-dev/lexido.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a371b288b7dbe8326a99383541cbe1e3a3f4ffc160e9b3a7db5f163af83c906e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f118ba60cdf4e4e921ff03359e5e57e481f6c2178e098cd3192305c1792ba054"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a51785bc7e8fd96ff436d69daec2f2786a68e99ec94ce184d7e7caddcc84dd84"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ca1e9acbf1452480bd301384bc7b9ac24a3465303cb8466edd0f81a2e34b5f3"

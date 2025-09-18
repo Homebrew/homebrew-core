@@ -7,6 +7,7 @@ class TmuxMemCpuLoad < Formula
   head "https://github.com/thewtex/tmux-mem-cpu-load.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "19c2ae55cb2ffbc4cfeff943ea057a2b6e98c444c3b7a851bc25adc4969679a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b9704023cfa01f2a66fd26ba6619fee06b10e37fe37d50520c60c703b71b082"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a40e5242c4235deeb4203110ee580afa44e2071595717c8565c744a40835135a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "49ae4c6d2621caa0711fdc119a045f6e13be528da201e5df678ebbf2ce16bd7d"

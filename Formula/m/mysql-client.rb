@@ -4,6 +4,7 @@ class MysqlClient < Formula
   # homepage "https://dev.mysql.com/doc/refman/9.3/en/"
   homepage "https://github.com/mysql/mysql-server"
   url "https://cdn.mysql.com/Downloads/MySQL-9.4/mysql-9.4.0.tar.gz"
+  mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_9.4.0.orig.tar.gz"
   sha256 "6bb509c54e58b54abbefa49e296e7220f5e7cfe446914ba3615f594967cfa921"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
@@ -14,6 +15,7 @@ class MysqlClient < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 arm64_tahoe:   "de5ef34d0a35a5e2458c46e3e8679da656d8ba21e84ff32a6e054c662b218f75"
     sha256 arm64_sequoia: "8df3287c752bbc87c18699ede1268b02cefbe9d8e412f4ffc3e28c9439b9363b"
     sha256 arm64_sonoma:  "7bd0ccacb8e870116bd8ea64d5e0df32b88e463ac4b8f7b1dc95b0aa296f1ddc"
     sha256 arm64_ventura: "67e048397b2f14197d0aed67065ff52114d0d2207e0c723ff121512ccd60a094"
@@ -29,8 +31,6 @@ class MysqlClient < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libfido2"
-  # GCC is not supported either, so exclude for El Capitan.
-  depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
   depends_on "openssl@3"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"

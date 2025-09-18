@@ -6,6 +6,7 @@ class Re2c < Formula
   license :public_domain
 
   bottle do
+    sha256 arm64_tahoe:   "71ef43c036e5c63887d5e8bcea1c9bb34f633f8ab53158f28ca0b94af81a2830"
     sha256 arm64_sequoia: "8af3d368bb97ad1fca52b58385bd33523a8587ed79036b0fdc233a6df0bdb865"
     sha256 arm64_sonoma:  "4fdcab1947266afe8f2ecac94bf80060c75103d370588f61e7f1c85a12d40d30"
     sha256 arm64_ventura: "d45992c2f3023ff4a762e448e3dcd5f2baa66b34868012e3fb77884c28c5cc1c"

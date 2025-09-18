@@ -6,6 +6,7 @@ class Freerdp < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 arm64_tahoe:   "9d02b17ecb2fc1ec2de4115a9ebbf7bb17c9d1b6f2f216846570de3427f4272a"
     sha256 arm64_sequoia: "1b222a6584e8e2984ff5d8ca9af85d20d2c892254f90fa18e980f1d7cc919aff"
     sha256 arm64_sonoma:  "25735a05c84b4a03539d6c97a5a4b722c6a830c967c644700b706be7b39d3ba5"
     sha256 arm64_ventura: "2c7eae27a7fa989c65073e122f888cb8f3fb451b7e3e704ef17a5f326d9a27ca"

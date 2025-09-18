@@ -1,18 +1,17 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/48/gtranslator-48.0.tar.xz"
-  sha256 "e78ebc2006a251d8796ed1e72b9c2e53647973707e65b74d9f94521b03929e9f"
+  url "https://download.gnome.org/sources/gtranslator/49/gtranslator-49.0.tar.xz"
+  sha256 "eaa85620949d5c27c142219fc184281b229dc31eea3717b5b86eee70dcdcc1e6"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "fbcbdf1b0c13c0333ab1f149aabab989a49a674026ad6b1dfbb080dbbe262de6"
-    sha256 arm64_sonoma:  "580ba20e94c0065f9de1136ed40ff1ee2c9099ec8953f9ce6cd054f18d5db6a8"
-    sha256 arm64_ventura: "25e6488bef8333cdcf5cdd7bdaebcaa9b4aed313b7d622c63471cb0dd283cb15"
-    sha256 sonoma:        "726b1853ffff31972de87fe405054ba68275e37795ae9008d4e32b261b87822f"
-    sha256 ventura:       "b0a7410ae57d2dfe88fb9b1b24280c17be9f0328391ce5d8c4daeb988ea7cd61"
-    sha256 arm64_linux:   "3ed87f53f600bfa97ff051503934004292f80fcf87bdfe3ccfd4df0dee35c092"
-    sha256 x86_64_linux:  "f90143186e87fb3d3216ea137e1976b4d60fb3e77fcbd0ea8b2444de389358a2"
+    sha256 arm64_tahoe:   "c3989a78b0ab3a2c895f893703396ab059c661745f79178ef2b0ff45a32cd18c"
+    sha256 arm64_sequoia: "9eff3bc6ccd0b6b83284c24ddc1e648c9a14d4dbcb9a287cf5111c6f5e6817cd"
+    sha256 arm64_sonoma:  "d1bc0305b18832a98916975872bd68f8d3bff4e087a7a51cb676ba6406204af9"
+    sha256 sonoma:        "0f59c2ffe4ba03104573371c17a007da03489a6b96a0116e987f2cf692ffdaed"
+    sha256 arm64_linux:   "4cbc02955f5ba3b50b6388022d1509497c734daee3cd8a2cf8d01f32391daa62"
+    sha256 x86_64_linux:  "71523330a550458d9b692d09d58484e544e5354943e41b31f167ba2383a0793c"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -25,7 +24,6 @@ class Gtranslator < Formula
   depends_on "cairo"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gspell"
   depends_on "gtk4"
   depends_on "gtksourceview5"
   depends_on "json-glib"
@@ -48,7 +46,7 @@ class Gtranslator < Formula
 
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do

@@ -1,19 +1,20 @@
 class Libssh < Formula
   desc "C library SSHv1/SSHv2 client and server protocols"
   homepage "https://www.libssh.org/"
-  url "https://www.libssh.org/files/0.11/libssh-0.11.2.tar.xz"
-  sha256 "69529fc18f5b601f0baf0e5a4501a2bc26df5e2f116f5f8f07f19fafaa6d04e7"
+  url "https://www.libssh.org/files/0.11/libssh-0.11.3.tar.xz"
+  sha256 "7d8a1361bb094ec3f511964e78a5a4dba689b5986e112afabe4f4d0d6c6125c3"
   license "LGPL-2.1-or-later"
   head "https://git.libssh.org/projects/libssh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8f9af47712038dc23da1618d4a90e73e39f167bbc971a77b1c838445096aff63"
-    sha256 cellar: :any,                 arm64_sonoma:  "910c57d5b9f6e9a1443cb99cc3dcafe528cca2b4fbf942bce68c10c681f517cc"
-    sha256 cellar: :any,                 arm64_ventura: "484200a3186f4b08dbe57d764fa3184cb91b32301684b5444b4a49a2baad2943"
-    sha256 cellar: :any,                 sonoma:        "e675197970ebf2eaaf0a09ba417323c5be36c15e6efb758f96d8e87910541e5d"
-    sha256 cellar: :any,                 ventura:       "2ee01705846bdf272265617a71108c7c502c3a8437b88b5506505a8e3e146c33"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba6ea1df0b7b1cb1ce54cce7a17fc246eae08d39c0dfbb1e3eba1d9dc30a4db9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63ec535bbe923fd72ba0ec0c17c6b8244f21a20320f03c8f79b319fa3b7016d6"
+    sha256 cellar: :any,                 arm64_tahoe:   "e91e604beda45807e4e95bcc49aa19370e7060d27589e03ef76b4669965bcf79"
+    sha256 cellar: :any,                 arm64_sequoia: "ed8b3a5fc472d34a7dcc545125ad1b46018cb6a285f0493c983ed0057137dc1c"
+    sha256 cellar: :any,                 arm64_sonoma:  "e138277845774eced73507b57d2e88ce083563e5c4422547ca3ee40828f4fbcd"
+    sha256 cellar: :any,                 arm64_ventura: "d964e62f422c90ce3993d41adc3f101196c24e3330c6e03e5c5a06bb42dfbd85"
+    sha256 cellar: :any,                 sonoma:        "ab10e4e2fcd6ce97b7d7c7dfbaea0067fdd104d2a48fca3c879bfcf3cf43a60f"
+    sha256 cellar: :any,                 ventura:       "4fec93f5cc2f344a18f91ec3ac76a9db6243acc3a4188772a9d7c2df579e5e95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a1d91932020c21898b7bd78cf3175e86af36f83bac9bb7ca936a41a7cac0285"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ea38523d0d8393df13be75c57f251ef7af84777edb9a643d302fedad89d39df"
   end
 
   depends_on "cmake" => :build

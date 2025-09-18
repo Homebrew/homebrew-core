@@ -14,6 +14,7 @@ class Vice < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "3233bcda97a1a7daab6ae5189b535ee872174ea804be74d3dbd3197d55ff0c7d"
     sha256 arm64_sequoia: "8b78df5935aab1f83e0207ea2f728b96a74e66d69f5299e8507f990f11920822"
     sha256 arm64_sonoma:  "729bb747eeb23ff89b1cb604520e7204880394934d91f316c9dc7aeef2f7f73f"
     sha256 arm64_ventura: "076944a3a5d61b727aaa53724661d96a975f22092da741c06db0ab0a4d2a8adc"

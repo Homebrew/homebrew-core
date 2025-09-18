@@ -7,6 +7,7 @@ class Nvc < Formula
   revision 1
 
   bottle do
+    sha256 arm64_tahoe:   "7f174609d6a8d0180ef812a4dba6e9ba6762797cac899637925a3829753e0eea"
     sha256 arm64_sequoia: "ffe3f481135377562a65d45bd8af4be3af0dbfe220c8c0c7518fe7e718bef354"
     sha256 arm64_sonoma:  "cb88c9a86f2e423c2f60a1aba5b9f2b88bf7af8afe97b12974bbd161c17b5cc1"
     sha256 arm64_ventura: "4e2beabf529215fe2ba4b1f79e2d7027dd6134bc939ad6fbbba5232fec668c34"

@@ -11,6 +11,7 @@ class Fltk < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "78834ef0a76764d4f0a97ee134b3b735411ab65114e32ca424af71c32f3e2fd3"
     sha256 arm64_sequoia: "67c740f8dd7bd9aca43770e9d31c7533c1d24119dde12a4581c11b2ee90dcb28"
     sha256 arm64_sonoma:  "9beba383d00e8b203de0265b1199ff7a6bc2ffb143d0af6e9cecf51f871a4140"
     sha256 arm64_ventura: "2509089cec05f527863a03b70bdfafeba0d656fc544199d2e73d07b372e95a46"

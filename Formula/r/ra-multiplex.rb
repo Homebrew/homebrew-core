@@ -9,6 +9,7 @@ class RaMultiplex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "caef414f28ae5416c4527c7ae9b703370b0ba60fa57e7b2ca3e9f013b86ce987"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e50b9bbf819cb3d63e167b26f8eaf81b455383223a918c1de2d8f95847b34591"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3368801066ec9a6af29b02b91b4d94d5ab518bafef2e43b6b6bb124ddf0219be"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b4c694cbe6cbcd8eed58c68e0bacc0711b4ee407b9b27f188d555774997768b8"

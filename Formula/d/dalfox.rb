@@ -9,6 +9,7 @@ class Dalfox < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "adb975deecc8e03c75c980ad6787452fed58a5d12951d11537c94eefcb11a841"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "511a887b38f2fca677528e0c5c90f540a85b931ea28d4474062b83c92b23f31b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "511a887b38f2fca677528e0c5c90f540a85b931ea28d4474062b83c92b23f31b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "511a887b38f2fca677528e0c5c90f540a85b931ea28d4474062b83c92b23f31b"

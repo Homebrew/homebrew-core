@@ -7,6 +7,7 @@ class Bender < Formula
   head "https://github.com/pulp-platform/bender.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c1189d35316b1ed3db620562524db029863e9313630d7a7bfec063fa3cf214ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0025f80ceab8991afc8be4e8beb1987fde448db3ff24c614063a73552cb38d36"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a620fe1ab9b5780e8c40141af6565232f050679f16437cd38a3792a4e63809bb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2b8aa18cb5cc4618a4a902a66344a7a5e6db58420892a74cef95db97b62eb896"

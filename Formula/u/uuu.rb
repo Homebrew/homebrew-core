@@ -14,6 +14,7 @@ class Uuu < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "fed58f70ac4516c28720b1a2e0f7c6ac4f4095e1daf153fc88eb1261566bf3a2"
     sha256 arm64_sequoia: "d0dc183bd58f476ccf616ecb35d4b96a95e345859da2adea6c50ecaafb3c482c"
     sha256 arm64_sonoma:  "cee3bc7e87a0a6554789ce3545c6254f1ddd99b74fa4958bd1e63611b7b4a52e"
     sha256 arm64_ventura: "040d1ce65a6874b5cb49fff2b1ea0117e088a6432a50757750ee4ee71a03a695"

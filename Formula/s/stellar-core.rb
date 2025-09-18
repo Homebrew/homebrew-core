@@ -16,6 +16,7 @@ class StellarCore < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c04fd5b9aaace8e5b8a3a2d7e2a108031c53737df25d1e6cd64d2bba9c789e62"
     sha256 cellar: :any,                 arm64_sequoia: "3f81b2599339b2637e8892b207127bea909782ab692ac398ceada6d836cdb41c"
     sha256 cellar: :any,                 arm64_sonoma:  "5f20f7aa7b39bfff588b715fd65df67afa73ec32c86d4b07356cad2dd7b24d49"
     sha256 cellar: :any,                 arm64_ventura: "9adf336157a88caa21d506a1043110eb8966207c65ff476f4b44807d3a8f9fe7"
@@ -35,7 +36,6 @@ class StellarCore < Formula
   depends_on "libpq"
   depends_on "libpqxx"
   depends_on "libsodium"
-  depends_on macos: :catalina # Requires C++17 filesystem
 
   uses_from_macos "flex" => :build
 

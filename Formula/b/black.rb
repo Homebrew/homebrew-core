@@ -16,10 +16,14 @@ class Black < Formula
       url "https://github.com/psf/black/commit/e7bf7b4619928da69d486f36fcb456fb201ff53e.patch?full_index=1"
       sha256 "7cf2ae3e16f59580d1d2804e6696070546888bf136c615ababeb661cdee274ed"
     end
+    # Fix mypy type issue
+    # https://github.com/psf/black/commit/57a461258f324e33bca189b2eb49d7f7a944ffe7
+    patch :DATA
   end
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c4ad364a6a98d8499106a758c664ffbaf1e818af2349256b5ee286854f9a33e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "49b07cf531d62e77ff6f69f9da81a18766f2d8d5769fdaebb3d3cff6045f9607"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b60423982fc49c9d793571d1315671537ebc934a8b02c2bb57b06853a2ec257"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "871521b20363443bdd2397066751ef2c33fd7fc08a6a2d88056971b3499a852e"
@@ -135,3 +139,49 @@ class Black < Formula
     assert_match 'print("valid")', output
   end
 end
+
+__END__
+diff --git a/pyproject.toml b/pyproject.toml
+index be6c8f9b9d543221abee109734f038fd3480c8c7..b3e7f2414fa316f06da59fa4a7a00e4a2433c1e8 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -126,7 +126,7 @@ macos-max-compat = true
+ enable-by-default = false
+ dependencies = [
+   "hatch-mypyc>=0.16.0",
+-  "mypy>=1.12",
++  "mypy==1.17.1",
+   "click>=8.1.7",
+ ]
+ require-runtime-dependencies = true
+diff --git a/src/black/trans.py b/src/black/trans.py
+index 0b5956304502991721ea4c2f0838c4c2a285590b..de24d723e1e56a5aca71535f9d572a49a5ad9b8b 100644
+--- a/src/black/trans.py
++++ b/src/black/trans.py
+@@ -334,6 +334,9 @@ class CustomSplit:
+     break_idx: int
+
+
++CustomSplitMapKey = tuple[StringID, str]
++
++
+ @trait
+ class CustomSplitMapMixin:
+     """
+@@ -342,13 +345,12 @@ class CustomSplitMapMixin:
+     the resultant substrings go over the configured max line length.
+     """
+
+-    _Key: ClassVar = tuple[StringID, str]
+-    _CUSTOM_SPLIT_MAP: ClassVar[dict[_Key, tuple[CustomSplit, ...]]] = defaultdict(
+-        tuple
++    _CUSTOM_SPLIT_MAP: ClassVar[dict[CustomSplitMapKey, tuple[CustomSplit, ...]]] = (
++        defaultdict(tuple)
+     )
+
+     @staticmethod
+-    def _get_key(string: str) -> "CustomSplitMapMixin._Key":
++    def _get_key(string: str) -> CustomSplitMapKey:
+         """
+         Returns:
+             A unique identifier that is used internally to map @string to a

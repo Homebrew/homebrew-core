@@ -3,19 +3,20 @@ class Standardebooks < Formula
 
   desc "Tools for producing ebook files"
   homepage "https://github.com/standardebooks/tools"
-  url "https://github.com/standardebooks/tools/archive/refs/tags/2.9.2.tar.gz"
-  sha256 "9e28a7e2736274958ec7f1744c65f8715cee0e9e0d939a0428124f24bd225e7b"
+  url "https://github.com/standardebooks/tools/archive/refs/tags/2.9.3.tar.gz"
+  sha256 "3f95bea1bbf9094f8e0988eccdd45889bf0f61a7f62e955edd1cae559999af28"
   license "GPL-3.0-or-later"
   head "https://github.com/standardebooks/tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b4a2d9c81d6bf6a20ee022404cb1423ff341a1f271b657d0793afec865f2031"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55b14281ccb203e588f550ca8a8bf6797049d887fc152030b37ef3d1f1a8aeb7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec36aca8b95016a9ec77b6437ee936544b115462cd23836e59d080ee4f183d50"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f82684773ba82fbd06b8efa09f1ca0b405fe56a5dbfc67d114ecc141ec10bb9d"
-    sha256 cellar: :any_skip_relocation, ventura:       "d7ed4369db52db7a049e27d0ba43e2415466d4455e9693b540a376c22e765251"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "af8042184321156a420bb5850133f8168a7ca6856b05044cade29cf201e646f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb045061093b60a2b8adb7cc731bee0d8841838d24551a3bf6abeac6bcd532df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "92b82173a05e709fc858f4cd0019cc46dc38534d48a56ddbfffd83b5b02b4ef6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b768aeaf156739f5fae69465feadbf7fff5985c6ed52eefaf0d819345a3721eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "559003946a9742abfcfb3a856066c8df056d7d8f39bd2c3efd52250a71364723"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bb436bdcf19bf80db9b988925891174ae58a1d5850951cc140f33502ee0d71b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "424b056f9ba0cdd58c07eb77fbfa0eb8756e1b9bb0847634a76a985a50ccbd41"
+    sha256 cellar: :any_skip_relocation, ventura:       "cbd41181c7ce8bf5dc8189078c01770e5ec36b20f0b0e948fbe43d71aa322dc9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f0a0ba6762c8eec7a9833e8378b90a29688d915adbec50cf5b13884bbfc3020"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67609e8750fa206b732f5c5cf850104ac900bdb4966665bc80ffbad9d17007b2"
   end
 
   depends_on "rust" => :build # for selenium
@@ -29,6 +30,7 @@ class Standardebooks < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+  uses_from_macos "zlib"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
@@ -121,8 +123,8 @@ class Standardebooks < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/ce/a0/834b0cebabbfc7e311f30b46c8188790a37f89fc8d756660346fe5abfd09/more_itertools-10.7.0.tar.gz"
-    sha256 "9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3"
+    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
+    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
   end
 
   resource "natsort" do
@@ -160,6 +162,11 @@ class Standardebooks < Formula
     sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
   end
 
+  resource "repro-zipfile" do
+    url "https://files.pythonhosted.org/packages/ed/86/a680b85796b667a060bc673294e8adc3201a28381b23a61702ac0f51f732/repro_zipfile-0.4.0.tar.gz"
+    sha256 "fde4cf1300e740f2fd1745708ba8f1366a70853a39af6266e1e04ae81c1231c1"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
     sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
@@ -186,8 +193,8 @@ class Standardebooks < Formula
   end
 
   resource "smartypants" do
-    url "https://files.pythonhosted.org/packages/da/ed/1da76d11aa858ee23dac5b52d9ac2db7df02b89f7679d5d8970bcd44b59c/smartypants-2.0.1-py2.py3-none-any.whl"
-    sha256 "8db97f7cbdf08d15b158a86037cd9e116b4cf37703d24e0419a0d64ca5808f0d"
+    url "https://files.pythonhosted.org/packages/6c/8f/a033f78196d9467b402d100ec40b95166d43fa2642693f23f771473d8195/smartypants-2.0.2.tar.gz"
+    sha256 "39d64ce1d7cc6964b698297bdf391bc12c3251b7f608e6e55d857cd7c5f800c6"
   end
 
   resource "smmap" do
@@ -216,8 +223,8 @@ class Standardebooks < Formula
   end
 
   resource "trio" do
-    url "https://files.pythonhosted.org/packages/01/c1/68d582b4d3a1c1f8118e18042464bb12a7c1b75d64d75111b297687041e3/trio-0.30.0.tar.gz"
-    sha256 "0781c857c0c81f8f51e0089929a26b5bb63d57f927728a5586f7e36171f064df"
+    url "https://files.pythonhosted.org/packages/76/8f/c6e36dd11201e2a565977d8b13f0b027ba4593c1a80bed5185489178e257/trio-0.31.0.tar.gz"
+    sha256 "f71d551ccaa79d0cb73017a33ef3264fde8335728eb4c6391451fe5d253a9d5b"
   end
 
   resource "trio-websocket" do

@@ -7,6 +7,7 @@ class Timoni < Formula
   head "https://github.com/stefanprodan/timoni.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "40b5542812caf38e60ef89831ff1f98dd253c6d5d2feae3a88fb75b6e43d8947"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6f35266b3464bc3a4410cc5da4e89cef32cbcfcc471bdef2fb1b6c2e85ec799"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ead36e09083dd9e732ef5c3bd628d3329fc1c2aab1e684a0bdd430e466cbddf"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "466250b8c24a0b0a9b5d0af25ec47faa821b84278d8053b9b4a8a588de78a209"

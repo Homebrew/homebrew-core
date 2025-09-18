@@ -6,6 +6,7 @@ class AwsCCompression < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c9e37702140dfa756eeb6c2fff4a319764847207c95d029b236212b02d91161c"
     sha256 cellar: :any,                 arm64_sequoia: "07ad5126a62967518823503ad65c6eceedb164aaa28e8f4b817d8fb8eb6d8f2c"
     sha256 cellar: :any,                 arm64_sonoma:  "e90f0d8370adc024e41c89f650c4fd37c62e396a05d369e1b8e834bca6cf63dc"
     sha256 cellar: :any,                 arm64_ventura: "8025bc877dd2221c32bb3527e34ee5d618156f40c972a13189857c63b0da2a56"

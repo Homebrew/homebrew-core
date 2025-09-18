@@ -12,6 +12,7 @@ class Chaoskube < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "666ea105bf9640874925f71b8f9e5b0da7bc218458b5c1c0087f613117d13ebd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "175ff90eee624e0fe6bb640a4645133925935cda6f0de21380af7c91bc5153e1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72495e8d18d66656fad0d18f29a88e8f55d3ef37e89aa56bac24eafda7cf7f14"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "082ddd52530610338e1eb7f3f8fb0bac9ca5ca8c97e5f286a02d604a6a2a1d12"

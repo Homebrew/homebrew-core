@@ -15,6 +15,7 @@ class BerkeleyDb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "8ab6e76001b5a945ed16eaa85a4a5676bd3a7f54365c2255c90565d73096ff0e"
     sha256 cellar: :any,                 arm64_sequoia:  "422be2c8877f981442a27bd80d7a4494de3a515b54b1d206e51c4e710f9d83eb"
     sha256 cellar: :any,                 arm64_sonoma:   "f8a6da9be201214ca17efa824a335060a6f1ff4d72cc579a5878ee06ac2d9b61"
     sha256 cellar: :any,                 arm64_ventura:  "67fed25d26cb987106b346ee4088959b71306db6a016cb6f58cca9da9350c36d"

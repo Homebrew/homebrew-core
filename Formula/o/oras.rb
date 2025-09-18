@@ -1,18 +1,19 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
   homepage "https://github.com/oras-project/oras"
-  url "https://github.com/oras-project/oras/archive/refs/tags/v1.2.3.tar.gz"
-  sha256 "f08ddcccaedbb336e85942b6ccb9625c2a7e4e411d5909bd6f670eb0d7ab3977"
+  url "https://github.com/oras-project/oras/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "12fc49ddf5c940b0ebba4c318e00b4155b682d590754e0d7330b9c4259b4af51"
   license "Apache-2.0"
   head "https://github.com/oras-project/oras.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc809d29e38e49c915a7df9dcfaa2071638430e5c3c4cd072473a5e98962cc81"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc809d29e38e49c915a7df9dcfaa2071638430e5c3c4cd072473a5e98962cc81"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc809d29e38e49c915a7df9dcfaa2071638430e5c3c4cd072473a5e98962cc81"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad350040cacf68be5334bf9ee4b236a2308a2a21ed0e5d303706b881c9ef50e8"
-    sha256 cellar: :any_skip_relocation, ventura:       "ad350040cacf68be5334bf9ee4b236a2308a2a21ed0e5d303706b881c9ef50e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12b21aabf4213e0b7e5833a535a4a7942d71290117108d083f0d518025f589f7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b88be96c1d2f56331b8abc6b1d9d40a81a308fa7da085b386bbf4a57b4f4748"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b88be96c1d2f56331b8abc6b1d9d40a81a308fa7da085b386bbf4a57b4f4748"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b88be96c1d2f56331b8abc6b1d9d40a81a308fa7da085b386bbf4a57b4f4748"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8b88be96c1d2f56331b8abc6b1d9d40a81a308fa7da085b386bbf4a57b4f4748"
+    sha256 cellar: :any_skip_relocation, sonoma:        "379b13479f92f19783a1872f3a37f050d71e175afacdfd555374c9b632607e47"
+    sha256 cellar: :any_skip_relocation, ventura:       "379b13479f92f19783a1872f3a37f050d71e175afacdfd555374c9b632607e47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce3845f85fa9db76c94a26ba3c0e29894c895fef1232331e1977d48467a22e5a"
   end
 
   depends_on "go" => :build

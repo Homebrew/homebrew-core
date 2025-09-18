@@ -13,6 +13,7 @@ class Jdupes < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "992652f273eba2749ac9d3bc898cb9b56d60585adb209a1f835bcded32e2cf6d"
     sha256 cellar: :any,                 arm64_sequoia: "bf13fca52de31046be8d384b328ffc06a7469bdb3c4ac2395124af859f963df8"
     sha256 cellar: :any,                 arm64_sonoma:  "275595001b2b92d7c703c19fd47bb4b1a5b79f3b269320e2b67ef77c08629488"
     sha256 cellar: :any,                 arm64_ventura: "c61d231a14741496d9d08b4eaad8a21fa8c25d459797214b26e71ac216b04151"
@@ -23,7 +24,6 @@ class Jdupes < Formula
   end
 
   depends_on "libjodycode"
-  depends_on macos: :catalina # requires aligned_alloc
 
   def install
     # error: no member named 'st_mtim' in 'struct stat'

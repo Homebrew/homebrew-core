@@ -6,6 +6,7 @@ class CargoInstruments < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "a9230942af96929b1d806e7e6682650964ebe8d8799857ee46849dc3ea7fe20f"
     sha256 cellar: :any, arm64_sequoia: "f69b6cb11b0a0e38d7818f503c5288c84db02dea3191f068f5bef43381385116"
     sha256 cellar: :any, arm64_sonoma:  "fff1288a25c52e3a201e9bce0bc4556b26567d07ba83fa2bbf7fa89bfc23882c"
     sha256 cellar: :any, arm64_ventura: "cd3cc44b10b674703ac6a1817d5bf3f4dd507e43634dc4362f2035b0dd6a64fe"

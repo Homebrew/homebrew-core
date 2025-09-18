@@ -7,6 +7,7 @@ class Libfido2 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "338e0b3e52dd0096e00fc9fdad75248b943b6ba8746542050f2a70533e7e1f5b"
     sha256 cellar: :any,                 arm64_sequoia: "70ab4f30999b5a903cdf5d12d86ce198d68b9c2c6d663750136d559c34414fdb"
     sha256 cellar: :any,                 arm64_sonoma:  "74bea8577d47d68c8e14624cec351af4f20df35e5f609f7ecbc6874e6ba3d514"
     sha256 cellar: :any,                 arm64_ventura: "536aedd6c35b1222529bce53a343118892964a240016858c63406950a93825b2"

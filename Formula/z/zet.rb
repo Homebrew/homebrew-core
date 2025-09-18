@@ -11,6 +11,7 @@ class Zet < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "969859a7af56ff259df9c72e15a45dc0fb7ac11a7e0d70264a5f14dcf9efe80f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "43ee895f1a866c5279689ea67039f268f036126cdaa95fce89ef694c67c9d469"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eaf4041c27353f5278d0b7f232040a91cd8d87e9a6eb0d6dd6417186f3ab121d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1b42203cb1f07a7f436b7c6ba9a98667ca1e55dd65157fe8fb445a3de4b3c9e0"
@@ -21,6 +22,12 @@ class Zet < Formula
   end
 
   depends_on "rust" => :build
+
+  # Backport fix for newer Rust
+  patch do
+    url "https://github.com/yarrow/zet/commit/7aba3b6016ede0b0a6b8aaff292bd7f6a0d7ac86.patch?full_index=1"
+    sha256 "9fca853d07ac5a81aafe8513b64ce1ef338f1ff106d7ad2eb16add777ba2e897"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

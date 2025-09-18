@@ -1,18 +1,17 @@
 class BacklogMd < Formula
   desc "Markdown‑native Task Manager & Kanban visualizer for any Git repository"
   homepage "https://github.com/MrLesk/Backlog.md"
-  url "https://registry.npmjs.org/backlog.md/-/backlog.md-1.8.3.tgz"
-  sha256 "708f795c01aed0c7fa605bd81bae6b8e1a7dd95748798524f884f270cb57c0f1"
+  url "https://registry.npmjs.org/backlog.md/-/backlog.md-1.12.1.tgz"
+  sha256 "6e80da3c240aeba2d2b29b66222bb5df967609fe280c908128810f2a9e99e11c"
   license "MIT"
 
   bottle do
-    sha256                               arm64_sequoia: "f5777abae8095ce9abb029a7f014793611c6eb4ca1d64c9f6a3dff8ff9379dbd"
-    sha256                               arm64_sonoma:  "f5777abae8095ce9abb029a7f014793611c6eb4ca1d64c9f6a3dff8ff9379dbd"
-    sha256                               arm64_ventura: "f5777abae8095ce9abb029a7f014793611c6eb4ca1d64c9f6a3dff8ff9379dbd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7139795837569bec2e2ca97fc6204d8ec2592f2b028f4e532c48753841410ac8"
-    sha256 cellar: :any_skip_relocation, ventura:       "7139795837569bec2e2ca97fc6204d8ec2592f2b028f4e532c48753841410ac8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "217b675924589b03ddfbdf385be089ecbcdf9176a351f27507914d6145861b6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c61a8a9864ed1373fa671f2fbefd3134ada52db9637d18165321d88f9a19b7d9"
+    sha256                               arm64_tahoe:   "ac9c71017ef6ae947412dc68dcde99bff8f0fa16748441705d86e8f21c977f2b"
+    sha256                               arm64_sequoia: "ac9c71017ef6ae947412dc68dcde99bff8f0fa16748441705d86e8f21c977f2b"
+    sha256                               arm64_sonoma:  "ac9c71017ef6ae947412dc68dcde99bff8f0fa16748441705d86e8f21c977f2b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "add40aa7ae442edc8164db448555fc2c9e76f93684bf6468e6c3e85e10838c8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b699d76d0a514a7c7dc3eb1c00e591f510bf95438c148d3a0da4850f9fa5ebf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "283a8f68407323d5a9ca427a52f83c50de6fb18d515507d98254cbdb3c4472e2"
   end
 
   depends_on "node"
@@ -25,14 +24,8 @@ class BacklogMd < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/backlog --version")
 
-    port = free_port
-    pid = fork do
-      exec bin/"backlog", "browser", "--no-open", "--port", port.to_s
-    end
-    sleep 2
-    assert_match "<title>Backlog.md - Task Management</title>", shell_output("curl -s http://localhost:#{port}")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    system "git", "init"
+    system bin/"backlog", "init", "--defaults", "foobar"
+    assert_path_exists testpath/"backlog"
   end
 end

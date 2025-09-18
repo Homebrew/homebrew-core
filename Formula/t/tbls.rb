@@ -1,19 +1,18 @@
 class Tbls < Formula
   desc "CI-Friendly tool to document a database"
   homepage "https://github.com/k1LoW/tbls"
-  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.87.0.tar.gz"
-  sha256 "8b633dd4165273ec2c3a1f31626727e46aedb19ed44a2aac765fd79849d6ecf1"
+  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.88.0.tar.gz"
+  sha256 "5a74ee8651da871b8dbd0cbe8c91d4aa715c70715ec976c6e89b15189b50100e"
   license "MIT"
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "097fd3ac76e24c81ee0dfb1ca25f79f8e3e9caa43caf32349daf4aa2b1ba671b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "937c920099b2ab6d2e925030cbf80af298d2fb202ac62b8f940a534361d70f15"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "95ab2eb70aa98193dbb71d1a105b60c4c813a36cd2647a015df93d5f7c456b2a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d13efa0f5fccefc54cafb1642c7b3936153621a373608ca5c98781ad7aad7642"
-    sha256 cellar: :any_skip_relocation, ventura:       "802b2422ffda19590aa5fbf2ed7e7e8ef4377297cca727d487f2979d2cdf51f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1421909912c5941357799f0ef8bc04161999346a37df1daef69b95ab0014432"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2647ddf5318660b8d3651950c7042ec2dd5dd738914dc49494a70eb7eec10d0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d9f76f3d024f868acf12c533dec4fbc278dee97924d5ab01c6d9f0afbec6ca7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a981487619c91c775ae85cbd9603d45d3df0c03d113f266d6751a6067a66c09"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b9302045cd046aa078ff0b754eb9b4f80ca0f02467bb90661d0569184e768dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "16e1d676e1a2d4013e61ce824f6f3af6c6aa8fb1d587510752016f8e63ed63d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a132123ab855906ad3fc95821a04d88b63d317867f324e810f59af95dceb1de2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b32c61b90d97e49a5323408b3412c7d4f40a0c812b4804ffeb4bdbd438703bc"
   end
 
   depends_on "go" => :build

@@ -9,6 +9,7 @@ class Runme < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b1718395223088a32ac61b1c857e0478e965bd7c9369996dfac1a644b607a522"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6cb13782c25bbbda6269823ee8aac256d81f1be684ecc505fd24de8187c7456"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6218cdcab4ed4848cc71537a3928742c79e782824f59f96a8b9b24233355e765"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "37cb3503e9a3df2266e0bf01626e41eb58c5163fc8f14404b715451e924a65bc"

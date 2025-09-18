@@ -7,6 +7,7 @@ class Pipelight < Formula
   head "https://github.com/pipelight/pipelight.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9decdd34701f05d8da607c6246a21f895971966a1794c6ee1bb96497d8d5e1cd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "96adf14db27651fe99ec9078aa498d9ab44bbee167181e28ef3f2e618936983f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21227916e98d2e5abc4efc7ae84c4eef1e19ee0cdc5fb80e9e72bbed7fd14253"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "41fa397d45714a97f19f9b0993a12b064cd66052751fa8a9c1d9bd78b9f1cdfd"

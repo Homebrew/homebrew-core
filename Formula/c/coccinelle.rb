@@ -14,6 +14,7 @@ class Coccinelle < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:   "5efbbabdc9bba942d9ed1837a82277d85246fb479781488e86eae44443a0dd42"
     sha256 arm64_sequoia: "779d42bbb44aae1403be58912eec82d4a2dfda1506f02659a411e22496049cf0"
     sha256 arm64_sonoma:  "51cb6d4013905449b1a20a622cd95dce5ad64cdc37b6b92eda79ab7b23ed598b"
     sha256 arm64_ventura: "cd9aeeaa7d72f22a8d9e4e7a211e0c634e045abc7be0ca46dfa5b69b8ae29769"

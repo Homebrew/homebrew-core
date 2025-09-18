@@ -10,6 +10,7 @@ class Aztfexport < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5f3a5ee03fca178adacba476b73a2176c24c4dddb35232c0baf49b350c52afcc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4315e5a84cfa58065d8474d8be1cc9f2f520590426ef77c6a1c070c19fea526"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4315e5a84cfa58065d8474d8be1cc9f2f520590426ef77c6a1c070c19fea526"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e4315e5a84cfa58065d8474d8be1cc9f2f520590426ef77c6a1c070c19fea526"

@@ -6,6 +6,7 @@ class Libxc < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d099fdc57a95d85727f5c4b605f64253144ba64ae545439947684f065553ae9e"
     sha256 cellar: :any,                 arm64_sequoia: "aa85b3a74a71bfa20b5298f35fef63fe1738a0c85a978ab1fbf94b56c1bf168c"
     sha256 cellar: :any,                 arm64_sonoma:  "ba31c84f6c649d6b133a62d0c69a0b6c92fdb9d9e6ef959abd527fca75b43652"
     sha256 cellar: :any,                 arm64_ventura: "8a8f6c2dedb5446e4e0dfb6eef6c38acb7a134a2559e3828c2b7bca7c6cff747"
@@ -25,6 +26,8 @@ class Libxc < Formula
       -DDISABLE_LXC=OFF
       -DBUILD_SHARED_LIBS=ON
     ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

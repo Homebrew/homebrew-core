@@ -11,6 +11,7 @@ class ArgyllCms < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "ae9c7d99adca2b6382b1fbd34f36db5b5fca42d18d362408b8095acb10cb04e4"
     sha256 cellar: :any, arm64_sequoia: "f16dded9bf615eb33b11a9533524d2020498e7aab4766eb7c4de993e83cc8719"
     sha256 cellar: :any, arm64_sonoma:  "0e15bf67bbbf98bf5cc480af3a90a0ac900616fd96dccf9cb1a53493e9ea6a0d"
     sha256 cellar: :any, arm64_ventura: "b39ba95474701b963dadfddeca4bea00b037bb1baa766382e1108a879c50f84b"

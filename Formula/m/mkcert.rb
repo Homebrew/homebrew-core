@@ -9,6 +9,7 @@ class Mkcert < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9863f54426db9df99173be319b283ec3a08d5dbd320987259676d2ddbb05b9f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f8988b4b5f85474931db021d3b5968576f2be4b151c00d943441196f4186324f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1801aa7c1c50a3f7a11d44cdf9e37a57da7cb7471d0fb495b7df40843b47858e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af89337b73c8d4bb20c0cdfeeaccc17b620d8badf39edfb06a8fb191ec328c36"

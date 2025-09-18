@@ -3,19 +3,20 @@ class Badkeys < Formula
 
   desc "Tool to find common vulnerabilities in cryptographic public keys"
   homepage "https://badkeys.info"
-  url "https://files.pythonhosted.org/packages/8b/fe/01e4617b44bbb352023bc1ee7e2eef4358d59d0bab9677f52698dbff44b1/badkeys-0.0.13.tar.gz"
-  sha256 "6013a2496221993d726ab624170108b82ed188bf2b03eb032cfaaee17354530e"
+  url "https://files.pythonhosted.org/packages/55/db/bc7583f7f0ed8effe33c20c0f4190b7167ae25a81641d8670a9e3ecb7adc/badkeys-0.0.14.tar.gz"
+  sha256 "5eec8c646e90e1f8f64115ee9ea120d6886a231aae7d619017506f8cc630f48d"
   license "MIT"
   head "https://github.com/badkeys/badkeys.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "091903ae93eaf73bcd25d6af039458e5df16e2802638fdf8d40179f0b993a4ff"
-    sha256 cellar: :any,                 arm64_sonoma:  "f4d06958f60fdf734839d289015e378324dd38668446312437244db26db0e570"
-    sha256 cellar: :any,                 arm64_ventura: "b3e77db1e77edb273e6022bea8440e651fa300263c47b2f8d4045114ad658bfd"
-    sha256 cellar: :any,                 sonoma:        "4b23d32e958d853a341359f6c2627387e1628cbf72abf3f8edfe749976db58e8"
-    sha256 cellar: :any,                 ventura:       "71564d54d9739f33b60db86b68761a7f0414a2837df84f2ec8b62f1258701cf4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bc3a6bf8c1a8cedf53f5725d98e84de9987494b1503f69f2fe18174458b2a1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "336a1ff4d2f198153a7c2ebaea51bc0dc33cb651fff3cf60a36b235477990645"
+    sha256 cellar: :any,                 arm64_tahoe:   "eb836ec8e62ce944200bc75d60ce028cf84933d4543da2ed6c18edd0d700be1b"
+    sha256 cellar: :any,                 arm64_sequoia: "d9b93cdd512c2261bafb082c9811eaa3bbbb7b745a3b3032bb1fb6586da0be8c"
+    sha256 cellar: :any,                 arm64_sonoma:  "374d015560e5a086b8a25b850910fcaa6f446a4acd06b2a4a2335fb3aa9d1cb1"
+    sha256 cellar: :any,                 arm64_ventura: "f829a4ec2607d8a5bec5abed89c493810d23b313016f50037b4c9ca0ba3e32a9"
+    sha256 cellar: :any,                 sonoma:        "cd8c18499d61964fc953313888570c88285344aa2cf422507b73259bd91a1154"
+    sha256 cellar: :any,                 ventura:       "9669beff92409b650fa0da71c4ffe4fb85263456aac0733e942ad0e62c69378b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b144bd3666e2c5ee61dfc94996aa29dc207c700381052409146d309226a476c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ed17a1fbc143891f5abe5ef698124310c3c10813fd81932f0a6e50a6d3521c5"
   end
 
   depends_on "cryptography"

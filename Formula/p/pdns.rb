@@ -16,6 +16,7 @@ class Pdns < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "a6c89aecaa71666af56164a7ca46b71ef4890c32044b4fedb9f7cbe8b7be7d4b"
     sha256 arm64_sequoia: "578c48786f3e8f4ab14fe41a6a3facafd68bd2790ef05ac211f36551341c0952"
     sha256 arm64_sonoma:  "f18c07d3977de22ad500f89799ae1cdb8413a61f54b5e460fac3ec875e580548"
     sha256 arm64_ventura: "d837445f157d34d299f783816b01499e39f2f50a65a706e1338fababc861019f"

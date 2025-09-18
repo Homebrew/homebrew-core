@@ -8,6 +8,7 @@ class Skalibs < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b0b1cb92fd1402d94ae6077cfb98b9ced6a4a8ff78cae0928aa853b63964a139"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c668db63e78d6fc7ebe695706f1d26081db734729bdb6892f783d128b8943291"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43990849b9d5f38a0a33a6dc0f25b4ee9ff409507a88e1e6128e4667a1b3713a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "01857e93e5a8a2704431e7c6b2ace60186c31b81c43f1d6c47fd3fd52076367b"

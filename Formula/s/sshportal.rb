@@ -8,6 +8,7 @@ class Sshportal < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "abcd2ec2450e2535d5cb8536a5098fc61acdcc34b75c02ce84be5ea958689bfb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e41e72b749adc2be38fd48aa7bc7414b1e06cefe22e2ee83cd1e62108403d583"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d2011f8a00406373f0f08fe0d6ae9bc24319328644de51f42cb67047bf26005"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "924cfb73822486729a932a912d17d4fe202dbe081c8cbc552634c16e9586bb20"

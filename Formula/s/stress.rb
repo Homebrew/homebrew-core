@@ -8,6 +8,7 @@ class Stress < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bc133ce107c928388f3e8e1ae2ec46c12fac73f1ae01281486530180d60adba7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7b3708a81bbe9930b49170bb1bbed935a7f4ef6e1c0aa5d6501ab2fa4d2598a5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70295f81088618111fc3a3c27d91de5518f63f275b161f3552b52aa8237eb433"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f744647b8c4d3d83ecedd29b802bcf4d03b8fde7ca5a659caceb3d3bf4a19df8"

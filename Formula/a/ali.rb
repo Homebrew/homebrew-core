@@ -9,6 +9,7 @@ class Ali < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6c75f79f91b80211c17b21b777050f1df8a6081ac567ffb5556d9609148b4d1d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1fa319e59e535c54935058ab8a8ffdf177bec32fac05003168bd9c15021da164"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e26d87beadff780ef72f728cef8042f6ef0f8224e9e5745b35c74653fa5a47a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b5c51e93206dc7cfcedf87724c1333f0318a2c9d3901f1c34c523363cd32469"

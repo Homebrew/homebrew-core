@@ -12,6 +12,7 @@ class Bpytop < Formula
 
   bottle do
     rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "48d278ae19b6552b97957cfbd000f40bc117e2c06c22ce42286dd5614f185d1b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c219f70ea941a5ba7c779f632de5aa2f19d80fc330ab0edd7eca6beffd62886"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bcd0764b30ca7c0eed88852fbc8bd223cfbc4314255e59cc7f7cceb5e508c60d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "224c99a490aef1e9b24842a83cf954885018e291b323a13de2ce184190df9e51"

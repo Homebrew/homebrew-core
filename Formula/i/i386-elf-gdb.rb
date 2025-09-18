@@ -15,6 +15,7 @@ class I386ElfGdb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "4dda131d6b1684df57ee9b70b3902bc25dcbf5a4d42d7afaca53fd27b88d0120"
     sha256 arm64_sequoia: "a8404abfee4bdd057c859323a3d3860c0e3dc91d6d1eaa9a8e8b396cd06f16ea"
     sha256 arm64_sonoma:  "38e6e069cd8ffc3947627429e9623de6c142f334691b2cf5916aeabe1213d637"
     sha256 arm64_ventura: "e78e568042d2142374827e9f972b311f24f09dbbc9ab93ad2169f38892fc1a19"

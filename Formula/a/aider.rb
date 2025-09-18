@@ -11,6 +11,7 @@ class Aider < Formula
   no_autobump! because: "has non-PyPI resources"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ab23af47785a4b82ae01062fd831157db64d0cc54228383ba5cd75f9e1714b0a"
     sha256 cellar: :any,                 arm64_sequoia: "e4da90429c464d7296ea543861bbddda60348f72d7facd89b075c29d24fcecd2"
     sha256 cellar: :any,                 arm64_sonoma:  "501d8bdd8a5a7cef1c65891db0c8ac14b1b7824c450e1bf2f25523bd59c5c57b"
     sha256 cellar: :any,                 arm64_ventura: "a494bf286304608bd144a53c0b695d2312694fce82320d23ef64f9d1a7e9c450"

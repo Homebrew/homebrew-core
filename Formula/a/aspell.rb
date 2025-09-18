@@ -8,6 +8,7 @@ class Aspell < Formula
   revision 1
 
   bottle do
+    sha256 arm64_tahoe:    "383f92d2e0a58c88f3d8022f0bbf068d8111fd754fc320d389a866c4b9bc5ca2"
     sha256 arm64_sequoia:  "2dead356b82d0553b5a4efe4ed8a061649c8e2d04fbc7f96293cfc2956813de7"
     sha256 arm64_sonoma:   "8d5594cd0235f14ef183062e5e1ff997470f0c5cf9a522cd488997f206df28ae"
     sha256 arm64_ventura:  "c36b4d14b5b78a2b61a21878bec4a060376fc72a2bdd975c0a32c0f88fc0865b"
@@ -553,6 +554,12 @@ class Aspell < Formula
     url "https://ftpmirror.gnu.org/gnu/aspell/dict/zu/aspell-zu-0.50-0.tar.bz2"
     mirror "https://ftp.gnu.org/gnu/aspell/dict/zu/aspell-zu-0.50-0.tar.bz2"
     sha256 "3fa255cd0b20e6229a53df972fd3c5ed8481db11cfd0347dd3da629bbb7a6796"
+  end
+
+  # Backport fix for newer Apple Clang and GCC 15
+  patch do
+    url "https://github.com/GNUAspell/aspell/commit/ee6cbb12ff36a1e6618d7388a78dd4e0a2b44041.patch?full_index=1"
+    sha256 "96e6b23947744e5d1374640a38cf20ec541b64c00a063cbed6d1fcc3e3fc19ee"
   end
 
   # const problems with llvm: https://www.freebsd.org/cgi/query-pr.cgi?pr=180565&cat=

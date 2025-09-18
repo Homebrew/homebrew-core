@@ -1,21 +1,22 @@
 class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
-  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.1.0.tar.gz"
-  sha256 "3bde1ad4d1f8f0eb7ade501e4b12a89e83b6508675d46286462af1eccbda646c"
+  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.1.2.tar.gz"
+  sha256 "02315986e9e968dee14a55acec196b3f86375f39bbebf9a78486f77f156b21f6"
   license "BSD-3-Clause"
   head "https://github.com/ssh-vault/ssh-vault.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c27ff2adc2e2a950011fb85982e3475dd00f95696354090bd0d498448a65aa76"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b55c4f946385ceff1df3a4f742f53a895d1582faff4b3ed155b2c8947a2d5e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd1ab07e07ca2ab36d424d8840d7926aecf18d4b223d5289adf982c219c60112"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f21314b53412c0c49618b3384a885eeed3e58784e797d067f12d89dffb57241f"
-    sha256 cellar: :any_skip_relocation, ventura:       "cee7b74f65d8e5d79dac9fc296a4fadfd02939790a94208c167f3aec805d0f30"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d73c8e8b90a8ffdb58c8eb42810e8c1db67330ed559bee688f9a5fdf0c1946ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e813a71072ece7cdca7723f9fe65f7d79709de88ee0240f9fdfe8febac4929a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d3f76477017b8a045f5c6c89f58ea584fcca6c07829c6f4960b0824e75bcb99e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8bdbc585cc4e75dcfb0be8efc37c9eabb87964f220961be444444ca500d42f4f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3766d486d27843ffdccc43ba4d32c8d6d3c4cc684d7654578bfc921c094f0e2f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a1a9fb86c8ee338853f2dd6734f656bc0133c7f0a95aa4f4967a005da52ea853"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7516171015d6bba24398c5756b5d59aad31186e6ea1cf8c002c61952f3df9410"
+    sha256 cellar: :any_skip_relocation, ventura:       "3a33eb086a7d96418da079a4cedfa6f2aefbb72d57a4013d988a0f20d146ba3a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0093534c4398d3903258962fd3358a5a6afb42018ed53381f6a1a1a361050c10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ada1d0112d7b31e1b36acccbcd60722733d786a5389095c5da8c173b21dc0438"
   end
 
   depends_on "pkgconf" => :build

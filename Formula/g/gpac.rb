@@ -34,6 +34,7 @@ class Gpac < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9e3659249481b56c6883fd1993e79ce88e85c8a08329a71580ce2ce69ce3b437"
     sha256 cellar: :any,                 arm64_sequoia: "b9b61b5ded414fce0a8bbbfe5efbeda61850ee4b290434219cf19fa37a63e62d"
     sha256 cellar: :any,                 arm64_sonoma:  "0d2892fa8734ef855cb4842ee12277274c33baf87c9907502035710a5861da7d"
     sha256 cellar: :any,                 arm64_ventura: "0c29e2b0a060418c8b623966a8ec35cda733751f1b213f02b904e4019dec0984"

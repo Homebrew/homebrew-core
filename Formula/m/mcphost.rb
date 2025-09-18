@@ -1,27 +1,22 @@
 class Mcphost < Formula
   desc "CLI host for LLMs to interact with tools via MCP"
   homepage "https://github.com/mark3labs/mcphost"
-  url "https://github.com/mark3labs/mcphost/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "30c0f00b721d4ff16bae15e4c210effa7a4caf035b43a348769d2997d0b9b143"
+  url "https://github.com/mark3labs/mcphost/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "e612b98931be1c708e6d0df23ce32261a6ffc584a2cc97b7d497e4978cd4f9a2"
   license "MIT"
   head "https://github.com/mark3labs/mcphost.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5225b4a99bf242ce513a4e0014f27bddfa0ec167c5436acb62788c73d1491094"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5225b4a99bf242ce513a4e0014f27bddfa0ec167c5436acb62788c73d1491094"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5225b4a99bf242ce513a4e0014f27bddfa0ec167c5436acb62788c73d1491094"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a9df69a0f4d5d5a48c767a626845f7c989d9833f7a271fc4a6983cb58f0907a1"
-    sha256 cellar: :any_skip_relocation, ventura:       "a9df69a0f4d5d5a48c767a626845f7c989d9833f7a271fc4a6983cb58f0907a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f139b7dbbcbebc307b9d60dafcb7b768e9d74dff5524072bc9f01eaadce5baa3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24c1b87c51b2b6a10ef00e1e35a7b2219608fc954808ffa467b5ae01cf10e8c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9023920e8eb7416432a30ddec51e54474e688eaf4eb89d9da91f997e8300630"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9023920e8eb7416432a30ddec51e54474e688eaf4eb89d9da91f997e8300630"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9023920e8eb7416432a30ddec51e54474e688eaf4eb89d9da91f997e8300630"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a45eae900fae19fd5602270904693c4fc4f00c23b0bd03ed48e65e41b5648a2"
+    sha256 cellar: :any_skip_relocation, ventura:       "8a45eae900fae19fd5602270904693c4fc4f00c23b0bd03ed48e65e41b5648a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e18f7439f1ee444de078228b9769ddee92c52069f29081200bf0c47a68baebd"
   end
 
   depends_on "go" => :build
-
-  # fix version patch, upstream pr ref, https://github.com/mark3labs/mcphost/pull/128
-  patch do
-    url "https://github.com/mark3labs/mcphost/commit/008a4991ecd20b27866f458e492715c3dace2ddf.patch?full_index=1"
-    sha256 "82cd1e1cfc4eebbc0ed4114a3b93e6306be73243eb0e48aa7e4c7d648070ed8f"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")

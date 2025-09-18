@@ -8,6 +8,7 @@ class Twm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "10c97cb0c9229ad2c77532f6c83736b5e31eb33dc08fe84cd2bd8f7545c56c64"
     sha256 arm64_sequoia: "55081cc48b42c43ff5affd9958066960f6e178282d70022d70811ae3c6376d91"
     sha256 arm64_sonoma:  "1cfdeb205b58d944d90a7a9e46cdb1fb38b2562512b780e951ec746e7da97ea9"
     sha256 arm64_ventura: "2674ec6c6954c05425a89ebe7833f275defe6ccbd8bdd550c26a78f86159f7af"

@@ -9,6 +9,7 @@ class Counts < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24d9ace69ae8a6c2bdb85fcb5c1c42b53f73209bb2a9958cd02e2b1aaff40fe4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "104e0c1a70c346de9a881f3604a940409c21292be6f728bad0d317423d7e3302"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "199acdd7193a93a8431adcd011441e85c609dcd6b31060fca9663d623d841ab1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2fd0e4ee5182e9000723388e231d8fe2f7ba902e33224c6f1f48bb7e186e3c23"

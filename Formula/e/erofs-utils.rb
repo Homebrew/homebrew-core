@@ -12,6 +12,7 @@ class ErofsUtils < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "74421b46b5e4d74ea7db26e59e68795df9ad8bf16ebdd01e592d387d30886062"
     sha256 cellar: :any,                 arm64_sequoia: "b174f3b652f72de1830fbc87f77bfcd20d5e4e8332b234d6d82cac2504ace237"
     sha256 cellar: :any,                 arm64_sonoma:  "1b7334a9d05b74b253ccbf19f14b5239d14cb1f47f5a38fa1c035c8a2ed61cb6"
     sha256 cellar: :any,                 arm64_ventura: "b059764774718929bb84e69fc0dcac51bf0d2819cdd75e6016df77fda2695c21"

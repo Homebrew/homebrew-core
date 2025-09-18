@@ -38,6 +38,7 @@ class Ccls < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "bab741b9cdf3a65b32a9ded56977041854ea84233156e2a2cc6844d368c4fd46"
     sha256                               arm64_sequoia: "e9e2dfa3d50fed8794c77ca54c01ab922d40fed4d9e43b7374c1b9982fb1265f"
     sha256                               arm64_sonoma:  "9a6fb61ff9eee5a3122dfcccdc7d64b0fc63d720e79a4a7c5d60824c0acf7459"
     sha256                               arm64_ventura: "b12c07bff01f2db44152df2553711dd86848351f0f0d16b372289c90908cc592"
@@ -50,7 +51,6 @@ class Ccls < Formula
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
   depends_on "llvm"
-  depends_on macos: :high_sierra # C++ 17 is required
 
   def llvm
     deps.reject { |d| d.build? || d.test? }

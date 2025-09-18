@@ -6,6 +6,7 @@ class Dict < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "065e628c984ce455ed3ae85fa485098d829f343c5f1e68ab398fc4c77d57fe36"
     sha256 arm64_sequoia: "8ae52e0cd8200e05e9aab9b15269c4617b648079a1ccaf54879acc759eb268a9"
     sha256 arm64_sonoma:  "81d599c0cb61e67ee19ecc54293cac944568884b61d470fd50b0b30a1b8dae33"
     sha256 arm64_ventura: "5e07587d607e55a3ed72f4537dccb417b16e2cd463a6690f8ca8d508d520c919"

@@ -1,19 +1,20 @@
 class Libproxy < Formula
   desc "Library that provides automatic proxy configuration management"
   homepage "https://libproxy.github.io/libproxy/"
-  url "https://github.com/libproxy/libproxy/archive/refs/tags/0.5.10.tar.gz"
-  sha256 "84734a0b89c95f4834fd55c26b362be2fb846445383e37f5209691694ad2b5de"
+  url "https://github.com/libproxy/libproxy/archive/refs/tags/0.5.11.tar.gz"
+  sha256 "b364f4dbbffc5bdf196330cb76b48abcb489f38b1543e67595ca6cb7ec45d265"
   license "LGPL-2.1-or-later"
-  head "https://github.com/libproxy/libproxy.git", branch: "master"
+  head "https://github.com/libproxy/libproxy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "f7eaa3e6e5af9257d15489974195fd4e3d88620ff7955a0af33ec49f95557dfc"
-    sha256 cellar: :any, arm64_sonoma:  "40812832dc58d0fa9c0f10d23a7427d056a75279749704a950c5aa7b5b1a99f7"
-    sha256 cellar: :any, arm64_ventura: "e8c79a7c9edf1fd1e2d2a964f5b8d4c02dd3d3c8a19d1ddd76ccb8a044f8dab7"
-    sha256 cellar: :any, sonoma:        "5d3665e4b0fc076d74ea56670065bd44636a3c629963d2dcbbbb49b6760c9e51"
-    sha256 cellar: :any, ventura:       "ba534efd1196f5c2b1caa7b94c8623b2b761baac55ade72f2af56890226a2d87"
-    sha256               arm64_linux:   "9f9f6b5237402cf947c9825b6ab71a3d11072deba183279b77356e320976b110"
-    sha256               x86_64_linux:  "9182cef72b24d30b579921d92af330f4a7f9655d60d43d8e3ce9cade2f3189d6"
+    sha256 cellar: :any, arm64_tahoe:   "1b7b6d06d451c95bdd18e29dd262531ce678918571606fa04cea73c868e64ff6"
+    sha256 cellar: :any, arm64_sequoia: "63f93cdef3537f104f1f06ec3d0d62b75d03e93576681d8a0b053d0430f25063"
+    sha256 cellar: :any, arm64_sonoma:  "b1fb72115973836c39df65c3d2ece7cadf3a4f99d571613002250d4912d343c3"
+    sha256 cellar: :any, arm64_ventura: "780f1242b5a624e0456a674c69a5a3f86ac03f0c02bd1809286e810cf835d9e8"
+    sha256 cellar: :any, sonoma:        "6ba9c70879482d33dab24c03b60fb0441049bf2c0ec01b89aa17340b90475235"
+    sha256 cellar: :any, ventura:       "65dac392147c2ac7a2e59d2a2d0be0d4110a186d3fa0bb548e03a55744711fda"
+    sha256               arm64_linux:   "c1dea00b987ac047a2d5094b41e91a80c942d3af1d9cdbcf619124a0ae1df985"
+    sha256               x86_64_linux:  "d5c21bbc7b8c82ed51f2fa4e6bf436359de15db0f475fbb37b42d9fd80229b26"
   end
 
   depends_on "gobject-introspection" => :build

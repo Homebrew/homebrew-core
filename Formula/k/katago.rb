@@ -16,6 +16,7 @@ class Katago < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0db0e946f3e5a97e3dc9296739c75bde2b06afe15f353767b41fbd95c6dd6e0d"
     sha256 cellar: :any,                 arm64_sequoia: "e80dbbee12819f60c861a7d9048252c532cface8d4367b4ece1b24a5ba0259d6"
     sha256 cellar: :any,                 arm64_sonoma:  "b5ec08dfe190e1b4d612f43eb8d9bf1a1a4fbda057dc96b295a3e09afaa80314"
     sha256 cellar: :any,                 arm64_ventura: "348285893e9645c580b87a34b3443936a281dcc9d16bd94c519f432d173202fc"
@@ -27,7 +28,6 @@ class Katago < Formula
 
   depends_on "cmake" => :build
   depends_on "libzip"
-  depends_on macos: :mojave
 
   uses_from_macos "zlib"
 

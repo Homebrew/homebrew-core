@@ -7,6 +7,8 @@ class Libgr < Formula
   revision 1
 
   bottle do
+    sha256 arm64_tahoe:   "3b7b66b7608cff95d414a23067857a46e61b1f0ed58ce371bcee291e8a1f6e3e"
+    sha256 arm64_sequoia: "90000a93329b302423df61810193bc3968537fc37b2e2f7dbdd6d96bdf983397"
     sha256 arm64_sonoma:  "3ce60c550dcd8720707e307b8ac7899815a941b579bd4f01b960675699ada710"
     sha256 arm64_ventura: "cb3af42272d1ad444e7552f9fda7ec20de5756355d65d140500658c9466c541a"
     sha256 sonoma:        "309cb93ea973b305a0503eae8890d1aa7c74724dbcf3451aceaa7892efacf4ad"

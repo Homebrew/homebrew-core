@@ -7,6 +7,7 @@ class Fq < Formula
   head "https://github.com/circonus-labs/fq.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "319d0358ae90ea27c5159a4585fc403b3d7aad3e58a9b6d0f9b2cc5e336e4228"
     sha256 arm64_sequoia: "33e9232200183fa00074369edd7822c4bdd5b34eca4f0bf1e6f46536b99bdf22"
     sha256 arm64_sonoma:  "37327110567a05788dbae0310ac20b1c1790a1e1642117435ac900a013bfc5dd"
     sha256 arm64_ventura: "0c8d4409a94927f6f2a848bb04de94f78de2c1237bc84e0c798ab7cb66900663"

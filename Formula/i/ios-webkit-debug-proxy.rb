@@ -7,6 +7,7 @@ class IosWebkitDebugProxy < Formula
   head "https://github.com/google/ios-webkit-debug-proxy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c79d6aaae9beba337352d712a586104f7a3077e5d4ea9cbcd50c1603495b409f"
     sha256 cellar: :any,                 arm64_sequoia: "878606bc7a7c42583c379a8f9713820531dc4e5eeeacc477289f9d7590cca6b7"
     sha256 cellar: :any,                 arm64_sonoma:  "2fad8ed6dc4a59daeb709bd10f69f7bdf8eb50b7d8e1d5e233172422b25adfad"
     sha256 cellar: :any,                 arm64_ventura: "c1e3ef891cfe774490f533c4149121064d4ad643e248940ba7735c95a80874ad"

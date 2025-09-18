@@ -7,6 +7,7 @@ class Jr < Formula
   head "https://github.com/jrnd-io/jr.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e8347db18863c01caa673f5b0e92cbf5b19074f6cdf231be2bd174a0390ed06"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "57e21753c12cd216a40b151e9809df074adeb66b0b2a72c488a86406d1ae4be2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e94a9e1c57902aa030fa1f7f1994539fcd0708717c4b058f7ab1882f03ec70f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2252647355b1043206b7e16cfca108b678cedc0065090307823c6bb2a1e68ddd"

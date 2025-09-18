@@ -7,6 +7,7 @@ class Arelo < Formula
   head "https://github.com/makiuchi-d/arelo.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a63a997b30ff895b45679c81ef6b5fffaead184a106c30db5dd41b19c7da41de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef538d5b66f8ac04b533621fbfb9fcedc6d5fd0c540b832eb10b4aed0c8098d4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef538d5b66f8ac04b533621fbfb9fcedc6d5fd0c540b832eb10b4aed0c8098d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ef538d5b66f8ac04b533621fbfb9fcedc6d5fd0c540b832eb10b4aed0c8098d4"

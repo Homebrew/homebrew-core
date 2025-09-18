@@ -3,17 +3,18 @@ class Ramalama < Formula
 
   desc "Goal of RamaLama is to make working with AI boring"
   homepage "https://github.com/containers/ramalama"
-  url "https://files.pythonhosted.org/packages/f9/8e/2de9843021e00b490a0ab7238da11699341804c1c5b76ae5cd9f980df5de/ramalama-0.12.1.tar.gz"
-  sha256 "f372433dc6a9bf0adc01b3f0b252101a44fd13fc19ad0f73b0a5ebdf81d69b10"
+  url "https://files.pythonhosted.org/packages/ff/d9/ccd94fabde435a22815485e68d1800bd74b57ccda51cab6528930651bca5/ramalama-0.12.2.tar.gz"
+  sha256 "a1eabbb03e2d5f926a3dfef953fcaaedbc13b58002cda81306b0f9fd1558d915"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7cbccba124cb9cbf53be6c9697c3d6d6e4093a2e0ec8ca74eaaaace26a541a52"
-    sha256 cellar: :any,                 arm64_sonoma:  "d5ec57d539577878758052575e2ddc75f7dfed3f2d4a2405cf7fd18e9b479b92"
-    sha256 cellar: :any,                 arm64_ventura: "5b0d3c26906beaa58c9f536abb730b012658bc7695c7ac548cfd963e0f4c5f13"
-    sha256 cellar: :any,                 sonoma:        "85f611d8689e57ff431667d79dfc336d49a2a7028d3f7a18ffa0dcbf61bbb998"
-    sha256 cellar: :any,                 ventura:       "c1ff20e08cd98205cb74122c7b11ebb163ce404f1154641035b75437f91ff64b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90fb4bcc49c2089e3d58d9ebf25122ad8df6297ece47a236feea932c080a4508"
+    sha256 cellar: :any,                 arm64_tahoe:   "54b6c5e1c7f4c5e32ca5a1e4e93c893cfdcbb3f669fe27cf5a77aa4cfe673e71"
+    sha256 cellar: :any,                 arm64_sequoia: "8cd0bcca6f9672dacdfb536d7c6261bc72f67d66d3abbe6e7e870aaec5029dec"
+    sha256 cellar: :any,                 arm64_sonoma:  "83223d1e70d7a781d2693d25895b3ed88713cf15d3221e723e7680499955bb90"
+    sha256 cellar: :any,                 arm64_ventura: "efeb0c94f1ae66d3b0e7aabaecf7ada095ddbca87d3ae0f316427ef4910ee9a7"
+    sha256 cellar: :any,                 sonoma:        "993ec5113ca4533951a38b2da583b628d86d48d1e46e0f626c2a910236e3e374"
+    sha256 cellar: :any,                 ventura:       "c43bee4b0deae819d1975ce196d81d6504d6d691b8b1768ca13b1961194dba84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93bfd367b056687762dff895d86c41b16e501e6a7e3742b0dfdaab2a7b69e137"
   end
 
   depends_on "libyaml"
@@ -37,7 +38,7 @@ class Ramalama < Formula
   test do
     system bin/"ramalama", "pull", "tinyllama"
     list_output = shell_output("#{bin}/ramalama list")
-    assert_match "tinyllama", list_output
+    assert_match "TinyLlama", list_output
 
     inspect_output = shell_output("#{bin}/ramalama inspect tinyllama")
     assert_match "Format: GGUF", inspect_output

@@ -9,6 +9,7 @@ class Dvdbackup < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "208d77cbe6a64a85548098e3fddf37053ad567406e1745b238fa40ca3a33915f"
     sha256 cellar: :any, arm64_sequoia:  "5689e478b50f13da8f0b4c4176281df944c3c8a095344e7f3fd6b2073cb7f937"
     sha256 cellar: :any, arm64_sonoma:   "bbca14aeee4082533a71f5e48ed2bc6e56ea02420179dfb09e11242e92f2fbe2"
     sha256 cellar: :any, arm64_ventura:  "e009a34c9e7cc319095b3a001b99aa8da5fecb6662ff4fa64daa75b932dbe79b"
@@ -19,7 +20,6 @@ class Dvdbackup < Formula
     sha256 cellar: :any, monterey:       "fc938674adb52e95181053700eda2db94b4cbd2ff070391201ce3cf5bbd61496"
     sha256 cellar: :any, big_sur:        "dc6778d0bf6be00d5b9abfe877b0893b37ac2a36ca3395155658572b8b050750"
     sha256 cellar: :any, catalina:       "f90daeedafee023dd908051af528be81f629f30026ec109f89e2bb187582d75b"
-    sha256 cellar: :any, mojave:         "e28050e6f6611d8f8f573f52bdb17bb349a5f347b0a6499e9eaa8bfdde9a5f71"
     sha256               arm64_linux:    "5af918de56b0b8c777cb521bb6b1a086fab9c7a84a75896d4e985933a92ed32d"
     sha256               x86_64_linux:   "c88b2286a17892633aef4e5fae8065e813ac1bf0bf14a63e0be2566bca388d4b"
   end

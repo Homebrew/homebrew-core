@@ -12,6 +12,7 @@ class Dwm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f54870201f722572b9dd08b71200bc041635209fdec7ec1ed35bf75d71cffe02"
     sha256 cellar: :any,                 arm64_sequoia: "6eeb362a8c4a091e32a4e9bbad14b3475f89360df494e35dfb028c0dcebe8624"
     sha256 cellar: :any,                 arm64_sonoma:  "94d791de879fd2634abb78108dc9cac02821a49eeb9051ac6650ecbf9e0d03e1"
     sha256 cellar: :any,                 arm64_ventura: "106704c41bfc3aa0de266096aab0afafca663735607f60618d8469ad0be950e2"

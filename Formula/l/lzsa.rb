@@ -8,6 +8,7 @@ class Lzsa < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3c4f00c8b228bba2a577616661e13d5d710dea4afd8f5149fe9382b8040b09c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7eaaf3697f803f186818868d7559275d20ea9ec91226108fe89ef69473956bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6084774e138106256a64ac04b7982215238030aeaa01683b27e18b49dcf38e2f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9ffb170705de7d2308b5279d0a1021b3f1ccc4ea39067bfb5c05c23e12ef6bb0"

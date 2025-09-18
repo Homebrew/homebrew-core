@@ -1,18 +1,17 @@
 class Kingfisher < Formula
   desc "MongoDB's blazingly fast secret scanning and validation tool"
   homepage "https://github.com/mongodb/kingfisher"
-  url "https://github.com/mongodb/kingfisher/archive/refs/tags/v1.47.0.tar.gz"
-  sha256 "7ceed4843b0fa749ce0db9afa64e2252112b826306cb74ee2da09277861cfdd4"
+  url "https://github.com/mongodb/kingfisher/archive/refs/tags/v1.51.0.tar.gz"
+  sha256 "ea7c13a628f4e7ba1224252a7359e3fdb72f9062596de8367928dcafc101c9e2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5db648a4de2e0ad817c6e013ba8cec7854b762c668a3de3e97c4661f7aaa9dd2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dec14610b0051682dc4f0d1c34adb389000ed76a165d0d7b47d444d07eb5c425"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e50da30a953550fcb24c419e09d634c4844015bda5d7b552ca60695522f71345"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2b7cdd4ef73d86a86c42739af4572007cabcacde3e71c3f994f0a46ad19b63be"
-    sha256 cellar: :any_skip_relocation, ventura:       "c35f9ae8f0759d46dabf8f6fc470d226880f0b74a11733787190a923fb6c0219"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a36354a2d40bb18e911593d3ed44c506def8affe647695dd42c0a1a4942e4a98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5367386de367d85298b83a4f0eeca856825b92abd08c7ca28ebb76c835f64384"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3a4cb8c2eab5a5ff052fce60f79b8d1d7e5eb6ec36b848ad04f05ebb7c98b492"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e823d73d9000c4c4d37cdb11acf0d602288e0df9d25210e9add41913b10de114"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "170f7b243c1bd0b506d8972855a5cdfb86588c259d43ddec0658c42995579c62"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db7497d7e636ed383927cef9585d3aa7b5d719656c65d012bba976be0715ff8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "843611fb81c8ec6748fe4b1ba5e34e9ccbec21339bd04d175e5b59fbb06b2f64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e43d938df7f85715a53008ae255b2ac682339d7fa592973c07627b80ca9bb33"
   end
 
   depends_on "boost" => :build

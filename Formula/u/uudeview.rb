@@ -15,6 +15,7 @@ class Uudeview < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4a0021e8cbb12c07b7c46049e72d217530ed08c2474d57f145044ab7d24674d8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "519dcd3ca61e2c1eac14d1e1b15dc2b87492421fa77bfc396163b6882df7c298"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a58cd61413eb8e656d8395b63d1542e9f256d669d227b23d7cf0f70181a420c3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "28d8a4e08275d26926e19c32a6ca833ed3a1c3969ea5126c4def92e72442e66d"
@@ -25,8 +26,6 @@ class Uudeview < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "0b5de5467dd832158645bca2006500fadaefc2e187819e883e9ff1a85bb60e64"
     sha256 cellar: :any_skip_relocation, big_sur:        "94426299f928e2c7985194d2a3f436112b2ca580945eacc82ad5047c619c2417"
     sha256 cellar: :any_skip_relocation, catalina:       "9b5990b5b763e90614bd2d074e670c20e834541d60082a4e78f90d67a65da5c3"
-    sha256 cellar: :any_skip_relocation, mojave:         "2869df0b09975172227dc83be6d667b3d0f8e4f2cf0f6d9ec0cd3fdca02727f4"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "7bb4c57755efed1b4208d234a0017d785757da04ca8f8e43c92980f3fe16b85c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "59e22160ac8e39b4efe0f3c935141e1c24656875c142a69df72992d302c16c79"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cdd9748ec5c1baf9934bade72dd8a3eea06b632d0f1c49e57b682663bbb8371"
   end

@@ -1,18 +1,17 @@
 class CubejsCli < Formula
   desc "Cube.js command-line interface"
   homepage "https://cube.dev/"
-  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-1.3.62.tgz"
-  sha256 "6ad4ae9e382945b570d50c1253fa4bd6a40713528b3f0e16f2e7ed252935931f"
+  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-1.3.69.tgz"
+  sha256 "ece1ebf34867c5e0123e6d94ec2c5efc09357137fa8cd7f8d49f76c915e1eb39"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cef5695e8627f3bad8fac56c9b9000989ebfe6dfd0df390d303a0f4f9a681ff5"
-    sha256 cellar: :any,                 arm64_sonoma:  "cef5695e8627f3bad8fac56c9b9000989ebfe6dfd0df390d303a0f4f9a681ff5"
-    sha256 cellar: :any,                 arm64_ventura: "cef5695e8627f3bad8fac56c9b9000989ebfe6dfd0df390d303a0f4f9a681ff5"
-    sha256 cellar: :any,                 sonoma:        "4b5d9751e24ebae36bf87618cfc0b343a7e9c3d93452b782b4235c7b0b4ff77a"
-    sha256 cellar: :any,                 ventura:       "4b5d9751e24ebae36bf87618cfc0b343a7e9c3d93452b782b4235c7b0b4ff77a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "677dbb69bad8714c51b7c3972267ac8e7cd2bd7af9e9324de903ac9b20bf3df5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adc4b904195e5f0917587671fc731f5d7798d8acf372931b468b2cfbe40ef141"
+    sha256 cellar: :any,                 arm64_tahoe:   "64db9c611fe1fb7dee255d806e88b2c5db1f9c0ead1c02d0426e758be4f8d93e"
+    sha256 cellar: :any,                 arm64_sequoia: "e2dfdb6ba0337ccd434626f0b6d600b615d1dd70042f8de9a0ed126234087b65"
+    sha256 cellar: :any,                 arm64_sonoma:  "e2dfdb6ba0337ccd434626f0b6d600b615d1dd70042f8de9a0ed126234087b65"
+    sha256 cellar: :any,                 sonoma:        "bba8a3606e27dd6739cc42c3060b90428c28f5e787c2bba01f8e3859df4a473b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "061c385e9b4e2b15660d54e224d6b8004af396c99b5b25e8c51714aacdfcad56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a4c6bcc03f9c488dd9373e5b5e5ad22489d26e7dbff73cd1b024d87020499f4"
   end
 
   depends_on "node"

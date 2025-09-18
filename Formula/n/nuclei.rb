@@ -7,6 +7,7 @@ class Nuclei < Formula
   head "https://github.com/projectdiscovery/nuclei.git", branch: "dev"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "908c5f8ee50915b6704721d74117c29487173fa669b3bb145ec015757d57795a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d8e02ca6ccfea6c329fdc8aea963cc41a9ee738b6c0bf7a964b1c5e58ae991c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f7dc7d7be800b66ec11b4260f73239e3621a2b0f3d4ab23aeae5fe878da822d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8f927eee3609a32163c271a9b8b52fe92cce86a0368019810b25842c528e5eff"

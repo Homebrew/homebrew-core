@@ -7,6 +7,7 @@ class LdFindCodeRefs < Formula
   head "https://github.com/launchdarkly/ld-find-code-refs.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ffe2918d665942cacee1a84ad3003704f05fb7c28bfb2121881d7bd4504ba8a0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8fe7f8ffeef61b1ca2160f60d7b5dc13ae55482dff0c7cdf5adcfa0ec547e8d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8fe7f8ffeef61b1ca2160f60d7b5dc13ae55482dff0c7cdf5adcfa0ec547e8d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b8fe7f8ffeef61b1ca2160f60d7b5dc13ae55482dff0c7cdf5adcfa0ec547e8d"

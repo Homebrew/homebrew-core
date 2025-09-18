@@ -6,6 +6,7 @@ class Xinit < Formula
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
+    sha256 arm64_tahoe:   "dd3c7693b0185d79555d1f91e559612ad865688fe779f1c4986f86493058ba6b"
     sha256 arm64_sequoia: "f032d2ee9b34ba1ee42d99701266d51e3dcbdcb30d66883ec8f05033894356bb"
     sha256 arm64_sonoma:  "12231945f0af6967b64ea1e6f992caedcc760a7ed13d142590dab52ae7fc3e96"
     sha256 arm64_ventura: "6f5350a1fceed943594b743212e2ae40e37559e1daa82c31e617311a706ee25a"

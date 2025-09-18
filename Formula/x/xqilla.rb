@@ -14,6 +14,7 @@ class Xqilla < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b34e7fa213e9280c6343d21d71355f5ac4e115540d2c81b31027172af5de305f"
     sha256 cellar: :any,                 arm64_sequoia: "83e21758a4570293176969d68d027817a4cabbda27702a1f17df9d21256ef45d"
     sha256 cellar: :any,                 arm64_sonoma:  "d010a25cbbc379829f8782fe13daab681386d79611ba03db8f6be10d5a592a52"
     sha256 cellar: :any,                 arm64_ventura: "f84208fd263e7d62474d60496b0476bd1b6cd11c79192353a32cfb6561fc0e90"

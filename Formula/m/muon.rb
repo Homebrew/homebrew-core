@@ -7,6 +7,7 @@ class Muon < Formula
   head "https://git.sr.ht/~lattis/muon", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "ee83480a39f996d669a98cec8b764ae5411b5ffb22ba81c2576a529a90d45f82"
     sha256 cellar: :any, arm64_sequoia: "830db56ee195c9fc5541176c4ff9abaf02e255440879c089f66e91582c720915"
     sha256 cellar: :any, arm64_sonoma:  "34a03c29eafa2fed72cd8f065b6339b562019e3a84a7d1455be2b4748c6cb57d"
     sha256 cellar: :any, arm64_ventura: "fc1623b314de7b4d3e138d0bed0fe271ae2da205eb032bc5da2462bd6927d318"

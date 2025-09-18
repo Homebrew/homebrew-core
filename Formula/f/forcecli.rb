@@ -7,6 +7,7 @@ class Forcecli < Formula
   head "https://github.com/ForceCLI/force.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9b0d3e3937e9396e7926cd831b26117963622fcb81b42369aad039c4c79d34b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a5c1d2859f3309eeed4ed51119717056db207cdf6d30af74a58d107fab836ed"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a5c1d2859f3309eeed4ed51119717056db207cdf6d30af74a58d107fab836ed"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1a5c1d2859f3309eeed4ed51119717056db207cdf6d30af74a58d107fab836ed"

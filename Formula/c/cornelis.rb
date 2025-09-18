@@ -7,6 +7,7 @@ class Cornelis < Formula
   head "https://github.com/agda/cornelis.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "103d80490d25947c1dd3d7161b76f5b5a63845afc8c961a8d9664cc61a5d3f90"
     sha256 cellar: :any,                 arm64_sequoia: "bf400828f83abba48acb6c2ec8e25ed1e96917c925f213ab6d39c4113a53409b"
     sha256 cellar: :any,                 arm64_sonoma:  "d25401f92c4d9d180780f1230eb0ccf39b1b80974f12b9d248392e4a3aeea090"
     sha256 cellar: :any,                 arm64_ventura: "6ec7c5adf4a3de1e3f1bb14c16b8331a5ddea0e53e89e6a4fdfb3a7d9ee1acba"

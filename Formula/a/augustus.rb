@@ -10,6 +10,7 @@ class Augustus < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "41678b162c8b7a007c3cb62cbe8602a936809ff80dfa32eecf32e3d2f4c14dea"
     sha256 cellar: :any,                 arm64_sequoia: "06f498925823cbdedaf60204cf457f802100a392fa33e528c3b6d1997a01d5d8"
     sha256 cellar: :any,                 arm64_sonoma:  "400c79fab02d6b771cd3f56b416cedf97a478067275cefba4b6c00862702a68a"
     sha256 cellar: :any,                 arm64_ventura: "d0a38630e0aca7c3b35d567e92b5cb88cb21866f0e7a09301eaeeb214e83dc8c"

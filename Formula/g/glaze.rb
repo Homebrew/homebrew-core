@@ -1,12 +1,12 @@
 class Glaze < Formula
   desc "Extremely fast, in-memory JSON and interface library for modern C++"
   homepage "https://github.com/stephenberry/glaze"
-  url "https://github.com/stephenberry/glaze/archive/refs/tags/v5.6.1.tar.gz"
-  sha256 "05646118b21386f807b5713e00646e968d546455fde6605e97ccb22a3d24fb44"
+  url "https://github.com/stephenberry/glaze/archive/refs/tags/v5.7.1.tar.gz"
+  sha256 "c896ec90927a93ea43d33113ca2fd7b62961b870cb7fc12586cc865f335992f7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a31c040ebe3c28eb8ff134ffb7808d2adeaaaecc3220cd835bf1e81697929416"
+    sha256 cellar: :any_skip_relocation, all: "7d8fecf516e008d7fb99971133bb748a0651eb8c46ed9c6ab160870c08e1bec5"
   end
 
   depends_on "cmake" => [:build, :test]

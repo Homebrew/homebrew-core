@@ -6,6 +6,7 @@ class Libdbusmenu < Formula
   license any_of: ["GPL-3.0-only", "LGPL-2.1-or-later"]
 
   bottle do
+    sha256                               arm64_tahoe:   "c92c9254f0d9756a4383dd5fec928deb73760c083d07d4f2b77b753970be214e"
     sha256                               arm64_sequoia: "4be53eedb4aa1203f4b6d3e4df0504481f8346db6fc0f6e9e8a27bfbe6f52108"
     sha256                               arm64_sonoma:  "8846a649af9c8584a60204c64f1f83f0590dfdc6739626e77bf6300cec3849c5"
     sha256                               arm64_ventura: "39825e9c8c327dd481f21068e93082328e01d188d61fe87108178c259b6a0354"

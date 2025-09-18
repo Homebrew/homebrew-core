@@ -8,6 +8,7 @@ class Xrootd < Formula
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "26225e3fe52c022be5e96921f980974dba1209b9ab4d424e712547ee4177130e"
     sha256 cellar: :any,                 arm64_sequoia: "7dfcbbd225e831a72af32ddf2f6765f9f347ab5d24d8bf64dc2be29c2f56ac4f"
     sha256 cellar: :any,                 arm64_sonoma:  "edb1a3c719ca45f6e38d77361f2a6d8057539fde60d72206df6f7f4de60a89b4"
     sha256 cellar: :any,                 arm64_ventura: "683dae2860b90c1bb54f2105785d41b2a6627f1386aaca42ab16e9a316983e4f"

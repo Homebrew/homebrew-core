@@ -8,6 +8,7 @@ class Xprop < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "16498c5be35fa49d3fb077e47270d30e791d045f9ad1a6ec52b5e375168b56aa"
     sha256 cellar: :any,                 arm64_sequoia: "cdec0acd7bb65c8b5c8817d838fdfa701a0320d87eeb34297641c87c91724bf7"
     sha256 cellar: :any,                 arm64_sonoma:  "9a8151c37776a1282ef79d084ea8243b5c99cd2da8c48621f989126b8e9ef204"
     sha256 cellar: :any,                 arm64_ventura: "7d3563c7d7f8e2956fd53176cde7778a1fc5e1a5faf740980c5edfcff200684a"

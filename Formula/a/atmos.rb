@@ -1,8 +1,8 @@
 class Atmos < Formula
   desc "Universal Tool for DevOps and Cloud Automation"
   homepage "https://github.com/cloudposse/atmos"
-  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.188.0.tar.gz"
-  sha256 "f5c5a61abbb222c21d23e6be244e310506b38df75547448344e07ca6cf7a2bcc"
+  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.189.0.tar.gz"
+  sha256 "559eaf5c316319c06499cac2dd7efd29c83a8a86c35235e9f487a55e715f0af1"
   license "Apache-2.0"
   head "https://github.com/cloudposse/atmos.git", branch: "main"
 
@@ -14,12 +14,13 @@ class Atmos < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0213b32598d31ac40029c7ebdfba4520a32f89150aa7bbb531a02db505f4f85"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be97ad74894bacafc462cb762b16a5da6fcac87311660447357ca53031f7ec86"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5bbd5c851c4d2153841ab616622757c052eef8e4ec5147b174587202fea89f62"
-    sha256 cellar: :any_skip_relocation, sonoma:        "05408386c9c0030e8df7b9080387f0c936bd9da57fc9ebafe86c0a1e1a3e2a15"
-    sha256 cellar: :any_skip_relocation, ventura:       "9e36a2ea32c422cd130e3c7ad7fa6e25af4b0b77924fd0fdc660d5507281f690"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "632b360838fa17e8c38c7168200fbdb8753efbbae3b9d88efff28a0d406b25f3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ebeffca34f1351b902a51edf00824570734a4405fc3312d897e7c435107d024"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44375969db686dcd19bf8d4525af8aa533557eb06e7081ad7869c1be6f088650"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00d2a9a0527886ea22852d9bddf45e6bb2604184654fa1521bfe2144d1f0a8c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "61901dbf4420d15c9e17dd39a0b4c187f19d2e6a2a8d40eb507b5270bfe063ba"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fbc2adacf5738e0159891369e19c4eb2760cbbb69ddc3b7f12f04b3ca0e901f9"
+    sha256 cellar: :any_skip_relocation, ventura:       "66ff992b6a1fee98438ddbca859c30b993f8d17bb269be50fae2e78cbdc28e00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "949e6b7935182eeb2854960f11affdc68355288ecdeffab2308d4286ec159b70"
   end
 
   depends_on "go" => :build

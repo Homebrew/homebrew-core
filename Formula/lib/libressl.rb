@@ -13,6 +13,7 @@ class Libressl < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "ade979e7704f2e16d9fa5522e1fc70503b0aff8ee799773364f3c82718c1afec"
     sha256 arm64_sequoia: "d9e0e7a03efef02ecc9d4a4e61964dd5560fee9c3f75cd2d2898539ff21a9ae9"
     sha256 arm64_sonoma:  "96c53ee52ddf5eb1343d1971702b59e6418a0b9e7a2c7bd065e01a6a7a8084e1"
     sha256 arm64_ventura: "ff910b656712bbfac05e5b3c415ac2a095bfc1a0b5e2fe63d9ae17d08c4db1f7"

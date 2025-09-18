@@ -9,6 +9,7 @@ class TerraformIamPolicyValidator < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2e87a80e32f40a6a73f2ee025c1d7f74ff11029b1707b5b2cf6ffddb0f34a65b"
     sha256 cellar: :any,                 arm64_sequoia: "ea44c5c12ecb377b985e966cdf9b4fb78d667c1afc8551eb404604fd3f0b069c"
     sha256 cellar: :any,                 arm64_sonoma:  "6fcafd350702b3d9cf103ce0ececd465cdbd535651c7d451b6b7f2194ca86d2d"
     sha256 cellar: :any,                 arm64_ventura: "60288f1c4b5c0a447e6b0b758776c8ade162a89bc64a91c69f82f7648a637bb4"

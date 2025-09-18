@@ -11,6 +11,7 @@ class Bit < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_tahoe:    "82201904fa2ec0416232bc8e3fa85b60945f07b58dbfa69566c800c96947fb7f"
     sha256                               arm64_sequoia:  "591d452238af32826df679aa962d6ce755294473c450bc5118dfac9e50a552f8"
     sha256                               arm64_sonoma:   "b69b3a7ba901fd29b6ef35d47b7248a4219b55336ad1cf04dd2f5cd8268387b8"
     sha256                               arm64_ventura:  "37e5de52910eb4d93ff0d8c1d4348b8d1131b691af23ec0db82be76ba32a6417"

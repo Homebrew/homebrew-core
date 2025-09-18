@@ -6,6 +6,7 @@ class AwsCHttp < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8cca92c4d5086717f47b435e9c1e84326fe6b34da77cf85a2bc1f33dce23bb9b"
     sha256 cellar: :any,                 arm64_sequoia: "cec7565de8a08f245026dd494d762ba9ed18cdfa0a08c8c8014944de80f4eb27"
     sha256 cellar: :any,                 arm64_sonoma:  "c8ab8457cc2eaae759295a4c452948bd650e2273249f6e7b5945e5fe6ccf96c3"
     sha256 cellar: :any,                 arm64_ventura: "d2ed6fe9f71a60625198883937088f75d593463acc2dec9d5367a717f353568d"

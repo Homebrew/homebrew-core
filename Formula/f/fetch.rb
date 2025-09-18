@@ -9,6 +9,7 @@ class Fetch < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "67c1c63e303407f85f811013248bd0ea071b7f387cf941104d770e3c14c90d70"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e8f939d5d6749844ca829cfb0cca8512c1e454fbb01659c0d2c0e61ecf8f6e8e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a21b760276b6a748ecb20263b36dc40911a174d471667307aca3f7f9457d440"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9f3c901ec977773483320bd408f284ced92de106232b45469a5e1c241acd7a9"

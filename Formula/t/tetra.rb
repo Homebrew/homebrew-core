@@ -11,6 +11,7 @@ class Tetra < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "881f02e7be25b0ffe0f593d3bbf38995d764c35b6f456ecec08b435978658028"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed4dd69b9e35173548e777e7a543f34f142476786438e4ce654678f0ed2e956c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2af33537c5eda675a767bed836005c6cdaa3da2341eb6c16882db89538bdec7e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "430b8a8ad4b0efaafa7093f166301a7d0337157b8c5c024fe62ef3504f287afb"

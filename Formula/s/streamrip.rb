@@ -3,19 +3,21 @@ class Streamrip < Formula
 
   desc "Scriptable music downloader for Qobuz, Tidal, SoundCloud, and Deezer"
   homepage "https://github.com/nathom/streamrip"
+  # Some of test dependencies should be removed, so they are added to `pypi_formula_mappings`
+  # PR ref: https://github.com/nathom/streamrip/pull/886
   url "https://files.pythonhosted.org/packages/b8/c9/6997772e0217f3081e4e692c7b8b104aaa564c008f2593341e81bbbd2396/streamrip-2.1.0.tar.gz"
   sha256 "e59b4b406f9ac77eb59c927a1a082644e0902152ffeb6212b6b24af7fbef5540"
   license "GPL-3.0-only"
   revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f46428542193a89f3ca32368a2cbe6fefbfec0926b6406d2aa6f447c4fe01062"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bfdc817ef51fffb1902e31b3c77d1b5fddc5318d803993c30670316e0aaf1246"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3eff5d17f009e053d14c6b756bfd808d42346341defe5668e01a2a73f06d5970"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1aacfc97504f040cbd6e388c325ea7d96d46f12964c31185203c4332fac76d28"
-    sha256 cellar: :any_skip_relocation, ventura:       "9fce41b69a7a47b007819198d6448770ff4efa2ca245a29465dba3867ed6bc6a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf123a82216e35d61ece995012ee0fa0d308784b9663021635242e6a4979f5aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db1bb98ca7e150ea709d567afc7e21a230d450aab629f6394d050848d90e92a3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7af036125a4684c7b581aab46c94e61307acf46aeebd6e17455fc9d02f4f2ce4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "960d1952e5b0ce4bd3dae1c9b035556cab17ecbac0969fbbcd1802f606c94e99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3cd3089afcc87dbfbb0f557f3ddf153560b51ebcb67497da8b3143518ddd29c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6faf0e90c4e7cdd9d5645628f5bf3ad7f15a85a65da21d63db0515e583a82082"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c9f9fc96bb7283383c364017b3d4c18e23346b6e741166bf46e4de6cccd5f39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61bf1094db3367d49589b3fd9e6d0376c43f7f72ef54ebd07775995c03a60eab"
   end
 
   depends_on "certifi"
@@ -66,13 +68,13 @@ class Streamrip < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
-    sha256 "1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824"
+    url "https://files.pythonhosted.org/packages/eb/56/b1ba7935a17738ae8453301356628e8147c79dbb825bcbc73dc7401f9846/cffi-2.0.0.tar.gz"
+    sha256 "44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "click" do
@@ -116,8 +118,8 @@ class Streamrip < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
-    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
+    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
+    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
   end
 
   resource "mdurl" do
@@ -126,8 +128,8 @@ class Streamrip < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/3d/2c/5dad12e82fbdf7470f29bff2171484bf07cb3b16ada60a6589af8f376440/multidict-6.6.3.tar.gz"
-    sha256 "798a9eb12dab0a6c2e29c1de6f3468af5cb2da6053a20dfa3344907eed0937cc"
+    url "https://files.pythonhosted.org/packages/69/7f/0652e6ed47ab288e3756ea9c0df8b14950781184d4bd7883f4d87dd41245/multidict-6.6.4.tar.gz"
+    sha256 "d2d4e4787672911b48350df02ed3fa3fffdc2f2e8ca06dd6afdf34189b76a9dd"
   end
 
   resource "mutagen" do
@@ -156,13 +158,13 @@ class Streamrip < Formula
   end
 
   resource "pycares" do
-    url "https://files.pythonhosted.org/packages/e0/2f/5b46bb8e65070eb1f7f549d2f2e71db6b9899ef24ac9f82128014aeb1e25/pycares-4.10.0.tar.gz"
-    sha256 "9df70dce6e05afa5d477f48959170e569485e20dad1a089c4cf3b2d7ffbd8bf9"
+    url "https://files.pythonhosted.org/packages/8d/ad/9d1e96486d2eb5a2672c4d9a2dd372d015b8d7a332c6ac2722c4c8e6bbbf/pycares-4.11.0.tar.gz"
+    sha256 "c863d9003ca0ce7df26429007859afd2a621d3276ed9fef154a9123db9252557"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/1d/b2/31537cf4b1ca988837256c910a668b553fceb8f069bedc4b1c826024b52c/pycparser-2.22.tar.gz"
-    sha256 "491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6"
+    url "https://files.pythonhosted.org/packages/fe/cf/d2d3b9f5699fb1e4615c8e32ff220203e43b248e1dfcc6736ad9057731ca/pycparser-2.23.tar.gz"
+    sha256 "78816d4f24add8f10a06d6f05b4d424ad9e96cfebf68a4ddc99c65c0720d00c2"
   end
 
   resource "pycryptodomex" do
@@ -175,24 +177,9 @@ class Streamrip < Formula
     sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
-  resource "pytest" do
-    url "https://files.pythonhosted.org/packages/08/ba/45911d754e8eba3d5a841a5ce61a65a685ff1798421ac054f85aa8747dfb/pytest-8.4.1.tar.gz"
-    sha256 "7c67fd69174877359ed9371ec3af8a3d2b04741818c51e5e99cc1742251fa93c"
-  end
-
-  resource "pytest-asyncio" do
-    url "https://files.pythonhosted.org/packages/ae/53/57663d99acaac2fcdafdc697e52a9b1b7d6fcf36616281ff9768a44e7ff3/pytest_asyncio-0.21.2.tar.gz"
-    sha256 "d67738fc232b94b326b9d060750beb16e0074210b98dd8b58a5239fa2a154f45"
-  end
-
-  resource "pytest-mock" do
-    url "https://files.pythonhosted.org/packages/71/28/67172c96ba684058a4d24ffe144d64783d2a270d0af0d9e792737bddc75c/pytest_mock-3.14.1.tar.gz"
-    sha256 "159e9edac4c451ce77a5cdb9fc5d1100708d2dd4ba3c3df572f14097351af80e"
-  end
-
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "rich" do

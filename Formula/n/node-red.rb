@@ -6,6 +6,7 @@ class NodeRed < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "92426e456a2cff17e0ffb68a0f22741ec46eda426821a3e69ac2ee4abf888be8"
     sha256 cellar: :any,                 arm64_sequoia: "70289e1f5a704255618d780aa3a6c6a326716ff6ffec20bb56a635158e50aae2"
     sha256 cellar: :any,                 arm64_sonoma:  "70289e1f5a704255618d780aa3a6c6a326716ff6ffec20bb56a635158e50aae2"
     sha256 cellar: :any,                 arm64_ventura: "70289e1f5a704255618d780aa3a6c6a326716ff6ffec20bb56a635158e50aae2"

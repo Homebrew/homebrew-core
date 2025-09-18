@@ -6,6 +6,7 @@ class P7zip < Formula
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2490c82b53fc8b7c05e11e5f365f525dea28ce760b58d71eee5e5f263e3bdbbd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "369d3a03a92f93bac16dd14b0a0bdfdd89ca55acbd503a5df2e6bb5db090570a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "23da67120f4a22b34c56bf6ab2cae4283088eb5ad1a78a79addbb4a2a499f7c5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f660dc57664af754240e077dd1ed79f78505f40d62ca41630955d0320590a75e"

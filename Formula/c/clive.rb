@@ -7,6 +7,7 @@ class Clive < Formula
   head "https://github.com/koki-develop/clive.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8bf93938b8417fe91fd0d1c4dea2f6f40169312ff799762fdf766351255cf76d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0efb833acc587e9eca0686e5bd863a247c572c108a426f8006de5e6a4b399cc8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0efb833acc587e9eca0686e5bd863a247c572c108a426f8006de5e6a4b399cc8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0efb833acc587e9eca0686e5bd863a247c572c108a426f8006de5e6a4b399cc8"

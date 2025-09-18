@@ -8,6 +8,7 @@ class Entityx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "83a257bcf2bbc1ca76e5148faf1a87945d4e987c575c12d3e6417cce65642a1c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e9581dc9272c4aea13b72c38984aa2697cd705083fe55fc96a3b313402428cc3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd01d453db532186781c5808a3a6f2f7e5c3ea91e83d3c7726426f196c8a66df"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7573dbd39afa2fca718f2a0ce4167331d3662f6a287edaba5d5ba1f5158cfae0"
@@ -18,9 +19,6 @@ class Entityx < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "72a593af59ba34b81679888bd0adb7adcfa32ea0d3078310a79f10f21a8cce1e"
     sha256 cellar: :any_skip_relocation, big_sur:        "0903e4a1357f44fa18f23b7d7223757e8047f28b8ce4d3e83f6334ea5ade720c"
     sha256 cellar: :any_skip_relocation, catalina:       "8e0e5b8ed56eaca89dadc59a78ede051c1f6eded8b7a9996fe33393e4d14bd0e"
-    sha256 cellar: :any_skip_relocation, mojave:         "5d2b3d80d9be39b08b61003fe0f8c30bf8aec792636b78e475fbbbb55d3e01a7"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b015609cd7e4ad7154e846a34e91627a605983ab3e3f1767df5ccf7e46cc9d10"
-    sha256 cellar: :any_skip_relocation, sierra:         "d0ecde656ac88f1f312d69894a32330827cd52ac64a7e20d1357a0a9bbe8d596"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d74139c6a3a5340831984319a46e10d0276b604a675d38c1cace40cd0329966a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ad5714ba0a1eb7c6929c02e05359f7b2f81a0389c867a1c1a98b07d1a0a14af"
   end
@@ -32,7 +30,8 @@ class Entityx < Formula
       -DENTITYX_BUILD_SHARED=off
       -DENTITYX_BUILD_TESTING=off
     ]
-
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

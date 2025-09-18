@@ -13,6 +13,7 @@ class TailwindcssLanguageServer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ff46bfa5fb3d8475d51640f590837e78ef88a4ecb70fd4abdc370614313bd23b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "19d3d062fd2908486d1f9b6d416912f54c2bff349810af41907cd49429790989"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19d3d062fd2908486d1f9b6d416912f54c2bff349810af41907cd49429790989"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "19d3d062fd2908486d1f9b6d416912f54c2bff349810af41907cd49429790989"
@@ -22,10 +23,15 @@ class TailwindcssLanguageServer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5138ce9a6456ad60769d0cd3b01e63633e0c27b4212cb735ceb80fa7c9c2617"
   end
 
-  depends_on "pnpm@9" => :build
+  depends_on "pnpm" => :build
   depends_on "node"
 
   def install
+    # Prevent pnpm from downloading another copy due to `packageManager` feature
+    (buildpath/"pnpm-workspace.yaml").append_lines <<~YAML
+      managePackageManagerVersions: false
+    YAML
+
     cd "packages/tailwindcss-language-server" do
       system "pnpm", "install", "--frozen-lockfile"
       system "pnpm", "run", "build"

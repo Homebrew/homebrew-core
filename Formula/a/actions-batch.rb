@@ -9,6 +9,7 @@ class ActionsBatch < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "59536a5a9f181ae349d14c6c2b55d6a8e022365f1ae425321e6ceccb43d9f4b5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "275c7fbcf663d2acb91d05bde500b7138a1cb7f5df5f1247c887ca7bbe823019"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c3348aebf7b7b6c6645d01cd1348a976f6225e30a1669d147af6629fc93f131"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "30e6fab61cadce4dc40248d1a17884dbfc0595e1ef06108f9375988b1bc87e6c"
@@ -36,6 +37,6 @@ class ActionsBatch < Formula
           "--org=false --file #{pkgshare}/examples/curl.sh"
 
     output = shell_output("#{cmd} 2>&1", 2)
-    assert_match "POST https://api.github.com/user/repos: 401 Bad credentials", output
+    assert_match "failed to create repo", output
   end
 end

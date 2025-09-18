@@ -8,6 +8,7 @@ class Gnmic < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d935715db6f289a692489c03ad062bc856d5d1d3456607e79fc50d625269f2a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fcd24eccee10681afac6e6521019b46888d04ec6407f9f490afacd8d96fef3a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5fcd24eccee10681afac6e6521019b46888d04ec6407f9f490afacd8d96fef3a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5fcd24eccee10681afac6e6521019b46888d04ec6407f9f490afacd8d96fef3a"

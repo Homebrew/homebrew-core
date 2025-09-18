@@ -7,6 +7,7 @@ class Licenseplist < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a3d29de5e06caab7668af33fb9b3317de75946a3954a7a9193c0ad8c3714fad4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e54f055c3e29a8aff0f85e950ab1c020a754f0aef9d0cc611dd2ce5805043e68"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0b3dcfa0ba7517e413f75da4cc7599fb5e5dd537d6b97441d1c588bd87cfbeb"
     sha256 cellar: :any,                 arm64_ventura: "8c21ddfdff8381555f285a561c3f510c7ab4fbeda13888fb9f33b0f10846d85a"

@@ -12,6 +12,7 @@ class Simdutf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "eb8161f0c3bd6dd9deb0770ff3a49101c89fcfd113f092dadff0ac6fb0c4af2d"
     sha256 cellar: :any,                 arm64_sequoia: "1b009aa16671a4895fc41e373b24a4d2caee80427caf178209a631c1341e9161"
     sha256 cellar: :any,                 arm64_sonoma:  "6a1aa7199d23529c22da6a71912dcd39c03bfecb983e7a7a8b9e737281bb3e98"
     sha256 cellar: :any,                 arm64_ventura: "9966ecbc52b8d2dc3be7eabadcd0db28be035651681bd1f351f72ccbcd3c9ed2"

@@ -15,6 +15,7 @@ class Rpm2cpio < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2b5ac7e3d1f3d9db020bcf348931d3cb37930be23799168ec15b84fce0a8b9ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57971030692fdb6757848c6febbfa2ee6b331287482019e45760328de8e03720"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cfb382b55ce5155b2313bade20f110e59d9617e0d3ecedacb8d32e587800595d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "25a31e16c6737137ab53e8c0768be89309f77d78e8ebb2a4ecf2a3bc9e1ee8fb"
@@ -39,11 +40,11 @@ class Rpm2cpio < Formula
 
   test do
     resource "homebrew-testdata" do
-      url "https://rpmfind.net/linux/fedora/linux/releases/39/Everything/x86_64/os/Packages/h/hello-2.12.1-2.fc39.x86_64.rpm"
-      sha256 "10f9944f95ca54f224133cffab1cfab0c40e3adb64e4190d3d9e8f9dbed680f9"
+      url "https://github.com/github/gh-ost/releases/download/v1.1.7/gh-ost-1.1.7-1.x86_64.rpm"
+      sha256 "9e7c91d07ccae51c653252b8c58c148032f3785223bfa8e531eba81aa912b71a"
     end
 
     testpath.install resource "homebrew-testdata"
-    system bin/"rpm2cpio", "hello-2.12.1-2.fc39.x86_64.rpm"
+    system bin/"rpm2cpio", "gh-ost-1.1.7-1.x86_64.rpm"
   end
 end

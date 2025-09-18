@@ -7,6 +7,7 @@ class Berglas < Formula
   head "https://github.com/GoogleCloudPlatform/berglas.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "33f45ad747d7be2e840d6befa7de18a8f9fe1b71d1a7b707f68c454b8f87dd11"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bacaef230bd9189cece3229c9ae695c9a38547e0cf7bcff8d38d993de445f437"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bacaef230bd9189cece3229c9ae695c9a38547e0cf7bcff8d38d993de445f437"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bacaef230bd9189cece3229c9ae695c9a38547e0cf7bcff8d38d993de445f437"

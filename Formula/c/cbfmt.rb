@@ -6,6 +6,7 @@ class Cbfmt < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8a548edda1fc0d3a727eee4b0a49e3a88d38ec88b2ac5c9108d5ccc449223954"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "19d661d5df158a765e9d9103ffa76a63d069106a79da5e96425cb3f7860cc054"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9450f078799be6460d360bddede919f33f4afcf8480f951edadc5d93ad2b9887"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cd536fee66c066b0027da4659d5b7e6ec316a98545fbc84b00a6833d919d2e78"

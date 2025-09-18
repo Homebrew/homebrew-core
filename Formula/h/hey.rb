@@ -6,6 +6,7 @@ class Hey < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d874103a6d01bbf42d67d751f9f8b88c49d75f3051bee0b1b9c7e164aeb1f156"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "11d051b5a740c4932cdbb39fa8e3abb465b499b0dd24831b0649fc37fb9da5a2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7240c725e9276fc11ea1a59f748219c34b26ef36fa299644cc676ebd459b92ca"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "04967df199323ca6ba0df1731c05185bdba45fb9379369608e2ba43806f6bf40"
@@ -16,8 +17,6 @@ class Hey < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "55e5e3fa15f75e97aae934d9e86319d54af49275eef765241b05415e608c2791"
     sha256 cellar: :any_skip_relocation, big_sur:        "4a743f02a2abfd8fa424bb9ddc8b65ba3633f6b3b7b216da6763a5fe95c10501"
     sha256 cellar: :any_skip_relocation, catalina:       "972cc3f6a520467db11ab9cef3aa5311c6813c203c23bb0173363a00a45cfc07"
-    sha256 cellar: :any_skip_relocation, mojave:         "af9934ac04900c142879a97bcc9b376e25f4928239c0bb9bd68fdad0e4174ead"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "67fbe5a4b3574ea9025607e02b56c49572d4f184bcf1ae49fb5cb3eb05ede26c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5454552b0eb8d412645a0a5211b0566a41d13fc238149177bfddea36ace56e4"
   end
 

@@ -8,6 +8,7 @@ class MacCleanupPy < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f0bb26ef3c0e0a28523e9c540fa7b55281ed15851399654be5960ee2d66cd17"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "716ed31b2258fef6b806585e6be1fc423e497a8b3e5cab79639c5335d45d0f92"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "715f0d61a02a00e905fabaeb05d417e1ca80b5b01f9dc8ce4feca4e90aeaf189"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a8749860f79b1419cf473a2dd99ca883a9896ffad05ed63a61464a1a4248df47"

@@ -10,6 +10,7 @@ class Vroom < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "329045c3316d3e16c16a145b645c51070f0b88bc114336e0816ffea599dbf486"
     sha256 cellar: :any,                 arm64_sequoia:  "1c0df6c3a21095891a7cbf1508accd44318e83734b741b0ebc9aea5e99b61cd7"
     sha256 cellar: :any,                 arm64_sonoma:   "6165a7cb235b8a0bc6e57479ec80257751698945e9a4b699115d3163fa1a0add"
     sha256 cellar: :any,                 arm64_ventura:  "0c57cf1a0b33c08327c768bf70580b3c9687fa18694466965b8d3f2e794f9093"
@@ -25,8 +26,11 @@ class Vroom < Formula
   depends_on "pkgconf" => :build
   depends_on "rapidjson" => :build
   depends_on "asio"
-  depends_on macos: :mojave # std::optional C++17 support
   depends_on "openssl@3"
+
+  # Apply changes from open PR to fix build with newer Asio
+  # PR ref: https://github.com/VROOM-Project/vroom/pull/1279
+  patch :DATA
 
   def install
     # fixes https://github.com/VROOM-Project/vroom/issues/997 , remove in version > 1.13.0
@@ -55,3 +59,49 @@ class Vroom < Formula
     assert_equal expected_routes, actual_routes
   end
 end
+
+__END__
+diff --git a/src/routing/http_wrapper.cpp b/src/routing/http_wrapper.cpp
+index 474de70e..80d0131d 100644
+--- a/src/routing/http_wrapper.cpp
++++ b/src/routing/http_wrapper.cpp
+@@ -37,14 +37,12 @@ std::string HttpWrapper::send_then_receive(const std::string& query) const {
+   std::string response;
+ 
+   try {
+-    asio::io_service io_service;
++    asio::io_context io_context;
+ 
+-    tcp::resolver r(io_service);
++    tcp::resolver r(io_context);
+ 
+-    tcp::resolver::query q(_server.host, _server.port);
+-
+-    tcp::socket s(io_service);
+-    asio::connect(s, r.resolve(q));
++    tcp::socket s(io_context);
++    asio::connect(s, r.resolve(_server.host, _server.port));
+ 
+     asio::write(s, asio::buffer(query));
+ 
+@@ -86,16 +84,14 @@ std::string HttpWrapper::ssl_send_then_receive(const std::string& query) const {
+   std::string response;
+ 
+   try {
+-    asio::io_service io_service;
++    asio::io_context io_context;
+ 
+     asio::ssl::context ctx(asio::ssl::context::method::sslv23_client);
+-    asio::ssl::stream<asio::ip::tcp::socket> ssock(io_service, ctx);
+-
+-    tcp::resolver r(io_service);
++    asio::ssl::stream<asio::ip::tcp::socket> ssock(io_context, ctx);
+ 
+-    tcp::resolver::query q(_server.host, _server.port);
++    tcp::resolver r(io_context);
+ 
+-    asio::connect(ssock.lowest_layer(), r.resolve(q));
++    asio::connect(ssock.lowest_layer(), r.resolve(_server.host, _server.port));
+     ssock.handshake(asio::ssl::stream_base::handshake_type::client);
+ 
+     asio::write(ssock, asio::buffer(query));

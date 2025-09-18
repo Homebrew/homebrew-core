@@ -1,3 +1,5 @@
 [
-  "meson"
+  "davmail",
+  "meson",
+  "rabbitmq"
 ]

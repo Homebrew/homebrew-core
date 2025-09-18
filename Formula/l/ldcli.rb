@@ -1,19 +1,18 @@
 class Ldcli < Formula
   desc "CLI for managing LaunchDarkly feature flags"
   homepage "https://launchdarkly.com/docs/home/getting-started/ldcli"
-  url "https://github.com/launchdarkly/ldcli/archive/refs/tags/v1.16.3.tar.gz"
-  sha256 "0b09f76f9ba43a406a03b23b43d083f8d55dcd17682e2b02c70c87cf211ce23c"
+  url "https://github.com/launchdarkly/ldcli/archive/refs/tags/v1.17.1.tar.gz"
+  sha256 "29d6735dc5c04cfa9d9c919d4ab5e81aa845b8ac9cddab51943de4c280d4f227"
   license "Apache-2.0"
   head "https://github.com/launchdarkly/ldcli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0b2c67fcc903724f1250270bbaf6ba773e4e6084ad5c4ea99b707e5276a45f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5cfc94f1d329ed51d4170813d0544f614d10994b7460a934a26ec3ea6755d8e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8dc6960d06d8d1bbfa035e52c63e22b80d5ccfa675b89799aec126826837eeb6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "add52184129ac3a81709fa346e596833e169073b3f0081231571c2d357d39189"
-    sha256 cellar: :any_skip_relocation, ventura:       "341a3eea5290f3862f91604764c1975206d815fd7878e16c4a9923c37baa7a6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ecb94024f6ff94dab422edef921fd9e92ddc2ca57e207a5c05f757438ceb01f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cdc8ee4f04cdf4f2931735126a1fefa4b2e283adca6a6359c0488cbe6df9a89"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec1b1867320ba9032ca9c32aa8394b0baea12301ec70d8c6d5184641fd91196a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c732db99cf58e37b5cda28b4917d1ec6a7b6dd8b7869e15f626d0fd9122b6bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00bafd0f811459c2403fa6d152ddbba2c4800859bcc0695b8158b92850531e16"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58b82fe075d19e85212f8126e539304fe02974f9b4677251efb7e537e5ff6c6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "807f4ff4a5ce637d226b604acf5e77df1d4c7a9caf72ca58f3c971001bf8a3ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8181615a977912bf099cf8fb7e9b9d961366b457c94450ea89b332ed6424bde9"
   end
 
   depends_on "go" => :build

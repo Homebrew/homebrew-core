@@ -6,6 +6,7 @@ class Souffle < Formula
   license "UPL-1.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5811b6c5a6bf21ff0491e577590568243072a1431adc517a7880106785e9ebd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2bc7684a7337a00f830ce5d496f15b06e3870a2416737cbd791cb50e399d9c3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1df31eac00a747cd74fd31aff745ab4164362cbc737d53264d2b40178a3c2cb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "29f023e79b7d2fe1310378dcad026608895475880f80bc050131ea48842a93da"
@@ -19,7 +20,6 @@ class Souffle < Formula
   depends_on "cmake" => :build
   depends_on "mcpp" => :build
   depends_on "pkgconf" => :build
-  depends_on macos: :catalina
   uses_from_macos "flex" => :build
   uses_from_macos "libffi"
   uses_from_macos "ncurses"

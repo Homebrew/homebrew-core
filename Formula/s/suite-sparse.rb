@@ -18,6 +18,7 @@ class SuiteSparse < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "1ecf096ad33ac762eb745bc3fd2dc8dd836140827effd5603a56ef3c22a3c9c0"
     sha256                               arm64_sequoia: "ceeed1f94c9f421e9d6899fe7967f8789ff00018a0cd7393eda790369a270997"
     sha256                               arm64_sonoma:  "0bee9c1624927fa5a9ae3fd4ef09d6b9f5295dde255cbe6084bf4455e1c34f20"
     sha256                               arm64_ventura: "d8dc9f85929925f774adcb7923c9be250465f3cf56b59f7e1f93951b2353d184"

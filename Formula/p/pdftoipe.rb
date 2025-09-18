@@ -4,18 +4,19 @@ class Pdftoipe < Formula
   url "https://github.com/otfried/ipe-tools/archive/refs/tags/v7.2.29.1.tar.gz"
   sha256 "604ef6e83ad8648fa09c41a788549db28193bb3638033d69cac2b0b3f33bd69b"
   license "GPL-2.0-or-later"
-  revision 9
+  revision 10
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ed94bc27eb50abd1d26f87f1bc337a2b5e5a140fff2f70107b08f006e5ea2acf"
-    sha256 cellar: :any,                 arm64_sonoma:  "18e195efc314c9dc1e7a9e1b475bfbb4bd361df174581d163804104d39be1462"
-    sha256 cellar: :any,                 arm64_ventura: "49ff25edfb33a44913bb85e9f20e3bfc936be343d86cc12aee5df970840fd55d"
-    sha256 cellar: :any,                 sonoma:        "f429467885c0a41c935825dfb0d07499b6e131afff692d084317e007f832019c"
-    sha256 cellar: :any,                 ventura:       "5bf14a63b818d2ea655e377496219c76c452b13ccae397f876534cebf0289f17"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddc0db1a2f7030543e3bfcdf7df0d35648e708292909de088710f60065359f98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7452da1820d0fc3da9de95a86a115501c96b5b7bda339dcd8b04c3524c475d5d"
+    sha256 cellar: :any,                 arm64_tahoe:   "963700600ea943f69ca9c77a5efa04ffb52e0e82b68de64aec105dc337e14fb8"
+    sha256 cellar: :any,                 arm64_sequoia: "4cb6ee7067d29c1ec17a192f6cbd6d756ed510bd8dd932bfc8511b7a696e8fdf"
+    sha256 cellar: :any,                 arm64_sonoma:  "e761b956dcdaa5d5e5d43044662b07289c0bc8fceb78bb60dc63d05c9e6d8c32"
+    sha256 cellar: :any,                 arm64_ventura: "f94a45d24f66f8be3f5253c3e03269fc936f80fe8cbf76940eaea6473364a7ef"
+    sha256 cellar: :any,                 sonoma:        "9f49c005530ea59eea9bda4aebfc246096683253bb33673db030b14a7efcb081"
+    sha256 cellar: :any,                 ventura:       "eb3372709225584047545555b56b398589d9274a201e4574fa3804928a2ae27c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04b3ee07a0a7b043e6987109e113f5c4e23c0cc9f7750383ceb2e0e27614fe34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "141da3c9bc5dcabd8a8162aefdc037978c18abf412e3ced84e1aaf9747240216"
   end
 
   depends_on "pkgconf" => :build

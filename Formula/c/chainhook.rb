@@ -12,6 +12,7 @@ class Chainhook < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4e136b469e884c9fabfd7d76b71d162f5fd42859f549a77353bcbdd62155b38"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "82ff4a5ec7b4aa312786066af2837d17fc1b0ed2d330f48edb953507f533eb28"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "beb89ff5c70e198adff8eab6d5df70cb71dfd23880b1180159734603622caf58"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "152b922139083becc46220117c5e0d231c350aaf45f26d64364cad7dfe084d41"

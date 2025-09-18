@@ -12,6 +12,7 @@ class Apigeecli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "57c2556b00eb777937d415ea3811dc4513d9720aa802ade9bd3f334242fe1d12"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "aac81227cb1e280fbf97595c00f672bfd90c1af49d32b3fe150efcda09a91462"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aac81227cb1e280fbf97595c00f672bfd90c1af49d32b3fe150efcda09a91462"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "aac81227cb1e280fbf97595c00f672bfd90c1af49d32b3fe150efcda09a91462"

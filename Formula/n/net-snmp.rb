@@ -14,6 +14,7 @@ class NetSnmp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "34b4f0cbacf3987de86686ef84d7de0ad8fe4934c2d7f9d352df3ac1933d2a33"
     sha256 arm64_sequoia:  "fdeaf56a79dfe93f7ed48765a26f6b34f030f1a0d96950410c7c4a3100eb0e7f"
     sha256 arm64_sonoma:   "9d0ea2f793065eab2cb7c858d5926bb9ec40dfd0460a31c4d9f09932ae1c2455"
     sha256 arm64_ventura:  "8d1f5f1b9c27087c08b7fb17c97445d925c7c0afa77e4939979778ca9fc39fa4"

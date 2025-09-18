@@ -9,6 +9,7 @@ class Imgdiff < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "245066f106ba02042598e6735c482b506b45f82be5e583ee83f39c2afe5afcc8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "353d0253fe941d4505520098a05f9be091e7c4cdd1ce77dd192f20b4021df88d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dde33cc03e6e8eabf007303fb1fbc66c6b84675d6397df4cce9d1c7540a7ce0a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "942f3a737f90c494847592442d17fd383991ed92169fb96a5790ad689e519c6c"

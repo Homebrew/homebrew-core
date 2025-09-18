@@ -12,6 +12,7 @@ class Gomplate < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b58508f75f9246edc00686759e9f5e6742830fd426225438d7426f3b42bc7579"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a8700eac00d73546e47d3e0b0d0dd30de1dd196a74e34c0a155501cef6e180b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbe5d9228796ed7b924946237b59ecaf33082c9fe243e58db17d1a00d401f3e1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "592498b49bf2e7f61dbc0dfc7d1ba6fac6b36858f145eaf3a70802d11a423267"

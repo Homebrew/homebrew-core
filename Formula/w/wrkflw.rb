@@ -7,6 +7,7 @@ class Wrkflw < Formula
   head "https://github.com/bahdotsh/wrkflw.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "69a89d22d620589197a0d171fcfd9f43fc051bf5c9327d6d6b30f3cb1ed37e1d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d28b3cab440b33149ce174545b7452a7913896b09ff1875cea6a2f4114a74df"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "705408d42ef5cebc82f325123dcf12cf11b574d8b8cc0fef54522109e78a0074"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4b3306cee6b182cc2fd1655b10f1cf19c92105acd1fff6e317d2e15f1878ce9b"

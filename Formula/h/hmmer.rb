@@ -13,6 +13,7 @@ class Hmmer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1f42eea650a3ca55ba74920ce46d7e9cc019f203881097a0ee7978516c867f44"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3342dd2de2909df5053dea525398b3e3902b07a1d58dab35a940bb7bf77b877b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f0b23b02bb7bf3113ad01b32f5410ad7e1aade6186e5b54f788bc4c5345ea7d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6285afc40e6975a1c8c0def48bc621e91801995481683954e580529fe4a5ae2a"

@@ -14,6 +14,7 @@ class Irssi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "93d6623c013c8a0706babc77ef4d9991da385e441db4cdabe08ef916008e6b94"
     sha256 arm64_sequoia: "9f640f1d64cf5331669a1f872ef3f797d4c4360015bba172c9b2ce4c48412453"
     sha256 arm64_sonoma:  "ca992d7b5d2a8af9a75712670cacccf4910fa7c706e39169037a1c957ca314f1"
     sha256 arm64_ventura: "618eb4e0270a79ba93e8a11a190c9650cbf274fb25b029b57c306c236ec68d07"

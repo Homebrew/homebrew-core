@@ -10,6 +10,7 @@ class Idris2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "f5e5cc3302f7a0715a8b5c771900705ed85f7f11613b6d1bfe3cd9c0c1b68418"
     sha256 cellar: :any, arm64_sequoia: "f2e9a79eac9603493e64a21505f127cc98d64e418b5fbfd82ed02a9144b7dcb5"
     sha256 cellar: :any, arm64_sonoma:  "5b85059f83fe007bbf8de891999e16da762694cdec97ba66ad304f65c9a6e149"
     sha256 cellar: :any, arm64_ventura: "0a53ba9dcbb69069d2dcfa18c41a92507f950b7cba74e805f10be724e10cafcd"
@@ -21,10 +22,6 @@ class Idris2 < Formula
 
   depends_on "gmp" => :build
   depends_on "chezscheme"
-
-  on_high_sierra :or_older do
-    depends_on "zsh" => :build
-  end
 
   def install
     scheme = Formula["chezscheme"].opt_bin/"chez"

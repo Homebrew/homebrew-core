@@ -14,6 +14,7 @@ class CernNdiff < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e193003d9dc156d3c9f2740ace0ca73ce36299ef0de327abadf3d8a971235186"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9d45e67a3d9f934e921d76dccfcbb31f4b1b3af041dac06b4505cdc4bae2fe73"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "89e85cfeaa7bb36ccf6c86e8e8cd1c969656c81ee54f73a4b544d47b4d9ef04d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9951fa4368100f6c4d2b600e7da2d15c3c1c4031e94666fa822f935502251afd"
@@ -30,7 +31,9 @@ class CernNdiff < Formula
   conflicts_with "ndiff", "nmap", because: "both install `ndiff` binaries"
 
   def install
-    system "cmake", "-S", "tools/numdiff", "-B", "build", *std_cmake_args
+    # Workaround for CMake 4 compatibility
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", "tools/numdiff", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

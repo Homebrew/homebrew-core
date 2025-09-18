@@ -7,6 +7,7 @@ class LibspellingAT02 < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "801f32a325683e391cc39e1f7f4d4b39b73aa48ff12d5a964fd313ebc363b33d"
     sha256 cellar: :any, arm64_sequoia: "2743f798c8a8ab3afa19842bdddb996e868736ec1d95b324e18994b987625773"
     sha256 cellar: :any, arm64_sonoma:  "87bcb552532a3c890664a0b16a858ff766f49fc595ced5b8a5c387da2e3c4ce3"
     sha256 cellar: :any, arm64_ventura: "3fd146874edb16cefef9b8b2288fdcfbe0ef6811ee8e2d87635e6eb13acb2eb2"

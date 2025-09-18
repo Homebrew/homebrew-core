@@ -8,6 +8,7 @@ class Alass < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "de4af244ed90c2a2b9c309340cb5d47e926ce1f2012001524d1674dd4213b1fc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "efa1a388ee9ecf5193edd9c9003af0f035ed138bf6a79b45e6b22654c32888e4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f42a7b7ef244c6018d9d16f3979f14758ca54a50a568b269011f9ccdcae5f39"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "93ea3d2535b7d2f339a736efbbf28f952abf06fdcb8186a72b1f706a77c9c3c1"

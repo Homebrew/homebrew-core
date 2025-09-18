@@ -10,6 +10,8 @@ class QtPerconaServer < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1e28571d407bb9947cdbf2af39d99b1f24b9f129e03dddd2772ee089743b5bf9"
+    sha256 cellar: :any,                 arm64_sequoia: "75fac1871af0eca294b2722fc8b6236af10c3d1ef48886853369dcbac5c90184"
     sha256 cellar: :any,                 arm64_sonoma:  "57169c034f535405cf2994a904b99de7d2a97e6d619673f69a3cffa401266205"
     sha256 cellar: :any,                 arm64_ventura: "1246fa7bc7abe4fb629688511f160e5e468be3a64acba8c7c22685d0e09de48d"
     sha256 cellar: :any,                 sonoma:        "ab24521e5d998db3051b1b85a7a475243529bdbb864eed117e037defc6fb2ab9"

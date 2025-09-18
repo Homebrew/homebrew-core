@@ -16,6 +16,7 @@ class Scorecard < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b8d3306cdddbbf13157585b55c120a26aef6cce2cf001913d46599a730191865"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d7c8ecd2f3e9ae735e3c48c7984f1b48d32007a6faeb4c54319decb5042988f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d7c8ecd2f3e9ae735e3c48c7984f1b48d32007a6faeb4c54319decb5042988f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0d7c8ecd2f3e9ae735e3c48c7984f1b48d32007a6faeb4c54319decb5042988f"

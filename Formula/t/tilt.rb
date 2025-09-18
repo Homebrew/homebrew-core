@@ -10,6 +10,7 @@ class Tilt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62d3e5f4cc9e608b1aa503b30779ad60d8a21174344cb7993ec5eee95abe8c76"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "73239b26337ceecbf8183bec6d8c8cb785029c77b755550dbc9d70c30696c85f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "085aca1affce3fc6d3f70bddfbff405cb13fdfb1e7ee0d1200b037710c5173fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "35a5c16e83a62c326e08206237c808113881742ec509ce42dbdf5ce440d5d8b2"

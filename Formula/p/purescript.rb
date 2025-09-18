@@ -14,6 +14,7 @@ class Purescript < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2b9aeb3f72c90bcf7747ac0000e2609b7d39ad535d00a7ba733dd40f51dbcb5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3c1767c6fe89d2e486911f5c60c81222996c3b47971d57b533bb57ace2d22a4b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "69551d14eb101c3640582d055929b2d6338310c5422530edb2b1e35dbd648830"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "720d717ad6d38ba67c288cca2cc03b236cf29ed3badeb823743d1ab091f8704f"

@@ -15,6 +15,7 @@ class Xorriso < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec2aac72e501138766c226d4983498f05536f216da04286b8457aec12f20bf7a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ce9aa17c62698d61ba30175e05e730cdbfb45c00f414728e344912d8f533e50"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c0d17d1c03669586c4d7f5e10c915ff46e0448b65838ad8f4b4b9cda589f0b9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cb072e208fba6a3d7e100b173dabba79aad125900499366ae5c876223d51589e"

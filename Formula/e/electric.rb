@@ -1,18 +1,19 @@
 class Electric < Formula
   desc "Real-time sync for Postgres"
   homepage "https://electric-sql.com"
-  url "https://github.com/electric-sql/electric/archive/refs/tags/@core/sync-service@1.1.7.tar.gz"
-  sha256 "10898eab1ba7acef571aab92ce99cbced6aadf834e7ced178f424f64f36230f9"
+  url "https://github.com/electric-sql/electric/archive/refs/tags/@core/sync-service@1.1.10.tar.gz"
+  sha256 "1b235819ab068baf30984e423abe2085a9d6e7da65188bca5d30df2e40490500"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "732aa9d69ac9518a4900b83ff6021414c3403bdd0f58c4f37609d4a8fb847c65"
-    sha256 cellar: :any,                 arm64_sonoma:  "28ef284461e8cdfbd89990e0f019c55c76f5b2390fce184ee323f4161df937e2"
-    sha256 cellar: :any,                 arm64_ventura: "320fd91bc56a05f6cb292ee2f0f414006ee63e2caa22e80fa2578ee0732324b8"
-    sha256 cellar: :any,                 sonoma:        "de7917c5fdca1683a2a5fc157270f689d0651074e4dd0d0595a5d39e6ad6dd62"
-    sha256 cellar: :any,                 ventura:       "db790f3e4e1df6827827af5e3920275008c3dd2a68ea9b9f5072481f8fbaf992"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "918a604907384c1d3525c2267914773d783e45d84f005416021833fbe8f9c62a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99d42537a5b87c82cf249fc9772134a8e55cdbfc16d291911dfc4314e2c4734c"
+    sha256 cellar: :any,                 arm64_tahoe:   "8da57d0828fb26fb905e9403508e42676811f60f378916df95641dcfe01399b7"
+    sha256 cellar: :any,                 arm64_sequoia: "ab61e9537354788e61387ab579aec216c7bfcd718e68d71385bd7c512ead0b30"
+    sha256 cellar: :any,                 arm64_sonoma:  "6d8c1c5936c0cf79b0f43af5addce2dbc8e3d61f74fe350fcebfb963f624d037"
+    sha256 cellar: :any,                 arm64_ventura: "27df93896cbc5334c121ff77c668971687847f3ef9e1bbb65cd6bb59e016f132"
+    sha256 cellar: :any,                 sonoma:        "dcaf55e06251824dc1431edb25bea1971b4667ad56d8eddc0ceda35de2f2d97a"
+    sha256 cellar: :any,                 ventura:       "8a29e06a3feded8b7245c1eaa76b6cce5c7b9a411732bc2f76519d8174d59999"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "79ac603d9802c669e181dedb6f89da19ba6142e2a6e48cf7f7b600c73ef1a74e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4647fcb3331fba8c33403e8a64601652fe74f94aea4701a4cea148be46b31928"
   end
 
   depends_on "elixir" => :build

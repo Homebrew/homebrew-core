@@ -7,6 +7,7 @@ class Gource < Formula
   revision 4
 
   bottle do
+    sha256 arm64_tahoe:   "6c36d1eff96ef6a9fa4498638e092b37e1fd40756b14945971c8c35639fab282"
     sha256 arm64_sequoia: "e3cbfb60306539abda03078ffef4cce6dba3caf7cf234b5c1ccf91df88ded4a2"
     sha256 arm64_sonoma:  "d019af6ea79b9221a0714d1ead5844cd60c5b83aa2e551b18e6a5b1bb8e5f923"
     sha256 arm64_ventura: "e74d52a108ee2ff08fbf08c566f16792db5e3c0c658c75f9f94b4ad1b58fe731"

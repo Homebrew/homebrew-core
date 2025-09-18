@@ -10,6 +10,7 @@ class Qrencode < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "43022662b77fc3e4181eb5b0d8e671f6208c9217c307073c2e76d4e5c98ea9f9"
     sha256 cellar: :any,                 arm64_sequoia: "3fec9ad635eb185c133cca4e3ab3e8ab7c2094453c462c457b1e5624960bca35"
     sha256 cellar: :any,                 arm64_sonoma:  "74e41b86ddec16b100ac17a756235f377b0e7b8990af8e37a66571b204db40c8"
     sha256 cellar: :any,                 arm64_ventura: "01e05ae6c40b460ebc0dbba2fe76a4310ee538a692e7712dda77c07e18789ed8"

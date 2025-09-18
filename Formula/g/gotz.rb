@@ -7,6 +7,7 @@ class Gotz < Formula
   head "https://github.com/merschformann/gotz.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d457f2bd6b2993597ea67b8ffc167994723fe0150d50cd972c474f8520c9dc71"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b75ae4c58731840fe9ba17b09378742700f717d193aeeb9e532b705b78d993be"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b75ae4c58731840fe9ba17b09378742700f717d193aeeb9e532b705b78d993be"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b75ae4c58731840fe9ba17b09378742700f717d193aeeb9e532b705b78d993be"

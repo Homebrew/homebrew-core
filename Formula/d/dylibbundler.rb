@@ -9,6 +9,7 @@ class Dylibbundler < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "00c51e669f0098b7a2a6271542b9b6be6909cb3634e2b458dfbc708357d6f9c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "26795436a10e6ed4ff9114682bf35cde4ce4dc3c69f93d8b6d41b34010f60d2a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f06d382fc981ab6ed57d9fd0257cb18481cb524128d88d3bd864c0720e435c91"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8749638bc5670b6a9c6f6fba7f609b2d72352639cf14cf10b9bc59c3f9ca3972"

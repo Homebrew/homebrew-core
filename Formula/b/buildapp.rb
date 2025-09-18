@@ -11,6 +11,7 @@ class Buildapp < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:    "571d55ab5313212cfa48bb6a522581f47368c8c6f56985c54316627c09a0694e"
     sha256 arm64_sequoia:  "25eba8ba9388bbf422a7a5f14e2db9f1ea8d9e9add5cd58aecb3ea6a97f7eb83"
     sha256 arm64_sonoma:   "4cd0afa49db04a858b694e03cb247d5fc67b5c73b082725032364102b6e24973"
     sha256 arm64_ventura:  "41ce31edf3763b06c08acd06abfcfaecec13bfa0487d876ca37019f2aea85ead"

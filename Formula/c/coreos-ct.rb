@@ -9,6 +9,7 @@ class CoreosCt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bbe2be9e5b17ddf5d2be97069bc9552adbe793b6739c6b6dfd07028af3aa1cc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d7d99702fcc4911d60fec259d493be5b357097f417690bf799329dc35ac5415c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d904642f1bd2aa1d5ed2408c184c77d538c0ec27ab6fbdc442414f1d69c895fe"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a0e3189ec955041eb885241c04183bedc694f19ff2382aca9a7b80424e1b3d9"

@@ -7,6 +7,7 @@ class Rv < Formula
   head "https://github.com/spinel-coop/rv.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4e114dd6c14e181e55d44b1f731abd2fd47aa9ea4d17e01b56a22243fcae97f1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e9700d0e8de58f7bfb9fb05835b24b805b265355bb24a8aac141b538385a766"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d07b65ccd180830a17bdd8613cdcc346a09fe9d5842cd86e336e6f8466439986"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "20fc16dbf92256590d6610a37fcd396c715932a4ce04f60afdd3d5303c91d27d"

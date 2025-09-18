@@ -9,14 +9,13 @@ class CucumberCpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ebd1f734db83ae5e745b5a870609430170ac0a4db66d0a982054f17f9c11df23"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9d57c131eb3c28dacc0dc5191e0db536837ff6c0c3e1c00b18bbde206cbccea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "83b0a4ebd24369723ca462379eec507069b69745b0162aaf8e52fbd191912f8b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "552c285dcbfdfeeeee4918504197d55608bcdd7a6f545c7b128b9a3ec4de66bd"
-    sha256 cellar: :any_skip_relocation, ventura:       "f174b4c1f7188ec9cbfa63d42a7858b5b6055d46b4e8ef9e01603aa6a8f504a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b10926942356d39fb0ec167e488e3d170a265824e3afee947643ab71b8be4bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fdfd1f3eb9ae326c0490d8f17f4b68adebd5c48382bae283de89b9bb835b994"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "a84c27a7c5c122364e12ee74e3140a6ccd22656fc6df6da1cf8dc29b3161cf3b"
+    sha256 cellar: :any,                 arm64_sequoia: "35387bbcd3b131388528b44ac54f5d695d1fbc9c927d3b172d4793cba0c0ebb0"
+    sha256 cellar: :any,                 arm64_sonoma:  "ff5c68f821cd56afe208298382d865e998f272cf64e8c9810a6154d570317176"
+    sha256 cellar: :any,                 sonoma:        "9bf81577eead937163e41fcfa5c32bc9d913bca9364a3d5da546cef5a7fd3252"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "29733451777a0846cf111ee7f5c165009c1a7ae22543252252282006a997b046"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4aced1fbb5e0c5eefff25bd4a29efdd7a719e1d14e68f915e89d1c04eef0659e"
   end
 
   depends_on "cmake" => :build
@@ -25,13 +24,20 @@ class CucumberCpp < Formula
   depends_on "asio"
   depends_on "tclap"
 
+  # Backport support for Asio 1.33+
+  patch do
+    url "https://github.com/cucumber/cucumber-cpp/commit/da6345bd1d0b0ac4cf4bc71866c98d55c72522a8.patch?full_index=1"
+    sha256 "1ad7f6513ee2d41c5625933b05249704c14484a7029acd330c5f665a11e6a66f"
+  end
+
   def install
-    # TODO: Remove these on next release as they are the defaults
+    # TODO: Remove Cuke args on next release as they are the defaults
     args = %w[
       -DCUKE_ENABLE_BOOST_TEST=OFF
       -DCUKE_ENABLE_GTEST=OFF
       -DCUKE_ENABLE_QT=OFF
       -DCUKE_TESTS_UNIT=OFF
+      -DBUILD_SHARED_LIBS=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

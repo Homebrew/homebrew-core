@@ -6,6 +6,7 @@ class Pan < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 arm64_tahoe:   "a0797478edc5d73b92d1b72296c57530dec5be4263d7ad1944bafbdd789f06f6"
     sha256 arm64_sequoia: "deb86a97c8007b261347fea9f0db7b925f5b8081629097a5f5480a668ffba530"
     sha256 arm64_sonoma:  "21d6e8b62f18043750c6f509c7bd3868d8832b3e568a252c15a604759ae4fe40"
     sha256 arm64_ventura: "9d051c43ee5c8a43212f69b9c3fb9c1235d822c5522bb31fa710899325f5bec0"

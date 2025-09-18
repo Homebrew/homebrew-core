@@ -7,6 +7,7 @@ class Gabo < Formula
   head "https://github.com/ashishb/gabo.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0db790dac1e8db2f296d2e201c5b7a4d7906fdf4c4c6b722a98df02e4af416a1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6eae5bb00df93c37ad9bffec423585d4675398c07dbd7e0c215a709805ba32c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6eae5bb00df93c37ad9bffec423585d4675398c07dbd7e0c215a709805ba32c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a6eae5bb00df93c37ad9bffec423585d4675398c07dbd7e0c215a709805ba32c"

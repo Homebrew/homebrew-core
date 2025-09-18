@@ -9,6 +9,7 @@ class Breseq < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9033acd95cad3f4b965f8baeacf9633bda0320067c79637a1322fe37673356c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f22120bae403eb392bec70333093e7176e565853bf5108b51ed37b82a8b39d54"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5d0b6591968d4b5747cf81d8f377560da5e8b2633d401d5e60f36e954655e49"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "251cb721ac1cedfb266a35557af31efc3964d9265c302c21186173c4089c5a3e"

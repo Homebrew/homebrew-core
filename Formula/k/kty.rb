@@ -7,6 +7,7 @@ class Kty < Formula
   head "https://github.com/grampelberg/kty.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "41ffc85a1afa73590d563262abbe3c3037cd0ea6ce1b2a4e315b789de481c709"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb4ba6e5d3a1002a498075b31b9ffc694425ba048333ecf2ee662db7f08d1d64"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a01a6547caa11fd487eb9470ed8552bd699731eb3011eabc38c4ce1fe9bc07d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "773957f43cf0e1a552700e177d52a0c4dc9a16738e6d33fad6fc1b3981f33e0f"

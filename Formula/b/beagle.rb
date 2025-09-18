@@ -12,6 +12,7 @@ class Beagle < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "bc8e56cab2d1da3a82d01ba8a9e1b3976213a155667eec3e8a3ece160c0344fc"
     sha256 cellar: :any,                 arm64_sequoia: "fe362a0f25bf169bb507df13e17e4647a85b185383308fa2c6907bf57a0c3bc9"
     sha256 cellar: :any,                 arm64_sonoma:  "a15730feb6101837d824ccc36397e4f777e450312e3e142b5e0a4752f44cfb4b"
     sha256 cellar: :any,                 arm64_ventura: "630068ff93debb8af7e06748abb07dc1637467795b01bbd04aca01212a23c683"

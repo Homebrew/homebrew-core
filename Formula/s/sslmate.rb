@@ -14,6 +14,7 @@ class Sslmate < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a1b305211c239b3c0476b01d55bd397da45a59013ab35a1b939b1e7c43c0b32"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "565aa3ae6e99d734fa430a664c3d08b6ff2301127da6b4f408009fd96a6fa384"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "565aa3ae6e99d734fa430a664c3d08b6ff2301127da6b4f408009fd96a6fa384"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "565aa3ae6e99d734fa430a664c3d08b6ff2301127da6b4f408009fd96a6fa384"

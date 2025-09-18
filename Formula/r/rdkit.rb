@@ -16,6 +16,7 @@ class Rdkit < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "d4e79f0f170796ebf0938dc89853fa325fbec56f32aae43ec435b7615d39907d"
     sha256                               arm64_sequoia: "b4b468ff0de2145df08a98183a46ad15ed2f0d761f6614926ee4c3b170bc7a25"
     sha256                               arm64_sonoma:  "4d7d93c11b3bf4e9747db5e3669640646fc01c2e1588f6708d8ffb9c3a804c3e"
     sha256                               arm64_ventura: "9b6964d0fd4b741d9e02ebbc73cae246d80c4b97bc1a4df508743ca1c302a22a"

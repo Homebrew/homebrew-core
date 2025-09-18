@@ -7,6 +7,7 @@ class Guile < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:    "626e1acb5dfed10e5cf29de26498a1bea6f6b6ed08d33ca1498568980a1202c0"
     sha256 arm64_sequoia:  "bacc4d4dca5374f7a713747ad70fb2111f8c3b443f2a5fb614f05b659be80949"
     sha256 arm64_sonoma:   "e7f65709dffaf55c7ace2e1c8f6553aebc56a17674b7ab57421c1f22bbf7798a"
     sha256 arm64_ventura:  "8e47adc1f7238e67c3af7712ff0e57c1d0b1b79a86950f0e0370944f1a69c960"
@@ -40,7 +41,7 @@ class Guile < Formula
   depends_on "readline"
 
   uses_from_macos "gperf"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
 
   def install
@@ -69,7 +70,7 @@ class Guile < Formula
     # of opt_prefix usage everywhere.
     inreplace lib/"pkgconfig/guile-3.0.pc" do |s|
       s.gsub! Formula["bdw-gc"].prefix.realpath, Formula["bdw-gc"].opt_prefix
-      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix if !OS.mac? || MacOS.version < :catalina
+      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix unless OS.mac?
     end
 
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.scm"]

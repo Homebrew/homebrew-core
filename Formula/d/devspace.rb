@@ -12,6 +12,7 @@ class Devspace < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d5fea5f8ba11fcc0544023d567e3c82c37490c9e654640cb0c4590efa5483472"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b78a90264646f6956389f936aefac61ef908f58ec92532a9c3ffb868fbb0bf57"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8552a9aece16a43707a00b446865888982b1c3aa7e304bc725034c907c93e15"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b9d135e1f9ad515b7e18d8162616849a3498f0b22265534f8cbd5158fe66a4f7"

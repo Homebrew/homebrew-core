@@ -7,6 +7,7 @@ class Ed < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "129a3faf785763ea02982b84807183dbdd6bae468486d1595b7c444ce977f96d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a6d98b2ab8a34ef2f1031ffb0bd5c97b47d077c5054c832d6d2276052711014"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69d3440c42e8722d0bf705773cc2b6429870d95da50a06c6aa2b2db98e514ada"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "02be970d623516f89b3f9e8590351fe567157b69e8d3e7785c56f3ea20c886f5"

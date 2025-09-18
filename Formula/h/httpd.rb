@@ -7,6 +7,7 @@ class Httpd < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 arm64_tahoe:   "e59049bd201e93f1c73548393f516497562ce1e1bf09695fe8d82cf9caee5c2e"
     sha256 arm64_sequoia: "91a85b0c7d22e16b835c944594806651227b0740b0d74d8b0cbb5c8df275e27a"
     sha256 arm64_sonoma:  "d2f0595ffacaefaecff8ab305c88f4f0c68c1f3493b662243c6fdea117d81915"
     sha256 arm64_ventura: "c335d95bee9dc0d6c39abd07c94a57f019ae6f123c7f7b86929748858bea25b3"

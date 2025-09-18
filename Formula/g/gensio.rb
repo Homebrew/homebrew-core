@@ -1,18 +1,17 @@
 class Gensio < Formula
   desc "Stream I/O Library"
   homepage "https://github.com/cminyard/gensio"
-  url "https://github.com/cminyard/gensio/releases/download/v2.8.15/gensio-2.8.15.tar.gz"
-  sha256 "1cfa7d6ef19b8d98808b1f4bce225454781299f885815c22ab59d85585f54ee3"
+  url "https://github.com/cminyard/gensio/releases/download/v3.0.0/gensio-3.0.0.tar.gz"
+  sha256 "67e621b47aa7cd7cdf148398cf99f8d8b606f2598e731207debd649dcf9ef5f0"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only", "Apache-2.0"]
 
   bottle do
-    sha256 arm64_sequoia: "55f26f4519d626685977d8698f239dd144b28d5dff6f2bd08182335f6026af4d"
-    sha256 arm64_sonoma:  "a26e4a132a4f4099ce49f56c17b7c24f0e509a9e944ef54634151b10c02657dc"
-    sha256 arm64_ventura: "e2a24dac5ea15c6235327c5028e8ed34e59e09c64e35830e1f7f4b699c3e5987"
-    sha256 sonoma:        "74eced1fc82f3d172aee5eef3194d8e5e401f160fd1554c85c3352f6bf305ecf"
-    sha256 ventura:       "f76906e1351966419ed1617b3cba3fa43ab37f1b9dd4d4dc2547f15604336325"
-    sha256 arm64_linux:   "7849c953dc4d197d70ecc835d47b25e7de0f0cd51a2b02b163570ab79fbe0dcd"
-    sha256 x86_64_linux:  "f0654ac13d972321059009c5d0b971b3c7a7206239bc6db5045125e0a04b283e"
+    sha256 arm64_tahoe:   "3f24e3984dff7c86b997c5acc7e75b030916d2f4e50fc632e6c54778fb4a765d"
+    sha256 arm64_sequoia: "40677c845f93749b3f7b86f4d399a2383b4280ead8429d3edd31f90a8e3eaa54"
+    sha256 arm64_sonoma:  "a02b158d13901cdf6b084d94c0d829bcf260c8e68de4d60abadd48859c63a9db"
+    sha256 sonoma:        "379095d503b94140e55b993252044cd8739e735df2777b857054bc5aa19c62f5"
+    sha256 arm64_linux:   "b0d6bfe2a4dcc23f477fce1714871405f06b13ad5895424b346bcb6c9bfc9f05"
+    sha256 x86_64_linux:  "0e0f84a001b719f5a5d179fd4e474a3873e16205c201daf1818f54f693eb5a4a"
   end
 
   depends_on "go" => :build
@@ -22,8 +21,7 @@ class Gensio < Formula
   depends_on "glib"
   depends_on "openssl@3"
   depends_on "python@3.13"
-
-  uses_from_macos "tcl-tk"
+  depends_on "tcl-tk"
 
   on_macos do
     depends_on "gettext"
@@ -42,13 +40,15 @@ class Gensio < Formula
   end
 
   def install
+    tcltk = Formula["tcl-tk"]
     args = %W[
       --disable-silent-rules
       --with-python=#{which(python3)}
       --with-pythoninstall=#{lib}/gensio-python
+      --with-tclcflags=-I#{tcltk.opt_include}/tcl-tk
+      --with-tcllibs=-ltcl#{tcltk.version.major_minor}
       --sysconfdir=#{etc}
     ]
-    args << "--with-tclcflags=-I#{HOMEBREW_PREFIX}/include/tcl-tk" if OS.linux?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

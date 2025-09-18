@@ -8,6 +8,7 @@ class Libconfini < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "eb8f8042903c062720e17741771d92b7c53aafba9642780f0ccda86f6abf2c80"
     sha256 cellar: :any,                 arm64_sequoia:  "fbb299d21214fdc73d660ee6cc61ea6a6aff2d85558db6095558be0202c30440"
     sha256 cellar: :any,                 arm64_sonoma:   "34cbf810ecbd056e906847dafb23c8a8dba3d6f1af918c1a99e9b278b5c0af84"
     sha256 cellar: :any,                 arm64_ventura:  "6bdad3efe351d8dd2c80092ddcbeee38766d1a5cdc28b8ab797279bdb6af411a"

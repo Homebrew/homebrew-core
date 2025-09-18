@@ -12,6 +12,7 @@ class Exercism < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a4094706321a258525f9bdd7d0d6f157fa5b7f99959cbe12bcc9595183d121d8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa0e2a9c3b15de521c76b939cc2ba4ccbdcb2491c195e22402dcc30d9f9f7e0d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa0e2a9c3b15de521c76b939cc2ba4ccbdcb2491c195e22402dcc30d9f9f7e0d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "aa0e2a9c3b15de521c76b939cc2ba4ccbdcb2491c195e22402dcc30d9f9f7e0d"

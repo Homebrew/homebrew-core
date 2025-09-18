@@ -11,6 +11,7 @@ class Abyss < Formula
   end
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "81c78f4aadee3c4fb25110d257c115e806d14b437e96d27e77fc4b84a328eafa"
     sha256 cellar: :any,                 arm64_sequoia: "e101572d7d3f7ec6a519888e90d8202da080add1d774105b406712a5920b68a8"
     sha256 cellar: :any,                 arm64_sonoma:  "8568ca8de272baac70ea8233665436f6ba0bd26156f5ae6a9eebc9c9a26df696"
     sha256 cellar: :any,                 arm64_ventura: "0183a197b480d32b9063da4d7d16bdf9e347f9b3e1417b18577d5c1c3fbdeb95"

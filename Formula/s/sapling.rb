@@ -16,6 +16,7 @@ class Sapling < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "80cad9a3bf004ddf9ca69b5b8f5734b7457cdc6afb56f90b36b4b1f39f29a742"
     sha256 cellar: :any,                 arm64_sequoia: "68b681bdf583a8244cc12d20040bbc2bf72b483003e5f72718a02bf1eb1a4b6b"
     sha256 cellar: :any,                 arm64_sonoma:  "ba622027c69cacce85eceb38fb55ec67a3567cc443e2cf171856be99140c8659"
     sha256 cellar: :any,                 arm64_ventura: "d627d3b0eac2220c1babc65f6edd21e22f8d52c49da837be04adbad790af7294"

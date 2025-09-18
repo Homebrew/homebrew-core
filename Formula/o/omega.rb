@@ -11,6 +11,7 @@ class Omega < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "c3f3c8fa2283c5ae7a94b6ae1905a3247076da43eb992bcd78854570203be947"
     sha256 arm64_sequoia: "9872cd039fdb166ea6e2725bc555a0d4a810abfc455a5f295e94dfa50a82e1a4"
     sha256 arm64_sonoma:  "2c2ce6e31a93ef3ab2a346675d1afe9243ec606bc448b3d3e9b2d7c0849b05ae"
     sha256 arm64_ventura: "ceda263ce18b87eea2430765bfa2eeebb905ab8b67a8ab63ad81178c0787cb49"

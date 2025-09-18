@@ -13,6 +13,7 @@ class Gloox < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "5fb8953311b329ddc77cc9b4ca1b0e122788a9741a19adb474df78d34377ae5f"
     sha256 cellar: :any,                 arm64_sequoia:  "d4c45c5c9a56bffba60929aa1a994e8566a971d8c0d7b6a9f2c1d267c5588b62"
     sha256 cellar: :any,                 arm64_sonoma:   "b0c90e096ef2a3ee7b05c264338486bfd6df78666baf363e6b6648078f974b97"
     sha256 cellar: :any,                 arm64_ventura:  "d86499393f8041798c23aac7f224a26161b3099efc7ac7b91a07223be8fb4926"

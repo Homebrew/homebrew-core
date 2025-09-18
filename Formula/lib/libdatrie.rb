@@ -6,6 +6,7 @@ class Libdatrie < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "95efc78786bed41afeb85e4481b7e418982b2a1c9ba2eca5f058b779dd204687"
     sha256 cellar: :any,                 arm64_sequoia: "f864dccadb35cd53fcee3e84a369d0b7ca10c842b8771a1c465d44fb03b71a84"
     sha256 cellar: :any,                 arm64_sonoma:  "66daae07645d7b488dfdd19120830ea7226934de6434370f3a174d6b49a6c16c"
     sha256 cellar: :any,                 arm64_ventura: "541b03e5526b7ff6814697f7d343827d120cbeb42e83b441e4264b5f72bc8f1a"

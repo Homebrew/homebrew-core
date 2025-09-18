@@ -15,6 +15,7 @@ class Ghcup < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e6a0cc1037d609427bd3e2121d2dfb07328d31bebfb6b8b42c9b703a9882e70e"
     sha256 cellar: :any,                 arm64_sequoia: "1761d3fd2610c48ab9d2a048eb8f8a25a1c7def62ae960812f17feec94c1444b"
     sha256 cellar: :any,                 arm64_sonoma:  "c58916768b45402fe48af59be753186db8cd56e9f28ccfe9817ab9ffc98fbf48"
     sha256 cellar: :any,                 arm64_ventura: "2cce48ab0a56115ea853ac0f383f59fc2d419a6c9e414b5af8aa02fabb505fbf"

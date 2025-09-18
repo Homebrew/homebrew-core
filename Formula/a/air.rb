@@ -6,6 +6,7 @@ class Air < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "27587f6a0250d1ff69a895d06388da5afbf21613cca8fd007636ccc00a119d7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d198da3991c6487fa90c0cf4ac1ee318e9b48268ef0fcd556cd270ad2c1e0cbd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c14b6d040bab11f6171cadcc128f09117570d6c39d0b6802ff31f5c618133449"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c144c214c1c68f722004e57ebe69f873881847cf898c15fe585a19776caddb58"

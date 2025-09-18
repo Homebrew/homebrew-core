@@ -1,8 +1,8 @@
 class Butane < Formula
   desc "Translates human-readable Butane Configs into machine-readable Ignition Configs"
   homepage "https://github.com/coreos/butane"
-  url "https://github.com/coreos/butane/archive/refs/tags/v0.24.0.tar.gz"
-  sha256 "57724f027b76074801ca988b6859738085643c50bec44c2672e64a7047f6fb95"
+  url "https://github.com/coreos/butane/archive/refs/tags/v0.25.0.tar.gz"
+  sha256 "ee73d5ae3fe4b422312302259b4e4938b217cb8cb23c48b3696840acfc711b28"
   license "Apache-2.0"
   head "https://github.com/coreos/butane.git", branch: "main"
 
@@ -12,12 +12,13 @@ class Butane < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1cce41cb8d792fca5cb8fbb287ca3db628ecbed2656a432daf61bda6b7aa4b26"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1cce41cb8d792fca5cb8fbb287ca3db628ecbed2656a432daf61bda6b7aa4b26"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1cce41cb8d792fca5cb8fbb287ca3db628ecbed2656a432daf61bda6b7aa4b26"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7e4edb2877ff7ce99f709ac4451fc4d756d421bb37d31c3e2df9460d5028e418"
-    sha256 cellar: :any_skip_relocation, ventura:       "7e4edb2877ff7ce99f709ac4451fc4d756d421bb37d31c3e2df9460d5028e418"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "933138ba8a1713f572e1e11c90f8d0f0a209f8d2b5aebe6408fca11df204371d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "743cf3f70ad159e47535a7bf3f5617961aa02a589aabd741fe1fcd124ce52194"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "743cf3f70ad159e47535a7bf3f5617961aa02a589aabd741fe1fcd124ce52194"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "743cf3f70ad159e47535a7bf3f5617961aa02a589aabd741fe1fcd124ce52194"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "743cf3f70ad159e47535a7bf3f5617961aa02a589aabd741fe1fcd124ce52194"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9d475b6a57be572ed42f7d61b11c93d3931153592211e1daa8d5ecd3a35eb1b4"
+    sha256 cellar: :any_skip_relocation, ventura:       "9d475b6a57be572ed42f7d61b11c93d3931153592211e1daa8d5ecd3a35eb1b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c730e4d829498e0fe62fd0e9f683daf96ed42faff390d1e9041e7b5ce1c0e6b"
   end
 
   depends_on "go" => :build

@@ -9,6 +9,7 @@ class Tracker < Formula
   revision 4
 
   bottle do
+    sha256 arm64_tahoe:   "cda07829c48e3405532863d170509998f7c0e516d4be26f13b869e0e177aa9d6"
     sha256 arm64_sequoia: "34218a3697312858347f19f7b687ad25626b65dd8f78c10efd462df9327eb078"
     sha256 arm64_sonoma:  "cb0d4881cc33a9e7a2d68c2c02f1011840ed28a4a1c3333bad6d4a254861a3e7"
     sha256 arm64_ventura: "3d7d3a10c25bbc2c3161945c5eee127b3b6a0adb40db702cd5a13bed35602ec4"

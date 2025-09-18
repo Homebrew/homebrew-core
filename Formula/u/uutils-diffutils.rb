@@ -7,6 +7,7 @@ class UutilsDiffutils < Formula
   head "https://github.com/uutils/diffutils.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1f477add026e8b2295da234cfc09ec20062d59156b7a96dcde891ed18fe9eb5e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5b9c46a4be56b29642e8ea525e0e4f805fbb17285bb255359f20b373fb8ad189"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d016794b8782c3113ba872639c5969b51f49b58e2e39956ebdca05b62c5662cf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "acdb4a2f8fbe583ed632f18cac365ca767af2e86739dd636e77ad8bd912e0d1f"

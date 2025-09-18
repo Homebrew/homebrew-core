@@ -6,6 +6,7 @@ class Bowtie2 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dcc146d51b08ed4a73d4938caf374776304df1e6ab8dda1cd964ece3c570f8e0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3f8eca3ff38d6b573a73c160da0b80a8d20d29a5d11c07ad0c3de51f30986636"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "539b0d025ccf750ab75234c6b1ce0cbe2db9cd1cb3aac64e645ed2703d3f93d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f0ea46f0fb6351e20c753a488ab35b8af656b025dcd8529cf489391afa53a5d"

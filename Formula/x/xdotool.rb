@@ -10,6 +10,7 @@ class Xdotool < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "bb7c865d434ca1bb3ec4f8967c7ae6877f6e352256e87d2bd4d65323359d5efb"
     sha256 cellar: :any,                 arm64_sequoia: "53cc99835729d36906840e2c26f1229415781d2cad0d3119982468af1251ceb3"
     sha256 cellar: :any,                 arm64_sonoma:  "51bfd88ef26a8667eafaa54e8f3069ef96c283b453bdced7bbbf2921e35d89cf"
     sha256 cellar: :any,                 arm64_ventura: "be8926b87350891af7a3434138a1971d988ab392f4ba73ec56565ac3a99184db"

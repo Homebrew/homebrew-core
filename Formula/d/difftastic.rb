@@ -6,6 +6,7 @@ class Difftastic < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d71e757f180c4a776ed9a7ef21725f6ff18d381bbfa6f0f3d453390a41ef5034"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "293cd86f9d63611d356a2a8de36b73363171658c73ae90582496ad6c685fbad4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9afc0d4ba3e5d89117b020f7ed875e5ea98b1c75e293e11383ccf94dcefc8425"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8388f82f3f4e41178ecc084fbde904bee0040ff4d67ded460bcdfc7fc1383b8a"

@@ -7,6 +7,7 @@ class Uwsgi < Formula
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "eb92dfa62b6f1ddd811e8254d844910c04b890b2825d615a844e94aad519d908"
     sha256 arm64_sequoia: "b2386757296c38cd05ba889d19d2bc6d29c07ba6124657f1d905965fc3da1e1a"
     sha256 arm64_sonoma:  "45c740b6194c9740b2d88e40a67ebf5d6019869e13faf2b40d6cf747a87808d3"
     sha256 arm64_ventura: "dd78e316d8d60fc40c16425d7bd57788725052921e79bd1291a81c81f1c3b00d"

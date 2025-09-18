@@ -11,6 +11,7 @@ class Krb5 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "7922c7d39301812f11f49cc564c79b7e24822a6650216fb102e6209c837cef15"
     sha256 arm64_sequoia: "902884745603d3d55cdbe5e30ca2972a1d0829ae2512f6ef8e8731d92a607938"
     sha256 arm64_sonoma:  "5dc445bcf366abc34e62ae564695d123ce24ee9c0d625de7c62f4d0785a110ba"
     sha256 arm64_ventura: "ac9341e0db85afbf17f8d923d67527d5d6cac7c9dd0da09dbab36ffe5d9c2a02"

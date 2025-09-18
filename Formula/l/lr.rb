@@ -1,21 +1,20 @@
 class Lr < Formula
   desc "File list utility with features from ls(1), find(1), stat(1), and du(1)"
   homepage "https://github.com/leahneukirchen/lr"
-  url "https://github.com/leahneukirchen/lr/archive/refs/tags/v2.0.tar.gz"
-  sha256 "bf1f6ad5386687d3b9a4917de4f3bfdc39df3eaf30666494cdf3e6fb4e79fd91"
+  url "https://github.com/leahneukirchen/lr/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "c7c4a57169e1396f17a09b05b19456945c8bb5e55001c5a870b083c0b4a23cd8"
   license "MIT"
   head "https://github.com/leahneukirchen/lr.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b9161041b55afa97ed9eccf4f0e20fcf323258b79df81d8a30a7026c18cb2fa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5775b78ff29b6c572458d068e3467f3637529d4cc27cc0418b23784743464ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "876b6d1e41b521615b4f33130852d116fe2bf43a5197cf8d2e8d2468940abb28"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e12d3814f9ac5a7208e9543a3c9e7cdb952b5d64025a86e3007395f6249d53bf"
-    sha256 cellar: :any_skip_relocation, ventura:       "df482573ecfb07741693da8f0cde94122c6f72d3202110c68ad55a0bc44dc7cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c718d84d78694d8fc53a289a7d7451aa4c2de2aef488a615e50c3aab7e71734"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36f47bd4e6b4e9409f57cd2e9f7cd8904c034b64c41605975add6e03717edf0e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "167285f3fa15655f9e876fc9490f55c9a8020eaba6ac352d0a6a321813a7fddf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2d40700048ac424d539d5e47de43a1d3104051960b31c5ea8432fca67c7f2ff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7fe7cc6d4ed8e75f8ced5b053aacf5ab9fdf95d5b895d1ae1c5a61fa3b7ff973"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0fdc48b4a9838e4f6c9e6d11df5e34e36df89eb4941210ab788ab7deb10f221c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5230ca8371fdb46e61dbf67594c88c42e7c2ec6962b30d7f6e27210b59a3e269"
+    sha256 cellar: :any_skip_relocation, ventura:       "36365773b66ab206bc98c3d915baab1fc3177e368c7e3cd7daa76fef0602f43d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "47138d1f0cfdab17090ddeb7c6642dfed87ad578be30c7396c9969e193689035"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef7bf0e9c38ab1c0989106dcdad894777c9e6f0bdb6a8e939e394fd71a542d37"
   end
 
   def install

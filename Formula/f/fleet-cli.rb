@@ -12,6 +12,7 @@ class FleetCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d4bbedfc7017d23a48e22b8d4a542f0294498b7d7bace26185beb534dfe6d61"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "64283e8909e7601c39935adcdfb7153491e1800dc647838ca84d1894b5f50994"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d4b3f605dc08e95b19114d9f111bbd2908430d8cd8664bc68d470c66810924fc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "83644617a3fb9f2b8271c0f5ee674e4888c152c9ab1f3721686773e9d0c520e2"

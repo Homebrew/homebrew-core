@@ -1,8 +1,8 @@
 class AnycableGo < Formula
   desc "WebSocket server with action cable protocol"
   homepage "https://github.com/anycable/anycable"
-  url "https://github.com/anycable/anycable/archive/refs/tags/v1.6.4.tar.gz"
-  sha256 "469d6b3ab79c14532615c47f613211dd0d842183088f62df6ee0e2e01faf5904"
+  url "https://github.com/anycable/anycable/archive/refs/tags/v1.6.5.tar.gz"
+  sha256 "86cd32e7be5c1ae369022992b6256c3d46f5b22591975827b3c5510484c69847"
   license "MIT"
   head "https://github.com/anycable/anycable.git", branch: "main"
 
@@ -12,12 +12,13 @@ class AnycableGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce371d32227cf5ff87786fc25b581e12d738e8496788526e7421fae3deb49de9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce371d32227cf5ff87786fc25b581e12d738e8496788526e7421fae3deb49de9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ce371d32227cf5ff87786fc25b581e12d738e8496788526e7421fae3deb49de9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a3be49e45d329b02fa55de39adaef931813c5b7785458b8901698ea01c4ecb8c"
-    sha256 cellar: :any_skip_relocation, ventura:       "a3be49e45d329b02fa55de39adaef931813c5b7785458b8901698ea01c4ecb8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0baff7cd89887625f2f935dd0894ce8605d5b11e37e1349cf5eed3abe29338f9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a4debc12d24623d3d5dc4750cf35bbba5b29f4df4d2e5e2e3e6fc99dd065b8e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a4debc12d24623d3d5dc4750cf35bbba5b29f4df4d2e5e2e3e6fc99dd065b8e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a4debc12d24623d3d5dc4750cf35bbba5b29f4df4d2e5e2e3e6fc99dd065b8e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4debc12d24623d3d5dc4750cf35bbba5b29f4df4d2e5e2e3e6fc99dd065b8e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "51e5021b752d23a21b698bdc4736fdc02916eb1e38308639616b3bb127f95a4f"
+    sha256 cellar: :any_skip_relocation, ventura:       "51e5021b752d23a21b698bdc4736fdc02916eb1e38308639616b3bb127f95a4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2846874636aabc08560346d566844448331ba2107ee32e4faeb88e952c9f8ab1"
   end
 
   depends_on "go" => :build
@@ -41,6 +42,7 @@ class AnycableGo < Formula
       exec "#{bin}/anycable-go --port=#{port}"
     end
     sleep 1
+    sleep 2 if OS.mac? && Hardware::CPU.intel?
     output = shell_output("curl -sI http://localhost:#{port}/health")
     assert_match(/200 OK/m, output)
   ensure

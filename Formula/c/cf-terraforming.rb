@@ -7,6 +7,7 @@ class CfTerraforming < Formula
   head "https://github.com/cloudflare/cf-terraforming.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3a279f891b3ce513eee2c4f64b529c365878ad5f861c00dca84077f444157e7c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "28683d6606573c88c483e8504c0ceff67e6802bf0c07e4a7204dc0eae319fa20"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28683d6606573c88c483e8504c0ceff67e6802bf0c07e4a7204dc0eae319fa20"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "28683d6606573c88c483e8504c0ceff67e6802bf0c07e4a7204dc0eae319fa20"

@@ -15,6 +15,7 @@ class Libexosip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "65ae132c14b0b6e7928dacd91669bf489bf089b1cdcee75612ab52a2c6dc5363"
     sha256 cellar: :any,                 arm64_sequoia:  "642cdbf3c7e2c28d59ba0bfa578465767fcc52a0640153ae68efea87e928243a"
     sha256 cellar: :any,                 arm64_sonoma:   "4fc704e8d56094e3cae0b85da0ef283821679c52d11376eab270a5532b75e7e8"
     sha256 cellar: :any,                 arm64_ventura:  "f16e7871375ba4b6fa1a0449efdbaac6cd0ecd385cb30ca73b81e5303b4fe643"

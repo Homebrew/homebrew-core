@@ -7,6 +7,7 @@ class Libcoap < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4bbe2ee6ea87b60ab95c5fa9c5c5124389256bc9f550f1dbde5653aa09aa248f"
     sha256 cellar: :any,                 arm64_sequoia: "a98670de3fe4ec6aa76bce6909dcb2e4508d965d16f8d5087e08d11561dc3f8a"
     sha256 cellar: :any,                 arm64_sonoma:  "3e1ccc1ecda3c10ba83e6c427e83cf30166cc8693821914426ef5b35e024d12f"
     sha256 cellar: :any,                 arm64_ventura: "3509f77235a4648fb6242af0573ab2d864f5347b78e941b70d3695f4c8c1970c"

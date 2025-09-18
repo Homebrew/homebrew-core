@@ -7,6 +7,7 @@ class Crystalline < Formula
   revision 1
 
   bottle do
+    sha256 arm64_tahoe:   "76adf0ed068bbdca5fea8ae6c46e97e72ac2a9b0f942cd895b7b82f949833508"
     sha256 arm64_sequoia: "9880d25d405a18e5b15ca3285d636fe7e88c7f8d2c23d475f9d7389d83c7bccb"
     sha256 arm64_sonoma:  "fa4289ff006887a7cf83a094eb5429785fdedfad7423626de75fd20dbb9e843d"
     sha256 arm64_ventura: "5e25f739442d1ec0a9c2d246be380a397dfb4eabe27e5c2525f9deb758b37afa"

@@ -6,6 +6,7 @@ class Marisa < Formula
   license any_of: ["BSD-2-Clause", "LGPL-2.1-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f6975b75a559edc43c0638facb994e1cf76648e1fee7eefd5d28137a04790fbb"
     sha256 cellar: :any,                 arm64_sequoia: "6c21f4fbe4ade8b27886f8b0ecad9abbdcf366609768725dccdc4abe0cd61cec"
     sha256 cellar: :any,                 arm64_sonoma:  "5d76e8c461645adfa364dc4baba23329ec6b704887c61dcd58a3803c2e4ea644"
     sha256 cellar: :any,                 arm64_ventura: "ff6a486605dcf49fbbe46cf3209099281767050d9e5e0a8d1183f0e82a331c33"

@@ -11,6 +11,7 @@ class Lilv < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "f94497de552491aeb79922de76f81154071d59c46875c1f00e17aaf35a033824"
     sha256 cellar: :any, arm64_sequoia: "3d7ca1236fe7b85cce89cbe85925978028bf312d872e59be8adbba6db9d4b2e3"
     sha256 cellar: :any, arm64_sonoma:  "9123841283fe4c867f2ba7f393c8b09668ce3cc4d2bffa1ba401c5c6f6f48e0b"
     sha256 cellar: :any, arm64_ventura: "d431fdcb61334aa6cc1c87690d60fb8c7c797323ee1367a76f7dc21d90191897"

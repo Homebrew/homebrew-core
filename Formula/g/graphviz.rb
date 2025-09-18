@@ -12,6 +12,7 @@ class Graphviz < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "69ffbaf032d6c2c422fb6747152b99b6ef64d3e53ab65cd3c1c426936ded0d45"
     sha256 arm64_sequoia: "4a62919e10d2a3e9c4371336d8c74e056b4624c00fc212b938fca3b632b3b715"
     sha256 arm64_sonoma:  "6be356c50912ff25716e6f4c981146d9c1dc11cf98c3a40201daa8d38012d9fa"
     sha256 arm64_ventura: "322bda6bb3c250556f6a24e737aea7f75aa9b340bbad84b5e75d0338609a1a61"

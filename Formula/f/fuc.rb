@@ -7,6 +7,7 @@ class Fuc < Formula
   head "https://github.com/supercilex/fuc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9eb97d285b25f3b351a962c0337c2c8d4068623a6fded827eb1a6881823bb859"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "922d25d5722345f87db9538f0ac9f874f0c1704d9e3a5c76616542b39946f31a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9c8e9a362bd9d9e75260e34a7dab484e6e5952837297561913e23f154adef36"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "611ecc7ae60430242540d1c9914a396e6ee3d0d332a120b13467e3cc4d8ce0c9"

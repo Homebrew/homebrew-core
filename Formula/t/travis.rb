@@ -7,6 +7,7 @@ class Travis < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e8824ef084cf3367d7f585718d44436dc5b931e321059aa120e57379cb7665ff"
     sha256 cellar: :any,                 arm64_sequoia: "a2656c812d2de510207764913a794922237221ac0840c5f238e391fc73b913c9"
     sha256 cellar: :any,                 arm64_sonoma:  "51bf2cb257cdd819adb71a0e2b5c44177f5ef3ff83fd23718b08fd89248d8f97"
     sha256 cellar: :any,                 arm64_ventura: "7b54aebccabde93f8f5898240e2107347d671d6d4e7a51606a674c7386111453"
@@ -172,8 +173,6 @@ class Travis < Formula
 
   def install
     ENV["GEM_HOME"] = libexec
-    # gem issue on Mojave
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :mojave
 
     resources.each do |r|
       r.fetch

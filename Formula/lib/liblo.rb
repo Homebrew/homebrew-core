@@ -8,6 +8,7 @@ class Liblo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "bc3d8a8b87f29fbb5fc1bdbf6538a1cc26e03617a4a42dcaef0f085585db5588"
     sha256 cellar: :any,                 arm64_sequoia:  "8373256cd53294a3a06252d55c8cc93d6c6a6f8c3b235084cab456931e67e1b3"
     sha256 cellar: :any,                 arm64_sonoma:   "c379d421a02f1afa3c6105e527dc71b5271450f2964f31b6f6117fd826c8f783"
     sha256 cellar: :any,                 arm64_ventura:  "1395a951f82712482f5f90cd4a4803d88044154029cd3cd1d2fb2fbaf0f357c1"

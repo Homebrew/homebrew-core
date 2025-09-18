@@ -11,6 +11,7 @@ class LibgpgError < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "bc4edc6247d8f5257010349424922e4f798dc13c01ce801a46f69363eda88cc9"
     sha256 arm64_sequoia: "a2d0e274ace59980a81d2b06c445ddef5498c69cbefc85bdf04d3d79d0dfd71d"
     sha256 arm64_sonoma:  "3ef3920eef9d7f025f528e438ec467d763bfe595e11a5763f0c63fb6dd40aeae"
     sha256 arm64_ventura: "d0067e8720929efdf81cc5b5dd9b3b05ca7d7dccbdc7e3178e25103f2e85ccdf"

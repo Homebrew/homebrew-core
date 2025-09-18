@@ -7,6 +7,7 @@ class Sttr < Formula
   head "https://github.com/abhimanyu003/sttr.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "51940cef9aa765fde81e838370403f945841450d17ec2a485dd7f142f99efa28"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d015f628e3b46037094749ffa2c33d891137b394a86acf21bd5ad7d58552572b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d015f628e3b46037094749ffa2c33d891137b394a86acf21bd5ad7d58552572b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d015f628e3b46037094749ffa2c33d891137b394a86acf21bd5ad7d58552572b"

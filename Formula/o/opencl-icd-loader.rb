@@ -7,6 +7,7 @@ class OpenclIcdLoader < Formula
   head "https://github.com/KhronosGroup/OpenCL-ICD-Loader.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e0d457a1acf0efbcc69f119d0cebad5a3cb5c073690e94349c3bfdcfde5f6c77"
     sha256 cellar: :any,                 arm64_sequoia: "bf65ff7f27a7877c993902277e68ff4b88e5e49a15fbd9ceb310352dc16a5793"
     sha256 cellar: :any,                 arm64_sonoma:  "5d863bc7eb594b7a84db8a789772d4e28fa55564c07ec34b8b2ed9e8f0936149"
     sha256 cellar: :any,                 arm64_ventura: "3d8ba3a3c64ce7cb9f0c9a3185f8a432cd8e8bd08fb57ab8b5446f7f85db9e9a"

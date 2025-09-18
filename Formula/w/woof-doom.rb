@@ -7,6 +7,7 @@ class WoofDoom < Formula
   head "https://github.com/fabiangreffrath/woof.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e4f6a2d1ff1092cd0277ffcb92e41b6759b80b3ddfc14be7b53cd29448f2fcb0"
     sha256 cellar: :any,                 arm64_sequoia: "9f0b9979cbb09840542e15f524abb725a5531e1c10b7d4bbcfc9333096acd39d"
     sha256 cellar: :any,                 arm64_sonoma:  "5cbd903199d7c932b11e369c48ed666f975f54f7e0095d8d282827a16215f370"
     sha256 cellar: :any,                 arm64_ventura: "ecb8f5469dc35e84049fa7ba8fe21548f16c12374fd883503fe301dc8d69e5bc"

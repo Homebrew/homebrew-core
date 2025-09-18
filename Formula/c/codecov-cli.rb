@@ -8,6 +8,7 @@ class CodecovCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "36017e6feae3b6677b1c96343ce7084e19aed2211b356c3926eb0c39c883a42d"
     sha256 cellar: :any,                 arm64_sequoia: "7cc862c0f005a1f664c3f3de258e1b0c6c2ba4ad34ae0e3189930f6e0b9a6f40"
     sha256 cellar: :any,                 arm64_sonoma:  "83e216a9ab73465f08f45a9e59b28155b6eb00eed2e920a0a758039c1a509610"
     sha256 cellar: :any,                 arm64_ventura: "b094fc6e61e98e2644d550de3038fb9c186c9683d8fef48ddb1029f2b9a22430"

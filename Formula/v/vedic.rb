@@ -7,6 +7,7 @@ class Vedic < Formula
   head "https://github.com/vedic-lang/vedic.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "56502244e08e30a3a86559996431cd27db1959096e6b465c56c793c2495ebd23"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4afe71c7c4dae3f9edfd94229be33eab94b9349f1a50c787b2e98ba07a34861f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c9bdcd049f25d6408a40c2693a39e098ae74512801535b6fa6539566375f679f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3fe45503d405ec81208fa88cf42b7dbe9fa003316c3783dd4d53ff19f48e89ee"

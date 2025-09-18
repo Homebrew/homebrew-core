@@ -9,6 +9,7 @@ class Woff2 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "909e53d8bfc53e5f3f8a696caf90d3a2a950614f5590215b3ce6121ec1af3d40"
     sha256 cellar: :any,                 arm64_sequoia:  "f451e27be673ee74d5cdbbb50fa6d818ac48b0800f9daf0c27bb5995c27f8b9b"
     sha256 cellar: :any,                 arm64_sonoma:   "d410b566576b56a9659f6318591722b2c000d788be86e4c65cd28631ecd485a0"
     sha256 cellar: :any,                 arm64_ventura:  "fb62fd8c1f19bf0eabbc4e82ea9db15cb8fd74b158bc137a6e4da08a95c57759"
@@ -19,10 +20,6 @@ class Woff2 < Formula
     sha256 cellar: :any,                 monterey:       "04a13902818b9dfb1e5c82a8f5b50fae9681c058b6786a2bc86328543ed9c397"
     sha256 cellar: :any,                 big_sur:        "1f49de0effd6a13416745b3b9329aa42cefb0801eaa4740931b9c6669d18e1c9"
     sha256 cellar: :any,                 catalina:       "7df9b4ada2d8a72546c5395fc92a7c5071f68be2fa12d336a194cee44adad5a5"
-    sha256 cellar: :any,                 mojave:         "d3ccc0d5d910483c5fa385cf213bb352bfe886f1b824f8c182d050ae96e77fdd"
-    sha256 cellar: :any,                 high_sierra:    "f0a9cba72030b62b02336c277f2688ad96bf45c1720e58205cfa597be9860296"
-    sha256 cellar: :any,                 sierra:         "965310f79a417663d33d4917880b4dd2a9654ca85f5a9a243465e3e0e86a394d"
-    sha256 cellar: :any,                 el_capitan:     "59d4f6c77ae933445a0fde4b1445208a094169fa5dac784889dd6c8d4947c997"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7da30c0a9c4dfa9f52943749d7ec8bb8f25af1734a162015c009c422463fbb37"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc6bb16039075d8610786f74387551da3a4852d0d6227ebefe1c5ef9add29d43"
   end
@@ -35,6 +32,8 @@ class Woff2 < Formula
       -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
       -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
     ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

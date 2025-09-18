@@ -8,6 +8,7 @@ class Admesh < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "446f3774fd018994f5f040279c0198a80c6f7144023f465e6a5cbb7183225b66"
     sha256 cellar: :any,                 arm64_sequoia:  "c88ef051413ca638240add2cd10c366fc81c3b8d1cd29387cb137d7d3ef411c8"
     sha256 cellar: :any,                 arm64_sonoma:   "d8be2d072ff47a331d5a749e91598d85da1079f65e2f5f9a222f3f8bb386daff"
     sha256 cellar: :any,                 arm64_ventura:  "574b1956bd94a641fac2f06a85f9cfe3aaf5969a14ec3d88a5431230cbd36e49"

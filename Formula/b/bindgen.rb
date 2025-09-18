@@ -7,6 +7,7 @@ class Bindgen < Formula
   head "https://github.com/rust-lang/rust-bindgen.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e365fd73111ab1f7631e50ef51f4123d07e83c1f841ca7eff0422f884808a40"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e96f4bff4bf8646a132175f87710ffe282dadf9814a67cb0e2ab5cbfb47aaf97"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68791b14f20aa5fbf605d2c762f4937c6e2389ab0659cf034699dfa5f41a2969"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b944567744c969e7238489247ecaa33f89fe66db3a1b02e58280a083688f8d83"

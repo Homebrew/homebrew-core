@@ -8,6 +8,7 @@ class Tut < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "42b58b435946efe9b969c3b218c1f7a1786500807f93676a4d31b1680c426942"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "51d7ac8bcdb9eff188e5480de11bc29d8b0adca36c195cf3adaddd631a4db1d4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "36cee035f905ca3370c02f3ce18a6447a9cc10a299675001933607f80480b3f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "73a5450eb16784d6c42f63e497748c837d663e796d910ac7a1a839f694d6d91a"

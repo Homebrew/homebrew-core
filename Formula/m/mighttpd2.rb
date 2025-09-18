@@ -7,6 +7,7 @@ class Mighttpd2 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fb9506a6f447163871a2b4d66ff4d95ed4151818ba2125d17ee3194514bb92a7"
     sha256 cellar: :any,                 arm64_sequoia: "25be6975363a119562cc5652ae9eebb7219552713f104774fb8fe514214add76"
     sha256 cellar: :any,                 arm64_sonoma:  "c50ef2cd7f27b3a323e7c76c0653938869db33f655c301ef1ec251da7ce51cad"
     sha256 cellar: :any,                 arm64_ventura: "d407f151b2dbc11fbdfca89ca0eca2a8055b62e6f5986682e9457edb449aabae"

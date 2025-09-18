@@ -22,6 +22,7 @@ class Loudmouth < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "6b102ebfa05ec64bba31c02b27a116e39020b136df40c25ddb1509d5fed1bef6"
     sha256 cellar: :any,                 arm64_sequoia:  "43729c1c6d565d8c39c43603f74ed9d9cec9c0245449e2b8e19f9b991fc44ea1"
     sha256 cellar: :any,                 arm64_sonoma:   "5c27c1b17205765db82cf291a090e65e50b6a5194fda067d000d70d58cf3717e"
     sha256 cellar: :any,                 arm64_ventura:  "439e0305cb6c6fa9305ef3ddeb6d35e330d35d245ac836fce6435c34bfa88e89"
@@ -32,7 +33,6 @@ class Loudmouth < Formula
     sha256 cellar: :any,                 monterey:       "890ebdd35bf9275e771984de61b38557ff279e61d15e8c9d11813def0b65689a"
     sha256 cellar: :any,                 big_sur:        "d770f0cd1a81375c306d0bc6fdd81610d27bc844fd5086518aaa7f8fa6252a14"
     sha256 cellar: :any,                 catalina:       "b83be4ad6fce30f484015b344d21e3e425860b3c8a2cb6a609e059611d03caf9"
-    sha256 cellar: :any,                 mojave:         "681944a95c5642a4651110e5d91d88acf335176b34d85f0f159aef291f07b38d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "c68d8c7b9f5a4437ceb7697484a3609635d8b93fd24a37e1e7a5b973b8c2c9dd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6052693231034f7a87a85eb4e56755786089171b9ce5ad1e0babe0a891af55d9"
   end

@@ -8,6 +8,7 @@ class Cppman < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da0571adeba02ae623b6cea8424b60f21bf075cb8920e854f1b648c781279c5c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7edded6fb04088da0b36108353bc082e82481dd5d6ba603e4313f926c63a8c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef7dc14b3e716c606d544ca2602786015dadcae34900798e5848df1b5481eb4b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a8850c52d49794b7386b0465fa3be10e8b48d2fbd6dd0ab5243f1e22172b7790"

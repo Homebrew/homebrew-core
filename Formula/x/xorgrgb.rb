@@ -8,6 +8,7 @@ class Xorgrgb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b4c43ac48800387feaa8d8d91d20977069578a7a13efdf0f4198b9a2eb763062"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4cc8217eee8a4df6d597f4f6ab26718712256edd2bb0c5babcd646719ef052c0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4148ce78e43c9aae8e75e639f5ebab603d20cd3aabd2e6421b71d967ac92aab7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "25ddac19c5361bd478b8c9ac4fab8210be7b8811f9b2edf586156604badfce23"

@@ -12,6 +12,7 @@ class Scotch < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f0a97b87441070cb6a13f4442a241d6f265eb89ca28951dabb59a68661fa8147"
     sha256 cellar: :any,                 arm64_sequoia: "72ceb7e882aa8bd9cedd6fd4f21eb4cc75c6c2cd89598464572c550056b622c0"
     sha256 cellar: :any,                 arm64_sonoma:  "d0b6f73d9cdd71695804b8e3962573741fd5871fb159b2bc5849d491f05cac3d"
     sha256 cellar: :any,                 arm64_ventura: "67d8fa057f659db29e9108936969306d10284853abbc23c1567aa4a46d74f8c1"

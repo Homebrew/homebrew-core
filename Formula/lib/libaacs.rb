@@ -14,6 +14,7 @@ class Libaacs < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "bb76e9a99df6cbd2ddafd00b7d2bfec36f1d2340573402d912e25f2602d2a9af"
     sha256 cellar: :any,                 arm64_sequoia:  "ff23fb9dd6dd26f6dde8ac12c298be21546d2e3696fe7b064af1647b3788156d"
     sha256 cellar: :any,                 arm64_sonoma:   "7299a85edecb49ec7e77d70dbda59f4ef4d4879f7c7c28f01b7ccfe213675c2b"
     sha256 cellar: :any,                 arm64_ventura:  "17fb11e42e6b614543f8bdb7f79ab5ed918a5d2fac7442b9abc46c0bcbab3712"

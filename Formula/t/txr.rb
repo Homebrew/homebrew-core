@@ -11,6 +11,7 @@ class Txr < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0feab2e83756d3361b3aa05cd98fcbcb4e9fe346f5796a9020f971c8aa2a284c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3190a9ee3e9cad9ea15afb5e5950fd15b2547ad06fd78c9dfc972439628cfb11"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f470ff3b63fc4ca54e373852496d845bd64150a2b092702f1f33cbf7ab257bb1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d10ef0d21324ea961c822c61ff44de39177b401c70f08bb89b5e4473df3b6f97"
@@ -32,7 +33,7 @@ class Txr < Formula
   end
 
   fails_with :gcc do
-    version "11"
+    version "12"
     cause "Segmentation faults running TXR"
   end
 

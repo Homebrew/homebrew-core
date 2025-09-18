@@ -1,21 +1,19 @@
 class Base16384 < Formula
   desc "Encode binary files to printable utf16be"
   homepage "https://github.com/fumiama/base16384"
-  url "https://github.com/fumiama/base16384/archive/refs/tags/v2.3.1.tar.gz"
-  sha256 "71ee39510c8c687254315ccc1aa5de601a5e2a2554b6db843f3874c12415a77a"
+  url "https://github.com/fumiama/base16384/archive/refs/tags/v2.3.2.tar.gz"
+  sha256 "3b612e8ab32e7b108a08cdf4112a04fbebaaa572bc60d386343a954c695e450b"
   license "GPL-3.0-or-later"
   head "https://github.com/fumiama/base16384.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "9c046b845fe6857efb4263bc958ae54f86716c14999710d91451727eab219719"
-    sha256 cellar: :any,                 arm64_sonoma:   "71adec1b444f7b121e2cc126a876d3ca84df3a8cbe2dad781eac1b7c1c8c0736"
-    sha256 cellar: :any,                 arm64_ventura:  "581c0cb53c4ec53655015c1477a749ae53f63c18ea5b4c56cd28ac4c42fcaf97"
-    sha256 cellar: :any,                 arm64_monterey: "870a9f826384af1e7958de7cc4577c4a7bc536f25b27c70d377685a3616df453"
-    sha256 cellar: :any,                 sonoma:         "aa4c9cacb0c6cbeb386a0b04470c4f184b281f32ab9356e0067897b6153a71f2"
-    sha256 cellar: :any,                 ventura:        "39b4895bba7a1ae5b3b50ff3fa88297e77085ab97f8f4a45bf623d7264e70644"
-    sha256 cellar: :any,                 monterey:       "bb6d45b3c3102d73a79fa28b0ee7345eda0b64f9663d0e0046f434266797831d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "13607155b317eedcb9ebbc6f5a3ed1c962899f8eb0e9e87fb5dde3163217f7ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8df8dffe60c9b43d5192bc163037d3ebdc9cb4bb7020651aa380d8838db92d5f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1f5f8def255ca57e635603ef572bb652a7920bae85be2e2c84a13c446d6d4615"
+    sha256 cellar: :any,                 arm64_sequoia: "deeb2188d7479f513249484059fd1de2adbeeecc433b5017bd352ca29328d9c4"
+    sha256 cellar: :any,                 arm64_sonoma:  "7908aa72a066df28976ac2c33318b3bc14dcdcdb14e03f075aaef4e49f927b0d"
+    sha256 cellar: :any,                 sonoma:        "b9c40a9eeae7fb639505085bf436817583a4bef68ab415966a232facbb1634b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "292b2d8e8b87a90ee2dbb426a69ed69f8c58945cda95c879478eeab33d38c818"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3010ed072ea82794a4f40a0ec7a11e2bc51a6f0a8d25aa18483be84976b9a2b3"
   end
 
   depends_on "cmake" => :build

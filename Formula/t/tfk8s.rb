@@ -9,6 +9,7 @@ class Tfk8s < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f9b07f68aa49e570daa4a68138d7f16893d524b2e2715df5de719be05da6a61e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e499b7011e3ce354ecbcc659a9dfbd792a4c27a434bc433b591878417c0e1d2a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c997b7b01ee594d2d0f3e080ac8c3577d2dc49f0165f1af655a6d03e650610d3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5feb499b0c5f97e06ab039c8e6c29b25760ef7403ca5d134524c7876e104b630"

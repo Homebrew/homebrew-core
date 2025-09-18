@@ -8,6 +8,7 @@ class Posting < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8b6610da12e5463de6c653b5b22416ce849f74c82605c46d81882d7d1bad55b7"
     sha256 cellar: :any,                 arm64_sequoia: "8c95287dd4774e6baaffc72923b839eb6db2af02cd0152366d2d096733d4da2f"
     sha256 cellar: :any,                 arm64_sonoma:  "6a20fea4f39d849953b1e3f508a91930cce6318e3e3e0893e8f43753ca3ee3c1"
     sha256 cellar: :any,                 arm64_ventura: "cab9426a87f439149a8dde4e33560cd2a36ff01eee8af670da98eca94178b9bb"

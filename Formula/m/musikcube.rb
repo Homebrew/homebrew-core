@@ -45,6 +45,7 @@ class Musikcube < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "26a255dcf4514ba323fd8432e0707d41a78957663cd9dae29d9721643ff4ce6e"
     sha256 cellar: :any,                 arm64_sequoia: "9db1d89d137c22936f096852017272d7ba739ccda6b75771e983be8b9392ab7a"
     sha256 cellar: :any,                 arm64_sonoma:  "69618b6cb44fed6f13814c8d7ef559dbd4f14bfd268952d58554a85d6baa315c"
     sha256 cellar: :any,                 arm64_ventura: "a6f22f38cc129c056f1aecec46a00d6aac5a392f4707826c67872bccabf8fc12"

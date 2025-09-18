@@ -8,6 +8,7 @@ class Tfel < Formula
   head "https://github.com/thelfer/tfel.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "a32accc98e1a455f78c220aff9d3e20b7c0c082cf2132505771ff2889e75c188"
     sha256 arm64_sequoia: "e1e6e43f5a7be0c184226d0454e453e45ba3893fe36ba7550684e2f5d4e6bb92"
     sha256 arm64_sonoma:  "e0ab449a01ba8433286a4e521c2107e310c284df8acf444a6a734192157f12c0"
     sha256 arm64_ventura: "20d92835975863a877b1699fa2c3f74db629901b5c9a029de7d607171be99c7c"

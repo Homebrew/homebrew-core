@@ -13,6 +13,7 @@ class XmlSecurityC < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "da245352f56c05ef6603edff2f3ce8cd0831aeac2fe02b38ce11e56523fff2e9"
     sha256 cellar: :any,                 arm64_sequoia: "7f42a4e63dc531c44888737938b0e97780bb25053f42f5cd35671294251a9f6d"
     sha256 cellar: :any,                 arm64_sonoma:  "82490b87ef4a44db821acf34f13bffcf99fd52a3ff372886ee1f001f6d22433a"
     sha256 cellar: :any,                 arm64_ventura: "b4431f1f09c66f1dc9c73eb72cc78c724e0b0a072f93e26917a114b4eae88ccc"

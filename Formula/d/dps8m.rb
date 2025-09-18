@@ -14,6 +14,7 @@ class Dps8m < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "5d60fd88809f95e134a996e6f9d03f9b8b5f4d82d2da4ea0ea6861e44883a5f4"
     sha256 cellar: :any, arm64_sequoia: "2299a62a4694d96a06590dda48aec1b5bc7d4223a16027fc8d7e2815b89ef96b"
     sha256 cellar: :any, arm64_sonoma:  "0c1ab00fc50dc0faab0615c50f338d6f65539861eccc49efce8a2e672d91de13"
     sha256 cellar: :any, arm64_ventura: "807a98a81f8d7abb726a736adbe55e65b4ca015b7019fc96f76032cd1c38431e"

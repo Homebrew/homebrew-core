@@ -10,6 +10,7 @@ class GnuSed < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "48a39d1b81adb766f45db53a0f4f8e9ce8b942386c270cfcdad3fbd08cb653f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "70edbfd4aa9ec24bd48e21353d18433741c13ec10c9903d5c93349eabb83bebb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "829d21105387351f6c7b07cd845d7e234c1a460ea5e50cc2f5dbcface45e378d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9a9b26c3bd0bdcfc258a24bb6b16eaf8677deaa5242adb8153f5ef0799f16946"

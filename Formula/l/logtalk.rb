@@ -15,6 +15,7 @@ class Logtalk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "13aaa9aed141c81da8de20352961a1bfc5e216cb1d7bd01674d8fad1ba74cf50"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce4655791574c9fc71512b7a59068b12ad4c6c585f001a7e5c01bda3c9255bef"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca3e2ee195a90b2d2f045824e0a42d11104365a35d03ed5b885ff2e078559638"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ca3e2ee195a90b2d2f045824e0a42d11104365a35d03ed5b885ff2e078559638"

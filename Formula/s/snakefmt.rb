@@ -3,13 +3,13 @@ class Snakefmt < Formula
 
   desc "Snakemake code formatter"
   homepage "https://github.com/snakemake/snakefmt/"
-  url "https://files.pythonhosted.org/packages/26/08/34fb07cadad1e9598031522e641ba0da3145cc8f70891b77790d08554ded/snakefmt-0.11.1.tar.gz"
-  sha256 "2c20d40b4368bef20ad704bdf2914eae1605176248fa4252c8f8c1118c60941b"
+  url "https://files.pythonhosted.org/packages/90/93/5cfa69ca18e6a73fe2816dfef52969e770d6e90fe9bf978c9d85232dc755/snakefmt-0.11.2.tar.gz"
+  sha256 "e9ad3758401e0291f7a45360075c5738386b58a1b160d38827b40630d9f735e1"
   license "MIT"
   head "https://github.com/snakemake/snakefmt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "96c0f5cd21c49768cfedc3e5bcfea7bc792cdcafc8fea6a38a58e231b1978426"
+    sha256 cellar: :any_skip_relocation, all: "7da20c190b9c66d20fbb0fba7ee055bfd7b83b2fbd0bdd95a07a7817631fdf86"
   end
 
   depends_on "python@3.13"

@@ -13,6 +13,7 @@ class Certgraph < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "61e0de8d4c9914e75649461e35b23e1e698bfb56e2870bc9e0d34e9169d5857f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5df3eb13c0ca4209724b54ee672565073bc8cecea87b3f4819bba9d878c82fb1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5df3eb13c0ca4209724b54ee672565073bc8cecea87b3f4819bba9d878c82fb1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5df3eb13c0ca4209724b54ee672565073bc8cecea87b3f4819bba9d878c82fb1"

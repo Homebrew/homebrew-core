@@ -13,6 +13,7 @@ class Doxygen < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e8e2ebce27df984a154efb7185afafb2eeed1f23bc99979f303fe362d9f38c7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "40bfbccc24e4a47fa76132b5b9e93dbf9979b46b04cfd3316ebacd4d71ec818c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ebdcea704e78247e895540b2cc38730836c83a00f5d8a6f3162978e099b6ebb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a46b8f6665c2fcc12dcff6285789407a37b5bb34d53f27bd9b90b004f7ee7caf"
@@ -28,18 +29,9 @@ class Doxygen < Formula
   uses_from_macos "flex" => :build, since: :big_sur
   uses_from_macos "python" => :build
 
-  fails_with :clang do
-    build 1000
-    cause <<~EOS
-      doxygen-1.11.0/src/datetime.cpp:100:19: error: no viable constructor or deduction guide for deduction of template arguments of 'array'
-      static std::array g_specFormats
-                        ^
-    EOS
-  end
-
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{which("python3") || which("python")}",
+                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

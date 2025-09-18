@@ -7,6 +7,7 @@ class JiraCli < Formula
   head "https://github.com/ankitpokhrel/jira-cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4a790929543023d792e0547d539b303f4141c414e1308ea4b6ec29bf8e1b8f79"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "38ddb622dcf18e8ebaec41c1c2d18fd1298a8e00e0e29cdd9c4a1a466d57bb6b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "772dd20a1ddfdd4073c82ca4715d1bf2580cc2e1da221b8bd52ae65a61fdff64"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ee1279968ff0b3a34f102a0bcd15b1ac98a66641794a15c018b6eb453413bacd"

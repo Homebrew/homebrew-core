@@ -7,6 +7,7 @@ class Lf < Formula
   head "https://github.com/gokcehan/lf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "194e831d0e03e09fbcfa77460c867352e0f3fed6959f3fa3a19172567d66f378"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8b56c6ff35183530c0e4d653aa87da2e0d6aa4e4d976086d34b97dc5d209b42"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8b56c6ff35183530c0e4d653aa87da2e0d6aa4e4d976086d34b97dc5d209b42"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f8b56c6ff35183530c0e4d653aa87da2e0d6aa4e4d976086d34b97dc5d209b42"

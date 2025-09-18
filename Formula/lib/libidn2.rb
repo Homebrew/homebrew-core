@@ -19,6 +19,7 @@ class Libidn2 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "f8f1b459f15a4ac11d2dce786a9140509782227b7d499cbdf3a1279dd325d90b"
     sha256 arm64_sequoia: "1eb02bfa40ec00b7ea64d8608fcf2115069d99de5a35eb3e2b3ac444a695ea46"
     sha256 arm64_sonoma:  "6c578e128c82759e211298ae9b004c83844c2626c074f5cf4950402399bdb8f1"
     sha256 arm64_ventura: "d0d933dad3ab921d09acd3fe3efa952ee8859f3d9d03aa0210490aca25e0c544"

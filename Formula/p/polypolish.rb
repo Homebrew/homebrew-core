@@ -7,6 +7,7 @@ class Polypolish < Formula
   head "https://github.com/rrwick/Polypolish.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "573d4d8f109f484e2b03832122174f6c3cb16bdfe357f617306233f4613da268"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "27e21ac9ec859c4d3a4cac3894979bbf348f2749212961dfbda022b23a93fb41"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75763e9f7d2d958960e52b71f14abce7cfacb5613c939ea85b0dfbc3e08f6117"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "66487941bbfaf2f02730c793390833f31c2e077388ff58c111924171a4268161"

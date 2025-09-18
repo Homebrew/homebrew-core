@@ -13,6 +13,7 @@ class VoAmrwbenc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "654ba6332b443125e46a211f00ed4f16b219d6de0068d8a4ea863200e97694cc"
     sha256 cellar: :any,                 arm64_sequoia: "fec91381e714f851e4215e99f160daeeb8844fe28ac28bb86f4de6076eb7db1e"
     sha256 cellar: :any,                 arm64_sonoma:  "2b42ddf93167c6e68a0ff075380b69d1b03b9ead3125cf392571578c282ca677"
     sha256 cellar: :any,                 arm64_ventura: "d627a6b0fb346506f9723a73eeb0f3e3d6d267e2e657ef4f13da37131fa88a31"

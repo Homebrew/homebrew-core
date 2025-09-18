@@ -7,6 +7,7 @@ class Hut < Formula
   head "https://git.sr.ht/~xenrox/hut", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2db4db62d5fdc914d509199498e59355e5b4525fa9ece439ab8fa29fb560873e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0accee6f54039fe7bf2320633dc848345253b6be579fcb47dc2cc816e437c8d9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f75e366c90393fe0c599be6e75281b403be956864e308701b201201bf3bb9ad"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "beae4d947bcf81b3a9a15dd1e5f6b866819d988978b83cae1e2ecf769b9c086f"

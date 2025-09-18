@@ -8,6 +8,7 @@ class Yder < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9f885260fb16abe855f8334ab2c1b6bddaf032e7e19e1a119bf9ba6280b8e784"
     sha256 cellar: :any,                 arm64_sequoia:  "742de6bb638644e32ac9153a26fb2cecbaa8575b765ab4166221389efc71b80e"
     sha256 cellar: :any,                 arm64_sonoma:   "17f19f57371282f824f622fbc956fbdb620cc2f41558e2b7a046ee80afab7594"
     sha256 cellar: :any,                 arm64_ventura:  "1a40a4adeff343167112cb5887cf8e91bfdcad589eb56197d4b3ceffa38ac6c0"

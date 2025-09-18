@@ -18,6 +18,7 @@ class SharedMimeInfo < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "634a2d63c5004f785c5186faab2930fed9ab42ab3bf7668c57f66c9d8f4d059d"
     sha256 cellar: :any, arm64_sequoia: "7feb34ce6afb650a39b05fd0dfd75225b659123ae42ce571076eaf2d640c8232"
     sha256 cellar: :any, arm64_sonoma:  "a8235d09d748ebe4c84a0aebdb57c33cd030334050bc9bf4efd57a5f732780d8"
     sha256 cellar: :any, arm64_ventura: "887f26165f0917b9ff0e72f0fe15facb37402df8209d98433358d631a482e7ec"

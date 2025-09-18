@@ -7,6 +7,7 @@ class Kafkactl < Formula
   head "https://github.com/deviceinsight/kafkactl.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a2bbf002ecd2fa96975654569f134e359d431942e3299b3672cb0f682d2f51b3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc7f03811264ce46da940000d76df0b8ad19a750deafc527e3a896c3c86bf626"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc7f03811264ce46da940000d76df0b8ad19a750deafc527e3a896c3c86bf626"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cc7f03811264ce46da940000d76df0b8ad19a750deafc527e3a896c3c86bf626"

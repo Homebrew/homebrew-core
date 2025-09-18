@@ -15,6 +15,7 @@ class GitAppraise < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d005b8ba84092cf355c62cca07583b63626cc49ac5ea5833c06d80c8a1c023e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57018642d15c7cb5e4a6d1b897e3f1c369c1e81e22eb8dbdef0c6f6fdd8909d4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47ed51bc965177d94d4d1ef000fa1b62d25e923f1ad569fff3298c42bfebf3da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "987bab897e08380d91b10c6fdd7202c7a8e067d1417fb9887196b6cb5cdde19c"

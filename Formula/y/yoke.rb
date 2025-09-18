@@ -9,6 +9,7 @@ class Yoke < Formula
   head "https://github.com/yokecd/yoke.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4a1f6d49dc9533cc92f8ea183bcc0c1f0710b41ce821b76b992fbfb44d286b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9d40abcef42ba362fedbd40ca49a894f4a3febc1558853377981017f0f94af8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98adb3a338691956cfbb8b2d45fdb3980d89fd73a330874aa8fdd052d7bd032d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0cc8647a2b43bce12726ee77b6c58a0d3933aac1d0788beaf44e46386918ae78"

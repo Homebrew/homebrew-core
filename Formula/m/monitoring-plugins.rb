@@ -11,6 +11,7 @@ class MonitoringPlugins < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "e611a641792258e275bfcf3d98669753a3740e5815ccfb6c7e0ef1cc104a13f4"
     sha256 cellar: :any, arm64_sequoia:  "3e652bea8db767df61aa87f55194af9a9a181272681ddf7300ee4a8d5dde3468"
     sha256 cellar: :any, arm64_sonoma:   "f8eee9b8e4b8300633bd73e365aa6e2daffcca7a58962ef7f20064b1bb378e12"
     sha256 cellar: :any, arm64_ventura:  "0a6a841f7d31c47c25418a08bcbe3622e95ec5a9cdc31aef8f95c7630c64f3fd"

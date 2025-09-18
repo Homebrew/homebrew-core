@@ -1,8 +1,8 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "https://www.gambit-project.org/"
-  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.3.1.tar.gz"
-  sha256 "9c74edc790df92a5a6a8a2a7e98f7d28d1ee72e85689f3ef8a3f7dcc2a816a4d"
+  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.4.0.tar.gz"
+  sha256 "e8e3b07c45b51c94e089e2ea4a349de692f897b0720db7a212afc3961517a77d"
   license all_of: ["GPL-2.0-or-later", "Zlib"]
 
   livecheck do
@@ -11,19 +11,19 @@ class Gambit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9a1e75aee1791314e4b7a7e7cbfea84a1f96917a37a6b3ea6eae71fcb1598996"
-    sha256 cellar: :any,                 arm64_sonoma:  "43afec9cce61a3da0cc536bc5c8184b5c6e9c2c7aba4954710aeb47b8ea09d98"
-    sha256 cellar: :any,                 arm64_ventura: "4679f34e1b4a04f48d04981122bf9238f1a9ddd295f2b77d2e1056185f09982c"
-    sha256 cellar: :any,                 sonoma:        "fba25a449fd92efab332cf4dfbbb063b15d3fa2a02d069e1d7120d99ff20fb05"
-    sha256 cellar: :any,                 ventura:       "418174607c01f17e7a4b9978dade851e8150937970b07f38da05d36891ca8c1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "536cfc1859207861267b527ea9884f33b2b1ae730b879cb46e1fa95143ab591a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21e0cf50f398dee049b4020f8577e2406ea3805fd09bf438c2f19cccc10f982a"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "fda19472e7338d469ab502354f841d7274da2ad58fbdcebca31cbe7cd2691373"
+    sha256 cellar: :any,                 arm64_sequoia: "a756abfae652920468ccc33ed14b6d2d35ca0514b3edd557c474b75f16aedc28"
+    sha256 cellar: :any,                 arm64_sonoma:  "b3b2b719786a00453e0b2c00b0e31d9a78330774a366ca4152bd620eaefb5f24"
+    sha256 cellar: :any,                 sonoma:        "10f1e8d813afaa98c88966f56bae72de8849ef801f338e74e989620e0d42fc6c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7c7bce83a2e06e9dbf842b15ddababe48c266dd58bbc7889a6d9ecd8675c80b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22ed7b5b6f8a265a7f6e92c2477d6d0ff7d2bb0598b33fbc3d789f3f8f6c3d87"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "wxwidgets@3.2"
+  depends_on "wxwidgets"
 
   def install
     wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula

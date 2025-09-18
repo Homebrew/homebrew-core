@@ -8,6 +8,7 @@ class Aria2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "02c192d4dc72d0c3960bbf780b3987ef70c3f35362a6b2aecac8840c96914f18"
     sha256 arm64_sequoia:  "fa42d58d43ca08575c6df1b9c8b6141edc97fdeec4c60fc3e39c50fffc7a301e"
     sha256 arm64_sonoma:   "89117256b91a5a87d4e31fb4054f7a0b45681a97627547b4db7498930486ff05"
     sha256 arm64_ventura:  "fd06b5b187243559c5f286767ab8f7f7d5f16d361bbd3ff9faf0909643920849"

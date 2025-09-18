@@ -7,6 +7,7 @@ class Zbctl < Formula
   head "https://github.com/camunda-community-hub/zeebe-client-go.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9815d342170bcaf637c8063e3414537074b11e7c058d2e8f674b57b928ea036"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1489e5d2afe5a0243c62c1387ba42bdd12bceb5882ee85b8f86acea85efb1a7b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1489e5d2afe5a0243c62c1387ba42bdd12bceb5882ee85b8f86acea85efb1a7b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1489e5d2afe5a0243c62c1387ba42bdd12bceb5882ee85b8f86acea85efb1a7b"

@@ -11,6 +11,7 @@ class Hwloc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "baedf023ef614fc146195b2d63d8bd7fd73cc17de666765961f589dd27ba9d79"
     sha256 cellar: :any,                 arm64_sequoia: "356391e580cf546a4b1b4180fa630a64ba6bd7bf00164914b58e41f0f2fa2cea"
     sha256 cellar: :any,                 arm64_sonoma:  "3eedeb79b2c25c7bb3b5fbe2a3a25f60b9c05779b75db2d871bdaf560b6a7c38"
     sha256 cellar: :any,                 arm64_ventura: "fd80369eabf2c1ae59af139efb7bf7d31becf28112e662630ead948e6ee0bf63"

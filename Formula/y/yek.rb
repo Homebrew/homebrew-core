@@ -1,8 +1,8 @@
 class Yek < Formula
   desc "Fast Rust based tool to serialize text-based files for LLM consumption"
   homepage "https://github.com/bodo-run/yek"
-  url "https://github.com/bodo-run/yek/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "2c0e863e0f49f690977910498a1b8dd151c625bf04b88a7d6ff20553590b6ccf"
+  url "https://github.com/bodo-run/yek/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "6930ec4ca31a32e946b66e0b9db8afc46c8257b8b5b66fca2227b999a2262215"
   license "MIT"
   head "https://github.com/bodo-run/yek.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Yek < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2d5276241deded5acf624a31b29ac860986c82fa12d46e3bc0dd697b86316730"
-    sha256 cellar: :any,                 arm64_sonoma:  "e002487f80db2f64322b9110b33705159d36da98dba3916e832d88caf8143346"
-    sha256 cellar: :any,                 arm64_ventura: "a44f0bd71899bbb2bd95d3c1cf07e72b4a511c861e7bef2a1883e572df2c0f32"
-    sha256 cellar: :any,                 sonoma:        "1627a4d75dd780a1ecf0c2f756327102ef247c30b612aa931e4067684c4a97af"
-    sha256 cellar: :any,                 ventura:       "1117b2d2b0d74e8c3dd4214e5dda6ced03090ccea62d54d214d376aca945fa96"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cdbafc81a9301d1bd455ae773111f8cbf43715b0341e6b310e53b2b56ba5c41e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a63bf23710982ff18db2e129a2001c7447007d24ca9b30be4a26de2c0b83f16"
+    sha256 cellar: :any,                 arm64_tahoe:   "e006c917c04a407a68291897e3bd171be3e5e2bb6f35439982b2378fe69fbe4e"
+    sha256 cellar: :any,                 arm64_sequoia: "0211d67697e9d905c88447d7795d2ebb0d4b0b5ad7ce558ef163f9b3ba7e02b2"
+    sha256 cellar: :any,                 arm64_sonoma:  "2d4ce747874f7e5640a80644e9c2ff2e2eccb04e6153f7424a531091d57bae29"
+    sha256 cellar: :any,                 sonoma:        "6a7f18faa8c9cc230c9c533da988ade923282b80ada2e0ed5e9908add8b48af2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9ea348b33d0839ae195e56100bfb9b3d8fe78688d06ba163b8cda7b23e0f88b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b45925f801663c82780e13876bfeaa81474053f5d4570d3abcac24171c1d19d4"
   end
 
   depends_on "pkgconf" => :build

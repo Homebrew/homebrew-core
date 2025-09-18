@@ -13,6 +13,7 @@ class Libsodium < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "fc8c1b02d3c050f67d92d6ca76b10b6f4d720a6ec148e1438ae12a5a13a502f0"
     sha256 cellar: :any,                 arm64_sequoia:  "e8ba0aafe8fe7266d68630ff7ab11d7357af35dbf5113bb648a1e02bed397970"
     sha256 cellar: :any,                 arm64_sonoma:   "66835fcd7e4dd8dde5be4e8d34c5314481c1d724e8dd82d4e97059d9fdaf1a45"
     sha256 cellar: :any,                 arm64_ventura:  "21b83b95eef039b914d712f4ac5d235d85e1f1143383dfa9c5359f0cc88fa08d"

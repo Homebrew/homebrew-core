@@ -11,6 +11,7 @@ class Composer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a7e2df1c80b6016af4623d64528b855b25b68a816f03bdec0d6fcb4a8000e45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a7e2df1c80b6016af4623d64528b855b25b68a816f03bdec0d6fcb4a8000e45"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a7e2df1c80b6016af4623d64528b855b25b68a816f03bdec0d6fcb4a8000e45"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2a7e2df1c80b6016af4623d64528b855b25b68a816f03bdec0d6fcb4a8000e45"

@@ -61,6 +61,7 @@ class Ledger < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "21afde616731facf47e8e0442f32b2a4521bda3c8a55718e9b16e4b576efdf98"
     sha256 cellar: :any,                 arm64_sequoia: "24bc2c89d89b0f0b355c037a5d6315f1d653accfba24c1dc76e51bcf3bbdbd16"
     sha256 cellar: :any,                 arm64_sonoma:  "3af2f35e72e3d5e50be515148bb1987c23cee6ee621fa17358b1fa50765cf227"
     sha256 cellar: :any,                 arm64_ventura: "a9a4cca0fc9dc851603ca76d6d7f51638d7d8053529dc17636c694e7a18afe97"

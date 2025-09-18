@@ -2,19 +2,20 @@ class EmmyluaLs < Formula
   desc "Lua Language Server"
   homepage "https://github.com/EmmyLuaLs/emmylua-analyzer-rust"
   # The project name is `emmylua-analyzer-rust`, but it contains several crates, not all of which we install.
-  url "https://github.com/EmmyLuaLs/emmylua-analyzer-rust/archive/refs/tags/0.12.0.tar.gz"
-  sha256 "8108577bf598a91a2aa296a270eccc6afab8d6adb23be196ee1d9a5a93de5dd5"
+  url "https://github.com/EmmyLuaLs/emmylua-analyzer-rust/archive/refs/tags/0.13.0.tar.gz"
+  sha256 "8e796d8978553c42f03b4d29ffb5e78717dc6954e3eeae92ba323798258e861f"
   license "MIT"
   head "https://github.com/EmmyLuaLs/emmylua-analyzer-rust.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7d33fa5bbcc8959cf630b2c5542e4f55e65fd5ebf21acb0f19c5f3ad1d018aa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b09fe5713263c6338fc9e9d11cfb3f60cdec018a5afeedf755034ede1f1d983b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "64299086caf7163a978502a485763dbff4fc02c99e83494a46d802ac2fefadbd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e46518bc9e6570c1cbb34297e6a3e6e94a9805f5f4b3d6d1839f43c8de76c64a"
-    sha256 cellar: :any_skip_relocation, ventura:       "4fd90bf76662e118ef5d655bce9a56ae8340b36670424478d6094829c42896c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d14d77d2118aaabb4d2a590a09746cc429741f5fe53351ea1a5e6a5b2290ac85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6060a05d2a395ae1edefa829908e0a87feb5192bd6377ff6351940f2e48124af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62c18c4a37eed708d8dc427876e46e85967c7297d5a9da15fa12c4eca0cc503f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb3999b1d28914fd8ba25e10adef647cd8737b00c19e473476f61aa720abe688"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1c2c25c16de040b1b81c743fe4d79b560cda326dfdb672daf4a84d9d04f8c4a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "73a2f96e6591adcab4e023e8b30dbe93d69a7673b702c9852aa2996d8de0ba0f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43c14ac21369ff9275fdfa6b4ed2f660c25dc7c049fe5768b00b4a96d4b6512e"
+    sha256 cellar: :any_skip_relocation, ventura:       "80db0450c6051f0691ca5c11b813636b6d53c9af95c324992a8b250708215bea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "505c8e0489d338c71ed1c24a9cc896a20d34d3f3b7c79f5966f620797815d844"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f591ad4521b74b1fdb9622241aabcf070b38f011600d4ca13889edece8b9ff2"
   end
 
   depends_on "rust" => :build

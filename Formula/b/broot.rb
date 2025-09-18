@@ -1,19 +1,18 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/refs/tags/v1.48.0.tar.gz"
-  sha256 "7b8e456c3cdfce87e902b3fa839126e5446ce0f0dbfa9b10db5c2758c1f506b1"
+  url "https://github.com/Canop/broot/archive/refs/tags/v1.49.1.tar.gz"
+  sha256 "390bc8958b2257f6e9c2169ffba221ad53b97f0d31912bddfbda24296609537a"
   license "MIT"
   head "https://github.com/Canop/broot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a5bdb741474236097299c784cfc3bee41851d601f509346e945061b031401691"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e1148e5279cda7679955f843a9eb14aed51987f4e4ae5e3bc108ccd2c032725"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1b3d49de5d31a8152e34476ccc5ff30187e23872cd85e3e07f2a5be733992b27"
-    sha256 cellar: :any_skip_relocation, sonoma:        "10e993f4fd0df93d6299c1a66a342ca7ccfed434069cd33a373498eef01d35bf"
-    sha256 cellar: :any_skip_relocation, ventura:       "28ae4aca92a061719f4a0bdd03564d8207c0883f347b8739718a798645e2f74e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "db4cad182927aac397846364c2de97cfef081f665574010dae0af750d920fc14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d297ecc02335c141b034840ee5d79d15c0f7a3a8191b2ca3cdf3968020f6d2e6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d31c3d351607e8577c259cdb7117a1cf7d85dd22e3b49a6a08e9e26e7f218af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a768e3ca8a1c973be0d205e33e7db349549cea58ab7ff023fd1bd79a3bb6e749"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90105fb7e9990b63bbc73310e3d625fb1d605cf0af81e956f99cd66f9376ef60"
+    sha256 cellar: :any_skip_relocation, sonoma:        "44da9d50ba6c3f7dc708966ca9cfefcd34c3a35f8eae1b54957027d88a5a642a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fc2c2267f4c76c40b42179df6495b5e0d1e70232b3dd9adcdceb763a5af9bad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03e3760a62aa5d6f984e08c6d573adf992cc57adc4941c93e4ad106809f4edf4"
   end
 
   depends_on "rust" => :build

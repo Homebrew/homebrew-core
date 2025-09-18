@@ -14,6 +14,7 @@ class Binwalk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11b3d0c518f81eaba097392205c002a136e25b73a81ec35551b9ca1e3858c700"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "00db81d196265d847f7241a8771bade058a6077c0db8701fa0345496b7ba1f42"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2640baf0e4b7943cef7df7ff1280ebdf1bc47ba711cc53d984eef63d24c5022"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f0ff3203c523ad5b7551b711b4ac5cacd6fe1d1d934c9e8c8a54a6745f5b7826"

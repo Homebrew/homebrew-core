@@ -12,6 +12,7 @@ class Certigo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8ac461d690d136c9732b38b3aed77b6ee45044facc3bff02c8c1ab10c9da38d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "178bf6b7f2d571b80251d754e9d1103940ece8b33cb89660973bbae84d0e376c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e8007c62003b39a369bb73c7768c22d92b66ff8615ea03218db7cd7b513ee25"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "90657fc29a0515bac14c9386da4f44941322a733c99d39553cb70679246e561a"

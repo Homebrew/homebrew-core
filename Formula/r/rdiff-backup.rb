@@ -10,6 +10,7 @@ class RdiffBackup < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "6cd580c22638b0fa6a5512afcde69060900dfdeaa784f8a93d2ba1d2bb9965f6"
     sha256 cellar: :any,                 arm64_sequoia: "b8a183aadfc497b89651c586a63267398a9ffa1b5fc7181bbb3dba635ed50aa8"
     sha256 cellar: :any,                 arm64_sonoma:  "e23be48d91740ad07bc9a1f6d17a421353fe1c9456c21d14038a7335a516fbdc"
     sha256 cellar: :any,                 arm64_ventura: "eec850cd941f91e122231dbe65f85451f3255baf5237cce8cb6ca6449c0278af"

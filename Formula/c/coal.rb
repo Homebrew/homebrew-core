@@ -13,6 +13,7 @@ class Coal < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3dd6e805964cd404e8eb00f9fdf17cd7bb56aabb97296aa3f6449a9c7624646d"
     sha256 cellar: :any,                 arm64_sequoia: "3f7ed10af05493f7a2992a98efb2c983004e2b167cd389c43d5feea319da1497"
     sha256 cellar: :any,                 arm64_sonoma:  "7dab1289d5931423e4c9c88d1a8b6487e6b7c37c058b2afe7e6c3eb4edc0f75b"
     sha256 cellar: :any,                 arm64_ventura: "50b83e1c52071435771a9c1af840e63fb08a29e681bfdacff8fab9a93df8ccf4"

@@ -10,6 +10,7 @@ class Easyeda2kicad < Formula
   head "https://github.com/uPesy/easyeda2kicad.py.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0b99e1fab064fc0d855bfc64c8bc84473f5807a0a8b616f14e0a3c71bba875e1"
     sha256 cellar: :any,                 arm64_sequoia: "ca4a1da140fed0775fce219fdc949815dbc2f40caeb84265e2a68b630ad79a9c"
     sha256 cellar: :any,                 arm64_sonoma:  "0e4978fcf4183050761e4b428e20c5458aaa9f1985a75fa8705b30691e62c18f"
     sha256 cellar: :any,                 arm64_ventura: "77002318fed574154a9d70f276b74ed051c394b6f10b534ec7229ebec4136a40"

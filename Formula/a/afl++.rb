@@ -13,6 +13,7 @@ class Aflxx < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "29ce287e229663622362168cc454a4ace7c3aca064ca7812126dcf4e92ea00e8"
     sha256 arm64_sequoia: "f2d8c72f3f2caf2583dc9398eff3755e83366104d33af4a8dccb32024269217e"
     sha256 arm64_sonoma:  "13fd0d4d75c16d02683d30ccf26feedd10334b019b735e290edb50724d3f2dbb"
     sha256 arm64_ventura: "626c4a4502254103442ca657df6f41ea3f14693d054ea5466eea875c9f7e8375"

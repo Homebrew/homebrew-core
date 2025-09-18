@@ -7,6 +7,7 @@ class Vala < Formula
   revision 1
 
   bottle do
+    sha256 arm64_tahoe:   "b8b0fc1348fe6db382480c8af8d805a9a6a8978c0f6cc58c3f3ba609f4752f6d"
     sha256 arm64_sequoia: "ff65a2101edaaaf53257e189d4ec20038b9de0680d20e5ac69a5d4b3b8276eda"
     sha256 arm64_sonoma:  "6b8f451a970480a28b7f0a1262ce351d12fee05b78db1a31cf7bcc0abc018850"
     sha256 arm64_ventura: "1df01b6ebb0b6ac03027c8621412b8b1f9c8c8e5722d73a9fd9a7ee4233bb41f"

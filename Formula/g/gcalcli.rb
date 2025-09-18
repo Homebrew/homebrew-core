@@ -10,6 +10,7 @@ class Gcalcli < Formula
   head "https://github.com/insanum/gcalcli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b2aab2758d0deda930a549840f8abe841117b3fcb81bfb901827db74d21a2d00"
     sha256 cellar: :any,                 arm64_sequoia: "0be5267be88a61d2a0f5dc4c94f5c1e93681bff3d8f315471c142743284145f7"
     sha256 cellar: :any,                 arm64_sonoma:  "c7d296cc28ccf19f301b00aa1006b8019bff08a3924a724c451c6e43145bdda1"
     sha256 cellar: :any,                 arm64_ventura: "eab829d83620ee73242bef0b4f70d34b15bf12f51b72367c34bc030e221cacc4"

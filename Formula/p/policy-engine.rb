@@ -7,6 +7,7 @@ class PolicyEngine < Formula
   head "https://github.com/snyk/policy-engine.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a7b6e5da094097583ac46a181aab8f200f60f302d1f8d976910cfa3b9aa0b3a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "140f936020aef4bec9555f01b75d4efc2bbe7e4cf24aceda756ec9ba466328a3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "140f936020aef4bec9555f01b75d4efc2bbe7e4cf24aceda756ec9ba466328a3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "140f936020aef4bec9555f01b75d4efc2bbe7e4cf24aceda756ec9ba466328a3"

@@ -8,6 +8,7 @@ class Ktor < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80dcedda4ea9f655c16984014ca3b31d5602f7920d20af606d48fc13424bc81f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae5827c1b6127ef87c86509969b51b57e264b3a86e2ff7f89f1ae2dd2d61fe7d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "320e97018245a83890d9d43f902bc9d3c15b052ce0168b0156d1046c26df271d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "67e92b3134de86c1f73851c12756d0b60b8d395d62eb599cc0688e2539d92ce4"

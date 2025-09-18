@@ -7,6 +7,7 @@ class Kuzu < Formula
   head "https://github.com/kuzudb/kuzu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b75a9039e2a33b9609789ec82f878efa1789c5df1c19e9fd9f36988aae01179a"
     sha256 cellar: :any,                 arm64_sequoia: "573aa3e28749eff8792dc8bf930ad699a835a869b995a05d5297823b67cecb8b"
     sha256 cellar: :any,                 arm64_sonoma:  "a1fec350a28857a60825eb473d02361ed5b1485b15ee1349636e7da69650682b"
     sha256 cellar: :any,                 arm64_ventura: "a0b3a51491ad3b6ba266315954cb0cf1ab8666572f49d2318352f1e3d7151257"
@@ -21,19 +22,13 @@ class Kuzu < Formula
   uses_from_macos "python" => :build
 
   on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
   end
 
-  on_linux do
-    on_intel do
-      # NOTE: Do not add a runtime dependency on GCC as `kuzu` ships libraries.
-      # If build fails with default GCC or Clang then bottle should be dropped.
-      depends_on "llvm" => :build if DevelopmentTools.gcc_version("gcc") < 12
-
-      fails_with :gcc do
-        version "11"
-        cause "error: unknown type name '__m512h'"
-      end
+  on_intel do
+    fails_with :gcc do
+      version "11"
+      cause "error: unknown type name '__m512h'"
     end
   end
 
@@ -48,16 +43,6 @@ class Kuzu < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.linux? && Hardware::CPU.intel? && DevelopmentTools.gcc_version("gcc") < 12
-    if OS.mac? && DevelopmentTools.clang_build_version <= 1400
-      ENV.llvm_clang
-      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
-      # Undefined symbols for architecture arm64:
-      #   "std::exception_ptr::__from_native_exception_pointer(void*)", referenced from:
-      #       std::exception_ptr std::make_exception_ptr[abi:ne180100]<antlr4::NoViableAltException>...
-      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
-    end
-
     args = %w[
       -DAUTO_UPDATE_GRAMMAR=0
     ]

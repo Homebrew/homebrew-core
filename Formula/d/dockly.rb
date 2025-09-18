@@ -6,6 +6,7 @@ class Dockly < Formula
   license "MIT"
 
   bottle do
+    sha256                               arm64_tahoe:   "e276939bcb8b5909e0c6ab1d39a740b724de614668235b8c3606d57e67d41e64"
     sha256                               arm64_sequoia: "6765be9e2eb88427da832627e84bfc14e832546ec895c4f3a80e618521a29bbb"
     sha256                               arm64_sonoma:  "21d9206c6dd01067b8ab10a86bbce37c1c1b33c1fa8f06aaed4ab4b3e2d11f79"
     sha256                               arm64_ventura: "edba097b50de91a673b9504054ec42ed435cbd6766985af57a90b4de005900c8"

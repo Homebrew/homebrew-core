@@ -6,6 +6,7 @@ class Rex < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0c9642847deaa4d8bf040a6d54def45ce7aa3f658109a7eabc731fb073901cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0c9642847deaa4d8bf040a6d54def45ce7aa3f658109a7eabc731fb073901cb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0c9642847deaa4d8bf040a6d54def45ce7aa3f658109a7eabc731fb073901cb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "903b511e474d98b27fd8324272b7925ee37afc311c1a18ebef0eb3abcd196029"

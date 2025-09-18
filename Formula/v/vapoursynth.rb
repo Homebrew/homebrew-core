@@ -12,6 +12,7 @@ class Vapoursynth < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0fcc5a4a17720851f702bc6345ebe7112b6731c0d35b520ac6206d32ff5b7cdd"
     sha256 cellar: :any,                 arm64_sequoia: "f7c657252db9a2a5f6d4adcaadbf37c7a9979745fee6633c275e62d8388fe5db"
     sha256 cellar: :any,                 arm64_sonoma:  "6418245eb21b047ef3243906fc8b8920daec576e27617ae3e260f5aaa3935549"
     sha256 cellar: :any,                 arm64_ventura: "667bf1b35450d14761f1405975065166584e71430afbfc0056f38707ae9fe7e4"

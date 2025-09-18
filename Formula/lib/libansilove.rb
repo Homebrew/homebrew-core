@@ -6,6 +6,7 @@ class Libansilove < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fc81ba49030d1ff262da56b77367d10a98ef1f677415349a0c81c80c052b2750"
     sha256 cellar: :any,                 arm64_sequoia: "dfb18e4ee2a90aede28ee22f8b97de7eb9fa957b0619658788b4e562ba01391e"
     sha256 cellar: :any,                 arm64_sonoma:  "a1cafdd2cb1445925addb324d92288e4f238905416d384571d9769641fc34034"
     sha256 cellar: :any,                 arm64_ventura: "6dec1d8b0d8b0a0ad22327e1d0674bbc557c48999c2f92c6126636f7247475f4"

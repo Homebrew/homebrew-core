@@ -6,6 +6,7 @@ class Ovsx < Formula
   license "EPL-2.0"
 
   bottle do
+    sha256                               arm64_tahoe:   "d18539700daad887df992ef80115d3eabd5a58bbf70d6161ee0bfba34ac9468d"
     sha256                               arm64_sequoia: "021c68046daa02c5edaa74b35933717f7144199c82edcfcf85f9a7ac21c2dc72"
     sha256                               arm64_sonoma:  "b8d3d472537cb3f599d55ff06b070090f62bfbcb471022cf9232e5bea59d1bec"
     sha256                               arm64_ventura: "e1980a772c01f68d90ab1d1da1c844b410f82ea0afe3834169b959642b1112d8"

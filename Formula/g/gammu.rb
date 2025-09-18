@@ -14,6 +14,7 @@ class Gammu < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "c5ff78b2fb4a85fbe0dcd2e00a9e300cfe7ecabe3622334cd58b78c8c7208088"
     sha256 arm64_sequoia:  "328d278f52762b77bb0bc0061afc898e413c2e8cbae9af19c0043ebd2b61ab5d"
     sha256 arm64_sonoma:   "69cbe22c74e7c7456df798bd70fe89c77502d7793f1b3073b0e0cc5f7d919323"
     sha256 arm64_ventura:  "d8aa4848b10f257303dc4e0e88e76fed841dfe127d4b560f8d3fff2b005ff7a0"
@@ -24,8 +25,6 @@ class Gammu < Formula
     sha256 monterey:       "34e1a5844348815d60790601e23262901d64ef470f65da7187674a1ae0cc2a78"
     sha256 big_sur:        "4f9a5013aeefa5d20c9f1776c70685ab79572cc507f752672d0abc49b2b19ad7"
     sha256 catalina:       "c63e29ce190fb0beb5edbd3f0360eb7ce3694ee3144269608bdf2d56faef2b60"
-    sha256 mojave:         "e972813fe9f1942b55c981ce75b21da479588912583ed52ed23da7c69f1f5d60"
-    sha256 high_sierra:    "c0004802fb0a257197e96c4b7005a2ca63ca1d881c3b335d255b85f9e96d0124"
     sha256 arm64_linux:    "beb95870b00bd33a6c6712d3c8d8f8cb51c7fbc0df5c3550678880ec0ba65158"
     sha256 x86_64_linux:   "89adc4bf4ba892e03f2c55c0b892ee9da2116f43681f27b96a0398b531beac1e"
   end
@@ -42,10 +41,13 @@ class Gammu < Formula
     # Disable opportunistic linking against Postgres
     inreplace "CMakeLists.txt", "macro_optional_find_package (Postgres)", ""
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBASH_COMPLETION_COMPLETIONSDIR=#{bash_completion}",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    *std_cmake_args
+    args = %W[
+      -DBASH_COMPLETION_COMPLETIONSDIR=#{bash_completion}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    # Workaround for CMake 4 compatibility
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -10,6 +10,7 @@ class AdrViewer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "814a2ce34f66d5d4f80a7afe16a248aae42b46920b4003044419cc138b755812"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae4cd968f406792edc2acd31cf16b52c02f2e86b7fcf7ead074db74a459f428a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "683fa11655a13acfaf5dec1d2fa6b47b9df98e3423691745da8c46e967ee3acb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a53efd827bb4a2f8d5e37985c42031b7cb52bccf6a62b2027a0876629866d9db"

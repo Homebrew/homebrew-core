@@ -8,6 +8,7 @@ class Symlinks < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f8dc7f7f7a34aca2effa06e21560ea6828e1cb4cfba15d877010545735a9ce9b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a4f0d8f94815e056e274db19ee924739711eb18bc11909a6ea5faecf74826fd7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63775f3fb81a39f472e290b09fe8143ec432bbc19b800356e43b5314dc6d07a0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9565d0513b291d25891ab6192c318104007b8a450ebb8cb0e0367eee6732e17d"

@@ -12,6 +12,7 @@ class Libical < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "871cdab87da4cce708e5ed47253625a2da88e5dd8782a0e7d7f7e145f9f6cbb7"
     sha256 cellar: :any,                 arm64_sequoia: "f9456c87474eaba72b8161d536585beead8a8be4de54b053b8876e1e5ee8c455"
     sha256 cellar: :any,                 arm64_sonoma:  "78b1a1c587516767bd8d12e977fac2e5df784c46b93c61a9a3b503475aa1592e"
     sha256 cellar: :any,                 arm64_ventura: "989541e8c1084836db8846d7fee606fa7c62c1d4e2087af88cdcd0b76911862b"

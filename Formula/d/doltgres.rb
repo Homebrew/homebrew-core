@@ -15,6 +15,7 @@ class Doltgres < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "143d80493f297d32b643df30fcb48b3572331cc2867491a8e70d84084ce815b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "76f6fabddb597e0ff45087bf2ccb12997ac50e7d5211cc6858aeccf3486c214c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c2245009878e46f5483b05a8940141061dec3d9e80c303836718ca13f9e546b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "80c2481c4885e75643559fb77a228ff6ee7f3f75c311de02094e6dfc5772f618"

@@ -6,6 +6,7 @@ class Libxrender < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6405639931b8924b009e16163b7d99f50a10274189cb7f7eba12a4585d1ef255"
     sha256 cellar: :any,                 arm64_sequoia: "edcb8884f9d33219d276051be3b5ad64f390cdf3abe9794d9a0050c02895c3a7"
     sha256 cellar: :any,                 arm64_sonoma:  "a9e072e66b91797a41879d60271ac73a0b6a6e487a80ca054a44c209352e20ae"
     sha256 cellar: :any,                 arm64_ventura: "0d5c91bc0d13b447077fadd8a7b73e1b65091db9d03e5f6f515eb506591c8bec"

@@ -13,6 +13,7 @@ class Ares < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ef78e48f63a1af964da3502cf71ecd41039eeefa3fabfef3c4e831382b26f07f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f1ebc203591b997591cf3f7fef4fb145eaf1c7bdda7c1b92a4a5f7c73afc3a1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69ed6c01fd307449f1f5f1d76f1de7dc4f804d1c57ba7bc106c9dbead3685ee8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5acf01bcc2e7bb451ffaf5b99fc499663de093222b057b0f4d8f21b7239c7e6e"

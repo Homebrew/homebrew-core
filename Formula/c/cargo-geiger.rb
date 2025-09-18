@@ -7,6 +7,7 @@ class CargoGeiger < Formula
   head "https://github.com/geiger-rs/cargo-geiger.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8997588d004ef7ef62ef41e3d153ce25a4c93feef26bb02f3c04decd9919b091"
     sha256 cellar: :any,                 arm64_sequoia: "cac5e30bb6fb7f9ddfa71d2e37cdc8797cd4d9a23fb58efe9124640f90e758d1"
     sha256 cellar: :any,                 arm64_sonoma:  "1c9f1b649a75fd9ed039649aa5e6036579aa20cab80f897733d8039721336233"
     sha256 cellar: :any,                 arm64_ventura: "7890875c7fac5293f1539c395f1c351baee3f36c0ed4bbfce8b8b978147f2657"

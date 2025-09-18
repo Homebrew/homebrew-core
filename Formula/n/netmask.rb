@@ -6,6 +6,7 @@ class Netmask < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "526dfd6c8b4bf73f066e2f8d7e2d6dd377daf7709dfc11ba4697ed81d75ac619"
     sha256 cellar: :any,                 arm64_sequoia: "a13e322af5637a9f17320f03d2f527dff2342edae14f39c88b4b32b2962b878f"
     sha256 cellar: :any,                 arm64_sonoma:  "9b5e73835736dde2f98f6c5df24ad88a570d4a204f0b352ab35e77e36f5b7bcb"
     sha256 cellar: :any,                 arm64_ventura: "91de5bd0fb52ad88bbf873d5ee5fa3e65ef1dcf466d95aca7bad145b104bf47f"

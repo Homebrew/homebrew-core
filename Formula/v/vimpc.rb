@@ -10,6 +10,7 @@ class Vimpc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "8013c280a8da6f6acbe6df84589b721620b2ae2d171374a8a1775e80636d213a"
     sha256 arm64_sequoia: "1fcf1d047f24ee3ba7d4ef487535073559d3cd25129d607581784f2625e40bcf"
     sha256 arm64_sonoma:  "e1e7386a32a897ad76ea0a934d81f3c694f32638df2a7ec6a440703e00086f00"
     sha256 arm64_ventura: "c8ba4e9529a838e511d9a8cef03df1fff057074983c6ec28a8b89b5b948257d3"

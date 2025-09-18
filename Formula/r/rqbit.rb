@@ -7,6 +7,7 @@ class Rqbit < Formula
   head "https://github.com/ikatson/rqbit.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e67ea2e32ddb0dfa94f7f369f5067e4b87d4ba989942e5a1eabc150fe6992d63"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "92e638e63d0887e92e07f9269a0780efc424b129c2c6c77defeeb475815733b6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abde32ab711dfb6e35b4820298f253cde4f4a3d7f1004b269dccff61869754ad"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "535aff6ec35570430fd0c2cf2032a1beffc33b381855e5ebb4a4946e343cab43"

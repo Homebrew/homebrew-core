@@ -12,6 +12,7 @@ class Runitor < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16b11e9362646966797e2658e3cb248bf62a4fb18993bd77cb221ceca82a7770"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5126ca445a8d5515158165a2de556eba26e2371ea5bcf18d4c6b6cd382781f1c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5126ca445a8d5515158165a2de556eba26e2371ea5bcf18d4c6b6cd382781f1c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5126ca445a8d5515158165a2de556eba26e2371ea5bcf18d4c6b6cd382781f1c"

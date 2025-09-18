@@ -13,6 +13,7 @@ class Bcal < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "158b09c6087e82d87d6d4dfc3f68354e863c4f1a20c491128cdf7c16c88ddbc5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43837bc1f22892876291a80a28d09583d6e3a5ca91eb5604682a7bbc1e85289e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7ed08fabab9e6e7b2dfcdeb4a3e7b6945077b9a3b3922c436a7b9f38807e1137"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a4d8cbb8feb1e2fe5b066ede0ce26048fa9d005f8a8df6fbd52dfb79a94f743"

@@ -1,20 +1,21 @@
 class Sixtunnel < Formula
   desc "Tunnelling for application that don't speak IPv6"
   homepage "https://github.com/wojtekka/6tunnel"
-  url "https://github.com/wojtekka/6tunnel/releases/download/0.13/6tunnel-0.13.tar.gz"
-  sha256 "8bc00d8dcd086d13328d868a78e204d8988b214e0c0f7fbdd0794ffe23207fe5"
+  url "https://github.com/wojtekka/6tunnel/releases/download/0.14/6tunnel-0.14.tar.gz"
+  sha256 "6945312793079408f1ab40071cee68e70158a23560145f1d424a3eb16227f235"
   license "GPL-2.0-only"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d847ef0fc6b81caed85f280cc141d608d76549981701549464e23a3f5db3157"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce493b1a9309acdd209d74c96eed32d4b579f2500208a9f926ac513fb01080c1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a6e10e77b34c4f10e17f389b38fb3c58690c7988e8274bbe2078fdff571d34f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bf1635b9e636c6a40a57db5d56a3e4df68218b23b01be3e5568d573776eb6ad9"
-    sha256 cellar: :any_skip_relocation, ventura:       "a0666f067478b4b5141260896b60dccf2a2eaeed3892e229eb267d44a045e0a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fa9b18d88f1816365473ae8b9ccc98bfdeb030dd6a0c6d5c3b6f2dc360c639b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f38f0ad3d208f1f83ba4d6bc75ddd2e5e02ab5579858ebdfe413da6da7bd3bac"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "31ea36bb0c9a65137e00a01c1771740d1e716bbec5fcbd9d1395488ed8fbe9d5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4835e877672bb690cf45d67eb1abc2d818034668b0c1980927151e1ae9fb6025"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1acfbe3de474e92cd90bd4a9047f2324f5b0e2290a69dc389e418cde045d8547"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d4aebd48a551546f4cc6d56779be9fc64d7384eef2f64ce4cd5d6cef5b94a568"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9f82314d3df1855fa85b58b14ab63196645a341e9ea7803fbd5b2970844d70fc"
+    sha256 cellar: :any_skip_relocation, ventura:       "1ed4515caffc5e22a3eecd3616d3464519d25f47be499509e9023fbb8158faa4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8fbacca36b438381c95c88458edd9b7dcffc9bbbb0cad1b0dd92cbce113467d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1f95d4c2df935b35c82ee57674400ae4a62069d73d0ac4f59a785da0dba34bb"
   end
 
   head do

@@ -16,6 +16,7 @@ class Uniutils < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c8c2a6ab2e7fd876281c9b107d275f17ab9620a3241a664cdd11af7f02d08fc2"
     sha256 cellar: :any,                 arm64_sequoia:  "b1e77b1c7bb772f82fa4f847d6d08f8b7b4da149516636d45ec0aaa662937490"
     sha256 cellar: :any,                 arm64_sonoma:   "d2e0b6cb5b9a69c9c3b7741b22d800538287c470d377c7796487146cb7875f33"
     sha256 cellar: :any,                 arm64_ventura:  "a7487de087156bf2db6b8db4966e4d8864a822c21da7c07d9c740a17be5771b9"

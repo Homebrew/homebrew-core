@@ -1,19 +1,19 @@
 class Carapace < Formula
   desc "Multi-shell multi-command argument completer"
   homepage "https://carapace.sh"
-  url "https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "7460eef0ea7d19e5d0082e425fbef08f506d926d995701c7a8c3c6e90c9e61c5"
+  url "https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "844f7deea40c645fcf3a5ad1c7b6648a22306a7a3b4e553fa849475469f60f84"
   license "MIT"
   head "https://github.com/carapace-sh/carapace-bin.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a67e00e824df654068fbb83d8700bd1dca16fd646bd7542a4852e46938d74e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a67e00e824df654068fbb83d8700bd1dca16fd646bd7542a4852e46938d74e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7a67e00e824df654068fbb83d8700bd1dca16fd646bd7542a4852e46938d74e4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d92b9cb0bf6efa6c3ef5cdb3c67caa2be9295eb369b0e65262f282799cb48a47"
-    sha256 cellar: :any_skip_relocation, ventura:       "d92b9cb0bf6efa6c3ef5cdb3c67caa2be9295eb369b0e65262f282799cb48a47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f6b67ee070ce4f1331fe98f01842667a8ef75930389c6a59b03fac45583adc0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "480497bd3606d78fa500a0479e7bd799a5b16bd9e0470db760c406696803ec79"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "480497bd3606d78fa500a0479e7bd799a5b16bd9e0470db760c406696803ec79"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "480497bd3606d78fa500a0479e7bd799a5b16bd9e0470db760c406696803ec79"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "480497bd3606d78fa500a0479e7bd799a5b16bd9e0470db760c406696803ec79"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ef0f63c024b2b42fc0ee94685b1fbaf6873680d1a46c760e1c03b3f15597719d"
+    sha256 cellar: :any_skip_relocation, ventura:       "ef0f63c024b2b42fc0ee94685b1fbaf6873680d1a46c760e1c03b3f15597719d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68bc44274679c3f8574e1aab432b68f3080b45f526e6c094163232a27b0cd63b"
   end
 
   depends_on "go" => :build

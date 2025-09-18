@@ -6,6 +6,7 @@ class Lnk < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "df9b9bc47194322d14caa6523ea2eee7c66adaf9ddcae133a8163ba901b32e54"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d71fc2be863d7be2913848dd5486e4b9243fbf04effa1cf809173bc1aa1fc2fa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d71fc2be863d7be2913848dd5486e4b9243fbf04effa1cf809173bc1aa1fc2fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d71fc2be863d7be2913848dd5486e4b9243fbf04effa1cf809173bc1aa1fc2fa"

@@ -1,18 +1,17 @@
 class GitSync < Formula
   desc "Clones a git repository and keeps it synchronized with the upstream"
   homepage "https://github.com/kubernetes/git-sync"
-  url "https://github.com/kubernetes/git-sync/archive/refs/tags/v4.4.2.tar.gz"
-  sha256 "62878584e4766b4cc94a9a7d49fe9c8c24dfcee69b4c83ece1bb1e1790b7f450"
+  url "https://github.com/kubernetes/git-sync/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "4f6ed2d3c4be008104f0fd8a05174b4a6652944d6ee050021b1ecab9b31d1c45"
   license "Apache-2.0"
   head "https://github.com/kubernetes/git-sync.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5554166349ab5111d40364a9d1af15b6db41e0db28ec1c30a324977dc2010c8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5554166349ab5111d40364a9d1af15b6db41e0db28ec1c30a324977dc2010c8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c5554166349ab5111d40364a9d1af15b6db41e0db28ec1c30a324977dc2010c8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "00358f17adf3bb83339129bef02f7031c9e1c2a64f043148baf0e329ebe1d6e5"
-    sha256 cellar: :any_skip_relocation, ventura:       "00358f17adf3bb83339129bef02f7031c9e1c2a64f043148baf0e329ebe1d6e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2802fa19c03b602a9988b64d7339d1046a03548359fd9f92f17f5247912f3d1a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1bd643552fe6a64a201af7955452afc6fc6c72a95f631e179baf9ce40f51beb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1bd643552fe6a64a201af7955452afc6fc6c72a95f631e179baf9ce40f51beb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1bd643552fe6a64a201af7955452afc6fc6c72a95f631e179baf9ce40f51beb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "174a2da0660a78d23190fb51f217875b9a9396f51471794f67eaf97165019ac7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd57ac983a4b71fa0d354c18671dbd5fc13dea79db3ba3ea23ae35779dd13668"
   end
 
   depends_on "go" => :build

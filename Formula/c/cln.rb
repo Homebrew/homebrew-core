@@ -13,6 +13,7 @@ class Cln < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "198d7aa1178fc5df110461b2718466f2cefdedf75a0e4c88287dc130da5ddefc"
     sha256 cellar: :any,                 arm64_sequoia:  "2279ade96381f9ac79cf40c1e29b2ea4fc998a25895b54a7fc0f77cc72d1782d"
     sha256 cellar: :any,                 arm64_sonoma:   "128ed65c291ea5059320c7618340ca04b5a59126a36b6e22de91622175d62339"
     sha256 cellar: :any,                 arm64_ventura:  "c47f98e423d29abd0de4bb322a4587817db8652d09909b07ec2eff44ff08b0fa"

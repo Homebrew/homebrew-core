@@ -7,6 +7,7 @@ class Thriftgo < Formula
   head "https://github.com/cloudwego/thriftgo.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f9286fbc5a92cf068e42274313a2a32953859f3f99325f0879f572834f40ed2f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c720ab9c1f830deec42fba0c376e3953a8ff3e5860a41c9d0268d2fdb4567eaa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c720ab9c1f830deec42fba0c376e3953a8ff3e5860a41c9d0268d2fdb4567eaa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c720ab9c1f830deec42fba0c376e3953a8ff3e5860a41c9d0268d2fdb4567eaa"

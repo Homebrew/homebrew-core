@@ -9,6 +9,7 @@ class Webify < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "58f65712d5c510614847dbcd64d5e96fa1728a35de3f3a31438aa644ed02afe6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "73fc38e24f8531f3ce47ffe71e79edee8f691a0f7c936263c4c32bc4a873ded3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f776cc31325713ba672231fa075d461e4efbeaff7f10ff49b15671c9003ae0e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4eada7fc709a5269b78b9f1c002a74e192be12631223a288be54e3fb64e0bbe6"
@@ -19,8 +20,6 @@ class Webify < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "fa86b0d119e772525b310e2074115745dfcd4791ab9a8401d43674b5d7d09b43"
     sha256 cellar: :any_skip_relocation, big_sur:        "284df018b49ddc0c2a3b8e0800c1997abebee41d198edbd7d725be2f88a8c5e4"
     sha256 cellar: :any_skip_relocation, catalina:       "7b6543358b1c92e8e8cc71584ed52802a039c9327edc839dcc75216fbd23558c"
-    sha256 cellar: :any_skip_relocation, mojave:         "8a58b27bcb9d6f9cd611b8f7dfb6192f617854cfcaf8638b388f6dd88ec40f70"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "9701f9952fb05880c48c5ca26d14807cf324c2210d4b45d0fb5408243d8d76cc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bfcea38ac0326979bfc1c189dd9bf3c19437a5d92c8cade9a41f3c1fe976d83"
   end
 

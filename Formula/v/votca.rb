@@ -7,6 +7,7 @@ class Votca < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "488ca9dcc8766483075398f032bb53dafd5d099a79733097fa4b9fcb5733a3ca"
     sha256 cellar: :any,                 arm64_sequoia: "49d06defa83fa836439a76328b45c47bd1b5d51a36a9b11588c136768406d5ed"
     sha256 cellar: :any,                 arm64_sonoma:  "347fe6f8d77363ff23180d1b57b8afe00e29a628df4e736d154dff4e53609ad0"
     sha256 cellar: :any,                 arm64_ventura: "908abe750c2a90c342c4b25d54f13cb0dd17de2969ea8fc33c5f53cfb96b2ab7"

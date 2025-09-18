@@ -15,6 +15,7 @@ class Grepip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22b47360d59e127a7ef33ec598cbae91fbc393d2c4a7d787a589bf1e308e9695"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef333d42f469784211e7520c89ac8ac07014ca9e56a7ef3a87a29749ddae30dd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef333d42f469784211e7520c89ac8ac07014ca9e56a7ef3a87a29749ddae30dd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ef333d42f469784211e7520c89ac8ac07014ca9e56a7ef3a87a29749ddae30dd"

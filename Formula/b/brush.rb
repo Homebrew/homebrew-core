@@ -12,6 +12,7 @@ class Brush < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8395daf5f869b07c9fe0bbc6a1c5863d0e9250b82f01d28fab1da56977e028d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "388611368e7fcee5e28f57b9fe155d0ca0d3fc68e6a9455d02819a426b07a009"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8dc37e66986bbcbdc068030a9e6f8119023c3a1b804acf3e17e31402b3feb556"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f0ea9343fee1abdbc901c57f68d30c28a339e95ca28b62176fb94e932cc47dc9"

@@ -6,6 +6,7 @@ class Testscript < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28d3ec9f59f45bbc4d9422e206e72a57e219d7f406f45358969047c0b2c7d2b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "32cde373625b9755ac45543595073083f253574b0bfdf50ce6d42fd8e20f08b0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32cde373625b9755ac45543595073083f253574b0bfdf50ce6d42fd8e20f08b0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "32cde373625b9755ac45543595073083f253574b0bfdf50ce6d42fd8e20f08b0"

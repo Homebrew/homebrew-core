@@ -7,6 +7,7 @@ class Deadfinder < Formula
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "366fd0b10a75208c25f1445871d3d655cb3ac96b12ec5fd52316007b0ed622ff"
     sha256 cellar: :any,                 arm64_sequoia: "8c7455576e55db66e9206442359dd3ad284b6888cb3f8ae8553a9ffa580f937c"
     sha256 cellar: :any,                 arm64_sonoma:  "6ccd4d5afc1cd29bec2d1d74884ae9160f4c1f39c04f57d4a3737a2e8be92597"
     sha256 cellar: :any,                 arm64_ventura: "ca02114cfe941470db280c7214ed84ae06d99b4ead8c9c8c94a6040cea68e7ec"

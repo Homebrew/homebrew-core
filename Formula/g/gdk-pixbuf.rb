@@ -1,19 +1,17 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "https://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.42/gdk-pixbuf-2.42.12.tar.xz"
-  sha256 "b9505b3445b9a7e48ced34760c3bcb73e966df3ac94c95a148cb669ab748e3c7"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.44/gdk-pixbuf-2.44.1.tar.xz"
+  sha256 "4eec84cfc55979045b3e0fca72c3cc081d556952ad33b30c7d29c0474db48a28"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "64089a3ef04afef0dc8601d22cd534fdc155bef2458bf1a97e6e90f25b7529ad"
-    sha256 arm64_sonoma:  "c703ce18d2e7f538a643fcccca6a42b5fa8e4f1afeaf0fca8588fe1f475f95c9"
-    sha256 arm64_ventura: "f3b25a91f9e808d5811194ff0e49dcfb67b758e95b341fb95a53066b1e726994"
-    sha256 sonoma:        "4b55a027f7b848eee61127f19da0c29fd2ae32d51d5a936e32ac30d504864fe6"
-    sha256 ventura:       "62202745ffbf466de3dcc1901897f3625cb2e2449944bb76093731342ff4b375"
-    sha256 arm64_linux:   "a095ecd2cc3a7b3f7ef029e3a73b5f9cbfc5901b983327e6ec641e0786fe85ca"
-    sha256 x86_64_linux:  "0b6776f4eafc2e63c2d718e73bb1714239201929074cbaa0c794a1dd0423d197"
+    sha256 arm64_tahoe:   "359785b1836df9b39d174d894e503c8b36537392e2e0f69c058190ac87da79d9"
+    sha256 arm64_sequoia: "6f700fa5c81318b97435d8485cac491a2668781edd89fc5cea7d5054bf8d12b4"
+    sha256 arm64_sonoma:  "6d50c1f5c42407fcad71864a99eda0a0b324fdd46dc6eeea873ca605fd622413"
+    sha256 sonoma:        "2a3f4e3fd6760413f3ec64cea4f85dd183a2824325e0abd013df9a1043d1145c"
+    sha256 arm64_linux:   "80208f7c9389bcf485f128b68c66110fe38ea5ae0399869ce6408fe97e969391"
+    sha256 x86_64_linux:  "6b3efb51168fb8eb9ab801f353551b0b3bdc3cbb53d959ade97a82f16bf924b3"
   end
 
   depends_on "docutils" => :build # for rst2man
@@ -64,6 +62,7 @@ class GdkPixbuf < Formula
                                       "-Djpeg=enabled",
                                       "-Dothers=enabled",
                                       "-Dintrospection=enabled",
+                                      "-Dglycin=disabled",
                                       *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"

@@ -15,6 +15,7 @@ class XmlToolingC < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "30aff8b38565a8ff0f556546fa40157724e1413bd98dbb8add9b51434495f88e"
     sha256 cellar: :any,                 arm64_sequoia: "43c77b2eb3b489049fe4a1923c12ad380f85a8817029da1bc9bfd98a6e7accdf"
     sha256 cellar: :any,                 arm64_sonoma:  "b28b7d9e5601ecfd757a2fe9c5a19e47d859af11a26b8eb39c83b7917ada9060"
     sha256 cellar: :any,                 arm64_ventura: "95b9dfadcc9aa4a18ae2459d7b79c3a12506d4b036f6fbe3cd03c7fa3c2bdeb7"

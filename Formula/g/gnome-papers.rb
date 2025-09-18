@@ -6,6 +6,7 @@ class GnomePapers < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "ab7a77bfe9bacd8f8fd89a3e06462552486ccec31a14483654f7cb718c1c71df"
     sha256 arm64_sequoia: "d9708f3c4d341496455119f0cbf14e9feb94bcfa3a6742f1ba1ac2b8a330d2d1"
     sha256 arm64_sonoma:  "8a46f67637a9c9126948caa7b93048ee24aa314f9cc6a8f0b1ac664bf2bc0771"
     sha256 arm64_ventura: "95f5d01e5cc470b223e26df75f92d968554e07856150f8b61e66c1a369d5f7a7"
@@ -16,6 +17,7 @@ class GnomePapers < Formula
   end
 
   depends_on "desktop-file-utils" => :build
+  depends_on "gettext" => :build # for msgfmt
   depends_on "gobject-introspection" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
@@ -29,22 +31,20 @@ class GnomePapers < Formula
   depends_on "exempi"
   depends_on "gdk-pixbuf"
   depends_on "glib"
+  depends_on "graphene"
   depends_on "gtk4"
+  depends_on "gtksourceview5"
   depends_on "hicolor-icon-theme"
   depends_on "libadwaita"
   depends_on "libarchive"
   depends_on "libspelling"
   depends_on "libtiff"
+  depends_on "pango"
   depends_on "poppler"
-
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
-  end
-
-  on_linux do
-    depends_on "gettext" => :build # for msgfmt
+    depends_on "harfbuzz"
   end
 
   def install
@@ -54,7 +54,7 @@ class GnomePapers < Formula
       # https://github.com/gettext-rs/gettext-rs/tree/master/gettext-sys#environment-variables
       ENV["GETTEXT_DIR"] = Formula["gettext"].prefix.to_s
 
-      ENV.append "RUSTFLAGS", "--codegen link-args=-Wl,-rpath,#{rpath}"
+      ENV.append_to_rustflags "--codegen link-args=-Wl,-rpath,#{rpath}"
     end
 
     # Export pps_job_run for testing. Remove this workaround in 49.x.

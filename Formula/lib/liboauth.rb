@@ -11,6 +11,7 @@ class Liboauth < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a510309b244c20d084bcac6d01a80b888c0bb2e89ee67e8c7be5fdd4cdf28f84"
     sha256 cellar: :any,                 arm64_sequoia:  "4eff11a4e53ab448c41469596fadeac63b03386c90c1f091372fc003f497562a"
     sha256 cellar: :any,                 arm64_sonoma:   "6f8593691c180a940c09d3cdb22c5f69fb4ac7dfb8877581b5cc13a02b6088a1"
     sha256 cellar: :any,                 arm64_ventura:  "a39ee9626caffc0652551afceb3de434b14f497d0e6f86888edfb987f0e46bfb"

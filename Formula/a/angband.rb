@@ -14,6 +14,7 @@ class Angband < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "7feaf0301dee2c96389eb8bb5615910b9a0ef9ec51cf930a3c9ca4e7dcd2849a"
     sha256 arm64_sequoia: "56b2ccd6f86112f7f3c8b97100252d4d39d49be6a659dabbaffd9e393c1d4db1"
     sha256 arm64_sonoma:  "8c10f616a3f00c8950337ef5bb75494ab170230efdf3c24a20d92b134becdb3a"
     sha256 arm64_ventura: "8f7a2ba62953feedc36fc0581b683aea811ccf8fc8e261385abd6275c6717625"

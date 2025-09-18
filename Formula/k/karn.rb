@@ -9,6 +9,7 @@ class Karn < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9c83b76119af53f55175126422dc60581a71961a4cec4ae02da465243d0a2fba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "56a2e364302364891e18fb7856a51e2d9bc3143ad3b98d59367b07e632ddd817"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "95ff52d86e20f7f6a02c095f5ad5de883d40d80dc11b40551d9e9ebc8024a590"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ddacad3313683762032b2d8eb15463f175ed266c8774618c85950eb05492740"

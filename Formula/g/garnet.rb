@@ -6,6 +6,7 @@ class Garnet < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e33df29748a9e3962a2ce98372a698e93f77d17c757a29ef0df4883ae32e1bbc"
     sha256 cellar: :any,                 arm64_sequoia: "cdb35aa0370c4118fcc5ae115cf49e5bcbf8a373d97581745e3f1490d3a33cf9"
     sha256 cellar: :any,                 arm64_sonoma:  "524130174b2a362d5dec3f7344a9ca78c1bd411e2ac9e02681a6539bdf842308"
     sha256 cellar: :any,                 arm64_ventura: "70d740e6c6b31dd16f137a59ba5a8fa199cc1b533584f6ef79738e37b174b756"

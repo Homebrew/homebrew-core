@@ -1,8 +1,8 @@
 class Keychain < Formula
   desc "User-friendly front-end to ssh-agent(1)"
   homepage "https://www.funtoo.org/Keychain"
-  url "https://github.com/funtoo/keychain/archive/refs/tags/2.9.5.tar.gz"
-  sha256 "c883f26db616bc1c81ba5ef3832c7ad912f3e8bd0baf6aaff981164c538a1411"
+  url "https://github.com/danielrobbins/keychain/archive/refs/tags/2.9.6.tar.gz"
+  sha256 "7fd260679bfc86f10a66e9411b098848c5ec67aa7d129017e355a8d91159af0c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,7 +11,7 @@ class Keychain < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "426ab593c7a025a794d941bf562d7bd1f9505d43c719962d97f351b9602a74ae"
+    sha256 cellar: :any_skip_relocation, all: "6077b11f52f19e3c9d0616e7970adb8ecdc8cfc209c22a161531a5e9e65bfb6b"
   end
 
   def install

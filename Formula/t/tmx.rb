@@ -7,6 +7,7 @@ class Tmx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1b3a8a6fd858dd20ae6077447eada7a22689c93c0e11beeaccd3231d997be4be"
     sha256 cellar: :any,                 arm64_sequoia: "b90d11cd5cb3b8b5d3ed6755386f7a0c61cba35135bf113366b0fe55170c16ed"
     sha256 cellar: :any,                 arm64_sonoma:  "338149122323df8764c414aca5f168221b3b239e988c28a10e4f2a1f08aeb10d"
     sha256 cellar: :any,                 arm64_ventura: "824f876037e825eee41439481c88496183ceeaf3b28b2f6713b76947e000e1d5"

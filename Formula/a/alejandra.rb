@@ -9,6 +9,7 @@ class Alejandra < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ee21f9015c2853fb4ccd0b5e8b8674c7d1c27ef9c17ff73771ca33f035a4eddd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a105b8e8c06f4e240b052d62e5b271e4a1c196f8367780ae22fe4bf705ad65b1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e02b48f1e647cf69ccbb6846c8335f912cc08344f7107af6f3b4ad3780981f8c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d220e43933b6412b9b2c55193af67aa046a935f282f7bb2bcbe73ce0987561fe"

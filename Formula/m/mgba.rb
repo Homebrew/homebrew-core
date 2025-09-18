@@ -17,6 +17,7 @@ class Mgba < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "06db0999e64a0a60335fcc7104da11ddbc37efc467f983794fcbe21a6f4a96e1"
     sha256 arm64_sequoia: "0b47b22819b56f4f974b3bc13229329cbef0fc1df0474a2d2ffba3ced580b2e5"
     sha256 arm64_sonoma:  "038e56d90cd6ded9ac8150847bc86c43dc57c2441496916c2a0f3b232608927c"
     sha256 arm64_ventura: "0e89003774f3a0164c890f1732242969cc013b269b037bd01d8b97a3ae4bf4a7"

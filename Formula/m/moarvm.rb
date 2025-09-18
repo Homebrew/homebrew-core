@@ -11,6 +11,7 @@ class Moarvm < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "38b0e614e3963a5a89d38189048f88d142402fc72bef77f080be4d51b985abac"
     sha256 arm64_sequoia: "b0beb150d75cd566492df2951da1c497fc232ebcb735d37c9918b89d10075e8e"
     sha256 arm64_sonoma:  "8198f61648f928b1b82350723f9a27a61f66a84397f2764de94ddbf903777e55"
     sha256 arm64_ventura: "df31ed5d357d4a3eed61dbb5e62ea81126ab158cdb794708602575bc15fbf064"

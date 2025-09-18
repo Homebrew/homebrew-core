@@ -37,6 +37,7 @@ class Csound < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "8b081da8c1f342e5e09ece229d53527b24e7dfea78384ad758f8d5ed9cf0ce42"
     sha256 arm64_sequoia: "8d4643c7facbb44a86760a6e4aed9c9d8d64693ed974cbab8df35ae34299b7c6"
     sha256 arm64_sonoma:  "59e91a6e3ceb3e5ce1a2a846643b6e695ba7d45ee1683a4d90922cb0295b2d4d"
     sha256 arm64_ventura: "924021067daaa589b49dc7d87697c0dcc0354c55ddbf849b5d99f7f8c6d2ff89"

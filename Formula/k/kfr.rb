@@ -6,6 +6,7 @@ class Kfr < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9d65fd46b2a018d8c3883abe488d59b72d8a00d460cca2ce3b9104c5d28c19dd"
     sha256 cellar: :any,                 arm64_sequoia: "4a40ed9aa7acf145d621cd8f9be785ceb4c407c3a643f6c8b6660b165669bc61"
     sha256 cellar: :any,                 arm64_sonoma:  "87c79c3fd421eca89036c1a8388f3854712b2d95c33a32f05201acd2bae6aa98"
     sha256 cellar: :any,                 arm64_ventura: "c543be773e9fb85454d10caa84ba4376bc3ec7754d23666492b9b9cc7a8d32b1"

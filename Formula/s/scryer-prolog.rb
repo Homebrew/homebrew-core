@@ -16,6 +16,7 @@ class ScryerProlog < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "20b2eac4ef795a6887ddc309e982005d36092ca41e6af2d1c1723ea8b79e5875"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d9e835b97c19a21a9e951a9cb4f3e63b2df085d146a45e1a83fcd6f7c2e2e03"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a56ddd4c07ac2d2b7efaa3d425e8372164d177ae2051716004fe690c4581788"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a0384d324b743441527508b58a077149303dd2dd96a5503c369408f9719cc5cd"

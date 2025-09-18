@@ -7,6 +7,7 @@ class Melt < Formula
   head "https://github.com/charmbracelet/melt.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9867029e68c10f409404183ef028dbf0b392117f38fa4dcc8dfe7cbf944a2c6b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "547013e6780070ab0e514c03cad053fcff034ed2bd938b43bb5ece9b71424274"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "547013e6780070ab0e514c03cad053fcff034ed2bd938b43bb5ece9b71424274"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "547013e6780070ab0e514c03cad053fcff034ed2bd938b43bb5ece9b71424274"

@@ -22,6 +22,7 @@ class Burp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "3de56f0f4305377c2cd47b9b5b43a8c43e19bfe77031512edae33fc70aa02895"
     sha256 arm64_sequoia:  "2e9356b11a8e46c3be3414b7a2f88dc01974d49a9b18372f5e92e5654d59144b"
     sha256 arm64_sonoma:   "839b8941718ab30883533b6cdaf415cb0b6aa085a2dfc53a5439c3cdd6c8e563"
     sha256 arm64_ventura:  "e1360b199ce42bba04f10443f26954d9c3dafe03b7565b571382f6baaad21bd2"

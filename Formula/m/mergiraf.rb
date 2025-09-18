@@ -1,19 +1,18 @@
 class Mergiraf < Formula
   desc "Syntax-aware git merge driver"
   homepage "https://mergiraf.org"
-  url "https://codeberg.org/mergiraf/mergiraf/archive/v0.13.0.tar.gz"
-  sha256 "8b3851bac8ebac3c973c0f82fcaf1e4cc7a68d4effe3a4d727963b3824972909"
+  url "https://codeberg.org/mergiraf/mergiraf/archive/v0.15.0.tar.gz"
+  sha256 "75f553935df38dd84679727fe3b3232d54ed4a9fe6ca214e3fd54ac714d0fae3"
   license "GPL-3.0-only"
   head "https://codeberg.org/mergiraf/mergiraf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4bf25c12f799ad426b68825743ca0cb24af3cd44c28e48751dfd4800c50b313f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a7d368fbc5f4514d1439cd307122304e5112e31007813ae0f3ddc7041f79e6c9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b664a9639a540391dda00f6784451d0ae6854545605751a37222e89a7cbb1993"
-    sha256 cellar: :any_skip_relocation, sonoma:        "928c6a3f401396cac2fb1e0c2d6e52f81862de7d44a67e2d41470fa29dc504ef"
-    sha256 cellar: :any_skip_relocation, ventura:       "0e8c94e2670a7cb88fb789b27de95b5a8d76d0490e3c913649777365348ea2b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "821913d9580a35ae7435802f835042dff444c7cf2a7124f9dd2b8cadc2649f6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80a000fae5c0651d38bcbd543107d63d5c9b424745933d9e1d53a88f4b1f56db"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5c707523be55ef45945f624325043303cee8eb7450b7f3fd7284934c9d67423"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1db32935fdbc41b2c3b0cac96230588948f9931bf7fbce8e25d4a8a6131c9858"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0463ff64b10fbd79a9271a8dce8b75b126c33251151f87d964d8303566288b46"
+    sha256 cellar: :any_skip_relocation, sonoma:        "82b85bb2476b9a117d493e78481f9ca1c6e9ed7eb0b1103175372bae490d6aaa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "85c3214034957249a281375b050e42af0439d17701629804ada0642bc58e740d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b0b9ea5f2c8e6ad67b14807265a767e3f6478bea3454cf9111f5e51ac30fc35"
   end
 
   depends_on "rust" => :build

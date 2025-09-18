@@ -18,7 +18,6 @@ class Mmtabbarview < Formula
     sha256 cellar: :any, monterey:       "83aa65e0eaa1ee040131cda4ec9f9c1447ebd06124b7680c754a6c6ed8786d01"
     sha256 cellar: :any, big_sur:        "a16676e466f896888d2e90cc703dd95919b242bcff90ae84d4c5be05eee3b881"
     sha256 cellar: :any, catalina:       "3ef5d2b3664b7ba3def8ba27c4b3c2e5d94af4f5da6aee0400fd148b091e955c"
-    sha256 cellar: :any, mojave:         "6ce9ac264e1e62f9ee98dd08e6837def238b99c3a5506cc0c470be4c5442ba3e"
   end
 
   depends_on xcode: :build

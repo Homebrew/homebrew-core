@@ -7,6 +7,7 @@ class Cloudlist < Formula
   head "https://github.com/projectdiscovery/cloudlist.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "05ee74dbd140cf4d1fe0390ee4e72107f3d0c2676396cc2960595bb1ab222a49"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3eeeff6d7b3312e6bd66a20976b56b8d6ce218432349e0b5c033bef25917bb9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3a031f1ad78d063784809b8c086edfb9b92047ddae1c53ae6948debfc7e3e2a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7a14d6684860a6ef496dc5b65862ef0f29060d49292d96fd5a447ade69f862f0"

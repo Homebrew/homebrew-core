@@ -14,6 +14,7 @@ class Librasterlite2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "7fadfe32ad6846c88e2ebee1e0730a1819c2aae715996b42c709e49c050867dc"
     sha256 cellar: :any,                 arm64_sequoia:  "1c3ebad3c0e8d461961ff6e1ea785d762a411493caa8dc0df62f85cc2fd039d8"
     sha256 cellar: :any,                 arm64_sonoma:   "d31a806dc93f565780c5704c3d4ac4d4925f02f3682a1638ee85f384470ceae3"
     sha256 cellar: :any,                 arm64_ventura:  "594f332c68d15b51bb405623131a630fa528693ee21f2f220d3220bc280fd2dc"

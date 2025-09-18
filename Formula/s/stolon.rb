@@ -9,6 +9,7 @@ class Stolon < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b989bb383b1ce5523628d9b310afe7a911ab92f8e9797aaa8ea655ec576ebd05"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5a9cff2775f8b7655d68bd8899ae8090a23c1d38add3f842fd850ea5fdd3b258"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5051a16e7d948aac0ba138307c7a1a3a5f53e1ca0683bef81823bdb752037002"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2ff141e91b71942f67871741dabcd110310a06c72d68ce361391e2a1ce233ee"

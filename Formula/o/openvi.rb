@@ -9,6 +9,7 @@ class Openvi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e5817df5472053cf7d429e95a2e6e0d43acbdb10ab4eeae29a71f758659a08b8"
     sha256 cellar: :any,                 arm64_sequoia: "7782e6ed0969f0329395994ababca79b94ea7a8e576b97cdb71ec6698f070e45"
     sha256 cellar: :any,                 arm64_sonoma:  "3516b1e080308c873e3d03a050a07f0e0515abe4baa306cd9bc8a838371a7d1f"
     sha256 cellar: :any,                 arm64_ventura: "51f83e5960cdae0f320dd3d9c84b0130c454bf30f834b196c0ad204d979b4b13"

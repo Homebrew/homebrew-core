@@ -7,6 +7,7 @@ class CargoSort < Formula
   head "https://github.com/devinr528/cargo-sort.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b141007885bd48b29b95d520568ef6530cf2b5f1b12240c37db72f99761bbdb5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e21317972556371a52e8f2b036339baf8055e9b11a5c49c686809926991eb197"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68e849f0b7dc34ee5ff08c25bd5c8ea7859317be046f89d3780dd277d922883b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8378775a5403d57969dcf037d9ac0061cc5c3dad764f3b39a971105f19ed7117"

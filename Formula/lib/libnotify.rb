@@ -6,6 +6,7 @@ class Libnotify < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "37130f7d7162f24437752470ce7fd08b17c1445861322e2b5d8e9b35bb853478"
     sha256 cellar: :any, arm64_sequoia: "ea69f7b5455c3a6541cf0860074b7b6e3e68e6bbb48c64cb4cc6221e6ce8dde9"
     sha256 cellar: :any, arm64_sonoma:  "ebea4c89f379ab596f73e8613cdb45085b91995f8ab225b22abc9143ef3418c6"
     sha256 cellar: :any, arm64_ventura: "d4c06f68f3f4fd97e56695bb166a806488f78ccd6d677d943d2a49bde302aef7"

@@ -7,6 +7,7 @@ class Openjazz < Formula
   head "https://github.com/AlisterT/openjazz.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "0febc2f95efd03671c03ef8ce9687243a2dad0e66009c81005463ffa22590cc7"
     sha256 arm64_sequoia: "a7187b8961dddc281206ef88cda1c3f4a58814d0f55b3d6f526ceb8d3c9db01e"
     sha256 arm64_sonoma:  "1fdf7bc6cc7a1e571240965ef4ba7a404aad892fb358223cfee277d1a0532dd0"
     sha256 arm64_ventura: "d0520016ae1625393667870d16f357d577492da14f0786b68f15e3779e723aaf"

@@ -7,6 +7,7 @@ class Gtrash < Formula
   head "https://github.com/umlx5h/gtrash.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "36c16ed00744a249888b082cf1beae2498baf11f9f484e52f60bbac02e75b28d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "857a779ba0bfda17f825bd37e0c694b39abe6c85ff518432e0904026643fa9d6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "857a779ba0bfda17f825bd37e0c694b39abe6c85ff518432e0904026643fa9d6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "857a779ba0bfda17f825bd37e0c694b39abe6c85ff518432e0904026643fa9d6"

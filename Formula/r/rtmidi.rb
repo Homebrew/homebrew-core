@@ -1,37 +1,24 @@
 class Rtmidi < Formula
   desc "API for realtime MIDI input/output"
-  homepage "https://www.music.mcgill.ca/~gary/rtmidi/"
-  url "https://www.music.mcgill.ca/~gary/rtmidi/release/rtmidi-6.0.0.tar.gz"
-  sha256 "5960ccf64b42c23400720ccc880e2f205677ce9457f747ef758b598acd64db5b"
+  homepage "https://github.com/thestk/rtmidi"
+  url "https://github.com/thestk/rtmidi/archive/refs/tags/6.0.0.tar.gz"
+  sha256 "ef7bcda27fee6936b651c29ebe9544c74959d0b1583b716ce80a1c6fea7617f0"
   license "MIT"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?rtmidi[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/thestk/rtmidi.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "1c3e7eb76b81cc7b731bb82550bf888bec6add154b060f975b8f4ef0c907e4cd"
-    sha256 cellar: :any,                 arm64_sonoma:   "739b40a37e29e6ec2b6f3f4a53cab1e489f7a9dd4698102604b227ea5c140b0b"
-    sha256 cellar: :any,                 arm64_ventura:  "c18948de83007b0ca3e87cb01f9161c92038f8ad080c075a2a9746bcff14f78a"
-    sha256 cellar: :any,                 arm64_monterey: "00a10d87416a8ce037c98b15bc67a4a5c8780f065f8d0f73c470c0eaf3dd5d9a"
-    sha256 cellar: :any,                 sonoma:         "af76d8dc24430b39e31a093c525d398801eb8908a0c08fc7145bd767879d9422"
-    sha256 cellar: :any,                 ventura:        "65861bc757b6d02b30addc5fc15751927b3e82e33d03164bb02019976c1a20d5"
-    sha256 cellar: :any,                 monterey:       "e106cd4273619be027dd5b8c1bc445d0b316753e9d541c7afe07a1dbd84fcdcf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "0f090a86a72631f9c0a800dd524f2914b313b7610a82ce34148e0d62a3af266b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fff0e784b8a8779f1b8096e51b4d812d0190f7248c1fdf9ec75c5fe13c11b29"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "8907d310bd719956d2142eafa69ff82047aa7b682b9e6bf46def31cb245a527f"
+    sha256 cellar: :any,                 arm64_sequoia: "16b58f421f5acc419193e3e5703910d7984ba6424f2353ad95d7d1d1b4b962aa"
+    sha256 cellar: :any,                 arm64_sonoma:  "496714f725960c2a0675ebbdeb419366b882228ce0c0b025b26ebe7b203b6927"
+    sha256 cellar: :any,                 sonoma:        "02ee430421083f82fc9614fcfb3143c23d501ec4e85903a16adbab4a1735af9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccdb2162e771404f89f0019084bf7b62abdade723c7ba3b479d4de2db0e5be6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1eee4ca1fa59c90126083c01a574ef14c0e5b86f61a473a6bc1109c619f6d14f"
   end
 
-  head do
-    url "https://github.com/thestk/rtmidi.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   on_linux do
     depends_on "alsa-lib"
@@ -40,10 +27,9 @@ class Rtmidi < Formula
 
   def install
     ENV.cxx11
-    system "./autogen.sh", "--no-configure" if build.head?
+    system "./autogen.sh", "--no-configure"
     system "./configure", *std_configure_args
     system "make", "install"
-    doc.install %w[doc/release.txt doc/html doc/images] if build.stable?
   end
 
   test do

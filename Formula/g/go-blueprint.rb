@@ -7,6 +7,7 @@ class GoBlueprint < Formula
   head "https://github.com/Melkeydev/go-blueprint.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "518ba176f2365fcba2c62d4f7953a95e576248b7254c69f88a02a61754396c7c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f9ef29a931115b5b44f61bf4cc1582fa48fde680e05f0111634c216e65abd66"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f9ef29a931115b5b44f61bf4cc1582fa48fde680e05f0111634c216e65abd66"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0f9ef29a931115b5b44f61bf4cc1582fa48fde680e05f0111634c216e65abd66"

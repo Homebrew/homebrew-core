@@ -14,6 +14,7 @@ class Unixodbc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "ba51f9317cd046bb92c785a6976d40509035ebdecad20827b0eff3fd8177c64f"
     sha256 arm64_sequoia:  "d117e16a10d134bc961f57c345296a7279f40376ab626dfa41777bf4cb4e116a"
     sha256 arm64_sonoma:   "4984c5ec2cd0ddc6393cfd60e42bc5748e3dc173750b74b2113de9b17c864c9a"
     sha256 arm64_ventura:  "b2d0036483c00d1f3e12b90e288d18b1714ee1b6e95de4d443c0b1101657bfba"

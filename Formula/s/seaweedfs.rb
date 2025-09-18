@@ -13,6 +13,7 @@ class Seaweedfs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "21e03b0434df7b8ad74ec01046aeee095dd6446b8b7b2b8c2d49741f7e6e98b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e26f3238aa6e10b6ae35d9d7ff0231067ea09cdfd2e5f7c16c9f260579580cd8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72c50d1aed6ad5f59d4478be92b669c2a9856d5cb3821d43cda4f55479673c1b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "72144b35522e03afde6222858f949f04ac90d442849169f4405b333366dbdb13"

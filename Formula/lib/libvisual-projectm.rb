@@ -8,6 +8,7 @@ class LibvisualProjectm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:    "a98c14ac06d512d06109fe20afb1bb39f3c59448858392a6389120fbe871558f"
     sha256                               arm64_sequoia:  "e1413357ae5900e2662f197184b631759a12af9015317566a99db4d70bdc6ffe"
     sha256                               arm64_sonoma:   "b14e174621f4a80eaab94df8972bc26ec2a834a8d84bf66485deceb4b77e0a85"
     sha256                               arm64_ventura:  "7e9ba6250e71e8005b0e00cc6f50f9991cf5158272a439788c0e4f024d9e8eb5"

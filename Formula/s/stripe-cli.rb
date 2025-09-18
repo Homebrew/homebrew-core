@@ -6,6 +6,7 @@ class StripeCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9a26d73274def673218b31150c804262a78e86899ece178646c6176ce258f6b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4e7507255de1f3d55d800baf29cb59ebcc952b2d7ad54df44ba74602b30569d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0fb7323d6326c97736f618469e26d9be72e87751d8029258cdcbf56cbb0ea4a8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "19e5aa2bbd000f3a352a53409d172969ddcddadd4718da16baaadc4d19395ff7"

@@ -1,17 +1,18 @@
 class StripeMock < Formula
   desc "Mock HTTP server that responds like the real Stripe API"
   homepage "https://github.com/stripe/stripe-mock"
-  url "https://github.com/stripe/stripe-mock/archive/refs/tags/v0.195.0.tar.gz"
-  sha256 "830a70cdbefc14b77f1c397ed29b401ea79a8f2bfdc2bbf9708a901e17208559"
+  url "https://github.com/stripe/stripe-mock/archive/refs/tags/v0.196.0.tar.gz"
+  sha256 "75d4fb1d8ed01f68a8972a84fa6c7697ad89750f5e082c2482b363d812822c27"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb00df69c89beb8cb7465d9aea84b30e20e669a320dfa1d1f2fde9f1a3f20734"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb00df69c89beb8cb7465d9aea84b30e20e669a320dfa1d1f2fde9f1a3f20734"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eb00df69c89beb8cb7465d9aea84b30e20e669a320dfa1d1f2fde9f1a3f20734"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db97b4f234bf4e99abe4fcf7f94e23aa6c66613536875987d90cbb149b257bf3"
-    sha256 cellar: :any_skip_relocation, ventura:       "db97b4f234bf4e99abe4fcf7f94e23aa6c66613536875987d90cbb149b257bf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfb32a534ce1b0ab692a753f11cc4c00b28d05b0a161e472798c504f7d5f683a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1e71d28a262899dd6731b0533654efc38c972b4ba1ee34fd34d9cfc9f32957db"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e71d28a262899dd6731b0533654efc38c972b4ba1ee34fd34d9cfc9f32957db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e71d28a262899dd6731b0533654efc38c972b4ba1ee34fd34d9cfc9f32957db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1e71d28a262899dd6731b0533654efc38c972b4ba1ee34fd34d9cfc9f32957db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1d8fcf7c626d61d83dec91f29f0b7a117d976b39b1868f9971feeac4723fe241"
+    sha256 cellar: :any_skip_relocation, ventura:       "1d8fcf7c626d61d83dec91f29f0b7a117d976b39b1868f9971feeac4723fe241"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ca0f2cb78497879322ff49313a691ad7d2a93b80bfabe1ab3084aafd89c1862"
   end
 
   depends_on "go" => :build

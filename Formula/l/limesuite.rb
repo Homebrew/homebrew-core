@@ -23,6 +23,17 @@ class Limesuite < Formula
   depends_on "soapysdr"
   uses_from_macos "sqlite"
 
+  # Workaround for CMake 4 compatibility
+  # PR ref: https://github.com/myriadrf/LimeSuite/pull/417
+  patch do
+    url "https://github.com/myriadrf/LimeSuite/commit/4e5ad459d50c922267a008e5cecb3efdbff31f09.patch?full_index=1"
+    sha256 "7cfd2b80234771fc2de5660582f2003003a3c8c1b78337f0b41c4e367adcd266"
+  end
+  patch do
+    url "https://github.com/myriadrf/LimeSuite/commit/698e416f9b9f1d0460508555c367124769cb3470.patch?full_index=1"
+    sha256 "176a0a315fe65b2f8d848ce0d05e8eb3920127f18f1e1b6c11c2766a3a495be7"
+  end
+
   def install
     args = %W[
       -DENABLE_OCTAVE=OFF

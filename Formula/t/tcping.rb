@@ -14,6 +14,7 @@ class Tcping < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f9b6f59dabfa7d65422fa6ec42a7fec5fb60b41aeeeb732b8d90edf146494a47"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b43eafbc84776f3718d8fdcad688ca581d2b3e74de5de6f199d6af57ed810930"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3658deb0ed9da1938d4c2a6c4336fdc51ac8a2037365a9b9b19708d5c16d7cd9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "126f8832750fd4260255814f399ca26fdd109a8bd52cde1737670b3be389213e"

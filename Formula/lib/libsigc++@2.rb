@@ -8,6 +8,7 @@ class LibsigcxxAT2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "53b7c9c9610c7904b3a4c7b458c14d82bb3173e3ba1b1dae0280dfb06d4b31cb"
     sha256 cellar: :any,                 arm64_sequoia:  "60b84e4af2ddcceecaed25095c2dd11efd191c3a96d7c39b08552fcfaeca82ad"
     sha256 cellar: :any,                 arm64_sonoma:   "d84c23bbe72a865f26ed4426a029b5a4a2ae9f4410a446737469e463be28f353"
     sha256 cellar: :any,                 arm64_ventura:  "c3faa72283c90172978072aae40c1f7cc75ebecdc58cbb292f50759c2f6a0f50"

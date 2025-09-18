@@ -8,6 +8,7 @@ class AnsibleBuilder < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "793f4a9b69d5f87bb30882a498d0200260bcaec7b425022d98074d8051b736ef"
     sha256 cellar: :any,                 arm64_sequoia: "579c9ad083782a2e50605b47820f573e1f7ae3d74f78ae7ef6fdfdb752581e22"
     sha256 cellar: :any,                 arm64_sonoma:  "c92bc3474f4736687413164573d5c0ac47ddaf1824634ec1e7877caab3877dea"
     sha256 cellar: :any,                 arm64_ventura: "c6db94ad4366fdd83e81ea63d924905b1e2e3c3cccdd6fb00d1eebe69fe70480"

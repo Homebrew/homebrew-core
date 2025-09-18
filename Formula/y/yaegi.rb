@@ -8,6 +8,7 @@ class Yaegi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1b6aa50f88c249b67a801d000919fae39cc280bc0bdf873ca9da5b0d6bd8df9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "596a9506904a37aeb5a6118af68fbf7a4f316ae8baf70ac3e0d22a14b9bf9831"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "596a9506904a37aeb5a6118af68fbf7a4f316ae8baf70ac3e0d22a14b9bf9831"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "596a9506904a37aeb5a6118af68fbf7a4f316ae8baf70ac3e0d22a14b9bf9831"

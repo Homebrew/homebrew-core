@@ -7,40 +7,19 @@ class Polyml < Formula
   head "https://github.com/polyml/polyml.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "937771b69a2cbe3e80edc278897b1e1b72b8976c06febc1cba609069e1bd16e6"
-    sha256 arm64_sonoma:  "547f2f271d7190f9f5a9d7bcd0f128ee5955981ac05817db081e3e351b7a9ee1"
-    sha256 arm64_ventura: "55de2b3a7d090a5a48d28c4e17c1df3953426c530ff4abd36bbd3b2aee08fe8d"
-    sha256 sonoma:        "ef8d624eaa7afe576b0e515dc44d073b4c1f94687a6d74e7dcfb01f9a3bc7723"
-    sha256 ventura:       "0e6b440ca663bf2381929c8221981d42a8512358bc72ee793011dd46ee361c9d"
-    sha256 arm64_linux:   "3788ade9f88c53eba01afad3312af68ff99d7214c2537515a9fce47567266e99"
-    sha256 x86_64_linux:  "05b1f452df38e1aec8f76a6c625ab764ecc3dec75ee0f0b26f608157094c0a20"
+    rebuild 1
+    sha256 arm64_tahoe:   "2e1a65ca5584fbed5d8809d26b612abdedd723df506daa33d82bdd2144a8c8f7"
+    sha256 arm64_sequoia: "73159083107e398682b609d20c700a909a15e9cf8ccb95fc6311c567cc39a9a1"
+    sha256 arm64_sonoma:  "e2f1500bcbb66c6ac5ff92627229efba5c6c3702f22d17bfd7a5648801a22125"
+    sha256 sonoma:        "ebfa52db23d6ce50906a8c66957230db9ba791429c5e1e5cbc96bd2ad3eed16c"
+    sha256 arm64_linux:   "dbb61f66617d3c19fc0d8cc1d5eadd8c2986fa048af9e1e720540ae3e8aae40a"
+    sha256 x86_64_linux:  "cce638901b7e6baf678c145347a882cbc4589d92e52b61e0dc45ea5b30199592"
   end
 
   def install
-    # Use ld_classic to work around 'ld: LINKEDIT overlap of start of LINKEDIT and symbol table'
-    # Issue ref: https://github.com/polyml/polyml/issues/194
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
-
-    args = ["--disable-silent-rules"]
-    # Disable native code generation on CI ARM macOS to work around:
-    # Bus error: 10 ./polyimport ./bootstrap/bootstrap64.txt -I . < ./bootstrap/Stage1.sml
-    # Issue ref: https://github.com/polyml/polyml/issues/199
-    args << "--disable-native-codegeneration" if ENV["HOMEBREW_GITHUB_ACTIONS"] && OS.mac? && Hardware::CPU.arm?
-
-    system "./configure", *args, *std_configure_args
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
-  end
-
-  def caveats
-    on_macos do
-      on_arm do
-        <<~EOS
-          The `polyml` bottle was built with native code generator disabled due to
-          the build failure seen in https://github.com/polyml/polyml/issues/199.
-        EOS
-      end
-    end
   end
 
   test do

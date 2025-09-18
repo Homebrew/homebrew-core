@@ -17,6 +17,7 @@ class Pocl < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "e39e3235300c89de9d68523fb5d25eab669f664ae0713760fa3f4bf94ee3c45c"
     sha256 arm64_sequoia: "ce20bf8e55006a7e27ee297c9ade37a0f1d764eca612addd932083eb05653379"
     sha256 arm64_sonoma:  "ad257d6295b26845ee36310ce3bd75a2dbc51d68c5f74fbea83e04715cf2a6ac"
     sha256 arm64_ventura: "99dd1eb71561ce4ab0877ea116f71b7fe6c1ff0d192c9e01220ca891dc584ba9"

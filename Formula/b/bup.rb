@@ -7,6 +7,7 @@ class Bup < Formula
   head "https://github.com/bup/bup.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1eab9c210e11a5589cff8a1b39a8e59e26c05b20c8f3f4b3bc89443eed898c21"
     sha256 cellar: :any,                 arm64_sequoia: "3104c10993ec9f6fa2d991ccdfccca6f0166cdf092bcd46c59698ed4683fef92"
     sha256 cellar: :any,                 arm64_sonoma:  "0253b805259079f8bf8b404bd5614a77daad653fb18893f71074710683515fd1"
     sha256 cellar: :any,                 arm64_ventura: "27a31a5719db34d087da2fc6832ceebb9ccda45b56165b3210f2a29fbc113c51"

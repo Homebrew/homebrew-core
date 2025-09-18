@@ -8,6 +8,7 @@ class Xlsclients < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7845c576ced4a3065eac6aa6d86619c19650b8f1d894f3ab3ec954ba14697b33"
     sha256 cellar: :any,                 arm64_sequoia: "f232c88f33a86c8c9c4f660d5b1102f7a91f26d9b9565d41e6a1bbd5e282b3d2"
     sha256 cellar: :any,                 arm64_sonoma:  "be45e2812020b6a380b6c7affa69859d6563e79087308382ef6b30cc6bdaae1a"
     sha256 cellar: :any,                 arm64_ventura: "e9cab1de3e8ebc016baf33dddca3a6846c1f97b2cb5092f1e2124e45761adf2d"

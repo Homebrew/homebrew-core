@@ -8,6 +8,7 @@ class OsxCpuTemp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c7b0f3f1f33e64d4cacb4b5b8d5a7454fc23338f15caa577658ef1e0b7f3026d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e1484688d7c45ad319e94d86b098150df1a028fb85b93591664a8f5c839a1383"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "50aa80f9561f2a41d78f87f5ba9998a406b3865d5bc61fcea208ead214149c64"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5189807136b9dce5f62994ea3451ab91f560fcdd665e35f50387c19667af17d4"
@@ -18,9 +19,6 @@ class OsxCpuTemp < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "734f1c9e1d3e8486d862fc2186ba476807d3a8da54c5cb673d6ca3c29db59b09"
     sha256 cellar: :any_skip_relocation, big_sur:        "d4bcaab258eb1c75078e767a24c615bc82274e672ce6fd15c2a766b0b0bd8a46"
     sha256 cellar: :any_skip_relocation, catalina:       "e1df41402ed817941f591a5cc094fe4491b092de8d5177dd363eccecff811bec"
-    sha256 cellar: :any_skip_relocation, mojave:         "c0301d2c47c23bc8ed0042fbaf447e82ca8dbbf10b1939d9a4f684961a24d0d2"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "2255aa28242ce07a62fc0eabaf146592fb70745e641cfc775a21f99841cec625"
-    sha256 cellar: :any_skip_relocation, sierra:         "d68a47b126eaee8f75d281785322877055187f89540eb2744b9cd4da15ca6a69"
   end
 
   depends_on :macos

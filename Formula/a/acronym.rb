@@ -8,6 +8,7 @@ class Acronym < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf8c7997c7e7419a56c5c1cee758047738f9997645c61542eaa98c066c8a2058"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c7cb3115315d3bc254dada1a5030e33a37ede3a80bdbe082b6097c2eec20ee0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e164772ca27412e1e6faba57caa009673a9768cac8c88f8950c28c3f54fa3d36"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a9922d0d98b7d6c4cbf7ff733ef09ccdc1595d5ab090a3aa5e7d9b9efd55d619"

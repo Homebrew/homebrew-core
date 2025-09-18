@@ -7,6 +7,7 @@ class QbittorrentCli < Formula
   head "https://github.com/ludviglundgren/qbittorrent-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8dbb1e0f3009ea428e38774124b3fd34a710fcff9a1f35cdffe613978ca55089"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e89063ee1ee9e114a32ce09eff29422cfb5b50f8a3ed324139e60828ab10123b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e89063ee1ee9e114a32ce09eff29422cfb5b50f8a3ed324139e60828ab10123b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e89063ee1ee9e114a32ce09eff29422cfb5b50f8a3ed324139e60828ab10123b"

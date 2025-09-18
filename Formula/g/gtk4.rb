@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.20/gtk-4.20.0.tar.xz"
-  sha256 "79e51e62f7f0cff32904569b0cebc96297d0ebfafa6de8172073c69ce0391a98"
+  url "https://download.gnome.org/sources/gtk/4.20/gtk-4.20.1.tar.xz"
+  sha256 "bf32fac019171c45681b2c45d05658ee8598c6341572e32a6a6bcb0b5673998d"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,14 @@ class Gtk4 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f90005feceff0bbdfa9cee9fba8f99bdc523542bd032f68550dd18848762e962"
-    sha256 arm64_sonoma:  "972209ad2c1195e9548a35374adbdad0a7fda08a0337b70fb5d2908c0ee3f5e8"
-    sha256 arm64_ventura: "7efa0f18a7c440bc555d960862fdd6790def90b96ccfe01cc51c40711254ced3"
-    sha256 sonoma:        "c764712eeb1b9cac818723d1c9a77b8b8f76755e4a1826b674e345aabd943a72"
-    sha256 ventura:       "426688db6c7c1d3717a356aedc7a687e842031c58f6347a243a84deb0f6ab6e4"
-    sha256 arm64_linux:   "6d167e158e3a32571696874c231e40d66fba76ecad1bff9646ba5e4070466c1c"
-    sha256 x86_64_linux:  "e2a6912ef0c567a0bacb112f5ae44fcd7cb2520e9659571a74ccfc10f2c6a76c"
+    sha256 arm64_tahoe:   "241bdcbcfb75e4cfc63fa4a4abbb1f2acfbc095301efeb87aa340c72233aa16e"
+    sha256 arm64_sequoia: "407d2e5c9a62d7f73bd089d5840de234d2a784213de26527832039dd7fa0d60e"
+    sha256 arm64_sonoma:  "4ba9ce818a0aee1ff5337c7b11f163196dd6274434c0c1a9adff5458259fd0e7"
+    sha256 arm64_ventura: "61837f1ad10940e0e72dee79a287885cfd75cb78b50abe4509cc2ef002af71ef"
+    sha256 sonoma:        "28385dd9d921842a2fa493ee2177ffa52d9c4ae974c0bc3d40539a49b6031477"
+    sha256 ventura:       "f22fd10ee544898bf704735154bdb6c337c7137fbd8431ce7886903ffa5d654c"
+    sha256 arm64_linux:   "b9185c0ffd3a106a08cd50ae16a3d942af188751f02ff1dc7a8f6b6384a3b769"
+    sha256 x86_64_linux:  "79d989c2800b338cf248f3bc83651705b9fe863b50bf7a16eb63a4fecccd1ca2"
   end
 
   depends_on "docbook" => :build
@@ -78,7 +79,6 @@ class Gtk4 < Formula
     if OS.mac?
       args << "-Dx11-backend=false"
       args << "-Dmacos-backend=true"
-      args << "-Dprint-cups=disabled" if MacOS.version <= :mojave
     end
 
     # ensure that we don't run the meson post install script

@@ -7,6 +7,7 @@ class Cloc < Formula
   head "https://github.com/AlDanial/cloc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98da5dbf7c3e919ca2852b18771ee89616ce565c77dee9741fae7ddbfa5fe40d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe4188eee9b775b155e22cfa70c45df2b98e3873acc2ecde4680b8ad60605167"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe4188eee9b775b155e22cfa70c45df2b98e3873acc2ecde4680b8ad60605167"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dea4656e3a2afbd9e1b794a2af5293107474e0d3ddb2effc35d7c22af4f22484"

@@ -11,6 +11,7 @@ class Aravis < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "4a273b81181ee894d4f4403f8b8f4a3a3e3e77c6eb800dc2c6940f5032d9d6b4"
     sha256 arm64_sequoia: "5dacbb067602cd6942321a0e548cdff50b237162f12819baf9f2ee34040aa3eb"
     sha256 arm64_sonoma:  "82e9c7e422b14826f80abac1b17a271ead738e5abf4fe862799d68aad848e803"
     sha256 arm64_ventura: "27e3c92eb7b96f192bf0e4d73a358088ada319fb8a10dab041e678d43b8472d9"

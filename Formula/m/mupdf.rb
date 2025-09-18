@@ -1,10 +1,27 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.26.7-source.tar.gz"
-  sha256 "52014fcecac48ae3ead947eb90572ff7da9acf9550711675872944e8ef8c4966"
   license "AGPL-3.0-or-later"
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
+
+  stable do
+    url "https://mupdf.com/downloads/archive/mupdf-1.26.8-source.tar.gz"
+    sha256 "e8d248a666d2386f4a2014d680b6e88de5ce9fd8c847b0e274cbecc124f33cc7"
+
+    # libclang-20 patches
+    patch do
+      url "https://github.com/ArtifexSoftware/mupdf/commit/df0b5ee3bb9b12d8c57df55d7b41faf1b874a14d.patch?full_index=1"
+      sha256 "6968a8b80221b01cc30d46bf832ecbcba99d75de238c41315be318f2b02ac892"
+    end
+    patch do
+      url "https://github.com/ArtifexSoftware/mupdf/commit/559e45ac8c134712cd8eaee01536ea3841e3a449.patch?full_index=1"
+      sha256 "868c2955cbebcb99b5336c005cbe4a5867f8654cb9b008bd24ae67df84438968"
+    end
+    patch do
+      url "https://github.com/ArtifexSoftware/mupdf/commit/4bbf411898341d3ba30f521a6c137a788793cd45.patch?full_index=1"
+      sha256 "ac2b1c1b6c21626aaf009928262f7c31e407a886b192d276674ddb94672b1d38"
+    end
+  end
 
   livecheck do
     url "https://mupdf.com/releases"
@@ -12,13 +29,12 @@ class Mupdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "abf53e217661f27d5113c54ff4349f9f1c0722af1df760ad30d809e4ce2a141b"
-    sha256 cellar: :any,                 arm64_sonoma:  "71af932e5342061a1cb0effd9c557f488a4094299df914b6391fff812c1f09a3"
-    sha256 cellar: :any,                 arm64_ventura: "8b7285a24c77618a3cd8f0e8e73042a6344c2f088814bb0441e4f14a7a09c362"
-    sha256 cellar: :any,                 sonoma:        "8e4a957fdfa0d3f806c743573104861a288328694780def543eb21410fdc3d62"
-    sha256 cellar: :any,                 ventura:       "e205f4b269ce2ac02ef98e4fc3dfd4c15d81e5c47a63dbde52870ce7f4967813"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "66bedf755d9340612beae43478e35fe008eb065a721ed8a6be3ffb613fc6f878"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cb7e6ec1d26d988a2862dcd93f855f497236098b78eaf5f74586de1a852497c"
+    sha256 cellar: :any,                 arm64_tahoe:   "27b991ebfe055ec63e8f44861116b350d558f03f8d748f1ab52ef66d1802848d"
+    sha256 cellar: :any,                 arm64_sequoia: "16a4fe6b48e46c3e47899139a5f003932c7ee2de14e7a3b1007674dab8775d16"
+    sha256 cellar: :any,                 arm64_sonoma:  "f39c86badc2a9bdbae90b0de7a536b12a7fd4c55f813d8da75c88018e1bebca8"
+    sha256 cellar: :any,                 sonoma:        "d0113a762db0412a6fee1fee4ecdd8b35cce988128d41f33d52cbc2747c9cf9a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "09049b40b47cd4c3bbee9d38682a3cf04ef20de0ba0cab42c805f526715978f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c01523145d00130bd0d17b6a83d14bd4b7bb80b68c5ffa47c640dba7559885b"
   end
 
   depends_on "llvm" => :build

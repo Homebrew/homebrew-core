@@ -9,6 +9,7 @@ class Cekit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b9d015915d0c451b97f2c9406ba12a6dddfb423837cde0f3e7964750d56a53ef"
     sha256 cellar: :any,                 arm64_sequoia: "d2f8831c610b2abfb398c173417afc377e77a70b94db09a123f23c052450c0f3"
     sha256 cellar: :any,                 arm64_sonoma:  "8139a72bc96db48f85d9d70ad38378a5556c947f02e5f6810b577962e7e181f5"
     sha256 cellar: :any,                 arm64_ventura: "e6158e2fc700c8f20fc57fc40541b5ad677bb260caf43b5fbcec7c8cb95ef206"

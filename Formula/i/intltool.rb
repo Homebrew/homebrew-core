@@ -10,6 +10,7 @@ class Intltool < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a3b02903a82a77d89d14776957ba50c442e5bdf8948079c65ed927d80765f04a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ebd88e28e9fdc4af031759fae5cfc6b4f93489e2aff78924d0a0b41ab4d9ea2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b725467f89444f309fe6ac39a1e8c93dfde4d58ce9ab1bc8f92a49beb899e1de"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b725467f89444f309fe6ac39a1e8c93dfde4d58ce9ab1bc8f92a49beb899e1de"
@@ -24,7 +25,6 @@ class Intltool < Formula
   uses_from_macos "perl"
 
   on_linux do
-    depends_on "expat"
     depends_on "perl-xml-parser"
   end
 

@@ -1,18 +1,19 @@
 class Dependabot < Formula
   desc "Tool for testing and debugging Dependabot update jobs"
   homepage "https://github.com/dependabot/cli"
-  url "https://github.com/dependabot/cli/archive/refs/tags/v1.71.0.tar.gz"
-  sha256 "cc37e707b8e8a84ac51feca35c8acdf18189b5105b979dd1121b04a984128759"
+  url "https://github.com/dependabot/cli/archive/refs/tags/v1.72.0.tar.gz"
+  sha256 "3e11cc0b09f7af3fd9a66b87a8955ec3bbe71d8585d010c9732d211e417c5591"
   license "MIT"
   head "https://github.com/dependabot/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "afce9999d4aa6240c526330ab7a6cad8f3fc6dbc9fad3a3b58dd1443558f02d5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "afce9999d4aa6240c526330ab7a6cad8f3fc6dbc9fad3a3b58dd1443558f02d5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "afce9999d4aa6240c526330ab7a6cad8f3fc6dbc9fad3a3b58dd1443558f02d5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1fece486f99b6c071cd1a85da03ed5c95b5d2dd141ceda5dc91fe65c8a245c14"
-    sha256 cellar: :any_skip_relocation, ventura:       "1fece486f99b6c071cd1a85da03ed5c95b5d2dd141ceda5dc91fe65c8a245c14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "390ddf32126ee91c5c7a0c6ca65ff19240f964e9b52f98831f02925cf26e21be"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9c42846597fd9bc15981e9b43a10d6d25f724aedbcc86719c212d1abc51d112"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9c42846597fd9bc15981e9b43a10d6d25f724aedbcc86719c212d1abc51d112"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9c42846597fd9bc15981e9b43a10d6d25f724aedbcc86719c212d1abc51d112"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9c42846597fd9bc15981e9b43a10d6d25f724aedbcc86719c212d1abc51d112"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5d434255a543e2fa236d3efaff094c73331aa8e6ff916394250ca2d9aa85e7c3"
+    sha256 cellar: :any_skip_relocation, ventura:       "5d434255a543e2fa236d3efaff094c73331aa8e6ff916394250ca2d9aa85e7c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea4479c43a619def9abbfc3b1c5940a1ccb7e7631d35ca12b247166f02c84e49"
   end
 
   depends_on "go" => :build

@@ -12,6 +12,7 @@ class VapoursynthSub < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "66be173efb94e72979fb21fd34617d7dbfe31fc1a59a91fd327264303753c0d7"
     sha256 cellar: :any, arm64_sequoia: "4c5a5ece07feae55fe604f485bf45c3005565a2479ce6cb318f0732bddd529ff"
     sha256 cellar: :any, arm64_sonoma:  "73845ff92fa1677f86fbbccf84d5e2cd461078f650fe1372edefa4f9e7538b41"
     sha256 cellar: :any, arm64_ventura: "8d5b3e8589adfc64e774b1b9f717406c56b552aea8f4cdd8ac97750411492e91"

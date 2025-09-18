@@ -9,6 +9,7 @@ class Gibo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0d71ce2fe6af7ea2590c413b263c31d93fa0bc6d4277946a876fe504d6524241"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "96cff6fc7f7729fd6079afe880c13d7be1c66ad72e2c1a6501f91bb599f64e49"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96cff6fc7f7729fd6079afe880c13d7be1c66ad72e2c1a6501f91bb599f64e49"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "96cff6fc7f7729fd6079afe880c13d7be1c66ad72e2c1a6501f91bb599f64e49"

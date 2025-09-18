@@ -8,6 +8,7 @@ class Yetris < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "20e107c4ccac64993e5c8f794bc50299d759df2b0b9badab5d0a5ec2708cfc04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b5358a7a07d701232e1a75a4b28f2e66879d973ef3eb9c848552347505f16ea2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c29c804faf6d9d78ecec1eeccc4ffe85e94550c222bba9e793e307f805c1d97"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bde6f3b8d260bc2b35e850b59223578400c2fda5e97e1ef4b425eb446f9b68b3"
@@ -18,10 +19,6 @@ class Yetris < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "78e274470e8eb080f6d8c7d0051f4e7f0ee7f7969c88c725a114b39b7f926778"
     sha256 cellar: :any_skip_relocation, big_sur:        "d0d9c0ddd6f7f825024cb4e96978ad43919eb77a216e8788943f1c8d7bfa80bb"
     sha256 cellar: :any_skip_relocation, catalina:       "a43b346adc20fc7d4f84ec1300e839bb4e615ab40ccf8e1a591f099092ad6078"
-    sha256 cellar: :any_skip_relocation, mojave:         "ace31e89cefd33d38a65864d7343baad6dbda23aee0ba2a10f6b19480b9708e0"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "21537f5957c5ce90281195e6d962363920bda756a6c965ca107c329ec712f126"
-    sha256 cellar: :any_skip_relocation, sierra:         "cf350d8daaf62f863b7466477aebea02145abf1f14e50ee56ad324c99dcee018"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "fd08bc62fc0c4687ed7e76fe604c345a647fb52a348c55cf446fcbf52c7af8dd"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "2f5e4bda0d6d949df4cb5b4fa0bd5adb552ec9752e34cbf9f7c106342877f108"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0d2652ce4673ff9e663dba05e742ff8d0eff4366216c49a051d94df041498a2"
   end

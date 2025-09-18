@@ -7,6 +7,7 @@ class Tfupdate < Formula
   head "https://github.com/minamijoyo/tfupdate.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f86ec84ac66c0984579ca716c7a7b5b32aa8dfe6afcfa67f3ec24fe733ab938"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "247825cbffb910ffc07e8ec49e72e101acf2f8624d432ccf3869bb98874ed1a5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "247825cbffb910ffc07e8ec49e72e101acf2f8624d432ccf3869bb98874ed1a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "247825cbffb910ffc07e8ec49e72e101acf2f8624d432ccf3869bb98874ed1a5"

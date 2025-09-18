@@ -8,6 +8,7 @@ class Adaptivecpp < Formula
   head "https://github.com/AdaptiveCpp/AdaptiveCpp.git", branch: "develop"
 
   bottle do
+    sha256 arm64_tahoe:   "5093a256125287672ee92a04e04ce4379d85b5ce7d8f708c42470efe2f45bda2"
     sha256 arm64_sequoia: "56365cb55d86a7b454113c72cef0b56f69e98fe74b608dc73487c8c7c038e063"
     sha256 arm64_sonoma:  "29339f025de0d565885c1d0bafc5df2a329e300d605b8e4d129b073308704890"
     sha256 arm64_ventura: "3fceb8a530c8bae51ed5c8d4fd86aa24ed44ced5b5989d8aecc35c15a13fcec6"

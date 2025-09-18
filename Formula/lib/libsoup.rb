@@ -6,6 +6,7 @@ class Libsoup < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "74618fb6f2ecb96b9c7080d4cb270c46ac547196e08982bff59b8f7796b5ab5b"
     sha256 arm64_sequoia: "9347047d84f194d6079f4a42bd07a493182bff757bcd099498d344f608996b68"
     sha256 arm64_sonoma:  "3524cbb252af5c9cc9b39cb0ff9733d2130be70e264339c926189564c121b82d"
     sha256 arm64_ventura: "7af02d6ee61baf7463f21b0261430cccb10bc72102a3bad27be16c5f74173c57"

@@ -11,6 +11,7 @@ class Ncmpc < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "0701c7e13e2814b15fd2334a7d21bd3c00e9cfeaf8349ba7d54b844a5297514e"
     sha256 arm64_sequoia: "3e4c3f1696738bc7953a5e066430fabe411a08ac18637c0055237f7fbec8461b"
     sha256 arm64_sonoma:  "e6c82a7bfc8790701e5ae101608cd015c84f18f0a31e007b80ec5b3078555e62"
     sha256 arm64_ventura: "f7c1bf501994b1028ab1fbd9ac4dd4d83c96bb3ab83b25b4ce8cf8f0e8f692fe"
@@ -35,6 +36,12 @@ class Ncmpc < Formula
   on_macos do
     depends_on "gettext"
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1500
+
+    # Fixes: error: use of undeclared identifier 'strcoll_l'
+    patch do
+      url "https://github.com/MusicPlayerDaemon/ncmpc/commit/af478b5ba2447592c640c5b7f86c47d9a412c639.patch?full_index=1"
+      sha256 "193f6c3192ba39974a2f1ef4935c623d58e0614f9978b2e6545c6231fd5ffdb5"
+    end
   end
 
   fails_with :clang do

@@ -9,6 +9,7 @@ class Dutree < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7142809bdc97574f3eb01d7b910a6cb7ac6d177da3781c91516961ced6ac46f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "793482f753b7365d719641115e8e55714a4fc272385b7e387c4e68c4791991a4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "235807c35ae72d2b7c0ce81eba444d8fa0db6dcc657deb5de876b58037dde646"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9bbb961b815ddd2b4674a485740e9e5f19b7a135ad73e6631f0fcf4ddf78414a"

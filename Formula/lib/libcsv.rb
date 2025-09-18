@@ -9,6 +9,7 @@ class Libcsv < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:    "7e68ec2e60c356c84b0e330ad076afc58f0eb71eecd953ab4075821d835eb84d"
     sha256 cellar: :any,                 arm64_sequoia:  "c515471cacac39d4bdb089b73f0ca8f2405a7c90b7973203fda68ab10c28a630"
     sha256 cellar: :any,                 arm64_sonoma:   "5ffc7fff79c22779c3c5e74f553511a5d160be80d2fa147f675db2631af542fa"
     sha256 cellar: :any,                 arm64_ventura:  "98c6f484207a9291a7d5696a9eff9ecdb6c6579834b86f8df8731ae61d8f3f4e"
@@ -19,10 +20,6 @@ class Libcsv < Formula
     sha256 cellar: :any,                 monterey:       "6c4f06b89f9dea054ca3ee012d70b83268b9df1943b7e002a58b442f55ea126e"
     sha256 cellar: :any,                 big_sur:        "4edab615e912a3a0e931fff1b4f594093cfa1c4bc4869340046300b181f9ebc5"
     sha256 cellar: :any,                 catalina:       "e596efc37a1bf77cdbbab5fdc904e6ffa796f221b3ffa531f3ac24f56237d18a"
-    sha256 cellar: :any,                 mojave:         "ad3c84168c138aef88134f7666f870dcb17f8b779b5e5b54417515f7c9b740af"
-    sha256 cellar: :any,                 high_sierra:    "6946a6ff37a03f75d464cdc1229eb72251ae6b5d2726a658a016e39e862f0e33"
-    sha256 cellar: :any,                 sierra:         "6d89efd634be6551134f099e458225325d76d69f55ba37676a3ccf7bea6c4e59"
-    sha256 cellar: :any,                 el_capitan:     "3f69bb369fafd5c207f1c8ea500dc1e725e8e7dfe005215ff14b61fc25ac28e6"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "a313d8dd11bc697e7f0f45e36572a38c6a86c827b0309a564849c443ea573a78"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a66bd666958e3125f08377688cf86c94cd38e077bedea9a70cb17c721794211f"
   end

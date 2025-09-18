@@ -8,6 +8,7 @@ class Daq < Formula
   head "https://github.com/snort3/libdaq.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "dd1c882f91f69810f19b796c223dade48cef32c16a8384c87e14ba43a94f3457"
     sha256 cellar: :any,                 arm64_sequoia: "a31103738088040c119a6c928d672e9d7850bd559a8d5ec34e021d6ada529b93"
     sha256 cellar: :any,                 arm64_sonoma:  "64b327ce1b26052302ffad7a91262cff734a62e3834197abb846c65ea7b90916"
     sha256 cellar: :any,                 arm64_ventura: "111f99b9a9a16d7fbb4eb1cbd72da7ea8a4ab9bbdec31609cfd81941716e924a"

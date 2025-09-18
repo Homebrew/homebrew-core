@@ -6,6 +6,7 @@ class Saml2aws < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "69e6077ecc29098c8898cb893541b71f13623162e33c8d2f2c8fdcba2b5d67f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a654e7f6931b60cb7a97c06b259a18b85d726500c2628cd032224084f6e4f085"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1891facfc93e5503e4d43f944a8b997fae5a36096c7f3830f7d2d497e0f799d8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "23483664f18cf600ecb5005cf41156f729cbb835303a08bdbb213b2af804cd64"

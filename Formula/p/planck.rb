@@ -19,6 +19,7 @@ class Planck < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7c64aeb509dadf3faeb898be147ed2e9a8ccdc6ae1b675a3fb3a616dbdf71a63"
     sha256 cellar: :any,                 arm64_sequoia: "94dbee8e25f82b3d6af4c0f5aa768b072b5f42c37c17a6ee55820a6c3e9a9210"
     sha256 cellar: :any,                 arm64_sonoma:  "9b48ec0e76cc42f5a7bcee1704e043b6ee37cecbcc65acc9f9926367cb99b54a"
     sha256 cellar: :any,                 arm64_ventura: "698191a3c5a7d477a3d21bd0f7638b67fbc34c8d71b69fa44d5814dcc842ac2b"

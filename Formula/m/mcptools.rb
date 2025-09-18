@@ -7,6 +7,7 @@ class Mcptools < Formula
   head "https://github.com/f/mcptools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9ed8a807126e862356c88f8d07ae06e2b363b7d2dde046c3a956e96844bdf62"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd293a1418a1f5bed9049cbe3a7adfcf0da1b90fa3ec205b1535ded3d134e9d9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd293a1418a1f5bed9049cbe3a7adfcf0da1b90fa3ec205b1535ded3d134e9d9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dd293a1418a1f5bed9049cbe3a7adfcf0da1b90fa3ec205b1535ded3d134e9d9"

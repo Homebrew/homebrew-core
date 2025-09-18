@@ -9,6 +9,7 @@ class Onionprobe < Formula
   head "https://gitlab.torproject.org/tpo/onion-services/onionprobe.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "adb87a0ad58b774185a34ab3650f92006728226bda208440b81d0f5536906c95"
     sha256 cellar: :any,                 arm64_sequoia: "a3b51ab0c45c28282ff0592ff3bd1c9a74ceeda26609cd2f067e9c837e3895f3"
     sha256 cellar: :any,                 arm64_sonoma:  "dbaff55faea244b4f13c96dc1d39f971ba592d9c448a2394e513a988e902742f"
     sha256 cellar: :any,                 arm64_ventura: "fc6f4d6ae60f853bdaed891063d53dd6e1b3ae218498d97a586087fe0712d6ec"

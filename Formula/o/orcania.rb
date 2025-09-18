@@ -8,6 +8,7 @@ class Orcania < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "5fee2615d28af2472b03eb9499ad1eee7e17549a421d7212d973c8cf2a39a430"
     sha256 cellar: :any,                 arm64_sequoia:  "4c6bcdc1d22075f81c8d4660d2e7f26bf495a7d3b71ba07dc73cec9cb60df3ac"
     sha256 cellar: :any,                 arm64_sonoma:   "d40e5c622f0f94b0ace12b30ee6401d198f4a988e8e2874fbc8816529c7c72d0"
     sha256 cellar: :any,                 arm64_ventura:  "8b7f8c6ad6bef28777ffa342338aae906c0c8d62c060fd66b89f7b5219e39a0e"

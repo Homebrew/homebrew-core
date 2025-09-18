@@ -12,6 +12,7 @@ class Libnetworkit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6967c249b9baf0ef738331f4dcde82cce059b76aac0a6afbfbf1a1fe00c76b1d"
     sha256 cellar: :any,                 arm64_sequoia: "5d0045a902e874098c38bf7c3eba789e8d1d36343f1a58b874c5ae002e771216"
     sha256 cellar: :any,                 arm64_sonoma:  "9bc6b2bb82c01385f9270daaf103455cc879931b6565ff813501763885d74e9b"
     sha256 cellar: :any,                 arm64_ventura: "98b8837808c1cc14fd94b86840a9f68ef5ee4859949de8fa4e4b2ce2cb4f5609"

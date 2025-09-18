@@ -8,6 +8,7 @@ class Snowball < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ab44ad284224fc7948a61026b26c2909ca0c95132c0476a82d86b3d7d0a64ab2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "00c79db6c8ba404a5ad086c5e50a7102d0df266ee3fb3b5deafe4ed8e7184c71"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d7f77bad2cee9519cbe39492c5234455b01f1de41381279e8d63d6762f4c2f4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "42cd2f37f93d279ad348fb7933739db82bdbb2602d1f7e1f40b6b0113dd4dc3a"

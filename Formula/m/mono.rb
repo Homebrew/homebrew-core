@@ -14,6 +14,7 @@ class Mono < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "6c0de84fd9b870f03ad8a42adbecbc6857128d52b5235273e4fa8dd419fb42ae"
     sha256 arm64_sequoia: "41128a9161b2880c1ff0da606a970a610255f46426ea970ac505c7f7cc77c817"
     sha256 arm64_sonoma:  "2207ce97c51add48bdb178771a7e6496da62c099a8a740c976772a4f69ff2cd4"
     sha256 arm64_ventura: "a98870bf0b93c31318f1edbf9b441c24ecb805ef32e0c2e92654b457dd27346a"

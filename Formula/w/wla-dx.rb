@@ -14,6 +14,7 @@ class WlaDx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "11d1d2d3fdc767d15e21dd37a176fe35438cf438c8ff05e9344e69da674acac2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f89cc32f88279298a841ee744557214695dffdc76c35f43f28610715c38b35d1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01e0f38cf29c205e76cb0950a41847867d3ee007e877f6607e5e5c352fe222da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d86083d1dd34ccbb5f8309052d57e9b5ee52de04f7382510f41ba82e19d3b1ff"
@@ -26,6 +27,12 @@ class WlaDx < Formula
   end
 
   depends_on "cmake" => :build
+
+  # Backport support for CMake 4
+  patch do
+    url "https://github.com/vhelin/wla-dx/commit/6fa1f673f010e4fa4571c40929019cd7e67d1bbd.patch?full_index=1"
+    sha256 "08ba18fe27c6b0ff0bad4e9ce15a4e76be5626407e03ffdf1c19228902e02493"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

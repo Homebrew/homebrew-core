@@ -8,6 +8,7 @@ class LibxsdFrontend < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d0932306261002d469d9a0a9a5071134841b5820b9e2880883e3f9c06f5b4e82"
     sha256 cellar: :any,                 arm64_sequoia: "3631cb5e92f7b2d727f1fe7039482a1a5cd1d81e317674fa418795e4691d60fe"
     sha256 cellar: :any,                 arm64_sonoma:  "cc7523a561914a469ed374865f6135e9756d7c08b8d3fd16a79d405523c5e338"
     sha256 cellar: :any,                 arm64_ventura: "2c8b2a9f341d970929e266b1c63ec298ec46029c7164ce41d554f24cb9ab84f4"

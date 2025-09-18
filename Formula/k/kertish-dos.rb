@@ -10,6 +10,7 @@ class KertishDos < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bce3b8645b27f84f8c8452740dfd4494c747fbee848d8d667148fd1e0cc19db8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b3abc8c569185063a1ba3d2e6d634c446cad8ee07d4ae36c31221aa875dd6bd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db21c167e067540fd373e1c963f5ab5b55ed94e642541b457a5806ceb7546db5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "66e15349b37cc6586d55d102d5941565aa0db46e4a5c1cbaa87f5c45b946180d"

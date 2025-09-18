@@ -12,6 +12,7 @@ class LlvmAT20 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d740b7603ad51bc7832469bd93b6d557d7dad9fde60ecfc8c1df99000255b7a1"
     sha256 cellar: :any,                 arm64_sequoia: "a8bbf20183038cbf5c5955bcb7ad88f86b9c52b8f4fa2153300726275277769f"
     sha256 cellar: :any,                 arm64_sonoma:  "01f6f4e8c815eaaeee09ac435b15a70cb907d8e7c767489579ec8523ffee2642"
     sha256 cellar: :any,                 arm64_ventura: "720570a2547522ac18f2443993d8aefdb79a7b2bc23e7389608b0ede2c3f3bf2"
@@ -32,7 +33,7 @@ class LlvmAT20 < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -142,10 +143,8 @@ class LlvmAT20 < Formula
 
     if OS.mac?
       macos_sdk = MacOS.sdk_path_if_needed
-      if MacOS.version >= :catalina
-        args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
-        args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
-      end
+      args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
       libcxx_install_libdir = lib/"c++"
       libunwind_install_libdir = lib/"unwind"

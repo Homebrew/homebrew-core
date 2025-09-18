@@ -8,6 +8,7 @@ class SqlLanguageServer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f85dc5288ec7627e0443b97b7a1802c6ca5a639fb6f4cd86738b52488d1bf9f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd5d2aa5e74f6c90fab27c5fb63afb21c59cae849a65ed257848c689bd5f043e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9aa6c820accaa95b19c29fc1512ee089f49c630a0b8a11ca84562870a332d4a2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c0178437b507dcbd66fcee1dcd2d74ee18978674c727dd0b6df3aa20d700fda7"

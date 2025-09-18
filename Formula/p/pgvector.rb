@@ -1,20 +1,19 @@
 class Pgvector < Formula
   desc "Open-source vector similarity search for Postgres"
   homepage "https://github.com/pgvector/pgvector"
-  url "https://github.com/pgvector/pgvector/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "867a2c328d4928a5a9d6f052cd3bc78c7d60228a9b914ad32aa3db88e9de27b0"
+  url "https://github.com/pgvector/pgvector/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "a9094dfb85ccdde3cbb295f1086d4c71a20db1d26bf1d6c39f07a7d164033eb4"
   license "PostgreSQL"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0ea074a0dd35acc1957c1f2f6d90df297a16d7e47f94368b85e3a309e9540fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01a8036c0a03daa290fca07e915e406356fd36cdbd084117e9246d772955b438"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0d0edb94eda91ef957b4497c0173c33579f860843d6c105d5668f1ceb86d11a7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b9e229a72dbc9e7b8e4587389823caa307fc1ee0f2338e45140a49e4ece5c4eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "21e40f77e8afca2fae9303cc45216b53ec79d48ebc3f8d7cd79b2fa8a22aa6ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bd92df44356b7200defec0029fc583550a1121a5ceddc0e8a0fab98a42571e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7765039d7b20e78006e2ff2c3b197185a9c80e8b930a384b8e5feeb88eaf3afa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c264eeffe1086c33dbe07d1c3cbe33ff8ac4f658969d8010213cd05c885d54c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "01dff5d03be54305b71a6aac9eaaf3fd5e4d1f315ed0fa1dd830aebdf5e75746"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7e99e6267e9e0686af80ccab22c764b1010cbaeaf2c026ad591a41c0d7fe870"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ef33203fe058a76976309bac1bbec7ca55e352241eac2f74f71621466533d977"
+    sha256 cellar: :any_skip_relocation, sonoma:        "92462244cffe391b566a0eae47a7cd5c48d43b4d4b2708ae4d54b9e8d2a52b2a"
+    sha256 cellar: :any_skip_relocation, ventura:       "04e8b84a206d48f8622d53ff2021373b81356d6c95104f6d49399656602b4784"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a6fa66bd919c746f9d58432fc43982bee2f4d3eb0cf197715fe997f4293071d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaab7b23e670c2db2ba871a2130001c2ee7448d21e0911b7b28d68fa0ce1c78a"
   end
 
   depends_on "postgresql@14" => [:build, :test]

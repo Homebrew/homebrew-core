@@ -7,6 +7,7 @@ class Sdb < Formula
   head "https://github.com/radareorg/sdb.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0e5ea5126ab9314436e85c93b9280c5498950b499cc18a7c25e509081905988c"
     sha256 cellar: :any,                 arm64_sequoia: "41695d0cc3526175b99ce5850cd4246af15e374e32b30bb20d5fee4a534fe1de"
     sha256 cellar: :any,                 arm64_sonoma:  "6391d94f5571c5c19fd0865bb3bc6793bb9596fc2a49a5af39e1910712899858"
     sha256 cellar: :any,                 arm64_ventura: "63004949cd084e74ced59cb3ce84fe63bc7095da5602f01e58a5d1b0026b2b84"

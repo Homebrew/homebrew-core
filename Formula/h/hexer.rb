@@ -11,6 +11,7 @@ class Hexer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eef99329e5443ebc3f24cfdcd2c8c725ab015a620af9f1a4530f72afa3029e77"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "47f91b873bcf76427fcdd9af9eec5508807e028b0cca27334600132f00e6d994"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15cb867de476b9f6db212b94102d7963375719cd66f121fbf7f0144e8f361aa4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "41fca237e2b190ecf39c96d515ecad79eef914e6947b54a45c656e38f3ffadd9"

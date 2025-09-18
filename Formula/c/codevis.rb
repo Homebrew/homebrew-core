@@ -7,6 +7,7 @@ class Codevis < Formula
   head "https://github.com/sloganking/codevis.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b343098901a405f0c2b847cb154a759404fb0959aad0ce0acae6041394190b79"
     sha256 cellar: :any,                 arm64_sequoia: "809aab83526ed594b872942f4edb8cdae2530d7f9abb37fcf148690bf37adbe0"
     sha256 cellar: :any,                 arm64_sonoma:  "51ea40fc3d8a3ec373285257f809f4b3eb034b1ca70fd8929600c71df31ae06e"
     sha256 cellar: :any,                 arm64_ventura: "ea1a0d87b40ef80b9703fd13aea536c990a22486e29ffd3da58fe69d358d67ff"

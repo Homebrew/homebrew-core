@@ -8,6 +8,7 @@ class Govulncheck < Formula
   head "https://github.com/golang/vuln.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4a863eea82be9c89d65b9daa9af314066d5260b2f25c578d55fbfc6b35c2371"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "30a8808b70ce289bc91e9ac05745cc71d2b24c97bc73a017824c90f90c2a823c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30a8808b70ce289bc91e9ac05745cc71d2b24c97bc73a017824c90f90c2a823c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "30a8808b70ce289bc91e9ac05745cc71d2b24c97bc73a017824c90f90c2a823c"

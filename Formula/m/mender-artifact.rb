@@ -1,8 +1,8 @@
 class MenderArtifact < Formula
   desc "CLI tool for managing Mender artifact files"
   homepage "https://mender.io"
-  url "https://github.com/mendersoftware/mender-artifact/archive/refs/tags/4.1.0.tar.gz"
-  sha256 "d82cd2f802033d53f2e947ed8d9d6cdd7a036fadbd92a2696b72122bd2070039"
+  url "https://github.com/mendersoftware/mender-artifact/archive/refs/tags/4.1.1.tar.gz"
+  sha256 "d0d30f3624caf99d8c6e70e1f3a99cc589e9d8d63ad8b46605d1290457d9ab3d"
   license "Apache-2.0"
 
   # exclude tags like `3.4.0b1` and `internal-v2020.02`
@@ -11,16 +11,12 @@ class MenderArtifact < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "80224c8592a5dc4827fa0a910636f7d34dcfd38bae207b5a4fdb2f948a0037b6"
-    sha256 cellar: :any,                 arm64_sonoma:  "de1ae9470958c874522781e728982d9cb122fb91433137084fa5a8f32f97f853"
-    sha256 cellar: :any,                 arm64_ventura: "36bb71ef0ae85788b6d791a694cc1fa1421998b0fcc6b393385f02b29d57c115"
-    sha256 cellar: :any,                 sonoma:        "99f483948f3b03f67872a6e376565e72847b01bf8c9ef88f5b9be054d8336ed2"
-    sha256 cellar: :any,                 ventura:       "c3a172ee1a0db147f6215f064a1c33cf0bb86d9ff8619236b35f9583574f1e3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07214f6a3d3292b02f755f8189fbb5acc54f57c3dba65ece86d8feb5a3506dd4"
+    sha256 cellar: :any,                 arm64_tahoe:   "7a87818d17f8830d3f842fc6a8aa4638b6788c26c8a942901586119abad0975e"
+    sha256 cellar: :any,                 arm64_sequoia: "847523d847a7ff0c5e8e9f76c7937a21cbf0c1ddf9cf36baaea1cbb5e94aa1c9"
+    sha256 cellar: :any,                 arm64_sonoma:  "f324d58a48858f0e029be484527e0e23ca775b6e71fde18178ece9396e688e5a"
+    sha256 cellar: :any,                 sonoma:        "9cc1775e97b6afca16ab81cf9d045b6c35567450cbfc351de751361f4344ef6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc0467d43529e038c91240526b314f7e6ecede9fac47d3d24cd98e129e0ddb16"
   end
 
   depends_on "go" => :build

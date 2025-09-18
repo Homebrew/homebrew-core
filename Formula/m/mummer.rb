@@ -9,6 +9,7 @@ class Mummer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ea0c12fffc202ecffba587be17af6930099814e91deed4a211e8a61b0bba6813"
     sha256 cellar: :any,                 arm64_sequoia: "4ef96b830de6516a971c825d97a1de9b020f6fd2e6fd8a61fc3ed3529ac03ea9"
     sha256 cellar: :any,                 arm64_sonoma:  "0850acd96974b0be3972f4869f021f275bb13c745febb4c3dca281b4aaf34042"
     sha256 cellar: :any,                 arm64_ventura: "34d55037263abf3c69c4c78620f5e8a43edae45192938be22744bc5b81326b60"

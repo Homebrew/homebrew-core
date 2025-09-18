@@ -8,6 +8,7 @@ class Micro < Formula
   head "https://github.com/zyedidia/micro.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e391c71bd5666b01c1362cf89d9067077c8958ef3bb3fa26ad71c416b739ce9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "73b14a51ea6138cc9dd4892ac69c1f1621824315c7d2e40ee8867b39db8e1bcc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c51f1a11fe4f9fa233ce8459e4fc4b0105c9d24f3f0855e50979d35b2a3de0e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1875a20cb2321214d7cf88b3f98c045d6d1e303b7889544b04a0c7b234217e4d"

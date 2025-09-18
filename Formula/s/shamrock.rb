@@ -10,6 +10,7 @@ class Shamrock < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "aa610358c555b050b5b2f8e63ff9ffa3490f097950e98c0fd2a4fdee6170e5d2"
     sha256 arm64_sequoia: "6687c40ab0b0822a689878016759da749b74b509f6cc87e97bf439f593e9bc21"
     sha256 arm64_sonoma:  "c306d2283e47c569a2e43eda7bada1a251e96e6d11192d4f38f7aed36559d5b5"
     sha256 arm64_ventura: "e27c1fde9845da8763005ce9b3fa6cc579f23ca1c73eaee98abfbe63d1908107"

@@ -11,6 +11,7 @@ class AnsibleCmdb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "40463d38a5ed3e677782290e2c374bfc433ac8e71c7a72fd378e14ac4e226058"
     sha256 cellar: :any,                 arm64_sequoia: "1273a6462f8b5745a2b1c297020a609de08c88703908deea3d3276a9af8e5a51"
     sha256 cellar: :any,                 arm64_sonoma:  "1fe8dcbaadd7a83a63b6d2e9e7c33baf6eebcc7e6653f9a57ba7837759858a0c"
     sha256 cellar: :any,                 arm64_ventura: "6f14fe8987e3919f7352c24eb57c59129a453047c0e759a1e265289c52f74092"

@@ -25,6 +25,7 @@ class Wordplay < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_tahoe:    "52b1abdbfd94ea465505779f4c4b74e5cedc8729f60e2ba8ed5d598082d907d2"
     sha256                               arm64_sequoia:  "7117e25ad1d78a133f0ad6f3e68c7f203cf83387903e27d6346852b97b3c409a"
     sha256                               arm64_sonoma:   "9377c6a3b8e7db879c1cafa0a53eb303fe65e81259c2b99a912c5080fe1834fd"
     sha256                               arm64_ventura:  "e5046dfd7e922872308efed4f745399220ddc5f7f62f4d200748700d136e956a"
@@ -35,9 +36,6 @@ class Wordplay < Formula
     sha256                               monterey:       "f456578ef358b10b91008a83f42e6877a4daa32615588fbb3ac629d9db804c5a"
     sha256                               big_sur:        "086d078ef82bce278ad9bc25d901f1ffd3bd539aef410c7e81466b0616ef2c32"
     sha256                               catalina:       "bf3847365e1920baf313fc0286116de59fee392ccde5182173ed7198b9883626"
-    sha256                               mojave:         "d98d89abff244c21cf2ad4eb651ed39afea5b3146bf0ec3277483b813c4e8d89"
-    sha256                               high_sierra:    "9056fb79657b3be7ba8a97f4a13b1777e72447b717bd9fd1b7830023bda964a6"
-    sha256                               sierra:         "5141a8f5456e5a685b65c5d9f3100029c6f42b3f0c80aa3d6a4736d3028a6a6b"
     sha256                               arm64_linux:    "40b8d661df34ff03a28922e62a862fa037d3b66925cd51528018f7f45de587d1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7e8e9383f4bbbe56afbd9d2c400867ecf0f229a3aa3431c5b809dd95ffd6a30"
   end

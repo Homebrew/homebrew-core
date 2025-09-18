@@ -14,6 +14,7 @@ class Jags < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cac7a756275255627578b03f0e89c7df5955b516b9b57b0475aaaf30ca5fe932"
     sha256 cellar: :any,                 arm64_sequoia: "de0d1c33eb2f62ec580fb8b76727ba538bfe1f01a802240e3a96c6b7e31e1282"
     sha256 cellar: :any,                 arm64_sonoma:  "a175a6e45539cfd77e34b8404ec1f0000bad131c5fd74f1317c80a9bbfd4396b"
     sha256 cellar: :any,                 arm64_ventura: "809d732b7d3e75338f66314de253d729c80b599d720b3a8ed963552378a949f3"

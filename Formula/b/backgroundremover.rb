@@ -9,6 +9,7 @@ class Backgroundremover < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4c52e710e5221267c5e8eaf1a2ceda3372081bf1567c82d0f4721370a4ad4f46"
     sha256 cellar: :any,                 arm64_sequoia: "2037eb61fdb1fca67d697103b58179ecb86e2d7d3f0b84e5fe793e4ca8d9e902"
     sha256 cellar: :any,                 arm64_sonoma:  "c8457687bc5a28a17aaad89fbf474f50948d01de54cdf10f15244d8fcfaf1231"
     sha256 cellar: :any,                 arm64_ventura: "bd162cad39f2910ff9e5c654147f35605c9135b46f7799b1df2f96f265f1bb3e"

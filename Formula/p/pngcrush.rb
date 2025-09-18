@@ -16,6 +16,7 @@ class Pngcrush < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "50d8436ee484470b88c0cdf9a26a3ad4944eeaa2361b367ec4fd8a2672a09dec"
     sha256 cellar: :any,                 arm64_sequoia:  "75989b83be1fbc178d98f4f95701ad605c5374b1f46bde052c9b00da7cd30451"
     sha256 cellar: :any,                 arm64_sonoma:   "dc9ce31ceb46f11395e278373105809e820a7f5c7f5f5ccb5f13ea524d11778a"
     sha256 cellar: :any,                 arm64_ventura:  "dd2cab183f751d9587c1a6d7fbb9413354efbb4c608439969a301cc1d156f7ba"

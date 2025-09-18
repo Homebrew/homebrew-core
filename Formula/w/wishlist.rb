@@ -7,6 +7,7 @@ class Wishlist < Formula
   head "https://github.com/charmbracelet/wishlist.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d701b7e532275ccddcde513950176e79743e50a2e4c602b24848d573418308d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e77986d045c2b98710bb331b52d217aa06b058d71a6708ebdda71032633beff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e77986d045c2b98710bb331b52d217aa06b058d71a6708ebdda71032633beff"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3e77986d045c2b98710bb331b52d217aa06b058d71a6708ebdda71032633beff"

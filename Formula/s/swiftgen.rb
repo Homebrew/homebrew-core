@@ -9,6 +9,7 @@ class Swiftgen < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "001dc72c675528810114e961f7a9d743504ab3fd58c50e5be6363fcb76c91382"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49cf0b56d500cf87acc05ca32f5007b750469c865253bd6b070dffcd309d8065"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc57fa733294a7d4d27714cd3eb954f2f8de1231cc0f991e6c043e2528a25311"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab20119231242e90668b5129c07d7114abaa9e7af647fe3f9fa511999f0b6548"
@@ -21,7 +22,7 @@ class Swiftgen < Formula
   depends_on xcode: ["13.3", :build]
   depends_on :macos
 
-  uses_from_macos "ruby" => :build, since: :high_sierra
+  uses_from_macos "ruby" => :build
 
   def install
     # Install bundler (needed for our rake tasks)

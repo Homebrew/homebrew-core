@@ -9,6 +9,7 @@ class Graphviz2drawio < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "431b0c1ed305ece4025687f980b38b54d3189cbf6e3462c58803187b1f168de6"
     sha256 cellar: :any,                 arm64_sequoia: "50ab994e55b3da1f78154153eda00cbd046e61622a68166d91a749e9a2f14aeb"
     sha256 cellar: :any,                 arm64_sonoma:  "5308392ba34b5394e45cb88673b2ad81174c6a04c59c21a4efa60d79baf26405"
     sha256 cellar: :any,                 arm64_ventura: "682c30229b1763aacbb8c6a242ca5b8ac51911348a311eae43f7195e72f3e74e"

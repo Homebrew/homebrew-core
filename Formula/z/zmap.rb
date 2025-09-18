@@ -12,6 +12,7 @@ class Zmap < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "0f8b31f9fcda17ba66605ca6761f8497ef1217b3ecc8d31d8cdd8af8ce8b7357"
     sha256 arm64_sequoia: "297abfb8c655871cda8e7957710c352f4010c09ec19adb07bea3c4b235fdd957"
     sha256 arm64_sonoma:  "45170d73fe6d3ae15919833d77f9c30ceff889e44dd40bf293f5bd6df4418ab8"
     sha256 arm64_ventura: "c3628c8ae1ae1bb500fe770668a61b4be782a5e659a68c8cf3ec238c4e22f35e"

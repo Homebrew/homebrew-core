@@ -7,6 +7,7 @@ class Gaze < Formula
   head "https://github.com/wtetsu/gaze.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03bc7867f5e987568ac45067ecc0bcac7c53ca56c5cdcea630e5de0c23b8bc14"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "86b270f20437476abf6aa88f367b734e8176376cfd491bdcb83c657388b612e4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86b270f20437476abf6aa88f367b734e8176376cfd491bdcb83c657388b612e4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "86b270f20437476abf6aa88f367b734e8176376cfd491bdcb83c657388b612e4"

@@ -7,6 +7,7 @@ class EnpassCli < Formula
   head "https://github.com/hazcod/enpass-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd37fa833f723fc772f4ead4b62d641c83ffc0bd549fa983420fa934136a6a7d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "42fb434b400316d1b30d8afd177f508b946c37d63bdae47e6723ba1e8a38118e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9386875aaa9f35ff68e804199e01af953513104f6e98a4c10908824fb1f80507"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9825904c9285b2d0632d4abb734383d201a0c6ba8e1fc953d8b69d8685a2dbf2"

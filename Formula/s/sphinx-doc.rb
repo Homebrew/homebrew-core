@@ -9,6 +9,7 @@ class SphinxDoc < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "70dad29a4e53f789982ba376bf98095963fc3a411f3144c7221f329e13a5f3a3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5a23d9ca9320d872ff28ef6641905e310fb553cff81aa333b540244ee5e02525"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dbbe5be730034172890daabc42ce65fe906b315b73575bdc2cf92fd367cf7273"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3cd93e8e752bbca189e1dbb78a930eab36da7fcbdc061eb34bb2a9b9f6ae140e"

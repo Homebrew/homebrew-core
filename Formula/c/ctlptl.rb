@@ -7,6 +7,7 @@ class Ctlptl < Formula
   head "https://github.com/tilt-dev/ctlptl.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "563cd1573b10e263363451ed4eab6b7f73dfc82a8cb6a91081cbdc48caf1ce69"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "84d55c589d2404f0d9bc9ef50aedcdd07e6edbdf0144ea4ec56e22eeacfc7c21"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab6561e0570beca2772f5dbb23289d8f44152314498af4df7c269af9011f52c7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0e645578d47b9624166d3135bea522db384ccaa1d2dc270635e476e30a2b6a9e"

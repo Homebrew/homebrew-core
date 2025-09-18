@@ -12,6 +12,7 @@ class Topgrade < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "795f467b0ecda6abda44ca143c1b77a39e8943f5745c8f2ede0a087bcd9b1ec7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1fc6856309e26cf7fdc1e0174f2a26bccd1b91896ce98c532f516f2dd5b8077a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4f150cc51df93b3a7cf53b33572eae683cb2fef19c2956c0402e4d9d4910424"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7ccab8d3fe475fdbadc7d48b56f50eb9a2d6d5538871d4f1885999c4ee2f8241"

@@ -9,6 +9,7 @@ class Meek < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6d41beffa2dbd3d1b66ba353e51e329fa491d6413dc526c0f9993d41f06adabb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c939314234b6926d31c68588a3b6c6f044daf7012ba72d567166402de563747e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b52834606bed45e6dbc45199d92ae73821cc1b85a1dac4ba03804eb950bdaac0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "adb45229efe44b56e9badf0b4955b76e735c46e2a814afe9601579acfa3f0c44"

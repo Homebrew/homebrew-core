@@ -6,6 +6,7 @@ class Sh4d0wup < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "099af7350fa6b8abe3e0cdede86d930f195e06484082345a511ca64eea219b40"
     sha256 cellar: :any,                 arm64_sequoia: "61e657e991b147d09961e7a31cb8519a0a7d5da5c7549381cc093e6c0f09b865"
     sha256 cellar: :any,                 arm64_sonoma:  "c6a718415c847755a24e462bdbfcbbfbad1c0c4c5d5346917121bb7b2b817192"
     sha256 cellar: :any,                 arm64_ventura: "4ad860189d7456e964cb5bf9ca83d58fa42826749fe687f3b7a188df76a84cec"
@@ -26,10 +27,6 @@ class Sh4d0wup < Formula
   depends_on "zstd"
 
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib if DevelopmentTools.clang_build_version >= 15
-
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"

@@ -9,6 +9,7 @@ class Zork < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "fdce85049ae42b1a9be9102f46045e7940a47b15e9a5994f08b954721f0ac242"
     sha256 arm64_sequoia:  "05e76a8e62d4bb0e55d7aa39d39b01082ac9f6dac9305feaccd466deb3e9b54c"
     sha256 arm64_sonoma:   "2abffab6441cae3c3ca7247d1f0d313571ae873f536fb647b605bec580688d55"
     sha256 arm64_ventura:  "ec4836e8f767968119feea70913b248475a549d10f9dc78f1777b0cffc78dde7"
@@ -19,7 +20,6 @@ class Zork < Formula
     sha256 monterey:       "6693bf5507881124657a5cbeb75fc6df3d2f21aafbecce1967212d631924a5cf"
     sha256 big_sur:        "d8138472c8d3b67db24ce72d03228081118aed98007d5280f6713f556fea337e"
     sha256 catalina:       "694460ddf13fb4e4f05ef49dde4472dcce56dbc7a945c99307d3e34e35301aa2"
-    sha256 mojave:         "2c5a5b9e024a752e705b85c4420baf74aa27c5ed1088afbf043efadc7307aed3"
     sha256 arm64_linux:    "a8c82f78501656b0426865983a27c1c722b5ef39ad4606cd15ee9239a312db82"
     sha256 x86_64_linux:   "b6205ffff9a5874f180fd92c609e23cbf079799d9c43523b9f05befde770f712"
   end

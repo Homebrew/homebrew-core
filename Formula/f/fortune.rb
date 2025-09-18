@@ -15,6 +15,7 @@ class Fortune < Formula
 
   bottle do
     rebuild 4
+    sha256 arm64_tahoe:    "547b04ec0f01dad4bd92dc49811686b2a6ff159d9040ca79a17f0ee1494cb39d"
     sha256 arm64_sequoia:  "cec3df1e416f4c47846f0fd770bb29bce8185f4832bb897d5cb4e5f94fa86c32"
     sha256 arm64_sonoma:   "c41455674cf0ff7332fc390420ce86c9e92a876cecfde07856a254706167b162"
     sha256 arm64_ventura:  "4c2c46f7e506de4349b370e2bdd61fef3ada89564446d0eb23969fa3f5ef369c"
@@ -25,8 +26,6 @@ class Fortune < Formula
     sha256 monterey:       "edf16c29c279acfdbeecb0202f93ef36852f96060fadf7645b94aa19b0cb054d"
     sha256 big_sur:        "de301856c24aee684544214cb83474fe8237104c9cf214df6777267418b17d9f"
     sha256 catalina:       "9d1ed340349cd7995d1308fc09fc69c3520c96b329ab881dc0d96fce914e029c"
-    sha256 mojave:         "9a7a866859df246c3fe9331cb1b131562359690dbc5bfed6ee4e8f5a4585025e"
-    sha256 high_sierra:    "3421fe011b2f27d30ae6e56d880eba8a68cb1249d6c4cd063a04fd61022507be"
     sha256 arm64_linux:    "04f6e8b1d02ae3b6ab10b9b12083c88d44a8c149f46a9b7ecbfd135324014445"
     sha256 x86_64_linux:   "791d7f7963c86af2f2ef311f739f8faddcbd0448feb0b8213d2b3c2263fc317e"
   end

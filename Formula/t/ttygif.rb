@@ -8,6 +8,7 @@ class Ttygif < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d5fce5ba582f5b18009dc239f63010c981ebf1181a5f34072d6550f73f2e8053"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6e237ea0e9b4a23fd56ec73b8946859eebcc2b4fb732c6268a9ce942db6ad8e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "440b8d0af646eb7601a60d54d5af8813aa268593ebc3edd5dd1961f19915aee0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d782d59a6f04174b4d94642784cd3a3d3d3f9005c13f8e22a53d6c0473ebf4e"

@@ -7,6 +7,7 @@ class Xc < Formula
   head "https://github.com/joerdav/xc.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03d65a6b086162b16edbf2c1fdd19712b0d82396c17e6ce51c66f65bbcbad2f1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd1805689cb9420c2b7e6430f9f7365e9b58cf815cacc77f6f651d94aced9789"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd1805689cb9420c2b7e6430f9f7365e9b58cf815cacc77f6f651d94aced9789"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cd1805689cb9420c2b7e6430f9f7365e9b58cf815cacc77f6f651d94aced9789"

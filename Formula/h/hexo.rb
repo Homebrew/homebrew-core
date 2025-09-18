@@ -1,14 +1,13 @@
 class Hexo < Formula
   desc "Fast, simple & powerful blog framework"
   homepage "https://hexo.io/"
-  url "https://registry.npmjs.org/hexo/-/hexo-7.3.0.tgz"
-  sha256 "807b356fef2aa9623788b0e2b997fc6955c4c0a2a70fc1a8776c281194e4277e"
+  url "https://registry.npmjs.org/hexo/-/hexo-8.0.0.tgz"
+  sha256 "7a750d4ff5577e09aa81a8379b2ec86e785eb03772cd98ce499f1b233b6e3190"
   license "MIT"
   head "https://github.com/hexojs/hexo.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "a36d04e340d1ba6b1beebe0b7ab42440c8d74b79bcd9d36f7ed0177436df0462"
+    sha256 cellar: :any_skip_relocation, all: "da8f4c20392f78957f4bdd778c1608669712cd79a7fec6d72e50760b007b83c2"
   end
 
   depends_on "node"

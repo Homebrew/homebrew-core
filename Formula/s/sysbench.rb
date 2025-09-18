@@ -10,6 +10,7 @@ class Sysbench < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "aa75335616225f72f89bf9b8f75175f5eafaa320ec768c1a7fddcb0fc1fd8bff"
     sha256 cellar: :any,                 arm64_sequoia: "58353cd8988e133b4dfa59be80204cf6968ab6a733f9da7b3a53f561b74c4a20"
     sha256 cellar: :any,                 arm64_sonoma:  "88b6daa8909f7deca820c79d70651675e73bab3bf25e431ba72967ae78a932bb"
     sha256 cellar: :any,                 arm64_ventura: "ae000c8446a05ac27b143521afa5c0cb27d6f2fd85985a6b829f2d4c5983c8ef"

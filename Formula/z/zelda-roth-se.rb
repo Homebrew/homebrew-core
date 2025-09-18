@@ -13,6 +13,7 @@ class ZeldaRothSe < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3bf751b6f5b6313d54d4c4356a07dbad2134d30574d18706a761272ad4fef7c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7b160b73bd9daf53b08f48c16e6642a054c2823114f7651d83270ab468694064"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac1a274fde9642cae0d2b67f7d4589a57f91d5229c83293be45f612fc75b2553"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f6f18d2ea37dd7ddd63d5a050a9944e184d0db94f89fe54c6ad376a0464b65b"
@@ -23,8 +24,6 @@ class ZeldaRothSe < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "bd2099609e574fa6b5703c40455f7d7187eda55f938d7418bf4eb2dd68a1dd66"
     sha256 cellar: :any_skip_relocation, big_sur:        "28b1bd5308092389db177a9b277a29f1da892c1a4a71dd9b12e483a045e52808"
     sha256 cellar: :any_skip_relocation, catalina:       "1531cd6fc89cca4cc08287e569cdd8b86e41a52bb8c66fb10f6a74bb5006bc24"
-    sha256 cellar: :any_skip_relocation, mojave:         "b0451d1eb512280f9dcb2c6057188cbe02e9b2c71fbf337ac463a4e284ba1987"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "dcf7800dd6c2e8798abb867733a79acda20e3ce7745b7d489eeac3050a7bf829"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "77a60187f3e237fcdb9b1bfa6346d90cb2db5a4a07a3a74488432c94c84389c6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f752b830f0e4e894b560e50ee2418fb889c938ddcdfc85fe9011a528647173e8"
   end

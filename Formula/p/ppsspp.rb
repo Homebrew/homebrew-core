@@ -18,6 +18,7 @@ class Ppsspp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "a66702cd0e81bd04a626ebc871b728043ea4bda90d198b1212c06c40e14a0a16"
     sha256 cellar: :any, arm64_sequoia: "8f5212b45e4cc85e00696a97c7b2f19faf46eaff672261ffe4a9a1600f88918b"
     sha256 cellar: :any, arm64_sonoma:  "15ea4f6454395652c4bc38f9162265f037c73f6adedc72ee24e1d6d8152da938"
     sha256 cellar: :any, arm64_ventura: "cb233294259787c8052cbb7bf288ae9f96cfb2409349471c62345a77daf05e2b"

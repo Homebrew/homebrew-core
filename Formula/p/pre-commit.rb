@@ -9,6 +9,7 @@ class PreCommit < Formula
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "43edc617080f7dffe1319f7de8dc182e0cfc6719b2b0ce3c4cf94a23f0bcee4c"
     sha256 cellar: :any,                 arm64_sequoia: "5003a9e507228ba2e1cab97878504c7aebee61c9832a9cd30fd21019eca42b9c"
     sha256 cellar: :any,                 arm64_sonoma:  "9cc0ffb7e8e73cdda810e8dc723db227d808907f9919fcab60d627b4b4118d91"
     sha256 cellar: :any,                 arm64_ventura: "2265e0c22132c9e20cb6a0c98d9ee815669fef0a00e4494e952478d5fcdff413"

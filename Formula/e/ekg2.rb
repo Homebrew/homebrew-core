@@ -32,6 +32,7 @@ class Ekg2 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "a7cbb93dd8788ed190854be1563c1643bda0e79d4373f095ef76811c37f1fff7"
     sha256 arm64_sequoia:  "093e0e759abe9e253507d69e7a3008e5384ab7726caed5e008ef668d0a88703e"
     sha256 arm64_sonoma:   "dd46d5621d18a8186375e940e644acba80e3be9b4a94ac5a4d517d3b4f90dd6f"
     sha256 arm64_ventura:  "e11dd5263d14ca6151025f5d9ca8172301df336a1ec3d412617767f0c2ce7a11"
@@ -59,6 +60,11 @@ class Ekg2 < Formula
     end
   end
 
+  # Original source tarball is gone and we use Fedora copy but they already dropped package.
+  # ekg2 was also removed from other major distros like Debian/Ubuntu and Gentoo.
+  # Last release on 2011-03-17 and last commit on 2019-03-15.
+  deprecate! date: "2025-09-13", because: :unmaintained
+
   depends_on "pkgconf" => :build
   depends_on "openssl@3"
   depends_on "readline"
@@ -70,6 +76,9 @@ class Ekg2 < Formula
       ENV.append_to_cflags "-Wno-incompatible-function-pointer-types"
     end
 
+    # Workaround for newer readline
+    ENV.append_to_cflags "-DWANT_OBSOLETE_TYPEDEFS" if build.stable?
+
     args = %W[
       --enable-unicode
       --with-readline=#{Formula["readline"].opt_prefix}
@@ -77,6 +86,7 @@ class Ekg2 < Formula
       --without-libgadu
       --without-perl
       --without-python
+      --without-nls
     ]
     if OS.linux?
       # Newer ncurses has opaque structures so old plugin code no longer works

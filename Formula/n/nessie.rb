@@ -1,18 +1,17 @@
 class Nessie < Formula
   desc "Transactional Catalog for Data Lakes with Git-like semantics"
   homepage "https://projectnessie.org"
-  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.104.10.tar.gz"
-  sha256 "1fa5f7b0f2fccbbbf0776c3f53ef4c5eb0ecc656e204669882aabda6575aa2a7"
+  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.105.1.tar.gz"
+  sha256 "88c6aab3386324e2b3d1dd22af1ee3fadf1079ef3104be9f7fd2a3f647d69a62"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f3b860092825f7ffaaa0d038f79aea3fdfe1752394b3a60fcfa51b69b5aea3b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8db95949a7e8e7d24ad9b76c90817a998f4de41668e989ec0047dc5ad8b4d44"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "12c79c75b0f9afec5bad4558de747163a22909d590b12caf81cf52f00f7bb6c9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0fd2d63404fc29d0715f01cad37856b822e4971731655ca2a245fe93d073baf0"
-    sha256 cellar: :any_skip_relocation, ventura:       "f65b19cbcde827a7dde5941929243dae4ac666d944f20b5513c63952a0b27cbc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3dbcf75d0045ffbbaa92d79441c5dab64a5a6344b8839f22eda62c45d7ede8c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bfbec026201edac9c8b33d89fded939be5e428defcf88d4778a00f708c96df9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a348660bb061fb16c60c4ab2559a46e4989f0b0201adabe4638d772e5533c02"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22e157b847cb9c3527279f05e107bbf3d98ad5a2c1d825f976236f8644a443d2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8034f5570288b73e6dde400f24169f7bc95afbe58b43992acf61144ba6d811d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e2472f0838fb00df185379c12b5c15eeb46122978bcc3acd1e05e7a6481f2ad5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a039d3d2fa5e4d9659956e72c7ce3b1910cf7bb2dc3be44f5db3c1348e5382fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c8e998605d39f5eb588826fbb0ec1052e549ea9effd6bc8a389d8ebb29fafec"
   end
 
   depends_on "gradle@8" => :build

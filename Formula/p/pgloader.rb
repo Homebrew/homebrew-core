@@ -16,6 +16,7 @@ class Pgloader < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "cc07415eedb3e46c7e7826846ed4bc9027e246db81ede0fac1041b0a157dc660"
     sha256 cellar: :any,                 arm64_sequoia:  "cb7f5d7b24d71a33f540c1deac860c14ac23a722ea8d090dcee236d323fb91c7"
     sha256 cellar: :any,                 arm64_sonoma:   "e9e988b590421ba3ebbf60331db3cb54d713d3629e53905218cdfe677d83190b"
     sha256 cellar: :any,                 arm64_ventura:  "66c38d5680137c97900e8bc0345212df6ef9c246688263d27a1612f0c68362a3"

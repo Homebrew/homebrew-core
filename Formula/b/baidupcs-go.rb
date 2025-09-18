@@ -12,6 +12,7 @@ class BaidupcsGo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e174a2462e873b49dfc9b3bbace1155c86d77c0583298c89d9bf5a165badf452"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b77e253a7b66b408d3396cc5d26ed330454fd9c268e1d2b6ec5968591b783b8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b77e253a7b66b408d3396cc5d26ed330454fd9c268e1d2b6ec5968591b783b8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1b77e253a7b66b408d3396cc5d26ed330454fd9c268e1d2b6ec5968591b783b8"

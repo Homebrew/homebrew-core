@@ -9,6 +9,7 @@ class Dnsviz < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "14da01c16d166d536db87b171e93014fdd874defa273641595d2266c98eaaa92"
     sha256 cellar: :any,                 arm64_sequoia: "caed4a974f2a1111d2a16262e543e453902627186de111aaa61ddb8032dd35a1"
     sha256 cellar: :any,                 arm64_sonoma:  "1581924ecb9d02d792a419193ac546d9bd23cf9eebb6c24036057215bb426155"
     sha256 cellar: :any,                 arm64_ventura: "5298cc8506b62c7a0ab4d777bac991fb323e4fb7aeb3df58c9cdbe30a5705758"

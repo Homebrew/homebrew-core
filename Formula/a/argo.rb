@@ -2,18 +2,19 @@ class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-workflows.git",
-      tag:      "v3.7.1",
-      revision: "a7cd8a49bf184ad864275acc1bf3189ebefa118c"
+      tag:      "v3.7.2",
+      revision: "cf605b548f1b0137836dde2032517707ba87c6ae"
   license "Apache-2.0"
   head "https://github.com/argoproj/argo-workflows.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1074f355eba07723dc33051ae039989fc132e07ec24e804a5771ca9e9f6531a3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c5af720bc9768623346e455815e99244137ce64c4d3a7eda9d3d181a5849551"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "54d3817609142795c2383a8fedf70c1bba3f39c97bc4469fac6f3e955e29eb6c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "00ff7de1d93a8198ba9b26582c26b30e7f2b1eaa4b08c7f3359e8d67f23de5ac"
-    sha256 cellar: :any_skip_relocation, ventura:       "d78963f30de4712f99caadba2cd884e758dd18bc42da551028053b4596a1b639"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cb8e7f9539004d1f1b1f378fdab6a29e20059cebb88ffb9f2ae5faa5b671b11"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "762cc5d87e5d67c1107e0a3c9852f48d2a2c8157ca03c9dbac65404705fc934f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd5c4f03ed75f6fc060f4529ecfa5e4faaa6d6f4749c3bafc9c578d014762c15"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57bf3fe79025e9cc73ebc04941e700f52f84ee44a11e59661c98a467c120eb89"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d474e6b8c21447cfc0f2893a4fa74673d9c861fe5da7b533bc2fadf8140ac1db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "84a4bd2de0872f8abad4c2f6c86a1df04cc4815068bb7e316c0e1d3f331d32e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "918071d75fa1726db865aa221bf52e8c187644cd4e5a33c5ca76f728ecbf9bde"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "416321063386a9f0a7204e2605f76ad6cf2b76a05f672e90941513d99765b2a3"
   end
 
   depends_on "go" => :build

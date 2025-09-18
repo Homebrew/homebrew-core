@@ -9,6 +9,7 @@ class Jinja2Cli < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "debb7f9c49fe654cddbddd4dfe0d59ee488fac4c11e15c4ee300cfb343dc4a65"
     sha256 cellar: :any,                 arm64_sequoia: "69847d8dd63445895938e9a787d879a81c933764fea8b3df683ae18a3c0465e9"
     sha256 cellar: :any,                 arm64_sonoma:  "883bb7f1ecae9adf6e224cec532dac1738f95c82e3a414d2d29be0d6555eed31"
     sha256 cellar: :any,                 arm64_ventura: "81a8d22c74237ad6b2117cd41b7d21ee621d6c6cfad796408300b09c298f6e0f"

@@ -7,6 +7,7 @@ class Ocicl < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b68642b17bd01852ad57f92a8b550d9d7f2e0d3ae24f6068bbe65c5c80ccefc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "298c0f2eafc32c6c4decac4cf8bc97bb2cd3b371995a883f842ab664eda7ed40"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c41df210c1fed81aee61fad7661278e7137f7ab4bc36aca50af28403741df228"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d05d39063018f6448b737f1ce01c274f871ecc0162fc265746c10a479facac18"

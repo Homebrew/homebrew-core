@@ -6,6 +6,7 @@ class Igraph < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "597a0a37352d08c7d54091300ea231ffb08bdf4e04c454ca6f6b156111a1b426"
     sha256 cellar: :any,                 arm64_sequoia: "ab9d25f69f94b16f9283e076f20a36b370668120a7b57e6ea53b5f26541cb8dd"
     sha256 cellar: :any,                 arm64_sonoma:  "109a713e6f1d4176e826b15f5a651bc919f1c2bae67198d7cea641da7f327cfc"
     sha256 cellar: :any,                 arm64_ventura: "357ba0bc0f907994dec39505c8fbba6882b9f8dbaaefa5f4efcb8a722ff956c3"

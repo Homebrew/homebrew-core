@@ -1,19 +1,18 @@
 class Zizmor < Formula
   desc "Find security issues in GitHub Actions setups"
   homepage "https://docs.zizmor.sh/"
-  url "https://github.com/zizmorcore/zizmor/archive/refs/tags/v1.12.1.tar.gz"
-  sha256 "1caa4b9884d7755cd5679f629ecbfe7d028cbb508fae9ed423129b48f7f3dbaf"
+  url "https://github.com/zizmorcore/zizmor/archive/refs/tags/v1.13.0.tar.gz"
+  sha256 "1a59d2678ab901173de42bead03bfcadd22ec3b0c9208ebaffc89ec63d088434"
   license "MIT"
   head "https://github.com/zizmorcore/zizmor.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b165ab9a0632a384b65d116c300f345ec0adde8aafbaa11153cfd53f998bbbf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19f6ffb0cb2684987c0adfb39d3526094b69352d2e506b907c9cb087f345d83e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ddb50e002a7427a535dedbb43e993b7e5d6f4ce5f149d97266a7721440ad3f58"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8f252094098ce2aa1ad2aeeec7a829f07e553bc925ce3f02df2189244151a249"
-    sha256 cellar: :any_skip_relocation, ventura:       "1247d3e6f79e5418fe47eb6a6504b40b57efc1e1d726e9609d90d22cfa395d87"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "999c21c0136e75d0252f76cd5eea3854f42f2c58b8e6ea33f489a6a1e2541efc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b74e3f90aebd8a41e0b958010af622566c9bc66c33bac8aa4a0d00715e41d971"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "881cbf089db8bf0077b576b4db29ca156e93b394d4d274f29df88c880413daf9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69fd1a3743413769743fc9827e98432b2092f47e0e70b7ba59f81dd4ad47b417"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc59a27d268a633cf6f2d312190512bc27f360e4b7874184ee0f913e1a52947a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0653e8c013f8e8e1c77f1823efa0886997d6fb4852fab9d211acbf45acbd094c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3896e2edafb5fb4bee9c862df92f218b5c907ca0dfcd6ce5824039d8083216f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eef7bf7274585bcb7bb6ddb75f2ca24800676e3c8c676760b48acb913c016806"
   end
 
   depends_on "pkgconf" => :build

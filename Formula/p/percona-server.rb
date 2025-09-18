@@ -23,6 +23,7 @@ class PerconaServer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "582d071a36ce9c1714fe86424e15f3327e303631973328b5de928f435c29429c"
     sha256 arm64_sequoia: "f6ed1470764a5f4c2c35c75645e5973a70fb635869d4f6a5e37bbb5d1462189e"
     sha256 arm64_sonoma:  "3d4e18727d53f9877a0662a85333c6dd500c770d1b42760c234e0bac1f18d341"
     sha256 arm64_ventura: "d112772509e37b51d03ba890899640de02902a90ff014ccd02467652bf468a54"
@@ -56,12 +57,6 @@ class PerconaServer < Formula
   end
 
   conflicts_with "mariadb", "mysql", because: "percona, mariadb, and mysql install the same binaries"
-
-  # https://github.com/percona/percona-server/blob/8.4/cmake/os/Darwin.cmake
-  fails_with :clang do
-    build 999
-    cause "Requires Apple Clang 10.0 or newer"
-  end
 
   # https://github.com/percona/percona-server/blob/8.4/cmake/os/Linux.cmake
   fails_with :gcc do

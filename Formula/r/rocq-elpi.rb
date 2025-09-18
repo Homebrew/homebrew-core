@@ -2,8 +2,8 @@ class RocqElpi < Formula
   desc "Elpi extension language for Rocq"
   homepage "https://github.com/LPCIC/coq-elpi"
   # Update resources based on https://github.com/LPCIC/coq-elpi/blob/v#{version}/rocq-elpi.opam#L18-L26
-  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.0.0/rocq-elpi-3.0.0.tar.gz"
-  sha256 "e32f274d14f26e139fa05af5e3dfd7e34f14ddaf6b4facc91727247a4ff22038"
+  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.1.0/rocq-elpi-3.1.0.tar.gz"
+  sha256 "428958cf39fdf7dedb93905e26c2bbbf4c2fe95bfecfefe648790c712555ec65"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -12,13 +12,14 @@ class RocqElpi < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0ffd104cb899027d7e0cfdb1aa4818ce7317f1d78ee72a8e29fe9810e03eb02d"
-    sha256 arm64_sonoma:  "35c834dffaa5c2b63470bb25eecf9de98e006c3ec8443e16f4a4a1e1dd4dd3fd"
-    sha256 arm64_ventura: "875f9968fb393289c1198725d89c48d9bf8dc1a249b86cfeb9f9d77b962e97e6"
-    sha256 sonoma:        "8e1b68853b56aca24283becc4cc3259386b19d692a3613a87a7a2ad716d0a238"
-    sha256 ventura:       "964bd5a86c309e58e5fa860490205f7412a16a6416ad82ea3b4200d347b15ace"
-    sha256 arm64_linux:   "dcc4426792ccd5876304c465033bb16b7e6e76460818df5eaed1ab90894b5661"
-    sha256 x86_64_linux:  "944ab0f2ec8bb4680d028dd195f02fe3c3812731f5a4e43a8d8f6b71a71e17e0"
+    sha256 arm64_tahoe:   "1fdc41c2f172a9d1579558cf44e2e6b62327f2766d72e84c799becfc08bd24cf"
+    sha256 arm64_sequoia: "474578df64f8248241bbd00c6710b6f3fc55dd465679e947c436e25346199602"
+    sha256 arm64_sonoma:  "54305efe3f9da547c091ce02a19e1c78ce04787793d0f5a8b8fb73b5552372f8"
+    sha256 arm64_ventura: "61c933bdd549206d0663a8021874927399492c6dda3023788e76caee87c48d81"
+    sha256 sonoma:        "ebf8d0c6d6e4bc422f7b22b5786acea50eeba5a4333250e7edf0b4d5ffd9b293"
+    sha256 ventura:       "df0343717792e3f09bca28954e423882e91d527e2027253114099fe2fef99160"
+    sha256 arm64_linux:   "64f45a91e1770ee749c8ea50356e83cf8a72024d36abd275555a70cd132406a6"
+    sha256 x86_64_linux:  "33d6a84427c50dbe2eb041859faca647ea6371d3bf1e6f65cb74c45dc6a8eaba"
   end
 
   depends_on "dune" => :build
@@ -31,9 +32,8 @@ class RocqElpi < Formula
   # since we hit a build error when trying to install from tarball directly.
   # The result is similar to using `--deps-only` in other formulae. We can't
   # run that here as it installs a duplicate copy of `rocq`.
-
   resource "elpi" do
-    url "https://raw.githubusercontent.com/LPCIC/elpi/refs/tags/v3.0.1/elpi.opam"
+    url "https://raw.githubusercontent.com/LPCIC/elpi/refs/tags/v3.1.0/elpi.opam"
     sha256 "7b05c5835618d5f07f32ad9a7cde2fd19f4849aca9a1d8411a4ac9d15e3b21a4"
   end
 

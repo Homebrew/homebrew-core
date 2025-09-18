@@ -16,6 +16,7 @@ class Gedit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "0323b81935c3fc2d9872740e65cc9fd088430a153664a784b78713f06e3fc532"
     sha256 arm64_sequoia: "ec5719d26fed80776a4fb1777662122d2e7b434d1492fada3a8cdaacf748e6ef"
     sha256 arm64_sonoma:  "dd25c3dad8b9a1fe25f124f51124753017104adadc18f149ea773c7ba6133eb2"
     sha256 arm64_ventura: "ea63034c7a611a56e45bbc86465ac8c32eced7f5373999b6a83c7c34b960771f"

@@ -1,19 +1,20 @@
 class Tinysearch < Formula
   desc "Tiny, full-text search engine for static websites built with Rust and Wasm"
   homepage "https://github.com/tinysearch/tinysearch"
-  url "https://github.com/tinysearch/tinysearch/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "90b035d0d41fe166e5a5ce18668d1c3098a7e64c17fcb8bfc7a3ba11c24019a4"
+  url "https://github.com/tinysearch/tinysearch/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "6262df7566e9bd5557f60a9217258cbd73bc62061c74fb372e07cf4188775ccb"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/tinysearch/tinysearch.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "72284640a7b7d46057e20a316dc5a443e8b9aa1c8a4bcb3ecb769b4bd826dd33"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c07fe020900cdd4873f466b5bd266647d5995fd4f3e97a4613bada184b5a053c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1cf4d0ef6810420b5dff9e7cb17d2527157bce268352a8912ec21f987fa4d4ee"
-    sha256 cellar: :any_skip_relocation, sonoma:        "631d5a84525d68b93da843f511b1747960f3e165afd13bfbf3a201bac07bf880"
-    sha256 cellar: :any_skip_relocation, ventura:       "ba42e3aaa2d14dbd07e47156d5453e67164dd05c92032fde2077fe3368ec46a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7003b0b7c5f9e72a6ca6b6c3f52efd569aeefa3f31c14278c762895190dc4ac4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed0c139aaab9231c38cad560da0f9a7c44b4a148b440660655607a06d379996b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3c9705d7d8912da7e4a11f967b57b026a974a3232a998e3cf555c154f668f0ad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "139c066dad7c16d8da58919d2d48f7aaadc41237f300c3632a88e5060d41f282"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "252f534d5748d9f8d9845c878eae6e2f39664ff2ee0f0fcb25c9a74ec9eb8418"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "60b2fd76408155e7dc31bde94dc8253cb59cf8b7ded087be2cc794d451e76b45"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14490663c0beb01f76937ff1023980806e75d51bb97912f00f2490f7a485bc09"
+    sha256 cellar: :any_skip_relocation, ventura:       "c05ac327ccaba7f59ce94631ba82d4083ccc442de3232f3513292c6f759d66e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2372210d0075d8b401f1b5de4a06359432aa6489cf6e3fadab578cacc67e4329"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7746d68cca7ebd9ad68eb6e0ead34dfed4741b924b561abaaf5c16ae4507c9ab"
   end
 
   depends_on "rust" => :build

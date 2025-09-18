@@ -7,6 +7,7 @@ class Tfsort < Formula
   head "https://github.com/AlexNabokikh/tfsort.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a909ead38b4e912cdb01422b2de69df0c1e4ec6dca044df587e54ecda98bdfe4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fb6cc984f31e20e1d481f5170ba5d0afa80a5eb42c070e3e1e58a0b3c427726"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fb6cc984f31e20e1d481f5170ba5d0afa80a5eb42c070e3e1e58a0b3c427726"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3fb6cc984f31e20e1d481f5170ba5d0afa80a5eb42c070e3e1e58a0b3c427726"

@@ -1,19 +1,20 @@
 class Secretspec < Formula
   desc "Declarative secrets management tool"
   homepage "https://secretspec.dev"
-  url "https://github.com/cachix/secretspec/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "20190d9db8bb9ad088bd62466760cdc3dfa8e9a07f799c1d3566520829a19262"
+  url "https://github.com/cachix/secretspec/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "03b61a39b834a459e97540bbf935a57af31fe9d8024b40ad135823fbded61c5d"
   license "Apache-2.0"
   head "https://github.com/cachix/secretspec.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2939f79488d40ddfd84518adb41bf4103d414153f219a53c73afee11a6e09794"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c47cc928ac701c6813d3cdbe7e455671ee2ccfc4e082877fb8ed45d4ded4f839"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4f7dca7588a43310516779ead0c5c0792052de97da68e520bfe8c4bf0140b496"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9a870f8d7bebaa3cf33bbb135db0c85957b1fe0330f78e02889c580c22033395"
-    sha256 cellar: :any_skip_relocation, ventura:       "8acb1b258e95b8f2ec8460b750f051435c09f69b18d369b53701511fb3e9b0c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72df3eb7022807b2225adc3462c69be074f4b00d101490b704ec9d58e2ceb845"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4197c6fed67652ae7c269f53de20dc730787b48514ef7d24de82a97c717ab85a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "308b775c028405ece38ad1b91591ae6517d77b0f2ddb6f3bceafbb3941472d1a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d7d9ea7fc927d112fa79296ca97cfab7e6b21abb2efb3686723f180de492e4a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24dc84cb790765cbef406f35995ed5c180627ef52bce1c55a14927fdd04d2f2a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f426d5af0e170d890c12dec15c98e0e2840639df0a9ea7f58fc19da933a5d81b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d972936414ffa1269c4570fa25cef3cd22f0a6b0aa5a4a8e2ff8858ba75276c9"
+    sha256 cellar: :any_skip_relocation, ventura:       "049391fb7eaa008ccfa4ca68c6f026347ef2499694609b796a0e230134ab9449"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "715e84f13e1dd31a3f44cd4e2c6f3defbf0a263134c2e9a0e65a8b9eda80a534"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d30247a95b61fc15f93106e3afca1e71db1c31542d088ecaab579cd1bf7c6d1c"
   end
 
   depends_on "pkgconf" => :build

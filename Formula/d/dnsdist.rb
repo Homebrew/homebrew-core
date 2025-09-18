@@ -14,6 +14,7 @@ class Dnsdist < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "cf4c5a925198b17d8e05253102dc9a9d2bd4bfeed81c097e0bb9d8c030165908"
     sha256 arm64_sequoia: "48fc229b93784bbbca86594932782b68c2d39a372c81852554566759c9e4fec4"
     sha256 arm64_sonoma:  "61ee746d8aa46239aecfd25d29178703a0b3ee0034d1883539b633658f3484ac"
     sha256 arm64_ventura: "defa6e917b47a72fb8fa70dbb4f0d606d03fe9f6c62c162dcd0d1cc956c653ae"

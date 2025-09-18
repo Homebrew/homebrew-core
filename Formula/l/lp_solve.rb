@@ -8,6 +8,7 @@ class LpSolve < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9b381a714eaa25ce7d9a31b7150e6198580f8dec50e2959447303ba44513f86d"
     sha256 cellar: :any,                 arm64_sequoia: "c691e3169ffcf1b21b222b4b753515d0b9f6db5b52fee6be1e33c9f503cc8a7e"
     sha256 cellar: :any,                 arm64_sonoma:  "db3b377573fdbe36eb96425b13543af4a78680e4f5c78458248a7c30267d67a9"
     sha256 cellar: :any,                 arm64_ventura: "29a989c9e582ee823f481626da3c6034292747c4460305bf6f652a7c83c53001"

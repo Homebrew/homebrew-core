@@ -8,6 +8,7 @@ class Asak < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0eacdb4a479c653f777726c669eec0fc89c2a922c13b15bbfd8370c3b24417fc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc34ad17c5c94e3a205d72d5cd89d632e9e77478b863c704711d57813174458c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22662e9e6284f51656b1e9b2ff845d1020891ad01f8ff39085f23f2b94063710"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0ecbcbea3ea060f02617de9c3d5a80477e014b2b789c7330bf95e31ce70d5365"

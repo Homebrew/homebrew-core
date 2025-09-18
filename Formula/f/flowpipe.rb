@@ -15,6 +15,7 @@ class Flowpipe < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7604b029f8a4a0ea48f26274cfbc550d258fcd446e2bfc6288f86716132ac550"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a7e66c5eea1ec50206654c7267d750139ebdf99614e9afedc76164f2f208699"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb9fcddc36e7294e7f84333f3c4b4e1b00626eb6ab33362c2311f6ed0d0a9259"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "de5f50ff8048be290b36092fcd890b85b672a4286183a2a1cb0771cf60c0412d"

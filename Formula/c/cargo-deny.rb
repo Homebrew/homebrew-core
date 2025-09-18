@@ -7,6 +7,7 @@ class CargoDeny < Formula
   head "https://github.com/EmbarkStudios/cargo-deny.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c1b06403a2b9c1e6007e5f89f4be5156f5742da775a1c2cf7b3a57806041d97"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e0eb8a678a77bd52d19aedd2380d9bc67dc6e74f05a051dc1411bddb07d08a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd56950cb034d5262a33f91e90930401f76ac520fd26923283b21cb71ea9fe5e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "531a170befab28df09df5a9bbba4a049209a7985bbf0ab549fc39a05622a0d8c"

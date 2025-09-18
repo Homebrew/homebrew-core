@@ -7,6 +7,7 @@ class Aliae < Formula
   head "https://github.com/jandedobbeleer/aliae.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "23027e091dc14b23943ce0c49bbdd033aa88b284c31873db383174af492b1f0a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b92e61c0150e736a343ea89b719b2daa761b380e283a07ed186800c96566243"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67767bffeda6f91745690be6ad4f36de9095ed20338e4fd51f07b13c1380b053"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5c2e3fbd5cbacc683410564241b3af976f0dd7cce4927a01c44bae2617a5085a"

@@ -12,6 +12,7 @@ class Tcpdump < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "bdf16573a1d3b7b374650072536dbf02491b83a60b606f34e023af5bb3551efc"
     sha256 cellar: :any,                 arm64_sequoia:  "1148ef2fa8284dd4f3501fbb831e355d1802ff312588e964000e8bf6119d5f1a"
     sha256 cellar: :any,                 arm64_sonoma:   "3f5043c5db6891bd831a8c669d502d7b648e94c5d7879bfc50bbd19c3206d966"
     sha256 cellar: :any,                 arm64_ventura:  "fe74349a8c4053d8174b151fa0a5f08ad21bde866b32c98d17352cdaf2979407"

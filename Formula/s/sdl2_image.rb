@@ -12,6 +12,7 @@ class Sdl2Image < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "24eb58621bff82467e5bc9331d8eb6d31fff6765612aea5c143861f5e3e472ba"
     sha256 cellar: :any,                 arm64_sequoia: "ce895628c0e84843740799c0001d8097cc5bb424edb45f150ee10d33d9031288"
     sha256 cellar: :any,                 arm64_sonoma:  "1655c170513f87b2bddc7cf740ff876d8dce6db804ca961ea94a5805aee6b495"
     sha256 cellar: :any,                 arm64_ventura: "57d15c79fb8f64048038e6dfc079805751275bdfc83baa9d14cedd10ea9034b5"

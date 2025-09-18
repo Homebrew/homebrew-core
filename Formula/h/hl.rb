@@ -1,19 +1,18 @@
 class Hl < Formula
   desc "Fast and powerful log viewer and processor"
   homepage "https://github.com/pamburus/hl"
-  url "https://github.com/pamburus/hl/archive/refs/tags/v0.31.2.tar.gz"
-  sha256 "a154627dde61531c0eb76cc427e253ed6da7cc3410ed4863c6413160e545b45b"
+  url "https://github.com/pamburus/hl/archive/refs/tags/v0.32.0.tar.gz"
+  sha256 "1e00a7e1e393c3362d7a3b7c22481cb93378d1c93ff00f79afb618b203e817ab"
   license "MIT"
   head "https://github.com/pamburus/hl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c96e94dcb0827dc670d37e453d6647a6675c988a651b7be268bb80a631d1637"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17e560cbc74b1ca1f546468c77c0b984259e0a9c96c0a90ea2b2089c713aba2b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ae6342232169888b1878fa9e28b8b905e8ca5897149e4d400ceedee963a2a5ad"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a5a05db8634de57035484ed78159634e2bbd2af8493527d375dcfc3d88c30e97"
-    sha256 cellar: :any_skip_relocation, ventura:       "85c6df4b6184f9a398b178970b5480b5a0b9fc42490fb4f0faa0714695eac15e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d63e7ed8ad71325f5e2834f6118861df495aa57bcf5fcc21530d5806e4194568"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd394b957774173dc6746f30aec2783d69428b3f3adb073044b7bf2ffa162fa1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b0fc5376f9f5be393106aca72d29e59ee67637e2a3f7e81a6a6f920f0eedd67"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4d4f927601691540ddda15e7d14a0aa2bef3801a7d8fda91675902b3cf9bed8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdb4c07cb6f06387135263b2b9c8436b6bc22583b8c16fbd1fdcde2ad1dcc320"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3389b9d4eb6e66d32c6187f7dfe807dce740f0a9d0ce0408e4c9e6ce0c0a31b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f2d9ed3c29ca35f608a51015d8707ec811e04d0ee26dcd4832f48622f6e3e91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c81b1bc7eadf5f16b814adcdc4fba488dd8c79693dcebff59b4d8b449f519cf0"
   end
 
   depends_on "rust" => :build

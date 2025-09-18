@@ -3,19 +3,20 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/ee/c0/fe5ba5555f2891bcb0b3e7dc1c57fcfd206ab7133a3094d70b81fd5a4a10/commitizen-4.8.3.tar.gz"
-  sha256 "303ebdc271217aadbb6a73a015612121291d180c8cdd05b5251c7923d4a14195"
+  url "https://files.pythonhosted.org/packages/77/19/927ac5b0eabb9451e2d5bb45b30813915c9a1260713b5b68eeb31358ea23/commitizen-4.9.1.tar.gz"
+  sha256 "b076b24657718f7a35b1068f2083bd39b4065d250164a1398d1dac235c51753b"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e449787045d47be22600b02a055f24b7f49629d22727f916cc2c749323929b1d"
-    sha256 cellar: :any,                 arm64_sonoma:  "0681bfe68527065e241170669027b9c3b23540a8ebb19f0a49c6b9629d4ff12b"
-    sha256 cellar: :any,                 arm64_ventura: "6401a18be053a04216c9d53202604faa39b4179e249a25ceb06311ba696e69e0"
-    sha256 cellar: :any,                 sonoma:        "b0bcdc0edd47ebc73a5552f3a64b183b7a775aba4970ce68ff10747725b5db98"
-    sha256 cellar: :any,                 ventura:       "774eb98f84cf9967538d42c09e2dd08a80da06a2b72b4c68639cfae34046b32c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "306d82e4bfab03a8c3253e3f2c548af6a8fc52d5a416d1bcd4301193b7e04461"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edb34b7c88944da318be30db83618e059a69e785ceef9fc74bae29f922adc87c"
+    sha256 cellar: :any,                 arm64_tahoe:   "5ba5bb428d3a95c1e52b988425efb54e50d70f1342e995c8bf3f22522341d52f"
+    sha256 cellar: :any,                 arm64_sequoia: "4503c3fb552f9b261c16d4b391456e9412b6f370153065971482b8d2d9701db2"
+    sha256 cellar: :any,                 arm64_sonoma:  "3623c09195badcb65be6d8d8623b73f75a1eac7de7dd1b4737b67eac4b11339a"
+    sha256 cellar: :any,                 arm64_ventura: "e9ece7a6db70ef1e33b0341de2411bf258dcd5337b4f967ca5866ec33d38866b"
+    sha256 cellar: :any,                 sonoma:        "b4543b745715b8d5126062fad7dab7f340f9368f0b8188e07f7c35be7fbd9dc5"
+    sha256 cellar: :any,                 ventura:       "3170e751ed39ed96bd2e99f749f1099c618164fd0e893c5b16c60e007a474099"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "23eb45c33b7031b1d1cba5a435886f2cba1a546e9e53bd87a5b73c803340ff45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e09ff3e24290230b3b59562004b9bbdd751179ed83dad64ab4f5430b09e4169"
   end
 
   depends_on "libyaml"
@@ -27,8 +28,8 @@ class Commitizen < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "colorama" do
@@ -41,9 +42,9 @@ class Commitizen < Formula
     sha256 "87f9d39361adf7f16b9ca6e3b614badf7519da13092f2db3c80ca223c53c7656"
   end
 
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/76/66/650a33bd90f786193e4de4b3ad86ea60b53c89b669a5c7be931fac31cdb0/importlib_metadata-8.7.0.tar.gz"
-    sha256 "d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000"
+  resource "deprecated" do
+    url "https://files.pythonhosted.org/packages/98/97/06afe62762c9a8a86af0cfb7bfdab22a43ad17138b07af5b1a58442690a2/deprecated-1.2.18.tar.gz"
+    sha256 "422b6f6d859da6f2ef57857761bfb392480502a64c3028ca9bbe86085d72115d"
   end
 
   resource "jinja2" do
@@ -72,8 +73,8 @@ class Commitizen < Formula
   end
 
   resource "questionary" do
-    url "https://files.pythonhosted.org/packages/a8/b8/d16eb579277f3de9e56e5ad25280fab52fc5774117fb70362e8c2e016559/questionary-2.1.0.tar.gz"
-    sha256 "6302cdd645b19667d8f6e6634774e9538bfcd1aad9be287e743d96cacaf95587"
+    url "https://files.pythonhosted.org/packages/f6/45/eafb0bba0f9988f6a2520f9ca2df2c82ddfa8d67c95d6625452e97b204a5/questionary-2.1.1.tar.gz"
+    sha256 "3d7e980292bb0107abaa79c68dd3eee3c561b83a0f89ae482860b181c8bd412d"
   end
 
   resource "termcolor" do
@@ -91,9 +92,9 @@ class Commitizen < Formula
     sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/e3/02/0f2892c661036d50ede074e376733dca2ae7c6eb617489437771209d4180/zipp-3.23.0.tar.gz"
-    sha256 "a07157588a12518c9d4034df3fbbee09c814741a33ff63c05fa29d26a2404166"
+  resource "wrapt" do
+    url "https://files.pythonhosted.org/packages/95/8f/aeb76c5b46e273670962298c23e7ddde79916cb74db802131d49a85e4b7d/wrapt-1.17.3.tar.gz"
+    sha256 "f66eb08feaa410fe4eebd17f2a2c8e2e46d3476e9f8c783daa8e09e0faa666d0"
   end
 
   def install

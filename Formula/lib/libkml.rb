@@ -10,6 +10,7 @@ class Libkml < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "19536c853e34e55b5bdd36b1d566dbe546b25e8cb29374f490f8fa1bd185ebe4"
     sha256 cellar: :any,                 arm64_sequoia: "eb94aab1bf14416741d583115f1296611b1ce5fca7cef1748bf935cb28fdea02"
     sha256 cellar: :any,                 arm64_sonoma:  "1b1bcd07c0c72921902ad1ba84d8e184f4412b28b7553c3c293eedacab771604"
     sha256 cellar: :any,                 arm64_ventura: "e76761b18a288e50fdab372c0098846eebe2fd422beae5478837cbbed20e2212"

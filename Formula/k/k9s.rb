@@ -2,8 +2,8 @@ class K9s < Formula
   desc "Kubernetes CLI To Manage Your Clusters In Style!"
   homepage "https://k9scli.io/"
   url "https://github.com/derailed/k9s.git",
-      tag:      "v0.50.9",
-      revision: "ffdc7b70f044e1f26c2f6fbb93b5495e4ebdb1ad"
+      tag:      "v0.50.10",
+      revision: "4f5c1a1105974e8bbff9a0e145c9a8f6b642a21d"
   license "Apache-2.0"
   head "https://github.com/derailed/k9s.git", branch: "master"
 
@@ -13,14 +13,12 @@ class K9s < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "71bdebb63c3572b272c185594fa92cbb0ed874660298b408e40bbdd9a98a028f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0852ef462d130b1b850ef4ffd58883c3238cf17b7128523cc120d35f1b2cb929"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f0f3c913aed0b1978613f1e29f8f9c7c5d1aa7b91ac1cf4eb1c0ff6a2cd54d9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e5a544e23740a9d44919c2c179535afd30a85f584459a9dbae8e7eeebf3e34f3"
-    sha256 cellar: :any_skip_relocation, ventura:       "1af57909e267eb34f0a37d042ae754d1235cc7e318e5ed82a413536a3a354b46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "049a08641a44964241275d0ed1d89c29aea8ce20bd8ee357fa354d9e42da73d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df2f8bfd4a30d5a888edb7b5a8c61d3f0dcfad8a53ab57ed4ab24785007c6c16"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3bc059b7d6ae6016f1d0b2fad717b5c6be43fa18d52d42c8dc4d77cd8992a42a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd2bcceb5dfdcbfb0ec6ddaffda3652f0d546383ba8e99027b505e756b9f5a43"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16efe2f53f5fc9d628bf68178416b901a4feb0d98cbd04cf648e52e85ebe52b4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04936c860742ce5965f2e177768b4b966d19d15a98267632da30ae04686e57c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8eaf935fac1c8dd184ba660add325e739f18909171420ed619d95e9ceab7b90a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbd30b4ed50e4f0c6c8b0ca4f0b9b679ef0ebf91e84d958c9b4dd8b09b23447c"
   end
 
   depends_on "go" => :build

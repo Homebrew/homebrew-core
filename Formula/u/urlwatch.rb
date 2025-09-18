@@ -9,6 +9,7 @@ class Urlwatch < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5d0961035829d1c8c8ccbb2cf857dd2ef5aebf4a0861cb5d813996e9fa508172"
     sha256 cellar: :any,                 arm64_sequoia: "14785843c477b914734aebaa654deaabcc89483b1694b94e95932d67d6858d12"
     sha256 cellar: :any,                 arm64_sonoma:  "057415a63be93184efc9667e21210d37f8de43623d2dc061f4733bd1851e3e27"
     sha256 cellar: :any,                 arm64_ventura: "fdf1d86201da20c68b96a2b2cc1ed8219cef73f62d1f76acc6acb7a4157448f0"

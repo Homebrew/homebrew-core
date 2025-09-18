@@ -8,6 +8,7 @@ class Veilid < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "224049716b76f63659cc8dfbce9816253c2014135156bdb82cf4bf2e45060168"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0dfdd88564f4c28c64587507cd3c0582e8101a2b9e59a379c83e5b1847b5b1c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e496dcb522e3488234d4601c8f41ae5e1baddf820dc7b1841ba68ee9bc55c52f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "61a62594593bad1a2c49bb964b3609c31be5f0f45c488a749894b0da24dfcc20"

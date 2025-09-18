@@ -15,6 +15,7 @@ class Dvdauthor < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "81066310aac866a1cb62efa9a7dca20d521319ba30657b7a60ec5ed1a45ee26c"
     sha256 cellar: :any,                 arm64_sequoia:  "527ecacf46ecfaa771b7d5cb556e7d0002e331a79edad4250743c096babdc2f6"
     sha256 cellar: :any,                 arm64_sonoma:   "a0b32d9b7bac066918dbbe7aa04bd718751317bc6284c3d7d87fcf77051deb46"
     sha256 cellar: :any,                 arm64_ventura:  "03d576e3150005a3c6524683afa2d234ac698fc9da7645645f43afb42ffac95a"

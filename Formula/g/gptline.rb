@@ -10,6 +10,7 @@ class Gptline < Formula
   head "https://github.com/gnachman/gptline.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d50bf9e220ea7d8f25c5657ddb37bd82de6f42eed0d2921a0de440c14312038f"
     sha256 cellar: :any,                 arm64_sequoia: "a98d0665383cfea137900164482c617862307fb3fd03fbdb3066ec94b88dfc38"
     sha256 cellar: :any,                 arm64_sonoma:  "b863ad462a3d726963ef7a9c40d088aa4f3cb8fc7f687a765c8517f73589b191"
     sha256 cellar: :any,                 arm64_ventura: "5c042497493a6386e30b2fe47e7b33635a0283d4048b498ee69516484a42ae73"

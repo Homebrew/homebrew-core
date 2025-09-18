@@ -7,6 +7,7 @@ class Terrahash < Formula
   head "https://github.com/ned1313/terrahash.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c4b9014227d119a55bc9f42a5b244a12b88f0b19f09fdd85e3514b42d61682eb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3bff28cc077e366d5dcef34c43192ea54defa55bce901fc53eaacfe329c194d5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2827a0447062c2ee47306aafa09964dcbf25713e403461e3cfb3ed62ec9b11ea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5309604e6a55ef456ba83b7bbe1c2ff8a24bd18b54703979737bf9500de7433"

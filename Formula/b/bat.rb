@@ -17,6 +17,7 @@ class Bat < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "30742c65afd91a5a2058adee09161de4b7e3ed72d4409155249720684b3ae994"
     sha256 cellar: :any,                 arm64_sequoia: "63e99dea5bc85d0e9c3c76c41c7324933d05b791c86cbdb47bf173bbb4f25afd"
     sha256 cellar: :any,                 arm64_sonoma:  "53705be5ee2484a8e2254437e0197b763a27b4e3a88e2c9aa7f43c739ecc48c6"
     sha256 cellar: :any,                 arm64_ventura: "a058d53d4156ae1ea72b9d153533f253b57fcbd273d704e7f9f867c0e6b05562"

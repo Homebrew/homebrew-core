@@ -6,6 +6,7 @@ class Ancient < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d74855265655e7cc2b17d65b446974670a0bb4240527b24a82b09f74ee43615b"
     sha256 cellar: :any,                 arm64_sequoia:  "6f1107e987a8027289e5c8e7c95b71e85b75a94d0219df48eac31504bbb427b4"
     sha256 cellar: :any,                 arm64_sonoma:   "1dd610a8f47fb9887ed822f63899eb3cbadcad4d0be848aac8e4dd2bd12105ee"
     sha256 cellar: :any,                 arm64_ventura:  "cb400c604791468287b32dbb9d5f44b591f0ab9ca2cfccf4b12204eb7f1029ae"

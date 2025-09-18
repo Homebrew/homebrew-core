@@ -8,6 +8,7 @@ class VideoCompare < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f00c5852966f9e45ab2a4b11eafb61f8d989aee9930ce33a108a7e2b0b0da5b8"
     sha256 cellar: :any,                 arm64_sequoia: "ce07c35e3d8dd6401d458157701d901bdc545ee5d7cb214314591ea35810f0e6"
     sha256 cellar: :any,                 arm64_sonoma:  "3950652501dd07d382dded70a2a4853724e7747d55a95a743ade99ea4a2c3ad6"
     sha256 cellar: :any,                 arm64_ventura: "73f1a4a6ba9db4c25d1206f82b5a488eb297c9d6965fa59dfb0178cddc1fd96c"

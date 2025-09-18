@@ -2,8 +2,8 @@ class LaceworkCli < Formula
   desc "CLI for managing Lacework"
   homepage "https://docs.lacework.com/cli"
   url "https://github.com/lacework/go-sdk.git",
-      tag:      "v2.6.2",
-      revision: "b2aa67fbf6c6d9471497c1948caf409f8d4cf6ed"
+      tag:      "v2.7.0",
+      revision: "1a0ec63e70092991ce2ff30346a03442c4fae156"
   license "Apache-2.0"
   head "https://github.com/lacework/go-sdk.git", branch: "main"
 
@@ -16,12 +16,13 @@ class LaceworkCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5593626de1e849399211df76700212b8ec4a1a8e03ab623218e86e985ac0fb95"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5593626de1e849399211df76700212b8ec4a1a8e03ab623218e86e985ac0fb95"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5593626de1e849399211df76700212b8ec4a1a8e03ab623218e86e985ac0fb95"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4a687c971d0c46505cf10bde5bd26cff9fb5bf266d37d72ead9bd27f70612b5"
-    sha256 cellar: :any_skip_relocation, ventura:       "e4a687c971d0c46505cf10bde5bd26cff9fb5bf266d37d72ead9bd27f70612b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32e8aba2fab17e84936fa9534b8b352820a4047c564d125fd5564a5c588933c1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a56c7fab608de0ff4ebc767e4d49fa6c067208b3340acc838b162ebd55902166"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a56c7fab608de0ff4ebc767e4d49fa6c067208b3340acc838b162ebd55902166"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a56c7fab608de0ff4ebc767e4d49fa6c067208b3340acc838b162ebd55902166"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a56c7fab608de0ff4ebc767e4d49fa6c067208b3340acc838b162ebd55902166"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b2c31d2d01fd44e78d49ed6cc46a0c4eb7f3f050510f2ca974b1bd8da938aa1f"
+    sha256 cellar: :any_skip_relocation, ventura:       "b2c31d2d01fd44e78d49ed6cc46a0c4eb7f3f050510f2ca974b1bd8da938aa1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dc7852f0f8cd4eb6a0d8737cebf0fb958b8c43bae117c3913c3f45052382ce6"
   end
 
   depends_on "go" => :build

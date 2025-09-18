@@ -6,6 +6,7 @@ class Wayback < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe100d437e6f95b6b155fa8dd323d29a4a301c6343480f4191cbd44a674bb564"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0684a17257ce53249c7e55249bc6e66aeccb68958f5697cfd5434fb70efc63f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a0684a17257ce53249c7e55249bc6e66aeccb68958f5697cfd5434fb70efc63f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a0684a17257ce53249c7e55249bc6e66aeccb68958f5697cfd5434fb70efc63f"

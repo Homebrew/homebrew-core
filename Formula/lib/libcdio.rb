@@ -8,6 +8,7 @@ class Libcdio < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1a05d43f9bfaf6ae9d98ea2ee4130270809bf9b0cb03c8db4a920207575c421a"
     sha256 cellar: :any,                 arm64_sequoia: "04bc4ddb58d98fa51c6fa0a8eed1b943b7d503432232c87ff3543d9f4377950a"
     sha256 cellar: :any,                 arm64_sonoma:  "df4a0ca43f3cb7081a13dd27af54539628259a55b00903d33c57e025d9674ee7"
     sha256 cellar: :any,                 arm64_ventura: "ee59e92928e52ec430a22e42664cb30312c77b89a5f9142a984841c129b03b6d"

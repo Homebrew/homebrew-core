@@ -11,6 +11,7 @@ class Libgit2AT18 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ca8afa1e5028bd4eeaf13f844319531ee98f0df24f8ae3b4be006e212d6c8cc9"
     sha256 cellar: :any,                 arm64_sequoia: "5a9fe4aae3865e5c977633107b829e639e6535d8f986c851d60d63bb2e5b0932"
     sha256 cellar: :any,                 arm64_sonoma:  "d04a13a2da8d14c6f0bee82751d472b13aa0fd8ed688eff218f7a0a18d29bf59"
     sha256 cellar: :any,                 arm64_ventura: "94ef273252c464c308e859ebfb3b78814516f6a740d40c57394805c4fbcbcb58"

@@ -14,6 +14,7 @@ class Kubefirst < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c28d9fe512bf35f9816299e6d1783695b5afdcef16fec9c81fe9b9061cfb79d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5906693a33288eb74753ce5327aef1700173ad75f285c4d9c0730b77f770c28"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "034c6dc25ce92215216f51a7b4fc1945e64e67131c5819acf25a781c41cf3b83"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "99e4c078c2453fac6dd82cf9759c739f21afe6ad9d15d1d24257e434d0b4795c"

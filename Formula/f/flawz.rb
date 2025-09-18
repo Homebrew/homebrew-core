@@ -8,6 +8,7 @@ class Flawz < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "046a2a4a09bd81b23f85f689737a922f89312f70d3624f564930014e74d38e45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c97b5cd0db7f806b02e8b7a22bfffd3c3305780a218d558ca0053220205ba882"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59c66cdabc185ffcb53cb7a481ad8ef5866aceae91ae3519f6e8222bb23f874a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0d41b1a2483d47ffff21a20a37b678d2b37ea25363010a592e5efe57ac9a5033"

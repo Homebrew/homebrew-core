@@ -11,6 +11,7 @@ class I686ElfGcc < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "9b1973c78b379a53dcef17ccb6bfde0eedfe4804642f49809566d41672a78a80"
     sha256 arm64_sequoia: "9ebc28afe2308055d5c3734a6a1312e2976f12566058a818731152fe796c895b"
     sha256 arm64_sonoma:  "a7471aa25a2e17e5e793346e7113b9c56ea5af1afde81cb776e352c11ed84b6a"
     sha256 arm64_ventura: "84dc4edbe13331ffd0044ee60070d4a5e9a6cc02a119fe3afd80cb5f34b70cbc"

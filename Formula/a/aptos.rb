@@ -1,8 +1,8 @@
 class Aptos < Formula
   desc "Layer 1 blockchain built to support fair access to decentralized assets for all"
   homepage "https://aptosfoundation.org/"
-  url "https://github.com/aptos-labs/aptos-core/archive/refs/tags/aptos-cli-v7.7.0.tar.gz"
-  sha256 "f5e20b438f32ea825caab4c773845117a9e2a829371ac37da5513672f429c173"
+  url "https://github.com/aptos-labs/aptos-core/archive/refs/tags/aptos-cli-v7.8.1.tar.gz"
+  sha256 "42d94e3e40654a1bb43399f75ea5c9a5f99d4b920b5fae20a46d085b548c4916"
   license "Apache-2.0"
   head "https://github.com/aptos-labs/aptos-core.git", branch: "main"
 
@@ -11,17 +11,15 @@ class Aptos < Formula
     regex(/^aptos-cli[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4dc9401ad736cf1b1f368e82e3931977ef549799a194c00dc92bc6ee9890c697"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7fbefe653a7f98a738e643f85d784076d8526a34b3f02adfb9b5ef9785d20d75"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a959486558dc10bb9f04fd13cd571103119c43cc939c6c9731bd61bfdf79a307"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7884542f527cf83d2f999ea6a47987ce9e99ecb6e42dd763127c6347b9f376e8"
-    sha256 cellar: :any_skip_relocation, ventura:       "aceb8a406ddd7e3309b9818dff42344d56d948ad3770ad5a14a0dfaacbcd2b9b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "59e079153513cbc364e318144348939846694157ed7d5c34b400b80a131af2dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5d258522041c9edf3f1037c1049f8522ded6ecd54dfc8807d84e4da73fc24c6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67776495afdbba9316fd487e2adbd88a99cb08b18c73a893a61fd767eb0ea26f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b560adeff500e887ea009101ee42462740aa3dfb838b9df93bcad232d371c75"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf022cc48a1da1752712c95258d8c53034242313dfaa10add045b553bccd408a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a8368be4ad77261cbf56581d0159ca4a96ad87eb437901942f7a20c2a6a0b5ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebc600bcff59189985389af9d64cdeec69089926740ee2ee181f3508ce27387d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b9541d2f5ed3b56e57c081fe8f5747b41911eedc0c57f5706180041e89070a1"
   end
 
   depends_on "cmake" => :build
@@ -36,13 +34,6 @@ class Aptos < Formula
     depends_on "elfutils"
     depends_on "openssl@3"
     depends_on "systemd"
-  end
-
-  # Fixes build with newer versions of blst
-  # PR ref: https://github.com/aptos-labs/aptos-core/pull/17349
-  patch do
-    url "https://github.com/aptos-labs/aptos-core/commit/87862b1bf0aaeb73f6f967957ec38354e74d5d31.patch?full_index=1"
-    sha256 "f4893ea7b41f0a9402dd630f7c184352603ee121aae86cfc8cfb4e86ede7c827"
   end
 
   def install

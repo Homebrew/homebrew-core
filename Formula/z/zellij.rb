@@ -7,6 +7,7 @@ class Zellij < Formula
   head "https://github.com/zellij-org/zellij.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f2bd83eaf5758491245bad2de7b8c419052fdbeb6a88cf211376ad36ef6ee564"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9adef9ca8d8f602aa6fc8235a7819782f62763cb25d73bae2ad07275fcf5241"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "872cdd13e33851be3228d5439a58a2660d7eb4e352fcefa0907224009fc8e1cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "36332dd95508a9a366627930f1d0046cb64d146e1cde27fcd29d59ddb79a1627"

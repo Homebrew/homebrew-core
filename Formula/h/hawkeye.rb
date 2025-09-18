@@ -6,6 +6,7 @@ class Hawkeye < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3d75d67c57d501affe30c1099a8380b0143747a1061e5f62633c588b89714659"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9239062f731a87a8d88c7020a54602654f0a0fc01817fc709d2e6b56fcd9cee3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9cd89d03acb774c08ab0eb7be8730245962e4191b2f866dfb70c96710b8d7575"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "835360d95ae8d5a114a28c6217d59705107ec3b26f465ae5b5b1dfdb783a165b"

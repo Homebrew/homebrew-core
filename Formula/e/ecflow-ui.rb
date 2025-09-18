@@ -1,8 +1,8 @@
 class EcflowUi < Formula
   desc "User interface for client/server workflow package"
   homepage "https://confluence.ecmwf.int/display/ECFLOW"
-  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.14.1-Source.tar.gz"
-  sha256 "6c7b8aa89f8b12a786ba0a175d2b3abc8a524eb7e68b3bdf5a76a0e91a248412"
+  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.15.0-Source.tar.gz"
+  sha256 "326ea7dbe436f9435c51616fc3e611f69efc55ae0e0e32c4ded25cfefe9b05fd"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,13 @@ class EcflowUi < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:  "abe84ab9bd23b8d40f809b66d2c772059bffef65d045e4da3bba6c72e5ee2d64"
-    sha256                               arm64_ventura: "0748a2b33efe71d59065ac0dd9a324c8dba3c6782e1df88195afbd213d46d865"
-    sha256                               sonoma:        "63ea7094c1143922888259b352c45749dc4978cbe93c19aec878e439edf407f1"
-    sha256                               ventura:       "a9a9773aa61c7e91deceac2a01684d51e952d452e52a6a8b563c21445635b0bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b204d26b9127a65095262c473e9b5c23c05d70d6d3334d91932276c84263cb55"
+    sha256                               arm64_tahoe:   "ce542576b327447f5ef90bc25a086d350597376b3e46cbc8df29e0a198efff0a"
+    sha256                               arm64_sequoia: "0e3c8ec590ad0f93e6527da4b23b6c7f8698b6fdcfc33d3ae8481ac148c14df9"
+    sha256                               arm64_sonoma:  "f938b65073fa519e972cbd848b573138cd38a1bf1be64ba052b6790292cf29fc"
+    sha256                               arm64_ventura: "3003b3a4c2fdcbed612f61ef35258b7d6fdf351a89d741f1ec65cee079a6492b"
+    sha256                               sonoma:        "ddb4ca5825be94efb9a6a882bb93c2c1bb96ef18280fc0e785406dd53ce756c9"
+    sha256                               ventura:       "4750ee72a89f7f2b6c42bb9bd0f874cb90e1c460f656b4a8adbcff2873048852"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b15e4f3da6d0672a121e96fa26603b1aabfb7ae54803db1652eff912c3dfb9c"
   end
 
   depends_on "boost" => :build
@@ -24,6 +26,12 @@ class EcflowUi < Formula
   depends_on "qt"
 
   uses_from_macos "libxcrypt"
+
+  # Replace boost::asio::deadline_timer since it was removed in Boost 1.89.0
+  patch do
+    url "https://raw.githubusercontent.com/ecmwf/ecflow/57ef9c0a48d6651a9cf5ceedf4e73b555eed23bf/releng/brew/patches/5.15.0.patch"
+    sha256 "87c53a3cc96a36a00589ff0ea3bc44b62e56dd4539fda81155d72b5cf84db2a3"
+  end
 
   def install
     args = %w[

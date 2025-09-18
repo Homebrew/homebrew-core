@@ -6,8 +6,8 @@ class Llvm < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.0/llvm-project-21.1.0.src.tar.xz"
-    sha256 "1672e3efb4c2affd62dbbe12ea898b28a451416c7d95c1bd0190c26cbe878825"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.1/llvm-project-21.1.1.src.tar.xz"
+    sha256 "8863980e14484a72a9b7d2c80500e1749054d74f08f8c5102fd540a3c5ac9f8a"
 
     # Fix triple config loading for clang-cl
     # https://github.com/llvm/llvm-project/pull/111397
@@ -23,13 +23,14 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4d3228d0eccbd7afdc39804a1eb6fc07cb77967bccc04becee0660364cf25649"
-    sha256 cellar: :any,                 arm64_sonoma:  "56aad5c1eddfab32cffacb73f5507aacb5dffc66b458ae9579cdc9e18f35ef6b"
-    sha256 cellar: :any,                 arm64_ventura: "875aff99943e5628494011c33bcf88df163a6fa9a043a7d86bd54eaa7f2a71d9"
-    sha256 cellar: :any,                 sonoma:        "99300ead6537fb84f5be36de9cef758f633eeb0152a9f49caee35818b27baaa2"
-    sha256 cellar: :any,                 ventura:       "46355a5b5db02271bf1782c157128934fa98d6da839c66e1392ba97479c0315f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "57c3ea1f7348aad566c462eb209b256116b81e9eb5ba291bef54c9134b8d5a24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3bd8ed6898e9e4c18b67da060e8a98d3f31d71c146952fc34606cf31af2506f"
+    sha256 cellar: :any,                 arm64_tahoe:   "5032ffa3dee0109de164f602f2906dbfb107dbe04f5c6d7dbc415d3b5aee507e"
+    sha256 cellar: :any,                 arm64_sequoia: "1d1e860def7950d7753a213c6de93455c605ddf84b828bc8510b5caccf881277"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad9c478fbba3951eed5c1a92d9fb2843765f9ff8a835df25a195eadecdcf2ed4"
+    sha256 cellar: :any,                 arm64_ventura: "f5df9612c5196f3e59233732e28754848505111dc6531aa316054635a3683ddb"
+    sha256 cellar: :any,                 sonoma:        "201b1bdb089228f41756615f1fee4832737bad38368c2ea1229fe4972cac2a00"
+    sha256 cellar: :any,                 ventura:       "b31ac949bbcf69d1362644a512d08b2840583a3efa42cea419dc2280bb715280"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4321b6bd43e49569b156ef5c6759adb83f1d2fdacdbf5fbdb624e73ddb6b2be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7211d2b52087eb62f0d3ed0bac9288b639d6ad4b68d82a161d6438acdd28468c"
   end
 
   keg_only :provided_by_macos
@@ -44,7 +45,7 @@ class Llvm < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -166,10 +167,8 @@ class Llvm < Formula
 
     if OS.mac?
       macos_sdk = MacOS.sdk_path_if_needed
-      if MacOS.version >= :catalina
-        args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
-        args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
-      end
+      args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
       libcxx_install_libdir = lib/"c++"
       libunwind_install_libdir = lib/"unwind"

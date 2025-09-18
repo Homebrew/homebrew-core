@@ -8,6 +8,7 @@ class RpdsPy < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1dfdc2a23b9a10d279609cea5f703e604254089dd772ac9fcb30d8aa867421ce"
     sha256 cellar: :any,                 arm64_sequoia: "e17b3cc293b9cc2f526646db82c1d20d85b884322d84fff93c7ff04051850c28"
     sha256 cellar: :any,                 arm64_sonoma:  "8c4d924d33a30ba311f0a2e8282941e1ddbddfd0bf4c9b8436456fc79bb57bf2"
     sha256 cellar: :any,                 arm64_ventura: "f6adad66444b44c0bf15113ac82b0bb913830eea5c893fa6acaaa54f88be210e"

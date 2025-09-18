@@ -2,18 +2,20 @@ class Minikube < Formula
   desc "Run a Kubernetes cluster locally"
   homepage "https://minikube.sigs.k8s.io/"
   url "https://github.com/kubernetes/minikube.git",
-      tag:      "v1.36.0",
-      revision: "f8f52f5de11fc6ad8244afac475e1d0f96841df1"
+      tag:      "v1.37.0",
+      revision: "65318f4cfff9c12cc87ec9eb8f4cdd57b25047f3"
   license "Apache-2.0"
   head "https://github.com/kubernetes/minikube.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9a0f9e6e9218387985c3dd006b85fbfd8a83f76578902da2bc15a3753bd2839"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5bb68304211a22200138c1628a1d9219ac7eb232d5b26250ba7acf51f3ad56c6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8886f6dcb989da5200876bf37812feb6753c9c5993f1ceee5b22e9aa28978dc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d4f71b307da52d9330119de92aaa6c301e10dc90e29e1f557ea839abca4a18f2"
-    sha256 cellar: :any_skip_relocation, ventura:       "d56acc2227c9190e0b9c10f8ed690d01d357185b39d9d887e0a103f561283408"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9483325f7d5ca55313c2f4d6bb0c0186679db28259a1fc5dfbf7e608f16a753"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1de992e28c904537e9bb7291e2c058e4b0f896a191bca819a4b56044247b640c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d3cd0c4554207047cdce1efddd7da706ad078646848a8198714afb6e375cfd8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08b30541e8aa4dece8d30a515a88162bfc4c7b5916e0f682be21303fcdd4ee8c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3da9522694365cf193988a29bedcd8d4fcd430c51f20d16bb3124d48acb73a87"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f7c49135a7d22a2954a3335019f9edaa7efb7dc3ec36a39c8611d74cca0a328"
+    sha256 cellar: :any_skip_relocation, ventura:       "4a99e8fdb976b8d77d0236724f4234d339e578d65f2cdcfdfe021777820b4e61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "be418b1b637fb4a224e784771903d8632fefdc524a88123700c83072cdb9cde5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f41f1fd1112d6d4badf73883e1d48f7d69fa6cc70af14fb1daa5994123a80e79"
   end
 
   depends_on "go" => :build
@@ -21,6 +23,7 @@ class Minikube < Formula
   depends_on "kubernetes-cli"
 
   def install
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     system "make"
     bin.install "out/minikube"
 

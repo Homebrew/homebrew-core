@@ -7,6 +7,7 @@ class Nip4 < Formula
   head "https://github.com/jcupitt/nip4.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "d33500b816ba2a0c3533dc9149ab00c3d11609b6585b80838eefdfa38b1dcd49"
     sha256 cellar: :any, arm64_sequoia: "298f7893d253f89fc787280841e5c77b44654b699266b093137caf56941ede0d"
     sha256 cellar: :any, arm64_sonoma:  "7aae889a9226e5bc3d5b1f8dd3ad252d137974608a59fa502c102713ef643c6d"
     sha256 cellar: :any, arm64_ventura: "ce5a68cda79d47f13f1e738a55049f08fff0aa4a9cc9ed5ec28e283d92092ebd"

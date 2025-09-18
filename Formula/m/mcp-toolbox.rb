@@ -1,17 +1,18 @@
 class McpToolbox < Formula
   desc "MCP server for databases"
   homepage "https://github.com/googleapis/genai-toolbox"
-  url "https://github.com/googleapis/genai-toolbox/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "a255befb094067fd652fec7105915e4e392d8a6546f4cd02e2c70777391c80ca"
+  url "https://github.com/googleapis/genai-toolbox/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "71c4810ed2171d4ed7bbb5519826a141f6eafd1b141bbe3694e5924a88bd7fb0"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38eac076e009013fa2bc80d491ac250adfa072e95c0ac438013a79211f2a2081"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38eac076e009013fa2bc80d491ac250adfa072e95c0ac438013a79211f2a2081"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "38eac076e009013fa2bc80d491ac250adfa072e95c0ac438013a79211f2a2081"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b0088284eed89f5e8f6dda954df5522c6f78a955472cf706e8872c815ac8937"
-    sha256 cellar: :any_skip_relocation, ventura:       "6b0088284eed89f5e8f6dda954df5522c6f78a955472cf706e8872c815ac8937"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1051d1b4f5b7bf0d79b2b51eb48198541b862f1713a56b8fa19972bc76c6f3ef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e6ea523ab9852ddd43cdf2a7d22cd0d8ed040dc52f5ffe37fa465917af92ca6a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6ea523ab9852ddd43cdf2a7d22cd0d8ed040dc52f5ffe37fa465917af92ca6a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e6ea523ab9852ddd43cdf2a7d22cd0d8ed040dc52f5ffe37fa465917af92ca6a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e6ea523ab9852ddd43cdf2a7d22cd0d8ed040dc52f5ffe37fa465917af92ca6a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f0cf893d782197b74d69f904b7b3ad8a2cc1e5221997789579e567960fd8c7d9"
+    sha256 cellar: :any_skip_relocation, ventura:       "f0cf893d782197b74d69f904b7b3ad8a2cc1e5221997789579e567960fd8c7d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdabc47cc57e13c1009984553f898a69fd651ebedbc18f181202ec0d7823760c"
   end
 
   depends_on "go" => :build

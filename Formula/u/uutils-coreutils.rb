@@ -1,8 +1,8 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://uutils.github.io/coreutils/"
-  url "https://github.com/uutils/coreutils/archive/refs/tags/0.1.0.tar.gz"
-  sha256 "55c528f2b53c1b30cb704550131a806e84721c87b3707b588a961a6c97f110d8"
+  url "https://github.com/uutils/coreutils/archive/refs/tags/0.2.2.tar.gz"
+  sha256 "4a847a3aaf241d11f07fdc04ef36d73c722759675858665bc17e94f56c4fbfb3"
   license "MIT"
   head "https://github.com/uutils/coreutils.git", branch: "main"
 
@@ -12,13 +12,14 @@ class UutilsCoreutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efc20adfb97e84ed67eeddd69dfad9600b64d916a30b6ddb37ec1ec86e1b0d65"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8e49f4ecacb9a3ff50258bc2b33e04eb049b68149bf4bdd362590995ea9dc1a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "72b467ed6f6f15ec60a3cee34fa365bd1121364afb925999c00304b8a33fde62"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c8af817bc30896c6ee0a6d37f0f58345a0c5a9f81ddc1e4f479a9ab79ac5ecdd"
-    sha256 cellar: :any_skip_relocation, ventura:       "b695ba77c5d41cff1f0856d9287c72994b8d94d54de414b0447194675c8d37db"
-    sha256                               arm64_linux:   "5f63af088aaf76c4349dd441b1423d5df8a6c722247c66d1663b8023d03d8feb"
-    sha256                               x86_64_linux:  "a7b684d72256a852a02a9261707c51e1098033aa25bac60b08629d3ae879631a"
+    sha256 cellar: :any,                 arm64_tahoe:   "34dd46f1808a92aaadddaff6ba666e9fc8b8f8176457da3c7bb4f96b270eaf89"
+    sha256 cellar: :any,                 arm64_sequoia: "ee605d02f32809d10c0a3355d51b58d917e7ca6c10931dca0d01283f5906aab7"
+    sha256 cellar: :any,                 arm64_sonoma:  "ac86d76eced038424c5dfb896273e8a8744c2ade7deb8fa2419d27d6c66e2498"
+    sha256 cellar: :any,                 arm64_ventura: "59ba3ca1de05093cf91c316bcfc8f8721b89349b9150687de3663494d973dfdf"
+    sha256 cellar: :any,                 sonoma:        "483d28e5075b212a65429252bc5b6040e073da40c91114e697a58e903afd4f5a"
+    sha256 cellar: :any,                 ventura:       "6917d3d10c1ac7df7235937510bb96bd3430d419b6b5e87372e0c5bbc6f42f96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "41f150d7d9ac4608c05f7a8857022c5189dbfb16a40d6a05515d84000b89c03b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d01a9653e50a1be67ffb4823367de0367e32df17afad94e1ec8ee661f06d650"
   end
 
   depends_on "make" => :build
@@ -31,18 +32,19 @@ class UutilsCoreutils < Formula
 
   conflicts_with "unp", because: "both install `ucat` binaries"
 
-  # Temporary patch to fix the error; Failed to find 'selinux/selinux.h'
-  # Issue ref: https://github.com/uutils/coreutils/issues/7996
-  patch :DATA
-
   def install
     man1.mkpath
 
+    # Prevent to add a feature for `selinux`
+    inreplace "GNUmakefile", "$(SELINUX_PROGS)", ""
+
+    args = %W[
+      PROG_PREFIX=u
+      PREFIX=#{prefix}
+      SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
+    ]
     # Call `make` as `gmake` to use Homebrew `make`.
-    system "gmake", "install",
-           "PROG_PREFIX=u",
-           "PREFIX=#{prefix}",
-           "SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
+    system "gmake", "install", *args
 
     # Symlink all commands into libexec/uubin without the 'u' prefix
     coreutils_filenames(bin).each do |cmd|
@@ -101,18 +103,3 @@ class UutilsCoreutils < Formula
     system bin/"uln", "-f", "test", "test.sha1"
   end
 end
-
-__END__
-diff --git a/GNUmakefile b/GNUmakefile
-index f46126a82..58bf7fbdd 100644
---- a/GNUmakefile
-+++ b/GNUmakefile
-@@ -181,8 +181,6 @@ SELINUX_PROGS := \
- 
- ifneq ($(OS),Windows_NT)
- 	PROGS := $(PROGS) $(UNIX_PROGS)
--# Build the selinux command even if not on the system
--	PROGS := $(PROGS) $(SELINUX_PROGS)
- endif
- 
- UTILS ?= $(PROGS)

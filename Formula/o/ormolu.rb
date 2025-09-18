@@ -7,6 +7,7 @@ class Ormolu < Formula
   head "https://github.com/tweag/ormolu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0acf414ff3ef843cb619d69bbd94c97b58d9c4a551a10d107a3620de4eabd8c9"
     sha256 cellar: :any,                 arm64_sequoia: "8cd936d0ab0a1cc156baaee887fbcc08d3426dc24285a2ff230b0fccf269d96a"
     sha256 cellar: :any,                 arm64_sonoma:  "7d67afdc7ba512a0e6b2bfb806a2a6137c9c5c8b29a15bc2b97fb81df0353559"
     sha256 cellar: :any,                 arm64_ventura: "af904be7e93f1c14f5b79ed5afb8be0a21856fd229b00ba4512e4db67109dfcc"

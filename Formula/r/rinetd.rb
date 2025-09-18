@@ -17,6 +17,7 @@ class Rinetd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "229ed2e7f795bf1c9a0e3a77dfdfddfea277b160dee72157ae498bb2e12d5bdc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1aa4fa0021a1509710ef1b13f7e76d7ec8b1f819f941835040807ce8255599d2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b64c37c93190bdea6d086f34832b7db19ee69cd22ce7046e6c371a0c6b292a22"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8de3030cc0499320d112d4d07a4379a4068efab0c5b7e027d7f4a45be33d1d6a"

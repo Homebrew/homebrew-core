@@ -6,6 +6,7 @@ class SpirvLlvmTranslator < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "516cd1b19b6b55d235bd412c4d62f14eeb4594d96e01270a625a26d538df2a82"
     sha256 cellar: :any,                 arm64_sequoia: "3bea2165fe9c6efb311333356473424b6bb6271c74add1502d5b26bdb7f5750a"
     sha256 cellar: :any,                 arm64_sonoma:  "eed9693d15ad1bfdd1d2446a95a8d0649aecb2ef9fe6f1b7e6e714e99401d5b6"
     sha256 cellar: :any,                 arm64_ventura: "8deefd61c826963f89e93f45c28b0f1bbae6b2eb6fef2bdd6116b2b5f36167d3"

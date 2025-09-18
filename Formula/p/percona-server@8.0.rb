@@ -4,6 +4,7 @@ class PerconaServerAT80 < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.43-34/source/tarball/percona-server-8.0.43-34.tar.gz"
   sha256 "4469b5e3873559f366eb632c7c231e01aa700c1b9c13cce869085dbe1ec9203e"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -22,13 +23,14 @@ class PerconaServerAT80 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "d8df21ad76f4ddbdc8ee644760d831924c90c00abb21c24a2c26303b0ac1bf32"
-    sha256 arm64_sonoma:  "690b006463e92d616234415e230cdaf6e293ea0e765bc538463eb30bdea32c50"
-    sha256 arm64_ventura: "b02ed11fca9afd5765fe6e33373d63b48671b7ba0c7fb2059419931cbb5e71e3"
-    sha256 sonoma:        "22888edc54ae46453c3551eb977608d22fea2a693f4c8a1ba70bf22b92a2e8e6"
-    sha256 ventura:       "0f0895e5f979043bd0a804e65ac631cbdf3fa234025374f84375d83d3566892d"
-    sha256 arm64_linux:   "312611e2585a8048685bb7808ddf13cddc64c5fb1dcba3f901d6d0c0971ae531"
-    sha256 x86_64_linux:  "6f3e36a2588494df0da6d4e421530974f1387fc4777efaada067df4a342475a6"
+    sha256 arm64_tahoe:   "04f33cef72a0383b11561bfde6117334c1ea6b225f161420bc1eb1ca62eaf102"
+    sha256 arm64_sequoia: "3eed8303b8842a9387d698b7e28b7fed5030a0f26d1ef48fbd1c2db998dc3e78"
+    sha256 arm64_sonoma:  "efe604f23093e3b617ecfb843c9b1eef30dfcd9cdbb56807f759a2bc711ab23c"
+    sha256 arm64_ventura: "3f6e7796a2836f1acae4f19d146c89e81d84b1fa2b373136742408f9f580084d"
+    sha256 sonoma:        "58c116fa49bc7467eae2b13513aa9e409ed3e3e2157f1f4f2341a8ec06f20b65"
+    sha256 ventura:       "203d62185a91e5cd10b59dc78e06626050b81304e95834208350afdaa180cf14"
+    sha256 arm64_linux:   "572e1744e47cc0d2838b056cc0a90c848c8b37582edcfb222bb258a7fb5f0dd5"
+    sha256 x86_64_linux:  "7dabd8dc9a0414296a8363912968b0f61f89fe05e023dd3c543e1c0a2e003bf3"
   end
 
   keg_only :versioned_formula
@@ -55,12 +57,6 @@ class PerconaServerAT80 < Formula
   on_linux do
     depends_on "patchelf" => :build
     depends_on "libtirpc"
-  end
-
-  # https://github.com/percona/percona-server/blob/8.0/cmake/os/Darwin.cmake
-  fails_with :clang do
-    build 999
-    cause "Requires Apple Clang 10.0 or newer"
   end
 
   # https://github.com/percona/percona-server/blob/Percona-Server-#{version}/cmake/boost.cmake

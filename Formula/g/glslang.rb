@@ -12,6 +12,7 @@ class Glslang < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b90b5fcaefaaf1490c9dd28e168715151d5ab7818927448f4b5ed9e0d92960e1"
     sha256 cellar: :any,                 arm64_sequoia: "8f68fc42dc59b27e10719ad0e7f31db2dfb0d99ce978fbd6fc269e3a73f47364"
     sha256 cellar: :any,                 arm64_sonoma:  "5b2251ec02401af96b5bd227c76d0e84e72fd75d0ba7102ca8cdfa48339863c1"
     sha256 cellar: :any,                 arm64_ventura: "75ae8371498091fc7437550e3b91c1cba6aa6d324ff727041570e7fc3fd2b7a5"

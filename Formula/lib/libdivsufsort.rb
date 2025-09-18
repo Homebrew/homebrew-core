@@ -9,6 +9,7 @@ class Libdivsufsort < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "bbf20ce9184a5f8406898278ef84cc7b98fc891cbace4b6cc5a00254d7e7637b"
     sha256 cellar: :any,                 arm64_sequoia:  "e8710aed1b1bedf305651973aefa5b7b1323fb3e4fd636865974d06661c83977"
     sha256 cellar: :any,                 arm64_sonoma:   "2145e6e2de3065a7942885e0bcdb17384c0e4c52e7c946cf71df4c65f6591d04"
     sha256 cellar: :any,                 arm64_ventura:  "edc1f4556c1ca60d17bb8978df3f6e39ed61b3e0e00ba71a7361d8ca3325122d"
@@ -28,6 +29,7 @@ class Libdivsufsort < Formula
     args = %w[
       -DBUILD_EXAMPLES=OFF
       -DBUILD_DIVSUFSORT64=ON
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

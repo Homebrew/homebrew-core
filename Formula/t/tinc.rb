@@ -14,6 +14,7 @@ class Tinc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "bdab833e860c75048151b91a12eb976954b197ab0fb099390c53582a18f8b64b"
     sha256 cellar: :any,                 arm64_sequoia:  "d452247fec1d29690250c77dafdeb7cac2c945ddef7f11e19fa728563cf4f720"
     sha256 cellar: :any,                 arm64_sonoma:   "ab60d88c2bb9f1d867bc7fad3ff18086c3bb907502cc1f9af3c61eab5c633771"
     sha256 cellar: :any,                 arm64_ventura:  "9f2467372c458402453d111b49be9ebdfb5d7e53f1a3a33d32bf2c43e9cd6b1b"

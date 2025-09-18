@@ -10,6 +10,7 @@ class Libicns < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "1392fb2947748ea7d1156f9d66e18f28614106d0e25f0977ee14502e57a1201f"
     sha256 cellar: :any,                 arm64_sequoia:  "4f513b025e1f28cadb969f9546d4b9c0b77021310a3b634c0f6edf2ddcbb8c93"
     sha256 cellar: :any,                 arm64_sonoma:   "2da2b5cfc0aa4e79abe85f5794115e41709297c1d6d813c04ebfc5776e974b39"
     sha256 cellar: :any,                 arm64_ventura:  "144537e569ff40707cbb02a4d5d14592bc001cc7eff0e21f102dfd6c36908689"

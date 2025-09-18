@@ -1,8 +1,8 @@
 class CaCertificates < Formula
   desc "Mozilla CA certificate store"
   homepage "https://curl.se/docs/caextract.html"
-  url "https://curl.se/ca/cacert-2025-08-12.pem"
-  sha256 "64dfd5b1026700e0a0a324964749da9adc69ae5e51e899bf16ff47d6fd0e9a5e"
+  url "https://curl.se/ca/cacert-2025-09-09.pem"
+  sha256 "f290e6acaf904a4121424ca3ebdd70652780707e28e8af999221786b86bb1975"
   license "MPL-2.0"
 
   livecheck do
@@ -11,8 +11,7 @@ class CaCertificates < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "e74a63e172f75fe700f74875b91217668065af5dd8f6f624315fa9e7f890be40"
+    sha256 cellar: :any_skip_relocation, all: "a74a274a402f29cff2e1bb595a5253c20d7503a086175d57f7081821540203ce"
   end
 
   def install
@@ -70,10 +69,8 @@ class CaCertificates < Formula
         -l -L
         -c #{tmpfile.path}
         -p ssl
+        -R offline
       ]
-      on_high_sierra :or_newer do
-        verify_args << "-R" << "offline"
-      end
 
       valid_certificates.select do |certificate|
         tmpfile.rewind

@@ -13,6 +13,7 @@ class ArmLinuxGnueabihfBinutils < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "5d35ae39bdf28bc71b5043ca0ee5c224a00535e9bfc991d1a2e0cb81f7c11e81"
     sha256 arm64_sequoia: "37eb2bbc064e560614b3bea589ccfc16323bf5b437befeb343869350f077b10c"
     sha256 arm64_sonoma:  "eff2bd1e8b7d29e647aef8f13a928f869f2aef7130d09ffd069b948c0d7fd5ca"
     sha256 arm64_ventura: "5ec2f35a507d2013b01cff81538308aa0feb514308f15639c01e0ae175fa19c0"

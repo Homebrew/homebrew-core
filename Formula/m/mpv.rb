@@ -14,10 +14,17 @@ class Mpv < Formula
       url "https://github.com/mpv-player/mpv/commit/26b29fba02a2782f68e2906f837d21201fc6f1b9.patch?full_index=1"
       sha256 "ac7e5d8e765186af2da3bef215ec364bd387d43846ee776bd05f01f9b9e679b2"
     end
+
+    # Backport fix for old macOS
+    patch do
+      url "https://github.com/mpv-player/mpv/commit/00415f1457a8a2b6c2443b0d585926483feb58b7.patch?full_index=1"
+      sha256 "4d54edac689d0b5d2e3adf0a52498f307fa96e6bae14f026b62322cd9d6a9ba6"
+    end
   end
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "106cc0184a6703e9c3e9a4b3662b3a65da4e64c8a2e43218d1fc19493cdecdb8"
     sha256 arm64_sequoia: "2a72093cc0689a0c6341b7abc942ba0ec802490c807ff764ac20edb6f0ead270"
     sha256 arm64_sonoma:  "8247120427ca93debacb0b079ba30dd9d233e8f8f0705e9a82899a4fee833157"
     sha256 arm64_ventura: "20afc0a4fe70131481e5a8fcd91a803806965bb76e106a326eae6ee5864bce2f"
@@ -54,10 +61,6 @@ class Mpv < Formula
     depends_on "molten-vk"
   end
 
-  on_ventura :or_older do
-    depends_on "lld" => :build
-  end
-
   on_linux do
     depends_on "alsa-lib"
     depends_on "libdrm"
@@ -89,15 +92,6 @@ class Mpv < Formula
 
     # libarchive is keg-only
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig" if OS.mac?
-
-    # Work around https://github.com/mpv-player/mpv/issues/15591
-    # This bug happens running classic ld, which is the default
-    # prior to Xcode 15 and we enable it in the superenv prior to
-    # Xcode 15.3 when using -dead_strip_dylibs (default for meson).
-    if OS.mac? && MacOS.version <= :ventura
-      ENV.append "LDFLAGS", "-fuse-ld=lld"
-      ENV.O1 # -Os is not supported for lld and we don't have ENV.O2
-    end
 
     args = %W[
       -Dbuild-date=false

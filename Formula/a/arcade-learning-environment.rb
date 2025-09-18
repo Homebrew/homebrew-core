@@ -20,7 +20,6 @@ class ArcadeLearningEnvironment < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pybind11" => :build
-  depends_on macos: :catalina # requires std::filesystem
   depends_on "numpy"
   depends_on "opencv"
   depends_on "python@3.13"

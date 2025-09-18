@@ -10,6 +10,7 @@ class Libblastrampoline < Formula
   ]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "02529f6d1e6a9e96282b010920aa60584677c57fc169e0843947ad8fb1a68a59"
     sha256 cellar: :any,                 arm64_sequoia: "321796555ea966414963f103e363b2763f50f8bc7cd3af5a427e9b7c5019b7f4"
     sha256 cellar: :any,                 arm64_sonoma:  "2b2ca33deeb68457c7a163db9f38e6aa2ba0c63f641968d63579aaaf26c69825"
     sha256 cellar: :any,                 arm64_ventura: "5131ca461fc9483dc2c058333998ba84b3d82bddb6b649164cff08cdd88cd5f5"

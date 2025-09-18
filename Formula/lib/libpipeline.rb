@@ -11,6 +11,7 @@ class Libpipeline < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3123efab5271d992b2d9aaf9a40465e7ff0dad00904eaa590bae9fbf6f4b4ddf"
     sha256 cellar: :any,                 arm64_sequoia:  "f67581fe73ae3c61a464f81517ad552826b5fa3583c5c6eb03f3da49cf514aee"
     sha256 cellar: :any,                 arm64_sonoma:   "4b787bff3015387a503f742b68c364dad56e0af8d31a6a8935223bc65aad6015"
     sha256 cellar: :any,                 arm64_ventura:  "0cc8c97d57a3b87b05aae33064e6c0da47423dc55b805045d867ef066e811911"

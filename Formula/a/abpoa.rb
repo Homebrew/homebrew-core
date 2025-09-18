@@ -9,6 +9,7 @@ class Abpoa < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44928800cfa6cfc490c4c3099c2908d8d69d4a40be057ab916b8754b54576466"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d23123224da086f407a2026aed50483642b6cb1cd773a95677e8823a7d203f7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c32ab54105465ce6413049fa3e0b61751b4380ecd7f9cb8e871d7aaa4fd0fefa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "be037ac65bb330b3c0346a0a73b9a52cd409c5d445bf5ea3b342c75937b6ff70"

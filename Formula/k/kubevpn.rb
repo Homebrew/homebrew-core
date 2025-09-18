@@ -7,6 +7,7 @@ class Kubevpn < Formula
   head "https://github.com/kubenetworks/kubevpn.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e6c82409a45d81b66e3fa87aeaf90522b9ebad5c493e7049b0b29eb82daf66d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "72931f97f1f5bdce3e8df74e98013e9e05ca727f3b9676dc28ee07ee816e149a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc7589b468b9d7ae04f172a6c169cf797c1fcd952c5fd794914debc727576cf4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0590cb9e03ebc6e653382b429d4a8cf1de4ffb4edb65fc242fc8ac389150fa28"

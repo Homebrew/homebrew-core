@@ -7,6 +7,7 @@ class Hebcal < Formula
   head "https://github.com/hebcal/hebcal.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8a92ca04c74a873532776fff1f32d6c21ffb033a149e2e5b2488683f61c886b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "068663f85deb551bc6a8b41b3457c6169c295c91b32fe2f34ffe32afc15ff41d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "068663f85deb551bc6a8b41b3457c6169c295c91b32fe2f34ffe32afc15ff41d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "068663f85deb551bc6a8b41b3457c6169c295c91b32fe2f34ffe32afc15ff41d"

@@ -13,6 +13,7 @@ class GitLfs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ff72ab9dc96c3236a7411c61f362956415cb6fbb1f138611399bded3c18b93d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e905231194b4144c52b981a2a52868f6fb2c8ffc27099a0771362dc45890879"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e905231194b4144c52b981a2a52868f6fb2c8ffc27099a0771362dc45890879"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1e905231194b4144c52b981a2a52868f6fb2c8ffc27099a0771362dc45890879"

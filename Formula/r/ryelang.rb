@@ -13,6 +13,7 @@ class Ryelang < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca7c843fc3cf92446dac2674a978bd814596eb2b039031d71632c0dd501924a1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad49d5bb66d84b1aae60b31b3cec27dbf854675ca29e3a8449a4c7506e8779be"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc42a012fa02c805dd960b54c3e7a93b5e5620f07afdb21ad1254594596aeba6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3ea69c42fb3de4913149dec330aba0698b5b8219b49fb73adc70725b985d1f1b"

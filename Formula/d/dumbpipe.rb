@@ -6,6 +6,7 @@ class Dumbpipe < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b7cf4e95b2cd8c19fd6fd757242e1c595e984582a3d7a001a0210798a83d1fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8da355eab9b6d40fd0af7e17e6b2836d607d9e03435bf2a2f783c2e146903ab7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1dfbb7339265641e4ace1727824e981204118ce52f221b1e850c1097f8ade261"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "315cd7b67781cc009c5426993cb28d486bddd3e242d5ff56ce7370cec725e4fd"

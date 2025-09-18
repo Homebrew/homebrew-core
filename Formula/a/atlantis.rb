@@ -12,6 +12,7 @@ class Atlantis < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f20c3b051685d8fa515b674454baec5bdb43e83d4216355b6ee654fcb2d992a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ed09fc58baa9d4e4e7764c4e4ba6b2bcee0199884419bfaed6b07e9322d6233"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ed09fc58baa9d4e4e7764c4e4ba6b2bcee0199884419bfaed6b07e9322d6233"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6ed09fc58baa9d4e4e7764c4e4ba6b2bcee0199884419bfaed6b07e9322d6233"

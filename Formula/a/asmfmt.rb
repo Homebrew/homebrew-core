@@ -9,6 +9,7 @@ class Asmfmt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d9bde3ea9f89546ebccfec0cd65ee0afa6b9a11656285d71c21fdbf37bbec50f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2c6bd7b97cd140278a84fc6f839c13b5ec3f6baced91eb0cba54601959f87d5e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6204249317abd8ab8e64945e5f2604d4c81f1945a1bfecf6afc8cffe08df5bb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6204249317abd8ab8e64945e5f2604d4c81f1945a1bfecf6afc8cffe08df5bb"

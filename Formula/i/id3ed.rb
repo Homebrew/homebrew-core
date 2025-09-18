@@ -16,10 +16,6 @@ class Id3ed < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "a4e6c6805d84b99c9302f9656e19c6430489d6518ff154f6983e2319e5d24c8f"
     sha256 cellar: :any_skip_relocation, big_sur:        "a560e42fb11482b14d22079ffa0ffb2dd2307f5e740b22acd2636b4fa6e4a307"
     sha256 cellar: :any_skip_relocation, catalina:       "9520d236327bce01cc292421934e19476163d8d72b4848740d3067cbc71b2572"
-    sha256 cellar: :any_skip_relocation, mojave:         "2079b26fd26395f4eb016c61afafa007045d7b87b5030b05650705959c3bd87a"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c31762b13640d1e9713ea26df41d5e9cb675a8d3565cd84b70efc526663ddfb8"
-    sha256 cellar: :any_skip_relocation, sierra:         "e930552e37599e7926efebaf0d893f888576a26bddef6a91e356cf1b5de15b9e"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "6448c8e19c8e0874ed5141193c7db06c443ac6c33ab2f6bbe8811098b063c0d1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0955550881e7f35fdf76fe198de7f2c1908d749978587c55cc9b5574ddafb2fd"
   end
 

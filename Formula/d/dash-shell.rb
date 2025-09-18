@@ -14,6 +14,7 @@ class DashShell < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bb6b395b28022caed67497213f483589256a9c9d3a818bd277ab2caa699ab1b4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ed8b5c3067b48a7ec6f8a11dbc3b76a48db45212fe136bf8ee921db004cdc6b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50cacbfd6242b8a779665b21ddaa9f4e97c08eff5e0707d095d89dee599ba676"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "348d2957ace43b03c57eddd6c2697befd3a2afef45e2d9d91deb7833b3930edb"

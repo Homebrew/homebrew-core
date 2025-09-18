@@ -12,6 +12,7 @@ class Zk < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5a40e136ac85f0901858ab4a235f1929416dfb6de1dbc7277f05f300264425e5"
     sha256 cellar: :any,                 arm64_sequoia: "e650bbd888c32d8bb28e2c2d2ae09499c4709f96001a3951df0b9e91437a659a"
     sha256 cellar: :any,                 arm64_sonoma:  "239224f8f97ad8577bbb05c2960e5dbbca09ee785e77113a86ddb0cc07ca02e1"
     sha256 cellar: :any,                 arm64_ventura: "d2fa155687a35473b7194340e0f2af26fdd2e65d08b34f9e047ca826d8cacbd4"

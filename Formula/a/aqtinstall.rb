@@ -10,6 +10,7 @@ class Aqtinstall < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9963ae266fb26b68601140d9a4ed354993dafdf5b358bb25548d521f46d430da"
     sha256 cellar: :any,                 arm64_sequoia: "170f2867a408722bc2e3c71ac63f6f6bb7f0f0f5fd038c7638c49b123f2d5d10"
     sha256 cellar: :any,                 arm64_sonoma:  "c90beaa899ffc527e3b8addcbd9a606d5f42c1764044d474bbef24e9e2c3a753"
     sha256 cellar: :any,                 arm64_ventura: "d1b35a40f68429035fb99008287279e5fab8f1e65a75a899fb5263e47cf22a3d"

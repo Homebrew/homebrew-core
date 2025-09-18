@@ -8,6 +8,7 @@ class StylishHaskell < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "636a0426df19f6ff5e1bf0ce1256bf57b69c9e8563653e984bce28d75a04c6c4"
     sha256 cellar: :any,                 arm64_sequoia: "cd766c7c8c5cb06debbe9c331916280058dfa6245a8a22ff3b055859dc982909"
     sha256 cellar: :any,                 arm64_sonoma:  "7a470983136a1c6ec36b477f9dfac734781afcf907a33d85d83d1faa17bb5501"
     sha256 cellar: :any,                 arm64_ventura: "44d4be8b570687514592eef731c60ad2f34e6e48d6ee57141ae90eaa28d89a10"

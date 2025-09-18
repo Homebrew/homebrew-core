@@ -24,6 +24,7 @@ class ServiceWeaver < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cc49ca39bcb55555be333c8ab54c3649cb989e82d04e3d743b1fcc690f26c867"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "76c861065b7ebf0afb19189eda629198c7f2626911edc540aae08660f06a1345"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4bf175089ed43e869e3553de0ae5a3b498e9cc796745ce14fa9e2b919273413"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d58a390f9b42bc7dcd1444399ed11b9a23a2b78c29e62caaf0a0a5963a45d858"
@@ -43,7 +44,7 @@ class ServiceWeaver < Formula
   # upstream announcement, https://github.com/ServiceWeaver/weaver/pull/804
   deprecate! date: "2025-06-14", because: :unmaintained
 
-  depends_on "go" => :build
+  depends_on "go@1.23" => :build
 
   conflicts_with "weaver", because: "both install a `weaver` binary"
 

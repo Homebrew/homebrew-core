@@ -13,6 +13,7 @@ class Kraftkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "168d1c9d8eefc670572499de24ff8ae9916d44b2d805b32e116f27c063610195"
     sha256 cellar: :any,                 arm64_sequoia: "92dd7cf9b0a6ad13250d0e7336f05618a251b117d7506697f3b28e86a1b6d342"
     sha256 cellar: :any,                 arm64_sonoma:  "0b3ee8d9088d401fc36b4aaa578c0c5bccf58063c309cc71b2c31244fce53868"
     sha256 cellar: :any,                 arm64_ventura: "8812421ccc67f74a2530388fd2b3f4f8d8b50567862dbe016423ce36139231eb"

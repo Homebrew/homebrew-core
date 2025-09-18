@@ -13,6 +13,7 @@ class Hypre < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "611f26f8b27465513001a968d557b00fbd50c8a0c08d35b47f3673b5540da7d1"
     sha256 cellar: :any,                 arm64_sequoia: "beb3d2c609d542c1a74709ac01faffc25148b0e052a617342bca693b18241823"
     sha256 cellar: :any,                 arm64_sonoma:  "03aaacdf60bc773d746538b5e6bc5815481af39d8dbe2b554e75d6f5f32424a2"
     sha256 cellar: :any,                 arm64_ventura: "324360d183876464b8ccf254e668820d0287b29cfaabcfabc2b228402d9fdbd0"

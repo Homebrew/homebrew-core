@@ -14,6 +14,7 @@ class Opendht < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e8a9650c75c5705c119f3196861bee82bcd6f653c5ab524ce29b4a0fee3bb963"
     sha256 cellar: :any,                 arm64_sequoia: "56f5294046b2b8a74fe25b45fbe88caeeffb844463bf9f03424105978f0377e1"
     sha256 cellar: :any,                 arm64_sonoma:  "94f53cc5e5ac2167d8f317085a5a225ae63455e8f81a00ef60ec6643502a48f8"
     sha256 cellar: :any,                 arm64_ventura: "956755cef008d6edbce27a90184fd7b1c9119ea2d1b4fcc9fdfbd95765b4d319"

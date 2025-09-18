@@ -2,7 +2,7 @@ class Qd < Formula
   desc "C++/Fortran-90 double-double and quad-double package"
   homepage "https://www.davidhbailey.com/dhbsoftware/"
   url "https://www.davidhbailey.com/dhbsoftware/qd-2.3.24.tar.gz"
-  sha256 "ad6738e8330928308e10346ff7fd357ed17386408f8fb7a23704cd6f5d52a6c8"
+  sha256 "a47b6c73f86e6421e86a883568dd08e299b20e36c11a99bdfbe50e01bde60e38"
   license "BSD-3-Clause-LBNL"
 
   # The homepage no longer links to a QD tarball and instead directs users to
@@ -13,14 +13,12 @@ class Qd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "c6e67bc502536e759253deda5d9768807ec776f463adc65b1bd5949d7fb4fa0c"
-    sha256 cellar: :any,                 arm64_sonoma:   "2d6c0fe69adbd654ff4c13130bce14f46e7fdb3d594b260c7236b32a3bc55a7c"
-    sha256 cellar: :any,                 arm64_ventura:  "ce4f6ee31dd29ec69e078441f3aba096597de505b0b0098fccb8cb2a6a0edeb8"
-    sha256 cellar: :any,                 arm64_monterey: "a77fe42799177e1e4eb2ab359107d450cf3d9cff86f00ddc1bae02330a2e2962"
-    sha256 cellar: :any,                 sonoma:         "2a13b392dc4c3b7ebe4d016839378fa40f91c6329e883ca291e4de2b8b8234e0"
-    sha256 cellar: :any,                 ventura:        "c1b6d2b69e6105e815ea8e097483db818ca57de111e79890b01254f807094f04"
-    sha256 cellar: :any,                 monterey:       "4153abaea2631b5f77092cdc3916e76e5b612306b5439e8b7ade5c7ed086327f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2849d06e8b854584a38e5ace7959467baa93d2bd1816b13b031f25bb97b2b4dd"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3ca655810301b79586645117410defae98de1cd731c33980836abdb4d35d8515"
+    sha256 cellar: :any,                 arm64_sequoia: "1cbee32662495e167dce863c774fdd9aa87c4ee3650da5da477daccdc685a46e"
+    sha256 cellar: :any,                 arm64_sonoma:  "24301f8d2b3266a495fa80163ee64a56322d4445b42232c214fa2a58a8907644"
+    sha256 cellar: :any,                 sonoma:        "62f94278c224f2b052894b132fb33bbf77ae1b12eb2c505416337cf66895b629"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdae75a75becb67577f375febf3594bbed031f7197252360234cc1509c6e14ef"
   end
 
   # Drop `autoconf`, `automake`, `libtool` when the patch is removed.

@@ -7,6 +7,7 @@ class Microplane < Formula
   head "https://github.com/Clever/microplane.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "18f31cd7526586a56ca273eb22776d1b3a1236520d3d450dc21efda19d56293d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d3f92ce6eb78de3a8789aeb12afe4c021c98c0c257bb46519a5a85fb725d02a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4d3f92ce6eb78de3a8789aeb12afe4c021c98c0c257bb46519a5a85fb725d02a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4d3f92ce6eb78de3a8789aeb12afe4c021c98c0c257bb46519a5a85fb725d02a"

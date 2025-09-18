@@ -6,6 +6,7 @@ class ActRunner < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a0cfa9e0ffbab45375a67c81cc5ce165fdfc99317724052adfaa8b11e20c531"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e525763dffbc8e994cb4d45a953a9831c2a55157c0f69594a756f8c430ce91d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e525763dffbc8e994cb4d45a953a9831c2a55157c0f69594a756f8c430ce91d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8e525763dffbc8e994cb4d45a953a9831c2a55157c0f69594a756f8c430ce91d"

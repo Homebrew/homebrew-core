@@ -7,6 +7,7 @@ class ClickhouseCpp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0654e0226efe59eb3660e155e851b6aa8cb522e5457a60d44008838f936114e2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "99586f86f929be3f524a69be3e1ad4fd4bec9f25fcb3f55d3f7401753cd068d3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "10b3d4147d44d1850c64c5593e57113b6ee0f646217bf73098ac0c63a254378b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dc32dffac451b190139c200241b37b0b6d7e0835efdbb74156552451b8b57377"

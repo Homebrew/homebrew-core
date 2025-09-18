@@ -16,6 +16,7 @@ class Cdrtools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "f288c36da4a1fb214eea796214193de02c0193d7e1237829114fe5b978e5e0f4"
     sha256 arm64_sequoia:  "12e1334974f92d034d839c30e8d1c4ff5d8a5e7341ae9d2f4013cc6bd1b73859"
     sha256 arm64_sonoma:   "ed19c02f2ca445c89d139595e826a29bcfd41dba4c8e67c461b86deaa277af14"
     sha256 arm64_ventura:  "5bce367688103071cb34a38002f0c2dc767b3e55912c2605e27c705013ed3285"
@@ -26,7 +27,6 @@ class Cdrtools < Formula
     sha256 monterey:       "464dd4f91af02239f99ee4f67109ffd830efdd8eb51e409649e352fe4946e74a"
     sha256 big_sur:        "dd2f2609309ef54a2b9289ef79032222714f01c86ecb280d8d79ebc520488ae6"
     sha256 catalina:       "411c2dc1a6931d3c7c299d7c9d73129efbf45a39a421518158a3852de554fcaf"
-    sha256 mojave:         "4669f544745a05b8ef4ffd9bc1ea446ef7cda4c98f32b26279c81af803f1ab7e"
     sha256 arm64_linux:    "a4ccf338b3311fd3f83255a94da5bc352d00e458deb031f311c26a7b1b48206d"
     sha256 x86_64_linux:   "4933b72c86f84c6378d621ecc1e5ac26621ef8b5b8e890b0841d389edc64db12"
   end

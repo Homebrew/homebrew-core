@@ -7,6 +7,7 @@ class SequoiaSqv < Formula
   head "https://gitlab.com/sequoia-pgp/sequoia-sqv.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "568055ffe201b99282b0109f992799923d0b7ddb91d07a8b4f316ebeb22f4fc0"
     sha256 cellar: :any,                 arm64_sequoia: "5e55783ed124a3414dabd9e6621462b146b6056f195c89295ae63fbda89e6cd5"
     sha256 cellar: :any,                 arm64_sonoma:  "a9b453a25fbeddfc5705d07fba41b082709c3b26727f72c9db0960ec6ec2bb54"
     sha256 cellar: :any,                 arm64_ventura: "fb6f4007a7cc381ee7fc39150cc08000b3c4b0d6c61ab5f771840d15522f5abb"

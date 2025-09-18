@@ -17,9 +17,11 @@ class Cmake < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "35b936843d26201af2b499ad5507596d11ff4b61bedb4ba22580a6be80afdf0c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "15af42c171e6914039f7188154145d20484a565bb43b308be9efbdcc893884af"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b6b5cb55a60137a94014ff1f0e98848c2826b80bc702b32526646b23e31e26a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "afa66498af1f31e12b55a94f1b786fc605bf917dd81a31a89ad6ed912548132f"
+    sha256 cellar: :any_skip_relocation, tahoe:         "70adc28e06bcf933d8b4bf21c3801383b0f82393c204c8e8726e61a1ec8a6e45"
     sha256 cellar: :any_skip_relocation, sequoia:       "f95d6553376b9c884231ea983dbfe84b5fc52235d4bc6bcd04d7b021f350f248"
     sha256 cellar: :any_skip_relocation, sonoma:        "71d655618f8b73b081f2d0a5ae0751217602afc46dc6f3327f7d05c0dbdb66b1"
     sha256 cellar: :any_skip_relocation, ventura:       "f1690bc671690a62165cf3bff9ee537b538c90fb8ba61d36a62ed373ca043399"
@@ -42,9 +44,6 @@ class Cmake < Formula
   # For the GUI application please instead use `brew install --cask cmake`.
 
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :high_sierra
-
     args = %W[
       --prefix=#{prefix}
       --no-system-libs

@@ -8,6 +8,7 @@ class Stoken < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "50574ec281fdb4bdce8082f2c97aa52b786cb608efae7fea65338023542b6ee1"
     sha256 cellar: :any,                 arm64_sequoia:  "07719ef72ddd93085d5cea66cf89371b128668f37532f9996d595f7280f46ef7"
     sha256 cellar: :any,                 arm64_sonoma:   "ef8f9c9c4a3edbf707c41392dc366204f0a65ed60420b192108cf20f5a84c18e"
     sha256 cellar: :any,                 arm64_ventura:  "d8f2d8b3a88c1361a7f82da8aeccc3272f568d9ec9fb031dd547f76bc865d76e"

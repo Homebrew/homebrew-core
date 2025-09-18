@@ -7,6 +7,7 @@ class Gdl < Formula
   revision 1
 
   bottle do
+    sha256                               arm64_tahoe:    "5ed4ab5773b48a89064e5e421b83e4aa4241893a486e1efceeab697e5a57c0af"
     sha256                               arm64_sequoia:  "2e9f8f552db78335d815e67a085b8d26e42002308d0b138ec1dbdf9aba2b232f"
     sha256                               arm64_sonoma:   "1cfd6543098b8fbd77e7fd87c1c16f37d6f486c50323e39bf2d52605409b0f11"
     sha256                               arm64_ventura:  "d896433e025e9c24f986d70fbd82afca5692a82a1a94613b6f4542f341a9896d"

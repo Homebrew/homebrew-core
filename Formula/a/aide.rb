@@ -6,6 +6,7 @@ class Aide < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a947c75c477cf411400106de11a991089a34c6078ddb353c17fe93425f546468"
     sha256 cellar: :any,                 arm64_sequoia: "9e5b60be5b1430a10b7c986292bfec5197b6c7af149ee8c599cec7c65309d264"
     sha256 cellar: :any,                 arm64_sonoma:  "7806be9d00e0f7692ed878edae17173fad9b008501c611b48d0abb0c05055274"
     sha256 cellar: :any,                 arm64_ventura: "4ce4a584208aec836c39a954a59970511898e3cb67db66a0054be1a52f7137cf"

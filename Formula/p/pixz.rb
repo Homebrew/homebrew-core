@@ -10,6 +10,7 @@ class Pixz < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "b760a3d166ab9febb997a2e8b0b295fbbc8d5d4b50ecbc068a38e61a09ba5977"
     sha256 cellar: :any,                 arm64_sequoia:  "a92eaf0c89c34b5db225090adeedd24d26e3481d46e43eca1e94a2fdd509a98a"
     sha256 cellar: :any,                 arm64_sonoma:   "b563d62f32ca6b6382d1ed936be2bde9d83259081ff18b709ef4537d3aaa83b5"
     sha256 cellar: :any,                 arm64_ventura:  "8b8196d1d48f4104e40bd0963e7ffa5eca16e4499b746802fb55ff528e2fad25"

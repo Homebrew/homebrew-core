@@ -11,6 +11,7 @@ class Libsndfile < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7788d515f9bc665779112b28a86810a2ac4bc5fb94a763df5d1188e461efce98"
     sha256 cellar: :any,                 arm64_sequoia: "2d6a8173ef41359c3da4c78a5d5eb402846e480c509b868f671b80a17726f9c4"
     sha256 cellar: :any,                 arm64_sonoma:  "b28dda5bedf544be14e36938d2862ef2f3066a34a85158a50d414deb4a9614f2"
     sha256 cellar: :any,                 arm64_ventura: "a8be24e321ff07f12a3cef98ab42868f44fa507b11dab9c93f0f78936baea171"

@@ -12,6 +12,7 @@ class Systemc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "636747862cc01f90a034f633986ac3f39ffa107f0291f376176a3a61b2d7b6cb"
     sha256 cellar: :any,                 arm64_sequoia: "b2580caeadfaaa3e0dee957d949e24e1a7efea6d2e08a5ac5a944ed940af119f"
     sha256 cellar: :any,                 arm64_sonoma:  "3caf64beca918351c3def6491f3f44ab6d6e30944256598042c06e27f4c3f69d"
     sha256 cellar: :any,                 arm64_ventura: "2a53ee4fc148a6cff3e4dd3bc9fb90ead7473bea18330d1165df302eff50ca42"

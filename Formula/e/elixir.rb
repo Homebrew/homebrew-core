@@ -12,6 +12,7 @@ class Elixir < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a0cd4ca6c6b0d2fb33a95263449d4c2833372679d3bfcfa015118021a215d4c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6fb2d0bae633f9e674d7aded654f74e3c49023009f0035993ad3f19f24924c93"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3293088a1d6b1fe5c8b629d713747c54591c2f9cb7eb64dfe68a5d124bc7d25"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "99f02081211f774556347ea703f1b8b5a50f1714c0791fa4b760037aaccc0a9e"

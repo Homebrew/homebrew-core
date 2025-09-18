@@ -10,6 +10,8 @@ class QtMariadb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f88bc5bff4a42aa118f4083632593389030b161f2bf7d013133fa797a5322645"
+    sha256 cellar: :any,                 arm64_sequoia: "e067c54edbfd9cae98aa77e0093c6094f4a1522102620f624019414f7fbdfb8e"
     sha256 cellar: :any,                 arm64_sonoma:  "cbb411b1b7dddb367615925cb92e1c617085e8fcf2112a8634506ee1e263172b"
     sha256 cellar: :any,                 arm64_ventura: "4bc8cb1b433e25c7eea4d8d74db1ca9b01e7ef73317c23fc1d64c14b880b056e"
     sha256 cellar: :any,                 sonoma:        "1e0749cce6cc14884c6c020c22e61c54b6d2445887accf191f728e88087ed478"

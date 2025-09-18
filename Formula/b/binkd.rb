@@ -18,6 +18,7 @@ class Binkd < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f08a49cb7363be65bcc286cc198ebb24ffc83cf2b0340600ca5fff808cbc777"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "363282ef02c77db08c0963460807439902cc81ec6bf480f1fb2714fd2f0211f8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55fbf747f2e698ebf87a90b001d4bf62f9486012f860b561835a3c45730b4f97"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "18ee6019972abd32129415ce9545fbb80abf690bfe4aaa6dcd599d3ab9ab17d9"

@@ -7,18 +7,22 @@ class DhallToml < Formula
   head "https://github.com/dhall-lang/dhall-haskell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa04be536e7446641318c9d7ee241d0280b24061fda69b889a2988f48898e8b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b91f73c50c4c44ac7c5edef748f1c4f880a3ff0690ef64463f5dc04dfff85d5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b221d5914aad68c046ae8f9f0fee29cd0e74ad55f4db5fd027f334daf71282e2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "230e845fc7963e4f421247c6f7733af8a588782ad39232a446f6e1a65fccbb80"
-    sha256 cellar: :any_skip_relocation, ventura:       "a118e324119fb58470cf49f4f898f0c3a603fc3975a11b2b3f60d66eeefdabe0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0a91ba9614f2b28c79379fb9208a6aa25735985b7d79f84f75aeca830133e3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7a0839d98769280508ea3d559828b88c1a78838f21bbceb64e179f6a7078f07"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d202ffbdfbf211631563eca1903d4d0a5042a1c121a0846159b5f181b9381e94"
+    sha256 cellar: :any,                 arm64_sequoia: "f60b0a53a5b7aea1eb8971c09d147d36b6eb6ac790a58e40feb7d1da7294f425"
+    sha256 cellar: :any,                 arm64_sonoma:  "63f45b97bae8d4a1bf2a8c35d76ade363a6438c10f6dddbb7af07ced0e8b5607"
+    sha256 cellar: :any,                 arm64_ventura: "bfe459be3cde24c50eaa7cb0f40902c52ce55c96071c70b51353a33ef2a65e22"
+    sha256 cellar: :any,                 sonoma:        "79f2377d29cbb9b166c4841933e87ac9d51ee7293be86ff64c7d1ef4dfa240f1"
+    sha256 cellar: :any,                 ventura:       "d73c097010f35b7556b0111c4237cb2f646c3563932b5a188fae2e7de826f093"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4c783644bfdf7d1510ed0f7599268228e9fa70b72dde0e1491d622234e3fb87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1954c0b395d67fea8d74fdec8b544aa385e708e6063b7616e156dabbaaed9ce"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build
+  depends_on "ghc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

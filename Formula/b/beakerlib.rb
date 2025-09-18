@@ -1,18 +1,17 @@
 class Beakerlib < Formula
   desc "Shell-level integration testing library"
   homepage "https://github.com/beakerlib/beakerlib"
-  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.31.4.tar.gz"
-  sha256 "1c1a5a376e71332e350c56f3ac0433d6b7570b4583400ee1e7a4c7d9cdc5f4cd"
+  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.31.6.tar.gz"
+  sha256 "0f10799eb01625e45bbd84c0bc4fe1dda58c7dc33d207e91898cc56627fffd30"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9623f5cfcf093eced2c4e1c3695812ecf0a7db6a3896cdbf255f8b6ba44c3fad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09decd75f0914c2e34fbe97963d238a74f079e8d1ef27e82ef2e7ba41da1f9fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b6fa04c4d94639a37919652667280c6eb8e85ce78defc76e2af94450fc7ec255"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7d3475bfc5406195fc15d3cf9a88f3324ad027efb50f4381799d9c36a86d872f"
-    sha256 cellar: :any_skip_relocation, ventura:       "8ed2d0956f6ac062e613ccb3914feff88f125b3dbd8e84caa5955dec414a965f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "35add5b650f5e9beee810810748f3721a2bbdeb5bb7b167b227b8dbbffd74a48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e485dc5c3d91552a8fabf34c64dbde80caf20090009b789ded07851dfd6adc2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67c41cdb44b346377b71971b913532f6c71c9f5f5bfc3fd6b45f5fc958391880"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b0aa3088b422da626306b144531c0c4a3d27dfa6007d626528396c26c2c6cc0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae58c4f636b46fbb6180e2adf0320421a2cee7b164ca7212fd98edc1aa7f44ad"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9a35040b3c16fca97747cdc815bf33e5d207e8269bb8a1c7acb9cca010e61735"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c97853218480ad9b6d3432b8310f079ce55a9afc0c0a8e126a139cce9f096d23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8d572cdd457970cbeaba48af1bb069d027691913e9a69789ab10d5083aa3f08"
   end
 
   on_macos do

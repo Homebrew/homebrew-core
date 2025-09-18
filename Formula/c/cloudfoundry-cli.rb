@@ -1,8 +1,8 @@
 class CloudfoundryCli < Formula
   desc "Official command-line client for Cloud Foundry"
   homepage "https://docs.cloudfoundry.org/cf-cli"
-  url "https://github.com/cloudfoundry/cli/archive/refs/tags/v8.16.0.tar.gz"
-  sha256 "85614a09302f0e2ea50f2540db85b75753e1afe878f764713bbe096ddaf10021"
+  url "https://github.com/cloudfoundry/cli/archive/refs/tags/v8.14.1.tar.gz"
+  sha256 "231cdb5c10615447b122b605ff2280d734dc6d8dd82f559287415813448f70f2"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/cli.git", branch: "main"
 
@@ -12,12 +12,13 @@ class CloudfoundryCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e73429dbe58cdadecc2447d6d9fe5beefe7648430c89c1ecfceeda59d1d7baa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e73429dbe58cdadecc2447d6d9fe5beefe7648430c89c1ecfceeda59d1d7baa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e73429dbe58cdadecc2447d6d9fe5beefe7648430c89c1ecfceeda59d1d7baa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7c25d31eed8d83c11c8ffa7902b41ef47fc4167023c82aed1c4f1cbd8e4aa7c6"
-    sha256 cellar: :any_skip_relocation, ventura:       "7c25d31eed8d83c11c8ffa7902b41ef47fc4167023c82aed1c4f1cbd8e4aa7c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abcb1882322a7f51669cd3ffa2ae04ba6bbea529b1a0cd1d8eb66bd014b13330"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7f997ee1cdfeb86af40b6d2ca6cefc7369334a23cfe7668b3aa1e2c2e1cdd4c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "040d4b8bcc2b715e55c2c12259010504c5bf169a1502a3080e268ad0ca1a11bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "040d4b8bcc2b715e55c2c12259010504c5bf169a1502a3080e268ad0ca1a11bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "040d4b8bcc2b715e55c2c12259010504c5bf169a1502a3080e268ad0ca1a11bc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "00ad7b993423c6e8505ca1f02b5c883c762557a072817afa5429bd4e66e7267a"
+    sha256 cellar: :any_skip_relocation, ventura:       "00ad7b993423c6e8505ca1f02b5c883c762557a072817afa5429bd4e66e7267a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c498a547bb200f0950495d1f7bf1466c5fce72c111ab78510e39462669274f9b"
   end
 
   depends_on "go" => :build

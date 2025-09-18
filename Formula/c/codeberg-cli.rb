@@ -1,19 +1,18 @@
 class CodebergCli < Formula
   desc "CLI for Codeberg"
   homepage "https://codeberg.org/Aviac/codeberg-cli"
-  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.4.11.tar.gz"
-  sha256 "15e637ebf3cbac0bfc4175939753db14f3536c8fb8b1ef57da3f93b14553f73c"
+  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.5.0.tar.gz"
+  sha256 "61ef60a161e77b81cda5fcb0c2878f8d2a8acb7d47b8e9d319ba1e773644f1df"
   license "AGPL-3.0-or-later"
   head "https://codeberg.org/Aviac/codeberg-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cd4dbc05182ca3546f636e0adeac3b23c187fe3ee64666fb54a03e0b213601bc"
-    sha256 cellar: :any,                 arm64_sonoma:  "b7aab4dc62e541c5829689a7772881f75e9f84c6c802a983695584780d4c20cb"
-    sha256 cellar: :any,                 arm64_ventura: "8406ae43d5de60f8ba5c2d29f012c19b770fb4864ed276f14b3e79b2df70baf7"
-    sha256 cellar: :any,                 sonoma:        "b6a10266f12cc59094ebec6ccfe7cd4e8dd2b60e63003c6d4d6f914b651a888f"
-    sha256 cellar: :any,                 ventura:       "8eb3120448b7662097e091f060860d9e83786925e346973850281eca92665d73"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e783102e9bc4a84144cba4341f6c73819be53c7e119efa1b1a334b1b3cb8a98b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a02de1c89ab410a520b842500995aad13b214475f16cf7b9be504351dbcca54"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "799c3a3470daf5688ffd618b60d745e84cfe20c85e65091021ac1aaa67349db0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c77f7b8ad61876c63da8fb21d00e5f6954566f582aba19f14b3e1bb0d832991"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a08fdb239a93dfa87775798a1eb4f1d395aa08a31e90a04f6243dd6d2ea78337"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0b1f5170503ce10eb5110a532be31a23c3ba44c211df6f685c4f334343cebf27"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "25a03ecb3864db2a9a98390bba56f8c1531fe5c9421d96ef453deb9490baca3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b460065020e4d7f5bffc93fbe3babd6146a9001758c4cfcd58c889339f068d2"
   end
 
   depends_on "pkgconf" => :build

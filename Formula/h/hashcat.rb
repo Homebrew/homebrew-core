@@ -18,17 +18,16 @@ class Hashcat < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "6807408d8e4eb4e901f14c1baa48334bb844f7aff7fcea4c6ba00db50080cb07"
-    sha256 arm64_sonoma:  "b8dcac2e345c3b68845b90313d6e0d6f022a242c315aad9b1a52552ca379c900"
-    sha256 arm64_ventura: "f9659f72bd628b84ddc68f053aacc71303c7093e1c3838870c8ad6fb85d02fdb"
-    sha256 sonoma:        "9ef21965d41379bdb82c91ca38d04cf7c48e4e7e2ff4dda8f3a93e1464e109ab"
-    sha256 ventura:       "5fca6952bd7d468f9a5e3d9b2754fb00f5e522aa4b183cc90c157568ca00e40b"
-    sha256 arm64_linux:   "8d63b4b3b974815f6e9de2e9c833e2e747d64e90302e418a9476b84043e8ef03"
-    sha256 x86_64_linux:  "f5390dd3106e338eccd2fdd513fab9533adc2c7da17ddfcaf2b42758eb3579fc"
+    rebuild 1
+    sha256 arm64_tahoe:   "04938ddb4f29ca141392fcbef86f0c56ef4a1ff7ee443df0dc9330bd37613458"
+    sha256 arm64_sequoia: "176202f95fd8029106c44ab68cccca4e16b1361bb57873fbef2781ac32f05246"
+    sha256 arm64_sonoma:  "491d1d4b437d54bf68ac5209b9af93d00305789ba55a1292aa3b7a9c3b019c11"
+    sha256 sonoma:        "93f83e9b2b9f140d92b8717cd06c05ebb72b8f6ab1abbe155e48a108bdb55ea8"
+    sha256 arm64_linux:   "7731ba769d810587420d468e1518c17114c9b0340fc446cb18c6898587772de5"
+    sha256 x86_64_linux:  "c6313e643cf002cf3c16b9b075fe5c01880dac49301efcad3960c5023399e322"
   end
 
   depends_on "python@3.13" => :build
-  depends_on macos: :high_sierra # Metal implementation requirement
   depends_on "minizip"
   depends_on "xxhash"
 
@@ -64,7 +63,7 @@ class Hashcat < Formula
     ]
     system "make", *args
     system "make", "install", *args
-    bin.install "hashcat" => "hashcat_bin"
+    mv bin/"hashcat", bin/"hashcat_bin"
     (bin/"hashcat").write_env_script bin/"hashcat_bin", XDG_DATA_HOME: share
   end
 

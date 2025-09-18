@@ -12,6 +12,7 @@ class Kakoune < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03936d0c26ebf7cf2b8dcd6bdbfc7e5c91161451613ff9ed6e65a006d56456fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "52ec390affc0aca70a37bd33a836f66e8f77a96fcc26a37b7777ed5c3f73acba"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "336e9e558392f3bb81120d5c375aae69b53616d58040c3ae82b03a01068d0541"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "25ce4465344272466a956d0bae5e15fa9e667567a236efbd0bf89554e6cbfdf4"
@@ -21,7 +22,9 @@ class Kakoune < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd10c0b50a1c649bc8512af7615575e9a233277c3ed7780d51dc5daf76820060"
   end
 
-  uses_from_macos "llvm" => :build, since: :big_sur
+  on_catalina :or_older do
+    depends_on "llvm" => :build
+  end
 
   on_linux do
     depends_on "binutils" => :build

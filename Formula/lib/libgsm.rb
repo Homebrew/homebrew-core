@@ -11,6 +11,7 @@ class Libgsm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "467a477395955a57baa2c5dbf6f569d9954e11f4345709ebcf1bfe5a97bfbb1e"
     sha256 cellar: :any,                 arm64_sequoia: "658ac922d39d58336a7e0b2a98674de725a9f56d861a5375c1b386fb213e3d74"
     sha256 cellar: :any,                 arm64_sonoma:  "8f156675b7d5842149a55b6db6f094814d6b0420b6b1a12352597ab48db5907d"
     sha256 cellar: :any,                 arm64_ventura: "92acf1ef6c9554599abb3350fd3dc1c8ccfe6b640a321c3e91b5a31cfb3df5f5"

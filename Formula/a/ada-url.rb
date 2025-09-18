@@ -8,6 +8,7 @@ class AdaUrl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "32ec226a8abf1d5fe81d4e9b4ea207af0e6faac5473820ddbae67ff09619bec7"
     sha256 cellar: :any, arm64_sequoia: "efa1ad50cbbefa23cfc229055732e22cef47900b66fa3578624dd15b7ca12110"
     sha256 cellar: :any, arm64_sonoma:  "2da93d743e1bb7e2b2c73e54e6a4e55704d5df75b93b0bcc698545fc4ef05b99"
     sha256 cellar: :any, arm64_ventura: "2c6cbed3dd1e562fb171721fd77311d4162a7132fbc75a97b685c4d990d8a2e1"

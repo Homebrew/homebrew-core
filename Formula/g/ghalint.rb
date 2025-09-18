@@ -7,6 +7,7 @@ class Ghalint < Formula
   head "https://github.com/suzuki-shunsuke/ghalint.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "45b204924b2a85500f881e06bb3196484c381d965e3cd72357b44618230a6bb7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed279b0a5822563dd39b43662ac04497b50fed43b3e137d2d65cde5fb968596c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed279b0a5822563dd39b43662ac04497b50fed43b3e137d2d65cde5fb968596c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ed279b0a5822563dd39b43662ac04497b50fed43b3e137d2d65cde5fb968596c"

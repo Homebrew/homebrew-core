@@ -11,6 +11,7 @@ class VapoursynthImwri < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "cc90cc4f2d65c9f885c7fe4557766fdfb19a868f1a6ef9166803851a3fb8d798"
     sha256 cellar: :any, arm64_sequoia: "05e577ee12e4337fb9af5870c39c485e5e7a5ac4b56365361e9c2e7e35eca388"
     sha256 cellar: :any, arm64_sonoma:  "2bbe0c55617799e49cfd693a838565894dc7ecb5fbcaef0b72e9103da674999d"
     sha256 cellar: :any, arm64_ventura: "8795d8f3142e89ca1785f5d83312ab82ae4c24dc0e92b54aae294dbca1d14d0c"

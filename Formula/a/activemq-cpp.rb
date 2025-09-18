@@ -10,6 +10,7 @@ class ActivemqCpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a0f11adf35cbc7f7295a0d056b8255af8d54bab66c242fa31704f54070aaa1a7"
     sha256 cellar: :any,                 arm64_sequoia:  "9662d2f91d16d3077aabec66a532efde437d18987dd1a7be434e3c118a5e1eb9"
     sha256 cellar: :any,                 arm64_sonoma:   "9c0b1a20e016293fcd540c357d6d879c82446c00720b447ae4e1ee1d1eb546ad"
     sha256 cellar: :any,                 arm64_ventura:  "9b637874d78138b4debd3b45d1bbd54d79babf16bfdfbf9acc340103208262bd"

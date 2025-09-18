@@ -7,6 +7,7 @@ class Sdl3Image < Formula
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e05b526d9b2985d155391c14c123e2a744357539340c7dcf930c73790637e255"
     sha256 cellar: :any,                 arm64_sequoia: "784b36fb3b932e3001d88f6bef9922b70ed8f39a24262dbce396224d15bab222"
     sha256 cellar: :any,                 arm64_sonoma:  "40e186a16a24afb506bce144f202e557360eac08062f03af5f5b1ebcb68ddac0"
     sha256 cellar: :any,                 arm64_ventura: "e573dabef0b0281c03906bdca0dad06fbfeed385562e9b77b0d89e1dc0152f66"

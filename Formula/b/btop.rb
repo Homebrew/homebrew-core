@@ -7,6 +7,7 @@ class Btop < Formula
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "58587be87eff4e4808aa321ac2a3bb71b3276338c3b955c26a62d370e305770b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "655e862017b804e7b2fde1e2f17ffe6ef46aeb5a78420580f6a270c4d6848dc6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68463d104e1118065a6ffb81023e5cebed60b750da50619a789d85fda1b1802c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c06dd1736087586d1bb463d6ad4597dc37d972ae3c2e3f013e6bb5fda99f2044"

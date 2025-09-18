@@ -20,6 +20,7 @@ class Objconv < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "951098c346387a5bf69bad728d32a55e841f1271fe24ed92cb5233be23ba1286"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3f2031dd481252fccd85513a7ccb457aed4ca0ed6451da911bbe383a80a3ba0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3dea48ff70c11046b0c6ab661a0efb191261514c486b30ae21bd91908b9c438"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1f7c973fc476b706d1be47e0e67f9219cf712fbf5cb99c4b4faf7aed158c6b85"

@@ -8,6 +8,7 @@ class Hexd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "78fb673214aece803927239e51d3b92a134d2dc71bc13bfec30a41cf49f8ef2c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "05ec65d79e0eae2ee7291cbb5fc523358b97e0f93a5b5cab039d02b27aa39230"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6258b4701ae5d49c39ee122ad9988d9647141a3c62ae49923dacc5086617c1f5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "542333622e6a776e913cd72d820671ae3da80180673f3f6ce93e911816f04b56"

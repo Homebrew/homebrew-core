@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-3-1/netatalk-4.3.1.tar.xz"
-  sha256 "248e2eea8066c7d3e7fed62c54a3df37b4158bb45247ebdf64efe2e3797c04d5"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-3-2/netatalk-4.3.2.tar.xz"
+  sha256 "2977b4fd113182f0cc183337ba23d5701fb2be4e0dfcec7ee575b4d73a738d3a"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -17,13 +17,14 @@ class Netatalk < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_sequoia: "8ad8e7b0c99059f5d32e24ffbbe09266c8c50a12d72fe1aa3fd458d38c9ccbd5"
-    sha256 arm64_sonoma:  "b35e111f992d9d8a792d5fc32518d0ddf58fe9a6b8d456cf86bcb6675d6fae4e"
-    sha256 arm64_ventura: "14c6a503e14b5a12205b69c0c0599b612910f730940a149dd75f2dab9fc53a21"
-    sha256 sonoma:        "4b937d5dad2817bfaefeff1dcd3ff2a919e0ddb671d4b17a1e88a5a0fe18343a"
-    sha256 ventura:       "08aaed1116fa5918c6cb6c513b6d021c137f25862c66d68319636bdf950f1d79"
-    sha256 arm64_linux:   "83b57631e73f4555b2ff7b115c789b651e089653e94513867ba00c580fd0b467"
-    sha256 x86_64_linux:  "5a152433e27a423b0b6cdd623065e41cc41c514648d5ae04e980f5cf4602f461"
+    sha256 arm64_tahoe:   "a996c4867d72289a1d1b6de73069dab3ff7e975f2a9e41af1572548e617e9663"
+    sha256 arm64_sequoia: "33055225df69045cbc4e9b44e4830ba1dd979f83dbb15726258fb09908047819"
+    sha256 arm64_sonoma:  "2ebdbc3faeb4a7ef33d4c863e7336685510e2c58ad28df1d136b0de83bc9cbbc"
+    sha256 arm64_ventura: "dbac843786ce3ce67d91c56d6052f2fb5d90897abe1c0596cd22f13f687f32ba"
+    sha256 sonoma:        "adb8b67efc6450b746c0fd67dacf69845207db2b32904eea20fcfc931cb5dc67"
+    sha256 ventura:       "2b1cb2ab91c8e9c685dddd614dd89f2391b8de3207e21c5098bb1eb5c0a6e62e"
+    sha256 arm64_linux:   "f6bb7dc5baca9769b091710448d9f6542b996778e34b86689f5f4a24e629a8d9"
+    sha256 x86_64_linux:  "d55c30bfa29981cb9c05c3eb2a9e5b1ee99d35ae295e0bfbeac2e6c51ee1d093"
   end
 
   depends_on "cmark-gfm" => :build
@@ -55,7 +56,6 @@ class Netatalk < Formula
   conflicts_with "ad", because: "both install `ad` binaries"
 
   def install
-    inreplace "meson.build", "if init_cmd != ''", "if init_cmd != '' and get_option('with-init-hooks') == true"
     inreplace "distrib/initscripts/macos.netatalk.in", "@sbindir@", opt_sbin
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@bindir@", opt_bin
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@sbindir@", opt_sbin

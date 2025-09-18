@@ -7,6 +7,7 @@ class Anyquery < Formula
   head "https://github.com/julien040/anyquery.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3e9bcdfd4695f8793f064b6ac6f53af0247e13be4c1b164c65f491f1052bbc9e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b138324377b2466c541d1e76f1738238c7d9d819358bb8020ee0254c3b96299c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d783682922387e180225c689bde454837dab189587143cfc0f7256888a481d7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "abcc030d957a0ccd633c9e8f0391787c048c322d0cd85debbadf30129e320946"

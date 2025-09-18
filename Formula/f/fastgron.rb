@@ -8,6 +8,7 @@ class Fastgron < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a0ba70774cc9059d34d06e9f02cdcffe2f4c0aa7913b91e1d7de51172cec688b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5a9d6d87cbb8c5643bd1ab68dcbe7004a28d7743ca4213e83be2c40ed5978348"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7374e488e419e340057a89ca0c75c8ab18f26fec54e729b75d8d27f0390f79b6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f925e09414fba335897ba67999bd674c8e2c8748aa13fbb1f6f2960467e3613a"

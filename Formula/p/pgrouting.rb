@@ -12,6 +12,7 @@ class Pgrouting < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "728c5861fae994633c5a1966ffdc2c391199ce36dd17210e46b9a65ee87de592"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d1298e0d55177fa19efd6cc79c0a54733481ac27126ac3fad54495b614b1f08"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c019e8d253e0a1242e6faf24ef0dfa5c8e413f9ac6e936b2f62a250b488cdf0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ac46316a8e7440784db41c6047fff8603b29d46ee19e89a5b0cb08c53ee31ac9"
@@ -31,15 +32,6 @@ class Pgrouting < Formula
   end
 
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    if DevelopmentTools.clang_build_version >= 1500
-      recursive_dependencies
-        .select { |d| d.name.match?(/^llvm(@\d+)?$/) }
-        .map { |llvm_dep| llvm_dep.to_formula.opt_lib }
-        .each { |llvm_lib| ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm_lib }
-    end
-
     ENV["DESTDIR"] = buildpath/"stage"
 
     postgresqls.each do |postgresql|

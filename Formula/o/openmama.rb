@@ -13,6 +13,7 @@ class Openmama < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "5702a64103b3c429d8d1499aedd50c032b572b3ba6c748f185cf2566a3fdf390"
     sha256 cellar: :any,                 arm64_sequoia:  "786b187f472ddd357f105cffc281cf4f8382b46ae31c5b428a5f1d8038c812ae"
     sha256 cellar: :any,                 arm64_sonoma:   "7b9ff5f5a5bacec5396c90a71d3f473c917aa5bf33cd403cc6f5eb4259f5f8b5"
     sha256 cellar: :any,                 arm64_ventura:  "6de6d6508390baa3544fa1995f827b8bf9cd6e043d167b97411e4fdf1a82c2d5"

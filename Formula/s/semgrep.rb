@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.134.0",
-      revision: "32f65fd7e3c1dce0422dce8b24749bb83c53a05d"
+      tag:      "v1.136.0",
+      revision: "7d52dc9cbf57598680b1607138e9c6bd66659687"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -15,13 +15,14 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "99b84acbdbdd78bd681ef8c54f41f271c64231dbba357c35fdfa8a66b70d8b60"
-    sha256 cellar: :any, arm64_sonoma:  "72b4c6da532aba5b749b1e2080b1f31c8bccc3dbc2481e78fa23d2b0371fe0ec"
-    sha256 cellar: :any, arm64_ventura: "3d7f171874907c8da11d2429de9fbb24a7d09d4239a00861d733af8ca1c10715"
-    sha256 cellar: :any, sonoma:        "2c1302da1d4635796a306907fbb77c5534a6e73505fa76b539ec39bbfd774e82"
-    sha256 cellar: :any, ventura:       "39fb1f386f9ee3b703ad87c8da0221b8fb984b47d9666de2ab85c4c3ae19bf17"
-    sha256               arm64_linux:   "95a781bd79d3dadd61568b02b64eefe685115e16d9e358a2af2c09fa79d30373"
-    sha256               x86_64_linux:  "89b07f5da19b83e90b9c951317f83ea8db041c545641cd2833f50ebb4a43c641"
+    sha256 cellar: :any, arm64_tahoe:   "d97f50ef5037358f2f92733faa4b6429a974f15f571f16d50b83a64d8e1531b1"
+    sha256 cellar: :any, arm64_sequoia: "946d137f56d7a01f8b363d77be00d146a6edfa0f07ce0052f543647e8c4cea69"
+    sha256 cellar: :any, arm64_sonoma:  "31308e82d23be8cbe31b3830c3216edfc107b8a912a1da9e31bac28e551b0601"
+    sha256 cellar: :any, arm64_ventura: "8428e18fbd1b1db17772335f313fc0f013c8e2c87f66ec4d6f67d67d64d4f622"
+    sha256 cellar: :any, sonoma:        "eb6c217b9988c3fc5a8ba01e31ec9e43154a3ee88ec8008d3ed31d7341c9addb"
+    sha256 cellar: :any, ventura:       "12875b6e1cd4c5b5f3d27cccc2ac7dc9365fa31c7ec7d1936f642fc3559a8e38"
+    sha256               arm64_linux:   "c00011a240e2b280e1f7c634a8b3e5c5c8352a74c1931faad1e4a4bf36100794"
+    sha256               x86_64_linux:  "c2cebd99475d7e353dc57a781c1d91b94dc5c8f92b39c8346c8caa676d4aa4cc"
   end
 
   depends_on "autoconf" => :build
@@ -133,8 +134,8 @@ class Semgrep < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
-    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
+    url "https://files.pythonhosted.org/packages/19/74/a633ee74eb36c44aa6d1095e7cc5569bebf04342ee146178e2d36600708b/jsonschema_specifications-2025.9.1.tar.gz"
+    sha256 "b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d"
   end
 
   resource "markdown-it-py" do

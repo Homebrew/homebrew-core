@@ -13,6 +13,7 @@ class A52dec < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ca731a1b2d531c0e169e56a7d02c72dc18e0fb163fac344f7476fe0e399bec7b"
     sha256 cellar: :any,                 arm64_sequoia:  "bb6e3408f39a404770529cfce548dc2666e861077acd173825cb3138c27c205a"
     sha256 cellar: :any,                 arm64_sonoma:   "9619e592adb641635b8bc648e92149822e6564203088f33570c2da72283ba918"
     sha256 cellar: :any,                 arm64_ventura:  "1f40eee1f2254ecbeee873473dba633d2cc52f295aedb0ae3ae82db198d0c5b9"

@@ -6,6 +6,7 @@ class AwsCS3 < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a6377b91ce421d996ee74aaa8457a75f0d0f7beb42c6ed5a266e5d81d93b6d13"
     sha256 cellar: :any,                 arm64_sequoia: "338bb9109a67ca01fe65189f37f9f1b88ed083067935742b216804687c918b9e"
     sha256 cellar: :any,                 arm64_sonoma:  "430733199f4e280bf5f969526109edf5e54c081d737638614a622a9aced7b8b1"
     sha256 cellar: :any,                 arm64_ventura: "700712143ffacbb5f5336d641d9e0cc5c1acc05f6d176ecae187ba51f6c9892d"

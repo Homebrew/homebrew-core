@@ -8,6 +8,7 @@ class Etcd < Formula
   head "https://github.com/etcd-io/etcd.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0efc14a7f94223d6fde8efc48dcd045962f108ec8b3558f56ad26159f50df96f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "08a2472f8be75f7a366c3cb5152b5c7851baf1500025cc63da143a120fa7e313"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08a2472f8be75f7a366c3cb5152b5c7851baf1500025cc63da143a120fa7e313"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "08a2472f8be75f7a366c3cb5152b5c7851baf1500025cc63da143a120fa7e313"

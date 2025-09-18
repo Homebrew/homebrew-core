@@ -15,6 +15,7 @@ class Librest < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "fcbc22cd8997ae99bb479141913ee1d80da8334a0166773e5502976e4c59f2bc"
     sha256 cellar: :any, arm64_sequoia: "06a5c8af4c882c1b19125a18709bb62b407e4b9ba38cc1cad2d7752cd589aead"
     sha256 cellar: :any, arm64_sonoma:  "35deb8d1d89dbdd0c7969023d92ef822175d1eaeb307033e7014ccf8bb100eed"
     sha256 cellar: :any, arm64_ventura: "c23e539c42b6212b8f58e04631f6b0603baa2974d6de31a2f39bec3e436c5d7b"

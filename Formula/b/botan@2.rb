@@ -8,6 +8,7 @@ class BotanAT2 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "68793d22b152033a7dd713876b82ffb111333ca34f568f030dbe636c3e49307b"
     sha256 arm64_sequoia: "1104641a2c34fa2c1212ad9002fc1a2089a75be4c9fb66ad655a1680c8428ad0"
     sha256 arm64_sonoma:  "c65820f897ce8748cc5b74e9537a7bcbc4842f161f36557f5b6858b409b32c63"
     sha256 arm64_ventura: "31a49478cd103522bee1b3e216145c3ba149f93e586a824b9d1b4ed4a2a196ae"

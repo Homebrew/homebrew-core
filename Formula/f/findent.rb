@@ -12,6 +12,7 @@ class Findent < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7675b6946e4f800633e9453086e0b74087328099ff1b0da2c563727f057d3b5f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b83d0117f6283f33b02fe1e9e933e76ac5f58c270222ab843a73dbb59f7a2df"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88f9f18aa6178b9a83965631dae52e91eca3b6a842803b0abe522d36a642f5ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "073bcdad4e8d4394e14aca37bf5334a443a2814735120f07bcec402d6e511222"

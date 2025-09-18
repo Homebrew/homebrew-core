@@ -9,6 +9,7 @@ class Mediamtx < Formula
   head "https://github.com/bluenviron/mediamtx.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cbfe6a7157b15c1be806266aaa0d69d2568ab8acedb5de463086941d9255a1ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5f0b14d4dbd741ee00d25e7d2970dcb507e90148c0caf98ca9d43441a7d0a7b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5f0b14d4dbd741ee00d25e7d2970dcb507e90148c0caf98ca9d43441a7d0a7b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c5f0b14d4dbd741ee00d25e7d2970dcb507e90148c0caf98ca9d43441a7d0a7b"

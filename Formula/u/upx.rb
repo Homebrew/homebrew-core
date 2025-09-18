@@ -9,6 +9,7 @@ class Upx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a10f0dbe257ac5d72be40562532c272d3fe14aa4c49c0f3454ec23f0691806e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "183ba13b8566966fb0f428fe17e887ffeea096c87e59c0be317b8552974f042d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fdcbfa167531022ea0a4fc110c9b96c95fed073027ae048b4357be3189dcaa8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "21354b0a85693c6c93d65b82ba60ea6d1cbfd13e5710fd8c9e262f5feded4d0f"

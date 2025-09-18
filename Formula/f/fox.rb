@@ -15,6 +15,7 @@ class Fox < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "27bc2f3e4a29b1b19bef2074fd9664b17d42a73f84ccefd593d0dd4ed3bc2a6b"
     sha256 cellar: :any,                 arm64_sequoia: "9c2013438ee383a44ff0b074698e0525e723eaea322745da017f9a18e254c55d"
     sha256 cellar: :any,                 arm64_sonoma:  "680d4ca9e11e09ae8022d3e66d38df4ca5c7aa3c9178d9768d7968e89c8afa8b"
     sha256 cellar: :any,                 arm64_ventura: "913fd94fc1d4051b12d88df4659942892cf9c3e05fd4ad582c2a2fc38efe0def"

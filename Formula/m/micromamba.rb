@@ -14,13 +14,13 @@ class Micromamba < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f65e214161fae9448b1111bfdfacfc148789ac3adc19ee5fef8c77bf1e38c814"
-    sha256 cellar: :any,                 arm64_sonoma:  "378222185b606aacce3c253fc79c69029df8530e937b957ed1eda069eb45d04f"
-    sha256 cellar: :any,                 arm64_ventura: "0488bb88062183e6f6f83b8db23496ad5ca6536f27fb1af72a1545e195e8d7fa"
-    sha256 cellar: :any,                 sonoma:        "ad81ff8bcd3c65c82cd8d6abb4934098f830a61f90b1df0961141836c85fc51d"
-    sha256 cellar: :any,                 ventura:       "e3aa1f1c79d93b1593c0d8590d562b64c4ddc49690017536959ea54f61666263"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "742827f25e5d03feedd0f5ca8550335657d62de96140382c50ab9c470ecc9839"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9109197d8b737de51ab1e3e9d8902c6e44ec5e2b0b3d8809da5f682a0bd4e671"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "eabb36bb5fb86e3de871262890b44d3ff71cab36f3c8c1681d9f1b5157ed5ba7"
+    sha256 cellar: :any,                 arm64_sequoia: "756e227757ad235400883f8e0e56da2f6b91ba874b625d9d8217c9800744bc5d"
+    sha256 cellar: :any,                 arm64_sonoma:  "5ae6ea311236f75eb66b2a2cb2994bf0026508ebf9c92ed92a4ebb33c27cfe5b"
+    sha256 cellar: :any,                 sonoma:        "22539d997ea31eed0c7d89339d05537458b05da8171b28faabac896638a6b587"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d85f21a5fe7fc1fe8fe7e9565bed190be1e86e906c0d36fd49ec08c5c28462f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01019845bc798a18af8a77f9cad79f747ee1ac7ad7c71dd619de752ca3931507"
   end
 
   depends_on "cli11" => :build
@@ -48,7 +48,7 @@ class Micromamba < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1600
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1600
   end
 
   fails_with :clang do
@@ -57,14 +57,7 @@ class Micromamba < Formula
   end
 
   def install
-    if OS.mac? && DevelopmentTools.clang_build_version <= 1600
-      ENV.llvm_clang
-
-      # Needed in order to find the C++ standard library
-      # See: https://github.com/Homebrew/homebrew-core/issues/178435
-      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
-      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
-    end
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1600
 
     args = %W[
       -DBUILD_LIBMAMBA=ON

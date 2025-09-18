@@ -59,6 +59,7 @@ class Creduce < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ef5fc676679f474e69748993a5a795c53eb1eabea3ac94e8901002cfb43475df"
     sha256 cellar: :any,                 arm64_sequoia: "752bcd060b5ab5d04efc96dfd67d9128e6fd66a2d9b14b5e59735ba758d2d61b"
     sha256 cellar: :any,                 arm64_sonoma:  "c489f889cd95d689d226e4965582120a96b1119eb4fb2902c481c6b9338122aa"
     sha256 cellar: :any,                 arm64_ventura: "56cd23ed4e8cdf7a2928f740332b07eed6f3d5b8a22416cf30ab746fbecbe0a7"

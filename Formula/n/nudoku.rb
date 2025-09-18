@@ -7,6 +7,7 @@ class Nudoku < Formula
   head "https://github.com/jubalh/nudoku.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "9a56fa1b63e34c07c2ed2ce2dc5f95a875028e2b9edfc5f35df2367d9ecf9ac9"
     sha256 cellar: :any, arm64_sequoia: "ac02804b3879c3f1b602bd2c15f6f9a218b320f8fa3740cf2e355117022f4e54"
     sha256 cellar: :any, arm64_sonoma:  "6d2d2160e49788d703b0317dcddf47c81ce73e1c115f45c7a687d1cb8ec1526f"
     sha256 cellar: :any, arm64_ventura: "e000973d34179d396b9d66fe6892166d42994d912cff28749ffc3ae742282f82"

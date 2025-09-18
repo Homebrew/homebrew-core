@@ -8,6 +8,7 @@ class Xcbeautify < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "32b0d648f4c22e916db671283fc156f9e5c05e95c17c10c7a3ae54e18a4e03a9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "45aa6aae0d7a48a05719aa0bd20a3d49d2eb3b602763dbe7fdb20777c57f998e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "438d03f0c727ad6afdb8364d56abc2e2d61b17b4bca9d2fecba9b676618f9e9a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c0b0a8bd11267bec6d150639bdd0a954c663d784f1c1de63e8297a126c01d266"

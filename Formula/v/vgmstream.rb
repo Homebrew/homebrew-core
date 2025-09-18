@@ -27,6 +27,7 @@ class Vgmstream < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "af03a94c586e2eb92bc60f3d3c93acaf2215a659ec25d31e6c588695d44b1bfb"
     sha256 cellar: :any,                 arm64_sequoia: "4bfc16d7e11604d78e45b14a806816ab697d21913cf0c421a21bf58bd54be1c4"
     sha256 cellar: :any,                 arm64_sonoma:  "ae63cd86273517312f26ed2b044d83a376c907b21d1eb74bd0e5cea844f332c0"
     sha256 cellar: :any,                 arm64_ventura: "8d8296a13a9c4c0eed313d63d2974dedf5f9ac6af6cc28c7f2dc618b7471fc42"

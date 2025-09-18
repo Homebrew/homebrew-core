@@ -6,9 +6,8 @@ class Whalebrew < Formula
   license "Apache-2.0"
   head "https://github.com/whalebrew/whalebrew.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "cb728eba208967ac3e5cf1b32b986f117a2bc3e919e5e5a1544b6227e221f87a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "301d2f38ace71c39fa8acff98d09b240b469a64c71e0a2105f0632ca2795b950"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b20f0a59b4ddca952293210217096767bbf3641eeaf8a20d783479ec2d23029"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b9a806bb5c88d5074e037c34d4f1070b24a3c709a6c12997c256a68c12eaf44"
@@ -16,6 +15,7 @@ class Whalebrew < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "e73f77883a8b321bcebdf5829211ae1d62c89633d760ec77cdfee6010665b681"
     sha256 cellar: :any_skip_relocation, ventura:        "0cf1db6078f81c0139448aa53137190bb3396da6b1645632b04031e102d141e3"
     sha256 cellar: :any_skip_relocation, monterey:       "ed592d731941336ccb5c3200f54e4557af185839a883dbe38f3882eb8e7f34b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4a3e3fd5d504cfcb096087e8bb99e955f02d5c971b26a984a0051f51deb52aa0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "afe4b4c69e9b76da440101b3fc26cf623bf391ba23d1e5d64394f770a7776b86"
   end
 
@@ -29,6 +29,7 @@ class Whalebrew < Formula
   end
 
   def install
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = %W[
       -s -w
       -X github.com/whalebrew/whalebrew/version.Version=#{version}+homebrew

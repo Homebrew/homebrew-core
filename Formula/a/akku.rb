@@ -17,6 +17,7 @@ class Akku < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "525ddcc47892beb6922d45852f96cd4cdb3b7981605acf5d415216a2e728b44e"
     sha256 arm64_sequoia:  "0f13478e5f6f3b41e6e75beac905b2aaae1df9d9a1eb7d600bf0f6bf70b076f0"
     sha256 arm64_sonoma:   "565a1f1bba15ccfbe640704c86b1752a03fe8935b86fefe5c02f946d51cf6b0a"
     sha256 arm64_ventura:  "dac9e5f8e17d8b88899acb8fcd0678e863c028737aa921c07ad982804c3ab656"

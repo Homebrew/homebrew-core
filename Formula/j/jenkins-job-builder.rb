@@ -9,6 +9,7 @@ class JenkinsJobBuilder < Formula
   revision 5
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "607839d0c08f986a10c9b053c80c36cc932901e69c75654920dca526ff37c0d6"
     sha256 cellar: :any,                 arm64_sequoia: "8c31e9b4c50d3fc2e48e228cbe57b7aa6e8053a58a8cee46a632f1865b151c44"
     sha256 cellar: :any,                 arm64_sonoma:  "776768b45c19c5f4e5dc769d990616a4d7773c5c0040f7b14a6f6fc909e77c86"
     sha256 cellar: :any,                 arm64_ventura: "459ef736b97533e0efcac6274ccf065d8243b5dda5e32986a8c1d1a0ad102952"

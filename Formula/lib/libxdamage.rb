@@ -8,6 +8,7 @@ class Libxdamage < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "db698e2d52193a57afcd2b9886a4db3d6c513e7ef127c6bb96a566a126b9d0d1"
     sha256 cellar: :any,                 arm64_sequoia:  "4378ada6b14fdbf06d82825d2d81465fb0be5d80684c0c46b73ec6bf8b1009e9"
     sha256 cellar: :any,                 arm64_sonoma:   "3c19b70d6cd2fd2720b9b52be6c21ba5032da5e94fd3584126a5b73c725e18ba"
     sha256 cellar: :any,                 arm64_ventura:  "f7ba5d6474c6d7be855f270e843c42d1e3b819d43e7d96c3b62789265f264a3b"

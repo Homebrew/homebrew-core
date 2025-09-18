@@ -1,19 +1,20 @@
 class Kubeone < Formula
   desc "Automate cluster operations on all your environments"
   homepage "https://kubeone.io"
-  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.11.1.tar.gz"
-  sha256 "61c26fadff5b0a5dde348cb6dcef857389ca2c32f621bd7efdace4acf96c88a4"
+  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.11.2.tar.gz"
+  sha256 "9efea45f97200aeda004c3d05562af39ddb62e851532866f78aea4bb1e097191"
   license "Apache-2.0"
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66fe5ad196567ea5c409d4a8a1186c2f4ca78449e3065a641addde1663d141de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35f40171f8d8e910dfae076c168a3d40268b77a56ec83e4529da92896b25aeb1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1516de248aad95f062049bf4e069733dab645a94abcf3967afc8bf84621b51ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b5427d3a9928da73b3356eaaac83ea19dfeed03d0af6609db739ca5fd497a568"
-    sha256 cellar: :any_skip_relocation, ventura:       "ca6c1a9b34be434c178fa55f004351e0f0c2e932860377936fd728dbbc33df13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6b0466d7b295dbac21e7be17bea429afd7b46c0949117470e2f4affb77723d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73e266c2564c14385747407e5fd41ca62984a621b962bb94c58f5c2673572554"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d00a55f57e288a23fad937f287fe6148b342d8f5bd76265f4982d78816c8ce8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c90c1f9f6302fe661267a2458c958f3081e6fcec4155de173339dcce2264725a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd8ac6e14888d19ad603837871b1d9ee69c2d1f83c8216d334f0a5bbb9271bc8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b602d32df5cd68264c64d5b25b064c81631648d297ff6d1fc7c78e58add538a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "46defde781f30ecb8b0b2015f1a106781791b80ae42945d862ed245a030835da"
+    sha256 cellar: :any_skip_relocation, ventura:       "eebe7b4157fb8403b82e2cea6663fd45bb7c8db6d4c4016a904814c5980db2aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07e5fbf540c9d45a0b0e140a1377c449580a61906dfb7497120476bd0041b7ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36cb58134ecb7118cf084a87b2ebc5ff9d14b402172a47bf23854106aae5a992"
   end
 
   depends_on "go" => :build

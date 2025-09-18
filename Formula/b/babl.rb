@@ -13,6 +13,7 @@ class Babl < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "a5e679a83f60b41f8da0c3d867af7c2dc48cc7389f6cbb51802aea0594839d16"
     sha256 arm64_sequoia: "5ce954090d32baf2105b51b9181fc0033dd948598929f5391b17d3f64d89d6fb"
     sha256 arm64_sonoma:  "ebea9657244533795a3b5244acff93bdb0c68394e3f337b513fe10fa31e82ac2"
     sha256 arm64_ventura: "d69c75d99f6b01bb19b7e575bc05f2a105b5d16e6122c106c013163eb0afa63f"

@@ -19,6 +19,8 @@ class Qscintilla2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "aa4fa6f737bf4f763141be4f1a423135db8bc050593130a41c0010efbf7f75d9"
+    sha256 cellar: :any,                 arm64_sequoia: "822e0a40143f821ebc7c57fc801457ee919b3cf6efc67139d469ea90a824671b"
     sha256 cellar: :any,                 arm64_sonoma:  "eef138891327e8f9a5577972ee0c442ca7f3cf64c768541271418c0e577fbfae"
     sha256 cellar: :any,                 arm64_ventura: "19e9c2e210f487a2a54f800c56e0e7b06bfaddf9d5a68a6bc2b54782a4d0d902"
     sha256 cellar: :any,                 sonoma:        "62385ab067cc1fef525c0732f0b29b5044a2af79557bc49606a288b182b59a87"

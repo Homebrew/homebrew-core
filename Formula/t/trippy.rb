@@ -7,6 +7,7 @@ class Trippy < Formula
   head "https://github.com/fujiapple852/trippy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "43b6f631c8a293fc7afa5b9f2752bb95b46beef7ee132d185c4e2a7b13caf570"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5aa029604d2f1edc732e6c8fd9ccebe1e1c1d1b230b5fa2a176aa0fed0eb00aa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18d09726f789d0018dbc2bad3b2e3113e218bd83c1925cde652c2659d2e5a7ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cac5f223c373ab5e005d9f8d7cd83d4b592c1b0f9654ee900b5fce957d12e914"

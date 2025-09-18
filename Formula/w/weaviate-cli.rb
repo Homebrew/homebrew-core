@@ -8,6 +8,7 @@ class WeaviateCli < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3de7161a7c4d1be8efccc28ba2b3747eef86ffa978a4c0f6830c607e7feec38e"
     sha256 cellar: :any,                 arm64_sequoia: "df2977b1a7f4eb1a76db921261e8e2d9e980d224169852dc4ce568551f7c99fa"
     sha256 cellar: :any,                 arm64_sonoma:  "595f3b018079e0f1a2d4384aca5e8fe2bd88866e9f7f439e2e983b589719d9cb"
     sha256 cellar: :any,                 arm64_ventura: "bef85ab7a3ffbf295d9274fabc0e6d7a209ca78f56bb9c208c7329dba528a6d2"

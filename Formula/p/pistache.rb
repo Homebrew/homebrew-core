@@ -9,6 +9,7 @@ class Pistache < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "e3debddab926a1b7ddc20bec37d36630bb517f44fb96d98d37c503db10d5fe82"
     sha256 cellar: :any, arm64_sequoia: "df6e5955a69ba59d16fa1085e2a264b6886ac13eaefcfdad36b6cde24fdd357f"
     sha256 cellar: :any, arm64_sonoma:  "17198b6e042abadfa94de4824bb3e9d9a2696230ed2d54cae8dabf8550467fd7"
     sha256 cellar: :any, arm64_ventura: "d7a4d961bd52ea6e84601692baf0aa290738c73f31b2522627e766e386fe470f"

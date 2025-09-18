@@ -1,19 +1,18 @@
 class GnomeBuilder < Formula
   desc "Develop software for GNOME"
   homepage "https://apps.gnome.org/Builder/"
-  url "https://download.gnome.org/sources/gnome-builder/48/gnome-builder-48.2.tar.xz"
-  sha256 "ec1280d47e814a313b74cb927d5a059380544aa0f56e87552978397d6c74cc63"
+  url "https://download.gnome.org/sources/gnome-builder/49/gnome-builder-49.0.tar.xz"
+  sha256 "d45990db681f95ee2277be4fa9f2964982707dbdf30130a0bde70234b379f562"
   license "GPL-3.0-or-later"
   head "https://gitlab.gnome.org/GNOME/gnome-builder.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "9934f8098e18b136e452237eae4f6e10177c2a166642ba999c143451779b12e1"
-    sha256 arm64_sonoma:  "fd8400100dbe507d5569396301144f8b58b4d510d3b80a841e6f9639f6c0be3d"
-    sha256 arm64_ventura: "2199f4eb7e4fce3754b35f7dcc4cca6eeb63c8907584753d4d50f5c8be2e6a61"
-    sha256 sonoma:        "7170efaed354f6c01d40dc083049408b439f3c94eddc34d971546e2dcf060975"
-    sha256 ventura:       "062b72bd73b4fbb2ce9ea3b2ccd9931766b26a6c52b6d3f6e815c1f11f52c16c"
-    sha256 arm64_linux:   "765c8c5e448046e48918a3f5b58af3771e377c928f978ef50a850d564f1a1b9f"
-    sha256 x86_64_linux:  "7de348fcc6ee8a995dfad923135dc64df3b742cee7083e8efbdf39f6b304dcac"
+    sha256 arm64_tahoe:   "24bc2ddbe487965f508680cf94cf71158d41f57501c7da3f53d7980c4026c6f3"
+    sha256 arm64_sequoia: "2b8473b3e31ef49328a4ab54214fdbf6d3ff0aac579051d927846cee65384d9c"
+    sha256 arm64_sonoma:  "ac63ed22fd95faf59ffdfdbb83e4f3a2de7d9ec486affd6fab7de4a962441cba"
+    sha256 sonoma:        "1f1dd57073b9060a940cbac16c08121cb4708d9e257fcd49351fab47678c4d7f"
+    sha256 arm64_linux:   "42b21cf6283672afa61837b1dc261d0829c91c15d2055502158d38ad9c206695"
+    sha256 x86_64_linux:  "22dca75fc5181bf35a9bb8d20effc505c92541296ace32425beba79f346e11c4"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -49,7 +48,7 @@ class GnomeBuilder < Formula
   end
 
   fails_with :gcc do
-    version "11"
+    version "12"
     cause "https://gitlab.gnome.org/GNOME/gnome-builder/-/issues/2176"
   end
 

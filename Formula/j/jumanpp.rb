@@ -13,6 +13,7 @@ class Jumanpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "22a0785a78be8dea8fb69e016c0ca887fc2f1e236734594bb350ba86a44f0d71"
     sha256 arm64_sequoia:  "6ea43f4832aa25047b071cc99cb91995b249db44017818191fd106b0c50f901d"
     sha256 arm64_sonoma:   "9fa8968d1e8332287161611d534e060d383cd5e732dc56015fe681cbe38d88fd"
     sha256 arm64_ventura:  "a4f9b268938b28a53c03143114f43e12f5a158007a2d3fca46c79811daec00f8"
@@ -23,10 +24,6 @@ class Jumanpp < Formula
     sha256 monterey:       "1a49398ad2c6ace6827869ff87bb0b6018e4cbdf5259b79febdb761b6019be30"
     sha256 big_sur:        "9c97f442fdad1ae3ab776ef16de98876db768134d50235e9ea683579fa8a85b7"
     sha256 catalina:       "4b2c208b0954536aa3f2b838a525e2542a547a192a03951c0f8a7f69c082a60d"
-    sha256 mojave:         "248e639859582dcf3613eb4eaf491e5ada0ed527e89595d6ba110219e8f8ab28"
-    sha256 high_sierra:    "87555f0efa065cd86d3344c8304972567d4b8a84ef1c0e53acb09afabbd1fa9e"
-    sha256 sierra:         "afddd3445d86fa1969611b413d0ae460fdaa7b106cdf5edf6ce0bf9d14689a49"
-    sha256 el_capitan:     "4b4dd5ca55ba7d380a9a6bc7dda462c3825aa8650e9dc6b131e53fadbf64dc63"
     sha256 arm64_linux:    "01ef3b82e6f1036bda9466e2ab2cf2b314eca2fc59640006870d0499960cff38"
     sha256 x86_64_linux:   "a646201910dc5c938adcd64559fc0ce85dd8f13017ddadb1b65965f4cc2f4afe"
   end

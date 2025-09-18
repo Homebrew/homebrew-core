@@ -15,6 +15,7 @@ class Wal2json < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e3c2d30a2b8630f06c70f9fffc6e975f067cbd71b007240eca145b5fcb61d6c0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec43557186dc322d7e038dbc6a9d2062296a13f8830952bbdb0c72d154c8a70b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d9b4650f924f544a650ba786967a754b29a4971868b3dbd5ba9f47abd44f6cb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "03a5c4a6e4048d088a5a23aed0251a4cf05f86d271eb23f8c681c139f6336672"

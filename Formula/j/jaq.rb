@@ -12,6 +12,7 @@ class Jaq < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4fe530857538d1935dda5d031197c37ce565bca559f5a026bcf796d1349f11b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "163be33daf1542ca414e656156ae824ff0e6418a82e6f2fab3f6889f4655ab49"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2174c4c293ac06376aaef7a275978ec88a927c663267e15c0ddfc568bd715c41"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a76b473a3413366cff6f42fc9f1e9d8a6586ad7550e3f5b3096e57f679711530"

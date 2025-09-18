@@ -18,7 +18,6 @@ class Geoip < Formula
     sha256 cellar: :any,                 monterey:       "f441710caf103a53272a50e4720f1885f858986c6306fcc4a078ef8d193cca59"
     sha256 cellar: :any,                 big_sur:        "a3bcb8d9c69277cb943fa30f00715325ee1c4f0c3e9aeb58e0c4a288f6705313"
     sha256 cellar: :any,                 catalina:       "140477567aa37b0418e1976bdc5f75bc0f933405c157e7170ae3441ee3fc74aa"
-    sha256 cellar: :any,                 mojave:         "e10d69d8595116bdb562b0ede63d7bd04f606c66becd3c03fb1e6d06ba99a964"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb045793a66f36a2737a3bdc3c8513c5822702778c223123dceceff61e847080"
   end
 

@@ -30,6 +30,7 @@ class Standardese < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:   "af802f66466bcebe181168d4f4bc9f6fac04dc1a71092b81234875a47236b304"
     sha256                               arm64_sequoia: "7aac10f0c51eba02e38e87122b0adf550cd56e7092b7f226188b914c3e687967"
     sha256                               arm64_sonoma:  "10cf6e4ea596448dac927b90a4fe4011d1541417c6d30f9720f74e1c8c706772"
     sha256                               arm64_ventura: "1a3a96186e91ca2bf4111324abebf42fcce98b306301f98f4e5a21386def1569"

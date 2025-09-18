@@ -7,6 +7,7 @@ class Sniffglue < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b45c1ef8b0dd3da8de07cb373db7d60a8963466af4fe2c1998301aa121c1c3b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d817e24ad305538cbcca6238e2107669e9491537211b9ecf57c85056d93a6755"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1a2a6038c16babfddc8abffe98bab38620bb7f94a1cb156992d4ab667a16313"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "56da20d0f884e5d65f47710f07b161811f899e914a02444f25013de4318280dc"

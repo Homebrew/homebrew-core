@@ -15,6 +15,7 @@ class Kubeshark < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a69a07f2194219df0b24c62681c4a2777ec3810cce06d8058d3532d6c2762219"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d65e38045ff18f7fc6fc83df77cc9da945ec7e99033d43f91994f0768c2c2e99"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e6672c1ce14d11d27b1c36df869bf88e49873aae7110edd01ecf6463278753bc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6d430d8760d96823fd593c020d1896ac96bd1aedb55c377c2e9323a189e9637e"

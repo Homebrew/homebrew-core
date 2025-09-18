@@ -8,6 +8,7 @@ class Libfyaml < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "2af9a61ac94f34469841b23e4fd9c82049b46225c6acc7580f6a9703acec3750"
     sha256 cellar: :any,                 arm64_sequoia:  "4296a8c80863d912ba93d237d0635b4b6568dfaec713cd69d5424ea77ad4097e"
     sha256 cellar: :any,                 arm64_sonoma:   "f048b398ea675ff84cffed39be72aad7aebc2ff7b343291e82982e1d8aa299bc"
     sha256 cellar: :any,                 arm64_ventura:  "7e0abdbb0374744a92305e607e3fccee6ba6bc09f01906719ec91b721a7176a8"

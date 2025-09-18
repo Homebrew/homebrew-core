@@ -11,6 +11,7 @@ class Libetonyek < Formula
   end
 
   bottle do
+    sha256               arm64_tahoe:   "cefcff9827b7b0fba71260dfe038835db5bed70cd29d2a8950ec8461993c4bf9"
     sha256               arm64_sequoia: "0eb492997db6e7df366f6be4b4c30778aed163f97279c114325d3c1caf551032"
     sha256               arm64_sonoma:  "5b0326bceb378ae5864f2be1b20d835e8f033cef7e0a12fc08e21a9bc1010161"
     sha256               arm64_ventura: "18b9e602c028f0c0c77b366ac2509f74bc2243f557b20c510952b389b512ca95"
@@ -32,6 +33,12 @@ class Libetonyek < Formula
   resource "liblangtag" do
     url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.7.tar.bz2"
     sha256 "5ed6bcd4ae3f3c05c912e62f216cd1a44123846147f729a49fb5668da51e030e"
+  end
+
+  # Apply Fedora patch to fix build with mdds >= 3
+  patch :p0 do
+    url "https://src.fedoraproject.org/rpms/libetonyek/raw/65a93fb7f21fb0e668d78644ec6aa7843e5372f5/f/mdds3.patch"
+    sha256 "cd390fa4280b78fd0d1a7f587ab576d8ef0c4848036c8b0c821b576c6745db17"
   end
 
   def install

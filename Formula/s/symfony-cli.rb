@@ -6,6 +6,7 @@ class SymfonyCli < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d57e3e4bc93b6a80d9dc48ffbbaf88db10dfe9692c8fd9173e4464e6910fce6d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fdb9ec2212e40862422cca0ecebe09167f2e811db21119ee3870cde307930838"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f90063aa42eb21007d68085fa7d6206179557715c578562c785bec14a5fdb7fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "af855856b78bac4b2668a840dad168de51316dafd90eaea722e402c196c549ae"

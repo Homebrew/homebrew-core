@@ -1,21 +1,20 @@
 class JwtHack < Formula
   desc "JSON Web Token Hack Toolkit"
   homepage "https://github.com/hahwul/jwt-hack"
-  url "https://github.com/hahwul/jwt-hack/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "d54521395e1ba6a633e9ce032efd8c9f4574c48103ae976b5d0c9951f1b4bb70"
+  url "https://github.com/hahwul/jwt-hack/archive/refs/tags/v2.3.1.tar.gz"
+  sha256 "1b80213f0c8e8a2e8d50a8fe1f9175fd777cba1547a56f163ab6ccf9d29a1b20"
   license "MIT"
   head "https://github.com/hahwul/jwt-hack.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69a31c9198ac7daad5cd785dfad52cd4113d5d7de56eea777e5802d891d72b7d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5b62f73cca8c83daa8fb3536df4b0bce20efdf05b256a1bb08112d3534911c78"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "43b743574548e6497f6bf8a46cc0ce538130dd350c0bbe7db561b25e27dc0f18"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1001e4f95a48c7320e674557afec4147bc1c5d984e2d878ff1ad49e7c495ac68"
-    sha256 cellar: :any_skip_relocation, ventura:       "9201954f77305c88323f3528338eb3155785243f8edbdddc5037da6b50011753"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27f8ce03b3ec9939013af4aba0326ea60fb4080a45a18920fc35ea0674b090c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14933f90231ec409de0f9bc081612c3fea2f0db625ae8a7e67526f179563d5cb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "58ac1d62e95f5bfddd19b7b1273e937b63bef9f6b2fab69194503520a2b31bdd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7fb99a1bfe03e19a8088f0f3f0e4aba346e664a9cf4276da966ac0d794c2d9e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3ff8df05fb3ffd10e4c5c0dc79b47b3fad162cc86797004fd03b76f4434e65a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "02e8f0d957a03cc263bdd2d09d218b8b35dafc4447bd0efe492bc5af4e9c583c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8715a9760ee5da2cb9e0ec0aacbb9f017d1a79569e1c4c423dff3a9852286b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1769eb46caf2738517efbdaf4ea2eb94d1a9266c850f52f39a3a23cea7a6f83"
   end
 
   depends_on "pkgconf" => :build

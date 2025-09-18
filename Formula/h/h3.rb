@@ -6,6 +6,7 @@ class H3 < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "26511efe5411563b48c0a7749250403adeb69a3f0ac5e1caf7a48fcece74c94c"
     sha256 cellar: :any,                 arm64_sequoia: "1d405725fb107bc5802db04305b5981021d43d85549816bba0e0f05aabd22cca"
     sha256 cellar: :any,                 arm64_sonoma:  "20a351fb6bf722a782fc54016671dacb183ac4b1b13f2839b50d950d50cce4ad"
     sha256 cellar: :any,                 arm64_ventura: "47213e30f88fc3293049ae8827285188284173fb7bd56ee5dcfd9e01b523d966"

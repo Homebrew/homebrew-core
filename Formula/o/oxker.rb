@@ -7,6 +7,7 @@ class Oxker < Formula
   head "https://github.com/mrjackwills/oxker.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "854e0f3df43017c01fc533b6b54ec94c67301a60d0358494bc3a19a2c63d7d2f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4088515a33e71d6d0f560235bbf6c6fb6adf50c1f260a705517fe925f5481415"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4d77cff2dfdcfdfcc4bf11a5f2da1bd835e6a98669474d4eaa1998d407f5bd26"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e5235ef15b1752a7d913d85e268fc5a77c1ba129095fa6e00932d8569b3074c1"

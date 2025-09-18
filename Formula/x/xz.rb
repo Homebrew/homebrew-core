@@ -12,9 +12,11 @@ class Xz < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a9ee5b57b2c49e1a8e1c637f44adaf3632e5b3e79385326f93a162457b36d7b3"
     sha256 cellar: :any,                 arm64_sequoia: "dcd7823f2624cbcd08f55c232097a79300c7d76ab5969004db1a4785c6c0cd87"
     sha256 cellar: :any,                 arm64_sonoma:  "3bcdfeaa8b5bd910ac1cf1e7aec7e0fd82fd69f2f09c6ac682eca92725ad9e6c"
     sha256 cellar: :any,                 arm64_ventura: "82fef9b66eea967b55cd0f26fd7356d60a0b926c5d9eaaf9c300a46f21391af5"
+    sha256 cellar: :any,                 tahoe:         "ce65e4c93e377bef7e6fc7df69689f157dc1bc4fcbda1c8108ace99b9e88970c"
     sha256 cellar: :any,                 sequoia:       "6558e19cb2f13893677ec1fe075d268a69ce242a064ce1dc53940234da4b2c5f"
     sha256 cellar: :any,                 sonoma:        "87c3638621021437d470c7f650336da533fa41222dfe54b94473bbea2acf6bbd"
     sha256 cellar: :any,                 ventura:       "c0aedd30a078e08c7e67107506c61348d8259a2dce40697b77ff76f8c0dfc6d8"

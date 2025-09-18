@@ -9,6 +9,7 @@ class Pgcli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2fbf1ef57c8599bd535cb94ad6a74e36ee700e9879d4fa9c50811a92e12dcf7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "877e22be3881db1ca08eeabee4bf952db8ac5b9f995515e14fb4cf2c6408dee0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "05d9ffa4d7c7d8068284e667785ef2fbaf0d605eddbbb3e537e1bddca79f51a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2939f66c2fcb912457380138e14d0cf85fc2876a7052be0600f477ab783b3481"

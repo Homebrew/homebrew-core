@@ -13,6 +13,7 @@ class Vttest < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a4a0aeb7d6b51f67003a4c244abed71bd83ec1ad5cd074cb3ccfd2d1fbef1301"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c0bf421235c658ec8217bcb7a68799df68c5f060b05940bb20f97e7fb43a7b3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7cdb02a9f59bf22b59a6efb440d27427e380fb411d7408b2cece68856c120ca8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5ce70a33f514b64a73dd2012c56b0654a599cae4df45d7987f76ae50f6c84a6c"

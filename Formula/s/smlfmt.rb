@@ -9,6 +9,7 @@ class Smlfmt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "90962a33b9f4c6ced5fe20c3f9d44e4a0757d028ed454cae1e47e6d9833830ad"
     sha256 cellar: :any,                 arm64_sequoia: "ca671852fb33a6c846046fc88e6ba48b80f18a2b41844bbb6f711c9ca6600e2b"
     sha256 cellar: :any,                 arm64_sonoma:  "4a4d72dd8bc6a5eb4cc96f5b8029163371f7a8d8bc8ca005a6a01f874f8b24d7"
     sha256 cellar: :any,                 arm64_ventura: "a69daa52e744e9fad8803348b5f29487de9d07fd1f4d7146402371e765c55da2"

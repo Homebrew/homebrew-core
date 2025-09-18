@@ -9,13 +9,15 @@ class GiDocgen < Formula
   head "https://gitlab.gnome.org/GNOME/gi-docgen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6834b4217746691bcd3a79f4b04887bb2bc6a071d29f65114a142e0ccc4752b3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5577adb3406ade02ff65139563f24371698ad49da681f689b6632a979c435600"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9556ce24c21c9d6abe9ea0160d9bd41b61e9ecb346724f5e11797b063fffc4b0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8ee19778956955c15c697b10cc0d403a1034a5e85136c58e3ed03168195f20ae"
-    sha256 cellar: :any_skip_relocation, ventura:       "3bbbbfdbeb4e1e2d856010da89c1412dd5660aca1d001bc39f00f3bcc762df0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39851a2a740213dded83243f8edfdceb70b5770636f8d3dae7ec54be34975e30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a91845314b9078473ff60d39f93b7b42a3f0c94a610b09f10095b91dd10f85f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e25a47e7b56e4b7a2c1d2aad115f563225309329c75cd7c1eee3d19a5bb4e90c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2fe5b7cee17c264440cbfb6ecc9890f06a5bbf6a4df34b893b341067e2ea0eab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c885badbbcd109726793c5b980f5018911a63df61f3516100b5c4386f23dd67"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4635ee03be989f41ee90cdfe48367e323ae4d1058b2fdb5fb83135b1d0f4a44a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "322959c1fc686664aa93838da8afb5ed1478bb2301bb359920b7b745c84bc5fe"
+    sha256 cellar: :any_skip_relocation, ventura:       "2c4933d7cfe156d908b0a9bb4aa0d0668150e1c37b9c806194d69bfc352fa5d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "572510d350e49c62d6fa71c260b5d755f1b81915e7312b0f35d5ac4eddd7c28d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f53894500f08d8e9c84d14feea2322a6a93c5009fcde03a5693454d2a4c387d"
   end
 
   depends_on "python@3.13"
@@ -57,6 +59,7 @@ class GiDocgen < Formula
 
   def install
     virtualenv_install_with_resources
+    (share/"pkgconfig").install_symlink libexec/"share/pkgconfig/gi-docgen.pc"
   end
 
   test do

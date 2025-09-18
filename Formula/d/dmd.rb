@@ -42,7 +42,7 @@ class Dmd < Formula
     dmd_make_args = %W[
       INSTALL_DIR=#{prefix}
       SYSCONFDIR=#{etc}
-      HOST_DMD=#{Formula["ldc"].opt_bin/"ldmd2"}
+      HOST_DMD=#{Formula["ldc"].opt_bin}/ldmd2
       ENABLE_RELEASE=1
       VERBOSE=1
     ]
@@ -71,20 +71,10 @@ class Dmd < Formula
     cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
     lib.install Dir["druntime/**/libdruntime.*", "phobos/**/libphobos2.*"]
 
-    dflags = "-I#{opt_include}/dlang/dmd -L-L#{opt_lib}"
-    # We include the -ld_classic linker argument in dmd.conf because it seems to need
-    # changes upstream to support the newer linker:
-    # https://forum.dlang.org/thread/jwmpdecwyazcrxphttoy@forum.dlang.org?page=1
-    # https://github.com/ldc-developers/ldc/issues/4501
-    #
-    # Also, macOS can't run CLT/Xcode new enough to need this flag, so restrict to Ventura
-    # and above.
-    dflags << " -L-ld_classic" if OS.mac? && DevelopmentTools.clang_build_version >= 1500
-
-    (buildpath/"dmd.conf").write <<~EOS
+    (buildpath/"dmd.conf").write <<~INI
       [Environment]
-      DFLAGS=#{dflags}
-    EOS
+      DFLAGS=-I#{opt_include}/dlang/dmd -L-L#{opt_lib}
+    INI
     etc.install "dmd.conf"
   end
 

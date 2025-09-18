@@ -13,6 +13,7 @@ class Typst < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "25b61c7e523084f042ec18fcbce509ce57029585540d9d83f4e1b61dc00029f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c187e0b7e86411fb7925307d34c2e63429103cee0da30bac01479d1abb7b0160"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "808d9896ed7680fbb788182c8de04914229f1fe36b4e8d48a826ce7f9a78d471"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9d7fded4d1f467a78524ec9aeb9cb81ed08f5c0da380f0e81f91b7dc28772ac1"

@@ -6,6 +6,7 @@ class Cdktf < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256                               arm64_tahoe:   "28174502467ef3850dba6242ce170cba93e634ddbf84ed8a5bc63255ae58f8a3"
     sha256                               arm64_sequoia: "f5e3dddef4a75c7db589bc1d1052e974c1b2fc209a2bba4efd379da5227db4f8"
     sha256                               arm64_sonoma:  "4febb127a3888f57b9c2992f4c5894028154ffb4c938cd9dad6cf9bf222de47f"
     sha256                               arm64_ventura: "07de2f8ab86258e1413e355a5ace5ce1bed2f637031861b013b1ccb04ba044b6"

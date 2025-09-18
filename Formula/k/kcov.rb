@@ -15,6 +15,7 @@ class Kcov < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "004325cd43501f846fe5f5ffb535bc09101f5905e2e8927f573aee70d9f942ad"
     sha256 arm64_sequoia: "27ca5bd266a2abb7d98cc23a1a15eac0484e46efe80d39227089b8b1ff013e48"
     sha256 arm64_sonoma:  "8155c77528de98a10e48bf62182e200fa95a00c740bdba34d16cdc0867c183c2"
     sha256 arm64_ventura: "9411f9d590330287c00cd1ddb6d73611d788b602d777456f66b830e16af20ecf"

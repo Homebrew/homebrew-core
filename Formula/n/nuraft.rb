@@ -6,6 +6,7 @@ class Nuraft < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 arm64_tahoe:   "57d924190590cdb01bcd5f62264e6c3af26192ba7e0025f31ec48f562caeb5db"
     sha256 arm64_sequoia: "9f0444da2009a60f4b82f977cfb9bc52d968b0e5137e8b71e5fbf916af77475e"
     sha256 arm64_sonoma:  "ef01fe0ef80d4cb4b0d71f75852eb31bf371a6467145826a0c22cc6b725e4454"
     sha256 arm64_ventura: "a0a521444542143814cbfea45bbbe56fa663df2bf4ec6e38f9b90b109176f813"

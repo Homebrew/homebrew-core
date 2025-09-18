@@ -7,6 +7,7 @@ class Oauth2Proxy < Formula
   head "https://github.com/oauth2-proxy/oauth2-proxy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09be6dda7b5946fe025ce5d8129733b9abd4981f7e3658d00a3e0e0c5308bbe7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ea4dcb47280288cc86c4c8a9db91c724044f65a8eefbaf966799bbc43d99691"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "56ea0e2993ee1c28aaf75b8f2c89963c28dc19f42e74bf059876d590e01f3dbf"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7b7f25b4651eb613fdd72c7c2feb1d179f3bc0b3696d4e5f7898c874fe50f629"

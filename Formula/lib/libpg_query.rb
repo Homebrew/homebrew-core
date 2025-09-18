@@ -9,6 +9,7 @@ class LibpgQuery < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "14f536ec31d48c53677d8f707d8a1a3629064126620071316f46c64651d676ca"
     sha256 cellar: :any,                 arm64_sequoia: "e8c80546510c8a0d0ee781bfcd508d628cb09f303027e740309b073b059659ce"
     sha256 cellar: :any,                 arm64_sonoma:  "62beb770cce1d083f1860515f7a4a553e403bfb23b37bb25581b1c61594da94b"
     sha256 cellar: :any,                 arm64_ventura: "44a8cf078ad22fdaa7da6047c51b50c86a23a48d6684b9c6ab65acbb8644f177"

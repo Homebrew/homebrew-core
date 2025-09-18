@@ -14,21 +14,23 @@ class Openldap < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a1dc03b12f5d087bf8eca0c017483a45548a88ad62e27e0c0efe499f19cf57ff"
-    sha256 arm64_sonoma:  "fc1c7897033c6869b7bcc0e9e7589c7e2dc1bcda9f1939bc571f6afc9586b97f"
-    sha256 arm64_ventura: "2940262081277489fbb0b6187269efb4dca69ad6000b1793ce2e67a8fcce5513"
-    sha256 sonoma:        "6360ceeaf23775210ee3c9f739ff8d7b3cd83b2dfce7bf7ae4cd69065b3ec544"
-    sha256 ventura:       "f3da0ae98808e034485d22f56185b01715e544387d6d5a61df4f7cd4dadb2930"
-    sha256 arm64_linux:   "56958d2700c221fd98383fc04078a18e3f9b28afae795c2b15b0cb5fcba10b62"
-    sha256 x86_64_linux:  "79ace347f02583cfe9e64e4e28b96a965b5b4a96d98db2ce0d746be4ad5da3b9"
+    rebuild 1
+    sha256 arm64_tahoe:   "2e201b0ef1eeb3990d14dd4905ecaf36cb6acbb9457093007ed304b97a6a9856"
+    sha256 arm64_sequoia: "248a79f1498bbff0644cb1980d1efabf399d71f4251df230b7e6161d14482309"
+    sha256 arm64_sonoma:  "e1e547e9f5a91f21715853710892d69d0356947128b15a9ae16c7b69b2c8222c"
+    sha256 arm64_ventura: "bacfcb76abf64fb280a1e845abc7ef842aa8ddaafb3c7b1a4b68e7e9cd66161d"
+    sha256 sonoma:        "8845255968f6ce00273b24b4ec963913900cd33179ee6a5b8e29b887f84364bd"
+    sha256 ventura:       "77370c7be27839f6b1c67b6594ede02919dafe3ce30760eddd033b382b38785c"
+    sha256 arm64_linux:   "d6aa23170013b357b634255d980bf589fc5104f38536e99a524ffbdd20dd17e7"
+    sha256 x86_64_linux:  "6593c993b1e061f4f5bd11a3a0a98cdb64244d35a12d0787797daaaa9ea4cb47"
   end
 
   keg_only :provided_by_macos
 
-  depends_on "cyrus-sasl"
   depends_on "openssl@3"
 
   uses_from_macos "mandoc" => :build
+  uses_from_macos "cyrus-sasl"
 
   on_linux do
     depends_on "util-linux"

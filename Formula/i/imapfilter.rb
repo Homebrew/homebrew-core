@@ -8,6 +8,7 @@ class Imapfilter < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "e936161f2b81aadf392a28ce2c0fac7e1df84542ba5e820369078d2520b00398"
     sha256 arm64_sequoia: "70c757de93288ef4e4367aa3fe55cd42f764a5ce18750bc71dddf21049ea2f42"
     sha256 arm64_sonoma:  "ca4b34e7d186953097c449ba67f55596aca8e8f4a69afb60c6d5314f3dc7d433"
     sha256 arm64_ventura: "f15d485165819dd296961c167070e2e516dc728859e4b163bc339f9000f5215c"

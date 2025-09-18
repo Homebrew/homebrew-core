@@ -12,6 +12,7 @@ class Hdr10plusTool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "78ae74fd537427b5a147308e8bc2a67cb88530272a0cf5ab5399956a352098b6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5dfeac19a6b661e94df935d27fa225dc73338b93f1b6b8b47b2c4990905ef1b0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65b805124a49edf9db43f55cbecb47cd7a79b5dfb9b2dd6eb665ca5a82fc9489"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b7c7ff273efa5264c458d146a7a8a063ac0484043332b62dcac2feb63d8c74ce"

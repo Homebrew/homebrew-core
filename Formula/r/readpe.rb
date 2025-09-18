@@ -7,6 +7,7 @@ class Readpe < Formula
   head "https://github.com/mentebinaria/readpe.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "c4c0d71502a8cbcd7c90f1da7409e316bb15d84c2e003541bd63da2362451ebe"
     sha256 arm64_sequoia: "39059d97cdfec3a8b1bb7eca3a7acd3c0f1e8c4e1e322ec14db9bb38c15424ca"
     sha256 arm64_sonoma:  "d32bd36d656dc44a83bb6dfadf5ec738c4fe11804b804a916b1cb53400434a6c"
     sha256 arm64_ventura: "c5c6fb0c7ff57141804b2982fcb3f59611df7f3a85ce73c2b665b04f548ca633"

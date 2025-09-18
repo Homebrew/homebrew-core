@@ -15,6 +15,7 @@ class Sdl2Sound < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e926f2202a49bfb323a9e603e308e44f5eae6d76a5f60dd867e00b03cd0cf6dd"
     sha256 cellar: :any,                 arm64_sequoia: "ebf816ab8b81d1c57a8fa8464015be9e6e7c1bb59e6756cb1ab955193468933d"
     sha256 cellar: :any,                 arm64_sonoma:  "1a336df9cbf4dbecdf17c4bd11f1d4fa86a8f8d7b4e31f90e2cd61f80d12b211"
     sha256 cellar: :any,                 arm64_ventura: "92094e5c2c9ec2fd6962e76d3c61be76c1f87789052a30dfed282ebf268163d5"

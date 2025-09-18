@@ -8,19 +8,29 @@ class ElmFormat < Formula
   head "https://github.com/avh4/elm-format.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "934f90684cfe8daa0b264f2a4f997b8b98799f2e4f520123bed0ff211faecb1a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29a357d37c12d0d6d9d9d57ac44a767902b5bcce7d512377da3f9d77dd55d022"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d2c86bbe7f7c8324c84dddf9084302ed4d9cdaf558eb2e9a209e72752eb2ba80"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0d4770210d28927ef60c216da3d5f98aa697b072a91ff3e0f56150da8f9d6493"
-    sha256 cellar: :any_skip_relocation, ventura:       "094a9cb5819053751ee3ecf0460dc3db6a074674786eb922dfeabfbb2b1cb972"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b83a2583d58fdb638d9e507218ce1b08e8f68f342f7ad203a1cb404ce00c427"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5056133df57fc96439054e34f04ec081bf08d317eefea981336c786a94dd8c2f"
+    sha256 cellar: :any,                 arm64_sequoia: "793a01a476060deff0126e922ff4e6bf3d7f6d4666ee2e2ffa76114036a7838d"
+    sha256 cellar: :any,                 arm64_sonoma:  "15e2ac52c016433bd4ca81958a352dc32d2ce8b309590001bf5cfeef87574941"
+    sha256 cellar: :any,                 arm64_ventura: "1f6526cc7adeb4fc019894188906cd9130f69a02912a73b1599394c16a777f9a"
+    sha256 cellar: :any,                 sonoma:        "6586c687d47970c27ec7a1d5ece3a71b0137ef72f3d6e13db501a9e2d3be5dd5"
+    sha256 cellar: :any,                 ventura:       "4895173ac11f28d140d23c7795ec46a17252862b99b8b17cb762a01e0c2f7e65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f9b5d8604a3e94980d6b41a8655abfedef71dd6c8407ab2f96a52c04446e64b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0077781afea83af1e8bd983239763b30fae56285f04f86e4a03a849cd87b8f43"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.6" => :build
+  depends_on "ghc" => :build
   depends_on "hpack" => :build
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
 
   def install
+    # Remove requirement on specific patch GHC
+    (buildpath/"cabal.project.freeze").truncate(0)
+    inreplace "cabal.project", /^with-compiler: .*$/, ""
+
     system "cabal", "v2-update"
 
     # Directly running `cabal v2-install` fails: Invalid file name in tar archive: "avh4-lib-0.0.0.1/../"

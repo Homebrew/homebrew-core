@@ -7,6 +7,7 @@ class TwoMs < Formula
   head "https://github.com/Checkmarx/2ms.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "abc81151c14052794caa8c926e442c64cd5a015da0afff03432a3eaa83e85e91"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8badbb0373b9ae4d3b1a158bde6dd0fbe11f9bd19e37ac2ce24eb2afcb96f324"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d3f82712e0ff75d0377706bdcbfb3b18bf068722e2349fb63554a0b38377369c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "41673fc6b52ed2cc84cd0f810aa74d83178b7f220ac545f546d6a73983cdc0d6"

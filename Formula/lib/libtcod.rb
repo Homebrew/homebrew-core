@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.1.1.tar.gz"
-  sha256 "ee9cc60140f480f72cb2321d5aa50beeaa829b0a4a651e8a37e2ba938ea23caa"
+  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.2.1.tar.gz"
+  sha256 "5eb8e30d937840986c11c7baa22ffa93252aa4ac1824fe2c5fa1d760b3496a8e"
   license all_of: [
     "BSD-3-Clause",
     "Zlib", # src/vendor/lodepng.c
@@ -10,21 +10,19 @@ class Libtcod < Formula
     { any_of: ["MIT", "Unlicense"] }, # src/vendor/stb_truetype.h
   ]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fdf83b0198f348818e794ebc1e0d4532f8c1cce635984534ebdc4891f4261aa0"
-    sha256 cellar: :any,                 arm64_sonoma:  "2a4da5bd870a27621a99008356229ae7df8779e78f8ea2112651a6d4aca31445"
-    sha256 cellar: :any,                 arm64_ventura: "bf4af16caa91fcecc6dcd450ab6cf68139b57ee8a96291b735dcb36b8ffc3faa"
-    sha256 cellar: :any,                 sonoma:        "99781dbb6dbec408f03c3d3888de89de02b5ca42faa618733a2c7b660a1cfb98"
-    sha256 cellar: :any,                 ventura:       "d22d6cdeeff35bebf79fdc25345c6f7ff9629204c16d134752b4a91ee24a2675"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5f5046d6639c7e7346615716f24ac569699677e53189afdfd6a0758807fedfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3f044b5650066da7fe44f464408690061b7b245a29ec818ebaedb6e85a25d8b"
+    sha256 cellar: :any,                 arm64_tahoe:   "9b74aebec81d3ccba2c7272f3041b8336601c84d8e5769a9210b478f4ad4a527"
+    sha256 cellar: :any,                 arm64_sequoia: "9204636d7c64daf224117866ea8b740a85b47e99bc2acb50e824e75fc6d420f1"
+    sha256 cellar: :any,                 arm64_sonoma:  "e6413d51dc366f870b92bc423a06b0d723425d344302c13acdf841bde807b4b0"
+    sha256 cellar: :any,                 arm64_ventura: "d95b990a8dd6007006c88586e34a22945caaf30958c56f728d5cc6e135598055"
+    sha256 cellar: :any,                 sonoma:        "60136c98d9a40fb59ea7dd6c85cdf22931a992931dc1485bf93a1b0394610104"
+    sha256 cellar: :any,                 ventura:       "360ef3e725a8f627ca0d071f752cabbd63e6c9dd48381f55ad2ea30df9412f9b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "da2ab505637a97abd3cc2e6451764cd25d7c753652c72f7e6eac05c2c6da1c45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff4a6678933d2be5dd6d4a525ecd2695f513db4e2993d7bea439ead2e8d2bf14"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on macos: :catalina
   depends_on "sdl3"
 
   uses_from_macos "zlib"

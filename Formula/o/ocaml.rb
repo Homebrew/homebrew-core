@@ -26,6 +26,7 @@ class Ocaml < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256               arm64_tahoe:   "53a3cca9bc93ec216ab963c7c4d02687434eedb90e9a7095e937babebf19f867"
     sha256               arm64_sequoia: "0979996448821ab111b2d1c618fcc2eac7605952e7731644123c8b9ae8e58da3"
     sha256               arm64_sonoma:  "ad596105ed2af2dc5f71f9db062427cdec3279c759a9e1f87820f54abbfde1a3"
     sha256               arm64_ventura: "614155cd3a84d3a21eb07d0ff026af5a3a344415b2a9483a070cf240b4b52ca5"

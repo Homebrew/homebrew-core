@@ -12,6 +12,7 @@ class Kitex < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "385176fa5f60676818478d0edb6a481750b782592493b51ecbe9ce0d7126fd6c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "825df4134a567ebd0cda77ffd3405559dc6de97306ceb5bf237cce4623d3a086"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "825df4134a567ebd0cda77ffd3405559dc6de97306ceb5bf237cce4623d3a086"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "825df4134a567ebd0cda77ffd3405559dc6de97306ceb5bf237cce4623d3a086"

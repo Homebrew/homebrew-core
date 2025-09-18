@@ -7,20 +7,22 @@ class DhallJson < Formula
   head "https://github.com/dhall-lang/dhall-haskell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "aa28d7105b92415f10bdf28679bc631644527208492877b239ec7dca49a4576b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c953aa5b6578f99c770fcfea9d3ab337fbbb36dd35130f423b067b81aa32433c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9828ba27a2b38b47259226edeaa90ada547b3bcbb4a19a06c6268ebfb4e79f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "128907da1d0ae87a97d3e2eafaeb0976fb31ef6806826b8d1ab782781436834d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6fe9a18931ce049c972b01ece18dd99b5519c8b81dc297ea739c855222501849"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a07abe91ba35acd16e9e3a4d293895b3722dde3c3b55ce9212d70220512c9d0"
-    sha256 cellar: :any_skip_relocation, monterey:       "4cd90ca4159871376eb10cfc730116e7a55d78260aa9705dcc87bb00530ee9bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "51005894d801cc179e2e5246e27968f63a92466274c5b9e1ab073048d7084231"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06ab63373f3d40884b9111382390b21525460927f12692a158e3983f68c9e0aa"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "73baa2fd19be65be837a3c3309d7504e9d418eb7f0f339904eebb220966b603f"
+    sha256 cellar: :any,                 arm64_sequoia: "39ad85b98a17ab00830ff951a371b3307f8f233b45515b5a8a4b508c7e26bf14"
+    sha256 cellar: :any,                 arm64_sonoma:  "cb38db666618de2732dc9c6cfdc60011110896a4ecaf74a13c0d6154fd1e8c01"
+    sha256 cellar: :any,                 arm64_ventura: "1f626e15918be89bc14f16ca825aed2b448b98b93170fc01ef1a3f53ae2cd7b6"
+    sha256 cellar: :any,                 sonoma:        "f52f5df894456c02bf8b32e05a296fabe0526faaf79ecf024baf9507705b439e"
+    sha256 cellar: :any,                 ventura:       "49846bb950d02b98c5640e93d527273a049d93445cfac3dfd01adf70a0036db8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8df66ff7736b7d73de01bc9b317ccf7eae1527d28b8ea1a55b59630a4ee6aaed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8791ac3d987c13ac8c904f876b01cdcf089e9aecc1476b101367df6621bcfa3"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build
+  depends_on "ghc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

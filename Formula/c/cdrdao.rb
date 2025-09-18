@@ -8,6 +8,7 @@ class Cdrdao < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "8bdc4963c13e5aa89fb923d6d15138740b978665301706598eccb6a41dd98d4b"
     sha256 arm64_sequoia:  "e743e2ad68e18dab5d0c92398fe17efabfe6a0bdc3ff070680446b6cb40ab6e9"
     sha256 arm64_sonoma:   "e4d1ccc44373ea37015384940c9bdfef60f847aa866cbb4406e7e39e50251b46"
     sha256 arm64_ventura:  "9bba142c6ea1c60866164731f20b0318488bef4e95dc337e471da95a44a3e6fc"

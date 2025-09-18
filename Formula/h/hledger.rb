@@ -1,8 +1,8 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.43.2.tar.gz"
-  sha256 "60b74c70ddfc6b84ca87debd2ac302aac754da3c0d9089821182e56796cb841e"
+  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.50.1.tar.gz"
+  sha256 "6e94e12f5cf58886af476f9f3a813ddd407049d1f6aefe98810b798a17562177"
   license "GPL-3.0-or-later"
   head "https://github.com/simonmichael/hledger.git", branch: "master"
 
@@ -15,13 +15,11 @@ class Hledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b6e3bcce3266ea10bd6f1522525a9910c201236b6bea00b7b8d09d2681587cc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "208bc36c3a713c4fb036b809023f7eefae3738730b7f8c499b8a3480dea1a469"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8fb2c0cf9dba252e438fa26641c6a1edfa86f54c362b98f315f24e73923286b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5189ae1e362f0a81d3e0fb156b70e005ef2254c1fbeb2beb1dbeafde971e2ca2"
-    sha256 cellar: :any_skip_relocation, ventura:       "1ca5a6647c6c594c04598c8d51f61f675fc00b0adf348ba7dd997b1a9965dd45"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f53d2089b27417568385d2c453d039e964bc674d280e236cd45026eeb2a43678"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75f0f602de7fd5edf198b5bdf7010c9a284a3200fc8d69968f9e594adc1460d1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b945e2c269d4303d09f85f3287e58ee913f6d03f018ef225a3cbf696096b5d6f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42254df6148820c370b4c69191946d2fbd9472b59e0e37b55863c1f6f0b8e2d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7799dff7ae5119d356503c1591901f9f790d402093ea89ae7df1219eadd2a07c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b9809a5b7b01973228e6df6d2b9b5785e5ec10b47cc7e786f92be93b07e43a06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a51bc1131f95b05de3c17c40ace2368127ffa4b4bcbdc4d1d3eebe9309d9a30"
   end
 
   depends_on "ghc@9.10" => :build

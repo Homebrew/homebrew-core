@@ -12,6 +12,7 @@ class VrcGet < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de850d693542af7f6e08660d844b13e76331feed2e0ac47367bebbf9816bc4b7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "12597ac2dd9b97563c431a6c0220ad2daa8bd519d18467ebf0955d0ff0682670"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e96d29ec329670fd8fb921193e07ef71e5699358df6b60ee65a14fc068927526"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3660f27b64f9e969466fe49bfa55f631dd67ce978bccbac2f9826033637de250"

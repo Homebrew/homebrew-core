@@ -14,6 +14,7 @@ class Got < Formula
   no_autobump! because: "GitHub runners are not abile to access the homepage or livecheck URL"
 
   bottle do
+    sha256 arm64_tahoe:   "99adad7be70d13ba498b10e25d5f2441f35aef32c41b02d841d4ecdc47355ee1"
     sha256 arm64_sequoia: "91281dfc2bf3fa399da88b785d5e9faae37edc1e1efc30ca608c718dab317d32"
     sha256 arm64_sonoma:  "272a2c8db89c1c9bcabd57a6d5aee6b9a45eb2cdcbf26288a7ecc64d9d85f12d"
     sha256 arm64_ventura: "7db02f186fec15d8b393a7b85a9b0b85f5396fe2610c84cb8c55fe0c4719539c"

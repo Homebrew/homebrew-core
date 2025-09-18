@@ -12,6 +12,7 @@ class Snap < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4787305696d642c90acd82c9c32383ee865b1364e79c7811fdeaa77adfe01b03"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a275e2d881cded82ba1a445988ce907f6c8df916ff73c755a87b65cc34c7e17a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a275e2d881cded82ba1a445988ce907f6c8df916ff73c755a87b65cc34c7e17a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a275e2d881cded82ba1a445988ce907f6c8df916ff73c755a87b65cc34c7e17a"

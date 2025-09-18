@@ -6,6 +6,7 @@ class Py3cairo < Formula
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "a2b3ce626f7dd242e92a36183f2425175a2e2c83b876fec8958d733634c6ef1e"
     sha256 cellar: :any, arm64_sequoia: "a3215f667bbecd5f84bd93fe29455894e9b051c088f69199224477652882f412"
     sha256 cellar: :any, arm64_sonoma:  "98f74d9de2ff0b9da6a0f3752725925cd946dc007620beca4b8670933fdcccb3"
     sha256 cellar: :any, arm64_ventura: "923bd6b36c154365fedc3d8cbc3f89f367749ea3c95852533db49d8d80907ee7"

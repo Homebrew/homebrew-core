@@ -11,6 +11,7 @@ class Abcmidi < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7fa5c7986446c5fc14f2bd670207e61491badfd2aff1f728628cea4d048079e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bacbedeb4f65551a9c7008d5cc482e8ec645c4fff54fa8785c71cebf510abeb3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12183fd273d8cea05c6e7e683bbf060bf8751f3e0a6f74453167afdfe1a82333"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e18860b3130c1fd2c13187fcece0e17e05c700e01096a1c190c6bd6f225401cd"

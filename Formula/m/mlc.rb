@@ -8,6 +8,7 @@ class Mlc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "641c31dccc26badf1955c0a7e57d5d0c84d79adcae555c117850331837f294df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea81fd5f0ffa185c59a156541d0944a122cad6b41595d38132017e285536d4c5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d64d29e139f6f4a6733d2f2d10b29ed50d0c1cd662ecc68b38a95bd7014e09c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "88c26288c044ab2288bbb15c7ff1a5be83708c711830eb796379cf128d052007"

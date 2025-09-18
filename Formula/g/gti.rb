@@ -9,6 +9,7 @@ class Gti < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "92eaaa595256c1a44b2c7b239d5569a9f023dfde904a9ba74ce9a0da44395a9f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3f8050edc162e75b939fece0bc60b6aecfca2c5e38e0259085731a8a69e6ac13"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1446d1aac84e5119614a6bbfd66171910abc23826d06754d3319142ca0ec7f63"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "61791d20101f0ccaaf39d73a13da70f7ea88589b0eb7b0badbabd03719ebf24a"

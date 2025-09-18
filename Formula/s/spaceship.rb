@@ -9,6 +9,7 @@ class Spaceship < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "488698e8ee6e44edaa335e217f362263b4bc31a9cfc4f0f80f2117e843282848"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "13afdedcab4a857eb1dfb03a3fc2b94b78974b2ff126066412bf749ba7db74e3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b3e5da9244fc896f543805e204298e662c46824fd74e89d31500d8d0bc262ee"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f2006113b61bad51e000572f5e839b4faa0b16b5333e6d9a0c2e40623c3d5d7a"

@@ -10,6 +10,7 @@ class ThorsMongo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "eb4b075302bd83e81f8035e2c7a581bc4bf48f0593364f68b1d703170b53d9f6"
     sha256 cellar: :any,                 arm64_sequoia: "df22574c3d8d42c2acd7545936aac68e10fb01a62d468e8a37737fdf29d0d61e"
     sha256 cellar: :any,                 arm64_sonoma:  "ba80135aa78d5bbd0bd423da47424b2f2ecf57321971e20574c91e92ea9bc299"
     sha256 cellar: :any,                 arm64_ventura: "45f3b9efe0946ceb9b65e733276324e0627dee6935c6de01a754db430fc74ef7"
@@ -28,15 +29,16 @@ class ThorsMongo < Formula
 
   def install
     ENV["COV"] = "gcov"
+    # Workaround for failure when building with Xcode std::from_chars
+    # src/Serialize/./StringInput.h:104:27: error: call to deleted function 'from_chars'
+    ENV.append_to_cflags "-DNO_STD_SUPPORT_FROM_CHAR_DOUBLE=1" if DevelopmentTools.clang_build_version == 1700
 
     system "./brew/init"
-
     system "./configure", "--disable-vera",
-                          "--prefix=#{prefix}",
                           "--disable-test-with-integration",
                           "--disable-test-with-mongo-query",
-                          "--disable-Mongo-Service"
-
+                          "--disable-Mongo-Service",
+                          *std_configure_args
     system "make"
     system "make", "install"
   end

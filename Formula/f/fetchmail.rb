@@ -17,6 +17,7 @@ class Fetchmail < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "7dc48815d82cc9458baf6ba5374364a06d7a48745940a4091ac1a050240aa8b0"
     sha256 cellar: :any, arm64_sequoia: "daf595c9ee9c4c8b64f534e7db0432f4e514a7087a8a62e287faac4cdd78f0e7"
     sha256 cellar: :any, arm64_sonoma:  "e0d032448a5d853a87042083a7942556c42c13f71eb5ddf32fb6a4562f5444cd"
     sha256 cellar: :any, arm64_ventura: "8986b9ee8c100f0d141144c57d0abe790023d31e5ff0ae5cbd39c19f2b868e41"

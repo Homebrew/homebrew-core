@@ -8,6 +8,7 @@ class TechnitiumLibrary < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "492665baab8d63961a06444ce1c653865cf3269b129f3cf4e7cd6cbd1e55349e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e4cb83b00dd9588bf345937b4221fd0b8c5e12ba18f149ff5de729bc6df4334"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28984faece182530989be911c65002be59e1ed4a8a828d10ce834223af4ce65d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a130d29c1e2c741cf0d27b613d0b73196ea28f72027d20d26d787c4d2a7a8357"

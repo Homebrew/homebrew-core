@@ -9,6 +9,7 @@ class Xclip < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d3179fb90856af5401a1104cf9317c4f6da846e0bb54781d43b1b24f2518c8c7"
     sha256 cellar: :any,                 arm64_sequoia:  "74cc7bc3e57ae35a2f0a1880ece87d5b3e10b25e11a898f7684defbfac3d4a37"
     sha256 cellar: :any,                 arm64_sonoma:   "c6bd5e4a94069253d31ed2ccbdb50ae870148ee2b48dc8d2d09e0ade83721c70"
     sha256 cellar: :any,                 arm64_ventura:  "e335771d3bb8f072b25c2cf6404f12540cfbd8692d97cd678a086a08b76f2771"
@@ -19,8 +20,6 @@ class Xclip < Formula
     sha256 cellar: :any,                 monterey:       "47b1812c7d1e2aa7f70f2721693b3e2ddb89761886e4432009240d4349369da0"
     sha256 cellar: :any,                 big_sur:        "4b3d034f8770dd75585b98910ce1ad1c0bbe010f91f61c814f9b655cc978e122"
     sha256 cellar: :any,                 catalina:       "2229de2d3139a5a916be1d7e6c3227ef989ff20ce4322f0881eaeb22ee34caf1"
-    sha256 cellar: :any,                 mojave:         "7bacdf14b8a248a969952c6cba098e01b15d63b280b95a453164d2b0117400dc"
-    sha256 cellar: :any,                 high_sierra:    "4ff44edecff889254b56f12f261127e90f20c8b0f8d10e0d7f6b41788be0b2e4"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "5df75814f42bb4834946dc46d5a8c2f50366ec3f1d96251ebd0deedc9d320803"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "532e6b67cb0b23908b5c0d4df6157810fdb4ce8c7268e289df9cce2578230f21"
   end

@@ -9,6 +9,7 @@ class Threemux < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "21124333bddcbd848413f1f91b1277a848777555165c7f649518236370c237de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3d8d3f42362a72fe5ef6390d24223c572b596d234c590d7dcd51129678f6aae5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "358ebf92a4d1ccf5844e2b21c3918d4fdc0344f3d5aea110b170e2c5244bd438"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cef0aa7766c9cf4045c403ae53f20fa8fcb4913c80148b01755b4a4da7449d8e"
@@ -19,7 +20,6 @@ class Threemux < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "64497230017e4e033cbafc7ae8f684e5ff77c1a8af3ec153f715269d5f4dab01"
     sha256 cellar: :any_skip_relocation, big_sur:        "c87ed9904dccc4872aa6c8ed0e6de39bc7f3ccdb5fa7fef1b99e45871d85da18"
     sha256 cellar: :any_skip_relocation, catalina:       "8071788129cb66bd2e7c6fe9f877a56fe2807b70204747a858a4e68a650a07b8"
-    sha256 cellar: :any_skip_relocation, mojave:         "d8ee02f2139e26800e6fa830e02a09b52df74164ec3cdf2306bf89c4ef6b92f9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "33200f3fd9175837129386fdfa67575eebacc806d9da099d98b0888aaff56124"
   end
 

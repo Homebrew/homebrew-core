@@ -1,19 +1,16 @@
 class Fastbuild < Formula
   desc "High performance build system for Windows, OSX and Linux"
   homepage "https://fastbuild.org/"
-  url "https://github.com/fastbuild/fastbuild/archive/refs/tags/v1.15.tar.gz"
-  sha256 "c08d9233d575d6dbbc42363caa64e16cd9709e22f58b492dc1b65620fbdfc297"
+  url "https://github.com/fastbuild/fastbuild/archive/refs/tags/v1.16.tar.gz"
+  sha256 "acb1025eebc3967ad7e3bfd3e13fa4efe0a7d54aedcadd61ebeb9bff65c6cd5f"
   license "Zlib"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2ea9f422381c38c6496d7a89d82ddcf01c47f211454e87cffeb388cdd228e09"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f9e74f4a1e6d8f31ff16bd7efc61e6bd2501c50ef3530751af50a857b03883b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3bb7d9ad2b7acf60e7a98f4e71d4db559e0d79a4e2c1b15e33d68eeb422a6002"
-    sha256 cellar: :any_skip_relocation, sonoma:        "61c25b4f9dbf1cdd1956a23a46ead3d306fa029825312ed88dee6a6849e5d5b0"
-    sha256 cellar: :any_skip_relocation, ventura:       "f2ed6f7c462b3a7d23fe9e5e7c63c049fc343b56df292c0e91f69e5587146930"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64bf2acdbf4398851da98943e21cd69a6549464e16178b3ce4c8746188dc48d1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c735d2c226ba2c3bbb273dc035f7d8d9b3e7aa209198a1fa4db81fa3bd65122d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ca94517ee24158641169349e1289389c632dbe8f55fe397eb54704cbd966309"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9a48e0877e59ed375a4372a237fced65eff22269511616a34a02e31f00fabfe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e110cef52315db96a890215546ad3c20a47660b422f546c3333906cbeb4d4688"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "175cca470c1bbe7ba1184e8e31882b4714d56ef5c124d631e916cfe8e0c61fda"
   end
 
   on_linux do

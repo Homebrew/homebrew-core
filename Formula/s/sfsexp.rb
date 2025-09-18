@@ -8,6 +8,7 @@ class Sfsexp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "309d53aff505ea3cca51ada4c8820ec0aae2f41666c750131f7d4c6ec60f80d4"
     sha256 cellar: :any,                 arm64_sequoia: "f03b944967fd032f7538cafe2d1207790c47445922ecc8720b176ed8c1f747e9"
     sha256 cellar: :any,                 arm64_sonoma:  "5fff80561a38b1e7f175a8eb61f556abc10e9c3c9db5c1eff1babd21208a41ee"
     sha256 cellar: :any,                 arm64_ventura: "77e62444ee703cec04f5954922c54aa32d65a02294c3a154448d8e944c004229"

@@ -18,6 +18,7 @@ class Gif2png < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9ffa76192c9c581c3fd4aa8d8f56da708f1799dc9122379b34d1ad9240d937ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ba18868f7931d35e5ea59235cd76fdda07273197bd933f070b5f569691cbad2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c6e8176b235912541139f6cc30de30486df4685e4cda1510a13ccd46e5de1467"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad9c25896465c88ac69a9842d32a4bfe0c27610231cccb44edec51849c626bbd"

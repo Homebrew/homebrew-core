@@ -12,6 +12,7 @@ class Mintoolkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2269c059b101b0cc18a0308f127d4fe78c5ad00b697f3142fd6844fe23d3ee85"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3191425ab42a27ac181105eb522ba926cb52c2a6a7034b9cf697e34a41506627"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33e215a31ad61ca3f81951ca6863d406fd06a376ec10fd2e81f3ae058d6449e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "485651b0b4be33e48ef7907f6239b83585e3028902c266fbab797b4c39bdd46a"

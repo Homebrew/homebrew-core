@@ -2,6 +2,7 @@ class Libxmlsec1 < Formula
   desc "XML security library"
   homepage "https://www.aleksey.com/xmlsec/"
   url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.3.7.tar.gz"
+  mirror "https://github.com/lsh123/xmlsec/releases/download/1.3.7/xmlsec1-1.3.7.tar.gz"
   sha256 "d82e93b69b8aa205a616b62917a269322bf63a3eaafb3775014e61752b2013ea"
   license "MIT"
 
@@ -11,6 +12,7 @@ class Libxmlsec1 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f26847eb1c512aa63d535a25508ad6305a84aec698cc47d9293d9e525753b397"
     sha256 cellar: :any,                 arm64_sequoia: "dd0bd557a369d063dd16612dde3a3a673aea225376db8ee674cdb97867bff28c"
     sha256 cellar: :any,                 arm64_sonoma:  "e1b1f314c2c9d2aa76755bfa33a8f4018455cb697110e8718d5044e3452b0183"
     sha256 cellar: :any,                 arm64_ventura: "d4b92a70262c9ba01a7ec1956bee5c677de07ccae16b86f1f9e4d5cadb94b0f2"

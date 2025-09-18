@@ -8,6 +8,7 @@ class Libngtcp2 < Formula
   head "https://github.com/ngtcp2/ngtcp2.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2065a28566351cb98a23ffa84edf76e6f2a0754e25c9141d797d61a97fc8b696"
     sha256 cellar: :any,                 arm64_sequoia: "f20ea5d5069d5e4048e99364117e99073ff2808c653db353fbed54bb37cb22b7"
     sha256 cellar: :any,                 arm64_sonoma:  "db90e03ed85435878ede1e4cbaaa265604c68c60a562f14366c9ce00f476e332"
     sha256 cellar: :any,                 arm64_ventura: "1a242a421cf69256429e7880147b9894a2210ff730063ee37df9bba4fa68edc5"

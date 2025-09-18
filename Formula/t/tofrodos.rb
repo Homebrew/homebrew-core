@@ -13,6 +13,7 @@ class Tofrodos < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ed51d90d1c7e5a548f75ee9aeac84b5f11dd5f1ee683674b4b2edec39b053de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f5b16d880a34a9f8f8bcf3c3a5520affe8356fcf24854fd23e09b07ee1b2de8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55ad657b7068a6106e846311ca92abbbf94ed236d7c48b263a25eabc95acc434"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ef7cc693cfb4c53110c3771bfd4c3843a314ad610417c4e47cf3af5ec4ef6d09"

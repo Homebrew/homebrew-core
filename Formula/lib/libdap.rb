@@ -11,6 +11,7 @@ class Libdap < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "492c02db26390192b829deec9c83e8238da0c2a14054d4a7cf58cc2d1b079eae"
     sha256 arm64_sequoia: "1f8e9cd58ca9ef263b5a028262a32a1b06b8903cb2e7166446d25d60f7bbb5bd"
     sha256 arm64_sonoma:  "d8886f6fbec0a65ec3ed25dfd1bd13c7ac2f2a71c1b7674bd1b4897508477f8c"
     sha256 arm64_ventura: "3cef6f6506acf42d24cf9d0bf55b8b194ce5938d5d2d6d7e82a155c86e031a8a"

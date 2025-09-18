@@ -1,8 +1,8 @@
 class Gtksourceview5 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/5.16/gtksourceview-5.16.0.tar.xz"
-  sha256 "ab35d420102f3e8b055dd3b8642d3a48209f888189e6254d0ffb4b6a7e8c3566"
+  url "https://download.gnome.org/sources/gtksourceview/5.18/gtksourceview-5.18.0.tar.xz"
+  sha256 "051a78fe38f793328047e5bcd6d855c6425c0b480c20d9432179e356742c6ac0"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Gtksourceview5 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "847a0f3517ce808dd4a6e17761a8d6a7fff953898c9afe848920b68e851c5d49"
-    sha256 arm64_sonoma:  "ee4435516bcc7bc5d48e05bbab28ab416f937e83d8762019b1f761ec888f67a3"
-    sha256 arm64_ventura: "d372e735e12c374d561a49efe49f574a00cc4270335f05d662fe44c0a05b35bc"
-    sha256 sonoma:        "924fe9d5f721db208b762410862d6da3d10578e6943e9b3082c4df3d532ee7f8"
-    sha256 ventura:       "bccd0d2fff52f29f15f327a7950a57953a072d4b8682dd4b79f7c2c3926b18b4"
-    sha256 arm64_linux:   "ba5eaeff438f6a378817ce099509f651fd8188c9131e03c849e0647922ee208c"
-    sha256 x86_64_linux:  "3664b8119abd306259ab0ac62fb6ba02cb50e3a9e4db2efdb94319cdc3079b16"
+    sha256 arm64_tahoe:   "dc47606253425fa7daffd8d1dc0bd26e859ad9fe09a291ff5f422b3f69aec028"
+    sha256 arm64_sequoia: "31412b744f83cd14f5ea90decb0247c0e3030251c02508a235ac24dafbc34e2d"
+    sha256 arm64_sonoma:  "09f6fbd7eccac73644ac751a32ee33cb51ad5974e872b688c5e291ee60b2c26f"
+    sha256 sonoma:        "9fafff0c60954a22c83975374b66bc6288964921149ff699da39455cb73f70b0"
+    sha256 arm64_linux:   "0b95950dab5c13673929ff0171d4d2c874835535fa3b919fbd28003a98a19c8c"
+    sha256 x86_64_linux:  "a1745eaba8ab6ff78fab87c8e567bd8d626a16858b95bd7986df7cd5bdfd5ca4"
   end
 
   depends_on "gobject-introspection" => :build

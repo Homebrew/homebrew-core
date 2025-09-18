@@ -6,6 +6,7 @@ class Martin < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11b453a57cbf3d5ee140846b9e2199af451c31c984e755d8ff5c1dc324e79703"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c337fc6b6ae0dc8f88075f778fae3b7fc47ca00a4ba0b71022b74bde6805f1e8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4052fe66ce49a3613cc4e485f150188cbad17fe6a9520c6f418d6870fa96e50"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b6a2794a50433365ae9e8757a4122484ed4f4ad01f1234f2330af15106dde2ec"

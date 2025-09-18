@@ -15,6 +15,7 @@ class Ficy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a229e2cdd5d347698dba54b95b66a0a17db438be849e798ba7b2c82ca4db924d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a74c5666c5779883383e3e98926f165056a5c2b1c4489c344390c8cea1700354"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80755ff2ff4f5143809aaa0bc23f8a999337cb583add0ccc3271cf464eb32def"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1886cf04ca32f5bdde1f3bc5489ac636cfdaabcf8ea7ef2a4a902e7b2a91843c"
@@ -25,7 +26,6 @@ class Ficy < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "b6eeba4f52cc614eca8a65cae2f346d41e2e0376f27459fdede8e7eb82ef7a12"
     sha256 cellar: :any_skip_relocation, big_sur:        "eb6228a79e94bd6a6d37ec647da5b0ca1863ba03992d93bed90071858d0be55e"
     sha256 cellar: :any_skip_relocation, catalina:       "9974dd8c30bcfe482222a8e6f4040c6c5ccb21c7ef6b893dbbf3033f7e5a85ab"
-    sha256 cellar: :any_skip_relocation, mojave:         "01d1a72a131cb19375bc8a068a59759d3207a60c84a4772cd8d52641ae1f8b8e"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "5b077fa05c6e598149b0bf1b7c7d2bc098d7712be5b1857d1c52ecb289689c23"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b055098e6bef712df9dbcf449f550b5e9b47d9b5ddbda657815f224dd2326bb"
   end

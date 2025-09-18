@@ -8,6 +8,7 @@ class Zzuf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:    "a4c4c66658aa63cc815d056e06bce100d7907cfd53179b98b596f440a1d0cd15"
     sha256                               arm64_sequoia:  "6ccb5e6621aa95f4cb62afebe5f4c3aee322b8d207a10d3cbdc16bb073c09aa5"
     sha256                               arm64_sonoma:   "6fce95c82da3ed7282dfbc55f4b276910b78fa5d76b2d5e66ad9b43607828fcf"
     sha256                               arm64_ventura:  "16fc98439ca072e8cf19c129649eff99e63e0cece1c1455e97f04ce7cb4dfd73"
@@ -18,10 +19,6 @@ class Zzuf < Formula
     sha256                               monterey:       "2cfa284477cd1e81ac3b248a20f25812083fe7b592a997ecbefee7663cedab91"
     sha256                               big_sur:        "284b235c4c744d7be86fbe6175a8d67a743a429c8021437182a31e6184105437"
     sha256                               catalina:       "809edd89cf9bd285a0f5496500627aca8b4b4cec071bfd747eb7ae3918526ae6"
-    sha256                               mojave:         "43c9049f2ff8d13a585009b43923579c087e0797a8d0258fc891be14f3ce6ce9"
-    sha256                               high_sierra:    "f13b52915de3bf08ed663b02df0f8b4d8f78d3a623c523a4d5f3c085ae6bafcf"
-    sha256                               sierra:         "9f1b2bfb909739bc5dec2e56b520313e30df3384e8a249b575d3664ac6a636be"
-    sha256                               el_capitan:     "5f0c55658fba6bbf225b6001b5be75c38f7a375322bd4b23944f3c7239dae0c7"
     sha256                               arm64_linux:    "c7c8ec8267f9b314e98b81cd5bb9a9765b51d1bce2f4dfd00798ac823affd99e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7164c38ad977edfad3d137b9071e22f185effde9165996e847facd20f4df0e65"
   end

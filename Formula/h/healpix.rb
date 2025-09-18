@@ -10,6 +10,7 @@ class Healpix < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0a3e9edaa26153b170f3a364e9248b3e852ecb5349f704865c94b30cf6959c28"
     sha256 cellar: :any,                 arm64_sequoia: "00a065c336cdb31ca6f06b99b478f0b287b63a4f1ded2042c3c73520e1fa683b"
     sha256 cellar: :any,                 arm64_sonoma:  "e1fee5370b52292ae8ac97fff082aa5556b77668a786ee8da2145131ea74095f"
     sha256 cellar: :any,                 arm64_ventura: "e1f000bb22bda5eaa5646998cc34accd8776a7f5dbc86bce1b84060268210c1e"

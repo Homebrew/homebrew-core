@@ -9,6 +9,7 @@ class Tfocus < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "258361e1ca78414d867f992032a024b6391dfc49737fbf25e184a3b6b6274cc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5dbfaf820e34ef9e6bb04d45a1d277fea9a27cda78fed88ae90f3686efa0006"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c72c12d7d0620fe84de30e04a49bdd1c98961891ec81267b95957c3dbc5dfbeb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ae42614fc40aafade49f9d100c5062396a5ae898c69967234a0762103fa550bf"

@@ -8,6 +8,7 @@ class Csvprintf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c0d233466b41a798e7d18ab763b0e3dcbdce0064cd8f3dcfeb8dd954e1b982b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "68dca765189cde9bb909b876cb833c3fe9f0e6cd98c7dddf470511374a4b1900"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63b05c840d8e8778e8852c48c86f9d016a5836d166be5ea1e903139447df6e2d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e4451744e95c6dd7b59d3fb4f87ca0544b6490b612f0f1a7bf89239d7cbbfc3"

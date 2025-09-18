@@ -6,6 +6,7 @@ class Pgrx < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "69e467aa093ee63b83807a333971e8e665a29494cc94a779c4ac1072377d4ea7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3439165334df193ea44c6b66acfdccf026f365984d4afae68cbc6e14525ed000"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d1cbc7f54cefc4cf57c4830283690dbac4813c38fa687b0835ad60d30c11e0c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "98b1cc91445d6b71487ae0cd9f3a9bc47ae13c0134175475eb8ab951a4eb3216"

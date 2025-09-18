@@ -11,6 +11,7 @@ class Megatools < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "7217cae7f353389333d5f34a1dfbf0d5327372d0a869641a6f38a305a0e2fa42"
     sha256 cellar: :any, arm64_sequoia: "cbdaf47635fdec1fc36736de8b84d3a96d9eb83da463f0db512d138464009e2f"
     sha256 cellar: :any, arm64_sonoma:  "b6f04ece0c4f9db9b77383d8bbf83497f83108f64c94db171a7841c7311c7cf0"
     sha256 cellar: :any, arm64_ventura: "ece0dd5f77f6c087e65c8ea1a78a770a1d1fbeb4fda0f0271cc89b107fce63f7"

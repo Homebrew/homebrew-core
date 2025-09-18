@@ -9,6 +9,7 @@ class Hiredis < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a56da7fea50b3da5242b05db22d6311b0edd6f885b8793687572098d5bf02f12"
     sha256 cellar: :any,                 arm64_sequoia: "d3bb6a7fd40584c74321d404d0c459f11e3d612c329a5f95367c372cb21bbdca"
     sha256 cellar: :any,                 arm64_sonoma:  "68e9423a13a8c5dc27884296ec0ee6ab25930aaa85d3b6e5e8726855fd864211"
     sha256 cellar: :any,                 arm64_ventura: "fa65af1fbbc772155907ee6332c3a21c8780a3ce8491b762470d05cf3ae57c85"

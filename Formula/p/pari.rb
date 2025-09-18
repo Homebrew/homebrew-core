@@ -11,6 +11,7 @@ class Pari < Formula
   end
 
   bottle do
+    sha256               arm64_tahoe:   "54e59de5b05e4490b9f15f0fdbe513045c65b75f7fdbc2350a0736c476360efc"
     sha256               arm64_sequoia: "5dd598ddd07c409257bad75db3c20f0da0509c07b3be0e0a4248535457594a51"
     sha256               arm64_sonoma:  "bf58c1bdf22c69cf679423fa396efc69996edb7567bd30811e65fccb20816558"
     sha256               arm64_ventura: "0739c7e681b5776a48634fea706d860b950f28b3020ae9f7ce830121f6208e7f"

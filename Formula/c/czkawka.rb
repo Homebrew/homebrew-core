@@ -6,18 +6,21 @@ class Czkawka < Formula
   license all_of: ["MIT", "CC-BY-4.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "35db07b1b1bef523a45fe9002787d4ebcff68432a58e4cf913679f6f2461c99c"
-    sha256 cellar: :any,                 arm64_sonoma:  "d6d43d9a49087f484f4a1f57c841af0f43f3ac759d29dbb1b859d6e73e4c77dd"
-    sha256 cellar: :any,                 arm64_ventura: "a3a6a7b083e8ef0c108266bfe655e5eb0b5e86fbe1ddc25755f91282b07d5927"
-    sha256 cellar: :any,                 sonoma:        "53069a822076a0697f185295f98020aa02dc46f57bbf003f6bbd33999d919b0a"
-    sha256 cellar: :any,                 ventura:       "00c95856ea26ce2bb938f4ce818a00016cac2f15859de268b14dd579f36fba69"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5b9bfbf32993274579f8e2bcdddf3a8206bee9469258c47d61beb59d57168b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5daae00fdaafdd3e5e5596ce3ad4768383f9b14e2d6212dd607ad53d1bf631fe"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9e864b494ab69223c4cc4c2c13a6fd0c18ee3901a57ee9849049246f8e4f7ea9"
+    sha256 cellar: :any,                 arm64_sequoia: "5a04f342abe94f8043873f428335a0c6a84250fb7286858c8e1a5fd8fb39c2e6"
+    sha256 cellar: :any,                 arm64_sonoma:  "cdc99a59f5fccc3c03a9d5c0c929a2488a3ff24244b1cba6e7d62ac3c9da204f"
+    sha256 cellar: :any,                 arm64_ventura: "45bbeb2050f67f8cc1934ab21318b957d65fde3855f0936c4c7a3a35c75aed5c"
+    sha256 cellar: :any,                 sonoma:        "6870706cdfd71b70bad879a332f4f23bd30cec361447cf71a2da7a4c230e97f5"
+    sha256 cellar: :any,                 ventura:       "fbd0d1f670f060de6b6ccd83c49d594fc0b65b7a9ba1d28e37065a1b9e7ded10"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe11fc2b2f976a53a49a791eabf16b1cfa43ca223d5b7073fc9608fc7ef5bd86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "193dceccee09d909d8be8dd0c328a6af8a522c282ebd53d21aad91cb936b74aa"
   end
 
   depends_on "rust" => :build
   depends_on "adwaita-icon-theme"
   depends_on "cairo"
+  depends_on "dav1d"
   depends_on "ffmpeg"
   depends_on "gdk-pixbuf"
   depends_on "glib"
@@ -37,8 +40,8 @@ class Czkawka < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "czkawka_cli")
-    system "cargo", "install", *std_cargo_args(path: "czkawka_gui")
+    system "cargo", "install", "--features", "heif,libraw,libavif", *std_cargo_args(path: "czkawka_cli")
+    system "cargo", "install", "--features", "heif,libraw,libavif", *std_cargo_args(path: "czkawka_gui")
   end
 
   def post_install

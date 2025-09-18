@@ -8,6 +8,7 @@ class GolangciLint < Formula
   head "https://github.com/golangci/golangci-lint.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cdda61a5fe882a0d615a661d59d0c5f2fdebcdfdfcbc3a4125092a6733e0ede5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a44f8a9047e263d3197d35ccd477f08051cc1d8bed0b5b49bef25a19b3543749"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c29ebbf1ea267d4ff35b2203486d97414c55d1922a8e7f8d60eb9311c71b3ba"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fdc8f9fbb0be770b4d28352f64b85c79a132cbd6963c5f2c86640a95a2231ecd"

@@ -11,14 +11,13 @@ class Nest < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sequoia: "1a34d790312185592e775e4e8fe4aef7383006d5043b7c97847d3c0d7db56394"
-    sha256                               arm64_sonoma:  "7d9f9e7ad474c91f30af1f8befd084621a645b6753780c98a03c3bda4c39f681"
-    sha256                               arm64_ventura: "e4997e4c854f79114bf6126b93073cedd165b443f14d1086f7a246690b77b547"
-    sha256                               sonoma:        "c6628a5bb1198d80c5c1e56a2bdea010d585c067bac0603a744bf1f009191b8a"
-    sha256                               ventura:       "a77c3c6db49b56fe36710c8a05bfc36dc4604bc8bd5448ceb7744fdf216ce86c"
-    sha256                               arm64_linux:   "74f9abe8a628e7dd0737b8e16389309f48b3784f275b366ca83463acdc22a368"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e29d5b0a924beffaed5eef267c5c08b78529d3894a8099578d68e0853fb0d65"
+    rebuild 2
+    sha256                               arm64_tahoe:   "ecdcb809374fd3ac133209090f0c4736018c36cfb315d5f2d93a25b69adbb908"
+    sha256                               arm64_sequoia: "77726b6e71f853c6df098f2d831f9a0af988f6bf7d31603da31d5b724af38e40"
+    sha256                               arm64_sonoma:  "8b96f0a8dc01bfd65c16a3a0c837e50b020b4a609fc4fed7e20af4fad94c479c"
+    sha256                               sonoma:        "459ff70045a53b33d2a08c6a543f1c02170a82b72d12b32e70e64401eb5a9aec"
+    sha256                               arm64_linux:   "ec8f35f23f1bd5693753ff042718a8f21743d5396df3496f8c1a426a87394664"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "091d19e726b0c3a4d99748a2b8ad2d9308ad89aa12fd856c019e475ecfc9651d"
   end
 
   depends_on "cmake" => :build
@@ -35,9 +34,14 @@ class Nest < Formula
     depends_on "libomp"
   end
 
+  # Fix to error undeclared name not builtin: long
+  patch do
+    url "https://github.com/nest/nest-simulator/commit/cb7e1dadf8a8566b7340ad3a7ed13c173d35e6d0.patch?full_index=1"
+    sha256 "056fa912d7570bd98e2114355a5d0a6ca2bc0bc8cfd362bf39625dfc9df93c47"
+  end
+
   def install
     # Help FindReadline find macOS system ncurses library
-
     args = if OS.mac? && (sdk = MacOS.sdk_path_if_needed)
       ["-DNCURSES_LIBRARY=#{sdk}/usr/lib/libncurses.tbd"]
     else

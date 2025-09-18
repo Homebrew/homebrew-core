@@ -9,6 +9,7 @@ class Trimal < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e6b8f43f9bf10254985da1367d4016fa241b2dce9227d727475738c42f667978"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7601f4fa41f4b2c49221fcfd10680dae2d7ba2ecf7b118ada2626df50b3dfe56"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d9046969829e57b325ddb627977fccaf33ec9b3b9dd17fdd1acec4c45af0ed7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4a64b8c35e66ccd823b1778665bebc09a42c5d630897591c18fd8b50b68f9ec6"

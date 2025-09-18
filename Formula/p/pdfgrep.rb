@@ -7,6 +7,7 @@ class Pdfgrep < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "502319a84275612510c2c810e08793ded8b119b837bd0794e89d98e03a287221"
     sha256 cellar: :any,                 arm64_sequoia: "9926375b2077d2480098e6d821880915a51f94a4c89284718d5b320609e00220"
     sha256 cellar: :any,                 arm64_sonoma:  "41dc9c7cfff5e4e580d773798cdf1bf190017ec15287aac86fbd44a7632f451a"
     sha256 cellar: :any,                 arm64_ventura: "7482070f52df00a9eb14f2728145b17828ab75d95083a6c4267ba899b0ffcf12"

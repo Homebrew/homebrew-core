@@ -9,6 +9,7 @@ class Noir < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cfb8daadc60f421da42f6689e281f1d4ad0593aa377ba8f53768b5e709076a49"
     sha256 cellar: :any,                 arm64_sequoia: "8726ec9ba560772679a5205b5272516ca1185a34fdf08c11d856364473ade38a"
     sha256 cellar: :any,                 arm64_sonoma:  "d1c64c50169ff4503c1aaf53075eef4636d4b024ee41457468cb5ad721663df6"
     sha256 cellar: :any,                 arm64_ventura: "91f5b9bcd3a92f4b04f63170e170e921c61146e452344838d1e7fbaa8014c0ac"

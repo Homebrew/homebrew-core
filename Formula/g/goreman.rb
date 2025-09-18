@@ -12,6 +12,7 @@ class Goreman < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c7ccc7361fe05b45a29a2aa2c70c1a9a22e226ecbd20bc80c9363733fca3f0c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bbb40f361d8ddd7292c0ce9151d7bd4eebb8760ad345f7a1ab16fd22358963ff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bbb40f361d8ddd7292c0ce9151d7bd4eebb8760ad345f7a1ab16fd22358963ff"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bbb40f361d8ddd7292c0ce9151d7bd4eebb8760ad345f7a1ab16fd22358963ff"

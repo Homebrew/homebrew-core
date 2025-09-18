@@ -6,6 +6,7 @@ class Sherif < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "db665b67ba428ecbe45b2e073b31f8f0eecff7fb3ff2ba228605dd5eda5b7929"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "db665b67ba428ecbe45b2e073b31f8f0eecff7fb3ff2ba228605dd5eda5b7929"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db665b67ba428ecbe45b2e073b31f8f0eecff7fb3ff2ba228605dd5eda5b7929"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "db665b67ba428ecbe45b2e073b31f8f0eecff7fb3ff2ba228605dd5eda5b7929"

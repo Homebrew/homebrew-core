@@ -12,6 +12,7 @@ class CassandraCppDriver < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c04a494d22b97cca89c1ddb9cc56a0134bf5c4091356869585cb66eafc369c2a"
     sha256 cellar: :any,                 arm64_sequoia:  "168561f07967977a48fb1a0568b3a90d8c6f2e04eb725758924cc0d04b494b4e"
     sha256 cellar: :any,                 arm64_sonoma:   "6d7789edcadff5905b4108444595d617ff24e99d54a7014afc2ce5c1a8d64c95"
     sha256 cellar: :any,                 arm64_ventura:  "4b26c05be9b460b2359176859b9a4949d7f9d675f2ac9a3bf729e21c3dc5edc4"
@@ -34,9 +35,15 @@ class CassandraCppDriver < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DLIBUV_ROOT_DIR=#{Formula["libuv"].opt_prefix}",
-                    *std_cmake_args
+    # Fix to error: Unsupported compiler: AppleClang
+    inreplace "CMakeLists.txt", 'STREQUAL "Clang"', 'STREQUAL "AppleClang"' if OS.mac?
+
+    # Workaround for CMake 4 compatibility
+    args = %W[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      -DLIBUV_ROOT_DIR=#{Formula["libuv"].opt_prefix}
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

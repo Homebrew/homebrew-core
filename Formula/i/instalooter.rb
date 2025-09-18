@@ -9,6 +9,7 @@ class Instalooter < Formula
   revision 13
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "87f97a9c929f603933c50b839800fe73fcb2b91e519e96d548a8d5488ce9fca0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "650ba75e01cb3e3afdf79bb83d6c5d03fabbc3c77895d1a52640ec41482658ab"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "650ba75e01cb3e3afdf79bb83d6c5d03fabbc3c77895d1a52640ec41482658ab"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "650ba75e01cb3e3afdf79bb83d6c5d03fabbc3c77895d1a52640ec41482658ab"

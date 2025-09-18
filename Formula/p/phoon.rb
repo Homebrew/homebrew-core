@@ -23,6 +23,7 @@ class Phoon < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "636b515de152863a3694ddd5cab6745302e40fc8d649cd14bcf2b1debc5c2ba6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eea7e8ab443ec3e74f55f9b0572fc1fdb041d4a484f05c523820d3c9c510d646"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b1fb75a7e0219b4f893f0ffc74791a27e82e95e127e6f8c66680b046d6f8a72"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd15d230ce1c25ac23caf064b0468fcbb779b3c0ba264410f59f3d8796c9f0c6"
@@ -33,7 +34,6 @@ class Phoon < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "b4beab04ea220698a14dc6a0f104205e21f5e3b1af4846b849a1398b51c667e8"
     sha256 cellar: :any_skip_relocation, big_sur:        "40dc9f71c308e04063cf566ba3ba64459d781f2795d0fa4aadee860768a763ab"
     sha256 cellar: :any_skip_relocation, catalina:       "27ac5801ac5c5b411b587df1ec799acca76c3acd3a0a02a193a187d07ee76747"
-    sha256 cellar: :any_skip_relocation, mojave:         "86ea843f6ba29b5e23023f92b05460d7e105ef08d98dfc2094f579f667a53504"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "751a25b30911bd21075babf88ea8311ff1059a5b93ff08cdde9fadcf50b4c2c0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c14a5311b93a01cfe4857784708ae9e6397525c07b07ca34f26b58d5dddc6f93"
   end

@@ -9,6 +9,7 @@ class Pioneers < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "adf66c9f80045db5ecfe7557d06d1e6aa95dc4a8e07c6d144106b350f5826c7c"
     sha256 arm64_sequoia:  "f8818813a32e582cfe48b07fea5acb1f9796fb529586e2b1d73eded630f64eb4"
     sha256 arm64_sonoma:   "322552b3012b80d29fbb86bd7986a9819857e34f37a4e25d5787ba891318f17f"
     sha256 arm64_ventura:  "e4593b8a69cf0aa9ce87ffe07240f877ec2462d6f2956d7757bc35656e7946d2"

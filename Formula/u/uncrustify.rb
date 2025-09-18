@@ -7,6 +7,7 @@ class Uncrustify < Formula
   head "https://github.com/uncrustify/uncrustify.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6fab78e60bb0348bd5249910825d251579f4f435fb75099136380bf40b1b30ab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "95185b021122589ff6c0c457ca16433fa0dad4199eda25ac9d27dd3766ad45ed"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b637552b2ae8ce6b96724cc43c963787b96d4ac10fecc801a9f19cd32b8d4a8f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "49ca479826a62c4ee74245651b6c2516204b0ad7799fcb5df55cc2784e6c1bd4"

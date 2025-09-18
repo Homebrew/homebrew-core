@@ -11,6 +11,7 @@ class NodeAT22 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "0a322400c4cba360f6b3868791b95ad99b25ff97ff7b9553f3d8cf22aa84328f"
     sha256 arm64_sequoia: "460b5941f33e625888a26b409c4e094d0411f8b18205d39eaccd0cc95daf3b7f"
     sha256 arm64_sonoma:  "b2147a7ec6ab210b2575b69835967fbf0ed97ddb620c7fb04712964b8e94613a"
     sha256 arm64_ventura: "bf0100875a8dd2a4379838b6e2f7ef12be5a6f10ea4f6083464f63959567d502"
@@ -42,11 +43,11 @@ class NodeAT22 < Formula
   depends_on "uvwasi"
   depends_on "zstd"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
   fails_with :clang do
@@ -58,9 +59,6 @@ class NodeAT22 < Formula
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
-
-    # The new linker crashed during LTO due to high memory usage.
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
 
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.13")
@@ -110,9 +108,8 @@ class NodeAT22 < Formula
 
     # Enabling LTO errors on Linux with:
     # terminate called after throwing an instance of 'std::out_of_range'
-    # Pre-Catalina macOS also can't build with LTO
     # LTO is unpleasant if you have to build from source.
-    args << "--enable-lto" if OS.mac? && MacOS.version >= :catalina && build.bottle?
+    args << "--enable-lto" if OS.mac? && build.bottle?
 
     # TODO: Try to devendor these libraries.
     # - `--shared-ada` needs the `ada-url` formula, but requires C++20

@@ -15,6 +15,7 @@ class Libshout < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "76663b1032171e339e3050387e161c4428a0831ee4c0142c76ba6fd0d4dfa767"
     sha256 cellar: :any,                 arm64_sequoia: "5ff13dd8f27961848f5a16d23ce60c171146c09424e7335eb2eaee7245a78ed3"
     sha256 cellar: :any,                 arm64_sonoma:  "86c6bd103a2d979c4d21e4b419716498cbc4662addf0db2308d91bdcebaeac48"
     sha256 cellar: :any,                 arm64_ventura: "7a69fb9e5b3562368d2ab467fe6b9bfb7b0091505a0324e943873bdec9de4eef"

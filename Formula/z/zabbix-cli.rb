@@ -10,6 +10,7 @@ class ZabbixCli < Formula
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "32c43a203126daa7c840a103253f80c5ee0575fbe5821ce1f78a1637cdd6cc95"
     sha256 cellar: :any,                 arm64_sequoia: "9e0fc2e2f2861e6449800f13410ea73a64f4131732c62c2565bdc7d271e964a7"
     sha256 cellar: :any,                 arm64_sonoma:  "8d083f79ed0f9238bd6f7604f113a5d60cf215f538622a1b209d727d6a581ce5"
     sha256 cellar: :any,                 arm64_ventura: "0608a5ade788efda2b71909e399959b6aba375603bfb9d6afbdfd87b098e247e"

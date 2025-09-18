@@ -12,6 +12,7 @@ class OpensearchDashboards < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "727eecd85b6c3883e6e5844fe155b8d607a799f75c12ddc7276bad3d042d1e29"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "06ef29ddb7b2fae29aea89491c495a359db9cda91ae82b4c5d3be1f5d77cedef"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5659412cb97b6d9a6e9f9906c85b682bf33220cd017430589decc91eb8ed8e9d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "910cdadddfa28a1491bc6ea9fcc4680b47c4cbe5faf9db83af7ccc54021c351e"

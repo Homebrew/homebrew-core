@@ -1,11 +1,14 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "https://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_20_0/openmsx-20.0.tar.gz"
-  sha256 "4c645e5a063e00919fa04720d39f62fb8dcb6321276637b16b5788dea5cd1ebf"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/openMSX/openMSX.git", branch: "master"
+
+  stable do
+    url "https://github.com/openMSX/openMSX/releases/download/RELEASE_20_0/openmsx-20.0.tar.gz"
+    sha256 "4c645e5a063e00919fa04720d39f62fb8dcb6321276637b16b5788dea5cd1ebf"
+    depends_on "tcl-tk@8"
+  end
 
   livecheck do
     url :stable
@@ -21,13 +24,20 @@ class Openmsx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "3ba8300b8fdbcfffcdfb4012fb7df687230090655411d801afe57ca69e4cfb49"
-    sha256 cellar: :any, arm64_sonoma:  "7c5e4756a68ed4a9dbdb7c1dfdc86ffb40e059f5198b3b15e6410c90eb0281b5"
-    sha256 cellar: :any, arm64_ventura: "a69cc87e4cf618d3136d1bb7c83fd20d2b89968eab61daf52c75d48bd1c2636f"
-    sha256 cellar: :any, sonoma:        "6f9d02fde2ef6c175c16a0f9c37b5a473ee89b3d9ed7c28f04093459ade4217b"
-    sha256 cellar: :any, ventura:       "19303d260496f03b0ef43050132e2c4125715d91d5470333c93ef60568ab3767"
-    sha256               arm64_linux:   "b05bb6887ddd5509c84fc6d88d540668eb6b133a9d12638df0a1b703917c2a2c"
-    sha256               x86_64_linux:  "e0c3322fa46edfeb2f35a85ad63b62d183e166fcb6c16b8541b93186a46a010f"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "a15148e1fd3c7ece9f97d6c2b5e30ec03e5ae5613b44955fee21f49e44797f74"
+    sha256 cellar: :any, arm64_sequoia: "4b315226f72089a44114b59aac99c0ba287437dec71b40be00e1c6b8d02e4ed4"
+    sha256 cellar: :any, arm64_sonoma:  "08a73c81781242564a33a8c2e9a7a857459338dc2d3ac663c3621e3d682c786d"
+    sha256 cellar: :any, arm64_ventura: "09277a1aa755529546bd671baf93e8c5ccac515bc07224fa8cc1ed1721f3eced"
+    sha256 cellar: :any, sonoma:        "496e6ecb68035df31905e59a8cb50eb98a5a391c64220dfc28ca07d2b1f4df61"
+    sha256 cellar: :any, ventura:       "c267e3a327095b54adbefad82c7c3b67c93c9f1420abc8c9c63683a366715fb9"
+    sha256               arm64_linux:   "9f95dd7fa08f9e37773dc870573b8950196de1f58a4c4dce24d9ea13ebf33eec"
+    sha256               x86_64_linux:  "6b4a654d5f1954125ed32caa067d7b441c384143c8a130702c68a90fd8b58e46"
+  end
+
+  head do
+    url "https://github.com/openMSX/openMSX.git", branch: "master"
+    depends_on "tcl-tk"
   end
 
   depends_on "freetype"
@@ -43,7 +53,7 @@ class Openmsx < Formula
   uses_from_macos "zlib"
 
   on_ventura :or_older do
-    depends_on "llvm" => :build
+    depends_on "llvm"
 
     fails_with :clang do
       cause "Requires C++20"
@@ -53,7 +63,6 @@ class Openmsx < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "mesa"
-    depends_on "tcl-tk@8"
   end
 
   fails_with :gcc do
@@ -62,7 +71,13 @@ class Openmsx < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && MacOS.version <= :ventura
+    if OS.mac? && MacOS.version <= :ventura
+      ENV.llvm_clang
+      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+    end
 
     # Hardcode prefix
     inreplace "build/custom.mk", "/opt/openMSX", prefix
@@ -70,10 +85,10 @@ class Openmsx < Formula
     inreplace "build/probe.py", "/usr/local", HOMEBREW_PREFIX
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
-    ENV["TCL_CONFIG"] = OS.mac? ? MacOS.sdk_path/"System/Library/Frameworks/Tcl.framework" : Formula["tcl-tk@8"].lib
+    ENV["TCL_CONFIG"] = Formula[build.head? ? "tcl-tk" : "tcl-tk@8"].opt_lib
 
     system "./configure"
-    system "make", "CXX=#{ENV.cxx}"
+    system "make", "CXX=#{ENV.cxx}", "LDFLAGS=#{ENV.ldflags}"
 
     if OS.mac?
       prefix.install Dir["derived/**/openMSX.app"]

@@ -9,6 +9,7 @@ class Jinx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1b79fa4e492e378b7efebc2117fc5842ce1dcd57180e332a2eb6ce00b1915c16"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "640fd3707ccc9262904729a97da5789a22e9cb46c658b7d20aecbb323749a1a2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24313e091b9222029e7d5e6e4aea87ef70e20facef9a6b82e0a0d4abfffcc511"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "76c5986afd50a5bbe9ee092ab25dfe8633ae63e1895b5ee90107f508a6297673"

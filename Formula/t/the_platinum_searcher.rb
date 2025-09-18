@@ -10,6 +10,7 @@ class ThePlatinumSearcher < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "83e283a230eb2226c0664d30e2bfceebf1e5cf42dbf4841bbdafc96cffd6307e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2ba93995429038b3bc692cf512396e683d766b131a307e63afbbe913218b54c1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a410fe6377573632c20334478aa337d0c4c39660402881d31d356b6ce055e05d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d34acea6e7a4f0bfff85c75756c119ad978a11e72e2901f15e40a107cd1a8564"
@@ -20,7 +21,6 @@ class ThePlatinumSearcher < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "b9f8d4628e265fe8cee61b17d40a0695316940d4805d84ee98de11abc6dc54fa"
     sha256 cellar: :any_skip_relocation, big_sur:        "63cc973af4c1fc612acb86c7a928f1680f84db7edfae52f374b95925c00761dc"
     sha256 cellar: :any_skip_relocation, catalina:       "79066cac44fd6cd21b8feadc9737045f98846832f15bd2a2e1fdaae3a8165e6d"
-    sha256 cellar: :any_skip_relocation, mojave:         "6b7fb2ff2ca2b5a0d264a7733a59eb0e1b68e211d15a261f6bbcab5664bb6ff7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6ba21397a0538c990656c24ba157c5650ea62a26da823afdba238da37226d3b"
   end
 

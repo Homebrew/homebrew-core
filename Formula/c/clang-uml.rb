@@ -8,6 +8,7 @@ class ClangUml < Formula
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "94db4fad5ce558e1a5e168f27b2e376a02fdfa4228974a58f425a2ede82a9152"
     sha256 cellar: :any,                 arm64_sequoia: "1aa0e9d5dc458d3bca6664861311b45e3dcc08a38af59064bc73b5d1d0fdb997"
     sha256 cellar: :any,                 arm64_sonoma:  "9409c54c5f610eac2f82d7da271e3acb10d70779fb0485ef4c91175e19c613ce"
     sha256 cellar: :any,                 arm64_ventura: "e6d5bd9d6d67fd95d41493d856a64599d93a914698e7f336f36b7deaf1142523"

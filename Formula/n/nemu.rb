@@ -8,6 +8,7 @@ class Nemu < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "7f13befef528918b647d1271046b2e6caeb3eed431614e37199bf75571004b93"
     sha256 arm64_sequoia:  "4c96f0430555710f094365598dddb0e2089ab38b1c756532a11f2a3303bd2768"
     sha256 arm64_sonoma:   "af6f110c24124397c439c2b8ffc7dd0b9186fcbfe9946ad0d45a4a3a094146de"
     sha256 arm64_ventura:  "7ee1275f2d0d4420779817a5379e3b5aba1189a2912ccc3bc099c0d149614bf6"
@@ -32,6 +33,12 @@ class Nemu < Formula
 
   on_linux do
     depends_on "libusb"
+  end
+
+  # Workaround for CMake 4 compatibility
+  patch do
+    url "https://github.com/nemuTUI/nemu/commit/df667081352f85791e64eb9a3a4e693805d50d66.patch?full_index=1"
+    sha256 "d6844c5d1b4afe032abbf1def917cff780ba3e400f6df4284726e20d51fdc22c"
   end
 
   def install

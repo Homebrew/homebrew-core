@@ -1,20 +1,20 @@
 class Msolve < Formula
   desc "Library for Polynomial System Solving through Algebraic Methods"
   homepage "https://msolve.lip6.fr"
-  url "https://github.com/algebraic-solving/msolve/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "742e84cf4d11eeadf62002623ecb7658e5d6d8c838fcf571fac06acf44252983"
+  url "https://github.com/algebraic-solving/msolve/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "65e5108fa9ef0628c57c3d74737b27582f8deb49a716fbec39d40f4faeb76d4f"
   license "GPL-2.0-or-later"
   head "https://github.com/algebraic-solving/msolve.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "0e45fb53dab4b5250cea27d768e9f987171ebe527b5437e613e4201be0da1388"
-    sha256 cellar: :any,                 arm64_sonoma:  "5d652f0fa1125a691d4e467a6b13ad5c36616258976d0f0724128b5566c0c244"
-    sha256 cellar: :any,                 arm64_ventura: "b74d1713cc4c1fd963b888cabc0152001b70846f55a098d2adb989b990e74831"
-    sha256 cellar: :any,                 sonoma:        "fe82b496aebcde94ef15ecff545ac37614f0ad13ebe2bfb562eab97ac0eefe38"
-    sha256 cellar: :any,                 ventura:       "b9eba246188c6f93f1afe80258d158822fc6c73b39f48aa07c12733ec6bdff34"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0cf86cbf75bfe4dbfd3c5bae2cc3d64d191c643d370a3955984757483541a122"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "440bba762ba7d04d6bfa6ea0ba94bb2256d39bc5dec3ebda03ca0ec33964ad62"
+    sha256 cellar: :any,                 arm64_tahoe:   "142e6ffe95481d7ea910f62df3157003cd27655315caaccf498aa8a5a141687e"
+    sha256 cellar: :any,                 arm64_sequoia: "87deed01325452ff8112bffcbc813e97f40ef7012dd881225dd7f9ea23c11517"
+    sha256 cellar: :any,                 arm64_sonoma:  "d38249ea89009fa36fb02b28ec9e68d86a41a33c7b8d375f6c5eb592021b7eb0"
+    sha256 cellar: :any,                 arm64_ventura: "d7102d0b4480a354fc9dc60b7095c63778ec6ab82793a60c1c54cf8e0b5cbd6e"
+    sha256 cellar: :any,                 sonoma:        "afce84f0d6271e1ec5e51819e53afc9f4412546f685be5bba6cc65dec12d220f"
+    sha256 cellar: :any,                 ventura:       "71c1c62f425bbbb55e21c642f613517199ba6d01e18ecca71afbd6242006b8f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48b4c1588216ee095acad912233b8a75614b162d59d4ef60e268b40d6c52b19e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5571e9c3baab37dd681884ef58252b440deccc003be7b730cbbb29c44ae0262d"
   end
 
   depends_on "autoconf" => :build

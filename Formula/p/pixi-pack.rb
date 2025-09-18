@@ -7,6 +7,7 @@ class PixiPack < Formula
   head "https://github.com/quantco/pixi-pack.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9c0b2e217000353f08358d389f265136c1b273789617b4d123f85f214cd900fc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "52f04d5b33ffea2ad2d7df79874e8f3b65a2a64f48d310e1449d95bcdb1aafb9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5651a45c5277a39d9be48806741b51bd8038da302c08217107568aae278fb36e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d1aae4fed2b8494a960c0cf939d092fc02dece67987d72f1ba4af846171070dd"

@@ -3,19 +3,18 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://pyinstaller.org/"
-  url "https://files.pythonhosted.org/packages/64/17/b2bb4de22650adbeef401fa82a1b43028976547a8728602e4d29735b455e/pyinstaller-6.15.0.tar.gz"
-  sha256 "a48fc4644ee4aa2aa2a35e7b51f496f8fbd7eecf6a2150646bbf1613ad07bc2d"
+  url "https://files.pythonhosted.org/packages/94/94/1f62e95e4a28b64cfbb5b922ef3046f968b47170d37a1e1a029f56ac9cb4/pyinstaller-6.16.0.tar.gz"
+  sha256 "53559fe1e041a234f2b4dcc3288ea8bdd57f7cad8a6644e422c27bb407f3edef"
   license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5ff41f430f11af6a4c0390799a222da99e34645da7bc8813b2a7568078cf1dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62303fc7fdf52d69ca78d361d23c3b048252b81de49f769aa2b756528084301d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c645d5a3f6f87616c6ba06e93658ae1a571e0676756aeae080d48f2ca9fb4574"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3e873b7f7cb31f19bdb1f0441072e2bf87ff266657a184b58b4ece1e4a67d806"
-    sha256 cellar: :any_skip_relocation, ventura:       "c3e108d0ce65fc0db29fa84bf2f08e8960830e1da9d8928b2016f83efd35358d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "635936c2b4036e7ca6ef706efdeb50e6dc5118fbef8c335efa8cbe39828c3151"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "035e1c7afeeeb0ea425b8c9cdee09c671568cfc12554405c227aa166a9a928ce"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0d5afffde148fec469297828d18d4bf79f14deebd3802cc9d9f87322a604f8b3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b776bcc4d5a00a3211ed258823b384a2b4aac564923ba3d179f237556308e245"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0cfa4638eaacc97a6d34e1c6ac260a78a1392d2649b7be16f01d5085b6ec6f9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "40d116db9cf1f2ac2bb80ffabe83b77891605d612d090cb7b6e0f0bfa2c3a5e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e52edd4b8c8ca5fcaf2a34c968bd9cbfb5bdd9780f4a6370250baf996e6d00c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57aacbe48d2cc7d832eb552fa8cdecddc769affb4d50d126c80737c7cfa30a0f"
   end
 
   depends_on "python@3.13"

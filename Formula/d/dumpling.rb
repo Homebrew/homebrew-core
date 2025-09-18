@@ -12,6 +12,7 @@ class Dumpling < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f2ea11dd867898817834b0068ad0d8fb1008dfb50920f5c3f145d0d649f66476"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "36ffd9dd78ff7a73d98d7bd81fc4986219134cbff0650aa5738d17a24592c8f4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "313f002fd020feb0719aefae618b611937057e24fd7f19c6db8639a183b1fd6e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f8de2afed51ec376b1cb3ef1ffc78db2cf181a4ed35d954fe9a9a948e1ec85a4"

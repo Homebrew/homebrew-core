@@ -10,6 +10,7 @@ class Cig < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "24af56532b56382a0a26334284d11ace630a49d376ae8af4f808aede18cf17a5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba2a840628b58188b54acff96a557a2930ac6fa2a862cf3f075bc15a681dd0ea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37fe43627668c9628145abd430354349ebd669b3a1f5b78dc4a8ae69567619e1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3b74f7b2d3b2d121ccb6946718893b4f0c09d6bae5e5a6a7d48b8144da9b452"
@@ -20,7 +21,6 @@ class Cig < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "fbca3e3336ec9a9848091d2b1845a48dc915ae798da5e1d54fe6aa4ee2261da6"
     sha256 cellar: :any_skip_relocation, big_sur:        "c41c70e517158f1a31bb4b29a6fa01b12570001353b8800d55aadd4ddc99080e"
     sha256 cellar: :any_skip_relocation, catalina:       "3ccce3238efd259041dbb0f0427d5ac06cc4dfafdfbfd336ddd0023e02e9dd7d"
-    sha256 cellar: :any_skip_relocation, mojave:         "9cf50d9418885990bed7e23b0c2987918d63bef3e7f3e27589c521b6b73160bf"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "be676ae224ae098307465166f39eea0d6bcefb82ac48d6c86b76d79e87a4847b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cda091fe20f715097967b89ee16f611d3f26faac9eb4d3f7861ec5d9cb91201"
   end

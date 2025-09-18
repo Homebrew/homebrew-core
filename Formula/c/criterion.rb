@@ -10,6 +10,7 @@ class Criterion < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "887468387265728572404ff3ffc2486528e7898fdffa1213d5094ae0071f7285"
     sha256 cellar: :any, arm64_sequoia: "87e4b6050b97f8c93ffa634a013392a08dd9ca6ccde834ab0b38ef960bdbbb3c"
     sha256 cellar: :any, arm64_sonoma:  "cd2f6e03ef7b2bf9e3ba7e6620fc3f7971a98bba90ada27302ac84e1e0019ac4"
     sha256 cellar: :any, arm64_ventura: "c6f8a68eba64dd89f2a9748e37b7739919ef51f24c065495c1804b682bf507b5"

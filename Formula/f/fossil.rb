@@ -12,6 +12,7 @@ class Fossil < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "47b2356e1708eda81ed8062d33a379a3eaa746bcacbf6970a2ad952c5aa8fae3"
     sha256                               arm64_sequoia: "cd0afa8139ae0456e601ad865e25f0d3165469c8ccc0b5fddfa2c21636d90a1d"
     sha256                               arm64_sonoma:  "5506de25e925a7a39d02a3f9876928345ec5b2f585f75838a6c103d321179027"
     sha256                               arm64_ventura: "cbe71ce1e8b2c5cb0b27eca0521484516c4ae9636e0c8faa8f298ffeabd4fa4a"

@@ -12,6 +12,7 @@ class Acl2 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "4fa4af1bf7a6789189a65b442b77cc995399e4c886db59b9a2632910416ad5ff"
     sha256 arm64_sequoia: "8b0a7d1318fbc019b8d9992174fd8f40819b334af0d1e603c3387f32ac320ee5"
     sha256 arm64_sonoma:  "811d34309d0651f364c26c3f44960a467722d1cb739ac5b03675bd4fecc1c36b"
     sha256 arm64_ventura: "9f65deddaa1bd314348c6b0fb13056e3b116a8f107f47883e9354e0ab359d4c1"

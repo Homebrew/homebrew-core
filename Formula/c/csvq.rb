@@ -12,6 +12,7 @@ class Csvq < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3981b6e29e04cdf062302717b93fc6bbde7c240d24b23fe0c4fb853ea53fc8df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "303a36f17339ff457769472ba232b72a6fbee8e92f08ff5c84e72f5293a03090"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2fd21285e2daab0a8c6e02fbec8b218b72f6347b9f5e281d7184ef36bf638ae1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4da92f08fc5206cb67e4748463b1d29289da9630dd5e3b5e394063ff48e465da"

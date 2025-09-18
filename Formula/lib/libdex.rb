@@ -15,6 +15,7 @@ class Libdex < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "d74ef293c9daa90394d446acd3fb1342b15fecb7d4485e60d0216949c03877d7"
     sha256 cellar: :any, arm64_sequoia: "6dd4afc7846c52e350c3592125feb9fe4dfb3b1436a76dc1a467fb0702783f85"
     sha256 cellar: :any, arm64_sonoma:  "ccc42ce047c0f21b6834a26030b3fab14a562acf829fb3d2213eccaa6537d308"
     sha256 cellar: :any, arm64_ventura: "5e7acdc4b9ba579acc34ef3bcddd9effa7321e687de33481194e752736e3802f"

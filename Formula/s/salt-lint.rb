@@ -9,6 +9,7 @@ class SaltLint < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any,                 arm64_tahoe:   "a2a64239836aef901ff7f078775077d818b80a1008cf428bf455fe0fdff2166f"
     sha256 cellar: :any,                 arm64_sequoia: "fbb1958185be4aad5fea5c651fd3e8da21fca696c5d213693e4a81936a1feb2b"
     sha256 cellar: :any,                 arm64_sonoma:  "96d91986ed175ad3f73c892694470d516dd30faea4e1598cbacef169edb6fbd2"
     sha256 cellar: :any,                 arm64_ventura: "d00a3fb68390018c7e193fdb099fe1f0a72e8648d516fe94b59090a8c5e390ae"

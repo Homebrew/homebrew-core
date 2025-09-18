@@ -12,6 +12,7 @@ class Librist < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1a6941808a50bbb042a9a8e20309225a828c520f149709fb00a05c44368d79ed"
     sha256 cellar: :any,                 arm64_sequoia: "5d585b8708b16c93ce9923a1ac8c1b8ce94e581c66966675b482da7464fee2ea"
     sha256 cellar: :any,                 arm64_sonoma:  "5492e570120f87b3e8729e200304be55c2af9c20163b0292f8db746ae132aee9"
     sha256 cellar: :any,                 arm64_ventura: "891def5dc77ba1e982ab1cb27efe8f47383988e7f503b91d844ceab49a3bac5a"

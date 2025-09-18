@@ -14,6 +14,7 @@ class Jpeg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a9c4c46243ca95babeaa9779c982c90b134ce326124d75af8cd1cce071d5941c"
     sha256 cellar: :any,                 arm64_sequoia:  "0c2e03678c6b74d190096c547c337769d6678bd41eda71d6688e465825c4b003"
     sha256 cellar: :any,                 arm64_sonoma:   "15c7bc3002bdb1f9281a9621d4d9c7722142aab09cc983e950b24d78c7a8744b"
     sha256 cellar: :any,                 arm64_ventura:  "3492c054e815cb4843932d27bb943b5ae325acc25219049afd1790c2d549787e"

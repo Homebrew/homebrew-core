@@ -11,6 +11,7 @@ class Petsc < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "4bc8140699d858cf80c61dc366a1f90668bb7a27134dcd992fd21408f7ea936e"
     sha256 arm64_sequoia: "2682d4190bd53863f58225feab8ac0e4890a5bed0c9da9ce3f9287d3dc7898e8"
     sha256 arm64_sonoma:  "602c2bae6b39db5d5a8f2b4e82277a07e26adabf3745abbf0ae9b2f4a61878b8"
     sha256 arm64_ventura: "c6530c180952c33e704caf6c56221a366505548e51d02d035ec3ce533b8448d8"

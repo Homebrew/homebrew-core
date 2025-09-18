@@ -1,19 +1,20 @@
 class Gofumpt < Formula
   desc "Stricter gofmt"
   homepage "https://github.com/mvdan/gofumpt"
-  url "https://github.com/mvdan/gofumpt/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "4e0e23832e74779ca0fa6af8ca7c15dbf20599dec34c8c96607b9b2e59157cb7"
+  url "https://github.com/mvdan/gofumpt/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "43cc77a94f65b2ba940310ac4268567d61b9cc01414b0c70cce45c5a60c8e4ec"
   license "BSD-3-Clause"
   head "https://github.com/mvdan/gofumpt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "488018b3c1f2b6a38a36fed5953b00821d7aa574f86fd7dfafc1335ef4178720"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "488018b3c1f2b6a38a36fed5953b00821d7aa574f86fd7dfafc1335ef4178720"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "488018b3c1f2b6a38a36fed5953b00821d7aa574f86fd7dfafc1335ef4178720"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5298ec4d0ea2adff2d853248962af203af36e872842c5426131ace834f37867a"
-    sha256 cellar: :any_skip_relocation, ventura:       "5298ec4d0ea2adff2d853248962af203af36e872842c5426131ace834f37867a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb5b934412a0cdc5d4a11bd943ae8a37e44d737e48579287792bbeb30c2b1ad5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3de1792a6b9f36ff6a75d4bfe715b76a622728bc3441c2d23f39d01e564d7543"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d4551615ecf46efb1b4d0c0cf63ca7be7dc3aab0ac7fbd239a9e026b8db02bb0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d4551615ecf46efb1b4d0c0cf63ca7be7dc3aab0ac7fbd239a9e026b8db02bb0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d4551615ecf46efb1b4d0c0cf63ca7be7dc3aab0ac7fbd239a9e026b8db02bb0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d4551615ecf46efb1b4d0c0cf63ca7be7dc3aab0ac7fbd239a9e026b8db02bb0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "834a798fe891e01a6aa6f7001921807428f7b08f00074093b61d9db2f62a8a0e"
+    sha256 cellar: :any_skip_relocation, ventura:       "834a798fe891e01a6aa6f7001921807428f7b08f00074093b61d9db2f62a8a0e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f234ab78d80bccc966e642f5cdcb20383490c8ff70ec360719e56af106fdd31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b7d8a96c584746e862c805a12270d139d9c204b358f2a0ad3648d391ff86612"
   end
 
   depends_on "go"

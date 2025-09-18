@@ -11,6 +11,7 @@ class Clipper2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6c32c400b83531261299a333feafd72ee660ec63811bac621debed98d986b04b"
     sha256 cellar: :any,                 arm64_sequoia: "5344952baad694ee32003946b5ed28a8212f58564a79df0ee97a245a2e35fb31"
     sha256 cellar: :any,                 arm64_sonoma:  "dab66cd4bfc560cc95579a0586f44cd3a8a6c477abad07e5dce0d9812a97f9db"
     sha256 cellar: :any,                 arm64_ventura: "c3634a45b7e445d258db0179b7946b08e4e746ec3d04c8f4c9a71f6d351a99b7"

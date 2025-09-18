@@ -11,6 +11,7 @@ class BazelAT7 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c901b27243074fbd633c27c9418db4ac81d6c4c1375d5220a6a6eb45ba1db55"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7dae7266441ab2beedf3182e5f6a8d2a19ffa7ac14af31c0133abb11f36738f6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "966ae2fc6bc711139718ce063e31c48c2b627b474d222a25568233ff07298929"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ff70d65599bbce115caa90cba8efbe7351b6e1341b69c2ae2c18f57059064f02"
@@ -37,6 +38,13 @@ class BazelAT7 < Formula
       # but this means brew cannot rewrite paths for non-default prefix
       pour_bottle? only_if: :default_prefix
     end
+  end
+
+  # Fix to avoid fdopen() redefinition for vendored `zlib`
+  # PR ref: https://github.com/bazelbuild/bazel/pull/26956
+  patch do
+    url "https://github.com/bazelbuild/bazel/commit/0d4c2130e356923849033c85d1d31c17372ce8f2.patch?full_index=1"
+    sha256 "6196b60c916e0152eefbc79249758675a860b51c84a6dfd258e83b1698664067"
   end
 
   def bazel_real

@@ -8,6 +8,7 @@ class GlbindingAT2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "6dddc516878a360ff4c3204f6dbff543c7480ca9a636206f1db433de4af442a5"
     sha256 cellar: :any,                 arm64_sequoia:  "05fe3756c9e2f1a9efec689a64cbc3d55c7d00831af9d19411f9572b71ca81c4"
     sha256 cellar: :any,                 arm64_sonoma:   "53bd1ac2798e131aa19966dbd5ff886f4614a020e20c1804dad580f018f2d0b4"
     sha256 cellar: :any,                 arm64_ventura:  "7b509031915859038fbc43e27ea66fbf7b7448f0169cb8f1c10931499924314a"

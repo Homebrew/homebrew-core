@@ -10,6 +10,7 @@ class PerlXmlParser < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4717e726e05f48b5ba27f7167a8cf36d47597042f0cc77123d51967b1df556f4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "743f65ac327d1c467d9e4f82fa910d19ae383c858073846009aca35322f9e64e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca54e86b76d10069e88fb814728f36ddc091cfda3dcffb38e68c6ec656d05cc5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5dc622c5856a89a675ab3a23aed3158434a6a7196d9b95b19b82f4371d1f50c7"

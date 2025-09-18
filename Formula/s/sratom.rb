@@ -11,6 +11,7 @@ class Sratom < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "fc240e94436dabb8602bfb08f6510fc2a25cc00430e44e0fd77d78c6bfc2e46a"
     sha256 cellar: :any, arm64_sequoia: "06905bb6f394ffed730cf2b4e18f80d0bf8829ab1b68bbab7ef98f77e330eaee"
     sha256 cellar: :any, arm64_sonoma:  "dc753964055fb9efd570db02e1b9489d0b5454f543e4ca1c1ee5d89eb0ce0af3"
     sha256 cellar: :any, arm64_ventura: "a16df9f144f66a5f40bcfa25e3b4474b55bbe5d076f00e9a4da01d49588af268"

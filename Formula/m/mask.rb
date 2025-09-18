@@ -8,6 +8,7 @@ class Mask < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9fc675f86cf32075e473de596a5598310bf3e85142484b7fd66c09ef74f74182"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e768bea1c18237750a02152f2fa20f8bf243fde010b658312c760734d61d823"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b55cb4b9ba4a0cac458d0547cd61601bb75f64c11924bbe5c3ce922323a3f2f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a57f97c20bee8a3b8b2ad860777cc9aa320b44542bb902ece6f2ab1454ee53ff"

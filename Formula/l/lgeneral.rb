@@ -9,6 +9,7 @@ class Lgeneral < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:   "3259351b8e0e10fde802360e3f99bb7123cbebdc65ef42405feb2244044e6085"
     sha256 arm64_sequoia: "0b33e1f556a20a71c72b472bbfa2fdd9461253d584cb97e47a9eb8173c376ea5"
     sha256 arm64_sonoma:  "0c3cbf2cd89161d1af99f75d4d33091f7732cc458861977f4a91eb96af230154"
     sha256 arm64_ventura: "f256bf5c22611e15d3322bc501e1d877a4b2f8c1a471fe298399a255fc44490b"

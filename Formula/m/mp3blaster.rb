@@ -9,6 +9,7 @@ class Mp3blaster < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "2cbfef0efe3e24570f47c861959ab0cd66697709e878f9fc29525b8b25ce703e"
     sha256 arm64_sequoia:  "63db46a60c041370f9850800c5db80e4aae38d3bf3f2320cbbfcc03e5bffa2d5"
     sha256 arm64_sonoma:   "8ead649ae9cf1daec1f1c2d15c527c9beb9b51039668fed085857a33e83f7cae"
     sha256 arm64_ventura:  "301c45f8598765fdfacdbd773046f77406714c334946c6778cf7334b18004dbb"
@@ -28,6 +29,13 @@ class Mp3blaster < Formula
   uses_from_macos "ncurses"
 
   def install
+    if DevelopmentTools.clang_build_version >= 1700
+      # Fix to error: constant expression evaluates to -1 which cannot be narrowed to type 'unsigned int'
+      ENV.append_to_cflags "-Wno-c++11-narrowing"
+      # Fix to error: :invalid suffix on literal; C++11 requires a space between literal and identifier
+      ENV.append_to_cflags "-Wno-reserved-user-defined-literal"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

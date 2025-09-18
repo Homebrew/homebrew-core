@@ -6,6 +6,7 @@ class Blake3 < Formula
   license any_of: ["CC0-1.0", "Apache-2.0"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2462ae6e1dbb7572a5c56e5c7e942d6d81f690b8dd7a8a6094f51e651a16f02f"
     sha256 cellar: :any,                 arm64_sequoia: "601904a1b1f08581bc60847875b444ccd2c23f11aa68acb8d635ae57fb104304"
     sha256 cellar: :any,                 arm64_sonoma:  "ab21d31a2ea8bfc1c5dde99a668ef0bd3a804db97c8834300f4e5f27ea34533b"
     sha256 cellar: :any,                 arm64_ventura: "2afe34ef022997cfddd89c7f605be83dec6dd5eac01191877d57340c109e1119"

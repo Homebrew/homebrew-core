@@ -9,6 +9,7 @@ class Tuntox < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "bff9afd8a3a6496881f6ad2d4920d3caf40cc4310b6240c989a1cc009e37ea5d"
     sha256 cellar: :any,                 arm64_sequoia:  "a89e240676e2a2acce9e69f80a92d36cf7a15f22668227aec6ac8cbd9aaffcc9"
     sha256 cellar: :any,                 arm64_sonoma:   "880d486454923edadb84110e8a318081260529b455c3efc848333b4ab798bdf9"
     sha256 cellar: :any,                 arm64_ventura:  "820efcfb534b933681932b0563ee91a092dd681e2bdfdcd16acec0f0a5615203"

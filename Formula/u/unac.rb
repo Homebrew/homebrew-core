@@ -13,6 +13,7 @@ class Unac < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "5e3436d86661dae0bcfda2b5064f3978fb4d5a2573ce656dc146c762e42161e8"
     sha256 cellar: :any,                 arm64_sequoia:  "648dfb172e5d6311dc6659235d05b5c22b814f48adab26a9a64288382f0a90d7"
     sha256 cellar: :any,                 arm64_sonoma:   "27170110668e4f920abf561c75cc4b8f0f9bed1ba84ab5b52426663f2fb68546"
     sha256 cellar: :any,                 arm64_ventura:  "9ef0e09918bdf4928f18a5ef4759da9877635890cae18a739b149d25933034f8"
@@ -23,10 +24,6 @@ class Unac < Formula
     sha256 cellar: :any,                 monterey:       "9c0f897a477038083f9531c3a258f85df3dad6d5fbdcd0e00df8070ee4675c26"
     sha256 cellar: :any,                 big_sur:        "434a30fa5bd969126e166925e6509885bb45e12977f4690c08b2b4fbcfb20dd4"
     sha256 cellar: :any,                 catalina:       "c065103ee8b1c39a665dcca68787edadc6a60620e627912a721b3d5732ff0152"
-    sha256 cellar: :any,                 mojave:         "29753f2d4ea3f9a56f9a3d8fdca4c4fe47044ff1bc986d9ecc06d5f376197da6"
-    sha256 cellar: :any,                 high_sierra:    "eade4a2fba6e5828dccd3779b5e6681ca2558dbde421639624f089be835c55e8"
-    sha256 cellar: :any,                 sierra:         "b97f2799eafd917f8fe1cc47c39634bc91a19ca452ce11ec8fd5edf37ea1dba3"
-    sha256 cellar: :any,                 el_capitan:     "6c9d63dde182a55e237e63cfa4ab625164ce275e343fd88003483227bd7439bc"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7bcb9bedf0de026241c6f1de1bcffe69c67c1cfdfd5c8e590ffb7a5d09ce8c40"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee6f3909a8a3f44657dc39813bee9cd551475eb835973cb34be6cbd23fe7eb0f"
   end
@@ -53,11 +50,12 @@ class Unac < Formula
   end
 
   def install
+    ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
+
     touch "config.rpath"
     inreplace "autogen.sh", "libtool", "glibtool"
     system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
 
     # Separate steps to prevent race condition in folder creation
     system "make"

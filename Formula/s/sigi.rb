@@ -7,6 +7,7 @@ class Sigi < Formula
   head "https://github.com/sigi-cli/sigi.git", branch: "core"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6919573610314e15c997ee39d2bad28f9af840473162d61c58efd5839f7c297d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "86da61c2b5d794b74bff13924cecb7f610034d1f4f9a25e7eace70b90cc57539"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e26706b19c0c5233a103c692b66c1b45dac5ebd6a735ed4e6d852861e4c3609a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e15523164561b9823dae8d7581719b486833df10ad957deea4b90420ae3baac2"

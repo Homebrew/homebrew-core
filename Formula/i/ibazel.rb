@@ -12,6 +12,7 @@ class Ibazel < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "84e84ab933a400083441d3bb63cb94bece942d7d75fc6c070d9a073b77c8dbf6"
     sha256 cellar: :any_skip_relocation, sonoma:        "962448470a89b31e1daac86bf3414a896a25301dd7d6030cfb797ed9f20b526c"
     sha256 cellar: :any_skip_relocation, ventura:       "0c42937d5b4d7d4c53bc2a3260ed9ad15cfefbaeb49eaabc49d7767f2ff84ef1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb553d073a58fa4e9c31728c1076917b06e71cd729b25a5dad009bbbb4b9c25a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "666d9ee54b118c5699dd1463fb795077cd7b05000d1cfca145331642ca7aca86"
   end
 
@@ -19,6 +20,7 @@ class Ibazel < Formula
   depends_on "bazel" => :test
 
   def install
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}"), "./cmd/ibazel"
   end
 
@@ -27,7 +29,7 @@ class Ibazel < Formula
 
     # Write MODULE.bazel with Bazel module dependencies
     (testpath/"MODULE.bazel").write <<~STARLARK
-      bazel_dep(name = "rules_go", version = "0.55.1")
+      bazel_dep(name = "rules_go", version = "0.57.0")
 
       # Register brewed go
       go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")

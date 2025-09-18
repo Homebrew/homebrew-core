@@ -8,6 +8,7 @@ class Findutils < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2714b06fa5b249234308f3339d22a2b6570872364a190f81fb87508c65f79c62"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c09536c5626e7159ccbee77d9a8c771397305bdaecd8a9a67c495482c8dba0f7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1c9fb06c4b3b4bdd0cf9dd38b18168a2ec9bfd689af59ef95808246c4b7c3c91"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f8cb6a602454e6739de9b20f925692c192d33d9d3b725447be3e9eee9ebd13f"

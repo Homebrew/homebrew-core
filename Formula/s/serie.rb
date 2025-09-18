@@ -7,6 +7,7 @@ class Serie < Formula
   head "https://github.com/lusingander/serie.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dda30e11ef7880f60fb304a39349f2a5423301d2667ef6de958725e958f3958c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c103c9963c96cab893236cf8f71035058b5dd92107a85d5181b47b41082efc7a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c91c1b95ea88ba3890bd0fa9d5ed3a78fae15dac3becacc705a444617b5bcdd3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5a6f7c1c482d90418e0f05be4b96ec3d7af23fcb45ad1c5ee6a18aac806e155d"

@@ -9,6 +9,7 @@ class Yj < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c01fa70288a168e3dbe1226d319751eca7fe9a8246c51259f3b4f76ae067a5bc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "71786086bcb09233fdf3ac0df85662d4bc72a897a96456f170e69b047042f56d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b768047213c8d89fbf913d6a7558bc7375b2bb212c3de790dc818f4b5220886"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "629640c9e3caf08148948158d044817e212a3274ec40af248d2cd14151ecfe7c"

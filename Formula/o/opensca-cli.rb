@@ -9,6 +9,7 @@ class OpenscaCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b747404b0ec47f59696e1a7a7b783d4f12245d40ed59fa7113bb63452e4184b5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b2bf0ba81f92faac4b0e76015344487cebd53da4c660bdaedfa63cc002e4a26"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8273d141b75fd503ca405a73eaead3ea5c677e08433a2b91060ceea02317acc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "67c7852691b7ad40296d4e7c328e150e6ecbc97db4057cc027bb6a2b1bc6a590"

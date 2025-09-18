@@ -9,6 +9,7 @@ class WhisperkitCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c9aef473ad7bbca599878463913b0c572d8c02e3e26a4f8ff6ea633f66b0e371"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8ab170b6fd0d99af4435934c4ed06e07b9bd1950035f5888600908f96590b5b8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3985647397b24c65464d0922e0b191c521bb3bcb76b45b1c508c913d886520f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5746ea1fe95734344e996862ff6bffcbf17d3e8da862e294ac6a69d8b6e80491"

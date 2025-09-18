@@ -11,6 +11,7 @@ class UserspaceRcu < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "470f8a4f63b8b32daacb3efc1aa003e4aa68071d8a923a63cb05ccf66a69dd66"
     sha256 cellar: :any,                 arm64_sequoia: "803c04e96ef85190c9338f6b91411f1645b89c5bd8de5a1ee9724f2a7e4ccbd2"
     sha256 cellar: :any,                 arm64_sonoma:  "e6df3658e9fd7684a6b9d5cd14941712e84f9ed881f7388b4238fe6a3f0e9afd"
     sha256 cellar: :any,                 arm64_ventura: "b2efd6e63f3925c486bf181900733d11fbe0efe9134eb5f9c1b5fd0b57915dfb"

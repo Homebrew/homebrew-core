@@ -7,6 +7,7 @@ class Sendme < Formula
   head "https://github.com/n0-computer/sendme.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3a7c1cd0c78f5d6008a4ade143cf8e88231fc880003c7ed8802cbae5842cb904"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "06772217803a81c60c25c74a1adf49b1c2e29417cf64fb444718fcfd74c0396d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acfffa18736c279287a5e6b014447deb3220f0ec1f5c98c88b229b62c70b8e88"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0dd5c057bbe34a7c767523cd4140978e295e8e3284559762079b19439ae3a5e3"

@@ -13,6 +13,7 @@ class Bibutils < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ac24439c4f2cf3ea608eb7b411d8094183796f81a3dee10e3ee550672e9ffae9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9cd55399d769cbc1cab21cfad48bb843a8c8a7c0a966445c6530c88ba8361b7d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "69d0da0d5cb6ef8cd905c782149b4212aa6e45beb171386672f0aa0fbe5a8f69"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a42ed6f44138819d700f274b2543a42e47e6f398039b23318d57a878a02cd07"

@@ -12,6 +12,7 @@ class Conduit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "118277b357cfc6c3d7f2696c118bb887d70dfed444d7b582da092cdd2108b62b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c73e20dfa33416ce64040037ca7598f323225b06bf11ff7d9caf0992e7bb0910"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "badd297ac7b2138dbdfcfb4fbe66459a7e5dac5fbeeb6f7d81ddeb919978ad94"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "53d9b586efdc7a2e87004979dc51313c4858388b9d8a3aab4610843cd0a83b82"

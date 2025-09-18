@@ -22,18 +22,22 @@ class DhallLspServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc15cc3642206d59076f34a82cb4280e2755d427065711763529f848a711c401"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8c3923f8db87be736d4ea429f0165383eba919facd3033ba3ffaa01e6607ec08"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7d24735c86a2713a7016cc94bece0ab9421470f4be47e7fede73217b43c18d27"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2978096a8175e81e0b89b4b55b3de417206850c0abbe14ca869c13faf916df34"
-    sha256 cellar: :any_skip_relocation, ventura:       "1bd665c5789efa9e61e36859dd4381663b05913c38c9d5e8e98e34783d3e8db1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "386e383923218adddb93e597da6ec639d81f3bb0033a7bf197a683c003762ae3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "590cc648ccea52123ff837a8f00cf19983ac2672d1be0fe570bd7500bed6c2c2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "797c7aaf9dfa0b1f3ac0fa6f9e60f65104f6e00f32c6e2d8a6ff61bef59cbb26"
+    sha256 cellar: :any,                 arm64_sequoia: "c1360370c18b3dd49045a151702e1c47e682061b038da2b8c5c01a4f02061dfb"
+    sha256 cellar: :any,                 arm64_sonoma:  "a80e624b671d0a14d92dbc998596e547c0923d35aaabc1f1a6987182c37396b2"
+    sha256 cellar: :any,                 arm64_ventura: "246f4f56e4f00e9f21099d476dbc39373678f839f0b0b15cf1ee78a46c42a3d8"
+    sha256 cellar: :any,                 sonoma:        "80c56c36b6e2c24a5856531f008de9483a2c9f57ca97eb21fd0abaa8d03a8806"
+    sha256 cellar: :any,                 ventura:       "3de7a46b8262e74062f3dd8899620eec6d289b6926b09b61842fbafbc0878acc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b45dc4e064626430772b0e482bd439af404e018edf3f07b06fa85c4fc0efa04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e7f98063d0d1fd03f9da8bf1b320f4263e756b0bd871f3fd45f85cd8d24c886"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build
+  depends_on "ghc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

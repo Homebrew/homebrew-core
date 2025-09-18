@@ -9,6 +9,7 @@ class Libsquish < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c15bdf4ca7dde73653792c819df794092170e884ca1e7aeb006810955c3db6eb"
     sha256 cellar: :any,                 arm64_sequoia:  "e8c9dcc536fed98d8b68dc6187b2ccbd47dd3fc08d4590811ca605c4ff6c6a39"
     sha256 cellar: :any,                 arm64_sonoma:   "0beb47e5cedce2bc7f35e15f7e5c87033abdf5e03967c9501b2ecb3c736aacb3"
     sha256 cellar: :any,                 arm64_ventura:  "7bd2ea5005e2f7df26fa4e2a4e3cfee9ed35632abc8df40134ec09b23a58a466"
@@ -26,9 +27,10 @@ class Libsquish < Formula
   depends_on "cmake" => :build
 
   def install
-    # Static and shared libraries have to be built using separate calls to cmake.
-    args = []
+    # Workaround for CMake 4 compatibility
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
     args << "-DBUILD_SQUISH_WITH_SSE2=OFF" if Hardware::CPU.arm?
+    # Static and shared libraries have to be built using separate calls to cmake.
     system "cmake", "-S", ".", "-B", "build_static", *std_cmake_args, *args
     system "cmake", "--build", "build_static"
     lib.install "build_static/libsquish.a"

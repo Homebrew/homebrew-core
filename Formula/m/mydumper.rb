@@ -13,6 +13,7 @@ class Mydumper < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3591f0982e59c32f6b41d1edd06972e100d77ed337e1b779dcfe11c4d913336e"
     sha256 cellar: :any,                 arm64_sequoia: "9c470dc1fea731799de845187f2fbeffb59c814296689240a5dfb3b7d5756ae1"
     sha256 cellar: :any,                 arm64_sonoma:  "f46ec7f6636a70ec96d8e887cf2d4deb96487c7cf73a31a0bd9fb2988aeb897a"
     sha256 cellar: :any,                 arm64_ventura: "d03984e1c701bf73739f7fff4be327312b69790dcdec8ce11300c2660aea8585"

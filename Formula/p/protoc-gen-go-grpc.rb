@@ -12,6 +12,7 @@ class ProtocGenGoGrpc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "618c07377befc6a80d45181cff22b9160c711bdce8e2bc3f677187785dc06f19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6fea4b83597ec851d649c1b749618dda37e3815b4780b28467557aa0a29df606"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6fea4b83597ec851d649c1b749618dda37e3815b4780b28467557aa0a29df606"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6fea4b83597ec851d649c1b749618dda37e3815b4780b28467557aa0a29df606"

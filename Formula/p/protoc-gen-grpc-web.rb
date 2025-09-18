@@ -1,8 +1,8 @@
 class ProtocGenGrpcWeb < Formula
   desc "Protoc plugin that generates code for gRPC-Web clients"
   homepage "https://github.com/grpc/grpc-web"
-  url "https://github.com/grpc/grpc-web/archive/refs/tags/2.0.0.tar.gz"
-  sha256 "bcf1a75904b14ce40ac003dea901852412d0ed818af799e403e3da15a6528b29"
+  url "https://github.com/grpc/grpc-web/archive/refs/tags/2.0.2.tar.gz"
+  sha256 "0f0c8c0c1104306d67dad678be7c14efe52a698795a58b2b72ab67a8bb100c15"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class ProtocGenGrpcWeb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1b1a3aeb4981b83ae2d2d8c96f51c2eb2e20e2331947e9b500e666fd80891a23"
-    sha256 cellar: :any,                 arm64_sonoma:  "5aa6a3cb6d4565c364468bf463e9ff126acef3a0c63e80ff06b531d7f8830d29"
-    sha256 cellar: :any,                 arm64_ventura: "c310b2c732975da8c97d1e919da10b06e22dc0f38d280260bb862886e27931b3"
-    sha256 cellar: :any,                 sonoma:        "a22d2a308d4460b74970a9a28296c28426d720fbe62a0cf3137efce0c2602780"
-    sha256 cellar: :any,                 ventura:       "475250498891ff94b8c0802304a65811bdf0dd39f9514126f52c34d1d7a314e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1bcc099c3ff809b64ae43cf3678d08bdcb639ad72e5aa8ae88375097dfb2811"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80a5bfa67e0a822a1c177289021140df0b7f12b341c8428818178b23c26324f9"
+    sha256 cellar: :any,                 arm64_tahoe:   "d7c7fa3e703cb3a73a2c40eae79eb32d5192b34eb77ff931350337fe860375a9"
+    sha256 cellar: :any,                 arm64_sequoia: "7a083a9a7ae60994a3898f7dc61375dbf8a5705b12e7ae7be392de584ed90832"
+    sha256 cellar: :any,                 arm64_sonoma:  "adce43fdc5a56ab4592bbe6c0959a624f215eebbcfed219c1b4fd19c68230062"
+    sha256 cellar: :any,                 sonoma:        "1d7475acee08122debcf4ae8d514892bf606e0392bb806b7f969f60f80149627"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f59db0212739c4b8c98474e2fb642ade70042f7003c43cbdb4666970665164bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a2da89855c161c0bcb2d39ea2fa33a75ad5bc21deadf05da95dcfb7714d631a"
   end
 
   depends_on "cmake" => :build

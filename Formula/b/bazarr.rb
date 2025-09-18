@@ -9,14 +9,15 @@ class Bazarr < Formula
   head "https://github.com/morpheus65535/bazarr.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18fc543c3b68a956d78c8cde0fc0c2d14cbe0f2651987b704cdf70f61f9fc84e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bf3862a5fe41abef772593e43d3214aac26ab085a22c9fa3a65efa36be588d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "edd478bc8b93ebfe83efcc5ed3b664e61550bd170999ad28afcb64bee7f230cf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8707f8a3f5e2f41252f6c5c5740e1018d8c91233e909853c6e2ac951e340f6be"
-    sha256 cellar: :any_skip_relocation, ventura:       "6cc745bb28d2e5a7192db60bc2e28fc0a6b515a2b9fee31adecec4528c0f5902"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f81c0ded9e8eed480b6186bd813ec25703ff39f3e9903ad78b3e4f1861f7d62f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e724662e022e172a0e14886c4019a6c095a0f744b4b22efc0fb5b9ca48b6afd"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "18723773715874b6a6768dbdd0e04c0517edc0868880e64fb8c9431290f100b5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cec16d7a0ca771a2f50a391963f1fb6e9d801aacb948d745742526405f12f7bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aec4aec57521f98deba7ec3173f74997a0050cc5eafcdd1190efca84d6eeab2c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "74a97c91db9c1ca55f8a62427af55433734fd09691bfe00c2415a49c6f899f42"
+    sha256 cellar: :any_skip_relocation, sonoma:        "286b0f8b5903e9100ea20940b32a77e034bb57a32823c29c45448f25391cb154"
+    sha256 cellar: :any_skip_relocation, ventura:       "6430c28069d21d1e15446c7808693c08c334cdf23a9cbfaba09850f16d3229c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "254162359cdd6c04554c4a64bf7d5af4ce08f78456003076bf7543a9c0181fcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa2bad380922cfd9a4acb361eab9e49030108120f2d817cee65ad669e536f571"
   end
 
   depends_on "node" => :build
@@ -80,18 +81,12 @@ class Bazarr < Formula
     cp Dir[libexec/"data/config/*"], pkgetc
 
     libexec.install_symlink pkgvar => "data"
-  end
 
-  def post_install
-    pkgvar = var/"bazarr"
-
-    config_file = pkgetc/"config.ini"
-    unless config_file.exist?
-      config_file.write <<~INI
-        [backup]
-        folder = #{pkgvar}/backup
-      INI
-    end
+    (buildpath/"config.ini").write <<~INI
+      [backup]
+      folder = #{pkgvar}/backup
+    INI
+    pkgetc.install "config.ini"
   end
 
   service do

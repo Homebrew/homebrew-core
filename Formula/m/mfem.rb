@@ -8,6 +8,7 @@ class Mfem < Formula
   head "https://github.com/mfem/mfem.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ac88bab6b5c93f7d87f5bcc1d0759af438d7d1b2df51af56a5d046a4ebfb9e3d"
     sha256 cellar: :any,                 arm64_sequoia: "bb5a4a26df2514afdc22b0c2c113972977f69d08f215a9cd76061bcdf4f54458"
     sha256 cellar: :any,                 arm64_sonoma:  "277537e5f261f748b80b10694d879edee4f466630910010d19845ce9f026e9d0"
     sha256 cellar: :any,                 arm64_ventura: "4e70d2abd91e5f0bbebe67e57a7c100090372520430923d8a9ce88c6b3ff9b0b"

@@ -6,6 +6,7 @@ class Gearman < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d0984eb4b3479e4384b4e490f9241bb4a1ca271039287dea1bb356a16eb977d1"
     sha256 cellar: :any,                 arm64_sequoia: "8c955584d99f3e859ea660c00bf2bcfe0cf2f402f193a3eb221345799200c835"
     sha256 cellar: :any,                 arm64_sonoma:  "103e4d6a50dbc070bca6776516b3843b80bdbdb655d2cd64a1bba916c62fbfd6"
     sha256 cellar: :any,                 arm64_ventura: "a6e2b34f1b2cf3900fb2127ca36592b87c717d7cc53ee7ac88a47b0c5bf0970e"
@@ -29,13 +30,6 @@ class Gearman < Formula
   end
 
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    # encountered when trying to detect boost regex in configure
-    if OS.mac? && MacOS.version == :high_sierra
-      ENV.delete("HOMEBREW_SDKROOT")
-      ENV.delete("SDKROOT")
-    end
-
     # https://bugs.launchpad.net/gearmand/+bug/1368926
     Dir["tests/**/*.cc", "libtest/main.cc"].each do |test_file|
       next unless File.read(test_file).include?("std::unique_ptr")

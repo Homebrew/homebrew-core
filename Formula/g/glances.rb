@@ -10,6 +10,7 @@ class Glances < Formula
   head "https://github.com/nicolargo/glances.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "40c4a45b6c452a730000d52d05b37915bcf4f214f839ab44c2349e114ddb247d"
     sha256 cellar: :any,                 arm64_sequoia: "da438092ee7804d956e8135551bd580ad64b096296eb9d54f709105b8e5be59d"
     sha256 cellar: :any,                 arm64_sonoma:  "1836b649d5a926b5c111721ad29d453bdbf3de89de6f8648f8b2786c99bcc030"
     sha256 cellar: :any,                 arm64_ventura: "ebf92c94c9322011b3aabe5e19e8789d1ff60a84da090c6f2b78cddd23d56b1e"

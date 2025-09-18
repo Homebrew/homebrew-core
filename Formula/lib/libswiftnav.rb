@@ -13,6 +13,7 @@ class Libswiftnav < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "33463f96c4b94f36447f45dcd3fb5c039e374a1ccbf8e3ca7b5f8cddf2627d68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1ddd75cc7bfb08208ea88e3bbc3f3d5549c9c72511dc9378ab31101d50591c48"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0596c6cfaf45b62cd39b4fc4fc7f01b8b786914471e1b534be2f54c7f64921b1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e3b556518c6860f34af3d1a2e4e1c3c134d089f6b86b53f8317fa8eff9f99b6"
@@ -23,7 +24,6 @@ class Libswiftnav < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "b5e458c0d632aa814f63697a4a1fdd2a96d519f3846c9a5f7e04964df7cad26d"
     sha256 cellar: :any_skip_relocation, big_sur:        "39097a000739be8211214f46f80bb94709d3cc2784f7b4930d1b74107aeb87fc"
     sha256 cellar: :any_skip_relocation, catalina:       "48392c1a0f1d61146ec1cef2a3889b5c12355fea09360a7cbd2b9506f27259d0"
-    sha256 cellar: :any_skip_relocation, mojave:         "18baf5f5cae22f042d5e08fff1f25a81f33950723560dfb72ad3bc989c1c258e"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7767ebdfd1dd030cc3ddb4bce85f6d113bb5b7c122e859950c264fc800054221"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c1648b6c5feaa7485011c42987bf2d6b7fbd2795130b83528d8a8960ef8f748"
   end
@@ -40,6 +40,10 @@ class Libswiftnav < Formula
 
   def install
     (buildpath/"cmake/common").install resource("swift-nav/cmake")
+
+    # Work around CMake compatibility issue. Remove with next release.
+    inreplace "CMakeLists.txt", "cmake_minimum_required(VERSION 3.0)",
+                                "cmake_minimum_required(VERSION 3.13)"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

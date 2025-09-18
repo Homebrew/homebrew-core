@@ -16,6 +16,7 @@ class Ffms2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4285d9a074aa6adcc2e730826d000cbeb436d9d8bdb4f3a97842aec6044a6ab9"
     sha256 cellar: :any,                 arm64_sequoia: "6c3ddf23bef180ecf0857ade1201c7b1be2d0365f522139d0435ca0614fb9962"
     sha256 cellar: :any,                 arm64_sonoma:  "fbe96279b730758d03155384f195087776ef5899dbac5a1af12d19b77185494c"
     sha256 cellar: :any,                 arm64_ventura: "c198b047753f0485fab0eb7ffb9a7330c9222dc8e216842843f68c9c840b161b"

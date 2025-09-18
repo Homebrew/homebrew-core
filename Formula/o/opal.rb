@@ -10,6 +10,7 @@ class Opal < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:    "ef42487ed8cae694f8d10dc826cfcd68c99f316f408382284b5ec4f176111d09"
     sha256                               arm64_sequoia:  "6c91211a8fdbeffb9335212d4d6f13cf42ba1710b74062e1dfe26a717c9db67c"
     sha256                               arm64_sonoma:   "a4cdd1358d5eb6508bf38cc2a67613a9e487cd250bdf9b35e85dea762894dffa"
     sha256                               arm64_ventura:  "0923489b028e208d184eeb4013e81ba78ab01e9fd76edd2d999f46998c01ccb8"

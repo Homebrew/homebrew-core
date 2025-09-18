@@ -10,6 +10,7 @@ class CrystalIcr < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "c52591afce68da74a66cae841087ab3924e09a340d7a44cabb5dc44aec6be0fa"
     sha256 arm64_sequoia:  "39cdaf2148c5f0a4bd256139cda76e88414ff6f88546030ff3897f879f066e13"
     sha256 arm64_sonoma:   "8dced8d90ae05f60022cad48273fe5dedbdb270c676f1f814bee7600f8b6451b"
     sha256 arm64_ventura:  "a541b6b20507872a2b45a244c6842a1509553d178a596e1d0d19a799f1ab3e56"
@@ -32,11 +33,6 @@ class CrystalIcr < Formula
   uses_from_macos "zlib"
 
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    llvm = Formula["llvm"]
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib if DevelopmentTools.clang_build_version >= 1500
-
     system "make", "install", "PREFIX=#{prefix}"
   end
 

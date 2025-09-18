@@ -14,6 +14,7 @@ class Libsvg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d320978f054ea4531382f20eb4b849073d774f2a9c9f97b02d6ea4fdd3423d14"
     sha256 cellar: :any,                 arm64_sequoia:  "e0f24ee9236415330cf795a256e7b03af615239c4e81d2a26ada7f2995baf776"
     sha256 cellar: :any,                 arm64_sonoma:   "f2adf0b4734d218b0ebdab5ae4c0eada74f36edb628d6a8a2c41d7ab7b4421ea"
     sha256 cellar: :any,                 arm64_ventura:  "331a886e259749749bbaeed305a1727a8c4ecea79e1eca5949be34d87f0abfa0"

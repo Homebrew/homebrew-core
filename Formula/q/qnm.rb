@@ -6,6 +6,7 @@ class Qnm < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "360bcebfd1a8e6fba957b45863d7601122002474f16895e74e6fbc56100939f8"

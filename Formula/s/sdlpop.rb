@@ -11,6 +11,7 @@ class Sdlpop < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "6e3cea82ac70bf426add75f5a387ca949deda5662ba1dbf3a5e0d22ac4f88270"
     sha256 cellar: :any,                 arm64_sequoia:  "b71553517e9b05d247c8d440606ece9cb18ed9362e2dacdda29ff653158777fb"
     sha256 cellar: :any,                 arm64_sonoma:   "1100bae067cd7cee5b4846be8718e0ecb2a9ada163c97b681cf767be47fc6c8a"
     sha256 cellar: :any,                 arm64_ventura:  "07ea2286bb9e2e5aefd579d7125882d5d744f3e3f7f5bbe1d67ce23242d8463f"

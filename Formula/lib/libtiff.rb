@@ -13,6 +13,7 @@ class Libtiff < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "17de1d788166c1c7381bb50eeeb1c5e88667c07f47431a428b0c9b7b6cdd8d19"
     sha256 cellar: :any,                 arm64_sequoia: "5f771cedcb37119c3927c32d72589a66701db16fe3ef86b2daf9b87c3142b309"
     sha256 cellar: :any,                 arm64_sonoma:  "7400825c55ab3f7aef5c0571d59bd62ffc509a5252784c08034df07995cb9e71"
     sha256 cellar: :any,                 arm64_ventura: "b8952fb7bfabe979c42b9742cd959e5ba33bab2f8e44c536b9f5f6346190c33a"

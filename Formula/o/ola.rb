@@ -29,14 +29,15 @@ class Ola < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "bdec6e474a18de3b6d3198aea33920245d9cdabf285bc142b32aafe9a8cd5136"
-    sha256 arm64_sonoma:  "829075716571a9a9bc79c32acee60c5076124e45cf71f22e2110ecefdea74abf"
-    sha256 arm64_ventura: "72a52c9caa891e0e3aa3930f959cf916346d4cbae64abb90d196c338e3b47e29"
-    sha256 sonoma:        "e3a4b0c61c37bcde928fe415fdca94012a61556a47e124842854d1294602c59d"
-    sha256 ventura:       "020535a83d5460524762376c07abd7ac134038f98aead9a63e3c7bdf027b9b71"
-    sha256 arm64_linux:   "afce51d43cc1453c7817aa23a03bf1a90474f682c02c3acea3d1f9c0a8d05091"
-    sha256 x86_64_linux:  "e6404fe986a8605c602a8ad71e19d18a1b8b6ef1bb8c2777295e4d5ac6c12b5d"
+    rebuild 2
+    sha256 arm64_tahoe:   "c31abf4e9de93dda1a5e5e27de6b75049e348a04cde77dd419b98098d5b33f1c"
+    sha256 arm64_sequoia: "e08cca281744a9ee02b1bfab2f43780807554161d697cfcbf7347b6cdea46f5a"
+    sha256 arm64_sonoma:  "e9f96d87630dc84650379d40e00f7901d6731697b25c6c39991596b5bcadad22"
+    sha256 arm64_ventura: "f8adebde6f2232138e3faf9c7579fba0686c110a75072045c2649f9a40c6e891"
+    sha256 sonoma:        "8ac5181277efbffddb99aa610ddf04631980b5ce7a8fc9bf7b306cfdc02d3422"
+    sha256 ventura:       "6acb4afec8d1583f4dcbb18594ad6178d998f1b5ff6d896b27279bc45a8dbffa"
+    sha256 arm64_linux:   "cc14cca06cfe7361c8b82d08ab9cfb09c42122e368c2f7f2a242dd51585acfd1"
+    sha256 x86_64_linux:  "c32035f4142cd45079be9e508e0afccc5ed2bf7669b29e403342ff090f968f69"
   end
 
   head do
@@ -164,6 +165,11 @@ class Ola < Formula
       To use the bundled Python libraries:
         #{Utils::Shell.export_value("PYTHONPATH", extra_python_path)}
     EOS
+  end
+
+  service do
+    run [opt_bin/"olad", "--no-http-quit"]
+    error_log_path var/"log/olad.log"
   end
 
   test do

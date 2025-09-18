@@ -7,6 +7,7 @@ class Bao < Formula
   head "https://github.com/oconnor663/bao.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9825859095cd723bb032520fe1548c694f4a413a42e874525c7dd5e16d0340f7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e72ccd2883d2cca743e0436eae25cee929d330d0238df74a7bfa1a48d48cf9ce"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ee092a0750ef69e210081b7bb3d1143365755d330711ce42bfa9ce2c4774b98"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2b7ca0bd24b20763777ef735beabb064f068174b3f4ac3c76b86d33834cc37ed"

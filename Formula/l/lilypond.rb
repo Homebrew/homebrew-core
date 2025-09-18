@@ -23,6 +23,7 @@ class Lilypond < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "3052a321a1547bd5b7004abbbc239cc07322efa221be350b6d65af9699058d3f"
     sha256 arm64_sequoia: "186ccba4e185bdb0160e66bc68c4e70594d77b9d18a863718886667817b0f8b0"
     sha256 arm64_sonoma:  "80da0e56c2e27506e4a82b7cfcdfe9ca5e819ce2a52bc9c1cbdcc597557862db"
     sha256 arm64_ventura: "38a76fb76615646d4b43b6578d368fac8daee24834dc049ea0f50ffaeca73b33"

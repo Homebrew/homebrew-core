@@ -7,6 +7,7 @@ class XorgServer < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "79c3e94990183152bb84ef64b9581bf7eccdf7f06d0c301db704166605ef2f2d"
     sha256 arm64_sequoia: "e9ff9b62d898703ddca09e82b036a67351e6aa14c1f08ebe4bf2772fadbd7055"
     sha256 arm64_sonoma:  "36fe7319a1317e7ea64b09a794a0c86d14f2066e887733dda516f23cdd05f773"
     sha256 arm64_ventura: "725bff18ee85feaa9c758250a57fa14253cd087ab2e25805024a2758fc1c71cf"

@@ -7,6 +7,7 @@ class Qbec < Formula
   head "https://github.com/splunk/qbec.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "610793ba59ba10c2b7aee2822c7c594e75b73d96cf1a24afedc5730acf8f7d7d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "87c759042432ed77117d61eff8a1f8e5cbe25e2672df0e2706896be8e78f483c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "290a9669a65e80fd5c4d7045c7a74b8f2d18eabf0083899f733a7ee3caf4675e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4d943895d5ab80e6a17ea36217a092f79cd107f10c4e12aaf0462d9742e7d54f"

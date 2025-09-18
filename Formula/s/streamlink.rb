@@ -3,19 +3,20 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/5d/8c/1ea74183b0fce32c4c36b403bca41b798122522012c0f04919a81fc6c0b4/streamlink-7.5.0.tar.gz"
-  sha256 "c091bc77a3cc8e129a232db3e2c8d8bae2dfef96813fcdec62ee020794068fb9"
+  url "https://files.pythonhosted.org/packages/51/8c/6c3d281451dd46751b03a16b297bdf16b3145e5051c1c3c7335a59576c2f/streamlink-7.6.0.tar.gz"
+  sha256 "a1df953fab7dab55c61f563b533ce237159a1b48f6159bec95e907857fc09266"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "20ec80395c5da626eb1b148c5f43748787ee0a71b0c83b1d3c2fe8ecebfd6b71"
-    sha256 cellar: :any,                 arm64_sonoma:  "10aaeb59143493c1474572a61957bdbea25be04fc7cf5f560512571a98200779"
-    sha256 cellar: :any,                 arm64_ventura: "e006d145ced045c130263bd298f1981927b75f6f900868e343bd9afff97496ae"
-    sha256 cellar: :any,                 sonoma:        "a33ccaef1d64fd7659015b08057c56e72e2abdbb80531b160ff899b1c6b51754"
-    sha256 cellar: :any,                 ventura:       "98b3bf3022c383a2e933acb6557872fd3fda5621736509b6f0a6d35bf02af027"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5f4c796b464549e272366f5c14e0b2696e6239e75710754fd0ce92311daf624"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4c9ef912fa82d9f79c47ebe84536e94c305f0499b65075cfe3ae9f0daff6b20"
+    sha256 cellar: :any,                 arm64_tahoe:   "348e92a975dafd5a66ec98be413baf2ad673bb21e34b521a6c22a976a367085a"
+    sha256 cellar: :any,                 arm64_sequoia: "718cbdc0203f746d9d31220419f90c0647e64f96e606a97c4ea3dd058d09b7d0"
+    sha256 cellar: :any,                 arm64_sonoma:  "dbaee8eda6b344ec0cc14bccdf86c046677ee458fd8163ea8c802d4d4b0159f6"
+    sha256 cellar: :any,                 arm64_ventura: "cd5cf6d8e71a4fbd8416b974e1c9c705df9b29a430a04dc0060d5702d8951a86"
+    sha256 cellar: :any,                 sonoma:        "c59ed32da80c6976cc567b5f234ba85780ef87d14f9ebdf7a5257d3b3957a138"
+    sha256 cellar: :any,                 ventura:       "9813aa23163ebb48ee743c370453fb679d106b7341c83f0985fa514273e81b22"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "229ee87c9a744668e29da1f5af4ee218356e5209f3355c8627ca23fc0e95ffac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3107681a454e58bd1ce287570f0310d91af5d5fcd16616d3e896f38fa7e01e2e"
   end
 
   depends_on "pkgconf" => :build
@@ -32,8 +33,8 @@ class Streamlink < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "h11" do
@@ -52,8 +53,8 @@ class Streamlink < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/c5/ed/60eb6fa2923602fba988d9ca7c5cdbd7cf25faa795162ed538b527a35411/lxml-6.0.0.tar.gz"
-    sha256 "032e65120339d44cdc3efc326c9f660f5f7205f3a535c1fdbf898b29ea01fb72"
+    url "https://files.pythonhosted.org/packages/8f/bd/f9d01fd4132d81c6f43ab01983caea69ec9614b913c290a26738431a015d/lxml-6.0.1.tar.gz"
+    sha256 "2b3a882ebf27dd026df3801a87cf49ff791336e0f94b0fad195db77e01240690"
   end
 
   resource "outcome" do
@@ -77,8 +78,8 @@ class Streamlink < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "sniffio" do

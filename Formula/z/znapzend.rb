@@ -15,26 +15,22 @@ class Znapzend < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2a9e6930ad18a76b4bf38a65dccf94f805adb88442ac6515980b936f5214836d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "894fb42d2fab9740dc12eb446afc08a6884aeff713dfedc7bb4f36758ecbc541"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8381b64efa6aceba6574825aa1f3088fd32ffbccc0b2ebda001b6a30e8d1931"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e827d72e828c64112d249b8e138b12ab69545d3125b4a548e0b850440054d543"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d1a7026501925fc170e5968391f773f994cf9b0698277e7ca7b3a9c1eedd9da5"
-    sha256 cellar: :any_skip_relocation, ventura:        "39cbe0e4c321ffec7a04efca7b964ce7a5b3ed3565d5d1684cda645e321eea8e"
-    sha256 cellar: :any_skip_relocation, monterey:       "2fc87dc230cf7f66d84062ed1d5ffa1abe5cdb463998834edc0a717825b55a7b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "fe929b8fdeac2ec5ca6feb97cc113dd160e5bd745e23ef62b8e40d0cacd4f6f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51c313e2b172e1a50338a811d4d344ff9259cd9e973b9890d7819a4bd846f352"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f04b481b943342f0ffe5a58835319c20820041f31311f29547f16e6ef72366e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "405bbba19b8422e333e11f67f73eb0c61a66150e551428f0c04b12aca2c1db99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd97162625dcc01bf084c870bdf6fd3ba45e3e0967c9b5108fec6cef9f11919b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d72402cd84c52f88fe2fcd86892efdd79f379ac886ef71fcf4143651d1e190db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4c9f4aaa841ce75048b37c4c1c54a6860f40903f2e2463c8bbb5f95c1994d3b2"
+    sha256 cellar: :any_skip_relocation, ventura:       "f6273d56bb1e0c20ded2d6f4079cf7548dfd99bbab933ab4fc0b4cffae136869"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e713956866b46b71f518756ae9590023be91a54fa339a80fa05b30b6989ed43c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b66995be03c18d0b108924cc165fc08c19eb6ac27c4810669af9187ef16d7c99"
   end
 
   uses_from_macos "perl", since: :big_sur
 
   def install
-    system "./configure", "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
-  end
-
-  def post_install
     (var/"log/znapzend").mkpath
     (var/"run/znapzend").mkpath
   end

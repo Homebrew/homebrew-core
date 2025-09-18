@@ -9,6 +9,7 @@ class Cmocka < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fd067cb88fba94b330304b9f20529a3188486cfd9404e670562f8193c9016ab7"
     sha256 cellar: :any,                 arm64_sequoia: "9c21cefd986895363495212fe84bb3d5709aebb98626758c2b740b823105034c"
     sha256 cellar: :any,                 arm64_sonoma:  "c43364a4f0f426476007f0afce352c2648465f3e728f6ecf6a9005afc743bf14"
     sha256 cellar: :any,                 arm64_ventura: "4a6cc1b109d9339b23d43814ce6fe2ee9aa91d1e4870833a1912d9ce27d00760"

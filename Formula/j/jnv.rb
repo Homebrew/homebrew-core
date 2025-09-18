@@ -7,6 +7,7 @@ class Jnv < Formula
   head "https://github.com/ynqa/jnv.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "301a2f7d8cff4b045b1adc4a5e091346c2fc85cb1b5a28931716c1a920914fb7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d010593930d640c55c9cded762f2d9a23c6534816028310402e2c18b044378a8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "508dc84c0fcc40063082a8681fedb4ead1d56383cca7de053b390fa65a277cc4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5b887bdf455de2dfb8b374f860e06abdc56d8430c7a523dee87cf954435ee93b"

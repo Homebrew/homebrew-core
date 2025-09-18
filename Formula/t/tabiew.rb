@@ -6,6 +6,7 @@ class Tabiew < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6bd1b2dbb9ac3e7ad069e1125f9e17368f2e85a6f887772037d6a53bedb47d23"
     sha256 cellar: :any,                 arm64_sequoia: "e1c27e0718dd472be14f51e58d56bd08854c5f97923be23fe9a77de930305231"
     sha256 cellar: :any,                 arm64_sonoma:  "0fb4cd270519ff8c1b470aaa18f23f64c9b0c4c38698001345d7e32dfcd24205"
     sha256 cellar: :any,                 arm64_ventura: "06556b8ff92c18611451060c5ca6ba3441b90bf31a53b61ca9ce4705b52a359c"

@@ -8,6 +8,7 @@ class Gotify < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "20c6354746bab0413fb7471f2803bd16834ff63588906115f73c137b71cc60f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1bc9a055bd7ad8170b2779875eea4d07012fc5210b0da9fb304ee49ab75229a9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1bc9a055bd7ad8170b2779875eea4d07012fc5210b0da9fb304ee49ab75229a9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1bc9a055bd7ad8170b2779875eea4d07012fc5210b0da9fb304ee49ab75229a9"

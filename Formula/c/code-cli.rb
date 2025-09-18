@@ -1,8 +1,8 @@
 class CodeCli < Formula
   desc "Command-line interface built-in Visual Studio Code"
   homepage "https://github.com/microsoft/vscode"
-  url "https://github.com/microsoft/vscode/archive/refs/tags/1.103.2.tar.gz"
-  sha256 "77d0201a5fd09df066a04a2bc1fa0acbc01317ed62ec04a99b8cb8a0ce2ce3b3"
+  url "https://github.com/microsoft/vscode/archive/refs/tags/1.104.1.tar.gz"
+  sha256 "f2d420ad44f5fef84cb24505f47f22d16847b509fbd2b6cd22bf58c2d0df4f4d"
   license "MIT"
   head "https://github.com/microsoft/vscode.git", branch: "main"
 
@@ -12,13 +12,12 @@ class CodeCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3c32314da8dd27339cdf38d0c6fc1449b18daef15395c2417c75fcc3d58c3366"
-    sha256 cellar: :any,                 arm64_sonoma:  "70fd9ee8e97bbd94bd5397638f25a756e732cb2c22f796d006f1d20edd27c127"
-    sha256 cellar: :any,                 arm64_ventura: "69dff949fbea6e37d51b52c6969ac1b212f4c3d88568b4249a2d3a7e89eca3e8"
-    sha256 cellar: :any,                 sonoma:        "0bafcaabf368b188386ccc62d6913646051f3720ae4abbbb37030271c601d9ad"
-    sha256 cellar: :any,                 ventura:       "23df36ce06a5af085eb7897d3b2de7416fdb99f34805dee43f7a9e2342a38ad8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "164547c2467aae68276ed976773d9822a25ef22c625745d26b51f1a6a2861ee5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3549be98355aea35241ba2c71070bec4bbb2fba14351d06af7d74c6cd86d925"
+    sha256 cellar: :any,                 arm64_tahoe:   "44ed95162a38a26b56ef91160a16002605acecccb6096dd7071b91b0a6822fce"
+    sha256 cellar: :any,                 arm64_sequoia: "7dc126aff943f161a32df6416f23ca8716471f9c0fdd8964cff75f6a355fe813"
+    sha256 cellar: :any,                 arm64_sonoma:  "c79f5df0b8e4eba97fa5e774f7629d015d02539ca2efc6cfa4eb116944650c02"
+    sha256 cellar: :any,                 sonoma:        "c6306ee48fa09660cc8ae7af8f92ed1b0f3d233f5bb3e910d17c90c1b604e6f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6102beae70726449bfd02ca834893b535b74fa83c9065757e3ae1c61ec9d1777"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "207422d1b92999ba3186ec86de96d4f99f92155b8074a0450dd071a3347f5741"
   end
 
   depends_on "pkgconf" => :build

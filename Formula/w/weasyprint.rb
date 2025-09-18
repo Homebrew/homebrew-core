@@ -8,6 +8,7 @@ class Weasyprint < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c148732d4cdad752133fb46f632aca8cda7e72c68ca8801dbf97b7d6058fc10b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb5af37ddaa758ff0b0452c622bafb361a47fb74fc3d66341da9efacee9142cd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8312bb0f11368c187f26e09e6002775f2ef93b8c5cfc1f600804787a91e702e2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "538caa8a00ac692c63687542b00159fe3fa8d892aa3d5b1b8c68bec5fc425986"

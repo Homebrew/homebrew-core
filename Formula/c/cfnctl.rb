@@ -7,6 +7,7 @@ class Cfnctl < Formula
   head "https://github.com/rogerwelin/cfnctl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16608ad765e5b6736d2470bf0473b1d2ed1aa6431f6446fe8a7f34f90f496364"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d18150beed91b47a03146e5cceaa9d117dbde79fc14bdc923fd32b83443af4e5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d18150beed91b47a03146e5cceaa9d117dbde79fc14bdc923fd32b83443af4e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d18150beed91b47a03146e5cceaa9d117dbde79fc14bdc923fd32b83443af4e5"

@@ -7,12 +7,14 @@ class Ov < Formula
   head "https://github.com/noborus/ov.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "571e44a28916a6a1167be4ecf39bd1d2fb66a35907b2004e4533c438d1f7b33c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "571e44a28916a6a1167be4ecf39bd1d2fb66a35907b2004e4533c438d1f7b33c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "571e44a28916a6a1167be4ecf39bd1d2fb66a35907b2004e4533c438d1f7b33c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "347c7da7ac885ac472d8571bbf47c26cd4b5b38dd8b5f69dc9cdaacca1a65fe9"
-    sha256 cellar: :any_skip_relocation, ventura:       "347c7da7ac885ac472d8571bbf47c26cd4b5b38dd8b5f69dc9cdaacca1a65fe9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "480008502c8a40ed47cf1c3c81777dd3f26174c889fd8a683f3310500c56a936"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c1314b1576d52ae4eb6bf1fd97c682d44386b738712674c12d8f147e73d43024"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9053e18bf72c956ef949f97b3d2f4f072aae8790313f0b7fe11affe39d2432f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9053e18bf72c956ef949f97b3d2f4f072aae8790313f0b7fe11affe39d2432f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9053e18bf72c956ef949f97b3d2f4f072aae8790313f0b7fe11affe39d2432f8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5d177c5773ec508f02fe5e73bb1abca149007ba3562218753463bd43d0f02e1c"
+    sha256 cellar: :any_skip_relocation, ventura:       "5d177c5773ec508f02fe5e73bb1abca149007ba3562218753463bd43d0f02e1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d3de36c5bde09fddc75255b9cfb4f5f189e564d1e8996bb66d5b24684349d54"
   end
 
   depends_on "go" => :build
@@ -20,6 +22,8 @@ class Ov < Formula
   def install
     ldflags = "-s -w -X main.Version=#{version} -X main.Revision=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"ov", "--completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do

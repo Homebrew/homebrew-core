@@ -6,6 +6,7 @@ class TerragruntAtlantisConfig < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "46f1da8ec278fb13498cd736debc329cd57e917224cef1822fdae0659f3bb9c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "36a77276086d50d1a244decd8348f84ed0cf9782f78e3c15ad81ee1a931ae4fc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36a77276086d50d1a244decd8348f84ed0cf9782f78e3c15ad81ee1a931ae4fc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "36a77276086d50d1a244decd8348f84ed0cf9782f78e3c15ad81ee1a931ae4fc"

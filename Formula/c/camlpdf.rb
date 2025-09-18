@@ -9,6 +9,7 @@ class Camlpdf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "054523536942144aac397e1cfe790c696e490cef0a141dc007507cc44713a12a"
     sha256 cellar: :any,                 arm64_sequoia: "77f6a233df39070c851ee537db4b8bf91a7129b24eff67836cb333048d31277d"
     sha256 cellar: :any,                 arm64_sonoma:  "5926cd4ac90bf03933efccbda9b160da172534394aab20b867bd6e36dbb6cf83"
     sha256 cellar: :any,                 arm64_ventura: "39b8857baa16288fe2d5e3c578e6d0f2cd76a08f758cbb076ba5cba0d4cb10aa"

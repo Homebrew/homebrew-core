@@ -13,6 +13,7 @@ class Gnupg < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "62d45b532e647eb6caedd018bc29e24d009e4c6b14613c5e5fd57c4a8514f424"
     sha256 arm64_sequoia: "7203b8a0af43aa4593cfc22e4152bd9331c35ba68450240353c2365e41d29895"
     sha256 arm64_sonoma:  "f659c9e637d2c2932ec0402c2a334df0b019d2150b0e78810a9bab06adf82dc8"
     sha256 arm64_ventura: "96233a9abeb43d4c4b14fcdd6e49e573f7799fc73ea6d4d91f1cd0ddfdbf46ae"

@@ -9,6 +9,7 @@ class Bagels < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "bdacf9820f05c732bb171c8696e5abb9751c58fae96fa7d0ba814f539561e2fc"
     sha256 cellar: :any,                 arm64_sequoia: "6ba3175e3d1388e82d17cb6f79f2f833dcf7674f13c776f6765d29a413c048dd"
     sha256 cellar: :any,                 arm64_sonoma:  "e7036081585b4b6c39f92c414d2686ffe02efd4fad7269ec567a68ffd1d1358b"
     sha256 cellar: :any,                 arm64_ventura: "024614f1b7a2b2c0bba630b0884c1f000a47ab8ffc842c6849a407becd166c3a"

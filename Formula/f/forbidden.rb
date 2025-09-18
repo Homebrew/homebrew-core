@@ -10,6 +10,7 @@ class Forbidden < Formula
   head "https://github.com/ivan-sincek/forbidden.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2dbc42b7bd13d365aadd44c02a3e915a8406afcde7cc1ab72db0858efba819c1"
     sha256 cellar: :any,                 arm64_sequoia: "338fc74fc80d702b0ecd8998de75a0fc5b55aec7e6543ba2bbf832e5d029efda"
     sha256 cellar: :any,                 arm64_sonoma:  "414cad61bcaf7c10d4879dce53bca4aa8345239b8ed20a521b6779f95e82b841"
     sha256 cellar: :any,                 arm64_ventura: "7c56a0e989db7403ea6ded63c49eae50f6f9c7a3a5e9e5ba2699871164fb6eb4"

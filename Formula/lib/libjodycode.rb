@@ -6,6 +6,7 @@ class Libjodycode < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c967c91be13fd50acd16eb93655d54663345cfba752e856da47ab220c6ddf7d9"
     sha256 cellar: :any,                 arm64_sequoia: "6d3eef0d94ad65f2c78d585d0c0f1e2a74ce6d929c20db6cef2e96df576aff22"
     sha256 cellar: :any,                 arm64_sonoma:  "b8d20edda315be556fd5c6bb18a4482b5b41c5e7c6a706cdf3522ef677e4cd7f"
     sha256 cellar: :any,                 arm64_ventura: "84c2bea836781ba9fcfcca0c99f74e955b01cc71335305c1287fbf1497963f38"

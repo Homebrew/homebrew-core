@@ -9,6 +9,7 @@ class Babelfish < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67fa97472345f1e6a97179815c7c741904c41b6d0c349e9cb94076e2dce9cf02"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f8115802286fe41309a1b8b9291312e08f2b0ebdb65c4d928d59b8189bae38c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f8115802286fe41309a1b8b9291312e08f2b0ebdb65c4d928d59b8189bae38c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7f8115802286fe41309a1b8b9291312e08f2b0ebdb65c4d928d59b8189bae38c"

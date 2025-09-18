@@ -9,6 +9,7 @@ class X8664ElfGrub < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "a3bfac9b34a745e29d7ee88e5e148d6a4327b5b3b742db5be069adb39bcc1032"
     sha256 arm64_sequoia: "9e7f8e4ae40110b6b2ef9610497ecc11612f2c28c399ac3addf7587ddcb88284"
     sha256 arm64_sonoma:  "66784aa8aecb9d70cab2eefb31b6f21cd0a2e29b3325c958abed5288c257b2e0"
     sha256 arm64_ventura: "d5e9b928e26082ce63928c69575178c6deb912d36100ce95580b211c788b7f31"

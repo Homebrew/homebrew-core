@@ -13,6 +13,7 @@ class Gifsicle < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "33c1243bdc845aa74b15f5e89eb46be030360140687dca87a06eebb30b8d0308"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "75b564ba2a3671f341b02b63b0a8429ea02db301a6ecf1ab346a31d158f44139"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90eddb31b7d51d074eb66c11a6f7dcbb39e086adf5fa37465e3d6c53f7eb9790"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bddb0e3c75d143311b6d718302aa0aaa73c2ffa7dec3506087c3302d1397c09e"

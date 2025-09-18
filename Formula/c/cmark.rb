@@ -7,6 +7,7 @@ class Cmark < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8af79b78d1aa446d6c5532ec3553358c627f8a0b7cdfc2ea8663748e860cbe72"
     sha256 cellar: :any,                 arm64_sequoia: "93bab92b2ba9b451da62ad4a762d078cafc8d4e400c23a7322f2f9dd9fcc8ea3"
     sha256 cellar: :any,                 arm64_sonoma:  "06bf4e3da615bfa454360952b105d18bdc02ad6191220845bd3a6a776769da87"
     sha256 cellar: :any,                 arm64_ventura: "4381cbbe681dbf83352e58b8b0fdfafed4610e8017f8fb62c1e1769d90916431"

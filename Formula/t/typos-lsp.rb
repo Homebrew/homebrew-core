@@ -1,8 +1,8 @@
 class TyposLsp < Formula
   desc "Language Server for typos-cli"
   homepage "https://github.com/tekumara/typos-lsp"
-  url "https://github.com/tekumara/typos-lsp/archive/refs/tags/v0.1.42.tar.gz"
-  sha256 "296168e4e9d6db3c457ade75292f734450f65d19aa7c79e1751a7b09367c10b8"
+  url "https://github.com/tekumara/typos-lsp/archive/refs/tags/v0.1.44.tar.gz"
+  sha256 "41ae8acf9166e55d6f14bf6c372854bafb5430d65f3c979c58cd61647765fec5"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,12 @@ class TyposLsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "645ff1c4fbf3b0422cf166bf7b7e80d35d82e0be4dd5f72ec1e9d34b6fcc641a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1043495b2e3c4b428c0771a2818dfd550702f5aa3ef2a9dfe8090e244282e84b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "94a111110eb0736f409dc70db45cc992d7bb54fd171a7ec563d3c929ae4cd444"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e3700831468628b54b14503084335a14838756b2470c5db23bb229bf2ffa0175"
-    sha256 cellar: :any_skip_relocation, ventura:       "815ce7e124eff721ccf4e6768eefe85e850580da53a0b75d6472e74bfcc22576"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a71f5776b9ded0670dada2487f4bb2b66948c54d1740174439f2edda56d4339"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89ad9dc6d2a14ffe3bf9d0e48bc3a8b5230422758b0b191e0ca21c546fceed33"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ee4603bc38c5a1b95ff8b37925d3a2b409063749d1f4e139ab9c54f7070689ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bedbc80a5559b31674eb2b97b29ea4f7e9e6516e4606cdc555f219ce98cacbfa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6652ad6ca4b3b992308e46354e2b3c3bbc1537c6ae5835eb12d7a64e015be59d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "62f413319a94f315ecc08e8b1ec8f7c9b98873e89baad751521d6555d9af6c9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab009c1958c92afc47326def7a491223be71694171808d95a48cf713c85c6a9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d992b9cfe774fd262d1602ee50b75df3c3f0ebc8415880ded5eb300515f36a6"
   end
 
   depends_on "rust" => :build

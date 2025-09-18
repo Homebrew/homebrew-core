@@ -3,14 +3,13 @@ class Sqlmap < Formula
 
   desc "Penetration testing for SQL injection and database servers"
   homepage "https://sqlmap.org"
-  url "https://github.com/sqlmapproject/sqlmap/archive/refs/tags/1.9.8.tar.gz"
-  sha256 "11453be7421cc0a4d65d2ffc476bf3f135e4d4128249f382313b8dc7250d1382"
+  url "https://github.com/sqlmapproject/sqlmap/archive/refs/tags/1.9.9.tar.gz"
+  sha256 "f16341d9e22b4abd4ec387068ddb24c007c3cb4bfadab6b01ccedd1368c35f20"
   license "GPL-2.0-or-later"
   head "https://github.com/sqlmapproject/sqlmap.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "933d2d0b66f7ed1699d98be08c2726691e23ac457817e5487af3d970ffbcd752"
+    sha256 cellar: :any_skip_relocation, all: "74b980e00180652f68d66090007791ebd1a081ad58c053a4a370fe680f5e9cf7"
   end
 
   depends_on "python@3.13"

@@ -14,6 +14,7 @@ class Tnftpd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9d9d80e1b2f1df559934eb827edb881709d86a7197e56c47fb3fae56b01b4a0c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b0896487aea674c344c0b0018f331767231546c8269d940de9910f2107a17b26"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d2553f19ea668a58de5f03311347e89a3522e458c9d9482ea3ae4a8825ae34eb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "846e191bdee68e9a0123e864e7683917efce53a479ecfaa1448422bc512024af"

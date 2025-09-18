@@ -8,6 +8,7 @@ class Auditbeat < Formula
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ed06cc36915df0d1d78acb5da3d20893234d445157737213633557ede35bc3a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7b288d3643eb84baaeab7ed7150901b10b901ed30e81b11dbf4fe0d30dba460"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d76a8e79fb599553064c252fd0932c006b0a20c791e95d3e92644d9a0eee0521"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5d2adad86f0fce5e8a716e9ed09efc90bd74deb597880d26fb5ee4bda81614c5"

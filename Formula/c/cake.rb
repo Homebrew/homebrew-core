@@ -6,6 +6,7 @@ class Cake < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4500f7f240d6920f37f23413dddd394b239fc28e83b562aa9e1678b32761296b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "78c022a53d5c794a02cb245365a20e68101ff498636aa9d9b0d5791df21e6946"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39611171d03f29228d6c0f1402647d20a7ada16eff8a8c9fcd25c57d8ce5b7b1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "37df34c69614dea7ac08ea390a065de5765df3117ab8b7bf4d76135d9ec3ab3e"

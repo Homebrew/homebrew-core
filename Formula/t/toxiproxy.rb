@@ -6,6 +6,7 @@ class Toxiproxy < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "366a468183e8c98dae90c4ce3dfaa6f740117e4d9485aee8caf687eac0b3b2eb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "294a21ff88b3b908d344de82803ff4d66bbeb6834bc42e0b503a4681f497ecb8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe38bd275653854eaeea1f762c9abbda9288e803da31118cd29a2d2ee0347553"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a2fad1caee2311b6102a1f58d5f3a30de56f5df9f7e6a462ac3edebc36a64af9"

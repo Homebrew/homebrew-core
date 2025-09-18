@@ -12,6 +12,7 @@ class Astyle < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "beba21db6e36a5d95098db9538870383beb991aa79b917ff00605eccf93fc7c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ba21466e2b74f0caeacb8323c9e26a2da0b491427f2ec4cfc04e0998dcd4f5a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51ebe593acbfd976403e387505f7542ffd5679e2d243e21aba03ba6c8f13ab1e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0c5fc2fdd27d3b659ac886fbc371d0c3d78a0281b5f1de21c5da8d50417dbf77"

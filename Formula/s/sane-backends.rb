@@ -13,6 +13,7 @@ class SaneBackends < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 arm64_tahoe:   "660c47f3e2ef991dd65db76d209c5fa64fb60287dcabab73c33d14f493d2aca9"
     sha256 arm64_sequoia: "0216c81f23f34c4ed8528ac75f3bb668b217619569b16ebfc9b38483c6ab4770"
     sha256 arm64_sonoma:  "90ff1226986965d15ab21286260ee3323140be3fe91c299bffae18c215cc2b47"
     sha256 arm64_ventura: "aa5d8003afa1bedfe0ce827f717afac8f8f372ebffd92d01661240eaf1fb2ce7"

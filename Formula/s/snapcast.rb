@@ -6,6 +6,7 @@ class Snapcast < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ee9ba3f6a316f4d386abd8a84079a1425de2ba850641bae3065e65c5679331e7"
     sha256 cellar: :any,                 arm64_sequoia: "2cec9d7a9ec03701702d074652c9bbaaffa2fbda24a8a35a793ae8256918e5fe"
     sha256 cellar: :any,                 arm64_sonoma:  "8eb02f10ce66da4a08c25325ff3ad499aa90874ebe573cf12d31d114d32db3eb"
     sha256 cellar: :any,                 arm64_ventura: "37abe8373c9db62d0421afd78d5ca599483e9802f4ef61fc8672fdb09bec1319"

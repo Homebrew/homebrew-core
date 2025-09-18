@@ -1,8 +1,8 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.9.1/PDAL-2.9.1-src.tar.bz2"
-  sha256 "a5508e30b5d2e5154fd5e686a444ae3f835607807b5d22f26d97d184ff4b74d8"
+  url "https://github.com/PDAL/PDAL/releases/download/2.9.2/PDAL-2.9.2-src.tar.bz2"
+  sha256 "a74bbc7f4e4f709ed589dbbb851926a63c391c974e3fc40a4c3ff34f7923021b"
   license "BSD-3-Clause"
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bcd1909353380061d33f10c42c6d147545d95fde5ae7a514819aa6a37b15691f"
-    sha256 cellar: :any,                 arm64_sonoma:  "fe614d7f2c31bdd24969a70c721538afd48789b0590a6a983cadd3263ac2db13"
-    sha256 cellar: :any,                 arm64_ventura: "163dd4b47b60d16c44e8cd87082812393365a9d2bf252521fc5bf51291ac35bc"
-    sha256 cellar: :any,                 sonoma:        "14b31cf37dfa115e5d630d9eda8d2a2db41cd2430eb960677fb4de118abe585d"
-    sha256 cellar: :any,                 ventura:       "46c6753f35cda87b999ea89602b178a29f85dbf0d7c4e024718d624694709dae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bae797d995d7203ef8335dd7e02cda2c396e0ef79b7ccfafdcc894666019f7db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff3b8735aa21e22088baf73a882ef27b51fc6c362a5d15c3c52e7e7d868e4d12"
+    sha256 cellar: :any,                 arm64_tahoe:   "21cdcfe4658aaf1a1a40dd300b9fc6903bb02f9c98f87dd52113b43c15247d00"
+    sha256 cellar: :any,                 arm64_sequoia: "3129cf73d69a612f587f0b9e421ee026618df1054efc2cedf7fe9aa0630cebca"
+    sha256 cellar: :any,                 arm64_sonoma:  "5fbc01b27bd59193bc60583fe900beb894cd9c119ffa8f0b1d45b0dae0074237"
+    sha256 cellar: :any,                 arm64_ventura: "7c289fafa602f7e1fd481c86985dc4cac1b0522df95728b3469737be107bd50c"
+    sha256 cellar: :any,                 sonoma:        "cfa5775522389344389599cdcffa166664d36972a22caed3376356d244753e65"
+    sha256 cellar: :any,                 ventura:       "0d29af37383f6ad87263fe5a5e34f79d328bfd34639f9ba3554be0769ade074e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8f1c16c603a0a238c2d07d2c9110893948853374bbc4be116d4e892da337fa7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd32a2273fe12d7f30c99022c091c330963098464e029e9dfc13c33a49b10d06"
   end
 
   depends_on "cmake" => :build

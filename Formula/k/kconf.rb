@@ -9,6 +9,7 @@ class Kconf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6c87543d6c4aaedc4bb42116fe029725d36172535b401567bfbd0f5c3762e8d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c7ff80bea648574258dd8824d20fba4332346ddb89dc566b6286a674a3a730a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ed57d62a2cfcb32f238460071f886311c492f9587ab87cfa3f23eb524e1ef490"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e32cdeb9dfbc9027d5dbce3599fed6d051b2d5a64519b09a766c219b4c829934"

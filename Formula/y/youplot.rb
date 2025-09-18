@@ -7,6 +7,7 @@ class Youplot < Formula
   revision 1
 
   bottle do
+    sha256                               arm64_tahoe:   "d29e20bfabf80a960825bb2f5eb22b697d946e019683e2844d5a96df3e4c76b5"
     sha256                               arm64_sequoia: "f4f7a0b1d99fc9472d007745a96456a2d87626a21f9e2f1d781b81713904bc71"
     sha256                               arm64_sonoma:  "0154fece0c0a8ddb10acbac21c168b33bacb2839ecc8f0f28d6d7dcf0ebe7047"
     sha256                               arm64_ventura: "4bb2dff5ad2c3ed7d664ef15b09ce44f03b2ec9cb01fa538b6420b9aba56d5c1"

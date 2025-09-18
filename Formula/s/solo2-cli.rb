@@ -9,6 +9,7 @@ class Solo2Cli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dad9f3c2ecd0fa082e66d3013262b487a46c9d5000dd93af6ecb092d1c1b9298"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0eeda3ebb79864789018e56cdd4bf347b798478c754f9f3be29e26ce788cc604"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac06ba094da706b68c527fa6904187aa9c2d21fd26246bf9a343a4a14a4d8dd9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c876fcb91927f6c382994c92cbd8fcf3041d12ee2e43f6239c325bd852d4d3b"

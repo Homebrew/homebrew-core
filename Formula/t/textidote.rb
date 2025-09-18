@@ -15,6 +15,7 @@ class Textidote < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3341188f4b8fb7912f78dcb53dda8f624dcc8693f96a51c1ccaa49422746b84a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bc15a1fbb32e89fa3aa4f01a348336f1032974eca44c74789719e8e3ee9f391"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c7874766d3f1f514f1b32435f160c92a0622a19ca8d2b0f7a8f653bfec05445"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4bf516adb25ff61f3453f6825819e6353e2045619e46c7168ee250a782dc538d"

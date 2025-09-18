@@ -1,18 +1,19 @@
 class Mmdbctl < Formula
   desc "MMDB file management CLI supporting various operations on MMDB database files"
   homepage "https://github.com/ipinfo/mmdbctl"
-  url "https://github.com/ipinfo/mmdbctl/archive/refs/tags/mmdbctl-1.4.7.tar.gz"
-  sha256 "b871a2d0ad556868ce9610cf819447fc38566aeace7a66294f00ab5544588a77"
+  url "https://github.com/ipinfo/mmdbctl/archive/refs/tags/mmdbctl-1.4.8.tar.gz"
+  sha256 "373154b545a9f940738868f7e2259c89803dc966646e7b8c599d26b703424d80"
   license "Apache-2.0"
   head "https://github.com/ipinfo/mmdbctl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32af5fb6ace4686dc1a624dadabb094be9c280f58fad3b10f892a452eeb415a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32af5fb6ace4686dc1a624dadabb094be9c280f58fad3b10f892a452eeb415a5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "32af5fb6ace4686dc1a624dadabb094be9c280f58fad3b10f892a452eeb415a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8152bb594c50bfea37db1fce61244638710bada48c1cf4e25377018e6b80f9c0"
-    sha256 cellar: :any_skip_relocation, ventura:       "8152bb594c50bfea37db1fce61244638710bada48c1cf4e25377018e6b80f9c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b989aa9b091f0af0fb337c856e4ea5ae1cf1ef09f20977f82b5c529d5bfa25d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d83aff861970e82984f2a19c2fe0b969a786f5f2133148bfb51c3d88646426a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d83aff861970e82984f2a19c2fe0b969a786f5f2133148bfb51c3d88646426a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d83aff861970e82984f2a19c2fe0b969a786f5f2133148bfb51c3d88646426a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d83aff861970e82984f2a19c2fe0b969a786f5f2133148bfb51c3d88646426a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bce3a893ebc1b01a1dbe6bcc7f972b634f4e463d7244373ff4dfb778a1639614"
+    sha256 cellar: :any_skip_relocation, ventura:       "bce3a893ebc1b01a1dbe6bcc7f972b634f4e463d7244373ff4dfb778a1639614"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fec967e1d52cb9782b28147f9c503a135d4b2ed175895ea79c139bdb59583b41"
   end
 
   depends_on "go" => :build

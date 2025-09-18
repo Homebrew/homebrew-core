@@ -20,6 +20,7 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "a687e26c677a72735d4d90756990d895f57394f1a177546a5f4caa3235d9aedd"
     sha256 arm64_sequoia: "a4ddb8fded4e60f585786a9812ea44463605664e4e08f9699a46fbdba6d792bd"
     sha256 arm64_sonoma:  "a84ad2297f240dfaf9c93b7faf3b0454fdaa3bf5894b6324942a518cd12aaf92"
     sha256 arm64_ventura: "024a17a51b89dd85b62e2ed1cb27750d4a1c7e332111eef74754c3aa61254c97"

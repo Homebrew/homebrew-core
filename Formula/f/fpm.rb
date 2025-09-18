@@ -6,6 +6,7 @@ class Fpm < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e05d00505af1079dc24ff60fcbe77a93312c33a7ae0d61db151fa4fb1081ee61"
     sha256 cellar: :any,                 arm64_sequoia: "7e811adad308853f88abed68053914560cbfc4053c15d23d68c864d564ed75fd"
     sha256 cellar: :any,                 arm64_sonoma:  "10a390a5685e4dc39c4b56fa5913164e043404f4d773b5fc389e12e3f42a1c18"
     sha256 cellar: :any,                 arm64_ventura: "37d76ffc9a989a66216fbd2d31e33b66036676e23f3fd56a8a92ca2a772922fe"

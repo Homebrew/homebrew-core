@@ -6,6 +6,7 @@ class ChooseRust < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "29ee75f6320e3145ddb814c62a382081af35cc61dce9290994f0448b12def968"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "94d22bef03f4ecbe41375afaeeb48a7e0d9cdd0c687479cdb4afc71218fe2857"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3ac961f6aaf56fd0b23dbf244cf436dde01de4d72fefe423c2e0c445cb3a38f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ff8a2e46f3d9b02165fde562429102217e9cd118b741920a8a5092cfaaa24746"

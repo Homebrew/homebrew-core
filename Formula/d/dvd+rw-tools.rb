@@ -1,18 +1,16 @@
 class DvdxrwTools < Formula
   desc "DVD+-RW/R tools"
-  homepage "https://fy.chalmers.se/~appro/linux/DVD+RW/"
-  url "https://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz"
+  # Original URL no longer accessible: https://fy.chalmers.se/~appro/linux/DVD+RW/
+  homepage "https://en.wikipedia.org/wiki/Dvd+rw-tools"
+  url "https://deb.debian.org/debian/pool/main/d/dvd+rw-tools/dvd+rw-tools_7.1.orig.tar.gz"
+  mirror "https://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz"
   sha256 "f8d60f822e914128bcbc5f64fbe3ed131cbff9045dca7e12c5b77b26edde72ca"
   license "GPL-2.0-only"
-
-  livecheck do
-    url "https://fy.chalmers.se/~appro/linux/DVD+RW/tools/"
-    regex(/href=.*?dvd\+rw-tools[._-]v?(\d+(?:[.-]\d+)+)\.t/i)
-  end
 
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8daeeb4d38982c4948e79c9ec20f0e600cbd0c6c55d56bb4f0b14c617e8600e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ef7c367570d1a514f8c5ee0c9a7b9e758dcd12a6ae8ece7fddc835f39ad9b319"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da895c2f501018863f2db497206573a37ef717337e9f5c2dba6a5863bc989d77"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "031b8533eeb4ec71ab6f3e2b68826271b0c5ff3e97e0dddaebab9a721b43df53"
@@ -23,10 +21,6 @@ class DvdxrwTools < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "666563b942edaf7487b15e886264df5dab1cf5a64638ff47dd5f69804a44368d"
     sha256 cellar: :any_skip_relocation, big_sur:        "c3d9ab88096123bd36acbad9f27cc21c07fd881f00ac45b49605f18de03262b1"
     sha256 cellar: :any_skip_relocation, catalina:       "18c7e40586199af43cad7bfc604c0e01c90e095a387b425a4e4b74a453423ffe"
-    sha256 cellar: :any_skip_relocation, mojave:         "7d79f2f23e9fb680435005d4491e02d3beb4cbbf2d8abc338b4efe33b7d17988"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "acf8d9a92ff74fdbfc409dc42980be607c4dd263aca89444713972a055d5967a"
-    sha256 cellar: :any_skip_relocation, sierra:         "932e3879247dd1587f35d99c7132c302ddeaf3b5efad9effb05f5b086a55541a"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "01bae78a5187a47ea770a9cb9c0cabdbafb60485e333a563240a6ea74d6718b0"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7acc04dbb06fd517b729b4ae9b103c1be311d5065b4fac1b6e955704214dbcd0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d491eb26d5db91ea03ea2403ae8866675d268a4d9962a4dc9cb4bdb0aedecb47"
   end
@@ -47,6 +41,7 @@ class DvdxrwTools < Formula
   patch :DATA
 
   def install
+    ENV.append "CXXFLAGS", "-Wno-reserved-user-defined-literal" if DevelopmentTools.clang_build_version >= 1700
     bin.mkpath
     man1.mkpath
     system "make", "prefix=#{prefix}", "install"
@@ -61,7 +56,7 @@ index a6a100b..03fc245 100644
 @@ -27,11 +27,13 @@ CXXFLAGS+=$(WARN) -D__unix -O2 -fno-exceptions
  LDLIBS	=-framework CoreFoundation -framework IOKit
  LINK.o	=$(LINK.cc)
- 
+
 +prefix?=/usr
 +
  # to install set-root-uid, `make BIN_MODE=04755 install'...
@@ -72,7 +67,7 @@ index a6a100b..03fc245 100644
 +	install -m $(BIN_MODE) $(CHAIN) $(prefix)/bin
 +	install -m 0644 growisofs.1 $(prefix)/share/man/man1
  ])
- 
+
  ifelse(OS,MINGW32,[
 diff --git a/transport.hxx b/transport.hxx
 index 35a57a7..467ce50 100644
@@ -83,6 +78,6 @@ index 35a57a7..467ce50 100644
  #include <poll.h>
  #include <sys/time.h>
 +#include <limits.h>
- 
+
  inline long getmsecs()
  { struct timeval tv;

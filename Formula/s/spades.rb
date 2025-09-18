@@ -15,6 +15,7 @@ class Spades < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ec418aef4f38a7b784b9dfe700f499442c54f486b86465888fb0ca1baf8767b9"
     sha256 cellar: :any,                 arm64_sequoia: "336e4711b7e792297dd05b0051046da1a98b571b4e558bfceb4de0e493f2efed"
     sha256 cellar: :any,                 arm64_sonoma:  "9fa28c167e3eb14b53ac5d411b2b34215a4981ef79a2e50593678bdea7a88998"
     sha256 cellar: :any,                 arm64_ventura: "de12ae30dd5eda9126877cc8277d7afeb5e7d99571e133463a4a5bff6686c55e"

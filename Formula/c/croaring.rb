@@ -1,19 +1,18 @@
 class Croaring < Formula
   desc "Roaring bitmaps in C (and C++)"
   homepage "https://roaringbitmap.org"
-  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v4.3.9.tar.gz"
-  sha256 "7e3150f21a5e064d302610828b575524b51c5626520b7533b4fd6aea623175c9"
+  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v4.3.12.tar.gz"
+  sha256 "9f1602d7ff83e84ce0a5928129bb957a1eeacd3b092b39e21f5f0b931682b8d6"
   license "Apache-2.0"
   head "https://github.com/RoaringBitmap/CRoaring.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "40524e98d254b4c8371ab13e47f43d51b05927e88d5461c5d2b23f9da9895b67"
-    sha256 cellar: :any,                 arm64_sonoma:  "dcd2359f1453d5e7d810e596695c623f5dc8becc5f9df6a19027a3a883e70a79"
-    sha256 cellar: :any,                 arm64_ventura: "00042eb729d3b5e9c2c4207336dd99d421b8a70e8cd004559bb33f05f28e2593"
-    sha256 cellar: :any,                 sonoma:        "e8e4c059b759dd17c9f9a58e8c27246f20a7183af41f53886c001cf047069fc6"
-    sha256 cellar: :any,                 ventura:       "d521202bf49485fcafe155864a11b8d9dfa75de903e464722f43d869da375d9b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6887b4786ba1b074ca657b462750a82bf1d920be3e2bfd56818feb0564def835"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "486eff2a1648ef84d512c4d20763a129add8117000ed3bd371b74c18b2ac5afc"
+    sha256 cellar: :any,                 arm64_tahoe:   "4c181141bee0e60903b75ed53a29c92010bbee5694f4299bcf3c652d97580faf"
+    sha256 cellar: :any,                 arm64_sequoia: "9e43db58410ed3517e6170fc7b9110bc041a847185ef9a257e1686e7ec0a2166"
+    sha256 cellar: :any,                 arm64_sonoma:  "6265bf2951361e67af47bc0a03ba39398c550941e77e35bd7a921bf71a5d4bdc"
+    sha256 cellar: :any,                 sonoma:        "56623dc3d26a8d31c346e15cb92c8c1e672eaa26ec9d7e4650c7af8434f24f66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c6e9c6c68dac3aec3fb00bf2b8da7fdc318231cf0d99d001ab49ca40c64d868"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed87a2ccd4753fc95a45671f1c8942257d2bc312a00f490f6622ec5afbbf13d7"
   end
 
   depends_on "cmake" => :build

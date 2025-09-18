@@ -7,6 +7,7 @@ class Darklua < Formula
   head "https://github.com/seaofvoices/darklua.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "82e7a3a6cdf74e65912535f33c1a9040ae06f25b8d0be43e5c137a6074b7d9b5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7af58ed3c672813e379e59e82b270ad9a64a45c88e552452e2dfce959deec18"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7239cc3f3c673d4614eb5d1068bad9e4c01bdc759d8b0f046408704910d94c2d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f6ead565a0cb0a87a66ba7507bd372904d75194ae726f6596406e2afa1757fcb"

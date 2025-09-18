@@ -9,6 +9,7 @@ class Xe < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a86047483f4a438ba53a00fbff31112bcb4b3919e860427384a067d7e2c106e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "41b532af620346e9afe4665a07ffe03f81110990f9fa032ddc4b7a84926bf36f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "16095f122ae4444d568eea11511c33f99c7b0760655af5b245d6f21bfad2f1d0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "02cf3b1d7b641be3ca3c2c468663a922b031e6348edef5e4a498cf3ccf578e10"

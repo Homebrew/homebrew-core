@@ -8,6 +8,7 @@ class FontUtil < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "340527d9e8918f7d5ab9156cc2e734cef4a9095b45686657aee668936bfd7c7b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "debcf269b82d6b7503808ae95aed9f0a39df46ec3a323b272c545c57148f4254"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c330ddeddd9f3f0a53c3845c1b3d3bcf1524370135df06eea99a914659185fcd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f797dc497bc5e95e9e9840bdad4dde1c083f7c7f2bd26d577897f2bc63b27e6c"

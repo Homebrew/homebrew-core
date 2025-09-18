@@ -7,6 +7,7 @@ class Overtls < Formula
   head "https://github.com/ShadowsocksR-Live/overtls.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fde7b076d140ac1eeffa99ad93845cd0630362bcd35c9adff00d04fe6a89d290"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "391e947af99077cfc2afcf59086377eb3c190f24511a3ae9b67158d205da44ad"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "227a22265e4ab72feee92e795fd68ce519c36464007109c968c40b58925f6810"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "abddffd7451d432e5b809b35c73d8a51bd64ec648c43d6ae958d9e33fb0dbb15"

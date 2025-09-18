@@ -15,6 +15,7 @@ class Cppcheck < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "1a3d5b69399e25726585fb963445f97d2359a9796afe65dde81dd4f3e2e54d24"
     sha256 arm64_sequoia: "eb0097b36c50984dbb4704c8b92fc9ddc3539b3b0aadacb3447da6d23ddcd8d7"
     sha256 arm64_sonoma:  "c06383cecb03fc3211e5b454793ef27933502cc15fa82e5c691b74d232818159"
     sha256 arm64_ventura: "b76f080212e75b4974ab8e9a7fd436cc40366a0f8f21263d9b2773f389d59a5e"

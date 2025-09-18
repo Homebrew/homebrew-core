@@ -1,19 +1,20 @@
 class Dissent < Formula
   desc "GTK4 Discord client in Go"
   homepage "https://github.com/diamondburned/dissent"
-  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.35.tar.gz"
-  sha256 "86f3fc10a02fc8a84a0e55a8c8c42e280004a57688c743bbe7df16d433abbe5f"
+  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.37.tar.gz"
+  sha256 "b08ae331e5c69759eb7b9511908007fc3e9c7a28208bfa66ffbd84b6f335364a"
   license "GPL-3.0-or-later"
   head "https://github.com/diamondburned/dissent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "51b9767ca1f33b9d998547d6a58ff5cd7089b3938d180dbd2597b8e6823ee87a"
-    sha256 cellar: :any,                 arm64_sonoma:  "e9a9d39aaa1be713525ab45636c8db47541b0f9742062abb65ee507603d8514c"
-    sha256 cellar: :any,                 arm64_ventura: "37b012d5625ba573dc4b6fc6da4a24f69bd635f92d795310c5447e3e8e39f882"
-    sha256 cellar: :any,                 sonoma:        "531388f222610633645f06a21ecf2d15e74ea392edd18677f28e3a5331e81cea"
-    sha256 cellar: :any,                 ventura:       "e16cee20ec2b290a7e2e8120d3457115bc0e3a0380ceb5250b261115996d51da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9afc314d0837d3618eccbff2155256706340ab9c4cf0c931c21e2e54637d78ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "028ce9f4cf38c66396cec94afa29272c55ef574128917c71b53ed1723b5353b9"
+    sha256 cellar: :any,                 arm64_tahoe:   "97643003bef7a54d768a1f7878b036270d6e1845a7089fd76d99141a9eea56a8"
+    sha256 cellar: :any,                 arm64_sequoia: "c910693be03f0bd067d9f4d007b836145221602c286039353719daaad66e58c2"
+    sha256 cellar: :any,                 arm64_sonoma:  "2b481aebf10e511c8598309b4d2a0e8fbf6ec099af82d4c2102699976e50bd3d"
+    sha256 cellar: :any,                 arm64_ventura: "ed3a59ef647f6a22544b57a23ee1a248ba0b03f49ad55145b9acfa3af1488f3d"
+    sha256 cellar: :any,                 sonoma:        "5232410d3f1ec1ea33b66ef3abf77f21eabd684cb95061adcf1e34162abcb54e"
+    sha256 cellar: :any,                 ventura:       "5a84a47da950058aee7e17a25a13fc41c21de3105b3ed0a29189a1dbdc8fb22d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2f74a11d7d2d4953f4fdc35d06c4b39ad53ef3d316720f7b33d38273782b44b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "330a993d8dd432857f392c561754222f045c86c52d9d2ae6476fe55c0cb3e081"
   end
 
   depends_on "go" => :build

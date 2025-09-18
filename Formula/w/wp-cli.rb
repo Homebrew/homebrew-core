@@ -13,6 +13,7 @@ class WpCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "55c3a86b500e2a5c96b7ab4a7c67c6099c379a4b3e8c8ac4ca908cb33a65cf45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "087f15d5afa17ba4483aec086b2945d0dcd477a55987775862fcabe5902ce8ab"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "087f15d5afa17ba4483aec086b2945d0dcd477a55987775862fcabe5902ce8ab"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "087f15d5afa17ba4483aec086b2945d0dcd477a55987775862fcabe5902ce8ab"

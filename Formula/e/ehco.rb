@@ -12,6 +12,7 @@ class Ehco < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bebfba680eb1b47766b476e174b37f7e039b102005df3ade7724daaa3382191f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f18885bbcbafe2095ce0f0d3d7c180d8e2a646d69525a7528b38499ffa2ed065"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a922799139ed0c48b58976708f27d3d59976c91f39db062720c3b502f70ec52"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ace45d76fd53671e7c3bbe1a75f7cf5b1e5c2098f5ba41c2a35ab10d71b050f6"

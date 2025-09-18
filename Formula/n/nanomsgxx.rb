@@ -9,6 +9,7 @@ class Nanomsgxx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e859aa7a86e2a0703c6c26f69a6c841a2a92bb00c0f5617f472cac0bfed51457"
     sha256 cellar: :any,                 arm64_sequoia:  "e00674de838fa31a3eb50d9ce61925893777887d27fd28772cfc5baa2582069b"
     sha256 cellar: :any,                 arm64_sonoma:   "d792d22d76f9b3a2ca31eaaafa8853cd5d04a29bd0b635ecf6a2d1789e02bc7d"
     sha256 cellar: :any,                 arm64_ventura:  "edb680fdffb9c416a4d16175673b8a94f1ad2c84a668ff3814f749a811f98889"

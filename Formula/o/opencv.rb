@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 8
+  revision 11
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.12.0.tar.gz"
@@ -32,18 +32,16 @@ class Opencv < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sonoma:  "75727153194d53eb9bba65a15c65c183c3e4cb986bef20e0b2b26ec45f720007"
-    sha256 arm64_ventura: "4c572edfb6959e9300a6e7a889c7b30225c85cb1b399827a626c0b8cd90ae02f"
-    sha256 sonoma:        "2a463978ba9f475d8b15708b975084e3cdab3254803e35954317fa9cba4209c0"
-    sha256 ventura:       "770ea61fd99ccaa9e56d0c6df0e8bdb182141bc30450e033d4b0b544a2897975"
-    sha256 x86_64_linux:  "ba735d6b8e0dad28e2ec34426104f683074da738814f1a72ababb8dd415cda4f"
+    sha256 arm64_sonoma: "a9ae56d67ce87ae14906b12b373c72b98aafb146a82c398a0f8a2c3b46f57546"
+    sha256 sonoma:       "24a9b60f1ac6e89f0444a5085eed844c8d2cc39e74de614a3b9c84b31b986a18"
+    sha256 x86_64_linux: "84dc9a1f0463ef21e1bd034cea5fea2afd5c8c811e3da953687dc4a6ff8ee822"
   end
 
   head do
-    url "https://github.com/opencv/opencv.git", branch: "master"
+    url "https://github.com/opencv/opencv.git", branch: "4.x"
 
     resource "contrib" do
-      url "https://github.com/opencv/opencv_contrib.git", branch: "master"
+      url "https://github.com/opencv/opencv_contrib.git", branch: "4.x"
     end
   end
 
@@ -66,6 +64,7 @@ class Opencv < Formula
   depends_on "openblas"
   depends_on "openexr"
   depends_on "openjpeg"
+  depends_on "openvino"
   depends_on "protobuf"
   depends_on "python@3.13"
   depends_on "tbb"
@@ -102,7 +101,6 @@ class Opencv < Formula
     libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg protobuf tbb zlib]
     libdirs.each { |l| rm_r(buildpath/"3rdparty"/l) }
 
-    # FIXME: `openvino` seems to break often and is difficult to update, so we disable it here for now.
     args = %W[
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
@@ -134,7 +132,7 @@ class Opencv < Formula
       -DWITH_JASPER=OFF
       -DWITH_OPENEXR=ON
       -DWITH_OPENGL=OFF
-      -DWITH_OPENVINO=OFF
+      -DWITH_OPENVINO=ON
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=ON

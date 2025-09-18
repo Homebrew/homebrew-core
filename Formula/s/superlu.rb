@@ -11,6 +11,7 @@ class Superlu < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ebe6d27572f2d442006da1de3b99fa24adbe5685e2bb82b5d644ac4b60226e61"
     sha256 cellar: :any,                 arm64_sequoia:  "4254178b07c9d3a726c6275a30e940b31f26e4ca674ec2cc5731974831a3b254"
     sha256 cellar: :any,                 arm64_sonoma:   "a2b33d13c7cfc12be7928d7de630dc45c13afc610cdfb575fa1828a7c9ec2424"
     sha256 cellar: :any,                 arm64_ventura:  "0d9bdc7fc5edac4991f85b6bcf533011bb6f399287fbe243a0ea80721cddbd84"

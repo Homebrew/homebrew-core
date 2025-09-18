@@ -14,6 +14,7 @@ class Libosip < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "8c2b8a49121fa1e1975470aea9d13f5803bb8a9f68b23497b8c5d4fd25b8b90f"
     sha256 cellar: :any,                 arm64_sequoia:  "751eaf3b56ce1d3f5ad7e076909391f1cef386f430cd96719ff8a97bcc76bd03"
     sha256 cellar: :any,                 arm64_sonoma:   "ae8d66cfe67d8dc40a0299db6cfb154cbc28c8c6a7af0229d4577e70e7d54ca5"
     sha256 cellar: :any,                 arm64_ventura:  "34fbd0c4413173a442968eec773e3a9b5f60a9a08b48af2f3e2d9d4ee21e6dab"

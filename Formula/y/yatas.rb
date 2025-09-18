@@ -9,6 +9,7 @@ class Yatas < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "38a23bdfc24c39424fae9ad0c654b18805b54f7ab481c42161700a55a74cf670"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6e5ba8ff412e6b856410c206db19c24ddbb66ddcaf3ef3052d47b63e11d16974"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e1e7442a54bc2fb49b02ccdffc667bc6a7b1a08d6a16972d694d35d67835f25"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4db5b9d8b52eff80c2c3b6ef4e8ebdd2f206692804b961b1245074c4c0f1dfd8"

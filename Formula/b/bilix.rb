@@ -9,6 +9,7 @@ class Bilix < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3e941eba47cfc0241016e4892d73af60f5def7d3fb29c468902dc609be91e0e4"
     sha256 cellar: :any,                 arm64_sequoia: "27e0df695ef340bf8113aee57033083388dbf19a8d0666cfde1dcdf0db841e97"
     sha256 cellar: :any,                 arm64_sonoma:  "03f0770dcc1002686aeecc199652235ef5f3d9f0f69de83d158b9d7aee90edc0"
     sha256 cellar: :any,                 arm64_ventura: "63f3dcbec398232a56bf091ca76946c3a8fd874938372510070d5e6f81694ff9"

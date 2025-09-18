@@ -8,6 +8,7 @@ class Jupytext < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f78fd6fb325fd7480f1a6a697b66ae482e423f7b5a91d35bf780ec92639060e7"
     sha256 cellar: :any,                 arm64_sequoia: "1754cc57f359f23b0320bcfcb7073c5cca6d0924d7ebb7735ae8e2682a4695c7"
     sha256 cellar: :any,                 arm64_sonoma:  "5a9a1dff97b7173409c583fc788074fd3c832c5fbf07aa9a4cde38240bf93e42"
     sha256 cellar: :any,                 arm64_ventura: "d00d1ccf1144db621c245caad25c283226b9a65b68dda0917093ef196d9c3cbd"

@@ -20,6 +20,7 @@ class Pypy39 < Formula
 
   # https://doc.pypy.org/en/latest/release-v7.3.17.html#pypy-versions-and-speed-pypy-org
   deprecate! date: "2024-09-04", because: :deprecated_upstream
+  disable! date: "2025-09-05", because: :deprecated_upstream
 
   depends_on "pkgconf" => :build
   depends_on "pypy" => :build

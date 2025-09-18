@@ -7,6 +7,7 @@ class Ghorg < Formula
   head "https://github.com/gabrie30/ghorg.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8983f37e9c14761bac0a080d634dd2c7ed78b345d71ae84ca20cbe63733b03f5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5159ba8cc4b9117d791d651a96c832f6e384b0e6caa69e38703d3f9e71434562"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5159ba8cc4b9117d791d651a96c832f6e384b0e6caa69e38703d3f9e71434562"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5159ba8cc4b9117d791d651a96c832f6e384b0e6caa69e38703d3f9e71434562"

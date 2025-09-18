@@ -9,6 +9,7 @@ class Carton < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7cf6c91209b768cb3e963c1eb14131efe738a851748d61d9adf402c274beeabf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "228551b5317d850f5ba6cc3dcf31eced4f9df54d28a804ce0dbf24652ca30e75"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "378f8a49ede0e31685f2086f07967294534e910c18d5427542b2b9093dbe57c2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8b540a262fd997261a20add377f931b7eb4ddfd496954a7af4adb7d692abca3"

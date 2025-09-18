@@ -10,6 +10,7 @@ class Huexpress < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "0e4ce00990799c34600701c248f3cf8b2e8ed560b58b8616bd63aafdc2fe3f2f"
     sha256 cellar: :any, arm64_sequoia:  "c72017994c148e0c3320a90bcadb956732c96b544def28ff398892e578922c22"
     sha256 cellar: :any, arm64_sonoma:   "6e8a501836cd6c97ee3344adaff36f6be40a2ddd6d3266cb980cb32eab566006"
     sha256 cellar: :any, arm64_ventura:  "d69fc8ce360f304a6c9e95a8120196d5efaec9f77f02a82b0e5c3e4cab6b84da"

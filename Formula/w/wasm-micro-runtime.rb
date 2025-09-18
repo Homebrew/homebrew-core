@@ -15,6 +15,7 @@ class WasmMicroRuntime < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c466fd168f87c8e8827c45ff594a2684c150deb74534c0c1c8aee11580a7ae89"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e29908e37224bc325795967a940219396bc4b3531577538ca6c2d7ca67431377"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dbd2ec205b620a18150fdd279196c2e06bee8e5a3c798da42794c86b287d1a3f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "18d20c76e65880203488374303f966a2670a845e578beb4dcc637e58be0f5479"

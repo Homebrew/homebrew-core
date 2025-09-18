@@ -8,6 +8,7 @@ class Libxcomposite < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3ee0f26be9958822329e6756d778a36662369d7fe306772a01a5354a6f1af924"
     sha256 cellar: :any,                 arm64_sequoia:  "da32d7ca9d60bea76c4c75ac3ac601601794a44689b7e7ecd0bb076730516202"
     sha256 cellar: :any,                 arm64_sonoma:   "5bb05841f68025cbe9d0db5f308f1065025a1ee118a6f8b9796774f936a518e1"
     sha256 cellar: :any,                 arm64_ventura:  "b0c612dfb969ecf35178c2182cd9fcc5f9506ec3f31f7b1960daccf5765966be"

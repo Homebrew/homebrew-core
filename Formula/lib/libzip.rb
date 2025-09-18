@@ -13,6 +13,7 @@ class Libzip < Formula
   no_autobump! because: "unable to get versions"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "498194ba402e9765b789588ba7b6c927e64df31547a582730b90c1ccc2bdba25"
     sha256 cellar: :any,                 arm64_sequoia: "01dbf417152e6679f7816936846b57170635558954c001964b594caee1c0dc33"
     sha256 cellar: :any,                 arm64_sonoma:  "9c9a3a40e3b80edf45e7e7b8e315d45e70262653d5f272c215f7e0a34357b32b"
     sha256 cellar: :any,                 arm64_ventura: "65696504b9278cc61b0b9dbdd20c4de31792b1a429316ce956d5a3473e3ac01e"

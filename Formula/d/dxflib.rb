@@ -13,6 +13,8 @@ class Dxflib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3bbe74f4cb179ff9cd5df3e09b664f29033deb63211128b73bab5cf18c6b71a1"
+    sha256 cellar: :any,                 arm64_sequoia:  "a4ba8424bf3cd50726d26445fa590fb069d6dff461324400938a3be82e98ef0c"
     sha256 cellar: :any,                 arm64_sonoma:   "b82a6721fde448b539b34656cbde8cdd0699373ca2ce134f7d7424d8cdd29c66"
     sha256 cellar: :any,                 arm64_ventura:  "6807f88414e5cf6c874dd7eebd579298ecc0e99babb950a9a454cc9a55541071"
     sha256 cellar: :any,                 arm64_monterey: "7394d8e91ad3daefb69baae95372e86243fa69252aaaff0671aae88c5385b8be"

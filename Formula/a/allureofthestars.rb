@@ -10,6 +10,7 @@ class Allureofthestars < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "bc1152802bbc0c177b8da999c6221a7c229fb2c6fc104fe8135dcfe0691062f4"
     sha256 cellar: :any,                 arm64_sequoia:  "bdcf533595e5ae4f13cde425c0e06c515257045288acddad4b9530ce3c949394"
     sha256 cellar: :any,                 arm64_sonoma:   "f2798a7e39c570fb3f16f223658233ed9d4f273bfb079851d5b23ad7ee3279c4"
     sha256 cellar: :any,                 arm64_ventura:  "6892fd7487390e10f9a9353e0ed478bbaae9492f458cc26ce6e28bb152d9ba23"

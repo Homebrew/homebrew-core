@@ -11,6 +11,7 @@ class MkConfigure < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e4ed19f77dc079bbb5a81a8d7d68c938dae9b24249eee52100c4f0878fe551b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "991206600e83a6063a6518b312d991f8bf8390defd941c41af274354e5fe24f5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a6000f58e84b8f47257cbaed106b59f9a908a5cc0897a88eeaf81e779b6e176"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5e4df5fafb64a8b2b6c58d5f10f97316016731381ba859ec61fe79222e3404ac"

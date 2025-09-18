@@ -14,6 +14,7 @@ class Openconnect < Formula
 
   bottle do
     rebuild 3
+    sha256 arm64_tahoe:   "be0a6e0c44074274470b40a2687f0d36545111f937f6e87776dde90c1ce30900"
     sha256 arm64_sequoia: "5f8451259fc62b9d9137d92ef27cb8674d429b06e4a3e2d30bd7352131126b24"
     sha256 arm64_sonoma:  "90a8abdf95806d378499c11c363e93ff20724d02d8366d3a0f3ad9c1484281a3"
     sha256 arm64_ventura: "2c25aee8a4b6d654d03f3f66d3a2ef14193c1d4bf1c5be5a7ac8de1a39030411"

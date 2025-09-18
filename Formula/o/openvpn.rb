@@ -12,6 +12,7 @@ class Openvpn < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "1572b8044bac0d7629e0e3dbd9475c4b7172c0512d6157f968de2dff38f5cedb"
     sha256 arm64_sequoia: "d304c987b52e8ceab1217df11dc29d146cb7365691c204a198083b6ddac212a6"
     sha256 arm64_sonoma:  "02b8aa3654cc4b7a849edf562c2d38f5d99117351eff12cd3bb3aed0518d394c"
     sha256 arm64_ventura: "b842dee9d24123a0926ea9ea4a050b85b5e440597dfbf07e2e1b078f468ecf50"

@@ -2,8 +2,8 @@ class Vcluster < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
   url "https://github.com/loft-sh/vcluster.git",
-      tag:      "v0.27.0",
-      revision: "d23f473e89c0caff7b103758e03886dc99dad1f8"
+      tag:      "v0.28.0",
+      revision: "551bda6c37b8ba61081ef0490e4e24e674bae222"
   license "Apache-2.0"
   head "https://github.com/loft-sh/vcluster.git", branch: "main"
 
@@ -16,13 +16,14 @@ class Vcluster < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9dd30e35b9adc5459af8189d4036c756d9a4666bab737e4c8ac11f7259e540f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fd6af4b753cf2c9f2c1e1144fbff43178fa42fa4c4c900d231f78336d72e1b7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6e42ec560af42104e1f4180e7946d0bf9e16ac3933dacca7160c6fef626ac814"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f06a6f65a13515d35940253d2fa82c5d5304dd911a824931788d371229b851d5"
-    sha256 cellar: :any_skip_relocation, ventura:       "eeab2a8900f6b29202fd9d5cc9bb21401145865c2f536fc595f7f4dfe30a03f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "26cd752cce82651b736dd6a4869de4dc3237d9f13b6d9757252e70117c88dc30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dd01ef151c2e137c714fae8fc23844e1afa20237ff744ac565ba682360e9aad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e176e0f4aedb2fa1927ea49d63e64fe3128527be797d4c2810c1dece33a54ec5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "983b0a5028209ec3f96f22768e0c5453e20065cf796f9eb51679d83a57afa587"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "217931a7f09ac32e9e8df834668f17eb03385c95dd3e75096edf2d8230a07fe8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e9f34abafca7d86e78547f5cebda302bd68ca91c594c4ccd90a3c05f3538d524"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ce156e52faacfdfbdd575603002f35d9034e60698795e42ce5d9caac3015d1b6"
+    sha256 cellar: :any_skip_relocation, ventura:       "fc7ce0af6735a19ab388acb0fbab08edb2d28ff8ed5c3d62f411da992e05ec48"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb1807de07cc47bcf65155858ce7122ab5aa670fa5ac8b29dcab9d88e004ef39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56545041866c2871a1bc9b94c5e261dbe1838292ed59bd278a112bd2af6d44d1"
   end
 
   depends_on "go" => :build

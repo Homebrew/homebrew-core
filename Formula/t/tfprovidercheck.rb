@@ -7,6 +7,7 @@ class Tfprovidercheck < Formula
   head "https://github.com/suzuki-shunsuke/tfprovidercheck.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7bd39984bfc74a74c2398c3e26c4bd067eda608951b44c584d085da72d3bb8dd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5999fe7f5aa3878e386922f3ae60620217e21281a9eb206d43ea4accd48950f8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5999fe7f5aa3878e386922f3ae60620217e21281a9eb206d43ea4accd48950f8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5999fe7f5aa3878e386922f3ae60620217e21281a9eb206d43ea4accd48950f8"

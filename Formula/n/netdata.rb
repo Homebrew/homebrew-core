@@ -4,6 +4,7 @@ class Netdata < Formula
   url "https://github.com/netdata/netdata/releases/download/v2.6.3/netdata-v2.6.3.tar.gz"
   sha256 "ae99834889c04b5d49b1b03cf1db8812a9b3c6498dd097414bee01a3844c9001"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +13,11 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "581176b022ecae6c52683c111a67067b7d3b7475257d90f62cc0cc784768c9b4"
-    sha256 arm64_sonoma:  "00856eec11eeefe55025ff8fa98d794a20f7876d7b9ee559ae32ad8d99d4e022"
-    sha256 arm64_ventura: "022c12729c28c7c65817c18294009667b323c6e2d9d824ee59a3abe8ceec655b"
-    sha256 sonoma:        "8334892fdabfc2aab32bd1b5502d8f02f2a6613ed07ed3deddcd9bf070ada22d"
-    sha256 ventura:       "56ceb5c9a292721b1e38bfe0e4607ac37f5825945a3a5132749d0630af4eb9ca"
-    sha256 x86_64_linux:  "2fd763d3bb0e18e835fb448cc2a2b66fb4f0185ffcaf986ef04efff9dcb0c763"
+    sha256 arm64_tahoe:   "548c2c99d7f493a2117c6e62d7fc51d03dd31e1d3c29832453c76f061e377984"
+    sha256 arm64_sequoia: "ba8894277d1210cea84c48604e02256f79211a88e4c2b7d8431a49843cbd6048"
+    sha256 arm64_sonoma:  "b5676b57cd0387602f4f635558a98393d6d00535e47a46cb97214c1b5a96b3c0"
+    sha256 sonoma:        "0ab87351c045063fd92466f95af2bebda003ec28727b9d1ca64380128accd223"
+    sha256 x86_64_linux:  "ba903994d8d2eef87b33984b9aad165cdaff084dfaa7a341185570edb8cee7fe"
   end
 
   depends_on "cmake" => :build
@@ -52,6 +52,14 @@ class Netdata < Formula
   end
 
   def install
+    # Fix to error: no member named 'tcps_sc_zonefail' in 'struct tcpstat'
+    # Issue ref: https://github.com/netdata/netdata/issues/20985
+    if OS.mac? && MacOS.version >= :tahoe
+      inreplace "src/collectors/macos.plugin/macos_sysctl.c",
+                'rrddim_set(st, "SyncookiesFailed", tcpstat.tcps_sc_zonefail);',
+                ""
+    end
+
     # Install files using Homebrew's directory layout rather than relative to root.
     inreplace "packaging/cmake/Modules/NetdataEBPFLegacy.cmake", "DESTINATION usr/", "DESTINATION "
     inreplace "CMakeLists.txt" do |s|

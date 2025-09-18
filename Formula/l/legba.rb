@@ -1,19 +1,18 @@
 class Legba < Formula
   desc "Multiprotocol credentials bruteforcer/password sprayer and enumerator"
   homepage "https://github.com/evilsocket/legba"
-  url "https://github.com/evilsocket/legba/archive/refs/tags/1.1.1.tar.gz"
-  sha256 "a5c7254b19910e2b1816a9e4af3720b772e35d1b0491cb42f90564ca01699d6f"
+  url "https://github.com/evilsocket/legba/archive/refs/tags/1.2.0.tar.gz"
+  sha256 "d618c59060b76fcff26c066c1a2385c85f8c808bc07e2a1f30c777255de2a400"
   license "AGPL-3.0-only"
   head "https://github.com/evilsocket/legba.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d48ecb4ef2aae78b223236a2eaa630633bc21a1c236d1fc4b98c878e32b6bde0"
-    sha256 cellar: :any,                 arm64_sonoma:  "8347f17bb79cfa0b052a048fd61f082583b6daf788f11e46cec0322d88fe8c03"
-    sha256 cellar: :any,                 arm64_ventura: "f20c77d7f9a6ec1173d2871152104e3f6e84225466363092d357354df8e37f47"
-    sha256 cellar: :any,                 sonoma:        "f96f0db780c2b7bbf111b7618d33cf00b0a9284a1f54a35c2df1f8484110e123"
-    sha256 cellar: :any,                 ventura:       "62757237d0e8fd9453f6ee9b5610f3b0c17fb137cb8d67b3db2e0c9dc08de70e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9842c12060cf83ffc70b9d6264889b72790a7df2e19a00ae9ee5cb2363b4faf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1602ac182c88053c8a3b9a35513d3216797190420f93ae65582fb049bd2ed68a"
+    sha256 cellar: :any,                 arm64_tahoe:   "4a5d7a59154b77080657cdd17b8c4cb989e34a060ad7f80d0c25f8fc6d6c3e68"
+    sha256 cellar: :any,                 arm64_sequoia: "1064dc688e6184befd3497ae9b802897bf52d0cc21b02306914f6e0e488add3e"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e34ddfe276dfc008ced3815ade9654aa119627123a7b3ecc23666552890d55b"
+    sha256 cellar: :any,                 sonoma:        "746c3ebe76412e059eee1843143b06d30a700c60fd85dde0c3726ec3e623a1fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ffe88a7ebad40b7381aa07238ffb91b74f4051653a8dba5e58f1a8650a1869db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2908972ed980846dfb43acd200e11e8a438273776ff8d20a5fc51141f787b031"
   end
 
   depends_on "cmake" => :build

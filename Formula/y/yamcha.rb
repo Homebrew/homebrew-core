@@ -14,6 +14,7 @@ class Yamcha < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "f79875ac74e46f3087379d783513f73971707f8d0ff059e050f1256d5535a827"
     sha256 cellar: :any,                 arm64_sequoia:  "1291bdd640d66cfbbe073862038e660ada3fe9377d3386db32dd56967ee23d5f"
     sha256 cellar: :any,                 arm64_sonoma:   "d71664644d8b49088b1de03d5f5edfa3dbbdde0a45bcd88b50c50e003e44e191"
     sha256 cellar: :any,                 arm64_ventura:  "2302fc8b966f2d6cd48fdffdf765d577844e571a7f7de14aa1fe4091f960e329"
@@ -24,10 +25,6 @@ class Yamcha < Formula
     sha256 cellar: :any,                 monterey:       "31ace70fbbf4e2da60850ccc2cea0bd4131e6acc98560cb3230d38c334ec2d2d"
     sha256 cellar: :any,                 big_sur:        "18f032ddd520debefef3e67422089660c9222e1a8098d4c9b5128cb7a517e87a"
     sha256 cellar: :any,                 catalina:       "703da9d88502c3e8ede9d567a816f7b7856112175f07f8b4c720bc7b0f540e64"
-    sha256 cellar: :any,                 mojave:         "37ce1ca98c2de4978de9d8877752570680fffae4c41026c5e560c83b5f4b3473"
-    sha256 cellar: :any,                 high_sierra:    "003ba175b22691b3ced58178504a83bda7455cfd599685c0e002ccbf91efb88d"
-    sha256 cellar: :any,                 sierra:         "b9f2e9521d25dafc70617857f32b1742b8bb29046b3ea930eafb3261a0727e36"
-    sha256 cellar: :any,                 el_capitan:     "b65fade9c6ddcced1d3c3fc6700f18ed2ddd16b62437fc71f9a85a3568851520"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "5ebf9b1d45af65bd57c866ec89a3ebe280571edb16d6a1d971c55c5ed3228ae1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ce0b05c30bff796b1ed14c7732670d3fd9b96a20f3b48e1f4953b3e8c9d745c"
   end

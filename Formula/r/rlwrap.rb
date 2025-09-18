@@ -12,6 +12,7 @@ class Rlwrap < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "cbcb757ff9be891e15c6f7d0cdae25a65edd84356cc0c2762d56a73d2fca45d8"
     sha256 arm64_sequoia: "76c14a9650e463ea35aefd0e09e459bf675656d90e413266be8633dbc6a3bb6f"
     sha256 arm64_sonoma:  "9c9130f7da8da6d0e0208a3ae152e240d0ec49402c96833548e01fc3ebde26f6"
     sha256 arm64_ventura: "173c7b946ed5a9b59f4bfe77ffedd5d2f8c3319dc23fba0213c2e6864833a2bc"

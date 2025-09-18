@@ -13,6 +13,7 @@ class Glm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3a60a08edf652d93a4a497286003653d9d3cc2df82f53ac659f12ef593ff7ca3"
     sha256 cellar: :any,                 arm64_sequoia:  "6609c947e9ae4ec7c62ddd7ad0d2d64b65283675b57e6f5ab9a19194a607170a"
     sha256 cellar: :any,                 arm64_sonoma:   "6ca85b0488bb2907b912c68c5720934164d86afe6b038cd9467a78f06122f75d"
     sha256 cellar: :any,                 arm64_ventura:  "ccf69c567c8790a7c1efb53aa3b940f27f0bfcef50c31b486208c85eb77e37ad"

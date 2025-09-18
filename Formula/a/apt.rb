@@ -24,7 +24,6 @@ class Apt < Formula
   depends_on "doxygen" => :build
   depends_on "gettext" => :build
   depends_on "libxslt" => :build
-  depends_on "llvm" => :build if DevelopmentTools.gcc_version("/usr/bin/gcc") < 13
   depends_on "po4a" => :build
   depends_on "w3m" => :build
 
@@ -42,11 +41,6 @@ class Apt < Formula
   depends_on "zlib"
   depends_on "zstd"
 
-  fails_with :gcc do
-    version "12"
-    cause "error: static assertion failed: Cannot construct map for key type"
-  end
-
   resource "triehash" do
     url "https://github.com/julian-klode/triehash/archive/refs/tags/v0.3.tar.gz"
     sha256 "289a0966c02c2008cd263d3913a8e3c84c97b8ded3e08373d63a382c71d2199c"
@@ -56,7 +50,6 @@ class Apt < Formula
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    ENV.llvm_clang if DevelopmentTools.gcc_version("/usr/bin/gcc") < 13
     ENV.prepend_path "PATH", buildpath/"bin"
 
     resource("triehash").stage do

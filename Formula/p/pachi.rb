@@ -9,6 +9,7 @@ class Pachi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "3fc9dffa9c09610c0e425d534cfbffbf06ab07ad152c54772d36f7961ce6be33"
     sha256 arm64_sequoia:  "fd4a7a487d1c0d4c7597970a99008f0def56e08ae402d1d63832b0b5d41f2823"
     sha256 arm64_sonoma:   "57b6e6f43f52e5ef856feccee3a1a828872a90fb45a9e72149147ef8aa1e129d"
     sha256 arm64_ventura:  "59b6a51156dc47e96991c92ce1fdd8060a4b9f2789f53ac515d9b08b8f117941"

@@ -10,6 +10,7 @@ class SshMitm < Formula
   head "https://github.com/ssh-mitm/ssh-mitm.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f20be0b14a8930ce83049febab186c54041e0c590621e9bae41bf89d87af54ed"
     sha256 cellar: :any,                 arm64_sequoia: "aeea2d00af198e37853cc0b59a72efb12985b2f04b1a5e81a683ed018f2884a4"
     sha256 cellar: :any,                 arm64_sonoma:  "4d3b012b8929b9e0b96ff92fca0c7273d5dbd1e8a716067cc26bbaa6d1d3aaca"
     sha256 cellar: :any,                 arm64_ventura: "d3e903a159afb123e8d3331451b199efd079c30167413b6bda00f6c9dbbd22eb"

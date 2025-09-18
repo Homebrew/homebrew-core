@@ -6,6 +6,7 @@ class GlibNetworking < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256               arm64_tahoe:   "4529f9f2580208ce7fc05c8246fe2204e01dfcaa4a5449437297bce2bf2cbe55"
     sha256               arm64_sequoia: "3a602d6d04b23f9ea7e3220f9d15f3665df3effb3e23755647ddc37290043851"
     sha256               arm64_sonoma:  "f4dbd6b6633a8e45f1290c90fd6e97a9ee60e2e0553cea6ff174d8c817beee7d"
     sha256               arm64_ventura: "f9907f3da38a5bee59b1a5b8dd794c2fa761595befc27c7f9c1abcda599c6275"

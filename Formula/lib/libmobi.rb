@@ -6,6 +6,7 @@ class Libmobi < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e1c609cd859eb380bbf438e97604222a100c5c55afa19c2d49f0ee6c24c9aad9"
     sha256 cellar: :any,                 arm64_sequoia:  "208651021ee3e089ea2c3665b2f94f9acc0ad7401205f9177d82381f2da261b5"
     sha256 cellar: :any,                 arm64_sonoma:   "d1fe8e0413649a0a838d650e614ef07010aa121e1ab3a2b360d8ba6da1124a77"
     sha256 cellar: :any,                 arm64_ventura:  "1f4ea76703406a4f5453ac1767100a8198d6bf14782c1a6a862fcb3e2dd5d908"

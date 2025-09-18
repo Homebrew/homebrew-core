@@ -8,6 +8,7 @@ class Liburing < Formula
   head "https://github.com/axboe/liburing.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "8ab4fd5c52214a8cd5f0887dfbacf0bc00d6dfe92a0a4a2720da8dbf1fa8fe53"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "03c414c60babd4404fa05e6cca87fb4a6f2e0be9104cc1f2304ee8f6a51f13d7"
   end
 

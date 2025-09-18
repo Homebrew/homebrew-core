@@ -7,6 +7,7 @@ class Optipng < Formula
   head "https://git.code.sf.net/p/optipng/code.git", branch: "tmp/main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c84699200d7b820ddfa07875d5f5be83cf6e4dd3497385919c46e748a4a8fdd8"
     sha256 cellar: :any,                 arm64_sequoia: "c2d204ed132d5c5268baf7b464e862e8201a5f80e0d3aa5891204ccccbdca28a"
     sha256 cellar: :any,                 arm64_sonoma:  "789d6ad60ed2c65a9c40850dc8401afd8c1c47239839a0b029bb1439f90bb3b7"
     sha256 cellar: :any,                 arm64_ventura: "ff5edc78c0cc6a0541b1d1b5fe095df0bd0d577dd01e490e9552ed2af60bd967"

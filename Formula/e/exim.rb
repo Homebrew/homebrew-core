@@ -29,6 +29,7 @@ class Exim < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "50f91461f0e8f97311442c5988946496f187f9eb5a611507237af75199b49858"
     sha256 arm64_sequoia: "64f71d136823add038862c50b98c2bc1c17e12f00a3d54ea86c47c046ef53d8e"
     sha256 arm64_sonoma:  "44dabdfd6b14930dc1ff7490f9253fdd2d5ffffe1e741076c5fd0761c2c1c3dd"
     sha256 arm64_ventura: "b77da9e5603f5d155604192ed601cf04e8e8c0cb3ac54998a14060cde43eb73d"

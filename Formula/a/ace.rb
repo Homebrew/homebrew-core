@@ -2,7 +2,7 @@ class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
   url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-8_0_5/ACE+TAO-8.0.5.tar.bz2"
-  sha256 "3cfe0df13dab742efc74597974dc2eff521795f22c10f37015d482ab3b4f7d2d"
+  sha256 "1f539d4be5a50791ea45d53f0aa71eb07383a12715c7f56487318172ab48d743"
   license "DOC"
 
   livecheck do
@@ -16,6 +16,7 @@ class Ace < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "723cf89b58d2a47670cd669057004a59a38969aeb94e73710d95f3ba7db75876"
     sha256 cellar: :any,                 arm64_sequoia: "d341e47e245341bf21821888a94c2fba6882f9fc08109bde313b196cd5a2980d"
     sha256 cellar: :any,                 arm64_sonoma:  "4278aadca8ec160df5b9a7767cb846260dbc8cbe34191f6194100cf9216c5a57"
     sha256 cellar: :any,                 arm64_ventura: "60335363ff4ce8c51f6463ce517993522f751d830d3ec7f3afc1eeee726d3455"

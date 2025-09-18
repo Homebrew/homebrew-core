@@ -1,18 +1,19 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/traefik/traefik/releases/download/v3.5.1/traefik-v3.5.1.src.tar.gz"
-  sha256 "fc5cb4b50877c13ab4a120bbffb0dfd9edd0ec6b15a6901579db2701dec05c5f"
+  url "https://github.com/traefik/traefik/releases/download/v3.5.2/traefik-v3.5.2.src.tar.gz"
+  sha256 "77ea75c424d8419ccc5d3bf8af614a311b43dbbfe7a9871a14521a419c133327"
   license "MIT"
   head "https://github.com/traefik/traefik.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c780a93b8b073b22f6d3503d23ea2994178b767de35b57bf0943ef41d77c047"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8e5e1e4fa3acb8c73a13f098777cdbf571e8711be3448789407526805fab620"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f5ab0bd2c2d1c17f1817ef3060eb91e358498eacaf1b5a87228712981c57d2d2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f07c42f70b7c33595d7910aaf5113f7dcf9f5dd99b508321a2d8d3c84f0fd3fd"
-    sha256 cellar: :any_skip_relocation, ventura:       "4a9709fd5ebc5791840b7e5a52d963ef4af6860adfd3a5f7755dec6636751bc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f80077fea543944e3c381240efb4c97f0e3f78afc0bf896eb1fa52b76831325"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1fac44e87315858b78675f0702ab34cb3c7836a963d05227db90914c1c0d4661"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2221bf91414255332840fe5cd39170429b51697c94682d54d8aa3d2d7c95877a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f7b18200a1dcd07fc8d9dff632d1e17182ab8905f163080bda90f0e1251f32a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "000d706974f564b32d467eac72b10f7e3fa2c252d65e6150fbdad6fb6d4dbb27"
+    sha256 cellar: :any_skip_relocation, sonoma:        "24e6b66e7158e54e5a84a9730cc0f658463fb404988731c673914397cd676a91"
+    sha256 cellar: :any_skip_relocation, ventura:       "b717c1c305cdfff43fe072b74ced2ed7444cd9c562e90f4e6ff413a8484c0a18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc8b8753a07385e649480ca460f6a6516a852d298fbd1b610611395a44c7bba0"
   end
 
   depends_on "go" => :build

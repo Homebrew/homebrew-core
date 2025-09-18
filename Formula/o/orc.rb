@@ -11,6 +11,7 @@ class Orc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "89375069efcb10db89dc7379679b12f8d0be120b8bd31921ffa66b9df4ae8926"
     sha256 cellar: :any,                 arm64_sequoia: "8ec6640411fd5de65f5064ac884686380efb68725317a0121e3ecadbdcca196b"
     sha256 cellar: :any,                 arm64_sonoma:  "3dae83cc3cd5a637b63a012b72f45dafccd4b45da20c86dbc2eea6e7827d166c"
     sha256 cellar: :any,                 arm64_ventura: "fede6fc3e9d0b04237bff31412097f951b2744a28270dacb0746a8fe61b27952"

@@ -14,6 +14,7 @@ class Rarian < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "9902862041d1a77fada33e8ebaabedf67f77b3bc8050ea988f78f8650c2c4ce3"
     sha256 arm64_sequoia: "0c5d1dc2a38bdba34aee85a1704dd7fe8c4a5d8165888fd96d6844bbd9b6dfc9"
     sha256 arm64_sonoma:  "8050a6ad473152290f964a8a51eb661d41595c75f0e0286d01a38764c77283e5"
     sha256 arm64_ventura: "385dbc09752299c2b0cfcb4da0bf18e6a799d891c3cc4939748bbd57e8cce98f"

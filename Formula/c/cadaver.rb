@@ -11,6 +11,7 @@ class Cadaver < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "c8c260eea064ab6004f5c647b1820f09e94139f34309eba036392bc95d12f1b1"
     sha256 arm64_sequoia: "9e3056dd09c954bae6f471b03b1ba89f3298eab5f972e0a45749ee2ed0ce6265"
     sha256 arm64_sonoma:  "cc914c3ccfc2d29c98bcd56e848c2b73bc9ac1c13e52c7fd94b7073604e1ee02"
     sha256 arm64_ventura: "7508f868b529213b9a0f2a064578ab9813ebd60c3a3248a84b7a1c9282d0f07a"

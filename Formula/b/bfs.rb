@@ -7,6 +7,7 @@ class Bfs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2d197823d3ea09db80ff41a0a887b3278c9b1f28db50c683f17f8233a26e95c9"
     sha256 cellar: :any,                 arm64_sequoia: "cc95849810fe6c692160249cc81d38f1a2cd3e0f5d6f033e0bd9342429116e40"
     sha256 cellar: :any,                 arm64_sonoma:  "dd75c7c57aa181eb29832ee8c1fb6d4530f8509672d9bfb27e19134309507d2d"
     sha256 cellar: :any,                 arm64_ventura: "5b0fccf7829272c6a2c9d10c7432b70c912fbb5174eeff38a64ddbbb165bdce2"

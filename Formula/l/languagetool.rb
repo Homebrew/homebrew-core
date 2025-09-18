@@ -14,6 +14,7 @@ class Languagetool < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67020ed3c6fa50e19820fefd445aeb496872164d8b4e9b57adedf6450117a75c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "227a97bd8f1d5d0758c39333e83b6592d7fd0e32ecf16c12ce672153ec61ae46"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4fab8a1497d501d34cbe092a4f654fc48f723c7987e98de03668a592f85fffaf"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7f834002277b32d58c770d84ff8b8cb79b375f7556baea3c22d429b83e453401"

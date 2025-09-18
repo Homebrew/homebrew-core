@@ -12,6 +12,7 @@ class Turso < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f13d5f01676d049f414fcaeb363078076e1dd0a37469ce7742bf126a74437b22"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5f08d0c0a08168a2b768994601cc54f9f77f444bfdd364c19330812d41a0574"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a988b524fba5f59403150414c872765217def89a363965bdfe80a14fe0ef9628"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ddcdec3ba9d36774485ac3deec3e4c7fdadb6eba04116cc87f13443f6b683d83"

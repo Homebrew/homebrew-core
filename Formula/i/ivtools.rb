@@ -7,6 +7,7 @@ class Ivtools < Formula
   revision 4
 
   bottle do
+    sha256 arm64_tahoe:   "0944ef622cdc4c71bad4d0aadfa3e0d515ac6bbcf9f72f545b114aad46ce740d"
     sha256 arm64_sequoia: "0d12a4d66b7366597a9ac6527476bbfbdbba40fc820f37b54a7f3f9470861dd6"
     sha256 arm64_sonoma:  "77c268d9d86a3ad6b4ad9d9cd80ba39be99d0d4a1546cf1edf1edc00e2060d6a"
     sha256 arm64_ventura: "1e39133890e0082eba7f12737eafaaecd374116e697c74b76d54f07851b79b07"

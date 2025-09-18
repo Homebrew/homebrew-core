@@ -9,6 +9,7 @@ class MesaGlu < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "04be327648775a1c07ed70dd1fbe931983e013381f3459c10c12132fee8c7283"
     sha256 cellar: :any,                 arm64_sequoia:  "20ebc8dee6088f6f72e85c115535d7ae2d91af99b06dfa347bb9fb159d1e593c"
     sha256 cellar: :any,                 arm64_sonoma:   "a46115bd23886619f38846580237988bfa061f33c7c1e0ff29e9663a581a7c86"
     sha256 cellar: :any,                 arm64_ventura:  "1006d795c57a2c0dd47b6bd67bd77f28b4c72e8428574e7d97f886928eedd41c"

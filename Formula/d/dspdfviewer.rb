@@ -10,6 +10,7 @@ class Dspdfviewer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b1abe6e8ef66106efcf70efa9fee70371adfad7a3d35ac39d2a0f86e34e827a2"
     sha256 cellar: :any,                 arm64_sequoia: "e8b8666c1dd37cbedb7baef9520a0f780f4414948c77dfffc155e2a3d4f1d007"
     sha256 cellar: :any,                 arm64_sonoma:  "1368c4d2b3c8f30845218d18990407f50447c80ad4d5d12468914649056cdb37"
     sha256 cellar: :any,                 arm64_ventura: "81fa4722ff6720d27cdf0e957db4ac26ace3098ecf9f930c9a62967e8b4cf8fc"

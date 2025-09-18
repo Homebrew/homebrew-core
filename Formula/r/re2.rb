@@ -22,6 +22,7 @@ class Re2 < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ff728da4d5c417e3412d0713846b06c4aadfac16130be2731f5826173aa684f5"
     sha256 cellar: :any,                 arm64_sequoia: "55dd029d2e6c7a466bced9d25336943ce0f2cee303417ede765d188e3b110cf7"
     sha256 cellar: :any,                 arm64_sonoma:  "e8855b22823e960f98d6f0d43947fb7a4ad1b9ed9cee487bbb59e57cdcb7e5af"
     sha256 cellar: :any,                 arm64_ventura: "8e907a1fe489e9d5d07635364d1639aa670d15d149d4a3a1ffc141d28c2c6a6d"

@@ -7,6 +7,7 @@ class Hcledit < Formula
   head "https://github.com/minamijoyo/hcledit.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c12e2f1d81a8e8ae4218c5959527a8c3fecd0335c47be6a009ff9fa379656bf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f337eedfe77241c8a1e9e1be22fcc53322fc34343950d7cb7a52908f5452c4e0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f337eedfe77241c8a1e9e1be22fcc53322fc34343950d7cb7a52908f5452c4e0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f337eedfe77241c8a1e9e1be22fcc53322fc34343950d7cb7a52908f5452c4e0"

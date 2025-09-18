@@ -1,8 +1,8 @@
 class Cdncheck < Formula
   desc "Utility to detect various technology for a given IP address"
   homepage "https://projectdiscovery.io"
-  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.34.tar.gz"
-  sha256 "7e33164d01c7eca4c0dc531a06134a0f67369cb922861a15db9c823f915d392a"
+  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.1.36.tar.gz"
+  sha256 "95178a79dd433452bedd4377779da346282688db6d604394743dfff6dbd890d7"
   license "MIT"
   head "https://github.com/projectdiscovery/cdncheck.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Cdncheck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f80c54b5509b290733971aaf13ec7a6099c1e39791998f71e43f1e0757f87ef2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4099ef53f2c8a0fbfb90e066f9aae7e7a74a01377e1d0f8a258420f8d629c29b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d992048bf035f6eedb02e4720c86b8ea4b729a922f6c14560cb8b3c82215a4fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "60583e171ffced609a5ad18252203c9d02301b5984c921d5f5c1669a98947894"
-    sha256 cellar: :any_skip_relocation, ventura:       "d1c6b29036fde8cd74bd933d9b2314987bc59f920de1a79fea7da23e792a28cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "658266a8e8f3cc4376034ec17d4f618db945d26a5cffe149bb5c750050c5c2e3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d7b96862e04c482ea907e1b839d9fd11713f3270a77e288d28465b3f162d8b61"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23a243d33844047f2b4acc75cbdb9c0228463a5275485e6672eeb6bf4987d7ca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b5f35e2fe8844527e16345fdb087e2625ba147c9139abf95393e021691dc36e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c6d679be03d6cf4276656e6e8ea13ed7d163c8c6afbd3c1a86b312fa37e27c77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b6753351734ca9e44a0649b6a1f20460c79893fb42f4a51fc45ca89b3762748"
   end
 
   depends_on "go" => :build

@@ -12,6 +12,7 @@ class Kics < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "72c1824190f2c95d94d226f522f98bf9ce7708ea8a6c9036c1782bf15ae84431"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "663eda4c71fd2ab9581182df73f96b5bc0d27b0a67a82a7fa655838abadb91a7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7379edf169fe527ba7a2fb317c879d022306c6778bfd16b71f3e11d734566b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d24eec0fccfa2af92d40c5550293b24b93631caa3245f8e0b28b321156a7a17f"

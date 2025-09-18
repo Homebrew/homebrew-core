@@ -20,6 +20,7 @@ class Libgeotiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f4845032ded85e98d5076c95ca25441cd055d761c691a033f90e6fa5d3accfbc"
     sha256 cellar: :any,                 arm64_sequoia: "35a86c6a604a2d7f6d10bda3ba1fa47fa979896f3fc5ffcc2e9a06fa8047435c"
     sha256 cellar: :any,                 arm64_sonoma:  "9fc225c5ac0450cd685bab5f3834c52e9e321e8196886a500ee1be098263f388"
     sha256 cellar: :any,                 arm64_ventura: "7da423615ca23a18fd337ec4ca74e30d4c0674353b0c67ab90d4773036ab6028"

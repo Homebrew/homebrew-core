@@ -19,6 +19,7 @@ class IkeScan < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "c6ffd9dfa6a9f7ad65866b0a815dc92d00ebd6a1385949fbb0654494ea15efd4"
     sha256 arm64_sequoia:  "ab952b41aca2d112e8238ac293c43b90382a49fa9afca8f1726a5f1b138dd1aa"
     sha256 arm64_sonoma:   "a26d56aa62837f5f384c928cdcb10db12c18608365bb8de3606db95fd9a2ab69"
     sha256 arm64_ventura:  "4962babb485008c4ca7365744527389c7f100c26a37e286f4131f554d8d30e76"

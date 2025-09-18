@@ -13,6 +13,8 @@ class Djview4 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "785969a581b620444f9e36b43c68ec12bc297b3c004724b2f72113020de7b9c7"
+    sha256 cellar: :any,                 arm64_sequoia: "9439dcd56b6622af57a1f69955bf6681517b4d594f515af14b173c1ac35910e9"
     sha256 cellar: :any,                 arm64_sonoma:  "b393017f8b974e7dc17a48f65941fc9ddde96ed8984d8512eee36c8696d92226"
     sha256 cellar: :any,                 arm64_ventura: "ad42188575bb0381ad12eacebd07697e2e9ff2d006ee8ce2f6f13ea4dedb3b20"
     sha256 cellar: :any,                 sonoma:        "7c6e8d7e367fb01bb6ab1ce25937baad8216b3eeba387c02b818f7181c5aded4"

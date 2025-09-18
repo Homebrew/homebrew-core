@@ -87,7 +87,10 @@ class Moc < Formula
     # upstream bug report: https://savannah.gnu.org/bugs/index.php?66541
     ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version == :sequoia
 
+    ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
+
     # Not needed for > 2.5.2
+    odie "Remove `autoreconf` and dependencies!" if build.stable? && version > "2.5.2"
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"

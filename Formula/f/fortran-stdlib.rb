@@ -8,6 +8,7 @@ class FortranStdlib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "633a47fa6b26208e6192b4b0793586ffcc7d706228e0b168d308f5820a930b68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "349996236701c1fdb6a5fdec58dc627f3550929fb8ec80509b8f8d380fbf19de"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f37094c09728b25724680dcfee1aa5e2fa9da72e55787fe601156af2c397601f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b1453730b11fe70788ebce7b4a007a9536d4f323bbf4b41f87d8136d6f4ac820"

@@ -11,6 +11,7 @@ class Artillery < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "3e234cf4f1b41c7f357e15b33c57fd20efa3629bfd3c97e874396f10f1ae1944"
     sha256                               arm64_sequoia: "14ab552ddb0ecf14866f2181c6ab8f844188019bd1a2aa461a83aa0f17a295e3"
     sha256                               arm64_sonoma:  "aec786ffb55870174280c55a6e8677f3b0298964753cfc629324585007f44941"
     sha256                               arm64_ventura: "585746e826acb5003ca9504f1399ac85a26bcf1288589b84c113272afd6ddeee"

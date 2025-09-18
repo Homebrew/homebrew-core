@@ -14,6 +14,7 @@ class Vncsnapshot < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f1ed1939873bb250358b769a50e551174a9a5be3cfd22c5350f7c50e48609842"
     sha256 cellar: :any,                 arm64_sequoia:  "dbe251c7617197a4d00167efc4aa0bd4c17a9d7089c3d3e4dbf80c58b09ca3f8"
     sha256 cellar: :any,                 arm64_sonoma:   "5c3ef7d35c4c3a35c325110923ca87c9a331b4f9f9ae30a436ef4d026f16ae74"
     sha256 cellar: :any,                 arm64_ventura:  "9b81b8c12801895e02f291fcd962c03faa8c5c550f8f3912ad189e71a950e512"

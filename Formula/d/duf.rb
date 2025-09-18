@@ -1,26 +1,20 @@
 class Duf < Formula
   desc "Disk Usage/Free Utility - a better 'df' alternative"
   homepage "https://github.com/muesli/duf"
-  url "https://github.com/muesli/duf/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "ebc3880540b25186ace220c09af859f867251f4ecaef435525a141d98d71a27a"
+  url "https://github.com/muesli/duf/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "1334d8c1a7957d0aceebe651e3af9e1c1e0c6f298f1feb39643dd0bd8ad1e955"
   license "MIT"
   head "https://github.com/muesli/duf.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "643ad7ae4f361bb24fd34c0f0e0ece98bd541ac3be3fd78af2bc7648346318e7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44fd140c8e0bcc0e3620a3c1f6adf957e6c4e0cacf53862b5f6ae471eaf037cd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0957499928211de66a44dded811cac647a0916746a8d43ea2c6847ab5a34e48d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ecd8c737c799f637d764a08d6e6ca989987b8076ac128af8d3d69a98dba68002"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ecd8c737c799f637d764a08d6e6ca989987b8076ac128af8d3d69a98dba68002"
-    sha256 cellar: :any_skip_relocation, sonoma:         "83e15019a34b896d4492264ef1af541d12d28f7b5a0e4c31a475c9f5bc10aeaa"
-    sha256 cellar: :any_skip_relocation, ventura:        "76b64a57517e3b695a23f8e5c6460c905b1f0c0f56e7d4d7272381433ac74d1f"
-    sha256 cellar: :any_skip_relocation, monterey:       "3c21e47dd0b481fd42a8da9acd9abdd838d4ef03ccd9936904cb63ed357cab47"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3c21e47dd0b481fd42a8da9acd9abdd838d4ef03ccd9936904cb63ed357cab47"
-    sha256 cellar: :any_skip_relocation, catalina:       "3c21e47dd0b481fd42a8da9acd9abdd838d4ef03ccd9936904cb63ed357cab47"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3af3789f8c739679f465333040dcff841e4eb3a21c3dbf7f4959533fbc18304d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4f4e300c50dd460d534e71edcdf436251a0e9f44457d35cdf02a46d61b446ec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d84f7a6e5b52412a9daa6ec83c42a63f648f688032bef46944006fb430459216"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d84f7a6e5b52412a9daa6ec83c42a63f648f688032bef46944006fb430459216"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d84f7a6e5b52412a9daa6ec83c42a63f648f688032bef46944006fb430459216"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d84f7a6e5b52412a9daa6ec83c42a63f648f688032bef46944006fb430459216"
+    sha256 cellar: :any_skip_relocation, sonoma:        "92a705a34e2553e02be84c25e9bf3b3fb9ad78b18347e865ff42969e6df7ad58"
+    sha256 cellar: :any_skip_relocation, ventura:       "92a705a34e2553e02be84c25e9bf3b3fb9ad78b18347e865ff42969e6df7ad58"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "227b9aac9896faac935cdc96b7d7b92faf882b1ced3657f31d9fe2d32af10fb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "714eb9bcedcf3abb357b93cd8c85ad9d70adda67064254de44e40fdf12128ae2"
   end
 
   depends_on "go" => :build

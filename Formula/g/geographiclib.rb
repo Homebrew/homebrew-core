@@ -12,6 +12,7 @@ class Geographiclib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c902a3c57d14896d9c2187aa39e653bd25971ff1125345652c50801d3bab817f"
     sha256 cellar: :any,                 arm64_sequoia: "39088909eb85c9a2bfd8ec5d8e1bb9508f54d2afca241caf683a1fd1bb31f2f0"
     sha256 cellar: :any,                 arm64_sonoma:  "b35c381557b5d0a342e7b35324a8df9bd36af7ef9252c677a0177ef556b023c0"
     sha256 cellar: :any,                 arm64_ventura: "c81d2a16894ae18639ae89d33b7303fe893816928688444e900a0300e728db57"

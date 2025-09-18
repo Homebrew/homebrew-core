@@ -9,6 +9,7 @@ class CondaLock < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "45d83075313a81cf91ad859d6f4959266c6958bc0833d26dbe9559da99e5c4d8"
     sha256 cellar: :any,                 arm64_sequoia: "064632eb4dfc87534b41e7dcb24115705fb71364e6e4ab84918da60f9134a75f"
     sha256 cellar: :any,                 arm64_sonoma:  "b8eda97e136ccfc2b635336269d5dab158acbc298c706f0ac6fbaf88c9586518"
     sha256 cellar: :any,                 arm64_ventura: "3bc317224e76fcf968b9c5a76f35308b5912678acf0c2b60638c80b3f641847b"

@@ -7,6 +7,7 @@ class Kbld < Formula
   head "https://github.com/carvel-dev/kbld.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ba0891da4d454f0be4f546629b93a7385a79c7ac0fced619c2c9de45a0330419"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5914c94a7d11a87cb50da141d7913119bc5fbddce61e675f7cfe1f089f6b763"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5914c94a7d11a87cb50da141d7913119bc5fbddce61e675f7cfe1f089f6b763"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e5914c94a7d11a87cb50da141d7913119bc5fbddce61e675f7cfe1f089f6b763"

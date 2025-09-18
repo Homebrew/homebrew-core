@@ -7,6 +7,7 @@ class Lychee < Formula
   head "https://github.com/lycheeverse/lychee.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a5b38aee20ee3026959263c0ec8dd9c78bb145847747713550e27ccd7c71f056"
     sha256 cellar: :any,                 arm64_sequoia: "4c8e34b147a4243926c72c09695ac27fa414343410ba1d195a8ac8cfab05ee61"
     sha256 cellar: :any,                 arm64_sonoma:  "e7e83ad53d0bbf9399c2e3aa4827e2df956a4b9d7ce87e419f89bc4d5046167b"
     sha256 cellar: :any,                 arm64_ventura: "9b862d37f0e2b1e01094a42b72c3b1950b65f0ab0604cf197cf6aab6cbc2c07b"

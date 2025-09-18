@@ -10,6 +10,7 @@ class Tarsnapper < Formula
 
   bottle do
     rebuild 7
+    sha256 cellar: :any,                 arm64_tahoe:   "5b483044ca29435c157ed891eec207b7e0fbc9142183b6b8db883636739e69d2"
     sha256 cellar: :any,                 arm64_sequoia: "a3f3c24d9015ea8c6e555746211e7af56deb8ce020c047776cd06166f70c77d2"
     sha256 cellar: :any,                 arm64_sonoma:  "feef9a3a01ccc2d8f7e5c7ed0ae91a68c60e0d23e0a80c79a92cd52898e7cb33"
     sha256 cellar: :any,                 arm64_ventura: "4e2dabbd85a18274fc49ff1fbb31c21c6f4e020d796d0630a67d3a404774a715"

@@ -11,6 +11,7 @@ class Ginac < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "da4f0795860d74d0e548c871c0b7301a87a7f4d89cb86da4c7b0c64d0d8a7484"
     sha256 cellar: :any,                 arm64_sequoia: "883d484b1214d73fb0a9d1a3abb1272c416710e13a03c9e033a349a430eba558"
     sha256 cellar: :any,                 arm64_sonoma:  "c83c904f36bc6f67c50be2f63c97e222612c38b7cdb75bc6165932fb0d02ee8f"
     sha256 cellar: :any,                 arm64_ventura: "91b38f0301a06bfd7da8d4156d01df8619f2fe0607a679b2bb9353ff7fcbfe46"

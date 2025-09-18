@@ -7,6 +7,7 @@ class CargoUpdate < Formula
   head "https://github.com/nabijaczleweli/cargo-update.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3c60c3bea3d800efc1f2ac66d117a4544b31d9e92ccde2e60e65e534ac16754b"
     sha256 cellar: :any,                 arm64_sequoia: "56a8338b18b4980b7c1744cc2b5fbbf44078489ab9ef452c4d7aa9090322d142"
     sha256 cellar: :any,                 arm64_sonoma:  "9d69c9a9d118e83a99b6ac038ae9ba8221655fe55c3e4b12e4827e74f9fc358c"
     sha256 cellar: :any,                 arm64_ventura: "ce025543bc177fe07820d3b64a55664d61945fa2f17b2502b2c4cf4d64fefdf4"

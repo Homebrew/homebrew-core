@@ -6,6 +6,7 @@ class Dvisvgm < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "844adad2e4ce15cc7cdc8053fc7641b39153817e48cb5fa54a86e1c4d846d8c9"
     sha256 cellar: :any,                 arm64_sequoia: "49dfadfd667f69439a9c75f2baae68145c7c9b3a40d3c9b93e89bea725a45126"
     sha256 cellar: :any,                 arm64_sonoma:  "b7e44c20d83be91e3a1637c6f5ed71799974d4c8aa90d0aead5b26181b7cec47"
     sha256 cellar: :any,                 arm64_ventura: "15665722543df62fb0e593000e78a16c63c2c26f0bc0256f7e31e2b29857e65c"

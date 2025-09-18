@@ -7,6 +7,7 @@ class Videoalchemy < Formula
   head "https://github.com/viddotech/videoalchemy.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1670c950b06ac91c73f850beb664762fcc4a9dc60a8191b95e1f71ab199935a0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f90306872d961d0f3b3faa8591c95d22f55f989d5176e3365b7e03a1f158ed24"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f90306872d961d0f3b3faa8591c95d22f55f989d5176e3365b7e03a1f158ed24"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f90306872d961d0f3b3faa8591c95d22f55f989d5176e3365b7e03a1f158ed24"

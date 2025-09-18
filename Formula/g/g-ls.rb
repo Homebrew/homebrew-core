@@ -7,6 +7,7 @@ class GLs < Formula
   head "https://github.com/Equationzhao/g.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d62e75fef5133acb354d578e93f981f47c4dafb61c496be3597d2c87302950e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb3191fbc85fbd24fb30ccba9d6ffb3e6d77dd990a4a4cab6e2221c661ef8fcb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cf59fb8cf8298b9a6b0f6ec56f0d3bdb68347901761848140409cf487debb9b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fc5f4556c356118abc88b66ed21a4ad35565328d422464fc20cac30b29f434b5"

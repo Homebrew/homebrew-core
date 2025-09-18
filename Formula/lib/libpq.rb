@@ -11,6 +11,7 @@ class Libpq < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "43688c6b22ae8b75b595f0b9ec6692388d0aef4f291872d3493695d63f542a5b"
     sha256 arm64_sequoia: "08312a1b721ab952dd9a11bd956f67f292d6bd6ea833450ae0ff43c8a31edf19"
     sha256 arm64_sonoma:  "fa97d2b8469fd57890fa9009c0706dc9d262ba409451d9a5f90b22c03ce31c68"
     sha256 arm64_ventura: "96a213ede240ae86045ed8e777eb27835432499c74965a124e006bc186f7ca0b"

@@ -19,6 +19,7 @@ class Influxdb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b10852e16acbfb12c347020a1eb7c51b27492fc6bba48c4657678d7a3875d099"
     sha256 cellar: :any,                 arm64_sequoia: "251b2e5e5062197c33fc5c6ecf84d738c61b7ef7867fa31765144473c393b605"
     sha256 cellar: :any,                 arm64_sonoma:  "b8fbde9575e53107687390fab5bf88b9ebbdb139bba58944ef7edb99e5192b70"
     sha256 cellar: :any,                 arm64_ventura: "0ce4f55589ca17b33b09b0bd5288e673bac636716584009bb3bd61aeb68e3901"

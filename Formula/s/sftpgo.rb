@@ -8,6 +8,7 @@ class Sftpgo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "0de0e9cc5745a71f566803c4206be41e6b3efa05d4348ccf046b9707a1e4556b"
     sha256 arm64_sequoia: "618de2bf3a3e61caeb84a818715060a7793e35dea8309b529c42715e10382778"
     sha256 arm64_sonoma:  "cf13ba2d5b0ef2cf8cc20ef3c6e7ba8719fcca93e88b545924ac0976dbc0d9bb"
     sha256 arm64_ventura: "f5b1195ebb945df9faa935aff174de9305be4e66deb7d015271255c23df2293c"

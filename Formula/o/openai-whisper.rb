@@ -11,6 +11,7 @@ class OpenaiWhisper < Formula
   no_autobump! because: "`update-python-resources` cannot update resource blocks"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e37299d5de191e6ad3976a224db1790a5d01b985531b28c47ff3a74d8994e737"
     sha256 cellar: :any,                 arm64_sequoia: "5ddbd99e57d4b6d19776eb845a391f8931bbb5e33388fb3bf6e729187e34bc0c"
     sha256 cellar: :any,                 arm64_sonoma:  "9a4150879ebc0737f996fa9db9f01f6754297ea33062fc620bc9c3e329bb9437"
     sha256 cellar: :any,                 arm64_ventura: "e83c8ed541c46dcf5c6d4f3b5af8dcead2737336ea2d56d8d70c289cbdc2b794"

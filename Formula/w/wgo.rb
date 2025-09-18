@@ -6,6 +6,7 @@ class Wgo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6990624fe3f87d1eff2f87d58fe7154fc8446a7ecd35ba56e2b0b0997ac693b1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "78157d813cf8873382ee72b9d2aa8d842e89746fd52921be2a6f6d0152deac13"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78157d813cf8873382ee72b9d2aa8d842e89746fd52921be2a6f6d0152deac13"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "78157d813cf8873382ee72b9d2aa8d842e89746fd52921be2a6f6d0152deac13"

@@ -55,6 +55,7 @@ class Neovim < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "185a130c175de49954d5bad5a92d83c3319e7e4deb2169128f210d9356505ac6"
     sha256 arm64_sequoia: "4e5ea3101fc902dab81e7335dee14eb21468d29be14e0a601bcb9058fe71e8ac"
     sha256 arm64_sonoma:  "a1ec1f0dd3b212a5d4383cd90b48494e69396d72854ffb5a55f9168a05e1bd56"
     sha256 arm64_ventura: "d4c18bb0fb65edc37b3518522f56219d35bbc9eb4cea6d895644ce06c3d13809"

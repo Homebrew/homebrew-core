@@ -11,6 +11,7 @@ class Texi2html < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f76e24ff2903b5bc781b51c1fa641893343610b6827eed40af85063af2def71"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2abbe20da6fd14b3e73a4d7f08f366af564a2dc2e86b39de3291a9f7c3b9eec"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2abbe20da6fd14b3e73a4d7f08f366af564a2dc2e86b39de3291a9f7c3b9eec"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a2abbe20da6fd14b3e73a4d7f08f366af564a2dc2e86b39de3291a9f7c3b9eec"

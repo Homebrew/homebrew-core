@@ -1,19 +1,18 @@
 class Prek < Formula
   desc "Pre-commit re-implemented in Rust"
   homepage "https://github.com/j178/prek"
-  url "https://github.com/j178/prek/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "daf0a3831b5d4bc9cdce79acdc67b05b5d46376fc27be15f0df07c99b0ed3c4e"
+  url "https://github.com/j178/prek/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "845e45cd3ec228029410aacab006f7f9d3676698c9ab5047bec105f5a891c65e"
   license "MIT"
   head "https://github.com/j178/prek.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9207a01bc7dff37b6edaf26f9c6324c5f3f354427181ae0f6a8993202d273a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41eed7a8f834db915cbbda00e5f2f9d6451dda30f80c9cf42fb16d1706529644"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e6ef2fb9f91231a0fb34033cc81070e14ca4569f7463e348ff0beab914c6e224"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dd56dc49fa0415dc03c5070bf48d419045697da8afaf63db11c4a4b81ca1215b"
-    sha256 cellar: :any_skip_relocation, ventura:       "b78f00ea84c34131183bc5d1b99b0de838eea9b840a06e8131383ef63af8c09a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "774e48a82eca875e3e56698479293c1d5717a3b2f7bee3f7a709796537a69809"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "101499ac67059b9178fd16236cf0125c9d14d69e3f429e392dbe7f9eba8e05db"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4396429dd89a65ec9e290da5af7af52bb4ec690e29412011e489654cbb991569"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d13ed98330d7f426614abda5b9129a645b42be58130c6e2bcf960a74516162c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63af904242e0ce1699c00e090b796800ef322a8a2b52dd10c71d2b723e5de1c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b27f346aa1ca16041fc1914b2f2cf6f710f506b599c104f38c2001eb7d555706"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6be0f4cfa11ffe3214429e3686f401bd80cfb20fd46df18bf6ad515de60c152a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "285f5b78c7e2591e5980fe607730830b261f8ea4b2ae0f7c2a15aa0ce8064914"
   end
 
   depends_on "rust" => :build

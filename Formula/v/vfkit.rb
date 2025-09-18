@@ -8,6 +8,7 @@ class Vfkit < Formula
   head "https://github.com/crc-org/vfkit.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b6a2d79218e58d4326d9d4414d3459457a5fca8556283170fa621dbe46d5db0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc4052299d0269c894dc734cb606a28fab6b9de085afeddcf81bb4fa2d8f0f54"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4f22e5e7f36bcfa133de94570777eddeb5b3cd7a27a01772e460c2f2f10de24f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "327542e26cfe0a498e0270fd04f1c7ded2d97426d881a97939df9631f981b5b4"

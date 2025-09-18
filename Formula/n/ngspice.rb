@@ -1,35 +1,30 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/44.2/ngspice-44.2.tar.gz"
-  sha256 "e7dadfb7bd5474fd22409c1e5a67acdec19f77e597df68e17c5549bc1390d7fd"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/45.2/ngspice-45.2.tar.gz"
+  sha256 "ba8345f4c3774714c10f33d7da850d361cec7d14b3a295d0dc9fd96f7423812d"
   license :cannot_represent
+  head "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
 
   livecheck do
     url :stable
     regex(%r{url=.*?/ngspice[._-]v?(\d+(?:\.\d+)*)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_sequoia: "1ffc6582d286ba7c1055977a97500cd471eb9f9841c25367fcd1d95732236ef8"
-    sha256 arm64_sonoma:  "9552d93ee2085bf77d77231dc028067699663683f109f5ed2c946f54f2d407f6"
-    sha256 arm64_ventura: "a2da2fd8087760d6dad8e20002165dca3b131d3905376eaedf70b6d681abc9b6"
-    sha256 sonoma:        "f624fb44bf82600cdda20654e6ba1f4fd1b9e5f14f424771fe248160da3a77d1"
-    sha256 ventura:       "94a359bbe2d18e22422fbff5d654404e99b1aad7ba98854c9ae686cfe6e0636e"
-    sha256 arm64_linux:   "2e59dddfbbbedb1a710590ede896261865481cce64e3e551a3d67850e2a77348"
-    sha256 x86_64_linux:  "516b7806491d2da1e788ec6d0fc7074716171ee10d04fdddc004f6cdb7e05ab8"
+    sha256 arm64_tahoe:   "fdf2c82d303c3b5944bdbd049ef15a40c388450879d085479965fd481148ed48"
+    sha256 arm64_sequoia: "4f819c80ddd4483301f7e01871aeb3049f9e219e22d315052423bde23ccb242d"
+    sha256 arm64_sonoma:  "4226d7fb2762659a85353d5d6bebba7f9c3808a5ade8a0ea4fabe2dff6e8e6b3"
+    sha256 arm64_ventura: "bb9832d330e7aa8d6e7642f2b7502af8aa6112b68ea4a2dd6fb0c97154c4492e"
+    sha256 sonoma:        "e589ca50ee6186e1ebe7d078df4cab987786504dce9f8e49f21686ffe775fe69"
+    sha256 ventura:       "525615c53f2f18720430f273b141d5f0da96a1180232f1838cd2e4418c51d1d0"
+    sha256 arm64_linux:   "943fc32abf2e74b11faa47f458a0c39c7789ca041bef2fe1ea5358b95afa67a6"
+    sha256 x86_64_linux:  "4825e30255d2c0fdb9d41e374ddf3984eb38f5eaae5e9e1a0439abd425c35eb7"
   end
 
-  head do
-    url "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "fftw"
   depends_on "freetype"
   depends_on "libngspice"
@@ -49,6 +44,10 @@ class Ngspice < Formula
   end
 
   def install
+    odie "check if autoreconf line can be removed" if version > "45.2"
+    # regenerate since the files were generated using automake 1.16
+    system "autoreconf", "--install", "--force", "--verbose"
+
     # Xft #includes <ft2build.h>, not <freetype2/ft2build.h>, hence freetype2
     # must be put into the search path.
     ENV.append "CFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"

@@ -7,6 +7,7 @@ class Goose < Formula
   head "https://github.com/pressly/goose.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e19bab9fc61373de832891de6f7c2a5c425d66ce846f25b790e1064775472708"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "22ec9bc1bdda1eb1b0bc7a6388a62cf1f5e46b598befe003ccade58c5f971b10"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a122f9ec4b99aaa817c86a7c1b8fab47b91966d4ddf7c0a437077bba07e4185"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "db546815613867cbca01d7e5454bc5ebc1e6edc5ee78a65b7381eb0e4fe145c9"

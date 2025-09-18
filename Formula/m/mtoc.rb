@@ -6,6 +6,7 @@ class Mtoc < Formula
   license "APSL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5324e60f7e724d1008aee21de51c15422809658cb173351f9aa6eb60451a09fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ee82cf8117b696fd2cbbf0994706e9efa73aa2403adc15a5fbc50fa0be9b8e03"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d3c766c433b8ae315ef4a2386327c5ae674b5a360faaa29f0449677ae32f74e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9605d52ea43f7661e05cf626ebfe6a68e57a5aa2985d05ac0c64f54c07ed55b7"

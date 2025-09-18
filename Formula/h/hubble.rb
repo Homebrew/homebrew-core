@@ -15,19 +15,21 @@ class Hubble < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0df2aa733b3749805b6fd4773f6e7e8cbd22e459e1b494daf9c437b057225fb2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32a248eb9d3635af481c3a28780a50800dc93dfcd4ccd0d514e9e64be7f22c8e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "17ef999a277a36b81b58004a102d4501514ec936b63fc4ec9bd92882189601e8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "766f5138a0119e9ad3e84c31bdc290eb6b4956624978a4cae69d6380d6828160"
-    sha256 cellar: :any_skip_relocation, ventura:       "c9430cdda0c5f413ffda9c32ae4329bef6811ffb347caca6d03c4476a25dd23a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb7573d02547c359470a54d056437a26c951127868f0bae8d1614681f3170984"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d487082f3d109abe02f775b69854c5a04059dcc6f67a3ea05027e533fd453dc4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9c8c6991264c6cad9b99bc49dadd897ffe71c6638605da62b3888ea2500d98c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f09f18708146f7e6a6c3b258332d73f8bc5b3e151160d989f97f11cee9dededd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "798337f3f2a8235c436074330de469dde784b93de77604f22b9123894bd7bfa5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d52c44bc0824c1fd267fcb222c6c34e379843424735a19793f3d9b3d18fec5aa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "77d3fc957c30108100785b703285c3314c644596a833152a03a5359649dea48b"
+    sha256 cellar: :any_skip_relocation, ventura:       "d167b1c9d6f9cde55d5051d551afa2110363d9ad0b788572fbd02ce407e0f19a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97992e9931442f1137182f06ee8838502226a04153658be89efcf145fe98cf1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc8bfc1499cc383def0d2f53bacb547ad74bd5571910ce1477cd65572b0def61"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/cilium/hubble/pkg.Version=#{version}"
+    ldflags = "-s -w -X github.com/cilium/cilium/hubble/pkg.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"hubble", "completion")
@@ -35,5 +37,6 @@ class Hubble < Formula
 
   test do
     assert_match(/tls-allow-insecure:/, shell_output("#{bin}/hubble config get"))
+    assert_match version.to_s, shell_output("#{bin}/hubble version")
   end
 end

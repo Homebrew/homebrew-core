@@ -11,6 +11,7 @@ class Libsolv < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "16b54630884fdaea477f8e8284f50ffd38f323bd213741b6fe369117a7447dc3"
     sha256 cellar: :any,                 arm64_sequoia: "9c7625f5743db89c31814320395d5f7f6b2e9edf75d62b22f78370f524024ddf"
     sha256 cellar: :any,                 arm64_sonoma:  "b67c4fe1fc284f1521babdaa64b30928ca2382d2f933e41cf20a284f20a4c8a3"
     sha256 cellar: :any,                 arm64_ventura: "65f85cff59024135a62a98eef81ae68b7bc2c4318d0540925b5704875e7e22ec"

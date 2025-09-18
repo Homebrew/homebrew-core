@@ -7,6 +7,7 @@ class DockerMachineDriverVultr < Formula
   head "https://github.com/vultr/docker-machine-driver-vultr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "780751920c6043da8b78b7f34929262660be60808d9c5412492e6f77aa268ea0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe5c031493451ee1fd50f8b330c9aa4bcad771c3313057a57e191bf0f7ba8ec5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe5c031493451ee1fd50f8b330c9aa4bcad771c3313057a57e191bf0f7ba8ec5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fe5c031493451ee1fd50f8b330c9aa4bcad771c3313057a57e191bf0f7ba8ec5"

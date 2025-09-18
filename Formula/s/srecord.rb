@@ -8,6 +8,7 @@ class Srecord < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "054d26597b7a4c444cf94c279055aeac127939f40ca58928ccc5a0295c6312d5"
     sha256 cellar: :any,                 arm64_sequoia: "fe9526b920ca097bcc3662d2647c08cfc54a4625a87b2f3a453a4e5f8ad7d23e"
     sha256 cellar: :any,                 arm64_sonoma:  "c84c3f38127465b4d953e34c18f4b3a5b5a54d0f7432473da85a3ca12656530b"
     sha256 cellar: :any,                 arm64_ventura: "8f5734f732be90260ca85621e38461ceb88968f318e5c2fc82c7234c2ea2bc99"

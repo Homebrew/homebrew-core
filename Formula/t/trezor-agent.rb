@@ -12,6 +12,7 @@ class TrezorAgent < Formula
   revision 7
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b15ea6e2853d9de1b2a6c7ceff76056e482d0a1d91b1548c90ab6dd781a5c9c5"
     sha256 cellar: :any,                 arm64_sequoia: "6b23b65aed9a20adc1193f1b07f212d15ec1cc63fe4063f812215269bf4469ac"
     sha256 cellar: :any,                 arm64_sonoma:  "e7b9a2a27fd2238cde20aed214f6cb064007042259c15c1957fccbf665186f87"
     sha256 cellar: :any,                 arm64_ventura: "55f846a42ee2c928e2f66ea869bb7917140c48e840d44b45b0d6647075f5bcba"

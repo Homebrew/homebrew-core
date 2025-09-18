@@ -7,6 +7,7 @@ class Maturin < Formula
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b921267ef2ed8fee9840a88276752fa9822a0374e0d117474d6cc812e76cbf66"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c929171d7d5026f218930f80d225b772cf202ae6a1635ae5ae1e6fc8a2c53d98"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8881c06dacadfbb60a07a769b0fb542da3509116e3ea75c34f9b0218a3af81b6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "385d4047c60d3900e5f3a8e40303aae473133ca9ddb548241cf7297e98347037"

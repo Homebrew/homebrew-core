@@ -10,6 +10,7 @@ class ClangIncludeGraph < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "aad5df5768245a0b88ceff76506a765f0df23bd8155314672078c8c7f908c1c7"
     sha256 cellar: :any,                 arm64_sequoia: "1dcf28b2cb5e85ce7e9e4df7b49116379b136a29080b2b24352abf9506d929ab"
     sha256 cellar: :any,                 arm64_sonoma:  "c5c859ea9dc8db2514453cebfaf4846f3acf6161ea8d61af7094e796cb89ae78"
     sha256 cellar: :any,                 arm64_ventura: "3c49c334711fc607b50f515649c0b5f672115d96730277e470cbc257814080fa"

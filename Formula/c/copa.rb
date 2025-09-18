@@ -7,6 +7,7 @@ class Copa < Formula
   head "https://github.com/project-copacetic/copacetic.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "76e9d153fcaff37c16fc7f75bdc6d0fc8d3bbd85b8a17153ffcaddfd785d09ff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f67ee88a24c243b564d634123f90c013c7fb8db0ecb1bee2bb58f82c5f1d0694"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f67ee88a24c243b564d634123f90c013c7fb8db0ecb1bee2bb58f82c5f1d0694"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f67ee88a24c243b564d634123f90c013c7fb8db0ecb1bee2bb58f82c5f1d0694"

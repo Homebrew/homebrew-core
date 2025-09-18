@@ -7,6 +7,7 @@ class Goshs < Formula
   head "https://github.com/patrickhener/goshs.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f81673fead8448086d41301705ad6fc716e6efe6e16d1f89338a3ebd6fbd04ab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8dbc48ee5ff0bd67f1dcd6907ae1528903fcb01d7ad2d1194240b4e1f2bedce"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8dbc48ee5ff0bd67f1dcd6907ae1528903fcb01d7ad2d1194240b4e1f2bedce"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c8dbc48ee5ff0bd67f1dcd6907ae1528903fcb01d7ad2d1194240b4e1f2bedce"

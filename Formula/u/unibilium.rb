@@ -6,6 +6,7 @@ class Unibilium < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a4e4de62f7bd54a11da5b031f9c831040eef3790b9e111f40332feaea4cdd682"
     sha256 cellar: :any,                 arm64_sequoia: "c154ef3c2f532ebb1e73372a76230d144057983813624abbad7ca85d1ce3a2b8"
     sha256 cellar: :any,                 arm64_sonoma:  "dbd59e13386ef0e756eac19424e54c8b3d30ae65eb4c7c7f7d102a290fd409f7"
     sha256 cellar: :any,                 arm64_ventura: "db2c6a451a395ff30ceff7e6dbfd30f7b02343bf08e850ae9d0e20d6c9da42b1"

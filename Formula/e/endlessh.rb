@@ -7,6 +7,7 @@ class Endlessh < Formula
   head "https://github.com/skeeto/endlessh.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4202f6d8cafa9fe5bba76475634b730a4b8235374ed727dccc887fa31ca9ec1d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "56f067a5697921c5bf68ac5d3dce1062810e0a9f065f27804161f84200848ed8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad8d82e04aafeb852b26afeafbbbfb7f9028ec57253f735574064a5691941167"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "527c4f3907171823be211401208e6545a3d0eee7d51000364e4d2a74ee75907a"

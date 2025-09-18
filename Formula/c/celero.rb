@@ -6,6 +6,7 @@ class Celero < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e8ca29a93a9121f3b3753d3489bce47b34c9466131283e79eb7056bbad5d898a"
     sha256 cellar: :any,                 arm64_sequoia: "32c259b5e2ceb2ea4ff8ef5a327c8d133bbb5aff95c64636c1adcedab2ed5936"
     sha256 cellar: :any,                 arm64_sonoma:  "acde51368a04ee57318cf5624248db326858806a426505feaa15b17964235406"
     sha256 cellar: :any,                 arm64_ventura: "c4d45dd58e34abae054e11fb16505fed2c1401c367ac79c0e055f19d6afa50f5"

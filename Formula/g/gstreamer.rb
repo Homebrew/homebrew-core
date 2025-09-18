@@ -2,7 +2,7 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 3
+  revision 5
 
   stable do
     url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.26.5/gstreamer-1.26.5.tar.bz2"
@@ -25,13 +25,14 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "2581f0cf4ad88836b2c19bf974c1e018c7ede9771516b7ae77fbd19af2e582b5"
-    sha256 arm64_sonoma:  "b6047392940a8f3386a9926614c6d34bb97e855302fa75c44ecba7c75f41ca30"
-    sha256 arm64_ventura: "29cd231e0cd54491c95f14cd7cc2aae33a7e62ec9e5d6084bd8fcfdbc00dc1d3"
-    sha256 sonoma:        "5617fc39a978116b8ab5be170551e7382712657d197e6e31edeb02b6bf5a0ce2"
-    sha256 ventura:       "7e1cab3ce5a0a03889a95352b53b529ea0739425351aa6699dde5371b1fbf885"
-    sha256 arm64_linux:   "710ca23d9e0c5aded417dd3c2a60feee7608cc75dc5d3e4a40a34fb152ca0640"
-    sha256 x86_64_linux:  "eb9736fd73f66cc7a9dccde3ad802f5977d11a304d4e1bb0e972fd6f42da3db0"
+    sha256 arm64_tahoe:   "e969a9aca3d98514b8359c820c14cb7870e9008d98ae179c32ba8708f0fc00bf"
+    sha256 arm64_sequoia: "18575de9f5680b58711272b2f46d139074f16d9ce7d4fd6f56df293040c8870d"
+    sha256 arm64_sonoma:  "5311791aa17b7cc6c4b75c354c2a3ab1eb87f4a10723344c3bdb2d53a0505799"
+    sha256 arm64_ventura: "80b9865406bfc3647a0cff6285a5309c0056d392730b5a40205ef5f615bafe0d"
+    sha256 sonoma:        "499e82a02201321d37a981f26b5f78bac0b99f8540203fc647d0cb4a74eca8b3"
+    sha256 ventura:       "421644c8a8a7451008bd3790dac48dcf7e1f0f63aa14547022f7e63a74fd3bf4"
+    sha256 arm64_linux:   "f4c7c60829aad5d356a19db08f168add79525fa09e13b4b6163e20a5d58fa5ab"
+    sha256 x86_64_linux:  "7e109bd41b133a951bc14b0da46a94ee3543761a107d782cd3183dd82d6c7b8b"
   end
 
   head do
@@ -202,9 +203,6 @@ class Gstreamer < Formula
       -Dgst-plugins-rs:gtk4=enabled
       -Dgst-plugins-rs:sodium-source=system
     ]
-
-    # The apple media plug-in uses API that was added in Mojave
-    args << "-Dgst-plugins-bad:applemedia=disabled" if OS.mac? && MacOS.version <= :high_sierra
 
     # Ban trying to chown to root.
     # https://bugzilla.gnome.org/show_bug.cgi?id=750367

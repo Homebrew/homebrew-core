@@ -25,6 +25,7 @@ class UtilLinux < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "a1af5b0dfc9d75764bb87596d12fd0da8f5d275db6faf6619940e5b791e96f6b"
     sha256 arm64_sequoia: "535204861eba897448b6c28b54d10276c7f9b71b7a327ed4fd4212c6992617ce"
     sha256 arm64_sonoma:  "9c311e7df48c432995f0b3991512b0175cf13ce4c91ad635f13e5d5818ec5773"
     sha256 arm64_ventura: "6d31dd7ee88f4517f55cfbe4cf175fc9da7aa2c9740d862428ead9aa48139e6e"

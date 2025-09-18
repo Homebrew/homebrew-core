@@ -8,6 +8,7 @@ class Cryptol < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0b483d4d43bc85f9116569c83cfe63447e2cba780e009303cadc55466e0f8713"
     sha256 cellar: :any,                 arm64_sequoia: "f7b7abf27af0b5ca3f8b8d3fd5288e0ecb9c6afaaeb83bae498a598d4fc30bd8"
     sha256 cellar: :any,                 arm64_sonoma:  "a03b8f86803c0144c2cbdcb7d632cb0a3386fd489ecf213bd6d3b673b034554a"
     sha256 cellar: :any,                 arm64_ventura: "03e540dd50bd3460edb5ad7fb9f2177b4835b4f28be31b9c234bf81a270f6042"

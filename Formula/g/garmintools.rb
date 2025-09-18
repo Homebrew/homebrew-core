@@ -8,6 +8,7 @@ class Garmintools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "47a336083bb5161af82770d5c472d2ce4f358914bce8e2263458e5a757d45433"
     sha256 cellar: :any,                 arm64_sequoia:  "20a6201dcffaf971164afa65223ba7eb6ef53dca3c1a092e303dda0654f109d8"
     sha256 cellar: :any,                 arm64_sonoma:   "da0e5ffaf6e1b8477d92247072fcf400f9b16368bd93db8a05e9c3106efdb2c7"
     sha256 cellar: :any,                 arm64_ventura:  "6c16db8a8f76d0b5dfdae1ae49cf31ebe12ea2bf6ee35b791849fa66fb2fc6ee"
@@ -18,10 +19,6 @@ class Garmintools < Formula
     sha256 cellar: :any,                 monterey:       "b49cda53d64a80e61cd1de700036714c6470d5b77fad8f6320d164cb1e50db15"
     sha256 cellar: :any,                 big_sur:        "eac3d937b3281a2a172185e01a53f86fda15247168ddf7cb4dedb2a8f81b9220"
     sha256 cellar: :any,                 catalina:       "91c193c86b431bc3541b18ad33cf6793b001fc70293c50289d8fe6d978d50ca5"
-    sha256 cellar: :any,                 mojave:         "ee15b7a5ca1312a9ed358f22ce2c36681eedda24ae7b855b079f196e39280101"
-    sha256 cellar: :any,                 high_sierra:    "9ecdb8294089c84a229db39a395bf3f4817f185f30135a6f92711b95705ab869"
-    sha256 cellar: :any,                 sierra:         "c747a668400406f6625a3832e351a4f27fd1308d8ef840120eba086d3d6adcb4"
-    sha256 cellar: :any,                 el_capitan:     "dd86a8e306d3c4ebb9b94ddd4aaf60fdb79aa06fc7eb56ca95942248db33924e"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "651d681008bab2dbe3a05031813af4ed84eca0b086c98dc3ccbdff327b4944dd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "230b31dd83d9514c35abdb2477e4f1e4941eb1c94bf394814acd46676ced1318"
   end

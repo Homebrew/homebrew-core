@@ -15,6 +15,7 @@ class BoostBuild < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "10da335480790cb39789466ea5a3bdd0dce3b0359e91438bd9bd52a2c636fa7d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f75f1d6345e7a8baf6d53c8f6e4db2d8dbe4724cfa9598bd7b0c05dbf8d4b3d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db0291a1760491d3200261e602785582bebf9687dd90ba3bbc5520e13f5ac98e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "777cf16f0dae799ee70b010775af19039180f9f4d5c2e2169aaa6bd19c42d2d0"

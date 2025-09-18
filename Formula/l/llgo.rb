@@ -13,6 +13,7 @@ class Llgo < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "60411f5804c4c72c4031bc496de021df488e4cb5c026fcf1bb11e14aa270bd7a"
     sha256 cellar: :any, arm64_sequoia: "0947ad7513fea18ae89e066e0bbb4ed3c6dc0299ead7d69a4cb57b6f3941d36f"
     sha256 cellar: :any, arm64_sonoma:  "7de761a6c845ba0a46d27164595fdf5c779cab4fea67cdcc927b696eab7b97d9"
     sha256 cellar: :any, arm64_ventura: "cacaa00dc85e867d7c346af23319ecc37dd1518acadacb1329072f2764beb52a"

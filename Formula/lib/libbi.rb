@@ -10,6 +10,7 @@ class Libbi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f74c4b74ae27fdb5d3f3e1c37ab120cf0c12f6830a8477f331fc2d312335a29f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5fef4f3574955d3f11d14e49034c502988764eb169d5b4a74fc8dbbfce461225"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6cacb6474adcb43e3e4cc0434721b474a8a9749102c397fd0e69fe3ff4e8333"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ccf5a58e1570912775cc3899a89e5567ac5f657956833947bb2888c4949b4169"

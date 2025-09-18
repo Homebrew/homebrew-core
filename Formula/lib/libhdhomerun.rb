@@ -14,6 +14,7 @@ class Libhdhomerun < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0863843dfe760dd0454dae929a74f5230819eb2261ca61604ba41ce4044a9a1d"
     sha256 cellar: :any,                 arm64_sequoia: "b5e3c2ecfd8f80433a08d6cb12b312cc7ba251a0ddf1ca97580a10f4c598e69c"
     sha256 cellar: :any,                 arm64_sonoma:  "d4e45edcb85bc4fd9a91e31ab8746fbd4b266c96dd20f93ace422219a1b2d397"
     sha256 cellar: :any,                 arm64_ventura: "328ec2c2954853416d1d40cdc8c809b3191f2098b73776d30dabe6875439d173"

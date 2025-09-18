@@ -7,6 +7,7 @@ class Spr < Formula
   head "https://github.com/spacedentist/spr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "45b808f91f099a130b9e5d835600cc61a995590525ced37b59abeee7aa0fc58b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8679f71d4efb65c1784f2b20c2339ca5032ada6a676e9a082f3720d51b9973ed"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93212861ef027cc18853c3e18c81f1b68640deb9af7955912fc84549d91e93ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0622a60bd0c8162d2e28d2c85cf6ece553f2e9851913bfcbc64ec3f3376dc429"

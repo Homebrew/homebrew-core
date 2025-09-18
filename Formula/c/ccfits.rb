@@ -1,7 +1,7 @@
 class Ccfits < Formula
   desc "Object oriented interface to the cfitsio library"
-  homepage "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/ccfits/CCfits-2.7.tar.gz"
+  homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/CCfits/"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/ccfits/v2.7/CCfits-2.7.tar.gz"
   sha256 "f63546d2feecbf732cc08aaaa80a2eb5334ada37fb2530181b7363a5dbdeb01a"
   license "CFITSIO"
 
@@ -13,6 +13,7 @@ class Ccfits < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e095d123708d4f5c4c57b26c82155a75405f6e19f29c955ac7b52f4121d2df1d"
     sha256 cellar: :any,                 arm64_sequoia: "da6f787ac55d5f93ad25617af795ac878443371ca2bab55bf9fd64736d592cfd"
     sha256 cellar: :any,                 arm64_sonoma:  "057ee421d9fde174bd2e7dde06b8e72ed3c987c782f08e41f433d40025d31c0c"
     sha256 cellar: :any,                 arm64_ventura: "b0490e303998fd2eab1ecffd498b1fa052581b27d92b7cdde9265a52a4e713c6"

@@ -14,6 +14,7 @@ class Spigot < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "101f725aafee893f70ecd25457844a6c3a4d1d432d7c2dc82f285ad02a51389e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f2820ca0f23f9516c1e27c3ea1488558a4912f0eb75dd361917705e02b2096ef"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eb86f3da309c5adb78f3dd822284df1a561e77056ae252dcfa79e787c8601c3b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9101dda021b8f6fdfdb377750cfc9aeae90a2f050126223201c98a0d5be09732"

@@ -11,6 +11,7 @@ class Coturn < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "a2aed13b2bfe94023e08c3071184104c18fe5d3a991d8d6fd0421e565ee85ee1"
     sha256                               arm64_sequoia: "fa977d739b4f45c90e117848b494943dc4c5862d4f7dca2eec9329b5f98ea1b7"
     sha256                               arm64_sonoma:  "ef170c3be32ccca9f426c5ee91f2f1b2d6b23eab2d14b61a9dbef90634b3c184"
     sha256                               arm64_ventura: "370b0e1c912d181a353d10d5f809bb929a7ee62efd4e4b256f93be4d5f3ef8b2"

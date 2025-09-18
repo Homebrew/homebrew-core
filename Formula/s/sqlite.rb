@@ -17,14 +17,17 @@ class Sqlite < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3e335d368e5121928ce36ac773e3288f4fb6c41101444f1b4af4d1dbe659327d"
-    sha256 cellar: :any,                 arm64_sonoma:  "d20db6b67ea5eeb691e962d9debb173ce2cac67ff146976344939be7a61cf85a"
-    sha256 cellar: :any,                 arm64_ventura: "d70fbfa87ed2b4a1f87f2e32161b123eef4f050def931d0c47035059fed98e1f"
-    sha256 cellar: :any,                 sequoia:       "157c87855aa5b6a4def7128ffdbf66db6b24aedbd09ca161611fa55b05af7166"
-    sha256 cellar: :any,                 sonoma:        "0ae196f71bc7b10b5abe93f858f7bc776c009378a1e928d72c6cab9f8f98004e"
-    sha256 cellar: :any,                 ventura:       "4540fe4b03ffc83aa035e6605990ccf12754516541af33590e574769551b6b13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cee589f54c79931019906ee01d3749a9337c4793756188500fb6c71a40425e5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfedb542431d934037847ab42457983f715fa83619f8fe7cffeb67f049f3c718"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5ec50891c34da3548d8be5df03001dfc9aaa275e759c7dbae1a407f5093b2513"
+    sha256 cellar: :any,                 arm64_sequoia: "cafdb368572f534b9a2c016df82bb29733028c86b4bea062c1e927e7073f1dd4"
+    sha256 cellar: :any,                 arm64_sonoma:  "0dba472359a4e91e82ecf4a2029d8a38966aed6ff7a4d027182d7bfba74e354d"
+    sha256 cellar: :any,                 arm64_ventura: "0a2400a611fd89e1711699b3aa706ef0c5e8b4b01935615f1576498db536d31d"
+    sha256 cellar: :any,                 tahoe:         "742a8cfa3880905e56cff0e9b7990b7d87c60b9883046699a1e84d2f0bba088c"
+    sha256 cellar: :any,                 sequoia:       "9f333064c9e3a56f4325f4b9a12ff88d962ebb2783a5b622a2d2983c4879e74e"
+    sha256 cellar: :any,                 sonoma:        "11c9d9c10fe7b502be00c8a85667367adb6718df93d2d2ba68a75405e41615e4"
+    sha256 cellar: :any,                 ventura:       "d90906e7f13944a33f60a2955a13c40c092e5ec6b2cb3bc420a31ccdc656a08b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb06505e1827bb70598605f9195502552cfeb01942cf1859074a8308e84501ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55d0b499940a253d7fc05121bd73d602614712db9feac0623a67aa5b612f651c"
   end
 
   keg_only :provided_by_macos
@@ -43,6 +46,7 @@ class Sqlite < Formula
       -DSQLITE_ENABLE_FTS3=1
       -DSQLITE_ENABLE_FTS3_PARENTHESIS=1
       -DSQLITE_ENABLE_FTS5=1
+      -DSQLITE_ENABLE_GEOPOLY=1
       -DSQLITE_ENABLE_JSON1=1
       -DSQLITE_ENABLE_MEMORY_MANAGEMENT=1
       -DSQLITE_ENABLE_RTREE=1

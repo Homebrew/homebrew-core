@@ -1,20 +1,22 @@
 class Swftools < Formula
   desc "SWF manipulation and generation tools"
-  homepage "http://www.swftools.org/"
-  url "http://www.swftools.org/swftools-0.9.2.tar.gz"
+  homepage "https://github.com/swftools/swftools"
+  url "https://distfiles.macports.org/swftools/swftools-0.9.2.tar.gz"
+  mirror "http://www.swftools.org/swftools-0.9.2.tar.gz"
   sha256 "bf6891bfc6bf535a1a99a485478f7896ebacbe3bbf545ba551298080a26f01f1"
   license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
-    url "http://www.swftools.org/download.html"
-    regex(/href=.*?swftools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://raw.githubusercontent.com/swftools/swftools/HEAD/ChangeLog"
+    regex(/^v?(\d+(?:\.\d+)+):/i)
   end
 
   no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "6f84ebd03efc6f1b60886a25c819fab4989b5ce8c9b872c217f04e63c5b8afc5"
     sha256 arm64_sequoia:  "f61324276719da51b51203bba9f88739b126e242ee458f65b98cf04492e01114"
     sha256 arm64_sonoma:   "748aa1b21377ed7009f151bb4e9f8beb240f52bc8b8e5cb68e88b4a5928eafdf"
     sha256 arm64_ventura:  "e5d604b100f9911bd2d61f4f4c2bfc5bc3121734de1cef9beedb7b5ae06b1a67"
@@ -25,8 +27,6 @@ class Swftools < Formula
     sha256 monterey:       "109f5b7057ce61a14f6eb11eb87afb90305b0dc7d830d6ce8d70872e9338b939"
     sha256 big_sur:        "bacf30e9986bb179127942abea49fac9ca05cf1ac3b3851cf3faf1cb970009b4"
     sha256 catalina:       "b0791e6725e6d07610847df7e4431e5839fcf72120cea34f1890b425f8e024c4"
-    sha256 mojave:         "bf18bfc66b1f6d6ed247acd0a4208a09b4acf6a4668e8f7eba2e40ad33ffe9f6"
-    sha256 high_sierra:    "d0e441ed7eef07c3536965d5269f648744ceb62d41fbcfe9a12248b8154c4f62"
     sha256 arm64_linux:    "7130ab9c8a0eefe2d3ff191ac2541f119bdb2b55eaff706fefdf5b57bea2f797"
     sha256 x86_64_linux:   "0ed51b95634f090cb753b57fdd73df90a944cc37fc2c34de45592d74c8b74139"
   end
@@ -87,5 +87,5 @@ index d7bc400..890b9bd 100644
 -	rm -f $(pkgdatadir)/swfs/default_loader.swf -o -L $(pkgdatadir)/swfs/default_loader.swf
 +	rm -f $(pkgdatadir)/swfs/default_loader.swf
  	$(LN_S) $(pkgdatadir)/swfs/tessel_loader.swf $(pkgdatadir)/swfs/default_loader.swf
- 		
+
  uninstall:

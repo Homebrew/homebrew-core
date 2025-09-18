@@ -6,6 +6,7 @@ class DirectxHeaders < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "561dd9433b0ebda23f5afb74acea36e49c3b29dd13d8b2cb7cc7dd26043c7092"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb5c5ae2b6de234816a184a62ec9d12d243afc8bd1534b75a86170fae18c72a9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7dc221c2bb1cf739f8f4bd9868e18474022926456a28f5a813088882e511659"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9d5a6058f427316afd3395751e19c4b35cca15a8be143c87638d551560228c22"

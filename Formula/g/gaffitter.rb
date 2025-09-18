@@ -8,6 +8,7 @@ class Gaffitter < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4ec8f9b01a9b1fff4a2d4cdfb51df68589b7574dcd825f9f6895e0083fe3901f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "99ba8c060b64df92ba624ecdf846c053658ff42c15d92221a79e705e664057bd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9db231f5fd261b380cc7ef6840714a66e286bb3ad67c9643942d1d62eb79798d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b595fd07d59d03c35c504d66778fa5c6f0f245a37841c3155b7048463963f6f7"
@@ -18,10 +19,6 @@ class Gaffitter < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "0f766c5240ed9824f0cb041a3de1c8ea8d170586c4c248b3289ae9a3c9793745"
     sha256 cellar: :any_skip_relocation, big_sur:        "59d1100a675e8b09edd424abee8c091c76e249118aa31d4a13a65196a217372b"
     sha256 cellar: :any_skip_relocation, catalina:       "a2381f4f6c482bc267117d445b342b599ec9fd67970a542bc1c680ece5e2cbfb"
-    sha256 cellar: :any_skip_relocation, mojave:         "92257fd5e186c821139d66eea640bc3c64911046199faedc171564c62d7cef32"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "379feade37882f3b78accdda2131aa4530806d010f1fde6e879347c19a980786"
-    sha256 cellar: :any_skip_relocation, sierra:         "9e2fbfd84ae7779882cbf3cd5d9a19fd9f27e6d986bd9c953df9a6e5687e242d"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "1ca49d04fb786415d210d04e59c9e7ab74ada5ed6e2d429eb5793a3f34ba3562"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7932b1fe151d9f7ac8a018292fd05a15b2e0ae8204b553e6cca6767ce54e409f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "03da21621437817c39c5760eaf043615e7fe2d7653581763acc5ed87a71b2c6c"
   end
@@ -29,7 +26,9 @@ class Gaffitter < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

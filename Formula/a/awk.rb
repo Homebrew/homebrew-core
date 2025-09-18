@@ -7,6 +7,7 @@ class Awk < Formula
   head "https://github.com/onetrueawk/awk.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9240fc9e7ecebf530d86c2c3de58cb313f2f43c02b767f92aad88f18b58645f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5856a1cbeffd667a6c5b806882dd171e1e07e4fc360c517879670d473e2c53d6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "120228d2017aa47ba4b3bfc5f19a036c9faae95df04d0868c2b2deb114b8a914"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1e7d70c9939caca5633d63b76cf7335e09acc043ead6161030d6509f17627c52"

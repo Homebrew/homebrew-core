@@ -7,6 +7,7 @@ class Xclogparser < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf0a53497d81f86bcc4e8d75452886563da61dcf6e6e93a678675f3d401bdce6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "622e5798fe8768788e485edcedfec11f6e0fd57e9afbb38e2704d115ff89286b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f12e89a162b46b953fe975af664deb83e59bb554a8b8661bc0390bc0870d778"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "64bddc1054c263b9a69055fd4f6979af194928fc8c2da52d6e5a26aa1d29ca88"

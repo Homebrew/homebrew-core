@@ -7,6 +7,7 @@ class Bounceback < Formula
   head "https://github.com/D00Movenok/BounceBack.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "056b9bb95bc573c704efb0b1d7a88494adf17812a835afd4f03ce2ca6f14620a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8604b183fd34db0dec18fdf3738f5d10accfe83358355a2ac243d8e484ca99e1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8604b183fd34db0dec18fdf3738f5d10accfe83358355a2ac243d8e484ca99e1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8604b183fd34db0dec18fdf3738f5d10accfe83358355a2ac243d8e484ca99e1"

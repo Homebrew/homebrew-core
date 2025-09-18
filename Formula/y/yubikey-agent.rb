@@ -9,6 +9,7 @@ class YubikeyAgent < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "66a71b8033de1b4951cb9b7249d9bd4c8b75d1271a9e234dc73e625282b9d32f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ce973f7cd1e1b5252f039e2fe2154bea75ce4b7439f49ec908774e57e6d15031"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "68bef9f91a8d57edc11813ae0261a1a7c18a9a37afd7b376cb29c5e0b836bd69"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "16fbb36f3bab79726c96cfc94dfda3aaabe290a8c72f5a73dba3d76cee916ee1"

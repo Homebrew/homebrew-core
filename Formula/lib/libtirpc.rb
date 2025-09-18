@@ -6,6 +6,7 @@ class Libtirpc < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2cf5d4f383c13b44931d5d608d807a0f3c7f2d00e93021267b40326ebc4669c7"
     sha256 cellar: :any,                 arm64_sequoia: "8f7acea1ebea5151f3e7b1ca7a208d2d1a78493eab4ec9052ee8ba3dabbe0c3d"
     sha256 cellar: :any,                 arm64_sonoma:  "ca87dd692fd613265773dd1b70d57b5cf4e0c2cda4f2f85bd6877e740e65b996"
     sha256 cellar: :any,                 arm64_ventura: "08e618a8ff33a2f22dde28337c945047bb43780bd3384e908e60a4a08e20c5f3"

@@ -13,6 +13,7 @@ class Adios2 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "544926ccf1bc80eb6a66cadfbcd50452ca3ac79159dc50dbddc5ccf68c78a64d"
     sha256 arm64_sequoia: "caf49db76e7ccd69679a897c33cae89ce8f6c3791b37e1e9e64f44b5ed1d3681"
     sha256 arm64_sonoma:  "f1d5cea886ed8cd5f968a842aca88fe6a45ecb2bce617aec503b52bed5da7ed9"
     sha256 arm64_ventura: "b1f76254ef5027a9f7b4975d78f978e08cb83fbabccf3f1c563b561ab894a27e"

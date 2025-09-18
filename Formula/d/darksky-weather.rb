@@ -17,7 +17,6 @@ class DarkskyWeather < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "2d45683974e5fb879064182bfde515b4d85945e43916fc11763ae1059c59078d"
     sha256 cellar: :any_skip_relocation, big_sur:        "af8fc6e9a4a4ed68bd19daabdce01d846f4e8d88028bccca8c9bec090cf53e29"
     sha256 cellar: :any_skip_relocation, catalina:       "736015c107e06e6251e4007ebc838addfe37ad6fa32683c05fb89be3d1b800f6"
-    sha256 cellar: :any_skip_relocation, mojave:         "a38cef91ca53c2d452353cf3a15198b9946b67e7b601627b5e414359d23fa559"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f27ed1995e056157202f4785d0d4d28a8181d77cd0a971d6b778aafcbca7abc"
   end
 

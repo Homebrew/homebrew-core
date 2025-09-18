@@ -9,6 +9,7 @@ class Mobiledevice < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "391242e35998f146f7b0051104f106b49f9ba4f2ec2817b2cb086fa23aa48831"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7e9e7bded8a827c41f1fc47bcb6d25ab25dff835e0d7ec486c15ff1e49043de1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c41bbb7022712c16b68af49b5b3b170592870c0cf82a6ab3ad778c6731d3adb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9840294891d057da453f01b2f91601f9a167c3954e1953f0d48f6d096de0e692"
@@ -19,8 +20,6 @@ class Mobiledevice < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "259bbbe1bdff8ebb05d6e9990a4450ba5cb3684e1903070483b22a7030546646"
     sha256 cellar: :any_skip_relocation, big_sur:        "a9b9e20ce5c2142da8ea4a1bbc34ff433da46a1e12a522942c3b7c572be9f683"
     sha256 cellar: :any_skip_relocation, catalina:       "6912247da18b0d7f033d37115939a67629b93d036458f1369944a58953c12f69"
-    sha256 cellar: :any_skip_relocation, mojave:         "1d327ce17e123f4039b9b0e6c351277d8e781a6757dd23060b6b207d791380f8"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "7ac3822649356127001c8b452df55c1435c467938193f223da61bbcdf2a7c11b"
   end
 
   depends_on :macos

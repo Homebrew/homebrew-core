@@ -7,6 +7,7 @@ class CodeMinimap < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "97083f16317681dbf3befcdddd9ed9810fc25c2d9296f372b7b05387d3570342"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3716b4399f2bf71a5152c87ec0c92b3c5303294219d8da389df76a13d9717276"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd478a065e694fc8adb510435dc95b6d208687e21c8dc0a5c62fad2649ec1e9d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "85d8ed4137ca95bc5f7460e53888d5ada7def591e478d05341d0fd8cc0474a25"

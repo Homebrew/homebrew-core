@@ -8,6 +8,7 @@ class Braid < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf994c891b0d901bceab7e31c21b326527f158a9d919c7d763d5f5a25844e6ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf994c891b0d901bceab7e31c21b326527f158a9d919c7d763d5f5a25844e6ac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf994c891b0d901bceab7e31c21b326527f158a9d919c7d763d5f5a25844e6ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cf994c891b0d901bceab7e31c21b326527f158a9d919c7d763d5f5a25844e6ac"
@@ -67,7 +68,7 @@ class Braid < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      next if r.name == "json" && OS.mac? && MacOS.version >= :high_sierra
+      next if r.name == "json" && OS.mac?
 
       r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",

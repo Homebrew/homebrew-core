@@ -13,6 +13,7 @@ class Nmap < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "5973d94f7f57b7ceadb5fa25cb44e713c36275a6346b5ac0fa5350bd225aaee8"
     sha256 arm64_sequoia: "a03b34a68f4a64e05ea7d13bedfcaf95df08024f8535d0ee421adbb4d5c4779f"
     sha256 arm64_sonoma:  "95c388f63d4e8c2c5684420bab57f68a856e04815ec524336377cd4abd50808f"
     sha256 arm64_ventura: "e58642363109486b81fcd6d9ad43bc55e89f6f278484ea3c7b7394839cb0677f"

@@ -7,6 +7,7 @@ class Austin < Formula
   head "https://github.com/P403n1x87/austin.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "347455c789b6b599d6e4cc4ca51c3be775370657544b3059c305ac26afba0fc8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e3d0412250ee9d07be534682f9dc585ca5300a1baf6d6fbf5430f0458fa6bdc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e015dcfe89db3a0a8f0a25d3758caf576601f2afe606c68dd0e4e1cda0615b44"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cafa89876000e876f272da9f9fbcffd00a163a698163e63d68a47974198f0c3b"

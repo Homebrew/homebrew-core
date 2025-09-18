@@ -8,6 +8,7 @@ class SofiaSip < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "8df042b71a3fd4b2e8e98166acd4d8d79a59a9af94d268fdb4937d366b5d2207"
     sha256 cellar: :any,                 arm64_sequoia:  "c3097f4dedd66c5da27cea5bb43070acd0c131ffa1906cedcaed0c655600e808"
     sha256 cellar: :any,                 arm64_sonoma:   "18e0ab1bfa33dbb06af1169f0a7bdadd1e74513761079879a53eb2d23efb81df"
     sha256 cellar: :any,                 arm64_ventura:  "18af91a0199247226e541153739aafa4ba42b925f86b6519791ebed6a7c1bef5"

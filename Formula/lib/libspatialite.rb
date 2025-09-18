@@ -25,6 +25,7 @@ class Libspatialite < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "24fe22a872c908ca7635814cf6c0bf509c126f6d02305e594198680a35746bf6"
     sha256 cellar: :any,                 arm64_sequoia:  "cd162e7a36e33bc982374bc2e8efced6d1669810852c6bef404967dc7507eefa"
     sha256 cellar: :any,                 arm64_sonoma:   "efd80614ae13d20ae2af905b7b6a673455d5d281e14e75e6511d1d4a1fdeda8d"
     sha256 cellar: :any,                 arm64_ventura:  "1a05eb0afc04b80535b62c3f6c602ed5ef6f7eaed37cf7bc940bf4539dab1753"

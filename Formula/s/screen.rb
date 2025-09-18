@@ -8,6 +8,7 @@ class Screen < Formula
   head "https://git.savannah.gnu.org/git/screen.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "7257e441151c134ddfaa36a4ebdddf11256d8eeca39f89a3f573970e95857dda"
     sha256 arm64_sequoia: "9430cdd222c4561bdfeee141fa6e334dc0a10d5fe7c4489ec287c9d44cfc6b6e"
     sha256 arm64_sonoma:  "2e75496e4bed33bafec7fbc33ac0b9ecfedd5afb0c283dbca100dfc5efc57f43"
     sha256 arm64_ventura: "cfe661d88372ca2f8df595ed7c46a859bf4871c435c3a499b4e2cd4754732dfa"

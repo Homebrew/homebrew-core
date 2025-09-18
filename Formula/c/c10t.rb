@@ -9,6 +9,7 @@ class C10t < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fa2cc5158958a49d439e6306581adb0a4284d84d02fcd4fbb2c1520751800dcf"
     sha256 cellar: :any,                 arm64_sequoia: "ca8927a16ee21b13da4ccf12f9cc600c01c4a692b35f09bb061c81f9dabe1650"
     sha256 cellar: :any,                 arm64_sonoma:  "d785224c143b4df6cdf3ffc6e2a6cb5b8cb0cdfaf06ff6221a1d39b3ba71ad19"
     sha256 cellar: :any,                 arm64_ventura: "c2056939dd01e763b8687f77646edba021fac9653ce866afa94144868934a04f"

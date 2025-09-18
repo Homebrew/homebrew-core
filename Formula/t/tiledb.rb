@@ -11,6 +11,7 @@ class Tiledb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ab4f7f8d37bd85fd72974f6786a90fdafc145152c110d50748b95038c3745334"
     sha256 cellar: :any,                 arm64_sequoia: "58a3d297198f9475bf928ff9dacdb15e9eaf39abbeea80495a76011124bbb2ce"
     sha256 cellar: :any,                 arm64_sonoma:  "92d58bb7e8c9bf76e2ef43a13bd4d1444280e2a4ef8a70fd798773a5f5f78387"
     sha256 cellar: :any,                 arm64_ventura: "d88069d7b5752c6a20559dfb2b11a3e75a396d77c0328dc5a9815ce1ca7b9e3a"

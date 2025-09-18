@@ -9,6 +9,7 @@ class Mdv < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any,                 arm64_tahoe:   "afcc2066b1a20fbe003251d2e45b8b2cea740ef689a92390848508b353998461"
     sha256 cellar: :any,                 arm64_sequoia: "ef4e272237c57fc919e84a83ec656a2573fc2c2e9abcb1f8ee38337674c4547d"
     sha256 cellar: :any,                 arm64_sonoma:  "01a862f7035899d724bbeed466ad5ab40ade22df6a1ff1bd6c925c2771d27a52"
     sha256 cellar: :any,                 arm64_ventura: "339a027a25e48fb1e5c1a5cdb0315413d2a22852d01fce952590cfaac67bc1ed"

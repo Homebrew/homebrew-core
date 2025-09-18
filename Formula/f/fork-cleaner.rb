@@ -7,6 +7,7 @@ class ForkCleaner < Formula
   head "https://github.com/caarlos0/fork-cleaner.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7be6259b73a094b5abfcec3a82cc813f695e74b8b2f142e806b00a81793d4ee7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "be8dcf5b7a339c075e68b9730dff3d8eb91995ff18000c36b4aa21eaffbc867e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a15f105d49963ddf6f1c648e37f0d015e75bde483f7729d1eae768ad6d5270d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a9469fe5d9855363b5a51345eed251f246eea5f7c21309b79ba7346e96184d4"

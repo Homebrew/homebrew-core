@@ -11,6 +11,7 @@ class Cfitsio < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "449a5036062cd7b754890340921f2a96177a14e1d208782458ca50db71f170c5"
     sha256 cellar: :any,                 arm64_sequoia: "5211e3ed2c5d20c27a80a1a60392a0a40ba1124795fcb9a8969dbfc536bf75cc"
     sha256 cellar: :any,                 arm64_sonoma:  "99f6c0c152eed90cfc797714394de1428abc1e5bc056699bc9f227124fe537e1"
     sha256 cellar: :any,                 arm64_ventura: "8b92cc30cc355bb0522c74bd91481fedb21e31867812475e867fcb704b1336f6"
@@ -41,6 +42,8 @@ class Cfitsio < Formula
       -DUSE_PTHREADS=ON
       -DTESTS=OFF
     ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

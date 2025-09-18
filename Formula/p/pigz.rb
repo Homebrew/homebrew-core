@@ -14,6 +14,7 @@ class Pigz < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "61447a94a14880951c88b71720cd1528a5763708b692ad2c7fe0cfbd42f94f75"
     sha256 cellar: :any,                 arm64_sequoia:  "64097e66f14e0e16ab597007639492ac10e2d0f499968b757f91fa700f06f952"
     sha256 cellar: :any,                 arm64_sonoma:   "97752b6fd2b65df80d73068299789a714fb01b6b904fd843c142677e4f2c3db7"
     sha256 cellar: :any,                 arm64_ventura:  "ddd9fed16f07f42285d3a4a46b6d769f4ca2e902827dbd44a3f69597eca5cb77"

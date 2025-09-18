@@ -7,6 +7,7 @@ class GitlabReleaseCli < Formula
   head "https://gitlab.com/gitlab-org/release-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae973f1eb71e6e7adec764c889d3fa8a05ef399aef1674ec67919f52eccba9df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "876a3ed04ff07b0316bec9ff3f7979b473080ecb754b3751e0210994cd04a9bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "876a3ed04ff07b0316bec9ff3f7979b473080ecb754b3751e0210994cd04a9bc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "876a3ed04ff07b0316bec9ff3f7979b473080ecb754b3751e0210994cd04a9bc"

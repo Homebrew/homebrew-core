@@ -8,6 +8,7 @@ class CargoOutdated < Formula
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "388a0bd941acce2c13dea4cd44418a8203b1acdca6f30892ff8eda93afd5ccf3"
     sha256 cellar: :any,                 arm64_sequoia: "acdcb7ecd3db5e0b5a0d279d33f3f308d9180a9f434ff4f01f2ad2dd075db7d0"
     sha256 cellar: :any,                 arm64_sonoma:  "d54403dea4e7474a13d95f37c4df3cf620391e920c72ddc814b614abc15e31d3"
     sha256 cellar: :any,                 arm64_ventura: "63f180c145002e1906a6cb979b706167b51ad49d1a5d04aa4e9b47722a2ca306"

@@ -7,6 +7,7 @@ class Chiko < Formula
   head "https://github.com/felangga/chiko.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4fc1cc6ab9e49c046b7217d1528c18ccfd01ba1530532e8fd411f12a82004fa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2229abf255f4cf1d7edceeb7cbb7716cec4b20481961a1763d89396400df9fa9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2229abf255f4cf1d7edceeb7cbb7716cec4b20481961a1763d89396400df9fa9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2229abf255f4cf1d7edceeb7cbb7716cec4b20481961a1763d89396400df9fa9"

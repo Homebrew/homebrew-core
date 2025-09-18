@@ -7,6 +7,7 @@ class Gator < Formula
   head "https://github.com/open-policy-agent/gatekeeper.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e7634b75abb5e22019cf51208bf13646178ff255633a99a709c6635ebb8d570"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "577adf4ed63e73e2ed3e29ba20124c5baf074316187707912d1a431642d601f8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51dc85d8bf02c23e3850bc828d52e53ae047f4a0676e271740d5c7b14ab20fd8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3c2d8262321b5a8e5f22a5a1f307451f181e56f618391b0f4be1ec5d829b0dfb"

@@ -11,6 +11,7 @@ class Iocextract < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3291dd2f7c51a9d144c83f0c2e28e11ae4e8225004c68363f64a79a015c86d17"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2eea8bd42f63a2c26087d2257ea2b711984dbe5904ea81ceee5c1fdc1dfdcb8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf86024794b66d89ec3f4dab45c6c4d1c73ea80795d3f58f2f9d158cd8609522"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6b3bfbda26fac498e6d27616bfa2c5aaef0dd252c7ed153d1db4b9887046e127"

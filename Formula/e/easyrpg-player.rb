@@ -11,6 +11,7 @@ class EasyrpgPlayer < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "691c0ca65dd4479c5dd5418532485765082357e33ed20d484b98fd876cd755b1"
     sha256 cellar: :any,                 arm64_sequoia: "92db38c733393d101b7f408ab5ceffef2b4ed4d738cc736d0cb63b6188b4566f"
     sha256 cellar: :any,                 arm64_sonoma:  "3e856d3375dc9bc24ea8d1daba95b5d70425aa9624bf952de217e80f56b7304a"
     sha256 cellar: :any,                 arm64_ventura: "46a23bf672d452cd6c3a4473703f55cb50f39dbbefc8124e4f55226a1327de5d"

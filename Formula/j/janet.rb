@@ -7,6 +7,7 @@ class Janet < Formula
   head "https://github.com/janet-lang/janet.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fc755cac56166891d47e91b2087f61ad44e9b2fae668288d9d07333b71caba70"
     sha256 cellar: :any,                 arm64_sequoia: "2e82b032a20adbbef5abece92554901eb1c67810c08ed523e80b3ef9701c1aaa"
     sha256 cellar: :any,                 arm64_sonoma:  "14125622a9edf9576451babc8559c29925a672dcbe771c214228fe55ffb943b1"
     sha256 cellar: :any,                 arm64_ventura: "0ba2c52edf3315a896de9af2912bf7d45d73264bd9e3cf69d68661919d415514"

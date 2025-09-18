@@ -12,6 +12,7 @@ class Yices2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2df989805c717cb45574f0bf1d84eabdec50cf4d5748a9f1f8bdbf0cde5c9fa2"
     sha256 cellar: :any,                 arm64_sequoia: "d94ae8d40c3a882393d36e3f868f9dde59c24beb2202b483063a5185075139ee"
     sha256 cellar: :any,                 arm64_sonoma:  "c250094bd74818ddb24ea16c6ebe228f2b096e2cfad0823e81c15968cd8bb915"
     sha256 cellar: :any,                 arm64_ventura: "acb1d683ad88ff73884a8763b4be8a6a8ef2191e1e0c9bb4f1148ad567b6fe9f"

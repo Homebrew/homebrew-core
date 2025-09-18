@@ -12,6 +12,8 @@ class Qmmp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3e09d5fcc07c81581ebf41e666068753591c240fb295c1593836e374a62c7fb4"
+    sha256 cellar: :any,                 arm64_sequoia: "2c58668033cd2b35d25f65efd43fe8bc14ab19f68af8e4e61a63285282e1ea27"
     sha256 cellar: :any,                 arm64_sonoma:  "8ee64ac53b6d3dcc276d7e68485a41c944493932bb03c11dab019192b8e4d3c7"
     sha256 cellar: :any,                 arm64_ventura: "091abe456fce70bebecd6c52dbc29023834b168b4ebce8965a7eec7376bad5e4"
     sha256 cellar: :any,                 sonoma:        "e53841142aef6797006007106b28c75b135cf8cc2e2ab480cdc6c410cf2b7b97"

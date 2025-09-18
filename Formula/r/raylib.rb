@@ -7,6 +7,7 @@ class Raylib < Formula
   head "https://github.com/raysan5/raylib.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f5df67caba9995df0a73dd5759e3fc3236c5ae2cadd6f2bba89e9447ca922a2c"
     sha256 cellar: :any,                 arm64_sequoia: "b2040d26e8f4ff8b35da7e9a6f68186fab5497979d67475314900de05b90f031"
     sha256 cellar: :any,                 arm64_sonoma:  "16b1195332aee21f29004fce9e281fc1a97a8ac678265f15a4735ee9a9e1f554"
     sha256 cellar: :any,                 arm64_ventura: "b7dd5d1afd3c21145c7ca8e850f9acffb773a86ab05fa8b271d70fdc877874c0"

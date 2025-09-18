@@ -6,6 +6,7 @@ class Krep < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "318d88ab52b3d5ee156394d3c787cb5537e73016b18825e63322cd208e2c0a0f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "abeeaebb1a7106686f09dd6cd76eb69c7aa572d89658810236476531ec284e06"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e830eb2e2ed1a1886ecf0f296f06b72649624973c86f36b3f50736802463e124"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a6cf7e9459a67144232b853108c03b92b07668b9640c8da92f45fd3f377f4eca"

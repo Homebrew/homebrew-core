@@ -9,6 +9,7 @@ class Todoman < Formula
   head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "024bea37eed187445192eef3f0bc4aab84e9815e9a97605d1f62047936fa37f8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "637f9ef1c34fe16d767c6df4dffe91f852263ef90d47e60df8eedbc829dd4faf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "637f9ef1c34fe16d767c6df4dffe91f852263ef90d47e60df8eedbc829dd4faf"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "637f9ef1c34fe16d767c6df4dffe91f852263ef90d47e60df8eedbc829dd4faf"

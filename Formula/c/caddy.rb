@@ -7,6 +7,7 @@ class Caddy < Formula
   head "https://github.com/caddyserver/caddy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bcbd54fcb23ed8c2be5bb2e1b23442931e798ede2ed7e8227cfb148f28925dc9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1df2298f7b51056b57eef3a304d2807652d5c630d884de5560b271e5942e50e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1df2298f7b51056b57eef3a304d2807652d5c630d884de5560b271e5942e50e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d1df2298f7b51056b57eef3a304d2807652d5c630d884de5560b271e5942e50e"

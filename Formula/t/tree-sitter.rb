@@ -1,10 +1,9 @@
 class TreeSitter < Formula
   desc "Incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.25.8.tar.gz"
-  sha256 "178b575244d967f4920a4642408dc4edf6de96948d37d7f06e5b78acee9c0b4e"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.25.9.tar.gz"
+  sha256 "024a2478579acebbb8882d7c2c0f0e07fc0aa19a459b48d10469e4abb96cf16e"
   license "MIT"
-  revision 1
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
   livecheck do
@@ -13,13 +12,14 @@ class TreeSitter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d9841c5b93cd0157cf9c02efe5050aff286fc83214430ccbadecc899a4b40973"
-    sha256 cellar: :any,                 arm64_sonoma:  "9593afac488bb20dfaf32b35a97a3af0b8b02a262bf831687b366074f017581c"
-    sha256 cellar: :any,                 arm64_ventura: "157886f003ff968de04d584dbc35aba727feaae3102b01188ec4f80ce9b34ee9"
-    sha256 cellar: :any,                 sonoma:        "0cd18ea153dce11c64ebd6e2b708ba7e9169372a9979299959246ab76c540ae2"
-    sha256 cellar: :any,                 ventura:       "ce995bb8e5855d84d468cfe88627ecb51ba39ceacf80c0e001f21cac4c0dc32a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a398e17148d29dae7b1ede9e256c7b44c595c883a41c1e03921dad94d1ddb67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc166c9cac782e06d849cbb00cedabbe92f4050ce9d8d2eba8fc8d4624c8b61c"
+    sha256 cellar: :any,                 arm64_tahoe:   "389d617478b08d0219b4d815a12b1002661c5aec7a4c07921470aacf5046312f"
+    sha256 cellar: :any,                 arm64_sequoia: "50db20e018958001f434cc4b7218e7f716477e14a5a015b37a3773aef2d7b44c"
+    sha256 cellar: :any,                 arm64_sonoma:  "38b306b00ec376d14f562765a342dd300b1309a2165ab80e40f2e2e140bcda5f"
+    sha256 cellar: :any,                 arm64_ventura: "190dda465da4c905e3c2b5d25b93c931d701c75529967fe36c92f990337bdfbb"
+    sha256 cellar: :any,                 sonoma:        "f34a1158199031344dab597eab566753a0a6a9b6524cb936fc73396fe62f151a"
+    sha256 cellar: :any,                 ventura:       "50ba83fdd0743e7a3544312e464b3462ca065dd3695d279fab6323cc59783fd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b11e6e1bea0c662773edf84614225aa61d872e6809133ba8e3326bd59e5d394a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc1a110b852b1623187b2234b485607e94519f48c1bd83c6d6734158f3f9200f"
   end
 
   def install

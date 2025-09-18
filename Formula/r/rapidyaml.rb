@@ -6,6 +6,7 @@ class Rapidyaml < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "90e8be8fe215c59a6ef03137139f07880122605473375b495e0455e3d1778292"
     sha256 cellar: :any,                 arm64_sequoia: "a926b5137c4f63bb5ff171b5d7db7b5723ec241ca24151f01e94085796c5e2a5"
     sha256 cellar: :any,                 arm64_sonoma:  "eb19678c2ed14af83f23f00a5e290670a10879c10ff45801e758fffd9c710361"
     sha256 cellar: :any,                 arm64_ventura: "d38245d9b58586970547cadeddacdabc64aba97364605fec1818043e7b74b680"

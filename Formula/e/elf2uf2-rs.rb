@@ -9,6 +9,7 @@ class Elf2uf2Rs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c7bfbfb63a90f1f2f226d6eea8d4a0fb946bac13b9d09c30add16176cfc12745"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e82da1e4bda8f4e9b96a224bd39f0fa553df1f2b2f5685e3d26ea8d36db64ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad84d3c1063a64c46201c1f3848ae783cf238e63dd215470e908642153d4eadd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9d8ad586061ca0882a16789b7242c86801e76389e525657ba1864ea33084dae9"

@@ -14,6 +14,7 @@ class Pazpar2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "650626377082bec8c3530b1f8cf144b83a54b1770da9059423c23b0bc7093869"
     sha256 cellar: :any,                 arm64_sequoia: "44eb9c8baaa3da4352d9bffbbc57a4d97023c2f26ac3c82f11791cc43b17012d"
     sha256 cellar: :any,                 arm64_sonoma:  "2aa9e4eb2662d4e016671bd0c1dd0c23f185ff7d98d5b1ad77fe59ae5728a6a6"
     sha256 cellar: :any,                 arm64_ventura: "f30a7a5de7036e177a68214b7f727ead6dbcc832d52389d80d01521b3c636d91"

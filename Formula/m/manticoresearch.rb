@@ -1,15 +1,14 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/10.1.4.tar.gz"
-  sha256 "d655c8a51a87d2a673bd6c0ffdd0b545f1a404a6fb09eb65da764bd0c51b430f"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/13.11.1.tar.gz"
+  sha256 "705aa5b1222a448642b51b196f0ea4001e06e26eb2e06b68066a0b822f8f30e3"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-2.0-only", # wsrep
     { "GPL-2.0-only" => { with: "x11vnc-openssl-exception" } }, # galera
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
-  revision 1
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
@@ -22,13 +21,12 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "9de3f5db0e9dd268563c9c78bc374b7a92e7b7943194a8b282592d45695d9847"
-    sha256 arm64_sonoma:  "cf8e28dca5222b336360945e304601317509e43c1e864d69e51e9d5f17079848"
-    sha256 arm64_ventura: "183f808e0404865e408f64b4c0ee82e18e09506955394b06676566a9e26a2f54"
-    sha256 sonoma:        "a0ef4ac03129de756b5396e966c34b5faf85a5ad955fe4b5a681efee1bbf25f5"
-    sha256 ventura:       "fe922607e26a5710e6102f74fffe5db1f51cbd0a07f1045cf8394b47300de62b"
-    sha256 arm64_linux:   "fe1808081d454c4d65d7c79b376329e0121da1a8a5acf560c49b666a08f9452e"
-    sha256 x86_64_linux:  "22ed5397be826ffd1c2d8a4ed3a6c395a955888cd2b468209251016a1cbb8936"
+    sha256 arm64_tahoe:   "f97d83a665e43696209f5a24a2cfc8bbbf8d087ce5fc481b10b37a6fc95dae62"
+    sha256 arm64_sequoia: "e5bd4089cb77b95e1c102f8b7e1b12eb8aa52fdfc1c0f82d7099827c64a8957c"
+    sha256 arm64_sonoma:  "76ddbda78fe3f552241d9f5edd646c9738500c6c4029ca58a062a4e34a39841d"
+    sha256 sonoma:        "fd573fa8133c982535d20239a8136db3b087d049d5d8769c22d31ab066411974"
+    sha256 arm64_linux:   "4240105fd72b43939d6a9184a87535171cc0da304f54f641ee6fef6b739be46d"
+    sha256 x86_64_linux:  "1c61c468419d8e296b5cd9d57ce0a5dde8e29e9233ca2cd545a2ac04e69f9c76"
   end
 
   depends_on "cmake" => :build
@@ -60,6 +58,8 @@ class Manticoresearch < Formula
   def install
     # Avoid statically linking to boost
     inreplace "src/CMakeLists.txt", "set ( Boost_USE_STATIC_LIBS ON )", "set ( Boost_USE_STATIC_LIBS OFF )"
+    # Fix to error: call to non-‘constexpr’ function
+    inreplace "src/sphinxquery/transform_commonkeywords.cpp", "constexpr uint64_t", "inline uint64_t"
 
     ENV["ICU_ROOT"] = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
                           .to_formula.opt_prefix.to_s

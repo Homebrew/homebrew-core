@@ -7,6 +7,7 @@ class Chroma < Formula
   head "https://github.com/alecthomas/chroma.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f46b9ff72f1b5fc85d4b08dff366ccc7619730ca277c2e6f380d63efa6f53f4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cdb12c76b2e422651a57d5825f0a932e63df62c452366ee34c6412ccd71fb7ec"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cdb12c76b2e422651a57d5825f0a932e63df62c452366ee34c6412ccd71fb7ec"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cdb12c76b2e422651a57d5825f0a932e63df62c452366ee34c6412ccd71fb7ec"

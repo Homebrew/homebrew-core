@@ -11,6 +11,7 @@ class Dar < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "91d75a1dc3d971d89dfc2c55d0a82bf6848dd9cbd2aa2ec70d8db9be7057d70b"
     sha256 arm64_sequoia: "e48f75e42258459cb4538ff52cf5283a9cdac5095c51f15aae32c1b40a341474"
     sha256 arm64_sonoma:  "c1f87a2f60cff04bd94da1086e72be3c849dbdf0ea4a62a47a88e40ccec634ef"
     sha256 arm64_ventura: "ab164640255def4faff3ff6a2c97aa5b103253c45c0c47638ecfc5843bdcd143"

@@ -6,6 +6,7 @@ class Ffsend < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "77cae62ecbbd3f434c1d50b40ac1f7fb281ea070d2afecf5751d2d1e7694735b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d60f43b2fdb056059608e05dd6e4e9f1fad57486180c3732a40ffaaa440116d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98551254d908b6fa9496bfd9281fb359c7fdc34b9d172db68d1fa633d8c67f07"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "398d00de4d062551f33c186bdb932c9ae62847f5e0a594663d4d09886ecbcc69"

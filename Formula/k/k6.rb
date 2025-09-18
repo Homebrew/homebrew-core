@@ -7,6 +7,7 @@ class K6 < Formula
   head "https://github.com/grafana/k6.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "df6f45aec156c5621af77c689a3b38eb9167e9a8619086904d63999762312b3d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5305e17e6dec848193b2f8f52831d3ef68bc14b520e5f61186dd377337e87c2c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5305e17e6dec848193b2f8f52831d3ef68bc14b520e5f61186dd377337e87c2c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5305e17e6dec848193b2f8f52831d3ef68bc14b520e5f61186dd377337e87c2c"

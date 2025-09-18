@@ -9,6 +9,7 @@ class Mob < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d0633c2be00a269ce2e1b19523593aa4b674e06910ebebb09faff8d91d68d078"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea259acacda5e76abcb29c2291753b5567acc90d86d7e698645b48cfe5eb4a21"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea259acacda5e76abcb29c2291753b5567acc90d86d7e698645b48cfe5eb4a21"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ea259acacda5e76abcb29c2291753b5567acc90d86d7e698645b48cfe5eb4a21"

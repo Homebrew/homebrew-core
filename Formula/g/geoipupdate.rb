@@ -7,6 +7,7 @@ class Geoipupdate < Formula
   head "https://github.com/maxmind/geoipupdate.git", branch: "main"
 
   bottle do
+    sha256 arm64_tahoe:   "e38f048483e769918fb26f47c2ea6a482938728adf9fcab1524468ec421bbaae"
     sha256 arm64_sequoia: "a1fce4eecb43e422c6059f26c6c9d2bb9719da01c204e575c3abd5fb840a3ebf"
     sha256 arm64_sonoma:  "17e2d973de456a8d6dd3f0c605a7980d87b3b4e0388345fa2f6420286cf40ac1"
     sha256 arm64_ventura: "500173a96598a74be77f30c05428abdee5961e15230f2d0a6970ee12fcc0fbed"

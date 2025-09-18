@@ -6,6 +6,7 @@ class Lune < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0165dbc9a43c0213c31e9b1c576ef6385615174d2877ffbdc36afe332114557a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3eb93f4681d44851ab7e14d5e7f16f3165932f87db86e57baaea64b4fda72eaa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c51fe5f509953866995fa6808512657a128f6442a039cd0031515f25d381b6de"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "faf09f47239ccbca7478ecb4c381e64e3ecf3f3456e87e1cc1c723917ba469df"

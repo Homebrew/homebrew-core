@@ -11,6 +11,7 @@ class X8664ElfBinutils < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "0d79ce39624e7c9037d41f95acc84fd886777ddcd01c071de121cf0f83aa5bdc"
     sha256 arm64_sequoia: "7ac8f5424c60ba0558083e0278ffa09a28a20210eac18ba2b45bcc500d600796"
     sha256 arm64_sonoma:  "646898a98d4d195fe03e4c5443584ba940b21068b92a004dc1273e9a50fc46cd"
     sha256 arm64_ventura: "1dd965f9429b5d1ece2c1ce3fb30f8bca190e051ae25006cffb16fc41ac4fdbf"

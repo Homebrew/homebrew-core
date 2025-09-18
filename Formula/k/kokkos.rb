@@ -12,6 +12,7 @@ class Kokkos < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c1fd961cffceba68298022156feea4be131a567e25a729a8fb5f718cb93aa1f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "39797d15372aa7af10e5550d93a86dd0c84a88a95e4466bc74555cae81b2a1c7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "296ba09f08e88b0ae13f81d8cccaaa29c14578b27742fb290af5818acf54f0ee"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6e844cafaaf72cafd6d230437d95c8ca41dd0d8fe4cf41c98ad386b275640c61"

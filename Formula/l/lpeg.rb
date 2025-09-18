@@ -15,6 +15,7 @@ class Lpeg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "23fa0a2aba7c78631a3a0116d17f97998069884af257cd741e08da9097802d65"
     sha256 cellar: :any,                 arm64_sequoia:  "af50e5ff5ff953cb182ffb7657fdbf5fbfc9958f12be114c6713d7e62190c421"
     sha256 cellar: :any,                 arm64_sonoma:   "d725e7feeb5c96970d64781282c5c4ae56e9e1b2e824280c9ac2d4098acd18cb"
     sha256 cellar: :any,                 arm64_ventura:  "032f19654879a0542eb5836fa19da7ae278fb1709375f4b17e8a24b219e54293"

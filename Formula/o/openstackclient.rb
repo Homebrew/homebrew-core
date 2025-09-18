@@ -8,6 +8,7 @@ class Openstackclient < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "38c19df017848e89e2eaa89173b47d4e842397814b5418f5aa3136fc95ce1385"
     sha256 cellar: :any,                 arm64_sequoia: "c8eb1a45cb080c41c2d46d6517cd20f32113e73e1072b65614d5220c8d1b5af4"
     sha256 cellar: :any,                 arm64_sonoma:  "19b02e7203b8780817bb5b08970f66799841be35c70bedc978598ef32354ef58"
     sha256 cellar: :any,                 arm64_ventura: "4c3b32140dc294bcc0c75afcb1e4e0f37fb8e6a4647bd2cde2aac310493e06bd"

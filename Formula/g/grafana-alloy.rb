@@ -7,6 +7,7 @@ class GrafanaAlloy < Formula
   head "https://github.com/grafana/alloy.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "653457c031f1cacf14cdfa707ddc43c837ac9be12ba00b2fe674375d281f5478"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2b4ab6165f7707cdd45525e7b0be381df947a51d0b71a39829741c5b01cd97b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "351c4e5c78691cec1c41389cc8ad46e6a541b5c51e14b3b67b6dd2c1de5760db"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b8c2a189bfd46a12a6107253fd846ab49e20ada4eaf7f258306971978abbb73c"

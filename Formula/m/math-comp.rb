@@ -4,18 +4,20 @@ class MathComp < Formula
   url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-2.4.0.tar.gz"
   sha256 "6307218d7e434fb6ffc81b9275c673d3f7f1f4884ad59b904abd205c437021a0"
   license "CECILL-B"
+  revision 2
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1b17f5b8e2b20af5ace23ec57d4f829365e9d3c83be65dd642c165fd283aadb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb066cd30672083829614bbcd0e41978bf52ad087babd5c235e2eaa1c62599f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4275cbb056423ca15041aa0747de7fdd3a09cfa0b929867078aea003cd9f4b23"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4c0c18fb7f34cc5654a45941050d490cc12170de49dbdd2baab705ba6d18a6b2"
-    sha256 cellar: :any_skip_relocation, ventura:       "0f6ad3b1eb56318a578ba2e1e20beeef645c28bdd6e8c27b7f23a17af70530ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b0ba0eabc25b6b96add7b36f58647b6cb76600c56880c714c99e2c78e632371"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c95940eb318c627d6d5cad82e9cc87dcbf9e943718889a57f0d493512c419b1d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f50db9749c2eb1e6c69d1cad4f5fc9643cf46fd676c5cc9472598d0333c2a58e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eabe13a0de7a122bcfa7ce4263041ae8adcd4409fd20daa0d65e0380d85b84cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eac1d24ea50f9cbe36b2674bf23aaa8207cb24ab173bd759c1ed5362dc3337ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "31dc0aeeba701290a8d61da65d90764317c4bcc08d7416d2432704969e84b399"
+    sha256 cellar: :any_skip_relocation, sonoma:        "304ba73e50826a766924001836192b8618aa0d67fb1aa12fd759a1e2ead89330"
+    sha256 cellar: :any_skip_relocation, ventura:       "89364e88e0c6d66dd6ef08f90a484f014e2e04782c0341d8cc56043af26da985"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd75cdd60e778402cbdccf3014d6e376e62bfa62c89bb5bd06134620fcac0788"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "435e9c0f9df8b2115f23d7ceac83842af297a73f1f6c15bc555785d288dcd832"
   end
 
   depends_on "ocaml" => :build

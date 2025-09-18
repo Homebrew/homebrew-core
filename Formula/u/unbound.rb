@@ -15,6 +15,7 @@ class Unbound < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "ef3b28285c148fb0d3b0dfad49ad8a12e2375b56b1c2a9bfe7b202a1c41181fc"
     sha256 arm64_sequoia: "e11348122c286c37c6264313f202dc3775c26ed15f657dc22846dcb77c4b3f7f"
     sha256 arm64_sonoma:  "bd75449e6ea8b74653954fcd2f8a56c5473c3f0d4793c7d758fc1b705a5622fa"
     sha256 arm64_ventura: "c4533e3811f75e5f81d563abcb0354679905003fd18e8cbbafe44e952ba87d7a"

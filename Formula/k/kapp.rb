@@ -12,6 +12,7 @@ class Kapp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44be616b8126a7a26b822a26f5acacfd542f6df364a607df9e5dc52a8b8d6ad0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "39315cc4aabafb1645c0f153e0614c9d04d93cd2849fe7f33a2f379e403e9067"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39315cc4aabafb1645c0f153e0614c9d04d93cd2849fe7f33a2f379e403e9067"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "39315cc4aabafb1645c0f153e0614c9d04d93cd2849fe7f33a2f379e403e9067"

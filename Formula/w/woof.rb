@@ -9,14 +9,12 @@ class Woof < Formula
   revision 1
   head "https://github.com/simon-budig/woof.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "cfc359d1f134edad9eb8e9f5fa9542486b3934dfc2c3f56e694c2557460a47b8"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "fb77732fb7843685c636e191145e82994a84ee7eecad8b7c18cc09308eac8362"
   end
 
-  depends_on "python@3.13"
+  uses_from_macos "python"
 
   conflicts_with "woof-doom", because: "both install `woof` binaries"
 
@@ -27,14 +25,14 @@ class Woof < Formula
   end
 
   def install
-    rewrite_shebang detected_python_shebang, "woof"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "woof"
     bin.install "woof"
   end
 
   test do
     port = free_port
     pid = spawn bin/"woof", "-s", "-p", port.to_s
-    sleep 5
+    sleep 15
 
     begin
       read = (bin/"woof").read

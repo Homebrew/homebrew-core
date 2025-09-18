@@ -10,6 +10,7 @@ class PegMarkdown < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ec72ce7ad492b44c05950b2ac9421ed3e410f1eec51e2c64b6215edced456df7"
     sha256 cellar: :any,                 arm64_sequoia:  "bd7f5543b909228fcad9af4e3173b8ca657d92ca17233c99c8415716c7a575a5"
     sha256 cellar: :any,                 arm64_sonoma:   "a98a5d30c50275c60315ca49c9a5e9f8db427bf8e14dd76eed44f5d59af8b354"
     sha256 cellar: :any,                 arm64_ventura:  "b86b3203ed481c4afb9bcbd489a4803b3f1fd204c27bbed16dc42e45e16790fb"
@@ -20,9 +21,6 @@ class PegMarkdown < Formula
     sha256 cellar: :any,                 monterey:       "9f10d8b70ae2e5fc012c2baf976a2235c9501be317dde74b17648052dd801388"
     sha256 cellar: :any,                 big_sur:        "efefd2a49548d4abdfc97bdc12295b1f6dac5b1832f21d9b6f147cc7a3c27176"
     sha256 cellar: :any,                 catalina:       "08910e3fdd97183865c2839a4e14839826101e6dfa48120aebc60fbe838f0689"
-    sha256 cellar: :any,                 mojave:         "a60087175a8f3c5242e9183eeddb433e6bdbe68409cae0a7c61d66da4622b150"
-    sha256 cellar: :any,                 high_sierra:    "207764b26b253904cf61e9e13eb32e81a51d61d548b7dafd366da5a5394a5f08"
-    sha256 cellar: :any,                 sierra:         "2d75448f008aa176b624ecb02bc6e3f7492ea8953a99f84fcdacc6b301b39412"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "2a9e3a5818daa858757ddbac902c2d0795bfa0bb6b02ce96a6fc35469b6c96ee"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1b2212c3e3a3610a02a5f668e3b88785c0bf1c6383f36ed3674abe42cc941bc"
   end

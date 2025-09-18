@@ -16,6 +16,7 @@ class Clip < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "8aff6edd12ffb78ee26cc4503fd6e838df029c82b13546b17360f53ffda372c5"
     sha256 cellar: :any,                 arm64_sequoia:  "4e2ca7b930f87658ba6450ad93a84b92b8d22c807f23eb8161c6c0cf3bd4fe88"
     sha256 cellar: :any,                 arm64_sonoma:   "3113e6da1b2952a1fb192798702a682bb4a1b15528deef855728cb7747e73a6e"
     sha256 cellar: :any,                 arm64_ventura:  "35c0b71a4027266682fc887c730d90da8ed7a70376e676f083ccb77080aa487a"

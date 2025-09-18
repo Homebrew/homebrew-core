@@ -8,6 +8,7 @@ class Nlopt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "a6812d6b611b71abaae05550adb9ee32a76a5d9589a130262ec005d2e8c15a55"
     sha256 cellar: :any,                 arm64_sequoia: "4b5cfef104d5816a719d35624642efd027d4d4dedfd21e67ae26eed7ceb1d9d6"
     sha256 cellar: :any,                 arm64_sonoma:  "a09deedc38d8d4d44c105c4c1c603fdf0652d9e5506885c04586ec2d25df650b"
     sha256 cellar: :any,                 arm64_ventura: "e401c6382cc8b7d25ea8095554443a881fa0cb02e935b7dfd5eece47d7429df8"

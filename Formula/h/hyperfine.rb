@@ -8,6 +8,7 @@ class Hyperfine < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "819fe8b11a3470f8eb95b8920292696c43df5e3439fed3d28ab1c1bb8ea2fa3b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "acf0ce7620aa8b6c3e1f1b755d8fb1a89445b4293935c3d5a96ea3f8f193ec22"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76a4b9596447f7c86d96de9bd7d9312eceee745509f9bea470bc32fafe0b97b9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1113b8769a5054fd790e5de5cd95089ef500bcce78694f6263be6f25d521f0c7"

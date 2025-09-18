@@ -10,6 +10,7 @@ class Arpack < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "49cef98cf7475c671e5826e23a50d8c093a34685d6a98ed55614916f2196408b"
     sha256 cellar: :any,                 arm64_sequoia: "476f1c28808b3115fa9cf72d17bda20b989dc60d911d3abe85be50a92bd1d6a1"
     sha256 cellar: :any,                 arm64_sonoma:  "fcc8d39b5a28e371db0331c0f2ae3de23a6c37e38e9ee5026b88e668c093ea71"
     sha256 cellar: :any,                 arm64_ventura: "99cf4eb648f19ac5355d2572ec5536624ca39d7480fd42bf00fcc478728ac9b4"

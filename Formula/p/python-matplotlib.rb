@@ -8,6 +8,7 @@ class PythonMatplotlib < Formula
   license "PSF-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2df5888f5a87633dadd4c1d79af5aadc20b9cef4877f9a35e054add117868b71"
     sha256 cellar: :any,                 arm64_sequoia: "7290166c80a49c238b6e5476e337a6467f1143f413daa936bd886da7b80f20d5"
     sha256 cellar: :any,                 arm64_sonoma:  "ff7155fe2cea3e763b41785fafb8535a2d439cebce126800f302f30d0922b67a"
     sha256 cellar: :any,                 arm64_ventura: "379836b9f39b2a531593c9f42f75b9ab048ad656a24ded9bfcd829232c980278"

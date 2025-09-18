@@ -6,6 +6,7 @@ class Audiowaveform < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a0883230a730a658b0037ad1d4fd80a0843bfcbd6a1820bc463648429df5f216"
     sha256 cellar: :any,                 arm64_sequoia: "1e9fefd035443e96fc39605c249e618408b8d79852d8b635e4c73fa72633fd80"
     sha256 cellar: :any,                 arm64_sonoma:  "889c6dfe09ecd0e73ae9aa5640a09ea428b30f50f95a6e8c236d5bd810db65c4"
     sha256 cellar: :any,                 arm64_ventura: "d18a60880174cfcab31fffaccd30fd4d9599016abc57bea6876482300082cc18"

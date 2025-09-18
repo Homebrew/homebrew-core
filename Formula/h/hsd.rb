@@ -12,6 +12,7 @@ class Hsd < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_tahoe:   "4842c436a2fefe7cd84e55e6db8764303cb94a462e3b7ca199e214b03beace46"
     sha256                               arm64_sequoia: "aa30dbad82098c555396fa5810915298e1da37226e8a7291269272038f0980f0"
     sha256                               arm64_sonoma:  "0ebb374eee2f64b48aadd1fb92d3a1ca0e17632fbff7916529477a3c4df68951"
     sha256                               arm64_ventura: "1243bab93e49d99e7e67fd7b90682eced4c2a5b935db8843e3d5c135fa2e5a18"

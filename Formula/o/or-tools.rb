@@ -2,7 +2,7 @@ class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
   license "Apache-2.0"
-  revision 4
+  revision 5
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   # Remove `stable` block when patch is no longer needed.
@@ -24,13 +24,12 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "2f41f4f61000dd2ac56cd8b4d0419916077fa2e10cc4a294a1d100b8b29bfed7"
-    sha256 cellar: :any, arm64_sonoma:  "40f1bdafd61fb20f09a8fbc2d17445ac12387ae2e46ac1c1131d0e54f02c891a"
-    sha256 cellar: :any, arm64_ventura: "711c37000c74bd1a3a44da29cafdcebe38a2a2ffe7e4f2a0971d7c8a5ad506b7"
-    sha256 cellar: :any, sonoma:        "6a7fbff38e8933616a7052935195ca08de4a9872d48554cb939c4687166d8331"
-    sha256 cellar: :any, ventura:       "37b2f307068cdad2adcdcb4c6dfc82216a7e6858f851c70d1804d4a0916c3fb0"
-    sha256               arm64_linux:   "f142fd5479d4de9c400b50c92777c3cff7a375c04582ab1f05ea06c881e8352f"
-    sha256               x86_64_linux:  "d5ff712bf00d2955ca8e1c6b695b75b233221f70d9bb51c89a5ac7cf85500521"
+    sha256 cellar: :any, arm64_tahoe:   "3d8be92dfa0ed3760900144bf706aed5b2c316d20592ce49b1050c4873b9a3b5"
+    sha256 cellar: :any, arm64_sequoia: "2bb0f282f2893aceb0b48cf723e1bb88006ec8e9cb6a27434cb2dd47cc639269"
+    sha256 cellar: :any, arm64_sonoma:  "95184c01386c70196cae423bfcfefe730f93ccba4fedc5a176cd4ebae7efbcd2"
+    sha256 cellar: :any, sonoma:        "47fd30353cf1e9506236084691ccc5ed15d052a5c98bad75fd0ffe217a6dbd75"
+    sha256               arm64_linux:   "0b879971f40682344bc0a3df6f1804e36aa3c4bd73be5fb37cbe646ed8712cf8"
+    sha256               x86_64_linux:  "3e0a5958c01be2b053b66cf99004cf1c97cbede0f5f3c40bf7a3bf86c9f8b767"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -49,22 +48,10 @@ class OrTools < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  on_linux do
-    # LLVM Clang helps avoid building with indirect GCC dependency which uses newer libstdc++
-    depends_on "llvm" => :build if DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
-  end
-
-  fails_with :gcc do
-    version "11"
-    cause "absl/log/internal/check_op.h error: ambiguous overload for 'operator<<'"
-  end
-
   # Workaround until upstream updates Abseil. Likely will be handled by sync with internal copy
   patch :DATA
 
   def install
-    ENV.llvm_clang if OS.linux? && DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
-
     # FIXME: Upstream enabled Highs support in their binary distribution, but our build fails with it.
     args = %w[
       -DUSE_HIGHS=OFF

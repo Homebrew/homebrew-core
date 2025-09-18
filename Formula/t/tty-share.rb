@@ -6,6 +6,7 @@ class TtyShare < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "df6d54c41d4ea39472c924d0741c20d7bfcc0782a97886f64e01ab211c5ece41"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec03c0cba5c97e463a37e817eb97638bdb3b9111821fd1c44760ef33e0d33ada"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec03c0cba5c97e463a37e817eb97638bdb3b9111821fd1c44760ef33e0d33ada"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ec03c0cba5c97e463a37e817eb97638bdb3b9111821fd1c44760ef33e0d33ada"

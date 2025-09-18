@@ -7,6 +7,7 @@ class ArpScanRs < Formula
   head "https://github.com/kongbytes/arp-scan-rs.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "402e25b075591a2b324adfb852c1a457d445ea9821c6be9f6056f07fe38308ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dcd5eb8d1a5225c52e76fdeabc79fdff7d97ecf88ae25671a7c647cfb3867c31"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76c6baf3ec726dcd760b513fcb2be26f5edbd68592e99e444a1b9ffeaee8878e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4121091ba5ad198c3498f015af7ca9b6ede928b8e43b525529b9e0554d3fa07f"

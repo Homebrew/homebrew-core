@@ -15,6 +15,7 @@ class ArmNoneEabiGdb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "61cb1672a27e0942073cfc58b3cd563cfbcfa2def49d6bd85846e84dc9639fbb"
     sha256 arm64_sequoia: "1a7301cc72a0e20ca3210b0a039226319eaa33259670ef53d9f2fe57a3ad91ef"
     sha256 arm64_sonoma:  "e3f460c763a63f70e0b3f93a9763638a3e2a358e561d3216d102cabea65cebb5"
     sha256 arm64_ventura: "185b464524777e63901da56fb727d6ae6c3b1d776213294d330ca7ffa8c0b55f"

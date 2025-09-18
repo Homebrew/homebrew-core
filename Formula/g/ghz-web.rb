@@ -11,6 +11,7 @@ class GhzWeb < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "85e63d579de011ba7228496524c9f59ee04757da8b7af3b2908f02aa0e412627"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "41a6553616554277541ebff12075da8d72be1d17bb21f9608785f09de3c00710"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4aaf95d9bb2d035676ce06f3b6650eacfdd5c149e771dbf4e26f3881aed47c6c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "88cdd543eb268e47d62dcc27a67a620071b3842b53bdcdeb975aa5357550523c"

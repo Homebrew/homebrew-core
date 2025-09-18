@@ -10,6 +10,7 @@ class Freedink < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "9e05f0fa2089dda0023b3f07e54b2e0bd64806e62de6b4a9601ff845cee68d40"
     sha256 arm64_sequoia:  "791eb877668eacf35dbc1e12754a2fc5c40f5804107367fc7f0cc2da76f0974e"
     sha256 arm64_sonoma:   "78a162584ff38dcffdf1485d08a0e29a556f0eada9831fefef6f7dc14755d222"
     sha256 arm64_ventura:  "c3ac13edb0efd994c52954b8a4512c0254f6fbe0874f4bae8416949dc18f2026"
@@ -20,8 +21,6 @@ class Freedink < Formula
     sha256 monterey:       "da402e74ba8344d49ec9a0a2c93ab37aa1d3430cb33baf3d995ee3c55489710b"
     sha256 big_sur:        "fd45feffffd96dc600cda4e725619b326ec6a84e96c5844c156aca90fb2390b1"
     sha256 catalina:       "b971d9badc94cb0075963c341ed11c1872e3157b279def6d91fd088743b5e5e4"
-    sha256 mojave:         "d44bcab516f79beec47a1ebdc8ec68b66071a34e17abb8556407a3656946d454"
-    sha256 high_sierra:    "d022642338ba2979982088f1b65d6230ab71478fdaadfe4966372aa15b909182"
     sha256 arm64_linux:    "987d1d124d48dd9ae81001a02a9cd62d37d16758b791d6ea9decb3164dde198d"
     sha256 x86_64_linux:   "a29b66f12f589cea7e091849b73fb86530086692fd94a627ab4fe86490a8c121"
   end

@@ -11,6 +11,7 @@ class ReleaseIt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9125cfd8a7c84467f6da99ef57e884a28d7052f89d953d1af8eb4b0fead9658d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c49a9c8b7ef3b67f6c86f84ec6a2947e5031989438be7515bf06b1a078967eda"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c49a9c8b7ef3b67f6c86f84ec6a2947e5031989438be7515bf06b1a078967eda"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c49a9c8b7ef3b67f6c86f84ec6a2947e5031989438be7515bf06b1a078967eda"

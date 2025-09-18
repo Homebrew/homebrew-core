@@ -7,6 +7,7 @@ class Ballerburg < Formula
   head "https://framagit.org/baller/ballerburg.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cccde44114f408fbef049352adf60ffd2bfcdca158cde6b665cbbf03801daaa6"
     sha256 cellar: :any,                 arm64_sequoia: "dd778359cebe62952c33d6a2e5c2274f7e4784ccc9f02dd86ca15bb783487608"
     sha256 cellar: :any,                 arm64_sonoma:  "bf505c27f0af03d53a92ef5816d66ccaf2843ef65cfb59aec887a5ec0c1f7a57"
     sha256 cellar: :any,                 arm64_ventura: "1c01a6a26ad1acfef28ad833391a9d004a2a70d8d97e6e5a475f26210c2bf43c"

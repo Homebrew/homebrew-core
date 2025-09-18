@@ -9,6 +9,7 @@ class Movgrab < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d301a6715733684dfeca756117b3fb4fb067ae24eca927657a4f810648ef13e1"
     sha256 cellar: :any,                 arm64_sequoia: "eebe35ad85f24d6670b44de90e944d2ec6e7d8b3d678581d765b47a37b5921de"
     sha256 cellar: :any,                 arm64_sonoma:  "8258f2373e9954cec98e1794809aceb67cb86a67b700534ca8e897399a462c1d"
     sha256 cellar: :any,                 arm64_ventura: "be7032419023759e5106d77fe86d01c97967ae01cc30947fd6e35df5d6f9b0e5"

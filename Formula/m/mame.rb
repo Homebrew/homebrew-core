@@ -21,6 +21,7 @@ class Mame < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f5baa70356084df09f45ffe741e5fec0c24b0917e8a3607be2b682c50348094f"
     sha256 cellar: :any,                 arm64_sequoia: "08fc202c2085f4e79c04ad305cee47e9787b91bfa030fdb47cf2033367eded4c"
     sha256 cellar: :any,                 arm64_sonoma:  "31378d82fc62af92329b8b89c7f8dabdad9109792bf822c5128964c0b8f61c01"
     sha256 cellar: :any,                 arm64_ventura: "56d4dede2b76d9ea4c5aaedb4c9bee0cc28fd5551c3f8b1fd0fc7514e468aaa5"
@@ -37,8 +38,6 @@ class Mame < Formula
   depends_on "sphinx-doc" => :build
   depends_on "flac"
   depends_on "jpeg-turbo"
-  # Need C++ compiler and standard library support C++17.
-  depends_on macos: :high_sierra
   depends_on "portaudio"
   depends_on "portmidi"
   depends_on "pugixml"

@@ -7,6 +7,7 @@ class Libidn < Formula
   license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "16554b492c8460ae8e23e3886bef64a944c2cd3bc4314e7df80971272b6173a3"
     sha256 cellar: :any, arm64_sequoia: "6a860a721a7e58991f845df9cd497758f193eb531ca2ba3a79e323f65e774dab"
     sha256 cellar: :any, arm64_sonoma:  "fac2bde8f325428b34f138b6f16b9f58ec0e5092e28a8abb0ac764d54930c98f"
     sha256 cellar: :any, arm64_ventura: "979bfd799362cbb1449dc2fba0094d6101b9b3744aa3b7d697f0a41e957777f9"

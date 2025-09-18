@@ -1,8 +1,8 @@
 class FfmpegAT7 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
-  sha256 "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
+  url "https://ffmpeg.org/releases/ffmpeg-7.1.2.tar.xz"
+  sha256 "089bc60fb59d6aecc5d994ff530fd0dcb3ee39aa55867849a2bbc4e555f9c304"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
@@ -13,13 +13,12 @@ class FfmpegAT7 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7968732900f92865a021c53a946200834b9c56f5e9a7b3788fb9eaefa3bf0eeb"
-    sha256 arm64_sonoma:  "c36c5a2608476b13ec6b077f9ad54dc27f057a68d22717e4bc21abe8bbefe718"
-    sha256 arm64_ventura: "7ddffc72aae76f3633fa8f0a479866f57f7caba7fa7b5e85109b83588d15600d"
-    sha256 sonoma:        "c4e03e018eee6896978c4963a647f35508cc6bf6dac052c311215f92fb4f379b"
-    sha256 ventura:       "82881bcd8533707e2fa2268bb4c4e78724df4895bc5771b6e6d049d10c022564"
-    sha256 arm64_linux:   "8c562ee687d5dcc8452e29051c34cd9583473d7071e3b3e98d24c15106c8d698"
-    sha256 x86_64_linux:  "f9baa8a75c46f5c6f76fe667e0f1d9292e154fad39f446745ddc8bd16629961e"
+    sha256 arm64_tahoe:   "731bf62a0969f35b78a6cab0188301f200cc9d9fa995ae06ddd937f7595ec6d2"
+    sha256 arm64_sequoia: "a34b767e72d1af80477defaf3977f138ee953e3ed4e1c81c202173e7da563cae"
+    sha256 arm64_sonoma:  "0ae0cd1b7c497284d59256f7555355832789a66c79676e1ecd1e746f2737a421"
+    sha256 sonoma:        "b9579629e5f2234d46e6d82c8c68776a52b0d4d0783251f1d634c8b239d1898c"
+    sha256 arm64_linux:   "2f87837fdd6cb63799204982d065afa9476c3d5db8c8b91a3a4a09891d70653d"
+    sha256 x86_64_linux:  "4db47a5e9172ff132c581b2855878b93f865fccf92e052c4fa277293c0bad5b0"
   end
 
   keg_only :versioned_formula
@@ -86,12 +85,6 @@ class FfmpegAT7 < Formula
     depends_on "nasm" => :build
   end
 
-  # Backport support for recent svt-av1 (3.0.0)
-  patch do
-    url "https://github.com/FFmpeg/FFmpeg/commit/d1ed5c06e3edc5f2b5f3664c80121fa55b0baa95.patch?full_index=1"
-    sha256 "0eb23ab90c0e5904590731dd3b81c86a4127785bc2b367267d77723990fb94a2"
-  end
-
   # Fix for QtWebEngine, do not remove
   # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=270209
   patch do
@@ -101,7 +94,7 @@ class FfmpegAT7 < Formula
 
   def install
     # The new linker leads to duplicate symbol issue https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/140
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.ld64_version.between?("1015.7", "1022.1")
 
     args = %W[
       --prefix=#{prefix}

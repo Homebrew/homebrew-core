@@ -12,6 +12,7 @@ class CloudNuke < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "355a8974c61c14cf011598283993ab8a71606af6d47e7052ac62c4aa0da7b172"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d2eec557781e7e3be33e0759948bb0f966a516a9a006ad10c9c6b98ac1c4dea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9d2eec557781e7e3be33e0759948bb0f966a516a9a006ad10c9c6b98ac1c4dea"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9d2eec557781e7e3be33e0759948bb0f966a516a9a006ad10c9c6b98ac1c4dea"

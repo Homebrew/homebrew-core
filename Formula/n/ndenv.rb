@@ -7,6 +7,7 @@ class Ndenv < Formula
   head "https://github.com/riywo/ndenv.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3aff8712af287caad53964e17c254d5470652fa61c22562579f82b726fc0e977"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8650428e672ef45ea98634ed9e024064c9c23e4604fb7f423fe5d7e12cd13f96"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64537c94265589e52b05cd90de6998880d58960ee25ea3c2d207e92107b6b10d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e3e31b092194e5f29f15cd18ce26de6fa69dc372b05850f86effa058de0c681"
@@ -17,7 +18,6 @@ class Ndenv < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "0185213be14f5f212bbacc1fe2e6f28c0b2a50ed3adbba1da1b189f4168621ec"
     sha256 cellar: :any_skip_relocation, big_sur:        "11134806587add67781fb03d7be2fd2322029e77e4b744d927fba9afbe6e1b82"
     sha256 cellar: :any_skip_relocation, catalina:       "11134806587add67781fb03d7be2fd2322029e77e4b744d927fba9afbe6e1b82"
-    sha256 cellar: :any_skip_relocation, mojave:         "11134806587add67781fb03d7be2fd2322029e77e4b744d927fba9afbe6e1b82"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "c5c259e192f7344bd7e565e602495bbdbba873162f5cd149109148730f189e85"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "50382fe45272fa7f72497bb0f40a02fd4bf9e293eca303777b9e154021f7c501"
   end

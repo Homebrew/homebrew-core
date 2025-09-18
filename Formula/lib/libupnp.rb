@@ -11,6 +11,7 @@ class Libupnp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cfb9756895c61547698dcebd492642045f1bbced42e29cea268f6da1d45bc8d3"
     sha256 cellar: :any,                 arm64_sequoia: "e403cd816e8de10c22429564e2236d5a050637adbfef519dd5b3d77608bb66af"
     sha256 cellar: :any,                 arm64_sonoma:  "04df71a03d9b1b3d96d79b9d3f8d36c1d824abc44cdcaaf64bb35a8e4af7d383"
     sha256 cellar: :any,                 arm64_ventura: "224f178d28e917c2884008949a3324a3591932fcc5dcbb72fed9f3b05162b700"

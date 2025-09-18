@@ -14,6 +14,7 @@ class Mcabber < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "5a3fd194c38f6e2cdde387ac0d822bb4d44735e3a5dee9e04bd847cff9febaf7"
     sha256 arm64_sequoia: "ecad9a3ee398b3a8d3da0c3a6f70ce3bbd6d8b7f0e56982c534858deeb7f93f3"
     sha256 arm64_sonoma:  "df43d005dea2bc2e1ad875453efff00618a535da2dc69041f65bda297aaff7e1"
     sha256 arm64_ventura: "53fa4715f224ba5b3c89b8e3f4894055a45a99897ddde8534f3344ac654341c8"

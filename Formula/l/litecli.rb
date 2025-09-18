@@ -8,6 +8,7 @@ class Litecli < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4eb79f442fda23fe024b1e35c0c513bd0eafdb506ab00f8857bb6e890cc89276"
     sha256 cellar: :any,                 arm64_sequoia: "ef1ad4a05cfa62a934340214466e4917e55bc3b996517b7795b8a35f89e7ff24"
     sha256 cellar: :any,                 arm64_sonoma:  "83e536f688ca8370499c042021c0403eb05c7f70f030dfcb66d1a7f5eef642dc"
     sha256 cellar: :any,                 arm64_ventura: "9c4b27ef5403874111302baa42a1170aeba0aa19bcf017ba53465271ceb5d413"

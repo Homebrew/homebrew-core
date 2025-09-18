@@ -10,6 +10,7 @@ class Global < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "0b71d2800d7ac790d9a6efaf5b3337f7b431bb783d937bf40f5c65f7c98293bb"
     sha256 arm64_sequoia: "11eed24d33dad01e9a23cd8d7ec8e0fa937af1828ee5d0cdd147b75a02e0a045"
     sha256 arm64_sonoma:  "48b7c70d65b140cfc53d4d82883640d2348b2a24f6e5456b97b532afb8395284"
     sha256 arm64_ventura: "38135ecf03e163025ce24ac2919964d0df0c554b7c1ddac5484f0a5be5f38e66"

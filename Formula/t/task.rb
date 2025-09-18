@@ -12,6 +12,7 @@ class Task < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "c03e299eaea70db2811bb592c9e9359308cc95935f47feb8ec94b02df2ef15a9"
     sha256                               arm64_sequoia: "e9f5596f4410829165b5884d30c10c784ba5e096ca118ec9739119b678d6ec10"
     sha256                               arm64_sonoma:  "0148f717868777b7ebc63d40e8800a38042a12a1717c8cfa22c8e74e47c6a9ef"
     sha256                               arm64_ventura: "a6c60113d44922bdba309d58bb265ad1cec5109d1b5ab3b4f43e69f952464397"
@@ -26,7 +27,6 @@ class Task < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "linux-headers@5.15" => :build
     depends_on "readline"
     depends_on "util-linux"
   end

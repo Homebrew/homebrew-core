@@ -7,6 +7,7 @@ class OrocosKdl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "de42730805db93cd91e39d3c08274faa7384305654f618e6806c591de8d8b52d"
     sha256 cellar: :any,                 arm64_sequoia:  "56fb6d1bb7796ec39b73f9a1cd8da6f9f946549e90517b526139761bfbd2f820"
     sha256 cellar: :any,                 arm64_sonoma:   "1f64cef75b8d38a0f735e2e173b8fbfe1eaec26519bfee0f05ee5be52e0fd26e"
     sha256 cellar: :any,                 arm64_ventura:  "819c0a9c91a7572f68752d59feb7af82a9b91426d8cd7c14f1614a353f0e7a6e"
@@ -34,6 +35,9 @@ class OrocosKdl < Formula
   end
 
   def install
+    # Bump min CMake version. Remove with next release.
+    inreplace "orocos_kdl/CMakeLists.txt", "CMAKE_MINIMUM_REQUIRED(VERSION 2.6)",
+                                           "CMAKE_MINIMUM_REQUIRED(VERSION 3.10)"
     system "cmake", "-S", "orocos_kdl", "-B", "build",
                     "-DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3",
                     *std_cmake_args

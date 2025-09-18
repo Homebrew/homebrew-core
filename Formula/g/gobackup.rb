@@ -9,6 +9,7 @@ class Gobackup < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "462cf38b60e9c5fa6842d6a00d75f867712af44c81a1d25a5219915155959796"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf6001bf9cb50409b7e53664aa70a2e50014c8d0b03683e339d26e8dc59c9052"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf6001bf9cb50409b7e53664aa70a2e50014c8d0b03683e339d26e8dc59c9052"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bf6001bf9cb50409b7e53664aa70a2e50014c8d0b03683e339d26e8dc59c9052"

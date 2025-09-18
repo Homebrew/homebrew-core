@@ -21,6 +21,7 @@ class GnuSmalltalk < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:   "11802ea09914aaed9ad773498371bfcbd35bebd339d82455c8e9b7d15a7a6ba2"
     sha256 arm64_sequoia: "fa42deb9637324919358ee25610a53e01088fb726c82f4128f9472da1311935c"
     sha256 arm64_sonoma:  "1a03cac9ae46b6523cc6353c3714b2fd5d1151df2d41fc3929d3c03bab813917"
     sha256 arm64_ventura: "e737012cfb9f7029528a4f733125cc9dcf710b7f70fa2d2c19e5bbd16e7a6141"

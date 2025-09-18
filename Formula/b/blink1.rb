@@ -10,6 +10,7 @@ class Blink1 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "cc077a783b0098ec7c0f91651c47773bb18da79831ad129aae0335f7ca644aac"
     sha256 cellar: :any,                 arm64_sequoia:  "2b04cc8a396b2f1d9ac01c7558fc56fc27b72792cb148f686e87298c638f29d8"
     sha256 cellar: :any,                 arm64_sonoma:   "6087adc4630ab9c242a9e2c89ce806ba069b9668fa2d19b270a94fd8f9c448fe"
     sha256 cellar: :any,                 arm64_ventura:  "12acc8c268141ffab31dd4e748d99e157d3c6708924aa06cee2afe6da3cbf576"

@@ -4,7 +4,7 @@ class HaskellLanguageServer < Formula
   url "https://github.com/haskell/haskell-language-server/releases/download/2.11.0.0/haskell-language-server-2.11.0.0-src.tar.gz"
   sha256 "d6c7ce94786346ee9acb1ef9fff0780b8035c4392523f27d328ad018257d7f5f"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
 
   # we need :github_latest here because otherwise
@@ -15,13 +15,12 @@ class HaskellLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7be400445f57f8ee34805bb545c823c9931bda77403edef1fe3405ca08c92f9b"
-    sha256 cellar: :any,                 arm64_sonoma:  "9fa7706a776f4dfcf82fcbcf383eb0c5c824a6acc06e81f616074353bc7ec6eb"
-    sha256 cellar: :any,                 arm64_ventura: "41e8c785115b01629f316c27fb74cc832d842c1539dc4764d892019c09c621be"
-    sha256 cellar: :any,                 sonoma:        "2caa0b5cac34bfbe307395de3d663718f3114021bbef8787d2d3766846a6cf36"
-    sha256 cellar: :any,                 ventura:       "9d12d6dd4f5724f7d2bd11abdc1b5f8da4188f6487fadc1ab4ee566f9e7dea49"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de58cd51f2fb307f4fab971c18a75893414ba74df714c9cbc8d1da230441e740"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4b2199524258a615108132c1bb926f3d15016ad4841a9b7d27382241e226573"
+    sha256 cellar: :any,                 arm64_tahoe:   "33067ba99216f57b1661133348bf218fa9adec89e8b01a8c36cd84eb31e386e9"
+    sha256 cellar: :any,                 arm64_sequoia: "f0f9e4bfb8fc798ed8284843f66f1f2cca465f940c4309c055523867745e8f5d"
+    sha256 cellar: :any,                 arm64_sonoma:  "0cf2ca696383443b8773c81c314b21d81971834d46c49e7fd57bfd8ca8de84b1"
+    sha256 cellar: :any,                 sonoma:        "1e0c3e715f021ec3810b33f0ffd4f4198a446b10654a75378b2bd32613b6e3d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "82c18af187006550b9e2d989a6cf7a263464407e8bfb38b79fefdbb02d2b62ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c095c32c326051017de5310790b7cc17e56c8309faf64d4851f7ba5c63e1bcfc"
   end
 
   depends_on "cabal-install" => [:build, :test]

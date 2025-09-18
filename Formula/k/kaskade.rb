@@ -10,6 +10,7 @@ class Kaskade < Formula
   head "https://github.com/sauljabin/kaskade.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4d4e192241d1463256099fcdefa7ac8163d94fb7a0cc380aafcd18bad579a26f"
     sha256 cellar: :any,                 arm64_sequoia: "f4442f502b4445c91afcfb69d9af27548f22e1e7e15b7ab73d4677ba7ef72998"
     sha256 cellar: :any,                 arm64_sonoma:  "619ad63b2551c8740fac3710dd902b256fa12cc32c1dbe01c28ebd4a4bfe6eb9"
     sha256 cellar: :any,                 arm64_ventura: "c75a2c7b8f19299978e0f05193c52d4e8f52d5076041ad203b4a476d77ffdde4"

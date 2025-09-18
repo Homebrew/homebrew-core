@@ -8,6 +8,7 @@ class Biodiff < Formula
   head "https://github.com/8051Enthusiast/biodiff.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c939875ccb2ba0bdca25c0893e40a984bb8a0911f6b1e11a3fafcad5e3b3962e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "08203fed461dddc5d59a07694f40c3f6a42b8cf9c1aeec91e3fc943936bd2315"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "472ba7b9f5d1166d147ccb15471af31ce1bbab00f6f0c7313fe21d8cb70d6e9d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "929f49840064e70ab6ac4c60a3059eaf9c65484d04cc4971826ffeb9229b67ab"

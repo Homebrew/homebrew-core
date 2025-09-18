@@ -7,6 +7,7 @@ class Reckoner < Formula
   head "https://github.com/FairwindsOps/reckoner.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03aea7e1ff644a4073e2434ff7ae3c883bbc6bd394b83a2aaecf2eec4a586381"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e819d54160c7f34ccc327200798bee113bdfa2cac49ce7c73b7b80dd1dbb6512"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e819d54160c7f34ccc327200798bee113bdfa2cac49ce7c73b7b80dd1dbb6512"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e819d54160c7f34ccc327200798bee113bdfa2cac49ce7c73b7b80dd1dbb6512"

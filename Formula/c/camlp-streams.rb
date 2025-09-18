@@ -9,6 +9,7 @@ class CamlpStreams < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a024fcd64fbed528d969bd51a27452741c1822b7f2946ece9c9b68c2d784e8ff"
     sha256 cellar: :any,                 arm64_sequoia: "970fd620e3640135d45f61c7844b988f5a09dde94168f8649a8ec7f9e6f4a2cf"
     sha256 cellar: :any,                 arm64_sonoma:  "1f73dac23e1b752a50fe5f3f68a6397c4a0cd7c350852451e5700c7806e00e71"
     sha256 cellar: :any,                 arm64_ventura: "0a886bbea94a7e4d0540630b51923b68398a01ae609dd1193a251857567033fe"

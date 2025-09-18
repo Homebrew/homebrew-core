@@ -24,6 +24,7 @@ class Innoextract < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "df1001d2198270418a0af98f0280a10be338dc2dcbfc7b0c8adcc96d2d813309"
     sha256 cellar: :any,                 arm64_sequoia: "f058c122e886a8f35997bc3603c10f791ad3a7eb9d0cd084aa081babf7833743"
     sha256 cellar: :any,                 arm64_sonoma:  "e65c6340749c752ab228536d9ed8323e77a18132a6578eaa7d86950d07628f0a"
     sha256 cellar: :any,                 arm64_ventura: "aa58225a507ab5162d5744d0ad7845ad4a444ef8e6680d75ed52a19b8b019876"

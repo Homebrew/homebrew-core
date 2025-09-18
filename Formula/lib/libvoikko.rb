@@ -11,6 +11,7 @@ class Libvoikko < Formula
   end
 
   bottle do
+    sha256               arm64_tahoe:   "5e7950f8b97300217f3ff6e9d8fa7a39f778f91fbb094e6a1106c155012ffe35"
     sha256               arm64_sequoia: "5618bf21692759e6d99d69328f3f0e7035e6efc7a4c11d859b5773f1ee198cb3"
     sha256               arm64_sonoma:  "319abe25e1227db8601a1ba59193e486341c5bfb056a44da5852ffa325ac93dc"
     sha256               arm64_ventura: "696e90c6f8e41b0a6fef11d7866014f9788bcae267e7d06022a8a61b71cab86c"

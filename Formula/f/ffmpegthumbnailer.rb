@@ -8,6 +8,7 @@ class Ffmpegthumbnailer < Formula
   head "https://github.com/dirkvdb/ffmpegthumbnailer.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "99daec9ab7483eb10f980b1876a2af01a5b20c339225f51af9deb7eee2b50fe0"
     sha256 cellar: :any,                 arm64_sequoia: "4864f88829cb1785b49323ef27cb543847de5f9222568da0ec47b5b8f1ed95d7"
     sha256 cellar: :any,                 arm64_sonoma:  "f45c64ffeea08f32d6fa8bf2895b3dbb16bac6e1351ab7d3b9f165bc7bf1f553"
     sha256 cellar: :any,                 arm64_ventura: "7e8ce3a0c5f1d711f67000d6f0f4c16b9f0c8c6cb637ee46fa36287763c26931"

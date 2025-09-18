@@ -1,19 +1,28 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250814.0.tar.gz"
-  sha256 "9b2b72d4e8367c0b843fa2bcfa2b08debbe3cee34f7aaa27de55a6cbb3e843db"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
+  stable do
+    url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250814.0.tar.gz"
+    sha256 "9b2b72d4e8367c0b843fa2bcfa2b08debbe3cee34f7aaa27de55a6cbb3e843db"
+
+    # Backport fix for older GCC
+    patch do
+      url "https://github.com/abseil/abseil-cpp/commit/ba9a180d22e62edcd5f6c56b50287b286f96fc33.patch?full_index=1"
+      sha256 "f0403bf23edf3ac67365c645d81602d5bd965890a1db5a797794aca5b4b6ebb3"
+    end
+  end
+
   bottle do
-    sha256                               arm64_sequoia: "46c63da34f7ff761501842d4068f9bfaabbadf12568424c87491b19065d3b17f"
-    sha256                               arm64_sonoma:  "19df247e567459110a43ff1bd216af37d626e8ee2d2ad69e74d8c34e765f0dad"
-    sha256                               arm64_ventura: "f59c0c62a921b35d5690c72b2440a532e927ad4f46825d9e3834db13af5794b1"
-    sha256 cellar: :any,                 sonoma:        "f62bab7dc820937f2086e0b9a5d9635f5d0348ea810e24b2f4a5747ed0e7979a"
-    sha256 cellar: :any,                 ventura:       "c011eeeccd1dfb6c2804163ef4619304e5821be64651d44b71c7112794ee9f77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef3e9a33b4ab2fc9659dae39ad3d71dda4e7e3fc29dd84a379ff4d19b9556a06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d58b90b49e1a35f2a67eb462aea9ad2a5be1c463e86808d9a1df6e7e504bb98"
+    sha256                               arm64_tahoe:   "e7671a6aa73bde7610deaa7e8576e1fbb84a491c763842cfd375ee8f2d0d6dcd"
+    sha256                               arm64_sequoia: "3f77da27a9016e6ed26abbaeff2b95b486dab89875e9a019eb4ea8c37a89219a"
+    sha256                               arm64_sonoma:  "3214ab769d0ea60c4ae6fa81fe752b242b737d2a75bf1610736185f3996fe9f2"
+    sha256 cellar: :any,                 sonoma:        "880f97986104b646e3e4a86a6adad49c0655c85164a298f2f97db048d466e752"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ceca21bf67e428b999e68f1c2a2c16e7f45963e6b9fe1b41c866cc81d30bf29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9a6b46c0444c8a87d68d36a8b0f2921a98ac1e3bdac3f1579ab9207d9f03ad4"
   end
 
   depends_on "cmake" => [:build, :test]

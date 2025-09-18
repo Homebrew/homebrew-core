@@ -13,6 +13,7 @@ class Rsync < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c4718ba8eae84dd515309bd6d802dd14e9940c3ec92fe582ee1ff44dc1ace223"
     sha256 cellar: :any,                 arm64_sequoia: "fecb8e00e23e675273e3e5fa9c9f545caab740dba09fb4af59169e18b0b1cc67"
     sha256 cellar: :any,                 arm64_sonoma:  "7eba5b3c101d16dfbebc11bbddbc646a1afe2c1aacb24611542cd8e07d99a416"
     sha256 cellar: :any,                 arm64_ventura: "3afce8ca8f96b8bb1e78e01975e0c9e5f47326f62d1d868555de1fbc92fe1744"

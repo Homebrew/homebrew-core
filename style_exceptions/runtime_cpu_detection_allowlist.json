@@ -21,6 +21,7 @@
   "mariadb@10.5",
   "mariadb@10.6",
   "mariadb@11.4",
+  "mariadb@11.8",
   "nsd",
   "nss",
   "onnxruntime",

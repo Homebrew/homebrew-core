@@ -8,6 +8,7 @@ class Peru < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b2b558447cc50f00af4576472d41b9e0943ca67009dda28c0c869f2bb60ceaaa"
     sha256 cellar: :any,                 arm64_sequoia: "beeb4f77adc52280a01149f9cdfd3b4100d6c7dd92c51aa6fb59b4a4c1d50bd9"
     sha256 cellar: :any,                 arm64_sonoma:  "6bcea08bb842546b71b214f6390e8cc31eff4b778000d178472526199a231b66"
     sha256 cellar: :any,                 arm64_ventura: "b013421dad16894ef27b69c705cc52b729eaa7b404c70cd926b755c6ec11c461"

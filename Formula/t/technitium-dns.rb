@@ -8,6 +8,7 @@ class TechnitiumDns < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ab3ef53a19ae5424598fc16147cf78d2e5a13b7e26adce5b54133698e7db1c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a501489591cd182a2acd46fa546b3cd716eed5fa2009c5943a76340e2198c666"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "047ed2ef79d6f7b05619f0573e3f1a1bc60d45220ae23e40b0b5e851b291250a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "68cf6f51e7498135466e5c74d0744fb848c01bcf7ce58179f6aecbd650f08fc5"

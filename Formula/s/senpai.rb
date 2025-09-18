@@ -6,6 +6,7 @@ class Senpai < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3babf5b4950b6fe98db4af1331a97661168b54b4d1c9a6648b8ef0da5bafbf90"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "25e62cb0dbef74b43914cfe94dc91d975c97ed53d9042d9be3fc422ef4a37dcb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4cbb49d7aa9a8343dead0ad9638e7fc738a723b5ce652d041b52364a3cba7f7a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6828b6aa784aebd607c3d536d946f764385a0b80d67edfff5978e6026ca56c99"

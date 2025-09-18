@@ -13,6 +13,7 @@ class Vtclock < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9bc71b0b4a7fc2c216cb72ddf9111be288923ddbe3ce612fba3b5900714d8edc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8251c5182970bebfed0812e9653332dd8f414eb949f5c447a99d43063834301d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1cd6bcab5a2c2dde71190c91cc5758564b741aa04b5947f864d1fba6aed6a743"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "89c6c0d99a0582e29faf08b44b05d8a9b69193facdb40ade4d98c4d22a798a2c"

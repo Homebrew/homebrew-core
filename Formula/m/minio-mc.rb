@@ -2,9 +2,9 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      tag:      "RELEASE.2025-07-21T05-28-08Z",
-      revision: "ee72571936f15b0e65dc8b4a231a4dd445e5ccb6"
-  version "2025-07-21T05-28-08Z"
+      tag:      "RELEASE.2025-08-13T08-35-41Z",
+      revision: "7394ce0dd2a80935aded936b09fa12cbb3cb8096"
+  version "2025-08-13T08-35-41Z"
   license "AGPL-3.0-or-later"
   version_scheme 1
   head "https://github.com/minio/mc.git", branch: "master"
@@ -16,12 +16,13 @@ class MinioMc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "315a43ab7fe01a02abb2062c63ba3f8620382f4908bd5aef87c7e2d934065aa4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3100c8eae3feff96faea043cd653a93128d8f7fca327f93ede29a60b63e00632"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "159f23ccbda1e306640d9a98f32f7779b74fcc0774115b5d3a8d56f4ee2d29bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c62cc6be5aa5a9575c6602f38270d4779fb37303b4fcb9d08797e55d33889d03"
-    sha256 cellar: :any_skip_relocation, ventura:       "dde800a160322e0c415854071bc9f0c6f8b987e3d485cde9ca355fd097a373b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fecf2a3e33052449622a0d8cbefa7f2b8a742e6709d6cb1386342c70fb69247"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de6f7f9346bc488230a9ad97bf4e756b2705218246c89a88a75125d7827e6d66"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b4a41f0de492c2ac69846df380757be259e2d762219a1c5a80119ece845e487"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a2fe5e78c335c757898cb3574775c140c718bffe2ca4ba573df0a606944497c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ce210974c0bd2f273e67c10970ae25923326b31b1e7823aaeaae4aad73e8f5f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "06be6e6c3190957e688c8321892e4fe21118900564ad176ef24300bcb582853d"
+    sha256 cellar: :any_skip_relocation, ventura:       "6e4576ab9c04b1d7f4a593b5329e126e09fd604c0c710be75a90edb6b21beb9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f8ddb10d84cbd05663a495bb04c778a3d5e4915b2b1c506cc98a6a2a1750dbd"
   end
 
   depends_on "go" => :build

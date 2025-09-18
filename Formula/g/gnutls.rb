@@ -30,6 +30,7 @@ class Gnutls < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "0875a762fd9b56bff8c713e6d7679ffca27f5fa91b553646c8ecdedde243fd0e"
     sha256 arm64_sequoia: "62b817f56075b97caddec5777728d0851de6d126a12458914e4a90f6f79a1312"
     sha256 arm64_sonoma:  "d43ad0fa7a031d4448e9069b7292ab06c31b80fb87ce399b7a93e4e6e045b2c4"
     sha256 arm64_ventura: "27dd9084ba8330e173ffd31d42d1dbb8df358c5f624a6b0cc4cccf077515d2a3"

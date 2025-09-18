@@ -12,6 +12,7 @@ class Git < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "e4951ba5c6986367f36dc29ea0469cbe1d14e81fd1e79bcd125cf4ccd15f283f"
     sha256 arm64_sequoia: "e757c188846b025c11296d108dbf94cc13ffbdc299f042dcc0d1012236f84182"
     sha256 arm64_sonoma:  "037a3ee5f90aa6e67eb29749f9d37bb4245617ea4ce5a3aca961795b9f8b78b2"
     sha256 arm64_ventura: "ab01726cef10625602ddbcc0bd638ab939a142a5319999fb6f2fc0c995013535"
@@ -24,12 +25,11 @@ class Git < Formula
   depends_on "gettext"
   depends_on "pcre2"
 
-  uses_from_macos "curl", since: :catalina # macOS < 10.15.6 has broken cert path logic
+  uses_from_macos "curl"
   uses_from_macos "expat"
-  uses_from_macos "zlib", since: :high_sierra
+  uses_from_macos "zlib"
 
   on_linux do
-    depends_on "linux-headers@5.15" => :build
     depends_on "openssl@3" # Uses CommonCrypto on macOS
   end
 

@@ -14,6 +14,7 @@ class Smap < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fcac3c34ff7362e78d5674837d531780a9b3b0bd54b54b0172f5dd47ba523f9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "76fbb860e3293a917a8c0ea81e911cda57c0af6cb4e8cd89afb5c5063e45676f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "162d821d45208c377855150781facff0c083300805aff8b02303def6c0f107f8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd92aa17be58afaa0bc14baaabe80da512f7e636ed061be0bd7fb52600ce6d6b"

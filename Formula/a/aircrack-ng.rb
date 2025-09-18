@@ -19,6 +19,7 @@ class AircrackNg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:    "23f7bfece711bbf3e9dbb3555d3f00eba3e8d6670ca88cb5cf5b611f6b4fac9f"
     sha256                               arm64_sequoia:  "52dbe4ce295e97351a0ec2dfbb986abf37b2665a1775aa580fb70b45e806cbe2"
     sha256                               arm64_sonoma:   "fe96a817b4755ca8a498ad1cd45666a04238d3ed1a7bd3ce97f27f0fd68ae2ef"
     sha256                               arm64_ventura:  "d3d59c186fb570afbf6c925fece858ae01ed7d0a7290e3cccbd45a1ae3789881"

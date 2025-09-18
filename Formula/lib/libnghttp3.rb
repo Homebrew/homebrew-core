@@ -8,6 +8,7 @@ class Libnghttp3 < Formula
   head "https://github.com/ngtcp2/nghttp3.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a192e425b1ed18fdef7fe60a301433fd8111c595ab427fa8d42e2bd1e50f94a6"
     sha256 cellar: :any,                 arm64_sequoia: "1c9d28dd6fde53d9fa821b5193f3544efb334ff6a22c9153a3ad962f0263c7dc"
     sha256 cellar: :any,                 arm64_sonoma:  "0477cbc1c7fa2703ecd3fa23f1cb3186e8ea7a7d8cbeef80e0613e092f447bc0"
     sha256 cellar: :any,                 arm64_ventura: "8fdbe6c9891d73701f0d9de72fe5de56f84073268f076767645c058184ea8936"

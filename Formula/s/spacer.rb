@@ -6,6 +6,7 @@ class Spacer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c9ad1d7ef330ecff134c5087b76e6b5855a09e09dd39948a3de6c89f9db7bdc4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b44c96456fb68e660e0904708225cdec6910607192d425dc5b3e1ccfda3eb1e2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8588858045ca5046703dc2a0ad1973f47baeee8ab1f22559cd4bdc30aa4905e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b23b6de05f16c8231f4bfddf0a21fe48b76d6b894f5eb4f11caff5e9d68d3b09"

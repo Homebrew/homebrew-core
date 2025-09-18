@@ -11,6 +11,7 @@ class ApachePolaris < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7229485f96735caac813d019d79098e3df2e56d4e8106809498d00b9e36e98c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "da5faeee880b6153d66bc8ee21c8a8f6416f3e347ba86a9bb9c834cf83e546b1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5366a37b9efc409f116e4a2d358bb738af3db29a1a7686061710aecc345710c6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "311897ec4dffc9fab438e6c5a218beb7ab9bff375955c762a3f0a3bc00eafc60"

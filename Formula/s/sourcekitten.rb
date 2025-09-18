@@ -9,6 +9,7 @@ class Sourcekitten < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e270957f57aef52c0be6a8eac629ed87eb0f9af5b6e0c0068b5b96eb2e4c762"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "44c64e1df133d699d98585b6e1e358c2a3e6ddb330d5d82de43b489c6e8f01bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac988164695f5e9bf5dbd42e8440601aeff80355022cddcee0e750916fca784d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7918e02dcba07a9af1934789a236722bb537b726137ae41652ac7c03bfedc07b"

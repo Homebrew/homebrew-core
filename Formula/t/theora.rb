@@ -12,6 +12,7 @@ class Theora < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b611f6607b0d916bd49ec4b88113cd230d7c0199865b287e75b1ae769bae64b0"
     sha256 cellar: :any,                 arm64_sequoia: "0474983a6d3f2982c2b34586f12c58d5363ed4e67e6642686d295a4c62533d6e"
     sha256 cellar: :any,                 arm64_sonoma:  "878dc139277240e36ce8c46ed65d869f16fc3386d1f1f89206f897a1a96b199b"
     sha256 cellar: :any,                 arm64_ventura: "38881010b87d59c0e6fc985c48dd607a3a78f18f58ae6a91ba17d0f80bb89a5b"

@@ -8,6 +8,7 @@ class PhraseCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8d7ccfa5dca1fa8db9a410294c47ac1d72b64ac47f55552b2aee49ebbc8792fa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "14bfd0cdb3564be00d296a358bfaf37fc83f7ad0c7d1486614f306d566a31db8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14bfd0cdb3564be00d296a358bfaf37fc83f7ad0c7d1486614f306d566a31db8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "14bfd0cdb3564be00d296a358bfaf37fc83f7ad0c7d1486614f306d566a31db8"

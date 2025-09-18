@@ -13,6 +13,7 @@ class Ddh < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2b2788b0596f11e1662e743517535b5b5d61a034fa8b6ad5d4df84853905e58e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c38c189b4375eb8031c68bcd0c6f070ec7ce5c851306322d0b15d5c0a797f242"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7bea4c9d500b99400e8d5c043cb3b2fd9e2312198af614f23d1c99274b802809"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "572994664d86a2abf9505e70949230fa17b613dc7e594425f58a21ea7eb749f1"

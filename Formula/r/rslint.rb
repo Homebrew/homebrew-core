@@ -9,22 +9,23 @@ class Rslint < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ac8cd4c717dfda47bbf135c332e2468c8129772a797f577836c79ae8a5e427e3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29fe57341c2b7393232e7f5d17dd736b15a01f72d821697bb26017e536a388d5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6697bbdc7195bc43b2da2d32c7d1e53fbba9748c7f9f462dc08239e11cfd1c9a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "add49e65c3cc1f8d0e544dd43212efa4508082b9c6fdaaa8bf54e2f6ee3880fb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f935da848cd21f5f58b4cffc7625ec321c51a48a3c167fb956f230cea14684e9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "299278e0be3991ef83ccb8805677ffe5ae523d3e39c232064217074d266e66d0"
-    sha256 cellar: :any_skip_relocation, ventura:        "3e7dfc37a22fe9075f6b8b45fdfac7e60b56a8baf356d46744ca0cb57b708bd3"
-    sha256 cellar: :any_skip_relocation, monterey:       "6e5a4f7bb10c80874a93dec67e40d8cd9288782bb5d97259ec4aa5993bd82bc8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "67894ab1b9743c341e0032f8a62140494625d9196fe53040b7de5482cd2fae35"
-    sha256 cellar: :any_skip_relocation, catalina:       "ee4645f20575b26bb225f0cc02f8d16fbf2bee3d567e61f9ac62205deaa2a2e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "bcf5941ceabbe4a4b694a9f29898172742c9f1cda811628b189b36fa9d851abd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7afca2f2944a01e7f7605e4e8f63ca50a4881c5655aa61a50ca939b5c800790"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a889ed0f08b3102adb969159e71ba2d28aa7c40b1809c5fa10d7d57350e9731f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "063ceea1423e7a6c428f7d9c517c64a773eb5a0ffac97c55a45558081aa93d9b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5bba58ac05e2c259b3d2e135e5ec12afbea7d67b0b48a892d48554883c65e66"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a5c91e6d84fd85d4d8914caea6d4d261a514ce5c4bfa722d423f2bb78615c402"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "464a3bdc1181ddc042da940b4ed478ab546c5f62975a767f4494bea2b80407c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e037bb0d096c7f58a2f36fa404af706c0a0d5814eb6cf659b30690604b15e9b8"
   end
 
   depends_on "rust" => :build
+
+  # Fix to error: implicit autoref creates a reference to the dereference of a raw pointer
+  # PR ref: https://github.com/rslint/rslint/pull/165
+  patch do
+    url "https://github.com/rslint/rslint/commit/1ceaa3a78d591599a5fe30f702bdb3dae1004f70.patch?full_index=1"
+    sha256 "31186aec32f3a587f6401e2610ffa0dec2b37adc1bc4d9a88f816d87f57aa5a4"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/rslint_cli")

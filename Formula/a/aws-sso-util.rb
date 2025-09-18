@@ -11,6 +11,7 @@ class AwsSsoUtil < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "65fdc506df7b340d39e13afc43256a841b172f9ad7ed4b614f126d867bed4abf"
     sha256 cellar: :any,                 arm64_sequoia: "bab323da7693aca57ed3e3471b3cc3f167462798d1387d1ae2d1b0934d602fda"
     sha256 cellar: :any,                 arm64_sonoma:  "6ebabf3294219f2ab3c6f135e90a7cf43e28eaebc1f1765bdb341fe83c6b8bcd"
     sha256 cellar: :any,                 arm64_ventura: "2e4dc4ea27a97b8eeb89059d77842d21f2b6ce42712938f87ec78e2684d00c39"

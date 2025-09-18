@@ -13,6 +13,7 @@ class Nuxeo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93f5adedf349c5ef098d6dde573b8bd1c45c0f31fac0a58d4b231496199a496b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bfb386e5a43d6172b64ad766dac4c3e0abd1974f773137636df9a27e4d9e0d40"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bfb386e5a43d6172b64ad766dac4c3e0abd1974f773137636df9a27e4d9e0d40"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bfb386e5a43d6172b64ad766dac4c3e0abd1974f773137636df9a27e4d9e0d40"

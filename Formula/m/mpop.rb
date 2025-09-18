@@ -11,6 +11,7 @@ class Mpop < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "2439a807bef10bd2cffcbb38c61134bb112a8800e7814b6da5e517772bd9b187"
     sha256 arm64_sequoia: "150ff82a6b04b43d23e1bd2dd829aada62ce3ea5d9b3fed02b39576f4f63e54a"
     sha256 arm64_sonoma:  "1153dc80d795fce29566e64d3ef7f2af6f87576253da13a43328713ba7251a06"
     sha256 arm64_ventura: "2d583441a27b2a280df6638d0f84f3b13a36c3636a8dd688ec85ba452fccb0f4"

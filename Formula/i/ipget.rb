@@ -7,6 +7,7 @@ class Ipget < Formula
   head "https://github.com/ipfs/ipget.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6cb12240c529ada4d37251bd2bba3f1045180a4213b98a2f44d5c5a2c6a43048"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f41420515f24f4151ac4e4e29fbbd2d607dee62cbfa195b09bd77a241fcfe190"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a6ae77ccf0e43beebb025491bd2d753408ceb4082e8782da6bcdfa3d0479ba2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ceade243c775e105719c4a2f463dbb5d3b95613984891b6c553dc0a0dc64c259"

@@ -9,6 +9,7 @@ class Invoice < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b184af5ef239ded049ef736a7fd0b38166830eb48a68069ec2c087cd832f3a60"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57ae38669eb66909d476bf260857c15657b1a9934645adb5ec339fb6d56eb07f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfd3dde3902f66423f1a09b951ad977729e31b6e7b81e5e6f4f61de4765e438a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f60846fa811e66cbd42acd1d900081f5029a492c8b5959983faa333409a3207"

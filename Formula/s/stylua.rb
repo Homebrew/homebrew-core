@@ -1,20 +1,19 @@
 class Stylua < Formula
   desc "Opinionated Lua code formatter"
   homepage "https://github.com/JohnnyMorganz/StyLua"
-  url "https://github.com/JohnnyMorganz/StyLua/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "eeca8de825f7cd550a846bb2b0c409f112e8f16fe007863996cc49ca4b9641f9"
+  url "https://github.com/JohnnyMorganz/StyLua/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "257863316696fcb868186254c47cef54f80343c66a8bf1430cf24f35add0a475"
   license "MPL-2.0"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5cac08145d9bf7e5041b51bdb178656cc4f15b5c1d555057bf02554a014cae98"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79bbf43376aa36eb8f798fde745a2e011efde94157ed9b8c957f61a22692e406"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec0963645a2459ed16b34550edfc97ad830b88ee90b7d5840ad761fa1cbb947e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1cd2e9825ff467a29740088973d4be7b2221ddeabc58fc6a1ed13cc5048e9ea0"
-    sha256 cellar: :any_skip_relocation, ventura:       "e5e563eb5db649aaa7682149254131d1bc80f52c400ebed3fd29ecdee60b9b7a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9de2f4882cb9315a3cac3184f0909e341666863718eb4951850de5c9fba07329"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed74a1be8b98454ae54fac27dfdbba2437dd8ef89ccb55ce2b88eb54d36dd792"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eda2b1d3ba07ac901b4a56227852338f08dc9b93a825048205e18b73ef6bd542"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1900600da0fba318cb8c9160f00f509e25c2110b58bf5ae7bc95f3655c0d1b13"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "143a81087de47a92c02c6cc5defa03bce510349f53ca8338831d2b176264fda7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b314307b6786f249bb78ca539b73dd45171d8a1033341d6d0bfe1c5dfde4c9bc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "623721c0724c51963b9239affaffb2f527c206a4837d2c9fcb8300a995dced8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa602e46ab72f3401a60f9740f3a772527e8f3197284adf6d3952116242b6ee4"
   end
 
   depends_on "rust" => :build

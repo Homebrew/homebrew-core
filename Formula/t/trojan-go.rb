@@ -8,35 +8,29 @@ class TrojanGo < Formula
   head "https://github.com/p4gefau1t/trojan-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f58e47fab9a183c8212343c7e2e7fb4096af8ccc3a3d6db82bcace4e2a0feaf0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f9872077ff3a1ef7d427cac872b6b1ff7d3cff029c241e35a884e4b4a090e163"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "76f3e955eee77490f3104b14685a116a56697e78a77cd681a2161ae1889fc251"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec98c6b4c3d8848c7f4f509b2dc0597ced55ca1345e6cb7df3db3cc61e8806ca"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9762f85a824ff74c47da792549bee3b227c3abdc0cdb0e240cbedd353aefdfc1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6ad928d61bed0387e16832906b26d2f33cbb38bdc432f2fd9926c8dfb0803265"
-    sha256 cellar: :any_skip_relocation, ventura:        "88774cb71364936de995b60f0814352b844a0803b6da516def65ad0a5faef2b4"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e62938f7a9e79f03a657c4fdaa0399bd7b619043bc479bdb593d27d52bd37c2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dbd2c6728ed016b1edec17347f6afb7b2c963838785e9579c597a84c84760782"
-    sha256 cellar: :any_skip_relocation, catalina:       "032789eb1b094143bb9e0ff9ff2e322b4bed0e14e5a475459637dea749771a2a"
-    sha256 cellar: :any_skip_relocation, mojave:         "938d529de6c2e30510d85e21a15507d1dd25c2775e4f15a23f3ebfe341403d9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d97afc587b2f38bb0bd46c0ed9adaf6d76346ac92c42b7cee5b959f4a0f0b7b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5ff7287bf3913b64c7f3a691df6229bd4a2dbb5f44d46e73ce1b36b968bfdc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5ff7287bf3913b64c7f3a691df6229bd4a2dbb5f44d46e73ce1b36b968bfdc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5ff7287bf3913b64c7f3a691df6229bd4a2dbb5f44d46e73ce1b36b968bfdc2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aef59484731100b7a80263353a251ad5c33281f0f3ce0fe4c3c427f42aaa3867"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d15ceba20c4d223f29bcb8daa59d4e045a089cfdd49c10a9a98dd770565d6fc"
   end
 
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202109102251/geoip.dat"
-    sha256 "ca9de5837b4ac6ceeb2a3f50d0996318011c0c7f8b5e11cb1fca6a5381f30862"
+    url "https://github.com/v2fly/geoip/releases/download/202509050142/geoip.dat"
+    sha256 "a01e09150b456cb2f3819d29d6e6c34572420aaee3ff9ef23977c4e9596c20ec"
   end
 
   resource "geoip-only-cn-private" do
-    url "https://github.com/v2fly/geoip/releases/download/202109102251/geoip-only-cn-private.dat"
-    sha256 "5af05c2ba255e0388f9630fcd40e05314e1cf89b8228ce4d319c45b1de36bd7c"
+    url "https://github.com/v2fly/geoip/releases/download/202509050142/geoip-only-cn-private.dat"
+    sha256 "845483083b4a7a82087d4293e8a190239ae79698012c1a973baac1156f91c4c2"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20210910080130/dlc.dat"
-    sha256 "96376220c7e78076bfde7254ee138b7c620902c7731c1e642a8ac15a74fecb34"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20250906011216/dlc.dat"
+    sha256 "186158b6c2f67ac59e184ed997ebebcef31938be9874eb8a7d5e3854187f4e8d"
   end
 
   def install

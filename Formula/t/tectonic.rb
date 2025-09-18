@@ -56,10 +56,7 @@ class Tectonic < Formula
   end
 
   def install
-    if OS.mac?
-      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s # needed for CLT-only builds
-      ENV.delete("HOMEBREW_SDKROOT") if MacOS.version == :high_sierra
-    end
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac? # needed for CLT-only builds
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration

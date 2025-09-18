@@ -7,6 +7,7 @@ class Csprecon < Formula
   head "https://github.com/edoardottt/csprecon.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce6b1c59b47c34da20e4546ede658863ec1ffded920eb68a8e5e3cf37f5157be"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "43e7dada39bc18de317debf6aa89be1517b02261acf152246c15246b41689636"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43e7dada39bc18de317debf6aa89be1517b02261acf152246c15246b41689636"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "43e7dada39bc18de317debf6aa89be1517b02261acf152246c15246b41689636"

@@ -9,6 +9,7 @@ class NetcdfCxx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a193f027eaaa1c1586f10397427d5729fe0d653d569226ea02c85990d00bb449"
     sha256 cellar: :any,                 arm64_sequoia: "50dfd3ba9dea12a4a355e8643a74ca53b6c184c96e3bcdf0e24e3052491be0c8"
     sha256 cellar: :any,                 arm64_sonoma:  "e80f685cdd7fd31e72e0fdeb96a8770a243f4729d0a2f0417808782dfd2d5bc9"
     sha256 cellar: :any,                 arm64_ventura: "f6c50e7a23adf951aae09e8a600f560a4679fb9ce19eabfd692f92442a5a5314"
@@ -36,6 +37,9 @@ class NetcdfCxx < Formula
 
     # https://github.com/Unidata/netcdf-cxx4/issues/151#issuecomment-2041111870
     args << "-DHDF5_C_LIBRARY_hdf5=#{Formula["hdf5"].opt_lib}"
+
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
     system "cmake", "-S", ".", "-B", "build_shared", *args, "-DBUILD_SHARED_LIBS=ON"
     system "cmake", "--build", "build_shared"

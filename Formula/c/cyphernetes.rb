@@ -7,6 +7,7 @@ class Cyphernetes < Formula
   head "https://github.com/AvitalTamir/cyphernetes.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b380ece361c7b87ff3e6994d6f5a688d79d7a4e489cf74c768a3bbffc346a51f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8e2d361e03bd89d0b809099a72eac56a8ab8ad739965a12cf7786733198e937"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8e2d361e03bd89d0b809099a72eac56a8ab8ad739965a12cf7786733198e937"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f8e2d361e03bd89d0b809099a72eac56a8ab8ad739965a12cf7786733198e937"

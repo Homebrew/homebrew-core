@@ -1,8 +1,8 @@
 class Massdriver < Formula
   desc "Manage applications and infrastructure on Massdriver Cloud"
   homepage "https://www.massdriver.cloud/"
-  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/1.11.9.tar.gz"
-  sha256 "11d5af0308bfd665611d05f188cf164efc1502c1489c0a440eed9317ed3f855c"
+  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/1.12.3.tar.gz"
+  sha256 "f3a0365c59f38655f08dc7165bb80591ea199e3c586d546aaf9b45e8930a029f"
   license "Apache-2.0"
   head "https://github.com/massdriver-cloud/mass.git", branch: "main"
 
@@ -15,12 +15,13 @@ class Massdriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af453a24d577cad5b1f7f7c1fb1b7ad7d305fcc836a30012c8f929ec68617e54"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af453a24d577cad5b1f7f7c1fb1b7ad7d305fcc836a30012c8f929ec68617e54"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "af453a24d577cad5b1f7f7c1fb1b7ad7d305fcc836a30012c8f929ec68617e54"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7d2cfb14cf1f56043d0521d09a61fcf3db30b49a3c99e29626f3e752f47e24d5"
-    sha256 cellar: :any_skip_relocation, ventura:       "7d2cfb14cf1f56043d0521d09a61fcf3db30b49a3c99e29626f3e752f47e24d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d685d1c84e97f46e2c3b2436f95009f6786c11942bc2da90154cd1f8641a4724"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa22709bd25d167b9191d7fa251f9a70686e0a5d970010ad36ddc115b37b5731"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa22709bd25d167b9191d7fa251f9a70686e0a5d970010ad36ddc115b37b5731"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa22709bd25d167b9191d7fa251f9a70686e0a5d970010ad36ddc115b37b5731"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fa22709bd25d167b9191d7fa251f9a70686e0a5d970010ad36ddc115b37b5731"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c09572b599fbb3fdf2372b33d9fc27864a40ec4c2038ae76e03f229b46c4fcd6"
+    sha256 cellar: :any_skip_relocation, ventura:       "c09572b599fbb3fdf2372b33d9fc27864a40ec4c2038ae76e03f229b46c4fcd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e308e44063ac23a97bb179b8a8cfe683deca7dad8187dbaa84fe66e27ee61b53"
   end
 
   depends_on "go" => :build

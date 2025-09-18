@@ -10,6 +10,7 @@ class Pwntools < Formula
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "01f345006078617b0815532b623198d70cde5e53b75882e9834ddfc1c66a4e84"
     sha256 cellar: :any,                 arm64_sequoia: "f989c54c821d844d3ba9cb6b6d20bd6253a0633ef4c06631fc55986f8bdf95d6"
     sha256 cellar: :any,                 arm64_sonoma:  "03ce8629560c18870072c7a0722b9ef82d0be01408787a0d4a269ea49b399748"
     sha256 cellar: :any,                 arm64_ventura: "1e74bc2bd0e533f8b1ab400caae515ac61401f55a082533a2c15e2b1debe1411"

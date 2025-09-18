@@ -7,6 +7,7 @@ class Mdz < Formula
   head "https://github.com/LerianStudio/midaz.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa0f6ecedb19cc289f747f3c2554457878652d80a053df7dc19b0d3bab624e9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c69e7134f0152042b54fa4957a752097873234f6311d78088d3ba67db9aaadf1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f84fa033eda281b17a78923aadbfa09b588fbd4db6fc101e1f05edc413adae2c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0d2aa02087ec6bb30bfe7e3b9c22d756227bdc0fb20116eaae84e4925627af6a"

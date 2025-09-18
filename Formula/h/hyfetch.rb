@@ -3,20 +3,20 @@ class Hyfetch < Formula
 
   desc "Fast, highly customisable system info script with LGBTQ+ pride flags"
   homepage "https://github.com/hykilpikonna/hyfetch"
-  url "https://files.pythonhosted.org/packages/71/ac/16335a530041683e3c193694cc9db3b53ebfed9dab3db3b69d485bda8ce4/hyfetch-2.0.1.tar.gz"
-  sha256 "bec29bfa0bc2b7309782348a0ca7c906cb481a3375da04b3c7f58a6f5cb512f9"
+  url "https://files.pythonhosted.org/packages/35/f2/8b24d32c63110d3ba7e5e4c88827827cb05eb4e3d14c6652304c546b0e71/hyfetch-2.0.2.tar.gz"
+  sha256 "d11eed4b6082095a9e41272fb846e9ed029b172847c9d30e8646eabee9da2b12"
   license "MIT"
   head "https://github.com/hykilpikonna/hyfetch.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31e680df65150d190705ba61e3f068406ad45043f492fb0ad8f63f060ef59611"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9373613ddfb2d360b59abf4268cc1f45e3e8f19e14486233012e5773eaa0d295"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fb47891108172c2c4723689fe04fbdb3f14a8f1968acf60cb3eb366909953746"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b798a9c96bb06c5890829acb1cff48c198dbbdb657faf51671d3a80f17e4683e"
-    sha256 cellar: :any_skip_relocation, ventura:       "f84d32b7145350501aca7441085454ca8c822c05fb6b5d543f8a72e7ceb72a3e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "22f601bb4312ad5afda10047c666dfcf1b1baa211cc1dc05a2a5313dc70ce380"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34eaa8055a0f8078a95c910ac407fc2a840c3be5a6f72c4e6250275407ad54ea"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a741ff07d2c06f5699c1f4033ce043ef552ed537fbd06af8aaba88e931bed153"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecf7782b7ca99b2ea6ccf9a54e87e2c66a8bce760b5f7f3a992527aa95ad7f02"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e89c770eeece455da86877b6345728ca3916b7838a8b333d1560c10b7924159"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72eacb11247a3faacce42064660b165d58372767ea95b67f12fe2eb1bc713a63"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a2f094b69ee84858776042ed1035b557ce3714e18e6f811d82eba87acaca236a"
+    sha256 cellar: :any_skip_relocation, ventura:       "a6167bc7bf433fb80a18ca06e123074bbf90f084cc2fd14cec953ab4b1640f13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cabcff935bcf4eb9fd146cca0ee94dbfa84b3d8cdfa1051cb56544f01766b273"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6daced8169bc437ff28c950d27fea8a33f018fec96821f66ec4426be6c4632ab"
   end
 
   depends_on "rust" => :build

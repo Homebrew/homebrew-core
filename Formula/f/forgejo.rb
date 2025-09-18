@@ -1,18 +1,19 @@
 class Forgejo < Formula
   desc "Self-hosted lightweight software forge"
   homepage "https://forgejo.org/"
-  url "https://codeberg.org/forgejo/forgejo/releases/download/v12.0.2/forgejo-src-12.0.2.tar.gz"
-  sha256 "eb34c79dba4b6dac05330eb875a58e804b4c290854b482750d27926a13263087"
+  url "https://codeberg.org/forgejo/forgejo/releases/download/v12.0.3/forgejo-src-12.0.3.tar.gz"
+  sha256 "65318cf8c843d92ee984f26072846df97a76f2c7f5dcb76746161c7d21b70974"
   license "GPL-3.0-or-later"
   head "https://codeberg.org/forgejo/forgejo.git", branch: "forgejo"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a95ff7291629ec00af538d545585c4f8462707205ac98c4d7523e39a53dcb9f4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e9e6165c1a71e414db8f61465c5a97ef61586e8a12000e03a14a16531a178ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7a2abfeba539ffc861c2213c4c9784a35d5abd7e5a57b9408eade2f195126289"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b28993d6e464a0866423b4ad2327c3695617fa7d37f406783443dc7ec0ca42f"
-    sha256 cellar: :any_skip_relocation, ventura:       "4338d2a5d5d7dca46a7aaab116732c586dad0f05af826dec60cf187498de87a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95d06496d8c3ef0acc293ebe9f76aa46e02701173ca5afdf8ea9d105fdc1ff37"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98aa2e0d4f2d111cb097cfe94fff00b90100899894c948306073cc8fb574b91b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2218ce6f718ce4be76a7655cbea06606a93e289af210537fcad65d434d8393e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f6e531c8372bd283477fa44519e74ab614a42f839b810e99eb6fb357d78e15d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5f0d994c0f30c871869848032895949efb25446d6ebf2a841d730bc1ff1d6037"
+    sha256 cellar: :any_skip_relocation, sonoma:        "74d29e02d5f299616d59b7eff0219c64ddcb66de99cd1b31f0be5a1f2b031fb1"
+    sha256 cellar: :any_skip_relocation, ventura:       "b0c623e840080c3c69b0fb0a6ca195fcb49a5bfbf903d886bd8f211b8b3d68a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c917b7a85a84383c20cc11375c912aa98598bb269c65e805e2e3f14431b900fd"
   end
 
   depends_on "go" => :build

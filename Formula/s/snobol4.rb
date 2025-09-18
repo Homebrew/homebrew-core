@@ -11,6 +11,7 @@ class Snobol4 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "76b3222469613ba6e90653854907660b1b13724b1a2920efe6893cbfb1f7e968"
     sha256 arm64_sequoia: "d628d4ea0897d407f1b244dc75fb8168b93d77b1de0c862200acfba011096009"
     sha256 arm64_sonoma:  "b3f7a50e01ebddadfe570f4e13a630898a86e388e65ac4e2cad8e88b268b3d1e"
     sha256 arm64_ventura: "a382d391551c2bf3462b47c2214c0d4bd7f79fbc90b46494a6bfa13fc60ea825"

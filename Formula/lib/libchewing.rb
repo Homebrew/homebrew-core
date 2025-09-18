@@ -6,6 +6,7 @@ class Libchewing < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e3651a3670c1805988dd3a66b2e1f685256f8373c23496f54b9da5edcd43bfc1"
     sha256 cellar: :any,                 arm64_sequoia: "ce7436adc6b0fd817bdc95c7cb78ae6b2c300cd72302537bfc90b07cb88a44ea"
     sha256 cellar: :any,                 arm64_sonoma:  "31ade48e25e4ee49d29746193c8d21d17f296f7b69858f88d9044c154f236fe6"
     sha256 cellar: :any,                 arm64_ventura: "0866cec5ffbca86fd920c6bed163b60bb2e6cf5bf1c37e7bf48920f48d4fe817"

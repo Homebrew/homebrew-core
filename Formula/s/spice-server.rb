@@ -7,6 +7,7 @@ class SpiceServer < Formula
   head "https://gitlab.freedesktop.org/spice/spice.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3d4a9ac58d3fefbd7d4ff3b286623cabb0573dbee26ecc258c63ac2c4857c623"
     sha256 cellar: :any,                 arm64_sequoia: "600da87f0215eb7a409047dafcda30bf99509ed4f52c1adc463e5f5169c29d87"
     sha256 cellar: :any,                 arm64_sonoma:  "c25f2bb724d33169028e41b409c230030aa2efc7ea95af9ddd52f5c3bbdf4b4b"
     sha256 cellar: :any,                 arm64_ventura: "027a196515564119dae4fcc9ce048890ce71f1f947904cc1b3a96f6ba82b4086"

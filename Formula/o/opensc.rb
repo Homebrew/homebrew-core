@@ -11,6 +11,7 @@ class Opensc < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "e30686709adbd2ed9e741d46ee7732ba4bdc26835662f674ad97d4a15c14f00b"
     sha256 arm64_sequoia: "0ae0073b4ba388df854a2c1bb2a31ad83e4ff800eb392d25779403defdff1ab2"
     sha256 arm64_sonoma:  "4e7694a574e648659e39287e6f79dd5b78c48f284cc186a9a5877a3dfbd0972f"
     sha256 arm64_ventura: "b6920b3fcde75811501cea04279e70647e5abd1a437783a3cfce8fb56082e6c7"
@@ -56,10 +57,10 @@ class Opensc < Formula
   end
 
   def caveats
-    on_high_sierra :or_newer do
+    on_macos do
       <<~EOS
-        The OpenSSH PKCS11 smartcard integration will not work from High Sierra
-        onwards. If you need this functionality, unlink this formula, then install
+        The OpenSSH PKCS11 smartcard integration will not work.
+        If you need this functionality, unlink this formula, then install
         the OpenSC cask.
       EOS
     end

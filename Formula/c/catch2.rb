@@ -7,6 +7,7 @@ class Catch2 < Formula
   head "https://github.com/catchorg/Catch2.git", branch: "devel"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de3d0740dd8a59c88b5b179cbd4b20b849cbe58cdaac32d160fe279e55315e6d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9605060157e1be122a5a9fce752c043f4f0c2cc71a3c2f4c2c54378256cf44b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2693c5116180538554910f33585e1afb47425ba859b7898855453ff03a69788"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "334638b7b03693d583e69d094332101d26ab0853d391fd225c360bd04f72ffc0"

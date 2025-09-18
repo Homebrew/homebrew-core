@@ -11,6 +11,7 @@ class Mpc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a325c2d6c27f05beb9fda4c43029512fe2c8542793a3773cf27ac4684f794904"
     sha256 cellar: :any,                 arm64_sequoia:  "db50052b3d26b915d7dc62a48b0a321a8c7508e1432db97da28d784011b267bd"
     sha256 cellar: :any,                 arm64_sonoma:   "f1e59f68f047fc8dd086e5e794345af28749a3d2b83e5d922c1245a6f32a1c36"
     sha256 cellar: :any,                 arm64_ventura:  "331071de8326f5a6fa77df9ccd4c0631935df430e87842561f2879c7c313c06d"

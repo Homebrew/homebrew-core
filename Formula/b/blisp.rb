@@ -7,6 +7,7 @@ class Blisp < Formula
   head "https://github.com/pine64/blisp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6848a685d16c4a25a770a11a1059474540579f47a0af7b87bd0a907c3fc70275"
     sha256 cellar: :any,                 arm64_sequoia: "ff28997c11bce2736f54cdb6e31fae1ef5ba7637443203d29ce8b7b5d947cfce"
     sha256 cellar: :any,                 arm64_sonoma:  "b034d4d4510b4d817547caf94730a1a6262608759849ea5782c957b4e8bc157a"
     sha256 cellar: :any,                 arm64_ventura: "8429a988fc4858c21db8bbb87150e1aad7d1d11a306d4a90566c831f3b9b3dcc"

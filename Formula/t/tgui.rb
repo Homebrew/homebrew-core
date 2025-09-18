@@ -11,6 +11,7 @@ class Tgui < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f152b4bf6b55a193fdb1058af529d2f8d4799f34f17e202f396492a447a3e667"
     sha256 cellar: :any,                 arm64_sequoia: "f6f46caab2a2b966f68e41d0bf192a6dba8fa0bc5b1d10f6bf45befd33587b28"
     sha256 cellar: :any,                 arm64_sonoma:  "5b9ac5c064671a3502e0379714e5d3e46b1ab0200c34cc3733f97b5d940327b1"
     sha256 cellar: :any,                 arm64_ventura: "65448ad581173ffa023bbca10808ba9adf50a1ffea0ea2b380a2463ec938b2e4"

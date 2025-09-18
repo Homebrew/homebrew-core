@@ -9,6 +9,7 @@ class SnowflakeCli < Formula
   head "https://github.com/snowflakedb/snowflake-cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e49ddbfff1d57b4a83621e3e30ba52e62f77e8dc47159371f4967276b9270488"
     sha256 cellar: :any,                 arm64_sequoia: "0a29296a59b6de06fa9d8227fa2f302f0866afa3baed1f1dfeaabc290f49b520"
     sha256 cellar: :any,                 arm64_sonoma:  "56fc710f752723533e881df18c933229f946ad1a05abccff94a8aeb6b3740f80"
     sha256 cellar: :any,                 arm64_ventura: "f1e9e766e2f050f747e19780c85563bbfcd7a53f98b39d2107c12a4eca0d5161"

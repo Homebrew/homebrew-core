@@ -11,6 +11,7 @@ class S3cmd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5663979883faa0aadb105a82c2e506be1271d213889588286cf3cf4e3d347f6e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b14b322ca3b3b43c0f0ef051dee2908cf1c16482d4e7ba74a1865860c8956edd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b14b322ca3b3b43c0f0ef051dee2908cf1c16482d4e7ba74a1865860c8956edd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b14b322ca3b3b43c0f0ef051dee2908cf1c16482d4e7ba74a1865860c8956edd"

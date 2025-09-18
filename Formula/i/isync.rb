@@ -6,6 +6,7 @@ class Isync < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a18d4f460ef180b6fc4020ed2158fc10015fbeeba620f7e9fb0906437f9474f7"
     sha256 cellar: :any,                 arm64_sequoia: "679faf8c8def86ce0224c4f1edbff742549d5a7f7ec1389f30c5b9d050844fce"
     sha256 cellar: :any,                 arm64_sonoma:  "4e4510861b03a2ccec9b01b0136ddb6ed903db1d53e8691ebf7606f225d5eb40"
     sha256 cellar: :any,                 arm64_ventura: "130456630d195bea122ac91aded7cfa8b4375bb954325f4b0806b73322125978"

@@ -16,6 +16,7 @@ class EmacsClangCompleteAsync < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a296b59b9a23aea107b92e8144b2e95886767871d898d0a9afbf04bec6ae0ccf"
     sha256 cellar: :any,                 arm64_sequoia:  "171855a6a36e55afe0109bf492172c3718b566a6de8a962f5db0557ed1e16e43"
     sha256 cellar: :any,                 arm64_sonoma:   "33e186cda9570a911bd5e90a213c6abfb6960f7f8c8f5ba1d5bd3c4da0e373be"
     sha256 cellar: :any,                 arm64_ventura:  "d98ddff053cb22024c2edf5a57d87f3e0c6ce35a7564cd02d77de2df76617204"

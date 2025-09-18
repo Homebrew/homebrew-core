@@ -6,6 +6,7 @@ class Ncspot < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cb345cc7b697d592d7dd4ad42a3bdca869d49e0293f59deb7c51058517088cfa"
     sha256 cellar: :any,                 arm64_sequoia: "9bf2c2f4ac84e00df974d4478941442f78e91c14d34bfcc10c1706f19d60f093"
     sha256 cellar: :any,                 arm64_sonoma:  "11100b8b9d9ff8a214d127197a1ed3670d445440ff2a80cedd663ad490cbcf22"
     sha256 cellar: :any,                 arm64_ventura: "da02d72a547b95fe98bcfa287fbcd55835b0b6b6802afa0da2a896cb47fd0080"

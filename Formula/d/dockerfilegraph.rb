@@ -7,6 +7,7 @@ class Dockerfilegraph < Formula
   head "https://github.com/patrickhoefler/dockerfilegraph.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da81dcc0ef5965cbe6e323d345de953b5127f5d5a69346983768df3716ba8c24"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3cec0eb74fbe428aa3c49ece64e51a210aaaeebff2d26d492ef3b88c020f709"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3cec0eb74fbe428aa3c49ece64e51a210aaaeebff2d26d492ef3b88c020f709"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b3cec0eb74fbe428aa3c49ece64e51a210aaaeebff2d26d492ef3b88c020f709"

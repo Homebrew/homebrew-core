@@ -11,6 +11,7 @@ class ZlibNgCompat < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b32d94fa0ff7dc3280c0241fde0c08f57b07150957df9c835e0d2495b2021284"
     sha256 cellar: :any,                 arm64_sequoia: "d45195acef3111fc30f38266ceb5aab77039826629f4edd15897146ca05b7504"
     sha256 cellar: :any,                 arm64_sonoma:  "e6cb4d804686d11b277d4a2cb11ddd5ab4cce08a49488e35a1c906729e3ba928"
     sha256 cellar: :any,                 arm64_ventura: "5dfd915e6230af6ef5b47d84d47aa8a2637c4cf394b3738c82ad3965b9e922b0"

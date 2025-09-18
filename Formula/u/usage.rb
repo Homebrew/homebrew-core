@@ -7,6 +7,7 @@ class Usage < Formula
   head "https://github.com/jdx/usage.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c7b82c1f9494b4151fc9807825a00db33205e591b78b9271c99599cfebbb27e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "71aec98b26ebdceca78f743b994dcebacbadef9c43984bda9524745433c904f6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8f32020592139dae98c5cf4b2a476d1b879b0b265e819f22b7456e104a3dcde"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "56d420afffb8ce61c2276422ce4033e761a95c638d6711b1f30e28b878a4c104"

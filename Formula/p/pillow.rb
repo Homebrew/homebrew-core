@@ -8,6 +8,7 @@ class Pillow < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "7f3bb7bf3cf39d7ea983767045c4d51a23490759e6e887b6ac1c78aeccbe9b85"
     sha256 cellar: :any, arm64_sequoia: "138890e7acddd45d3b85aa806f0d49bf1e0426a3f5c3d62abf9b0bdc6ffd3ec9"
     sha256 cellar: :any, arm64_sonoma:  "072ca716449f92fc41973226a562e07b3b68edc481ed2399dc1b41ddd6dfebe1"
     sha256 cellar: :any, arm64_ventura: "5d131476706a4d24992d79d642f065b1f902b1769b550b13115ce0d77e27ee5b"

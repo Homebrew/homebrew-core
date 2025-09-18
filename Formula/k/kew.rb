@@ -7,6 +7,7 @@ class Kew < Formula
   head "https://github.com/ravachol/kew.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7e97980b672aeffd8ef46a9940d956b685108c7effe4c02655c0031055fb703a"
     sha256 cellar: :any,                 arm64_sequoia: "42a93ffa2eccf067b073f91cab44b4f6a4d03a85729a706be35c94ccea2e0a84"
     sha256 cellar: :any,                 arm64_sonoma:  "f1b565c5cfafe41eb395c201002c6a1289213392ea2b048f9357a8d40b100ae8"
     sha256 cellar: :any,                 arm64_ventura: "6d49e4c7233cae8208281e236cbaad6278f836d4166647a4bfecca9a0d770cd5"

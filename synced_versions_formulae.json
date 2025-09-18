@@ -64,6 +64,6 @@
   ["technitium-dns", "technitium-library"],
   ["tmuxinator", "tmuxinator-completion"],
   ["tree-sitter", "tree-sitter-cli"],
-  ["vulkan-headers", "vulkan-loader", "vulkan-profiles", "vulkan-tools", "vulkan-utility-libraries", "vulkan-validationlayers"],
+  ["vulkan-extensionlayer", "vulkan-headers", "vulkan-loader", "vulkan-profiles", "vulkan-tools", "vulkan-utility-libraries", "vulkan-validationlayers"],
   ["wp-cli", "wp-cli-completion"]
 ]

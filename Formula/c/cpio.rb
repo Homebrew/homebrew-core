@@ -9,6 +9,7 @@ class Cpio < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a1aa072a11ce1402aaf38319e6fc087b9bf4fa029f2b76cc748b0d122f0cdce0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fced3fb939f4c350d3ba4b81b2b071d9510728ea28135429cdc150d40f7a1477"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3fd07e72e7f35a4b9e3c7114906c3d791c59adc2cf91b5cf9fed06962e08be3d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "75fbea8507a8460214cc41c28fdf6926422d246f970e67a701e5e946703a8705"

@@ -9,6 +9,7 @@ class OpenTyrian < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "f6dd404f14a99279b9ea9d9dcc7343e56e2094a329a4424340c361dcb523ca30"
     sha256 arm64_sequoia:  "7a860fc29e71e5a0fc1b97ca782c57d39eadde156b0d557880e840ac1a588e5f"
     sha256 arm64_sonoma:   "b35a65491b3b3e18929614588953e7d05c9a59ddc8037c3524a8d69f0da5a7a7"
     sha256 arm64_ventura:  "97b601296652fbd37fa910ae6ee874ebe3fd0d6a6744f4518b1dbdb77db31544"

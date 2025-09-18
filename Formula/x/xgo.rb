@@ -7,6 +7,7 @@ class Xgo < Formula
   head "https://github.com/goplus/xgo.git", branch: "main"
 
   bottle do
+    sha256 arm64_tahoe:   "d62b7759ab524d58fed0db26b9e246a57fba412b1e7202cf89e2e0cbbe01dc9c"
     sha256 arm64_sequoia: "02f42cc3c46799e6b809b50ceaa5512cafa6d8ff4e6ea4d744e98dd2e26e1fb5"
     sha256 arm64_sonoma:  "1e233953be33fe67c6fb3d679165d8370417042bdedad289e4af23bd24760994"
     sha256 arm64_ventura: "d0d0be86ca90cf721534a7c7b1d719dec6b03e551a940cbaee7f23c2e829cf8b"

@@ -11,6 +11,7 @@ class Less < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d4a0fc7cd89bbc1ecb562a3ea2c6be1eaee64e2cadd6a2a647ade31e77732654"
     sha256 cellar: :any,                 arm64_sequoia: "2c167ef66f66ea608f4d8c2a62daf90c54d209c492ca36373b6c4b21889c2124"
     sha256 cellar: :any,                 arm64_sonoma:  "c8d271ef876c5591a67460068226247fb597f1b802b2616c85ba43d6b6b842e4"
     sha256 cellar: :any,                 arm64_ventura: "bd30a0f7e3b09305d58c8b943341d19480292bfc0316a60c731ef95e7d943170"

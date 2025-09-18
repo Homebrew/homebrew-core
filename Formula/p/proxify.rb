@@ -7,6 +7,7 @@ class Proxify < Formula
   head "https://github.com/projectdiscovery/proxify.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0115217c88f10cfbdc76745ef04ae0d7f1d663cbd081d57b1fb1a4da7819fe68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3e2bdfdedcdcb3ebddd535df0f187dab19b794869793bc5f0a096412423122b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f512065276786dbe49e669c2bd6dda009952c5650817d7fda48659a7e99c08d0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "55d02209f5e215cc15c57df775866a9f95de9de9c797acce7ca87ba95c715aca"

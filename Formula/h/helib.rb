@@ -8,6 +8,7 @@ class Helib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "4e20546b2ee87a25024046b8b06b47c6b6b7a0613294bdd7c9a125f9199fec7c"
     sha256 cellar: :any,                 arm64_sequoia:  "7a0fdca928c8a547f654e16f831250201e5446eb0f5b2dc80a8dc6cb775a0975"
     sha256 cellar: :any,                 arm64_sonoma:   "3c872b546835221839113e47e3d5afe25e094e1e9f2ff45379a8e1f82a6c1d6e"
     sha256 cellar: :any,                 arm64_ventura:  "fcbf73389a3e7c97b6094b2fbac15446ceba4d79326c174cce1a136a4321edf9"

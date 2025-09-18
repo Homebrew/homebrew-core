@@ -15,6 +15,7 @@ class Gpsd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c5997ed5f203725d794c2e5c64151244707cd8944de3656a756457e193673c5f"
     sha256 cellar: :any,                 arm64_sequoia: "54e49549e87a088ae8fded07a143dbf8cdd016d9b0b7adbba6ac2b56b8bd9827"
     sha256 cellar: :any,                 arm64_sonoma:  "b167722509389681bbbc08adda95eeddfaa7ea6be024ab60fc2d719212a01c88"
     sha256 cellar: :any,                 arm64_ventura: "5fd0ddadcb70eecd5489f8edc43cffeb22bf7c66d8fe1427d86fbec7e3e61bb9"

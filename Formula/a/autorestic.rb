@@ -7,6 +7,7 @@ class Autorestic < Formula
   head "https://github.com/cupcakearmy/autorestic.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ad574bcd9a1adb60d03421185b68465feb9b39db31df3e3031b6d691553c0df9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e2cade21fc658ba2dc41a9340b62816575ccc5107dd3785d0ff3a718efca1115"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b08a884dfb153b6fe2127bd30c91ee36aad5622ec69305b13ba23b43d358c351"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b08a884dfb153b6fe2127bd30c91ee36aad5622ec69305b13ba23b43d358c351"

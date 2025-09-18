@@ -7,6 +7,7 @@ class Vals < Formula
   head "https://github.com/helmfile/vals.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e37808a2eea437e0ca8ac22397b956bf294f22df3a4ce99dbeaadcd750da87a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9fee189414c6417d5f5c786971df07c631a483e3887763d6be14881666f6478"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9fee189414c6417d5f5c786971df07c631a483e3887763d6be14881666f6478"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d9fee189414c6417d5f5c786971df07c631a483e3887763d6be14881666f6478"

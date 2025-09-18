@@ -7,6 +7,7 @@ class Reproc < Formula
   head "https://github.com/DaanDeMeyer/reproc.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a9dc4b5152435ee4d4d0a3507837b170a60b74bc69c62942d790a475a799e20e"
     sha256 cellar: :any,                 arm64_sequoia:  "d0c6ae20f545beb6bcdf1cef7492705e3ee5985c17799f43d4877d5d4c69db2c"
     sha256 cellar: :any,                 arm64_sonoma:   "4d56ba8e140f0ec062188d880a89853361a324a276042f87dfd7534879a8c1f1"
     sha256 cellar: :any,                 arm64_ventura:  "95bc077fda0d3238e9a6d7bee628adcc5cf3fd90268b8e4ee96c97e075d97f74"

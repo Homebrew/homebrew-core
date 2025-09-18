@@ -13,6 +13,7 @@ class GtkMacIntegration < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "ee2a0dd43946f07ac42ef0acad00a96aa5075890029f32272a139d5d1fa07f0e"
     sha256 arm64_sequoia: "7ca343892d71cdb55caf11b1998168507845c155857f0064b5e5847352a8a233"
     sha256 arm64_sonoma:  "cf8e1ad3215498c4682d30479c1850a89e1fcf478d9b69004da3dd7105afff75"
     sha256 arm64_ventura: "03dbfce85532960db4084577e2e3ad7d7b6f82975dc3edaf3d96435a83a79526"

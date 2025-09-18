@@ -17,6 +17,7 @@ class Libmp3splt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "cf832d5f19a4a5c00e9ceccc25a6669791ce4dc1bf2c93b34556ee0eeaa272bf"
     sha256 arm64_sequoia: "7ab04ee463178da4c4319a3e795ad0f18d09aff98450a5f8eacdf206fdb059ff"
     sha256 arm64_sonoma:  "8ac44f180edcd601f4fd078a49742f91387466489c3336d534772702ca8d3e61"
     sha256 arm64_ventura: "2d729d944e28d5d3c651b5be9e7b4aed770fdd51894175b82318414d12fd1850"

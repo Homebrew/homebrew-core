@@ -17,6 +17,7 @@ class Irrlicht < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "8113fe1762137fbcd055dc31d7002e413f730fa502cee505ba2ff91461e4f5d2"
     sha256 cellar: :any,                 arm64_sequoia:  "045c5bc182a699319caede3eda01d1e51487e2bb176ed6609af6f045a3674068"
     sha256 cellar: :any,                 arm64_sonoma:   "52d4ef47d187ba97e3d75832e69650fe4c042019e379b9937c27f6e4864e4927"
     sha256 cellar: :any,                 arm64_ventura:  "d50090b7519be5ae7851a96f142261e094e1ae2bf0da926d2ba4f7f8d334a462"
@@ -61,6 +62,10 @@ class Irrlicht < Formula
     %w[bzip2 jpeglib libpng zlib].each { |l| rm_r(buildpath/"source/Irrlicht"/l) }
 
     if OS.mac?
+      # Work around error with clang 17
+      inreplace "source/Irrlicht/MacOSX/CIrrDeviceMacOSX.mm",
+                "(NSOpenGLPixelFormatAttribute)nil", "(NSOpenGLPixelFormatAttribute)0"
+
       inreplace "source/Irrlicht/MacOSX/MacOSX.xcodeproj/project.pbxproj" do |s|
         s.gsub! "@LIBPNG_PREFIX@", Formula["libpng"].opt_prefix
         s.gsub! "@JPEG_PREFIX@", Formula["jpeg-turbo"].opt_prefix

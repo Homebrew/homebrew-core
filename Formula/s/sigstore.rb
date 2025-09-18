@@ -10,6 +10,7 @@ class Sigstore < Formula
   head "https://github.com/sigstore/sigstore-python.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "eab7a6a08cfc62560fa349e6331fbab72b2e43dcfbd864587d69fa3e53ffabf9"
     sha256 cellar: :any,                 arm64_sequoia: "c2dcbe1c6e463472c294b0149c25f77e367f7b67147e354eb7833bcea18d2bd4"
     sha256 cellar: :any,                 arm64_sonoma:  "c7a2bea0a03ab0052637123cf624018f34461a388b477e5dedc31305d7e9e21b"
     sha256 cellar: :any,                 arm64_ventura: "c70f264515798f67cd990defde90c88dd5699f9967cd9bfed94da69d1eb27632"

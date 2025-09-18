@@ -15,6 +15,7 @@ class TemporalTables < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e4984668a10eb856961e401946ff757db30dac450c9be086ad0edf94c3699a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bcc21d71656c35c2fce9354192edb11f0751ef87d0fd7fae94563f7ef93ed4d7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f741ff41281dbdcdc41cfcbc1004c0bc3d8b5ef190e69d501cfa107ce1fb0674"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f081f8897511dfd9356f81771d9f3c718394168d1c084d6b9dfd6bf77281e7cd"

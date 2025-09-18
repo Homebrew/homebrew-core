@@ -9,6 +9,7 @@ class Dungeon < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:    "f2275404ff5d7dc7bb33a0b5f90d2828faad83a4172b4678521fa6b248a99cee"
     sha256                               arm64_sequoia:  "d50cc1299d0c1d287a9528d49f0f93e2e208eb7cc6e766cab75a892063e2264f"
     sha256                               arm64_sonoma:   "465920dcc443e450f3043dbe316c10c57cd640393b1640fb4756f4acee9e72f1"
     sha256                               arm64_ventura:  "3c9c893622d3b9051d0c42929ecc64774e4bc9669a50cf2a088f32de229e05f2"

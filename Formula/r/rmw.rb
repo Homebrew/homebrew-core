@@ -12,6 +12,7 @@ class Rmw < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "dc88c29bcda2b1d7440105704b98021d510f22a00c16f398187448e9cbeaec26"
     sha256 arm64_sequoia: "8d58a58079f53b8aaff4b93444acdf5b3d2684544797cc752c96b83da178c4d9"
     sha256 arm64_sonoma:  "8239ccf6bb375fb50584507ab082b82ae08886dba6844ef1e62d3c559145a279"
     sha256 arm64_ventura: "fb4a64fbe3d059aa12d2e70613c6425c31defa93b84cfa03234ac9216c091e3f"

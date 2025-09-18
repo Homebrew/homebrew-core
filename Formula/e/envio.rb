@@ -8,6 +8,7 @@ class Envio < Formula
   head "https://github.com/envio-cli/envio.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "871f4fba1afd7a74d4b1096eb8a223d4c60f1c4fe9ecb765b044a83b6cf6842c"
     sha256 cellar: :any,                 arm64_sequoia: "454759fecf6e0d2ecde551706f07b9cd4ad8f11ab1ae681aca16d7d249c13cf0"
     sha256 cellar: :any,                 arm64_sonoma:  "17205a327d38a19e5416b56a1d3b2f3bc88959a1cb83b66531c6361c0a2d578e"
     sha256 cellar: :any,                 arm64_ventura: "fd2ac58208ea285ee0b5ae4099665ef24bf9b4a4ad496080da17609c5bfdb6fe"

@@ -8,13 +8,15 @@ class Libunistring < Formula
   license any_of: ["GPL-2.0-only", "LGPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3cd26bae2d5fcf61294f14c18e5e7ec773a59ed1bf710fb92055e0db0244e909"
-    sha256 cellar: :any,                 arm64_sonoma:  "38e44e319bfe11ec892bc6451d86b687d990ea01b4810b5d8ad1f794d531d82f"
-    sha256 cellar: :any,                 arm64_ventura: "b0d7a7078508070bd67589f5060a92100bd1c4aea2a41bf19e7ee8442f483df6"
-    sha256 cellar: :any,                 sonoma:        "e919f6ee2fe8a40addea1e1840eab8855e66812e18dfe05c130618ce517e2880"
-    sha256 cellar: :any,                 ventura:       "9aebb86a6fb622dd2699db2b1b65c82d1b5aaa35f81d0ae4335c57e9411c36e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2bd48b651db50b0ad0205b27b38a21303b6a49b567dd5b682cc1b9562e9ea0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25ff65379463fe4a51008a36c45a963ebc8d13d054ce606e3fbb6635ea634311"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "640e9f79172d25b6b74cdc9084d9bc5fdee2afd6e6412b732852d14807ceb645"
+    sha256 cellar: :any,                 arm64_sequoia: "0cc291557b61cc7d02936f50d8ee84eb109b5ee4ebc5070175b6eb78d2210d9f"
+    sha256 cellar: :any,                 arm64_sonoma:  "97bdae1108cd8f835cbebd34e29aad5079582c12b670aa55ca4513a68857aae7"
+    sha256 cellar: :any,                 arm64_ventura: "af27e48e970fd7f05e3aafe1f0aca3ae6ffce74cb193e8d85b0fec26c2860292"
+    sha256 cellar: :any,                 sonoma:        "464e4554828d664abca64dc50d62f99d100d72d54907c6bb8829ec4029e63656"
+    sha256 cellar: :any,                 ventura:       "25be9fa66a76ecbafe9812b4e30a45d0455a8031386fe1373416a97b90c7e75b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "199d018f82fa63ad011465e9bcbbfd66cf737b764fd66a3ca9002e9f7db1de84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "411b23b4ca5b77f9e57d22aed7dd9dc9b465d9581c0d5db452f157b1333abdf9"
   end
 
   def install
@@ -22,10 +24,11 @@ class Libunistring < Formula
     # This is also why we skip `make check`.
     # https://github.com/coreutils/gnulib/commit/bab130878fe57086921fa7024d328341758ed453
     # https://savannah.gnu.org/bugs/?65686
-    ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version == :sequoia
+    use_iconv_workaround = OS.mac? && MacOS.version >= :sonoma
+    ENV["am_cv_func_iconv_works"] = "yes" if use_iconv_workaround
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
-    system "make", "check" if !OS.mac? || MacOS.version < :sonoma || MacOS.version > :sequoia
+    system "make", "check" unless use_iconv_workaround
     system "make", "install"
   end
 

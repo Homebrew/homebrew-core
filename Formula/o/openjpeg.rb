@@ -7,6 +7,7 @@ class Openjpeg < Formula
   head "https://github.com/uclouvain/openjpeg.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "067359d0cea7d7a3753b70647f92f312b9c5f45d718780c4224865acd4c7e776"
     sha256 cellar: :any,                 arm64_sequoia: "a8091181f4cdd66cc41e7c4bebdfb205c70fc52c069f8ddfdc26bc91e3fa417a"
     sha256 cellar: :any,                 arm64_sonoma:  "9597528b11f6ce50ea16e4b3baa4ff13dc018bccb63f9f8a8b788a5378059dcd"
     sha256 cellar: :any,                 arm64_ventura: "10a4d7d2b3201baa4762b09a3d399361a11685706e5428cd003d02489cf158b5"

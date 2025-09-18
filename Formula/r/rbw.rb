@@ -7,6 +7,7 @@ class Rbw < Formula
   head "https://github.com/doy/rbw.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7e1cd33573f54c217afd705b15c390b4a283813ef8dd93e9d04113723e459d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b997b5495689cd78f982d0ae7de1742826d9325559109835762596fdfb291ed"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7cc2b2e7c89148fabea1ff21ac0d3ebeec513566fc96695549deb3f884257069"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b093d1587b76d59d6ca4176509d67385e01d8b0236a3f778750a087b83f096ca"

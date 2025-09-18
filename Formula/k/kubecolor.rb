@@ -7,6 +7,7 @@ class Kubecolor < Formula
   head "https://github.com/kubecolor/kubecolor.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f6f6ce4ffc7d6084fc8c1cc9ef158d2cc83aef24d0043e504257ac4dec529b32"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "795369e861c4fd5cad6c14bcb2aefff51654cce635abf17daf52cbc60c0c7110"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "795369e861c4fd5cad6c14bcb2aefff51654cce635abf17daf52cbc60c0c7110"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "795369e861c4fd5cad6c14bcb2aefff51654cce635abf17daf52cbc60c0c7110"

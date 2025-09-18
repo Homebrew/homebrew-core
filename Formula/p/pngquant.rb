@@ -8,6 +8,7 @@ class Pngquant < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "7bb45863272a81baeda8398132e02862643af78f1bc992eedc4c382efa1b8ecf"
     sha256 cellar: :any,                 arm64_sequoia:  "3ebc758f4e803c26bf87d7a0cb1d34b7e3048958e360eae18de7579f02eb081e"
     sha256 cellar: :any,                 arm64_sonoma:   "7304b28d6ac4803b515bc6d5f7a56115f993d0af414cc20173ac5e766e6b8dd6"
     sha256 cellar: :any,                 arm64_ventura:  "8fe4369e28cadb40f580f8788202124e9c8cecc8adf160422d941df8132b7105"

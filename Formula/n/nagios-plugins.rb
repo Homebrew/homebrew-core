@@ -6,6 +6,7 @@ class NagiosPlugins < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:    "6e751f176edcabbb88a2606c98ec0f3062e717b4b0ab5ffaa0e8d16b9406dc06"
     sha256 arm64_sequoia:  "10c5062b3d3edead969f7e18215628e643a7e71f8fdf5b25806305e767c1b999"
     sha256 arm64_sonoma:   "1617bf68a8d2468f70a4e0e9d46cffee9883578dfa0eddcc1af71463bf55ef12"
     sha256 arm64_ventura:  "2c4c5f8a661d01b36f7fc1a5fc5f4c24971516fc47f907da6818842e26fd51e0"

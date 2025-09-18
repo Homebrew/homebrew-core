@@ -8,6 +8,7 @@ class MistCli < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bba361d2ed55852c3cfbe42a3a3588d98b0d4376d82002f9809e3145e9da43f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "efc0268da168bdef3957814c3abab5e3becda98958225ce0ab3478a8f7fe2584"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a1ea5b8fbae6561a594c3d72706b846a3faaff74ebcf4911bc466f51590bf1b"
     sha256 cellar: :any,                 arm64_ventura: "c6c0edfdc3f68eabb96bdcf755c9f0ead40dc25394ebdd226a4bb348038e7799"

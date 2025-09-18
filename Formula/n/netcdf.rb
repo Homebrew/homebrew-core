@@ -12,6 +12,7 @@ class Netcdf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "36b365bd963887d2dcfa6fb5f1d9715d25182371e222b846d920bfcdafa0cd08"
     sha256 cellar: :any,                 arm64_sequoia: "b6556411dffb6a79cade21f4c5935a7732f32b0566fbd95adc9c803578dd7f4c"
     sha256 cellar: :any,                 arm64_sonoma:  "8e5f6edbc1bdc0514eabbb6ba699bfd3a1dac8056d0a18e76eacb4dfdbc747f5"
     sha256 cellar: :any,                 arm64_ventura: "db5219d0b13f8c474852b9786e1c604ec6776a488cfa78446b6cbff87a917827"

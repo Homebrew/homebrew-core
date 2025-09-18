@@ -7,6 +7,7 @@ class Signmykey < Formula
   head "https://github.com/signmykeyio/signmykey.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3c61f3c3bd82c1afb8bf549f903ec27086559152573a53b45b082c2e9e28f50f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "13f42dcc050c7a1c8f4284603c2b9cf51fc0fdfeec5a59a9c6cc7973fe4a4b4c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13f42dcc050c7a1c8f4284603c2b9cf51fc0fdfeec5a59a9c6cc7973fe4a4b4c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "13f42dcc050c7a1c8f4284603c2b9cf51fc0fdfeec5a59a9c6cc7973fe4a4b4c"

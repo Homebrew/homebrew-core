@@ -9,6 +9,7 @@ class LtcTools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ec96e870047e02edacc44e7c436bbe4b818ad675effadfa4c809319594f7eb8b"
     sha256 cellar: :any,                 arm64_sequoia:  "50128bae6264b3239c9d2e8e0f9952e72c364349438382c36f35252c35eedcaa"
     sha256 cellar: :any,                 arm64_sonoma:   "539c3a74d0e1da9b7680063d41e735d3240bd2bb8454b2e93a7c42118b73c147"
     sha256 cellar: :any,                 arm64_ventura:  "bb595fe27ddac376f1ea097a824c17712c34dde20e01cb310388897b52f3f57d"
@@ -19,9 +20,6 @@ class LtcTools < Formula
     sha256 cellar: :any,                 monterey:       "84e20bc4899a76f661ff8bde1ec354a3d32f6f53b4aa434782095868971a2cc7"
     sha256 cellar: :any,                 big_sur:        "b31fe1140d71357035fd130e73c286d8892cda1103fccd96971205bd860cd9a7"
     sha256 cellar: :any,                 catalina:       "bcd064f64a21f101f6599646306ba65c40ce7ec44fd7b6e2d8f29b4fefeebcc9"
-    sha256 cellar: :any,                 mojave:         "ae65212fa593ee7015eb7bfa63b4e7e7691e56a7db0fc1a82a311aef184aae55"
-    sha256 cellar: :any,                 high_sierra:    "15da8efd84adb9d9eb9c7b4450c75e326679b20bed258c8e7011fc6eb2cc9b20"
-    sha256 cellar: :any,                 sierra:         "51df0ba95565d43955bbdf0cfbc216696b4002f8cc95c80d8f6b387eece034d1"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "5cf1b3ebc4b537434144fb06a19917cf47f63f368a6376ad0c78bcc1f42c6695"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f067afb9aec069b45d0c8025574d673d701140d4262ba2530337a868c016bd81"
   end

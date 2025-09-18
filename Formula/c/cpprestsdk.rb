@@ -11,6 +11,7 @@ class Cpprestsdk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8e077422f309a8ed21fa46f8a1ffefcba57b2b394b0e9cf501b62d62f214e067"
     sha256 cellar: :any,                 arm64_sequoia: "308579b3f28e24db2678b00d3f2c0ca285fc47eacd8a2fddf35f2404562b142c"
     sha256 cellar: :any,                 arm64_sonoma:  "01eb9f54ecdc29035230667a6beb5adc50940dc3f52169334394d1c7e8cc08c9"
     sha256 cellar: :any,                 arm64_ventura: "3cd4baefa8081807c066f32526e4292e4692482ab7e59f3b101ed8176bf47213"

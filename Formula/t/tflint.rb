@@ -9,6 +9,7 @@ class Tflint < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f873357d065fdce6b58511cc37b38ef5d36135e34d8c1a707b993bb8a26b786f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0bdbbc0944d5f47051b969872a11095f31206e85bf3857a050ca80f44ff2d087"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0bdbbc0944d5f47051b969872a11095f31206e85bf3857a050ca80f44ff2d087"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0bdbbc0944d5f47051b969872a11095f31206e85bf3857a050ca80f44ff2d087"

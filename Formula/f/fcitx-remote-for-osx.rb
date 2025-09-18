@@ -8,6 +8,7 @@ class FcitxRemoteForOsx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ec25385e4a84e52059462f9cfaa20504a4a422f211ec11437c9e3550cffc6fcd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba0909f82f992a9c0cf6e883da59d3b9ceeb33a6a3e0e01a6ee4e885953b923e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "08938e1cc1bcafa79ae3fe4adcf00b6e12bc8144a70aa796d3b974471a7d9bb1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "19fd67359a908b63ee833bcca9c4fb8eb0ea07c3e91aeb3c0fe8a859b889bcd2"

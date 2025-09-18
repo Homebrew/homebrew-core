@@ -28,6 +28,7 @@ class Rggen < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1832dc7d93150b2370c91bff81402c5e0381fe46e7a2330c6723c7005c0157b6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "88986dd86533e818c10e69f7b2d8122bedc26ec4d6b7ee8a960138d814f62e78"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88986dd86533e818c10e69f7b2d8122bedc26ec4d6b7ee8a960138d814f62e78"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "88986dd86533e818c10e69f7b2d8122bedc26ec4d6b7ee8a960138d814f62e78"

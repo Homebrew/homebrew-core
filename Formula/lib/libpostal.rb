@@ -9,6 +9,7 @@ class Libpostal < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "4b9b022b0bbdfc3bdfac3403b22d469a6b6f086708a68567be92a22b218eed49"
     sha256 arm64_sequoia: "977117dd4cbadd9c7a54b1a98cbf8a4cf5d76435d3fb2a4bd7219777b7ddac8c"
     sha256 arm64_sonoma:  "814ede166ebe7352cc9850527f29e9395eea6a2248a16ad450d0606216923e25"
     sha256 arm64_ventura: "e6412f74a7d126a91f3c29337f73e3284329c95b1fba7924a653f3115918802c"

@@ -12,6 +12,7 @@ class CargoCyclonedx < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "68b837ec5f02542da6437fa257ea5be3b4d673c476a153aae8a7abf10fa2e664"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0929e7f65dd40618265f765e8018119e9b782336f723cdcab119a3e424264edd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "783adfef5d79bf8f14dc6f3f667a3188c390fc58e58765fe129ef4b566e1b0f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "16cf33f5551919b50f72a9e1908a8acc903340ffa0807d07129bf8dda445d64b"

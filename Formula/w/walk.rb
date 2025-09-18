@@ -6,6 +6,7 @@ class Walk < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b1cc7f94688414f6b4106eb69287cda711b724acf675a64fbdcd9a6b1c1b2c4c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cce3ab82e4e2280c930d6f3c532440a20749e42175316a90fb64d7f00cea7d1f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cce3ab82e4e2280c930d6f3c532440a20749e42175316a90fb64d7f00cea7d1f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cce3ab82e4e2280c930d6f3c532440a20749e42175316a90fb64d7f00cea7d1f"

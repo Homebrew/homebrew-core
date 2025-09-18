@@ -9,6 +9,7 @@ class Grsync < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "7986e7f825b1b6c2f31beadad835a38e018b215d50ec918a4c943c1449127127"
     sha256 arm64_sequoia:  "7acba4db4f6cd2ad09e1cffff1f7c0d24c46cbc611c8ed9c7e78a604b746b2cf"
     sha256 arm64_sonoma:   "abf6159ff6f8b96053d162b2022ed8609af8c059c79348ae5557c28afeecc562"
     sha256 arm64_ventura:  "3330a2f548559889d4d2cc138d79e5bd39f00aea3c14525912fd5f6c1c20136d"

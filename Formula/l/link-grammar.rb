@@ -7,6 +7,7 @@ class LinkGrammar < Formula
   head "https://github.com/opencog/link-grammar.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "7d05432249459ff8ad7f363108641692113d0a36765605a9edb977220ea2cc0d"
     sha256 arm64_sequoia: "2ad3a5b5743e78660ea26c94d0b8c134549096450c3a5b09437cb39f615917a2"
     sha256 arm64_sonoma:  "178343e859888db9b23afde3555329e2ed36e9824779f435e6d32140f8c64dc5"
     sha256 arm64_ventura: "52bde5770ecc932a24d2de5bf9a1c476626da331e7beab28be467203cf2da152"

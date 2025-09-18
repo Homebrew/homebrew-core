@@ -11,6 +11,7 @@ class Xnvme < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f5a3ced6f2d26e622f6a619c2f8606916aafb9c6704cb58a52a7b976f9f00fdc"
     sha256 cellar: :any,                 arm64_sequoia: "669d2c6ac4f5091f07ec36cd8376e6dde81e8c38d20154efa1b038e7b1d2b391"
     sha256 cellar: :any,                 arm64_sonoma:  "387a8c914b0348bda2aa34f3d15292f649f768ff8a4a4baa329659200b903681"
     sha256 cellar: :any,                 arm64_ventura: "98be4270d703ba24e95af9714302b41bf45346a3ecc69220889a889381210c9d"

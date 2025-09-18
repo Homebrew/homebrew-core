@@ -15,6 +15,7 @@ class Feluda < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "10ed5292af87e91eb0874142c85841e69518d4b5bf90d77031a899992ac35072"
     sha256 cellar: :any,                 arm64_sequoia: "94bdf34ff65f8b0729bc533839876b888e287ee121e49d3d706738b1ddf4c81c"
     sha256 cellar: :any,                 arm64_sonoma:  "7ba6a06c3ae47361be31f9c00abe977cf0198985473668406d72283a95fc4e5f"
     sha256 cellar: :any,                 arm64_ventura: "6973d87e5817d663db874179c06c3f2965d752e3c4f915d5f1299d662499ea86"

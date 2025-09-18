@@ -11,6 +11,7 @@ class Gpgme < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "da5c564a9743e2c034a6f7d702337453eec19ead99a25f4efb492cf1db7a2fcc"
     sha256                               arm64_sequoia: "703fb4c894e21fcca01633df86341148ba45e52f67abc98e7e437dd47e32d3d6"
     sha256                               arm64_sonoma:  "1fbb14507155032b37072c5745ce0841e8eea0f319df2696187c3f6aea730ae4"
     sha256                               arm64_ventura: "1dd1dec21adfca50b816e0c6c9e75c4a1c638d40117c8dbc17be538989e0b259"

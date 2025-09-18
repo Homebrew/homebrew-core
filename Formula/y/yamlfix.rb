@@ -3,19 +3,19 @@ class Yamlfix < Formula
 
   desc "Simple and configurable YAML formatter that keeps comments"
   homepage "https://lyz-code.github.io/yamlfix/"
-  url "https://files.pythonhosted.org/packages/a9/04/e5061d4c353fad1240356458c999ddd452315a2485c3e8b00159767b3567/yamlfix-1.17.0.tar.gz"
-  sha256 "81d7220b62798d1dda580e1574b3d3d6926701ae8cd79588c4e0b33f2e345d85"
+  url "https://files.pythonhosted.org/packages/55/df/75a9e3d05e56813d9ccc15db39627fc571bb7526586bbfb684ee9f488795/yamlfix-1.18.0.tar.gz"
+  sha256 "ae35891e08aa830e7be7abed6ca25e020aa5998551e4d76e2dc8909bf3c35d7e"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e88dc2c841ca7281bea7728c94da6249b84c3eec37e3af45a7e4df8ae98dda70"
-    sha256 cellar: :any,                 arm64_sonoma:  "6bb3222bccb1dd5dbc522e44443ab4e349102bbf224225de8c80300aed2084bc"
-    sha256 cellar: :any,                 arm64_ventura: "d557584a6d6c134e0b28d7cb6ae1822e02c4c42e6dae7e9e0b6f7744ec798d4a"
-    sha256 cellar: :any,                 sonoma:        "f2544cd1f120fa8c45d7caae4c9cce0f1e628e37dabc9f9520361335f29fa04c"
-    sha256 cellar: :any,                 ventura:       "6038a7c186c310701dd56d1a90c044fb3ee59e8ce8c53701e718594db607d0d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2113eda75d9df2870158f71322a97186e88ec93cfdedb0de42c16e63c543ee9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83d1aa0f54f512923df57b0044d55a09f9493e6fb973586db7f6261978cd1a30"
+    sha256 cellar: :any,                 arm64_tahoe:   "7161524c4085fc0d1602ea091732478a4825c9bb45cdbf9a838f0344f7b8319a"
+    sha256 cellar: :any,                 arm64_sequoia: "89e72af7bf19e17ab91d8796f45169665c8d2d489b48a8d0bb6b6bdc3634ebce"
+    sha256 cellar: :any,                 arm64_sonoma:  "6bd054a555112cdb75e6371516ffa5796b080840bc0e66dedb976ff1a3c52394"
+    sha256 cellar: :any,                 arm64_ventura: "f7dae85206da0cab3d12898f71d3c817ad28e17d44cfc4ffc8f3da87c9643a14"
+    sha256 cellar: :any,                 sonoma:        "844e573dab50d9edf05d8c994f3133a7dda966ddc59d20446d202cbef1789994"
+    sha256 cellar: :any,                 ventura:       "4f4a922da262f8ed6e700999b250cf25a142f0863f22def5b28ba2f15487d532"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f85ce06a2f02aa2c8b4af8ea1116d2b17c1367079246f89a8a0106d4dd2283b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84f99be5b6ce0809cfc46036dcb734475eb9bfc26ee953d1096b26df30a8ffd4"
   end
 
   depends_on "rust" => :build # for pydantic_core
@@ -27,8 +27,8 @@ class Yamlfix < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/cd/0f/62ca20172d4f87d93cf89665fbaedcd560ac48b465bd1d92bfc7ea6b0a41/click-8.2.0.tar.gz"
-    sha256 "f5452aeddd9988eefa20f90f05ab66f17fce1ee2a36907fd30b05bbb5953814d"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "distro" do
@@ -42,8 +42,8 @@ class Yamlfix < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/77/ab/5250d56ad03884ab5efd07f734203943c8a8ab40d551e208af81d0257bf2/pydantic-2.11.4.tar.gz"
-    sha256 "32738d19d63a226a52eed76645a98ee07c1f410ee41d93b4afbfa85ed8111c2d"
+    url "https://files.pythonhosted.org/packages/00/dd/4325abf92c39ba8623b5af936ddb36ffcfe0beae70405d456ab1fb2f5b8c/pydantic-2.11.7.tar.gz"
+    sha256 "d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"
   end
 
   resource "pydantic-core" do
@@ -57,8 +57,8 @@ class Yamlfix < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "toml" do
@@ -67,13 +67,13 @@ class Yamlfix < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
-    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/82/5c/e6082df02e215b846b4b8c0b887a64d7d08ffaba30605502639d44c06b82/typing_inspection-0.4.0.tar.gz"
-    sha256 "9765c87de36671694a67904bf2c96e395be9c6439bb6c87b5142569dcdd65122"
+    url "https://files.pythonhosted.org/packages/f8/b1/0c11f5058406b3af7609f121aaa6b609744687f1d158b3c3a5bf4cc94238/typing_inspection-0.4.1.tar.gz"
+    sha256 "6ae134cc0203c33377d43188d4064e9b357dba58cff3185f22924610e70a9d28"
   end
 
   def install

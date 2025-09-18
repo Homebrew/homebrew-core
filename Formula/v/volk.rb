@@ -8,6 +8,7 @@ class Volk < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "64ad0d85029c24beceeedc790aecdbfe863aadd4974a84a4181abd8ca4215c76"
     sha256 cellar: :any,                 arm64_sequoia: "1f910c4f27cfbd4419f857c369337c1fcce0068b05d01391fa1f6b5d9db00055"
     sha256 cellar: :any,                 arm64_sonoma:  "7a2efd35a0db458e5afe369c40a303b561a34df77d1fae9c11378afc31d2fedf"
     sha256 cellar: :any,                 arm64_ventura: "46b4a7e08f105a3348f4ac8007b8718c76715dbc35dd2f6da818031ffef214e8"

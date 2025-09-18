@@ -1,19 +1,20 @@
 class Bstring < Formula
   desc "Fork of Paul Hsieh's Better String Library"
   homepage "https://mike.steinert.ca/bstring/"
-  url "https://github.com/msteinert/bstring/releases/download/v1.0.1/bstring-1.0.1.tar.xz"
-  sha256 "a86b6b30f4ad2496784cc7f53eb449c994178b516935384c6707f381b9fe6056"
+  url "https://github.com/msteinert/bstring/releases/download/v1.0.2/bstring-1.0.2.tar.xz"
+  sha256 "9d2d207385edeb39935c53f55da57501936b67939998f3e5c5ae91cb8063fbd0"
   license "BSD-3-Clause"
   head "https://github.com/msteinert/bstring.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bbdfcc6c40fc5d3826b69cf194b712e96c6e9f3bb15fe6c6b487d161eeee1bf4"
-    sha256 cellar: :any,                 arm64_sonoma:  "c25d14a3197a9508e1516cd3503b471ba15d1929b511533af28b6cbc54b9e5f6"
-    sha256 cellar: :any,                 arm64_ventura: "3e7c981e0076bcadcbe655064492a4170b5e0c3a5bedd65a2a2244fcb18083a1"
-    sha256 cellar: :any,                 sonoma:        "fea29e81c074efcc6b7ec34733ef211fb268e6d5877cba536f70a897a4cc96e2"
-    sha256 cellar: :any,                 ventura:       "225f2b47a0fd47f5d935150bf17e8b836711874107a6993a98e5cacb02adc2b8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d92eb7cf9024db94bb16ab6db8085ceb721d2ed2b2f0e8e56df1288d850a36c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e5c66d11cb49ef8c83637a7c0690b2dfcda8562107be84cc77a7efdfd9ee447"
+    sha256 cellar: :any,                 arm64_tahoe:   "d1e90be7e803669e7991a57a28a5b794e85b99395785dbf0295bffb6e5d767cd"
+    sha256 cellar: :any,                 arm64_sequoia: "5afe2c7f9f916ae7206ab606c7025d7397098014aa073f2a57d87fc9ab51a5c6"
+    sha256 cellar: :any,                 arm64_sonoma:  "78f3d3247818a2696b0891ca9d77aa917e31c5787ab6c00b85d5f89092d16a23"
+    sha256 cellar: :any,                 arm64_ventura: "dd284a39954e4ae73c5f40c2a4efc4517b766f42f5125a4ead9df89c1e497af6"
+    sha256 cellar: :any,                 sonoma:        "5de48227a28ec7e83e10da7af7bec5456fe63cb285203781c961607ea2e2b6e9"
+    sha256 cellar: :any,                 ventura:       "7ec5942fdf326cb735c0f67198227fa3fb35e757d9f0b4e0da7a6e2432f3ef36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65262afabaab0dc134f62a51ea73a1aaeb7d065f20de7337f4b06d0588aa65de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bbcd5e8694faaeffece44cba6782b6632610146d72f9a13ac4ee9a6b2e0f5f3"
   end
 
   depends_on "meson" => :build

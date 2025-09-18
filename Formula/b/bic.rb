@@ -26,8 +26,6 @@ class Bic < Formula
     sha256 cellar: :any,                 monterey:     "cfa83a9ccd1d192b77af48d3198acf0f082d9f929a6256bb978f293543210940"
     sha256 cellar: :any,                 big_sur:      "36f71fa3f987da036e8bf8cefd3e640479868f2eb033f307848679b41d7ee393"
     sha256 cellar: :any,                 catalina:     "41d1871d125642f8437b5bb7b74f205b0eee956be0ad46b7677680b76764c0cb"
-    sha256 cellar: :any,                 mojave:       "36575a3c3444985140e94eba8fe8f6711fff5433eb7f17141c4b4ae30e1f2bf7"
-    sha256 cellar: :any,                 high_sierra:  "23f308f2bfda3b9ee498680e08565997818570d74d1280137ef940f70801b8d9"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "e1eed9e3fd17cead07b28471dc8cfd46754b81e0db2ff0ecf631223e1e08dfb8"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "2744bafd1615ee75b148b2b4ef18a3acdb0cf7a33c71014b541cb3f820c1b38f"
   end

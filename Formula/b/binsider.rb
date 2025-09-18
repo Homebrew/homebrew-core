@@ -7,6 +7,7 @@ class Binsider < Formula
   head "https://github.com/orhun/binsider.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9977fd80586260eecc064cad2aff56041d5d62dda1c06e16c6ac65f7f8734f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c11ab382fd297958dded8d9685f67fe756a24d97f528330dfae16a42d7a73dd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60f9f1ceef1fdc6d373fec4c8b36997e5914f1ff8e0679293fcef4cc5a2be2c2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "761e347994471b3ce157f8b2ab46a4e3e143b529d6578b4585e1c3b593adf1f2"

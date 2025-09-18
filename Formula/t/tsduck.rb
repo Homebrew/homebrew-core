@@ -6,14 +6,21 @@ class Tsduck < Formula
   license "BSD-2-Clause"
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4095f60493497b8ff63e6a07a798f237f6ecf0c878d010bb9ff312cbd88d57ed"
-    sha256 cellar: :any,                 arm64_sonoma:  "8f2ede174499ba252df84ecb351c497c0bb95e0b2f5f8497f4a17972a2a921fd"
-    sha256 cellar: :any,                 arm64_ventura: "3f4e611e71bd9e8915a81bfea6f18afd82663c61e14f5adf1e0d7ee08465192c"
-    sha256 cellar: :any,                 sonoma:        "4726f0d7c067ec1c179fa841e5a354dedae677e490f5e18f3d0f660a89f12d0c"
-    sha256 cellar: :any,                 ventura:       "8c335a1676e4de4e2ef1a0097c952b5d416401adf3f28ab1a8130eb4c7ae5c6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a1afbb06ef1ba369a6f9ac5ae75240dd67eada89c95821a0d2a6040f62e7f0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89f3b852a4c68b752e3402f0551b2af986627bcfb66e44bc1f796d7e7c3695fd"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5b623289b58ad333bbfb279db9871defd305d2811f219130d2868cfe86673851"
+    sha256 cellar: :any,                 arm64_sequoia: "9327703566706a7077885bf1ed22c933cd4d82146e34f186c7b0eb5bff6add8e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8bedbd9dd8951b291c9556a957fd241102b0cfd418bd8ae3d893b9dc48e4c182"
+    sha256 cellar: :any,                 arm64_ventura: "b9f894857c6bb01b382100d2451d475499e7d9ec5fa5d337d376a4a6ed17afd3"
+    sha256 cellar: :any,                 sonoma:        "f45c7372512d9d368a4f2fbb5d1ec5e50d25d211f92922ed09f7b55b1c4067ac"
+    sha256 cellar: :any,                 ventura:       "2abd61849397bf5683de519900ad7b4ae3a236eb63ca1b4040c094722db4d5ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95b6392d75893200f3ab0fa324a449c7f2f1e1f646ee0e3f434161d5239c21d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b603e585148b9d84984bb05e5bbfabf212396b6e1233c94fe9eabba7ff9fbee1"
   end
 
   depends_on "asciidoctor" => :build

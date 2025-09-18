@@ -12,6 +12,7 @@ class Steampipe < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d61bd58c376d9f0c3d511a20263d2074b5faa82272181c2eefd9f8177cdad9a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f1197890b7b8bbccc819cdc36e3a7f8edadbf3449cff85d877d6cdf92d06f51"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b80f67be1b2f7ec4efcfafa6d4817fd414067769b9cff586038c490820379ad"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ebf4aa5a0e28c64fd6dbd54deab7ef3c68f83f7383e0ab24160a165751b8818f"

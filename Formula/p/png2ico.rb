@@ -15,6 +15,7 @@ class Png2ico < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:    "1230f7e82d9a9af6e1a67d105b01ef64d00e3bb6ed2e34f9710ca32e8b4d39c3"
     sha256 cellar: :any,                 arm64_sequoia:  "a6af9f89d575ccf1b4bb27b2b24eac106315c65775ca654859931a8b90cf09de"
     sha256 cellar: :any,                 arm64_sonoma:   "509b072c04016428a60fa1f3513e1dbcc71ff1706581b1e98998955914c42155"
     sha256 cellar: :any,                 arm64_ventura:  "6c622455e21df4ad015229e650548f113e34da96dc9e3fce58917ac55a2dc59c"
@@ -25,10 +26,6 @@ class Png2ico < Formula
     sha256 cellar: :any,                 monterey:       "df5fa87e241b6bf89efb2fc809cc499151ca2911030b33aa53547b6837810a35"
     sha256 cellar: :any,                 big_sur:        "b1fd25cc9bdcb94af6aa9bfa1a3b3fb401561e1c923ba5d88eef9fd12dd62678"
     sha256 cellar: :any,                 catalina:       "dfe2ebcf6a6b8c7e97e7b80c9d98aa46b27c27de7ace88464750d8db61aadf55"
-    sha256 cellar: :any,                 mojave:         "52180eb9b080ae4cfbe33f441e0119d2cbcd2654c2b7c7d1b37120912215df95"
-    sha256 cellar: :any,                 high_sierra:    "986b5a9efe66ddeec63f2f523a36214f0bbf3ce43a9697c83adb3c237912f38b"
-    sha256 cellar: :any,                 sierra:         "63d789e767bf5fdfd3b26102441a7331531d83215c73fa61ae2b548ecf08ea74"
-    sha256 cellar: :any,                 el_capitan:     "6b3b8e132ff06ed21308e73e1a30a3b74a593092e56dc94693c27ae4d03add09"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7a6b840c65addf3f2e5d113ac2b15abcf50adace8b5baf740f4066deeea4f5ec"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "52b7eb707f96b3b8526ca15ce86c442247f0e4c34112ccef3ed22fe6cafb5a3b"
   end

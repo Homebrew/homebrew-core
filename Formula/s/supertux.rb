@@ -23,6 +23,7 @@ class Supertux < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b3aa57f4eee7ae7c84e67e89229a9daeaeede9e93886e1611c98e9bdc5ac935d"
     sha256 cellar: :any,                 arm64_sequoia: "9babc91234fa8859afc033a96ef11d755f4b889b7d70ca36c5e915d905b2bb97"
     sha256 cellar: :any,                 arm64_sonoma:  "c79a88e221ba8b3c4adedcb9d4b1e2122049794c86b4c7810d416c768b1722ee"
     sha256 cellar: :any,                 arm64_ventura: "ef691781ca584343e444017931593b6088600bb907f573410273be0fcc0ae897"

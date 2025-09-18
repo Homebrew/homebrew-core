@@ -152,7 +152,7 @@ jobs:
 
       - name: Check for CI labels
         id: check-labels
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         env:
           TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
           ADDED_FORMULAE: ${{needs.formulae_detect.outputs.added_formulae}}
@@ -279,7 +279,7 @@ jobs:
 
       - name: Check for CI labels
         id: check-labels
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         env:
           TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
           ADDED_FORMULAE: ${{needs.formulae_detect.outputs.added_formulae}}

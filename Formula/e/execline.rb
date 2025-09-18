@@ -7,6 +7,7 @@ class Execline < Formula
   head "git://git.skarnet.org/execline", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cef3552d9f1488ee1bfe7b32e50c3568f671a5d179e8f3c602c667dfe76cca9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8bbbad617bb8ac9e26e9631efdf913a74a06b7f5a88b06363dd1d29aa7b2dac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5fe2632e0befbca3259c9fef9072b4f64dab302bea224139726a4b89052a3ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ea0514d4e9ef6f17b557d38150fa968c578cce538f460fa18e19913b884b2905"

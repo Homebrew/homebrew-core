@@ -9,6 +9,7 @@ class Authz0 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "07856f2310d354f1c7d363a2a7d1cfd3a1f1c5ca906934b57f33055b6c5633f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "76f92010b14aae9dae0ead727ef643ce0b0edc8a5361530ffdfd549b9895e2ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14381da4ed533631835222d21cd916381953a087c3b1335bb4d30a8c26acd382"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2a469a36c22f19b0ecc5ee81c8aae79cdd1f826a6ee917865666b7f004ab3a0"

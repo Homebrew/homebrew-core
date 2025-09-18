@@ -6,6 +6,7 @@ class Thanos < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03d4044e4134affa7a576169d773e19bda2dcbb4a23fde377aebea57842c93d6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d777958f5a190f2452165e581998ddd14f3e20648540cbbb65c37cd38e67ced"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4935a9dfd7f35ceb40938830679b19de5deb032b3313a4a0d1a4be17d9069c1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "025c060a2c3fe17f1ed2d50a08f2a381ab488668dba3aed50129b4f463e29235"

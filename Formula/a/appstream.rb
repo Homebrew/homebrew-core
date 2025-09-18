@@ -6,6 +6,7 @@ class Appstream < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "bcacd6ca11d2eb261c94b41e89cc31f6d369476ead523edcd1b91927e1339d34"
     sha256 arm64_sequoia: "68e338200029613cda29a49fb75a3b8681f0d735ca0155275e548d3f2c75bcb9"
     sha256 arm64_sonoma:  "18c841eadb045644d94a58701efd8149f24cbbe2e25b9104258feb6f0885adc8"
     sha256 arm64_ventura: "9cad886c8567e76bd4c79f002239a790394444eef1fe8a04a2b94e1eb6dc2b67"

@@ -12,6 +12,7 @@ class GitInteractiveRebaseTool < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "59edafac4ddba19f47cd31f4c09274eecd241460d37336a094137b4d78d7baf9"
     sha256 cellar: :any,                 arm64_sequoia: "be79dedf848897cbce256b691a0baf54fff8ae7138c674a8aac9f0818c6a5eae"
     sha256 cellar: :any,                 arm64_sonoma:  "8290dbb2de4e0273fc9bf1de29cb27bc564a1ad921c024fcc9bf80911550eea4"
     sha256 cellar: :any,                 arm64_ventura: "a8d4f2130634d33aff7b2a4ae0dbce99d783cbb07659ec5b40ce4e51f9661852"

@@ -6,6 +6,7 @@ class CargoMake < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c85317163c83d67bdc08f66186d287ab4ade17702716118c30dffc60300d2416"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "19d759576565d7abaf24e1333ae5e52383f998571025a563c7f994df57dd30fe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d51b915c4a7eb13107f048b8086be05eac529766f6b61d94238f6de7f95e183c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "03378097976272095569b5c44ec8cf5ed5220318ea3c0d03eaa3a4f1d91ce8e5"

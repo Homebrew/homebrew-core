@@ -13,6 +13,7 @@ class Juicefs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "38575f6b8e1bc4a3d72976ad430504dc8a5f39787e22750e69d247d4874f8c90"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a85d6e3e393c2a94d1daea94c848764aae4251441cdcfdb8b119b70231fc8f5b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aec5445b9982dc0262b0db8dc2969827092711e47a8afa825767b693388cbff7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "006ccb5b34cbf4435ebe004d1cc7d862f86b29456f615a9b6b74c101115ea80d"

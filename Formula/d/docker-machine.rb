@@ -8,6 +8,7 @@ class DockerMachine < Formula
   head "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a0a454546964b233fbb4fd58385259976707eac429e1df3c24f2b789ccf5b6b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1275c823c9458fbdf5408266b8c6ab6a4848c3fd103d442142a4db5246a8f4a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1275c823c9458fbdf5408266b8c6ab6a4848c3fd103d442142a4db5246a8f4a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b1275c823c9458fbdf5408266b8c6ab6a4848c3fd103d442142a4db5246a8f4a"

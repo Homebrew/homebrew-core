@@ -6,6 +6,7 @@ class Md4c < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d3c08c51d39761be30ec5c67c297d31af0a1f4d15d02d633a528253dc57c8ef5"
     sha256 cellar: :any,                 arm64_sequoia:  "528d191cb50a6f5901faf2bf989374657792410929d5ac78b1515f412e07ab58"
     sha256 cellar: :any,                 arm64_sonoma:   "5a535b9cec9b6155304abead938f5022fe7522b881dd6e12f6f45c9b4c0f0d3a"
     sha256 cellar: :any,                 arm64_ventura:  "be769f9eb2de4a0c2b3ba400e79b07dc9d6c5f6c0c9e9d032f24bc6c5ef1a916"

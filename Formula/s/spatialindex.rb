@@ -11,6 +11,7 @@ class Spatialindex < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5b53e1ab281e72ef97d3cedf3e2fccc27d21d8e821b608e6a7e5de0f296153b4"
     sha256 cellar: :any,                 arm64_sequoia: "2a84ec0d1a739824971183632c46cd8e1a6e0c8584e00d4ad1d9460d712ee481"
     sha256 cellar: :any,                 arm64_sonoma:  "071b7e50fbe7ac47aa578e69edc53c87de74808c8287aa937bdaa50de0e3fa97"
     sha256 cellar: :any,                 arm64_ventura: "ccdbb7d96b49d3a30ad83530034142629350a725e64e1cba2e260b41c7ef15d0"

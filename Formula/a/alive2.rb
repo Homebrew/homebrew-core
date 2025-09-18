@@ -9,6 +9,7 @@ class Alive2 < Formula
   head "https://github.com/AliveToolkit/alive2.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5675de65ebc52814b9c54323af8dee2c8f6601c917c6652ace10dedc6cbc2b10"
     sha256 cellar: :any,                 arm64_sequoia: "2b50bddff87ab541451702d2c7d004412b8b10ae2b946a2efba614943cbfef58"
     sha256 cellar: :any,                 arm64_sonoma:  "c36cbe7db0301802dbaed9106d464e15979f24d842d73ea3d092ee6a74740317"
     sha256 cellar: :any,                 arm64_ventura: "b414bdbfb3e39fade927d5241a03c78bc05346359d14d72d222819fa79b2b01d"

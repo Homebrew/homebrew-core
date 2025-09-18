@@ -7,6 +7,7 @@ class Grizzly < Formula
   head "https://github.com/grafana/grizzly.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d7d0f848c871281f79da1be4fba2bb1c7c0eabb1a15c19b854d661aecd4a948d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c00e5b79f192d86d855287c9abb183eede829f47d6892bfef011d0977fb45cc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c00e5b79f192d86d855287c9abb183eede829f47d6892bfef011d0977fb45cc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9c00e5b79f192d86d855287c9abb183eede829f47d6892bfef011d0977fb45cc"

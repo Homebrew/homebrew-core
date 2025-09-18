@@ -8,6 +8,7 @@ class Codelimit < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c99bc8c7dc3c68ec725209c9695263aa0e288d6539a1d69ab25f8459812016dd"
     sha256 cellar: :any,                 arm64_sequoia: "de213d923cc3b8f6fd6de6e4c1de1523c79c8fd6e03c6435c45f5d770cc2d039"
     sha256 cellar: :any,                 arm64_sonoma:  "80daefacb3a23275a833737a4a1efc4187a23a66e0506c7f48a1c368fe11d9b3"
     sha256 cellar: :any,                 arm64_ventura: "27e1bcd2e921327ae8aacc0f1e63023858a5c2635b78f83bdbd0062a0dfed8a2"

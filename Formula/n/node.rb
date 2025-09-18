@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v24.7.0/node-v24.7.0.tar.xz"
-  sha256 "cf74a77753b629ffebd2e38fb153a21001b2b7a3c365c0ec7332b120b98c7251"
+  url "https://nodejs.org/dist/v24.8.0/node-v24.8.0.tar.xz"
+  sha256 "1c03b362ebf4740d4758b9a3d3087e3de989f54823650ec80b47090ef414b2e0"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "56ea01001e0320e0b3b639d9bceb042996f39831a8ffd3995a5ac8cb52d498b2"
-    sha256 arm64_sonoma:  "28ec403e1b76fbf7508ff83e623a9c18af3a68ecacf6c0834de9539051ea0d17"
-    sha256 arm64_ventura: "a1aa3e4076ae89a3ec6083fa511d7123343a9ca4a3b25504291c17ce6595911b"
-    sha256 sonoma:        "df38ab52a9cf33213d39fb95ef56adce350143f88ef37bfd46a5075c91de6517"
-    sha256 ventura:       "1b0e6c239183445aaa2340978fbb4c59b4829077e50526a7b6af328e49175bc2"
-    sha256 arm64_linux:   "1443d75e5cc87b8abade73990bf1a2f6febca2aec79fd3972856c1f271dae8fc"
-    sha256 x86_64_linux:  "431aaac6a9f5c925a2db39b1d597f92a77f4b1e71e7875d1d976e6395dd802cb"
+    rebuild 1
+    sha256 arm64_tahoe:   "bb5c2204bad0a0ec27acf3a2415d6bd35585ccd8381f467263900a80ab2992ff"
+    sha256 arm64_sequoia: "1eda6648d5c79815fa0349cbcbf8c34b613ee6e3a748c10a12197876b0f36d12"
+    sha256 arm64_sonoma:  "20cd4de5384b83f3da1737fabcbcc103d6a1d45bbc4ca682b2e4f991809bbfc9"
+    sha256 sonoma:        "d4fee38361fb7644ebb2ed271a95b87fa4dfb133818e673be5c304ef53c74f99"
+    sha256 arm64_linux:   "1d23ca175553b7a7f9224f103605c1f887a6768a10676c7b598e1a926e9239a1"
+    sha256 x86_64_linux:  "8ee990f9e8809ad524e45a77299176c47f17986f69783d8c4ae7782742bf744c"
   end
 
   depends_on "pkgconf" => :build
@@ -43,11 +43,6 @@ class Node < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
   end
 
-  on_linux do
-    # Avoid newer GCC which creates binary with higher GLIBCXX requiring runtime dependency
-    depends_on "gcc@12" => :build if DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
-  end
-
   link_overwrite "bin/npm", "bin/npx"
 
   # https://github.com/swiftlang/llvm-project/commit/078651b6de4b767b91e3e6a51e5df11a06d7bc4f
@@ -66,23 +61,11 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.5.1.tgz"
-    sha256 "f4c82fbff74154f73bd5ce5a2b749700d55eaddebda97b16076bf7033040de34"
-  end
-
-  # Ensure vendored uvwasi is never built.
-  # https://github.com/nodejs/node/pull/59622
-  patch do
-    url "https://github.com/nodejs/node/commit/8025e1cfb95184d2191a46f2986b42630c0908f1.patch?full_index=1"
-    sha256 "f9cc06ba9ac2dcb98d67c89cac119a005da12b4b24e30b4f689e60041b5b94aa"
+    url "https://registry.npmjs.org/npm/-/npm-11.6.0.tgz"
+    sha256 "ddf7e6e42ae5b9e28d84945d1c37188f9a741af492507b513b3e80af5aeba4f1"
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1699
-
-    # The new linker crashed during LTO due to high memory usage.
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
-
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.13")
 
@@ -225,9 +208,6 @@ class Node < Formula
   end
 
   test do
-    # Make sure Mojave does not have `CC=llvm_clang`.
-    ENV.clang if OS.mac?
-
     path = testpath/"test.js"
     path.write "console.log('hello');"
 

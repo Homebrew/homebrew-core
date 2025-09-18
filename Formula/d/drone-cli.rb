@@ -7,6 +7,7 @@ class DroneCli < Formula
   head "https://github.com/harness/drone-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "37626e0ade2e2b7c103e6340104645027985986195a56bc2152edee6e022702d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "23c5ccc940a32a1161cf3bd08ae94ac2975f900937befe9c8647d31cb3fcd0d8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "23c5ccc940a32a1161cf3bd08ae94ac2975f900937befe9c8647d31cb3fcd0d8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "23c5ccc940a32a1161cf3bd08ae94ac2975f900937befe9c8647d31cb3fcd0d8"

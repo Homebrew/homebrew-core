@@ -6,6 +6,7 @@ class AwsCCommon < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e0cc9c65b047f82284e66a58d9978090dbe5d523b7f1df0598e8c859288c768a"
     sha256 cellar: :any,                 arm64_sequoia: "9d79c4ffbddb4011ae383b8b9c2cf0382fabc6806fd683b9ab1b6cf9e81ba4c5"
     sha256 cellar: :any,                 arm64_sonoma:  "6f8cf2440d8a34087074a7bd675bd8735673d572cabfc99b0108226fe9bc4824"
     sha256 cellar: :any,                 arm64_ventura: "fbf3d7863aef4240e208cf76473e4ca930dda0391ca39003da952707179b0819"

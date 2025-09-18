@@ -2,7 +2,8 @@ class Nkf < Formula
   desc "Network Kanji code conversion Filter (NKF)"
   homepage "https://osdn.net/projects/nkf/"
   # Canonical: https://osdn.net/dl/nkf/nkf-2.1.4.tar.gz
-  url "https://dotsrc.dl.osdn.net/osdn/nkf/70406/nkf-2.1.5.tar.gz"
+  url "http://deb.debian.org/debian/pool/main/n/nkf/nkf_2.1.5.orig.tar.gz"
+  mirror "https://dotsrc.dl.osdn.net/osdn/nkf/70406/nkf-2.1.5.tar.gz"
   sha256 "d1a7df435847a79f2f33a92388bca1d90d1b837b1b56523dcafc4695165bad44"
   license "Zlib"
 
@@ -14,6 +15,7 @@ class Nkf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d5957a746f69a803dd021eb304b3c9584ddfa06833c0b6ed1981dd75d717e5f1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "67d8e9dea97994ba77574c0be558cb009448a7aa9d3d577b54e3d5728d1fb1d6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "89c0a1d6d5886045189b7a3e393b451c84ea7abf7e6f68663819b96651c58f58"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcc652ba1cfeec1bec89e5108c3e6eae31652606bf7babd5af25dc6522dc44a1"
@@ -24,9 +26,6 @@ class Nkf < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "bdf97f3712176e9da065dcacabede2187d244e201a6f326bda4d227a259e75fc"
     sha256 cellar: :any_skip_relocation, big_sur:        "40a30c72ca018734cf05b3e029d4e5d3eb6297f847da07e699f9891558480ad4"
     sha256 cellar: :any_skip_relocation, catalina:       "4a0694aedea8fcf96ecdfb6c60c0e14825591e7e7247e3944a00966d883398e6"
-    sha256 cellar: :any_skip_relocation, mojave:         "85183c457daaecd9a3ce59cea556189ad0131c6134d77e7890643a3fb75e3965"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "9af47f293d4531c8d7ec5a81bd041349773f982b9710edca03eb3eb59b02a8b5"
-    sha256 cellar: :any_skip_relocation, sierra:         "8d908ee97c34e85ed85c268c895e143d57c7afdd9bc232a75b690067281765fc"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "815d1d6de637a2a1b79024544b7c8c9ff9ea634493c33925ac228b4a97f933c3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "03ddaa51a6fc6341348d4ee40c5a0a7309817b9fb957171b01b8aeab6ea6fe25"
   end

@@ -9,6 +9,7 @@ class BerkeleyDbAT5 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a713c6c74511eb18a8dc92c92bbb1b7ca3f1e7c71c3325ab584634e6275ab1bd"
     sha256 cellar: :any,                 arm64_sequoia:  "ac64ff01e9897372c22dd2f9c90a2e5ffc5b66876c243d20d1e107b7c3785fba"
     sha256 cellar: :any,                 arm64_sonoma:   "7e1f6f67ce491e8636f9095fa45854e7b5720745b909e3b84cad8400b28418fd"
     sha256 cellar: :any,                 arm64_ventura:  "65a70e28dcf089e0ec6d247c32df257c8bc2532ece6f4c447200a48e7ad17a8d"

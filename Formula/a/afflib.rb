@@ -1,21 +1,22 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.21.tar.gz"
-  sha256 "047fce790d69c234dde1d23ad9e1f0cf868ac51b2ad9a76560d01e80f2f1c452"
+  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.22.tar.gz"
+  sha256 "67481fc520ff927bf61aea0bf2d660feb73e24cc329335bebb064f8f12115dcb"
   license all_of: [
     "BSD-4-Clause", # AFFLIB 2.0a14 and before
     :public_domain, # contributions after 2.0a14
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "415198525cd476abc0821e74c603ed01181276a3dd535ab18040cbe069195581"
-    sha256 cellar: :any,                 arm64_sonoma:  "5f03dcc0b3c684a789bf81d700e7ddfe0a14093915c2872634424b55652a1389"
-    sha256 cellar: :any,                 arm64_ventura: "6e8bbe1340c8f6b0c0b4e171ce27e0bb58fc7dd4c582dd55ca22cc78f5738599"
-    sha256 cellar: :any,                 sonoma:        "dd9226742b7b0c22ec05712fe074202a59af8d6734062ae86080843c8bfa71d1"
-    sha256 cellar: :any,                 ventura:       "79daeac53f022c937b8f637b1be92b5b710b9aad7d2072225bacd85516229df9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "11e7390f80f0cec23e526eebc6347ec8632dd5c1e0fd7e209c0db7cc330e8acb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fad4c5a290b821683ac96da984b2dd64a3c7b09277e58d8a6cf571825069d8c"
+    sha256 cellar: :any,                 arm64_tahoe:   "196c9cf17edbb798e24c511ae565f3b74d201d653a48246d22533e9e55be6337"
+    sha256 cellar: :any,                 arm64_sequoia: "b421ba045fb02e767029266042a2ef5cb78d727e51aa7d4778f740702c1799dc"
+    sha256 cellar: :any,                 arm64_sonoma:  "ab72e2df66d54b60282c0cd72622d0b87a040c28cc57364066bc2983cf4f535c"
+    sha256 cellar: :any,                 arm64_ventura: "a1c49c3b08d528875759b515107b347e349ffc11da766c6e5f582c5bf84bee46"
+    sha256 cellar: :any,                 sonoma:        "81a1a9e643a0ea333a235e64a02afda8c2a3a9cbc15cdd9ce267c5751812623c"
+    sha256 cellar: :any,                 ventura:       "14cfff06d69dc7b89260cf2522d8b084894f0584b68470ba5754130a642f48e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "87c55f7acca8cf3a536c46fef31a35f3fad0b8238dfe73dae42a0c2c243d03c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30c8666fe681513980e6e8633483f84bd03cdb9203ffb13a0d2f3eb68596c954"
   end
 
   depends_on "autoconf" => :build

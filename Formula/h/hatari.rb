@@ -7,6 +7,7 @@ class Hatari < Formula
   head "https://framagit.org/hatari/hatari.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a4f44d0f0dbbeb91103358654e2245b4fb5247d5a2f8a55bd0f12c5f4adadb11"
     sha256 cellar: :any,                 arm64_sequoia: "ac0f9543aa27fd9ffb4f8c851aadd6580f422fb229b8c31dc97b22b103fbf92c"
     sha256 cellar: :any,                 arm64_sonoma:  "a307fd095b1b81bc0f4eed6fbd8a38d391376a829f0c4a8e4ecc1a10e31273ec"
     sha256 cellar: :any,                 arm64_ventura: "ba4c9fa53fa9fdb33a414bc684c5d5e49ed824048ebba965333a4b2c608d1cbf"

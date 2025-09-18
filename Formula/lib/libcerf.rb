@@ -13,6 +13,7 @@ class Libcerf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "720c3879f7cdb5616e52b59a0fe1c07ae7640fe1fbccd6991899764d0fd23c79"
     sha256 cellar: :any,                 arm64_sequoia: "326da55ffe3d73821eb6e9529c6725a4e9d628fc225fa191e7a1a1c9bdfcba80"
     sha256 cellar: :any,                 arm64_sonoma:  "702f64e9b53853bda6fb5e878fa2f024e71f8d8111df320214ae26e909d8240d"
     sha256 cellar: :any,                 arm64_ventura: "bc4a6f8d1582ee0fa548405c4d0e1db16dfdcd9765d5249b2f208cd338d3b7c4"

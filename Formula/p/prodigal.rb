@@ -23,10 +23,6 @@ class Prodigal < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "19a6b172b25f41612c11427cb12b19cca27580935c756ac5337c9bce27e3b4a5"
     sha256 cellar: :any_skip_relocation, big_sur:        "5f61811f05bc3e784428dd1ece760e6375f2624b103393e1809ece54659d440c"
     sha256 cellar: :any_skip_relocation, catalina:       "5cebc25d98ba4439aa810c4e05c9f30e7ecf768035d135d0989cf58c18517a87"
-    sha256 cellar: :any_skip_relocation, mojave:         "8751eedad40b08714b52a78b9cf48e4101ffa4b871a0ab943830a59137a67e53"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c120fed8e29bb3b1a4ff69d5ca05e051a0fe3822784b3d585e142da3452d1ac1"
-    sha256 cellar: :any_skip_relocation, sierra:         "a27fe5316181d4826e5aa5291d0fc1b1a7087c32c7b4e6aedabf1209d5a8ac36"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "70b432e3d3da1f4089680b06c0745b7dac3611f05d8ec9440faa918bc82d6fe5"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "82c184c80fe91b972ed50eccdbc1c80e99438d577f9a8decbe2083ae15a09b5f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9974eaeb5029133abe08d54412f419ea1159eda1dba47a6c89ee661e865285b2"
   end

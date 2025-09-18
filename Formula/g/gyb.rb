@@ -6,19 +6,27 @@ class Gyb < Formula
   homepage "https://github.com/GAM-team/got-your-back/"
   # Check gyb.py imports for any changes. Update pypi_formula_mappings.json (if necessary)
   # and then run `brew update-python-resources gyb`.
-  url "https://github.com/GAM-team/got-your-back/archive/refs/tags/v1.90.tar.gz"
-  sha256 "9f090cb5b1b4b1209801e2cae1d2d0065581c0d2d366682db1e2e74cc4609ec9"
+  url "https://github.com/GAM-team/got-your-back/archive/refs/tags/v1.95.tar.gz"
+  sha256 "96d8ec7c63bb33e5484f5ad6ac28c5762e9f2a2296d55955e0f48527ebcde45c"
   license "Apache-2.0"
   head "https://github.com/GAM-team/got-your-back.git", branch: "main"
 
+  # This regex limits the length of the major version to avoid a date-based tag
+  # (20250831.221201).
+  livecheck do
+    url :stable
+    regex(/^v?(\d{,3}(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34b0c3a81ac14cf5ceef0612e95e8699d9b34febe10f692a76b7d0575ae888d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c29662889891531f51a23dbd4de267dd784dce9ef638e5b70fd04f21a3ba615d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ea025497447e5f37c58bbd1a4f98c80e9ddc4335c8a94c1d860d76424bb047a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b7807c2294d6a90e1af44189577e195cd3817bc83cd09c37492102ec12010a7"
-    sha256 cellar: :any_skip_relocation, ventura:       "169384437b28466fba683514f3c8fee12b6a1c602949a24c4a613fd5937c8d34"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "187a7e7a11dc414f0959c4d3b92516750ea7a01ba50551d1b80b84a2b0bb06a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2dbb4367fd0126513405a493f61a5b8aedbb0eec7c38d55bc2cd7141b68c2d7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc5241d9625d2796aac2ce82e964819b65ba2fee500aad880858b847a3926582"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4cd32551d7760193861b67971bdb55d9041e4d2bac2e60361569591eea52b7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4dfc941d79128e422a5773bbd4714c19ff753b3e28d017ca9a877a4c01bfdc03"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fd58be575d7c7b6efe2a1b2f194fbf30303571e1753d2726216eaf3fb7d7ae2e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3d3dbf55be32e32c208257719915c821677916ee22aa07e2ec1703177dc5ace3"
+    sha256 cellar: :any_skip_relocation, ventura:       "40cbc770470e740dcbc2399097c98ed60b7e9edc2b92bfb0e231f8ad9b671417"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b9834baa334be0764f67c40f37a8b66813ecf410917ed0287f830432052da22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56d0a2e226d0f24fb9e221e49b2489b00a1f3e30747d57f376c582ee18ab5ea6"
   end
 
   depends_on "certifi"
@@ -40,8 +48,8 @@ class Gyb < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/73/ed/6e7865324252ea0a9f7c8171a3a00439a1e8447a5dc08e6d6c483777bb38/google_api_python_client-2.179.0.tar.gz"
-    sha256 "76a774a49dd58af52e74ce7114db387e58f0aaf6760c9cf9201ab6d731d8bd8d"
+    url "https://files.pythonhosted.org/packages/c2/96/5561a5d7e37781c880ca90975a70d61940ec1648b2b12e991311a9e39f83/google_api_python_client-2.181.0.tar.gz"
+    sha256 "d7060962a274a16a2c6f8fb4b1569324dbff11bfbca8eb050b88ead1dd32261c"
   end
 
   resource "google-auth" do
@@ -65,8 +73,8 @@ class Gyb < Formula
   end
 
   resource "httplib2" do
-    url "https://files.pythonhosted.org/packages/3d/ad/2371116b22d616c194aa25ec410c9c6c37f23599dcd590502b74db197584/httplib2-0.22.0.tar.gz"
-    sha256 "d7a10bc5ef5ab08322488bde8c726eeee5c8618723fdb399597ec58f3d82df81"
+    url "https://files.pythonhosted.org/packages/5b/75/1d10a90b3411f707c10c226fa918cf4f5e0578113caa223369130f702b6b/httplib2-0.30.0.tar.gz"
+    sha256 "d5b23c11fcf8e57e00ff91b7008656af0f6242c8886fd97065c97509e4e548c5"
   end
 
   resource "idna" do

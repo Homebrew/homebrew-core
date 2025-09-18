@@ -1,19 +1,19 @@
 class Feroxbuster < Formula
   desc "Fast, simple, recursive content discovery tool written in Rust"
   homepage "https://epi052.github.io/feroxbuster"
-  url "https://github.com/epi052/feroxbuster/archive/refs/tags/v2.11.0.tar.gz"
-  sha256 "61aa0a5654584c015ff58df69091ec40919b38235b20862975a8ab0649467a83"
+  url "https://github.com/epi052/feroxbuster/archive/refs/tags/v2.12.0.tar.gz"
+  sha256 "96b70dec92c4aa4e892fc88696cb939539aac758c6762f53c880e1c21528737c"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf7ba7b09be136c65b9610abeb3917e70c781f5ca3f14ae302713f5a0b0a743a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c37f755e0d771161924c22ba8db0da37f83f83034075a0ba9270a9e9f04debb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b746842e75d6cc9bdb53e1f1b2d8f48ffa91b1acdda8149f83ec680b60f35ecc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3cb614702fcc971ff1ab5815cf9a137dbef994485b0006b66e74e63755376486"
-    sha256 cellar: :any_skip_relocation, ventura:       "64a1648df0882c5a32d4b25dfefe5c61e0963c98996ec27a6916c540555436c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9182fdb77606f6edd070a4a4eb464d9a87e87caf1ffc362331e04240035a599"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be9cee6c81ad2baf75d4380012c5d4887c6f66a51a1f699e47208beb3e41f44f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce1e83ffec2ade9627c627474379cf484f660eca0d3d1a1c3135bd922f0cfc67"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eed0dc69f3f862e96043263cbbaf68a3859ec9f0600d9ad1459605abadb3fa36"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f849fd931655c6465776630e8459ebd7a817aa6c1cf691dd824b30459ff1fdab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d0013c0046693852292b140c1f3f9706409047eff93010123d5c041c7e97afcd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2ac27e2d0d21e734a49e823328278f38eff3fb5f3ff0b90b8754094b29e94752"
+    sha256 cellar: :any_skip_relocation, ventura:       "0eaa992c22eb1c96bb4489a7708626a1064e02014df3c0b8e8e069795ef5948d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f120141f716ca7c7451eb4363940f31bf135e3d663984c9adf754c87aa0d1fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78b2e4b0b484e40bb328e9f1c33f6a1859a62835a48b808cf2bc5fe31f7a5840"
   end
 
   depends_on "pkgconf" => :build

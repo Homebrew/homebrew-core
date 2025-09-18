@@ -6,6 +6,7 @@ class GrinWallet < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a72f69bac55b83e42fa1262eb6dec2cb14026fd28c8bd68cf7b6170dc69761c5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d54049d62d5a0b36292b2d21e5563848aac9d460780bd4bf454f7327e53a05d7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "634ac3133c50339f68b98c0c3c2079af681802427a81ad7bd9ead796b06bd231"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f4dfcada1df61633644eb26265f31587ed1476b2662f167c5952b36308633861"

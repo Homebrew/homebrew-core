@@ -11,6 +11,7 @@ class Certsync < Formula
   no_autobump! because: "has non-PyPI resources"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "799e65c865e6fce8bc2a0acc59b4b31d792684c5e5c15298903aec8875b34783"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce9f96e07b826ca7f88e7324e519c77895a8067fb7a515467b01b8d340e11916"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32fc1c809f36a9d0e28157ccf6d00ca9e42deaec653b5da3234daa3eed3add44"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "555abc7e5f9f99cce2a30ee4bdc16f026e88e671493031d131bb927c91aa7f76"

@@ -6,6 +6,7 @@ class Dexter < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "37c20ff1fec46e21f4c5bd004c61badbc14ebc10765c5c4566e4ac20e42a61cd"
     sha256 cellar: :any,                 arm64_sequoia: "8b1ad41e59a62ca16baeb8128642e61fbc44ff2c83b3a3a2987611285550c0c9"
     sha256 cellar: :any,                 arm64_sonoma:  "8c395f21bb1692a2c181840488acac9bcd6ccbc55f00a89328412add8e823cdd"
     sha256 cellar: :any,                 arm64_ventura: "69d9fc12c4d4fcbb92b2c67db6a08bd4682573fbbfdc38146d2561be30d6795a"

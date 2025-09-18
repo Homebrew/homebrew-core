@@ -79,9 +79,6 @@ class Octave < Formula
     depends_on "mesa-glu"
   end
 
-  # Dependencies use Fortran, leading to spurious messages about GCC
-  cxxstdlib_check :skip
-
   def install
     system "./bootstrap" if build.head?
     args = [

@@ -9,6 +9,7 @@ class TelegramDownloader < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9a4b93e26501b32ab030e9a4f48068562d5e9fae9f59a903989da030dc7bdf53"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7ea231c234bbddcf524686219b25676d98c923930ed8511090e93ced14cca13"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "019db7aa2c9dc9a91fda57b2c04f07249f31c7bbbdabc7937c0c116523bb85ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0901f760e4978713da8598c761f14ed6c793af99211254e67d12e62f3864844a"

@@ -13,6 +13,7 @@ class Dvanalyzer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e1d43037409673d2095be07916360762989d3ce9607c56280f498e881d1af521"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3b6fd3f4af125d1e85f299d7c7c30475a429a7f5d627426e77f5eeddc3d27b2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd458167da95107a9a0e3c31bf676a44d1fa64789f92d9ed2c7aeeea8cdef306"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "499a358163cb7361ca01a66f258e5544f7facf0d6394d3608fc06c2d42aedf71"
@@ -23,10 +24,6 @@ class Dvanalyzer < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "3b6827ba646ecac89cfb7437785df9586bfe1df4a4129b418fb7fb58ba2d6078"
     sha256 cellar: :any_skip_relocation, big_sur:        "c82268f8073ce66058329a7f3e17a8dffba0d811f82c1eb33a6a45144693bf17"
     sha256 cellar: :any_skip_relocation, catalina:       "1e9397fde0dde748e89f06dabbcabce109fef89914a436b71b754bd32f179e8a"
-    sha256 cellar: :any_skip_relocation, mojave:         "d688b087bb74bacc39b805a35b7db02c1291502003eb4904ef5ddbf3063b7c1e"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "59667b7174026e959f123ebbf8f8e30559dabb70814565f8bec8316c4b9c02b1"
-    sha256 cellar: :any_skip_relocation, sierra:         "fb066074dde3b6e94ba30bf37bc85c2e17ef30a7e2b8f874b1a09f3aca2275f7"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "0e138c105a1f4604dbb4b7c911e83c660f2078cb24af6ba0ba12564a6e93d9c0"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "e5d73bfd1ef1e77613f71f59670c174b49b2032abbca48dfed5da2835f07b169"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "439d718775ff2f2f2ae7f076c4cf120298b116b6a6fb0afdc4236823387948f0"
   end

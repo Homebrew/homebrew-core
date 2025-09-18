@@ -12,13 +12,15 @@ class Fontconfig < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "b292b9e4ef57b6ed6190119972bffad4d326798f08b9ee74a1776b3eb94fc9a0"
-    sha256 arm64_sonoma:  "82b87ca97b26ecb4e05d0e9b607a162b8367867ced0208499a8b68ab536ab333"
-    sha256 arm64_ventura: "0b178b197586614e1836d20c7c22ff7929a02937a62269ca6eb62ad9fc3f2cda"
-    sha256 sonoma:        "eccb1a8cc72ab45874424e18165753a47b16ee3919a7514d2951ee5cf0c89751"
-    sha256 ventura:       "b96b22ce54b85dea093d70c68c674ff5f769a19e93094e2328be817c02741051"
-    sha256 arm64_linux:   "53972abe0f04e39b2cd7995c3ef1547960b946cadf5f14d406516c5106e74e63"
-    sha256 x86_64_linux:  "4a6a3a681de7722a77cf80eb1c19cec3f65a44b7898b9830eaa53ac570282104"
+    rebuild 1
+    sha256 arm64_tahoe:   "20f30c771e40a924e423a9652080c7097e16782ffb236344c368721c001b78a0"
+    sha256 arm64_sequoia: "357516db5db5eb0cf5936333ef5845e600a0e01fbe80909b994f159b9d18bb22"
+    sha256 arm64_sonoma:  "d3d81ce82b7fafa924ca50adb5199b952f9f6706303d599e6bee0c476ece908b"
+    sha256 arm64_ventura: "8f07f7c568de41b1229cc5d437763739d4f3e892e9aa17b94fe9415c80ea40c0"
+    sha256 sonoma:        "ca0deb10e43960476c8c417e78f14e81bc2d0674c7860db8efb842d206093137"
+    sha256 ventura:       "71ec3020d8de2aebed88452f49748554e318b1dd0054a5d540820586b2488ac0"
+    sha256 arm64_linux:   "e85111ea1b81f0bf5505a3319187b3b2ede73aad67b9142ceb86132bdece1a61"
+    sha256 x86_64_linux:  "2c1073429bebddfa34e272928799517b246e6a44722ac567a1be66692750d99b"
   end
 
   depends_on "gettext" => :build
@@ -28,7 +30,7 @@ class Fontconfig < Formula
   depends_on "freetype"
 
   uses_from_macos "gperf" => :build
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "expat"
 
   on_macos do
@@ -46,11 +48,10 @@ class Fontconfig < Formula
       ~/Library/Fonts
     ]
 
-    if OS.mac? && MacOS.version >= :sierra
-      font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max
-    end
+    font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max if OS.mac?
 
     args = %W[
+      --default-library=both
       --localstatedir=#{var}
       --sysconfdir=#{etc}
       -Ddoc=disabled

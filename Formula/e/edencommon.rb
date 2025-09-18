@@ -1,19 +1,18 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.08.25.00.tar.gz"
-  sha256 "69fc9c723c4dbfa24ae08a5b25273a2c40654ed4058881a313036107f0d89831"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.09.15.00.tar.gz"
+  sha256 "41456980e1e2c8cb7da8bd7a29a1125cbc79ad42b1dd8e343b7411f66ead9460"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
   bottle do
-    sha256                               arm64_sequoia: "84e6ccd6b6456b778fc3f780689784df9052d8f72c0bed062573bdf60d3694bc"
-    sha256                               arm64_sonoma:  "f1242cc55a49b6457878d6b7ddb48d1d43601765ea03cf9a62aa9681c129a27a"
-    sha256                               arm64_ventura: "3b3577752d15ed0e5829cea9f63666a1de76570c5d2cc347108366facf7134c5"
-    sha256 cellar: :any,                 sonoma:        "a89127347c71db30556a68e63e4a0353a62cc285bec71371d775877ec83079b9"
-    sha256 cellar: :any,                 ventura:       "90f5aeb20029df2d81daa3316a011767fd92ce05ef20f06389ca0fe862964a98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "834c0a23560499f4ba2d3db44c1f422334feeff8894cc3a95ed5be9f7b7e1d82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4171efb2d7003fdaaf1c7d1b9b9fe9b089fb7bb6da2750f873a3df810f41a179"
+    sha256                               arm64_tahoe:   "4db867b8e031a91bd8e1aa93178f5531dc7a119812305f682039774012b9f67b"
+    sha256                               arm64_sequoia: "f43baf12efe4c60874682880d8dae5a297a187fff0cd47727d44b001e508c531"
+    sha256                               arm64_sonoma:  "59e6e845818457c08c52b1a3a6a88f6bfa4a8183e5943d07b35cdee9cc5b5b43"
+    sha256 cellar: :any,                 sonoma:        "ed8a1fc3cc87d89a4d71451b72d55add84fc0872c62698a4678b02325b44ae7b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0a0b8c18eb6e882ebe2eaffd7f5b97abcb1b70d4ab4b7d05674735e9b4ff2f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6984dff1e127e52f4a95d33a1158e4d86f760c0115736e1f7cd2dc2ff0043c96"
   end
 
   depends_on "cmake" => :build

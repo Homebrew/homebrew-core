@@ -15,6 +15,7 @@ class Rogue < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b327fe2a04af7f0560f1bbfc71cb580398b772fa3078151e7e11aacc629a15c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "78ece502084d54a61267fe5b312cc9a85161bc428fc6f8785f7e5e738bcaa237"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "596bea046705fe93367152155bd753a89a490728692838f3d281e66af803d23a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb41a1bc17c2894736afe57978b32b796793b405a238685b04c5bb4b0e8ff466"
@@ -25,7 +26,6 @@ class Rogue < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "0c169854e9edcfdf99c7c52e5fbfb39dbf883c74f076097aaf3027daf9f2064b"
     sha256 cellar: :any_skip_relocation, big_sur:        "c6e8bb630a966cd8885e378242f9175ffd8327e26ec1ed679016302b437a5156"
     sha256 cellar: :any_skip_relocation, catalina:       "c576555f6857ff3ec7f0b2e39625d3c1f86989315b735a5e27d9416c095e5efc"
-    sha256 cellar: :any_skip_relocation, mojave:         "7a7a380bb29967b8e795aa2407e8f205752b93952082491e20fff84394819294"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "6010fd6661da3ce1ab2a3115fa4776827e91a7da713a6c13ec5db192edcfd3c8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2edb3e1d6fb4af2f87d065012e68d09abda6035c5f4394d685336d0763f31869"
   end

@@ -6,6 +6,7 @@ class Openlibm < Formula
   license all_of: ["MIT", "ISC", "BSD-2-Clause"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0f69832aa3e0b5037e36303fa31570016dd59cfc981e6a84e8a130803939e45a"
     sha256 cellar: :any,                 arm64_sequoia: "e6752fb0e310f950ac52cf3b48f1bb8bf6cfd54f232a600cab2c7193c13d21a8"
     sha256 cellar: :any,                 arm64_sonoma:  "6e7c1eb94e6db408c98f94b058f90306d92b9d507565a0896a83b40fd533cb50"
     sha256 cellar: :any,                 arm64_ventura: "f90c6264298e3fd95ac064d63e15723cae49d108b50b30bd1a080ad403040e6b"

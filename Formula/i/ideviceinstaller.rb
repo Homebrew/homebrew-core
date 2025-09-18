@@ -10,6 +10,7 @@ class Ideviceinstaller < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9fb056a71779f3ae968d5b59235434363cb890f43439c53cfbdc12c2fd73391b"
     sha256 cellar: :any,                 arm64_sequoia:  "42ce06edd2a59ca8e25f460c6d66689c04587f4779bf4ef4f965b5c7d01b89c4"
     sha256 cellar: :any,                 arm64_sonoma:   "818061a6b3ede66696892086a119faa1df036d6d4a3242672fdb955db0d23e6c"
     sha256 cellar: :any,                 arm64_ventura:  "dfaf6de5dc0578c882412ef904195d77a6aacf7f1b9b28855ba5d8610ce17ca1"

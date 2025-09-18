@@ -15,6 +15,7 @@ class SpirvTools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0a773817b52358ad902ecd590f9f8321461ba42bcebf6ba3c7a00fc4606f87c1"
     sha256 cellar: :any,                 arm64_sequoia: "ebb1c57e0f9cfd77dcf9e9a11c09f3775274251b928b0629719f1f7bb51afa5a"
     sha256 cellar: :any,                 arm64_sonoma:  "1d590b32bf48250371181e59c1ce0168c66d33006f5dbd88198b7fdf7da39353"
     sha256 cellar: :any,                 arm64_ventura: "48ff490ce54dcc9013f8ba3aa3c4e56098436b53843f51b9f2d85c72f68e9649"

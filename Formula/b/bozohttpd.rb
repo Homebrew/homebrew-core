@@ -13,6 +13,7 @@ class Bozohttpd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f071d5d2e28bc3a4ccef5b81d780fbd3995a5cca9d508356ffa860ede9737bf6"
     sha256 cellar: :any,                 arm64_sequoia: "f91adb497f96847759c3427e7b14b81889547273bc078266abdcc0087e6f1c8f"
     sha256 cellar: :any,                 arm64_sonoma:  "ad727b862019134b028cc9d5ee6893755dc001ab87ebc3625eca39779be2d65a"
     sha256 cellar: :any,                 arm64_ventura: "5269de6704ed5507508a2bfba45dfb714d0a077bb86682cc013762a3e05dbaba"

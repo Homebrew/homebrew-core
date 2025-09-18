@@ -13,6 +13,7 @@ class Gopls < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "146d443008dec56db8f2f333b19f29a08bd5045ee8b7982f0f2549e315af7037"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc404c5c044916bcaf735ee34c124a6d09d0537294a16d6c2249a925518a7973"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc404c5c044916bcaf735ee34c124a6d09d0537294a16d6c2249a925518a7973"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fc404c5c044916bcaf735ee34c124a6d09d0537294a16d6c2249a925518a7973"

@@ -10,6 +10,7 @@ class Bullet < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "395e22b8e53e44fae2b17a2cdbc981e98beb8e6c85215a453c0e5ccc3672bdff"
     sha256 cellar: :any,                 arm64_sequoia: "97aeccf39592bcf03e7dd07b5339ec03b11345137a8e0872288bb8deff702c6b"
     sha256 cellar: :any,                 arm64_sonoma:  "367a1f5cdab325d50b7c6ef7b46782d578bb7c0f0dac9f233e2b1779c91feb4a"
     sha256 cellar: :any,                 arm64_ventura: "c69182f86bc7b5a3407cbee2b2fae2ed2a4959b766d1fb22408d3acf30e1400c"
@@ -39,6 +40,12 @@ class Bullet < Formula
       -DINSTALL_EXTRA_LIBS=ON
       -DBULLET2_MULTITHREADING=ON
     ] + std_cmake_args(find_framework: "FIRST")
+
+    # Workaround to build with CMake 4
+    common_args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+    # Temporary fix for https://github.com/bulletphysics/bullet3/issues/4733
+    common_args << "-D_CURRENT_OSX_VERSION=#{MacOS.full_version}" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build_double",
                     "-DBUILD_SHARED_LIBS=ON",
