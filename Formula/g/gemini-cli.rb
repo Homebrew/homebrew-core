@@ -5,6 +5,11 @@ class GeminiCli < Formula
   sha256 "4c272d3be5653bcb31ea9fbd1637c7f3f7e81da91f70b8f3e0072c1c961f57cc"
   license "Apache-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256                               arm64_tahoe:   "b1340a7dd580e2576693145e11955e7a8500d6f35aae56e34ad9b2ae2aed4205"
     sha256                               arm64_sequoia: "44d893aacab0a7f41ec357af5119d1b8b49c5e593defacf1c58e8762c19b07e9"
