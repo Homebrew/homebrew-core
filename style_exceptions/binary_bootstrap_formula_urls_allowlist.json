@@ -1,0 +1,23 @@
+[
+  "cabal-install",
+  "clozure-cl",
+  "crystal",
+  "fastbuild",
+  "fpc",
+  "ghc",
+  "ghc@9.10",
+  "ghc@9.2",
+  "ghc@9.4",
+  "ghc@9.6",
+  "ghc@9.8",
+  "go",
+  "ldc",
+  "mlton",
+  "openjdk",
+  "openjdk@11",
+  "openjdk@17",
+  "openjdk@21",
+  "openjdk@8",
+  "pypy",
+  "rust"
+]
