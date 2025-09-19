@@ -2,7 +2,7 @@ class ReginaRexx < Formula
   desc "Interpreter for Rexx"
   homepage "https://regina-rexx.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/regina-rexx/regina-rexx/3.9.7/regina-rexx-3.9.7.tar.gz"
-  sha256 "27f47cf54f67ca0df04603cce6567bc8f4682f605cfafec2d6de9d1ba96ac429"
+  sha256 "f13701ebd542e74d0fc83b2a7876a812b07d21e43400275ed65b1ac860204bd4"
   license "GPL-2.0-or-later"
 
   bottle do
