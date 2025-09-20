@@ -5,6 +5,7 @@ class Lzlib < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.15.tar.gz"
   sha256 "4afab907a46d5a7d14e927a1080c3f4d7e3ca5a0f9aea81747d8fed0292377ff"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/lzip/lzlib/"
@@ -23,9 +24,15 @@ class Lzlib < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "CC=#{ENV.cc}",
-                          "CFLAGS=#{ENV.cflags}"
+    args = %W[
+      --prefix=#{prefix}
+      CC=#{ENV.cc}
+      CFLAGS=#{ENV.cflags}
+    ]
+    # FIXME: Build script only outputs .so file
+    args << "--enable-shared" if OS.linux?
+
+    system "./configure", *args
     system "make"
     system "make", "check"
     system "make", "install"
@@ -40,8 +47,7 @@ class Lzlib < Formula
         printf ("%s", LZ_version());
       }
     C
-    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-llz",
-                   "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-llz", "-o", "test"
     assert_equal version.to_s, shell_output("./test")
   end
 end
