@@ -32,6 +32,9 @@ class Retdec < Formula
   uses_from_macos "zlib"
 
   def install
+    # Workaround for CMake 4 compatibility with multiple vendored deps
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
