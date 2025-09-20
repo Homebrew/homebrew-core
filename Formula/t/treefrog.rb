@@ -29,6 +29,8 @@ class Treefrog < Formula
     rm_r("3rdparty")
     # Skip unneeded CMake check
     inreplace "configure", "if ! which cmake ", "if false "
+    # Fix to error: no member named 'mode' in 'TSqlJoin<T>';
+    inreplace "src/tsqljoin.h", "_mode(other.mode)", "_mode(other._mode)"
 
     system "./configure", "--prefix=#{prefix}",
                           "--enable-shared-glog",
