@@ -1,15 +1,9 @@
 class GrafanaAgent < Formula
   desc "Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces"
   homepage "https://grafana.com/docs/agent/latest/"
-  url "https://github.com/grafana/agent/archive/refs/tags/v0.44.2.tar.gz"
-  sha256 "ef8b19e0bda6214ad1856d636226c50e9c9690da45791c5da090227f81fba65a"
+  url "https://github.com/grafana/agent/archive/refs/tags/v0.44.4.tar.gz"
+  sha256 "ce86302982702912cfe5df98237fd0a3c14b14b1205386b1f5a4b6d3b64cf414"
   license "Apache-2.0"
-
-  # Keep livecheck until 2025-11-01
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "445b4e2c05d1e0370f5daf719c3bdf724d2a2c0ac7792d08fc4e62b7859425aa"
@@ -21,13 +15,7 @@ class GrafanaAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "96a26aad76428d765023b479df15a501ca44fe3220788ec5337ed0263ad27713"
   end
 
-  # Needs EOL Go 1.22 to build (https://github.com/grafana/agent/issues/6972)
-  # and deprecated upstream though will get security fixes until 2025-10-31.
-  # Disable date set 3 months after planned EOL date of 2025-11-01.
-  disable! date: "2026-02-01", because: :deprecated_upstream, replacement_formula: "grafana-alloy"
-
-  # use "go" again when https://github.com/grafana/agent/issues/6972 is resolved and released
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
 
