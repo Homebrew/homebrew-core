@@ -3,7 +3,7 @@ class Stella < Formula
   homepage "https://stella-emu.github.io/"
   url "https://github.com/stella-emu/stella/archive/refs/tags/7.0c.tar.gz"
   version "7.0c"
-  sha256 "1b40955f24f3f1f00dff0f4cb46bc1cab4c5e1b9017521b525c5e304be554e3a"
+  sha256 "b9309198aa5746cd568e91caaea10bbeab4ca8155493d0243694b41bdb39d7ca"
   license "GPL-2.0-or-later"
   head "https://github.com/stella-emu/stella.git", branch: "master"
 
