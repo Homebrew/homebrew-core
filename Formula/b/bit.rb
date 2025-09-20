@@ -1,10 +1,10 @@
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://bit.dev"
-  url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.8.8.tgz"
-  sha256 "25d899bacd06d77fad41026a9b19cbe94c8fb986f5fe59ead7ccec9f60fd0ef9"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.8.9-server.1.tgz"
+  version "14.8.9-server.1"
+  sha256 "c20c752398b1cdf26f398f7b51a8941ec243920f549c5d7b867da28c4e77376b"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/teambit/bit.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
