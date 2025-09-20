@@ -25,21 +25,12 @@ class Plakar < Formula
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
-  service do
-    run [opt_bin/"plakar", "agent", "-foreground"]
-    keep_alive true
-  end
-
   test do
     assert_match version.to_s, shell_output("#{bin}/plakar version")
 
     repo = testpath/"plakar"
-    system bin/"plakar", "at", repo, "create", "-plaintext", "-no-compression"
+    system bin/"plakar", "-no-agent", "at", repo, "create", "-plaintext", "-no-compression"
     assert_path_exists repo
-
-    # Skip linux CI test as test due to `failed to run the agent` error
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    assert_match "Repository", shell_output("#{bin}/plakar at #{repo} info")
+    assert_match "Repository", shell_output("#{bin}/plakar -no-agent at #{repo} info")
   end
 end
