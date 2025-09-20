@@ -21,7 +21,11 @@ class Plzip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a35aab3bc41f9112cd01216df0902af5b126cdbe340c91396acdbf006506fe3d"
   end
 
-  depends_on "lzlib"
+  depends_on "lzlib" => :build
+
+  on_linux do
+    depends_on "lzlib"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}"
