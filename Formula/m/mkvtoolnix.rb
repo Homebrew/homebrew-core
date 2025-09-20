@@ -2,6 +2,7 @@ class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
   license "GPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://mkvtoolnix.download/sources/mkvtoolnix-95.0.tar.xz"

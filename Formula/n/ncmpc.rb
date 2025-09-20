@@ -4,6 +4,7 @@ class Ncmpc < Formula
   url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.52.tar.xz"
   sha256 "3af225496fe363a8534a9780fb46ae1bd17baefd80cf4ba7430a19cddd73eb1a"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.musicpd.org/download/ncmpc/0/"

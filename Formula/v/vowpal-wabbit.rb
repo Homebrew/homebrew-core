@@ -4,7 +4,7 @@ class VowpalWabbit < Formula
   url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/refs/tags/9.10.0.tar.gz"
   sha256 "9f4ec5cddf67af2c7aa9b380b23fe22c4b11e2109f2cbaa1314bdf3570749a4d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   no_autobump! because: :requires_manual_review

@@ -1,19 +1,10 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmt.dev/"
+  url "https://github.com/fmtlib/fmt/releases/download/12.0.0/fmt-12.0.0.zip"
+  sha256 "1c32293203449792bf8e94c7f6699c643887e826f2d66a80869b4f279fb07d25"
   license "MIT"
   head "https://github.com/fmtlib/fmt.git", branch: "master"
-
-  stable do
-    url "https://github.com/fmtlib/fmt/releases/download/11.2.0/fmt-11.2.0.zip"
-    sha256 "203eb4e8aa0d746c62d8f903df58e0419e3751591bb53ff971096eaa0ebd4ec3"
-
-    # Backport fix for error: use of undeclared identifier 'malloc'
-    patch do
-      url "https://github.com/fmtlib/fmt/commit/f4345467fce7edbc6b36c3fa1cf197a67be617e2.patch?full_index=1"
-      sha256 "59cc3e535a98346ea37d7cbd59d553bb06c3ee4f2a955e6bcdc5911fbd39668f"
-    end
-  end
 
   bottle do
     rebuild 1

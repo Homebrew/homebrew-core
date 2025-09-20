@@ -4,7 +4,7 @@ class Rsgain < Formula
   url "https://github.com/complexlogic/rsgain/archive/refs/tags/v3.6.tar.gz"
   sha256 "26f7acd1ba0851929dc756c93b3b1a6d66d7f2f36b31f744c8181f14d7b5c8a7"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
   head "https://github.com/complexlogic/rsgain.git", branch: "master"
 
   bottle do
