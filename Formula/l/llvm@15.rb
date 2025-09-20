@@ -31,9 +31,6 @@ class LlvmAT15 < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
-  # sanitizer_mac.cpp:630:15: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
-  # constexpr u16 GetOSMajorKernelOffset() {
-  depends_on maximum_macos: [:ventura, :build]
   depends_on "python@3.12" => [:build, :test]
   depends_on "zstd"
 
@@ -76,9 +73,6 @@ class LlvmAT15 < Formula
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
     site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
-
-    # Apple's libstdc++ is too old to build LLVM
-    ENV.libcxx if ENV.compiler == :clang
 
     # compiler-rt has some iOS simulator features that require i386 symbols
     # I'm assuming the rest of clang needs support too for 32-bit compilation
@@ -132,6 +126,9 @@ class LlvmAT15 < Formula
       args << "-DLIBCXXABI_INSTALL_LIBRARY_DIR=#{lib}/c++"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
       runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{loader_path}"
+      if DevelopmentTools.ld64_version >= "1115.7.3"
+        runtimes_cmake_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-ld_classic"
+      end
 
       # Prevent CMake from defaulting to `lld` when it's found next to `clang`.
       # This can be removed after CMake 3.25. See:
