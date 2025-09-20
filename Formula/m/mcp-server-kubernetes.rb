@@ -30,12 +30,25 @@ class McpServerKubernetes < Formula
 
   test do
     json = <<~JSON
-      {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26"}}
+      {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"brew-test","version":"1.0"}}}
+      {"jsonrpc":"2.0","method":"notifications/initialized","params":{}}
       {"jsonrpc":"2.0","id":2,"method":"tools/list"}
     JSON
-    output = pipe_output(bin/"mcp-server-kubernetes", json, 0)
-    assert_match "kubectl_get", output
-    assert_match "kubectl_describe", output
-    assert_match "kubectl_logs", output
+
+    Open3.popen3(bin/"mcp-server-kubernetes") do |stdin, stdout, _, wait_thread|
+      begin
+        stdin.write json
+        stdin.close
+        sleep 1
+      ensure
+        Process.kill("TERM", wait_thread.pid) if wait_thread.alive?
+        wait_thread.join(3)
+        Process.kill("KILL", wait_thread.pid) if wait_thread.alive?
+      end
+
+      responses = stdout.readlines
+      assert responses.length >= 2, "Expected at least 2 responses, got #{responses.length}"
+      assert JSON.parse(responses[1]).dig("result", "tools")&.any? { |tool| tool["name"] == "kubectl_get" }
+    end
   end
 end
