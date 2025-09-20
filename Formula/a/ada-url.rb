@@ -38,13 +38,13 @@ class AdaUrl < Formula
 
   def install
     if OS.mac? && DevelopmentTools.clang_build_version <= 1500
-      ENV.llvm_clang
-
       # ld: unknown options: --gc-sections
       inreplace "tools/cli/CMakeLists.txt",
                 "target_link_options(adaparse PRIVATE \"-Wl,--gc-sections\")",
                 ""
     end
+
+    ENV.O0 if OS.linux?
 
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -60,11 +60,6 @@ class AdaUrl < Formula
   end
 
   test do
-    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version <= 1500
-    ENV.prepend_path "PATH", Formula["binutils"].opt_bin if OS.linux?
-    # Do not upload a Linux bottle that bypasses audit and needs Linux-only GCC dependency
-    ENV.method(DevelopmentTools.default_compiler).call if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     (testpath/"test.cpp").write <<~CPP
       #include "ada.h"
       #include <iostream>
@@ -77,10 +72,9 @@ class AdaUrl < Formula
       }
     CPP
 
-    system ENV.cxx, "test.cpp", "-std=c++20",
-           "-I#{include}", "-L#{lib}", "-lada", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++20", "-I#{include}", "-L#{lib}", "-lada", "-o", "test"
     assert_equal "http:", shell_output("./test").chomp
-
+    ohai `#{bin}/adaparse -d http://www.google.com/bal?a==11#fddfds`
     assert_match "search_start 25", shell_output("#{bin}/adaparse -d http://www.google.com/bal?a==11#fddfds")
   end
 end
