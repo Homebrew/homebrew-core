@@ -20,12 +20,28 @@ class Opencoarrays < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
+  depends_on "gcc@14"
   depends_on "open-mpi"
 
   def install
+    # Version 2.10.2 and older are incompatible with GFortran 15.
+    # Version 2.10.3 is incompatible with Open MPI when using GFortran 15.
+    # We don't support MPICH dependency as a single MPI is needed across formulae
+    #
+    # Ref: https://github.com/sourceryinstitute/OpenCoarrays/issues/793
+    # Ref: https://github.com/open-mpi/ompi/issues/13385
+    ENV["FC"] = which("gfortran-14")
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
+    # Run test in CI to check if issues mixing direct gcc@14 with indirect gcc in open-mpi.
+    # Avoid running on local source build as tests can be flaky (e.g. newer shellcheck installed)
+    if build.bottle?
+      # Ignore a shellcheck error from ctest if CMake finds locally installed shellcheck
+      with_env(PRTE_MCA_rmaps_default_mapping_policy: ":oversubscribe", SHELLCHECK_OPTS: "-e SC2329") do
+        system "ctest", "--test-dir", "build", "--rerun-failed", "--output-on-failure", "--parallel", ENV.make_jobs
+      end
+    end
     system "cmake", "--install", "build"
 
     # Replace `open-mpi` Cellar path that breaks on `open-mpi` version/revision bumps.
