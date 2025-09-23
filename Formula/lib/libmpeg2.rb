@@ -1,0 +1,51 @@
+class Libmpeg2 < Formula
+  desc "Library to decode mpeg-2 and mpeg-1 video streams"
+  homepage "https://libmpeg2.sourceforge.io/"
+  url "https://download.videolan.org/contrib/libmpeg2/libmpeg2-0.5.1.tar.gz"
+  mirror "https://libmpeg2.sourceforge.io/files/libmpeg2-0.5.1.tar.gz"
+  sha256 "dee22e893cb5fc2b2b6ebd60b88478ab8556cb3b93f9a0d7ce8f3b61851871d4"
+  license "GPL-2.0-or-later"
+  revision 1
+
+  livecheck do
+    url "https://libmpeg2.sourceforge.io/downloads.html"
+    regex(/href=.*?libmpeg2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
+  no_autobump! because: :requires_manual_review
+
+  bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "774f58a1e39f846fdcb40c1b05446f9867836cc95e66fe25d2d829f8e98c88a4"
+    sha256 cellar: :any,                 arm64_sequoia:  "2db4b583e04a71b456045c2bf9f7d08f1ee332e8305c0944d4b101c83ab71990"
+    sha256 cellar: :any,                 arm64_sonoma:   "0174a78b3200ac177017167c6dd73a31202da4a819c4a282b424e36a346b2496"
+    sha256 cellar: :any,                 arm64_ventura:  "a5522ab17783c821344f34583781d561c6c579ab60c28483fb934e66fddfc93f"
+    sha256 cellar: :any,                 arm64_monterey: "aa96e119c487436a7b9e36820137e17fa84007f174c8476e70f74d6a41972036"
+    sha256 cellar: :any,                 arm64_big_sur:  "53f205eb140836cb0593cb34318a62a9381d950fcdf7c949e861e1024dbf352f"
+    sha256 cellar: :any,                 sonoma:         "ed0fe49e971640418eb765c153ab7c846dc6e93911140534b0a0a0f7e026b4cd"
+    sha256 cellar: :any,                 ventura:        "013738fd28fb6f8a52d1a9346c24cee9b4a2e09e0260c3b4f9917146a49de3fa"
+    sha256 cellar: :any,                 monterey:       "fb3ad194c995a22c85768c3032a0d04b195a2e3b4684b1256f6498581d87bc5a"
+    sha256 cellar: :any,                 big_sur:        "81fede3e5bf51daaed591f1eab2ecb777b092f5c99386b2a751618b059c7d2f1"
+    sha256 cellar: :any,                 catalina:       "c25d746458652a4e7f87e67478b1451924da48a82d98a8eae83e36cceb336428"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2fabce057d7c15bb18b7320230edb8a748206664185c4c0a00e174615ec0094f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04a7bbf5129d11b695a6a57eff6091f6519e3b4554dc77f84bca351a4f17acaa"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "sdl12-compat"
+
+  def install
+    # Otherwise compilation fails in clang with `duplicate symbol ___sputc`
+    ENV.append_to_cflags "-std=gnu89"
+
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args
+    system "make", "install"
+    pkgshare.install "doc/sample1.c"
+  end
+
+  test do
+    system ENV.cc, "-I#{include}/mpeg2dec", pkgshare/"sample1.c", "-L#{lib}", "-lmpeg2"
+  end
+end

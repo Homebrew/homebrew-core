@@ -1,0 +1,10 @@
+{
+  "awscli": "v2",
+  "botan@2": "release-2",
+  "flarectl": "v0",
+  "libngspice": "master",
+  "ngspice": "master",
+  "sdl2": "SDL2",
+  "squid": "v6",
+  "xmrig": "dev"
+}
