@@ -5,8 +5,8 @@ class Mupdf < Formula
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
 
   stable do
-    url "https://mupdf.com/downloads/archive/mupdf-1.26.8-source.tar.gz"
-    sha256 "e8d248a666d2386f4a2014d680b6e88de5ce9fd8c847b0e274cbecc124f33cc7"
+    url "https://mupdf.com/downloads/archive/mupdf-1.26.9-source.tar.gz"
+    sha256 "54ceeaab4a694526d9db7282431e62d3ff9b1ca52da0c5dbf0c82c9a43361a1d"
 
     # libclang-20 patches
     patch do
@@ -29,12 +29,12 @@ class Mupdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "27b991ebfe055ec63e8f44861116b350d558f03f8d748f1ab52ef66d1802848d"
-    sha256 cellar: :any,                 arm64_sequoia: "16a4fe6b48e46c3e47899139a5f003932c7ee2de14e7a3b1007674dab8775d16"
-    sha256 cellar: :any,                 arm64_sonoma:  "f39c86badc2a9bdbae90b0de7a536b12a7fd4c55f813d8da75c88018e1bebca8"
-    sha256 cellar: :any,                 sonoma:        "d0113a762db0412a6fee1fee4ecdd8b35cce988128d41f33d52cbc2747c9cf9a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09049b40b47cd4c3bbee9d38682a3cf04ef20de0ba0cab42c805f526715978f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c01523145d00130bd0d17b6a83d14bd4b7bb80b68c5ffa47c640dba7559885b"
+    sha256 cellar: :any,                 arm64_tahoe:   "5e22efcc30dac1795e5a62b53577340cfd4c21df3e6f635cb18fe972da94ae7a"
+    sha256 cellar: :any,                 arm64_sequoia: "9cbce2be30681bfe16468767035aed695169a041501dce494ba86707e3a10cb2"
+    sha256 cellar: :any,                 arm64_sonoma:  "ca1ee3eed6b3d9ccf9635d88219376600406e4309bea17e433a74070d7656bb0"
+    sha256 cellar: :any,                 sonoma:        "32bbf12aace11b93ec85c74b7cdc52202f47a338a8fe44a7583b0348a4bdb79d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4708d62c6307bf8e6fb9c664e76df696b00c19b04751124104a0cc64250a41e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac723f2f6646d7ab6ec8db2f3615ea057f207f99c26e1bf7bcad020b0812b811"
   end
 
   depends_on "llvm" => :build

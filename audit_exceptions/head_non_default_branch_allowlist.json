@@ -6,5 +6,6 @@
   "ngspice": "master",
   "sdl2": "SDL2",
   "squid": "v6",
+  "swiftformat": "develop",
   "xmrig": "dev"
 }

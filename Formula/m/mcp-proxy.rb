@@ -3,19 +3,17 @@ class McpProxy < Formula
 
   desc "Bridge between Streamable HTTP and stdio MCP transports"
   homepage "https://github.com/sparfenyuk/mcp-proxy"
-  url "https://files.pythonhosted.org/packages/6a/94/0d4a824f33562f59cb83f55227857539238b63f6175fce4b66920e4227d5/mcp_proxy-0.8.2.tar.gz"
-  sha256 "5d113da6c965bef04202ed2525c6642cfbb786e2517fff8b7c209d58d5a6d00e"
+  url "https://files.pythonhosted.org/packages/f0/21/746f532780e4ffb5f6740e3cbb4767b67ba26bf141ba2390806a195085cd/mcp_proxy-0.9.0.tar.gz"
+  sha256 "c2204fff0d12b3ea9997d914250ceb8e00d0de40fab80c74a40ba7112456aa9e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "be13e418b093c3d16b371bfc95ab1348f2196830458df8172c75af16da4bacfc"
-    sha256 cellar: :any,                 arm64_sequoia: "877e627a035e20034023858fb2133a68834dc3b460327d8a155a733e49c89e37"
-    sha256 cellar: :any,                 arm64_sonoma:  "84138641f3341965e3cba000cc5acfe97d3e059e279becb8a8ff1f5dff62dd74"
-    sha256 cellar: :any,                 arm64_ventura: "db0e337fa40f65d37fd59e3fe33888a58466dbe1a4f78b680ba2940c09bd6403"
-    sha256 cellar: :any,                 sonoma:        "dbb71ce521de7c061f5fcd44d018ac16c3ee399363d7cb7e642025142770dba2"
-    sha256 cellar: :any,                 ventura:       "ef046bb060452efd633db513c28bf8365e23ac1ecff6c7a04c613353322222f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2c4f86bde2837fa7a0e46496de3c7c9180f902b57f27658e881d91f24d113cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a03c95e85c68b35ef84b9b237bc9e1411dcbdf8c6b9d56bf27a74dc8bdf6cd97"
+    sha256 cellar: :any,                 arm64_tahoe:   "0b87e6a81b5046d5c89c6513e5aaa14bbbbcea6822ac650b8130ec28f7000b6d"
+    sha256 cellar: :any,                 arm64_sequoia: "e69beb4180d1462f16ea894c112b710a57a727d9295944ab2d6593465a840ee4"
+    sha256 cellar: :any,                 arm64_sonoma:  "174daddfdebe094574d3028b4e3a73255c2df970e83ae45d9d5881d19a366084"
+    sha256 cellar: :any,                 sonoma:        "b4165a7f9472f8031c3c0f29bc8b7291c202bb0edfee8cbce9602c6a7e593765"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b15466c349243803049921f15aabab07221655e61cfc30d55f2ba3c9384d6fc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6895dce0299a3e1a1dd2135a679cb31ddfa4e89422714dbfb5da5469ed5b59df"
   end
 
   depends_on "pkgconf" => :build
@@ -29,18 +27,13 @@ class McpProxy < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
-    sha256 "673c0c244e15788651a4ff38710fea9675823028a6f08a5eda409e0c9840a028"
-  end
-
-  resource "attrs" do
-    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
-    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
+    url "https://files.pythonhosted.org/packages/f1/b4/636b3b65173d3ce9a38ef5f0522789614e590dab6a8d505340a4efe4c567/anyio-4.10.0.tar.gz"
+    sha256 "3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "h11" do
@@ -68,24 +61,14 @@ class McpProxy < Formula
     sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
-  resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/d5/00/a297a868e9d0784450faa7365c2172a7d6110c763e30ba861867c32ae6a9/jsonschema-4.25.0.tar.gz"
-    sha256 "e63acf5c11762c0e6672ffb61482bdf57f0876684d8d249c0fe2d730d48bc55f"
-  end
-
-  resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
-    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
-  end
-
   resource "mcp" do
-    url "https://files.pythonhosted.org/packages/66/85/f36d538b1286b7758f35c1b69d93f2719d2df90c01bd074eadd35f6afc35/mcp-1.12.2.tar.gz"
-    sha256 "a4b7c742c50ce6ed6d6a6c096cca0e3893f5aecc89a59ed06d47c4e6ba41edcc"
+    url "https://files.pythonhosted.org/packages/06/f2/dc2450e566eeccf92d89a00c3e813234ad58e2ba1e31d11467a09ac4f3b9/mcp-1.9.4.tar.gz"
+    sha256 "cfb0bcd1a9535b42edaef89947b9e18a8feb49362e1cc059d6e7fc636f2cb09f"
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/00/dd/4325abf92c39ba8623b5af936ddb36ffcfe0beae70405d456ab1fb2f5b8c/pydantic-2.11.7.tar.gz"
-    sha256 "d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"
+    url "https://files.pythonhosted.org/packages/ff/5d/09a551ba512d7ca404d785072700d3f6727a02f6f3c24ecfd081c7cf0aa8/pydantic-2.11.9.tar.gz"
+    sha256 "6b8ffda597a14812a7975c90b82a8a2e777d9257aba3453f973acd3c032a18e2"
   end
 
   resource "pydantic-core" do
@@ -108,16 +91,6 @@ class McpProxy < Formula
     sha256 "8dd0cab45b8e23064ae09147625994d090fa46f5b0d1e13af944c331a7fa9d13"
   end
 
-  resource "referencing" do
-    url "https://files.pythonhosted.org/packages/2f/db/98b5c277be99dd18bfd91dd04e1b759cad18d1a338188c936e92f921c7e2/referencing-0.36.2.tar.gz"
-    sha256 "df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"
-  end
-
-  resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/a5/aa/4456d84bbb54adc6a916fb10c9b374f78ac840337644e4a5eda229c81275/rpds_py-0.26.0.tar.gz"
-    sha256 "20dae58a859b0906f0685642e591056f1e787f3a8b39c8e8749a45dc7d26bdb0"
-  end
-
   resource "sniffio" do
     url "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e041b6ae58d80074f81b7d5121207425c964ddf5cfdbd/sniffio-1.3.1.tar.gz"
     sha256 "f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"
@@ -129,13 +102,13 @@ class McpProxy < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/04/57/d062573f391d062710d4088fa1369428c38d51460ab6fedff920efef932e/starlette-0.47.2.tar.gz"
-    sha256 "6ae9aa5db235e4846decc1e7b79c4f346adf41e9777aebeb49dfd09bbd7023d8"
+    url "https://files.pythonhosted.org/packages/a7/a5/d6f429d43394057b67a6b5bbe6eae2f77a6bf7459d961fdb224bf206eee6/starlette-0.48.0.tar.gz"
+    sha256 "7e8cee469a8ab2352911528110ce9088fdc6a37d9876926e73da7ce4aa4c7a46"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
-    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "typing-inspection" do
@@ -144,8 +117,8 @@ class McpProxy < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/5e/42/e0e305207bb88c6b8d3061399c6a961ffe5fbb7e2aa63c9234df7259e9cd/uvicorn-0.35.0.tar.gz"
-    sha256 "bc662f087f7cf2ce11a1d7fd70b90c9f98ef2e2831556dd078d131b96cc94a01"
+    url "https://files.pythonhosted.org/packages/ef/5e/f0cd46063a02fd8515f0e880c37d2657845b7306c16ce6c4ffc44afd9036/uvicorn-0.36.0.tar.gz"
+    sha256 "527dc68d77819919d90a6b267be55f0e76704dca829d34aea9480be831a9b9d9"
   end
 
   def install

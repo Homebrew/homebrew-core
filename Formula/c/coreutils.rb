@@ -1,24 +1,22 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils/"
-  url "https://ftpmirror.gnu.org/gnu/coreutils/coreutils-9.7.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-9.7.tar.xz"
-  sha256 "e8bb26ad0293f9b5a1fc43fb42ba970e312c66ce92c1b0b16713d7500db251bf"
+  url "https://ftpmirror.gnu.org/gnu/coreutils/coreutils-9.8.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-9.8.tar.xz"
+  sha256 "e6d4fd2d852c9141a1c2a18a13d146a0cd7e45195f72293a4e4c044ec6ccca15"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "8c13e6555d81a3f54f36223c1440572456c546beeb6ff875a76a5777fe08a1ff"
-    sha256 arm64_sequoia: "5d3e3c74de367a4d8ae6f22457732a8e5d39030c46f8f585b1780c0a916d0c8e"
-    sha256 arm64_sonoma:  "4092845c230a1b20213f3896125f12484cf72dcaca28e111544dbacb1110c8eb"
-    sha256 arm64_ventura: "84dc5707dd057de5ed4c6b79ae33c807dd00890cf470a64d3f200295974dec33"
-    sha256 sonoma:        "c7580a41bcd888acda07bd8b2c6c0c194a3763a27d36b1a48210a96f22ee773c"
-    sha256 ventura:       "838f1374519d8ddab94bfb910d57f802d6551baf4b97d6580e323d7d01f3180c"
-    sha256 arm64_linux:   "485b2b05cc5e1293ef2e7dc4b3471e916dddb170424d5a4a57483f2d829d0a60"
-    sha256 x86_64_linux:  "b4c41fd3102b03845f5ed8163a09dea3534db3773415524ddb5be10145aecb78"
+    sha256 arm64_tahoe:   "42775be0b21f589b670fc5374a8d003a60c8b5f258170d0bbd4f8b1b1a48ec16"
+    sha256 arm64_sequoia: "8aef2f29abfb504090365a44e07a174587d2e63544e2a2c6c36798809c71f51d"
+    sha256 arm64_sonoma:  "ba191812bf80327045bef0e95926bc3e7f7074799e77fc21db728476ecc66dfc"
+    sha256 sonoma:        "e921cf886d958f55bf4bd2af18e204f95cb298f3b219b46c161b6d202bf2e0aa"
+    sha256 arm64_linux:   "dc69ec29ac4edc956a9bd0fc99eebeeb53fc51f7cee42dbee05b3ce6a290f807"
+    sha256 x86_64_linux:  "93032c3dec30bf7c3d90c37410e6b791c418bcfbdba5fe2b09ea19df32d9e0fa"
   end
 
   head do
-    url "https://git.savannah.gnu.org/git/coreutils.git"
+    url "https://git.savannah.gnu.org/git/coreutils.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

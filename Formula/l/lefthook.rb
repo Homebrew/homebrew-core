@@ -1,19 +1,19 @@
 class Lefthook < Formula
   desc "Fast and powerful Git hooks manager for any type of projects"
   homepage "https://github.com/evilmartians/lefthook"
-  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.13.2.tar.gz"
-  sha256 "694d0f5ada0d1e3a3b453e3588984c4e77037684c5d18716ff50b7e1f4eb4570"
+  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.13.3.tar.gz"
+  sha256 "8c1b2896c636b1d2de3f6b337a8338657fa23f22093865a691cf73f0127bdbf0"
   license "MIT"
   head "https://github.com/evilmartians/lefthook.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4cc7cfa447ee94f2a63ead068494faed175cb9d7274cf38fdfbbe1abf9074583"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4cc7cfa447ee94f2a63ead068494faed175cb9d7274cf38fdfbbe1abf9074583"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4cc7cfa447ee94f2a63ead068494faed175cb9d7274cf38fdfbbe1abf9074583"
-    sha256 cellar: :any_skip_relocation, sonoma:        "942832c7419e0b9dd0a8f0efa7c8fc6dfb6fc9cc231033edc6867703764ea5b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "480c7ae6df34bd21c273ac910f9c866858bebfa75a74c7eaf694d0d7a0d2742b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c9297a111d9a93656ebd9b158a9f5dd531d12acbcea9ecc7083e7de3689744b5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9297a111d9a93656ebd9b158a9f5dd531d12acbcea9ecc7083e7de3689744b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9297a111d9a93656ebd9b158a9f5dd531d12acbcea9ecc7083e7de3689744b5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "777c7dcb702062066b477b2ae4218f44dbe7d6f5312161f4312cdb26aeb6fb7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48064a8c7682e7f7babed738fca21dd5639f0dc1442eff97fb3a6ff80d0607cd"
   end
 
   depends_on "go" => :build

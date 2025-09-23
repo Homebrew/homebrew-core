@@ -1,8 +1,8 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written mostly in C"
   homepage "https://github.com/fastfetch-cli/fastfetch"
-  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.52.0.tar.gz"
-  sha256 "6199c4cacc0b411fde7ec6c66d12829459284c6cdfb4bacce7b535190d5cd94c"
+  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.53.0.tar.gz"
+  sha256 "1488d9b738474e8ef8e8d78e2463722bf706e435857c849b3f480354ad62366e"
   license "MIT"
   head "https://github.com/fastfetch-cli/fastfetch.git", branch: "dev"
 
@@ -12,14 +12,12 @@ class Fastfetch < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "6d48654d6a8986648e5032b290e87f22a9e1367e0c3c869986b091bc81d37121"
-    sha256               arm64_sequoia: "703eee08ba65d72a86a797611411c8e0c17868e3f327e133626c2a77a7503cd5"
-    sha256               arm64_sonoma:  "429382c2c2bbdbca17a434639e0994b24ad0fce579c493ae079f96d99bf9d737"
-    sha256               arm64_ventura: "2a7e45258bbf4219b7fb498e6059951b4636bac7ac20029abfb1fcdd9d310d5e"
-    sha256 cellar: :any, sonoma:        "c5de607727d11107156a137f8a40b9d2a390d097309a99a5cdcd5ac1c7c40dc9"
-    sha256 cellar: :any, ventura:       "3bb3d46cf94973cfa0805964ed82b433ae35da766027e899cf83750f6db3f2db"
-    sha256               arm64_linux:   "38042ba128723c03e0e148b9aaf4e8708fc5e776bfd2be8f951e9b96bb76f9b6"
-    sha256               x86_64_linux:  "da354fedb5e553000dcfb08841312211e02be09ca17c0d9cd4d3bb61e0ffb468"
+    sha256               arm64_tahoe:   "0aba51d7b33a46593a91c0e2078a54aecb5f3c15edc268126abcfdd9f5de2aa4"
+    sha256               arm64_sequoia: "5df3c119180702f4df106c212ad75f49535790b52db6b8b0ff16f88cf397ea4c"
+    sha256               arm64_sonoma:  "d4822ceb5505164b2b7c8a3e97945064e733c95f871222d1902be4ec578329df"
+    sha256 cellar: :any, sonoma:        "d44771ec9103085fbb02994dd2e9d02370681655453be957523d72bf9d43c5f4"
+    sha256               arm64_linux:   "3bfbcfee517e66868739eb37d0b306464b77c1209eea0a66a6577065697ac76f"
+    sha256               x86_64_linux:  "abcefd143a1dc69a9886b246fe8e012266b9485871f806c899f14fddbea1fc82"
   end
 
   depends_on "chafa" => :build

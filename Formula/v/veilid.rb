@@ -7,15 +7,13 @@ class Veilid < Formula
   head "https://gitlab.com/veilid/veilid.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "224049716b76f63659cc8dfbce9816253c2014135156bdb82cf4bf2e45060168"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0dfdd88564f4c28c64587507cd3c0582e8101a2b9e59a379c83e5b1847b5b1c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e496dcb522e3488234d4601c8f41ae5e1baddf820dc7b1841ba68ee9bc55c52f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "61a62594593bad1a2c49bb964b3609c31be5f0f45c488a749894b0da24dfcc20"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fb5957790aa9013587e83cff154328203222d4ac0b0e78ab442350ce63ecf16b"
-    sha256 cellar: :any_skip_relocation, ventura:       "7bf67d2351447abc43bfd388cf97219d557490cab49946edeff1b47f2af0be9a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1e0e37857a00f7925f8755543301be83603695e1b9eed62c36d55808b1db28e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "141bf959d448b699cecdbf875cfcee61c502ae8049435ff4ad93565e3d7353f8"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "525677ac4688593eebf9dab60e5d6376e8767e003c02e2342b3d093e65dac612"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7d1dc507427cb58a58fec83cd77d9ec598c75c620a72f26a3dd7a6b241a5651"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e382e18b9f3bcbc5def2a377a982add30bf2b5f008575152bdee97d3987d95b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "98401c46eaa313a135271fe7ecc25a119e424e9e5f47626691da2a4d62d1c897"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4b14dfbc0596ee79cfd15f42984127f78f9426e640adc648ea45220848e1e90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f2e03b649cbbd169478f337c6849ff56db23296b585bf9a849ccb8f71351b3d"
   end
 
   depends_on "cmake" => :build
