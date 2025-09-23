@@ -7,7 +7,7 @@ class Veilid < Formula
   head "https://gitlab.com/veilid/veilid.git", branch: "main"
 
   bottle do
-    rebuild 1
+    rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "224049716b76f63659cc8dfbce9816253c2014135156bdb82cf4bf2e45060168"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0dfdd88564f4c28c64587507cd3c0582e8101a2b9e59a379c83e5b1847b5b1c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e496dcb522e3488234d4601c8f41ae5e1baddf820dc7b1841ba68ee9bc55c52f"
