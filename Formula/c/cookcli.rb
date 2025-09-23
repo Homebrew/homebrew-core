@@ -15,13 +15,23 @@ class Cookcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa0f606df53567658253934322d581095af09b97572d5e1a7e4e9c48d97db52f"
   end
 
+  depends_on "node" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
 
   def install
     ENV["OPENSSL_NO_VENDOR"] = "1"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+
+    # Install npm dependencies and build CSS
+    system "npm", "ci", "--ignore-scripts"
+    system "npm", "run", "build-css"
+
+    # Build and install the binary
     system "cargo", "install", *std_cargo_args
+
+    # Copy static assets to the installation directory
+    pkgshare.install "static"
   end
 
   test do
