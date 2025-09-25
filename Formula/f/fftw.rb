@@ -29,6 +29,9 @@ class Fftw < Formula
 
   on_macos do
     depends_on "gcc"
+    # Fix configure script where arm is used for host_cpu on MacOS for NEON support.
+    # upstream issue ref https://github.com/FFTW/fftw3/issues/251
+    patch :DATA
   end
 
   fails_with :clang
@@ -51,11 +54,14 @@ class Fftw < Formula
       "--enable-mpi",
       "--enable-openmp",
     ]
+    # FFTW supports hardware counters to improve performance measurements.
+    args += %w[--enable-armv8-cntvct-el0] if OS.mac? && Hardware::CPU.arm?
 
     # FFTW supports runtime detection of CPU capabilities, so it is safe to
     # use with --enable-avx and the code will still run on all CPUs
     simd_args = []
     simd_args += %w[--enable-sse2 --enable-avx --enable-avx2] if Hardware::CPU.intel?
+    simd_args += %w[--enable-neon] if Hardware::CPU.arm?
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
@@ -103,3 +109,27 @@ class Fftw < Formula
     system "./fftw"
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index b59f977..b0f93f2 100755
+--- a/configure
++++ b/configure
+@@ -3931,7 +3931,7 @@ if test "$have_neon" = "yes"; then
+ $as_echo "#define HAVE_NEON 1" >>confdefs.h
+ 
+         case "${host_cpu}" in
+-                aarch64)
++                aarch64 | arm)
+                 ;;
+                 *)
+         if test "$PRECISION" != "s"; then
+@@ -15371,7 +15371,7 @@ fi
+         fi
+ 
+         case "${host_cpu}" in
+-            aarch64)
++            aarch64 | arm)
+                 ;;
+             *)
+                 if test "$have_neon" = "yes" -a "x$NEON_CFLAGS" = x; then
