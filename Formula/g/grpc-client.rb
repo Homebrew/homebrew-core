@@ -13,16 +13,16 @@ class GrpcClient < Formula
 
   bottle do
     # macOS ARM64 platforms
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1912dfb2b1236319068c07a5f5f3aa32d894f5e4107cac0e89ab9e6dbaacbe90"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88c266d2d4b1f0269368457432d6970ac3b4285566a1f5e0347e3d1b98e641a7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "372cbcccc4110387a181bc61b02c7ee7700ee0d96091bc04844bbff1235608c7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e1524ea71ec246c1e19d3bd3d1f4cc926534b29910ba236062cea21b4ccf766"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09581ccf6479c90db7c57bbcb5bffd406d0ce2e70c287cb4395fe568c46bac97"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9801a524598029adf80e173f036aa5aa75c7b2a91533cdeb5e5a59433ec9b4e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25fb1d340365ab285ac9899676524a693216e12f891b0186eba64f7bc9b2d9c6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "83fc8cf69235a2acc975901370f90546212ab3fefbe8f3cb4c61fff75ead4923"
     # macOS Intel platforms
-    sha256 cellar: :any_skip_relocation, sonoma:        "2f1ed39b94eab63abdb3691263c31165e437128c0dc8f41c43a356923bbb26e2"
-    sha256 cellar: :any_skip_relocation, ventura:       "59023b0fbc67f76b2098e020a970ad9340f44744ce120c6e47aba38c8cd2e212"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5d990bcb25385f236a624022f87b65e2b5951925adb8818bfad5c7a566eea49a"
+    sha256 cellar: :any_skip_relocation, ventura:       "1091b1b191e2248373cefd59039b7d090750be41a3d798f9ee592d85ace4e2ca"
     # Linux platforms (using Linux architecture naming)
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4f8cb344e0d64ee71ff2f8219d111c84e3f94738d1e20994ca5e18766806499"
-    sha256 cellar: :any_skip_relocation, arm64_linux: "7fca2556c0320b4161065c8995ff6b2ae0c0dded6f7e1a9246254b93a82ffccb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78433f638333f8a5be01b5b06b472984a6ecee6e4ffb153393bb6254ec2e93ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcdd00c9e4c8d9af531b93783b8f7e5a117f81ac8d8b7e462dc54d071b590783"
   end
 
   # Go binary has no external dependencies - works without Go installed!
