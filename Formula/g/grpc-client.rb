@@ -1,5 +1,5 @@
 class GrpcClient < Formula
-  desc "GRPC client to query a server with integrated React UI"
+  desc "A GUI client to talk to gRPC services with integrated React UI"
   homepage "https://bhagwati-web.github.io/grpc-client"
   url "https://github.com/bhagwati-web/grpc-client/archive/refs/tags/0.0.1.tar.gz"
   sha256 "dd6d79b60862db320e182475309c9dd27e63a11011603ca3876b0309e9b6ae11"
