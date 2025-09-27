@@ -1,10 +1,10 @@
 class GrpcClient < Formula
   desc "Homebrew Package for a GRPC client to query the server with integrated React UI"
   homepage "https://bhagwati-web.github.io/grpc-client"
-  url "https://bhagwati-web.github.io/grpc-client/grpcui/archive/refs/tags/v0.0.1.tar.gz"
+  url "https://github.com/bhagwati-web/grpc-client/archive/refs/tags/0.0.1.tar.gz"
   sha256 "dd6d79b60862db320e182475309c9dd27e63a11011603ca3876b0309e9b6ae11"
   license "MIT"
-  head "https://bhagwati-web.github.io/grpc-client/grpcui.git", branch: "master"
+  head "https://github.com/bhagwati-web/grpc-client/grpc-client.git", branch: "master"
 
   livecheck do
     url :stable
