@@ -31,14 +31,17 @@
   "python@3.11",
   "python@3.12",
   "python@3.13",
+  "python@3.14",
   "python-gdbm@3.11",
   "python-gdbm@3.12",
   "python-gdbm@3.13",
+  "python-gdbm@3.14",
   "python-tk@3.9",
   "python-tk@3.10",
   "python-tk@3.11",
   "python-tk@3.12",
   "python-tk@3.13",
+  "python-tk@3.14",
   "spidermonkey@115",
   "wxwidgets@3.2"
 ]
