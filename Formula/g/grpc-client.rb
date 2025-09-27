@@ -10,6 +10,9 @@ class GrpcClient < Formula
     url :stable
     strategy :github_latest
   end
+  depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "npm" => :build
 
   def install
     # Install the main binary
