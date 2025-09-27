@@ -1,8 +1,8 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/refs/tags/v2025.09.15.00.tar.gz"
-  sha256 "36002c4ba91a89a59972807cd02e08fabdb0d6d6461040bbb2f0a7938c550060"
+  url "https://github.com/facebook/folly/archive/refs/tags/v2025.09.22.00.tar.gz"
+  sha256 "64e6ffe00cda11b5010b43fb84b62b81d7fae8315199e3b5de4b041f5df75036"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git", branch: "main"
 
@@ -45,6 +45,14 @@ class Folly < Formula
       Undefined symbols for architecture x86_64:
         "std::__1::__fs::filesystem::path::lexically_normal() const"
     EOS
+  end
+
+  # Fix to error: 'runtime_error' is not a member of 'std'
+  # Issue ref: https://github.com/facebook/folly/issues/2487
+  # PR ref: https://github.com/facebook/folly/pull/2490
+  patch do
+    url "https://github.com/facebook/folly/commit/2839171ea57a8d3bd5bd7aa0b740d0271f7623b0.patch?full_index=1"
+    sha256 "d97582133caf843dac034fa825685152fdfee600970873e922514d4f4f8d0c02"
   end
 
   # Workaround for Boost 1.89.0 until upstream fix.
