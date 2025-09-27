@@ -28,21 +28,25 @@ class Txr < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc" => :build
-  end
-
-  fails_with :gcc do
-    version "12"
-    cause "Segmentation faults running TXR"
-  end
-
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
+    # FIXME: We need to bypass the compiler shim to work around `-mbranch-protection=standard`
+    # (specifically pac-ret) causing tests/012/compile.tl to fail with an illegal instruction
+    if OS.linux? && Hardware::CPU.arch == :arm64
+      ENV["CC"] = DevelopmentTools.locate(ENV.cc)
+      ENV.append_to_cflags ENV["HOMEBREW_OPTFLAGS"] if ENV["HOMEBREW_OPTFLAGS"]
+      ENV.append "CPPFLAGS", "-mbranch-protection=bti"
+    end
+
+    # FIXME: Workaround to avoid the compiler shim suppressing warnings needed during configure.
+    # Existing shim logic only works for autotools configure scripts where `as_nl` is used.
+    with_env(as_nl: "\n") do
+      system "./configure", "--no-debug-flags", "--prefix=#{prefix}"
+    end
+    system "make", "VERBOSE=1"
     system "make", "tests" # run tests as upstream has gotten reports of broken TXR in Homebrew
     system "make", "install"
     (share/"vim/vimfiles/syntax").install Dir["*.vim"]
+    Utils::Gzip.compress(*man1.glob("*.1"))
   end
 
   test do
