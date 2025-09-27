@@ -19,11 +19,14 @@ class Faircamp < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "opus"
   depends_on "vips"
   depends_on "xz"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     # libvips is a runtime dependency, the brew install location is
@@ -51,11 +54,11 @@ class Faircamp < Formula
     system bin/"faircamp", "--catalog-dir", catalog_dir, "--build-dir", output_dir
 
     assert_path_exists output_dir/"favicon.svg"
-    assert_path_exists output_dir/"album"/"index.html"
-    assert_path_exists output_dir/"album"/"cover_1.jpg"
-    assert_path_exists output_dir/"album"/"1"/"opus-96"/"8zjo5mMqlmM"/"01 Track01.opus"
-    assert_path_exists output_dir/"album"/"2"/"opus-96"/"visBSotimzQ"/"02 Track02.opus"
-    assert_path_exists output_dir/"album"/"1"/"mp3-v5"/"tbscAvvooxg"/"01 Track01.mp3"
-    assert_path_exists output_dir/"album"/"2"/"mp3-v5"/"d3t6L5fUbXg"/"02 Track02.mp3"
+    assert_path_exists output_dir/"album/index.html"
+    assert_path_exists output_dir/"album/cover_1.jpg"
+    assert_path_exists output_dir/"album/1/opus-96/8zjo5mMqlmM/01 Track01.opus"
+    assert_path_exists output_dir/"album/2/opus-96/visBSotimzQ/02 Track02.opus"
+    assert_path_exists output_dir/"album/1/mp3-v5/tbscAvvooxg/01 Track01.mp3"
+    assert_path_exists output_dir/"album/2/mp3-v5/d3t6L5fUbXg/02 Track02.mp3"
   end
 end
