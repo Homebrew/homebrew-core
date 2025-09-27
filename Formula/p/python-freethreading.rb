@@ -1,10 +1,9 @@
 class PythonFreethreading < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.7/Python-3.13.7.tgz"
-  sha256 "6c9d80839cfa20024f34d9a6dd31ae2a9cd97ff5e980e969209746037a5153b2"
+  url "https://www.python.org/ftp/python/3.14.0/Python-3.14.0rc3.tgz"
+  sha256 "f52c3fa94a02adf9a6228abf53f6a53f09ce06aa168d879a332054c598179853"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     formula "python"
