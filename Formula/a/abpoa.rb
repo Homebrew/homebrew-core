@@ -6,6 +6,12 @@ class Abpoa < Formula
   license "MIT"
   head "https://github.com/yangao07/abPOA.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_releases
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   no_autobump! because: :requires_manual_review
 
   bottle do
