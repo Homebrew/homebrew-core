@@ -16,8 +16,7 @@ class GrpcClient < Formula
 
   def install
     # Install the main binary
-    bin.install Dir["*"].first => "grpc-client"
-    chmod 0755, bin/"grpc-client"
+    system "go", "build", *std_go_args, "./cmd/grpc-client"
   end
 
   test do
