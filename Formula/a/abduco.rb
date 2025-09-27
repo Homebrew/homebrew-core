@@ -6,6 +6,12 @@ class Abduco < Formula
   license "ISC"
   head "https://github.com/martanne/abduco.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_releases
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   no_autobump! because: :requires_manual_review
 
   bottle do
