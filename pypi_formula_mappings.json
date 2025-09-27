@@ -805,6 +805,10 @@
     "package_name": "",
     "extra_packages": ["flit-core", "setuptools", "pip", "wheel"]
   },
+  "python@3.14": {
+    "package_name": "",
+    "extra_packages": ["flit-core", "setuptools", "pip", "wheel"]
+  },
   "python-freethreading": {
     "package_name": "",
     "extra_packages": ["flit-core", "setuptools", "pip", "wheel"]
