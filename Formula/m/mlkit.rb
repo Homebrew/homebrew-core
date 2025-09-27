@@ -22,6 +22,13 @@ class Mlkit < Formula
   depends_on arch: :x86_64 # https://github.com/melsman/mlkit/issues/115
   depends_on "gmp"
 
+  on_macos do
+    # Can be undeprecated if upstream decides to support arm64 macOS
+    # https://docs.brew.sh/Support-Tiers#future-macos-support
+    deprecate! date: "2026-09-01", because: :unsupported
+    disable! date: "2027-09-01", because: :unsupported
+  end
+
   def install
     system "sh", "./autobuild"
     system "./configure", "--prefix=#{prefix}"
