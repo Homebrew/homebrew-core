@@ -1,8 +1,8 @@
 class Libnotify < Formula
   desc "Library that sends desktop notifications to a notification daemon"
   homepage "https://gitlab.gnome.org/GNOME/libnotify"
-  url "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.6.tar.xz"
-  sha256 "c5540aaefb60e1d63b1c587c05f2284ebe72ece7d0c0e5e4a778cfd5844b6b58"
+  url "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.7.tar.xz"
+  sha256 "4be15202ec4184fce1ac15997ece5530d2be32fe9573875aeb10e3b573858748"
   license "LGPL-2.1-or-later"
 
   bottle do
