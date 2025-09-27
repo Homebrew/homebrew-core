@@ -110,7 +110,7 @@ class GrpcClient < Formula
     chmod 0755, bin/"grpcstart"
     chmod 0755, bin/"grpcstop"
   end
-  
+
   def post_install
     puts "\n\n\n================================================"
     puts "GRPC Client installed successfully!"
