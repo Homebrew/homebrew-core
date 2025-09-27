@@ -1,29 +1,33 @@
 class GrpcClient < Formula
   desc "Homebrew Package for a GRPC client to query the server with integrated React UI"
-  homepage "https://bhagwati-web.github.io/homebrew-grpc-client"
-  version "0.0.1"
+  homepage "https://bhagwati-web.github.io/grpc-client"
+  url "https://bhagwati-web.github.io/grpc-client/grpcui/archive/refs/tags/v0.0.1.tar.gz"
+  sha256 "7fa3039bfa6c06a688c1094177445f759c592be2f04574a234da7a88ab2d0efd"
   license "MIT"
-  
-  @server_port = "50051"
-  @server_url = "http://localhost:#{@server_port}"
+  head "https://bhagwati-web.github.io/grpc-client/grpcui.git", branch: "master"
 
-  on_macos do
-    on_intel do
-      url "https://github.com/bhagwati-web/grpc-client/archive/refs/tags/v#{version}.tar.gz"
-      sha256 "5869e638b4453c79a0ca057706df1c0811073e005c5f2c0d9c786ae95e7ab812"
-    end
-    on_arm do
-      url "https://github.com/bhagwati-web/grpc-client/archive/refs/tags/v#{version}.tar.gz"
-      sha256 "3c316e74c35c7407645c0f44eb782483a4e40c90bf2415a20cd63f712b9f1623"
-    end
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  on_linux do
-    url "https://github.com/bhagwati-web/grpc-client/archive/refs/tags/v#{version}.tar.gz"
-    sha256 "92b8dd1f88c3a855288b22aefe76fa51e4e380141aea8901429018dac6c33add"
+  bottle do
+    # macOS ARM64 platforms
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1912dfb2b1236319068c07a5f5f3aa32d894f5e4107cac0e89ab9e6dbaacbe90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88c266d2d4b1f0269368457432d6970ac3b4285566a1f5e0347e3d1b98e641a7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "372cbcccc4110387a181bc61b02c7ee7700ee0d96091bc04844bbff1235608c7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e1524ea71ec246c1e19d3bd3d1f4cc926534b29910ba236062cea21b4ccf766"
+    # macOS Intel platforms
+    sha256 cellar: :any_skip_relocation, sonoma:        "2f1ed39b94eab63abdb3691263c31165e437128c0dc8f41c43a356923bbb26e2"
+    sha256 cellar: :any_skip_relocation, ventura:       "59023b0fbc67f76b2098e020a970ad9340f44744ce120c6e47aba38c8cd2e212"
+    # Linux platforms (using Linux architecture naming)
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4f8cb344e0d64ee71ff2f8219d111c84e3f94738d1e20994ca5e18766806499"
+    sha256 cellar: :any_skip_relocation, arm64_linux: "7fca2556c0320b4161065c8995ff6b2ae0c0dded6f7e1a9246254b93a82ffccb"
   end
 
   # Go binary has no external dependencies - works without Go installed!
+  @server_port = "50051"
+  @server_url = "http://localhost:#{@server_port}"
 
   def install
     # Stop any running grpc-client processes before installation
@@ -79,6 +83,7 @@ class GrpcClient < Formula
         echo "Please open #{@@server_url} in your browser"
       fi
     EOS
+
     (bin/"grpcstop").write <<~EOS
       #!/bin/bash
       
