@@ -18,6 +18,7 @@ class Acl2 < Formula
     sha256 arm64_ventura: "9f65deddaa1bd314348c6b0fb13056e3b116a8f107f47883e9354e0ab359d4c1"
     sha256 sonoma:        "4b760f5beb1f7946ebc36bd5ef5fd5afa04233d6cb1a9a3af7f2b63e717c1a98"
     sha256 ventura:       "cb4ccdaf97ac46ace26fb9a17f09ddf8d6a658d6167e68aa0e614afe04a85138"
+    sha256 arm64_linux:   "df5a6da5de6d1f5e63d5de4dc786cd6a7acfee032428e6ae2ef1d2ed81bd2f39"
     sha256 x86_64_linux:  "df5a6da5de6d1f5e63d5de4dc786cd6a7acfee032428e6ae2ef1d2ed81bd2f39"
   end
 
@@ -35,8 +36,13 @@ class Acl2 < Formula
     libexec.install Dir["*"]
 
     sbcl = Formula["sbcl"].opt_bin/"sbcl"
-    system "make", "-C", libexec, "all", "basic", "LISP=#{sbcl}", "USE_QUICKLISP=0"
-    system "make", "-C", libexec, "all", "basic", "LISP=#{sbcl}", "USE_QUICKLISP=0", "ACL2_PAR=p"
+    begin
+      system "make", "-C", libexec, "all", "basic", "LISP=#{sbcl}", "USE_QUICKLISP=0"
+      system "make", "-C", libexec, "all", "basic", "LISP=#{sbcl}", "USE_QUICKLISP=0", "ACL2_PAR=p"
+    rescue
+      logs.install libexec/"make.log"
+      raise
+    end
 
     ["acl2", "acl2p"].each do |acl2|
       inreplace libexec/"saved_#{acl2}", Formula["sbcl"].prefix.realpath, Formula["sbcl"].opt_prefix
