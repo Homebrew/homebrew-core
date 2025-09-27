@@ -2,6 +2,7 @@ class GrpcClient < Formula
   desc "Homebrew Package for a GRPC client to query the server with integrated React UI"
   homepage "https://bhagwati-web.github.io/grpc-client"
   url "https://bhagwati-web.github.io/grpc-client/grpcui/archive/refs/tags/v0.0.1.tar.gz"
+  version "0.0.1"
   sha256 "dd6d79b60862db320e182475309c9dd27e63a11011603ca3876b0309e9b6ae11"
   license "MIT"
   head "https://bhagwati-web.github.io/grpc-client/grpcui.git", branch: "master"
@@ -12,15 +13,12 @@ class GrpcClient < Formula
   end
 
   bottle do
-    # macOS ARM64 platforms
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "214c73fbe6f480c6ccfb02f250b8dd4d3952de8e135cc9654f66c37cba9556c9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d24bb707795ae45a63cae04d01a9b0fa533b6d16684f17e18e4a8b4b96d97ab0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a920cff512aaeeec7b8e400f0172916203c0c0c2433b3aa9493a97bdbaea48c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "373ffc99cf422db0d0b0022d9ecbc1c8b62e0244b650304141fc7f53aae638f2"
-    # macOS Intel platforms
     sha256 cellar: :any_skip_relocation, sonoma:        "eacbd647abb18460172fd8d564891debf9bfdfa9d3f2b864113b546efa8b00fc"
     sha256 cellar: :any_skip_relocation, ventura:       "646df535304309fa1e252a3d3307cec8150e7355572a7d5293d5bf0c2e17aac6"
-    # Linux platforms (using Linux architecture naming)
     sha256 cellar: :any_skip_relocation, arm64_linux:   "9a4f64272b6556e9b65015dbb23dc58692ebebcd194c54380770b333fed0fdb6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c1376d267c3e1c1cf937478e18b5a9343e92f0d39bcb0d5f692c95e7504163d"
   end
@@ -28,7 +26,6 @@ class GrpcClient < Formula
   # Go binary has no external dependencies - works without Go installed!
   @server_port = "50051"
   @server_url = "http://localhost:#{@server_port}"
-  version "0.0.1"
 
   def install
     # Stop any running grpc-client processes before installation
