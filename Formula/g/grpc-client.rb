@@ -18,7 +18,7 @@ class GrpcClient < Formula
 
   test do
     # Verify the binary runs and shows version/help
-    output = shell_output("#{bin}/grpc-client --help 2>&1", 0)
+    output = shell_output("#{bin}/grpc-client --help 2>&1")
     assert_match "grpc-client", output
   end
 end
