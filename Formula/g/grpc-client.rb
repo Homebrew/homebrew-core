@@ -14,6 +14,7 @@ class GrpcClient < Formula
   def install
     # Install the main binary
     bin.install Dir["*"].first => "grpc-client"
+    chmod 0755, bin/"grpc-client"
   end
 
   test do
