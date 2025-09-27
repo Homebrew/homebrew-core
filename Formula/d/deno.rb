@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.4.5/deno_src.tar.gz"
-  sha256 "a6bba626d08813c114bfcc862e69fd7202eecda97df9f349abf6cc4e38fe4e40"
+  url "https://github.com/denoland/deno/releases/download/v2.5.2/deno_src.tar.gz"
+  sha256 "44e9db8c52da72fed0ef8f990ab7ba3435562942752b5eafe845ff31bb643438"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -55,8 +55,6 @@ class Deno < Formula
     # env args for building a release build with our python3 and ninja
     ENV["PYTHON"] = which("python3")
     ENV["NINJA"] = which("ninja")
-    # build rusty_v8 from source
-    ENV["V8_FROM_SOURCE"] = "1"
     # Build with llvm and link against system libc++ (no runtime dep)
     ENV["CLANG_BASE_PATH"] = llvm.prefix
 
