@@ -1,8 +1,8 @@
 class Gravitino < Formula
   desc "High-performance, geo-distributed, and federated metadata lake"
   homepage "https://gravitino.apache.org"
-  url "https://github.com/apache/gravitino/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "fa141ce3bfc68630d208b32a24de65e8639bfc1774133494837452ffa879031a"
+  url "https://github.com/apache/gravitino/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "cf29b125fe94e1af419386c9ba139e096aae56c176a1376c82c91449e7df9e30"
   license "Apache-2.0"
 
   livecheck do
