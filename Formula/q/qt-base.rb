@@ -66,7 +66,7 @@ class QtBase < Formula
   end
 
   # TODO: Remove once all qt-* formulae are available. Also remove related line in caveat
-  # conflicts_with "qt", because: "both install the same files"
+  conflicts_with "qt", because: "both install the same files"
 
   def install
     # Allow -march options to be passed through, as Qt builds
