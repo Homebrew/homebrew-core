@@ -38,6 +38,7 @@
   "postgresql@17",
   "postgresql@18",
   "pytorch",
+  "qt-base",
   "qt",
   "spades",
   "spidermonkey",
