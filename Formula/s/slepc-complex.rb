@@ -1,8 +1,8 @@
 class SlepcComplex < Formula
   desc "Scalable Library for Eigenvalue Problem Computations (complex)"
   homepage "https://slepc.upv.es"
-  url "https://slepc.upv.es/download/distrib/slepc-3.23.3.tar.gz"
-  sha256 "6b0c4f706bdfca46f00b30026b4d92a4eb68faa03e40cbcbfeadb89999653621"
+  url "https://slepc.upv.es/download/distrib/slepc-3.24.0.tar.gz"
+  sha256 "6e2d14c98aa9138ac698a2a04a7c6a9f9569988f570b2cfbe4935d32364cb4e9"
   license "BSD-2-Clause"
 
   livecheck do
