@@ -9,6 +9,7 @@ class Goproxy < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a6fe5b22a2855bc41c990c21c058242eddda66aaccf7651ddc499bb45086213f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4628f23dc61779b619443f499de2c7c9c59af86728a04b0c87f6e6230d99ba0b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "908b96ecd4bb860988e68fa7072067bd4d20b1ed8ee2d4a0e2ed1d5a27b6b06b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e2aa6365f5d64d9ef502521cd45fb6cd8168be310ec0f98264884b89ba46bef"
@@ -19,7 +20,6 @@ class Goproxy < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "855041ffba9435944868115752c8cc020cf9a30f63e81b236bc00baeb95edc8b"
     sha256 cellar: :any_skip_relocation, big_sur:        "bc3750bfaf43401d883d3b0463518007f2fcdf744327b688e3495562106a0808"
     sha256 cellar: :any_skip_relocation, catalina:       "ff2d41442228fba93e1d08be90f64dd3db210cf47e3543f22b452ed7327866b7"
-    sha256 cellar: :any_skip_relocation, mojave:         "5a35f434f319bd48a948c27172bff1d60be27307cfe9cd18bbdfc36ab4e56007"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aea5ace7890ba7d5035f69fab75985928a2f8e1a8514e2ab2ec58c3470d9c250"
   end
 

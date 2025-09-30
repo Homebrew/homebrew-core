@@ -8,6 +8,7 @@ class SwiftSection < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98fc25f87480b0c9cb1d92255eb6a4ecc53f4abde7259e6eb4d52463560f865d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "33bd0561f24b2a832733a8acf0deac577462b2ca382f2a01df72308e75ce141b"
   end
 

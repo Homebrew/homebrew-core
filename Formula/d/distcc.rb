@@ -10,6 +10,7 @@ class Distcc < Formula
   head "https://github.com/distcc/distcc.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "32c7926148b23328d8ceae1e7093685846864d97a1d250f587054d83bf07a877"
     sha256 arm64_sequoia: "b98395e66b59e15e749f8653a24a7cdb21ed924ab38789987937b424087db48c"
     sha256 arm64_sonoma:  "3f7592cb46c1103e012aa5321bc042a422cf4feff63f741df469ac0b360048dd"
     sha256 arm64_ventura: "4e2d0d3d71ff226b128e3449b7ef1117dd6f27c46345fc29a293ae246f562dd4"

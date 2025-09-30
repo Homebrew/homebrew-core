@@ -13,6 +13,7 @@ class Cdsclient < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47fd63a71583aeb84d0624a2d5914cb6e20c2364bc906d4da8263f583024c59a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0523647ffcb98339e8c9f2424d20afa561ae87caf6734eea0142439b9a655397"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9a0d2c2f3822aa4a2c23f64d1921c3bd2c3f25d64004ad90868f9ccc303cef3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ce712b39898660b3b383ecbb7cea31aac7681fb14980982f99c3b59cc5d130dc"

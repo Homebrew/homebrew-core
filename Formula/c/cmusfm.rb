@@ -8,6 +8,7 @@ class Cmusfm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "844a2f8e9ddbf09e79945a32979812f92c35e5db032bcf204bd50c1af307ee81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f9de4e6485544f8cbe0c2fb56acde11a3f0e689ee244f6ae40048739c36c12f4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60311618694710c592998896b3bf6c6dce1019991e563dbc3e43d1989fe3b4f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "edb2e0a7092079e3ad015e27ea37ff940d6ef9a6fed73ff2355d6d7b23d04c0d"

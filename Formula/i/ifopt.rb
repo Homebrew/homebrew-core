@@ -6,6 +6,7 @@ class Ifopt < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5bf0d19327f812c4fafdd5bf01874b2d4a3699dc194d9e1d57cfe7936b8b6020"
     sha256 cellar: :any,                 arm64_sequoia: "7f3e04dba4e270d64095bf3835bde2cf2fcb709e86cfbdad8d156859ff14238f"
     sha256 cellar: :any,                 arm64_sonoma:  "e43d5ec40d0a0c692f6ab0271f10df4e5ab6a3dd0cbdb83209c274cf5d816324"
     sha256 cellar: :any,                 arm64_ventura: "f545c8e42c49be06e5c7f2cf820d20850199be87eea52016a63aef2ae350ca66"

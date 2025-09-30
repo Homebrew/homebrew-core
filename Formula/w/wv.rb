@@ -13,6 +13,7 @@ class Wv < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "95bd09313abe228dca9c215d69041a8781c4ba93da901c8583877fcdc1598304"
     sha256 arm64_sequoia: "f43fdf4000603806925c2d0e26fdb5d3f5d6be5c435478964c8dce92484784a3"
     sha256 arm64_sonoma:  "99b64967c38d1f679aabfad54fa6412939af4e571a4b467541d69be0b3e42bad"
     sha256 arm64_ventura: "c121d0e251c7b6a83cef08a85ec05cb2a0c9afc2ea72adc9b70a0bb9f399417c"

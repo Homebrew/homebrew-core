@@ -10,6 +10,7 @@ class CharmTools < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4a4569815a50f268b9113fb8777bdbf3f1a828351661e7648aa6bc0947406580"
     sha256 cellar: :any,                 arm64_sequoia: "8576a30162918984c6c883e495a1ce1885aff4114c0fb2b68601d59d0fc95271"
     sha256 cellar: :any,                 arm64_sonoma:  "1dff5aa04345b8b75b2d5fe311b87977c73a8ec5a6cecd48a03d43b3f4e41242"
     sha256 cellar: :any,                 arm64_ventura: "f17ad2941a8dd98eb242350fa4fa9416f878ed2285d3ebb0e1c00a8c2aa3b9ac"

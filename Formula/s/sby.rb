@@ -1,21 +1,16 @@
 class Sby < Formula
+  include Language::Python::Virtualenv
   include Language::Python::Shebang
 
   desc "Front-end for Yosys-based formal verification flows"
   homepage "https://symbiyosys.readthedocs.io/en/latest/"
-  url "https://github.com/YosysHQ/sby/archive/refs/tags/v0.56.tar.gz"
-  sha256 "988205ae899e0f13a14b0b3c504d815b764ea41b2f1547b31334f74f1a7b596b"
+  url "https://github.com/YosysHQ/sby/archive/refs/tags/v0.57.tar.gz"
+  sha256 "96a5e2dbebb849a815798dade3597c9fa10d37ec2e860dfabf2fb7ba8c004afc"
   license "ISC"
   head "https://github.com/YosysHQ/sby.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78bfffdccf6ecdf7810d134880eb5abcaac9ab38af6dbe315df846caa88b6f90"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78bfffdccf6ecdf7810d134880eb5abcaac9ab38af6dbe315df846caa88b6f90"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "78bfffdccf6ecdf7810d134880eb5abcaac9ab38af6dbe315df846caa88b6f90"
-    sha256 cellar: :any_skip_relocation, sonoma:        "78bfffdccf6ecdf7810d134880eb5abcaac9ab38af6dbe315df846caa88b6f90"
-    sha256 cellar: :any_skip_relocation, ventura:       "78bfffdccf6ecdf7810d134880eb5abcaac9ab38af6dbe315df846caa88b6f90"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9860ebf9d3c2bb36945a3207c53890ca66407d498ba08069c5c4f07ed7ec33ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9860ebf9d3c2bb36945a3207c53890ca66407d498ba08069c5c4f07ed7ec33ac"
+    sha256 cellar: :any_skip_relocation, all: "503b463f03416ca1b445e5b1d07b7b7f87184e44470134507e4064d54de9c2ed"
   end
 
   depends_on "yices2" => :test
@@ -23,9 +18,18 @@ class Sby < Formula
   depends_on "yosys"
 
   def install
-    system "python3.13", "-m", "pip", "install", *std_pip_args(build_isolation: true), "click"
+    venv = virtualenv_create(libexec, "python3.13")
+    venv.pip_install "click"
+
     system "make", "install", "PREFIX=#{prefix}"
-    rewrite_shebang detected_python_shebang, bin/"sby"
+    rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), bin/"sby"
+
+    # Build an `:all` bottle
+    return unless OS.mac?
+
+    inreplace bin/"sby",
+              "release_version = 'SBY '",
+              "release_version = 'SBY v#{version}'"
   end
 
   test do

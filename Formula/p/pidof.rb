@@ -10,6 +10,7 @@ class Pidof < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a4a39bf5d7afe77664897dcd7eb1eb696554d932724b266fd0ff54b8f9a7602b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4ec5871a736544b3d218e48cb3883ae457aa097eb0b9a37e666d069d00080fb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b066475e9ddce61ef79c68b32e46f173c2c8c685a7269f30fb966efc137bccd8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "964d09783be4f829eeac50a16939ba0f289fa2c88dc7fba155f258683f009884"
@@ -20,10 +21,6 @@ class Pidof < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "1509f0473f6860e3836d43ed83f594982c3e4aa4af5b2a6be3f69ee55e1f74d1"
     sha256 cellar: :any_skip_relocation, big_sur:        "c3a5a73563d4ca6e329d293423f19639e98151ec72505fb926b00eab067cac55"
     sha256 cellar: :any_skip_relocation, catalina:       "634f42559aaa0582a6700c268737ba7cb7ec3bdadf2f3aa37c5a846604759459"
-    sha256 cellar: :any_skip_relocation, mojave:         "1a88c923954c4511fb64fe6cbfb27f5248c39d1676053c671ab71c652a377a2f"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "fd5f89cf3a9685142e08a23980d9438e961096d74ee508a96ccbaecb55da6e1a"
-    sha256 cellar: :any_skip_relocation, sierra:         "6991d110a73724959f84edc398647e3cac5a029645daedef5f263ae51218130d"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "d02c826db5564d7750c0e309a771b164f7764250507955d0b87d09837c3c2ba6"
   end
 
   # `nightproductions.net` is no longer accessible

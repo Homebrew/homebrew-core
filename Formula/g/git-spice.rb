@@ -1,20 +1,19 @@
 class GitSpice < Formula
   desc "Manage stacked Git branches"
   homepage "https://abhinav.github.io/git-spice/"
-  url "https://github.com/abhinav/git-spice/archive/refs/tags/v0.16.1.tar.gz"
-  sha256 "c38ea07d5e6db22880917ff0ac6f5d909844058b01949fee480fed6a8269bd59"
+  url "https://github.com/abhinav/git-spice/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "893b65936a7376d6f241036d1d0b374b4fc81fccf216f3ec7e6a17f064d345e6"
   license "GPL-3.0-or-later"
   head "https://github.com/abhinav/git-spice.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ff4e834450d2eb4a4dd31b5e9944a8945c70b40f1f60fdf8f9b4eeaf2d04a2d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ff4e834450d2eb4a4dd31b5e9944a8945c70b40f1f60fdf8f9b4eeaf2d04a2d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0ff4e834450d2eb4a4dd31b5e9944a8945c70b40f1f60fdf8f9b4eeaf2d04a2d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "80c1130063ffd2d7e4f5d50230de219b586fe51e011b3ca775038560d2fefcbb"
-    sha256 cellar: :any_skip_relocation, ventura:       "80c1130063ffd2d7e4f5d50230de219b586fe51e011b3ca775038560d2fefcbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5e184e1689e921b9140a2dbf1bc7002a72822a423b4860ee7cbe706207eb505"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d154d5fbd5e21690e3d773087fa6de97ccba6fce53001259e0575d24aa100ab1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d154d5fbd5e21690e3d773087fa6de97ccba6fce53001259e0575d24aa100ab1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d154d5fbd5e21690e3d773087fa6de97ccba6fce53001259e0575d24aa100ab1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cfd3a331af4eb9ea86d2afe054c8e924cdf9495a9117568d2378a4d0709d4d53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16fe96df7ecf638abce20b7e95b91519329826eecb97b51540545a8c4d4955e2"
   end
 
   depends_on "go" => :build

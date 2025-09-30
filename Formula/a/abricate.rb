@@ -10,6 +10,7 @@ class Abricate < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fcb7a6a43e558cea2253ef0d00cdb5344d7569844f3d9bab441c7095ac45beba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e7f6393112a6a35dce42b72269577f9a625cb161185fc24075afc326e057ad7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35e1dff52eb0bf1df021f9fa7cfe0e1a09df089e6bfc4af6c87e07a0f52db655"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a1019399ae72e1e4b793e287b92c2b000b6680f44c60faa2aa63e61683fae70c"

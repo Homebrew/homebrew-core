@@ -8,6 +8,7 @@ class TerraformDocs < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7fe8d99487a213818abfba231555ba8fb1e8fb91349e681b497e81907bb9a3f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "61839fb6a203ccc38e8c8f6d17eac0180ca754dfee8acb2c22caf36462445270"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "077a2f758437da21b2261542136cce7ef0e3a25a49bc9302881656c80710000c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b9846110ee3a9ab3686bd96e381e651ed83816224c476540218c289a72c2f2ba"

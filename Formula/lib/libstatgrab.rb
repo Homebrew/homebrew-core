@@ -17,6 +17,7 @@ class Libstatgrab < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "22b0adf587cf3abc79ab1bf64cce1f5fa418cc2516981fe4db0ea33cd54ce274"
     sha256 cellar: :any,                 arm64_sequoia:  "666c2bc394e1533387652704633873d2ad01670f67503bc8dbf8c66e6b53e4ac"
     sha256 cellar: :any,                 arm64_sonoma:   "896492a8a90fe3c6f335ad15785a8fb7521b1200c3e88d1989136a17eebdab60"
     sha256 cellar: :any,                 arm64_ventura:  "7c52741c5bc27ba569e9d97c89ab5258f51f0b66c46e678f35fc8770f0fa6655"
@@ -27,7 +28,6 @@ class Libstatgrab < Formula
     sha256 cellar: :any,                 monterey:       "5154065582dbae8bf645834ccabc9b878a77dc21d5a85d307366d78b6ee7ed91"
     sha256 cellar: :any,                 big_sur:        "08aba9012402bf7611ddc2fb0f6e0dfcb31c97ce067dd83d6ae73830b5d30aeb"
     sha256 cellar: :any,                 catalina:       "802d07a3f0948bf0f3a60bb174b1ee56e028b4b24f9eb121e9f90e5926e689c0"
-    sha256 cellar: :any,                 mojave:         "8ce7e1320ee7e3d10764ace6801eecb28cac49dadef648de79258e1d254da06c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "20fa34ce8b897ffc1d9ef30d7c1636fb86d2b1299dad7d730a000f47ff4691cd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8984abcb585701a695fedbebd0c13cd61b08b95240c22485c75e2aac1575c57a"
   end

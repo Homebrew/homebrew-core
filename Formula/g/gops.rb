@@ -9,6 +9,7 @@ class Gops < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "af565d548b9189c123da62047369e06c967a6f98a291a1dbd8c1043c5f95174f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6e6424f29a0624aa928ab6604ea0bfebd30fbf1359343c94a827deb39dc32561"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9705e404ae430eef52e18a9bd0efcd7aba007de76ef17d967a1da2c949e73130"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7680e1666c0a84e516a2d8cfc5882137a3ceec2f766ed52fd329c5f2381c2fb"

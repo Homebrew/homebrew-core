@@ -1,30 +1,30 @@
 class Pgvector < Formula
   desc "Open-source vector similarity search for Postgres"
   homepage "https://github.com/pgvector/pgvector"
-  url "https://github.com/pgvector/pgvector/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "867a2c328d4928a5a9d6f052cd3bc78c7d60228a9b914ad32aa3db88e9de27b0"
+  url "https://github.com/pgvector/pgvector/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "a9094dfb85ccdde3cbb295f1086d4c71a20db1d26bf1d6c39f07a7d164033eb4"
   license "PostgreSQL"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0ea074a0dd35acc1957c1f2f6d90df297a16d7e47f94368b85e3a309e9540fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01a8036c0a03daa290fca07e915e406356fd36cdbd084117e9246d772955b438"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0d0edb94eda91ef957b4497c0173c33579f860843d6c105d5668f1ceb86d11a7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b9e229a72dbc9e7b8e4587389823caa307fc1ee0f2338e45140a49e4ece5c4eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "21e40f77e8afca2fae9303cc45216b53ec79d48ebc3f8d7cd79b2fa8a22aa6ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bd92df44356b7200defec0029fc583550a1121a5ceddc0e8a0fab98a42571e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7765039d7b20e78006e2ff2c3b197185a9c80e8b930a384b8e5feeb88eaf3afa"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71331f9fce25247c15fa2b8c38ff776c396bedec8f157e6a55b4a8a4df8a3bf7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "020d8b756ac7ec0fc1a3bc098585d5c51135ca16aab20ce1adf24e6c41322938"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ba83ebac1b5836c368e3b5b9409650a3a8b75afd13281066bfe9e3b66b5c6c7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b004e0e298b7cf38af96444ab2282d577595cd982176d143fbde704d22998354"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd82274ea8b8c03b811de6db28adc8e3d313daf53b2fb3270046ce4277ed277c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37f45074367bb109411982def1e757518d7ec77f2c22a3df5544d910226b92d8"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
+
     postgresqls.each do |postgresql|
       ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
       system "make"

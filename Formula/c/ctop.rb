@@ -10,6 +10,7 @@ class Ctop < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4ddb01679cc99906cb9a7e87ce4784d8306356a4b80dbb50d2c325c7e43f893c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cd09dd7c11239dd436500639b817a7c935a16033630cfc78b5f6a3acbb763089"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "217bb4ee91c955c570491fc44d7ed650854aaa3cb6e08f6269b33b1595bc36f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "010e50edd98d6e9a43e3d4351281eae20f62df79a3f9d82d4da5309e2b30b2a4"

@@ -9,6 +9,7 @@ class IosDeploy < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a265970fdac2b3cbced80ce05eb80cdfeefaf3b8d7b66684b23f8799a4d2d00f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4c69eb7279d465db83c5d996a519fdc0f045338adaef8a92eb426a67f9733ee9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d9ac2ff01049d41618a63ef47738fe9e01cf9b77154b9773bde884a42dd31e1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c87b96b6692afa7b56724cb2e1a0f1cf1e8065f803266c8d83a7d5623496896"

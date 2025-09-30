@@ -9,6 +9,7 @@ class Libchaos < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "7e6429fc1638909e532b661ade2c4de6747e9ab3210f4b1d887d666af7517179"
     sha256 cellar: :any,                 arm64_sequoia:  "a06f03544d61ba6c17a360992f7397fcb0ed1eafb1027bb561cbe9e71c0bf2ad"
     sha256 cellar: :any,                 arm64_sonoma:   "e6b159ec85602b056a5cae0bda11203c4296f72fa6850e54e94067cf3360263d"
     sha256 cellar: :any,                 arm64_ventura:  "0e01bcaadb5cb22391c9671eed7f0a8a4852717f4ce45962f5bf088bcc025ca9"
@@ -19,8 +20,6 @@ class Libchaos < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "018d34f680d426fab143744ab7413cfdb8db204ac5bc0a77de9767a2802bbf5c"
     sha256 cellar: :any_skip_relocation, big_sur:        "2b51e7e88ad2f47cdb860d3edbf65a9db6a1a0feeefbb46dae978f3b4311f20f"
     sha256 cellar: :any_skip_relocation, catalina:       "8cd295f6ccf1c6a09ab87bef06331424da21b0b44da8f4440a11f4fccaf1370a"
-    sha256 cellar: :any_skip_relocation, mojave:         "3add0509ec493248105ad81354c4ffccef85f37c0cc445db24f115b0b8fb3576"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "8d1f167a096fae20de66286d9f33a7b93e03fcfccaecd5b15611e3fcd7c4b09c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "3d694020ddee200b924b4c7e82acb8993096e7afd2749c590fecf642302fd6cd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a1add1c600d4abf7d5cb5e4268810c4f3f8f29a6a4a5ea267c95202230881b8f"
   end
@@ -35,6 +34,10 @@ class Libchaos < Formula
       -DLIBCHAOS_ENABLE_TESTING=OFF
       -DSKIP_CCACHE=ON
     ]
+
+    # Workaround to build with CMake 4
+    inreplace "CMakeLists.txt", "CMAKE_POLICY(SET CMP0050 OLD)", ""
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *args, *std_cmake_args
     system "cmake", "--build", "build"

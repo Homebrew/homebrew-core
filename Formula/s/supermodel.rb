@@ -1,11 +1,12 @@
 class Supermodel < Formula
   desc "Sega Model 3 arcade emulator"
-  homepage "https://www.supermodel3.com/"
+  homepage "https://github.com/trzy/Supermodel"
   license "GPL-3.0-or-later"
   revision 1
 
   stable do
-    url "https://www.supermodel3.com/Files/Supermodel_0.2a_Src.zip"
+    # Homepage is down, issue ref: https://github.com/trzy/Supermodel/issues/259
+    url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/Supermodel_0.2a_Src.zip"
     sha256 "ecaf3e7fc466593e02cbf824b722587d295a7189654acb8206ce433dcff5497b"
 
     depends_on "sdl12-compat"
@@ -20,6 +21,7 @@ class Supermodel < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "9ebc9708a1207cf92a01649204cd4f673b63f4df3574ffacda4c29df64b3b0cd"
     sha256 arm64_sequoia: "55806d70707f24311eac885aa6ec3963cc508dbd397b159a7a80611392bb9c9f"
     sha256 arm64_sonoma:  "7c5571842431f0b73847af493d4fe4d79ae4a834954a567f7c6732e3e83c387b"
     sha256 arm64_ventura: "60d857bc4b057fdb6950645b22eb04970bca9e21e5065f44486bbf5dfd4b4754"
@@ -49,6 +51,10 @@ class Supermodel < Formula
     if build.stable?
       inreplace makefile_dir do |s|
         if OS.mac?
+          # Remove deprecated AGL framework
+          # https://developer.apple.com/documentation/macos-release-notes/macos-26-release-notes#AGL
+          s.gsub! "-framework AGL", "" if DevelopmentTools.clang_build_version >= 1700
+
           # Set up SDL library correctly
           s.gsub! "-framework SDL", "`sdl-config --libs`"
           s.gsub!(/(\$\(COMPILER_FLAGS\))/, "\\1 -I#{Formula["sdl12-compat"].opt_prefix}/include")
@@ -59,7 +65,12 @@ class Supermodel < Formula
         s.gsub! "$(CPPFLAGS)", "$(CPPFLAGS) -std=c++14" if OS.linux?
         # Fix compile with newer Clang.
         if DevelopmentTools.clang_build_version >= 1403
-          s.gsub!(/^COMPILER_FLAGS = /, "\\0 -Wno-implicit-function-declaration ")
+          cxxflags = %w[
+            -Wno-implicit-function-declaration
+            -Wno-reserved-user-defined-literal
+            -Wno-c++11-narrowing
+          ]
+          s.gsub!(/^COMPILER_FLAGS = /, "\\0#{cxxflags.join(" ")} ")
         end
       end
       # Use /usr/local/var/supermodel for saving runtime files

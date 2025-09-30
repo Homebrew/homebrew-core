@@ -7,6 +7,7 @@ class Cmctl < Formula
   head "https://github.com/cert-manager/cmctl.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5f306641bb0149945609ccd1a619f0ca5b50e62972a12ab437ccd98ad30b3069"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "debfac1b07f3c1c7eeb262887f5210c5114f5465e7dbeb34ffc6c9c817e05a55"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b828e8243bf67ab2d609c418e33a68a3536ff29ef2c6ccb57660b7095b1ff1b9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "485d5fc7e498e8bf39e1a98362fb3cd6cd30eb4ba5706d0efbcd90d93a2823d3"

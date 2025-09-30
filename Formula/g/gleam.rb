@@ -12,6 +12,7 @@ class Gleam < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "765d807ca291cf314d321b366b47327ff9914a0198e5d229aba23ce4825261d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d60988072de1ce74dc0366af7da835140365cf9dd7128a01be2197ee8cb08260"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75b719c2491cc44aef0ad099e939c7bb2ab99397cfe28c703f1f992b60a13ca8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d45c964b7a221b30f2dc568e9927faddf57207a9f17a82c7219b6b7535386b1c"

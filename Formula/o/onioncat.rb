@@ -9,6 +9,7 @@ class Onioncat < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "376be0d8ae8f091f6f6dae5beba524fd5ba07e2606264a73c1b827e187dc3ea2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "29b153e2b454faccfb935cf8524b3b37fafb5b17a86ba38377d887ca0bbd86a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58d3c104e6597baefa21599dead5423ea1a7be37f40ca84d398c1f39458db474"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "313d9bc109a8fdd7f9ceb5995e359e071e6ea822f4f20a550b6c84687e638894"

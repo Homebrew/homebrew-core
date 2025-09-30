@@ -7,6 +7,7 @@ class Gdu < Formula
   head "https://github.com/dundee/gdu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8ed81e504c9f7c84dc0afaef52a68b260a2af8d97b417d0b9f63604df77737d7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "028214b990af856110c71589131134789dafc07f388ae587090367fc9dfbb755"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "028214b990af856110c71589131134789dafc07f388ae587090367fc9dfbb755"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "028214b990af856110c71589131134789dafc07f388ae587090367fc9dfbb755"

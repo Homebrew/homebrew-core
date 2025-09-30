@@ -10,6 +10,8 @@ class Xboard < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "49fb2045c979c8788ec25bbba4416f8f5a38729d9018d610ea1dd41f2595263b"
+    sha256 arm64_sequoia:  "a3b2d95bd28d0e7034e8c740bb5daf60ebd131dec5586eda4c8caa491b96f99b"
     sha256 arm64_sonoma:   "286ed707d8d03708c836b4ac6a00777425e5984b6fe5be083ae571cfcfccb877"
     sha256 arm64_ventura:  "50cd0e9fe8b8c1e1cafca11ab050238c046b037db55561204c25bd238438cdd4"
     sha256 arm64_monterey: "90dd23652bb03fee8b0ff31fba73ad979861fcefc17602a19d9197d0eee77170"

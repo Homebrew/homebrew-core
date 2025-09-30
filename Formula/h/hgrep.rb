@@ -7,6 +7,7 @@ class Hgrep < Formula
   head "https://github.com/rhysd/hgrep.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d8c45681eeb6ba8d9f7d19d6945b747d157924cfa9972f4d5d5f8b547dc0b4a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bdc73fc805440e15b720a25825a116fe80353b8b7169932f6fdd0b2d15259184"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d49c3f35512cd5f2c75ee590bd320c5a4d24785181319e00b63e08be3af99280"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9df4b9b5224a7972f504d5c34ba609ee631abb70a2ae1749753a4dd50216b3a7"

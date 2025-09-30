@@ -7,6 +7,7 @@ class Podsync < Formula
   head "https://github.com/mxpv/podsync.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22537f59a33bac8bed4440849e3997a185fdcaf768e3866d16fecca40e83eb3c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b72aff6c92db971877d7d991633587ab3618b554ae58909aa8b9cc2e4abe66cd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bc61487934281dcc05b9750a9c3ec8ac562e432acaceb1ab650f42ecd8c9971"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7ddfc6f47832c2496d85747da38144fb3ad2257920cdfe506984d9719b222c23"

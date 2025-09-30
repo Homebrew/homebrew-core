@@ -11,13 +11,8 @@ class DitaOt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf827317098a83364824b48f4dabb3ffc9597da35fc2fdb75367f18be79be202"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf827317098a83364824b48f4dabb3ffc9597da35fc2fdb75367f18be79be202"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf827317098a83364824b48f4dabb3ffc9597da35fc2fdb75367f18be79be202"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a6675abd313544391cd5428cc250f817f815296f0a59ab1d0ae24211cfbd626"
-    sha256 cellar: :any_skip_relocation, ventura:       "8a6675abd313544391cd5428cc250f817f815296f0a59ab1d0ae24211cfbd626"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d59169aa5d2685490469408bb0ea04e69103d141a61dbb84f34fe622c69f85b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d59169aa5d2685490469408bb0ea04e69103d141a61dbb84f34fe622c69f85b6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "58212d549d69642517b4b1abeaacb9da8d76105fd1a7bea9b6dade03f21ecb94"
   end
 
   depends_on "openjdk"
@@ -26,11 +21,15 @@ class DitaOt < Formula
     rm(Dir["bin/*.bat", "config/env.bat", "startcmd.*"])
     libexec.install Dir["*"]
     (bin/"dita").write_env_script libexec/"bin/dita", JAVA_HOME: Formula["openjdk"].opt_prefix
+
+    # Build an `:all` bottle by removing doc file.
+    rm libexec/"docsrc/topics/installing-via-homebrew.dita"
   end
 
   test do
     system bin/"dita", "--input=#{libexec}/docsrc/site.ditamap",
-           "--format=html5", "--output=#{testpath}/out"
+                       "--format=html5",
+                       "--output=#{testpath}/out"
     assert_path_exists testpath/"out/index.html"
   end
 end

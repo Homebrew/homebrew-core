@@ -8,6 +8,7 @@ class Cfssl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "601f2a0f658414311595bde5f9ac2c35b557ba0c4d5383fb73a9ae36743be9a5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "423c61fc2dd3289c74cfd8d2eb4bb30029da5bcaa991c6bcdd4a1bab69b70aee"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "856a862e8c5986e402c4ffde122f70fd2b9743a2545a18b8a01a237ef023c8f4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2f00e10322e3ca648154246d1f33b622d3043030842d571c320f423f10baa20a"

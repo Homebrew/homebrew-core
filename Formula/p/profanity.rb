@@ -1,28 +1,19 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "https://profanity-im.github.io"
+  url "https://profanity-im.github.io/tarballs/profanity-0.15.1.tar.gz"
+  sha256 "c1e28a849aa178fd1ec5f384b0f8bdd244bce453dc4ef7bb76d0830382fec304"
   license "GPL-3.0-or-later"
-  revision 1
-
-  stable do
-    url "https://profanity-im.github.io/tarballs/profanity-0.15.0.tar.gz"
-    sha256 "4a9f578f750ec9a7c2a4412ba22e601811b92bba877c636631cc3ccc7ceac7fb"
-
-    # Fix for `gpgme` >= 2.0.0 compatibility
-    patch do
-      url "https://github.com/profanity-im/profanity/commit/606eaac31dfb97df16b0d2ba9466a3a67bec122a.patch?full_index=1"
-      sha256 "e850acc776819b654640db0a0cc6bfcc190936fc27b34b3e6675179d831cb7c7"
-    end
-  end
 
   bottle do
-    sha256 arm64_sequoia: "52f0cd014b1b7f8da2cd5c706f856820f3a5ded7d04ee67020071adef8ebdef4"
-    sha256 arm64_sonoma:  "604a23e5eb9bb994752fed9f5286c6ff2445b806399fbce424c8b43f5e0151c1"
-    sha256 arm64_ventura: "d8ee3b1e91786c1ad66b5d543719b15e04e6728d3ad450c3d55097a5355c493f"
-    sha256 sonoma:        "17f18d644dd67384a202374e819c2433ec2f8cf8d4df0f29eda74cab010c75bf"
-    sha256 ventura:       "5fee9b23127a7f8fb5eb17dad7dc1a5d36cb5fa6c67a74f129f3dabf5594c51c"
-    sha256 arm64_linux:   "5537ca6fc2bc1bb18f24678864ca6b86c046de88e79149e5530ce765470dae78"
-    sha256 x86_64_linux:  "3b17147fb4b6b7dc59563e2efef9868000450dc2733c065beae32ab704d1f1f2"
+    sha256 arm64_tahoe:   "a7cc2b3e861cb3d12a02341c8f874b40d43098f4643ea0c3436c300c60412f54"
+    sha256 arm64_sequoia: "df081e8fe94ff007d6b4bd3a1f8843de1756c62be4173da534dbc6420ae89f38"
+    sha256 arm64_sonoma:  "801eb3f994c2fd9b9ec8345e2f34cb22ae10b8a0a9634e5a05425610d26a41ab"
+    sha256 arm64_ventura: "e777d8e4d9eaa49db36f165b31fb4472e06bb3bd820f505ddce25e0549ed2488"
+    sha256 sonoma:        "9754d8ff9eaf93428ce7b5ee3324c1e724859c152c8fb810ce059167601d3468"
+    sha256 ventura:       "3a370dc3e765d5b4aae9994472ebf502fc1409356388a16e803352ae997c92cd"
+    sha256 arm64_linux:   "ad5ed73c5aea238ec66eea66552c4bbd14b2381c9a6d21f54880f469ebd993bf"
+    sha256 x86_64_linux:  "96bbdc1bd7b27e3e6b42e8e2e964b799ff20b5d2d7c520ef7f6d48aa97832bef"
   end
 
   head do

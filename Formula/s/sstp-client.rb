@@ -10,6 +10,7 @@ class SstpClient < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "71109b298ce186a8e26fde8fc8b7ca10e0a4608452b3065cb43aded5d1927fcc"
     sha256 arm64_sequoia:  "ff9e147017fa32a2f65c2ec46fdca292e7e92f3bb7cd6bdfa5d8ef77b34acf82"
     sha256 arm64_sonoma:   "4c4f9aa5820641e408e0106b9db844be89615c289b52ca07c5e421b157a1a4c6"
     sha256 arm64_ventura:  "26446c059cd275fc49d4f4475757f2a700ecef734fef50e99d55e352f4c04c93"

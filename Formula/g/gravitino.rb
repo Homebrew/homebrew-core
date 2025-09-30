@@ -11,15 +11,18 @@ class Gravitino < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c948147618da262c7b6cd75528fa407268a8a54c392f4ba2707ef91d228b6fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f74f55cad208bb19e1aca2c86477a5bf2d9e6f26befaabbadc05435fef4d1523"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df67562b97e3b4137c67416ff781a9846b57c65f2cfc250477ec3b2cb9891fc9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d873054da69be3d3a9595d737708f7282fd9b0df6f59b7c2e4b6b6979f66a2a2"
     sha256 cellar: :any_skip_relocation, sonoma:        "c9d53038e47aa88deadb696e19e1b9cab19996537261160982a5eae01d3fb9b7"
     sha256 cellar: :any_skip_relocation, ventura:       "976e7814856f21c4d1e2b8cdf7f8c53381ca0a28e576b07ed1ef4cf3144d4297"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fafeacb8afb939f53eafee24b2bd55378be21f2778f335e9980b40455762eb4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9432a842a266f9eb8e8277aa74863319499de21726ab1a57b8ed7457d7613c03"
   end
 
-  depends_on "gradle" => :build
+  # Issue ref: https://github.com/apache/gravitino/issues/8571
+  depends_on "gradle@8" => :build
   depends_on "node" => :build
   depends_on "openjdk@17"
 

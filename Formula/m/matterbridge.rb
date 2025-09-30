@@ -7,6 +7,7 @@ class Matterbridge < Formula
   head "https://github.com/42wim/matterbridge.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5a41074e2c3eba976b8142b0f764732da7d5551396085b7b40ac5d62b5f1fd0d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6eec437022ff310f92909ef2f5e8b600f4e5cc2991fd7284fbed52d1d96a8ec0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bb186836451a870eeec2e4954cce09eb426da52534f2e9d1acd105de1fa07ea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "db4bd660db3e42897f23bffa81d3a241a2e41b56d035e649bf0ec6001dee5916"

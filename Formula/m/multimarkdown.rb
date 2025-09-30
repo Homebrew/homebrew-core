@@ -9,6 +9,7 @@ class Multimarkdown < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bb4f39ee0e9e4ab40f4ce5c8e5aa5d57ef8739035769400d0c5b8ea17d0f0661"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eea3968401cd2eca776486368efbf1572da6dee6bb9cf5c5396448f0da811578"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f04dd2552dc7725620fc3e64e6b803652c0510e20e33242f4bd00bbde327ea74"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d889681d3fd0ed644c4a80e951aed473b5ad9d26256e7e8f2f1922d0f2673b15"
@@ -27,6 +28,12 @@ class Multimarkdown < Formula
   conflicts_with "mtools", because: "both install `mmd` binaries"
   conflicts_with "markdown", because: "both install `markdown` binaries"
   conflicts_with "discount", because: "both install `markdown` binaries"
+
+  # Workaround for CMake 4 compatibility
+  patch do
+    url "https://github.com/fletcher/MultiMarkdown-6/commit/655c0908155758e7c94858af2fb99dc992709075.patch?full_index=1"
+    sha256 "1ca4b7ea07c19981685786f8f469aad9c9d0d6af8394bc9d3b92608de929495c"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

@@ -10,6 +10,7 @@ class Dspdfviewer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b1abe6e8ef66106efcf70efa9fee70371adfad7a3d35ac39d2a0f86e34e827a2"
     sha256 cellar: :any,                 arm64_sequoia: "e8b8666c1dd37cbedb7baef9520a0f780f4414948c77dfffc155e2a3d4f1d007"
     sha256 cellar: :any,                 arm64_sonoma:  "1368c4d2b3c8f30845218d18990407f50447c80ad4d5d12468914649056cdb37"
     sha256 cellar: :any,                 arm64_ventura: "81fa4722ff6720d27cdf0e957db4ac26ace3098ecf9f930c9a62967e8b4cf8fc"
@@ -17,6 +18,10 @@ class Dspdfviewer < Formula
     sha256 cellar: :any,                 ventura:       "3ba36d9baaab63c71303b97c63aaf80de5a26771c1054d660d604f9ebdea7c4c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca5f6fc6b6b9ddbaa85c87107317aba3bf14fd5a9c0824460efeb612e34be2ae"
   end
+
+  # Last release on 2016-09-13, last commit on 2023-04-27.
+  # Can undeprecate if new release with Qt 6 support is available.
+  deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5"
 
   depends_on "cmake" => :build
   depends_on "gobject-introspection" => :build

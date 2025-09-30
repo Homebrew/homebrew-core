@@ -7,6 +7,7 @@ class Rustywind < Formula
   head "https://github.com/avencera/rustywind.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f6e9a477a66a134a75d813ce06471c85f5bbc114d56bd8a554a9ac13fe11544"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc0916337b8700bf4b9d26f8e9f8ddc03f1de5cdcfa532f412886aed8cf64303"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78e164d7166d1f303792912c049a135b139e07a3a3559b603d0244c99eeaa1cf"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "eb0bb9e45a527f1789dbc9181642955d60b2d2d48a930f318b7cf1e9bb1df47d"

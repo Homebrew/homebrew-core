@@ -11,6 +11,7 @@ class Spim < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "6ce31175ac12463b4fedd31724fe17aeef8119826168717c3aaf57fa049ace15"
     sha256 arm64_sequoia:  "0bbfdf9f722ade3b41dba3007110f92b87f5cdae144349b030399253fc7cf29c"
     sha256 arm64_sonoma:   "a6a8458888bdc561d8f80f70c1010496864b7c9a1bdda22b784aff1a68c6e9a6"
     sha256 arm64_ventura:  "815ba1c52cb4d6f1f216b10ed22f2c6e44802a774a5c3f8c0f5929deee570c31"

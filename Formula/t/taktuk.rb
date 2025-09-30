@@ -13,6 +13,7 @@ class Taktuk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e8791232c8189aa72d9a551592eceb0213dfe3e879ece00ff1f481a146d308ab"
     sha256 cellar: :any,                 arm64_sequoia:  "0e5cd1f34fc2bc09417324bf325f1b3bfea7cc9e2b97ac622cd52fc1dceb6513"
     sha256 cellar: :any,                 arm64_sonoma:   "6516efccc7a1a557ba95ca0694659a17f1e9a2f38e4ff58ff918b34a3c80273d"
     sha256 cellar: :any,                 arm64_ventura:  "f2ee8a7c0e82af568fa8106af14fe3b9e0247cd7a6f87b4e76c3fa21880577e2"
@@ -23,10 +24,6 @@ class Taktuk < Formula
     sha256 cellar: :any,                 monterey:       "36e40a6c21e87f656fce7ce72dbf0cc8f9aaade9986b630fa9306bd63f17544e"
     sha256 cellar: :any,                 big_sur:        "d33ad42f68016a53bbb84cfdf5704cae271041ada4b42c5b3892d30ff76e479e"
     sha256 cellar: :any,                 catalina:       "7ed3f1542b9acfc2ad2de0b9150ad4e7aa72246415be9046fe5eafaf794b478d"
-    sha256 cellar: :any,                 mojave:         "6ff23461c51c77612a5c00fc4caf40d9c91aa3e7b2f409e9a86f57f27f305f01"
-    sha256 cellar: :any,                 high_sierra:    "9cc466f8a75eea1974143fedecd42547eb14401d772e527776f387aec4832f77"
-    sha256 cellar: :any,                 sierra:         "0ffc0bb09703bbf32afbcd302850803f94ecbb311eaa77353275e7dcb1549f62"
-    sha256 cellar: :any,                 el_capitan:     "4a731d243e6915729240deb75dc99cfee513bb7d0f69169981623b14ce6601c1"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "20bbcdc066c8754651d49a124fd7f922c782677c04a6ad6eff95caab8e25ab72"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f799a4468de4f14fdccde850591ac6c2a213725a0fb8b8e8c427d63eae27d703"
   end

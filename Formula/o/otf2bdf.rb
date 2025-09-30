@@ -14,6 +14,7 @@ class Otf2bdf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5a8a13d81081f27e6115aa7096839a6db582bc96ac1aacfea9fb19607214d629"
     sha256 cellar: :any,                 arm64_sequoia: "51d176016f0bb1ef87c844b246d9f733e594314fb7fbc19f7a2a4bbae330cf6a"
     sha256 cellar: :any,                 arm64_sonoma:  "deb8ebe605b3723509213f415b25315efbc0fb1e72ad3866cabec7830b523894"
     sha256 cellar: :any,                 arm64_ventura: "a68522af5768c71394633ec7f1d347191d638fc89676d0d91f72fc4c95bb13f5"

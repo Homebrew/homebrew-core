@@ -9,6 +9,7 @@ class TerminalNotifier < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f2dfafb7ab7b14b1ce364454f260da7a23d4007fea1c863dbe78391db5bf3b3d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "838ac4918afdb8464694e9236c4c61cde9b6d36caa35d01bbc00c6445015c77e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9814bfe9969788afd44c03f4469cf732ab61931a645da58a00b33f95126a381c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "20ebb413679d76521e4434cb4351560f35052985a11cbb1f85c12e45bef95919"
@@ -19,10 +20,6 @@ class TerminalNotifier < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "6513db788b33570b1b89d2b0215e3176d629814b3233c993e995ec9806ad32df"
     sha256 cellar: :any_skip_relocation, big_sur:        "91f14694ebce08887492aa75138753cd9ff74977868927b15b52559728280055"
     sha256 cellar: :any_skip_relocation, catalina:       "78eff95b7436480521ee68a8581ff2df0c615adefccd279486f2491f1b1c0a4b"
-    sha256 cellar: :any_skip_relocation, mojave:         "9671c602326357b7397248bfb0cf062bc47f19add15b615e512f58545c387c31"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "f112656234f4100d23cc1a41b96f92a09974360a822c2ec0fb6f9970862c1a22"
-    sha256 cellar: :any_skip_relocation, sierra:         "210cd525fad70bbaef40f092bc3478b1519f68f73c034990230d8b1cc61a8a7c"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "75ce68fd95fb502e20ccb25be72f7db12112ac1a4bdf5a70c140cd174ecbacf5"
   end
 
   depends_on xcode: :build

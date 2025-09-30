@@ -9,6 +9,7 @@ class Davix < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7ffd6da2f53277824faae653bafa6c3c62a9ff515ccf15436bc564b4745b3175"
     sha256 cellar: :any,                 arm64_sequoia: "da21e84d94a79ee04801da53369791a3150a7b2d258f0157b2d93340d24652d6"
     sha256 cellar: :any,                 arm64_sonoma:  "05c4246253f683448f3ede09b02520e196a33b4e69a312cbdc9f10b526adbfa2"
     sha256 cellar: :any,                 arm64_ventura: "32f192b3827668aff416b3ab09450becae5e481f2fb40594b91b863b2da567d6"
@@ -31,15 +32,18 @@ class Davix < Formula
   end
 
   def install
-    args = std_cmake_args + %W[
-      -DEMBEDDED_LIBCURL=FALSE
+    # Remove `-DCMAKE_POLICY_VERSION_MINIMUM=3.5` once fixed upstream
+    # Issue ref: https://github.com/cern-fts/davix/issues/139
+    args = %W[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DLIB_SUFFIX=
       -DBENCH_TESTS=FALSE
       -DDAVIX_TESTS=FALSE
+      -DEMBEDDED_LIBCURL=FALSE
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

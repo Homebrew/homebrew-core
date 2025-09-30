@@ -9,6 +9,7 @@ class Libdrawtext < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3f2bec9d760cbb23d7bc7aae47bcb72ecfc60abc4ea023a320836c5b9859b9a2"
     sha256 cellar: :any,                 arm64_sequoia:  "4aead494f4798e4f16eaec6f6c8c251c8de2604995969537295e9d4d0447f2a3"
     sha256 cellar: :any,                 arm64_sonoma:   "8a58fb6c5c3b800f97788698dde639a9fd99cf3beb4bd8bb56f781ca816ab5cd"
     sha256 cellar: :any,                 arm64_ventura:  "4b01f03d8831ce1af64b7ee299948ebcbc719f07482925519a6ee53ce283ff9e"
@@ -47,7 +48,7 @@ class Libdrawtext < Formula
     font_name = "DejaVuSans"
     font_path = "/usr/share/fonts/truetype/dejavu"
     if OS.mac?
-      ext = "otf" if MacOS.version >= :high_sierra
+      ext = "otf"
       font_name = "LastResort"
       font_path = "/System/Library/Fonts"
     end

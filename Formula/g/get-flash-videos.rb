@@ -7,11 +7,13 @@ class GetFlashVideos < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1792f9d20bc21a285d0034483f1701f505c64c8a18cc9d75b0befa92c63ce662"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e9585360bd6c0eedbb61d69471027f381bb98b90ec603d27e6054c070ff0bcd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c98e92953a3439040ea3927924daf3752535f29b6f090d7110f2f4f27cd07aec"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5250458e7b842b0c47b8a0bf82d080088f1a15991b08b7c4b6b54a1af2694ecd"
     sha256 cellar: :any_skip_relocation, sonoma:        "b85cf6d7f8b77d4c8e49a4229bb1f65dbd7d5bdf46e278dd6222eb30e002ade1"
     sha256 cellar: :any_skip_relocation, ventura:       "4b38c8850c54efd5fcec94048eb5e35452647c1f85d2852f49d312ec4e120bd7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a17c87aed4e3b726a9a289de42ee4c725cd5b75a4c0c842a051396eaa8708e4b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc6d8ca49c01ff7cf2af1d97ff3e287ee30617b40bda0db332f794768cdbdca3"
   end
 
@@ -178,7 +180,7 @@ class GetFlashVideos < Formula
   end
 
   test do
-    assert_match "Filename: BBC_-__Do_whatever_it_takes_to_get_him_to_talk.flv",
-      shell_output("#{bin}/get_flash_videos --info http://news.bbc.co.uk/2/hi/programmes/hardtalk/9560793.stm")
+    expected = "Filename: BBC_-_Antarctic_ice_bridge_shatters.flv"
+    assert_match expected, shell_output("#{bin}/get_flash_videos --info http://news.bbc.co.uk/1/hi/sci/tech/7983975.stm")
   end
 end

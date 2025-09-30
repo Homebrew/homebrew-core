@@ -8,6 +8,7 @@ class ChibiScheme < Formula
   head "https://github.com/ashinn/chibi-scheme.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:    "51f839c6bfe00f60d7929f8b55aa8ce3de8b3f0b34a82a886ec782f7850e746b"
     sha256 arm64_sequoia:  "91aa4dee44f150abda4aed2001a7ed4a78abc923a0a550ea863b69d79d53998c"
     sha256 arm64_sonoma:   "3aa850015f232c2e5eb9c4622ac5ad7356ebb07ad3562db673cc02eaf15550fa"
     sha256 arm64_ventura:  "9bc3a2cee147f70c2370b3b2de9f081907c8a5e4399f2115eeddd76dc72dcc61"

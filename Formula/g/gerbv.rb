@@ -9,6 +9,8 @@ class Gerbv < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "16ddd7d1212886648901aef5bd32548cda6180e8ea9ac2bd0092733453b20947"
+    sha256 arm64_sequoia:  "2cec6e703cf8900a47542fbbf627d938289b09b1344dd25c7a1f4920c5210d50"
     sha256 arm64_sonoma:   "f0033cf40029771a108a543761225a8cf7f76a93978c64d5fe06b77e1d212ecf"
     sha256 arm64_ventura:  "78372c7e31bacbc5f95a5741ccdbd2a2c1c45709c63cf1dda4df2e1e11e9df79"
     sha256 arm64_monterey: "6b6149199423babe20ed89d917bde3217a1fde6064e58670ffd2b9bc9ea437bc"

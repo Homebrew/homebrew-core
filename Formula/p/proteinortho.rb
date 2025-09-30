@@ -6,6 +6,7 @@ class Proteinortho < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "91f55f765f3656a53a7b3a1725c7998f282544133755ed3eab45df72a28e59eb"
     sha256 cellar: :any,                 arm64_sequoia: "4006d9977aa6a7393f902a01fc9a229258c075f04a6f4bae1167c513f4182dd7"
     sha256 cellar: :any,                 arm64_sonoma:  "7cbff76f79a4ccc38517c9c839a7398fa09d3be50040619eb0b5cac6d555d376"
     sha256 cellar: :any,                 arm64_ventura: "14bc4553c7280b330912079c579c06d33a7a2f14d51469638d583088909ed8d5"

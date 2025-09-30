@@ -7,6 +7,7 @@ class Clangql < Formula
   head "https://github.com/AmrDeveloper/ClangQL.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5484745fc6477175c2d3ff2a4e66d362db6e5a515a2b35d87d9f7ab8351a0bdf"
     sha256 cellar: :any,                 arm64_sequoia: "4d7d3dec4acffb5b26561003d115b54fb8c0ca6c137e5796ffc97e21c0a5d521"
     sha256 cellar: :any,                 arm64_sonoma:  "35f90c49a03e4b853dfbf18b9dd32f1c42f84ca169937c500e6ed905c02663d3"
     sha256 cellar: :any,                 arm64_ventura: "f604b5653930a425e60e2cc950b37d8e29a03d376c9274a0593238c40120047c"

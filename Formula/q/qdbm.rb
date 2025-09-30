@@ -14,6 +14,7 @@ class Qdbm < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "5222aa09e8299b7db382992f7630bd0881e928823e961c2033535adb2b4c95a4"
     sha256 cellar: :any,                 arm64_sequoia: "93ffe465aedaa92b472c387fcee97ce7c8611b32aba5127cde60558746aed441"
     sha256 cellar: :any,                 arm64_sonoma:  "5f9e5e025feda86f511d850b0af43d251f52637aa1bfeb3428b5cbd0a23df7eb"
     sha256 cellar: :any,                 arm64_ventura: "2b37f6d105b64d9320f71ea174c959d8d8df01a70805662be04cf5b54eb73ffa"

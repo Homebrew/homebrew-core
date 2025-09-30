@@ -8,6 +8,7 @@ class Udp2rawMultiplatform < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "72ead352399ece1b7045bc70fdc82b5cd82246adf55fb61e6eaaa467583ffb65"
     sha256 cellar: :any,                 arm64_sequoia:  "5c9cec87f3f22ae136248cc81851645b561e7136008a7a2fcdba3787daf3daa2"
     sha256 cellar: :any,                 arm64_sonoma:   "f71f48884d9d19d40d3c04a4e0a99aa87a415a12614a5a02625e75018d6cb2f3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "91759a9869401575af6f3a52a51aa4efff60aed38cb140d02e2f051bd34fb9ec"

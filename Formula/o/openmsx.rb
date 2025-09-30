@@ -1,10 +1,9 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "https://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_20_0/openmsx-20.0.tar.gz"
-  sha256 "4c645e5a063e00919fa04720d39f62fb8dcb6321276637b16b5788dea5cd1ebf"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_21_0/openmsx-21.0.tar.gz"
+  sha256 "28838bfa974a0b769b04a8820ad7953a7ad0835eb5d1764db173deac75984b6f"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/openMSX/openMSX.git", branch: "master"
 
   livecheck do
@@ -18,16 +17,15 @@ class Openmsx < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "3ba8300b8fdbcfffcdfb4012fb7df687230090655411d801afe57ca69e4cfb49"
-    sha256 cellar: :any, arm64_sonoma:  "7c5e4756a68ed4a9dbdb7c1dfdc86ffb40e059f5198b3b15e6410c90eb0281b5"
-    sha256 cellar: :any, arm64_ventura: "a69cc87e4cf618d3136d1bb7c83fd20d2b89968eab61daf52c75d48bd1c2636f"
-    sha256 cellar: :any, sonoma:        "6f9d02fde2ef6c175c16a0f9c37b5a473ee89b3d9ed7c28f04093459ade4217b"
-    sha256 cellar: :any, ventura:       "19303d260496f03b0ef43050132e2c4125715d91d5470333c93ef60568ab3767"
-    sha256               arm64_linux:   "b05bb6887ddd5509c84fc6d88d540668eb6b133a9d12638df0a1b703917c2a2c"
-    sha256               x86_64_linux:  "e0c3322fa46edfeb2f35a85ad63b62d183e166fcb6c16b8541b93186a46a010f"
+    sha256 cellar: :any,                 arm64_tahoe:   "f163141e884181d6ddc1dfec63acfde452c26af4bc20cd424756b96f199cdf4d"
+    sha256 cellar: :any,                 arm64_sequoia: "524064efe7274201bd28490cb9b515429efa67ffbd072f84528d8f94f4485123"
+    sha256 cellar: :any,                 arm64_sonoma:  "1e2a22829a8bc5ff0cfa1ed57d89d016c3d071720d419dfb7b9ca921c0f44618"
+    sha256 cellar: :any,                 sonoma:        "4994c71b8a54a53fc30e51a56b4fc71076550a4f0e186a0e84b6188d6ddb1e27"
+    sha256                               arm64_linux:   "74a866c43df3f6ecccfe78e8164b37eb5d365f68a6d2dee9f72cb5dec3f03b72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25c217d5db0b730426c2afa84ef465e4b5f60b29659c91f8fc6f58382a0f4673"
   end
 
   depends_on "freetype"
@@ -37,13 +35,14 @@ class Openmsx < Formula
   depends_on "libvorbis"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
+  depends_on "tcl-tk"
   depends_on "theora"
 
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   on_ventura :or_older do
-    depends_on "llvm" => :build
+    depends_on "llvm"
 
     fails_with :clang do
       cause "Requires C++20"
@@ -53,7 +52,6 @@ class Openmsx < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "mesa"
-    depends_on "tcl-tk@8"
   end
 
   fails_with :gcc do
@@ -62,7 +60,13 @@ class Openmsx < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && MacOS.version <= :ventura
+    if OS.mac? && MacOS.version <= :ventura
+      ENV.llvm_clang
+      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+    end
 
     # Hardcode prefix
     inreplace "build/custom.mk", "/opt/openMSX", prefix
@@ -70,10 +74,10 @@ class Openmsx < Formula
     inreplace "build/probe.py", "/usr/local", HOMEBREW_PREFIX
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
-    ENV["TCL_CONFIG"] = OS.mac? ? MacOS.sdk_path/"System/Library/Frameworks/Tcl.framework" : Formula["tcl-tk@8"].lib
+    ENV["TCL_CONFIG"] = Formula["tcl-tk"].opt_lib
 
     system "./configure"
-    system "make", "CXX=#{ENV.cxx}"
+    system "make", "CXX=#{ENV.cxx}", "LDFLAGS=#{ENV.ldflags}"
 
     if OS.mac?
       prefix.install Dir["derived/**/openMSX.app"]

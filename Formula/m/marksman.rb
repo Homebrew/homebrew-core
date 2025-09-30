@@ -7,6 +7,7 @@ class Marksman < Formula
   head "https://github.com/artempyanykh/marksman.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b83867b8710098430e910c9c1370d23b34e1dd416eaf427a32960a80815d064"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9d34d209ff066fc670ef526ef4e1921698345ce643eeeb8e2d5dfff80bffbfc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abb4ee028058af4d4f464c83157d3f49783c96f2917fd671bdff11a8dcc3c6bd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bea0c8d782eb874e6a3f92dc47884e1e71afaba9741a6c705ef5790c5aadae1c"

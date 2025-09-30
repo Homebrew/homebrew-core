@@ -7,6 +7,7 @@ class Tunnel < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e55c3ef84669231471ef0111b6f0d59b989a40a780def3d30badda873bb5374c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "847dc0c5ba0c3db3aa8f83cb4af3632bda3fa9bebd5a6a751c0d93a747575f7e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7ff186e3d2a8616aa808392dc79c60676e30ccd766e8841aa2d7f6e23efa84ea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8bd84b399a3ff97b60c445f54dcc918c98fd1804bfb4fd4ffbf0c2583fa6327d"

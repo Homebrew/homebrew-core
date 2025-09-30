@@ -10,6 +10,7 @@ class Cassandra < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "19d6a16164dcc94804ae0d5105730a2c4c578ff5fd1d37a17ef48a4bc6992213"
     sha256 cellar: :any,                 arm64_sequoia: "eb036975c40eed782b928df11ef9c9ecd6d6693066268b638f01a1388b2b8369"
     sha256 cellar: :any,                 arm64_sonoma:  "bc605977a7081e5c8aa9faf1e278a526967dfe73d7d866d7bf9146e9d40041c3"
     sha256 cellar: :any,                 arm64_ventura: "5969c2671a3f611604a13a7046c39bd5e8965e71fc89b8c733eefb81a729ddf7"
@@ -134,6 +135,7 @@ class Cassandra < Formula
     # Make sure tools are available
     bin.install Dir[buildpath/"tools/bin/*"]
     bin.write_exec_script Dir[libexec/"bin/*"]
+    rm bin/"cqlsh"
     (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", PATH: "#{venv_bin}:$PATH"
   end
 

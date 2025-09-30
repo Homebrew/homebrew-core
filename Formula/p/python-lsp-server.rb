@@ -3,19 +3,20 @@ class PythonLspServer < Formula
 
   desc "Python Language Server for the Language Server Protocol"
   homepage "https://github.com/python-lsp/python-lsp-server"
-  url "https://files.pythonhosted.org/packages/31/be/9c96c1e261f7ce2e27a0211e075bf606b1033513d9544a75da5c7b8d1b06/python_lsp_server-1.13.0.tar.gz"
-  sha256 "378f26b63ecf4c10864de31de5e6da7ad639de9bd60a75d4110fea36fb8d0d69"
+  url "https://files.pythonhosted.org/packages/ca/92/bd60cbe7d7d6c90e5e556a90497aa1892a3f779d9915026eca6e37a0b59b/python_lsp_server-1.13.1.tar.gz"
+  sha256 "bfa3d6bbca3fc3e6d0137b27cd1eabee65783a8d4314c36e1e230c603419afa3"
   license "MIT"
   head "https://github.com/python-lsp/python-lsp-server.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1c322671e3158bf4c7b63dd0daaa58456ae362d83cf9332fc155c7af6a78febc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "622de85c3a0a53311927f4d9e7e2f94c7f94366b015cc8de28c5bc9781301aa5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d253bcc8715dae70df0dde4a654b2f07dc00e29876e350d4a641f4c0aa81fd0d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8fb2cb7297997a9904884defaaf6bfde6925be2c949f1aa7bf9d5df1a4a9f920"
-    sha256 cellar: :any_skip_relocation, ventura:       "b732354f72a557550f2bd93e8dfc2be09b85846c371325a97ee26183a18b06ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "469f3d30c1ebca89c67e82c3003917314bec611caa8c7b135d2f3c2ba398e34d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2783ae60aa5d4394fe0a4c4960e630695e8c01195d9f658a44b6a6a6eb068b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "57b8fd2a49813e22b512dc65df8ded1fed35f94d0e102f7708eaf1ef6eab960b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07eb6404a672de5aa5f014255b76dcab4b1fc67aa69de7506723aaf0d9986aed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "313b51b9dabc4450332d6c927211751b2507d1ff50044d06a130a3f6d6f3a46b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4df383198e21859bcf52a4cc1f4b696b42b454079de6b50733202c16b536614b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "94567a5c6630e400394b60a967a552bc01cc834f8224ba1daaf3a0919747dc2b"
+    sha256 cellar: :any_skip_relocation, ventura:       "a5aaa9a6d0f95eea89d68f8f916f236a5bf8a79386a283679714ec3793aaceb9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f68fd0e6855eb238b450770f84ead7c52d1716d2cf0993cd4d07b6b5adfb03ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9da0d5a33df7d960e4a004c006930878246335987f76eee13eb6a405dc6b7799"
   end
 
   depends_on "rust" => :build
@@ -62,8 +63,8 @@ class PythonLspServer < Formula
   end
 
   resource "mypy" do
-    url "https://files.pythonhosted.org/packages/81/69/92c7fa98112e4d9eb075a239caa4ef4649ad7d441545ccffbd5e34607cbb/mypy-1.16.1.tar.gz"
-    sha256 "6bd00a0a2094841c5e47e7374bb42b83d64c527a502e3334e1173a0c24437bab"
+    url "https://files.pythonhosted.org/packages/8e/22/ea637422dedf0bf36f3ef238eab4e455e2a0dcc3082b5cc067615347ab8e/mypy-1.17.1.tar.gz"
+    sha256 "25e01ec741ab5bb3eec8ba9cdb0f769230368a22c959c4937360efb89b7e9f01"
   end
 
   resource "mypy-extensions" do
@@ -77,8 +78,8 @@ class PythonLspServer < Formula
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/66/94/68e2e17afaa9169cf6412ab0f28623903be73d1b32e208d9e8e541bb086d/parso-0.8.4.tar.gz"
-    sha256 "eb3a7b58240fb99099a345571deecc0f9540ea5f4dd2fe14c2a99d6b281ab92d"
+    url "https://files.pythonhosted.org/packages/d4/de/53e0bcf53d13e005bd8c92e7855142494f41171b34c2536b86187474184d/parso-0.8.5.tar.gz"
+    sha256 "034d7354a9a018bdce352f48b2a8a450f05e9d6ee85db84764e9b6bd96dafe5a"
   end
 
   resource "pathspec" do
@@ -87,8 +88,8 @@ class PythonLspServer < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
-    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
+    url "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz"
+    sha256 "ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
   end
 
   resource "pluggy" do
@@ -127,23 +128,23 @@ class PythonLspServer < Formula
   end
 
   resource "rope" do
-    url "https://files.pythonhosted.org/packages/1c/c1/875e0270ac39b764fcb16c2dfece14a42747dbd0f181ac3864bff3126af1/rope-1.13.0.tar.gz"
-    sha256 "51437d2decc8806cd5e9dd1fd9c1306a6d9075ecaf78d191af85fc1dfface880"
+    url "https://files.pythonhosted.org/packages/74/3a/85e60d154f26ecdc1d47a63ac58bd9f32a5a9f3f771f6672197f02a00ade/rope-1.14.0.tar.gz"
+    sha256 "8803e3b667315044f6270b0c69a10c0679f9f322ed8efe6245a93ceb7658da69"
   end
 
   resource "ruff" do
-    url "https://files.pythonhosted.org/packages/6c/3d/d9a195676f25d00dbfcf3cf95fdd4c685c497fcfa7e862a44ac5e4e96480/ruff-0.12.2.tar.gz"
-    sha256 "d7b4f55cd6f325cb7621244f19c873c565a08aff5a4ba9c69aa7355f3f7afd3e"
+    url "https://files.pythonhosted.org/packages/3b/eb/8c073deb376e46ae767f4961390d17545e8535921d2f65101720ed8bd434/ruff-0.12.10.tar.gz"
+    sha256 "189ab65149d11ea69a2d775343adf5f49bb2426fc4780f65ee33b423ad2e47f9"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
-    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "ujson" do
-    url "https://files.pythonhosted.org/packages/f0/00/3110fd566786bfa542adb7932d62035e0c0ef662a8ff6544b6643b3d6fd7/ujson-5.10.0.tar.gz"
-    sha256 "b3cd8f3c5d8c7738257f1018880444f7b7d9b66232c64649f562d7ba86ad4bc1"
+    url "https://files.pythonhosted.org/packages/43/d9/3f17e3c5773fb4941c68d9a37a47b1a79c9649d6c56aefbed87cc409d18a/ujson-5.11.0.tar.gz"
+    sha256 "e204ae6f909f099ba6b6b942131cee359ddda2b6e4ea39c12eb8b991fe2010e0"
   end
 
   resource "websockets" do

@@ -9,6 +9,7 @@ class Gnirehtet < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3f10f0ff297c3164e291d2c42c572d826515052a4f764688ee9d4a93ce8c8d85"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5f0e5fbe1add7c5624e860f5301ff482236f9730fd5d9fa3d563a961bc54e22b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab10ed478b79d0bd8877a477d1f8bdecf2ca129755cbc3a8270d99e11d911c97"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5b5df70aa9d156188c4a83b6817064309e53eccaca64d4c21fc6e3dd17b026c"

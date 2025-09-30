@@ -9,6 +9,7 @@ class Reflex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "730de36adf7fd1ad324ecaa1e85df9b1f064cb0491ecbc336a92001153c3265c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "188a2f2056610511ae1b9b7bbbc373091f88600c5cc28ee13eb57eaee4e21d3e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7203be2c2bcb77f967584006bb447f041897f78748cb3a6f8e84fd770c66016e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "22412d6611b71577c603b8ce941a814c5fdf83fa8f83fd17835f2387a2fe0c79"

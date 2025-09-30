@@ -14,6 +14,7 @@ class Toilet < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "bd5b942e1d680bf03e3cd4ca644c4468e4184804f9e42044cd4e8a3d8be4df13"
     sha256 arm64_sequoia:  "2c559d7c5172c0f9751ecb6a75a550e1202cf3f09a0cf867799672beea54c2b5"
     sha256 arm64_sonoma:   "e357c586a77052ed8e040b211e693d1f420c2667caffe012d5e5d121659bc3e7"
     sha256 arm64_ventura:  "24f5a74c74de3d9dd4a7ee917c9e2faa072c1062189b6272d8bb041a91f8be6a"
@@ -24,10 +25,6 @@ class Toilet < Formula
     sha256 monterey:       "d5698e72ecfe4ed624397f0da8b342b8080b716d8abd6657a19d517463ffa399"
     sha256 big_sur:        "6656e1a05049339433307a78ae8df879f45903c179642361e0ef24331e3e44c4"
     sha256 catalina:       "816162aa8f967f14e6db8f9b48024ef5119c04955575299e02fe88b2b0158ac6"
-    sha256 mojave:         "27c9e1fe38ec012c5dd9199c8100d49c56e386c65c336a4fbcaaa25a9341cab2"
-    sha256 high_sierra:    "dda87a313d7398dd3157ca74d752b3d364647fc56c3238fb5bd320fcc904ebd5"
-    sha256 sierra:         "24008d251358aa73e7e597b203e360857fec5b88278e6ea6de08d4eef3865f80"
-    sha256 el_capitan:     "93822fde3d2e69f46143dcb9d8551e7e4301c7a470ae53b3fda8ec6cb44584dd"
     sha256 arm64_linux:    "b9b9b289bfeca15d75013d0cb29999beccaf644a914c8a6ce154be438a24c417"
     sha256 x86_64_linux:   "774d107ea52b43b2224252e84eaf529d8b944fa34746935d34a9c4bb791a110e"
   end

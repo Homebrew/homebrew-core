@@ -11,6 +11,7 @@ class Minigraph < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e1f725e6105e8492fb5d6fc2e7a1d34908dc1a48f649cfdaee1b35d33c1cde6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "74910ce15f23503fe34b6b8a2fcd5e42fc77c5d9731af7901d4f37abb8b2291d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c97ede2ba9819f38713bba63399fa4386a5f9ad7b1d69da1ec59c93e041b676"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c732ab52d288ebc25d387a00ec4df300a29c3e0d47215a39e8f08a2aba06ff99"

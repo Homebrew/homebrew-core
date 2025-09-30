@@ -1,8 +1,8 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoincore.org/"
-  url "https://bitcoincore.org/bin/bitcoin-core-29.0/bitcoin-29.0.tar.gz"
-  sha256 "882c782c34a3bf2eacd1fae5cdc58b35b869883512f197f7d6dc8f195decfdaa"
+  url "https://bitcoincore.org/bin/bitcoin-core-29.1/bitcoin-29.1.tar.gz"
+  sha256 "067f624ae273b0d85a1554ffd7c098923351a647204e67034df6cc1dfacfa06b"
   license all_of: [
     "MIT",
     "BSD-3-Clause", # src/crc32c, src/leveldb
@@ -17,23 +17,27 @@ class Bitcoin < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "8fa8fcf7ccb91a577436dcacdc6ff4140b960518466de5c6086788c5b705e737"
-    sha256 cellar: :any, arm64_sonoma:  "dc06414451b6958961bbb761c30596111a1108b90553990b2c23e4583c59cced"
-    sha256 cellar: :any, arm64_ventura: "b44e261cc593181a6d7911747ceb9fcac26ef45e2c464539133291032226a050"
-    sha256 cellar: :any, sonoma:        "060611cfbfba123b4c61cb4622d292ba56995184581a466d7967eb6263dce0c3"
-    sha256 cellar: :any, ventura:       "4ad32aea3bf5f4f2f0cab5e1d25a2a6ae8e7cdec9322fa8f3942f0968cd2bfa8"
-    sha256               arm64_linux:   "70752d59e92fe46e0942521e9d05c02ae73e0003258c7ec0da481e30fd8a6c09"
-    sha256               x86_64_linux:  "a1dfba272b3381616eec1ea655b2cf320070b48985272517fb36277917188efe"
+    sha256 cellar: :any, arm64_tahoe:   "d1d61311699d38d3a69471adb9fc6789a2d6b6ccb6b325cf186500ce0bc60ae8"
+    sha256 cellar: :any, arm64_sequoia: "84de602ee27ca2d2653952586d88ecc79f0d3cd5318182ff9474780bcb2f4a47"
+    sha256 cellar: :any, arm64_sonoma:  "e5af87cb95089b561a98f2a13037570f1128ee427c54ec52e57f7a1ea08cfbcf"
+    sha256 cellar: :any, sonoma:        "b62278e3ada8701c9a542bee64adeaf50a5c8b1aa5b7cf172f9a96ddf24aed3b"
+    sha256               arm64_linux:   "d1ca6acf2612a816805f118f1625b04ba332b23f1a97d2c3febed168862207a7"
+    sha256               x86_64_linux:  "b7290cd2f6e3e5b41170d1d3fd7c7460c4a715bdb97cd5205655a68c454383cc"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libevent"
-  depends_on macos: :big_sur
+  depends_on macos: :sonoma # Needs C++20 features not available on Ventura
   depends_on "zeromq"
 
   uses_from_macos "sqlite"
+
+  on_ventura do
+    # For C++20 (Ventura seems to be missing the `source_location` header).
+    depends_on "llvm" => :build
+  end
 
   fails_with :gcc do
     version "10"
@@ -83,6 +87,7 @@ class Bitcoin < Formula
     end
 
     ENV.runtime_cpu_detection
+    ENV.llvm_clang if OS.mac? && MacOS.version == :ventura
     args = %W[
       -DWITH_BDB=ON
       -DBerkeleyDB_INCLUDE_DIR:PATH=#{buildpath}/bdb/include

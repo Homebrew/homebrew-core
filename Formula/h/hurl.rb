@@ -15,6 +15,7 @@ class Hurl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0dd53506b57247d6b5ec551212433ec0adb199898179ad11a51a8162d42849db"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "02271320877e0025edd124cfac43983c66d7e434a00d01c71fa12fd48bf1d174"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "569b483cb9265abea3607bcc534363052304c71ef72982377ac9112d658dadc1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9fc5113c8ed3bcb8952ba034a152daa71da8fd84ac7e46ac576f088bbee2a9c0"

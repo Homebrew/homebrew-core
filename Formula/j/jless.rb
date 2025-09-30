@@ -8,6 +8,7 @@ class Jless < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4b17c0b4b3fc59321e8ec683fb7811aac39c4e928191f18a48a6c5ebe0ef5cef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6227a6ccd685510fd4a4db69ac652e12b785dfb320afab4dfdced92ca546f6a5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce76bc45d945ae9210c3ede829ae8dbf7087faffa41f8edd18887566aca9a944"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5950521cf007e81591e09fb2f7f2b85e704609fa7cf9aa035125343e2fc7657e"

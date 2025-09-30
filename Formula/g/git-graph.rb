@@ -9,6 +9,7 @@ class GitGraph < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "86dfbfc8d9a1a0b8280fe776f997d42ba01240a750671689fdb6087eebf12718"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f5f7d0191b0da4b5253bfaa8a0fa23d1f522139847e1ad4f3fdff0ddaa77edf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68da7a5147f7fbd27c1d4e5e88cf4a51733194cf1f25d524b34f07db2e8464e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1b9735f939236f6bf61169a00235a2916f1c81bc73315af4d06955223581a047"

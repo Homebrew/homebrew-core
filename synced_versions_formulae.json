@@ -51,6 +51,7 @@
   ["notmuch", "notmuch-mutt"],
   ["openssh", "ssh-copy-id"],
   ["petsc", "petsc-complex"],
+  ["php", "php-intl"],
   ["poppler", "poppler-qt5"],
   ["protoc-gen-gogo", "protoc-gen-gogofaster"],
   ["python-tk@3.10", "python@3.10"],
@@ -64,6 +65,6 @@
   ["technitium-dns", "technitium-library"],
   ["tmuxinator", "tmuxinator-completion"],
   ["tree-sitter", "tree-sitter-cli"],
-  ["vulkan-headers", "vulkan-loader", "vulkan-profiles", "vulkan-tools", "vulkan-utility-libraries", "vulkan-validationlayers"],
+  ["vulkan-extensionlayer", "vulkan-headers", "vulkan-loader", "vulkan-profiles", "vulkan-tools", "vulkan-utility-libraries", "vulkan-validationlayers"],
   ["wp-cli", "wp-cli-completion"]
 ]

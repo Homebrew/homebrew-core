@@ -12,6 +12,7 @@ class MongoCDriver < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "01898518554174092167d409de97acf21474f3a382de9561969a014c9b65ea78"
     sha256 cellar: :any,                 arm64_sequoia: "f4cb73190a3b3f8684088ff8cef2b2ea98b6077c3155b3e2211d1a5aa73b6282"
     sha256 cellar: :any,                 arm64_sonoma:  "3383b773436e5bba75a95a4aa5318b2321ed7b28f9ed93851a2f67790445ac23"
     sha256 cellar: :any,                 arm64_ventura: "bdfd4ba3a6317f922cf0e943866e026e1e4b48bf52e4827d0c51c44bad8c6a5e"

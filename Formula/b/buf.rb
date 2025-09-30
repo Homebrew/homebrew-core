@@ -1,8 +1,8 @@
 class Buf < Formula
   desc "New way of working with Protocol Buffers"
   homepage "https://github.com/bufbuild/buf"
-  url "https://github.com/bufbuild/buf/archive/refs/tags/v1.56.0.tar.gz"
-  sha256 "ab029136c76e87f69f0adfef9b376a64bc0b3f3d0c90743753b2938e086ad264"
+  url "https://github.com/bufbuild/buf/archive/refs/tags/v1.57.2.tar.gz"
+  sha256 "a7f670f9da968d05bec42b10d29651f86396f0b002e3f3a2c1c8ab9e1cb0b9e0"
   license "Apache-2.0"
   head "https://github.com/bufbuild/buf.git", branch: "main"
 
@@ -15,12 +15,11 @@ class Buf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6900b24472bbe331c18409ecc34bccc869e47ea7fc4242a3610419649076428c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6900b24472bbe331c18409ecc34bccc869e47ea7fc4242a3610419649076428c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6900b24472bbe331c18409ecc34bccc869e47ea7fc4242a3610419649076428c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2eab7c7d625c5a8ffc1698d73788f068f92dc90ec6f0c3ed6df0ea241312d4c4"
-    sha256 cellar: :any_skip_relocation, ventura:       "2eab7c7d625c5a8ffc1698d73788f068f92dc90ec6f0c3ed6df0ea241312d4c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f1c6f0576fb06d5225ea3069fb922c55ff3c96a9bb8da97498c3797d4fcdc54"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "073a75f6e7d2879ee2912ad73a5413d6e2cd529b94e4866ed33c2df3bc02e7aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "073a75f6e7d2879ee2912ad73a5413d6e2cd529b94e4866ed33c2df3bc02e7aa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "073a75f6e7d2879ee2912ad73a5413d6e2cd529b94e4866ed33c2df3bc02e7aa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "82ef3c8bef352a8c8588b757743478d7ad975edb6b5fd60c78f56c413d8a5507"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a479253fc90576737d9af578c7c3933280057b606693add304e3cbc3f3a35d99"
   end
 
   depends_on "go" => :build

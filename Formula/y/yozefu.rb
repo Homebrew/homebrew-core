@@ -1,19 +1,18 @@
 class Yozefu < Formula
   desc "TUI for exploring data in a Kafka cluster"
   homepage "https://github.com/MAIF/yozefu"
-  url "https://github.com/MAIF/yozefu/archive/refs/tags/v0.0.13.tar.gz"
-  sha256 "a09b0e8c22f50a9d0e90c9f27012d2070cfc17542373c0ce43c67ebca1133ead"
+  url "https://github.com/MAIF/yozefu/archive/refs/tags/v0.0.16.tar.gz"
+  sha256 "217b53f15cabeba0bfe36e4acbe026cae18c8c091408e654bd7c96f6f32b1aa3"
   license "Apache-2.0"
   head "https://github.com/MAIF/yozefu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e0798ec6ea3136fabff0959fc913df97622f15dd945fe03d3bf6cf3ab8978a3e"
-    sha256 cellar: :any,                 arm64_sonoma:  "6a9a4bb19fcf63490902ff9293dfd04c2af4c27cdfa7d7bde839a54e27d3b0dd"
-    sha256 cellar: :any,                 arm64_ventura: "8e80a36f73c977341422eed07576c2610e3d6700765cc9959994131fdef3cea6"
-    sha256 cellar: :any,                 sonoma:        "7eda9b4127253c2fda494fa12757148b360f052c426edb319b3e7a141f0ea70b"
-    sha256 cellar: :any,                 ventura:       "570306dff471b9ddf1b73bb815982e779dc22836632a98f51dbb53a590256a71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e888796d3eadeb205082c0b6ba762d541187ba502e913e7d1ed6b2ad2e2bb629"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73b0f0a3c2c7da38c7c7b7b23248348ffc78da6d9b30ad0516681fbe1b2afb77"
+    sha256 cellar: :any,                 arm64_tahoe:   "44c4dddd4a562cf39601a40552610fe43883ea2b138b710bcff1b720b95a9ab4"
+    sha256 cellar: :any,                 arm64_sequoia: "c9bd56eae053736e86a429371188aa0abff4aa4f46e55e842f3433b87b552c45"
+    sha256 cellar: :any,                 arm64_sonoma:  "6f097a68cdd627be0c329a3b6ceeb10fadff1d1bb0f941dbccf3650890f672b2"
+    sha256 cellar: :any,                 sonoma:        "db7b818616c463ff3ea10f745daa6236dd7e2db26109eb1bd40cc06001299ada"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "771398f014e5a96b9380fc77bc33ce3fc6f02632efd91938b939515b8633c947"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb61486a1ec9576d101d0823d048a6d77d31d1f4590050414e998d538abc0444"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +27,6 @@ class Yozefu < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    ENV["RUSTFLAGS"] = "--cfg tokio_unstable"
     system "cargo", "install", *std_cargo_args(path: "crates/bin")
   end
 

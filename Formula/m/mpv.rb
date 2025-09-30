@@ -1,20 +1,37 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.40.0.tar.gz"
-  sha256 "10a0f4654f62140a6dd4d380dcf0bbdbdcf6e697556863dc499c296182f081a3"
   license :cannot_represent
-  revision 3
+  revision 4
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
+  stable do
+    url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.40.0.tar.gz"
+    sha256 "10a0f4654f62140a6dd4d380dcf0bbdbdcf6e697556863dc499c296182f081a3"
+
+    # Backport support for FFmpeg 8
+    patch do
+      url "https://github.com/mpv-player/mpv/commit/26b29fba02a2782f68e2906f837d21201fc6f1b9.patch?full_index=1"
+      sha256 "ac7e5d8e765186af2da3bef215ec364bd387d43846ee776bd05f01f9b9e679b2"
+    end
+
+    # Backport fix for old macOS
+    patch do
+      url "https://github.com/mpv-player/mpv/commit/00415f1457a8a2b6c2443b0d585926483feb58b7.patch?full_index=1"
+      sha256 "4d54edac689d0b5d2e3adf0a52498f307fa96e6bae14f026b62322cd9d6a9ba6"
+    end
+  end
+
   bottle do
-    sha256 arm64_sequoia: "9bca3581e41200876f4eed25ba9fafe8134323141f70da48ab904a27b2b9848a"
-    sha256 arm64_sonoma:  "0057fb2359b8129667d2838722ab515cdbecd1b6eb8ca988435859c118207ab1"
-    sha256 arm64_ventura: "1351503c5222d9c9e0a21692c88375471986d5f46dd98e1d4866af06b8fd59df"
-    sha256 sonoma:        "1dee2defb8aa01d21df8cc780d1de558f117fdfa41d25195f1e56626864043f6"
-    sha256 ventura:       "e14b40d371f6a2577ef6836ad6d3cf9b68463ad910819e7b694c48f4bb4dc951"
-    sha256 arm64_linux:   "4d1802b9fe1493bd9ca1e2293f0dc1529ccd97a40a985c33b18e198d16137918"
-    sha256 x86_64_linux:  "982d2ffb5ab6d84bd4ac2d6418c87cc428496fde4d529cfc31b9dce4cc1c7c1d"
+    rebuild 1
+    sha256 arm64_tahoe:   "106cc0184a6703e9c3e9a4b3662b3a65da4e64c8a2e43218d1fc19493cdecdb8"
+    sha256 arm64_sequoia: "2a72093cc0689a0c6341b7abc942ba0ec802490c807ff764ac20edb6f0ead270"
+    sha256 arm64_sonoma:  "8247120427ca93debacb0b079ba30dd9d233e8f8f0705e9a82899a4fee833157"
+    sha256 arm64_ventura: "20afc0a4fe70131481e5a8fcd91a803806965bb76e106a326eae6ee5864bce2f"
+    sha256 sonoma:        "eb40fe0c534999a9771f3666824c0d70488afd06f96c37a1d26821f5537e5fb9"
+    sha256 ventura:       "af91158356583eb46de5fb7dbc999eeee2d2606336fb4276eb5713daf9efa580"
+    sha256 arm64_linux:   "16e483fc11b83570cd434a3f9b44b69afccf90f5091adca702a6200b269a80fb"
+    sha256 x86_64_linux:  "ae8b059abf68381c7f62d9190dca745f36971ad1b0a1080c6d69a05bd3ac5b42"
   end
 
   depends_on "docutils" => :build
@@ -42,10 +59,6 @@ class Mpv < Formula
 
   on_macos do
     depends_on "molten-vk"
-  end
-
-  on_ventura :or_older do
-    depends_on "lld" => :build
   end
 
   on_linux do
@@ -79,15 +92,6 @@ class Mpv < Formula
 
     # libarchive is keg-only
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig" if OS.mac?
-
-    # Work around https://github.com/mpv-player/mpv/issues/15591
-    # This bug happens running classic ld, which is the default
-    # prior to Xcode 15 and we enable it in the superenv prior to
-    # Xcode 15.3 when using -dead_strip_dylibs (default for meson).
-    if OS.mac? && MacOS.version <= :ventura
-      ENV.append "LDFLAGS", "-fuse-ld=lld"
-      ENV.O1 # -Os is not supported for lld and we don't have ENV.O2
-    end
 
     args = %W[
       -Dbuild-date=false

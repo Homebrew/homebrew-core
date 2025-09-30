@@ -7,6 +7,7 @@ class Redict < Formula
   head "https://codeberg.org/redict/redict.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1fdf09b337b43ab241f9a74fb751fdce33ef162e10f9771f20b0fc252fe4b59b"
     sha256 cellar: :any,                 arm64_sequoia: "c1444697872fc03c6329c6d3dbff23866eb486410b1c358a90e7b480098ae1c3"
     sha256 cellar: :any,                 arm64_sonoma:  "9c660fb94b6860a1d61177918dc03892b2a2e88b4314bacba9087e0fe997e6e0"
     sha256 cellar: :any,                 arm64_ventura: "411e38125ae432e5fed2c908831809e39e6c468fee18ea4c1297675c2172f8ab"

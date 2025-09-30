@@ -1,8 +1,8 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-8_0_4/ACE+TAO-8.0.4.tar.bz2"
-  sha256 "025f6bf99a7629d52b47aa5f2e023d2a14280c1c5330bdc660230778081dc0e3"
+  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-8_0_5/ACE+TAO-8.0.5.tar.bz2"
+  sha256 "1f539d4be5a50791ea45d53f0aa71eb07383a12715c7f56487318172ab48d743"
   license "DOC"
 
   livecheck do
@@ -16,13 +16,14 @@ class Ace < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b0d97fc3d70cc2dbb5f52f151b744c6e78a650c78becb6f752c872f61728a027"
-    sha256 cellar: :any,                 arm64_sonoma:  "1467891ce91f3cc5de68983f31e4f7c07aab2ea1af9501f9afcdc5576acb3694"
-    sha256 cellar: :any,                 arm64_ventura: "afaabd50fe955b796b1a8f3574323a27a88de790145ac47299860699fcdb0264"
-    sha256 cellar: :any,                 sonoma:        "412f48e7f56c411f9662b1591ed19a6e6e53fb4df3333861d09a0a117fa76aa7"
-    sha256 cellar: :any,                 ventura:       "a5e1325c2062b6502fb480e2631af4c4a6664570aac32ecbe1903de24184fd8e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "526b702ecbbcb663952ba3934a95657d5a69f59b0e22f20b51c85cccb0e24ba9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eff225a6701ee155fb016b7b42569b20307d950a5f1a6654d360669465b9000c"
+    sha256 cellar: :any,                 arm64_tahoe:   "723cf89b58d2a47670cd669057004a59a38969aeb94e73710d95f3ba7db75876"
+    sha256 cellar: :any,                 arm64_sequoia: "d341e47e245341bf21821888a94c2fba6882f9fc08109bde313b196cd5a2980d"
+    sha256 cellar: :any,                 arm64_sonoma:  "4278aadca8ec160df5b9a7767cb846260dbc8cbe34191f6194100cf9216c5a57"
+    sha256 cellar: :any,                 arm64_ventura: "60335363ff4ce8c51f6463ce517993522f751d830d3ec7f3afc1eeee726d3455"
+    sha256 cellar: :any,                 sonoma:        "6f746eb61a1f47f3bafc23f51d5f45ef2833e6aac7fee4ac2f6fecd7fb0464a2"
+    sha256 cellar: :any,                 ventura:       "86573e39966f22e0b8f0ac7fb2496737b97c65e06caff805cd2d5872ed80f33b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b2e800d881a976ecf0882c2d3d5de3fffd5a6e777770ae4f5e6cedc651ee7a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32e0c9ff8192c7d4165d88e3cf86663de57f33b18d76ca0d76ed0e8dfe7eda68"
   end
 
   def install

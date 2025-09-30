@@ -13,17 +13,8 @@ class Txt2man < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a35a60cd90ffb17bd56c29b9a003eb5298a40f270670da3fd62238eea9337f40"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "02ec46f5c280b3f46b613be3394a713727e1765199f90d5240505803d75f4a19"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "665ae11624c51ed123faad382b4af7256b5e055c235d54f1d063e58589380909"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "665ae11624c51ed123faad382b4af7256b5e055c235d54f1d063e58589380909"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "665ae11624c51ed123faad382b4af7256b5e055c235d54f1d063e58589380909"
-    sha256 cellar: :any_skip_relocation, sonoma:         "95c0f0a4e3fe25685955b8597d9937e10080a91c31a70ff8eb0fd877cc624f06"
-    sha256 cellar: :any_skip_relocation, ventura:        "bf830d1619712538f9458fdd8c6e201d883297ee6e7210dd9e8d977318de216e"
-    sha256 cellar: :any_skip_relocation, monterey:       "bf830d1619712538f9458fdd8c6e201d883297ee6e7210dd9e8d977318de216e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bf830d1619712538f9458fdd8c6e201d883297ee6e7210dd9e8d977318de216e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "6b425f34d6d190a2e69695893eb4e8d648efec39b345278ad90ca531cbc5f164"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "665ae11624c51ed123faad382b4af7256b5e055c235d54f1d063e58589380909"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fc8be081e702c9f38869232afb35214fc78bc7765ba03a508f140452ce6fe606"
   end
 
   depends_on "gawk"

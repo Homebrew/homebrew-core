@@ -10,6 +10,7 @@ class Toxcore < Formula
   head "https://github.com/TokTok/c-toxcore.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "01071297d658e6e0851e482c7cb6d2d9ba8461e79fac25c41aaa0c585c7b9469"
     sha256 cellar: :any,                 arm64_sequoia: "3379c4a841b711aa33e822e3b99fedb344ef6cca8c23ac87ca636f16516bb7ff"
     sha256 cellar: :any,                 arm64_sonoma:  "61ed64fe45f6ce3191e5c53c04d2d49aa4c5cbfe739971e1f45cb42a7b400754"
     sha256 cellar: :any,                 arm64_ventura: "6bd944dabdce173a8d838e61b511bbdf0076a69ca244f06b8a4abe057b6df206"

@@ -4,6 +4,7 @@ class Mysql < Formula
   # homepage "https://dev.mysql.com/doc/refman/9.3/en/"
   homepage "https://github.com/mysql/mysql-server"
   url "https://cdn.mysql.com/Downloads/MySQL-9.4/mysql-9.4.0.tar.gz"
+  mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_9.4.0.orig.tar.gz"
   sha256 "6bb509c54e58b54abbefa49e296e7220f5e7cfe446914ba3615f594967cfa921"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
   revision 3
@@ -16,6 +17,7 @@ class Mysql < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 arm64_tahoe:   "260f1e609a63da0b520c67bca081f09029dc8716c832dde2b4b0c7056fb54a36"
     sha256 arm64_sequoia: "6e82a798b7e2c92925ec4050cb7156f9cbd71f84beb6eabf37e7d3bc3439ab96"
     sha256 arm64_sonoma:  "6bc623e931afb78577d17893709d8f85349514304c2d41557d407ca3a93e496a"
     sha256 arm64_ventura: "5bfd1df734e17a2c03cc2615f6422a68cb7b3aacc3d7c9df6196373c019112d0"

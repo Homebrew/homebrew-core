@@ -262,7 +262,6 @@ jobs:
         with:
           core: false
           cask: false
-          test-bot: false
 
       - run: brew pr-publish --branch=main "$PR"
         env:

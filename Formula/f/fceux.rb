@@ -2,7 +2,7 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   license "GPL-2.0-only"
-  revision 5
+  revision 7
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   stable do
@@ -20,11 +20,13 @@ class Fceux < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "31754b6f7207bc00a48ea084ec06084b2cab1de6e6bebf1691b6f4d64e54b31e"
-    sha256 cellar: :any,                 arm64_ventura: "896707c1bd55dee56878cde5feca245d73f8a55e8b781d5fb83c59e8989a110d"
-    sha256 cellar: :any,                 sonoma:        "010e7a4a2b114a6799d7f8ec4bd5704c49433a6e720ecddd9bff1c416854077c"
-    sha256 cellar: :any,                 ventura:       "a06a34bfe581b36a7791d93c5605cbdd6cff0af980688c09d64b97fd12e57289"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "229f39e293d88f2c0d53075fa39b5246d3987e8c5264270597f55026952da5f2"
+    sha256 cellar: :any,                 arm64_tahoe:   "6cc28629e3494597032119b68b9ac16f4dbdb15920e72776e5b2d9b6c5d4ebd3"
+    sha256 cellar: :any,                 arm64_sequoia: "6ffd230662c648ff207944d0f19bcdf16b0a4c0c64886cbe10e9ab82f3ce33a4"
+    sha256 cellar: :any,                 arm64_sonoma:  "4bf00f6d14302b29943e393cd1fa29f05cf0fc8648855689a23e744008dda54f"
+    sha256 cellar: :any,                 arm64_ventura: "42009a33f97c7ced6c2f73ac8dee97309021c05df3291c139ba22d9f00cfa414"
+    sha256 cellar: :any,                 sonoma:        "768b9576ea9e0126862aaca7f8ca87aa3cd59d20450b1731e32c25ccc974637c"
+    sha256 cellar: :any,                 ventura:       "5a35b23ff1fcd66ffa5fe52ee0fa193434de77190fe85335ef1c980c9d5fd559"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e827f4a19e8ba53022fcb6852717f78a1d3273217d20a06254629ba63cff0d4"
   end
 
   depends_on "cmake" => :build

@@ -6,6 +6,7 @@ class Statesmith < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f9c19f657fbff70ad690d5b0910ab9b55559514f24f76661f078799f823f1a07"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d69698d4830609f132f6f2bf03c6e13edce217ba58635c41d3f52c895c5c47a7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "adfb4d4c32dda160755d4b1fe8f1e8d88398bd62e3de1242d4dcd78e6f89da27"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c1398645c8a9cbbeb2208b4e01c0dfb168ff730360db333d4036eb2f9940d744"

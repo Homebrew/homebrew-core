@@ -1,19 +1,19 @@
 class Copa < Formula
   desc "Tool to directly patch container images given the vulnerability scanning results"
   homepage "https://github.com/project-copacetic/copacetic"
-  url "https://github.com/project-copacetic/copacetic/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "4441630bca610ef6ed2ef17f353b27632bab4d0a2410f99bc96f0cd3f47b52f2"
+  url "https://github.com/project-copacetic/copacetic/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "b88a1618a3586d2e61dfbd2049755671a41b43e30faa3c1210ed378fd9ee3fc9"
   license "Apache-2.0"
   head "https://github.com/project-copacetic/copacetic.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "969e721d1f6b6fee2011c051609142aeb8950ebf74c02f3b51e75e48d2b98c7d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b9e85da0b7a435be8ea6bece39a6f8d69e0cc4665869de13a672da81be933a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d403fa235446f405793bc94b659e8b1db4f73dc7940f33032bca3fe2783235d8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c473dedf7ed6d875c86756962b74a93b4f0ffe98294a368cd3941dac491f2056"
-    sha256 cellar: :any_skip_relocation, ventura:       "b0d0dec095c5035c77c97115a91cc31014a665798a79dbddc0cb7c26ec0bdeef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd4e8c261fd31d0cdcbce2401183b2fc2b386feb10c520f1c10bb9f02a9adad7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e41b16c68e598ddecd219bee333ad8a405dbcdd6759fcbf49ac226638ba957c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "76e9d153fcaff37c16fc7f75bdc6d0fc8d3bbd85b8a17153ffcaddfd785d09ff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f67ee88a24c243b564d634123f90c013c7fb8db0ecb1bee2bb58f82c5f1d0694"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f67ee88a24c243b564d634123f90c013c7fb8db0ecb1bee2bb58f82c5f1d0694"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f67ee88a24c243b564d634123f90c013c7fb8db0ecb1bee2bb58f82c5f1d0694"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d3f2d05df0abdde1b2d9b7eb8b616f03da6ba294fc16c1536bd771f142548ac"
+    sha256 cellar: :any_skip_relocation, ventura:       "7d3f2d05df0abdde1b2d9b7eb8b616f03da6ba294fc16c1536bd771f142548ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4bf9c73081753d183c29c5b065a4d362f39420c12e644fa6b0a421b796404f8c"
   end
 
   depends_on "go" => :build

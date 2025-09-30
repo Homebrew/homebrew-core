@@ -1,18 +1,19 @@
 class Minify < Formula
   desc "Minifier for HTML, CSS, JS, JSON, SVG, and XML"
   homepage "https://go.tacodewolff.nl/minify"
-  url "https://github.com/tdewolff/minify/archive/refs/tags/v2.24.0.tar.gz"
-  sha256 "618392697d8b0c0a994054b97ccb8dbdee067b87258644ee346eff83d8e85dc5"
+  url "https://github.com/tdewolff/minify/archive/refs/tags/v2.24.3.tar.gz"
+  sha256 "27cac242fa5efc35079d09ec7fe00cff4e61678b9a433653db09b97fdaaec1e6"
   license "MIT"
   head "https://github.com/tdewolff/minify.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "54e83b371cc92047eb862df45c173199fa5b7526010e571175ce6156503f2b10"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "54e83b371cc92047eb862df45c173199fa5b7526010e571175ce6156503f2b10"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "54e83b371cc92047eb862df45c173199fa5b7526010e571175ce6156503f2b10"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3f0e7773f4faf23b98e4e8da13e70c84647f7948d2f0c75553bb9195627f74d0"
-    sha256 cellar: :any_skip_relocation, ventura:       "3f0e7773f4faf23b98e4e8da13e70c84647f7948d2f0c75553bb9195627f74d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "799179f0381df0d4d5ebf728bf8b5079076817fd61da799abd2e836b7efb061f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a7c8f0ef23f64b15293dd01a9e9f0c8229f337f29928ba4a8121afcaeba65936"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a7c8f0ef23f64b15293dd01a9e9f0c8229f337f29928ba4a8121afcaeba65936"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a7c8f0ef23f64b15293dd01a9e9f0c8229f337f29928ba4a8121afcaeba65936"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a7c8f0ef23f64b15293dd01a9e9f0c8229f337f29928ba4a8121afcaeba65936"
+    sha256 cellar: :any_skip_relocation, sonoma:        "775ec8e535bf6e3675459ca997fde6b06b3d603ea73c139f8e4305f17840297b"
+    sha256 cellar: :any_skip_relocation, ventura:       "775ec8e535bf6e3675459ca997fde6b06b3d603ea73c139f8e4305f17840297b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94ec9b8b98f822c02ed3ecbda8b9be2abc465d7793cb2a9e9baaf8b1ba0c3d12"
   end
 
   depends_on "go" => :build

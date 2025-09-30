@@ -7,6 +7,7 @@ class BoostAT185 < Formula
   revision 3
 
   bottle do
+    sha256                               arm64_tahoe:   "db92e2332e0b99c30bb4329502aebb9d2b044b27a1cc85c1a72ed8c71b78354e"
     sha256                               arm64_sequoia: "0d57280eb03360e23f3693d33604711f5912a47c6400fbcf7a78ce4829d35db6"
     sha256                               arm64_sonoma:  "a4d8d3af279e68a17a5d177dfbb716757d59b91448ba82dc8c015bc8749b6e0c"
     sha256                               arm64_ventura: "c60cdfef891f2f447509c8a460db5fd1b16e07111c7169457044eaa46674c9f3"

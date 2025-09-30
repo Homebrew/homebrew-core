@@ -11,11 +11,13 @@ class Lighthouse < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f186a0da5fee1dc6fb65e78a2782f0465810c2f91826c853eb797711f83bca75"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "135f211dc95caed3113ea628b276c28f12fe6822f8d218bf32b93eeb35d102a2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "443f77695187e65eedc532a07ef3bcd7839807f5f49a160355054d56bd680c12"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5652f2a6ad850c03b04bbf6f66db22d80974873d2888143df58086d49e02c8e2"
     sha256 cellar: :any_skip_relocation, sonoma:        "99c65971f9ec95e28c03e67b88e680c94a76f57640bb9d148f8d6376c95683d5"
     sha256 cellar: :any_skip_relocation, ventura:       "65b3df6d77c81b8e0cbe540410a4e9b83d308413d038d1abf4adb978c2339af1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b284ef3e4160768f015754e66d920c039880375945670c701694f34062b73595"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5247ea2d2706c841aad73816a1fabd04ac5f0909f740fa43b46f484bbcb43b63"
   end
 

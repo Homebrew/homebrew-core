@@ -14,6 +14,7 @@ class DosboxStaging < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "08e2afb5389649c1da8e0242ed58cb937b6f95231383aa78aee2eddbb478b6d0"
     sha256 arm64_sequoia: "67bbc49e8ce9292918ec0fe1bd6155ddda3260ef7f840be35a562f2d51fbfdb9"
     sha256 arm64_sonoma:  "7400c7d85ec825c4aa117fd41a3d0d91f630b4dd6f4eb66df9941a31796f9dd1"
     sha256 arm64_ventura: "d0907c011b0cb842686fe223cddbb4267279c9b1a6e1d213f29c6ce353c045f4"

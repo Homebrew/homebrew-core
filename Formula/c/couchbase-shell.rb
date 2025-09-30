@@ -7,6 +7,7 @@ class CouchbaseShell < Formula
   head "https://github.com/couchbaselabs/couchbase-shell.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "decf67dd604aa1e82b3bb6cf51ec528cd6f840efb2887c613c1050daf01daa85"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e4207cdae2d36437ad70fed865a844849ade6670facd075383a78a8152e8726"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baeb1763d305776f71ac2519a2504f5904c4b166eca40f59dd2f6a5c4df1bb93"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "99354510fd9b1979a7da10ef2c67b282b0b029aca9450e3bbb8e1f2fca08801f"

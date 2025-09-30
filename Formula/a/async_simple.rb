@@ -7,6 +7,7 @@ class AsyncSimple < Formula
   head "https://github.com/alibaba/async_simple.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ea3f1e248db7c9bbaf801186303a6c6e633476b1fb0c0e6553642c46abc191ad"
     sha256 cellar: :any,                 arm64_sequoia: "582aee9fb04f0106f59850ef5001c8fb830da5f16ecfc60e6ee0b37de2c10c15"
     sha256 cellar: :any,                 arm64_sonoma:  "ad0185e500e7a4873138ffb48dbf0a0ad9d6ac7298fb3418006b8ecd6df8ba34"
     sha256 cellar: :any,                 arm64_ventura: "518f0229d7a19797fd5626fab507e608c7b25cc3bdfac3c05577d491c4923996"

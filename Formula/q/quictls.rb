@@ -12,6 +12,7 @@ class Quictls < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "7d899abd908cd31282776b93be0a4b8d573d906669496b6b5a2fc7eb73059ae2"
     sha256 arm64_sequoia: "d23ad26d2efb1dc8f1a9030696fe96ed1f39df568093ef64fa9c264c28da574a"
     sha256 arm64_sonoma:  "a2b2a74d18ef19a9753296517bd60b9e26c4139238f76f4f252dd8ee4656beca"
     sha256 arm64_ventura: "b4a00903b3a19f1f486eb724cd41ef1dbc332cbef1961dadf8f08d23007e2b4d"

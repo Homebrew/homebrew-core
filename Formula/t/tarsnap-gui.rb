@@ -11,6 +11,7 @@ class TarsnapGui < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "bd02f77a05c961179c8cd9c080367dd5792305a26b840bfb4aa5584dedc267d6"
     sha256 cellar: :any,                 arm64_sequoia:  "c9cddf5f7eb1d96d77deabf95a9633bdc7fbc649f8349e6960db1f071346e34a"
     sha256 cellar: :any,                 arm64_sonoma:   "219f6ec9f2c36912eaca916110b5ddbb59b7da0285ecee28a73e31023347dad5"
     sha256 cellar: :any,                 arm64_ventura:  "4fd9934a3a064497bfcb361b154dccb74c1cf6343d1b0c40080f1b10f7c061ee"
@@ -23,6 +24,10 @@ class TarsnapGui < Formula
     sha256 cellar: :any,                 catalina:       "f36b378d5ebee2accc759ec58bd8e554389d606ac7c8b7cf9042ae830b96bc01"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "97b8a8c25cd8383218b698725c2a88cbdb55f161188de94df95406514573d34c"
   end
+
+  # Last release on 2018-08-23
+  # Can undeprecate if new release with Qt 6 support is available.
+  deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5"
 
   depends_on "qt@5"
   depends_on "tarsnap"

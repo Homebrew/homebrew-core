@@ -7,6 +7,8 @@ class Pivy < Formula
   head "https://github.com/coin3d/pivy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c7c0bf081f5cfea3c6552ae8fa2ab7ad7e95cbb6636bef0333ec06a405fb4d0f"
+    sha256 cellar: :any,                 arm64_sequoia: "c85adc36c2d47792bab52e55f5ffaecb54e535471bded7f21b75ea158d858b64"
     sha256 cellar: :any,                 arm64_sonoma:  "8b87dac25665d8517854cb34f96c4e9237495781555a4eb8c8de59a1c6476037"
     sha256 cellar: :any,                 arm64_ventura: "0378b486fef297474f82175e844633a21a00772f523acc0f84ccf97e368ce143"
     sha256 cellar: :any,                 sonoma:        "d9f23884af3e774e654ee22911feeed221e02f3d829f94d8f95582fb2997b9b1"

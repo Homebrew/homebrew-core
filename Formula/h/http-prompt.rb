@@ -11,6 +11,7 @@ class HttpPrompt < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "adfd0d5847f7dfd9c00fb52169e4d39c4b99ecdf4a4d137abd3376ada383d515"
     sha256 cellar: :any,                 arm64_sequoia: "8fb96b2aaf910e390ac7e12f7268f8679311a7782648ddcb066322eccfa43ef5"
     sha256 cellar: :any,                 arm64_sonoma:  "ad2764c7662bfbc1f34e93161f87981ad2ff41166f75b9c244704d9bb7598264"
     sha256 cellar: :any,                 arm64_ventura: "0532a8228129394bf13ee6f053858ffd7954404bd53dbb5b7da5da0274f10a6a"

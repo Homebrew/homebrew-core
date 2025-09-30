@@ -18,6 +18,7 @@ class Openj9 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "cb5163911364e7dd848768a634f55c99187f51abb9e2d7ece4c1b3f2822b7d71"
     sha256 cellar: :any, arm64_sequoia: "29f9ddebb6f36fd0b5bca683d6abee61bc77741f93c6c6e61ec8e990d4e667df"
     sha256 cellar: :any, arm64_sonoma:  "438e8bcee5e83f44283299e7c303fa83f104d110fb366f4781cc36ba78eaa60f"
     sha256 cellar: :any, arm64_ventura: "2ce146ac5d3dd24c2128a3a415ccd7cbde196fba5886a9cfe9b17456f23acef4"
@@ -95,6 +96,13 @@ class Openj9 < Formula
     url "https://github.com/eclipse-openj9/openj9-omr.git",
         tag:      "openj9-0.48.0",
         revision: "d10a4d553a3cfbf35db0bcde9ebccb24cdf1189f"
+
+    # Fix syntax error in OptionFlagArray class definition
+    # Remove when bumped to openj9-0.53.0 or later.
+    patch do
+      url "https://github.com/eclipse-openj9/openj9-omr/commit/29203c807abe45fce56e70b93e80ebaef22b0844.patch?full_index=1"
+      sha256 "044a26ac76fafc536feb8dfc24c521ef26a66c98b78948f4571293a41ede24ca"
+    end
   end
 
   resource "openj9-openjdk-jdk" do
@@ -102,6 +110,10 @@ class Openj9 < Formula
         tag:      "openj9-0.46.1",
         revision: "b77827589c585158319340068dae8497b75322c6"
   end
+
+  # Fix build on Clang 17+. Backport of:
+  # https://github.com/itf/libffi/commit/3065c530d3aa50c2b5ee9c01f88a9c0b61732805
+  patch :DATA
 
   def install
     openj9_files = buildpath.children
@@ -213,3 +225,39 @@ class Openj9 < Formula
     assert_match "Hello, world!", shell_output("#{bin}/java HelloWorld")
   end
 end
+
+__END__
+diff --git a/runtime/libffi/aarch64/sysv.S b/runtime/libffi/aarch64/sysv.S
+index eeaf3f8514..329889cfb3 100644
+--- a/runtime/libffi/aarch64/sysv.S
++++ b/runtime/libffi/aarch64/sysv.S
+@@ -76,8 +76,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  */
+    x5 closure
+ */
+
+-	cfi_startproc
+ CNAME(ffi_call_SYSV):
++	cfi_startproc
+ 	/* Sign the lr with x1 since that is where it will be stored */
+ 	SIGN_LR_WITH_REG(x1)
+
+@@ -268,8 +268,8 @@ CNAME(ffi_closure_SYSV_V):
+ #endif
+
+ 	.align	4
+-	cfi_startproc
+ CNAME(ffi_closure_SYSV):
++	cfi_startproc
+ 	SIGN_LR
+ 	stp     x29, x30, [sp, #-ffi_closure_SYSV_FS]!
+ 	cfi_adjust_cfa_offset (ffi_closure_SYSV_FS)
+@@ -500,8 +500,8 @@ CNAME(ffi_go_closure_SYSV_V):
+ #endif
+
+ 	.align	4
+-	cfi_startproc
+ CNAME(ffi_go_closure_SYSV):
++	cfi_startproc
+ 	stp     x29, x30, [sp, #-ffi_closure_SYSV_FS]!
+ 	cfi_adjust_cfa_offset (ffi_closure_SYSV_FS)
+ 	cfi_rel_offset (x29, 0)

@@ -36,6 +36,7 @@ class Singular < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "632d56046512fdf19ffff2c9dbd8ac58340e10d350862c4535be917f29d7fa95"
     sha256 arm64_sequoia: "4d97010dc5d346e1f82df6387f54a14ae99473a8b8c8c7ecc4cdae5a447a9789"
     sha256 arm64_sonoma:  "4730fff20ec2cbf892142df2f9c73e82310eaea3f2ffb5725aae4c211cedef58"
     sha256 arm64_ventura: "5899af2ebaf5d16d042f58f0c6fa916d62bd6230272716f899a2b73ea34c94d2"

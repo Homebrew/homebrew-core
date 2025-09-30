@@ -19,6 +19,7 @@ class Bioperl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8f8a3cdf95bc4a5607dfebbe71917ec44fcddb57a7e0afe052d96616cf179c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2908dce831726ddab69edcb252b8b45b1d9b4ba2995bbefc6410dea49a6b230e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d44c606e7a067575bfe21428d84fcd57c7e45daa8b2af2a2cf7b6ae766611b0c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cce1be0687ce0d7b8cbaaaa2192dcc0ee3e624978c7e5296c2676099fb9c647e"

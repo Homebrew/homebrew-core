@@ -1,8 +1,8 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written mostly in C"
   homepage "https://github.com/fastfetch-cli/fastfetch"
-  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.50.2.tar.gz"
-  sha256 "e59f2a2bdd5834ef40adb9fb6680820c268ff60ca0534469c5ea4b86775c83db"
+  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.53.0.tar.gz"
+  sha256 "1488d9b738474e8ef8e8d78e2463722bf706e435857c849b3f480354ad62366e"
   license "MIT"
   head "https://github.com/fastfetch-cli/fastfetch.git", branch: "dev"
 
@@ -12,13 +12,12 @@ class Fastfetch < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "a3a46c72088cb62820c4d1522a13f3943ace9da78c46bdff30ad93a277b4c0bd"
-    sha256                               arm64_sonoma:  "c9a619c6b0087f9e6f82a11cd4f82933490175cdb5b17adfa9be3cdad766169d"
-    sha256                               arm64_ventura: "cdba7f6eb93b22904e8c3cd1931851aa428abc30ee3a4d90c516283a8a802c58"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4498e61d65a790b0d11d9a4932fdbe4deb31265bbf21e1b593ff6dc4b273b81b"
-    sha256 cellar: :any_skip_relocation, ventura:       "9978f3ae6d8a785ca5082034764b532fe6169d7bffd23f1197bbaba99ad526dd"
-    sha256                               arm64_linux:   "b835d4d8c78e99e3b0f3b1e43e342353d2de37514e16d0ed0afb5d0a49fb1420"
-    sha256                               x86_64_linux:  "67069b8b30bf9175f996d142465fe3d2a1a0f2f4a8793af22b4e358eba16ad49"
+    sha256               arm64_tahoe:   "0aba51d7b33a46593a91c0e2078a54aecb5f3c15edc268126abcfdd9f5de2aa4"
+    sha256               arm64_sequoia: "5df3c119180702f4df106c212ad75f49535790b52db6b8b0ff16f88cf397ea4c"
+    sha256               arm64_sonoma:  "d4822ceb5505164b2b7c8a3e97945064e733c95f871222d1902be4ec578329df"
+    sha256 cellar: :any, sonoma:        "d44771ec9103085fbb02994dd2e9d02370681655453be957523d72bf9d43c5f4"
+    sha256               arm64_linux:   "3bfbcfee517e66868739eb37d0b306464b77c1209eea0a66a6577065697ac76f"
+    sha256               x86_64_linux:  "abcefd143a1dc69a9886b246fe8e012266b9485871f806c899f14fddbea1fc82"
   end
 
   depends_on "chafa" => :build
@@ -28,6 +27,7 @@ class Fastfetch < Formula
   depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build
   depends_on "vulkan-loader" => :build
+  depends_on "yyjson"
 
   uses_from_macos "sqlite" => :build
   uses_from_macos "zlib" => :build
@@ -40,7 +40,6 @@ class Fastfetch < Formula
     depends_on "libx11" => :build
     depends_on "libxcb" => :build
     depends_on "libxrandr" => :build
-    depends_on "linux-headers@5.15" => :build
     depends_on "mesa" => :build
     depends_on "opencl-icd-loader" => :build
     depends_on "pulseaudio" => :build
@@ -51,7 +50,8 @@ class Fastfetch < Formula
   def install
     args = %W[
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
-      -DDBUILD_FLASHFETCH=OFF
+      -DBUILD_FLASHFETCH=OFF
+      -DENABLE_SYSTEM_YYJSON=ON
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

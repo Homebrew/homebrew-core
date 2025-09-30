@@ -7,6 +7,7 @@ class Reposurgeon < Formula
   head "https://gitlab.com/esr/reposurgeon.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "889508d576ab7da93911aaa8975968101cb229b79f80f3d7ad1a9602d7759568"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "102e0f3f46f350bfd96d6568ad92250a6779ec45cb0608c5b96eeee7acb113e3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5050fc7b8b308327099fc78cfffeff27c0e41f63db65eb8b5d94648c51f88983"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f6045878a2a1f779ed09291a9c6d21eff4698be4377a7b6f958ef17faf3017c6"

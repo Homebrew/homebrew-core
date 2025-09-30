@@ -12,6 +12,7 @@ class Azurehound < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0563b9fe1c07f725615d41dd5a2cdfca45b94cb985af4890f7d8677b7688c6bd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "64d6761c3e56228bdf0e0e075362d759c49bab0929f0416fd2911d5520912656"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "64d6761c3e56228bdf0e0e075362d759c49bab0929f0416fd2911d5520912656"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "64d6761c3e56228bdf0e0e075362d759c49bab0929f0416fd2911d5520912656"

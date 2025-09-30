@@ -9,6 +9,7 @@ class Bombadillo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "31498bb84196e03bdbb936dc1528b02b3355832cc0a8ebd01dbdf176376caabc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "704af144b953977108282ec76083d51d8d359b2f08402aa71da7822a79491591"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "48693234c0c87251efbb8f2d4cf5c23a4d4585c9b6ba00907122dbc59a6a5add"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b792d8b1afcc6cb894aec708268f8099e8b70a3f8a629db32d0290a535a6800"

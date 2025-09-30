@@ -7,6 +7,7 @@ class Svgbob < Formula
   head "https://github.com/ivanceras/svgbob.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "92d6dc8ffcafc044e0a67ad27ac513ced37300effd1056a7d077058cc7cc61d0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a03f39e2238bd9ef7e474b580f9bdf820e755d2a6bc4569c2e43accef6f9eb9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47b10e463d3bdf705337cfa3a8bf38bb369eb100403b5f0833ad2f53ee616a2d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dff76ac4bbd579cca1d3a11e37e55f8b68285e3f45dba68d23fc289f193d129e"

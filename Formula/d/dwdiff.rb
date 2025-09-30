@@ -14,6 +14,7 @@ class Dwdiff < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "78af9d6a846b4fd980521de6b2ebd523bd74428a6aa04db02c0d1df6c606b32d"
     sha256 arm64_sequoia: "2bda3e2dc11d88fe1187f0c479198d710779c408f9debd48eaa848916e64e593"
     sha256 arm64_sonoma:  "cf43f7fbb5c7c51a9e8405ac9ea2e9a980ba17359af8aa027863ee012a7442b0"
     sha256 arm64_ventura: "511603ea7b355abb986d9b45e2912b59e719e2ec7f6c415eb0bb778e64258416"

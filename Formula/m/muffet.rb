@@ -7,6 +7,7 @@ class Muffet < Formula
   head "https://github.com/raviqqe/muffet.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "221d1b0a3b2e23b334f201249f6baa37e217c4186ae35ccd5b59f6fb9a6501f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f58e2b267538228d28ea3069c1c5b432fdd2e9c475c65ba9183a3adc083e7b3b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f58e2b267538228d28ea3069c1c5b432fdd2e9c475c65ba9183a3adc083e7b3b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f58e2b267538228d28ea3069c1c5b432fdd2e9c475c65ba9183a3adc083e7b3b"

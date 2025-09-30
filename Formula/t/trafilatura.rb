@@ -9,6 +9,7 @@ class Trafilatura < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "85d876aedfb6856877a0b8b516085e269fb1f3ea245478d52554c1cb7dd2f71d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2dba5c5d97a84916d481391ceffc678b42466a3829aeafb46bc4eaed0e4adc20"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "537d9dfb34dca073daf17b627497a5f01c3d8c7c649fb3ba4194156750323ec9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cdd750558e244188d93bc09c5d394e5cfa3041d0628e067d7a83c885e526a936"

@@ -17,6 +17,7 @@ class Libagg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "317463b1e1bc918e340935b5f8d4069df1a044ba7bd1e9607c9c9c6f1ea5ab48"
     sha256 cellar: :any,                 arm64_sequoia:  "057104fa9a817af5b41e424b9faa49446cc8c40b4d61c41186afd3a71e7e2e2c"
     sha256 cellar: :any,                 arm64_sonoma:   "eabb00483a8c5c955cc4f4b6351692d4c97709c7a1a14cf465767c7d52c132a7"
     sha256 cellar: :any,                 arm64_ventura:  "65786b5cc83db391b6f39b5032498024cd710832705934d34030f780bd239914"

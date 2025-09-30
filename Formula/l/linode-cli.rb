@@ -3,19 +3,20 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://github.com/linode/linode-cli"
-  url "https://files.pythonhosted.org/packages/e8/aa/6be3aadaba64be06cb354b1c7e1a567e77630bce8af7bae2eadfbcc158f7/linode_cli-5.61.0.tar.gz"
-  sha256 "702ebcd91b7035c705113edf4e04646028719794cb82b423ad6ed953e3fd8ff3"
+  url "https://files.pythonhosted.org/packages/9a/49/17eb25c668731fbf95527cf4b1618e492c0f0bf238be85652474ed40ee8a/linode_cli-5.62.0.tar.gz"
+  sha256 "e9f4a32c5f061912903ef5e8898ce8aa502b103a8b151b5683bce2443174f496"
   license "BSD-3-Clause"
-  head "https://github.com/linode/linode-cli.git", branch: "main"
+  head "https://github.com/linode/linode-cli.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "18b7fe3bf7f9013354e12959f6ecb20974d60f6a5454095b58ff27b81b31ff08"
-    sha256 cellar: :any,                 arm64_sonoma:  "4ca4aeb8d9b7ae54d627bb5d86b547ab0c05d2503f1d172d7957301312ff6567"
-    sha256 cellar: :any,                 arm64_ventura: "11e481243dfe8ed2b1d592012b177911764873f48713bcbd5b72e848e2e3d512"
-    sha256 cellar: :any,                 sonoma:        "c621d1a321c03015f8651b620d1ddf733770919a57b4857c0ea8a59672d63659"
-    sha256 cellar: :any,                 ventura:       "3fa491f585e634f69ceaac2fe8bfc1d6850c373c66989dff534c29645c0ac36c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "533fc0059a594776dd3b7eafc3bb9962ae82503af403ee8fe3b8a76b4daf6e10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67f121f4adc735c3eff43877ad6870c2932fbe2897446c8bbf0afcf2746a657c"
+    sha256 cellar: :any,                 arm64_tahoe:   "bdf5df4eeb257dc1b3b89a6909b61bb7bfc5c926e1fbe8631a9c3536bfb2bf43"
+    sha256 cellar: :any,                 arm64_sequoia: "a88004092bbdb8cfb8538e5ef71a3979963abd645632bfc425cfaadd8bcae307"
+    sha256 cellar: :any,                 arm64_sonoma:  "395af51395e79b3aa5ebba8211eb0fae4114c57d1a98d3964bdb7459c1de236f"
+    sha256 cellar: :any,                 arm64_ventura: "14764de9abd21ef52aaa7ab699376e31effd1b73aac7e7aedecc91328c99d96b"
+    sha256 cellar: :any,                 sonoma:        "ca65b58c42027a9c5de0ace57424e6c93c2eac2919275d4d092902ac7d051c7d"
+    sha256 cellar: :any,                 ventura:       "1ac3d28a7e138f2a895ff676da1cb34742e2edbc4d3c7f7572893c902ea83797"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60aff95b09b9146c14342dc2c811629a02fb2b15317b084c83d83b6c308a14f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5138ef7b8299ce260ce896e34db144003c2d91ba6b55095b474eab6197105f1"
   end
 
   depends_on "certifi"
@@ -28,8 +29,8 @@ class LinodeCli < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "h11" do
@@ -58,8 +59,8 @@ class LinodeCli < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
-    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
+    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
+    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
   end
 
   resource "mdurl" do
@@ -88,8 +89,8 @@ class LinodeCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "rich" do

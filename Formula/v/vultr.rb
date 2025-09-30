@@ -1,18 +1,17 @@
 class Vultr < Formula
   desc "Command-line tool for Vultr services"
   homepage "https://github.com/vultr/vultr-cli"
-  url "https://github.com/vultr/vultr-cli/archive/refs/tags/v3.6.0.tar.gz"
-  sha256 "b45592d8bce6539b6b35e405f71a3ac4bb6fa3ef5ad4ec8b6a1f31c31f17cdc7"
+  url "https://github.com/vultr/vultr-cli/archive/refs/tags/v3.8.0.tar.gz"
+  sha256 "41cc0a9c62b61196802bc2105d0fd7c835eea554d8378eb84d6ce0c8c55eb16c"
   license "Apache-2.0"
   head "https://github.com/vultr/vultr-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d92694b6931e84ff9587e68405d40e2a6df2c8935edca297e82961cdfae94063"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d92694b6931e84ff9587e68405d40e2a6df2c8935edca297e82961cdfae94063"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d92694b6931e84ff9587e68405d40e2a6df2c8935edca297e82961cdfae94063"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a95b6a24c04d470ed092119a9684910c1a8a70c008ecc84857703183211b694b"
-    sha256 cellar: :any_skip_relocation, ventura:       "a95b6a24c04d470ed092119a9684910c1a8a70c008ecc84857703183211b694b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c12cc6b5c04635633f61435eddf9739b90510a3734844ba6deb3d4a5c26c0099"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "879612d01a2224cfdeeaddd7d8afa85ce071742e8af0deabe8afd9bcd851e71c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "879612d01a2224cfdeeaddd7d8afa85ce071742e8af0deabe8afd9bcd851e71c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "879612d01a2224cfdeeaddd7d8afa85ce071742e8af0deabe8afd9bcd851e71c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ff5eb9f6fde77ef29c3e113e1dcda6c0142c41b730a0163028ecf6faaf4bd75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26d0f20f4eab68a6dd7c023ff3cabd474ac26d25422f98614611c5277ed825f8"
   end
 
   depends_on "go" => :build

@@ -9,6 +9,7 @@ class Aerleon < Formula
   head "https://github.com/aerleon/aerleon.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cb7ff6ac7b71f4f376c979f35ee165e6718db1b3bd4c6e565805d4fcbc54e435"
     sha256 cellar: :any,                 arm64_sequoia: "a10cad27d2a3d178ccc21fc62dd38db82a23cfbfed046e619ecd369d9552fe0e"
     sha256 cellar: :any,                 arm64_sonoma:  "6518f3f30fca6e177bfa1a5276c3d0312d94b06aa633de27c2caeecb3a161595"
     sha256 cellar: :any,                 arm64_ventura: "65b1e553caea3550e4c23fe7dff1f8c47945cd9ef0582a69fea35b3684d0fb86"

@@ -13,6 +13,7 @@ class Morpheus < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_tahoe:   "7e26be19e1ae33a04c2183277b10136d26261ea2bcf2af177d13fd32ec8bd0ea"
     sha256                               arm64_sequoia: "4020aba25f72c7c1994268abd7a51d625b3c4d03bba900d58bad3fb7c41f18ff"
     sha256                               arm64_sonoma:  "6d7ecede2635239fcc44cc2e6db21d8d819f1b4855898115548916fdbefc6010"
     sha256                               arm64_ventura: "e30b659545e485356790d7938d5a4af5570584315b9272ca03b7aee3b4219160"

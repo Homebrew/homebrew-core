@@ -9,6 +9,7 @@ class Dbmate < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "94d782af69a13dbcc25556ac48a5d2ea24f39bc8f97a2597ac5e47adef8f962f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c3fd4526ae0a3f19647d02d26344a6e0d51eedc58072ddf28362d1cb0799fc0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b8c469c5164e9778c6fcae14ac12da99375b8164cd76131d2e44ceabc69ae74"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "25879f4d7bc0b90053f582e98665facca06e8bb5230326ba1c8c91be83660409"

@@ -16,16 +16,8 @@ class GraphqlCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5b3b93d8d2e8b80bd3ebc5918dcde22171f00e81042c287c722ca10abda75034"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c672ef9a3deeb3eb60a1d1c38f675d28a2034b681586336d3c4b027447cd9822"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c672ef9a3deeb3eb60a1d1c38f675d28a2034b681586336d3c4b027447cd9822"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c672ef9a3deeb3eb60a1d1c38f675d28a2034b681586336d3c4b027447cd9822"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0f017f0dd3476f251ad911d86b10eb1c886b1dc4cce5e3e90fe9086c0afae841"
-    sha256 cellar: :any_skip_relocation, ventura:        "0f017f0dd3476f251ad911d86b10eb1c886b1dc4cce5e3e90fe9086c0afae841"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f017f0dd3476f251ad911d86b10eb1c886b1dc4cce5e3e90fe9086c0afae841"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "ef378decd53372e8c7289e30886872ad528efc7640524c8dd925463817fd5553"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4616cf8f3ee26c6edf63ddd6573e1ef1b59a5d03c5a068d8e19f6a0f69ce4299"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "9acfbbbc98a9212677f8cda3b773d20958ddb1cd5503d2c9894e531e44861832"
   end
 
   depends_on "node"

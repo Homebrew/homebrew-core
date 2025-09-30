@@ -12,6 +12,7 @@ class Wget2 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "02f865ef13cd93291ae12b59dac0eb9c883c9078430e63ba1176bc82b27c911b"
     sha256 arm64_sequoia: "b863537174ece79da6195e2ac5707cd31488d58088bdccb573e189aa75153bff"
     sha256 arm64_sonoma:  "99190ec35480c9addfc7d84e5a026eceb272213914048503ec9c21c5385990cf"
     sha256 arm64_ventura: "c707efb734c4e2338ec805111837642cf423a7aab4439f4743bdcb9bccfd46e7"

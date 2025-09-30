@@ -6,6 +6,7 @@ class HowardHinnantDate < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a6e3a0832d810528b3b0199ad47d10e1f026e0de3559a66312f3343da396a26e"
     sha256 cellar: :any,                 arm64_sequoia: "fa799d065c7607f2e6997dfcb9d381de6b988b491a11b2d8ec78cafbc48e6914"
     sha256 cellar: :any,                 arm64_sonoma:  "28b75e11d6e62d271cc828016689daf84f05dcc804abd5652e3de61c8a3ea4f4"
     sha256 cellar: :any,                 arm64_ventura: "4c9f4bd167d09b5c525e7fca5ffff153a4d61496c22f75fa0455bb6d2e79d929"

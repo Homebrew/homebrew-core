@@ -10,6 +10,7 @@ class Rasterio < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "255ec62152d4ddf804393aa01bfe1061d89c467dd96db14eda61e8bd7e017313"
     sha256 cellar: :any,                 arm64_sequoia: "69d6254809fe65612da5354e838772c31f1511fd9307e151da921b595cca7ff8"
     sha256 cellar: :any,                 arm64_sonoma:  "e8ce574ad5c9c74fb0643ac62fff89fb94867619ee31cf38dfd5e3aee74c5d36"
     sha256 cellar: :any,                 arm64_ventura: "49c3192e555a01d0fd652911a7354ec290bd1ce811fb76ffd8c7bb1c88eef823"

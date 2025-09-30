@@ -10,6 +10,7 @@ class OnionLocation < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3ee9a0c0c5165725e50f2fd14a08f58cec85a814f3473f74703567ef5e451c50"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "554a06ca904691fa000b6821292db2a79bfaafafcc4d454fe2ce0620e172b313"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2617c96caf91e062cf0db6056b60950578d20a6df6fe812f4ee53c4309f40e84"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1ea093e13440726264ce4bd5efdf417960122feaa76a42b4609fdd2c3304d809"

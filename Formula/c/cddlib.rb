@@ -1,27 +1,20 @@
 class Cddlib < Formula
   desc "Double description method for general polyhedral cones"
   homepage "https://www.inf.ethz.ch/personal/fukudak/cdd_home/"
-  url "https://github.com/cddlib/cddlib/releases/download/0.94m/cddlib-0.94m.tar.gz"
-  sha256 "70dffdb3369b8704dc75428a1b3c42ab9047b81ce039f12f427e2eb2b1b0dee2"
+  url "https://github.com/cddlib/cddlib/releases/download/0.94n/cddlib-0.94n.tar.gz"
+  sha256 "b87ee07ba2c1d0ab92a3e4eccacdf568f981a095a392e3b9efd7e7e4a9e125b1"
   license "GPL-2.0-or-later"
   version_scheme 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "2660439f6e26917107af0a3e236d4ca2a9985b93f07dab226edcf7c2b16d5f01"
-    sha256 cellar: :any,                 arm64_sonoma:   "b0eb2d856bc499714e6eba84ef8d853d4d4d422513a8b877e4419405fee643d1"
-    sha256 cellar: :any,                 arm64_ventura:  "768fd3254daf99ec710427f4f36f42ebcce984d14168684a633e5a86fe4c8c92"
-    sha256 cellar: :any,                 arm64_monterey: "dc6b3a52efe03676d1d97d2c70b3bb7d7f09bff623f13f259c2afb2f0d247704"
-    sha256 cellar: :any,                 arm64_big_sur:  "a6cc39c5866ef92484b20b3e4fa71916e4fe02f91314f5a90e64a8ac6d477f5e"
-    sha256 cellar: :any,                 sonoma:         "d58144c6bb3e8e274974b59e95abcf354b79c5c9710d7334f1a0867d8850be26"
-    sha256 cellar: :any,                 ventura:        "d58420dfada364570f86deb3f6aca808f9de5ffd905e67f51473fd7e653ec570"
-    sha256 cellar: :any,                 monterey:       "06ea555e6166ee528da1ebb86ba65dabf584d472ee7ebcdb5abb59f5dfe2381a"
-    sha256 cellar: :any,                 big_sur:        "2d9ded9039be48632f55065ccc0cac90ee53bb41e9a900bd955997ae113eabd8"
-    sha256 cellar: :any,                 catalina:       "3e3369de96b6c33641ec2c5a3e490afb72ad94b6fb913385f574089ec4b2b0be"
-    sha256 cellar: :any,                 mojave:         "362934e5d50dc994ce268a690706d6950f17e1b191f315617adc0eeacc0b51b2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "33da5b21d2756dd83ac0dcb5d83c8334f98d0376ffdec597cc2edaf7657e63bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cbfdb16a069a1c098e379da5b3f12c461f639f09f36addc65e5f07f27e1f1e9"
+    sha256 cellar: :any,                 arm64_tahoe:   "d689cf16077c6e02f851c4d2a45b73539c9ad2eab766ab75cbf3ab7c21b50267"
+    sha256 cellar: :any,                 arm64_sequoia: "ac504ee11eb267b9968a1ea970356608880054457bfebd24f18820b1dc6010a1"
+    sha256 cellar: :any,                 arm64_sonoma:  "afc609fa9a3560208e7441ad073a6959aa9f474483016b8aa5be9aef8a65ab0b"
+    sha256 cellar: :any,                 arm64_ventura: "368d7e7af37feb06abebe16bebd54583353543abe5be0d57290c9f9ae96e3bbb"
+    sha256 cellar: :any,                 sonoma:        "e202144c2c75c4e40345c13eb02b22ea80fe6177b91fd5bfd04ad5546f19c351"
+    sha256 cellar: :any,                 ventura:       "24fc8bc926b2943d0ef8b447a76cc4d0facbd52a4e9691b20272b748b272484e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "30e583fcfb964d44dbad623186b1fe4e5376711d0b911bcc3ece78148878db07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebc67a9e27992e7053430117534a76f2fce8ec8f91aad21418bc85bbdadd8fad"
   end
 
   # Regenerate `configure` to avoid `-flat_namespace` bug.

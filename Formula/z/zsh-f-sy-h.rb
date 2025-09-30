@@ -9,13 +9,8 @@ class ZshFSyH < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "219d0141922740e742d765b4e55a3b6331cd0deaab671c07a19a085b04e2f7ef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "219d0141922740e742d765b4e55a3b6331cd0deaab671c07a19a085b04e2f7ef"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "219d0141922740e742d765b4e55a3b6331cd0deaab671c07a19a085b04e2f7ef"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cd302983d8a9fc3a2764b8e1b1936c8b2d261193650ba5d3efa1bac506291a3b"
-    sha256 cellar: :any_skip_relocation, ventura:       "cd302983d8a9fc3a2764b8e1b1936c8b2d261193650ba5d3efa1bac506291a3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "219d0141922740e742d765b4e55a3b6331cd0deaab671c07a19a085b04e2f7ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "219d0141922740e742d765b4e55a3b6331cd0deaab671c07a19a085b04e2f7ef"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "471a7ee20877bec72b47a50515a8cab4b768ff09ad72560d3d0647a6d0a94be1"
   end
 
   uses_from_macos "zsh" => :test

@@ -9,6 +9,7 @@ class Vde < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "7d38316ce1948eb727d590d88e81fb5c74f2ae4f0dcd9b7161266a4af1ff2e3b"
     sha256 arm64_sequoia:  "1e3ffe05a0f354b3909f74d3374fc036156c438147f5ac8dd34a8f747071e9f8"
     sha256 arm64_sonoma:   "3d2231810ad7229ba6a68178d648ab1f13bdfe50b214cb2d299d644d66e03762"
     sha256 arm64_ventura:  "982a56825cbd1bd374001330e3492e83a1d82825ed7228d33705ffad3b927e8e"

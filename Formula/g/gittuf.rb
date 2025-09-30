@@ -1,18 +1,19 @@
 class Gittuf < Formula
   desc "Security layer for Git repositories"
   homepage "https://gittuf.dev/"
-  url "https://github.com/gittuf/gittuf/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "3398a7eab1cc620db39687115683198bded36540d628742239b4d93af45cbe80"
+  url "https://github.com/gittuf/gittuf/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "7411dbcf69122633e3ee140e76fead29abf7cd5e688a8481bfe20520965c34be"
   license "Apache-2.0"
   head "https://github.com/gittuf/gittuf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "188b3bf3b5350963833378bbd9ec752a8c6b1f9654258005889f24d2c94eb060"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "188b3bf3b5350963833378bbd9ec752a8c6b1f9654258005889f24d2c94eb060"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "188b3bf3b5350963833378bbd9ec752a8c6b1f9654258005889f24d2c94eb060"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ceaf2408fb6adc5735c2fbebf008e034dbd50f85ce4d9895e24924390d047362"
-    sha256 cellar: :any_skip_relocation, ventura:       "5aeafe5344a73294a6532e55e21e6f287c41b2a9140946c3fe951ffd7f8f19e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f91f807d9ae091139a64817a9a9aee58aabcfe903edba6f8130e487e94dbc11"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf4ea3da53307721e7723579d2a2d7186973515dc9a6ef3e0bd45006ecc07b86"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf4ea3da53307721e7723579d2a2d7186973515dc9a6ef3e0bd45006ecc07b86"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf4ea3da53307721e7723579d2a2d7186973515dc9a6ef3e0bd45006ecc07b86"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf4ea3da53307721e7723579d2a2d7186973515dc9a6ef3e0bd45006ecc07b86"
+    sha256 cellar: :any_skip_relocation, sonoma:        "303c0cc95a1591d6b76a1105481ac01a9ba6b3fe3cda0f3e43367cdeb7d676e2"
+    sha256 cellar: :any_skip_relocation, ventura:       "0a5166424f6694bfa31c0cbd1d6804f7606a63f799eb58e5312a7784d18ef94f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3b2eb9a3004b065e3114d252a951c2648246753551e76a4e170d533052fbc7f"
   end
 
   depends_on "go" => :build

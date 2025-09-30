@@ -13,6 +13,7 @@ class Log4shib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "904dcc273d28ad65713782b2a01ee3a25997236147ac2281f3193148f5b22d16"
     sha256 cellar: :any,                 arm64_sequoia:  "8f3ca9cfd6b2cdc5d7487bcba05d48704e32a91a976addec41677d45525522a6"
     sha256 cellar: :any,                 arm64_sonoma:   "b4e8f90a884b5a2afc47ee2fb0a1d13a4731b4e03df4d3f5d432bf6b5ae41196"
     sha256 cellar: :any,                 arm64_ventura:  "c2bc8d9323dd44d769a0b9f139951bdd648467e8eb89d75dd47154751ef8e72d"

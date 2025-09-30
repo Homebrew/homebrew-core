@@ -4,17 +4,18 @@ class Rsgain < Formula
   url "https://github.com/complexlogic/rsgain/archive/refs/tags/v3.6.tar.gz"
   sha256 "26f7acd1ba0851929dc756c93b3b1a6d66d7f2f36b31f744c8181f14d7b5c8a7"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/complexlogic/rsgain.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "518dcf26b5b0c4c7600e6380f10c9219605ca8802eb2abd29a54510e88cad140"
-    sha256 arm64_sonoma:  "8326d61a3223931540901f5173059fc2579310a0401b76ea81002fe0f06a6a5c"
-    sha256 arm64_ventura: "7018f1dd0098583ec97d869024699a7f7e12d19515478d4f0b637be240f5adf8"
-    sha256 sonoma:        "ba2789f8f8af6b801229e779dbc43a767ea4f0fad539586285c9e19f2f68f844"
-    sha256 ventura:       "767220b19b5d1d987823284407efd91b84bf9de46c8c7e612bcc0f6272f4055c"
-    sha256 arm64_linux:   "22cdbdadb44fabf91163b2893aa5332c32cf924399081592ccdaf581c9aefdd0"
-    sha256 x86_64_linux:  "e471f4eedcc01d0af23e393ddd50f1795a3e220bf386465fe0398c9c537a18a2"
+    sha256 arm64_tahoe:   "af27d5a12c51408d89c3a503d11133ab34e84b94b07697f24226bd9f31e8327e"
+    sha256 arm64_sequoia: "55489cd56bf55d3a29a6f77c03457067f277e0c9558d26d77f893edee99f3b40"
+    sha256 arm64_sonoma:  "c4e28904289af858e3e94c4e35afb4ef50bb346c2653e1d8242458bf59a88bb7"
+    sha256 arm64_ventura: "55edda0ef4956e33ebfe076646857955637e20acb263f64c856d6825d68f5107"
+    sha256 sonoma:        "201e665906b0b6dc438c501c0563bf36420d0f1d3ee54448171e47151d47912a"
+    sha256 ventura:       "daa35290fc3a0df807859616ab512541f3586553f2e2142f0c10ce374c29f284"
+    sha256 arm64_linux:   "bf6720904216103d47b92220321417062d94dd51d786deb73441698aaba9ce08"
+    sha256 x86_64_linux:  "35c290b9f586cf607396625322e6ed6415b07472e98f2135d191763b79acf95b"
   end
 
   depends_on "cmake" => :build

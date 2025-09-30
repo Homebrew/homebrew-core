@@ -9,6 +9,7 @@ class Yajl < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any,                 arm64_tahoe:    "ee1d81b4f6c8e21b07003ba2057aa1c0edc24acde0aea4f0570295227fb36ae6"
     sha256 cellar: :any,                 arm64_sequoia:  "dba63b344e3308d17991f4a71f5ac5dcdc12099cd1d64e1d32f2492a44562709"
     sha256 cellar: :any,                 arm64_sonoma:   "971639e642d5f2531ab6159ee96e86c159a9015fad89cc28eee10a3fc91eb9ef"
     sha256 cellar: :any,                 arm64_ventura:  "fe07a22a18a3172092b2b2163bceff50f423c142484f9a62687dcf2a8ee6e330"
@@ -19,15 +20,17 @@ class Yajl < Formula
     sha256 cellar: :any,                 monterey:       "af69d2c0088d874cbd0fa3fb534fb971943c81a8e49574758d8bfcfa4504ca5c"
     sha256 cellar: :any,                 big_sur:        "18bd8c54e847441959876cc9580db5ddcb7e3b92f2fc37ca49ce27d17c050df3"
     sha256 cellar: :any,                 catalina:       "65975afbeddbbd919282c04e53fccda191501eb4fa8992a2b4ab1b2be2e10151"
-    sha256 cellar: :any,                 mojave:         "ab562be70a8ff64861d52b170585f52af91a275e6b5974241eaabd0997b990f2"
-    sha256 cellar: :any,                 high_sierra:    "3213f11462b3c60a33209c4f5d36c96caf1a9409103012ffb427dd51770ac120"
-    sha256 cellar: :any,                 sierra:         "1f97e0bbc6680ad4735f0c7ecac20ec87531456c3ab1c93c480c5c5a93a33e1c"
-    sha256 cellar: :any,                 el_capitan:     "5cfd83bfdbd7c92402f1cecc6b66788e6db0c195880a40263365d8130e47db2f"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "8b1df8e59b01fee163b184e36bf7f607c8ff83be33f94361f9bdf67ce5b8e636"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c206281370fe7277f21d17ff50fe9511233aff74501238516918027006c9cbf3"
   end
 
   depends_on "cmake" => :build
+
+  # Workaround to build with CMake 4
+  patch do
+    url "https://github.com/lloyd/yajl/commit/6fe59ca50dfd65bdb3d1c87a27245b2dd1a072f9.patch?full_index=1"
+    sha256 "b059e4181aca7c50c71924632b5e1dc263ea05a2e7fc6def095c0cc65398282c"
+  end
 
   def install
     ENV.deparallelize

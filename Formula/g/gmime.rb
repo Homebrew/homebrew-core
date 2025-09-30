@@ -7,6 +7,7 @@ class Gmime < Formula
   revision 1
 
   bottle do
+    sha256                               arm64_tahoe:   "9079c8df9d0e01281591ad2028c853080b9397820bcf0226849837aa2da115ca"
     sha256                               arm64_sequoia: "b88c637274929cbfe432be657a4f9d0ed2a6dcb8573e3289c4634f0719c243bd"
     sha256                               arm64_sonoma:  "1a6299ff6b1f75b3d5cb80d74b2f3a10b844d67de2586cc862084f8c0a55ea49"
     sha256                               arm64_ventura: "e62b5de106b270673a70e3cd743d197136947335d83bae2a832d77ed233841bb"

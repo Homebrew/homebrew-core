@@ -13,6 +13,7 @@ class Trino < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ad827af910e6a5db71563892c1a9a407730605e266c500734ea4444a584d24f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9caf9aa709b5d188d268df9aafc60487021b6e8b30c27b4f93a5172a47df134d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9caf9aa709b5d188d268df9aafc60487021b6e8b30c27b4f93a5172a47df134d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9caf9aa709b5d188d268df9aafc60487021b6e8b30c27b4f93a5172a47df134d"

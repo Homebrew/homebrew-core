@@ -7,6 +7,7 @@ class Gtree < Formula
   head "https://github.com/ddddddO/gtree.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4dccf001a0d1182f86d901359bf1ad57104b16f53d4b06027024bb19b84e1ad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e63527c33c0b0845fbd1d6e5df50548b105c155649eab405be617816179617a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e63527c33c0b0845fbd1d6e5df50548b105c155649eab405be617816179617a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0e63527c33c0b0845fbd1d6e5df50548b105c155649eab405be617816179617a"

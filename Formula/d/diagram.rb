@@ -7,6 +7,7 @@ class Diagram < Formula
   head "https://github.com/esimov/diagram.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "3a77e7b6637b987d6391891b8810a495e7043b8311b2308acba17be9fb1763e5"
     sha256 arm64_sequoia: "7a4c9251da9103d6c7bf749ae76e30500e2298751c6743ff0ddb27fdb2203e08"
     sha256 arm64_sonoma:  "0d6928b6450255451e2120814add95222db5add55282cc2f9477766b6cd4607f"
     sha256 arm64_ventura: "aea4fe2d174931f81ca241d51510b1d5dfbf4034e1cc77d9eb86646859450e05"

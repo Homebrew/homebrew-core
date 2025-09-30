@@ -8,6 +8,7 @@ class Surfer < Formula
   head "https://gitlab.com/surfer-project/surfer.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e1c0c8cd36bd9077b3b1d33c870122153e2ccb55a5cd583bbe7ee2ee4eb5a251"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4457f78c27f1e938def02a5a0dcbbcc2e0a321c74f8537c04f509802c9f0b8ca"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e97543d0f251a4f4b6af33d51eee1756034d89b5b56a1635950ab1e238aacad0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "03096cd206a1e35ce940edbfc933dec9223af66b13020995f74bc31e5de6e0b3"

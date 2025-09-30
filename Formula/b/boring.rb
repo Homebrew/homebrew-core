@@ -9,6 +9,7 @@ class Boring < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0fbaa7c34fb72dd27461d66b8f7aea30d78d81ea5c10efabdf3140df9d1f6f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2dba12360e72ff80eab9e7c8a4f5028a9eb80aef0e0ac79c752e7eb0e365b7dd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2dba12360e72ff80eab9e7c8a4f5028a9eb80aef0e0ac79c752e7eb0e365b7dd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2dba12360e72ff80eab9e7c8a4f5028a9eb80aef0e0ac79c752e7eb0e365b7dd"

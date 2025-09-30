@@ -13,6 +13,7 @@ class Convox < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f34dbc46d321a758bfc9fabe85fd21613f61ee265313daf644bcbc7e02e6635"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f00fde4330b0da4375945858981d74044c85df7c8f21e8308e0e91ec7438fc9e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b0938fe67966a4622aafde4416d20105ee2768c987d108dc831543df6662157"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fef259e59eea6cf376c189e96701d1aad2cb4ef6de28090a09831d84f888084c"

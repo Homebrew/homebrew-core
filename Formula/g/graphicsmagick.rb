@@ -13,6 +13,7 @@ class Graphicsmagick < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "2050cdc990005bc8d53b6782fcb9d7cee90f3e6bc3dd1437af538daf25be9c3d"
     sha256 arm64_sequoia: "f950843cfad9376677acb179ad6553531249d9e79b37a830eba929591beaac46"
     sha256 arm64_sonoma:  "8b521ea1cf171f8fdb14b43f3b3d06699280569791a25d64aa73684062e06ed0"
     sha256 arm64_ventura: "e0c9b6972e74fcc2d74037d907671ad6a2073553816beb11b8aacb9b554ec689"

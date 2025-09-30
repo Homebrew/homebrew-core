@@ -7,6 +7,7 @@ class OtelCli < Formula
   head "https://github.com/equinix-labs/otel-cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c6c809c63d335d997e8f794037c3188bf3d5bf1eca2e2a1a533e78616b0eb80"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ae87c2f9fafe21f6f99739e0d86b3e0f1d70bb75c355e434f911d58150e1f01"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ae87c2f9fafe21f6f99739e0d86b3e0f1d70bb75c355e434f911d58150e1f01"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9ae87c2f9fafe21f6f99739e0d86b3e0f1d70bb75c355e434f911d58150e1f01"

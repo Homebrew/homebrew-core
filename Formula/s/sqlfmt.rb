@@ -9,6 +9,7 @@ class Sqlfmt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c84039488c47b3d05d7453f65bbf8eded5b1229d9b06c398741dd99e1ee2b303"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a38467e3035c2cd803a7d6eeb898500e8be48918cc2689202ca0affeed82ea53"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05c503eec0cd5a79c9cc3e1027166051acbf6f2a44d2924cadb9898b4600ceb3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d6d1bff83aa71623e857ddf1f53ae033646e5bdf71ec1d283fc1d344364d3ae"

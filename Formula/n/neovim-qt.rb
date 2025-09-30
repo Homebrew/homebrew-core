@@ -7,6 +7,8 @@ class NeovimQt < Formula
   head "https://github.com/equalsraf/neovim-qt.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3408ee0c10d86e7252fb88910d9698325695377c2cb9656dca005f2e39a70f45"
+    sha256 cellar: :any,                 arm64_sequoia: "b5b12a61f60846d2c80822306798e70f67051e067a71bd093b2640d178024b63"
     sha256 cellar: :any,                 arm64_sonoma:  "dd8bbbc56a52276068547d4cb4e84cbdd1e9f05293800e7fc60aae9cd1c96bd0"
     sha256 cellar: :any,                 arm64_ventura: "7ab5ee7ef90dc33466c2525ab9afb54cf697406025424e3cb6e8171fc1c61f7a"
     sha256 cellar: :any,                 sonoma:        "a535fb79e82a33cce34998ce1b38b104539117b89549f09621978d87521e33e7"

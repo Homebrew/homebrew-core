@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/refs/tags/v12.1.0.tar.gz"
-  sha256 "9e2f3f11eff01f8b86c2c232c6a3c3a32fa303589ea9829538ffc867684a4436"
+  url "https://github.com/grafana/grafana/archive/refs/tags/v12.2.0.tar.gz"
+  sha256 "0d55795b21cf5494e5e3ff33627f7bbb940de9298d0a0aa86831c2f2f15fef1e"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -12,19 +12,18 @@ class Grafana < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6639b084a92df9ee36e004f42f4e6b9408e987bfd16bea116c3065c6c3e27a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "308c3471f361ba71cd9b2045f57e403187047d0b559d87d0c8e2fe2db3b96757"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0c241cdd832abfdbd10e8f6d8b470248734a2c995fe3a1bb999bbd045c6a0215"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c595bb5383f6a46cae69cba6aa21dc421c69e6788a574cd932685ac02ec3cbd8"
-    sha256 cellar: :any_skip_relocation, ventura:       "4bfab1f08ad02bfcf248cfeeae524792dee393afa0de5b3f8b37bbe922c238c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4e4d396d5276b1b1482cbea776462f399e78a58c437111b3889bbc82dc11972"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5a897ce841a9f2df37c1a39b8bf85eed2cb2b72bf1ec571c07cd420c8fc2fb0a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ec9df8826d70432671120ab344ac9a9041ce5bf73a5febe0aebc8adcc4ffe86"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89ed2c07c7652a896fee1e3d940c5b0b2c93d1b75724879a5db24d0e66ad56a3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ddd18651c6280147c77af8e5ec87e3e594ca3dcea4483fc0e63cc9f054775e6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f1119a1b81d664cf0b840909de00b7f5bc0cfc84e48886967aa096f22c73f6b"
   end
 
   depends_on "go" => :build
   depends_on "node@22" => :build
   depends_on "yarn" => :build
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   on_linux do

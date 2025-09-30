@@ -12,6 +12,7 @@ class Libmsquic < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "80bfb050fcff4786acc6f586cab146f7d9393a155f903524b14697c1440a093a"
     sha256 cellar: :any,                 arm64_sequoia: "c47a15dea5086c543f5e151ebc0c1c7f81a35efdc92afad98b8831b44e693cbc"
     sha256 cellar: :any,                 arm64_sonoma:  "a015334cbb4a87a0cb7eb21f907dec2d437b179762b3cfa2849ae45945f19a52"
     sha256 cellar: :any,                 arm64_ventura: "9b968e4192831d8e8cfba5d3a84c56dfe7db39ccbada6e32f453a9925a648b28"

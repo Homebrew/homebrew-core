@@ -13,6 +13,7 @@ class Gmt < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "4f1f21d29e0e31488045220e4ca250addc39dbf0b43b5453470a258b4cda0493"
     sha256 arm64_sequoia: "7bd4ce2a85ec065d11d8025f237a21f76712d228bde64ee0b68912cc44806b1d"
     sha256 arm64_sonoma:  "a7e852c449f21a1eed6becabbc990445574af18c01e711e257c5ebbbd7dc779e"
     sha256 arm64_ventura: "666f6c1e74516d0b2d5af55c6b464546fb22855be9f2ebd9c0d45727459bc115"

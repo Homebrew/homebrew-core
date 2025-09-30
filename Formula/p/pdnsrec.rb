@@ -1,10 +1,9 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/powerdns-recursor"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-5.2.5.tar.bz2"
-  sha256 "a8a657a7abd6e9d237cdd26753f7dcf5ccd5b8c48ac8120b08d2b8d57a1d856a"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-5.3.0.tar.xz"
+  sha256 "6b9f85b6df17c339cbff448d9824bee6da6a5cf884abd99835d1dafdccdda0e6"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
-  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -12,16 +11,18 @@ class Pdnsrec < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "1e0efcb1c21eaca7bf16abec6eb9e43cbd17da963d4669c763189991377fa06f"
-    sha256 arm64_sonoma:  "61606fb1f5606528a7dd325ee1c27642c8171de28c496e71b6b5b70ff0631ddc"
-    sha256 arm64_ventura: "88d613678e19245db2a9c2b5d6a3de11b1be4a7e025b6473879da32ccc676634"
-    sha256 sonoma:        "0e7e59c92403c83bb1a74d465e8b8a1dc94d8106f40eac1b596c83a0296fe76d"
-    sha256 ventura:       "09acca9ba175876237546e086c418e1b47ebde35de4bcd34b36946447ef7930e"
-    sha256 arm64_linux:   "d3402e71b378eca524883be055e4f5bfaef730af75486d57aff3b08d882afb32"
-    sha256 x86_64_linux:  "a557ef66ec43351cd659c2936f4dea983f34dc10f77be517261866ef6cce4ac3"
+    sha256 arm64_tahoe:   "208a4cc406f6f7190d4b86c443296638625dd770b4ead37eb6153ca0dad8d390"
+    sha256 arm64_sequoia: "6af01a0b02114906fa491385259e9c0500b2e8ea26fcb0391a0249f6628f4115"
+    sha256 arm64_sonoma:  "f46a8cb127071ff5115a18b7b60a9b351a55b0a827a54523ef819a8843d78326"
+    sha256 arm64_ventura: "16c1f711c5c575ed8ba69d01b9dd1d6e46fccc4291ac352d515d0e46253a9b29"
+    sha256 sonoma:        "fec55e5d001e2fb771789a7eb7b7b881d2dd992edd8d6c46b49f25a5bb0ab56d"
+    sha256 ventura:       "109ccc1f50960db7619a810c0f0fa82865496cbf7dce0cdf5371656777a11de3"
+    sha256 arm64_linux:   "4bf7b1e6155c148ccc40464fab0478bb3867d4dba0436e780f5bf23a21aec583"
+    sha256 x86_64_linux:  "4191d1f1d33a3bb5de04198aa318bf8dd972505c4a95610248ea3e39ce354c9e"
   end
 
   depends_on "pkgconf" => :build
+  depends_on "python@3.13" => :build
   depends_on "rust" => :build
   depends_on "boost"
   depends_on "lua"
@@ -42,10 +43,6 @@ class Pdnsrec < Formula
   end
 
   def install
-    # Workaround for Boost 1.89.0 until fixed upstream.
-    # Issue ref: https://github.com/PowerDNS/pdns/issues/15972
-    ENV["boost_cv_lib_system"] = "yes"
-
     ENV.cxx11
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 

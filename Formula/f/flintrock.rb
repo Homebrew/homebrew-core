@@ -9,6 +9,7 @@ class Flintrock < Formula
 
   bottle do
     rebuild 5
+    sha256 cellar: :any,                 arm64_tahoe:   "8630a4ea40cd08c50d43f2c642c3b77ed6b79f05bfad775f6c324614de7b8c6b"
     sha256 cellar: :any,                 arm64_sequoia: "74a8a662dc4aee333db1b838cc7f62681b0d3a9fc6e8f8205e20d80d4c2527b1"
     sha256 cellar: :any,                 arm64_sonoma:  "fe7ad09c56f48d70f3e01b5cd140bb549efbb9853d5563a646a7dd903fe6f59c"
     sha256 cellar: :any,                 arm64_ventura: "6410fd282b7957ac56b1cfc1af125e719da2cf0abaf0910a3d2de375b17d2b34"

@@ -7,6 +7,7 @@ class Haiti < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "a4d686b062edfd94c58019e882f88feea40f7253189dde24fb4be6b6a39be301"
     sha256 cellar: :any,                 arm64_sequoia: "437a900ef99a2a9ce151f54852b5ceba54b04b0ae4f7dbdfca33ac96262db51c"
     sha256 cellar: :any,                 arm64_sonoma:  "d256b2ab7188e82c043c22fc4ca8e5df092d581e4d0c7db6a1feda3110a3054e"
     sha256 cellar: :any,                 arm64_ventura: "cd3f25be3ff7e82d716d0c04b6703687a104014703d0fca01ef6b743014a1112"

@@ -10,6 +10,7 @@ class Watson < Formula
   head "https://github.com/jazzband/Watson.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ab672881cb292cbccf9d429d947192005de20f2ac9e3194a93b65bdd726e14c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "02a6250ae9fa9e9342bfb595db2b274aac190703442e23ca6269711dc96cbce5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de5094e1fbc8b54ea86d7b4989694d308dff63003e5ce7139698a28d4efa6693"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a37d26adb860004501d6f0f826b3e0bf32ede90b0f1dc2f3356b053b617d4132"

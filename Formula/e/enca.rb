@@ -14,6 +14,7 @@ class Enca < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "4d3a21ddb033608bec30faf735d28d3f16f94f557394b495a638136957d77da4"
     sha256 arm64_sequoia:  "39e220bf0bc73df65cfbc2b9702a29ed48197a9c721760111cc4af07f771a912"
     sha256 arm64_sonoma:   "2528d77eb23d82075f2cb1d877ea170927c4bb16a38f1a05fa1494545973ef23"
     sha256 arm64_ventura:  "e15cd4000e00b96652d900fdce002e2180eed2fe09662ad0359fd176a4e1e3ce"
@@ -24,10 +25,6 @@ class Enca < Formula
     sha256 monterey:       "e30444291139db29c1c1cde042bfef31578923c9133eeb96f3780af14c4fc55e"
     sha256 big_sur:        "6c16034f0a17fdcc4c5ca8c1f280da2138213958f3ea7aac007ad8a54e063a76"
     sha256 catalina:       "606385c50e1a4aae697fc9b6d48023013d1943929ede359b830fd7db42641bcf"
-    sha256 mojave:         "6a9d4f53371b7ffd66f37f290a24b52c2014433d254f0856de68c99fbd8c6f1c"
-    sha256 high_sierra:    "5cfee364a5cc91d945d331d980448745d8498703d6b30378bd11be541c5be51d"
-    sha256 sierra:         "0920a4dd92de3f4d7725e6753a37d1cb5f2468063f4020def9167648ff21e046"
-    sha256 el_capitan:     "889b9d13ff462aee05bb0afdbe012f6a388a2b5e30e13b55954f94a18db69a13"
     sha256 arm64_linux:    "40416a7bc0c169fc9148dafe33b935c75f18b1bf6d41980a03d1d12d7df18007"
     sha256 x86_64_linux:   "c434ad486d2bc894f2562f7a02257bfa726a8623287e5f665cc4d20f7ea42c25"
   end

@@ -12,6 +12,7 @@ class Libpano < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "04ef30060834fbfaa75286c6fb73ac51215e96567095b6faf866ff908a5cef58"
     sha256 cellar: :any,                 arm64_sequoia:  "e0b93764142133cf6a62e5d9512bd7ba1a82ebabc2ae3660c62b345cf49c8af3"
     sha256 cellar: :any,                 arm64_sonoma:   "42f3f8617fa4d805513768324ee0de1ab490e90078a7481c8c1344a75850b7dc"
     sha256 cellar: :any,                 arm64_ventura:  "c2776938006e3a0b5bdc316e4a1dbcc4244a9193b43fa92b8dc04d251385af1f"
@@ -33,7 +34,10 @@ class Libpano < Formula
   patch :DATA
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    args = %W[-DCMAKE_INSTALL_RPATH=#{rpath}]
+    # Workaround for CMake 4 compatibility
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

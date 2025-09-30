@@ -10,6 +10,7 @@ class BowerMail < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6c529955bcdd18e610441bd154d41cdbb03e164ea51aee9be99db4d4fa388553"
     sha256 cellar: :any,                 arm64_sequoia: "d47f47f021948b197519c8153299af29c6daf61303ec3271202a3db295d778fa"
     sha256 cellar: :any,                 arm64_sonoma:  "1b29ffd00b810534072cfb133481e8f56982ae599c14b93b03fd41a6c01b4511"
     sha256 cellar: :any,                 arm64_ventura: "09f3d4499761c4070ba39bcd3fe811087e8be0e87e393aea012ebef4375d5d9c"

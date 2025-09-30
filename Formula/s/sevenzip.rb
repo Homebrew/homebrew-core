@@ -16,6 +16,7 @@ class Sevenzip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b2510dbf7cf321890d1f7434195ab966b4e24fb6439b149b5bd4c53cb0fd830a"
     sha256 cellar: :any,                 arm64_sequoia: "164df59691f0b22b908312d7352a048c348fbc5ca0f4cb01e90a0d588436af26"
     sha256 cellar: :any,                 arm64_sonoma:  "061da1460500f02df5cd42a12f5301f76b7b4684fb75a76e590278b84445396c"
     sha256 cellar: :any,                 arm64_ventura: "640b7a4fe0208c77a79dd47d960f52b3f2e75d618615e16708b644220b6943df"

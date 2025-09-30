@@ -17,6 +17,7 @@ class CKermit < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9f4e1eb3f4cea80c8e82892451358cc831f6aebcd024a7776a2ce89d86fd8c2c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cea3196c019d7d08ec77210cc9ce17c3339c84d5255f914bf773e5186ae709bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "399806a413435186dd70cd55cd12782354c3642259870b348f81ca40b6424cbb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ee8af35826f4b5be62d1c4b4e8b38eb39915da0b28d6b8f53ff9dfbb99f6698"

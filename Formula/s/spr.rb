@@ -1,19 +1,20 @@
 class Spr < Formula
   desc "Submit pull requests for individual, amendable, rebaseable commits to GitHub"
   homepage "https://spacedentist.github.io/spr/"
-  url "https://github.com/spacedentist/spr/archive/refs/tags/v1.3.6.tar.gz"
-  sha256 "a9ee0f3e1c90176841a42f2177a31c83a93a8cfb83bc1507fcb544ff8d997de7"
+  url "https://github.com/spacedentist/spr/archive/refs/tags/v1.3.7.tar.gz"
+  sha256 "6b48524abfecea16e0e7a131f0c44027375a80577cde43355f54928c4921ed6c"
   license "MIT"
   head "https://github.com/spacedentist/spr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8989faccafce9c9bf1eee5eeb1046a18729f9acf67fee5ae16b0110f647a722"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7a6c8485777c09071c197c7d6c31c4c98b57f4bd361e0f4831eab09329a13f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "77f4725d61aa4e91a3ec60cd66e00e8c2eb9409060d21c83d0eea338616ddb0f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "253cba645ac75e32a4fbb89e7f11ef64184bc188ef15a003bec6a3ad00bb4444"
-    sha256 cellar: :any_skip_relocation, ventura:       "0979ef1eca05662b37d9e6b7d4c6ee19dabe01a55108afce776691679077cdb9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "91992bcf82d184425bf81988ec78085ec78000e08f70370ed58f2c62ca3f3691"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2be9247cdde1ac0abb84ce96ba8536f6d22cda94df4b66636e5a9c4ee7a1625"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "45b808f91f099a130b9e5d835600cc61a995590525ced37b59abeee7aa0fc58b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8679f71d4efb65c1784f2b20c2339ca5032ada6a676e9a082f3720d51b9973ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93212861ef027cc18853c3e18c81f1b68640deb9af7955912fc84549d91e93ae"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0622a60bd0c8162d2e28d2c85cf6ece553f2e9851913bfcbc64ec3f3376dc429"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5e8a7f79f2e9518b1516c8ec695067a3abe5e579428964719f941390176da2f8"
+    sha256 cellar: :any_skip_relocation, ventura:       "30a12a3e0c4d6db8deb8c30aab2d12380cd9cf1fe867cb59620a98355d008312"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1004ec8ee05fae9e9b5f59ce37a11006c0433f4738fbeffc192b158d1dbe498f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93414490bf24e6c0a341225a106c4051182c553f5eb7419ea2ebd5cd959198fe"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +27,7 @@ class Spr < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "spr")
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

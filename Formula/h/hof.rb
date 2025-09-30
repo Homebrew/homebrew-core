@@ -15,6 +15,7 @@ class Hof < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2871a88c2a9de3ed790e3c6ef7730a9932adb5ca0d918b60836e6cfda1e6e6f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e5275eb22672ae3f0bcf884becc77d6b34eda2b7ba84ffd3fe562fddbc3d5e5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e5275eb22672ae3f0bcf884becc77d6b34eda2b7ba84ffd3fe562fddbc3d5e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8e5275eb22672ae3f0bcf884becc77d6b34eda2b7ba84ffd3fe562fddbc3d5e5"

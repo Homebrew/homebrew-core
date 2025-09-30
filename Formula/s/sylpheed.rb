@@ -14,6 +14,8 @@ class Sylpheed < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "904952d738df66659a845da6b43e2489e4b8c65ac8c6680e999855c5f4460670"
+    sha256 arm64_sequoia: "486a0c588d0241a2cdbd2bdf9ffba966f207243abfde699f8353ff0c0fadd128"
     sha256 arm64_sonoma:  "bc084394ebc2781e0336e087aa640b7e7e750089f2ecc93a69c3f7d93b1b231c"
     sha256 arm64_ventura: "46d1569258905a84d21de589cf4da12f8fe4a3b959dea2f0f368819e81fc58b9"
     sha256 sonoma:        "a6994106aad038ce6a2ab01a9618f7d273b0c934bc7951b41025dfc104f4fc7e"

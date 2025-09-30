@@ -8,6 +8,7 @@ class Pkcs11Tools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "99d3a5104235020c9ba34054b886dff32a538917592f9b9a7d4535c26513b072"
     sha256 cellar: :any,                 arm64_sequoia:  "22183ecdec16099e7c38d97f5499deb1fbcb9236a9d4deb2c08fa22fd7007358"
     sha256 cellar: :any,                 arm64_sonoma:   "41dd63eb44f9015459c816515202120069605a31875d536a920ec87ede6c1990"
     sha256 cellar: :any,                 arm64_ventura:  "c1babe9a656e43094e4c1e824ae76eaf60111376d57a77e31c6e3c9186fed553"

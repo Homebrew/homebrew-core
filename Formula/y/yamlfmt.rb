@@ -7,6 +7,7 @@ class Yamlfmt < Formula
   head "https://github.com/google/yamlfmt.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0473b63d373b25f9f519796c216111a9f7770ce512bc7de2ddc9b4900d9393af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f5e9b4d6d6ee0fc7d7faddd555ecbc2934293c0072bec174d24f9db119c4dfd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f5e9b4d6d6ee0fc7d7faddd555ecbc2934293c0072bec174d24f9db119c4dfd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1f5e9b4d6d6ee0fc7d7faddd555ecbc2934293c0072bec174d24f9db119c4dfd"

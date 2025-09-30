@@ -6,6 +6,7 @@ class Macchina < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7b34599b2e3d2973b88aeb0f9a84f168419455377c74dd295e0101ddcea9934"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ced4610d20e2d1279ae391a02ef966e22984dc0bf615b6341b9672a45d2d0f0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e8e972a287563d557df33bfeee21eb54fb2bd13ae2399ed0451e6381aad554b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0edf9f8eb64c603d3d2a173a0d933902ace99b500e16c8a3cd7daec854703232"

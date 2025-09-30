@@ -17,6 +17,7 @@ class LibusbCompat < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "63dfe2cf30c69c8f654177fbd754d013e0b5d86636cf731f5e22fbf3071d228e"
     sha256 cellar: :any,                 arm64_sequoia:  "db9c3980772b1debe48a65b951a7b6ac27ccfacd26afc6b96b49fa1a60c34339"
     sha256 cellar: :any,                 arm64_sonoma:   "64e879dd5f99d9e95ef207caf668bd1363d79f660abc1ec60c44eeb7082cb216"
     sha256 cellar: :any,                 arm64_ventura:  "a2fcb4b8c54d64c71ca73d7b70573617b9df000d7cd8040925c45627a601f84f"

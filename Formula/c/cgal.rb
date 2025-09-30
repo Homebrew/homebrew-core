@@ -1,12 +1,12 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithms Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/v6.0.1/CGAL-6.0.1.tar.xz"
-  sha256 "0acdfbf317c556630dd526f3253780f29b6ec9713ee92903e81b5c93c0f59b7f"
+  url "https://github.com/CGAL/cgal/releases/download/v6.0.2/CGAL-6.0.2.tar.xz"
+  sha256 "f30c5be7c25a2a3ea24bccbaab5cf63fafda63c0279f34d7e7f8b3212821fed6"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f423b392b99b69eff16bdad8309eebfa1e01ef6e569c6c2b50fd20e2fafeab7d"
+    sha256 cellar: :any_skip_relocation, all: "d2ec45a9a63ac1f09b43f695dd576c36bc4e8b9f204f954c70d1cfec28fb6ad7"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -24,20 +24,6 @@ class Cgal < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    # Ensure that the various `Find*` modules look in HOMEBREW_PREFIX.
-    # This also helps guarantee uniform bottles.
-    inreplace_files = %w[
-      CGAL_Common.cmake
-      FindESBTL.cmake
-      FindGLPK.cmake
-      FindIPE.cmake
-      FindLASLIB.cmake
-      FindMKL.cmake
-      FindOSQP.cmake
-      FindSuiteSparse.cmake
-    ]
-    inreplace inreplace_files.map { |file| lib/"cmake/CGAL"/file }, "/usr/local", HOMEBREW_PREFIX
 
     # These cause different bottles to be built between macOS and Linux for some reason.
     %w[README.md readme.md].each { |file| (buildpath/file).unlink if (buildpath/file).exist? }

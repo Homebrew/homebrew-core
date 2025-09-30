@@ -8,6 +8,7 @@ class Pmdmini < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f8e542c127cf51bbdc497e778ab932849fdc4d88e49ee9d7b0e127eaf5d74242"
     sha256 cellar: :any,                 arm64_sequoia:  "d3d140be8d8be65eaa695bb6e2b83964e989e141cfdd7ab8d2c9e05d81b55f54"
     sha256 cellar: :any,                 arm64_sonoma:   "a7f473c3f27a8a2e781391b383060545cfd8af27425b2c5eca4e18a2821ee2ff"
     sha256 cellar: :any,                 arm64_ventura:  "40b0b5792363acec17804091d52164083487b90a027f4fe2bdf05ca5a7045ba6"
@@ -37,7 +38,7 @@ class Pmdmini < Formula
     # Add -fPIC on Linux
     # Upstreamed here: https://github.com/mistydemeo/pmdmini/pull/3
     inreplace "mak/general.mak", "CFLAGS = -O2", "CFLAGS = -fPIC -O2 -fpermissive"
-    system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}", "LD=#{ENV.cxx}"
+    system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx} -std=c++03", "LD=#{ENV.cxx}"
 
     # Makefile doesn't build a dylib
     flags = if OS.mac?

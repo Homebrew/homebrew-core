@@ -2,8 +2,8 @@ class Openbao < Formula
   desc "Provides a software solution to manage, store, and distribute sensitive data"
   homepage "https://openbao.org/"
   url "https://github.com/openbao/openbao.git",
-      tag:      "v2.3.2",
-      revision: "b1a68f558c89d18d38fbb8675bb6fc1d90b71e98"
+      tag:      "v2.4.1",
+      revision: "efb9efa12f550e8322f3cec040862355e966f565"
   license "MPL-2.0"
   head "https://github.com/openbao/openbao.git", branch: "main"
 
@@ -13,13 +13,14 @@ class Openbao < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1346e8b7c84706a5680380f587bb50c09e32300f690a66f9392bb4d5cdafec30"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8225e7cfb606eb43ec484a7aa333a0ca68c81d1416d9b0cb549bc5c1346b3871"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "daa65fb3f8b725920a2bea53d568856f87f19ca0d48f65d3746bd077dd4157a0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9f2dc665af2f6ec088db8321bb13c8b5a006111a19cab82a36dc8b3259859fb"
-    sha256 cellar: :any_skip_relocation, ventura:       "cc1843c744f7050133349036b00ff65ab86684a61485f2926d647f4aa9a85089"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2616b830e3ff0fe85f5b5cfe7df1dff6fe1c7b169d3146dbea3b63b0b97b94d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79655ba5cd3d677624206e6b4ed7594d484bc4c20b2a2671f207ba8ce336a4d0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "060475e9b83c0f8f8998a58968e474383cc6e63474ef2500b659b995084a3840"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0187af89b44c05e2d4b8b2f7aa5def7be809714b0653d4b88be7c3758abe469"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "451485de8b54c0a0f01179e095aaf902a5697787099747d5a4e1223ca596bc9a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a7ddfb9c93aed50bc9c28369093d4fd574e564fbe50b9fef103ddd493d9b353d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7cc85a4a44a91cfa108daa3a8b2c8982dec410d3526412ac93bed21064f88b0d"
+    sha256 cellar: :any_skip_relocation, ventura:       "bd2f02ddd4978101e66757f81f426c07572e54f2d199d3824454bdd7eb64f584"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1cd91f18c484e28033cb3994103aac088138f68c753fe554f4069ec9f93b8af5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7f3dad63941d3a397dbd76fa2af0db2dbf1569c757fbd68726bd4a78b122bcf"
   end
 
   depends_on "go" => :build

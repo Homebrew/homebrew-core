@@ -4,22 +4,23 @@ class Cmus < Formula
   url "https://github.com/cmus/cmus/archive/refs/tags/v2.12.0.tar.gz"
   sha256 "44b96cd5f84b0d84c33097c48454232d5e6a19cd33b9b6503ba9c13b6686bfc7"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 3
   head "https://github.com/cmus/cmus.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "4074540115754218e8bf925e834c5a69c2951eb19493ac063e5c627b4d753de5"
-    sha256 arm64_sonoma:  "b314cf008fbeff9ad8a760b195fd401664ce032569a2956178d3e9446b22d24f"
-    sha256 arm64_ventura: "abe20a3b224fbd98f698e7131208fd298a6aced10336f5f55a1156ecf1654e2e"
-    sha256 sonoma:        "d9601411a0b749a5e379620985ac1f24d8ce566e744a7f24302964b1987b765e"
-    sha256 ventura:       "9aac948ad9fab4826655c220590ac1f37fc0afb0d38c77bff081a6b0c104038e"
-    sha256 arm64_linux:   "692eb54461a2b22de154ddbdd3507ca32ac2e4d249424cf246444bc66797d763"
-    sha256 x86_64_linux:  "5ae15aefbec0e9633280d83a5d9eacbf5fb9682f18df4cf63a45584a75870f28"
+    sha256 arm64_tahoe:   "ccb3ef033e545c2f1610612c73c28ee5b2d195829f8a061137ff6345ba7198ec"
+    sha256 arm64_sequoia: "e09385ddb5a370d854f4608b76c5a263541547ac91b7cc4a6517e1f3099a19a3"
+    sha256 arm64_sonoma:  "a9d12ff2708a54953541bc5ae8ccb1ef3fd24aeb3365dbc8834337076faebd72"
+    sha256 arm64_ventura: "ae3c328349aeb668ccb369a9aa2a6147e6718aec702cffc145de37a0f3b82e0e"
+    sha256 sonoma:        "f67433b09c4f9f4c52ac189f99277c1698d8869196bf992265784b18ab63c443"
+    sha256 ventura:       "af29c51757aea6aaf9c7aab6758ec590e31f7f5e323a7c682f76496fb8e1599e"
+    sha256 arm64_linux:   "6d9800c3e1c74383aa02badeb42de89294de79afacb0fdeb7e09770e40ef9b4b"
+    sha256 x86_64_linux:  "6fa906d04b003647aec2093fa275eee0d2ca65d1601b6048b76dfa2016e0ba4e"
   end
 
   depends_on "pkgconf" => :build
   depends_on "faad2"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7" # FFmpeg 8 issue: https://github.com/cmus/cmus/issues/1446
   depends_on "flac"
   depends_on "libao" # See https://github.com/cmus/cmus/issues/1130
   depends_on "libcue"
@@ -49,6 +50,26 @@ class Cmus < Formula
 
   test do
     plugins = shell_output("#{bin}/cmus --plugins")
-    assert_match "ao", plugins
+    expected_plugins = %w[
+      aac
+      cue
+      ffmpeg
+      flac
+      mad
+      mp4
+      opus
+      vorbis
+      wav
+      ao
+    ]
+    expected_plugins += if OS.mac?
+      %w[coreaudio]
+    else
+      %w[alsa pulse]
+    end
+
+    expected_plugins.each do |plugin|
+      assert_match plugin, plugins, "#{plugin} plugin not found!"
+    end
   end
 end

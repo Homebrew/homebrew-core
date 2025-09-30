@@ -10,13 +10,8 @@ class SearchThatHash < Formula
   head "https://github.com/bee-san/Search-That-Hash.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a5dd5d34866b491dc0ed38b5b1e15243bae496473108855637b74fc202fb21af"
-    sha256 cellar: :any_skip_relocation, ventura:       "a5dd5d34866b491dc0ed38b5b1e15243bae496473108855637b74fc202fb21af"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ee6b32822a47c71c04de9aa8ab633a7318fa2e18149ed64a357ad4e08d862d2d"
   end
 
   depends_on "certifi"

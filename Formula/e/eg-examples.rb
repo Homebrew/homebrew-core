@@ -8,13 +8,8 @@ class EgExamples < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1c10604e24a6e315bb4ac0f066ecd76da2315b225dd7d567ef926fcefe883fb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1c10604e24a6e315bb4ac0f066ecd76da2315b225dd7d567ef926fcefe883fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1c10604e24a6e315bb4ac0f066ecd76da2315b225dd7d567ef926fcefe883fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "56b83d2d2a2927a790dd69e41bdbb033f9ccefbe1b389f8a8378caf05254e1b6"
-    sha256 cellar: :any_skip_relocation, ventura:       "56b83d2d2a2927a790dd69e41bdbb033f9ccefbe1b389f8a8378caf05254e1b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "93c6f25ff21ea5cac03dd7195c058f38930c78f748838ed05d35029860372c63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1c10604e24a6e315bb4ac0f066ecd76da2315b225dd7d567ef926fcefe883fb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b6a6f858143973b765badaf959c4b582872b80e2af1a0bd6d1d6d3e92a460add"
   end
 
   depends_on "python@3.13"

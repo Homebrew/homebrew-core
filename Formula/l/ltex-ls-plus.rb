@@ -7,6 +7,7 @@ class LtexLsPlus < Formula
   head "https://github.com/ltex-plus/ltex-ls-plus.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b5dbd4654ec4fb1fff694f73af3b3c624f2e90839ad8ec5dd772175b11794db2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "506aba208fad07d55de203b9f5a8d4c587c6a24f1cec7c8ed200b60e2c8fb142"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dab59816c40ffc74f2a2f90d051924fbe27bbdcdcfd938fe00b4ce9ddcc5d600"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "af2a52c0a38ddeb1c39900a1cc97d196398adf1a66658483df86b0a296ac2771"

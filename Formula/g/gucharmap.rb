@@ -1,18 +1,19 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/16.0.2/gucharmap-16.0.2.tar.bz2"
-  sha256 "f320ad67318dbf0ec26691849c0fe8f5ef4d72e6e78873fb083ad12c94bcda00"
+  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/17.0.0/gucharmap-17.0.0.tar.bz2"
+  sha256 "09988f67ae82d057a993ab21df2ac94503a8a836da5f8e36e5e8864d8d45a295"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "11517c190dbe6ac8cee546e89ba36df310d0fa838ed7636437f95155d2b62874"
-    sha256 arm64_sonoma:  "fc21d70b9319bbadcc227107d7987e46c3474fbdea88ec219ec27051176f472c"
-    sha256 arm64_ventura: "f884c900fdba9a0a8bf52f00c5a3ec68db46fabec8f4ef4ac1faa8115f7afdbd"
-    sha256 sonoma:        "4ff534da40aab00d5b36677697e061e465288eb59dcab160b26b85da15a6d2a3"
-    sha256 ventura:       "ac90916e94ae7ffc4480793575cc9dc6555463335283252499a30663bb4521b8"
-    sha256 arm64_linux:   "f6d5fbf4a6dbc49ff25dd11bb69e58c07f2f654bbcdc8712b5ebe8880978246a"
-    sha256 x86_64_linux:  "15d7d8cc50e776aeb271dc07d659815ed08a4fbe5c9cc58cc315b6798b4f01e3"
+    sha256 arm64_tahoe:   "8eda1a0d1363881e6ce862e9b133ab84e71900b2400c22bf916474a2027622e5"
+    sha256 arm64_sequoia: "28e1ea688e0d6a71c62948d83d1b6151d4e8fd7b9ab483bd5e9454becf84891c"
+    sha256 arm64_sonoma:  "efe42a71223e43dee68587b0eb49ba54a45d15679a22152f42c0a9fcbe1eff11"
+    sha256 arm64_ventura: "5aa1785f4e513bc8481c4fe20075a01f4de266ce6b1c96991ebceda6f000b2d7"
+    sha256 sonoma:        "2e508cbe8717864fb0cf55ee46fec65a16e1824ad4a06f07017a769fb6685104"
+    sha256 ventura:       "36643374a214f7d74be7a5b0e502a4b50867cb26f4c5e787e964932cb9a3eadf"
+    sha256 arm64_linux:   "4887b1b08bd932768200fc53dd969aaf28d11c45b949f01951315ae2c4d7aca9"
+    sha256 x86_64_linux:  "376bfa0062c3f722980799b7e50c9f7efc51ad4ed79078b3cd4ab79c4eef5a35"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -39,13 +40,23 @@ class Gucharmap < Formula
   end
 
   resource "ucd" do
-    url "https://www.unicode.org/Public/16.0.0/ucd/UCD.zip"
-    sha256 "c86dd81f2b14a43b0cc064aa5f89aa7241386801e35c59c7984e579832634eb2"
+    url "https://www.unicode.org/Public/17.0.0/ucd/UCD.zip"
+    sha256 "2066d1909b2ea93916ce092da1c0ee4808ea3ef8407c94b4f14f5b7eb263d28e"
+
+    livecheck do
+      url "https://www.unicode.org/Public/"
+      regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    end
   end
 
   resource "unihan" do
-    url "https://www.unicode.org/Public/16.0.0/ucd/Unihan.zip", using: :nounzip
-    sha256 "b8f000df69de7828d21326a2ffea462b04bc7560022989f7cc704f10521ef3e0"
+    url "https://www.unicode.org/Public/17.0.0/ucd/Unihan.zip", using: :nounzip
+    sha256 "f7a48b2b545acfaa77b2d607ae28747404ce02baefee16396c5d2d7a8ef34b5e"
+
+    livecheck do
+      url "https://www.unicode.org/Public/"
+      regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    end
   end
 
   def install

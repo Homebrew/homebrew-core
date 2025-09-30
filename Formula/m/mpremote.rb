@@ -3,19 +3,19 @@ class Mpremote < Formula
 
   desc "Tool for interacting remotely with MicroPython devices"
   homepage "https://docs.micropython.org/en/latest/reference/mpremote.html"
-  url "https://files.pythonhosted.org/packages/a1/f4/b63592bad49d61f0e79ca58d151eb914f1a3f716e606f436352ee5a1ff94/mpremote-1.26.0.tar.gz"
-  sha256 "7f347318fb6d3bb8f89401d399a05efba39b51c74f747cebe92d3c6a9a4ee0b4"
+  url "https://files.pythonhosted.org/packages/9c/ff/e54b17cb43b1b81a4267de73079b964f4bccf7762039e7c3fb12db21294a/mpremote-1.26.1.tar.gz"
+  sha256 "61a39bf5af502e1ec56d1b28bf067766c3a0daea9d7487934cb472e378a12fe1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ef937462df64160d0b412a69a2b19f27c51fb781fc936cedc167a97691a2a168"
+    sha256 cellar: :any_skip_relocation, all: "2cdcd742ef8a31e9c56af15b9d9e2a214519297efc8a8bdb86863f5aa2e8e12f"
   end
 
   depends_on "python@3.13"
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
-    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
+    url "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz"
+    sha256 "ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
   end
 
   resource "pyserial" do
@@ -25,18 +25,6 @@ class Mpremote < Formula
 
   def install
     virtualenv_install_with_resources
-
-    # Build an `:all` bottle.
-    usr_local_files = %w[
-      platformdirs/unix.py
-      platformdirs-4.3.8.dist-info/METADATA
-    ].map { |file| libexec/Language::Python.site_packages("python3")/file }
-    inreplace usr_local_files, "/usr/local", HOMEBREW_PREFIX
-
-    opt_homebrew_files = %w[
-      platformdirs/macos.py
-    ].map { |file| libexec/Language::Python.site_packages("python3")/file }
-    inreplace opt_homebrew_files, "/opt/homebrew", HOMEBREW_PREFIX
   end
 
   test do

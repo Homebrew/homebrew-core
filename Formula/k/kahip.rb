@@ -8,6 +8,7 @@ class Kahip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "120f2ef20755a12ae79f34563dd9268b1242646c77bab917767c5f8221673fa7"
     sha256 cellar: :any,                 arm64_sequoia: "a603683f8c78a70bdb2211982cc1cf3d288b994703e6ef640cbd556d12e9f670"
     sha256 cellar: :any,                 arm64_sonoma:  "7ccc9c3257e7796e87e8c6b7c7d7ed82a62a2838e328af5bd02ffdf2966dee45"
     sha256 cellar: :any,                 arm64_ventura: "2d98c8b7c22d731f02b49513390e3fd660861b2f38549bf010790b05173c9ad7"

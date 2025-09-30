@@ -13,6 +13,7 @@ class DvdVr < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c866d88cd9c2d24675c6adb25ea1b78fc4139e15d46ce14e652e1302c99137f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ec179b825a5afc971de1205ec65943227d9c09257a16558a068bc47c024887d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "553619321e617365b7e1a3f3dbb678840ac7824eb6424b5dc484ee75b8512639"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f134891dbbb4f74aa606a2f560ae6992764387c39e8d92977828d1983f04e575"
@@ -23,10 +24,6 @@ class DvdVr < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "8374a6b1aee80538c9b31d48edb0065deb63fb3bfdcea4e62b206818cbb7f181"
     sha256 cellar: :any_skip_relocation, big_sur:        "4c1ab9eca5fcff27e5aa6185a9b908c1c4c0569ceede8ef574d8365da6f1d914"
     sha256 cellar: :any_skip_relocation, catalina:       "bd9d4471e3e4832bbfcc4ddf0fa34f32bfe0fc6efea5ec17414157cc060a141d"
-    sha256 cellar: :any_skip_relocation, mojave:         "1f815f7699e3bb885c56c3842e9d43ef58d3b338a1405f2f33b26a1b975a1061"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "e96bdfc31d58a3d94f739937c0efbbdd0b2a60a625aa8c33033e71adf8ee040c"
-    sha256 cellar: :any_skip_relocation, sierra:         "7b38c83a9bb9daded6a6f28be018076cdcdbbfb0d47102ecbdd06128bebb33ee"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "a048c7985df06e3a1d4c7145064b87bd51945f15da2494c03e7af542f07ca8b4"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "9d552a1d306c8a6f7ba249914385d89c1294e0b54b2aa5aced30e72504396b03"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "64fbe6463814cb9fa4e34863bebe256e8973abeb1241f299173ae409c00da770"
   end

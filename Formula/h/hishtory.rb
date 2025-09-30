@@ -12,6 +12,7 @@ class Hishtory < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b1c3f46d48048f390995c3b2ed2761b8f68deb81a80522b0689ae586edc5e2d0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e34db19bb53a5227bdda758dd4511b3268bba2a5edf4e97ab312d96a164f8c24"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e34db19bb53a5227bdda758dd4511b3268bba2a5edf4e97ab312d96a164f8c24"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e34db19bb53a5227bdda758dd4511b3268bba2a5edf4e97ab312d96a164f8c24"
@@ -36,9 +37,8 @@ class Hishtory < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/hishtory --version")
 
-    output = shell_output("#{bin}/hishtory init")
+    output = shell_output("#{bin}/hishtory init --offline")
     assert_match "Setting secret hishtory key", output
-
     assert_match "Enabled: true", shell_output("#{bin}/hishtory status")
   end
 end

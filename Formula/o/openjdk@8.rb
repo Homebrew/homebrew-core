@@ -1,6 +1,6 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
-  homepage "https://openjdk.java.net/"
+  homepage "https://openjdk.org/"
   url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u462-ga.tar.gz"
   version "1.8.0-462"
   BUILD_NUMBER = "b08".freeze # Please update when a new GA release is available: https://wiki.openjdk.org/display/jdk8u.

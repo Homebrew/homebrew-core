@@ -1,18 +1,18 @@
 class Arrayfire < Formula
   desc "General purpose GPU library"
   homepage "https://arrayfire.com"
-  url "https://github.com/arrayfire/arrayfire/releases/download/v3.9.0/arrayfire-full-3.9.0.tar.bz2"
-  sha256 "8356c52bf3b5243e28297f4b56822191355216f002f3e301d83c9310a4b22348"
+  url "https://github.com/arrayfire/arrayfire/releases/download/v3.10.0/arrayfire-full-3.10.0.tar.bz2"
+  sha256 "74e14b92a3e5a3ed6b79b000c7625b6223400836ec2ba724c3b356282ea741b3"
   license "BSD-3-Clause"
-  revision 4
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sequoia: "fdf1c8013720008558454d66f2390c04bb82d33416f82d69cb35632bc6dc266c"
-    sha256 cellar: :any, arm64_sonoma:  "f94b4f07a17c86b0e56ac0ee0e6bb5a75d91112b79213977685a06cd9e072b5a"
-    sha256 cellar: :any, arm64_ventura: "5005319ee0b289f49222ba08554d0e911fed8def11055f5bc0e3eac338b278ad"
-    sha256 cellar: :any, sonoma:        "17b8f29a9302e75f8ed5924930a712b6637c1a4878bd222f22dbfa5344161b09"
-    sha256 cellar: :any, ventura:       "76d0d5e3e17d25ce307003d9f7a608f6869afcc6128d82241613ea39473ac6f4"
+    sha256 cellar: :any,                 arm64_tahoe:   "6a8bc49af4a93ce043a5939fcfc8676b9772c8a13c002784bfaa72126dd946d6"
+    sha256 cellar: :any,                 arm64_sequoia: "2e235aefac2e784bbc5893ced68651bc9c404c3764511457fe1f9efc74f2f426"
+    sha256 cellar: :any,                 arm64_sonoma:  "5f68d4310507bd292fe21e7161260800bb8692d2b5e4b124f16ff2d6638584ea"
+    sha256 cellar: :any,                 arm64_ventura: "5946c6c3ef87f7144131b81e175b531acd13fd2f02c512055cce3390b3512dd2"
+    sha256 cellar: :any,                 sonoma:        "139a3ef29ed968a2d7af163b5feecb64945227cfdf27a7c3176d89836d5a03d9"
+    sha256 cellar: :any,                 ventura:       "cc3895e552be5fc3d47db7b99bf0adcefb36244ca3f87b113740a9418b4318ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff80fa18880b67aafa10228bd2e5fdc9e91132538366f6cdf969c65e46b26efa"
   end
 
   depends_on "boost" => :build
@@ -25,16 +25,19 @@ class Arrayfire < Formula
   depends_on "openblas"
   depends_on "spdlog"
 
+  uses_from_macos "llvm" => :build
+
   on_linux do
     depends_on "opencl-headers" => :build
     depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
 
-  # Backport fix for missing include for climits header
-  patch do
-    url "https://github.com/arrayfire/arrayfire/commit/cb09bfc5457489d6da434a7841b9098dded58cc0.patch?full_index=1"
-    sha256 "4b5628d1b6164e3b6747868adaa8aeccb92d87d8df2ac6baca6f01580a8b10f7"
+  fails_with :gcc do
+    cause <<~CAUSE
+      Building with GCC and CMake CXX_EXTENSIONS disabled causes OpenCL headers
+      to not expose cl_image_desc.mem_object which is needed by Boost.Compute.
+    CAUSE
   end
 
   # fmt 11 compatibility
@@ -67,6 +70,7 @@ class Arrayfire < Formula
   end
 
   test do
+    ENV.method(DevelopmentTools.default_compiler).call if OS.linux?
     cp pkgshare/"examples/helloworld/helloworld.cpp", testpath/"test.cpp"
     system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-laf", "-lafcpu", "-o", "test"
     # OpenCL does not work in CI.
@@ -123,15 +127,15 @@ index e7a2e08..5da74a9 100644
 -        if (ver.minor() == -1) show_minor = false;
 -        if (ver.patch() == -1) show_patch = false;
 -        if (show_major && !show_minor && !show_patch) {
-+        if (show_major && (ver.minor() == -1) && (ver.patch() == -1)) {
++        if (show_major && (!show_minor || ver.minor() == -1) && (!show_patch || ver.patch() == -1)) {
              return format_to(ctx.out(), "{}", ver.major());
          }
 -        if (show_major && show_minor && !show_patch) {
-+        if (show_major && (ver.minor() != -1) && (ver.patch() == -1)) {
++        if (show_major && (show_minor && ver.minor() != -1) && (!show_patch || ver.patch() == -1)) {
              return format_to(ctx.out(), "{}.{}", ver.major(), ver.minor());
          }
 -        if (show_major && show_minor && show_patch) {
-+        if (show_major && (ver.minor() != -1) && (ver.patch() != -1)) {
++        if (show_major && (show_minor && ver.minor() != -1) && (show_patch && ver.patch() != -1)) {
              return format_to(ctx.out(), "{}.{}.{}", ver.major(), ver.minor(),
                               ver.patch());
          }

@@ -13,6 +13,7 @@ class GraphTool < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "56912f0d07dd586dd3d91d4c90df9d88e72fef86d0484969f53a0cebe494e6aa"
     sha256                               arm64_sequoia: "21f0c2baf5978e40a1852e07d8b69bdbaa4181ab1d977e607fdac50e7e009ff9"
     sha256                               arm64_sonoma:  "0811854443af648bd81e9987e84ba99646360a30a85b6ebf55cb42034ee80939"
     sha256                               arm64_ventura: "ae85d17df47679df7b53fd1e8d8d9b1b5467983c84912855e61724e4ce34a37e"

@@ -13,6 +13,7 @@ class Kubent < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f8207dfcf047d8e851f69cc9d59e13b0310f9af72b7641ba7163524f46f78da7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "68db3486daaf6ba9c4a84482b1592bff93a67767d0b12b2766d09619a65e1691"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "13d2768c1c54c75eb61b9509441b74a2046fb0e296f7e4186a5123250a74d61c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "13d2768c1c54c75eb61b9509441b74a2046fb0e296f7e4186a5123250a74d61c"

@@ -7,6 +7,7 @@ class Bettercap < Formula
   head "https://github.com/bettercap/bettercap.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a5d2ccf8e44bcd750a3c1216174162ef4ceeed0dcf7573c58bc3b9a5b0d0c2ca"
     sha256 cellar: :any,                 arm64_sequoia: "4207804c76606309568c517aca44e7cfc16b17c4536890d529db11e613ff9c90"
     sha256 cellar: :any,                 arm64_sonoma:  "9f27f57bf5b09da4bfc0452598b25b6e63e25bbfa6f24c8319fb359c4c8a21c6"
     sha256 cellar: :any,                 arm64_ventura: "93b814c4cbfd843d1ae14c5bf401cad13f0cf06e3a91acb6b8d2b00967c321b5"

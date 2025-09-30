@@ -13,6 +13,7 @@ class Libvdpau < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "f9726bd90703d99de544a8ad2b2f4e043b547a82af7887ed0d220d8f011612e4"
     sha256 arm64_sequoia:  "8baf9479a1307dd3f6819d5953b200195a91d7c522f01b2b4930e9fc750b3615"
     sha256 arm64_sonoma:   "a683463e26fbc2b4d4d56865835d0aa94316c556aa56c1dc55263e307b8bc4cc"
     sha256 arm64_ventura:  "2e414f4fcb57c924669fae785354d36899e13cbb11375ad24483001ed0e0f19d"

@@ -12,6 +12,7 @@ class GitXargs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "792b290c1a85159a481d5ea219c3b3e5356d82a7431353fa0ce52918b316e971"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6bc4e8e5eb6319a5d70c81c6a87f66fa20d55890b395e5d8a829c84c17cf36a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e6bc4e8e5eb6319a5d70c81c6a87f66fa20d55890b395e5d8a829c84c17cf36a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e6bc4e8e5eb6319a5d70c81c6a87f66fa20d55890b395e5d8a829c84c17cf36a"

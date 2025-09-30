@@ -8,6 +8,7 @@ class Hstr < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "60932e5b5653859d9c2b7c74426edc047719ba50cd7b2071503636c2c0a0b40a"
     sha256 cellar: :any,                 arm64_sequoia:  "76e0d87760c6519a63d6cf0e7719b4683292572ac923e29b9f366d67deae37df"
     sha256 cellar: :any,                 arm64_sonoma:   "72781912003352405419c5a62748a8a19807b5ac77691013fb59fe54084617e7"
     sha256 cellar: :any,                 arm64_ventura:  "fc49b795a9a4182c314a299e959d3307a90e0dcd349f7a177f4990177fdbbd2d"

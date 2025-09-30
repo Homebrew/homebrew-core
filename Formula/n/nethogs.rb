@@ -6,6 +6,7 @@ class Nethogs < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02b72507de60a98acc43d6f939146777d65ed8ab2316bc66fec08f07cf2fbc24"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b63822d0cd7c0e15f8a7dc5df156f7802b23d2481007cb9fc683a14c8f9f78ab"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "06a30ab6ab73071fd13b8655199f2bc0bc650c90240af29200f0a5dc681ced17"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3ea77a752e043dcf59afb915ae001663d57b3f9bdf829efe1202b90802e90b29"

@@ -12,6 +12,7 @@ class Kubie < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cd9aa6225ef208417c4d9867ed38d81cd189d0e739da20c5305a0cf7787cedce"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c872c974d46d16a8d6a41802d894c88be5fe4f59c52ffa9a1a95373df1d7339f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4db467a89497d12da33a611257c5749458d0398c743b28f2f3809ae6bd036105"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6a1a68756304aff50f2f666b166134fa618013af6f0a6470a859c27a265d8aca"

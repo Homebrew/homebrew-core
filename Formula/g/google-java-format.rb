@@ -13,7 +13,7 @@ class GoogleJavaFormat < Formula
 
   depends_on "openjdk"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   resource "google-java-format-diff" do
     url "https://raw.githubusercontent.com/google/google-java-format/v1.28.0/scripts/google-java-format-diff.py"

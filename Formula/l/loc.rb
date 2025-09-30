@@ -9,6 +9,7 @@ class Loc < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6ade85599116f563a1624e494b7b3040cdcba3167058a0611e2c9b1172d27be3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c6ae78cec03b96c009895477324beb0d58d4cd6bcb8d351f144d9e4fb32808db"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f54147fb89ffd9decbd59b458277b6ac58cfa4c6807d33d42a5c653884f1947"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "62bf06390749dffb96ea6219f9d578dcf9b95ef774a5a6b1eaa4f8bc3dda143b"

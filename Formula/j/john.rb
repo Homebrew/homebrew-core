@@ -15,6 +15,7 @@ class John < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "de355d8210ec0ecde0806a9934c6f14600943b18ae9e98b67571e7b1f7f215f1"
     sha256 arm64_sequoia: "838f0767e0ffb76971a2a0c05c76edb7c0bcd457446ac25eb6b6ac003668197e"
     sha256 arm64_sonoma:  "01e64e35c816560c4a058c4686fa08b821dee81418b56560ab8afdb42d83a567"
     sha256 arm64_ventura: "08bdd817308d691493a5766687aef952d5f2310bed7342b0f8f9a6de10d9a73d"

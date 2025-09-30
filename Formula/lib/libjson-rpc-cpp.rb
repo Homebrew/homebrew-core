@@ -10,6 +10,7 @@ class LibjsonRpcCpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6dc9f12a9b6bf936881daefc66364df558d40e4daa5ef1327313619b91e8ebd1"
     sha256 cellar: :any,                 arm64_sequoia: "437e579e259460e182a7a265ab31eda753c85860623d95fae1585c831ed26046"
     sha256 cellar: :any,                 arm64_sonoma:  "3c31da615d72e5b0b7fa8563a2f20ba614ae2149eedbdcc5e7b1bbf2ec4cf485"
     sha256 cellar: :any,                 arm64_ventura: "a50a022cd28c1afc756e6549255a779b0cc7e657de249492cee095c7414bf462"

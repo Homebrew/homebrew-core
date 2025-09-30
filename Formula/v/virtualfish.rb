@@ -10,6 +10,7 @@ class Virtualfish < Formula
   head "https://github.com/justinmayer/virtualfish.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f2297010700966ccd60453410a6bfddc7652548b7cfed7716871db2b8ccddea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6cf1777dd0185e244f54df799d2f8c123fc94485edb9d851119a8b349b863ba"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf5cff6492eed180889df85b0bb7a7e54b0dbad81ee435d89f94170c5a5ea485"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "769c050176581f594b65834b43cb242d3433cf42fc79be0d23793deff75ea8eb"

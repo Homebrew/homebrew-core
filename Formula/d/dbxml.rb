@@ -9,6 +9,7 @@ class Dbxml < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "539f926de917e73802a9590c4cfd28df6c3a54be13814265f6d80ec1943541cf"
     sha256 cellar: :any,                 arm64_sequoia: "b0de74f456722a21e4f77551d538b11d362b0fd48124c6eaa6b70b8d561f7480"
     sha256 cellar: :any,                 arm64_sonoma:  "efe2992cccae75a67b24df080b1ed9432e17754f929f445370baa20cdfde17c6"
     sha256 cellar: :any,                 arm64_ventura: "3b54187469d0a475dcd814126f9f15c82a9b66699edc45653e112ee24164ad2d"

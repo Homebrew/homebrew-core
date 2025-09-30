@@ -12,6 +12,7 @@ class Libmagic < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "fe356bfc03bc9d5eaeee4acdd54d1c0c13edf3645c6da7ea61831ba030a283ff"
     sha256 arm64_sequoia: "72bb18819cf63d14cdc3c830d586bd93e542f5cf2cdbbc579bfcd5170017fff1"
     sha256 arm64_sonoma:  "6c1bf60aeb9742e5c8c6973cbcc6ac970fbed9e255e6bbd479bd2f77513c0b46"
     sha256 arm64_ventura: "c619199785eaf8dda4ef65c9451fa7ca0fb5bab4452d108cb3d8669d53bec5fd"

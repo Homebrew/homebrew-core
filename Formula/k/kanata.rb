@@ -7,6 +7,7 @@ class Kanata < Formula
   head "https://github.com/jtroo/kanata.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b45a0f47323e9394ea559473196ef83331a5a4a1a9a24e4b022d2f21137477f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "97999cf53908cca6912d7da27f13b4188abc387f141bd0ef97753e98b674ea60"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f7fb8e3dee7b7092d10dd60d960a2859c6d8736ea88d0a62d8ec270720e3427"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f1375a69f5eb4e5edc83a659db28be8e011ec730fc9860de5b59ce94857ce8c1"

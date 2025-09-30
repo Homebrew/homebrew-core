@@ -15,6 +15,7 @@ class Mandoc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:    "e7a649e9ac1d357ef2cbc8fc0abe828259a1ea5c5e1c904618d0cfb453b55ff6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cc7045b49fb8f8d57fae60c7ddcd9ea21ebb3abbf4f79e8e9a276273a122fd56"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e52aaa74b6654469741aa21738507e636c4b09576109ff602f78a445a4ce30dc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "086aeecdaad50178bb76546745cf350195ed758d02a495e4128c1dc210ec5b5f"

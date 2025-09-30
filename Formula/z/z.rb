@@ -15,15 +15,8 @@ class Z < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5f891b4ed62bd2badf5baf02297e69fde253b3a7906679e3241845d3e45efab0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a753b2821b5ad33c549efc1a6f857b33e6b9db2ece6ef10f03a6811c8690544f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a753b2821b5ad33c549efc1a6f857b33e6b9db2ece6ef10f03a6811c8690544f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a753b2821b5ad33c549efc1a6f857b33e6b9db2ece6ef10f03a6811c8690544f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0b418e43748f1185408f2e948df304a58d662ee0ec41489ba5b603f56e24bbb6"
-    sha256 cellar: :any_skip_relocation, ventura:        "0b418e43748f1185408f2e948df304a58d662ee0ec41489ba5b603f56e24bbb6"
-    sha256 cellar: :any_skip_relocation, monterey:       "0b418e43748f1185408f2e948df304a58d662ee0ec41489ba5b603f56e24bbb6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "927e27050cdae5bb129b1165c56f8bbd1e4a630dc7dbd4c32d7b628a3d376be9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a753b2821b5ad33c549efc1a6f857b33e6b9db2ece6ef10f03a6811c8690544f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8d048cdf7dd88dfdfe1e89e73a842fb91e743d6e0ec6c60fc99607e0c3d511b0"
   end
 
   def install

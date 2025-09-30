@@ -19,6 +19,7 @@ class Gsoap < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "72229c99d5d7dbf013a811ec2c9fe683518a1b3272eb10c76a7ad1ca4551f738"
     sha256 arm64_sequoia: "958e8c5f5456b2e239a6588f20f0556b65b34ab9eb0a71bcb14d0ab256a13cd4"
     sha256 arm64_sonoma:  "c07f6a68b10e0b23460eabc0e8218184580d51803bcce11e3ea74f0f798a89a3"
     sha256 arm64_ventura: "7442597995fd7bc974354f4b380ff2cadbed08e1310805af93d11abdcb292cc0"

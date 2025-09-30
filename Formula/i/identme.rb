@@ -6,6 +6,7 @@ class Identme < Formula
   license "0BSD"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fcc2884b11b9611ee7db60d19784821d87a0ea368454dcfb82f7207dd88b99bb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "82d1f4cb80b8e2938b98e7f2607790e755f2426ba501b0c3c3168046c87f6bfc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3aaf58663a73cae3a4d7fbadb335ed1b6edcb06650f87ed7e5e866699ab85c03"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "477637b5d904ee0681549d058fcfb5a02bc6b567acc4b46e56116aa4e8b1116a"

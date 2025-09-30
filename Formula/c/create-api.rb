@@ -11,6 +11,7 @@ class CreateApi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "669393e0173057f300559c44055716228c89dbf1dd91a0d898eef408c98ec184"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad0253916ad9e261c6f172f26a86114522ff41915bc71e8d4db3c85692b4ff55"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d13191abe5e4a79f12ddb325118fb1d5ad2abeae2269e7a3e6b404d9913584bd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8d56775719688b44d0b8425c3662879424a79a337db732cb052006cbc9db988a"

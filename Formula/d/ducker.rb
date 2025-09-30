@@ -1,18 +1,17 @@
 class Ducker < Formula
   desc "Slightly quackers Docker TUI based on k9s"
   homepage "https://github.com/robertpsoane/ducker"
-  url "https://github.com/robertpsoane/ducker/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "8a194a077ad6c278f3b5a3157fdf70285d517c5a9b76d09740cbd56ae685b1c0"
+  url "https://github.com/robertpsoane/ducker/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "d27122cbf4942fa649c804ed0b202210be5ba330087352d167d9bcb433031986"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65a084efb351dc275a0451a0d3cebf8c8b232d29e82892eb248ffadfb642b318"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "641bae2181d618051a983cf8bd891b6293b2cf7c4f8a2fcd95fde6a07e5f2375"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c38cd0f5c02d0df00fe2c6a9682af7c60a2aa49fbe2f9e5045e8b01f0cc641ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad2e836505663c917060b08cd244720459f70290a4aab0e4d2a832d2a3c0090b"
-    sha256 cellar: :any_skip_relocation, ventura:       "31970d3d323e8ff6bc49d2a6f359693958ae6461bcec3ed9a55ddf8bfc5f8a3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d68dab3a1f328cb6060709b9b82674d6c6e69a9e597f3563875916fc935c4957"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67f68fd898023c6f6b29c4404e07be98806f073862a2e005c2174d4c34175a8a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96ef688f1183b543156dcaf17bdee602dcfef5e12aab6d2ccab9819b74e8e1a6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70f7e9337edb56f88f1d79bdf759d492b9ce63c22e52d0bb074a9857259f9b56"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62101d63233506cc123865e32780984093da91e1716317d91b509590d0ef7f04"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b35543d8133f439bb62147b0ecdd4d9eb719db8b90ea7495e6e10b2cced0d597"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c064f2ba51b1b625dd1603aff6e69aed982b7c359e586cbd0cb076392b37a3be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "664f0fb4e27307c138993ddbb2f68717dd92d5e93d14d86388968cab08f797d8"
   end
 
   depends_on "rust" => :build

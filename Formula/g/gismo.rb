@@ -15,6 +15,7 @@ class Gismo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cf57d6021c5640658228e7e4730e8fc4db43487a1f41b41f82762a70a4ab85ed"
     sha256 cellar: :any,                 arm64_sequoia: "f7b5ef891bbf14959a34beb2a22c25e6356af65846721437145ee3a91fdc9f07"
     sha256 cellar: :any,                 arm64_sonoma:  "1e8087112ce74db21a93335c87785dc48cb4ea4892cc82f01a54e2a0a66b286a"
     sha256 cellar: :any,                 arm64_ventura: "639c3f0f2779a419545c3e0d1fdbc56d792fb7f38be5bbc03bbf2032b5b658f1"

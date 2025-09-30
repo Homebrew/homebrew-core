@@ -13,6 +13,7 @@ class GitWho < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0abdd4cfd053b1f82f56a5fd94c2a33edb5539aa2224293d6476d920ef691093"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2cc6b40cc76044eaa90effece5d9dcdefc2240db4fdb73ef89ad56bae49664e6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2cc6b40cc76044eaa90effece5d9dcdefc2240db4fdb73ef89ad56bae49664e6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2cc6b40cc76044eaa90effece5d9dcdefc2240db4fdb73ef89ad56bae49664e6"

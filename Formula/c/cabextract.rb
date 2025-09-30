@@ -13,6 +13,7 @@ class Cabextract < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dc0b66c1f358e20b4eac4f6c9d44c6bcc62143732eddb9bc998db15d892e37b3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8101eb79dccd718a2568420757be4c4f191ee6e11a8c8107a000f1691b081456"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "624bed1dfb0c77ecba2f8d6bd3deb022caae6d47af7d4edc314008aa001b036b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e4cd53d32db9ea97656f399dd9033eaa5ef5c8cc3226de8de09865e6c610435"

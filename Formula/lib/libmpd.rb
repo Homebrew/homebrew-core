@@ -14,6 +14,7 @@ class Libmpd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f636f9c6f31941eacaeb91c4a0dd733fd109071bd66df027cd2cb177b387523f"
     sha256 cellar: :any,                 arm64_sequoia:  "18186d5954681b7a246a5349ec9ba4a236266e8532850b8e5a6f06692981669e"
     sha256 cellar: :any,                 arm64_sonoma:   "270b80aef8af0403f00a17400e8c18bc79ccbfd30976e1e981338a93c6f2d9c6"
     sha256 cellar: :any,                 arm64_ventura:  "f248cd5ff2ab17fecdc881df0841de6201d9526b027a6708aa379c3a1d78d9ab"
@@ -24,9 +25,6 @@ class Libmpd < Formula
     sha256 cellar: :any,                 monterey:       "04542130132d6ba8bbb116d6fc16af7b7b96aaf7d7e3e76ff06a9d71c41aebdd"
     sha256 cellar: :any,                 big_sur:        "fcc637b68c3896a2eb9a99aecea990941a8f7fb6ccfcd89c16662d01d5616993"
     sha256 cellar: :any,                 catalina:       "a89b23f581da1a00a6c9cd077c854bb6b7f1c818664630cec1ed8f0b6f543a32"
-    sha256 cellar: :any,                 mojave:         "9a7f7829ec1d79442d3dade12c338b42a0f248b35aa25475b512f0b70171d8db"
-    sha256 cellar: :any,                 high_sierra:    "2d8f1fae6ecc3ab4b440531ae13a2db5bc82282a89f2670a986cc6136da16068"
-    sha256 cellar: :any,                 sierra:         "8518a3880db71a27a414e8e2ae020afec29afbb777694389cd57d983ec1904a5"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "1c113bbd470bb857807d840af2692dc933613f308b5e1a854b308da5b3a4b070"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4035c1bec6e7cdd64abca505361da64a9de52e82dcd5da6bd84f2902fbab6157"
   end

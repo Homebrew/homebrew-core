@@ -7,6 +7,7 @@ class OcamlZarith < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "23af6e559ef250564069891b91f78f06e7a7d8605d7899658ccb1ecb0884b6ac"
     sha256 cellar: :any,                 arm64_sequoia: "5a0ea1102ef6bbfb2cf31ec8ac97167dec44141f8994faaf69ed374b9bcd9241"
     sha256 cellar: :any,                 arm64_sonoma:  "d9bc12787eb89934cd84d2dde6399248922164b2a8b91176fb1cc40c3317f3e7"
     sha256 cellar: :any,                 arm64_ventura: "c8b7d5a319ce9fe9f18d430ab229bc3b14689388f6c81b880a1c5d13091d7414"

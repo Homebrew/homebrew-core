@@ -9,6 +9,7 @@ class Sox < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "efd1927beadef2b84a6a9840549240134d77eff31208e118f37463f8042874ae"
     sha256 cellar: :any,                 arm64_sequoia: "dd3179a8e7d8399ef404e8e19e199d7cb2d43bc7472cc6e5932777dd204ea20f"
     sha256 cellar: :any,                 arm64_sonoma:  "ec5c73d125f2ac73ddde98d2264a298611f2dd819a873e115178f083216064bd"
     sha256 cellar: :any,                 arm64_ventura: "719011d445046c330686ae5fef7df2561b14c9f966025263bb948b176b528552"

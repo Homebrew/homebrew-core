@@ -9,6 +9,7 @@ class Phodav < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "af1889698345e5daa448933c6efb72cf3be9002c1e85835f72809738bed13f5a"
     sha256 arm64_sequoia:  "d6beac9ae63de2d6fa449ca75e45a768f2b42fbe01739a6480867a969942f111"
     sha256 arm64_sonoma:   "e71f34ceed2c0b5ac310099aa989f2899c3d6b8a2c135aca3898e112e737437a"
     sha256 arm64_ventura:  "7f62bb9ee32a97be3e81f9fa437e60de55e25ac8b33fcc3a90862616afcbd3cc"

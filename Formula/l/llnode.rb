@@ -8,6 +8,7 @@ class Llnode < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "587328e971d8e18f42e15a58c9d1c94efe7cc2e48663d34de95e19a2921f7179"
     sha256 cellar: :any,                 arm64_sequoia:  "33bb56546706b569104a07631b10c2b57fd0c6a95ddb5cfc8fed017856e2f57a"
     sha256 cellar: :any,                 arm64_sonoma:   "7215a957ceb5664321af92bfcc1b8cc9e42ae9911a7b91ffacbd9127270b1552"
     sha256 cellar: :any,                 arm64_ventura:  "c11ee956c445277d3a77bfe5ab6b3fa9553c922aabf22731af6e2135d1c2b361"

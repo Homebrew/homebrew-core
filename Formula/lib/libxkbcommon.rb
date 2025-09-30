@@ -7,6 +7,7 @@ class Libxkbcommon < Formula
   head "https://github.com/xkbcommon/libxkbcommon.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "74daac8c286d22a6d974c491a76d1b72392db319724e03797bd76efe862d5f90"
     sha256 arm64_sequoia: "168d01c1766767fb40d0a6e002fc69e257b222acd314b94516d87274f05e5392"
     sha256 arm64_sonoma:  "a91f72579a536b89c7ca1535af9b77ce7441b95f0323e957a05df4ec17af6712"
     sha256 arm64_ventura: "e6cddacec36cad7930ddbc1893354b1f572f906b62f7320a1dc0012ac4cb5684"

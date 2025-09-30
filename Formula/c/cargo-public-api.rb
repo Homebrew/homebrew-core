@@ -7,6 +7,7 @@ class CargoPublicApi < Formula
   head "https://github.com/cargo-public-api/cargo-public-api.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9197fe1047e7f21a85f96fa143486d6a4bbb4a3e126d3bfb19ad0581fc149c7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6c7444446cd605cd2a5b9410aa9b007aeefad52eebf8a91b5786606936984792"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f1a31b8ecd2e6a8aa2ca2d861b8a471a2ba43dbeaba4b6b7ef097b9633888f4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "273416297384313a0efbe83b4fe6f6c615881e338950600d0a9be0880fcfc8a5"

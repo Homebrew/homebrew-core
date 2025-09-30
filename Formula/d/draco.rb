@@ -7,6 +7,7 @@ class Draco < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2af623d3d7f4f28c7b7c31aad72fbfad20d05cbaa503062854933036c7322ac0"
     sha256 cellar: :any,                 arm64_sequoia: "444b7b20ea990dba3261cfd1fbbb76145321b9d473c90a2801190c4a85cef41c"
     sha256 cellar: :any,                 arm64_sonoma:  "0f361d8c3b0368784f533988d4a44519ef3e82a9ab3a69b2bd98f24282446b66"
     sha256 cellar: :any,                 arm64_ventura: "89bca42ebd075b8d25de0e653a298257e29cd2436405dea7f9f4401bae8a7e95"

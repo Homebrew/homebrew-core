@@ -15,6 +15,7 @@ class Dcraw < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "06e4e4b56c7abf6a3401a398f2b0caca6851a348dc87215c53ccb1eef0b38e18"
     sha256 cellar: :any,                 arm64_sequoia:  "a083652ace0c260b03d51e3a34412dd5f9213cf146dca60f6d5d2a1ecbc8c191"
     sha256 cellar: :any,                 arm64_sonoma:   "031ab39857064c76f12dd142d9d95aab39f43b0474049c846c82fe3b024876c8"
     sha256 cellar: :any,                 arm64_ventura:  "5c293d628459ac1405a5d558d975f2e655e6a59626a4a634fd6496b094a7589c"

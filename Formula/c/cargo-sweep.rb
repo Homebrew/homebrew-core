@@ -9,6 +9,7 @@ class CargoSweep < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "66d7ba1b3bf7b1ce1944f0d48621a413d3c2a95b5863fbd5d9c527e7c78aa54c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "477189d7f3a6a53e8866b74d466a8bb7312f680b3b72c6dd83dafc610799a2fe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d93a4d29347ff53114bfa71000c0bd6f1975601572eea35a167e14c2790110a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "814b71182a6ab0d4e6b9cca7541ee64c18b5998b2434ce09dccc1a48b4e04040"

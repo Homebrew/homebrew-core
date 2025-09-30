@@ -12,6 +12,7 @@ class Phpmd < Formula
 
   # Upstream does not support Phar download anymore, see https://github.com/phpmd/phpmd/issues/971
   deprecate! date: "2024-10-18", because: :unsupported
+  disable! date: "2025-10-18", because: :unsupported
 
   depends_on "php"
 

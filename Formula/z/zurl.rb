@@ -16,6 +16,8 @@ class Zurl < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "96bd58be6e3af459d80891cd6378f2c755dd81fa23d0a1554fbab6dbcbd1b353"
+    sha256 cellar: :any,                 arm64_sequoia: "5db8ddc67b025fcf2594d09c00e5e0368f93c71babec22b6f45338474a8c0ef5"
     sha256 cellar: :any,                 arm64_sonoma:  "caac867d6cd84464d1432597b7f87521ad5d971e12aded4455068d0e227c7d6b"
     sha256 cellar: :any,                 arm64_ventura: "db24a1c2b45dacb21bc6d983c7cc243e3a4c66e405e92ea1e1b755c920adf647"
     sha256 cellar: :any,                 sonoma:        "3c269fb6fafc531fb6738e3e5b8f21085526b3278068bddd1f606342f5d14bb2"

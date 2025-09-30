@@ -11,6 +11,8 @@ class Gwyddion < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "ef615a893a935df0f54beaef5c6ba64f67077e20afe20ba494fdb383711eba08"
+    sha256 arm64_sequoia: "bf72551443104ae5d1176d135aefb67252b3b2adecd274ca4c950924103248ad"
     sha256 arm64_sonoma:  "d123e0af0f28d068466325379d28bfccc2490d4f951cec4ad09cd0c2cd7992d0"
     sha256 arm64_ventura: "738c889de97a30e82afbb7a655b8c1e00f14a774e7931e74e0a33940f81f3932"
     sha256 sonoma:        "42295b2db20740abd1ab4c497ad76c6a885054e47426b6795472dc65ca6f6eb6"

@@ -4,6 +4,7 @@ class PythonAT312 < Formula
   url "https://www.python.org/ftp/python/3.12.11/Python-3.12.11.tgz"
   sha256 "7b8d59af8216044d2313de8120bfc2cc00a9bd2e542f15795e1d616c51faf3d6"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -13,14 +14,14 @@ class PythonAT312 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "923814bee3ec72375e400bc779d1c60f4acc65411ea72128e09725aaa971c849"
-    sha256 arm64_sonoma:  "60b6047d2c7728555361c3dd0872ee59c439dbc24ad9d4c6ff915cda01002fdf"
-    sha256 arm64_ventura: "a3200aee55ee9499f8b0237c962b2db047ba7dec8c7b1517d14cc142ae52e9f2"
-    sha256 sequoia:       "5965441e1426d45e75d849b571cd0c6b0f2afee92598ae9b4ad018b83e2042a3"
-    sha256 sonoma:        "dc29b45133cfb23e9b7c21a53788130ec76a80931612564364471e200dcd7da4"
-    sha256 ventura:       "495f9eed067962bf840d479d69c0387d4d5711616f8a68e8926333e5ad514129"
-    sha256 arm64_linux:   "1c5a9deeb1b06706c9739a12c90b4b9dda9a0ee386448a3695cfa101ebfa61b2"
-    sha256 x86_64_linux:  "161a041d512aa7cfdbf3217eeb638e7514e77df2d5264285c19ee1baec16dfa8"
+    sha256 arm64_tahoe:   "1443684f05205bf2aca7b050fdea79c93fa4f52fdbf2f085c037aef09b19b0a0"
+    sha256 arm64_sequoia: "def10183b59dc780b09036cf5d29f3c67b10e763b8bb2eafd4baedc34a1b93a0"
+    sha256 arm64_sonoma:  "16a4f8b0c47ac577a41e449abcb43a0e59035488fecfa025deac9f8017d224c5"
+    sha256 tahoe:         "446a872d084b82dc83ae61fe1664375be4c7f8b4076b14fff466971081d63885"
+    sha256 sequoia:       "71abaa0da7993851e417791b9394641821e456c8fac59b89c9d53acb1112dfe6"
+    sha256 sonoma:        "fbb8cf281255632ed26196f721b9aab99dc97ffc642ac12dc52caef572127a71"
+    sha256 arm64_linux:   "75c82c8cefefa20a8a3c18b1c882ecf2b75c08fb52bc0c96df65e43de12bec71"
+    sha256 x86_64_linux:  "aa0c83c153f8aa3339b28497703906ef751cb865d6e6079239a31cbd0ab11656"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -36,7 +37,7 @@ class PythonAT312 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
@@ -58,8 +59,8 @@ class PythonAT312 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/59/de/241caa0ca606f2ec5fe0c1f4261b0465df78d786a38da693864a116c37f4/pip-25.1.1.tar.gz"
-    sha256 "3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077"
+    url "https://files.pythonhosted.org/packages/20/16/650289cd3f43d5a2fadfd98c68bd1e1e7f2550a1a5326768cddfbcedb2c5/pip-25.2.tar.gz"
+    sha256 "578283f006390f85bb6282dffb876454593d637f5d1be494b5202ce4877e71f2"
   end
 
   resource "setuptools" do

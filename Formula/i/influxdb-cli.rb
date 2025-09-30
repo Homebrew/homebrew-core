@@ -14,6 +14,7 @@ class InfluxdbCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "46886e6a377ff4bb11ef2e90ce50730c08901f0abb801e5a402183b0c79ab700"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a1f6db5dfcf2d285e33ec200fcf44c48ee87ca51c3cafda2eefd94588b4eef4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a1f6db5dfcf2d285e33ec200fcf44c48ee87ca51c3cafda2eefd94588b4eef4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8a1f6db5dfcf2d285e33ec200fcf44c48ee87ca51c3cafda2eefd94588b4eef4"

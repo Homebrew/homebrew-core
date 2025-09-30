@@ -1,9 +1,9 @@
 class Libtiff < Formula
   desc "TIFF library and utilities"
   homepage "https://libtiff.gitlab.io/libtiff/"
-  url "https://download.osgeo.org/libtiff/tiff-4.7.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/tiff-4.7.0.tar.gz"
-  sha256 "67160e3457365ab96c5b3286a0903aa6e78bdc44c4bc737d2e486bcecb6ba976"
+  url "https://download.osgeo.org/libtiff/tiff-4.7.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/tiff-4.7.1.tar.gz"
+  sha256 "f698d94f3103da8ca7438d84e0344e453fe0ba3b7486e04c5bf7a9a3fabe9b69"
   license "libtiff"
 
   livecheck do
@@ -12,14 +12,12 @@ class Libtiff < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "5f771cedcb37119c3927c32d72589a66701db16fe3ef86b2daf9b87c3142b309"
-    sha256 cellar: :any,                 arm64_sonoma:  "7400825c55ab3f7aef5c0571d59bd62ffc509a5252784c08034df07995cb9e71"
-    sha256 cellar: :any,                 arm64_ventura: "b8952fb7bfabe979c42b9742cd959e5ba33bab2f8e44c536b9f5f6346190c33a"
-    sha256 cellar: :any,                 sonoma:        "5610196cb9396c468513adc5bc7c4834a3f475ff6f3ebd98f77e3f8b2123da3e"
-    sha256 cellar: :any,                 ventura:       "93fdbce17863cff383485295a955eae308f3bfc0f6b83d311645c5830a9964ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "befd41fd96bb263a78cdead93f8eff8320f911467bc4022add19150ec0b9d876"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e873d7ab4e4159cd3ee973a2ec9cf7530fa3679abb8968832269dd206dea6859"
+    sha256 cellar: :any,                 arm64_tahoe:   "5e387e46027338151f69315d0931c014689ab019f1ce3c3bb16d4a395925bb04"
+    sha256 cellar: :any,                 arm64_sequoia: "e32b6017d70bb365933cc84df9b2db416ea6e3bcc1c57fad4903f7392b13c1a7"
+    sha256 cellar: :any,                 arm64_sonoma:  "66b69d6252e56fbaf1e1e6e67316c4911cdd24838a924ec63e32628058d332ee"
+    sha256 cellar: :any,                 sonoma:        "7291204d8680bf0bb9e484025e5d1bef48c696b9eb81a0b59476f6edb25f7f55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "82c21a78de8644c3ef816838a96fb892b91cb86cfcec1800fa120d68048f7f82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e563c83e94f568b644a41aae12c07439b1591d4cd9e6102c5062042b8ae2c9b1"
   end
 
   depends_on "jpeg-turbo"
@@ -31,6 +29,7 @@ class Libtiff < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
+      --disable-libdeflate
       --disable-webp
       --enable-zstd
       --enable-lzma

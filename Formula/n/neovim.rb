@@ -6,8 +6,8 @@ class Neovim < Formula
   head "https://github.com/neovim/neovim.git", branch: "master"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/refs/tags/v0.11.3.tar.gz"
-    sha256 "7f1ce3cc9fe6c93337e22a4bc16bee71e041218cc9177078bd288c4a435dbef0"
+    url "https://github.com/neovim/neovim/archive/refs/tags/v0.11.4.tar.gz"
+    sha256 "83cf9543bedab8bec8c11cd50ccd9a4bf1570420a914b9a28f83ad100ca6d524"
 
     # Keep resources updated according to:
     # https://github.com/neovim/neovim/blob/v#{version}/cmake.deps/CMakeLists.txt
@@ -55,13 +55,14 @@ class Neovim < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "cbd828c1c11e09c112bb018eae26474263c424c0dfd72c094f2e0b5ca6c187d6"
-    sha256 arm64_sonoma:  "71c55faddfc36df6aa443a370d60ca3a8adbceddafa8afaf82702203d9dfd121"
-    sha256 arm64_ventura: "ee4de96f49d2dd3427ae8d85778eb98dbd4b8d09c0b38b5673aa80d418fc22bf"
-    sha256 sonoma:        "4d9e24876991c1965e7f4ef7d9c79f476c2c9ee37ed0f8b1058543bd01a6fd75"
-    sha256 ventura:       "37e3d8b203907f97e9af3f620864fe2ac9e1ad75054d2b3ed9721ba0c966d7f8"
-    sha256 arm64_linux:   "d5f1ea4819bae3180e06c8f5182bf7b70ad5f10ba05d32f3280b91da4bd3d29f"
-    sha256 x86_64_linux:  "c4f073496d09437b7e7bf9cc21998bd1d22cd8f7511242e1105a73bbdcccfe0a"
+    sha256 arm64_tahoe:   "185a130c175de49954d5bad5a92d83c3319e7e4deb2169128f210d9356505ac6"
+    sha256 arm64_sequoia: "4e5ea3101fc902dab81e7335dee14eb21468d29be14e0a601bcb9058fe71e8ac"
+    sha256 arm64_sonoma:  "a1ec1f0dd3b212a5d4383cd90b48494e69396d72854ffb5a55f9168a05e1bd56"
+    sha256 arm64_ventura: "d4c18bb0fb65edc37b3518522f56219d35bbc9eb4cea6d895644ce06c3d13809"
+    sha256 sonoma:        "38eb447a06347f69667a8dbb72b844c5f11e4c770eeb9cb7c6c4d9d848b424e9"
+    sha256 ventura:       "5b3e2ec1c83e7493b8a3f327a983937b07e246aa5cc66f9b6113e07817c5a98e"
+    sha256 arm64_linux:   "023a1ed0ad292e507c61ec56a59b3be9bbc5fbc70bbf6cecd7f4cf9f1b25f939"
+    sha256 x86_64_linux:  "56ace1e455497729002c6c78155d5af571585b830a391a67bb99b686f84e6232"
   end
 
   depends_on "cmake" => :build

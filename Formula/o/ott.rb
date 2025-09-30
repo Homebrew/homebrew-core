@@ -12,6 +12,7 @@ class Ott < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f26fa61413c7091e27399e1d844a24ac94b69f00805eb6b3f6d9fcd416d90839"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d045d9324681cbb59888db4b0f47cde465b9777faa3ead91b4dafc748698a55a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e64b4f53bc4b32c5c2300ca5e6b4ddc9f336cfc10e9b40561c00433758fd9a6b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "da33fd1e6bfc151dbc8f8f1ed08e086715900c038b29537624944a36e1fb3b52"

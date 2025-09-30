@@ -1,21 +1,20 @@
 class Autocorrect < Formula
   desc "Linter and formatter to improve copywriting, correct spaces, words between CJK"
   homepage "https://huacnlee.github.io/autocorrect/"
-  url "https://github.com/huacnlee/autocorrect/archive/refs/tags/v2.14.3.tar.gz"
-  sha256 "5d16f34a5125c851f93b9179e915a2dfaec6a32b8beda3a8a92ff0746e7d7b3c"
+  url "https://github.com/huacnlee/autocorrect/archive/refs/tags/v2.15.0.tar.gz"
+  sha256 "cb9f5bfcf81cf1e0c799e87897aa33e949996a319b16048262bec2d049491666"
   license "MIT"
   head "https://github.com/huacnlee/autocorrect.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27b55cc73650889c98180c415a7c3ec37229353e9e4dc197493352fec05623ef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60b702322a7b4d1b18da4294e7afad0fea6c2a32853d051d6b68ae510db860e3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "42eac3a88a82946d86c073e37a7f8319aecaf4dd1f828a2f67231b0f93f9b2fe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "24703e3e67a57370104d86cabb2ccb91639b5482c2341870e4e7d6de6a36e45e"
-    sha256 cellar: :any_skip_relocation, ventura:       "7a8f7bc51755478c60cce9937cf2f17fa86aca94a6614361bdac862c03b1d34b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f804c837dd915735c8ec51c61a09002e9cb8217bbb589c8c8a37049a870ab80f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e585901adff8395c414405a6270e1d88f59d46a8e841282826091a8ff8d3522"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "946fa2d537749bff4a2179f3a73e1d924e8477d0fdcc6f8c2b1bf080e7ca3e9c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "018cb56bf370671a5eb9b919530988f058d045d8fabbac78be66bf21a390f1fc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0eefbf393015ea7bddb51e7b80af8afda631a82ece4251d144f7f30b2d3c4ad"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2e0cfccff53a19ddb5433392b6932f3a3ce17c590939ff740a62e85d6d4156d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b89cffa0a816b5182ecb1b4c11165cc430280b25d758540025f0b118a7dbadbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77928733439e82b8a24c00e80af5678dfe69f0595ca7111c5be815a2006e6caf"
   end
 
   depends_on "rust" => :build

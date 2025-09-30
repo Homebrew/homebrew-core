@@ -7,6 +7,7 @@ class Libplist < Formula
   head "https://github.com/libimobiledevice/libplist.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2c8a4a7e8bf9c45f9434bbc3487148f467b9a6e03f62096d90e82a2d62762b77"
     sha256 cellar: :any,                 arm64_sequoia: "bc9f54c183ce7595f0467c2d8cd8a717e41fc5faf6401e188a210f16b3e04bff"
     sha256 cellar: :any,                 arm64_sonoma:  "06036e6de87c0a8bfc917d72f2af3f63ea6eb557391035782ca8bddb5506c342"
     sha256 cellar: :any,                 arm64_ventura: "ff220e5eab9f73928cb74198a245052a195c68d42e3f02ebcf623470c461fe4d"

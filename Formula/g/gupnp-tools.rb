@@ -6,6 +6,7 @@ class GupnpTools < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
   bottle do
+    sha256 arm64_tahoe:   "e92c993b11ff4ef5192eb0238d63ba5854f303f83f9bda753266a789eb1eb552"
     sha256 arm64_sequoia: "d769ee08439b846b2a90fff8ac563aef69c0e5b9aeeb4f04c79d843b892c36b8"
     sha256 arm64_sonoma:  "065c59cdc36ec8557bdca9bc3da04847cfcd2e7e55ea4a161e6ee669601639d0"
     sha256 arm64_ventura: "323caa61cc2fcb5fb594cd8c84f6761530bfb7e48fa160ae77f491ea98d1fe5c"

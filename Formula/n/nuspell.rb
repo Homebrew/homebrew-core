@@ -7,6 +7,7 @@ class Nuspell < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4397678cc274e63c36b96748a8cf5f616734cf53addf6249a39c24b2d35e8e52"
     sha256 cellar: :any,                 arm64_sequoia: "14ba0bb0f17a8fc5967e48e18fde6cab3bb3b8b001bc9bc35faef3aa59c5ced8"
     sha256 cellar: :any,                 arm64_sonoma:  "f4bd583376d69180bec744cdcd0c8d2ab7a9bb0b4677460d6ffc7e824c59ff3f"
     sha256 cellar: :any,                 arm64_ventura: "02756d92662cd21767555be0978764212c94bf7be5a9194fa6635e49239f1de5"

@@ -6,6 +6,7 @@ class Fourstore < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:    "a88d1aa112c32edda907bc4f6d4f2ab77e8aba2b8f90c10773cfb5819395654c"
     sha256 arm64_sequoia:  "92dd5f3276bc5832ebbb1611ea44d122938a630c5030587e103bc3f8e53cbb5e"
     sha256 arm64_sonoma:   "bae32c0d87c821c1f2bc596ec4c40a3cf0f9de0c9e664e1f3a69f3cfc2b37127"
     sha256 arm64_ventura:  "905ddab5e6fd155e2feb625631c5a6361b1375733d73bd133489812622db1a3d"

@@ -4,16 +4,17 @@ class Symengine < Formula
   url "https://github.com/symengine/symengine/archive/refs/tags/v0.14.0.tar.gz"
   sha256 "11c5f64e9eec998152437f288b8429ec001168277d55f3f5f1df78e3cf129707"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b413d0e962039cc33ce647e56b64d1e14e0485e9fb03aa9bb05c2a8815f2c77c"
-    sha256 cellar: :any,                 arm64_sonoma:  "6cdebd7e58b3e36fd42c103b87205f01fa93b742dd6e9897c8395a8e4d4ab437"
-    sha256 cellar: :any,                 arm64_ventura: "d7de7b5eaf7484feb69e980f635ca61f6122d08b7781f1e3a56fa61a25629147"
-    sha256 cellar: :any,                 sonoma:        "c7029b46e1429bbb2a98812b47f4f6eb5f604b3fb6c660528b2d33ae536cd22c"
-    sha256 cellar: :any,                 ventura:       "b4245f31edad7985f00376184b29ce8a724ffa572dc6fbc631474783e6831a8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "683c421da7e1cd253c511bf8264c315a316ea55416c1b5ea2db0416337bab99c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08e4246b2c2aaf4cfc1924ffde3e4c4e4f787fdd72306d6eda1b0b922c213d39"
+    sha256 cellar: :any,                 arm64_tahoe:   "f5f3a894c1f8ebf1564f60f7bea8e02011d7cf229fe2b686d2cb468246e885aa"
+    sha256 cellar: :any,                 arm64_sequoia: "a0cf67cc7e98d0210e0ad15eb15df2379d949bd235bc106e3035886e462f3c8a"
+    sha256 cellar: :any,                 arm64_sonoma:  "08378ea3146241f35d24c636a298662accb539fbf4dfc8d87354f34121dc1564"
+    sha256 cellar: :any,                 arm64_ventura: "d21da6676835e70716720ce60994aaa9da2572239190d2f81cc1a2d7cc998902"
+    sha256 cellar: :any,                 sonoma:        "74f49611791f1f42a6a89327abe809ec350292208998da0477079f5d0e677ce0"
+    sha256 cellar: :any,                 ventura:       "bb74c79619f0b9482f97e8c413706fb0453cd07cc4133d6fe6ee2cd9a6247b32"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6af631f2626d92e9c222e48cd4ef7ac1a1896ca66b881f333a5caaecb42adabf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5b4460a315a637f02f4c68f666ed15684418ceaef2c575e56c68a268987849f"
   end
 
   depends_on "cereal" => :build

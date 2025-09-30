@@ -1,8 +1,8 @@
 class VespaCli < Formula
   desc "Command-line tool for Vespa.ai"
   homepage "https://vespa.ai"
-  url "https://github.com/vespa-engine/vespa/archive/refs/tags/v8.562.17.tar.gz"
-  sha256 "8cfddd57b9a6fb079d628974c0d6a6cc8de6edf0ba2c20d608826d74157401f8"
+  url "https://github.com/vespa-engine/vespa/archive/refs/tags/v8.586.25.tar.gz"
+  sha256 "3e3be655b52420b19d57f4d45e5dcb621bf2488c71432a2473c10ee79dc091d5"
   license "Apache-2.0"
 
   livecheck do
@@ -11,15 +11,12 @@ class VespaCli < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :bumped_by_upstream
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c73d3a643904c5dd83651ed2e1669454f5afc2ba4343e9e960b5426963947ed1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5415f55cd402667d0129fcd642c088bb3f96aaf0a8c0cdac099336a425055bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2aa2dc908c7cd219160ccc7f935a70e911fbdb1055caaf46241eaaa2996ecf78"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e2e653b1f104f0234df23840ada0fea61a956da05c51cb3b0b4191edf5dc3f5b"
-    sha256 cellar: :any_skip_relocation, ventura:       "98cac22d2bda29b82a11a48b8ca62606a5fea4df9d6e757d327dd5eb1870bce2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c189c203902d883697d650081696efbcde4b50c40e8ba0ae4e17c1275a2d925"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06f2b6b1096a663f38d6f3c6d6c320e97f62e3e33dc03591d626c3a13dc1b99e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d3b45f4084067e34f85fe32a33b2b649f3c1bd2e9ef19ec240e350dc33e9b26"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba63f85b4195d89d6dfc9db7e111d56eef436370356c31f0c826e4649ec5e11b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c5a6daffb7f7dd4cbb0808e62127e1293db16752a9066103bdc71940fdf4c749"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67cbc9561eb67b1a6538670798c4a912ddbf034bfcb71b1425065bc149553043"
   end
 
   depends_on "go" => :build

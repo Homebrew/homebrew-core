@@ -1,9 +1,9 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl-library.org"
-  url "https://github.com/openssl/openssl/releases/download/openssl-3.5.2/openssl-3.5.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/openssl-3.5.2.tar.gz"
-  sha256 "c53a47e5e441c930c3928cf7bf6fb00e5d129b630e0aa873b08258656e7345ec"
+  url "https://github.com/openssl/openssl/releases/download/openssl-3.5.3/openssl-3.5.3.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/openssl-3.5.3.tar.gz"
+  sha256 "c9489d2abcf943cdc8329a57092331c598a402938054dc3a22218aea8a8ec3bf"
   license "Apache-2.0"
 
   livecheck do
@@ -12,14 +12,14 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4066d7983ad535f0e460fc340f343f9de933073882470d5ea968b18698b2777c"
-    sha256 arm64_sonoma:  "c52ef84abb4c58734add7475eafefd91890f7b56f5d4e2271a1ad6ddc40f5ef5"
-    sha256 arm64_ventura: "13545dea2fcfac0542556f969011892b2e0001b5ef0b71a787ca4ad714567ef5"
-    sha256 sequoia:       "13d2f6fc2b05e14af0351797e8605bd8aee8888272d8205632f6c981be7e2518"
-    sha256 sonoma:        "dcbc84c30251575424915590a347d12f89088e055a76da319422f887d9e71faf"
-    sha256 ventura:       "b51da4aaa601358273a5161c8aea4b19998ac1c48224a4b067c4c3e5475f9482"
-    sha256 arm64_linux:   "d7f7244863cff02f6e0fc002d50dc7031b36186c036e7d42233ab87dff8ce018"
-    sha256 x86_64_linux:  "df175dfc2681763571f5f680110f82343336171eca4220c8db401341b39dc87d"
+    sha256 arm64_tahoe:   "3bf6dc4e1d3c80ff74b05b05172b4f0ef23c9e581c439a80da248fe7e5c5a5e6"
+    sha256 arm64_sequoia: "7a89aa4edbda1fce8af598ba690c26e7f2b040bc44f34a09caffbdd569fb587e"
+    sha256 arm64_sonoma:  "305a2917d6ca2bf6bb7eeb449467d1f49053ecf472ff24138a66dd5748885da3"
+    sha256 tahoe:         "dde3398e7d042f64c9019a6515e3f2e8a1514c2360a8e86ee14e4a933fc22b9a"
+    sha256 sequoia:       "64370bd8b1354a566cb1e15f5f866e22528b223f1a6a304d492e3fe4a3e5002e"
+    sha256 sonoma:        "25c8936764d279ec39083360614425a9b2325537923bd586db8cecb052874230"
+    sha256 arm64_linux:   "77d3db0bc3d10642f37098486efb75e018bc879af8d3f5656a776eb4dc382a1c"
+    sha256 x86_64_linux:  "a590051e422118122980bf09cabda94a2550d9f8c9857dd02f4de8870a1a3dfc"
   end
 
   depends_on "ca-certificates"

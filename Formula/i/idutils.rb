@@ -11,6 +11,7 @@ class Idutils < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:    "e60e746f4261098cdd11898d89c236538d8232579351a5ebad27194c7f3f3784"
     sha256 arm64_sequoia:  "63d48bcd08d23874fff1f37a66c022c47c10c085549405f4fa8cdb4ba8d34b28"
     sha256 arm64_sonoma:   "cfeadacc331e01cf64d880d4f9b35a54870ea30594d638b58f245f4cda394469"
     sha256 arm64_ventura:  "c410f473b777ac344a863267348be1dc14f587c28f6c3a5845cc556ce52ba843"
@@ -28,7 +29,7 @@ class Idutils < Formula
   conflicts_with "coreutils", because: "both install `gid` and `gid.1`"
 
   patch :p0 do
-    on_high_sierra :or_newer do
+    on_macos do
       url "https://raw.githubusercontent.com/macports/macports-ports/b76d1e48dac/editors/nano/files/secure_snprintf.patch"
       sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
     end

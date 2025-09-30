@@ -1,18 +1,19 @@
 class ApiLinter < Formula
   desc "Linter for APIs defined in protocol buffers"
   homepage "https://linter.aip.dev/"
-  url "https://github.com/googleapis/api-linter/archive/refs/tags/v1.70.2.tar.gz"
-  sha256 "65183397e976213c100d10ac2fef7843972af793e7b4224f53ef7fc5f342e132"
+  url "https://github.com/googleapis/api-linter/archive/refs/tags/v1.71.0.tar.gz"
+  sha256 "6010f354cc56f17a9f7750718baef40edb65255f879a821738c0d925acdba804"
   license "Apache-2.0"
   head "https://github.com/googleapis/api-linter.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8784515e005425238475f7035c1c9537c3be471dde6e326c41b559aa43eadd0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8784515e005425238475f7035c1c9537c3be471dde6e326c41b559aa43eadd0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b8784515e005425238475f7035c1c9537c3be471dde6e326c41b559aa43eadd0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fb8986b52152d6dc31e38b8f2ca2d049dd05cdef9a97e0690d5ef3514fb80379"
-    sha256 cellar: :any_skip_relocation, ventura:       "fb8986b52152d6dc31e38b8f2ca2d049dd05cdef9a97e0690d5ef3514fb80379"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c6d4d45bc1ebdb78443007a80a6b28b815817cecb6d63b5038f8dec67368ca6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9a487c080b0fd9e904c4a111b1b947c25544d2dc0530e53d9c2b6ff5ade3e4b9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12bd1b466c3175983210bd818455918ac11502b0abadca934d66be631b66b48e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12bd1b466c3175983210bd818455918ac11502b0abadca934d66be631b66b48e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "12bd1b466c3175983210bd818455918ac11502b0abadca934d66be631b66b48e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e527afef6842be4adb9872ea73752cfeffb8a305d87d57891928ea145ac7e7cf"
+    sha256 cellar: :any_skip_relocation, ventura:       "e527afef6842be4adb9872ea73752cfeffb8a305d87d57891928ea145ac7e7cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b981041250fb8851c3befaab8b0eb08bfc24407ef7a3685ca812f296e06ee914"
   end
 
   depends_on "go" => :build

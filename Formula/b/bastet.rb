@@ -9,6 +9,7 @@ class Bastet < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256               arm64_tahoe:   "bd1d97bd3983d3531e2e3bde824f690e527db5cce1d884602631a8cd387053cf"
     sha256               arm64_sequoia: "4610cfc2730928d36fc2c129de55b26257ceb5e13821142529ff948660073bf6"
     sha256               arm64_sonoma:  "246ad961cdfb6d5c55993faabe240444589c870cbc5eb2567130f53ec94bc6f0"
     sha256               arm64_ventura: "a0862ef06147f76cf326257d45eea42597330c5c45f631317b1c8c39ccd5136f"

@@ -8,6 +8,7 @@ class Ratify < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a1cda0ae27107972d8a38ab2920ea3a8aaeada5389a9025c4499bc761a5bab8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "76678d359f1e6ab18b91b1703a44b6171e3a03d200a41db6a7d3568a9727b334"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76678d359f1e6ab18b91b1703a44b6171e3a03d200a41db6a7d3568a9727b334"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "76678d359f1e6ab18b91b1703a44b6171e3a03d200a41db6a7d3568a9727b334"

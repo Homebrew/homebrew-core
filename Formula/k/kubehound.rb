@@ -1,8 +1,8 @@
 class Kubehound < Formula
   desc "Tool for building Kubernetes attack paths"
   homepage "https://kubehound.io"
-  url "https://github.com/DataDog/KubeHound/archive/refs/tags/v1.6.4.tar.gz"
-  sha256 "63cb38cc12f33842a255852a45d2c795f8b20cd7de546154af1dc6a7c9fa0441"
+  url "https://github.com/DataDog/KubeHound/archive/refs/tags/v1.6.6.tar.gz"
+  sha256 "debb8401622363a30a5e130da3b4b08f7f857bc2ecfe0d2a179ffe09ddc6a2aa"
   license "Apache-2.0"
   head "https://github.com/DataDog/KubeHound.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Kubehound < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46205128162d5b6426da41d995af1a4b7ffc80922bf7be21d88b53b051b0bfde"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4efa0e3d2f31f208b9f6362e9d5a9a45dec95f63c1cffcc627e847aad8fc428b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "83b3bc446f6498809bb4aec69bd21599647b687bfe0070531d5242da25213adc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2030af4d1926d7e5b4030e2b2e50af328ebe5a9cf9f3240aeddc19122e745513"
-    sha256 cellar: :any_skip_relocation, ventura:       "673c01749b813c570f2044863796057528a5f032780f2e29dfc5579328dd24d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ff86c1799aba7da91ebd19693f46c67286d75ec041bf6b0a650455e634ebc68"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9d7852a73d2cbb650112cfa6b0815cf08e28a6c70f9b5917fbca7eed7d446068"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0edb68186363bee23d020676c1a72771bbeb5aa677ad92a4d03250c9e58852b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8888b129fcc1ee3124650623dcea8aa3f10847da06ec932cd370a8604e617e6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9bda2172d58e2a77075289b5c1842a464532a48fe80d0297adc0c482be261e36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "769eade350344b79607a86d55d780a148f22dae16acdcee40056a1f55c4d1654"
   end
 
   depends_on "go" => [:build, :test]

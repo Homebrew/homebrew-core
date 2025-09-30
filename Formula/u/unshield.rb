@@ -7,6 +7,7 @@ class Unshield < Formula
   head "https://github.com/twogood/unshield.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ca7cacd291d91e1efd405c583a994117fff1fc42dc0fc464312f502607d8abb9"
     sha256 cellar: :any,                 arm64_sequoia: "958b5103955b4485df69ee82cfefd26fb6f41da6852b05a10b0fa75ec04ae558"
     sha256 cellar: :any,                 arm64_sonoma:  "397ed621a6603bd58822fe74cd47f32a74396f64daeba951c57ffa3fa699eb80"
     sha256 cellar: :any,                 arm64_ventura: "b7cf5fafee5891f097cba5e79298640a672df925261bb8ecf033d07ccd15df2d"

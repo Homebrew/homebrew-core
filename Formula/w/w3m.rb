@@ -27,6 +27,7 @@ class W3m < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "66b442a770ff9d6b7abb96a5994925af7a6ae07c68c4362d801e3d9b69f1fc6f"
     sha256 arm64_sequoia: "d43c6ea193e92ae3a7ff8c68d77dfa6b69b28695bf0ef4009c07a8b55049bbb0"
     sha256 arm64_sonoma:  "7ebcfdfd3b2424232e38d4bb2df40b78aa189a5f9f59d7d95479a5c9b5504962"
     sha256 arm64_ventura: "76450cc0ba39c902c03f3262950fc6fbd71ab37487d8b739d3c39294e08f269f"

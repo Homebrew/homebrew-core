@@ -7,6 +7,7 @@ class Kallisto < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b929096e1a95232a1a3834756bd83367868f0cace211b481f951d1834d717b67"
     sha256 cellar: :any,                 arm64_sequoia: "952ef6635a1537aeb609ea82597d95e6411a5cf351e5916a5507acf833f9fa0b"
     sha256 cellar: :any,                 arm64_sonoma:  "bd9eb12bce6d33e5640a0e0c0fc3f76f8f68c4732e09e22398740132d42af405"
     sha256 cellar: :any,                 arm64_ventura: "1628bb7528f5118ab8a2739b279604dd01fcb6b1175e01fc6c93246e5b6a62eb"
@@ -21,9 +22,23 @@ class Kallisto < Formula
 
   uses_from_macos "zlib"
 
+  # Fix compilation error in Bifrost
+  # https://github.com/pachterlab/kallisto/issues/488
+  patch do
+    url "https://github.com/pmelsted/bifrost/commit/d228b532a2cd5d3a598092ea4c46d1e997e50737.patch?full_index=1"
+    sha256 "75ae03575fc1ab9826504ec297d2b424fe779dae6e9edebdeaf78a8a8b4e55cd"
+    directory "ext/bifrost"
+  end
+
   def install
+    # Fix to error: unsupported option '-mno-avx2'
+    inreplace "ext/bifrost/CMakeLists.txt", "-mno-avx2", ""
+
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
     ENV.deparallelize
+
+    # Workaround to build with CMake 4
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
 
     system "cmake", "-S", ".", "-B", "build", "-DUSE_HDF5=ON", *std_cmake_args
     system "cmake", "--build", "build"

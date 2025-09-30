@@ -1,8 +1,8 @@
 class FlowCli < Formula
   desc "Command-line interface that provides utilities for building Flow applications"
   homepage "https://onflow.org"
-  url "https://github.com/onflow/flow-cli/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "56df7f29054b03f02975886f8880f0fce792f260647464be574b01f442a0adbd"
+  url "https://github.com/onflow/flow-cli/archive/refs/tags/v2.7.3.tar.gz"
+  sha256 "2c9ce237bb35c4ade0f0208892b8235fcdee3a72cded883fed69c0cad3afb5c0"
   license "Apache-2.0"
   head "https://github.com/onflow/flow-cli.git", branch: "master"
 
@@ -12,13 +12,12 @@ class FlowCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b256b38349c7b805bab114728342efd212844db0d1048f21bffdb09ed6c9bd3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a3f7348b22beb485fd0db1b1c2144e12bce47a2caee74ebdd7e4986442e8f5f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b56050f5952f794e5f50007c18fce8385b5a9b6978d552cdb5aec8f83e5b3a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bbb73ba2671a0cd0545589ed51112021200282dee2c38cb006ef974716d4297f"
-    sha256 cellar: :any_skip_relocation, ventura:       "46a73d192b4e705ef93383144e9251fb1a2b75fdab6bb22e716b29edba77d31c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2266c7dab1822723ef156f56fc18b653a270816c645e630117004c5715dd0169"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d142fef731dc3ccd3d0b5904e904e86af3c30fd689dc13acf0b63eb765ac7ee4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9adc25ac1622c557a0b192f203dbb4e3c747e4260bf8999c2b09eab6fbf5aea9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5501f5ce13a5fd02266435543be88ee0e93749991a403dc1b36488fa4e66feb4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5291b6f38f147a7f570aa30009c5fd88ce6999dd85c2ac9de73d88fcf996e8cd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f0a4b3e3a6ea8b6a30d0f6ae4cbe51896a4f503599f690d456ba7a531ca76b82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fd103cdba18af9cd07e08ca68865e389c825f73c381b6793fe40422c0e5b251"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffd23864a3989d2e4bc75ba5dface56720381d688c8d08dabc1e171d36991283"
   end
 
   depends_on "go" => :build

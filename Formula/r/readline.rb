@@ -68,9 +68,11 @@ class Readline < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "faa8450e4edc3b34ed521de8e46b48ab12d29f16ae58648178a769287da573cc"
     sha256 cellar: :any,                 arm64_sequoia: "3afa0c228ce704810d09d40ce7d1265777df8b9034a7bfc18f0f4c19094710a8"
     sha256 cellar: :any,                 arm64_sonoma:  "51a9a7122a89fd2464fc631f8c31721afc700b3b220ed8b0c23655514b04db73"
     sha256 cellar: :any,                 arm64_ventura: "5788e1e5f713d5253edfc4b9d137d384b692fee6de1c79af3dba18fa7efd31c3"
+    sha256 cellar: :any,                 tahoe:         "539e73fcb36921fdc276f60fe7b9c2eb9ea81876468e44457e3566f04650190f"
     sha256 cellar: :any,                 sequoia:       "85d56c6896ac184bf38b1b0867d050235fb0a4873c152b52a46748aa1b458ec9"
     sha256 cellar: :any,                 sonoma:        "1ca59c2fba1ae707b3c893bc237c6638c5140fd73795e76fb186b1176b5931ff"
     sha256 cellar: :any,                 ventura:       "722187db867ece23e06d6e1ce4b67190d602e2b456e113a9b3c5e3930de923d8"

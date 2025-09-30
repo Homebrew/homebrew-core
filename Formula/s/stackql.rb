@@ -11,6 +11,7 @@ class Stackql < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b472a288d50c1b90f029c578d7f2d072f5c9c5e170913b67aaa1aada5c8b478"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2afe79c273b9e7eaa69374aa0e38a2abe7fb6af36b3ebcad4987ed9603e47898"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d1ee072affd91d1f4de2bb70fecec70ebd54b4ebc826d99b8080d206a98e785"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1afbfef32b10c60463044617e10edd650538a28b6e8ab64f8bdeec18feec9e72"

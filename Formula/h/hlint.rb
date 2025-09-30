@@ -7,6 +7,7 @@ class Hlint < Formula
   head "https://github.com/ndmitchell/hlint.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "80a07ff5c8c5bdce01b738119532b94fc47e3334e5d9e355a22c27e1653a4c77"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9f3a91f79fe82520ad8dfabefbce65bb2ea46b6204b4502f273e77c25ad6506"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5145bf4f71231257b00c87da12917717656ef7ce2cc3b0ab34ab0eda2b27c34"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ca888410bda893835a17d6b612b1d81c6b27c3b7d48a8f3c235b8300bde6211c"

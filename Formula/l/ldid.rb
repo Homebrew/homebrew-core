@@ -11,6 +11,7 @@ class Ldid < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e4021a8a2c96cc660130770ab648a3190798096b150db10a01dcd06f52ff5847"
     sha256 cellar: :any,                 arm64_sequoia:  "84258b91d4f2085704b5d30a0a3cd50d32bebe0ca6e8e3adde999632afd63f4e"
     sha256 cellar: :any,                 arm64_sonoma:   "e3c26343041639b82e88edf54d3af9f579876f800b7aeada94d36c807e441c27"
     sha256 cellar: :any,                 arm64_ventura:  "552c265e507a066ffec6f2476dc9d6057a2ba41537f44f067a50c74ece9429bf"

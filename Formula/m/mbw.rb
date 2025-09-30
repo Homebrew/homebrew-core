@@ -8,6 +8,7 @@ class Mbw < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1c8c88e772ba5c6cc57af7b79c0520750566523f94d643c00f5355333d176836"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5d07a9cad29f80e14aa0abab7e8b5519729e401d876e84b59b400f5413a85a3a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43bba75f10ec5e1d0dead83ec5b9549e9c5afaec052c3b5684fe8dbebd485819"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d8c490ebba8f65126392a3a5c15ecbd7531217b5f87a7e7f4c3de239d794c34"

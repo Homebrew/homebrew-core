@@ -13,6 +13,7 @@ class Pax < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5a4bce394325826fc9d441a44954a78fa2e4548da8a3c1ce21f2683676fe5cf2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a439a16ce1f3c165a8f909e2fdcca2c0947e117365465d25517eec4f7760a060"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47f4f096d2004842fb3da233b6ce4aaebd7689b3a78e652454859f32cab7f428"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d53b2b5ce68a30ac206d6692afd3340abbb4b017922fee78db2f9fb1455c55a3"

@@ -22,6 +22,7 @@ class Hdf5AT110 < Formula
   # 1.10.11 is the last release for 1.10.x
   # https://github.com/HDFGroup/hdf5#release-schedule
   deprecate! date: "2024-07-24", because: :unsupported
+  disable! date: "2025-07-24", because: :unsupported
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

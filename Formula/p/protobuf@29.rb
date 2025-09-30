@@ -12,6 +12,7 @@ class ProtobufAT29 < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "bd19655ceb70bf16498679c0ae2b3cc6a5fe120757ba3849427cd05b382c0a8c"
     sha256 cellar: :any, arm64_sequoia: "528c423462116bb411a5da6b965361d4ad205ca0b6b53434efc4acbd3d5e87bd"
     sha256 cellar: :any, arm64_sonoma:  "92323b0b9e90b9431c6c9f3c6f6b048e2f9439da2e5bc36a1ef0a5a633fd7387"
     sha256 cellar: :any, arm64_ventura: "363d21aa93375caf21806c54c3da022f1bb880729dc87d0171a6731e4692dbdc"
@@ -31,16 +32,6 @@ class ProtobufAT29 < Formula
   depends_on "googletest" => :build
   depends_on "abseil"
   uses_from_macos "zlib"
-
-  on_linux do
-    # Avoid newer GCC which creates binary with higher GLIBCXX requiring runtime dependency
-    depends_on "gcc@12" => :build if DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
-  end
-
-  fails_with :gcc do
-    version "11"
-    cause "absl/log/internal/check_op.h error: ambiguous overload for 'operator<<'"
-  end
 
   # Backport to expose java-related symbols
   patch do

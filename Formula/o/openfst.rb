@@ -11,6 +11,7 @@ class Openfst < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5c254806ca055fb4a6133b87c7e8d4ad12316281db0b1ce6c0bbf89e7bc59554"
     sha256 cellar: :any,                 arm64_sequoia: "170b2d2c3a8567af3feec554218bc4c8d6d62b2e8f04395e3fc3b5ef8451c846"
     sha256 cellar: :any,                 arm64_sonoma:  "9d437bc3a9cb1661b816b8ab6c7ab8f4d18303cf67e23ecd4285142c03a8f537"
     sha256 cellar: :any,                 arm64_ventura: "b6111a87dbce7299b5bb7616c4886df0df105ff5f5dbad107312953017092fcc"

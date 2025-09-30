@@ -12,6 +12,7 @@ class Cweb < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "c4403e23d80b3754ac094fd08d07b191d100d6bfdf8f3f9dbbb9ee7dbebfa984"
     sha256 arm64_sequoia: "d3d86635f9c5d0fd3990b130c780fd9b2a91d21222ec7668dbb47db1aedd82d6"
     sha256 arm64_sonoma:  "8446ab44aec9607410a76075d9df7c63248a47dd1b5ff4d7eb16450dc48a1e0c"
     sha256 arm64_ventura: "54586e839f7763712907f8552ec891853658ea488122d6683927afb9c64adf97"

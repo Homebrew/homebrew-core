@@ -1,19 +1,18 @@
 class Nom < Formula
   desc "RSS reader for the terminal"
   homepage "https://github.com/guyfedwards/nom"
-  url "https://github.com/guyfedwards/nom/archive/refs/tags/v2.13.0.tar.gz"
-  sha256 "765b1a70790c7b2a2272adc9863b82b05db8a040ce5b35b5f25b0b816ed2f553"
+  url "https://github.com/guyfedwards/nom/archive/refs/tags/v2.15.0.tar.gz"
+  sha256 "6097e96980e7de401e699f2608635e6bb57c09884f2d04d9dadd57a6374f330b"
   license "GPL-3.0-only"
   head "https://github.com/guyfedwards/nom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d1b81a28d305679df6b4c6f8f9b1f5b2e016d77c25136d7087b3ea0e536c589"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5619529273fe8290353f9e2164058a7b30f2967467a2cda707306a5a963503bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "916db36547c31f1e10ae3795cac922483fbf6705fdc08f12fb8f08865c48304c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "701a66638ec7d58ab364b69835ddaf5f0efffb636da8e5bde1a1464b85ed35ab"
-    sha256 cellar: :any_skip_relocation, ventura:       "def9204bc4135bf8b12774662a25e8366f9e098fe44a43db73c2b931082d8c3f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a75418aff236e43fc9960322d4db8643ae886697929d40cda0e7798f2bedb73f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57f04d38b81d7db2d4ecc66aa6f347785246aa1ca103ebcc2c0c3191bf3decf3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f6fbfb521a301a3310d03b5ba292b8d1f50faaef1ed555e15091c3c65473756"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d519f1348258605c0a7e3226ffd28036e58df7471dbd12a04e080dfc470fe9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40b4533c7646fff181cac42ead095b77c885e6dead03c3507b09da20b989bef3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1ecac47f089863eca5af5043b3cfbd6db8f5a5234e20888ff64a0a426b3f26a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "356d2b0699f6d9f1945379492e70ca91c4a68673a972a7dcb7cfe87e285ef0a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15fdfb3b8bff3b29e80e54d1e333915e940d300da54589adff2869620572d019"
   end
 
   depends_on "go" => :build

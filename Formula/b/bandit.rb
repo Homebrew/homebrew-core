@@ -9,6 +9,7 @@ class Bandit < Formula
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f0c8fa689ab9519ab196723134eb373af479ceb2448b6c7499a5bcedeced388d"
     sha256 cellar: :any,                 arm64_sequoia: "da766767482604c1b679509f57d20b0f7f1aad48183f703fef2ea1ac997c9b78"
     sha256 cellar: :any,                 arm64_sonoma:  "14eeddd4ee10af3a2493d1f8a1f96f0938460b1edc391240892d6e1cb94e22f7"
     sha256 cellar: :any,                 arm64_ventura: "6190d144a65889df7807e77f3ac50bf14dbff1dd69fa8f14d1a06c34535ba9d5"

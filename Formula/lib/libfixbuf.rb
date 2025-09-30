@@ -13,6 +13,7 @@ class Libfixbuf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "da79bca1e1e000161c0d53323ef4adabfd1d524e93290f1d0d33aabd5327a059"
     sha256 cellar: :any,                 arm64_sequoia: "90b4eef9e86dc5a7cec530bde1b84af4c35113681eb7bc782aeb2cd4efe05704"
     sha256 cellar: :any,                 arm64_sonoma:  "83cdb4f215d36e49d9444d69b8874d378b396d36cf24e9aba4e906c6a991a291"
     sha256 cellar: :any,                 arm64_ventura: "950f1ff90c9187ef27f52ccd5ed1f192fd59e020b7a6be364dd7d0649c12ca32"

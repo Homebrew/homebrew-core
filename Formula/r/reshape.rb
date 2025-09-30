@@ -9,6 +9,7 @@ class Reshape < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4cfaa10f4b329f49d24d50df97f84fc1457d655f27b74da5849a72190e052473"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "44a403226dcc034a328658eef19b96d0abf441c2042d4777fdad22b74dc4cc41"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b29676af2bbf22ea192ead306a354827084c97c13eec0bac3f51a05117a598d3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f233439c22ef1cff6dfda8ee24fb2ddf5e4a95c30ac5381b8d7163f9ed2d0619"

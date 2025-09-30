@@ -6,6 +6,7 @@ class Libunicode < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "057f2c2d2c2525cdb842f6575b96be3d324393689bed08f863799ce99e2d8998"
     sha256 cellar: :any, arm64_sequoia: "2e51dbe77f5b2853092a3648b1d22422b011641e893a56aafaf842d93e2ac75a"
     sha256 cellar: :any, arm64_sonoma:  "4543c2694bb3bc240a45792de40e9ecef4229eeed3ff73f25dea245c0aaa7fa8"
     sha256 cellar: :any, arm64_ventura: "dcbad1aeabc61e9e4ef5b0776cc40fcaab878e67931bf0b057847e3e9e69e86c"

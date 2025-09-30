@@ -3,8 +3,8 @@ class CoreLightning < Formula
 
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v25.05/clightning-v25.05.zip"
-  sha256 "00d633a63570f6419db0dbd75b503bb04ba0f6eb469894da6fced2a8949d8007"
+  url "https://github.com/ElementsProject/lightning/releases/download/v25.09/clightning-v25.09.zip"
+  sha256 "a97f44647b83b44718094f1838c6c74e8dc90c0009f2773a37b17ff80004a67e"
   license "MIT"
   head "https://github.com/ElementsProject/lightning.git", branch: "master"
 
@@ -15,13 +15,14 @@ class CoreLightning < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "c54f40a76481c041795b57ea1475a45604b933c99ea195c65828eabf4a3d05aa"
-    sha256 arm64_sonoma:  "4c311bf0640be8433913743950c41fc7114ecb57be98244588467225b355b782"
-    sha256 arm64_ventura: "deed4f30089eb8d52e8939aee742dd59f750f64d586fa50303edc2e447154a52"
-    sha256 sonoma:        "d4307711486764ec1385a54fd4decc41668d3f1e8cc104939e77a09552b31b26"
-    sha256 ventura:       "fb51a25a6bc146fb5cba2c566cc6e2c7daa53d9f0ac992d4e15af1e745f70ace"
-    sha256 arm64_linux:   "0f433e4a7a10a6ace1abd488d9aa92b5213bee048055767b166b5f1730b4b4e7"
-    sha256 x86_64_linux:  "9724576cede91ef3c14d683da34a23862364fb70fc50a179877e941615e5dde5"
+    sha256 arm64_tahoe:   "25fd645a7b4c09a79eb8ff35b7b342edc9494f5d92ffa0cf51c39611ac502a01"
+    sha256 arm64_sequoia: "5009fb86bfe8b4f6885e5cc8b4045363fff758f9eb9c21201f2d502a2f39e4d1"
+    sha256 arm64_sonoma:  "295b9afa9429544e01f57537b554168be9cb1c997b5fac2213585fb9fa87b3ad"
+    sha256 arm64_ventura: "bbab3239de35f7d0e8c4013b496cfe43802f5aa1345d2edda939b60e8ba4190e"
+    sha256 sonoma:        "c50c88581f3876887c19e0a940edff438c729547753899bc18c3800fd20c7175"
+    sha256 ventura:       "b9f6623b48482c7fc94f43ebab0e79ea9bd4bff5f1c97d2b5f9239cc4d901695"
+    sha256 arm64_linux:   "a96ac48362a923563a1171b83d47cc77645f52493a51ce17860f91d80775e8bd"
+    sha256 x86_64_linux:  "5b00d3ec6f9bcf60c2d8b8722e5c9a3892815ac7abe60adf60a42181e2cca382"
   end
 
   depends_on "autoconf" => :build
@@ -37,7 +38,7 @@ class CoreLightning < Formula
   depends_on "libsodium"
 
   uses_from_macos "jq" => :build, since: :sequoia
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
@@ -77,6 +78,8 @@ class CoreLightning < Formula
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+
+    rm_r Dir["#{bin}/*.dSYM"]
   end
 
   test do

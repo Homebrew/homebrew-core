@@ -9,6 +9,7 @@ class Libvmaf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "b8c8aae9ca7b114d91800ad06e7b9da7f1fd06712b99fa7054ceada1b0de00bd"
     sha256 cellar: :any,                 arm64_sequoia:  "0809635a529d0e53e927cb9834225210096c625b10ab7eb1211cadf63a1016c5"
     sha256 cellar: :any,                 arm64_sonoma:   "56701b888674f0dfe0e67224cf1e851888b6ab044ac696ced31b13c8c7a61d0b"
     sha256 cellar: :any,                 arm64_ventura:  "ca7a55e4abb5861b0bdc2fbb14fe298e466f9910298e043efc2d47d17332d686"

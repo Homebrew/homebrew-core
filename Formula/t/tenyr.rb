@@ -10,6 +10,7 @@ class Tenyr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "594fd49bb4b9498796f617ff227b3524b3d7612e8c3eca557f22cfd1ec0fde0b"
     sha256 cellar: :any,                 arm64_sequoia:  "4067084c37f782e15f3b179f7dedc7a599c66b791e3c0aa013e7dbc8ae804e0f"
     sha256 cellar: :any,                 arm64_sonoma:   "8e373dabed5c34e87d91d2456d4bf011df0ed7d49a5e1eecf21d1dbca6e2501f"
     sha256 cellar: :any,                 arm64_ventura:  "655a2c3c2841cca8dc2a9a12251050701c738425dc78687f2062357ded8bf4a2"

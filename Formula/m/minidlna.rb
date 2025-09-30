@@ -9,13 +9,15 @@ class Minidlna < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d3a971dd6797fd9bc19c0473305861658dea94629092eeb4599f0820388b22b4"
-    sha256 cellar: :any,                 arm64_sonoma:  "ec3048945b8e139ac5f5c5f155716e5e78b8a752ba539661148e1aac1d9c6e46"
-    sha256 cellar: :any,                 arm64_ventura: "a0e8d265dd82a964d6e912a74e35b174eba83329466180ccc7b6fcce918c3f3b"
-    sha256 cellar: :any,                 sonoma:        "359ca672fd75a717663eac68d270f1d855002404cc82dc7fe22ab72eedc70601"
-    sha256 cellar: :any,                 ventura:       "c6e43a0397d8e87ddba11a2d75f8e656d6340af549c9e72132a327ca459dbef1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fdde2237ecdca8be2b2d35b0ad861b17a7767b12b674530e56020f768af0ce9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4b4e7f1931b7df49351bc9a5b982346ef79188ce57e7b3f977846664d1b942b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9fc0ed3ac5675b3dbfe74a361c9b43f7d82a29a65a12abc56ac1b9efd30d1258"
+    sha256 cellar: :any,                 arm64_sequoia: "f7e718095ef9388cd38793641bcc399107f037cbf6bc744705ce58a5deb9c291"
+    sha256 cellar: :any,                 arm64_sonoma:  "a848bf8fdcace687463088fbbbb1095d0259bd65de13e580f76c05673bf31cc3"
+    sha256 cellar: :any,                 arm64_ventura: "014e64f8d81857532e0a65c2aaf361d18090fe2ff791ef351ea02311ccd69410"
+    sha256 cellar: :any,                 sonoma:        "ff6b2f6bd3fcad653e0db52c02c40db6edb23d7bfbeb9647ed13c97e7607a9d1"
+    sha256 cellar: :any,                 ventura:       "a95db24b987a5f9139174ccffbb740b561dca9218a2f683b89aeff6ce5156985"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb6c7d8e54a0dda78af8f46d94643bcbd11914bf8e6b20b534d4470127e4d492"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12eec6b926c5633f8fd7565e772a4e334f2f61fa0ab9dfd3a2dfd654e594c997"
   end
 
   head do
@@ -27,7 +29,7 @@ class Minidlna < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "ffmpeg@6" # ffmpeg 7 issue: https://sourceforge.net/p/minidlna/bugs/363/
+  depends_on "ffmpeg"
   depends_on "flac"
   depends_on "gettext"
   depends_on "jpeg-turbo"
@@ -36,6 +38,13 @@ class Minidlna < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sqlite"
+
+  # Apply Fedora's patch to support newer FFmpeg. This has an open merge request:
+  # https://sourceforge.net/p/minidlna/git/merge-requests/58/
+  patch do
+    url "https://src.fedoraproject.org/rpms/minidlna/raw/5de0e84859aa974c489b999ba75c83b5697eecb9/f/0001-Add-compatibility-with-FFMPEG-7.0.patch"
+    sha256 "871833e6ae0dbf629b1ff3adc9a2e1c76f7e3ac9a07d0db29ad389847ce9fab4"
+  end
 
   # Add missing include: https://sourceforge.net/p/minidlna/bugs/351/
   patch :DATA
@@ -54,7 +63,7 @@ class Minidlna < Formula
       log_dir=#{Dir.home}/.config/minidlna
     EOS
 
-    (pkgshare/"minidlna.conf").write conf unless File.exist? pkgshare/"minidlna.conf"
+    (pkgshare/"minidlna.conf").write conf unless (pkgshare/"minidlna.conf").exist?
   end
 
   def caveats

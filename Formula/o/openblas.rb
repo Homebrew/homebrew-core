@@ -17,17 +17,20 @@ class Openblas < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "19429463a737ea1ca72573210238f7d5000731431a442679d9c00b215722fdbd"
-    sha256 cellar: :any,                 arm64_sonoma:  "81233b55f062b049f559ed43f37674648e0b7dfe06a6dc7f776251fc46144811"
-    sha256 cellar: :any,                 arm64_ventura: "4351d5aa370ac2f7cb661062b9b272fdf7ef7373d0b2dfe10f5a2c2cf9ffc95b"
-    sha256 cellar: :any,                 sonoma:        "0cc19e345f5e4b4f0b32e9dc39247a0f97adbb48c10dd9e4655d00822b1c9539"
-    sha256 cellar: :any,                 ventura:       "f6bb911cce1ea42486696f1dfc50bd22c8ec6ce6d972047a7c8ca58778c8d320"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "644c21828d8f3fdaf5d6cabdd815abf71b2bd7446a4a5d9640411fb64028d9a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47a79133b44870b5f5e23c546efb25da93edd4671ba2bd56a1aa43907054df81"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "a25af8ac88166d74dcea256b9ee9ffaad0c5ace88941a3e760d32aa3813e778c"
+    sha256 cellar: :any,                 arm64_sequoia: "f194baff998d5d4418c0a647f592f14c10f8c26cd1542f64b310ac72844a095a"
+    sha256 cellar: :any,                 arm64_sonoma:  "46471ce1e3f44f4c765bb6fad1690a9aa69fe9c948379e6f40b9c5e38652c4b9"
+    sha256 cellar: :any,                 arm64_ventura: "0b711f2254dc6c5ce89d21cba9f67d89da72b3cfe55bb840f4130dd2bab62fd6"
+    sha256 cellar: :any,                 sonoma:        "dcef53fdbfa90411375b209ac11ae5b41e6c63f9f139e155d892bb2e4616feb6"
+    sha256 cellar: :any,                 ventura:       "ebd50b45068b81d33f2269f523ade1e357a230234ef27524a37365de0b657580"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60f63379659c38cea3a544c5e85e612ce0a0d02433aeb581fce3e1264f909eef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08c0a5b778704cdfbf09b0db18a87cbfc2ba2a82241d2d999488a771cb308447"
   end
 
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
 
+  depends_on "pkgconf" => :test
   depends_on "gcc" # for gfortran
   fails_with :clang
 
@@ -61,6 +64,7 @@ class Openblas < Formula
 
     lib.install_symlink shared_library("libopenblas") => shared_library("libblas")
     lib.install_symlink shared_library("libopenblas") => shared_library("liblapack")
+    pkgshare.install "cpp_thread_test"
   end
 
   test do
@@ -85,8 +89,16 @@ class Openblas < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lopenblas",
-                   "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lopenblas", "-o", "test"
     system "./test"
+
+    cp_r pkgshare/"cpp_thread_test/.", testpath
+    ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig" if OS.mac?
+    flags = shell_output("pkgconf --cflags --libs openblas").chomp.split
+    %w[dgemm_thread_safety dgemv_thread_safety].each do |test|
+      inreplace "#{test}.cpp", '"../cblas.h"', '"cblas.h"'
+      system ENV.cxx, *ENV.cxxflags.to_s.split, "-std=c++11", "#{test}.cpp", "-o", test, *flags
+      system "./#{test}"
+    end
   end
 end

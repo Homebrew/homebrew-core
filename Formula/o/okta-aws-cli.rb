@@ -12,6 +12,7 @@ class OktaAwsCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4189c9a089c7dff88db33d591ae6248cc448b394b5f61b667cd27d25e901ee7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "391a7c50e9b1c816c5b65122d29d6aacaadd19d01520e2c134774ad0ae592648"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "391a7c50e9b1c816c5b65122d29d6aacaadd19d01520e2c134774ad0ae592648"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "391a7c50e9b1c816c5b65122d29d6aacaadd19d01520e2c134774ad0ae592648"

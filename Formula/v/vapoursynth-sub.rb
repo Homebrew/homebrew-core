@@ -4,22 +4,22 @@ class VapoursynthSub < Formula
   url "https://github.com/vapoursynth/subtext/archive/refs/tags/R5.tar.gz"
   sha256 "d1e4649c5417e671679753840ae0931cdbd353a862333129d7bd600770fd3db8"
   license "MIT"
-  revision 1
+  revision 2
   version_scheme 1
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "2a7e9a3f6ddb1982320e4319a9cea989f64f0631c077192f707ee341c88c03e7"
-    sha256 cellar: :any,                 arm64_sonoma:   "a790bb27c1854e657d72731ea03ee7afc25b1400223a8603812ef8afad7a0554"
-    sha256 cellar: :any,                 arm64_ventura:  "4eb095f03ea992f8c3fdb1140044a1146ff1cdbe8c9ff0b5805336fa4e4a94e9"
-    sha256 cellar: :any,                 arm64_monterey: "a20a39d297e2fbee9881147990abcd0678e54e0aafa880126404fc67e5118bfe"
-    sha256 cellar: :any,                 sonoma:         "395c38b3e3b818d6a80c0ea68b9045a13c9eddef5506176cb3586ce5d4859ffd"
-    sha256 cellar: :any,                 ventura:        "ce5253289d282a21485141cf0e0fdf807121e83f340265e02e9e3631f18f679c"
-    sha256 cellar: :any,                 monterey:       "a7445fbbfc200cc578a4d00ab7333989353fe0f2ccea4ed91f963ce97764828a"
-    sha256                               arm64_linux:    "5bf6134027bc5e0e8d33a20e39c3145b761fae00bdd2829217bedd63e8c7388e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ebc9c1460d973e9f99019e07866d5422349101796a7a4267c83bc945bffceec"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "66be173efb94e72979fb21fd34617d7dbfe31fc1a59a91fd327264303753c0d7"
+    sha256 cellar: :any, arm64_sequoia: "4c5a5ece07feae55fe604f485bf45c3005565a2479ce6cb318f0732bddd529ff"
+    sha256 cellar: :any, arm64_sonoma:  "73845ff92fa1677f86fbbccf84d5e2cd461078f650fe1372edefa4f9e7538b41"
+    sha256 cellar: :any, arm64_ventura: "8d5b3e8589adfc64e774b1b9f717406c56b552aea8f4cdd8ac97750411492e91"
+    sha256 cellar: :any, sonoma:        "c4fa3e6025b1835664760fa97c5971cf31179cddae818de5d18e03655e04bcfc"
+    sha256 cellar: :any, ventura:       "047cfdebb5cf5bee06d1238db056ab7a70896b040bb25c7ffffe0d94f025504a"
+    sha256               arm64_linux:   "2bbe3501f1c999b11558063e691155ead7aaa80b6e68ee9f69e0ec992b3835e4"
+    sha256               x86_64_linux:  "20aa5b0a19e74a404e14a24328ff7de1e07101682c44063d57677d50d7b3007e"
   end
 
   depends_on "meson" => :build
@@ -28,6 +28,13 @@ class VapoursynthSub < Formula
   depends_on "ffmpeg"
   depends_on "libass"
   depends_on "vapoursynth"
+
+  # Apply open PR to support FFmpeg 8
+  # PR ref: https://github.com/vapoursynth/subtext/pull/17
+  patch do
+    url "https://github.com/vapoursynth/subtext/commit/09c9e2bb87a635cdc5377c70983f8ceb7fae5841.patch?full_index=1"
+    sha256 "362498e7e97d5039dcf6bed4b146e6f3995dda321ceb4c78545e44dbe5062255"
+  end
 
   def install
     # Upstream build system wants to install directly into vapoursynth's libdir and does not respect

@@ -15,6 +15,7 @@ class Rye < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a36d38e6a1aadb4256e49e51c210fd551bcfbb42654c40f0968441f6c588934f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f26f53e090a3f1c42b880b7df2593f597e4294abe311fd1cd0ca1173cc49e5b5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e502b9c99df1d69e7caef8e63e23aed06816b90557fa487d18f6610901b13944"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c6b74baa377f0ba45f330e370166b5666e1420ec0d6c753b7a375c4fc2d8ef40"

@@ -7,9 +7,9 @@ class GccAT11 < Formula
   sha256 "a6e21868ead545cf87f0c01f84276e4b5281d672098591c1c896241f09363478"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
+  # https://gcc.gnu.org/gcc-11/
   livecheck do
-    url :stable
-    regex(%r{href=["']?gcc[._-]v?(11(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+    skip "No longer developed or maintained"
   end
 
   no_autobump! because: :requires_manual_review
@@ -41,9 +41,6 @@ class GccAT11 < Formula
   on_linux do
     depends_on "binutils"
   end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-11-branch

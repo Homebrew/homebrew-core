@@ -12,6 +12,7 @@ class OryHydra < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "defca9a0378e91c56df7beffc0195a6c900e93febdc3f3a2f83d581d4eb9033f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c0a3f85167b48e6ea4b107c737e7e90fdbd4cfafe3a7d8b4be67facdb5af4c3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07b89367b51ed83fa91e6d1de162a7f1b0d16c596b47f6b52006e9054b81ee9a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b442320d9096b40cd35481016f883df160319e6b6060cf4ef6ec76820e957ea9"

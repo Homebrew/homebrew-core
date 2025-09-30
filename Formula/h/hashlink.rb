@@ -18,6 +18,7 @@ class Hashlink < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2207e6366046061911dea71457baa29a2b6fa39b515b49963e07a27b2be49b42"
     sha256 cellar: :any,                 arm64_sequoia: "88ce0382363f5995731d0fc498aa87d0e3a63e5e1df9dcb850f9aae11f47ce4f"
     sha256 cellar: :any,                 arm64_sonoma:  "74702f549d40fa1f1ca50bab1bf403f99b2ed87e2ff6ae9db26ee6ac417b4668"
     sha256 cellar: :any,                 arm64_ventura: "97f8de5f331d21b2d857282e6b3bed1d8b47fd02c3e77aedb789b9711088aee9"

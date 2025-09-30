@@ -4,26 +4,31 @@ class Adaptivecpp < Formula
   url "https://github.com/AdaptiveCpp/AdaptiveCpp/archive/refs/tags/v25.02.0.tar.gz"
   sha256 "8cc8a3be7bb38f88d7fd51597e0ec924b124d4233f64da62a31b9945b55612ca"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/AdaptiveCpp/AdaptiveCpp.git", branch: "develop"
 
   bottle do
-    sha256 arm64_sequoia: "fa1c355b2af0934de4aae2fdb882f7befae852e5523ed4b3f4270d69bfd46edf"
-    sha256 arm64_sonoma:  "c01a61e3a4629d1c1c52ba7d9f5f0618f6b7f6a246d25da96c4e0ed481f0b6bc"
-    sha256 arm64_ventura: "99b96eda0511b4d0cfabc9580e41231ba4e6ab7ff8c999d1a806666272b277c8"
-    sha256 sonoma:        "0f36be03113ad37c5c5dd608c4eaf31c4e81140b55266b7576315f1bf2fc8e0c"
-    sha256 ventura:       "55be476775f893b04c942a69b19e049e7ae08db67069f7a30197b2e56d0df3f6"
-    sha256 arm64_linux:   "960d8324f3d0d1c041e22f8a5a49f4267b0869ba55a6e2aae6352cbf597cbcb3"
-    sha256 x86_64_linux:  "83441ea7d08eca12a414c7b27717d047140a482497e9f74f8d40a69da6745513"
+    sha256 arm64_tahoe:   "5093a256125287672ee92a04e04ce4379d85b5ce7d8f708c42470efe2f45bda2"
+    sha256 arm64_sequoia: "56365cb55d86a7b454113c72cef0b56f69e98fe74b608dc73487c8c7c038e063"
+    sha256 arm64_sonoma:  "29339f025de0d565885c1d0bafc5df2a329e300d605b8e4d129b073308704890"
+    sha256 arm64_ventura: "3fceb8a530c8bae51ed5c8d4fd86aa24ed44ced5b5989d8aecc35c15a13fcec6"
+    sha256 sonoma:        "6df6cf68e6f7c6f76e86789fc2136cc59a9547ad8995a6f087b5d11be7fbc38c"
+    sha256 ventura:       "50c5d104a5dca25f27873539b4406bc89e2a9c07af9883ca42ad9ded325247e1"
+    sha256 arm64_linux:   "8624bd32feec638f2ed6a1e03722eab04cb79d61c6b0612bd3d4f8d66cf47f8a"
+    sha256 x86_64_linux:  "26ab108dfc914eec16af31e9cdf6164da3f7d1cfa29b03a5d97566aad0646f9d"
   end
 
   depends_on "cmake" => :build
   depends_on "boost" # needed to use collective_execution_engine.hpp
 
-  uses_from_macos "llvm"
   uses_from_macos "python"
 
   on_macos do
     depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "llvm@20"
   end
 
   def install

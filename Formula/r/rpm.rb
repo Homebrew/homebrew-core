@@ -29,6 +29,7 @@ class Rpm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "29b9c06c2a817dd71da9e860ff0beb2adf411f8c1b2c842aa7256cecf3d19f96"
     sha256 arm64_sequoia: "b68a3e9add758b36a2547372709f655d29948680c2403d8819a46445a9211a50"
     sha256 arm64_sonoma:  "7319baf421ef56e8cdf5e937f0624a5ff14521d0d045d27446611faede12a0f8"
     sha256 arm64_ventura: "5070355f11041aedf2f1559a4b04af7e87c596576e80c54db3e2674b6d40bd69"

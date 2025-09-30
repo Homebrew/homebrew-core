@@ -3,19 +3,20 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/1e/72/a340c4818729c16bd5fb554bbd8541ccdd2fe54090f31d29b36d2a2dcb6a/pipgrip-0.10.15.tar.gz"
-  sha256 "ad7b6b280f757799fc42fcd44190261e0ad71c026bd607021cbd8f95410acc9b"
+  url "https://files.pythonhosted.org/packages/10/b5/fbca40a14be2772f436a0fad2851db906ca1642d46664757267a7fca9503/pipgrip-0.11.0.tar.gz"
+  sha256 "5bde0d03fa7bf33c3f2e37bbc636071547224fb1aa21f246309cd007e8cec2e0"
   license "BSD-3-Clause"
   head "https://github.com/ddelange/pipgrip.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16cf6767fecc4a1ff29bc8c2420e7d758c2ec2729f5855ec219cbe225e57e096"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16cf6767fecc4a1ff29bc8c2420e7d758c2ec2729f5855ec219cbe225e57e096"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "16cf6767fecc4a1ff29bc8c2420e7d758c2ec2729f5855ec219cbe225e57e096"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8812dc956732e605508873e8031aa1649307889dce64024504ef6a9cf1c83749"
-    sha256 cellar: :any_skip_relocation, ventura:       "8812dc956732e605508873e8031aa1649307889dce64024504ef6a9cf1c83749"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1ca7091e7f0ab3ec30f77410d59e2e3a0474ccb7b2a2122b88b1a0277002d7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1ca7091e7f0ab3ec30f77410d59e2e3a0474ccb7b2a2122b88b1a0277002d7d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e0956ab51da11b1fca04b9415ea25f052933e5cb52b1cf491ad22e1ad43ef795"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0956ab51da11b1fca04b9415ea25f052933e5cb52b1cf491ad22e1ad43ef795"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0956ab51da11b1fca04b9415ea25f052933e5cb52b1cf491ad22e1ad43ef795"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e0956ab51da11b1fca04b9415ea25f052933e5cb52b1cf491ad22e1ad43ef795"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0f71c0da21c9b1542d39a3b374018b938641957f8bd644c23af87562ee03e698"
+    sha256 cellar: :any_skip_relocation, ventura:       "0f71c0da21c9b1542d39a3b374018b938641957f8bd644c23af87562ee03e698"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f71c0da21c9b1542d39a3b374018b938641957f8bd644c23af87562ee03e698"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f71c0da21c9b1542d39a3b374018b938641957f8bd644c23af87562ee03e698"
   end
 
   depends_on "python@3.13"

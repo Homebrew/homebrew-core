@@ -7,6 +7,7 @@ class Nelm < Formula
   head "https://github.com/werf/nelm.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52dd8c2a33f050278f8eae964183bd534025c03869774eb823161c66e2c2cf7b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "303b91fcc20ee0f189e46cb2c6f56ea719d75b4f112e4c526ad85f8bde1157a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a29ff934db268e602045ffaf8b265dca00aba6c7173fe5918f69cb3f6c07dd3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "941658cf7949b3dd0e045bc0cc7bde4b5b18a1327ee5f69990eea891701a5040"

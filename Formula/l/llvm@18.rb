@@ -14,6 +14,7 @@ class LlvmAT18 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "80b130424c17ca6e73e41288327ee94315c36ea4257d250e873cd26f61d13d15"
     sha256 cellar: :any,                 arm64_sequoia: "c7bb3e7186411468c2b7af59fb5abd5108805078280f8144f8cf53b9c0b93cbf"
     sha256 cellar: :any,                 arm64_sonoma:  "c9daaee40a1b1c85a35af2a64c3577257740554df1d8bbf629103a9994b288b4"
     sha256 cellar: :any,                 arm64_ventura: "b4cb7eba8d8acc3602e08c10a79ac8b584bfa7cde3f7dad3e8ecd618245de840"
@@ -35,7 +36,7 @@ class LlvmAT18 < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -116,10 +117,8 @@ class LlvmAT18 < Formula
 
     if OS.mac?
       macos_sdk = MacOS.sdk_path_if_needed
-      if MacOS.version >= :catalina
-        args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
-        args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
-      end
+      args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
       libcxx_install_libdir = lib/"c++"
       libcxx_rpaths = [loader_path, rpath(source: libcxx_install_libdir)]

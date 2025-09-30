@@ -38,7 +38,7 @@ class LlvmAT15 < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -123,10 +123,8 @@ class LlvmAT15 < Formula
 
     if OS.mac?
       macos_sdk = MacOS.sdk_path_if_needed
-      if MacOS.version >= :catalina
-        args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
-        args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
-      end
+      args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"

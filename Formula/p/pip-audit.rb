@@ -10,6 +10,7 @@ class PipAudit < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c5f7ca049cc47db003e05805a3f35e30b2c0d719073f704dbd663e0b8ca377f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e34f921d9921943a4a123987c874df5c89d07ba0a5d4c60065251644a3fe9868"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5981e7986ddafa011aece4428eb735d6d6ea162765fe6d3597a2d5a118c87e64"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "95ad2d03de26f4252cc219a6a351b7a31883bbed4c6d6a74ad770ca63de52852"

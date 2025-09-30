@@ -24,6 +24,7 @@ class Httperf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "71e96d3ce855016759a6c5004a232db5f8d63883bc1760356566a0b8484d6a4d"
     sha256 cellar: :any,                 arm64_sequoia:  "777ac05c7372517913a1dc06a7cfa1499480ed89708baf56d57749bfaf9b3375"
     sha256 cellar: :any,                 arm64_sonoma:   "4f3dbaee84b9ecec246b11f1da959850d5ec283d28dd0ec11e40c7d93975734e"
     sha256 cellar: :any,                 arm64_ventura:  "cf626f3e9d749e395728ce1ca02b1441be6321989841a0b1135baef10455b739"

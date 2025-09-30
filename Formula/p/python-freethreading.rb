@@ -4,20 +4,21 @@ class PythonFreethreading < Formula
   url "https://www.python.org/ftp/python/3.13.7/Python-3.13.7.tgz"
   sha256 "6c9d80839cfa20024f34d9a6dd31ae2a9cd97ff5e980e969209746037a5153b2"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     formula "python"
   end
 
   bottle do
-    sha256 arm64_sequoia: "b0aa53df2384bb27e37687fffaa335f8ef9c1670d5ba2ccda3bdf9ad98b583b1"
-    sha256 arm64_sonoma:  "d17fe9d926c42bd725fc7191c03653f340143203584df0da205a27b4bdc48678"
-    sha256 arm64_ventura: "a53071eabfe1badb1472255f81c5bfef576c7fd0d5cb531d4accedb281a67a47"
-    sha256 sequoia:       "2b112bfcf41fa337b9be2a91b0b925e21e90ec5596981f0e86c6a687ac15912b"
-    sha256 sonoma:        "842f0145fa539edc289bc4c3b92300c7505457266fabafc0ecb06c749326b2d3"
-    sha256 ventura:       "4cb8071a25ad33dfc7d9242707882ac08cd42757f0c2228278244098bfd7aac4"
-    sha256 arm64_linux:   "17278f7d2f19f1a6273c0eeac10f59cc9453e4c6be78e2a462dc4846a614e6ac"
-    sha256 x86_64_linux:  "a6c4975bfebf9def53e4d23e1293e5e2d4a69ba424b2dd111b81ce51ed79a961"
+    sha256 arm64_tahoe:   "816ede3264d1a60e258aaf153d080b0f82cd4546bf4ff4ba804858e5c9869b26"
+    sha256 arm64_sequoia: "fddf7ca3e2cb381aa105e0431eca333da22e7e0ef166d20ba6fbb7ed2249be5c"
+    sha256 arm64_sonoma:  "2f337cdfb3b552b399fd03875e4ec9a2c41266dafdfcc6fc5eaf5c05e82ffe74"
+    sha256 tahoe:         "a3901af7892fb656216d585f60761310d83999a210c1ce34808207166f262b14"
+    sha256 sequoia:       "f9c30f434a95e97ca6c54d9313475734342617006ff9d7a215ed907f44e0922a"
+    sha256 sonoma:        "a907773e12007f807e8f32396f6e7897951e59747cd65fc45dd7dd0743587ce2"
+    sha256 arm64_linux:   "0e790fe15566f2c2957ebabea858e509a26ff6a04639efa5661c385c01a52ff3"
+    sha256 x86_64_linux:  "7726c5bdd44d5f5991f9a87e5b8f73e01cb3768fcf696aff29bfd01f1dba48c9"
   end
 
   depends_on "pkgconf" => :build
@@ -31,7 +32,7 @@ class PythonFreethreading < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat", since: :sequoia
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
@@ -53,13 +54,13 @@ class PythonFreethreading < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/59/de/241caa0ca606f2ec5fe0c1f4261b0465df78d786a38da693864a116c37f4/pip-25.1.1.tar.gz"
-    sha256 "3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077"
+    url "https://files.pythonhosted.org/packages/20/16/650289cd3f43d5a2fadfd98c68bd1e1e7f2550a1a5326768cddfbcedb2c5/pip-25.2.tar.gz"
+    sha256 "578283f006390f85bb6282dffb876454593d637f5d1be494b5202ce4877e71f2"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "wheel" do

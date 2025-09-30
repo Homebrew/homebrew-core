@@ -1,18 +1,19 @@
 class Polaris < Formula
   desc "Validation of best practices in your Kubernetes clusters"
   homepage "https://www.fairwinds.com/polaris"
-  url "https://github.com/FairwindsOps/polaris/archive/refs/tags/v10.1.0.tar.gz"
-  sha256 "976a9c09667b0ee756ae8d1727ea9b582e24c64bd91093413be91466ba54782c"
+  url "https://github.com/FairwindsOps/polaris/archive/refs/tags/10.1.1.tar.gz"
+  sha256 "bc53d4ffc7af26e2562b60593019392d20eb791c0557ab889a0e5e949e9b9561"
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/polaris.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d739a9cb71e2a332b17096291c50126b86fe9059d932c07d1c43a467e61d200d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8dba6b563cda7dddd0a7c7cc20faabdd9261947672f98fad888ab76825808148"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f29c9407b730c197d91c7b5e526a25dab543843440833f73d8e39346cf30256"
-    sha256 cellar: :any_skip_relocation, sonoma:        "be9e4240a633b283476df4faf2911e99391f885b826cb1498cb3a752feb9cde9"
-    sha256 cellar: :any_skip_relocation, ventura:       "163b97b47cb2f5c5961f11635c32b50af754a70accc896b7f679a753ea6176a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7689f0bd2ab52f2ea336159b484bca7fbc21ce757f77e9b09364d1b547879e9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "19031549ed861c09df5a734949e93a2f318fa67ce6ce6e98f1997e856440c897"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6129839c301d13e780c88c20ea79085acde63908747aae5e46d4a7659e6fad27"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66fabebfa7ed67b9e254206576dfd5299c3f1d68887a339ed8fdbb964277614a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9358381eafd550f2d3f29868511f18a5231d70b165bb8c1ea5f388b3b8004df6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "00f99f2b9212b04c51f9d29d26c63207384cdd3c7be2486051d01190041d479c"
+    sha256 cellar: :any_skip_relocation, ventura:       "b5ca614681dcff2e7ef60cc199f31492d842334dca5889f6774a6912b0a3bf5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a240ef4b373288ec3c6d20561acd04e3a3c7aa6d64027f0850fa323535b03b1e"
   end
 
   depends_on "go" => :build

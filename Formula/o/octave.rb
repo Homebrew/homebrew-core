@@ -14,6 +14,8 @@ class Octave < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "b260a14d07e4ba57887c0022a355ecafcfb29c136c8f7fdfecce72e6a67193ee"
+    sha256 arm64_sequoia: "0a1a72242e74867f7d24cce9f678a02d545d04a14a98abb86f0db4de46d22e56"
     sha256 arm64_sonoma:  "81a6660582b444e9101d6dc666df16130d33ea850bdcb1b68fb6f91d5c96e7ee"
     sha256 arm64_ventura: "a6bbb865bffb7dc645519f38c5f8b1a619b43de05221007e1ebc44d2dd991cda"
     sha256 sonoma:        "27e44b32d80e4f1c6816655b3675df6d1530b1e3bc8e77526bd0c4cb3901a7d7"
@@ -78,9 +80,6 @@ class Octave < Formula
     depends_on "mesa"
     depends_on "mesa-glu"
   end
-
-  # Dependencies use Fortran, leading to spurious messages about GCC
-  cxxstdlib_check :skip
 
   def install
     system "./bootstrap" if build.head?

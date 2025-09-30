@@ -6,6 +6,7 @@ class Tree < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ef884002e8601fb801ed14e025d3138a48b74b8a4fa735230a849d4ce0d0fa8c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ccfac896234e1c63841b421873387c407f375af7e6db54abea549d24e3c69589"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a290f08288dc441d0842aeb0fc5d27e2ebb890ad0ef03680c08fddf4b6281252"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a4eded180a935460b5b2d0cc50504197e29d4b9cbd04d20b800860c73e81d930"

@@ -1,6 +1,6 @@
 class Tdlib < Formula
   desc "Cross-platform library for building Telegram clients"
-  homepage "https://core.telegram.org/tdlib"
+  homepage "https://github.com/tdlib/td"
   url "https://github.com/tdlib/td/archive/refs/tags/v1.8.0.tar.gz"
   sha256 "30d560205fe82fb811cd57a8fcbc7ac853a5b6195e9cb9e6ff142f5e2d8be217"
   license "BSL-1.0"
@@ -10,6 +10,7 @@ class Tdlib < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "b2c7b6d981f8553c9ea1e6c15e03a922085be2a184463d0e9b74c103a2ce0ecc"
     sha256 cellar: :any,                 arm64_sequoia:  "4fcaff4924fb49375c92b662b6ee8a5271594413b2b2e118a37daf71bbe4b829"
     sha256 cellar: :any,                 arm64_sonoma:   "ee744b1888d6f8e979263e56cf9c1360d6338941f238fc97394762333b13a0fd"
     sha256 cellar: :any,                 arm64_ventura:  "453ae4e6474f7483de288a9f9401e50384dfc4e094fe34f4f6927d0868f1c53c"
@@ -31,7 +32,9 @@ class Tdlib < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -8,6 +8,7 @@ class Bitwise < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9f6712da2de2e93861c008540f524f5b60be33054db0acb064d82a26322c361d"
     sha256 cellar: :any,                 arm64_sequoia:  "d7659a60e6cad87bc0dd72921475005c50340e66d7a6ba822a5769a67df1b91d"
     sha256 cellar: :any,                 arm64_sonoma:   "923c4828ff104f940038b9d6969759b08d90a3d2c89cb1c0e31b913a2d38769e"
     sha256 cellar: :any,                 arm64_ventura:  "85b482536f160a726ccf996c7653763a19c43b5b4926c8da4af4bb0b01ff63ca"

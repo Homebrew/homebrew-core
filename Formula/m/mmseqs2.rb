@@ -8,6 +8,7 @@ class Mmseqs2 < Formula
   head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7b06159dad576a5e58ea3432b635167d4944540afe004fcb3f115b18a8850e30"
     sha256 cellar: :any,                 arm64_sequoia: "2559af59e1218ea74307ceec6566773a99644344cf79f2694feb3087b47d7c52"
     sha256 cellar: :any,                 arm64_sonoma:  "51c387d84616d349170b24f6d19a8013da1a38b26ce1470e288858ddfaaffee9"
     sha256 cellar: :any,                 arm64_ventura: "3588b255d84d1990d827384f1d1f0580e289a07df361f2ebb3cbfc8f11ee00ae"

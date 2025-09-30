@@ -19,6 +19,7 @@ class Libgusb < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:   "4bd461c38a8b8c2479aa484e5b92e330c486bf60c9219b608383ffce1c2387f5"
     sha256 arm64_sequoia: "b5315217b63018e0935afaa911b71f26fb0dbd990a9496c97adb7a9a4837b1a0"
     sha256 arm64_sonoma:  "00eb752982e5b27777af8dfa4d83eb2396acf9d4612c89fd8a8c56e6e00d8ae5"
     sha256 arm64_ventura: "9753de67392b95353dd90f9e745d4343bb79fcec324884048fcf283e7034939c"

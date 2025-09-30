@@ -1,21 +1,20 @@
 class Toml2json < Formula
   desc "Convert TOML to JSON"
   homepage "https://github.com/woodruffw/toml2json"
-  url "https://github.com/woodruffw/toml2json/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "d32aceb8387553a25bec45747cdb45ce6a079935a03eb13d3477f68cc1fecaaa"
+  url "https://github.com/woodruffw/toml2json/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "7cca2cf9339458c603729a3985211d164d07eeb1d40af4a59116aa21e25ef3ed"
   license "MIT"
   head "https://github.com/woodruffw/toml2json.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c236bae5e89882b86de4a4432cd45c265e52b120cfb92f5df4668a7d5d5ae28e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e916b159e93d256b232b7e05b9c70fd8efed7fcf90ba0e54f8fa1d47660fdc96"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c41859623992135a393b49977c66b3defdcaf597c025ebcbb2e5ce2a1a59b220"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0b63f1c3d4f53869cd7178d1150d47e24af6c4f2075e0a128a2ee180e2696d38"
-    sha256 cellar: :any_skip_relocation, ventura:       "263ada74ecbaadf923978f9018950a6d361fe16d16f08033dcdea6b86bd6718c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1bad30571325d81e794e04241c1536a4cfc9f645e5b32a65752e379df35c5cf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ef85b1667b92098289aa2bc8a6c2747188350d052a699b780909aeeae6455db"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ca4a4532d8edb249db5a39b5011ef93dfb68369041cb6e2826d28f98315be89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32a4e008f4a0ad455cc5ce9f9de148d39914e2a7654dc97ffc1427ea9da17b62"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "659b9de6ec9dff88938220da1ba5476ec701adece0276324b0b9cd119c9d6c38"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9e6fc12c96c7bf64544e90e786b40746905c826043b26904297d19132ec5fa46"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1af6af912659008f5912e892f1ec4a60038bfb4e9bacb8f3afd874a2898c04cd"
+    sha256 cellar: :any_skip_relocation, ventura:       "34e24d0cb671969f44b76d96176f43618abee19fbb13375d24aa1c799c69225b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7edd47db03b8ddeef9bce364a8209b559751973ef2d69d24aa73bb508523860"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c3aa6df5475a72cad6908928e791de675289616259221645924914c8d380c04"
   end
 
   depends_on "rust" => :build

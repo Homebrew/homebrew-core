@@ -10,6 +10,7 @@ class CartridgeCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "13ac19b7e55935af401fefa00a9fbc09839e7f39074eb1a4703d82fc60599f53"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c347030987d8638b17325dedf3ecd8a8271de8f1333aa086f7cfb0777c0ff8ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bec51f07e6312f149f7d4dfadbbb9475de7dba2cae02d65f3ad4c5cc07b4305b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a7b997d1e63a70c5c0105897c6d0299d7df81b3b90d2a4b8c80966950a86bb4"

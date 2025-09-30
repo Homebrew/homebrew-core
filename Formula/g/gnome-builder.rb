@@ -1,19 +1,19 @@
 class GnomeBuilder < Formula
   desc "Develop software for GNOME"
   homepage "https://apps.gnome.org/Builder/"
-  url "https://download.gnome.org/sources/gnome-builder/48/gnome-builder-48.2.tar.xz"
-  sha256 "ec1280d47e814a313b74cb927d5a059380544aa0f56e87552978397d6c74cc63"
+  url "https://download.gnome.org/sources/gnome-builder/49/gnome-builder-49.0.tar.xz"
+  sha256 "d45990db681f95ee2277be4fa9f2964982707dbdf30130a0bde70234b379f562"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://gitlab.gnome.org/GNOME/gnome-builder.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "9934f8098e18b136e452237eae4f6e10177c2a166642ba999c143451779b12e1"
-    sha256 arm64_sonoma:  "fd8400100dbe507d5569396301144f8b58b4d510d3b80a841e6f9639f6c0be3d"
-    sha256 arm64_ventura: "2199f4eb7e4fce3754b35f7dcc4cca6eeb63c8907584753d4d50f5c8be2e6a61"
-    sha256 sonoma:        "7170efaed354f6c01d40dc083049408b439f3c94eddc34d971546e2dcf060975"
-    sha256 ventura:       "062b72bd73b4fbb2ce9ea3b2ccd9931766b26a6c52b6d3f6e815c1f11f52c16c"
-    sha256 arm64_linux:   "765c8c5e448046e48918a3f5b58af3771e377c928f978ef50a850d564f1a1b9f"
-    sha256 x86_64_linux:  "7de348fcc6ee8a995dfad923135dc64df3b742cee7083e8efbdf39f6b304dcac"
+    sha256 arm64_tahoe:   "760b005bf5f4c83a86467b2934a3ab0829725d90ce116fc5f9938ab905dde48e"
+    sha256 arm64_sequoia: "5e02c752c2cf210990b41fc2b696db65bbdb997914b85e0f85fa9b87810b7919"
+    sha256 arm64_sonoma:  "9cc9503449a389f7221b87d01ca9152107cc08a5b511ee873bb3d67d873ae8da"
+    sha256 sonoma:        "e1fc77710d3e285c8763a5cd57783d4c7e3d3dd12fac715847fc05498d651cdb"
+    sha256 arm64_linux:   "116e946ab21aa764a1e11dbbe9424cf1393dd24c2e2db3c929a65488815bc801"
+    sha256 x86_64_linux:  "3f17b64a3ec7f93f455dc4a974e26b666592e53021f5618e1a9913b657d5d5d0"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -37,6 +37,7 @@ class GnomeBuilder < Formula
   depends_on "libpanel"
   depends_on "libpeas"
   depends_on "libspelling"
+  depends_on "libyaml"
   depends_on "llvm"
   depends_on "pango"
   depends_on "template-glib"
@@ -49,7 +50,7 @@ class GnomeBuilder < Formula
   end
 
   fails_with :gcc do
-    version "11"
+    version "12"
     cause "https://gitlab.gnome.org/GNOME/gnome-builder/-/issues/2176"
   end
 

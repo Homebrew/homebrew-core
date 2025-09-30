@@ -7,6 +7,7 @@ class Libfaketime < Formula
   head "https://github.com/wolfcw/libfaketime.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "bcd23642919c6bacca9c7d75e1c473fdf1f86f5e748503f089fe9324eac7c369"
     sha256 arm64_sequoia: "c030c10a9d07fc14da42e60bcc11d8a376439b7bffd59e419bbb76abd82727f9"
     sha256 arm64_sonoma:  "6e77335420fdca3480dbe4a8d8c208700d098986d2a1919b090d18e894ee1f68"
     sha256 arm64_ventura: "ce35c8e69155c44bb30e3966ad6f61d4f8b6e6d4d75205f9d243cf1fea4b92f1"
@@ -21,7 +22,6 @@ class Libfaketime < Formula
     # See https://github.com/wolfcw/libfaketime/issues/158 and
     # https://github.com/Homebrew/homebrew-core/issues/26568
     depends_on "coreutils"
-    depends_on macos: :sierra
   end
 
   # upstream bug report, https://github.com/wolfcw/libfaketime/issues/506

@@ -7,6 +7,7 @@ class Aliyunpan < Formula
   head "https://github.com/tickstep/aliyunpan.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "faad7d7d6aceedefc2080e2efc7db379f6e0d6640d0f1acbd2734ee9e53f6422"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f43f03044ff8db6b97fee26628dbe66343935e13e53aee6d973adfddf0924b97"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f43f03044ff8db6b97fee26628dbe66343935e13e53aee6d973adfddf0924b97"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f43f03044ff8db6b97fee26628dbe66343935e13e53aee6d973adfddf0924b97"

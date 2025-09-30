@@ -13,6 +13,7 @@ class BulkExtractor < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28112f82cc9e0e627462d3a4b5d882ac36e00ca7367a9a367dc15b5d7dfc95c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a31d530c9667f15046ad54b617056fe121a9eec4f7b24749207b8b6e84f9083"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d670cf96b00bf5497c822bf2b7f0aef8c1b23cec45692a37bb2c61e3fedc0c0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8a2707abfb8d0b3cf9744d495661c47a3ff3fc0bf16cbbc09311ccd462dc54c9"

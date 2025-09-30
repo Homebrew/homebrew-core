@@ -13,6 +13,7 @@ class Mpfi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d14d9dd673a7e6bdcb8b910766ad693f6f3be81aea82d329a4ceed79e90aea4e"
     sha256 cellar: :any,                 arm64_sequoia:  "826e309c5518bcf7aa755eefe369c2b91704820d2bf0730c0341b16e7a877033"
     sha256 cellar: :any,                 arm64_sonoma:   "2a77c1ce37a69afb7a40355c560e72294c3445b7f97f93f235756ce56e0747c0"
     sha256 cellar: :any,                 arm64_ventura:  "7401897771e7e1714d9bdf79ca0a384af06d756b2ce331a727c4253b93cae7fc"

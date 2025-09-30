@@ -11,6 +11,7 @@ class Bochs < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "b358cdb2e679f040071c7da9ccf6cad7d82f144d47adb65fc2bafc2fb1ed01c5"
     sha256 arm64_sequoia: "771309e968819d820ed0b538ed7a6c2365182b6e939e8de95c5a64265dcd0f28"
     sha256 arm64_sonoma:  "7fc4fd6a6ead512d3b9fb13964529682f17356ffe7e10a7692e6c42940d48f21"
     sha256 arm64_ventura: "9c9acd2ad176ca2cde5e04bf1041e62649cf32d3ff11a0e272fc0394092c82f4"

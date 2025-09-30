@@ -1,8 +1,8 @@
 class ApachePolaris < Formula
   desc "Interoperable, open source catalog for Apache Iceberg"
   homepage "https://polaris.apache.org/"
-  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.0.1-incubating.tar.gz"
-  sha256 "d4af0da781fa87cf67e4136e4cf51f0a54c5eac674a96bd8b1016713e86feac7"
+  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.1.0-incubating.tar.gz"
+  sha256 "cc4e0557e7a9cc36fd0d72412842f11cbbf5acb90f13f6e32fac14aa5f9ed77c"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class ApachePolaris < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da5faeee880b6153d66bc8ee21c8a8f6416f3e347ba86a9bb9c834cf83e546b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5366a37b9efc409f116e4a2d358bb738af3db29a1a7686061710aecc345710c6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "311897ec4dffc9fab438e6c5a218beb7ab9bff375955c762a3f0a3bc00eafc60"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b59812aa643d05ca91a41285d00517e10f86b608ad52bc28635b0b2b9a2c5a43"
-    sha256 cellar: :any_skip_relocation, ventura:       "76be671bcdb881834bcdf0e37e76ffe14f0e2f6d461dbeb1a651fda87d79575a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab62b3cac6dce28eb04a2fdcd94a0baddcb1f8c0c903c908baf541afb69dcc0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e52ea97e219a2d15c7b7316301d94ae17b1e804ea7a923871660b10483c44e28"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7be0de8249bc27a87b9450036e69f9563476437f2627176371caba2043e471c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e06628ed638db4c7cc23537fc8ce8f455105dacacd922a2f78c9d735c38dacea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9446b5bc0c4ea66d04e1295ca6d29744c62b34d37a920142bcf48e3e9fb1356"
+    sha256 cellar: :any_skip_relocation, sonoma:        "46cebbbc97ec05299f795dd61bc8e4351134fa1918e3e56e6401be68b9d48de9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d73af81b82333cc0c6899e6446c469ecaa98a702823e6f79698b988950814432"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c455b85be6a394de94a20a4e6badb785e93f791cd730a6782e44c84c904006d6"
   end
 
   depends_on "gradle@8" => :build

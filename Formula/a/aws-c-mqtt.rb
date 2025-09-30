@@ -6,6 +6,7 @@ class AwsCMqtt < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fbc29f69f9027eda095e14c2e2f230cc8d9ea1f894ee99c2340f399809a88917"
     sha256 cellar: :any,                 arm64_sequoia: "8e08c006499b410fe17dad331e6c6b393f437b3bd3dc9d5ecbfe3bca7f03e915"
     sha256 cellar: :any,                 arm64_sonoma:  "32344e5abda84e1faa9c9bed67a75c9fb75c7a48d409f2948470de6856e1d947"
     sha256 cellar: :any,                 arm64_ventura: "27d44efd0274a41ce0607cd6937f30b265b7ad48c4665aa7728e068b435b8e95"

@@ -8,6 +8,7 @@ class Sambamba < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a0977e58642b6de8b967a4e01b7b2edf218a6c7b911a98d7e362d4fda1d1fa24"
     sha256 cellar: :any,                 arm64_sequoia:  "920be291227ca05e361411dc0199507c0c341b492b47db42248b52b27ed99ccc"
     sha256 cellar: :any,                 arm64_sonoma:   "ddb87f1e11e5f6c241ba9165e9902311d40216ce3a5a7fac3b0d020e24ff17cc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ec988d75fd0cb7ceb2c2ba1ce9e4081e70004caca8ac99793f1d0452a2afe32"
@@ -29,6 +30,12 @@ class Sambamba < Formula
 
   # remove `-flto=full` flag
   patch :DATA
+
+  # Fix to add missing break for case statement, should remove in next release
+  patch do
+    url "https://github.com/biod/sambamba/commit/5fdcf6f3015cb17b805514397223f7513bc92613.patch?full_index=1"
+    sha256 "f51a32a00102478aa8c9a0c36975a33438fd474992127a757d9a4732b10e6695"
+  end
 
   def install
     system "make", "release"

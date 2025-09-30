@@ -7,6 +7,7 @@ class Kor < Formula
   head "https://github.com/yonahd/kor.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "81c8fbb216b7967e97619fe1fd48d06b064fa559f2ec5f87963365128c8cb204"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "714d50541ed5ca508388e94854f33eb3b7a54f61c3ae07632c60c75031e065df"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9289c107712df9795247f49b4a08436f014885b8c5765526e9510c514feb4c49"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "71172adb348b393c81847f370a7bc4264d7ffd45152e410af4b4926ca87030b3"

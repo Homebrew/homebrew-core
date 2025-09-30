@@ -22,6 +22,7 @@ class LdidProcursus < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "55c501cd347ca47bb11659cb01050f8a48423c205737c2108f3bc46a19b27afc"
     sha256 cellar: :any,                 arm64_sequoia: "ab86601fb7c96f9099bf3d9b0634bd347de629fa7de675086efafc732c5e07ee"
     sha256 cellar: :any,                 arm64_sonoma:  "2caaa28ed7a37de86484d25e95c81190b1856472ddaff524b10cb98e69ced503"
     sha256 cellar: :any,                 arm64_ventura: "bca4374f9d61c9b1185cfce5d40350672f17c6e2239f9a475ab84688a356df72"

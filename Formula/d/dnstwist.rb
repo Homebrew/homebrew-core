@@ -9,6 +9,7 @@ class Dnstwist < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ba65fc29b292f09a04c23ff18b6f22b0c71c73a396be342478d006cee91cadfb"
     sha256 cellar: :any,                 arm64_sequoia: "92a414114759163636ead9e95b31239a977ceae1eeb477696f2d21ac144c23d7"
     sha256 cellar: :any,                 arm64_sonoma:  "30209cc6e33da07ba4518aa25e9218445f4668b72542a776ad086788c8fca62c"
     sha256 cellar: :any,                 arm64_ventura: "d2116f01b9fa5ea57456d7828632315f1de22842aa31ca88fb10c1820663fc06"

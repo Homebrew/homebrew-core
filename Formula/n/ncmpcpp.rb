@@ -9,6 +9,7 @@ class Ncmpcpp < Formula
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f3b64ad56ef955187393786a72253bada2104c2ab0bfe8a1d87e83152168ab89"
     sha256 cellar: :any,                 arm64_sequoia: "ab2cdb4e9ebbc534f357141478d9ee1ce90008b9b454b764f23aa65dd75e8306"
     sha256 cellar: :any,                 arm64_sonoma:  "db5747c184ff0bd08ccae2625abbbb979fd6ca805a75a6f1334ca7cf17518f02"
     sha256 cellar: :any,                 arm64_ventura: "c7abc5c178c61a8d14d44a4359b46920e22cd3754f00c43f61a219269bde2c7e"
@@ -32,11 +33,15 @@ class Ncmpcpp < Formula
 
   uses_from_macos "curl"
 
-  def install
-    # Workaround for Boost 1.89.0 until fixed upstream.
-    # Issue ref: https://github.com/ncmpcpp/ncmpcpp/issues/633
-    ENV["boost_cv_lib_system"] = "yes"
+  # Apply open PR to fix build with Boost 1.89.0.
+  # PR ref: https://github.com/ncmpcpp/ncmpcpp/pull/636
+  # Issue ref: https://github.com/ncmpcpp/ncmpcpp/issues/633
+  patch do
+    url "https://github.com/ncmpcpp/ncmpcpp/commit/f67d350aa9beb2abdd12c429e97ae919e5b3102c.patch?full_index=1"
+    sha256 "7fa67adf722fec69793f9aa53398195294402bb09519e7bd99b388b7f99a5e59"
+  end
 
+  def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.prepend "LDFLAGS", "-L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["readline"].opt_include}"

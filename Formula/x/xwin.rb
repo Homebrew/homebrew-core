@@ -6,6 +6,7 @@ class Xwin < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9d4489a121e4d82ff0e69d85d3f5c137a5b28777bbb1cdb15a384190a1b3addc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0573062f217fcccb1f570e78b3b135d5209a42b35d54395ddbd21c09c0194daf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ed3b641edaebcc7db4efd1510da83f3bce8e53b57a7114994546c4eb6866dc7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fb2016cef3c7caedb4dbf1f5cd80206fb3d088288f5ad4d2c4e6b521862499fc"

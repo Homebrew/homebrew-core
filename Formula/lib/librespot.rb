@@ -1,19 +1,20 @@
 class Librespot < Formula
   desc "Open Source Spotify client library"
   homepage "https://github.com/librespot-org/librespot"
-  url "https://github.com/librespot-org/librespot/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "9ec881edb11e37d31a2b41dd30d56a3413445eedb720e1b0d278567dccfca8fc"
+  url "https://github.com/librespot-org/librespot/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "1d09cf7a9b05663bc74806dc729dba818f2f1108728b60ccaac42bb54bf46864"
   license "MIT"
   head "https://github.com/librespot-org/librespot.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5a2cafcfec99611b21e631568c66d6f48fb44fe253082d3fe4243ffb5ff4735"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee2f9df22c5a0ea8db290f7bc39e14312023c478b740a1b78d6553dd195ad0be"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e157e7a2cc3a41cb25808eacbc7baaa78af346439c3ed6b0f8b15863e275adec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b377d7559eb6deab957dee9efbf6c8d0b855142619a798e1b2b0a9b61700db6e"
-    sha256 cellar: :any_skip_relocation, ventura:       "451ba2f00bf2198de8ba55476b7bd6f63a59aabf6d1e344dcd8dea7caaf391c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "825316adc649d6ff25f4e650724a18b2ed780f0b5f9116baf0fb593444102c8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6561e113b24cb1d2d6e3a5850090e3bfa2a82950388c5fe7fb698dc3b6a333f2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4a5eff7a184388970a8d538f9018d9a2e2682b7d113f6886269bbc26c0b061c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95b5b73657b6c6319da0b199ae7e509e8fdd6835e41af52e06537635bb0bbf78"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5283db5fd6dd968215ed62f6385c2301a310fab98c20891f90dec0b53c35dff3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "af56224e37d14391051f7f5710e00c76170b099bb50f72a341f56415af650430"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b519d30ae4d8ce5efd85a20a0e2d9f427bc88c4e4d605e838d78b4c8a3f040b6"
+    sha256 cellar: :any_skip_relocation, ventura:       "bae91410433aa1022a7ed80b577992376437255fe1878270f6d69121a9adf238"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "354c4b78c33bb7af9980db598767ce8ef340beeaca9d31a275bc948aacad7e18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f33d462aade542a4e271125e9f4ec17f2137bcf303ab85acb90fdb8a9f205329"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +27,9 @@ class Librespot < Formula
 
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path.to_s if OS.mac?
-    system "cargo", "install", "--no-default-features", "--features", "rodio-backend,with-dns-sd", *std_cargo_args
+    system "cargo", "install", "--no-default-features",
+                               "--features", "rodio-backend,with-dns-sd,rustls-tls-native-roots",
+                               *std_cargo_args
   end
 
   test do

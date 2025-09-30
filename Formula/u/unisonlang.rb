@@ -5,12 +5,12 @@ class Unisonlang < Formula
 
   stable do
     url "https://github.com/unisonweb/unison.git",
-        tag:      "release/0.5.45",
-        revision: "7867a491c60808622725f7a8170ae7df8f4825a0"
+        tag:      "release/0.5.49",
+        revision: "d85de68861c65d6419a6ac9df8022400adb27f4d"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.45.tar.gz"
-      sha256 "31e930c3ad4b149d5c2aba7d48913821a19e530ef5bea5030806e0a114b8b77d"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.49.tar.gz"
+      sha256 "33f0043667cee96da2cf280e1ab364f3a537f36368b8dcc22ab652fe412a1222"
 
       livecheck do
         formula :parent
@@ -24,12 +24,12 @@ class Unisonlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "945d09f7fb0c635556f2ad86c2da4179879578feaa4d0f9a218b4963724e6f49"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d0936bfea54838f0c03d19afcfbc79218df232a61e334cfe7ddc416e940ce6a1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9ccdf9d99dc0d1d8d8f344163ba10ef97af2d98986ba016659c0afc75468c61a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ef44ab9ea8c2d7edf6458ffb0019f5fe1ba149d23b343532c49a5bb8197bb444"
-    sha256 cellar: :any_skip_relocation, ventura:       "480af87b319f5a88ddc47fc45e08f79c1bc26b0dae7bfa7a9efa2d574b8c1b4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b45d7ae6a36d3eff6601bb999cbdbfa7fbfb5b87150c89ead37c7ce56be9209"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "14d799f4d8116f0e1bfbeb2fcb519e281b92a4eda16216e22567b827fa28f95d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "99f973cbdab57fde249a30d66dbfd80c4dafd914b425f6e88940c3a437677613"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0159bb8829c2b678aeb20ebbd8a37631237fd1195d912551a8fb1720eb552359"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8ca28b5775cb38ecdda78872c8a5a42b7a215ad8fd76b64cc9a179318455790e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "58f6de572c563be3f6b3492b0fb383a1cd21e242e68147f85e6ba3eac9fea6e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7364d2513f2eef2e62ae03d1653737e212bb99c2ba22bb950d7dd8de78a8acca"
   end
 
   head do
@@ -58,10 +58,9 @@ class Unisonlang < Formula
 
     # Build and install the web interface
     resource("local-ui").stage do
-      with_env(npm_config_ignore_scripts: "elm,elm-format") do
-        system "npm", "install", *std_npm_args(prefix: false)
-      end
+      ENV["npm_config_ignore_scripts"] = "elm,elm-format"
 
+      system "npm", "install", *std_npm_args(prefix: false)
       # Install missing peer dependencies
       system "npm", "install", *std_npm_args(prefix: false), "favicons"
 

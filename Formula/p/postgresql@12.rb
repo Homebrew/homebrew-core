@@ -7,6 +7,7 @@ class PostgresqlAT12 < Formula
   revision 1
 
   bottle do
+    sha256 arm64_tahoe:   "7dbbc04a01b70d5a0dd2ff13259a235abb3f0594a25c2f2ee14dab982ba49312"
     sha256 arm64_sequoia: "770808f2893a90101c6043beb222509fdbaeb27d43231ce86a823c880167a869"
     sha256 arm64_sonoma:  "5c7563d9142be7b9f6d9a196ac5962f0df9d2b280b89c3d4a854c88d9a4ddbef"
     sha256 arm64_ventura: "b033000c5e7fbb428492181650dc33b07da3046da0e0f78daa7a26154db5c5ce"

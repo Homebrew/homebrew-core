@@ -16,6 +16,7 @@ class Fwknop < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "7963f9f9f757720644a3df1cfaeb3307b43dfc3148ece268a48fca4ca47bf83b"
     sha256 arm64_sequoia: "227c8c6bcd86942a72b26ab69e096cefd01941331e82ef5bf8c3942070081edf"
     sha256 arm64_sonoma:  "bc2f4972f2b2b07f2958590c47149d83ba0b82dc568d8da044b83c5b31312caa"
     sha256 arm64_ventura: "591c24145cf5caff0f7a02c20ef482bbd720df8f0224cbb3908a49f912edc0c8"

@@ -7,13 +7,8 @@ class PrismCli < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
-    sha256 cellar: :any_skip_relocation, sonoma:        "71efe36b05538b5c2cc27803232915af9558f28edeba405272a0fbbbaed043b7"
-    sha256 cellar: :any_skip_relocation, ventura:       "71efe36b05538b5c2cc27803232915af9558f28edeba405272a0fbbbaed043b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea3b321d160363a5e006b5166598ce3c14fd567390622e0393f6824329768730"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7800a83ca6cb47e11df9264d4ff6e06d6ee0a5d5e6cba2456c98198c4f50046a"
   end
 
   depends_on "node"
@@ -33,7 +28,7 @@ class PrismCli < Formula
     port = free_port
     pid = spawn bin/"prism", "mock", "--port", port.to_s, "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/tags/3.1.1/examples/v3.0/petstore.yaml"
 
-    sleep 5
+    sleep 10
     sleep 15 if OS.mac? && Hardware::CPU.intel?
 
     system "curl", "http://127.0.0.1:#{port}/pets"

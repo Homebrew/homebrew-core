@@ -7,6 +7,7 @@ class LibgeditGfls < Formula
   head "https://gitlab.gnome.org/World/gedit/libgedit-gfls.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "dbbd82372aecadf83381200bab5696d3b7a65312a9e24d62819b6ead460900e2"
     sha256 cellar: :any, arm64_sequoia: "4d224b0d0ecad55f58e7faad216c4456bc8a034b31f120714d94bed236360dc2"
     sha256 cellar: :any, arm64_sonoma:  "217681e399331b45c9a8e12a7eeb02e520dcab102e634163292907005cb83b16"
     sha256 cellar: :any, arm64_ventura: "910ff5cc9d9f6bf34bc028886291f5b865830872e538115c3610d5a62a15b570"

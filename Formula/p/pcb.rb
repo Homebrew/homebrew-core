@@ -7,14 +7,9 @@ class Pcb < Formula
   revision 1
   version_scheme 1
 
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/pcb[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
-
-  no_autobump! because: :requires_manual_review
-
   bottle do
+    sha256 arm64_tahoe:    "d47e9044a1a9580a71e41ffd91541653a9b8d8c721441f0d2d63406a16ca5706"
+    sha256 arm64_sequoia:  "2a52b59cc8b8207bd28cde88cc56ad797d2aa021d1cb145bffa93368a7371014"
     sha256 arm64_sonoma:   "191403f5cf3241f6322f861bf87c986a5e9e584b718694a09e8d78ffe88090de"
     sha256 arm64_ventura:  "50572577988176158590776ea433364a6198912f1a7a723894850210ed83df8d"
     sha256 arm64_monterey: "7782eb09fd3afc492dee0cf01c174076d43d57af106b0e17179309dddeb691c2"
@@ -30,6 +25,12 @@ class Pcb < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  # Original homepage http://pcb.geda-project.org/ redirects to
+  # http://www.repo.hu/projects/geda-archive/pcb.geda-project.org/ which states
+  # > WARNING: the gEDA/pcb project is not actively developed anymore.
+  # > You may want to switch to the Ringdove EDA project which is similar in spirit but is active.
+  deprecate! date: "2025-09-06", because: :unmaintained # TODO: replacement_formula: "pcb-rnd"
 
   depends_on "intltool" => :build
   depends_on "pkgconf" => :build

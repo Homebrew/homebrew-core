@@ -7,6 +7,7 @@ class Goread < Formula
   head "https://github.com/TypicalAM/goread.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de16aa7632f4d0cefab3cfed64fefb063b207059ea2726840976ffbbb32cb5cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f54a965d898329bdd7071bcb6b5d3d3fa76e21ec181c48209943ad9a4e424ab3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f54a965d898329bdd7071bcb6b5d3d3fa76e21ec181c48209943ad9a4e424ab3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f54a965d898329bdd7071bcb6b5d3d3fa76e21ec181c48209943ad9a4e424ab3"

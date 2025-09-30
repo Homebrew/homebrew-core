@@ -15,6 +15,7 @@ class Yara < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "89e9f0b7dfee88a8d0ee0d6b10891af3f600eb2f2a1a6f2d3c02815727a4b1cd"
     sha256 cellar: :any,                 arm64_sequoia: "05e38fe530217dd618458e1e864b88c9e5376a1a620e25b52c45327a2ba5bee0"
     sha256 cellar: :any,                 arm64_sonoma:  "3eb68c783f2be47824839b7a24d2950945f5c6a6365e856543fa89a22e00ffbc"
     sha256 cellar: :any,                 arm64_ventura: "2d9d3ab818d55b5ac62615ed701072920575eb76b4705e627987298ed7c73a6a"

@@ -6,7 +6,7 @@ class Pytorch < Formula
   url "https://github.com/pytorch/pytorch/releases/download/v2.8.0/pytorch-v2.8.0.tar.gz"
   sha256 "c70a2c9488f6f6e8af5982a10d1cc2c37b7df5e6506d839daa5d5e250953d7b5"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -16,12 +16,13 @@ class Pytorch < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "1223681d8f2edcefa6a128c0aa05a8ef81728d5c58c0afcd22bc9b68b22aaa4d"
-    sha256 cellar: :any, arm64_sonoma:  "f3a908b8b0e3c4b5365cea7170ea8c514874c14c0ecfa3e70a0dd274b76fb73a"
-    sha256 cellar: :any, arm64_ventura: "35b80f40b3a64b43252d67e1f6492f4eaf953502b13b1093d0a2a512159a1303"
-    sha256 cellar: :any, sonoma:        "82f9a7d6f52b87205808e9916e9b45d4bfc49e4313d730f466a45938962d5374"
-    sha256 cellar: :any, ventura:       "9ab60cdf3d9c2cb20601056c95b655b85376f37920fdf61a50c03c762eb055ce"
-    sha256               x86_64_linux:  "7c58e2a7446cc99a3cc2a782770c3cfb19378ef4fc527c214b53f85c0bfc0903"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "135e2bdd53e05c1c71ff6f950c5cfae632c690a8a08ba4fecf5f523e804b6754"
+    sha256 cellar: :any, arm64_sequoia: "3175432af2e446829b52f87cc8a83775952723d7c4e14a468150fddd6b006375"
+    sha256 cellar: :any, arm64_sonoma:  "236853bcf5fb02e1bdc67d553a901fd0de4e1cd261daccf93ce41b18adf64b60"
+    sha256 cellar: :any, sonoma:        "d66b647559e161462eee604e6bfc6cc5de331f664797b254b4b72fcd0260d4f4"
+    sha256               arm64_linux:   "6eb0f90e3e53baa0dfd772d2a4c237195df083ac2370e076709412359f59cb12"
+    sha256               x86_64_linux:  "1bff36a2253b3fef02a583e7c6f6cf43b5ebb9465b8eab7c69f77d5b0f1a1adc"
   end
 
   depends_on "cmake" => :build
@@ -104,11 +105,20 @@ class Pytorch < Formula
     # Avoid building AVX512 code
     inreplace "cmake/Modules/FindAVX.cmake", /^CHECK_SSE\(CXX "AVX512"/, "#\\0"
 
+    # Disable SVE support as it requires enabling support in `sleef` formula.
+    # This is not recommended as SLEEF is moving SVE support to unmaintained status:
+    # https://github.com/shibatch/sleef/discussions/673#discussioncomment-12610711
+    inreplace "cmake/Modules/FindARM.cmake", /^\s*CHECK_COMPILES\(CXX "SVE256"/, "#\\0"
+
+    # Avoid bundling libomp
+    inreplace "setup.py", /^(\s*)self\._embed_libomp\(\)$/, "\\1pass"
+
     ENV["ATEN_NO_TEST"] = "ON"
     ENV["BLAS"] = "OpenBLAS"
     ENV["BUILD_CUSTOM_PROTOBUF"] = "OFF"
     ENV["BUILD_PYTHON"] = "ON"
     ENV["BUILD_TEST"] = "OFF"
+    ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
     ENV["PYTHON_EXECUTABLE"] = which(python3)
     ENV["PYTORCH_BUILD_VERSION"] = version.to_s
     ENV["PYTORCH_BUILD_NUMBER"] = "1"
@@ -133,6 +143,10 @@ class Pytorch < Formula
 
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
+
+    # PyTorch needs to pass `-march=armv8.2-a+fp16` to compile runtime detected code
+    ENV.runtime_cpu_detection if OS.linux? && Hardware::CPU.arch == :arm64
+
     venv.pip_install_and_link(buildpath, build_isolation: false)
 
     # Expose C++ API

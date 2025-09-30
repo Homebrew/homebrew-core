@@ -12,6 +12,8 @@ class Tsung < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1da5e28ebc2cdbbc423599d8ad4a10558df7a0e3435a7dc1dd03d5de86989308"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0716843ec27cd4cb42773d90b4db0ec5f3ce200c467dc9354786cfed3967a6e2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49d55c65d11487c31015102992d20c0853656fc09b85e6f35570573417a949ec"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d847edc850acbfe70004c707b2ec18962c7b83877efb2bd576f23fc31119d82f"
     sha256 cellar: :any_skip_relocation, sonoma:        "8e611fcda350d09739af49168a0514ad347454c0d4d1722f18fe254f98334ee9"

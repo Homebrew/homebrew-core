@@ -8,6 +8,7 @@ class Gokey < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "57604ced9e9d0eed0d8a4f0e48fc02bb3b20ae5bd4cc085b6b97303553524bac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c48361701ef4bb0cb240cac294c443a25c0bbf0c052491374ece690251004c50"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c48361701ef4bb0cb240cac294c443a25c0bbf0c052491374ece690251004c50"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c48361701ef4bb0cb240cac294c443a25c0bbf0c052491374ece690251004c50"

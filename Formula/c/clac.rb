@@ -6,6 +6,7 @@ class Clac < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d6980c6518c868fc7755967f1fb4c9e1801f01552cc273d88ef196c190f09bc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4567b96d52b717dcd08a39d9540400ec62706fef56604355c19d97be23fa263"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7c0e290434255b7da84b9f7338d97fdfebfd94f1d644354630e7f4da4db61dc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "18c5e0e27145bcbf03d697cad009393e0cc358a5c68d02a18d10f0d97934b9c5"

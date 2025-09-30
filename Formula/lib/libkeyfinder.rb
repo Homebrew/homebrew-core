@@ -8,6 +8,7 @@ class Libkeyfinder < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6aea01723afe6eb5a66b410f68f0b6e1e36edf0acc87e5d178faa2ee1e7f1526"
     sha256 cellar: :any,                 arm64_sequoia: "2dd1ceb165b79e82738bf1fa3fa7e21a71f6ed471fd3c0214a96dda2f82f967d"
     sha256 cellar: :any,                 arm64_sonoma:  "02d5e2117d55a2768b021f74dd627f52db228bf54394a60025454903fdeb3f39"
     sha256 cellar: :any,                 arm64_ventura: "400c2779b10b2a10e3d3e06372aec2c37b348ffb352dd214448b07dc488c7cfb"

@@ -13,6 +13,7 @@ class Cppp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "29bae12103813789942c21786cc253702a2d5eae6baeff11561afc12bbafde7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4b14311322cdff7ec30e93ba573bf916eae962c7d2488e7f85a88a4b8bead0a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a2fe122f6b616feaab1f4ef815061564ace5069c55fdc8c5fc568a35bb6e2fec"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "86f812c4083a5ef978178a692f617081b97377aaf2f8fb063cc49abecc65538f"

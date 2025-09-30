@@ -7,6 +7,7 @@ class Energy < Formula
   head "https://github.com/energye/energy.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f1c4d8d7329b810db0084e6fc69404fabc13ceda82d4b309406d15af639a9ca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7694c978d9ff392a86dad2767ab0b69516522c03797e04b995268b51b1d772a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7694c978d9ff392a86dad2767ab0b69516522c03797e04b995268b51b1d772a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7694c978d9ff392a86dad2767ab0b69516522c03797e04b995268b51b1d772a6"

@@ -9,6 +9,7 @@ class MoodleDl < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d699167b1aabf40298b6c2c4962aa66ae1422e31e1f4120baa181466381d414d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a490b8292bf5bbe9fbeac8436f95594fa5fa7d1046d9522f5874212c6fab3b8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b48ac88a6ff15997e9a71389904e7308cfda82c5c79976d9fb071e3f13bb3af"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f806082c2a96bf6510d2ba1e00c7b75803764e3b7edbca781041bb165444615d"

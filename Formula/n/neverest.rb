@@ -16,6 +16,8 @@ class Neverest < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "42967910c00046d764d281458105af646720163beb854aa14aa8740fbd54ee8f"
   end
 
+  deprecate! date: "2025-09-20", because: :does_not_build
+
   depends_on "rust" => :build
 
   def install

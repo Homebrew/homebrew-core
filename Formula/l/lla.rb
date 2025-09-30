@@ -1,18 +1,17 @@
 class Lla < Formula
   desc "High-performance, extensible alternative to ls"
   homepage "https://github.com/chaqchase/lla"
-  url "https://github.com/chaqchase/lla/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "cd357b38c609cde98ccbf31bcca86052443d8678d800eb7c06701e3900d8a6cf"
+  url "https://github.com/chaqchase/lla/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "4a5918143952f774019996e67799e690765ccfee92b269c45e6f491390ee280b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f843bad9fb234786832e9dd176bdc49be26e4636d26cda61407c09401f3c3159"
-    sha256 cellar: :any,                 arm64_sonoma:  "d095080f516e4b4a05121baf1fa975cb90b7458745f90cb15203e43900d0764a"
-    sha256 cellar: :any,                 arm64_ventura: "b55189ff73b42247f8d36037baff7f2504e5c6e7806690a3d7baf880ead018f1"
-    sha256 cellar: :any,                 sonoma:        "0b3255c01979fe70603c5d4ffd6024002e92e307c13e435e47f7509438d3358c"
-    sha256 cellar: :any,                 ventura:       "4bbf9a1a0d13033cf08b7090a3fd53509513ca0f2f1ec0c6ca03c5fc44d0929c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "36810faf318538e370ff78210517638d871de8a85489b1fce5de80101cdb44b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29024f27cb53a2e8d6844885ad69b7f6d6666024877dfaa4b23fb568a0e6ebc8"
+    sha256 cellar: :any,                 arm64_tahoe:   "7be0df7dcf009d684273188e636d7f5ee0dcbbc3f42777d9f53b3d847ba20ea4"
+    sha256 cellar: :any,                 arm64_sequoia: "8defe6c9945740e10709a0dd2f7f759a6d9c788b763ff5274ecaf5cf6f03c644"
+    sha256 cellar: :any,                 arm64_sonoma:  "bc19d860cbcaeaf8a34c9d0ccdb09835acfe287056688abb77dc9c72c08a239c"
+    sha256 cellar: :any,                 sonoma:        "cc0d6442c913d20e8b93b602841e790e4a57fbe00de52a0056e7f875f4a36670"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dabfbeb93dda2dd235dbffe4313d43593cda58c18d6f6a7958bad323118114c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b11f4a4ee1dcbf623a0e6e153c935422194a9a5aa79fadfdf24a8658c37e214b"
   end
 
   depends_on "protobuf" => :build

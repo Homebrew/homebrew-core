@@ -9,6 +9,7 @@ class Wtfis < Formula
   head "https://github.com/pirxthepilot/wtfis.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0f912f17c0841f660a7ec7cd7dd4517a158a43d3494b4877949c246778ca8305"
     sha256 cellar: :any,                 arm64_sequoia: "0e225222895d41332b21c09341228a8332ac2ebd0f1f1f8ffa9c01b2c50aab6d"
     sha256 cellar: :any,                 arm64_sonoma:  "11f3f7954800bfd5a41a5173cd6eb05fe5f8a5c13141180da9a9552b4c248d27"
     sha256 cellar: :any,                 arm64_ventura: "7219d99ab9d57e3b0315d31445ff818ff94fbc93997a02a95b80d4c9f4dd06bc"

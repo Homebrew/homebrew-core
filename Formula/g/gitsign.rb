@@ -8,6 +8,7 @@ class Gitsign < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0c2a101565f82758b976bb9a9bc8ac9247e40f204189d35ef5ee70173c59c60c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb69be6710bca5b749df22b3e2667ccf6c956bb3bcbb3514233fc1c6b25d5ebd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb69be6710bca5b749df22b3e2667ccf6c956bb3bcbb3514233fc1c6b25d5ebd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bb69be6710bca5b749df22b3e2667ccf6c956bb3bcbb3514233fc1c6b25d5ebd"

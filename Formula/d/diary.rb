@@ -13,6 +13,7 @@ class Diary < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62a3ad3b8361f86f8f699ffa0377b354163ee2441fc9594e31d229c0d6a507ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d646d24e89a8eb7dce47ec54e42214c09010d070e893c29e2a55427cfe7e846b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30581920926485a47ab45731defce3acf5dd1c2366e4551a9b25952d03c171ea"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0b4f3a31788c1181823adcb3236ac4353eb442e293f39e320d9af8706cc6a098"

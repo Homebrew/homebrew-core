@@ -7,6 +7,7 @@ class ProtocGenDoc < Formula
   head "https://github.com/pseudomuto/protoc-gen-doc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4cc365e45a28d202cf246071d99bcec458033ae269cd4b69d16691628c783e83"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f0234e290bc9f5d0d09bf239cc5c413588bc49e01d101ca7dc5ea26e4dfd2fa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f0234e290bc9f5d0d09bf239cc5c413588bc49e01d101ca7dc5ea26e4dfd2fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8f0234e290bc9f5d0d09bf239cc5c413588bc49e01d101ca7dc5ea26e4dfd2fa"

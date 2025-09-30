@@ -9,6 +9,7 @@ class Wzprof < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1730b8de6730863c0725a3468613f2d9c5ad5165da36a44b134b1f30ccbe2012"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "09412fe4df2eeb2fa3e05a8da39a192f7bb5e38b98ef5c6924f93dd50b8c6abe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "75f3a9f0120d54457ee0a116bcfb52147831bb466ef1b7cba2db1bdda93401ab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5cd9073cd439d27d735796f4f88ca53e320d00767202195df23a151cd207f7e"

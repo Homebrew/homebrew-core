@@ -1,8 +1,8 @@
 class Hwloc < Formula
   desc "Portable abstraction of the hierarchical topology of modern architectures"
   homepage "https://www.open-mpi.org/projects/hwloc/"
-  url "https://download.open-mpi.org/release/hwloc/v2.12/hwloc-2.12.1.tar.bz2"
-  sha256 "38a90328bb86259f9bb2fe1dc57fd841e111d1e6358012bef23dfd95d21dc66b"
+  url "https://download.open-mpi.org/release/hwloc/v2.12/hwloc-2.12.2.tar.bz2"
+  sha256 "563e61d70febb514138af0fac36b97621e01a4aacbca07b86e7bd95b85055ba0"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,14 @@ class Hwloc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "90fafd57899d674e5f653f5c7c9d964f992877eb2a1d74364ea9cb14f9063149"
-    sha256 cellar: :any,                 arm64_sonoma:  "ed649bbbddd8352d9d7c8e36f9968cb1975b86378a2ee686637977e6f7a59190"
-    sha256 cellar: :any,                 arm64_ventura: "1b19f3b8775e2ed4ec5ec212199c136e3f427321bc4fc19c5a35df543405fbab"
-    sha256 cellar: :any,                 sonoma:        "270040ceedd93532189119df30d37a666125a16b7679bfb8466e5795d5e788cf"
-    sha256 cellar: :any,                 ventura:       "d0052e70d0877350983882f598575d38d81e771fe4d567491eae9f25789d45e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27aadfd1d6983986febec9f2feab8092bbe86561403bcbb6ce1072bcfb0db2e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0cdd5ecab9208d5919050bfecdb84dee087fccaa460d4832e4ed3e859441a9c"
+    sha256 cellar: :any,                 arm64_tahoe:   "baedf023ef614fc146195b2d63d8bd7fd73cc17de666765961f589dd27ba9d79"
+    sha256 cellar: :any,                 arm64_sequoia: "356391e580cf546a4b1b4180fa630a64ba6bd7bf00164914b58e41f0f2fa2cea"
+    sha256 cellar: :any,                 arm64_sonoma:  "3eedeb79b2c25c7bb3b5fbe2a3a25f60b9c05779b75db2d871bdaf560b6a7c38"
+    sha256 cellar: :any,                 arm64_ventura: "fd80369eabf2c1ae59af139efb7bf7d31becf28112e662630ead948e6ee0bf63"
+    sha256 cellar: :any,                 sonoma:        "567c5b15c6b01b8702b87230d517f6d12573d46d396830e5fc5fae13745a2888"
+    sha256 cellar: :any,                 ventura:       "4710f1b590faecc187f6d7d9b44053e7ac7d986ab55ba7d67b91539f93155170"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6eac8d23df5e4d723bf09c5cc5d245e76e6ae35e37b8ed708300090d0cbf672e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e89ad68f540bc1c8ebe958702be09680dbfb67b9f249ea7b8867088e4a05e4d"
   end
 
   head do

@@ -9,6 +9,7 @@ class Raven < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8215501dea32db698ecbb6e58d44daec183ff8e9357c80f0d89d1af311a4b370"
     sha256 cellar: :any,                 arm64_sequoia: "ad40e6057f424f0191313b075aaa3fa70b8314c8407a35b36378730cfa40921c"
     sha256 cellar: :any,                 arm64_sonoma:  "21a4807ad67f5eb40c57cf361d07f5c80a0f3e20a76ec24eb6cc591e0399764b"
     sha256 cellar: :any,                 arm64_ventura: "e87feeaf89d0ec69e5bcd8e74192d96044ce04de4709eff119f6d78c8a73fae4"

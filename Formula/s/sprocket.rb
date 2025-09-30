@@ -1,19 +1,18 @@
 class Sprocket < Formula
   desc "Bioinformatics workflow engine built on the Workflow Description Language (WDL)"
   homepage "https://sprocket.bio"
-  url "https://github.com/stjude-rust-labs/sprocket/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "b21a4a4667f6fe1c1928234340dec5f7fc3fea8c99af18238b61570ed753a641"
+  url "https://github.com/stjude-rust-labs/sprocket/archive/refs/tags/v0.17.1.tar.gz"
+  sha256 "cf72f8d4930ce16ae3adc73f82c9ed82aceb8f09330e5f78658a88e0b5d99986"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/stjude-rust-labs/sprocket.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "006d9ef5c6cebb620fae73dec90ea5a47b57641e1d2b732805039e251b2fd744"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b72b2708d510553cd780bb867fe776fb617055a2a36ccda11581641602ed11c"
-    sha256 cellar: :any,                 arm64_ventura: "756d1ebca4466fa92b79c05e3a1f7df6293237af2ddac689333e85e7166353ae"
-    sha256 cellar: :any,                 sonoma:        "88d6680736fe3fb7ee81f640f681356e419a842a2c703e140f5eda38bbb07f55"
-    sha256 cellar: :any,                 ventura:       "27905e09164f3369ba925a100d91e4dd736bf7a89c5b90a08533430fd60013a1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcf31b0fb006d729a9161fca876091bccf467294be67f0543cac79b1b8f3c754"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64bf417b7872467405e5bea8740633edcf45b3727eba8aff9582c677705a67a1"
+    sha256 cellar: :any,                 arm64_tahoe:   "900f29532e238df4be8d3b87b4c6be773df42df2027aaa38bc0bc685831442ce"
+    sha256 cellar: :any,                 arm64_sequoia: "5ee7d0e3d30fe78fd7a6cf97940710ab23e6d8e2cbb945fb70f01aef88ce9717"
+    sha256 cellar: :any,                 arm64_sonoma:  "4a2ec2fa95e2bd0196435e40541b4800bf8258dee998637929b621201d09f795"
+    sha256 cellar: :any,                 sonoma:        "fa4ce7cd37fac0a61e0fe2c45d506101e1681264b8b16eba30be67a187363f79"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7929b4f8f95be452937e95c2ac58774beebd06464cab42aad772360fdcbecd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b60cea4c2d9916e741fdfd6b573edffe06721340f39485a242ffdbee42e3be1b"
   end
 
   depends_on "pkgconf" => :build

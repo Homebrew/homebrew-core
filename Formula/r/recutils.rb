@@ -9,6 +9,7 @@ class Recutils < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "1195eef57e411f91d204f23655150667170fdc64242f0503b7e376deb112768a"
     sha256 cellar: :any, arm64_sequoia:  "f1c4d50014f990bf82b005678e5e50d0437c4832db83e80094e0fcfbad824078"
     sha256 cellar: :any, arm64_sonoma:   "229e25a458f74f9b9e1229b08dd839a18f7e06cede1aaecc890b645f645c80e1"
     sha256 cellar: :any, arm64_ventura:  "6556b10f353cbae8cc5d69cc48cb0662eaf85060794e0d29ae25950dbe02749e"

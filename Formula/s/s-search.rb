@@ -7,6 +7,7 @@ class SSearch < Formula
   head "https://github.com/zquestz/s.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "763f136162738c6f4d9ae054b1413f9a6102f07ad7e03d51df0321d2eb9bddca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a96038a526b7e96243e6ecc888797e4a251808d743e8ddb45f2d5681c30317de"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a96038a526b7e96243e6ecc888797e4a251808d743e8ddb45f2d5681c30317de"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a96038a526b7e96243e6ecc888797e4a251808d743e8ddb45f2d5681c30317de"

@@ -1,21 +1,21 @@
 class Alda < Formula
   desc "Music programming language for musicians"
   homepage "https://alda.io"
-  url "https://github.com/alda-lang/alda/archive/refs/tags/release-2.3.2.tar.gz"
-  sha256 "1dc4ad595a14a6c5a2f93dc30f2c340f68a9353bf2f8eaa5ec285b622a33260d"
+  url "https://github.com/alda-lang/alda/archive/refs/tags/release-2.3.3.tar.gz"
+  sha256 "eacb1f6fc649d0e3e159377c1084f1530469d2953b97ccb10720222aadcc8a04"
   license "EPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9ad08ff6305f79d36937d90a192a61f9843ee941b94b81983036ea885185cb7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d7b43e3fcf177044bbf79bf1232e6e6b68515576ee984c4b387225f48ec92c6f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c5243492f9b3514302f73a0280191529a5c95b2c3b66b7da2ff032d2a23d9ce7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aed4c88c3860eaabe07b13438f8c94728900b3aaf7eb05707b03abc5ef6edc56"
-    sha256 cellar: :any_skip_relocation, ventura:       "2a8f6d59392a7cb4fe7909d70409937090e58071bc6e84273db45a6e082fe658"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea20a8d43ff853c8851db04a6f0c5a083210ef57e2bf792e9c646665f14bc7ee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b3dced96ecc8d49bc3f70ea8e95a27a1872e379427a7e4bb25d97e6d87e8af5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d4ca1302163e7a0a35afd5a98b86b8c4b0c9607df2e48c9dced2fccb399d682"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3058e5e68f295158c638f9fca77218495d762fb9fae51a62303a416f3b12051e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1e9db76b22de729bfc98c8ccb60d91dec15f127bed3de0f6ba18cb6f46916a3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5eaf0475905ef9d87f2ca57532377b23536b24f53746b92dca99a57a54075d7"
   end
 
   depends_on "go" => :build
-  depends_on "gradle" => :build
+  # Issue ref: https://github.com/alda-lang/alda/issues/510
+  depends_on "gradle@8" => :build
   depends_on "openjdk"
 
   def install

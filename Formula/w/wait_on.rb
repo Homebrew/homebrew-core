@@ -9,6 +9,7 @@ class WaitOn < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e548523ed71f1fd1796069ae4182d5ae191eb7a76fc4ad83e39353c648b85e23"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ffd8be74922f931670be9f5bb8fbea47735ddef928a74d44562bcf0e2969c01d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "866722ebcb399e5524776cc6ffdd2022112287368e4fa768b8b9bbfe2a8a30cc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d6736732caacfe89a285f06256c397fefb2e47f11032f282d84e874b384fd21"
@@ -19,10 +20,6 @@ class WaitOn < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "abc2d21a1add07205d46997d869de4a896bd47174033c0e392e74c17813251b1"
     sha256 cellar: :any_skip_relocation, big_sur:        "b7a8f90a892e9b2cbe4455d9fd4aedfdf7b65c3534e00b8849e94652171bd4e3"
     sha256 cellar: :any_skip_relocation, catalina:       "befef0facd28d26c22ed14197e74c1bff41c9cd2f787ae4bee59027cfb89b2c7"
-    sha256 cellar: :any_skip_relocation, mojave:         "500c8192d5cc65f906844fcca12f837d1e498d396ac60f368c195cf773bb6d4d"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "ca2dfaf2a1449ae1066826846cbdc9963efb837277f258c57304669f8615ad0f"
-    sha256 cellar: :any_skip_relocation, sierra:         "31a21b915c4f8d901ed5d51d14f3f2f81993ed07891832fdbfb314b7cc8599e5"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "f362694f30021c32557e23b5add36ac4bdfbcabc6056996c5d23fc125527d85d"
   end
 
   depends_on "bsdmake" => :build

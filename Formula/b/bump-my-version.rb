@@ -3,19 +3,18 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/d2/1c/2f26665d4be4f1b82b2dfe46f3bd7901582863ddf1bd597309b5d0a5e6d4/bump_my_version-1.2.1.tar.gz"
-  sha256 "96c48f880c149c299312f983d06b50e0277ffc566e64797bf3a6c240bce2dfcc"
+  url "https://files.pythonhosted.org/packages/81/bb/8e9f4b4ddc5e642e7756048afd459eb1cdcb9ccf73033beb20bba141ea09/bump_my_version-1.2.3.tar.gz"
+  sha256 "7352af6f9454469a020493c2747cd7c88b0c7017dd216e3abb270a13745afa1b"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f6513becf879f1629e3b1c7a707573ab1d656f0bdb913530f710472df008f3ad"
-    sha256 cellar: :any,                 arm64_sonoma:  "4a579360798166734ee309a0eb2fe747f2a52bd4de49491fc86623369949c037"
-    sha256 cellar: :any,                 arm64_ventura: "736d11199ddf4d65c9597e2de2cb503019edade3c26e53755076e64eaba957c0"
-    sha256 cellar: :any,                 sonoma:        "c3b671e767ebd39ab722ca02f5d1a11d8a66bc98f4f13ad125539ec2af5441c1"
-    sha256 cellar: :any,                 ventura:       "36409f6a521d85e9395a94b0a58b64199d282b87cc737e657e91097beeeb89c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "63370f06c40a24a5bd7b0ed6332658e70d7f20bd373c4177a9b51f4371ef2a7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11ec83485f5403413127129058c3f1995c805037316ee8a92cdbf742a20b997"
+    sha256 cellar: :any,                 arm64_tahoe:   "352131c70ae660fadb7e73b14f281890857d6369738a427658498aa5764fbcf9"
+    sha256 cellar: :any,                 arm64_sequoia: "d39bcc976e849eefa6d952aef407264faec01c6e313b41b57f204f6b55247dc8"
+    sha256 cellar: :any,                 arm64_sonoma:  "3491e4f1b049dac4309c73a51835827e82f4277cf5251fd248e22b162e417b47"
+    sha256 cellar: :any,                 sonoma:        "1414791c17ce5e8ebdbafd73a089dcfd10db7dad09cd6e60a1e35881bb50321b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e71bb35f154f148766f12a5102e3045fec8605dac213b6997b24db6ab3330e90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc29de31895000cdff14a92bb3a1a4b6ff14d7d9aac0c17c851c7f295356a1f0"
   end
 
   depends_on "rust" => :build # for pydantic_core
@@ -27,8 +26,8 @@ class BumpMyVersion < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
-    sha256 "673c0c244e15788651a4ff38710fea9675823028a6f08a5eda409e0c9840a028"
+    url "https://files.pythonhosted.org/packages/f1/b4/636b3b65173d3ce9a38ef5f0522789614e590dab6a8d505340a4efe4c567/anyio-4.10.0.tar.gz"
+    sha256 "3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6"
   end
 
   resource "bracex" do
@@ -37,8 +36,8 @@ class BumpMyVersion < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b3/76/52c535bcebe74590f296d6c77c86dabf761c41980e1347a2422e4aa2ae41/certifi-2025.7.14.tar.gz"
-    sha256 "8ea99dbdfaaf2ba2f9bac77b9249ef62ec5218e7c2b2e903378ed5fccf765995"
+    url "https://files.pythonhosted.org/packages/dc/67/960ebe6bf230a96cda2e0abcf73af550ec4f090005363542f0765df162e0/certifi-2025.8.3.tar.gz"
+    sha256 "e564105f78ded564e3ae7c923924435e1daa7463faeab5bb932bc53ffae63407"
   end
 
   resource "click" do
@@ -67,8 +66,8 @@ class BumpMyVersion < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
-    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
+    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
+    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
   end
 
   resource "mdurl" do
@@ -77,13 +76,13 @@ class BumpMyVersion < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
-    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
+    url "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz"
+    sha256 "28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/00/dd/4325abf92c39ba8623b5af936ddb36ffcfe0beae70405d456ab1fb2f5b8c/pydantic-2.11.7.tar.gz"
-    sha256 "d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"
+    url "https://files.pythonhosted.org/packages/ff/5d/09a551ba512d7ca404d785072700d3f6727a02f6f3c24ecfd081c7cf0aa8/pydantic-2.11.9.tar.gz"
+    sha256 "6b8ffda597a14812a7975c90b82a8a2e777d9257aba3453f973acd3c032a18e2"
   end
 
   resource "pydantic-core" do
@@ -107,18 +106,18 @@ class BumpMyVersion < Formula
   end
 
   resource "questionary" do
-    url "https://files.pythonhosted.org/packages/a8/b8/d16eb579277f3de9e56e5ad25280fab52fc5774117fb70362e8c2e016559/questionary-2.1.0.tar.gz"
-    sha256 "6302cdd645b19667d8f6e6634774e9538bfcd1aad9be287e743d96cacaf95587"
+    url "https://files.pythonhosted.org/packages/f6/45/eafb0bba0f9988f6a2520f9ca2df2c82ddfa8d67c95d6625452e97b204a5/questionary-2.1.1.tar.gz"
+    sha256 "3d7e980292bb0107abaa79c68dd3eee3c561b83a0f89ae482860b181c8bd412d"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
-    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
+    url "https://files.pythonhosted.org/packages/fe/75/af448d8e52bf1d8fa6a9d089ca6c07ff4453d86c65c145d0a300bb073b9b/rich-14.1.0.tar.gz"
+    sha256 "e497a48b844b0320d45007cdebfeaeed8db2a4f4bcf49f15e455cfc4af11eaa8"
   end
 
   resource "rich-click" do
-    url "https://files.pythonhosted.org/packages/b7/a8/dcc0a8ec9e91d76ecad9413a84b6d3a3310c6111cfe012d75ed385c78d96/rich_click-1.8.9.tar.gz"
-    sha256 "fd98c0ab9ddc1cf9c0b7463f68daf28b4d0033a74214ceb02f761b3ff2af3136"
+    url "https://files.pythonhosted.org/packages/c8/f9/f00b3c29c77c24d22dbba7d13ecf65278461c1deabecaabdeabc5a2e2203/rich_click-1.9.0.tar.gz"
+    sha256 "212a19875b1e485803a5448130a9157b04c0d0befcc2bc29cb64d3577b93b005"
   end
 
   resource "sniffio" do
@@ -132,8 +131,8 @@ class BumpMyVersion < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
-    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "typing-inspection" do

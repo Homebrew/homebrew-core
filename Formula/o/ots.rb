@@ -7,6 +7,7 @@ class Ots < Formula
   head "https://github.com/sniptt-official/ots.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "863f6b44db75599b901949d6c8b3db28eee7457981a8d5d45a0566c1b4fa5ab3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c078703b06ed8d14bc91d73307528444a9fdbac4b30b36db115fd3936792da45"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c078703b06ed8d14bc91d73307528444a9fdbac4b30b36db115fd3936792da45"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c078703b06ed8d14bc91d73307528444a9fdbac4b30b36db115fd3936792da45"

@@ -14,6 +14,7 @@ class Libgrapheme < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "1a83f1b069707a62ab7144ecd7702ce69bb04c622d873f984498dbf8dd355ed6"
     sha256 cellar: :any,                 arm64_sequoia:  "15463cba352ca4de4ebd865ae7aeee520871711b7c0dca0cceebfba78dbe88c5"
     sha256 cellar: :any,                 arm64_sonoma:   "961545ff7d4e1825ee195a79d6522ba7ae226c401d72b655410d8a132933eb2e"
     sha256 cellar: :any,                 arm64_ventura:  "971fab94ac4bca569f0656596168b05847d4e25b566868e4c9ac3965ed336755"

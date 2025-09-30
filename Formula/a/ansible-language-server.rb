@@ -8,6 +8,7 @@ class AnsibleLanguageServer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "55e9dfc3173ac49bd6499e5186f4483a79f448141bf3933a5248a6a3169b76c5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f77d8d03dd3d1c02a29ba66785d2628274f5478363f8fce75a41ca3e6febcc32"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea600142aba89658a7896fa5c65ce40a2648b61f8535d569c552416ba38cd5c8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4575717c98b81f527b192d6687372445551f11c94b1f47058698e1b6cede67e3"

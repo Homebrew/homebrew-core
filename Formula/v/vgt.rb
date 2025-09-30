@@ -7,6 +7,7 @@ class Vgt < Formula
   head "https://github.com/roblaszczak/vgt.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c4a235266ef75ac8e4b1acd2ae26efb5c917066ae58f4c5e9d44f07bf364105"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b7d4427dfe87372d187344ca5f584db793edcba6c21a64161ad1a7e19e3b723"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b7d4427dfe87372d187344ca5f584db793edcba6c21a64161ad1a7e19e3b723"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7b7d4427dfe87372d187344ca5f584db793edcba6c21a64161ad1a7e19e3b723"

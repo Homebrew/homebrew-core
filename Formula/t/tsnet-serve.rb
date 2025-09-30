@@ -7,6 +7,7 @@ class TsnetServe < Formula
   head "https://github.com/shayne/tsnet-serve.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8870b627f377c37f5bca645d1eaaead4fdedd84239dcfaf60d643d99668b4a74"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e79d05ede181726fe1493fc6861d94f5fd5ecf115d63b43bfda78e75cea62928"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4858338aa9aa119ec3ffb6b6bcd8289b14c425643dc5cabb325d1f8569708c60"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a782710bea95a2736499ab7b1e1f371932956515f301d0a2ec80d4c43224c33e"

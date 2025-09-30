@@ -6,6 +6,7 @@ class Soapyremote < Formula
   license "BSL-1.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "b245e94aaf094ec9511e1f0f47fcd40499db9d62d28d710e6c26d6753536e852"
     sha256 cellar: :any,                 arm64_sequoia:  "45db2916465bc4c352d69c0089f03f2fc39f1fe7c0dd193f657dd21f44b5be43"
     sha256 cellar: :any,                 arm64_sonoma:   "ffe12b4564bf9090e8d20a8befd7f1ae66783c90395052fe016f44bd0ada6343"
     sha256 cellar: :any,                 arm64_ventura:  "2bfd849620a751a566c7eea4101c31ee70b685bd220275171f5d3fa5ab615fee"
@@ -21,7 +22,9 @@ class Soapyremote < Formula
   depends_on "soapysdr"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

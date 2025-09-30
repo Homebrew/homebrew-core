@@ -7,6 +7,7 @@ class Shuffledns < Formula
   head "https://github.com/projectdiscovery/shuffledns.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b603af4991e0ab74445ec68e50e92e2908275ff1b542ecaf3e26e273d5098d57"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fa3569e66c96377923452d14e75ca31cdbaa56b933e83990cbe14cff5294de31"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6e1612f9b88c47df30bb100d925fcca6e895af63ce28e4cab15d46690f1865cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "47bc85e79674caa717eb81f2a25477b97818c9f0474ae750f982eeb29e168d32"

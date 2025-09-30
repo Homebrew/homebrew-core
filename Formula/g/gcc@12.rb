@@ -1,12 +1,13 @@
 class GccAT12 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  # TODO: Remove maximum_macos if Xcode 16 support is added to https://github.com/iains/gcc-12-branch
   url "https://ftpmirror.gnu.org/gnu/gcc/gcc-12.4.0/gcc-12.4.0.tar.xz"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-12.4.0/gcc-12.4.0.tar.xz"
   sha256 "704f652604ccbccb14bdabf3478c9511c89788b12cb3bbffded37341916a9175"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
+  # https://gcc.gnu.org/gcc-12/
+  # TODO: skip livecheck after 12.5.0
   livecheck do
     url :stable
     regex(%r{href=["']?gcc[._-]v?(12(?:\.\d+)+)(?:/?["' >]|\.t)}i)
@@ -15,23 +16,18 @@ class GccAT12 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256                               arm64_sonoma:   "55614581a8985550c5cc84cd29f7122d4aca5d11f60c5ff119e7432419c2b9d8"
-    sha256                               arm64_ventura:  "1466d203d2b62e3771a0d1935314747e6a098793622f6a007c23acaf8185731b"
-    sha256                               arm64_monterey: "94bc560bcbfc98966d891656b3a0705958bdac330dfab3a9913c4c412e2f5885"
-    sha256                               sonoma:         "de57cdd8fc489a7fb88f7af19a730af87a14418c7181e5ba03e20c40e4d65738"
-    sha256                               ventura:        "cbaf8ac753711e7c39e90cc3abf3dee9847dea8908e5e575bd4065ffeef0c9b0"
-    sha256                               monterey:       "436e51d082e7cfaa612458fdd2703f530abcd49730e7634ce659700fedb033e1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b7650f4cbd3cbb0bd79ca6d895fe25e2314b498f096592f65288f525568cc0ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50b8eb4f9125e36b9daad5dcd7cf470d6780d1ab2a1bad652793299fc6036770"
+    rebuild 2
+    sha256                               arm64_tahoe:  "121d1e1d67b1888295afb2b4bf70462ea6c4ea463eaa348d660c262f1af1b31e"
+    sha256                               arm64_sonoma: "1353f50ebf74f089cce988339ddc829659763e6ec7ca6f6bb59d1e14d6e08227"
+    sha256                               sonoma:       "6704c981da00d008481eb0b5f28b25b94e41fc658f05820b95b49ba8f38041cc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "9a0052fd91cc298b1cd3b18c9e107470b4131187980cb744514ce6d8ff4d36a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e4d0fd3bea4b3fef919188847d7e62129749e1fb88f62aba8f99a0e9d1af38d3"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
 
-  # https://github.com/iains/gcc-12-branch/issues/24
-  # https://github.com/iains/gcc-12-branch/issues/25
-  depends_on maximum_macos: [:ventura, :build] # Xcode < 16
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
@@ -44,14 +40,19 @@ class GccAT12 < Formula
     depends_on "binutils"
   end
 
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
-
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-12-branch
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/ca7047dad38f16fb02eb63bd4447e17d0b68b3bb/gcc/gcc-12.4.0.diff"
     sha256 "c0e8e94fbf65a6ce13286e7f13beb5a1d84b182a610489026ce3e2420fc3d45c"
+  end
+  # Backport commits to build on Sonoma/Sequoia to allow rebottling.
+  # TODO: merge into above patch when updating to 12.5.0.
+  patch do
+    on_macos do
+      url "https://github.com/iains/gcc-12-branch/compare/e300c1337a48cf772b09e7136601fd7f9f09d6f1..99533d94172ed7a24c0e54c4ea97e6ae2260409e.patch"
+      sha256 "f01bf173c1980cef680e407a5cc4f34af13a3e54cd644138735ec35adc5c6e40"
+    end
   end
 
   def install
@@ -97,12 +98,7 @@ class GccAT12 < Formula
         toolchain_path = "/Library/Developer/CommandLineTools"
         args << "--with-ld=#{toolchain_path}/usr/bin/ld-classic"
       end
-
-      make_args = []
     else
-      # Fix cc1: error while loading shared libraries: libisl.so.15
-      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
-
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
@@ -114,15 +110,13 @@ class GccAT12 < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      make_args = %W[
-        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
-        BOOT_LDFLAGS=-L#{Formula["zlib"].opt_lib}
-      ]
+      ENV.append_path "CPATH", Formula["zlib"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
     end
 
     mkdir "build" do
       system "../configure", *args
-      system "make", *make_args
+      system "make"
 
       # Do not strip the binaries on macOS, it makes them unsuitable
       # for loading plugins

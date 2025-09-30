@@ -9,6 +9,7 @@ class Pystring < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9a006d97490404a81cfa354f0cb193e5d3763cbc756a2b2551829abbfe10b519"
     sha256 cellar: :any,                 arm64_sequoia:  "9e8695ee4b99ef0ec12667a9dee997d4f0f06509b7c262a4a5c74aa1ec7002c4"
     sha256 cellar: :any,                 arm64_sonoma:   "c26e8b819cc438eca6d9cbc63695d5de3946e8593e2a6ae7a80dad9f00755291"
     sha256 cellar: :any,                 arm64_ventura:  "7691c2829ccd208b1805929cff0802595a93e1603710279064eae8d05eb4d56f"
@@ -25,6 +26,9 @@ class Pystring < Formula
   depends_on "cmake" => :build
 
   def install
+    # Fix build with CMake 4.0+. Remove on next release.
+    inreplace "CMakeLists.txt", "cmake_minimum_required(VERSION 3.2)",
+                                "cmake_minimum_required(VERSION 3.10)"
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

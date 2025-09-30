@@ -6,6 +6,7 @@ class GupnpAv < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "31aaaa194304e213874ecbeb8dc488c4cf01a9d18565a96a9e020d6d0136bd0a"
     sha256 arm64_sequoia: "79a8014527ac4dcaa679fd3825136895f58105c679862632ab261a71c292a837"
     sha256 arm64_sonoma:  "70df7b1b747aa8120479ef27e1b276a04d37dd25c5cd9aadf0d24b64d3106c84"
     sha256 arm64_ventura: "baf6994783bfe3f86c1c6b3f8295f65fb6ce41c211f14647b685a07ac24c6428"

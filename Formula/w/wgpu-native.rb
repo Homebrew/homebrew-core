@@ -2,19 +2,20 @@ class WgpuNative < Formula
   desc "Native WebGPU implementation based on wgpu-core"
   homepage "https://github.com/gfx-rs/wgpu-native"
   url "https://github.com/gfx-rs/wgpu-native.git",
-      tag:      "v25.0.2.1",
-      revision: "af9074edf144efe4f1432b2e42c477429c4964c1"
+      tag:      "v25.0.2.2",
+      revision: "a2f5109b0da3c87d356a6a876f5b203c6a68924a"
   license "Apache-2.0"
   head "https://github.com/gfx-rs/wgpu-native.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cb1e0418532763c8a8e38556ba48d263cdee03bfd7b043fd0b2888fe96464738"
-    sha256 cellar: :any,                 arm64_sonoma:  "e2815a5fd4d6036b1e494a2474ff1df8c0a4f4df1df7d1ee621c00c4ec03ada7"
-    sha256 cellar: :any,                 arm64_ventura: "ac68dc14f145e005d60c7868275d7f952f3f0e4c368cef0eefb8ba887fda82e3"
-    sha256 cellar: :any,                 sonoma:        "745b241b6e2dc78e29b547840d03279cd0f603f91fcdf9bdae4182605e526999"
-    sha256 cellar: :any,                 ventura:       "3b67dfd8eb82443cbe63d9b76e4928c516534c5c986b96a94a5ec43ffd9a22db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fab225a34edfb5bf5a4307405073098fad497abc3fdb042fb582015dddaf7fc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "421381400826ad0f5f8ce03630ef87e37f120cc3b6148b5612374303d025cdf0"
+    sha256 cellar: :any,                 arm64_tahoe:   "eb7550d1d1531c1591d52f2b00118332e0830e2531dfd145ec4dbdc56069753f"
+    sha256 cellar: :any,                 arm64_sequoia: "8573e6bc96bdc85ad271be5242a5b7c137de80a0e8ac4e570079f7ecc7b40c43"
+    sha256 cellar: :any,                 arm64_sonoma:  "2dd7b2ed450d367419f5b163e1d7c91778ae00038ef9a15e6743eac9109ac737"
+    sha256 cellar: :any,                 arm64_ventura: "b4c0515ef990fc88f3eb95c24799b6e7ca5a98cb50b451904734058cc51acd4b"
+    sha256 cellar: :any,                 sonoma:        "80db9538177c5953cc6222a78ab66a6060b59db4d0bcc259fd11459d967eeb74"
+    sha256 cellar: :any,                 ventura:       "3d2424e90cf2cf44f363ceeb2bf52e82eb81903bd3ab8c8ef70ca06c29be2903"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c5735eec213b0d183b2e656103a810c36c67e42039512db2007a903cd0be24a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4f6b2980e8428dd9bc67393990f8a2d9da2acfc0838c8eb3cd6c85a6f8aa4ea"
   end
 
   depends_on "rust" => :build

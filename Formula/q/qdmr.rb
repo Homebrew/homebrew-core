@@ -6,6 +6,7 @@ class Qdmr < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "f2f9a66770f2acf18f6f727efe52943acdeab1506b667edf92b1430e8a449804"
     sha256 arm64_sequoia: "beb390820470fa2c825dc25a14c2d40de8770f9d513ca639085335773571a730"
     sha256 arm64_sonoma:  "58d13f717ae94f13d6cdcef192691b031ea352b85bffd2c0948aa75831a3e59f"
     sha256 arm64_ventura: "5c19013fde907534ed1e008086dd0af7e58f52091820a503058e6d155690a290"

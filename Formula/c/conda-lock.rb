@@ -8,22 +8,28 @@ class CondaLock < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "37265f1903242a301f3fb0429909edbac13654b107c48a27d2c560fe52c3ebd7"
-    sha256 cellar: :any,                 arm64_sonoma:  "5a352901628e149038a11c83452bc58d778657791f345ccf8327e28c2ff740f6"
-    sha256 cellar: :any,                 arm64_ventura: "bd4af451c55ea058c1d7d6c307c2b89dc9ffce97663ca270229e6bbad4d16410"
-    sha256 cellar: :any,                 sonoma:        "1e1320c69f71bea11d8a1f891fd4c60b895e2b10def51bce86720ab3d979b230"
-    sha256 cellar: :any,                 ventura:       "d59f0202ca8418a5bd9d97b8ce7fe5fb22e2e800b6779096462cfa17cd3e73f9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ea76044966108253d7226769064ef0af4b902243ebc2a5e3319c05035650a0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e356f993822fd32bce9de0e051e49460e8ef9018f6198bf248adb1a4c207d0b"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "45d83075313a81cf91ad859d6f4959266c6958bc0833d26dbe9559da99e5c4d8"
+    sha256 cellar: :any,                 arm64_sequoia: "064632eb4dfc87534b41e7dcb24115705fb71364e6e4ab84918da60f9134a75f"
+    sha256 cellar: :any,                 arm64_sonoma:  "b8eda97e136ccfc2b635336269d5dab158acbc298c706f0ac6fbaf88c9586518"
+    sha256 cellar: :any,                 arm64_ventura: "3bc317224e76fcf968b9c5a76f35308b5912678acf0c2b60638c80b3f641847b"
+    sha256 cellar: :any,                 sonoma:        "8af8af52593c4f9d9bfee80d392cd506a37eb850677f34506771e9b535092291"
+    sha256 cellar: :any,                 ventura:       "f4dab2913294dd6cea9e281d074425cc78a58b620b9cac8c0b0e85a9990d2ec5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "77b97d0fb72941c009f66f2feb1d90b3570c62a5392ec1d9b40e132da262c0a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a55b9278645ddf486ae5e5ad13814aafb5dbca7418fe2dc3e02352cf3b15334a"
   end
 
   depends_on "rust" => :build # for pydantic
+  depends_on "micromamba" => :test
   depends_on "certifi"
   depends_on "cffi"
-  depends_on "cryptography"
   depends_on "libyaml"
   depends_on "python@3.13"
+  depends_on "zstd"
+
+  on_linux do
+    depends_on "cryptography" # for secretstorage
+  end
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
@@ -41,8 +47,8 @@ class CondaLock < Formula
   end
 
   resource "build" do
-    url "https://files.pythonhosted.org/packages/7d/46/aeab111f8e06793e4f0e421fcad593d547fb8313b50990f31681ee2fb1ad/build-1.2.2.post1.tar.gz"
-    sha256 "b36993e92ca9375a219c99e606a122ff365a760a2d4bba0caa09bd5278b608b7"
+    url "https://files.pythonhosted.org/packages/25/1c/23e33405a7c9eac261dff640926b8b5adaed6a6eb3e1767d441ed611d0c0/build-1.3.0.tar.gz"
+    sha256 "698edd0ea270bde950f53aed21f3a0135672206f3911e0176261a31e0e07b397"
   end
 
   resource "cachecontrol" do
@@ -51,8 +57,8 @@ class CondaLock < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "click" do
@@ -71,8 +77,8 @@ class CondaLock < Formula
   end
 
   resource "distlib" do
-    url "https://files.pythonhosted.org/packages/0d/dd/1bec4c5ddb504ca60fc29472f3d27e8d4da1257a854e1d96742f15c1d02d/distlib-0.3.9.tar.gz"
-    sha256 "a60f20dea646b8a33f3e7772f74dc0b2d0772d2837ee1342a00645c81edf9403"
+    url "https://files.pythonhosted.org/packages/96/8e/709914eb2b5749865801041647dc7f4e6d00b549cfe88b65ca192995f07c/distlib-0.4.0.tar.gz"
+    sha256 "feec40075be03a04501a973d81f633735b4b69f98b05450592310c0f401a4e0d"
   end
 
   resource "dulwich" do
@@ -86,13 +92,13 @@ class CondaLock < Formula
   end
 
   resource "fastjsonschema" do
-    url "https://files.pythonhosted.org/packages/8b/50/4b769ce1ac4071a1ef6d86b1a3fb56cdc3a37615e8c5519e1af96cdac366/fastjsonschema-2.21.1.tar.gz"
-    sha256 "794d4f0a58f848961ba16af7b9c85a3e88cd360df008c59aac6fc5ae9323b5d4"
+    url "https://files.pythonhosted.org/packages/20/b5/23b216d9d985a956623b6bd12d4086b60f0059b27799f23016af04a74ea1/fastjsonschema-2.21.2.tar.gz"
+    sha256 "b1eb43748041c880796cd077f1a07c3d94e93ae84bba5ed36800a33554ae05de"
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/0a/10/c23352565a6544bdc5353e0b15fc1c563352101f30e24bf500207a54df9a/filelock-3.18.0.tar.gz"
-    sha256 "adbc88eabb99d2fec8c9c1b229b171f18afa655400173ddc653d5d01501fb9f2"
+    url "https://files.pythonhosted.org/packages/40/bb/0ab3e58d22305b6f5440629d20683af28959bf793d98d11950e305c1c326/filelock-3.19.1.tar.gz"
+    sha256 "66eda1888b0171c998b35be2bcc0f6d75c388a7ce20c3f3f37aa8e96c2dddf58"
   end
 
   resource "gitdb" do
@@ -101,8 +107,8 @@ class CondaLock < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/c0/89/37df0b71473153574a5cdef8f242de422a0f5d26d7a9e231e6f169b4ad14/gitpython-3.1.44.tar.gz"
-    sha256 "c87e30b26253bf5418b01b0660f818967f3c503193838337fe5e573331249269"
+    url "https://files.pythonhosted.org/packages/9a/c8/dd58967d119baab745caec2f9d853297cec1989ec1d63f677d3880632b88/gitpython-3.1.45.tar.gz"
+    sha256 "85b0ee964ceddf211c41b9f27a49086010a190fd8132a24e21f362a4b36a791c"
   end
 
   resource "idna" do
@@ -126,8 +132,8 @@ class CondaLock < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/49/1c/831faaaa0f090b711c355c6d8b2abf277c72133aab472b6932b03322294c/jaraco_functools-4.2.1.tar.gz"
-    sha256 "be634abfccabce56fa3053f8c7ebe37b682683a4ee7793670ced17bab0087353"
+    url "https://files.pythonhosted.org/packages/f7/ed/1aa2d585304ec07262e1a83a9889880701079dde796ac7b1d1826f40c63d/jaraco_functools-4.3.0.tar.gz"
+    sha256 "cfd13ad0dd2c47a3600b439ef72d8615d482cedcff1632930d6f28924d92f294"
   end
 
   resource "jeepney" do
@@ -196,8 +202,8 @@ class CondaLock < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "requests-toolbelt" do
@@ -206,8 +212,8 @@ class CondaLock < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/39/87/6da0df742a4684263261c253f00edd5829e6aca970fff69e75028cccc547/ruamel.yaml-0.18.14.tar.gz"
-    sha256 "7227b76aaec364df15936730efbf7d72b30c0b79b1d578bbb8e3dcb2d81f52b7"
+    url "https://files.pythonhosted.org/packages/3e/db/f3950f5e5031b618aae9f423a39bf81a55c148aecd15a34527898e752cf4/ruamel.yaml-0.18.15.tar.gz"
+    sha256 "dbfca74b018c4c3fba0b9cc9ee33e53c371194a9000e694995e620490fd40700"
   end
 
   resource "ruamel-yaml-clib" do
@@ -246,13 +252,13 @@ class CondaLock < Formula
   end
 
   resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/38/04/1cd43f72c241fedcf0d9a18d0783953ee301eac9e5d9db1df0f0f089d9af/trove_classifiers-2025.5.9.12.tar.gz"
-    sha256 "7ca7c8a7a76e2cd314468c677c69d12cc2357711fcab4a60f87994c1589e5cb5"
+    url "https://files.pythonhosted.org/packages/c3/21/707af14daa638b0df15b5d5700349e0abdd3e5140069f9ab6e0ccb922806/trove_classifiers-2025.8.6.13.tar.gz"
+    sha256 "5a0abad839d2ed810f213ab133d555d267124ddea29f1d8a50d6eca12a50ae6e"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/d1/bc/51647cd02527e87d05cb083ccc402f93e441606ff1f01739a62c8ad09ba5/typing_extensions-4.14.0.tar.gz"
-    sha256 "8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4"
+    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
+    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
   end
 
   resource "typing-inspection" do
@@ -266,17 +272,29 @@ class CondaLock < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/56/2c/444f465fb2c65f40c3a104fd0c495184c4f2336d65baf398e3c75d72ea94/virtualenv-20.31.2.tar.gz"
-    sha256 "e10c0a9d02835e592521be48b332b6caee6887f332c111aa79a09b9e79efc2af"
+    url "https://files.pythonhosted.org/packages/1c/14/37fcdba2808a6c615681cd216fecae00413c9dab44fb2e57805ecf3eaee3/virtualenv-20.34.0.tar.gz"
+    sha256 "44815b2c9dee7ed86e387b842a84f20b93f7f417f95886ca1996a72a4138eb1a"
+  end
+
+  resource "xattr" do
+    url "https://files.pythonhosted.org/packages/50/65/14438ae55acf7f8fc396ee8340d740a3e1d6ef382bf25bf24156cfb83563/xattr-1.2.0.tar.gz"
+    sha256 "a64c8e21eff1be143accf80fd3b8fde3e28a478c37da298742af647ac3e5e0a7"
   end
 
   resource "zstandard" do
-    url "https://files.pythonhosted.org/packages/ed/f6/2ac0287b442160a89d726b17a9184a4c615bb5237db763791a7fd16d9df1/zstandard-0.23.0.tar.gz"
-    sha256 "b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09"
+    url "https://files.pythonhosted.org/packages/09/1b/c20b2ef1d987627765dcd5bf1dadb8ef6564f00a87972635099bb76b7a05/zstandard-0.24.0.tar.gz"
+    sha256 "fe3198b81c00032326342d973e526803f183f97aa9e9a98e3f897ebafe21178f"
   end
 
   def install
-    virtualenv_install_with_resources
+    without = ["zstandard"]
+    without += OS.mac? ? ["jeepney", "secretstorage"] : ["xattr"]
+    venv = virtualenv_install_with_resources(without:)
+
+    resource("zstandard").stage do
+      system_zstd = "--config-settings=--build-option=--system-zstd"
+      system venv.root/"bin/python", "-m", "pip", "install", system_zstd, *std_pip_args(prefix: false), "."
+    end
 
     generate_completions_from_executable(bin/"conda-lock", shell_parameter_format: :click)
   end
@@ -291,7 +309,8 @@ class CondaLock < Formula
       dependencies:
         - python=3.13
     YAML
-    system bin/"conda-lock", "-p", "osx-64", "-p", "osx-arm64"
+    system bin/"conda-lock", "-p", "osx-64", "-p", "osx-arm64",
+                             "--conda", Formula["micromamba"].opt_bin/"mamba"
     assert_path_exists testpath/"conda-lock.yml"
   end
 end

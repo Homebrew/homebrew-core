@@ -9,6 +9,7 @@ class Lemmeknow < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a1900f21cb64bbf030411775ef8c6691d12282888e50703bf8a9e91e0e4bf28f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "03fae36a6ddc5d004cc3eaadbf554dacfb3a5d968835708de4b595e9acdbc90f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c283216680e3331f7630e128ae29070f4710ee6175b237f8449cde10482a9d0b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "90517e35b64697b70153db585ce845aa789762a3dd0aeec955a6ef4f516194f9"

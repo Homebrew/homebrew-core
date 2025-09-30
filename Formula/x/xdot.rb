@@ -12,6 +12,7 @@ class Xdot < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d5ad1a1ace75de95e1ff9f68e30e32392e9122a300e434abe522ecedbe3ee7d6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f3a6484db099186946f2e3fca16c51cd622e70030959554352b1128c1169d07"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f3a6484db099186946f2e3fca16c51cd622e70030959554352b1128c1169d07"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8f3a6484db099186946f2e3fca16c51cd622e70030959554352b1128c1169d07"

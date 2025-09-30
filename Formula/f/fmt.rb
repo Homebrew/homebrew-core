@@ -1,19 +1,30 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmt.dev/"
-  url "https://github.com/fmtlib/fmt/releases/download/11.2.0/fmt-11.2.0.zip"
-  sha256 "203eb4e8aa0d746c62d8f903df58e0419e3751591bb53ff971096eaa0ebd4ec3"
   license "MIT"
   head "https://github.com/fmtlib/fmt.git", branch: "master"
 
+  stable do
+    url "https://github.com/fmtlib/fmt/releases/download/11.2.0/fmt-11.2.0.zip"
+    sha256 "203eb4e8aa0d746c62d8f903df58e0419e3751591bb53ff971096eaa0ebd4ec3"
+
+    # Backport fix for error: use of undeclared identifier 'malloc'
+    patch do
+      url "https://github.com/fmtlib/fmt/commit/f4345467fce7edbc6b36c3fa1cf197a67be617e2.patch?full_index=1"
+      sha256 "59cc3e535a98346ea37d7cbd59d553bb06c3ee4f2a955e6bcdc5911fbd39668f"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2993c31d6b043978465fb9c81571acb7742b064e7da1757d894cde11d380d106"
-    sha256 cellar: :any,                 arm64_sonoma:  "21f1e3cd8c9b24293c9a00fd01743f0be9dd6405c31a834cf6599824ace92c39"
-    sha256 cellar: :any,                 arm64_ventura: "5d9b219e1a18aff1c6a6a6444ae8816f5263cb131f56a78a2e8083bb52b8fe7b"
-    sha256 cellar: :any,                 sonoma:        "87df188fccf61d985adb0d23be2a5793015485d180a2e196539a771223a72870"
-    sha256 cellar: :any,                 ventura:       "b54359c024bb64eef1b2391dbcb532aec537470503c3b2a525f323affd624c09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "46d258b4d9a84b8fb2cec4ec9b71cc3db2ac05876fb454a2e253875440ed3db1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57840d386149a78306c8ab69226dc636768456c5cb6b3452c081b0279a8f0db3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3945c835bab2530aafbb56eca0a87f7a76d2a0bf5e1201a0f2c3fa1430168e4d"
+    sha256 cellar: :any,                 arm64_sequoia: "585f4564a32043378cf78eaf8fe3ad3cd3f30ce25c24a5795204225d2fc62bf2"
+    sha256 cellar: :any,                 arm64_sonoma:  "1f162c9569ecb94719bb0f49517c4c2d00470257d8b01943313d85b281724444"
+    sha256 cellar: :any,                 arm64_ventura: "7ed66b96daebfc7607ff27cc6901e446a1b7af5bbfdd3b47ab679a59a9506012"
+    sha256 cellar: :any,                 sonoma:        "502fee1745aa6a2ef90430867fcb95eaabd4a5051dfb0ba5d70d7240cd5e3be9"
+    sha256 cellar: :any,                 ventura:       "3d9198e5324c1f9ed67a4ec185e62cb52f602d09d69cfe4b3c9de0b8ad32f2dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc2dde40b9bf247056284547a03a84d78a4e5e0881fd12b1286b613017151659"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7aec969a40769e65ab0d63abd988f6104a2372c469d002922959e3a414151e70"
   end
 
   depends_on "cmake" => :build

@@ -8,6 +8,7 @@ class Guichan < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2468a859fd2e4f902e76f3ace98dfc55a117ec1a4ed6fe3a114c63020d5743e5"
     sha256 cellar: :any,                 arm64_sequoia: "a0d1e15669f361e19d404bdbb8b311443da4c4a775fdcb1d8d17a4fe03034e5f"
     sha256 cellar: :any,                 arm64_sonoma:  "b9f1f1aba6da5d653df4d082c3048724e14d221ef5fa9f3c1368413b5e703fcf"
     sha256 cellar: :any,                 arm64_ventura: "6b923b087914799d905e9fc2676231bc115dc5dca4dbc446e72fc7cabb943f21"

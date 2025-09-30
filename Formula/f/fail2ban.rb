@@ -14,6 +14,7 @@ class Fail2ban < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e377d350ac888f81be4dc4cdbcfde84822e3a8bb12f21797602728517d90e719"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f59d34135a5df4be2af65f51437d5443262ab7aca9e4fe6f321c75522f23c9a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f59d34135a5df4be2af65f51437d5443262ab7aca9e4fe6f321c75522f23c9a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5f59d34135a5df4be2af65f51437d5443262ab7aca9e4fe6f321c75522f23c9a"

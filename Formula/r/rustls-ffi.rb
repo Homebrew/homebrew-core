@@ -7,6 +7,7 @@ class RustlsFfi < Formula
   head "https://github.com/rustls/rustls-ffi.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "219d4960fb3124a191b5b35029d8d16bd776ff53da6de34f4a2ed99593b111f4"
     sha256 cellar: :any,                 arm64_sequoia: "9dc82894121ecb234a72a281ad45a1f6c5f1640c38371f282f039ce9354cc08b"
     sha256 cellar: :any,                 arm64_sonoma:  "6fc16fefdf0d16506468c26dcd82b6483ce80f1248786d0c3737c511fd862cf7"
     sha256 cellar: :any,                 arm64_ventura: "5ae6641e5f808a9bc0bab0b64d0334bb62982986854337295c8842e6a20b7079"

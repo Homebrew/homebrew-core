@@ -12,6 +12,7 @@ class ApacheArrowGlib < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "1ae66ca7d006705b24abb76a80126c8aa6bd08fe0bb06ccdb809aa07477ff83a"
     sha256 cellar: :any, arm64_sequoia: "5f004095e9a67918ee7c1cfde17bf071d4a79caf3e27b5cac09ac1e6c03b5c77"
     sha256 cellar: :any, arm64_sonoma:  "44999e5b2a9658c20b288e9a3af01df921e8a7d8eb7d36cafb558dfad3da71af"
     sha256 cellar: :any, arm64_ventura: "6b14ecf4d7d980bd1e47160236fc827fd586825892ef54f1ce833185d7652618"

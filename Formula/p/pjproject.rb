@@ -12,6 +12,7 @@ class Pjproject < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e614d35816c69c1cabcccee4c1a3409184f4829fe44c37d1b366821d32fd6bc1"
     sha256 cellar: :any,                 arm64_sequoia: "6934065fa7d3cf8901366cb2a892aa434cced856977d74ed3c39826a9108b769"
     sha256 cellar: :any,                 arm64_sonoma:  "37aee9503222ef91a2b238f04655f915f6f4cb64666a81250b3fda956559afd5"
     sha256 cellar: :any,                 arm64_ventura: "8a168da1989261e327802b0416972f5dd7a743598da0607a99ba3f19d2fba116"
@@ -21,7 +22,6 @@ class Pjproject < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0fb2516ec89621fc3622cd52ed7dfa0d814f49f496c32ec6763c2a8f605be66"
   end
 
-  depends_on macos: :high_sierra # Uses Security framework API enum cases introduced in 10.13.4
   depends_on "openssl@3"
 
   def install

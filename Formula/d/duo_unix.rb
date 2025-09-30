@@ -1,18 +1,17 @@
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
-  url "https://github.com/duosecurity/duo_unix/archive/refs/tags/duo_unix-2.1.0.tar.gz"
-  sha256 "29666b135d577c91f2a89730e18808d98c3a5c75a462dd3181fdc0cec5ae72c1"
+  url "https://github.com/duosecurity/duo_unix/archive/refs/tags/duo_unix-2.2.1.tar.gz"
+  sha256 "3461d6f5818388ecf84f0a2ef97a1a7af5f9dfb9fe09f3a0a5bc4717ba0be027"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "1cd758e3427dfaa7a1a2a284ce476934f234a52351d0d3af9b7d3689c2d49383"
-    sha256 arm64_sonoma:  "5b082a4d6c08755254f63997bc37a1a1777bcc22b358740b3db075215213ca1d"
-    sha256 arm64_ventura: "f249c95d4e3e81555b2e84eca807456f5ad25551b04ba6a8b438da1f9bfbf561"
-    sha256 sonoma:        "8645ee577645d4d7b28304df06edb5d1477ec20ed1fa1ef1133c06f20b289745"
-    sha256 ventura:       "9991909cb62c285d217000dcd1c00b633e1ed96fa9cb1cd0cde69af40ac70af8"
-    sha256 arm64_linux:   "f29d7f096f966eb543b0d727afdee0812996cc1accbbc9c681d990bc0644876b"
-    sha256 x86_64_linux:  "b60c4758d2786248237e8c94f022c80479bfe45c22f65c62180145f0f091a880"
+    sha256               arm64_tahoe:   "b354b4407675279464957db28281e1298e495be6ac1f67b3cb37bf9c41b570a8"
+    sha256               arm64_sequoia: "bce0a9f9c0a4a0956dbc87a25fa3b1aab66b75be56efd83b55071ffcd0dca72e"
+    sha256               arm64_sonoma:  "f4e6ba38f45ca5d24cb8d2590a35198703be47a081314a2602218ff3b939539e"
+    sha256 cellar: :any, sonoma:        "3805539d83ca20ff03edaf05668158b3d32f97eb75d5a22c2d15884f82c3d316"
+    sha256               arm64_linux:   "d909789b3dccacdeb365f20e78e1741c8ce5518ebbbab825c3c0889782ef7142"
+    sha256               x86_64_linux:  "19c17623d2f22249ea692c36cda0bdc533d35fe7b9d7fc9da20622eb2f9bd7dc"
   end
 
   depends_on "autoconf" => :build

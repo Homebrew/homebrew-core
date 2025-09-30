@@ -22,6 +22,7 @@ class Libdvdread < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3bf9b853635ca319646c757110872d67d4125abb66e5e4d092068527342fa586"
     sha256 cellar: :any,                 arm64_sequoia:  "6aaf06a46650503ddadff95be7584a8fc86ee6e2d3c357475d26566cfda2b10c"
     sha256 cellar: :any,                 arm64_sonoma:   "6d2583d6d35a5b71d45cfbfc63e3e76dd9757c85973752b1583c4af9502d723c"
     sha256 cellar: :any,                 arm64_ventura:  "221b4cb3ad771cc650454a1624a89348973c3ef5bedc5f526b77e4bbb281b938"

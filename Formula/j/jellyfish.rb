@@ -8,6 +8,7 @@ class Jellyfish < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "7fcaa4101e6f6b41b3223d25c59adb132e856ea2f3068fa18acfcf1ea837092e"
     sha256 cellar: :any,                 arm64_sequoia:  "5e944e1abeae0a321ff68872f400954fb3ba458043a0a2234e993168ecca40c7"
     sha256 cellar: :any,                 arm64_sonoma:   "0417631105929539a2126368a9bc8128eaa1f97ad30819bfc9a9cb72e5313e28"
     sha256 cellar: :any,                 arm64_ventura:  "12d4462803ed8c86dde8eb3079fa40f0e921605f484317b2fdbb9ea01ba381c1"

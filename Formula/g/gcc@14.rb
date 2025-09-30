@@ -14,14 +14,15 @@ class GccAT14 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "a506cdc6f124d98860376b407ea1ccd7efc26c17599dd36e8d84fe5a8d9174d7"
-    sha256 arm64_sonoma:  "4b1650d3a4f05e83f41ce6db9ce026330c0e27f11d36ec0728d7d5df88aec2d8"
-    sha256 arm64_ventura: "259e3427f528f649952d1a0ae2ee76c8d3d7b4358dc4bfeb628a3a0fb9fcfc2b"
-    sha256 sequoia:       "9d5abc0f7730ee67b0af8fd1e8145bb9f8807e75bee08244b529892c24ac081b"
-    sha256 sonoma:        "c7947c080206399d57ef43e32f0370e625b50f4f4aff5366173d0f18a745c703"
-    sha256 ventura:       "40507ee533e8652fb0edc9c2e97a7bc1a9204285ce18832ac81cefcf4902dd13"
-    sha256 arm64_linux:   "73647cea1d508c67b6b09232aa1cde8ef9a788efa684feaad53b4136da4dd7ee"
-    sha256 x86_64_linux:  "fb94a8a1e2afd35062fbe9a577803347b078f32e72cc6528cddeccfdedceeb2b"
+    rebuild 2
+    sha256                               arm64_tahoe:   "6a6f4479e5f7f14995756fc8c1845c299680ea0c5788c534a9f625d48b757687"
+    sha256                               arm64_sequoia: "12a5bfe365a9bc4d26752a0169517ecbb3bcc168b98dfc2c1b7f034e5878dea9"
+    sha256                               arm64_sonoma:  "36963df72a5f78d963aa6e2704d0d676880fbdade137f6b8887bbb7a9e6cac42"
+    sha256                               tahoe:         "1f349e397413a3ea759324791f048254d1a7a557543b07525694665bc4e84554"
+    sha256                               sequoia:       "d94a51af9d807077bfda895e34a09eeaefc71ecc1386a28e6497dd4457589bfb"
+    sha256                               sonoma:        "07fbaa38d4dc9f30456e6c09a2fdedd590dcf5829b1849a5b2c57fb13e0d65c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97fd978bc8307b20e06e35fcc5151d5ca9dc93c0c6043d56098a92c6b0b354f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14982763e0d0e18a57595baff2fa3c0df6fc5b16ae204df02cb7095038ea111c"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -46,9 +47,6 @@ class GccAT14 < Formula
   on_linux do
     depends_on "binutils"
   end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
@@ -106,9 +104,6 @@ class GccAT14 < Formula
       # "Updated load commands do not fit in the header"
       make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
     else
-      # Fix cc1: error while loading shared libraries: libisl.so.15
-      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
-
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
@@ -120,10 +115,8 @@ class GccAT14 < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      make_args = %W[
-        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
-        BOOT_LDFLAGS=-L#{Formula["zlib"].opt_lib}
-      ]
+      ENV.append_path "CPATH", Formula["zlib"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
     end
 
     mkdir "build" do

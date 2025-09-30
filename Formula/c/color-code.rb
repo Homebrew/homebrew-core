@@ -13,6 +13,7 @@ class ColorCode < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ad3f82efc9695c34bf0108765bd03a823567321fb844bbd2dfed5ed7b679ba4d"
     sha256 cellar: :any,                 arm64_sequoia:  "eca15102195ecbf35b9b5db261ad63a1e7849f68048a9872757c99a300af2198"
     sha256 cellar: :any,                 arm64_sonoma:   "5279b770c1208847aa8bc485ffe5d60a457a22867ba8ae3b9b72a6ccb10b9cee"
     sha256 cellar: :any,                 arm64_ventura:  "656617a979b49e4b6cb0ea002e6d2a5d715a042bbbab3d4d4c0524f0b0b93845"
@@ -22,6 +23,10 @@ class ColorCode < Formula
     sha256 cellar: :any,                 monterey:       "af2e8d3a61997ad1b25189d2a9b148cbf7fdb34d5f0c92c8c118ba477b68e586"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd2a46ae5f69b106738617bd41d8fe1d2a71a34dcb876850ac1c698b4ca09496"
   end
+
+  # No means of contact or public tracker page to discuss/view Qt 6 status.
+  # Can undeprecate if new release with Qt 6 support is available.
+  deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5"
 
   depends_on "cmake" => :build
   depends_on "qt@5"

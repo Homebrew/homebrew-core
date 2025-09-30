@@ -8,6 +8,7 @@ class Neatvi < Formula
   head "https://repo.or.cz/neatvi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8d296ef99c8028f6e38f230b23b312dbe61e45b8f7f738da754798b5ac4b8070"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd7812e6c561174f1ed361c9c802764dcb49bf49abe937070b33303d793862de"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c766536e80809b824b77c2fe995e8535b59bd84222e679307dc6f67dc305b97f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "da23ab8e6eccd2ba386f3cc1858f712b95cb2585202e4c6f3b9aa4edca7aef8e"

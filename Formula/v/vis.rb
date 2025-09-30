@@ -7,6 +7,7 @@ class Vis < Formula
   head "https://github.com/martanne/vis.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:    "4992b4301f1c6ce8f29ad461e9586a566e99fcfd98f1658a57de1397a7b6f3ca"
     sha256 arm64_sequoia:  "6edc0624be797ed3bbee95686dd3af6f164c24e95d520b809004f12518d02553"
     sha256 arm64_sonoma:   "04a4e8d45b5442ffb3397012eccde1c747b249ae42e8468b24d557dd15ea6081"
     sha256 arm64_ventura:  "ce1c6d2521a9ab11b32316850690289887a739b2b88a9809b1678682b586fc26"

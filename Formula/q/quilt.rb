@@ -12,6 +12,7 @@ class Quilt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "93979fd118d49801525b0d28a8572a055893d3e3169ee9eff1bca64e69d9ccc2"

@@ -8,6 +8,7 @@ class Libapplewm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "4b8eba3bb855a350470232642c48f34eb601408e1b7a4650bed5934bf0e6c6bc"
     sha256 cellar: :any, arm64_sequoia:  "9aed87eee9abadbc7e94ee746f6b54588d3eacd9fb455b2d94a96c4b7a19425e"
     sha256 cellar: :any, arm64_sonoma:   "a85cafdda17d42585277fa6d22fb7b7d71d030c9ec591d4cbcc528a32ef5410e"
     sha256 cellar: :any, arm64_ventura:  "5292c56db7842b7784fc2d8cb11ca61ea9cfc1ec4c8293c4faeeaf9a8b8de876"

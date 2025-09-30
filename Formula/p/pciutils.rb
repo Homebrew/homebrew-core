@@ -10,7 +10,7 @@ class Pciutils < Formula
     sha256 x86_64_linux: "684b1f7d95352c1d14a3a9431c7cccf4e5326e6e80c517d092afd8bd7d860fdf"
   end
 
-  depends_on :linux
+  depends_on :linux # arm64 macOS is not supported: https://github.com/pciutils/pciutils/issues/111
   depends_on "zlib"
 
   def install

@@ -10,6 +10,7 @@ class Pythran < Formula
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06eb114076653c28cc5b7a62bea5edd0397b162d6910ed177403160f8c50b861"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b05f9f5d438629de63a6dffad208706e2f9713ed74f6f4decf4a4f4ae71622f4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b05f9f5d438629de63a6dffad208706e2f9713ed74f6f4decf4a4f4ae71622f4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b05f9f5d438629de63a6dffad208706e2f9713ed74f6f4decf4a4f4ae71622f4"

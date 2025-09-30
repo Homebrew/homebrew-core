@@ -8,6 +8,7 @@ class Dc3dd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "1319a1907495f80e22c8e4047ff2a3764821774313b674853ac89f0f95159c1d"
     sha256 arm64_sequoia:  "1cdfecc59688663ad056a3dc3db19a87d5e7c6356f9f88c33695126b0270639c"
     sha256 arm64_sonoma:   "31e4adf9ec3c885a693cc149e6319e6ca2b4e8af140a4b72c6a537196daa2e21"
     sha256 arm64_ventura:  "e0f138b256f063d582d624d041ff18933e3cdec9921cbea06b4500f766a6a2cf"
@@ -38,6 +39,13 @@ class Dc3dd < Formula
       system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/gettext-pm"
       system "make"
       system "make", "install"
+    end
+
+    # Fix to error: call to undeclared function 'strtod_l';
+    if OS.mac? && DevelopmentTools.clang_build_version >= 1700
+      inreplace "lib/c-strtod.c",
+                "#include <stdlib.h>",
+                "#include <stdlib.h>\n#include <xlocale.h>"
     end
 
     # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13

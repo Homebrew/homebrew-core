@@ -14,6 +14,7 @@ class Libcutl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "28208d61e906d8696553ebd1b65a0d5c2abb8e889c91bed188f8bb434a112977"
     sha256 cellar: :any,                 arm64_sequoia: "085cbb14470957513c5a48765d1f0f924cd6646b7cb6e5070863b3fe756f54d2"
     sha256 cellar: :any,                 arm64_sonoma:  "e20cc790ca579e8ae7ab5f69774ad67bd58f1eb6343f1fd87db494beb7cfb3ba"
     sha256 cellar: :any,                 arm64_ventura: "bb7b24cba44acb490f955c4961d91bca0f8d32cef0fbd789288d267965f87df7"

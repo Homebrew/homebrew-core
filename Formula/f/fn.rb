@@ -7,6 +7,7 @@ class Fn < Formula
   head "https://github.com/fnproject/cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ec63b50ca03100dd5c9e2d1f59f14237fd304520e14c963070a61b32ed93b35"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e284eabf4799ad4175683065ccbd8856a01e7726950ffec1b3137080ead1edeb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e284eabf4799ad4175683065ccbd8856a01e7726950ffec1b3137080ead1edeb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e284eabf4799ad4175683065ccbd8856a01e7726950ffec1b3137080ead1edeb"

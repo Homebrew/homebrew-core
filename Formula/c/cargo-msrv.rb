@@ -7,6 +7,7 @@ class CargoMsrv < Formula
   head "https://github.com/foresterre/cargo-msrv.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c933cc8a8c2df5edcef6dd3eb66a17b7004d358d855d0409237cf69fbf2401d6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a51548c6d0b81c3dd24e17569505ad9cb6760a5dbc111fa9dc4993f162ca0eca"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "813162996051721d05770fdc9ed7f8878c76ba57e12e9525e9a3547bbc4356e8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a4ae3bbd41c2cbd23e07ccd1c26f8ea854d63bc49daf043384ad980029268f2a"

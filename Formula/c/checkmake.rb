@@ -7,6 +7,7 @@ class Checkmake < Formula
   head "https://github.com/checkmake/checkmake.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e7fd519185b64fed252c60bd351ec0d1829dec01f8ba15573b0484c3446722e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c64480b72e17320c970baf104cb6c69a2c9aa54365dd66c2a0a97a9ac0a2581d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7140ec560527466720bbd18e7337f47243ce479bac151a7dea0a84f70a8fd9da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d48a73b85de9be214bafa9ab4cf9712cf1934f898d3fc7b3b6160507a788e3b7"

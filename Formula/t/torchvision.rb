@@ -15,6 +15,7 @@ class Torchvision < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6a11dd4adc5a7fc46d2d0e63d4ed4ec8b97e5c230e48c4791426e5a23ae31a88"
     sha256 cellar: :any,                 arm64_sequoia: "dde2edbf7868bb33698d12bd1232ea51202e04dc0f0c12157c40bd61d65f5e0b"
     sha256 cellar: :any,                 arm64_sonoma:  "35372083b2d7f01e60f20bceb909ce7cb23b044b31a6bb44fbd17d27c745b075"
     sha256 cellar: :any,                 arm64_ventura: "537c9d9461ba7ce76625333971d708d05a107f0ddce2eb23b1999a7085ecadad"

@@ -14,6 +14,7 @@ class Jack < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "70eae572ab2834459171f64ab8e715aa90496a16b58dd312affe30ed26d0380d"
     sha256 arm64_sequoia:  "e3cd7f8ab3b70baa1766b3a131b16ffe7a62a398f20a3ce7b6d6935c222b5925"
     sha256 arm64_sonoma:   "39affd1f135d3745a22bf4907e46509cdb4b1b3a8e654e23179e1a1ad92193bc"
     sha256 arm64_ventura:  "6210ae0eeab831aa965d6d737f22b7476224d1cd1daa1105cee116dd37a3627a"
@@ -50,12 +51,6 @@ class Jack < Formula
   end
 
   def install
-    if OS.mac? && MacOS.version <= :high_sierra
-      # See https://github.com/jackaudio/jack2/issues/640#issuecomment-723022578
-      ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
-      ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
-    end
-
     system "python3", "./waf", "configure", "--prefix=#{prefix}"
     system "python3", "./waf", "build"
     system "python3", "./waf", "install"

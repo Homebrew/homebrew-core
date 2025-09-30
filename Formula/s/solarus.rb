@@ -12,6 +12,7 @@ class Solarus < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "83cae14ca7357689da1572d95b375c5f1bb1dea3c8fa65b8ebdf105e3e354ca5"
     sha256                               arm64_sequoia: "85a7c6dfc13c8c421fa74d19b342a233cd44033cbf77cbb68ad09eaedc718dad"
     sha256                               arm64_sonoma:  "05499edb58e7a13a8967b7a6fbf809f51794cc5f53ce1495ee6bfe048a1bd2c1"
     sha256                               arm64_ventura: "010d2aa833ddfaa4bed2f231858589d37cf667b75e85bae1dbfed9e00cba7209"

@@ -7,6 +7,7 @@ class Bandwhich < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ceb7beda5d377f5fb16336a194d7aca4fe90fc7efa0acd996bc597ce55684da8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c15e7fef87ef65a7978559fbae64620eeb81447c7d36b75f61d7b38b7550d6f5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7979b9c76cfc69fdc8a04c9d73d3e2eb971f80d97a2b001c0070dbd3b7f35a25"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1b3d6ba9e64f04836694b7fdc561898f574acdc7a9a16748c9cc7e3a55837779"

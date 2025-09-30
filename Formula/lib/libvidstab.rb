@@ -1,6 +1,6 @@
 class Libvidstab < Formula
   desc "Transcode video stabilization plugin"
-  homepage "http://public.hronopik.de/vid.stab/"
+  homepage "https://github.com/georgmartius/vid.stab"
   url "https://github.com/georgmartius/vid.stab/archive/refs/tags/v1.1.1.tar.gz"
   sha256 "9001b6df73933555e56deac19a0f225aae152abbc0e97dc70034814a1943f3d4"
   license "GPL-2.0-or-later"
@@ -8,6 +8,7 @@ class Libvidstab < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "92e26eba0998b49ac6c3e2b5111e59007df158ffe697af89ed427c1f1fe7be0c"
     sha256 cellar: :any,                 arm64_sequoia:  "f76b62fb9580b75861cc5a6d639500d095823d32bef7aa6f636fee2d87b724e9"
     sha256 cellar: :any,                 arm64_sonoma:   "f006d60e59a43562474571f2a7e2be72273cc9bd7b2df04d0c21da861ebfcab8"
     sha256 cellar: :any,                 arm64_ventura:  "25efabe3bf9a85b25065758c1ea62ef096bf2e334ce073450ef4478f7e469b38"
@@ -25,7 +26,11 @@ class Libvidstab < Formula
   depends_on "pkgconf" => :test
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DUSE_OMP=OFF", *std_cmake_args
+    args = %w[
+      -DUSE_OMP=OFF
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

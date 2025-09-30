@@ -7,6 +7,7 @@ class Zlint < Formula
   head "https://github.com/zmap/zlint.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "84fb1192e8e57003a40ef3c1b24f4d1152591a624624b58e0c31ae840aac1313"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d01d88f23a941d2686472a302179cb5ffeb2d5639f798a3119f3c4c6fd5cf952"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d01d88f23a941d2686472a302179cb5ffeb2d5639f798a3119f3c4c6fd5cf952"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d01d88f23a941d2686472a302179cb5ffeb2d5639f798a3119f3c4c6fd5cf952"

@@ -7,6 +7,7 @@ class Miller < Formula
   head "https://github.com/johnkerl/miller.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de1a6bd44d64874cbc2a53befe4283cd173bf35012a084bdf217515ac6aa2415"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b008968b4fc8b89b7fabf6964c89c2775ecb646d022baa9d2614069fce6e2a5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3eae445bf047028a0033819c3d0a588579b194cdf23e472b372010fcce77c82"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e6504b651c26a492d62230e6c09532202e5c32df554cae00271b48eb3f52f7f7"

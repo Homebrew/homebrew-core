@@ -1,8 +1,8 @@
 class HyperMcp < Formula
   desc "MCP server that extends its capabilities through WebAssembly plugins"
   homepage "https://github.com/tuananh/hyper-mcp"
-  url "https://github.com/tuananh/hyper-mcp/archive/refs/tags/v0.1.5.tar.gz"
-  sha256 "94a8d2e20dbf33280f838e2702436648635d4d83b1e8c58b98d05eef20594549"
+  url "https://github.com/tuananh/hyper-mcp/archive/refs/tags/v0.1.6.tar.gz"
+  sha256 "ba62a075311462426b56b6524fb59f7298e9d9a7a74bc74e89671352e7cd35ae"
   license "Apache-2.0"
   head "https://github.com/tuananh/hyper-mcp.git", branch: "main"
 
@@ -12,13 +12,14 @@ class HyperMcp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "040ca491ec55637de9ac9a4ea00e3e524683ea894039994e864757087d076f9b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a5e4517dcad4769194241f5744940ba1febb31e1c6d52a7979293a04aa9d0c7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d2f6f204488fead18179ae12468b78f4e7e54b0af4a43e8b5f3b9cee563c0462"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ed012c8cc4afa30d70b6e9e80189853d9db4d88782e3babce98eb7d0109b3b37"
-    sha256 cellar: :any_skip_relocation, ventura:       "31a748a9bd42648f3efb6656007a3e65e6a6ddd22cd3758b6ee510112a062ce3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0efe13254b6d43742b6e0df12a06937fc24cdb94d60ea5b3aa787c134d127ad9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aba0afea3b8bf83a1ddf3566a79ece47778110a6dd9586d2e58c89ec21da703b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ebfef44acefa02049bf5e852cf4e3f16be92b3e7a2cf8dd99763da1d1e16c5e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a40f57cf3556706e5b717dada11611bdb7afa58dc9dc4551af71f27c7c32697"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ffe1bfa3373de6953edb64233ffe1520e6db93ed494fc9b34c99d9123eb585e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3552476365a056ed3eb7a784a16fbfee4cad0353f4a761d00b8b9e935d4318db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "426172b8c3bde66218cd7e8defb6670e2b361e692299572df5c653ff06ba5865"
+    sha256 cellar: :any_skip_relocation, ventura:       "6cfd0f9ea2a7e77bc3df9493deb86cf099fa753c3233902a5e78ccfc8f15d002"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "296026bbfb6e03d01494ac4e371cef72edaee90a40159d5b957503f3c71c58e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "446046d5d6b7849f8f2df82546c081ba891df18228a3db1519817e501da50e40"
   end
 
   depends_on "rust" => :build

@@ -6,6 +6,7 @@ class Keydb < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "25bf74a3cd05a239a9669273f30390c270c43671284060048f01361c7c008a35"
     sha256 cellar: :any,                 arm64_sequoia:  "40b960924a1ec659a01d19cdbc55a99b1f9f25c12920394f4406f602bf364544"
     sha256 cellar: :any,                 arm64_sonoma:   "38437979dd3b609815380178028c57880e4e7c4e743aadd5da7721aef2502d3a"
     sha256 cellar: :any,                 arm64_ventura:  "010db9d77cfd61aa2195db11eb21e7e30be2b565a2b92c837c69c82bd325a237"

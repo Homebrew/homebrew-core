@@ -6,24 +6,25 @@ class Manim < Formula
   url "https://files.pythonhosted.org/packages/52/79/29f287beebcf52464c2cfd88015720992515062dd373bd37c2ed34955cdd/manim-0.19.0.tar.gz"
   sha256 "748115ffc1dea24940fd6d7a3edcae0ccedc3e1874ebc1f5d7e5c6d69a4f4505"
   license "MIT"
+  revision 1
   head "https://github.com/manimCommunity/manim.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sequoia: "8c517c3d6e5def8042425feca0fc3c8d852add9dd46a0bd8d427cf3cac94a0bc"
-    sha256 cellar: :any,                 arm64_sonoma:  "4f8370db3e6065598e34cdac7adbaa2ec88e0412d27fd9f611da98e9d4d1ede4"
-    sha256 cellar: :any,                 arm64_ventura: "174f15caedad96eb8935b37d341b585ccfa9b23b3631c5b0dd0dfff821669415"
-    sha256 cellar: :any,                 sonoma:        "0a63a760d4168ca845b6ab46c4fb77cd9ec34875f7ff2918c045db346e71fb85"
-    sha256 cellar: :any,                 ventura:       "fcc74db970f3180f72b03fe9efa8d851d07a2dac5c563f9f6ca3e19ea9dbc098"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95ebd1a635a7a0866d712e04b969ee7fd2530106141dfb1d7ba5c8cf463dabe9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc102d405ebabc301afdd44e8167a51373db4b1e7ca898e8617a89d694deef46"
+    sha256 cellar: :any,                 arm64_tahoe:   "f657748566cedb4f178079c3dde2abc7cc5b47949897182935da68f33f12ca30"
+    sha256 cellar: :any,                 arm64_sequoia: "444b84bbef2c1f7eb7ca420eab9c7e607f534ae4af60d279387d2983931e08fb"
+    sha256 cellar: :any,                 arm64_sonoma:  "aa702435413ccd42951ff9f4555ebb4cf4d7ca0f098d761ab35108c2e1e30168"
+    sha256 cellar: :any,                 arm64_ventura: "eb566877493a0f742ecdd9f9aa05d63d9f400519db7c29133fde378aa6437290"
+    sha256 cellar: :any,                 sonoma:        "e24c88389813249996823e53c6d69eeea402d7b3e9320b45f1118b94b25c4584"
+    sha256 cellar: :any,                 ventura:       "613301101b7cffeae67d88ec3da34b0e44bd0d63bb22cad113183c95f4d19440"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10ba13036cd5b5ef821bf23533f8024fa4b30f76d81fc8bfc46b655badba9d73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40cd1d0d696908d624e2a8ea5b50070117cd66d05a72af7c5f217cae71e54663"
   end
 
   depends_on "cmake" => :build # for mapbox_earcut
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "cairo" # for cairo.h
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7" # FFmpeg 8 needs av>=15.1.0, https://github.com/ManimCommunity/manim/pull/4385
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "glib"

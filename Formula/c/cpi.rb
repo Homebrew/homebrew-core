@@ -7,6 +7,8 @@ class Cpi < Formula
   head "https://github.com/treefrogframework/cpi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cc3c3aa9cd9224b34c95daaf3c9c4f6a361325952d8bc2857c601c8f1dd92feb"
+    sha256 cellar: :any,                 arm64_sequoia: "4fb9c614fd47c50de5d8892a92a8547ac6b26a3f59352a64d130da18f7b35ae1"
     sha256 cellar: :any,                 arm64_sonoma:  "6ea70f72f4c3ec5bde7ce53d9ebc8a79dd9135ec83f590b8668286648aa33e1e"
     sha256 cellar: :any,                 arm64_ventura: "950bd8ed8c9be7cf77e86e0b5bbd97f3128a943da8e9cd5e9918af4983345f01"
     sha256 cellar: :any,                 sonoma:        "b55eac0ab86ee9ec0eff6de91deeee2c3951e1a6a4732247524ef07a5aa5f4ed"

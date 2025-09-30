@@ -7,6 +7,7 @@ class RubyLsp < Formula
   head "https://github.com/Shopify/ruby-lsp.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8e90bad7b0c0c20518fabc30ff2f4c57a19c2c53cab7dcf9b1c24ba5df06ac6b"
     sha256 cellar: :any,                 arm64_sequoia: "4fdcc04ac256f4aa1554e538209ea01c1cd437e0b381a72fd61e10b04aedcb7c"
     sha256 cellar: :any,                 arm64_sonoma:  "99c5d570c3eee1c4d074a69f3be25a9d94ecbbadb652b460734403e35d7613ab"
     sha256 cellar: :any,                 arm64_ventura: "5ba5fc1a547a62133c30fc6b140e1200912c9a2563260a19483d9c034c312858"

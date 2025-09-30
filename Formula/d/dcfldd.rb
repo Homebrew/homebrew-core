@@ -8,6 +8,7 @@ class Dcfldd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "015e2488081449c7a4a21ab1494158bfe4c12ce23ab2f173b1d90aa606350340"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "27d926c612143e59fa534f10bf44f138501302ab3d7a5990c46ee4c43a66aaae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3111fcd6917b2ac2b3d6d9076c2dcb144a97c1887e15f982ffd3d36e9d90c4e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "03d0c6c64483793ba34e2a79dd3dfd73753df1cfbf66995c517c7290a752c2c9"

@@ -12,6 +12,7 @@ class Spotifyd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6fc17017e144c8fb2b05c87ca3114b23b80873d87388b7c43794c6a6f3f719fe"
     sha256 cellar: :any,                 arm64_sequoia: "a20d1e237ffc6f0fbe07af9641538c6059dff78030d3cdb537de1cc3a98c9abb"
     sha256 cellar: :any,                 arm64_sonoma:  "be5c9b8b6af3ef7eb0df00b4a1f0a46ba1016765eb97c32acf6f4881a9b1f72b"
     sha256 cellar: :any,                 arm64_ventura: "73e2515bec6b526ba93e57f45f90f856e3e32995748d7a31cfdda5b7046df583"

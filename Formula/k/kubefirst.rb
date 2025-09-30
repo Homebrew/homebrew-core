@@ -1,8 +1,8 @@
 class Kubefirst < Formula
   desc "GitOps Infrastructure & Application Delivery Platform for kubernetes"
   homepage "https://kubefirst.konstruct.io/docs/"
-  url "https://github.com/konstructio/kubefirst/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "8db06101bacdfa5710acc1b11f94385c9e68e62b5217f1873182a6ed65876b82"
+  url "https://github.com/konstructio/kubefirst/archive/refs/tags/v2.10.1.tar.gz"
+  sha256 "302a7292141502dd5cc43e2be198a04a7338c73f1a1163574e449cf9ece8ba59"
   license "MIT"
   head "https://github.com/konstructio/kubefirst.git", branch: "main"
 
@@ -14,13 +14,12 @@ class Kubefirst < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a50a86602d2110bbda279b69fa7823e17b508a6086297f75c63b0ec5f52b452"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5eddff6dc4a0c0b676d29a050eeb66f4e335ff6ec73f4108c864ab5aef753f98"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "24edec6b8ca168f369bd9474bc677b5f6c9f7c7a6109948e26cec1549573c869"
-    sha256 cellar: :any_skip_relocation, sonoma:        "408201e44ecd45b974e474f48fddb8c167fc2f4023d5268cbaa759921f40b21a"
-    sha256 cellar: :any_skip_relocation, ventura:       "04e02ef5b6ea9f2b193d175a51623f5dee7b1428485a0b5bb73a59a4613473da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c70dd1173668eeea00986118437ac94ea8d07c8adb56e41c683eb0c61f649d12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "348506b9333931f71d6537a95ad9caed0a2215ae8f4fa234b581004094649afa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fbda1040d8682beb3a7419d1453566d1c798b14594d36f3c387a0ef1be063dcc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c79ec17a9b3aad6a739edd3e66ef9b7ce7fbd37b752384abf2beb8e2597cb6ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c7f746f991661bc6d11d4f346078dd06ff87a10c56ce2bfb412046edeffe5d16"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dae5e4bb1983e63fe154c0ffa483c25cec566ec1b2236bc7816b4a14bfa6090b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "52712a3096162506ad145340cd37660dd947d0ac3fba18ea82480b0ccd281bd2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4748c9b855ac1e7756b0c8f6411349f3f6165eee8277e3969e25e1b9b95ebac2"
   end
 
   depends_on "go" => :build

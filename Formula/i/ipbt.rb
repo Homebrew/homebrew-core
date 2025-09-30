@@ -14,6 +14,7 @@ class Ipbt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c859deb2c97e809a56ac2a8ec82da3fc411b398146bbae7012786fb8c9ff3cbe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "92e01edfa69f113441a864b0a8f64ff02089a7f058da34d9a8a0d92c0cb9bdaa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b9aa1ec59dbb646fa05808cd92db6f11cb16027349a2c3d29ad0bbdf56bf76f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc6c27b8f14f12fbca7cdba7ad7f0a2fd31919f6589a2cb331fa2d490cf9d08f"

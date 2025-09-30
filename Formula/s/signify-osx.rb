@@ -9,6 +9,7 @@ class SignifyOsx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c842d35a800bb257d062f172d661077ece1018ed30363125aebbed7ee079611f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1f645784096049b48c18e71ae3891a4430473389e52cad0c647233875bc2716b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0bfd86e88cdf725bd2e3496959793a3f4315e08f82c1de9e2c3778fc50e92c31"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "61d6a3ff6667bb16d42a052ed831e635048647d2d6bb0b0828d03a8c0b8da1cf"
@@ -19,9 +20,6 @@ class SignifyOsx < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "f3b58c34d1a01564e16b46364359f42330e1279f2a90025ce7541c9d5f69f370"
     sha256 cellar: :any_skip_relocation, big_sur:        "0a60c4b4955d38a1effe307e2326373c069621c1135e28820783aedd5aba9788"
     sha256 cellar: :any_skip_relocation, catalina:       "74a8c2fa3d258ad59a5ab7302411a194903ea5295fbf5ecd95a43c2ac28677f4"
-    sha256 cellar: :any_skip_relocation, mojave:         "842a6fb535ce56db38ca545fd229f184850e34211c7817879f707f71fe6b31d0"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "cdb1896e5e480edfb6ad7f179d9a2b217cda774039fcf5922bc3eba9b6d3d1bb"
-    sha256 cellar: :any_skip_relocation, sierra:         "fdac23b07368d6c8ebad06c2b8451f0c8228f71f5c65b48d672cfd581b222509"
   end
 
   depends_on :macos

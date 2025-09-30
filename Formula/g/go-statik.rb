@@ -10,6 +10,7 @@ class GoStatik < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "14986febcb2099951a64815370fbe4191c20ac36d289ab23546e0ab621a24660"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "95aa24d379a2bbd53eef6bcac8f69bb4813aef3d5957ccf022ba5f34ba7e5281"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24547268f10325a191888ab87a8e35b17d4d653a9c6ff6e1bbe60e1ad3f7cdf4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "26f7b3d318ee90136abccb38d929251dd06a2b689191ad9c34a29acde10a4645"
@@ -20,7 +21,6 @@ class GoStatik < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "bc500cc264e19fa299d10cee767ea23b79750b4e5891359aa465898e1de6590f"
     sha256 cellar: :any_skip_relocation, big_sur:        "0f05d7b15227e1bdf7be3876d90135232083ae1789c08d32641777b9291ef8a7"
     sha256 cellar: :any_skip_relocation, catalina:       "d6d3e13adce186f49cf35be7be414baec7cfa02e8d884e0a97ec9f15108f4cb4"
-    sha256 cellar: :any_skip_relocation, mojave:         "93f27ec30935befbde2afab7ac3382a2e576b8a51024db2dd8a911860fb5b10f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8dac98a1bcf9c946d1ec00fcf2249f1796796f1f52f549988b95d96f9e94fc7"
   end
 
@@ -32,8 +32,7 @@ class GoStatik < Formula
 
   test do
     font_path = if OS.mac?
-      font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
-      "/Library/Fonts/#{font_name}"
+      "/Library/Fonts/Arial Unicode.ttf"
     else
       "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
     end

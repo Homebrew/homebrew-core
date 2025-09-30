@@ -6,6 +6,7 @@ class Libspelling < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "bebedccb83fb042d25224aaf21137d07cfec6364c9505423afe3d980e1bd6eda"
     sha256 arm64_sequoia: "4a880aa0400ad1c137f5cf3c8169b5870c1198eba53bcaa42eebaf884c14cc36"
     sha256 arm64_sonoma:  "3d16b48b085c1ee327d83c5ed09e373eb0ce04874baf515d59b7f17c943eec1e"
     sha256 arm64_ventura: "02eba6554cff809702815658b608c9fc1231ace3f90d43b7827a029b0845aa3f"

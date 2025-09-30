@@ -7,6 +7,7 @@ class Comtrya < Formula
   head "https://github.com/comtrya/comtrya.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d47418f399155160faedb236b13d882ae55200aa9cc211e4f5ad4c77013aec29"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "46bf7dfc1bc293ec74fc38268c4ea93141cc02e9da597659c9b7211e31b1d7ff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a8832ef28773fb65085509c65d978081f9d1fd773ddbcb4b56449cbeb94a87f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9b68a181a0d187ff39d38f05615a38fb5c238130c609deb71f382e0a7c790a77"

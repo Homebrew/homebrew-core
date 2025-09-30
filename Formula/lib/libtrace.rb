@@ -15,6 +15,7 @@ class Libtrace < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "23a854fe5d776634bc606e14e4da65497d595299edc1d74e1147cc5d3729ded2"
     sha256 cellar: :any,                 arm64_sequoia: "33385a076780758c33ac37e59d3667304c9733792265ceaf9c7a9c5453a628e6"
     sha256 cellar: :any,                 arm64_sonoma:  "5fa670f301736144c77b8bb1c88aae1aff35c1dd5fe0bcb260a086946c14b646"
     sha256 cellar: :any,                 arm64_ventura: "f924814b1274c1d3d21471eb9c49ab2efb61f75e22a61557b7dbbb14d0f7d088"

@@ -21,6 +21,7 @@ class IosClassGuard < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "309a61c546e963a18349f50f48dcf782c98fedb310b248b9d2d9936d842d5ec1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4de6dec4f0120a68ac884defc966d1e3ff7da2cae669cccf3b80f72cdf7e7ddc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2573d220e15167e7b384badba84c8c81a68e7ec3caf0335182693fac4bacc08e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cfa45ab4d2e9f5ff160c3e88426c890c83d5a87997fff438e04d07cd4d68467"
@@ -31,10 +32,6 @@ class IosClassGuard < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "c6ac0f4d85d53a86ee0de247c7119f776506830d4d7d2df26eb2ecebc1fa20f4"
     sha256 cellar: :any_skip_relocation, big_sur:        "159991d0922d6ea71dceb5f97c3024659f70c48fb91c0222186e8c108885db54"
     sha256 cellar: :any_skip_relocation, catalina:       "807b425c949e9a25331abd13967721d6f58d3a1674fcc8175744e713e81ee5d3"
-    sha256 cellar: :any_skip_relocation, mojave:         "480f0437e5217cb8a47fcc0e9ffb6ffc62e4f81a79d5df9529320edeed479217"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "1962e7dde167e41141680b1347318396c0878fb8eeae55ec9f09460fcee33142"
-    sha256 cellar: :any_skip_relocation, sierra:         "a7843a0767e916aa6be1509a984eb698bb54d125d06ad762fd25f4a3d6a55db1"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "0bb9abaac82cbc4e66a12493548659197559a01a779db6ceda4cf6c4439ea0bb"
   end
 
   depends_on xcode: :build

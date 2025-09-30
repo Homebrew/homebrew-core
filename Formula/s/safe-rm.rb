@@ -10,6 +10,7 @@ class SafeRm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f1bb7edb463f2986370ba1b913007cb4a3f75d6928bcb4600ceae3945c7e0aba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "553b3046d666998b51823efecce49ce2309b01fe8367dcb95d7b44a4ee16b899"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e5f502c7203280d38bcec44159d657ad2d58becbb35d35bdbc86de58eab6194"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0934761b2d4741420d698f2ef02e25fd76040a2500d749a1c6d80a7f9e0a09cd"

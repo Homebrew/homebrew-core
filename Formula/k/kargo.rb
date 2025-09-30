@@ -1,19 +1,20 @@
 class Kargo < Formula
   desc "Multi-Stage GitOps Continuous Promotion"
   homepage "https://kargo.io/"
-  url "https://github.com/akuity/kargo/archive/refs/tags/v1.7.3.tar.gz"
-  sha256 "a20ebd67907bc94cacf3f5f5df3afab4c9f44c26fd85a20e07a399e99ad98bab"
+  url "https://github.com/akuity/kargo/archive/refs/tags/v1.7.5.tar.gz"
+  sha256 "5f7c61032ee59f48fe2013df780c7cb1e5e80ba70c1c496402939ee573536660"
   license "Apache-2.0"
   head "https://github.com/akuity/kargo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "81aa3f345dce6360258838df568e3114f4c3543b9786456523e981ef9e38e9e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8de59737218fcbdaff59145b0cecdfab50fb1833ddf9c437e08a23b44fdf4d1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "235fedcdc4c97e17d6cba426d92745e9deeaf39fb3437dc9f3490e2a33a91eb4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dd5f9f37b3509b6d274d7b8489c8979c9e4071da6004d17b5a4bf88cfa8b9c13"
-    sha256 cellar: :any_skip_relocation, ventura:       "643d4244c1328499f2f2b441f40b938c27165e522ddcfaf270c9feaf42875ad6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "74f42e687c782678aacda36a7d4c1767f253ce7a3aa845dc68ab081c98113a2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2893968509018b83fc242040d95a8cee6b989fb597d630275cca72c4a832dd0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "70416bbadff626f1820c46c089228424ec732b8202daa4a498ed807bf0290a4f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b5c969480127363102cf05414691b6f445aee3e60b72918dfbc0657ba72260d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "579c4fb4b28f3f7f5dbd60e9a5d30937712efd1f762b1fbb8fd254452fb79df7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e29be057f05fca37e93af3c08dda24c7c083b695474352a8f3882510ec69b4fd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "233d57370efce1b75fe2683fcb398959e6cd7bb0a3e6ab26167d6e2c8ae03095"
+    sha256 cellar: :any_skip_relocation, ventura:       "1f6c3dd39696c5159e5449154f3cd4a733950382db36f718651d07d5345f4eb3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c83edbfc1cb07c06de1eebeda0a51289364648673ac41e020ede7818237fe7b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8a3afa6de215053eb6338a1673096cb9648614a1bdf5dc6670513d988b7226b"
   end
 
   depends_on "go" => :build

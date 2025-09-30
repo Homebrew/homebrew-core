@@ -7,6 +7,7 @@ class JwtCli < Formula
   head "https://github.com/mike-engel/jwt-cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ed4b9baea19b99b6bec2a3488e683b0354fd5633355a07c29c1db6390c0be8ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7620546fab86ed26262f53659f420a2a52a61137895e26c1e90ae0c8f93701e0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbf28074fe942a8b9e56efdaa6a92bd420557f9e52efd34e20d0d8425081f99c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7b47ec1157a9dea61645c802355907945b40fce48536af4adb46f7ebc99cb5b6"

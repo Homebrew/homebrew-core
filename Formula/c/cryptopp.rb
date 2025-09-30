@@ -20,6 +20,7 @@ class Cryptopp < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "53bc84217451c7ae2716346f62519e9b100409180949df14259c0159c04166e5"
     sha256 cellar: :any,                 arm64_sequoia: "bdd7bfce252e592dc412d8b735a4fac2c9d5868607abbf9253a581c288c21dd9"
     sha256 cellar: :any,                 arm64_sonoma:  "cb1da0fe0980b17d853b47b0c9fb35d1f3706170054535b1778a4ae0239a2e59"
     sha256 cellar: :any,                 arm64_ventura: "2d9ecda6fcc0053372db8935aeb739998802bc0023e667f6df8836b15385b848"

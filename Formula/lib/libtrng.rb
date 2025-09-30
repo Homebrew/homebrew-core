@@ -12,6 +12,7 @@ class Libtrng < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ca31ee58ef7b75496782b4067e5f78483818ce71b73ec8482f0e11050da4ca60"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "11b03794419841493fa21c0c665500001430158450404de1e9ef092e62305869"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a1bfdc55b371cb19aca7ea1febdc675ba72fb60a6bfe316fdbabca2d6a230df"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa8dd27d28cee66e6e8b9b1b3e2776301c11c2785125e7a2d830d61338f841b8"

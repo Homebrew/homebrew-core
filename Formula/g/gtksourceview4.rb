@@ -15,6 +15,7 @@ class Gtksourceview4 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "bad0ce11f609a621632d29fab4dce7a58cff74692a2f916b50f3fad269655da9"
     sha256 arm64_sequoia: "938b87e409e99e8a9459001a8f2d618d6a11777a60bcd8b083d20569c9f7e000"
     sha256 arm64_sonoma:  "9585d13d6b48522730b5e44320f732b96ff69a53a8ea4c716e0944bd167437ca"
     sha256 arm64_ventura: "d0594d55fadba6bb175be05c699167f109d1c062ba46f93b5a2b987707ed63cf"

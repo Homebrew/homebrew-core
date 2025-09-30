@@ -8,6 +8,7 @@ class Papilo < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0159955b1c743909e1b65680eee0eb3faaae4815c2f3634a66e395c64a7cf7b4"
     sha256 cellar: :any,                 arm64_sequoia: "86e562306b2f5bed80607f0e7e7c7671435eebbb63fd7948b2ee6ad7de42bf20"
     sha256 cellar: :any,                 arm64_sonoma:  "8df60fca060a1e1fa6374458bf9d4c552f2f875fb393059db7fc05afe19b7da8"
     sha256 cellar: :any,                 arm64_ventura: "48f8055e56f81e27e016c806c0224e3453505ae0612ecb224c22dfb0955931da"

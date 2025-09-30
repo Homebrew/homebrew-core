@@ -18,6 +18,7 @@ class Flex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "62ca8b8763bc2c97fe3ec02a4f55e410a6bf80ab26c291b0914313a82d004afe"
     sha256 arm64_sequoia:  "e675e024d2d6f1946303689717a345257cbfc6ba52c20b34447a25b75ae995ff"
     sha256 arm64_sonoma:   "0f7f1fc52a0326f07019c5e90dfc3dd728c69afaffc2e5a75154f132975e8b0b"
     sha256 arm64_ventura:  "900f81d92ac336f0deac4e23141807b77cd15c57460c55ddfafa873d62447d0c"
@@ -28,7 +29,6 @@ class Flex < Formula
     sha256 monterey:       "937f34d36419d74cb32ef93df71f5fad1638b2ec5290cb865840e1fcc95ac595"
     sha256 big_sur:        "89ec2b04b1aab94297f490c60fe6ca2bcde7de9b7661482728b07931e635d21c"
     sha256 catalina:       "e563a7a42aceff203cca4f420ebc6a8bbd5075a2b0007d46724f037ebc7b41a5"
-    sha256 mojave:         "687132db0837bdcb6e02b5715f6a07f658bdf109b5353908f260d46d354f7bdb"
     sha256 arm64_linux:    "87601a69b6f78fbd8135aad3717263a9fc4469de7a34418bbffc8b035c8d4837"
     sha256 x86_64_linux:   "b2bff056ad86d8a1cb1a08944867b5f60636ad4e7edca623810937330d87d8eb"
   end

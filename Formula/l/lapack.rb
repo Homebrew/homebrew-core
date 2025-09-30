@@ -13,6 +13,7 @@ class Lapack < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "fa38687518be4c52b96c7b0f6329c0b608398c980f71e381723101e22d99d6b3"
     sha256                               arm64_sequoia: "b28ffd5a179cb39c06903720a05f76129b23d7269c6d7ab1c32d80e73dbc3549"
     sha256                               arm64_sonoma:  "ca2ffc67818891b7dd4fca4063b12582e4fd5d1c547a298e52d94ee0ae45da5d"
     sha256                               arm64_ventura: "fe4b0a8f8d36fe2351183e4760e1b79e60e4acabf6820bdd56b42a3fe64d55d1"

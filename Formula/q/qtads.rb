@@ -14,6 +14,7 @@ class Qtads < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d6549a2b3f706a45c5e6e73bfc1ead1f3cd80eed681a3c713731cf6b9681ea88"
     sha256 cellar: :any,                 arm64_sequoia:  "6e3606d6b81aace60e22a195af69bdc1a487903f6199f66f625b5cd80063b468"
     sha256 cellar: :any,                 arm64_sonoma:   "c8737515d6dc5506c6c44f91ceba97426015e71112171006ab57f1646a4d2231"
     sha256 cellar: :any,                 arm64_ventura:  "06f702f167f0b8579f382b626a612fb14a646221420d84b605ad46738751e4bd"
@@ -25,6 +26,11 @@ class Qtads < Formula
     sha256 cellar: :any,                 big_sur:        "2cabcaf186de69de6790202587c6ffb6e9484106b13b0b6dea221ea46728010b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "251840532a70387d1007ab9a992bb9f6e8d6c543133fc19d5d41b0dd81c822a5"
   end
+
+  # Last release on 2023-05-17, last commit on 2023-05-19.
+  # PR for Qt 6 open since 2023-10-28: https://github.com/realnc/qtads/pull/21
+  # Can undeprecate if new release with Qt 6 support is available.
+  deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5"
 
   depends_on "pkgconf" => :build
   depends_on "fluid-synth"

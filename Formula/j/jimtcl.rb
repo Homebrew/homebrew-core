@@ -6,6 +6,7 @@ class Jimtcl < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 arm64_tahoe:    "25a7a46cc3cc542460e7309eca1c67570b58a813236e11152c929e41cbd9f737"
     sha256 arm64_sequoia:  "855f8a678aa16fa313e1e74b4ca765afb34f3fce0a5eb130bc8f4d14da5aed6f"
     sha256 arm64_sonoma:   "73774db53edbfc7791a6f2c328f63ef7a7555b103c1ada101e110590aeeea3d4"
     sha256 arm64_ventura:  "a5a65010c3d6c3d72a8d6bdf0dc6a230232d1d5477e065f3bc4a631f6b4e3c1a"

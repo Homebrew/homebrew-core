@@ -1,24 +1,24 @@
 class VulkanExtensionlayer < Formula
   desc "Layer providing Vulkan features when native support is unavailable"
   homepage "https://github.com/KhronosGroup/Vulkan-ExtensionLayer"
-  url "https://github.com/KhronosGroup/Vulkan-ExtensionLayer/archive/refs/tags/v1.4.321.tar.gz"
-  sha256 "177a356162cfcf47c50cc0f0dcd51630196f171f21d6cefe3fb8b5d514f60d49"
+  url "https://github.com/KhronosGroup/Vulkan-ExtensionLayer/archive/refs/tags/vulkan-sdk-1.4.321.0.tar.gz"
+  sha256 "6104bcd3c81b10e5ad90749d895bd681ff411c0c5de914e53a9aa9f727c43cc8"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-ExtensionLayer.git", branch: "main"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^vulkan-sdk[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa5ca295944b3c100152c8ac997a9a5a322be5a65686e1270bd54c83b1940b36"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2053b993eff8b5ed5e0786d776dfb0daeb0c90fcc78963e0a7b4cf0f710661c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1df14370457b3dfe4ef7f4a32153d25329ea721481a4214538aeb6c955e7a17"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1d8e80912889b8536d0956664105e481fa681bfe7a3cec5664bf0d0980c9d05c"
-    sha256 cellar: :any_skip_relocation, ventura:       "208e154424c6fb819d39911292c7d67a86c8ed2f33f50534924a40794ddb3b76"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6123247d479ae3fd0eff943d0b0cb059d201fbe52fef6e2dfbf1188592210810"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35d062aa1f79e3cae8dd5de1ca1a5b7b77a3ea31eb1285b6344a281712dfb105"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ddf0160cb88f835c9a1197b757fc366fa27a6df2775c15224744c7f3837d490"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4eeeadeac358017dd128a64ae1c1f0e30930d49e3e6643fcb9f924b7ef5b422f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1cedbea11806339ae081f2082cff16b3a0a1e5003a6885549cdac1dd7906da7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "701f69b976e4530ce5481c7a88ac0dedbd39f2788dbfaefe80866975f527e1fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c46ee6c4b7967bae8de9537484727900b8dc0eb9960e6513081f733c5b5c25d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6dfa854a1cee83a1e81c52f3feb304fe641834ff9eaf9724134559ff3a378998"
   end
 
   depends_on "cmake" => :build

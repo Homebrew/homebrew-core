@@ -10,6 +10,7 @@ class LibpeasAT1 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "6c47d63748008a7303d0f7fdfa69547661f17d0ce848bdb8f624caf35a015ed3"
     sha256 arm64_sequoia: "a7a811d4a2fe22ee7f65b6e5c72d77a9d4bbd9bbc2f1f2b799484695671447fa"
     sha256 arm64_sonoma:  "ca08be169114c264356fc1556108c1bb42c326990bbd2bd3e68eb03b751c50db"
     sha256 arm64_ventura: "706a31d9b99a1092ac5a93f71f3faeb1f23c6e4a6e9976a8e5c57e37dc6a5a4a"

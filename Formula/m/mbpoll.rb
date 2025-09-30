@@ -9,6 +9,7 @@ class Mbpoll < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e9a8e9a61b04c4c4b18a0af7c86006612b40949b381fba4cd0342cb0cf073245"
     sha256 cellar: :any,                 arm64_sequoia: "f2e1b7cc1e13adec4be27c0786d6d58d8452981695981111b9fb5a27b4209672"
     sha256 cellar: :any,                 arm64_sonoma:  "38fed0cebc17a0f5b56f57c877ba9aedb7740f88ad49ec8b7ab20b75d46d451a"
     sha256 cellar: :any,                 arm64_ventura: "11ad727f1304188c6973eeb682de71cf60275cda1cc2055564454dcfa03eb264"
@@ -21,6 +22,13 @@ class Mbpoll < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libmodbus"
+
+  # Workaround for CMake 4 compatibility
+  # PR ref: https://github.com/epsilonrt/mbpoll/pull/95
+  patch do
+    url "https://github.com/epsilonrt/mbpoll/commit/baad0efca89f0d8fe370591283d87a6e8e7dee4c.patch?full_index=1"
+    sha256 "75cb9265a30218159d11e6dbda81aa17484d96721f71e22072639d490a7f95d2"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

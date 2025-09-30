@@ -1,8 +1,8 @@
 class Ipv6calc < Formula
   desc "Small utility for manipulating IPv6 addresses"
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
-  url "https://github.com/pbiering/ipv6calc/archive/refs/tags/4.3.2.tar.gz"
-  sha256 "4335c4edf7d51dbd0cafdd42ecda5598101f7a8ab257a74be2d9ec81f5bf895b"
+  url "https://github.com/pbiering/ipv6calc/archive/refs/tags/4.4.0.tar.gz"
+  sha256 "6863540b173804e5b99cb2c1b14e600170ce9af0b462fcad41584c316d19a310"
   license "GPL-2.0-only"
 
   # Upstream creates stable version tags (e.g., `v1.2.3`) before a release but
@@ -14,13 +14,12 @@ class Ipv6calc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d69c91dd743db79707a31234f1efa0e1961469739e4f19726c373f2eef85794"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4810da640d3cd8b97576cf965ec8c711551434c8deb7833a30b93803528b383e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "795b64c67e622b3c16b2b92dac5792c33b96c2c3076ae1e57eecefd5624e3187"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e1e6e255927f430215d8342d57c6208f6f329a1400ab3cbc41e0ecf996bfd1cc"
-    sha256 cellar: :any_skip_relocation, ventura:       "c21cbc228031fef73df1a7ed433eb14c7075c53906c6f3ac27b8b8695d93f5c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a42d36fb49c632491409e0994f20fbc09abc923208b0147ee5ce4bc2ed5e24a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "761116624949b91b5e89d1fbb17de07f93ae48f6387d14bc6a9a749ae664389c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4daa29d6f6455a38c28aec5cb43b1fa6ff27c6af63b60971c50afbe72f414e27"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4852ec0aa4940b225faffc6d51decab12dee509581a40b20b0cc40b2b0bcef30"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c79ec4f2970d30d6fffaab8bb45820d4586dd335780adc5429893e079cbca198"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f4267c63a895aea520e08173811d432632307539e753084e4c54036addf77ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2d306270bd9d41949603264becb27b5b0af71030b7f3221ca6b210bc54b4f42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3df1923853f9b43baf1eba4f9c028aea9d028c0d7329540d3c78db2380f5e06"
   end
 
   uses_from_macos "perl"

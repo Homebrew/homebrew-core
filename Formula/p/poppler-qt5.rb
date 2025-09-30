@@ -1,8 +1,8 @@
 class PopplerQt5 < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-25.08.0.tar.xz"
-  sha256 "425ed4d4515a093bdcdbbaac6876f20617451edc710df6a4fd6c45dd67eb418d"
+  url "https://poppler.freedesktop.org/poppler-25.09.1.tar.xz"
+  sha256 "0c1091d01d3dd1664a13816861e812d02b29201e96665454b81b52d261fad658"
   license "GPL-2.0-only"
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
@@ -11,15 +11,18 @@ class PopplerQt5 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7c4b191e3d2b6c0b1f8b35a37fd04875fb7dfd1bf975ca9381e6c0753d6ff4d9"
-    sha256 arm64_sonoma:  "e0856239e962aa8a0e3f0a8df2381066cc89e4cc867db5c06774c5094a70b423"
-    sha256 arm64_ventura: "d54c3ed4e72ea063e55e6ebf2d1707e6145e6c89a72e8000682a52847b8bbc59"
-    sha256 sonoma:        "41ad48906a95ec1c94cbcbfc41afb0abf07ae2196779d8aea02a1bacf6a7843d"
-    sha256 ventura:       "b00178acaed33854f8502bcbc7b17bbe2d4fcc3b7c71fab856ea56f55603d463"
-    sha256 x86_64_linux:  "87287779ea75cadfbb26ea6b8a13d44c4bd5d3c19e6a9f38167983dc5e803b8f"
+    sha256 arm64_tahoe:   "c0f331d7516711ca699b93ecb9f3f3764228d84a0604edd7b3f8a76f46c8b78d"
+    sha256 arm64_sequoia: "79cfe67aa28a576b3146e2b333c531e93194e600e065d8d580a436b63331a0aa"
+    sha256 arm64_sonoma:  "641923c0cbeb560bba602bbaea73ce8bc01b5dc44b8d66aa006cee6951b61fd4"
+    sha256 arm64_ventura: "af44b978c0f60787268952708c098902c960b9bbb02a6499957a53dff28a1aad"
+    sha256 sonoma:        "0d09559050bdaef305aa87daf2d385146d3b3780d809aa115ad2ae0d73aad3ae"
+    sha256 ventura:       "74bb43739b49f7792d48e064dab28f55676e8a38166d223b9234026198f1c0da"
+    sha256 x86_64_linux:  "45a507b493c6c2422cf1e69e6c620c52f99aa94cf2ba12b9b4ff38013dc14fa8"
   end
 
   keg_only "it conflicts with poppler"
+
+  deprecate! date: "2026-05-19", because: "is for end-of-life Qt 5"
 
   depends_on "cmake" => :build
   depends_on "gobject-introspection" => :build

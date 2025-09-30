@@ -6,6 +6,7 @@ class XmlrpcC < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b6237e79f4ac49f6fa6c1e573c46368d5c6c02f1591e29f2dc991694afff23ba"
     sha256 cellar: :any,                 arm64_sequoia: "c618884cc42669b7cdd4147ffa1897b487ba9c1022c54c048cf0c40cc14ca1a4"
     sha256 cellar: :any,                 arm64_sonoma:  "c5322ce6f4b0d23b9c3b30dec56598faf7b9f6a880f679d9e1fb691e39caf5b8"
     sha256 cellar: :any,                 arm64_ventura: "1777fac56090d27fcd30b36e3d650da992bf6ba89e5898c87fa8ca38d34352e5"

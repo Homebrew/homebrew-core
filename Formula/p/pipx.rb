@@ -3,42 +3,35 @@ class Pipx < Formula
 
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://pipx.pypa.io"
-  url "https://files.pythonhosted.org/packages/17/21/dd6b9a9c4f0cb659ce3dad991f0e8dde852b2c81922224ef77df4222ab7a/pipx-1.7.1.tar.gz"
-  sha256 "762de134e16a462be92645166d225ecef446afaef534917f5f70008d63584360"
+  url "https://files.pythonhosted.org/packages/14/2c/092e89e59450b29ed8c9e88ce879c7066b72782576b6136322547540c93c/pipx-1.8.0.tar.gz"
+  sha256 "61a653ef2046de67c3201306b9d07428e93c80e6bebdcbbcb8177ecf3328b403"
   license "MIT"
-  revision 1
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca676ccaaf770e835c5a9ae2d3a648ef4539893c02aa8a70875bfd3e338b8484"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca676ccaaf770e835c5a9ae2d3a648ef4539893c02aa8a70875bfd3e338b8484"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca676ccaaf770e835c5a9ae2d3a648ef4539893c02aa8a70875bfd3e338b8484"
-    sha256 cellar: :any_skip_relocation, sonoma:        "69ef5656f96b42ca04100279ec7319a7c82217550028e245ccf5f05638986799"
-    sha256 cellar: :any_skip_relocation, ventura:       "69ef5656f96b42ca04100279ec7319a7c82217550028e245ccf5f05638986799"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c2f3a3c349cb76bc1cbb52c387500db77c0bdb79d9acc835a008efdac9d1630"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "621bb41e77afe49a6f4b2042485659267c80617331e8a1728ee1f31ff02c0c10"
+    sha256 cellar: :any_skip_relocation, all: "53c789bd70c0b5da23045340d6b1c14ab818359d8403ac9a9cf1ab96d1f12096"
   end
 
   depends_on "python@3.13"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/7f/03/581b1c29d88fffaa08abbced2e628c34dd92d32f1adaed7e42fc416938b0/argcomplete-3.5.2.tar.gz"
-    sha256 "23146ed7ac4403b70bd6026402468942ceba34a6732255b9edf5b7354f68a6bb"
+    url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
+    sha256 "d0519b1bc867f5f4f4713c41ad0aba73a4a5f007449716b16f385f2166dc6adf"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz"
+    sha256 "ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
   end
 
   resource "userpath" do
@@ -61,6 +54,11 @@ class Pipx < Formula
 
     generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "pipx",
                                          shell_parameter_format: :arg)
+
+    # Build an `:all` bottle by replacing comments
+    site_packages = libexec/Language::Python.site_packages("python3")
+    file = site_packages/"argcomplete-#{resource("argcomplete").version}.dist-info/METADATA"
+    inreplace file, "/opt/homebrew/bin/bash", "$HOMEBREW_PREFIX/bin/bash"
   end
 
   test do

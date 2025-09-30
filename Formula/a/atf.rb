@@ -12,6 +12,7 @@ class Atf < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "acbf43372e23b1ec798d9220e6035f76a8d42d61af90ab40c43b32dc90b22745"
     sha256 arm64_sequoia: "14d17d25d50313d4fbd2794874b972925f23c67dea567ae1ec692efd32c2647f"
     sha256 arm64_sonoma:  "b8f3e848fb9147744c021fae004abe9cb8ac262c94d6bcd4a487b79ea73e6cee"
     sha256 arm64_ventura: "b0e02364b9ab0b317420b1ed1045e9c701ad002653b9180832a18e29c5c542ec"

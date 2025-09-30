@@ -9,6 +9,7 @@ class GnuShogi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e07a2b34459c996910fb2cd8ad3302d978081ab6878330612895115f4b4dd2c2"
     sha256                               arm64_sequoia:  "af1b6d676a20358883f12095fc36af7379e69c8438cc1c3096116b0748952485"
     sha256                               arm64_sonoma:   "0702ff59b956256f5452b9581f38659d15820e201f91fa571eb97f814118fea1"
     sha256                               arm64_ventura:  "f9146b1d94cf4b8376d8c71330f3aea6cad33ebf9af54f9d2e423750ac0b688f"
@@ -19,10 +20,6 @@ class GnuShogi < Formula
     sha256                               monterey:       "c07b78082a29a7db9d4d19fa81f61e7dd89c0f1f184e946e2012fa2fc4bed9d0"
     sha256                               big_sur:        "70258434181a6f40b0c3cddb7e2a5f0119bf953bff5dbd3e795533f558a104ea"
     sha256                               catalina:       "6c559fdfcd24543c1f83f681fe3337048783d17649804b642fb0063dee88d7c8"
-    sha256                               mojave:         "c52d5743a6b9b6aeff9ba4b87104fa7adb58e7752683420e2c038f0216a2447d"
-    sha256                               high_sierra:    "20895a9d3fe87357df4dad1aaae16fee4d7a0c70e95119756c8ab2928817c161"
-    sha256                               sierra:         "677531c9eb7bdd01f22862c24d5ab144f7b78bd672223854fc169d103a9924e2"
-    sha256                               el_capitan:     "49ff431036e172362b24dc7eca426a638ec2953ea014c67e4cae239e9175bf27"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "9f7b9bcfdffd2c110a5ad05cc370f4fcf322b655152482ed62e35426d61513d0"
     sha256                               x86_64_linux:   "7700579666c89c383d66c691c0deb1531fe3af8b886b1b74ed875803862c5223"
   end

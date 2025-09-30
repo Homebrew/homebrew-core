@@ -14,6 +14,7 @@ class Prover9 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f50efa708e0a002db67d676da0207bed5d12c71b5ca5c3da1db857e21864c294"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dc3e744b9971aabf272db720d2fb90a8b99dca8cb8799ef9d9d89beb306eb291"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92508ef60be4768b9567c677c4aae881f04ef84de98d2bbff299739f906198ba"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4ab7e6152098318be4a839b1fa2c6e50dc6868ef6b08c8d34d2175aac1736fe"
@@ -24,8 +25,6 @@ class Prover9 < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "eb0ab8deaf0e9866c6fb241877767f99ca7b4d7d8b5268a0c6ce7ef9fb0cfbd3"
     sha256 cellar: :any_skip_relocation, big_sur:        "a81af1adbb27059709ec9bd9afd30e7819fbd750ea18736c079640058e9ca5b0"
     sha256 cellar: :any_skip_relocation, catalina:       "1f637c295f07ddf31eedf6bcc73b957584da4d55cb92c7bfea3264d6c3780d1b"
-    sha256 cellar: :any_skip_relocation, mojave:         "5ae1f642fa781841fc843a548b5327cf1dfb8d8c4fbe5ea83ddffef004282d57"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "055cf6646dd19effa87d7b9fa8e820c24710a023bcefc98c35604205530ab2c3"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "a61553c5a3e18b08afb168e0decbf7037fafca31b3b48430730096404520908c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f1cf6703e83cffd06e2025d6b5062dbf7e4dd7f3ca398618ac688e8ce165e1d"
   end

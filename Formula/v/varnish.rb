@@ -1,9 +1,9 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-7.7.3.tgz"
-  mirror "https://fossies.org/linux/www/varnish-7.7.3.tgz"
-  sha256 "e96eeafc4cfe2a558ed2fb54f1e22be3a3d995f46f8c00da545d583aaef80236"
+  url "https://varnish-cache.org/_downloads/varnish-8.0.0.tgz"
+  mirror "https://fossies.org/linux/www/varnish-8.0.0.tgz"
+  sha256 "633b8c4706591ceae241c8432ef84f7c5ef9787f4eea535babf5fc6c6111ad5b"
   license "BSD-2-Clause"
 
   livecheck do
@@ -12,13 +12,12 @@ class Varnish < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ed2e745c07dde91d8b7db4521187aafd7cf598dd9cc84d7642f7ab1bd408dec5"
-    sha256 arm64_sonoma:  "bf27e2caf53c14f1cb2bbab899b9eda77025f3246d99faa968548e91918c2e66"
-    sha256 arm64_ventura: "12082dc9354253a4e2641bc07383427d158ffc976bbbea65e1a23a53c186d4ca"
-    sha256 sonoma:        "d90ccf06cfcc1e990666cdc22a5d042d8bd3d4d4feb800b3fc707c223d3fa6fd"
-    sha256 ventura:       "976d770d0de09defe83d366aae79240f27a68c044735bdc8e89ac60aad4a6b03"
-    sha256 arm64_linux:   "5ace8a30ad386158d8c61898055ac6e75e3b438c2e16e97306d10354fdd9eab6"
-    sha256 x86_64_linux:  "6f3f69bab6e9cddeec6b69105fb6fecefc93e72f86256dcc36a6c3bb2a94408c"
+    sha256 arm64_tahoe:   "0a8d6152d4ad247cd6db1428e8e1623962e2e36e37845885b938149cb8ef9b75"
+    sha256 arm64_sequoia: "d2344af09a8923209d5574df6a82d7259e89c178d3eb9d3d171cd331b24e079f"
+    sha256 arm64_sonoma:  "9d45e69a4fe1ac7c0ac795ccabbd42ca112d505d89e6e9ae6f7ea285d5ca456a"
+    sha256 sonoma:        "9365b9f88df4e9f64ec4f3029314bcc02f9145e30162b338d33310c3a4922da0"
+    sha256 arm64_linux:   "96e866901ed4adc75cc7ffd649220ac99f4218659918dc362dfa110baff1182c"
+    sha256 x86_64_linux:  "f962e3926627d4613fc452eb9ed4d976e11449f98a660a937cb7e2953e75c16e"
   end
 
   depends_on "docutils" => :build
@@ -30,16 +29,6 @@ class Varnish < Formula
   uses_from_macos "python" => :build
   uses_from_macos "libedit"
   uses_from_macos "ncurses"
-
-  # macos compatibility patches, upstream pr ref, https://github.com/varnishcache/varnish-cache/pull/4339
-  patch do
-    url "https://github.com/varnishcache/varnish-cache/commit/3e679cd0aa093f7b1c426857d24a88d3db747f24.patch?full_index=1"
-    sha256 "677881ed5cd0eda2e1aa799ca54601b44a96675763233966c4d101b83ccdfd73"
-  end
-  patch do
-    url "https://github.com/varnishcache/varnish-cache/commit/acbb1056896f6cf4115cc2a6947c9dbd8003176e.patch?full_index=1"
-    sha256 "915c5b560aa473ed139016b40c9e6c8a0a4cce138dd1126a63e75b58d8345e73"
-  end
 
   def install
     system "./configure", "--localstatedir=#{var}", *std_configure_args
@@ -87,7 +76,31 @@ class Varnish < Formula
       testpath/"b00086.vtc",
       testpath/"u00008.vtc",
     ]
-    tests = testpath.glob("[bmu]*.vtc") - timeout_tests
+
+    # test suites need libvmod_debug.so, see discussions in https://github.com/varnishcache/varnish-cache/issues/4393
+    debug_tests = [
+      testpath/"b00040.vtc",
+      testpath/"b00070.vtc",
+      testpath/"b00085.vtc",
+      testpath/"b00092.vtc",
+      testpath/"m00019.vtc",
+      testpath/"m00021.vtc",
+      testpath/"m00023.vtc",
+      testpath/"m00022.vtc",
+      testpath/"b00060.vtc",
+      testpath/"m00025.vtc",
+      testpath/"m00027.vtc",
+      testpath/"m00048.vtc",
+      testpath/"m00049.vtc",
+      testpath/"m00054.vtc",
+      testpath/"m00053.vtc",
+      testpath/"m00051.vtc",
+      testpath/"m00052.vtc",
+      testpath/"m00059.vtc",
+      testpath/"m00060.vtc",
+      testpath/"m00061.vtc",
+    ]
+    tests = testpath.glob("[bmu]*.vtc") - timeout_tests - debug_tests
     # -j: run the tests (using up to half the cores available)
     # -q: only report test failures
     # varnishtest will exit early if a test fails (use -k to continue and find all failures)

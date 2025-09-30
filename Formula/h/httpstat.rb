@@ -18,10 +18,8 @@ class Httpstat < Formula
   uses_from_macos "python"
 
   def install
-    if OS.linux? || MacOS.version >= :catalina
-      rw_info = python_shebang_rewrite_info("/usr/bin/env python3")
-      rewrite_shebang rw_info, "httpstat.py"
-    end
+    rw_info = python_shebang_rewrite_info("/usr/bin/env python3")
+    rewrite_shebang rw_info, "httpstat.py"
     bin.install "httpstat.py" => "httpstat"
   end
 

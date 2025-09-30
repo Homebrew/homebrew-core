@@ -9,6 +9,7 @@ class Airspyhf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "1c1fd82f7cb86587bd29d675af8ea216722ed5e0aee0eca6a137afc0adda0ca2"
     sha256 cellar: :any,                 arm64_sequoia:  "56ba130afa6a1ad1fe9fbda09e0ae0bfefd6eb4d2e5b5a88fa28b150c2a4c1f6"
     sha256 cellar: :any,                 arm64_sonoma:   "b747dbc3b901d77c790fd984fdbaf37979b0e3e7ef0aaca8d616be09353fbe37"
     sha256 cellar: :any,                 arm64_ventura:  "5fbaa0afc4b557fad2a08babdbe97253a76ab494b81dbc402fe0ca9d5c26674a"
@@ -19,7 +20,6 @@ class Airspyhf < Formula
     sha256 cellar: :any,                 monterey:       "4d8688285b59e46abc06d20c835e82a4a5ae3271ad469e12f5c249e464419a31"
     sha256 cellar: :any,                 big_sur:        "e41261aeca3a632c9c2cb265e321fe2ff88820901ea1d3ea01e42e2a1ba0413a"
     sha256 cellar: :any,                 catalina:       "d8b783edf8b206ba8228c96bde21a0dfb42771bc5c46e3493f3dd995a0dfe4d1"
-    sha256 cellar: :any,                 mojave:         "bf9f1a8213e873c37f1ebae5b6d986774abcf882c272932badffbf3e23cacddb"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "e84516121578b8b4e3ed09e2617fe1fe378e7267dd900d8ab08c5cea0de963ea"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9d30b5b22a4dc96558528d46a73cdb6102b49601f9fe04abfc3f9c812606600"
   end
@@ -29,7 +29,9 @@ class Airspyhf < Formula
   depends_on "libusb"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

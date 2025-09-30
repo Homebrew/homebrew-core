@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calico.git",
-      tag:      "v3.30.2",
-      revision: "cf50b562271b7c2ad896af0488d48eddabbb74eb"
+      tag:      "v3.30.3",
+      revision: "068c7aa62a62c7459c9ecbf929c92f2a6594f22d"
   license "Apache-2.0"
   head "https://github.com/projectcalico/calico.git", branch: "master"
 
@@ -14,12 +14,13 @@ class Calicoctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ee8e80f6748f234d5444a98570686f8fa587b4deec28e96f9395eff90b506a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ee8e80f6748f234d5444a98570686f8fa587b4deec28e96f9395eff90b506a9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ee8e80f6748f234d5444a98570686f8fa587b4deec28e96f9395eff90b506a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "669ea26e220507c4baa5d5ed8470077f9ce58464c521e05e11043be813b893e3"
-    sha256 cellar: :any_skip_relocation, ventura:       "669ea26e220507c4baa5d5ed8470077f9ce58464c521e05e11043be813b893e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "920fa79e063454a01c1d82a721c0ad16eae5039bd5625240b17b44a988b9517f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a725de2dab9c0afb29d459044baa1ab26b7bb1c33712841417b4755b9c01221e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73df886e51849a9ef8ab02c1ebd9d4ab55106e9c64892638f870923e36a3d3ce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73df886e51849a9ef8ab02c1ebd9d4ab55106e9c64892638f870923e36a3d3ce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "73df886e51849a9ef8ab02c1ebd9d4ab55106e9c64892638f870923e36a3d3ce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fdbb4338279b2a5f3250b541ccfd7806a651852c36e2e2ac588a44407442059f"
+    sha256 cellar: :any_skip_relocation, ventura:       "fdbb4338279b2a5f3250b541ccfd7806a651852c36e2e2ac588a44407442059f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b29424437fa85d5a2382f032cc58defee797bf583512af80d50ce5ee201ed45b"
   end
 
   depends_on "go" => :build

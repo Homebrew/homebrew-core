@@ -14,6 +14,8 @@ class Xpdf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d8cf28358dc00e7573b535cda3541be4fada72414eb58490cc4d5a11d48c8fab"
+    sha256 cellar: :any,                 arm64_sequoia: "1a7cfdc2ffff4e503971f9437af4af7622e3f7d27b3688a818bf953da2b5d397"
     sha256 cellar: :any,                 arm64_sonoma:  "498ac9ead73ba9677b494feb653335acbc7ba85c41ea6001c52fa47e2bc8d364"
     sha256 cellar: :any,                 arm64_ventura: "60bdb7303f2f3c8b2018862b04f00dfbb169b08c5a91365298b1f0b6f5e2779c"
     sha256 cellar: :any,                 sonoma:        "0e6fb3a888aa52e6a8f98fd71a1e0408940624b9c32df49a976707fd3eeeeb04"
@@ -34,7 +36,10 @@ class Xpdf < Formula
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DSYSTEM_XPDFRC=#{etc}/xpdfrc", *std_cmake_args
+    args = %W[-DSYSTEM_XPDFRC=#{etc}/xpdfrc]
+    # Workaround for CMake 4 compatibility
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

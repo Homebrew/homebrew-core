@@ -8,6 +8,7 @@ class Seqtk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cef0b305702d591dba9d4cdf9d56354a0a0899adcef89a6ce21f58cb04d8c586"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "792b2f9c97b31099358e00f85d5f087d56c6d7b10dcd1d1a6de5c3c28fa90576"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1cc03676c5257015029aaa5d4db31a473574c14e9c6dc1d451a27a91d6700bd0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "edf244951a989be8cd04da63e9d3a4089b933cdd826ab15c903749ddea2b23ba"

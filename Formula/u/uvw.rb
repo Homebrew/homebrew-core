@@ -14,6 +14,7 @@ class Uvw < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "594413006be49d686f144c3122cb960e9eb204a9dbc3503dd7622b8051b61e78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9ffd8957741528fa17ff2883d204d9a86f58bf13f1d2d12e11b9e23436412c1e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd6b702c8f2b647f207611e843ec0d36731982a20b61759e9aae7465f5e8cb8f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9cdb35b83cb69c02172ba1e43007e5d605d3fb4c3b3af40ebf24e34cd7dcba1"

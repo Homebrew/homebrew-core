@@ -1,18 +1,17 @@
 class Deck < Formula
   desc "Creates slide deck using Markdown and Google Slides"
   homepage "https://github.com/k1LoW/deck"
-  url "https://github.com/k1LoW/deck/archive/refs/tags/v1.16.1.tar.gz"
-  sha256 "425e5b8fb8ba06fb71ed3659a055b3076ae7e6b86b57a15c654a6d7f5c32f7d1"
+  url "https://github.com/k1LoW/deck/archive/refs/tags/v1.21.5.tar.gz"
+  sha256 "7fdd3f100352ad6b054a84f7be82566d5f2121a8bcb56bf141db7cdc9450f572"
   license "MIT"
   head "https://github.com/k1LoW/deck.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f11f283a8aaabef35c5241f644b73afb495505b5cf794b7f81b96ddc8c9bcfdb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f11f283a8aaabef35c5241f644b73afb495505b5cf794b7f81b96ddc8c9bcfdb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f11f283a8aaabef35c5241f644b73afb495505b5cf794b7f81b96ddc8c9bcfdb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d0dafb528a97ebfe4aa315dca446d1e20aa853fbaf1ac95e66e9efc3377a66e4"
-    sha256 cellar: :any_skip_relocation, ventura:       "d0dafb528a97ebfe4aa315dca446d1e20aa853fbaf1ac95e66e9efc3377a66e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5fb6c5f052429d1bd80c89b32baa3b9643f3079a427bc5e05b46592eeb3ef9c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "69e01b3734d461f6e4463f7baefd40f1f30ddd42fadbef8792b57affdc74baa5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69e01b3734d461f6e4463f7baefd40f1f30ddd42fadbef8792b57affdc74baa5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69e01b3734d461f6e4463f7baefd40f1f30ddd42fadbef8792b57affdc74baa5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d48223e3c6f6b4c9c5b02483399a6e3d7e108f6a036adbdd91f6ee5500f2c385"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ce2338f2cc5dd3d54659518e9b03d3557343b24dd323703eb9628e3ed00f8d0"
   end
 
   depends_on "go" => :build

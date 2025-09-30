@@ -6,6 +6,7 @@ class Xeol < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80151377a0e570445e58a123fc9256fefdd756fe7bf8ab102de37ca67df34437"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "24658c7b39059111b71cfb881708de816018d13145e3c4e4603267c072e944fa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d967d219f6d7a044a13dd6e2efaa495947d68e0344699d013c6ad3942f7e1d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3689cdfc20e5b62ed6853f8d71ef4695ba9a9e0884f5965ce5b5f4aafb5a24d9"
@@ -18,6 +19,10 @@ class Xeol < Formula
   depends_on "go" => :build
 
   def install
+    # Turn off homebrew specific database checks
+    # Issue ref: https://github.com/xeol-io/xeol/issues/568
+    inreplace "xeol/db/curator.go", "isBrewTest == \"1\"", "isBrewTest == \"999\""
+
     ldflags = %W[
       -s -w
       -X main.version=#{version}
@@ -33,7 +38,13 @@ class Xeol < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/xeol version")
 
-    output = shell_output("#{bin}/xeol alpine:latest")
+    output = shell_output("#{bin}/xeol db update 2>&1")
+    assert_match "EOL database updated to latest version!", output
+
+    output = shell_output("#{bin}/xeol db status 2>&1")
+    assert_match "Status:    valid", output
+
+    output = shell_output("#{bin}/xeol alpine:latest 2>&1")
     assert_match "no EOL software has been found", output
   end
 end

@@ -12,6 +12,7 @@ class Amfora < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00e4da529415b5a5b02c68c987828c996e1b044e8de4bdd3bd91aff35d472396"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "aea294662496a802b0b372ac96c71b78a6df62ff654855c243677b5d7d4e4803"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aea294662496a802b0b372ac96c71b78a6df62ff654855c243677b5d7d4e4803"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "aea294662496a802b0b372ac96c71b78a6df62ff654855c243677b5d7d4e4803"

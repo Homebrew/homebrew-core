@@ -10,6 +10,7 @@ class Dvm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "56c21e2d208ab2c2c030678a272eca714942866e214155e012863c06f103f4bd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "10b8afedcce7c95c0d246413aa284e6d7ace1171365c4ccb69998e7a42142d11"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06639c9a34e778933bae9918ec1eb9c3dfea72d1b5556e086b6ba5fa1b1938a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "93c9c5d7862ccb6954d87aa1a467cfcde32355801dea1cb09a216488b7ba4e1a"

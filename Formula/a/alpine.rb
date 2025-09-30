@@ -17,6 +17,7 @@ class Alpine < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:    "62301d0e5eb9290a24fb3ab3d9117f9dccc45160fbdee0ee7a176e9d02a21f2e"
     sha256 arm64_sequoia:  "0299b3f80c9193359059909396ebf74078a263d0e0987e086741398bac68d566"
     sha256 arm64_sonoma:   "7ad58b222ed8fa4ef1a7609c1223796de0a349d3d5b408109c408793586dfee5"
     sha256 arm64_ventura:  "9b7a5da6cd88ce590ec0c1c2ef8dc45da8a4fa45d108eb976157ddd505cf2b2a"

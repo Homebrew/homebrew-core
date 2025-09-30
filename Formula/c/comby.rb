@@ -9,6 +9,7 @@ class Comby < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "e1ce03e0fb0b0363900de5e46b8be9a46cefe3cf343ea7da2a3e8627a83c6975"
     sha256 cellar: :any, arm64_sequoia:  "02e4b812a3a7196017189b30aba83d058f72fbe37107c554c517538eeb153fee"
     sha256 cellar: :any, arm64_sonoma:   "6547d31a4235741700836ce54b0fdf64bbc0ca2ac42e31ce003c1d86bef079f0"
     sha256 cellar: :any, arm64_ventura:  "0c2cc4ae48e83842879b731399da84e9eb6891bf2c62a10087250db18c257a38"

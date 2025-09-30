@@ -10,6 +10,7 @@ class Asroute < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c6742a4381bdb0de6f208dfcaba3e95ca02ffa9c7ff2263ed492ac082af55d24"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "46518f15ede2b92592176216ba3fbb3aa9bc582b20208ea475a8028745b621fc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f928e074222b7b6f239cc6f6b8af05196287c48b2d252560d4b6a0f1e267c813"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd44c35000aae6f727e7014d50e6955d740d1dea628f127f7ab163566cef9ea9"

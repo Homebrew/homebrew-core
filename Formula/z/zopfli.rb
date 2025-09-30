@@ -10,6 +10,7 @@ class Zopfli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "5b6adb20e537ce4f8fcb5d372c1dc80d42f99bd455ac4d5d9a872dfcfafc5a04"
     sha256 cellar: :any,                 arm64_sequoia:  "87b9f0523e7d1233fcaec2d394122f9aab234bf00a026f4f9322b47b1ef8f8ae"
     sha256 cellar: :any,                 arm64_sonoma:   "171ca3e9b77ac8ebac1b2c082c4938d845605d599e30c671003ca3b5f8f0f795"
     sha256 cellar: :any,                 arm64_ventura:  "68ec999fc21b6ea2e0a44fe4a9cb23dc6fbfac6f51ee153b268fd33408f6d801"
@@ -27,7 +28,13 @@ class Zopfli < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

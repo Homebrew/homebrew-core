@@ -7,6 +7,7 @@ class Ifacemaker < Formula
   head "https://github.com/vburenin/ifacemaker.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "94db1845c66afa670c6b7e21d5d552918f22eee09a0f08f1133f0ee030f7a78e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6154bb922ed27a72a91b0d10e5ec06218ff8b9a49b247fae68a65dbc948621f0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6154bb922ed27a72a91b0d10e5ec06218ff8b9a49b247fae68a65dbc948621f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6154bb922ed27a72a91b0d10e5ec06218ff8b9a49b247fae68a65dbc948621f0"

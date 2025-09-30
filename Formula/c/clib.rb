@@ -12,6 +12,7 @@ class Clib < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d7797f34c701c848a575c010bec48357e4564ef4abd287e8e39aeed7c0287124"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d55c0d80cdf3962c6f472fbf9f977bbc1f38108789a35f28083eb901be9a1d51"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "adaa04956400da4720ab59df6f5751b1f04e98dd297890f3289eafd55bcd7f3a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7209d89f9749907745dffd80fa70d85b722ce4e907020cc55a63dd3d9066e6d0"

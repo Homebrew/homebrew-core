@@ -15,6 +15,7 @@ class Fftw < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "fd117eeb3d95627adacba7ac0acf898f85d0fb1abbcc9b2d3a4dd60e40de0d11"
     sha256 cellar: :any,                 arm64_sequoia: "f6a6799b0982ed9e7941d8e98061fd286a5062971d9b8d24ea5dbf31b16e01fe"
     sha256 cellar: :any,                 arm64_sonoma:  "e10f62334e9400d2206f97f27341f40a6a00313b3ba0841273719a378da72e92"
     sha256 cellar: :any,                 arm64_ventura: "7a199712be0d1f3f939bd6b87713bce221a971a478490be5f0b9ab7957fcdcf7"

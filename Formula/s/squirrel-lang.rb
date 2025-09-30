@@ -17,6 +17,7 @@ class SquirrelLang < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6f3d550f92933219ee049367a983388c573214b498782f3b53b78b1d0b4aaa4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c69026132fadde7bb41e0e27e9b59a697bf8cd34890b2533decb9a5bf577f08c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc0172703a066072344effffa54a83bfa9cb9ed019e1dce5f95d555479d32d66"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c7e75c2f1186ed55390936d42640165a9d14e7545850d8a0e36429b385f75611"

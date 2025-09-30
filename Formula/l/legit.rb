@@ -10,14 +10,8 @@ class Legit < Formula
   head "https://github.com/frostming/legit.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e42ca33477abbbd0614ebe49a653974aeeda576e2ea6341f47c6c8a871eed61"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e42ca33477abbbd0614ebe49a653974aeeda576e2ea6341f47c6c8a871eed61"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7e42ca33477abbbd0614ebe49a653974aeeda576e2ea6341f47c6c8a871eed61"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aeceabb740479fc3464b46e9fc3e88bfdfa3e893615637cc7d001ad76a5122ee"
-    sha256 cellar: :any_skip_relocation, ventura:       "aeceabb740479fc3464b46e9fc3e88bfdfa3e893615637cc7d001ad76a5122ee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9257305158412190881553a43bb05030c1660044521defd3aec90c009acc1393"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e42ca33477abbbd0614ebe49a653974aeeda576e2ea6341f47c6c8a871eed61"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "acc488baeb4e79c8410fc567c15ff0bc58075df696317e947bb6a3c310e852e8"
   end
 
   depends_on "python@3.13"
@@ -28,8 +22,8 @@ class Legit < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "clint" do
@@ -48,29 +42,29 @@ class Legit < Formula
   end
 
   resource "gitdb" do
-    url "https://files.pythonhosted.org/packages/19/0d/bbb5b5ee188dec84647a4664f3e11b06ade2bde568dbd489d9d64adef8ed/gitdb-4.0.11.tar.gz"
-    sha256 "bf5421126136d6d0af55bc1e7c1af1c397a34f5b7bd79e776cd3e89785c2b04b"
+    url "https://files.pythonhosted.org/packages/72/94/63b0fc47eb32792c7ba1fe1b694daec9a63620db1e313033d18140c2320a/gitdb-4.0.12.tar.gz"
+    sha256 "5ef71f855d191a3326fcfbc0d5da835f26b13fbcba60c32c21091c349ffdb571"
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/b6/a1/106fd9fa2dd989b6fb36e5893961f82992cf676381707253e0bf93eb1662/GitPython-3.1.43.tar.gz"
-    sha256 "35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c"
+    url "https://files.pythonhosted.org/packages/9a/c8/dd58967d119baab745caec2f9d853297cec1989ec1d63f677d3880632b88/gitpython-3.1.45.tar.gz"
+    sha256 "85b0ee964ceddf211c41b9f27a49086010a190fd8132a24e21f362a4b36a791c"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
-    sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
+    url "https://files.pythonhosted.org/packages/44/cd/a040c4b3119bbe532e5b0732286f805445375489fceaec1f48306068ee3b/smmap-5.0.2.tar.gz"
+    sha256 "26ea65a03958fa0c8a1c7e8c7a58fdc77221b8910f6be2131affade476898ad5"
   end
 
   def install
     virtualenv_install_with_resources
-    bash_completion.install "extra/bash-completion/legit"
-    zsh_completion.install "extra/zsh-completion/_legit"
+
+    generate_completions_from_executable(bin/"legit", shell_parameter_format: :click)
     man1.install "extra/man/legit.1"
   end
 

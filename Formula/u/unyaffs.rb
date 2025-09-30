@@ -14,6 +14,7 @@ class Unyaffs < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5068e81bc76a677c3b186e77b91df1b38d9fd0c2936762231c1c54ccceca194a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ec8fe9164edaf17dc336a0dc203f5955d17692fa22f508cfe04f4cd87921a85c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "992ddb8ed826d693a43e89852d2a913e79547240910233975d83660b66f88835"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "928a43f3c85d35b25a782cca819a91de0f0836745093784bac2ac71217c55ede"

@@ -10,6 +10,7 @@ class Mogenerator < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8efb94ec378cb588e5abe0cb6a1e586a9120fac207896a8b34e64c69992bc24e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3da7eab4006572e1dedbb58e22b0301a2ddfb272b42c1f2322f326680e577e9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f8087d13fc33fb3263269a5500831ee3338027c5877c51be48e181fcf472ff46"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e3905d64fb52d4543d39ab15d24d091829d22c885e5a423db3ab64d0e9b625d"
@@ -20,7 +21,6 @@ class Mogenerator < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "a9907203474f336c731912e28fad5ec2e912a1e7378d5ba527a7bb3d3b160134"
     sha256 cellar: :any_skip_relocation, big_sur:        "415e0e160574b7b16dff3d0395a7e156894675191c911d09cddf59e1d916571b"
     sha256 cellar: :any_skip_relocation, catalina:       "d62cad0cc94a7b05286fb2a8a2f8e4a4cc3a9b46efa9a391aa9fcb00c381e85e"
-    sha256 cellar: :any_skip_relocation, mojave:         "dcb658659b696e44f13e382f553c92199a7ab0be48ff69f33a35ef98ee8a09ac"
   end
 
   depends_on xcode: :build

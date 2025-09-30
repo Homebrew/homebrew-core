@@ -7,6 +7,7 @@ class Mailcatcher < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "482a7ee7422b6155c58725d201b1e3d50a81f38022c126876650b24d017350d0"
     sha256 cellar: :any,                 arm64_sequoia: "42f5b6813789c297bfb3f2cf9867cb89c387124336f78f0b2db31a9490ff8e39"
     sha256 cellar: :any,                 arm64_sonoma:  "98688362105e37e7b5642971887ec454fa5953c013c499b7401ec75f1705f6d3"
     sha256 cellar: :any,                 arm64_ventura: "d8947cfeb3b8e095f9e9df810fe9eccb62e1da2e73889fac2e1b60794056655d"
@@ -148,9 +149,7 @@ class Mailcatcher < Formula
   end
 
   def install
-    if OS.mac? && MacOS.version >= :mojave && MacOS::CLT.installed?
-      ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
-    end
+    ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version) if OS.mac? && MacOS::CLT.installed?
 
     ENV["GEM_HOME"] = libexec
     resources.each do |r|

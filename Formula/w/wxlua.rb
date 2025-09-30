@@ -10,6 +10,7 @@ class Wxlua < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0f63c60c406c9dae244b02faed0197cac05750d67d8b8cce6b7ef409552375d2"
     sha256 cellar: :any,                 arm64_sequoia: "bab4b714917c8eaa227c442ec73933b7a7366a9a0b12194775f5d5ed51afad32"
     sha256 cellar: :any,                 arm64_sonoma:  "c5fad089244f71343cbb95de5a40af99d9bfaa9d74eea565945794c0a6b3a9fd"
     sha256 cellar: :any,                 arm64_ventura: "850b90ff67e8cf4d2ff3c4be320a639e289a5a89edc0f0e2835baab13a5ece9c"

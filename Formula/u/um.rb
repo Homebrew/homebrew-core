@@ -8,6 +8,7 @@ class Um < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a1fe07dc6291ab69c1c4e7e6545be26dde8bfbf587f732860689535a7dad145f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "46ec29ef67ab6cbf8cde6a9d5029f6224f2fcc77a58f40f5feb178cacab94822"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b91d98a8fd437a600f933a582128c859b9cbf5f84ffd499275156db31c44f1b5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e762de5b91a07098e4c24148a58d32e431ce4bbddce1980665137a60b1c5ca7"
@@ -18,13 +19,11 @@ class Um < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "0e762de5b91a07098e4c24148a58d32e431ce4bbddce1980665137a60b1c5ca7"
     sha256 cellar: :any_skip_relocation, big_sur:        "cdec90ed59042a6701044f4bbc22e6b355426f9ba711f400899b672c1300d487"
     sha256 cellar: :any_skip_relocation, catalina:       "266b397cd3e24060e7926f438279325aed89643070618add3db64175e348c04b"
-    sha256 cellar: :any_skip_relocation, mojave:         "a4d8c9ddc2b46076eaccf3e3d4eaa43918f3d156e8abd16ad1415ea85f2da8f5"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "a479ed6f535f228d1bfa15a7292e58d06a4f07d1238c4fa83f1b99c80564a24e"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "85c354a3514a26d514680306f030dfaa2a247f71ef772d1b3e1d5920b9c7fec6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c71496a39f88373f2f233b19384bb1ef43e631b280ca0ba51ffcd2838012904f"
   end
 
-  uses_from_macos "ruby", since: :high_sierra
+  uses_from_macos "ruby"
 
   resource "kramdown" do
     url "https://rubygems.org/gems/kramdown-1.17.0.gem"

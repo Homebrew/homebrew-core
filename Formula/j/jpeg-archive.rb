@@ -9,6 +9,7 @@ class JpegArchive < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "405b8a9fadced6da12284f64413f6b196fc7be10ab17c6bf2343a892e3a3e319"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "01115c8c03cc35f2460ef29b711a0a2bb26c847d7363e352a720c2c6d71d62e6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "baf9261d5b80bc442cbf7ea1e7f4f98f8e52339009dfecad4175e8622f283382"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fab1849787fa6dc209963175b418748a9b92bdb64f0a39a4329afac2d8b262f0"
@@ -19,8 +20,6 @@ class JpegArchive < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "3461975fc932a94798f2d7c6cad3f030081a29a24a31bc391e2344c6aa6ed177"
     sha256 cellar: :any_skip_relocation, big_sur:        "41ac0d9c5bd290d77e7e5548a2257c6455f9f87265b06b5dc4e02ac7836dfc22"
     sha256 cellar: :any_skip_relocation, catalina:       "222d7258f63f000794693bc5912c88ce42d0a33473a8acbbc585821655c9b8dd"
-    sha256 cellar: :any_skip_relocation, mojave:         "2df1b3a007b7553addc977582d0c38d5007892f9e8a866a4fc9cda9b8f3b2af2"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "6f873847a8c7ad6420fe7700219ae13be39d12075c92921b364cb059ed5bf552"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "df29c9474117299a63359908e72c5693102a56fd57245a9d60f844427473a28b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "620b18311f4e6b970b2b9ae2c2cd6ee5625a791f158b3c2f219e617920d94796"
   end

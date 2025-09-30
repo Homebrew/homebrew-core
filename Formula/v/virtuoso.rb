@@ -7,6 +7,7 @@ class Virtuoso < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6b9d44b358f8223bf339c745299782a6ca56ff80666fa2e10d45921af0171a63"
     sha256 cellar: :any,                 arm64_sequoia: "554f70d10abdd7c5e5f1c0eed8d202de4e62740bde00ac9d3e26d32168859f6d"
     sha256 cellar: :any,                 arm64_sonoma:  "b2740440db3983362e3543c4642d097c46a7fe318a48e6bf39988cc73089628c"
     sha256 cellar: :any,                 arm64_ventura: "54d673c5a3bded8b8246864ecfee54b8a501a2f88e703fd2c4c0754821e5f0cd"

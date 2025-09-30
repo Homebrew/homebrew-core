@@ -9,6 +9,7 @@ class CloudflareCli4 < Formula
   head "https://github.com/cloudflare/python-cloudflare-cli4.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6a5a6a58030994bb8f479ba9db371f15fb3c0609c8201f95f508f4cf9301f0ce"
     sha256 cellar: :any,                 arm64_sequoia: "a4ea671519a015aa1461a55902277b9ffe90fb3cb135ec0f5b0c85d454319edb"
     sha256 cellar: :any,                 arm64_sonoma:  "07a144a0eff0274b0b0d22c7df614c3118b0b7ae6b84fd2ee96837d70d446538"
     sha256 cellar: :any,                 arm64_ventura: "448ecdbfa0f9c227df6645aaf4b857003fe96cf8e46d0fb57818704a4d99d631"

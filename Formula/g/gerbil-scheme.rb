@@ -14,6 +14,7 @@ class GerbilScheme < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "6c166d32e62d375fab7baf018d875b4f0a44536b9e33158bf9894af87b8964d7"
     sha256 arm64_sequoia: "939444b532cbb429e5385d5b9eaf5c998e5100cd6f44c73a08e03d81cf5390d6"
     sha256 arm64_sonoma:  "f82c1f9904a538503b8465a690f2eeb492b719a76fc0e581610ff46ab10fba98"
     sha256 arm64_ventura: "3a84f0abe9b30ccbbcfc7e5915f75af455b45b53b032f92e3bccae0fe3cf59bb"

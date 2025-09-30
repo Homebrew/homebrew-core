@@ -13,13 +13,13 @@ class AstrometryNet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "757f3c12578d021709e8332caa87e0d3ca1bcc28f39a675946d83cca07bc214e"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e37742770e1efe10c744f4a908c002af489a59e8aa2bf6c5cb4dbad74b02d74"
-    sha256 cellar: :any,                 arm64_ventura: "12ea115da7ff9e7976e71bcb7e3f6ee7420f633a1c2295d24df6c95568aa28ba"
-    sha256 cellar: :any,                 sonoma:        "f4115527d39d5d12b687a44b02556072ad48e0d982b445193e1ccb3fb2f42eb8"
-    sha256 cellar: :any,                 ventura:       "acfb3cb5d86b8127c99a3ad33b874e3496e12bca06bf84252a70d49e33bf76df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8fd9bce936b958783eed600b61cc2490a719aabbf631dc1f6624d058a5b7f6c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e92de421cb2c9161b9cc6a25bd364988041831bece5de023e55684350b0a03b3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "40d9adfbe503f17ae412e6e357b184cb452866a792028a6ba742bd2d7022d26d"
+    sha256 cellar: :any,                 arm64_sequoia: "fb1c46f5984a4729f163e70038d0057364ba035833bfd43a0ed69c7b58ffb04e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8d8cd0c7df299f886f2cafdcc5930560bb5cdcba9a8241cbe11c2e882e1ad245"
+    sha256 cellar: :any,                 sonoma:        "5fe145bb419c5c4179900ec62969cda35c80fad2d34a78a2e9dfde8419eb7f3e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "309d750564e789b98b1da8bdb2c83b5fc57ee87a9f7e6915dfcbcd42e74a0313"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e9e3724461fa8339b641411a665f30bc2879fbb1ac66da6e8bdc5e5753864a3"
   end
 
   depends_on "pkgconf" => :build
@@ -36,8 +36,8 @@ class AstrometryNet < Formula
   depends_on "wcslib"
 
   resource "fitsio" do
-    url "https://files.pythonhosted.org/packages/6a/94/edcf29d321985d565f8365e3349aa2283431d45913b909d69d648645f931/fitsio-1.2.4.tar.gz"
-    sha256 "d57fe347c7657dc1f78c7969a55ecb4fddb717ae1c66d9d22046c171203ff678"
+    url "https://github.com/esheldon/fitsio/archive/refs/tags/1.2.7.tar.gz"
+    sha256 "356a425ce1c5c64e42685e1196f1d5fb43ec8fefb7f800232f756360e1a2a38a"
   end
 
   def install

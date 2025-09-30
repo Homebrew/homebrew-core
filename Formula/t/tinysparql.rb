@@ -1,8 +1,8 @@
 class Tinysparql < Formula
   desc "Low-footprint RDF triple store with SPARQL 1.1 interface"
   homepage "https://tinysparql.org/"
-  url "https://download.gnome.org/sources/tinysparql/3.9/tinysparql-3.9.2.tar.xz"
-  sha256 "14ce039024135e181022bcce4b1aad2e00377dd9c7d812b98391ccfc756dad8e"
+  url "https://download.gnome.org/sources/tinysparql/3.10/tinysparql-3.10.0.tar.xz"
+  sha256 "fb0af98355ea1db700764cf4fa245884a199ca145ed42ed55f9a18c68552ca30"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://gitlab.gnome.org/GNOME/tinysparql.git", branch: "main"
 
@@ -15,8 +15,13 @@ class Tinysparql < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "ad70717895214c5cc08d5998cae06f2cd4f7701fff5f12aee9dbda5e094c11b2"
-    sha256 x86_64_linux: "c1ad67b48f79ec4f893d00e2232225a15f60d1ef7af281f7dbcb334c0797c79e"
+    rebuild 1
+    sha256 arm64_tahoe:   "7d21caab597880797e3387df79d2eb9ccb2cc53d99c70e1831a3d09bbcdbfbfa"
+    sha256 arm64_sequoia: "fd62d5ed2ef69d01a291154d9a8be5d421fd610a42b022ed6c89d551da6f4baf"
+    sha256 arm64_sonoma:  "da029da1c38448dfb3fd53a065ef6785774cfff8dd6e2cf300e1f11c602543f0"
+    sha256 sonoma:        "be75e0ee38822145e345452791d05631a88404bb0dedf7c29d063965fbf80ca3"
+    sha256 arm64_linux:   "9093fffad5890d83dbacc8ce924e9a82146ed7c303d85d71fbd02df576447ecc"
+    sha256 x86_64_linux:  "50bf08823b13e6d15cc0520c101de74d3215d60e6b9150f5cff2272119011142"
   end
 
   depends_on "gettext" => :build
@@ -31,11 +36,13 @@ class Tinysparql < Formula
   depends_on "icu4c@77"
   depends_on "json-glib"
   depends_on "libsoup"
-  depends_on "libxml2"
-  depends_on :linux # macOS fatal error: 'gio/gdesktopappinfo.h' file not found
   depends_on "sqlite"
 
-  conflicts_with "tracker", because: "both install the same libraries"
+  uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     args = %w[

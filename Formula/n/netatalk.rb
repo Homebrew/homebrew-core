@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-3-0/netatalk-4.3.0.tar.xz"
-  sha256 "bc71a6a2f11cf00cb69ef13e8487ab78d1241ae535feb010220c74c89dc890fb"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-3-2/netatalk-4.3.2.tar.xz"
+  sha256 "2977b4fd113182f0cc183337ba23d5701fb2be4e0dfcec7ee575b4d73a738d3a"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -12,19 +12,19 @@ class Netatalk < Formula
     "BSD-3-Clause",
     "MIT",
   ]
-  revision 1
   head "https://github.com/Netatalk/netatalk.git", branch: "main"
 
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_sequoia: "59512a22b20093f6798c96b9f8ed795a02e8767188388eabaca966708bc337c5"
-    sha256 arm64_sonoma:  "9bea5e0a1fed6fa0e9deb15d3f24cd312a4a63d535c9061c7be2ddd6623b878a"
-    sha256 arm64_ventura: "3c8298501fdd5efb373ffb025a2a7ea4f238aaa73345432b3007a0261738fcda"
-    sha256 sonoma:        "56878d4855fb7ee8401176786caa32afe13b99e6408895b898c927a9febc93f1"
-    sha256 ventura:       "374d8c73a8e190c727a60f027076a294690b17d62de3923d521e5fb45c978df5"
-    sha256 arm64_linux:   "9d54530b496a91a56bcf23fc6eafbd444e91f2eaf3a900e0c05a7291b7d44074"
-    sha256 x86_64_linux:  "edc5be6cadb386ab459fb41b5752e9ef4071488d040b48ff64a70d91bec41891"
+    sha256 arm64_tahoe:   "a996c4867d72289a1d1b6de73069dab3ff7e975f2a9e41af1572548e617e9663"
+    sha256 arm64_sequoia: "33055225df69045cbc4e9b44e4830ba1dd979f83dbb15726258fb09908047819"
+    sha256 arm64_sonoma:  "2ebdbc3faeb4a7ef33d4c863e7336685510e2c58ad28df1d136b0de83bc9cbbc"
+    sha256 arm64_ventura: "dbac843786ce3ce67d91c56d6052f2fb5d90897abe1c0596cd22f13f687f32ba"
+    sha256 sonoma:        "adb8b67efc6450b746c0fd67dacf69845207db2b32904eea20fcfc931cb5dc67"
+    sha256 ventura:       "2b1cb2ab91c8e9c685dddd614dd89f2391b8de3207e21c5098bb1eb5c0a6e62e"
+    sha256 arm64_linux:   "f6bb7dc5baca9769b091710448d9f6542b996778e34b86689f5f4a24e629a8d9"
+    sha256 x86_64_linux:  "d55c30bfa29981cb9c05c3eb2a9e5b1ee99d35ae295e0bfbeac2e6c51ee1d093"
   end
 
   depends_on "cmark-gfm" => :build

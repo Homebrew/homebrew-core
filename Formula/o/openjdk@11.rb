@@ -1,6 +1,6 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
-  homepage "https://openjdk.java.net/"
+  homepage "https://openjdk.org/"
   url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.28-ga.tar.gz"
   sha256 "c051b84b55a826ff90ac601ff7501449fb6a578a89357bbc7550990a78bb5f1b"
   license "GPL-2.0-only"
@@ -11,6 +11,7 @@ class OpenjdkAT11 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0c7019b81053e9b5a1bb519d3edea232426400749dec1be74f7cfb85edeb38a0"
     sha256 cellar: :any,                 arm64_sequoia: "c2f2b74da21a9062e4b288dedc5a0041814addbde1829b3113ef2d68e82821cc"
     sha256 cellar: :any,                 arm64_sonoma:  "cadeb8b67fddfad5831b43590417fd0bc0b259c03baf162bdfc13dd99aa4a7ca"
     sha256 cellar: :any,                 arm64_ventura: "d66cfeeac9d98b5f4868187eaf49753e5db88d416bdf39faa5357e29bb175367"

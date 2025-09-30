@@ -9,6 +9,7 @@ class Gost < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b074c277af3a33652020d02819a234f3a83154a8b3ac73ef5b99c89f5ed9958c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "57e454b905ac17f21519f34ed868db709413efb45f53fe37edeb9bd0e9da0259"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86b48c89f4ea3d4edaaa3cec855981de9ac0fc36cc82f50b166bf6bf688c8997"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "189a833087438d49b52688387ab96ff43aa9728337fc24c236e007691dae1eb4"

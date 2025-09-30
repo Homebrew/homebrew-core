@@ -3,24 +3,23 @@ class Gexiv2 < Formula
   homepage "https://wiki.gnome.org/Projects/gexiv2"
   # release info on the website might lag behind, refer to gitlab tags for latest release info
   # see discussions in https://gitlab.gnome.org/GNOME/gexiv2/-/issues/77
-  url "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.6.tar.xz"
-  sha256 "606c28aaae7b1f3ef5c8eabe5e7dffd7c5a1c866d25b7671fb847fe287a72b8b"
+  url "https://download.gnome.org/sources/gexiv2/0.16/gexiv2-0.16.0.tar.xz"
+  sha256 "d96f895f24539f966f577b2bb2489ae84f8232970a8d0c064e4a007474a77bbb"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "b0be40f4352e5bac318259440594e2ca16a81b376348a800bfcfac353547b7c0"
-    sha256 cellar: :any, arm64_sonoma:  "d2a54167e5c765ff57d453313dd3b13517c9f92312af73cdf72be9329a6cea12"
-    sha256 cellar: :any, arm64_ventura: "7789b5180180ea16b5356d756c19b908271dec072c79a80565ba8963a6b2194a"
-    sha256 cellar: :any, sonoma:        "4a70e5aec83a5c3ea6b06cf1e78fa6328bb6ea839fb6d827061dde2d2ef72d10"
-    sha256 cellar: :any, ventura:       "8e378af8cb103ebf8fa406f4f0af5e3279e7df9c77b63c941d9c38cb43ae6dfc"
-    sha256               arm64_linux:   "cb683ac05d80a629b5b5dbbe828435f2782cbf5d2fdb7eac71f7d164fe3882fe"
-    sha256               x86_64_linux:  "e50cb89c508f33ab907a6e531ccb93727ad126509bb3098d9acce22002c79863"
+    sha256 cellar: :any, arm64_tahoe:   "65daf3be90e7c24d84c131e5eb349d90c935f45ceeed7e043cd083617dfde41a"
+    sha256 cellar: :any, arm64_sequoia: "6566b30dffe1e55d2dd899cb609d06567ab05122b320a4135d00485aa5fd23a9"
+    sha256 cellar: :any, arm64_sonoma:  "df3ffe2eaf8be10632c018f21857988aed01f71e43d72362870f09306e28a3d5"
+    sha256 cellar: :any, sonoma:        "1295da3e261bc8240e05d696103954b4cbefb0b2e14d292d475c9195cd32f565"
+    sha256               arm64_linux:   "94cc5f0acb7cae5223e9bca62fcd96166065faa9c7300335fcb0b7ea0d9a5db7"
+    sha256               x86_64_linux:  "6fa18288dad24d85cabc1725bdd570a9452cd59497606e698c2730e543e0c960"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "pygobject3" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
   depends_on "vala" => :build
@@ -52,16 +51,13 @@ class Gexiv2 < Formula
       }
     C
 
-    system ENV.cc, "test.c", "-o", "test",
-                   "-I#{HOMEBREW_PREFIX}/include/glib-2.0",
-                   "-I#{HOMEBREW_PREFIX}/lib/glib-2.0/include",
-                   "-L#{lib}",
-                   "-lgexiv2"
+    flags = shell_output("pkg-config --cflags --libs gexiv2-#{version.major_minor}").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
 
     (testpath/"test.py").write <<~PYTHON
       import gi
-      gi.require_version('GExiv2', '0.10')
+      gi.require_version('GExiv2', '#{version.major_minor}')
       from gi.repository import GExiv2
       exif = GExiv2.Metadata('#{test_fixtures("test.jpg")}')
       print(exif.try_get_gps_info())

@@ -9,19 +9,15 @@ class Asciidoc < Formula
   head "https://github.com/asciidoc-py/asciidoc-py.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
-    sha256 cellar: :any_skip_relocation, ventura:       "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a96f1dae62e892080b2da1d5d284af5978ba48edda0e76e04b30e309e8e4aaf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51190b8ffe36e536f0208a5d0f420ed9be8c119051241188801d181a12bfd83a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "55973a31af5c129fa29e8d6bfb33c76ecd5eb7e60983f58db57872d8c5a4c3c7"
   end
 
   depends_on "docbook"
   depends_on "python@3.13"
   depends_on "source-highlight"
+
+  uses_from_macos "libxml2"
 
   def install
     virtualenv_install_with_resources

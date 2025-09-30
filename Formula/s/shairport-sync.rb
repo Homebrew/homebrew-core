@@ -13,6 +13,7 @@ class ShairportSync < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "4acb51abb40b8bb8bdc9d0b73c9aa010965617fa30ec60e760d4a0c91bfbe318"
     sha256 arm64_sequoia: "7545247fdb0c6f1d073bb20d3bc89304637ee0d57cee66e725e1ee32549dd1ae"
     sha256 arm64_sonoma:  "21a738ff972c71852726ef8073116fb6e77db042d92a4846b9aee123af0f5ff8"
     sha256 arm64_ventura: "1cb4522df509d78bc574c27a8d668b6bf639dcb0e6a68d015b8e93205c1c0ac3"

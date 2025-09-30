@@ -2,8 +2,8 @@ class Flux < Formula
   desc "Lightweight scripting language for querying databases"
   homepage "https://www.influxdata.com/products/flux/"
   url "https://github.com/influxdata/flux.git",
-      tag:      "v0.197.0",
-      revision: "6f5f1c0c24c7da7a705f9805c2782ba091599c5f"
+      tag:      "v0.198.0",
+      revision: "432969ffee5365e35d7519884e0b4d8e56cce01b"
   license "MIT"
   head "https://github.com/influxdata/flux.git", branch: "master"
 
@@ -13,12 +13,13 @@ class Flux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "97de1a79669a9890e7d710ef00ca4ad477303d483b968b524a5f3b000b7d0f61"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ca9eb85d95123297eb05902831cdb0b9ddb27700129e47575769c1fbe2e153d"
-    sha256 cellar: :any,                 arm64_ventura: "b828e246911d416cb85083473f322e5365f39d88976a2967e0bdd09bce1258ad"
-    sha256 cellar: :any,                 sonoma:        "8667d1ed59e6f177b8a6968b644a64c53e7b8864ee7103dbea7adf43265da09b"
-    sha256 cellar: :any,                 ventura:       "f2c79724912aa01c5165b3e48433344a131256c056690521fabd53610c0a20b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d193ecd70a69a9f1e6e0d3b530d6513294296b77e60f3c894c3d0b089a637666"
+    sha256 cellar: :any,                 arm64_tahoe:   "b23050bb6cd3010245a47de797444de6492c4ccc2b7784c97c5e2c7a338ef148"
+    sha256 cellar: :any,                 arm64_sequoia: "01aa831d3f045e062caad63ab72a76e34d049d5010f6059f05e879b4de94496d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e7b66b97749796bec83b2faa9e26e42db923df9522c5d637ebc6a1f3209a85d9"
+    sha256 cellar: :any,                 arm64_ventura: "67432a04ff13d684b925700dbba1f5e3331df639a55f000123c389a60e7c9ba4"
+    sha256 cellar: :any,                 sonoma:        "c13f56e132992d8e6b753f8e2358d5fb769fbb8232d67bd7e6feb2b7073e50b1"
+    sha256 cellar: :any,                 ventura:       "fe981ddd62d62e89f406d66771b095b82730c9186a5a38c1c9d64f395a228b49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6cb4a564936512e6de8730f584ec73b885fe156f144836ab13aa13be9b5feae"
   end
 
   depends_on "go" => :build
@@ -40,6 +41,9 @@ class Flux < Formula
   end
 
   def install
+    # `flux-core` Workaround for `error: hiding a lifetime that's elided elsewhere is confusing` with `rust` 1.89+
+    ENV.append_to_rustflags "--allow dead_code --allow mismatched_lifetime_syntaxes"
+
     # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
     # of the Rust components in the server.
     resource("pkg-config-wrapper").stage do

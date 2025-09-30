@@ -7,6 +7,7 @@ class Ko < Formula
   head "https://github.com/ko-build/ko.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bbcd091cde091371c2f0156d9a208dbc49e87abd3acd42f9e7f031a68b9a8fd9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "51ebbf1f9c0117c708c6837f964c9cd66192d0d40b6bf70be489b232c2b97e90"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51ebbf1f9c0117c708c6837f964c9cd66192d0d40b6bf70be489b232c2b97e90"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "51ebbf1f9c0117c708c6837f964c9cd66192d0d40b6bf70be489b232c2b97e90"

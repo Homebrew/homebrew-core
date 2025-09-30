@@ -9,6 +9,7 @@ class Kustomizer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "db1a9450e034758a16938409965b27bfd458ff6bad82ce621a8960c72ee6c8b7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0614a810f33b3319820a68d23aee72b4af6f04d937435e2b9df8c3a6c8991caa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db4028189fa70a68b0c6c33a0837b864a9fce38f0b9e232c8adc3adfbf7a6efc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ba254b8051b47aa5f1fb36236027a7ba73cda8218c504b43065ab3ad7677584"

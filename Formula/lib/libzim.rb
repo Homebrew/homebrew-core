@@ -7,6 +7,7 @@ class Libzim < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "4e89d062e9b266ef32c000632519ecb99f256b701005966f399246f21a8b9575"
     sha256 cellar: :any, arm64_sequoia: "b4ceecbeedcfc12b93d6f09afd9108509970317095e61792c171908037dfebd7"
     sha256 cellar: :any, arm64_sonoma:  "faebeb4b051a2de69ce34863390dbb6c623ea2f01d0ddc7265e9b73cab5aa917"
     sha256 cellar: :any, arm64_ventura: "0a36f78d2ec284ba491c030e071a9a5875106dac327bd6e060f479410b6c9331"

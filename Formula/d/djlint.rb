@@ -10,6 +10,7 @@ class Djlint < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "3413b9012d236580d08befb336c67823bbe04496fddf6265f84b65380b35d14d"
     sha256 cellar: :any,                 arm64_sequoia: "428664b35299f18cab4b5f935e4f299816d99a514171f3b470a544f2323ed043"
     sha256 cellar: :any,                 arm64_sonoma:  "590751835518d79ddbf02d69c49a145b2305802489396095a9f8061cd9e819fe"
     sha256 cellar: :any,                 arm64_ventura: "d3133c1dab320a85397234a620707d1aad101afef96e3f3591e57589ad5f2dea"

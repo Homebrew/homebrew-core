@@ -12,6 +12,7 @@ class CloudfoundryCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7f997ee1cdfeb86af40b6d2ca6cefc7369334a23cfe7668b3aa1e2c2e1cdd4c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "040d4b8bcc2b715e55c2c12259010504c5bf169a1502a3080e268ad0ca1a11bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "040d4b8bcc2b715e55c2c12259010504c5bf169a1502a3080e268ad0ca1a11bc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "040d4b8bcc2b715e55c2c12259010504c5bf169a1502a3080e268ad0ca1a11bc"

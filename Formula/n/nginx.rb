@@ -14,6 +14,7 @@ class Nginx < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "475ed92d82e11128caf4b98d5bd1b4eecb18583b29c201c181090a084eed1e41"
     sha256 arm64_sequoia: "5b2cfe6c27ac6d326b5a8a068cd7f6f59d6586331da3fa20f9be31298e035714"
     sha256 arm64_sonoma:  "8eee7b29c33532ee4760e505cd2ee6c9c29c3c45256522247b9fb55dc7d45e47"
     sha256 arm64_ventura: "2a287e225c9d4e56f42f4c66f449181c60b8611eb367950fc40e1ba9038781c7"

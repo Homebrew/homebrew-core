@@ -9,6 +9,7 @@ class Libmarpa < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "5258cd212c7322f4c3641a3467e9d11e66dbb381d62b9a6861893e059af5d9a7"
     sha256 cellar: :any,                 arm64_sequoia:  "34dbf51117d4ac3e153c94f33b9484b45456bef0acac4bf40b0b65a41c76a935"
     sha256 cellar: :any,                 arm64_sonoma:   "fb4bb4ed2f54fe81cafed6f6a768edf2360cd0cf00f9e78be219848e968e5ebd"
     sha256 cellar: :any,                 arm64_ventura:  "a355e4c22bf6dbc889cfb04bec4051d6c883007effc98812da80e342872c5021"

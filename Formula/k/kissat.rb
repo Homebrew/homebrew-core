@@ -11,6 +11,7 @@ class Kissat < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16a805b74aa6b67aac42116f921608e77067f3f553db17931a231d6dbdb1426f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0eb8fbbc0d871dafebe61c28e50c5fb4d91197ac25454773bd49addf8d8463a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3306c59f3974c880708161055d5b84cd329180547f573a3b928331f87d954a0e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5cc55b114c2d470012956c538e7004381ebb4991a8f493fdf65419eb5b16c9f7"

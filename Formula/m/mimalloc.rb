@@ -11,6 +11,7 @@ class Mimalloc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c8c2f8ebafa0b1add9f1217251cf0822f7cd385471f24070cd6bc8ee8bf05702"
     sha256 cellar: :any,                 arm64_sequoia: "a78d24b6319552c5fe4a5d35fcc220323bf3444a14442fba3e6daf3f3eb4229a"
     sha256 cellar: :any,                 arm64_sonoma:  "87831a2e64cf404071b0a1975a0ba104c2149fe7dd4c1c04b1a36781bab63e48"
     sha256 cellar: :any,                 arm64_ventura: "13ff3e501f31a5eab5674930dea31ae4bebaed70ba17f7dc6a05442d15a5ce1e"

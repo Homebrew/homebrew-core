@@ -1,12 +1,12 @@
 class Htmlhint < Formula
   desc "Static code analysis tool you need for your HTML"
   homepage "https://github.com/htmlhint/HTMLHint"
-  url "https://registry.npmjs.org/htmlhint/-/htmlhint-1.6.3.tgz"
-  sha256 "2f525186e3d3066de002822a11672b98869b647be8de709c130861a60d245dec"
+  url "https://registry.npmjs.org/htmlhint/-/htmlhint-1.7.1.tgz"
+  sha256 "3eef0342bdd7104b9aa3e10b90df0232117feed7cc08a3a89acbe038a2f80423"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "beb428615aec8f7104f3cffd5a1eb2c016c5a58d911f8aef359063f90d677299"
+    sha256 cellar: :any_skip_relocation, all: "62f78dd0ebeef54ed4b1bb69af41ad8809d0a1d89a98ea2f66511580b05aa290"
   end
 
   depends_on "node"

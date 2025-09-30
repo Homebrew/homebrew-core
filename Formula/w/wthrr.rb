@@ -7,6 +7,7 @@ class Wthrr < Formula
   head "https://github.com/ttytm/wthrr-the-weathercrab.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "374e60034ee75ae89b1ed428b0fccd1af6283c04579823105c05da9edf09b77e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "762cc039b08678cc91207e5aba373a9926b4d7f6bd14b154080ec4c9f0144778"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "423b5d934ed4948e6f91ff46bb6122fe3ef4801357cbe1323abe055e63a4bac4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a5c71252f0517231d9b7ea64314591586df9419d5529029c4ef1d7b6ca73b315"

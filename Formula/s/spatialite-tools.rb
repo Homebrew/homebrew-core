@@ -13,6 +13,7 @@ class SpatialiteTools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4fe285baee899201bdbeea2a8e461972a690ed5ed741bccf6cfeaf2277b0bf21"
     sha256 cellar: :any,                 arm64_sequoia: "3a2225e7ff88a5434b9935dc47f265e045644d5efa22e4a942d32c71869833cc"
     sha256 cellar: :any,                 arm64_sonoma:  "04ec75c512a3d0c0e9aef46df243130f9c1c9e217c9605af148554a321946642"
     sha256 cellar: :any,                 arm64_ventura: "d7fbe72eae1741ce20b5fe2dcd06b257af9cb642cf706f2012a0c42e007d8b73"

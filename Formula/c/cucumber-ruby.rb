@@ -11,6 +11,7 @@ class CucumberRuby < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7bf9179232a51b9aef4b8996562877eae7b7df99c7e6336c0963200494481751"
     sha256 cellar: :any,                 arm64_sequoia: "bf5055da839e360c7f6d648675ec1d529085fe3f6605c54ec08f254f0c69dd57"
     sha256 cellar: :any,                 arm64_sonoma:  "b1b7e2dcc64552aca2783bb1d7bde33ad53e516f0ad568b69e1412f9b68cb1a8"
     sha256 cellar: :any,                 arm64_ventura: "1413a9372c032ff5522dcfa88a1b8a5387db18c674fd43c101c9e2018bd67486"
@@ -23,7 +24,7 @@ class CucumberRuby < Formula
   depends_on "pkgconf" => :build
   depends_on "ruby"
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
 
   # Runtime dependencies of cucumber
   # List with `gem install --explain cucumber`
@@ -113,11 +114,8 @@ class CucumberRuby < Formula
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
       r.fetch
-      args = ["--ignore-dependencies", "--no-document", "--install-dir", libexec]
-      # Fix segmentation fault on Apple Silicon
-      # Ref: https://github.com/ffi/ffi/issues/864#issuecomment-875242776
-      args += ["--", "--enable-libffi-alloc"] if r.name == "ffi" && OS.mac? && Hardware::CPU.arm?
-      system "gem", "install", r.cached_download, *args
+      system "gem", "install", r.cached_download, "--ignore-dependencies",
+             "--no-document", "--install-dir", libexec
     end
     system "gem", "build", "cucumber.gemspec"
     system "gem", "install", "--ignore-dependencies", "cucumber-#{version}.gem"

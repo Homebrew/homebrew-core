@@ -1,11 +1,12 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.9p2.tar.gz"
-  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.9p2.tar.gz"
-  version "9.9p2"
-  sha256 "91aadb603e08cc285eddf965e1199d02585fa94d994d6cae5b41e1721e215673"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.0p2.tar.gz"
+  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.0p2.tar.gz"
+  version "10.0p2"
+  sha256 "021a2e709a0edf4250b1256bd5a9e500411a90dddabea830ed59cef90eb9d85c"
   license "SSH-OpenSSH"
+  revision 1
 
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -15,13 +16,12 @@ class Openssh < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "0f9bafc94fa471cbb2385c7d6c94555007562649922e994db8c0445a509f7309"
-    sha256 arm64_sonoma:  "3d29bd75979fa18a5ffedeb87e980935130badc1e66eb1b03fbe939395d69faa"
-    sha256 arm64_ventura: "f5ce25d2a671debd1114ce92ba6fc9ecefafce11d8e3fed5287fe29039cb547a"
-    sha256 sonoma:        "abfddd2952c084d370508dbc9f73d841b21a79086798e503f433973c0a96d8f2"
-    sha256 ventura:       "4b3a0a5eedf70dd18d80c2062d2fd3ac370e774b928d21c227dd09d0b18598de"
-    sha256 arm64_linux:   "3161bee35d5c534421e678ac88d5c9c5c4b9cc3027ef84de29158c21b4753853"
-    sha256 x86_64_linux:  "94e604bf4f8b0554621c22291d50063101c43bd4b99b48dbd0c7120a1f5178b5"
+    sha256 arm64_tahoe:   "6eab03df9f0a58e6e293e05ec29bf5b4fafd3ed58c47a7d743748a79e61217bf"
+    sha256 arm64_sequoia: "8d862a3312c763f29826c89654382a92d69c04b75ddd72196a4a6f59e805c428"
+    sha256 arm64_sonoma:  "b53da3f1d73f3694bc909347557908583519bfc2da0fbac75141c95f96830b34"
+    sha256 sonoma:        "7f331f4c51c5af092b9e9984bd0f130ef645cbf99007ae217bf212000a43dd16"
+    sha256 arm64_linux:   "0122c26d6889877913c13e68b36741386e6415963d6b17fcb821894de32c3fce"
+    sha256 x86_64_linux:  "1e3e3597a0a07f70b23a1ef8798455e95add501568cef95fb58cea137f7ede85"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -39,21 +39,6 @@ class Openssh < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
-  on_macos do
-    # Both these patches are applied by Apple.
-    # https://github.com/apple-oss-distributions/OpenSSH/blob/main/openssh/sandbox-darwin.c#L66
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/1860b0a745f1fe726900974845d1b0dd3c3398d6/openssh/patch-sandbox-darwin.c-apple-sandbox-named-external.diff"
-      sha256 "d886b98f99fd27e3157b02b5b57f3fb49f43fd33806195970d4567f12be66e71"
-    end
-
-    # https://github.com/apple-oss-distributions/OpenSSH/blob/main/openssh/sshd.c#L532
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/aa6c71920318f97370d74f2303d6aea387fb68e4/openssh/patch-sshd.c-apple-sandbox-named-external.diff"
-      sha256 "3f06fc03bcbbf3e6ba6360ef93edd2301f73efcd8069e516245aea7c4fb21279"
-    end
-  end
-
   on_linux do
     depends_on "linux-pam"
   end
@@ -66,10 +51,6 @@ class Openssh < Formula
   def install
     if OS.mac?
       ENV.append "CPPFLAGS", "-D__APPLE_SANDBOX_NAMED_EXTERNAL__"
-
-      # Ensure sandbox profile prefix is correct.
-      # We introduce this issue with patching, it's not an upstream bug.
-      inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh"
 
       # FIXME: `ssh-keygen` errors out when this is built with optimisation.
       # Reported upstream at https://bugzilla.mindrot.org/show_bug.cgi?id=3584

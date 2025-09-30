@@ -6,13 +6,8 @@ class Tmex < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1856efaa4a1c0681e228b50e4aaaf6c18d0b916ccfaef88d14c44a3740bb60bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1856efaa4a1c0681e228b50e4aaaf6c18d0b916ccfaef88d14c44a3740bb60bd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1856efaa4a1c0681e228b50e4aaaf6c18d0b916ccfaef88d14c44a3740bb60bd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fcd486330392d71fd11f6add42b98b213c29dea7bf6e0cb3ca0b323e078f6eea"
-    sha256 cellar: :any_skip_relocation, ventura:       "fcd486330392d71fd11f6add42b98b213c29dea7bf6e0cb3ca0b323e078f6eea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcd486330392d71fd11f6add42b98b213c29dea7bf6e0cb3ca0b323e078f6eea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcd486330392d71fd11f6add42b98b213c29dea7bf6e0cb3ca0b323e078f6eea"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7962a086b783ba9d0c735495c568e5a2299e8a33891772d70069dd68ea2d408f"
   end
 
   depends_on "tmux"
@@ -22,6 +17,12 @@ class Tmex < Formula
   def install
     bin.install "tmex"
     man1.install "man/tmex.1"
+
+    # Build an `:all` bottle
+    inreplace man1/"tmex.1" do |s|
+      s.gsub! "/opt/homebrew", HOMEBREW_PREFIX
+      s.gsub! prefix, opt_prefix, audit_result: false
+    end
   end
 
   test do

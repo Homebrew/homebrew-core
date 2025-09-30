@@ -7,6 +7,7 @@ class LastpassCli < Formula
   head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "af6269576d040b28fc4ebb3d324bd6593a7b0a2b8acd3fbe06a251f4438bcd43"
     sha256 cellar: :any,                 arm64_sequoia: "5ef0e66dd2a0206034d4750a932bdf7b3842ad64bf394791cbb7b4de5e0ebfdc"
     sha256 cellar: :any,                 arm64_sonoma:  "b381ad7ecd30a993342cf22f59f91de72a6f9a7006225f2ee76a3c9abb10bc80"
     sha256 cellar: :any,                 arm64_ventura: "c015a4006f07dd1dc19005a042712559699c49a687e251583e2307e1f00a21d2"
@@ -30,6 +31,13 @@ class LastpassCli < Formula
   # Avoid crashes on Mojave's version of libcurl (https://github.com/lastpass/lastpass-cli/issues/427)
   on_mojave :or_newer do
     depends_on "curl"
+  end
+
+  # Workaround for CMake 4 compatibility
+  # PR ref: https://github.com/lastpass/lastpass-cli/pull/716
+  patch do
+    url "https://github.com/lastpass/lastpass-cli/commit/31a4ad5f735933ff8e96403103d5b4f61faee945.patch?full_index=1"
+    sha256 "a4c2a16fd47942a511c0ebbce08bee5ffdb0d6141f6c9b60ce397db9e207d8be"
   end
 
   def install

@@ -1,19 +1,20 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/refs/tags/0.38.1.tar.gz"
-  sha256 "ccd01b0c737e27bb7c10758fe68fc79c89f0ecf7bfa9c3616938871f0a026ebb"
+  url "https://github.com/sol/hpack/archive/refs/tags/0.38.2.tar.gz"
+  sha256 "cc759633a27cdd5aaa741c37a45cc62b4c63d265cc5bb734d4bb86b2c7cfd5f3"
   license "MIT"
   head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "506faf7c344fc1997660ffda25024706c2b54b1e214dbea969aebad5cf0dc111"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7acb9d1da41078cc9c8cbbc99d6d207a70dc84be8969b36289ba959dfceff13b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d0773c8ef24951ae47c9f8857787ddcb1cfe167e3a26f0947cce5fffa25b88ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fd8894d5c462ad64921917b06d6fb5218498c3449be09efc863f7ef403efb27e"
-    sha256 cellar: :any_skip_relocation, ventura:       "e523a9d85f322584f051fe7714f9c83ab58ff17a56deb9ae73526a22f47e7a52"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ecf79f06c6d22e1e71b63d44c89fec1ba2abff56b1e14d51af04e7ae734a6f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8c54054592cd045802666c94874a5637edc6745fa94cda90fc3af1b1d97770c"
+    sha256 cellar: :any,                 arm64_tahoe:   "0537c5a947475a73d9e12b748a9303fb0e0472e596ce2b3e0971c6ab7e0decfa"
+    sha256 cellar: :any,                 arm64_sequoia: "3384cd197e944d0dd4bdf289d9435b4c82710720f9a1f3575bc58e87a9cf66ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "23cdb2e9ef07960f5a60141e1e71d7adcea01cc9ba625477dffe597ec2593031"
+    sha256 cellar: :any,                 arm64_ventura: "91b709472b6a94551d833fe6740f3ac65b45d05f6cf0dccc7439bb5ff4f7a6f7"
+    sha256 cellar: :any,                 sonoma:        "0f56d0cbf567be266c336d79d23a29648ea73431098f238a58ff16bc71b7ddf7"
+    sha256 cellar: :any,                 ventura:       "e292137413a5d053c19ccddc18da1ce517ca2e36ff6648f784fc9d14055b6c10"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c88e6b6ad29cb94737ca20be50349d3eb580b0d67760c52ae3ff81ecea533058"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acca8343acdd4ee4d27339a80c49378c5c886ce317b3ffb52786b1d7b18c1b35"
   end
 
   depends_on "cabal-install" => :build

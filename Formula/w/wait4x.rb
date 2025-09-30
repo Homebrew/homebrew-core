@@ -6,6 +6,7 @@ class Wait4x < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c661495b9181dd8d402cee57fbad522741236ea5bdd32ba1fd47090b9952c8a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c332c506fc01fe00d2250543d820d66af2299d6b66d6c12a9568695b2cc0d2a9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d3ba989af40f12d644e1f4f41cc95dd891e4a61580b55a128a28ee78a5c58a0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "abe1208358e27d9dca38d1843a9eb60a1e0e12f7a6eeb2e20c7d39e8dfb41deb"

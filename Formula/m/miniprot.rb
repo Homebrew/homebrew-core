@@ -6,6 +6,7 @@ class Miniprot < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe77911afdb839f4f700c98bfda9570e0ff9002bb8e43700d9545f32e05f9d81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "35ae697dab027ac299dc74dfc7ed0109df346cf602109c44b1f352a3aa893a8b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d2f623ee332800fbfd668d5963794b04fc3928f52d06619010fa55bf3202dc4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5bd7639bb06c91ed42b6497544a1efadf1c1d8d16bbe3b07d818e35bed4d355e"

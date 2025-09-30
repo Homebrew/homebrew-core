@@ -13,6 +13,7 @@ class Xpipe < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0e886c34608112f333f208e802b5e9fd4f40b336db9cb14629a7e0c6142891e4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d889986ca2f5379e8f1d22e5add2ce9a3295b5625a93e4416bc737625ded5ea4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98fdb15f477e02081958ff3a24be3d78c9d4387fce7ccba7107fbf5aa9debdac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3575ecac45489a48910ea50fcba01e11128b12f761f8a123edbda73967482c1"

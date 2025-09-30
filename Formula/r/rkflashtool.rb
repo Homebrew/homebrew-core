@@ -9,6 +9,7 @@ class Rkflashtool < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f28fa9f142735da8b1dd19222e6ac5c696072e792a8e71fe9aeab969148fb5fd"
     sha256 cellar: :any,                 arm64_sequoia:  "5b977024f0938d2c9cf116821d05dfa00585f65d06b2158daadd6fdd99db991d"
     sha256 cellar: :any,                 arm64_sonoma:   "5ce2c505c683a80dc90ee03c57e100121f0cbec5e2805e0e85c74f916f1a5fbf"
     sha256 cellar: :any,                 arm64_ventura:  "5743c6c5935567e3988de6d16bc6f8cd80591ab5e0982f8594d97d48e63d8475"
@@ -19,10 +20,6 @@ class Rkflashtool < Formula
     sha256 cellar: :any,                 monterey:       "7a80ef4c1271eb9bec9209bde3c1a0292e08bbeed130d290024e0877e3b9df9f"
     sha256 cellar: :any,                 big_sur:        "f3e27586cacbbe32859c4e29b681913204e1a52bd5a5761697edc37d1cc2d88c"
     sha256 cellar: :any,                 catalina:       "19915af37cac5f04cea6d0aa71a533ce6fd2a9aa549820286736b526e4be80cc"
-    sha256 cellar: :any,                 mojave:         "192628d1c348870f6ea1bc381aeb87023cc0bd19b2c198ea3c14b63e954db88e"
-    sha256 cellar: :any,                 high_sierra:    "72e99558b94cd4e26a5aeb62209c99e03f8e91059fbfbe83bdfbd755fc83f54f"
-    sha256 cellar: :any,                 sierra:         "cbeb2509bcd210026250c915a9909e8f056e9e2da1f599d7a611695c334f4966"
-    sha256 cellar: :any,                 el_capitan:     "7a8b5c66395b179ce38845c36369b1a65c6eacc73fd29227809597257669af6d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "740d373e5d0bb55ce6cda1a391bda5cc95f75f61537f91f5de2b24b7d09cc722"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c38a8b6e2f2f2b8dd7b437c07916c5624076f472392a2899fbb3c397c07bb4a3"
   end

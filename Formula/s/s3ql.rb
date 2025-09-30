@@ -3,8 +3,8 @@ class S3ql < Formula
 
   desc "POSIX-compliant FUSE filesystem using object store as block storage"
   homepage "https://github.com/s3ql/s3ql"
-  url "https://github.com/s3ql/s3ql/releases/download/s3ql-5.3.0/s3ql-5.3.0.tar.gz"
-  sha256 "f16e3aa218de86a7ec48002bbcb75c857f72f63d86e5e3c891b31a78c138d13c"
+  url "https://github.com/s3ql/s3ql/releases/download/s3ql-5.4.0/s3ql-5.4.0.tar.gz"
+  sha256 "65f2f8826642c63cc24d6b77eafcc50456e220b3ba9732d4c04266bd41853c20"
   license "GPL-3.0-only"
 
   livecheck do
@@ -13,8 +13,8 @@ class S3ql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "2d116d2bed3369e6530af6411882b54809681562ce62ad7832ccec6abfa5ff3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6e371a9c17d44c7564e8776152225425762e47f9b6deba93c495829d82531bde"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "fc74cb6b30bcd49addc69adf8ea433e05ef6e367f0977729e1d25a1dfbd1464a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "816d7470053c783689ee0bd125a9b6a8bafca6488dbce36fba028a4fafbff12b"
   end
 
   depends_on "pkgconf" => :build
@@ -26,8 +26,8 @@ class S3ql < Formula
   depends_on "python@3.13"
 
   resource "apsw" do
-    url "https://files.pythonhosted.org/packages/5b/c4/fcac432cb1aea5a1e7611e2ae927352232aec5c1546f10dece754279c4b9/apsw-3.49.2.0.tar.gz"
-    sha256 "04280710d01f918b96ec9067111b57ee70780388bbf83fd33fc15c43e82afd51"
+    url "https://files.pythonhosted.org/packages/02/ea/7469e89d75a07972255aac4c1b98675bfbc74df32a19dd5dc8ba87aa552b/apsw-3.50.4.0.tar.gz"
+    sha256 "a817c387ce2f4030ab7c3064cf21e9957911155f24f226c3ad4938df3a155e11"
   end
 
   resource "async-generator" do
@@ -56,8 +56,8 @@ class S3ql < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/cb/8e/8f45c9a32f73e786e954b8f9761c61422955d23c45d1e8c347f9b4b59e8e/google_auth-2.39.0.tar.gz"
-    sha256 "73222d43cdc35a3aeacbfdcaf73142a97839f10de930550d89ebfe1d0a00cde7"
+    url "https://files.pythonhosted.org/packages/9e/9b/e92ef23b84fa10a64ce4831390b7a4c2e53c0132568d99d4ae61d04c8855/google_auth-2.40.3.tar.gz"
+    sha256 "500c3a29adedeb36ea9cf24b8d10858e152f2412e3ca37829b3fa18e33d63b77"
   end
 
   resource "google-auth-oauthlib" do
@@ -81,8 +81,8 @@ class S3ql < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "setuptools" do
@@ -110,10 +110,6 @@ class S3ql < Formula
     sha256 "25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"
   end
 
-  # Fix incompatability with build isolation, since `setup.py` imports `s3ql`
-  # Remove after https://github.com/s3ql/s3ql/pull/379
-  patch :DATA
-
   def install
     # The inreplace changes the name of the (fsck|mkfs|mount|umount).s3ql
     # utilities to use underscore (_) as a separator, which is consistent
@@ -133,37 +129,3 @@ class S3ql < Formula
     system bin/"fsck_s3ql", "local://#{testpath}"
   end
 end
-
-__END__
-diff --git a/setup.py b/setup.py
-index 00f6e9b..2b0a101 100755
---- a/setup.py
-+++ b/setup.py
-@@ -34,7 +34,6 @@ if DEVELOPER_MODE:
- # Add S3QL sources
- sys.path.insert(0, os.path.join(basedir, 'src'))
- sys.path.insert(0, os.path.join(basedir, 'util'))
--import s3ql
-
-
- class pytest(TestCommand):
-@@ -47,9 +46,6 @@ class pytest(TestCommand):
-
-
- def main():
--    with open(os.path.join(basedir, 'README.rst'), 'r') as fh:
--        long_desc = fh.read()
--
-     compile_args = ['-Wall', '-Wextra', '-Wconversion', '-Wsign-compare']
-
-     # Enable all fatal warnings only when compiling from Mercurial tip.
-@@ -88,9 +84,7 @@ def main():
-     setuptools.setup(
-         name='s3ql',
-         zip_safe=False,
--        version=s3ql.VERSION,
-         description='a full-featured file system for online data storage',
--        long_description=long_desc,
-         author='Nikolaus Rath',
-         author_email='Nikolaus@rath.org',
-         license='GPLv3',

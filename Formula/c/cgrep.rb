@@ -8,6 +8,7 @@ class Cgrep < Formula
   head "https://github.com/awgn/cgrep.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "4f173c73566aaadca034f9c59d8099d6c388e40c78a2bb0479efed29cee1a622"
     sha256 cellar: :any,                 arm64_sequoia:  "14884acd8a23ddf400ccaa633088d6b49f9e19a3c672f17df7063b153a89dfa2"
     sha256 cellar: :any,                 arm64_sonoma:   "7d9998fa1119f6dbada06ff9e7a544ba62a0e55dd455f637beb5463c86ed8080"
     sha256 cellar: :any,                 arm64_ventura:  "620fc98eb3a8596902a0632b542940779bbed8225a9bf68e5dd9372d38f6cc8c"

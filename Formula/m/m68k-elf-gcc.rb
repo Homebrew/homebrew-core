@@ -11,6 +11,7 @@ class M68kElfGcc < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "c59ec5184608bc182b9bdb8bd644a08f50d827c348da0db94fb66e3a05241b42"
     sha256 arm64_sequoia: "a52e3a7eb57158c469bd304b8e9dfcec9b01105edcc8b38d86c61d073348c75a"
     sha256 arm64_sonoma:  "d654cf1135a3d8c95ab1b77d6159f91533c03feab8941182543249fabc270c93"
     sha256 arm64_ventura: "e16c7e5208a4e217cd848e4220808a3bcd18cabc513e91dc87aed4c68dea272a"

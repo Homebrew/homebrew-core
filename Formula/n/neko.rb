@@ -10,6 +10,7 @@ class Neko < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "1a44e81e1776c7f06a63ee3cac0697c93ad4b1f5f1dfbe58789013c702d14f8a"
     sha256 arm64_sequoia: "6089dd1e4fe69503a105375a9533dbe582794eee99d6cae8ac2743b849439d57"
     sha256 arm64_sonoma:  "dd942c346ec9687a7e998c82280ea88c01c56ec7aa9629f3fefedd7e927bd40a"
     sha256 arm64_ventura: "073b6bcbcaf97dec3f1ebdd4c628ce6afc2f222ae2813387f8148e4aa1400451"

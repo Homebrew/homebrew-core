@@ -1,8 +1,8 @@
 class Deark < Formula
   desc "File conversion utility for older formats"
   homepage "https://entropymine.com/deark/"
-  url "https://entropymine.com/deark/releases/deark-1.7.0.tar.gz"
-  sha256 "7c3752c2c783cd6c4e22e527f1d72dbee9166883a156d25fbf98f73a8c44c8be"
+  url "https://entropymine.com/deark/releases/deark-1.7.1.tar.gz"
+  sha256 "f7e7d286e0e3b8003e1e758b59f8aee1fa2dd24e1c9aceb03d4e603cb8efcad4"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,14 @@ class Deark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f187e7332d8e5a0aa5e37bcd92428e3a67540169a447787e07105d91bded171"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e0614b471960c3050b12098c9815a29da5238b8406bc72ddad21274f7bccd55"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "868b2f7a23d545977e5b68c3b7acb4e33ac1c9fe9a391d470c592799b5a5c6eb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9a568c638ba0e2e84a40a82b9cdcd0fee3442b3da5e05f5b20677a785e515e55"
-    sha256 cellar: :any_skip_relocation, ventura:       "b2914225b7ad22c0ccb2022c3a49431d8eee99c73882effe2200bbbfbbe2a3ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e993400488b4e8f3c36e0c84dcfc8affcf27edf212790004d66e3bf36ee7df9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b00c25bc3f03a626a34e87c61993656345229bac72768bbe7503d5ec8ab7b5a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca11890ec7e64ca56ca323a81f7aa13b16f2b17920055c57ae0c5cba61c5f909"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c414593cf0e104f8d6e2533a60bb8b84cdea746979c0a78ee77579f16160bb02"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "853f3505aa76f132c3decc2beeb078dbbc820ac029c9d0b380bc92fccc6caefa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "76255d15e1004ad0f221385140922b681d0b86a60fc6cd8fe38d885e1e6b7ac0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f59ec8540e631ef2638cea25659f5d0d440ad080ddc776883bd8bc87bbf65eb8"
+    sha256 cellar: :any_skip_relocation, ventura:       "2e7c24cf96486214b2a7674e5b3d4f4454b74a1c4e6858620128dc9b73b187c0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "db7f69c2b1b09fd39dba3c04c1f9fa598d5d5d7e5c0ff7867bafba85b937d636"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "866c1952cc923ea0347d00d07766bde3cc678f46cb39df4ab34fcb3b635ec3af"
   end
 
   def install

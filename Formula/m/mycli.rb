@@ -3,18 +3,19 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "https://www.mycli.net/"
-  url "https://files.pythonhosted.org/packages/0e/6f/abacabac5ce352bb8d3840e233716e58f56f1f3907de1af629d32d5a1854/mycli-1.38.3.tar.gz"
-  sha256 "9030e6ac5848d1686e2d460b56e3bbb43779dbf9696bf843f56de483b05bee53"
+  url "https://files.pythonhosted.org/packages/0d/e8/0cfec95a4da770a03fe0f665ad7ffc107e051086f79fb314c2f7f62fad2a/mycli-1.38.4.tar.gz"
+  sha256 "278eee4e3a8aeecc014a85004e2b47364ba9377501091a80b49e0641703c0595"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4098e33db1e669a993cb83017702e174e5147ce0b458023d52b49279a8c6313d"
-    sha256 cellar: :any,                 arm64_sonoma:  "98f471f354afe27c0e90a81228bf235c2afdd2436f8a46fcc164707e17d2903d"
-    sha256 cellar: :any,                 arm64_ventura: "a6198bfba80f6578eae99954ad4b7a1b98fbe81c91bbc8aee23b7736c79d9a5f"
-    sha256 cellar: :any,                 sonoma:        "ab144d88d370ec7c0112977cd26cb7fd9556d25bd80f920d4bb5f3a07cdbbb9d"
-    sha256 cellar: :any,                 ventura:       "ff3f11cf9d7bfc7bd3fe7ffde19b3c0f64c642bfe0a2ec04266b07807236de8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bfee3dde93c2c620fbac3f2addc545bf78bef2b99c01f7bf7725ee51623e7e76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce29690ba2b4410027ccd44fe2a8f2a2ec8a6d8aafaf99d60d4c931e3dda772d"
+    sha256 cellar: :any,                 arm64_tahoe:   "394683b0dd9569d579dd5a8c57a511ea7e6465e14d0728d8171663c2b986cb12"
+    sha256 cellar: :any,                 arm64_sequoia: "47493fdc81dd19a912d1842e240d35ca976addb521d0b3068449aee78d23ec4a"
+    sha256 cellar: :any,                 arm64_sonoma:  "3f5aed2af8c28c7bfce2b6b906ec811e208417be74771866c1e49153aa052aaf"
+    sha256 cellar: :any,                 arm64_ventura: "a0e52f1d1e7f0d8f6ff10493e485efcf26dc5f30dc098a952cb755f742106ad2"
+    sha256 cellar: :any,                 sonoma:        "0150e18685dd6c8fcb4870ca32f96da388841ea34aa843fa35992d2df176f501"
+    sha256 cellar: :any,                 ventura:       "6a0f6fea1aec872db008aa1baf7102f8303c4ac368dcd961ab1522fc5a3ed276"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "320475f3cd4fb9a899873ad4d0bfae691b714ed5d4fc80bcfcd86a020d1aaec0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa6c53d9064647f8ff0d0fd889d7d8053ff821b7edb4821a79e2faa92652f614"
   end
 
   depends_on "rust" => :build # for sqlglotrs
@@ -96,8 +97,8 @@ class Mycli < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/00/7c/eaf06b62281f5ca4f774c4cff066e6ddfd6a027e0ac791be16acec3a95e3/openai-1.101.0.tar.gz"
-    sha256 "29f56df2236069686e64aca0e13c24a4ec310545afb25ef7da2ab1a18523f22d"
+    url "https://files.pythonhosted.org/packages/79/b6/1aff7d6b8e9f0c3ac26bfbb57b9861a6711d5d60bd7dd5f7eebbf80509b7/openai-1.106.1.tar.gz"
+    sha256 "5f575967e3a05555825c43829cdcd50be6e49ab6a3e5262f0937a3f791f917f1"
   end
 
   resource "pluggy" do
@@ -106,8 +107,8 @@ class Mycli < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
-    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
+    url "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz"
+    sha256 "28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"
   end
 
   resource "puremagic" do
@@ -141,8 +142,8 @@ class Mycli < Formula
   end
 
   resource "pymysql" do
-    url "https://files.pythonhosted.org/packages/b3/8f/ce59b5e5ed4ce8512f879ff1fa5ab699d211ae2495f1adaa5fbba2a1eada/pymysql-1.1.1.tar.gz"
-    sha256 "e127611aaf2b417403c60bf4dc570124aeb4a57f5f37b8e95ae399a42f904cd0"
+    url "https://files.pythonhosted.org/packages/f5/ae/1fe3fcd9f959efa0ebe200b8de88b5a5ce3e767e38c7ac32fb179f16a388/pymysql-1.1.2.tar.gz"
+    sha256 "4961d3e165614ae65014e361811a724e2044ad3ea3739de9903ae7c21f539f03"
   end
 
   resource "pyperclip" do
@@ -221,8 +222,8 @@ class Mycli < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
-    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "typing-inspection" do

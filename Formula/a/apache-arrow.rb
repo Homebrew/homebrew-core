@@ -1,21 +1,29 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
-  sha256 "5d3f8db7e72fb9f65f4785b7a1634522e8d8e9657a445af53d4a34a3849857b5"
   license "Apache-2.0"
-  revision 4
+  revision 7
   head "https://github.com/apache/arrow.git", branch: "main"
 
+  stable do
+    url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
+    mirror "https://archive.apache.org/dist/arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
+    sha256 "5d3f8db7e72fb9f65f4785b7a1634522e8d8e9657a445af53d4a34a3849857b5"
+
+    # Backport support for LLVM 21
+    patch do
+      url "https://github.com/apache/arrow/commit/57b4b4b77df5ae77910a91b171fa924d4ce78247.patch?full_index=1"
+      sha256 "8331efaf6ed21cba8d90ee802e685a8f113af11aa92da59457c36c06aa21dab6"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "8fcf225cfa21b562b3623615e9292c7ef6d67b7420f151b6db0dbb8cbec131ed"
-    sha256 cellar: :any, arm64_sonoma:  "ae59bb3e0a40085b9a15db53688919f81723c8654e14f9ae07e2d4bc2d7e86f2"
-    sha256 cellar: :any, arm64_ventura: "93027ec20a5ffb4cee31d6eac8a05e2ed0897ca5258b65dfd888bc74ac99422a"
-    sha256 cellar: :any, sonoma:        "4e9159374a015558ca4adef334853ad51b0b7cba892be8e8edf6ecf80dfa6839"
-    sha256 cellar: :any, ventura:       "4c73cc199a65d6d18a645fbec15e02612ca5579aadfd539dfdf5d75e5dc3af3e"
-    sha256               arm64_linux:   "9c2537470450f3949203d5175494dc13afcc9af2c45715ab2cad62d096966bfe"
-    sha256               x86_64_linux:  "53c384b9f2c18c19ce0fb1d41000be705381446f441af1598693a4a881b1065f"
+    sha256 cellar: :any, arm64_tahoe:   "f3f49be13431539ab80f3ad138bc3ef0aa9c7e199613ac76cd04c38d26cf3eb4"
+    sha256 cellar: :any, arm64_sequoia: "5f2bc6b35bc4d1f0348671ccabd7b997e7b42b47cd5924c99c9cc586ad7318b6"
+    sha256 cellar: :any, arm64_sonoma:  "ad65bb753b7eb7f9159200bdd85e21f1071b538403daaa4fb03b058637fa5fd1"
+    sha256 cellar: :any, sonoma:        "868560857fb1beb932b5422c3acac627f7b224acffcb7aa7e49d4d054b53b446"
+    sha256               arm64_linux:   "9c79d62b3fba0264922c0a9f9fc315373906e922dd348e9fe8ac001a5d2b8ac0"
+    sha256               x86_64_linux:  "344c9cebf5a5c519edb98f386d02ffe3ae7626b836318719876e9f2e201e571e"
   end
 
   depends_on "boost" => :build
@@ -42,15 +50,7 @@ class ApacheArrow < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  # Issue ref: https://github.com/protocolbuffers/protobuf/issues/19447
-  fails_with :gcc do
-    version "12"
-    cause "Protobuf 29+ generated code with visibility and deprecated attributes needs GCC 13+"
-  end
-
   def install
-    ENV.llvm_clang if OS.linux?
-
     # We set `ARROW_ORC=OFF` because it fails to build with Protobuf 27.0
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -81,8 +81,11 @@ class ApacheArrow < Formula
       -DPARQUET_BUILD_EXECUTABLES=ON
     ]
     args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?
-    # Reduce overlinking. Can remove on Linux if GCC 11 issue is fixed
-    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,#{OS.mac? ? "-dead_strip_dylibs" : "--as-needed"}"
+    args << if OS.mac?
+      "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" # Reduce overlinking
+    else
+      "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON" # Avoid versioned LLVM RPATH getting dropped
+    end
     # ARROW_SIMD_LEVEL sets the minimum required SIMD. Since this defaults to
     # SSE4.2 on x86_64, we need to reduce level to match oldest supported CPU.
     # Ref: https://arrow.apache.org/docs/cpp/env_vars.html#envvar-ARROW_USER_SIMD_LEVEL
@@ -96,8 +99,6 @@ class ApacheArrow < Formula
   end
 
   test do
-    ENV.method(DevelopmentTools.default_compiler).call if OS.linux?
-
     (testpath/"test.cpp").write <<~CPP
       #include "arrow/api.h"
       int main(void) {

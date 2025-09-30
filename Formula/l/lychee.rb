@@ -1,19 +1,20 @@
 class Lychee < Formula
   desc "Fast, async, resource-friendly link checker"
   homepage "https://lychee.cli.rs/"
-  url "https://github.com/lycheeverse/lychee/archive/refs/tags/lychee-v0.19.1.tar.gz"
-  sha256 "20870738b8a1ccd4658327351682382a177234014ea5e24e9f932f905b2f7d35"
+  url "https://github.com/lycheeverse/lychee/archive/refs/tags/lychee-v0.20.1.tar.gz"
+  sha256 "d030de91cf5cd96924987461911aa04e78404f6372e0734e20a5c31e2df4608a"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/lycheeverse/lychee.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "970aec35716171913158942a0590fb6f75b6d120702b302571394f74faa0a65f"
-    sha256 cellar: :any,                 arm64_sonoma:  "762de5cedde9fdc4588acd55208f91860744edc16a8e9172e6d786f54490d847"
-    sha256 cellar: :any,                 arm64_ventura: "628057514e1f65c396eddc837b770e4fc8f427f8d0ef68ee6dabd34aeae5ac8f"
-    sha256 cellar: :any,                 sonoma:        "8dacdc755b5ad974ed1880356afd6f9501c7cf9c306af6c5db1128fb838426ce"
-    sha256 cellar: :any,                 ventura:       "b7c4bc0662db2483f84e840a5f8ec7f9d28529ff51788dbe5486b22ee1d6d0a8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f4223d1e8d22087a3cbd29c41e02d5d03de1887384606734ffe6cd676d95925"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3759ef3e9b38c1785ef999e25ab22bb84ccefd5b65b27ea3ba37f851bb63e893"
+    sha256 cellar: :any,                 arm64_tahoe:   "a5b38aee20ee3026959263c0ec8dd9c78bb145847747713550e27ccd7c71f056"
+    sha256 cellar: :any,                 arm64_sequoia: "4c8e34b147a4243926c72c09695ac27fa414343410ba1d195a8ac8cfab05ee61"
+    sha256 cellar: :any,                 arm64_sonoma:  "e7e83ad53d0bbf9399c2e3aa4827e2df956a4b9d7ce87e419f89bc4d5046167b"
+    sha256 cellar: :any,                 arm64_ventura: "9b862d37f0e2b1e01094a42b72c3b1950b65f0ab0604cf197cf6aab6cbc2c07b"
+    sha256 cellar: :any,                 sonoma:        "2a448f94771692d7c4a6af033abb6df67e0871fbcd7e2f5fc8ab94812725613d"
+    sha256 cellar: :any,                 ventura:       "0e5a6627d1d6a1c88bdf04b6df9cd3b55e6e81cc92d66a97ac40487fd5e8d21d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3d1d6b0d846adc52dad821d92eccf73d07e860fc6190659fcfd0284fbad1357"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9be138d935eee841b506b6be25394f638f45edc829042a8780ab557ebdd12b9"
   end
 
   depends_on "pkgconf" => :build

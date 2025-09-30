@@ -14,6 +14,7 @@ class Udis86 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "653755cf024703545d6a9a1729fc2a0c60995efe363e43b8d1212d4e16569e6b"
     sha256 cellar: :any,                 arm64_sequoia:  "552bcddb3008d7acd654983862ce26f6bf71969bc2e94cc2cd2d1b9e89998815"
     sha256 cellar: :any,                 arm64_sonoma:   "0a1f4f4ba4fd2a3187075c2390eab0ac8ea0e3aa49d74e6ca74752269cd383b6"
     sha256 cellar: :any,                 arm64_ventura:  "4b94655d1de023c07b206dc196d082d727fb4d912b712e4c43ace873236ec5ed"

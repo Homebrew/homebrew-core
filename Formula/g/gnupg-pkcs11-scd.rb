@@ -12,6 +12,7 @@ class GnupgPkcs11Scd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "65d2c6a55292c288781f2242d23e5dd32cbe812de84a34d67d4d9d1843962449"
     sha256 cellar: :any,                 arm64_sequoia: "61fe705d3372be045ef36d9963f239f995fa8eaadfd3a958453bc40779a484ae"
     sha256 cellar: :any,                 arm64_sonoma:  "1a11d7e2b1382db7387cf3fc3d42434b312badc118bde4ec5656e6c64e8b2a91"
     sha256 cellar: :any,                 arm64_ventura: "1651f0fa0cdd511617f7d254d85e5b560150b80b2077607c40178f2b74084dc5"

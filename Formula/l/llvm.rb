@@ -6,8 +6,8 @@ class Llvm < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.8/llvm-project-20.1.8.src.tar.xz"
-    sha256 "6898f963c8e938981e6c4a302e83ec5beb4630147c7311183cf61069af16333d"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.2/llvm-project-21.1.2.src.tar.xz"
+    sha256 "1a417d1c8faf8d93e73fec1cbb76d393ed3218974c2283c7bac9672d3d47c54b"
 
     # Fix triple config loading for clang-cl
     # https://github.com/llvm/llvm-project/pull/111397
@@ -23,14 +23,12 @@ class Llvm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "a7947e4272a91b022e167307976e9599de41e8cf637896294bdc051c5856668c"
-    sha256 cellar: :any,                 arm64_sonoma:  "805a28804f44bb699837b0ee6b8df015342ee1aca3bf56d8fafeca5e1826c447"
-    sha256 cellar: :any,                 arm64_ventura: "cbd98cc81a1b461d412464fa0d3178511e7e5dfd18648f24bbd9dfffca5d8915"
-    sha256 cellar: :any,                 sonoma:        "3e9ce8038db104df6f5edd6ad57da00e80e1e507c08ff0a1c543179577eb07c8"
-    sha256 cellar: :any,                 ventura:       "c9dbddb5ede4edd7731c9f64dba627eb948a2fc1e544ce555a4348f0f36398b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "44641ca10ffb47ca14f85665b95c871c5d5feebc83c0d2dc8e56dc7ec97da50c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32c906b0a38077ce39ad7e42533dd754582f09ad8c36b148c7b3d137112d4292"
+    sha256 cellar: :any,                 arm64_tahoe:   "f83226e978840c77fdc8c314ad9015c9ac4e5d86b3a02a0f1fb6b628415b1dc6"
+    sha256 cellar: :any,                 arm64_sequoia: "6d60ff5a488943c7f358ad09cf0df57bde124cd4be61d79768f61813972385e5"
+    sha256 cellar: :any,                 arm64_sonoma:  "0aaf56b7f3272987d17ab25fcc0bc89aa0632759e78c4f6aae4544f0d787afbc"
+    sha256 cellar: :any,                 sonoma:        "9c88c2c00ed4ee2d31611cd2fa93dd879002cc6a155d8c07695063b8912cc767"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d24d63d4eacaef9a54446b4fae5390e682c4d4956c551d78db220eab8b60a373"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "025ebf7bc0218c5cb2cf03822bf67a3b84ca113b162401316def0a72956d3bfa"
   end
 
   keg_only :provided_by_macos
@@ -45,7 +43,7 @@ class Llvm < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -64,6 +62,14 @@ class Llvm < Formula
   end
 
   def install
+    # Work around OOM error on arm64 linux runner by reducing number of jobs
+    github_arm64_linux = OS.linux? && Hardware::CPU.arm? &&
+                         ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
+                         ENV["GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"].blank?
+    if github_arm64_linux && (jobs = ENV.make_jobs - 1).positive?
+      ENV["CMAKE_BUILD_PARALLEL_LEVEL"] = ENV["HOMEBREW_MAKE_JOBS"] = jobs.to_s
+    end
+
     # The clang bindings need a little help finding our libclang.
     inreplace "clang/bindings/python/clang/cindex.py",
               /^(\s*library_path\s*=\s*)None$/,
@@ -80,7 +86,6 @@ class Llvm < Formula
       libcxx
       libcxxabi
       libunwind
-      pstl
     ]
 
     unless versioned_formula?
@@ -160,10 +165,8 @@ class Llvm < Formula
 
     if OS.mac?
       macos_sdk = MacOS.sdk_path_if_needed
-      if MacOS.version >= :catalina
-        args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
-        args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
-      end
+      args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
       libcxx_install_libdir = lib/"c++"
       libunwind_install_libdir = lib/"unwind"

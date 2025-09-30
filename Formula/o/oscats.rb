@@ -9,6 +9,7 @@ class Oscats < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "35dc1e697fe94c6ceab3be777ef3aa53ec83df8451739125105a4fa5e24e5fd7"
     sha256 cellar: :any,                 arm64_sequoia:  "14bdf254ea5eb224c087cc3bdc7ba53b46d52b77e2c440f738871e747ad7e33a"
     sha256 cellar: :any,                 arm64_sonoma:   "ee65d5fb7e853cf11866ad5d82e42443a2c899089538f7563a3d63268af2855e"
     sha256 cellar: :any,                 arm64_ventura:  "dae032204b3f3d0d874482bec11e6ba4cc34cdf088929e5e432e75960800ddd2"

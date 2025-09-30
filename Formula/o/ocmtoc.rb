@@ -8,6 +8,7 @@ class Ocmtoc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "854ce0c7ca53731e0c311e9bf8ea8edfa5c45634d2da3f318bf31cb275b2ed9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "76c855fd1977f72607d1a5e666eb281e43d39ed12d80195f2ac223ce23a0f72f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "12fda27f6b2cd588a3d5bbea9cc63834f08cf32e6b62f78b8bcee54d3435519d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "78b7bf8993b3b48e9844cd01811ae6365c9ffd3880d304977ae0833f4c0eaac3"

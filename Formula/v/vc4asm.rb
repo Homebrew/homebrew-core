@@ -8,6 +8,7 @@ class Vc4asm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "212c820e20fe7369665a9193ac74df93754800cd6b538a8a1b76957310a844ac"
     sha256 cellar: :any,                 arm64_sequoia:  "c66f2ce86c71a5c824c8e0f19edd39b714ae56d6f3ebdfc287fa7549e66a8f2d"
     sha256 cellar: :any,                 arm64_sonoma:   "8292e0e5586e00d1e0c74c5b411ac925547a0b46dbdbd3ca54b7ffc95eed2248"
     sha256 cellar: :any,                 arm64_ventura:  "49337c5ba68c5868f9804568af0ab0fc29223eee04b6f50154fa30ef49fb23f1"
@@ -18,7 +19,6 @@ class Vc4asm < Formula
     sha256 cellar: :any,                 monterey:       "1a80a7ddd01b91da357ecae8507af244f0dde770275e36ee523b0da7c0f489f4"
     sha256 cellar: :any,                 big_sur:        "1eefbd03ec375b8021eb783af2fdf5e343c5548201eddbb29e6cf9b6db47e80c"
     sha256 cellar: :any,                 catalina:       "cd4f683e1e968cb0577b7e6d9b054c503719b10f9bd37442feb8481a19d75fd7"
-    sha256 cellar: :any,                 mojave:         "5d806a353310bda8308cc207ff165541253d7a7ea39189ce156d066e5d7b4514"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "f6fa60166e7cf2540a0a7f87c2b179b3b0bb2df5e9c9a764cf883c5b03baab18"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c0fe82118a412102288a10b2470baa741000c5448d6a1fa719fd8974daf73eb"
   end

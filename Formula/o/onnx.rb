@@ -4,18 +4,17 @@ class Onnx < Formula
   url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
   sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
   license "Apache-2.0"
-  revision 6
+  revision 8
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "436d867ae25f257c1ed0ce54641618daf136d92e439b4fcdfe6ee64168ecf34f"
-    sha256 cellar: :any, arm64_sonoma:  "b294a0bc88fb1ba89d04de9ac120452c9b939f1fbd89b863cbdacee410ffdb20"
-    sha256 cellar: :any, arm64_ventura: "607ccbfe84d7ecc07aa867243019c2bd468c2ead39ea24dd96f5c7a1a7653d59"
-    sha256 cellar: :any, sonoma:        "30f963069bb41e39d3f335c7a3edaa05d202a50be812b78c5de28e43aac4c714"
-    sha256 cellar: :any, ventura:       "be754c4757bb14057340f1abcc693e73ced5f0ba145aabe0a2b5d6ac06d6c181"
-    sha256               arm64_linux:   "069f8f8bb5a29ef5b12c3cb7fbd653a384f4893ef788f1434f15b473aeb30a66"
-    sha256               x86_64_linux:  "c203b281232edc17faaf3b01e907ae2ff8365a8c64ab97b33fd717e08837f69a"
+    sha256 cellar: :any, arm64_tahoe:   "81b64f196d68c01bb740a53aae9f7c9e088b240a741389f5a5d676cb01cbc7ae"
+    sha256 cellar: :any, arm64_sequoia: "ff2c5310746525e6bc79ba0b7cbe8ce08ad826cccb3c7f937970ff342295fdc7"
+    sha256 cellar: :any, arm64_sonoma:  "56f97c1ccabbd67c20a3c6d1c4c1733bc228a018e90e6db51c69f7ea051e642d"
+    sha256 cellar: :any, sonoma:        "2dad70397d478bb86df821d42c2ce0fe195b789c3dc156868e6f208c4188438a"
+    sha256               arm64_linux:   "d81d331edfa586d1904fd3fd47f99f254967bd89de1a63bef07745b32a83066c"
+    sha256               x86_64_linux:  "962b238222306fb53e1581df8d1474e1b6bcfd0dcce0cc895cdf21862bf1aeb3"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -23,6 +22,16 @@ class Onnx < Formula
   depends_on "protobuf"
 
   uses_from_macos "python" => :build
+
+  # Apply Fedora's workaround to allow `onnxruntime` to use `onnx` built without
+  # ONNX_DISABLE_STATIC_REGISTRATION[^1]. We can't use this option as it will
+  # break functionality for any dependents/users expecting the default behavior.
+  #
+  # [^1]: https://github.com/microsoft/onnxruntime/issues/8556#issuecomment-1006091632
+  patch do
+    url "https://src.fedoraproject.org/rpms/onnx/raw/4de8a450afd87b1ba1931f50d841e9c50b63d8a0/f/0004-Add-fixes-for-use-with-onnxruntime.patch"
+    sha256 "d9ddb735c065fd5dae11ab79371e62bdcca157a6d2a7705cc83ee612abeaaa98"
+  end
 
   def install
     args = %W[

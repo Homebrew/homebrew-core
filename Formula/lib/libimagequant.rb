@@ -6,6 +6,7 @@ class Libimagequant < Formula
   license all_of: ["GPL-3.0-or-later", "HPND"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "19d3e535b969e4c46fc99c1cb852d485e6b422f740cf09d8170ca377cd19e891"
     sha256 cellar: :any,                 arm64_sequoia: "8784275e2aceca5533694ca52faa75e2694a03f001f965f1035f79a01152dda9"
     sha256 cellar: :any,                 arm64_sonoma:  "867e588a9f65b89a23e681c78b9eeea2790c0295f77869f98893b7cc8a51b8e4"
     sha256 cellar: :any,                 arm64_ventura: "f705e5e5888cb00724316dc2913e6ee50b57e271696b7935d298042ee9d9e98a"

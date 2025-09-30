@@ -13,6 +13,7 @@ class NotmuchMutt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8b0184fde96b4d04f190604ec6140f6d72eed4457e6a26c1a1e6308521674295"
     sha256 cellar: :any,                 arm64_sequoia: "7172f1fdbe9794f01c80d042b9052d45fd7d7892cd1f9f4982b6a02b5bfa3680"
     sha256 cellar: :any,                 arm64_sonoma:  "5ee7a940df309ec27388421162a63c718cfff6f3b16354cf19c61cae3ba61a54"
     sha256 cellar: :any,                 arm64_ventura: "e45332fb4bdd1c4fd017c43fe8ec0781cbfd0f941a3ceda8c68e6ec5b7d1324d"

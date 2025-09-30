@@ -9,6 +9,7 @@ class Datalad < Formula
   head "https://github.com/datalad/datalad.git", branch: "maint"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93214e354e37d83ae7f02b4c2ccb3ad3fc65599d08158389c369eaf27ea3dcd5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "16f577b5d04a14688ded5be2f4a6005a8d02760f68b8eb75b8a40726ecd9c33b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a07249773a5f8a8bc7498ce56b3720567c84bf395e5f97f25d9240c80ce35855"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1194a2edf9d515198a7ae47780457c4cb2d3eeace3a943e17399709a05c20af8"

@@ -9,6 +9,7 @@ class Tssh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "33302c3e3fb3837451b9a03118795e19c863a4c65bb8e2dc440f31dab9833efe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d7c551460003a24a70c44899bbd8ed68eac573b75a926cf3a42b586b6517560"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d7c551460003a24a70c44899bbd8ed68eac573b75a926cf3a42b586b6517560"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1d7c551460003a24a70c44899bbd8ed68eac573b75a926cf3a42b586b6517560"

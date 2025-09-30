@@ -10,6 +10,7 @@ class Wdc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6b30e7b5d8ab33c0831c6a217a4f1ec5b28745ba8f068a8fb81e714b6ca75287"
     sha256 cellar: :any,                 arm64_sequoia: "88067ae5f0b55bc266ee7ad8b64e5d6fb4f445965cbfc6b2e212be792f9af9f9"
     sha256 cellar: :any,                 arm64_sonoma:  "e64bd5d5a196023df1f0e99be1501a36a12261cfeafa8674af3605b5f6e0337d"
     sha256 cellar: :any,                 arm64_ventura: "144bf99589283a042b25507aecc6b2865341a806fb9f35436b9ba4aa272476f7"

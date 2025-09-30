@@ -7,13 +7,8 @@ class OpenclHeaders < Formula
   head "https://github.com/KhronosGroup/OpenCL-Headers.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a77df45da340369c12473f2d7bb2b78ab954ec432c61eabe648434b49785d801"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a77df45da340369c12473f2d7bb2b78ab954ec432c61eabe648434b49785d801"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a77df45da340369c12473f2d7bb2b78ab954ec432c61eabe648434b49785d801"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a77df45da340369c12473f2d7bb2b78ab954ec432c61eabe648434b49785d801"
-    sha256 cellar: :any_skip_relocation, ventura:       "a77df45da340369c12473f2d7bb2b78ab954ec432c61eabe648434b49785d801"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8b7bef48a5d24c0528a92f1e05ae63ad225852c1d16ebc5c2ef3da1f344668d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8b7bef48a5d24c0528a92f1e05ae63ad225852c1d16ebc5c2ef3da1f344668d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5ad1a11035085dfb898950f5cf253247c71bc4baa748befda760fc66d093a79f"
   end
 
   keg_only :shadowed_by_macos, "macOS provides OpenCL.framework"
@@ -24,6 +19,9 @@ class OpenclHeaders < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Build an `:all` bottle by adding symlinks same as macOS
+    include.install_symlink "CL" => "OpenCL" if OS.linux?
   end
 
   test do

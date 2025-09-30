@@ -13,6 +13,7 @@ class Mbedtls < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2004e7da883fb0e369e680797085545e0e357bdaaf80f4b51d926c96a325b97d"
     sha256 cellar: :any,                 arm64_sequoia: "1d8f7928cbeb8380b3d39591956c884a2353f411f2537654db8e37c6d4cd771d"
     sha256 cellar: :any,                 arm64_sonoma:  "b52142a9212d2ba22c583d0d490f8f60c668265061aecec8083339cffcc605eb"
     sha256 cellar: :any,                 arm64_ventura: "6e20b77f9c4d0db9e5b7c8bf8c0e5cc4ccb82e36686d879cf1f2731101adf17a"

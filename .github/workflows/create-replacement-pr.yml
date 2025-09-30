@@ -76,7 +76,6 @@ jobs:
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Get reviewers
         id: reviewers
@@ -90,7 +89,8 @@ jobs:
               "repos/$GITHUB_REPOSITORY/pulls/$PR/reviews"
           )"
 
-          reviewers="$(jq --compact-output '[.[].user.login]' <<< "$review_data")"
+          reviewer_filter='map(select(.author_association == "MEMBER")) | map(.user.login) | unique'
+          reviewers="$(jq --compact-output "$reviewer_filter" <<< "$review_data")"
           approved="$(jq --raw-output 'any(.[].state; .== "APPROVED")' <<< "$review_data")"
 
           # See https://github.com/octokit/octokit.net/issues/1763 for possible `mergeable_state` values.
@@ -181,7 +181,7 @@ jobs:
             "$PR"
 
       - name: Generate build provenance
-        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.4.0
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
         with:
           subject-path: '${{ steps.pr-pull.outputs.bottle_path }}/*.tar.gz'
         if: inputs.upload

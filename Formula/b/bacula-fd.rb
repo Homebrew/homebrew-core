@@ -11,13 +11,15 @@ class BaculaFd < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "5865d13599bead592dd24ba7ad6b630f1aeb33adadf8a204f63b2778d9f89bee"
-    sha256                               arm64_sonoma:  "bbe8baa1d28de02cf1da748963a63c79f7a6a8730af1d43c314809e7f835e649"
-    sha256                               arm64_ventura: "952b7913ffd831cc691731c74aa73976197958187d71cf544755bd8536640ffa"
-    sha256                               sonoma:        "9e3fe3200227872cc89e6f9606edc904fbc8e416b87349bb40a6b1faa774c56f"
-    sha256                               ventura:       "e16028347bfe77bcd7ac5f511440225b545d256bcd8e53b510a90c1ea5306a24"
-    sha256                               arm64_linux:   "7b13e3aead69c44d4ee74e7781414a2aaa4b273710837d5a623c4076f25cbb5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9427205610275599c958920ccf09b076528aa2ad5e73118260cdae55e15b964"
+    rebuild 1
+    sha256                               arm64_tahoe:   "06814f801d435234eda5bc445d9faa6634fb646fea8fc9b9c801daad7daf564c"
+    sha256                               arm64_sequoia: "63a1ce591508863f9c78b987c14dd6bf168d49349b8479310685cbb442cd122d"
+    sha256                               arm64_sonoma:  "b41791686a3499085b3522f3c4a0fa7ac85cd7a404e9c9cafda74ce0dfba6c43"
+    sha256                               arm64_ventura: "41e90a2019cdb02163dd8ff8044117f16960eda69ccd8fa8811c9ab3e6a9bfd7"
+    sha256                               sonoma:        "ab5d9db5f59ce74e1c8a1a33413e4aa8e26a7ff5237e2bc86038b1f41fb08ada"
+    sha256                               ventura:       "42c3f2e6d299ef9e9bf8f28d8b1111e446bfbed29f538a50237d340f509acf29"
+    sha256                               arm64_linux:   "c85f6c053e80dae666859a88d5250366c368a235af84a7414b7d3e08981043d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebf5f15762df9a4ef212ff679a0973851ae21ab9faa251e2944e4e687b4b73e1"
   end
 
   depends_on "openssl@3"
@@ -58,9 +60,6 @@ class BaculaFd < Formula
     inreplace prefix/"etc/bacula_config", "#{Superenv.shims_path}/", ""
 
     (var/"lib/bacula").mkpath
-  end
-
-  def post_install
     (var/"run").mkpath
   end
 

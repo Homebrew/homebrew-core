@@ -23,10 +23,6 @@ class Ski < Formula
       ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
       system "make"
     end
-    if OS.mac? && MacOS.version <= :mojave
-      rw_info = python_shebang_rewrite_info("/usr/bin/env python")
-      rewrite_shebang rw_info, "ski"
-    end
     bin.install "ski"
     man6.install "ski.6"
   end

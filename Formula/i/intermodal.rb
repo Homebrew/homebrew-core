@@ -8,6 +8,7 @@ class Intermodal < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d890bea1f4494192ef6927276c312d952d8c1930da5034a37095c41fa1e3b6dd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "852b6c8f3270eac4536874bcd3569c7b356f196095395587b827c19694bc8850"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8a4fd8dbae699ee5489ee270a44217875c278e8dafd4b0d2ab59c0a53c233d7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f97365296218ba43ceae80cc225a3ede3974b0060dc6e22b0e9c7bb10fc10ce5"

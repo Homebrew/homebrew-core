@@ -4,7 +4,7 @@ class JpegXl < Formula
   url "https://github.com/libjxl/libjxl/archive/refs/tags/v0.11.1.tar.gz"
   sha256 "1492dfef8dd6c3036446ac3b340005d92ab92f7d48ee3271b5dac1d36945d3d9"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,13 +12,14 @@ class JpegXl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2e9c1ceb4114a0adcab516c4a1b6a8c0eb2483123697a302fb55995b32ee6368"
-    sha256 cellar: :any,                 arm64_sonoma:  "4372e2a363b4cef1746827a3f17b8825cf54b4756af9c5768ffc9305c8e8390e"
-    sha256 cellar: :any,                 arm64_ventura: "a2a31e35252bcae80171e8dc890bb8c2a7328a8228c9aafda308b6a7e2a0e095"
-    sha256 cellar: :any,                 sonoma:        "feebc26329a640872f3082146e00cb6b2b43aa8b8fcb7870095c61ec96b46983"
-    sha256 cellar: :any,                 ventura:       "12b7aaddc78dbc6aaa06d08fd23ea73f3b48dee5bdd4d8541cc9932939d1a42c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e85cc95cd126cff09d59ca52926f519de007551759990f53287d70e7bd6f8f89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1906ec50ffafca326cd831b67b18ff2e4bb5b2a8b8f07c05fef34beb699cf38"
+    sha256 cellar: :any,                 arm64_tahoe:   "f2c0ca06fd06dc92da7e195f0aaa729f4571ea2a9af3f2d60e51da78139888aa"
+    sha256 cellar: :any,                 arm64_sequoia: "73de0c3b5ca045185ff1dd02c030060c19be06679b3f5be7c1863ddcf82461df"
+    sha256 cellar: :any,                 arm64_sonoma:  "da29a81d0b58caeed58e8988e7a90ec57e40760b2e26767e0dc5e0755ee4f97d"
+    sha256 cellar: :any,                 arm64_ventura: "565bc7b3c96e8f5e39f4cb0fa197071448eb57ead24ee953455d425b0996345f"
+    sha256 cellar: :any,                 sonoma:        "1aeb4fc9fb480313485f8681f532fe2c511de1deab15383c57b28769a32148f6"
+    sha256 cellar: :any,                 ventura:       "6833f6747b3593cc25c952847208aad213f602dbe607812f83e8c555750cadc3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb085aec6b29e8cd401ba77b5ba655cbcd3041fce47ac51458717f3b1210abc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9c5316dbb34c75942763b74b129daf0a49661b0e3b0f1687fef9de566eb3c91"
   end
 
   depends_on "asciidoc" => :build

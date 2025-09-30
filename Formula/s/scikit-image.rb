@@ -9,6 +9,7 @@ class ScikitImage < Formula
   head "https://github.com/scikit-image/scikit-image.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8cac211787f4ee9e93494a7a4dc40ab36f57744988df294b62372a1bdcb629a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f92c634789c248e5faa16af8c885c76a797561f9caa90ad3ba6771ee8adc65a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dfcc775c8fdda7398e80b2684303c3c68310221e1fb0e83bcd69df31f4d25971"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5aabdc0e3471dda66884980b61a1c2f6f762a26016e724bcbde3f7659c2d1412"

@@ -2,19 +2,18 @@ class ArgocdAutopilot < Formula
   desc "Opinionated way of installing Argo CD and managing GitOps repositories"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj-labs/argocd-autopilot.git",
-      tag:      "v0.4.19",
-      revision: "5219caa2c688061b88ea5eee0aef9f97e3f62f25"
+      tag:      "v0.4.20",
+      revision: "a1d2d4c97c59d19127b1bfc1eca3149ca0984df9"
   license "Apache-2.0"
   head "https://github.com/argoproj-labs/argocd-autopilot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8f1cb49d25c8f73c078698833d5462a9162ce5233ce3795cf951b1e800976e9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c18e73d1d74fc4408d3a1f22889710c4c470cab2f46435db86713d25dfea79a2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "86ecca72b084f402b6d72f5f659ae0bf100f1a8506dae55363f09ff809e2b65d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "58b12c996a20911d6174f8fc99fe919554a134f85e43d76f93c8791233dba4c3"
-    sha256 cellar: :any_skip_relocation, ventura:       "5772f0f301054b0b0c204ead7da928d6788f7578e4c10e093899ba08489d9352"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "edddade7e4b925030eec21764ec57a5728ea3af1ffa51bc973e4e10ccb2ae71b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c5886967e8b28bff08bf56c4d7d251ff2c7a7ac7dac38fa74561db77777ae93"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e6413e513cbc1efeaad2aaf4afe34e8cdb1e2b38eff30197754f3c9d2fde65a3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a030325b70b6a46c4d63136e638a852b25cfa90a871464f07724ea48951a7ccf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d34a4629f9d8089d89ca77a623618b73cb95c73afad228ffeb41a93ab021f067"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b5899d7d38572a62a7aacf3fb9b30536b3e970c8ef910015ed25ba7fbcf3051b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4a677b34fea2ba9324961d0da07ed40374625388f6bdf7e43b3f3afc7a9de28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5c224d930f9df3fc46eae79c4d0c9e15339628a40e80bef6fa2ee2a1999a0ca"
   end
 
   depends_on "go" => :build

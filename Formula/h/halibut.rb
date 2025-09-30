@@ -14,6 +14,7 @@ class Halibut < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f11db8dba2812df50997b9282d74a8b2d8c7a3e24ebc7aa51169d1f958e51506"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f9fc41c88b7b3b7d2cc9ae9160316ea794a4316e1ed217c3dca842324cdbff54"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e5aa2f452b8152cfe1db12e63ebab5cc3884aeb0096a8e237382ffd91b4ea3d7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed4000bb616ed6fcf26b2cb79659a1fec79d6e6728b05be5b3f53c1dea03ae7a"
@@ -31,7 +32,9 @@ class Halibut < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

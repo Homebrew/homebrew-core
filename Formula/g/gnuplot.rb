@@ -12,6 +12,8 @@ class Gnuplot < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "7d09003be2d42dabc884f5d593bf3b0d16681b854371ab78280f900c07b06d5d"
+    sha256 arm64_sequoia: "133bc5f100993ca1ad181a3ca097851c626076a619e9c4941e8c62352ad20b8d"
     sha256 arm64_sonoma:  "4f2052aecbd2f736e1b2318acce36c0cb233af6be0935deddcf998bd822b1013"
     sha256 arm64_ventura: "644cb48402329094a8de79741d5798c3720682f22c11330621d348e69bbb968b"
     sha256 sonoma:        "e347e5938f393d37b8d2f5e3b0bca7954d6829174af3c7768c13ac0c49874bf4"

@@ -8,6 +8,7 @@ class Ccrypt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "cebf96f7115ebb2be8b7f058e24de430aa06506c3dcfa5aaf9c0ff67d1bd780b"
     sha256 arm64_sequoia:  "030055fedb7e4f4136631b6cb57863d19dfbc34c422410ef246422471f6ee0b9"
     sha256 arm64_sonoma:   "6494f1e4ac165f00a8f1cadecc17a33175e0bc2e13d2c6111c4c0825416a43c2"
     sha256 arm64_ventura:  "8670e0da25badd930fe04316614c22caceec629bba9ae2fd4b1576f25d1c724f"
@@ -18,10 +19,6 @@ class Ccrypt < Formula
     sha256 monterey:       "77326e57d8ebf598daed98540cde9e40b67dc5f759c5ea01a48a8defec9c2347"
     sha256 big_sur:        "f416ae1ffac238640025b992cfedb05ab6894d0ef6c60742b3ab95757bd137f0"
     sha256 catalina:       "e09c7818b7de98e36d433080334e169ac970e1a020114ddab1fdbbd54135ddbc"
-    sha256 mojave:         "49054d9d502ab13e65ab873cc9d355ab75438372a7770c38c4c7c35c84c31e3a"
-    sha256 high_sierra:    "a4d270d5b5f467870f0b265f6f2d1861762d853df46756a34ac7e6a6d83e2121"
-    sha256 sierra:         "048295cb4f95c9f0f3c5f1a619141e08c0326b6d8252c62c97608fb028cb48f7"
-    sha256 el_capitan:     "a98ea0f3dbee5e9086bea342ac8291303970b1d8a85344be2b4d91330a919ae9"
     sha256 arm64_linux:    "66d34366219e543be249e3763823d38d772d6569159611ea1b2f6efa1daef601"
     sha256 x86_64_linux:   "3e2c5e49110742fb547d82b661695d2044a2404869e7224c1de1be036dd253de"
   end

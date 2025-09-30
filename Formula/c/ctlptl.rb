@@ -1,19 +1,20 @@
 class Ctlptl < Formula
   desc "Making local Kubernetes clusters fun and easy to set up"
   homepage "https://github.com/tilt-dev/ctlptl"
-  url "https://github.com/tilt-dev/ctlptl/archive/refs/tags/v0.8.42.tar.gz"
-  sha256 "2f940b982ec10dbd5464a4c65947a022a345b1d76b5c0446dae1cd2459eff669"
+  url "https://github.com/tilt-dev/ctlptl/archive/refs/tags/v0.8.43.tar.gz"
+  sha256 "4169e420f72754601c1c2748d5caf32297bf54d76f6e13fe9e6fe1eccadba2e1"
   license "Apache-2.0"
   head "https://github.com/tilt-dev/ctlptl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f65690a21428923a104907bf1f36d68fe5548a8d1818bdd2c6b9d70ce9dd3c4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95a9e91c72dc187882d2535aac2e1be20ee15b562434b087cbcba5bd282e6fb8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eecec056b5b5043254277ef00a8b2932996ea9a2df185159959f91fe1ecf100e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "56d950a9ca79bbc3bd4d86a61c6364f7977a74c8b51c76c45a5adeebe46552cb"
-    sha256 cellar: :any_skip_relocation, ventura:       "a191ccf424740643e74d5cb4e9e8b3a4837cad39fe5751a6ef9562eb9deca4b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d1b016bf961588b50c6727a161afad481658bf78bd0c3dc099a2dacef6a6a2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de48874a9cf5ae452d730dfa21b239ead2c042396e056a4b571c03fcf44ae14e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "563cd1573b10e263363451ed4eab6b7f73dfc82a8cb6a91081cbdc48caf1ce69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84d55c589d2404f0d9bc9ef50aedcdd07e6edbdf0144ea4ec56e22eeacfc7c21"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab6561e0570beca2772f5dbb23289d8f44152314498af4df7c269af9011f52c7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e645578d47b9624166d3135bea522db384ccaa1d2dc270635e476e30a2b6a9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60dcca8a2ebcee6a48d441fe768377f7bad5d6c17d46eae917f5b9e4106b64d0"
+    sha256 cellar: :any_skip_relocation, ventura:       "46d19cf3ffa4b668f93eef17a2f4cf24179d08fc0a05d85fa3c9b2e907fbb095"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf1739b5baaf62399a6b4232011e76de80757143e720c14f9762be303a8c73a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adf5696d68c18d41745364a3336dc0e5ee89ffc3857c093252d9252d2bb070c1"
   end
 
   depends_on "go" => :build

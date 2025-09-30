@@ -11,6 +11,7 @@ class CargoFuzz < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2d9d7d1111688f24dcda6cbc4daa6cd6a7bdbf7a24409c06dd83d2e55248c8fb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b956962a95b2090fda39a65ff4db87e26bd410c28d2e82671e767a260710e5ec"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a3493095a73a28d8e9567dd14965cbcdec67ad26d01d475b4cff7962652d14c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "04f19b1a235620309d46c4b2a1123e8396a155da418bec5b3c8b850cf999cd09"

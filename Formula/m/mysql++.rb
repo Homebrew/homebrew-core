@@ -14,6 +14,7 @@ class Mysqlxx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "bb03e282116800237c75a9374bb020f8cd9f6cd84b01a56549da52d595ff79e8"
     sha256 cellar: :any,                 arm64_sequoia: "5c39095c830382c0de716906058fdfc99dc8ba77c57b2682ffab177767790c21"
     sha256 cellar: :any,                 arm64_sonoma:  "20c4acc648555402a0e94e9d4f771ae4952e1a207ff86af5b088694b5bc0195d"
     sha256 cellar: :any,                 arm64_ventura: "40a3f055ec5b42ab64ed3996133d2250b4d01e35aadf3d4c156ed5c011708aaa"

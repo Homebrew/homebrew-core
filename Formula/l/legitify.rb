@@ -12,6 +12,7 @@ class Legitify < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ff1f98fbf66d2bf7e137789327373e4869753105353aa5619a454a81b884176d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d5ed91407468d73ad21a6bd719e4c194fcb4e30d2a06cbbfeac97244e3ed59ef"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "508603a0320179fd5861ad68d64c4617e13b786ab4f6fc2015902bbb605f3cdf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e81db6ed3a3d93d450a249904b883b7b77affdc9d91db30f4134bc705a66ae4b"

@@ -10,6 +10,7 @@ class Sail < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "185404983c1f007e70f1fb3a357dab9b7ecbf43788d2bf8f58123f5918f4d30e"
     sha256 cellar: :any,                 arm64_sequoia: "55df5f7dc3a28ceff6f4f45ed960292003a2acdf7067642c796057f7569392c0"
     sha256 cellar: :any,                 arm64_sonoma:  "10a6056fad7c4518d86e1407a78134218222bd4ac899121ad500f3431c1cae2b"
     sha256 cellar: :any,                 arm64_ventura: "4ac5358a006793ede341be09bbc6e81aa85ae42fcbf30c2091c2e324a25dd57b"

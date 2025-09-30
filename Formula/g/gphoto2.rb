@@ -11,6 +11,7 @@ class Gphoto2 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "4964d268b7a6e5fe54ace7bf390f1986757b9c1d1f3444e324e8f6f6e026f919"
     sha256 arm64_sequoia: "189e99f72f8ec50a706151bf4b3ded54ace4ca3bc0fe2fa11898d68f2bc87e9d"
     sha256 arm64_sonoma:  "11188417b4d967bca29dba9e5e14801e44b110b4c55659407825f550e6dcedb6"
     sha256 arm64_ventura: "01525ca78cb62c595c565025b28bcd4fd07792ff01c91292a08c35d918b4100e"

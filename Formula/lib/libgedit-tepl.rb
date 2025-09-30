@@ -7,6 +7,7 @@ class LibgeditTepl < Formula
   head "https://gitlab.gnome.org/World/gedit/libgedit-tepl.git", branch: "main"
 
   bottle do
+    sha256 arm64_tahoe:   "1ddd47a26a3a8f0f08d3fdba709a96fdde80892a19d8c2247c5c5d3b00c09393"
     sha256 arm64_sequoia: "836b139117cb325933282df854052d538ed5ba692b72c2aeaf87c2eeee468d8c"
     sha256 arm64_sonoma:  "c68c763cd2bbb1f8181553a806f475ca363738443a22bc51b633e8a7c5b8297e"
     sha256 arm64_ventura: "2159d88ea0072656253b7681c6a7e2bc5e59a62d8b6c55056b7cb14e4822293a"

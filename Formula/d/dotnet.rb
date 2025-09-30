@@ -7,12 +7,14 @@ class Dotnet < Formula
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.7.tar.gz"
-    sha256 "f68182b95fa441efb63b2a71ca3f98498b664e8d81964690ce4ec4f855981a44"
+    version "9.0.8"
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.109.tar.gz"
+    sha256 "42fdfe3733884a3f6ceb3b428ff346ccb92f95010c447e27f3b164f70145730c"
 
     resource "release.json" do
-      url "https://github.com/dotnet/dotnet/releases/download/v9.0.7/release.json"
-      sha256 "b812e7e8e30aa47fdea32e68932f1cc23569419f27f4f5ff441160e53f1cff94"
+      version "9.0.8"
+      url "https://github.com/dotnet/dotnet/releases/download/v9.0.109/release.json"
+      sha256 "328388103bf81072b638984d05b9dff5b6520a366d6448abbc7b985539deb8f4"
 
       livecheck do
         formula :parent
@@ -26,12 +28,13 @@ class Dotnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3c54ec18dd398c12d9b3acbeff0035c8c26ffc207ba9cc968706347376c8b436"
-    sha256 cellar: :any,                 arm64_sonoma:  "becdc41681bc5d0b3909765e12427af2d3d97cd706a6eb40246285eef9d24162"
-    sha256 cellar: :any,                 arm64_ventura: "2c7b96f5ebcecba40674ad288fc85c683a0a1eb03769825273fea145d134bc9a"
-    sha256 cellar: :any,                 ventura:       "1a4f9857880a0221d34c99a134cf7f1104fe3c36167c0302a858af4fecb039f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e56bc127bd146f1fe824bacce689be414ff6079367075f836279a1b5d5d7be62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdb49499d4e711256bd209c523bd58f65154381df83ea6aa912883aae229aaaa"
+    sha256 cellar: :any,                 arm64_tahoe:   "343566caa1011741a13303014ceee74a91d807de9cd77f0438324939f9ff65bb"
+    sha256 cellar: :any,                 arm64_sequoia: "0f23879804542b8e66c8521b87af973069165fc9379749083a25537aae9f94b1"
+    sha256 cellar: :any,                 arm64_sonoma:  "5fbde0a48d63af42c31612f0384e009d879ee9af741d22fc5422d5df4b41d6b5"
+    sha256 cellar: :any,                 arm64_ventura: "15e04bd0623d3981d7f19ccd7211e408113359382bd924ecf2df77c818d3c994"
+    sha256 cellar: :any,                 ventura:       "cf89f9ff2627bbc1c5deb19df544de345e7b59f0b2f701dac30742795d0ddbe0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1c0d7633d3c96929f02dc32132377889ee6585b9b9b6e115312434af40ca24f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22511e3d0ff36ec596f3cfdd8cfee282a67b4226f2916b94ebf162bc83c0f9c9"
   end
 
   depends_on "cmake" => :build
@@ -41,7 +44,7 @@ class Dotnet < Formula
   depends_on "icu4c@77"
   depends_on "openssl@3"
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 

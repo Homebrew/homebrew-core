@@ -8,13 +8,8 @@ class Pylint < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1422c8bbac969504486ff916528e7098612dac88bda362a58db7908561985ed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1422c8bbac969504486ff916528e7098612dac88bda362a58db7908561985ed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f1422c8bbac969504486ff916528e7098612dac88bda362a58db7908561985ed"
-    sha256 cellar: :any_skip_relocation, sonoma:        "314a7938c2d225000832fc3c42121f30f46ae22faf4200a67653816ac6b84aa4"
-    sha256 cellar: :any_skip_relocation, ventura:       "314a7938c2d225000832fc3c42121f30f46ae22faf4200a67653816ac6b84aa4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5892a9ef6d9a9428bbc10896e7ac7a1c6c14caeaba5ed0bf9ff631d6bdfabb70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5892a9ef6d9a9428bbc10896e7ac7a1c6c14caeaba5ed0bf9ff631d6bdfabb70"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d4ddb8cfcd18ad93fe22e7f0fb7d3d77dcda84e6f3c2728463caa7f494e51f21"
   end
 
   depends_on "python@3.13"
@@ -49,8 +44,8 @@ class Pylint < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
-    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
+    url "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz"
+    sha256 "ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
   end
 
   resource "tomlkit" do

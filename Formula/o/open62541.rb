@@ -11,6 +11,7 @@ class Open62541 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c3ad446dbaa6cc2582ceb7165e6069e7765abe93bd3151b60e9ee12ae8a01435"
     sha256 cellar: :any,                 arm64_sequoia: "2af9b81e50d603216505d07eaa8481ad9a6317ecc354c72093274d9723f968b0"
     sha256 cellar: :any,                 arm64_sonoma:  "aada8c113540f978af6d5c4a763c116d765826c8a0059343d301da9b19448094"
     sha256 cellar: :any,                 arm64_ventura: "ad70816a67523e5cab47075ccd220badcb8b65f31cfc55089cf9b60c8de0d8d8"

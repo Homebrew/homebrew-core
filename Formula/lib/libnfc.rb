@@ -8,6 +8,7 @@ class Libnfc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "433f60511a9266fb1693203fbf2c91222603118e9057fb8cac76eb897edffa61"
     sha256 arm64_sequoia:  "2b82cd576da101ec339171c4a8ded0fee90ab4cf072513c8cd0a1b99721c72f9"
     sha256 arm64_sonoma:   "3e1ce25513819c59c110f28cfdb8cf4ecf265800d741d272ad7450805ba647f5"
     sha256 arm64_ventura:  "28002ee7cadbe88fdd4a614804a813b4d46a17d4cb2a1fe7d24fe17eff04f933"
@@ -18,8 +19,6 @@ class Libnfc < Formula
     sha256 monterey:       "a42411e1b19e52e85c138f4566613bc87570851403d148315d384d953d2a82b5"
     sha256 big_sur:        "566a81b623abfb5d68480274b59b13c44fc098cd1d8cbf59dc112295a58a363c"
     sha256 catalina:       "6659f67e40774cdb8e95548c03542bbc123ccabc0f4a6160504c03e43fa43c26"
-    sha256 mojave:         "9bc90c84f89408a8960289a668af7ad9b7b17d34a02996b83ec960c5cbefafeb"
-    sha256 high_sierra:    "8e6abd4d61ef9aff76ef25b092806b95614c07a9e46a0e13ca6e915271454a92"
     sha256 arm64_linux:    "65c10bb5ef9996f755126c6642fd8933c9fa2fbff028d1700dc75b2cd0458b47"
     sha256 x86_64_linux:   "db84cf74f8217a9cb32aa5c804cf20c9b74464ce21ea2a87805b0c8de5abdfe6"
   end

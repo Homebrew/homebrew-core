@@ -18,6 +18,7 @@ class Flagd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b5c17ef41e3729296edf75c50db51717e77e5546523707befa40753ca057fc22"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "86b5457cbffac14b621c2f7c3b10d924cbb3f257b066528ae73b16ac13308e3f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd540364119080d40fbd5f151f508f4aaf957eb8aa7795d48d1cc5421de7ce88"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1c1be9a397de335ee8a293474c20fa344001190b3a7e1adc762ae685ef0e5268"

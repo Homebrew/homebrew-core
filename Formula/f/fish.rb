@@ -1,8 +1,8 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/4.0.2/fish-4.0.2.tar.xz"
-  sha256 "6e1ecdb164285fc057b2f35acbdc20815c1623099e7bb47bbfc011120adf7e83"
+  url "https://github.com/fish-shell/fish-shell/releases/download/4.1.0/fish-4.1.0.tar.xz"
+  sha256 "07a76c67e161b9edc772e6f1d66ebead85d7056e86631d61577f9f9a529c4d9c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -10,18 +10,15 @@ class Fish < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   pour_bottle? only_if: :default_prefix
 
   bottle do
-    sha256                               arm64_sequoia: "1ac7c928f8d48a68e5e80ab7bf666f699645df013e1a3cc587001a515d52785e"
-    sha256                               arm64_sonoma:  "e1bec377cb41fd1bb725c3dab2d857fc66b04539324c8243a6b5b5801eb4e8e2"
-    sha256                               arm64_ventura: "97ca9b5de161d65358a7fd965265ff74d26f43b4324332e124a82347a0045620"
-    sha256                               sonoma:        "fcf5a0407c0659f60c7c805aa25194a244b24b7b1f5cb7fd213ef802ef520982"
-    sha256                               ventura:       "0f73e4a50d3ca051cbcadf83d56a97f18a3dbe77abd0946506a2f0d2a9bc291c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "932f72231071f518ab3878271c8e68802b8bf1ad0ac50546f7839bf7dd37ac9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76bcf456adfac4399b55a5ea5e7f37b4f82bcfa6e38d2c513de2037308980abd"
+    sha256                               arm64_tahoe:   "83084c80c6edf20c6fbda0cf29ccf30a4a7be889bb8ce083183af8e85670a03b"
+    sha256                               arm64_sequoia: "bf2b551d21e09192cc53d5cc226fc7611af08220682c0e213091f524b770facb"
+    sha256                               arm64_sonoma:  "7cb3c89dc53a508412da3767e13f95061a36503e8898fd850f5a43ee13aa1088"
+    sha256                               sonoma:        "1f085ebdab86ec83d4ed7b261ed1896bf10088256d5124b0643f1c2f235e9450"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2634fa0101e4227f8b41c42b64588e6ea3d57715a292414c2be2e47c12d44d78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71e403c781a41c912c6851b5fee0ef4ea5ef70227afc90c658feed85b5b2d43d"
   end
 
   head do
@@ -32,10 +29,6 @@ class Fish < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  # Apple ncurses (5.4) is 15+ years old and
-  # has poor support for modern terminals
-  # The library itself is not needed, but the terminfo database is
-  depends_on "ncurses"
   depends_on "pcre2"
 
   def install

@@ -1,24 +1,19 @@
 class Libxres < Formula
   desc "X.Org: X-Resource extension client library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXres-1.2.2.tar.xz"
-  sha256 "9a7446f3484b9b7538ac5ee30d2c1ce9e5b7fbbaf1440e02f6cca186a1fa745f"
+  url "https://www.x.org/archive/individual/lib/libXres-1.2.3.tar.xz"
+  sha256 "d2de8f5401d6c86a8992791654547eb8def585dfdc0c08cc16e24ef6aeeb69dc"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e7f72b305f5c62fa3bd025cb437a533e0d5fd903bbf165d8b86f0e19e163474a"
-    sha256 cellar: :any,                 arm64_sonoma:   "d75dbe208195822aa95957e8037d80dec8c5c86c60a5669afb7ec2187210d64b"
-    sha256 cellar: :any,                 arm64_ventura:  "fbf27991234578c082292975c64ee98b2ab2b69dd2cbc71056dfb3c2fd94ffb9"
-    sha256 cellar: :any,                 arm64_monterey: "e3fa4b14265315d1dd48439e241df505cef320c6a25a33a91e58e2245bb2f203"
-    sha256 cellar: :any,                 arm64_big_sur:  "cb39d8ae314b09357fbaadbcbb14abb7a21e85bb4d298a3e2efe2bd411a21fe9"
-    sha256 cellar: :any,                 sonoma:         "f13a56fa17a6818add007ee90aebe57911fa824dda047d836169ce241873b6c3"
-    sha256 cellar: :any,                 ventura:        "7ba9d4daab9d3636b53d98510309eb2c37dd07ba9efd5585947d1e3609067388"
-    sha256 cellar: :any,                 monterey:       "ab7139ca0d7d8b12508d9211704963ff34d8b62a3888b222018c76dad8702280"
-    sha256 cellar: :any,                 big_sur:        "6dfe38b8542221db4841c3326d2c647894b7a86b45cae7b82ee83e95105ec150"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d4c512a727a4d313ed53f32bf7d7aabc96e0ef445b1a56a175ec3381dcbb1ef7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0a84c746909317e32b8e527e20d56df64836bf461e8719d5bbab2be1f249cc0"
+    sha256 cellar: :any,                 arm64_tahoe:   "ee5ef314b15e82ed7df2d475d90f1d899423f25d8a189bd1f59ceef05363c2b2"
+    sha256 cellar: :any,                 arm64_sequoia: "2873727dfba77ea52eefb1473655932f9e8ce0fa62ced56d031c614f9e779dd5"
+    sha256 cellar: :any,                 arm64_sonoma:  "357d86dcc9d3cbb4f7449954590a527744802b126cc92aedd35e66bfc608234b"
+    sha256 cellar: :any,                 arm64_ventura: "a903e212d5d0b4cdb66bf9f6c18102c0ad42abfe4901b125b313545b37543a7c"
+    sha256 cellar: :any,                 sonoma:        "2422ab6e030e4e0b6bd8ab9b79aef44c053f9d8efd44f2da8dfedc2eecc32ebd"
+    sha256 cellar: :any,                 ventura:       "dd24c683589a44399963c6d87e671f258ebca3efb0a393c8ce5616ea7e19378d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95deabb73d93e6d1db9e9fb6e08d5eeb969caa6e578b082a515c0a55b67658c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8682132f7c2d181729a89346cc24cfe9f1dac6133cd197efa17b759775194ecd"
   end
 
   depends_on "pkgconf" => :build

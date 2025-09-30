@@ -9,6 +9,7 @@ class ReattachToUserNamespace < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "33e476a85796e31103b568becc52eacb83185bc9cd763cde17d4cf1cc8ef7198"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cd39282391ec191e5421c47cf7dbc9c7c4a58ac1cf271d09b453d49e0068b3fb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1c946e781c18777b2156251b59a44f1db80cd39d59c18dce460011a0176566b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff12e77b3cfc11ea931010a16a2c1a1ffb4bd893b6644f29966507fcdbe02b8c"
@@ -19,8 +20,6 @@ class ReattachToUserNamespace < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5ef00eb2cd133afffbb67caef646fe99e8a8fb53ede9b8ddb6de1f20206760c6"
     sha256 cellar: :any_skip_relocation, big_sur:        "8b715171e1c8ce8f86cddc241340a7a6f4f263e770d912894cf580790f8d8aa4"
     sha256 cellar: :any_skip_relocation, catalina:       "8ab11a5fa7512f5d7ef8fe62a5275325f3721e13fde2b0831d1f615e8820c341"
-    sha256 cellar: :any_skip_relocation, mojave:         "b277145d5bfbc6997bc7d8ebe203e9d93adf8d1aa2f0f1c76152212ee6a23403"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "68e1f00743690086fb23ce013767e0a669ef46807ee9f618fe9ea4a25c50d5c0"
   end
 
   depends_on :macos

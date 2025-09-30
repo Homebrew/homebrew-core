@@ -7,6 +7,7 @@ class Openfortivpn < Formula
   head "https://github.com/adrienverge/openfortivpn.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "683a43f9d6a35ecce0989ac17cb45c1d96fd1d227410fa3c1d99d9a99e210001"
     sha256 arm64_sequoia: "1ae366135c78e77a61e53bc6c8c05b5517f715f64b580ee20c7f380e4772b483"
     sha256 arm64_sonoma:  "28994d4959537dbfe5702aed1d16e7c09096e6957b5640f3b89da6669deecefe"
     sha256 arm64_ventura: "39bd9a1bd6b7a26eb5a10a4bbd2a3ed9d50b72aa1b80d64fffe95430734a36d8"

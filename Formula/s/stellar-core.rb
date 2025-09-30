@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v23.0.0",
-      revision: "d5cbc0793d6eab25eac886969c5bc0f7da69d6ea"
+      tag:      "v23.0.1",
+      revision: "050eacf11a15afb2e95560dfb5723dfdcf78070f"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
@@ -16,13 +16,14 @@ class StellarCore < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "25f836e4e8c0922f3f6f2d5b09beea96eec5a4b5b51921f39db85b5004a9960d"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9f02274a2579c0bf965da0756d3fe84e93771c265d3a309a1f485ecda87ff38"
-    sha256 cellar: :any,                 arm64_ventura: "1779c183d7498959faed624d9e3d83dd36dfb34e5db4d4c23d54c832f0f42128"
-    sha256 cellar: :any,                 sonoma:        "40230de2c404d024795ea086064dded6935d4692a68e09efbf4c750800ac5cb0"
-    sha256 cellar: :any,                 ventura:       "40e635fe813159b424d16ddb55f390eb91fb3044caa3749f36392aa368126239"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ec29eba55deb9e29669ae3502769d064a66ce6f2ba4b186035f39e6c68a641d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a315f97c1101d5e690b242201c428ba58ab8c76ac78d0a82d0a0edbce0641e31"
+    sha256 cellar: :any,                 arm64_tahoe:   "c04fd5b9aaace8e5b8a3a2d7e2a108031c53737df25d1e6cd64d2bba9c789e62"
+    sha256 cellar: :any,                 arm64_sequoia: "3f81b2599339b2637e8892b207127bea909782ab692ac398ceada6d836cdb41c"
+    sha256 cellar: :any,                 arm64_sonoma:  "5f20f7aa7b39bfff588b715fd65df67afa73ec32c86d4b07356cad2dd7b24d49"
+    sha256 cellar: :any,                 arm64_ventura: "9adf336157a88caa21d506a1043110eb8966207c65ff476f4b44807d3a8f9fe7"
+    sha256 cellar: :any,                 sonoma:        "7dcaa843016563e392656bcd44d36e2ea5c1090e3f0df1cfcf5e996308b2157a"
+    sha256 cellar: :any,                 ventura:       "4ed06d390acdef994ceff2f7f562ca950bf6d67bdca0c466009836496a7b63fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d105e6d0687f9a03444ed4c2c4285038995776af432d8ef031f010fdf82cead"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3dab52db935253b3d3ee61b2c286245fcadb1ede505dbfd5d57c70cfe8e697e"
   end
 
   depends_on "autoconf" => :build
@@ -35,7 +36,6 @@ class StellarCore < Formula
   depends_on "libpq"
   depends_on "libpqxx"
   depends_on "libsodium"
-  depends_on macos: :catalina # Requires C++17 filesystem
 
   uses_from_macos "flex" => :build
 

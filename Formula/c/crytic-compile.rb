@@ -9,6 +9,7 @@ class CryticCompile < Formula
   head "https://github.com/crytic/crytic-compile.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "76354911f07a6f4f01c43c621bc810a0ee8f4f2c535bc6a05a762c33f3861b82"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "39f041a29cfabce763bf76b6ced058cc1e161cdc20b37d6c0167a3c39d8785ce"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27abdac866172eed6198e928f423e0a36a426afac9a56e87d80ace979d23b215"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "91b58a45b01aff82e8b56b0ad0f33d6c4a1c84f1663d1175d72aeff13cf113d5"

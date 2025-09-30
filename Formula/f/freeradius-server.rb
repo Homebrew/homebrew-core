@@ -14,6 +14,7 @@ class FreeradiusServer < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 arm64_tahoe:   "cb979e4c7b3f1b85d374fa5be895081dc7e31904cf87539b3d6f7e7d0d96c79e"
     sha256 arm64_sequoia: "6063a6adaebb53d19c4677da34e9fbb92682875047d17ec465394d7bd3018a03"
     sha256 arm64_sonoma:  "8a80dda119bb5a5a1d3a0f3494699185751383275f0bfcfad217c32bcc5601f1"
     sha256 arm64_ventura: "ab409f75783ba2740ac66a4caaae1b2dfcc325cf24d982b1b7b3aa35a1e1afca"

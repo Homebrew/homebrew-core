@@ -9,6 +9,7 @@ class SqliteUtils < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe8f29ca11266e75217d4233bc130b2cf0f67ce19742d7a6749065ad1eb9e93d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bae85f5cf6afe2f60ac7c154d7a364a635b65628de948dc9709e23c0af9bbde"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bae85f5cf6afe2f60ac7c154d7a364a635b65628de948dc9709e23c0af9bbde"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6bae85f5cf6afe2f60ac7c154d7a364a635b65628de948dc9709e23c0af9bbde"

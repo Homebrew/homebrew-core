@@ -1,18 +1,17 @@
 class AwsCIo < Formula
   desc "Event driven framework for implementing application protocols"
   homepage "https://github.com/awslabs/aws-c-io"
-  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v0.21.4.tar.gz"
-  sha256 "ddc935d6ae0e7fda3b404a7c22ce20a0a1825c188d0087c9ffc817e8e7060325"
+  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "4ae2ccb8fe9992c7e8aac7eb9f551b49d12548bdfe2cbe9a1ab3415100aae1d0"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1118d9fe71b0c34b5a3729ae78db35f1a1dd6828b516ef31173a574f65f32529"
-    sha256 cellar: :any,                 arm64_sonoma:  "0a234d01a1f19fbbf0a1d964f5c8313134cb7d5475eae7c329b41aef2c233ea5"
-    sha256 cellar: :any,                 arm64_ventura: "ea02b5bd13d56d1ee8ec3df633aa1c27a0b13b403a8bf0ea1db3b7bdd8018fde"
-    sha256 cellar: :any,                 sonoma:        "65e1b1c8f4492a10ebbde3308da5541995e33daf00dd096ddce2d1af811c8a03"
-    sha256 cellar: :any,                 ventura:       "4681837d6731077292245ba23884ab83f43cc03443f551028cc4d0d5783e46a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bad2a5708913facf199cbfdf3bc9b9d52a4694390fc0e9969d4bdcd909cb0df5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d518ed22c70fabdd78aba4af503116864c8cf04a6bead9cae319692570ec554"
+    sha256 cellar: :any,                 arm64_tahoe:   "e6b4cba9f75e409534746e0898ea4a080630274b56436c84a625f256d9fe9b0d"
+    sha256 cellar: :any,                 arm64_sequoia: "bab217fce7acd9aa9966a2c1f81b65b244ab398a8c7114874f9267065a68347a"
+    sha256 cellar: :any,                 arm64_sonoma:  "78015fbef6a052f7d9b22005edef0618dd973c91a65b6bd6fe3a960b38096ec0"
+    sha256 cellar: :any,                 sonoma:        "06571f20fe56639e87461b418aca788ecd496579a29b7b7611d20804e3e558c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5a49e1b8e68bbea40767df5f15ab137b17adb2dfa973d92d22129c61f10a635"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9cba71e1e26393c8d28b8a93d45e5e62c1c514f752c9ca54c5a52b330db6da4"
   end
 
   depends_on "cmake" => :build

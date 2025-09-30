@@ -26,13 +26,13 @@ class V8 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ee9f92d890ff6d646db3b11554be91ed50219923f5a7900d7f3e980a8d00f9e8"
-    sha256 cellar: :any,                 arm64_sonoma:  "7c4952b33dd522e79610eabb3beb9bbfdddc3378f41c2153041503e9f8f0a878"
-    sha256 cellar: :any,                 arm64_ventura: "9d424966acb2e88b34d0b27bef9032dc0d789deff4b298cb6ad2d43321227de7"
-    sha256 cellar: :any,                 sonoma:        "9e25c1646f1f395ec8f9466d96fd5bd2bf3ca6f770ebf69905a43fdbaa80169e"
-    sha256 cellar: :any,                 ventura:       "c66e6c688dd73c1a6182461e765231385f2bebcafeabf64234b1c5f6d6d26576"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ecb114d91a7473d870fa935b34b9c45588ef16313a34027208bf1098656a6d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17f7942f13ff8b10fb467c44c6af7d33c0b0f1d26c6bb4522b9d8e2164cfe19f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "608bb35f6b352cd6c1e10489fb301b6e826e8f97cb279d268a29829713924515"
+    sha256 cellar: :any,                 arm64_sequoia: "72d470fd40a8a7c552ed76a235a593eae664619f2ff63433e4dd99d41ae7c496"
+    sha256 cellar: :any,                 arm64_sonoma:  "042e5464470b5b353559ef4f50dcb118025f0969af15fc85025ed4c6202d9b3e"
+    sha256 cellar: :any,                 sonoma:        "13d60cdca44d3f1b9a5ea1997981321169048a24f384691f349887d27eb480b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b07cbc0682b820d94953ef5fe2b3c5940f7ebc9fb6375c38172b446cd08455a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c443ea4ea031822f96fddc71f10a6d0a56f3f1ab39d57b1732963ee90a04b778"
   end
 
   depends_on "llvm" => :build
@@ -40,10 +40,6 @@ class V8 < Formula
   depends_on xcode: ["10.0", :build] # for xcodebuild, min version required by v8
 
   uses_from_macos "python" => :build
-
-  on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
-  end
 
   on_linux do
     depends_on "lld" => :build
@@ -236,12 +232,23 @@ class V8 < Formula
       treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
     }
 
+    # workaround to use shim to compile v8
+    ENV.llvm_clang
+    llvm = Formula["llvm"]
+    clang_base_path = buildpath/"clang"
+    clang_base_path.install_symlink (llvm.opt_prefix.children - [llvm.opt_bin])
+    (clang_base_path/"bin").install_symlink llvm.opt_bin.children
+    %w[clang clang++].each do |compiler|
+      rm(clang_base_path/"bin"/compiler)
+      (clang_base_path/"bin"/compiler).write_env_script Superenv.shims_path/"llvm_#{compiler}", _skip: ""
+      chmod "+x", clang_base_path/"bin"/compiler
+    end
+
     # uses Homebrew clang instead of Google clang
-    gn_args[:clang_base_path] = "\"#{Formula["llvm"].opt_prefix}\""
-    gn_args[:clang_version] = "\"#{Formula["llvm"].version.major}\""
+    gn_args[:clang_base_path] = "\"#{clang_base_path}\""
+    gn_args[:clang_version] = "\"#{llvm.version.major}\""
 
     if OS.linux?
-      ENV.llvm_clang
       ENV["AR"] = DevelopmentTools.locate("ar")
       ENV["NM"] = DevelopmentTools.locate("nm")
       gn_args[:use_sysroot] = false # don't use sysroot
@@ -251,15 +258,6 @@ class V8 < Formula
     else
       ENV["DEVELOPER_DIR"] = ENV["HOMEBREW_DEVELOPER_DIR"] # help run xcodebuild when xcode-select is set to CLT
       gn_args[:use_lld] = false # upstream use LLD but this leads to build failure on ARM
-      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
-      # Undefined symbols for architecture x86_64:
-      #   "std::__1::__libcpp_verbose_abort(char const*, ...)", referenced from:
-      #       std::__1::__throw_length_error[abi:nn180100](char const*) in stack_trace.o
-      if DevelopmentTools.clang_build_version <= 1400
-        gn_args[:fatal_linker_warnings] = false
-        inreplace "build/config/mac/BUILD.gn", "[ \"-Wl,-ObjC\" ]",
-                                               "[ \"-Wl,-ObjC\", \"-L#{Formula["llvm"].opt_lib}/c++\" ]"
-      end
     end
 
     # Make sure private libraries can be found from lib

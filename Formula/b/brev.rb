@@ -15,6 +15,7 @@ class Brev < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "45874d14dadc6143bb0627536673aed5b7f219cfb7481d7344c703a1c07df79e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "be87f2ce1494f50d2f9ecac1f20920ef84b40ee920661fe5940f181160d7da6f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be87f2ce1494f50d2f9ecac1f20920ef84b40ee920661fe5940f181160d7da6f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "be87f2ce1494f50d2f9ecac1f20920ef84b40ee920661fe5940f181160d7da6f"

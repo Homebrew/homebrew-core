@@ -6,6 +6,7 @@ class Sngrep < Formula
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9726121ffd4babd8968c3bc9ab0adf8acfacbc5116ed2ae354e9a5b0f0b195f3"
     sha256 cellar: :any,                 arm64_sequoia:  "0bfc56c0e4f1b9ffdea333a9fe372928b81b6bc0b931e3629b1c822bb062272f"
     sha256 cellar: :any,                 arm64_sonoma:   "af78fe4604a4b205135a31f113a35907d121d08bd7352f5747f82afbfbf7b964"
     sha256 cellar: :any,                 arm64_ventura:  "024eb3f86b15664e9cdae3dec40226b91432a2abe44bd3e6c72fbcff0f9c6167"
@@ -19,11 +20,10 @@ class Sngrep < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "ncurses"
   depends_on "openssl@3"
 
   uses_from_macos "libpcap"
-  uses_from_macos "ncurses"
 
   def install
     ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw" if OS.linux?

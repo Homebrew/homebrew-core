@@ -14,6 +14,7 @@ class Ripgrep < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "008591f53bfe421de26519403e091924cc935a3de285856fa42f5826ac697c6e"
     sha256 cellar: :any,                 arm64_sequoia:  "b8bf5e73c9c9b441de067ec86ac167b071ecc2078dcb1d89d2cebbb151feab35"
     sha256 cellar: :any,                 arm64_sonoma:   "47b9c3515c866b147f0e98735cab165d6471b9f28fab1ba2c57e59c43da5c10b"
     sha256 cellar: :any,                 arm64_ventura:  "e14a94e84c028ff53c1be3b106fdeb5aca4d7c893a819e7fb967e0719b946a28"

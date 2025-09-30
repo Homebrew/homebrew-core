@@ -13,6 +13,7 @@ class Libgig < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d51d3d54a702c19a591256af864444e7dac11782d3099e05b72dcfac8be474d2"
     sha256 cellar: :any,                 arm64_sequoia: "f85773d19792519d3d19e73b0275a23b9ef84e68e3e57644615a488e4f324af2"
     sha256 cellar: :any,                 arm64_sonoma:  "e4081ce14559fbd6f48102d7dfc1b513e37cee4afbd7121c74cea1e8d53ffff4"
     sha256 cellar: :any,                 arm64_ventura: "789e678cdb2dff09270c004bbc81d5e431581a647be96e7ba66302329d6c3b8c"

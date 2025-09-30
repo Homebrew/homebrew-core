@@ -16,21 +16,25 @@ class Zigup < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16c4178d9b12aa6c296b91ad53873f04fb3ff1268ddde646680d0a73138c1e44"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a07d469fe63e935bff6bbe5502525da60bb68c5e868384a0e85faa44dd006781"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc1d0f528842803f809f7a0e839c9dfcd5147deb7e4e6def2e4fc1b95fdd8fad"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fce4755ad806a00dfc9b9a209459ce9536546c5ec22ad4ebce90716d9c010321"
-    sha256 cellar: :any_skip_relocation, ventura:       "e4f3ca166c66192939bc9c6b59ecf1d9c10a19662d8d5e532e96b5b479e3aa78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "439dd70b4af2e1dca1d755c3a724b400c717cd12b5cd20569abfea58e9d732a4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50aaa33ea1e56a31d29c250dca2e9b0996a6d6ac61b80371dc29206764291574"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "775c5aa1aef28d3f2894d23725e54b6a34dd710c0eaae2d19cf9bb4aca2f6bf4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e917b9c89562ea0129c9b17120e4043aea935170d243a2c8f8ded2a18761960f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f6692ad6a0d59da6540e3da49f84c7ea37a10ed56009aab4a925d90a039aaf5b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0e81b978cea25b90e8719244f50e0c4fca8aa4b7681154aaa864d2482f650337"
+    sha256 cellar: :any_skip_relocation, ventura:       "af65106ea1dd8d3f526897bd1d15111773ef20a4ab1d9633a6882a1e825014bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "452d30fb9c7f491fcfa34fb38b47f7b2134887bee6e5a5767e0a9a905030fe26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec4689d639d16b0ddc595eeecf71a24209d8d91bd8a4ffbcdbe2b18e6025715a"
   end
 
-  depends_on "zig" => :build
+  depends_on "zig@0.14" => :build
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
     cpu = case Hardware.oldest_cpu
     when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
+    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
     else Hardware.oldest_cpu
     end
 

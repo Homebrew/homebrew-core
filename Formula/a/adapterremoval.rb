@@ -6,6 +6,7 @@ class Adapterremoval < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "896c7233e9f91a6a6ccdaf4d9327b77283bcb8af87234c957905fb46f1643cfe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad8f771d05f2b2a193c0bdac1ffdbae8b9213e1cc04a0c92d35135d4d5504262"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70ace6d9c876a32e46322733499ec9c331d56d48f3a4c567f997bc43e3304deb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2efcd4380b4a9be30bcaa32552abe16aee7742860c49b4854651f3775914d118"

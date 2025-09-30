@@ -8,13 +8,8 @@ class Scons < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6da09c0f0c4cec9bad1951ce49c3b37c51b3596639fa4c90b60745bcc81b8c55"
-    sha256 cellar: :any_skip_relocation, ventura:       "6da09c0f0c4cec9bad1951ce49c3b37c51b3596639fa4c90b60745bcc81b8c55"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b11d27d96f9c7e04dd36c8f4b750c0da9c4c0f8a34c778cdb9154280cff8c1ff"
   end
 
   depends_on "python@3.13"

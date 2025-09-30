@@ -12,6 +12,7 @@ class Znc < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "40650df0a281504caa67fa4fbab37755575808e9557d5fdd48f19580a8a64b45"
     sha256 arm64_sequoia: "a56a54ecdf856cb74c0c0d6645725c767c0b99eb99b9f0d61b86b6a22e6da0be"
     sha256 arm64_sonoma:  "b8304f6432ef8092ed55159c4d8bb3fbf4564c8a5cacddba2e42ddbc0c9b6ebf"
     sha256 arm64_ventura: "e4e5f167312e5627c114aa5fa2b596e75552401912ca233f4fa3da9c74d0bd77"

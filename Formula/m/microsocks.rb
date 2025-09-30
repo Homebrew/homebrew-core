@@ -7,6 +7,7 @@ class Microsocks < Formula
   head "https://github.com/rofl0r/microsocks.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a897bf8b4ab23861c2fd23b129f7562da267b7cdf389e7626a42b786c3ab7c0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ca7d350608642d885c328e674d2e344f0d133845aae976f426fa4796db88fa9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28592464e90d74dc434146ad23e1a2d8ba86f12ed45e0ebdf65e31b1deda204a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9db6e466fd62a65dec737bb317de8a2651abff75e6e15c3df07eb3380df5e6c8"

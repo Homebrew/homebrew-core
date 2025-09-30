@@ -14,6 +14,7 @@ class Minidjvu < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "4efc0167c66e2dcc3d940290a93f1c263d2b2f0f77aa2be56a46b698a72fc998"
     sha256 cellar: :any,                 arm64_sequoia:  "a7e2ca4daf17bffbee72e2513829e5835d4d271e9daa28c5c62e806ca05ca6d1"
     sha256 cellar: :any,                 arm64_sonoma:   "affa202294a94626e2135bc65c2e2aacc5e3e5bfba4dc37f9c968d21c917cf09"
     sha256 cellar: :any,                 arm64_ventura:  "2d49c0d30645a4fced0469d6a8e01e0e2e01a2df825a294f8c1f2f96c2e1a88c"

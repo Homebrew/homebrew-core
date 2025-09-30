@@ -1,9 +1,9 @@
 class Spidermonkey < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/128.14.0esr/source/firefox-128.14.0esr.source.tar.xz"
-  version "128.14.0"
-  sha256 "93b9ef6229f41cb22ff109b95bbf61a78395a0fe4b870192eeca22947cb09a53"
+  url "https://archive.mozilla.org/pub/firefox/releases/140.3.1esr/source/firefox-140.3.1esr.source.tar.xz"
+  version "140.3.1"
+  sha256 "0b43b3a1c4f40765d96eb2094d38838f5d01b7280ad8b9b0a17612bed9c36735"
   license "MPL-2.0"
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
@@ -15,13 +15,12 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "d7ed18f946e73a8fc6b13491ba262627bac6c01fd4b4dabf3248bd80db82aa42"
-    sha256 cellar: :any, arm64_sonoma:  "aed949810733f91c9569c313eac65046ef3c43af3f46cace1008c52d22c8df60"
-    sha256 cellar: :any, arm64_ventura: "cd6d29a9607555f93893f1c0bbf50264004e5614311af558f12bf6707c4d62b0"
-    sha256 cellar: :any, sonoma:        "967c8e4205f3b3cd3291e3fb08e5ed41bee5504058b49109d1d0bfca8b2235b3"
-    sha256 cellar: :any, ventura:       "461c36317870d73c1d736b1bcca339a8c05555e25bd459e4e960753341f51499"
-    sha256               arm64_linux:   "402640e7bc12ad03b192d75caf61f09f10f36f259d613b87c83079cfe41f06d0"
-    sha256               x86_64_linux:  "e69d78c1fc1e538682a94815bfa7deb8b9cf2afdbd9d704c9b57aa1f619dec68"
+    sha256 cellar: :any, arm64_tahoe:   "4e571640a9d1d72e640e002cf6139a567ee4706208b7991e3641f871a7a34df3"
+    sha256 cellar: :any, arm64_sequoia: "685fc172e5ea2c33e31d993ea18bd432bf33692a6289f8e226b22854e6dcf164"
+    sha256 cellar: :any, arm64_sonoma:  "ed8b4d8225902db64117b3e26cb5bffed798d0316d62c4a616f33e92f0c18aba"
+    sha256 cellar: :any, sonoma:        "3f0c10fe51b85873363c55e079bad8353fecabec09d5dda063afc84e35ef9c9a"
+    sha256               arm64_linux:   "f18b6a3f00393f5a321f548fc14b83c59cf819f5a4060efbfc296e14dad65fd1"
+    sha256               x86_64_linux:  "e6cc29c3a9ed7824d79e0ee732b32fe1bfa63c246139b0d697b93fd47e1abf10"
   end
 
   depends_on "cbindgen" => :build
@@ -55,21 +54,20 @@ class Spidermonkey < Formula
     end
   end
 
-  # Fix to find linker on macos-15, abusing LD_PRINT_OPTIONS is not working
-  # Issue ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1964280
-  patch :DATA
+  # Apply patch used by `gjs` to work around https://bugzilla.mozilla.org/show_bug.cgi?id=1973994
+  patch do
+    url "https://github.com/ptomato/mozjs/commit/9aa8b4b051dd539e0fbd5e08040870b3c712a846.patch?full_index=1"
+    sha256 "5c2a8c804322ccacbc37f152a4a3d48a5fc2becffb1720a41e32c03899af0be6"
+  end
 
   def install
-    # Workaround for ICU 76+
-    # Issue ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1927380
-    inreplace "js/moz.configure", '"icu-i18n >= 73.1"', '"icu-i18n >= 73.1 icu-uc"'
-
     ENV.runtime_cpu_detection
 
     if OS.mac?
       inreplace "build/moz.configure/toolchain.configure" do |s|
         # Help the build script detect ld64 as it expects logs from LD_PRINT_OPTIONS=1 with -Wl,-version
-        s.sub! '"-Wl,--version"', '"-Wl,-ld_classic,--version"' if DevelopmentTools.clang_build_version >= 1500
+        # Issue ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1844694
+        s.sub! '"-Wl,--version"', '"-Wl,-ld_classic,-v"' if DevelopmentTools.clang_build_version >= 1500
         # Allow using brew libraries on macOS (not officially supported)
         s.sub!(/^(\s*def no_system_lib_in_sysroot\(.*\n\s*if )bootstrapped and value:/, "\\1False:")
         # Work around upstream only allowing build on limited macOS SDK (14.4 as of Spidermonkey 128)
@@ -118,27 +116,3 @@ class Spidermonkey < Formula
     assert_equal "hello", shell_output("#{bin}/js #{path}").strip
   end
 end
-
-__END__
-diff --git a/build/moz.configure/toolchain.configure b/build/moz.configure/toolchain.configure
-index 264027e..2e073a3 100644
---- a/build/moz.configure/toolchain.configure
-+++ b/build/moz.configure/toolchain.configure
-@@ -1906,7 +1906,16 @@ def select_linker_tmpl(host_or_target):
-                 kind = "ld64"
- 
-             elif retcode != 0:
--                return None
-+                # macOS 15 fallback: try `-Wl,-v` if --version failed
-+                if target.kernel == "Darwin":
-+                    fallback_cmd = cmd_base + linker_flag + ["-Wl,-v"]
-+                    retcode2, stdout2, stderr2 = get_cmd_output(*fallback_cmd, env=env)
-+                    if retcode2 == 0 and "@(#)PROGRAM:ld" in stderr2:
-+                        kind = "ld64"
-+                    else:
-+                        return None
-+                else:
-+                    return None
- 
-             elif "mold" in stdout:
-                 kind = "mold"

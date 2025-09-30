@@ -9,6 +9,7 @@ class Libnxml < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "4c39575bded5e30f6417654a6d1eabb5a2812401fe97ff351fb3067f76ab7a8a"
     sha256 cellar: :any,                 arm64_sequoia:  "3e49138d11e9bb15e135e9387bb4e1f1d55a7daa354b3caa245e9b25a1b5ace0"
     sha256 cellar: :any,                 arm64_sonoma:   "c7287e418f649ae7a95a152feb06cc43846a286ed8a5b511b490e4a2cac8d341"
     sha256 cellar: :any,                 arm64_ventura:  "6a57d9af9acf0588b0b58903248f8f116639f043bd6b1716d6592c459da3f658"

@@ -6,6 +6,7 @@ class Libpqxx < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "50cf09f0ac274da1b71c154862b9465a62ae2e51542662820346d55e6c230a83"
     sha256 cellar: :any,                 arm64_sequoia: "69a1b8a5ca5b3dbef5c4d8d2e5551951f94b9d14a0764923d187c47248f05f76"
     sha256 cellar: :any,                 arm64_sonoma:  "a2d7f9df60c26e02077ef4e75fa056f462ecb7f246289d0b286037ec5f21d0cc"
     sha256 cellar: :any,                 arm64_ventura: "3ad77f64389847790537623eb4d13ba241382d47720888c7ec494bc716bbd026"
@@ -18,9 +19,8 @@ class Libpqxx < Formula
   depends_on "pkgconf" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"
-  depends_on macos: :catalina # requires std::filesystem
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   def install
     ENV.append "CXXFLAGS", "-std=c++17"

@@ -9,6 +9,7 @@ class Hexedit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "53b4ed34afba44fcb5795b16ee29da47f4226d7b75ed2984bddb2a2a74d74039"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "604722ab45e22e81dbfdc0d047e99be5e11dc0dbe938bb9e12623a452681f848"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "afc2fe1bf87e8c4eeca709846343c69c54e061130fa737068de92c442138eeb4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0a625232f5b830b4eaf819181ab6d7f33ba19862d803fa563a7f428224dc819"

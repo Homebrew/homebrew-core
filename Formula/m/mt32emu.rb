@@ -14,6 +14,7 @@ class Mt32emu < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6471e62d5707fb60db08ef8ec9cd104ebf428331f8209f1e3c03634cebefb0c5"
     sha256 cellar: :any,                 arm64_sequoia: "7dedf906d2b598cf6a058f35544c300d6ceb3a12af1388d1b599c0054592ad02"
     sha256 cellar: :any,                 arm64_sonoma:  "a0c2c0dc6418dadcbff63677f77ab64e6ccdf244c9671edecf9642f288c72c64"
     sha256 cellar: :any,                 arm64_ventura: "b5370efcc40c5a7d40370fb26831fa33d1614df0236b9e2a11e5e72b2a1c3008"

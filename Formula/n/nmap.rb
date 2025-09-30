@@ -12,21 +12,25 @@ class Nmap < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "86f372d66c76d8b580bce5fe115c5a7ff135b29432d6eb352e20a686754079e6"
-    sha256 arm64_sonoma:  "6cab6232ad105f0fde0082fcde22fe3c77540a8f049108e781cce8c4daf03752"
-    sha256 arm64_ventura: "b25f1cda59d8b0d400e3aba65ef00c3446e3c3b71783abbbd24aa16ef9c5a96e"
-    sha256 sonoma:        "51d229c6515ddfbb501867c54aecde8f2bdb860059ef987f827869a532ec8bb4"
-    sha256 ventura:       "5ab2842330fb3bf5e485beded2fbdde0a869557647903ea96a2c18b260cd2702"
-    sha256 arm64_linux:   "0f6d1af6c67e23e2f318f85d55e5e110140464df7b31ce52af6a0c2bb3fd3145"
-    sha256 x86_64_linux:  "59e03f71b2993561a93f7cc0604a6006ff89ba380e3f7237d866ee28b356cd2f"
+    rebuild 1
+    sha256 arm64_tahoe:   "5973d94f7f57b7ceadb5fa25cb44e713c36275a6346b5ac0fa5350bd225aaee8"
+    sha256 arm64_sequoia: "a03b34a68f4a64e05ea7d13bedfcaf95df08024f8535d0ee421adbb4d5c4779f"
+    sha256 arm64_sonoma:  "95c388f63d4e8c2c5684420bab57f68a856e04815ec524336377cd4abd50808f"
+    sha256 arm64_ventura: "e58642363109486b81fcd6d9ad43bc55e89f6f278484ea3c7b7394839cb0677f"
+    sha256 sonoma:        "34b141f30a9dadc00a0290a043fea4ea7096a5a055a455d2fc49388e49d87c52"
+    sha256 ventura:       "9c7c34cbd9b4053df2709c903c9488e0e8c7c64bf1be3e7fa1b4206c8a1ea0f0"
+    sha256 arm64_linux:   "efc2e738c069175b74452d9ad521e2b3c5e0da2e0b64c0f5a661dbb699e51c50"
+    sha256 x86_64_linux:  "c9532f3302a83a7c74ecc12308b980cf162e002187dad961bdf9eb10bca0126b"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "liblinear"
   depends_on "libssh2"
   # Check supported Lua version at https://github.com/nmap/nmap/tree/master/liblua.
   depends_on "lua"
   depends_on "openssl@3"
   depends_on "pcre2"
+  depends_on "python@3.13" # for ndiff
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -65,19 +69,14 @@ class Nmap < Formula
     system "make" # separate steps required otherwise the build fails
     system "make", "install"
 
+    # Install `ndiff` separately so that we can use `pip` and `setuptools`.
+    system "python3", "-m", "pip", "install", *std_pip_args, "./ndiff"
     bin.glob("uninstall_*").map(&:unlink) # Users should use brew uninstall.
   end
 
-  def caveats
-    on_macos do
-      <<~EOS
-        If using `ndiff` returns an error about not being able to import the ndiff module, try:
-          chmod go-w #{HOMEBREW_CELLAR}
-      EOS
-    end
-  end
-
   test do
-    system bin/"nmap", "-p80,443", "google.com"
+    system bin/"nmap", "-p80,443", "-oX", "scan1.xml", "google.com"
+    cp "scan1.xml", "scan2.xml"
+    system bin/"ndiff", "scan1.xml", "scan2.xml"
   end
 end

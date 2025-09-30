@@ -18,6 +18,7 @@ class Mongrel2 < Formula
 
   # https://github.com/mongrel2/mongrel2/issues/345
   deprecate! date: "2024-09-29", because: :unmaintained
+  disable! date: "2025-09-29", because: :unmaintained
 
   depends_on "zeromq"
 

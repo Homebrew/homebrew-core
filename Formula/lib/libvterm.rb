@@ -14,6 +14,7 @@ class Libvterm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "8fdcd31d15a6c4f58e1dbd5818a18f17518766defb4548b5ad869e72adb23a20"
     sha256 cellar: :any,                 arm64_sequoia:  "1f9b512f3881f954e48acad23f8c6bcdc76ee979c89baaf0cabb9438843be999"
     sha256 cellar: :any,                 arm64_sonoma:   "bed130ed0997c0946d15e1452aa9abd30048b6d193878f027cf836648864ab7a"
     sha256 cellar: :any,                 arm64_ventura:  "0e2015cf46c8c515721f3200ed53ad9b98385985ed3eb91cb4503270469bed17"

@@ -10,6 +10,7 @@ class Ffmpeg2theora < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "42c00e60ebc22a03002de781c194a5bb837e0528fa92c32f89dd65a60c375757"
     sha256 cellar: :any,                 arm64_sequoia: "f80e6c1cf50dee0a7bc77cd75c58c10814972804cad86dc8c9167e03d6f1fa0b"
     sha256 cellar: :any,                 arm64_sonoma:  "bb6bc8a440306ed6db8686afaed5733dc4044ca647343c81875c3e4089e9d218"
     sha256 cellar: :any,                 arm64_ventura: "66a8239374c87df7e683e03192bb818a207b9f8cea5e7ebefe6d7e51d6e91d40"

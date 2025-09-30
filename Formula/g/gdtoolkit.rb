@@ -9,6 +9,7 @@ class Gdtoolkit < Formula
   head "https://github.com/Scony/godot-gdscript-toolkit.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "62cce4ac282a6945fddfa40e4dd647b1655db357d038cd4a00a2f1c074a50940"
     sha256 cellar: :any,                 arm64_sequoia: "a19edd8a6ab82c0588208bba5c2549e2e309d67e5260037d37392b56c4c6a274"
     sha256 cellar: :any,                 arm64_sonoma:  "487736b81a2755903965533b6f4d0eca6b212d38e5dd4af6dff31dc8c01ac0dd"
     sha256 cellar: :any,                 arm64_ventura: "e6d5dbf25ac8cf47e8ee33d20fdb72b2ca451aec83150c907a30ffc22f091d3d"

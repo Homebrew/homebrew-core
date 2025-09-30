@@ -17,6 +17,7 @@ class Argtable3 < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "02841c4514ec0b016351a3f513bcb7b529f78e0fbe3e4dbab89b9734d084244e"
     sha256 cellar: :any,                 arm64_sequoia: "08c1d4c1b1caf0027f5965d8f4a33a8634de5d1d2db97215c4cae4dd35a21d83"
     sha256 cellar: :any,                 arm64_sonoma:  "d12329601f98832b51f7d0887754b353116fc91389d7427526f2c7f2d493de64"
     sha256 cellar: :any,                 arm64_ventura: "f49951ca0b688eadaac7d390a5f4cba099dd801c8e1fa772eae1bbd223ee955a"

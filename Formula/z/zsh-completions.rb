@@ -58,11 +58,10 @@ class ZshCompletions < Formula
 
   test do
     (testpath/"test.zsh").write <<~SHELL
-      fpath=(#{pkgshare} $fpath)
-      autoload _ack
-      which _ack
+      fpath=(#{pkgshare})
+      autoload -R _afew
+      which _afew
     SHELL
-
-    assert_match(/^_ack/, shell_output("zsh test.zsh"))
+    assert_match(/^_afew/, shell_output("zsh test.zsh"))
   end
 end

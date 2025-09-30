@@ -9,6 +9,7 @@ class Pdfly < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "285b1bfef455d05774363b2ad1bbf6656ccf99ad7699e2c71a750569b7bc5c6b"
     sha256 cellar: :any,                 arm64_sequoia: "7871e53768cb28d79bb9f725f60720c6a45c3e7f7299f905b1260bd235b10347"
     sha256 cellar: :any,                 arm64_sonoma:  "3e8999f7d191f8944e6ccf4f22316892586a2950bfb1fa2cecd8f91ae39be87e"
     sha256 cellar: :any,                 arm64_ventura: "f4cb2815f77a1f362ece58e4134e080b4c1134d3f6ac8a36c224f69a07ea2d58"

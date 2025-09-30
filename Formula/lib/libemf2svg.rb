@@ -8,6 +8,7 @@ class Libemf2svg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "adf093b34e21931b3ef18d375f067f7b725684ee2c1c2326f47136e0ff7d8838"
     sha256 cellar: :any,                 arm64_sequoia:  "c769ed043dc565d050ee360ed38753a5f09db7fb39987c295c3d08b3eba16834"
     sha256 cellar: :any,                 arm64_sonoma:   "46974d67b425299521f648acc2561051646afbb51e47d45ff954277df5b32334"
     sha256 cellar: :any,                 arm64_ventura:  "1fc992a4391b5890a2163b4019c36331fb462f79a0fc77bfeb4c06e5a4641d73"
@@ -32,7 +33,10 @@ class Libemf2svg < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = %W[-DCMAKE_INSTALL_RPATH=#{rpath}]
+    # Workaround for CMake 4 compatibility
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

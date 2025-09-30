@@ -8,6 +8,7 @@ class Smartmontools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "1059107fe65fbaa54f25cba7f2d9160cba2ca90cb0b9ba3d3635f78639c46a29"
     sha256 arm64_sequoia: "40ae2e7c1fe5a99587149ea92c170bd8a89f97b44cb0b1d616635c45dfac2074"
     sha256 arm64_sonoma:  "55f5004cb84ed1a3ca63ad5d312dfad8eb85d5fe5adeefb317187729b37af0f6"
     sha256 arm64_ventura: "43f66ca1752c078cf5a4f9bb7943bcb27e3ddef33ca0479c69c4491c7f567978"

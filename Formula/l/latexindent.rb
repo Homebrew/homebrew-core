@@ -2,17 +2,17 @@ class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://latexindentpl.readthedocs.io"
   url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V3.24.7.tar.gz"
-  sha256 "d60fb91050a30e1c0d94362c1c304c4e4fc37862b7058ddd024e5d305862546b"
+  sha256 "04f58396a780d3a533cfa943b48b7799e065000c406e239224c383c56bd86133"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a8ddc78e57766f6cdce76d5b0c4f15a6bb91668dbbe28c259644990cd5455aa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fab8eb5aa160831444631bdd0a9b14848eb5c7656fb9391a7665d224c6188e54"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4ec34c9221ff99c7096d0649680adfb59083eee618a6e25537fc0b11fac1d103"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2bf6505954552a818912f9db88b7f28ad1213dcb07f746328b0602e4190289b0"
-    sha256 cellar: :any_skip_relocation, ventura:       "f92aa8ae3a96a5bb560bc08bca88a3d008f881a74331247aeaf9fbfeca323198"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b979c36501155b20f9b3cfa7eb7e1836be6552d708a8fce87558b1a616956be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbd8d40ce885913842b2e57bb3125327d7b39dce84fd181f7df0e13241139fd7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1607266f1092b4e3fbe9c153ac67ac0006f71c8513ea20a410cfedd11d9615af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "577009fcb4b1351d2b0811d2e696e72e7d77d0c07570247c922fd893c4219e75"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5beea1b18310662e28195e38dc5d15da354b82ca1adb7c50ac3128a40911792"
+    sha256 cellar: :any_skip_relocation, sonoma:        "74e95c0a3d9ae3b3d4f5fa16d16c6ff5f174753c3b1708b29cb4eaf1e12d3fba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6349239f6ec3c44cdc3cf2d0a05f3bac2def44fe75ea8a314e8ac26449d272c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "430b8f6960dbac3333f8f84fc15b7ba768393603c983a2ecded879ac409e4fdf"
   end
 
   depends_on "perl"

@@ -14,6 +14,7 @@ class Figlet < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "08cea07f0d5aa44680d79cf97dbae12da8f80e85deb70b36f0e701be0896efd5"
     sha256 arm64_sequoia:  "a157e5806797a85551f7773614157047dfa09fb38e76d6502cb93c79a207851c"
     sha256 arm64_sonoma:   "2af79123d12d6b8c4fc9a21fb3b7eae8405b2887bb06f14253e4a50166ac1220"
     sha256 arm64_ventura:  "0ebfa147cd1a513a86323167ab696a94b490dcd215d6685188bc376bf1313953"
@@ -24,10 +25,6 @@ class Figlet < Formula
     sha256 monterey:       "d0e426869d73c174754374b2f91dad0b9464beae30f6d4dc73882777655c44cc"
     sha256 big_sur:        "c205792bc4f3305cc2fdccf672a9df7f2d415efc6c9b7ac2f00ccb44aa981cfc"
     sha256 catalina:       "b0ecddfbf1d1e1d45ff1d3cb1be1977fd80a7924c27a73d995435de9aff5ca66"
-    sha256 mojave:         "906556c44706889c0170f4dfe7d7427f27122cee425042c3911f7266f9fc2e4c"
-    sha256 high_sierra:    "3047847adef9cb5bd5588cf65f64bfcc0549ed44d4370a862071aba2f9d98ba6"
-    sha256 sierra:         "c53966c742bf88b8481f6ed0bde1a951ea11185af2c631fb02b84fa7120f2e17"
-    sha256 el_capitan:     "943067dae95de58518b20334aec401cf5fd24866ff77315c0d7bd8b5d4ab0011"
     sha256 arm64_linux:    "becd8069f2e1a5c9db27cb7b30236450b4490d0f8ce082174cb59282344d7200"
     sha256 x86_64_linux:   "94ef53c9339ca8a3da5a92168fde47b97bdb992c8dfe6b6603f79bbe07a8acff"
   end

@@ -15,6 +15,7 @@ class Libgxps < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "94a222a265fa022f1dd5bfe13a862e9c318904fe24bc28f7c6115356ae637468"
     sha256 cellar: :any, arm64_sequoia:  "fdca2abeb3cab442e39539689c5faf9c5540fc723f01c0596c11f2943874c45b"
     sha256 cellar: :any, arm64_sonoma:   "0bc7f03e4357779ac617e6750d70daff18da2a7da889387acdfe75891bcfce0e"
     sha256 cellar: :any, arm64_ventura:  "07d90913277ea1e2a74c547c02173058afa2588ede3e9236ff7f334c894a7b6a"

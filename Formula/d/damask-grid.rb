@@ -13,24 +13,29 @@ class DamaskGrid < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0b18ca183c5b10361923e36624cd0dd48200735b9e294da7fcb669c835a58d99"
-    sha256 cellar: :any,                 arm64_sonoma:  "638f168e4c065d244b6d6fa8b060651058c17a87e6cc1af946cd6d97064a4c5c"
-    sha256 cellar: :any,                 arm64_ventura: "8b17bcdfc98a445fa66706bea7dcb980004b6445619d8db416579fc31bd2510f"
-    sha256 cellar: :any,                 sonoma:        "407856987aa7e2facc13e48dafa1422427b3e641204e5086e359082de837723f"
-    sha256 cellar: :any,                 ventura:       "899688e732738e9bfa9f1002b34deaf379c899e87c3561bf779fef5baf83c6af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44b4d4d3d26e0f059b2d5a7a1e31086929d9183f365b45fb9894623d022d2a9c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8e4188c0bb643b8d0144c3d7498f4baa723b4c53bc06050e09df43dcd0b59cf8"
+    sha256 cellar: :any,                 arm64_sequoia: "9faa7cc36c504f186b2a789967ca7484506198ebbd91758047e1ef56a8723070"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd02c102d83f9162e978cda2973457a8315e5718f309fda514f7bbcf1e472c9c"
+    sha256 cellar: :any,                 arm64_ventura: "54e10a41cc02bd30f299539ec959fe7ca12ca06fd01ace878c2129fc524e0461"
+    sha256 cellar: :any,                 sonoma:        "6661014ac60efbbdccebbe66e140d030cf09bb34fa3d19134db7ef2b9978b955"
+    sha256 cellar: :any,                 ventura:       "4e485ac7f53ad1987ad427af462fdb52d00318da802b31bd5050e6c6d475ed56"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53fc80b04f85a67efc1c49a30c8007393a7de4d67f053e8b11a7d48c999793fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b855ed39a0c7696e0f7c1efe0a7976a256219241fe59903797c5650da80c8f42"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
+  depends_on "fftw"
+  depends_on "gcc"
+  depends_on "hdf5-mpi"
+  depends_on "metis"
+  depends_on "open-mpi"
+  depends_on "openblas"
   depends_on "petsc"
+  depends_on "scalapack"
 
   uses_from_macos "zlib"
-
-  resource "testfiles" do
-    url "https://damask-multiphysics.org/download/damask-3.0.2.tar.xz"
-    sha256 "82f9b3aefde87193c12a7c908f42b711b278438f6cad650918989e37fb6dbde4"
-  end
 
   def install
     ENV["PETSC_DIR"] = Formula["petsc"].opt_prefix
@@ -39,11 +44,14 @@ class DamaskGrid < Formula
     ]
     system "cmake", "-S", ".", "-B", "build-grid", *args, *std_cmake_args
     system "cmake", "--build", "build-grid", "--target", "install"
+
+    pkgshare.install "examples/grid"
   end
 
   test do
-    resource("testfiles").stage do
-      inreplace "examples/grid/tensionX.yaml" do |s|
+    cp_r pkgshare/"grid", testpath
+    cd "grid" do
+      inreplace "tensionX.yaml" do |s|
         s.gsub! " t: 10", " t: 1"
         s.gsub! " t: 60", " t: 1"
         s.gsub! "N: 60", "N: 1"
@@ -51,14 +59,14 @@ class DamaskGrid < Formula
       end
 
       args = %w[
-        -w examples/grid
+        -w .
         -m material.yaml
         -g 20grains16x16x16.vti
         -l tensionX.yaml
         -j output
       ]
       system "#{bin}/DAMASK_grid", *args
-      assert_path_exists "examples/grid/output.hdf5", "output.hdf5 must exist"
+      assert_path_exists "output.hdf5", "output.hdf5 must exist"
     end
   end
 end

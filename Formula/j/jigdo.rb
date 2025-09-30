@@ -14,6 +14,7 @@ class Jigdo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "cd3a3a281fa2e8c3e38a04b7c759eab0900f10de7f44b175ae344e2557c57ae4"
     sha256 arm64_sequoia:  "e4c58215aeb8305e4d249afd5ec3319dd15e947d312080883d3dcc97cdd77bc0"
     sha256 arm64_sonoma:   "73202ee80753c8807409b9db634f4d2c7cddf7035557fc1c0473c29e80b8afce"
     sha256 arm64_ventura:  "f650c19b6f867d73389a9c4454bd323cadc57d683962bae896aa6c8e37d56068"

@@ -6,6 +6,7 @@ class SigsumGo < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4a274ee7dd7f1fe792ad8ab1b50f942f216651f0802c6a0abafd3f631eadd047"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab6ab52d604a1c0b8f27e0bad63db7c0793a4c3aa6dbec75e44cf3c378cc1fd2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab6ab52d604a1c0b8f27e0bad63db7c0793a4c3aa6dbec75e44cf3c378cc1fd2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ab6ab52d604a1c0b8f27e0bad63db7c0793a4c3aa6dbec75e44cf3c378cc1fd2"

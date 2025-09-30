@@ -1,17 +1,19 @@
 class Gammaray < Formula
   desc "Examine and manipulate Qt application internals at runtime"
   homepage "https://www.kdab.com/software-technologies/developer-tools/gammaray/"
-  url "https://github.com/KDAB/GammaRay/releases/download/v3.2.1/gammaray-3.2.1.tar.gz"
-  sha256 "82d924fb858985f3d0227d065b81d2267af40f7158aca9bb4ac61305f5961ee6"
+  url "https://github.com/KDAB/GammaRay/releases/download/v3.2.2/gammaray-3.2.2.tar.gz"
+  sha256 "18830a83ca8ba8e6e07d78a88d933c2666eda4b26d3cbdc97e06914f5e92388c"
   license "GPL-2.0-or-later"
   head "https://github.com/KDAB/GammaRay.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "6d6e253e57dcd066f65be0a63ce4b324108f01df9ea015e8c9ad4668feda142a"
-    sha256 cellar: :any,                 arm64_ventura: "8e8fc1c9dcde1a6ab1488bfcd036c84f2595663a8232f9746512036bb24ec74f"
-    sha256 cellar: :any,                 sonoma:        "3061293d027b90102dd533a49e71edff6fb5a6a86779736cbbd2f40b486de177"
-    sha256 cellar: :any,                 ventura:       "65e707f916d09297ffcd4480a1b2cbc3b43b81c3db338f20b04478dd57c30acb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96e62fc0d1c42295025ceb0c94bd47cf2b2926cb9275b5a8be88eab03059a0f2"
+    sha256 cellar: :any,                 arm64_tahoe:   "1602edd07d81dabaec2c3063bd4cbf2fe3a2dfcc41d031076b965b1449fb5a16"
+    sha256 cellar: :any,                 arm64_sequoia: "03db0b6faf3228e743c7843f794f297e1418cca327abb877fa5b6c4c22f1bc79"
+    sha256 cellar: :any,                 arm64_sonoma:  "188e05f535d2dcb85a2530a3c7743eab2c6b1afd3fbb2ff2f958b62ee81c3ea8"
+    sha256 cellar: :any,                 arm64_ventura: "67bef150eeaa9f64e616cdfc242958016ba65b45981a939a63721206cd56157e"
+    sha256 cellar: :any,                 sonoma:        "5d49a25721d07658ed17e45396b5edd694f4f8d9f93219938dcdc0904c1f093a"
+    sha256 cellar: :any,                 ventura:       "92727212855dd82a000851db16e91f824971aa3185ef4653475037c1462f11bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cce7a248ef5b4009c51846317295552e6e2c105ec9d12b28f6294c9133ee9024"
   end
 
   depends_on "cmake" => :build

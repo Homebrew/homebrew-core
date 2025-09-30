@@ -9,6 +9,7 @@ class Pangene < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c6dbdfbc682f5845cae51d931b77a475097693bbd76343919365f2f3413a6e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "08730dae3029ce76ebbf0bef953e839242f80bfd64f4ba430b7c94bf89b20a3c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b448acf9c369e6a67524e8d7c68fb781c5f526a3c41a74679a251965c8a5de3b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "03ab1d6a2d24f4629689f39536fb9422f934b86eef4dd5d0ceafeb479140c472"

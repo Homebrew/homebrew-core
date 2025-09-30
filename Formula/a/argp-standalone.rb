@@ -12,6 +12,7 @@ class ArgpStandalone < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4e16dcc9c857334ef0c9edee97b5063ead0f3f8dddc428ccb9cbeec6881a104c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b71de47f10a604629ded46675494d28ec5189153afe353425a4f6f52ab879f29"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ded4333901f512960d2087fd1177a70c82af78f296d858e517b52d94a2585520"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f24ae027fbc894e59972455cf569fd3676dc90d87ab93e4919df9fce0698ec1"

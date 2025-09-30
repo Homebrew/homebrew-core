@@ -6,6 +6,7 @@ class Xkbcomp < Formula
   license all_of: ["HPND", "MIT-open-group"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3eed6169b9426b62dffe9623dfa9d1664f3efe9013bae806fb1cac758ac83f14"
     sha256 cellar: :any,                 arm64_sequoia:  "a0b770e6a7ef934ac5b4fc86d683013e9ec4b1813852884b27362129357ffc57"
     sha256 cellar: :any,                 arm64_sonoma:   "21f807d7ff040f4f919aa8b785e84589013a24e492618fb2f68867a20b83ff85"
     sha256 cellar: :any,                 arm64_ventura:  "fac529997c4a64e907d0bbfa31c5d7b4223bcb978f139de89a5a57d904280279"

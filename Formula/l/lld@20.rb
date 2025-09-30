@@ -11,6 +11,7 @@ class LldAT20 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6a8698904960800a3b9fb55bce40fefbb24ae841ada2b72496e3aa8af40ffe1d"
     sha256 cellar: :any,                 arm64_sequoia: "3746c0ce88a6134e98379209fc771ece464b353d48f5fe63e4d35af34350021c"
     sha256 cellar: :any,                 arm64_sonoma:  "6646125d0a82ea3710c55257051c9f9116207d89cf5c42c8a7d9f6e8f4b8fac0"
     sha256 cellar: :any,                 arm64_ventura: "433b76ece02764aa43cf95702bdfb43a04774c1b636e998af52abae1ade6937d"

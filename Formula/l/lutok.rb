@@ -14,6 +14,7 @@ class Lutok < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8f10d485b0fc059f5a3cd9306bd913bea5b658ac7032afc2e73c9f41e1218a95"
     sha256 cellar: :any,                 arm64_sequoia: "622214005100c49c8927563ebc9643a45ca09e6c2a046a3423f90536bf5c4fd8"
     sha256 cellar: :any,                 arm64_sonoma:  "512239a68c9a297b3058e6218407cc08e3b893255afa64e1e6227ad7d7c54bf5"
     sha256 cellar: :any,                 arm64_ventura: "4c01cfb8ed37128e7ff3319734958694600672c2885a9145f0199ba80f15c418"

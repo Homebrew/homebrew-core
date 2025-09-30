@@ -5,17 +5,15 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.7.2/apache-pulsar-client-cpp-3.7.2.tar.gz"
   sha256 "e4eee34cfa3d5838c08f20ac70f5b28239cb137bb59c75199f809141070620dd"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "e17b813a73dafc0a88d4436a4744603800c8870903063514fca333015a7fc16f"
-    sha256 cellar: :any,                 arm64_sonoma:  "5637122aa767f1c09b5ffdfa5e3bc369fffc912de7db35440a74ac97503fbb7c"
-    sha256 cellar: :any,                 arm64_ventura: "dc2072aa142a8a4f21414bdace24121bddad5ac6667fc32b412f9ac0d2630837"
-    sha256 cellar: :any,                 sonoma:        "5627ec90bc03294b80d60a042510795b9cc6bad0b3273eac96d247915aff09f2"
-    sha256 cellar: :any,                 ventura:       "5758ca49c4efbd0b6f24fe5ca5321290e03e8557e02eb2050001d1a4dc1c23ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "452cc1e4ef67eb9f3b58f0d62ccb4ad90f5b8b4b9f5ee971a7d99c704f87fd19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14127de62a4698ecbc3718c904786ae2bfc009c309d6c5bf10a86ad4d4454ec1"
+    sha256 cellar: :any,                 arm64_tahoe:   "deebf95d6fee145d6b97d50fcc5af6535d2f5aea940114c3e23756979508ee4c"
+    sha256 cellar: :any,                 arm64_sequoia: "16cc8c89de5c1e2b60bfbd12605a32499ef7f9297c6b77b78e55eee87292b84d"
+    sha256 cellar: :any,                 arm64_sonoma:  "2d86c8b079260d14c0b4613dbffaf6aeecf5910320b3c99d224b264f26f39e23"
+    sha256 cellar: :any,                 sonoma:        "78caacf3c5c2e4d4fd3e81a4846668fcbbdb0f30f0ff8f69123f778f8fd4bd7e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4498724ed77815c01cef875e50b239ded2433d0a4cad976b51bff16c99dd3d8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36b1ec1ea60902233499659b654de11924907eda520a8e16b4e522e3e60e5b95"
   end
 
   depends_on "boost" => :build

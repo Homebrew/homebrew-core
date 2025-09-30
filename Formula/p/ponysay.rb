@@ -20,6 +20,7 @@ class Ponysay < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0dc99cc6fadce74e2d5614a687d483f6e26692ecf92b7133c140b287f334b51"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab0fc5205ff5d90e766f69e722c887b690ab68caa3d8c1c5f761362f39487eda"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce90b90f2442f9fb488ed6d6e01e2a054baa6028d0da97cbd26e74f608877791"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d412af3a212b5e3535e7832aa0c6d64a37e1271715ca89db5e56a56d2b8717a1"

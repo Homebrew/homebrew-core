@@ -8,6 +8,7 @@ class Wiggle < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "87190c54a3ffa3b6212f17c7183d42f8a6615a1da033a9c22175b93363c23e8d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8887ecafbe844cb6e671f1b2d74668d28ee8116ad5efe005853c96f4bbe1255c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f756d49aaee957607f8578ae60fb771362fa3c97ed675c40d48b3165fbd3cbf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af2e82816a399f7da15006e81343855ef0c205ddc22bbc2a90047d0f99ac4339"

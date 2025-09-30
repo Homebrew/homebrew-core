@@ -7,6 +7,7 @@ class MicroInetd < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "420a213af59e22190bbe8acb13f7165b444246ecb3e9e5f3778a93b0a8c039a3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9693aed7c6ab1caf581335fefd2eea3fcde0e3b62fbbe1378cd81bba864410a4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "232b03dbe326168f085f817aa5f54dfbd1d1793e6eced2991fcf5c27c932f3c4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2571772cdf0c887a13fa608f34a9bd4e866634f72c7df20a04aa6426e8e0f634"

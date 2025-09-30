@@ -9,6 +9,7 @@ class Snownews < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "13ac8a1e7efb23d95253194a128db8a74d0fdc0b50c4a38d96e525cc09ebe3d2"
     sha256 arm64_sequoia:  "0a953106b529951a0e5900c9819c2df6ef3b26822fa3ce924c333546f9264734"
     sha256 arm64_sonoma:   "aeeabd29b3c85814440dad193c88e96de8bbdc802e38f5b6fc998425d90dfc1d"
     sha256 arm64_ventura:  "ab994b373b5e6a36f4c05d128dd2b4aff607a093d4bedbda6e0c3a38e63de933"

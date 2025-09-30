@@ -16,6 +16,7 @@ class Primer3 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b96d43ea44fb89eaf75ea0f5bcc76877ca7d73bac9dc4d2084f971c7e5a3d04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7272f6819aa6154307869334e14b9c6bf7f7e2946cb29e6ce27e0e32b591772"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe6b4f0f13b4c390a9b0760ec731e50fe176456d404ef253d0b2836fb0924aa9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8f669fca578e49237e85cfa9ebb37eef493657afdbf7152349d69addb91d4a6d"

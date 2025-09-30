@@ -7,6 +7,7 @@ class Dartsim < Formula
   revision 4
 
   bottle do
+    sha256                               arm64_tahoe:   "106ea666eb2ff2120b62128d5e94873cf55db18fdedc0a92cffd8a7ae27edac6"
     sha256                               arm64_sequoia: "d7bb03b21df47b7c82dc110473010e3592b794311c6b27c895a46336df6767b9"
     sha256                               arm64_sonoma:  "1ff1a87676c0e646c7055f2256b1f47a357edbff277bd203332802d16e483102"
     sha256                               arm64_ventura: "e40b43ea43bf4059fd20c83e4ef0eb36cf8e34b96cc567dfa8ad83e3ee4e935b"

@@ -9,6 +9,7 @@ class Ssdeep < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "e9bde3f8a96c900db97df6ad5bbfdc7c3b846229b78882cb6413fd58f0dc00e9"
     sha256 cellar: :any,                 arm64_sequoia:  "e15c23668877e2528d0ef6a446904c5c9802095b19bcbaf037ce382376c50fb2"
     sha256 cellar: :any,                 arm64_sonoma:   "b3e4cc557c4481853959fe15a61314d395df95e655e6809c89dae20db8eb8429"
     sha256 cellar: :any,                 arm64_ventura:  "4c852376c9936badb32f51835c1c71622b5ef3c6c9ca9206ae43dd99a23e7d73"

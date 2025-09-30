@@ -5,6 +5,7 @@ class Aflxx < Formula
   version "4.33c"
   sha256 "98903c8036282c8908b1d8cc0d60caf3ea259db4339503a76449b47acce58d1d"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +13,14 @@ class Aflxx < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4be2a31ddffeee2481371d88fd525f175393815b0322da250bffe14e75fd1a69"
-    sha256 arm64_sonoma:  "fdcfde74d8ab2502051b1ccbe29c72d5518d87b57499d8629eff93f6b80ea026"
-    sha256 arm64_ventura: "55bc5223b24b28b6fbcb40e1cb782a8990fa8c39bea155ea7bfbb6e203eb72e6"
-    sha256 sonoma:        "d52df7a6744ce8dc02e52280ff1803330886e3f38e3a00a2990b67d4291fd38d"
-    sha256 ventura:       "8ae4865731442dec5147643b4bc46d7604fd541d4fb8dbc02ae3cebec4e986f3"
-    sha256 arm64_linux:   "96f8c0deab2753372a3df1434ad7b47e3878008d32473416d69a5b4ea05b2720"
-    sha256 x86_64_linux:  "c7c70958537d3e76775e32c57c8d2d516b182886e988348f3e4dbf6f8d6710e0"
+    sha256 arm64_tahoe:   "29ce287e229663622362168cc454a4ace7c3aca064ca7812126dcf4e92ea00e8"
+    sha256 arm64_sequoia: "f2d8c72f3f2caf2583dc9398eff3755e83366104d33af4a8dccb32024269217e"
+    sha256 arm64_sonoma:  "13fd0d4d75c16d02683d30ccf26feedd10334b019b735e290edb50724d3f2dbb"
+    sha256 arm64_ventura: "626c4a4502254103442ca657df6f41ea3f14693d054ea5466eea875c9f7e8375"
+    sha256 sonoma:        "ef2048668b8da39f52a10a78482e76f3b354adc2a04bd5035fb4a73a6b44e215"
+    sha256 ventura:       "39da01c00e47af500cfa1fb500faaf4c2d703b5bc4110b32638c874d5e2f979a"
+    sha256 arm64_linux:   "288b6addabcc7371e593364d06d6cc124409fef97dcaca5458dd48541f49d1c9"
+    sha256 x86_64_linux:  "21c0e7d582386c4451833e3fa518643b8d24dc8526a229e459f4ab5d6d2fde92"
   end
 
   depends_on "coreutils" => :build

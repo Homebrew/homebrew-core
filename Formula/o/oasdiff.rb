@@ -13,6 +13,7 @@ class Oasdiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b30a69746c46c6e2ab171dc35075133c80b84602d767cfe1cdd12767d5c11d0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb82a39e44dcda2cc1c4c712c5f8f82c84e9d9f5109e5f8afdcd815c4edcb712"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb82a39e44dcda2cc1c4c712c5f8f82c84e9d9f5109e5f8afdcd815c4edcb712"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "eb82a39e44dcda2cc1c4c712c5f8f82c84e9d9f5109e5f8afdcd815c4edcb712"

@@ -7,39 +7,43 @@ class Osmcoastline < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c35ab027223ca2ea5a8555eb16f6f28e3b08dd4b2041d4796331391a1458a5f7"
-    sha256 cellar: :any,                 arm64_sonoma:  "4792911cf6b33270e68cac5e9bb1810dff2a0869410905ae47c1978a5683e7b5"
-    sha256 cellar: :any,                 arm64_ventura: "a791ac1186a07fb44e973b7d08e2db4d73694e34d45aac133ebf399900e72486"
-    sha256 cellar: :any,                 sonoma:        "aef43094262f2b19ef4fa3c689ecfa6a51064e8ecddd9fda6d625cb690a6b0a1"
-    sha256 cellar: :any,                 ventura:       "51f97203e6f852e9ee35a14a98ba7d65f8aa1dea74a5711123e897e3e54eec8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cfd02b5ffbd8862c4c8f753c921c6db4930f64740883e9c4bd76ca0d7a89e1d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "512cdfad91e7e710a01e2f387d73661032fb267fc90c6a51131953c184956bb0"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "3315f86d657d685cfaf5e1f38277f0542b330f1b7cd733ee39f040f72e0289f3"
+    sha256 cellar: :any,                 arm64_sequoia: "7461510ebcdfa1d486b69e15595105eb324bd15c9a4e6339b811c42b5a0e7ffe"
+    sha256 cellar: :any,                 arm64_sonoma:  "fe78194e9aa2964afbc350073fd162a2fdc75bd6495faf3fd70949e58cd494b7"
+    sha256 cellar: :any,                 arm64_ventura: "0865ee2f7d54ac95a1ed2981e1e0f4440757163881dcb1a56fff16267ea1b689"
+    sha256 cellar: :any,                 sonoma:        "1d94935f700e30bb7b65234701104deea79fdf34cd68be53b01b94e36f9a221c"
+    sha256 cellar: :any,                 ventura:       "ae0525b18cc02254813fc116b75df743a637485e32d34a047dfbbb3fa894566f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "214c62abaed4acdc317d89a83681fa13e7798f3e79b82b6da59ee4374d0b088a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4deb169fe2a9cc48ddd8963591cf758b0c5f895bfa3562416ac5d538963ccd42"
   end
 
   depends_on "cmake" => :build
   depends_on "libosmium" => :build
-
-  depends_on "expat"
+  depends_on "protozero" => :build
   depends_on "gdal"
   depends_on "geos"
   depends_on "libspatialite"
   depends_on "lz4"
 
   uses_from_macos "bzip2"
+  uses_from_macos "expat"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
-  def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    if DevelopmentTools.clang_build_version >= 1500
-      recursive_dependencies
-        .select { |d| d.name.match?(/^llvm(@\d+)?$/) }
-        .map { |llvm_dep| llvm_dep.to_formula.opt_lib }
-        .each { |llvm_lib| ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm_lib }
-    end
+  # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
+  # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
+  # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
+  def remove_brew_expat
+    env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
+    ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+    ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
+  end
 
-    protozero = Formula["libosmium"].opt_libexec/"include"
+  def install
+    remove_brew_expat if OS.mac? && MacOS.version < :sequoia
+
+    protozero = Formula["protozero"].opt_include
     args = %W[
       -DPROTOZERO_INCLUDE_DIR=#{protozero}
     ]
@@ -49,13 +53,13 @@ class Osmcoastline < Formula
   end
 
   test do
-    (testpath/"input.opl").write <<~EOS
+    (testpath/"input.opl").write <<~OPL
       n100 v1 x1.01 y1.01
       n101 v1 x1.04 y1.01
       n102 v1 x1.04 y1.04
       n103 v1 x1.01 y1.04
       w200 v1 Tnatural=coastline Nn100,n101,n102,n103,n100
-    EOS
+    OPL
     system bin/"osmcoastline", "-v", "-o", "output.db", "input.opl"
   end
 end

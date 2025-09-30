@@ -3,11 +3,10 @@ class SyslogNg < Formula
 
   desc "Log daemon with advanced processing pipeline and a wide range of I/O methods"
   homepage "https://www.syslog-ng.com"
-  url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.9.0/syslog-ng-4.9.0.tar.gz"
-  sha256 "6959545cb9aaa694e4514f472c69d6e5a908abb5161861a0082c917cdf7184e2"
+  url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.10.0/syslog-ng-4.10.0.tar.gz"
+  sha256 "219fbdb1685b6fa61674712f21c7b46e5e09b2533518c57689eaa827f57b1609"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 5
-  head "https://github.com/syslog-ng/syslog-ng.git", branch: "master"
+  head "https://github.com/syslog-ng/syslog-ng.git", branch: "develop"
 
   livecheck do
     url :stable
@@ -15,13 +14,12 @@ class SyslogNg < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "5c6c9bacc12dfb440037609b5c2d436aa52b9fa9395f86b4d159fb5bfb689002"
-    sha256 arm64_sonoma:  "c1a4ef93509c590506db9d66935a9c15366c6699c64080273a1877499eeb203f"
-    sha256 arm64_ventura: "9b36999076709463213effa8f0be340e77ec2bf0d7c57b90449bdb9d93fc0e80"
-    sha256 sonoma:        "e12ac8ddecb10fa60a9a0dbc6a8e8a272dd67e533e2703702b044bec8c713eac"
-    sha256 ventura:       "508cebb027914814b6fcc56c9e256341e3efb66de2ba06022fcb767485d7671a"
-    sha256 arm64_linux:   "3ccc7ca262052030a47b6cc0008c696a12efcb3cc93be14aea98ab2b359cbcad"
-    sha256 x86_64_linux:  "d07ae290a62e19acf1de1ff7f7feafba9b4d00f5912722f01af35e3691ef8bd6"
+    sha256 arm64_tahoe:   "2673fb3e419c403175594af42724073ecf99b5768606a5b3aad7988d87cd6920"
+    sha256 arm64_sequoia: "0183914e30681cde8876c5cadb22666128bddfab1056fac001f956254fb8c766"
+    sha256 arm64_sonoma:  "b44054ac5c05ceda3a69d0d625d254ef8dde713b8a614a6ed6fb490c88362019"
+    sha256 sonoma:        "2b87755a0a0c2da04c10c2206eaab9345d3d1d557244d7478be26b60b676e91f"
+    sha256 arm64_linux:   "7469c91ba7965af539e0732c6c86dcdda84b2f51ed4404831d6dcb7ff0c86c54"
+    sha256 x86_64_linux:  "5e7e3b79faf42c5024dc463f6a9e0b1fc26e7795cc6a694c778c58bb404985de"
   end
 
   depends_on "pkgconf" => :build

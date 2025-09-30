@@ -8,6 +8,7 @@ class GitMediate < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "42134552e6c948a352c7a2819178ca7fdd34254d5932ac9867635a31813dcebe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c8be0d8c2ccb6e709e05b0744a8ae7485692993d492d3dbcac2ff7312bfb56a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5fea46d5954c87f70437d452dc81625aacd6d8538649d7a5b535771d9822026"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b57ee5c16d7e4747d9f255bc02109fc0da671ba7cfda9d13798286bf80958e38"

@@ -7,6 +7,7 @@ class Simdjson < Formula
   head "https://github.com/simdjson/simdjson.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8f0c090b7b0832030e60c9d64d37e3e6cf8dc84588d3ebd4555fea79a6d012f7"
     sha256 cellar: :any,                 arm64_sequoia: "2d66e98360e79ddc9c6659aea66532e472b31186f83a9d6efe240065833ef1a0"
     sha256 cellar: :any,                 arm64_sonoma:  "09d15daf7902bf3d9acaeb330213d8989ec42f6b47d18774805efabc8dcec563"
     sha256 cellar: :any,                 arm64_ventura: "9f4c5211b7b231e77b6e582dfee0453b1125cecad9e5b0aaa79dab1bcce1961a"

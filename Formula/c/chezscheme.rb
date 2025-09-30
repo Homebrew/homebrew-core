@@ -6,6 +6,7 @@ class Chezscheme < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a1c99b73ae69f01d6e9eb4c5e20c60c817234014568bd634e20c4e425cd4cc8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa0a0ef4b2e725411f40e15699d1cf6c98afd33553114c03290b5d448d386376"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "376de0a80c223e324d01d3fa9178e0109a51e9774eb0db7d24045e37646c2955"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c1ebe98f204674543ece35ceb221fefe2c6ea54da1a93823efc3efaa2fa9c39a"

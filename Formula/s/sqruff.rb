@@ -7,6 +7,7 @@ class Sqruff < Formula
   head "https://github.com/quarylabs/sqruff.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cd06050877b0ea91b5793cfe869e9f1dc4272658fa168133432bc36335a0c560"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb5ef33491450375cc1904be3f3f4e5d7e38417d6542ce2daad19ba1d1cea90c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "415089521b878ca2839c3d3a567241ea0bac985a2e97e48a6fea430c6ba4f611"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6bb99c142e24f1834e99a45777395dbb414005ec208e298ad706b7aa9da283e8"

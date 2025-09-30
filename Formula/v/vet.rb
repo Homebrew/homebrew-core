@@ -1,18 +1,17 @@
 class Vet < Formula
   desc "Policy driven vetting of open source dependencies"
   homepage "https://safedep.io/"
-  url "https://github.com/safedep/vet/archive/refs/tags/v1.12.2.tar.gz"
-  sha256 "6c0889bfb5505192151193b7866133ea2c9a78285e65b2a357ed03bdcaabf807"
+  url "https://github.com/safedep/vet/archive/refs/tags/v1.12.6.tar.gz"
+  sha256 "d1a21d8f2ca1b6bdf1e582d1d9a2971605162f3f4a5ac241d60707b0eecf0e23"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7911bcea1987d500690718aa448ea069ba3f8e050023645883409c7c00031a7e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ece6217d249ef074d2cebea7b8771aa313b3d012fb7328032678b94062fec75"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "744d0479aee6e3b6eaa83d8bf42a0ee5e4dce8e00c7c575688f32c401e68e293"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6807d5f89c34cc19fba2966dae78955887f9a929accf02bb3e0ca5f3c01b0961"
-    sha256 cellar: :any_skip_relocation, ventura:       "f00e858b7e3d71d8ac9bd27835897f6f00e9ddb63ecf7279b2b1cc04006bff19"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b3da6aa6458e8f2c77c9a35106b710dd8cd54c5d2b4383ee410f279b994b516"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f79ae68c1ba835ce922f83837448beb825e7ac4e173f45e34a4e4cf94d92f913"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3bd99804be3c8797cfcac78ef06a9c91551ca74e9f7e363042e735197cbf47b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3b95f825d11a55bd5553347f9bb35885e4aae84d722e127c91f734e0fbd7ef5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d793ff6b217ebcca4a2ca0b2451eb339250ebdacd29ce86537d39bd8ecdde9c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2a74103dcf34262220f42e1f8948da9d860f90284888a66debf8c6775d4ecb9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ccbd6b07e20516e110432769debead6d650f573fb311ff9bdf86ed2090f7664"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c614c4c1d5ab0fe67f434bc852acc73e5e7d75d0f1b45f9ec761f81475b3284"
   end
 
   depends_on "go"

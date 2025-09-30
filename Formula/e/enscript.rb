@@ -11,6 +11,7 @@ class Enscript < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "8ec384c474020c7910824f10690c55502ceaa686c444c4989dd3785268dac77a"
     sha256 arm64_sequoia:  "2236c54447fc2e015995a2fa047dd406dbfefa9db547a10b305e5817482d8446"
     sha256 arm64_sonoma:   "3ef28a752ae04d37d64b0b42c1fb615fcb4c374ee67722f7d0884d8567f66734"
     sha256 arm64_ventura:  "9cc559ceab604c4464c02760b4c380f4c6c12a6f87e1dd3216ac8a2788746631"
@@ -21,9 +22,6 @@ class Enscript < Formula
     sha256 monterey:       "841ac9a5d1dfd145ce137e8aadc664d747d5bff5e0e67c6176efaf83a1b7972c"
     sha256 big_sur:        "97b523c5513e54b82d963a7b34a4cfbcbe0af74399bc48839b5285cfce29a9a1"
     sha256 catalina:       "3611a6a01c76502ae6d4b1ff13d802acc5b2a2a3f2cf647e6b9323b7e40bde7e"
-    sha256 mojave:         "a8bbba8f7d64eed40dd59a9db980b049ec786e148d31a0aeb92556959b4ad0b0"
-    sha256 high_sierra:    "00045dff3bdf7ac98a19236838d7af7101cc1fc002e55550312042bb2e4d7426"
-    sha256 sierra:         "c14fad6cfd67fa782beb7a425eb03c3ed0b8090ed751c37f5f5ec426808df25c"
     sha256 arm64_linux:    "9fc267a42a3689f1a8049af501c924fc2c7c767026018b699cca551db9e339fb"
     sha256 x86_64_linux:   "d968c97391029600c54ace8362e7293202ca6227421d626dced22f21b2ccfa26"
   end

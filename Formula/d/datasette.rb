@@ -11,6 +11,7 @@ class Datasette < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b3ebe7fb53aa5baba1b2e1036a04ef72b45e4dc532f7a27bf43109f48d6fbed9"
     sha256 cellar: :any,                 arm64_sequoia: "6ac6f324e544be531f3483798a79c889c9040acbfe486e2b6e7602707cde10d3"
     sha256 cellar: :any,                 arm64_sonoma:  "c7fd8155d2ff8e98e9b75537508dafc00b3dd8a4db66b46bc40968d6e5d49c70"
     sha256 cellar: :any,                 arm64_ventura: "1999b4bdbbfa0c0ca2c3d641b19f86ee3e3e21f3a199a4905f36d987f828b68d"

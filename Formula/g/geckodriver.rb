@@ -37,6 +37,7 @@ class Geckodriver < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ef35a96f86a562d2e4ce13a0bc898e5ae48512877091f31a1dc54b3c3da3d9e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "83fdf6d88e97169dbd88d75a957b29e8cddcc943b0f414fe67317dec60cdcbb1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "353120aefe38373b6018daf45a1d9b66fd0ac1ccbc24f25c68837dcaf255e8d7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7f02fff09b38ba190b4eb51ea41e7a9cffe8251d1891d6fa4fe2a11cfcdab356"

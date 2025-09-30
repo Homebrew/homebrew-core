@@ -1,19 +1,18 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.4.5/deno_src.tar.gz"
-  sha256 "a6bba626d08813c114bfcc862e69fd7202eecda97df9f349abf6cc4e38fe4e40"
+  url "https://github.com/denoland/deno/releases/download/v2.5.2/deno_src.tar.gz"
+  sha256 "44e9db8c52da72fed0ef8f990ab7ba3435562942752b5eafe845ff31bb643438"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bdbb69d5185be8e54af25d0df6809b8828d7e79f8fad1986ae615562204ec0ff"
-    sha256 cellar: :any,                 arm64_sonoma:  "7dcd012a4e056070d3f71bab0b7b74d350432b2710cb044fa34302842aa684e5"
-    sha256 cellar: :any,                 arm64_ventura: "26c04aecd95e6f0131532fa50957a868e4944c2ba265d630d1fc65d3af34660f"
-    sha256 cellar: :any,                 sonoma:        "ea3b174e1e185f03e58b7a6c999114312b8c5b8b6785a058dcaf5fe421dd1cbc"
-    sha256 cellar: :any,                 ventura:       "7ea78589c2aa3f8fc0f77f7881925beabc584236c807a5528a9c5646cb5ca701"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "438591d5d864d3d8f68328807e57eb4f0f4212f275d1e5f5e621aef479bd68d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cbdad602a5a58a09a1dfade9cc0d56723ad51f9337002743c9e45b2e7de7780"
+    sha256 cellar: :any,                 arm64_tahoe:   "a952ede084478a564762c0d4cee3116699c579f29e3d6452e1f534a666588f3d"
+    sha256 cellar: :any,                 arm64_sequoia: "698629fac1172e33177ad3af37f1c347fa1e034ec552aac591360c6c2e15d3c0"
+    sha256 cellar: :any,                 arm64_sonoma:  "27d7d636a3b048eb0932a7556d35374ec7a0811c66c9dd2c93ee5e52245841c1"
+    sha256 cellar: :any,                 sonoma:        "2423c57574213bf7c5cdd2b05bb36381483ecb171cbca06851cd7c6aa87bf798"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa8dfa3521886c553bdf8a12be68fbe36852ee49a8d93a23c28c590df0357434"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66b8bea8ad23a052dc40dabf040cde9d05877f813cc7dc34f38fd118562ec7de"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +25,7 @@ class Deno < Formula
   depends_on "little-cms2"
   depends_on "sqlite" # needs `sqlite3_unlock_notify`
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "libffi"
 
   on_linux do
@@ -54,8 +53,6 @@ class Deno < Formula
     # env args for building a release build with our python3 and ninja
     ENV["PYTHON"] = which("python3")
     ENV["NINJA"] = which("ninja")
-    # build rusty_v8 from source
-    ENV["V8_FROM_SOURCE"] = "1"
     # Build with llvm and link against system libc++ (no runtime dep)
     ENV["CLANG_BASE_PATH"] = llvm.prefix
 

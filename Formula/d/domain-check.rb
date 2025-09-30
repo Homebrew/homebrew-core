@@ -7,6 +7,7 @@ class DomainCheck < Formula
   head "https://github.com/saidutt46/domain-check.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "829c048778054b22f4db890f78cbd3f75fde925f026e0b81b9200085e1f1aa5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "635d21a45cf09356c46b9851b7de92b6fd423278a99e787287745df69a17587b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9924c37da9b37b9cde0f7216a50b9cfb605535c713e26796138e8deec5c7d316"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c6800c2f7cc58f98ef6944b344949e758e60c10ddb5d21055c09e0939ec656a5"

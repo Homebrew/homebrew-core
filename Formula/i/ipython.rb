@@ -3,19 +3,13 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/54/80/406f9e3bde1c1fd9bf5a0be9d090f8ae623e401b7670d8f6fdf2ab679891/ipython-9.4.0.tar.gz"
-  sha256 "c033c6d4e7914c3d9768aabe76bbe87ba1dc66a92a05db6bfa1125d81f2ee270"
+  url "https://files.pythonhosted.org/packages/2a/34/29b18c62e39ee2f7a6a3bba7efd952729d8aadd45ca17efc34453b717665/ipython-9.6.0.tar.gz"
+  sha256 "5603d6d5d356378be5043e69441a072b50a5b33b4503428c77b04cb8ce7bc731"
   license "BSD-3-Clause"
-  head "https://github.com/ipython/ipython.git", branch: "master"
+  head "https://github.com/ipython/ipython.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d7a92ab09f933e4d50927d3155592df1d39277ec751d691386fddd539478bf1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d7a92ab09f933e4d50927d3155592df1d39277ec751d691386fddd539478bf1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5d7a92ab09f933e4d50927d3155592df1d39277ec751d691386fddd539478bf1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8ef9074dda573af2aac989b3a621b8321291323198d15ab442605b94b62405bd"
-    sha256 cellar: :any_skip_relocation, ventura:       "8ef9074dda573af2aac989b3a621b8321291323198d15ab442605b94b62405bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d7a92ab09f933e4d50927d3155592df1d39277ec751d691386fddd539478bf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d7a92ab09f933e4d50927d3155592df1d39277ec751d691386fddd539478bf1"
+    sha256 cellar: :any_skip_relocation, all: "dc5c496ca724048abbd5fd5d4ed3dcd7b12551c9e47e61d875ccae9e7dee9e89"
   end
 
   depends_on "python@3.13"
@@ -31,8 +25,8 @@ class Ipython < Formula
   end
 
   resource "executing" do
-    url "https://files.pythonhosted.org/packages/91/50/a9d80c47ff289c611ff12e63f7c5d13942c65d68125160cefd768c73e6e4/executing-2.2.0.tar.gz"
-    sha256 "5d108c028108fe2551d1a7b2e8b713341e2cb4fc0aa7dcf966fa4327a5226755"
+    url "https://files.pythonhosted.org/packages/cc/28/c14e053b6762b1044f34a13aab6859bbf40456d37d23aa286ac24cfd9a5d/executing-2.2.1.tar.gz"
+    sha256 "3632cc370565f6648cc328b32435bd120a1e4ebb20c77e3fdde9a13cd1e533c4"
   end
 
   resource "ipython-pygments-lexers" do
@@ -51,8 +45,8 @@ class Ipython < Formula
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/66/94/68e2e17afaa9169cf6412ab0f28623903be73d1b32e208d9e8e541bb086d/parso-0.8.4.tar.gz"
-    sha256 "eb3a7b58240fb99099a345571deecc0f9540ea5f4dd2fe14c2a99d6b281ab92d"
+    url "https://files.pythonhosted.org/packages/d4/de/53e0bcf53d13e005bd8c92e7855142494f41171b34c2536b86187474184d/parso-0.8.5.tar.gz"
+    sha256 "034d7354a9a018bdce352f48b2a8a450f05e9d6ee85db84764e9b6bd96dafe5a"
   end
 
   resource "pexpect" do
@@ -61,8 +55,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
-    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
+    url "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz"
+    sha256 "28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"
   end
 
   resource "ptyprocess" do
@@ -91,12 +85,16 @@ class Ipython < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
-    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
+    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
   def install
     virtualenv_install_with_resources
+
+    # Build an `:all` bottle
+    prefix = libexec/Language::Python.site_packages("python3")
+    inreplace prefix/"IPython/core/application.py", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do

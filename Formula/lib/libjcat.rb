@@ -9,6 +9,7 @@ class Libjcat < Formula
   head "https://github.com/hughsie/libjcat.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "4adb85db0aef273ea25225d0938a6b8c69d61f2c488bb377bdc49467944dbed6"
     sha256 cellar: :any, arm64_sequoia: "f81dac6097133f01ba6dc2890ea638bc19157b5532262f651523c5daf3a36ade"
     sha256 cellar: :any, arm64_sonoma:  "008c768443345295eb167faf45cdca4cca66450522e430c1b5754335488f5a30"
     sha256 cellar: :any, arm64_ventura: "40b6538beb4dcfc8a8eacffe717dccd84595284b564c43c4da4828f7683d1dc4"

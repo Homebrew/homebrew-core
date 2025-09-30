@@ -1,13 +1,13 @@
 class Foot < Formula
   desc "Fast, lightweight and minimalistic Wayland terminal emulator"
   homepage "https://codeberg.org/dnkl/foot"
-  url "https://codeberg.org/dnkl/foot/archive/1.23.1.tar.gz"
-  sha256 "02072b8f0aaf26907b6b02293c875539ce52fc59079344e7cf811ab03394cfa3"
+  url "https://codeberg.org/dnkl/foot/archive/1.24.0.tar.gz"
+  sha256 "db2266f1a541662187ded46648a52feb0f8761b26ef7a8360bf3ac8315321bef"
   license "MIT"
 
   bottle do
-    sha256 arm64_linux:  "ce220c2f7105e6d685a152e9ad3f8b8c819694c2d6f9432b45b19b9f855f2c56"
-    sha256 x86_64_linux: "9f11f014371965e8eb7dad6ae6f584d12c7dd3248ded898ece4afd4a9bc00811"
+    sha256 arm64_linux:  "13a0237afc6e9d05af157d58dad99d19fbc42a35301f8af9becf8a27cd27a27d"
+    sha256 x86_64_linux: "b8aadc65686add45ecfbdff0eadfd868f7d6f5a1f7fb4a76ce9530e854c25e85"
   end
 
   depends_on "cmake" => :build

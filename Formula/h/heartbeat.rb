@@ -2,19 +2,18 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v9.1.2",
-      revision: "b036c1c565cf24c9b720605632234d20cb9dba60"
+      tag:      "v9.1.4",
+      revision: "c50e2cc4adfaed4367b3fba44d27db0222123cec"
   license "Apache-2.0"
-  head "https://github.com/elastic/beats.git", branch: "master"
+  head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12389bf070a6b84e4976a42c60d258df2282c2605b943e6da373dd381a4d6454"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0079887fb2d1792dc2dd6ec3788945fb3ae42a3ae32238f703c51e59e0cc82a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c10b94c21f527619e5077e8344e786aee38a87c659e6221e944890bdba9e9e2c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2c7f08f3ae7c7da76986c53c5b68e6f7fcbca8510d32a6160cf1c95bfb0849c7"
-    sha256 cellar: :any_skip_relocation, ventura:       "926c961d510f97d86cd07b4967a9222b65224dd86e83a04330ae6fd660f10aa8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac5b725c1eaa864de37d06b94c13027d7ed19690754f9fe261b9c76be9ca163a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0ad295c91a58ee44e3f57b0e34fd90a852273225a829e208f295581d8393918"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "db2461d837afc11d89fd11730fba99443d5ff52142ebba67584c48359caf95c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e12e874c60484745047f791b0271c1b6a201a3dd56c85b6129e1415ef6dfb4c7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c19c624519b3a0a61a49a56a26f5bd875ecb45762b18ab6017b8c66960e6dbb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a43bd18d42a3347b46a2cdc06a8d487f93bedc833bfef2c6b786f0c605bf272f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c94630f3384631e998e3e01c9d554595ddbea7165b259da35b13a406c7d3168"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e4186f74e758978ca99b14de7136f20975f00077f3c0ae00adde46943e15aba"
   end
 
   depends_on "go" => :build

@@ -9,6 +9,7 @@ class Libhttpserver < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3c6d43ba60b58af6cbb736fcef51bc8378c8616ba1bc9be95699d19f588cfa4a"
     sha256 cellar: :any,                 arm64_sequoia:  "a52ab6c0ede296608a7aa71640485e6295b72ae13cfdbb14cbd91c032d9c0af7"
     sha256 cellar: :any,                 arm64_sonoma:   "8656daf385c457a28484c8bff0d6271a5271980ab97899b249c1890274617fb7"
     sha256 cellar: :any,                 arm64_ventura:  "b11af50845ce2a87984d6240d3d7db441be82f84fde6fc6447866cc0dd5e6236"

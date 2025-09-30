@@ -10,6 +10,7 @@ class Awsume < Formula
   head "https://github.com/trek10inc/awsume.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7a121ce0844270e2aa7e5f32a874ceab87948d05968a229d076feceb5d1c2681"
     sha256 cellar: :any,                 arm64_sequoia: "030e2f49997fed0235ca111b48944bd6f855eaa2d2c59cabd9ba247e22e5ef7c"
     sha256 cellar: :any,                 arm64_sonoma:  "2ecc4d5fd1c6db43db69f746d3f6f1a9da807eda6514bb3c2769977ae2d9fb1b"
     sha256 cellar: :any,                 arm64_ventura: "c85b9414c5695f72832ac4256ccf1b84b9bb6346b2956d7103a6c00307d4a036"

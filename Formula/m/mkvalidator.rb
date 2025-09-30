@@ -13,6 +13,7 @@ class Mkvalidator < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "482c49cc210fac2c0a124061fa36c9b9dd5217338698c14ce6cb2eb52fdbaf5a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3295228dd92c0233d71546962d8ae9ab3ea7611324e810b0446f601f8d9e9e07"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b9b3070f946ba91f4789020f92b61a92c0a07956f63e9e4fb6b5b51858172f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b92708846e9acdc1e65588e3404f835f91ef55c272d2d28e37893b519a30c156"
@@ -23,7 +24,6 @@ class Mkvalidator < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "3ecaed3130b7884171aac431fffd4b6be19ad322cc990a4659a26407ffb799fd"
     sha256 cellar: :any_skip_relocation, big_sur:        "cef2881fd23f1e0b7c465080379f8564b00da6db94cf28f5da272ec19f565014"
     sha256 cellar: :any_skip_relocation, catalina:       "98fa360ee6e7ebc233784d62c599bc07bd92131159bdbc64d233ad99f883a99e"
-    sha256 cellar: :any_skip_relocation, mojave:         "4e2d50be71341f0a47591587ce3cc428da8493af87ea2bcdcca64c86cacd44f4"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7460fa4aa8b4de099df311c8058767d8c538e9950045134c3267f6fc47ec3790"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "83b78fb761e9d2bccbc88b9893d6760f445eef59c2d122dace22541ef1e04791"
   end
@@ -31,7 +31,9 @@ class Mkvalidator < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround for CMake 4 compatibility
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     bin.install "build/mkvalidator/mkvalidator"
   end

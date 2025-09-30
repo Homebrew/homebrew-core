@@ -8,19 +8,8 @@ class Hostdb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "09b528afa8eb8c14becf6bc4240d82b1d40320be2e4a5718af35769e0ba663db"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "507656584e0ec815556008dea547944116e8e6c99a3646c3b7ae31b489e337b6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1c397eae6bba51e1082904159e462f7cede76d7c3d1def04a0cfbc65cec17d5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1c397eae6bba51e1082904159e462f7cede76d7c3d1def04a0cfbc65cec17d5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1c397eae6bba51e1082904159e462f7cede76d7c3d1def04a0cfbc65cec17d5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e18f13b9c70d5496eb9ca5066bc2876affd943b2489b99d38e0d2238b70eadc6"
-    sha256 cellar: :any_skip_relocation, ventura:        "15df2ae20a92ce1921922de57e085664cc31557f11fcee4dc4a214c7f4c949d9"
-    sha256 cellar: :any_skip_relocation, monterey:       "15df2ae20a92ce1921922de57e085664cc31557f11fcee4dc4a214c7f4c949d9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "15df2ae20a92ce1921922de57e085664cc31557f11fcee4dc4a214c7f4c949d9"
-    sha256 cellar: :any_skip_relocation, catalina:       "15df2ae20a92ce1921922de57e085664cc31557f11fcee4dc4a214c7f4c949d9"
-    sha256 cellar: :any_skip_relocation, mojave:         "15df2ae20a92ce1921922de57e085664cc31557f11fcee4dc4a214c7f4c949d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3187a248c3315e748961010b25b7f9801defbbb730f2caaee17e6c1f3ebb5812"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1c397eae6bba51e1082904159e462f7cede76d7c3d1def04a0cfbc65cec17d5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7f0c8bfe7fe1652daa4aa926d6287ae94e851bd979ca6b53b3c0bc54e85dc208"
   end
 
   def install

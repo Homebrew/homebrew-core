@@ -1,8 +1,9 @@
 class Quickjs < Formula
   desc "Small and embeddable JavaScript engine"
   homepage "https://bellard.org/quickjs/"
-  url "https://bellard.org/quickjs/quickjs-2025-04-26.tar.xz"
-  sha256 "2f20074c25166ef6f781f381c50d57b502cb85d470d639abccebbef7954c83bf"
+  url "https://bellard.org/quickjs/quickjs-2025-09-13-2.tar.xz"
+  version "2025-09-13-2"
+  sha256 "996c6b5018fc955ad4d06426d0e9cb713685a00c825aa5c0418bd53f7df8b0b4"
   license "MIT"
 
   livecheck do
@@ -10,16 +11,13 @@ class Quickjs < Formula
     regex(/href=.*?quickjs[._-]v?(\d+(?:[.-]\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_sequoia: "c95d9c212cf28f7236c7cec3207bb0e60f9366113dd01fb376758ec63e813486"
-    sha256 arm64_sonoma:  "50ad44fcd6572ec6eca42f8c8b940d443003dcfac3a79389e64c4ba5b9834660"
-    sha256 arm64_ventura: "90f7789068432ae2c08bdb22d541cfcecfe49215448ffc36cbdaaaaf52c3bf6d"
-    sha256 sonoma:        "87856de7dd77c5ae0866f3d8b2c1f44c6c6cbd5ceb2b3b2627c0db7a837f800a"
-    sha256 ventura:       "b3ddcc47985fd12e9ce6e454ecb5f89a02238c4ead72e41ee7939d958f825cf0"
-    sha256 arm64_linux:   "7e005a218d3fc37162d006ad37207f8ffe087d5ffddf8fff3fa3ccf20d660b0a"
-    sha256 x86_64_linux:  "c2e635a3d0744604802bf5c7ebbf65c3b74faf1898bd2d37db014d4d858c942b"
+    sha256 arm64_tahoe:   "0c4a5557adceba07641b2d0df1a7dc4a80a95cb8d95cb8e89a75deabd2cac755"
+    sha256 arm64_sequoia: "6b8a9c3c838646ff828233f6ed5af58974985f076ab68a9b4337da8d0e01411a"
+    sha256 arm64_sonoma:  "6ac5d8f62afabf4912fb5173a417c08f9118f3ed0fd88c069ee91d74d6a08c1b"
+    sha256 sonoma:        "a2ce1cdd3b921b02c123850b83ff78d4d983fc487c04bfdf93352d415bf6f253"
+    sha256 arm64_linux:   "4a3b2817c7f28db585ece2b4e317fe6ce0079a6c716dd2ef9e612a80d7106089"
+    sha256 x86_64_linux:  "547f293bb0c5b1de7fe993352bc26192627f16a36128d64bb9b9dbd9b2afca2e"
   end
 
   def install

@@ -2,17 +2,18 @@ class PowermanDockerize < Formula
   desc "Utility to simplify running applications in docker containers"
   homepage "https://github.com/powerman/dockerize"
   url "https://github.com/powerman/dockerize.git",
-      tag:      "v0.23.2",
-      revision: "b2733c291f1c3be71e0559d35efde3a887dc7060"
+      tag:      "v0.24.0",
+      revision: "98df0a9e614d389b06622bb66b44481011fc16c5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cacb9c8c99dea828b7cbe8d566b4f34b075602eb4c6efa22a3c0e572f12abe99"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cacb9c8c99dea828b7cbe8d566b4f34b075602eb4c6efa22a3c0e572f12abe99"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cacb9c8c99dea828b7cbe8d566b4f34b075602eb4c6efa22a3c0e572f12abe99"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0562e04edc456f122f46a454234f49acb227d846f4595cc9e61f408f50c66026"
-    sha256 cellar: :any_skip_relocation, ventura:       "0562e04edc456f122f46a454234f49acb227d846f4595cc9e61f408f50c66026"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f6f8becec6b760a1ce4cc250770c9207821b42f4bd8917ea44db186fb4e6c3b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa4531120658b5d83e82f63c80be0e774e8057f8c984369625e536ae2f582b42"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4f03c8b8543e474af29da228cea9608fc3e0126ef4ecf14042f423be17c73be"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4f03c8b8543e474af29da228cea9608fc3e0126ef4ecf14042f423be17c73be"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f4f03c8b8543e474af29da228cea9608fc3e0126ef4ecf14042f423be17c73be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a8423454af9a78459fc06ec92374092403780afa12d59ac277551c8038cd140"
+    sha256 cellar: :any_skip_relocation, ventura:       "7a8423454af9a78459fc06ec92374092403780afa12d59ac277551c8038cd140"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34b68e1e44ae7024f51d75786c99ff2822c73cf59cc54f285bb8e151b3b7451f"
   end
 
   depends_on "go" => :build

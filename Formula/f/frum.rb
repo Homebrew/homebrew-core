@@ -15,6 +15,7 @@ class Frum < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "44133e9fcdeaf79a06548348b2ddf99dc944380101b5b537e00b423ebd54d314"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ca5b6f656ac5c95935cc3b52e48f8c7c3fd29eb96cbe09cba8427249323ec8a1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43376fe50b3c720f2abd628223f6c4df5dba4ecb910742b2dd81a601673bbe7d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cddc04b3d141142ed2e7233298953fced064fd66b195bd3a61f7777dcc38cf9"

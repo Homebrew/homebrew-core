@@ -7,6 +7,7 @@ class HelmLs < Formula
   head "https://github.com/mrjosh/helm-ls.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d733a4cd347877da589931fb43b17795d59f22b64317a6f0ac58f5a6e866e896"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd280e902cd6bee83a50efd9e84847ee06a012d32caf43524054470ff2e06e26"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34c82928b7f9333c372ee3d3b2ab35ca9b310d1c9154bd009d03fcd58c3f5574"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fef517a2220c34cf4d38249448c0d41e062d31d3ea821fe4b254eae4f94ba453"

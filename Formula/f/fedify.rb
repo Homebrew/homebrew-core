@@ -1,19 +1,18 @@
 class Fedify < Formula
   desc "CLI toolchain for Fedify"
   homepage "https://fedify.dev/cli"
-  url "https://github.com/fedify-dev/fedify/archive/refs/tags/1.8.5.tar.gz"
-  sha256 "e32188d519cb7334de84acda2a236f1303e96a7fc60183fb0e49706f0697ccb4"
+  url "https://github.com/fedify-dev/fedify/archive/refs/tags/1.8.12.tar.gz"
+  sha256 "1e558df86fcc7ca9c9932f7bb31df3f76cefbe7185b38c4cb96a4c599c265d28"
   license "MIT"
   head "https://github.com/fedify-dev/fedify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d61e0f2af073e224417943407b3d90e799c977928bf756fbb6fca56b814bab8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d9b1fb229266e75c1bf9c539f1ff859f8e71507edc3047eace54274b5f0838e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "76c1c4853a8e67cea8fb92850b4ef0df1f5a03eacd12d6b3cb0d604a35ab8e8d"
-    sha256                               sonoma:        "eba85ecaaa2d120c44bc519ad3195327ba9558bc5a384bda568b86d62be69026"
-    sha256                               ventura:       "cb52934d2e62b182d11f65cccf4d9fe1b48893a64e9bd45e74a0a04d9b26e522"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c06bd5d30faeeea32ed953ec9803e7a4ba21738af6c4ceaa138027e708ca6193"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aae6694a5a92cc3647e9da1206aa0245a500b154b56e358f0444548e146a9227"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "81d7a4f21ce685214aa49f7d39738eee8cd161ce82efe3ce4f4d0aec6c3200a7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ab2f6c68a530e80191e594d2f5aa4b78cb5e1224d06a064862ac2ea09770346"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b15d7c18e2c93012bde96c154216365d0ac5c63656f306766e9feb782baf62b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "260af20b523b368927967375d57e35b9aef57ac0d65534d84613de483fbaec1a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7728caf946b368a3acb83dce9c0ba097434cf4eb3eb8d88b3bd04afd4434f66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ea51ba3f1a652f0b00a19342a855d44f5ce482e10ab7323b463e5ab9f504317"
   end
 
   depends_on "deno" => :build

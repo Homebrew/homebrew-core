@@ -14,6 +14,7 @@ class Qrupdate < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "06f87282b23c5f3cec4efedea8259122807837de4e2fa0928ca380a69357ab74"
     sha256 cellar: :any,                 arm64_sequoia:  "5ea96ebb5b0af96ca5976f5c0a188c772eadc46fa52edb44cdb89f3d2e69436c"
     sha256 cellar: :any,                 arm64_sonoma:   "30d96fead1ad674156f1ca3121c2c5df27f3a2e42d226425ca6f83554628a86b"
     sha256 cellar: :any,                 arm64_ventura:  "883c11e84b2dcdd6ed46344697e8363a2c61e68d26aa6439d4684bc1a7abc76b"

@@ -9,17 +9,18 @@ class Backgroundremover < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2037eb61fdb1fca67d697103b58179ecb86e2d7d3f0b84e5fe793e4ca8d9e902"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8457687bc5a28a17aaad89fbf474f50948d01de54cdf10f15244d8fcfaf1231"
-    sha256 cellar: :any,                 arm64_ventura: "bd162cad39f2910ff9e5c654147f35605c9135b46f7799b1df2f96f265f1bb3e"
-    sha256 cellar: :any,                 sonoma:        "697fff86e0edd55ec5b6b44ad095c2f2fbd900480551e86f07b754f0228e38dd"
-    sha256 cellar: :any,                 ventura:       "b6011e02c1f7bf8e8f14abebd5c323cf171136153964cbb658da401586307007"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "594021e933e73d7454dee7e32236dff7fee1ab4bcd1b3bd1f5724c46a45c65b1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d2b21276350dba7e2699108574cd3608c25c5e22d72c9434fe352c165d12ad98"
+    sha256 cellar: :any,                 arm64_sequoia: "e083a60c6869c60574e1968a635b7d8f1654cfb0dfae5a0da4a29c58066667ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "a8718a44aa6a253f9b9af1fca66e406eb1cb96bb28f8f1ff4de50579e1173558"
+    sha256 cellar: :any,                 sonoma:        "c2981ba9aa8107bcd22fa3f542b50ef164a0d967c5f2bf723b7d658e4eba2326"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21cb19aaaf5b99436075ad9d0d9eb7d3aef96eb4357d6b20c25b6ac2c3b04294"
   end
 
+  depends_on "cmake" => :build
   depends_on "certifi"
   depends_on "ffmpeg"
-  depends_on "llvm@16" # LLVM 20 PR: https://github.com/numba/llvmlite/pull/1092
+  depends_on "llvm@20"
   depends_on "numpy"
   depends_on "pillow"
   depends_on "python@3.13"
@@ -32,8 +33,8 @@ class Backgroundremover < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "commandlines" do
@@ -71,24 +72,19 @@ class Backgroundremover < Formula
     sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
-  resource "imageio" do
-    url "https://files.pythonhosted.org/packages/0c/47/57e897fb7094afb2d26e8b2e4af9a45c7cf1a405acdeeca001fdf2c98501/imageio-2.37.0.tar.gz"
-    sha256 "71b57b3669666272c818497aebba2b4c5f20d5b37c81720e5e1a56d59c492996"
-  end
-
   resource "imageio-ffmpeg" do
     url "https://files.pythonhosted.org/packages/44/bd/c3343c721f2a1b0c9fc71c1aebf1966a3b7f08c2eea8ed5437a2865611d6/imageio_ffmpeg-0.6.0.tar.gz"
     sha256 "e2556bed8e005564a9f925bb7afa4002d82770d6b08825078b7697ab88ba1755"
   end
 
   resource "llvmlite" do
-    url "https://files.pythonhosted.org/packages/89/6a/95a3d3610d5c75293d5dbbb2a76480d5d4eeba641557b69fe90af6c5b84e/llvmlite-0.44.0.tar.gz"
-    sha256 "07667d66a5d150abed9157ab6c0b9393c9356f229784a4385c02f99e94fc94d4"
+    url "https://files.pythonhosted.org/packages/9d/73/4b29b502618766276816f2f2a7cf9017bd3889bc38a49319bee9ad492b75/llvmlite-0.45.0.tar.gz"
+    sha256 "ceb0bcd20da949178bd7ab78af8de73e9f3c483ac46b5bef39f06a4862aa8336"
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/ce/a0/834b0cebabbfc7e311f30b46c8188790a37f89fc8d756660346fe5abfd09/more_itertools-10.7.0.tar.gz"
-    sha256 "9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3"
+    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
+    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
   end
 
   resource "moviepy" do
@@ -97,11 +93,8 @@ class Backgroundremover < Formula
   end
 
   resource "numba" do
-    url "https://files.pythonhosted.org/packages/1c/a0/e21f57604304aa03ebb8e098429222722ad99176a4f979d34af1d1ee80da/numba-0.61.2.tar.gz"
-    sha256 "8750ee147940a6637b80ecf7f95062185ad8726c8c28a2295b8ec1160a196f7d"
-
-    # Support numpy 2.3, upstream issue, https://github.com/numba/numba/issues/10105
-    patch :DATA
+    url "https://files.pythonhosted.org/packages/e5/96/66dae7911cb331e99bf9afe35703317d8da0fad81ff49fed77f4855e4b60/numba-0.62.0.tar.gz"
+    sha256 "2afcc7899dc93fefecbb274a19c592170bc2dbfae02b00f83e305332a9857a5a"
   end
 
   resource "proglog" do
@@ -125,8 +118,8 @@ class Backgroundremover < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "six" do
@@ -150,8 +143,7 @@ class Backgroundremover < Formula
   end
 
   def install
-    ENV["LLVM_CONFIG"] = Formula["llvm@16"].opt_bin/"llvm-config"
-
+    ENV["LLVMLITE_SHARED"] = "1"
     venv = virtualenv_install_with_resources
 
     # We depend on the formula below, but they are separate formula, so install a `.pth` file to link them.
@@ -169,32 +161,3 @@ class Backgroundremover < Formula
     assert_path_exists testpath/"output.png"
   end
 end
-
-__END__
-diff --git a/numba/__init__.py b/numba/__init__.py
-index ab1081d..44fe64a 100644
---- a/numba/__init__.py
-+++ b/numba/__init__.py
-@@ -39,8 +39,8 @@ def _ensure_critical_deps():
-                f"{numpy_version[0]}.{numpy_version[1]}.")
-         raise ImportError(msg)
-
--    if numpy_version > (2, 2):
--        msg = (f"Numba needs NumPy 2.2 or less. Got NumPy "
-+    if numpy_version > (2, 3):
-+        msg = (f"Numba needs NumPy 2.3 or less. Got NumPy "
-                f"{numpy_version[0]}.{numpy_version[1]}.")
-         raise ImportError(msg)
-
-diff --git a/setup.py b/setup.py
-index d40c84c..3d407c1 100644
---- a/setup.py
-+++ b/setup.py
-@@ -23,7 +23,7 @@ min_python_version = "3.10"
- max_python_version = "3.14"  # exclusive
- min_numpy_build_version = "2.0.0rc1"
- min_numpy_run_version = "1.24"
--max_numpy_run_version = "2.3"
-+max_numpy_run_version = "2.4"
- min_llvmlite_version = "0.44.0dev0"
- max_llvmlite_version = "0.45"

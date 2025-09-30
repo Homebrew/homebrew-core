@@ -11,6 +11,7 @@ class Djvulibre < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "61ac827cdfc87e9056b7490d09970c49b652e26303ce0c71e68808ae11dfc49f"
     sha256 arm64_sequoia: "b57955b6d0b24eff78e60121d490dbff24df02a829f323acde977b46b9b098c0"
     sha256 arm64_sonoma:  "8554c9e53aa97aa0aefaffdddc1d11ee2b2b9378a3cd2a424414a675b689556a"
     sha256 arm64_ventura: "c5dc6a4c1dfbaff711076c51591e0f5e13afcb4377f45627163dc4bec1994a16"

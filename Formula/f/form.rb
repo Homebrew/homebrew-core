@@ -13,6 +13,7 @@ class Form < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "68c5aae18792314ad080873826f587a7648e493621d5723cae8c45c7bb330bf5"
     sha256 cellar: :any,                 arm64_sequoia:  "891f2e2731329a342dcbda8da08939d5ef910a1bedfaab2be34da51c1f6fe72d"
     sha256 cellar: :any,                 arm64_sonoma:   "9ebf608d1d098eac5b6b0ed04117538f42719ac61db8b7bc06a40aca73d62fab"
     sha256 cellar: :any,                 arm64_ventura:  "9db94c3342b5744b787f9950b3b5931f2b4a1d55daad02352d3daffde5d6b376"

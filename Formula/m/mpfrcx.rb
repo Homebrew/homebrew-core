@@ -9,6 +9,7 @@ class Mpfrcx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "0040f42d09efca8b3d759eb4b6f52158d89edbd1019d4919152d56666eb9de81"
     sha256 cellar: :any,                 arm64_sequoia:  "e9d9fcb8796dc03e08d4f3b1d1e6e1cd054befac43f75f20f6592891e01c366f"
     sha256 cellar: :any,                 arm64_sonoma:   "3943e6b49295761e2d5ca64145d1f0ca80255d0d6c608c1dc2df5c8d964a9c55"
     sha256 cellar: :any,                 arm64_ventura:  "0525d37742602a124d2bc1631cf9d201d0e2d88002b57257ddb444d8407b5ac8"

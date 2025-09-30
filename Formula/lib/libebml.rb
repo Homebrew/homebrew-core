@@ -14,6 +14,7 @@ class Libebml < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "b0156cbf1955e582256e75bdc14616f47df280ae9aecdf8b0b8fa5f9b5124aaa"
     sha256 cellar: :any,                 arm64_sequoia:  "2d15f6ce6df5cab89843ca6a7512a601b90ade25bbf7bcae17286664d72e11d0"
     sha256 cellar: :any,                 arm64_sonoma:   "77cc696e94a5ae2f8a4ccab765ff7adfe84ba6a804479c50d46ede90662d1e81"
     sha256 cellar: :any,                 arm64_ventura:  "23a888049e631dac6a467f726376aa4a00e5468910d1d37bc7bdc28ce2ad6d4a"
@@ -28,7 +29,12 @@ class Libebml < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    args = %w[
+      -DBUILD_SHARED_LIBS=ON
+    ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -7,6 +7,7 @@ class C2rust < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0311c46b8082fe469b5d6ecfb12ef5d8f9ab88998b176602bd4d1e6b66fb0de8"
     sha256 cellar: :any,                 arm64_sequoia: "905499716b48b54ad1eea09ff40e229e2056536e72098b7605dc2ddb145117c4"
     sha256 cellar: :any,                 arm64_sonoma:  "7ad4256baed5d1869cce80b57a863c9ef20c7b73632b574a8b4d40d35f4c6fd4"
     sha256 cellar: :any,                 arm64_ventura: "60df9dd74e927f4dcbd82409a1e09036602b5de922e53b1cf8377cf6b199d069"

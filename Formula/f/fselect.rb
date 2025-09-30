@@ -6,6 +6,7 @@ class Fselect < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d71673cedd85a6ecdecb8fbff60b7871b4c202109a8a026f58e1ee998962d452"
     sha256 cellar: :any,                 arm64_sequoia: "a2348c2091f6ebb03eb0c8687e5fc8610ae32a72ce8d141304e14da812b03169"
     sha256 cellar: :any,                 arm64_sonoma:  "e1f47525ead4f66e4e8e1946221976754e5bd47483ab5e07dfdc8d14a0dd1632"
     sha256 cellar: :any,                 arm64_ventura: "b28a71bce5306e0c5759fedccdc3ae1bd1238e59e8caf8b21d922999e3b0cce3"

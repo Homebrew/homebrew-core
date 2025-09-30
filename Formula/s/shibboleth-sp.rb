@@ -14,6 +14,7 @@ class ShibbolethSp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "57a346ae8c1835ec19245b711131bb8878b1b49b5c09030646f07103c91058ca"
     sha256 arm64_sequoia: "0569ff4651fd7d6700c65c25790574f19066174c768959ae2064aea20ad5a99b"
     sha256 arm64_sonoma:  "0a46e994d409ba22543dc7bc7736238bcce908efc32d987ce0c043ceced97a70"
     sha256 arm64_ventura: "e5d6b7a4b089ab17ec32cd0808c1d5f0c7de2190df46a0a02bb00c1561d1cfca"

@@ -1,22 +1,22 @@
 class PgCron < Formula
   desc "Run periodic jobs in PostgreSQL"
   homepage "https://github.com/citusdata/pg_cron"
-  url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.6.5.tar.gz"
-  sha256 "0118080f995fec67e25e58d44c66953e7b2bf5a47bb0602fd2ad147ea646d808"
+  url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.6.7.tar.gz"
+  sha256 "d950bc29155f31017567e23a31d268ff672e98276c0e9d062512fb7870351f03"
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e652baea4a5497dccbe7a785953c08f43e820712efee0c47b7ea4299645888dd"
-    sha256 cellar: :any,                 arm64_sonoma:  "5d5ef653d695a0e1029f119532988583d01b18b1bcd0996d7c79f344912bf870"
-    sha256 cellar: :any,                 arm64_ventura: "8617379afc5a21586ac1558c3320d82aaddb8078382fe51e7eb034c2d1772cfa"
-    sha256 cellar: :any,                 sonoma:        "5160bb9284524342df8e0c8140d5715b420c26cf3ff874a9d6462530313c6adf"
-    sha256 cellar: :any,                 ventura:       "44132449e3e3733f9d7342a5e12c23d571402bea3bb7074a23b197b605fca091"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8babbb9f6137aded2381013aadc7f8a238163910e7c8a6b32d12cd689ef36d82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45b413c1332572e44d2e73a04f0d90a932bb34ad1ac7aee78541f9176ecf7b65"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "09735afcd85669a8b3c460864d987b45a85efa861b23d13d091d0a3044b9d65e"
+    sha256 cellar: :any,                 arm64_sequoia: "c6248b364e481b21ca81bfc63776271f8f3eda1ed42971b88c6b1b6cf87db682"
+    sha256 cellar: :any,                 arm64_sonoma:  "8f312f0971c68d69201ee2d4ed3b544c0572a4d36a2ebbc9ba8c5785ca20a556"
+    sha256 cellar: :any,                 sonoma:        "8eb54aed1bdff05c61bda87a5d30ec13beed7e14539eee17f9450748f67680bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "56feed3b8e5d423e83dc9218a3a17432e819b16fdd1045b7584593649fa3952d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58fc98446a6b2f23b701b53c391b8c4d052cbea137b0ea7e8fa7ff398bfe509a"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
   depends_on "libpq"
 
   on_macos do
@@ -29,6 +29,8 @@ class PgCron < Formula
   end
 
   def install
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
+
     # Work around for ld: Undefined symbols: _libintl_ngettext
     # Issue ref: https://github.com/citusdata/pg_cron/issues/269
     ENV["PG_LDFLAGS"] = "-lintl" if OS.mac?

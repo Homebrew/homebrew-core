@@ -9,6 +9,7 @@ class Trunk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93022640040f9f21249a52ac60776e812e0aed4a02b9e0b61676eb8b51ac6f96"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f29f737a25367f9d601004ab3c69d5af49388d105dbbf4de4342e9b26bb19235"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6e353a529700001a2d583d8b5c7b64fd33437b62cb06df847d87be200750a7d1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f527d08ece51ec56bc8f5cab717340954024b412c948739ae4dba0f5aa5c203e"

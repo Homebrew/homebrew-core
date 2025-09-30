@@ -9,6 +9,7 @@ class Libfreefare < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9db2e4002368c2b87fb707952d9272b740078176b456920a5d5181019617b2dd"
     sha256 cellar: :any,                 arm64_sequoia:  "2a601550aaba3113176cbb9c284f263faab1cacdadaa841ca48ffac4cc36ea70"
     sha256 cellar: :any,                 arm64_sonoma:   "be04856cd0edfb30a50104ea7fd3a5b7ce66c25921179415eddd8542b328d3a0"
     sha256 cellar: :any,                 arm64_ventura:  "6d9f13777430e1e406a80bb919603e2e1f823a84628ff9a6c27786e97077015b"

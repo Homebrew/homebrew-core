@@ -8,6 +8,7 @@ class Osqp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c954c2ec86a360b05b33c2adca519d53f4b4a668ec21dd1843c0a03811239b5d"
     sha256 cellar: :any,                 arm64_sequoia: "ccb60f0cfb872511bca80235ac7a946fa63b37a5a3dd12824225233b53da0a0c"
     sha256 cellar: :any,                 arm64_sonoma:  "5fed88abe2497775db7e0b621beb464077d9a9d17b5d78d0e02572be8baf55dc"
     sha256 cellar: :any,                 arm64_ventura: "108db6550c4c298e1da86ebe8577727a0bd507f1889a3e2bfdf67f7aec8d24fc"

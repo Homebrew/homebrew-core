@@ -11,6 +11,7 @@ class TkeySshAgent < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0812ed782ed16ff61d9d05b4d8694d88f7933d292de9c4b76fe854478f214e15"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "92e34132b71fc3c562a8353058c5deaf720fc80f243dccd3eb5dac62a95c2d65"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "858a66ab63cfde2b070de13ee0d7e440a13d3215c3fb8f97714fa28b5c20b4d5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c191dcb7265469492b7bdc6f9acd2acdee23149d96c5e91d74bd7a01c90a8d02"

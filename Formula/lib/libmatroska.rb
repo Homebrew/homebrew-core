@@ -14,6 +14,7 @@ class Libmatroska < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "bf1a6c41880272d8a17b3c0b66bcafa1f2e250ca16f1cef4230e58cdd8ff3b01"
     sha256 cellar: :any,                 arm64_sequoia:  "59abce74d2eef80b0ec6751dd6d9357c2c130d9d8d11dce0ef9d0f47fbe7007a"
     sha256 cellar: :any,                 arm64_sonoma:   "297b69d493d6b09441e452745dee037ed4c211642a30ab4acfb3f229423e9995"
     sha256 cellar: :any,                 arm64_ventura:  "029766b0222c5d9a72a3cc63410c18a1d6b485243bdb4430f42e515ab24e18dd"
@@ -32,7 +33,12 @@ class Libmatroska < Formula
   depends_on "libebml"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    if build.stable?
+      odie "Remove `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`" if version > "1.7.1"
+      args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    end
+
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

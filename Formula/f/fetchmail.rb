@@ -1,8 +1,8 @@
 class Fetchmail < Formula
   desc "Client for fetching mail from POP, IMAP, ETRN or ODMR-capable servers"
   homepage "https://www.fetchmail.info/"
-  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.5/fetchmail-6.5.4.tar.xz"
-  sha256 "c859156e9bff841d4d984cb3fdcb8042b6b31789fc3387c2649baa95a88d698b"
+  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.5/fetchmail-6.5.5.tar.xz"
+  sha256 "f989b62729c76afbcd65ec43b9c477f2d990f0913da141ff8166aa4e2bf56025"
   license all_of: [
     "LGPL-2.1-or-later",
     "ISC",
@@ -17,13 +17,12 @@ class Fetchmail < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "daf595c9ee9c4c8b64f534e7db0432f4e514a7087a8a62e287faac4cdd78f0e7"
-    sha256 cellar: :any, arm64_sonoma:  "e0d032448a5d853a87042083a7942556c42c13f71eb5ddf32fb6a4562f5444cd"
-    sha256 cellar: :any, arm64_ventura: "8986b9ee8c100f0d141144c57d0abe790023d31e5ff0ae5cbd39c19f2b868e41"
-    sha256 cellar: :any, sonoma:        "812b774ef6547548f915952f4522b8ca7b7f7be24b749e7fca410701ad973080"
-    sha256 cellar: :any, ventura:       "30ab543b6ef257a4324c98bee2f770edc2371c84752b86b8d93ba8ee72b5af0e"
-    sha256               arm64_linux:   "a2f7f8c5f56107b456c97e53ec2f1c5abe445cccef609f92e0583dde033412f5"
-    sha256               x86_64_linux:  "c0689bb6b80ddad96a9d209e8fc2aec58e48de412f00815a53d49bda0754141e"
+    sha256 cellar: :any, arm64_tahoe:   "baa266899a5d0762c1c8de72d66172046d16a8936d916d59ecd38949b810355e"
+    sha256 cellar: :any, arm64_sequoia: "2d3cc96ba9eab37a4c90e69e0ded42da4d317aa71c50bcf9d67b423ff13fd99f"
+    sha256 cellar: :any, arm64_sonoma:  "5636b1a32fa0c3dc428a71ab1414ef56270018513807129d25e56d23d401fe50"
+    sha256 cellar: :any, sonoma:        "649c97111eb7de63e1f5090278cb6570553750672b13a61e8643ddd4b8c5a28f"
+    sha256               arm64_linux:   "4095e91d22c75dd76b6caa077d73335a232c9b878aabd0171925ea83633a1a79"
+    sha256               x86_64_linux:  "681ef55b7a2f8d0c6e4e650d252a4cab9c04288cac8706c2c88680b50a578d1d"
   end
 
   depends_on "pkgconf" => :build

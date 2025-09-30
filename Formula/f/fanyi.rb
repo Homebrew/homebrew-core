@@ -6,13 +6,8 @@ class Fanyi < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5dd4c53aae9a4d5fec840dd0ce93b9b342297832146de16a39dec6730896368d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5dd4c53aae9a4d5fec840dd0ce93b9b342297832146de16a39dec6730896368d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5dd4c53aae9a4d5fec840dd0ce93b9b342297832146de16a39dec6730896368d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4d29451eded524c07a0971fbc0b08a6585eea6452386294161fb62b709ecc11d"
-    sha256 cellar: :any_skip_relocation, ventura:       "4d29451eded524c07a0971fbc0b08a6585eea6452386294161fb62b709ecc11d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b397b5769ecddb911acc5e833fcb19af342b15b83a07e8e85ab4116ed4a54ed2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dd4c53aae9a4d5fec840dd0ce93b9b342297832146de16a39dec6730896368d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "351b581b6235da82293d624349d95b50a9ce217ad4ac07d5e2dad3493e541c2a"
   end
 
   depends_on "node"

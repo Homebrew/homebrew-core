@@ -1,7 +1,7 @@
 class YazeAg < Formula
   desc "Yet Another Z80 Emulator (by AG)"
-  homepage "https://www.mathematik.uni-ulm.de/users/ag/yaze-ag/"
-  url "https://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.51.3.tar.gz"
+  homepage "https://agl.yaze-ag.de/"
+  url "https://agl.yaze-ag.de/devel/yaze-ag-2.51.3.tar.gz"
   sha256 "2b0a90c3bf3a27574b0427cf4579dc2347b371bec3fea5739e1527edf74b2809"
   license "GPL-2.0-or-later"
 
@@ -13,6 +13,7 @@ class YazeAg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "6e9592d8cca859c7bf9b18bb4adb4a00a24a9476091bb813739b4234897a6edd"
     sha256 arm64_sequoia:  "bfd9c7701ebbea4917f2874690b38b6c1cf129bc228305dfd64d5e56222d69e3"
     sha256 arm64_sonoma:   "7c92d3d3d2b899192243ca7951d22183d4f2ebdcc5ab999c51742797b5f52d7d"
     sha256 arm64_ventura:  "dfde75b6e01c854c6e368e7c0b1e6ad1041595c7f7c3c4564aee651a3db1e239"

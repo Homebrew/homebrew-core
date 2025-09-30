@@ -1,11 +1,11 @@
 class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
-  url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.19.7/openshift-client-src.tar.gz"
+  url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.19.13/openshift-client-src.tar.gz"
   # This project employs synchronized versioning so the sha256 may not change on version bumps
   sha256 "4c23bda233eaac582b812b9d4783be71f218de5124d673b4325377e8f325be2c"
   license "Apache-2.0"
-  head "https://github.com/openshift/oc.git", shallow: false, branch: "master"
+  head "https://github.com/openshift/oc.git", shallow: false, branch: "main"
 
   livecheck do
     url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/"
@@ -13,13 +13,12 @@ class OpenshiftCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a09a62361c88585b1f361c3c46b6b07026c7c801a022620ebebe20603f63bb1c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1fee97e870ae45c7f33fd744e1cbec14340041a5525fd0fee4ce5f1d734aa3f8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "35f24fd09281082085f88c19571b1edaa00a080854ecdc95cfdda80182d6ca70"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a3c20e6cd042e8f383d481041f4b9f563bd111982e45e7876106885aad78e07"
-    sha256 cellar: :any_skip_relocation, ventura:       "4bbe5ae452b767cafb572be92dc4d373066631be02e18b811949005d28d9301f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a34869066ecf7f93994a4f4e7880bae7a116e42a7bdb8262f51ff3edfd37387f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8f24a1fc29e643a72f6eff1f0fe38e54b3537eb92c94ca0d1ab6272b26c4fef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a1ba588e337437a55753cd0d31053f720ecc4235d111e65c49add7d42b897c2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e53c571816c8a21604b24d4a77ca012353b1c090c810346bf47a374275d3f6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34aeebdd3da47eaf424f0359d1b76729b770743d74b0fece62c1637ef9045536"
+    sha256 cellar: :any_skip_relocation, sonoma:        "87b9cb1ffd76e571b101565869dbe0d9910abe313bc3028a83b6cafa0cd81a57"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0cd46e2071503b9354b14b272cef56c9d321b9af6242ed9a0e6f722b116da8f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aefcdea44919cbb8314c260b56c438d32ff3bb2f944ac876002ff87a896980eb"
   end
 
   depends_on "go" => :build

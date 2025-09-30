@@ -11,6 +11,7 @@ class Ktoblzcheck < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "820ff1fde420ec540b414cad39d8ed7e7183fe742f733b693ed9f703790393ac"
     sha256 arm64_sequoia: "5a8d33b186a024af57d092e2a1a735990c777c7f9397dc1ab7cc1ea14778cd71"
     sha256 arm64_sonoma:  "6f9b62cc433f2e6d18852a8407283b79f7aefe00d184a52f047cf0906d2c9dec"
     sha256 arm64_ventura: "e392cf050e70dc54fd602ae4d0426d8c133f9574b3495232221e8a2240cf1a56"

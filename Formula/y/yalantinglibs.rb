@@ -5,8 +5,8 @@ class Yalantinglibs < Formula
   head "https://github.com/alibaba/yalantinglibs.git", branch: "main"
 
   stable do
-    url "https://github.com/alibaba/yalantinglibs/archive/refs/tags/lts1.2.0.tar.gz"
-    sha256 "1b541ae108bd10962244e2aeea0bbd58952e728d8b32eef7a439a888a1eddcee"
+    url "https://github.com/alibaba/yalantinglibs/archive/refs/tags/lts1.2.1.tar.gz"
+    sha256 "0e1bc99dae186024b7f2472fc850e8b01429cbbae6ba14414dee0f56ca93dca1"
 
     # fix clang compilation error, upstream pr ref, https://github.com/alibaba/yalantinglibs/pull/947
     patch do
@@ -16,7 +16,7 @@ class Yalantinglibs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d6a233acc309381d259aef2011824e13bfef421ca77f0b8c4f6ba8302df454ff"
+    sha256 cellar: :any_skip_relocation, all: "26ec266b1cb421f569be3ddb50509a07e13f504f37f87c8d9bb3d77f8f5400ee"
   end
 
   depends_on "cmake" => :build

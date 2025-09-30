@@ -12,6 +12,7 @@ class Newt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cea3f80fa84313bbf4185e15382bc0bf2d1b95db48fda0df4ded68e3e4d4614b"
     sha256 cellar: :any,                 arm64_sequoia: "ea9696a197929f238a1b30a02fefcf818e3b858d8203822c941c9a687609c1fc"
     sha256 cellar: :any,                 arm64_sonoma:  "5ca2f04f2776a526ef75eb1021bc62b913014533e6ba23aa7698f55ab04c2a6d"
     sha256 cellar: :any,                 arm64_ventura: "effe0810ddce425071a2977345c49b817169da634debc65495804edf6f8aa479"

@@ -10,6 +10,7 @@ class Help2man < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "72f77b4abf5cb7f74abe0ca75821103d12f2f9ce44a50099fd70d03951b3614b"
     sha256 cellar: :any,                 arm64_sequoia: "253c91cfe267b4e6d99516e9b6243db8de63cd2090feba9a411f0de56ffdc003"
     sha256 cellar: :any,                 arm64_sonoma:  "6fff08f6e2f1e2c1a116771d2cec67f02fd4e5157c5a7468299d625d8708c9c2"
     sha256 cellar: :any,                 arm64_ventura: "ec4c0a8ad5435ebce1cdcc50850121a465da5d591e02cb3264d0b1ddd367dfd5"

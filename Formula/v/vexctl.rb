@@ -1,18 +1,16 @@
 class Vexctl < Formula
   desc "Tool to create, transform and attest VEX metadata"
   homepage "https://openssf.org/projects/openvex/"
-  url "https://github.com/openvex/vexctl/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "5a5904448ef1bf11bd8a165d737acc88afd9799618f6583c15cee5d99dd58e17"
+  url "https://github.com/openvex/vexctl/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "717ba3570aa2ac7db54823e042d8e7c525a10850879585edb7ca859dee966114"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8d3737e23f7d11f5fe749b5524f7f92a36654592f53caf22e81281ffe6614e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8d3737e23f7d11f5fe749b5524f7f92a36654592f53caf22e81281ffe6614e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c8d3737e23f7d11f5fe749b5524f7f92a36654592f53caf22e81281ffe6614e4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b46198d549d57cb6d165dd4f4009308fd7ba5373e68ea3e6551ebbb7c3e5d1d"
-    sha256 cellar: :any_skip_relocation, ventura:       "cdfd7239a7588664765926a8a5e45dfbc50271017c625701c07d79ab78e67c2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9129dd69cff712abe1ada640119124ac040263e31cb8ba1365e6e2edd54b7e5a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "673e84ca835091407a39e79677d88ba7daa63564cd3de003902a89f350f140c8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "673e84ca835091407a39e79677d88ba7daa63564cd3de003902a89f350f140c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "673e84ca835091407a39e79677d88ba7daa63564cd3de003902a89f350f140c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4602c986ab98ee1ce5faab2db2f4f181464e6ffb38bc275f7b1f504e0e310d69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc7e88cc3dec4cedde682d50f2cb5be6faad6a0639ee4efbfd183872e0bdc637"
   end
 
   depends_on "go" => :build

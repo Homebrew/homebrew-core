@@ -8,6 +8,7 @@ class XcbUtil < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "325a22ce66ff9fd565932b080bdb02e5bdbafd6240e5664fb8a22c1ee87b29ff"
     sha256 cellar: :any,                 arm64_sequoia:  "f23b606bbe08c4b9fc5ce87f19db91cec6fc152298157af1632cb109f669a83b"
     sha256 cellar: :any,                 arm64_sonoma:   "f29e26409668f49cdebd9f07f926deb60775d4d937ad688ea1676b138e2ac3ec"
     sha256 cellar: :any,                 arm64_ventura:  "9ccd3441ee24d90d2f4d8d62cf74d6d8bb0879b60d7b56b325b72ae0854459ee"

@@ -7,6 +7,7 @@ class Vvenc < Formula
   head "https://github.com/fraunhoferhhi/vvenc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6ff2a0e57323213b64e43a108807eeb2500624452b0ab087fd38619374146ca8"
     sha256 cellar: :any,                 arm64_sequoia: "2e526df41954df8bd763675725849ffc2567bf9f44133309939d0d6623e0bb98"
     sha256 cellar: :any,                 arm64_sonoma:  "df6e45adb580246422f6bf5d0a9e366633e5238011b30e18c25794018b24fc66"
     sha256 cellar: :any,                 arm64_ventura: "2ae0e24d7f2d84238c98bf7f57fca61652348b3e915195d7bbb30cd2cdee4c43"

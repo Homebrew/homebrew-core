@@ -1,8 +1,8 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://simdutf.github.io/simdutf/"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v7.3.6.tar.gz"
-  sha256 "c08f3dce1cbb7a8bead9eb53bcbda778e8a1c69b7d3a0690682f1b09fbb85c31"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v7.4.0.tar.gz"
+  sha256 "8fd729ebfd5ec56cb0395bcc176c4801e1f8a0ea834d166d52279d7b9e801283"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Simdutf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "50523672c8aaa4b91a69f68e27cd77483063d4d7fc826a8ac5b6aab5311e8b9e"
-    sha256 cellar: :any,                 arm64_sonoma:  "6233d1f03487dae0eed9850a724973feb09703bd5a93caa526d0b08c8943bf5d"
-    sha256 cellar: :any,                 arm64_ventura: "102e5d3344120c146b4ef4a0a16a945ca00ae9277f1fb55dfcce4524014dc22b"
-    sha256 cellar: :any,                 sonoma:        "3456681917a008f1093e97d6686cc927b68c743dd03764df6833e93bf5dded04"
-    sha256 cellar: :any,                 ventura:       "923b12f56225be55b4c92a80ee6ef66fa72164f823fb357712928fb3fd848e0c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a36e12aa767aaa509f467b5cdefbdd3d613d7b14d83cadc5a654d2e46a07c82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3899839ea7465d3b2535a24e1ab51c823290c08c03a8b5e31646e4ee96a9fbbd"
+    sha256 cellar: :any,                 arm64_tahoe:   "eb8161f0c3bd6dd9deb0770ff3a49101c89fcfd113f092dadff0ac6fb0c4af2d"
+    sha256 cellar: :any,                 arm64_sequoia: "1b009aa16671a4895fc41e373b24a4d2caee80427caf178209a631c1341e9161"
+    sha256 cellar: :any,                 arm64_sonoma:  "6a1aa7199d23529c22da6a71912dcd39c03bfecb983e7a7a8b9e737281bb3e98"
+    sha256 cellar: :any,                 arm64_ventura: "9966ecbc52b8d2dc3be7eabadcd0db28be035651681bd1f351f72ccbcd3c9ed2"
+    sha256 cellar: :any,                 sonoma:        "0ee159df569e9f5ce6bb19d57248c79fe47e85541909a156531e3c148da2e458"
+    sha256 cellar: :any,                 ventura:       "df9e32ea261a0065aebe87137650da74975e672c4c5a1687cbf9ded6cbc7bd89"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a92fa8de691b2b306b2caef9e0e4fbf0c3f93ecc826b303ff519b368ccc514b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b2f496997bddbc620314df98ad29b3863b570d626f9f5a279a99acbcafe38f5"
   end
 
   depends_on "cmake" => :build

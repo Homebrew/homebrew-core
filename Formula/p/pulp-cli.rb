@@ -3,18 +3,19 @@ class PulpCli < Formula
 
   desc "Command-line interface for Pulp 3"
   homepage "https://github.com/pulp/pulp-cli"
-  url "https://files.pythonhosted.org/packages/03/f4/dd18d423d9759949fdbb45b43f96540ac3e909b56fa94d83401e4aa8e15f/pulp-cli-0.35.0.tar.gz"
-  sha256 "b4214a87795b61765513f5a42537f7183b67064e5e744f4cbfbe5cdf2b01828a"
+  url "https://files.pythonhosted.org/packages/18/92/23ae95fa65ad1f61cb1e7b8140a7aa315c9ad9cc64f2c7fc9412ba1299f2/pulp-cli-0.36.0.tar.gz"
+  sha256 "1155a3d7efb60c3c1b0b2762b989fa0616e8a941a878f5e1f1fe0ce207eb05c1"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7a16627268ff499fa5965d3b3e71f71b0a650a179c596d89ee393b20d90bd3cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "7d9749928a9d8fe381b3257b36116a54a5ae17e04db957e376279c7e0e185be0"
-    sha256 cellar: :any,                 arm64_ventura: "898516efcc4db5e8719760cd39805a50f4b9d77cafcaf7af770565fde1e60d6f"
-    sha256 cellar: :any,                 sonoma:        "6839a15324ebe18399dfe84e1b2c9afbeea3a419bc1e6000458391e8c0be7c32"
-    sha256 cellar: :any,                 ventura:       "04f0c4f45617357992305c1ef3531f72028751579e06bb794c82923c8eb2f28f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67be66cebad0e6a781e3dfa20e70a2677e882484b5fde489d59123a41dac8495"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e43bc9f933647f9f495fe0fe239425c33dc1456533f675dcb555093c6dd3cf1"
+    sha256 cellar: :any,                 arm64_tahoe:   "70bee84cde5f41f012f3f20adbe663d1ca3064141985171889b7d012bf7b3e18"
+    sha256 cellar: :any,                 arm64_sequoia: "a541d3b1434eb9c01d4d87fd7dee1abd934f10d034079aa0a22f6dbb38779178"
+    sha256 cellar: :any,                 arm64_sonoma:  "935c3ee12f46129e537691d8e14e8a89d21e1507f6b9e34fb6583798465bfdca"
+    sha256 cellar: :any,                 arm64_ventura: "e6ea4509d7a87d0eb1a54d24fd5689a6a40b2a101fb94ac3e87111a1b21401c6"
+    sha256 cellar: :any,                 sonoma:        "f77c6beb7cf77053ed878be4650d28e23049261cd136775d17c59c298c39876f"
+    sha256 cellar: :any,                 ventura:       "5f8477a68c944547efe69138704660a7ba9fec99398ca404617697d308ba7dec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "45b625bd32427fac9b6a556c077d7704f11ccaf7c67c821d087b7b3d10932bb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9a7383f097564bdaee324749555421b7240516dfef19c499f70fa10769d877c"
   end
 
   depends_on "certifi"
@@ -22,8 +23,8 @@ class PulpCli < Formula
   depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "click" do
@@ -37,8 +38,8 @@ class PulpCli < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/3d/2c/5dad12e82fbdf7470f29bff2171484bf07cb3b16ada60a6589af8f376440/multidict-6.6.3.tar.gz"
-    sha256 "798a9eb12dab0a6c2e29c1de6f3468af5cb2da6053a20dfa3344907eed0937cc"
+    url "https://files.pythonhosted.org/packages/69/7f/0652e6ed47ab288e3756ea9c0df8b14950781184d4bd7883f4d87dd41245/multidict-6.6.4.tar.gz"
+    sha256 "d2d4e4787672911b48350df02ed3fa3fffdc2f2e8ca06dd6afdf34189b76a9dd"
   end
 
   resource "packaging" do
@@ -47,8 +48,8 @@ class PulpCli < Formula
   end
 
   resource "pulp-glue" do
-    url "https://files.pythonhosted.org/packages/8c/ab/ca246483b2ca017303617cd6e41510407320157fe2e0e9f269706a7dd628/pulp-glue-0.35.0.tar.gz"
-    sha256 "4cef1b333765501c61f16f76f8c5a6b47bbc80f5c7ad9344a351b7a000c609bf"
+    url "https://files.pythonhosted.org/packages/b7/6d/d8bac57d69902a0836f1d5be9ebf14da4c401b638913a393725cadfe3fc0/pulp-glue-0.36.0.tar.gz"
+    sha256 "627f6b42a612c4542850a9b5719255373c2399565c779a78d5468378ea584b7c"
   end
 
   resource "pyyaml" do
@@ -57,8 +58,8 @@ class PulpCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "schema" do

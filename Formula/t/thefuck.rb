@@ -10,6 +10,7 @@ class Thefuck < Formula
 
   bottle do
     rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "134548880beebd5a0e9a0a5d4eafa1d60b734721070cf8d57193594feba4f5df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9b85cc4f5627d8e8df33c99af43c0a9871b07ffc2eb9d1ff9b6d03e1cfcce52"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b9bbe3ced4a99341cceb45f303392feb020df75b61c34be9cd9303d600c95bc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "881e92e475fe094f95d2a8c29012383bb85366cb4dbcd5551557f8aef8702229"

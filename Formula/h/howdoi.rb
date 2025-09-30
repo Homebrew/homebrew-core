@@ -9,6 +9,7 @@ class Howdoi < Formula
   revision 11
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "88c1b97fc12d0418dbda2a3c9dfec1fd4691351733a8544fff89daa49f41e7bf"
     sha256 cellar: :any,                 arm64_sequoia: "a54cdb278b5e996d327c50f5014f1d92382e45950a5e9f9ee4d30a6ac9ee4bfd"
     sha256 cellar: :any,                 arm64_sonoma:  "0e05063e5a28811e3d295ee5ef59e6d7aa3a4a93f9a87d42beb020a3929e3017"
     sha256 cellar: :any,                 arm64_ventura: "02bde8e2e75760ef734b43af77b712c762297dd166d739181e2058536afe79b9"

@@ -8,6 +8,7 @@ class Redir < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "adeb67ec9908e136f48f9ef8cadf98ea0cb8a54d8250c4b444821dc156e1918e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e85d33d0d3a7fb6b68dbb5d94ad15d7aa150931c9d0761b1dfa9e2e1ab39bf24"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c61f424df5b1d03951e0d7bce56a1df8e743fc23adfb6701e327ba9f5cf5b33"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "958f14440ec0301e5e9cb0ae82f3f5080be3fd7336cbb9ca17211ecf84c88bd6"

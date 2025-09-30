@@ -9,6 +9,7 @@ class Tsui < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c5aa985bc23f46808385ac73b79f5ebd81cb5e7281799bb8197e1c3bccd4f2d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d3ca9c93120f6fb18fa2450a484d7ec1010c07b278303764c6e190465d56b0ea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d0194b896a9a93fc431be42723304fda6a1387587994f816979858f5572959d3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8b6466361263798b364befe5c20bbd1e9190e10192c585f7748dc15c137db5e7"

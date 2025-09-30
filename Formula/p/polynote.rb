@@ -26,6 +26,7 @@ class Polynote < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "5b946acfada379f4fd250d72ec8e712c3cd5479f72441267ab67d9dd57b5ea34"
     sha256 cellar: :any, arm64_sequoia: "9b2efac6f87a4b3c29b2d12a93fffa42f2198d8836ef438ef1e56e40332601f2"
     sha256 cellar: :any, arm64_sonoma:  "70cfaab129c7d151d28295af6ed37ce251b2a37b619cde49ec20b5325309226b"
     sha256 cellar: :any, arm64_ventura: "b7d8fe06b593b1b8ee381b6b28d64a6202db69ddb988ac46fef84886bfac5725"

@@ -9,6 +9,7 @@ class RnaStar < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce54c8718ce2f01777c22e6f7b6295570c7e4785716bfebb04a9551eb453bdb2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "df53db303004a937634a3eaa227119f92eac00286bc80df0558dd1db1e5bb314"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c12dcd41638c9578c39ee0ecb0ec33996ee390690eb95d68b49f56f0f129c608"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "eef8d5c492f1e608a796350bd6a1fd0acfd46487c18ce901aeaf7aae8d570607"

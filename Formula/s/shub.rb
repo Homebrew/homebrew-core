@@ -11,6 +11,7 @@ class Shub < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ee267947680021fcfecb2e8b5efcc90eb170a593baab4543eeac9091f427f7ec"
     sha256 cellar: :any,                 arm64_sequoia: "b50ce3a684b5a0c6014916ddf290ec96f02a12310aec9823d627ff64afcb9f8f"
     sha256 cellar: :any,                 arm64_sonoma:  "4c61144b808b3607bc732681dd988eef9ba5b29ade333939aee617f879da24fd"
     sha256 cellar: :any,                 arm64_ventura: "1dd27be818a64f165a9a3b9bdd05149fb7187fc9e9e414048e9de49bc42cf48c"

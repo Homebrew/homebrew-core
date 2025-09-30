@@ -3,19 +3,20 @@ class Remarshal < Formula
 
   desc "Convert between TOML, YAML and JSON"
   homepage "https://github.com/remarshal-project/remarshal"
-  url "https://files.pythonhosted.org/packages/cf/93/6272970b145b91afbd8bc4c2224e528b6f629003f4f44dccda7080ece440/remarshal-1.1.0.tar.gz"
-  sha256 "6322b1eb87c1c7414d41f77b654215f6b036084ae8647ba6393b3e63c13e660c"
+  url "https://files.pythonhosted.org/packages/c8/04/12595c827f1a3dfeadbb9c1b112e9b86c229e69f56b1696f0d4b5df40957/remarshal-1.2.0.tar.gz"
+  sha256 "f50950a1cca59efddaf54cd86b70377f12a4120970f3bc8a694b6c5c23ef7898"
   license "MIT"
   head "https://github.com/remarshal-project/remarshal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97061ad02d5f01949d59ea166905751f6572a7079582fae8f4dbedd96a1f6523"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49ec348aaf4daaf9f72d31b742e315cb637b13fc7f281639c9a606e9201039c0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "487a0bcfe62d7042ff6805f235d90a55d3454edc8cadcd9f002e66acb344df21"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cd735357823b1878b00fe83118b7411f9366fe8f9e7846c9052cc2d958facd96"
-    sha256 cellar: :any_skip_relocation, ventura:       "62d7c810fb4fb23e3817f762f88362ed527e5fa85ba62373b5daeb2c5b3596da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fae04849518041bd2eb1402e9c939059fcdf860a5930523df5c8f9cf6756b8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c97887c7074f222915e592906f96ea0ee261b871e8cba4d69d1c75e06c9cadba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5bf66363bb0cc157e4ec91fc43fca53256b0e6852bdecdcec08a0674a2751441"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6adae90644373c4da5a8203ea425810d59044383ddd53f58804aad63955c8c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65c193176626b08e81f29c76120681b8e3327a50bae9c75397ae8f4405d3db26"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "323ff61b8b389ed086059fcf9a0171a74fcd0848ad072bba193962e37ee48862"
+    sha256 cellar: :any_skip_relocation, sonoma:        "836d9e7fff1dd725fde91ac45f00d473f94ef196fb4986af5764f5757a785a12"
+    sha256 cellar: :any_skip_relocation, ventura:       "dff0c1702cdff10a68e88a167b56e0edc43a0b41e422e6e07368bc27f08aa232"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2dc8005eefcaf2a9fefe4a4e2024e6f8627b4c3f6a27ba60a2b220d1a3cad252"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74fc20a69b574a806c2bf6dcb2a6aabc90d2835bbfc9ba2b28937161ae93d3ba"
   end
 
   depends_on "libyaml"

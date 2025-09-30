@@ -1,18 +1,19 @@
 class IcannRdap < Formula
   desc "Full-rich client for the Registry Data Access Protocol (RDAP) sponsored by ICANN"
   homepage "https://github.com/icann/icann-rdap/wiki"
-  url "https://github.com/icann/icann-rdap/archive/refs/tags/v0.0.22.tar.gz"
-  sha256 "42360a82605bf92891b4de0a133d43baabb041446b16063094c4abc94c531c30"
+  url "https://github.com/icann/icann-rdap/archive/refs/tags/v0.0.23.tar.gz"
+  sha256 "4ae3ff5943d18de353a18578e64e4bd8693b4a6553c2b7cdaf8c4b9acedb7f6f"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70a951b05788925c050650eaec31c3a7a0e26869d77701b190dfba2787a1d063"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "812554fed56276e8cf3e84147630a91f60a08a1c5a0b1f48802e4e35780f5e7a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f4f9f9c8d870740f0e2dbe9b89799fbb9c6e652eab49ee30828501dee2c86892"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9c636a8333f3f570b08255835a91e4801d02c1f63790068bcb30e1c749a48f39"
-    sha256 cellar: :any_skip_relocation, ventura:       "fd38c0e06394376548163d27eec245846b5486cf6778ff08a7310e41f30d2970"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0c436e4857f837be3315250b81ae04f1971a07fc13b5eb2d0a6ac6bce427191"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76d31f3744546c6f91b20c85bf371e1a3cf89eb0eef808c61fbef8e449302f4c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "352c452c9ef665ece711bb01342c3781390aa320ac702dfac00b2a75ed1183e4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70d38d4a8ce06f1bacf93ab7c78f8a6e4b1318f356539b0d4a2539d1921929dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "065c8f593a079ecca9cbeb45163050491d575e74b37f2249ff4f73a335084b9c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1adb9b61c87c0e045373478be8254687a2685426553c073cad41cc7f3d890004"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d2171420d6014d56eada10247a93948da4fe9152c0e2cf3801decaa0d18d444f"
+    sha256 cellar: :any_skip_relocation, ventura:       "c3464c0ee338bca517d7b7dcdaa2969f193865b7c86d127c8d84e203141b88db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "79f8122c74ae08ab127e1cda739fbdafb783093db48c5b704911f60255eef7cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75bd95d6e2eb1d50bf4c518844c813af17bd2fbabc7ba5c546a8d7089d2ed210"
   end
 
   depends_on "pkgconf" => :build

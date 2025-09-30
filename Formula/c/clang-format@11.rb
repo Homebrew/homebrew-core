@@ -8,6 +8,7 @@ class ClangFormatAT11 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "85290508842e9f1649d4faa323396d04640dec3435cf08e62bacb90b1da36986"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6042bc3d6961fbe848bedd13b7e0f45a351d0e843091e14235e616622d128b00"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d680a9a2a892531dfd38de0cd43dee55268a7eafea7ab72f21b00f06705a04fd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1948c72aaec14b99817bf4fff1b6e07172f57975318a0b570c01f35be45cdd98"

@@ -1,4 +1,5 @@
 [
-  "abi3audit",
-  "meson"
+  "davmail",
+  "meson",
+  "rabbitmq"
 ]

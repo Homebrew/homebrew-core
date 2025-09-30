@@ -33,6 +33,7 @@ class OsmGpsMap < Formula
 
   bottle do
     rebuild 2
+    sha256                               arm64_tahoe:   "e749fe56b5482a3a9418de1bba012a642a932b92fb092d669056f932a4a0f615"
     sha256                               arm64_sequoia: "1f92caba8e52495b92a2ed81e6e7f6959d25bb7ac12353872df3638d6ecbe7f1"
     sha256                               arm64_sonoma:  "12026a32374a2a8797d650c925fdc5ad9c19833c1019003d542e507e0fe80448"
     sha256                               arm64_ventura: "e7a42cd9f4293f91416301dfd756ce762dda325b466c511c4e9cfbeacc996e97"

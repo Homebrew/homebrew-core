@@ -6,6 +6,7 @@ class Xeyes < Formula
   license "X11"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a2b13dcf572f13c49a10369bdf760d82aa9474adfcc1cc64ec8db6c82f14da84"
     sha256 cellar: :any,                 arm64_sequoia: "84fc3b8bdb3491d1c49ac6259c3c2987cbe9892ddff9fad7e591afdc93ebc8b2"
     sha256 cellar: :any,                 arm64_sonoma:  "b7319f0874bbe05866305455f5cbd6178d63b9456a2554a256fafcdbd547f58a"
     sha256 cellar: :any,                 arm64_ventura: "d2cad64fd04a12b745586168365af90c5b8ad72199f03b62606b1840bd0ab3af"

@@ -1,10 +1,10 @@
 class PerconaServerAT80 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.42-33/source/tarball/percona-server-8.0.42-33.tar.gz"
-  sha256 "503766073d515635ff9118afbe4ebd18f76d8cb8d64e094ac6d7a22f15ca4067"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.43-34/source/tarball/percona-server-8.0.43-34.tar.gz"
+  sha256 "4469b5e3873559f366eb632c7c231e01aa700c1b9c13cce869085dbe1ec9203e"
   license "BSD-3-Clause"
-  revision 3
+  revision 1
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -23,13 +23,14 @@ class PerconaServerAT80 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "4b4b27e7492ddd2ec1a6cf6c4bf4c44a00a93d958be044c435aa5d26b6a5084b"
-    sha256 arm64_sonoma:  "c6e0266a479e80be02fcefdb26e0624bee060726f71ab849b2c973cd7e2156a7"
-    sha256 arm64_ventura: "63af455415037d26cd74c7176df379fd8845965c657cad8404251ac12f18d146"
-    sha256 sonoma:        "2eb1d575497374fe6c7410b2c67cc84345a7cd2a757f5b06ff8ace4ac5aa078f"
-    sha256 ventura:       "a322a861525eafd9eb149581eb7e3ab3eda442f32a86c912e32349771f21d088"
-    sha256 arm64_linux:   "53c4d8c6dada2790e4f20238159dafe4a9644ac96b66259d4fbd5819d36e90d6"
-    sha256 x86_64_linux:  "9c4278c66e4a864f80dbe35db007c25f05ded532910ed493d1a21673ea7170b3"
+    sha256 arm64_tahoe:   "04f33cef72a0383b11561bfde6117334c1ea6b225f161420bc1eb1ca62eaf102"
+    sha256 arm64_sequoia: "3eed8303b8842a9387d698b7e28b7fed5030a0f26d1ef48fbd1c2db998dc3e78"
+    sha256 arm64_sonoma:  "efe604f23093e3b617ecfb843c9b1eef30dfcd9cdbb56807f759a2bc711ab23c"
+    sha256 arm64_ventura: "3f6e7796a2836f1acae4f19d146c89e81d84b1fa2b373136742408f9f580084d"
+    sha256 sonoma:        "58c116fa49bc7467eae2b13513aa9e409ed3e3e2157f1f4f2341a8ec06f20b65"
+    sha256 ventura:       "203d62185a91e5cd10b59dc78e06626050b81304e95834208350afdaa180cf14"
+    sha256 arm64_linux:   "572e1744e47cc0d2838b056cc0a90c848c8b37582edcfb222bb258a7fb5f0dd5"
+    sha256 x86_64_linux:  "7dabd8dc9a0414296a8363912968b0f61f89fe05e023dd3c543e1c0a2e003bf3"
   end
 
   keg_only :versioned_formula
@@ -56,12 +57,6 @@ class PerconaServerAT80 < Formula
   on_linux do
     depends_on "patchelf" => :build
     depends_on "libtirpc"
-  end
-
-  # https://github.com/percona/percona-server/blob/8.0/cmake/os/Darwin.cmake
-  fails_with :clang do
-    build 999
-    cause "Requires Apple Clang 10.0 or newer"
   end
 
   # https://github.com/percona/percona-server/blob/Percona-Server-#{version}/cmake/boost.cmake
@@ -102,13 +97,8 @@ class PerconaServerAT80 < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_mdl__context__backup.h"
-    sha256 "e515b565d1501648ce3de0add12b67c63aecb3ec4db3794de72c4eeb301ff343"
-  end
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_range__optimizer_index__range__scan__plan.cc"
-    sha256 "44b5e76373fadd97560d66dae0dac14d98ae9a5c32d58d876bfe694016872bc7"
+    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a72b413508501423ddfa576f6f50681cef398fa/databases/mysql80-server/files/patch-sql_mdl__context__backup.h"
+    sha256 "69be131aca93a8a263a394d61e8f388a9f560d1b19fa0fe8a2f2609bbc9b817d"
   end
 
   patch :p0 do
@@ -122,13 +112,8 @@ class PerconaServerAT80 < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_stream__cipher.h"
-    sha256 "9a11d4658f60a63f3f10ff97a5170e865afde3ebee3e703d8272aba3cf6e32d0"
-  end
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-unittest_gunit_binlogevents_transaction__compression-t.cc"
-    sha256 "3bd0c22a2ee30a7b1e682e645dbdf473d4f0d6f8e5ffc447f088c5f1bf21efd7"
+    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a72b413508501423ddfa576f6f50681cef398fa/databases/mysql80-server/files/patch-sql_stream__cipher.h"
+    sha256 "ab29351becd9ff8a6a3fcc37abcdfaace5dbc7176b776bce95e6679ee9f81efb"
   end
 
   patch :p0 do

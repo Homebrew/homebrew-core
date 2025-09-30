@@ -14,6 +14,7 @@ class Babeld < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f977cf0194b8bb8a3a60a434904a2a858b0b9f336176327800a731ef007ab1a1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "62f048341c61438f5d7fade7659f694402543ca20d8fa7d06d42e87e42144e0c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "daa3da57b19ef571e1f7a235bc7ae6ce7ba610155b0f74b122e460e78d3c4e2b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "de3bd348ee96f4800eebf8e081ba0b02688dd47c05303f4bd7c47b8850a6bc97"

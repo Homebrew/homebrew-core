@@ -13,6 +13,7 @@ class Dhex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c43035367348acd1ea2109bfcae68108766e691eeaaf7b921f68e9306f7d9fec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6ce6ef0c4079748f07bbfb1f8f74f39caf377df59e244555fe508c63c63367a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "68ccfb4eef2b7a798087917073187eb465e01ff7e1b3f2401c0633006a5f1fd2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f68e9a14828f6b1bcc452d2f688322b36385e432c7bdc68caa8cc8fa10eec311"
@@ -23,9 +24,6 @@ class Dhex < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "da93104948edb1bfa1ceec708ab498d2b14bfee4a873ed9dff599a450698c50a"
     sha256 cellar: :any_skip_relocation, big_sur:        "f9737b2072e10b36cf34973fb1a18fbbdd570bbb4109656b89a51678220fd67e"
     sha256 cellar: :any_skip_relocation, catalina:       "d3f77d4f4b0f9899e74079753d754eb69296dfe5e44b6c2497c8680e0e941a23"
-    sha256 cellar: :any_skip_relocation, mojave:         "2d6043ce881b7b407fa40691639c25c72d73a427fcdd39a56e0683f48b16b328"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "bfc2aa6c73ffff61a471b4dd8e183e493781a5c34baeddffc56fa89b0542a9bd"
-    sha256 cellar: :any_skip_relocation, sierra:         "b83e63ad0f1e2910e1f2495903ac4077aa5caaabe8cb2702094f42c3921c7a9c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7bd4943c431bc7677d86bbc452a5582fa5a9d96486e089811738d52445e5b572"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2080abdc26e68d518e2b989349107cbe479f9d10fe95f628851a0a638f43a5d4"
   end

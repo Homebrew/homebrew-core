@@ -2,7 +2,7 @@ class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.io/"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
   head "https://github.com/gpac/gpac.git", branch: "master"
 
   stable do
@@ -34,13 +34,14 @@ class Gpac < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9517cc0a0dbaf303c12608ebc0f003e759537403ce9b4588802eae5bb735c361"
-    sha256 cellar: :any,                 arm64_sonoma:  "139365e1ff90d77b1870e5d6ae21833433f83b67393d24f567802513dfae3ee7"
-    sha256 cellar: :any,                 arm64_ventura: "1d9fb6c5a5c2243938423b2a96219db6e6c1af100a2df96e8718b6ffb75486a4"
-    sha256 cellar: :any,                 sonoma:        "68475fa942802c7cf6efd5dea290348666e65bea88b21e5dfcef188b9d059ee1"
-    sha256 cellar: :any,                 ventura:       "992740b1d9e15c6b41d20b543c54befecadc2f7aeaa7409634006f470716a95d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "def69e0a845e79006fb999fdd59637e0d4ee0a6aa440ca645cfd787f110a0ca4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "363de69d6a6597fb10aee3189790962d5961a397d084bb728fa7ae5f35afe594"
+    sha256 cellar: :any,                 arm64_tahoe:   "9e3659249481b56c6883fd1993e79ce88e85c8a08329a71580ce2ce69ce3b437"
+    sha256 cellar: :any,                 arm64_sequoia: "b9b61b5ded414fce0a8bbbfe5efbeda61850ee4b290434219cf19fa37a63e62d"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d2892fa8734ef855cb4842ee12277274c33baf87c9907502035710a5861da7d"
+    sha256 cellar: :any,                 arm64_ventura: "0c29e2b0a060418c8b623966a8ec35cda733751f1b213f02b904e4019dec0984"
+    sha256 cellar: :any,                 sonoma:        "439b91fa87daf0ef6ad20bf63cf08dec6a74bce93d5d317071cb9cf98274df88"
+    sha256 cellar: :any,                 ventura:       "b3ea9b0f42b2d61cf077af1b25da0a941c108fc7e6e8fa3a9545b4979bf09c04"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2608fc757973eff99eae701c609104f3ab8228589a8a2668ed894d0386411213"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f9b9596715f58f1162e2ff159d9f771f51ea175c45accbebdf3151d0c6a3321"
   end
 
   depends_on "pkgconf" => :build

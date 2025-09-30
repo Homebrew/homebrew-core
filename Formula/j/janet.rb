@@ -1,19 +1,20 @@
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
-  url "https://github.com/janet-lang/janet/archive/refs/tags/v1.38.0.tar.gz"
-  sha256 "84dbf7db9c09677618549fb4be23631fd64f527af21051db02753241a2f6f752"
+  url "https://github.com/janet-lang/janet/archive/refs/tags/v1.39.1.tar.gz"
+  sha256 "a43489328b88846e5cddbdad9274f25ee9854e337e52490a74bb7955de03c650"
   license "MIT"
   head "https://github.com/janet-lang/janet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3d5aceab74176cbe27ffae5a7fa4f9485c2694989188fcd5f7c4a83ff2a4495d"
-    sha256 cellar: :any,                 arm64_sonoma:  "2afce57bcb9348d81aa482af206fbfa1d6b1985f028be51fef0d5e6f6ccc42e3"
-    sha256 cellar: :any,                 arm64_ventura: "ccdaeff23165fc3b9fc964a18a010dd0804a91cc615c25be653f0f59f401886c"
-    sha256 cellar: :any,                 sonoma:        "02fb4e9f90e09f7ba732c33f5db175650f074f42a2d144d2ec140ac4594d0972"
-    sha256 cellar: :any,                 ventura:       "db28b206bd0846582f5d299e02879624716b1ba5d87ebdc3819b1dd202c3ad6d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3c3fe2618d5ca8b0458ecb473531c16f9deb97a8bd4de18228507f97252fae1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "029c616c9c076e8fcc8a8a144df67dc5427dbad79903329a5accaadf26bc487a"
+    sha256 cellar: :any,                 arm64_tahoe:   "fc755cac56166891d47e91b2087f61ad44e9b2fae668288d9d07333b71caba70"
+    sha256 cellar: :any,                 arm64_sequoia: "2e82b032a20adbbef5abece92554901eb1c67810c08ed523e80b3ef9701c1aaa"
+    sha256 cellar: :any,                 arm64_sonoma:  "14125622a9edf9576451babc8559c29925a672dcbe771c214228fe55ffb943b1"
+    sha256 cellar: :any,                 arm64_ventura: "0ba2c52edf3315a896de9af2912bf7d45d73264bd9e3cf69d68661919d415514"
+    sha256 cellar: :any,                 sonoma:        "7804f267e57a24d6b45358ee2b7f912b392f58c078e512df46e87dff49114fb3"
+    sha256 cellar: :any,                 ventura:       "200c5a33ee8b600a0fa4a0519aac0fe2dde1328697314b94f322971808c95e1c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c0e5f461d8c69ca69aeab8354cd323ade5c3f9bcd95d0f5479138c3d9ba8cd23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe6e70e686bf4871d545e9429851160559fa9d338e1849752b55e3d0398c2bee"
   end
 
   resource "jpm" do

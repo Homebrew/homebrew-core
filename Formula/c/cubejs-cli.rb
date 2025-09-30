@@ -1,18 +1,17 @@
 class CubejsCli < Formula
   desc "Cube.js command-line interface"
   homepage "https://cube.dev/"
-  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-1.3.56.tgz"
-  sha256 "7581cab4e5714f1a6a2b7e0bb1e2833526d5f2570e1a2a09621356ffe231857f"
+  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-1.3.75.tgz"
+  sha256 "9579eef7789857b1930d06b4c601353d1e6695b29633584e9499736aa63dd0cc"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "500ec425ab574f35afdb0f457c7494d5c04626a691b59f1bc3536251e76799df"
-    sha256 cellar: :any,                 arm64_sonoma:  "500ec425ab574f35afdb0f457c7494d5c04626a691b59f1bc3536251e76799df"
-    sha256 cellar: :any,                 arm64_ventura: "500ec425ab574f35afdb0f457c7494d5c04626a691b59f1bc3536251e76799df"
-    sha256 cellar: :any,                 sonoma:        "8edd46859f7c89e386ee19737f8138a03f8a50ff9b104efbbea51aaf579a6dc6"
-    sha256 cellar: :any,                 ventura:       "8edd46859f7c89e386ee19737f8138a03f8a50ff9b104efbbea51aaf579a6dc6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c94b3640febc0fc725e5eb6270f8c566603bfad33cb97bcf2b6aaae0d52b40c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "792ce30fe6415397275ec4657f0b7a340e0858341387bcef9eac28321d5be9e5"
+    sha256 cellar: :any,                 arm64_tahoe:   "9fd2b238233ebf6afabda736a8a2e5b81153d7337a6be668fb8300a49bb06fd9"
+    sha256 cellar: :any,                 arm64_sequoia: "f1eb2a86ef1965c037adcd6d748024f604dd483c64f8d1c4ceda94789dd24c05"
+    sha256 cellar: :any,                 arm64_sonoma:  "f1eb2a86ef1965c037adcd6d748024f604dd483c64f8d1c4ceda94789dd24c05"
+    sha256 cellar: :any,                 sonoma:        "af6126100b1aa6607bb966737b07b21ad5eaef8cf11d570d4e39f7ed6d061f51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b77772ad8f91a5bbb71b70b05b1bf3fb9ad7aa8852fa4d8997ffdd1b247c43a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b091b08a459b24ce29930b911299da5c4707eb02032f04df7bef3c08ae2b488"
   end
 
   depends_on "node"

@@ -9,19 +9,21 @@ class Pdfrip < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bca08e27db986d69640df5ab539f1b84fcaada7f43d6f8235d472bfb26acc1f1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92eafcb03fc927dbe7a94aa8b5657038621d342f1405c2a09d6766a94ee04231"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6c3dfc1b88440a91d4cdcdf76699599cf6955b8c31d1376bbff00b13751ead1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d5def9d0760ae745a23e26a0b37afb953a340ea6de90940a3f218b0dc369ebc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a1d72c6cfcec8a572e0e8c3e07acea03120fb692c321c8c88993dac530a127e0"
-    sha256 cellar: :any_skip_relocation, ventura:        "83cd8a56b4a4238f6ccf0dca5519393686ec2c4e144d035841c71228637a7933"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf71e60e04dc370096a46ba62694e46749dbeaf9e5fbdd9050bd355f0d8be40b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c4ce0bc480f1229dfb409f87690ac832a3022a56d0bfe56b562c3d1a192d5a8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "311c5aacf5d23a6e692524c39f632bac0bc0a4984b0a5de34ff452f6490d9a28"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1036db7676a0822b721390e43e797e7e846dbd3b4f0c35acc3fb71fee338f938"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68c75d4a427d4512dce141506acc4d3b02e8640d3fb54a30bfc0c9be4ffa525a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eeac32a01baca1d879c37adc93518653405ffc1437ef2551eed0d7bee45a9c13"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b27b773f78bba7b8d64b60cc5c8b8cdef12d45574be2d4881223bace41d64acd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0db2c8b883091a68cdda3fe1f4da41213bd041fbe8b93862b86e744baa60c75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de8fc88b6d291c32c7e3b0ed9fdda602f2a237e8478921f07b56bf550dbcbbde"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
+
+  # Fix to build error with `indicatif`
+  # PR ref: https://github.com/mufeedvh/pdfrip/pull/64
+  patch :DATA
 
   def install
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
@@ -37,3 +39,19 @@ class Pdfrip < Formula
     assert_match "Failed to crack file", output
   end
 end
+
+__END__
+diff --git a/Cargo.toml b/Cargo.toml
+index e0db059..6cdba04 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -5,7 +5,8 @@ edition = "2021"
+ authors = ["Mufeed VH <mufeed@lyminal.space>", "Pommaq"]
+ 
+ [dependencies]
+-indicatif = "0.16.2"
++console = { version = "0.16.0", features = ["std"] }
++indicatif = { version = "0.16.2", default-features = false }
+ log = "0.4.19"
+ anyhow = "1.0.72"
+ crossbeam = "0.8.2"

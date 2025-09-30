@@ -1,8 +1,8 @@
 class ReleaseIt < Formula
   desc "Generic CLI tool to automate versioning and package publishing related tasks"
   homepage "https://github.com/release-it/release-it"
-  url "https://registry.npmjs.org/release-it/-/release-it-19.0.4.tgz"
-  sha256 "a93098b6d129bcd3e2fa187b66c318a5a198b1c442029da5dd10c0c4fa302458"
+  url "https://registry.npmjs.org/release-it/-/release-it-19.0.5.tgz"
+  sha256 "9a292b185d437a717a25acce919ab704a32ed29dfd4db1937809f7ae6d3043aa"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,7 @@ class ReleaseIt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c49a9c8b7ef3b67f6c86f84ec6a2947e5031989438be7515bf06b1a078967eda"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c49a9c8b7ef3b67f6c86f84ec6a2947e5031989438be7515bf06b1a078967eda"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c49a9c8b7ef3b67f6c86f84ec6a2947e5031989438be7515bf06b1a078967eda"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c984e38528dffbe119434fd5d19fbc351048b1c68387997c1e1fa6831a0cdcb7"
-    sha256 cellar: :any_skip_relocation, ventura:       "c984e38528dffbe119434fd5d19fbc351048b1c68387997c1e1fa6831a0cdcb7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3346dd7a6ef8799ed5ddcb162ece0717fe94744c7e2f03d00e79872ad9a12fdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a648d5d8235b157ca310272fdd918b7971064119f2095b6fc0c930e6a9c7fe1"
+    sha256 cellar: :any_skip_relocation, all: "f232d7039e2c2a7276df7aade449867f3066853729ba9fbb4f22f3f0b15d1928"
   end
 
   depends_on "node"

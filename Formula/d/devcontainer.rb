@@ -1,18 +1,12 @@
 class Devcontainer < Formula
   desc "Reference implementation for the Development Containers specification"
   homepage "https://containers.dev"
-  url "https://registry.npmjs.org/@devcontainers/cli/-/cli-0.80.0.tgz"
-  sha256 "7264d2dd2772479cc57d8acc5ba79f40383e5c4e062d1b67002c067c39f39135"
+  url "https://registry.npmjs.org/@devcontainers/cli/-/cli-0.80.1.tgz"
+  sha256 "6a6b4d74ee7b474e23d7685d75ff3e7c5abc78930f96c19ac68e0a0f1bca56af"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ee0ed149321d9d826740c53336ad65cd16ae09ba29ae75d85eda291aada3ff8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ee0ed149321d9d826740c53336ad65cd16ae09ba29ae75d85eda291aada3ff8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0ee0ed149321d9d826740c53336ad65cd16ae09ba29ae75d85eda291aada3ff8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bc40fc5e95556c027dace145e363da33f846c4765dc5d9ad87701a087bda5c22"
-    sha256 cellar: :any_skip_relocation, ventura:       "bc40fc5e95556c027dace145e363da33f846c4765dc5d9ad87701a087bda5c22"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ee0ed149321d9d826740c53336ad65cd16ae09ba29ae75d85eda291aada3ff8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ee0ed149321d9d826740c53336ad65cd16ae09ba29ae75d85eda291aada3ff8"
+    sha256 cellar: :any_skip_relocation, all: "462fe7ad28ad568a9946d4a9de7d396656b8decebe08606bba18d8a82f13ca71"
   end
 
   depends_on "node"
@@ -23,6 +17,8 @@ class Devcontainer < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/devcontainer --version")
+
     ENV["DOCKER_HOST"] = File::NULL
     # Modified .devcontainer/devcontainer.json from CLI example:
     # https://github.com/devcontainers/cli#try-out-the-cli

@@ -11,6 +11,7 @@ class SigmaCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "62389447e94c5fd887f3e78cc682b030ce951060c8825175901c70423c92979e"
     sha256 cellar: :any,                 arm64_sequoia: "c52a3d701cb7954648073ab399acf23aa9ba92001c1616b78509f58a904c2aed"
     sha256 cellar: :any,                 arm64_sonoma:  "54ff4d366f2bd84868094772ea97010b70eab5ff747025b713e81904fa793983"
     sha256 cellar: :any,                 arm64_ventura: "7249cf7861b6cb71bc72f301d9a5d6063b9101253f95787b9221205c50072d8c"

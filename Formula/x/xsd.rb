@@ -13,6 +13,7 @@ class Xsd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9beb0bcaa0a49b5de1613b0ce1424a3f1ba33d0697860103c4a93ec4b7f4e748"
     sha256 cellar: :any,                 arm64_sequoia: "9bab1b8a054ae9b32e68d6c0ab9ee59435715bcedbdc1206de8b54a5c8210ce5"
     sha256 cellar: :any,                 arm64_sonoma:  "b095172797b397ec3afe2c05033aa138ef2449d982aa8e77b9b26b484cd7fbc9"
     sha256 cellar: :any,                 arm64_ventura: "515effcddd5163ba8ac3fc30f2daf51d5c9380209b376cd4fbbffc54eb823b9e"

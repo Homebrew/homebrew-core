@@ -7,6 +7,7 @@ class Skani < Formula
   head "https://github.com/bluenote-1577/skani.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd6c7cad61880099bafc183919531c2cea2b24e6305c6a11686044855a45ed82"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "65dec55b820121a4e47424587d3f712181c717988548065ed47b42c5b8df9423"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6328346bcaaf38631e2c0dddaadfadf1e2a4889894f39eebbd50e964385a7b2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8bc754751beec16c86cddab174a93e0befdf4d353a65dc3c628237079ba43b3b"

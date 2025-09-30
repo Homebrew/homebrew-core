@@ -1,8 +1,8 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
-  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.2-1.tar.xz"
-  sha256 "ead4b5d33efab77ec84335a0be9c34a0fa7e3693456bf05e76d3fa492ad6ebbb"
+  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.2-3.tar.xz"
+  sha256 "2943d26f9ac4875aacf16c8f717f4d32ac985fe6a0c0a8e48c24c5cbb3161050"
   license "ImageMagick"
   revision 1
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
@@ -13,13 +13,14 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "c7756e8329b5ae6499ba87fa1f35547f2bec7a8c329a95d2d30ae3dc0561689a"
-    sha256 arm64_sonoma:  "ff94d2d5e06f29a8527d31d413f4b4691ec5015ab1b153175765a6da34b743f2"
-    sha256 arm64_ventura: "18e3784bc9fb27dd6a3a6961dcce8ff81aa350001b4f71c6fc5af7f7b7bc9cf5"
-    sha256 sonoma:        "e7c130827bee7649f821c8ae63d561043e7fe0bfd0936b5bfe5c6cb36de9cfe5"
-    sha256 ventura:       "60fb20b82b8b2ed1e87e3cd548fb1e4769c1e7fb3a44ac29eeed67e92ce913a2"
-    sha256 arm64_linux:   "472e742fb160854c9e6791d5a25a97ac70a6d1bc9f7d595f82f876649007e80d"
-    sha256 x86_64_linux:  "68291ce05a695a9606cdffe70aaca347a216d4ce6bebe84850aa4335437e1d5b"
+    sha256 arm64_tahoe:   "ac7aab68c2e34b295142684b6b84d8896b71a797473af4d778a7020d17152de7"
+    sha256 arm64_sequoia: "a5c26f29c5481ad6c5e2062288db4efb4cf0a8371bfecf35453879d4282a3032"
+    sha256 arm64_sonoma:  "a32183b200cea79b590c9a20a82b80ed26cbe3f4ee6edbd8cb3e6944a8137f2a"
+    sha256 arm64_ventura: "7b767dd4d6dfcd04b3decd2fa20b438f2637cb750385803441ffb98034f0a22c"
+    sha256 sonoma:        "d77980bfd98a03c876826ab460b8cd15edff7f373c93b32beea75f115daf32b6"
+    sha256 ventura:       "b6f49ea5151d62bd4c318b2901bdbab7c2595bed65bd808f851df63de0a5016d"
+    sha256 arm64_linux:   "fb7ec4d371af367d8c81679e3de7b6c078b80bfdef4d7835316a2cdcefe06829"
+    sha256 x86_64_linux:  "41eadf77755629156d7aab28d1f36033ebf13827d0f75b85c2693e33b50dce50"
   end
 
   depends_on "pkgconf" => :build

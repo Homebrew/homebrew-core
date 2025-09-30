@@ -7,6 +7,7 @@ class Bupstash < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "11880e340498d539dc45fc413508f1bda1985c1f1d1e9b9ae818287ffe028141"
     sha256 cellar: :any,                 arm64_sequoia:  "a1955968ad1ced6369767619595453bcd9260fa963878cec01f51ed10ae0f4f9"
     sha256 cellar: :any,                 arm64_sonoma:   "282702198d0383461a3827c2727a2cef576f7e68cf32f88af49fd1591602e0ed"
     sha256 cellar: :any,                 arm64_ventura:  "5c75007fe3422c999e4843325a6d7939850e60266485ae78b514b4f56f19114f"

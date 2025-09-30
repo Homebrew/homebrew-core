@@ -9,6 +9,7 @@ class Libidl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a0e91391470fe336c418566901c022fbd51387a87581ac820e72592c561001d7"
     sha256 cellar: :any,                 arm64_sequoia:  "dc9090a7f3672741f6edaa0564cc8c5cb28cb24e4bc43108d8953e05f3fb1eaf"
     sha256 cellar: :any,                 arm64_sonoma:   "555fa331e45efaead26f0b6ff68fd41f1a75223a68e5469fa041f4bb95676ad0"
     sha256 cellar: :any,                 arm64_ventura:  "c0d6a80577aeb880b24d8ec60c11a5f4e49e48ee5109e6a4dbbcfca24b2a05f3"
@@ -19,9 +20,6 @@ class Libidl < Formula
     sha256 cellar: :any,                 monterey:       "9b0791153103e3a4629804b46bccc3829d17bfcead908916cac480ba624b3a6e"
     sha256 cellar: :any,                 big_sur:        "320ddc04b68934e51f31fc33223c11097d712869a83242ca6669d05ca112ede9"
     sha256 cellar: :any,                 catalina:       "fc384a7b4357147c85196b681bd1a96a70e2a7e194c38b6e8afbef5bafc21efb"
-    sha256 cellar: :any,                 mojave:         "6221a3b0ea37b55c26bc1f83c84ce3e027a8925b92d63055a51fe3a7d6bdff19"
-    sha256 cellar: :any,                 high_sierra:    "9b07bec68567266f1bc065b05afdb9b034c0c70548145d7cdd963b5958c8da30"
-    sha256 cellar: :any,                 sierra:         "ecabcc1a9cd229a135557f0f8bc32a38d03d399ff6816b0fc897cc4bcf72cd1c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "57eeee9bf85e175fcdbd07db76bafa970051cf061836efd715957e5cfcb7319a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ede5070565f89d3e7f24f01d9da73d50b6c008fbf12f7247d3cd04b8076d842"
   end

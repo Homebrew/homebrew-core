@@ -10,6 +10,7 @@ class Apib < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "337cb9a61b2d654dd1217f9abb5c6b36056b0a9a1b0309493761e48b70e3c087"
     sha256 cellar: :any,                 arm64_sequoia:  "16bdbdc8c1157d81ef431aa3c9065d08a8986f6f9863d6d1d9ec7b9bf9ba1a4c"
     sha256 cellar: :any,                 arm64_sonoma:   "6b82511a66880598cbb30560c46652203f7448dd5fecea99bf50a73cc248f18a"
     sha256 cellar: :any,                 arm64_ventura:  "0d3f8ebb9f43ccdebb3d1f0afea5decb6418aee36e2021d8c6eb2a182f023c09"
@@ -29,7 +30,9 @@ class Apib < Formula
   depends_on "openssl@3"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build", "--target", "apib", "apibmon"
     bin.install "build/apib/apib", "build/apib/apibmon"
   end

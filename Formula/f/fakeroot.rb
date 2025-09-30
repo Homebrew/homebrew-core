@@ -12,6 +12,7 @@ class Fakeroot < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "564fd8232d47a45c63da8ef9f7dae69e703529215d4a7c486c5c1e21a7065483"
     sha256 cellar: :any,                 arm64_sequoia: "ab29a59c3530a716bfa3151bed5458ece1bb6b136dd2a316f54f88ff031e1f52"
     sha256 cellar: :any,                 arm64_sonoma:  "1aadc43f4ce3f17a1a609750a139f412205a71b1abc068b06874e83e40fcd7f3"
     sha256 cellar: :any,                 arm64_ventura: "1c11f5d0a36d1d27fb51c32f3989802f4c385796b56959da1472c3a97a42c687"

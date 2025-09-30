@@ -1,19 +1,18 @@
 class Legba < Formula
   desc "Multiprotocol credentials bruteforcer/password sprayer and enumerator"
   homepage "https://github.com/evilsocket/legba"
-  url "https://github.com/evilsocket/legba/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "c5e0cf14d372792ac99d692894d407911106b97f1307494bfa68e791ef2273c7"
+  url "https://github.com/evilsocket/legba/archive/refs/tags/1.2.0.tar.gz"
+  sha256 "d618c59060b76fcff26c066c1a2385c85f8c808bc07e2a1f30c777255de2a400"
   license "AGPL-3.0-only"
   head "https://github.com/evilsocket/legba.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "546c0cfae3b2ccf6ad22072dd561490c38959ca611c7f76996d1001975f3a850"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc2703adb32f63f00a50f93485d62a8ca77139d44da4e01ef8f8601a2a31ac90"
-    sha256 cellar: :any,                 arm64_ventura: "5f4c14f44040dfaeaa78911ce950bb7da785db6c7afee3c4a516c086ac55d01b"
-    sha256 cellar: :any,                 sonoma:        "0e3680c1235811f38c02014ea3a0abb4fa444c31161469d0a3537beb3e944acc"
-    sha256 cellar: :any,                 ventura:       "610f2288608058ded9a6b4386f9f50e5425773092be99faf12be6404e5e66458"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "06fd39a812020a3ab5eba5821365177050595d507a3ca81d49bf7b36b7aabee9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4b3fef8b4eef609096bf52bb3db2fa6361ddb683bedc357d34398b14b9a0a49"
+    sha256 cellar: :any,                 arm64_tahoe:   "4a5d7a59154b77080657cdd17b8c4cb989e34a060ad7f80d0c25f8fc6d6c3e68"
+    sha256 cellar: :any,                 arm64_sequoia: "1064dc688e6184befd3497ae9b802897bf52d0cc21b02306914f6e0e488add3e"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e34ddfe276dfc008ced3815ade9654aa119627123a7b3ecc23666552890d55b"
+    sha256 cellar: :any,                 sonoma:        "746c3ebe76412e059eee1843143b06d30a700c60fd85dde0c3726ec3e623a1fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ffe88a7ebad40b7381aa07238ffb91b74f4051653a8dba5e58f1a8650a1869db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2908972ed980846dfb43acd200e11e8a438273776ff8d20a5fc51141f787b031"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +20,8 @@ class Legba < Formula
   depends_on "rust" => :build
   depends_on "openssl@3"
   depends_on "samba"
+
+  uses_from_macos "llvm" => :build # for libclang
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.

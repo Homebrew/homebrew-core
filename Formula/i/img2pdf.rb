@@ -8,6 +8,7 @@ class Img2pdf < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ed1ea4bf5f39436b4033690c4b33ba58b645e1c4143b11d8725fd4ed1da5dcc2"
     sha256 cellar: :any,                 arm64_sequoia: "1079b3b50de55ff2cb1ddba4de0b6263eb02e19e4b8c71b789a6e06c5a6eb592"
     sha256 cellar: :any,                 arm64_sonoma:  "3de734f6984a7b7e9642891724dabaa3f21d61627c82d06a5d43828eaaf2933e"
     sha256 cellar: :any,                 arm64_ventura: "e43e023adc6d723aeba2a655fe2aa389ed431132cad290adf7a9fe40e361879c"

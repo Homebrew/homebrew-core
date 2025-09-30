@@ -9,6 +9,7 @@ class Mp3gain < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "29068cf92340a0434d5cb8bb98479ab79de6831d80f21916dbfc806ffabd71e2"
     sha256 cellar: :any,                 arm64_sequoia:  "2a9cae1ecdebe6daa0509f9841ecddb0c6a820919224caa5a1fcc2c62ec0d258"
     sha256 cellar: :any,                 arm64_sonoma:   "14fd6ea3919a61ab26359d1013eb3bedbe65cbe66d05efa179ba70be16fb1ba8"
     sha256 cellar: :any,                 arm64_ventura:  "d0b9afb6732e4f32ba35895a1616512871c41680e677880db81be8035514651e"
@@ -19,10 +20,6 @@ class Mp3gain < Formula
     sha256 cellar: :any,                 monterey:       "2d18dd77dc786372e6cb010f3abc4f893492faece974b1cd46a40f9e53b6bc1a"
     sha256 cellar: :any,                 big_sur:        "d31ec490fe52fd92457325ec9d1161104283d1c16cee1c73c2d083a847d187e1"
     sha256 cellar: :any,                 catalina:       "27dbf67d73a4f63cd06cc568b8a40d09e3fec5e858c447da1750b2093046d795"
-    sha256 cellar: :any,                 mojave:         "6db408b86b074e8713476fa60ea252ad3f4213dbf63cdca3342ffe989bd372d5"
-    sha256 cellar: :any,                 high_sierra:    "5aa37ac4ab2013f5365da14969494111500337cae3c6d7614b72dfb9e94352f2"
-    sha256 cellar: :any,                 sierra:         "66684a469ee1de432a00f1264c89b3921d3558854fa736b24a3942e351617c47"
-    sha256 cellar: :any,                 el_capitan:     "4c97894216600ba8ac03094a45fe68a7d107f69adbcd638d40c967ad10e95480"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "98696b13ab4fde544d5baa9d81c1ce457f52520c9927f77dc89e72eb31e2a6ae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a38486ace3008b4e9c5de0fa3d94c66c66108b5340e887ec0f322a3f9525d536"
   end

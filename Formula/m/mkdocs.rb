@@ -10,6 +10,7 @@ class Mkdocs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "533117a5190fce817f0962bec596df3cb692c79cf9bf7b899cb512a97f970817"
     sha256 cellar: :any,                 arm64_sequoia: "eaef82a9ff0893388cef139c8f7e896f44965ffa29f0387a084ac16974c834ef"
     sha256 cellar: :any,                 arm64_sonoma:  "1ea9d80905a53a911da2069c07b70f822793b83c4be26fc12e912c7923f64876"
     sha256 cellar: :any,                 arm64_ventura: "58710b3d30c3225a67bf4d0e1ae908619262cbaa851ba45554c5b7aa0de2f4fb"

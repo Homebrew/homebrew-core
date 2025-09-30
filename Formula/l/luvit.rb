@@ -10,13 +10,13 @@ class Luvit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "f004efa20e48708ea7d0a1ea8bfa25bbe3d799ee20984e44f961021364d1dd92"
-    sha256 cellar: :any,                 arm64_sonoma:  "cb68897cf4876b88d1d6f4145fc9ede06ef04f4b882c7eff6a9ca8a10e0eb668"
-    sha256 cellar: :any,                 arm64_ventura: "7cd6942821d45baa652c413d10d4ad521828d0a86ee581f0f72ff06098491c27"
-    sha256 cellar: :any,                 sonoma:        "6f261a667091381e962a5ff45a4080328c111bfe5883ec9d988b08b4eefaa8e5"
-    sha256 cellar: :any,                 ventura:       "c18b8fc2393a68b9b37f5ad5676fd619cca659348fb16938574a0a3b2731ce91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39109c056556f13c412c554fd1b421812b32e6d2bd01c4e103d71188612c21e9"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "17d057bd4ad2a454a31b24662102fff392681e72675de5d64e5deb1dfe7af479"
+    sha256 cellar: :any,                 arm64_sequoia: "50c277e8b5c4ac5d75481e09e520a8d119d997d7ab420ab01c5d2e9e700f08a7"
+    sha256 cellar: :any,                 arm64_sonoma:  "0ef80abb496d68a40c367126cfc343da468e67161b18f96bd239914166ce5875"
+    sha256 cellar: :any,                 sonoma:        "2a28032e61257c09d6282ae24a2e0cd64b97de9279a3337a7966b4cf36afedae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c7531ea1451526770ec5f04853cc6cc1b9a9db3803418bb3d8d5e36000f8456"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c7587270f4a47365d876feb28f09e2be713dea9bf8dd666e019071b93738d2c"
   end
 
   depends_on "cmake" => :build
@@ -45,9 +45,8 @@ class Luvit < Formula
   # To update this resource, check LUVI_VERSION in
   # https://github.com/luvit/lit/raw/$(LIT_VERSION)/get-lit.sh
   resource "luvi" do
-    url "https://github.com/luvit/luvi.git",
-        tag:      "v2.12.0",
-        revision: "5d1052f11e813ff9edc3ec75b5282b3e6cb0f3bf"
+    url "https://github.com/luvit/luvi/releases/download/v2.12.0/luvi-src-v2.12.0.tar.gz"
+    sha256 "4149c87646f487f9076c29e9861f64468637b1d1361b777b093e6204a83e1ed9"
 
     livecheck do
       url "https://raw.githubusercontent.com/luvit/luvit/#{LATEST_VERSION}/Makefile"
@@ -138,14 +137,17 @@ class Luvit < Formula
 
       system "cmake", "-S", ".", "-B", "build", *luvi_args, *std_cmake_args
       system "cmake", "--build", "build"
-      buildpath.install "build/luvi"
+      bin.install "build/luvi"
     end
+
+    # See "Sharing Luvi Across Apps": https://luvit.io/blog/alpine-luvi.html
+    (buildpath/"luvi").write "#!#{bin}/luvi --\n"
 
     resource("lit").stage do
-      system buildpath/"luvi", ".", "--", "make", ".", buildpath/"lit", buildpath/"luvi"
+      system bin/"luvi", ".", "--", "make", ".", bin/"lit", buildpath/"luvi"
     end
 
-    system "make", "install"
+    system bin/"lit", "make", ".", bin/"luvit", buildpath/"luvi"
   end
 
   test do

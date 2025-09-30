@@ -5,24 +5,31 @@ class PgPartman < Formula
   sha256 "462464d83389ef20256b982960646a1572341c0beb09eeff32b4a69f04e31b76"
   license "PostgreSQL"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc8d0101a41b8462c808e3b89ced8cf4c35abd2859da258810f45c7cc3d08eab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbb25523f90c489a1d3e960c72a5e25e2015203f076b422979105d4237548fa7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "da418435f548516e2c08d7152618cba4944c05ea97e7a6caf885d392367d6b1f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4ff364c6122dd2f76874efa3993473d44c1875a9af05f87ac2b6162e0d3c3081"
-    sha256 cellar: :any_skip_relocation, ventura:       "d354534be1f5892af69af5ad223d00864f39f49a1a05a161a45c32440f51bb87"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "514b8f6796d0853c9dee95b01cae31d554351c999f1ebbc989553d0572fe833a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35d4cb1858223e0a1b0badd91bc8d83393da2fcd30d9609bef6285d8fe5fef3c"
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "postgresql@14" => [:build, :test]
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9aa872814097e24a5251c1ff5b9c1962958f480ecb159a6ae80632bbd8be2ada"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "237456de81b9e9656dd9de9e54311e51ab859cabf251db79bcd0001ca727d6f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3360bd68ca5d0297445da2ae315fe2e5d59edb5df7490550081d0f80794174b3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1925b115886c4c53d4f52d18cee74d07617ee927a795eb48cac622f7948e4bf1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab848f61fc5c01cf74a13c5c340412fa9cc3a8e0e00f38f101abfc46ff251c40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b712bdf503c41e4fbbbcd9e7aced208586c7b52525cf6104c6fc58799b94eded"
+  end
+
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
+
     postgresqls.each do |postgresql|
       ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
 

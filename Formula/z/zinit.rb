@@ -9,13 +9,8 @@ class Zinit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "804a9d5dcb76db825078745d20af231ff45870f86f0d5564688067de7294c2a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "804a9d5dcb76db825078745d20af231ff45870f86f0d5564688067de7294c2a9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "804a9d5dcb76db825078745d20af231ff45870f86f0d5564688067de7294c2a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "df0bb7bf2ab57d6fb71f1e1f1732bc1854cb513b4e2052987d69e395975824d8"
-    sha256 cellar: :any_skip_relocation, ventura:       "df0bb7bf2ab57d6fb71f1e1f1732bc1854cb513b4e2052987d69e395975824d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "804a9d5dcb76db825078745d20af231ff45870f86f0d5564688067de7294c2a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "804a9d5dcb76db825078745d20af231ff45870f86f0d5564688067de7294c2a9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "9f9174dded2850c1d15edeca007e47336e44cff977a7aeb62470ffa29598914a"
   end
 
   uses_from_macos "zsh"

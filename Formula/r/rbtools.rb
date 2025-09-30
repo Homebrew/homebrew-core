@@ -9,13 +9,8 @@ class Rbtools < Formula
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d1541193440801cfc7dfd429ccce3004ec1c059b5fe8734223a61b6929e8491"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9d1541193440801cfc7dfd429ccce3004ec1c059b5fe8734223a61b6929e8491"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9d1541193440801cfc7dfd429ccce3004ec1c059b5fe8734223a61b6929e8491"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5e86ed43488d247a5ce2ca8c14827669605e5484fd80a50dc68315942869eb9f"
-    sha256 cellar: :any_skip_relocation, ventura:       "5e86ed43488d247a5ce2ca8c14827669605e5484fd80a50dc68315942869eb9f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d1541193440801cfc7dfd429ccce3004ec1c059b5fe8734223a61b6929e8491"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d1541193440801cfc7dfd429ccce3004ec1c059b5fe8734223a61b6929e8491"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "202baa3e362372f9c0fdf783ec395bd6ebe053db05ffbebe56b0ff98cdea59f4"
   end
 
   depends_on "certifi"

@@ -3,10 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.1/single/qt-everywhere-src-6.9.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.1/single/qt-everywhere-src-6.9.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.1/single/qt-everywhere-src-6.9.1.tar.xz"
-  sha256 "364fde2d7fa42dd7c9b2ea6db3d462dd54f3869e9fd0ca0a0ca62f750cd8329b"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.2/single/qt-everywhere-src-6.9.2.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.2/single/qt-everywhere-src-6.9.2.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.2/single/qt-everywhere-src-6.9.2.tar.xz"
+  sha256 "643f1fe35a739e2bf5e1a092cfe83dbee61ff6683684e957351c599767ca279c"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -25,15 +25,14 @@ class Qt < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_sonoma:  "5b02cafecab509082f82311a538b088285033788affb96b419a0df0bbb5cd849"
-    sha256 cellar: :any, arm64_ventura: "6bf023de45eff4208fdecd2cb63a7edee9c5747df75d3b7e3fc83988431f4864"
-    sha256 cellar: :any, sonoma:        "1a0065fe535aae8d3b90a2416a48062639c10657e42feac7ddd681a4db195300"
-    sha256 cellar: :any, ventura:       "400f1fe51a0cb21266ed724f86d25e5b1537e75b9d084b0632dc0c7a8783f153"
-    sha256               x86_64_linux:  "493a42d2d1744a449f23c2840f7ce1cee7a5da35d2ac4d9e175ae649ee1c7569"
+    sha256 cellar: :any, arm64_tahoe:   "21254c8c796c8e2c9a0b29a465f45ea1d2831930847d9de1c30f2333befb9de4"
+    sha256 cellar: :any, arm64_sequoia: "b51bc26874d98507975fb7bb8b5e43f0fa617c503f9b56923d0196016ea1894a"
+    sha256 cellar: :any, arm64_sonoma:  "3e783ecc24d44882a75c8ea62da58428b303d57ace8cd00ce351e8aa5160c25c"
+    sha256 cellar: :any, sonoma:        "e5f574692f7586ef2674b2a4bb5e24f6ccf77ee7cce15a827126a0142c723a22"
+    sha256               x86_64_linux:  "0b405353963f49dabb10fb0697ca5dae05d025ae37efb57d22e1aa66ecc381bc"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on maximum_macos: [:sonoma, :build] # https://bugreports.qt.io/browse/QTBUG-128900
   depends_on "ninja" => :build
   depends_on "node" => :build
   depends_on "pkgconf" => [:build, :test]
@@ -138,20 +137,6 @@ class Qt < Formula
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
-  # Fix for `invalid use of attribute 'fallthrough'` with GCC <= 12 and gperf >= 3.2
-  # upstream bug report, https://bugreports.qt.io/browse/QTBUG-137278 (fixed in 6.9.2)
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/196ba5754b09b668647a772fac2025fbb9c1b859/qt/6.9.0-fallthrough.patch"
-    sha256 "8450a2611badc612ff8da9f116263dea29266a73913922dbc96022be744e9560"
-  end
-
-  # 6.9.1 patch to fix `std::unique_lock` usage
-  # upstream bug report, https://bugreports.qt.io/browse/QTBUG-138060
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e013656cb06ab4a1a54ca6fd9269647d4bf530bc/qt/6.9.1-unique_lock.patch"
-    sha256 "6bca73d693e8fc24a5b30109e8d652f666a7b5b0fe1f5ae76202f14044eda02c"
-  end
-
   # Apply Arch Linux patches for assimp 6 support
   # Issue ref: https://bugreports.qt.io/browse/QTBUG-139028 / https://bugreports.qt.io/browse/QTBUG-139029
   patch do
@@ -165,6 +150,10 @@ class Qt < Formula
     directory "qtquick3d"
   end
 
+  # Backport support for FFmpeg 8.0 from Chromium
+  # https://chromium.googlesource.com/chromium/src/media/+/065e95ae56bbba9b6c8832864c1f0ab89ae777b7
+  patch :DATA
+
   def install
     python3 = "python3.13"
 
@@ -177,6 +166,11 @@ class Qt < Formula
     # arch-specific code with runtime detection of capabilities:
     # https://bugreports.qt.io/browse/QTBUG-113391
     ENV.runtime_cpu_detection
+
+    # Fix build with Xcode 26, metal and metallib have moved
+    # https://bugreports.qt.io/browse/QTBUG-140206
+    inreplace "qtwebengine/src/3rdparty/chromium/third_party/angle/src/libANGLE/renderer/metal/BUILD.gn",
+              "mac_bin_path +", '"xcrun",'
 
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/apple/toolchain.gni",
@@ -248,8 +242,16 @@ class Qt < Formula
 
       cmake_args << "-DQT_FORCE_WARN_APPLE_SDK_AND_XCODE_CHECK=ON" if MacOS.version <= :monterey
 
+      # Cannoy deploy to version later than 14, due to functions obsoleted in macOS 15.0
+      # https://bugreports.qt.io/browse/QTBUG-128900
+      deploy = if MacOS.version >= :sequoia
+        "14.0"
+      else
+        "#{MacOS.version}.0"
+      end
+
       %W[
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}.0
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=#{deploy}
         -DQT_FEATURE_ffmpeg=OFF
       ]
     else
@@ -425,7 +427,7 @@ class Qt < Formula
     system "cmake", "--build", "cmake"
     system "./cmake/test"
 
-    ENV.delete "CPATH" if OS.mac? && MacOS.version > :mojave
+    ENV.delete "CPATH" if OS.mac?
     mkdir "qmake" do
       system bin/"qmake", testpath/"test.pro"
       system "make"
@@ -440,3 +442,127 @@ class Qt < Formula
     assert_equal HOMEBREW_PREFIX.to_s, shell_output("#{bin}/qmake -query QT_INSTALL_PREFIX").chomp
   end
 end
+
+__END__
+--- a/qtwebengine/src/3rdparty/chromium/media/ffmpeg/ffmpeg_common.cc
++++ b/qtwebengine/src/3rdparty/chromium/media/ffmpeg/ffmpeg_common.cc
+@@ -263,22 +263,22 @@
+ static VideoCodecProfile ProfileIDToVideoCodecProfile(int profile) {
+   // Clear out the CONSTRAINED & INTRA flags which are strict subsets of the
+   // corresponding profiles with which they're used.
+-  profile &= ~FF_PROFILE_H264_CONSTRAINED;
+-  profile &= ~FF_PROFILE_H264_INTRA;
++  profile &= ~AV_PROFILE_H264_CONSTRAINED;
++  profile &= ~AV_PROFILE_H264_INTRA;
+   switch (profile) {
+-    case FF_PROFILE_H264_BASELINE:
++    case AV_PROFILE_H264_BASELINE:
+       return H264PROFILE_BASELINE;
+-    case FF_PROFILE_H264_MAIN:
++    case AV_PROFILE_H264_MAIN:
+       return H264PROFILE_MAIN;
+-    case FF_PROFILE_H264_EXTENDED:
++    case AV_PROFILE_H264_EXTENDED:
+       return H264PROFILE_EXTENDED;
+-    case FF_PROFILE_H264_HIGH:
++    case AV_PROFILE_H264_HIGH:
+       return H264PROFILE_HIGH;
+-    case FF_PROFILE_H264_HIGH_10:
++    case AV_PROFILE_H264_HIGH_10:
+       return H264PROFILE_HIGH10PROFILE;
+-    case FF_PROFILE_H264_HIGH_422:
++    case AV_PROFILE_H264_HIGH_422:
+       return H264PROFILE_HIGH422PROFILE;
+-    case FF_PROFILE_H264_HIGH_444_PREDICTIVE:
++    case AV_PROFILE_H264_HIGH_444_PREDICTIVE:
+       return H264PROFILE_HIGH444PREDICTIVEPROFILE;
+     default:
+       DVLOG(1) << "Unknown profile id: " << profile;
+@@ -289,23 +289,23 @@
+ static int VideoCodecProfileToProfileID(VideoCodecProfile profile) {
+   switch (profile) {
+     case H264PROFILE_BASELINE:
+-      return FF_PROFILE_H264_BASELINE;
++      return AV_PROFILE_H264_BASELINE;
+     case H264PROFILE_MAIN:
+-      return FF_PROFILE_H264_MAIN;
++      return AV_PROFILE_H264_MAIN;
+     case H264PROFILE_EXTENDED:
+-      return FF_PROFILE_H264_EXTENDED;
++      return AV_PROFILE_H264_EXTENDED;
+     case H264PROFILE_HIGH:
+-      return FF_PROFILE_H264_HIGH;
++      return AV_PROFILE_H264_HIGH;
+     case H264PROFILE_HIGH10PROFILE:
+-      return FF_PROFILE_H264_HIGH_10;
++      return AV_PROFILE_H264_HIGH_10;
+     case H264PROFILE_HIGH422PROFILE:
+-      return FF_PROFILE_H264_HIGH_422;
++      return AV_PROFILE_H264_HIGH_422;
+     case H264PROFILE_HIGH444PREDICTIVEPROFILE:
+-      return FF_PROFILE_H264_HIGH_444_PREDICTIVE;
++      return AV_PROFILE_H264_HIGH_444_PREDICTIVE;
+     default:
+       DVLOG(1) << "Unknown VideoCodecProfile: " << profile;
+   }
+-  return FF_PROFILE_UNKNOWN;
++  return AV_PROFILE_UNKNOWN;
+ }
+ 
+ SampleFormat AVSampleFormatToSampleFormat(AVSampleFormat sample_format,
+@@ -443,7 +443,7 @@
+     // TODO(dalecurtis): Just use the profile from the codec context if ffmpeg
+     // ever starts supporting xHE-AAC.
+     // FFmpeg provides the (defined_profile - 1) for AVCodecContext::profile
+-    if (codec_context->profile == FF_PROFILE_UNKNOWN ||
++    if (codec_context->profile == AV_PROFILE_UNKNOWN ||
+         codec_context->profile == mp4::AAC::kXHeAAcType - 1) {
+       // Errors aren't fatal here, so just drop any MediaLog messages.
+       NullMediaLog media_log;
+@@ -661,16 +661,16 @@
+       break;
+     case VideoCodec::kVP9:
+       switch (codec_context->profile) {
+-        case FF_PROFILE_VP9_0:
++        case AV_PROFILE_VP9_0:
+           profile = VP9PROFILE_PROFILE0;
+           break;
+-        case FF_PROFILE_VP9_1:
++        case AV_PROFILE_VP9_1:
+           profile = VP9PROFILE_PROFILE1;
+           break;
+-        case FF_PROFILE_VP9_2:
++        case AV_PROFILE_VP9_2:
+           profile = VP9PROFILE_PROFILE2;
+           break;
+-        case FF_PROFILE_VP9_3:
++        case AV_PROFILE_VP9_3:
+           profile = VP9PROFILE_PROFILE3;
+           break;
+         default:
+--- a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_aac_bitstream_converter.cc
++++ b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_aac_bitstream_converter.cc
+@@ -68,17 +68,17 @@
+   hdr[1] |= 1;
+ 
+   switch (audio_profile) {
+-    case FF_PROFILE_AAC_MAIN:
++    case AV_PROFILE_AAC_MAIN:
+       break;
+-    case FF_PROFILE_AAC_HE:
+-    case FF_PROFILE_AAC_HE_V2:
+-    case FF_PROFILE_AAC_LOW:
++    case AV_PROFILE_AAC_HE:
++    case AV_PROFILE_AAC_HE_V2:
++    case AV_PROFILE_AAC_LOW:
+       hdr[2] |= (1 << 6);
+       break;
+-    case FF_PROFILE_AAC_SSR:
++    case AV_PROFILE_AAC_SSR:
+       hdr[2] |= (2 << 6);
+       break;
+-    case FF_PROFILE_AAC_LTP:
++    case AV_PROFILE_AAC_LTP:
+       hdr[2] |= (3 << 6);
+       break;
+     default:

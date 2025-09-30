@@ -7,6 +7,7 @@ class Gptscript < Formula
   head "https://github.com/gptscript-ai/gptscript.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3beba1325ff8ed7f9220a833c94d0318a1a9586592ea3ad6f43a2f0261c6ac9c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"

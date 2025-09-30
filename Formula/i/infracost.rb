@@ -9,6 +9,7 @@ class Infracost < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9b2a52b5c0aef341426175e05dc95ed23da6fa4909afe93f8bebc5458f92a384"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c852ef2a962736ee51bde04741f561eea75681fe9b3bc400a669e4a6c50732f4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c852ef2a962736ee51bde04741f561eea75681fe9b3bc400a669e4a6c50732f4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c852ef2a962736ee51bde04741f561eea75681fe9b3bc400a669e4a6c50732f4"

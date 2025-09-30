@@ -13,6 +13,7 @@ class Libretls < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "38becb1d91ff6265dd0127e0396ed3e4a67802772e2a389761c2415a51a146b8"
     sha256 cellar: :any,                 arm64_sequoia:  "19bba1bc2787f51fb0415c0af6cd57a2428318ce53c5abcf2076a5763a5e738b"
     sha256 cellar: :any,                 arm64_sonoma:   "45109b58836fd475c43f0d0dc84c01651c4f6da03732dc7e8c75d6bef69f1a0a"
     sha256 cellar: :any,                 arm64_ventura:  "c64160d3f1e8351158fe0e6d341e622f877df3e8f1dfc9e5033d5a46603641e3"

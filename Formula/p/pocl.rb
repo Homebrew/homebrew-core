@@ -16,13 +16,15 @@ class Pocl < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "cd7832d6c7a66916ce6780910e68194e67bcabaa44350b90628533c6f9e3eaea"
-    sha256 arm64_sonoma:  "87704651357fc84da96b8fd14331198193d5123ef11654c4482bfb1e2ef1d889"
-    sha256 arm64_ventura: "9691c82147520af2ad73b91efd481eabe23522be587050e699533c68feb17d77"
-    sha256 sonoma:        "50430f27b0122aaa37d926a8d61e478b0cc2aaf899cdbd692ba4f5cb2b047864"
-    sha256 ventura:       "00667cb2b09818896f5d383d1663c0a8df110b999073c1640d58cddf4c16bed6"
-    sha256 arm64_linux:   "8ee380dab7fa84eb7df26f804681008b56b209ac81daf7e1ecfa714a44f02462"
-    sha256 x86_64_linux:  "36f28178328e6a60b659973f040fb33423e7f6cf2a6291f2b7c7c52e0c5232b8"
+    rebuild 1
+    sha256 arm64_tahoe:   "e39e3235300c89de9d68523fb5d25eab669f664ae0713760fa3f4bf94ee3c45c"
+    sha256 arm64_sequoia: "ce20bf8e55006a7e27ee297c9ade37a0f1d764eca612addd932083eb05653379"
+    sha256 arm64_sonoma:  "ad257d6295b26845ee36310ce3bd75a2dbc51d68c5f74fbea83e04715cf2a6ac"
+    sha256 arm64_ventura: "99dd1eb71561ce4ab0877ea116f71b7fe6c1ff0d192c9e01220ca891dc584ba9"
+    sha256 sonoma:        "c69a5c293303eb4674ae6e6a108bcf68b5a274e1d6a28c021dc6f781ea65bf7f"
+    sha256 ventura:       "84be53db65680a555f1c1d2f4def745ed949c6c5dd8b4510680ccecaa1ce98b5"
+    sha256 arm64_linux:   "4c2330ef849806b7ba65683d396f6cdd0bfae24c80ae2019b5f297d0ed19b8b4"
+    sha256 x86_64_linux:  "6e31505d8843897ac4f6ad07cb75c3c67ff7d2d8617defdca9fc4015a41ca222"
   end
 
   head do
@@ -59,11 +61,15 @@ class Pocl < Formula
       -DLLVM_LIBDIR=#{llvm.opt_lib}
       -DLLVM_INCLUDEDIR=#{llvm.opt_include}
     ]
-    if Hardware::CPU.intel?
-      # Only x86_64 supports "distro" which allows runtime detection of SSE/AVX
-      args << "-DKERNELLIB_HOST_CPU_VARIANTS=distro"
-    elsif OS.mac?
-      args << "-DLLC_HOST_CPU=apple-m1"
+    if build.bottle?
+      args << if Hardware::CPU.intel?
+        # Only x86_64 supports "distro" which allows runtime detection of SSE/AVX
+        "-DKERNELLIB_HOST_CPU_VARIANTS=distro"
+      elsif OS.mac?
+        "-DLLC_HOST_CPU=apple-m1"
+      else
+        "-DLLC_HOST_CPU=generic"
+      end
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

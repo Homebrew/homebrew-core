@@ -8,6 +8,7 @@ class OpenJtalk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "cb7361d9bbf78cc39da0b9992981dc8485c7f5ac0f5f3f191f5e0b27c8c1b9ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "51df7e0512ffe97b112a49dcb57c51da678a0cce2893cf8e3a9430044aef7d7f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01962b472c100d6d7e9e3b908f31bed428eabf103cdd8c0a64d5611b59bccb58"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "481210a86e81dd0e1deee82d4e046025d9b1cb273352b75744404f7bc30c9400"
@@ -18,9 +19,6 @@ class OpenJtalk < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "6d2bd635abd20f62e50e9d39be4d2b1c50f1bb2a94d87bc2ab396d4f0afba310"
     sha256 cellar: :any_skip_relocation, big_sur:        "b68172f2ccf166ea5e1b46c1908714386cfb24dcafa374a1ab172faa4844cc9a"
     sha256 cellar: :any_skip_relocation, catalina:       "0a251febe3197994355ab780ce02aa45264c7d148b0f1b0dfd1a80a7f7aa9937"
-    sha256 cellar: :any_skip_relocation, mojave:         "bed36f972fe3dc3d5f286eff5c1b1605a1bcfae6cc755b7b2aee57fc497f7913"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "cd50656bb81db4528b82b844c773440d6cdfec63e545a64002a473da05a7eb18"
-    sha256 cellar: :any_skip_relocation, sierra:         "b015d173b77980d0da3a8eedad02fdff95ac919c790917ba9cb197db91207235"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "bb8ac88296db73881f77f3b343ac172562036e06132e06603ca18c8ab66e372d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "09fa6df65a5004730ee6d41ca9580ccd58933ddc33c6b3f64f1ba732ce7f3ce8"
   end

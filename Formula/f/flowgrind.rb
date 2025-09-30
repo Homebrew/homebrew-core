@@ -15,6 +15,7 @@ class Flowgrind < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a49acd1bbdaf30610f77f42655dd282c32f99f969bb0e5678226005d17677179"
     sha256 cellar: :any,                 arm64_sequoia: "ca6a1f882f1e3d9d886000625a2b3f53f5ce0947f8d1581a9f4ccf1fd3e29b32"
     sha256 cellar: :any,                 arm64_sonoma:  "7fbd50a235fee0890cfcea2afe0a0ecaf6d95264ebb3bc804b2c0fe19bc47f5a"
     sha256 cellar: :any,                 arm64_ventura: "4cd194dededa538922c8776c32890c9c85241feca07ff12a4d6ef1c8ae74dbfc"

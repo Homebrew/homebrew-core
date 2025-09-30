@@ -11,6 +11,7 @@ class GimmeAwsCreds < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7952b03cbc117cbd7d704487e0db09424809bae3508e7559f3ad828b09550591"
     sha256 cellar: :any,                 arm64_sequoia: "58eb4e21a19c382dea5871c593aeda318f6eb8a5572e3d21e1e8d897ba22ec90"
     sha256 cellar: :any,                 arm64_sonoma:  "7b58180236d37cdf1292289588eaccb519ccc770efe3e2dc190f198684581461"
     sha256 cellar: :any,                 arm64_ventura: "fd61297291c6351c9fed9acc4bc73469b7ac51162d56760fe7a76fb94fbeeb52"

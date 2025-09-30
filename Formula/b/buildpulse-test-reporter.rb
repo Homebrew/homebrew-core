@@ -13,6 +13,7 @@ class BuildpulseTestReporter < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4711592a6b669b5d417bf261032b49b16a0939ccd1af8d0b72bf09eff8875988"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9517c8459dbd5480f9c0d20230d1a331e22de9225109d0b777fc9c438fbb366"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9517c8459dbd5480f9c0d20230d1a331e22de9225109d0b777fc9c438fbb366"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d9517c8459dbd5480f9c0d20230d1a331e22de9225109d0b777fc9c438fbb366"

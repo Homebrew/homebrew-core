@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.12.0.tar.gz"
   sha256 "fe78ad9f74c8ebf93d5c8ad6fa2c13236af330f3c67149d91a0647b3dc6f3958"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -15,12 +15,13 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4fd1d52c2df1c3a1ca49301f6d92d8d577be909d0db7349c8714e45a552b2953"
-    sha256 cellar: :any,                 arm64_sonoma:  "fecac36b9ee8a9ea25eaf20a84c775f3f5a80ff80609a79492e26cd99284e4fe"
-    sha256 cellar: :any,                 arm64_ventura: "4d535ea4e010f39c793528e51b23cd75257aed3d25f984d797d55c8006485f70"
-    sha256 cellar: :any,                 sonoma:        "d7ab6a70a8546d2ec175af0bee3ea0ed0ea42286ebb1893ea0c8ada0eea2492b"
-    sha256 cellar: :any,                 ventura:       "c8bffed8f469fca53d642a7464bed852e5cd3178026f3de6a711f5ac8c2c6a1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e41ebb33ebe5d51963b0fd34844e088d10c907b925458e56756a4f73fa9ccfc"
+    sha256 cellar: :any,                 arm64_tahoe:   "22772ca0e646dd005f4d3cc877f70e37c3db0ef4345c8c5a896a086c6ae6e9ab"
+    sha256 cellar: :any,                 arm64_sequoia: "63d6e3bd27704e5aab78c7bd5973dd50a2de768944609810329e43b69a149e03"
+    sha256 cellar: :any,                 arm64_sonoma:  "7d2bd04c922373f4b4cb73a35a2967b9c72f459ec8d4f7206664e754e6246f02"
+    sha256 cellar: :any,                 arm64_ventura: "84d3b06ea74c3b27b885e769b4c17a4d7cbce19db8e2802a2f721cdaf5878e36"
+    sha256 cellar: :any,                 sonoma:        "bf9c4964f8db02895dc0867b779505164439980e326d5e0cad2bfe57b4b6eb8a"
+    sha256 cellar: :any,                 ventura:       "f6a548aebafa9ba98a2eb5a61e047d62ec3c2d6bc601081e506a8ed463f0b1ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0aeca0419d6660e716b0d3971851922d2fba527df1895e8cfcc9d4da8adaaae"
   end
 
   depends_on "cmake" => :build

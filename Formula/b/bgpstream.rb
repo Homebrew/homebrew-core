@@ -8,6 +8,7 @@ class Bgpstream < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c060368caac64c91df708d5b62f1e5ff276d94447b98c59cd168a0158890d1e2"
     sha256 cellar: :any,                 arm64_sequoia:  "8db317338ecbca23c82ea862d2f50c557262929d5c805abe88cf601dd5377da5"
     sha256 cellar: :any,                 arm64_sonoma:   "cad6544e83d2f83c50c324be9e81d144afd00e75f92d96f007dd131f529e1164"
     sha256 cellar: :any,                 arm64_ventura:  "dde80cac2798151d197586224462134faaa3f2e4504f7385bd63679326851646"

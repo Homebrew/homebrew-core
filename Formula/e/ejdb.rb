@@ -8,6 +8,7 @@ class Ejdb < Formula
   head "https://github.com/Softmotions/ejdb.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c56f28aa34314717114685cbfbf7590c67747ceb211b0585bb55d97fd607049e"
     sha256 cellar: :any,                 arm64_sequoia:  "5edce24e64d4033d0cacaa8cfac387a347bb895d7ffb7d93e205581eaa4b32bd"
     sha256 cellar: :any,                 arm64_sonoma:   "e0b8000aa7f9e587b5c003bc949f897692fd67ee2e2b75024f2c4900495fd68a"
     sha256 cellar: :any,                 arm64_ventura:  "4d04af75587bace755ce51b52efbb350f21fe9ff68e627e46ba6df5c0b3d802d"

@@ -7,6 +7,7 @@ class Logrotate < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "bffe194962061413d87ebe10d449692a3652c2580946d1fa632de3d654bbd488"
     sha256 cellar: :any,                 arm64_sequoia: "90ddfc2708f68326d05446c86b053187949aeaa8c3ed5463e7e827018a9ada51"
     sha256 cellar: :any,                 arm64_sonoma:  "0439009653f0b4d9a2c3e0d298e4ffd2f784757c4f185dd6e6b87e0afe3e35d0"
     sha256 cellar: :any,                 arm64_ventura: "9526d7d94fbbf4d77d45a5b1c9b997c1f9a837479ed26e19e0dace4ef8fe0f8b"

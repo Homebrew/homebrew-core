@@ -10,6 +10,7 @@ class Theharvester < Formula
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3aa6aea3f551125879f753e778e8acd056783dc79286cea831ef9fb5e6abe34c"
     sha256 cellar: :any,                 arm64_sequoia: "fa37f5466c482e3d6a8767520ac0d7db9c02b23d2d522bf43537e8eb46663a91"
     sha256 cellar: :any,                 arm64_sonoma:  "580d6e8cc59f48dc81a072830111d9202560c1ceb1a4aaa343598f5102f81541"
     sha256 cellar: :any,                 arm64_ventura: "4178f6f8d2bb00bf79b06b183b307fc8956fed6bb2827e16a853ccf13feb37dd"

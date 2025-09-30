@@ -12,6 +12,7 @@ class G2o < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8c43b5abf0708ddb98c08d56aad335d7a44789627413358ea7cd40d4a664bd12"
     sha256 cellar: :any,                 arm64_sequoia: "14a9b3fa5a5807affa0289809e379b64edf01d701f3b5a654f2ca42b8325c41a"
     sha256 cellar: :any,                 arm64_sonoma:  "9cad139379e98c63deaf37bed5ad74793ccb2730804f498e647faf996e8cc418"
     sha256 cellar: :any,                 arm64_ventura: "ee55fcb396513cf2bdd28f279f6616c2e47cb5d86d19a7b2a4b5a0b30323952f"
@@ -66,7 +67,7 @@ class G2o < Formula
     end
 
     resource("homebrew-testdata").stage do
-      last_output = shell_output(testpath/"simple_optimize intel.g2o 2>&1").lines.last
+      last_output = shell_output("#{testpath}/simple_optimize intel.g2o 2>&1").lines.last
       assert_match("edges= 1837", last_output)
     end
   end

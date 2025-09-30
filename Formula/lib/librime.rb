@@ -7,6 +7,7 @@ class Librime < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f30fc8c4a91b6d4cd7c03d7be232e34f518ab856dd2d1723a939ff3a4d3a09da"
     sha256 cellar: :any,                 arm64_sequoia: "1adf609bd7d7fbdefdc4c61f22286353bc58e3ccaa37f017d4a95d9fdcb682c1"
     sha256 cellar: :any,                 arm64_sonoma:  "14d9f57764a6b5a0d53c7f3873be7662b7c165f573094860fb40623cd0691857"
     sha256 cellar: :any,                 arm64_ventura: "6e45c1b22aaa6aceb263b1193c2da3f8abaaf1d7ef1a024616f12baf052e02dd"

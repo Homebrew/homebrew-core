@@ -10,6 +10,7 @@ class Dtools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "274178ae030c4b9871cbdd75b0a4325d8d7017a60d0fc443c1c94c8049eec142"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0f6645e51b5da22628b3b64b43acafc4ac335b98afbe8cbee3d10ef88fdaec9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e3f2aed17e75ef0632e0ec36b9dfb3db9566af400d3e2ec027aa89bf1699234"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4ffb209a7cc7a4e05c90771030c6c91941be35dd9884fe58f9dd14ef82c5fce1"

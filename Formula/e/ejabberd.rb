@@ -1,19 +1,10 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
+  url "https://github.com/processone/ejabberd/archive/refs/tags/25.08.tar.gz"
+  sha256 "edc95cff239d74bfb16e437f7cf84f0e86144e5fe764d7ee7dc248b2d59778f1"
   license "GPL-2.0-only"
   head "https://github.com/processone/ejabberd.git", branch: "master"
-
-  stable do
-    url "https://github.com/processone/ejabberd/archive/refs/tags/25.07.tar.gz"
-    sha256 "a980f2817ea03ca78dc5d8d241ba68a533cbcfe371996513a1b24ea371146596"
-
-    # Backport fix for Erlang 28+
-    patch do
-      url "https://github.com/processone/ejabberd/commit/b1c3baa7bd283fe4616d4a9862fecd4f01e5bcea.patch?full_index=1"
-      sha256 "669fe848e8445cc319965a4b23a568d8b8f82140c3bf5a6cd265f9067eac2f7b"
-    end
-  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead
@@ -24,14 +15,14 @@ class Ejabberd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "db37539ca1ebfe7a5aaceef1744eee4c4740e6ab6783e6af566b39628605a0b6"
-    sha256 cellar: :any,                 arm64_sonoma:  "b2ae1a92f3f934483b7b11805a0913955b0daf930a0239d4a07c9111491529a0"
-    sha256 cellar: :any,                 arm64_ventura: "9f71959ce29f30a08a128e9212900803297c21871f78d71c7f81c3a49698c5b9"
-    sha256 cellar: :any,                 sonoma:        "14ce3a3f92b5c9e99734b79211ff1b07800d6da6371a6a04fa70570649da2a86"
-    sha256 cellar: :any,                 ventura:       "7db64ee868ac575d19665f50bd2c76bd4fedb352c3c7d2a4defcb38c444e4b46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8490666703c18c63129043b0aa83586a62ee17ee959604dbc533a70965bddc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8eaf26880a8f89557773120718c802aa8c3f5a45db33db2e69eefabdf9f61b4"
+    sha256 cellar: :any,                 arm64_tahoe:   "7d5e2a36b0f3d717927452da6f8066e73a4e523527b7fe09588fbb1f32221be2"
+    sha256 cellar: :any,                 arm64_sequoia: "04ef35f86b87b1e83c9ef82de30b418a7effe4745725cc33a04f2696c569cc1d"
+    sha256 cellar: :any,                 arm64_sonoma:  "3b51176e909eb1e14f27fbf51e836905b5768126464b7c23125e2c00bf54cdb4"
+    sha256 cellar: :any,                 arm64_ventura: "bc5a0c0a5e1022f9f57b7f179447c1111b352045886a19a04611e3b678658807"
+    sha256 cellar: :any,                 sonoma:        "3b52f941d9f4e9f71a9bb7456a0cbd4b81771a6326884d17da34ecdafe68e496"
+    sha256 cellar: :any,                 ventura:       "7af2770db7fed11d93a7a3dda7895cdbe1d8300608fcbd023af3ab7723e07532"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71bb656be7d9b889df61d0d3771769a97371e867543891e6f9e1ae3b42aadf23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fb2592163e17b031217ecfddd0d91bdf4d1f990dbd59b518e131a2216226e58"
   end
 
   depends_on "autoconf" => :build

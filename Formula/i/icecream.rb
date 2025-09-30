@@ -8,6 +8,7 @@ class Icecream < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "13a9005297bac5939d73c7cb06837620691588609ff902db613ed9bbb12cd139"
     sha256 arm64_sequoia:  "3e72ef8ca299726695641f68412f9071e3840671808710ae1d4fc09b120d73e8"
     sha256 arm64_sonoma:   "cd4ee875fc4006985db7d2caab6039e97ea091165f1c683e19dd104e54362890"
     sha256 arm64_ventura:  "95f69b28c10fbe5af6475f27d70bf86279839de46ef27c3ea08e76b8fa97772d"

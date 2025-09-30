@@ -14,6 +14,7 @@ class Svg2pdf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d9da1569adeb4b46ba5ffda2b7d4a70f99351d0e277ceb655d6cdbde8bd67325"
     sha256 cellar: :any,                 arm64_sequoia:  "47d73aad7aae2d18a27bb902aa155f2f0a716ae9da58468a177c324de3307cc6"
     sha256 cellar: :any,                 arm64_sonoma:   "5d2e70a72f9a8858e35dd8f3103931091f755b8f23de7163b2a684fc5d2d54da"
     sha256 cellar: :any,                 arm64_ventura:  "dd7230495881424c8a87dab9fe1e076df3cb0d714a93070ae8239314bcb5ca13"

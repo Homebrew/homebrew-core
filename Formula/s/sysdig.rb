@@ -13,6 +13,7 @@ class Sysdig < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_tahoe:   "d1b3f22b0b9178be9d03e6c9daca0ea93839caf99c7c83f5ee9c0701dfa12397"
     sha256                               arm64_sequoia: "1d74a1743a589ba247d4418317ab1bf2e37841f23287196591870b64456dd905"
     sha256                               arm64_sonoma:  "5416d6073f468637103ca9339dfeebbd4fc20dd35987081fd2cc0cd0afe39033"
     sha256                               arm64_ventura: "e65cd00a0b2a04345e83ef69050785bdf90387a1a0e8d0f3e959e9161319462d"

@@ -10,21 +10,23 @@ class Iocextract < Formula
   head "https://github.com/InQuest/iocextract.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9201c8ee75261633b76636bb1e7d051d8c71ea2d2910d681ece7bceccad75f3a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b3831b339d144ed98f9c483a690db69433fc95a26672d8c3db0054b6d5ad5b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "525e6ee333e21f8017f19e516de4a0e18bcccf85f014dee030806917f0464c2e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fcfdc5526ade0f51277f83ae66ab64bf0c9ce843e576e28aef18bfdd78433e2c"
-    sha256 cellar: :any_skip_relocation, ventura:       "a87de6601c6811989dec795aff47c6669848e79374cfdd93d7d2e15a39cc59a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce5d3655d0e9883a3b9e66133cfc06478e12564524a3dc15e58389523b34582f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc7d6d5e1a009d6971338f0890ed8c36474aa646d1c292820bd02735895313a7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3291dd2f7c51a9d144c83f0c2e28e11ae4e8225004c68363f64a79a015c86d17"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2eea8bd42f63a2c26087d2257ea2b711984dbe5904ea81ceee5c1fdc1dfdcb8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf86024794b66d89ec3f4dab45c6c4d1c73ea80795d3f58f2f9d158cd8609522"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6b3bfbda26fac498e6d27616bfa2c5aaef0dd252c7ed153d1db4b9887046e127"
+    sha256 cellar: :any_skip_relocation, sonoma:        "15ed54c9a7d2232843b490de0eaf5514dd5e3d9ed41e980132746b7b1b24dcca"
+    sha256 cellar: :any_skip_relocation, ventura:       "9021fed290b2a1b1674e7a688b998fa3b85601112aa0cbaa1127b23305fe3757"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e57c9778a3db7c1e352afc83530f273dad9eb3f25bd722ee96deea538d38422"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03c618abee9efc6760137ce02332098ace098e8c9f5d81d4a6a9c64036e946a7"
   end
 
   depends_on "certifi"
   depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "idna" do
@@ -33,13 +35,13 @@ class Iocextract < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/8e/5f/bd69653fbfb76cf8604468d3b4ec4c403197144c7bfe0e6a5fc9e02a07cb/regex-2024.11.6.tar.gz"
-    sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
+    url "https://files.pythonhosted.org/packages/0b/de/e13fa6dc61d78b30ba47481f99933a3b49a57779d625c392d8036770a60d/regex-2025.7.34.tar.gz"
+    sha256 "9ead9765217afd04a86822dfcd4ed2747dfe426e887da413b15ff0ac2457e21a"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "urllib3" do

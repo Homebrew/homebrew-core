@@ -12,6 +12,7 @@ class ElanInit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "61ef80b2085b384cd60d93316b4739c4de6d218e374ea603b1b6d1dc66dd2a50"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4902a5f8381b8b51b1bd53bf09e9547795d327c16292cbd5cea895a232bff0d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "244c72110dc59e51a7b8248b82ce1773277cc3c61f45ca5ed1bfd49d2af58b25"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "36c1f08f1df2453875145833443e4666498b85d02e194b3c1ad5c6bf9401cd31"

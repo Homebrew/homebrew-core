@@ -8,6 +8,7 @@ class Periscope < Formula
   head "https://github.com/anishathalye/periscope.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5765ada2bc369b8ec6146bd7ce9e93d1e30d8bb97069d940dc17ef4fb1b2ffa0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d6d94c3ed7b19367c483d2e757040f66eeb55c7109d5b852ef95a4b2dceac4a5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "151bac7b4998a735eb059417d814e796f26edb35a795d89542fb5f4ac35d5cd2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "461ffa9b2eda689da1a8f6d35cfb1d348a44a438a9051551d594c02781235d60"

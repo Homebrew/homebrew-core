@@ -8,6 +8,7 @@ class TrzszSsh < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "052b3d255e1dd6febde261eb6cd019840b9f62f7ac0a00e51db49d1e05a9afca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e6b2a6b5b2c89403d127d93f50dc18f1e91472c94353530de7378330e7933dbc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5492415379fbd7159f38b5075842a3662cabd815e77e7abc77f4bc67d39a14c6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5492415379fbd7159f38b5075842a3662cabd815e77e7abc77f4bc67d39a14c6"

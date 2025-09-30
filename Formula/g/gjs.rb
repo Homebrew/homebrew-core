@@ -1,19 +1,18 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.82/gjs-1.82.1.tar.xz"
-  sha256 "fb39aa5636576de0e5a1171f56a1a5825e2bd1a69972fb120ba78bd109b5693c"
+  url "https://download.gnome.org/sources/gjs/1.86/gjs-1.86.0.tar.xz"
+  sha256 "63448f7a57804d4c2a8d0c7f5e90e224d04d4eb2d560142c076c65a8eda00799"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
   head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "41ff4303b958dc47da84f02e9beb26862bdff17a0a19bc7db4ca9277950ae08c"
-    sha256 arm64_sonoma:  "3c8aeb3f5754c79adf62ab2b2b5060e954b5b7fed7480a1cf63980769dfd1a49"
-    sha256 arm64_ventura: "1bf97f04a7c89a514d87dc4e3af9e5313a9d8d5d845cd9280847f3796a0dddcd"
-    sha256 sonoma:        "3aaacc7af5be7d09fd22f818a3305edc5a8396d101980e2abaecc50c48bfb28c"
-    sha256 ventura:       "2620575c227e4b02d8e6ba9beea1670e7ea9775e379ca8ea64600abd02fae50a"
-    sha256 arm64_linux:   "538c55600494b4313233223fd2f155388c65de83fd1475628351bfbb0284bd6e"
-    sha256 x86_64_linux:  "2d3994ac90659902a716b45f0661e48542708703827580c5c06361459ce23970"
+    sha256 arm64_tahoe:   "0181d7c99322149ee550954433d97006ec608960a784a326ef1993340ec60c62"
+    sha256 arm64_sequoia: "9db20e61a7b9a48e58e7c8344cf31eb724ba493fc75655580faa4c0d80555ccd"
+    sha256 arm64_sonoma:  "75380121607e37a095c0a78a90191fbbb649fb516467a1033d837e7fb846b698"
+    sha256 sonoma:        "d9a8dfc64d0dd5c709d3dc84e185dd34b7ec7b72ee83fd7677208d0b4c3e8e4f"
+    sha256 arm64_linux:   "b06eacfddc724bce2a240e7d6bff4d21d4947b9e79221c71ec41f9de58e015d8"
+    sha256 x86_64_linux:  "3317122a8ac4c1077cae41eef6bb7a189c6e52ae375ccf636ac5a9c50319bf81"
   end
 
   depends_on "meson" => :build
@@ -35,6 +34,9 @@ class Gjs < Formula
   def install
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
+
+    # work around "Failed to load shared library 'libgobject-2.0.0.dylib'"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: Formula["glib"].opt_lib)}" if OS.mac?
 
     args = %w[
       -Dprofiler=disabled

@@ -9,6 +9,7 @@ class Jrnl < Formula
   head "https://github.com/jrnl-org/jrnl.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1fef6b519f78c4e67d8bf3d1fcd42a5e839bdc935b9159e85dc6635c8053e84a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "25ebc4285ec83ca5d14e3b82dac44745c7eab8e3ba799e3224379bccc18da0d3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25ebc4285ec83ca5d14e3b82dac44745c7eab8e3ba799e3224379bccc18da0d3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "25ebc4285ec83ca5d14e3b82dac44745c7eab8e3ba799e3224379bccc18da0d3"

@@ -14,6 +14,7 @@ class Fizmo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "a6a21f94fac9ec07a9f1ab8bd9e836b8b3fdad064b33b18d79af90dde088a338"
     sha256 arm64_sequoia:  "4e3cac7e500d651ad426903ea1016ab8c1814b75c9f8bd421a089b308c8a2ce7"
     sha256 arm64_sonoma:   "40879942bfcd0d7fe5b9ffbf4ae0392d0e93b3ffc148aaa06b803388284ab23f"
     sha256 arm64_ventura:  "878df159a06663acf65f7038069c45e7b679269c5e8dcb9c4490f512f1cd2826"

@@ -6,6 +6,8 @@ class Pyqt < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c83505a5a4ddd6dfc587b7ed363074600024441a1d134308c0c7d1db5db126ef"
+    sha256 cellar: :any,                 arm64_sequoia: "4078ee6179ad1c0d96ea0bc1704847d12f4ce7ba4fd98487924150d18ec773dd"
     sha256 cellar: :any,                 arm64_sonoma:  "713f37bc161900c3b7ee7cd678d38ad37736eed2e15b81dfcf359584df4bae6e"
     sha256 cellar: :any,                 arm64_ventura: "16e46160b7dc30711f7ca5cc70fffa7f1adb4dc8cb4ccd14b632a457b914d768"
     sha256 cellar: :any,                 sonoma:        "be7ad408bddb66cab773fe31d823a29efad50095d8f83e561e907bf06c5493c0"

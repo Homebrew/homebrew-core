@@ -17,6 +17,7 @@ class Peg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "69199b8b5ca9791da1895d31d558d1205468f97741268abb2bb7944320cf050b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f2404175aa4fe06bfa03b4cd11cd1aa8ae657e85353062c11c73c553544a032e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ed0bb60eaf375b862b8c0b33deb2cdf50ac0926ebcdf0570f06f1a28e5ffa00"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebbeb402eb35f2b4cf3c7d6ea4ad2a69aa5e820ab79a82009ed829a56ea6945a"

@@ -1,8 +1,8 @@
 class Cloudquery < Formula
   desc "Data movement tool to sync data from any source to any destination"
   homepage "https://www.cloudquery.io"
-  url "https://github.com/cloudquery/cloudquery/archive/refs/tags/cli-v6.27.0.tar.gz"
-  sha256 "aa692e53a1c2d2f1161c2760f324ea3dc3646a14cf4de91c87c0d9da8b307632"
+  url "https://github.com/cloudquery/cloudquery/archive/refs/tags/cli-v6.29.5.tar.gz"
+  sha256 "d6021eff7b361c34218e38a4b4cc7379f4000f18872dc3af519e24e27d12852e"
   license "MPL-2.0"
   head "https://github.com/cloudquery/cloudquery.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Cloudquery < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb6d40eebbef448cac1f1629ea36e598c2932342f63c65aa37ccc25d632ab386"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb6d40eebbef448cac1f1629ea36e598c2932342f63c65aa37ccc25d632ab386"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fb6d40eebbef448cac1f1629ea36e598c2932342f63c65aa37ccc25d632ab386"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4c5e89263b7ddbb351190bb0c028501497cb6c752deb273172d6a8f884233324"
-    sha256 cellar: :any_skip_relocation, ventura:       "4c5e89263b7ddbb351190bb0c028501497cb6c752deb273172d6a8f884233324"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8b5091a519777acc5359d6cb160bd73fa2773b48a0d9ff294bada4b8a597a0c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e263d7f2a346bb3f4f1a2a609e4dc2cf14dbc99d8bafbbd2985447e671f39974"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e263d7f2a346bb3f4f1a2a609e4dc2cf14dbc99d8bafbbd2985447e671f39974"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e263d7f2a346bb3f4f1a2a609e4dc2cf14dbc99d8bafbbd2985447e671f39974"
+    sha256 cellar: :any_skip_relocation, sonoma:        "256f3e68174d9864c799797f2bf178fa270910541e5a4d9394a134c9acb3de18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3162db64e29cbce728de834d452ed4d05d4a57e73fa909358a21b71d15ce2425"
   end
 
   depends_on "go" => :build

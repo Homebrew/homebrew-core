@@ -11,6 +11,7 @@ class Mitie < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "7eb66753872e8c7d0335a8d02907594a117d01db7d232c73d5ebd331f9c92df2"
     sha256 cellar: :any,                 arm64_sequoia: "7b817e7140c3a2cc2b13d2a53b4d7a759396626fe2cb6394c8605fdcf3ab3b0c"
     sha256 cellar: :any,                 arm64_sonoma:  "1ea2d1a30cb6131307d2eaf4a7f7f42a5ceb0fccbac2dc957a94813e53de0ef8"
     sha256 cellar: :any,                 arm64_ventura: "726cd7ce7124c79eef06e62131063703acfebc44a94a60ac4fca02964f2eebb2"

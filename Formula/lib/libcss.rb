@@ -12,6 +12,7 @@ class Libcss < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e9814ca0ac5b4222f4465ab3fd614f08d73fe9572e2c551cf456c636f71278b9"
     sha256 cellar: :any,                 arm64_sequoia: "f065539111cfaeb57ffaa1f1918d0a5eb40a27193a0de07a976d8822941bb5a0"
     sha256 cellar: :any,                 arm64_sonoma:  "c7083640028fdeeed54ea337f87d86686a92659392ed2939ed60947f06c95e43"
     sha256 cellar: :any,                 arm64_ventura: "50b100529a9304753171f567a8099c347d5f538d89b5fc0a673fa22c7a2ca347"

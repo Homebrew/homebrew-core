@@ -13,6 +13,7 @@ class Libmd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "dd432cf5a6edaf4bf4c5fe5ffbf129122c5691ee3c98b13b7b6c512b95e917d2"
     sha256 cellar: :any,                 arm64_sequoia:  "bbca49fa49f17de525e710aa6e8ae6cca1da2253e6b9eab21dc655389a5a81db"
     sha256 cellar: :any,                 arm64_sonoma:   "98337df7be937bfe745b53b62522cf81160032f945d744d879713a729acc8ab6"
     sha256 cellar: :any,                 arm64_ventura:  "02f452242f49ca67f98dff20e769e290db1d99c6d5874c067dafd8be7bfa0a92"

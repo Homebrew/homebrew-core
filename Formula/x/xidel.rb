@@ -14,6 +14,7 @@ class Xidel < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ab0881d178eb07b3b22246dea5ded4a0c5380084001b85a602aa38cbadd6e8b5"
     sha256 cellar: :any,                 arm64_sequoia:  "22631f3ff23b3aebea5c18af4df873ba77d28b46b62a9ca681dc98890d6a95da"
     sha256 cellar: :any,                 arm64_sonoma:   "466555de8b7e479e1f4a49ec52a15559c44f05820e1810e9a0965efd2ab3d751"
     sha256 cellar: :any,                 arm64_ventura:  "1c90b748fa5f9087602a8d8670c25b706c24c3be99c11758300604fbac9a3eea"

@@ -3,20 +3,18 @@ class Sherlock < Formula
 
   desc "Hunt down social media accounts by username"
   homepage "https://sherlockproject.xyz/"
-  url "https://files.pythonhosted.org/packages/0a/95/b4f7a399c43d1d57a703ddf08513411bbb0bfc6bbaabab7ad4e2c534bba7/sherlock_project-0.15.0.tar.gz"
-  sha256 "1ae2ef98a0d482039ff00743e702f28ddf4a0d6260b0fbc2579d680469874910"
+  url "https://files.pythonhosted.org/packages/76/17/d29f35df6ec6424ec15f273a31ad54ad314d1f9056321fb824bed4eda128/sherlock_project-0.16.0.tar.gz"
+  sha256 "fcc8f05fb6f55de30938cce5727249f70917b226918a71f6ed3f50d8a6467610"
   license "MIT"
-  revision 2
   head "https://github.com/sherlock-project/sherlock.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd9a9a321ba763a03aa53add2b848e65b9b86e7f8d24230cdc510633eb45da39"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8aa05aca8555b6956a6dcf9041d2a4f0b1a7a11f4a15aa2092df1b37daabaa0f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "badc2b1c67f578be7384cd7d131b8f878e80197cbf5b8731078e6b9792ae8713"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1e7dea47e37e50b18d20c2621b8248195b4b75bbb24b39dfb6f8d48b575bb2c8"
-    sha256 cellar: :any_skip_relocation, ventura:       "ee838adbb044201af8591c32ddbafb4a8751487ce107a35b072be5b334c36c95"
-    sha256                               arm64_linux:   "a58951491fdb00b3607578cfe9e73c02d60c79a9fbe305095c8bcff26c12fce7"
-    sha256                               x86_64_linux:  "243d2c0cf6bb97d5a0dc99b7a2e9df8f4e93fb14f07784d07118853e9e8b9e0b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b84e6a681ce5db486e84127f2c620b58b76bb01a9e053f6e74879cc0eefbb50"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53c29c5a5a6b52b94b59b6b3660899b946d1d0c4c921f9b60049d9ededaeb2a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8e37d60cb36cb0df09455c2a18b9620fc34fb26596df02198d287689ea708da"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8ada94c9bf439a4df419a62d1c7f614c93649029cb58162be2d7c58774528472"
+    sha256                               arm64_linux:   "84b9236277f2066cc45fe688c28270f4337061556e4f16396fd78bfbd313b75f"
+    sha256                               x86_64_linux:  "54244961ea304bfc767bf32529fa338b0951e03c2d8fc8ad70a2584379d1d71c"
   end
 
   depends_on "cmake" => :build
@@ -29,8 +27,8 @@ class Sherlock < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "colorama" do
@@ -54,8 +52,8 @@ class Sherlock < Formula
   end
 
   resource "pandas" do
-    url "https://files.pythonhosted.org/packages/72/51/48f713c4c728d7c55ef7444ba5ea027c26998d96d1a40953b346438602fc/pandas-2.3.0.tar.gz"
-    sha256 "34600ab34ebf1131a7613a260a61dbe8b62c188ec0ea4c296da7c9a06b004133"
+    url "https://files.pythonhosted.org/packages/79/8e/0e90233ac205ad182bd6b422532695d2b9414944a280488105d598c70023/pandas-2.3.2.tar.gz"
+    sha256 "ab7b58f8f82706890924ccdfb5f48002b83d2b5a3845976a9fb705d36c34dcdb"
   end
 
   resource "pysocks" do
@@ -74,8 +72,8 @@ class Sherlock < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "requests-futures" do
@@ -104,6 +102,9 @@ class Sherlock < Formula
   end
 
   def install
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
+
     virtualenv_install_with_resources
   end
 

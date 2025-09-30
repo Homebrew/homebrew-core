@@ -7,6 +7,7 @@
   "i686-elf-grub": "lib/i686-elf/grub/i386-pc/*",
   "lima": "share/lima/lima-guestagent.Linux-*",
   "picotool": "share/picotool/*.elf",
+  "preevy": "libexec/lib/node_modules/preevy/node_modules/@preevy/compose-tunnel-agent/out/*.node",
   "prestodb": "libexec/bin/procname/Linux-*/libprocname.so",
   "qemu": "share/qemu/*",
   "x86_64-elf-grub": "lib/x86_64-elf/grub/i386-pc/*"

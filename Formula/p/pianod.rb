@@ -12,6 +12,7 @@ class Pianod < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "1054dcefc6d2f8d2463e1d4e220a720b3ad71e3be1c4cd1467d9c7a0f154c189"
     sha256 arm64_sequoia: "65b0b7edda8a3ebe8dba97e532141dd9b985ec7ec2cc799b00b1086337a35c85"
     sha256 arm64_sonoma:  "92a0bf60d6c4f5a5b57cbe70d6cb357373420514b401bd1a463ced3a1fa3fd0e"
     sha256 arm64_ventura: "8fa61c25c901c6c762ca574b5c398281b579a92e940c2adcdc9cbf452cbf86b3"

@@ -1,18 +1,17 @@
 class Cljfmt < Formula
   desc "Formatting Clojure code"
   homepage "https://github.com/weavejester/cljfmt"
-  url "https://github.com/weavejester/cljfmt/archive/refs/tags/0.13.1.tar.gz"
-  sha256 "d9deca44683cbb8b81153ea596d1cffe2451ff59b39fcf654971bded96641000"
+  url "https://github.com/weavejester/cljfmt/archive/refs/tags/0.13.4.tar.gz"
+  sha256 "c8fcbedf9cbd6ea947bd72d31ba09bfae00a233106d6cfcbde09346260269d12"
   license "EPL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b964ad8d5e233c888edc770ca27528ea6f697059abda7af11f74ac32677b04b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "811039897680bffd757c679d3f2183be7a35041fb9d4f891d4439053c8c997ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1552894debdafa2fdadf2e0e8ec9f8a64a90e82a50f54100677d820960eb6d0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "36896f538789940b786ff5120e6ea81bae30578d9263075f9b79b79897b540af"
-    sha256 cellar: :any_skip_relocation, ventura:       "345222cf55c7aed887feb228db0aae01a59a08404463de0f37543b3f85993fbd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac4bfd96142ef6b39f323bda62f39d6e9fde7fb7669d6ddf1c852a9dfdeca030"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa05bf1d4d121ac459123480eb198022e50af5ef98b8ac25c54692ca1cce43a3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c180b80ea917ca0f3184d52b2a1bd8f853fd9bc954109ff73ffee0bcc4ef3d75"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29ebcf7f2d1cc2e42694e71ca391498ffa0041a11e646506099cb44e6b6073c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33a24b99923384fb34fd380850a5bf5c308c148d42f611c79ca667a1c3f3ed6d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db109b87dbb6b7e1d9d55019890f6fa4d595e4e7e49f18cb27d1c76d7e59452f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea9f0042b3e1c1d7fce179e594613d3fed5ad42bd4f52adc33d71caba3a9cd1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f48fcfd5e9072b0d9cef5a9b5e1a9cdc823abbb8d1ac6d6a76839b367d303bb"
   end
 
   depends_on "leiningen" => :build

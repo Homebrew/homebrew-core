@@ -7,6 +7,7 @@ class Typioca < Formula
   head "https://github.com/bloznelis/typioca.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4dad0118007da9cd8ba1062735f66af73057d2b7d75bef2f70d4580ba5a2412"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d67b7e8e8f4bf06519b363da75af9c40805aec9a4a11373cd464d9d3acd59785"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d67b7e8e8f4bf06519b363da75af9c40805aec9a4a11373cd464d9d3acd59785"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d67b7e8e8f4bf06519b363da75af9c40805aec9a4a11373cd464d9d3acd59785"

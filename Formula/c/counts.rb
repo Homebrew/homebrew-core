@@ -1,23 +1,22 @@
 class Counts < Formula
   desc "Tool for ad hoc profiling"
   homepage "https://github.com/nnethercote/counts"
-  url "https://github.com/nnethercote/counts/archive/refs/tags/1.0.4.tar.gz"
-  sha256 "fe4f869f9cf49a8aae57858e0ed4c76ea5f849db1445a2013d45a8e020b764c0"
+  url "https://github.com/nnethercote/counts/archive/refs/tags/1.0.6.tar.gz"
+  sha256 "4d3394b32afa98b91fd624a9c4df690d07fa1d6559cd87bb82a4bde6131fbc5f"
   license "Unlicense"
   head "https://github.com/nnethercote/counts.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "82fa9ab01c22a6ee0df0a94c77008b58371646ff586f9298381d4231b06ac090"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb7bb551f6987542cace13619dbab2bce843a0c54b0add2090894e7f24b47623"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f743f71875e3dd582631c35c4d4a9d2fb0850f7c170e294898ece405623b902"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ead496d9dd7dd01fc848d4f47465f872d1b942be786773ab6dbab5f05e805b55"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8f35bb0445dc8cb22aeb6b08739d76ef4ecf72803d8224b5d1268a4912142a37"
-    sha256 cellar: :any_skip_relocation, ventura:        "51668f2ff93d15c246b5a7d57e2aebc235cae290cbde763965fdabc1d1d6c2a0"
-    sha256 cellar: :any_skip_relocation, monterey:       "a4ea94d074f19ef53137496307d5887f6590d9542d314b157022c0ca9f68427e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "19aeb112e08fb7e4bac47349d3ad1d5d22338857e929fd8bd9ce122112c7a76d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "263fa00c97a3aa55d4857bd1e1ae79d2b1b94f9aafcd7d6f50040cd9bbd7098a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24d9ace69ae8a6c2bdb85fcb5c1c42b53f73209bb2a9958cd02e2b1aaff40fe4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "104e0c1a70c346de9a881f3604a940409c21292be6f728bad0d317423d7e3302"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "199acdd7193a93a8431adcd011441e85c609dcd6b31060fca9663d623d841ab1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2fd0e4ee5182e9000723388e231d8fe2f7ba902e33224c6f1f48bb7e186e3c23"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c5408f15252264a19fabff4a2370e9b222c2c1519f94016d807eacf44831ec13"
+    sha256 cellar: :any_skip_relocation, ventura:       "da24a18685e6e26d88c71a4e10dc1639234f798e29c85e118e06728a792a4c4d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "43508d50d22d1ced7b27695086b8c16a38b217a48aeb999d80e60ad2835d544e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d38003ebf1f3fd5c46e7ce4e87190f617d81a20ac8bc9ff91f8cdb4eddb9374"
   end
 
   depends_on "rust" => :build

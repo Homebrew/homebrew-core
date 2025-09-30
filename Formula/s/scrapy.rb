@@ -9,6 +9,7 @@ class Scrapy < Formula
   head "https://github.com/scrapy/scrapy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "72b92ef07c289bade458f022e23b04bcdf4c470cdf4a4d6223740a792fb2b9cd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec4cc2c40f76b27c449926b036ad409d2144149c2cb586050e5ac8dfcc436818"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c20709944b839fe3d49f3a81666aaa447e748d7482163baadf4d778f75faff10"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8a843d1f4d1f85da91b4d475ee6eed29da0d0aa6a547494c1ba4fe8a7b42cffb"

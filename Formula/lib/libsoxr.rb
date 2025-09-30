@@ -14,6 +14,7 @@ class Libsoxr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "6fd815529e1078139d7965e7bb7e92b4fa5680e74ca671357aaf4c0e1ea1dc95"
     sha256 cellar: :any,                 arm64_sequoia:  "164c5e70f213a0cdd5b9a764da773e79bc35753efc54d46e0710aee172de3640"
     sha256 cellar: :any,                 arm64_sonoma:   "baddfdda71b784b3d94f84e9f7a1b8bcfec59762baddf9e3ccc67c19fb41cee0"
     sha256 cellar: :any,                 arm64_ventura:  "458c15f8d4dbe92d51959fd62662b275475c36f379581385681975fbba90c8f1"
@@ -24,8 +25,6 @@ class Libsoxr < Formula
     sha256 cellar: :any,                 monterey:       "f1a61556ee8195d611cdf735cad6f36a841cf8ef66fe5e49030b8932cd73033d"
     sha256 cellar: :any,                 big_sur:        "616e7ec0eac9aa1322b9c32a1e2ba71ce18c36ee9cbfc854b43c77153006c142"
     sha256 cellar: :any,                 catalina:       "6fc775411464312fe93dff80cf50497d7b412b36c8115eaa91fe65c321da755e"
-    sha256 cellar: :any,                 mojave:         "ddd19b9146079827cd9065afe6853961e8b0d0857f5a06888efc500a25f087e6"
-    sha256 cellar: :any,                 high_sierra:    "808ad13bdf13729d2f7e881c34b267bcd6598838d4f47d0dcf5ca5e38ba5db9c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "41860cff8cb688bff751be3d79c39e2dff0c0be2e2196b700386aca27b65769b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1753c0562a6494e1437dc79db88d4672bb4b2e2a2b9134ac85952b555baf8559"
   end
@@ -41,7 +40,10 @@ class Libsoxr < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = %w[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

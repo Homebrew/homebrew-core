@@ -11,6 +11,7 @@ class CvsFastExport < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8b33348456f1f956356bb36a8fdbc6e851400e27b57ff71f95a05f089b036984"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f7b2c67fe9436b3cfc2d64706c46ed8913e75db0486e72527be0c200fd31fbf2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9dba6bf27f82465c252bd146ea828f2e93849c7886015a66a3359957be1a32ad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5e0e6010700405c1ef04acc75e09e45b2e513dd884e85145cc0876de50b6f10"

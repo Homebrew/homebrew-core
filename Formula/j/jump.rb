@@ -10,6 +10,7 @@ class Jump < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d618b1643851a787269a79deabe1e1085c058b1f1c7738169b8e8ed05b9acef6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecddcb16acf0ec0cfd882ba188e731b1a82afc22aa30131f15331ccea1135ece"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ecddcb16acf0ec0cfd882ba188e731b1a82afc22aa30131f15331ccea1135ece"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ecddcb16acf0ec0cfd882ba188e731b1a82afc22aa30131f15331ccea1135ece"

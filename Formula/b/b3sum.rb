@@ -6,6 +6,7 @@ class B3sum < Formula
   license any_of: ["CC0-1.0", "Apache-2.0"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e07d5d585f8a33c42965dc6da2b1d46898bda73e1b604a63c562b73603be1c3e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bad04179c8c37e7afa0fd83d28af8fe27607994fa8c39f309bd3e3c69b613086"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e906f67b37fd1f69281f71039786cf49bc8aba72b5879cc1dad720c414ad3982"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cfdaa91ad3f88c6fb734acad4adfd0e272881182d7f9810223964d1003c94ab0"

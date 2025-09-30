@@ -13,6 +13,7 @@ class Mozjpeg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ae8b8e5b56ea7d13b5f68225ade34c5e8818d169d8df8a1aa8f12b445dfbe6ff"
     sha256 cellar: :any,                 arm64_sequoia:  "93eea531e7d81f0aade7c403f3e0c65d545d9eade6e0e50bd43bf01cee48f110"
     sha256 cellar: :any,                 arm64_sonoma:   "5254d35ee2814e82b176fa779fc87a69468969dc28f750aaa602d17fd15d1646"
     sha256 cellar: :any,                 arm64_ventura:  "7b364b6311f2a0bcc20c22f66c38eee66427da82fd22293815456ff0f74027da"
@@ -32,6 +33,8 @@ class Mozjpeg < Formula
 
   def install
     args = std_cmake_args - %w[-DCMAKE_INSTALL_LIBDIR=lib]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_LIBDIR=#{lib}", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

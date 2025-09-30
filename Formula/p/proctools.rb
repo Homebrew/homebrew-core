@@ -13,6 +13,7 @@ class Proctools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a04c37c6e995cbce8ff70386029b5b3a00c61cbd1e9c7399cbb177670035df8d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f9cc18c0b6d9837cad062ce69de2544bf534d4bcc7380230b81ac126dc2ca4be"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5be8d4a80309fe84a132613a2338daa436e041b98569d0846648fc6e35e3d452"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "954a65be7f21a18e1defc733342a049bef559402c5b14b8fb8879cff05cb7af5"
@@ -23,10 +24,6 @@ class Proctools < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "9bdbe7d4b78f52517f8c215c2aea77a49e988d9fb473d6277b5dbe1cc4b737e4"
     sha256 cellar: :any_skip_relocation, big_sur:        "3a8ffd535edba47371a0617666b6eced7b0b13c4b27b4303b483d71f07de2e04"
     sha256 cellar: :any_skip_relocation, catalina:       "f0fe70530d22c270ac3d5a105f2dbbbb0dc6a664acd03f3ad7da3f86255fd548"
-    sha256 cellar: :any_skip_relocation, mojave:         "f7466405a3aab3cd7b00669ea685b1fe463a19bbdd7fef8b8c25f86595de2d34"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "d41f76776e37f54cabf5d76ce2cb89d13052f1221a70b325245f600a7bd047ae"
-    sha256 cellar: :any_skip_relocation, sierra:         "8567dd0ffde620f8b1dd18e0529d670a235bcde6dac7b3f19d6528ecf843613a"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "ed8136da9f7b607eec69d014b1c3f81b9ef3f004f38cc2904400861c0d6adab0"
   end
 
   depends_on "bsdmake" => :build

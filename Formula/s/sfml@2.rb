@@ -9,6 +9,7 @@ class SfmlAT2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3b56c69d70b30eca4493fcd6ab9063a5f281cc3c82def8c43d55a63312372971"
     sha256 cellar: :any,                 arm64_sequoia: "7cb3afc70bc71a9a3c45edd4bf9ca54dc9514bc576a894f5f01d58c3b04e0b44"
     sha256 cellar: :any,                 arm64_sonoma:  "529996e0afcd2b27ad6c7f5e124067fb940d2c6c4b3dface4d21db5694c16b2e"
     sha256 cellar: :any,                 arm64_ventura: "8d76a3051365d997d2fcbe5b24c3042bb217df18f3f64d25bb0708875cdcbc91"
@@ -38,11 +39,6 @@ class SfmlAT2 < Formula
   end
 
   def install
-    # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
-    # "error: expected function body after function declarator" on 10.12
-    # Requires the CLT to be the active developer directory if Xcode is installed
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version <= :high_sierra
-
     # Always remove the "extlibs" to avoid install_name_tool failure
     # (https://github.com/Homebrew/homebrew/pull/35279) but leave the
     # headers that were moved there in https://github.com/SFML/SFML/pull/795

@@ -7,6 +7,7 @@ class Noseyparker < Formula
   head "https://github.com/praetorian-inc/noseyparker.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bbce92800f87da1efec15e48fadc645677ac1c690ee9d7d460d824bc088b5a18"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3d50cf968e60eff8c5e51bf937bfd8528a7d7cb89d5df6ad8467b50b6cc7893"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17369ef3f870c5a18489e7baed30d33fb571fadcade62ec1091f6d54f00abe86"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6ab5f7973f25bc569e1a79c7d978739a9428ce3954b4775efa76e20718e8e0d4"

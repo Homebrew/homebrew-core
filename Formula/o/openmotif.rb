@@ -9,6 +9,7 @@ class Openmotif < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "371bb9f35979b5035726d70d03b8e5fee6cf8993b95f5328a77c8423f934c1b7"
     sha256 arm64_sequoia:  "a8bc176639f8fb38b41aab636e20c407232203d408d07098042a68e3f4ed610f"
     sha256 arm64_sonoma:   "088de6041cdf83f4d5ab19861a340937bb78e13d455d1c5819926a8a77842488"
     sha256 arm64_ventura:  "1019a2b092f310c8ee4d777401dd907b59e07f0c7b6ea18735a50932e2f42c1a"

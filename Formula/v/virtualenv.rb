@@ -9,13 +9,8 @@ class Virtualenv < Formula
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48a41a671bc8ca3c96943bbd7a6943490ede43b3393b259451df9c5530cab94f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48a41a671bc8ca3c96943bbd7a6943490ede43b3393b259451df9c5530cab94f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "48a41a671bc8ca3c96943bbd7a6943490ede43b3393b259451df9c5530cab94f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3c4162a8a9c5d484d8275915a87b0e4a3af7521ad5febd95d1965d6fa5f06ed3"
-    sha256 cellar: :any_skip_relocation, ventura:       "3c4162a8a9c5d484d8275915a87b0e4a3af7521ad5febd95d1965d6fa5f06ed3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c4162a8a9c5d484d8275915a87b0e4a3af7521ad5febd95d1965d6fa5f06ed3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c4162a8a9c5d484d8275915a87b0e4a3af7521ad5febd95d1965d6fa5f06ed3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c8daa92d474d461e9171188f9af340218c6310e049f5092737ed71bd8a2e7607"
   end
 
   depends_on "python@3.13"
@@ -26,13 +21,13 @@ class Virtualenv < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/0a/10/c23352565a6544bdc5353e0b15fc1c563352101f30e24bf500207a54df9a/filelock-3.18.0.tar.gz"
-    sha256 "adbc88eabb99d2fec8c9c1b229b171f18afa655400173ddc653d5d01501fb9f2"
+    url "https://files.pythonhosted.org/packages/40/bb/0ab3e58d22305b6f5440629d20683af28959bf793d98d11950e305c1c326/filelock-3.19.1.tar.gz"
+    sha256 "66eda1888b0171c998b35be2bcc0f6d75c388a7ce20c3f3f37aa8e96c2dddf58"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
-    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
+    url "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz"
+    sha256 "ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
   end
 
   def install

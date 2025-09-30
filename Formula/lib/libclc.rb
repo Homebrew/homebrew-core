@@ -1,8 +1,8 @@
 class Libclc < Formula
   desc "Implementation of the library requirements of the OpenCL C programming language"
   homepage "https://libclc.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.8/libclc-20.1.8.src.tar.xz"
-  sha256 "ecd83a52859742f71f4c332538f8bee54a6743374a233b5a85017de22d75c227"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.2/libclc-21.1.2.src.tar.xz"
+  sha256 "60031e0b3b07b0fc30d742aaf89910e7cb51526db775a5a162ec3ac4b739903d"
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   livecheck do
@@ -11,13 +11,12 @@ class Libclc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f93f9e5c39eebc5962925a26707ca510af410bd7576ca3d2d442234a2bcd0a4f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f93f9e5c39eebc5962925a26707ca510af410bd7576ca3d2d442234a2bcd0a4f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f93f9e5c39eebc5962925a26707ca510af410bd7576ca3d2d442234a2bcd0a4f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f93f9e5c39eebc5962925a26707ca510af410bd7576ca3d2d442234a2bcd0a4f"
-    sha256 cellar: :any_skip_relocation, ventura:       "f93f9e5c39eebc5962925a26707ca510af410bd7576ca3d2d442234a2bcd0a4f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f93f9e5c39eebc5962925a26707ca510af410bd7576ca3d2d442234a2bcd0a4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd1a0195d8e4ad1077d28a2e13d80548abbb31f8956c8bf9a55f3dc79c076629"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b3aca949d7400cc80aa491faaf147e52d7d8b60df4fb9d219682ec0795d15547"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3aca949d7400cc80aa491faaf147e52d7d8b60df4fb9d219682ec0795d15547"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3aca949d7400cc80aa491faaf147e52d7d8b60df4fb9d219682ec0795d15547"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b3aca949d7400cc80aa491faaf147e52d7d8b60df4fb9d219682ec0795d15547"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3aca949d7400cc80aa491faaf147e52d7d8b60df4fb9d219682ec0795d15547"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b66eab2d6f710d510f4d02f440c4704715925cc734cf0e79013c42a91f408b3e"
   end
 
   depends_on "cmake" => :build
@@ -51,6 +50,8 @@ class Libclc < Formula
     EOS
 
     system llvm_bin/"clang", *clang_args, "./add_sat.cl"
-    assert_match "@llvm.sadd.sat.i8", shell_output("#{llvm_bin}/llvm-dis ./add_sat.bc -o -")
+    ir = shell_output("#{llvm_bin}/llvm-dis ./add_sat.bc -o -")
+    assert_match('target triple = "nvptx-unknown-nvidiacl"', ir)
+    assert_match(/define .* @foo\(/, ir)
   end
 end

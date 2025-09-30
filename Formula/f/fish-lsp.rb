@@ -1,18 +1,17 @@
 class FishLsp < Formula
   desc "LSP implementation for the fish shell language"
   homepage "https://www.fish-lsp.dev"
-  url "https://registry.npmjs.org/fish-lsp/-/fish-lsp-1.0.10.tgz"
-  sha256 "8658f4568796fbc1736774c332b6cf8199bf1218a32297930153bb1a239cd2e5"
+  url "https://registry.npmjs.org/fish-lsp/-/fish-lsp-1.0.11.tgz"
+  sha256 "81ed860fe70cc6f45cd68d86804950139a9a5c850efe473580fcb00af89f7a2e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23292848f5b3230a81e645579c4b63ddd5ffc2b112fc5259d06fcfe6170555c4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b18fa128084adb15fc202f0c92f9ef0331212bda442f2c624ae09e1049c627e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4edd3d72f56ffdb29e2d0c5089c034ad988b27efaa85f7cc80681da792f3352"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3a48c739199547813106e6b824c7d704d3ff44e07ab072802b4b05da3c18db16"
-    sha256 cellar: :any_skip_relocation, ventura:       "90831422f1f2d1037b8580a3c8647179f229a050db49f79eac187789e65bf33b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7825eb104d5cc6f7edb48eba4b40cd899bc5e89fda7e4cde32de2bc8eb3a9e49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f0a041d4dcf3478cbf99396dda7ad0865b0186ea31291fe75043f40f5c4cbf5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c26e6c7abc10ec5e5a85798b0a8e1a9422b2e509da1c6055991139e9e94b33f0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "712284876dc0d66794bab0edcf67d17be8d98a19a33ce4d3d962c5fbcfccbdfb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a88c3d18ecd9bd5e3609c219b511a16442bdc1db4b0a420112ad307ef846c72d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "28a00db17e0a0b935f764fc29a9dabdeeaf83e729c3b21767ffd7c4614dec97f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7df4cfdf7ed0f38f3ed4502c4c3791d2332748667b87fc3bdbe7569fc56bbc61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61887209fb33ec7bbb20ae01985ccd2b701ab18e930e93bbf0751932138568ec"
   end
 
   depends_on "fish" => [:build, :test]
@@ -26,7 +25,7 @@ class FishLsp < Formula
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
-    man1.install "docs/man/fish-lsp.1"
+    man1.install "man/fish-lsp.1"
     generate_completions_from_executable(bin/"fish-lsp", "complete", shells: [:fish])
 
     # Remove incompatible pre-built binaries

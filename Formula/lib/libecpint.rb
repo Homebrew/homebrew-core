@@ -9,6 +9,7 @@ class Libecpint < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a5d5b23e49813b83e94c2db21f568761f730637fb53dd094b44a4d5ebc66300b"
     sha256 cellar: :any,                 arm64_sequoia: "c52edb64ef2f58d2917ed6c23b673ba7a91e235d5f484dd33f5b09aa667d165a"
     sha256 cellar: :any,                 arm64_sonoma:  "ddfb7be7a3099e1b6f55f39207977de575a8073143259a1bc4f9ee1ab4f4618e"
     sha256 cellar: :any,                 arm64_ventura: "d925cc07595e0fc312ff86fdcdbed3e9952a0c6cb097152d7c54ce9de46b6587"
@@ -33,7 +34,7 @@ class Libecpint < Formula
       "-DBUILD_SHARED_LIBS=ON",
       "-DLIBECPINT_USE_CERF=ON",
       "-DLIBECPINT_BUILD_TESTS=OFF",
-      "-DPython_EXECUTABLE=#{which("python3") || which("python")}",
+      "-DPython_EXECUTABLE=#{which("python3")}",
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

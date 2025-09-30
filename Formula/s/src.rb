@@ -21,7 +21,7 @@ class Src < Formula
 
   depends_on "rcs"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" if build.head?

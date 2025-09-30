@@ -13,6 +13,7 @@ class Stk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "33c29e2a776f2b13912844ce37fd744fc1b4f0866f134b2a3ec62bd7d5333fc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "140113c25ddb581acbd291f3671b2657562ff8237c62abe8db42ba2e3e3297f7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b50969de86e485eb0ea91411ecfa5ef8c531fa5da68a0d8f1df49c196339aed"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8cf614b99101345ec67c8bf4d63bee7b765ce0025cff30b9e61487b112768437"

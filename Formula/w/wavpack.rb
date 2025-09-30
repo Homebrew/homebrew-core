@@ -13,6 +13,7 @@ class Wavpack < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b34310b35fa948f6710ffb6ea0da7df8ce665eb993f4fd6a9c674440e8927360"
     sha256 cellar: :any,                 arm64_sequoia: "7a3c71972558779ba65c5333c17b5032577623b5695465cd0fc3fa62b43fe9d4"
     sha256 cellar: :any,                 arm64_sonoma:  "9f2cdfe3f3a442474eb944bcc1ca76878944a16cf89d7c6378f09716ecb7d613"
     sha256 cellar: :any,                 arm64_ventura: "885ff22f136e5db9b1b5fb4ddd578cc8715f958b8e7c02fa177f5b8e3550523a"

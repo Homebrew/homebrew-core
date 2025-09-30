@@ -7,6 +7,7 @@ class Moe < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "5c20e2b669488844badcd5e9930273169528983a1d7f6c7814b6e1af438683d0"
     sha256 arm64_sequoia: "0d2e867872c06762566dec24fc623e2fadb8fd67ad80d50340f44a5e6fd39ae9"
     sha256 arm64_sonoma:  "028de034fd8e2a0b5543c925900e16b806d7d01ab49b77e61342641ace78c50a"
     sha256 arm64_ventura: "70dc3b3b0c9337c7efab45da9db577c7aa2554e0c50d2668d754cbd38f6b752d"

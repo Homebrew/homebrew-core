@@ -1,18 +1,17 @@
 class GoSizeAnalyzer < Formula
   desc "Analyzing the dependencies in compiled Golang binaries"
   homepage "https://github.com/Zxilly/go-size-analyzer"
-  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.9.2.tar.gz"
-  sha256 "7b8aed4a7d5e6e9da723f91e70fc0532655854cc5975fa5d04e7a6166900b659"
+  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "ca1b8d4c18233f257e99454538ea08c496427dfbfeae8632f9c1ea02765274fc"
   license "AGPL-3.0-only"
   head "https://github.com/Zxilly/go-size-analyzer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc508ebd751377f9d5c4e1091c71e94c54d8cb039d928997c89629c16c172254"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baaf494823b818261a9199f8191078cd80275dbb6acc10cbfeb0d139e86be551"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "af4125e1cfe04f8233ab6b0334ceb5947bbd8016796002ce5c139220ccb13d6e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3fa8775254854545d2f556e41bd0ad219d0470b496fb0825258d9076b990e04d"
-    sha256 cellar: :any_skip_relocation, ventura:       "5d5391fd811aaf2aa027b90eb8c82535e06e16c4c63d0a5f05ecd54088d5f80e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46463414b4fc88e129e710850822e560550b82b27075b81447d9ba89211a8d3c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "78db84054a2f5547cd9447c34ef3ec776c1cfc3b7eaa2dab8b269acb3674daa0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf9eef846aabe2789dbf476d5d46d1f8a5422cb60de60b0fefe26c7f505a7975"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41e516c0c288cfedc077106ca7a09002441e495796d797d527937f24bcf087b8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "537c9ada536b51c3e4ade7c1064e90f6ec9e396670586212a1532096e84ff4eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "453467e5fc2a0c10d0d96127fc1dc10821ea25649e1196ecd28ddf8083c86bdc"
   end
 
   depends_on "go" => [:build, :test]

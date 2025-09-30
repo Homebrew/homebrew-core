@@ -9,6 +9,7 @@ class Glpk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c60115e0b7c9c13a5e6fc91ceab0aab253c1bd161dae6151e56713a6de6589d5"
     sha256 cellar: :any,                 arm64_sequoia:  "d1711f363503b065183cf833d4d58ecd91dd06ac2b168af7bb217727a46e8f7b"
     sha256 cellar: :any,                 arm64_sonoma:   "6aec19422fa4617706d7caa84be09caa9a78511ae904ac42382eccb39572f71e"
     sha256 cellar: :any,                 arm64_ventura:  "2fb927d88ff2f1e242e8909a153449ddaf2e6264d28efe7cf11e6a1e84065ce4"
@@ -19,7 +20,6 @@ class Glpk < Formula
     sha256 cellar: :any,                 monterey:       "7eddbd4943eb50123bdfcd539d38932297e56ff61ae66dcb2ec633f60982f6c1"
     sha256 cellar: :any,                 big_sur:        "3f577566f72aa88262e78c5df12974f25f76ebca6632f8e9ccecf7b5ff222d2b"
     sha256 cellar: :any,                 catalina:       "dd6461053c93e0fc37577251f83a17de325efe8382805f5bc883c8a3a018e74b"
-    sha256 cellar: :any,                 mojave:         "2fbd223a7089b352aa9a6e424660aec34edbcaa8fbac7665fe7a9cab2b3f7aac"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "140cfbb13c5618591618a2c3426be507ca93fedcb9447ed784903a7e518fb2e3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2917fa8ab16e56c8f786514f5334598dcc81a939aa7c6c13be41c21d4e1b283"
   end

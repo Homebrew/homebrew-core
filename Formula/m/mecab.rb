@@ -15,6 +15,7 @@ class Mecab < Formula
 
   bottle do
     rebuild 4
+    sha256 arm64_tahoe:    "e0bafdf893f0650942b7482f0ae672094f530a37d18cc3047932b90a2a006a16"
     sha256 arm64_sequoia:  "9a6615d4ecdf87686bcc81e8851929a24661604782f48a0626a2e74762a20fa5"
     sha256 arm64_sonoma:   "b442dff5851dc2e529a82d84a59b135e6f79ba6af1f295589e776aa2439d71f6"
     sha256 arm64_ventura:  "b64f24600f7e8cad0dd98a985b72a446db41af35a192261ec489fc059e9a354f"

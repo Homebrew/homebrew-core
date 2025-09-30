@@ -15,13 +15,13 @@ class OsrmBackend < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "429bafcaf7b635be6b0054cda48bb75a2284bff9dd1a31254bfa36edd39213b6"
-    sha256 cellar: :any,                 arm64_sonoma:  "8b35c97fd01b53541fed0807aaca33249fc3cae5cdeda156c2b8cc4fcb6799b6"
-    sha256 cellar: :any,                 arm64_ventura: "279149ff05cfe64f42403a6ce4e82dff3381a5ecaf79895eaa3b27f9a6d76c93"
-    sha256 cellar: :any,                 sonoma:        "6a683f6cd29d8a81e1e410c2df5d4718105b69143d4cddceab70cccb95eb9429"
-    sha256 cellar: :any,                 ventura:       "718788e54ac80005c8da8bd66e918c93c84ef32c92c991043ccf0f8a6f0ec813"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7be21e22dbf762808c40691c50ca45a918298c241cb6195e8f5702cec2d58b30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd60664efed3fe7d87f93b5ebaf6e925c98121cf429ce89c8eb92429f646d020"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7afabcb88537796080ee1f3eaa0354df30da723ca2c4b5cf2b545787e5b594d4"
+    sha256 cellar: :any,                 arm64_sequoia: "45597fecad2445f084a62b520a822fa88c744094db2b0aa53dd514390d4f1bfe"
+    sha256 cellar: :any,                 arm64_sonoma:  "b33746bf0d976c08101d86da981f75ab8e22c4dfbf3d30b86b249c5a672cbe87"
+    sha256 cellar: :any,                 sonoma:        "9899cd1133de3c8640e37c2a8bf80de3cfdecc74a32d2d027662e1d1dd9fabc3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ed3aeb8b1782c42cb95cdfcdad5f2253edce21476eddf3b0cb63d02671de10c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bc254ac088ca9e5ca436288840bb8398b59db6a28172f084ecec72249df9135"
   end
 
   depends_on "cmake" => :build
@@ -38,19 +38,15 @@ class OsrmBackend < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc@12" if DevelopmentTools.gcc_version("gcc") < 12
-
-    fails_with :gcc do
-      version "11"
-      cause <<~CAUSE
-        /usr/include/c++/11/type_traits:987:52: error: static assertion failed: template argument must be a complete class or an unbounded array
-          static_assert(std::__is_complete_or_unbounded(__type_identity<_Tp>{}),
-      CAUSE
-    end
-  end
-
   conflicts_with "flatbuffers", because: "both install flatbuffers headers"
+
+  fails_with :gcc do
+    version "11"
+    cause <<~CAUSE
+      /usr/include/c++/11/type_traits:987:52: error: static assertion failed: template argument must be a complete class or an unbounded array
+        static_assert(std::__is_complete_or_unbounded(__type_identity<_Tp>{}),
+    CAUSE
+  end
 
   # Fix build with Boost 1.89.0, pr ref: https://github.com/Project-OSRM/osrm-backend/pull/7220
   patch do
@@ -59,15 +55,6 @@ class OsrmBackend < Formula
   end
 
   def install
-    # Work around build failure: duplicate symbol 'boost::phoenix::placeholders::uarg9'
-    # Issue ref: https://github.com/boostorg/phoenix/issues/111
-    ENV.append_to_cflags "-DBOOST_PHOENIX_STL_TUPLE_H_"
-    # Work around build failure on Linux:
-    # /tmp/osrm-backend-20221105-7617-1itecwd/osrm-backend-5.27.1/src/osrm/osrm.cpp:83:1:
-    # /usr/include/c++/11/ext/new_allocator.h:145:26: error: 'void operator delete(void*, std::size_t)'
-    # called on unallocated object 'result' [-Werror=free-nonheap-object]
-    ENV.append_to_cflags "-Wno-free-nonheap-object" if OS.linux?
-
     lua = Formula["lua"]
     luaversion = lua.version.major_minor
 

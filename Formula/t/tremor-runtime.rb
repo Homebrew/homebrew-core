@@ -18,6 +18,7 @@ class TremorRuntime < Formula
   end
 
   deprecate! date: "2024-09-23", because: :does_not_build
+  disable! date: "2025-09-23", because: :does_not_build
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build

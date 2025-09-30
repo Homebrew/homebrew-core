@@ -6,6 +6,7 @@ class Mdless < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b7fdbd007a51aceeccf6ec8d24e419d4fa6fa89f9884fe6aef6e7b2ad6f8ea17"
     sha256 cellar: :any,                 arm64_sequoia: "2f685489abc329323095d92133a0dcd31441d10307f0474bbb4413b53d2274b7"
     sha256 cellar: :any,                 arm64_sonoma:  "0592587133ab75b44b46fbf957856c047ba3e1ee2109c1b26053c87d6f64ff29"
     sha256 cellar: :any,                 arm64_ventura: "fa86f8095663d1c7d4a8f925133a5ef316fd37dc9137c7a1de6095fe9ebc0a1d"

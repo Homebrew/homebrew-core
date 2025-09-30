@@ -7,6 +7,7 @@ class CargoClone < Formula
   head "https://github.com/JanLikar/cargo-clone.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "676a220d3866238b221ede7cb1f9c6438843f77bc42e72357100b7524cdc6356"
     sha256 cellar: :any,                 arm64_sequoia: "2ab584f9881aca397d0e8c2394281c9e372f9b77d8d99a7083b07207481d714a"
     sha256 cellar: :any,                 arm64_sonoma:  "7c899b4b1b143b9ec6973238b0f5133f6906dd945490751fe99bafa2acd1b496"
     sha256 cellar: :any,                 arm64_ventura: "59a6cb1abb30e784f1725baae6dec12ab0e70dfe55feb9a5102e6aa771d08e1b"

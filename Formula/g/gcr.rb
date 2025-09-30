@@ -20,6 +20,7 @@ class Gcr < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "8a8b247f36bfc6a6343b6c4ea5de1b981d727f1a3b21c6b6185c6059baf806ff"
     sha256 arm64_sequoia: "c6dd2aaccd60bf27c4b3edca83a5ca7f087277840eccf91dffa5e4242e177ff1"
     sha256 arm64_sonoma:  "01875e5b7918fab6462935245afd7b2a9a5ea53da81c0d91c01a485f90aa00c8"
     sha256 arm64_ventura: "6d9fe7fd9e40c9a54abc080bb879e2ac30d9c9eba2e5623f4e0f61a1c95c276c"

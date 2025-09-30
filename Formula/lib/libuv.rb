@@ -12,32 +12,28 @@ class Libuv < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "916f444748e98c1e58083df123f6ff9d90d0b0af202f4da0862a5c456804d2f2"
-    sha256 cellar: :any,                 arm64_sonoma:  "571859f2cb6de90cfea1d1c6d059e3234ddf8b182e0d494bc9c902ebea191710"
-    sha256 cellar: :any,                 arm64_ventura: "5b883ed2838104b6a8026068ac4b9d6e04dc6fb8f899f522754b426afee4e801"
-    sha256 cellar: :any,                 sonoma:        "fb199706c025af4c6160825de25f9220c8d571499c5dba71c4b93a3874ea7a03"
-    sha256 cellar: :any,                 ventura:       "ced40d8e5768027c89dc194e21e1e52c15a38a932e04d8026a2ebc5ec4944422"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1dcb33e480bb395e58b2c0e775f36041af343e7be3cf5d53d666fb55f753ee6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd1d243f009617c2ff2d97c5cd08a93512f93accf7d7c1987a649db2b91ac03e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4baeae937cc36f3daf93336337b69357f9b666ec89ecb4937999f46cde964627"
+    sha256 cellar: :any,                 arm64_sequoia: "47f6323a3b3ac0d2026ac75948e54b940bce1cc2ed3b809818bada0fca0b402b"
+    sha256 cellar: :any,                 arm64_sonoma:  "594446ed876368a6ef6bf158fb6e1fdadd3973b1813846994423f417a7e5b965"
+    sha256 cellar: :any,                 arm64_ventura: "db92705f40c7175fc957ad40ca096ab9577d20ea0d6782e7051bb1e0a1df21b1"
+    sha256 cellar: :any,                 sonoma:        "89296bb1520f6d2f60061a6dee3c8f0ad4a86e69e37c4c452223267a411b0c35"
+    sha256 cellar: :any,                 ventura:       "c760f64fff00acf565b63456ea48c6f8348eb58d81aa8632acb6bfc209455bd3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcfffc19eff957b8cdc9f007580435ce70d6315c19f737c55c9979f43e14955f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "674de0e23792c9d2135a04cd3df09655e68768a30e393f16fd527de1c9df7579"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkgconf" => :build
+  depends_on "cmake" => :build
   depends_on "sphinx-doc" => :build
 
   def install
     # This isn't yet handled by the make install process sadly.
-    cd "docs" do
-      system "make", "man"
-      man1.install "build/man/libuv.1"
-    end
+    system "make", "-C", "docs", "man"
+    man1.install "docs/build/man/libuv.1"
 
-    system "./autogen.sh"
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

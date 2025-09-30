@@ -3,18 +3,17 @@ class Copyparty < Formula
 
   desc "Portable file server"
   homepage "https://github.com/9001/copyparty"
-  url "https://files.pythonhosted.org/packages/27/dd/d3b9c1a99dcc1311f42c9e27682080761f18000240c4ae552d667daf66a0/copyparty-1.19.5.tar.gz"
-  sha256 "0fed13437c2f643ede778da050f221f3fa9a9442e796ea4ad1eab8505d21123a"
+  url "https://files.pythonhosted.org/packages/bc/46/f4875c1848d6cf60fdc02d09903ce34732af64033603eb76d8314da3429e/copyparty-1.19.15.tar.gz"
+  sha256 "4bf61c00b9ea438cd44c86dfa90c08bb34822902b0f694177f7b5027e2be5437"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "42b415f4c401ae22598a583f46a1a18358ec24127943e9da22df1143a67b3242"
-    sha256 cellar: :any,                 arm64_sonoma:  "ea20de5b31ebfa821bf47b618cb7f51bd71c0f30157933b25a8da81b0ef9f2ed"
-    sha256 cellar: :any,                 arm64_ventura: "7a5423fb7d6008273e0afe169bbe7d6ed77a39dfcde2b25757a36bca85e3abf8"
-    sha256 cellar: :any,                 sonoma:        "585b80e78b2033d045fb57c733e41e5c138d261b54f0d9d559bd6f4712248490"
-    sha256 cellar: :any,                 ventura:       "c93f5dab57e7dd99f027bdda8730ac38bca0a2562a6356e01f614cdfe096238c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "210806c0b56ae1a39eb6a83b4b5e3ba3b2967273abd769abadcc9b22cb81b015"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f87f7d3ab0f516ae7a7807d0b66614db7f558e6891528522734c927eef87cd1"
+    sha256 cellar: :any,                 arm64_tahoe:   "57bae2ecc7cc35e8355f3240e70ddebbc790b230c6f6691961a9bd8e3730fe96"
+    sha256 cellar: :any,                 arm64_sequoia: "186378d3a15f5feaad894d0ef9befe7e486d2b0874b4a5a152955729ed840bd5"
+    sha256 cellar: :any,                 arm64_sonoma:  "9c71ed0938dff4c68db9ef8e2e4844e75303bc118c622e0fac16f242ef7618b4"
+    sha256 cellar: :any,                 sonoma:        "223c41d5688575b41325c9bc0f8f36acc50089d38c89225c6b98dfcf39ab622b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bab69ce8814248a25f5603dd4aa4696fce92dd6d244710e21914937914d1c96d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1aed3c2883fed61eff51cc7ffc253308caff3e822ba39d15fb59cbd50273a824"
   end
 
   depends_on "cmake" => :build
@@ -46,8 +45,8 @@ class Copyparty < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "mutagen" do
@@ -71,13 +70,13 @@ class Copyparty < Formula
   end
 
   resource "pyftpdlib" do
-    url "https://files.pythonhosted.org/packages/b4/0c/32bf0a7c88efe147bc3bc6586216d92269d196c59f149b05efa973834946/pyftpdlib-2.0.1.tar.gz"
-    sha256 "ef0d172a82bfae10e2dec222e87533514609d41bf4b0fd0f07e29d4380fb96bf"
+    url "https://files.pythonhosted.org/packages/fc/67/3299ce20585601d21e05153eb9275cb799ae408fe15ab93e48e4582ea9fe/pyftpdlib-2.1.0.tar.gz"
+    sha256 "5e92e7ba37c3e458ec458e5c201e2deb992cb6011c963e6a8512a634d8d80116"
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/04/8c/cd89ad05804f8e3c17dea8f178c3f40eeab5694c30e0c9f5bcd49f576fc3/pyopenssl-25.1.0.tar.gz"
-    sha256 "8d031884482e0c67ee92bf9a4d8cceb08d92aba7136432ffb0703c5280fc205b"
+    url "https://files.pythonhosted.org/packages/80/be/97b83a464498a79103036bc74d1038df4a7ef0e402cfaf4d5e113fb14759/pyopenssl-25.3.0.tar.gz"
+    sha256 "c981cb0a3fd84e8602d7afc209522773b94c1c2446a3c710a75b06fe1beae329"
   end
 
   resource "pyvips" do
@@ -86,8 +85,8 @@ class Copyparty < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/f8/66/159f38d184f08b5f971b467f87b1ab142ab1320d5200825c824b32b84b66/pyzmq-27.0.2.tar.gz"
-    sha256 "b398dd713b18de89730447347e96a0240225e154db56e35b6bb8447ffdb07798"
+    url "https://files.pythonhosted.org/packages/04/0b/3c9baedbdf613ecaa7aa07027780b8867f57b6293b6ee50de316c9f3222b/pyzmq-27.1.0.tar.gz"
+    sha256 "ac0765e3d44455adb6ddbf4417dcce460fc40a05978c08efdf2948072f6db540"
   end
 
   def install

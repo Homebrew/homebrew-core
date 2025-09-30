@@ -8,6 +8,7 @@ class Pioneer < Formula
   head "https://github.com/pioneerspacesim/pioneer.git", branch: "master"
 
   bottle do
+    sha256                               arm64_tahoe:   "108e3d19d6b670ac092545116b6a9d33464edd8a37c517a3dcc424331f28b527"
     sha256                               arm64_sequoia: "574d8bbe6db0b59bc597150357e398b585d43a73fc0d42caa35065431940bdf3"
     sha256                               arm64_sonoma:  "1435e6d5b33fa91933bf3fd78dc18bb77e049865b30cc39c2e2b69d09d6c258e"
     sha256                               arm64_ventura: "ae2dc446aff1982e591b87bfe6ba1f299d1a3d086efe948838a1af08e8adb0f1"

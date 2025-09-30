@@ -18,6 +18,7 @@ class Intercept < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4c0c35275cf063f9e3de1a2bd638ddf077db56214fc7d5473118bd48199ebce"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b2ca377ce1685e85a012867dbddc3a499ff32c063c29b361f653a7a4f073aa4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b2ca377ce1685e85a012867dbddc3a499ff32c063c29b361f653a7a4f073aa4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7b2ca377ce1685e85a012867dbddc3a499ff32c063c29b361f653a7a4f073aa4"

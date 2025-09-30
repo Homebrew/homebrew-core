@@ -14,6 +14,7 @@ class Libbluray < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "6d5900d7399a70d07ceee573051914a3df9dac1b64eeb8e0ea6dc85d0ab5370b"
     sha256 cellar: :any, arm64_sequoia: "c0de9ea880e1f735514ed9857c8c862b37fb3cfdca7c929e8f0ef334900b7864"
     sha256 cellar: :any, arm64_sonoma:  "5d85e63aaf5ce3cf414ae9d0a8f6a274e4899dd8fdeabb249799cc5237644498"
     sha256 cellar: :any, arm64_ventura: "0a29f835646644de3a4933c9a56d9555683311f1c5f05bd2160e9ff0bddd77cd"

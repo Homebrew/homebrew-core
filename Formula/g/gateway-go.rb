@@ -7,6 +7,7 @@ class GatewayGo < Formula
   head "https://github.com/OpenIoTHub/gateway-go.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "db8344f11e99cc6b59e7d04c52f767a25fe19b1baa9bf3619527281a87282e8c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "432159ef7f4efaad41c272483803834c97a5e2da4324999d2d5bb8e84190283d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73153cdeb9af0633d107a707bd4380ed45510be96f0f580623dc1a673746a164"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d2fee6e26ef52c684f07404f43b28cca3d6c98c7e2eb77c05778e71a0892be54"

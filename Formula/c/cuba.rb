@@ -13,6 +13,7 @@ class Cuba < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "656aad080bcb7bc9dffcda4e7f23362e1c8799a8ca39ca9543605254b33fae82"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5d9f2c34f9e6c4b4e8216db0ccaea18f75b925714037f9893da4aaf54de2b785"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "126460773e9096dfca2a9f028be96d8218e7bf3e8bfddd940477763b8b04b49f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "357899b8a6077f7f5da7bf4c50b77a6947515b6a8ba1dfbe1fd8a8297795afac"

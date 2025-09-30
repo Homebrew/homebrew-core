@@ -9,6 +9,7 @@ class Powerlevel10k < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "041441647fed3026648bee86884891b68238016a5c84f416c80a2332582460f8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8b5a4692b2768f76c867ae5815e2e8b3d05f08053302c69d0b5f7137cefd1fc0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53d306e0deb9f0ec13c023b1d1b4def2fb96e7280f33a967fa5b0ce1637c47fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "53d306e0deb9f0ec13c023b1d1b4def2fb96e7280f33a967fa5b0ce1637c47fa"

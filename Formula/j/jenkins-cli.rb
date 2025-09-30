@@ -7,6 +7,7 @@ class JenkinsCli < Formula
   head "https://github.com/jenkins-zh/jenkins-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3b2fa38df25580ae32faf95dd24a3a90b48be417330cf4e8b60594b198caa50"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "85ed47aaf4a16751608eef650d8b7cab3e8af8c8133ed82bf6a7305004adb110"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85ed47aaf4a16751608eef650d8b7cab3e8af8c8133ed82bf6a7305004adb110"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "85ed47aaf4a16751608eef650d8b7cab3e8af8c8133ed82bf6a7305004adb110"

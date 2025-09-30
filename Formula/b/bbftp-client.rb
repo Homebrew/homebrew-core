@@ -1,7 +1,8 @@
 class BbftpClient < Formula
   desc "Secure file transfer software, optimized for large files"
-  homepage "http://software.in2p3.fr/bbftp/"
-  url "http://software.in2p3.fr/bbftp/dist/bbftp-client-3.2.1.tar.gz"
+  homepage "https://gitlab.in2p3.fr/cc-in2p3-hpss-service/bbftp"
+  url "https://pkg.freebsd.org/ports-distfiles/bbftp-client-3.2.1.tar.gz"
+  mirror "http://software.in2p3.fr/bbftp/dist/bbftp-client-3.2.1.tar.gz"
   sha256 "4000009804d90926ad3c0e770099874084fb49013e8b0770b82678462304456d"
   license "GPL-2.0-or-later"
   revision 3
@@ -15,6 +16,7 @@ class BbftpClient < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3dbb17d63dccd104bc819c729ee8715c4a67e5d704e7101ce7a5465ef85bc916"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f705530c05b923cc4de503817876fc96cf776f351aae554a64b144aef23c729a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00799fab3efd0fd9c823854c0113ec44d2c4d13d7c191d79165e0ddc75ec71e0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f99da3815fbef62edb3391bdf9dab41055ed1ace3f0b30cd69c45e719be6149"
@@ -25,7 +27,6 @@ class BbftpClient < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e50848489c6ad43604cbc0730d027939830ddc50d46fdd8d18dc6f729a910503"
     sha256 cellar: :any_skip_relocation, big_sur:        "f30650734e1829a0c399153c78088ccd987f28ede25b8eb13ecde6b138d55076"
     sha256 cellar: :any_skip_relocation, catalina:       "6d5bed31d69a0ff2f38f2642176cb3c3a4da34c4ea2740567d2698ca62519b7d"
-    sha256 cellar: :any_skip_relocation, mojave:         "bdb7c899dab18816b4cc1d573291ba4691f365c9ed1c9951e73f9225810a8557"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "5e66c60423d6fc1c8f8079b0197306d388cc3867b2817d64583004e6e4700325"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "be2f6db3c1cc87a51bab6a760cb1143747faeb3819f731192f09fceb3a658fbd"
   end

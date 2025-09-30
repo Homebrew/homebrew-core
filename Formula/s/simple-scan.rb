@@ -7,6 +7,7 @@ class SimpleScan < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "f937bf1be2f3901e778021bc960df2cba46ea8620194d0921294074b51493256"
     sha256 arm64_sequoia: "d9ee5af3be73580ad426781dfa25a40519e2c47bfe3587ea66d052e5e616fde8"
     sha256 arm64_sonoma:  "8ee479bab008f04c79439fff0b4983ee0332a803fcea3210084670a016d33440"
     sha256 arm64_ventura: "12bcf57abadcc279db5ec1ee6d5e4200bd923b99441e9606d4d5f4956d313b9d"

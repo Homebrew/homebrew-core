@@ -9,6 +9,7 @@ class Drogon < Formula
   head "https://github.com/drogonframework/drogon.git", branch: "master"
 
   bottle do
+    sha256                               arm64_tahoe:   "92797d62be765b5222be947c118e84a3910a18fb6e3c73cf00df717dc8ebbd18"
     sha256                               arm64_sequoia: "59b637806180b7e5a9443091cbd70e98254b2372aa144ac1264c7e699a502919"
     sha256                               arm64_sonoma:  "fe6f23a4a2c68e263204b89729118dc41799fb8aaed7dd75c6a53913b7eea207"
     sha256                               arm64_ventura: "3145d83dfb9f8d3be0a3d93bdcac5df5184c19eb448e5a26ab724d50cd24f9cf"

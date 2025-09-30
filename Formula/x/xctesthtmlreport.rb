@@ -8,6 +8,7 @@ class Xctesthtmlreport < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6e248b63e1d364801b27aea0d7a709b36d36f56567de68797d21e18c2b072042"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6befa1b9ad7d3002a8f90f25c0387d6fd95b03f923891d29a759d3ae0119a81"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3580d4f15dd4fa8865db0f53ed950dfcab35f55070a3888fce5563d2d1a3e139"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9137f28799e7c82a8f3f6662dd1196c7ceadd780ab6acf2223cddf99de3b6d2b"

@@ -1,8 +1,8 @@
 class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
-  url "https://github.com/dmlc/xgboost/releases/download/v3.0.4/xgboost-src-3.0.4.tar.gz"
-  sha256 "5388cc28f4f7725edc7d9eed4c4794a818df7c76c2d39652debe6fca7df770cf"
+  url "https://github.com/dmlc/xgboost/releases/download/v3.0.5/xgboost-src-3.0.5.tar.gz"
+  sha256 "0776b59fad03548c447cb1e188469761241ffb3b36154dc8a59735f11d262dc2"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,14 @@ class Xgboost < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9c120494f92e22f3a11a817cf5e5b8bb5c41af62a037aecf5f0d81afa4f72739"
-    sha256 cellar: :any,                 arm64_sonoma:  "126692238fb80eec0cd155e03f73a8d53c3b9ab6ba7c014d52e58a575bfeb624"
-    sha256 cellar: :any,                 arm64_ventura: "4b8dd93190a7dc0f710bd7a3785324e73b878bbfe6574c8a70f4043074026456"
-    sha256 cellar: :any,                 sonoma:        "6eadd09e6cb256e207c9ead507bcc3e3e42384cd9740d2ec5eb832c52d310144"
-    sha256 cellar: :any,                 ventura:       "743d459eaba440eeb1c86b17d609ba4fe9f667aa72d27f4f11ebed72219547f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c3ab033edef39a30dbcea0282cbc30f90df45d981cc08f2b992c836ff5711ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b001b64454a41387fcda86f391366b0dc0688193bb501d69439f9dc01ba98b9c"
+    sha256 cellar: :any,                 arm64_tahoe:   "30d5eab5d9c6c94e6bdf3a15c5cb5864235ef72ddec54fe24e47c4d2a5ab10ae"
+    sha256 cellar: :any,                 arm64_sequoia: "90283850bc034c32485d67e03523284337da40cba581d91dbe23802564ab0f34"
+    sha256 cellar: :any,                 arm64_sonoma:  "414bd6df6f375bb9375b4cc1e17787a0a90e6f67462baabd8454880f8445749d"
+    sha256 cellar: :any,                 arm64_ventura: "e88313cfaf68176a466251dfa116322b94c4b7eeef5606059b46ea77ef41a0e5"
+    sha256 cellar: :any,                 sonoma:        "813f4f6b94b159b3f59f3714b4a192c0e78e5ef1d7851988eb8648eab168afa4"
+    sha256 cellar: :any,                 ventura:       "a0722dce32c9757c1517b76a7c539d6b9fb341c5469ab9e7227a52b97514cbee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5865b829160ac961ef9c44f3bd0f6bec49e824da4bc57a6946eb6871bf76448d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aed77e5967fbbe674eb89120f7946e35f0a9ce665eaba3dc731444904d796fd3"
   end
 
   depends_on "cmake" => :build

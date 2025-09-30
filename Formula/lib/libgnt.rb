@@ -13,6 +13,7 @@ class Libgnt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "41b1747c18a4361f78adb16bb91dcdd7f6458259074bd01efdc0ec2f94008a30"
     sha256 cellar: :any, arm64_sequoia: "83d17065c582bdcf162513a0523c19c44db30b00842cda416a2d335b7abc0eb9"
     sha256 cellar: :any, arm64_sonoma:  "40ab4a1893fe00347a02fb7b4cdf258598e1ae27e1594a1c4dff5461633f1a8a"
     sha256 cellar: :any, arm64_ventura: "c564614df4b284c52854d467589dd9603a3502f38c9a07f11a8c35e778617c8b"

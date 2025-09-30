@@ -9,6 +9,7 @@ class Pixiewps < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "39f6d24e45aca635aea5b72c94fae6fc63fd53cdf10b9f23b97e02d1a567e948"
     sha256 cellar: :any,                 arm64_sequoia:  "c88ef0a54b523b538d88e491bf10933853e5600ebb4c391d0529e28b5feac368"
     sha256 cellar: :any,                 arm64_sonoma:   "db1461e5abc8e20b06a0e50a99a377367aa6f7840303307b49962ce4d31dcbe8"
     sha256 cellar: :any,                 arm64_ventura:  "721604be69bab25231f1bda20ed0f5c6f8dcb5a2788e2350c28726f86e043a1c"

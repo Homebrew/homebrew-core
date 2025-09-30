@@ -7,6 +7,7 @@ class DepTree < Formula
   head "https://github.com/gabotechs/dep-tree.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "db5b0ba7c68023a7131be5df7f465f19b3e648954cdbcc32b18a64de497e6b5c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "277fe984bf29633301f181b12e8d447023ed0424dea708b6e32f48b32debce3b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "277fe984bf29633301f181b12e8d447023ed0424dea708b6e32f48b32debce3b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "277fe984bf29633301f181b12e8d447023ed0424dea708b6e32f48b32debce3b"

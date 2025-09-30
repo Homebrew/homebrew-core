@@ -8,6 +8,7 @@ class Libdmx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "14977e0ecc11da42c82528f3c0d13d68df037f55e615ca95af6434cf214c2471"
     sha256 cellar: :any,                 arm64_sequoia:  "e5034cca46b4ff523130888f6d8bf0d75937e0f1b490a0cf0c0c175f32d8be2d"
     sha256 cellar: :any,                 arm64_sonoma:   "f9beee8dec503a6ecc7479eaec0f9f567d03d38076e4b0237e75969155df0006"
     sha256 cellar: :any,                 arm64_ventura:  "bd69993016d92420d1f32df152e891cadf75c3693e2d4d6573e4f651ca6dab10"

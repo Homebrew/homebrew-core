@@ -3,18 +3,17 @@ class YtDlp < Formula
 
   desc "Feature-rich command-line audio/video downloader"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/c8/af/d3c81af35ae2aef148d0ff78f001650ce5a7ca73fbd3b271eb9aab4c56ee/yt_dlp-2025.8.20.tar.gz"
-  sha256 "da873bcf424177ab5c3b701fa94ea4cdac17bf3aec5ef37b91f530c90def7bcf"
+  url "https://files.pythonhosted.org/packages/58/8f/0daea0feec1ab85e7df85b98ec7cc8c85d706362e80efc5375c7007dc3dc/yt_dlp-2025.9.26.tar.gz"
+  sha256 "c148ae8233ac4ce6c5fbf6f70fcc390f13a00f59da3776d373cf88c5370bda86"
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1ede5732315e4e2d4dc16e3bd96b1f5a1dc34d76fa1dda7d5496a29192df476"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "510955c724de4517408030bf4db744c182a26997bbe015fc339bb6502e2dde66"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7586a078af4d126d4ae91a03f2ae8079e418fbe28047fcbb0f87c21343a8c079"
-    sha256 cellar: :any_skip_relocation, sonoma:        "478845892c68c0ae78de5e5338754e444c329e95d0b783a2341eb1b2c43ca647"
-    sha256 cellar: :any_skip_relocation, ventura:       "bd68c632078add081c747af8d9473a0c2ba419f32a5e32e85f99ccd828638e5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb672d0f072dbf46c3f56fe455f91208123caf917f9f57064e8fb6edb661eedc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62c24cf4aa326d53e818bfe51235f66340473497442fea3ea675d4392cffd146"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "019b7b8a5c53ed47f0ae77f2c281285b4b4371e260410db728719fbdc08a15c7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c166d76277286b40f9bf6feb0431a966d059c673141fed7c39ceb4a065920818"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1c65a97ab4b6b4586f14933e437cfcc53c58b6bcda43602b9275278a6908aaa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "73b3923fa5a14e7ca1cfb08e5bccbc26711149f0a67ef97fea997932f5391cbf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6691a6af0bada82b64e12ea3a17a2a493c1b4c0cbf3dcf519c60ef6ce103c62b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ccbdf6bb8eb13b2dba09b05379382ed87ec76a31b36e854cfa0734f2c86018a"
   end
 
   head do
@@ -73,7 +72,6 @@ class YtDlp < Formula
   def install
     system "gmake", "lazy-extractors", "pypi-files" if build.head?
     virtualenv_install_with_resources
-    man1.install_symlink libexec/"share/man/man1/yt-dlp.1"
     bash_completion.install libexec/"share/bash-completion/completions/yt-dlp"
     zsh_completion.install libexec/"share/zsh/site-functions/_yt-dlp"
     fish_completion.install libexec/"share/fish/vendor_completions.d/yt-dlp.fish"

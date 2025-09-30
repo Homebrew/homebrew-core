@@ -9,6 +9,7 @@ class IamPolicyJsonToTerraform < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b634b540655afd1707b24be7f6a7f1ac11693f175d846d1e251c36221b8338d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "016bb0b29e4f5c61e1c7e0e0c99ba74757327a146ddf9906df1d628694e31ae2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "016bb0b29e4f5c61e1c7e0e0c99ba74757327a146ddf9906df1d628694e31ae2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "016bb0b29e4f5c61e1c7e0e0c99ba74757327a146ddf9906df1d628694e31ae2"

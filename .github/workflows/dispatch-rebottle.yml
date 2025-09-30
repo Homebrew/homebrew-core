@@ -70,7 +70,6 @@ jobs:
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Determine runners
         id: determine-runners
@@ -153,7 +152,6 @@ jobs:
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Download bottles from GitHub Actions
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
@@ -174,7 +172,7 @@ jobs:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
       - name: Generate build provenance
-        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.4.0
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
         with:
           subject-path: ${{ env.BOTTLES_DIR }}/*.tar.gz
 

@@ -13,6 +13,7 @@ class Prestd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6bf355f7cd67bdee9b319c0ac5b6399cae1931a634f472f9c530c4d721ae7a9b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "eea2264c1eb95f71a00ea3f6dab68693bb5b1b9298e2f6761afd1ba3bd257e83"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f98b664aed92e07ef3e312d71f344aad084b42566fdf0462a35cdaa30acaf4b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "21c93a08c0034b94acb228e73af97e4e86f3d659b6ddd77c4ce8695208150dc4"

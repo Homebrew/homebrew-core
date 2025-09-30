@@ -11,9 +11,11 @@ class PythonAT313 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "16a22bc6e667935458033ff52b3afe4675666b9ccff6fc4ac4804f9404689ad3"
     sha256 arm64_sequoia: "821887b8f438c6a43828c9e893ee73e011012bb46fcac862974638e16d5228ce"
     sha256 arm64_sonoma:  "0c85ea88bebad3a07e50dd310dbfb97386fa264cfe77b942a8418c9974fdb7cd"
     sha256 arm64_ventura: "8f35604ec6b1993367b0bf35f7929e5015043bc8360f2c45a7202af584c70d89"
+    sha256 tahoe:         "d6eed7df4cfee4d64a5a04f062d29978ee46454bb7ca7f5217367cd3a1663e16"
     sha256 sequoia:       "b0246f683ffca8b9dd5a7d38a15d80bd193c4c0f57de0c6977e946bc993d018e"
     sha256 sonoma:        "38d730f020da80c489a6cc3218a6bb2f1a54d36c793940529f704f15e2be10ef"
     sha256 ventura:       "0e3eacf506efbd2a0c54839a9b0d2904d3d079a80ef42cdb983e47764e74a5b5"
@@ -30,7 +32,7 @@ class PythonAT313 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat", since: :sequoia
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
   uses_from_macos "zlib"

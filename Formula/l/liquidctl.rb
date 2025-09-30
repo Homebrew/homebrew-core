@@ -10,6 +10,7 @@ class Liquidctl < Formula
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c27b162885dc21125f78e7dd4e900831058e4c89328d1c4d731b3798deee813a"
     sha256 cellar: :any,                 arm64_sequoia: "031c352493e155ec0be429608e741d4b2c50c73b9ba15fb7d93eaeda7432b829"
     sha256 cellar: :any,                 arm64_sonoma:  "31d6591b0ba39715a5a3afef0e58ae6a60e3212d515943a35fac490e1128230e"
     sha256 cellar: :any,                 arm64_ventura: "4aa2c4495ada92c158da4daaae46588e14b645fef7ae4e1b658745eda578cb98"

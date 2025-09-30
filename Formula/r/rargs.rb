@@ -9,6 +9,7 @@ class Rargs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c1b481bcf7de6ad4a0abe5f77d33d8d2ab0f3bd6a6c36de248cf4fda715d89bc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "07e463046394e64c0366a57c336e0a1e5cb5524f18f278e697d921ae923695c3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c1b5594ef8bdb6f4bf04393a93e8081804b8918b79d8218bddcdb4b3b4b38e0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "db39ea8042e8c099c423325bf28e62fddcd985312dc39f2f9f7f4cee307b23f6"

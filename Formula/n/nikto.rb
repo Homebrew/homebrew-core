@@ -8,15 +8,8 @@ class Nikto < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c7930d224684f5422ede023a9737e1df3f259861ad5085414ba83a27e8f690b8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e822edd4d19c031489f940d9f0d3bd37765470baa55519e8c7f0e141f54b8dd6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e822edd4d19c031489f940d9f0d3bd37765470baa55519e8c7f0e141f54b8dd6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e822edd4d19c031489f940d9f0d3bd37765470baa55519e8c7f0e141f54b8dd6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d8f31869f1d8481474a9689d80247d222fa9a79a780a3c936be268feab852a16"
-    sha256 cellar: :any_skip_relocation, ventura:        "d8f31869f1d8481474a9689d80247d222fa9a79a780a3c936be268feab852a16"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8f31869f1d8481474a9689d80247d222fa9a79a780a3c936be268feab852a16"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c6fe5537fb0856e36dcb4f232fbd133b03888cf8d4e7338cf84dded6401c6aa6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e822edd4d19c031489f940d9f0d3bd37765470baa55519e8c7f0e141f54b8dd6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ab8f5f0295ab3a4599a11e2cb63486c8da93c91c0088bc6f29307db3aec3df58"
   end
 
   def install
@@ -28,7 +21,7 @@ class Nikto < Formula
         s.gsub! "# PLUGINDIR=/opt/nikto/plugins",
                 "PLUGINDIR=#{pkgshare}/plugins"
         s.gsub! "# DBDIR=/opt/nikto/databases",
-                "DBDIR=#{var}/lib/nikto/databases"
+                "DBDIR=#{var}/nikto/databases"
         s.gsub! "# TEMPLATEDIR=/opt/nikto/templates",
                 "TEMPLATEDIR=#{pkgshare}/templates"
         s.gsub! "# DOCDIR=/opt/nikto/docs", "DOCDIR=#{pkgshare}/docs"
@@ -42,8 +35,8 @@ class Nikto < Formula
     end
 
     doc.install Dir["documentation/*"]
-    (var/"lib/nikto/databases").mkpath
-    cp_r Dir["program/databases/*"], var/"lib/nikto/databases"
+    (var/"nikto/databases").mkpath
+    cp_r Dir["program/databases/*"], var/"nikto/databases"
   end
 
   test do

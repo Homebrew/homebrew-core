@@ -14,6 +14,7 @@ class Libnice < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "faca07a9296d6048723e5e3c1d71ed6ae5e8f9f3ff49a1ab8aa05b2135bf6820"
     sha256 cellar: :any, arm64_sequoia: "e1f4f8532d745a6555e861c342f56ec7a0d0b827f13b4e80c4d6218857b3ae2f"
     sha256 cellar: :any, arm64_sonoma:  "9582197a0a9f71c2e6751c739c24027e55294303a1ca878091a751513898417d"
     sha256 cellar: :any, arm64_ventura: "14745e9ade6980ce27101f8be9ea209180aabd691628f908acac939e8249a3e2"

@@ -3,8 +3,8 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://github.com/ml-explore/mlx"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "b341dee8243a142d360a8369607ca9733bc6029970493ff43343058a43d7d18f"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.29.2.tar.gz"
+  sha256 "9ebaea7158189ab8f755b6e0c3de47a91707ae0cb520c7489cc75da4a0e43598"
   license all_of: [
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
@@ -12,11 +12,10 @@ class Mlx < Formula
   head "https://github.com/ml-explore/mlx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "879ee23b9d1963ba6a9f6a4bfa65df619c19d956413a0e826d0047efc1608e69"
-    sha256 cellar: :any, arm64_sonoma:  "d73681574d2388f7c7b8923559bd3d160938710a0dcd98a0c80164a8d2cd7074"
-    sha256 cellar: :any, arm64_ventura: "f1d972c94746ccf7b03ef2edcb3fba0c78c1989ec024edc27f7cae8fc3cca031"
-    sha256 cellar: :any, sonoma:        "328b3005b1b5df08d7304238452776dd451e088358acd6f08e5fe27e17c85df3"
-    sha256 cellar: :any, ventura:       "d7a3b1760cb66019d0819d0fe4564525cffb292978a4ef00ebde2c7f6e8377be"
+    sha256 cellar: :any, arm64_tahoe:   "149e7835199edd8e3aa95de7b4b20d20b812c05474c08072bc07e97dd3ecce82"
+    sha256 cellar: :any, arm64_sequoia: "b89c93175889fd55cbc2f492a0adc0088d60ae3b060bbad9994e0ac9516d33e5"
+    sha256 cellar: :any, arm64_sonoma:  "ac7fff216127e7069869799fe850398dbee87f0cb3d87b90a884129f3cdd7735"
+    sha256 cellar: :any, sonoma:        "7393547af028fb33ceb9566459d6349ffb918965c89089bac7ae6d99884c2e1c"
   end
 
   depends_on "cmake" => :build
@@ -48,8 +47,8 @@ class Mlx < Formula
 
   # Update to GIT_TAG at https://github.com/ml-explore/mlx/blob/v#{version}/mlx/io/CMakeLists.txt
   resource "gguflib" do
-    url "https://github.com/antirez/gguf-tools/archive/af7d88d808a7608a33723fba067036202910acb3.tar.gz"
-    sha256 "1ee2dde74a3f9506af9ad61d7638a5e87b5e891b5e36a5dd3d5f412a8ce8dd03"
+    url "https://github.com/antirez/gguf-tools/archive/8fa6eb65236618e28fd7710a0fba565f7faa1848.tar.gz"
+    sha256 "9e30bc1eb82cc2231150d39ce37dcdd6f844d6994fba18da83fc537a487ba86f"
   end
 
   def python3

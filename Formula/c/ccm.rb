@@ -10,6 +10,7 @@ class Ccm < Formula
   head "https://github.com/apache/cassandra-ccm.git", branch: "trunk"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4fc1a64b84139fb7ad7d4b5ac4328de0ed876e568b82efe529dd5caabecc98c0"
     sha256 cellar: :any,                 arm64_sequoia: "eb6c2ab38ac79ff2b3718e344517f07ebb2c9391227676a507d721337981b5cc"
     sha256 cellar: :any,                 arm64_sonoma:  "ef958862ebdc0d3203850a3055913742f0a784e339cbdede518f5582f9806185"
     sha256 cellar: :any,                 arm64_ventura: "622faec5bb8d2c454beafd31cd567a9243cb45cf096213a50701dde2ba150c43"

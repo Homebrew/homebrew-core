@@ -10,6 +10,7 @@ class Httpie < Formula
   head "https://github.com/httpie/cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "acd7e0e6dfc5f70cdb233bbcd86b9f787ea61b8b512df597fbec0793c266af6b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbda2c1ab0caf612205ab7af6653a21a8dadcdb4109e5905fc28a16e34b3ed73"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0055b5be143a4e97d1be67b9b193763e93e5eedb98551e78476ded275f7ef99"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8bb20fe439b3c2e0dc5c5cb532a386d8fb6472312e39b4f198868ae5b8d454ed"

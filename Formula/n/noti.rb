@@ -7,6 +7,7 @@ class Noti < Formula
   head "https://github.com/variadico/noti.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d90a1e8a186687fe12f458a6f7070f4c40dc7850a5f06ad1f513858dabd7558c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7373f99acea5809bcc89237de6cfe9b869fb194603f9ffa69d90c6a01ae60cf1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6990ad34fe5bc000e70e99dba5d95ce91d21de18bc4aef2138af3140981da26"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9879896973d077b35c59c8485a875f45be367a68879879ba58c5ce643fa1576f"

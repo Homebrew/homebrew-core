@@ -13,9 +13,11 @@ class Pkgconf < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "84f26aae5e27d846e00a9fb741dfe3b02a14cb2f81ca4a4246617379cda99fc0"
     sha256 arm64_sequoia: "6fabdc3d0a656e2d505aec4e39b2f8e354601ee141469554fa71eabc3386e18f"
     sha256 arm64_sonoma:  "bc7f9963756598248220da128a5f06ea0e6685aa7cd965a5ce357fcfaad2cdec"
     sha256 arm64_ventura: "8d53ac0deb003f8866315c4c27a1aa4767467c9fa13c912f52cb29e37fbe7916"
+    sha256 tahoe:         "ab1a7c8edaffa3a27400174deb4845140bdd56942d9ab2a7bccdf30f7ef74d91"
     sha256 sequoia:       "a074f871aa476dec1101c13b4fcfbb9354a8b35bcb6e056f8411463913632071"
     sha256 sonoma:        "439e8e638986c4423f430719f28cd7c62e8d9a1b87ac658c069fd5da939784f8"
     sha256 ventura:       "e38acbfd930c9588f4d1eabe061b956948aaff32cccb30c457430779c1e4f7f5"

@@ -6,13 +6,8 @@ class Ungit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bfd52fb0ffc9a61cd102d33728d26059f661b6a9b70e723cf5378e9bf5afd082"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bfd52fb0ffc9a61cd102d33728d26059f661b6a9b70e723cf5378e9bf5afd082"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bfd52fb0ffc9a61cd102d33728d26059f661b6a9b70e723cf5378e9bf5afd082"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee759a9c1cea66c47c0b2be863683ae8b67d3f65f6627e850c478c3a5e032a1e"
-    sha256 cellar: :any_skip_relocation, ventura:       "ee759a9c1cea66c47c0b2be863683ae8b67d3f65f6627e850c478c3a5e032a1e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "122896c7430c84b1086d09b9a762fab35eb8d589a0049429e8447cbcc8ae2923"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfd52fb0ffc9a61cd102d33728d26059f661b6a9b70e723cf5378e9bf5afd082"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f3c29e0ac2bf9111ce8f2e1537df51535cec6e7b517b6d111b10644f72bfe3e2"
   end
 
   depends_on "node"

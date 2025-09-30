@@ -1,19 +1,20 @@
 class Bup < Formula
   desc "Backup tool"
   homepage "https://bup.github.io/"
-  url "https://github.com/bup/bup/archive/refs/tags/0.33.8.tar.gz"
-  sha256 "5ead4def9c08efb9dff2c2f41e28af3b3c3175c824b28357a4f96e16a258f39f"
+  url "https://github.com/bup/bup/archive/refs/tags/0.33.9.tar.gz"
+  sha256 "310823bb3437b2a9ce8979a31951405e057fa2f387ef176b64ef3ce3041f59d0"
   license all_of: ["BSD-2-Clause", "LGPL-2.0-only"]
   head "https://github.com/bup/bup.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f9127c8ee7ec2fcf3219047bd567e08c23dbe3003d303953d1f0692e4754f89a"
-    sha256 cellar: :any,                 arm64_sonoma:  "33f8062ba9d9149528b5612efcb6f0c8da618474e62880f0ad11d579cb88250e"
-    sha256 cellar: :any,                 arm64_ventura: "d537efaa5dc444a73f7de03ba5cfe26091603d3ec5c6fd4c535ce238252b1832"
-    sha256 cellar: :any,                 sonoma:        "cc9dac2ba9be76ee97ce1c06d7c301c5faae4e0939cb911584f75d297b9f68db"
-    sha256 cellar: :any,                 ventura:       "6b570e924aff4a99bac1ebb29eeffa8b8982acde36cdcdfe2d42b02b75862c45"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ffe10b4b3a9c91bdb83457628100cf4f4961980c0d95b7841636183cda4b6c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc9aa45bffed901617254b755857b09ab2439c7a05cd3e7f1e2ab55e80520ea9"
+    sha256 cellar: :any,                 arm64_tahoe:   "1eab9c210e11a5589cff8a1b39a8e59e26c05b20c8f3f4b3bc89443eed898c21"
+    sha256 cellar: :any,                 arm64_sequoia: "3104c10993ec9f6fa2d991ccdfccca6f0166cdf092bcd46c59698ed4683fef92"
+    sha256 cellar: :any,                 arm64_sonoma:  "0253b805259079f8bf8b404bd5614a77daad653fb18893f71074710683515fd1"
+    sha256 cellar: :any,                 arm64_ventura: "27a31a5719db34d087da2fc6832ceebb9ccda45b56165b3210f2a29fbc113c51"
+    sha256 cellar: :any,                 sonoma:        "3552da06ec87afbda580f929ca26090d3e119a8e5ede5405ec14f3908f0f0e95"
+    sha256 cellar: :any,                 ventura:       "f78d17b46c361affea770eb947415dc85d1b0790021b351b326e097ae59130e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d379f0883d1d731656ee060a7ada6554e61869522df8586f98c114d16228ce81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21c07a02ff6d5e575114a724084a05dc61257f4ae3fbd81c2f7e33e35b190b28"
   end
 
   depends_on "pandoc" => :build

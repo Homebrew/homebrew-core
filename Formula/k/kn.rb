@@ -2,19 +2,18 @@ class Kn < Formula
   desc "Command-line interface for managing Knative Serving and Eventing resources"
   homepage "https://github.com/knative/client"
   url "https://github.com/knative/client.git",
-      tag:      "knative-v1.19.1",
-      revision: "dc1ccfad8ee1dfa7a2535b2b9dfbfd0064677558"
+      tag:      "knative-v1.19.5",
+      revision: "0206e6cc118346561b4eeba9c759d10aa36d87e9"
   license "Apache-2.0"
   head "https://github.com/knative/client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31fd9464a3ad4ae864a813fb4eea75cb40b2047b6233bd5069ef175cbdcf1788"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67638d5153ac55448e0dabf072e92aae11237a9b6b71f828ef0469395f4a654a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "38c35b5b6c19b6a4cf4306779108521b7e65c90436f196d26ad3d11cdf3abc1c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9b05b5c89f3a38c991fe8783ae23430d06c317e1b657f305b9d291602779b425"
-    sha256 cellar: :any_skip_relocation, ventura:       "5d8651687b37cab4b1ca3ac04b1b9e2d04c0c64a3bf45182565183af3dd47a8f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "767fbb4311a0478eba0ce15fbca46b0fb1559d56fe56ef26381fd1483fb6b5cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f3de63a30c79838da937209ec277a40f4a70f0b2264ee0385628669dbce7184"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "241c99db5ca5fc7f8d1b7bbbda8e219a06d16154844cda29d5a291d217f146f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bfe359967f6851319d2c575120ed6f0156045a3d2a7ba071882a011ea0663db2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d872681659fb568f47ec09296499aaa2af355f31be592fd0c7c9c2148d019847"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5355d9ce94a92a3744f3ee185d4c52ce96c295a84aba5462beb4a0b2aeeca1fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e56538d060799fcd39f07eed9f9eec6e65b0d6e905bd0c1ed7c42a32a3fa94d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "540d5c2230b0c6615ee13fd4954a2ffdd7c49e1d855f9aee3c7b8e714687958a"
   end
 
   depends_on "go" => :build

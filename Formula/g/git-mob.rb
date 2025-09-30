@@ -6,13 +6,8 @@ class GitMob < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3b53efab454df496e789a6daa64025ca50c6e81168123f600d7a1e57ad00b005"
-    sha256 cellar: :any_skip_relocation, ventura:       "3b53efab454df496e789a6daa64025ca50c6e81168123f600d7a1e57ad00b005"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e1d543c5bd84b8924a1ca7a6a9e840998f2178e56f76272e4ff39c21ac6e31a6"
   end
 
   depends_on "node"

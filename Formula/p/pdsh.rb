@@ -9,6 +9,7 @@ class Pdsh < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "6c84261f0429af978db16961106e2de4752c4f2addcf29ab0934f002b2e21212"
     sha256 arm64_sequoia:  "4f305e8c05c690c64f73c73e4a845f21d4bbafe7d0e15e96fb4c5e2833f455c9"
     sha256 arm64_sonoma:   "e00a802e4fbdbbe512b3222a15da104ff75a5f35beb28fed5a6239f9b4cf0476"
     sha256 arm64_ventura:  "ee17c95f1182a9899b11c65a05f39286abc414c4cc66407d0f0f05a262ad81a3"

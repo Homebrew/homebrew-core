@@ -13,6 +13,7 @@ class Libopennet < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "543c5813be3a290d4f05c97abf94665d07cbc7cee5eb84c5c3c5b1689be5884d"
     sha256 cellar: :any,                 arm64_sequoia:  "e5e9c1ebe5ba34938705b7b0b1f70569348096a58d96b2a7327526f5d3aeb5f7"
     sha256 cellar: :any,                 arm64_sonoma:   "cb4414cd607a9de6b0cf79edc026805665037051c6cb17b289cd5a5e5ecda5a1"
     sha256 cellar: :any,                 arm64_ventura:  "1ce4bb615aaa4579a6719a21eaaea4cdcf6beba142a9191e9aca597d6fbdf726"
@@ -23,10 +24,6 @@ class Libopennet < Formula
     sha256 cellar: :any,                 monterey:       "d14a15468f38a3c053272c0669e1db3a550bd121ddb6dbbf8a47637de6fc956c"
     sha256 cellar: :any,                 big_sur:        "1c514ff48871809fd77cadcded9c2dc71f7913fde66c81fe3a9c6488b927d17f"
     sha256 cellar: :any,                 catalina:       "0f9b40e9c906fce8df8abc866680bf6fbe60cadc5af24dac309e1d51a0f5e99d"
-    sha256 cellar: :any,                 mojave:         "4702cca034bb0b60b4555615664cc4aedee95c189f37e23e93013594f1dc9321"
-    sha256 cellar: :any,                 high_sierra:    "82232ab7a71481570e3119e119bc93ef29a9d553c11e16fb93f157c66a7dfe8a"
-    sha256 cellar: :any,                 sierra:         "c3447365aeb1a478b14b5a71b6ffd29a1f95754fb460ed6f618b55e2f958c227"
-    sha256 cellar: :any,                 el_capitan:     "de1cb9622ec3b6501236af7e66367bc5bbaa20dfb8e3ae328a339bea6d708bab"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "dd3619a3083c2078621061fde39ac45d20825f6312cd177828289861d70b63d6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d12f92e4c1e648507685be0a40102bbf253da35bc2bf2bc25b412e8900165a6d"
   end

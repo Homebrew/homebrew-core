@@ -7,6 +7,7 @@ class Errcheck < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1c4ea6a127a1def32d14932e18f61ed0bd47baf99381a8ad2f52a4ce7b8c6410"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a28fa11b557c5b8029e19b47c3d4e1bf0c84b3e5c7ec8cbf8ef3a4b129817921"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a28fa11b557c5b8029e19b47c3d4e1bf0c84b3e5c7ec8cbf8ef3a4b129817921"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a28fa11b557c5b8029e19b47c3d4e1bf0c84b3e5c7ec8cbf8ef3a4b129817921"

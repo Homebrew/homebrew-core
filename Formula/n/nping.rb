@@ -1,18 +1,19 @@
 class Nping < Formula
   desc "Ping Tool in Rust with Real-Time Data and Visualizations"
   homepage "https://github.com/hanshuaikang/Nping"
-  url "https://github.com/hanshuaikang/Nping/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "9f3cc2cdd8da55e41390ccd3a506f14ceb08169e1c09b9f0362f4a1bfb70bb36"
+  url "https://github.com/hanshuaikang/Nping/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "0ba70f55fc126445b8c57be234c2eb355939336c731c8209b320bd89b85cac50"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dbf392dbb27e3a8ae2e87441cc869047f3d31e5717ad6351ad803b42abacd5f0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a1938bd0556101cb5fd0cc476e0047b15457365c50b95266a63dc22c5fcc094"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5bf27a5da091ae144c5e6176b399b4db72277e1836fa612686e9a642d69d7753"
-    sha256 cellar: :any_skip_relocation, sonoma:        "13c67dd0e4e03b092f879dcd9fd61af447f0b731fae1b73dcb98274fc096c385"
-    sha256 cellar: :any_skip_relocation, ventura:       "60b4938b512b6d5e6833b557b4ea3883ceb7c901ffd523b0a672d492d8efb419"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6ff7a20338d9f9b9b0fae0402a3680d8f08f106217ec8dee9ff6d810899a958"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad71ecba02888016f5259c21ddef36643aa8a1ddec4b153a3ecafd993f6159c6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "154efe4e2a7876ef5f07f75bee5a1d9430902095cab62374556b049be064f0d2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20862eab2cbcfc10caf8e4727406345b8c0963da8d9b11cf77e1e8b481bfdbf5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8c8a3c70304a5d2f9ef2d989964bed57ebc73eb522cc47d8f339d1674f03e4e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "976671ce122a9ce7f2b835acd39c58299ddf25e5fa6ec331160c68ff37b27a1f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "15dbbd76c07db6df865281ae35576d399a582036d66398d07d421723a782bde1"
+    sha256 cellar: :any_skip_relocation, ventura:       "7c5caf7fd5802813ed2ddf22dd8aaf9cf7fe52d5eb4190c36e150653326deb02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa83bd35615c2d4dc74e7715bf0344fd514cc0f4c7dabbb554b27ad9b4de44d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f43a159b169eb801516e3b670ebb243636e3962437de4daa39d2a1cbb2da67c"
   end
 
   depends_on "rust" => :build

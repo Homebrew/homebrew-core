@@ -1,18 +1,17 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.80/vte-0.80.3.tar.xz"
-  sha256 "2e596fd3fbeabb71531662224e71f6a2c37f684426136d62854627276ef4f699"
+  url "https://download.gnome.org/sources/vte/0.82/vte-0.82.0.tar.xz"
+  sha256 "b0718db3254730701b43bf5e113cbf8cdb2c14715d32ee1e8a707dc6eb70535f"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "960756705e94da9d25ec5dc389a9ba7cc2f91df7fc0a355c90f7d33643130e7a"
-    sha256 arm64_sonoma:  "3cd96db88e4b28490f5a9a40e2bf12737e8bc30edf62272b3e43ce1d89ff44e7"
-    sha256 arm64_ventura: "8b7acea9ae8aa671d249e2a24cefa855dc3657e05099d45c32501d9ba6591f13"
-    sha256 sonoma:        "e0f7aef9cd845c59965d333204040a8262e1637965d028e411b69a78634cc830"
-    sha256 ventura:       "0237892df0c51fe19e26558ad6a25f6a98b9d4b4dee2282ca2fed48f02b2f7f8"
-    sha256 arm64_linux:   "4af2394777d998b709a29dd57bb755703d875d210e7818c5addf932ed385e626"
-    sha256 x86_64_linux:  "0931a6292223f35b4ad272caf0a0cfd8006e37e31c23e773ee286c43ec6a9919"
+    sha256 arm64_tahoe:   "4be86ff0c3effae53e376ef410389724b3742bc465865e98c8940ea5565fdf21"
+    sha256 arm64_sequoia: "553e798e90e775ca7f92eef0cd3598c7e3f5665a9e615b3cc218ec8ab4cdec42"
+    sha256 arm64_sonoma:  "1b648685eaa217374b62f0e8fc3745fe64f69e197c5be17b9f87a006c8ba39de"
+    sha256 sonoma:        "ca4dffe8c311488908e7536ea48f40a93f19b6af8a14ea46f299bfcf980b367f"
+    sha256 arm64_linux:   "8dcf49395109d138f6982b192abdd47a3aaae58ee5e9b1345fbb3ec65a8951b6"
+    sha256 x86_64_linux:  "03d235d294b1965a645540f9d1a28b8409f717921408b935dae2d1f9f39b7b98"
   end
 
   depends_on "fast_float" => :build
@@ -34,9 +33,9 @@ class Vte3 < Formula
   depends_on "gtk4"
   depends_on "icu4c@77"
   depends_on "lz4"
-  depends_on macos: :mojave
   depends_on "pango"
   depends_on "pcre2"
+  depends_on "simdutf"
 
   uses_from_macos "python" => :build
 
@@ -53,21 +52,25 @@ class Vte3 < Formula
   end
 
   on_linux do
-    depends_on "linux-headers@5.15" => :build
     depends_on "systemd"
   end
 
+  # https://en.cppreference.com/w/cpp/compiler_support/23.html#cpp_lib_string_resize_and_overwrite_202110L
   fails_with :gcc do
-    version "9"
-    cause "Requires C++20"
+    version "11"
+    cause "Requires C++23 basic_string::resize_and_overwrite()"
+  end
+
+  # Backport removal of constexpr
+  patch do
+    url "https://gitlab.gnome.org/GNOME/vte/-/commit/3d9f771b895ab2e9904466aebe5ec74438e6f363.diff"
+    sha256 "35d4b558f3c5908638dc59621cf154ee35e318e601d4e9540b7daed98fff7814"
   end
 
   # submitted upstream as https://gitlab.gnome.org/tschoonj/vte/merge_requests/1
   patch :DATA
 
   def install
-    ENV.llvm_clang if OS.mac? && MacOS.version <= :ventura
-
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "meson", "setup", "build", "-Dgir=true",
@@ -126,3 +129,27 @@ index 79d4a702..0495dea8 100644
      include_directories: incs,
      dependencies: libvte_gtk3_deps,
      cpp_args: libvte_gtk3_cppflags,
+diff --git a/src/boxed.hh b/src/boxed.hh
+index 4d4b07b..a526b59 100644
+--- a/src/boxed.hh
++++ b/src/boxed.hh
+@@ -19,6 +19,7 @@
+ // but we need this for non-enum/integral/floating types.
+
+ #include <type_traits>
++#include <utility>
+
+ namespace vte {
+
+diff --git a/src/parser.hh b/src/parser.hh
+index 071e506..27c6d8f 100644
+--- a/src/parser.hh
++++ b/src/parser.hh
+@@ -18,6 +18,7 @@
+
+ #pragma once
+
++#include <algorithm>
+ #include <cstdint>
+ #include <cstdio>
+ #include <optional>

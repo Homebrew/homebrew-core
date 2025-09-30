@@ -2,8 +2,8 @@ class Kubekey < Formula
   desc "Installer for Kubernetes and / or KubeSphere, and related cloud-native add-ons"
   homepage "https://kubesphere.io"
   url "https://github.com/kubesphere/kubekey.git",
-      tag:      "v3.1.10",
-      revision: "cdc54e0986ed98997703b527a49f8bab2c0ee950"
+      tag:      "v3.1.11",
+      revision: "f9d473060ec34cd8ffe5a87f2eceb1dead397f5c"
   license "Apache-2.0"
   head "https://github.com/kubesphere/kubekey.git", branch: "master"
 
@@ -16,13 +16,14 @@ class Kubekey < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8eb07536020c35c08b9c3c8e2e479a98860d19818f84ee0d4ec83aba64719486"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5dad9250063d8f04935e649383714f46644ee5e87f729120174add2277275af1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c341287bdc7285f60693d50d01ae45071920ebf615478a4de70ac5670aba472a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7e8c0998ad6da1eb3e8be84c1daadbc8ca6a117f8c7d8ca88426903e56596fc2"
-    sha256 cellar: :any_skip_relocation, ventura:       "a7ce5d7d44e57ef773180018038a072c21a27e6bd9476a65ecbb8be9984ed273"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1dd737394f7d4cf1284ff1ab707503e73d875cfe0863877f4d14a46a480da7c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e68af1256d23f755f6d7409e05288c1ac654ceef987c4afa13ec5bb6b53eebf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62deda7ff4490da5db9057e8d1e4635317df2005d620d7dd1b2cefa69a19639a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "648ea4d70c883e8db01cc5db82879357b9b100fcdc320cba1d04116ab589fc5c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f3bb23bec12c8c67ccad9e4febd73031ee5235a5c8561e45ff41e72486df41d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c157465c57554f81de4ac425b41a74f436dd15c717002bf2e7886ac9fcefbe6d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9a74a8e89850ab3c2d64c9dd891b485642815e303c79756d847165cc74c8f076"
+    sha256 cellar: :any_skip_relocation, ventura:       "fc04f16c027fc87e9b2bbdbc383af164e6b5dfdf34b1711ae094daa51fe0c2df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75123a2970434541625df59998b0138b208b5c6a8095a19989de1be00b4a5524"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e00317f35c2388fffc69731bf4184ab353bb397381cb6d9951bcc865b7f84643"
   end
 
   depends_on "go" => :build
@@ -32,6 +33,12 @@ class Kubekey < Formula
   on_linux do
     depends_on "btrfs-progs"
     depends_on "device-mapper"
+  end
+
+  # patch for macos build failure, upstream pr ref, https://github.com/kubesphere/kubekey/pull/2744
+  patch do
+    url "https://github.com/kubesphere/kubekey/commit/01e23d7fc422d9b77a8a4a5581a4e3b3e1a64c95.patch?full_index=1"
+    sha256 "57cc282c8282198a59586ae0d75cded669af5e79b6b473bbb870aa0083bd0e80"
   end
 
   def install

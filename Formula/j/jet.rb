@@ -7,6 +7,7 @@ class Jet < Formula
   head "https://github.com/go-jet/jet.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a17af784d1a6f9254f01c36262a1ac4a0302f8205c9195a727feccd62914672c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6bc8620eb569a95d635d373a9e4aba5a5701cb3e65f01be861c487113e8320c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6470f69cfe07e82ff68c810ae85a2f38cac94879cedd617ebefdc3609a875e9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6a3b7a7b6d1e9ab19982340dc4b6057f055168dd0f5366ffa6acdd3a6fafd2ec"

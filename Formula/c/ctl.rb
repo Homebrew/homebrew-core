@@ -4,17 +4,18 @@ class Ctl < Formula
   url "https://github.com/ampas/CTL/archive/refs/tags/ctl-1.5.4.tar.gz"
   sha256 "fb84925320d053827fce965d7aeea5bb8690d7093bb083c8e3915d7a600e25fc"
   license "AMPAS"
-  revision 1
+  revision 2
   head "https://github.com/ampas/CTL.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "db5e063fcfd89cf4b8c9273bf21bdc9c8e966318943aa3833482c0d49f54198c"
-    sha256 cellar: :any,                 arm64_sonoma:  "ce1952823a31890334ca1473a1de258f7d85fa7081a9f7c798ee553f66113743"
-    sha256 cellar: :any,                 arm64_ventura: "c8ae2967280c8efe51f1aa2139093e1692b53a7c3860d3722aa75a8ca0e520c9"
-    sha256 cellar: :any,                 sonoma:        "e5292cf76de6a6edd88b63c011ac83c9db76dea99c1b9402238f8e4348366a44"
-    sha256 cellar: :any,                 ventura:       "e85c76f90b9d3fb90164b3cc5551b89d8d367f1bf390b9cbe0ef8242dfb2d698"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "065461580cc518d5a13f44b3b6330988353f9de56309f39b5473874781a229f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "076e7df7853a39ef9f21ac0492f0f328aa1db171279ac28404493a35c3b3525f"
+    sha256 cellar: :any,                 arm64_tahoe:   "dfa050e2d9a41d8d9b2bde93e1286f9a172ed202cc0d9f61fe81a33244f6af03"
+    sha256 cellar: :any,                 arm64_sequoia: "46dad0ccf20d7fcb923bc2cfff9d592d1abd347fa0a5418947f1acacc0fc1222"
+    sha256 cellar: :any,                 arm64_sonoma:  "358beba8b7c3c72f2a578ecb251ad557e2e82b9bba028680dc604296f7048d4a"
+    sha256 cellar: :any,                 arm64_ventura: "2dc49c04d46726e0f208cb2fd4be22d4e1bd65eae9f33874c4aa113c54c654b7"
+    sha256 cellar: :any,                 sonoma:        "2b54cfdfaa8dbbe90bce3b74e6544d991d41144878ca942d3b5b75f44dbe5e89"
+    sha256 cellar: :any,                 ventura:       "8a867471142e5b9f7f14107377999df21db03c4ea8fcd06a5ff8729b97d37fec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "82d4fc648be73e03f07fb79130a9eeda876df66e24a80d3050d49f4cdbaa4c3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abe0b96ef6367426b3ce5b52182f714f5f496c5d18c5a91b42e3882924d5780a"
   end
 
   depends_on "cmake" => :build

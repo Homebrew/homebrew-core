@@ -12,17 +12,13 @@ class Grails < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6d99581afd8f11f9c5064cc312865fc0d6fe2ec04a20035c02f47add859c2ae8"
-    sha256 cellar: :any_skip_relocation, ventura:       "6d99581afd8f11f9c5064cc312865fc0d6fe2ec04a20035c02f47add859c2ae8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d496d2a0d69e0670260bf7b187668e2ac4ee292363a85eee8f1c5583674124d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "886fd3f292e6425dcc217aadb07ee135e47ea536ef199fcc3876dfe4bf6fe589"
   end
 
   depends_on "openjdk@17"
 
+  # TODO: grails-forge is merged into core at version 7
   resource "cli" do
     url "https://github.com/apache/grails-forge/releases/download/v6.2.3/grails-cli-6.2.3.zip"
     sha256 "ef78a48238629a89d64996367d0424bc872978caf6c23c3cdae92b106e2b1731"
@@ -39,6 +35,7 @@ class Grails < Formula
   def install
     odie "cli resource needs to be updated" if version != resource("cli").version
 
+    rm_r("bin") # Use cli resource, should be removed at version 7
     libexec.install Dir["*"]
 
     resource("cli").stage do
@@ -84,6 +81,7 @@ class Grails < Formula
       pid = spawn "./gradlew", "--no-daemon", "bootRun", "-Dgrails.server.port=#{port}"
       begin
         sleep 20
+        sleep 20 if OS.mac? && Hardware::CPU.intel?
         assert_equal "Hello Homebrew", shell_output("curl --silent http://localhost:#{port}/greeting/index")
       ensure
         Process.kill "TERM", pid

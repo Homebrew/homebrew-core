@@ -7,6 +7,7 @@ class Glasskube < Formula
   head "https://github.com/glasskube/glasskube.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf1a551442372a2ef6289b9df1dc405691a99f85a92a09b081311e78d90a4b77"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "063ecfd9f5070323a625742f6501bfa047a48b75ae7b82034a65019fb28d383a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "063ecfd9f5070323a625742f6501bfa047a48b75ae7b82034a65019fb28d383a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "063ecfd9f5070323a625742f6501bfa047a48b75ae7b82034a65019fb28d383a"

@@ -1,20 +1,19 @@
 class Sniffer < Formula
   desc "Modern alternative network traffic sniffer"
   homepage "https://github.com/chenjiandongx/sniffer"
-  url "https://github.com/chenjiandongx/sniffer/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "8da1a20155518da7c195fd370ab2811d02eddcfc11f423f75335f7b8024d42f0"
+  url "https://github.com/chenjiandongx/sniffer/archive/refs/tags/v0.6.3.tar.gz"
+  sha256 "c8eee0fb34422a014811306b9b2d2d149c469b3a0c515f79bfa516bbd2f56979"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1e4896b43b3ea3b7a8065fd9de52737c9e56adef3b5aa8cbe7e05b29fafbb725"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5aac7f08562aeaef83c298a129f8749a3c94f37ed31a771c0fb098fb9926c1a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "426df2385cf9a2725bb85856e9e825177c7ebfba07baf662f7e15c03cb934d18"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14357cfb10b5c6a0dfd256265b0a15381696714e841bb88bceb59b0c1d8f0ed8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0039e5ac0e23ec4990badeae4d3adc5d244de339060b7c92991716751b1d1239"
-    sha256 cellar: :any_skip_relocation, ventura:        "257d8ea96ca570d8040cb01613c103836f6620cd0e07759e93cf7df891a40f6f"
-    sha256 cellar: :any_skip_relocation, monterey:       "721dde5fd616c6255cafbf6fb65d27459579829b92dc7d59c3b2638e6e9394d5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9380e8bab28258abc9fba37619c04a54c2a9e6b91d847d2ab5a643a1a47e2f2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b01bfd9aa799259150ec8dd50050d4787b6410377ba2c62b93b0dc157c182f5b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1913f84c2049d323c1a00351af8c08f8e37583e014fbb4e83f30f95be7cdecc4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02cf38bfcafd1048f1be0a5fdfa884f604985f365a520a766a59b4ce5e6ba09c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f1625ba44c2921e587efb6fa71bf456f5e41c93f830c4c0a01211d43ed10ddd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "aec4de8c491266d76a362e7f5f5851d339514b261d80cd305dda0260c8a36a7e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "336a7007da692ead0a69480e2086f7a16e275a1e0d2241edf9ca386d055e9e94"
+    sha256 cellar: :any_skip_relocation, ventura:       "1c672efa51414608c7bb0e4e05414f826747dc0d48901e83189ca443a148112f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5165aedae90cd16a953bb9ce088139f2bf355d53db4567fe0b5b66c360754bab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "355872769c22b29aab4af16277847c47cb00fe4965ab90675cd523c55b504e66"
   end
 
   depends_on "go" => :build

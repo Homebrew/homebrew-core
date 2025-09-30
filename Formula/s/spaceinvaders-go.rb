@@ -8,6 +8,7 @@ class SpaceinvadersGo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b15177ecf88a2b31fa74e3abd9a792f2762cc58b50d201f2f6423d3c53a45dc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3be01a0f665ce0362b3fa26c19548b9952b107d427f4c381e809ccc4a0760cba"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4aa933312ef52bc92b44dcc77e5da754fe2a702832e33d2839f587eb9b3261f8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7965be321dbd3d56b85a22bb178ce8723fe65b20391ae215ecf594ee3f45ffa"
@@ -18,7 +19,6 @@ class SpaceinvadersGo < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "c23c5bfc361fe30fb1407a346a3c215629a2423c2123c3d99609cc7b820333d9"
     sha256 cellar: :any_skip_relocation, big_sur:        "c0ed01fe110f5d7d681d12883f58962ae5c0ea721b032e8d3ef0adee41956841"
     sha256 cellar: :any_skip_relocation, catalina:       "1c4712409711d84aa1a7ce64214bb620e13660991f2afacd41681278ae0c3ba1"
-    sha256 cellar: :any_skip_relocation, mojave:         "596f084c8dad9588158ea9419e8a7ce4e33e8193d18b18e4095a6443b5e2fbbd"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "758693fc598848fccb124fed344f21e01a2f686e4883b312f26b83b809fa0fcd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d2e59d2248dd8e1ce86416197eb5109f7c3c51d98b686517ce3d9fde948d572"
   end

@@ -14,6 +14,7 @@ class Fatsort < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7ea0f8b6d5af676c26449bf6b8d94a395e5da595a3d6ec5826a53d54563e1a1a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "47f7e484d7283c661836b9cc8418b84c31865c546828f593cca451b4683271dc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19232a80ff846e801ac176cbc07b67be6ae337b4b411159f98f3f1510659f982"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "592fcf0abcecbd68e972ef3d30f307913f332bd43c44bcf7fa61ebfd19014bc5"

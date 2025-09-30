@@ -16,6 +16,7 @@ class Pulseaudio < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "a5fb7e3985bda5814f9eac5afa28073cc8aa1690ef73981c98c5712731e0dc4b"
     sha256 arm64_sequoia: "f279ea9efd07106c6e049b0d5bcca39a5fb06f5bd95079f998b2175726050c79"
     sha256 arm64_sonoma:  "6c8704f6c5bce3450d75da7983a9d5ef2eca52ce9ef944c85a54e8e86c9c4354"
     sha256 arm64_ventura: "8f36cbfefb820a38dce3efca6458c3837950448a59ff77337105f7f3cd550429"

@@ -11,6 +11,7 @@ class Ncurses < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "cdf1f60b77e8f2f431f010c987a57452b95c1c6426e4ddf829f701f6e7ce5058"
     sha256 arm64_sequoia:  "4a529cb864994c26766c55ae8e506297523b36319e0f5f5af0faf8250a451f77"
     sha256 arm64_sonoma:   "ee5253473badfa0701deac8e9973a7358c761dd287f0d748f753130a7a6d2705"
     sha256 arm64_ventura:  "b79562983390463a00077616c6b3e460aa170bdca43f32839af802aac594aae0"
@@ -24,18 +25,7 @@ class Ncurses < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "pkgconf" => :build
-
-  on_linux do
-    depends_on "gpatch" => :build
-  end
-
   def install
-    # Workaround for
-    # macOS: mkdir: /usr/lib/pkgconfig:/opt/homebrew/Library/Homebrew/os/mac/pkgconfig/12: Operation not permitted
-    # Linux: configure: error: expected a pathname, not ""
-    (lib/"pkgconfig").mkpath
-
     ENV.delete("TERMINFO")
 
     args = [

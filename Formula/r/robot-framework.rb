@@ -10,6 +10,7 @@ class RobotFramework < Formula
   head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "bb5b099a598853fe44d13b23825f6796b6a3c0851b598fd5435c4afea59e3bd0"
     sha256 cellar: :any,                 arm64_sequoia: "dee08b9039b51544dc8d8d92110a78edac250580fbdf9f17d26d9e3dc689841a"
     sha256 cellar: :any,                 arm64_sonoma:  "faba84da2842d75f82d7ab84d4cfacb21da15c08492025b83481b640399f7100"
     sha256 cellar: :any,                 arm64_ventura: "fb74021835d28cec74c02f1974d231f5f27328a9d7349a55e056e7084c6a6996"

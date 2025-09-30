@@ -8,6 +8,7 @@ class KeepSorted < Formula
   head "https://github.com/google/keep-sorted.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c83d795e7fabff68f6667cdb6d52d4dece8d68d39ed18769f3526853a12b88f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ef6b1fa86aa500fb3c582e3b233ff8db11c930f14ecc688100278717f8fe93b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ef6b1fa86aa500fb3c582e3b233ff8db11c930f14ecc688100278717f8fe93b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6ef6b1fa86aa500fb3c582e3b233ff8db11c930f14ecc688100278717f8fe93b"

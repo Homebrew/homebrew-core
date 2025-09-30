@@ -8,6 +8,7 @@ class Tnef < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "44529baf2a4c808692492827a1e241d50d4664afb347e2c9efbd174459e77dfa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "83bd5a4cd7402252e5b3652cb5660aa5ec15527623608cc08556dbb1c6b14b15"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3fa9d1e41b5eae6e4190c2d2a3a3c19c2ab8bffd9424aa69b6e0ea1f55d04f6e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "920a01f591be96275e201cfd5dc6e34014cfe036cf255ad5c67daa3167f327e7"
@@ -18,8 +19,6 @@ class Tnef < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "a79b4c0a54e6b4454281c5f40a500e7f3923588815374f28684e9d0fc53adda4"
     sha256 cellar: :any_skip_relocation, big_sur:        "37ce4eac19eaa6e7111d7ef7897595ac71ebb58f6d7da32dc309bb02bc5a90b4"
     sha256 cellar: :any_skip_relocation, catalina:       "ff92eb820b2efae9e87e42491a590601f400160f27ea2804b176b02b1648be66"
-    sha256 cellar: :any_skip_relocation, mojave:         "2700f31ebcc1e2ba9219d6b6ac040846eba21ccc25baca4fea8b7d630b6673d2"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "842ba6bbe666302bd39c1cf7d29caa7d5180c20757b8dfe91b99d3fe1d3da841"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "93e86704b1d441a799e40b3f446e612a42f303bc7f00e1aa8fae44f97ea5d0c4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a295c834fdb6ae952708260a5a49bfd9771538ca5b6eda6014eeccaa1956dbbd"
   end

@@ -6,6 +6,7 @@ class UniAlgo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "34be3ad63252d36a5233e5ec30f0c13037217de44cff3eb333cfea6fed96e9e2"
     sha256 cellar: :any,                 arm64_sequoia:  "09f9020f24fd9b76bb3639c21fb5b588f3fa92c934a8f372c83ecea0a0bbc2bd"
     sha256 cellar: :any,                 arm64_sonoma:   "f726cbc59189310f80dc73042432149c0dfb8f1f14bdbc215c8ccf94bd4ffa30"
     sha256 cellar: :any,                 arm64_ventura:  "226d0ccf2575a4d4bd3fb85030ce5c49c742796629ca39d49be49e21ca5e976b"

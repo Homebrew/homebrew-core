@@ -9,6 +9,7 @@ class Urlfinder < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "26b43818b3c94162949546ae14e4f0cf43ca8868a7e16558ce9c7620867a93be"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba0d3713537c7c40ac307a3911c7f96096a03270e8bfb029c73c37a0dbc25357"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2696316763f9ba4efd365b8d76c62ff87a417b4b06aa1cc566da1f4f2b01faf8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4b8b469498628aa1b97562c53a55f8faea5b6337b0d546163907889f9948f16"

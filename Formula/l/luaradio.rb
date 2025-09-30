@@ -9,6 +9,7 @@ class Luaradio < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c4b12fa78bf46741625b1644686a6bb342f0cb2024d7c0f440ccfedbedf01d36"
     sha256 cellar: :any,                 arm64_sequoia:  "c0760817c9d2a148d351f6a4c054ec481610487fe82571551622e5bcc6a65b68"
     sha256 cellar: :any,                 arm64_sonoma:   "f3c7d2ea4db37fc295db8a6643fb14b44b3e45c2716a113c546039b8c69e50e5"
     sha256 cellar: :any,                 arm64_ventura:  "2425ad1e4cc63d76223da8d3b4d3c7ce2d13eada579b4c9fb33e52714fa3d2cc"

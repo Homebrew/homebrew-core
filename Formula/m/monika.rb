@@ -7,6 +7,7 @@ class Monika < Formula
   revision 1
 
   bottle do
+    sha256                               arm64_tahoe:   "5478609522829f4c4158e9eb9be476ed2886176e47f64da4fc6eff2c5db425cb"
     sha256                               arm64_sequoia: "f3e91a0c2e44a73268d2ad097f66b186d557e7c29bd6cc9bfbf5cdf6f83a51a4"
     sha256                               arm64_sonoma:  "f2ae79c53a534008b89160ae1c8ae3fdda47aee6fc61218267468b19836a2369"
     sha256                               arm64_ventura: "1a4b455c1dff23c63b60585ddfe58e19f9028fca8b7ebf5f48b63d2a83fca64b"

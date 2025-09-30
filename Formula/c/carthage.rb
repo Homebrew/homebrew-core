@@ -10,6 +10,7 @@ class Carthage < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "20456de113008e847a0b4abbafcb6e829a537d8aec2f60702114b5978b3839c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1ab671fcc4b39986c412e44002456ec71e5ee23ac9574bcbe653f2c7f1e0c3c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01fa70c2d94efb0b4da3c593708f931e383f99a93e8461fda85804d08564815d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "48370b2f3289b9a3b1cfbdc41d0a7507cf12959f766aae5e26f99d03b92777aa"

@@ -9,13 +9,8 @@ class Standard < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d20e97c6540bd3307d244952e9a90986e43b5c11821d88941238a06592dfb422"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d20e97c6540bd3307d244952e9a90986e43b5c11821d88941238a06592dfb422"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d20e97c6540bd3307d244952e9a90986e43b5c11821d88941238a06592dfb422"
-    sha256 cellar: :any_skip_relocation, sonoma:        "447f86d74cec0c6c6b1896bff34def4b3bdc8cb0172ef6f9cf2b4013074a1736"
-    sha256 cellar: :any_skip_relocation, ventura:       "447f86d74cec0c6c6b1896bff34def4b3bdc8cb0172ef6f9cf2b4013074a1736"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc27ee83ddedebfc261f69d3872312efc1dfa00dbc7fca038bbe1cca6ae613d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d20e97c6540bd3307d244952e9a90986e43b5c11821d88941238a06592dfb422"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7a14e2bf791bc2e08a00dad45552c4fdac41dd10d576c034257475139e6e9e3f"
   end
 
   depends_on "node"

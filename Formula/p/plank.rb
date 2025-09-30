@@ -14,6 +14,7 @@ class Plank < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ac1ceb4106e80992e3660b5952f11d6a0e29c1269ebbef672f647cf752d26e20"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "902d73cd939a2dabe044db2f5023ba45c1c5ac8c83e77f650110fd167d03dd04"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1c300759e15cbfe318181f9a32a7642f297c72f20b6e5503e90d6ffe72dd9f04"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e8373c6eb34b0b7d1e82233fab34cec1a4bd1362daf8b85253367ab5e1373e9"
@@ -24,7 +25,6 @@ class Plank < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "93cee4a7fa60747f1fc7f7e993d23b2af943bff41184ca681b807cfbc10582e3"
     sha256 cellar: :any_skip_relocation, big_sur:        "ea5dbcccb44df98be951af22f29b81b24bdba7731f88a472708fe7c5bc3d53e3"
     sha256 cellar: :any_skip_relocation, catalina:       "fc6838079a8a975c9bb77d17a050aa722d8446fcf9f62ca9fe09c8822d8651b4"
-    sha256 cellar: :any_skip_relocation, mojave:         "04d2dddb094914fa219304fea8f6e5aa3315c2e51b63ef4077fcf25a54c8b268"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "69d69e6bee1ede7fecdb840ac121ce0d61d72d1d0218e501ca0bcea06c1a3d89"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea941cd9c41a8ac9cb53678eaf17d5f0eeb04930758bcac1be793d17d60fe861"
   end

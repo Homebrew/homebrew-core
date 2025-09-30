@@ -1,8 +1,8 @@
 class Butane < Formula
   desc "Translates human-readable Butane Configs into machine-readable Ignition Configs"
   homepage "https://github.com/coreos/butane"
-  url "https://github.com/coreos/butane/archive/refs/tags/v0.24.0.tar.gz"
-  sha256 "57724f027b76074801ca988b6859738085643c50bec44c2672e64a7047f6fb95"
+  url "https://github.com/coreos/butane/archive/refs/tags/v0.25.1.tar.gz"
+  sha256 "14203e7fa13f5753e332c472d0d7be3fc7ddf9a637873463793d898bb61cf69c"
   license "Apache-2.0"
   head "https://github.com/coreos/butane.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Butane < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1cce41cb8d792fca5cb8fbb287ca3db628ecbed2656a432daf61bda6b7aa4b26"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1cce41cb8d792fca5cb8fbb287ca3db628ecbed2656a432daf61bda6b7aa4b26"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1cce41cb8d792fca5cb8fbb287ca3db628ecbed2656a432daf61bda6b7aa4b26"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7e4edb2877ff7ce99f709ac4451fc4d756d421bb37d31c3e2df9460d5028e418"
-    sha256 cellar: :any_skip_relocation, ventura:       "7e4edb2877ff7ce99f709ac4451fc4d756d421bb37d31c3e2df9460d5028e418"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "933138ba8a1713f572e1e11c90f8d0f0a209f8d2b5aebe6408fca11df204371d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "462e8be7b0aa75adecb7309207b6820cc18ca2991159e8bf3e79f8a14c5d4f93"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "462e8be7b0aa75adecb7309207b6820cc18ca2991159e8bf3e79f8a14c5d4f93"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "462e8be7b0aa75adecb7309207b6820cc18ca2991159e8bf3e79f8a14c5d4f93"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c227b7f81ac0f40e7be5a2d263ddb1825a87c5ebbe552033abdd1cbcf6423e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9791d51417e488f5aa4e00a60d95b46412f29f02e686ba4c7787ceee56af5aeb"
   end
 
   depends_on "go" => :build

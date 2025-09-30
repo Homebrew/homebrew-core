@@ -8,6 +8,7 @@ class Cfripper < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3e5a912c63d33bb691fe20d7a8b3109c20fe2aa33df71ae7060cafe3f8548929"
     sha256 cellar: :any,                 arm64_sequoia: "c7f168beebc7e542e97abbfe73e3ea97c5d7c0f0bdabf5a925a7d95d08345800"
     sha256 cellar: :any,                 arm64_sonoma:  "f80808590530d7bddadb45f0597f1f2cd54ea843095c3308989cda75ac51996f"
     sha256 cellar: :any,                 arm64_ventura: "2bbebd29a0c28a146ac9dae2bc44b0698e5c0a9c6c6ee0d555a3469ae13ef00e"

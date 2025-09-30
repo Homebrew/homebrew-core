@@ -7,6 +7,7 @@ class Kubeaudit < Formula
   head "https://github.com/Shopify/kubeaudit.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "848ab7b58c3d68cc9f56299acc1067d2bcfd75b05848d542b5c6e108abbdc0cf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0e3522037f91f1ec9aaff02d095c6c9da7cd4b1b13fa88f7531d7be68f880432"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "009138418c76bbb04d6a36a782c0c5723716f96490d97d97787de7d86862a4a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "009138418c76bbb04d6a36a782c0c5723716f96490d97d97787de7d86862a4a5"

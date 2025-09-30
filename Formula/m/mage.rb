@@ -9,6 +9,7 @@ class Mage < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f47478f5ca2560f1d26a4419dca1894f19220204024bd322d607a7d4d3d301fc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d854917c87fca0539be1327468ea017de476cda7744fdd940591cd748fba1b37"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d854917c87fca0539be1327468ea017de476cda7744fdd940591cd748fba1b37"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d854917c87fca0539be1327468ea017de476cda7744fdd940591cd748fba1b37"

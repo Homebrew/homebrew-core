@@ -1,8 +1,8 @@
 class ImagemagickAT6 < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://legacy.imagemagick.org/"
-  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.13-27.tar.xz"
-  sha256 "68997ff20ba40868ac03cd8da75a0bc96a8f4b73e99bf15f3293c1259f2ea2c5"
+  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.13-29.tar.xz"
+  sha256 "fd057bf7e3079b55cc60a64edf3c98a2bf01d3887d6339eef91c1ad1e74dfa44"
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git", branch: "main"
 
@@ -12,13 +12,14 @@ class ImagemagickAT6 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "10e86ddd3acecd221afda243456c18641927dabf79669f8a977e4a9dfaa4cd7a"
-    sha256 arm64_sonoma:  "0dcbf0925e48828be52fc431aedc5b8102b1581b782244bf725cf6285ce26818"
-    sha256 arm64_ventura: "02ad6c49eef16d19e79d503751e379c405cc9b9d03f1f59fb7db731a9a8aa26e"
-    sha256 sonoma:        "82a0e1a462a9d55e1125b39ea5ca05e8d829f5c69cde69815d0b056e674104db"
-    sha256 ventura:       "3932278cd474f2c3fc1fd4cc8640267142735300fb2b6b91f2d95cfbd012a449"
-    sha256 arm64_linux:   "6b5fdefc6e49103d5f07c7a7bf87e980379369950220e7e2b847d7ec5d290235"
-    sha256 x86_64_linux:  "7dbd73f6a92b177645779c726f67ca37f2b258363ad2794d08e67f36aca9618c"
+    sha256 arm64_tahoe:   "d1cd2bffa46b0026a643384a9d3f8ff394aff62c0c39ce99c994eef539e51e82"
+    sha256 arm64_sequoia: "24e06553551081cdb72225fd051ff33c4947727e9ebcbcdb8860eb9e0bbdd047"
+    sha256 arm64_sonoma:  "49b1f6f3edad2646fa5a41f03556bddf97961a0f779f6fa45c7b12f9a977f490"
+    sha256 arm64_ventura: "08c372c4cf26fca513a8e370f89d6b65d9a4427ee3d7e0f6382a3fe94a70cc1f"
+    sha256 sonoma:        "f9ea0a3650891f10a0f9b06158bd3d860bb0930f0ba6f6aafbaf72a7c5f8845e"
+    sha256 ventura:       "66969625fdb79969f0e0e55a67b4f65ce4828f87c812ad411a22872db8a9b5c7"
+    sha256 arm64_linux:   "a42701d70b3fb6435113abe80ee0fcea61560951829e7e9e196a80d6e46de21c"
+    sha256 x86_64_linux:  "e9312b60d916081414130ea4c855f40e9da7ca7cd5b9a37ab81b9716ca5faf57"
   end
 
   keg_only :versioned_formula

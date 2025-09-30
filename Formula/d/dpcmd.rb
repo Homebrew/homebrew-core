@@ -13,6 +13,7 @@ class Dpcmd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4f5102a2acb2ba277359e059eb1bfc1c18b9608625c56b67b8a37c3bcc0208d7"
     sha256 cellar: :any,                 arm64_sequoia: "46dc23e75280d9ee1b6d06945dbbe02c5df6548a593a463dabf7c8f08a2cb805"
     sha256 cellar: :any,                 arm64_sonoma:  "6305d2c0681a4e0d1a1c759e4d9368a3e479d3cb47e4ad56c1510bde6eac526e"
     sha256 cellar: :any,                 arm64_ventura: "1999933a7cfd48060c8add8b68b1381f4ef3eb81bc60effd9e5693aed2e9fe00"

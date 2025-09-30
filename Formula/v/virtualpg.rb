@@ -14,6 +14,7 @@ class Virtualpg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "96423b815a0781a3635f54f02bac58f5b6f97ad735184005b812b7bbe2bda8c6"
     sha256 cellar: :any,                 arm64_sequoia: "8e204f28da296c7deb1ce80831b2bfe8d7456aa540642c554de86f031c7aabad"
     sha256 cellar: :any,                 arm64_sonoma:  "d66f74bcc667dbd4b71f0a9cc8374b3bd17d1ec31e9a112bb61729af23e9479f"
     sha256 cellar: :any,                 arm64_ventura: "666a4cdf6831d4a2d8ca68c9f1674a23215d947dae38c6a5a966f051d172ba4d"

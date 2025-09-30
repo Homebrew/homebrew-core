@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Mar2025/MonetDB-11.53.3.tar.xz"
-  sha256 "23e1f6a73ac721298f9b611f18930b8ceda34c6f497a4e458034b7131660c070"
+  url "https://www.monetdb.org/downloads/sources/Mar2025-SP2/MonetDB-11.53.13.tar.xz"
+  sha256 "ed5093234689d7f0ed5a439bc904388f5b2bd12ad08308cedcbd5faca95e0325"
   license "MPL-2.0"
   head "https://www.monetdb.org/hg/MonetDB", using: :hg
 
@@ -14,13 +14,14 @@ class Monetdb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "92579b5419866811ca88e4ee4d03dac2850756ca79de954dea65c9d859f1b8ee"
-    sha256 arm64_sonoma:  "76c21dace99d0c7183e29a23e22347b2bd58d5e0538cab00dd94681ffd68d9c1"
-    sha256 arm64_ventura: "ddd6364ddb2ee11232a1d4e166b3fa068a02738fc615378ff6e2b5540a6ec887"
-    sha256 sonoma:        "d6066e9bd909f4afa9a98f4230bcdf0c7d62a5aa702d2017877cb4de7fdf986f"
-    sha256 ventura:       "f347fb8324a90053e83520a520fcd91995cc8a426a54485d8a9f5140e642760a"
-    sha256 arm64_linux:   "493a56abb54f14e25905f9d73fa276af7ca8afd9953c5a236ba513b544b3518b"
-    sha256 x86_64_linux:  "9245ff70b7bbfee8da7c1607154aaa930b5d34a4dd89a9216c6f0842b3813d21"
+    sha256 arm64_tahoe:   "4449d87247772a1fd6c2081a9a3b865ca0d8c085ca0af48d4faa21b73bc4f125"
+    sha256 arm64_sequoia: "7af914168935ca8b325c33eb58212594170a69761e5282be1fc7b5a700227830"
+    sha256 arm64_sonoma:  "a2d8e290f5382a6d1f77b21e2311b1d0f25977dc2ae5780cc90deac84a35afd4"
+    sha256 arm64_ventura: "d2f0274260282b8604a2d776ba6922a53b203c3648a0a20106b9b140f8f0b4b7"
+    sha256 sonoma:        "543284f5886cb213fa2b545d646f2128e728c43f662556ac29e0ccfbd4cb1f0f"
+    sha256 ventura:       "2161d807f5dab1529fa17e7e5fdbf45a2498226f1f6905a8124c3f0ac317ab4b"
+    sha256 arm64_linux:   "a82e58f44d85248b85139139daf636c16033665633987d30890088d4882e3828"
+    sha256 x86_64_linux:  "c76634658aea72d40f17b6f08273bb2429d1db65c6dc3293926486230dbfb7bb"
   end
 
   depends_on "bison" => :build # macOS bison is too old

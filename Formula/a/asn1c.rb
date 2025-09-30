@@ -9,6 +9,7 @@ class Asn1c < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "101f876e913d345e99ac08ef2e9144b578e3979491f8338a62cf3c0e0d346144"
     sha256 arm64_sequoia:  "92cbad00b77b014b9fc957b1fe1c3ceafe01c367355dbbce6b92321aa5dcacda"
     sha256 arm64_sonoma:   "81853752cb0f9b91cf9fa95ec52a83ae7a59c21f4aac0f09b213f45bff3f303e"
     sha256 arm64_ventura:  "3d72779b69c5ad5f2bf006ca514ad77d6cadf7512f5f8e21e7f7ca07399ff799"

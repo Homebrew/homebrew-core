@@ -9,6 +9,7 @@ class ThreeBody < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80eaf013ad1372dff0e75a304e1a699669d19bed0d5eb9eaca11dc0563e647e7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b14b79b6374be096bc29c9e9f25a429c9330d1bbf42bb7228a5df22b038ccce4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17906f40f4a7908537f9c3a96653a588c31d0b420bb10c7c3f98ab1a0b2a3020"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "393d8bf1e63c5818b19ffc7fddc4ed4d19fc6f727852e14a7f3406c6a2b995b5"

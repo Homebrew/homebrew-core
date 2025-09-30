@@ -8,6 +8,7 @@ class Libnet < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "1a947f6508603cdc9c46aab18eb6b812ddc91d39be2f6431d912e271b041779b"
     sha256 cellar: :any,                 arm64_sequoia:  "e1aa2022d333a395e5add872c8f9facfdb1811b28bb2706bff2ce97923e671b9"
     sha256 cellar: :any,                 arm64_sonoma:   "9a0e1d5eb30194a4309588c383cc4e179804e88314b280e2d04c96069ebef867"
     sha256 cellar: :any,                 arm64_ventura:  "9f808a8325a153535d7b22da23d652929bfce526493dc0ee5a4505a971ae7b43"

@@ -11,6 +11,7 @@ class Libosinfo < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "af19b150811ba844c74951717755f894fe43c137e2f642e7aa37ba432d69a007"
     sha256 arm64_sequoia: "cf2259dd949ebcdd2cb0c9ea883d0f67abe07c351af73869cf6bfd300f24161f"
     sha256 arm64_sonoma:  "948b6a24382554b4f305e2273217f9e95e2928afc3df1819ce6ab37199c5d66e"
     sha256 arm64_ventura: "56c9fcb470ba6c18017696c84b0ac0efac45842166e440f6ce507102c167b964"

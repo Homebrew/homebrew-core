@@ -19,6 +19,7 @@ class Aspectj < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce8b388d6fe6709c0b6a9fdce84592dc63ca42aa64b56f21514ba849e6e10b64"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4152ef5f5cc3d500f07eb15b473664514ec526236023f09f264c611116b5c0a3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d67b498eb0695a39fe6433b26b1596133b6ea96b7447b0c87faaf52d01449d7d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2e3655d41292a397894c42224ebad82a8f8b148c37412df585101d990c33ef11"

@@ -1,19 +1,20 @@
 class CargoGenerate < Formula
   desc "Use pre-existing git repositories as templates"
   homepage "https://github.com/cargo-generate/cargo-generate"
-  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.23.4.tar.gz"
-  sha256 "dd70491daecdd8fe93d85fb0a9c4257d6a71a9f3bc3ed2ecd919b273ca808b92"
+  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.23.5.tar.gz"
+  sha256 "59ddb9f0715e3e0ec8190e1c158f5cd013a2d19d855d4946970ea40d47b60570"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/cargo-generate/cargo-generate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0ffa80f4abaa3d4feabcc36fe4b755c5ad45967e2ee83b3a06ce4aeb3ec42268"
-    sha256 cellar: :any,                 arm64_sonoma:  "279eac5b9d83530fbc55b90bced87691ee6ebf2b3c72cc9af3c19465430d4196"
-    sha256 cellar: :any,                 arm64_ventura: "6485993bc52592207a4656c4d4f73f29e2dd943b95ff6f1cf70ee92c72bbb952"
-    sha256 cellar: :any,                 sonoma:        "9ee3ff4af18ce549e41dfac1260bad157b2bb8b88eefdd86e51dd6bf494005c9"
-    sha256 cellar: :any,                 ventura:       "bcc3351c282ff86c9f201e5d7e4102b1a3c449ff1af52ba9adadfba12ed5d573"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc0ec16758aab990fb68ed6668dd18ef92158842c346a291de7c8d4cd5cbe1f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40722defa278f2a04e21c0191f21df53355bad43c41f38094a28c45bb5f01245"
+    sha256 cellar: :any,                 arm64_tahoe:   "e0e4fd2ea3329c2746c7bc58b2c726bba93f05fabcc1aadb8a969cc370a5d42f"
+    sha256 cellar: :any,                 arm64_sequoia: "f68d984520cf08961e05406b99ac47babc34a4af29d8373cdf805a8d9aa15d8f"
+    sha256 cellar: :any,                 arm64_sonoma:  "3e3d1dfd2e07f1e098ba5b088a028c15d6fe556af0c4d6c8fb0fe021c9f8a568"
+    sha256 cellar: :any,                 arm64_ventura: "2d52c1abed1cb03a8cf02eda228369e9f36fb70336d00db303bb2dd0b9d439f8"
+    sha256 cellar: :any,                 sonoma:        "72008bfba612207a661570dc08d8ebccad9191f3e12f40fab26480c4272c69b5"
+    sha256 cellar: :any,                 ventura:       "650b05e8dcaf802e5feda6b4f46e036ccc875129c0c088a8e0afbdd1943bb1ce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e5372b43ee3e6d61d400774d926cd192c928014eb4bb56e213c74e858200c9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f0f024bb1eba7c418b21690dc2703a88cc57645c8c59b2eee67cddc280a9bae"
   end
 
   depends_on "pkgconf" => :build

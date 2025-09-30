@@ -5,7 +5,7 @@ class Synfig < Formula
   url "https://github.com/synfig/synfig/releases/download/v1.5.3/synfig-1.5.3.tar.gz"
   sha256 "913c9cee6e5ad8fd6db3b3607c5b5ae0312f9ee6720c60619e3a97da98501ea8"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 4
   head "https://github.com/synfig/synfig.git", branch: "master"
 
   livecheck do
@@ -16,11 +16,13 @@ class Synfig < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256                               arm64_sonoma:  "10becfbca35809715b7bcdca7f354bce719e00ac4929cf0201788b9f62c2d325"
-    sha256                               arm64_ventura: "87c649d82396780c78917323d00fe5eb4eb5cc42cabbe5aa1e54b967a70375b6"
-    sha256                               sonoma:        "040675ab7bf683384809492881b6c6b375d4890c56429471ac27426f2e43fc97"
-    sha256                               ventura:       "b5d42fa11ffeaa5c8d2fffadbc6dc8a6217bec36c16cec7b2b1ed76e52e5c0e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e7dadfd2cb3149f8b59fe45f4b0427465ca1f5bfce89b431923c4f1242761d2"
+    sha256                               arm64_tahoe:   "2949d65a521165cb25962acc9d6e3090d6c07e2b64ab9406857a180646d8503c"
+    sha256                               arm64_sequoia: "4469396d620f5628369b249c7c1061acf8c3440efc9ed983524ef5984d8af706"
+    sha256                               arm64_sonoma:  "ef3a37a8ab7358f2ab0f9f57a8175e1a769d33c6828545f8ebf38e5dedb427b8"
+    sha256                               arm64_ventura: "68483a37438ba702052fa92732b2728b9be185f2568a1e67a32a8a19f407f63f"
+    sha256                               sonoma:        "c6fc59da6e3a82ea0b1ba17e8122d84b24ec9eab7fade3663925c557e40b6ac8"
+    sha256                               ventura:       "92e95f7a48ffe21f00ca3df61e3bbe048e7687420f173c6e0e52b82f5aefe66b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0538580f2f6c5deb7a0b6cc1225db0403eb24df11182224ed8ab584a743263f"
   end
 
   depends_on "autoconf" => :build
@@ -66,6 +68,13 @@ class Synfig < Formula
 
   def install
     ENV.cxx11
+
+    # Workaround to fix error: a template argument list is expected after
+    # a name prefixed by the template keyword [-Wmissing-template-arg-list-after-template-kw]
+    # PR ref: https://github.com/synfig/synfig/pull/3559
+    if DevelopmentTools.clang_build_version >= 1700
+      ENV.append_to_cflags "-Wno-missing-template-arg-list-after-template-kw"
+    end
 
     # missing install-sh in the tarball, and re-generate configure script
     # upstream bug report, https://github.com/synfig/synfig/issues/3398

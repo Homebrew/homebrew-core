@@ -9,6 +9,7 @@ class Libtins < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "af8f272b96dd2249c5bdac6af064a6faa89417b4f8f176745b4017bf98bb9a67"
     sha256 cellar: :any,                 arm64_sequoia:  "5cb848c245b9b880eb92a07133a8ec40238f08cc88ab9707805368efcc4bdf9d"
     sha256 cellar: :any,                 arm64_sonoma:   "12126120e038b274429c55f65891dd2eef0bdcb96cf728de5f3fb80b863896f4"
     sha256 cellar: :any,                 arm64_ventura:  "2c1278e057086dc562909a6e748d782d269cb1969e64841daa0e260ecbdec343"
@@ -28,11 +29,14 @@ class Libtins < Formula
   uses_from_macos "libpcap"
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DLIBTINS_BUILD_EXAMPLES=OFF",
-                    "-DLIBTINS_BUILD_TESTS=OFF",
-                    "-DLIBTINS_ENABLE_CXX11=ON",
-                    *std_cmake_args
+    args = %w[
+      -DLIBTINS_BUILD_EXAMPLES=OFF
+      -DLIBTINS_BUILD_TESTS=OFF
+      -DLIBTINS_ENABLE_CXX11=ON
+    ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

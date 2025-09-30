@@ -7,6 +7,7 @@ class GpgTui < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "abbd155171e756035475b2d056af6a211670e7771f0c5b4aa602c74c479ecc73"
     sha256 cellar: :any,                 arm64_sequoia: "465e6299e30e75bbae4b8532311daeaed79c693a4108c0af84bc2e6854d8dd59"
     sha256 cellar: :any,                 arm64_sonoma:  "db699046d18a6d2b9ad48f7119ffdafcdddb4c298793e2d625164279b336fe0f"
     sha256 cellar: :any,                 arm64_ventura: "c0bda54defeb5ebc244a1b9088e507ff48dee169d32d9ad08a80c4e4cde6d904"

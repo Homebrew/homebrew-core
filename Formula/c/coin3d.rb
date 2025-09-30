@@ -19,6 +19,8 @@ class Coin3d < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3d769a1210dc23ab8078efc1d42b0efe286823724bcc46f38958decee1f58a35"
+    sha256 cellar: :any,                 arm64_sequoia: "f12890cb27880e8264ddbfe08d703fb5d6410b35fdd01c695a12389f74c14557"
     sha256 cellar: :any,                 arm64_sonoma:  "cbbad59dc6fcaed95dff2046505dbbb598be6975e7aebe48f374c5b9640843eb"
     sha256 cellar: :any,                 arm64_ventura: "67abd3bc56f46018583d11b31f16285b0f88ec5e448cfaacde23ea85633f947d"
     sha256 cellar: :any,                 sonoma:        "611c65fb692d3083d53930190e20c381dcd42c919b8fcdfa9818d77a7e860d17"

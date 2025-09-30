@@ -11,6 +11,7 @@ class Libgda < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "cbc8b42b8facee67f08ef92ac01b2ff01a163f92120d0e7d88200416d5b88e7a"
     sha256 arm64_sequoia: "2be57dbae0d6ba2cb489b405aeed1d4b00f6dc4ce1182dce49aec0fd1093a813"
     sha256 arm64_sonoma:  "9cf877eaebc81fecfc1970b452f851b801f326d8154291d88fdbbad78cceecfd"
     sha256 arm64_ventura: "4c863bea61f7fe27324a05e1ecaeb3f5baf67a87ad8fc0cdb9dbec71102a44db"

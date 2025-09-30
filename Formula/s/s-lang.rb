@@ -14,6 +14,7 @@ class SLang < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "01cd4cc9e90651603d409a7ee189fb646c080ec0f337317450b0efd91970b269"
     sha256 arm64_sequoia:  "cbde9efbeeec2fdc059f3527e88ff6e3e9f84c9c59060b5d7a90851cf41c7999"
     sha256 arm64_sonoma:   "8f5f2ce496f0103eb571b4762b956193adf5819a4800192c62be5e8b0beae99b"
     sha256 arm64_ventura:  "efee4508d1dca5519b52de6bea66a589bcb203c62b826101fe599e4f3862f149"

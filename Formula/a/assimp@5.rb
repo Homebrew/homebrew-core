@@ -19,6 +19,7 @@ class AssimpAT5 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3faef1c367567a99e18a728139d787d046e0aefc30f65d541f88ccfd27b1ce19"
     sha256 cellar: :any,                 arm64_sequoia: "88b53d2e04bf2557a8b9231ccf1d7924bb55917003fe16872c8f864de930feb4"
     sha256 cellar: :any,                 arm64_sonoma:  "74157cf837ac90bb9378ba79f75d9cbf8f4a3db379da1dc5f03db3748e2e8a42"
     sha256 cellar: :any,                 arm64_ventura: "1b1d4f11a3c83bb8a7565c877397c86d4a06c952d3b4b85d8a756ce25516059e"
@@ -56,7 +57,8 @@ class AssimpAT5 < Formula
         return 0;
       }
     CPP
-    system ENV.cc, "-std=c++11", "test.cpp", "-L#{lib}", "-lassimp", "-o", "test"
+    system ENV.cc, "-std=c++11", "test.cpp",
+                   "-I#{include}", "-L#{lib}", "-lassimp", "-o", "test"
     system "./test"
 
     # Application test.

@@ -15,6 +15,7 @@ class Z80dasm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "04a71156a5cbb4a8ea20743f25864bb447004f6aabfda1ef23cafede9a5d36ae"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49cc209ae7b34afcfe58fd310bdcb228f6d35cadeee692049a61202bed11176f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a83c07ded5a4004a80cd9fbd9554f2a4395412279c43f50bc8482060c978a6c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7c9cd6783586e4b42b3e23a608fa20e232a70ae2d5754bad8bf317a2f125359"

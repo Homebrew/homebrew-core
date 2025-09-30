@@ -36,13 +36,20 @@ class Dmd < Formula
   depends_on "ldc" => :build
   depends_on arch: :x86_64
 
+  on_macos do
+    # Can be undeprecated if upstream decides to support arm64 macOS
+    # TODO: Make linux-only when removing macOS support
+    deprecate! date: "2025-09-25", because: "is unsupported, https://docs.brew.sh/Support-Tiers#future-macos-support"
+    disable! date: "2026-09-25", because: "is unsupported, https://docs.brew.sh/Support-Tiers#future-macos-support"
+  end
+
   def install
     odie "phobos resource needs to be updated" if build.stable? && version != resource("phobos").version
 
     dmd_make_args = %W[
       INSTALL_DIR=#{prefix}
       SYSCONFDIR=#{etc}
-      HOST_DMD=#{Formula["ldc"].opt_bin/"ldmd2"}
+      HOST_DMD=#{Formula["ldc"].opt_bin}/ldmd2
       ENABLE_RELEASE=1
       VERBOSE=1
     ]
@@ -71,20 +78,10 @@ class Dmd < Formula
     cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
     lib.install Dir["druntime/**/libdruntime.*", "phobos/**/libphobos2.*"]
 
-    dflags = "-I#{opt_include}/dlang/dmd -L-L#{opt_lib}"
-    # We include the -ld_classic linker argument in dmd.conf because it seems to need
-    # changes upstream to support the newer linker:
-    # https://forum.dlang.org/thread/jwmpdecwyazcrxphttoy@forum.dlang.org?page=1
-    # https://github.com/ldc-developers/ldc/issues/4501
-    #
-    # Also, macOS can't run CLT/Xcode new enough to need this flag, so restrict to Ventura
-    # and above.
-    dflags << " -L-ld_classic" if OS.mac? && DevelopmentTools.clang_build_version >= 1500
-
-    (buildpath/"dmd.conf").write <<~EOS
+    (buildpath/"dmd.conf").write <<~INI
       [Environment]
-      DFLAGS=#{dflags}
-    EOS
+      DFLAGS=-I#{opt_include}/dlang/dmd -L-L#{opt_lib}
+    INI
     etc.install "dmd.conf"
   end
 

@@ -6,6 +6,7 @@ class Sextractor < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "06bd29cd706f67f6b684f6cf2e4393e2977e0db250a242254c70ea95712358d4"
     sha256 arm64_sequoia: "114c7e6368360d1c5ef66850b1a2090bd84f759e323d320e0dd74549baed4714"
     sha256 arm64_sonoma:  "2138d679b5172a8f2b76d0fbacde1a67de054ccd9db6d3f5bcf5a163107f9098"
     sha256 arm64_ventura: "ca726287370efe2c960b98a02c8bcbe3b9a8491a584864d6333fd89a020a477d"
@@ -24,12 +25,16 @@ class Sextractor < Formula
 
   def install
     openblas = Formula["openblas"]
+    # Allow OpenBLAS header migration to subdirectory. Can remove once done
+    openblas_incdir = openblas.include/"openblas"
+    openblas_incdir = openblas.include unless openblas_incdir.exist?
+
     system "./autogen.sh"
-    system "./configure", *std_configure_args,
-           "--disable-silent-rules",
-           "--enable-openblas",
-           "--with-openblas-libdir=#{openblas.lib}",
-           "--with-openblas-incdir=#{openblas.include}"
+    system "./configure", "--disable-silent-rules",
+                          "--enable-openblas",
+                          "--with-openblas-libdir=#{openblas.lib}",
+                          "--with-openblas-incdir=#{openblas_incdir}",
+                          *std_configure_args
     system "make", "install"
     # Remove references to Homebrew shims
     rm Dir["tests/Makefile*"]

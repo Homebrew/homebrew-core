@@ -7,6 +7,7 @@ class Crane < Formula
   head "https://github.com/google/go-containerregistry.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "72a180ee36aec8354893bd572f691fecff83c1b23e93dd22462180c59b4bf0b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf1acaf4cde02176b9f0a3684e4d062b9cc8758977ee056dfbcab5cd2fae028f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf1acaf4cde02176b9f0a3684e4d062b9cc8758977ee056dfbcab5cd2fae028f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bf1acaf4cde02176b9f0a3684e4d062b9cc8758977ee056dfbcab5cd2fae028f"

@@ -6,6 +6,7 @@ class Qrkey < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e5a04be8111567d2c19eb01cb0fd762ddd6056c47bfe78bcf3679d1f738b899"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb0fc3c4115102c6544d9f753c2e16dba1533314099ff50385b7442689b378a4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb0fc3c4115102c6544d9f753c2e16dba1533314099ff50385b7442689b378a4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bb0fc3c4115102c6544d9f753c2e16dba1533314099ff50385b7442689b378a4"

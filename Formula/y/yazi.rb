@@ -15,6 +15,7 @@ class Yazi < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "17380d2a5e88efbc19f9b0ce24f82abd130d524faceaeb7ea66df68a1c0787e4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "55ae93d2fd850112f783f4052e4246bdc0d978717bf128afffaee1386c367fbe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f068f0631c6431fd36de113d88875a0ac10875f6cabc08f19251cab578a6fa97"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "66a6dd96dd47205f720454d129eb74bd483137f7aef9c166f4b041cbf045345d"

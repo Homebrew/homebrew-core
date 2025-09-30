@@ -14,6 +14,7 @@ class Remctl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "65ed94e43fc5b48a50c38a417453622fda2f57d2845db6555cda4b1366f7da8e"
     sha256 cellar: :any,                 arm64_sequoia:  "a22e6463332dd82c82e286ebfdcb40577f163967c473d012c468c8b215e905e8"
     sha256 cellar: :any,                 arm64_sonoma:   "02f8ce6be131029af0d88382303757c5ac9a149bf0c66156b9093873af61f53d"
     sha256 cellar: :any,                 arm64_ventura:  "a7d183ea3da3af640ed517baa9623a207098627c651d1028819c1e8c7536f2e1"

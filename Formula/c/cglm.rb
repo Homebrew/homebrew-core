@@ -6,6 +6,7 @@ class Cglm < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ff546743d100ac764a31e90c9022f32f4c8ca42cd067a8ba62103bd96ef94bde"
     sha256 cellar: :any,                 arm64_sequoia: "2a4e8d2c345846e569a51d36bf21c611c83c91ac112c6fd75a084c662eeeef52"
     sha256 cellar: :any,                 arm64_sonoma:  "9225092fc1d388b4a5f960a647b8a80e37364698fa073ead2911a6409f06af3d"
     sha256 cellar: :any,                 arm64_ventura: "82d198d51c5aadf126647acd3854e2182291c1b693faba90cdbafd2d66e26d55"

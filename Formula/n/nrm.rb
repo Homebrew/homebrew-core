@@ -6,13 +6,8 @@ class Nrm < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0cfc2f178795240d70ba83bfba10792921700bca2404c5648d5db4c627404455"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0cfc2f178795240d70ba83bfba10792921700bca2404c5648d5db4c627404455"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0cfc2f178795240d70ba83bfba10792921700bca2404c5648d5db4c627404455"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1439588d93796b84788d72ac494127f1297a3a9d9fa7e107e41385f1287b0e62"
-    sha256 cellar: :any_skip_relocation, ventura:       "1439588d93796b84788d72ac494127f1297a3a9d9fa7e107e41385f1287b0e62"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0cfc2f178795240d70ba83bfba10792921700bca2404c5648d5db4c627404455"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cfc2f178795240d70ba83bfba10792921700bca2404c5648d5db4c627404455"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fe1e778553efe4a3562c5a800617a7c112c075961c42f1d7b0cd84f7884c5aa7"
   end
 
   depends_on "node"

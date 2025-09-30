@@ -13,6 +13,7 @@ class Xmltoman < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "31d84ea84ef79d74cd713bcbcfae3b30ed1ad0b1ea82c1a76e6f76be9fba5827"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "89d762e0509fc153a86b20d8071f20b86514f079eed038ae78c44bf47d33c53b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89d762e0509fc153a86b20d8071f20b86514f079eed038ae78c44bf47d33c53b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "89d762e0509fc153a86b20d8071f20b86514f079eed038ae78c44bf47d33c53b"

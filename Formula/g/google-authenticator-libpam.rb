@@ -6,6 +6,7 @@ class GoogleAuthenticatorLibpam < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "bd5ef94f8320f6da49f1cfa681d63bb58d9578ced890f6b1c2811b5451755e0f"
     sha256 cellar: :any,                 arm64_sequoia: "f2452e49e52b39b37fdbbdadc0d18cee36e55b0e75ccec2c46656597a7c839d5"
     sha256 cellar: :any,                 arm64_sonoma:  "35fe2b51a3349de745e6d29f7debd894b6d2430933b3a39e7b0b32500a3ee945"
     sha256 cellar: :any,                 arm64_ventura: "a74302d80e616251e9e877a99ec537d7fe8ac1d8054278df74c85bd84cb24436"

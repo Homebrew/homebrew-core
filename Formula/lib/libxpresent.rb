@@ -1,22 +1,19 @@
 class Libxpresent < Formula
   desc "Xlib-based library for the X Present Extension"
   homepage "https://gitlab.freedesktop.org/xorg/lib/libxpresent"
-  url "https://www.x.org/archive/individual/lib/libXpresent-1.0.1.tar.xz"
-  sha256 "b964df9e5a066daa5e08d2dc82692c57ca27d00b8cc257e8e960c9f1cf26231b"
+  url "https://www.x.org/archive/individual/lib/libXpresent-1.0.2.tar.xz"
+  sha256 "4e5b21b4812206a4b223013606ae31170502c1043038777a1ef8f70c09d37602"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "7e63498b20190e5cafd0a9adfe036c47a39bcc561518f856d01d168fb801997a"
-    sha256 cellar: :any,                 arm64_sonoma:   "5154234d565eec07b6546e1bc9eba8b561dff0200e128f637eff35bda1b52a16"
-    sha256 cellar: :any,                 arm64_ventura:  "fe13d712a8cf2ebba7de9d9d1cac8b606eead4439ecd0be941765bd6ca4872b0"
-    sha256 cellar: :any,                 arm64_monterey: "4e3e3cd9ff60f75b914f230398805e086864e82d7c3b7b3b2be01d73275dd53d"
-    sha256 cellar: :any,                 sonoma:         "eb83e0d03a31d7ea8cd48cd3d43bdeb5d0048af0d06646c446e568ec7a3013ca"
-    sha256 cellar: :any,                 ventura:        "3e03a11b61ba1ffe208a8d81a0758bf7035a121d8628ee1060bda1806acc74fe"
-    sha256 cellar: :any,                 monterey:       "55bad28f062443796869c41b7c9c5937786fe92cbb9b68794818d7c077d1dbc5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "15d2a13ac97e3109624e052570ae65cb4262f3702bd2bfcaf929b552cccd51b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cb8e78a41a28a3614a7db1df840c1b1c30c96edf2dc6bd6dc49824709b47305"
+    sha256 cellar: :any,                 arm64_tahoe:   "e80e27e85c020a9a1391bb318b8a3e4b03fcce7be8dd604a2eb85c6ee1e56d01"
+    sha256 cellar: :any,                 arm64_sequoia: "44593e71ec9078d0ac8b918fec8991bd2415c7daebb067e7e4b6e881e0f8fd7a"
+    sha256 cellar: :any,                 arm64_sonoma:  "87448d6b9c94a14eb8e087602dd2696dcd9b29dde23ba359f14e491502ce6d69"
+    sha256 cellar: :any,                 arm64_ventura: "3942db3a8d6bd9d70c26030daba6b2751c2ab33608f278129bca020f2acdce2d"
+    sha256 cellar: :any,                 sonoma:        "0e2b2206c01d044ac97976f685773bc44aa68322afe982f71564d48172c0c052"
+    sha256 cellar: :any,                 ventura:       "22bc417dfff907b31eb49975f899777c277d2dd3fe944f24bcde1c1f8dec5a0b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "539cbabee52ea3998d89e147b884d3b4c6743b3c14f18e15a145958e3d8eddef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9410dc0e6850979043f5454de952ba1c1360cd4e7f1a011b8faf4b3475553ad9"
   end
 
   head do

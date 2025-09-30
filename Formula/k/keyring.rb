@@ -8,6 +8,7 @@ class Keyring < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fbb64dcedae9994c35d4eaff4c7235463473fd90651c735049bbea2a5b80cb0a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b6751512859d21a591e9a129a2ae7280e4d7eebec85895469fac19bb600b8bf6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6751512859d21a591e9a129a2ae7280e4d7eebec85895469fac19bb600b8bf6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b6751512859d21a591e9a129a2ae7280e4d7eebec85895469fac19bb600b8bf6"

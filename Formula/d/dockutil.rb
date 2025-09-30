@@ -10,6 +10,7 @@ class Dockutil < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4f404c2ab7fcf02ede4213e5a5a81c92b27fd55c5e508bdb773a01e1bfe64c56"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "736b77305847eff297dface1a8e14f35e3c94fd8ce9a68efef0c6d4395abf1f3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b89b582646602f45c60de6737a65dc2b21d75393b2543d87be4754b89998e294"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4d315729e980a1909812bcbf93183b6e745f9cd6ec6c253ac182af052235218f"

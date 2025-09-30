@@ -13,6 +13,7 @@ class Libpst < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "b128a0495dc919ab7254973196f07f1f9c3140e0e6ad420cb31aa65b7c86fd63"
     sha256 cellar: :any,                 arm64_sequoia:  "9f11e376789aaaa81e57b01967f3c9bf1148a6d14885045c311df75e80fad7f9"
     sha256 cellar: :any,                 arm64_sonoma:   "507bcf7846c89dac455e346c2c6bc713df84a70f5888660dd74bbc9b65c38d16"
     sha256 cellar: :any,                 arm64_ventura:  "7c34f9d5b589d9b126e0da006753bc9dcb8eba59aa3f2440bda561d7cea7521e"
@@ -23,7 +24,6 @@ class Libpst < Formula
     sha256 cellar: :any,                 monterey:       "9acacad7e57b79446bd4d97551cc026be3cca70f03ac0d28f6622c91b2898c2e"
     sha256 cellar: :any,                 big_sur:        "be3136353a0d0c538070a6c1261b75620abffda9d2cee435daf3debbc5fe2f8e"
     sha256 cellar: :any,                 catalina:       "d6ec30b4b9ca7d8968c5155b98c2a32dca502910c6c95ac860dc50065de89f65"
-    sha256 cellar: :any,                 mojave:         "9ba873578452d668ac195f1e3b332f692f45ee5db1a6c55e68e57e8d08d3878a"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "e37ba9845fdaa861e4d365ecd0be643cee6b01690ddef68d11347d9dcbe93376"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ef7024943254ef22bbf082c8c96ce8d207c30a1b9fe77a8d6f4432d09f924aa"
   end

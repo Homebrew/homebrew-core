@@ -4,7 +4,7 @@ class Siril < Formula
   url "https://free-astro.org/download/siril-1.2.6.tar.bz2"
   sha256 "312f82e78599f796d163a6d1c90589df1ed920b9ff2bb7ab5b808e43872817fa"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 3
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   livecheck do
@@ -13,11 +13,13 @@ class Siril < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "6994a929b1960e74b3a427597882a4b9adadc37a70c65bd2902c652039894772"
-    sha256 arm64_ventura: "743375b6db6ef8b01ee621dbcd3bf19b5553e0ca569d6a06525fc69b3cc451d6"
-    sha256 sonoma:        "be2aa40d00fae797559263041e37d487698632e10f8ef55e67a588ef9f106203"
-    sha256 ventura:       "b3b1e07d416930598d83f4ebdaa88bda6468ad544439660e97e902e22c5480fe"
-    sha256 x86_64_linux:  "756349a2a99ba593840a094636e044f3008a26edf52e1ebb15b3264a6916d1e8"
+    sha256 arm64_tahoe:   "08563c86ad8444f9f5bb08aa418380342448b6ff62dc37f62f2dae5ae2ca2d8f"
+    sha256 arm64_sequoia: "056cc668684cab712e919c26b6817f59069fc10c607f88ee7d76e0725e19604e"
+    sha256 arm64_sonoma:  "e56ba213d399b3e1ac714a78c9d710f0cd49ea9245dd3d25f667f88db5c0dad5"
+    sha256 arm64_ventura: "a71c1f6a8798b1bdaf26d88d0f9e8bde62603c933859e9e8f34d5c69e1b7a452"
+    sha256 sonoma:        "852c1a015a8472d91394191923c377832c02b5cfb30f3695d0979a3702b143b1"
+    sha256 ventura:       "10d755c99a9eec1368ce76aac5905305dadf1666634c5c66e20b5d3676fdab9b"
+    sha256 x86_64_linux:  "d96875e709864a5af01a2af6605ecccb944c41e567d8a9c4b7e54cc7858399b0"
   end
 
   depends_on "cmake" => :build
@@ -39,7 +41,6 @@ class Siril < Formula
   depends_on "gtk+3"
   depends_on "jpeg-turbo"
   depends_on "json-glib"
-  depends_on "libconfig"
   depends_on "libheif"
   depends_on "libpng"
   depends_on "libraw"
@@ -47,7 +48,6 @@ class Siril < Formula
   depends_on "libtiff"
   depends_on "netpbm"
   depends_on "opencv"
-  depends_on "openjpeg"
   depends_on "pango"
   depends_on "wcslib"
 

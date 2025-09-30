@@ -9,6 +9,7 @@ class Precomp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "37a2fbc9d8ef7f210168e5c4f2a3ce13944482c26207fb06ed6cec0138464395"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e17e36888fa003ff01ce0af6dd634576f21c2f303cea989f507730c95af6f827"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac582dec76b87c1affdf3a0065385f587b7fb47a3c7bdecd391a0e067fbcbf1c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "33c0801e82dd120a4300a93190e59d99da46d28acb0cef6f6946ec9a75cad1e0"
@@ -19,9 +20,6 @@ class Precomp < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d7b2be3194f675f7db87d9952635a1f0bcb36b2b4cffdc63078d1adf8683bc63"
     sha256 cellar: :any_skip_relocation, big_sur:        "98d1f2f0987f9317b372895c3af39358585a461023e286baf2ebc67d118cf3be"
     sha256 cellar: :any_skip_relocation, catalina:       "9ac9f156315ae463a1e378bdd9ed06d5f36437ccff4505740dfa10ee914b5adf"
-    sha256 cellar: :any_skip_relocation, mojave:         "7488435759867b2bb152cdd3ea78d2358659b34ff838e2cb97b54bd3a322147b"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "92824cc03c547d276436e1bdf55e905d402f77eeccf61f25a720d4315e5bd4cf"
-    sha256 cellar: :any_skip_relocation, sierra:         "5d852d83cf57987a521471b74e450a65473ed20e32bb14e83b5d99e969e37458"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "94d7a49395b7ea41b35d5ba993dc244fa2dd0795f300bc27b2f94821047daba3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7affc5c732e89618e28cbdc3a5b93adfd8588fe0af291dde9c940b0667ea8c06"
   end
@@ -33,7 +31,9 @@ class Precomp < Formula
     inreplace "contrib/liblzma/rangecoder/range_encoder.h", "#include \"price.h\"",
               "#include \"price.h\"\n#include <assert.h>"
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround for CMake 4 compatibility
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     bin.install "build/precomp"
   end

@@ -8,6 +8,7 @@ class LibgrapeLite < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "21f21e45a638e2ea14cc1f9fc4914fec4bf1526dc6d1a12b4c966c16cc4b2d2f"
     sha256 cellar: :any,                 arm64_sequoia: "a0f27854c66b84ff7b9457c056464ed04cd44f6bbcbbe2c194589a10906a9ff5"
     sha256 cellar: :any,                 arm64_sonoma:  "4ed7d1abaeff94d789b82eb98be06f932fe14fd2a226c1b9b9070fb9e859bf3a"
     sha256 cellar: :any,                 arm64_ventura: "3cb22292371844f5c1be714382a0fdb9b6053933864dafc60302dddfc6dd0c12"

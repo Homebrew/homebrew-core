@@ -1,8 +1,8 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-2.0.0.tar.bz2"
-  sha256 "ddf161d3c41ff6a3fcbaf4be6c6e305ca4ef1cc3f1ecdfce0c8c2a167c0cc36d"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-2.0.1.tar.bz2"
+  sha256 "821ab0695c842eab51752a81980c92b0410c7eadd04103f791d5d2a526784966"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Gpgme < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "703fb4c894e21fcca01633df86341148ba45e52f67abc98e7e437dd47e32d3d6"
-    sha256                               arm64_sonoma:  "1fbb14507155032b37072c5745ce0841e8eea0f319df2696187c3f6aea730ae4"
-    sha256                               arm64_ventura: "1dd1dec21adfca50b816e0c6c9e75c4a1c638d40117c8dbc17be538989e0b259"
-    sha256 cellar: :any,                 sonoma:        "0641cd21135f9426bf9744dfb58d7d01ed23447e5cf62698f57d992749718ecf"
-    sha256 cellar: :any,                 ventura:       "8ef5afdb60c32815e3f37d47a8436bf2efc45e62fff30696997361147ae9a2b2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbf1c2826845aca4d72e6711ce5d4bc6ed3189fc28be3b6c3e2416afdf6df378"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67fa3f1f07fa82e992011ae264497487b2b938dfd9fc5f7cc3a22d832c94f1e1"
+    sha256                               arm64_tahoe:   "f43aa96d4271d497b8e3c03a48d2e7ae78d9106ea26e1bbb983ee923fa4bb11a"
+    sha256                               arm64_sequoia: "623bec9ed07b99b203cc8bac45e5d50f15cad57beaaca0bfe4b6428efd6bb886"
+    sha256                               arm64_sonoma:  "1c3ec9f67e39a8897746cd038199366ff78115723ecf11b0bac100eb183387e9"
+    sha256 cellar: :any,                 sonoma:        "1e07b763ef12b4f6a76a87b705f52e83d9ae62fe85f762170e2e401d999d436a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "94ed67d29ae8433b0b9b8478fdf7323ddd33b5f24c3b56af352774625592cba4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9297331ca5752b0a415a3e90aa0af51a7f3185426daf39a55b92250bd6555f0e"
   end
 
   depends_on "gnupg"

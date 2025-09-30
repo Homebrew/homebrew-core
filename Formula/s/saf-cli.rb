@@ -6,6 +6,7 @@ class SafCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ed11ad01a48239ec19081277632e9286880b48d62569e012f7952ea1d07bbe26"
     sha256 cellar: :any,                 arm64_sequoia: "c6520a069786f4d6b8583a2738f1ded656a222a397a744c9c6557ddfb5ff31b4"
     sha256 cellar: :any,                 arm64_sonoma:  "c6520a069786f4d6b8583a2738f1ded656a222a397a744c9c6557ddfb5ff31b4"
     sha256 cellar: :any,                 arm64_ventura: "c6520a069786f4d6b8583a2738f1ded656a222a397a744c9c6557ddfb5ff31b4"

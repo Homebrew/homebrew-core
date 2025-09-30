@@ -55,6 +55,7 @@ class MoltenVk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "c582142652134e00fcddb2b15491492020469d0efc497873b017c45b2ba21a3b"
     sha256 cellar: :any, arm64_sequoia: "9b8177214626a66d3f3d437263fdb5b90617ebabc58a72748eda09024c139c38"
     sha256 cellar: :any, arm64_sonoma:  "fb9f58d36dc493741ba4c5dba69704d29f0dcba0732f2308402be1eabac4d706"
     sha256 cellar: :any, arm64_ventura: "bad2cf52dea78a3561653620af14993927bb1b6873e308b5a9ff3fe8c1cd532b"
@@ -92,11 +93,9 @@ class MoltenVk < Formula
 
   depends_on "cmake" => :build
   depends_on xcode: ["11.7", :build]
-  # Requires IOSurface/IOSurfaceRef.h.
-  depends_on macos: :sierra
   depends_on :macos # Linux does not have a Metal implementation. Not implied by the line above.
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   def install
     resources.each do |res|

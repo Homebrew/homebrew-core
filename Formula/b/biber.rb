@@ -6,6 +6,7 @@ class Biber < Formula
   license "Artistic-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "730beb298d45d7103e87a8401c9c9010fb626c4f40f0aff0ce47a5f858440596"
     sha256 cellar: :any,                 arm64_sequoia: "83b48725d0f628c2fcc4a3581952a18549ee546804518a4582ff3f682993aea4"
     sha256 cellar: :any,                 arm64_sonoma:  "bf9b1d0942aa0f858966cf9d4a7bdcd3190e91164b1d991df7d8ba2aaa184db1"
     sha256 cellar: :any,                 arm64_ventura: "b59a9eb6df9fca0893fbf4dccfe73a1ce56604e0e66aff8a62173a55ca70afac"

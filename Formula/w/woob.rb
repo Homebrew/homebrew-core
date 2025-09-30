@@ -9,6 +9,7 @@ class Woob < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "229bfa938b0d7730ef0db71db614e8c6ba0dcab3f77ab7dfe966f279a3d85a0b"
     sha256 cellar: :any,                 arm64_sequoia: "e62eb09d517b12dc09c6b7b88df2f1415f4ad49d8c72b7c30aafc224704c3883"
     sha256 cellar: :any,                 arm64_sonoma:  "a20cc7ef042e2e008b40c89c548d83a14393033ed6497bfa71b4d5fa13e7ef05"
     sha256 cellar: :any,                 arm64_ventura: "7537c3fdb8a09e665714cc6f553cd21a39bb252bd3fe3903f24c15669fe9f311"

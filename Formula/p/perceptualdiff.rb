@@ -8,6 +8,7 @@ class Perceptualdiff < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "03e7c420c4d2142cbec50a5ff677801f9a2ffef94cfdcb96715cfd88eca62667"
     sha256 cellar: :any,                 arm64_sequoia: "69f5e86989148e15fdca126111c1070bb23777eabadd346f8e735b6cedc86f5a"
     sha256 cellar: :any,                 arm64_sonoma:  "da4677947b68eca55af42a10d556324578763cb94a71cc14afaccdc3ddf99bf3"
     sha256 cellar: :any,                 arm64_ventura: "0499b71de1b661a7c68f28c343c1fe1175dfb2cfe28b70d6fb6b27393a8613a6"
@@ -20,7 +21,9 @@ class Perceptualdiff < Formula
   depends_on "freeimage"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

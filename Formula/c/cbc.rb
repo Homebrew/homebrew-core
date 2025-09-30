@@ -11,6 +11,7 @@ class Cbc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e87c268c9db2c8b20388054604f1624339997bd8a2ce7cf8e2c3d4d7ca5b80b6"
     sha256 cellar: :any,                 arm64_sequoia:  "c4383cabc2ad9d393dc2a042d11c36b2c67e080b094e82492d92448671c52853"
     sha256 cellar: :any,                 arm64_sonoma:   "d962ac44681d69aab487032695474a6086701f67836717d92600457f1425403c"
     sha256 cellar: :any,                 arm64_ventura:  "b92f1a725cbf6d7dbdf498a8210612c378d7f4d01d8c449f41a9b29392baadbf"

@@ -11,6 +11,7 @@ class Nano < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "2264d7db63d98eaec400967d883896b658b08c57e2705670a8a44ea82f725745"
     sha256 arm64_sequoia: "0265660b145d8913478ae20cad410afbb1b53f02824e9b816a540a32a9275ba5"
     sha256 arm64_sonoma:  "690585c06379c43c6879f619986c2ac966b3bb7eed6294d164fc6bd9ea6e46fc"
     sha256 arm64_ventura: "055b8c6908ce48cd986fea03e9d3c19de6b5f07f0aab6065ff1fbe8a45f93f75"

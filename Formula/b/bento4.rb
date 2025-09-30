@@ -15,6 +15,7 @@ class Bento4 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "08775d900541613de11edaa6fc724afd0773aa8aa500e5edd0dfb6add8193a9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7eb7ebefa4071ee7a67625f7fcbd85d47551ba51028f89ae1d97fbf59830d98"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d60460f56f54ce560cc79cc02dcfefc11e7f8a16dace21b3816e3076206debc2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cc230cd8ae1f04cde434c3b74783a1d1ca7d9ec67c36bea84ff7429e7a3197ff"

@@ -14,6 +14,7 @@ class Ucon64 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "ac2730906d6b8ba2c3fa8a010fab0911f6c249b85e913a4195e99fdb8596cee2"
     sha256 arm64_sequoia:  "f55e08ec43d072e3a5e53d38a3244adae7dcaceca71045c2bd525f05a1588609"
     sha256 arm64_sonoma:   "301ce960dee0312e69f72b00da7d4e297091039cfe5e3d10364fe48fb0b49122"
     sha256 arm64_ventura:  "228557d22fcc52015a45e5e22d4e8b9d6a9997600e5ad4127afd39d2bdbd7dd0"

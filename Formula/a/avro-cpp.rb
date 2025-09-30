@@ -8,6 +8,7 @@ class AvroCpp < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6704d6e89acb0c747ea276845a9931aba6be8ccb0555ea7333f6fd871d33ef74"
     sha256 cellar: :any,                 arm64_sequoia: "c957d98325e78e380f0350d9c9e96edd4dedf5bc6e066cd3e1cc8149b50c8598"
     sha256 cellar: :any,                 arm64_sonoma:  "b099c4cb40748b37a98350b66ecfaeeca27028731698f061a943aa677cea409b"
     sha256 cellar: :any,                 arm64_ventura: "2bd5f3b4db84283a53fd5ad1378e64fe2be612ba26d542eef7678de2c3a9bc39"

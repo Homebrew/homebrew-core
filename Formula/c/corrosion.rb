@@ -6,6 +6,7 @@ class Corrosion < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af95a14b6420bdb22ebdbbb598bc72ba54e70b8ecbe794a172f5b7cd56a2fc09"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "213e69cddff12529c1bd8485dfb76e9b61bcc7feecdf723235e279e86cf41ee2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41055a8da503deea745e481139bf3d04e87ee88a7af701c1957f399e7b9131ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c1e046b09209f1c0fce88cfc906738e0a00b3e60e5cf98c104b0ad2471719fbb"

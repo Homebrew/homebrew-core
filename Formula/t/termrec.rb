@@ -15,6 +15,7 @@ class Termrec < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0abe8cc3df72b187ea7c2aa19c180e0ef4404ff91560cd1b4bbc7e20884bdd85"
     sha256 cellar: :any,                 arm64_sequoia: "e49f5031c0c2bd9c8a17c75bd3d345755a47525ef4a68d32ca257dcb47b7eb10"
     sha256 cellar: :any,                 arm64_sonoma:  "206c6ea13f36cb770ad80f1702f1620a5a8cd8a82eea1e01d136f6b46ccecf03"
     sha256 cellar: :any,                 arm64_ventura: "b5e160a090054b7e36883023816a7123f6305131c9248cb2543d939d209a7c7b"

@@ -11,6 +11,7 @@ class TigerVnc < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "bc4e4b2999680e43b53573d900ea230aaa943be9b2ad109c8875b50b662eabfe"
     sha256 cellar: :any, arm64_sequoia: "a5283ed63187173fe553e5beca0be9171e20bb26be778af47f232df26376cf0e"
     sha256 cellar: :any, arm64_sonoma:  "b74a31a13cf7229b1624f299e64b6c7ac7a1e94b4fd952b8cfc1266d49e6048b"
     sha256 cellar: :any, arm64_ventura: "c65397dac1671e42fdbc3df44d242ef44e21fa7671901f9f56e96a88526ab3cf"

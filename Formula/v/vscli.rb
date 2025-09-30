@@ -7,6 +7,7 @@ class Vscli < Formula
   head "https://github.com/michidk/vscli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ad8559f49092dd0c2fe1cfddf33097f92cabebb86dec9757a9a9d0766adcf7f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ccb604795d27bcc966a4aa2a33100b1162c808d2ec875a6e1420e8f879e1416"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00054eac8e8afb076cb0fdca4d5ff2eef8523963bf88ccbbb8e2a79c438813ce"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e8c0b3a54aa8f18e0e3bdf96941855a4641f73374e4c9c282c72b2aba9decb89"

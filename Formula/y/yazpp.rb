@@ -13,6 +13,7 @@ class Yazpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1282e706247f55d29fd6ae7db1132e0360339d64b7641d7a539cba08b6474532"
     sha256 cellar: :any,                 arm64_sequoia: "3db462397a75847cfe8f47b63a8e72357aeb56c3e6ad39f1e56f961fa6c67031"
     sha256 cellar: :any,                 arm64_sonoma:  "8a0413a93b0784924650e2e642e5044b3547361916ca81e4231828ce24ce3322"
     sha256 cellar: :any,                 arm64_ventura: "de090b1f94e5f04a32d266054df63e033d664af6baf02d70be02ee13ca2d2736"

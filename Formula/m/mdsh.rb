@@ -7,6 +7,7 @@ class Mdsh < Formula
   head "https://github.com/zimbatm/mdsh.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd92fceb1ed34a98f9c22aefe9601b9088fa048884dd2a38f450b9f4a2352c85"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "33ca4d9a2440a8488bd6babfdea6622acdfc6deab3e7c38b37622305adb55dea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "904547df4c2acf7eb1b971f0c924193c37393aadc6ebb1767aebccda3364f5ff"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "81cab330375c40ecaf7abaff7ae15efbba85c6ae563e1dd2760ebfa466f6c9fa"

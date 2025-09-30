@@ -1,19 +1,20 @@
 class Swiftdraw < Formula
   desc "Convert SVG into PDF, PNG, JPEG or SF Symbol"
   homepage "https://github.com/swhitty/SwiftDraw"
-  url "https://github.com/swhitty/SwiftDraw/archive/refs/tags/0.23.1.tar.gz"
-  sha256 "7e5320397a83e8f21761834b8d7667660afaa65d6782bff88dee6d6e56f0d54e"
+  url "https://github.com/swhitty/SwiftDraw/archive/refs/tags/0.25.1.tar.gz"
+  sha256 "7016b9a8a035cd6a87d72bbfadba168948b5e1f069bb922ca1419b1122aff254"
   license "Zlib"
   head "https://github.com/swhitty/SwiftDraw.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce2245d8509b955f637c14d77732c7c1aa68ca8168ac8d6c25aafd3e73b5f049"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5689b2c887b8c8f55c5902fc9090c9ddb77c23a3ac718ae3ba15cddd5f6cb677"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b169641f36a09cd0ffa943f8cf0d7dd9cdaebf2ec4f2f0536830c817e6338dc7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09db9b587a4c9257ac60352e95ae355e2e3036bf861446fa6f2455ccf45e3c1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "432fd1ebbb55cf47ae497b02519a223cf54eec881be993879b65114068aecf79"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa1295db70d1e5b108046d1ac7cb801a15a6826742a970c7d190271d2e2b9e68"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4bdb212c2771659678ea1f8cd22339979a55f76561a4547c2fd5efc6e67d2f1a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4fd64178cf70a769b2fa0ccf6d634a806df91914a300721f638366b1ef6a444a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2183ae401419163d66ff0f130932055e75d2d5888deee422fe2a991afcccd497"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e2f257dddeaca7757183a77908aadee70fab1b3ab4472c7ffc762436a12f37a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efdb31d71154865519ab8c0b65c9eab8d54fc1df13d05c50b605d982528b4c98"
   end
 
   depends_on xcode: ["16.0", :build]

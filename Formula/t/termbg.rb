@@ -7,6 +7,7 @@ class Termbg < Formula
   head "https://github.com/dalance/termbg.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0966ba2c3c68175f179c88b293c396a89867b38aeb1293200527aa66039dfda5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "73367dc16651ae85eddfc43526501a01ea3721d3c1d40de0e7dcff2f49f0ea90"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "280098ca00d9d2e31672b8bc0cabca6082200c12c936e2c68122ab8b8e79afd8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "375b6b6bf7872f951fa94361662929b418326b2680a1c5d03bb54b9319b72fd7"

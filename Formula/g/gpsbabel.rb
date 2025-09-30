@@ -13,6 +13,8 @@ class Gpsbabel < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "26cdab70f12e7144a7231fcbc7b190f7ba38428ef4d5838b7abdf0c43466ff3c"
+    sha256 cellar: :any,                 arm64_sequoia: "0715908f468e370e33e345de52489e5ca199ababae3b4ea9499b67775782cb75"
     sha256 cellar: :any,                 arm64_sonoma:  "2fdf2224f180cf49634c7262ae03f435dc5a6717bba6b780e8b56d3901d00ffd"
     sha256 cellar: :any,                 arm64_ventura: "f33d3021cb041af672e04d337d783eda512ac37e2f1c53eb7b86341d6f13e332"
     sha256                               sonoma:        "8018d83e557a241772517a69440b16e3367e4a20542e688de3f9f6e1452420c5"

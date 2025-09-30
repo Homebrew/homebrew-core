@@ -7,6 +7,7 @@ class GameMusicEmu < Formula
   head "https://github.com/libgme/game-music-emu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fec1c3298b4ab969c7ce7af833b01193f7466d5b3616db916659904f53dde31b"
     sha256 cellar: :any,                 arm64_sequoia: "660ece50d8af5ffbff406371638895522a4ea69d411b1258eb8fdba0a4196adb"
     sha256 cellar: :any,                 arm64_sonoma:  "47347ae4155ee458e69431d455c026ef63b891c3c5e0f4728482b6a257ce4d81"
     sha256 cellar: :any,                 arm64_ventura: "2b87dd4bdc42dbf1ec68ee2820867ea587c8d9847dc93e549e246551b63d7ef9"

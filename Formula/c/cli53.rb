@@ -7,6 +7,7 @@ class Cli53 < Formula
   head "https://github.com/barnybug/cli53.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9095f0aee379f36b2ffdd4d9d11bdcc19806ec0bf49a2c7f9ae2b23e30d69ae4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4b9ffd175d7e981bdd4c7c2356e6268b94c6b5347a2d50d5781318a9ac53136"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4b9ffd175d7e981bdd4c7c2356e6268b94c6b5347a2d50d5781318a9ac53136"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e4b9ffd175d7e981bdd4c7c2356e6268b94c6b5347a2d50d5781318a9ac53136"

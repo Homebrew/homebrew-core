@@ -10,6 +10,7 @@ class Btpd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "9670afe44796531465fa7394a409a946f16512995eaa9405ad263fcb72bd469f"
     sha256 cellar: :any,                 arm64_sequoia:  "29e7c1076df7e76f28cd672d7fd4e9c87ddf6d21ddca353cf1014906b9fa594d"
     sha256 cellar: :any,                 arm64_sonoma:   "6fd9324f811eb0e07e6a3ca529424a00b4a1ddd6d7ce88601b5f1c51cf91d89c"
     sha256 cellar: :any,                 arm64_ventura:  "bdde460a80660a0afd8811c961ffd495be84550578f4a3125181605438500e0f"

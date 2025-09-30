@@ -14,6 +14,7 @@ class Superfile < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "18cf8fddb3c3ce306f084073086275c96fa08378911f77a9fbfb916f69abee41"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2effb87953c80ab50e0ab351599c4d9c1f3c89300a1451f8113bb4152d025567"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b823bdd45f7c323030ce9c81fa718443128388012bcbe5f1ba63f7b4f874f6cf"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "851d247dd23aa52231ea96cc9540811df8e410d205df8971f8cc4064a3f90ca4"

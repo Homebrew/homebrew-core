@@ -1,37 +1,26 @@
 class Gobo < Formula
   desc "Free and portable Eiffel tools and libraries"
-  homepage "http://www.gobosoft.com/"
-  url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/22.01/gobo2201-src.tar.gz"
-  sha256 "ed2d82ce3c271e60914a42bde1d1c99446df8902ae1b62fd0e4dca2b99de8068"
+  homepage "https://www.gobosoft.com/"
+  url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/25.09/gobo-25.09.tar.gz"
+  sha256 "40f7b64dbbeca28865c78df07194ac5da2ec701a41c53ed7e137337a03a2e38a"
   license "MIT"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5c1bb4e89735e55958734cc7f0c3659fdf718518726437f8dacc1a2ff97d63b5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b446b9e9a0589618cfe849f251df510d77a5f169f71bcf0798ea6d771713fea8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca5892fdebe4452e551a8ffa6e09a27c1ecb45582870518b8895ad75890f989b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e533b348ea2064b407e0c4da4375334a284ff9a4327f86b18a400202ab3632b5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30ef413627040ba2d8a1f5f1b4248aff968dca12c171278e7a615df5c843240f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "db2204d18d5988c89e3ce3b6bb8c1e9ce81366e00352666ccef0731f93e9af67"
-    sha256 cellar: :any_skip_relocation, ventura:        "559002ba3854a7e01f0b1d72bf0a2321b219a67dbed0154e0d446085c193a50b"
-    sha256 cellar: :any_skip_relocation, monterey:       "930a459b40e131dc3076dc1f4aafaa3e58dcc7173134e7f162145040ee4bfd68"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a26f0cf33aebe2dca17fc9ad9b1741530e789d9ab4e289245fe8886fcddf65ef"
-    sha256 cellar: :any_skip_relocation, catalina:       "c8eea87acca4311c744bcd7aa7444d41728e157d778b12a6c24923173ebab77e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4aa5e395b8372353400c7bfdecabc0a8293d61cc04a8c645c75f88c2ac4255ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff95ec6c9c2a1785e6ff593ca1fcd658f2b46e080bd956bd7ece4a01db6e3ac9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0aaba4f008e105ca513742945acfb21ba9a2de3bdc780f0bb8fb7a70659092a7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af40930a8fc0cff9154b8b8b68f106c4b7f3123ba4ac2dfd59867b6710e08fd8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cc3bd3ed8ef2f699fda1145b075da7c5e0a08555e9c680c27514fb228240dee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "70d705b128377d717e094addd8307fbead066ff640b292cbeebaefeca1699eb1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "09ea3366c0b0f7217ed32b31e3e8efd603017452a4d731689f1e6e7a89ed8d6d"
+    sha256 cellar: :any_skip_relocation, ventura:       "27fed5c47c2a2a01d03fe07cb8f11bc46ad07805c5db922d42db0d2a59859035"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "14e958f4ede43b580301c160e62d905821a60636687bf12bdccf28e27beed7cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12358e26299d1e17dead9f7b55d9de2daf28342d05a6342464d85cb45a9ec08e"
   end
 
   depends_on "eiffelstudio" => :test
 
   def install
-    # Workaround to support arm64 linux as upstream is based on an older Eiffel.
-    # EiffelStduio 23.09 was first open-source version to support arm64 linux.
-    if OS.linux? && Hardware::CPU.arm?
-      inreplace "tool/gec/bootstrap/gec8.c", 'GE_ms8("linux-x86-64", 12);', 'GE_ms8("linux-arm64", 11);'
-      inreplace "library/tools/src/support/et_ise_variables.e", ':= "linux-x86-64"', ':= "linux-arm64"'
-    end
-
     ENV["GOBO"] = buildpath
     ENV.prepend_path "PATH", buildpath/"bin"
     # The value for compiler needs to be an unversioned name, but it will still use

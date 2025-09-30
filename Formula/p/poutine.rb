@@ -7,6 +7,7 @@ class Poutine < Formula
   head "https://github.com/boostsecurityio/poutine.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8a0efb42ee7330cf111424e79cc1f0a7d8e973f8b8d12b00af667b8237bf2fc6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "da3b785575f2fc64e9e79f8d7220ca7b8c679e6c9e63f3ec3d7f22f154621566"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aff442b64f3646b52d85aef3ccaeb323643b3a2ecc2c70838982daae35a2452f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e3a208a618f4862db5b7a7d6f7adde1d3e194081e456a2fe78cf871f6fc4947a"

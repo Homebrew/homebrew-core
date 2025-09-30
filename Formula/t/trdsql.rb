@@ -7,6 +7,7 @@ class Trdsql < Formula
   head "https://github.com/noborus/trdsql.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9ddcc05dd7ac0be0fe6e20e1881ee61ee15db929558e968a914c8a1c032bbe1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ecd934194fed8b8fcb0c00cdb3108e5a4bf9ba7e465c13f4e14e9a864ffc0a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f998e6d2c9f7085a17395d4b3d4da1065bf806139a03a5dcd99054dcf8071d88"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8c3a2bd0fe2bf86949101930b1efb4c280a52756d59f69b3f04d0c8c612dd415"

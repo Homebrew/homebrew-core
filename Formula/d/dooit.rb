@@ -9,6 +9,7 @@ class Dooit < Formula
   head "https://github.com/dooit-org/dooit.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b8cab74e9327a57b77c169314a286ae21b6b11d1ecbdac648be63c04150343b2"
     sha256 cellar: :any,                 arm64_sequoia: "e910ef48ca25fae5602d9722e4ad3dfc3a8af8e5ae6220a566b0eeab04a7e819"
     sha256 cellar: :any,                 arm64_sonoma:  "9b4c735c40718feb892140b70a72f8d76925cd9b7522cc70b904e655b26300d1"
     sha256 cellar: :any,                 arm64_ventura: "22d30a63f061dd6fb57559ecb87d9ccdf41645853e655de868ee0a552225e39e"

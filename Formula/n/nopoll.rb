@@ -12,6 +12,7 @@ class Nopoll < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c1be50a5fd9560140bf58dbe71539acf5a300b2623d150302fbf64b5eb811701"
     sha256 cellar: :any,                 arm64_sequoia: "c3e56788b97b459d0c22ab331bc493bcdd0351d50e52b8691bd83ea77f7e59e4"
     sha256 cellar: :any,                 arm64_sonoma:  "4a269b4003f8ea4330e1deaf825e7eb3f09bce0fde98d0877ad07f4fad0cd20e"
     sha256 cellar: :any,                 arm64_ventura: "3e06f4dfc41ee91d605dbf475fc05e21949926bee077814db7a112675064bc90"

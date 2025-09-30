@@ -8,6 +8,7 @@ class Sidekick < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06a9d456f48cc6f1bd81a60abb4878924af11eaaf9a1789d1f742152933148b3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f5e190b61d1c87bb59f25cf984f5fdad673a7406eff0ccb3454bd68d0ce11ee"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f5e190b61d1c87bb59f25cf984f5fdad673a7406eff0ccb3454bd68d0ce11ee"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1f5e190b61d1c87bb59f25cf984f5fdad673a7406eff0ccb3454bd68d0ce11ee"

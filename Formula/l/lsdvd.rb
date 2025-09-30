@@ -9,6 +9,7 @@ class Lsdvd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3c76b478a79a737e945b88591c6ded587afc79af0ae8a775d7646e9239be56d5"
     sha256 cellar: :any,                 arm64_sequoia:  "f9de3cf67cf812897d4afa2c329e1d9677a3f86977c4d8f359b9a2c259da2ca4"
     sha256 cellar: :any,                 arm64_sonoma:   "f1cd3a4917d6825315999218d37b76414eef62bf994f959250f0f95ca97d4659"
     sha256 cellar: :any,                 arm64_ventura:  "ba757936a28fde65072032578477812044621f4f8f73d9b9919c547ea902b402"
@@ -19,7 +20,6 @@ class Lsdvd < Formula
     sha256 cellar: :any,                 monterey:       "5268aec2b5e5e3c89840661870ac95821c77aef6bfbe38447355402fae4b86f3"
     sha256 cellar: :any,                 big_sur:        "0d5d1a272ba88ff70ce68ddc35fca9811e2ca5222696373aaf3d2ffc0126a471"
     sha256 cellar: :any,                 catalina:       "986e89fe0980a78d7d7ef18fd646d3176edbaa7fd6531c38f698d3bdf2aed5dd"
-    sha256 cellar: :any,                 mojave:         "66cbfc0e273fc63813c4948638ab849357ef9d3f72ce5b6322a27f5f614507f9"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "1c5ab420a6644e37a5fa5788e79b0a707f5f3407a0986fa288b74c0f2d4b33d0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd9145daad69de5b544d8e9824b42829c74b048322044a35b76bd9b2b355f1eb"
   end

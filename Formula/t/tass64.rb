@@ -8,6 +8,7 @@ class Tass64 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03b1af6642d7196b136bc4b001706670f3c390c8b20c241b257a2d3b06f750be"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d23f98e527d005deb40dd737df7e79ddcaa192953a55effa2fbaa9907b0ce9cb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "26ba4c9a64c5b1d8aaba7e1c56d886471187bfb5a7bc07a96f1b07c6959a6489"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3bf1f29a383055486a8cdd26b701e4a82b05a948a9416d1547fee27ff1b42377"

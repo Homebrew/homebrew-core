@@ -3,19 +3,18 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/f3/b6/876109bd4f1cd3e2c21d499246a7de033923e0215b1f9638e61b1533d3c2/oci_cli-3.64.1.tar.gz"
-  sha256 "21e01151675ebb71d92d161b8b7e03c164ce2ec1f7786613a479455e63a8447d"
+  url "https://files.pythonhosted.org/packages/56/6f/89a6af3138e72c1b40501e561431977a66c8920962a9ed8c4538599ecac5/oci_cli-3.66.2.tar.gz"
+  sha256 "4475ba7638e825a8b3f09014a80b34a8f0a9f4a0d2c8079ed469cfa3703318b1"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "323d42774a8bdd6ac62e95c7dbc7155c96be9191873041d3ab602466cb70842d"
-    sha256 cellar: :any,                 arm64_sonoma:  "19dc3a4991b8a44696ffb8ca61997ca97d5f4de4224f9009bae16c2a8260de1c"
-    sha256 cellar: :any,                 arm64_ventura: "b9ffb3a6c621b5d76f393520ed42f9c0207d4db74ab0972eeca08da840dc4b90"
-    sha256 cellar: :any,                 sonoma:        "d13deb9255a7fbd69e8eb0c620e0fa1db309e24464ccef8d67755ce625f6af18"
-    sha256 cellar: :any,                 ventura:       "5b37ae71c41a90ad1ed2815c42096793c5033cdefe73fb1405112106c5d54ae3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d82d826cd9c50f7642432ea2942c860129af07d524836850bbcf648190b39a66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2a5403989760979667872de33dab379815f792fb7ee3e9a54f5cc915d82b0cc"
+    sha256 cellar: :any,                 arm64_tahoe:   "496f19ed11f9369ece419494339ffb2594bcf3286a40683a66bfdd0e44a1fd20"
+    sha256 cellar: :any,                 arm64_sequoia: "2307b0a7be7e7932b546108e4b4f49af111b17b5194e8e35d191903594478873"
+    sha256 cellar: :any,                 arm64_sonoma:  "a1438519f329238301c6d6b610d28e36c9e0d9ab20b076115b8004c99e261671"
+    sha256 cellar: :any,                 sonoma:        "cf44b36808df8629f1ee0392b4ec8908cc4f95ce400e39ef0add8739e90a8fa1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c260890d3afe1c02e7509ec9bf7ec2348512daec265a0d26f22c91c2b0ee7617"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17fea7b216ce1bb6dd919b529282c648e78c50bd96af2d6d58d95726f75d3e5e"
   end
 
   depends_on "certifi"
@@ -44,8 +43,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/ad/8f/78bb86295cb39be782547bf943f624b4584eacb944e9d985619f00e3366a/oci-2.158.2.tar.gz"
-    sha256 "c3300bcbfe5549f55a637898a7976499230050a3ae4086d440ae1e5c943f48ec"
+    url "https://files.pythonhosted.org/packages/2c/ed/d7f4896ed83389089aca1f3c8e2b05b7420abc7af64b09f6e14927b8ab92/oci-2.160.2.tar.gz"
+    sha256 "4ca1cd146e06e62713427bdb55cfb746c2739c64b047973a7f9b7e4a02364fc5"
   end
 
   resource "prompt-toolkit" do
@@ -84,13 +83,13 @@ class OciCli < Formula
   end
 
   resource "types-python-dateutil" do
-    url "https://files.pythonhosted.org/packages/a3/53/07dac71db45fb6b3c71c2fd29a87cada2239eac7ecfb318e6ebc7da00a3b/types_python_dateutil-2.9.0.20250809.tar.gz"
-    sha256 "69cbf8d15ef7a75c3801d65d63466e46ac25a0baa678d89d0a137fc31a608cc1"
+    url "https://files.pythonhosted.org/packages/0c/0a/775f8551665992204c756be326f3575abba58c4a3a52eef9909ef4536428/types_python_dateutil-2.9.0.20250822.tar.gz"
+    sha256 "84c92c34bd8e68b117bff742bc00b692a1e8531262d4507b33afcc9f7716cd53"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
-    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
+    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
   def install

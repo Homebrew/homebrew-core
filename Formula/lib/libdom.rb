@@ -11,6 +11,7 @@ class Libdom < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "07e72502e60856ec4307b60f6784aebbc6d59c3fc54da2a46c7416f78162b081"
     sha256 cellar: :any,                 arm64_sequoia: "5305da928bb33e1c7fe5b85b44e644d17237c0e368fcc0bf159d82dd42626485"
     sha256 cellar: :any,                 arm64_sonoma:  "496e88188a61218223af1157766d192764aeb9c36ef5bfb2e057fc403e7d2793"
     sha256 cellar: :any,                 arm64_ventura: "67205b439af8580d452d27c87f291f8345d3deb3c194505527fdd426bd75d0db"

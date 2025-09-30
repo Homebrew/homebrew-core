@@ -15,6 +15,7 @@ class Aubio < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "ba61a5f21ad3370b1e2b3b530b010f11321987a762195d6782fd1fe2d544987f"
     sha256 arm64_sequoia: "cdd72e2e045a52832a9050ce2695b6f922813854df1dd410c38c7ed8d0b94882"
     sha256 arm64_sonoma:  "0b3b530218db7a25081e82bdf9c235d9bd57ec656a1d4c9a1abc028c907c2eb9"
     sha256 arm64_ventura: "a05d35bae538b86c68e4712bb7b86212083fe5cac88189bbd3248ae7c189dbad"

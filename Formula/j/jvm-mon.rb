@@ -14,6 +14,7 @@ class JvmMon < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "043a2ae54a8892543d300f963d276da6c317bac4c57b7ff31039649b782371b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "61c0f2de3ba96b85b364c0c6df8a11dfca3a61790a19b105f5579ffba96f8fb5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "569d3b771bab87123faac0038aa194a79788b5f5b8a5e1b73974baf70daf30c0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "45ed63d60bbb978e2a1916675d38f7240ce6ea0d69b3510b05b9d3bc1e86e6a5"

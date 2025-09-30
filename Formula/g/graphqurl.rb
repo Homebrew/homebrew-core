@@ -6,13 +6,8 @@ class Graphqurl < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9e6defa9ff7f67c8f7ba622d7c98c051457ff93dece2be0d44055de07ad289f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9e6defa9ff7f67c8f7ba622d7c98c051457ff93dece2be0d44055de07ad289f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e9e6defa9ff7f67c8f7ba622d7c98c051457ff93dece2be0d44055de07ad289f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1bbe446bb7c88a12a0a6b0f89798baf9c94ddc06cbf276279b42b2dfc7faed53"
-    sha256 cellar: :any_skip_relocation, ventura:       "1bbe446bb7c88a12a0a6b0f89798baf9c94ddc06cbf276279b42b2dfc7faed53"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09d714f7534e00aa17e275e3616593f66e9e59ebb827b20093f1f1b8701d0838"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9e6defa9ff7f67c8f7ba622d7c98c051457ff93dece2be0d44055de07ad289f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5c7b7760dba8c9c4652d41475697c10e83ea2e22b382e2091c54a9129dff898b"
   end
 
   depends_on "node"
@@ -20,6 +15,10 @@ class Graphqurl < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Build an `:all` bottle by removing log file.
+    node_modules = libexec/"lib/node_modules/graphqurl/node_modules"
+    rm node_modules/"@oclif/linewrap/yarn-error.log"
   end
 
   test do

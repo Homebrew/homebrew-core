@@ -7,6 +7,7 @@ class Texlab < Formula
   head "https://github.com/latex-lsp/texlab.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "68ae351f7b73039dc71e54017b895e41347aa5f5d163109a39fcdec238145a73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1fee556e6a2c725957c32b65a59500bd7adb03cb57319eaa15666158c8b2605b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29430f50ee9e097237afbf400c6c91d3951fe935473ab04f04473b6e1ff7cbe4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "29382baa39d72a6422765c4c2cbfcaa266d386182c647e1f8d0e16bb72ed661d"

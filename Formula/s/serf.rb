@@ -8,6 +8,7 @@ class Serf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2901eb9d2de6b46caefd9bf736b479a4fdbde4f83856c4c57bc114411a332134"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "13e3b04200c7af32b917a447452939a6dbf82ebc40e7937465e4150c2fa2418d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13e3b04200c7af32b917a447452939a6dbf82ebc40e7937465e4150c2fa2418d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "13e3b04200c7af32b917a447452939a6dbf82ebc40e7937465e4150c2fa2418d"

@@ -1,19 +1,19 @@
 class Cffi < Formula
   desc "C Foreign Function Interface for Python"
   homepage "https://cffi.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
-  sha256 "1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824"
+  url "https://files.pythonhosted.org/packages/eb/56/b1ba7935a17738ae8453301356628e8147c79dbb825bcbc73dc7401f9846/cffi-2.0.0.tar.gz"
+  sha256 "44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "908333c6c31b4da4876ccb707cdf2b1ec52aee3d83fc3c4a1b8b52f148883512"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7818f620936fb017c68eb02c8985dfecd297349b97e67550d4915cef440dd2fe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b143786bb8ede8b8ad7230b6be8c004f276dacccbd4647a3f169099a536fd3a6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8e1c24e4e78f041f98e0394a6a07ef560ea84d980f0f3c3dd3ea7fb6c3f91aa4"
-    sha256 cellar: :any_skip_relocation, ventura:       "7c8eea38ba0103ddbb0243d0ed9f74a79875f1f0dfe9d8421f3e2f45dca69da5"
-    sha256                               arm64_linux:   "8001ef146f7ab75ab198ec20c59f6383ecf439feb687c76b8ee5f3279a00c30f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a49b146e624fa887497252f89c76d8e7cfcdc4d9a4ec444a5b8db856324198cf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c06da1533a0a813e2d83ccab8bdcbd5f2fd8e8e7a90dfa1854b8e5bc6c4e4627"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6775016658efc6fafc45b5599b2ea47e5b12ca2c2f2ee9838d935e07c3de46e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d312740d13623442d1bd1e0b763141ef746ae9b814c04d8ba368d1bb00974d62"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e355d97c3796776b37ab4f0b1bf45e56a00764c15e223e75902a3775a8d4603"
+    sha256 cellar: :any_skip_relocation, sonoma:        "45a255e330409d727667cb057d3dc95e7b041810c766517e203e0530d8083c04"
+    sha256 cellar: :any_skip_relocation, ventura:       "46ab1125301e025b28f35925306031fd89e96be8e0dd2db9a31a5f2b68279a2e"
+    sha256                               arm64_linux:   "4b202fa7d60a6fc013f2b0c93011d536b4c154c83979310fa8cd9bec5e2b5899"
+    sha256                               x86_64_linux:  "c42682d8f64e8152c43795a80f388ebb33cae301ebe391095de7b28a954be039"
   end
 
   depends_on "python@3.12" => [:build, :test]

@@ -41,6 +41,7 @@ class Redex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3e018c9ed00340c5d6329280f07f4b8fa909d61aaba8c1ef48185c213420aa38"
     sha256 cellar: :any,                 arm64_sequoia: "6fd7f506ee8571973646bb564d1c73a5e2ff5143e190d144d75cdcdd8fec2231"
     sha256 cellar: :any,                 arm64_sonoma:  "df07315f29742d0a4d43f8d1ebc6a1bd68f082603fcf7fdd1196d3f728c0c32e"
     sha256 cellar: :any,                 arm64_ventura: "3cc462535b6d47cd2a65e846a203431b3f09b684cd90b985b7d92f70b3024459"

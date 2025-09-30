@@ -10,6 +10,7 @@ class Publish < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3d712d342ef986f6c33dee070c00858ca051c1341b510a1ed9bfffd323c38d72"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "12bb9d41814cacbe362e02d37825f9eabb5c2c228d2502441389a31deff9cd06"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d595b1f7732f64fd874095b0c17ec22b77d7261fa83e0324f4657bfd8dbbedf"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "75ad288c89a4abfff3648d4628b71133b15a9da2a7e85ea2ce72558c8b6a5ced"

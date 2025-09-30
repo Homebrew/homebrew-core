@@ -8,6 +8,7 @@ class Scdoc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "302458b7a30126590298d20f73b027e7b32663d4ec79e7d5d8f40fc455889afa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8800df45f7cd670d5638e4acd2fad0905fdae6f5216b71bd6d897fcda12c4cd7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6eeed5394fb071aa14153ebe3cb3eb2edb4458c1b25d91adf6a32116fe1eb16b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb0a27fea684b0a8caa7aa98c64df84c9db68c7003fffd827055449bbff373e5"

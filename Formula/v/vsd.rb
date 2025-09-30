@@ -11,6 +11,7 @@ class Vsd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6afb8eff7a7b62ee6b5c4d500f621c407afa66bf212fa4397fe8af7aa4ee87f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8abaffcc19f3666772c38792b46a2371e945e0eaf5941ebbaa754437d39f318c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5da1799a9df3a4d1e053aa31986682cc986327c729a4df782a4d7cecd9c62f47"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e3f732f0b2d6b00d959aa08289ee2f1c4a98ed5c397796034d27c11a291fd116"

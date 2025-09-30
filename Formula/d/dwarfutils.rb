@@ -12,6 +12,7 @@ class Dwarfutils < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "1afe40a7c19dc56087012ac8b931ae71cbda2797c389ff3430df80a81153d5a2"
     sha256 arm64_sequoia: "143b1cf7befda30f5980aa7c6a81e92b627ce61db77af36bb2e3120a0b225380"
     sha256 arm64_sonoma:  "1ca05e626afa92045007109d01e70bbc36bb75a08b2f5aab2ea2c7f9e06bd803"
     sha256 arm64_ventura: "56c44d3750de55a820cf5542e7d9c1638eba2373c95d1b40544e7858cb873eb0"

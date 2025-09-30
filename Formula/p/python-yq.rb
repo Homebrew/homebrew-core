@@ -10,6 +10,7 @@ class PythonYq < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c1c48fe8fea4b75df063984531ab15a54af442a7de0e01d444794ccf3bd9bfc3"
     sha256 cellar: :any,                 arm64_sequoia: "fc51885dc4afeb945b9da323e5ab75751a5b861f20c0523a79360343cf4f57db"
     sha256 cellar: :any,                 arm64_sonoma:  "8b33d265380df20b66a575e0b84592c86ba02422298dfb9a095fd46c407f913a"
     sha256 cellar: :any,                 arm64_ventura: "b7cfa07975355ba6d17eb32c40d7fc6ca2814de0ce84707e242bbf0050758902"

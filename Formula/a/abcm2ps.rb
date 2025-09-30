@@ -13,6 +13,7 @@ class Abcm2ps < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "009998c0673285fe186b142ba9dfdf7e6da03baa621fed30626e0c208526e9a5"
     sha256 arm64_sequoia: "3d17a30a50dec0a222b5affc869944133110d26183456da63dd0e53ed05dced0"
     sha256 arm64_sonoma:  "1285f979079ab7e11a7b9695ca1a50e558bd1e98ea77fc7b0eade685bd339e78"
     sha256 arm64_ventura: "b1904fe9f5fb66c73cba6bf1988afdc0a86ba846972738e649a2c9b1c1e6268d"

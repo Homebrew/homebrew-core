@@ -1,17 +1,16 @@
 class MacosTrash < Formula
   desc "Move files and folders to the trash"
   homepage "https://github.com/sindresorhus/macos-trash"
-  url "https://github.com/sindresorhus/macos-trash/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "95eeea2a96e5d989145da4697206062798b9f708101dc426ae5a489969619114"
+  url "https://github.com/sindresorhus/macos-trash/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "87089efd5f47e4281986647c8e6ea8dc10429ba83ae7e7386a91dfccc03bee20"
   license "MIT"
   head "https://github.com/sindresorhus/macos-trash.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2428e281cfd65f72086b510be7e425635e855f4fda1d272964c30b5253a9df4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8aff9fa300a5df44f6659bfc66c7976e79b8e3aee583c22148ee50062517b281"
-    sha256 cellar: :any_skip_relocation, sonoma:        "240b1bf992d89a5b41c1f5346188c5059bd5b2ed0ba8c475f7a02310cc299e31"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "837419a21b5c21d63e2de521f028c432ff940bf818b223bb2d0f9a5d88e07cab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61cc960fd152c59ea72b3d359990278d2656ebe2be906a31d3af6a868c608cc3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b2426efa574b998d6da53ebaae86471792a483d0542f20d40e68f40ad591424"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1616ab084278465dee0c363631477f1954858316a40284fed41a7f6932f2ae0d"
   end
 
   keg_only :shadowed_by_macos

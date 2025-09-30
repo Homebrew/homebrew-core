@@ -7,6 +7,7 @@ class Oslo < Formula
   head "https://github.com/openslo/oslo.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ff44a4a69d5f3ca100d7aa93def60b26c01d8b5e76e22629d8a148d82fddf378"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1dc252e4e8d683047409636266e7c11e62725cc9ac3a21c394c1a0f04b644654"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1dc252e4e8d683047409636266e7c11e62725cc9ac3a21c394c1a0f04b644654"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1dc252e4e8d683047409636266e7c11e62725cc9ac3a21c394c1a0f04b644654"

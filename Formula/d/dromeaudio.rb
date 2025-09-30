@@ -8,6 +8,7 @@ class Dromeaudio < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "caa20933486c0d5609e92bbdfa895b2944702bbe8a98a47954c9c5d50a2ffb00"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "955eefdfe1d3fe73315f0f9c2eb9c90a08444658caf30b5c9235aa27337980bb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6dfb5e4fee8100aaf2ba927c2eb06f0ab7ea5b988f4e40b226653b9547937668"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e8d488b354c6a990708784d7048679ff882b3edf5d21b12276d13e2e241ab3f"
@@ -18,8 +19,6 @@ class Dromeaudio < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "2f3eb4f1d29eb1644181305eae8444526d38f6a557c4c236407dacf7d91a9fcd"
     sha256 cellar: :any_skip_relocation, big_sur:        "ef9ce724d04545c565e1e46f06560128f54c8fd164fdc3d3abca18a4d17ad9b6"
     sha256 cellar: :any_skip_relocation, catalina:       "5199ecfbb8454f1560685c537b1fbaf1b301b39ad8ea825a9f846cc9f3530f30"
-    sha256 cellar: :any_skip_relocation, mojave:         "062b0fa8e43363d60e5816343d1fcb7f58ce02c236512d96f4bf4ba10c96fd2c"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "1334685c021a520567e2d16bfe68ebddea8f9382a50645e241d09349cfb6b450"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "e5db31bd07590274f76bfd1b145f31f5578834a96d9c093448860b27ac2d0a24"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f070aab40ff55d1bc82cae306c222e05770d9b5cd22fdace7fbb7d04ea7aa6f"
   end
@@ -32,7 +31,10 @@ class Dromeaudio < Formula
     # install FindDromeAudio.cmake under share/cmake/Modules/
     inreplace "share/CMakeLists.txt", "${CMAKE_ROOT}", "#{share}/cmake"
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround for CMake 4 compatibility
+    inreplace "CMakeLists.txt", "cmake_policy(SET CMP0005 OLD)", ""
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

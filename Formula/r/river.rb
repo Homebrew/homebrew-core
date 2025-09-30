@@ -7,6 +7,7 @@ class River < Formula
   head "https://github.com/memorysafety/river.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "6aa053883945074b92163f95377836cd8dac14606d0406d83bcfef4238f6a2a5"
     sha256 cellar: :any,                 arm64_sequoia:  "07ebac88781c5ead2935d4fcdcf750f10791ac135986c7917e5fcfcf8cad0a97"
     sha256 cellar: :any,                 arm64_sonoma:   "d214bd3778baa4798b1842f4d4a6049d48f02cbe6862418d35e1acc8fe8d319a"
     sha256 cellar: :any,                 arm64_ventura:  "2f254be15ed6c188188fa007bcb48e7124808c8449c95da2bc463b1539852b23"

@@ -9,6 +9,7 @@ class Freeling < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "274f39196a43fd18262ffb687dff3e46a5b9735bd614e44d3d3ae0642a811944"
     sha256 cellar: :any,                 arm64_sequoia: "4d03e05512e15205712905c6fcce7f8c60eab88d1aa5d25416d0efa7a7c11e15"
     sha256 cellar: :any,                 arm64_sonoma:  "e42599bb112cad791a8b2da21fe4dbd84d0783b5fb9f21106c9bbf2a786c256f"
     sha256 cellar: :any,                 arm64_ventura: "9914627e7c0754f65831e135913ceac39a906076aea1f1ce89067efcc23a67f4"

@@ -7,6 +7,7 @@ class Tz < Formula
   head "https://github.com/oz/tz.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "042c065ef5a5f56fcbaeb67c1d462246a04fec0bf796788c8247478191b6d78e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d201f92d60530fcf9037fd2064ab8cc4843fcbc1d5c65a881d12874de7696d0a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d201f92d60530fcf9037fd2064ab8cc4843fcbc1d5c65a881d12874de7696d0a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d201f92d60530fcf9037fd2064ab8cc4843fcbc1d5c65a881d12874de7696d0a"

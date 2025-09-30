@@ -13,6 +13,7 @@ class Ice < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "163b12ea66fc9210f121ee9c2f0fc18404d8f660a963d3bf492af0b807eb19d8"
     sha256 cellar: :any,                 arm64_sequoia:  "7c514dfb78c4739a0e3a89fef4c6cb238fa944b43efab26bda3aea20ec4ae47e"
     sha256 cellar: :any,                 arm64_sonoma:   "9e16e4dc54af25f1f87ada450ac1179be3f2ddbdfaf53d75fc242f20dd093721"
     sha256 cellar: :any,                 arm64_ventura:  "c13e1bd19804740b88a1a91acb548a66a4407bb234c74423bf0fa5a4c529b59c"
@@ -37,12 +38,22 @@ class Ice < Formula
   end
 
   def install
+    extra_cxxflags = []
+
     # Workaround for Xcode 16 (LLVM 17) Clang bug that causes:
     # include/Ice/OutgoingAsync.h: error: declaration shadows a local variable [-Werror,-Wshadow-uncaptured-local]
     # Ref: https://github.com/llvm/llvm-project/issues/81307
     # Ref: https://github.com/llvm/llvm-project/issues/71976
-    if DevelopmentTools.clang_build_version == 1600
-      inreplace "config/Make.rules.Darwin", "-Wno-shadow-field ", "\\0-Wno-shadow-uncaptured-local "
+    extra_cxxflags << "-Wno-shadow-uncaptured-local" if DevelopmentTools.clang_build_version >= 1600
+
+    # Workaround for macOS 26 SDK
+    extra_cxxflags << "-Wno-deprecated-declarations" if DevelopmentTools.clang_build_version >= 1700
+
+    # Workaround for Xcode 26 (Clang 17)
+    extra_cxxflags << "-Wno-reserved-user-defined-literal" if DevelopmentTools.clang_build_version >= 1700
+
+    unless extra_cxxflags.empty?
+      inreplace "config/Make.rules.Darwin", "-Wdocumentation ", "\\0#{extra_cxxflags.join(" ")} "
     end
 
     args = [
@@ -54,7 +65,7 @@ class Ice < Formula
       "CONFIGS=shared cpp11-shared xcodesdk cpp11-xcodesdk",
       "PLATFORMS=all",
       "SKIP=slice2confluence",
-      "LANGUAGES=cpp objective-c",
+      "LANGUAGES=cpp",
     ]
 
     # Fails with Xcode < 12.5

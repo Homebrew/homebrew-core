@@ -9,6 +9,7 @@ class Nuvie < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "6c30661325add7687133e29bcc6737e776aba83671d7ac74fd8bb6763f3c9fc3"
     sha256 cellar: :any,                 arm64_sequoia:  "902a34d91fc246cecdc69226062a69cba191bcf6992503f15c4f88ddad3026d6"
     sha256 cellar: :any,                 arm64_sonoma:   "5411b122bd14475a5b65b01528146f985b3af26d4e6b82c6d34c49197e1dfc0e"
     sha256 cellar: :any,                 arm64_ventura:  "93db83cb47b7c6f93b2d6adeb1d6fcf12f72920dd32185983a6d24fe0f63002e"
@@ -32,10 +33,11 @@ class Nuvie < Formula
   depends_on "sdl12-compat"
 
   def install
-    # Work around GCC 11 failure due to default C++17 standard.
+    # Work around GCC 11 / Clang 17 failure due to higher default C++ standard.
     # We use C++03 standard as C++11 standard needs upstream fix.
+    # We append to CXX because CXXFLAGS is also used for C code somehow.
     # Ref: https://github.com/nuvie/nuvie/commit/69fb52d35d5eaffcf3bca56929ab58a99defec3d
-    ENV.append "CXXFLAGS", "-std=c++03" if OS.linux?
+    ENV.append "CXX", "-std=c++03" if OS.linux? || DevelopmentTools.clang_build_version >= 1700
 
     inreplace "./nuvie.cpp" do |s|
       s.gsub! 'datadir", "./data"',

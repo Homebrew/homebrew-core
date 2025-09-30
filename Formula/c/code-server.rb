@@ -1,18 +1,17 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.103.1.tgz"
-  sha256 "c10ce0856af1f45ad9b41b1de21d938a3e65034f2ca0d80f51339f8ca0b775c5"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.104.2.tgz"
+  sha256 "7dee94db07a592743d7ec158e47281b1f35b5b5982f3e4288f252254bd4a3dde"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca097140c0ebc615efa7b8ebfbd84ed4733ea2f829a37e73773c6c756f1a56e5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b90cf9021947aadc07f5ef2d49a0fae2e255248d3c3d8cff20171a97e7caf00e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "88b5b071aa48358108d838bc697661298de0db78be8ee59f50a45e23f241f7eb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "02d261643e45355599d05c873ac088677d0afe894bda3b4a66e5261a94c13bd5"
-    sha256 cellar: :any_skip_relocation, ventura:       "f3d656e33cc4e9f39b91fedf289beb12bce00433d56fca75b002867d29b064ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23b9f5a8d668541aed71ad3b2948e406e1b2be592183bd0f583bcf8500b7e95f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03b0e836fe24a0a47a10d058b4633e24eb40f7dea1c2a1f27ebf040e51cb534f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "17ade831ac49409172e28a6cb42651e4b693c9d23d5958d0f471b0b508df2d2d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31a7835370c15cc9fb06d61780ea226ff85a047d0b2c3f9160616bfd50f63790"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3410e7c02e2dd5633984f22434f8a474c005dba89094da8ec5fdfd3aabb74d65"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8de3547b09c1911d575b6e32263dfa8b4344014b41cece4917c41214d329ab74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "39b4d1f0bf21fae61aa9cbb8568b38b8ae356e520c318ce03c5fdc135a695bb5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4283efad1a620df3f80496537f0b7f4c97915e6b261cea6dae14bdfa7634138"
   end
 
   depends_on "pkgconf" => :build

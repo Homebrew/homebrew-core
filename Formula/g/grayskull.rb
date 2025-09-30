@@ -9,6 +9,7 @@ class Grayskull < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "572b2711df888eb23ff9b1bde11fa578b0d5edf6c1ab71f6843cbbdafb18b05f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c056deda6cb6e2688541e3bd737fc19e7ce83c4eb5701cb1ee4ebdf121ab17c0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d61ce33b245a0e9f3d2480dd9230c186441b6dfddce5903a736791875f66ae1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9f52cfe971a1abbad32e985f0f051ff6324d81bf04892bb687475b0a45164983"

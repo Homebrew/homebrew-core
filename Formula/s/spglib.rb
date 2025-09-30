@@ -6,6 +6,7 @@ class Spglib < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d1f0145c7fce622faa3b2663a0e5f3dc807d71d5d325a0284959a89db1512ed1"
     sha256 cellar: :any,                 arm64_sequoia: "1f70bfc567f1349913975ebe3a2173dfb68dd234dab1a6fd199f62b494a75919"
     sha256 cellar: :any,                 arm64_sonoma:  "f4b1b449ad705a09d66de2d0b3868f7ed6d4cec38aea989e4639529e3bbf4f46"
     sha256 cellar: :any,                 arm64_ventura: "ab9d0638a60bc897b4d3ce4f2f37e451df8470f15af4eb7e638253673b636622"

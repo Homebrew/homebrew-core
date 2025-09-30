@@ -6,6 +6,7 @@ class Rmlint < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0d90cd13c8a94f6fc34bbdbf82ae92ce390a501cb7719eed1c3e5ba7e5a17311"
     sha256 cellar: :any,                 arm64_sequoia: "271ea48a158868357536e3dfff58e0707e33f2ce3a14a8040b25ac08b6434474"
     sha256 cellar: :any,                 arm64_sonoma:  "b2d780f8713b5f8e9979f38f4fa9cfa831cbd65b2e1a206d8e760606335b2e78"
     sha256 cellar: :any,                 arm64_ventura: "ade2340e57e28b4693f73a4eb919f17bf1a18d39ab268f0ae51d984bf0cfeced"

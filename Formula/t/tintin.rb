@@ -11,6 +11,7 @@ class Tintin < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c79e4c05084a38e2dce0d540e32dad034ded6da9669f4351a8e1ee4f3f749bc5"
     sha256 cellar: :any,                 arm64_sequoia: "c8410631e4b5913d30deff7f49b6c1f0b8e5d86b9aa894a61a5a61138ce4a8fe"
     sha256 cellar: :any,                 arm64_sonoma:  "699fae6ad2d5b69edb8a966d22364e25c27485084d3c8a55d6b767680e4be03e"
     sha256 cellar: :any,                 arm64_ventura: "27270803fb800ee49cd574dcbfa6a7d2e3dd18e4baf5a7d04107684421d15849"

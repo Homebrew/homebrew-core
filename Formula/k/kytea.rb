@@ -12,6 +12,12 @@ class Kytea < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
       sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
     end
+
+    # Fix build with newer Clang
+    patch do
+      url "https://github.com/neubig/kytea/commit/eab98ce9c45ccc4a0226a87fa6c40b6d0c5ba82b.patch?full_index=1"
+      sha256 "aabb381b38592432d97f789520c81e6df46808c611ff541aae093357c06921c6"
+    end
   end
 
   livecheck do
@@ -22,6 +28,7 @@ class Kytea < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "5ad912b4301454e3c29c5dd0f9b4c9b592d140d0ecc24cb12261408a7dc5ea56"
     sha256 arm64_sequoia:  "0afb996003e2ad0e1443b6a260fcebf6ae349022a1e082ae467bc96d77000b1f"
     sha256 arm64_sonoma:   "80b6a9d85ab58a17b68cf889c413a5bae57c27839ec5e77a787a2a4ae7753c71"
     sha256 arm64_ventura:  "ef9042105ea5b55cfc0dde6e495c287601ec8aad58d8e14342702e127a7d97dd"
@@ -32,10 +39,6 @@ class Kytea < Formula
     sha256 monterey:       "98ff434e2b5ebf881d6090accee434dd9fb6912319cd4113b34fbd59fead6e78"
     sha256 big_sur:        "2efc4bc6d1c77859c5012819331672e30b9e8c4491c696aac132e8356e08b483"
     sha256 catalina:       "927aac3d562cc2977f84670c850ab262a05a010bfe7e7f16aa0eb7d9532eae7b"
-    sha256 mojave:         "57c8c3acf60417d44d7df27445d667dd03095f1afdad70aeb63cf68e0cbc64c0"
-    sha256 high_sierra:    "bcdb450698d5065cf82b7726d6dc21381632c41352237dc547c05cc62e4b7e59"
-    sha256 sierra:         "d29c61f74da5f4d88f09d8b540943599ce8b6e5062af88b7d5725ea84fb4c603"
-    sha256 el_capitan:     "3e0c66a7efb34ddb8e4f80d9b95562779e224271b8d63d38f9bc8176103427e2"
     sha256 arm64_linux:    "17f10a2914f947e7ddb494eaae7e76d3d6e36887db809a894f9d824776a47aa3"
     sha256 x86_64_linux:   "91e9f57d0c837e62f789d7189349120d1925eca4fa05479072f89b4f617c2ffd"
   end

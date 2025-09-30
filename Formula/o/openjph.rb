@@ -1,19 +1,18 @@
 class Openjph < Formula
   desc "Open-source implementation of JPEG2000 Part-15 (or JPH or HTJ2K)"
   homepage "https://github.com/aous72/OpenJPH"
-  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.21.5.tar.gz"
-  sha256 "5f2fed72b4111e3e74b51e8183ec1be5b1eeac48760dd60fd6a548a0b65aec94"
+  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.24.1.tar.gz"
+  sha256 "5e44a809c9ee3dad175da839feaf66746cfc114a625ec61c786de8ad3f5ab472"
   license "BSD-2-Clause"
   head "https://github.com/aous72/OpenJPH.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ef394161aaf1467ae7f6f871d6e9dd422e161b5564dac49f47ff0ad2cbfd6a45"
-    sha256 cellar: :any,                 arm64_sonoma:  "10648354fc84a25125eba1c03391c57d7a38e00fabca744ee1556c13dfb8a5c6"
-    sha256 cellar: :any,                 arm64_ventura: "3dacaa31fa1bb947252ad5a9daa8b4ada52b5a5fade1b36efefa2bd8992482b2"
-    sha256 cellar: :any,                 sonoma:        "e239bda4f271d2d69901a8ded821100086653e3ea66905d1554444c9c6613093"
-    sha256 cellar: :any,                 ventura:       "627a58be91828f003a1c6b5b45a65bcdb11d7d8e7e03913d412e93050211faa8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "832531e9f6a5c0336f8100ef1f1ee7ca00e7d626087689eb7ac58b655942e9e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bfe3aeb3f2a840098aa984c020e6dd48e05832fbcbecd5b91cbe46c125733d6"
+    sha256 cellar: :any,                 arm64_tahoe:   "afb314954eba8de9b1d7f865f06ee99ce2eadf7bb4e31c6c8582de04ce014210"
+    sha256 cellar: :any,                 arm64_sequoia: "a77e4cad9b430d6fa58f8f600871cf4f71b7580cc4f4024ed6b678ce0c0c44ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "54191a0350c2d6565e69eec865470736869e127d982075cd7a84cce48bff0aae"
+    sha256 cellar: :any,                 sonoma:        "65ab746593d1052de6282ea27514078e268eef5af866b3a5785ed8dcc6288350"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5371b52b17a96a99535a3f620c6239f43a3a44b5885c31f7a73db4875201f13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8810ecf7daf3f8e5e1b2d8fee6f399de5f77b16cd79aa1de43c34b0799eb55f2"
   end
 
   depends_on "cmake" => :build

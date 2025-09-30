@@ -1,7 +1,8 @@
 class Libmpeg2 < Formula
   desc "Library to decode mpeg-2 and mpeg-1 video streams"
   homepage "https://libmpeg2.sourceforge.io/"
-  url "https://libmpeg2.sourceforge.io/files/libmpeg2-0.5.1.tar.gz"
+  url "https://download.videolan.org/contrib/libmpeg2/libmpeg2-0.5.1.tar.gz"
+  mirror "https://libmpeg2.sourceforge.io/files/libmpeg2-0.5.1.tar.gz"
   sha256 "dee22e893cb5fc2b2b6ebd60b88478ab8556cb3b93f9a0d7ce8f3b61851871d4"
   license "GPL-2.0-or-later"
   revision 1
@@ -14,6 +15,7 @@ class Libmpeg2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "774f58a1e39f846fdcb40c1b05446f9867836cc95e66fe25d2d829f8e98c88a4"
     sha256 cellar: :any,                 arm64_sequoia:  "2db4b583e04a71b456045c2bf9f7d08f1ee332e8305c0944d4b101c83ab71990"
     sha256 cellar: :any,                 arm64_sonoma:   "0174a78b3200ac177017167c6dd73a31202da4a819c4a282b424e36a346b2496"
     sha256 cellar: :any,                 arm64_ventura:  "a5522ab17783c821344f34583781d561c6c579ab60c28483fb934e66fddfc93f"

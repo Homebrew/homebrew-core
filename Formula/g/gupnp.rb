@@ -8,6 +8,7 @@ class Gupnp < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "847666ea81e72e7a910035652a984190dab39c2dcc05f5c16abfba74ae2d53be"
     sha256 cellar: :any, arm64_sequoia: "30d6c15e0e67e5f4bfbbffbe5c51376955d296985ee96114f2abbf0316dd04aa"
     sha256 cellar: :any, arm64_sonoma:  "1830346216a09586177fc3a496373fb8010334893553e0f337885bf18f796c23"
     sha256 cellar: :any, arm64_ventura: "f046d7600a8bb320134a022c9f3e21ce5435890a1e5a634dad970fb3467548a6"

@@ -4,18 +4,21 @@ class Libgr < Formula
   url "https://github.com/sciapp/gr/archive/refs/tags/v0.73.17.tar.gz"
   sha256 "dafd6ee72d36226d4664ca32d85d0b68224d5dba710abb8a4578c427259858e1"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_sonoma:  "eda2929f078abdb61a78c62445ca3cf33f6781c154e746eb38b3e3994913c34e"
-    sha256 arm64_ventura: "bcfad24eed6c8cc1efbfa8773f1542410288cb1a670a218ef9cda0f715553a7e"
-    sha256 sonoma:        "92af020b38817ecc3c2dbc5d386d53e7abe643a8f394db5236caaf44143a34c6"
-    sha256 ventura:       "764b7395a66bd11320ea8c7a64d4ca2769bc7ee3aef9fdb67a0e7dc93fef52ca"
-    sha256 x86_64_linux:  "f3a17380ee1c81dd4d4f8345c167723ac63dd589007a3987af527f8d48343482"
+    sha256 arm64_tahoe:   "3b7b66b7608cff95d414a23067857a46e61b1f0ed58ce371bcee291e8a1f6e3e"
+    sha256 arm64_sequoia: "90000a93329b302423df61810193bc3968537fc37b2e2f7dbdd6d96bdf983397"
+    sha256 arm64_sonoma:  "3ce60c550dcd8720707e307b8ac7899815a941b579bd4f01b960675699ada710"
+    sha256 arm64_ventura: "cb3af42272d1ad444e7552f9fda7ec20de5756355d65d140500658c9466c541a"
+    sha256 sonoma:        "309cb93ea973b305a0503eae8890d1aa7c74724dbcf3451aceaa7892efacf4ad"
+    sha256 ventura:       "24a5a93b585691867de0d39daa4cad50d4bb5a9704a19b871444f187a1102e67"
+    sha256 x86_64_linux:  "e2515bd932c6012a30f536435b9a3e1cfb7d4c2523a61720dd2e98978a67fae0"
   end
 
   depends_on "cmake" => :build
   depends_on "cairo"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7" # FFmpeg 8 issue: https://github.com/sciapp/gr/issues/197
   depends_on "freetype"
   depends_on "glfw"
   depends_on "jpeg-turbo"

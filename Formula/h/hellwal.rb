@@ -1,18 +1,19 @@
 class Hellwal < Formula
   desc "Fast, extensible color palette generator"
   homepage "https://github.com/danihek/hellwal"
-  url "https://github.com/danihek/hellwal/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "ad5bd1e4ec7fc747179b4e20e655c1857f3da80c56ce3f82de835aa73550a7a4"
+  url "https://github.com/danihek/hellwal/archive/refs/tags/v1.0.7.tar.gz"
+  sha256 "78cea94425b35a4dc377e498921ddb2927b093ed6b825606554f25b98699310c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df2140e201924efe6b60c733707397fa18fed991d183bc4d0aa9626d15b7565b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea6fab12cdc2a7b7e04146b0932aafe0bb382384f30e9b9911e6cf60da9d9b59"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ac64935c05b01420f37f92aa623bdb4d748a1d03c04b064d37e1b2a0c741230a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e28c9236c96e6e203400e6290513649b4a27b8125ec6ca6b6c21069ee3c789e6"
-    sha256 cellar: :any_skip_relocation, ventura:       "210a465c07ab34be559c95f997ba5633ce09898209a0121fad7bb9e65ffa7401"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f75463bcbd3370905aa02787ee63378dc8cc1a34a1cab30f0ed4cc488ee93ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2df621a0a50103ec43d38ed30212ddd9e303003aee23afe5191f46e0eeb2de5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfc5e8ad72740938b145df1f38466551c055a2fbf5119859a7cd35423a68d54c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96f793601bdf6475d4d23ceb1f187acd6e8d6847975c4910ba887044cc655e31"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "87cd5c204b43091bc96917c0b6511517eb93b89b2f5d8c85ed7a61203bb4425f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "82a9c9ffbfd161281dcf0171794cb523396ba53f3489ef5f2ce64d21fe87b964"
+    sha256 cellar: :any_skip_relocation, sonoma:        "30c0b0f64a0de8093a854c19a8f18ac5dbc3113f49182b874d18bfd663948b54"
+    sha256 cellar: :any_skip_relocation, ventura:       "d753966a3b24aedb2b838060414951b9f05310c6cf10ab7dea0d0f40f5ef058c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a2eba338afdcf106cb12a2a6a8213c53b8996309e1cae25364bc4e403f7b169"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbd4d1a76335f7fe6a12d94124cd2ec8f3a0d72eff2f3d5bdf0375894d79d715"
   end
 
   def install

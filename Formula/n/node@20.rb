@@ -1,8 +1,8 @@
 class NodeAT20 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.19.4/node-v20.19.4.tar.xz"
-  sha256 "b87fd7106013d3906706913ffc63a4403715fbb272c4f83ff4338527353eec0f"
+  url "https://nodejs.org/dist/v20.19.5/node-v20.19.5.tar.xz"
+  sha256 "230c899f4e2489c4b8d2232edd6cc02f384fb2397c2a246a22e415837ee5da51"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,14 @@ class NodeAT20 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "62e9c3a38ade4feee40a8afd3be4aae9956b3a4b8a00b6185090fc8c3b75e196"
-    sha256 arm64_sonoma:  "3b99b3d9aa58de57ca704d351e369aad2f750cbe3005aed4b1bae5d2b580f947"
-    sha256 arm64_ventura: "6c264b13b45f336cd2640019f17bacb55553ab6960adfcca1603a4b405051404"
-    sha256 sonoma:        "d114f6a022c90185cab56ce991ffcb17db9b3504ddb20b4182b19a1b5c44d889"
-    sha256 ventura:       "37353ba8dd89ddff6f91b9ab295bb9f893561de2eaa5b54e4bb6b14714cb2b46"
-    sha256 arm64_linux:   "13034db1cd6aeb980276a5679c0ef7adf486cae7201af475e5d411004ea787ef"
-    sha256 x86_64_linux:  "38d9c443c9829768819694ce3645b33bae521122c550c08ff9bd4594c2906246"
+    sha256 arm64_tahoe:   "8d0dbbb89c386dba33d36aa7f2a73ff8e0c0d4ec86b5050e368b9715ea679f2e"
+    sha256 arm64_sequoia: "60022a7ebf3aabb93a056c4787f398ed4f4b8ebd064fa5a55a4ea882594bb3be"
+    sha256 arm64_sonoma:  "6d90b4f115316dbf59eaf860168191927b540d74ca1e600a78c97e2df5e976ca"
+    sha256 arm64_ventura: "857c08c4a6adf986603529735a28d6ee32783f3c45a24d7fdf7fed3edf32671e"
+    sha256 sonoma:        "6e35d56a97fee410d1157542ae1f892458fea90ea50612a923c5a34857c43c58"
+    sha256 ventura:       "d0254c738b1f4bab3969e9c83caab8d6643737d40d1db5c41d00cc7091e1e5cb"
+    sha256 arm64_linux:   "f9156ec5197ebc708346e6308c4b06303340320750588470892551951adeefa6"
+    sha256 x86_64_linux:  "d0a7e156cb5aaca2678478360c593410e6fbb115d42d40045ce3d6e4187c265e"
   end
 
   keg_only :versioned_formula
@@ -35,7 +36,7 @@ class NodeAT20 < Formula
   depends_on "libuv"
   depends_on "openssl@3"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
@@ -82,9 +83,8 @@ class NodeAT20 < Formula
 
     # Enabling LTO errors on Linux with:
     # terminate called after throwing an instance of 'std::out_of_range'
-    # Pre-Catalina macOS also can't build with LTO
     # LTO is unpleasant if you have to build from source.
-    args << "--enable-lto" if OS.mac? && MacOS.version >= :catalina && build.bottle?
+    args << "--enable-lto" if OS.mac? && build.bottle?
 
     system "./configure", *args
     system "make", "install"

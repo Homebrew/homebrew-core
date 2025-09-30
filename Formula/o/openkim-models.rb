@@ -14,6 +14,7 @@ class OpenkimModels < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f0835dfa801e64cfd8157312b79d8f4c7e1de78625e6d9f8fab9fa6aa3d6d9e4"
     sha256 cellar: :any,                 arm64_sequoia:  "4b54c417f0e9a9012499d60c41935324c7de81a54bccf1710f68528201eccb9a"
     sha256 cellar: :any,                 arm64_sonoma:   "ca3243c57f7b498ea49744ea96163e585158aff2d69fe10523598a986b302e0b"
     sha256 cellar: :any,                 arm64_ventura:  "458fc81fd6c2a1b3e0599f4ac40c1d40d7168f32407ec6f3c34db3b4215daa63"
@@ -41,7 +42,8 @@ class OpenkimModels < Formula
       -DKIM_API_PORTABLE_MODEL_INSTALL_PREFIX=#{lib}/openkim-models/portable-models
       -DKIM_API_SIMULATOR_MODEL_INSTALL_PREFIX=#{lib}/openkim-models/simulator-models
     ]
-
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

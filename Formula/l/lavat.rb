@@ -9,6 +9,7 @@ class Lavat < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f684f1efa1724f5d7fe73d03eb9acfb5f79309a13561088894acb99fd7f2439e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a7cb9e3e77b1074841570a1bd0b037bcee8d74e05784c8bd9a3f2a4ec4c6c915"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "741edf089aad5dc7dcb7c206daa13fb4e1dceca2bf2d6aeae3a5acedc68cbe5a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "05a6148c956b3d20ab3f27654ad1adbb0e7bd33c11d8af285beb289544d3aaea"

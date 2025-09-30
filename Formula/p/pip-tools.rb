@@ -8,6 +8,7 @@ class PipTools < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7acba0684730d3cd9953290951850ab5f6705f232603b3a086cb0676f5ab98c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d66a627e42f665671d79a2c998ac6176dab1e872ddd596407150fa853a82c8c2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d66a627e42f665671d79a2c998ac6176dab1e872ddd596407150fa853a82c8c2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d66a627e42f665671d79a2c998ac6176dab1e872ddd596407150fa853a82c8c2"

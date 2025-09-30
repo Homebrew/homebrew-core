@@ -11,6 +11,7 @@ class Ophcrack < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "2553d9e208e58765c20d11a8ce7a24ba4564caca492eaeec39ff7f3143452bed"
     sha256 cellar: :any,                 arm64_sequoia:  "2cc621ee5589b47e95841913aaa74aa64a404c677c3ab2062413c17424db56f2"
     sha256 cellar: :any,                 arm64_sonoma:   "49dd51ca8558b2ee8d1604f71cfefc6ab5d154ed98e979c20493cf81ee0928ae"
     sha256 cellar: :any,                 arm64_ventura:  "2944016f7c83334b70e9be541ddb4dc1da3fd8153234897cfe133ae29e336afc"

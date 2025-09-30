@@ -10,6 +10,7 @@ class Redshift < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "b3f728c06b42f585bdf50685e7613ee66f639d43f85030942edf712b6ad928ab"
     sha256 arm64_sequoia:  "82b1df8db7796fa1af92a7b3ef4ea428e4d94a65850a5e2cdb90f354605cf065"
     sha256 arm64_sonoma:   "b2ad69df7721d0d5c8777741384c3de6e24d370c394a4f39f6432239cdb2b158"
     sha256 arm64_ventura:  "a14f34f6fee41eb43734e14fc6b18965bc5438aa7a4acbf3a5b881e31bef5663"
@@ -20,7 +21,6 @@ class Redshift < Formula
     sha256 monterey:       "442b3c30b0cd25d42a4c5e03ed166a264c59bb67b4eb51bbccef29c819e6aa39"
     sha256 big_sur:        "8be47c6b6015ca4ccd2c706dd58541c49c4177a1d69144452a7aa483c977f805"
     sha256 catalina:       "344ea69571839ab32210854f990474239fde828b10a019ec5e88695eb4c7ffcb"
-    sha256 mojave:         "71ec07212f543d7a4152f04627f2fe9cabcbc121caae584b24070f05101ae4dd"
     sha256 arm64_linux:    "c21e3b0726216ea136e4f022da78243fd5572e69f9a3fc7507c07831d95551d4"
     sha256 x86_64_linux:   "12372cb33e04989848070b332096420b45539cd69e31026545543207d7d0cc9a"
   end

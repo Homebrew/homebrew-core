@@ -7,6 +7,7 @@ class Libstrophe < Formula
   head "https://github.com/strophe/libstrophe.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d03a5cd85ad0c216e28135147a74744847eb32c4e6f4ec52f7de8700098c71b0"
     sha256 cellar: :any,                 arm64_sequoia: "9b73c7be79de4da6cdf71493be1d7cfebeb793118cc3e8c81f38e1e300c7655a"
     sha256 cellar: :any,                 arm64_sonoma:  "26a68ff8af0c493458d249c831bc9951d9167f67524a61a815aefe3735c90b05"
     sha256 cellar: :any,                 arm64_ventura: "871b9da7491c846d8577fbd1497bf835abc2c529148d94f9124953fe602568da"

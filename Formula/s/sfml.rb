@@ -2,8 +2,8 @@ class Sfml < Formula
   # Don't update SFML until there's a corresponding CSFML release
   desc "Multi-media library with bindings for multiple languages"
   homepage "https://www.sfml-dev.org/"
-  url "https://github.com/SFML/SFML/archive/refs/tags/3.0.1.tar.gz"
-  sha256 "f99f71bb2f2608835b1a37e078512b75dd39d52b89e13e12246603a950da3c1f"
+  url "https://github.com/SFML/SFML/archive/refs/tags/3.0.2.tar.gz"
+  sha256 "0034e05f95509e5d3fb81b1625713e06da7b068f210288ce3fd67106f8f46995"
   license "Zlib"
   head "https://github.com/SFML/SFML.git", branch: "master"
 
@@ -15,13 +15,12 @@ class Sfml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "219438b2d39684b110414e0c199ef9c303bb14ea442d5de6aed2805564c2525e"
-    sha256 cellar: :any,                 arm64_sonoma:  "41e3ddc554afb5b505cb036672539652b5981591fb62d02797c16fac39217f69"
-    sha256 cellar: :any,                 arm64_ventura: "6f124cf63ea4944b4f395a06848b6b6d8e47f2e029dc029814271d4e8a38215a"
-    sha256 cellar: :any,                 sonoma:        "f56186107e571de0d38538cb941ae6598636513c575672e24ef4641e9038ac1f"
-    sha256 cellar: :any,                 ventura:       "3351ec1251bbc1c8b5dbac9c20807e70e32df6581e69b3ea1f821224eb3933e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "af868781ca4dabd34f9ee0a16a25dd414184fd2e4373c9f01bd6bbc65b7bcc34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fee6dff9705e907632542b1279f71c880f676cf235a5a3aba457a235c23fd709"
+    sha256 cellar: :any,                 arm64_tahoe:   "f90a54b2514303d50f3e7ce23554246b9a4bd6765db89158da55eef3b780ce98"
+    sha256 cellar: :any,                 arm64_sequoia: "ca368852e45e73f7740343b736e20ddae613f326cbc24bc3779421c3c093c026"
+    sha256 cellar: :any,                 arm64_sonoma:  "533db007d52c7b1ac24fe6699958baca1d989363f288d673b8c55b266efeedf4"
+    sha256 cellar: :any,                 sonoma:        "01fb208923654ba730e48e3fbb5ca3bf78c09838f5a9e15bd389045732e65baa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0cd68b13bddd404db5daa8a3a8a8ae8fd9236f59896374fb50514dea41628ecf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4c2c78c094ed8eb9b9ec3a5c2d45b0cf0975edcf165ed97d58762b371fb7fe9"
   end
 
   depends_on "cmake" => :build
@@ -44,11 +43,6 @@ class Sfml < Formula
   end
 
   def install
-    # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
-    # "error: expected function body after function declarator" on 10.12
-    # Requires the CLT to be the active developer directory if Xcode is installed
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version <= :high_sierra
-
     # Always remove the "extlibs" to avoid install_name_tool failure
     # (https://github.com/Homebrew/homebrew/pull/35279) but leave the
     # headers that were moved there in https://github.com/SFML/SFML/pull/795

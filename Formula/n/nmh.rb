@@ -15,6 +15,7 @@ class Nmh < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "a5e47512714ba643f7419b066b01383a222d550272e0cd7e01274302f1b1f492"
     sha256 arm64_sequoia:  "60f74fdf361c84ce1aad906bb3e44be7d08c7553c8862646e2790eff719df9c3"
     sha256 arm64_sonoma:   "4b087eeaa03d67b95eab1e96ec6f87f683012adbbbc2d8693d1a99c2003d12a8"
     sha256 arm64_ventura:  "ca1326e5695a86d075a90e0b1e86916a748df6a376bd851f0d6d8432853660d5"

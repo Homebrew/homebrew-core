@@ -6,6 +6,7 @@ class Alpscore < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a8b94faee3fd258973309650d1bfd520a8c18daffb59d39c23007d38a7639d50"
     sha256 cellar: :any,                 arm64_sequoia: "d32af432da55d533b24bd30a60f8e2845ae2bfe97a3b00d5f53e0d58282eeafe"
     sha256 cellar: :any,                 arm64_sonoma:  "d8e1ec2c2f445c059c8a6097f6900c4b3366b61f17bb4e985a047dfc71545cb5"
     sha256 cellar: :any,                 arm64_ventura: "7c51b1fafed3d6683f0a7711239ae8dfb960a3f9242e98d04889397112a0bbed"

@@ -15,6 +15,7 @@ class TaskwarriorTui < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "638152df72c0e4702d0ded02139c983135d168d2c46dea1f4106a06077bb3ea9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7008f3327bebcfdae93a957ccad18327bb0b54fa10071fe7132af4d024d1f5bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f2155bbc016b0505c664d7725748fc8b4edf6fc0512a8a1b4aae89b9b152519"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dc2f0b120a04e533106d02ed25211ab53f16fd341b69697e21b5b9b814c92ccd"

@@ -33,6 +33,10 @@ class GccAT10 < Formula
 
   on_macos do
     depends_on arch: :x86_64
+    # Align dates to remove Intel macOS support with brew
+    # https://docs.brew.sh/Support-Tiers#future-macos-support
+    deprecate! date: "2025-09-18", because: :unsupported
+    disable! date: "2026-09-18", because: :unsupported
   end
 
   on_linux do
@@ -42,9 +46,6 @@ class GccAT10 < Formula
       depends_on "zstd"
     end
   end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   def version_suffix
     version.major.to_s
@@ -87,7 +88,7 @@ class GccAT10 < Formula
       args << "--with-system-zlib"
 
       # Xcode 10 dropped 32-bit support
-      args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+      args << "--disable-multilib"
 
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed

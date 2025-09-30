@@ -9,6 +9,7 @@ class Procmail < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b1bfc16b0cf3a29c2782b0bd30bbf11b04f0586a01a6ebeac2aad63fbb9a8c16"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a2dee1f884a35fe10236bd86b12bd6bc507aa720f764be04e75fdc042c75fd8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9daf01dcf08b8b98d376cc6a99f1e8404db58f51ee2d62305ec604ddbcf3d7f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "09fcc2d016f1f67c3f69caa887411eab4e0b44c0c1e465841604bf6210522e8c"

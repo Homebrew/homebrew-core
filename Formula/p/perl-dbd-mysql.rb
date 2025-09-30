@@ -9,6 +9,7 @@ class PerlDbdMysql < Formula
   head "https://github.com/perl5-dbi/DBD-mysql.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4ad07b6c961ce9f5bc834cd91d9e42e08ea07ae54d7ae4bcdccad9dab9dcb0fc"
     sha256 cellar: :any,                 arm64_sequoia: "362421d937a7a3e460644202dd26cd18935d194dda030453042496b2615fe3ca"
     sha256 cellar: :any,                 arm64_sonoma:  "90fd966b55bbdaf4c3572c56df0e02618235975c160db102f908766e97038865"
     sha256 cellar: :any,                 arm64_ventura: "aaae867fda8e960c87a295b1cf6eca715b7649bff89dc8c3d456ef5741f0c207"

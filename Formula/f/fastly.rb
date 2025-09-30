@@ -1,18 +1,19 @@
 class Fastly < Formula
   desc "Build, deploy and configure Fastly services"
   homepage "https://www.fastly.com/documentation/reference/cli/"
-  url "https://github.com/fastly/cli/archive/refs/tags/v11.5.0.tar.gz"
-  sha256 "35b886586ffe5a8ccabbf08cfc249836b325a4b1e7c12c6dd5a0c15bd8c18717"
+  url "https://github.com/fastly/cli/archive/refs/tags/v12.0.0.tar.gz"
+  sha256 "5db6b6855208a1d099a7e17e271a85221e79868995cc1860391c71cd0dd3214c"
   license "Apache-2.0"
   head "https://github.com/fastly/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb9e0604ded9cf5029a0d2d512210d772c820ad6ce7885fa5991840bdf25cb4d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb9e0604ded9cf5029a0d2d512210d772c820ad6ce7885fa5991840bdf25cb4d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bb9e0604ded9cf5029a0d2d512210d772c820ad6ce7885fa5991840bdf25cb4d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c914d3b92394c8c5678beaecc1dcaeaf216f2d69f27f1206db8c95a67c3e9897"
-    sha256 cellar: :any_skip_relocation, ventura:       "c914d3b92394c8c5678beaecc1dcaeaf216f2d69f27f1206db8c95a67c3e9897"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ba0777ecda7f362410ff556e980267327b4e91b069c37464a038e24a931fe34"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a0d6ad98090d9496d07554217341b13053cf88204644fcd2fb6ecb50d822ff8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a0d6ad98090d9496d07554217341b13053cf88204644fcd2fb6ecb50d822ff8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a0d6ad98090d9496d07554217341b13053cf88204644fcd2fb6ecb50d822ff8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a0d6ad98090d9496d07554217341b13053cf88204644fcd2fb6ecb50d822ff8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "427027c3725a467cd1bcf47b246904de589d7c8ff5ce82497887a14e995111f4"
+    sha256 cellar: :any_skip_relocation, ventura:       "427027c3725a467cd1bcf47b246904de589d7c8ff5ce82497887a14e995111f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "517210b0441d738332357d4e60313dd22e2c125af91c0223055af875bd998c78"
   end
 
   depends_on "go" => :build

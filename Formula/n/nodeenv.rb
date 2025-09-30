@@ -15,9 +15,7 @@ class Nodeenv < Formula
   uses_from_macos "python"
 
   def install
-    if OS.linux? || MacOS.version >= :catalina
-      rewrite_shebang detected_python_shebang(use_python_from_path: true), "nodeenv.py"
-    end
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "nodeenv.py"
     bin.install "nodeenv.py" => "nodeenv"
   end
 

@@ -3,18 +3,19 @@ class RpdsPy < Formula
 
   desc "Python bindings to Rust's persistent data structures"
   homepage "https://rpds.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/1e/d9/991a0dee12d9fc53ed027e26a26a64b151d77252ac477e22666b9688bc16/rpds_py-0.27.0.tar.gz"
-  sha256 "8b23cf252f180cda89220b378d917180f29d313cd6a07b2431c0d3b776aae86f"
+  url "https://files.pythonhosted.org/packages/e9/dd/2c0cbe774744272b0ae725f44032c77bdcab6e8bcf544bffa3b6e70c8dba/rpds_py-0.27.1.tar.gz"
+  sha256 "26a1c73171d10b7acccbded82bf6a586ab8203601e565badc74bbbf8bc5a10f8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "049d3abc6c28bf4c008c62923b98b71e2e4344cacb439ed8f2fa5126c2c4737c"
-    sha256 cellar: :any,                 arm64_sonoma:  "9324d37373da675d9fa5632dfc96b2e08b28d285e25873bfe39a2e0ffb3cf453"
-    sha256 cellar: :any,                 arm64_ventura: "dfd7841ace847bed364c6cc9ee963a2984f8fe79edeec962a0663dcb950d829e"
-    sha256 cellar: :any,                 sonoma:        "1708470e7e750ffcf55b754b7bbd0725e0d22c26ce303b5d84242e35b8283ae2"
-    sha256 cellar: :any,                 ventura:       "c6883c4f56f04cd88a602bb96eb27f02a113e565b4cf08b4580e768520a14738"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ecf0fa7b27183247bfdca9b39f911755cc03772b09931fc60657c685fcc6a23d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "523db757ae6f23f796732c6575c4c57ba9016350f2f8180d205d975b55afc11a"
+    sha256 cellar: :any,                 arm64_tahoe:   "1dfdc2a23b9a10d279609cea5f703e604254089dd772ac9fcb30d8aa867421ce"
+    sha256 cellar: :any,                 arm64_sequoia: "e17b3cc293b9cc2f526646db82c1d20d85b884322d84fff93c7ff04051850c28"
+    sha256 cellar: :any,                 arm64_sonoma:  "8c4d924d33a30ba311f0a2e8282941e1ddbddfd0bf4c9b8436456fc79bb57bf2"
+    sha256 cellar: :any,                 arm64_ventura: "f6adad66444b44c0bf15113ac82b0bb913830eea5c893fa6acaaa54f88be210e"
+    sha256 cellar: :any,                 sonoma:        "1b1465aee8f9bd25b0ea26e3bcb65838be0a9ddd8e8caaf282d51e145eb020b9"
+    sha256 cellar: :any,                 ventura:       "cc80eb9a387b580b463ef6165f0db1ef5a588be76cd2543131586017a3f29fd5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "502856e5264fdd8d959218176c90c86554b530aba64b13dfa6bae655480111c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4ca5c4b5b6254fadcfab7d21d00871079c7b3cf2fbd1aac200a6ca076fe9caa"
   end
 
   depends_on "maturin" => :build

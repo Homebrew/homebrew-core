@@ -1,8 +1,8 @@
 class RosaCli < Formula
   desc "RedHat OpenShift Service on AWS (ROSA) command-line interface"
   homepage "https://www.openshift.com/products/amazon-openshift"
-  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.55.tar.gz"
-  sha256 "ec75bed1372719d490ab2b3ca897eb633cb2d56d64ba99b537c6a7c9e2fa3386"
+  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.56.tar.gz"
+  sha256 "97f9847217dc1a9eb4e0ca7b77f22016fecaaa955e20c32a55e4e9fff76ebbc8"
   license "Apache-2.0"
   head "https://github.com/openshift/rosa.git", branch: "master"
 
@@ -12,12 +12,12 @@ class RosaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f804fbc24de26ac51beeec0a1478f1e5f878883cbfa122c4f91c4bb5b80b6bbb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6698f4cd40fbad529bdcb3e9cf37af2f1ef607ca860d0a2de0def35ff9580cb9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf49cb512ecf85c1aa829abfa5eaf9a33c4140376f62e7d471e25542c00da3ca"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4a2cc5c52da66f41993c9558d3b381654bcc73fedc67a58c1ad733a045cfd555"
-    sha256 cellar: :any_skip_relocation, ventura:       "549d8c4d43956dbb2d7906468d4957c8960e13cb4775332e959941046743f1f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "512fce2cb3e77334f8a7dd3d3e6d64b887d9ea036a46b7c72e7c6b1567195331"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "51f1a81d332efef5b64f3ff26ebe10f0648ce3760b64cf7a54185a51136e467a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39f6d2c6b1812044eb46f7bf5e1070b4e92525cc25699090aac8d60456544d93"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0418f035e57cbd474503bd5615f902ef2ab351212ac9a275a8a255a2a5459fd4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "48a599511f7bb3ba2c1e12b5d057c1800f9f0ae4cd714b650075522b53dec31f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8e40596f48ae7bb04770d082b7ea88025292c133c425e7b20b7660c933f9721"
   end
 
   depends_on "go" => :build

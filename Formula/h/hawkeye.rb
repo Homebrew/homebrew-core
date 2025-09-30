@@ -1,18 +1,19 @@
 class Hawkeye < Formula
   desc "Simple license header checker and formatter, in multiple distribution forms"
   homepage "https://github.com/korandoru/hawkeye"
-  url "https://github.com/korandoru/hawkeye/archive/refs/tags/v6.1.1.tar.gz"
-  sha256 "9a3f4b4d44bbbc887c3aeaeb4da9a43ae3eeee96699c6afc79e21d2636833739"
+  url "https://github.com/korandoru/hawkeye/archive/refs/tags/v6.2.0.tar.gz"
+  sha256 "09ff315b5d6df6ccae4a73c32f4a8762b34ed9733eede45b604ff4a77867b4af"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "757c352657231d51e0177489d4d618704fe6b9eaf85724b1feaf6dddf0ec5168"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59fb0e24b4f2a9eaacbc4ebf7dcdfa1fdf336e5edc1e688ceb9b89ae80809fff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0d55af7c0bead3da1886a5755e7b7508fa891babfc198e2ea3a8e45936ef9aa6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a7ad583590a14120331136eac157efc9401c3ed2a1d72c880b8b0165fcae6b68"
-    sha256 cellar: :any_skip_relocation, ventura:       "a65c7d355e270ca3aad85ca8f1d23d949eb3e1d5f74777dbab1e26ef3881022f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb66158c804fcab5cfe42d939358abf66fa2fdcc8a9252456e75f1cb95065413"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcbbbc3ff7c07e3a85a22c0176c468dbd3795272de6f5173303446573e225794"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3d75d67c57d501affe30c1099a8380b0143747a1061e5f62633c588b89714659"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9239062f731a87a8d88c7020a54602654f0a0fc01817fc709d2e6b56fcd9cee3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9cd89d03acb774c08ab0eb7be8730245962e4191b2f866dfb70c96710b8d7575"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "835360d95ae8d5a114a28c6217d59705107ec3b26f465ae5b5b1dfdb783a165b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3ace5a271c81bc1ad23853eff46c1e06ebdc4fe34d117240fc889da845b7bf40"
+    sha256 cellar: :any_skip_relocation, ventura:       "a4be7e66410e8a5a0abd1fb8a8289a0accd6b0086a3f3f5f877a0a2a893052eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aaf5eb5c7870688f2e58f9fba8f881383d49e30db79151ae169839908ca6acf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f46462d1120a67c6263b826d4696d3db859d2944a807dab05bbaf290a998e85d"
   end
 
   depends_on "rust" => :build

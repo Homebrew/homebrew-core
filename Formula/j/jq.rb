@@ -11,6 +11,7 @@ class Jq < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "90b0fe4ad51959380f16fe8d84c5be8ab525478c32f1f7034c72d99de2442c9b"
     sha256 cellar: :any,                 arm64_sequoia: "d7bce557bb82addd6cf01b8bb758d373ee11cb6671e4d7b1dc2a2c89816bcc32"
     sha256 cellar: :any,                 arm64_sonoma:  "147e512951120ec6f10a36a857c84f5f3300fd33b3d6bcce2f2162b10b0481aa"
     sha256 cellar: :any,                 arm64_ventura: "efd141679d5a7a57797fc8866aa8f2200b08622b141877117f9b9204b27f6e87"

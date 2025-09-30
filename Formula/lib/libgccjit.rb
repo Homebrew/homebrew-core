@@ -5,9 +5,9 @@ class Libgccjit < Formula
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
-    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-    sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
+    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+    sha256 "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
 
     # Branch from the Darwin maintainer of GCC, with a few generic fixes and
     # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
@@ -26,14 +26,14 @@ class Libgccjit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "76bcb930ece20a2661c706bac2f2ce4faf790b3af0554b86a8967677fcab03ce"
-    sha256 arm64_sonoma:  "cb3db229fd88a28d6583fffd1ee487b0351851b377900d8976c5b70b37585c56"
-    sha256 arm64_ventura: "95f990b545ceae9a01f1e012ab2d7950dc5207d06cefe7796cf783b19a177b92"
-    sha256 sequoia:       "0a212155fa554028b11389062636c750a7b08d37d2c84b3ff739f6dedff476db"
-    sha256 sonoma:        "09cd9fe841f73b81e91e3bd36a911737f5eb07dddf0111eee53bb513113e4eb2"
-    sha256 ventura:       "71229a70381ea76eeb9af7d146332b44329d85d631ca20d3935f49a348700fc5"
-    sha256 arm64_linux:   "952b111d72702f44b432646b02f6ccdfb6d5c3deffa38cdb0d718b5b2d07d4d6"
-    sha256 x86_64_linux:  "aa9f48a7a846126612a53530b7ec91bc0089d56049b59ed8c9055ee379ad9082"
+    sha256 arm64_tahoe:   "9a2eb834f4885acedb40b7c9ef660c7c9c932aa4c335dc12155f80c29371635e"
+    sha256 arm64_sequoia: "0aafc07d8a913f7161b61705f168ec1d5d35d0be8b4126c905266cb7d839d1ee"
+    sha256 arm64_sonoma:  "37d89ed9d4236bbea95f4fa9824dcb153adf2da5019dd55f5238717e8ba9be8b"
+    sha256 tahoe:         "a1fce140e0dd96da91f1f690d6f250d412b54557d1d89aca63b95293a12a6165"
+    sha256 sequoia:       "95a98d3a92bd70dfe0bdc67c99a68ceb104cf7aa9bdfea9aac7bbdf550be6d7b"
+    sha256 sonoma:        "fc177d4e3aa264a2d85267cd9516579c478163a66cf24a15bbe84fa2d9103e2c"
+    sha256 arm64_linux:   "8058879c0993dc7ed4069ab07b00fa9ab04fcfb5480842388d64884d357b74b7"
+    sha256 x86_64_linux:  "64aab337b687921c8624352dcfdd0133c5f52d3752f067155b995a29afb6ab9a"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -54,9 +54,6 @@ class Libgccjit < Formula
       depends_on "gcc"
     end
   end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
@@ -81,7 +78,7 @@ class Libgccjit < Formula
       --with-system-zlib
     ]
 
-    make_args = if OS.mac?
+    if OS.mac?
       cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
 
@@ -92,22 +89,18 @@ class Libgccjit < Formula
       # Avoid this semi-random failure:
       # "Error: Failed changing install name"
       # "Updated load commands do not fit in the header"
-      %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
+      make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
     else
-      # Fix cc1: error while loading shared libraries: libisl.so.15
-      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
-
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
       # Change the default directory name for 64-bit libraries to `lib`
       # https://stackoverflow.com/a/54038769
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+      inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      %W[
-        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
-        BOOT_LDFLAGS=-I#{Formula["zlib"].opt_lib}
-      ]
+      ENV.append_path "CPATH", Formula["zlib"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
     end
 
     # Building jit needs --enable-host-shared, which slows down the compiler.

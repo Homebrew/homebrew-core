@@ -7,6 +7,7 @@ class MinioWarp < Formula
   head "https://github.com/minio/warp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47a89fb0fd79e84bb147c4e2055171e4a7d428226a35d24216b322b564f55b78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5642745653fafbb283ffb1112a6dbf0f6b19b049e588d0ad75daf764ed84eee4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6816de896be4be895afc098d8b60e7e0551f268f20b9dc858d6399c510396d3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2cf43dc0aff8a43b1e8504b82d25bf6a6ffbf6eb1061a518d1f7f27025edd789"

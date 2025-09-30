@@ -13,6 +13,7 @@ class Yaf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4543484b45766bfcb44645966b556e12a1baa0faa4f1e347a0252af7ea964f45"
     sha256 cellar: :any,                 arm64_sequoia: "fc69d836a75aece50ed5b5f719d6f289d6c1c34966d1ea10fa9d126ade80b37d"
     sha256 cellar: :any,                 arm64_sonoma:  "18f3dcb2267a39b9a3919d4432b06305ca5e6011b19982bfda9026cbf71b277f"
     sha256 cellar: :any,                 arm64_ventura: "a6e1377b16dcaf787188bc6e6a3a19602ab6eca18be77a864d43f0d73191d75f"

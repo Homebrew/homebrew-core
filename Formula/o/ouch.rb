@@ -15,6 +15,7 @@ class Ouch < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1763a70081770f67d8246c019594ca196c8829585178b93d486ac9f92865e1c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfb7387471264b6089243b31d22b40ba75ac370c64c1835d06585df5c2dbfafe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "326375a6f882717b1026228a031e840133b9944115be3251edd7897c6ec00378"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "66f692a605fdbfb28109a8a83e3c51539910783fc33310802c79d5b97f7ce57c"

@@ -8,6 +8,7 @@ class S6Rc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "352840f345c351dc4bc9e2d29f18bd95dfe5b7669b71afe2f16cf1f85975ca0f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ffb8c25c6c698f13c255d694dfc6218116857cf633b6764a6ee4c026de314e20"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "120ab3b0a9ca7cf2db5f0b27ee6dffcebb3560e718956f5cab8693655d9aac14"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "06402eee4fafa9c0bcdbcce7dcd88054b9f142263a8ce6019ee1ec54b534beb3"

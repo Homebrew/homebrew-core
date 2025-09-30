@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v24.6.0/node-v24.6.0.tar.xz"
-  sha256 "8ad5c387b5d55d8f3b783b0f1b21bae03a3b3b10ac89a25d266cffa7b795e842"
+  url "https://nodejs.org/dist/v24.9.0/node-v24.9.0.tar.xz"
+  sha256 "f17bc4cb01f59098c34a288c1bb109a778867c14eeb0ebbd608d0617b1193bbf"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "76c3bfe040c325a5d8b0fc629cd16c86c9a58287fc08732c6af06ae428d083e1"
-    sha256 arm64_sonoma:  "37571ec6d24544a919bc28a6641311effc226f87c831587ac073d06a3fd04c15"
-    sha256 arm64_ventura: "d23f65008d9ea32b67ac9656dc707e90f3c27280e01e6a211e763ee7296f0a88"
-    sha256 sonoma:        "6850b5a0179de4f27f39eb7a09681b4ce09fd84fc0c2d7aff7bbdebdc8724805"
-    sha256 ventura:       "d04c1053223f684ca49d3857b266d192da5dd80731b4b294a42176c309fb9094"
-    sha256 arm64_linux:   "3a1179f3dc4c7d923af0f85a4ecc7aba11333684a7e2d1d7c20da67da7696e17"
-    sha256 x86_64_linux:  "343fc89cab7ea47424e68a82d4c0d9e858815266821d4ec94fb597177de39c12"
+    sha256 arm64_tahoe:   "5d2b5410d08162cde235fa67536dc25c608e3334979934c54029f0d21cec0eb6"
+    sha256 arm64_sequoia: "136c6aa9a24a154d9236516d80c34a4855b144f35ca0f28a371b2cc927aee735"
+    sha256 arm64_sonoma:  "1a7cc40637a57ce2b38a764be22809132e5b8266edd050a050fef5c76db094c4"
+    sha256 sonoma:        "b4a049eae15f9741a9b6cbf7a59a9544dc7dab5ae7bc10527a5587bc9642f965"
+    sha256 arm64_linux:   "b354bdc74858328907951f5ca6c1adb0b730d1d66082489200538e2fa2bdb2a5"
+    sha256 x86_64_linux:  "a2eacbed5007234e59e6dd5085ead9d06fc4ba0af46fd69ee9830346ce7e4189"
   end
 
   depends_on "pkgconf" => :build
@@ -33,18 +32,14 @@ class Node < Formula
   depends_on "openssl@3"
   depends_on "simdjson"
   depends_on "sqlite" # Fails with macOS sqlite.
+  depends_on "uvwasi"
   depends_on "zstd"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
-  end
-
-  on_linux do
-    # Avoid newer GCC which creates binary with higher GLIBCXX requiring runtime dependency
-    depends_on "gcc@12" => :build if DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
   end
 
   link_overwrite "bin/npm", "bin/npx"
@@ -65,18 +60,18 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.5.1.tgz"
-    sha256 "f4c82fbff74154f73bd5ce5a2b749700d55eaddebda97b16076bf7033040de34"
+    url "https://registry.npmjs.org/npm/-/npm-11.6.0.tgz"
+    sha256 "ddf7e6e42ae5b9e28d84945d1c37188f9a741af492507b513b3e80af5aeba4f1"
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1699
-
-    # The new linker crashed during LTO due to high memory usage.
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
-
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.13")
+
+    # Ensure Homebrew deps are used
+    %w[brotli icu-small nghttp2 ngtcp2 npm simdjson sqlite uvwasi zstd].each do |dep|
+      rm_r buildpath/"deps"/dep
+    end
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
@@ -93,6 +88,7 @@ class Node < Formula
       --shared-openssl
       --shared-simdjson
       --shared-sqlite
+      --shared-uvwasi
       --shared-zlib
       --shared-zstd
       --shared-brotli-includes=#{Formula["brotli"].include}
@@ -113,6 +109,8 @@ class Node < Formula
       --shared-simdjson-libpath=#{Formula["simdjson"].lib}
       --shared-sqlite-includes=#{Formula["sqlite"].include}
       --shared-sqlite-libpath=#{Formula["sqlite"].lib}
+      --shared-uvwasi-includes=#{Formula["uvwasi"].include}/uvwasi
+      --shared-uvwasi-libpath=#{Formula["uvwasi"].lib}
       --shared-zstd-includes=#{Formula["zstd"].include}
       --shared-zstd-libpath=#{Formula["zstd"].lib}
       --openssl-use-def-ca-store
@@ -127,7 +125,6 @@ class Node < Formula
       ada
       http-parser
       simdutf
-      uvwasi
     ].map { |library| "--shared-#{library}" }
 
     configure_help = Utils.safe_popen_read("./configure", "--help")
@@ -210,9 +207,6 @@ class Node < Formula
   end
 
   test do
-    # Make sure Mojave does not have `CC=llvm_clang`.
-    ENV.clang if OS.mac?
-
     path = testpath/"test.js"
     path.write "console.log('hello');"
 
@@ -236,5 +230,67 @@ class Node < Formula
     assert_path_exists HOMEBREW_PREFIX/"bin/npx", "npx must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --yes cowsay hello")
+
+    # Test `uvwasi` is linked correctly
+    (testpath/"wasi-smoke-test.mjs").write <<~JAVASCRIPT
+      import { WASI } from 'node:wasi';
+
+      // Minimal WASM that:
+      //   - imports wasi proc_exit(i32)->()
+      //   - exports memory (required by Node's WASI binding)
+      //   - exports _start which calls proc_exit(42)
+      const wasmBytes = new Uint8Array([
+        // \0asm + version
+        0x00,0x61,0x73,0x6d, 0x01,0x00,0x00,0x00,
+
+        // Type section: 2 types: (i32)->() and ()->()
+        0x01,0x08, 0x02,
+          0x60,0x01,0x7f,0x00,
+          0x60,0x00,0x00,
+
+        // Import section: wasi_snapshot_preview1.proc_exit : func(type 0)
+        0x02,0x24, 0x01,
+          0x16, // module name len = 22
+            0x77,0x61,0x73,0x69,0x5f,0x73,0x6e,0x61,0x70,0x73,0x68,0x6f,0x74,0x5f,0x70,0x72,0x65,0x76,0x69,0x65,0x77,0x31,
+          0x09, // name len = 9
+            0x70,0x72,0x6f,0x63,0x5f,0x65,0x78,0x69,0x74,
+          0x00, // import kind = func
+          0x00, // type index 0
+
+        // Function section: 1 function (type index 1 = ()->())
+        0x03,0x02, 0x01, 0x01,
+
+        // Memory section: one memory with min=1 page; export later
+        0x05,0x03, 0x01, 0x00, 0x01,
+
+        // Export section: export "_start" (func 1) and "memory" (mem 0)
+        0x07,0x13, 0x02,
+          0x06, 0x5f,0x73,0x74,0x61,0x72,0x74, 0x00, 0x01,
+          0x06, 0x6d,0x65,0x6d,0x6f,0x72,0x79, 0x02, 0x00,
+
+        // Code section: body for func 1: i32.const 42; call 0; end
+        0x0a,0x08, 0x01,
+          0x06, 0x00, 0x41,0x2a, 0x10,0x00, 0x0b
+      ]);
+
+      const wasi = new WASI({
+        version: 'preview1',
+        returnOnExit: true
+      });
+
+      const { instance } = await WebAssembly.instantiate(wasmBytes, wasi.getImportObject());
+
+      // This should return 42 if uvwasi is correctly linked & wired.
+      const rc = wasi.start(instance);
+      if (rc === 42) {
+        console.log('PASS: uvwasi proc_exit(42) worked (exitCode=42)');
+        process.exit(0);
+      } else {
+        console.error('FAIL: unexpected return', rc);
+        process.exit(2);
+      }
+    JAVASCRIPT
+
+    system bin/"node", "wasi-smoke-test.mjs"
   end
 end

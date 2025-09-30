@@ -6,6 +6,7 @@ class Himalaya < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c087617ce4bda639baba803d8bad64237424b2bcfb7ea733267a510d1ebc731"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4faaa05c76bc7dd4d2423479e34af0cff58aba3f95bcd5a96ee6b154326460d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9194d490d1c2356183427ebe2762a813661535944d34daa63e2d75d976ef6bbd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0ef6045f2bf47e807661cf800ff036e9df0c2e99fcea5e7d00ba0bed15a0160e"

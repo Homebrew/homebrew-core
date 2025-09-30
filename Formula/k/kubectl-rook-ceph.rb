@@ -7,6 +7,7 @@ class KubectlRookCeph < Formula
   head "https://github.com/rook/kubectl-rook-ceph.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c54b1697213c861841f525bc7bee6513ad6044c07274d34e89501d128028309b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "66846017ec19f2ad1b58b8124eb7a9ebe8a4974ae2e56258b28ab46d159630e7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66846017ec19f2ad1b58b8124eb7a9ebe8a4974ae2e56258b28ab46d159630e7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "66846017ec19f2ad1b58b8124eb7a9ebe8a4974ae2e56258b28ab46d159630e7"

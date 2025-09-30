@@ -9,6 +9,7 @@ class Ssh3 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f4c9c05fd2c4cbaa2a0d9bfafbc7e0a8b7b2bd4e40cca873bf8d6154d1502520"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0f4b007d021b93cfb0c17d853b9ad0f8e8d9112402a7acbbb466f90517e20a12"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1738b1f0a7e8d6b101de0c28c854a885cff32e44a3cf1296fcdb3a411950879"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "356b85de8658e16ee74a1c86abd3be1491c61b09cb4634ae39fd49c9ec008d76"

@@ -13,6 +13,7 @@ class K3sup < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "48d5c8f6cbfb13d9a7fce43a84e4ee9b60b40bf1b21bb49843f0b6733b881b11"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1bcfb7804eb82de0455f8423e2d25449b2cbbddd4830df77835c9fbec8b2a10"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1bcfb7804eb82de0455f8423e2d25449b2cbbddd4830df77835c9fbec8b2a10"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b1bcfb7804eb82de0455f8423e2d25449b2cbbddd4830df77835c9fbec8b2a10"

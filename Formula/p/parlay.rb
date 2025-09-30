@@ -7,6 +7,7 @@ class Parlay < Formula
   head "https://github.com/snyk/parlay.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96dbbf77cb5449ad774bcbcc89b834ba15e49298af96ff0634fa6624b3a2a0dd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9068e1250bb228d85ba7aded90418b57b27dab63a8d68cedf760d281b2f4c31d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9068e1250bb228d85ba7aded90418b57b27dab63a8d68cedf760d281b2f4c31d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9068e1250bb228d85ba7aded90418b57b27dab63a8d68cedf760d281b2f4c31d"

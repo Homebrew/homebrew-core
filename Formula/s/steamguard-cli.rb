@@ -6,6 +6,7 @@ class SteamguardCli < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "81a075cea4c7595936f22b9454c239a1c915657653242032faa8cdd5afaa1712"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1adfdef80cdbf5fb66f54c66d02fe223d80377fca70da7de5485e8021e43c8c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49e799bf9b06cc6316798ab1f1c2102f8d1ef32f327e10afcad9a0b59f940c7c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "392352450743b4b7defe304c7601448bbae63dc81cdbdd614ab40c29b3fb2732"

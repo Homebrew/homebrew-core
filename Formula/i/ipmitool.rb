@@ -17,6 +17,7 @@ class Ipmitool < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "3e1a327a4ff22704b4c6868fc1e17a29f2d138106d8b9ea495916c7e4ce8d059"
     sha256 arm64_sequoia: "edbce0fa9c0eb8554d49e69266b9a954b48675511ae98cab9f252df858c60feb"
     sha256 arm64_sonoma:  "4209c292804d02871d7ffbb5eacfe3d0a9b4c433bd7ea324d7411453e5898ed8"
     sha256 arm64_ventura: "d5f56eab1fc400e5160b2e08df8161d8d8c0bfeb9935ed220ae28e60ab6f460c"

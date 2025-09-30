@@ -1,18 +1,17 @@
 class AtSpi2Core < Formula
   desc "Protocol definitions and daemon for D-Bus at-spi"
   homepage "https://www.freedesktop.org/wiki/Accessibility/AT-SPI2/"
-  url "https://download.gnome.org/sources/at-spi2-core/2.56/at-spi2-core-2.56.4.tar.xz"
-  sha256 "dbe35b951499e1d6f1fb552c2e0a09cea7cba2adf6c2eba0b2c85b6c094a3a02"
+  url "https://download.gnome.org/sources/at-spi2-core/2.58/at-spi2-core-2.58.0.tar.xz"
+  sha256 "dfdd3300da2783a21969ffade2889817fb7c1906a4ef92497eba65969b3dab5a"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "eb6790869d525f4e60efa86d0f8d4393bcfa731b0ea428aed854d2bc369b2d19"
-    sha256 arm64_sonoma:  "d3a71ffcdd7e6f41166381e05d6b659df11061150a60246b3e5d08339dcdcc8d"
-    sha256 arm64_ventura: "ade98c260a0781f8243689f9f86ad8ad09acf446919d656ff44ca07a84cbdbf8"
-    sha256 sonoma:        "a0c090f3bb57c2237f012ff347abcda89f0c2481b5a06acaba0806ce5ec518fe"
-    sha256 ventura:       "28d025e00a35ffb860474d237df2b679fa33b11c5f1165c3a0c0ff6e147e8bba"
-    sha256 arm64_linux:   "3c335185fc9e3650051422b718ef49cb33ec8362e7dda83597b2a4b2fd8ea8dd"
-    sha256 x86_64_linux:  "4707a71272f8f60d3a22ced6e86eec2c0843846fc79f2ad363b13a56e48c492b"
+    sha256 arm64_tahoe:   "379a4e5a1f967f1856f761949affacf6ed8f13e7b7c14a1537144cbf907a373f"
+    sha256 arm64_sequoia: "453b4536f1f3858d9181a94fc49eeb0dc1b08986515330741711674f05a2139b"
+    sha256 arm64_sonoma:  "714889751e3585026629752da6713a49a7e8e77dfdf6b42e5c5cb885343aafd6"
+    sha256 sonoma:        "82ab50821a7dd46bc4d22f391f2fb9bd1d8458ee34d2e4448e02e35f590a58d8"
+    sha256 arm64_linux:   "a4631294361f9f99d5d688995596beb7c9f3df6bb733c421a0a638f1de6fcf56"
+    sha256 x86_64_linux:  "5b1898285656a3a211d2b238257b8eea4cf74c8aedb31642f627ee247efb3bae"
   end
 
   depends_on "gettext" => :build
@@ -35,6 +34,9 @@ class AtSpi2Core < Formula
   end
 
   def install
+    # Workaround for https://gitlab.gnome.org/GNOME/at-spi2-core/-/issues/203
+    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
+
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"

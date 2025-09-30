@@ -13,6 +13,7 @@ class Inform6 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "23de328d6094a8d29dabc24ee248b523ffef646e48fb774e9f902e26ad2be930"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0e9bcb817772699fa17350f2f8566a74fd39e87d1df23a00a2c4cc22acb19bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ef1beac990817bdb422ec6c4aa4c50317c7314f16e80dd5c7256bf103a08e64"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4c0669fd9cde57b7b9db047c59e99d601d4fa4e77d65fa925b0308d2a4d6c114"

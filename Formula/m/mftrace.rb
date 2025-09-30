@@ -15,6 +15,7 @@ class Mftrace < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "35f2f719b3419d2c495c47c9ec02debd588fd73ff3c9a489ea2b296c46764327"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "097fa4cc166f51d4033415a651817207d3a5734ef50237969b84f5a8fc6ddfb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9415613e99216e1174b5e962761cef44084c8e9ef41208673b31e44d55879828"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e639eb620cac19e786da74b7a387f742f23837823bb2dee341e42a5b6df751d2"

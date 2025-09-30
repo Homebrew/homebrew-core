@@ -14,6 +14,7 @@ class Javacc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2736d09dc1c90d1e95a14c99d8e1682120930718d32d8bede69b16e279a7508f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9095c2d3b973f05a81fc336594a9adcab73f8a65634827167fad98f831719fff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f625a9b59d0fd505b1d69243c0147c292e4cd354550df5b352bcae140f7a2cbd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "afb3bbdbbd9c451870e427fe76fedb3e4b4ae7016656281f55df63c3529590ac"

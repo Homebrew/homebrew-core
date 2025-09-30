@@ -9,6 +9,7 @@ class Libuvc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f150b5d95ecef260fb7c6c2741fa52d102f8e9bd1712af32ebaf1785ec87dd39"
     sha256 cellar: :any,                 arm64_sequoia:  "94deef8d9e60b29d70cc1348b58cade333270747562c2ea151dcad2893757a84"
     sha256 cellar: :any,                 arm64_sonoma:   "fdde8f75b100e1b5c4880eade6ae2e1df144236a26a6757b59f935feadf45283"
     sha256 cellar: :any,                 arm64_ventura:  "6708c80f52e02d433eb7bc74ff598b8c6cc4a7963fb70f3757252abe94b021be"
@@ -27,7 +28,9 @@ class Libuvc < Formula
   depends_on "libusb"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

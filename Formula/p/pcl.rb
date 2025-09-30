@@ -1,27 +1,20 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
+  url "https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.15.1.tar.gz"
+  sha256 "e1d862c7b6bd27a45884a825a2e509bfcbd4561307d5bfe17ce5c8a3d94a6c29"
   license "BSD-3-Clause"
-  revision 2
+  revision 1
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
-  stable do
-    url "https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.15.0.tar.gz"
-    sha256 "e90c981c21e89c45201c5083db8308e099f34c1782f92fd65a0a4eb0b72c6fbf"
-
-    # Backport fix for Boost 1.89.0
-    patch do
-      url "https://github.com/PointCloudLibrary/pcl/commit/564074b5e4911bd659c1abb8b29cc4d433b2d8f1.patch?full_index=1"
-      sha256 "5d84fd6ccdce6440c06d15b441dbeb9b2ab83ab4718d7c03964d55c9b91228a6"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "9a7248a24166e15c348636538ad50c97a614dbd63890532cca37a0d3961a48f7"
-    sha256 cellar: :any,                 arm64_ventura: "4b7853447dc244e7526334e04235b273a6325f4c96cfcf113e1fabe1a673eaa6"
-    sha256 cellar: :any,                 sonoma:        "4f6146a0a82c0ceb643dea8378d1f7512fa754c1cd94c484ee173adeffcb9196"
-    sha256 cellar: :any,                 ventura:       "e482fa8807590b3b7edb969a4b05dd09935f3b3354a4aa75a3be9d6b154268df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8857d79f9cf7a7d1bb05e4308f2ee469a1b926baf24dd62483ac83282eda0bc6"
+    sha256 cellar: :any,                 arm64_tahoe:   "e6e11186394a3299ce3c17c8adb97d60f8ab750b0458bd229278c3ad6755ff52"
+    sha256 cellar: :any,                 arm64_sequoia: "8948b8096627f93807e4b0776587a833591aa8d2fc6e2e1b1746af7e9b79dbe1"
+    sha256 cellar: :any,                 arm64_sonoma:  "1e6bcc5ec5e8439f28279d96a4da0f6c4d36d7ca039e0701980da1c1463c6adb"
+    sha256 cellar: :any,                 arm64_ventura: "18e0f9c8f40bc9ad0a8fba24c271108072a8ae8a47e62e7de3e80ec1c6be2607"
+    sha256 cellar: :any,                 sonoma:        "555298752913e52820e547429dc75cacc52dfd42e5debb39d34c7822a3f1f9f2"
+    sha256 cellar: :any,                 ventura:       "97e98d574fc7a9ea3a162f4355c4cdb137db3f32f8b1c6fd17ef8c34ebfff1ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73aadfcc5e0d851dd9adb6f5075cc2c588057e60399222556d1355d1b77cc712"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -49,6 +42,13 @@ class Pcl < Formula
     depends_on "libx11"
     depends_on "mesa"
     depends_on "mesa-glu"
+  end
+
+  # Apply open PR to fix build with Boost 1.89
+  # PR ref: https://github.com/PointCloudLibrary/pcl/pull/6330
+  patch do
+    url "https://github.com/PointCloudLibrary/pcl/commit/8dfb0e10ebdf4a5086328b38f854294d2d6b1627.patch?full_index=1"
+    sha256 "f31c11abb6bec8864b7a109472768ba80e87ddf90533890c303294d264f389e1"
   end
 
   def install

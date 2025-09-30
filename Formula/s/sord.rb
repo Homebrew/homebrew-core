@@ -11,6 +11,7 @@ class Sord < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "c4b91e9f7caaaa348dac3238de2d0827f0ad120f162dd6e9450bac6e0a5ae27a"
     sha256 cellar: :any, arm64_sequoia: "9482cf28bd5e2d77ed057903e53157a57e09355e8a6c69eb935fdefc67c79505"
     sha256 cellar: :any, arm64_sonoma:  "bd8611d53bf08d025037edaa7ef83e635dbe853c3783ed94909a1edfc93d7457"
     sha256 cellar: :any, arm64_ventura: "41fcd2ff39ea5a50392a5a3b31c523ca5c7e087e1d0124c1b8101da518e40bf8"

@@ -14,6 +14,7 @@ class Ats2Postiats < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d971aa331b5bb0f2efb3e34658fbc4fdf590dbfaffc3c257f4c16ac177ff6821"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "32296b820ff276f1de0eed59460f9dd48ca47132a77fdee78ee19fed9ba46923"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53cc8a637f0375080c8071792bef06c870579bab915aa44f7525ae580e9fd8f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "edc96757ad3e2248e4d87f904edeb0af670f07989406e0f5a4ae5e9e342ef959"

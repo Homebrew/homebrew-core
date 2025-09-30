@@ -6,6 +6,7 @@ class Gurk < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "67301d97e266b2fe39a75d693cf9ef1855a98cdf18d5a4c6e6f539569083fa04"
     sha256 cellar: :any,                 arm64_sequoia: "f0cc3cef149a12b05ca5b52ca1ea0d888b5f65dd083e4b315f4b3a5a77829a3b"
     sha256 cellar: :any,                 arm64_sonoma:  "8e156d730b5d988e6b33a2a783067c65010c2624eba23d7b3e28d3446300413f"
     sha256 cellar: :any,                 arm64_ventura: "fe8c8e3fbff8fa370e82484f882e8455c122d439bf2a81cd68cca44f822db364"

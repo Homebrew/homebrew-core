@@ -8,6 +8,7 @@ class FdkAac < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3219079b606e1be7284a0b184c6ccb57676190d199261a0bb67556d28da94c2d"
     sha256 cellar: :any,                 arm64_sequoia:  "d25f4bc81d87c69c9d26d29ae088caeae1778b87f6ca2e13e759ef9d5e723c9a"
     sha256 cellar: :any,                 arm64_sonoma:   "bf2bc2ad387a9d717432c105936aff9fd49b22b0f18fac097e59dd55778ca9e0"
     sha256 cellar: :any,                 arm64_ventura:  "51653e0466e96908261c0ee5af6e257df21a18b789227158018a7515c4daaca1"

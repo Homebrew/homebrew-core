@@ -77,6 +77,7 @@ class Bash < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "c334ace988880c652a96a7be9e9c4ff03ba59db64ce66d3b0aefa8fb5e0780a8"
     sha256 arm64_sequoia: "9b4b897e4fe4df3ffdfcd47265ca1c5c563265d9de490b6ef8deb75580ad4ee2"
     sha256 arm64_sonoma:  "82f6c2822bd49dae8d15be45fc347ebc91100de1fdad421b1360d4caf5526df3"
     sha256 arm64_ventura: "721bdf14667a59cb7a24d4d476e0228649483513a2d3c9e93908564380915032"

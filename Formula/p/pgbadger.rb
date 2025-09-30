@@ -7,13 +7,8 @@ class Pgbadger < Formula
   head "https://github.com/darold/pgbadger.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d3e83fad1caf40cefd5ac3dd5d536286e5d1de2ba73cacb5c91de04ff359088f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d3e83fad1caf40cefd5ac3dd5d536286e5d1de2ba73cacb5c91de04ff359088f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "aaffda73eea02684a47c7e8fbba2d1ba4787be1cea304204a938408fa3ea9022"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93fe9851cb986a58f8db18251ec636ab6e09d317f0813bbc7600b65f5989d284"
-    sha256 cellar: :any_skip_relocation, ventura:       "5fd44b906bbbbfa63e11b886b1514b97f2913d73a026d132f4cf84cbe4811657"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "24267f87df6ab44c1a9abd0b000338804af5514d865d7a82c1101bb9a9ae96d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24267f87df6ab44c1a9abd0b000338804af5514d865d7a82c1101bb9a9ae96d3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7660efd39ced9f239c33d6f2eddfa4741e980cfe7e90d8947cd268847fc2643b"
   end
 
   def install

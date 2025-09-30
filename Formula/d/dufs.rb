@@ -1,18 +1,19 @@
 class Dufs < Formula
   desc "Static file server"
   homepage "https://github.com/sigoden/dufs"
-  url "https://github.com/sigoden/dufs/archive/refs/tags/v0.44.0.tar.gz"
-  sha256 "940fe767946699bdecb9be24700f9abe5a08e913ff7edf1a5388c8a540ff1e0f"
+  url "https://github.com/sigoden/dufs/archive/refs/tags/v0.45.0.tar.gz"
+  sha256 "62aa2cadd77e1bd9d96c77cbd832a53ffc364301c549001bf8fd9d023cbd8ab1"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0edcebb39068990a91197db2a95df34fe1b48968b742f986bd1fcacec8d70e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "930031d9b9eac29e67d7991f733af0842bf53fb5e7aeae9b0c74c8551c6fde91"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "569378659e49b342769be41682244b5a066b303fc275f0732104a830d0d9f2c8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c7dde31dd005e421d16a8e63c2cbf04e64246a2a7858a229347498dfba525039"
-    sha256 cellar: :any_skip_relocation, ventura:       "e6dd5bfc26e4e2a2ee56fd630273db27d1745a026cdf7343882d1fd88ba19fbc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "091a3e212dbaee7f53b10524916c91fc7214b5d3309aea9ef954e3a0b6e0e7b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85339ad20995152e2b93ec3a1ac1d4318d2fa18d0488d80233ac3b1ccc2a9ef9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2623f7700a3913841f199db10539e61d1625feb3cdf7d2559b8492ec170e771"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4a8c894f245955cbe70f070d6d44491116b22597568ed2df8f657604dd0dad1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "99b888d76b8b9333829318cb386a9f57dfd6a199cf5fd97ec6bc43eb820b2077"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d90c2920723a064c8d7eecbdabcb120239bfb3957a42582dd5a00e6c8f4498bf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2fd86ac85b2f189bd2ca6272595cb058a96257593e99ad613efc00f82b38838c"
+    sha256 cellar: :any_skip_relocation, ventura:       "8234b27ea41c52056cd4e7b7538f74bec5e9f8de89f85c3c41c9da6de82bf2c0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4cf91d3356b14a9bee84d2b99b779571bdd49a8f7203530dccc2ddaa656eece5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9555a2f90b0bda4e1c21cfe7a81001f9bc9d93fa1d45a3546faf893dffa1a0e0"
   end
 
   depends_on "rust" => :build

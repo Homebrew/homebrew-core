@@ -1,8 +1,8 @@
 class Chrony < Formula
   desc "Versatile implementation of the Network Time Protocol (NTP)"
   homepage "https://chrony-project.org"
-  url "https://chrony-project.org/releases/chrony-4.7.tar.gz"
-  sha256 "c0de41a8c051e5d32b101b5f7014b98ca978b18e592f30ce6840b6d4602d947b"
+  url "https://chrony-project.org/releases/chrony-4.8.tar.gz"
+  sha256 "33ea8eb2a4daeaa506e8fcafd5d6d89027ed6f2f0609645c6f149b560d301706"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,14 @@ class Chrony < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5bc762661550523d320eb4800a722f834d3a7f79d8d146ffa931af3b4f03a044"
-    sha256 cellar: :any,                 arm64_sonoma:  "36e70e780a187bbd1737c7ac9ff58fbf93fcb7a428c57e5b8bdf574dbe5f3b72"
-    sha256 cellar: :any,                 arm64_ventura: "c98de581a7c39b30775ee5e0903cfc608933ca15957cbfeded3feab0fd126259"
-    sha256 cellar: :any,                 sonoma:        "c4dea04dba1efea22ee8380d3631a7fdf97eb3652caf54bc8d9cc0d502544322"
-    sha256 cellar: :any,                 ventura:       "a0871c43ac8530c8a51c3b95c62ecad9ca3f4cbb526bfc5c37d58bffca29bdad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0b2df0414311fdbcb18fbaded353b58bdaaed679965a895871ba7d4b629864a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "348ae587ae09f3a9f4ba8e98043d80589b229cf9eb4a510726508c82c3ec595a"
+    sha256 cellar: :any,                 arm64_tahoe:   "e361230f241f273ef878f5f2bdc2899a414a7973dbd65854e44dfaaa70efc95e"
+    sha256 cellar: :any,                 arm64_sequoia: "c69f2a33c2f23e19668207e8a7f019476d48ddd21aac4ac297e447c4f368a8d7"
+    sha256 cellar: :any,                 arm64_sonoma:  "d625684f40a9cfb51d98b1ca92f212e940074e4303931fd2e4cf3598b4c2f51c"
+    sha256 cellar: :any,                 arm64_ventura: "c9f89d4196e6a7cc762937dea9cb6c2409240399ae95b5077901ae0bf66ead25"
+    sha256 cellar: :any,                 sonoma:        "0f77335cd443a3cf8415f1bd44a82b8c0493aee02037130f829bce8dae1c9604"
+    sha256 cellar: :any,                 ventura:       "fdd09def3431e2f0d55de1d4c9d6196c7ebb3cef7d82d0ba5160ebbcfe8243a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c392cca54e58164bdfd794709eb64f0a3effb3f3f996dbc112e440459d8ffa45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb65a129ec2f9117babdb703ec57e86857110f0e8cf8e74c14fa22f9c51ffd20"
   end
 
   depends_on "pkgconf" => :build

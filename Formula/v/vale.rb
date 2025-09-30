@@ -6,6 +6,7 @@ class Vale < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "15b3e29987f407b9a9065b4b0ebf3ee1d651505b71667786b9c343680273ff13"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "52c72c6d6dfb98c1cd8a120a3a0f229d5b19a0b79d8ba47cd2e27fa13d54ec0a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7c3a84dc7b4761fe9dd0416ac90e87d64b992c2353056febaccf1cf98376757"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "88f1e7d188560eaaa939ce5efaa03c4a60667235de1e8d4fb573e0cd746ae5a5"

@@ -14,6 +14,7 @@ class Grokj2k < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3afe206060d050b28461c8031558c0120a2a6655e03ed3d98b7f170d79e1fc1b"
     sha256 cellar: :any,                 arm64_sequoia: "44060bd2dd60f53476caf5681c85006dbb3dd52a8b49c0f04cc83b8673868bb2"
     sha256 cellar: :any,                 arm64_sonoma:  "3106d2ed36a53006f28feb020a9649ecd42258ef82c12549d4fe2666f31f897d"
     sha256 cellar: :any,                 arm64_ventura: "57376549d1514236cf0d72ea584c9573fc53bb53878a3db6ddf3fc3247a596e1"
@@ -31,7 +32,6 @@ class Grokj2k < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
-  depends_on macos: :catalina
 
   uses_from_macos "perl"
   uses_from_macos "zlib"

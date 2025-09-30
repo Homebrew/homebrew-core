@@ -7,6 +7,7 @@ class Tealdeer < Formula
   head "https://github.com/tealdeer-rs/tealdeer.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "75c84f21f5a48b3784aaf3ad884b311a1f9233d0dd1b405ad7afe0429dc5b419"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "762b6cf9ec14e22cdd155410a249c1d1c06132350e3574c9c372a88860249833"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2fa102755f201bb1a209fc9006b2106d0a31a09a83648772d78ce30e81060886"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c60761d865a1475a4b04d2881eaec1737c43caaa5498ce0769098071ddc44cd0"

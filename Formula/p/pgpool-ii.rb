@@ -11,6 +11,7 @@ class PgpoolIi < Formula
   end
 
   bottle do
+    sha256               arm64_tahoe:   "d4e452ae158f90ef4228717bbe6c9b9d3678dfe797abdda1e6dfd40faa1d0dd8"
     sha256               arm64_sequoia: "3062a0e20358f8e941be43ebdafc4be5b332258494933a7ba1d5d35d1157c06e"
     sha256               arm64_sonoma:  "263936a2aa00c0996b06cadc34a28cf70cd27389f69de3f10ab79d0cfe19a052"
     sha256               arm64_ventura: "b0c66cc882f57bec2e56dcce1fb3487680b9e183e09bdcb6f96ec97f01e0f947"

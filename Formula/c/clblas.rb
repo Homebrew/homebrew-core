@@ -9,6 +9,7 @@ class Clblas < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e6c3905b2128cd5fece2722262321cf7b446cb8119cc0c96f33e87a0e534a9d1"
     sha256 cellar: :any,                 arm64_sequoia:  "e01b9a3b09dc996c6feb5b474e99f463b4079417aa0c24c69d5ace2cb896b036"
     sha256 cellar: :any,                 arm64_sonoma:   "932e8b3b551e5d7e9bd274802aed00a7de5844a2fa3ead6b52647ffb7e2bdbed"
     sha256 cellar: :any,                 arm64_ventura:  "ddd0d6b3d160284e87fee5d6cbb6585632cd24842c1f26954205acb665e3c74a"
@@ -41,14 +42,24 @@ class Clblas < Formula
   end
 
   def install
-    system "cmake", "src", *std_cmake_args,
+    # Workaround for CMake 4 and CMP0048 as project looks unmaintained.
+    # Can consider deprecating if bandicoot migrates to alternative like CLBlast:
+    # https://gitlab.com/bandicoot-lib/bandicoot-code/-/issues/34
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+    version_str = "#{version.major.to_i}.#{version.minor.to_i}.#{version.patch.to_i}"
+    inreplace "src/CMakeLists.txt", "project(clBLAS C CXX)",
+                                    "project(clBLAS VERSION #{version_str} LANGUAGES C CXX)"
+
+    system "cmake", "-S", "src", "-B", "build",
                     "-DBUILD_CLIENT=OFF",
                     "-DBUILD_KTEST=OFF",
                     "-DBUILD_TEST=OFF",
                     "-DCMAKE_MACOSX_RPATH:BOOL=ON",
-                    "-DPYTHON_EXECUTABLE=#{which("python3") || which("python")}",
-                    "-DSUFFIX_LIB:STRING="
-    system "make", "install"
+                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
+                    "-DSUFFIX_LIB:STRING=",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "src/samples/example_srot.c"
   end
 

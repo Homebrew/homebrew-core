@@ -8,6 +8,7 @@ class Condure < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c4aad788eb15d3d312d7048f8a3e278c56b2461b42686d2d6965827ab95ff3f2"
     sha256 cellar: :any,                 arm64_sequoia:  "5dbd83cd3a803509a0cc5b3d0cdc7d3dbe09cc47ea085d2576e35852aa13f40e"
     sha256 cellar: :any,                 arm64_sonoma:   "b61e13bb29181ff457ce6a5b1b9156d370a31fabfd61767f94dfbef580469c7a"
     sha256 cellar: :any,                 arm64_ventura:  "a3d123a19dc1da1b031ae987ea84a517e3d1d6940206dce616e40a1122c3ac57"

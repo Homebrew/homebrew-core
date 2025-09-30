@@ -11,6 +11,7 @@ class Tdb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "68dbd4f902ea117c3400a462d65dde2fbdb84e031437ad72a3203e17068e534c"
     sha256 cellar: :any,                 arm64_sequoia: "867552b59be50ba8f9acab7d343dfb13ddf5fc01cdb5dad9b65514e126f1be9e"
     sha256 cellar: :any,                 arm64_sonoma:  "2bc5ca7cdcdb65b9a9742315da84853eb713aa703f083777e7bcdb85ae85ab37"
     sha256 cellar: :any,                 arm64_ventura: "ceac8c5018279b2d32ce36c6b8a2e935bcb5021cb35cb7b36990dde903025224"

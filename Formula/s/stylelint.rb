@@ -1,18 +1,12 @@
 class Stylelint < Formula
   desc "Modern CSS linter"
   homepage "https://stylelint.io/"
-  url "https://registry.npmjs.org/stylelint/-/stylelint-16.23.1.tgz"
-  sha256 "5082dbb5e22ba2782756d91672e2e021819cf4865956bf151817c39585d37513"
+  url "https://registry.npmjs.org/stylelint/-/stylelint-16.24.0.tgz"
+  sha256 "dfa13c219c0c2fba44521110c208466332c2ce4d01295832fe8a4bff2c1c6b0f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e715df289674423fe88abc5f6bdaf37704380453dbdf538d6fbe8c067399fcea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e715df289674423fe88abc5f6bdaf37704380453dbdf538d6fbe8c067399fcea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e715df289674423fe88abc5f6bdaf37704380453dbdf538d6fbe8c067399fcea"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5f4bf192034474149478377a7960301465039de7f7064f5ca273135c5d60ac81"
-    sha256 cellar: :any_skip_relocation, ventura:       "5f4bf192034474149478377a7960301465039de7f7064f5ca273135c5d60ac81"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e715df289674423fe88abc5f6bdaf37704380453dbdf538d6fbe8c067399fcea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e715df289674423fe88abc5f6bdaf37704380453dbdf538d6fbe8c067399fcea"
+    sha256 cellar: :any_skip_relocation, all: "22fad4d4cc792ac909b2f94f37a5594ee6fe501ef7222a475c05284f93dc93e8"
   end
 
   depends_on "node"

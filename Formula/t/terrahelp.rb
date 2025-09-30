@@ -9,6 +9,7 @@ class Terrahelp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0473183fea6fcf7de2d8bb2a2ff65a1230c023e994b2cc1c1bcca147d16c37ea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b5fc796c20c29a328691b8499b2987a5249ea4be381ceb270d73200dfd310f85"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c077330b4b023abcd41cc69010561ff2046b426a760ea6129ff496df69416b04"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0637ab5db3f9423836bd621b67c01fcfbcf44fd86ac6033ff2b4ffab979a64b4"
@@ -19,7 +20,6 @@ class Terrahelp < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e04b7ade448da1809858ef7cefea05f34b5670d4b159b3f67d8700c0572201d7"
     sha256 cellar: :any_skip_relocation, big_sur:        "da129e3fa2f21f00fe0b054d5510509d39d6d26cbd58efa7d06297363254fcc7"
     sha256 cellar: :any_skip_relocation, catalina:       "8db95e8da4909b68eaa18a9fab2e38769fcfa79426b3c1a53a4ac9d5315092fd"
-    sha256 cellar: :any_skip_relocation, mojave:         "10cfea117c1dd3d1e1f5c7b609b3c299c4544b46c87d996836971d1185e77004"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fdaed3d9218418ada94b13cbdfc0bd156ac0b5b44294a95674df07a3e66147a"
   end
 

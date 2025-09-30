@@ -1,8 +1,8 @@
 class Pulsarctl < Formula
   desc "CLI for Apache Pulsar written in Go"
   homepage "https://streamnative.io/"
-  url "https://github.com/streamnative/pulsarctl/archive/refs/tags/v4.0.6.1.tar.gz"
-  sha256 "cdcb4483a5d82e672d72ff58c8821854255a3555d9f39f8c86163025112f22bc"
+  url "https://github.com/streamnative/pulsarctl/archive/refs/tags/v4.1.0.3.tar.gz"
+  sha256 "7a300770c67468762aafab5bfb6f35c1cb899508c896d6fcf4d9c5d242ce01b9"
   license "Apache-2.0"
   head "https://github.com/streamnative/pulsarctl.git", branch: "master"
 
@@ -18,12 +18,11 @@ class Pulsarctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5a88c608698e321f3c9acdc8bd49e80d4d1d3b4fe588619289d345f0fc46f11c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f61787dad7ced5218932f6c4eb6c2ad5ce7d37e0083d9a30dcb72bd7cbc3d29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1f2291986eb933568d7384e6ae2cb71632d53e1c8fd5899d1601b6ec092521de"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0cc01848bb7a425d84008f654d0ed57111826ebc59e8033125bd004f515502cc"
-    sha256 cellar: :any_skip_relocation, ventura:       "df6983cc54df7ba93731d3048469a42ba14b5fc74f86a37b3cf9a61152192be5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0557a144b995f7ecbb09e6fa88d8e72d863bb700db8ff6a0de38d6c8cc76e54f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "88e828dfe2b831a2dfe16bc05102a048c505d09d29e9ab66ad5feeb21de764e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb9ba741345682c01fb0d5bdf014d191d3637b869dc2b16f513039ab659b21bb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19b8d5007fe034e63f6b50f3985b7e0fd5a25567dd368ec5833c091a19faeea7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa4da8ad110f4211470baddba87d6d70c8aaeb59565fbef0f7a0fd15e69256ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5622cb66d59481ace301d70906ae46029b1339c7032f45963b181d9eb269b95"
   end
 
   depends_on "go" => :build

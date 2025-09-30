@@ -7,11 +7,13 @@ class Tfmcp < Formula
   head "https://github.com/nwiizo/tfmcp.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae9966198115c0313c9fe9c917c73cc7548bf066ef424baca1768a3842d4d277"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c1d37d1f0afc8606af8d61b58ce87562353684d98ed17d6e95d5056092a448d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec63fab7c65d3f7336871a3b73197638677766164670f553a6aa76f173f4f9b6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4bd00155426fbe42e66b0407d99cf051e92a748c18170fc42af5353dd4f9565b"
     sha256 cellar: :any_skip_relocation, sonoma:        "362715e0769e7a47ba53e588141435f145a3463aa68033276f7ed104588d8634"
     sha256 cellar: :any_skip_relocation, ventura:       "231f29d10d19a1af5e6fa244d4867472a0e8e1d28eb32604ee1206e94642dad4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9cb0be4c5bd966660398b8da91aab2c6bc6951904a56ba5bc3801f6dd0205e71"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "575a05e0b7b7c95fee7fedde98338e4dc02701b9d12df6e644e928c1c336dd2b"
   end
 

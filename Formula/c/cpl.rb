@@ -14,6 +14,7 @@ class Cpl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c6ae6b7cb1a84a01d0cf02626e62fa069c69ce1ddd58da71a7dbc650f4c233b5"
     sha256 cellar: :any,                 arm64_sequoia:  "44e6e7500a5c7a392a2b4d6ec6aeb8572da5c72ed27650293780e481d3fd05bf"
     sha256 cellar: :any,                 arm64_sonoma:   "710c0bce11e34ef18dcba1f2c592b82827daa9027a2e6ffdf7a5523db746f4c3"
     sha256 cellar: :any,                 arm64_ventura:  "867112ff76fc10a5a8ccf3871398c4057aba8aac147f0452f4b74e60f30c1417"

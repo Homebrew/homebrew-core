@@ -1,20 +1,19 @@
 class Proxify < Formula
   desc "Portable proxy for capturing, manipulating, and replaying HTTP/HTTPS traffic"
   homepage "https://github.com/projectdiscovery/proxify"
-  url "https://github.com/projectdiscovery/proxify/archive/refs/tags/v0.0.15.tar.gz"
-  sha256 "21e7d9cfa047d66353e98daeaff9d182091168e2385746dbbd0c194de792fbb5"
+  url "https://github.com/projectdiscovery/proxify/archive/refs/tags/v0.0.16.tar.gz"
+  sha256 "a156d8094ac5a31bc92029c1a9e02300caa5e2f189dc13949410d792e9f4e63c"
   license "MIT"
   head "https://github.com/projectdiscovery/proxify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1f8b9039a24126726cf99072edaf44c728c0f71728bc6a87ed69dfab954c0ef1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43240776e0cca25746be42bd5598599c94852a9a8350eecaac7c16f5c1eea114"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ccc8da7bc76d1dcac5a26c38701d66d17e47748db1b2faccd16aea943b26f8e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab56f08717ac71f15def86e44d0c428f556e3f908ac7fc872c75d77c0d4093dd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "38d0cf3fbfc6f854c16756dc89363e97b5824c9c414d6f700e330610a61633c4"
-    sha256 cellar: :any_skip_relocation, ventura:        "e0e1a3233d78f7127319caec65a875960303d869637b77e0ff4c089bd4d6af8c"
-    sha256 cellar: :any_skip_relocation, monterey:       "4571453e9ad967b4d3c17c02c051b015f8f7c96431d7ce9eb614908b68883096"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "690625eb2cc8125aa242223b221df8f19311e79a84b7877af6d96847f016a92c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0115217c88f10cfbdc76745ef04ae0d7f1d663cbd081d57b1fb1a4da7819fe68"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3e2bdfdedcdcb3ebddd535df0f187dab19b794869793bc5f0a096412423122b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f512065276786dbe49e669c2bd6dda009952c5650817d7fda48659a7e99c08d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "55d02209f5e215cc15c57df775866a9f95de9de9c797acce7ca87ba95c715aca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d0b34a5b8faca1288c434e2181c24ad5770f8cbcc02cedb05f37fbe04442257c"
+    sha256 cellar: :any_skip_relocation, ventura:       "4a80fa274bbc79f69b63d71aa4a823a0dbeaee02f802a30a01cc98b3b4cb7869"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6ae504f9d04fce697580389190a075d1707b2d658e6867cb12c5dc2e4c9d86e"
   end
 
   depends_on "go" => :build

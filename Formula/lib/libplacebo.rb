@@ -24,10 +24,17 @@ class Libplacebo < Formula
       url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
       sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
     end
+
+    # Backport fix for Python 3.13.6+
+    patch do
+      url "https://code.videolan.org/videolan/libplacebo/-/commit/12509c0f1ee8c22ae163017f0a5e7b8a9d983a17.diff"
+      sha256 "14ab95f72600c2c6862475838ca5bd498a3a52082f6fdca696473856e503f7f7"
+    end
   end
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "3664b8f58b9d80bfeed7e54efbdca3202a1cff86e9658b10b503bd3ca6c91014"
     sha256 cellar: :any, arm64_sequoia: "4e5f0af5ad2cb7d838cff63d56a50d7db5e9f7ca27c2045a546834397853240f"
     sha256 cellar: :any, arm64_sonoma:  "ad9bf481e31cfd2425500328d11163c3186063233778d07505c854c7bf8b5e71"
     sha256 cellar: :any, arm64_ventura: "84c2732b7169fdc2b799db8e5263f813667b2848742e2f1860a93cf3059e5eac"

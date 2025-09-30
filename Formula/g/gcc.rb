@@ -5,9 +5,9 @@ class Gcc < Formula
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
-    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-    sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
+    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+    sha256 "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
 
     # Branch from the Darwin maintainer of GCC, with a few generic fixes and
     # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
@@ -27,14 +27,14 @@ class Gcc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256                               arm64_sequoia: "c805973f31312379b26ab86a4c7b8076392f8fa0c82cfc7fa0b0b77210b8b645"
-    sha256                               arm64_sonoma:  "e303f1155c61e85f35bba806ea975d6bf4fc0425bf7c0a11c0b368c3b852a5b2"
-    sha256                               arm64_ventura: "47bb2181ba767978af01831a7a5252fddea53dbc8c83ecc6a5044fb4a70a737b"
-    sha256                               sequoia:       "e1a3544b1d6447b03bdd912a5f479eb5f80870b1bd75fc054e765291bd97a1eb"
-    sha256                               sonoma:        "70d96023c835d25f95bbfe2ed9c38fbba338bee57d4c9bcbad132c2fad1e4b60"
-    sha256                               ventura:       "51491f90bea9c25ecd372ef13375232d8f75e3550e663021d3a5ecf6ed36bf46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ecb05357b3eabeccb3783253df23e946f8f91bfd2c97a3fbf484ee6c1efec19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bf8afcd6fd5670f6a9aa88bfe8615359e080a3d6d0f6b4fcbbb24faba7f6531"
+    sha256                               arm64_tahoe:   "e76be6aae85a3a541420be141c63e314444a7dfaaa5594778cf34b79eee81385"
+    sha256                               arm64_sequoia: "aef7b1f77984d6a599b4d5a4002d91b777debea49bdc429be9a0fc13cfd82974"
+    sha256                               arm64_sonoma:  "ae72dbd9b2ba010e956db687b36fee950190dfaa5e33299aedb61c50ec2ebccf"
+    sha256                               tahoe:         "bdb8459b23eb33ba9d503fa8effb6bb79ab59953d2643d5538e90d9ce95447b4"
+    sha256                               sequoia:       "1c6c40e6317501b4158402b3ddab8a138b5ddd7dcecfc661c28a49a95770b325"
+    sha256                               sonoma:        "9b8c47ed04d0dcee9c133ddef1861868252fa6263245fbc6a03ce1e147b0815d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "714ff308f7f00d71d0d7122cd777f12185c1eafe21254b7033edd0e6a8fbaafc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eebab9738ff2c231ec19c5da5725a830d89322914f8aa84d58728c6b45f84a58"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -59,9 +59,6 @@ class Gcc < Formula
   on_linux do
     depends_on "binutils"
   end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   def version_suffix
     if build.head?
@@ -120,9 +117,6 @@ class Gcc < Formula
       # "Updated load commands do not fit in the header"
       make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
     else
-      # Fix cc1: error while loading shared libraries: libisl.so.15
-      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
-
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
@@ -134,10 +128,8 @@ class Gcc < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      make_args = %W[
-        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
-        BOOT_LDFLAGS=-L#{Formula["zlib"].opt_lib}
-      ]
+      ENV.append_path "CPATH", Formula["zlib"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
     end
 
     mkdir "build" do

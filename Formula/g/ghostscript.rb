@@ -19,6 +19,7 @@ class Ghostscript < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "ca5dfbd81a29ce22cd39e0202fcd0415ef5b87c6f6b85cf6552f218ad3f0a03f"
     sha256 arm64_sequoia: "29a6c1c81a8c04ccc3a1a918b7bb75843318e13c4123cd196bae785466dc572a"
     sha256 arm64_sonoma:  "f27ecbe17374b336ed1c402eb9b85afde9ab8584e472616595d66f820c38ef15"
     sha256 arm64_ventura: "186b6ef887ecf25c6391596e5512666f5b0ec9b597ab69dc23079f06a7cddac3"

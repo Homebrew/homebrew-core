@@ -9,6 +9,7 @@ class Libmps < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c615224288aff51fe425cc3ab91473dbf05f95391c883ca5764e0de227992891"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c651514f2ee9c277517272b328db0e41ab0cc06b3998302e591db274dc70f104"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c076fea0e44ca8cf0aacfc914e05a8d4af972c32700d11ce60a4858c6270f96"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc6283eb82ae52dc677b701a27f47146c4613c820b32d877b9ec52536f51474e"

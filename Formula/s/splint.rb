@@ -18,6 +18,7 @@ class Splint < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_tahoe:    "3d26b806b15af6dde29829bdca6d9c0cc44ac7ef96d5522dee1cbd3f24a9924e"
     sha256                               arm64_sequoia:  "71b5c97c68f8d10d646955b1111d8556dc2f0ab90136dafd78f5beb673533fb3"
     sha256                               arm64_sonoma:   "b7570a4d7dbb53a9da6cc06e69bb7fd2a850829fe93ea39ffc14f494c4b1c58b"
     sha256                               arm64_ventura:  "6aae55c464e14dde1a9aa9f49da8e30d8184fcf12fbe06a9e913e1fc313455fa"
@@ -28,8 +29,6 @@ class Splint < Formula
     sha256                               monterey:       "fa3307d22e30d030cc844b92c91891cfe0581226726a7ad54e1cec82dec07189"
     sha256 cellar: :any_skip_relocation, big_sur:        "bbe9dd0df4449df4259f44c16dc1505e6cdde38c0e7b7cc275d17ae974c8a3b2"
     sha256 cellar: :any_skip_relocation, catalina:       "98cc2bfccef60b21ec014ff35e71cc91a85e77435b4e429090e2767d0696bef8"
-    sha256 cellar: :any_skip_relocation, mojave:         "abe5a5d75a01fa272839dbc219a5fde2c76c7c7593e7dd365c152e4cb02a2c59"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b95c7e4981cb11c23b686dbb01dcc01c1317909371b5d21ba0aa155e47569eec"
     sha256                               arm64_linux:    "6003db1cf73e332befaff1d85a5a3c547a094594e014b775cfe55914158dff58"
     sha256                               x86_64_linux:   "fded0340d91cfcbd99ddf5a89b505fd59895e980d86366654196192d6358a97c"
   end

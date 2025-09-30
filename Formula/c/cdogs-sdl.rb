@@ -1,8 +1,8 @@
 class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
-  url "https://github.com/cxong/cdogs-sdl/archive/refs/tags/2.3.1.tar.gz"
-  sha256 "0a9bd151e33504a2323b3f962720f0d9091645bc378a7b20059e6cd20ccd1270"
+  url "https://github.com/cxong/cdogs-sdl/archive/refs/tags/2.3.2.tar.gz"
+  sha256 "e2f56262629b175d4a387f6491696edc0a5b9420c9be8e9aa12b60feaa4fefa1"
   license "GPL-2.0-or-later"
   head "https://github.com/cxong/cdogs-sdl.git", branch: "master"
 
@@ -12,13 +12,14 @@ class CdogsSdl < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "29cae0e86f62a41ed00096243a0ec3743844a510c3caabd9bf2720d54c2f4682"
-    sha256 arm64_sonoma:  "ff029027df05a16a261d0961893c63de1148ed613b16548263a33c13f18fbd3e"
-    sha256 arm64_ventura: "ddbe4bfde11a74cfa6c70f6d3b844af04fe83e0043bc24405e39623558bf8808"
-    sha256 sonoma:        "55ff534d6f98220775a3a4495a445862119d9bad5d71524a8c3e57e8550201e3"
-    sha256 ventura:       "6d85bbf02513d82b7b1e58dae63fa5dc247cf5075b1ff52479652617102e201c"
-    sha256 arm64_linux:   "356a398fc7f2d22c1110b9a66b633aa3f4e6289408f99f0055b551a14aa6716d"
-    sha256 x86_64_linux:  "01363a74f86c05e13d60ba788fa91cd13007b2b349dbbba13801f24504e29253"
+    sha256 arm64_tahoe:   "b2b848260d98548d3a6967b49fc5a160b579b4acae8f4e54c1bdcebcb1a4bb14"
+    sha256 arm64_sequoia: "ddb726d445197fd15fc5837fb71ffc252a07ed1b41b5d5104cbb8ac94d0cc5ac"
+    sha256 arm64_sonoma:  "c41043fa62904785fef70ec91f21b8cec8d354531ce041e0b70110abaee62ef3"
+    sha256 arm64_ventura: "f22242fc590b91ffbd285026f6be195d7fab9058aea462dad08a363f376a904e"
+    sha256 sonoma:        "c076c974706d412b64c9ccc718e9c6b765db3d383af66efbf5c3d5cf56cd3f83"
+    sha256 ventura:       "50da0aa73a5230784093254c53813671b5d26251d08dbc318bb6c274e8fced0d"
+    sha256 arm64_linux:   "08ebb2ed525bf867314e50544b0f7335d44a924694e7795d088502f0ac51e17c"
+    sha256 x86_64_linux:  "0c305e258040d1bb2c4e8a4413bf59ed0f07ea62fd109c3a3c1ef4243d1a5894"
   end
 
   depends_on "cmake" => :build

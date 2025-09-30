@@ -1,8 +1,8 @@
 class Libgsm < Formula
   desc "Lossy speech compression library"
   homepage "https://www.quut.com/gsm/"
-  url "https://www.quut.com/gsm/gsm-1.0.22.tar.gz"
-  sha256 "f0072e91f6bb85a878b2f6dbf4a0b7c850c4deb8049d554c65340b3bf69df0ac"
+  url "https://www.quut.com/gsm/gsm-1.0.23.tar.gz"
+  sha256 "8b7591a85ac9adce858f2053005e6b2eb20c23b8b8a868dffb2969645fa323c0"
   license "TU-Berlin-2.0"
 
   livecheck do
@@ -10,17 +10,15 @@ class Libgsm < Formula
     regex(/href=.*?gsm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "73ab84857bda140ae2dbf8dcbba53376739db92a4943fa2aa5e9939ebe7365ba"
-    sha256 cellar: :any,                 arm64_sonoma:  "b67bf46ae228c9cdb566c31cbf903c2b36933a43c225600420b7c95a41516601"
-    sha256 cellar: :any,                 arm64_ventura: "873e314d6adc194af517d5e44f780822d23f39e19b13baec333bd28d990fa5ea"
-    sha256 cellar: :any,                 sonoma:        "b3ffd6c44c59f8cba9394605a52ac959cd69d50dc2e4173cdb6ea395bdbc493b"
-    sha256 cellar: :any,                 ventura:       "b8c2c17f921fb1fe0bdf21868c08d66b6792a14e419c4ac15ee0d4d79f15e628"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d58e3f81b1b007ea285d82e680f1dff3fae11ebce2bb2c712af0d2dd0cca343"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a2e88a7ac1d423da03aba16b51e7eb10eb69925ad46fd98259c5bf054301600"
+    sha256 cellar: :any,                 arm64_tahoe:   "467a477395955a57baa2c5dbf6f569d9954e11f4345709ebcf1bfe5a97bfbb1e"
+    sha256 cellar: :any,                 arm64_sequoia: "658ac922d39d58336a7e0b2a98674de725a9f56d861a5375c1b386fb213e3d74"
+    sha256 cellar: :any,                 arm64_sonoma:  "8f156675b7d5842149a55b6db6f094814d6b0420b6b1a12352597ab48db5907d"
+    sha256 cellar: :any,                 arm64_ventura: "92acf1ef6c9554599abb3350fd3dc1c8ccfe6b640a321c3e91b5a31cfb3df5f5"
+    sha256 cellar: :any,                 sonoma:        "eeb8b9463ce92eb6d50dffa097e3328a9ae652ad5d7fb018addb5a439a037e05"
+    sha256 cellar: :any,                 ventura:       "d39392bfba634df95d672415b63c2a6aa826855853cf83b55a296bcc189750bd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d0967b1520c0d352be35cd5643aadf8efa15e4a19bbf8a1c573cff46800514a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67f98c00f51b40a421b86df456643a127da384044f36bb9261fe9c2bea97436b"
   end
 
   conflicts_with "toast", because: "both install `toast` binaries"

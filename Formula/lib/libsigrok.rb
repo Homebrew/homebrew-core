@@ -28,15 +28,15 @@ class Libsigrok < Formula
       # Backport fixes to build with sdcc>=4.2.3. Remove in the next release of fw-fx2lafw.
       patch do
         url "https://sigrok.org/gitweb/?p=sigrok-firmware-fx2lafw.git;a=commitdiff_plain;h=5aab87d358a4585a10ad89277bb88ad139077abd"
-        sha256 "ddf21e9e655c78d93cb58742e1a4dcbe769dfa2d88cfc963f97b6e5794c2fdcf"
+        sha256 "9615c2f25eb03faeca73c8233353698236dc9f16c38e250f3cec4a7bb5d9f15d"
       end
       patch do
         url "https://sigrok.org/gitweb/?p=sigrok-firmware-fx2lafw.git;a=commitdiff_plain;h=3e08500d22f87f69941b65cf8b8c1b85f9b41173"
-        sha256 "dd74b58ae0e255bca4558dc6604e32c34c49ddb05281d7edc35495f0c506373a"
+        sha256 "f9c93c9ac88802173cb37528766d95c231288f343ee5842a1d8bc9f617794c33"
       end
       patch do
         url "https://sigrok.org/gitweb/?p=sigrok-firmware-fx2lafw.git;a=commitdiff_plain;h=96b0b476522c3f93a47ff8f479ec08105ba6a2a5"
-        sha256 "b75c7b6a1705e2f8d97d5bdaac01d1ae2476c0b0f1b624d766d722dd12b402db"
+        sha256 "1d5d9a7d2e8e7e1b99c57f15093bbffed87d5750caa13b797cd3199438d4c990"
       end
     end
   end
@@ -52,14 +52,13 @@ class Libsigrok < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sequoia: "22e5e2db64f98452def0ed20f6896caa15fda7c38c71454adbd6c4261591eb43"
-    sha256                               arm64_sonoma:  "39c5f43f820298f30bb3ff75ea971257f1ce9a4df35be4f2ccd218355f2b7a62"
-    sha256                               arm64_ventura: "7f3024bf6ef54007c043d9be38515c29522cd9952280142d330009da93fd9fcc"
-    sha256                               sonoma:        "d0606b7df886ae65ba3fbf01968682ed5928ad17bbf293e6b905ed2fa097adc2"
-    sha256                               ventura:       "772490f83137bbd47c046691c5dd9af3ac245cc9e49d4e86d9c5db7355ed87f0"
-    sha256                               arm64_linux:   "748684586a8ca71f8957e8929a8ed28220ca62ff56e7c1c0aec30209728fd588"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d91357303c1b4ff68746181b66eba6944140ff6bf365c1e88cfafd29f9c64076"
+    rebuild 2
+    sha256                               arm64_tahoe:   "03697dd6796dbddcb4602fda39063dece9e3bf49f78b34ae7eafad696074434e"
+    sha256                               arm64_sequoia: "f87ecb91e13c521fcdbb1a3fb7bcccdaf0e1756b08108181dc31bf41fc78c00c"
+    sha256                               arm64_sonoma:  "9653da1e1ac058c2f4e2a4d0eaa2219aeab0518e517873a92a0bffb8ae7de274"
+    sha256                               sonoma:        "55774dcb178d0e94dbc0724393dfcc32fd72fb18f4aa8716b1570becd3371287"
+    sha256                               arm64_linux:   "2217949eee6fb0bbdb020a98b6df00bfdf6e9f486f738f62332a39f681be1d2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e3c6925a66722db026365cc0a8ee44e92f658384f12b3ec66bf4b4976eebacc"
   end
 
   head do

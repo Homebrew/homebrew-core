@@ -13,6 +13,7 @@ class Chamber < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7621167746f4aca41da55a4403f5c4dde4731eaa985915addd17e59ba95dda2b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "697dd0e5e98d6ab28cd992438dcda8e4dfa9e7a30cbc8084eaa4f20dbc76e68b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "697dd0e5e98d6ab28cd992438dcda8e4dfa9e7a30cbc8084eaa4f20dbc76e68b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "697dd0e5e98d6ab28cd992438dcda8e4dfa9e7a30cbc8084eaa4f20dbc76e68b"

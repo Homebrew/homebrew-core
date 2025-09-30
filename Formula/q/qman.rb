@@ -6,6 +6,7 @@ class Qman < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256               arm64_tahoe:   "76e73e941c8644a419e621767c8fcf264fb6648bd2ac9d1ca45036f7771b9662"
     sha256               arm64_sequoia: "242f89831ea2de296836320100941480578948076051262e9c5a4a55f099d7f5"
     sha256               arm64_sonoma:  "d8ed1519a4e75f283581a084d86c58fcb4f9a99ea35fb11848688f1e7542d428"
     sha256               arm64_ventura: "f80ec8da63ae6047755d58a238e6d668ad42f418a0ba2ee4effd1ab357fcce97"

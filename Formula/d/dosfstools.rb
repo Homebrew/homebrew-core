@@ -19,6 +19,7 @@ class Dosfstools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d54a1407f985fc34279f07ead09aa53ae0cbe1a24b8a7328d4cbcb8fb24d9c49"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a865f34d1361ac215e3ec359fd524e4ee92ea63cac75ccaac99298c871aa4b28"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "574e8d06c7e0cfd4c57b7d3187a7ba4b0d59a4162e6550e5f49afcfb9de8090d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "40a3ed816a04a4104a60aa95f8ae76bee9be12872e8147c0a41fa3f879f11ced"
@@ -29,7 +30,6 @@ class Dosfstools < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e288a32bae22472eb31806afad3a025220d7284ddf6cdbf5b48a196ec5831139"
     sha256 cellar: :any_skip_relocation, big_sur:        "c4f450bef47449fa57d911e1c3610cd65bf8d7fd661e3efc8a0a44c7d45510f5"
     sha256 cellar: :any_skip_relocation, catalina:       "df9afee3d6ec3da028a6fdd487b98800099f8aa248261c35ed2821e984b91a70"
-    sha256 cellar: :any_skip_relocation, mojave:         "4d910d3f83352692379e5ead97f3c52ab845cc187a1d791f655ed02ef7b7b9e6"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "0f175df17e208a3e33de63fa36168da5daff1fe7a5ae61be6e7e140838171b95"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "584daa5a52ed21b3b23eba4323ebec3fa8421062c9cac5d833e60b91da0a7636"
   end
@@ -40,10 +40,13 @@ class Dosfstools < Formula
   depends_on "pkgconf" => :build
 
   def install
+    # Workaround for https://github.com/dosfstools/dosfstools/pull/218
+    ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
+
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", "--enable-compat-symlinks",
                           "--without-udev",
-                          "--enable-compat-symlinks"
+                          *std_configure_args
     system "make", "install"
   end
 

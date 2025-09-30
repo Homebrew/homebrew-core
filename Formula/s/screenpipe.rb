@@ -14,6 +14,10 @@ class Screenpipe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c05236a8906e59fcb9a3dd1a8fbe3d0962717af731b1d8894f70235b5b6b6cc6"
   end
 
+  # Unable to update as newer versions need Bun.
+  # Older version used by formula doesn't build with newer Rust.
+  deprecate! date: "2025-08-25", because: :does_not_build
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build

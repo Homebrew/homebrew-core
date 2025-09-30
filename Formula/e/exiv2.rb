@@ -1,8 +1,8 @@
 class Exiv2 < Formula
   desc "EXIF and IPTC metadata manipulation library and tools"
   homepage "https://exiv2.org/"
-  url "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz"
-  sha256 "e1671f744e379a87ba0c984617406fdf8c0ad0c594e5122f525b2fb7c28d394d"
+  url "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.7.tar.gz"
+  sha256 "5e292b02614dbc0cee40fe1116db2f42f63ef6b2ba430c77b614e17b8d61a638"
   license "GPL-2.0-or-later"
   head "https://github.com/Exiv2/exiv2.git", branch: "main"
 
@@ -12,13 +12,14 @@ class Exiv2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5225bfe7d15357bd7cc7d26d4a958435351e4239e9260d5343e2668f5977d1f8"
-    sha256 cellar: :any,                 arm64_sonoma:  "bd0206f7ef7c3f0f0a6582c2a1fa91cc60e79b733568d7b029a57e6037da71af"
-    sha256 cellar: :any,                 arm64_ventura: "324a396d02a60943e980cf9b50426eae98c192ca22ca095a48f905e96fa8126d"
-    sha256 cellar: :any,                 sonoma:        "dcb1e5a8e88a3e73d6a7fe7bcfc29287f5bfd316707b11885243123a72513098"
-    sha256 cellar: :any,                 ventura:       "478a00d6b64bc104d295c5ba17dd1ee2ee4d0abb402156637197bfbd9d89458a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d34a3a27828011996fe3e1eb69930b95e82780d37f0d7228bbbcb75ffb95ff2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cabdc713bdbfcedd5f85a543e9a573b4976cb074ad9ee7556ca0323a23184c6b"
+    sha256 cellar: :any,                 arm64_tahoe:   "3bd7cd0e83a6162d4358f2e36fd7107caf401a762f69afaebd419c7cb5e91df1"
+    sha256 cellar: :any,                 arm64_sequoia: "786c1c6814e9a66bd529beab979c4561325f5e0ea86174a606c4d00df43bc683"
+    sha256 cellar: :any,                 arm64_sonoma:  "169a123782431874518ab22cb1cbdc24e2404f4c3d3baf3ebaface5225c91d12"
+    sha256 cellar: :any,                 arm64_ventura: "71a967bd20ea65f3520eb896c1cc6fbc66827d3e9bfa6f2636cc3c51e7de80bc"
+    sha256 cellar: :any,                 sonoma:        "436dd0a3b4727b40598837678d33447daa24953925c5d1993df87f9f449d6134"
+    sha256 cellar: :any,                 ventura:       "78647feacc19846fac0a776338881ccc42700601983079e0b177666c9799b591"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "47f02134c7bd42aac15f5de799fdfe664a2921236f7652b7ab2302335ca558ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "002658250128994bda7ec81297130a268c86c01c465182794ee6faace4c629e8"
   end
 
   depends_on "cmake" => :build

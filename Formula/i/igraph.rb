@@ -1,18 +1,17 @@
 class Igraph < Formula
   desc "Network analysis package"
   homepage "https://igraph.org/"
-  url "https://github.com/igraph/igraph/releases/download/0.10.16/igraph-0.10.16.tar.gz"
-  sha256 "15a1540a8d270232c9aa99adeeffb7787bea96289d6bef6646ec9c91a9a93992"
+  url "https://github.com/igraph/igraph/releases/download/1.0.0/igraph-1.0.0.tar.gz"
+  sha256 "91e23e080634393dec4dfb02c2ae53ac4e3837172bb9047d32e39380b16c0bb0"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ab9d25f69f94b16f9283e076f20a36b370668120a7b57e6ea53b5f26541cb8dd"
-    sha256 cellar: :any,                 arm64_sonoma:  "109a713e6f1d4176e826b15f5a651bc919f1c2bae67198d7cea641da7f327cfc"
-    sha256 cellar: :any,                 arm64_ventura: "357ba0bc0f907994dec39505c8fbba6882b9f8dbaaefa5f4efcb8a722ff956c3"
-    sha256 cellar: :any,                 sonoma:        "3a8a7391bc2dd456019e2072e738b8a5dff3715901d5987869eb42edda9ca818"
-    sha256 cellar: :any,                 ventura:       "77a3630e6f4f1140f7dac71f33e7031dd3dc15ce7694428b27e68f001d49329d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8732c9994495bcd776ec0b025bc8fabe9b6888b51493a0f5961c16f0d095751b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f09d1813d10e9fb4e2a8216416f1131d85dcf874df721ccbf6ecc06c28d502bb"
+    sha256 cellar: :any,                 arm64_tahoe:   "2bbee1fb97caa1f10aa7744ff1bc2e817099c60b1219efc397d7aef64bfd3263"
+    sha256 cellar: :any,                 arm64_sequoia: "97fd516356e753b74e2b43f8ce7f5f36b3a05f10ad7c5faa95f959273167a32a"
+    sha256 cellar: :any,                 arm64_sonoma:  "af513ee68a687b06d5568f8b58c426b6fa1a3276926b20e29373365d41137889"
+    sha256 cellar: :any,                 sonoma:        "7d9ef0b86e218b330fbe9acf8c760bff2fed0998fd8e57cdf67984ef97c515f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "55b153c6bbf5cc63d72fa397a1d0cc329fad87f513ccf480f5f7247199bec063"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f61547e0249555f2d75365f26e7431c99d5af822a7564c7051608a6dbc0f3a12"
   end
 
   depends_on "cmake" => :build
@@ -33,20 +32,21 @@ class Igraph < Formula
     # * BLAS and LAPACK should come from OpenBLAS
     # * prevent the usage of ccache even if it is installed to ensure that we
     #    have a clean build
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DIGRAPH_ENABLE_LTO=AUTO",
-                    "-DIGRAPH_ENABLE_TLS=ON",
-                    "-DIGRAPH_GLPK_SUPPORT=ON",
-                    "-DIGRAPH_GRAPHML_SUPPORT=ON",
-                    "-DIGRAPH_USE_INTERNAL_ARPACK=OFF",
-                    "-DIGRAPH_USE_INTERNAL_BLAS=OFF",
-                    "-DIGRAPH_USE_INTERNAL_GLPK=OFF",
-                    "-DIGRAPH_USE_INTERNAL_GMP=OFF",
-                    "-DIGRAPH_USE_INTERNAL_LAPACK=OFF",
-                    "-DBLA_VENDOR=OpenBLAS",
-                    "-DUSE_CCACHE=OFF",
-                    *std_cmake_args
+    args = %w[
+      -DBUILD_SHARED_LIBS=ON
+      -DIGRAPH_ENABLE_LTO=AUTO
+      -DIGRAPH_ENABLE_TLS=ON
+      -DIGRAPH_GLPK_SUPPORT=ON
+      -DIGRAPH_GRAPHML_SUPPORT=ON
+      -DIGRAPH_USE_INTERNAL_ARPACK=OFF
+      -DIGRAPH_USE_INTERNAL_BLAS=OFF
+      -DIGRAPH_USE_INTERNAL_GLPK=OFF
+      -DIGRAPH_USE_INTERNAL_GMP=OFF
+      -DIGRAPH_USE_INTERNAL_LAPACK=OFF
+      -DBLA_VENDOR=OpenBLAS
+      -DUSE_CCACHE=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -55,13 +55,15 @@ class Igraph < Formula
     (testpath/"test.c").write <<~C
       #include <igraph.h>
       int main(void) {
-        igraph_real_t diameter;
-        igraph_t graph;
-        igraph_rng_seed(igraph_rng_default(), 42);
-        igraph_erdos_renyi_game(&graph, IGRAPH_ERDOS_RENYI_GNP, 1000, 5.0/1000, IGRAPH_UNDIRECTED, IGRAPH_NO_LOOPS);
-        igraph_diameter(&graph, &diameter, 0, 0, 0, 0, IGRAPH_UNDIRECTED, 1);
-        printf("Diameter = %f\\n", (double) diameter);
-        igraph_destroy(&graph);
+          igraph_real_t diameter;
+          igraph_t graph;
+          igraph_setup();
+          igraph_rng_seed(igraph_rng_default(), 42);
+          igraph_erdos_renyi_game_gnp(&graph, 1000, 5.0/1000, IGRAPH_UNDIRECTED, IGRAPH_SIMPLE_SW, IGRAPH_EDGE_UNLABELED);
+          igraph_diameter(&graph, NULL, &diameter, NULL, NULL, NULL, NULL, IGRAPH_UNDIRECTED, /*unconn=*/ true);
+          printf("Diameter = %g\\n", (double) diameter);
+          igraph_destroy(&graph);
+          return 0;
       }
     C
     system ENV.cc, "test.c", "-I#{include}/igraph", "-L#{lib}",

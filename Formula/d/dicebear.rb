@@ -6,6 +6,7 @@ class Dicebear < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "22e8bc01e12dddc25982aecfe7436c0c0ac53299191039060b2d1b2f440ac6a0"
     sha256 cellar: :any,                 arm64_sequoia: "6cd2e65e517ada31b350201063bab3ec51163447732ba73541e68158d565b1ae"
     sha256 cellar: :any,                 arm64_sonoma:  "6cd2e65e517ada31b350201063bab3ec51163447732ba73541e68158d565b1ae"
     sha256 cellar: :any,                 arm64_ventura: "6cd2e65e517ada31b350201063bab3ec51163447732ba73541e68158d565b1ae"

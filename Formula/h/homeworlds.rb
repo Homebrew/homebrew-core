@@ -10,6 +10,7 @@ class Homeworlds < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f74bc37a6b17871ff8c413e2fb899cabdda55690e6983427290529793406d840"
     sha256 cellar: :any,                 arm64_sequoia: "768658afe4a3f11e530bc1cd5110a439e5d5e58648d03d1b2c8ac2857888beaf"
     sha256 cellar: :any,                 arm64_sonoma:  "9ce5c68b19b966fe5d40595ad13eaab04965fc642cfef3c1427bf2172d217c0b"
     sha256 cellar: :any,                 arm64_ventura: "f144b8b232721d3066ea19ef5fdad02b9a84d34bbab0d18e5f5a640871cc5d91"

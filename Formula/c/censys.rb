@@ -8,13 +8,8 @@ class Censys < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5ae90f1b2e3780c097d744e2add134e7ac4ef29d11d61d20ad960e4778b92a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5ae90f1b2e3780c097d744e2add134e7ac4ef29d11d61d20ad960e4778b92a5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d5ae90f1b2e3780c097d744e2add134e7ac4ef29d11d61d20ad960e4778b92a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "82ba42e963cfc8388fc2f634e3f3eb57867f027b4c2d2243dde5d6b71d93bb28"
-    sha256 cellar: :any_skip_relocation, ventura:       "82ba42e963cfc8388fc2f634e3f3eb57867f027b4c2d2243dde5d6b71d93bb28"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72dfe2539d0cf090d2a6a6d6d735505ea7daa409e04fc6533b183fc1114a6469"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72dfe2539d0cf090d2a6a6d6d735505ea7daa409e04fc6533b183fc1114a6469"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "bfa1a843b0537c428be308252a702ff639e44b469924ce91855a53f6847b52b8"
   end
 
   depends_on "certifi"
@@ -31,8 +26,8 @@ class Censys < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "idna" do
@@ -41,8 +36,8 @@ class Censys < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
-    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
+    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
+    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
   end
 
   resource "mdurl" do
@@ -56,13 +51,13 @@ class Censys < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
-    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
+    url "https://files.pythonhosted.org/packages/fe/75/af448d8e52bf1d8fa6a9d089ca6c07ff4453d86c65c145d0a300bb073b9b/rich-14.1.0.tar.gz"
+    sha256 "e497a48b844b0320d45007cdebfeaeed8db2a4f4bcf49f15e455cfc4af11eaa8"
   end
 
   resource "urllib3" do
@@ -75,6 +70,10 @@ class Censys < Formula
 
     generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "censys",
                                          shell_parameter_format: :arg)
+
+    # Build an `:all` bottle by replacing comments
+    file = libexec/Language::Python.site_packages("python3")/"argcomplete-#{resource("argcomplete").version}.dist-info/METADATA"
+    inreplace file, "/opt/homebrew/bin/bash", "$HOMEBREW_PREFIX/bin/bash"
   end
 
   test do

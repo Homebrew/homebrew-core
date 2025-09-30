@@ -1,9 +1,8 @@
 class SynergyCore < Formula
   desc "Synergy, the keyboard and mouse sharing tool"
   homepage "https://symless.com/synergy"
-  url "https://github.com/symless/synergy/archive/refs/tags/1.15.1+r1.tar.gz"
-  version "1.15.1"
-  sha256 "42fbf26c634d2947c7efc45da8c9a153387bcdcb19c1102a4f7c4e95aad5c708"
+  url "https://github.com/symless/synergy/archive/refs/tags/v1.18.1.tar.gz"
+  sha256 "f340cf6ef4762dfc7b0e04d4d0dae542db7f6fb9b9aba4eaf786446047cdb1c4"
 
   # The synergy-core/LICENSE file contains the following preamble:
   #   This program is released under the GPL with the additional exemption
@@ -31,16 +30,12 @@ class SynergyCore < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256                               arm64_sonoma:   "b51e183a0c07609d4b5f81e194251ce29c93fc220b8989d50e7a7ee58ac49021"
-    sha256                               arm64_ventura:  "2a7b87a5e398dd460a081cb8899bd611175c9b8ed473bc908ed8bc116ca10964"
-    sha256                               arm64_monterey: "23696daf5fc973a4b5869f68639ac971d4a2fb52da6e8b5a8636983550966ef9"
-    sha256                               sonoma:         "fe27a0f9abaf634c569222904e193b2c22eb06ec0cc607c0862663e0e60904bd"
-    sha256                               ventura:        "45f5169584dd7de08374dd0acae169f01afdebe6131f83c25d750415053b87be"
-    sha256                               monterey:       "0651ae4f922212f79badd7ce975259a6209abee9d59a0b8b7f61bbc8685936f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ad6a8e07bbe44eb008c620449cfeaac3e2fdfbc97b48965171ce6c114a7e10c"
+    sha256                               arm64_tahoe:   "26678afbc7418065590ef6fa576ec661380275169ce64eb9b1243370844876a2"
+    sha256                               arm64_sequoia: "e3e3008c7e703c0db1d038bd27645f9479178fe14236bb16edc4960c6b27d21e"
+    sha256                               arm64_sonoma:  "8fbba2a9c2af13c41475ab2476be8020398b08962427224ee8608b7cfd0d4975"
+    sha256                               sonoma:        "36fcf36037acfd38774c2ec90b6d5dc213ba82fb34a8a0105c5bc0e84237c88f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2ac1cfccaafcc11cf0eb10836285efbb7a21a9d4c8a5e382bf97799056e8ce5"
   end
 
   depends_on "cmake" => :build
@@ -71,7 +66,20 @@ class SynergyCore < Formula
     cause "needs `std::ranges::find`"
   end
 
+  resource "synergy-extra" do
+    url "https://github.com/symless/synergy-extra.git",
+        revision: "e68812d06139df5b836f361047a68f8c86efac17"
+
+    # Version.cmake in `synergy-extra` reads .git folder of `synergy`.
+    # but it's submodule uses ssh protocol which will be failed in CI
+    # and so we use tarball of `synergy` and apply patch to ignore git process
+    patch :DATA
+  end
+
   def install
+    mkdir_p buildpath/"ext/synergy-extra"
+    (buildpath/"ext/synergy-extra").install resource("synergy-extra")
+
     if OS.mac?
       ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1402
       # Disable macdeployqt to prevent copying dylibs.
@@ -83,18 +91,21 @@ class SynergyCore < Formula
       inreplace "cmake/Packaging.cmake", "set(CMAKE_INSTALL_PREFIX /usr)", ""
     end
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DBUILD_TESTS:BOOL=OFF", "-DCMAKE_INSTALL_DO_STRIP=1",
-                    "-DSYSTEM_PUGIXML:BOOL=ON"
-
+    args = %w[
+      -DBUILD_TESTS:BOOL=OFF
+      -DCMAKE_INSTALL_DO_STRIP=1
+      -DSYSTEM_PUGIXML:BOOL=ON
+      -DSYNERGY_VERSION_RELEASE=ON
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     if OS.mac?
       prefix.install buildpath/"build/bundle"
-      bin.install_symlink prefix/"bundle/Synergy.app/Contents/MacOS/synergy"  # main GUI program
-      bin.install_symlink prefix/"bundle/Synergy.app/Contents/MacOS/synergys" # server
-      bin.install_symlink prefix/"bundle/Synergy.app/Contents/MacOS/synergyc" # client
+      bin.install_symlink prefix/"bundle/Synergy.app/Contents/MacOS/synergy" # main GUI program
+      bin.install_symlink prefix/"bundle/Synergy.app/Contents/MacOS/synergy-server" # server
+      bin.install_symlink prefix/"bundle/Synergy.app/Contents/MacOS/synergy-client" # client
     end
   end
 
@@ -147,15 +158,58 @@ class SynergyCore < Formula
   end
 
   test do
-    assert_match(/synergys: no configuration available\n$/,
-                 shell_output("#{opt_bin}/synergys 2>&1", 4))
-    assert_match(/synergyc: a server address or name is required$/,
-                 shell_output("#{opt_bin}/synergyc 2>&1", 3).split("\n")[0])
+    version_string = version.major_minor_patch.to_s
+    assert_match(/synergy-server v#{version_string}.*, protocol v/,
+                 shell_output("#{opt_bin}/synergy-server --version"))
+    assert_match(/synergy-client v#{version_string}.*, protocol v/,
+                 shell_output("#{opt_bin}/synergy-client --version"))
 
-    version_string = Regexp.quote(version.major_minor_patch)
-    assert_match(/synergys v#{version_string}[-.0-9a-z]*, protocol v/,
-                 shell_output("#{opt_bin}/synergys --version").lines.first)
-    assert_match(/synergyc v#{version_string}[-.0-9a-z]*, protocol v/,
-                 shell_output("#{opt_bin}/synergyc --version").lines.first)
+    assert_match "synergy-server: failed to load config",
+                 shell_output("#{opt_bin}/synergy-server 2>&1", 4)
+    assert_match "synergy-client: a server address or name is required",
+                 shell_output("#{opt_bin}/synergy-client 2>&1", 3)
   end
 end
+
+__END__
+diff --git a/cmake/Version.cmake b/cmake/Version.cmake
+index 0ea44d0..392f6a0 100644
+--- a/cmake/Version.cmake
++++ b/cmake/Version.cmake
+@@ -51,36 +51,6 @@ function(version_from_git_tags VERSION VERSION_MAJOR VERSION_MINOR VERSION_PATCH
+   set(minor_match "${CMAKE_MATCH_2}")
+   set(patch_match "${CMAKE_MATCH_3}")
+ 
+-  set(git_path "${CMAKE_CURRENT_SOURCE_DIR}/.git")
+-  if(NOT EXISTS ${git_path})
+-    message(FATAL_ERROR "Not a Git repository: ${git_path}")
+-  endif()
+-  
+-  find_package(Git)
+-  if(NOT GIT_FOUND)
+-    message(FATAL_ERROR "Git not found")
+-  endif()
+-  message(VERBOSE "Git repo: " ${CMAKE_CURRENT_SOURCE_DIR})
+-
+-  # Creating a release tag through the GitHub UI creates a lightweight tag, so use --tags
+-  # to include lightweight tags in the search.
+-  execute_process(
+-    COMMAND ${GIT_EXECUTABLE} describe origin/master --tags --long --match "v[0-9]*"
+-    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+-    OUTPUT_VARIABLE git_describe
+-    ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE
+-  )
+-  if (NOT git_describe)
+-    message(FATAL_ERROR "No version tags found in the Git repository")
+-  endif()
+-  message(VERBOSE "Git describe: " ${git_describe})
+-
+-  string(REGEX REPLACE ".*-([0-9]+)-g.*" "\\1" rev_count ${git_describe})
+-  if ("${rev_count}" STREQUAL "")
+-    message(FATAL_ERROR "No revision count found in Git describe output")
+-  endif()
+-  message(VERBOSE "Changes since last tag: " ${rev_count})
+-
+   if (SYNERGY_VERSION_RELEASE)
+     
+     message(VERBOSE "Version is release")

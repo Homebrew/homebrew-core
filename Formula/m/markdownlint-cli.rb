@@ -6,13 +6,8 @@ class MarkdownlintCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "81aac9f9af154d051df5deb42a3e8aacc9b454622355ff13abbd5e7c7200e43c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81aac9f9af154d051df5deb42a3e8aacc9b454622355ff13abbd5e7c7200e43c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "81aac9f9af154d051df5deb42a3e8aacc9b454622355ff13abbd5e7c7200e43c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d466f9600586629cf57f503569f663be994a95b5ac0eda32b700f2bb17e2b1fc"
-    sha256 cellar: :any_skip_relocation, ventura:       "d466f9600586629cf57f503569f663be994a95b5ac0eda32b700f2bb17e2b1fc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81aac9f9af154d051df5deb42a3e8aacc9b454622355ff13abbd5e7c7200e43c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81aac9f9af154d051df5deb42a3e8aacc9b454622355ff13abbd5e7c7200e43c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "84ca4dbbbaf8ea100674cec86f6f3d320053833bb46ee3b8ddc7ea399fc966bf"
   end
 
   depends_on "node"

@@ -14,6 +14,7 @@ class Mlton < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6f47a554a7b7d3cdf4a05db0c0c0018ddde8a352d6701834cd009a9afa4ea2d8"
     sha256 cellar: :any,                 arm64_sequoia: "e4ab226d1c19700cfb7336f58945cffa425aa1a8e1efdbc661a34434be2ef571"
     sha256 cellar: :any,                 arm64_sonoma:  "27c4f97455e26387cee36bdba2faa5df88b69a80b385a74735b1631c6b7f1592"
     sha256 cellar: :any,                 arm64_ventura: "bed247cd0a0a8e1d219a0aa227bc0c1521546c982d6e39252471ca9788037702"

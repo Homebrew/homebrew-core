@@ -8,6 +8,7 @@ class Badread < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5bdbf37f5234814869e8dfe4a03fea167c8fee0d8e0b35c95eaf3f533a6028e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5938c3cea8d94f65b2a7b6c72766f127c81c9a6b0fc96fe5ed2f8d820898d5b0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c297b72a55ad77e5d55265960b8c18eac6558cab393c00d35585201317df19ef"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b40ec3e8905345b20c7c70f723dddb18217421511fe188ab0fbf3b665b60f46a"

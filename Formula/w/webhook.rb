@@ -8,6 +8,7 @@ class Webhook < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ec4d1eb42708a59188bb28e1ec6b5183d2a76c18e9f526750be6a8fc892f9ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "353fae094f87012e6168a3c05d23775364567e9b77e23dadaddc6934de132687"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "353fae094f87012e6168a3c05d23775364567e9b77e23dadaddc6934de132687"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "353fae094f87012e6168a3c05d23775364567e9b77e23dadaddc6934de132687"

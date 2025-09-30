@@ -12,6 +12,7 @@ class Flashrom < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "ba6fa0e79ba319eb07cbddf2b49ae6028abdf148a354e0d1bd4d94579cb35246"
     sha256 cellar: :any, arm64_sequoia: "a3bedd4508ffed55ff21196ab2ccabdd22b284d48110b06f5d47b96eaee389c8"
     sha256 cellar: :any, arm64_sonoma:  "5526490700374c47a8af1b4be7e4ed94f51caf920cf9ea3b797924078c40abbe"
     sha256 cellar: :any, arm64_ventura: "d4d991c436d1802da0e353d4eebfd682409b9a45c89a71ee82dde1c73bb04933"

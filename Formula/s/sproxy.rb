@@ -14,6 +14,7 @@ class Sproxy < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2e720f9fc39225fa4b382c6a54d510035893fe1cf0dcb44f28a73bb2f8237c85"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4ae603617df32ac15e8cf5548ff5f230fcc33e0abc52af64a31bb00810f0aedd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dd501fbd874421fd288cc4af5c4589f9eb842027c5938d84c598d0bec8a6c1f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf109934bc851cb45e6d6a9c24caff018e3ad0d1ebf45fa45d3c27291f7bcddd"

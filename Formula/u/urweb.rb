@@ -9,6 +9,7 @@ class Urweb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "40f2e161cfeaf9893642eb75010789e7be64acc2d53e9ef2af12eb1308a4d551"
     sha256 arm64_sequoia: "6b9b4b19d55dd9fa56d0e848f3730131b1d9942e7752af3c4d4cbe9e7865cac5"
     sha256 arm64_sonoma:  "5ae2a880693f266d5a4c97a701f6c275be9af42c6a5001285df1fd5943cf9020"
     sha256 arm64_ventura: "22c6a1384b9b1eceff5db2458d95a6fd4204e7db2073bae3b4b790cf3f3e0fa3"

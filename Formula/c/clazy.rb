@@ -4,6 +4,7 @@ class Clazy < Formula
   url "https://download.kde.org/stable/clazy/1.15/src/clazy-1.15.tar.xz"
   sha256 "43189460b366ea3126242878c36ee8a403e37ec4baef7e61ccfa124b1414e7a9"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://invent.kde.org/sdk/clazy.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class Clazy < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "8e82a24432fe70dbdc57d15a6e000f9965862570357db03f6fa7f24b8b179b9b"
-    sha256 cellar: :any,                 arm64_sonoma:  "e9615987f29c4795cbe367210445d23ac6288a9162f2b14fa16011cf92ca3342"
-    sha256 cellar: :any,                 arm64_ventura: "71125eaff0f77b0ff435fb1a994743c557fb39c411297437f765ddeddf1b8a7b"
-    sha256 cellar: :any,                 sonoma:        "3f5a1d5289b111d1c313034902c77bb56373fac7d4eb93dea8a55c691496c3e4"
-    sha256 cellar: :any,                 ventura:       "1a901cc6580997ddcd7f6d4f5f963c73875edc2dca0b911939b824ccb98731a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10e829a29aa7e265e7e1f482a86cef69cb3a45190326475390f00b323af5217b"
+    sha256 cellar: :any,                 arm64_tahoe:   "da50e82eb5510ebef091dd80296b72730a94d477bfa864ee87e8856f804c8e45"
+    sha256 cellar: :any,                 arm64_sequoia: "92b3ccdbef548d7966861ace46c31f90af6e8c0c641f68f1a0768fa817c5f862"
+    sha256 cellar: :any,                 arm64_sonoma:  "33da10d4e320a5730af1514d6e00ac84bc8d354b8a6d69a4e2578aa9524b7473"
+    sha256 cellar: :any,                 arm64_ventura: "f6af64aef4696d355d87c6def7d18b3cc7cd6d36a5a2932bccecc3d893371d99"
+    sha256 cellar: :any,                 sonoma:        "cf75552ce773a8e7b822c4b2f7c6bbbaef2b1977ed6715c022de3769fb0ff906"
+    sha256 cellar: :any,                 ventura:       "5152cbc2134bfcb219b9e0c95ec62500910cd775248a8168db30fe09057b8ddc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ec42d9e2bb8e000491b657536396520554521bc03cf1d6f41638af98b007e20"
   end
 
   depends_on "cmake" => [:build, :test]

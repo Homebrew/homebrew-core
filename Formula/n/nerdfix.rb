@@ -7,6 +7,7 @@ class Nerdfix < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8154d59076667de95521fe0ed9ba39441627730a591c718aa0be6ed4a3d70627"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5acc95bc0c1314b40e2fb0555b97724538609e457d5574e1a5dcf61ac97942de"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "248d5d912540c309ba86f239eca1016f5cac27823a9e258f07be6aef79a39ce5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "746859b3faa37328b50b548711830edec81ecf0d1a874a7902cc2161bc961438"

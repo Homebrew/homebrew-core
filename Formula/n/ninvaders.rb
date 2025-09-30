@@ -8,6 +8,7 @@ class Ninvaders < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "67f7a9ab2212b5b2ddd49e6bf8cbe915606186a4b1d0ff2523d23bd87ad59372"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "89cd69d1df23bd848757897116b0dbbb8a0535d65264cf8956e5323bae0fac4e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "61f4aa067bfda98318e230bca8a456f18b6d05ad875dba74b05a93b4d63e0d96"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5086f1e6f104b199763ec9feedd2a3ee64340abf584d3dc2ea2fc50201ecb3e"
@@ -18,10 +19,6 @@ class Ninvaders < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7f4fce96d25e44373e785000fb3c2605b90bb8f33e8635f9031a4fd1e547a419"
     sha256 cellar: :any_skip_relocation, big_sur:        "f4b326a63fb608eee71916a19751837d8cc98167b32ffd11b4f0328fcce82a5c"
     sha256 cellar: :any_skip_relocation, catalina:       "fc5a1eb5df34f13a6d63777b20ec5fea7a8a0351e8f9b8561e6ec95c42ced2c2"
-    sha256 cellar: :any_skip_relocation, mojave:         "4cb75493161c6153611c727bef8837c6c41fbd5db8872239d682cabadc7d2311"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "75247d901255b6fba826ca60d909b5bb1c349c969b98f65275c898ca45b32b7c"
-    sha256 cellar: :any_skip_relocation, sierra:         "3de94522f9f6f5560e1e6f354470aef0c46de68792fd93bd2b044d45db8328c6"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "b2d4f23349e2214d5a0c8b51218974b0f8b2704d333f1bca19ca4b4539e2b9f1"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d829100cdd7f35e3d8276de284bdd884145728a975ed2ddb6f3985bf6a8d966f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4d884e93ed10e3c362cd6a7b948aba5099efe9921dfa45a5163f0e0a2136da2"
   end

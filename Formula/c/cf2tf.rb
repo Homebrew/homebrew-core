@@ -11,6 +11,7 @@ class Cf2tf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e33f6320ff9fe317fb257ca3e5d26d9c87017af11c86c256d50b40fc13a35d07"
     sha256 cellar: :any,                 arm64_sequoia: "58b4d16d56e6444cbacdb54b1673e387663eadbbe84c3badaf7c8e21b012c1db"
     sha256 cellar: :any,                 arm64_sonoma:  "21bbc0286eb033a2a6801ff1bd3ae4969f1ef8def4f3fcb65e95451cd66de630"
     sha256 cellar: :any,                 arm64_ventura: "e85c4d4bce44cab594c31be432cec4a718029f79ffd885b544e6f6af13c0cc82"

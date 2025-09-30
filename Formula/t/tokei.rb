@@ -15,6 +15,7 @@ class Tokei < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5d1756b74a56c9ced04632520557539bad59caaf3de740efc7a48ed865f2cac4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "40b48918b40641291a8a9ad1d81bc1da4d4c5a87f9dd427b95716ae8c3d98dab"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5cea8923b59fbf212777ab62587234ee3ac0899c959c9d2fad3eca5e5129709"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "58c651b034293b8dc4d2dc00c7b2a13d8c6c3c093683ab5e1ebe08a1dc6cf6f9"

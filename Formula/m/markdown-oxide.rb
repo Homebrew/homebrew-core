@@ -6,6 +6,7 @@ class MarkdownOxide < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "27af9f0e21275e2b705d86c706f0110bfe6fc133447e29191e703e0b72f6cd04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "86daddddc9ca24abac239b25c298f7fe5af7fea053dc38cae9df5a8aa46ff9e0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec897aa1e34fd924b28b20220ea4cc9c6678479692a992eae89efa7d07fc1713"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4f5035fe002476e59fafb0ef001318d954352e671b493c7f607999c8cb0cf399"

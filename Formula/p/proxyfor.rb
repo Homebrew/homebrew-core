@@ -8,6 +8,7 @@ class Proxyfor < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "949fa8ba3a87e64a58c042fe41b28d8f81891b08436757a0fd43c55a8a7276b6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6447af4607f2a07504be751324b5771f1db26846b5c4b426a11a615ba9b7487d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "312dae34b5b94992b9224e8eb2b38e11643ca63d2f8c3372544dcce1d39e4d49"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a39e9bfc86def60ea447ea2e19b335aa72865762cc7eaa2b99275036664d7ff3"

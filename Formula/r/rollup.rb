@@ -1,18 +1,17 @@
 class Rollup < Formula
   desc "Next-generation ES module bundler"
   homepage "https://rollupjs.org/"
-  url "https://registry.npmjs.org/rollup/-/rollup-4.47.1.tgz"
-  sha256 "3ec73c37161ee7185d10582dad6c84e3f2b2ab11299e876db39cbcac98b051a3"
+  url "https://registry.npmjs.org/rollup/-/rollup-4.52.3.tgz"
+  sha256 "5ed2919009b035fd39cebab1f4f317460d49d47c18dee4224518bf010e32a6aa"
   license all_of: ["ISC", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "890ce721b0bba8450e4faa0b3f40e2dc38a4b282dcc0693d5808451e39037b54"
-    sha256 cellar: :any,                 arm64_sonoma:  "890ce721b0bba8450e4faa0b3f40e2dc38a4b282dcc0693d5808451e39037b54"
-    sha256 cellar: :any,                 arm64_ventura: "890ce721b0bba8450e4faa0b3f40e2dc38a4b282dcc0693d5808451e39037b54"
-    sha256 cellar: :any,                 sonoma:        "990daa73abd96f5f4c1e11897946699e5d4d35e3effd5e7cb6b0e9a1d22c8b68"
-    sha256 cellar: :any,                 ventura:       "990daa73abd96f5f4c1e11897946699e5d4d35e3effd5e7cb6b0e9a1d22c8b68"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a68d42e770cf7c2940d8fb0c4bf68802575c60a6c40eee1a4bcbef94c580dc7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46feba82da9999a962169ddfda48377625946621bdcd1a291cf30b2abc6ec2ed"
+    sha256 cellar: :any,                 arm64_tahoe:   "f19f6846a99a6c17f8158c4f37159855606d8c55bd8ae58652a7afdee9fd4380"
+    sha256 cellar: :any,                 arm64_sequoia: "53c4c61917f585d9f4fdde443c30c8896a0c28dc9137e29c0c71d0df84502f7a"
+    sha256 cellar: :any,                 arm64_sonoma:  "53c4c61917f585d9f4fdde443c30c8896a0c28dc9137e29c0c71d0df84502f7a"
+    sha256 cellar: :any,                 sonoma:        "c4b1cb20ba8263e0249dbea4d8b892bb56e9ba8faf0b4646fc1e1590f7d31f72"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d964467dd92fab73bacdb57825172063330b7a4935e209374f18d8157a9cdfeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8ba5eb3b2a2fe77f502445ad780835f212b88bd85109c5d0d8a0378479dfb03"
   end
 
   depends_on "node"

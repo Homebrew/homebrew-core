@@ -10,6 +10,7 @@ class ArxivLatexCleaner < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "48613dd88f7ef8944fc04fe18fadc3bfab600ed072542ebca75b922621ebbd9b"
     sha256 cellar: :any,                 arm64_sequoia: "997cbbeeb1ce449be8bba1670259cc32c7ecfc695f5ae180934a337e9b2838ad"
     sha256 cellar: :any,                 arm64_sonoma:  "78d0cd82ce9bd8cbea655d761488bd02c4a3104f8778ae41dc714d36b7dbf07e"
     sha256 cellar: :any,                 arm64_ventura: "48cbd0caca0dc51f270ba3a24c4b210af0b4f357f4c3e55a4d94d0cf1938ff1d"

@@ -12,6 +12,7 @@ class Grpcui < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96371f211cdbdcd5d568f474d105235f0b3ebdb624b46af9d29691a7769f9c28"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ac35799e9b7d1c2a6c9eb8b1672f10ba975d0e32efe2665de2ecdc55d10ceeb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ac35799e9b7d1c2a6c9eb8b1672f10ba975d0e32efe2665de2ecdc55d10ceeb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9ac35799e9b7d1c2a6c9eb8b1672f10ba975d0e32efe2665de2ecdc55d10ceeb"

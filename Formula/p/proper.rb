@@ -6,6 +6,7 @@ class Proper < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3dd4b207dc41e3788810712f20a50c614ce31ccafa0d309dbac29fc4f1cc8d1a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a639af1f2fb8cb688b919b54037d671b65ecc5ae791ddd8d73ba115af86e135"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a9399e52a16770d3d839cab3d68e563e6d5cdfa978c9fbaefd3681799d64358"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1ebfd48008cf6e2414fd327b4417dcd3f178733eb0bf4c8f482820078d606ecf"

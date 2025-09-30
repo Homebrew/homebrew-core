@@ -8,6 +8,7 @@ class Ata < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "61e1c7235e1db8bd6b2dca88f24e1dce32658c60817c274a8a3a74f8e93865f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4e98e4c055e41cc706441024e03f621e29598cf9889dd8735542dea055a34e1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f61ec72f7a185910b29a9209a746cd3ab5b951bc114479692fbe59a679292ac7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cca453b1df61a1bfb7c6e4121c6f2885b3558907c8275f871e79a252cee4582d"

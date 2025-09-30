@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Fast and Lightweight Logs and Metrics processor"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v4.0.8.tar.gz"
-  sha256 "ed7037bf9352f962adba1c5c9be148bd955c72d93b40b6010704b0067461b0d0"
+  url "https://github.com/fluent/fluent-bit/archive/refs/tags/v4.1.0.tar.gz"
+  sha256 "2ce0b5d30433f2cde54ce81685ab9a7cfea7851e0c65b3554462df1d7065a45f"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git", branch: "master"
 
@@ -12,13 +12,12 @@ class FluentBit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b9a71a4c313aaf9c9a8ace76266c664d6278252530bb5dc288ee13b51ba30c41"
-    sha256 cellar: :any,                 arm64_sonoma:  "dca7ca3fcb71dd9ffe916513455dd867e8cb1884c7ab211f183d25a3b8008983"
-    sha256 cellar: :any,                 arm64_ventura: "bef5248e792c77fbcd669843967a8ef3612d54cd2c0e74059f1493e4a21ecf40"
-    sha256 cellar: :any,                 sonoma:        "18283955811b93152fdd946edb4ba0a5cd5ec00872b338ebfbb020841c6e4688"
-    sha256 cellar: :any,                 ventura:       "e407c26a5ba097fc5dfd7a4a57880ec91f8045ea64b8336c53227aa97df3236b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e302e4c299a0f477dac6a98a628ef2b29b21e87f9e659228df25644a814df2e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38d1a51427fb60d21737924d9dad77e7e32b2917e204aae8d7f414a18059719f"
+    sha256 cellar: :any,                 arm64_tahoe:   "38c727b84bfd5d45ab87d08cab570d1deaf86a72f01e735102e80fec87ff8d58"
+    sha256 cellar: :any,                 arm64_sequoia: "2656fd5119afdf3fb8c601f0f5de9f4c9566a3cf304827f3c2c7d204dd15133b"
+    sha256 cellar: :any,                 arm64_sonoma:  "83a78e59c57af0bda3e62564d628a62d32b51201dc7b987613c47e28f829f924"
+    sha256 cellar: :any,                 sonoma:        "9103d17e2eddbebc4cdf839edde3a4bd60a535537a208293d0d24d786c67f7a8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e102a24893dfaded840c3e07e1d708a27b98314e9d882767fa6e583b122866ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a98e4bab5d39af3d898817418c33401d3787c37314f8df599878e8bd3fd93e3"
   end
 
   depends_on "bison" => :build

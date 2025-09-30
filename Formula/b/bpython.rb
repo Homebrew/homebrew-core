@@ -10,6 +10,7 @@ class Bpython < Formula
   head "https://github.com/bpython/bpython.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "013b3275daac82275b2952151a574d1348e69141e1e3a284d5e8fd24db4bc882"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "43a263d6c3e63b737e4e17b9fba497945b4eed2047c5ffadf482b808ae0c8a59"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86e7cb8e6e2e13d577a8c8c0af563c9f79e781e2c8e8fdae94623e7621a0f016"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "277fa9d83d7e25a4e647bdb8717ecb9dd3eded78238b1b7173c0a39e005ea23d"

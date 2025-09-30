@@ -6,6 +6,7 @@ class Secp256k1 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "befb6fbd1a71854d37fd02f7762968151bb6ce4d6a0246aea586d539a26b845a"
     sha256 cellar: :any,                 arm64_sequoia: "64b1307ae159f1e9506b976f0c8bb9c2864493da921c26a380f5630524e6687f"
     sha256 cellar: :any,                 arm64_sonoma:  "7b1a6a372671699586fb30bae9ebc3bf41fbcf68ba650667bbd68d119d767f7a"
     sha256 cellar: :any,                 arm64_ventura: "bf0148f53d69073acc33bd0ceee9c526bb91897a950f0541ec163d9a88a447b4"

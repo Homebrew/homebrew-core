@@ -15,6 +15,7 @@ class Libu2fServer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "bfeddb8ea5570906354b711dd21758baaa28c612ddde47ec17f22f30c2d8b9ac"
     sha256 cellar: :any,                 arm64_sequoia:  "ba4f595c0638e3c766d45b0bae4ae189482ef6e14611073cee2c805d8ff947aa"
     sha256 cellar: :any,                 arm64_sonoma:   "02828c78b609450b8675cda154506543bdd3b6c7290af5ff8dc6031e28d1073f"
     sha256 cellar: :any,                 arm64_ventura:  "3ee5815ba1a374c9a85206466bd83b20f5de894ede219927281bf17cf4a1f415"

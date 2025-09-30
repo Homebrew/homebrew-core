@@ -10,6 +10,7 @@ class Richgo < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f1b78098f87488a5c1b495ff94ce40d6734d11a6db077b03356fe7d281cccbb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "967353f6b2bfa1c35a96f76eb85b98d3e6ea91d8b424a2655e80ab957884591b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "967353f6b2bfa1c35a96f76eb85b98d3e6ea91d8b424a2655e80ab957884591b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "967353f6b2bfa1c35a96f76eb85b98d3e6ea91d8b424a2655e80ab957884591b"

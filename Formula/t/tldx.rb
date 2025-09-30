@@ -6,6 +6,7 @@ class Tldx < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "76759fb677db0005af23b2da332e69128e055472d504ba29b1223b9abd72ce1a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "84bddde265a819e8ca9466fa889b68ce364cc362c83d3c3f18e5491025bca97f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84bddde265a819e8ca9466fa889b68ce364cc362c83d3c3f18e5491025bca97f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "84bddde265a819e8ca9466fa889b68ce364cc362c83d3c3f18e5491025bca97f"

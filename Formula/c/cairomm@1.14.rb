@@ -13,6 +13,7 @@ class CairommAT114 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "3c84812ac04258b3fe766341479b99b1e28a9572b995e7bd33e3184fdb29055a"
     sha256 cellar: :any, arm64_sequoia:  "87bd872e7129feb2db9ca965fe5e065ebef30f6a196f0c80d8012b60cef66bf2"
     sha256 cellar: :any, arm64_sonoma:   "cf8e7aa143ab206a8986997621217fc40e219d23a88e09d5a3d1ee1ce58d78c2"
     sha256 cellar: :any, arm64_ventura:  "76dbfad402d8573c6acfdbbf785ce70eb13e626318aa0c8f241864b43a8c8ee2"

@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 5
+  revision 11
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.12.0.tar.gz"
@@ -16,6 +16,12 @@ class Opencv < Formula
         formula :parent
       end
     end
+
+    # Backport support for FFmpeg 8.0
+    patch do
+      url "https://github.com/opencv/opencv/commit/90c444abd387ffa70b2e72a34922903a2f0f4f5a.patch?full_index=1"
+      sha256 "5b662eea7b5de1dac3e06895c711955c9d1515d1202191b68594f4f9cfa23242"
+    end
   end
 
   livecheck do
@@ -26,18 +32,18 @@ class Opencv < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sonoma:  "f3348359a647d0c7b9779fb90709730df4c7a8d9833414c8d52d77d586974eef"
-    sha256 arm64_ventura: "c5e26f3f2a53200d240674a59ab98e6b66bf9c4af892610c4d6b1f0270e98e16"
-    sha256 sonoma:        "73ff881fb8415449f0a9e0c2f35e40a7948d2c323b29a293680bd66e63cbca59"
-    sha256 ventura:       "782a4f8b5413d89e9ba927bd2c4237368a8cce95186b1e0c6d25ebbdb84090ac"
-    sha256 x86_64_linux:  "abbaaa9a63883cfbd1ad53052ad9f3da193a7921da43b59c74ea966857d95463"
+    sha256 arm64_tahoe:   "cffc96f2c611941e16ea87f7b7b69cce99740d0ac67413bb3c851420dc634c62"
+    sha256 arm64_sequoia: "9a11ccb4a364d0d76db24564fc315d9c616497ba98f273c75913c8ded3e4894b"
+    sha256 arm64_sonoma:  "a9ae56d67ce87ae14906b12b373c72b98aafb146a82c398a0f8a2c3b46f57546"
+    sha256 sonoma:        "24a9b60f1ac6e89f0444a5085eed844c8d2cc39e74de614a3b9c84b31b986a18"
+    sha256 x86_64_linux:  "84dc9a1f0463ef21e1bd034cea5fea2afd5c8c811e3da953687dc4a6ff8ee822"
   end
 
   head do
-    url "https://github.com/opencv/opencv.git", branch: "master"
+    url "https://github.com/opencv/opencv.git", branch: "4.x"
 
     resource "contrib" do
-      url "https://github.com/opencv/opencv_contrib.git", branch: "master"
+      url "https://github.com/opencv/opencv_contrib.git", branch: "4.x"
     end
   end
 
@@ -60,6 +66,7 @@ class Opencv < Formula
   depends_on "openblas"
   depends_on "openexr"
   depends_on "openjpeg"
+  depends_on "openvino"
   depends_on "protobuf"
   depends_on "python@3.13"
   depends_on "tbb"
@@ -96,7 +103,6 @@ class Opencv < Formula
     libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg protobuf tbb zlib]
     libdirs.each { |l| rm_r(buildpath/"3rdparty"/l) }
 
-    # FIXME: `openvino` seems to break often and is difficult to update, so we disable it here for now.
     args = %W[
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
@@ -128,7 +134,7 @@ class Opencv < Formula
       -DWITH_JASPER=OFF
       -DWITH_OPENEXR=ON
       -DWITH_OPENGL=OFF
-      -DWITH_OPENVINO=OFF
+      -DWITH_OPENVINO=ON
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=ON

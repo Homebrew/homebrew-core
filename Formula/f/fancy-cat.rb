@@ -1,19 +1,18 @@
 class FancyCat < Formula
   desc "PDF reader for terminal emulators using the Kitty image protocol"
   homepage "https://github.com/freref/fancy-cat"
-  url "https://github.com/freref/fancy-cat/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "d264dbaf05f8713a4c52ce0c74a8d5e900989ec815fac1bbfec7d7b385bc1dd5"
+  url "https://github.com/freref/fancy-cat/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "7191c8b6259f8124d2bef4c38ab0bcb7f13923dd84a6ec5cb5512f729765f5b5"
   license "AGPL-3.0-or-later"
-  revision 2
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "88fc6d9e5e1dee81da8892ae277c43283bbc2ecf75ecc3ee33b1a98e9e7c3395"
-    sha256 cellar: :any,                 arm64_sonoma:  "2e0a0d1dde99309144aa89e7a2fa3251bce4d2ab6987dfb2e8fd5c841eee33f6"
-    sha256 cellar: :any,                 arm64_ventura: "125bb039546008da794a16341f58e033b6268bb257d5ab6845374728efabfaa8"
-    sha256 cellar: :any,                 sonoma:        "910c30ec58e4134087836880bb8bdfc2d5b484587b671e3cf8623450f44621ac"
-    sha256 cellar: :any,                 ventura:       "a36577a814b64b3bc3d39c5a6bfba9924211664d5e76f7e58fc88c2de41db175"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6e9cd2991144b814732cfa84f4d9c145deb5b1fb3e33d2456d558fd31ebc32f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89f9903b3c1441a1fbe3b19488f197660f62a108cb05fe5c08bf9ff3832b076b"
+    sha256 cellar: :any,                 arm64_tahoe:   "01aa0ca4e7e2b81e14e1d200a218662f2bcd2227ead80fdf4df367ff0e291d1b"
+    sha256 cellar: :any,                 arm64_sequoia: "337ed75fc80e10d7f416002d2c4f9878f4ccdffc564ff37e187c5401c3e1ed22"
+    sha256 cellar: :any,                 arm64_sonoma:  "033aa52fcbf033bf026c3770d5cc8fa0d6365f8d949278adb561a77aff370a21"
+    sha256 cellar: :any,                 sonoma:        "ffcb005d8320ca631979298b966c26e944c720dc0fd5f0901653d63175b544f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5fd663ae4b8869b1133c332dd6e1a6e61f6ad4b36efd4570903279797f05272f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9480b244856abd76de765c4642aa43d8fe8f8212b20c8827013dfc889791784e"
   end
 
   depends_on "zig" => :build

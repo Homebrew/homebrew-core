@@ -9,6 +9,7 @@ class Libsamplerate < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "a5245adca05c76e8f9593494b5909903ffe44c5173b7b713b6c5dec75005953b"
     sha256 cellar: :any,                 arm64_sequoia: "d51907988e3ab62f6e49ddd1253a723fd5964b78a0361453e8d9b75a2106b4e7"
     sha256 cellar: :any,                 arm64_sonoma:  "3c6892acfead8a6b32ede92a5f1eb1d4a4dc8a75e6c295b469875d50ec05e019"
     sha256 cellar: :any,                 arm64_ventura: "e3503b414dc2371bf89d19291377b45241255a4b538d81912c228c84a170bda9"

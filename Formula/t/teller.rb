@@ -7,6 +7,7 @@ class Teller < Formula
   head "https://github.com/tellerops/teller.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c3ab62c1579d3f41b3642fe3b3170a8c116be3abb320b09aac2c8f37b5ad51ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a9e07be61dd9142e5650014b5f8ef4df9bf689dc59d1b2a4e8825554db831ea2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "703d3907b7c26f917c3fe9fd1e87cad407a54c9f687104bf0b99a0027a91bfc7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a778a5408aa36e9c37b43b174e836bec8b3a33e47c277fe1848bca16e138f159"

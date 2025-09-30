@@ -7,6 +7,7 @@ class Couchdb < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "bd3b94f54a24f135c734c12ccfad7c224d5fa0aaaed5e6952dc4ed59bf104cc4"
     sha256 cellar: :any,                 arm64_sequoia: "494834ac7eb89abaa626f40da8e36d66d1baa25208461e4291ee8b137a966046"
     sha256 cellar: :any,                 arm64_sonoma:  "a2bc0d8e0b255d86fcf372d4018c9f93e9b3c7edc909b6c620eb29d3a24a8076"
     sha256 cellar: :any,                 arm64_ventura: "330edda7ac863727ff503967b804b4478b56ed77da7bdf224e003f170e079233"

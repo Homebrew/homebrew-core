@@ -12,6 +12,7 @@ class Clinfo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4f9f30aecde66c0eb0938f035b92db105242a3fe45ece3bc6c9c7d4b97f663d6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "66be00f1c03820544063ebb39af878d24e1571a45e7c9bbc4cd6c1f2c576a927"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e0a75e7745ea32b3db3afb79fadd612b0e432e8412ed3f8e90768b46502b415"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3f291734139a5f97270e79760822919be0824e9f273c732f796590c343e18e54"

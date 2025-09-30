@@ -6,6 +6,7 @@ class Quantlib < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "78cde1e25586e8d635b7c699f4ed33d2d21f54de35ca1d87588873ec7289cf18"
     sha256 cellar: :any,                 arm64_sequoia: "d20a534cfeefb7cea299f6292240c2f9c438aca166fd0f45e1d5ceaa2c0afd44"
     sha256 cellar: :any,                 arm64_sonoma:  "9466a42e1ad25b969fcf07a4ea0972087c5b4bf4ed29240cb8e880270b27317c"
     sha256 cellar: :any,                 arm64_ventura: "f9b1575dcfbd307f0030c5b61ca5d9d26c9ae4caa9fcbaa0bb66f8dd3cb13d8a"

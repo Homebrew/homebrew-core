@@ -12,6 +12,7 @@ class Geph4 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc9feafe9c20d28772706c2fabdcf31a2bb9516b01ed39a780978d7c89a0335f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "12003483d66014286b643b460da29669a749fcd7dbe4e1725ccf3aca9d66ae8d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3aaf50eb8d06e7a2b8baea74bb6e93f1191daf10fbfbc99fa97bee176327f244"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "340080a0bcac0f94e3171c059c5de370822c9d2880ff0b67d315aeaf72234d67"

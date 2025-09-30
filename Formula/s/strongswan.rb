@@ -4,6 +4,7 @@ class Strongswan < Formula
   url "https://download.strongswan.org/strongswan-6.0.2.tar.bz2"
   sha256 "b8bfc897b84001fd810a281918d6c9ce37503cae0f41b39c43d4aba0201277cf"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.strongswan.org/"
@@ -11,13 +12,14 @@ class Strongswan < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ccecd25f08f24fd32178ccdc58f98ba3cb43e5f8145786fca72f02b5efaa7242"
-    sha256 arm64_sonoma:  "1fa01b0d9382a6af24ff0220dccdd83a3a56c87c37b0d7c48487c4c7f1b4d4cb"
-    sha256 arm64_ventura: "ad54d4161628511ebb7ea92ba2ce4d6da9a5ad4048949110a988658019c11c9b"
-    sha256 sonoma:        "28c6a9c784715f75817a784726bf8aeadc734c8c3e7b6728ac79ad8c01c7e840"
-    sha256 ventura:       "6f23fcd4ef43c6262bdf09821aef9c44a7bc5d2c7db4a7e6b2c9f8d95f0e4690"
-    sha256 arm64_linux:   "baf7a4be65bb2ef39608c0d27a9aef2469e0d4180f6cea72584306ec4e860da8"
-    sha256 x86_64_linux:  "eb4968f284518e118309d8ca96af2e858c2976165b1e9a8fb924f3f7268b2cb7"
+    sha256 arm64_tahoe:   "d9b7f3f2b29597a88c53bd2bf67e512010e4a8be456174ef4a448dedd76ad44d"
+    sha256 arm64_sequoia: "f979b19cb45dfa5e0edcc2378f4de546db207c0e274f4cc6b35ab0717d8be705"
+    sha256 arm64_sonoma:  "020a609cc20abd5cbaaef1176a2b6847063d9ec214bf27dcda1cf9dc69242fbc"
+    sha256 arm64_ventura: "aebdb402d0eabc341bca2687a16c5f485d3bedc61960d03bc45d23c8c171f1b1"
+    sha256 sonoma:        "591067d4f91dfb873a24bb705b0f338a7dca02205f9b7af66160d0d2a2492b50"
+    sha256 ventura:       "c3dd4eedb228092e96f4dee85758cd7d226a61a903e3e947c12301ea1e395d1e"
+    sha256 arm64_linux:   "e7236b73db35f0c1c009e0232287d81ac868e8a69cfe6c891b8b8034b091de9b"
+    sha256 x86_64_linux:  "f908cff26d8cd820122aefb580bab3bc93b36744341ed583dd2ec6e07787047b"
   end
 
   head do
@@ -52,6 +54,7 @@ class Strongswan < Formula
       --enable-eap-identity
       --enable-eap-md5
       --enable-eap-mschapv2
+      --enable-eap-peap
       --enable-ikev1
       --enable-ikev2
       --enable-kdf

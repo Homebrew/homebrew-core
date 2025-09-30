@@ -8,6 +8,7 @@ class Lci < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:   "8489fde41d750512814a3aa95a72fe1df512d724e9d543b7c05a0f515a0b8007"
     sha256                               arm64_sequoia: "13a9869c2bc147eb19005e15ed2ccd27a6afec14b8ec661b535e6a8a288b47bc"
     sha256                               arm64_sonoma:  "46ba0405d0111869ea90bd1fd0148807a65bda00be35589b8d67701b57ffcbf4"
     sha256                               arm64_ventura: "2cfa4820068d0e4495d3cf8bad083fb4a4fc5ba8b9e141f86fee1887b24bc38c"
@@ -22,7 +23,9 @@ class Lci < Formula
   conflicts_with "lolcode", because: "both install `lci` binaries"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround for CMake 4 compatibility
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

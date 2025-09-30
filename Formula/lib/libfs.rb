@@ -6,6 +6,7 @@ class Libfs < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "94998e85015760c70264600b4e416ba64da6b45c335abf732a5e4152868d06d6"
     sha256 cellar: :any,                 arm64_sequoia:  "f6fa56b30b3705449138f8afb6ad4e4fcb67ade47f95e0ac73147c2c14f5a800"
     sha256 cellar: :any,                 arm64_sonoma:   "861860b63988d0167eebf30e0ec648471f880b3d4aba8ca48dc66c4532027826"
     sha256 cellar: :any,                 arm64_ventura:  "1536673a3015c07c20e3d0a49d8f752e61e5ea90f196d0a11212f68b06021598"

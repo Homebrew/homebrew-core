@@ -1,18 +1,12 @@
 class NpmCheckUpdates < Formula
   desc "Find newer versions of dependencies than what your package.json allows"
   homepage "https://github.com/raineorshine/npm-check-updates"
-  url "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-18.0.2.tgz"
-  sha256 "6030b0e96c51bc762116f3b9a2401d9162f3d6a20cd51f05ef68a22e2caa3e9c"
+  url "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-19.0.0.tgz"
+  sha256 "ce820066e205a8ab22ef933cb900a44a7dd3d9169d147925b3f83531d79c4d40"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd1c99ce0b2f4c07609d9c499883ee93710bf30f020f350634579337584fe035"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd1c99ce0b2f4c07609d9c499883ee93710bf30f020f350634579337584fe035"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fd1c99ce0b2f4c07609d9c499883ee93710bf30f020f350634579337584fe035"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ebb90b2b8716d21c255eec8557abe64d992f4e0c59957ab29ea6afd0e478b8e2"
-    sha256 cellar: :any_skip_relocation, ventura:       "ebb90b2b8716d21c255eec8557abe64d992f4e0c59957ab29ea6afd0e478b8e2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd1c99ce0b2f4c07609d9c499883ee93710bf30f020f350634579337584fe035"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd1c99ce0b2f4c07609d9c499883ee93710bf30f020f350634579337584fe035"
+    sha256 cellar: :any_skip_relocation, all: "fccb5f02e962bf63dcaa6fbd68b61ae91f78ef00ff240bb6197d6a4855d489a3"
   end
 
   depends_on "node"

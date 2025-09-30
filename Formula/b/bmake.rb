@@ -11,6 +11,7 @@ class Bmake < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5390f535bc874e5d3eeed207d7384259c2943f3221daa7058729a4d85886b563"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a57472c5362530151be18f3877817b2960c4d94f1d96e8649db63b5c975dd23f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "31b71a1ebb0c3d1292622c0fc17706c60cda6f65ed7ebf1db61f05b61e8550d6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "830bc4e799da17de7f75aa1cd34465aa4701bc471202c2fb45db43ce92eb1070"

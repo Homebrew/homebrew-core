@@ -13,6 +13,7 @@ class Mtr < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e895fc7ed39c99111d74a2ca15aeaee2ff99c4106af7517f60a6accc71560eec"
     sha256 cellar: :any,                 arm64_sequoia: "a7bacefb19840814841941c74a3ac93d8e0e5355b09c471e3b76dec702315fc3"
     sha256 cellar: :any,                 arm64_sonoma:  "ab39214cf72c697c0e436035efbf4e1b8b846ebec5f390e1ab39949740adb210"
     sha256 cellar: :any,                 arm64_ventura: "160496478cf39459cfdb9a39b32408cddb62797a7f5c7b511b21d0f243daf2e6"

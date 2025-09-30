@@ -3,19 +3,18 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/31/8d/bb5c02a536ccb1d15f03a7afc2a74629458f48985fe2826d4738151eac00/snakemake-9.9.0.tar.gz"
-  sha256 "38b5e1a39d4f6eee361c9e30da1de5ec629ff67581e6ac3497e415d92f02961d"
+  url "https://files.pythonhosted.org/packages/1b/c9/81959b1feec983944de61b907e63433d89c92873db21469f8dfeb6d93231/snakemake-9.11.6.tar.gz"
+  sha256 "6b86d0d379d6d661800fe531c2ea5cccdc9f793bcf1f6e8d3f271f8de36ce2a8"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "093b069ffded0edd78600f81a57719f92c10ebe74db24b79f638d4f3d587b955"
-    sha256 cellar: :any,                 arm64_sonoma:  "784497b65cd0b9569a359f9189cbc4afd5f2fb8f26b72210d535d17d2aca0744"
-    sha256 cellar: :any,                 arm64_ventura: "d0fc67c111ec38c0dd58ac5b663da3cee0dc44f241275ea9b8a8d6f173892ae8"
-    sha256 cellar: :any,                 sonoma:        "be0a3199c2a475e385ca96d449aa7f7002c715597760ed2ede13f693ac16682b"
-    sha256 cellar: :any,                 ventura:       "5f2f96bf305cd33b3daeeac9276547f7dafc322a9196dcbc8d6630dfd675b480"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a76587a76e10484998ee1bb1eb04b8658428280f1d8fd22b5623f56aac5dbf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4157730d9a70de28dbbf657d22991a65c4d9494b656c5ac2db57b42e08806db2"
+    sha256 cellar: :any,                 arm64_tahoe:   "07a6161ea2e1fdf653b36a66b430ed52f85278d4873d4b2c543491783e490ac5"
+    sha256 cellar: :any,                 arm64_sequoia: "cbf70fbd3085914bbc506b23eed582ab65214e1f0349c8d2ba50bbd2537274e1"
+    sha256 cellar: :any,                 arm64_sonoma:  "dbd3758e550737fd2ca3ba93004db2746ec27c226030171779f597e2bc1820ab"
+    sha256 cellar: :any,                 sonoma:        "f1483f86d4342314f434befa8b875f05846d52f22fc63eeb0d96299f3430e724"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18e123dcdc0345c488c42c862b089d712fb3eabe670abe05cdb26ffe8a9f7dd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32723f013401381e1478ab97a7a370d9d81906501c9992cbec192dd2c9fddb93"
   end
 
   depends_on "rust" => :build
@@ -40,8 +39,8 @@ class Snakemake < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "conda-inject" do
@@ -60,8 +59,8 @@ class Snakemake < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/e9/86/5b41c32ecedcfdb4c77b28b6cb14234f252075f8cdb254531727a35547dd/docutils-0.22.tar.gz"
-    sha256 "ba9d57750e92331ebe7c08a1bbf7a7f8143b86c476acd51528b042216a6aad0f"
+    url "https://files.pythonhosted.org/packages/4a/c0/89fe6215b443b919cb98a5002e107cb5026854ed1ccb6b5833e0768419d1/docutils-0.22.2.tar.gz"
+    sha256 "9fdb771707c8784c8f2728b67cb2c691305933d68137ef95a75db5f4dfbc213d"
   end
 
   resource "dpath" do
@@ -70,8 +69,8 @@ class Snakemake < Formula
   end
 
   resource "fastjsonschema" do
-    url "https://files.pythonhosted.org/packages/8b/50/4b769ce1ac4071a1ef6d86b1a3fb56cdc3a37615e8c5519e1af96cdac366/fastjsonschema-2.21.1.tar.gz"
-    sha256 "794d4f0a58f848961ba16af7b9c85a3e88cd360df008c59aac6fc5ae9323b5d4"
+    url "https://files.pythonhosted.org/packages/20/b5/23b216d9d985a956623b6bd12d4086b60f0059b27799f23016af04a74ea1/fastjsonschema-2.21.2.tar.gz"
+    sha256 "b1eb43748041c880796cd077f1a07c3d94e93ae84bba5ed36800a33554ae05de"
   end
 
   resource "gitdb" do
@@ -105,13 +104,13 @@ class Snakemake < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/d5/00/a297a868e9d0784450faa7365c2172a7d6110c763e30ba861867c32ae6a9/jsonschema-4.25.0.tar.gz"
-    sha256 "e63acf5c11762c0e6672ffb61482bdf57f0876684d8d249c0fe2d730d48bc55f"
+    url "https://files.pythonhosted.org/packages/74/69/f7185de793a29082a9f3c7728268ffb31cb5095131a9c139a74078e27336/jsonschema-4.25.1.tar.gz"
+    sha256 "e4a9655ce0da0c0b67a085847e00a3a51449e1157f4f75e9fb5aa545e122eb85"
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
-    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
+    url "https://files.pythonhosted.org/packages/19/74/a633ee74eb36c44aa6d1095e7cc5569bebf04342ee146178e2d36600708b/jsonschema_specifications-2025.9.1.tar.gz"
+    sha256 "b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d"
   end
 
   resource "jupyter-core" do
@@ -135,18 +134,18 @@ class Snakemake < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
-    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
+    url "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz"
+    sha256 "ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/2a/80/336820c1ad9286a4ded7e845b2eccfcb27851ab8ac6abece774a6ff4d3de/psutil-7.0.0.tar.gz"
-    sha256 "7be9c3eba38beccb6495ea33afd982a44074b78f28c434a1f51cc07fd315c456"
+    url "https://files.pythonhosted.org/packages/b3/31/4723d756b59344b643542936e37a31d1d3204bcdc42a7daa8ee9eb06fb50/psutil-7.1.0.tar.gz"
+    sha256 "655708b3c069387c8b77b072fc429a57d0e214221d01c0a772df7dfedcb3bcd2"
   end
 
   resource "pulp" do
-    url "https://files.pythonhosted.org/packages/b2/4f/11cfa283228b5f259bcfc913f731f7c6f68748d26711594e14cf2cb5e39a/pulp-3.2.2.tar.gz"
-    sha256 "389a6ff1dc34ec4b093f34f7a9fa3553743ff0ea99b2a423e9f0dd16940f63d2"
+    url "https://files.pythonhosted.org/packages/16/1c/d880b739b841a8aa81143091c9bdda5e72e226a660aa13178cb312d4b27f/pulp-3.3.0.tar.gz"
+    sha256 "7eb99b9ce7beeb8bbb7ea9d1c919f02f003ab7867e0d1e322f2f2c26dd31c8ba"
   end
 
   resource "pyyaml" do
@@ -160,8 +159,8 @@ class Snakemake < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "reretry" do
@@ -170,13 +169,13 @@ class Snakemake < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/a5/aa/4456d84bbb54adc6a916fb10c9b374f78ac840337644e4a5eda229c81275/rpds_py-0.26.0.tar.gz"
-    sha256 "20dae58a859b0906f0685642e591056f1e787f3a8b39c8e8749a45dc7d26bdb0"
+    url "https://files.pythonhosted.org/packages/e9/dd/2c0cbe774744272b0ae725f44032c77bdcab6e8bcf544bffa3b6e70c8dba/rpds_py-0.27.1.tar.gz"
+    sha256 "26a1c73171d10b7acccbded82bf6a586ab8203601e565badc74bbbf8bc5a10f8"
   end
 
   resource "smart-open" do
-    url "https://files.pythonhosted.org/packages/18/2b/5e7234c68ed5bc872ad6ae77b8a421c2ed70dcb1190b44dc1abdeed5e347/smart_open-7.3.0.post1.tar.gz"
-    sha256 "ce6a3d9bc1afbf6234ad13c010b77f8cd36d24636811e3c52c3b5160f5214d1e"
+    url "https://files.pythonhosted.org/packages/16/be/bf2d60280a9d7fac98ece2150a22538fa4332cda67d04d9618c8406f791e/smart_open-7.3.1.tar.gz"
+    sha256 "b33fee8dffd206f189d5e704106a8723afb4210d2ff47e0e1f7fbe436187a990"
   end
 
   resource "smmap" do
@@ -204,9 +203,14 @@ class Snakemake < Formula
     sha256 "36cff4d50e7763ae0def0a7cf36d85e6c575d7bad1a3ade26b66c9b2b8831c02"
   end
 
+  resource "snakemake-interface-scheduler-plugins" do
+    url "https://files.pythonhosted.org/packages/ae/bf/b431786d74071726c6aed5f3536a03a4834c4a0286f5381e7be44269671a/snakemake_interface_scheduler_plugins-2.0.1.tar.gz"
+    sha256 "c22deccc6df4c702e67d012650571fa858e8577b759d8cb4729d16b087852b43"
+  end
+
   resource "snakemake-interface-storage-plugins" do
-    url "https://files.pythonhosted.org/packages/7e/2d/ecd72f48e1ed49b5cc6651f1ed71ce1fdf9c86de8c241b62c0c6cd33ac51/snakemake_interface_storage_plugins-4.2.2.tar.gz"
-    sha256 "a9da228c21252e60b72ddcec68cdf581f695a9db177053b5bd565e002dc729eb"
+    url "https://files.pythonhosted.org/packages/dd/b3/cd5256e56cfe6fc51319a7d9df1a3a2a7584499fadd3c3fc5619ff39f74f/snakemake_interface_storage_plugins-4.2.3.tar.gz"
+    sha256 "95be93d1aa1c56c189d9ff661930a6475e847a79a74013822c9570c0ef691755"
   end
 
   resource "tabulate" do
@@ -230,8 +234,8 @@ class Snakemake < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/c3/fc/e91cc220803d7bc4db93fb02facd8461c37364151b8494762cc88b0fbcef/wrapt-1.17.2.tar.gz"
-    sha256 "41388e9d4d1522446fe79d3213196bd9e3b301a336965b9e27ca2788ebd122f3"
+    url "https://files.pythonhosted.org/packages/95/8f/aeb76c5b46e273670962298c23e7ddde79916cb74db802131d49a85e4b7d/wrapt-1.17.3.tar.gz"
+    sha256 "f66eb08feaa410fe4eebd17f2a2c8e2e46d3476e9f8c783daa8e09e0faa666d0"
   end
 
   resource "yte" do

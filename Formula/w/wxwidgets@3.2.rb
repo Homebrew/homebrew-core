@@ -12,6 +12,7 @@ class WxwidgetsAT32 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cd33f7af0dcb20beb90aacf4f7d9945e7739c689b31821a69e9eef088ef3bc3b"
     sha256 cellar: :any,                 arm64_sequoia: "c11bad8fce2b1b905e6b9e9dd67738f4576931725e5b15a35efea59f6134cd82"
     sha256 cellar: :any,                 arm64_sonoma:  "df003b80251db48b7a37f47c36fae426ebdbdaf167709eea66cf77b497a14739"
     sha256 cellar: :any,                 arm64_ventura: "bef52303b87c67ce3dc08b5f4493f31e0b00137df6f9bacf8bbd952d37ee6915"
@@ -51,6 +52,9 @@ class WxwidgetsAT32 < Formula
     # Remove all bundled libraries excluding `nanosvg` which isn't available as formula
     %w[catch pcre].each { |l| rm_r(buildpath/"3rdparty"/l) }
     %w[expat jpeg png tiff zlib].each { |l| rm_r(buildpath/"src"/l) }
+
+    # Work around removal of AGL in Tahoe
+    inreplace "configure", "-framework AGL", ""
 
     args = [
       "--enable-clipboard",

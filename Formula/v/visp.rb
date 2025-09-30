@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.6.0.tar.gz"
   sha256 "eec93f56b89fd7c0d472b019e01c3fe03a09eda47f3903c38dc53a27cbfae532"
   license "GPL-2.0-or-later"
-  revision 16
+  revision 17
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -14,11 +14,13 @@ class Visp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "f27930f5c69208105c16f8dbb535c8f8ae2fadce2e2c2f611f525828cc1860c1"
-    sha256 cellar: :any,                 arm64_ventura: "2b82539e8bf0c12f7457aecf085fd4f83c1b515f1d919ca7f2a285a2f6a9462c"
-    sha256 cellar: :any,                 sonoma:        "bfe315a7bb22e7fdf3ce7f526538d7f301c249123bb01122d6957e850cba9f2b"
-    sha256 cellar: :any,                 ventura:       "80f5927e85310f6eff4b0ea63779eb8d44fb5024609b26976533eb9c600ab62d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7681ad0e8617193aad7bf061c0d0961cff0db358a32c854ba0fd8994cdd5fb88"
+    sha256 cellar: :any,                 arm64_tahoe:   "58f7600c7cdcac9ee5ae3433cab2fee910661fbd8f62d77516274dd9cb8b63ec"
+    sha256 cellar: :any,                 arm64_sequoia: "b06c1101abfadc05df7529408b7599568808a512c07699f5c0e352e536ec84b8"
+    sha256 cellar: :any,                 arm64_sonoma:  "9321e8dac8a8a3dc26151f6cbb0f65d6cbc7b4b571644be9b856e772255dbf9c"
+    sha256 cellar: :any,                 arm64_ventura: "e35a00507c93dce23998503566228a00c088051a580771d2ae077a2a1c7232db"
+    sha256 cellar: :any,                 sonoma:        "03930bd0f39146d33ef62870538be20f37f50736ceacd3f0c3b743ee767d2fe2"
+    sha256 cellar: :any,                 ventura:       "766a9f9d8ebb63125aa8331124448989b2d96047df53d7951289fca313868c4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57493d0bde9271e1e732f9ce60340bcd06558cf865b8d5a4728666b511f41875"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -29,6 +31,7 @@ class Visp < Formula
   depends_on "jpeg-turbo"
   depends_on "libdc1394"
   depends_on "libpng"
+  depends_on "lz4"
   depends_on "openblas"
   depends_on "opencv"
   depends_on "pcl"

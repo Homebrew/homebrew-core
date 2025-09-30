@@ -1,18 +1,19 @@
 class SoftServe < Formula
   desc "Mighty, self-hostable Git server for the command-line"
   homepage "https://github.com/charmbracelet/soft-serve"
-  url "https://github.com/charmbracelet/soft-serve/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "7ee68a779bda1e0020aa2f44703a4d7e5afdcc685d8af6ecbbb9c826fd03e217"
+  url "https://github.com/charmbracelet/soft-serve/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "9d679296f46840f535aa934c4c03f332507b704d7dbe165b4920e012caf20ef3"
   license "MIT"
   head "https://github.com/charmbracelet/soft-serve.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3712c7ef413b0aa315161d758f10c0e356508f5c9fbf142d2e413e32a5ebfe71"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e8b22fcf3b39827ee0d831658f7a692dc3725485db9c5ab66918d4828e1f108"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b2ede9ba15da3fc6c3ccca807c7a28f08d509a3be572f99ef37888b30c734128"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4479c1c3af6fbf2af80c61bdd4bf58e76e2a763e76da853126ef835404254de1"
-    sha256 cellar: :any_skip_relocation, ventura:       "06db38b39fd3a598ee680e07d43705eb4a2a73e342607dc95dae3053443c0f77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b30779da797af8a4456e7c8bb67bc31cca20d1cb0120ca8e70d3df1b891c81cd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "29a82e5fea3132e8e8372157008e6fbf4f25bb15339110a52102a21b934dfa37"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d644e5ddd272a9e8951324a4d27465dc8762eb44e06537ae2b5bc8eea9ce2eb3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2fe6013df08f946f18e3acd3cc675f69065e5d33333c19343e807f9e12a139c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5548ba229f68f6102cde4dfb0947403776305ffb6455663e5fdf3241de7bfa00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8c30ebdc67af3d0941502b1eb8470811d8991f0ae90ca748da78bf64197b5865"
+    sha256 cellar: :any_skip_relocation, ventura:       "9360c312cac09e4bf97fd8b043a86c41cba44c7669b2dc97e555d21e7abd9865"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1caef12c9b0601292400cb72639377935301747602e1804cedb6ad5dd4dba1d4"
   end
 
   depends_on "go" => :build

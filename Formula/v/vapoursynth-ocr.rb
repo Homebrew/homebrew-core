@@ -11,6 +11,7 @@ class VapoursynthOcr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7170ccabb3adf8e0a5bd54ca6c531b3d0d54b2c7f8455aa912096ed3458ca048"
     sha256 cellar: :any,                 arm64_sequoia: "59e7198e55f020269ef5dba9f54c07b67c5a789379df455ec634e6b236a129b0"
     sha256 cellar: :any,                 arm64_sonoma:  "780ee3e48072500cbe2847c42e301fae220ec8a6d5cb2104c5c43cecc7a7feb7"
     sha256 cellar: :any,                 arm64_ventura: "cd5724d21e95a31025bf0d0bad580406d2b3921a1afbd0778a3fafe123809b70"

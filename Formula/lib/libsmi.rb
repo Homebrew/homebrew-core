@@ -15,6 +15,7 @@ class Libsmi < Formula
 
   bottle do
     rebuild 1
+    sha256               arm64_tahoe:    "4374c77eab2941ebb0d71538c6ebd82e9c4e39a0273fb64b7962f2357d7703b5"
     sha256               arm64_sequoia:  "87f549d798e971b862119e43a800b4e647a9e9dd9eab7c6effe0a17277da3acb"
     sha256               arm64_sonoma:   "338426ca6bd52ced087751e568d7711a5e7fd1bcc6490bb89983bf3dde016749"
     sha256               arm64_ventura:  "5d7aab3f390daeca40fef88271d3bd76c3ba2cf0fa1ad2866f2adf58d20eb6c2"
@@ -25,8 +26,6 @@ class Libsmi < Formula
     sha256               monterey:       "2ef53a0a8b4eb430786f8196c18ab14352968c9377c693d11c44c44df05f1865"
     sha256 cellar: :any, big_sur:        "5c3ea572911edc5c6beb54b78e34d840dc458d6b0b5f465298fd0fe673f117be"
     sha256 cellar: :any, catalina:       "1a25b44883bb95940e789ec6395dfa796ec44fd4e0d9ae1ee81a4119fe70ac14"
-    sha256 cellar: :any, mojave:         "507d7f52bd7be5c1cc3170831de43e3ebd5a4312b6eda5d795d7519437016246"
-    sha256 cellar: :any, high_sierra:    "25a31cf7557ddfc1174a932b904d6c96bda4f3c733caf8258edbdef376e99544"
     sha256               arm64_linux:    "f6d7e9c6409c712b8a8c414ba1ce204963a50731e659c748e8c24993fa175569"
     sha256               x86_64_linux:   "7c1d475b1062dec302c4022771cbed447f00923a404a1ea131b79796f44d07f5"
   end

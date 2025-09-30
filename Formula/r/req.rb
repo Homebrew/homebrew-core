@@ -8,6 +8,7 @@ class Req < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "16f15db092a3128344c2731a6294b92c13ac3f1a9a2578333127c40862c24169"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "80b342c2fd081a819943fe63fd72a9c3b2e53ffa78ca8d34b45b841f9120910e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af8452502e589a8191f0c752198d5e9167188cee8314310ecaa24adcb12f7445"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "761e455eaec2c41951b0aef7e6ccea876443742d59c630ad922b0a0a6eac7204"

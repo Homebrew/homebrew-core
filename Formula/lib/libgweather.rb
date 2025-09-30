@@ -17,6 +17,7 @@ class Libgweather < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "782f74d17d9852d3f9aab9cab10f35fab0c2f503753a9f21b74453b5642ac949"
     sha256 arm64_sequoia: "def0a9ed0b83c1c6601df15db175bb336f73fd853f86c93a1a0cc1994ea467bf"
     sha256 arm64_sonoma:  "4bdf722d36c2c99c6a3dd7d816cfd3d73e439a9225ed36e0bee4240193f5f4d8"
     sha256 arm64_ventura: "bb2d31e83d13f02446f7e5b523eeeb4cdf86e2065a8572ff1cd449b9abf1ea7c"

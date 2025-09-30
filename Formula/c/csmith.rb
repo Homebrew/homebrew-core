@@ -14,6 +14,7 @@ class Csmith < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "5dd099418eb9b36019dfabac7bad13d6d2c0eb6d01700c57fbb6323b6c8331d2"
     sha256 cellar: :any,                 arm64_sequoia:  "8da68f418cb134b12223efaea3b1a32c75d51a975458ec0b95ea5cfb90b2810a"
     sha256 cellar: :any,                 arm64_sonoma:   "52a3fef01ef8a1161d9695787c592c17d405fba995615a6420d5723b8fd49e09"
     sha256 cellar: :any,                 arm64_ventura:  "289f49509657abe2bebc5f5b18f95df1c27860bb9cb9cfb6c5b740bb7ee77010"
@@ -24,10 +25,6 @@ class Csmith < Formula
     sha256 cellar: :any,                 monterey:       "2ea649dec15e5b7387bde10f8c564c168455ab7b0bca454e669aba28413b10d6"
     sha256 cellar: :any,                 big_sur:        "1194af6247da39f02e322f002dacb9654fb1b614a77ecab2a384bb8715493d01"
     sha256 cellar: :any,                 catalina:       "fdce1186c77ea774ed5575cd59bc194ab35725d3117c9a57bd54ce351a620965"
-    sha256 cellar: :any,                 mojave:         "7c3759ccefa73b295acd5e7e631c40594f6983e26e903b54a88a9e0dfdfcaa96"
-    sha256 cellar: :any,                 high_sierra:    "e8e818a9898b4145c5622810958fa8616f8b57156f09aeaf3045873210f0856a"
-    sha256 cellar: :any,                 sierra:         "2e78da57153124cb3feca12955d0bbadbc4e90dbff6c34a08532aea55c75ba8e"
-    sha256 cellar: :any,                 el_capitan:     "472992fd577ec20b025397c840823abf8f88d719e7d86bba427446a38cc5584d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7dcd32413bf5de8028c02d4e648fca8799aa716f58ae19a7df00eada072888da"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "527b8e04eb83e46dd0a24ea321f71bed291f11a158338c1106241365ba3a849b"
   end
@@ -41,8 +38,13 @@ class Csmith < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # Workaround for newer Clang until upstream fix
+    # https://github.com/csmith-project/csmith/issues/163
+    # https://github.com/csmith-project/csmith/issues/177
+    # https://github.com/csmith-project/csmith/pull/165
+    ENV.append_to_cflags "-Wno-enum-constexpr-conversion" if DevelopmentTools.clang_build_version >= 1700
+
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
     mv "#{bin}/compiler_test.in", share

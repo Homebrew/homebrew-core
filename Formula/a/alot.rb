@@ -15,6 +15,7 @@ class Alot < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "700c0f4fdc48d671b6aaf4acb47f69d7953fffaff92eb2558017e1470e4bf91b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "073814ef305c351f5c93c1880471cb250169e6caa8c4455b0267a0c29da89954"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82b9a7a7ddd0c02f46c44a27bb1c55d831ae775c93a11f7fcd2eaffe317d8706"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5c02690a7bbec33199fc037d48cbc31c0bdc7b79bae38de2396946970637e369"

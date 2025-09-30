@@ -9,6 +9,7 @@ class Parsedmarc < Formula
   head "https://github.com/domainaware/parsedmarc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac094c814650c666c74eaff4d910b0f32c893022868a4805eb11af17b34e18f5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d44f7acba228f0b1f61411e0f5a1f51c5880523d6222d8418d5f8c945e4d23fd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8d05f5c9a5ee6ab58a872076b1525f62cfdb5cb7f3ce8bcca15d68657a3c86d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e40d10a295ea3b557e35fb85253b9f58a6c95cfed151744a726227c9d89e5c5b"

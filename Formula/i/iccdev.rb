@@ -1,18 +1,18 @@
 class Iccdev < Formula
   desc "Demonstration Implementation for iccMAX color profiles"
-  homepage "https://github.com/InternationalColorConsortium/DemoIccMAX"
-  url "https://github.com/InternationalColorConsortium/DemoIccMAX/archive/refs/tags/v2.2.50.tar.gz"
-  sha256 "f48fc2e3f4cc80f9c73df27bf48fca3de7d0a81266d7084df544941e61b37eb2"
+  homepage "https://github.com/InternationalColorConsortium/iccDEV"
+  url "https://github.com/InternationalColorConsortium/iccDEV/archive/refs/tags/v2.2.50.tar.gz"
+  sha256 "3ef14e8d143705eced1b3120dcc16d6b8730dac7754fae7fef6861eb53836b56"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f722a5bbdb050d4c8fc3a98ddb44ee416bf5b3dcef1ff97a7a4d7337c78e3626"
-    sha256 cellar: :any,                 arm64_sonoma:  "cbf8e8773fb606ad43f4eeef01be4531b03e8671a200fc930d16269184b1cfed"
-    sha256 cellar: :any,                 arm64_ventura: "320314d7aa7f677efe22cdc29b815205c4a8e44acc41bf2e269f2e7f49182d03"
-    sha256 cellar: :any,                 sonoma:        "7d8888b48a3fabea1b4b425ce45c0022cfe1aefab7ef197fc96af928027f2cbc"
-    sha256 cellar: :any,                 ventura:       "19822d5ff8e4213013e005cf41b52046c2822b2ecafc08f6da0109bba4b45e08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d6dd04ecdae3a0fee2746b33a1453f949b519278d1335ae4eb533d583ab5c621"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1096b2b99784ab6d08d1590ab5f3dcd3f2b9145429b97c4e5182328a85877145"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "a24e4a3fbc61f165a94024e28565824080c26f24a5a3a69de8a50a65fb22ad63"
+    sha256 cellar: :any,                 arm64_sequoia: "175c33091f3aeed27ae062dc2aa90c292eb34ef9e0d28aee21150d298fc7cabf"
+    sha256 cellar: :any,                 arm64_sonoma:  "5112b2beaf6414f3d5d7de5d2d62d9c71898c6ec7a0aecb88bb85fe00b0d4972"
+    sha256 cellar: :any,                 sonoma:        "98df46395d9a21e05a228a3adb86fddf1833b5bb05336500bbb5309c5e57b9c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d8895eeb009d41b403cd567cd5f1b3a8779e38d54dd365b28ffc2712b667f30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fd54467f13174a21b8cb3b7cf2850a8c8bebc8339c5949a818abfa21951afd2"
   end
 
   depends_on "cmake" => :build

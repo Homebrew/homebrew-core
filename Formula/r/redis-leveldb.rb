@@ -10,6 +10,7 @@ class RedisLeveldb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c271d1f63c3d093c40dfe5b388ff1fb8a16189fd3856af03a03de7b997ceacc6"
     sha256 cellar: :any,                 arm64_sequoia:  "18a394308e77b5655a37776c66a468aaa71b5bb152b59c666ef1017f88f77257"
     sha256 cellar: :any,                 arm64_sonoma:   "2c4f724a8e484fe6949b3733a7c1d4201370dabbbbd3b5e4a7e4b4312a06bba7"
     sha256 cellar: :any,                 arm64_ventura:  "8ed6a3bbc7dcfb695d7d133bb5f87eb564288e0f1ab221099449b1dd4f8bbabe"

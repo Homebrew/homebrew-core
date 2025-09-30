@@ -24,6 +24,7 @@ class Opam < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "363a8906100e191e775f1b199cfcbd455b233a5a8de4ab615621d65c97a516cf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "df4e2cce2592afe76caa3c865e42dbebd2822c99c5260e35fe1b64b1656cb754"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "389c2cf95ce32cf161fa1f153be19b3cd39b9fbe8772ad0ef32c06e7c1cfaab7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a0ac573a729732ded9d5b5a639e0196492e85c0b9b3557a0a877dd8ed0e5d7e8"

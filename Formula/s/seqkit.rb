@@ -7,6 +7,7 @@ class Seqkit < Formula
   head "https://github.com/shenwei356/seqkit.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "75b5b76e09b39ecebe4e91a8b4e4bdae84fabd95675effa184148047212118ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8cfb637b8f41b6c5bce9c7c91308d8ad1288a71cdfda62e0e134741ced3cc5c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8cfb637b8f41b6c5bce9c7c91308d8ad1288a71cdfda62e0e134741ced3cc5c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e8cfb637b8f41b6c5bce9c7c91308d8ad1288a71cdfda62e0e134741ced3cc5c"

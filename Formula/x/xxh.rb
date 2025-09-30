@@ -9,6 +9,7 @@ class Xxh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "118bfd01a9e09afe9c5bbc70b95eafab17cb126e541a07e641f2c66d9b2f3fbb"
     sha256 cellar: :any,                 arm64_sequoia: "91c67ed304dd2ff1703b87750f81b35238e051b999837ad62b1fdef026b8681f"
     sha256 cellar: :any,                 arm64_sonoma:  "90fe8579c1a9494c3cd230237c8858e907f8d609dee2d467b04b7f3386a4d765"
     sha256 cellar: :any,                 arm64_ventura: "58f728daf50085a2789ff3e60aaa79c9bdf8311d81a72229db17845339d27b23"

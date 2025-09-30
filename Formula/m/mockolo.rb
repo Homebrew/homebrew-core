@@ -7,6 +7,7 @@ class Mockolo < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8d94078e230af979e5010d890ec7c1497f1c7caa5e7cb62e0dc4b00ee3e8d93"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "18f1b69b192e7aaf2cb57a752c4c9a96c2ea7ab24ce52dce3b138dac2b190599"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9da1cd6bc134cfd133dc72c56a3120429b8db32a4efab512f113c76f642f58de"
     sha256 cellar: :any_skip_relocation, sonoma:        "293816ce556079215b9f76165f1d306b2ece74018b4616411cd6086ebc99e291"

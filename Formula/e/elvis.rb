@@ -7,6 +7,7 @@ class Elvis < Formula
   head "https://github.com/inaka/elvis.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa95f536000cc0546c7237ac4dd7a4aadbe7b8da1f73e753b1f6a6159e6d1001"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bbbf2d22dc2579b2bf23653ca33921cf3c09c761553b48a20772e05467f00b0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ce6e257ad7d6a96ab10bbade74ab0874c8051c4458ea5d25aae43ba31f372e2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c35cb9a8771747e803826cf85e85d3520c0ab93268ce550b7f7af7e01edc21ff"

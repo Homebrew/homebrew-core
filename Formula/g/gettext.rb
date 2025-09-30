@@ -8,6 +8,7 @@ class Gettext < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "f1a3876bef27aa262949baa369395e4b9312845f79b86860124773ec6eef8608"
     sha256 arm64_sequoia: "b25ac1e62443f8f79eadc3dadf6d3af954d4cbc33a0577fc626aa0c8f2bb01a5"
     sha256 arm64_sonoma:  "1615e931a23c6875c9bcae0ffccf5a4a35f796fb90b7192804c771cb25d766e2"
     sha256 arm64_ventura: "c9cf89dc04f56eb4939b00eea3c0361cd4498f8237e527f2f741682bf7e6de61"
@@ -27,10 +28,12 @@ class Gettext < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # macOS iconv implementation is slightly broken since Sonoma.
-    # This is also why we skip `make check`.
     # upstream bug report, https://savannah.gnu.org/bugs/index.php?66541
-    ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version == :sequoia
+    ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version >= :sequoia
 
     args = [
       "--with-libunistring-prefix=#{Formula["libunistring"].opt_prefix}",

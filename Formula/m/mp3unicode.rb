@@ -23,6 +23,7 @@ class Mp3unicode < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "75d5fc48faf45713ba932224204b1a5334a4f0aff1955c22913fa40238d457cd"
     sha256 cellar: :any,                 arm64_sequoia: "b0f39474b3f41688794f00e4815e40a6aa792614610870d4ec1377d5a67ed5c7"
     sha256 cellar: :any,                 arm64_sonoma:  "54f458d22e3d58242645a99c9c3a3b90c013fb815ddca51775469bb4c04fe2d8"
     sha256 cellar: :any,                 arm64_ventura: "7b7678aef37dc84509ae7918c2ab3288bb8daff100402b3d820802dc778fccb0"

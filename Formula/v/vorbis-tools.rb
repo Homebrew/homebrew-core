@@ -16,6 +16,7 @@ class VorbisTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ba951810e66deef3e95f0221893c66ba61714a590200dea95af16590595aba94"
     sha256 cellar: :any,                 arm64_sequoia: "90772f684b42063eeed55dfe4e3474007b1ff9f6f83114ac04f6b392984a39bd"
     sha256 cellar: :any,                 arm64_sonoma:  "5b2a530e21e74a68a228e4a7c4a4adbd8e7723e6dbbd627a44001f8b90673002"
     sha256 cellar: :any,                 arm64_ventura: "fa047db81ba9212b7ee38570602086bed423456007c59eb2e9f5c2e883b412a5"

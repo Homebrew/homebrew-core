@@ -8,6 +8,7 @@ class Autodiff < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d4bef2f7d2ad595103bedaf4946a7ac61b7d89298000b824e59ef534b47bb442"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e35fef20edd7f2dc9b18d7f1a7f37d7cde1bb6d9154d7a2992c283baf111855b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ffd7fdaf5ddf5ed5729344e6a1e8065a71aa29ab6c2038d51d0e2c0e3655c0a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "11282c10e5cee0cf915621a24c511a87a5721ceef2f659e2adbdd458c787bf74"

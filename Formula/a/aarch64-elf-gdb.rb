@@ -15,6 +15,7 @@ class Aarch64ElfGdb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "63e3ad3ae37254366ff05f12ef5f6d57352d885201bf6be153e7fa89c7474977"
     sha256 arm64_sequoia: "e7db20ed948d7a6bfde4f5c2681d6e9a8a2c28a7583174db3620a43b1c2a9382"
     sha256 arm64_sonoma:  "deb6bb2ba235a54d37a78bff3c1a7eee52adf0a8c8908294b4652be74acbd7ee"
     sha256 arm64_ventura: "b93b9aab9faa8beb55a447dbfa2e588708d455723a7d50fde9a8c3c53aec3f08"

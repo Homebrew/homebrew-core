@@ -6,6 +6,7 @@ class Libusbmuxd < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "be1c5b8ab89996815b0c7b39a613396665cc3946a15edcac5c0d39dc099c5aa7"
     sha256 cellar: :any,                 arm64_sequoia: "f8255f91e52d9854b2aec30297e8038c2154ff3cb59f64b0cc8006cb301f143c"
     sha256 cellar: :any,                 arm64_sonoma:  "b3dfe62a2e25c35da59e32db101d490974d93a1a6ed30755bb4380a7d947a63e"
     sha256 cellar: :any,                 arm64_ventura: "da3ade8614bf17b6d7415bcaca5d567c78e72e0c170e2f0bb386a77169964a23"

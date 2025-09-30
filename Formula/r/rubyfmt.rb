@@ -19,6 +19,7 @@ class Rubyfmt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "add7264b0c1f0f824a4cacb9207a09fd1b64af9fb800f9ac3caafa0a34ee4568"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ea996577f2010a2fcc3a4244398c2cdc8988de9efedeed1646f358798b33ab4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20e428828937e70b6c4e9dc9d742ecc1a8f331dc65369488c1fd576cb6abfe1e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d5ba71656cdf87c3c1b5a2f9664f2deb21f59a949173a9a639340617a8bc8707"

@@ -10,6 +10,7 @@ class Ssdb < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3fe78871af08371b8d2f7fecbea63b1ff415f7071febdbd4a5ec06d7b08c2c47"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b781dfcd8a19c986f0595815cb3e9bcc8c6a98fc818e90b6d3c4b505b6379e45"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc7bc37501d29396dd766ca625925eef5175823250c3dac87f1b36d814ed783f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "79bb5aad0a9002af14f96810f62717cd0249479368fecaa7e9481a7ab2b7a05e"
@@ -20,7 +21,6 @@ class Ssdb < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5251016f1ba03a184424fc041e61501398577ca0c1aceac23748e22bc8883f5f"
     sha256 cellar: :any_skip_relocation, big_sur:        "f92e221d20ca1a85c7ae555acd1417bba60b208a56091eb3a25d98fc788f25a3"
     sha256 cellar: :any_skip_relocation, catalina:       "4253e51c8e447b5d4e0ec5f064ee2fcc3ef57b30734df70f3b24d6399abb9363"
-    sha256 cellar: :any_skip_relocation, mojave:         "a10edecc28880cd37e02e75fdc318392ba6bda016f624181a9f4ff10982b211f"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "3b979956e4a3d08fa70ad494d69fc7883116d7f08ddcddea15a058f7836891d1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9db77a02bd8c3ed9569919f579d4e3a3d434bfba9f4679aafbc3c2de87993478"
   end

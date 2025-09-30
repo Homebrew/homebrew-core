@@ -11,6 +11,7 @@ class TclTkAT8 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "dcb91a0ce161a5de4411a331fbdc0443e010f16e867a26e093583ca0c6b1ebbb"
     sha256 arm64_sequoia: "fd1ae557ac59471bc1a6b141a78273fe7b1e2154186c27ef599b508affb8c69f"
     sha256 arm64_sonoma:  "46cb139db73eab4d113778559f21c7e8c5c3914dbf6524962bd88bf15d3915ae"
     sha256 arm64_ventura: "e2f813b5b23dda76c8d961f118a4a77360e72caaab03255c71070dc0649078dc"

@@ -15,10 +15,6 @@ class Openslp < Formula
     sha256 x86_64_linux: "aa1988503f1e9688dfd80e0331392ab29a053e62197b60653e933ee1bc681efb"
   end
 
-  on_macos do
-    depends_on arch: :x86_64
-  end
-
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
@@ -26,7 +22,33 @@ class Openslp < Formula
   end
 
   def install
+    # Workaround for arm64 macOS to use fallback global mutex as USE_APPLE_ATOMICS
+    # condition uses deprecated functions and code doesn't compile
+    # Issue ref: https://github.com/openslp-org/openslp/issues/19
+    inreplace "common/slp_atomic.c", <<~C, "#else\n" if OS.mac? && Hardware::CPU.arm?
+      #elif defined(__APPLE__)
+      # define USE_APPLE_ATOMICS
+      #else
+    C
+
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <slp.h>
+
+      int main(void) {
+        SLPHandle hslp;
+        SLPError err;
+        err = SLPOpen("en", SLP_FALSE, &hslp);
+        SLPClose(hslp);
+        return err;
+      }
+    C
+
+    system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lslp"
+    system "./test"
   end
 end

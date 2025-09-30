@@ -13,6 +13,7 @@ class Libsql < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "852ee773247ada611ab2328ee7da4489f5b27541f4c563424bc1272bde1ac3dd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "00ff2b2417e93cf90e6b37f266797b38817bb6f5a118e3143c2ae6544aad0ec1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2119c4641518a4aeca3fef20f3759f951b6e71c55deb6c026d7c9f936965bd26"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "071178b31a2350e85cc4ba7f16330df5b2bf07d7fe37f8c17fed7a24f46bddbb"

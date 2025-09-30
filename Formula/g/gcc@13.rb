@@ -14,13 +14,13 @@ class GccAT13 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "77124ab1a9a3ad3b34ebd62ee47224ea4a06e16664c9ea567938d74182aa25b2"
-    sha256 arm64_sonoma:  "a28d7de1a36175bf4d18bd0a498593cfdd5303927ad9d805774e81459e7122a9"
-    sha256 arm64_ventura: "2c5dc4cbe473e1d7a663e3426db9b4b705478f20b05d2236aafa4f5463147ef9"
-    sha256 sonoma:        "ab3f2f0781e7b33deea8439ea0e694c1e01185db910233df0a050ade3c058370"
-    sha256 ventura:       "ed4349d9e7f8c3be2b4395b3b80b20c18fe798d27cc4c407347eaf66b72e724e"
-    sha256 arm64_linux:   "f758270e81aa9a99a5de900d932646f48b7d39e06d92e109fa3259419ea8adfe"
-    sha256 x86_64_linux:  "835e1dc4e1c6c13eab20f269e8b48650a69932a0316d051f2b1320f4cbb439b5"
+    rebuild 2
+    sha256                               arm64_tahoe:   "acb8554e3046effdc5e6bf6f392ec23ae6497ea390c6695806035ebd79a5a356"
+    sha256                               arm64_sequoia: "6e9ee065698b356a687ab2268c47ed70ce2806fab091d90b5f65d3d1bb4ec3b4"
+    sha256                               arm64_sonoma:  "06a7bdccc074fedca6ebe1cd078fc8081e6df2502baccb8530bc42714e8af702"
+    sha256                               sonoma:        "b91a8be3fecf57a37d8826dc5bfa272e5c02aaab597523f1a0558a41ce650cdd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb1cb06e602da4df873a698e5d702378f9056ec8c560573d2135f00fe7d05805"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aabbc5c7ca6bcd1cdf855f24178056af3d7d354f7a4de1ec2e0f1a48e04d803f"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -38,9 +38,6 @@ class GccAT13 < Formula
   on_linux do
     depends_on "binutils"
   end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-13-branch
@@ -92,9 +89,6 @@ class GccAT13 < Formula
       # "Updated load commands do not fit in the header"
       make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
     else
-      # Fix cc1: error while loading shared libraries: libisl.so.15
-      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
-
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
@@ -106,10 +100,8 @@ class GccAT13 < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      make_args = %W[
-        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
-        BOOT_LDFLAGS=-L#{Formula["zlib"].opt_lib}
-      ]
+      ENV.append_path "CPATH", Formula["zlib"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
     end
 
     mkdir "build" do

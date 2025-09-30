@@ -2,7 +2,7 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 2
+  revision 5
 
   stable do
     url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.26.5/gstreamer-1.26.5.tar.bz2"
@@ -25,13 +25,14 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "89fd6fe9d682c265349b1c2c26831a5e183b443291767d80e4f29288acae5c84"
-    sha256 arm64_sonoma:  "74181d711793d9bef3971b88cf967a914f49e0c6fd380b61f90cc4ffb64bd3a7"
-    sha256 arm64_ventura: "382e9033337687620b04ccbdd3e8d1dc1e8353b2eb1abbe43680d8550c781fe2"
-    sha256 sonoma:        "4831d7df2f4e94d672d915fa3f9d4287f3c3a0dc0d9f72d73a8660b5518c7853"
-    sha256 ventura:       "c9bdf7d0d4fd973c2052aacb142f1a232d2b2f53b94ea460a4daa15b206299a7"
-    sha256 arm64_linux:   "553838c6750abe6e029c85dae0fed5e2e0853b6cb092969b724f8e8e76aad9c2"
-    sha256 x86_64_linux:  "a8d20440ee727f0f8040ddcfeafa531c79534a080557b0f1709f07a669a66b77"
+    sha256 arm64_tahoe:   "e969a9aca3d98514b8359c820c14cb7870e9008d98ae179c32ba8708f0fc00bf"
+    sha256 arm64_sequoia: "18575de9f5680b58711272b2f46d139074f16d9ce7d4fd6f56df293040c8870d"
+    sha256 arm64_sonoma:  "5311791aa17b7cc6c4b75c354c2a3ab1eb87f4a10723344c3bdb2d53a0505799"
+    sha256 arm64_ventura: "80b9865406bfc3647a0cff6285a5309c0056d392730b5a40205ef5f615bafe0d"
+    sha256 sonoma:        "499e82a02201321d37a981f26b5f78bac0b99f8540203fc647d0cb4a74eca8b3"
+    sha256 ventura:       "421644c8a8a7451008bd3790dac48dcf7e1f0f63aa14547022f7e63a74fd3bf4"
+    sha256 arm64_linux:   "f4c7c60829aad5d356a19db08f168add79525fa09e13b4b6163e20a5d58fa5ab"
+    sha256 x86_64_linux:  "7e109bd41b133a951bc14b0da46a94ee3543761a107d782cd3183dd82d6c7b8b"
   end
 
   head do
@@ -72,6 +73,7 @@ class Gstreamer < Formula
   depends_on "libnice"
   depends_on "libogg"
   depends_on "libpng"
+  depends_on "librsvg"
   depends_on "libshout"
   depends_on "libsndfile"
   depends_on "libsodium"
@@ -202,9 +204,6 @@ class Gstreamer < Formula
       -Dgst-plugins-rs:gtk4=enabled
       -Dgst-plugins-rs:sodium-source=system
     ]
-
-    # The apple media plug-in uses API that was added in Mojave
-    args << "-Dgst-plugins-bad:applemedia=disabled" if OS.mac? && MacOS.version <= :high_sierra
 
     # Ban trying to chown to root.
     # https://bugzilla.gnome.org/show_bug.cgi?id=750367

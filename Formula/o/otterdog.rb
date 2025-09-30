@@ -3,24 +3,23 @@ class Otterdog < Formula
 
   desc "Manage GitHub organizations at scale using an infrastructure as code approach"
   homepage "https://otterdog.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/b9/00/7d9570b02427b3e9ca1beb31bb17640290bb11a2eb941653ffef10028ace/otterdog-1.0.4.tar.gz"
-  sha256 "6caa83b75c826af27bee96e93f2bcece1385922d0717b767d5be0e8c5f0aea00"
+  url "https://files.pythonhosted.org/packages/68/d8/4c1827aa29bc22f4a8f4cb4a755f4505c7e84fc54a6a67e3a5bbd4dc0389/otterdog-1.1.0.tar.gz"
+  sha256 "b1dc49d7cd0b4f077aa84d924299412539960cb848efbfbe69d9689adebc4832"
   license "EPL-2.0"
-  revision 1
   head "https://github.com/eclipse-csi/otterdog.git", branch: "main"
 
   # https://github.com/microsoft/playwright-python/issues/2579
   no_autobump! because: "'playwright' resource lacks PyPI sdist"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "00fc7ce8dba473d8ab103c1641fa2c74a98fb65c17a612a8d6460149392d9f2d"
-    sha256 cellar: :any,                 arm64_sonoma:  "b918dd7f1604ed38130412f107f3491a41a0034ad789e9e3592b43b477cadd02"
-    sha256 cellar: :any,                 arm64_ventura: "46942c098c10794f22b8a55a19695d158165a443887810be0075966d3ddad5d0"
-    sha256 cellar: :any,                 sonoma:        "5eb4d47d9138d5debbfc217084fd7bb4d7668ac17600bd46b97987338f5ac0ea"
-    sha256 cellar: :any,                 ventura:       "0bc913d6189aecbac439d44f87a95712897e5de3ee75401c350d200d73deb778"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b004dfff8ac70f838bab597e26346e473aed64ad0e2e3896e70e934d5e359f33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f90b0d5ababf9023615060faa94959ef0b6ddb45adbbfbd5eff889bb7ad56b70"
+    sha256 cellar: :any,                 arm64_tahoe:   "06fd8aae906e2f7531da171393de1bfce5847f81230805204bba5aea2f57fdd0"
+    sha256 cellar: :any,                 arm64_sequoia: "295d7b6e99161bf89a812659d715b68f6ad09ffcecc0e1047aa24c293e23867b"
+    sha256 cellar: :any,                 arm64_sonoma:  "c09acd7c04e22bdd8169131bf5c5473b0147f424d256b3e8bb562875801df369"
+    sha256 cellar: :any,                 arm64_ventura: "f3269b4350469f57dbc272d7602157bebcdc57fd2e66bbe92b162c385634f8cf"
+    sha256 cellar: :any,                 sonoma:        "a2505d36f55003c5e1dafafa91d858615a70165770f5a9b3f80028eebd49eb86"
+    sha256 cellar: :any,                 ventura:       "2a769449d657c3809248e854e141cfb9a0b72c15eeb82bdcbe2abcc268502f3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd44b1a827d67400c496e0de08b39d0027f9e08b164486a913095a3d132ecc4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51e7ce5d114e8ec3151064e4b28e915ba6ac20293d5d8a3e0376b18b6274e352"
   end
 
   depends_on "rust" => :build
@@ -40,8 +39,8 @@ class Otterdog < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/42/6e/ab88e7cb2a4058bed2f7870276454f85a7c56cd6da79349eb314fc7bbcaa/aiohttp-3.12.13.tar.gz"
-    sha256 "47e2da578528264a12e4e3dd8dd72a7289e5f812758fe086473fab037a10fcce"
+    url "https://files.pythonhosted.org/packages/9b/e7/d92a237d8802ca88483906c388f7c201bbe96cd80a165ffd0ac2f6a8d59f/aiohttp-3.12.15.tar.gz"
+    sha256 "4fc61385e9c98d72fcdf47e6dd81833f47b2f77c114c29cd64a361be57a763a2"
   end
 
   resource "aiohttp-client-cache" do
@@ -85,8 +84,8 @@ class Otterdog < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "chevron" do
@@ -110,13 +109,13 @@ class Otterdog < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/c0/89/37df0b71473153574a5cdef8f242de422a0f5d26d7a9e231e6f169b4ad14/gitpython-3.1.44.tar.gz"
-    sha256 "c87e30b26253bf5418b01b0660f818967f3c503193838337fe5e573331249269"
+    url "https://files.pythonhosted.org/packages/9a/c8/dd58967d119baab745caec2f9d853297cec1989ec1d63f677d3880632b88/gitpython-3.1.45.tar.gz"
+    sha256 "85b0ee964ceddf211c41b9f27a49086010a190fd8132a24e21f362a4b36a791c"
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/c9/92/bb85bd6e80148a4d2e0c59f7c0c2891029f8fd510183afc7d8d2feeed9b6/greenlet-3.2.3.tar.gz"
-    sha256 "8b0dd8ae4c0d6f5e54ee55ba935eeb3d735a9b58a8a1e5b5cbab64e01a39f365"
+    url "https://files.pythonhosted.org/packages/03/b8/704d753a5a45507a7aab61f18db9509302ed3d0a27ac7e0359ec2905b1a6/greenlet-3.2.4.tar.gz"
+    sha256 "0dca0d95ff849f9a364385f36ab49f50065d76964944638be9691e1832e9f86d"
   end
 
   resource "idna" do
@@ -135,8 +134,8 @@ class Otterdog < Formula
   end
 
   resource "jsonata-python" do
-    url "https://files.pythonhosted.org/packages/ab/d1/9455e5ef09044a550500b32ff276a30f44928ab84b2db9ef13352bffd154/jsonata_python-0.5.3.tar.gz"
-    sha256 "c83f45127f8dc45e5ca5f20fd8b8635f094ef6bbb2d203a75bdde11ffece61e2"
+    url "https://files.pythonhosted.org/packages/74/c7/f7424658f7c20266d29343d9fc2cc764a0f83460ee61a8f84b591d161450/jsonata_python-0.6.0.tar.gz"
+    sha256 "2f605ec016eec13ab009de00631b9bb7b6a4bf7918cfcbe7f7f393cfdc550009"
   end
 
   resource "jsonbender" do
@@ -145,8 +144,8 @@ class Otterdog < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/bf/d3/1cf5326b923a53515d8f3a2cd442e6d7e94fcc444716e879ea70a0ce3177/jsonschema-4.24.0.tar.gz"
-    sha256 "0b4e8069eb12aedfa881333004bccaec24ecef5a8a6a4b6df142b2cc9599d196"
+    url "https://files.pythonhosted.org/packages/74/69/f7185de793a29082a9f3c7728268ffb31cb5095131a9c139a74078e27336/jsonschema-4.25.1.tar.gz"
+    sha256 "e4a9655ce0da0c0b67a085847e00a3a51449e1157f4f75e9fb5aa545e122eb85"
   end
 
   resource "jsonschema-specifications" do
@@ -160,8 +159,8 @@ class Otterdog < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
-    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
+    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
+    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
   end
 
   resource "mdurl" do
@@ -175,13 +174,13 @@ class Otterdog < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/3d/2c/5dad12e82fbdf7470f29bff2171484bf07cb3b16ada60a6589af8f376440/multidict-6.6.3.tar.gz"
-    sha256 "798a9eb12dab0a6c2e29c1de6f3468af5cb2da6053a20dfa3344907eed0937cc"
+    url "https://files.pythonhosted.org/packages/69/7f/0652e6ed47ab288e3756ea9c0df8b14950781184d4bd7883f4d87dd41245/multidict-6.6.4.tar.gz"
+    sha256 "d2d4e4787672911b48350df02ed3fa3fffdc2f2e8ca06dd6afdf34189b76a9dd"
   end
 
   resource "playwright" do
-    url "https://github.com/microsoft/playwright-python/archive/refs/tags/v1.53.0.tar.gz"
-    sha256 "213ba822bb9261fb2533ff9d5bd47e55b37fd7eb2051de2236251f525ba47cdd"
+    url "https://github.com/microsoft/playwright-python/archive/refs/tags/v1.55.0.tar.gz"
+    sha256 "adda41b4a6c02f414d535b7a0e03bc5f4c4f77fb3d4ef3028f8b609ca71f3613"
   end
 
   resource "propcache" do
@@ -210,13 +209,13 @@ class Otterdog < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/fe/75/af448d8e52bf1d8fa6a9d089ca6c07ff4453d86c65c145d0a300bb073b9b/rich-14.1.0.tar.gz"
+    sha256 "e497a48b844b0320d45007cdebfeaeed8db2a4f4bcf49f15e455cfc4af11eaa8"
   end
 
   resource "rjsonnet" do
@@ -225,8 +224,8 @@ class Otterdog < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/a5/aa/4456d84bbb54adc6a916fb10c9b374f78ac840337644e4a5eda229c81275/rpds_py-0.26.0.tar.gz"
-    sha256 "20dae58a859b0906f0685642e591056f1e787f3a8b39c8e8749a45dc7d26bdb0"
+    url "https://files.pythonhosted.org/packages/e9/dd/2c0cbe774744272b0ae725f44032c77bdcab6e8bcf544bffa3b6e70c8dba/rpds_py-0.27.1.tar.gz"
+    sha256 "26a1c73171d10b7acccbded82bf6a586ab8203601e565badc74bbbf8bc5a10f8"
   end
 
   resource "smmap" do
@@ -240,8 +239,8 @@ class Otterdog < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
-    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "url-normalize" do

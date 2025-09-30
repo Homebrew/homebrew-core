@@ -1,20 +1,19 @@
 class Runme < Formula
   desc "Execute commands inside your runbooks, docs, and READMEs"
   homepage "https://runme.dev/"
-  url "https://github.com/runmedev/runme/archive/refs/tags/v3.15.1.tar.gz"
-  sha256 "6d93d31bd853075724c3fd59da60d79d0007624ce7944ebbd8892fb983bf98b4"
+  url "https://github.com/runmedev/runme/archive/refs/tags/v3.15.3.tar.gz"
+  sha256 "62318e0ca5bbb20c6cf063f35cd9f61258740639f9285e29f84c6eb7a5dbb712"
   license "Apache-2.0"
   head "https://github.com/runmedev/runme.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6cb13782c25bbbda6269823ee8aac256d81f1be684ecc505fd24de8187c7456"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6218cdcab4ed4848cc71537a3928742c79e782824f59f96a8b9b24233355e765"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "37cb3503e9a3df2266e0bf01626e41eb58c5163fc8f14404b715451e924a65bc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9181db87052b945441756d407f00d12ec09b6ca0d723fc41334d517a5fcb247"
-    sha256 cellar: :any_skip_relocation, ventura:       "73440c0b893382090f119ee322ed1f20832256686e21d971c4049f511ef9a4e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "650b7c485b234bff04e433269b2ef679ba3fb6c7431bb8dd36e7560a2c8b31bc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bcb9618c58552486aa89490a4eb63e9c0e4c931d56bd1cc84fa65deedbf773a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22d600f328e20fac3b5f30f24921711a9eed4b3e88da1f5f4fe5ae436e13931e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b550bb2eb45f608b79c63b6ad2c56b5188c18050492f5fcc44a9fffa2e7c6b8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d1b67a5d8b29078e29764f46bd01e0e240f1948310b8bce315d231f065bf8821"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa4e11f76a821165f9239992054ee4806de84c00a6a228970188eb4491ee5e56"
   end
 
   depends_on "go" => :build

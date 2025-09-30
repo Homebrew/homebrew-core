@@ -1,8 +1,8 @@
 class KubectlAi < Formula
   desc "AI powered Kubernetes Assistant"
   homepage "https://github.com/GoogleCloudPlatform/kubectl-ai"
-  url "https://github.com/GoogleCloudPlatform/kubectl-ai/archive/refs/tags/v0.0.22.tar.gz"
-  sha256 "c8a78503b5ef73aa3019fea86daa25f84c02e35c529070a87359351b10df5d04"
+  url "https://github.com/GoogleCloudPlatform/kubectl-ai/archive/refs/tags/v0.0.25.tar.gz"
+  sha256 "8ab90ee9e2d6ccc31cb266e5adf1bb82dfb2073ee92e3b33274bd83e12ee6174"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,11 @@ class KubectlAi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82658536af77961862842a8a2516d1017452dc760b60f55407633b6b6884c742"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82658536af77961862842a8a2516d1017452dc760b60f55407633b6b6884c742"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "82658536af77961862842a8a2516d1017452dc760b60f55407633b6b6884c742"
-    sha256 cellar: :any_skip_relocation, sonoma:        "412f6d3ee92b48e80a1af0036a741d597c5030211921c17bccab480b353a7d68"
-    sha256 cellar: :any_skip_relocation, ventura:       "412f6d3ee92b48e80a1af0036a741d597c5030211921c17bccab480b353a7d68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56bc81b44e107c6de35ed400f6db8ad4a025423819734097588fb53fd21ffdd3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d5b462463dbafbab13cf6eda9cc3459b343d06fb0c9339019ec99b25339fd9c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d5b462463dbafbab13cf6eda9cc3459b343d06fb0c9339019ec99b25339fd9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d5b462463dbafbab13cf6eda9cc3459b343d06fb0c9339019ec99b25339fd9c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd325a6886819d1384b0f93dee1520c3eff0abd00eed9d7df74aa933180ca762"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a19887b9be146250147662b0b87c6a57c26c2d4496087b890b03d5aa0c7b297"
   end
 
   depends_on "go" => :build

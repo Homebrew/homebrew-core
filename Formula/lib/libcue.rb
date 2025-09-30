@@ -8,6 +8,7 @@ class Libcue < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f874bb169fb510eac8614949b467eec60f3eb77a9f82e9d80b2356298265fc26"
     sha256 cellar: :any,                 arm64_sequoia:  "a981b4ff3dfc99ea87cd08ec0caef79fc30b4bed4255841555fcbc3a02454b86"
     sha256 cellar: :any,                 arm64_sonoma:   "82934a84b7755323aef43356f8239523839e05e42005233046994d33376ef104"
     sha256 cellar: :any,                 arm64_ventura:  "a5037a18c0f6d957a866a5e897ed52b07121f5484a0dad00725566d17dc7ff8c"
@@ -25,7 +26,10 @@ class Libcue < Formula
   uses_from_macos "flex" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

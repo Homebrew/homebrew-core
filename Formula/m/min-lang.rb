@@ -6,6 +6,7 @@ class MinLang < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "df3efb13f502be8765eb32f92c34e839774a9c528eee4cf28e95c745c70df742"
     sha256 cellar: :any,                 arm64_sequoia: "55abfc756fcd03084ea6cecc4f55f694127244be085a40fb475c8ea313c1b1ff"
     sha256 cellar: :any,                 arm64_sonoma:  "dfce5c1fe83a37626f59fb7f55560d7e6127c29a110602a0c0e2e8ff2469720c"
     sha256 cellar: :any,                 arm64_ventura: "55dd93aee4c6e5b332fb6ef5068f9076ee0188c682aac21f5e3cbc24ee8a263f"

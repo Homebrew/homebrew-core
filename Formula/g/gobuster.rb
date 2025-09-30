@@ -1,18 +1,19 @@
 class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
-  url "https://github.com/OJ/gobuster/archive/refs/tags/v3.8.0.tar.gz"
-  sha256 "480e54b0d02a6c09c702c6df07430fc4e9a458d54485568c66e6e8bce3d3d748"
+  url "https://github.com/OJ/gobuster/archive/refs/tags/v3.8.2.tar.gz"
+  sha256 "6919232eafbd0c4bbc9664d7f434b6a8d82133aa09f1400341ef6985ceff208a"
   license "Apache-2.0"
   head "https://github.com/OJ/gobuster.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5bb616f59600d89af8bd6aa83258e49e6c9bfc1240ed91dd20029f596359ca3e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5bb616f59600d89af8bd6aa83258e49e6c9bfc1240ed91dd20029f596359ca3e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5bb616f59600d89af8bd6aa83258e49e6c9bfc1240ed91dd20029f596359ca3e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "564fcfdadce3a9c6df66619949c42bfaa65e2da087fa86367ddbbbb63030c77c"
-    sha256 cellar: :any_skip_relocation, ventura:       "564fcfdadce3a9c6df66619949c42bfaa65e2da087fa86367ddbbbb63030c77c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c384fe0312f2d4feef2f31d4bcae1ef8a86a1a527bf7e910214e170834ea9c15"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b342220612d825ea80bd1c5569a291868e309ea1b29a9c074a98b6e8ccb6ea19"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b342220612d825ea80bd1c5569a291868e309ea1b29a9c074a98b6e8ccb6ea19"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b342220612d825ea80bd1c5569a291868e309ea1b29a9c074a98b6e8ccb6ea19"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b342220612d825ea80bd1c5569a291868e309ea1b29a9c074a98b6e8ccb6ea19"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b5ff54ece6cb45fe81471c6ef9e60ecbd5bdaaded4a76ccb5a47ce7214e4afb9"
+    sha256 cellar: :any_skip_relocation, ventura:       "b5ff54ece6cb45fe81471c6ef9e60ecbd5bdaaded4a76ccb5a47ce7214e4afb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb7fce23ca43b8a3cad902ca7ee55062492b3412ce79175da1dbd04187a20483"
   end
 
   depends_on "go" => :build

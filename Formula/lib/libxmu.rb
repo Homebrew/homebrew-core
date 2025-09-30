@@ -6,6 +6,7 @@ class Libxmu < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "0ee8170d775811319b3d3b43f657f9fab22e514c37800375ad0d52a051f3ed8e"
     sha256 cellar: :any,                 arm64_sequoia:  "b44c421e544a4a88eacaec0155108a9ce86a7d6aebf39e735d7d8656b2c7d768"
     sha256 cellar: :any,                 arm64_sonoma:   "cf78ddb72afdc7e39ad0aa9421ef8c6ef215a588311fff8d7924fb7dfe33d644"
     sha256 cellar: :any,                 arm64_ventura:  "06a9985ef9c93b62954e604491eda08c17ff0121c4db57e816ecdd0a89fc0b9a"

@@ -7,6 +7,7 @@ class Boringtun < Formula
   head "https://github.com/cloudflare/boringtun.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c63f98c9e4fd4cc7d16792968d183925958bda7ee096f5960eabce10c372b2e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b99c028395d91a7117b2287ea874730fa564416df85b646a6a078543a139320a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ce4199d92b31f23dfe37ce587a933fe2d7dba7bf832a4cfab6bd7dda783bb57"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "47c31d89d533a16220f0f88f23347357f95f7d815e7ceb0773e9ad0423691db2"

@@ -9,6 +9,7 @@ class Gotop < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2df77e8cb01b137d9bd919582a8b7860e482d45b8f4e0249dbee557e63d4724f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5c500e1f45ee743f9628545a7de331e9729a90693be2f5dfea3d297bb7d8772d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ca9e4643126c9f07e728798d9c784b613d03bb6a947b7641b7e6e702f39a94e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "59120887e3b8c12144e56945486da0ba9cb53ca1f3c9242e9992c2d79debc119"

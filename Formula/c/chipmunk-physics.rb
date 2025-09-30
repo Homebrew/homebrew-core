@@ -15,6 +15,7 @@ class ChipmunkPhysics < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "812f69a9a0065f99dd7c215c6de16629def031aff0bdb8e315e91113c9f45a7e"
     sha256 cellar: :any,                 arm64_sequoia: "be1319def436cdfea53765897ce02cb7a223df465dbac30190d605c0d8c20738"
     sha256 cellar: :any,                 arm64_sonoma:  "4523898ac36348fbfdb179e9ea830cc5eb1ab5bc23ad7d5a12b7a32dc9f4c3dd"
     sha256 cellar: :any,                 arm64_ventura: "327158f4df3225b40bf01d32424a82ff9a23395e13e403e0d02ba4bd76e04fc0"

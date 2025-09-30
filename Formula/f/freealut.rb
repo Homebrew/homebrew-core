@@ -13,6 +13,7 @@ class Freealut < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "b10fa1d850fc453e04334c8e607bc944fdf9bc8e794e480d30ce53a5d2319ab5"
     sha256 cellar: :any,                 arm64_sequoia:  "74fb9b51f64c8f9683e853836bf34c519fe2dc3d58d97a44b0db070bf7b737cf"
     sha256 cellar: :any,                 arm64_sonoma:   "0e38d6b21c45fe87a07e97bbdee177a22de254c35873f5d3b6cd17c896221af5"
     sha256 cellar: :any,                 arm64_ventura:  "7d9a63d859ffb514a2e4a7518d18bcbc7b71fb79c1580e00fa71c2107d794be6"
@@ -23,10 +24,6 @@ class Freealut < Formula
     sha256 cellar: :any,                 monterey:       "8b5449831c37f8dac468aaf8e2a4ccb8ea17acbfebf0a4a831bb864d7d1d5834"
     sha256 cellar: :any,                 big_sur:        "16375ee0d022401f8d83ea01540d088ffc90e5661c10370b4157e13c617061fb"
     sha256 cellar: :any,                 catalina:       "7b37a28c1edf58222ec10227bfbc0129cdd0afe66167c232fc62527bf89333c3"
-    sha256 cellar: :any,                 mojave:         "e7a2418c016c5636386fd3a2aa1af8b611beefd4aed0d7eb22b152b654a5cc4d"
-    sha256 cellar: :any,                 high_sierra:    "90bb9d9a0c0eb6ded2dd5f5c6fb566a2fd3835c32cab71d3c53efcfd82b7059e"
-    sha256 cellar: :any,                 sierra:         "5b592930278516c32e0ecdbf5e244abc4f18b2f766242af145ea0def25df3c99"
-    sha256 cellar: :any,                 el_capitan:     "301e3825367cee8b41747fae0b3495e94b09668d93980032f5fdb92d1c597b62"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "55fd0316cf15d4add92c729d3c27b3847d377b1778e89b251c15056084d8ec5b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "05ed720d9817268e8941fba68a2d52e685562119fe2d79eba3f6ec107864d191"
   end

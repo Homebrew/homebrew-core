@@ -12,6 +12,7 @@ class Zint < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "78ee74be96b821a40bd3ae74e02a8648b8b44ebcf3ca77f4253318715129a6c5"
     sha256 cellar: :any,                 arm64_sequoia: "c5d7f8040c04a1c080f2e6bbfe80eb2fdf78d92871cd39c9b1e9ad3ff25ba12e"
     sha256 cellar: :any,                 arm64_sonoma:  "7d8b21def98c08bac6c057bad1f0e1e46c0f31cc50d55ea3eb6a0dc272f57693"
     sha256 cellar: :any,                 arm64_ventura: "ae1fe857c6cb02ccdc61ac948f55a0bc4e1cd40a0185b6fdb4df2eac5a79e741"

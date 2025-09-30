@@ -11,6 +11,7 @@ class Cracklib < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "eb24373673fd2e119b1b5523ba59a6287127610d553be024c05cdfa1bfdb029b"
     sha256 arm64_sequoia: "9d98bf420b98834ad967baf58c7282e2e8e280c967dd1dc8b5e7ae878fe81666"
     sha256 arm64_sonoma:  "9496d3be435158f297c9428e967289ec4fe41d442c02bf0ade3a432c91c05a36"
     sha256 arm64_ventura: "5798b58bebd1cd635c356812c0aa23c606b78395c193669efcb0bc8691b9d5b6"

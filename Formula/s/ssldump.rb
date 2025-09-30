@@ -6,6 +6,7 @@ class Ssldump < Formula
   license "BSD-4-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d482537a888c36ff5f8a17debd299219daf35f1495717fb343b78b76ff8cabd6"
     sha256 cellar: :any,                 arm64_sequoia: "4108e474738b3c274d3124a2325e910109556d45568f6f3e299882d9a7b3697c"
     sha256 cellar: :any,                 arm64_sonoma:  "bef8ddb0f055225bd2f77fc6ad5270c52b7db46f9797a3d5e23b9c9872bd0791"
     sha256 cellar: :any,                 arm64_ventura: "b0c5a32df2ef8e072f50f5302ef2b1813de8d0b4fcd13660847b193ba1449260"

@@ -1,8 +1,8 @@
 class Ryelang < Formula
   desc "Rye is a homoiconic programming language focused on fluid expressions"
   homepage "https://ryelang.org/"
-  url "https://github.com/refaktor/rye/archive/refs/tags/v0.0.81.tar.gz"
-  sha256 "95e0d9b747f44c216cd084574e1d7ab83428e6d84c3baba3aee0133a5988e8a7"
+  url "https://github.com/refaktor/rye/archive/refs/tags/v0.0.84.tar.gz"
+  sha256 "831b130e297c4a21ef320ec44f946d220277a626f36bf039d89a86dac4a4b798"
   license "BSD-3-Clause"
   head "https://github.com/refaktor/rye.git", branch: "main"
 
@@ -12,14 +12,12 @@ class Ryelang < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad49d5bb66d84b1aae60b31b3cec27dbf854675ca29e3a8449a4c7506e8779be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc42a012fa02c805dd960b54c3e7a93b5e5620f07afdb21ad1254594596aeba6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ea69c42fb3de4913149dec330aba0698b5b8219b49fb73adc70725b985d1f1b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4d4fa03f8267fb2c06f83d88cea68b11c96df6afbe587a01918d16b8d46ed27"
-    sha256 cellar: :any_skip_relocation, ventura:       "1ff7ebf5900910f3c238421406da6d1d7cb903201fdfddf40fcacdcf7b7502ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "031308d0b340b0aa1520b8553703f1d626ae348e443a24cfe4aa047e51c2b76b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97e14b78f23d3099edd2b40d157884f87d0312e46e32d8a0fc196a39d83c3073"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e84d732c00b089540b0cc18e9984b495677fd59a1a583b2b5c76540e3488828"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08069419277109ffca71e8a108870e113c563e4b3d626fee20b6f62d1779337c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e63b77dc697fd609c02547134beba347db139ef027f1e12035257f2b2d797b48"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3fd82ab073710183ad9dc6a2cb5888f7473cd7177b7b93fba01aa2b60488fb47"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c480553db816e5d6a266b49dd769a83de577229e140a18e6c1ffff39e8df24d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8465409c3baa04d6a3cb5f96915b3a888563290d0acd260b60dd9f86390d7b3"
   end
 
   depends_on "go" => :build

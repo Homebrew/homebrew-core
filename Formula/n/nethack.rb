@@ -28,6 +28,7 @@ class Nethack < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "9266431ce0bd0980d82d8a6a0a899d1e31ad90236598706d79600b6acf76cdef"
     sha256 arm64_sequoia:  "4bd7bdd2aa9ce9dae7f450ffaeda07c1279f597ef35ee3bd7ee52086b54160e1"
     sha256 arm64_sonoma:   "ce30c296e474a239cb110c54a7b16950de538e9782414718290606a8cc9424d1"
     sha256 arm64_ventura:  "e51292f937dbfdb68feb969552da8ab484a8728d5fb85fc6e389cdfd0ed57922"
@@ -53,7 +54,7 @@ class Nethack < Formula
     ENV.O0
 
     cd "sys/unix" do
-      hintfile = if OS.mac? && MacOS.version >= :mojave
+      hintfile = if OS.mac?
         build.head? ? "macOS.370" : "macosx10.14"
       else
         build.head? ? "macosx.sh" : "macosx10.10"

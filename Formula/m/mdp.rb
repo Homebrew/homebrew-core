@@ -7,6 +7,7 @@ class Mdp < Formula
   head "https://github.com/visit1985/mdp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1427d8626e29d6015170cc1f80d049e4c4f4b4ea04a92e510696b93c1f22a1e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "39469240d3ad1bb651898e75c310a229cd6492cc7e66ba7f24ece8d9aeda7f6a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "829d971b7d1942ec34ea4c7b948ccd0a988e6fb5618091919785e9e124c10bbe"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4b1be7a64cd13ff001ee2b58385424e3e35f7210eb0f9777d401dcba321d86f5"

@@ -12,6 +12,7 @@ class Xmrig < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "48cd8a81cd2082dc4f23a93171c1046d704c7bb6c914d5edd2045de584f329ee"
     sha256 cellar: :any,                 arm64_sequoia: "f84460bc7617a39bbd1d1cc7f2fa93d0cdd692bd935ca313ff482fa81d8175da"
     sha256 cellar: :any,                 arm64_sonoma:  "76050f2e875de91d54caeb895b385f60a324515b359b314d2d0e303d5aa2d808"
     sha256 cellar: :any,                 arm64_ventura: "499692d0ece7d0207b23e6f11a77d55f4cd96e99a57ebe787ff995232753bf3e"
@@ -68,10 +69,8 @@ class Xmrig < Formula
 
     assert_match(/POOL #1\s+#{Regexp.escape(test_server)} algo auto/, output)
 
-    if OS.mac?
-      assert_match "#{test_server} DNS error: \"unknown node or service\"", output
-    else
-      assert_match(/#{Regexp.escape(test_server)} (?:::1|127\.0\.0\.1) connect error: "connection refused"/, output)
-    end
+    match = output.match? "#{test_server} DNS error: \"unknown node or service\""
+    match ||= output.match?(/#{Regexp.escape(test_server)} (?:::1|127\.0\.0\.1) connect error: "connection refused"/)
+    assert match, "Expected error message not found in output"
   end
 end

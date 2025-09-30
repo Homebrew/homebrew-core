@@ -10,6 +10,7 @@ class LtexLs < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd44629f6c52fa56732f9249c69b9774bc853d4e444a164bbdb225ac74b49c16"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1881ebd3e1edfa27cf0c9be1b1855e96dfddcd97a97a5c1110e0872dd223f40"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd285ef472ccca59e7ada11920cca1bee19ce80a1da8bf1a67802c7085ece1e9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "978b9bf4f8cff66fb486159e9c03515dd4c62d3aed644d8a865f92b94dab443e"

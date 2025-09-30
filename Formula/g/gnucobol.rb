@@ -14,6 +14,7 @@ class Gnucobol < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "e7a3c0363a8da503bd645d5c1e6ff6fb85551b5003ac93935494f3b08ab1bfea"
     sha256 arm64_sequoia:  "bd9d5d2f036d25fd97126fb46f72a33b30b2dca448e2fb6b1b351b6cd9c9de94"
     sha256 arm64_sonoma:   "35b99190f38a4ce4f20096a3fcc9e258eae128303f7651c1b0502376577e1ab0"
     sha256 arm64_ventura:  "5346f5e18d5a2cd7d60b2e78258d5648a28ca361a470d4417cde6cdc2f88dbe9"

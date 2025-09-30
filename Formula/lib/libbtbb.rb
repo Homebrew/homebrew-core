@@ -14,6 +14,7 @@ class Libbtbb < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "34d79a3e5a02a398586333593de0c2c290ac52427e9054232ef541838a7ea217"
     sha256 cellar: :any,                 arm64_sequoia: "64901cfb8edd8d6ccbb685335ef735d0de585d4e2d82b246a9e720fde31a60cb"
     sha256 cellar: :any,                 arm64_sonoma:  "e726852f1f39301c67986c7b6dbfb0c182b8c5fb409c59a0c0cae4f3871ce0bb"
     sha256 cellar: :any,                 arm64_ventura: "cf6b1a34c31a753e2ff677dad8b5668c05a3c7f857ab4d961e8ed5218b83313c"
@@ -27,7 +28,10 @@ class Libbtbb < Formula
   depends_on "python@3.13"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DENABLE_PYTHON=OFF", *std_cmake_args
+    args = %w[-DENABLE_PYTHON=OFF]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

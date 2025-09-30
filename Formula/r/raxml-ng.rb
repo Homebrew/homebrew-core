@@ -7,6 +7,7 @@ class RaxmlNg < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c74c9931e040c4511002c51f6828473eb44842300ce6f4aab7052279d156b0ca"
     sha256 cellar: :any,                 arm64_sequoia:  "4f7e500c5a3615a4c814bf38bd8720a745c4155827910f4cd5638113e129d2c6"
     sha256 cellar: :any,                 arm64_sonoma:   "bd6bd94ccee20b21d5c9146a8bc4a484c261a11586224ec4303a2d269590b32f"
     sha256 cellar: :any,                 arm64_ventura:  "6fcf4ec42def10fd485108f16f3d9c03f59f06ff72b663e469d7985332b99222"
@@ -29,8 +30,11 @@ class RaxmlNg < Formula
   end
 
   def install
-    args = std_cmake_args + ["-DUSE_GMP=ON"]
-    system "cmake", "-S", ".", "-B", "build", *args
+    args = %w[-DUSE_GMP=ON]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -39,7 +43,8 @@ class RaxmlNg < Formula
     # This causes necessary flags like -D_RAXML_MPI to not get set.
     return if OS.mac?
 
-    system "cmake", "-S", ".", "-B", "build_mpi", *args, "-DUSE_MPI=ON"
+    args << "-DUSE_MPI=ON"
+    system "cmake", "-S", ".", "-B", "build_mpi", *args, *std_cmake_args
     system "cmake", "--build", "build_mpi"
     system "cmake", "--install", "build_mpi"
   end

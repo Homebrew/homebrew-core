@@ -2,8 +2,8 @@ class KaitaiStructCompiler < Formula
   desc "Compiler for generating binary data parsers"
   homepage "https://kaitai.io/"
   # Move to packages.kaitai.io when available.
-  url "https://github.com/kaitai-io/kaitai_struct_compiler/releases/download/0.10/kaitai-struct-compiler-0.10.zip"
-  sha256 "3d11d6cc46d058afb4680fda2e7195f645ca03b2843501d652a529646e55d16b"
+  url "https://github.com/kaitai-io/kaitai_struct_compiler/releases/download/0.11/kaitai-struct-compiler-0.11.zip"
+  sha256 "ff89389d9dc9e770d78a24af328763cb1f8e7b31ce7766c9edf10669a060f2a2"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,11 +11,8 @@ class KaitaiStructCompiler < Formula
     regex(/href=.*?kaitai-struct-compiler[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7e88fea45af08e6beb052d86e17199f3a459673089185dbd25904024f430aa6b"
+    sha256 cellar: :any_skip_relocation, all: "66821f7ac017603678d4c0d615f1421a9a68996d5a7592421e72dbea54f829b8"
   end
 
   depends_on "openjdk"

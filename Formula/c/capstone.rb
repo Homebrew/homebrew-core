@@ -12,6 +12,7 @@ class Capstone < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3d11af12bdb07cb427b9acfd92976b1aaba30d6b19e202dab45e39c2b6fd8f3f"
     sha256 cellar: :any,                 arm64_sequoia: "eb410c79448b4cb73f7b34ad6fd733d60c493d0f884be84ec40cef075615e629"
     sha256 cellar: :any,                 arm64_sonoma:  "808aee150aa07ab56497c7f4f8ea8c5a29508e12a51e04f5fd5a10b39552dd30"
     sha256 cellar: :any,                 arm64_ventura: "9c34130c8f13ab1d2f151ef58e821d3227aefc60eccccf2ed3e9ba21b07266d4"

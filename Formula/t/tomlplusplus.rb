@@ -8,6 +8,7 @@ class Tomlplusplus < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "871dfe4e410d713db5ee049a54446fc0d421163a1fc30a66d3d9c1946c886640"
     sha256 cellar: :any,                 arm64_sequoia:  "3934d4a98565c6b3161550033341f13c4e74085b3de259e57f09007c5a03b940"
     sha256 cellar: :any,                 arm64_sonoma:   "40067a1ffc31cf6fdcb26161a1809b815a8d82a63afdf93232dd81521329e05d"
     sha256 cellar: :any,                 arm64_ventura:  "871c57fbe77aa04bba1388ac0ca4e0ccf4c125333a84b84a860a6548a2bffb8f"

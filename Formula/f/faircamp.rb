@@ -1,28 +1,32 @@
 class Faircamp < Formula
   desc "Static site generator for audio producers"
   homepage "https://codeberg.org/simonrepp/faircamp"
-  url "https://codeberg.org/simonrepp/faircamp/archive/1.5.0.tar.gz"
-  sha256 "d418252e111b1aa2562e93968205c8fd1507fab19032531875adc11b4740babc"
+  url "https://codeberg.org/simonrepp/faircamp/archive/1.6.0.tar.gz"
+  sha256 "c8d43e2618928de3935646fba4f85fa8d0dd23a5d11ea10f081fa430aa79d5b9"
   license "AGPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "27e247518f69e6791a20080798c3de87e84dad16e97a525512e104c594326906"
-    sha256 cellar: :any,                 arm64_sonoma:  "7a160af234c1afb3b6aa82d126ac29d6622616c05fd95f96614384e569175030"
-    sha256 cellar: :any,                 arm64_ventura: "b6fc96b8c4b94ec51db69e559f965e0d6c0f6c2a2d20b370be560dbc1d223a94"
-    sha256 cellar: :any,                 sonoma:        "bd1bb588b0e7dbf0b168ca502c0c758c3d9e069c0a142a4ecc31a88a2b5d9e85"
-    sha256 cellar: :any,                 ventura:       "e1b76f9c1b553f5f63839f36f3c062708b6e9208c6721bc39426efeafea7cedb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a901467f77f2ca8b0ab4e363ed6b0684586928a23911b9c833baaa54a4224ef0"
+    sha256 cellar: :any,                 arm64_tahoe:   "d6060e8bde8474a3f6088b9f795d4dddd341267828bef8c7925eda0ec7a65b5f"
+    sha256 cellar: :any,                 arm64_sequoia: "416b0bd05534a421cd9dfeed72ea03f06cbc856285dd4fd4b6429e2c995ebe42"
+    sha256 cellar: :any,                 arm64_sonoma:  "fd353d91775c5b4841203160f9e5f4032a2838dcdf2a6264d2a5ceb0840ab99d"
+    sha256 cellar: :any,                 arm64_ventura: "5b4a63af1e44bb8d3b0e0a8c8601bc6cfb91858634712320523b38443302f62c"
+    sha256 cellar: :any,                 sonoma:        "bc77d9686ef45d9b50dfe0a37678d15491e03e93336b90aeea59bd4027126951"
+    sha256 cellar: :any,                 ventura:       "8c68f0948cd28f567cc110ff58cb500b3dc222ead293cba95048a903b34f0bfc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bb7046dbaf08d5fab23c01b665ffd54fe600484d4eb8e0f4ee3e6166be3b0e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4026686ab3c905d1afce726db05f6c80b30804417c27d6daca209402d882601f"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "opus"
   depends_on "vips"
   depends_on "xz"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     # libvips is a runtime dependency, the brew install location is
@@ -50,11 +54,11 @@ class Faircamp < Formula
     system bin/"faircamp", "--catalog-dir", catalog_dir, "--build-dir", output_dir
 
     assert_path_exists output_dir/"favicon.svg"
-    assert_path_exists output_dir/"album"/"index.html"
-    assert_path_exists output_dir/"album"/"cover_1.jpg"
-    assert_path_exists output_dir/"album"/"1"/"opus-96"/"8zjo5mMqlmM"/"01 Track01.opus"
-    assert_path_exists output_dir/"album"/"2"/"opus-96"/"visBSotimzQ"/"02 Track02.opus"
-    assert_path_exists output_dir/"album"/"1"/"mp3-v5"/"tbscAvvooxg"/"01 Track01.mp3"
-    assert_path_exists output_dir/"album"/"2"/"mp3-v5"/"d3t6L5fUbXg"/"02 Track02.mp3"
+    assert_path_exists output_dir/"album/index.html"
+    assert_path_exists output_dir/"album/cover_1.jpg"
+    assert_path_exists output_dir/"album/1/opus-96/8zjo5mMqlmM/01 Track01.opus"
+    assert_path_exists output_dir/"album/2/opus-96/visBSotimzQ/02 Track02.opus"
+    assert_path_exists output_dir/"album/1/mp3-v5/tbscAvvooxg/01 Track01.mp3"
+    assert_path_exists output_dir/"album/2/mp3-v5/d3t6L5fUbXg/02 Track02.mp3"
   end
 end

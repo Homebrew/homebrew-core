@@ -15,6 +15,7 @@ class MecabKo < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "2b3b6779398b30383fba5b14388221f8291a5fe46401f1219b728934ba4d0a1c"
     sha256 arm64_sequoia:  "3c1c199bd50bf6df285b924549652b4cf357cad624603cd393b9d88b80353a80"
     sha256 arm64_sonoma:   "d1d8ceeb481323ec477598ad8c68fa706c75dd3292e09de28c1ba41fe4aeaa56"
     sha256 arm64_ventura:  "3b7edb46e117b0dd5df069ae3ce9be8d46df3a1905f2b5141550bf5f2be2124e"
@@ -25,10 +26,6 @@ class MecabKo < Formula
     sha256 monterey:       "78a7f912badfb92dd7b251ac0b62b958e9f6e4b09fe43b5fc6251beefb5454dc"
     sha256 big_sur:        "5a551a2a040daff922d7eebc686a56fa89ca310aab415e8f1ddd743983442926"
     sha256 catalina:       "d9655e7122ee6a56194faf5e44062c3bf3c2bf145ba6f8f7b3e6dd1154bf7516"
-    sha256 mojave:         "a1a0b40d2cb5a689ae24a439af990c7a85f8136bfa2bc5c3fd0708300b2fd111"
-    sha256 high_sierra:    "d254239a9fec5e99de9590feb8d7c82f87e31324908003b059aea9a5d6092f2a"
-    sha256 sierra:         "86b35c767cb97ab0b5e895475c3254589b101bdc3c8666abc694ea9a480421ec"
-    sha256 el_capitan:     "c348042904040c28772c3f8f299debe574c6ebaaed7e41b23cac4980aeb8aa97"
     sha256 arm64_linux:    "207ec6dd09f1e79dd4fc75135376ccfd0b998f0d9ccaf13d7832b2708b0c2a23"
     sha256 x86_64_linux:   "15f29ad6bf47615efaeab3db5f5108ee7232fc3c31cd905c7524b619d0bab818"
   end

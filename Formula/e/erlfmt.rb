@@ -6,6 +6,7 @@ class Erlfmt < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8266549882d41150de0b66f5fe7bd0f0e92785ba30f11ab3dee28926b428af77"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "35cf96980aa95b1827ddc80ff3a73c7def29582162918a7a4291f71cb3cb5682"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb2615b10e79037ca5829a4ae1d6e25236692dd79fa4f4ada1f5f620b87e9bfc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2b0d36b3e481516af2a54382c6ea13989a1714a3964acac0a315f370147f8ba4"

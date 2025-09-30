@@ -9,6 +9,7 @@ class Bossa < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ce5af8cf28d6afbc05ee144e859c878eaf19ced4bdd3eac16ef67a0335f62abf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "72aece3647237751f8f18d1cc9af56dfecbc84652321ef43137eec8c47fd7922"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7ca492e595832676559c6b646e3d702ddd46dcb0610bf8d03c225b49c6d4624"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2158f7a97081f5f80316164003c9081332974aef077205116c33a4aecd374baa"

@@ -6,6 +6,7 @@ class Mtbl < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d99aa92632fd6ead895d811adaae316e95c7db7c3fc9125dc39010f4193435c2"
     sha256 cellar: :any,                 arm64_sequoia: "2b6fa4c8ee0748b475c8de603bc8ad4445e0a611f559efcabb8f32d01570cd95"
     sha256 cellar: :any,                 arm64_sonoma:  "2ac95c6c0d71f51e76820c71fe4a154a8a817cbe7481724845385334a29d0488"
     sha256 cellar: :any,                 arm64_ventura: "4e8b43423cd8c82ef0f2d586b53c9e4ee38e9977e4a4b0b0bbbb5efc869b4119"

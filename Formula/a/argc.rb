@@ -6,6 +6,7 @@ class Argc < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cd87f048d0c58c25a09af13aef7f6b61f922d312298bb71fd62b7a9ed922b88b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "36a5733acc21f8146c6cb3d6dd23968d3d77d4ce3c501b391c50d6cf44556a19"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e17c17e8c931f998b2da7cd5d93365097716a332d1028786c28bf50ff815e4ad"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "318fd0396e6396ec672e0b302630fccf146564948d1f1cd21bc340954fc33904"

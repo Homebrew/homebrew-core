@@ -3,23 +3,21 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/2.0.13/fwupd-2.0.13.tar.xz"
-  sha256 "da049e8616924b15d434d3eb616767f00f91611c3e7c8efd9e36c28099e1126f"
+  url "https://github.com/fwupd/fwupd/releases/download/2.0.16/fwupd-2.0.16.tar.xz"
+  sha256 "79cce6b61d9ea531de0ef3b13e7f2682c699901b11f410b2ed91192618e1620e"
   license "LGPL-2.1-or-later"
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "129854a83b0a7b56a79f6e426b7df1d8cf8d73e88854ed322f06a36dcbefd437"
-    sha256 arm64_sonoma:  "161d8fa7fc7db3ef77860045d3a7d382a461a829a2e92fa7f7a4c73559176f1a"
-    sha256 arm64_ventura: "d55e11905da456537bd16d611063e78811859fac82fd138788ee5d17b9279b84"
-    sha256 sonoma:        "d3b4d7a9c769de493d07412d1a190cac987dc7d9f68a805de6a76c815c65cc37"
-    sha256 ventura:       "66cfd2a4caef67e6583bb64a359aa11073fb4781543047ed09e21693e992925f"
-    sha256 arm64_linux:   "9411c0789927b0b268bd201f46cca1a120cf888768650383d0d09b595b4aabb0"
-    sha256 x86_64_linux:  "4032fb6cc9a16b353d4ed76120bab2815b840b4bc94622c5c43e8616050aead1"
+    sha256 arm64_tahoe:   "ad9533c4bccd3cdc0e90a8d9a5c7ebac809cd7eb7fb13de652cc23677404df09"
+    sha256 arm64_sequoia: "9b9292718d072381d61ae462cd9d6eeeab87053622ed22018211ca6d7640f80e"
+    sha256 arm64_sonoma:  "8a23572937b8211b554a6e4657a79538a8c584ef84a1bf99970f96a0f1dd49c8"
+    sha256 sonoma:        "3249c001936cb6465bba7c2fb699fa1b6ff8bf86880dc45edfc54d9830e8ffc9"
+    sha256 arm64_linux:   "632ea96f96eed85269e12ae5774b0bfdc21e2737f273b38d7d270a8ed5405e5d"
+    sha256 x86_64_linux:  "275524fe202b8c11195f3c18ed76ce7631946a216e9e520e560e6b909f832992"
   end
 
-  depends_on "gettext" => :build
-  depends_on "gi-docgen" => :build
+  depends_on "gettext" => :build # for msgfmt
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -80,6 +78,7 @@ class Fwupd < Formula
                     "-Dplugin_modem_manager=disabled",
                     "-Dplugin_uefi_capsule_splash=false",
                     "-Dtests=false",
+                    "-Ddocs=disabled",
                     "-Dvendor_ids_dir=#{Formula["usb.ids"].opt_share}/misc/usb.ids",
                     *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

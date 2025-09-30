@@ -7,6 +7,7 @@ class Gebug < Formula
   head "https://github.com/moshebe/gebug.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3dd8c86eb0f4477d236cfc124fbc1e79bf3e3314013e09d0371fd767b50370ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8249adde26fad306299fda82d64cf21407588745684177b189d572b0a6444b27"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "312131ff1206ebcb33f39aeba602acff59393b5990f13e4b2e0cc0888359ee8d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2af5ddd3ad9ce2496222ef20875a777fe323c1e3cc2e3d8e706c1ef439c8069"

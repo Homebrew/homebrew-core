@@ -7,6 +7,7 @@ class Torsocks < Formula
   head "https://gitlab.torproject.org/tpo/core/torsocks.git", branch: "main"
 
   bottle do
+    sha256 arm64_tahoe:   "176eff92c63f1ea09319b33df72fb67b6a1f57f1da4df3cdfcf8a0c60e9b0e22"
     sha256 arm64_sequoia: "9f967a566d267075d63cb069a6d77973bfc4cb5e1244c2ca57171a04352f0b26"
     sha256 arm64_sonoma:  "b25792853457dbbc903f6aac9d252de7889ba0006c5a0cb904a9428cee03c066"
     sha256 arm64_ventura: "4593fd902084328734cda9b1bfccd26242211d6beae0c510100630fbf31b07c0"

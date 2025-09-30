@@ -8,6 +8,7 @@ class Rats < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "b310ca257b3697a46004e64f9c06bce6ae79bb75c86d832bc74c28cbd1f99a7d"
     sha256 arm64_sequoia:  "0957ff0fe765a50f6ec8a12edc3119741fe39133b438ee114ace6d05288fb06c"
     sha256 arm64_sonoma:   "67a98f4d5385f43dadf88b69c4ea04a4b42a318f9be2820d5c52cb859b69c6e4"
     sha256 arm64_ventura:  "9a47934dabb7a37c3d8a2a0a68a2e25961bfd8fa56be202d4bc604c4850d1cbf"
@@ -18,10 +19,6 @@ class Rats < Formula
     sha256 monterey:       "5798bdf316715050aee914343db4155c7ef89fa274908b85def50a84729c0845"
     sha256 big_sur:        "d71b401eb933729bd6d4b8f6cfdae7bbeb7f81de55b91f8d0aadcbb619c1fcce"
     sha256 catalina:       "bf5da3e9088abba09350b4a812691a3f76b00bfce1c74947fb7c016d88eb89f9"
-    sha256 mojave:         "77244d885c0f203d64bd4054105310a797a9b44333bf4ef1f7b7cec63b0a163f"
-    sha256 high_sierra:    "6ae19bc72cfea62b56b83931f95a70f27ce9a13617026292861a272e22269135"
-    sha256 sierra:         "5f2a74a60c30a825ad036f390e3830346be4fe3299a28a81e25630d54defd119"
-    sha256 el_capitan:     "224ae02df998c8fc296bf3905fbc369a787fc55f5ef295d63f1b3c44bfee7a5d"
     sha256 arm64_linux:    "9b7cfe5e23808f04987f9f412cfa58d3b86a9223de5801ad9f47415f0c8c783f"
     sha256 x86_64_linux:   "225ac8dd692f21f8f13e072dba7bc2904cb11e08273d9917bde0ef1f42133b03"
   end

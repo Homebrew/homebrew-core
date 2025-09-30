@@ -12,6 +12,7 @@ class Ddclient < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c11ba50e7c4728b6c4e9f70b9daa3b0216fcad489c71f94e2a386ce31ce0cc49"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "295bbe6bc8b84952958cac5b33b021419cb51002f95c8c6a1f1eb67ff9b2cb72"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "295bbe6bc8b84952958cac5b33b021419cb51002f95c8c6a1f1eb67ff9b2cb72"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "295bbe6bc8b84952958cac5b33b021419cb51002f95c8c6a1f1eb67ff9b2cb72"

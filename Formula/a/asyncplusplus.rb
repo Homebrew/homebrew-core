@@ -6,6 +6,7 @@ class Asyncplusplus < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2dac09584a6d6b1fadb97f9a1fb4e439acc0c7dc9a33b24bef1fc5b32312d31e"
     sha256 cellar: :any,                 arm64_sequoia: "2f1f1563fd122b947f728ed73168c062ffb569adbc92f02e1bbd372edbdaf889"
     sha256 cellar: :any,                 arm64_sonoma:  "405f620fcdc1fd59da54ac754d28fa308c0f1abab3369dcfc77d2ee80b17fad5"
     sha256 cellar: :any,                 arm64_ventura: "2a2f1cdc93741e0db73b4359a7881225631f008a7b9e6e3d67d9d2de8d1c8765"
@@ -18,7 +19,9 @@ class Asyncplusplus < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

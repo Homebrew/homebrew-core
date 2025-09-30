@@ -11,6 +11,7 @@ class Riscv64ElfBinutils < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "da7fae36915c1ac01f02e691f9a287527aa5ce3e2db9f7cef473eba677de13f2"
     sha256 arm64_sequoia: "ac4ff8f1f9f3b05440919bb1cbfff9c1025013663e11dccc1d1eed0a7d6a6e4c"
     sha256 arm64_sonoma:  "47a482f6bea910cfda833737f5aa218534532efb513d7d22a79ae63e4fd62033"
     sha256 arm64_ventura: "86e3e5b2804c55afcbc1f1a09f5e5ff336ca6b79b7765c3366179964a594a96a"

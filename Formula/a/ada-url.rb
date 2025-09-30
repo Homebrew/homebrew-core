@@ -1,18 +1,18 @@
 class AdaUrl < Formula
   desc "WHATWG-compliant and fast URL parser written in modern C++"
   homepage "https://github.com/ada-url/ada"
-  url "https://github.com/ada-url/ada/archive/refs/tags/v3.2.7.tar.gz"
-  sha256 "91094beb8090875b03af74549f03b9ad3f21545d29c18e88dff0d8004d7c1417"
+  url "https://github.com/ada-url/ada/archive/refs/tags/v3.3.0.tar.gz"
+  sha256 "75565e2d4cc8e3ce2dd7927f5c75cc5ebbd3b620468cb0226501dae68d8fe1cd"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/ada-url/ada.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sequoia: "efa1ad50cbbefa23cfc229055732e22cef47900b66fa3578624dd15b7ca12110"
-    sha256 cellar: :any, arm64_sonoma:  "2da93d743e1bb7e2b2c73e54e6a4e55704d5df75b93b0bcc698545fc4ef05b99"
-    sha256 cellar: :any, arm64_ventura: "2c6cbed3dd1e562fb171721fd77311d4162a7132fbc75a97b685c4d990d8a2e1"
-    sha256 cellar: :any, sonoma:        "958d8a4bfc0bb863c878c4d7cfcc47004e8273d415fd66eddff8b49ad2a46180"
-    sha256 cellar: :any, ventura:       "c614d293847ad99afbf94ae4615e28c3f5c5e42b769f8801b589375f6c9c928b"
+    sha256 cellar: :any,                 arm64_tahoe:   "cf88104b7960250750e0a3513130c8df22987a9b4a450cce0f39496e4f851f54"
+    sha256 cellar: :any,                 arm64_sequoia: "51eaccf2935bb46e41f2b081106330ba357b7786ceb75b9ff5e7fe4b69802157"
+    sha256 cellar: :any,                 arm64_sonoma:  "c52fc920dd88d761c8143b6f6ca9d638de23de98f04815525ba19f01b22f0877"
+    sha256 cellar: :any,                 sonoma:        "5114c8623eb5b23b4ff006aa921a0ced40ba302d9d72311fd4cd1790d97a5830"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "489c57453f13bf83d978157b407a4a7693fbf2fbe8adb434f641903845a2fbda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b4dda8cfc477ade4b666f3a5ccef1d9a33f838f991675057d6ac9017345829c"
   end
 
   depends_on "cmake" => :build
@@ -36,20 +36,18 @@ class AdaUrl < Formula
   end
 
   def install
+    # ld: unknown options: --gc-sections
     if OS.mac? && DevelopmentTools.clang_build_version <= 1500
-      ENV.llvm_clang
-
-      # ld: unknown options: --gc-sections
-      inreplace "tools/cli/CMakeLists.txt",
-                "target_link_options(adaparse PRIVATE \"-Wl,--gc-sections\")",
-                ""
+      inreplace "tools/cli/CMakeLists.txt", 'target_link_options(adaparse PRIVATE "-Wl,--gc-sections")', ""
     end
+    # Do not statically link to libstdc++
+    inreplace "tools/cli/CMakeLists.txt", 'target_link_options(adaparse PRIVATE "-static-libstdc++")', "" if OS.linux?
 
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DBUILD_SHARED_LIBS=ON
       -DADA_TOOLS=ON
-      -DCPM_USE_LOCAL_PACKAGES=ON
+      -DCPM_LOCAL_PACKAGES_ONLY=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
     ]
 
@@ -59,11 +57,6 @@ class AdaUrl < Formula
   end
 
   test do
-    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version <= 1500
-    ENV.prepend_path "PATH", Formula["binutils"].opt_bin if OS.linux?
-    # Do not upload a Linux bottle that bypasses audit and needs Linux-only GCC dependency
-    ENV.method(DevelopmentTools.default_compiler).call if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     (testpath/"test.cpp").write <<~CPP
       #include "ada.h"
       #include <iostream>
@@ -76,10 +69,18 @@ class AdaUrl < Formula
       }
     CPP
 
-    system ENV.cxx, "test.cpp", "-std=c++20",
-           "-I#{include}", "-L#{lib}", "-lada", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++20", "-I#{include}", "-L#{lib}", "-lada", "-o", "test"
     assert_equal "http:", shell_output("./test").chomp
 
-    assert_match "search_start 25", shell_output("#{bin}/adaparse -d http://www.google.com/bal?a==11#fddfds")
+    if OS.mac?
+      output = shell_output("#{bin}/adaparse -d http://www.google.com/bal?a==11#fddfds")
+    else
+      require "pty"
+      PTY.spawn(bin/"adaparse", "-d", "http://www.google.com/bal?a==11#fddfds") do |r, _w, pid|
+        Process.wait(pid)
+        output = r.read_nonblock(1024)
+      end
+    end
+    assert_match "search_start 25", output
   end
 end

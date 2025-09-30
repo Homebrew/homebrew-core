@@ -8,6 +8,7 @@ class Dotbot < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b14c5627586521cf6390fa5c21ca52c792766f4d3d4e7af45b6e0514b8e28306"
     sha256 cellar: :any,                 arm64_sequoia: "be2cdb7ea682b1e1e80be3c35a99d3c6fe4f9ed8c092947906f6ad34500b00d2"
     sha256 cellar: :any,                 arm64_sonoma:  "4a6df17f0e78bde62efd47b191afb7ab06f471fe4bc8b3c2e621e8832f8a7c53"
     sha256 cellar: :any,                 arm64_ventura: "bee58a558d1c9e7db2dcd3f2092a82366bd87e0e3828b782c70ebdef79acdc91"

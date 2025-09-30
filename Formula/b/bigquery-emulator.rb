@@ -7,6 +7,7 @@ class BigqueryEmulator < Formula
   head "https://github.com/goccy/bigquery-emulator.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfc703c5f709c8b31f299f4c9781b46f2099e3908984a156ad6ff7b832ad08c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "09a97a4d0d2da38a73e8b6bea3fd5957a9e5c2fcf5902845082253969f0b77a8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84e54fbfc85104d2effc52b84374c4e3c323eb9659ceb3f1aa7c8a7ae8c1283c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "099f43b95cae81557172f860bd1f0771193ade8a8e188a578991e6d8759137b5"

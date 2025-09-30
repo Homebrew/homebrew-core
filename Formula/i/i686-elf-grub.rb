@@ -9,6 +9,7 @@ class I686ElfGrub < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "1d2739ccc6236e10e07a6877bd36869d3289b295cb06329c2ed5c028be968421"
     sha256 arm64_sequoia: "16923a4a52103eb6468129a574eb7b3c85d771adb37773d8e2a6850225805931"
     sha256 arm64_sonoma:  "ceb84b9c359fbb659e7b355065513d605bd013fde1a642c4c9838d08499e5959"
     sha256 arm64_ventura: "acfedbdc6b331ec2a1257cb55303befd965280978678c2f6e34f9dd45d6bd7e6"

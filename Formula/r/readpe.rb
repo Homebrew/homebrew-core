@@ -1,19 +1,20 @@
 class Readpe < Formula
   desc "PE analysis toolkit"
   homepage "https://github.com/mentebinaria/readpe"
-  url "https://github.com/mentebinaria/readpe/archive/refs/tags/v0.85.tar.gz"
-  sha256 "2747a3ee87c7fb1ed0a13242816752a94603adb6ae0d9f507b019ac582c394eb"
+  url "https://github.com/mentebinaria/readpe/archive/refs/tags/v0.85.1.tar.gz"
+  sha256 "3218099d94c81488a4b042d86f64a4076835e1f2f2aff8ed4d58f01c20567507"
   license "GPL-2.0-or-later"
   head "https://github.com/mentebinaria/readpe.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "f98b2e4b55298db97d368ad4ccfe9f5dbe74286eab43d1e71b26d7043a9ba26e"
-    sha256 arm64_sonoma:  "f29c0dba37afbad7e277e654f496dca1b0a46a43a482e313e4d6029b64cde131"
-    sha256 arm64_ventura: "cdaf14255fe12a62de0aceeeaba0295d5473982f5a4de83e0d0c1c488fe13c1b"
-    sha256 sonoma:        "06fdfb9de15adba67c1793252809ac31026b7a57c3f257a7ea9faa10d48407bc"
-    sha256 ventura:       "9c79adc8221e526425dc76077514693106bed211decdeef14ce38651c661d03c"
-    sha256 arm64_linux:   "73486c7e47dff8c7e522d2e153f99c78334f06c8e173d2934a3734aef18a4156"
-    sha256 x86_64_linux:  "6174a21139b0e037802e51d54262fc2ad2ce5e4367d84ad38703d68daf11bdf5"
+    sha256 arm64_tahoe:   "c4c0d71502a8cbcd7c90f1da7409e316bb15d84c2e003541bd63da2362451ebe"
+    sha256 arm64_sequoia: "39059d97cdfec3a8b1bb7eca3a7acd3c0f1e8c4e1e322ec14db9bb38c15424ca"
+    sha256 arm64_sonoma:  "d32bd36d656dc44a83bb6dfadf5ec738c4fe11804b804a916b1cb53400434a6c"
+    sha256 arm64_ventura: "c5c6fb0c7ff57141804b2982fcb3f59611df7f3a85ce73c2b665b04f548ca633"
+    sha256 sonoma:        "045c12282c8a90c85934c9f5ca06471ce865c64647c4be3a49606ae6ae09403a"
+    sha256 ventura:       "73c192ae123766a4233942303830ab98f3c4c959ad62897a229f161fd77ea8db"
+    sha256 arm64_linux:   "d493e303872e675b270d1c178913925c24de9124e9cabe0adc5d1b4bc845f918"
+    sha256 x86_64_linux:  "50faef2834685643cdf64ddd6a6f3e87e3f70fdb7f813de2a0c88aaddb84a253"
   end
 
   depends_on "openssl@3"

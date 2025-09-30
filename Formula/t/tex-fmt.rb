@@ -7,6 +7,7 @@ class TexFmt < Formula
   head "https://github.com/WGUNDERWOOD/tex-fmt.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7f4f5ce98ce153f7f7da164ee5966dac64a12fc817d7a0220916f05940fcaaeb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "45757bf083d51e7d16f599afaec870417abe6e8691b5b408d8f0c0ace3425260"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "115ded0add4c2317395e13907e2f205dce9a53c154874a51b453338acad73410"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d5b5bf07197ab5a05da982261820ec10905dd27b760f3f0c0715d2cba4f7ed5c"

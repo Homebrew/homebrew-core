@@ -8,6 +8,7 @@ class Coordgen < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b6016edb22f9c1467d088684311a5de1a03f156031c99884f5a04bd55b4b368f"
     sha256 cellar: :any,                 arm64_sequoia: "f3291f603f1f55c41163e4acab534a3fc8fb192582deff462ec8894764ba5bb9"
     sha256 cellar: :any,                 arm64_sonoma:  "fc7b1c0c8932a1a8a254c4091a749de3d78d34103a666478ff62ce9f0e0abac8"
     sha256 cellar: :any,                 arm64_ventura: "eaa02e2c8e3b39f293800cb03bd5bac05306e852725dca1d65592c1a655d2abb"

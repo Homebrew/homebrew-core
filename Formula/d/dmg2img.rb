@@ -15,6 +15,7 @@ class Dmg2img < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "0cdc762d353e27c43eacd4221ac499f96a71ac67bd650ceac82d8e8a64f526c2"
     sha256 cellar: :any,                 arm64_sequoia:  "4c3872719a1261f5cd981d5320bba65289e6c2c9e06e73478f3e3bb8267b64ec"
     sha256 cellar: :any,                 arm64_sonoma:   "3abeed11bf75f80c25bfc4f8f3935f8160820623dfb84380ac5b8982ef0498f4"
     sha256 cellar: :any,                 arm64_ventura:  "af9009c8bc805eee1b8b88c88f4323e31f9990476cd61bab48edb90c84c89e4e"

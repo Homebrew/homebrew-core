@@ -10,6 +10,7 @@ class TomlBombadil < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2d56dd5101d3de48bc6ec47ede5a788021cd815ddaa0f3a9f39fd26f23b35ac4"
     sha256 cellar: :any,                 arm64_sequoia: "905ddd0270646b44ff488fb84dfb605629359c4d3621f6ad4539b8965116dbef"
     sha256 cellar: :any,                 arm64_sonoma:  "ce0dcbfe365b603d63838d1a13159dafe420206f4195c40cd9c2f6664a366760"
     sha256 cellar: :any,                 arm64_ventura: "5a7c807337580c8c0938e10b17baca04e0cca1730d3575a1de0ebe562c3732fe"

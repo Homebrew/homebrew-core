@@ -12,6 +12,7 @@ class Smenu < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "78a219ab9e9b09653e73a48168c5acf40cf2f2cbe40d4cb3280baab5fbd6bd60"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "680882f063d437bba1303cea04f8f9124f0b968c842c2604684146716631eade"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b8d5074b8284658922ef4cd3590cfa37c26d9decfe9a83b79d807d1031849b6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "06eec1603896abc1d532b34543758e15560c5146bc1a6c54ce49254c25c794ad"

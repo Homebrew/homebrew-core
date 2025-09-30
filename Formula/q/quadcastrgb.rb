@@ -12,6 +12,7 @@ class Quadcastrgb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4f5fd1f115292a34a1d8c04ff306313c41c37d97a174d933d08197654e6dc2ea"
     sha256 cellar: :any,                 arm64_sequoia: "e1684c8f4af8812803239f4a03601d5eaf2ac7e6ed0f49be43968e3b0f41b60a"
     sha256 cellar: :any,                 arm64_sonoma:  "136dd48804bc7f5d90f3f1b50c069ac5c95a898dc3a78e987bdab56ccdca72d7"
     sha256 cellar: :any,                 arm64_ventura: "9107904542014591dbd2f97c66ce1363da3725a5ff3064ad3339d58872a4f71f"

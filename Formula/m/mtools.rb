@@ -7,6 +7,7 @@ class Mtools < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d7abe94bc09a3ff5ecb64d9a6c0dc37799b5ddd51c993d2480b2cee0567bef8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0f6aad93ce1be47de8f0d965033933a895f026caa8efc14e61431e6e5025d5f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d09e38ca2a390336c1ae74821b15f84c08cbe89da16864c1d722b723d6b981d0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ea3820f4a0897055a525bb47089538e13021a432bd7d7b65ab730dcc3da91fca"

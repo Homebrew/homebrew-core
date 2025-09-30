@@ -14,6 +14,7 @@ class Metaproxy < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0fde30e0981972930b36cec80c9199fecc4d587e5500d3e5db86b793feebc066"
     sha256 cellar: :any,                 arm64_sequoia: "fac499e49d91fe8f9056887c49190c481701ab349351801c0cf214a278283f35"
     sha256 cellar: :any,                 arm64_sonoma:  "dc7dd1dab2e198f98ce502f952cc8ba62f76564400168210faa684caf34de6de"
     sha256 cellar: :any,                 arm64_ventura: "8c4fc4ab5fd41b9f8a3255965c5ee70cda3e82503e697658725572f587c23b78"

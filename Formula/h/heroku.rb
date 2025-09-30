@@ -1,18 +1,17 @@
 class Heroku < Formula
   desc "CLI for Heroku"
   homepage "https://www.npmjs.com/package/heroku/"
-  url "https://registry.npmjs.org/heroku/-/heroku-10.12.0.tgz"
-  sha256 "99309413e94958db2c9c6e822f035d881ec50fecf64cd2c5cdae97d6a8809f1d"
+  url "https://registry.npmjs.org/heroku/-/heroku-10.13.2.tgz"
+  sha256 "ddb663c71c06a61f9909f046373b5588db4e908e92a18d2b9dcfe437d8ead0f3"
   license "ISC"
 
   bottle do
-    sha256                               arm64_sequoia: "30c180342dac40418483dedecbc1d9dcf783b6c71438dc1b28b9f3f27fa503d4"
-    sha256                               arm64_sonoma:  "6aaeefaff411572e6c4dc464d87a0dcf9470ff2295d8904476a3157d9c5dd46b"
-    sha256                               arm64_ventura: "9cc2d8c78931761f2d3b49c4d86eb8377831a2f5e038e5a8146a407ef99e3bfd"
-    sha256                               sonoma:        "6ef19ec4e97af592c0005a9dfcc08e2c47814820ca9b0b90723ff0fcf90fb9dd"
-    sha256                               ventura:       "56d50a5423d410af990c95b9abb2ed2704bd905e767de79dd01b43937be7cbef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbb3c27880e3b0521a23685956feaf325e3e82bf294e99064b3f18fd16bd6748"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "628da5407bd806bbf7326235418f467d10d4ffb1af9fa6a7edebb7fd892bb66f"
+    sha256                               arm64_tahoe:   "3340225ec8f2134051367b4dca953ed36afc23d5c87cfa8ef49a66c2f7d4567b"
+    sha256                               arm64_sequoia: "a95beae9f6463609500489ad3d805f2eb90645c5d5be8700274b1f2d3b8b6567"
+    sha256                               arm64_sonoma:  "6eea6553efb3782e65c207470dde1e7900f14354c31a87eadb3bef0f1de08e72"
+    sha256                               sonoma:        "8a5fef715073aabb3314220ea5549a7def39cb515a0b34db3dcf34f6463e7f40"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "050070b0701671d76ed4820de4355d2c19eb9a5daed59bf236f854044825153e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8f4cb2775b3b5728ef99244408538e0314e754324519cf58527eeb9ae5333f3"
   end
 
   depends_on "node"

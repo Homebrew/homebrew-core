@@ -9,6 +9,7 @@ class CobraCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c2388295cd0c715263114639062592b03f4366be723c206fdb1bd65a74dc3f09"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d05baad8dd6bcebac5c184b14d30a29ac84e15c8f5cb74a19f604c87d4a42869"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d05baad8dd6bcebac5c184b14d30a29ac84e15c8f5cb74a19f604c87d4a42869"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d05baad8dd6bcebac5c184b14d30a29ac84e15c8f5cb74a19f604c87d4a42869"

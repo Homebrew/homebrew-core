@@ -4,16 +4,19 @@ class Mpd < Formula
   url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.5.tar.gz"
   sha256 "ab7f9a2315eff97cc47dff5da9b9c675b1764cd50f161dc295b8a0d1956a6244"
   license "GPL-2.0-or-later"
+  revision 2
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "7df4c2b8585a77146306286a4cef2810b773910e7499709688abf50b387b5507"
-    sha256 cellar: :any, arm64_sonoma:  "32fbf2daddfe4aec37f741ae11df5eda70d218fc9e588f9c65ebafab40cf308a"
-    sha256 cellar: :any, arm64_ventura: "4abae3ac8d154b1e41b1efc517da3eedeef757daece3bc0ae37c5d5f4f3bcf83"
-    sha256 cellar: :any, sonoma:        "5f8986c042cd0bd90e7dfb5756c0ba3fc026a510af28b3d5afc8351f169b11ce"
-    sha256 cellar: :any, ventura:       "66c3566557643d001e833b519e4b26b52a3ed67b5a68bd1d1195927d71bad912"
-    sha256               arm64_linux:   "3ff63b1bd9b995f116955aea067abbd6b9444c87fdb5a9d953a6596c20575965"
-    sha256               x86_64_linux:  "a4770ea4fb7b297bea1323a7c9bcba3b1c690ddbc5005ee7a6404a73e55c1c14"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "cbfe018650e11d3a81504d13d046da9e368842f3834a76e0646bd28cc8cd254a"
+    sha256 cellar: :any, arm64_sequoia: "c2ac996ca9c88223d47853c18508f295b52488b2d6b7d672f559701f200f8cf7"
+    sha256 cellar: :any, arm64_sonoma:  "c10d610f17f0409b4306b6550e504e317f7d4563f15c22e84df868096a20569d"
+    sha256 cellar: :any, arm64_ventura: "53d65b62f0b174eedb410986e7dc1dd1aafa82d220699f3d77339638b1f7b16b"
+    sha256 cellar: :any, sonoma:        "91f79003f71d6952e7c7fe30df4e8e2f1b2617274468fdb40718c03a3fe99c22"
+    sha256 cellar: :any, ventura:       "eb33cd55a20ebec97bfd2ad18e0f4275e3aa6f9e629423ac68d87c84eb2e8f4b"
+    sha256               arm64_linux:   "ffa0fe888741c5d0cfe8158001d4388a9d245d62d8d3eb8f8e86d57ef0a0d6fa"
+    sha256               x86_64_linux:  "0e0d3e46ebf13ee9fd08e79d227fda5353b77eea10fc3d345a54be12d1eba0dd"
   end
 
   depends_on "meson" => :build
@@ -22,7 +25,6 @@ class Mpd < Formula
   depends_on "pkgconf" => :build
 
   depends_on "chromaprint"
-  depends_on "expat"
   depends_on "faad2"
   depends_on "ffmpeg"
   depends_on "flac"
@@ -43,7 +45,6 @@ class Mpd < Formula
   depends_on "libsoxr"
   depends_on "libupnp"
   depends_on "libvorbis"
-  depends_on macos: :mojave # requires C++17 features unavailable in High Sierra
   depends_on "mpg123"
   depends_on "opus"
   depends_on "pcre2"
@@ -52,6 +53,7 @@ class Mpd < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
+  uses_from_macos "expat"
   uses_from_macos "zlib"
 
   on_ventura :or_older do
@@ -71,8 +73,18 @@ class Mpd < Formula
     depends_on "systemd"
   end
 
+  # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
+  # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
+  # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
+  def remove_brew_expat
+    env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
+    ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+    ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
+  end
+
   def install
     if OS.mac? && MacOS.version <= :ventura
+      remove_brew_expat
       ENV.llvm_clang
       ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
       # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS

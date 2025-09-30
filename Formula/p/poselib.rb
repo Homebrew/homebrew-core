@@ -6,6 +6,7 @@ class Poselib < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "dd83a55d57f61c2c99e5711cf0bd80e792d686a82f3e326945eaf42675340589"
     sha256 cellar: :any,                 arm64_sequoia: "72e32c33fce8115a8e061c70f2d96f67daa47d5fd44ad211ab367ac472d85540"
     sha256 cellar: :any,                 arm64_sonoma:  "31a44969e52bc29df45aa648e264be5689b0e4c129c6b77a95ef7b205b90d719"
     sha256 cellar: :any,                 arm64_ventura: "0af8973a43aa261e9becdf5c1595e1682e8b6d153ec754e66df76056db6efdf8"

@@ -3,19 +3,14 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm-project.org"
-  url "https://files.pythonhosted.org/packages/e6/c2/ebcd3062be915f67dd6aa6e30fc247120e6f9acc9b6cf7468bb52fdbd219/pdm-2.25.6.tar.gz"
-  sha256 "46693c26dde87bdeffecf18eb852ea55434c9b6b2aec42edef237f4ac595763c"
+  url "https://files.pythonhosted.org/packages/fa/28/c5bd4758f35d44cdfa05888e529590de1a7e0c4d67fae83d20b68fb33541/pdm-2.25.9.tar.gz"
+  sha256 "fb5fcd561986db1d83255d01e97e2e16f80debf743934d891a62ff2933ccc80c"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8bb925636e2b909c9d3bb5146b09ca32cad5f3a5540a70a45d7489c36974ee43"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8bb925636e2b909c9d3bb5146b09ca32cad5f3a5540a70a45d7489c36974ee43"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8bb925636e2b909c9d3bb5146b09ca32cad5f3a5540a70a45d7489c36974ee43"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fe61b0db4add157b772508fab0930e585423f6e24ad589afe774bbd2940f9249"
-    sha256 cellar: :any_skip_relocation, ventura:       "fe61b0db4add157b772508fab0930e585423f6e24ad589afe774bbd2940f9249"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe61b0db4add157b772508fab0930e585423f6e24ad589afe774bbd2940f9249"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe61b0db4add157b772508fab0930e585423f6e24ad589afe774bbd2940f9249"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5b1658a8d34e40c9ff40f358f49a9dde91442dcbc9c3fa0e0556c3dc78b1325d"
   end
 
   depends_on "certifi"
@@ -47,8 +42,8 @@ class Pdm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/0a/10/c23352565a6544bdc5353e0b15fc1c563352101f30e24bf500207a54df9a/filelock-3.18.0.tar.gz"
-    sha256 "adbc88eabb99d2fec8c9c1b229b171f18afa655400173ddc653d5d01501fb9f2"
+    url "https://files.pythonhosted.org/packages/40/bb/0ab3e58d22305b6f5440629d20683af28959bf793d98d11950e305c1c326/filelock-3.19.1.tar.gz"
+    sha256 "66eda1888b0171c998b35be2bcc0f6d75c388a7ce20c3f3f37aa8e96c2dddf58"
   end
 
   resource "findpython" do
@@ -107,13 +102,13 @@ class Pdm < Formula
   end
 
   resource "pbs-installer" do
-    url "https://files.pythonhosted.org/packages/83/0d/b4d124a075f187a7f5a91678ecab8db2464c6d633b839c8d89b6cf91942e/pbs_installer-2025.8.8.tar.gz"
-    sha256 "3b2a7703dd253c718ee201e801040208591ae35b338107761fbcdc1aa7543a86"
+    url "https://files.pythonhosted.org/packages/cd/48/cf90d72e24b6eb5c65fae18a63623390cb544fa5f063c8910d8ad5647874/pbs_installer-2025.8.18.tar.gz"
+    sha256 "48dc683c6cc260140f8d8acf686a4ef6fc366ec4b25698a60dad344a36a00f9b"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
-    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
+    url "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz"
+    sha256 "ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
   end
 
   resource "pygments" do
@@ -132,8 +127,8 @@ class Pdm < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "resolvelib" do
@@ -189,6 +184,12 @@ class Pdm < Formula
   def install
     virtualenv_install_with_resources
     generate_completions_from_executable(bin/"pdm", "completion")
+
+    # Build an `:all` bottle by replacing homebrew prefix on the comment block
+    site_packages = libexec/Language::Python.site_packages("python3")
+    inreplace site_packages/"findpython-#{resource("findpython").version}.dist-info/METADATA",
+              "/opt/homebrew",
+              "/usr/local"
   end
 
   test do

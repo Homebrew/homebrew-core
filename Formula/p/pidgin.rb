@@ -15,11 +15,11 @@ class Pidgin < Formula
     depends_on "libgnt"
     depends_on "libotr"
     depends_on "ncurses" # due to `libgnt`
+    depends_on "tcl-tk@8" # ignores TCL 9
 
     uses_from_macos "cyrus-sasl"
     uses_from_macos "expat"
     uses_from_macos "perl"
-    uses_from_macos "tcl-tk"
 
     on_macos do
       depends_on "harfbuzz"
@@ -49,28 +49,34 @@ class Pidgin < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "caa350ca46ced5772132c46319aade98a688e44e84c1b01358f5fb220255757b"
-    sha256 arm64_ventura: "20f82c9ff843f0dd90c67d8c0131819566f7890053a5e8f09650044fd63fe88e"
-    sha256 sonoma:        "b4703a7a10e3aa6d834336bd7a4bb0733060cec56f1cb3f104608efe7499b6ee"
-    sha256 ventura:       "7879c09f11287eece7b6850933b7a9846e810d040b6d17439f2be82912583b08"
-    sha256 arm64_linux:   "840058d985fa2d5fd430323c4a74147a6f421730c4126987430872e22812c12c"
-    sha256 x86_64_linux:  "fcfbc1d059e9878a6ef4e729a66d3f914996e9234c90bd3cdcd6cd6f431c9016"
+    rebuild 1
+    sha256 arm64_tahoe:   "72c05493b863e1278527fbb061d93950db72355c80f712a202eb327cee396d1d"
+    sha256 arm64_sequoia: "b29a4ae2b61df4ebe31ec8351174e8f827504b755b6d6897278fbbbb3fba47b2"
+    sha256 arm64_sonoma:  "56d8ee2c91d79fbc88b8545a9afd844042f21a6ad31451160395858e6b4b6caf"
+    sha256 arm64_ventura: "67742939cf4f3c3d2fe6ad7caae0e4006378736a08464340889543d2a5d65157"
+    sha256 sonoma:        "90e6291f5817c36034e83bb614e2cb186f3f92a4a7d5dda7ee6a5d2fcc90d25f"
+    sha256 ventura:       "577b9023973407ba52c619daa63c75b286a4e700d0b571ce28d0e618b39046bd"
+    sha256 arm64_linux:   "a51d7d196fbf4c6b302a1d9b9e5c8beecdba0c6518e3fa49166c830c91c63f9e"
+    sha256 x86_64_linux:  "f128c2b0933fb5f28a237b1d96f8d98269d3bdc64ba61531f2e194ed3ea00679"
   end
 
   head do
     url "https://keep.imfreedom.org/pidgin/pidgin/", using: :hg
 
+    depends_on "gi-docgen" => :build
     depends_on "gobject-introspection" => :build
     depends_on "gstreamer" => :build
+    depends_on "libsoup" => :build
     depends_on "mercurial" => :build
     depends_on "meson" => :build
     depends_on "ninja" => :build
 
     depends_on "gplugin"
     depends_on "gtk4"
+    depends_on "gtksourceview5"
     depends_on "json-glib"
     depends_on "libadwaita"
-    depends_on "libsoup"
+    depends_on "libspelling"
     depends_on "sqlite"
   end
 
@@ -92,7 +98,8 @@ class Pidgin < Formula
     if build.head?
       # TODO: Patch pidgin to read plugins from HOMEBREW_PREFIX similar to stable build
       ENV["DESTDIR"] = "/"
-      system "meson", "setup", "build", "--force-fallback-for=birb,hasl,ibis,xeme", *std_meson_args
+      ENV["GI_GIR_PATH"] = HOMEBREW_PREFIX/"share/gir-1.0"
+      system "meson", "setup", "build", "--force-fallback-for=birb,hasl,ibis,seagull,xeme", *std_meson_args
       system "meson", "compile", "-C", "build", "--verbose"
       system "meson", "install", "-C", "build"
       return
@@ -105,7 +112,6 @@ class Pidgin < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
     end
 
-    ENV["ac_cv_func_perl_run"] = "yes" if OS.mac? && MacOS.version == :high_sierra
     if DevelopmentTools.clang_build_version >= 1600
       ENV.append_to_cflags "-Wno-incompatible-function-pointer-types -Wno-int-conversion"
     end
@@ -123,20 +129,10 @@ class Pidgin < Formula
       --enable-consoleui
       --enable-gnutls
       --with-ncurses-headers=#{Formula["ncurses"].opt_include}
+      --with-tclconfig=#{Formula["tcl-tk@8"].opt_lib}
+      --with-tkconfig=#{Formula["tcl-tk@8"].opt_lib}
     ]
-
-    args += if OS.mac?
-      %W[
-        --with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
-        --with-tkconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework
-        --without-x
-      ]
-    else
-      %W[
-        --with-tclconfig=#{Formula["tcl-tk"].opt_lib}
-        --with-tkconfig=#{Formula["tcl-tk"].opt_lib}
-      ]
-    end
+    args << "--without-x" if OS.mac?
 
     # patch pidgin to read plugins and allow them to live in separate formulae which can
     # all install their symlinks into these directories. See:

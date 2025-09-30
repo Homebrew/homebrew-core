@@ -6,6 +6,7 @@ class Lftp < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "7fb1f7e9e672a8299dfd17a230ad0625fc3b7eb5ef5be73a0efbb6635ca6315b"
     sha256 arm64_sequoia: "275b333b0e01dc1bc87f11332d5ee33d1399d73f36e3123f97a7a16d229c5d37"
     sha256 arm64_sonoma:  "91e89854b82451fcd1dc6bfb2182b344adec778d5951224242aee4de60324034"
     sha256 arm64_ventura: "47191323a1e714ea7534413bdc8d4dc90960cebe01cd634c85f44d100790c438"
@@ -27,12 +28,6 @@ class Lftp < Formula
   end
 
   def install
-    # Work around "error: no member named 'fpclassify' in the global namespace"
-    if OS.mac? && MacOS.version == :high_sierra
-      ENV.delete("HOMEBREW_SDKROOT")
-      ENV.delete("SDKROOT")
-    end
-
     # Fix compile with newer Clang
     # https://github.com/lavv17/lftp/issues/611
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200

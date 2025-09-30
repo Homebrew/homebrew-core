@@ -1,8 +1,8 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "https://www.aquamaniac.de/rdm/projects/gwenhywfar"
-  url "https://www.aquamaniac.de/rdm/attachments/download/533/gwenhywfar-5.12.1.tar.gz"
-  sha256 "d188448b9c3a9709721422ee0134b9d0b7790ab7514058d99e04399e39465dda"
+  url "https://www.aquamaniac.de/rdm/attachments/download/539/gwenhywfar-5.12.2.tar.gz"
+  sha256 "4351ac71d22b6819238d62e71f1f40be835c0ac239c9e59174aed5db6a1e8b58"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -13,12 +13,13 @@ class Gwenhywfar < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:  "2ff807877bd27f4d7a61341c3cf452e59dac0d0110e4b3992161d6c31d5a257b"
-    sha256 arm64_ventura: "05ff2e4299319b8b68bc13555f1025d941351c306c4fea30d0bbd0883ed1b83b"
-    sha256 sonoma:        "2ad234cfa1929197dc16bd30cbe0663447e243da79eb45052f1f04b07524590a"
-    sha256 ventura:       "ebcf039ec2de99deffc7a5c69ed71be35a8b634dcb27d4459b7a3b5b0fbdba73"
-    sha256 x86_64_linux:  "e3f30d7c1cb4583b5b7e5f5c09f363fd94659a6cc3ad0729c7f68dfac32353b6"
+    sha256 arm64_tahoe:   "a3c9b3bc8d920fa2cdf31d346e1564c1a814ea9f48a173fa9836c647ed41d327"
+    sha256 arm64_sequoia: "aa21a3f901aa271d6918f271347a7eb0019cad7fc6182742c656bef9839c2ffb"
+    sha256 arm64_sonoma:  "61eb2df2b35a96fceb92e98519df86b00554a9550806e290b9cef2023ab270b8"
+    sha256 arm64_ventura: "fe05f210fe941889f58421bb8eebeff762de4d48c63acf17fb00bcb981d6073b"
+    sha256 sonoma:        "95475b3b68696a608ce3a869926cc849bd630cde02978167e0a91fb5135da7f1"
+    sha256 ventura:       "f59fb3dcfd633a7e20436464c80f3a3575f6c53b862f8bd2a7ed8ed8416b73c9"
+    sha256 x86_64_linux:  "f2fd444498eb20b1e341b4e6e11cfa09352852b8c325e298c10b71a6e643a092"
   end
 
   depends_on "gettext" => :build

@@ -7,6 +7,7 @@ class Inlyne < Formula
   head "https://github.com/Inlyne-Project/inlyne.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b032f9a33f0c8c3c9a1ca03cb6cf0453740b45756ffb0843eba0676f69b71426"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "08618c2b26c159f199bb3b0ec92f989d0cc101f615288f1eec2a587f60fb0622"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93ba8afea50e4112475f7d41b4a4a952b242f48e6791550dcf4459430b0c6d70"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ce4fafe2f79643c467a358a1ad72309be4f791eade01de70dfb7e91d4ef41298"

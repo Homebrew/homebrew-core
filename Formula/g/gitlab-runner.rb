@@ -2,8 +2,8 @@ class GitlabRunner < Formula
   desc "Official GitLab CI runner"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      tag:      "v18.3.0",
-      revision: "9ba718cdb6a9060dda9e3e5cd724fb5f97f27570"
+      tag:      "v18.4.0",
+      revision: "139a0ac033907890894642625cdfabf215c614fd"
   license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git", branch: "main"
 
@@ -13,12 +13,11 @@ class GitlabRunner < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0496915af6e4484c22c6f798fc2223afc9e209dff4636d61f86364ca808fb43a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0496915af6e4484c22c6f798fc2223afc9e209dff4636d61f86364ca808fb43a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0496915af6e4484c22c6f798fc2223afc9e209dff4636d61f86364ca808fb43a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7f2ab7c345e2d6714587e298cee9f917c30debbce29249c9c29484d89fb27285"
-    sha256 cellar: :any_skip_relocation, ventura:       "7f2ab7c345e2d6714587e298cee9f917c30debbce29249c9c29484d89fb27285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b1b93a508f7836bac31fd9bf54ae8ed62ade49435e6eb0fa43eee7a0621b4a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9eeb97d3550ecd2d0973ad148155994c16f99a3bbef79c78a37ac5855c1de1e6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9eeb97d3550ecd2d0973ad148155994c16f99a3bbef79c78a37ac5855c1de1e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9eeb97d3550ecd2d0973ad148155994c16f99a3bbef79c78a37ac5855c1de1e6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65c12f8de0671218b23ad45698b4365fcf51636a63c27e283b8ded5950fee4d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1afc787c0812067f4b8b3892a8d8fb06dd4a5ef35f143183b435d8b266df56f"
   end
 
   depends_on "go" => :build

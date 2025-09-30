@@ -7,6 +7,7 @@ class Funzzy < Formula
   head "https://github.com/cristianoliveira/funzzy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "caa2f8d37826f07fe6bbe6e6c2b63632f8a47a15a6c5618bc2af0b30c1b691a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ceea0be6258bfe342bef5003d2ba506115caa6d195ca77f2eb27cb34fd51732"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f14ac7984d837a4ed4410ad1dd8fe90016499c4f49aca53b89d132bccdc8971"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9a6d6a725210b6958a424d61929e5e4549f71e6696711df42161d40103429a44"

@@ -9,6 +9,7 @@ class LibpostalRest < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "905fe876b881844842cf56c6e4f5098bc59b23d0b9eee15e70ec7d07953f25df"
     sha256 cellar: :any,                 arm64_sequoia: "fd5d9cfcd9ea16dd5b1990b18ec200eef3de42b32dbcfc71e74d60dc1e77d5ec"
     sha256 cellar: :any,                 arm64_sonoma:  "35f195463499d406f38fd34722108ec532d1a5faa59bae40266efac277d204a7"
     sha256 cellar: :any,                 arm64_ventura: "20db7d2a602976a14915f4f8246950a17aab06fcd2743e0d4dd0cf867df3eb99"

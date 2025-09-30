@@ -1,8 +1,8 @@
 class Apigeecli < Formula
   desc "Apigee management API command-line interface"
   homepage "https://cloud.google.com/apigee/docs"
-  url "https://github.com/apigee/apigeecli/archive/refs/tags/v2.14.0.tar.gz"
-  sha256 "7a0cb53288dfe15b337d2ba04344f3a4869fbf37481305ce36fad62d6a6b283a"
+  url "https://github.com/apigee/apigeecli/archive/refs/tags/v2.16.0.tar.gz"
+  sha256 "eed2a51199b7778e2faf1752bb8a8f3bb8d60240f6159152fa9d95f5cfacb534"
   license "Apache-2.0"
   head "https://github.com/apigee/apigeecli.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Apigeecli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "258f55c740b881c22285482b6a0d2a713c97ca2cd52fdbd1a689d837fa394f30"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "258f55c740b881c22285482b6a0d2a713c97ca2cd52fdbd1a689d837fa394f30"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "258f55c740b881c22285482b6a0d2a713c97ca2cd52fdbd1a689d837fa394f30"
-    sha256 cellar: :any_skip_relocation, sonoma:        "22a4f0a97f6f04a978615122219da2ca29b2df163e8eaf3dd120cbaff7543b58"
-    sha256 cellar: :any_skip_relocation, ventura:       "22a4f0a97f6f04a978615122219da2ca29b2df163e8eaf3dd120cbaff7543b58"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e478820bcd12f7879496f9fd127a143ced123b44e4e197a5492afca25bda1806"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3e93ca2622ce527dc0025ad466cb2867b6e8ca80f3d61ab4e6d1a6fed7f5346"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4258ee6b313df32d1a1f89fa22e966a28dc62cae6ccbf607ed870cc85afa73a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4258ee6b313df32d1a1f89fa22e966a28dc62cae6ccbf607ed870cc85afa73a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4258ee6b313df32d1a1f89fa22e966a28dc62cae6ccbf607ed870cc85afa73a4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3cb1d14ec106a4d6b4da8addee32e69064b9faa21eb5f3caa300d23a0237bfb7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bae233defe3cc1a64eb3824123d8551eb2b4840859b5527e0df04b6d3c4ac608"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "190e83a7bbe8b18c495d04d2a45a5f9e741b62a3120216e72bbc631bbfc3031e"
   end
 
   depends_on "go" => :build

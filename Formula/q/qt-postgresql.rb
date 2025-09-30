@@ -1,8 +1,8 @@
 class QtPostgresql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.1/submodules/qtbase-everywhere-src-6.9.1.tar.xz"
-  sha256 "40caedbf83cc9a1959610830563565889878bc95f115868bbf545d1914acf28e"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.2/submodules/qtbase-everywhere-src-6.9.2.tar.xz"
+  sha256 "44be9c9ecfe04129c4dea0a7e1b36ad476c9cc07c292016ac98e7b41514f2440"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -10,11 +10,13 @@ class QtPostgresql < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "2e112c3707d036eaff2902ec5df4997e3b0d347ee1b1f27f8ecc5c4446398bdc"
-    sha256 cellar: :any,                 arm64_ventura: "627b2469ee5319737eb1de3174dc4df82a737fb9206d5fc28173e9bcf82e265b"
-    sha256 cellar: :any,                 sonoma:        "44a123d02aeae23dd4159817e9dc24a535c076c6374907a196429963684494e8"
-    sha256 cellar: :any,                 ventura:       "e7bdaf9f77476a2e3b897e4cf1c869cbc11424fd8776d6398fcdb60bef1992a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a0c6c1b71e1c8e104123bde4d4a559b73d138baf23ddf6e0aba160ebd266a7f"
+    sha256 cellar: :any,                 arm64_tahoe:   "43f92b3e296be8604c3e094d0fa415331f4474b369df590e8d9b7d956707322c"
+    sha256 cellar: :any,                 arm64_sequoia: "d76d1ffe897503818118b359dee095f888dc030076d575a23fa4cb771a36e859"
+    sha256 cellar: :any,                 arm64_sonoma:  "de0887723a3ee50956778a09d1aebe7187bde26213616846a96e70ef9ac7e244"
+    sha256 cellar: :any,                 arm64_ventura: "4f50eeebe63d8a224f938ba632a3daf842ccaf145875bf1d01d8f87132961321"
+    sha256 cellar: :any,                 sonoma:        "2b61609aee8466582bab683999350d91409259a34024351170a1f8bc91c70a18"
+    sha256 cellar: :any,                 ventura:       "2d8362b6ea827ed7c3768fd5ce6c44e5ed40180ae844384dcc39c848711b4fd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e8e1e8eab4f5f3e211ca89bc4cd57676f7bb6174f05a70ef365428a9549aedd"
   end
 
   depends_on "cmake" => [:build, :test]

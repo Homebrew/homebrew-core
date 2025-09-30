@@ -12,6 +12,7 @@ class Hfstospell < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3d7e4b9121d77a7dbde3d51888f830a6c09799f7241c17b1af04ced9cdbde9e8"
     sha256 cellar: :any,                 arm64_sequoia: "512a7ec1987a6ea4ba00e0e97744fe569cf086f8599fc1116d3a286430e51b82"
     sha256 cellar: :any,                 arm64_sonoma:  "b9620e78ab2a3afaa6dbfeeb225da7e9f1e5da55a0bf82e8bff66bf51a1c6bdb"
     sha256 cellar: :any,                 arm64_ventura: "68701bdb5dbcfc7e2874ed38329b15851fac68b5ffd6a9b4cd52017d63490f20"

@@ -1,20 +1,19 @@
 class Ncnn < Formula
   desc "High-performance neural network inference framework"
   homepage "https://github.com/Tencent/ncnn"
-  url "https://github.com/Tencent/ncnn/archive/refs/tags/20250503.tar.gz"
-  sha256 "3afea4cf092ce97d06305b72c6affbcfb3530f536ae8e81a4f22007d82b729e9"
+  url "https://github.com/Tencent/ncnn/archive/refs/tags/20250916.tar.gz"
+  sha256 "7d463f1e5061facd02b8af5e792e059088695cdcfcc152c8f4892f6ffe5eab1a"
   license "BSD-3-Clause"
-  revision 4
+  revision 1
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "1fd4181bd76dd4283e39483f1ce2317df9124aec49411d9c358271846f2f6f00"
-    sha256 cellar: :any, arm64_sonoma:  "6f2a32412d3e811efe83f4978b0f932069be46e010b0922a242ddc90fdbce2d4"
-    sha256 cellar: :any, arm64_ventura: "9a5af94493edca88aeceddeea81bcffd34650e6d894b51fbb802f9ffea2cc750"
-    sha256 cellar: :any, sonoma:        "d0369b3269fe49c402d5b2b788fe31cbfd0577bd0156efbe327c49e2588c9a32"
-    sha256 cellar: :any, ventura:       "8f027ee2f3ee3b274c48905cc0876bd35366cecdcc3414b331949d3d2a5ba836"
-    sha256               arm64_linux:   "61f0081e498d0720ccbb66fa9047de711aff1c453f5580927846d53ddac6a684"
-    sha256               x86_64_linux:  "20ca760b8a99e7a7dd33b22fef490ba5ed9c66c0cc0adcc616078230e385cbf4"
+    sha256 cellar: :any, arm64_tahoe:   "f3c332b4020e083dc259c53af4c2ff87d886ecfacf3b7ba952420d31d6346638"
+    sha256 cellar: :any, arm64_sequoia: "c90419a93d75c87be4c82c71a5ec8709b55a82fa0f59ad21e42df9c4ba3c011d"
+    sha256 cellar: :any, arm64_sonoma:  "9711cba60770b90541ce6f6fcb7a683d56889c81b7faaa28960ff386e5e594db"
+    sha256 cellar: :any, sonoma:        "e2f1d06768912720579016b310c0a1f192f6bd8d2ea7dbef890844a995f2e70f"
+    sha256               arm64_linux:   "706ea7b184bbaf7d6fc6cfa9edf1a78b07dd77088af2f271140ff8c0a1898604"
+    sha256               x86_64_linux:  "dd8a54e29838f97106ad804127ad367bace7abe4f74f44676b3e63e6bb7753cc"
   end
 
   depends_on "cmake" => :build

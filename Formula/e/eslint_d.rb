@@ -6,13 +6,8 @@ class EslintD < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f71f81814a0fc35b5b9dc63e435dadc521a5d7fe3c387a9a40327c3d90985a05"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f71f81814a0fc35b5b9dc63e435dadc521a5d7fe3c387a9a40327c3d90985a05"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f71f81814a0fc35b5b9dc63e435dadc521a5d7fe3c387a9a40327c3d90985a05"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bf7a935543ad7d69ad4e8c3e01130765c8c7e4319e749dcbc1fbab0a2d9d8d09"
-    sha256 cellar: :any_skip_relocation, ventura:       "bf7a935543ad7d69ad4e8c3e01130765c8c7e4319e749dcbc1fbab0a2d9d8d09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "edaa4beba7055a0f3404692beea62ea4eceb5b1d325470a824eed32f40420187"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f71f81814a0fc35b5b9dc63e435dadc521a5d7fe3c387a9a40327c3d90985a05"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "178cd948fa99952a64664f10233c8d38e66760683a98e8322fdc2963f97e3b98"
   end
 
   depends_on "node"
@@ -25,7 +20,7 @@ class EslintD < Formula
   service do
     run [opt_bin/"eslint_d", "start"]
     keep_alive true
-    working_dir var
+    working_dir var/"eslint_d"
     log_path var/"log/eslint_d.log"
     error_log_path var/"log/eslint_d.err.log"
   end

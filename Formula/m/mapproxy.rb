@@ -8,6 +8,7 @@ class Mapproxy < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "effcb938066731df61846defecab7da96155d97d6f14a8bd0fa30683f1854c67"
     sha256 cellar: :any,                 arm64_sequoia: "8df2d554d13f6d38d8fa8f5a6b3e75df9572ff6f212ba908bdf233233bb15a30"
     sha256 cellar: :any,                 arm64_sonoma:  "0705b4099aa61c5496c4dc4d21a29d8225d7ad053953c1b2180a26a540999e79"
     sha256 cellar: :any,                 arm64_ventura: "4d08f167ea6648fd2472b8afb411eb5cb534ac4cf8d4bc9b5feaa4c7340175de"

@@ -25,6 +25,8 @@ class Gluon < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b1212c4a5fa52f91c7e9628c7785059ba3773b1922c140f7e4b6803dfeaa2df2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6925c9400e10685bf8186fccf7cb1cde871e3c5c7e4d8a6d6c19b4fc110f1d7e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a4f5001264f56d18739d145b9e9423a5e3bfd2e31cbed0649f082516e4f5687d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4393342b66ede5869953b964c303cba89caace2051937c99c114d9c21d980ead"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aefe7045d9ef7fa7830a90e2e794c0f68926bae742f402764d442cd360ddaae5"

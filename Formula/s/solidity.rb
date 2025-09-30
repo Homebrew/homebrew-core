@@ -14,6 +14,7 @@ class Solidity < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c942e9514c42b1b9e7c11f688bdfc3743996349d1560e898f5fff39019179280"
     sha256 cellar: :any,                 arm64_sequoia: "64d6eda62ef156a0101b7db05f46fced2dbb782642b92e3972689d87fa3ded70"
     sha256 cellar: :any,                 arm64_sonoma:  "d22c39245433eb7ce91fb21ea5d7587b5c2f0be56f5ea926d9d14274c7238536"
     sha256 cellar: :any,                 arm64_ventura: "5122f5b427213dbeecdbdc1f5e16d478d5577bfec406cb834d09dc0bfe5faa7c"

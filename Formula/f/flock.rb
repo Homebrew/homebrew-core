@@ -8,6 +8,7 @@ class Flock < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "aa8dc5d082d7ad26bdd99dbb7b33a4d2a23c4c92a97baed4739c25119e30bafe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b3e9f9fbebb4256a845dd8db15993c3cd7c17cabac188c0695780c5b2b8a06d8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "81934a5818c68542712a6d8b56c6b92f303308394a39cdaf8618c057f6c75b93"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "37a4abe9f2dc5ad5297a5dfdcb10fc1aeafe587b06a7a275231d05a3dd48b572"

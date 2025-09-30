@@ -1,8 +1,8 @@
 class Libunwind < Formula
   desc "C API for determining the call-chain of a program"
   homepage "https://www.nongnu.org/libunwind/"
-  url "https://github.com/libunwind/libunwind/releases/download/v1.8.2/libunwind-1.8.2.tar.gz"
-  sha256 "7f262f1a1224f437ede0f96a6932b582c8f5421ff207c04e3d9504dfa04c8b82"
+  url "https://github.com/libunwind/libunwind/releases/download/v1.8.3/libunwind-1.8.3.tar.gz"
+  sha256 "be30d910e67f58d82e753231f1357f326a1a088acf126b21ff77e60aab19b90b"
   license "MIT"
 
   livecheck do
@@ -11,8 +11,8 @@ class Libunwind < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "a6651b2269e4f2ff7f099b6974ea3815dc7825022be179640973f692559e5cf4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "cbb66984b0bb438330bf35650c0039dce1db45a16110dccad8169e0b8add0dfe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "74f000df8592676570d4d87170219e605d7839b9349b0c19f780e3c3731a01f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7e7ee2f52ee65cb604d490261817ef728b44938eb0d57d450c5ceb3eda8e302f"
   end
 
   keg_only "it conflicts with LLVM"

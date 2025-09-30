@@ -1,19 +1,20 @@
 class Wtfutil < Formula
   desc "Personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
-  url "https://github.com/wtfutil/wtf/archive/refs/tags/v0.46.0.tar.gz"
-  sha256 "9cf809323ff12b9c1499623647fad141dd91d552e5e26ca9ddb8da4a43aed762"
+  url "https://github.com/wtfutil/wtf/archive/refs/tags/v0.46.1.tar.gz"
+  sha256 "89eb005075da7b6512b69e7829bfb1e54ca9cd838b735be2329fc083cd2b478a"
   license "MPL-2.0"
-  head "https://github.com/wtfutil/wtf.git", branch: "master"
+  head "https://github.com/wtfutil/wtf.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "059382377b005f6a5d345316f7dfe7337ad2462c17812753edfa354fd4466988"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a3802e269e13fc53128fddfff4b2090ecd4b8a4ac655faea629187c6c29da35f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "24a1b8263f66d8d9c5482834333b5c32979154f9b57e1ac7abe077340aa9f655"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d9c14f4b18db4311e91b415cc0096a96d4ca5b70edaee18a1aff54c06f99e0ad"
-    sha256 cellar: :any_skip_relocation, ventura:       "25ec0c238e514e8143bbde540bd47b940346c3177895a18372c567fa12c94570"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f0c1b1989a06db2fa254bb0c4835ec081e10e27fd47bc604269276f94e0f225"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62b7b18e226f5dd7bb578ac3563b9de655d98521dd336a0ad8fc52be40ca500d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a35cfb1752e4dda75540d2455f74ee280d6120fb1da3d421c57b8dba946c3eb7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7980a2836088e8d64d02849a3660002c94d72c1b2363edc81805bb5b11225575"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd757c89df1f201fda050749f2df99fb1b9a05bf15f8eff0cd1a002045e29a25"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "da053d5d354886fbf75235f6a7edd85a1aec75d4ab4d9cc6f37104effc1748f1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "08622dd3b50485323636c15054118bd9c2baf0409d832574a0b6ba5752432049"
+    sha256 cellar: :any_skip_relocation, ventura:       "5c786973340be249e5473c5c17aecd297b090455a763a9e307bf1cd725d45633"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bd66b539bc4f8b90eb565136eed64b547fc42114cd24eadf7c4eac396170218"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fe516e27b2a3a7fa2dda09ef06b14a5a9c7c378ee1c807bd2563ca50e9dec89"
   end
 
   depends_on "go" => :build

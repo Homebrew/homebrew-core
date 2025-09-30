@@ -1,23 +1,24 @@
 class Lazyjournal < Formula
   desc "TUI for logs from journalctl, file system, Docker, Podman and Kubernetes pods"
   homepage "https://github.com/Lifailon/lazyjournal"
-  url "https://github.com/Lifailon/lazyjournal/archive/refs/tags/0.7.9.tar.gz"
-  sha256 "e28bec9a54f890e4af0c3ffeab3c12727eb55f684573cb651e97594b46f17630"
+  url "https://github.com/Lifailon/lazyjournal/archive/refs/tags/0.8.1.tar.gz"
+  sha256 "62c5d54b3f2bf2ca240d9522ab75320b96f6304cf83b63a2db936411ec52cd64"
   license "MIT"
   head "https://github.com/Lifailon/lazyjournal.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f28456a15494ee9fc38e5334a1bc0d45a70d38e6590bee25aabea7d1149e1f3d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f28456a15494ee9fc38e5334a1bc0d45a70d38e6590bee25aabea7d1149e1f3d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f28456a15494ee9fc38e5334a1bc0d45a70d38e6590bee25aabea7d1149e1f3d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7d041d52711de7240ba194acd34231808905865f0d7ef5209a4e282be8478683"
-    sha256 cellar: :any_skip_relocation, ventura:       "7d041d52711de7240ba194acd34231808905865f0d7ef5209a4e282be8478683"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55bc927387eab58d957c6f775833d948eaed76c75518bbe61d0b9305e8688aaa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5ef7ed4bfc7bf612427c0c3a758518a2e036bdaf8fb866570bf718d15b5d8782"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ef7ed4bfc7bf612427c0c3a758518a2e036bdaf8fb866570bf718d15b5d8782"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ef7ed4bfc7bf612427c0c3a758518a2e036bdaf8fb866570bf718d15b5d8782"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c4191ac7b32cd392316bc7f1edd179e1c565dd3756b29b66858dc4030290ebe9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea92d96e8b123858ae87ee6f2496d6a275de189b51ba2309ad101bc7e3765669"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb47b038232ce4c2640bc22a54d893ba91c088ca6c23e2e923b63f485272410e"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = %W[
       -s -w
       -X main.version=#{version}

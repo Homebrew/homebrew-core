@@ -1,8 +1,8 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://geth.ethereum.org/"
-  url "https://github.com/ethereum/go-ethereum/archive/refs/tags/v1.16.2.tar.gz"
-  sha256 "ab0650551a6f1d5443c6c857338f834c6adb5c96b1b2e4851e4b8cb516758ea2"
+  url "https://github.com/ethereum/go-ethereum/archive/refs/tags/v1.16.4.tar.gz"
+  sha256 "f4cbfa29765b520e87d2e46452cdc04d418c143a703e51c05e5b852b33844bbc"
   license "LGPL-3.0-or-later"
   head "https://github.com/ethereum/go-ethereum.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Ethereum < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a098fc0d22c4ae595f297ee9b885f3123560bdd99cf4dc1ffbe17abb08cd5a8e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53c6d76e84aadcd97cb04813752afb3f3dd3e7d7d266975ef4a98d033ec60a16"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "75fde0ed00a3f21bd10d1241f59eb93e0f95c2a1acae07e13dce93f8dd1113d7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ec9b569c9192e01372adac46e2c780e5267e33973a64d437fa1b1cc0773a70b"
-    sha256 cellar: :any_skip_relocation, ventura:       "f9d2c11ff615c0e6c7bea1eabd02d7a095f39def2db6c69a0c6424e081885000"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a787e1180747bb20e733c1d07b0bef2f8511d1738a060b07fad02a9f20d6dcfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c8bbb90be0f69983148366b2727b4fc299e638bd830024b36158eb07fbf559f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf13355e34db16f52c65f147351ae5107d6afd0c9b884e2fb94c90bb9700e7b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec04b2033842665db6831f5fb656ec62919b10643229a645c53111d330db78c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "924b78a2712c762faf44b7f1e940735f58cafbe16569a26c6c4a49fba5068712"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c21ede5742b3387822c435a0a8872cb148e5e8b7eca998d9b2fef8f3fc2ad926"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b54449f2ff5573eba97aeac7a382ebd5a0c04c131f767b91beba3d314e4fead0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36ac08f87f81b33e7d30116ac9d6ac45f56f0803618bbed1c76327e68d2183d2"
   end
 
   depends_on "go" => :build
@@ -36,7 +35,7 @@ class Ethereum < Formula
       -X github.com/ethereum/go-ethereum/internal/build/env.BuildnumFlag=#{tap.user}
     ]
     (buildpath/"cmd").each_child(false) do |cmd|
-      next if cmd.basename.to_s == "utils"
+      next if %w[keeper utils].include? cmd.basename.to_s
 
       system "go", "build", *std_go_args(ldflags:, output: bin/cmd), "./cmd/#{cmd}"
     end

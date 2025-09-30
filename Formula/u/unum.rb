@@ -14,15 +14,8 @@ class Unum < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2bbbba3414c284badb1f16726092c9c2b0df15e584442b6f9a57a86b6136c7f5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da2908ba84393f040c3fd859a4c1f44c9ead4a5ce06cee7dd38625065e0631bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da2908ba84393f040c3fd859a4c1f44c9ead4a5ce06cee7dd38625065e0631bb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da2908ba84393f040c3fd859a4c1f44c9ead4a5ce06cee7dd38625065e0631bb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "11d6646154273911dea7b648880e183aeab4a93bb6599a696c059f4dde13d98d"
-    sha256 cellar: :any_skip_relocation, ventura:        "11d6646154273911dea7b648880e183aeab4a93bb6599a696c059f4dde13d98d"
-    sha256 cellar: :any_skip_relocation, monterey:       "11d6646154273911dea7b648880e183aeab4a93bb6599a696c059f4dde13d98d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "24b0920ba95e6fd4bcb98186c548603f8a9e3347fcd176d8cfce6b0d70bca525"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb8caefc407d78aa4c1f58392ae2b227a54ab50ed17734440cf92b1f6aa81298"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "49e6e959912529d4da9b0097beac4bcc654679022720b74eff4c5010d5ae6c77"
   end
 
   depends_on "pod2man" => :build

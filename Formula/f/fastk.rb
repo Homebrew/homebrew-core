@@ -13,6 +13,7 @@ class Fastk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "bc231c5bdda83a2f6d4b0b055dbb01b0c04538ac8d7cc205c71c28d40cba6215"
     sha256 cellar: :any,                 arm64_sequoia: "3353729044c15f3346d333ce0193e5b44a1acb6930dd366dcfc6866ded0799eb"
     sha256 cellar: :any,                 arm64_sonoma:  "9c4a36e6d522b8f31f730f540d0b1e6965670f3ff255614b775f846a4da52f9a"
     sha256 cellar: :any,                 arm64_ventura: "abfc4aa55dbb53cd4535be291b4f7e80ce1c4d8800c920d76a3841519de2106a"

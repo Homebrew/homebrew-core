@@ -1,19 +1,18 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250814.0.tar.gz"
-  sha256 "9b2b72d4e8367c0b843fa2bcfa2b08debbe3cee34f7aaa27de55a6cbb3e843db"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250814.1.tar.gz"
+  sha256 "1692f77d1739bacf3f94337188b78583cf09bab7e420d2dc6c5605a4f86785a1"
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sequoia: "46c63da34f7ff761501842d4068f9bfaabbadf12568424c87491b19065d3b17f"
-    sha256                               arm64_sonoma:  "19df247e567459110a43ff1bd216af37d626e8ee2d2ad69e74d8c34e765f0dad"
-    sha256                               arm64_ventura: "f59c0c62a921b35d5690c72b2440a532e927ad4f46825d9e3834db13af5794b1"
-    sha256 cellar: :any,                 sonoma:        "f62bab7dc820937f2086e0b9a5d9635f5d0348ea810e24b2f4a5747ed0e7979a"
-    sha256 cellar: :any,                 ventura:       "c011eeeccd1dfb6c2804163ef4619304e5821be64651d44b71c7112794ee9f77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef3e9a33b4ab2fc9659dae39ad3d71dda4e7e3fc29dd84a379ff4d19b9556a06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d58b90b49e1a35f2a67eb462aea9ad2a5be1c463e86808d9a1df6e7e504bb98"
+    sha256                               arm64_tahoe:   "a420c5f258edbae66fd2f5ac17320d46fd1e9e884f1cbb7cb23c9711e46d67f8"
+    sha256                               arm64_sequoia: "fc8915867a2ee9678dc1603c12d4b69e4c88fc5e5e4d71b44b1279e7a598bcc1"
+    sha256                               arm64_sonoma:  "327300ffe635b76ee159dafd5cdc48f5a6ff9757673673b75d8a86ed6ca08475"
+    sha256 cellar: :any,                 sonoma:        "15a4561cad35249b0f19cb876e874e4a8d892e287267985c24a47cb6835ec66d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd2d71f5e2f747eda4d887d3d841ae87f6d1e02d337ae635f54c1444daacc6bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f1d2a133d4f0273361ac12b4b9286ce855a53914dbdd2d85b095efe779f62a1"
   end
 
   depends_on "cmake" => [:build, :test]

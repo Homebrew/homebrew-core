@@ -6,13 +6,8 @@ class Seam < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f73fc65ba9659f60bf6423d9ddf462bd1be7c28918be7b1a716880e0252d9850"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f73fc65ba9659f60bf6423d9ddf462bd1be7c28918be7b1a716880e0252d9850"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f73fc65ba9659f60bf6423d9ddf462bd1be7c28918be7b1a716880e0252d9850"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1646ba540816ebdab927fa8218f973bea1de92c19c85a3c9407610e09e29c5b9"
-    sha256 cellar: :any_skip_relocation, ventura:       "1646ba540816ebdab927fa8218f973bea1de92c19c85a3c9407610e09e29c5b9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f73fc65ba9659f60bf6423d9ddf462bd1be7c28918be7b1a716880e0252d9850"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f73fc65ba9659f60bf6423d9ddf462bd1be7c28918be7b1a716880e0252d9850"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e78f5c486295d6805811e6a48f3f0a1443706bc5d98430f3f860fc3ae84d8c99"
   end
 
   depends_on "node"
@@ -20,6 +15,10 @@ class Seam < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Build an `:all` bottle by removing workflow files
+    node_modules = libexec/"lib/node_modules"
+    rm_r node_modules/"seam-cli/ldid/.github"
   end
 
   test do

@@ -6,6 +6,7 @@ class Webdis < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "db31ae23c2925f9c3a8ecfccb92a8d9f02b5f3bf2fcdaaf44bfe60f895c2ca5a"
     sha256 cellar: :any,                 arm64_sequoia: "c95a32da381c41544226dc1fd87657235858a07f03ff55e593749eb0f8ab57b0"
     sha256 cellar: :any,                 arm64_sonoma:  "0a6778e26839e3df4ebdb775d33b9d6298dedadf96ef4f086b7e64b58ae14908"
     sha256 cellar: :any,                 arm64_ventura: "2831f7de16d9180de3842c6ecf9ae9a544c43b98d6d0a907a5328e140512f825"

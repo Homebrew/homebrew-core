@@ -19,6 +19,7 @@ class Sslsplit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "53f72ff40afcabe474f6e713fb6dac04bd7c87fcb1bf6ec91638645b7b62237e"
     sha256 cellar: :any,                 arm64_sequoia:  "5696431080e31e8d974ee9b41e2380690b0ce415deefeee3d71350d1d614706d"
     sha256 cellar: :any,                 arm64_sonoma:   "a78baab2eb804a8825d8e32e7b196ba855c020f95e82b2f3d97791f57ed6f6f8"
     sha256 cellar: :any,                 arm64_ventura:  "ad6eef71652050dd7586ca130538d612f71d6e0486a5c1b2b9eb98e5d0675e0c"

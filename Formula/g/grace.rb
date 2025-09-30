@@ -14,6 +14,7 @@ class Grace < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "f930e961b7d6dd7d104e8f786247a044113ff0b7e58be16061d5a04ff4365188"
     sha256 arm64_sequoia:  "61fed352c42b6211971448d69512dd09726ef1daa1fab3f52d3ceeec048ad6d9"
     sha256 arm64_sonoma:   "502d3e9a6cf08eb5080c2adc8aabc1833bc65cfd26bc9053cd3b4c0742e763a9"
     sha256 arm64_ventura:  "25e56b21ed182a4cac2db983a01316c859d9191b0d31bce5050bc0e83d55eb04"

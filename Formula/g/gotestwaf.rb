@@ -7,6 +7,7 @@ class Gotestwaf < Formula
   head "https://github.com/wallarm/gotestwaf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc87754a9989cda5d3ae5bc5c08b286956f457395b37b09d5523213060e84fcf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b2f734f1ed87f7a69a4358c38d0d0041dcd4a8cfbdbd853752cf8663269c361"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b2f734f1ed87f7a69a4358c38d0d0041dcd4a8cfbdbd853752cf8663269c361"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6b2f734f1ed87f7a69a4358c38d0d0041dcd4a8cfbdbd853752cf8663269c361"

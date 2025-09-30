@@ -7,6 +7,7 @@ class Docfx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "87e1caaf9835e784ac7521481d5e4c2be1a72d299b2377aa16cae651d1c9c18b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "abb66975d8752e67e031dd9f7a29bf6c3e896f5b424815d5dc088436ecfd8a40"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f97bed8a6dde6e7a73af444d845a63027029dc9dcb604177f166c712dc871d7e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "063a6dc7fb65e9d026503301fe0fe7b840d2e08b22015cb72773a9f7d92e4089"

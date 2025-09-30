@@ -8,6 +8,7 @@ class YamlCpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "2568a74c90066c521d45bfd6057d55e52a1cf170b87d24321ed39a91a8013c31"
     sha256 cellar: :any,                 arm64_sequoia:  "b453cb98bf2c4dc253c3523f587a0af606e5a682bcd7b7bd0f69013e95cfe418"
     sha256 cellar: :any,                 arm64_sonoma:   "778720c980df7e2e5ed7a971eea721ecd6a21069f927279809496164c3248f69"
     sha256 cellar: :any,                 arm64_ventura:  "a257981f293174574400a08830c9edb3fef18a1d27d9c7a8f2a8ec0a6450a15f"
@@ -24,8 +25,10 @@ class YamlCpp < Formula
   depends_on "cmake" => :build
 
   def install
+    # Workaround to build with CMake 4
+    inreplace "CMakeLists.txt", "cmake_minimum_required(VERSION 3.4)",
+                                "cmake_minimum_required(VERSION 3.10)"
     args = ["-DYAML_BUILD_SHARED_LIBS=ON", "-DYAML_CPP_BUILD_TESTS=OFF"]
-
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

@@ -11,6 +11,7 @@ class Spiped < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e564e671fddf59bd3bc9b9aa6607f87dca58ae3fc70930c7abcf31352fa2edc4"
     sha256 cellar: :any,                 arm64_sequoia: "469c7104799be35f718cab24e9370e0acd2b77a15141d75efd2e7e552bf74fa5"
     sha256 cellar: :any,                 arm64_sonoma:  "87c3d7eda651e267a339e0655d05cac5678f71a4658e8d9bd985e32f0555e0bc"
     sha256 cellar: :any,                 arm64_ventura: "f547c50d187df541feb087d3e1534e5537e39dcb73fbbfeea606c3659626b7c3"

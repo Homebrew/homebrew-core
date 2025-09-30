@@ -8,6 +8,7 @@ class Xmp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "36e826302cd05a73582ffc6d1a196b64c71aa256069b9a605da25ab1692cb2d4"
     sha256 arm64_sequoia:  "656fb3759733a4e097ca973439b9ed791ddfeb768bbbe8203b9aa5684bb5883b"
     sha256 arm64_sonoma:   "95c30bbd87a818cdc81a4a90f27ba11585c5e11ddebfa5bc552e20246a4ab26c"
     sha256 arm64_ventura:  "0281add88058d565b3265efce120612e0602ba1b91b6a40f4334638917bb699f"

@@ -16,6 +16,7 @@ class MitScheme < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "6091fa88278d223d1f892c9f9383dbf81833e007c34f6eed625720d9e9c7457d"
     sha256 arm64_sequoia:  "5b2f5cddeb07d989aeb50ed587357c3da57bc2cfbe13dd5e3cc29b754ec6dfc9"
     sha256 arm64_sonoma:   "da2acf2666e321393c150917e783456c04942de61a2b4db2eebfaeaac094168b"
     sha256 arm64_ventura:  "23923b9cbbf60f33e46325ec788edaf149b1d43b62ddd69beff33528b14453c3"

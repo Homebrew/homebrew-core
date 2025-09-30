@@ -8,6 +8,7 @@ class Cmix < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "087b737dfd467bda8b0ce62227d8bf0946754ee55507130a0cd84ddbdf3b42c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8eebb90a33656eaff7664633fa0422d594d6c5e3fd2c8270e9831516844b610a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e9ba39f214720c1b65d25eb08fd16b0a84cfc424143817bb8fcbb33a863cea3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe893125d8092e5bdabbb902ff589d2368a012c863cfe71def0d98652ad6fb8f"

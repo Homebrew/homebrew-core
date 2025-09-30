@@ -7,6 +7,7 @@ class Rustcat < Formula
   head "https://github.com/robiot/rustcat.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0f256a32dd3e5c5ad46cc6c79b7374846ecb650c452fd78fcdac210c73cff878"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "36254916f109ade147614d6b7e97c2794453474999dfcc54c26677ab546568e5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb05ce140c61ce7bb73d8918f5527f754fa894105c266cd8e1026796d236163b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "04ab951ad077f89bc6636a7f9fd30eec76caee2b81e58608690b9b6b04c761f0"

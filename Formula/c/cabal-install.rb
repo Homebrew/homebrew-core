@@ -9,6 +9,7 @@ class CabalInstall < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0144bed245e8dbc50270243010162b7e02c15cbb617e091a24ef4ef4d0e60630"
     sha256 cellar: :any,                 arm64_sequoia: "0c9fd4abd5dcc2bd5b30c5a4d5200231f12631a05592a1053bd767a05e00bc58"
     sha256 cellar: :any,                 arm64_sonoma:  "681c54b7997d6fba9d6e126dec76e727eb478300ce7ce3982eee252fc6b4109a"
     sha256 cellar: :any,                 arm64_ventura: "d2f8ed39fc3b8e068d158ec33dd2fa6c57dd44877a622b7a431190c4716f6446"

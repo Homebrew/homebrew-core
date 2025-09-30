@@ -1,18 +1,17 @@
 class Gabo < Formula
   desc "Generates GitHub Actions boilerplate"
   homepage "https://github.com/ashishb/gabo"
-  url "https://github.com/ashishb/gabo/archive/refs/tags/v1.6.2.tar.gz"
-  sha256 "ef52f4ba54e645159604ed5cfec145889e77a605a9cd270db6b32163a8cb50f4"
+  url "https://github.com/ashishb/gabo/archive/refs/tags/v1.6.4.tar.gz"
+  sha256 "ef499e3da87e0ea55897ce9ff914086d2a904bec873838c9132b4122912b98bc"
   license "Apache-2.0"
   head "https://github.com/ashishb/gabo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0d6a3523878e15683d745d577310bd81e5c353b278912da38c8e85fb5e34138"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0d6a3523878e15683d745d577310bd81e5c353b278912da38c8e85fb5e34138"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c0d6a3523878e15683d745d577310bd81e5c353b278912da38c8e85fb5e34138"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7a52fa3e8f5f76c7d7b3c148af4ad22e88d0f1afe18f50d6b4ff63bbcde8299d"
-    sha256 cellar: :any_skip_relocation, ventura:       "7a52fa3e8f5f76c7d7b3c148af4ad22e88d0f1afe18f50d6b4ff63bbcde8299d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b76e562875f209c44470c2087f7b9647650ad9aa71a1979c64d7d6ba012f898e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "29d5b6a323bd621d561cf288f7fec6816ecf36545f8f1cc8f1e3820e4c134be8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29d5b6a323bd621d561cf288f7fec6816ecf36545f8f1cc8f1e3820e4c134be8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29d5b6a323bd621d561cf288f7fec6816ecf36545f8f1cc8f1e3820e4c134be8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ed853bfb584e3b303403e5204a4ba53fd8645df43489efd9138be4abebe9ad8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc55b7259909ba2557414d680dcd916463591bf543c551cfacd0cfa7dba86108"
   end
 
   depends_on "go" => :build

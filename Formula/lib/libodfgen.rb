@@ -14,6 +14,7 @@ class Libodfgen < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "65f51115007bc250092d1421ac5801d05010911250a8d911cb55a1c0fc2d684e"
     sha256 cellar: :any,                 arm64_sequoia:  "7f42c8f3db9efee29ccd3acfdbb58e401cff658eb20c77284acdcd1220770249"
     sha256 cellar: :any,                 arm64_sonoma:   "f8c8b108ac222308245eef3d268c4eeeb84b2a73f2410c45568f304a142471e0"
     sha256 cellar: :any,                 arm64_ventura:  "ee37bbec363199abddeafcd3c185add551b115ccbcf2d175be4e3372321be7dc"
@@ -24,7 +25,6 @@ class Libodfgen < Formula
     sha256 cellar: :any,                 monterey:       "0ed30ea41cd3a9fbfe33a02c48e2b7386a430d5bee931e04b1bec3113670cceb"
     sha256 cellar: :any,                 big_sur:        "f53270e1f9060d1e2074a89444899e540e3307270fbd94c6a5186e9a05ecda45"
     sha256 cellar: :any,                 catalina:       "f019ef9174156093d5592556fac3fb5e87a38a90882572a3ff4a15b7d9227c8c"
-    sha256 cellar: :any,                 mojave:         "b8bcc9b962fa97d431fb4a27a924a18b37b264e43bb5e881b67668aa18633edd"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "bd214b5c11aff4b9a57155479ada4e47e8b0e75e4a523836682c6616719b6431"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8466ec0a88ee4d205fb5bac977d257b7cea7c4dfcdcfc1028d97e4be5529c848"
   end

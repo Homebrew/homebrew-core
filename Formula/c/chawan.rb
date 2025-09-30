@@ -7,6 +7,7 @@ class Chawan < Formula
   head "https://git.sr.ht/~bptato/chawan", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7a73b25243813225cdf93d521d5e287ed8bfc47bb8d637f049c399192dd59562"
     sha256 cellar: :any,                 arm64_sequoia: "b9be1da4b16cde2ad0788b0e0bf4ba6bd49129abff764b306be0cfe945de0fa5"
     sha256 cellar: :any,                 arm64_sonoma:  "bf1828157ded27c5ab4b92b37cdc856f3423c935effb72ac4e935f0d3e7a00d8"
     sha256 cellar: :any,                 arm64_ventura: "c5390f8597c1de9aa5ebd4883878dd0472b1f051e1a917c5098878fc3e411c20"

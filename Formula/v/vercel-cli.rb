@@ -1,18 +1,17 @@
 class VercelCli < Formula
   desc "Command-line interface for Vercel"
   homepage "https://vercel.com/home"
-  url "https://registry.npmjs.org/vercel/-/vercel-46.0.2.tgz"
-  sha256 "70a94d00e77761584e3581d86cc61f79f42993708a369a696edb370b7c8e9ed0"
+  url "https://registry.npmjs.org/vercel/-/vercel-48.1.6.tgz"
+  sha256 "3d956be3a8f5bac1df20a658121179eec89dd2ecdc734ed53b2d788e07f89a18"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "abbd3b8d858cf71f1d2da10e114e40ba6ff25286ace08d86e0288c5f76ff4343"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abbd3b8d858cf71f1d2da10e114e40ba6ff25286ace08d86e0288c5f76ff4343"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "abbd3b8d858cf71f1d2da10e114e40ba6ff25286ace08d86e0288c5f76ff4343"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3d81b4ecc81f8ce7ab087304ca1ff935809f5ccdba0fad0df56c540425cd4874"
-    sha256 cellar: :any_skip_relocation, ventura:       "3d81b4ecc81f8ce7ab087304ca1ff935809f5ccdba0fad0df56c540425cd4874"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b543351385e60ad021a85a0c18bf706b5d944048ea555f38a1ad08e15a051102"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d806017b2386b116d05fc13153b7b5b3ed44936f3b9920c1d29c60247eb1850a"
+    sha256 cellar: :any,                 arm64_tahoe:   "fdec4e4a8b6336eeec2322920c348698f3c80bf2968858a01ffb3efe2245d1e5"
+    sha256 cellar: :any,                 arm64_sequoia: "37a9aa328ed402f472a9ce91fadc36641946ff5ac626b5a020b03d46fb3ab22b"
+    sha256 cellar: :any,                 arm64_sonoma:  "37a9aa328ed402f472a9ce91fadc36641946ff5ac626b5a020b03d46fb3ab22b"
+    sha256 cellar: :any,                 sonoma:        "c2b8833e155f29b41d19f05ebec270b53f234e148c1e03fa55ffa741a6127fed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7ea61987f23f8695c61675265dab7ece934f721f2980a35edab84cb4c33e170"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cc561129f242dfd7f1a3076f4a0f7a94ad17173d7fc5402326fb45c86e5341e"
   end
 
   depends_on "node"

@@ -7,6 +7,7 @@ class Pulumictl < Formula
   head "https://github.com/pulumi/pulumictl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "48dce17fc4889c8a7b274cf58f6cd0f6a3e24063a505930f98c12fe7c409784f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "07ef245cd91ed7be0b36a07f73b41e3c20a95c589a98ff50a1a41c401d90f0cb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07ef245cd91ed7be0b36a07f73b41e3c20a95c589a98ff50a1a41c401d90f0cb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "07ef245cd91ed7be0b36a07f73b41e3c20a95c589a98ff50a1a41c401d90f0cb"

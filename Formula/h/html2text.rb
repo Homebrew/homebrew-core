@@ -9,6 +9,7 @@ class Html2text < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83184be65744dc19e11a999b42fd33f17578fe57640aca42d76124c9699e5b4c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e244711dd9a80f0a0086a6acece7436614c56cc3544b88b1586b1cc1a33476d3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b1e778ff1bbacfa5f4bb389f16de755aca64924714c8f98fd7716edc95a5437"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4f0b879932edd63851fa7a2a23df5658da15364817757fdd610fc70e4eed9a28"

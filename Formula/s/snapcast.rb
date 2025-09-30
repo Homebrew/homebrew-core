@@ -1,18 +1,17 @@
 class Snapcast < Formula
   desc "Synchronous multiroom audio player"
   homepage "https://github.com/badaix/snapcast"
-  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.32.3.tar.gz"
-  sha256 "e53a62872d03521c7ce261378792f203d4073d769b362116ab02c98aa7c64008"
+  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.33.0.tar.gz"
+  sha256 "5da21ab4a609550308be389d6af628628a89b6beb1d6e996ad2e4960e8e36d1d"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2cec9d7a9ec03701702d074652c9bbaaffa2fbda24a8a35a793ae8256918e5fe"
-    sha256 cellar: :any,                 arm64_sonoma:  "8eb02f10ce66da4a08c25325ff3ad499aa90874ebe573cf12d31d114d32db3eb"
-    sha256 cellar: :any,                 arm64_ventura: "37abe8373c9db62d0421afd78d5ca599483e9802f4ef61fc8672fdb09bec1319"
-    sha256 cellar: :any,                 sonoma:        "6b4e2ca4f2d06746c9bdb153cd3c1a79be96f02bb280b0c822f9e205c693230d"
-    sha256 cellar: :any,                 ventura:       "e45fbb627592bc990bb2b2f48b4a32d97d84050db8642a899b2041caf6c21f34"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f0d76cb3b81547da814efa3ff5f34a17f48f6427325b7bbed8b355c89e263c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b770db41a025dd0d28dfba001db146150f654969f9cc61f853211b4897f1aff"
+    sha256 cellar: :any,                 arm64_tahoe:   "3d37d627aab2244ea9c63f890e77ceb48b8715e78c9d09e1c6d215d4b93abf4e"
+    sha256 cellar: :any,                 arm64_sequoia: "4df996bd8edeafea7ed418f3e3b726999b2d0a1e7015b84d9597a9505e5e511b"
+    sha256 cellar: :any,                 arm64_sonoma:  "a702f22f94c6fb70e281f9aa5b2e4498201628b5a9b9274f98f2dfa7c17e53e6"
+    sha256 cellar: :any,                 sonoma:        "674e87d9652eef30c68a1a743f6f774be7f04cf9732b45611e4994cb028d1fa0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72bd589f700c16f2bffa0565fd87b4b537e6542c214ba0a95db61f3352cb5d9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f9892083f3cd9337b05d1abc0db933641012355cc191ac11cc7b01f770113e2"
   end
 
   depends_on "boost" => :build

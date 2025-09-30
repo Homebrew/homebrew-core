@@ -7,6 +7,7 @@ class Hexyl < Formula
   head "https://github.com/sharkdp/hexyl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c15731c7c84f60dfc4f741663937e78951f846bf5c31fe78c4a3baf5a2af934e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "97598fb11f5c1a101081183f3a00864973d5349402864db0e2c694a48c079f97"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21cada0c4349bfc09a426f2616e4f881ef42d6625d46120d65f95394e2e36fb2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "779a6fdb3c0f2e6510bd57178035273a0f9646f5040d7a5f62c71b6acfe40242"

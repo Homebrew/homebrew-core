@@ -8,6 +8,7 @@ class Websocketd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "be906b57564f8192370b7cdbe3febd1feff0c77ef06e84a4a56470d3af071ee9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3b32f5cb8758b74b70de5a6f552ddf5aef4cae18908df4b0d42e9c999a9b851"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7ba51607007665381a1a42a51f888536174c3aa31264951aac1460e0aa00853"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7d6fde3236364942816c8578c1a5d6e436b562d2db34b9d0fb0fa9d501e8dde"
@@ -18,7 +19,6 @@ class Websocketd < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5a769dfeb3f3062af01fb6ba0703e1d416dc648736e20103c1e0a31489796ddf"
     sha256 cellar: :any_skip_relocation, big_sur:        "cbdc36c8c64cb2b0f1f149242a4c82e5d3eebff521e45bdfc88aa7dced9d2440"
     sha256 cellar: :any_skip_relocation, catalina:       "944c9e728f5f1a7ba098207a0acf50b1e19209010c9d87c8cdd18758ec9c71b2"
-    sha256 cellar: :any_skip_relocation, mojave:         "28f0108f697e146faec81782988e8fd8bd7162b11e7703578f752f7a51f2b6db"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "74fdd936d2632aaf2e484ef2f796d8d2f4f281f643ab23c414708363116ca9b8"
   end
 

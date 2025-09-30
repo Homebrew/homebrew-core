@@ -22,6 +22,7 @@ class Stp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e558a1e460a0e05dd9474e6be76a662023c6ebd0b15f6e960173b9f2334299ae"
     sha256 cellar: :any,                 arm64_sequoia: "339b5ca522f28f4c890811a0475f830c998e28c201de924ffe9d527d71062fea"
     sha256 cellar: :any,                 arm64_sonoma:  "72510b0dfa5b7def041a9bfe517f1ce594decfd5d1ef64433ac1a807fb927eac"
     sha256 cellar: :any,                 arm64_ventura: "e5cf95744fbfa173cd3975e2dd062ef4557119d33ce659375951f48a18ce9740"

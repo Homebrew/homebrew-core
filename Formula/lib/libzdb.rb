@@ -11,6 +11,7 @@ class Libzdb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "de6f49922942aa7eedef7a3be73e0ee108942d81126134c0c0cfb71ca585637e"
     sha256 cellar: :any,                 arm64_sequoia: "7ada18691b69fb2fe14cbc26b6e37acc064386f8126d94ce2ee52bc1a33d1aa4"
     sha256 cellar: :any,                 arm64_sonoma:  "ca0e3601cb111cc6c2bd04831af5c9d18a8ae39297bc89f16d53c0678c1cad51"
     sha256 cellar: :any,                 arm64_ventura: "11174fffce669dbc8386dac012f4594500fdd596c4886801bad1e8ebd28ab77d"
@@ -21,7 +22,6 @@ class Libzdb < Formula
   end
 
   depends_on "libpq"
-  depends_on macos: :high_sierra # C++ 17 is required
   depends_on "mariadb-connector-c"
   depends_on "sqlite"
 

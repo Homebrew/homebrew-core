@@ -15,10 +15,12 @@ class LlvmAT16 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e58534cadb875477a1108d55df2918872cfc47b05a9fc16b63722729b569f18a"
     sha256 cellar: :any,                 arm64_sequoia:  "e1ce859ba79150008eaa5cab5aa6cd78da4e4955627c00c6f0f2b48779c379bc"
     sha256 cellar: :any,                 arm64_sonoma:   "e799fe5056da9a07d79474f7a7290e0a465474eb004cfc614775f290197e10e5"
     sha256 cellar: :any,                 arm64_ventura:  "1814e78f92d133918a597c4f7c30fef32f3665989951c1cefdda331eb4402ed1"
     sha256 cellar: :any,                 arm64_monterey: "37035d480d967046905bc5e1cb71b96310a3096b4b066e7542c22cccc4abaf3f"
+    sha256 cellar: :any,                 tahoe:          "baa7010225f9442d4db11fbb0f78b6818ef51729603cd38e4821e57b6b4e67f1"
     sha256 cellar: :any,                 sequoia:        "631414eb9a75735243d652e4efe8a0fd73eee014d3aa904f614ec0f3a216c988"
     sha256 cellar: :any,                 sonoma:         "16844a4822d3afecf5783a368abf980636d8a3a110100ca4e8b06de383a44b56"
     sha256 cellar: :any,                 ventura:        "eec48597281d704edb178eccb4180ffaba79418ff7e478b138097a1a9b3aaa62"
@@ -41,7 +43,7 @@ class LlvmAT16 < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -98,9 +100,6 @@ class LlvmAT16 < Formula
                              .map { |py| py.delete_prefix("python@") }
     site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
-    # Apple's libstdc++ is too old to build LLVM
-    ENV.libcxx if ENV.compiler == :clang
-
     # compiler-rt has some iOS simulator features that require i386 symbols
     # I'm assuming the rest of clang needs support too for 32-bit compilation
     # to work correctly, but if not, perhaps universal binaries could be
@@ -145,10 +144,8 @@ class LlvmAT16 < Formula
 
     if OS.mac?
       macos_sdk = MacOS.sdk_path_if_needed
-      if MacOS.version >= :catalina
-        args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
-        args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
-      end
+      args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
@@ -156,6 +153,9 @@ class LlvmAT16 < Formula
       args << "-DLIBCXXABI_INSTALL_LIBRARY_DIR=#{lib}/c++"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
       runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{loader_path}"
+      if DevelopmentTools.ld64_version >= "1221.4"
+        runtimes_cmake_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-ld_classic"
+      end
 
       # Disable builds for OSes not supported by the CLT SDK.
       clt_sdk_support_flags = %w[I WATCH TV].map { |os| "-DCOMPILER_RT_ENABLE_#{os}OS=OFF" }

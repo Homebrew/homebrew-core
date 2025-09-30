@@ -10,6 +10,7 @@ class Dasel < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67ac40035b003307bfb9f4d59db4894475daf364f7e7f6baa9bcccd89f122ba6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fda15f41f7ba3f9dcf3b59430a7f807f1f4685a994868364fbf25aa1c470fba9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fda15f41f7ba3f9dcf3b59430a7f807f1f4685a994868364fbf25aa1c470fba9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fda15f41f7ba3f9dcf3b59430a7f807f1f4685a994868364fbf25aa1c470fba9"

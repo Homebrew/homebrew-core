@@ -11,6 +11,7 @@ class LibxmlxxAT4 < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "56769049964a463d7685af8129e84b78cb9a743b82fad084328322c028ea3605"
     sha256 cellar: :any, arm64_sequoia:  "313eb1af5b040a240c54769a0ea30007bb2ade22d25b0858a457922a37fa53f1"
     sha256 cellar: :any, arm64_sonoma:   "987e41fbe309acddde459a94d9ad151f8644cefee95be180366f3b774b3d6ff6"
     sha256 cellar: :any, arm64_ventura:  "35b445c5b312aa2a990ad57372c57f3c00d3b79d6247ac6007d5b00397467a9d"
@@ -28,6 +29,10 @@ class LibxmlxxAT4 < Formula
   depends_on "glibmm"
 
   uses_from_macos "libxml2"
+
+  # Fix naming clash with libxml macro.
+  # Backport of: https://github.com/libxmlplusplus/libxmlplusplus/pull/74
+  patch :DATA
 
   def install
     system "meson", "setup", "build", *std_meson_args
@@ -53,3 +58,36 @@ class LibxmlxxAT4 < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/libxml++/parsers/textreader.cc b/libxml++/parsers/textreader.cc
+index 75a2c68..65dec5f 100644
+--- a/libxml++/parsers/textreader.cc
++++ b/libxml++/parsers/textreader.cc
+@@ -19,7 +19,7 @@ public:
+   int Int(int value);
+   bool Bool(int value);
+   char Char(int value);
+-  Glib::ustring String(xmlChar* value, bool free = false);
++  Glib::ustring String(xmlChar* value, bool should_free = false);
+   Glib::ustring String(xmlChar const* value);
+ 
+   TextReader & owner_;
+@@ -403,7 +403,7 @@ char TextReader::PropertyReader::Char(int value)
+   return value;
+ }
+ 
+-Glib::ustring TextReader::PropertyReader::String(xmlChar* value, bool free)
++Glib::ustring TextReader::PropertyReader::String(xmlChar* value, bool should_free)
+ {
+   owner_.check_for_exceptions();
+ 
+@@ -412,7 +412,7 @@ Glib::ustring TextReader::PropertyReader::String(xmlChar* value, bool free)
+ 
+   const Glib::ustring result = (char *)value;
+ 
+-  if(free)
++  if(should_free)
+     xmlFree(value);
+ 
+   return result;

@@ -7,6 +7,7 @@ class Assh < Formula
   head "https://github.com/moul/assh.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "11ccb1c7d31ec14e1328c0da793dd9140a26bbeb4c67f51c2722bf26c553c632"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "075a77507a18b82139c596e10594bf5584e3ed53016bd3d1fa43dd2bbb85afc6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d4c84e457f4a186f199a65311f8ddaaf8c05f60387eb71f16d7608d05afd75e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b8d0b50314b10b93181797d66523827c575c3bfdba89045969cc26badadaddd"

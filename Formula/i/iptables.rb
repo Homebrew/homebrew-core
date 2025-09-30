@@ -15,7 +15,6 @@ class Iptables < Formula
     sha256 x86_64_linux: "4de49c1ece1a24f6f72d8290a3d1b4f875a94b9a277640f65faf3258e578a6da"
   end
 
-  depends_on "linux-headers@5.15" => :build
   depends_on "pkgconf" => :build
   depends_on "libmnl"
   depends_on "libnetfilter_conntrack"
@@ -26,7 +25,6 @@ class Iptables < Formula
   depends_on "nftables"
 
   def install
-    ENV.append "CFLAGS", "-I#{Formula["linux-headers@5.15"].opt_include}"
     system "./configure", "--disable-silent-rules",
                           "--enable-bpf-compiler",
                           "--enable-devel",

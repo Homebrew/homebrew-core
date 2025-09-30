@@ -8,6 +8,7 @@ class RpcsvcProto < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "4bbc594d97b03ddb65f8a7caaf4521cd12c5a7bc463f3e4c051d5ff08dd010b1"
     sha256 cellar: :any,                 arm64_sequoia:  "076bec1fd5bdddb95185b92aa72a11b94e72cece029eb771edabe98cf805b91d"
     sha256 cellar: :any,                 arm64_sonoma:   "af9f762a02610698572a23013b726055104c910c96d1d9f0dd5173261f0989a1"
     sha256 cellar: :any,                 arm64_ventura:  "af81bdfc3e4e2ba5e41993f84e71ad26054d91a92bb9e65532e6fd6e553c53ea"

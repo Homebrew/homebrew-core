@@ -7,6 +7,7 @@ class Screenfetch < Formula
   head "https://github.com/KittyKatt/screenFetch.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c72a4b90d0fb8ffa29a46c886c26d93470d5a46a447edbe880e736c4223a4e14"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c72a4b90d0fb8ffa29a46c886c26d93470d5a46a447edbe880e736c4223a4e14"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c72a4b90d0fb8ffa29a46c886c26d93470d5a46a447edbe880e736c4223a4e14"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c72a4b90d0fb8ffa29a46c886c26d93470d5a46a447edbe880e736c4223a4e14"

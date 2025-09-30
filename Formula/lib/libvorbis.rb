@@ -15,6 +15,7 @@ class Libvorbis < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "99c0de7ff87f4648bb17acd0324a15563e975b7492dbd4f11fd656a8eb6b5622"
     sha256 cellar: :any,                 arm64_sequoia:  "c28d1e0b461a4cf6f5aee72e664ac6f5f6f3efaab44f15b91924f08474cfafe1"
     sha256 cellar: :any,                 arm64_sonoma:   "f71115c28f65e1a87ae0dbe695421ecacfcddcaa6f91a3e0a23493da73560de5"
     sha256 cellar: :any,                 arm64_ventura:  "941871c7cfee1e15b60191e1c70296554871bc36e4fc8104ffc8919bb767f555"

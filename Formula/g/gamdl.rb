@@ -3,18 +3,17 @@ class Gamdl < Formula
 
   desc "Python CLI app for downloading Apple Music songs, music videos and post videos"
   homepage "https://github.com/glomatico/gamdl"
-  url "https://files.pythonhosted.org/packages/a9/8a/51100120bafa202b16aff19766a108e7d747a29eb9c8e97f90d94a3f1b1e/gamdl-2.5.2.tar.gz"
-  sha256 "3c435d82b5ad79286571223c9a74e894fd9e7f2dba6094e3e40e583e3651f174"
+  url "https://files.pythonhosted.org/packages/11/bd/03e4af9b4d2ca27aa702d09317c249c91d6729b93bdd009a88f88233f0d3/gamdl-2.6.4.tar.gz"
+  sha256 "e78cc60c28abeee8b380a6576cfb7096b9db48dfbd0de063449da23749c4f9e0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0f3296c8f228e51284121a32b5492e8860a29acec7f6fce130bdff7eaca99682"
-    sha256 cellar: :any,                 arm64_sonoma:  "5fed1de6aaed100b74169550f1bd8439ac77a17bd6ce8f912460494bc3f7b416"
-    sha256 cellar: :any,                 arm64_ventura: "8dec168d32d86db79853d1805aae8718bb45aac007d600e9157689656f1e57a8"
-    sha256 cellar: :any,                 sonoma:        "63e7526162c917a85cde7d1096304c67af42b1339fa2f072a0a0fa1d4133f15a"
-    sha256 cellar: :any,                 ventura:       "b906d661ecc8a69368a6287c930366ed51c38c5ddaf666114df4c49508caa565"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "009e937b65bff44857dc6c2714c2332a239f73fc3baa4dc50e7a3294a8709cd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "724f3160e27ea92a7b70f48c7db3115b61707811634f007f9f63c910a8c231c9"
+    sha256 cellar: :any,                 arm64_tahoe:   "e4421f9114585d0127d4ea9e884096b47764dd68c09928c39b98d90108f7b1f8"
+    sha256 cellar: :any,                 arm64_sequoia: "aff9f51c6657a5d668946acff5dc9e8cb8542b7729a226093b4c4f0f0af00850"
+    sha256 cellar: :any,                 arm64_sonoma:  "63cb537560a2dacb0e11ba1529ddcc2c5a31c672bd20f370ab7f60c525a7a5f7"
+    sha256 cellar: :any,                 sonoma:        "e6d07a439dec26290a06000f28d5e1cbdeecff97c3b1deb48b61d86895c5101d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7de7e0a585afa8bb5649dab00edd1a49ea3cae77f731857acad1dee766dd3bc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60cb089de729266b162dddb4a7a4c0411087787d8d1a7ab542806015dfe05dce"
   end
 
   depends_on "certifi"
@@ -28,8 +27,8 @@ class Gamdl < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "colorama" do
@@ -68,8 +67,8 @@ class Gamdl < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
-    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
+    url "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz"
+    sha256 "28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"
   end
 
   resource "protobuf" do
@@ -98,8 +97,8 @@ class Gamdl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "unidecode" do
@@ -113,13 +112,13 @@ class Gamdl < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
-    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
+    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/80/72/de4a7f9bbfef886c7f0790b8246585310f155e4a6589dd38d846efa932e9/yt_dlp-2025.8.11.tar.gz"
-    sha256 "dc7c120a367fe55e0f711613dc80ea29d3a4e0ed8d66104cebfbe3d36e81fdfc"
+    url "https://files.pythonhosted.org/packages/90/77/24a13bbd3190849e7e37e6093aa9648f3b26a836d37ba67e3429ee89ad1d/yt_dlp-2025.9.23.tar.gz"
+    sha256 "9282ad1deadb4c90b2e6d3bcf9f360abf88c5f2e4ba836dad7b51387b086d757"
   end
 
   def install

@@ -19,6 +19,7 @@ class Tundra < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e1bb8df7048132f46b74c03364a0b546e27f608eb9868ddfe780678001ab5b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b2b5072ea820f8d6c1d44cad48800a2e1df21bf2591587016627e8a945a460f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b3926c1298ab41348fd6ac3a6a1f50b7418a3651c8d8ce36a4fd17c58d7287a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4de7c173c546e24d82c32c49cdd38a6c5b171f31e265b60c31754688a6597fde"

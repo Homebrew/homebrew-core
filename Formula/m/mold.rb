@@ -15,6 +15,7 @@ class Mold < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8b40b6a652877ed7299df4e1c32b201a515a4764c96689a4609c895185d2d71e"
     sha256 cellar: :any,                 arm64_sequoia: "1ed3cd743c1033ecb3b070817e4e5ca54815d8d3c1bad920f3224aafa5267a41"
     sha256 cellar: :any,                 arm64_sonoma:  "c0622583fa23153d640b8e720f5a4d14dd5e969be7d610626a0ad55460bfbdc7"
     sha256 cellar: :any,                 arm64_ventura: "f4df41bb25c00b851e508249a377fdf394f441850c325fa67089b9e036af2b8f"

@@ -11,6 +11,7 @@ class Libudfread < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c30a3d1c34e209bd79301f3626e0e617ed841979ae1e33b0acc066c9643f9dea"
     sha256 cellar: :any,                 arm64_sequoia: "a563689c17ca21d204a228773ec9380b5b0880bd3b0ab322170f8596be7f844a"
     sha256 cellar: :any,                 arm64_sonoma:  "a5818ef3abbd4de631f60ba8abfd0450585c789c57fd5ffa4129a6d2aa446e37"
     sha256 cellar: :any,                 arm64_ventura: "d5f039fc1b4b415f554391bd3500cd47c3f7129baa8729d302f9f31d9bb2c939"

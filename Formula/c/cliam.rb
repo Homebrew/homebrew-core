@@ -9,6 +9,7 @@ class Cliam < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bdbb9e4d7e3ab70487a38e936259d6930f3cfcf8595a0d386fe31fed365f326a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "97fc79aa1d589ee7a6deff3bee41579070570cb721217851da1a327c9a9a9efb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "437320520b17ed0562c0aaa5cb931385823cdb79396d80e1a00b38502f3ef1e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "692e06fb736fd26d5e37dbe2a17c29df8903ac8ebf268ad12540dc07b1cc86c4"

@@ -7,6 +7,7 @@ class Gci < Formula
   head "https://github.com/daixiang0/gci.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f786c3e4386bf3011564ae4f7d49b5726662305f18ece97bbb061f693e6cd906"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0c03634905d310823a14ef722f47b845c5cc7b6146b515d8db1d448dadb61a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0c03634905d310823a14ef722f47b845c5cc7b6146b515d8db1d448dadb61a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c0c03634905d310823a14ef722f47b845c5cc7b6146b515d8db1d448dadb61a6"

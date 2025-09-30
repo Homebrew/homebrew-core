@@ -13,6 +13,7 @@ class Girara < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "a1acae5cff148bce38ed23cf7d703ea25b10d8a2fd5d2de2aca60b6015b56571"
     sha256 arm64_sequoia: "be06762224f503f78a683cce58ebb79c29b1debe98b6b6c65100119ffb559444"
     sha256 arm64_sonoma:  "c59225a3fb9db2fdfaf89c19a755bd7d4426a659a83db5330820835b37597bdc"
     sha256 arm64_ventura: "388b59083580d34bf7de60f3ef3bdf77dfb8eb4902f9b61084ab15c7a2b599e7"

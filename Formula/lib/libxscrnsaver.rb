@@ -1,24 +1,19 @@
 class Libxscrnsaver < Formula
   desc "X.Org: X11 Screen Saver extension client library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXScrnSaver-1.2.4.tar.xz"
-  sha256 "75cd2859f38e207a090cac980d76bc71e9da99d48d09703584e00585abc920fe"
+  url "https://www.x.org/archive/individual/lib/libXScrnSaver-1.2.5.tar.xz"
+  sha256 "5057365f847253e0e275871441e10ff7846c8322a5d88e1e187d326de1cd8d00"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "0b3b6f538e4e11629f54b74f0603e9fca13439e3ab37ff3899c9081d4dc80258"
-    sha256 cellar: :any,                 arm64_sonoma:   "b2b4a894b7f7ee7f077af223b68814ab6c4a4e8d41de227642fbd373de36e0f7"
-    sha256 cellar: :any,                 arm64_ventura:  "0a1e6445b137a59fcb7b2abf72065758997cfefcd36e8ba8f9875e52bb01fd3c"
-    sha256 cellar: :any,                 arm64_monterey: "c04b841bd76e8d06c9b37ae51c091ee1724d7b72df939cc8361bbe0441d4166e"
-    sha256 cellar: :any,                 arm64_big_sur:  "75b9fc38234ddaf88aaad59f366053812401497beebca2bbea4d69afcf228083"
-    sha256 cellar: :any,                 sonoma:         "7f3bc86175531a13ab81be6d014a90ea1e63b4c2ae5ce1a0216c9d994b664edc"
-    sha256 cellar: :any,                 ventura:        "2ddac267bc14039812c5c7af3af9732d5919ed7b9a873dc5589613f69c106b0a"
-    sha256 cellar: :any,                 monterey:       "28b52ebe202f8695e20fbb36d7a66cbbd9d22a4cffa3339a4903247707a18cf1"
-    sha256 cellar: :any,                 big_sur:        "a2a6fb8407b5aaebe67b79704c480a1466f3473929291d2416fb36b187a7b552"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f2b3344d7cb09968e07f68f26e8451f3b67b374e640b5123680480aa33d33d9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d538938eb52738da95c07cb87f895673633ed55667a394991c6847cd62d40c5b"
+    sha256 cellar: :any,                 arm64_tahoe:   "6097790285805d792860cbcf0bb663c76b58d51a57d505346b179e52e2f7ce7c"
+    sha256 cellar: :any,                 arm64_sequoia: "464b8c95cf2d758476e47dc6f774c6504b84b0265cd458d8fd33619f1386721c"
+    sha256 cellar: :any,                 arm64_sonoma:  "5394466712bb2b54879e310768f2fd52ab60d60322a84f80305d23d7c4991c9c"
+    sha256 cellar: :any,                 arm64_ventura: "57f870876b14e7f906853fbd220817b7cc74873e2310bc5bfca0af2ce15c3279"
+    sha256 cellar: :any,                 sonoma:        "c28763bc9642f615b6aa7864a720dc4b1c6a66875cd23d984c7df896dd515837"
+    sha256 cellar: :any,                 ventura:       "b792a3c4125f99032104d8154eaa3c47296d09bc3c973e88a9dca6288fad6d49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c1321270199c8288dc9a1b946e542fe379cc1ca0ee5132d956b7ce6a7c33d0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "592204a7c4aa929e51c550213e52af404a62e1e83075d48daa93e8efb9a88e36"
   end
 
   depends_on "pkgconf" => :build

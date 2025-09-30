@@ -10,6 +10,7 @@ class VowpalWabbit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "80e1008c165e6977f7562be6c9fb83d8f1163cf5072d1b1f08ac84784ea97ecb"
     sha256 cellar: :any,                 arm64_sequoia:  "bfef4211753bcf8837355692e4dcf46bee9de1961bd62e4b15f8f3143bf372ed"
     sha256 cellar: :any,                 arm64_sonoma:   "073c2e2a642481bde881c5af08b53ce124d29213ee4dab14758c06dc7860b998"
     sha256 cellar: :any,                 arm64_ventura:  "fe719b69d82bd1ca7000eea32ffa7c3a0123d4dbdba0e0e22289fb24f05e2250"

@@ -9,13 +9,8 @@ class Flake8 < Formula
   head "https://github.com/PyCQA/flake8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "267809e6dbc558aa736d35ab4888565edfeb5ce2b745d5df46ffa527990435e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "267809e6dbc558aa736d35ab4888565edfeb5ce2b745d5df46ffa527990435e6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "267809e6dbc558aa736d35ab4888565edfeb5ce2b745d5df46ffa527990435e6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c5d9c63f6473d3e0d349d8ef6dd6c291f22c116863c2851274ff10c73d88030a"
-    sha256 cellar: :any_skip_relocation, ventura:       "c5d9c63f6473d3e0d349d8ef6dd6c291f22c116863c2851274ff10c73d88030a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "267809e6dbc558aa736d35ab4888565edfeb5ce2b745d5df46ffa527990435e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "267809e6dbc558aa736d35ab4888565edfeb5ce2b745d5df46ffa527990435e6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "099a96d97181d73a9d76c5b633c6740361568cdb03010c084acd59a5bc93a8b8"
   end
 
   depends_on "python@3.13"

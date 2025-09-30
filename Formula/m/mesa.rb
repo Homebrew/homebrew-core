@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.2.1.tar.xz"
-  sha256 "c124372189d35f48e049ee503029171c68962c580971cb86d968a6771c965ba4"
+  url "https://archive.mesa3d.org/mesa-25.2.3.tar.xz"
+  sha256 "f2d6b28562f1d6cb9c17ee8e58eeade7aa5faf927ae71065eadb41e17f92b4f8"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -23,13 +23,12 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "942831cac5776029a9fe3477e6e482d7ba75cb1e396967630774f26de731b8db"
-    sha256 arm64_sonoma:  "baeb4aff94389aa60efea32cd2d0bc09cead36a07d114f4802148fdb91b29c47"
-    sha256 arm64_ventura: "cc853fb093fac277d04b3f3be70ef9b5f6c79250df2f6aafafbb7106c2f1697d"
-    sha256 sonoma:        "85af72975d668dec712645228e40ade31a531a43e76cd2a6b256ec310e50a2cc"
-    sha256 ventura:       "3b96f1f7cd5fa506a23ff505f97b4476866ad585bb2957ef09b3d36e483b9ab0"
-    sha256 arm64_linux:   "2aef1642b5878efecbd925f1f2e6f95b6da9036ee59d07498346c6d5b51a7a42"
-    sha256 x86_64_linux:  "8c3c073247918d159a09dcabe887ea44ad38716603b604d8655b8fccf0695bc0"
+    sha256 arm64_tahoe:   "e02c27d6d35ff512a00790ade0832595248413e9097291ff9ee774e618ec715d"
+    sha256 arm64_sequoia: "a45ca1043af3f0db0f6b47875929e33f1a84d943fc23f444c6eb3dcd2226d02c"
+    sha256 arm64_sonoma:  "611bb6b044f2b705cb2d21b77cd2c87e275625ab0a8f98cd4797a54cdf831f2d"
+    sha256 sonoma:        "704dcc2f4fc4ba784e01a6a00ea8e372882e69599f73a7033b1562b94d67ab35"
+    sha256 arm64_linux:   "5487936a105b3e4a04dd666fb1f82fd7f3f40129096f088e9abf9325da0d73fe"
+    sha256 x86_64_linux:  "917fb4487c5c888c1481976c0d9de828f15209ce69ef1b1083b5dc1cb67765ac"
   end
 
   depends_on "bindgen" => :build
@@ -141,6 +140,9 @@ class Mesa < Formula
       -Dvideo-codecs=all
     ]
     args += if OS.mac?
+      # Work around .../rusticl_system_bindings.h:1:10: fatal error: 'stdio.h' file not found
+      ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
+
       %W[
         -Dgallium-drivers=llvmpipe,zink
         -Dmoltenvk-dir=#{Formula["molten-vk"].prefix}
@@ -149,8 +151,13 @@ class Mesa < Formula
         -Dvulkan-layers=intel-nullhw,overlay,screenshot,vram-report-limit
       ]
     else
-      %w[
+      # Not all supported drivers are being auto-enabled on x86 Linux.
+      # TODO: Determine the explicit drivers list for ARM Linux.
+      drivers = Hardware::CPU.intel? ? "all" : "auto"
+
+      %W[
         -Degl=enabled
+        -Dgallium-drivers=#{drivers}
         -Dgallium-extra-hud=true
         -Dgallium-va=enabled
         -Dgallium-vdpau=enabled
@@ -164,25 +171,10 @@ class Mesa < Formula
         -Dplatforms=x11,wayland
         -Dtools=drm-shim,etnaviv,freedreno,glsl,intel,nir,nouveau,lima,panfrost,asahi,imagination,dlclose-skip
         -Dvalgrind=enabled
+        -Dvulkan-drivers=#{drivers}
         -Dvulkan-layers=device-select,intel-nullhw,overlay,screenshot,vram-report-limit
         --force-fallback-for=indexmap,paste,pest_generator,roxmltree,rustc-hash,syn
       ]
-    end
-
-    # Not all supported drivers are being auto-enabled on x86 Linux.
-    # TODO: Determine the explicit drivers list for ARM Linux.
-    if OS.linux?
-      args += if Hardware::CPU.intel?
-        %w[
-          -Dgallium-drivers=all
-          -Dvulkan-drivers=all
-        ]
-      else
-        %w[
-          -Dgallium-drivers=auto
-          -Dvulkan-drivers=auto
-        ]
-      end
     end
 
     system "meson", "setup", "build", *args, *std_meson_args

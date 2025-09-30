@@ -6,13 +6,8 @@ class Lynis < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "972613fc1d39ce5f710f2a94d13e1074aceee0426d4c0ff527b9b905e4fc4075"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "972613fc1d39ce5f710f2a94d13e1074aceee0426d4c0ff527b9b905e4fc4075"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "972613fc1d39ce5f710f2a94d13e1074aceee0426d4c0ff527b9b905e4fc4075"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9a3d0c16f5c8466f7a8dffad024d07dab21897f795df9a42fd641497b5af1246"
-    sha256 cellar: :any_skip_relocation, ventura:       "9a3d0c16f5c8466f7a8dffad024d07dab21897f795df9a42fd641497b5af1246"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "972613fc1d39ce5f710f2a94d13e1074aceee0426d4c0ff527b9b905e4fc4075"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "972613fc1d39ce5f710f2a94d13e1074aceee0426d4c0ff527b9b905e4fc4075"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "972613fc1d39ce5f710f2a94d13e1074aceee0426d4c0ff527b9b905e4fc4075"
   end
 
   def install

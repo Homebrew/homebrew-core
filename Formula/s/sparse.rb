@@ -14,6 +14,7 @@ class Sparse < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1812b2141b6a73fa59159ad4600fad73eced788c86121bada4c764f33c0d279f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "56f5a3f7e3acbbd57f46ef1bf435a2a5130d719dd9f28e3578eabe79097aef3a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b4bf9baccb8ffe407b9f59f8933d72d4676e08adbeffcd4f3dcea9c3b0db9ca5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1c53b9ca28fe2ce54ff72f0f9642289704ccae97868a2a90e2cb02095e8d7df"
@@ -24,18 +25,8 @@ class Sparse < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7c86940a523d15f63966df796fdea74176c02be7adc8c4071d2f60a194bd30af"
     sha256 cellar: :any_skip_relocation, big_sur:        "c858bb88d9f4d2d00da1d7498ee130a6d134b77a07d786d9b3906b74fedc90b0"
     sha256 cellar: :any_skip_relocation, catalina:       "a1517973190e2b8fdf21136344334ad757a0bd4fe24ab65c0846a4e5e64b26df"
-    sha256 cellar: :any_skip_relocation, mojave:         "a42c1376dca39a3708d3c070958e85b1dc50ddbf133b5a26055d4f314319f69c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "0c108dfd45b36b234fc6962ccf1b3f027185e34a904abcc162575d4e7e480b41"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c282a77e53c828abe22a69af0b1dd9cb124b333344f9be1b0f0f3d0a55a3fb0"
-  end
-
-  on_macos do
-    depends_on "gcc" if DevelopmentTools.clang_build_version < 1100
-  end
-
-  fails_with :clang do
-    build 1099
-    cause "error: use of unknown builtin '__builtin_clrsb'"
   end
 
   def install

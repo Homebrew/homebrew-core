@@ -8,6 +8,7 @@ class Jansson < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1f891f8b33008f64dfea6f0767ea864ac2425436416d39b6c3a138bd25956c4d"
     sha256 cellar: :any,                 arm64_sequoia: "2bc5197c2d2b866df7f529962479d0af3a81524fb84235c055d6a10ad21edd88"
     sha256 cellar: :any,                 arm64_sonoma:  "613dd35360b87dc3b327f0129ab3b0d5758b056ac1413adb5bd073a2630044b8"
     sha256 cellar: :any,                 arm64_ventura: "5d11fa69aa185323b0937cad8ed81a5159328c24acf171dd68ee5b3704c91eae"

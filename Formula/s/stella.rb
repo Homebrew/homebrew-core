@@ -3,19 +3,20 @@ class Stella < Formula
   homepage "https://stella-emu.github.io/"
   url "https://github.com/stella-emu/stella/archive/refs/tags/7.0c.tar.gz"
   version "7.0c"
-  sha256 "1b40955f24f3f1f00dff0f4cb46bc1cab4c5e1b9017521b525c5e304be554e3a"
+  sha256 "b9309198aa5746cd568e91caaea10bbeab4ca8155493d0243694b41bdb39d7ca"
   license "GPL-2.0-or-later"
   head "https://github.com/stella-emu/stella.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "01b8c2228d4e79fe4353b9a84ce3a25fb60dfe8a7616feec7909d0f6f9fa0aa2"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c4bd3b235c0bc7eed68982e3d7aadf17d7d0b576850043d14622ccda12f9a01"
-    sha256 cellar: :any,                 arm64_ventura: "9006d2d1c2a917ffb68711f4dea71afb2eafe4c3d0ebc4ad719d2523cdfabc4b"
-    sha256 cellar: :any,                 sonoma:        "a6538fcd6efcdd248764b6608f05f02a5589c820196d752af28501a873177959"
-    sha256 cellar: :any,                 ventura:       "fe04bbcb3564ebd30f3a507a1c488f4ef8ffb57c8da468f32ac73175e59dc5a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c87bac821cbd8b547480bd72554baa71fd960b5e60d662760f34c3c1e31a2bb9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5dd257952715ad8364652c9cdb0ef7e8cfab72f2f868273e7da13928ce8dc065"
+    sha256 cellar: :any,                 arm64_sequoia: "470bf4006df3634a8ee8d49e9424569f0a9bafb600a2e6c72c4a66f424013c5b"
+    sha256 cellar: :any,                 arm64_sonoma:  "0bb05c3c49f855456ae66086076ba5c51eaa4c146fbd34b688d98475dc8410dc"
+    sha256 cellar: :any,                 sonoma:        "4e137c751a90176b2ae74f8bf4b5d41d4bdc2250b5dd225ce3746483abb8a202"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "307f9ee104dcde3fe968406b3991cb49a0ea10f732c46ae9509a9dd96246ced8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b316ebff91f8c1c19294ba17cda529c4a929b16f5c38a9c2ffd815f5ae91e032"
   end
 
   depends_on "pkgconf" => :build

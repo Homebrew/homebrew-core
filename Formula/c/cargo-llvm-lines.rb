@@ -1,19 +1,20 @@
 class CargoLlvmLines < Formula
   desc "Count lines of LLVM IR per generic function"
   homepage "https://github.com/dtolnay/cargo-llvm-lines"
-  url "https://github.com/dtolnay/cargo-llvm-lines/archive/refs/tags/0.4.43.tar.gz"
-  sha256 "58c9f6c69c9087fd06b080e15db417a51b2cce5ba95e918ba5aab54a1e05e5a4"
+  url "https://github.com/dtolnay/cargo-llvm-lines/archive/refs/tags/0.4.44.tar.gz"
+  sha256 "43b19bb35fc8cc2eba8cd1904e6ba8d4eb6bbb64722af01f89e74234b79f5045"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/cargo-llvm-lines.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17e02af2de28cae6ab8b5dd0774ee297b4776d687be40bac8cd35f0b1e868c54"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0e208a2ecb1f3edc790957903156eab77e41c67fabfa31d3cd305117ab91e29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "df6fc4d9388eb172d3379a0f8380a9151e306ce9af2ace04a9dfca045ca281e6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4cbae977fce3fdc25587bf0ef474228bbb4c181aa32d1026bd90b47bfe4939ed"
-    sha256 cellar: :any_skip_relocation, ventura:       "f81cf79811ebe412c116240986f2b40baba795e689806937f7c2e0b4ffa98fe0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bbb1363f64e61bfc190bd1902fc56a2a62d1aa10d34494720826c0360618bf00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "163447bee1a6759aa0c7f375d939559dc7f8b19ec0cc4ee89c043b57426fa417"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "690fc40af096af31a37f387f0dbe1bf12ddb4e72b5105e9bc952d30ba8e9c950"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0004d7c8ac1eda8897277ac68c1c29f401e0b076711c540d48225b5f5b6948d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16d6dff93bfeb3598205e4e2972674518ea26848f3bbb5bb5b0ac0602a1ba9a9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "411a895f11a39cd4764abceb89de95f3c8aa7daa51b7044fcf2af0c06074f461"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1bd0ede6a26a46032c7885ce8a07028e8da0849ce40696d073d348cbad5fa348"
+    sha256 cellar: :any_skip_relocation, ventura:       "42e20c93e33593a79b2aeac50e6c730f071e92a6d13bb6369942c7435f6d2f6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c57759887253e2b829db1f9ef54db3a3fb28e599091f2d9178f636b77d0dfd78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "decd05763b9ee2e329b288c9893f826f6d8372c5334c9d2bf2e288ecdfcb3a1c"
   end
 
   depends_on "rust" => :build

@@ -8,6 +8,7 @@ class LibvisualPlugins < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "a9b39959db7f36a26c8ab16323abf734c9f9778ccc3bfd6e07ebef6c2287f39d"
     sha256 arm64_sequoia:  "0203c2ea44c5978e092b682a966a72ec4099bca267a56814bdcb1d350ffac738"
     sha256 arm64_sonoma:   "2f8be28190eb7037ae6b9d2022e52b97f9fd16f0b7ce663f12725fec703951de"
     sha256 arm64_ventura:  "09cc228afa0d75814145656bd4ccc19417bd91267f76e536a031e1e6774fd09b"

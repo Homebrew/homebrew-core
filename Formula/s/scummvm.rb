@@ -13,6 +13,7 @@ class Scummvm < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "1e1518b840350265526bab90fbd3469a669052a3598ade2dbfa2907c8806b978"
     sha256 arm64_sequoia: "af1a4656f89211d7be7b493ac7ad5db142b318058121c48f73f592272f019a22"
     sha256 arm64_sonoma:  "e5314b9eec38aaa5556d5481530573080028ad62a2bb54cd2a9e033fe290b876"
     sha256 arm64_ventura: "2c09fab2039ad292c9d2f1e2dd0f21c02fcfa7df5340037057d43a7814aeda56"

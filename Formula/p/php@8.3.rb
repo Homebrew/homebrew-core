@@ -2,25 +2,23 @@ class PhpAT83 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.3.24.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.3.24.tar.xz"
-  sha256 "388ee5fd111097e97bae439bff46aec4ea27f816d3f0c2cb5490a41410d44251"
+  url "https://www.php.net/distributions/php-8.3.26.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.3.26.tar.xz"
+  sha256 "2f522eefa02c400c94610d07f25c4fd4c771f95e4a1f55102332ccb40663cbd2"
   license "PHP-3.01"
 
   livecheck do
-    url "https://www.php.net/downloads"
+    url "https://www.php.net/downloads?source=Y"
     regex(/href=.*?php[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.t/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "0f491a55eb4ea7fa3ada487433e93d4c1bd76a3ca872fdeb2b11c46407921688"
-    sha256 arm64_sonoma:  "7cb77facfbd84c644a84b5bce3d0414427062d47b67e8551c3119a2aa9ebe37b"
-    sha256 arm64_ventura: "34313237a7456814f832f743b5feef1882914270c867d72a340ab500e624e9f5"
-    sha256 sonoma:        "6862b1d473a3c33693d20da465259336b11bfb2d868e8144edc53c01d8fcb4f3"
-    sha256 ventura:       "5d361db5f8cfd66690e3526589859440383df5e13a9ba188f9d4130c59011380"
-    sha256 arm64_linux:   "4085ac00cf78641b72c7c3bdcdf0673ffcf1c41ce32ad6e9e29b30f8047b5cfa"
-    sha256 x86_64_linux:  "9b884bd6228b7255c77ec9b68d0cb405120240579884e96d299e147616cdaf24"
+    sha256 arm64_tahoe:   "ae677dab003451799519da326ffe8f0fc22fa9045d643317569e71910fc93c99"
+    sha256 arm64_sequoia: "342f7b1c0fceb69b01f92391ea1c27ec75884643dbce0591b0fb1cbdfa3db3fd"
+    sha256 arm64_sonoma:  "9a870facdbe283f5eac0c4c58c84e01eb5e8fd9ec64636bb4dfc59a3b9438998"
+    sha256 sonoma:        "063d71302b7a971d3a3c4dc00ba39f9d904b3f0992327c5dacbe7401f680fe0f"
+    sha256 arm64_linux:   "622a3f7539e27b7eeb372ab5b29ffac9132797d558fa8f3bd7b9fa4fb86186aa"
+    sha256 x86_64_linux:  "e39062cd3b25510b1ee710e09af7cfaed65bafa6f0f8081c95181b4d184214c2"
   end
 
   keg_only :versioned_formula
@@ -57,7 +55,7 @@ class PhpAT83 < Formula
   uses_from_macos "xz" => :build
   uses_from_macos "bzip2"
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"

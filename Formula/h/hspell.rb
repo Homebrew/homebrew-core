@@ -14,6 +14,7 @@ class Hspell < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "a0c78516325cebda282510f1f2b02169c8f45055fb752055845617ebaac51664"
     sha256 arm64_sequoia:  "c40456d586f63147c43885dbad8c72e18bafae62f93305d96e29146465f053e8"
     sha256 arm64_sonoma:   "86f6240fcd352f4fe5579be572c0e50fb679b689b2e37e9c04c46ca485f8e6de"
     sha256 arm64_ventura:  "2fcc00698fda6279a021ece352de8c8c7597cabec4ae896416db031215e2dcbb"
@@ -24,7 +25,6 @@ class Hspell < Formula
     sha256 monterey:       "21abb651324e2e46eae76ae915efe203f198a7a74f7c9144b3d21060fc5a2dfd"
     sha256 big_sur:        "426c87d91350f33392c862296b5d1b0081bc953adae5c04a9769ebb2a626213f"
     sha256 catalina:       "a0406d5a4d5adefa40b5e820510a9b7f461fcea6a61112103c112775fff49ae8"
-    sha256 mojave:         "32e8037e9d494241b975c7558635456991285d53c9bbc89005cd6c86744f30e3"
     sha256 arm64_linux:    "8ad90f494f3f74249ff959d11f18ca5e5e5375f79630d768ed2d67889f1f1597"
     sha256 x86_64_linux:   "fd7cae8024a97aadce0f713008dba1f27e7254969f689a21c9501d42be84fcdb"
   end

@@ -7,6 +7,7 @@ class Rocksdb < Formula
   head "https://github.com/facebook/rocksdb.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c0849a4fa6fa14f7b4ffeefb1749b9d5f9e4578f3d977c9489b6b09958a9bc98"
     sha256 cellar: :any,                 arm64_sequoia: "c6ec910fd35ca436e07d692c87a553f8bc78188e3b0be2e76c72dd67be909bf8"
     sha256 cellar: :any,                 arm64_sonoma:  "a708ff21f1725664adbc090eb2d66014237cad3dd313a02fb307b888a2ba7f78"
     sha256 cellar: :any,                 arm64_ventura: "bca66432460b2a9e39c4b170a97ecc38d39af74729c2bbc25941bdd540ef15dd"

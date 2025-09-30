@@ -4,15 +4,17 @@ class Notcurses < Formula
   url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v3.0.16.tar.gz"
   sha256 "e893c507eab2183b6c598a8071f2a695efa9e4de4b7f7819a457d4b579bacf05"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "84131b1243f2e5549bb6447676154e3fdc89645af7878da42bb95db1e18a48cd"
-    sha256 arm64_sonoma:  "05b2fab227b9544777d87743dad78203723d947a11620770fea5e323ebd30ce0"
-    sha256 arm64_ventura: "2471d064f62373e83af6e105491d0b8d36a5f8acd178d52fe981a1d57dc096b4"
-    sha256 sonoma:        "f7e722cc893f7f1bfb9c4e83b5cabb3894767edfae89718a290c45fbc2c21032"
-    sha256 ventura:       "669e599e85ff4d89808b791fd3d001420e3f65526be3a278fabb0c2e9d46d94a"
-    sha256 arm64_linux:   "9029a9ffcb2f68d1f374df14b553ffb72cc9f613ed3a13b84916559838c44471"
-    sha256 x86_64_linux:  "f8861705f6f75c3ae9ce526d5fe1a3268ab72d6b31c185a31bfb91580cfeec7c"
+    sha256 arm64_tahoe:   "6dc2beca4ea7fffcfb4dcc6b40272b4d13483ddf7abcb6ba116426a1f81a4866"
+    sha256 arm64_sequoia: "7158c3e327b83e3e6158ce8888e9ce262031b5568d85fef9d42f319204da5100"
+    sha256 arm64_sonoma:  "d4dd41aacd4918ba1ac4f2ea244890f197401dbc20ee46dc496664400fddb19c"
+    sha256 arm64_ventura: "796aa7264d504e342713295a4b7928294d135991fbf78f3080f25ee29db59c36"
+    sha256 sonoma:        "b3a829f7abe1a6be02dacd945af1695612ea94875a852e96fd7959f03d8754c1"
+    sha256 ventura:       "7f3b611a052bd11205782096c416458dbda366707b9ddfc8c430e9b76bbd5899"
+    sha256 arm64_linux:   "519f43f891792abdaa467df59829657169bbde6ea32825a8a6b9d122a35d95dc"
+    sha256 x86_64_linux:  "00befcfe4e0d851f409847e4be62a6e4bcd739e17b83672a76cf8c9bae30906c"
   end
 
   depends_on "cmake" => :build

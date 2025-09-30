@@ -6,6 +6,7 @@ class AyatanaIdo < Formula
   license any_of: ["GPL-3.0-or-later", "LGPL-2.0-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d057f3cc3501c6a142003866281a9290c052086decc8167138488d6a7fc906f8"
     sha256 cellar: :any,                 arm64_sequoia: "4fed31960fa9d6d907fb7c6e283573b7a456abce909ed30d88e70bbaa9c88d9a"
     sha256 cellar: :any,                 arm64_sonoma:  "09913ff54d95db83cdacf1f026844761d2973a581fac4c4698ab46b97a7d016e"
     sha256 cellar: :any,                 arm64_ventura: "c415adf102890257e312cbf46e14e274819d513479c51bedef3ec4beb25c517b"
@@ -19,14 +20,17 @@ class AyatanaIdo < Formula
   depends_on "gobject-introspection" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "vala" => :build
-  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "harfbuzz"
   depends_on "pango"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
 
   def install
     args = %w[-DENABLE_TESTS=OFF]

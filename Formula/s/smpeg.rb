@@ -20,6 +20,7 @@ class Smpeg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "8b74893276266d73531cf99e6cb182bf238868d2d06c8a0051262ae15dd8a574"
     sha256 cellar: :any,                 arm64_sequoia:  "e7a1451326b54dd9107b43762c877fc91a8d9cb7fcae37aad8f4a354c98c56bf"
     sha256 cellar: :any,                 arm64_sonoma:   "d489427a87ed930d4d72e1536180d1781eb4f1f68992e5a2934c71df0dfbd7ed"
     sha256 cellar: :any,                 arm64_ventura:  "8023f2a680920c2c2184d38422b4111359ee56dad5a3fa5abcf66e06ebbc3242"

@@ -13,6 +13,7 @@ class Log4cpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "19e811fa5a096aafb80373ba53df0e7592e5e9471447173429d1201c5d2a077c"
     sha256 cellar: :any,                 arm64_sequoia:  "f8421676fbd3fc123bca6932dfe2d92f2eafaa4757a1a3d287260ea2fdb72e75"
     sha256 cellar: :any,                 arm64_sonoma:   "9dd6710dd93d90ad62742ef724afe56aab75d6686a7b67ba450945c96b64638b"
     sha256 cellar: :any,                 arm64_ventura:  "f742bcb2025862fa184116e5c431aab3da949bad797a8d4f9192549c154277a2"

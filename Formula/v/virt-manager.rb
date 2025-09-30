@@ -4,16 +4,13 @@ class VirtManager < Formula
 
   desc "App for managing virtual machines"
   homepage "https://virt-manager.org/"
-  url "https://releases.pagure.org/virt-manager/virt-manager-5.0.0.tar.xz"
-  sha256 "bc89ae46e0c997bd754ed62a419ca39c6aadec27e3d8b850cea5282f0083f84a"
+  url "https://releases.pagure.org/virt-manager/virt-manager-5.1.0.tar.xz"
+  sha256 "ccfc44b6c1c0be8398beb687c675d9ea4ca1c721dfb67bd639209a7b0dec11b1"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f205fecc48043b81764267e7c45904768ba5cfea45db5b6baac6fa86aecf8242"
+    sha256 cellar: :any_skip_relocation, all: "6a9031975c00c1b3ffa88be6dcae578062fe6bc082728e6eed5323b4fb6847f5"
   end
 
   depends_on "docutils" => :build
@@ -39,8 +36,8 @@ class VirtManager < Formula
   depends_on "vte3"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "idna" do
@@ -49,8 +46,8 @@ class VirtManager < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "urllib3" do

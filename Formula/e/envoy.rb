@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.35.1.tar.gz"
-  sha256 "bdd9d646b30a3d048f1ff6b2719f81b9e14c0e187950ea8f4812bf5207f42bfc"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.35.3.tar.gz"
+  sha256 "e0ce5722eaf82a9663f86c90c6351319096bce15fee72de545813b82be3add04"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -12,12 +12,14 @@ class Envoy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc4c484d8913a88d5036a25613ef80835e3817a23d5b7458b6532713d259d8c2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "934778c2d7d7796c3c312ed2163ae97366dd7977054e1a5d31d81dbdcb9fc260"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b7e98ccfe84f4373ae3e53a2debd76e12d71cb8db41cbb5264803daf1ffbd75"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bf89b41a6db2dad33020a8e8974fd1c646424667dd6ebde5f9c887ee7b19704d"
-    sha256 cellar: :any_skip_relocation, ventura:       "5193aee05fe54295e29def10d997f9854edcd4455683b011c5ea234a49fa16ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f420ac4cca2f1956d3556d74012ced602df25cf1e8cfa6eb0f51366d0e38d132"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca3b13a35c4694ba817ae8e3493900a3a1bf80b55aa4d7d97c0f10d6258cabd5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "960db95ad8234d221bec4594d5c14880ffd99c1b38c7b33dcfc82b2cef7a16be"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07e32107e2246c7cba2e451f87629743ea006337c791d84e8579e89999bc0cc2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "529a4b03f14bedffcfdfc8c739c43f10858098560f815da977cd481d18183141"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0e818f087fb2104e2c317c6321215cc09bc97c0ecb291036a275de7c7f625127"
+    sha256 cellar: :any_skip_relocation, ventura:       "13c64c6a70aa87f4df7c3dd87254745fe800e26aeb545ef4e55ab58769b76781"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "826187db8e9a9d43bc22a4b3acd068d1aee85026f64586ee9bce6b27547422e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "362ea90dc87ede34765d6433de6ea26bf6a2b46fc287c7cf29662902c553b3e9"
   end
 
   depends_on "automake" => :build
@@ -28,7 +30,6 @@ class Envoy < Formula
   # Starting with 1.21, envoy requires a full Xcode installation, not just
   # command-line tools. See envoyproxy/envoy#16482
   depends_on xcode: :build
-  depends_on macos: :catalina
 
   uses_from_macos "llvm" => :build
   uses_from_macos "python" => :build

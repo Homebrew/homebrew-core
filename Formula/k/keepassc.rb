@@ -10,6 +10,7 @@ class Keepassc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e4fcbe327da40de7a2497de403befd20f736b78e8947b2d70aee748daa29112"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2447d5f8a051b1d15efec850c60e58bd372e871270fe494c9a4882309783fc11"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95ceec5e889bfc089f375a75b99b516efdf0bfc88a09a2d0ddbee81c53812e5d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "86f49118750ea97315199c2d5b3822e27886649707d35705f51fca775654916c"
@@ -33,7 +34,6 @@ class Keepassc < Formula
 
   def install
     virtualenv_install_with_resources
-    man1.install_symlink libexec.glob("share/man/man1/*.1")
   end
 
   test do

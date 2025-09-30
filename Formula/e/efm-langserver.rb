@@ -8,6 +8,7 @@ class EfmLangserver < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "57061fc09229dcf958741bac9f8cb35a94fc8979252b642b9f34a7b651dee4cd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fec389284c49ce09101a88899c580d03ead74e23638a30284d903e3f4e5c8a3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fec389284c49ce09101a88899c580d03ead74e23638a30284d903e3f4e5c8a3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3fec389284c49ce09101a88899c580d03ead74e23638a30284d903e3f4e5c8a3"

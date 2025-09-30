@@ -7,6 +7,7 @@ class Mods < Formula
   head "https://github.com/charmbracelet/mods.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0ace82772dbc9bd679b85ea474a84ceee99e61dbedcf0cebbb400f0ab5fe3ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "679478d8a2130c41981b35df3755dc526696b284912031d86dc09f75db788fee"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "679478d8a2130c41981b35df3755dc526696b284912031d86dc09f75db788fee"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "679478d8a2130c41981b35df3755dc526696b284912031d86dc09f75db788fee"

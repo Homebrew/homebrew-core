@@ -7,6 +7,7 @@ class Evernote2md < Formula
   head "https://github.com/wormi4ok/evernote2md.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "94b86dd0f2fc910f5fd28bb8c6fb72aa3a8df7e0fb17e07842caf0c3cb55db78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4695d5deaf82ebc326e8fd8352df78e1bd0c152ee2019a15fc05b222aea70615"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4695d5deaf82ebc326e8fd8352df78e1bd0c152ee2019a15fc05b222aea70615"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4695d5deaf82ebc326e8fd8352df78e1bd0c152ee2019a15fc05b222aea70615"

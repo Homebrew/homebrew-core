@@ -13,6 +13,7 @@ class MenderCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ee2b581f8602959a93a3aa84c52c36d0ccf9ea1a2db7249d68e7131c5f6dba5e"
     sha256 cellar: :any,                 arm64_sequoia: "0f6684645028a62edf8e62d7dfb7845b7aedc474830345cea55e635abf7efe75"
     sha256 cellar: :any,                 arm64_sonoma:  "fe129f50a5e78d44d178a5e802e853f5de0e164a0dd7cb8642cd1bc08423e0c9"
     sha256 cellar: :any,                 arm64_ventura: "c76bb683aab7e297d331c780d81520a954fbcd3e331370290f0fd6ef8764738a"

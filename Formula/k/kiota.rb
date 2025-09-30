@@ -7,6 +7,7 @@ class Kiota < Formula
   head "https://github.com/microsoft/kiota.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a121774c91db47774e8a8ef325d47485ef9ba33c72671904126b104cce3d0a9c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e9c66c91f5ef2b18e89aa4ccec8417711a7fbf6485fd0585c59d19112a21743"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c038fe33ad77501ad5f09c7a7bb86194e51fb98b42086ff0b5ec20fd98b018a4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a2c910e355a8f1c101c4f91f7ec31d86270722e121090a5e1bbe1e48dc421c87"

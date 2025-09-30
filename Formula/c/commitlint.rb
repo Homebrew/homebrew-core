@@ -1,18 +1,12 @@
 class Commitlint < Formula
   desc "Lint commit messages according to a commit convention"
   homepage "https://commitlint.js.org/#/"
-  url "https://registry.npmjs.org/commitlint/-/commitlint-19.8.1.tgz"
-  sha256 "b87082a3113be1c2929db63d727d3765b92f89e103b966996e7cfc560315ef68"
+  url "https://registry.npmjs.org/commitlint/-/commitlint-20.1.0.tgz"
+  sha256 "d8872521d20a82e70e97afc4f46624d6a1d422b07830f32f80c14354805fd20a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a5060996ad29bdfaed43cc556cd7f361c3fb3fb4240fe0f8ed9b3e2634963ec9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5060996ad29bdfaed43cc556cd7f361c3fb3fb4240fe0f8ed9b3e2634963ec9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a5060996ad29bdfaed43cc556cd7f361c3fb3fb4240fe0f8ed9b3e2634963ec9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86842a5c386c604d290b3784bfc29310ee7bc4de1e6b3c71d5a4621947d8b35d"
-    sha256 cellar: :any_skip_relocation, ventura:       "86842a5c386c604d290b3784bfc29310ee7bc4de1e6b3c71d5a4621947d8b35d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5060996ad29bdfaed43cc556cd7f361c3fb3fb4240fe0f8ed9b3e2634963ec9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5060996ad29bdfaed43cc556cd7f361c3fb3fb4240fe0f8ed9b3e2634963ec9"
+    sha256 cellar: :any_skip_relocation, all: "3b1c7eaddcc640fe4440ef0c07ed9afb1b88dcd0c87593ca487fce4a355fd920"
   end
 
   depends_on "node"

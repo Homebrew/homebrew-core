@@ -1,8 +1,8 @@
 class Sysprof < Formula
   desc "Statistical, system-wide profiler"
   homepage "https://gitlab.gnome.org/GNOME/sysprof"
-  url "https://download.gnome.org/sources/sysprof/48/sysprof-48.0.tar.xz"
-  sha256 "1b0f0380f2f30708ba87829321a06fee1db36dfa87797bbf07f0a7acf4498d18"
+  url "https://download.gnome.org/sources/sysprof/49/sysprof-49.0.tar.xz"
+  sha256 "ff04139637785c841948862087a4323b981680d942296409321b574fcb282878"
   # See Debian's Copyright File. https://metadata.ftp-master.debian.org/changelogs//main/s/sysprof/sysprof_47.0-2_copyright
   license all_of: [
     "GPL-2.0-or-later",
@@ -16,8 +16,8 @@ class Sysprof < Formula
   head "https://gitlab.gnome.org/GNOME/sysprof.git", branch: "master"
 
   bottle do
-    sha256 arm64_linux:  "8d71d0c5219e39bfe151306a090bbd812721936eca47e9e7c1bc9b008e8c7a08"
-    sha256 x86_64_linux: "c3fa712ba388dd4a86358320e6c3055b56690979f9142f65f3c5c31e989a7182"
+    sha256 arm64_linux:  "f86b86f27faf1a06342ac5f68267ba53f0d0f2c30efd381e2d634d1cfa7429fc"
+    sha256 x86_64_linux: "19c001e65978cce0e22e3bb1880e986747bcb467124195ae9fd58e994c388449"
   end
 
   depends_on "desktop-file-utils" => :build

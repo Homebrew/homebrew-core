@@ -14,6 +14,7 @@ class RxvtUnicode < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "a71bfc4668e4e340ed591757fec08351dcfd734c86ad295d17c08eea98729ba3"
     sha256 arm64_sequoia: "1d23f1a4c263ebe7df9a0ee2163d6a93c9d4df1cc4263687da4de3851441a4f3"
     sha256 arm64_sonoma:  "9a582a19640cd577067cd9aec10962f9f744853653b514899707d7f1b6264c42"
     sha256 arm64_ventura: "1365ab0e69449f484abd3d5e36015b9c0fd0ea56719b6c31c8aaee2b9224bc3f"

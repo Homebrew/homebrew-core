@@ -9,6 +9,7 @@ class Analog < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "f7dcb27fbb927e223eb5de35e0121ed04978d431cbda451bc90d514db6f91898"
     sha256 arm64_sequoia: "cf6b6b5922287fd9aad880021dbc161e361b3e1a485ae29ebba5a205085c9bd1"
     sha256 arm64_sonoma:  "566c70a3d0443d7072dd51cacc8d0717fbc0d39d34c7a5ea2283b85238e565b5"
     sha256 arm64_ventura: "6165d65fc23d23b5abf3ee30b59ede9b9626de03259e6ce24779adb72870925e"

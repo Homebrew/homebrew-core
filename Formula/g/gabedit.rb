@@ -17,6 +17,8 @@ class Gabedit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d50f949dc32c409c6bc33b00840ceb7f85a31490b62155d6ea2a1788395e77bc"
+    sha256 cellar: :any,                 arm64_sequoia:  "4218b43130e1be48172b6935ac53abd245973a5a30f46d700b3bb848fed1791a"
     sha256 cellar: :any,                 arm64_sonoma:   "33b7438a8b87b09821c9924d7a5c0a473c95c7abd04189c570b80fc8eeb51bbf"
     sha256 cellar: :any,                 arm64_ventura:  "b2767fead690400c5b24a75122c4f951c02f440b19f8897534ae4af99c48f549"
     sha256 cellar: :any,                 arm64_monterey: "e92333006a163760d34133bbaaa646696c85028baf4e7773cc479a3191e72948"

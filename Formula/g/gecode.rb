@@ -10,6 +10,8 @@ class Gecode < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "d20e5321e265df0835a1fa079712f534b569c33e3fd30bb1b7510c3631210eaa"
+    sha256 cellar: :any,                 arm64_sequoia: "c214d22ca4f868b0daf0129e234a4dc2f53c86d0ff838ca0d03d8629366aeb1d"
     sha256 cellar: :any,                 arm64_sonoma:  "1ac6be371a0a82f7edd1a5468d8d5931b1a3cd1afb86550496017516a62299e9"
     sha256 cellar: :any,                 arm64_ventura: "b088d88dd7342d07bfa214dd0f955b1f846ce91c6d6eb479249ad21b99c244f7"
     sha256 cellar: :any,                 sonoma:        "10702edcc3d8e3b168846bf2d3126937c369b191dd6b859adc477af3540a2b9d"

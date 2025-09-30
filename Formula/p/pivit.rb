@@ -7,6 +7,7 @@ class Pivit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3dac5137cfcd0bcce589cb545b773578ffc80a463f3e3583b2067176e4709a06"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "10b9bdad1f60c409382076623452598cdd78a74aca0c8730a73017e615ce2889"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76b90fcb5fdd851b6343daaccf3e70bfc5d17e0a6286c73bb0a9ebf46ee96871"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fff9b3eb6c37d38e7dac30a5845b4dbe31ebfecec201a8136e82b364c21c8505"

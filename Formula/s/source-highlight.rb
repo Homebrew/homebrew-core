@@ -15,6 +15,7 @@ class SourceHighlight < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "e05f56b94a75e09f12a5653c3b48a960a72efba4f4c449e8f00967208f271e93"
     sha256 arm64_sequoia: "8cc450abef52155d24d50527365267af448fa9ebc15d8843e779fb46f0be96a9"
     sha256 arm64_sonoma:  "e44e2d57c3193035e2e2a81bb5b1a4a58e9d390679679e200ed8226967d20b81"
     sha256 arm64_ventura: "7dcd24af23b31fc601b91e87309186ec0bbfdd6de9df721f25c6d3bf1589ba99"

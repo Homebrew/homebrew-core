@@ -9,6 +9,7 @@ class Libaribcaption < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9eb1e545807e31a3efb83df1e8af4c443a2443ad726ee59b3132e6a05b7d6159"
     sha256 cellar: :any,                 arm64_sequoia:  "ee6159957adc5a0d51c97ea3ff269abb39c5eafb0a8bddf7c14033827f22a6d0"
     sha256 cellar: :any,                 arm64_sonoma:   "350944da4a91c77f3a44925b3f563b97b763f71c9a3ca42d0a6a47d064f27a8c"
     sha256 cellar: :any,                 arm64_ventura:  "b4ed009d3d15f9b1ea86896330e05298282388ebaf4865d9629416d0ee61c27c"

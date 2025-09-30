@@ -20,15 +20,31 @@ class QtAT5 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "114f6e5d992eb6e0ccc4228165021fd7dfa737b7546753159b8cb4f215c3c0d0"
     sha256 cellar: :any,                 arm64_sequoia: "71e99646e19f6bbfb49bef4ce5fb144967158846b6c63819f24f3769dba01570"
     sha256 cellar: :any,                 arm64_sonoma:  "37b737c30cd357390362d8b732b87a665f6f3d35b06d31951251e6e3616a37a9"
     sha256 cellar: :any,                 arm64_ventura: "7149d97837f5cecc2a773f32e855f059e7d92b1fe2502a142c97f777acb4fe66"
     sha256 cellar: :any,                 sonoma:        "18882946bb6b34ace4fae1fe0fd53bc94666823b1d8007c7add580d4128d8884"
     sha256 cellar: :any,                 ventura:       "2b768884998655899253a3887c8d01011bd609bc754c5ef897323af5cb4b361d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9907eed9a4529f6dbc095e09244c2fb124fc60bebef4489301cb1ad16456a462"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "343311cd12f13c145f45fcb608b4803a4aebbb1d78914ca7fcd2982feb50303c"
   end
 
   keg_only :versioned_formula
+
+  # Deprecating on expected date of Qt 5.15.19 open-source release which is
+  # planned for 1 year after the commercial release date of 2025-05-19[^1].
+  # Standard support officially ended on 2025-05-26 and Qt5 is now in EoS[^2].
+  # Any new CVEs found are no longer being fixed since commercial release.
+  # Also, we rely on Linux distro patches and they are planning removal too,
+  # e.g. Alpine[^3], Gentoo[^4] and Ubuntu[^5].
+  #
+  # [^1]: https://www.qt.io/blog/commercial-lts-qt-5.15.19-released
+  # [^2]: https://www.qt.io/blog/extended-security-maintenance-for-qt-5.15-begins-may-2025
+  # [^3]: https://gitlab.alpinelinux.org/alpine/aports/-/issues/17114
+  # [^4]: https://bugs.gentoo.org/948836
+  # [^5]: https://discourse.ubuntu.com/t/removing-qt-5-from-ubuntu-before-the-release-of-26-04-lts/49296
+  deprecate! date: "2026-05-19", because: :unsupported
 
   depends_on "ninja" => :build
   depends_on "node" => :build
@@ -40,7 +56,6 @@ class QtAT5 < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on macos: :sierra
   depends_on "md4c"
   depends_on "pcre2"
   depends_on "sqlite"
@@ -124,8 +139,8 @@ class QtAT5 < Formula
 
     # Use Debian patches for ICU 75+, brew Ninja and Python 3.13
     patch do
-      url "https://deb.debian.org/debian/pool/main/q/qtwebengine-opensource-src/qtwebengine-opensource-src_5.15.19+dfsg-1.debian.tar.xz"
-      sha256 "99d651dc5d9ea7af66888babdabc0435607938f1ecbd9b98e6cf4db363ed4e35"
+      url "https://deb.debian.org/debian/pool/main/q/qtwebengine-opensource-src/qtwebengine-opensource-src_5.15.19+dfsg-3.debian.tar.xz"
+      sha256 "38ef54e497ad0464950776b1055807d9e6b1a42aa0f8f76aa3b1323f7d59fa55"
       apply "patches/build-with-c++17.patch",
             "patches/ninja-1.12.patch",
             "patches/python3.13-pipes.patch"
@@ -177,6 +192,10 @@ class QtAT5 < Formula
     sha256 "4f433bb009087d3fe51e3eec3eee6e33a51fde5c37712935b9ab96a7d7571e7d"
     directory "qtlocation/src/3rdparty/mapbox-gl-native"
   end
+
+  # Fix build with Xcode 26 with backport from Qt6
+  # https://github.com/qt/qtbase/commit/cdb33c3d5621ce035ad6950c8e2268fe94b73de5
+  patch :DATA
 
   # Apply patch from Gentoo bug tracker (https://bugs.gentoo.org/936486) to fix build
   # on macOS. Not possible to upstream as the final Qt5 commercial release is done.
@@ -300,6 +319,9 @@ class QtAT5 < Formula
         -webengine-pulseaudio
         -webengine-webp
       ]
+
+      # Chromium in QtWebEngine needs hardware CRC32 support via `-march=armv8-a+crc`
+      ENV.runtime_cpu_detection if Hardware::CPU.arm?
 
       # Homebrew-specific workaround to ignore spurious linker warnings on Linux.
       inreplace "qtwebengine/src/3rdparty/chromium/build/config/compiler/BUILD.gn",
@@ -432,3 +454,26 @@ class QtAT5 < Formula
     system "./hello"
   end
 end
+
+__END__
+--- a/qtbase/mkspecs/common/mac.conf
++++ b/qtbase/mkspecs/common/mac.conf
+@@ -18,8 +18,7 @@ QMAKE_LIBDIR            =
+ 
+ # sdk.prf will prefix the proper SDK sysroot
+ QMAKE_INCDIR_OPENGL     = \
+-    /System/Library/Frameworks/OpenGL.framework/Headers \
+-    /System/Library/Frameworks/AGL.framework/Headers/
++    /System/Library/Frameworks/OpenGL.framework/Headers
+ 
+ QMAKE_FIX_RPATH         = install_name_tool -id
+ 
+@@ -30,7 +29,7 @@ QMAKE_LFLAGS_REL_RPATH  =
+ QMAKE_REL_RPATH_BASE    = @loader_path
+ 
+ QMAKE_LIBS_DYNLOAD      =
+-QMAKE_LIBS_OPENGL       = -framework OpenGL -framework AGL
++QMAKE_LIBS_OPENGL       = -framework OpenGL
+ QMAKE_LIBS_THREAD       =
+ 
+ QMAKE_INCDIR_WAYLAND    =

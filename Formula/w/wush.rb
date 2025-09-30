@@ -6,6 +6,7 @@ class Wush < Formula
   license "CC0-1.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5bcff816d0e78213a49c749a5053ad752b2d3c5bec1d8f3ac838352251c167d0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f21f69d5bc1c8bba9a85150bece42c5a97fbf473e39e3dc7c5dc5570e65e2c6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0ed64c9cde89d6a856e98bcb0509660ada93f676254560d12df8065e127de7c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c2320aac31be8d68acc3218db510cd3f91be381a695c01e5e8b6f9046e7569e4"

@@ -7,6 +7,7 @@ class TodoistCli < Formula
   head "https://github.com/sachaos/todoist.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7227b1cc7c159e9ff807f338f78eb623e9ee244e09eaed66ae5a78e4438a9c52"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b565b7bccb371408be79df4a27dd9cdf2d4338543986746de44b3db83f36046"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b565b7bccb371408be79df4a27dd9cdf2d4338543986746de44b3db83f36046"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6b565b7bccb371408be79df4a27dd9cdf2d4338543986746de44b3db83f36046"

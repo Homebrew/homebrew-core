@@ -12,6 +12,7 @@ class Sleuthkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2f05503ba819fabf434097defa4e8968471199abd9fc9ce1ade416c8f548c0ba"
     sha256 cellar: :any,                 arm64_sequoia: "4618433aefde7d203834d43f15b6a100f233c3e4173ef2fd1fe708d0fed22988"
     sha256 cellar: :any,                 arm64_sonoma:  "73615ba817ae871688f19a26e23d1751019862f4df4543af2f7d5b9006907c1b"
     sha256 cellar: :any,                 arm64_ventura: "ccb252574fbfa02e92dd5c708392d05ee5c4603e40162e03ea2129acb1ef4a86"

@@ -9,6 +9,7 @@ class Gomodifytags < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2bb3e43ab010627c5f030b08b5dda260dac10c5035303c9188eccaf2e0ab0e04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b7474e31cc4b65ec1f641c57a371aa13754a0044cfd63f611f29e594e799ea7f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6b8b61d88b7f280dce019aca484de7be64234a31ba3b20192e35f3c58dc5e0ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b8b61d88b7f280dce019aca484de7be64234a31ba3b20192e35f3c58dc5e0ac"

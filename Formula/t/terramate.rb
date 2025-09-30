@@ -1,18 +1,17 @@
 class Terramate < Formula
   desc "Managing Terraform stacks with change detections and code generations"
   homepage "https://terramate.io/docs/"
-  url "https://github.com/terramate-io/terramate/archive/refs/tags/v0.14.4.tar.gz"
-  sha256 "b5886254f5dea92808da89b27206c24ca67a5d28b4b9c4cc5934f0792b170d7a"
+  url "https://github.com/terramate-io/terramate/archive/refs/tags/v0.14.6.tar.gz"
+  sha256 "a63b312a0b6788b596119358bf0b18ff58f3145ff2bde5164077cfcacfe9b8d9"
   license "MPL-2.0"
   head "https://github.com/terramate-io/terramate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d794e083bebf7fe59bb2a1cea5c50f2625fba075811333d8a46e61f60f58618"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d794e083bebf7fe59bb2a1cea5c50f2625fba075811333d8a46e61f60f58618"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d794e083bebf7fe59bb2a1cea5c50f2625fba075811333d8a46e61f60f58618"
-    sha256 cellar: :any_skip_relocation, sonoma:        "69241d95d94372fb8f444c2abb4eba6a49f6e676534aa080950c6e65a90fad6c"
-    sha256 cellar: :any_skip_relocation, ventura:       "69241d95d94372fb8f444c2abb4eba6a49f6e676534aa080950c6e65a90fad6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92c9f62661d1c367a79aeb24794cff4fb899a9d2c7421a45b446e2b63ed8d7b9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3be6877a6c92382c42f737b1bb1ebd80f9452c2952cf48064f29f5037d0c363b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3be6877a6c92382c42f737b1bb1ebd80f9452c2952cf48064f29f5037d0c363b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3be6877a6c92382c42f737b1bb1ebd80f9452c2952cf48064f29f5037d0c363b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9cdde1b366f3b8ce20e98aac648821fef34b468de878b2516a8a6e325add1170"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0330efd8ebab02c27a45256d9b391fb2b27e4d6e47d085f2d08b9961117c0c5b"
   end
 
   depends_on "go" => :build

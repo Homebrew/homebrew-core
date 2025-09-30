@@ -17,7 +17,8 @@ class Solana < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e327904665e09bb0beb049379e085cdf2c7ecfec1af44fdfd8eb60c664777a5a"
   end
 
-  deprecate! date: "2025-04-27", because: :repo_archived
+  deprecate! date: "2025-04-27", because: :does_not_build # and :repo_archived
+  disable! date: "2026-04-27", because: :does_not_build
 
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build

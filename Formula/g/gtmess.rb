@@ -10,6 +10,7 @@ class Gtmess < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_tahoe:    "032661770161ac72df852e094fc8e45548d91740ff5f462563941972e31d374f"
     sha256                               arm64_sequoia:  "89e1ecfa7ac4a5fe6aeefeb3596be4602112e32ca6bd2a6de51da26abaaad0f5"
     sha256                               arm64_sonoma:   "2a4138a4ba629449a00d75128520da749d92a1baeb648a14d765072722a81765"
     sha256                               arm64_ventura:  "b900139985694c245c0211f9fea3ccdaa14fbde5094d7201bccb51029fd9ce41"

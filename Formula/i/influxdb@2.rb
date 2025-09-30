@@ -12,12 +12,12 @@ class InfluxdbAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c83ced195279f3f5134e04a84216de1a50a3c8a60e825f01959953aa98287c8c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "434cfeab9e6e075d1ec08bf368f875a74735d956fea39ac9d80c269a61199016"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d857c0839003f194f4a463701966e8145d67d9bcb2abff54fbbd339453919081"
-    sha256 cellar: :any_skip_relocation, sonoma:        "807fd104f6177a1517bf9ef17a99a62c0652b5cea921a566d96afdbe850ad5f1"
-    sha256 cellar: :any_skip_relocation, ventura:       "4b026a2dac86d5ee5112cf488458eb5e9ea294f8c1ba47f706d6a3ce50e3cb23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6aa7a273fb2aaad1f1cf903573710e1f25949c4bc5543b36058654b7fd92ff78"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "73407bba53e2cd8c4d15f10a1c0cb4dc3d3f1396f09292c926e75b04d797cd7c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29507ee2c4d7d0bbcb83dfb45e168a4c613a57d0aaeb1f378f9d0e44f223a933"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac9c07dba2be80e138d1366b96a819de10c0909fc6d80b89475fb784a0ea5751"
+    sha256 cellar: :any_skip_relocation, sonoma:        "66c5ae27e567c475874392643347addea7970ac720364ae690ff698c596f2d68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5fb80475b08420aa318194dcc9789961fa4722e651b17ed0c48abe3271cb873"
   end
 
   keg_only :versioned_formula
@@ -53,6 +53,10 @@ class InfluxdbAT2 < Formula
   end
 
   def install
+    # Workaround for `error: hiding a lifetime that's elided elsewhere is confusing` with `rust` 1.89+
+    # Issue ref: https://github.com/influxdata/flux/issues/5559
+    ENV.append_to_rustflags "--allow dead_code --allow mismatched_lifetime_syntaxes"
+
     # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
     # of the Rust components in the server.
     resource("pkg-config-wrapper").stage do

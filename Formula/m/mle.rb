@@ -8,6 +8,7 @@ class Mle < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f6b25000e7a6c630e4d82f5dbab514057fb7c07a419faea456ac3d732d304b29"
     sha256 cellar: :any,                 arm64_sequoia:  "800c452587c4c4ba8e4d97f36ce15a896b8be362999407378bc05a7f7089252a"
     sha256 cellar: :any,                 arm64_sonoma:   "c98cff80d60ca797855ae9258e40629692dc0faadfe49b7de393bfece8cc6d44"
     sha256 cellar: :any,                 arm64_ventura:  "ddeba783462112b24a7d5fbb7c29630207fdbb51a673ce8ec92faf612c4f077d"

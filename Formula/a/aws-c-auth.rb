@@ -1,18 +1,19 @@
 class AwsCAuth < Formula
   desc "C99 library implementation of AWS client-side authentication"
   homepage "https://github.com/awslabs/aws-c-auth"
-  url "https://github.com/awslabs/aws-c-auth/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "aa6e98864fefb95c249c100da4ae7aed36ba13a8a91415791ec6fad20bec0427"
+  url "https://github.com/awslabs/aws-c-auth/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "adae1e725d9725682366080b8bf8e49481650c436b846ceeb5efe955d5e03273"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "06df88080fcfaf6fe91a2c540b871a0c77a141ae1dbe8b73668e03eb55d0b67e"
-    sha256 cellar: :any,                 arm64_sonoma:  "0c3c13ae6687460c5f29617c7c486260d3bc39cc7a496cde5daa2f3c36e42dd4"
-    sha256 cellar: :any,                 arm64_ventura: "cf5e60be0f03a5525711c583ffd9c493a04a98e4826761cfd5ff14545ab8b69e"
-    sha256 cellar: :any,                 sonoma:        "49dfff5ac5771443df5b68926932e75f0a40a16843b4178ffcbac5112321142c"
-    sha256 cellar: :any,                 ventura:       "c317c5c9f21dfac42f85f26189bae9b63dc40930e013c18a56eb9b50318ce2b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75e6ac9faec17da32024b9facb7f1ff8ab418e069d3657ee98c3e73a96202384"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ad423d2062cee09491d1c0fcdbf1f9699bdaa65ec2072552108fa0ce2070f3f"
+    sha256 cellar: :any,                 arm64_tahoe:   "8a9ee4a866559d4b733e584ce1df655cc789f10507ea99e8cb4442d97bc11d42"
+    sha256 cellar: :any,                 arm64_sequoia: "628d7eff28d87830f9e3b8930a07db8786efd86566f7b861c1dad714a3628c04"
+    sha256 cellar: :any,                 arm64_sonoma:  "76e5d44197370eec47d2c553734288f1b1e167af6fe2725845eaed05949d849f"
+    sha256 cellar: :any,                 arm64_ventura: "6dbf23930d544c6aecb07e2c14cb68dfc16cef447d888d726320a555b2883004"
+    sha256 cellar: :any,                 sonoma:        "6254f9445b56eef471bf35b06b14f731d37834febf83c581b88a58550a607750"
+    sha256 cellar: :any,                 ventura:       "fd056f07750e90ab5f3b4871b401b4c28095ff1cede75da681547aeb2f4628bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "166b119a65f5f27402543f2b16167514f99d29f66980af5f98ced0085a122f26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "631d5a1f2d684dcbf46bbe001ec463e64ab543e894c10a5aa1e06db6bbf6b7ba"
   end
 
   depends_on "cmake" => :build

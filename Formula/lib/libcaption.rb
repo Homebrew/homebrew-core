@@ -8,6 +8,7 @@ class Libcaption < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6b01b50b312db2c4a258c41771e39ae602a435307d50f039271db16dde82edc6"
     sha256 cellar: :any,                 arm64_sequoia: "3caa51dc2443e50903bce510871e2b444a4210f4ead10eb695c85595fdcc0a6a"
     sha256 cellar: :any,                 arm64_sonoma:  "24753a2f8bb14c9656297ac1076355b453cd25d15b5c232cd19d0284fe3779de"
     sha256 cellar: :any,                 arm64_ventura: "0b05cc4c507fdc95934508289869032a6e6659ded4443ba327a69d0e7e50361d"

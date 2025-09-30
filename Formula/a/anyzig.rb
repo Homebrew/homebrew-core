@@ -6,6 +6,7 @@ class Anyzig < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f74daea7c5a9f79f1ea462b12ae02cc87f5651ad9cf7ccbe3a20095a4f79e714"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a99919f4b637901bae427daed3dddf878f9451e91478865002cdc69ce6cd76c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75f2f35ec40057c925cc718abdf3459c81579e48024ed7b6ca241411997dea35"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "24180b09b6c8af369b6477ad37ceabd6e852cce19f6e19a8442eec86fcf94224"
@@ -17,7 +18,7 @@ class Anyzig < Formula
 
   keg_only "it conflicts with zig"
 
-  depends_on "zig" => :build
+  depends_on "zig@0.14" => :build
 
   def install
     args = %W[-Dforce-version=v#{version.to_s.tr(".", "_")}]

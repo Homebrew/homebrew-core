@@ -10,6 +10,7 @@ class Mabel < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "960ea70939b5cd3392ea1390f43e87e9d2690a03ca8a2e602935dcc381a8df8e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1dd81700a7baedc7bca0ec9daa263464c693f57f56cdcbb57e2def3449207e01"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7bf38463d084fe08c99e94d6db50a410bba56792550bacb94e360246eba52620"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d9a2e1ca4eafe45d6cc7a28fe77631cc32dffaf3d766f4991cb467fd21ae531"

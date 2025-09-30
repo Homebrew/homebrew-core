@@ -1,19 +1,20 @@
 class Hatari < Formula
   desc "Atari ST/STE/TT/Falcon emulator"
   homepage "https://www.hatari-emu.org/"
-  url "https://framagit.org/hatari/releases/-/raw/main/v2.6/hatari-2.6.0.tar.bz2"
-  sha256 "bd98e4c1b218669087f579ab9491178f93e5409bb895b487c899d1f911e9603a"
+  url "https://framagit.org/hatari/releases/-/raw/main/v2.6.1/hatari-2.6.1.tar.bz2"
+  sha256 "b7dc09ebffc1b77da6837d37b116bc5a9b2fd46affff1021124101e3f6e76bc5"
   license "GPL-2.0-or-later"
   head "https://framagit.org/hatari/hatari.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "53dc32f79ae689f106dd520edfb9a1096f2869ad5ecd94b604c7a5fff49d73e5"
-    sha256 cellar: :any,                 arm64_sonoma:  "b98449909d4e40320d346e224bdc11b55b85fb809f60311ad7ab0369e6d3a8b1"
-    sha256 cellar: :any,                 arm64_ventura: "48724c5659b9125142ca27f59ee8de9d622cfc5b1595a0c11c76791dfb204859"
-    sha256 cellar: :any,                 sonoma:        "8a755dc9f4b831cae3643f8f90049ffaff37e4aa01f79f511180061dfdafcc48"
-    sha256 cellar: :any,                 ventura:       "497de1a56b32c1b9025561640690eeb1dc9f3e9172bcc64226e2205e8a8eec47"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6577252c5abd6e8832bd7985e2909a5617a9d78211815cabbae6fa16cb2cc83b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a13089841344519383fd7010393ebb0cb639eae84771c82f908e973776630d1"
+    sha256 cellar: :any,                 arm64_tahoe:   "a4f44d0f0dbbeb91103358654e2245b4fb5247d5a2f8a55bd0f12c5f4adadb11"
+    sha256 cellar: :any,                 arm64_sequoia: "ac0f9543aa27fd9ffb4f8c851aadd6580f422fb229b8c31dc97b22b103fbf92c"
+    sha256 cellar: :any,                 arm64_sonoma:  "a307fd095b1b81bc0f4eed6fbd8a38d391376a829f0c4a8e4ecc1a10e31273ec"
+    sha256 cellar: :any,                 arm64_ventura: "ba4c9fa53fa9fdb33a414bc684c5d5e49ed824048ebba965333a4b2c608d1cbf"
+    sha256 cellar: :any,                 sonoma:        "66661487e216585adfb19d06e8ca0a672e94de6e73266176c59135e10cc4dda1"
+    sha256 cellar: :any,                 ventura:       "b22ddd5646e89645736295faf54208b1a8463b05420b99511d48dc3d68dc5833"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "422f6cd17e5bd06a050e5555f962ca1c4292dc91a77c9128e9ae0383804e1368"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7beccd3db794c33686a6a57b6f96eb764e698dcc10bb0c24af17e1aa97c666a"
   end
 
   depends_on "cmake" => :build

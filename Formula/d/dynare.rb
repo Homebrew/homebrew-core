@@ -13,6 +13,8 @@ class Dynare < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "337cb317859a2d54947573d3ceb6b15b6074ce2a8bbbda18b997ca635321e47a"
+    sha256 cellar: :any, arm64_sequoia: "cc083236da7a4665d0599355a603f8bbc51de92cfb79f8bb4c4c55a54d52fb1d"
     sha256 cellar: :any, arm64_sonoma:  "f8e8a2c036bc5c3dae19b0c928936c424499bccf8059f1eb58e247ec349ba2ab"
     sha256 cellar: :any, arm64_ventura: "948c9c2169b07c7f69ba0b46dd85f84e7a6c6765a8aab7a5aff4a3c14cde8b61"
     sha256 cellar: :any, sonoma:        "ef2157fe6556619e676f697ef14dc59cdd815d8da820eb64e8d5dbd8c7d9e997"
@@ -28,7 +30,7 @@ class Dynare < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "fftw"
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "gsl"
   depends_on "hdf5"
   depends_on "libmatio"
@@ -60,15 +62,12 @@ class Dynare < Formula
       (buildpath/"slicot/lib").install "libslicot_pic.a", "libslicot64_pic.a"
     end
 
-    # Work around used in upstream builds which helps avoid runtime preprocessor error.
-    # https://git.dynare.org/Dynare/dynare/-/blob/master/macOS/homebrew-native-arm64.ini
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
-
     # This needs a bit of extra help in finding the Octave libraries on Linux.
     octave = Formula["octave"]
     ENV.append "LDFLAGS", "-Wl,-rpath,#{octave.opt_lib}/octave/#{octave.version.major_minor_patch}" if OS.linux?
 
-    # Help meson find `suite-sparse` and `slicot`
+    # Help meson find `boost`, `suite-sparse` and `slicot`
+    ENV["BOOST_ROOT"] = Formula["boost"].opt_prefix
     ENV.append_path "LIBRARY_PATH", Formula["suite-sparse"].opt_lib
     ENV.append_path "LIBRARY_PATH", buildpath/"slicot/lib"
 
@@ -94,12 +93,6 @@ class Dynare < Formula
     ENV.cxx
     ENV.append "CXXFLAGS", "-std=c++17" # octave >= 10 requires c++17
     ENV.delete "LDFLAGS" # avoid overriding Octave flags
-
-    # Work around Xcode 15.0 ld error with GCC: https://github.com/Homebrew/homebrew-core/issues/145991
-    if OS.mac? && (MacOS::Xcode.version.to_s.start_with?("15.0") || MacOS::CLT.version.to_s.start_with?("15.0"))
-      ENV["LDFLAGS"] = shell_output("#{Formula["octave"].opt_bin}/mkoctfile --print LDFLAGS").chomp
-      ENV.append "LDFLAGS", "-Wl,-ld_classic"
-    end
 
     statistics = resource("statistics")
     testpath.install statistics

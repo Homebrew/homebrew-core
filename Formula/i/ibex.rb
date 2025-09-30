@@ -14,6 +14,7 @@ class Ibex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f45581909cb2bb4d10fecb82ad0ab195da12a874e2d44e047c1f908cb73aa55d"
     sha256 cellar: :any,                 arm64_sequoia: "dca481e12df41f7d861b7ae1b0a88716e9cac0a46600b51dea4b7a0a1d37034d"
     sha256 cellar: :any,                 arm64_sonoma:  "e41ce1bb4c8e114058faa116a55aba86b39561a7a2d476d754e3313c1d2eca0f"
     sha256 cellar: :any,                 arm64_ventura: "320e1ba86d12bb05b290160e0a383fb235ead88eaec42db08b64e36ea7497902"

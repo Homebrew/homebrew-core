@@ -7,7 +7,7 @@ class Ffms2 < Formula
   # The FFMS2 source is licensed under the MIT license, but its binaries
   # are licensed under the GPL because GPL components of FFmpeg are used.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 3
   head "https://github.com/FFMS/ffms2.git", branch: "master"
 
   livecheck do
@@ -16,15 +16,14 @@ class Ffms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "03575bd3c5cd87878dc46b92f96f7e0b16ceca81b69492d2968cf596ad93778e"
-    sha256 cellar: :any,                 arm64_sonoma:   "13954ff5340289c90c5db2366c1893cd48b30c62a65625df74a8df0e3340a891"
-    sha256 cellar: :any,                 arm64_ventura:  "64fc6597466170a7d8c595ab3a3c9b56005f5a47c571111944012aa7dbd1e047"
-    sha256 cellar: :any,                 arm64_monterey: "563a1537a4c8573205e5ca1bdaf03928c5dac901ecbdd9a2a85b6a51a300e2a1"
-    sha256 cellar: :any,                 sonoma:         "8d659a7c438d83d9894c177e6f3b66aaf77535732761f9fc8db04aa4c2837f6a"
-    sha256 cellar: :any,                 ventura:        "5fd68b4056bbc5a74134479eff08729bbb9cc0c3bcd0f4917236feaea232ae62"
-    sha256 cellar: :any,                 monterey:       "61cd167e26cca0414ba2d91c7d09a2a9cd7056e845dc67b1f3136ebddb28abd3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b6e2a5fe97997d41e4ad36b30bd08e240eeec11805dbdf6ae9b01c70bc559892"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c34b82acbfacbdddbf99efb5fd55d7b6e2d27498f76e62f354d275af69da706"
+    sha256 cellar: :any,                 arm64_tahoe:   "4285d9a074aa6adcc2e730826d000cbeb436d9d8bdb4f3a97842aec6044a6ab9"
+    sha256 cellar: :any,                 arm64_sequoia: "6c3ddf23bef180ecf0857ade1201c7b1be2d0365f522139d0435ca0614fb9962"
+    sha256 cellar: :any,                 arm64_sonoma:  "fbe96279b730758d03155384f195087776ef5899dbac5a1af12d19b77185494c"
+    sha256 cellar: :any,                 arm64_ventura: "c198b047753f0485fab0eb7ffb9a7330c9222dc8e216842843f68c9c840b161b"
+    sha256 cellar: :any,                 sonoma:        "615383651f78749b3156ef5ed50c88358a84c147c5bf03633f344f9278f479d5"
+    sha256 cellar: :any,                 ventura:       "22cf1f6df4187feb8230aaf3a872490867b70877146b328a931610a1a283a0e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b95e619235ff30a48caebe4853bc67adb485f38221aa12ffe68fdac2175bae0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "552d905d96b635d3fb0814e25e70d8f7f58438dc02f8d3321f576c697861af32"
   end
 
   depends_on "autoconf" => :build

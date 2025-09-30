@@ -6,6 +6,7 @@ class Sshs < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2443c66fec7f7bfb754004d9a1770583c4ecd3788e267733a5f1d179aef82fc6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c8691620baa73fad3c9d41b66bb555b49018b5a4026f78b8ebfc24b726b3a8e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "438e736bbae8e0aeeac0f5b1e9833fe59601e8f94aad84093a2bf6ad7b4f3e8d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dee907cd51f13ea86e5ff1905ab59f896f6896a06fe8ce5da239719638bc0061"

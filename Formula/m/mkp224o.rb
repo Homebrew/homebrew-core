@@ -9,6 +9,7 @@ class Mkp224o < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "4963af60f493125859687fd0ccdba625997d92d403d90849813a909bd3143a62"
     sha256 cellar: :any,                 arm64_sequoia:  "49b44c366d873465aa731abd4896cbd43d0b4697084cbc2c1b00e69a92ce1d79"
     sha256 cellar: :any,                 arm64_sonoma:   "76a0f038b57586fc90bdb0688520d308e207f11902a9479a81d8149049c9f418"
     sha256 cellar: :any,                 arm64_ventura:  "9251236b842079b87786a0ff3db1b19ff11dba9b78aecf07635842f2494e0ab4"

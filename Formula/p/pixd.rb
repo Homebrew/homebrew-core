@@ -8,6 +8,7 @@ class Pixd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00a4d99285c81b2948df43e3e25515596d12980af8f535419d1665ba77b5ef33"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c41c69c03c8f20507a9014e41e7e02cc6813abe0c919ae40a16f82e0b01fe899"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d31f44763a25c242c3b0c55433e3c3615e61b1db85dd3729fab3f69468661b0b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "04df14dafa37644469c807bd9d00fe86ff95186bb8e068fcbc01bc7b0ce95acb"

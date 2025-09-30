@@ -6,16 +6,8 @@ class Jscpd < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e98285802ac160668e23cd901cec1b45ff0d66fbbaa7e9e4ea1798b317dcf180"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "541ad78931d710438b9489495ff9c534354286e397e20b9c5998af960512d04c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "541ad78931d710438b9489495ff9c534354286e397e20b9c5998af960512d04c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "541ad78931d710438b9489495ff9c534354286e397e20b9c5998af960512d04c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2e76cf1e82fe5ae1995207ff03b8ef0856452f10febcb7b00305897b8e20bc8a"
-    sha256 cellar: :any_skip_relocation, ventura:        "2e76cf1e82fe5ae1995207ff03b8ef0856452f10febcb7b00305897b8e20bc8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "2e76cf1e82fe5ae1995207ff03b8ef0856452f10febcb7b00305897b8e20bc8a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "25641d2af5043374c2dc7fe30d38290923e380fe2673219e8d9320afa3d87c79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3659994d220039eff175732b7ba2d5cd3c0213e6ff2d4129e2b9b3b93611efe1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "8472b1d0c9e380790a51810478a6620ecd7dca78216743f8240331c12f8558b3"
   end
 
   depends_on "node"

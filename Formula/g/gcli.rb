@@ -1,19 +1,20 @@
 class Gcli < Formula
   desc "Portable Git(hub|lab|tea)/Forgejo/Bugzilla CLI tool"
   homepage "https://herrhotzenplotz.de/gcli/"
-  url "https://github.com/herrhotzenplotz/gcli/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "d5024ffe77cdd482bfef8a0652285ce7a087d21c0e3ab9df821fc43565743538"
+  url "https://github.com/herrhotzenplotz/gcli/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "8dc15c917ee4442432dacdc226abc469e7e28a068fffc4d92c1c1ccbcc386658"
   license "BSD-2-Clause"
   head "https://github.com/herrhotzenplotz/gcli.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2ee08d1373d2499064b4517a6c7f45417b038760225ec08a6a7bfb808cb0a7fe"
-    sha256 cellar: :any,                 arm64_sonoma:  "4a49e6b4e096f1f3b18bca384dbe31bf2bb87dafc73b9e93e305efe5b68164b9"
-    sha256 cellar: :any,                 arm64_ventura: "9e59f53d2961339dc80707fea298b53a08c6878394c869610511c42086fa093b"
-    sha256 cellar: :any,                 sonoma:        "2d36090b72facfba829e0c6794f5ba899f219695f7a23f2c4c7fce6de611e7e9"
-    sha256 cellar: :any,                 ventura:       "49c5783f3e053707f650b2a4d1713b04d06e657517487bfcf017130a708241e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6138729b4d1b55d52616dc6e819c1418ffd1a58c41ec9a02be7f00e06702882a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5852a7a4dea782cf9ba7d0d9c0fe1be0b874661429cc8d81e3169861b76f057a"
+    sha256 cellar: :any,                 arm64_tahoe:   "61e49986f4a05c2f350567c523198272a75ea193ea35ee7f1f0a43b37527828f"
+    sha256 cellar: :any,                 arm64_sequoia: "ec6206908dcc72271e908e15bf83903772b2daafd26436684f9ba59b437f4298"
+    sha256 cellar: :any,                 arm64_sonoma:  "7f23f53fbb12c73c5ad1749ab30c327459e6ed2100326993889ed1601d6348d4"
+    sha256 cellar: :any,                 arm64_ventura: "3188b97d42c609ce2f1ce0756d9f032991168e38ff44ca2724d3011c03bcb9a9"
+    sha256 cellar: :any,                 sonoma:        "56a29e14204ab8e5f5a9386cbdd5cda4aca9240b74d65a1a045822d9415b4dc9"
+    sha256 cellar: :any,                 ventura:       "e9eb9b3886cc7e31b62c9bef9c233bc456e1a6da9775af8c95d1d1178243063e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6119b5ffb187b33e03a282e905c01883f5fa79905100671d33e332ab9ba97ee7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8174c05f29ea815d65eab6b10e1c65d5179b14bae06c3767d5070093dc62a9f4"
   end
 
   depends_on "pkgconf" => :build

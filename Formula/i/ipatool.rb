@@ -7,6 +7,7 @@ class Ipatool < Formula
   head "https://github.com/majd/ipatool.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1e6c058d9f541092451cca81e074ba818289b762e5a6c48017c7d745abe0310c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d108282c96e19011ef57d18b0515746bc9d8207cbc6dc6e4bed2abfed460be72"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c16dab82815f8d00fc1a42710e183f428c8b5cf84d224890bfcfd6f292a8b426"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8e91289591a8fc30fae2288c79fc25ff14c586c3a169f58c88f2a8a1f654b666"

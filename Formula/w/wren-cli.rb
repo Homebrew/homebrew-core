@@ -8,6 +8,7 @@ class WrenCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "94398558d4e785bfeaf83be6aeec15896129441f07d3226003521bf882a1a200"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "09debbe79f6af18ccbb0f2a4aabf117cfa7b3a33fb455fdd7b943ab8c8e399ce"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "228ccca95d81d073708b4b53278b5fa8a2d4a070c4a0c613cf3eb7181d26ba64"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b957b7b11199a05f30c2b5fcaea97cdb2cc2ac212b3e6633e51e2f4b5820a53"

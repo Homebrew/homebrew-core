@@ -36,6 +36,7 @@ class Texlive < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "0a817335de9a8d015b3704af15dae9ae11cd99629b41be84f7a4698d43bc2a0a"
     sha256 arm64_sequoia: "dbb0b1a2a0b1d06263f2fe4e1b386cc2f682c4ab3a5d399b65cbfb3ce33ce4eb"
     sha256 arm64_sonoma:  "e071d59282304b7664e026649c7b9d83df65202d5a558f0064cc58ee1415c03c"
     sha256 arm64_ventura: "bf3f81f2101f658532f917b49cdb220c21e6b5465f27f0fcdefa4b361d0f119c"

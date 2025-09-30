@@ -8,6 +8,7 @@ class Htmlq < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "10400c86049f0533ce50d31348a73cfbed969c2143c5080c674b962378b6d81e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dad7b90fdb9cf7781efc52510275c94be20072923755c429fcbc72f0101fbc7d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e2a2cabca03421c79492a6928576d7e6282ce001a17e278b89335f37717d29ff"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b48cd78910d620c598a8102cc8801f0155b8aee452440b6f6d965e931488906"

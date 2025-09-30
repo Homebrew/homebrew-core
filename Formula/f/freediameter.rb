@@ -13,6 +13,10 @@ class Freediameter < Formula
       url "https://github.com/freeDiameter/freeDiameter/commit/da679d27c546e11f6e41ad8882699f726e58a9f7.patch?full_index=1"
       sha256 "123fe68ede4713b8e78efa49bfe9db592291cc3c821bbdc58f930a1f291423b1"
     end
+
+    # Bump minimum required cmake version to 3.10. Remove in the next release.
+    # Backport of: https://github.com/freeDiameter/freeDiameter/commit/45106adf3bf4192b274ef6c5536200a0e19c84f2
+    patch :DATA
   end
 
   livecheck do
@@ -24,6 +28,7 @@ class Freediameter < Formula
 
   bottle do
     rebuild 2
+    sha256                               arm64_tahoe:   "5eafa2b1cff32588e446f38812e5d28bdbbdc3efca9c5d04d3d8c75aadc63c1a"
     sha256                               arm64_sequoia: "3a0fdc3ba68de137c1c7565a2bf1952cf239c35717276e185ef2c57d8f042a0f"
     sha256                               arm64_sonoma:  "77cce28c5fae584b97aefe1d124bf14da292e5f40f62a4bfccb4b545feecf9f8"
     sha256                               arm64_ventura: "a0a2bb922fe5286a90703eaf346ab465702d3bb43040b11f4c49f2b4296ec768"
@@ -43,10 +48,12 @@ class Freediameter < Formula
   uses_from_macos "flex" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DDEFAULT_CONF_PATH=#{etc}",
-                    "-DDISABLE_SCTP=ON",
-                    *std_cmake_args
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DDEFAULT_CONF_PATH=#{etc}
+      -DDISABLE_SCTP=ON
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -83,3 +90,54 @@ class Freediameter < Formula
     assert_match version.to_s, shell_output("#{bin}/freeDiameterd --version")
   end
 end
+
+__END__
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,5 +1,8 @@
+ # This file is the source for generating the Makefile for the project, using cmake tool (cmake.org)
+
++# CMake version
++CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
++
+ # Name of the project
+ PROJECT("freeDiameter")
+
+@@ -19,9 +22,6 @@ SET(FD_PROJECT_VERSION_API 6)
+ # The test framework, using CTest and CDash.
+ INCLUDE(CTest)
+
+-# CMake version
+-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+-
+ # Location of additional CMake modules
+ SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+
+--- a/libfdcore/CMakeLists.txt
++++ b/libfdcore/CMakeLists.txt
+@@ -2,10 +2,7 @@
+ Project("freeDiameter core library" C)
+
+ # Configuration for newer cmake
+-cmake_policy(VERSION 2.6)
+-if (POLICY CMP0022)
+-	cmake_policy(SET CMP0022 OLD)
+-endif (POLICY CMP0022)
++cmake_policy(VERSION 3.10)
+
+ # Configuration parser
+ BISON_FILE(fdd.y)
+--- a/libfdproto/CMakeLists.txt
++++ b/libfdproto/CMakeLists.txt
+@@ -2,10 +2,7 @@
+ Project("libfdproto" C)
+
+ # Configuration for newer cmake
+-cmake_policy(VERSION 2.6)
+-if (POLICY CMP0022)
+-	cmake_policy(SET CMP0022 OLD)
+-endif (POLICY CMP0022)
++cmake_policy(VERSION 3.10)
+
+ # List of source files for the library
+ SET(LFDPROTO_SRC

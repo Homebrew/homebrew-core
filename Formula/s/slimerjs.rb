@@ -10,6 +10,7 @@ class Slimerjs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9e5d50e6a167227e13f88b3d46bc768854aa70b897597d3ab5f9389bff389cd8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "28448d431b342918fa343fd2fc2d89663927395d35e0f5c20d16f8038c2f298e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "67d28bb3031d3480c7d871cc10299334f80046ddb665db2445faedd82c43f26a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "67d28bb3031d3480c7d871cc10299334f80046ddb665db2445faedd82c43f26a"

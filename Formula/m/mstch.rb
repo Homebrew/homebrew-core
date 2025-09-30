@@ -9,6 +9,7 @@ class Mstch < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "de05bbbd99f8eb688ae2cd08287796eddbd6774bed8f27945cc818e8a1aee27a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "437c22d289926bc83d04a407aacb2673331d7bb27165a6c17af2994febc67c02"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f20877158629504b39573ded1a2dd06de78cd1de916eb10fdfadaddee5dca44"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "de4dc750e2737a8745de171858fc53741ee2625540f3ed64516f5afd9a8abc6f"

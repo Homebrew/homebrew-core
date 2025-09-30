@@ -13,6 +13,7 @@ class Prips < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c6ebfff5e1dc46e910a96a6c503115aa7b8774cdb74593bfa0b06fe3aa3ecb12"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "119d431a378f96585d6d92857c3dbf524cca2bad9e993d81763015f2e876ebf5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4824dd5010e37dd1c8dd3689fd00b7a7bc861aa229ce86bb67d14e814832f3a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "154be43d4c20994c4d9dccf42241280a8303ec678d8bc7cd75d8c13eec590809"

@@ -15,6 +15,7 @@ class SlsaVerifier < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1894c97875cdd077017dc18d069ddf767793ef292b5244d0362f0026f16ae0f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bcf61ec25f8d27700570040901164ae290b194cd0da63fa2e6468d45964d2774"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bcf61ec25f8d27700570040901164ae290b194cd0da63fa2e6468d45964d2774"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bcf61ec25f8d27700570040901164ae290b194cd0da63fa2e6468d45964d2774"

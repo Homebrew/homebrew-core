@@ -12,6 +12,7 @@ class Packmol < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "39a5804df674e0ba5343fc09a4fc9cf258f19f4d417c082533329adc5ae8e3fb"
     sha256 cellar: :any,                 arm64_sequoia: "49b9c7b2d7757a9646cbded50378cf20949504ae5dbbaed8792be5271b848924"
     sha256 cellar: :any,                 arm64_sonoma:  "866657ca34b08c498c0dcf3a9de38ded338958917264edea2b8a7f8c95c394d9"
     sha256 cellar: :any,                 arm64_ventura: "1d737174c4898e515ed2faec71c803bf50063a9d114f400c6fcb974caa04897e"

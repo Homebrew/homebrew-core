@@ -1,8 +1,8 @@
 class Limine < Formula
   desc "Modern, advanced, portable, multiprotocol bootloader and boot manager"
   homepage "https://limine-bootloader.org"
-  url "https://github.com/limine-bootloader/limine/releases/download/v9.6.1/limine-9.6.1.tar.gz"
-  sha256 "fc601e671d9286d0be568a8d3bf481f07e242cb81d2c073f440195c45e8899b7"
+  url "https://codeberg.org/Limine/Limine/releases/download/v10.0.1/limine-10.0.1.tar.gz"
+  sha256 "ecff0dfc7a2695e4019e8697e92e55ecac17d46615218ed7914614f57a3d8e59"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Limine < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "caf878d72bbf94b1a28fcddc6b6ba872706a2caeecc0893857c7d5dcecacbbc9"
-    sha256 arm64_sonoma:  "83efc6bf1d9e157ec60c0f44d3f35bd2a8cc1154522e18bf684882d6ca7c7750"
-    sha256 arm64_ventura: "796635d212764907c095db379d794c07d1cc7df053cae58d430a9772edce2bcc"
-    sha256 sonoma:        "77fcb7dcaf579f91b338e5f691e96b6d26e4dada722db7470810678a562534a9"
-    sha256 ventura:       "63d866853e3a42e81cc65011730e9f378fa29343ebb32acd6f8d43d060c7da26"
-    sha256 arm64_linux:   "dc500f5149014d2f5d14b53e33865691f583bacb78e62c2397ed306f46dddd1c"
-    sha256 x86_64_linux:  "1a428b6b0900945e3c10b4668a1a06c0c03dc97b477e7049385fe08aafc85391"
+    sha256 arm64_tahoe:   "0602d9600e386b6962e03ab74b03bfd7458655885325284df1da7c600c1afa8d"
+    sha256 arm64_sequoia: "1a4bde484d3b4fc4f7aff02579de3a483ad9b5caf95097639197818c88d69b18"
+    sha256 arm64_sonoma:  "a5c02fb54239d3a079429962ffdae0d91e653d6efb8291aefb1fc67495fb22f5"
+    sha256 sonoma:        "bcaa672472d7e0da9c40f789220734c2c4aaa6c74d66b469b9ea56b965e2fe37"
+    sha256 arm64_linux:   "ad82ee8fded7b180986a34f5569215e3dc24d1dbd794da0a42d971f902bfae69"
+    sha256 x86_64_linux:  "b880e528c5e99a86f1dca881c57656840ac72b0807254db9f7c346ee1a4965fe"
   end
 
   # The reason to have LLVM and LLD as dependencies here is because building the
@@ -36,11 +35,11 @@ class Limine < Formula
     # build system's defaults for the target tools.
     llvm_bins = Formula["llvm"].opt_bin
 
-    system "./configure", *std_configure_args, "--enable-all"
-    system "make",
+    system "./configure", *std_configure_args, "--enable-all",
            "TOOLCHAIN_FOR_TARGET=#{llvm_bins}/llvm-",
            "CC_FOR_TARGET=#{llvm_bins}/clang",
            "LD_FOR_TARGET=ld.lld"
+    system "make"
     system "make", "install"
   end
 

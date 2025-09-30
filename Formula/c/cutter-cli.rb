@@ -14,6 +14,7 @@ class CutterCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "5fa63f1c85779a4f91a45834ccadbdc6556835450629e0d27ef207a2ef241047"
     sha256 arm64_sequoia: "97b85e3b955dc03407167d3278b8c2a1154847746b8be0966cd2651f32133db8"
     sha256 arm64_sonoma:  "6c6164fe937606eeeaafa7a2a8cd8315f6b529d28e1b3da1d2995d9a4e8b7ec6"
     sha256 arm64_ventura: "ee484be0a35af855d8f9b5c25e1b841ef8e1781f7d9d7bf8c248969ae0600ff1"

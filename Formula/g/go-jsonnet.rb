@@ -14,6 +14,7 @@ class GoJsonnet < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71970a3746e1df0623b04394d223a551253fc3fa2af026885d976f85df469def"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1da0bff35201dd30f0992b3a4d2be4dcf4081a8ece97e8841cdc56202ce9f5f4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1da0bff35201dd30f0992b3a4d2be4dcf4081a8ece97e8841cdc56202ce9f5f4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1da0bff35201dd30f0992b3a4d2be4dcf4081a8ece97e8841cdc56202ce9f5f4"

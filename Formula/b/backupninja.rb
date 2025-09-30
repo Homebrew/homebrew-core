@@ -13,6 +13,7 @@ class Backupninja < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8d1b80fa729900bd76aef820cc86234a063da66ab9ec44dc9e5350535092953a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9200901794d73bd35ef083d40452e6c1b740c43634c97d5df84b1771a66d61ca"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dcf6a2f362c138eeda64773965a94b261c63dc8850cd15bd3063f0ad840614d8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ce80b2e23b07df75d4d11651c7c819c27ab5673189114aa72da8f28f96e2732"

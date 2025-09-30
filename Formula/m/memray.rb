@@ -10,6 +10,7 @@ class Memray < Formula
   no_autobump! because: "`update-python-resources` cannot update resource blocks"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cfa7ddf4a2e1c5fa3960a358f097217cce818f1f5a488d9945bcbbc466cc592e"
     sha256 cellar: :any,                 arm64_sequoia: "cd0439fff78a5c49d5cea6e7321a9b7404991438c23776f681691867ade37f88"
     sha256 cellar: :any,                 arm64_sonoma:  "b5ea82255520487810154a5cf20db5e833473c0174d88eba6eedf686335c2d23"
     sha256 cellar: :any,                 arm64_ventura: "0a8536ebe247d7ed088dd1e5e954237ffd8f42f29ee3efea216e1fb769ce1ef2"

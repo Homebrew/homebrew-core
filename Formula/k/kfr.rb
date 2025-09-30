@@ -1,18 +1,19 @@
 class Kfr < Formula
   desc "Fast, modern C++ DSP framework"
   homepage "https://www.kfrlib.com/"
-  url "https://github.com/kfrlib/kfr/archive/refs/tags/6.3.0.tar.gz"
-  sha256 "3b2eb54edb9c1ba6d30648b47d11bd445cda4883052d592801bd5482f837162c"
+  url "https://github.com/kfrlib/kfr/archive/refs/tags/6.3.1.tar.gz"
+  sha256 "800f8e782fb514176c06526792ec766b718a7b91c73e9d07efe47dff6cb0816d"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f55aaba2eab81cb37a798078dd940d89590c15327473edef5abdfa28f32af62c"
-    sha256 cellar: :any,                 arm64_sonoma:  "34b3de4092d55c946029829a8c923ed7fe893e0f2e8e18050bb2fd2a57566900"
-    sha256 cellar: :any,                 arm64_ventura: "65bdd9219429167fc07d9c974d88e7faeb22af98878c69e28ffb631bbbd757db"
-    sha256 cellar: :any,                 sonoma:        "935b85e599083ab9cddc5bb831f2fa976da58b6e3e19e583b6419fde3adbae49"
-    sha256 cellar: :any,                 ventura:       "5dc75948e82a91673d319c707a3a7812cc1b8a3308cfd99140bb6196e23d0184"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "19670895a52cce3460bf091022db24b08b133a69d7d7991bb4b5090cc60716b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db226859f3d46b4836341f1a479d3cc4cf7a0275b9960f6cc116643d587a9151"
+    sha256 cellar: :any,                 arm64_tahoe:   "9d65fd46b2a018d8c3883abe488d59b72d8a00d460cca2ce3b9104c5d28c19dd"
+    sha256 cellar: :any,                 arm64_sequoia: "4a40ed9aa7acf145d621cd8f9be785ceb4c407c3a643f6c8b6660b165669bc61"
+    sha256 cellar: :any,                 arm64_sonoma:  "87c79c3fd421eca89036c1a8388f3854712b2d95c33a32f05201acd2bae6aa98"
+    sha256 cellar: :any,                 arm64_ventura: "c543be773e9fb85454d10caa84ba4376bc3ec7754d23666492b9b9cc7a8d32b1"
+    sha256 cellar: :any,                 sonoma:        "28e2d7452615d264273d80a987f467afdd97c6226319300b5a996eb9e8b22fcb"
+    sha256 cellar: :any,                 ventura:       "ed5e474cf383ffa11c93bcf1d8f29bf698e5124c67b77c35566d1dd2741a9c26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "132ef75675095a38000e4438b30fe114160f6ece8669d96074883fde5ce1b586"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4af49f21a57943e0891c293c7cb6948d0d04ac04c9f4691bb57889c7416df32"
   end
 
   depends_on "cmake" => :build

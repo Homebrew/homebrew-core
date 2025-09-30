@@ -1,8 +1,8 @@
 class CaCertificates < Formula
   desc "Mozilla CA certificate store"
   homepage "https://curl.se/docs/caextract.html"
-  url "https://curl.se/ca/cacert-2025-08-12.pem"
-  sha256 "64dfd5b1026700e0a0a324964749da9adc69ae5e51e899bf16ff47d6fd0e9a5e"
+  url "https://curl.se/ca/cacert-2025-09-09.pem"
+  sha256 "f290e6acaf904a4121424ca3ebdd70652780707e28e8af999221786b86bb1975"
   license "MPL-2.0"
 
   livecheck do
@@ -11,8 +11,7 @@ class CaCertificates < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "80f4508a2a5711fcabeeaafdeebb88c9eec6b0e834e75f47b837ffe3da60c7d3"
+    sha256 cellar: :any_skip_relocation, all: "a74a274a402f29cff2e1bb595a5253c20d7503a086175d57f7081821540203ce"
   end
 
   def install
@@ -70,10 +69,8 @@ class CaCertificates < Formula
         -l -L
         -c #{tmpfile.path}
         -p ssl
+        -R offline
       ]
-      on_high_sierra :or_newer do
-        verify_args << "-R" << "offline"
-      end
 
       valid_certificates.select do |certificate|
         tmpfile.rewind
@@ -96,7 +93,8 @@ class CaCertificates < Formula
     end
 
     # Now process Mozilla certificates we downloaded.
-    pem_certificates_list = (pkgshare/"cacert.pem").read
+    # Read as raw bytes to avoid locale-dependent encoding errors
+    pem_certificates_list = (pkgshare/"cacert.pem").binread.force_encoding(Encoding::ASCII_8BIT)
     pem_certificates = pem_certificates_list.scan(
       /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
@@ -121,7 +119,8 @@ class CaCertificates < Formula
   end
 
   def load_certificates_from_file(file_path, trusted_certificates, fingerprints, certificate_type)
-    certificates_list = file_path.read
+    # Read as raw bytes to avoid locale-dependent encoding errors
+    certificates_list = file_path.binread.force_encoding(Encoding::ASCII_8BIT)
     certificates = certificates_list.scan(
       /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
@@ -169,8 +168,7 @@ class CaCertificates < Formula
     (pkgetc/"cert.pem").atomic_write(trusted_certificates.join("\n") << "\n")
     ohai "CA certificates have been bootstrapped from the system CA store."
   ensure
-    # FIXME: the steps above can fail. We should handle them properly.
-    # https://github.com/Homebrew/homebrew-core/issues/233206
+    # Ensure a PEM file always exists, even if the method exits early or fails
     cp pkgshare/"cacert.pem", pkgetc/"cert.pem" unless (pkgetc/"cert.pem").exist?
   end
 

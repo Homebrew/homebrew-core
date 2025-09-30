@@ -1,19 +1,21 @@
 class Minipro < Formula
   desc "Open controller for the MiniPRO TL866xx series of chip programmers"
   homepage "https://gitlab.com/DavidGriffith/minipro/"
-  url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.7.4/minipro-0.7.4.tar.gz"
-  sha256 "dce22dade7fe4a5ad8435b12789144b00c6084e66573b6741402be9f08a53331"
+  # GitLab tarball is keep changing checksum, so we use git tag
+  url "https://gitlab.com/DavidGriffith/minipro.git",
+      tag:      "0.7.4",
+      revision: "3808aecb6a1dac9906a9691b93820ee1bd2b7a18"
   license "GPL-3.0-or-later"
   head "https://gitlab.com/DavidGriffith/minipro.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "93bad4be0c8bb39e8707ebef6f8fc43c176fa07c573dc5a971134fdfcc697675"
-    sha256 arm64_sonoma:  "553ab778520a770ff7df88c2c0d323f043eb9241dcddbd05fdb06375aa58bf00"
-    sha256 arm64_ventura: "f27c290ca12621d5962e05d0397e311593bc871aaf8b48f5dabcbf8c57192103"
-    sha256 sonoma:        "93eb653bcc554d74f65f4371450426697d60e633c4a94d8b3a253154b708b088"
-    sha256 ventura:       "228ae433c60a5e5526e28c3c8b3bb0a5f2cd2a52bf90dec81dcbd020e7e91c27"
-    sha256 arm64_linux:   "4cf366ab146403086b8084de6e4efdba7fba0e241242753b07d0b54cb0e9b218"
-    sha256 x86_64_linux:  "c87438811f0d2e3a65ddf525a813aa72d1744bcbbfa983bb6b19361997bbceb7"
+    rebuild 1
+    sha256 arm64_tahoe:   "13bf4c41ff4d6891b353ade71ac5e25c879392ea605a29bc9354cff9acc28702"
+    sha256 arm64_sequoia: "4becb73379ef89e434edcf54f3e268649586ccbdee7dd9f85436eaa757aad47c"
+    sha256 arm64_sonoma:  "06cc2da2326ef31264e060e8168e8b3920355a36cd53bb6769b234d1cb1110d7"
+    sha256 sonoma:        "82ce14e63986e7851eafbfc4c24594275432b1546bee2ecc1f4b08a07d12b717"
+    sha256 arm64_linux:   "9f93a79729a8b337f24fc62ea86bbfb0788f32efd553a69025da0598914a5654"
+    sha256 x86_64_linux:  "46837cebd883c96a26d4d3b89aaa4790e737e3b75cd9c82d9bbdea0a11cb0259"
   end
 
   depends_on "pkgconf" => :build

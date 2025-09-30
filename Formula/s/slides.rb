@@ -7,6 +7,7 @@ class Slides < Formula
   head "https://github.com/maaslalani/slides.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3abb6c16fba8fcf299fba222be2ec0cb00cd3eec6f76feb45e13b13e6d79d68f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "755ccfe47079714863054effd6f18d4da28b579895c56d69ba4abd506c2c65d1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d474822334c4c065d42e7c81de42e4924afca758106f358cdd755e454c13be84"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "335ffbac50cfea46abb4afa92116f16c1d351d77deb103a19e6434b11d2a540d"

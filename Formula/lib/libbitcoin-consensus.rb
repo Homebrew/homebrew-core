@@ -8,6 +8,7 @@ class LibbitcoinConsensus < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a208eab2c355028b035129dac7a3f1316dff9cec8d84aeee74a0ffc66fc94ac4"
     sha256 cellar: :any,                 arm64_sequoia:  "0becb75eb0a0540a4cb6554887c3b345777278ec8ed8e5fafd76057722c755c6"
     sha256 cellar: :any,                 arm64_sonoma:   "12ab6ca60756919e7347031905778cf42151bc6d5294cf9826a7341a69c6b3dc"
     sha256 cellar: :any,                 arm64_ventura:  "495b1ee3bc1d01755b48ced48c019b2bf40f1361c529a1186c66449801f25708"

@@ -9,6 +9,7 @@ class GitTrim < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "b2df67fcfb532c34628ba780201f8e3b226e3072a1a6b5f1d61ba3205d11df18"
     sha256 cellar: :any,                 arm64_sequoia:  "f74019b2881c6a2defd6d3dbe28b2f8763d0a720c938d6e1d160b40d6d201ecb"
     sha256 cellar: :any,                 arm64_sonoma:   "df64036ef7f8b4accecdc1219ba8a3f926b00bf05583782c028e878565dd1ee6"
     sha256 cellar: :any,                 arm64_ventura:  "3f230f99015946e53ff857649b92fc82ebdc01d53aabb1698379a6428056a304"

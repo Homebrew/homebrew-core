@@ -6,6 +6,7 @@ class Ludusavi < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9b5866495e7a0f813836dc1388427ebf274df7cc2eebda85502f9acaf583a738"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7c3a1659aea16888d65dd44b04a5736feaa9a9694b2da1fdf374f184c8a505b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a6d6e9fc1a8e8ad4623a7c1de10c853154e9cf27c1e29c9c15db9976f8dc821"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "08182afdde260dca52f78cc5963030cb3e592c0b8aa98c10a2f2a5fec90d4bec"

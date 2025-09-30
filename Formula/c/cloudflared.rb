@@ -1,18 +1,17 @@
 class Cloudflared < Formula
   desc "Cloudflare Tunnel client (formerly Argo Tunnel)"
   homepage "https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide"
-  url "https://github.com/cloudflare/cloudflared/archive/refs/tags/2025.8.1.tar.gz"
-  sha256 "803d3e162dc91da6b3b4f7961f57c113fa818d45517758511f72d254d68a46ba"
+  url "https://github.com/cloudflare/cloudflared/archive/refs/tags/2025.9.1.tar.gz"
+  sha256 "384283f05e55560e71d844991d3adbe7e2acaa278ce063b0c7efc84db8ec3849"
   license "Apache-2.0"
   head "https://github.com/cloudflare/cloudflared.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f7bdeeb4121bb1f2c53a8bba24df51ae40089d7074726311ed28f06125bf4822"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2d6e365dd1ec7d0887f74f26f37a4c8425131aaf718796946af1eb8fcffe1cc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fadbadccbc819b855ccb7b60e2d20844eb040e71703074f2f09f251e684ac1c5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3b47709d6b02a98998d79995e5fd4fa3ece11a37cb83d0771e617abae7e1b354"
-    sha256 cellar: :any_skip_relocation, ventura:       "6ce4268e9f23517ce28279334fc06496999bceb1cfad0db8cc8c9c316c693a4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf14be2e115acb01ec7d725a0b6e3db2015dd179ba2d7d03848358a24370a229"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b4f95149382b0f06a7d11affc5d7bfa78dafb9be59e976e592338fc71ab715e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86fa5a859f5fe98c5355c41acf895d1c5e23b4c6d3767085014d8674233dc879"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cba71bf2d79ac8d7180d6b54aebd91575a8937d470988a88fc6bcd9da94c89c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f1f8e46b1dd1d1777a6568fb7ba16949d1169f1c212f6aa86e96d3ba0c00a6ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31601dc399ad3971ab637ae47ee71c740fc220e1c4bb70e770390ead615d20a0"
   end
 
   depends_on "go" => :build

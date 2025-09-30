@@ -13,6 +13,7 @@ class Macosvpn < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b5eb27f50fea31e5fba9f320ee8a43ce8a1a393507a9a892864712fd37f73f5e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ac4947917a99f3fd96ac3a81a6dbe18be590d25df2bfef024dd0c3e564e9b1b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "35c57637ae70f1265c5cc8df4f370e89eb5fcc441bda03ce4c6b3c294d498899"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba041bd58d4f5a2c58e25ba148a1e9381e0c1f9144661f3f0c0e039f0140c993"

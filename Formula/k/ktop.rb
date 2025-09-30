@@ -7,6 +7,7 @@ class Ktop < Formula
   head "https://github.com/vladimirvivien/ktop.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "252307b332540ba696c6505029238c94612545818e7e83e86bcc00377a26bf8b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "027dd9fe6e8c9262a6f176f434ae26498d648e301228fb5175b3e14f8c38bdd6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9bf858232d6da1e26d1b2a1c3686212d271699c9911559ed2ca3854b417e90b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2c1af4cffda80d7b6912272713b2ea7f6d2ec8c0f8b88309a858b3d4d138d959"

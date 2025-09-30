@@ -7,6 +7,7 @@ class Frotz < Formula
   head "https://gitlab.com/DavidGriffith/frotz.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "ebf6d67e2019ef8eebb2917725a5d3e981e3638769b42da1e31ac0ba0c54714e"
     sha256 arm64_sequoia: "624ff5dacf69ae3388d0c62040b5a5bd96efb74998e858b0050677fbbf1ef85a"
     sha256 arm64_sonoma:  "b60c0567651c1c60ca575897dd34211f12b4c88d99d7b21e18af209e81c4a44d"
     sha256 arm64_ventura: "3b4a5db73230793ae6dd4a1bad5625f8c680e35d64dd5abc7481cb8c5445ff8b"

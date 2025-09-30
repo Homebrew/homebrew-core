@@ -9,6 +9,7 @@ class AwsShell < Formula
   revision 7
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "dc721d3dd2315f261dc9e68cb218af83b0dc72fa16d2cbeb05a278e62faaaeb3"
     sha256 cellar: :any,                 arm64_sequoia: "778c3c225df6ca360277f1c7213af46622acc28987a7a36b11ad3afc1085f07b"
     sha256 cellar: :any,                 arm64_sonoma:  "2fb0be31f58936ac4a8efec47e90266b5de81dadd8d24f53d6c0ba91be75a624"
     sha256 cellar: :any,                 arm64_ventura: "8958273c3f70e0cbfba81ba95d7993635041f7bd8b71ebea0b92fe66519ad0ca"

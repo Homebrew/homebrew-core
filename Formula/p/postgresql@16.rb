@@ -11,6 +11,7 @@ class PostgresqlAT16 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "994f7912b6dfae6fc975e161a2725117d9352631ef5ab904d910d4fe928f1bb5"
     sha256 arm64_sequoia: "b6e8f2ffba3864fa850098012c06985070fa072dd064556fced474f75c4675b7"
     sha256 arm64_sonoma:  "9c51fc08440834e4b03ef316bdc34426ffe0aeca236f988d57a24ff66839abaf"
     sha256 arm64_ventura: "f88f749d44840fd98f2d88887f548838acece0b91c891f663d59eeb8c549c053"

@@ -1,9 +1,9 @@
 class Kea < Formula
   desc "DHCP server"
   homepage "https://www.isc.org/kea/"
-  url "https://ftp.isc.org/isc/kea/3.0.0/kea-3.0.0.tar.xz"
-  mirror "https://dl.cloudsmith.io/public/isc/kea-3-0/raw/versions/3.0.0/kea-3.0.0.tar.xz"
-  sha256 "bf963d1e10951d8c570c6042afccf27c709d45e03813bd2639d7bb1cfc4fee76"
+  url "https://ftp.isc.org/isc/kea/3.0.1/kea-3.0.1.tar.xz"
+  mirror "https://dl.cloudsmith.io/public/isc/kea-3-0/raw/versions/3.0.1/kea-3.0.1.tar.xz"
+  sha256 "ec84fec4bb7f6b9d15a82e755a571e9348eb4d6fbc62bb3f6f1296cd7a24c566"
   license "MPL-2.0"
   head "https://gitlab.isc.org/isc-projects/kea.git", branch: "master"
 
@@ -18,13 +18,14 @@ class Kea < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f0e83d9140f20f6355907c13ff072dfe70132db802effe8d485b8cb01e1ef2d2"
-    sha256 arm64_sonoma:  "bf539cf6840a30b7b4b4fec39e24e63118cabb9c0035d9c3b36929d725df22c0"
-    sha256 arm64_ventura: "5ba48075f58961f427074a7b828dd18a5cf1b1c20015a009b25ac77db2c84e82"
-    sha256 sonoma:        "a94f296cdd03ec1b144daf89a0d39784c690faacd60dc1d58a3adeb0ce6de845"
-    sha256 ventura:       "1e0e8f7dc19a6e593793d59ff68e56efb5b7e78a7e0c4db8c43eba4bb888e820"
-    sha256 arm64_linux:   "b0bc98ac3a87fd3b035560adc0b6ebaa58b329026b9887f2de464dfbc32f9800"
-    sha256 x86_64_linux:  "4eda8328fcd0007696b0e3effd87578eab7b118bc058e4be7c6b2d5cda41f44a"
+    sha256 arm64_tahoe:   "27111e61fb34f56bda0d838b35ff76584ae1107f86c418d4ac5e6d2dd19d741e"
+    sha256 arm64_sequoia: "a0a5b7453df2b1268d9a169fd4038eaeec0b1927a33666d55007a11814ce3f5c"
+    sha256 arm64_sonoma:  "51deee455cf31915852f855c6d9b693b05e3448a01abe36435eba8ee48797c4e"
+    sha256 arm64_ventura: "3a3f166dfc98ee179e54f5ff4c844e7bd59435a93c9d11771fb98700a702afeb"
+    sha256 sonoma:        "c403d0f93390d854fac900001d242d4e4fc6e9d451390cbd2e7bc54ce6acdb90"
+    sha256 ventura:       "1c9c7c3f3d2425e84fc6c917aa9b84ae86f6210c92161278391ba4d18aabbd3f"
+    sha256 arm64_linux:   "16e8c3806ebf07dd4fd910211e5fc29abe2c46f4d75240be2cd03fd03dfaf30c"
+    sha256 x86_64_linux:  "e479046d56e9d10f7e90843b7337c6318b5c7c8bf1dd17815c65845fe9e94c36"
   end
 
   depends_on "bison" => :build
@@ -36,11 +37,21 @@ class Kea < Formula
   depends_on "log4cplus"
   depends_on "openssl@3"
 
+  # Workaround for boost >= 1.89
+  # https://gitlab.isc.org/isc-projects/kea/-/issues/4085
+  patch :DATA
+
   def install
-    # the build system looks for `sudo` to run some commands, but we don't want to use it
-    inreplace "meson.build",
-              "SUDO = find_program('sudo', required: false)",
+    # TODO: We probably also need to `inreplace` the following so they don't install in the prefix:
+    #   - LOCALSTATEDIR_INSTALLED
+    #   - RUNSTATEDIR_INSTALLED
+    #   - SYSCONFDIR_INSTALLED
+    # Report this upstream so they're not forced to be inside the `prefix`.
+    inreplace "meson.build" do |s|
+      # the build system looks for `sudo` to run some commands, but we don't want to use it
+      s.gsub! "SUDO = find_program('sudo', required: false)",
               "SUDO = find_program('', required: false)"
+    end
 
     system "meson", "setup", "build", "-Dcpp_std=c++20", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -54,3 +65,37 @@ class Kea < Formula
     system sbin/"keactrl", "status"
   end
 end
+
+__END__
+diff --git a/meson.build b/meson.build
+index cedc949773..aed020ebb2 100644
+--- a/meson.build
++++ b/meson.build
+@@ -189,7 +189,10 @@ message(f'Detected system "@SYSTEM@".')
+ 
+ #### Dependencies
+ 
+-boost_dep = dependency('boost', version: '>=1.66', modules: ['system'])
++boost_dep = dependency('boost', version: '>=1.69', required: false)
++if not boost_dep.found()
++    boost_dep = dependency('boost', version: '>=1.66', modules: ['system'])
++endif
+ dl_dep = dependency('dl')
+ threads_dep = dependency('threads')
+ add_project_dependencies(boost_dep, dl_dep, threads_dep, language: ['cpp'])
+diff --git a/src/lib/asiolink/asio_wrapper.h b/src/lib/asiolink/asio_wrapper.h
+index a33c56f2d4..e1ae6e06f6 100644
+--- a/src/lib/asiolink/asio_wrapper.h
++++ b/src/lib/asiolink/asio_wrapper.h
+@@ -74,9 +74,11 @@
+ #pragma GCC push_options
+ #pragma GCC optimize ("O0")
+ #include <boost/asio.hpp>
++#include <boost/asio/deadline_timer.hpp>
+ #pragma GCC pop_options
+ #else
+ #include <boost/asio.hpp>
++#include <boost/asio/deadline_timer.hpp>
+ #endif
+ 
+ #endif // ASIO_WRAPPER_H

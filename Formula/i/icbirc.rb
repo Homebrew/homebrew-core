@@ -11,6 +11,7 @@ class Icbirc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c998f5270b13a3a5db9e45e5de4caa5be03068f0d4a2aaa01de14a2269cf696c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4246015b1c291cb3a55226ca562a4af17b4898367b94995842d093d39f679c7a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69f5a69f48564c553cec8b3239d2d85b06799d3a92ff590bea143a4a52041a4d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bbc895f1f9d189f480b198d6b21cfb19058ad162640c26563370fdca83d4d3e1"

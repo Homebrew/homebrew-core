@@ -9,6 +9,7 @@ class Libb64 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3b92d742579da7f5934e8b7d99144b42167ff17b40144299d86924f828148368"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "210e5acb036ffda3a85af650cdcbda27c8ca804cb099d556a1dfd4779ec17fb7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7471a04a5dd363f1ee8f2ee6c215cb99760698a34c73a5a6ce0dbefd519a66a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "899db1753787af2de66e4ac321d5d750190a8357576611d59644eaa9ed0f852f"

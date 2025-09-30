@@ -8,6 +8,7 @@ class Libxfont2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f84c9f3936c3d9dd694e0dee4ba95df511a20845cacd570774700c9d0cc5eea6"
     sha256 cellar: :any,                 arm64_sequoia:  "692143371069bb49c4db0055757354b42f2475b34339c0617ec4f1fa92db8e73"
     sha256 cellar: :any,                 arm64_sonoma:   "e33dc088fa4e022dd975f35be2e3f9c6d6f431e8d7b8aa17b6f7e3f2b5db1448"
     sha256 cellar: :any,                 arm64_ventura:  "2857c874fab6fa57a282960550eeeaf8e5d2cdb36533bb64e313eb458e03dac4"

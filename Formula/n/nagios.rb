@@ -11,6 +11,7 @@ class Nagios < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "85acb132e68bd3e6ce2ee9b136dc771c6f5e22799d6b0122c3456671e7a64c33"
     sha256 arm64_sequoia: "9646c0ff39a620deeddb386028b140930d4204e62dd67e68d158774c4825c542"
     sha256 arm64_sonoma:  "c9d84510322c0b776b886faf0fe4fb2b1d238a8203751aeb47d18f4875370473"
     sha256 arm64_ventura: "a2fbf4c911c2de1b1d135ef9a29882e21a1f6d7e5ccad4f5dde1d5138a72926b"

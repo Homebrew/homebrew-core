@@ -10,13 +10,8 @@ class Yewtube < Formula
   head "https://github.com/mps-youtube/yewtube.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ea82ac26fb9703af32934e6b6ac71f7f5c9a178a0be897d238c507f9afeec5e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ea82ac26fb9703af32934e6b6ac71f7f5c9a178a0be897d238c507f9afeec5e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ea82ac26fb9703af32934e6b6ac71f7f5c9a178a0be897d238c507f9afeec5e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7ea82ac26fb9703af32934e6b6ac71f7f5c9a178a0be897d238c507f9afeec5e"
-    sha256 cellar: :any_skip_relocation, ventura:       "7ea82ac26fb9703af32934e6b6ac71f7f5c9a178a0be897d238c507f9afeec5e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbf2ad3b093e73d86c4876171f925aafef56c81989ae951e8ca9192315bd22d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbf2ad3b093e73d86c4876171f925aafef56c81989ae951e8ca9192315bd22d2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "468a2a7b3b80060923cb3b0fc29ec08a4259677ab8421c4376ee3e3dd2ec3e90"
   end
 
   depends_on "certifi"
@@ -25,13 +20,13 @@ class Yewtube < Formula
   depends_on "python@3.13"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
-    sha256 "673c0c244e15788651a4ff38710fea9675823028a6f08a5eda409e0c9840a028"
+    url "https://files.pythonhosted.org/packages/f1/b4/636b3b65173d3ce9a38ef5f0522789614e590dab6a8d505340a4efe4c567/anyio-4.10.0.tar.gz"
+    sha256 "3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "h11" do
@@ -65,8 +60,8 @@ class Yewtube < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "sniffio" do
@@ -85,12 +80,15 @@ class Yewtube < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/b7/fb/588a23e61586960273524d3aa726bd148116d422854f727f4d59c254cb6a/yt_dlp-2025.6.9.tar.gz"
-    sha256 "751f53a3b61353522bf805fa30bbcbd16666126537e39706eab4f8c368f111ac"
+    url "https://files.pythonhosted.org/packages/40/98/b077bebdc5c759a3f7af3ed3a2a5345ad1145c61963b476469b840ac84ce/yt_dlp-2025.8.22.tar.gz"
+    sha256 "d1846bbb7edbcd2a0d4a2d76c7a2124868de9ea3b3959a8cb8219e3f7cb5c335"
   end
 
   def install
     virtualenv_install_with_resources
+
+    # Build an `:all` bottle by adding a file only used in linux to macos
+    (libexec/"share/applications").install "yewtube.desktop" if OS.mac?
   end
 
   def caveats

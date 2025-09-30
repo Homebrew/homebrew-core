@@ -33,7 +33,6 @@ class GhcAT92 < Formula
   depends_on maximum_macos: [:sonoma, :build]
   depends_on "python@3.12" => :build
   depends_on "sphinx-doc" => :build
-  depends_on macos: :catalina
 
   uses_from_macos "m4" => :build
   uses_from_macos "xz" => :build

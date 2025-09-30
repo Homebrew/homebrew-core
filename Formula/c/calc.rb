@@ -12,6 +12,7 @@ class Calc < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "1b0afcde0fd8484cdcadea8a20e21a5c0b5d086aa43c56d63e7d8e21206247cc"
     sha256 arm64_sequoia: "473e3761dcf18e6c8f0657eee8a690ba5b094c55bb79c44e28e110cd80ed58f3"
     sha256 arm64_sonoma:  "8897a859be300533821ba09c5c681158940be5ac85b4f4736a074bc3db3e1560"
     sha256 arm64_ventura: "de564162098982b1546f3243c618ba8731160442d0efb0be360bc50044a1dd19"

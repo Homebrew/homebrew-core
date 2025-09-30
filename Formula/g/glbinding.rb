@@ -7,6 +7,7 @@ class Glbinding < Formula
   head "https://github.com/cginternals/glbinding.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "762f8e6516a5a5738ccf12cd97375005bb6f740400b95d9716abee36a9b824d9"
     sha256 cellar: :any,                 arm64_sequoia: "6798ca9c08e9ccc59eab53d4665284e48f7f2a997bc519ec0d963c85a12f9db2"
     sha256 cellar: :any,                 arm64_sonoma:  "4f7d37307826d7a2109acd928b492a5ce909452d34b721580f83f44861875cc7"
     sha256 cellar: :any,                 arm64_ventura: "5b83488e93d023db298f1e2e045c6a330c1ac7324672b5766b368caeea00b7c5"

@@ -8,6 +8,7 @@ class Lightning < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e7c4c0c882b4401d5ec4866e90d7f67b719af0b8bfcf62a527e4441b7c18399d"
     sha256 cellar: :any,                 arm64_sequoia:  "d1d35078fe7268b6f043717f1e8e855ac36bc227f78bae0ee3db7dac45cfbfb0"
     sha256 cellar: :any,                 arm64_sonoma:   "c473bf328b70cd3d6e61088ced3ecd303dbd240e86e01e3bdfa84d9f41180022"
     sha256 cellar: :any,                 arm64_ventura:  "e9068aa64aad7d959c4b20534a8b0e2cab3bc5187b5ccf66e0f800ac0fb65cad"
@@ -23,8 +24,8 @@ class Lightning < Formula
 
   # upstream patch for fixing `Correct wrong ifdef causing missing mprotect call if NDEBUG is not defined`
   patch do
-    url "https://git.savannah.gnu.org/cgit/lightning.git/patch/?id=bfd695a94668861a9447b29d2666f8b9c5dcd5bf"
-    sha256 "a049de1c08a3d2d364e7f10e9c412c69a68cbf30877705406cf1ee7c4448f3c5"
+    url "https://cgit.git.savannah.gnu.org/cgit/lightning.git/patch/?id=bfd695a94668861a9447b29d2666f8b9c5dcd5bf"
+    sha256 "9264f463ce98e090e1386dd328cf02d542609c6375a6968d4024fbe8a6cabf8b"
   end
 
   def install

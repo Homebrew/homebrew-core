@@ -1,17 +1,16 @@
 class VulsioGost < Formula
   desc "Local CVE tracker & notification system"
   homepage "https://github.com/vulsio/gost"
-  url "https://github.com/vulsio/gost/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "8812f4874acb1ccb565def5732bedf6dbf43e46ed1de3324b8ecdd908d5943dd"
+  url "https://github.com/vulsio/gost/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "e20b39dff98c82a791ae9e5ac40ce78f6e25a5beac3ce7b4d53a3c0b45794f04"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c503f4dcbf1a4aa65ca07d40d600f9bdfb1cc528f20360561cf54615be0a85dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c503f4dcbf1a4aa65ca07d40d600f9bdfb1cc528f20360561cf54615be0a85dd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c503f4dcbf1a4aa65ca07d40d600f9bdfb1cc528f20360561cf54615be0a85dd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa84053bee3db2caaff971039516194598656d39371a3dc312913c34aa61e40a"
-    sha256 cellar: :any_skip_relocation, ventura:       "aa84053bee3db2caaff971039516194598656d39371a3dc312913c34aa61e40a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d45c94dac320f5b899e6bfdff44fb024b1acc85ebead4e3cd80d5103dfc62d4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "35a73401f7fa6b69b6af81402d8116722f47a846a8853fe87d34a5139c9f7bc1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35a73401f7fa6b69b6af81402d8116722f47a846a8853fe87d34a5139c9f7bc1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35a73401f7fa6b69b6af81402d8116722f47a846a8853fe87d34a5139c9f7bc1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0cd5c4ecf1ff7ce9d33aa4b3f6e95c5ba82810c8c0452b28466a7007f4ab3b00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68e4b8cff66df393723fad3e63f4bc186f5ee9dde268c2f3b9d1075ada5812d2"
   end
 
   depends_on "go" => :build
@@ -24,7 +23,7 @@ class VulsioGost < Formula
       -X github.com/vulsio/gost/config.Version=#{version}
       -X github.com/vulsio/gost/config.Revision=#{tap.user}
     ]
-    system "go", "build", *std_go_args(output: bin/"gost", ldflags:)
+    system "go", "build", *std_go_args(ldflags:, output: bin/"gost")
 
     generate_completions_from_executable(bin/"gost", "completion")
   end

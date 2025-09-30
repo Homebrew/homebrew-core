@@ -6,6 +6,7 @@ class Swtpm < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 arm64_tahoe:   "a461f024f4030423eaab2f9708d31ce40abed33ecacf79af52eed9c30685954f"
     sha256 arm64_sequoia: "2b32d468bbe362aa59c40e0ca09cd222bff2e7ad0926f254805ff4988c0ee0a8"
     sha256 arm64_sonoma:  "bde6abef0af8f822719577619263e1f733d66fa8a6da8d5cc32fc08207bfcc0f"
     sha256 arm64_ventura: "480984d30dc4d4dc8cb88e6c7e7c71061bc4f931a8185465e13857b25129f47b"

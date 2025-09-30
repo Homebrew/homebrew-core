@@ -11,6 +11,7 @@ class Gdb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "9762ab1af46cc8e0e0d5430087530d743ab0f80df05c952ea5f9b71b036e5522"
     sha256 arm64_sequoia: "86430d65b980c9b2f7bed6f6f0d20d9735b48f72a0edd435e7833fcd1a635c4b"
     sha256 arm64_sonoma:  "b9a4d48e9eaac185639cad6e643b2006aa844e855eb91aa68f7acab9e5a2fa47"
     sha256 arm64_ventura: "4e7be3bb2cf45fd603167877908faae6d6d08baf8ca118abd81ea2ac5b23087a"
@@ -45,14 +46,6 @@ class Gdb < Formula
 
   on_linux do
     depends_on "guile"
-  end
-
-  fails_with :clang do
-    build 800
-    cause <<~EOS
-      probe.c:63:28: error: default initialization of an object of const type
-      'const any_static_probe_ops' without a user-provided default constructor
-    EOS
   end
 
   def install

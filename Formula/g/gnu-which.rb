@@ -8,6 +8,7 @@ class GnuWhich < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e90a6ecbd9fb9b0134ff618f44d6993edd632d8a7529d3ec51b03fb708722e94"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "91778a7be9cd94c5de2d8040fb7405541497dd97df1daa1cc562b5a7194e2688"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b59742c30bca0d70fd803414b20aba6af45ff3fe59941bcb68485074b7ca28b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "17a52b327ea1d2a30313c98f73105943f22c6307aa29ced85558440c679fbcc6"

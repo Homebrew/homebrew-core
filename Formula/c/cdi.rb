@@ -13,6 +13,7 @@ class Cdi < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "80dceb1f3e1acebdf751f86d7433164bff63a0f88deba2a916b5d70642c87267"
     sha256 cellar: :any,                 arm64_sequoia: "cfc00e9f19ee18c4fd3db9f33e71a3312d28857a8a5911756d17bb36cf3047db"
     sha256 cellar: :any,                 arm64_sonoma:  "be8fbcfc9050ffe9e353d9b0fc31df5fea966babd9625fe014a82724c46f26ab"
     sha256 cellar: :any,                 arm64_ventura: "95ecbbe3065c0a09587de975457e992a2c881844acb54303c4de76e62da81ce4"

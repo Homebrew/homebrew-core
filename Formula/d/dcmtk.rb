@@ -14,6 +14,7 @@ class Dcmtk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "421d412e19d5ccd1b9d83b43ed604c5bafbb7710b6f1a4a04531411ce8022056"
     sha256 arm64_sequoia: "6349ba68f65ba257caa778ea8ab86fbf2b70141baf5a0a8f7bfa3759765c42a8"
     sha256 arm64_sonoma:  "86d3578d795ba30a2a75a9c3d5fa8c5f692bc54c38ed5c2a901cdd10c8e15023"
     sha256 arm64_ventura: "fd350d43be22126a196b194747b45df08b58919507fd61bde058c153a97ccf33"

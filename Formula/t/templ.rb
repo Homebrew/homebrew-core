@@ -6,6 +6,7 @@ class Templ < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a05f2a594f7bd8e559c4745bbcc9d33b96c2f67044e2de35d9355207e22c0034"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "29c7d968ad0042f39269e61b8cf64056635302b66124c83fad1cb8a00f800716"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29c7d968ad0042f39269e61b8cf64056635302b66124c83fad1cb8a00f800716"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "29c7d968ad0042f39269e61b8cf64056635302b66124c83fad1cb8a00f800716"

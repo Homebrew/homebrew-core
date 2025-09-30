@@ -14,6 +14,7 @@ class Ldns < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "e042f5e68a8bc6ff47b7a4dd3375fb6e3d38975a2b615b6f9b14071e57c04aa4"
     sha256 cellar: :any,                 arm64_sequoia: "2707eaadad1873f87ee5f9daf71f7710aee3be3ca4116768c2f1514f59704d65"
     sha256 cellar: :any,                 arm64_sonoma:  "3006f0623486121db7991757fa52fc933f285aa0d98439ffe75a053dc4c7dcc7"
     sha256 cellar: :any,                 arm64_ventura: "eb53602f7be7e1ba9d42c2a1dcb3f70e926a85007d1338dceebb43b81f65598c"

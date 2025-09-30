@@ -9,6 +9,7 @@ class Sshguard < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e9518ae9f10154dcc84c9f1348b436a49ebb0b59d07982c468d0edad7cc38cdd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0f56a4e44504c78bf201cbb62b0d01d1ab2fcf1149e6dcc6e7562fb41c0ac99"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11ef33ea3f5e54e448b493db07993839407bd6e62fd50ed3b7feaae74f0419f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1d3904d7dfa3b416126cd6f3088fd21eea79ac94af8cf5c6c787af6a27f8ba1e"
@@ -34,7 +35,7 @@ class Sshguard < Formula
     cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
     inreplace "examples/sshguard.conf" do |s|
       s.gsub!(/^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-pf\"")
-      if OS.mac? && MacOS.version >= :sierra
+      if OS.mac?
         s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
       else
         s.gsub!(/^#FILES.*$/, "FILES=/var/log/system.log")

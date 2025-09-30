@@ -9,6 +9,7 @@ class Gsasl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "1dd75fa56b2505c6edd733f8848a46dd624dba73d43df132deddc1a05c167d30"
     sha256 arm64_sequoia: "f7ec07e3b1add0e32af563452c3f8ebf2317b3acad6b6a48b029dd72491354ab"
     sha256 arm64_sonoma:  "be4ad77df9264e1dbcd61df831870348ef3f0f7033f59c201f60ca78b8f5b608"
     sha256 arm64_ventura: "9abcebd5e9da69094251b1d2de7434c3d97cc502bcf18406e5689bfb9ad166cc"

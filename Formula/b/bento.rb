@@ -1,17 +1,16 @@
 class Bento < Formula
   desc "Fancy stream processing made operationally mundane"
   homepage "https://warpstreamlabs.github.io/bento/"
-  url "https://github.com/warpstreamlabs/bento/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "20fa0ccb49310884f259bc476ae26b81eb8407d22395d839229b6bafe720a5ec"
+  url "https://github.com/warpstreamlabs/bento/archive/refs/tags/v1.10.2.tar.gz"
+  sha256 "aaa01af349b7e1de8ede7dad2e0525d44d0af04d7e8cc5337afd8756b62184cc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0b1f396170dc069fdd4117d0e20dcf3a9e78126c81512e98bab621421fe1110"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cad7da77b1bab010f099d2391a24fdf0d91440fb34c8ba1cb6f1c10bae37f705"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8eb859ec47c7e5ed94d94a5fe639e362fb06f4d62ddfb3dcbc1e2bb1ff0498fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1efaba4a6cee402843b5e266a17f984159fe0cc15aa1f215c160666ffa3bd48f"
-    sha256 cellar: :any_skip_relocation, ventura:       "86a66e84933f4d4f77eb0e7130090c07a431f5528dcfbfc80e2b8c9ddd9b2227"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3eced3ecaa56a848c6e65a52cfc2c1fda2c6a447ecdd2d616e06ed4c8a5f1b9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d08af601a0cb168e070c4e1f561ec1c4c2285d8c6cda55667bda487eb725ffa6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31dc013a1e837d9527fbe9cf1f26823cb2d4ed9c9f8c7a2f82854e4ae8a6799c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "489dfd7418d7ec5fce3526bf4f23133db19cf00ec378308700088df574832c91"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e27de0e3f9059c525a213d49d396f7c9e9080fb6d47adf437ceb671f493691c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67c4b011c82b0b85a31efd8c9692a5d50a40afe25c5aa63a869a66f5a7c04e5d"
   end
 
   depends_on "go" => :build

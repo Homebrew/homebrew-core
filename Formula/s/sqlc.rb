@@ -1,19 +1,20 @@
 class Sqlc < Formula
   desc "Generate type safe Go from SQL"
   homepage "https://sqlc.dev/"
-  url "https://github.com/sqlc-dev/sqlc/archive/refs/tags/v1.29.0.tar.gz"
-  sha256 "7f26a9539d25df18d3cd2f02785b5a08e30adf568a08b50c5504556f16c1fb5d"
+  url "https://github.com/sqlc-dev/sqlc/archive/refs/tags/v1.30.0.tar.gz"
+  sha256 "32a8ff2acd852c4a004383b441e6614b6c57ce1a294c0e455ab7431f017aa895"
   license "MIT"
   head "https://github.com/sqlc-dev/sqlc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b2cb8abc13302602bacb210046b3363ea5ffa62cec7f6450eb36db5d30329e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e5bbd8ba0116438e96980d549854ba347dc8e2964ec993dfa071ba0f0c10867"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1da3bcf4cc4bea4e1161f379d638b8e39d5daabe1d39bf006627286731aceeb6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "20699ef3244bbeb467fb5f04aefd76d5da9962d2f60d8ef949d68591d0e34698"
-    sha256 cellar: :any_skip_relocation, ventura:       "9dd512414f694c9c0ce86230c24877d6d9a0d80f3967a8241e5cfdcec4556359"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1673b21b686ec9fba8afe6c78343255389b33ddaa218f3e93f16c9422bf8174f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f7b484597cfb48ac5eafbb2b5e04b8c02027719162aeb0b15eb6833c8781da4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6fca7e95ad97972c257cd88e4ffd75cbc4fd466b0ee9fe9a7db21a9eb19b4d35"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "804df54f6aa327864d260e50070f44a1aa0d70e9983c069b3b08dac10a4b21d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72cf4daabe29f5ac51fe24d7fb511de87d672fe9e007f6e0de3191754376a649"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3a3400a7b98a53ab5b969fc4d7e30f4d7b1cd7e93da93cebc9aff9664690c465"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c88678492a2045628c286c57c17a2a29b213b5323fff965aabb6b3f0f47f976f"
+    sha256 cellar: :any_skip_relocation, ventura:       "331997dac9ac8cd9bb2f6fecab3d867ec9c2b8aa9511fa768eff24dc44fb4834"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee893ead14417e5cdfdeb738b797ac06d54624f278e98f31760ba1aeb603feeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e823133161b575d2923432eb9bc5d52ef4143b20facdb7a3dd3aee2e067f1829"
   end
 
   depends_on "go" => :build

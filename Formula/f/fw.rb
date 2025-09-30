@@ -15,6 +15,7 @@ class Fw < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cd14056e2a81b11fd288c68433e1f87005671ca829fd51e56de976b672a598db"
     sha256 cellar: :any,                 arm64_sequoia: "eb202098914bbc6a57f1934081506e50fccd9ee67ee37b9ef91b2b2484976f7b"
     sha256 cellar: :any,                 arm64_sonoma:  "b99fcb8532b6b7bc74ca0a292e56587a9965c4a01027b556ff1d508637490f11"
     sha256 cellar: :any,                 arm64_ventura: "75b0b011571ecad44d356a4faef9a567b6c5bb0ba21902bf6ac8fbd4a482e505"

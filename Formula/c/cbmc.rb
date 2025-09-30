@@ -9,6 +9,7 @@ class Cbmc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd360f1afc8ab4e7588a122b3e4ad50b340fe8d27264fc28e4b8279938f00181"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8eb1a58c31b2d9e058603bc51256b2afa472812b6e12a80147f8fee69789cf9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af3b37f03018ca7726d7aea58b6764e21e56bd5e634541741e4a68bb783d1c44"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6bcf9127d1034a739e807d8397cfa2809a94a3285a045b1d3c82aac8104beed9"

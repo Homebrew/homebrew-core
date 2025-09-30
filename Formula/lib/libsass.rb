@@ -15,6 +15,7 @@ class Libsass < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ed01028a87ef04e5dd829f40013f3db3cff5317e1cb0ee3f7ac9de135281cb61"
     sha256 cellar: :any,                 arm64_sequoia:  "d5f0835bddfab893cf537c1cb10f42a6abbaa04100954223de905a7f3879a581"
     sha256 cellar: :any,                 arm64_sonoma:   "a5262b92c5ef6c48e579002e9705e33a4e69c47ba9004ac9b13843506f314e8f"
     sha256 cellar: :any,                 arm64_ventura:  "f16e4b941d9f7b15af8126904348ff2c82a486a08c358827518a35a341b9954e"

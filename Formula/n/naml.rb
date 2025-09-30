@@ -9,6 +9,7 @@ class Naml < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e0956fd9b0b5be64918c42a43f7d4a46271122c8141d3b9d0a399fd8e324772a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9419a7e317f004467aa1ce33906f4fcb74d33d5ea29e4b5959173f69a1e95117"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d2757a3ba04823d969e9298bebf32444870a24d94e47e9db8ce8ab80cec512c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c77699304de1696f3c92d571ff1665310464ffd6b737bcaef0c90c68c624408f"

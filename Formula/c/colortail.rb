@@ -8,6 +8,7 @@ class Colortail < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9862416bf5401f2a2a61f90bdac87795f7445e95cf4baf6e0d0d73e984740a99"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "46881ac8087481d7f575b911883807e424a02ab942a7af58d9c38b4d2b73ef85"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51277f3ef27c9d547f2f07a3e81cfddb744b1e1a566e6e020c5c9a92f804f5f3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0e6f802573fbe0d69c824e53529faf6e89703247cc1a99e0889c8ac04bb731b5"

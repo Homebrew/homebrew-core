@@ -7,6 +7,7 @@ class CargoCache < Formula
   head "https://github.com/matthiaskrgr/cargo-cache.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d569689e087953be570cbdb6dd283cdd09dd2242b864f1a3123e58353b3c39f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a88dd6bebd24182cbafb2adb0e6ee8cf348fdeb9e95111f0850725469a982136"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0eb3f619312917ccefece5cc1ea0711fc1d85f373122cca5b36970449317dddb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "00a91483c1c50bb2e583c1e5ab9a41898b6b8b435b2d3ac61bfc736c49797871"

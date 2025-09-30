@@ -3,14 +3,12 @@ class Abi3audit < Formula
 
   desc "Scans Python packages for abi3 violations and inconsistencies"
   homepage "https://github.com/pypa/abi3audit"
-  url "https://files.pythonhosted.org/packages/df/83/c2ba9ad764c3f432651ce396468b99995fb3fe97c29f7549d1c3cfb05112/abi3audit-0.0.21.tar.gz"
-  sha256 "78f6155dfcf089657764bf194ddeac987111a5648eba54fcd6b486968db4d3fa"
+  url "https://files.pythonhosted.org/packages/3f/c4/c87c370ba5c9e0821da2946bb8fd6ccf95c1c2869ef78368702d932e17ff/abi3audit-0.0.22.tar.gz"
+  sha256 "60d2c7a0556e98316a5a0e18e3b232e3b047011353762126d7af0db5a7f10da0"
   license "MIT"
-  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "93665223b64c1a162b3e41aaa4cf9bc7346f4c1a9faaecb45dfd8d22ba90e59b"
+    sha256 cellar: :any_skip_relocation, all: "6e56de56e3e060bb818b4b9e3b493946d26f10cf181917d1199de68ec9497f84"
   end
 
   depends_on "cmake" => :build
@@ -33,8 +31,8 @@ class Abi3audit < Formula
   end
 
   resource "cattrs" do
-    url "https://files.pythonhosted.org/packages/57/2b/561d78f488dcc303da4639e02021311728fb7fda8006dd2835550cddd9ed/cattrs-25.1.1.tar.gz"
-    sha256 "c914b734e0f2d59e5b720d145ee010f1fd9a13ee93900922a2f3f9d593b8382c"
+    url "https://files.pythonhosted.org/packages/e3/42/988b3a667967e9d2d32346e7ed7edee540ef1cee829b53ef80aa8d4a0222/cattrs-25.2.0.tar.gz"
+    sha256 "f46c918e955db0177be6aa559068390f71988e877c603ae2e56c71827165cc06"
   end
 
   resource "charset-normalizer" do
@@ -63,8 +61,8 @@ class Abi3audit < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pefile" do
@@ -73,8 +71,8 @@ class Abi3audit < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
-    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
+    url "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz"
+    sha256 "ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
   end
 
   resource "pyelftools" do
@@ -98,13 +96,13 @@ class Abi3audit < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/fe/75/af448d8e52bf1d8fa6a9d089ca6c07ff4453d86c65c145d0a300bb073b9b/rich-14.1.0.tar.gz"
+    sha256 "e497a48b844b0320d45007cdebfeaeed8db2a4f4bcf49f15e455cfc4af11eaa8"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
-    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "url-normalize" do
@@ -119,18 +117,6 @@ class Abi3audit < Formula
 
   def install
     virtualenv_install_with_resources
-
-    # Build an `:all` bottle.
-    usr_local_files = %W[
-      platformdirs/unix.py
-      platformdirs-#{resource("platformdirs").version}.dist-info/METADATA
-    ].map { |file| libexec/Language::Python.site_packages("python3")/file }
-    inreplace usr_local_files, "/usr/local", HOMEBREW_PREFIX
-
-    opt_homebrew_files = %w[
-      platformdirs/macos.py
-    ].map { |file| libexec/Language::Python.site_packages("python3")/file }
-    inreplace opt_homebrew_files, "/opt/homebrew", HOMEBREW_PREFIX
   end
 
   test do

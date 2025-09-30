@@ -7,6 +7,7 @@ class JqLsp < Formula
   head "https://github.com/wader/jq-lsp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "502072e727bcfc2f164cf4a44986c38cae4adf095053f0cff86231fad0f9face"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9cec3d399e0d6c5d50e89d4dcf8f953b77fd362b592f6e63b0b0be286e9ed42"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9cec3d399e0d6c5d50e89d4dcf8f953b77fd362b592f6e63b0b0be286e9ed42"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a9cec3d399e0d6c5d50e89d4dcf8f953b77fd362b592f6e63b0b0be286e9ed42"

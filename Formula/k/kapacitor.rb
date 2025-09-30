@@ -2,8 +2,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-      tag:      "v1.8.0",
-      revision: "c5848b64d04a1dc4039611491891dd06872ef348"
+      tag:      "v1.8.2",
+      revision: "10da10eedc8af65e92ae49d6e121359f25cd4d57"
   license "MIT"
   head "https://github.com/influxdata/kapacitor.git", branch: "master"
 
@@ -13,12 +13,11 @@ class Kapacitor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fcab6295946bf8ca5a3720a0d10a716d1c172f505937ea0d4095761e64a72935"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65651185654c048f980f0ace67d17f20ef82f5dc5c7163dfa6c6202d8f3a6f7c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a70d464a6f438d7a3bd967ab2ce99b3282591a316b5cfc811a182981966a42b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ae0c340d0dbce7427ceb65f36032716351381551c2edc2914a9ab0d1aea53252"
-    sha256 cellar: :any_skip_relocation, ventura:       "11d5e85e066bca4b92426684ad541dfb60c3e856fac754a8de29a8bf43248756"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4dd89f5b91e7ab20d33b4b7879ea561e1ea20c06d6ed1061bdd0a2f10a77c4b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5c787f9658dfd91fd91dae3c1867902059cc5b6d1958ad6e132ba638a9019a71"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ecf28f57adf15825e969749d95ac1ffffa8a6d51d22033c659cf9ee190dc444"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c6154a7bff94a8b87fb32af60a488b1fe0f861e6eef4ea441a95cb12c7aa350c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c6c8157a96f9ac9ee0a99c01c9c3f5b01b8472a24eec0f5253983ca7ee08a2d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec22e1f5f4c7cda335e36dbb619373ae06144da2971d56b4424aba3034f828ce"
   end
 
   depends_on "go" => :build
@@ -28,17 +27,21 @@ class Kapacitor < Formula
   # NOTE: The version here is specified in the go.mod of kapacitor.
   # If you're upgrading to a newer kapacitor version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.3.0.tar.gz"
-    sha256 "769deabe12733224eaebbfff3b5a9d69491b0158bdf58bbbbc7089326d33a9c8"
-  end
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.12.tar.gz"
+    sha256 "23b2ed6a2f04d42906f5a8c28c8d681d03d47a1c32435b5df008adac5b935f1a"
 
-  # build patch for 1.8.0 release
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2ce7d3fffb94533cc1940dfc0391806007b1644f/kapacitor/1.8.0.patch"
-    sha256 "1be60924e908504afb52bdefbddbcba65fb2812b63f430918406f68ad0d5e941"
+    livecheck do
+      url "https://raw.githubusercontent.com/influxdata/kapacitor/v#{LATEST_VERSION}/go.mod"
+      regex(/pkg-config\s+v?(\d+(?:\.\d+)+)/i)
+    end
   end
 
   def install
+    # `flux-core` Workaround for `error: hiding a lifetime that's elided elsewhere is confusing` with `rust` 1.89+
+    ENV.append_to_rustflags "--allow dead_code --allow mismatched_lifetime_syntaxes"
+    # `flux` Workaround for `error: private item shadows public glob re-export`
+    ENV.append_to_rustflags "--allow hidden_glob_reexports"
+
     resource("pkg-config-wrapper").stage do
       system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
     end

@@ -17,6 +17,7 @@ class Rtmpdump < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "5b227da74ef1d3c1338e803ac514d9576cb5892680460d24f35074d6243d0038"
     sha256 cellar: :any,                 arm64_sequoia:  "4d88c286ea074e6dc9612679d33f1e25910dce5cd4c4a3f9f2dcdec8ad950516"
     sha256 cellar: :any,                 arm64_sonoma:   "fc5748b95d47c39bb4d633090cc0a7b5fe90bda5ef163fa5b8809272c9bf4618"
     sha256 cellar: :any,                 arm64_ventura:  "1dec5a57d0173f54cb1f38efb6bfbd0bc416bdb298289ebaac1dce3a41bdd6fb"

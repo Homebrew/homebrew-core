@@ -13,6 +13,7 @@ class OpencoreAmr < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "38dea780c6b453fcae6c1addb3054b0d14a4c216183a319e26575f61fda8050b"
     sha256 cellar: :any,                 arm64_sequoia:  "48a7944b5baf1d23777ff16d0f1b44ba3fb1872728e578e245993019895b0075"
     sha256 cellar: :any,                 arm64_sonoma:   "b9598108fb81e647206266d1ebfd43872454df8d9eb8292e09b550fb190e5c4f"
     sha256 cellar: :any,                 arm64_ventura:  "673be457f0de7494de04b1d079de9074e79e03a74f1fe520227f75d7c7953265"

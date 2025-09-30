@@ -7,6 +7,7 @@ class Bomber < Formula
   head "https://github.com/devops-kung-fu/bomber.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "746c9ea4e2f8e3c20774f9b9f587d6efc5611b9ec93483b076f1158fdbfd9b06"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "989ad14e281150f655296b8aa8ca9a3d24965bbd690d9ce8db45163e92429004"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "989ad14e281150f655296b8aa8ca9a3d24965bbd690d9ce8db45163e92429004"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "989ad14e281150f655296b8aa8ca9a3d24965bbd690d9ce8db45163e92429004"

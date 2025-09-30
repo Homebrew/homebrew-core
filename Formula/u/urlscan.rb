@@ -6,6 +6,7 @@ class Urlscan < Formula
   url "https://files.pythonhosted.org/packages/af/95/4c28f3cfdb866f9a6e301fbafedb0e537dd40c8cf9d33872e67ed38ec1d2/urlscan-1.0.7.tar.gz"
   sha256 "041b932f94cb1e2e8dbb20f43322da85cb483be328fa10477c6e5e96a89891c3"
   license "GPL-2.0-or-later"
+  head "https://github.com/firecat53/urlscan.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "f06e24ee723a5d356f9b82a54abf7c29f3104c509865c4a014d948f306b73bed"
@@ -25,8 +26,6 @@ class Urlscan < Formula
 
   def install
     virtualenv_install_with_resources
-
-    man1.install "urlscan.1"
   end
 
   test do

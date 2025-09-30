@@ -15,6 +15,7 @@ class Brotli < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "04c6d861b0cbd3bf162c991b5e4f12bc988e419750f684fb9156efdd09811f21"
     sha256 cellar: :any,                 arm64_sequoia: "64750425b7578860d8b6a75fdb187408667f7d6523169e8dc29528bbc15309f0"
     sha256 cellar: :any,                 arm64_sonoma:  "e75e7d3e86aba0f1a48f59bab9d819dbdd52c22259fb893ff1e796ca4dc9be75"
     sha256 cellar: :any,                 arm64_ventura: "531d7745ef045b6fe35a32f852d377a9bed6ea8a2c26828d8e18ce8388c1346e"

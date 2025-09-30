@@ -11,6 +11,7 @@ class Tin < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "37d09deb544531a4da9a4cf852ca5dbd7f09cd02fd8b87f7344218ee6b5bbac5"
     sha256                               arm64_sequoia: "3d597df858bc4fffb3f8be38154eaf650d981fbd36a609e1a0eb8b1113a01086"
     sha256                               arm64_sonoma:  "e729c23660a5a51cb38391405c50fec69f2713c8517e319e4f425894ac1d98c5"
     sha256                               arm64_ventura: "0bab093b5385450e3f87471243afe4b341443a141b971f5a02f7ad82a161f13b"

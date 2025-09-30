@@ -1,18 +1,17 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/9.4/VTK-9.4.2.tar.gz"
-  sha256 "36c98e0da96bb12a30fe53708097aa9492e7b66d5c3b366e1c8dc251e2856a02"
+  url "https://www.vtk.org/files/release/9.5/VTK-9.5.2.tar.gz"
+  sha256 "cee64b98d270ff7302daf1ef13458dff5d5ac1ecb45d47723835f7f7d562c989"
   license "BSD-3-Clause"
-  revision 3
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:  "aa14e148a35616054937c79b3528d340d60b477fabd79eeef855486283d0bb3e"
-    sha256 cellar: :any, arm64_ventura: "2cccbb73808afc54239389da4758a7e5f063a9ea78eed1c081b32a2da7268331"
-    sha256 cellar: :any, sonoma:        "20c979fdf1b4ed2db5d3ee4d472f032547008acd091a3de9350017e47481a5e5"
-    sha256 cellar: :any, ventura:       "6d741a1c1f622c24ea5d775df16084007ca5e3978645e1b64faf6d4ac421853b"
-    sha256               x86_64_linux:  "8b8da9c4e6c57c6bc09312a7da28e418068be91e1d680da6172fbd90b166f3ba"
+    sha256 cellar: :any, arm64_tahoe:   "bc41804094f5aef67dca3afed9132876daf20bc3905ff6003f020dcfb68e3528"
+    sha256 cellar: :any, arm64_sequoia: "b9bf7a139d2204f47cf25cd79cf08d11bb056039cef398b057650741c4800feb"
+    sha256 cellar: :any, arm64_sonoma:  "176813f5270cceaf19cff422d931e8551b0585e7fed3391d004e048cc77ce1e4"
+    sha256 cellar: :any, sonoma:        "de9a19a0dc55d7bd49a326e9e31ac7651152fbc0d5e6cd5bdb592e988a285d1c"
+    sha256               x86_64_linux:  "07914299d58803d0efedb65d0c95ba66321eb2e34fb53e395adc696125d9f081"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -44,7 +43,6 @@ class Vtk < Formula
 
   uses_from_macos "expat"
   uses_from_macos "libxml2"
-  uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
 
   on_linux do
@@ -52,13 +50,6 @@ class Vtk < Formula
     depends_on "libx11"
     depends_on "libxcursor"
     depends_on "mesa"
-  end
-
-  # Apply Arch Linux patch to fix build with netcdf 4.9.3+
-  # Issue ref: https://gitlab.kitware.com/vtk/vtk/-/issues/19616
-  patch do
-    url "https://gitlab.archlinux.org/archlinux/packaging/packages/vtk/-/raw/b4d07bd7ee5917e2c32f7f056cf78472bcf1cec2/netcdf-4.9.3.patch"
-    sha256 "87535578bbb0023ede506fd64afae95cdf4fb698c543f9735e6267730634afbc"
   end
 
   def install

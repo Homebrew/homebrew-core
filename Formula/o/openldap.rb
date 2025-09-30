@@ -6,6 +6,7 @@ class Openldap < Formula
   mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.10.tgz"
   sha256 "c065f04aad42737aebd60b2fe4939704ac844266bc0aeaa1609f0cad987be516"
   license "OLDAP-2.8"
+  revision 1
 
   livecheck do
     url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/"
@@ -14,13 +15,14 @@ class Openldap < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_sequoia: "90749053fa49720027fec10a7f6b69d12e3a7aa2c319fed0c9021ce4a1ee5873"
-    sha256 arm64_sonoma:  "8d4319c2a4e33ded3d0650b1e9bd56f4e087a3c72dda53aa1e7fc1c5747dbd93"
-    sha256 arm64_ventura: "3f6ac8d8010ce41c011a300b68a93ada298fe35f1c1577f1d9413c2e892d3d06"
-    sha256 sonoma:        "dbfb4021fc4b5b3df381c2ec339ed0801952b1d93728152cc30edf6e3e8da1ac"
-    sha256 ventura:       "0cca5d539102430ce70d06b5956b6cc9b658a495edb3c7abb13582872f171daf"
-    sha256 arm64_linux:   "dd8990617d2d310cf965ff185b405d0b903860b2b535d45d3ddfc6409dd5fa97"
-    sha256 x86_64_linux:  "c618d0eb76c5e2cf57846bd6be286018e00da7eb37f5a5b3a6d22ff0ed7885d9"
+    sha256 arm64_tahoe:   "2e201b0ef1eeb3990d14dd4905ecaf36cb6acbb9457093007ed304b97a6a9856"
+    sha256 arm64_sequoia: "248a79f1498bbff0644cb1980d1efabf399d71f4251df230b7e6161d14482309"
+    sha256 arm64_sonoma:  "e1e547e9f5a91f21715853710892d69d0356947128b15a9ae16c7b69b2c8222c"
+    sha256 arm64_ventura: "bacfcb76abf64fb280a1e845abc7ef842aa8ddaafb3c7b1a4b68e7e9cd66161d"
+    sha256 sonoma:        "8845255968f6ce00273b24b4ec963913900cd33179ee6a5b8e29b887f84364bd"
+    sha256 ventura:       "77370c7be27839f6b1c67b6594ede02919dafe3ce30760eddd033b382b38785c"
+    sha256 arm64_linux:   "d6aa23170013b357b634255d980bf589fc5104f38536e99a524ffbdd20dd17e7"
+    sha256 x86_64_linux:  "6593c993b1e061f4f5bd11a3a0a98cdb64244d35a12d0787797daaaa9ea4cb47"
   end
 
   keg_only :provided_by_macos
@@ -28,6 +30,7 @@ class Openldap < Formula
   depends_on "openssl@3"
 
   uses_from_macos "mandoc" => :build
+  uses_from_macos "cyrus-sasl"
 
   on_linux do
     depends_on "util-linux"
@@ -64,6 +67,7 @@ class Openldap < Formula
       --enable-translucent
       --enable-unique
       --enable-valsort
+      --with-cyrus-sasl
       --without-systemd
     ]
 

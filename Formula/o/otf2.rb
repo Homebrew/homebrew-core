@@ -1,16 +1,17 @@
 class Otf2 < Formula
   desc "Open Trace Format 2 file handling library"
-  homepage "https://www.vi-hps.org/projects/score-p/"
+  homepage "https://www.vi-hps.org/projects/score-p/overview/overview.html"
   url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-3.1.1/otf2-3.1.1.tar.gz"
   sha256 "5a4e013a51ac4ed794fe35c55b700cd720346fda7f33ec84c76b86a5fb880a6e"
   license "BSD-3-Clause"
 
   livecheck do
-    url :homepage
+    url "https://www.vi-hps.org/projects/score-p/download/download.html"
     regex(/href=.*?otf2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
+    sha256 arm64_tahoe:   "3fe0533a89517cc75cdc50328dd06b635a96fb7651cd7037874c1e34515b762d"
     sha256 arm64_sequoia: "bf03e30a4b748814623d920cf6ca4ba61462ae684a44771f989c05ba2b0934d2"
     sha256 arm64_sonoma:  "b4dff2dd5254e62c3cd810ac1c16867b18a81234d6a093ab75133d4079fe647b"
     sha256 arm64_ventura: "638de457bf40ab80944527bfd56ca70b2235b38e2a4af71f6cde66f12d2389b4"

@@ -7,6 +7,7 @@ class Inchi < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c2ab3b6c1fc1a9753168ee404157c0773dc268416f8ef52f90ff19a799edb168"
     sha256 cellar: :any,                 arm64_sequoia: "e2bb4775d1cf80b33c796a64d26cee00204db264397f07257069b2dd50a503c4"
     sha256 cellar: :any,                 arm64_sonoma:  "ec8c1fd3849b6e0a443dbb825a1bda423a4d57fb31988c5225fd369dafe2555b"
     sha256 cellar: :any,                 arm64_ventura: "17dfc12c8c97191dc5e622a7bf38098d2c7198ba763cf75945ceca662da1c5b1"

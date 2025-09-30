@@ -10,6 +10,7 @@ class Dolphie < Formula
   no_autobump! because: "some resources have to be updated manually"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "df43c44c864037b2192c07e13c83cc94481d938725b0fb07cac969b83b71f22c"
     sha256 cellar: :any,                 arm64_sequoia: "6b58957b514ad934a11abc8890307e73711a7e0392e8580894908d1a4d0b9522"
     sha256 cellar: :any,                 arm64_sonoma:  "91b096e24b58671d34f94c03635167506f3429313abb894db1ecd41bdde10442"
     sha256 cellar: :any,                 arm64_ventura: "e8f4ca2a76f59edafe52ede538cd936820a47f1d32de97140d9f6810cf3d8b63"

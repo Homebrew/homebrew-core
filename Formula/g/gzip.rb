@@ -7,6 +7,7 @@ class Gzip < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0806e22497cecc96b52a14fbec21c29df976b5ae40f365a55508c23c2958222f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c82c69f648546f3d0e962e9012a2cb258b454b098ae880880dc88418dc544a41"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "595f0a87dd1fe49c90e97911e72335a00cf096adbf84dfb17745dbf351ab9d3b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d55108d43ddf0f8123694f06882e223023cf4346f9b9640d6c33b657d19260bf"

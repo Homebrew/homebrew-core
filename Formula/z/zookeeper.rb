@@ -1,20 +1,22 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.9.3/apache-zookeeper-3.9.3.tar.gz"
-  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.9.3/apache-zookeeper-3.9.3.tar.gz"
-  sha256 "8bf0b9f872b3c0a6e64f8bc55ffb44cbff6e2712f6467ee5164ca6847466b31b"
+  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.9.4/apache-zookeeper-3.9.4.tar.gz"
+  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.9.4/apache-zookeeper-3.9.4.tar.gz"
+  sha256 "b84d0847d5b56c984fe3e50fdd28702340e66db5fd00701fa553d9899b09cabe"
   license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "55cdbe85faf89339c7388d17582a1c611acf856dbc61b09386f53a4f94e2250d"
-    sha256 cellar: :any,                 arm64_sonoma:  "877ea34a0512cef5350a11523bffa1ac380306a1bcdfc444a4b09417e56e4b96"
-    sha256 cellar: :any,                 arm64_ventura: "b32a242b6462efee1aeba8315f944328b89b0f027d345c4b19dbb42c7d8e3210"
-    sha256 cellar: :any,                 sonoma:        "43493f6555c4c8028c1f46957092b5b9ee99a1a2beae025d23571bff79a6cf5a"
-    sha256 cellar: :any,                 ventura:       "aca1f280391c77002a8822e6fc1c8434c5680144d7f536aeae5ff17efd52ff00"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee962da0c8fe93454015f1365681d05d2bb19b2869ee12e9d1b473c988871976"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44c4a13aefe7898e15aa63cb9dd001c673ad8e520128e6816599a6b50f97acb8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3a3e616c0425979bce887bb1877a1c9dbac8f7b1084d1063d0866cceb7e316e3"
+    sha256 cellar: :any,                 arm64_sequoia: "c043dd88af99227da093e9ef7a1136c3312aad202434a400b72aaefffdca1ded"
+    sha256 cellar: :any,                 arm64_sonoma:  "c0589e76ede2fd9ba0e3b72cfc76a8cfaf8a532eb6cc5444a1758de771cdef4d"
+    sha256 cellar: :any,                 arm64_ventura: "753fb3e9dc9010f36e650e1314ed958b3e8ffcbf05eaa99c1bb4aa666dc85ca0"
+    sha256 cellar: :any,                 sonoma:        "7ee73700ab93a4c025d257cd971bda6ef2529d628209f432b2ca14194cc7aa4b"
+    sha256 cellar: :any,                 ventura:       "3b229907351bb11466ccf04ffa41d92f514d16f155842f5735ba9c4c8d0ada9b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccad26bf750b09df6f7f3a4291360a1a3d172e295d7c8360a60a05e6dea8f4b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "241acb246366f78df065cba11917cc41845b185c520ca0632d5bf14d03c505db"
   end
 
   depends_on "autoconf" => :build
@@ -27,22 +29,13 @@ class Zookeeper < Formula
   depends_on "openjdk"
   depends_on "openssl@3"
 
-  resource "default_logback_xml" do
-    url "https://raw.githubusercontent.com/apache/zookeeper/release-3.9.3/conf/logback.xml"
-    sha256 "2fae7f51e4f92e8e3536e5f9ac193cb0f4237d194b982bb00b5c8644389c901f"
-  end
-
   def default_zk_env
     <<~EOS
-      [ -z "$ZOOCFGDIR" ] && export ZOOCFGDIR="#{etc}/zookeeper"
+      [ -z "$ZOOCFGDIR" ] && export ZOOCFGDIR="#{pkgetc}"
     EOS
   end
 
   def install
-    if build.stable? && version != resource("default_logback_xml").version
-      odie "default_logback_xml resource needs to be updated"
-    end
-
     system "mvn", "install", "-Pfull-build", "-DskipTests"
 
     system "tar", "-xf", "zookeeper-assembly/target/apache-zookeeper-#{version}-bin.tar.gz"
@@ -55,8 +48,6 @@ class Zookeeper < Formula
     include.install Dir[libpfx+"/usr/include/*"]
     lib.install Dir[libpfx+"/usr/lib/*"]
 
-    bin.mkpath
-    (etc/"zookeeper").mkpath
     (var/"log/zookeeper").mkpath
     (var/"run/zookeeper/data").mkpath
 
@@ -68,28 +59,18 @@ class Zookeeper < Formula
       (bin+bin_name).write <<~EOS
         #!/bin/bash
         export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-        . "#{etc}/zookeeper/defaults"
+        . "#{pkgetc}/defaults"
         exec "#{libexec}/bin/#{script_name}" "$@"
       EOS
     end
 
+    (buildpath/"defaults").write(default_zk_env)
+    cp "conf/logback.xml", "logback.xml"
     cp "conf/zoo_sample.cfg", "conf/zoo.cfg"
     inreplace "conf/zoo.cfg",
               /^dataDir=.*/, "dataDir=#{var}/run/zookeeper/data"
-    (etc/"zookeeper").install "conf/zoo.cfg"
-
+    pkgetc.install "conf/zoo.cfg", "defaults", "logback.xml"
     (pkgshare/"examples").install "conf/logback.xml", "conf/zoo_sample.cfg"
-  end
-
-  def post_install
-    tmpdir = Pathname.new(Dir.mktmpdir)
-    tmpdir.install resource("default_logback_xml")
-
-    defaults = etc/"zookeeper/defaults"
-    defaults.write(default_zk_env) unless defaults.exist?
-
-    logback_xml = etc/"zookeeper/logback.xml"
-    logback_xml.write(tmpdir/"default_logback_xml") unless logback_xml.exist?
   end
 
   service do
@@ -101,6 +82,6 @@ class Zookeeper < Formula
 
   test do
     output = shell_output("#{bin}/zkServer -h 2>&1")
-    assert_match "Using config: #{etc}/zookeeper/zoo.cfg", output
+    assert_match "Using config: #{pkgetc}/zoo.cfg", output
   end
 end

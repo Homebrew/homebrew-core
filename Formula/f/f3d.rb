@@ -4,7 +4,7 @@ class F3d < Formula
   url "https://github.com/f3d-app/f3d/archive/refs/tags/v3.2.0.tar.gz"
   sha256 "2a3cff123821be41d99489e080a7153812e58a86598fa9f4988099660bf6a947"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -15,11 +15,13 @@ class F3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "fa73b612a321285ce86719635d65e663c3c3670fd8350f4995f9cea307be4af0"
-    sha256 cellar: :any,                 arm64_ventura: "1862dc61d98c3f0aedbb4ab24766a0b69997033ab58a8d9f12d07096259cfb8d"
-    sha256 cellar: :any,                 sonoma:        "75702595f0c7de99da89389274dff831a13223d5131a1393e5587e2e9ffe6454"
-    sha256 cellar: :any,                 ventura:       "326558254996b510d4a9c0cd9c00ce2c166ec73d639cdb9299d4231a74ec8119"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe22206e260acebdfbf02190ca957c1055aba1bfce9e35f2da098ce85bd20144"
+    sha256 cellar: :any,                 arm64_tahoe:   "5a6c30f281997c53c8ac66a0c0577df3e0331264f8e39a76eda1705f2a8cf72c"
+    sha256 cellar: :any,                 arm64_sequoia: "3854159961a1a9e2d28004e0b1469c4de48d56b87565df55786f1c85bae06220"
+    sha256 cellar: :any,                 arm64_sonoma:  "e8cde110e73ff4b121306655cde089070450c72f336da36086a64e306833c489"
+    sha256 cellar: :any,                 arm64_ventura: "aad1d07372463a276187a1d69543455fc332226a73033d9120e4e526ec7894ee"
+    sha256 cellar: :any,                 sonoma:        "89dc06e6cf2205f7e0a1f96b7100b5085b545e1fa06cf9c4cb03768003b19c31"
+    sha256 cellar: :any,                 ventura:       "8dfdfd3d3e73724107614f5215b88e709eee237f0de276c5dbfe59585836bfa7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae4d13eb52f13a44859006028e2bf5106e6c7de169cdca40c5db45be99a076fc"
   end
 
   depends_on "cmake" => :build

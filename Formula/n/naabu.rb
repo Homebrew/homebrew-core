@@ -7,6 +7,7 @@ class Naabu < Formula
   head "https://github.com/projectdiscovery/naabu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a3b63cf7dfcfc82b4e7af46c87d02b4a5ff0fd1e6aaefdd9488c20be0bc65964"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8555f19b0ece4d28bede4c65bc0dacf9d45c10506ecafaa58ee2ab8945665e3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3843a160c6ed12a2e39664619aa947ed98a6de5b9630f0a3ce032423af9a806d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ce5bca033caa3bc9a1a6302927f394f278065c0602d291fddf1c69828a329896"

@@ -7,6 +7,7 @@ class GoAT122 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "acc7ca078e496fe975c4a46a2d56c70071b84aee83afa23661f54df536bf5aa7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "af5d726bee9702a638b3d311f14be29925d351537b861673710b68facfac9b8c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "095b712e18e4f6893d3a0e205c4b72bfa25854fd4fe56af648f182f1f8cb91cb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "44f45e7dd769697e468306491890267cd6292e7d4bddfccf0c4a4ce084369df4"
@@ -24,16 +25,14 @@ class GoAT122 < Formula
   depends_on "go" => :build
 
   def install
-    cd "src" do
-      ENV["GOROOT_FINAL"] = libexec
+    libexec.install Dir["*"]
+
+    cd libexec/"src" do
       # Set portable defaults for CC/CXX to be used by cgo
       with_env(CC: "cc", CXX: "c++") { system "./make.bash" }
     end
 
-    libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
-
-    system bin/"go", "install", "std", "cmd"
 
     # Remove useless files.
     # Breaks patchelf because folder contains weird debug/test files

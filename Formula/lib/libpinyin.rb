@@ -1,8 +1,8 @@
 class Libpinyin < Formula
   desc "Library to deal with pinyin"
   homepage "https://github.com/libpinyin/libpinyin"
-  url "https://github.com/libpinyin/libpinyin/archive/refs/tags/2.10.2.tar.gz"
-  sha256 "8409bc81c8fce83f31649f7287e94cc71813947b1e767c544a782023ac2b5a22"
+  url "https://github.com/libpinyin/libpinyin/archive/refs/tags/2.10.3.tar.gz"
+  sha256 "a49286721fb2b0234d86c095db9226246b0aa4a0bb6a885d0902da2743c56476"
   license "GPL-3.0-or-later"
 
   # Tags with a 90+ patch are unstable (e.g., the 2.9.91 tag is marked as
@@ -13,21 +13,17 @@ class Libpinyin < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "aaed14d5715f8e7729bc8d9cd92e3e8e4dd2dd9441e9ced1e0b96580bf00b54a"
-    sha256 cellar: :any,                 arm64_sonoma:  "e04db469902c1b7e903fdb9175516108c839938f43f4a0e88ba6815c3aec9d5a"
-    sha256 cellar: :any,                 arm64_ventura: "ce5ff005c6062a0fe25f847360e108005fe501781001a00639d293b998f6994c"
-    sha256 cellar: :any,                 sonoma:        "ee86347d03773114f21f384cad57fb4bcb2b43cf0dedabab4ff351dbd5d95627"
-    sha256 cellar: :any,                 ventura:       "b14da0e3d354815d87d73b7d23b80e04be3054dc4bc84851ded699141a79cf2d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cde0e982926df86e7021cdadfabaf61170ba028ecc02c96c4d36d0e160b6259b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8559ecb72bf0427461e62a367105bc470aff731f506e61e3816fffd8da9c6a06"
+    sha256 cellar: :any,                 arm64_tahoe:   "de407b23ef3deebd69bdda4160591705884a7b45fcf63518867f7218534dce74"
+    sha256 cellar: :any,                 arm64_sequoia: "73fe3debe8e55d78e4e2ba3fc01fa84aa97ef89dd60adf41596eadee37ddb040"
+    sha256 cellar: :any,                 arm64_sonoma:  "b6ec348b937f4a2a1da925a160be7dcad08b458eae3a1fa30f965a54c294fe2e"
+    sha256 cellar: :any,                 sonoma:        "c152806d01f00326521a8da08f1e4509d0b19a449e10f2dca16bbe2e08340164"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a06f3065cfd258fa3e25994e1067d57b2ee59f999f3441ad8b00174b198bf5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4bf5113220b57a9691995f825b0171c9bba1c63fd0aee0e9c6eb9c2f8023c44"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  # macOS `ld64` does not like the `.la` files created during the build.
-  # upstream issue report, https://github.com/libpinyin/libpinyin/issues/158
-  depends_on "lld" => :build if DevelopmentTools.clang_build_version >= 1400
   depends_on "pkgconf" => [:build, :test]
   depends_on "glib"
 
@@ -50,13 +46,6 @@ class Libpinyin < Formula
   end
 
   def install
-    # Workaround for Xcode 14 ld.
-    if DevelopmentTools.clang_build_version >= 1400
-      ENV.append_to_cflags "-fuse-ld=lld"
-      # Work around superenv causing ld64.lld: error: -Os: number expected, but got 's'
-      ENV.O3
-    end
-
     resource("model").stage buildpath/"data"
     system "./autogen.sh", "--enable-libzhuyin=yes", "--disable-silent-rules", *std_configure_args
     system "make", "install"

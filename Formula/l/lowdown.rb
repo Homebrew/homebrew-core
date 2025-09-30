@@ -8,6 +8,7 @@ class Lowdown < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "649de2546b83ee9f6072b1ea1f3df0aad0d9cb2eb7368a35c46850c982277f37"
     sha256 cellar: :any,                 arm64_sequoia: "72539b273d1f011b41a404ec609e5e5f90d95ecfed55de488ca96a599e7aa671"
     sha256 cellar: :any,                 arm64_sonoma:  "db56e9a27e486ab120cfb60b6c0c35906bebedbde3542c0228413bd2c7327659"
     sha256 cellar: :any,                 arm64_ventura: "682e3e2c5bb4100111aa12a3295758a33c9ef0fb688026730ba72c38d0e4a618"

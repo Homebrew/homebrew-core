@@ -9,6 +9,7 @@ class Gistit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "1a06e1bb0431938ebb2e048e56231e602d807d668f0dda8086a247d0e12f06cd"
     sha256 cellar: :any,                 arm64_sequoia:  "512dd9f0ab0f762ef21cadb25d38e40bac914c1d7fdbc9210eb086427b555dd8"
     sha256 cellar: :any,                 arm64_sonoma:   "aa07e24a4a15c38c3859fad46d9e9d481b82779c3935ee0417167995b85d7938"
     sha256 cellar: :any,                 arm64_ventura:  "49d1941ce30616b39307aa87bb628785e9dbd1017f8b4c312f7d24ff2ebdc40b"
@@ -19,7 +20,6 @@ class Gistit < Formula
     sha256 cellar: :any,                 monterey:       "f4f4aa3d57eb29d34654abc12b9919879e34ecb532b0b77e139216dbc9b6b30e"
     sha256 cellar: :any,                 big_sur:        "090920bf2761a37d9b9877386a1c0b4466ba80a8c412e807a7a03de14239a3a0"
     sha256 cellar: :any,                 catalina:       "844955e49de622786a9a676e91b767926ff9953c950db2affa98f6d82978899f"
-    sha256 cellar: :any,                 mojave:         "c55986f583c7d8744c4009f7856d00568ee5c3a31836075dd8b44af7b9807284"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "051a78fe9ae05b66074da6eb825835c44fd0cd66db0a943111d20cb1e076e54c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4bf0e5e2cfdb3adf8c3e9170c7239c8d5fe95339c36b13b607adfc926978e61"
   end

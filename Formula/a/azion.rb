@@ -1,18 +1,17 @@
 class Azion < Formula
   desc "CLI for the Azion service"
   homepage "https://github.com/aziontech/azion"
-  url "https://github.com/aziontech/azion/archive/refs/tags/4.1.0.tar.gz"
-  sha256 "579beb9042fd03b727e12d2677eef0779b8d9345e96d8acec75edd1d09e495c3"
+  url "https://github.com/aziontech/azion/archive/refs/tags/4.5.0.tar.gz"
+  sha256 "94a92a520668f0f6712d19d1af9887c3a9444f30e80f73b205befdb1597b390d"
   license "MIT"
   head "https://github.com/aziontech/azion.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b82dc1b8e712cda73f24b53132add0aea6eff3751a2f370e261c8a50e28024b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b82dc1b8e712cda73f24b53132add0aea6eff3751a2f370e261c8a50e28024b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0b82dc1b8e712cda73f24b53132add0aea6eff3751a2f370e261c8a50e28024b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fd6a07ec6758886f5276fc0842a8301317056f90a953c692eacf04f4b5d57433"
-    sha256 cellar: :any_skip_relocation, ventura:       "fd6a07ec6758886f5276fc0842a8301317056f90a953c692eacf04f4b5d57433"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62cf57b0d5b27d06633fae7eabf12ce078980c5b41162ea3039bd2f1609601b7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "254b6fff6130e404f66cc29e772c07306422d4c8d0b0b3bfbf48dba351eac094"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "254b6fff6130e404f66cc29e772c07306422d4c8d0b0b3bfbf48dba351eac094"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "254b6fff6130e404f66cc29e772c07306422d4c8d0b0b3bfbf48dba351eac094"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc397e45b96bd8e04dd3bdc8ef135993caec4533b467d8581bf7022086b96f47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59f3eb48c9f8431a92a18294fe51d2e29688ebe9e13a4c4d9b6bb8db6c4c28d1"
   end
 
   depends_on "go" => :build
@@ -21,9 +20,10 @@ class Azion < Formula
     ldflags = %W[
       -s -w
       -X github.com/aziontech/azion-cli/pkg/cmd/version.BinVersion=#{version}
-      -X github.com/aziontech/azion-cli/pkg/constants.StorageApiURL=https://api.azion.com
+      -X github.com/aziontech/azion-cli/pkg/constants.StorageApiURL=https://api.azion.com/v4
       -X github.com/aziontech/azion-cli/pkg/constants.AuthURL=https://sso.azion.com/api
       -X github.com/aziontech/azion-cli/pkg/constants.ApiURL=https://api.azionapi.net
+      -X github.com/aziontech/azion-cli/pkg/constants.ApiV4URL=https://api.azion.com/v4
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/azion"
 

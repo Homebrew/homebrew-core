@@ -14,6 +14,7 @@ class Libquantum < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f5e852b2b95f054f6b23ebe164e034efef63568d27c86743b49af217d2599ecf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1104c2f6a72d4e1576077b6bb549f7e579ccd5d0869ff4e7ea7753655dd5c370"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbea5e8c46c96ca5adb46cd719b625261e63965deb8884f0fa71814edf2d589e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a4a3d3b7b1525e1105b5fd4212a2b13bdc9e74ae182a4b76b3d5501c4cc8940"
@@ -24,7 +25,6 @@ class Libquantum < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "17f91015099d89946404b16a8c3eaab238ca4d9f1806942babdf4a6d1bf940a9"
     sha256 cellar: :any_skip_relocation, big_sur:        "e0c15e357005695499960424b1588ce47b248eb54ba7101cd47d7b0e5427a3b4"
     sha256 cellar: :any_skip_relocation, catalina:       "d4a76e92f03a3ba478985c12c7a4d5fbe815b7b67d8a2d691eadcf43ed5eb1d6"
-    sha256 cellar: :any_skip_relocation, mojave:         "437375451fc36404181dd6086f662b0305543fc8765042133706755c804c1217"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "848db672f68b69d8f19e8a80c220aaa182bb762c7bbea799177935fb0208f326"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a528197ff682bb96434f58a4739f933e9010f7e76b368f43d1788fe22468deb"
   end

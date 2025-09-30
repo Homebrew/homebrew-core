@@ -7,6 +7,7 @@ class Httpx < Formula
   head "https://github.com/projectdiscovery/httpx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9711f3fb90d287dc2e0400e1517d74dc40d3f8f4e168766e602a56cf23656c82"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd5685d3504a26b6227f45ca1c0601e4e08624d6df776db4a3e2e0c47c5394ed"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "958c58b56e64ebc0d6986d02e062d07777e99affaecf6e29d5e30252c6aaa560"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4757e8714859c18224b00fa223b0362cff43251f68ac69c4417ee102ff8a5a02"

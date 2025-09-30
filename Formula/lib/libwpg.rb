@@ -13,6 +13,7 @@ class Libwpg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "2aaaa4050e20a26525852f0cfe451e805728c7b03597e883e088c7eb234eea89"
     sha256 cellar: :any,                 arm64_sequoia:  "a062020deb99f826a9d7db555d3205c8fb56f431d19e916f7b17319641b9a00a"
     sha256 cellar: :any,                 arm64_sonoma:   "d2b1e6eed68f342f9a97a9059d84880c33316fbc4efaa011562b852432e6dd11"
     sha256 cellar: :any,                 arm64_ventura:  "c31dc532929561dc728f03ac0ff1ab2aeef0c0428df51cc8be13a7ea05a0e16e"

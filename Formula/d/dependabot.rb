@@ -1,18 +1,17 @@
 class Dependabot < Formula
   desc "Tool for testing and debugging Dependabot update jobs"
   homepage "https://github.com/dependabot/cli"
-  url "https://github.com/dependabot/cli/archive/refs/tags/v1.71.0.tar.gz"
-  sha256 "cc37e707b8e8a84ac51feca35c8acdf18189b5105b979dd1121b04a984128759"
+  url "https://github.com/dependabot/cli/archive/refs/tags/v1.73.0.tar.gz"
+  sha256 "b8106f5d2fa41f79e33389891054a23401c33f456da312c0aee380278feb0410"
   license "MIT"
   head "https://github.com/dependabot/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "afce9999d4aa6240c526330ab7a6cad8f3fc6dbc9fad3a3b58dd1443558f02d5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "afce9999d4aa6240c526330ab7a6cad8f3fc6dbc9fad3a3b58dd1443558f02d5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "afce9999d4aa6240c526330ab7a6cad8f3fc6dbc9fad3a3b58dd1443558f02d5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1fece486f99b6c071cd1a85da03ed5c95b5d2dd141ceda5dc91fe65c8a245c14"
-    sha256 cellar: :any_skip_relocation, ventura:       "1fece486f99b6c071cd1a85da03ed5c95b5d2dd141ceda5dc91fe65c8a245c14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "390ddf32126ee91c5c7a0c6ca65ff19240f964e9b52f98831f02925cf26e21be"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "74e55cdd77862b9464f43fa44a147a98eb7f15a42d38e77b35412d014a480c28"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "74e55cdd77862b9464f43fa44a147a98eb7f15a42d38e77b35412d014a480c28"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74e55cdd77862b9464f43fa44a147a98eb7f15a42d38e77b35412d014a480c28"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6f2cc265e8452f8e6bb01ffe4dc0dd31e963705ac7a4327233fe42b64340b5a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1556debb286f1c631f28daf6e9347561cbdae2d917c56bf010bfdc7d140853cd"
   end
 
   depends_on "go" => :build

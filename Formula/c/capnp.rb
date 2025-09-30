@@ -12,6 +12,7 @@ class Capnp < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "5ffb6b5fe19040d81b1f2915fce9b22d2d1da019263c6d44585bc82cb4b10001"
     sha256 arm64_sequoia: "32850d9930ecb4a82632d22ba68f5dc3ee221d9b4b00e7bbcfd57fc093b0e6b9"
     sha256 arm64_sonoma:  "5627bf9b2d201d61d69cd4fefcbea4170bfc6c37bcdacd11f541a170191836a6"
     sha256 arm64_ventura: "628e24ec584599abf82afa1f517fa92a6064a9511175f646d26fc0eded6a28f9"

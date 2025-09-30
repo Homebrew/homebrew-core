@@ -7,6 +7,7 @@ class Gql < Formula
   head "https://github.com/AmrDeveloper/GQL.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02105fd62775c1a82f9ab521bd1d9edaf75d2d25a08ab6c5da4cd24f7f51ebbd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d067ebe79fd1387813fe23b7a4d5f4fc2145a1a41f662f641de5d15473b2a6eb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d7a765553fc6bfe16096f158b150ae2ddb1d708f22c5c5d3bd84fab41338d1d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "99918c99fbbef93e4f851c0f4ca18b959b5c7fa43e71e04672b52d33b39bf398"

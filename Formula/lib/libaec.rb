@@ -8,6 +8,7 @@ class Libaec < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0510f8b013395583b6264196a1b65006a08bd66efdbdd52b6656a3e18f36b433"
     sha256 cellar: :any,                 arm64_sequoia: "16e420eafe09ff6630c42143074b87d3c4645e11eeb542f6fb859911673aaaea"
     sha256 cellar: :any,                 arm64_sonoma:  "2bf3bea23c8ab8ffd2fe58c0dcfbbce362201ea3bff1037c940e6a2abb2728bc"
     sha256 cellar: :any,                 arm64_ventura: "728a90da56c97af9cb5228e08be60ea65363f01ad4b90a6b2d6ca88ef156a8c7"

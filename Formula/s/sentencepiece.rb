@@ -12,6 +12,7 @@ class Sentencepiece < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "6f944bb3a143e212d042b1e0236b6482499e34009b9b5b5db5c3cd8d9975b7df"
     sha256 arm64_sequoia: "fa43d4d4ae2951ed39dde039503b0ff519c87d17d22c3f5476e3628d320cd9a1"
     sha256 arm64_sonoma:  "090b18e649177086cfb34cd0957691ff0f9ac81763575fdc404f832e8add283a"
     sha256 arm64_ventura: "1817affe1f40c11b0780f425e0a7211e392a3ebf4aef954d3c9e84eea38a089f"

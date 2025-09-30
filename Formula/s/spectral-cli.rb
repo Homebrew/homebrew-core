@@ -6,13 +6,8 @@ class SpectralCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6a980039a70ffc224d6285ffe72f96a8253f68c8cb625f79199f6d3c49979946"
-    sha256 cellar: :any_skip_relocation, ventura:       "6a980039a70ffc224d6285ffe72f96a8253f68c8cb625f79199f6d3c49979946"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8d483aa6a52f0b33cd3ee23697fa23e00eb7db9668b500ee04ac6c0ed2d88eec"
   end
 
   depends_on "node"

@@ -9,6 +9,7 @@ class DiffPdf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "39d3ffa2ca4a7c23b19d569d3ad80308cb2a427ee9386024770f27ee48bfe1ef"
     sha256 cellar: :any,                 arm64_sequoia: "a6fdb5286aa134dcdc600dbabf9c84c5f8f9c1efc83ea73311bb7bb2a0840739"
     sha256 cellar: :any,                 arm64_sonoma:  "8170798a716f04ea3a50de00147750f2b04464ef614fb465a9cbcd337ebd60a1"
     sha256 cellar: :any,                 arm64_ventura: "b5c66a318b2c7b71dcbe2366b8ebda2950d0652568af574d859c758f29e72ba1"

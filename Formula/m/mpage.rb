@@ -13,6 +13,7 @@ class Mpage < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "860aacd1390ce895e9dd5099c4811c708d2b3990e0fe41928cf56d5ac7af89c8"
     sha256 arm64_sequoia:  "a596325fba30e7574a19d7fcf3b338f02fa91e9074a13609c7d356b9bba67b29"
     sha256 arm64_sonoma:   "c94c08b44f7dc6719d73f7eb8e103622190b9f189f3352dc8d4360c882280c24"
     sha256 arm64_ventura:  "73e7baeaab7049ad6283a84d4ded710eee5597bf08afaf91fe9d3e63fa254b28"

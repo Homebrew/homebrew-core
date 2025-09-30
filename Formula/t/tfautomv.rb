@@ -7,6 +7,7 @@ class Tfautomv < Formula
   head "https://github.com/busser/tfautomv.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "beb580a46afbac4b2ccf321188d41c995fc2a5dd0b8228fe0f54317ebbd51104"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "15f822277c9415edce4e42e4cc8d26af85af55c4c3c673bb9a589023e416dd71"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15f822277c9415edce4e42e4cc8d26af85af55c4c3c673bb9a589023e416dd71"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "15f822277c9415edce4e42e4cc8d26af85af55c4c3c673bb9a589023e416dd71"

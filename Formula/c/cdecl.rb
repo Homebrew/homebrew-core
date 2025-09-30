@@ -10,6 +10,7 @@ class Cdecl < Formula
   ]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "56aa55de1ab7ef2b67721aa53069a6d33eb434205f240542a46d5b96d809001e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b2f274ad2494839a778687184c6ca3e9198fd683a5fd2bfca3b46fbcf1df5f8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7beca9265e60378772ef71fed480cf2167e132e50d13ffd3d8b92f9c569725ec"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "26117d6cd0032b763032c2c785378b6c2f9a3862ea20917093db3e4ccbb73b5c"

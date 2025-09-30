@@ -9,6 +9,7 @@ class Wb32DfuUpdaterCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "934c190218de4e881ed04b18bf537a15710600e07055dec9a0adbca436afab65"
     sha256 cellar: :any,                 arm64_sequoia:  "ac239ddaa16c7c73763bb0e7fccf0e832ba3dde536d90115ac65fb1ac58da4eb"
     sha256 cellar: :any,                 arm64_sonoma:   "d661a663c75316e1523b6fa0407cebda2ea86788a3fbf23ac6657af815d1c2b9"
     sha256 cellar: :any,                 arm64_ventura:  "87370e3838ab6edf46fd33ffe58ab53222dc519d6fcf849228461d994cf0c4f2"

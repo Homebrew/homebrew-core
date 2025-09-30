@@ -14,6 +14,7 @@ class Tmux < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9e191356b2a932e1e0e640219344a21ab61eb68fe24256d80281d7d037838867"
     sha256 cellar: :any,                 arm64_sequoia: "5e371680cf27c72d30e70f57087bef3fadb408e1881a58839137625c10919f64"
     sha256 cellar: :any,                 arm64_sonoma:  "58e253aca23e3deb4b6e171419047cba7283a51cba51962351f5e51661d53437"
     sha256 cellar: :any,                 arm64_ventura: "7cfc60d84d3ec0ba61580633d7add6ffc0eeaa07ec27ceb2380fe434530c90bb"
@@ -34,14 +35,9 @@ class Tmux < Formula
   depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "ncurses"
+  depends_on "utf8proc"
 
   uses_from_macos "bison" => :build # for yacc
-
-  # Old versions of macOS libc disagree with utf8proc character widths.
-  # https://github.com/tmux/tmux/issues/2223
-  on_system :linux, macos: :sierra_or_newer do
-    depends_on "utf8proc"
-  end
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/8da7f797245970659b259b85e5409f197b8afddd/completions/tmux"
@@ -54,6 +50,7 @@ class Tmux < Formula
     args = %W[
       --enable-sixel
       --sysconfdir=#{etc}
+      --enable-utf8proc
     ]
 
     # tmux finds the `tmux-256color` terminfo provided by our ncurses
@@ -61,7 +58,6 @@ class Tmux < Formula
     # tools that link with the very old ncurses provided by macOS.
     # https://github.com/Homebrew/homebrew-core/issues/102748
     args << "--with-TERM=screen-256color" if OS.mac? && MacOS.version < :sonoma
-    args << "--enable-utf8proc" if OS.linux? || MacOS.version >= :high_sierra
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args, *std_configure_args

@@ -9,6 +9,7 @@ class Ykdl < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "17efa40e39de6798158ac8b3e37b6e537aa1eb54941a77371bb91522c49f2cc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb541b86eded5d4bcc6262795c769d284a9e3c37f42f70121d43864f4066dc1d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14fc581b3aa8b20eea38a546892b72a858dc746e66ac805339e80b30eea0ae03"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "97ab80854fd7a7802859506993abdacf466114339a6717a7b0a1010542c3f407"

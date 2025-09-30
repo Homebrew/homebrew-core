@@ -6,6 +6,7 @@ class Goffice < Formula
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   bottle do
+    sha256 arm64_tahoe:   "dabf46cfd53a0681db3c9b322cef3142b3bfbd6d958797579658af4cf708fe32"
     sha256 arm64_sequoia: "f9d3ab0788e1062443680621dc3c842ac1feb8a43f64f833e4444af8d6a2338e"
     sha256 arm64_sonoma:  "3b5acae5f179e394cb1fbe1d8bfa72be79fd277d26d0345681f85d54b30b177a"
     sha256 arm64_ventura: "80dff5d4cec61b9eb1b00c336f695b9dc4330354dfe5e941d0e2f65ba36c8ef1"

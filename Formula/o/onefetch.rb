@@ -9,6 +9,7 @@ class Onefetch < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "923e9a33991228cfb21a1621c96a100de10662c864631bb0336f47cbae4b5cef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d0098b059cdc9d3ffd9239e58bd923a1913862831c325233ae8388d7ecceffa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44e27dfa89c6960c1da914cff90904b9c2733f150931c4073c79ccddac8fb955"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a622dad36ec9375f363c3f92510f59d65c99e601b6c76db4aa8b735223b51ada"

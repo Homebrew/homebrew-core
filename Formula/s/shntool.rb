@@ -15,6 +15,7 @@ class Shntool < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dac7c49e9256da92adfb0d881f723ad8869043632b6e81b03b0dfb1efa184822"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c5d116fc457d0cb26ccaea1e50b59a4edae2af2e89064c473aa420717dc0a9c6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9147bd0667159d62ea4493ae1524f8779f4fb19eb34ac4fc109695e09cdcd7ef"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec3c0feb069099563b7359c7e3f926ac1840aaf0364bf40be1a2cf1462865764"
@@ -25,7 +26,6 @@ class Shntool < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "858a65a08549e69ecc02979700c5155426f0a8202da7e6ec48bc0018a6ed9038"
     sha256 cellar: :any_skip_relocation, big_sur:        "c265916725e367c0b187924177b6e5d9ed12d434f242e6bc7b59596a02f08c71"
     sha256 cellar: :any_skip_relocation, catalina:       "e140337ce89f886c0044ac6eaf75dda3711622f9da418932e8a02337213785ca"
-    sha256 cellar: :any_skip_relocation, mojave:         "8f318573fa965da7dc5fcff667f2f9ee3295e2034a6c877a9d182459f08308f8"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "c719e4057a5cd6801dc734c26f3643e241bd0b547e91663a993ae62bbcb65de5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca983c20f607f60e0bd5f2ea6bc5d138606351fada22c01b315d388e8620c3c1"
   end

@@ -7,6 +7,7 @@ class Pygit2 < Formula
   head "https://github.com/libgit2/pygit2.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cbcca78f2fae8e568169e05b9009bb05aa4bcea6841df44902fc692a07df5c19"
     sha256 cellar: :any,                 arm64_sequoia: "0c41ea826ccb943e0da45891ee966980911266e8bf139e7a8114fe82b12ea441"
     sha256 cellar: :any,                 arm64_sonoma:  "bbc103feb711cab9eb037bda6198c1abe2fe53d5b73d70ae5651a302e35aa766"
     sha256 cellar: :any,                 arm64_ventura: "d045db881065a632728c36c0741cd275c0c523ec58f962914ede6d0128bfd19f"

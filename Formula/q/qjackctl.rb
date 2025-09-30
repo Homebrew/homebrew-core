@@ -12,6 +12,8 @@ class Qjackctl < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "5622711fea2b06542dea890cf52828ce0755da08d8a26069bc248ea2387b0f26"
+    sha256 arm64_sequoia: "89f3dec68467896822911b62d236ccaa228915b579d1f70c95cd05231b95f8cf"
     sha256 arm64_sonoma:  "6bc46dab635d6d238075bd40608f12f0e2b91da3ea35fcd0f111c950e236819d"
     sha256 arm64_ventura: "d4e7befa66d433bda2982d1b2298cd7b031190e2f5341afb82df72aa57bdc126"
     sha256 sonoma:        "4dcb152f927b45874dcb902c7fa5657c2699511c52a0157cf2f2852d82204aa7"

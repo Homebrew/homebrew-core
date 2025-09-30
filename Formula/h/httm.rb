@@ -7,6 +7,7 @@ class Httm < Formula
   head "https://github.com/kimono-koans/httm.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3624f1167e1894404d8102b1f33addee776e0e8bd5993fc85c24629335cd036b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4619b0dc447c8483b9ade36a17a3d483a79e346032e19a4bbec94f10b0e506f7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4969be85428365a402ab43507e181c7afda8f9fcc8b546a9829470980586713b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "713b2faf002ea74f90cefe2240cde7d85f0638caaad908718c01669a49b30f2b"

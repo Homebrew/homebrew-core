@@ -13,6 +13,7 @@ class BoostBcp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96bb9f9ea9bce6c06ea76bdb499978bc8a1691f001300086bb6a701b7f08c527"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "059e29a6e5ea0282d89e00824f9168dbfdfdb2a9416a354ce1d7deadf1406537"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e77de405349c635ed203adda0209ccb2e10181119b276f7fff7d194adcab42e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "83553dbc596a673f145c29f598e7eda0a44103de1e63faa23d4d0289a7ee8627"

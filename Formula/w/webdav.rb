@@ -9,6 +9,7 @@ class Webdav < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae6703ee26558bd1df8ae42840ed97ad88ed796836eb33ec2479584ac1358d08"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "baf72b71abacfc241a374cb784db63779bed55040b4dec593d8fe4c35177331b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baf72b71abacfc241a374cb784db63779bed55040b4dec593d8fe4c35177331b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "baf72b71abacfc241a374cb784db63779bed55040b4dec593d8fe4c35177331b"

@@ -14,6 +14,7 @@ class Click < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "96815f530661c69c118a128df96453746171c7f504e63d55d9ddf03baf1c6dbf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e987eede7eef110c096c8093ccfbf321f3835378f8a65619627eabe348e0d985"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aece6aa76034deb2d8e1437d85f4e4c94195de67eb7948d19b2fc2423824808c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a828f3d797aa3aca5596984e8b8f51afdbe123c3f8e7fa4fa6e760f66a4e57e4"

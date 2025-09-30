@@ -1,11 +1,19 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-94.0.tar.xz"
-  mirror "https://fossies.org/linux/misc/mkvtoolnix-94.0.tar.xz"
-  sha256 "babbcff2362c9dd00b2e79336eff83fad177603a51a458ef1fa421b27fbc4703"
   license "GPL-2.0-or-later"
-  revision 1
+
+  stable do
+    url "https://mkvtoolnix.download/sources/mkvtoolnix-95.0.tar.xz"
+    mirror "https://fossies.org/linux/misc/mkvtoolnix-95.0.tar.xz"
+    sha256 "4e5481dee444f9995c176a42b6da2d2da1ba701cabec754b29dc79ea483a194f"
+
+    # Backport fix for older Xcode
+    patch do
+      url "https://codeberg.org/mbunkus/mkvtoolnix/commit/a821117045d0328b1448ca225d0d5b9507aa00af.diff"
+      sha256 "4d537e37b1351ff23590199685dfc61c99844421629a9c572bb895edced1ac67"
+    end
+  end
 
   livecheck do
     url "https://mkvtoolnix.download/sources/"
@@ -13,11 +21,11 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:  "485579359bd7ae98f4c5a27221bbd43b085e639f92f69ef0c4781722e0cb848a"
-    sha256 cellar: :any, arm64_ventura: "978012bf3fb13774969555da0edae5cdb3b33a1f5277900b22abb972071fb387"
-    sha256 cellar: :any, sonoma:        "d581e863bc283294a95c270196ed8b3862d84121dcdc22eabd5798852ea89603"
-    sha256 cellar: :any, ventura:       "cb703a619e5810cfd0fc26d05b06e1f5d7c1624db06415cf1e72966ed1522a3f"
-    sha256               x86_64_linux:  "78a481d675810c0db9b25a6eb0d89b826afc14ac449fe3a6bcb5d48b21a4be31"
+    sha256 cellar: :any, arm64_tahoe:   "75f89848a9625beb9427b4d7a202f61c12c9999a64093cc7d5d25ded9859c475"
+    sha256 cellar: :any, arm64_sequoia: "fa5f79d1715935cea610e51f8a98fffef88ba5e2d2eb6434176af82d5961de10"
+    sha256 cellar: :any, arm64_sonoma:  "4ac57db30970b1f0115dc57239143665d0eb66144924c94069e2ab964d24a620"
+    sha256 cellar: :any, sonoma:        "8ef4e1a83d5768c51356d3bbae3702983304adea25cfa8d8064b2e5c6b84cc76"
+    sha256               x86_64_linux:  "d4faac56a9c0c085d8605443ec7c689f21055790781e54de99fb1b4c71010d8a"
   end
 
   head do
@@ -40,8 +48,6 @@ class Mkvtoolnix < Formula
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  # https://mkvtoolnix.download/downloads.html#macosx
-  depends_on macos: :catalina # C++17
   depends_on "pugixml"
   depends_on "qt"
 
@@ -56,13 +62,6 @@ class Mkvtoolnix < Formula
   conflicts_with cask: "mkvtoolnix-app"
 
   def install
-    # Workaround for Boost 1.89.0. Upstream fix requires regenerating configure.
-    # Issue ref: https://codeberg.org/mbunkus/mkvtoolnix/issues/6143
-    boost_workaround_args = if build.stable?
-      odie "Try removing workaround for Boost 1.89.0" if version > "94.0"
-      %w[ax_cv_boost_system=yes --without-boost-system]
-    end
-
     # Remove bundled libraries
     rm_r(buildpath.glob("lib/*") - buildpath.glob("lib/{avilib,librmff}*"))
 
@@ -81,8 +80,7 @@ class Mkvtoolnix < Formula
     extra_libs.chop!
 
     system "./autogen.sh" if build.head?
-    system "./configure", *boost_workaround_args,
-                          "--with-boost=#{Formula["boost"].opt_prefix}",
+    system "./configure", "--with-boost=#{Formula["boost"].opt_prefix}",
                           "--with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
                           "--with-extra-includes=#{extra_includes}",
                           "--with-extra-libs=#{extra_libs}",

@@ -25,6 +25,7 @@ class Wagyu < Formula
   # https://github.com/howardwu/wagyu/issues/282
   # https://github.com/howardwu/wagyu/issues/285
   deprecate! date: "2024-09-11", because: :does_not_build
+  disable! date: "2025-09-11", because: :does_not_build
 
   depends_on "rust" => :build
 

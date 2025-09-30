@@ -16,6 +16,7 @@ class Slrn < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:    "56945818d9c3961dc59b94440485c9c80baf04f29d791efa2803192b9ede727c"
     sha256 arm64_sequoia:  "439ad507d119a98349f0cc8422d9ef91125faa53a802a55078f11f1e7bb53fc4"
     sha256 arm64_sonoma:   "0b85878ca8073bc06e77875e5d106aebc10ff664d85e23e77c1b7a944d8fc565"
     sha256 arm64_ventura:  "f802b3c9ffb6f3974d353225cf25e52605d6c25fa85dbfd9b9710a33d075218b"

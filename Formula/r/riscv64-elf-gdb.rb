@@ -15,6 +15,7 @@ class Riscv64ElfGdb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "6459d40c27fc6b24fd70bce616f91602cad91a76813af16f12dfd79d60b8566a"
     sha256 arm64_sequoia: "0496ebf857fd732860b99a501ee7d65e7ccbbd169042413ce702c5444ded3f1e"
     sha256 arm64_sonoma:  "fe42283e0b56442eb93c110b6a308182324e1eeff5c7cf43cd7d768894485eb0"
     sha256 arm64_ventura: "96ea7bd381f364f0e5875560a9fd7bef09add6395a53af8d4bea2f12e81e51ec"

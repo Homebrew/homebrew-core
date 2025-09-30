@@ -11,6 +11,7 @@ class ArmNoneEabiGcc < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "92a7103601dc0c37db13ed93343b4671665c46e8ddd9f254ba697ad744eb9c8c"
     sha256 arm64_sequoia: "47c0d0ced3dd45b08d524e79c6bbb260aaaefa9f1b3c7b9125aca936ca7d8b6c"
     sha256 arm64_sonoma:  "70af1c1ff0e2fe89bd5a48fcd474b7e20f5b8beaba7c0cab685abfd575abbdb9"
     sha256 arm64_ventura: "ea891b743bfa1d20750b0bf3a6d42d26a75735e2915db2274aeeba005741af7c"

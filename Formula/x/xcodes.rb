@@ -8,6 +8,7 @@ class Xcodes < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dfc27a53e26ae6745593dbf7acb43f6165ddf918cfa1a2bac73666f974c7ba3c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f0d1d4136c44d6bce3a29a6161d91282397175b811d8346486ff281267106f6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2cb68620e49151d770433566d23d52a2605a0b9783d0f957c9fa3deda6825cdf"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "79aea527da63cec15cc7e775b1a380f446ac096b425915e281f8dee6ba60ac74"

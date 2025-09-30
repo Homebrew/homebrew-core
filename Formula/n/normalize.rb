@@ -14,6 +14,7 @@ class Normalize < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:    "f0163055e113a859911c0c03c9fda88323d0895ba8b37c6347456dd174f5ce7b"
     sha256 cellar: :any, arm64_sequoia:  "53b16243f5e01a1b903a687774320986f9a27f92efd6af821aef4e3d7f354467"
     sha256 cellar: :any, arm64_sonoma:   "d85f441176672bd7b8a65f4b7e3469e742a32e044e38a8cfde3d4277579c6878"
     sha256 cellar: :any, arm64_ventura:  "f579a1e316959c958663d8cff690f2ad7d06da059e0234478ef19d4f67561b14"
@@ -24,10 +25,6 @@ class Normalize < Formula
     sha256 cellar: :any, monterey:       "4b27d07f9a6b9455c555682b9c43443bee7f70fb40d44a2f50dba54100164e18"
     sha256 cellar: :any, big_sur:        "a35a01c8d74067d94fda21d31a0ab65128842e6dc1ed0629ed6cadf99f13a9b5"
     sha256 cellar: :any, catalina:       "363ac4a56ccb75ff32f3af3ef42a6cf5d74f24b977939bb08c14fddc30ff2ef5"
-    sha256 cellar: :any, mojave:         "8e1ac6ecbf84164c27a804b158201b75ddaabd3237e5826d7ffc78fbe8ee7377"
-    sha256 cellar: :any, high_sierra:    "e4dd195c639807e3e2e25fee6c5c6f3c4263a37a4c7f8f25ab656a96395faeaf"
-    sha256 cellar: :any, sierra:         "1165de2721e8b4d7f373b9ad10f52c2cd49c44a24cd8fddab5ba51983164cefe"
-    sha256 cellar: :any, el_capitan:     "052ab2e8b1f6a2aa1e634a30749612d927b5cee5cc9302e057bd02c599a1c256"
     sha256               arm64_linux:    "a035755b426126bd056c7287f416cc068b3d399a100e56f8192178a6530048dc"
     sha256               x86_64_linux:   "ac6f58e169897ddfc61943009dd38044958a8fc56a025e91632d2302de3063df"
   end

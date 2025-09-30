@@ -12,6 +12,7 @@ class Opencsg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e0073b1a6fe39d878a4066d957dbaf09fb7c874d726b4e61745740881aeff69a"
     sha256 cellar: :any,                 arm64_sequoia: "b0a69f125e5ccddc9559b3d088e44f7080a4a88903092db4a5d8cc45b2401eda"
     sha256 cellar: :any,                 arm64_sonoma:  "baabc5f08880e3740596c333b7d6736edbce5d4c56374d8310faf71b4b25ec75"
     sha256 cellar: :any,                 arm64_ventura: "4c6433d8600f7037d2cd0b4e59b18a6d100afdc9940673a5b404fe7ff18964c1"

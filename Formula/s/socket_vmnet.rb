@@ -7,6 +7,7 @@ class SocketVmnet < Formula
   head "https://github.com/lima-vm/socket_vmnet.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e06a5733741b6d7fb8253856b306c376168fdf5a12edb95c9b349064fcae923c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "abf253d7f02054144c432149d1b2804ef3253fffecbdfe0e0942803b794765fd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48da13f47e4a044477b9915228d2ed3e8224acfd904ae3bca815c6e394b2863b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "276fe910d33ed629f084b717d44d32bae1d3fc3aa13216be47bb1f2798ce5d73"
@@ -17,7 +18,6 @@ class SocketVmnet < Formula
   keg_only "it should not be in Homebrew's bin directory, which is often writable by a non-admin user"
 
   depends_on :macos
-  depends_on macos: :catalina
 
   def install
     # make: skip "install.launchd"

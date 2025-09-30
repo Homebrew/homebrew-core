@@ -7,6 +7,7 @@ class Libspiro < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "108c9578c13a97e6b0b0eed7c7a4ec74d43d5128300f7c68c6688e223ccd0bf7"
     sha256 cellar: :any,                 arm64_sequoia:  "ca6d88ca75e54af10d0342111a00a6bb3d2f6b5b80504a97d354c6b93ac114b9"
     sha256 cellar: :any,                 arm64_sonoma:   "e7631acf319b2660d2ae284cb33084fd3eadcd99311192ef8fea522929e7868a"
     sha256 cellar: :any,                 arm64_ventura:  "177d17bb91576650898dbdcc8de1676d83fb65131a0b5cf9b1972ab0b59d5503"

@@ -20,10 +20,6 @@ class Pdnsd < Formula
     sha256 monterey:       "76c55bb21dc763f58cb9bb6c8611811cec2d414825c5b0d66a295946c8871db4"
     sha256 big_sur:        "1ab46d6a13884a67fe91ecb554c53c8fc5fda4f2d453016cdd1242f8c362e9d5"
     sha256 catalina:       "125b690bbac734558cd9a4510c1336e2a92c3fd4748ba2ed216af9a5041c5d60"
-    sha256 mojave:         "822ab7ede7c626ab8cb0c5e7340f3896cdef7cc112c8d9843e55d601f5847297"
-    sha256 high_sierra:    "be218973e8fe1d807e7d9ec2762cab2a9968ce302fb46fb89974a686c1afcc43"
-    sha256 sierra:         "81c4852b1093820909afc140f052f732cbd94e428d9aff261b90d74cb4935b09"
-    sha256 el_capitan:     "1fa2f1f6ba9fc4fe710c1dc1d5bfb2b9663c557f5cdddf3a2fff8394f138a08f"
     sha256 x86_64_linux:   "4402ca761308936338a2c45fd5642eb8d19c80ec6700b1bcb79203f4396d76c4"
   end
 

@@ -8,6 +8,7 @@ class Prr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "720e7b1acab89a22e5201682b069389b7cb9cc1e0b66cdad5019ee1a87695e00"
     sha256 cellar: :any,                 arm64_sequoia: "020e2b1af8b7a3f2b1f39096597b06e80e338ff308a50d8f9f4b73094728a12d"
     sha256 cellar: :any,                 arm64_sonoma:  "43547eb2228e9fa399f34b9bd5202fbe7aed3257095a1a93f75a667d36d8658d"
     sha256 cellar: :any,                 arm64_ventura: "1ae08fc4c7d6625baf22b16df0cf1178efee1f699bfc25c6bb961f3f7560f75e"

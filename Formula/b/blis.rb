@@ -7,6 +7,7 @@ class Blis < Formula
   head "https://github.com/flame/blis.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5bb226f60a5cffc5e2e7a79daa6daefbe33dcc46c0aef737e0cf71398ce49407"
     sha256 cellar: :any,                 arm64_sequoia: "eaa5b7da801e3b1915288ce0938b19d5add45ba87ce3dab1277e2beb78d77654"
     sha256 cellar: :any,                 arm64_sonoma:  "ffd36f20fb15992d43255e6cd4ef2180d7415d54504d4793f9355e365e9bbc28"
     sha256 cellar: :any,                 arm64_ventura: "90e2dad3813b09a2782a32a20555d5e2a9f046040bbcbda52f53ce6962a9b25d"

@@ -11,6 +11,7 @@ class LeelaZero < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3089b9d144a84df5920e65998326238e54cb4132f0c8d1dd8274e80584d5d885"
     sha256 cellar: :any,                 arm64_sequoia: "8690dd5ea173e1d7bd6b91e07476f54242f598505e838e2d38fa64c90fd3058e"
     sha256 cellar: :any,                 arm64_sonoma:  "47aff2a14496f8e1f08fdad8f9318a1e1b6b4a56e57f8cd117740df41340d8cc"
     sha256 cellar: :any,                 arm64_ventura: "1647c60bb30f22c26e0ab0f3ec99d296a1a7e8bd48c4c676bfd7f469dc9c4df2"

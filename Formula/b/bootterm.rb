@@ -9,6 +9,7 @@ class Bootterm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b2092a71f18955ebffa5397ce9350880cdade272e5010568da99ea58f2d7ec89"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2a229cac60be2ea2f7c899a3b314daa4e561fa2d5a84e1b7c5e921ccec2f693b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a550becf9ccf4fec6f1de2f16834a85807328de531f45a576ee141018d1f7478"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "746045840ad8efcd9aac080b0f9913635ad94db1aefba6e0582b640cd8d0a7b3"

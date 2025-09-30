@@ -1,18 +1,17 @@
 class SnykCli < Formula
   desc "Scans and monitors projects for security vulnerabilities"
   homepage "https://snyk.io"
-  url "https://registry.npmjs.org/snyk/-/snyk-1.1298.3.tgz"
-  sha256 "090408b4f25eb673b68e0dbec79c00031b7bdec6bc6b3a4733b90af6bc44f095"
+  url "https://registry.npmjs.org/snyk/-/snyk-1.1299.1.tgz"
+  sha256 "9785b452560f457ac469d6df76a8044b9a83bb1b3e8150d3c1d4a8952cf53f3b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3605b3bd7862731698e1a2481210f9f3ef7173df8b5303473308c4a4b85a5702"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3605b3bd7862731698e1a2481210f9f3ef7173df8b5303473308c4a4b85a5702"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3605b3bd7862731698e1a2481210f9f3ef7173df8b5303473308c4a4b85a5702"
-    sha256 cellar: :any_skip_relocation, sonoma:        "70db8819387fadef26db34fae42bf174f264dd6f7c5681de443d84a7393ed8d2"
-    sha256 cellar: :any_skip_relocation, ventura:       "70db8819387fadef26db34fae42bf174f264dd6f7c5681de443d84a7393ed8d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0fc8e22dadbe284abc0b9d3b92ef6a458fbe7e021e69a538e5993a23cca70e83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d11ec57f7cc64c0b28a1c60ba51e04373bcc4396cfd992d9d2c71d9300b6ebbd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8d833423cb45b1550840dafbc4b073581535a1ca8122c2601ae263831ba1302a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d833423cb45b1550840dafbc4b073581535a1ca8122c2601ae263831ba1302a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d833423cb45b1550840dafbc4b073581535a1ca8122c2601ae263831ba1302a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "34e6f72191e229e6c9158c580f91e1cfeebfad81a3282b14265768ea709d5f1a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28020c3a2ea5120343aa1213bfce34d77f87c0be07b37e554418b0840df43bd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91b5910a9c99a75b36c8e82d2ea6d679b393a9e615a93cfdbd28e4b321a0f4db"
   end
 
   depends_on "node"

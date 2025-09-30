@@ -1,8 +1,8 @@
 class Arkade < Formula
   desc "Open Source Kubernetes Marketplace"
   homepage "https://blog.alexellis.io/kubernetes-marketplace-two-year-update/"
-  url "https://github.com/alexellis/arkade/archive/refs/tags/0.11.41.tar.gz"
-  sha256 "44e58d2f0b53f0b955fe40fdcf8dc11f9038e2f3684b5fed50862d01327a11fc"
+  url "https://github.com/alexellis/arkade/archive/refs/tags/0.11.47.tar.gz"
+  sha256 "69ee2b47553e9d745649d8ffc923174007f321c4bba5c7dac3d22c54c3874e7e"
   license "MIT"
   head "https://github.com/alexellis/arkade.git", branch: "master"
 
@@ -12,12 +12,11 @@ class Arkade < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad152624a0389e9fe40cc57d9869ef4f34bd04e01ec9067d485bf64c8db7126f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad152624a0389e9fe40cc57d9869ef4f34bd04e01ec9067d485bf64c8db7126f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ad152624a0389e9fe40cc57d9869ef4f34bd04e01ec9067d485bf64c8db7126f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3d877287e2155317bb3a1f2521ea8cb86f863a8970269277b4e480c50decf9ad"
-    sha256 cellar: :any_skip_relocation, ventura:       "3d877287e2155317bb3a1f2521ea8cb86f863a8970269277b4e480c50decf9ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb61a9add1299b20ebc89d75c4935b753211f26e14530ee79fcbfa7431544cd1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "efead7aaebfc75b42ba6aa58458f7ec7b8d403bfd512f73a7db983c276adcb80"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efead7aaebfc75b42ba6aa58458f7ec7b8d403bfd512f73a7db983c276adcb80"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "efead7aaebfc75b42ba6aa58458f7ec7b8d403bfd512f73a7db983c276adcb80"
+    sha256 cellar: :any_skip_relocation, sonoma:        "21f23f7e023a4688f250b32c32cf9fa837768f4d60a29441b8ac1baa3de47898"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee7fd722f209a9a0da1ca5b68a2fdab67d1167a6f41a686330be05c8f029043c"
   end
 
   depends_on "go" => :build

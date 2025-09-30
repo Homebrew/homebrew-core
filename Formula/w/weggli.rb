@@ -10,6 +10,7 @@ class Weggli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3fc8c3f005f10421cca236fb2992ff2d7a8fa9470be9fd5e30d51d667a95971f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ab791d77777007ec1ce49438d30a79c424b97fd64434b8f42f439cffaf439bc7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64c0f26ea39b8458017d80fffa9e632650b9fdb97ce8ae1cc69128ba68898308"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b85863bb8393ee053190a070ec0fcc44d7d7c78709df4f50e4811301edcf7652"

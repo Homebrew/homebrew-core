@@ -1,8 +1,8 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V3.4.0_src.zip"
-  sha256 "946b096ae25d67819626f6992e9f7fb1c65f512ac9484697771b2cda5a16d3b3"
+  url "https://www.argyllcms.com/Argyll_V3.4.1_src.zip"
+  sha256 "41ad51e02a3ec6981611be473221a3877fd359d3c1fa2172b4265dbe55f8b746"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,13 +11,14 @@ class ArgyllCms < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "90871b2934f470e24ce78c6e9a34b8188decc91975e5d1d436fe39ae3d62970b"
-    sha256 cellar: :any, arm64_sonoma:  "2677c3c242402f974b080eaf48dd09e669e6ada23cf1e2eb93ef525d1aa89191"
-    sha256 cellar: :any, arm64_ventura: "f30b5cc9a3a20da4ac90ce7a79f7d2472457e4e547509b067a7082858acff992"
-    sha256 cellar: :any, sonoma:        "4ad8fe91dfe383094cde8fe14b4b50082a32506dbb5bb51547f0fdb90d959a2f"
-    sha256 cellar: :any, ventura:       "de70a32366f4f4fe9f7dc2e93756e27d40808fcb4d2cb1268abb91c29314dfa1"
-    sha256               arm64_linux:   "cf6ffaa5117c417cc0b31ede9f843d7748192ad41198f2d93d0198ebf4a9e377"
-    sha256               x86_64_linux:  "0632447f07e2e431a1319aeaaf109c8bdc0f48ca0d3f141416ace5f6d5097d4c"
+    sha256 cellar: :any, arm64_tahoe:   "ae9c7d99adca2b6382b1fbd34f36db5b5fca42d18d362408b8095acb10cb04e4"
+    sha256 cellar: :any, arm64_sequoia: "f16dded9bf615eb33b11a9533524d2020498e7aab4766eb7c4de993e83cc8719"
+    sha256 cellar: :any, arm64_sonoma:  "0e15bf67bbbf98bf5cc480af3a90a0ac900616fd96dccf9cb1a53493e9ea6a0d"
+    sha256 cellar: :any, arm64_ventura: "b39ba95474701b963dadfddeca4bea00b037bb1baa766382e1108a879c50f84b"
+    sha256 cellar: :any, sonoma:        "52ec759d47c3d4925f111e492be5f52417bca86187e1aaf212b9a834729ccdb5"
+    sha256 cellar: :any, ventura:       "f8bc593f16e7c88c7c9ff5b852269223166f40d2de1dc68ea8957d0bc02c21d9"
+    sha256               arm64_linux:   "6e40aab9550ed5d4df52fb6bd054e352d0f6fdbccb5d02f412b2294c40f49332"
+    sha256               x86_64_linux:  "3d62059d60adbb6c0483ff303014de71bd9b2d4dd29b67d1b5122e8f5c817a72"
   end
 
   depends_on "jpeg-turbo"

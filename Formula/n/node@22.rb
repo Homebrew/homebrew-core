@@ -1,8 +1,8 @@
 class NodeAT22 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.18.0/node-v22.18.0.tar.xz"
-  sha256 "120e0f74419097a9fafae1fd80b9de7791a587e6f1c48c22b193239ccd0f7084"
+  url "https://nodejs.org/dist/v22.20.0/node-v22.20.0.tar.xz"
+  sha256 "ff7a6a6e8a1312af5875e40058351c4f890d28ab64c32f12b2cc199afa22002d"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,12 @@ class NodeAT22 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "441aab2c861eae8533912d85a890746ec24cb5dc9e80c52b6a729d08e9be0d6d"
-    sha256 arm64_sonoma:  "3d24d034aab507cb2d1822ee15d23bae26e06b6c24356215624dc03933dba534"
-    sha256 arm64_ventura: "6f9990399efdb5649da845695c29683dcd993b891c76093d8c5ad0947060abf5"
-    sha256 sonoma:        "9bcd9503d84da569317086d9c07ab1d256395277eb071f733b7cb8bb47f63b44"
-    sha256 ventura:       "62006dfff58caef48313f44fb0e63c74ddc4dd792a94a7dba351070a3c2ae792"
-    sha256 arm64_linux:   "93f9eb157a7fdebb895574eea86a18feba77dd4264f0c7e0e17a9aa45d2969ed"
-    sha256 x86_64_linux:  "5be30123843d98c76069749eb4cd0cb44cccdfbbba8bb549d57dc40aa00a528c"
+    sha256 arm64_tahoe:   "75dd30ebd7b38c310bb3353a7800b1bbc6a12ebdd2a9bb772e2706f692b50c67"
+    sha256 arm64_sequoia: "a7d9afdbe80e1cef7bf72e5ea4d6253c7f3236cc58b7c2cd329d51982499710a"
+    sha256 arm64_sonoma:  "1a50e316498761e90330690ba84545b7baa4131617052ae88c3c6059b8211e0e"
+    sha256 sonoma:        "63226ef70fe85033dff8ba859469848fe3f15eced30e89f847a1b25dcea5749a"
+    sha256 arm64_linux:   "71326266cb02569eb935d8e62b9eb4d1d9fa7778597bb41182a44eef369db411"
+    sha256 x86_64_linux:  "378cbd3a296969a0b1f7569549e19f918364f04dbc02e2ee3009e818b51f47cc"
   end
 
   keg_only :versioned_formula
@@ -39,13 +38,14 @@ class NodeAT22 < Formula
   depends_on "simdjson"
   depends_on "simdutf"
   depends_on "sqlite"
+  depends_on "uvwasi"
   depends_on "zstd"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
   fails_with :clang do
@@ -57,9 +57,6 @@ class NodeAT22 < Formula
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
-
-    # The new linker crashed during LTO due to high memory usage.
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
 
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.13")
@@ -77,6 +74,7 @@ class NodeAT22 < Formula
       --shared-simdjson
       --shared-simdutf
       --shared-sqlite
+      --shared-uvwasi
       --shared-zlib
       --shared-zstd
       --shared-brotli-includes=#{Formula["brotli"].include}
@@ -99,6 +97,8 @@ class NodeAT22 < Formula
       --shared-simdutf-libpath=#{Formula["simdutf"].lib}
       --shared-sqlite-includes=#{Formula["sqlite"].include}
       --shared-sqlite-libpath=#{Formula["sqlite"].lib}
+      --shared-uvwasi-includes=#{Formula["uvwasi"].include}/uvwasi
+      --shared-uvwasi-libpath=#{Formula["uvwasi"].lib}
       --shared-zstd-includes=#{Formula["zstd"].include}
       --shared-zstd-libpath=#{Formula["zstd"].lib}
       --openssl-use-def-ca-store
@@ -106,9 +106,8 @@ class NodeAT22 < Formula
 
     # Enabling LTO errors on Linux with:
     # terminate called after throwing an instance of 'std::out_of_range'
-    # Pre-Catalina macOS also can't build with LTO
     # LTO is unpleasant if you have to build from source.
-    args << "--enable-lto" if OS.mac? && MacOS.version >= :catalina && build.bottle?
+    args << "--enable-lto" if OS.mac? && build.bottle?
 
     # TODO: Try to devendor these libraries.
     # - `--shared-ada` needs the `ada-url` formula, but requires C++20
@@ -116,7 +115,6 @@ class NodeAT22 < Formula
     ignored_shared_flags = %w[
       ada
       http-parser
-      uvwasi
     ].map { |library| "--shared-#{library}" }
 
     configure_help = Utils.safe_popen_read("./configure", "--help")

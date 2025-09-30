@@ -11,6 +11,7 @@ class Dirt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "298bd387a65d1a91e835350f47a97b76af44b9466b32b8c2c3a7b67e03736b8c"
     sha256 cellar: :any,                 arm64_sequoia:  "dc07b263a5ea080c3ae14aaaabe185d07c84189e6708cc2206ac74d62e67ec3f"
     sha256 cellar: :any,                 arm64_sonoma:   "dc0671b289e79190e0d962b995c11ba8d0f828fb9a9903c5981e8a7fddca28c0"
     sha256 cellar: :any,                 arm64_ventura:  "7b0e123381c73cf489c38368999dcf0886843f8223562f83db6b6a5fde4dcaf7"

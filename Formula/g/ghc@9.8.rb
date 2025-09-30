@@ -18,6 +18,7 @@ class GhcAT98 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3e87df3e2191a0bc9b59349222a521ef3d5839f2d329eda02077d47190f670f1"
     sha256 cellar: :any,                 arm64_sequoia: "77cf644f73bd7942775f30101b61c4425c9c3d45d8ba5c3af80e6b3c5e689f4a"
     sha256 cellar: :any,                 arm64_sonoma:  "1a10ae542525f70b3c308122da20a293f26a80ddb9e60df6d4ce3dc7aa1fa0f7"
     sha256 cellar: :any,                 arm64_ventura: "2a294afb0daafc46a01f07b28ce8b12c99e7cf012636db9e1ec2cad571cb7159"
@@ -112,6 +113,11 @@ class GhcAT98 < Formula
     ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = "ld"
     ENV["PYTHON"] = which("python3.13")
+
+    # Workaround for https://gitlab.haskell.org/ghc/ghc/-/issues/26166
+    if DevelopmentTools.ld64_version == "1221.4"
+      inreplace "rts/rts.cabal.in", /("-Wl,-undefined,dynamic_lookup)"/, "\\1,-ld_classic\""
+    end
 
     binary = buildpath/"binary"
     resource("binary").stage do

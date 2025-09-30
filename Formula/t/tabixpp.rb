@@ -8,6 +8,7 @@ class Tabixpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a24d3855da2af735455696a4cf8e41dac8acab4926de40d26097086ffb4e6c33"
     sha256 cellar: :any,                 arm64_sequoia: "8feff85967f3147f174f965ab1aaadee620fdcdfb8a7f1292613b35b552cf717"
     sha256 cellar: :any,                 arm64_sonoma:  "646a0fe583346a08a86b7d4b4f9af547b762ee01d7dc108d3c5436c7fdb1d09b"
     sha256 cellar: :any,                 arm64_ventura: "3710a4010ff9ae3a7d23e3299d591a04edf0489a73d85830f53ac287be9095c8"

@@ -13,6 +13,7 @@ class Liboping < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "b799d5c3ab5ca9ace10e0b8e9f338111ce0220b1df97d3d5c025a18e0c6d47a6"
     sha256 cellar: :any,                 arm64_sequoia:  "5395bb6ef912f023eb75a29a46eb614a0fb9dec8f65fe29f40af6173d0f8f809"
     sha256 cellar: :any,                 arm64_sonoma:   "e2142ec221a13c7102978228b5d3ffd61a182952bb470ef0cd63fd1201ce6411"
     sha256 cellar: :any,                 arm64_ventura:  "4f96385d085c835f78741e71350fba8666a9692673abab3681722f7dc22fef1f"
@@ -23,10 +24,6 @@ class Liboping < Formula
     sha256 cellar: :any,                 monterey:       "0e71715fba4fca28f5488409e5529ac61b7f166cea4cc2180967cc4d9a50dda6"
     sha256                               big_sur:        "0edb72c3d81dbc8869b28d27f063372f7eed0ac4318624fe94e4ac5be7d2337a"
     sha256                               catalina:       "997e8eb17c7878cbd0c34bd6532b76ef804899751a58b3b434656d1b9ced07d9"
-    sha256                               mojave:         "7b0258598b329b83ce9fd0cf18be77aa027226c8391a013cb3699faeeb1fd71f"
-    sha256                               high_sierra:    "accffc91ab24ccba1214727abadb59c497f403e3bcad1dfe8ff0377d32e05ebc"
-    sha256                               sierra:         "42b80e23afe4fb4f296d039b0bdd4ccd0da21937514fdd04a90bc01d39da7aec"
-    sha256                               el_capitan:     "de0bb72a0752469b262db3a24a41c84746930858462cd08993c057caadd46264"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "71cfbc992467da7e4933d64ac61454004ddac15ab93c28b33e502299e2789a88"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f3979a8a214b2384b5c18cb7ad0d1ed49d27896b7972a2ce93dce2e0d76ad82"
   end

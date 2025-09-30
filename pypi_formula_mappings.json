@@ -18,9 +18,6 @@
   "animdl": {
     "exclude_packages": ["certifi"]
   },
-  "anime-downloader": {
-    "exclude_packages": ["certifi"]
-  },
   "ansible": {
     "exclude_packages": ["certifi", "cryptography", "gnureadline"],
     "extra_packages": [
@@ -174,7 +171,7 @@
     "exclude_packages": ["certifi"]
   },
   "certbot": {
-    "extra_packages": ["certbot-apache", "certbot-nginx"],
+    "extra_packages": ["certbot-apache", "certbot-nginx", "certbot-dns-cloudflare"],
     "exclude_packages": ["certifi", "cryptography"]
   },
   "certsync": {
@@ -232,8 +229,8 @@
     "extra_packages": ["distro"]
   },
   "conda-lock": {
-    "exclude_packages": ["certifi", "cryptography"],
-    "extra_packages": ["jeepney", "secretstorage"]
+    "exclude_packages": ["certifi", "cffi", "cryptography"],
+    "extra_packages": ["jeepney", "secretstorage", "xattr"]
   },
   "cookiecutter": {
     "exclude_packages": ["certifi"]
@@ -257,6 +254,9 @@
   },
   "cycode": {
     "exclude_packages": ["certifi"]
+  },
+  "darker": {
+    "package_name": "darker[black]"
   },
   "datalad": {
     "package_name": "datalad[misc]",
@@ -333,11 +333,14 @@
     "extra_packages": ["decorator"],
     "exclude_packages": ["cryptography"]
   },
-  "fava": {
-    "exclude_packages": ["certifi"]
-  },
   "fastapi": {
     "package_name": "fastapi[standard]",
+    "exclude_packages": ["certifi"]
+  },
+  "fastmcp": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
+  "fava": {
     "exclude_packages": ["certifi"]
   },
   "fb-client": {
@@ -364,6 +367,9 @@
   "fonttools": "fonttools[lxml,woff]",
   "forbidden": {
     "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser"]
+  },
+  "fred": {
+    "exclude_packages": ["certifi"]
   },
   "fwupd": {
     "package_name": "",
@@ -392,6 +398,9 @@
     "extra_packages": ["pyobjc-framework-localauthentication"]
   },
   "git-review": {
+    "exclude_packages": ["certifi"]
+  },
+  "gitingest": {
     "exclude_packages": ["certifi"]
   },
   "glances": {
@@ -500,6 +509,9 @@
     "exclude_packages": ["certifi"]
   },
   "jinja2-cli": "jinja2-cli[yaml,toml,xml]",
+  "jiratui": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "jrnl": {
     "exclude_packages": ["cryptography"]
   },
@@ -557,6 +569,12 @@
   "locust": {
     "exclude_packages": ["certifi"]
   },
+  "lue-reader": {
+    "exclude_packages": ["certifi", "pymupdf"]
+  },
+  "mac-cleanup-py": {
+    "exclude_packages": ["cffi", "pycparser"]
+  },
   "magic-wormhole": {
     "exclude_packages": ["cryptography"]
   },
@@ -570,8 +588,8 @@
   "mat2": {
     "exclude_packages": ["pygobject"]
   },
-  "mathlibtools": {
-    "exclude_packages": ["certifi", "cryptography"]
+  "mcp-atlassian": {
+    "exclude_packages": ["certifi"]
   },
   "mcp-proxy": {
     "exclude_packages": ["certifi"]
@@ -581,7 +599,7 @@
   },
   "mdv": "mdv[yaml]",
   "mentat": {
-    "exclude_packages": ["certifi", "numpy", "pillow"]
+    "exclude_packages": ["certifi", "numpy", "pillow", "pytest", "pytest-asyncio", "pytest-mock", "pytest-reportlog"]
   },
   "mesa": {
     "package_name": "",
@@ -855,6 +873,9 @@
   "sail": {
     "exclude_packages": ["certifi", "cryptography"]
   },
+  "sarif-tools": {
+    "exclude_packages": ["numpy", "pillow"]
+  },
   "scdl": {
     "exclude_packages": ["certifi"]
   },
@@ -923,6 +944,9 @@
     "exclude_packages": ["certifi", "cryptography", "pygit2"],
     "extra_packages": ["catkin-pkg", "jeepney", "pylxd", "secretstorage"]
   },
+  "specify": {
+    "exclude_packages": ["certifi"]
+  },
   "sphinx-doc": {
     "exclude_packages": ["certifi"],
     "extra_packages": ["numpydoc"]
@@ -930,11 +954,14 @@
   "ssh-mitm": {
     "exclude_packages": ["cryptography"]
   },
+  "standardebooks": {
+    "exclude_packages": ["certifi", "cffi", "pillow", "pycairo"]
+  },
   "streamlink": {
     "exclude_packages": ["certifi"]
   },
   "streamrip": {
-    "exclude_packages": ["certifi", "pillow"]
+    "exclude_packages": ["certifi", "pillow", "pytest", "pytest-asyncio", "pytest-mock"]
   },
   "subliminal": {
     "exclude_packages": ["certifi"]

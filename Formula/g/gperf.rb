@@ -7,6 +7,7 @@ class Gperf < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8431153ec71d07fd4f1ca9609c1c11e9f6cc487000cb2f5e4cbec971c0814536"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b88bc4005a80b6115e8d15bca5f74af0e7e7eab6355ca0499fe41194c68053e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd4c9ce8fb554dc69f5533ac020556993a6a6cbd302b5029ca1b5d106a491eaa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c23eeb8f50029a8cab08a602f82786eed3409fbda31901f8c6e03acab6bc4b02"

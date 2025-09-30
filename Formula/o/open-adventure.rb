@@ -15,6 +15,7 @@ class OpenAdventure < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9302436fba74b8157dab30c645b659316552a14054320cbeb45c5b21568a3faf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6eec5f4234610108d0981675069e9cb399629b5583375e8a3646cf40106ce84e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b79ead7a8777908582bbae02d996718401ad1e8ac590bc67acb9f47e90f6bdf0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "37eb08a624d5b0bed4316bdf8cbd41a32d61a47aa1049d6f14102b26cd3a7f8b"

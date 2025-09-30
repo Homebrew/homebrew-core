@@ -13,6 +13,7 @@ class Librevenge < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "78c667da8c03fcda8b994dc180cc75e03cfd36c014f7b904b02a6f602d1f62dc"
     sha256 cellar: :any,                 arm64_sequoia:  "8c3a4c2ed4af0c16cffd5ac758a8dc3ccec9ea4f0e620ef9ddc401d506660515"
     sha256 cellar: :any,                 arm64_sonoma:   "0b4b3683933059632de09508e6d49273a7908cf93a729a2899518eeb2313ce5e"
     sha256 cellar: :any,                 arm64_ventura:  "113a4ee5774cf6c3a58e4ea202b3ff39ef2d25f0500236b202d0d164b302dc8c"

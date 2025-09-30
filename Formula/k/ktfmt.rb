@@ -1,12 +1,12 @@
 class Ktfmt < Formula
   desc "Kotlin code formatter"
   homepage "https://facebook.github.io/ktfmt/"
-  url "https://github.com/facebook/ktfmt/archive/refs/tags/v0.57.tar.gz"
-  sha256 "f4948980930ec3b357f45a31cae5cff444638c38285e8c272c20cc01f44d3361"
+  url "https://github.com/facebook/ktfmt/archive/refs/tags/v0.58.tar.gz"
+  sha256 "750c45507f0d1cb19bf687865876f1dc58e9527fe64d4c98b1d43b646bef72ec"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0bba0dd65835cdcc8b134fe6f0028a9eea32d634cd15fd90505c97d8d2484f0e"
+    sha256 cellar: :any_skip_relocation, all: "c389d7f4b4fdb37685ec5b7203f134c1f750ce147a4e62930e2fb51093de8e93"
   end
 
   depends_on "gradle" => :build

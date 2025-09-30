@@ -7,6 +7,7 @@ class Json2hcl < Formula
   head "https://github.com/kvz/json2hcl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e9c88c5eaf2de4b9f1be6b75a686717fcee660d091d3bfdfe28b42c459ae63b4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a798a235db04843eee5ce55e66bc4bd3b1c197b9868fe945fba5137be4f190e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a798a235db04843eee5ce55e66bc4bd3b1c197b9868fe945fba5137be4f190e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3a798a235db04843eee5ce55e66bc4bd3b1c197b9868fe945fba5137be4f190e"

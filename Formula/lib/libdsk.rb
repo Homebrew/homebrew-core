@@ -13,6 +13,7 @@ class Libdsk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "8e1308155a5cedd2bf350ad304a06f6036e2ed71ee688c3500931610b5c37864"
     sha256 cellar: :any,                 arm64_sequoia:  "9dd9b752081e886227ddc89dd8b9aa574124f29ab76bca622bdd235294744c8a"
     sha256 cellar: :any,                 arm64_sonoma:   "62fd1abb55819c5aa90237ab176a63bd793bb3e9dccfa0fa3330f54af7143936"
     sha256 cellar: :any,                 arm64_ventura:  "0d6d4b1f77fe027a7053571ac8b9f8bfa73cee2b52a7a570bb32946cd8aa9378"
@@ -23,10 +24,6 @@ class Libdsk < Formula
     sha256 cellar: :any,                 monterey:       "3b7bf97955aa16d16ba35554bc7a171785ad16ab692c977f2ed690298866d686"
     sha256                               big_sur:        "19a28a828ba163c5bbb988cfc22e5c0a4d7a7c1f6e9cd479323c345e2175c017"
     sha256                               catalina:       "f444a8f81a4767668f4cbffa2ef09268279d23780e92b7d4bc2d6ed44c9cd675"
-    sha256                               mojave:         "47485db7001965531b700308a3d464a616703ddd8fdca64c8a7d2b5049481eb5"
-    sha256                               high_sierra:    "b4fa361c1800fd348c804873fd03f8663f7324eed228c3ba2e2d809a58fbbb97"
-    sha256                               sierra:         "d46bdf8e9c779b22a2a21c123572c08130aa36b8a817365ee3bd76219478aad3"
-    sha256                               el_capitan:     "b14fb001603c2ba33a26c0f49c7b008659ca5aa05ffaa01ab8147bac4da40d46"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "dd9848abd2782502fe79e8883abba6777d83f663d895b347e9c5e8faf5d98019"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ca3fd61e03994cc50d7f47ebf27c2ca54b24be84292baee91664ea6d864ab33"
   end

@@ -9,6 +9,7 @@ class Octobuild < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae3196c00596806784136909afae180ce3556bc53770ca95c8266324c285f1a3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "476cd1bbe57d73e981ac7d93033892ce3a70e507dd4538bbcb3da11d615997f3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84c845b11b998c5eba0e275305a19b9c7db52ffefac17b07f8de5253c52bd92b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9de6ad46ac2f152cde3007ab589650442cc5ce9da7d74399c888534bab8dd7bf"

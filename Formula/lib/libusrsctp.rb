@@ -1,15 +1,26 @@
 class Libusrsctp < Formula
   desc "Portable SCTP userland stack"
   homepage "https://github.com/sctplab/usrsctp"
-  url "https://github.com/sctplab/usrsctp/archive/refs/tags/0.9.5.0.tar.gz"
-  sha256 "260107caf318650a57a8caa593550e39bca6943e93f970c80d6c17e59d62cd92"
   license "BSD-3-Clause"
   revision 1
   head "https://github.com/sctplab/usrsctp.git", branch: "master"
 
+  stable do
+    url "https://github.com/sctplab/usrsctp/archive/refs/tags/0.9.5.0.tar.gz"
+    sha256 "260107caf318650a57a8caa593550e39bca6943e93f970c80d6c17e59d62cd92"
+
+    # Fix minimum required version to configure with CMake 4
+    # Remove with `stable` block on next release.
+    patch do
+      url "https://github.com/sctplab/usrsctp/commit/7569d2ce1e8658534369ad9726ca62139211db84.patch?full_index=1"
+      sha256 "6d37314f524ff301546f1e53b605dd276837a984545c6dc1cb21ad87cbd49f6b"
+    end
+  end
+
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "6103700921dd7e4269e9cd22540acc5d28e30e3ca10a3aa57aa75bf5f05c9378"
     sha256 cellar: :any,                 arm64_sequoia:  "26779b22a8b35e70131a4fb010839955453e8d703f682d77b411c5900d2543ab"
     sha256 cellar: :any,                 arm64_sonoma:   "d87af9c75847214b4101934141dd53dc3e5992304bd8f97aace95c683a2fa435"
     sha256 cellar: :any,                 arm64_ventura:  "27f59644b7711afcde95e34c6258a4f62bedaff91e7de90356494a511fa85f35"

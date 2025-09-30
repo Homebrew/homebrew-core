@@ -16,6 +16,7 @@ class Fastd < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "9c8e775650403436785d0cdfc910c4266874951649102e80ab289ac810731789"
     sha256 cellar: :any, arm64_sequoia: "0e49dc056a65bd9665f96f384eff2843e3171ce178758cae06f8c2263a350511"
     sha256 cellar: :any, arm64_sonoma:  "71e35318e2053784ab994a73a4154ed20f9edbdc0d8f499a640b6acb9f2e304b"
     sha256 cellar: :any, arm64_ventura: "39736a2f0b8cbf6e57cb89b7f16ad59195007b8299c1b308815b5f053824df47"

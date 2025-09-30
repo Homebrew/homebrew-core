@@ -1,19 +1,18 @@
 class Malcontent < Formula
   desc "Supply Chain Attack Detection, via context differential analysis and YARA"
   homepage "https://github.com/chainguard-dev/malcontent"
-  url "https://github.com/chainguard-dev/malcontent/archive/refs/tags/v1.15.1.tar.gz"
-  sha256 "ed3fc7a93c4dddf182de6d33ea9a1a059481204281c79c8d6e2743a174bbd0c2"
+  url "https://github.com/chainguard-dev/malcontent/archive/refs/tags/v1.16.2.tar.gz"
+  sha256 "8fd29ab7652bf54b1cfa6ae7cdf43cd2a9a8ddd8d37d8c8b954255c5d7078abd"
   license "Apache-2.0"
   head "https://github.com/chainguard-dev/malcontent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cc71a3e03161793052d5b7dc7c8380e1a95b65eb0aeb2ad176087849f2776e37"
-    sha256 cellar: :any,                 arm64_sonoma:  "e82fed003ed53abf39a4834e12f18b1262a027000c4ebbc45fa5483c4272fd63"
-    sha256 cellar: :any,                 arm64_ventura: "c65269f00f56ab7a63bab48c113ab62463306301f2b390b6c2a679584fba3650"
-    sha256 cellar: :any,                 sonoma:        "dc24c45d4025b4613fb835a90a784223b54bb2ac132600c26854c41b10ece151"
-    sha256 cellar: :any,                 ventura:       "2511f12e87db212c5cb83b78f7b59c2d5dc37fef94825698d0ae52c5d33f77c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "908239eef1317d922a47f85558efffd0525aee38411de805fcea1ee57a1c8ffc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ffcf83ee0f7d3c7d457fa39eff1ec480db1d675692b3f31cb56f1c295f5168c"
+    sha256 cellar: :any,                 arm64_tahoe:   "c78ee6e7031cfb59d810e2fad5e122ee87d7695619a279386e2e606566db011b"
+    sha256 cellar: :any,                 arm64_sequoia: "defbc66fb2bd4c6961a7f156feb71cc3f0e199ef1c5c045850646d2e95f715bf"
+    sha256 cellar: :any,                 arm64_sonoma:  "d20e7383403810585bd6a4975482eac3ea64a635661571003e181ca1b1f5c16d"
+    sha256 cellar: :any,                 sonoma:        "ffb7315ebbad33ca6fce405c1b2f6fd224dbd40e96161f1a18eeb85a4904205c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "94d85f544d7f13a162d56367b3d3842d019467c78f80bb11674b34f45a53724d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3b63476593835cfda851d1b47a3d1b2daeb84190a732b218591500a87d99f55"
   end
 
   depends_on "go" => :build

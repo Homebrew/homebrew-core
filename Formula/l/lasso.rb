@@ -13,6 +13,7 @@ class Lasso < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d2782fd1ca39470139eec18542919b21a7f1cfba157413d4b2114ac6050f2655"
     sha256 cellar: :any,                 arm64_sequoia: "73a4b5de8e89c7600198eda7cbe6a6c617645e5a902419856e8c661aad8f9805"
     sha256 cellar: :any,                 arm64_sonoma:  "6b4e27f4dec99b6f3e4fdd7e199fe025913c19bb6cb0bfb9960f4e5e4c8baeac"
     sha256 cellar: :any,                 arm64_ventura: "b5d48e185589b6c5e989efd4334885d05aaeb181fadefc2d679d1296fec110a9"

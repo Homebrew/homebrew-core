@@ -1,7 +1,9 @@
 class Ssed < Formula
   desc "Super sed stream editor"
-  homepage "https://sed.sourceforge.io/grabbag/ssed/"
-  url "https://sed.sourceforge.io/grabbag/ssed/sed-3.62.tar.gz"
+  # Original website is down: https://sed.sourceforge.io/grabbag/ssed/
+  homepage "https://packages.debian.org/sid/ssed"
+  url "http://deb.debian.org/debian/pool/main/s/ssed/ssed_3.62.orig.tar.gz"
+  mirror "https://sed.sourceforge.io/grabbag/ssed/sed-3.62.tar.gz"
   sha256 "af7ff67e052efabf3fd07d967161c39db0480adc7c01f5100a1996fec60b8ec4"
   license "GPL-2.0-or-later"
 
@@ -14,6 +16,7 @@ class Ssed < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7f320800bb3b956cc9b1c04587ac2c93bf44dfea273107a9930a767bfa970f44"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "92006e68fb2c4e57950c340c9ccef34132c2577f7341b79c168ca906bd400018"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c90bd4517877eb2e72ed8ddfd9ebd830d781d10f3e1e21f81013ea76fc75816d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "145cb1b805276d6a61df5d706fac9e96cd1dd98f0e1e4f2a9bafe1af52fcef47"

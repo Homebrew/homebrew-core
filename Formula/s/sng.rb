@@ -6,6 +6,7 @@ class Sng < Formula
   license "Zlib"
 
   bottle do
+    sha256                               arm64_tahoe:    "21a7abd0b2c11b995a816141ba9fd6681090a3bcea817ecd3d9947be6d36e02d"
     sha256 cellar: :any,                 arm64_sequoia:  "3fa5a7aa3bd864bc8f01ca6bd266e145565bef2edd9de53ae77acc866814ec83"
     sha256 cellar: :any,                 arm64_sonoma:   "da333412a3df6fc42a56de17352007250eed4c7240fe3fd245dc195c450fc711"
     sha256 cellar: :any,                 arm64_ventura:  "f6519f1b91d2139e045d7d0b116033d25c7630ff33c852074eeed4ad12b2a633"

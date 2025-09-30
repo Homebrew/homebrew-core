@@ -1,18 +1,17 @@
 class Observerward < Formula
   desc "Web application and service fingerprint identification tool"
   homepage "https://emo-crab.github.io/observer_ward/"
-  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2025.6.5.tar.gz"
-  sha256 "7edf8db2e601b9d240bd847541c40e7001e6223344c181da7e7aeb80dcb22d72"
+  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2025.9.18.tar.gz"
+  sha256 "a2fcbb805c52ffb31b38a433de7aa66e015ef9d746a83223df9d60b792c1208c"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9577e53d522d64463c5d9dd71ed249c0e6b15ebaa7947f092c4883fcc693bd3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80360761860259008435c8a14b651c29d176158f11395832abb8ed8e85765e47"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d51ba2b0e1d31c365c50ed7521b4163b5092a482572e82a010333e82b32891db"
-    sha256 cellar: :any_skip_relocation, sonoma:        "12ca31db6a4219cf54f6a78d196b643682f40d730f40126cfdda27cdb23c030a"
-    sha256 cellar: :any_skip_relocation, ventura:       "31c1921772d357f0282fba0231d6e32f3fd42e78e11944eaf616fcd253488628"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5492c7bda875b5e31d79b0d055299743c011f5906f31e666b0d6c3550bff5e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e5eb721b0bac0cff945e2c75177cdb605d846b4331347dd3f4435f3c016ecf5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8a9c275ab9ba35cb0296b36442dc36c48186132e5dd076988daba5f3325feacf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2e316cec20279e56392db263268809bca8ca323fe4b292fdb94e7887315504f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab2b9c1bc85d375a2970563e3674158018488afaff2e28468c019aa8af7df4fc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd8f343c6678135a07d38b6a63cb9cb020109a6a4cda860946915975a63518b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb91ea7cad8a2a07cd3c8f6defabbba0ed3b3c007305c9a0ab0f3b3b54334a1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "703492aa176008c88997df123d6579e44d0e82b81a34496c44c32768e6ced25c"
   end
 
   depends_on "rust" => :build

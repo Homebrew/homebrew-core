@@ -7,6 +7,7 @@ class Termscp < Formula
   head "https://github.com/veeso/termscp.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "54011ce5f08eecb7beb5f4195126cb828dabd3dacb138e2c63f8a4c4ea55db5d"
     sha256 cellar: :any,                 arm64_sequoia: "9b0ebfc7d1e98d38f9a60557b4c17746b24c62634beb0117d7fa033549d20b67"
     sha256 cellar: :any,                 arm64_sonoma:  "0134e8eb5be800b3dd71f9d1924df8c83500c6fb0b83e48e22644f91873b830a"
     sha256 cellar: :any,                 arm64_ventura: "9fb082121f4c9fec8023e9d2b06238155dd0e504891bb2485b4110c3a7759e0b"

@@ -9,6 +9,7 @@ class Nali < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6f8043064c089c1aecc60e6c8f0c1cf921884e71525135ce10d4ce82f8cf52fb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49c0a2adfd6547b5f9106bb4cae051405966c565f5c947223071b0b176d67f73"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "76f8757159e2e3c2bfb3109af9f600c1e7f677350f60921bec3473fbf4bc3aa5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "89356d49ebdb86e18fca7e8926abfaa960cbd1a46f1b48338ebbc74ced01118b"

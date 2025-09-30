@@ -1,20 +1,20 @@
 class Svlint < Formula
   desc "SystemVerilog linter"
   homepage "https://github.com/dalance/svlint"
-  url "https://github.com/dalance/svlint/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "ed07d77dd72fe49c086df407ed74e321d210eb19dc0dc353ebcf23414116ccfd"
+  url "https://github.com/dalance/svlint/archive/refs/tags/v0.9.4.tar.gz"
+  sha256 "989555c119fb24b93aaec3ebf4dc8a4469f8a61880f7482683316180a2062a54"
   license "MIT"
   head "https://github.com/dalance/svlint.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c82113e0273481d396f4d0b09bcb50abe5034c9397c9b4779e235df99dba9cb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d4983f8a4e157a8cddd6e4e3aef2ad28dc6b1a0048134e1e8894f6a8259ceae"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e92e737e77aa193fa30e67f5c443fec1329ec01ced2ec0cf74ded12c8037f614"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a54509a5ccbaa642caf7f72f8d24aa93191b4ee8d7eb5eb42f5c9c5c302a552e"
-    sha256 cellar: :any_skip_relocation, ventura:       "fcc94fcfab52c8b6fca8bc7473bc59f14748ee9a97679b344a9d2d724456d063"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca55ec7b42ee2253f5aab55532d2cda99607209ed4f14a436968f38efeaa48b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbe93914caa4cc7c788375ba72a0dc2d1a1bccde48f0100a1f39b2fc70ae8827"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d40b78886e5598a3f1e7ab0bc66572e6e7d2c848ceeb7ddaad8d42737132c755"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc512aca745d4aa144c5c1e747f83c2379c2ab9ff59003b814528e6bc17b3c82"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d77af372524eac001d83bfd9a64d2289ae559ecf29cc3da6e9994a42080785ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6b32034e9b4c0acdf08b05b30ea05eb70d9591392c0fd2bbe8ccc2c32ebd368"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43270ec7ea8569238437f95a9bb548e483d8d95d49f71d16ebc3bd45756dbba8"
+    sha256 cellar: :any_skip_relocation, ventura:       "8787afb02c4a3cef60eabb963e881cee53b4331cb42d1820c54cd771b4b4069d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c52133f3b10c69aec264a3a1372abef0bf7d9238b38faad08a476894805de8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ab4834d5d9e90d2e26c7a46029013e12e0f6c59febf6a3a94c6541c15ac3762"
   end
 
   depends_on "rust" => :build

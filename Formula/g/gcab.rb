@@ -15,6 +15,7 @@ class Gcab < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "dbdb82143e59cafc2357e57d67c491fdabc97ad442e7ea64db68a3394ed4f3f9"
     sha256 arm64_sequoia:  "e6e1d52d928e85cb2fbbea1220fb224c61dae65fe1525959ae6fb61f7f77b013"
     sha256 arm64_sonoma:   "7191f605413c808ef98d36eb37021fc8b038692ace3b8429b2d1b7e1c49b941e"
     sha256 arm64_ventura:  "1bba0eb507e8f2d7b64ad8c1a28c12dc74a785747a4683baa60437c2a4b015a6"

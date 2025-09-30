@@ -7,6 +7,7 @@ class Gxml < Formula
   revision 1
 
   bottle do
+    sha256 arm64_tahoe:    "ace7b4e24823b8626e5cb1c8663617a68ac0f38fbd8e97926d5db59198746ef9"
     sha256 arm64_sequoia:  "47216df062f881bebea1796d72ce28358e3eeb746dbf9215e80ae4476daa3902"
     sha256 arm64_sonoma:   "8f97268cf4c3e02ebb80664ad7130ed9e8a73651c8ee4a4edff6a0c49f109518"
     sha256 arm64_ventura:  "e6e950ee7e48514e6ba3b1f81037e99799886d05adf2fdf7a31d3939bf9b7196"

@@ -1,27 +1,20 @@
 class Kettle < Formula
   desc "Pentaho Data Integration software"
-  homepage "https://www.hitachivantara.com/en-us/products/pentaho-plus-platform/data-integration-analytics.html"
-  url "https://privatefilesbucket-community-edition.s3.us-west-2.amazonaws.com/9.4.0.0-343/ce/client-tools/pdi-ce-9.4.0.0-343.zip"
+  homepage "https://pentaho.com/products/pentaho-data-integration"
+  url "https://hitachiedge1.jfrog.io/artifactory/pntpub-maven-release/org/pentaho/di/pdi-ce/9.4.0.0-343/pdi-ce-9.4.0.0-343.zip"
   sha256 "e6804fae1a9aa66b92e781e9b2e835d72d56a6adc53dc03e429a847991a334e8"
   license "Apache-2.0"
-
-  livecheck do
-    url "https://www.hitachivantara.com/en-us/products/pentaho-plus-platform/data-integration-analytics/pentaho-community-edition.html"
-    regex(/href=.*?pdi-ce[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.(?:t|zip)/i)
-  end
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6844f00620d72aea96200ed1d2abae15a9ade480b7cdbe2fe30e023a18efb4b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6844f00620d72aea96200ed1d2abae15a9ade480b7cdbe2fe30e023a18efb4b1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6844f00620d72aea96200ed1d2abae15a9ade480b7cdbe2fe30e023a18efb4b1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "47eb4cc6af16734644e1fb4d184deec13348f16e432194842d084309169e202a"
-    sha256 cellar: :any_skip_relocation, ventura:       "47eb4cc6af16734644e1fb4d184deec13348f16e432194842d084309169e202a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6844f00620d72aea96200ed1d2abae15a9ade480b7cdbe2fe30e023a18efb4b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6844f00620d72aea96200ed1d2abae15a9ade480b7cdbe2fe30e023a18efb4b1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "2e06b9a8ce68da482615fb8566137223350e711a6d7a48e8e19f27bb3307b0f7"
   end
+
+  # https://www.linkedin.com/pulse/license-changes-pentaho-community-edition-from-version-philipp-heck-3kzwe
+  deprecate! date: "2025-09-19", because: "changed its license to BUSL on the next release"
+  disable! date: "2026-09-19", because: "changed its license to BUSL on the next release"
 
   depends_on "openjdk"
 

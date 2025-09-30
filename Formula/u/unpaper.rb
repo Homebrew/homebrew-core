@@ -4,21 +4,20 @@ class Unpaper < Formula
   url "https://www.flameeyes.com/files/unpaper-7.0.0.tar.xz"
   sha256 "2575fbbf26c22719d1cb882b59602c9900c7f747118ac130883f63419be46a80"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/unpaper/unpaper.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "698367ece512da282636d61bd2a514efacb0d014684cc2ae663d9f0121cf3d64"
-    sha256 cellar: :any,                 arm64_sonoma:   "13a3d8a2709a9ff5af9d0cfe4149ecfed559ab159e89157d090363226a94149b"
-    sha256 cellar: :any,                 arm64_ventura:  "bbce025f0f3d27f9980e1032a83434024d6dca13fb547c4360c481cda4c43d65"
-    sha256 cellar: :any,                 arm64_monterey: "10c463411cad146cee0c513868d177e9a5ec6d1fdea8f9cb2ad466f08715ac48"
-    sha256 cellar: :any,                 sonoma:         "1de18988f8f9373530a98bcdc7390dc87817e828b109171a284f60ac70c524e7"
-    sha256 cellar: :any,                 ventura:        "9f4cc2bc495825b3b08e4103dda38e194dded68c4a3f122182d408b43a5b0bda"
-    sha256 cellar: :any,                 monterey:       "4ea845e807a1a65a35b1e7d56dab12ee3778d18446770b6afc6f708d858e8dad"
-    sha256                               arm64_linux:    "57a7bfae48a116ac2a5959780987ff778a03ebeadffeaad41a6da433b25ef3a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae26a1afe4806f2903bbfce2d359c7485b75bdf1bc04e25674fd0cf3b283605f"
+    sha256 cellar: :any, arm64_tahoe:   "320c0664be9f441fb7a5f6bc021d37530845fa4ea4da99d3d8d401db90b2681d"
+    sha256 cellar: :any, arm64_sequoia: "99d2fa75bbc4f530241ab2a64e5cbc1a5061fa96c5567faa70eca694b6228ef9"
+    sha256 cellar: :any, arm64_sonoma:  "1d183d40ad7c4dfd89f52ca00311238722f2527a6a1a751e3efc6135e1354a3b"
+    sha256 cellar: :any, arm64_ventura: "0e1846058cd13818ec2ce52723cede8c9623c31f27f0f9ec86f05c33340f8208"
+    sha256 cellar: :any, sonoma:        "6777c3ff2dd38462fa6977af915316a930a157356ce0b9dd95a2fe99c80b54d2"
+    sha256 cellar: :any, ventura:       "ff58caf46e5464a26fe3e79631296ded2c6372c0bc984ab1192942fe24841880"
+    sha256               arm64_linux:   "dd466760c8a54553861474272a465e1a4460d48bd8dc6a0dd885e5cf39a06a63"
+    sha256               x86_64_linux:  "4ee017ffb7c00c3573b669f7b87f17bca1faceb37ae72f43496d612c36700cc7"
   end
 
   depends_on "meson" => :build

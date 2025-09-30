@@ -13,6 +13,7 @@ class ExactImage < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9b37a3a8d7dad43283a963946344b7851d83197ab6c582db6c73ad3609e38b97"
     sha256 cellar: :any,                 arm64_sequoia: "f44f495419aa32f25be9e14a76466def5388eb6535e8f8a9b0755a87431342cc"
     sha256 cellar: :any,                 arm64_sonoma:  "f206295b88ae90ba83c514706654efbe65fc2667e42050926a82a9570a54eeba"
     sha256 cellar: :any,                 arm64_ventura: "0482d18c47021b7fa3f907971a2d90838d0f34af8b5d69bc1835370fc291f34f"

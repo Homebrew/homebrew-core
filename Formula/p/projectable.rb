@@ -7,6 +7,7 @@ class Projectable < Formula
   head "https://github.com/dzfrias/projectable.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b1841396e1fbe48ea92b634be22e4c1f15356fda280eacb4cadf3c5795c29cbe"
     sha256 cellar: :any,                 arm64_sequoia: "f355d14b2034c1fb76bf40a0ac128cb5676f234169393a61de59ae51e77da776"
     sha256 cellar: :any,                 arm64_sonoma:  "0eafa10a8ae0d7b2a90f70145efb71a517609fa31e09ee10b7fe734201965f0c"
     sha256 cellar: :any,                 arm64_ventura: "a288dcbf708ffeb16c512655d9426e801553471fee1c095a6d2d329f41ccb6ec"

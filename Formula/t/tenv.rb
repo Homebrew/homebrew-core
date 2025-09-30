@@ -1,8 +1,8 @@
 class Tenv < Formula
   desc "OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager"
   homepage "https://tofuutils.github.io/tenv/"
-  url "https://github.com/tofuutils/tenv/archive/refs/tags/v4.7.6.tar.gz"
-  sha256 "006233f57c84f10d33716ffb192326c45460475de9bde6ea81acae1d42e8654b"
+  url "https://github.com/tofuutils/tenv/archive/refs/tags/v4.7.21.tar.gz"
+  sha256 "e320d79495cc15f22386f7b305bb4915fbb5d349e8b6d5713ca1750266cb1275"
   license "Apache-2.0"
   head "https://github.com/tofuutils/tenv.git", branch: "main"
 
@@ -12,13 +12,14 @@ class Tenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "752a4df1d58c88788c9b699b6e94e32dc70b14b982dd77fcb0a7ab24c86c803f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "752a4df1d58c88788c9b699b6e94e32dc70b14b982dd77fcb0a7ab24c86c803f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "752a4df1d58c88788c9b699b6e94e32dc70b14b982dd77fcb0a7ab24c86c803f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4e3894c1e7d72e0533925c969de733619c393ef90ae278ab5f73f4c6d6f2ad6e"
-    sha256 cellar: :any_skip_relocation, ventura:       "4e3894c1e7d72e0533925c969de733619c393ef90ae278ab5f73f4c6d6f2ad6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7845250cbeac9b570a6f5d02cc954bff0c97d23d50979d282409dde377e3833b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cfaab99d16ea83c4174600417d09d2bb7e1561b165a975419ec77c8c79cb913"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d16ed18031c65fdc3abcdb0076c45406104b1c0fc97855fa481c45c2a0e59bdd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b96df51a328414e2ad5d4bb8f95cb94953dadbb516c456ef940e8a6cda6740ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b96df51a328414e2ad5d4bb8f95cb94953dadbb516c456ef940e8a6cda6740ac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b96df51a328414e2ad5d4bb8f95cb94953dadbb516c456ef940e8a6cda6740ac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2616b23ade2f41d21afe865395ee15a6a0cb7ee6b2c18c746acf53c1a839f1d8"
+    sha256 cellar: :any_skip_relocation, ventura:       "2616b23ade2f41d21afe865395ee15a6a0cb7ee6b2c18c746acf53c1a839f1d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a920766536256b783fadfbca3f082cf16dea68ce3c8e99d6614f36600649c50b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f919fde0fed92f5dbe82686d97ee1db952003915936ae77411449285a59d8da9"
   end
 
   depends_on "go" => :build

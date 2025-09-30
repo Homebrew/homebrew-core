@@ -1,8 +1,8 @@
 class StripNondeterminism < Formula
   desc "Tool for stripping bits of non-deterministic information from files"
   homepage "https://salsa.debian.org/reproducible-builds/strip-nondeterminism"
-  url "https://salsa.debian.org/reproducible-builds/strip-nondeterminism/-/archive/1.14.1/strip-nondeterminism-1.14.1.tar.bz2"
-  sha256 "149e5e7585cd1d8e777564d5772fb1afa5ed7be4a049c52ffc3a31de2bc04b93"
+  url "https://salsa.debian.org/reproducible-builds/strip-nondeterminism/-/archive/1.15.0/strip-nondeterminism-1.15.0.tar.bz2"
+  sha256 "cde5567a8e20f3f31ee25132d38f5803efc47c05551d321d1dd1e7666a780a07"
   license "GPL-3.0-or-later"
   head "https://salsa.debian.org/reproducible-builds/strip-nondeterminism.git", branch: "master"
 
@@ -11,16 +11,15 @@ class StripNondeterminism < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7917ac787a7dc6cf8d86c1b6b0fe44de78036523fec7a9c81c00c0b6dffbbac6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7917ac787a7dc6cf8d86c1b6b0fe44de78036523fec7a9c81c00c0b6dffbbac6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b09a9787d5eca23d947ca3fcf5744202051290337ee041f88af17fb70fc41c6b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5a853e47eb7bd6b1f321040f2debd817ab1e1291ef5df6b8381c888594d67727"
-    sha256 cellar: :any_skip_relocation, ventura:       "75901bb6038f31a4afe830eee9de9c020c514d9eb6c7333ad5ed545f4bbdbe61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "56debe860510e4194923c1398ccfc9b56250c2539503cb9bb1b95951a56df1d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f49f58ba6bd0bff56bbf6d0a1344f3aa46c8e2f7faf44c2b0d57b454d75488e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c74b1e7b349d3122995ac522942d868a2eb8d4d18914a36df9a2f2a4599e986f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c74b1e7b349d3122995ac522942d868a2eb8d4d18914a36df9a2f2a4599e986f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c74b1e7b349d3122995ac522942d868a2eb8d4d18914a36df9a2f2a4599e986f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a6bd8260e62ce02f163df584fbfd5335bf0209a2fd90d19c0abbed3a62146281"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8f010fb1fe507739c9e008422a72e7d03b9574da8f3dbf40d361bab0808c028b"
+    sha256 cellar: :any_skip_relocation, ventura:       "ec0acf9bc2af17c5698806d4e4038817eb8b97f80baa4e3e1effe3987549c665"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ff6a548bec5370e987393aa9edf3fb3a10a41409050327af3d70ae3189375a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e32a0e8ea3c0201f2e8cc448b4b7acfc759b22f14c5315466da11c6db73e2eb3"
   end
 
   uses_from_macos "file-formula" => :test

@@ -12,6 +12,7 @@ class Onigmo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6da2a45f04ccd10f3d53a55f8ee740f6e34de3028cfb90034521b8d7d75062c0"
     sha256 cellar: :any,                 arm64_sequoia: "7dfc12c6ac3db48e2927137723a4d9ee1cf0b48d3188b142231b87add252e101"
     sha256 cellar: :any,                 arm64_sonoma:  "3e7750a967115b4f15803abf886f850cb8840f42c67749bb4b5c3bb96861273c"
     sha256 cellar: :any,                 arm64_ventura: "982e2aa0d17a1a598740ba22040c8a33c37fc8995b75a0b86c5016975cf2aad6"

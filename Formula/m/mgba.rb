@@ -1,10 +1,14 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.5.tar.gz"
-  sha256 "91d6fbd32abcbdf030d58d3f562de25ebbc9d56040d513ff8e5c19bee9dacf14"
   license "MPL-2.0"
-  head "https://github.com/mgba-emu/mgba.git", branch: "master"
+  revision 1
+
+  stable do
+    url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.5.tar.gz"
+    sha256 "91d6fbd32abcbdf030d58d3f562de25ebbc9d56040d513ff8e5c19bee9dacf14"
+    depends_on "qt@5"
+  end
 
   livecheck do
     url :stable
@@ -12,12 +16,20 @@ class Mgba < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d8ebe6fbc8f70d57496bdebbc8fc268c85f0ffbfa43c75803f99373ad8e2c7c4"
-    sha256 arm64_sonoma:  "384c4b392c485731de5660702fb07898aeeb84f75cf0034d8e9fb2d3d0580fa4"
-    sha256 arm64_ventura: "2fbcf8eb43d84643bb7b785700ce107b73cdbe2355ae7fd644bae4a5b27a1365"
-    sha256 sonoma:        "b48c92a1317213099f472790e21a95b2706caa5d4dc926d265947557fef71511"
-    sha256 ventura:       "9c1ea93c98a50f653d8420817ca951ed455e8f9d9e75326e15ff490e89d4bb1c"
-    sha256 x86_64_linux:  "1fcfaba1760543dc1cdbdf8c3f2a020d98aefe30d2050ee58d792ca2e6fb550f"
+    rebuild 1
+    sha256 arm64_tahoe:   "06db0999e64a0a60335fcc7104da11ddbc37efc467f983794fcbe21a6f4a96e1"
+    sha256 arm64_sequoia: "0b47b22819b56f4f974b3bc13229329cbef0fc1df0474a2d2ffba3ced580b2e5"
+    sha256 arm64_sonoma:  "038e56d90cd6ded9ac8150847bc86c43dc57c2441496916c2a0f3b232608927c"
+    sha256 arm64_ventura: "0e89003774f3a0164c890f1732242969cc013b269b037bd01d8b97a3ae4bf4a7"
+    sha256 sonoma:        "d56566a7d206c7850126abbcb2c85ea659f995c30efce5886344e27aeca427e7"
+    sha256 ventura:       "d90396f1c7b48efb28edfd391a82fc0a6bb83a9dd3046398f8b5a16b66a4eea3"
+    sha256 x86_64_linux:  "4ef9822d552b0d2ac6d038f63539af007285ed9132e0098594ebb49ef10278c1"
+  end
+
+  head do
+    url "https://github.com/mgba-emu/mgba.git", branch: "master"
+    depends_on "freetype"
+    depends_on "qt"
   end
 
   depends_on "cmake" => :build
@@ -26,10 +38,8 @@ class Mgba < Formula
   depends_on "ffmpeg"
   depends_on "libepoxy"
   depends_on "libpng"
-  depends_on "libsamplerate"
   depends_on "libzip"
   depends_on "lua"
-  depends_on "qt@5"
   depends_on "sdl2"
   depends_on "sqlite"
 
@@ -47,8 +57,11 @@ class Mgba < Formula
   end
 
   def install
-    # https://github.com/mgba-emu/mgba/issues/3115
     args = []
+    # TODO: Remove minimum policy in 0.11. Upstream commit doesn't cleanly apply
+    # https://github.com/mgba-emu/mgba/commit/e95b81f1f7b95161fbda81fa5e931e3bcb193ccf
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5" if build.stable?
+    # https://github.com/mgba-emu/mgba/issues/3115
     args << "-DUSE_DISCORD_RPC=OFF" if OS.linux?
 
     inreplace "src/platform/qt/CMakeLists.txt" do |s|
@@ -60,9 +73,16 @@ class Mgba < Formula
 
     # Fix OpenGL linking on macOS.
     if OS.mac?
-      inreplace "CMakeLists.txt",
-                "list(APPEND DEPENDENCY_LIB ${EPOXY_LIBRARIES})",
-                'list(APPEND DEPENDENCY_LIB ${EPOXY_LIBRARIES} "-framework OpenGL")'
+      if build.stable?
+        inreplace "CMakeLists.txt",
+                  "list(APPEND DEPENDENCY_LIB ${EPOXY_LIBRARIES})",
+                  'list(APPEND DEPENDENCY_LIB ${EPOXY_LIBRARIES} "-framework OpenGL")'
+      else
+        # Work around failure running `cmake -E tar` within brew's build environment.
+        # CMake Error: Unable to read from file 'fish.fs': Could not open extended attribute file
+        # FIXME: Build is fine outside brew's environment
+        args << "-DUSE_LIBZIP=OFF"
+      end
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

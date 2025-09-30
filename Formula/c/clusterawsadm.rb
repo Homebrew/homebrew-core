@@ -2,8 +2,8 @@ class Clusterawsadm < Formula
   desc "Home for bootstrapping, AMI, EKS, and other helpers in Cluster API Provider AWS"
   homepage "https://cluster-api-aws.sigs.k8s.io/clusterawsadm/clusterawsadm.html"
   url "https://github.com/kubernetes-sigs/cluster-api-provider-aws.git",
-      tag:      "v2.8.4",
-      revision: "49658babd14cb9590f9fef8330243d530f7d6602"
+      tag:      "v2.9.1",
+      revision: "9c1704975705d44b74fa4a1dc3b9a37e6f4d95e2"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cluster-api-provider-aws.git", branch: "main"
 
@@ -13,12 +13,11 @@ class Clusterawsadm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "000bd6559e318952155c155d05548dba25f9ebafd15430b7a18c9a1456e6e683"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba21fff18a7d5e1560dfa16bc3a9e1656cffc2a43bef0df7c06c87af95c665b5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b2391eb924d5c000c71d672c4acb98ebe509d8de968eae01bcd1d032ff13e33"
-    sha256 cellar: :any_skip_relocation, sonoma:        "16d6de766e18a14f4503f894304c37433d796ce9cdf4e2fcb92ed51cac1d7dda"
-    sha256 cellar: :any_skip_relocation, ventura:       "07fb08edbfec7f8165ae1e53db1f47aa3c1e02a2a92942f64a0afc76ea5eb075"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea4f80b7a6751f98abcf6d57fd2b3089980fe1e3b6d138fec1cd95adba46975c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5023afa9397593c29f387a0d0fcc660abdadf370349655dc62668e797888f6b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be5b3a26dec54d9d22b37691138ba818a090c8c7e795c1632ba7b2b33d43c3b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a60560f837122b6728a52e2e514195988545cac93e549ad919c2f8811bc6dffc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "32ca62afaaf72f78522f0207187f45c29863b3da949d869cedaae96d769148dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca6e3ec8292970b0bec3d42850c4a299b61aace904ab8a2e4cb699e8c9a9212b"
   end
 
   depends_on "go" => :build

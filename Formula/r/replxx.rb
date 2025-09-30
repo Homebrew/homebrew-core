@@ -6,6 +6,7 @@ class Replxx < Formula
   license all_of: ["BSD-3-Clause", "Unicode-TOU"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6f9776e783d8c4f8a9b2d570e3d713fab96a4d971e9299c433ce5f13693201a0"
     sha256 cellar: :any,                 arm64_sequoia: "e2ef892ce63fb20afa7af121db7e7291850badb448c4b0350ebfc6c5d7340051"
     sha256 cellar: :any,                 arm64_sonoma:  "ff95dde6a1e561d0d0389138643ba04db15fcddeb72c5770052ec05f196adeca"
     sha256 cellar: :any,                 arm64_ventura: "3ce57d5f033cec54cce82b5db47a5a4f8e17b28cd3ad4533c5b7686ccfb6c4b0"

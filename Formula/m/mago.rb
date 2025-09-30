@@ -6,6 +6,7 @@ class Mago < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "480ea8872261668e930a327831d47db27f49dca28eb4ba567156d07780db1a65"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "63a3abbb529f9680e9ba6a042e14150007c09b085c19c97eb8606e9f4a0bbee2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f87c201197e099ac2c4dc7d4a5cb7f31e5727f91713b7ef1225ac5573f47813"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ea2f1c78ca8a1f5406ba43a00e502277c34ec7b760c0fa3fa86ae15e44e1ca3e"

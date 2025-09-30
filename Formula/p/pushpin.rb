@@ -7,6 +7,8 @@ class Pushpin < Formula
   head "https://github.com/fastly/pushpin.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8659ba7f8f37102cc3e856258d06f74f10a47bc501ec14de06a3c4a504a00069"
+    sha256 cellar: :any,                 arm64_sequoia: "33ed26c14c533b50d5f14be0ff0cb049f32a80e495ac822c9b461a49424eaed9"
     sha256 cellar: :any,                 arm64_sonoma:  "1434389dc49466bf5fd7db467fae69f1a4cb1a40fad0ba208424d9cd668561d8"
     sha256 cellar: :any,                 arm64_ventura: "6a6e1589b2426b8865342dc8ca4e1e40f458566914b4d9bc2acfe5026a5913d3"
     sha256 cellar: :any,                 sonoma:        "e556f7e386f9754072825140963bcf97500b0913028224c0c41e34b06ec5101e"

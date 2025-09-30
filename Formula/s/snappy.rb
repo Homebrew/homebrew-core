@@ -9,6 +9,7 @@ class Snappy < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e735754860a1b086bf31814117dff6eaee6a1d9f26e8de33ee9d75f1decc770b"
     sha256 cellar: :any,                 arm64_sequoia: "326d8c9a73e0990a43fefe96d2e29355fcd6f42906710017bd1a3baf4401bb33"
     sha256 cellar: :any,                 arm64_sonoma:  "28b0702ed678a35c6d03cb4d91f975e17b3b5af7480418f3c82f46365e55533d"
     sha256 cellar: :any,                 arm64_ventura: "9e4594baee5654ab46bf4542d4e1867c6a6700cc11948ee7f496a7a681a1fd28"

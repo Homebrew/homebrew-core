@@ -7,9 +7,11 @@ class Texinfo < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "d8199dd58cb98598116281a797f447c3dd655419f7e5e7db3e5ad80a3cd9662c"
     sha256 arm64_sequoia: "abfc842bb08fd512dd878e2233ea6d0d3682685dd9d5a03a86c6c8d170ca104e"
     sha256 arm64_sonoma:  "948d36004ea61e34f1b27d04d4b56c5b1e2cf7bc28861c89fa9cd7c3c87cbdb5"
     sha256 arm64_ventura: "71ed6d2d1b181f10f9fabac5935ff3956d7b63f670e652465b601c2929a19cc2"
+    sha256 tahoe:         "0e5d8e8b5faddb0c8628fb3511b93af72e402e1bc28cc8cbcc21d185e27d3040"
     sha256 sequoia:       "bb81887583e785c41b1f6e9812f62f04a304f7d655dad3139d82077f2e61b64d"
     sha256 sonoma:        "4bc4f8a0d5ed88dbee2565088997164573ca8c2e7f229030b2035ba8905172a2"
     sha256 ventura:       "a8e566d23516d94e0f573b648122c74c317c7eea8d16acf55645e5347759c363"
@@ -20,7 +22,7 @@ class Texinfo < Formula
   uses_from_macos "ncurses"
   uses_from_macos "perl"
 
-  on_system :linux, macos: :high_sierra_or_older do
+  on_linux do
     depends_on "gettext"
     depends_on "libunistring"
   end

@@ -13,6 +13,7 @@ class Par2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "da1851248ab9cdff094faae097c3cdca735b950851df191f6f8d4f48e17c483b"
     sha256 cellar: :any,                 arm64_sequoia: "5ce70b25e1d26d887fca53fa5ab3269e0e94b8964420fb749ef9ecdb01ec3592"
     sha256 cellar: :any,                 arm64_sonoma:  "263b109002436476cd6f3f1ccf77b1fa7e10562706ba0e5b2dfa2af2538bed64"
     sha256 cellar: :any,                 arm64_ventura: "c413a56ff51e2d96061ec8c346b9f38d0ef4a346e60636928609b1ca5e8ce222"

@@ -11,6 +11,7 @@ class Gpgmepy < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "227cd3223104de67e57a5f7500d6ab61e065c643909ecbdc3b4c9cd5c9bde491"
     sha256 cellar: :any,                 arm64_sequoia: "76e4c10156cd7a5024c68a73457af753117a791207bf8fab1ab9c7efed9abf97"
     sha256 cellar: :any,                 arm64_sonoma:  "9a095dc289423a169dc55a625e4329c62650d82d1583dc95f404426c8376bfc3"
     sha256 cellar: :any,                 arm64_ventura: "dec7ec82d9bbf770542f46bf855fc9155d4ad797aa022961f6857a68fadb6031"

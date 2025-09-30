@@ -13,11 +13,13 @@ class Swiftly < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "696f036f8628317733aa4b1c8833df9811ded7e11c8107c5a8f0e6bf36037eec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a84f3d6faf7a00e1e9e836b0bd16bea9ddb1e49005ab420499bdb2f8328060e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6ccee7ec1311078cb828331131f003237f0c136f85ca5167e86daf03d54301d"
     sha256 cellar: :any,                 arm64_ventura: "dd8a30f30d7a712bcefdbbc87c46d334e9d58f029fd2ef9087f5f90a56d69da7"
     sha256 cellar: :any_skip_relocation, sonoma:        "191b819cb5f9baec07adef449079cd55b7b6eeecd298eeb8ccad2694dd134d63"
     sha256 cellar: :any,                 ventura:       "b340ce4b7c4c4eea79250e94375b4f5459638dd330cb391ca053aec2df300bf2"
+    sha256                               arm64_linux:   "0b0b9362fb124ddd11b62bf15e0f19d08e129d9522d87fec46d7f681b6cc7d4d"
     sha256                               x86_64_linux:  "db1b6d3fe662fcb8279542b4f84b2d05b308566c24dd5d05c20169febbe7ef7c"
   end
 

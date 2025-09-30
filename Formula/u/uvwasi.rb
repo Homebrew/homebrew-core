@@ -1,27 +1,32 @@
 class Uvwasi < Formula
   desc "WASI syscall API built atop libuv"
   homepage "https://github.com/nodejs/uvwasi"
-  url "https://github.com/nodejs/uvwasi/archive/refs/tags/v0.0.21.tar.gz"
-  sha256 "5cf32f166c493f41c0de7f3fd578d0be1b692c81c54f0c68889e62240fe9ab60"
+  url "https://github.com/nodejs/uvwasi/archive/refs/tags/v0.0.23.tar.gz"
+  sha256 "cdb148aac298883b51da887657deca910c7c02f35435e24f125cef536fe8d5e1"
   license "MIT"
   head "https://github.com/nodejs/uvwasi.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e9bc1d223efb41a0bee91c928bf2d85a57179c0ab37713dfd6941f046f3f50e9"
-    sha256 cellar: :any,                 arm64_sonoma:  "957553fa84683816e9e111fcfeb9ef2199b2d0fc26cdccc4e9927e5e7aa84aab"
-    sha256 cellar: :any,                 arm64_ventura: "28edfaafaf6fa3cea2414466622439a65d5d4ab98ddb4610ee3b16c62d25d65a"
-    sha256 cellar: :any,                 sonoma:        "075cf1c7a4ded621c47d59adaee755993f7aeb5bc282b42dcffcf7478fdb66bd"
-    sha256 cellar: :any,                 ventura:       "688985b4bedff51f9f0f26a94a694ea2cfe9b88c932e1ef3ae741e92ff1b835a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0af054bb833db53e6ee07eed754630fcd7c24abcd088a8fe15b8c9f76a9c6065"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c2742f168c40ecdcf97566b4bbca3419dc010995edbd25fd2805c45cccbe11fd"
+    sha256 cellar: :any,                 arm64_sequoia: "3bbe2380eb184f540f5b23a9cd2f92ef21a4779b04ff6068b6c3a0b4e7865c7e"
+    sha256 cellar: :any,                 arm64_sonoma:  "923e457efe87a95fd53031ca80440ce09ab3862a9ac7df374b3fe634c7001c23"
+    sha256 cellar: :any,                 sonoma:        "74534d557b0603f0fac5d6b4e98257bee2f372c55e0eabf97b0ac5ccbd10415d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc607f16b816da2d32a2d8a3eec770c64f8a497524dd1a33d5b6f252db0ac44d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2befd108f0cf4fffab4832dc834e0b7c4b8aec470ad95994435792c6b3ab9bcc"
   end
 
   depends_on "cmake" => :build
   depends_on "libuv"
 
+  # Apply open PR to remove find_dependency in CMake configuration file
+  # PR ref: https://github.com/nodejs/uvwasi/pull/313
+  patch do
+    url "https://github.com/nodejs/uvwasi/commit/fcc0be004867939389aba3cc715ea90b86ab869c.patch?full_index=1"
+    sha256 "4a3a388e9831709089270b7c6bc779d86257857192dee247d32ec360cd7819cc"
+  end
+
   def install
-    # `-fvisibility=hidden` makes the shared library pretty useless.
-    # https://github.com/nodejs/uvwasi/issues/231
-    inreplace "CMakeLists.txt", "-fvisibility=hidden", ""
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -33,7 +38,7 @@ class Uvwasi < Formula
       #include <stdlib.h>
       #include <string.h>
       #include "uv.h"
-      #include "uvwasi/uvwasi.h"
+      #include "uvwasi.h"
 
       int main(void) {
         uvwasi_t uvwasi;

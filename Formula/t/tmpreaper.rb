@@ -11,6 +11,7 @@ class Tmpreaper < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "30aab94f88a07061601a3333b691fc941c683b7936e955bac83de7c48f97c482"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a134d1977bb0607e2b93a5e35fbfa2979310e58042604a858f91ebe5bef87b4f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f35e698b40aab74ca34120de8327b518a4770ec4e07d1fb44d6d46a7c589cb68"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "aa1b0ab8c36bf2ba8f9bbb2d9be36eaaf5395c9d6f2a9a904ad25ebfbcbaa783"

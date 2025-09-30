@@ -1,18 +1,17 @@
 class Appstream < Formula
   desc "Tools and libraries to work with AppStream metadata"
   homepage "https://www.freedesktop.org/wiki/Distributions/AppStream/"
-  url "https://github.com/ximion/appstream/archive/refs/tags/v1.0.6.tar.gz"
-  sha256 "3289568eeaaa84365dcfc8a6be2b547a9abe05cec6d3f08b62f39e832a6e7cb9"
+  url "https://github.com/ximion/appstream/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "4dd509614470b7e82695f46c8072bee603fbe6a260c2b74794af03204e4dfb8f"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "68e338200029613cda29a49fb75a3b8681f0d735ca0155275e548d3f2c75bcb9"
-    sha256 arm64_sonoma:  "18c841eadb045644d94a58701efd8149f24cbbe2e25b9104258feb6f0885adc8"
-    sha256 arm64_ventura: "9cad886c8567e76bd4c79f002239a790394444eef1fe8a04a2b94e1eb6dc2b67"
-    sha256 sonoma:        "8ff67f71186f8f61acae079328fbee8babe750e6ba0a8b76d1e556d2622bd8da"
-    sha256 ventura:       "ece9cdba8e6fe58b0b7f36cb292bbf294e3ba5d7b1b283ffd4c4c85300472bb5"
-    sha256 arm64_linux:   "fef9a36faf13c12645617df56f1db917fbecdba948703bab0c2be619a09a8894"
-    sha256 x86_64_linux:  "d2ae9f394287d84a1c08cf59146d4360ec7249e310bed7f8cc575410294dcfcd"
+    sha256 arm64_tahoe:   "59ff357fab107d2699f4070a26499da20d69a5cd54163b7d38ca71af9382922f"
+    sha256 arm64_sequoia: "03f5fc0784e41492da6f1f632c6106c0f39363807e46634b515a11780d45b9e5"
+    sha256 arm64_sonoma:  "e78daa9071ed7aa9bc83f71bc5718407b7a3bd0d055590275b8b644836c7daee"
+    sha256 sonoma:        "947d6dbf58bba9ba6d465fa90da90e6b3f221fcfdec249a3c41ca0962c4087cf"
+    sha256 arm64_linux:   "055459bfc2a44b45dd5c5b073f6c6f9e3469da323b13e7c944af1e1fed72d89d"
+    sha256 x86_64_linux:  "21e2ba90e4b129576371e2f6bf64fe07288c9a749cc393deaee41c8031660b7e"
   end
 
   depends_on "gobject-introspection" => :build
@@ -24,8 +23,8 @@ class Appstream < Formula
   depends_on "vala" => :build
 
   depends_on "glib"
+  depends_on "libfyaml"
   depends_on "libxmlb"
-  depends_on "libyaml"
   depends_on "zstd"
 
   uses_from_macos "libxslt" => :build # for xsltproc

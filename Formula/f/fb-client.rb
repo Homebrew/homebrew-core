@@ -18,6 +18,7 @@ class FbClient < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "527d9d6a7a6bb0edb13beb20d4a3193e108427e743e39ff5dd6046a0d35f2f11"
     sha256 cellar: :any,                 arm64_sequoia: "ff32b0378ba41c1395804519b388c315d0abe780848adbd49ee764358047f81f"
     sha256 cellar: :any,                 arm64_sonoma:  "e62bc0b15dc4557b1a68a5caacd45eb055110af29cdbb799f0577c712aa9696f"
     sha256 cellar: :any,                 arm64_ventura: "a0ccd6e897f9815ac195bee9550634463b55375faddb81d4ecb48d880e955058"

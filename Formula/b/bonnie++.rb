@@ -13,6 +13,7 @@ class Bonniexx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "751104c5d03e4f91086a337c4ed4b12acd1464170f67b994cf20ec30f6456176"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2cdb858040bf6e8c19142a19932a6aa6294c863a4b3f7b2faebd5ebcb945ee29"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "748ee8216cf3b93d071f7fd95977e3d7a7ef28dd3c73467b212ef9594b037f7d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb48f4977b6fffe6260f6adf6a20b15d0e33ef6f0f70a3d5fe36f3d1cd708c3c"
@@ -23,7 +24,6 @@ class Bonniexx < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d6203a132a5f2e56a85356d5dd9c4545af59e7199b72eaca3a9571d171322d5a"
     sha256 cellar: :any_skip_relocation, big_sur:        "75e1876579c6638c1e4c0509af5c76950ae379b034e6a051d091593cb08c1ddd"
     sha256 cellar: :any_skip_relocation, catalina:       "83df0761686086ae64a3c08433613908d9c39d85daa7f81011b5bd70d2d5eb3d"
-    sha256 cellar: :any_skip_relocation, mojave:         "c503806d5f1ad449a6943275fa93a3930fbbd7cd63b31ee873590d0219ded5b9"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d88efefa2ddd179f4ba11870b49a1c4166b44be03930ed9b801c070dd6f86ceb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0418a37628a09a44eeb05aecca9b6fc6149dcfdf40729d4a41f754f030fac51"
   end

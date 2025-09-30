@@ -7,6 +7,7 @@ class Libtasn1 < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c8b872f9b9bda9d74184575f84a277ea8cb32c49c60c5615cd2b0ebcd2279d9a"
     sha256 cellar: :any,                 arm64_sequoia: "e847b97b86b1caab2eff1498c82c411459e1e7c176de72e6c53aed4528ab80ce"
     sha256 cellar: :any,                 arm64_sonoma:  "8a2d13e7d0c687470f2be9e213432b93c22d3ab9b674fce2a950d7eb45432cac"
     sha256 cellar: :any,                 arm64_ventura: "b202c24f2e22f7f709473f72ec9c26f3ec43d643b8488378690c83fd96d48d69"

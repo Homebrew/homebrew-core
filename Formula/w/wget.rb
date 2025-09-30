@@ -8,6 +8,7 @@ class Wget < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "8cbb5d277cd207e543c9b2e75953e89c7cc89105b2322f3ce652616c5d0f62fe"
     sha256 arm64_sequoia: "a93dd95c5d63036e026b526e000d33fae7fb44d9a8fda5afc89bff112438c6b3"
     sha256 arm64_sonoma:  "4d180cd4ead91a34e2c2672189fc366b87ae86e6caa3acbf4845b272f57c859a"
     sha256 arm64_ventura: "7fce09705a52a2aff61c4bdd81b9d2a1a110539718ded2ad45562254ef0f5c22"

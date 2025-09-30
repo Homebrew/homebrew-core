@@ -1,8 +1,8 @@
 class Fheroes2 < Formula
   desc "Recreation of the Heroes of Might and Magic II game engine"
   homepage "https://ihhub.github.io/fheroes2/"
-  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.10.tar.gz"
-  sha256 "c44e25e1b3874718382bb9b545d5181b56cbd01cf773337851111a03bb8577af"
+  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.11.tar.gz"
+  sha256 "e9a70f4cc831231010354cc599c84b626a18e15de1252bc35e4ced720857236c"
   license "GPL-2.0-or-later"
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sequoia: "851e74e6658e0b8106765c9992a5d30df0d56073589b5562c45361fbf09413d2"
-    sha256 cellar: :any, arm64_sonoma:  "a1cf0ac6be190408b51876c9ae93f4f22ecef0269e1bc8c26c04f6978b3b1070"
-    sha256 cellar: :any, arm64_ventura: "fff2f833461cd07ab2438c5b32dd6f6ac71d3334c58d017b1f86d68b447f558a"
-    sha256 cellar: :any, sonoma:        "9500f49a79a5b401d008b4a6951a0ebfd2ea39b2d1b137bc0ede1731ee4d7bfe"
-    sha256 cellar: :any, ventura:       "c89828194a38cb4f8353c70e98fee5b1d2e596d270e7b04d34faf842f46a3b46"
-    sha256               arm64_linux:   "9597b31091971e38251f3d8f4904f4d996648235b7dd7cd0881aed6750f2c1b2"
-    sha256               x86_64_linux:  "ef0f9d5f228ce4a4b9feb2a13e988fa35efefc93203c1c4426dddd0a8adf04eb"
+    sha256 cellar: :any, arm64_tahoe:   "cc51a1ff6730edaa217dbb9a2fb40f0fa43411ec860e2d18e4e57df0bbcf1fe6"
+    sha256 cellar: :any, arm64_sequoia: "b208fa4c3fc4c41eb5cffe6fb555e5aeda5711447ff5e8887e43cea789a9e552"
+    sha256 cellar: :any, arm64_sonoma:  "fc5bc30f9d5802b69a29351582f593ae1c52c74bd75e7ce7b88ce572fc0a9460"
+    sha256 cellar: :any, sonoma:        "87d8a0caae5e28f77728057ec11de21d32ffe7507633e6c61cac2db6f3db778e"
+    sha256               arm64_linux:   "24fc90ebece47e2974ac76762670d177384e0c4bd1c28b6dacf67ca815314695"
+    sha256               x86_64_linux:  "4ed0a90740aa32a136468e9bf82caf90ef9a59fb08375b7368bac43abef077ac"
   end
 
   depends_on "cmake" => :build

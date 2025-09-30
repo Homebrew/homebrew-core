@@ -21,9 +21,11 @@ class Zstd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ddb0c145060bc2366ce5d58d95aa205bb15cb4c66948f20bb85e23fdb5eba7e9"
     sha256 cellar: :any,                 arm64_sequoia: "55a4e0a4a92f5cf4885295214914de4aefad2389884085185e9ce87b4edae946"
     sha256 cellar: :any,                 arm64_sonoma:  "60c34a6a3cadf1fc35026cde7598fbe7b59bd2e5996c4baf49640094b4ffeb37"
     sha256 cellar: :any,                 arm64_ventura: "2332527b27c6661bf501980bd71a5b4fe1b417122bf8b37d9f082e47b377b7f9"
+    sha256 cellar: :any,                 tahoe:         "873feb2d747bb21708c0229bb977364d0794e65bccbf18e33934a424342e83a1"
     sha256 cellar: :any,                 sequoia:       "342e64c01287a716615d14d4a71770fc5930871dc0a965fbdda6062f80dc1952"
     sha256 cellar: :any,                 sonoma:        "77457805185cd2c70fe81245b9e2d1a3e178a1be55e032eb504391dbd4d4e9ab"
     sha256 cellar: :any,                 ventura:       "c7b411aee72bc1e36d9a2647059433da62a0ca9a4cc7baeb44a2226e0a0de8b8"

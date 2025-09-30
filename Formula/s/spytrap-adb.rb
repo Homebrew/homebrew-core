@@ -6,6 +6,7 @@ class SpytrapAdb < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8428084b606a2e3833254e703fbe4008de6dfaaf89ca1f8ff87e6fe2f70425cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4309532f2c887a32ef4a0f85176b3b767c4205a5b23b2df774f44372f41c8ced"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9405e4ed5fbe1ca731a3680a79c5ade64b34b1f7400564e547aa61b4865170d8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "43d5058fc2de380c055716f508f140ba0eff5a282841be511a538aabde113834"

@@ -10,6 +10,7 @@ class SimpleAmqpClient < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "31777723001b1b546f4650740d5f44b36e77ea2792ef44acd6988cc3911622ec"
     sha256 cellar: :any,                 arm64_sequoia: "e1eb5c48884a83b02dbbc2a0ad3d8d356f7c3fb935f8fc54341ae756bb4424e5"
     sha256 cellar: :any,                 arm64_sonoma:  "eb19eaee74b987a22007c12f737a270bcc32913ba5cb822331c4d34b7cea09f3"
     sha256 cellar: :any,                 arm64_ventura: "f5b70aba922a61a69ebeb2378e955fbf27bc5b15cf9e6f1ec608286b65d6410a"

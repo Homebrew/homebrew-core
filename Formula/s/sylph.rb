@@ -8,6 +8,7 @@ class Sylph < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc6a20c53d0740489fbbcb63a8dba4895e3932c65d59ad7d1c4376e0908bdb4e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2954424cd08c4d8072a175ebc40f37ecf77b0d06e951260f25b05b34567f4c5f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95c93babdea5665924b5cb74d60f02a7d42bdbfd12cb9dfbb8eda92c33c8dbe0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "76d50d6ad5c25502e1d71a0a181cc620904ae158527033a9161a9da8c4565ba0"

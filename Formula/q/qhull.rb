@@ -18,6 +18,7 @@ class Qhull < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "e63077686c1ef66ea9f65e7e10d842aa788bdf21b6011dd3c0b2ccd35195ddb7"
     sha256 cellar: :any,                 arm64_sequoia:  "03294d7f8db8437cdf8d4d679ae41808a195b733907bf638671f99089592dc17"
     sha256 cellar: :any,                 arm64_sonoma:   "f2d64f8e284b65fd97bb19b8add86502b3b88c71e9338723aa38ac5a34361f91"
     sha256 cellar: :any,                 arm64_ventura:  "33bd3b7b6225c502fa1a21501cdd2ce72f92ab942bc9b5092f3c9172a2312f22"

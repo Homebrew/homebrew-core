@@ -11,6 +11,7 @@ class Ctemplate < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:    "d6900c980a0644c4e4e8d8884d7393e6bf9fb28108901ad207206d93c5ff0508"
     sha256 cellar: :any,                 arm64_sequoia:  "acd3dba90331797c66b476e02edfb172fc67566fa46866d4b6c72605bb331030"
     sha256 cellar: :any,                 arm64_sonoma:   "da3b3f971024e8235955c5e6c2c3b0ae8626e229f2e5e26d5edceaf5fe10e6c0"
     sha256 cellar: :any,                 arm64_ventura:  "ee9935e535f7fc5ad36e78a17cdfa370dd804442065fb9d71f42939042b9a239"

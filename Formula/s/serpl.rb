@@ -6,6 +6,7 @@ class Serpl < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "17d66f0a6070402ad1ca996de2076bcaff6ef5f4c474bfab7fcc0952de0978d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7170f6c039d004e719e86934352f1fc0a30929749c853e71f8ad6db97689511f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a78316d3e051f3eaeeb2b26263c24135382dd8038222eb5ca14253e80fe96790"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a87b7d3d19d97b7aa33dd296a4ba5f0b98057c3b0f4ecf345d2495148f3dec7f"

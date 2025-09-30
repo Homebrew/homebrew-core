@@ -15,6 +15,7 @@ class Ldapvi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "74bc513ed1c36a4f5f71454e94d55bdf2386ec43c5d84106d54615f5c29d3b48"
     sha256 cellar: :any,                 arm64_sequoia:  "619197cac0a0f9f7c8df2d5ced5e42f95e421c645ae87b7ae0d44048cbec6359"
     sha256 cellar: :any,                 arm64_sonoma:   "1a498cb6fd5153f82c0cfd2a9133dcaf68c280f3da4fa641abdcde5d0d2c4311"
     sha256 cellar: :any,                 arm64_ventura:  "a3ad41b60a3da8e819b1abec997f49b3912addab32ffde4c5e12b7b747c5e86f"

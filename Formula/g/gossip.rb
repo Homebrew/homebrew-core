@@ -9,6 +9,7 @@ class Gossip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f92aa10431368840267d013fff2476487a70badc319682d5bd649cf00681917d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "69f4c2c908a9e8fc06bc60fc13cf8a99cdc2e53c250e55135061746f1e6f1ac7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52c0547db044f74634ca84ebf9ced852f23a91950d8d50fbc00faf3b5f04daba"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0659e6181bcb7a871769af31433121f5a10e0a600b1ba37bcde69aba85c894d7"

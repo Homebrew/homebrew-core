@@ -12,6 +12,7 @@ class Libwebsockets < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "adbf1ec53f5f714f712585230bf75174e101dd37d5d686a45c0f7bf73b20ffba"
     sha256 arm64_sequoia: "a965ebcaafd65f76997b7ba363fae823e4089d618f7f0e0719d84567e580f0cf"
     sha256 arm64_sonoma:  "48c33f1b7e2127ef3588f2ed4c7f1e16e7c4686820e5f4d90b301fc704fe68cf"
     sha256 arm64_ventura: "81b4a1cf2409e603b8e7ac69101aa5902d56e6b9aa61599ace0671a5449e5924"

@@ -15,6 +15,7 @@ class Gplugin < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "27dda5200f9255343afeee4ed5c90ea1f41e07a9ac801832bdbaf49298cbe4a3"
     sha256 arm64_sequoia: "09e5e444bf267a554d99cbc4c49ae715f4394d394a89262198d5b9235adf0eb4"
     sha256 arm64_sonoma:  "4bd6796d1074b0eed0f3e246359c0b2987da4bd4b1f9f3925276b0691a64c6b5"
     sha256 arm64_ventura: "21e131faa33611a69519060d2433b4ca1d88f3901da4751eda61fcb79b0e2e8a"

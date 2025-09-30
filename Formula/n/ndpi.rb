@@ -9,6 +9,7 @@ class Ndpi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "523cb102bf56d6162fb8e23ab771fde9acc61be5e7683ebba536993a948f9440"
     sha256 cellar: :any,                 arm64_sequoia: "9a9e45fe338e7be68ec51aae2ad6d52cf95cdb90fe6f9e6815345aaaa63048ab"
     sha256 cellar: :any,                 arm64_sonoma:  "3be0627b16ed3db0bf4ed8f225d8bde0813771501c26025c6f0990b19b125d6f"
     sha256 cellar: :any,                 arm64_ventura: "8c2583825dabae16fca840859c371de0a3f074f3301b8bce85eee801087604b2"

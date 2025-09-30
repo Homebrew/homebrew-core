@@ -7,6 +7,7 @@ class LeappCli < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_tahoe:    "a08d025eecfd8d28388c454b5e6c5265cdcd49996228d2f6ff08621ee1955ad5"
     sha256                               arm64_sequoia:  "a9f0381ebb60002b45fb92808def37bb0d636c0b3f843277e24e96f8a5b5b3de"
     sha256                               arm64_sonoma:   "db6a98507e65188b1fe4eb7708746e9a0e9e5fb7966a0f824b6f70ab2ca7891f"
     sha256                               arm64_ventura:  "1a9d83cc2ab81ea856376671c9cf61dfa0274030cd58db67a63b5233d8b055f8"

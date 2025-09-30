@@ -6,6 +6,7 @@ class NodeAT18 < Formula
   license "MIT"
 
   bottle do
+    sha256 arm64_tahoe:   "99e7e2eb7d40cae9e51afac2f7c67921c7a4a72100ffd3c2a45d90db142d5020"
     sha256 arm64_sequoia: "85339a0121bfd4eade3f70a49197c59fd1d0dee18511edf924d4acf4d81cc012"
     sha256 arm64_sonoma:  "cce72f3a40cb31861f419e0ea364cf0581e6f59b28f3e5c00196ccdea6a9f295"
     sha256 arm64_ventura: "abf275d5c731c19cc83cac346960ee3d53e845c35e1cb04278d31e26a9aad9ec"
@@ -18,8 +19,8 @@ class NodeAT18 < Formula
   keg_only :versioned_formula
 
   # https://github.com/nodejs/release#release-schedule
-  # disable! date: "2025-04-30", because: :unsupported
   deprecate! date: "2024-10-29", because: :unsupported
+  disable! date: "2025-10-29", because: :unsupported
 
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
@@ -31,7 +32,7 @@ class NodeAT18 < Formula
   depends_on "libuv"
   depends_on "openssl@3"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
@@ -53,6 +54,14 @@ class NodeAT18 < Formula
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+
+    # Fix to avoid fdopen() redefinition for vendored `zlib`
+    # Too many commits to backport, so apply a workaround
+    if OS.mac? && DevelopmentTools.clang_build_version >= 1700
+      inreplace "deps/v8/third_party/zlib/zutil.h",
+                "#        define fdopen(fd,mode) NULL /* No fdopen() */",
+                ""
+    end
 
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.13")

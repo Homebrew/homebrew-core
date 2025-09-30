@@ -12,6 +12,7 @@ class Ssocr < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "19b154c1a7a2e7f3aa6048e0f77c85812afd92334a6e10f9c0d6e5deaf197801"
     sha256 cellar: :any,                 arm64_sequoia: "fd18440ae84caaafcb2f5d788c6c23ae95c0240dfc9f6b5166f35eaca59d33b5"
     sha256 cellar: :any,                 arm64_sonoma:  "1ec94528ade23b5dae8efcd5d564d3bace361e8f2cb2187634f48f493954d9f0"
     sha256 cellar: :any,                 arm64_ventura: "7769d47981f3e86469509853748242c33416ea8ba2e95447f6480ba358f8e13e"

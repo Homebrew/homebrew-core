@@ -1,23 +1,25 @@
 class GiteaMcpServer < Formula
   desc "Interactive with Gitea instances with MCP"
   homepage "https://gitea.com/gitea/gitea-mcp"
-  url "https://gitea.com/gitea/gitea-mcp/archive/v0.3.1.tar.gz"
-  sha256 "1cae07522a6424005e71f853f0f5dd7f43d74d0d4ff760890184c5656b6e2e61"
+  url "https://gitea.com/gitea/gitea-mcp/archive/v0.4.0.tar.gz"
+  sha256 "a1708fa8a16786a592e09e84f7f4863e033a692e50bd4a7a20781deaa6b633c3"
   license "MIT"
   head "https://gitea.com/gitea/gitea-mcp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e65cb00470c34a074c02194c9a3790d14a75af2529abab50e2a0c145c937e088"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e65cb00470c34a074c02194c9a3790d14a75af2529abab50e2a0c145c937e088"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e65cb00470c34a074c02194c9a3790d14a75af2529abab50e2a0c145c937e088"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bf801f9b9a0b925ba233fd63521120616b5349b56f01fdb4a0ef92a1437ec1ca"
-    sha256 cellar: :any_skip_relocation, ventura:       "bf801f9b9a0b925ba233fd63521120616b5349b56f01fdb4a0ef92a1437ec1ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c23f56d32908b8c50282e69acc2b88bac22c797d731f1c2c9cf22849f126733"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f72c421e386fbc4ec3038787aac700f8faa19f861a1f25a54781d06bb63230f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f72c421e386fbc4ec3038787aac700f8faa19f861a1f25a54781d06bb63230f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f72c421e386fbc4ec3038787aac700f8faa19f861a1f25a54781d06bb63230f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "41837172b03d3b7e56f47a6b4ddfb360c626be5765392008c2eac6e245f78066"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "107695d723d7e72a9e56afc750f23ad5d01038d26fbb60e05c07864a9c0c2d78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d47d8641e2c8430649ca5a7c609b95ab88ba676ce46ea66fdfcc7a5606a98163"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
   end
 

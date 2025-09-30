@@ -10,6 +10,8 @@ class ArcadeLearningEnvironment < Formula
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "66a1be71f5b87d91d9d99f7e12030f4cc2312e64567f493d5bfc10be9725f3cc"
+    sha256 cellar: :any,                 arm64_sequoia: "a4978d3d998442b30a1cea20c1787989b6d8ed8a013111ab3702cb4b3c358173"
     sha256 cellar: :any,                 arm64_sonoma:  "f9e5141de4537f42e665272622bb1e80101e56835fe96e4461e1e34ee30ed1dc"
     sha256 cellar: :any,                 arm64_ventura: "4690459baaa900a92ca12148fc9b903255cfaebb8010618f7b49a6b3628f29c9"
     sha256 cellar: :any,                 sonoma:        "5e790225d13f8530a2a1faf055fdb0896efb4327b453ebca625cbc7ed3b017c8"
@@ -20,7 +22,6 @@ class ArcadeLearningEnvironment < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pybind11" => :build
-  depends_on macos: :catalina # requires std::filesystem
   depends_on "numpy"
   depends_on "opencv"
   depends_on "python@3.13"

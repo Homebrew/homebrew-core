@@ -6,6 +6,7 @@ class Rnr < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e7f49c4f4a728a511cbd504a7aab0740aa80ce9f28572d402788659ad37dbc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fb09c89cda8bafe101e6c2de4d9afd0efd149b21bd37ce9b00653a7fbef1d21"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdfb6fee01547e1e695afbcac85ec3cd59655d270615aae6269e84bab4697b71"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d7170e9081556544c8b27af2d92e01ad44cbf4efb5e3cf03f9577a50a7e96a92"

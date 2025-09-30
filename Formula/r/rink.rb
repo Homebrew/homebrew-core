@@ -8,6 +8,7 @@ class Rink < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eb6d58f1c8800dc3c366f4b4593b1d4af864d63fdee448aaa9bd60b72ff69ff0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9e9d83c728a0232035908223bf1d4b0823c6c96eefb95d72c08a060f9e8c1fa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "886a2268e178971f189a726cd76757c20110bcd2fad8cb68ff6bb911a93519e3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "31c09a811a1d779c6e9f1edbe8d03cbabc5ebdd2b2f8a0117429eb93f3bafd55"

@@ -14,6 +14,7 @@ class Rancid < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5978661df2baf3b746206d0b2498d27ca0adfcc840b296abe9eabfd9e9a587a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc4630246c5362304dd3550870b72f634cac5b614bb06c3a78e5b023e34397c7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71bb9a547c9a465e7debae0023ea19c86247c364d4f2ac740e4ef55839f5488a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "250fd72c6d55b0cd2d34922fa16de7fc240dfdb4654679e09add571c274c269a"

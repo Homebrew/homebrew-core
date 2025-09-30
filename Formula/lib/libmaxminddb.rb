@@ -6,6 +6,7 @@ class Libmaxminddb < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "bb55987a852b83ee04fc9757a9b50673d873722194d3f99154ded5743cc318d7"
     sha256 cellar: :any,                 arm64_sequoia: "1b13f50a8072072af83d8fe5851dab623f05967b35868ac4bf95435c4b7a423e"
     sha256 cellar: :any,                 arm64_sonoma:  "483e40580b6cef8ced628c5c9b072004ae2c7d9f2615473dc62e2b5210d3ec51"
     sha256 cellar: :any,                 arm64_ventura: "4b4c4de2cf912a0e0e764bd02052efc651160b547f40ee573a5bc0d6d95fb070"

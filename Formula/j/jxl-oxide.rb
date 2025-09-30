@@ -6,6 +6,7 @@ class JxlOxide < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "819244c0a073bac96a7bed5c77e62db4a3fc57144f7d15a01b3c03eeb071731c"
     sha256 cellar: :any,                 arm64_sequoia: "b8e3262661f8853d5a3c2e5a612df1cdb251777baf381ef1da94b79dfa5f38f3"
     sha256 cellar: :any,                 arm64_sonoma:  "b9c0fbcceed69c2ac67ea71a567c0494448b0dbe3a442465c97a0243f16fdc20"
     sha256 cellar: :any,                 arm64_ventura: "2ec8533b051604f4e0f9c116a7e78f6a6f0aec239c511ac5f4f548ce2066352b"

@@ -8,6 +8,7 @@ class Libkate < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a920e83dd38ef5cd401c635c08f65dfe0cd6c4b5b79e5edfb4761a76ca729028"
     sha256 cellar: :any,                 arm64_sequoia: "1cc9e076187d3fe58ab436f4729c43fc596c181cf9e5a12125836b676373f0cc"
     sha256 cellar: :any,                 arm64_sonoma:  "45055ede06c87e34cb64389350d61d545a866dfb67b60c5384922f5b479e378f"
     sha256 cellar: :any,                 arm64_ventura: "ac5cad7548115a8aec9fff623487cba4504770caa66a89c61dbcf90b59d79cad"

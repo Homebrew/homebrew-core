@@ -14,6 +14,7 @@ class Libspectre < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "827462a01392f7b4ba24ec5b45ea4aeee0e7e0a674efe43d5b0e52ffeb150bf0"
     sha256 cellar: :any,                 arm64_sequoia: "d9e00969398b5ccd244aed543e3a6468f56e07dbc1939d7bde6b4b9d19701001"
     sha256 cellar: :any,                 arm64_sonoma:  "c7ff644160fb7011b2eeba6c07102db37b587c1f80631f4f2abdd81dbe476dcf"
     sha256 cellar: :any,                 arm64_ventura: "aac4fe3f1a81468053f6652fd67dec5416b759b86060a5e62cb804f5ed4bb6a2"

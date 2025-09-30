@@ -9,6 +9,7 @@ class Johnnydep < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "dfb64922d55bb3c439ad6b4530ba5529033b1398127243c196eceaf6eeaebaf7"
     sha256 cellar: :any,                 arm64_sequoia: "f8a1c7e9a1e998a436515dee6d884184825809cb8b28e0e3ada0535741623cd2"
     sha256 cellar: :any,                 arm64_sonoma:  "0129fb3e931ed3daf34bc8a3f8ee2f8c977f5bca3715e2217bcebf4b892cee40"
     sha256 cellar: :any,                 arm64_ventura: "e2db6a6d86bd35707bcb6c59374ec6c2e2028762608f277765c5c231ef7968f5"

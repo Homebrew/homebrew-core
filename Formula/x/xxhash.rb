@@ -14,6 +14,7 @@ class Xxhash < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "60aa4eca9aa378cbaa79fb2ffc0d1b4a142fd32c0aaf7371b09c291530fb85d2"
     sha256 cellar: :any,                 arm64_sequoia: "89bd0369c7033c364428cf03daad6f58ca5e5defd8dc585b8f0bc6a111714013"
     sha256 cellar: :any,                 arm64_sonoma:  "32a8ae9615395368644020266663a1758cd4b32b15cdf8c547c9b5a3a3bc3016"
     sha256 cellar: :any,                 arm64_ventura: "60dfb4150b26f590cb36561262a3bf0d845bacb2e26ec7d4bf5f619be9ddce5a"

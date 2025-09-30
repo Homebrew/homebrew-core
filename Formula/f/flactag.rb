@@ -9,6 +9,7 @@ class Flactag < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a51e19be9701ccbe86b20cbe0444217655d0e0c0c02779a0784b4e5bc5830f4f"
     sha256 cellar: :any,                 arm64_sequoia: "8701c9513901987485c41ce6778104199cac3fabcdfcc1fc2c82717ededa93e8"
     sha256 cellar: :any,                 arm64_sonoma:  "e65ce7a13bb6a8e11483996b87de1e8240dcdddf394762c4b9b4c42e411e6649"
     sha256 cellar: :any,                 arm64_ventura: "14dbd80290e58fdb2bbef0ac5fe5479e01cd1072cf2ac4b183072050939e15a7"

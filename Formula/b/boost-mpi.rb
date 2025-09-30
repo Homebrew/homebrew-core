@@ -13,6 +13,7 @@ class BoostMpi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:   "c6edda64a7d7a6059b344c382396548e0ebdcf137df5d39aed8bf9b51082dd30"
     sha256                               arm64_sequoia: "672ed016041a801f917f6af5b658ce812c06b81cd93eab69c7d0fe21556b0a13"
     sha256                               arm64_sonoma:  "df7e86c4c7dcb10b3da2c910e46d640f07177035885316a699a07e8304e66e6c"
     sha256                               arm64_ventura: "c7a2c303322325c161bf56029e1262d0f94ebe14ee4a8fda4d2fd2c6099a8999"

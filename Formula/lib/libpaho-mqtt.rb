@@ -6,6 +6,7 @@ class LibpahoMqtt < Formula
   license "EPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "301d603ff946f350a2f8848a4bb21b94c52bf15b635c04be9ab5c163aa9ab1fc"
     sha256 cellar: :any,                 arm64_sequoia: "25f1526acb75aafdb1683ec76af1fd090f28dd20d768fac47a237750dffba2ff"
     sha256 cellar: :any,                 arm64_sonoma:  "d6fa44e3412e34e1cc816c765f88bc8e67cdbd890d6333db3e086a1e2119e2ae"
     sha256 cellar: :any,                 arm64_ventura: "647a8fa2a445366592e13dac591fe43b68e201258ab9a70bf363afabd09f6052"

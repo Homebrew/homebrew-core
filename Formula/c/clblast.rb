@@ -6,6 +6,7 @@ class Clblast < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "cfd48f3ebe4c5fd8a8154ffea4e8064d76a3f7629a07afafffcbfb34df4d6b5b"
     sha256 cellar: :any,                 arm64_sequoia:  "62eea554bf1f9118b780962ec97537478020d4a4850942d200fd100319ebc25a"
     sha256 cellar: :any,                 arm64_sonoma:   "51694bd4a8eefd817e62561ef30afa0807dd169cf8b8b3ed3599afd8240f0772"
     sha256 cellar: :any,                 arm64_ventura:  "4ae97edde32865dae186f21292d0885d402be3e4622b76fb77f5b6240035f560"
@@ -26,6 +27,9 @@ class Clblast < Formula
   end
 
   def install
+    # Backport support for CMake 4, remove in next release
+    inreplace "CMakeLists.txt", "cmake_minimum_required(VERSION 2.8.11)", "cmake_minimum_required(VERSION 3.10)"
+
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

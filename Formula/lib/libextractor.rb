@@ -9,6 +9,7 @@ class Libextractor < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "8a439d891c565f38271c9b389e445a044078cd775c812fe3c8d5410c89880ef1"
     sha256 arm64_sequoia:  "3dc057f34f3a021d0485a2f04b581c8b77f118e6c12337717e200de09146f560"
     sha256 arm64_sonoma:   "e011f7851397a725c19c5774f33fd92a880476a8ae37c5c9f23a5d4aad084cac"
     sha256 arm64_ventura:  "10788f93e331dd93dab2eb899fa31593b72fedcb789a0c7c807c4647c495d7f9"
