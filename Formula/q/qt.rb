@@ -3,10 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.2/single/qt-everywhere-src-6.9.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.2/single/qt-everywhere-src-6.9.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.2/single/qt-everywhere-src-6.9.2.tar.xz"
-  sha256 "643f1fe35a739e2bf5e1a092cfe83dbee61ff6683684e957351c599767ca279c"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/single/qt-everywhere-src-6.9.3.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/single/qt-everywhere-src-6.9.3.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/single/qt-everywhere-src-6.9.3.tar.xz"
+  sha256 "59d4fbf50d2524a9082f85d565f0197316cde89c26e97cfc6c157cb255b7ea18"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
