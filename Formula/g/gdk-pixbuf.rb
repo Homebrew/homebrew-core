@@ -51,6 +51,7 @@ class GdkPixbuf < Formula
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format('#{HOMEBREW_PREFIX}/lib')"
 
     ENV["DESTDIR"] = "/"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libdeflate"].opt_lib/"pkgconfig"
     system "meson", "setup", "build", "-Drelocatable=false",
                                       "-Dnative_windows_loaders=false",
                                       "-Dtests=false",
