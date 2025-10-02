@@ -26,6 +26,8 @@ class Qt3d < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "ninja" => :build
+  depends_on "vulkan-headers" => :build
+  depends_on "vulkan-loader" => :build
   depends_on "pkgconf" => :test
 
   depends_on "assimp"
@@ -46,6 +48,7 @@ class Qt3d < Formula
     args = %W[
       -DCMAKE_STAGING_PREFIX=#{prefix}
       -DFEATURE_qt3d_system_assimp=ON
+      -DFEATURE_qt3d_vulkan=ON
     ]
     args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
 
