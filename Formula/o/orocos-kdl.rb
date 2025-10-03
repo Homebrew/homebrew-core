@@ -1,8 +1,8 @@
 class OrocosKdl < Formula
   desc "Orocos Kinematics and Dynamics C++ library"
   homepage "https://orocos.org/"
-  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "5acb90acd82b10971717aca6c17874390762ecdaa3a8e4db04984ea1d4a2af9b"
+  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/refs/tags/1.5.2.tar.gz"
+  sha256 "dafbfdb68a5ecbf35c0d7ce35d66aa55f3be28e5771617d2af0292df6cdb0092"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -24,20 +24,17 @@ class OrocosKdl < Formula
   depends_on "cmake" => :build
   depends_on "eigen"
 
-  # $(brew --prefix orocos-kdl)/share/orocos_kdl/cmake/OrocosKDLTargets.cmake does not export the includes
-  # orocos-kdl v1.5.1 was released in September 2021: https://github.com/orocos/orocos_kinematics_dynamics/commit/db25b7e480e068df068232064f2443b8d52a83c7
-  # Issue was solved in October 2021: https://github.com/orocos/orocos_kinematics_dynamics/commit/ef39a4fd5cfb1400b2e6e034b1a99b8ad91192cf
-  # No new release since then, so we should provide a hotfix.
-  # Can be removed with next release.
-  patch do
-    url "https://github.com/orocos/orocos_kinematics_dynamics/commit/ef39a4fd5cfb1400b2e6e034b1a99b8ad91192cf.patch?full_index=1"
-    sha256 "b2ac2ff5d5d3285e7dfb4fbfc81364b1abc808cdd7d22415e446bfbdca189edd"
+  on_macos do
+    depends_on "llvm" if DevelopmentTools.clang_build_version < 1700
+  end
+
+  fails_with :clang do
+    build 1699
+    cause "Requires C++23 support"
   end
 
   def install
-    # Bump min CMake version. Remove with next release.
-    inreplace "orocos_kdl/CMakeLists.txt", "CMAKE_MINIMUM_REQUIRED(VERSION 2.6)",
-                                           "CMAKE_MINIMUM_REQUIRED(VERSION 3.10)"
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version < 1700
     system "cmake", "-S", "orocos_kdl", "-B", "build",
                     "-DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3",
                     *std_cmake_args
@@ -46,6 +43,8 @@ class OrocosKdl < Formula
   end
 
   test do
+    # ENV.llvm_clang doesn't work in the test block
+    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version < 1700
     (testpath/"test.cpp").write <<~CPP
       #include <kdl/frames.hpp>
       int main()
