@@ -1,0 +1,4 @@
+{
+  "liquibase": "5.0.0",
+  "terraform": "1.6"
+}
