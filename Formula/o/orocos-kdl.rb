@@ -24,27 +24,17 @@ class OrocosKdl < Formula
   depends_on "cmake" => :build
   depends_on "eigen"
 
-  on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version < 1700
-  end
-
-  fails_with :clang do
-    build 1699
-    cause "Requires C++23 support"
-  end
-
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version < 1700
-    system "cmake", "-S", "orocos_kdl", "-B", "build",
-                    "-DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3",
-                    *std_cmake_args
+    ENV.cxx11
+    args = %W[
+      -DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3
+    ]
+    system "cmake", "-S", "orocos_kdl", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
-    # ENV.llvm_clang doesn't work in the test block
-    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++" if OS.mac? && DevelopmentTools.clang_build_version < 1700
     (testpath/"test.cpp").write <<~CPP
       #include <kdl/frames.hpp>
       int main()
@@ -57,8 +47,7 @@ class OrocosKdl < Formula
       }
     CPP
 
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lorocos-kdl",
-                    "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}", "-lorocos-kdl", "-o", "test"
     system "./test"
   end
 end
