@@ -1,18 +1,17 @@
 class Litmusctl < Formula
   desc "Command-line interface for interacting with LitmusChaos"
   homepage "https://litmuschaos.io"
-  url "https://github.com/litmuschaos/litmusctl/archive/refs/tags/1.17.0.tar.gz"
-  sha256 "0f4564974cbceff9f057b534f3a98640248dddaffce4d8b1f47368724200aaec"
+  url "https://github.com/litmuschaos/litmusctl/archive/refs/tags/1.18.0.tar.gz"
+  sha256 "f44649f75559bac43ffc8a0fe7ab35b6edab03ee448d8be0414c3b9934af8025"
   license "Apache-2.0"
   head "https://github.com/litmuschaos/litmusctl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48c16a91d4c8530c30968f5dd831988982100c49a059307c356b7f6c6d5cc3e8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48c16a91d4c8530c30968f5dd831988982100c49a059307c356b7f6c6d5cc3e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "48c16a91d4c8530c30968f5dd831988982100c49a059307c356b7f6c6d5cc3e8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d9c8e0a8ad0af7eaa9d0449268fa15d70f98b6d55f8570ddb00f1013660dd75e"
-    sha256 cellar: :any_skip_relocation, ventura:       "d9c8e0a8ad0af7eaa9d0449268fa15d70f98b6d55f8570ddb00f1013660dd75e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc84c0da1f6d6fec5f431650c738230632126a35c5af9ec10b4d61ad723b7306"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09bd1409cf724118f82f9cd2424ed81f0eff4289ad53c00981888c3aa7003c2d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "09bd1409cf724118f82f9cd2424ed81f0eff4289ad53c00981888c3aa7003c2d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09bd1409cf724118f82f9cd2424ed81f0eff4289ad53c00981888c3aa7003c2d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "98ce747b4545b195b910a15cfff891509578dda17cf23fbec71f9255281aff6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "493eebf6ac5f4787ff4dda254964755216a747d09d622e27c9b295d8e26a0eae"
   end
 
   depends_on "go" => :build

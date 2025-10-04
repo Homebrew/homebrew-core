@@ -24,10 +24,6 @@ class Ragel < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "1fe77eea34f4c9d9cc26f94706f55a3b38a595c9fb334fc0d3c168ea7abbf5b6"
     sha256 cellar: :any_skip_relocation, big_sur:        "712245a75110f6628e7c07130d2905577f1a533bf760692e0f4b3071df20cc40"
     sha256 cellar: :any_skip_relocation, catalina:       "a402204e97c35c6a9487d2b0707e27766d9b39c9c2116d49e9c561e1d0bd54b7"
-    sha256 cellar: :any_skip_relocation, mojave:         "b9b1428abb19b6e6d8de2bccc58a059b75d7c08b38b73956bb40e764a9d0390f"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "8dc6d7e1a3617cd31d9738c5ae595fd57ddb157266c1970646a7d5fbba85a6ae"
-    sha256 cellar: :any_skip_relocation, sierra:         "69d6d65c2ef3da7b829e3391fd17b1ef088b92c2baf64979707033e2a7dd8c01"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "f4ea3a8c0476fd82000223fae69170ac9f266cd36334bd60d9d6cf4fab3273c1"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "1273e5876162710bb47f6c16ec99b755035cb171d3b5d32be4e362ae7a3d08e2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2306dd1c44d304bc0e86093e9f87e0e885d0d9ce03579ab55d7a6c9bf2ada95b"
   end

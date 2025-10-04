@@ -19,10 +19,6 @@ class Hexcurse < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7af11f5ed0d454f43e40d39f35fb1967414d81f314aa46fbadd556265c0966e3"
     sha256 cellar: :any_skip_relocation, big_sur:        "26bbc403b9590ad6891663edfb0c424c7497755098873e4f5cc95fb7231e259b"
     sha256 cellar: :any_skip_relocation, catalina:       "977632cc06d33a8d2f7f44866a7497dc7f8b8b423869f348827f20811c024935"
-    sha256 cellar: :any_skip_relocation, mojave:         "1e940f63d87629fd0fd6758436679eac6238afae871681c5d65e03cfce11bde1"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "071ab88d401cc9ff24c6d466f291217d57082d07649ddb39f7d6aa28dd9ed7e6"
-    sha256 cellar: :any_skip_relocation, sierra:         "580efaffc5d8dccb0f4f6532ad5be35e372c6b8d91dfb6d3930aa773c9bf7ea1"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "ffe690a87522627dc0088c391f7237fc6a3f2aa12fc5a3487c0aa6694905dc4d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "dfdd735912fd3c69d3e62a7b71b0e4e453b762e5ad5bc7c6788f19c83e4abb59"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a77e765183c6f25ab2334662999e980f9c3ee127394682d3723262e0e80b64a"
   end

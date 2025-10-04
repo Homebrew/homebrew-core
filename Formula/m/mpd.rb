@@ -9,6 +9,7 @@ class Mpd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "cbfe018650e11d3a81504d13d046da9e368842f3834a76e0646bd28cc8cd254a"
     sha256 cellar: :any, arm64_sequoia: "c2ac996ca9c88223d47853c18508f295b52488b2d6b7d672f559701f200f8cf7"
     sha256 cellar: :any, arm64_sonoma:  "c10d610f17f0409b4306b6550e504e317f7d4563f15c22e84df868096a20569d"
     sha256 cellar: :any, arm64_ventura: "53d65b62f0b174eedb410986e7dc1dd1aafa82d220699f3d77339638b1f7b16b"
@@ -44,7 +45,6 @@ class Mpd < Formula
   depends_on "libsoxr"
   depends_on "libupnp"
   depends_on "libvorbis"
-  depends_on macos: :mojave # requires C++17 features unavailable in High Sierra
   depends_on "mpg123"
   depends_on "opus"
   depends_on "pcre2"

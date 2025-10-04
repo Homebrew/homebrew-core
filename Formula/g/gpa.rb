@@ -22,6 +22,7 @@ class Gpa < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "dadbb049d9885447f60ee0cfcada2faf0da3251d49182f8879a0bba60df16f18"
     sha256 arm64_sequoia: "69c538278add61a01e2a4cf2322c4fd36889105a1616c6a1121a42ef236046b8"
     sha256 arm64_sonoma:  "6d33523eedf82d824372a0aa44d7f645fba618b5962b353a19852a3af16826e2"
     sha256 arm64_ventura: "58999f0449db4ac31542005cfa3ba5b9be8f2e0c5387c1c6f5e45af0efa3bcd4"

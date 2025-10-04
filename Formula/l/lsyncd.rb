@@ -8,18 +8,13 @@ class Lsyncd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "b1de715ecf63cc59a9f4725b7800e039d417d297dbaf6a8f3643d95979dc1cfd"
-    sha256 cellar: :any,                 arm64_sonoma:   "815e36a145bfecbd20023f55bd910b2223cb54a39c51e276a97ee19f717a1c94"
-    sha256 cellar: :any,                 arm64_ventura:  "eaf1cd2a7576eed88ab68e26b93b234132a1cf9e6ddf63f0883fa0b859fb798f"
-    sha256 cellar: :any,                 arm64_monterey: "e4ed253d0a0792a3c2e22f82a40c1627a8fcb6c15ed62f62cca24b1b965fdc81"
-    sha256 cellar: :any,                 arm64_big_sur:  "e818e3e8cafb4f9d8cf82f6ec29b8d247b2e17276f92f9e8bef9364f740fca85"
-    sha256 cellar: :any,                 sonoma:         "2d6b3bc50d43c3de3cfc0cdc104a4a69570f7b13465aecbb478006ef6e2bda75"
-    sha256 cellar: :any,                 ventura:        "36f5613aab337d30135d232e5abf5bc5baa63470537cbaa7917fd202fdf45b3e"
-    sha256 cellar: :any,                 monterey:       "453140f96382bf6eb4b4ecc9df475ef25ea690f27a870f0b457619d0fc15a69c"
-    sha256 cellar: :any,                 big_sur:        "c221932f57a2ddbda8c4722cbd4c547244fd4492a1eb46959aea03244897566f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "ed00787f9706cd469cc6314c2af9edf287432a308870c52f0cb46347009952bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de8ec6eb7f7122c422cb82bf5c1f1051ce23bde9dc48bb2327da7dca1573f757"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "508c60c1a56dc5267e6c49781c0aaddb91767c26e926dd530a29689d8fd3cf96"
+    sha256 cellar: :any,                 arm64_sequoia: "af0f38eb7372e1a10d57e9fb2f36af97e57e9cbe84f89c1de6b80be612fab7ee"
+    sha256 cellar: :any,                 arm64_sonoma:  "f9c9bc6d091e4e9a996157fa6f0ca50f384866f876e91c0c0dec930c61b9791c"
+    sha256 cellar: :any,                 sonoma:        "8cdbd9130e3d1b8fe3b815b6806e2505bfed27ee5bbb402e4fecdb26c7c93cff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e67dd091044e053e1b1eed87fcddaf7549cf2eee8c6c9c1c5740ae8c3213823c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6560108e0b00e2ea9ecf9fa954fb584b280e6dbb794b0e36f03a29a2b04705ab"
   end
 
   depends_on "cmake" => :build
@@ -27,13 +22,17 @@ class Lsyncd < Formula
 
   resource "xnu" do
     # From https://opensource.apple.com/releases/
-    on_sonoma :or_newer do
-      url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-10002.41.9.tar.gz"
-      sha256 "f158a10e01702aa59a90af60ab097c3253123ab3f05d9953530730d241a9cba4"
+    on_sequoia :or_newer do
+      url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-11417.140.69.tar.gz"
+      sha256 "6ec42735d647976a429331cdc73a35e8f3889b56c251397c05989a59063dc251"
+    end
+    on_sonoma do
+      url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-10063.141.1.tar.gz"
+      sha256 "ffdc143cbf4c57dac48e7ad6367ab492c6c4180e5698cb2d68e87eaf1781bc48"
     end
     on_ventura do
-      url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-8792.61.2.tar.gz"
-      sha256 "61c5758d4423ede45e3cbe70b4316d982af59dc91fc482cd9afc145b2ad2226a"
+      url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-8796.141.3.tar.gz"
+      sha256 "f08bfe045a1fb552a6cbf7450feae6a35dd003e9979edf71ea77d1a836c8dc99"
     end
     on_monterey do
       url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-8020.140.41.tar.gz"
@@ -43,25 +42,9 @@ class Lsyncd < Formula
       url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-7195.141.2.tar.gz"
       sha256 "ec5aa94ebbe09afa6a62d8beb8d15e4e9dd8eb0a7e7e82c8b8cf9ca427004b6d"
     end
-    on_catalina do
+    on_catalina :or_older do
       url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-6153.141.1.tar.gz"
       sha256 "886388632a7cc1e482a4ca4921db3c80344792e7255258461118652e8c632d34"
-    end
-    on_mojave do
-      url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-4903.270.47.tar.gz"
-      sha256 "099c1c50c4cef4db5fcf4df6a6314498693ad52ed5e813201e2cf442e22985fe"
-    end
-    on_high_sierra do
-      url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-4570.71.2.tar.gz"
-      sha256 "b9e2c84c3ee62819917d3bc845e10c2f4bde1194e731c192b6cf0239da5a5a14"
-    end
-    on_sierra do
-      url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-3789.70.16.tar.gz"
-      sha256 "0bc4cf425513dd16f3032f189d93cdb6bef48696951bd2e5bf4878dacdcd10d2"
-    end
-    on_el_capitan :or_older do
-      url "https://github.com/apple-oss-distributions/xnu/archive/refs/tags/xnu-3248.60.10.tar.gz"
-      sha256 "a4f646c6d34814df5a729a2c0b380c541dd5282b5d82e35e31bf66c034c2b761"
     end
   end
 

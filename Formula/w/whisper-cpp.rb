@@ -1,8 +1,8 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggml-org/whisper.cpp"
-  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.7.6.tar.gz"
-  sha256 "166140e9a6d8a36f787a2bd77f8f44dd64874f12dd8359ff7c1f4f9acb86202e"
+  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "c006a5e472ee41e7a733d0bf7326e339c8b281d3a91a1c8a35468fa0a051940f"
   license "MIT"
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
 
@@ -12,15 +12,12 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "c09bbacfe6dc6a49f351d674dc6a207881d33b677322e36cea228c81f73fcd16"
-    sha256 cellar: :any,                 arm64_sequoia: "c06e2df81e481d21d041b2359f4e4a5def132854953c1866bc1366f338ef3766"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b5ac49039fad3567a76cbce49658aa54000e13f6e19738b7d85e29239559ad5"
-    sha256 cellar: :any,                 arm64_ventura: "3eead42cfcafc558679fb9a0f0c5e566ac62428ef4304fdc3eb1208e77392929"
-    sha256 cellar: :any,                 sonoma:        "79f2d1f047cf8412e0f81d8d50bfaf5902f26ce27a217d9ee428f8426bf8daf7"
-    sha256 cellar: :any,                 ventura:       "ae15cc17825603c006f9451a7dbdb2d39aa02a287776baa534af3917d497201f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ca8140c5ef5a2fe5cb1803319bf96b447df01b3e85c68a5e2ac367a6ec10319"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28ea46f12511f444b3e4dbb9bbd0b32dee68766b147ff708265206899b16bec9"
+    sha256 cellar: :any,                 arm64_tahoe:   "af01745d8e901da2e15a2762cfb5b0b45f86c440f547e138967e881756871d5d"
+    sha256 cellar: :any,                 arm64_sequoia: "3e7bf9cc5ad26440353f021aa212a99bb7a5b73c3ab5104f09568567c4056269"
+    sha256 cellar: :any,                 arm64_sonoma:  "efda95b09b4a26cbf42b20f7f88a961aed922346f88121a7a4bfe93c31a2f8f8"
+    sha256 cellar: :any,                 sonoma:        "ead085a1fad2849b756b80b7df4ef0f83fb934aa1adafb3cb4675f0fd6e2fb8a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73074b46e46d34be9041e519c5612b1a60882fbdbaefa2d663a22a478596a737"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74d9fd2a0ba02cb3e8f7933e6a6e3b4d6270083ed4cb1fb847b576b483b7759f"
   end
 
   depends_on "cmake" => :build
@@ -49,17 +46,6 @@ class WhisperCpp < Formula
     # Expose executables and pkgconfig files
     bin.install_symlink libexec.glob("bin/*")
     (lib/"pkgconfig").install_symlink libexec.glob("lib/pkgconfig/*")
-
-    # for backward compatibility with existing installs
-    odie "Remove whisper-cpp script and libinternal" if build.stable? && version >= "1.8.0"
-    prefix.install_symlink libexec/"lib" => "libinternal"
-    (bin/"whisper-cpp").write <<~SHELL
-      #!/bin/bash
-      here="${BASH_SOURCE[0]}"
-      echo "warning: whisper-cpp is deprecated. Use whisper-cli instead." >&2
-      echo "warning: the compatibility script will be removed in 1.8.0." >&2
-      exec "$(dirname "$here")/whisper-cli" "$@"
-    SHELL
 
     pkgshare.install "models/for-tests-ggml-tiny.bin", "samples/jfk.wav"
   end

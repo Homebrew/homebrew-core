@@ -11,6 +11,7 @@ class Osm2pgrouting < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "923a96fe6f095a29899a9a4099bf16f518e02ffb4f9960dbc2e814ed146f46c3"
     sha256 cellar: :any,                 arm64_sequoia: "98b32784353c589877d2c2f192a879df3699aef5715bebddd9ce17b1d0af22d3"
     sha256 cellar: :any,                 arm64_sonoma:  "3b7e79d8ba1e24d0a54a528e40c8c0117e844874dbe07541758c2b7b9880af72"
     sha256 cellar: :any,                 arm64_ventura: "1488bde56531bd16ca795364651236755b3f2549a60db5b566ff3ea2f4cc6d12"

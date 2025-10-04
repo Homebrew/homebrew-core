@@ -29,7 +29,7 @@ class Bedtools < Formula
   def install
     # Remove on the next release which has commit try both python and python3
     # Ref: https://github.com/arq5x/bedtools2/commit/ffbc4e18d100ccb488e4a9e7e64146ec5d3af849
-    inreplace "Makefile", "python", "python3" if !OS.mac? || MacOS.version >= :catalina
+    inreplace "Makefile", "python", "python3"
 
     system "make"
     system "make", "install", "prefix=#{prefix}"

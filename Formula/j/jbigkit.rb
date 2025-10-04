@@ -26,10 +26,6 @@ class Jbigkit < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ed0440252fa7dc1d13a985498d56037c1bcb0c56fdc7220081ebf7a623524bd6"
     sha256 cellar: :any_skip_relocation, big_sur:        "568ea0a6734dc1da5d50b5261f43753f7cf1089fae9c786e7859a8ec22562144"
     sha256 cellar: :any_skip_relocation, catalina:       "16936e06d59fe44d40a3829bc60fec43cb7ca23d54b5fdf9510aca78df648460"
-    sha256 cellar: :any_skip_relocation, mojave:         "887d4f100ed2264220232720a7732a969ee97df32a1c87f03897952920b6019a"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c8a003d12559b6f506fbd912c3b68163f7ab6022fd53e069bfbd55c813f52df5"
-    sha256 cellar: :any_skip_relocation, sierra:         "831dd1ec7e8013ddc6c23641a21292eae26f397e8b61d95382a6240f18fc5602"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "bdec08cd92dd59183b698c6bbd9072881fdfce64b4ecb6182e405e0f2ad26c00"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "e211cb4b191e33b3b01f40a4fabb35a59d770ccc8f4f873ba0ade76780598bc1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d787da566c3d674b9ebc93fcf4291ca28325366fad703f3a90451bd6fbfbac1"
   end

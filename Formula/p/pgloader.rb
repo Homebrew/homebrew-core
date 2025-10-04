@@ -15,16 +15,13 @@ class Pgloader < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "cb7f5d7b24d71a33f540c1deac860c14ac23a722ea8d090dcee236d323fb91c7"
-    sha256 cellar: :any,                 arm64_sonoma:   "e9e988b590421ba3ebbf60331db3cb54d713d3629e53905218cdfe677d83190b"
-    sha256 cellar: :any,                 arm64_ventura:  "66c38d5680137c97900e8bc0345212df6ef9c246688263d27a1612f0c68362a3"
-    sha256 cellar: :any,                 arm64_monterey: "368d8f4b75362e444098030d8a7de45e09c495d501037a679670a1349bc366a8"
-    sha256 cellar: :any,                 sonoma:         "4b2bb7c9ae9bd104768e44181fcb9536928d5d37a20a39b66dd29d3446eecef8"
-    sha256 cellar: :any,                 ventura:        "8abc681975f40539f48f3444ffee0d6028080ee7dfbff23a69d2d1ad283079cd"
-    sha256 cellar: :any,                 monterey:       "52cdba8d7bf8f2a836eeba8b6e2eae1521d95a31a0203edb0f5ae9b1a05ae394"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "cbd685f4531bdf498e069785d26e5944ee7f25a505c9e6f3e5a9a41d2a6d2dbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3066fd9fdb9548c8e1d3f6bb445017b0da557e00247d72bb8c2cafc4aed41d3"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "f5baa53cabbdcdba97c61a8734543b06ffecf1edfb6a072fffe33673b6adda14"
+    sha256 cellar: :any,                 arm64_sequoia: "0b51ea7384a8623316882a7e4ca9fd5a67fd290fc2cea4f37e1b202b565a33cf"
+    sha256 cellar: :any,                 arm64_sonoma:  "02643e311b7153fc874298fc931b1a685a2cacee774b094807ca907938d1d778"
+    sha256 cellar: :any,                 sonoma:        "b3e66db5bd5d27ebb26eb4afad56169753c690f85606abcd28855f15eafbf5b2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9dad60ccd17c70c50388e58642587f660497c819d964544cb59ef9a80f942133"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3383d6eb3b97d354416fa7257bf7beafbbaa14d671dc285e44cf6b2c0116356b"
   end
 
   depends_on "buildapp" => :build
@@ -35,15 +32,37 @@ class Pgloader < Formula
   depends_on "sbcl"
   depends_on "zstd"
 
+  on_linux do
+    # Patchelf will corrupt the SBCL core which is appended to binary.
+    on_arm do
+      pour_bottle? only_if: :default_prefix
+    end
+    on_intel do
+      pour_bottle? only_if: :default_prefix
+    end
+  end
+
   def install
     system "make"
     bin.install "bin/pgloader"
+
+    # Work around patchelf corrupting the SBCL core which is appended to binary
+    # TODO: Find a better way to handle this in brew, either automatically or via DSL
+    if OS.linux? && build.bottle?
+      cp bin/"pgloader", prefix
+      Utils::Gzip.compress(prefix/"pgloader")
+    end
+  end
+
+  def post_install
+    if (prefix/"pgloader.gz").exist?
+      system "gunzip", prefix/"pgloader.gz"
+      bin.install prefix/"pgloader"
+      (bin/"pgloader").chmod 0755
+    end
   end
 
   test do
-    # Fails in Linux CI with "Can't find sbcl.core"
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     output = shell_output("#{bin}/pgloader --summary 2>&1", 2)
     assert_match "pgloader [ option ... ] SOURCE TARGET", output
 

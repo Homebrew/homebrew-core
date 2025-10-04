@@ -20,8 +20,6 @@ class GitHound < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "f443b7b00338cda50f23d0fa64b3e6db5a7d57c5a5e685e1b5f1e222b0a0cca7"
     sha256 cellar: :any_skip_relocation, big_sur:        "4431bf04ab9f0e93b9da932b71c4c53be423d73c1a20e5321fdcd6a4f5b0bd85"
     sha256 cellar: :any_skip_relocation, catalina:       "b800dc830647b0806200364a0b242c64cef639618a5ccc9268f3333f3a645802"
-    sha256 cellar: :any_skip_relocation, mojave:         "6bfbbe48552eaa75d5fd861c1feb9bd21a5d47c1718f4295ce469062965311de"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "5951f740815c5e38e8d0a97270bf867f99cb0a2ea2ec9ee3cc4b4ccba5ee96fd"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "b3f6b4750e32e5f6b3a11bd754c2b026261373e3e1b54256b6ae3e48dc3bc4a2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f27441dca7619968e685c5b91221d251872376412332fea4d318a17d4c283c4c"
   end

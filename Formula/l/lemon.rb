@@ -13,6 +13,7 @@ class Lemon < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5508c5c43d012d2ad19faa86cc6f1ff23a3a362d8a63fdebd78e81ba948837e2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ed0f53dccb0b2c94185959f261fce4a908cca7b28b4d969b03d62a9a7e3955a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9bf8630d59939a11082878bc5b5c4f73ca59619876eb91b8d19c0900802be03"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8841bfca461106dca5ccddbdf40ff57203ff0cb9f244e65e91acd5e6d230cada"

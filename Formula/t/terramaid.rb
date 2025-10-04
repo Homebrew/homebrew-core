@@ -1,17 +1,17 @@
 class Terramaid < Formula
   desc "Utility for generating Mermaid diagrams from Terraform configurations"
   homepage "https://github.com/RoseSecurity/Terramaid"
-  url "https://github.com/RoseSecurity/Terramaid/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "e448b8671c8d5fe70aa2d8b22b1cbc074fc89bf751b212d9d19f298821afd487"
+  url "https://github.com/RoseSecurity/Terramaid/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "6b6e797d2ce5038414307af19cc0aebb2363cbfff66828610f814f61b79e377d"
   license "Apache-2.0"
   head "https://github.com/RoseSecurity/Terramaid.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9e1e2c426929b914905c827f9b35aa50789fc07316ad9a6bd4d673eea741b8f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e1e2c426929b914905c827f9b35aa50789fc07316ad9a6bd4d673eea741b8f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e1e2c426929b914905c827f9b35aa50789fc07316ad9a6bd4d673eea741b8f3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aad356c90ad9687a54ec5e5858b8822dece1ced6960b243dca37e900abc07649"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e354b3f9ecd904eaa3d44871c1b4f4e37e448b4145bfdeaeeda41f11631af5df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d9286e0b8856b587c83a56f03b6b3dc08613eae3fec76299525360091eefe69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d9286e0b8856b587c83a56f03b6b3dc08613eae3fec76299525360091eefe69"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d9286e0b8856b587c83a56f03b6b3dc08613eae3fec76299525360091eefe69"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0a7e6f9cc76b33e119276a960ceb16bf6ca1ace2907bb147c8f1fd41b2c70f2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d89d47b37e93c8f5bdddfa1247f11c8447b6f55f016b6b7960c96a19eba857b"
   end
 
   depends_on "go" => [:build, :test]

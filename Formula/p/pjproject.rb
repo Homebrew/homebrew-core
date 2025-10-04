@@ -22,7 +22,6 @@ class Pjproject < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0fb2516ec89621fc3622cd52ed7dfa0d814f49f496c32ec6763c2a8f605be66"
   end
 
-  depends_on macos: :high_sierra # Uses Security framework API enum cases introduced in 10.13.4
   depends_on "openssl@3"
 
   def install

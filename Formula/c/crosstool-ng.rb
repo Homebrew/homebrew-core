@@ -12,6 +12,7 @@ class CrosstoolNg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a4d557d0df32e98fc22392b385606bc8828b429ea5b39d1d2758cccef28cad41"
     sha256 cellar: :any,                 arm64_sequoia: "78e4a8a9d682a7a386b9f004659224cbdbe5c203ef13e8758a2e1d4d96a39cc9"
     sha256 cellar: :any,                 arm64_sonoma:  "8c1d2f4a583a5d000dadbbaf7dc2b3f79407519096674cac0fc346cc657f8a03"
     sha256 cellar: :any,                 arm64_ventura: "2460d7593c74deef19b24f77308b20df82215ffa6883da1090f78029552d089a"

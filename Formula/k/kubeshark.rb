@@ -1,8 +1,8 @@
 class Kubeshark < Formula
   desc "API Traffic Analyzer providing real-time visibility into Kubernetes network"
   homepage "https://www.kubeshark.co/"
-  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v52.8.1.tar.gz"
-  sha256 "a621d948a0f28560b494202bd884b39ee0d6de024edfd5ac9a70a0d067ca1310"
+  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v52.9.0.tar.gz"
+  sha256 "2318a65e1bfbdbd26903e76c97ca5dc6a93ccbd97f4bd1e87a25e2900fe1e750"
   license "Apache-2.0"
   head "https://github.com/kubeshark/kubeshark.git", branch: "master"
 
@@ -15,14 +15,12 @@ class Kubeshark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a69a07f2194219df0b24c62681c4a2777ec3810cce06d8058d3532d6c2762219"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d65e38045ff18f7fc6fc83df77cc9da945ec7e99033d43f91994f0768c2c2e99"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e6672c1ce14d11d27b1c36df869bf88e49873aae7110edd01ecf6463278753bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d430d8760d96823fd593c020d1896ac96bd1aedb55c377c2e9323a189e9637e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6954043a3ea85d11def574d454eda727e637c4f0de7a1e2c174c9094bccefc9a"
-    sha256 cellar: :any_skip_relocation, ventura:       "53507760c14e7f713d99500d962e1f86542416736a50a9af67c2f44af5474915"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c36b884d837b3b252c4d7d3e966fac7174b90ec7ef9853fcdcbfc60ea1474d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81568116c1e2806963e896671d7239833257a7e37ee5ec885b1a570a0e573e0b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9e07f0d37b2e286f4e224887e1e7a7b3303523a67f7680f8a656309dff6d510c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8912fc8cdfbac8dd0ece8e7a0d4ecf6b4aa76860e1a563ce5db1523b0effadb0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf82e4b4164988e286baa4b253ceb3ec0d47c0f3e2414daf30524cfb21cbe314"
+    sha256 cellar: :any_skip_relocation, sonoma:        "62f8b2901b274884d29763e853dd3f9a1838d206567551852bb2d2955cc532cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1221afa50134b597909e4fff54ce7205c692e0cbd6b13d3a9917717bfc93a6f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd47ee599faaba45ba0ab2aa20504a98053fa6f06e82ed1d31d97ba4023d8b3d"
   end
 
   depends_on "go" => :build

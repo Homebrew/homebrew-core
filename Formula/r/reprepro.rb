@@ -14,6 +14,7 @@ class Reprepro < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1b5855ee25ccd87bcbc2a4625fa0277603efd7009c52c318f3f8ca12a29470da"
     sha256 cellar: :any,                 arm64_sequoia: "8eaef64ed0c0e9f094a22ac31fe47363d49231963ee63dc9f0378f78e4090da6"
     sha256 cellar: :any,                 arm64_sonoma:  "80efe269819b4ec7ff59218ea83c67374ad62869cd523fd3bcbc23a68a382195"
     sha256 cellar: :any,                 arm64_ventura: "679cf41e7adc1e217f128f1b327afe9c36ff157b5f3bcfbb311f5303a0884b88"

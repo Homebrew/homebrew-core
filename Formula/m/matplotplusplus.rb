@@ -6,6 +6,8 @@ class Matplotplusplus < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2b9397c694c7707a80feb995232954d614d4d8a8372b58d99ddb4d82dcca511e"
+    sha256 cellar: :any,                 arm64_sequoia: "e2ba675ac81348b5f335837aff0f31d76e9786cb863f1e7e78310dc866b0fd8a"
     sha256 cellar: :any,                 arm64_sonoma:  "19c28227de5d694cef734a453ae5a5fa9235100178c330a89e0bf69b1152c9c3"
     sha256 cellar: :any,                 arm64_ventura: "a6ea197fbc598aea232a2a2ee3f34a49d901fe7bcb5ef1669fad420bc9761df9"
     sha256 cellar: :any,                 sonoma:        "fd6ad4314564c49faa1c3a579059e691bd42ad7bc806bfdd9b6da50de1493136"

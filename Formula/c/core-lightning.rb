@@ -15,6 +15,7 @@ class CoreLightning < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "25fd645a7b4c09a79eb8ff35b7b342edc9494f5d92ffa0cf51c39611ac502a01"
     sha256 arm64_sequoia: "5009fb86bfe8b4f6885e5cc8b4045363fff758f9eb9c21201f2d502a2f39e4d1"
     sha256 arm64_sonoma:  "295b9afa9429544e01f57537b554168be9cb1c997b5fac2213585fb9fa87b3ad"
     sha256 arm64_ventura: "bbab3239de35f7d0e8c4013b496cfe43802f5aa1345d2edda939b60e8ba4190e"
@@ -37,7 +38,7 @@ class CoreLightning < Formula
   depends_on "libsodium"
 
   uses_from_macos "jq" => :build, since: :sequoia
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 

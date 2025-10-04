@@ -48,7 +48,7 @@ class Libdrawtext < Formula
     font_name = "DejaVuSans"
     font_path = "/usr/share/fonts/truetype/dejavu"
     if OS.mac?
-      ext = "otf" if MacOS.version >= :high_sierra
+      ext = "otf"
       font_name = "LastResort"
       font_path = "/System/Library/Fonts"
     end

@@ -21,10 +21,6 @@ class Jsonpp < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e884870ae68df0759df35eaeaee0dddeff2f4746c709201c88efaf285dd9a45c"
     sha256 cellar: :any_skip_relocation, big_sur:        "3711ce93b4d3874fbfe7967755b587f5787534dbdc12ab6f36eea6a41b54b712"
     sha256 cellar: :any_skip_relocation, catalina:       "2b84ea4f8d4a4177064c1fbf024876439175c4e8c6576b33f93399c72afe3a5a"
-    sha256 cellar: :any_skip_relocation, mojave:         "7c8dd8c69321e42c29e075a658840167138d16820ba6a0dd5f2f2425c87a569b"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "d81995103192bb58f66d7089939eb6682f117a7044d3a84804db62b4c31a3c81"
-    sha256 cellar: :any_skip_relocation, sierra:         "219f8a6bfdf1d0e8435fa1c1fdf0cc22b91cae8ec7d62581d312927fabcf9388"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "3161f55711eea589c5036078fbf3a5df47484767f025adda7c0692d4dda5f2b4"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "064faa34fd4233b2a5f5cde23b7fb616c52fda23154de729e38cdd71a04bdb13"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ce50b5e577a2ed5e00005a6e629b68715d30bbe5a5ea86fb68bcf7702e436eb"
   end

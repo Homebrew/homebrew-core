@@ -25,10 +25,6 @@ class Clog < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "71bcca7b6cb4bf84c6c0c678d45b593f551e9b351bcb0fd557e7e7c0b90648c7"
     sha256 cellar: :any_skip_relocation, big_sur:        "864d26fdc6960a6b4daf9ca76ef52e5e2db4a8ece187dbc7d8b87939e4823d32"
     sha256 cellar: :any_skip_relocation, catalina:       "0a5985eee7c41d2199e64105cb0d32b8e065b57257841f48b2eb36a3a662bc7b"
-    sha256 cellar: :any_skip_relocation, mojave:         "ec11a01ddd6a6ad70a655c74f569af9a6b56cf66f87ea448e296a1e208449ba4"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b5309f9e692f111a0b68599ff465da02783d2f28a4b10d958c19e616177eb37a"
-    sha256 cellar: :any_skip_relocation, sierra:         "97e07b94ea058c766f4d036cc503fc6ec08ca64cddced33d63723e4611534595"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "8f42168b8e165c4c1f1265b410ef62087b370075cc27269f1908eb0f373645c5"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "1d94d1596bb077ec7890f1bee8650ecf592c75c9415e310eb55f541df1d52c13"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "74b571a8740f2d0d8798ed8ee046d9239404ec6789987b98eb48b25c122c00e3"
   end

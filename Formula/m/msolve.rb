@@ -7,6 +7,7 @@ class Msolve < Formula
   head "https://github.com/algebraic-solving/msolve.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "142e6ffe95481d7ea910f62df3157003cd27655315caaccf498aa8a5a141687e"
     sha256 cellar: :any,                 arm64_sequoia: "87deed01325452ff8112bffcbc813e97f40ef7012dd881225dd7f9ea23c11517"
     sha256 cellar: :any,                 arm64_sonoma:  "d38249ea89009fa36fb02b28ec9e68d86a41a33c7b8d375f6c5eb592021b7eb0"
     sha256 cellar: :any,                 arm64_ventura: "d7102d0b4480a354fc9dc60b7095c63778ec6ab82793a60c1c54cf8e0b5cbd6e"

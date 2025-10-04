@@ -29,6 +29,7 @@ class Lammps < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2b5b6cae4d9d5033259eb6ea200ef64e9fd48a56e0ca37c67c4e208e7d879137"
     sha256 cellar: :any,                 arm64_sequoia: "6881c1d01cd5a1d00d53dbe069283f49331b82dfc0773f8b294a013770b43b7c"
     sha256 cellar: :any,                 arm64_sonoma:  "e6707188c9f171e6e47a457d16ed30207a1b37712e337e26271e4134ce234b09"
     sha256 cellar: :any,                 arm64_ventura: "8a20b778823bffd1f0d805e15714206f08d915b82a94ac22226716276c4ce568"

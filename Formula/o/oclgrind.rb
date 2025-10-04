@@ -14,19 +14,17 @@ class Oclgrind < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "0dcf5df23a8e0972f081f74a530e1181e17d1fb7ad6d4af5d5a0d40faf25626b"
-    sha256 cellar: :any,                 arm64_ventura:  "ed53c5dcfe4878ac26531acdffe5ab48647c48b06f43332993f523986f99c797"
-    sha256 cellar: :any,                 arm64_monterey: "39f07818c2dffcce37d58d8aaeba1c824c68c33db786e89d6b692b262b76647a"
-    sha256 cellar: :any,                 sonoma:         "8c0333807ba86699af7cbe5daaf1fe1545f1ef0ebd4c93e081ba5b0722a97fba"
-    sha256 cellar: :any,                 ventura:        "ddaa39e73997893783482ef2744877704d393e069ddb999aa34ebedd9435d8b9"
-    sha256 cellar: :any,                 monterey:       "a04a89b7bde89c7bfa2d83ab13521f8ed5ea8b6b3ce7470ecf3c995408527986"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "6a473d7f99466f9479d86534e11c73b7ba417bd7f02d5e5736490991645c3cdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "867889a512d1c460d03496a763adf0d8c0d18b3ceea4d6ade2907d9513241b9a"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "5125b9afb6956eca58806399252680b2e90a085bdffb3fa4549245f3549be711"
+    sha256 cellar: :any,                 arm64_sequoia: "c01a0c14afb634bcd2ccd552bb958484b447101e106bcbe13f86b2d7c207e69c"
+    sha256 cellar: :any,                 arm64_sonoma:  "8f2733e4d37f63d59c26e494e777cf2ac0b4c7d70282c86a7c1715e6a0f94e0b"
+    sha256 cellar: :any,                 sonoma:        "925f7da504e7ea5a8778d2074c75f6931ff435e528643c25f165212587233a63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "15e5413070e0711c302d2493d34b3c37d03ed3ab84eedc212099e4fcaa5fbde4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70b8d27cfcae4a9a284637525781d1c6c7b61b7236bfb94142341453af3f3fa5"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@14" # Issue for newer LLVM: https://github.com/jrprice/Oclgrind/issues/209
+  depends_on "llvm@19" # Issue for LLVM 20: https://github.com/jrprice/Oclgrind/issues/216
   depends_on "readline"
 
   on_linux do
@@ -37,6 +35,70 @@ class Oclgrind < Formula
   patch do
     url "https://github.com/jrprice/Oclgrind/commit/6c76e7bec0aa7fa451515a5cfcb35ab2384ba6e0.patch?full_index=1"
     sha256 "8c1b8ec75d8d8c8d02246124b40452ec9ef1243d3e3c497fe4ffa8571cd98ade"
+  end
+
+  # Backport CI/test changes to apply later commits
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/92da61bbe773db2b36037ea97563750065696d10.patch?full_index=1"
+    sha256 "5f40561f7beb8bad5b665a52332ff865cdaf00296e56e467e11de69fa71a82b2"
+  end
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/b8dea2756cee3cad61e00bd4f7572ab00ccf44bc.patch?full_index=1"
+    sha256 "d2c4674bc3a355695a9f27c0fb8967c288c93638e5ed7be1cc55148606e5eed3"
+  end
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/7e0613dac7a585699c66043104fda401dd0234ed.patch?full_index=1"
+    sha256 "403b734a5cd71b245d057bb57e1573a2c77225716d55c7d90d3a9a20f801d5ca"
+  end
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/accf518f8623548417c344a0193aa9b531cc9486.patch?full_index=1"
+    sha256 "7f0f1e1c5a61109e09cd108be8cebef81392c1815903decd3c41e3d75a71d972"
+  end
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/9957047931bb9c7e2aa38c8687b6eb54a88fb4b8.patch?full_index=1"
+    sha256 "83be80b8052b582fc1019f8820c48d8e83c0b14d6c6b4b9d7bdffb912aaae771"
+  end
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/8c41dc9d44716850dd8202d5c465dad6978491f9.patch?full_index=1"
+    sha256 "a87bf982c1b089d623e8a94f4c6dd57c5bd23e6f30e8563011a02254100146ae"
+  end
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/6d64783add2a15c6633c52f84b6d4228048c676d.patch?full_index=1"
+    sha256 "7a8d64d60c9c891bd0bf74b145ccdee6067c473d7387768028da893d7f8dc308"
+  end
+
+  # Backport support for LLVM 15
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/265d7fa8d8db2b64e2812bf529bfc0aa7bdd9734.patch?full_index=1"
+    sha256 "567dd21a5f30eaf31b18fd212f277783b7268b64a9761947b4f562b9a7bb1c5c"
+  end
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/9fbb8b2583f7005f65f787ba4b1e950e03f606d8.patch?full_index=1"
+    sha256 "0f530d49acc07ba6f9be2626f8aeaff3b31958bf1919fce9eafac0b04ad6ca2c"
+  end
+
+  # Backport support for LLVM 16
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/53ed0f7f489371a2721bfe05d28153f0f61db61f.patch?full_index=1"
+    sha256 "c9726ed3154b3a208bc987fbb8a09c1c19d17220c7508e9eadba5fdd81c13213"
+  end
+
+  # Backport support for LLVM 17
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/2af59d53a98633040884bb2ae34de0755d229556.patch?full_index=1"
+    sha256 "ffba84f069b478c3c40435481d101228f8c60ef542070d42ed0a76412f59f9e6"
+  end
+
+  # Backport support for LLVM 18
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/6f9bd9aee73d796d18af1f77689b4c1eb05ead02.patch?full_index=1"
+    sha256 "adf85b1adcd951eb82c263619b999a860166a35cbf8a68cc7d7e1b35eb217894"
+  end
+
+  # Backport support for LLVM 19
+  patch do
+    url "https://github.com/jrprice/Oclgrind/commit/7cc48c424a65dfb870b1e7614b59362dff44b348.patch?full_index=1"
+    sha256 "3727836bbc42691bbb34fdd16a266586e01de8ee68b948e9a43fbea10977d864"
   end
 
   def install

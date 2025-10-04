@@ -76,7 +76,6 @@ jobs:
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Get reviewers
         id: reviewers

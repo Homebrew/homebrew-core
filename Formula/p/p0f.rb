@@ -14,6 +14,7 @@ class P0f < Formula
 
   bottle do
     rebuild 3
+    sha256 arm64_tahoe:    "cdd36b28e785533aadfafbd8067b7f6370894b1e709aeb22824efc7247716349"
     sha256 arm64_sequoia:  "26d47c74e8e4c5b3c8463acf5759301a71513c8421e00d88b79fd6acc1510f3a"
     sha256 arm64_sonoma:   "01187398fc42a36aabac534edad37e933c4f9a5731f2c1d7eb2c1d90a6745236"
     sha256 arm64_ventura:  "8a29bf28d9c094a0cf189897703653246509a2c5af95e949c910d98837d48687"

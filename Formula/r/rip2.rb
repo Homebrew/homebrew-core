@@ -7,6 +7,7 @@ class Rip2 < Formula
   head "https://github.com/MilesCranmer/rip2.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "32cbd95f32c0d1df71b9c325f47597e77f55d7e0bdd8298f678e3429122d3365"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9a788f7f8cdc9e5810214fc8caa8890ee1802e14fe9bef40914022acb1daaa2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af09c957a7fb215c1ac9f49c61d411649750f81cf1acaf7692013799ccf6f503"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a5ea06a6d273713bad688f3437d469881c60f0fff0548a04e08816cf8088e6ad"

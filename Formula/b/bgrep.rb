@@ -20,10 +20,6 @@ class Bgrep < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "2264b9b3c17b3faa5c66f612ce460a65e02bf0f3c3620002c90866c699b5cf81"
     sha256 cellar: :any_skip_relocation, big_sur:        "cbd5d550e042d764f0cc4c39e58cd40ae87430fb773aae7d77f3ca56d05c3325"
     sha256 cellar: :any_skip_relocation, catalina:       "444a8dd0c2190e3a75574f8bee287895aee1d070d3e72e72fd7cda4c9cb77211"
-    sha256 cellar: :any_skip_relocation, mojave:         "8a3633a884feda24b875005550fddbd613987c89edc9418dd23783b4c2f7e8af"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c2357ea00756425fec65d8367e7b8653a4d6845b6aa044106b8952d8b8ead0ca"
-    sha256 cellar: :any_skip_relocation, sierra:         "eaed7c05fd07c77cd5aeb6f1232abcf5c9678b86fdaf7e7daf5049476acc690c"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "29f0b2d7ab307eae228a03d4f42f677d9ff0884edc5c96771da36182cb592cd2"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "9d285a3edc43fe8730ff6c744018cbbea2562647ff97565f8cc0b5c75d565e14"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5a19c037fcdd2ef3d50b419dd0d80208febfe24fb6bf785f40f47b7b2f87f45"
   end

@@ -19,8 +19,6 @@ class Qp < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ff9da9b5b7578cb0a87aeb8dff3aeaec5521952dc0764d1623f7e4241e0e1044"
     sha256 cellar: :any_skip_relocation, big_sur:        "83085c1f8cbeaf59a69f00f779a878ceb78b7aeaaf16278010d5d968c9d94742"
     sha256 cellar: :any_skip_relocation, catalina:       "a65499deed12110ed5a21f3bbd657acdaaf1452dea48877caac93bda55759370"
-    sha256 cellar: :any_skip_relocation, mojave:         "f119afd6bacbac5af055c398a2dfb5c4f62c8f113bcb9e12dab825800fd8e744"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "d9c595a53f82ddd9f086fac02a5f8da34e65d9b0e7564fce02148304704457ed"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "71a9566be7b0f409f5d73dd7f8c175f5b131732bd86e64bd3fd1fe54d5c631c6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9a688fd124da927fb627c02b2a043c34d48727785a5be844dd1853a65ba8814"
   end

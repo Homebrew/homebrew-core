@@ -14,6 +14,8 @@ class Metview < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "6a0cad465b3334eda720ee0faf775b9d6a7f513c62cd595ae18d4a651bf2e21f"
+    sha256 arm64_sequoia: "08066751b73d204a2b781f35afaaea9168c1aca53bc3891ecea15057088f75b0"
     sha256 arm64_sonoma:  "876917b5c9621b6efb3b45381e33741484588dbbda49fa69d01c1af12f79f830"
     sha256 arm64_ventura: "328738471e53512d4f170c1792eb7dd4f44210ae134391e5aefb87f14a5dc719"
     sha256 sonoma:        "8436e13d3f7adbd5862345c1d8e366d5b479121f0d089c428573c5853a619872"

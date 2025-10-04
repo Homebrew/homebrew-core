@@ -17,7 +17,6 @@ class BerkeleyDbAT4 < Formula
     sha256 cellar: :any,                 monterey:       "7b227d2e4f39efef969bc407bc04c5bbf7f2cfcce6e0e731680342777dd7f2be"
     sha256 cellar: :any,                 big_sur:        "8a95577ecc798d7dd61b100d282c3b667eb278b3d719a41331db2cc57e0843c1"
     sha256 cellar: :any,                 catalina:       "3ef8ec895927523c7a7c2c8c18af534ed00abd9b0d35664a3464595906adcee4"
-    sha256 cellar: :any,                 mojave:         "06af286b14463aec20a0bc9560a6c4081fb392325a8bb8403dd7f02ac4076711"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "055768ef5debedea1692119a19af00031e6ab66431ae47d635d0f2d4c46d40e4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "41de3e62651a2b5b8a3ae23b18b1331478c38fac38c1446627cd0d82c1e657d8"
   end

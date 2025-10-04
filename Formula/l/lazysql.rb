@@ -1,8 +1,8 @@
 class Lazysql < Formula
   desc "Cross-platform TUI database management tool"
   homepage "https://github.com/jorgerojas26/lazysql"
-  url "https://github.com/jorgerojas26/lazysql/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "849cfe4ffa60173903f2e053820e6d9e41c654ea193bdd5466774e114f4d28d3"
+  url "https://github.com/jorgerojas26/lazysql/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "b085be3949159dfc870f710e7910ce185ceb5ef508c517ab0e50bf5e8d76c095"
   license "MIT"
   head "https://github.com/jorgerojas26/lazysql.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Lazysql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d65ce1718770d13839f9c33a4d4e52a33bfc12839abe9e8fc2d86c6604915d3a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d65ce1718770d13839f9c33a4d4e52a33bfc12839abe9e8fc2d86c6604915d3a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d65ce1718770d13839f9c33a4d4e52a33bfc12839abe9e8fc2d86c6604915d3a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4e90f42c011395437ac73cac71ffba446e1766b17cc8da703a715a070a7cd2ff"
-    sha256 cellar: :any_skip_relocation, ventura:       "4e90f42c011395437ac73cac71ffba446e1766b17cc8da703a715a070a7cd2ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "02e15c1975d6114f85fe29c30fee2c06a8cd72329d6031193244f48bfbf7a873"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a890aadb0eacadb780951ea4b37b4c17206d90380cbece2066133c7e5e98a50"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6b90e7adcc45196c63ea7769a27e696bb658299915208d1151b94f2a4c07c61a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b90e7adcc45196c63ea7769a27e696bb658299915208d1151b94f2a4c07c61a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b90e7adcc45196c63ea7769a27e696bb658299915208d1151b94f2a4c07c61a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5d230c6b720e12d786139813b8265aec065d2e1828560e89cda8f481a24b6c80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1da3962e3070d0b186d78ab3ef85352bcd65f926fcb6e2d5c202e9535e874a3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aed565ad67960bb85d4a18290628e5e0ac5f9d98553aec331d5c04585dc9547f"
   end
 
   depends_on "go" => :build

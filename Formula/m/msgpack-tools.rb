@@ -8,6 +8,7 @@ class MsgpackTools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d93b03564547f8828bbf33256496b8d132d362bb57a19dc31eaf90bb91f257a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "89db8ac554a849076b6b033ccd4d01758772b92c528107049b1ad0df61e3adcf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "89cbb09892efa84ffed3f4b4184d91a42526e0884034d00edfcff5ef914acf27"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0efee2e7c968df487992d42aa94cc349e9d64762331226b637efe8853ba15d8"
@@ -18,9 +19,6 @@ class MsgpackTools < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "8d663e0e00679aba8e9bba953aeb99ca657cfd8206769447e6459c33433f6d05"
     sha256 cellar: :any_skip_relocation, big_sur:        "570a72e93de0677f94a586cb49e04ac1fe68655e451860d45a250702fc6e0383"
     sha256 cellar: :any_skip_relocation, catalina:       "901f0f7dadb40b70b20de05a699e5cd9ca37095f3ce9bb277aff3e4421219290"
-    sha256 cellar: :any_skip_relocation, mojave:         "30f69cfbcfe93c148fec339d86775357cc804f50c58c42594708f7ae9abad226"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "9c12c496640b2913caa23147bdacffed803115e68607c56975bdab106b4b83b0"
-    sha256 cellar: :any_skip_relocation, sierra:         "c576acc7e6078360a79bf7270336e0f3dc9012161e860681cbfe7f2de1313857"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d52fc61e8c6c211c80b07bd7b49e8c459edc6b7ecb4ce9b711f3fcbd9548988c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "62b6b16502ad2f612e795d483643499defe5839db98bfb92668d89cae76355b8"
   end
@@ -30,7 +28,9 @@ class MsgpackTools < Formula
   conflicts_with "remarshal", because: "both install 'json2msgpack' binary"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround for CMake 4 compatibility
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -1,8 +1,8 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-10.20250828/git-annex-10.20250828.tar.gz"
-  sha256 "a4fa952cd35a548182965507a6bccddc1c0acfaa31aa2ef49c176b10edc13187"
+  url "https://hackage.haskell.org/package/git-annex-10.20250929/git-annex-10.20250929.tar.gz"
+  sha256 "1212b1ade79c04743eeb29e6aa002e35db1cffad456062da384a5c179103c3b9"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/", branch: "master"
@@ -13,14 +13,12 @@ class GitAnnex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "47d6abacf43d0fe49d170c3938509491c54d4d342794ba06cd1666b5dcd434e9"
-    sha256 cellar: :any,                 arm64_sequoia: "8561c60c88793801ac71225bdda9241ccb3cb1445458eb7d6d0b1bcc82cb3824"
-    sha256 cellar: :any,                 arm64_sonoma:  "b89cfccefbc9a0ca1cf54b18f314cad05f182ecc58e679d6d67fe793bb95a31e"
-    sha256 cellar: :any,                 arm64_ventura: "d8c71ff887cb7937bf32552777f3fa793329d00e16c78bfa801cce064e9f0e12"
-    sha256 cellar: :any,                 sonoma:        "0f3195af84dbb1d3a2a3709ee9ab2358350c634a768eb2b1b8d3a580091941b6"
-    sha256 cellar: :any,                 ventura:       "07b6bbcbc4dd3358ee2f5e1a73bb4cf8bceb56daaeac4f40a5780b61b12fd9be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df3d7e2758537deda6e58bc68526e13d436ff17c76d0e880310391546e57f301"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f90f7266472ea1e67a66d4930a290e01c39c5eab820676393d51c02f3519f0d6"
+    sha256 cellar: :any,                 arm64_tahoe:   "a714957418996b9dcdf67a399a26ba19746981e0761e4b94fa0357789a1494c0"
+    sha256 cellar: :any,                 arm64_sequoia: "26e0790df1629bdc8fa06ac8c60daecadd7795f28766f879e797aa730ba248fa"
+    sha256 cellar: :any,                 arm64_sonoma:  "e8d19d70cb7d66d63c8d100eed986dddd82e9f042009958b306f8ed15753e47c"
+    sha256 cellar: :any,                 sonoma:        "ee5ce025df61b944f409cece83087a94451bb44c0f692708dd71bc7aaa1241ce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bfd005a2b6dbac82b40f3f60f018bb5f99791fd996620dfcb8893eaf9ae6bb2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce4ac86ef144d256df7eed3cf0b9c178afc09164589c592bca966c0e0f62f4c3"
   end
 
   depends_on "cabal-install" => :build

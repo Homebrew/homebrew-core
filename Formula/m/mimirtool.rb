@@ -17,6 +17,7 @@ class Mimirtool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1bed8eeb51e44f29eaa5fb77c205663eabceec18c6de4b6f04234a4b94dcb0e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "28297acb0eb932b2a6b1a2ba85bff2647de0ff6e7db7a11d0f0fbf5351fa040c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5aa8ebb3eea3c2525f0513b15f8d3e476babdb8cc6abc7d196e85983f154fc5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "82db42c65cd64954d414e2d8d729b946204d22bb9887e131d6903acfd8227616"

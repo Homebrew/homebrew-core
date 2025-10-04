@@ -6,6 +6,7 @@ class Pkl < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac5da605468b0bf3562c0d6f31cb1dfdf8f389e4f8cf73db293df0fc185066ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "13d5821b098a5d299fc46879577ae6e9a34ebe05d45f76cb6c36571ed50d8379"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "329a933fca1bbe973f9e231f855e2895b09fc56d8038a3e8b7ac77b413090461"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c00368f1c7d4e8da6ec7270ad03335d3e280ab2f13a11b441d2d58ba6a4418ae"

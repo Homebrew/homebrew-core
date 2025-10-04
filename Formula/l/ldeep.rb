@@ -3,19 +3,18 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/28/4d/54d97255db812fc2a4ba2f166a1468ae6e8c17e2c29ee9ec70d6611fca6c/ldeep-1.0.87.tar.gz"
-  sha256 "b9349b8883fa6257c70ae75af9851340cad2ef40216231c02bd0ea7f88921eff"
+  url "https://files.pythonhosted.org/packages/3e/b9/7eb3e7fa0f138b91feb241c4323e0e9dec7f07cb95110c51eabe1d8d5e7e/ldeep-1.0.89.tar.gz"
+  sha256 "bbaa2534200ddfa1acd1e40e0e9ca188929046288089e85e95eadc1f1d978b40"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60180b5bf0a264dc195b31eea8d81260fa5c46c05995a08bc5a5ef699f3d023c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0976a1294a56d208c4d49c79efc0cf65aab95acd463a5f975046912ab41855be"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "05bb105c20842f1be2997b2490384fd83904f2775b2826411d27b02f00b20d88"
-    sha256 cellar: :any_skip_relocation, sonoma:        "173deb1b219daf6356b947b6900234bd5bb995e64bed099b15719542510b2b4f"
-    sha256 cellar: :any_skip_relocation, ventura:       "7c6e6f2fb256842a3e45768f6577775ac50459ca8c238bbddb5e525a3dc58bef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "827b4bd6690bbdd349d2ea28ec8e650cf2dbefee97cdc12c4edbc5a44994467a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fc9f8202d6c82da2caef62c42db71f01eb5531e6fa532ffbd8c64a0ec3979ef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02e03fabdfa196638ed0f4a895d73394cfa4d0c0ac0ffc030e92ad2102dbe5f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cba41f3382e8bfac0457ba6d9af2c0514a618437e13e7b316102d448bee926d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fa5bd46feeb41a2ba88b692fc3e911f46d09d963aa5f142cb5c322570089fcd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43e11aeda368a9fe1bbca0ccd1b57254da345e9c1f522c7163aa38890a10b7d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "88056046c79681dd93e342588eaa7a3caeb9207f908054821258db1c6feda2ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7614508aaa8f5c4aacba8d7549938652e1f627eb510e1a016305ef6e14ca02c"
   end
 
   depends_on "cryptography"
@@ -39,13 +38,13 @@ class Ldeep < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd94b08ad3a33d5fdae34ecb856678773cc40a3605829/dnspython-2.7.0.tar.gz"
-    sha256 "ce9c432eda0dc91cf618a5cedf1a4e142651196bbcd2c80e89ed5a907e5cfaf1"
+    url "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08bcafa776861060426765fdb422eb10212086fb811d26/dnspython-2.8.0.tar.gz"
+    sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
   end
 
   resource "gssapi" do
-    url "https://files.pythonhosted.org/packages/04/2f/fcffb772a00e658f608e657791484e3111a19a722b464e893fef35f35097/gssapi-1.9.0.tar.gz"
-    sha256 "f468fac8f3f5fca8f4d1ca19e3cd4d2e10bd91074e7285464b22715d13548afe"
+    url "https://files.pythonhosted.org/packages/72/c8/90912e90208bd20ed9384f299384cc9ee8f354758bd8650155eba33d4655/gssapi-1.10.0.tar.gz"
+    sha256 "f1495e0dc20bee3ad2839724d98ae723c7dae78c1ddea37a7c861c3c4bd77763"
   end
 
   resource "ldap3-bleeding-edge" do

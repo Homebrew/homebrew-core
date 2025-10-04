@@ -1,8 +1,8 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/4.0.14.tar.gz"
-  sha256 "8ed77d6d3949ea9aaa50352dec8267915dd918cf61dc50f418b7aa41de32f92c"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/4.0.15.tar.gz"
+  sha256 "47a703c948b8bdac7450a0db9392c793ad84f06d30de773603f48a99d0ebc33f"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -16,13 +16,13 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0471ad57ba87d5855215f264b2faff5e97e2d8f146ed08e82177bd97cd22af59"
-    sha256 cellar: :any,                 arm64_sonoma:  "e27642d9806327a0c1f4d2bb35906c1616ef81360005c9adf0b5d80575071cd5"
-    sha256 cellar: :any,                 arm64_ventura: "1d3cb4f43de2d9d4238159562f5a4c8220f963eb247c17b0ed47c89334397d40"
-    sha256 cellar: :any,                 sonoma:        "4a9571a2a0da8d078d88380ea664c77fd8cf745ddee9422664048b6b1217aa97"
-    sha256 cellar: :any,                 ventura:       "49476530346682fa6be80d97a31545b467d663ea91410630a13d8925a71e875d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec0c8218dbfdb9137a9ee3bdd7185ae79a229e082615887c9df3995d5c72d32d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f0d0f0c536c01d8d801faf019b4fd2a48a46780d10df36baa5d4e9ed855be15"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "439ed50df5d8eec4077385f179bf27106b333b294b8634b68ef229ac1a7eae9c"
+    sha256 cellar: :any,                 arm64_sequoia: "45a1446a8f02c5ebcf7970a65faab8c258c8f0e49079e230ec75670df7f1132a"
+    sha256 cellar: :any,                 arm64_sonoma:  "3a089a97b024396824e1ff3b953d7e5066c9e1473a480baaca26cb2ce110abad"
+    sha256 cellar: :any,                 sonoma:        "3e362b7dc67fef3268a78d1b8e3240a0415edc01621792be6fdafcee3b2e410f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7acf3ec62fdbce2b3886f5609b99413ed6a3249ab72e8cfdfbbac54b54edfa99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "075d16a4c9b249a6a14c68afdacc59517f9425eda8ccc810e362b0c75d741158"
   end
 
   depends_on "cmake" => :build
@@ -62,9 +62,9 @@ class Emscripten < Formula
   # https://chromium.googlesource.com/emscripten-releases/+/<commit>/DEPS
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
-    url "https://github.com/WebAssembly/binaryen/archive/fc1a391b9320602b624cefe5e760eda40cbb05a3.tar.gz"
-    version "fc1a391b9320602b624cefe5e760eda40cbb05a3"
-    sha256 "48e4d73d7a7f3f78c1cb7e25ecaaa892e3b9abbb03a5920198a88c74ecc93c19"
+    url "https://github.com/WebAssembly/binaryen/archive/cf756c92997182276122c2f0a9ac567d2d39ef42.tar.gz"
+    version "cf756c92997182276122c2f0a9ac567d2d39ef42"
+    sha256 "ae68318b0a6127a0684a534c5563397ab04f18d9e8b9db84e6b830f3a0ccffff"
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
@@ -88,9 +88,9 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/1cc84bcc08f723a6ba9d845c3fed1777547f45f9.tar.gz"
-    version "1cc84bcc08f723a6ba9d845c3fed1777547f45f9"
-    sha256 "ef47b1de67e897fc838d9610dc803da5d123edb14ffe5dbb691154f2ba9ac40a"
+    url "https://github.com/llvm/llvm-project/archive/20d4e5cb8c51dc191e06554dd0d0def84a9edd0a.tar.gz"
+    version "20d4e5cb8c51dc191e06554dd0d0def84a9edd0a"
+    sha256 "c78e43c3308613238a3926628b5a0ed243cfa065a36f97ce6fda4b3318c90a40"
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
@@ -277,7 +277,7 @@ class Emscripten < Formula
       }
     C
 
-    system bin/"emcc", "test.c", "-o", "test.js", "-s", "NO_EXIT_RUNTIME=0"
+    system bin/"emcc", "test.c", "-o", "test.js", "-s", "NO_EXIT_RUNTIME=0", "-O2", "-Werror=version-check"
     assert_equal "Hello World!", shell_output("node test.js").chomp
   end
 end

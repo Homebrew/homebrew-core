@@ -14,6 +14,7 @@ class Cdo < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "82e7955ead510a28bc78d5d6dd99a08f74dd84336ed802ed9f128df71f863b03"
     sha256 cellar: :any,                 arm64_sequoia: "2ac35b8e2f62fa629e955a49f4ec8bcbfb07bdf44a84bfae5ae01a0459c417ef"
     sha256 cellar: :any,                 arm64_sonoma:  "9079697b7d6700ac704ade7477db4b30e12b8289fb1a271dd81f097c6b208b17"
     sha256 cellar: :any,                 sonoma:        "95b578a3fd686b5612651a6e8959c01a384a130488e63f738e83e8409da46858"

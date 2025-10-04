@@ -24,7 +24,6 @@ class Libdvdcss < Formula
     sha256 cellar: :any,                 monterey:       "cde7ea8b386ddf37ae4ec4b0901ba70583e5bff84d6bea9624a7064fef11b6a8"
     sha256 cellar: :any,                 big_sur:        "6410e6fd033c0145e2d6d4676776cc4f4c20cf540836963d74a16788c842a7fd"
     sha256 cellar: :any,                 catalina:       "b5915184be3174c64f03a0895a9ee71dc8baac9dcd5bf5e904977890ccbba2ed"
-    sha256 cellar: :any,                 mojave:         "786743340aeae4fde2966f29bb0457123b529c42c5cbe52609ebdaad447b7280"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "55bdf3ba9c347dd52ee1c5319b6a286c0e76cc8251c09d631f26e490a28d28d1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b3979306018ca60bc17dc7547699ef716342c46c1e755ba15d53f6eb9ac92dd"
   end

@@ -6,6 +6,7 @@ class Rtorrent < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4a3f4f7e823935c6488f2dcd50a72ecb87d172e8afa17b02f1fc80fbc50a78a1"
     sha256 cellar: :any,                 arm64_sequoia: "7822dff7194043147c23224867acfe99a34ad34bb8fb2ff8f232297090d7cfff"
     sha256 cellar: :any,                 arm64_sonoma:  "13a9d525b6d5e5a639d8ee2dbfb729944ad5879db4d3f713fa4913023991335c"
     sha256 cellar: :any,                 arm64_ventura: "a7c02ba23fb7e2e004350543415bdc9c5700cbcd43eeaaa89daa6c48c0506fc0"

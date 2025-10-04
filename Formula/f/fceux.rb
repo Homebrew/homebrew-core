@@ -20,6 +20,8 @@ class Fceux < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6cc28629e3494597032119b68b9ac16f4dbdb15920e72776e5b2d9b6c5d4ebd3"
+    sha256 cellar: :any,                 arm64_sequoia: "6ffd230662c648ff207944d0f19bcdf16b0a4c0c64886cbe10e9ab82f3ce33a4"
     sha256 cellar: :any,                 arm64_sonoma:  "4bf00f6d14302b29943e393cd1fa29f05cf0fc8648855689a23e744008dda54f"
     sha256 cellar: :any,                 arm64_ventura: "42009a33f97c7ced6c2f73ac8dee97309021c05df3291c139ba22d9f00cfa414"
     sha256 cellar: :any,                 sonoma:        "768b9576ea9e0126862aaca7f8ca87aa3cd59d20450b1731e32c25ccc974637c"

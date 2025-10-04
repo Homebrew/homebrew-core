@@ -16,6 +16,7 @@ class Heimdal < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "29074459e366da0cdddc4c84ec345a15c2b148b75ec542bb4e8167e0b447e997"
     sha256 arm64_sequoia:  "fb6f2aaa1bd42cc3a1f66b2734eb142b5d7720d7ee3f4fc4988cdbcacb94b572"
     sha256 arm64_sonoma:   "33521852182643bef11ec36f2b8a135fb1726156216b8aa7ade41f7d0f54896a"
     sha256 arm64_ventura:  "2dfde5f498579296c4b696ee625832f25a8c199be4101a84513f2ea32bd20b96"

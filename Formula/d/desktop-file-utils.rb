@@ -6,6 +6,7 @@ class DesktopFileUtils < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "58ea38ae424ae85f68fef1140c866a220bee2ade0ec766bc833a23a4b66a554b"
     sha256 arm64_sequoia: "8bb73bc697264796509115e1b1e59f08624c671897793b6f2ca099441bb98c39"
     sha256 arm64_sonoma:  "3edd064195ecd88f224ddb354c5ddca08ccb5b3834ced11f6a32d70c684ee2f9"
     sha256 arm64_ventura: "742e551aae92506d4b627e8f34ef64ab38620c07fe776a8d8a9fe2a7fb564cbc"

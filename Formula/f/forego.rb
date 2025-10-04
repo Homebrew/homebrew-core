@@ -20,10 +20,6 @@ class Forego < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "cc406f5189dfc536b2cf7cc3e9bdbc955717630027770be5c73f8684ca607a5e"
     sha256 cellar: :any_skip_relocation, big_sur:        "3aa5d4a73ba9ec2d2905bac72b65166394c33d7f6ade2cd842d7e7eeceaedd34"
     sha256 cellar: :any_skip_relocation, catalina:       "3004f019d2361f0831bcd83d6f7f6d581f666be9c8a5a6e0a3b81f84d3170146"
-    sha256 cellar: :any_skip_relocation, mojave:         "c4386b61dae5a4c4cae32db529099221663de4acb42db78e6daca3e5c018a31d"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "5a855ce2b4f4bd2349b6814c11ec85f788a9be510aff4f18df582141dbc15295"
-    sha256 cellar: :any_skip_relocation, sierra:         "5a4b9261fb91507df08c7c840134a21effb2b407aa5e84474b2900f8d436f3ca"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "77720ca90705c26a92248cd822d4a3b0cef329c5b16e2da62a7815cfd61f0ce2"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d354729a8747da5e6c6dfa8ca5860362b62a601db82c0d2c71954cea238ed80a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab6668d38416f11e79a39db7a65ce6bc60bce14db6962ca7c06c104c2b69d456"
   end

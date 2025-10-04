@@ -6,6 +6,7 @@ class Gifski < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9e55280965509e5041e2c0efd99a25e9906ba43cbe6fa5200d0027c2dac18aff"
     sha256 cellar: :any,                 arm64_sequoia: "205522bc5cb89dfa53c681530244d9cae2433329d79b4c3b12bde6c7468d31d4"
     sha256 cellar: :any,                 arm64_sonoma:  "3109c7c055efa911b5ffe699510578b102f55039002c3a52123745c5ca05f49e"
     sha256 cellar: :any,                 arm64_ventura: "36f5c199f5588451d45a52bb5f34b1b35aedcf1c0f6c60851b43baeb6334a89b"

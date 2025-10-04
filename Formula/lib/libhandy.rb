@@ -6,6 +6,7 @@ class Libhandy < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_tahoe:    "620cf34883ae285873425a4f3ffa156b78e8b696872bd20b425008488ad0d232"
     sha256 arm64_sequoia:  "df4227eb5f6062d4b9d6c36d374defe991229ee0ed9dc8e8902c97a1be026151"
     sha256 arm64_sonoma:   "f1b399070cea7b5c44e3afad605155f867659920d5d3de17c466cf5cc3ba6a33"
     sha256 arm64_ventura:  "46282e234e80d7e1333fd66978709232ccd69517759099868c386c6eec51ca84"

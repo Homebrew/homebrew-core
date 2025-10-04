@@ -24,10 +24,6 @@ class Lzop < Formula
     sha256 cellar: :any,                 monterey:       "5a74762d3592fc992174fff54cb221db8a4c104f185ac3eff12deda7e97563be"
     sha256 cellar: :any,                 big_sur:        "f04a876a2b69220632fb027546104d9c6cb9ee8bdb1d9f6a2845a054500d8bb7"
     sha256 cellar: :any,                 catalina:       "3aa57a50254d383c0fe0e4d0d0585e1525d50d0cd30f87390d087523348044a0"
-    sha256 cellar: :any,                 mojave:         "0ec93aa163500d45c456bce3ee100dbe61c4db080494ee41383286ca10f4d246"
-    sha256 cellar: :any,                 high_sierra:    "d42fafd3f1f39d9ab512f755bd216edd24002caf8a4da82f80818fe2c29f0556"
-    sha256 cellar: :any,                 sierra:         "73c2ce334be9317ca79509aec3acef2fa1eff0ffb69fdc10b3850b7f51101f72"
-    sha256 cellar: :any,                 el_capitan:     "26e49bf0d06fb60d7cd5c431634966f28993edc250c4d06b0db26b28aae3cd0d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "fe1868793eded05a6b15a8015c7859cbd527f183d319469b2dc25981d667e6ca"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "15ba7328bdcb1e9789b03851966efb4cd6ccc3feb35cfbc37a364be6fc4c77e7"
   end

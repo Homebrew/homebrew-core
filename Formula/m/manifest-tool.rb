@@ -1,18 +1,17 @@
 class ManifestTool < Formula
   desc "Command-line tool to create and query container image manifest list/indexes"
   homepage "https://github.com/estesp/manifest-tool/"
-  url "https://github.com/estesp/manifest-tool/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "a3d770b7fde65d3146c0987e7e7b7be796a2a7a0556476c48b24bd237890cb06"
+  url "https://github.com/estesp/manifest-tool/archive/refs/tags/v2.2.1.tar.gz"
+  sha256 "99b47f6da69a82a75f9be7d0bc47e6b4a0e622628f2c208d58e817c834bb4492"
   license "Apache-2.0"
   head "https://github.com/estesp/manifest-tool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a037dc929dd0dfb5cad51397794e1a946d788a81bb54225498ecdb903271adb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52f7836f4546243d9036b58302d182eae370e2050586e83383bd863e94c4e84a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "04bea67d020b0f2db42ef098245253cda322f46bae79e4b4c235089821cf8a5b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fc3743f5f152b83dafc3081ef83286b8352280b7f4cda6fd1d04c0b3e0ab48f8"
-    sha256 cellar: :any_skip_relocation, ventura:       "de24ccb775d338266c850e3a72fb5cac0b872f6040a4dde6b6003f9a36286f42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "784d810a6b808231da1660a46363ef9d55991f12b8edb69e5d5b38eaa2440227"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d86a129900236772b789cc46793fd5ac69076c8c26d6705eb9487d406df73ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cbf3bfa0de08498c8103ee559d7010ecdeb1f45c711b45da4f251c3ba87bf1d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35fa8b8f4a1d8913864070048735074e585d7d7241f1a7fdf1aa8ffa77d8e1b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "96cfe0869400dc028832b0d3e8b9cc90b8061ae4a852614dbd43f3d9a4ee354e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac682859f43c8871a1a178907a2c969dec9d7270add5bbed005fc46754c26b96"
   end
 
   depends_on "go" => :build

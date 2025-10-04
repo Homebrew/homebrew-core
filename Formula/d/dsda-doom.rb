@@ -1,8 +1,8 @@
 class DsdaDoom < Formula
   desc "Fork of prboom+ with a focus on speedrunning"
   homepage "https://github.com/kraflab/dsda-doom"
-  url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.29.3.tar.gz"
-  sha256 "9b9218d26055d2e2a3b830913cfe52f56b2a6dd4a16720634f0bc5dbe560fb84"
+  url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.29.4.tar.gz"
+  sha256 "f866db79381862080718668f582b0f358811a016db17680e507abb9250afbea5"
   license "GPL-2.0-only"
   revision 1
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
@@ -13,20 +13,21 @@ class DsdaDoom < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a055e107d33729ce1251c9d4dddab9ec29c4df7e62e96875da12d8405ed669fd"
-    sha256 arm64_sonoma:  "f39be35e19a405dfb4f2d19959cc937f64f9d8f7df14ba877ae5e30b0032991b"
-    sha256 arm64_ventura: "891630b837903ceff3bb20177bca6ead60f6d488f5200062e02a2c93b57466d1"
-    sha256 sonoma:        "45485a08e04fcdb05c0c2786431ea68a494032db0b85a494c59a389317a3f03e"
-    sha256 ventura:       "e9a0cd7a8aad28b0c20c588e82b0517ecf84d8b910a96f4b4e5f88bec6efc4fb"
-    sha256 arm64_linux:   "9b892f7df0a302c769bc55e2314d6920ba8d5c9932abffdebde0c25cfc8e27c9"
-    sha256 x86_64_linux:  "ee6294b5d234e411f001f709e963a008dd39a15586295283610337be1b8e1f8f"
+    sha256 arm64_tahoe:   "5cc7555e4275b5668e1fce806478390614ee9b2807089df3e3b66481af31c9b0"
+    sha256 arm64_sequoia: "6f82f0faa9f35c0db0b6bcee40f4c9d4c179ec9b28f82fda45fe0a086e49db25"
+    sha256 arm64_sonoma:  "171541adf4020cc98ef206dbaa7ff051e9015e46cdc3f8666281f5dd4424f487"
+    sha256 sonoma:        "aec8309a2bfccdc7e16304978440401dae23a0e2f0f9776af27f7f3e9d3a2a50"
+    sha256 arm64_linux:   "ba6d641574ae6e730884386e56ad258f1d708b43a2e5cf416feca7f1056aadbc"
+    sha256 x86_64_linux:  "b359ea353f4a2585139d7528ba4b822267d68f1b26cbc4209278ab3579527f08"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "fluid-synth"
-  depends_on "libopenmpt"
+  depends_on "libsndfile"
   depends_on "libvorbis"
+  depends_on "libxmp"
   depends_on "libzip"
   depends_on "mad"
   depends_on "portmidi"
@@ -35,10 +36,6 @@ class DsdaDoom < Formula
   depends_on "sdl2_mixer"
 
   uses_from_macos "zlib"
-
-  on_macos do
-    depends_on "libogg"
-  end
 
   on_linux do
     depends_on "mesa"
@@ -53,12 +50,13 @@ class DsdaDoom < Formula
     system "cmake", "-S", "prboom2", "-B", "build",
                     "-DDOOMWADDIR=#{doomwaddir(HOMEBREW_PREFIX)}",
                     "-DDSDAPWADDIR=#{libexec}",
+                    "-DSTRICT_FIND=ON",
                     "-DWITH_FLUIDSYNTH=ON",
                     "-DWITH_IMAGE=ON",
-                    "-DWITH_LIBOPENMPT=ON",
                     "-DWITH_MAD=ON",
                     "-DWITH_PORTMIDI=ON",
                     "-DWITH_VORBISFILE=ON",
+                    "-DWITH_XMP=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

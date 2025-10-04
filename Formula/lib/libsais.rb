@@ -7,6 +7,7 @@ class Libsais < Formula
   head "https://github.com/IlyaGrebnov/libsais.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "79b1f20b666c77eca72b9f827a036dabe7a8114e93aae6c0c8fcc635410a79c8"
     sha256 cellar: :any,                 arm64_sequoia: "63b58d789abc1dc31fcb3481c35b4f9af494711d3c82c04c6181c62df2ab0e66"
     sha256 cellar: :any,                 arm64_sonoma:  "6e04433193079ffc4d9f9054757d796e54607c4a7326a9f110b049743944b19a"
     sha256 cellar: :any,                 arm64_ventura: "c63cc2a0b039b04b0c98692130454f2225256320f2acdea2ab7225fdbcd6b009"

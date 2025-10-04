@@ -25,7 +25,6 @@ class Mad < Formula
     sha256 cellar: :any,                 monterey:       "912da077a9ff47e8e0b19ed160646c8a365e448b81786fbc2f64a2813c8d6b33"
     sha256 cellar: :any,                 big_sur:        "0ad06329f73d5dc15cba262feca6e1c582e10ad3b9ca0476e46c37e6d878d0ab"
     sha256 cellar: :any,                 catalina:       "5416172dc7ccd3c5a5065b3f7dc18c00e83a7e20dfc6b09e0586afc4a76c5722"
-    sha256 cellar: :any,                 mojave:         "5baadb23763805521d306268861ff82fe2055da1eb7976aaa7c78f83d3c2f43a"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "668e0c8d4351150999731a1dd2072f503ac4fac27e6e215df78a795743535260"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "05670a88d2d0a50d03407a39987c573806c8bf9b7d67f2df4db3d121328123ae"
   end

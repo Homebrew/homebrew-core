@@ -19,8 +19,6 @@ class Hdt < Formula
     sha256 cellar: :any,                 monterey:       "693a2273358dcdc130f4bdc102d23e0c7d33d709a417811e737320faf96caaa4"
     sha256 cellar: :any,                 big_sur:        "614cded2abf67c909f7fd1a980b3093e8368bf0fc802adcd774716e9e301f4f9"
     sha256 cellar: :any,                 catalina:       "66978658e51117e228dea28a0d4264cfe3ce9ed7e4536eb0726d8c1438d4fb59"
-    sha256 cellar: :any,                 mojave:         "333a1baf863f372e94a40474a799fdd7e043bd691817ab5f7467983ce31a21cb"
-    sha256 cellar: :any,                 high_sierra:    "709ea815a3a24e104b0bd873948d8cbaca317ed235098f1c042ab308f7c3cb6f"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "3fa37020c7bf676a78fd5678b77cf64e48d1a04d71b142f3e6f07360a9582522"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e252bf5067fa866d9fb2d81f5af2fc302347982ed6b8c5c7f1474da27eafff8"
   end

@@ -1,18 +1,17 @@
 class Readsb < Formula
   desc "ADS-B decoder swiss knife"
   homepage "https://github.com/wiedehopf/readsb"
-  url "https://github.com/wiedehopf/readsb/archive/refs/tags/v3.16.2.tar.gz"
-  sha256 "8381e08bde057cd51aae955b39033828ab2a726957d88d373741c14e508a5511"
+  url "https://github.com/wiedehopf/readsb/archive/refs/tags/v3.16.3.tar.gz"
+  sha256 "d37c980846d5c714f06b66be3d57934b7deaf1572cc8a5db84f075f785d92c99"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9119c9a8fd59fce13183824d7bd39a498ca46beb239e9321f5d17ea8afa9e9db"
-    sha256 cellar: :any,                 arm64_sonoma:  "763b54d336808c5787f5d9227bbbed7c85d5ab0b59af2bcedb0377f74c313075"
-    sha256 cellar: :any,                 arm64_ventura: "2c52ecea0a923c89e6c870fc54887dbe7dc565ce32deef7a101d41fadda0c94e"
-    sha256 cellar: :any,                 sonoma:        "4f5cc22c88e1c7fdd4c86a900218a97c35c54d423e5e5f119db926feb732a873"
-    sha256 cellar: :any,                 ventura:       "c889022db1d7c4068f61985c7af430910e3e7e7406caa5043a157e9f5a91eb36"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "20fbc87f34f766c78d1c2d9c6ce94062f939b51d9e89ee171b10a979c0a08a1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e770b129f869b9864149b6b4f454cf76ac93a52645f3cf19401e7a6d3940374e"
+    sha256 cellar: :any,                 arm64_tahoe:   "5d586354515c27e11a1fb2ad552389f89bd9bac415154ccd69537e7e0da5eb9a"
+    sha256 cellar: :any,                 arm64_sequoia: "e631e48f2ba4129cccf7c2e8d1f54b0907cf3c63bb11ebff15196f845affbdd8"
+    sha256 cellar: :any,                 arm64_sonoma:  "12b787b7105c10b6ed4cc48cc5b73bdf4d28cc0fe5e7d298ce370e26cda90960"
+    sha256 cellar: :any,                 sonoma:        "f7933b4a2781a14bcc957631ccb5ef53ffec2c2e0e7ce247c00f7808af6841be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "25dca247378f7dbdaf05018a4aa0b5384894297b86743460a56afcd539684d48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8bd2e3169758cde0a742eb69a926592693f89ea57b1b0305823c391bdc799af"
   end
 
   depends_on "pkgconf" => :build

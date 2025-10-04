@@ -42,10 +42,6 @@ class Pit < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "cea94d460905b3f03d850b3e15a99d9a2e1d18558be52a8740dfbae36d7b27e4"
     sha256 cellar: :any_skip_relocation, big_sur:        "853489d4ee4f37e97f89415f5a3d1e0c225cb2dace8f61680293bb61ad57dd52"
     sha256 cellar: :any_skip_relocation, catalina:       "3ff5098a860de65a101fafe58d9ef76ac4c392f0b127720ecb34f0141554c27d"
-    sha256 cellar: :any_skip_relocation, mojave:         "7c23637b9f925de09953cc5288e884ee9c08a5b62b2a16a3596cf6fcfc3c0677"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "0fcb58f56565c207f8030853336ba313d93ba9bd3f1c09480a0ad37de1d961f2"
-    sha256 cellar: :any_skip_relocation, sierra:         "fd6ce87e3c42f5418c28e6a8a60184ac51b596bb59343de5523930980071103b"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "20064d0b1496360f820f55aae90b0e4adf00a70cb4f607668a6beadd0ae11c08"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "cb9c8ae7f2445d94adf1d721988c9c03e4501ce200d9b82ddb6e278befe533d4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9d22e313984a6d20930041fd3cbb5896826e0be8a687992866ceef0e79152c7"
   end

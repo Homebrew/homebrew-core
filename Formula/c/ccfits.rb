@@ -6,8 +6,8 @@ class Ccfits < Formula
   license "CFITSIO"
 
   livecheck do
-    url :homepage
-    regex(/href=.*?CCfits[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/ccfits/"
+    regex(/href=.*v?(\d+(?:\.\d+)+)/i)
   end
 
   no_autobump! because: :requires_manual_review

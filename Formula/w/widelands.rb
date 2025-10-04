@@ -13,6 +13,7 @@ class Widelands < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "cc47a850f8b8fb5f406bad266b74999dc53f3c2caa04b764eb7a10b4dfd54c2f"
     sha256 arm64_sequoia: "4579bc3c41f00266fe1e3a50b4f23febf356ffe7e658becd1340a9c9fb9c2b9f"
     sha256 arm64_sonoma:  "d795ec6cfe18efe730a1ee729d28ce329f03905c5e476fa56d01545bbc324d86"
     sha256 arm64_ventura: "cc89f8628d9dbc446a7a5d4f65269eb2e720c4b0f69a922fc05f62532f8a2e04"
@@ -49,6 +50,12 @@ class Widelands < Formula
     depends_on "mesa"
   end
 
+  # Backport fix for newer asio
+  patch do
+    url "https://github.com/widelands/widelands/commit/c0b44ccc04df35a9a23ca9be3e05f5d3a5428f6f.patch?full_index=1"
+    sha256 "8db8447ab83e10031e0903cc0accec962f30f5b9fa31a8ce68db788efa7756b4"
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DWL_INSTALL_BASEDIR=#{pkgshare}",
@@ -57,7 +64,7 @@ class Widelands < Formula
                     "-DOPTION_BUILD_CODECHECK=OFF",
                     "-DOPTION_BUILD_TESTS=OFF",
                     "-DOPTION_BUILD_WEBSITE_TOOLS=OFF",
-                    "-DPYTHON_EXECUTABLE=#{which("python3") || which("python")}",
+                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

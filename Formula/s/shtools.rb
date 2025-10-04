@@ -7,6 +7,7 @@ class Shtools < Formula
   head "https://github.com/SHTOOLS/SHTOOLS.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "12ba765ca24a4050e53ad4e7f6c8bb718229f678292267b821113000aa037045"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "59ee77323ec5349e2ec3220bbb5addd94e5d8c61c51ed83f542e1c5b76e1b5da"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f4c42204d7918ac1ed66e651c9e44c5b3909d534be6173e9a3034cc78c6f288"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c8d580e0e29de7926ee296d259decafb3dfcc240dbc35e66dfdad22f1cc6552"

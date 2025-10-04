@@ -28,10 +28,6 @@ class UnittestCpp < Formula
     sha256 cellar: :any,                 monterey:       "6689794273416bc2eaaf64753f76a1c6529bb8b859d7a58291d8aae03f5a4268"
     sha256 cellar: :any,                 big_sur:        "ea9e79c44e4bc95225504ea78baf0ae87b440f3a555239725672b3b5b205ebc5"
     sha256 cellar: :any,                 catalina:       "19a4cef9ba95b37528f2a88d280b0f4c77809d7553a8e5747cfd4e41363f2fce"
-    sha256 cellar: :any,                 mojave:         "9837dfbba5a3014097d3b406bd48e174a6a788d0c0b3107bd1fabeeb0ce6b89e"
-    sha256 cellar: :any,                 high_sierra:    "206f44c35a82fac519b64b8c4ae6bc397e360d8404e8279a24b906d7729efed2"
-    sha256 cellar: :any,                 sierra:         "91d028b464f32fcf6edda6b791be2b70d9b770934edd7af7d2b8ff24e9c5eb06"
-    sha256 cellar: :any,                 el_capitan:     "6136d8cdc420681130c59d9f77327ddad6b46a35d29da5be760b522c7456e2a2"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7d3f6916cc0b8b7006d3a5c5480ad23154ed7ab4ca58d187d1412b4655c12800"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b00aa2974e4ab2714fb6d98ada6b1dc127a20641f05170196ecf58beea63d6a7"
   end

@@ -12,6 +12,7 @@ class R < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "ce8a52414a3cb3b4216a19e5e6dd94e77f1d3a46b0b11b9a23184518315becb2"
     sha256 arm64_sequoia: "89c6898d620da9711d6d4bc74e1c467f1037c11bdf904a0d40b8bdf8af822ad4"
     sha256 arm64_sonoma:  "9c043ed8d16bcc58128b22fb9e5bccebdfb4116ed188d078763c0ed8b1816f70"
     sha256 arm64_ventura: "f2aaefab23b62442b9025685b9856f48f09f8d708f6b365b609271645e4ac4f6"
@@ -37,7 +38,7 @@ class R < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   on_macos do

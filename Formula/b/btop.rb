@@ -1,20 +1,18 @@
 class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
-  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.4.tar.gz"
-  sha256 "98d464041015c888c7b48de14ece5ebc6e410bc00ca7bb7c5a8010fe781f1dd8"
+  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.5.tar.gz"
+  sha256 "0ffe03d3e26a3e9bbfd5375adf34934137757994f297d6b699a46edd43c3fc02"
   license "Apache-2.0"
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "58587be87eff4e4808aa321ac2a3bb71b3276338c3b955c26a62d370e305770b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "655e862017b804e7b2fde1e2f17ffe6ef46aeb5a78420580f6a270c4d6848dc6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68463d104e1118065a6ffb81023e5cebed60b750da50619a789d85fda1b1802c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c06dd1736087586d1bb463d6ad4597dc37d972ae3c2e3f013e6bb5fda99f2044"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eb5a2cea26ed1d21502f6c6bcde42a6b79e65d6aa5eb03ad28d232bd6ffdb2da"
-    sha256 cellar: :any_skip_relocation, ventura:       "f66dbfe9177e49cfdf6e3dce6d86cc67358e21f7381d0150e84085a4c36b9c08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f413d9639e8721c355554b86e49b7ee7074fd7f8b8602089c6d9d1d0d919942"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3043f3fabe0b6c0231cf4541cab6cf7637300bf377465c0b32fd635acca34f0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "51bf4b6c17e8d2fd5a4eed2eb6f63aad0239d36d26986b398b59d895dd183794"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf5788f77aeeb642ae9d80430bc6da47ea26e38e8628522f9771e978982eba61"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f2006e7d26a7a69a677537c974239f41ad43e961b81115127c0dc62f6503159"
+    sha256                               sonoma:        "e97e0797466ccbb028dc113fd21c6b0836b9460e5e52fd0705825b1308b2ff53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c538378976afbf732762684bc823124b289e9c3bd79bc424003e42fdedc84b3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2743b5eaf43985efa2ce7151bb25a71bd6d09eeeb6872a1437a894e395e40310"
   end
 
   depends_on "lowdown" => :build

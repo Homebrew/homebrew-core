@@ -8,6 +8,7 @@ class JavaServiceWrapper < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a56e8b8c206ad3b9a79d5933feb05c5b8a3497ef77ed72926a583ea315396fa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4d60fd23e9c381ec86534f0563d792c69073d6ebb1eae0a9df50ed5ca0c93ab"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d63494914d3afbf4f4c0023cf2be4d026975e51bf9d43600392050b946df036b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cabff0d3012a618c17ab62be813e14720a2bb72ff5f5ef1974647a4b78db4895"

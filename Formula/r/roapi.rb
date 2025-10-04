@@ -6,16 +6,27 @@ class Roapi < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d3956e422ccb0f38acf4b6f7bd1559a45bfcac486b0ed8d1847c17695a57d6e0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb5fc8e2447e1939d61cc473a0b1ce1c30e885d01c147333d27bffd76ec0d2d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "67488c995ae301353530eac0c1800c3901fced543977196072ec8c1956fdfb83"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5786fb90f1723236f17c85b864a5fdb7a4662972a1f35dea98576aca694b8c80"
-    sha256 cellar: :any_skip_relocation, ventura:       "416545a6b5320bf276662b8e04211fc233986881aa3d2474de60e1f59f5137d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d5ce3edee23f8feed72bab62416f57655dba00e81919d0428fde847186a2693"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eedb5a6729589943b959219b9a4d37bbea13434170f21f5c1532873f3a1b1372"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6116ecb02c112d2f990024d034ba242894e9e4a023f6756f883e0ec58b3408e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3bf66401f133a7d2e9234280571eed8cf06b9f1b98802762b5995b456414077"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1d1d6423d420c65fe3f2b414fdd0c33a67226d5afae78c5ddebf6e4dea35931"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1f2e0e0df5b406870033b3284ad136e6566c4f1fefb32c8d7c36f75c42f3e931"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "528ea8f1d1cb5818ac4259bddd081f9e03069e78cb254f8f74c3de15f0720eb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8b39ad8324ea2d41fa80ff81a6c623453ab504752e02c915eed48d11b212616"
   end
 
   depends_on "rust" => :build
+
+  # Fix to error: hiding a lifetime that's elided elsewhere is confusing
+  # Should remove on next release
+  patch do
+    url "https://github.com/roapi/roapi/commit/f01f6b4d9e08638052afbde907316052bb241856.patch?full_index=1"
+    sha256 "ad02d21a2327d18b0d60b59a56c8d2019b76627be793ed3ab330be95a4e1b79b"
+  end
+  patch do
+    url "https://github.com/roapi/roapi/commit/162dbfe5ad1b6815691b33fc9cc096e37773d767.patch?full_index=1"
+    sha256 "00786352042683d2c7951d41a72fe69bd67f04bab1420016f758f0ddae8bb88b"
+  end
 
   def install
     # skip default features like snmalloc which errs on ubuntu 16.04

@@ -9,6 +9,7 @@ class Logstalgia < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "aceca39b1516d1e6bfc99620c65f65a676571fa25ce46e0ea243fddb50298520"
     sha256 arm64_sequoia: "da2f21abb74be0c1e9a3dbc1fa88f5417616c94c62c42efa7251344deaf915ef"
     sha256 arm64_sonoma:  "5db8fa7c96b2a41a61f95dc0c1376915e4700c7908831d6f1b8f714617e94106"
     sha256 arm64_ventura: "795b3e680fcb67036bd2dab34e7456ae75a354a6b9c1446bef98aec2f315eedf"

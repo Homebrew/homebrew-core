@@ -8,6 +8,7 @@ class Dscanner < Formula
   head "https://github.com/dlang-community/D-Scanner.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d6d40386c0ff0fe33e4a8d3a5c5a1c19ee21718dd17327adc815d4d60b3e087b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0f16a79d7fad72e96d08d3a0aaec16318064de06f115a875fe786f93c2ba872f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bbd1f17d0cb48e71509362ee0705181a2f1b4afff17a52ae4390f04af43c4419"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "135c33db9a535d0c6b1c4ad21899663d2cf20d15279421273d7ba81b548babcb"
@@ -21,20 +22,10 @@ class Dscanner < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1216ef19a42105de9617742024eca673eb221d711526bf6dd2204537a70afd34"
   end
 
-  on_arm do
-    depends_on "ldc" => :build
-  end
-
-  on_intel do
-    depends_on "dmd" => :build
-  end
+  depends_on "ldc" => :build
 
   def install
-    # Fix for /usr/bin/ld: obj/dmd/containers/src/containers/ttree.o:
-    # relocation R_X86_64_32 against hidden symbol `__stop_minfo'
-    # can not be used when making a PIE object
-    ENV.append "DFLAGS", "-fPIC" if OS.linux? && Hardware::CPU.intel?
-    system "make", "all", "DC=#{Hardware::CPU.arm? ? "ldc2" : "dmd"}"
+    system "make", "all", "DC=ldc2"
     bin.install "bin/dscanner"
   end
 

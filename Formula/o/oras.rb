@@ -7,6 +7,7 @@ class Oras < Formula
   head "https://github.com/oras-project/oras.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b88be96c1d2f56331b8abc6b1d9d40a81a308fa7da085b386bbf4a57b4f4748"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b88be96c1d2f56331b8abc6b1d9d40a81a308fa7da085b386bbf4a57b4f4748"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b88be96c1d2f56331b8abc6b1d9d40a81a308fa7da085b386bbf4a57b4f4748"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8b88be96c1d2f56331b8abc6b1d9d40a81a308fa7da085b386bbf4a57b4f4748"

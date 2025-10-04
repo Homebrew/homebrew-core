@@ -7,6 +7,7 @@ class Rustic < Formula
   head "https://github.com/rustic-rs/rustic.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eacad6676220fc6be58d16b8a38e3faed8020c9d8637dd567b512e688da07c64"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "415c626d9d39383435902dbc801722c27dffc93ac94cea99c840ec19552b6309"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e043c148db5232a4211b368ad57cf4ab4318fa157f476d77f7a1008575f26581"
     sha256 cellar: :any_skip_relocation, sonoma:        "5e5ad0c701e26123efdc66b833416b6f1f67347b806f08eeaa79955c68cf31d1"

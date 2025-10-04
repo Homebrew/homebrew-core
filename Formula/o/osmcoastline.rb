@@ -8,6 +8,7 @@ class Osmcoastline < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "3315f86d657d685cfaf5e1f38277f0542b330f1b7cd733ee39f040f72e0289f3"
     sha256 cellar: :any,                 arm64_sequoia: "7461510ebcdfa1d486b69e15595105eb324bd15c9a4e6339b811c42b5a0e7ffe"
     sha256 cellar: :any,                 arm64_sonoma:  "fe78194e9aa2964afbc350073fd162a2fdc75bd6495faf3fd70949e58cd494b7"
     sha256 cellar: :any,                 arm64_ventura: "0865ee2f7d54ac95a1ed2981e1e0f4440757163881dcb1a56fff16267ea1b689"

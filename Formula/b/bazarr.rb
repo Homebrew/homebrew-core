@@ -10,6 +10,7 @@ class Bazarr < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "18723773715874b6a6768dbdd0e04c0517edc0868880e64fb8c9431290f100b5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cec16d7a0ca771a2f50a391963f1fb6e9d801aacb948d745742526405f12f7bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aec4aec57521f98deba7ec3173f74997a0050cc5eafcdd1190efca84d6eeab2c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "74a97c91db9c1ca55f8a62427af55433734fd09691bfe00c2415a49c6f899f42"

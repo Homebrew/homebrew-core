@@ -16,6 +16,7 @@ class MoonBuggy < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "992d1d21838d81ddfe48f7140aff6c7050892d7250adca9f87ae1d3a39a360c7"
     sha256 arm64_sequoia:  "381b64031018e20366728e5b6cb559bb042e076f238a41aa0fd32a25d6094121"
     sha256 arm64_sonoma:   "5e84d8a0372bf17fda7d55ea77d6d3cc0bf4ab2a00f938657eb30fe3b7c119bf"
     sha256 arm64_ventura:  "b7dd2c4414457a17a2f548554fb1f2c97d2eab161732ec769b893c7c5f6183d5"
@@ -26,10 +27,6 @@ class MoonBuggy < Formula
     sha256 monterey:       "991ffbd762b5a572066a44ce110b400e52892cf487e70e4fab64730c4f7f4fe7"
     sha256 big_sur:        "f4b3e7e9c36f357c628328b247bbe187467f16dde745acfd7ff2f668c22c379e"
     sha256 catalina:       "65bae44959589316ec4762947051a3f737ea8545d0b93e696d0c251ef38285dc"
-    sha256 mojave:         "d7baa37058fd1e08a0a9028a912288bde8c0699b50f7632ce792d19d52c9fa73"
-    sha256 high_sierra:    "54948d0646240382661b765ab2253258946fb10b2974587d719b24a771172d91"
-    sha256 sierra:         "fb2abda84d3e2b20f286caa036fadb9bfd6c4df151352a171385a54ca43acda9"
-    sha256 el_capitan:     "b71bfe4abfb1d2c3d35db544850cb56f1b2ba50df18d27d3fef3ed5845b30e76"
     sha256 arm64_linux:    "4b9e2098eb4035d86768d9850ecc00f5e92e89406a3780c6efc598030af95a5a"
     sha256 x86_64_linux:   "72e827a7015b8a6d3fa38358221125375c8c4d2ae96b6c47a391714706dcfdbf"
   end

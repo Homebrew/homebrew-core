@@ -8,18 +8,30 @@ class Staq < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "4a78fb5391ce391ef6df17138cd12b2cdb940b6826ad87f31ae4c28e879d1f87"
-    sha256 cellar: :any,                 arm64_sonoma:  "ab344e9a41f34a721802904a1f216f9e386c7b4b90036f5058a1d62d5c969ced"
-    sha256 cellar: :any,                 arm64_ventura: "64702f48420ef83e1d3d6286b332a785db0cc0860ae9d1ba553171155df563bf"
-    sha256 cellar: :any,                 sonoma:        "0e2d26ec6e834188613c7c9005c871922ecc6b5e9c92c9da7195b3121f663df3"
-    sha256 cellar: :any,                 ventura:       "ba4e7fab6b78e93d8fe4bec9dac21bff7cb88f33101d6d69cf17f8671677a42f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e08f0668b5db8f44564286e09223ec36f40dce62d3182e09833a0237ed865885"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78b7917bca6fd1e92003d7fd4fd308eae7d764f65eecb6cd8a8c41e0a1bfe9f7"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "1518fdd5369e20863afefa4158c78b87fc4f01cf09967623a2b1af8225499790"
+    sha256 cellar: :any,                 arm64_sequoia: "8081f841203e64e3423fb6305558c1a538b86fdcbbd2e13d02944ea36dfa9ae9"
+    sha256 cellar: :any,                 arm64_sonoma:  "716a1214491fac80364ace9c88950c123f669912fd76dd950504c60780ddeac5"
+    sha256 cellar: :any,                 sonoma:        "6b589aefacd45146637ecf6f4b39d69fd1e32aec9f2f60c0da80776cac60dc28"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c0ea0b4548a55c3c72c3f33761cc9bf58e460b84db244b951eb586b0c2b77d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c16a8a25583b15bc7384c346ea277598642e637f19b36ebbab73dcd48e3dfb1b"
   end
 
   depends_on "cmake" => :build
   depends_on "gmp"
+
+  # Backport fix to error: no member named 'row' in 'col_vec2_t<T>'
+  # Issue ref: https://github.com/softwareQinc/staq/issues/85
+  patch do
+    url "https://github.com/softwareQinc/staq/commit/4ac5dcd13ae46dd629ee938602452a5c8ec0b7c0.patch?full_index=1"
+    sha256 "c71447c1fd065e8818894965219e0fad652c3a8649be645296d4bc9ca5a9d656"
+  end
+
+  # Backport newer bundled fmt
+  patch do
+    url "https://github.com/softwareQinc/staq/commit/6847ebed2d167a0f1aa476cfb1d2b62b54fde6f9.patch?full_index=1"
+    sha256 "acdcdd7afd9650425f1659b0b3b0e601c27e368d3722385416dcc5ee145528f1"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",

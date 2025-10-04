@@ -7,6 +7,7 @@ class Nomino < Formula
   head "https://github.com/yaa110/nomino.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f5f816f0bc309590106511a3913e3864719fecabb585ce02fa7628d32de348c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "91c62681b3095ba073e2347bb73a7ae656becbfcebe653d17a0272adf6c137f0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "844fd63f5668aa2fadd5d5eb1d60e927bdc4b2a6147844116a2c58db614ff0fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2e3938593b0e08bdef22fb21806acde14e003a385a2bcbee17f9eda7a99c727e"

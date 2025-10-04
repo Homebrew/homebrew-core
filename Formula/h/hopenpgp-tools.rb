@@ -9,6 +9,7 @@ class HopenpgpTools < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "47af189fdfbcc2b7ab692127e4352f6eb5bdc5573f64918b6ac7abb13215079e"
     sha256 cellar: :any,                 arm64_sequoia: "0abaf700294d6bcc8ec68b211e3705115ffc75d7de6ca66003c327f65fead083"
     sha256 cellar: :any,                 arm64_sonoma:  "cc66eb8cd7c9041526829cf42d7165911a5133efba6a15bba72c4ed62842a695"
     sha256 cellar: :any,                 arm64_ventura: "168109c37c5ddce6e572cb5eee589a63a1e8e3cc7aad18f2f4723614bfc2b13f"

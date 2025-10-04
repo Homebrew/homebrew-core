@@ -1,8 +1,8 @@
 class Scarb < Formula
   desc "Cairo package manager"
   homepage "https://docs.swmansion.com/scarb/"
-  url "https://github.com/software-mansion/scarb/archive/refs/tags/v2.12.1.tar.gz"
-  sha256 "ead56fe6856319a4a3d335bd35a3bb0a0876da75084035d8726b3037d7934743"
+  url "https://github.com/software-mansion/scarb/archive/refs/tags/v2.12.2.tar.gz"
+  sha256 "69a37170a5e352da835fe2101ef6bfd8cef952411f86ba8a23d2d96ab6931fe8"
   license "MIT"
   head "https://github.com/software-mansion/scarb.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Scarb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d8853abc029ba73a1cbe3f873fc681a3e9327afab00dc505837bb14a5ba9cba5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "816532d4d1e7bc5a64015ba46a682f18398c01b79a64ff58a84ab011647a49f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1b7be0019de432bf92b8a2c6e7f2d6d6c6567fb8270368ad7e0e39ab6ae61d2b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9005ac0220adb69cbb77653c8b5c525f0419b1e217cdfc5733e999692ce85b3a"
-    sha256 cellar: :any_skip_relocation, ventura:       "0b3b716e2c70b04a9dd76d8feb2c65c830cf28b9f24f159eb251ec85750f7ad8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "379c16d4d18833d94b9b033de27a59d96af96842221ca540baeefc068fbef68b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9cdaa4f05e57b39503a4d38b8b1235f428e8171f4fdd1d6cfc5307cb884401f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9d8b70f3e241a1e6eeaeb9193c1962624633910f0843a038629011a7248e1d57"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f725bbcdf57df264acbff40d2a829fe5d4e0721dfca785828be0c41ff1065ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cde688a72cc73bf4ac68645d49e72cadeec612f8092abb622102cea7aa100c33"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe7107120aed3068864143ddbbbdb8436c6133ba4c0a8083afcb8694f28e1976"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eab8e589ff95c270de43dce6504d07ded7eace174a10b45b3595e85597b769a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cee6486b22d60d5944efdbab3c913c76f2eb149c6cd1d7335902de8bc551debe"
   end
 
   depends_on "rust" => :build

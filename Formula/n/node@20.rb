@@ -11,6 +11,7 @@ class NodeAT20 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "8d0dbbb89c386dba33d36aa7f2a73ff8e0c0d4ec86b5050e368b9715ea679f2e"
     sha256 arm64_sequoia: "60022a7ebf3aabb93a056c4787f398ed4f4b8ebd064fa5a55a4ea882594bb3be"
     sha256 arm64_sonoma:  "6d90b4f115316dbf59eaf860168191927b540d74ca1e600a78c97e2df5e976ca"
     sha256 arm64_ventura: "857c08c4a6adf986603529735a28d6ee32783f3c45a24d7fdf7fed3edf32671e"
@@ -35,7 +36,7 @@ class NodeAT20 < Formula
   depends_on "libuv"
   depends_on "openssl@3"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
@@ -82,9 +83,8 @@ class NodeAT20 < Formula
 
     # Enabling LTO errors on Linux with:
     # terminate called after throwing an instance of 'std::out_of_range'
-    # Pre-Catalina macOS also can't build with LTO
     # LTO is unpleasant if you have to build from source.
-    args << "--enable-lto" if OS.mac? && MacOS.version >= :catalina && build.bottle?
+    args << "--enable-lto" if OS.mac? && build.bottle?
 
     system "./configure", *args
     system "make", "install"

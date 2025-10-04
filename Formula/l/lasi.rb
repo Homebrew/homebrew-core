@@ -11,6 +11,7 @@ class Lasi < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:    "b912d8b980908ab389f63632dd5f37dd43689714732f64eb5d581c40bb7d2b59"
     sha256 cellar: :any,                 arm64_sequoia:  "cacfb48c1b73960804bf1471d86942b79e306cbf737242f31456fd41588798c0"
     sha256 cellar: :any,                 arm64_sonoma:   "784a47e3a5a0eba53a4a1ffcc00b0aecddf0b04a588ef2ad10b0ee8d90803c61"
     sha256 cellar: :any,                 arm64_ventura:  "b13ac894940a19c92183c5fad1f5058232af01fb4d6a7c8c1a490d5f289c3fc2"
@@ -21,7 +22,6 @@ class Lasi < Formula
     sha256 cellar: :any,                 monterey:       "d70d80fbc43693c3df3b1256ad7779d0cc7a5776cef1502faf9fa4868c1e9fee"
     sha256 cellar: :any,                 big_sur:        "d4d9a1f05e4acef822930f62b4dd5b5f87f815e01523eb41b91df079af35b69b"
     sha256 cellar: :any,                 catalina:       "9c9b3d4df3fef9c27ccc60f51583976cfb7093c5ea345c0dced428e0539b7ede"
-    sha256 cellar: :any,                 mojave:         "95eed6a78b95300f4b496bdba60b0542c9b66e5ce96ca7c8fcd081e76eebc675"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "70ef82ea6ebb0ad9deea3e12e5a88db9f24653599a256d0577422b2481f8d498"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a81717d41a1ac50a3f35199b82877d62fce7abb1da670c98cd2abb762e2a1b8b"
   end

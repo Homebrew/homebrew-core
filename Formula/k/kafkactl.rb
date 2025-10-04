@@ -1,19 +1,17 @@
 class Kafkactl < Formula
   desc "CLI for managing Apache Kafka"
   homepage "https://deviceinsight.github.io/kafkactl/"
-  url "https://github.com/deviceinsight/kafkactl/archive/refs/tags/v5.12.1.tar.gz"
-  sha256 "25d1879185235c35fd327c4e96a403bb60188df82b2af3f9bfbb339adb0ae718"
+  url "https://github.com/deviceinsight/kafkactl/archive/refs/tags/v5.13.0.tar.gz"
+  sha256 "f0834e3242dd0042f4864c463250cce2570ed44b0c765107b209062d2949561e"
   license "Apache-2.0"
   head "https://github.com/deviceinsight/kafkactl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a2bbf002ecd2fa96975654569f134e359d431942e3299b3672cb0f682d2f51b3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc7f03811264ce46da940000d76df0b8ad19a750deafc527e3a896c3c86bf626"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc7f03811264ce46da940000d76df0b8ad19a750deafc527e3a896c3c86bf626"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc7f03811264ce46da940000d76df0b8ad19a750deafc527e3a896c3c86bf626"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8bfd0455fa9a33115b96144e8d1075d207f50e50956e77610fb6033e2a13efa4"
-    sha256 cellar: :any_skip_relocation, ventura:       "8bfd0455fa9a33115b96144e8d1075d207f50e50956e77610fb6033e2a13efa4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46f380d3848f162fe78de43e098f73c0a1ce57582764af64d7e93afae59b5fd2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f743760f84df97a659cb5823e7829881fa0e0d8ada33b600bf62a85e0ab14082"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f743760f84df97a659cb5823e7829881fa0e0d8ada33b600bf62a85e0ab14082"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f743760f84df97a659cb5823e7829881fa0e0d8ada33b600bf62a85e0ab14082"
+    sha256 cellar: :any_skip_relocation, sonoma:        "07be75540175476f5cd379fe3402eb6aad08001c4afb39f5ecd91efecde9796e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df9f346e6aee496ce7feb6e78501beddd3d1738909f2e1948b77d7f2f1487351"
   end
 
   depends_on "go" => :build

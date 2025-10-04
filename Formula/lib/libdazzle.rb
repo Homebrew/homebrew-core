@@ -9,6 +9,7 @@ class Libdazzle < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "c85ea978999366c90f0a82d06f658d48a09ed3e021cd7edaedc8d18140145b77"
     sha256 arm64_sequoia:  "87f5700425b73e8a64c2b6af4f2f1ee74028b1921d147ba239a298c10ea12b05"
     sha256 arm64_sonoma:   "f79987d1cba7d798fe6cb2c824439ddb41dbac57df64c75dc8cf72e66a9c0d25"
     sha256 arm64_ventura:  "e08d05fceceacb8f02483c79711d7320d9d1888c2307cfb1b65b9a1524f27722"

@@ -7,6 +7,7 @@ class Emacs < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "42ddbf461362556845f06e25d6541ac6cdf06ff8c0a227cf0dd0359538d69927"
     sha256 arm64_sequoia: "6fd75aed5b6ef68991921b6e61b001272310d572e9cc3b4945aff00dfc381f59"
     sha256 arm64_sonoma:  "72c66b6f50be54465008831896d1fe2c073d8a529fd85b0d3ee434bcd683342a"
     sha256 arm64_ventura: "afebd58c6452170b9e5fe63f17c0adb4dd22c38d14617076725257154f689839"
@@ -42,11 +43,6 @@ class Emacs < Formula
   conflicts_with cask: "emacs-app@pretest"
 
   def install
-    # Mojave uses the Catalina SDK which causes issues like
-    # https://github.com/Homebrew/homebrew-core/issues/46393
-    # https://github.com/Homebrew/homebrew-core/pull/70421
-    ENV["ac_cv_func_aligned_alloc"] = "no" if OS.mac? && MacOS.version == :mojave
-
     args = %W[
       --disable-acl
       --disable-silent-rules

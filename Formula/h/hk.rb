@@ -1,17 +1,20 @@
 class Hk < Formula
   desc "Git hook and pre-commit lint manager"
   homepage "https://hk.jdx.dev"
-  url "https://github.com/jdx/hk/archive/refs/tags/v1.12.1.tar.gz"
-  sha256 "8921952478b496e8f615e75efa86fe8343e2d44538d4cfcb24ac06f499beab19"
+  # pull from git tag to get submodules
+  url "https://github.com/jdx/hk.git",
+      tag:      "v1.16.0",
+      revision: "83f0e115882b56074ac1f7159116392c90b60970"
   license "MIT"
   head "https://github.com/jdx/hk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c32dc570623a8e954180fc4944749a44ba151a79a3deccaf4a047b8c83ce8245"
-    sha256 cellar: :any,                 arm64_sonoma:  "3c0f27d81dffe8c63c01d4f6367620069007ddf6ee02595b8e09bfea9bc079c3"
-    sha256 cellar: :any,                 sonoma:        "452031b5236aa5d171b2d7ce974de2e5d78b90134072d72a1b83573757406fa7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7de6ac2732eb4bc1d0b24cd8528d62d0c6e1ba63bc094012f64d654f8779fa52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6344df1e600ce59c37d5dcc33219c00665d14eac6a68c8b5ab24b77e6b68038c"
+    sha256 cellar: :any,                 arm64_tahoe:   "6b125e3e6cc160230c7096b7f6fec80a0afb109494353967a74d016ef15300f7"
+    sha256 cellar: :any,                 arm64_sequoia: "c3bce9c1389d7341ad8ade2e0ad4464a5dc41f853debe19a839d4f9f5cbcb914"
+    sha256 cellar: :any,                 arm64_sonoma:  "aeee5428c53d8a6aa61bad26c25551d947f81c3fca35797c8af201a7350787d3"
+    sha256 cellar: :any,                 sonoma:        "b4a7a4a6d5387ea3b05429f86622c7cb5bc7e72351d9d0d51f4f845c658ffac2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4cd2a18207ca43e6efdd7d0752dc7cc7c0793315abaab7fd190ae3f9814c3cdc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5f75a627f166137ea83c25efeaf3fd5b4bfe1150be95267e23a0f8d89bab7f3"
   end
 
   depends_on "rust" => [:build, :test]
@@ -22,26 +25,7 @@ class Hk < Formula
 
   uses_from_macos "zlib"
 
-  resource "clx" do
-    url "https://github.com/jdx/clx/archive/refs/tags/v0.2.19.tar.gz"
-    sha256 "b06f39d4f74fb93a4be89152ee87a3c04a25abb1b623466c6b817427a8502a73"
-  end
-
-  resource "ensembler" do
-    url "https://github.com/jdx/ensembler/archive/refs/tags/v0.2.11.tar.gz"
-    sha256 "967f98f6dfd19b19e0aa91808ea5b81902d3cd6da254d0fdf10ffbaa756e22bb"
-  end
-
-  resource "xx" do
-    url "https://github.com/jdx/xx/archive/refs/tags/v2.2.0.tar.gz"
-    sha256 "cccdca5c03d0155d758650e4e039996e72e93cc1892c0f93597bb70f504d79f0"
-  end
-
   def install
-    %w[clx ensembler xx].each do |res|
-      (buildpath/res).install resource(res)
-    end
-
     # Ensure the correct `openssl` will be picked up.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"

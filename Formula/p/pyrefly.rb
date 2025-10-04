@@ -1,19 +1,18 @@
 class Pyrefly < Formula
   desc "Fast type checker and IDE for Python"
   homepage "https://pyrefly.org/"
-  url "https://github.com/facebook/pyrefly/archive/refs/tags/0.32.0.tar.gz"
-  sha256 "b50c30a2c766e04757eb94c83102f7a2e9eae088085410a61dd22e3c80a41fd9"
+  url "https://github.com/facebook/pyrefly/archive/refs/tags/0.35.0.tar.gz"
+  sha256 "98ee5d961826b2081da96c71c5908656c4f4baa0e8739254ce32ead142e94d29"
   license "MIT"
   head "https://github.com/facebook/pyrefly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53172087e7b114ed2dbba2289d531a1a6cbb82f56dacd45ed08495f254befff6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d4e04350557e981d0fb04aea930765427aab65e6fa0205f7146673a11ef6168"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9d8a8a41de5f7e9b2307871d17540c5efa58f7357706864a8a21e6a6811e8622"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f2f4c3a59ec86ef1e8f7377f3549ec212224ed5fd07d419c099a33c7c531ada7"
-    sha256 cellar: :any_skip_relocation, ventura:       "ed09061b41f67b241871541be8867a507c0b63a63fb272aff4c65fae87a3bfdd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a0aa8d0cbc2d06cbf1417d997f673924bc74fe794ff99ecb07aed20774c2e30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "671cfa053b40d2b87f747cfe0d6b4378558d204781746ecfaf60cc874fe6061e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aaebb315551eb7b83fdc39930f96936753cd57f50190eec4d6383c4c9b7c37d9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d6b54492a75a0ebec9b2da139279389608f1ab64c0f1d96283e06e74c2b735d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51b4f4687306e5b9033d2a7be25e725bd3d84a568cf722494e703f6e5abf4b83"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86395e33058fdaaeea0379515d371750f3cedc54357fe13f4964c7fbf912ade4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8ef8b964517142a5c397ef0fe4efd6db157f20ce83af999d1216b9e89caec48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd76b130de05412054332cab36ab6f7c2425b18412fdaea04d1cab5de289395d"
   end
 
   depends_on "rust" => :build

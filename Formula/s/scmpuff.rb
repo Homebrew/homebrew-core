@@ -7,6 +7,7 @@ class Scmpuff < Formula
   head "https://github.com/mroth/scmpuff.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d9335d31cb6a4eaf7629c3d66e7af096efa7a255ce07ca45980b8c6ead74ac3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5cb1859e64a1c7d5ed9865ef08504813424a0d372720f165f22eb8cdcf9d28c0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5cb1859e64a1c7d5ed9865ef08504813424a0d372720f165f22eb8cdcf9d28c0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5cb1859e64a1c7d5ed9865ef08504813424a0d372720f165f22eb8cdcf9d28c0"

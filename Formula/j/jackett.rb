@@ -1,26 +1,26 @@
 class Jackett < Formula
   desc "API Support for your favorite torrent trackers"
   homepage "https://github.com/Jackett/Jackett"
-  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.23.17.tar.gz"
-  sha256 "8d56f1b8caf476c49e404d391212af6a59871046c64fcf52f0198ea432a074d2"
+  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.24.37.tar.gz"
+  sha256 "e0effa818e4ba39da7dd23e3d9951c4e132c5eccd570474cf82bebb734c8d377"
   license "GPL-2.0-only"
   head "https://github.com/Jackett/Jackett.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0d7ad58f4121147a287d7d7dd3a705f298dd00862f1d4c71c6caee06a537524c"
-    sha256 cellar: :any,                 arm64_sequoia: "e2a6aeb762017935ad2dda3e3ffc7d5df8d1327ee353ea40f4941c18baa05730"
-    sha256 cellar: :any,                 arm64_sonoma:  "f99a28f51657a2bb458cb9cd1fe9a76ed672be730280f5d5cd027bd898978579"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "800efd8899dbbd30a9547fa168eb0efbdb4c26e4a1739c1268ce62e264d8ddfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43e4819dd6c902feaf45a460dd41da20c4f71f630c3fe4f5fe2e274990eef1b7"
+    sha256 cellar: :any,                 arm64_tahoe:   "4a3436bb4662e5f7a0031479b5a12b99689386b017b28638f53e7844e448bf57"
+    sha256 cellar: :any,                 arm64_sequoia: "c4cf69259617a673f890e4c650688bc193ed2c87b71e16d20919b25ab8346d02"
+    sha256 cellar: :any,                 arm64_sonoma:  "46e6ce8347c5c7168179c5c02975925c61617e3f5cc69d52fa4ba08135dffa73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "834d2f222ea563cdf8005139b8651cb269c6847b462163771f4a3d9c5bb3f4f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "919c0c67f9416662a533d77a969d5e6e8fbb504c566db0de3ad7372504a788bb"
   end
 
-  depends_on "dotnet@8"
+  depends_on "dotnet"
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
 
-    dotnet = Formula["dotnet@8"]
+    dotnet = Formula["dotnet"]
 
     args = %W[
       --configuration Release

@@ -7,6 +7,7 @@ class Mandown < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e63c89304ccea714091074688c5d95685c8487d11dbbb1ef54c83c7a1238a969"
     sha256 cellar: :any,                 arm64_sequoia: "62058c08be40e955aa5a9092da1b9c5975391f1715432219bbe6dad514c681b1"
     sha256 cellar: :any,                 arm64_sonoma:  "d343e0a1552d905a9fcd584e61c76529bcc8d26d91974b93b29ec0af577f7291"
     sha256 cellar: :any,                 arm64_ventura: "51097a822ac6600795f5edcc3731477189e06856cf244d8d21ba6c0ff565ac26"

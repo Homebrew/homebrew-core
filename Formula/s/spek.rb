@@ -9,6 +9,7 @@ class Spek < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5a7906a3f0fb330c1e1646fdda11d561f67868b95144e2524e2a5563ba17c310"
     sha256 cellar: :any,                 arm64_sequoia: "5d4388acbd2adc2e46f4efd39bfc028aa3235d3bc97aed3fb025e7b8387ca036"
     sha256 cellar: :any,                 arm64_sonoma:  "f41ddbde93ab3cdbce6c949b3607a2d77068a7fff377d6902752636347a9c3f6"
     sha256 cellar: :any,                 arm64_ventura: "228c5ca814faaef7d3d2182ecb10fda16e8d33bd4ff4194b61d8732f86687e81"

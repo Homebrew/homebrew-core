@@ -3,19 +3,17 @@ class AdbEnhanced < Formula
 
   desc "Swiss-army knife for Android testing and development"
   homepage "https://ashishb.net/tech/introducing-adb-enhanced-a-swiss-army-knife-for-android-development/"
-  url "https://files.pythonhosted.org/packages/d8/3e/0b9b4ba4f2c3318a7bc2d2cb859fe44ca49edd6b9e3b16d536986c9b53f3/adb_enhanced-2.7.0.tar.gz"
-  sha256 "ae88e21ebf4954ce4fcb10a97f7298004709579bb9ce4b4d0295172948b85170"
+  url "https://files.pythonhosted.org/packages/b6/c9/11f95027ba0bf13938abe329809154e6342181380d3530f26018325b79e7/adb_enhanced-2.7.1.tar.gz"
+  sha256 "2f09d6edc663fd7fe34b9cb65232e5b85238c7c53bd8284b826fe62fbb039ae1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98e868892bcb0c3971709867908809a3acb9383e55ef76ad3a1374d09c8e37a1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7599187138ae1d20665239394a74eca4d8f0a15d594a9682f12afe37e55a3ca2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9630c1747d1b9acae00b8cd810f02ad988c3409cf670231dedf05cca07e0eecc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b611152bc62f009f3b50fd6d8c5d9c14919a78d78ee089ec6b45d3af5fa5857"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9289ef394c064f157b6940a404bc914c14bb882c349019193e3ca6b7ba178282"
-    sha256 cellar: :any_skip_relocation, ventura:       "e725608c44a14fabc6d195bb52f756762008f73eea647bf41b37ec07017457e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "98ed748100ec82a81dd1c131a529c0ba3b15620a552ca9010e7826444f555aa4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94db172517f1ff222944a13a331082e0a5c8c36f850f65b8c13a95f969bad851"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "081f2ef20fd6be3e1bb0d8840a3e57de4f76dacaef8b3c58a147d6b4a3220c63"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dba59fec41a9d6f7220a78fcbf1a2880697b8356e9b2a0c0cf871e5334c47417"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41baf08c68351b847a54f16537c057461c93f83984cf46568cb94229405463f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "744e13c7a1058febdd876756cc7b59a036bfaf6bcbf4737fbbe1bf749408a4b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d1b1d970eac95076769eedf0768d8c57e1d7cded746339c3e080286a47c236d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa25013ba903c83b84e26cfd7011d9121ff37dda6c5a69287401c1dece74ff04"
   end
 
   depends_on "python@3.13"

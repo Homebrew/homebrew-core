@@ -9,6 +9,7 @@ class Prjtrellis < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "def76368a04bec2465e3ce01947b58b3a9d0060cf46ed0bf5850e3e7fd3e373b"
     sha256 cellar: :any,                 arm64_sequoia: "abac927a93238b75de677bdaff112b21cd482615907be087e3e335fa0a03853c"
     sha256 cellar: :any,                 arm64_sonoma:  "46ec19c5a4a03150ba7262824c4b659cfbe1ae055e243de364434664f3b2689c"
     sha256 cellar: :any,                 arm64_ventura: "95d6e9b56cd87332024ddf94fd4803a31e7689f6c38e925dcc5df3c8c256baf1"

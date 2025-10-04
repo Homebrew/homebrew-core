@@ -1,8 +1,8 @@
 class Limine < Formula
   desc "Modern, advanced, portable, multiprotocol bootloader and boot manager"
   homepage "https://limine-bootloader.org"
-  url "https://codeberg.org/Limine/Limine/releases/download/v9.6.7/limine-9.6.7.tar.gz"
-  sha256 "5469ff372f7054a055156ed23534f1faeeebaf9d7d8d0f82cdb719c134c12a9b"
+  url "https://codeberg.org/Limine/Limine/releases/download/v10.0.1/limine-10.0.1.tar.gz"
+  sha256 "ecff0dfc7a2695e4019e8697e92e55ecac17d46615218ed7914614f57a3d8e59"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Limine < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "445cec31ba2f90ade17c22a1dd1f419d22c3f02677cdadbf82d226836995d314"
-    sha256 arm64_sequoia: "d079f4f0474ab2b435fc46992d450cbe0595fd60ecebae2ad8308cc020a7b07d"
-    sha256 arm64_sonoma:  "9a0e1ac7b93c0738abee1c87a6299e0cd14545e24dd60ed8d31c53f32e17341f"
-    sha256 sonoma:        "4f016cd6dd62851872cb39924d52376154f63c639173c41b690cc0c3a4999be1"
-    sha256 arm64_linux:   "300bd50b3a191c2738fd18a3d1f8305d8c014b507b41e01a04013c3e657ecb35"
-    sha256 x86_64_linux:  "79d33f8ed421e69c286f083831024c5e9c34aa707314fc242909c3e198e6e1e6"
+    sha256 arm64_tahoe:   "0602d9600e386b6962e03ab74b03bfd7458655885325284df1da7c600c1afa8d"
+    sha256 arm64_sequoia: "1a4bde484d3b4fc4f7aff02579de3a483ad9b5caf95097639197818c88d69b18"
+    sha256 arm64_sonoma:  "a5c02fb54239d3a079429962ffdae0d91e653d6efb8291aefb1fc67495fb22f5"
+    sha256 sonoma:        "bcaa672472d7e0da9c40f789220734c2c4aaa6c74d66b469b9ea56b965e2fe37"
+    sha256 arm64_linux:   "ad82ee8fded7b180986a34f5569215e3dc24d1dbd794da0a42d971f902bfae69"
+    sha256 x86_64_linux:  "b880e528c5e99a86f1dca881c57656840ac72b0807254db9f7c346ee1a4965fe"
   end
 
   # The reason to have LLVM and LLD as dependencies here is because building the

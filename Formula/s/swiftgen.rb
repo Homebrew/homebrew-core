@@ -22,7 +22,7 @@ class Swiftgen < Formula
   depends_on xcode: ["13.3", :build]
   depends_on :macos
 
-  uses_from_macos "ruby" => :build, since: :high_sierra
+  uses_from_macos "ruby" => :build
 
   def install
     # Install bundler (needed for our rake tasks)

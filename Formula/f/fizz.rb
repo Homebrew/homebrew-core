@@ -1,20 +1,18 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
-  url "https://github.com/facebookincubator/fizz/releases/download/v2025.09.08.00/fizz-v2025.09.08.00.tar.gz"
-  sha256 "670a995a4efab36ef0002c7ad95bfe5c8236c15e6f6eb1ae5e7320c0a8e510cb"
+  url "https://github.com/facebookincubator/fizz/releases/download/v2025.09.15.00/fizz-v2025.09.15.00.tar.gz"
+  sha256 "a123beb53ee95be5b0ed039680a4f1e46d082e862663d7b39e733deef5581c9b"
   license "BSD-3-Clause"
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
   bottle do
-    sha256                               arm64_tahoe:   "3dfc00f14add4cc82ebc56e63702b063e6142799c95e302b46c0a5734926484e"
-    sha256                               arm64_sequoia: "f9f46dae072952aa3a3b708b04162d691112fe13efc617f453abcf725a8f3dac"
-    sha256                               arm64_sonoma:  "b052f2b4f8953dbdc65aeb2114670ad4ddc86e45180abc82dc6a95280da26de2"
-    sha256                               arm64_ventura: "38857f638bd1895dae7c3a0bb67824da9fc076a6b0ca8e64a92e721374fbe943"
-    sha256 cellar: :any,                 sonoma:        "ec3a0659f339d21542bdff6de34f0ff9772e63ce1f72468672c08e3da01fb8e3"
-    sha256 cellar: :any,                 ventura:       "26115f21a22e7ccecfea69ead3a83c0ac72051a4f48fda9c5785ee80b397c189"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "773bb736e4678635d4198cb3eb47398a106c16f0870fd298855e06881bfee256"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d52794c3ab734f5055756e8e8f2e215c82fa1762f1eaa384f0c1743b315d12a3"
+    sha256                               arm64_tahoe:   "984f8f6d7329e3d7cbd9cebf4c75e7737a0f9884d96aa6c2f22b64a0b7dedfa3"
+    sha256                               arm64_sequoia: "bdc4747edbe987dae01ba90cf2727c2b74175bc46a05c9880e941dbbff772aa5"
+    sha256                               arm64_sonoma:  "7c113b9a5d017c454ca0d0fa0df36a1120864184d0e191d13c9b24cb0c058dba"
+    sha256 cellar: :any,                 sonoma:        "7d7d91ee9e4caf4bead8cb8702018b1b8fa6ab04f4bcf1ff52747fb951d14599"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9d931b8bacad6c561b1838b1c1704ed8d2a2c7b42c5d8ab651be35003ed98ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "997f5846a9a520b6ab0158886dc870e295ba8d004525a154a9d8b330bf0eb86a"
   end
 
   depends_on "cmake" => [:build, :test]

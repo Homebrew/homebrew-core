@@ -28,7 +28,6 @@ class Fpc < Formula
     sha256 cellar: :any,                 monterey:       "42f981be67bc5f3a433117e3ae4b014001aa786acb4a24d09579fc154beedb4d"
     sha256 cellar: :any,                 big_sur:        "4c3a012398b6136776358206b0cac52ec1096484c27a08c142e7f51afc713956"
     sha256 cellar: :any,                 catalina:       "1bbaa4c1b6a616f8a56554b30c69cae267d22849074eb628d77c23af2e911e6e"
-    sha256 cellar: :any,                 mojave:         "314265a7bff5c2f8a613d1c04db8856f6523d8d00d33435892260ef3fa9cc604"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "949b7b3e1e1d5f5109fa157c197acffdd7ed79378bed86f91f42623417bf5139"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3491933cdf5782d3c4b9b1188757cb3846b5d823a6db75c8fb56f13b23bc6747"
   end

@@ -12,6 +12,7 @@ class Tesseract < Formula
   end
 
   bottle do
+    sha256               arm64_tahoe:   "375581dadab9eb9664e9a1f3ca4a0e621c9f1a9e016ce0653f68c01091829bd0"
     sha256               arm64_sequoia: "868efa52231ba29227c3f394bbb6ed684743222cf15622661f253a9f0d6164ed"
     sha256               arm64_sonoma:  "7b80671e010cd121964ed5962159fc8b42950796c33304de155c850378eaa49d"
     sha256               arm64_ventura: "894270307a4fe98f7b0caa386c24efc7d995b60e468f5e4536b48b4b5275126d"

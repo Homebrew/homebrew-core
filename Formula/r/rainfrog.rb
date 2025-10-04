@@ -7,6 +7,7 @@ class Rainfrog < Formula
   head "https://github.com/achristmascarl/rainfrog.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "024b4a67c5dbf7a760934888b55c516aa4d05d00f183abd164870f97a1b350f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "740cb40958737089e2425bfe8c73d6d2a2c258dd1e862a5a9850f2d6e41da32e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8acfbb6f3010a81aa4e8c8f8091d3bc00317bd206de0a66ebe3dd8d171d7049"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b9424094bf9e97974961281371ce50f49dc8915eacc3ae66aec53e1fc681ae3c"

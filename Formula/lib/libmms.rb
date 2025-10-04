@@ -9,6 +9,7 @@ class Libmms < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:    "aa6cb8c3240b6fbcc6e58fc69c3e117ff0a1c1c1a3eaa22b6374d13a91b2c2fa"
     sha256 cellar: :any,                 arm64_sequoia:  "3bb78466780c6a9b24cf16bb0c333e5e62e8aca7b7f27a1175dcce96d369dd92"
     sha256 cellar: :any,                 arm64_sonoma:   "256fd337db7087fc76bbd4b119df0621377c33b231eb11e609680955b65b19dc"
     sha256 cellar: :any,                 arm64_ventura:  "c341b6abc297d20d408019a94893e6f9bb2859c34d3e100926bac2550a2d41b0"
@@ -19,10 +20,6 @@ class Libmms < Formula
     sha256 cellar: :any,                 monterey:       "83b2b74920729e81a9225065aaf75949add189c2ee5557d2cab410d45965d501"
     sha256 cellar: :any,                 big_sur:        "49439ac923403c34c9fb042ed167a8830d424cd113303d66ed2d70f7aeb23840"
     sha256 cellar: :any,                 catalina:       "15016ca7557449405339f310e6feeccbc04094702fcc7d4be53909fc738b05f4"
-    sha256 cellar: :any,                 mojave:         "4ac527e54af063a3fa760b1e4d43b56dd51ade89cbb971ac9bea9dd3500dfc70"
-    sha256 cellar: :any,                 high_sierra:    "adc24aaa1656c02f41b20b4453f6a2deda8f3597c919eed1ae8befb732fc920f"
-    sha256 cellar: :any,                 sierra:         "5319927f799dd20effbfc9f8bb90ebc844b39852c433bf434ab6b36c11c36417"
-    sha256 cellar: :any,                 el_capitan:     "61c4dd24598198386342dd9c700e218b6b83c82627efc781daa89acfaca96066"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "ed7a66b304d548c1426e5b0fa507a7cd3f06923aa13d8d14876b9e94e81146ff"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bf0654cdf09b4ca5c749e75d8920ff2eddee195e31a468c64bee07f74571b29"
   end

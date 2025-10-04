@@ -17,8 +17,6 @@ class Pfetch < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7dfa1cdbfc450e489c88d72808c87de7930ebc2cbc5da51c2be784eeba7076c3"
     sha256 cellar: :any_skip_relocation, big_sur:        "3e5ceb26959ab4f137221f87eefe0ba1912695cce887b30f2e4894c699d86261"
     sha256 cellar: :any_skip_relocation, catalina:       "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
-    sha256 cellar: :any_skip_relocation, mojave:         "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "8331cf22d8477865e7c61b71c9f121b41c245f1caeb4cde2faf809dcee51058b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfa6a98908cbd7ac49f1fd4813011ee6f18849130d84b4c4fa3c01282a33c568"
   end

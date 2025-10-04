@@ -19,10 +19,6 @@ class Cunit < Formula
     sha256 cellar: :any,                 monterey:       "ffad854086ea13dde40c23736591da90c3d66ef95677e14d90f2c49891f1302a"
     sha256 cellar: :any,                 big_sur:        "2d5e3e62c0d0cd5cbf119d93249ca2ab671bebf53c77947d5c59daaad55aefed"
     sha256 cellar: :any,                 catalina:       "5a03cc656131d1bcde14ec200be947c5b3caee6f5138e426b2b27b0286c59ee7"
-    sha256 cellar: :any,                 mojave:         "561baccf9e285cd65021b70342d1ba37b456a2f35c0324dfd2a65ea427641d27"
-    sha256 cellar: :any,                 high_sierra:    "23fdc88eeb1c4cf8d58e281e046f2e45a56860c0091e5c76f757f01679d143d2"
-    sha256 cellar: :any,                 sierra:         "dc987998ebcfc175c9c9e70c6b83db4197bd5b79d383235b85ee8a30835785df"
-    sha256 cellar: :any,                 el_capitan:     "0b92535641c86f38bf7a3a1b08a07aa6523e4c0135792dd92829e00579a5e3a9"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "3ccc99f7c608efe03b30e0e008a0cfcac24582f6189157a155e1cb6fe7901ed4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0cf6507f41f3b367c36329688073277d4db50e61b048e39360f1e58cf2482e6"
   end

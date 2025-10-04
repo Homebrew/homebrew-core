@@ -36,7 +36,6 @@ class StellarCore < Formula
   depends_on "libpq"
   depends_on "libpqxx"
   depends_on "libsodium"
-  depends_on macos: :catalina # Requires C++17 filesystem
 
   uses_from_macos "flex" => :build
 

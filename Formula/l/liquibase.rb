@@ -1,17 +1,17 @@
 class Liquibase < Formula
   desc "Library for database change tracking"
   homepage "https://www.liquibase.org/"
+  # NOTE: Do not bump to v5.0.0+ as license changed to FSL-1.1-ALv2
   url "https://package.liquibase.com/downloads/liquibase/homebrew/liquibase-4.33.0.tar.gz"
   sha256 "689acfcdc97bad0d4c150d1efab9c851e251b398cb3d6326f75e8aafe40ed578"
   license "Apache-2.0"
   revision 1
 
   livecheck do
-    url :stable
-    strategy :github_latest
+    url "https://github.com/liquibase/liquibase.git"
+    regex(/^v?(4(?:\.\d+)+)$/i)
+    strategy :github_releases
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

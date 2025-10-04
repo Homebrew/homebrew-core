@@ -24,14 +24,6 @@ class Portmidi < Formula
   end
 
   def install
-    if OS.mac? && MacOS.version <= :sierra
-      # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
-      # "error: expected function body after function declarator" on 10.12
-      # Requires the CLT to be the active developer directory if Xcode is
-      # installed
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
-
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

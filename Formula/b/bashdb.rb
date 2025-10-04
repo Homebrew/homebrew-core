@@ -18,6 +18,7 @@ class Bashdb < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2aedb1af38194b056e6f3a31ff73c2995782f41d714955991a5d749abe53eb14"

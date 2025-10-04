@@ -17,10 +17,6 @@ class Globe < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "af722a0052f1e690155ebe6a1aa9640ac733ebcb76c0cd37335d21942e1f160c"
     sha256 cellar: :any_skip_relocation, big_sur:        "d0c0291f6767d96e3e5e21dfbdd71f793e83208841de96b1d2907c509b5dc62d"
     sha256 cellar: :any_skip_relocation, catalina:       "813ec2be614ca68c63af2b1830b6aa5129c5b65ce3c0d3aa6fa6d8f826f674e5"
-    sha256 cellar: :any_skip_relocation, mojave:         "a5a07b3dfade00debcfe123b8ce103ec33649c9152f89676fce5b70c0f0fec8a"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "f61e4026debce10b4611ce963f5387721296b9bd84120eecfcff275facf76f32"
-    sha256 cellar: :any_skip_relocation, sierra:         "20488fcd0137e0d2a05ea3bfa91adc2f45460f05bb01f26e41005ccafc3e8c54"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "11acded7be5d1ba22260d039e3daf4fdc4cac49ebcd234c879da655a1532c22f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "45f34a09b90224f8c3026702be8b9eb682417c8efca350ae807faa2484b603da"
   end
 

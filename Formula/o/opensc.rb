@@ -57,10 +57,10 @@ class Opensc < Formula
   end
 
   def caveats
-    on_high_sierra :or_newer do
+    on_macos do
       <<~EOS
-        The OpenSSH PKCS11 smartcard integration will not work from High Sierra
-        onwards. If you need this functionality, unlink this formula, then install
+        The OpenSSH PKCS11 smartcard integration will not work.
+        If you need this functionality, unlink this formula, then install
         the OpenSC cask.
       EOS
     end

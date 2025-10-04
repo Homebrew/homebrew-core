@@ -6,6 +6,7 @@ class Star < Formula
   license "CDDL-1.0"
 
   bottle do
+    sha256 arm64_tahoe:    "68e80e10e9424184f4c94cdfff0adc5f3ef236fb89487142f228654ca44c5bd0"
     sha256 arm64_sequoia:  "e6a35a48d1b10d83a521fba9d7351be44be87017b0b7a1c16d6db72aa3874ee2"
     sha256 arm64_sonoma:   "4f7d3a2831a685b8ff9881ff5b56fc2402b04c410d6a8b3640d4cb794154165d"
     sha256 arm64_ventura:  "800616aa187156f940ce52ad810e23b6fe385a633948f3d666372cba6fea9727"

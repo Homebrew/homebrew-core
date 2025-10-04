@@ -8,6 +8,7 @@ class Periphery < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "499b5f157fb2ecfdc66cc3dcb58b185f6b16b1827dd8c1091864dacc00c5fe92"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2b0dea494e8bd21ff932fa10fac318cf2ee06c758e6797ecb23f99a6f8d2460"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "400cd8658c47b54ab5060f11df16ee035d1673aa3abd2c0244669121c744d570"
     sha256 cellar: :any_skip_relocation, sonoma:        "df2656985ae7b056868b3f3acf2de20abd266cbd52d9d5ae31eaae77ea447ea5"

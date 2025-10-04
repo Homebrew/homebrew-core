@@ -1,8 +1,8 @@
 class Bcpp < Formula
   desc "C(++) beautifier"
   homepage "https://invisible-island.net/bcpp/"
-  url "https://invisible-mirror.net/archives/bcpp/bcpp-20240917.tgz"
-  sha256 "f13c2e0ae9034b64e8a30f7a0228344b68c76a0215e0c12a9650852a4cec91ce"
+  url "https://invisible-mirror.net/archives/bcpp/bcpp-20250914.tgz"
+  sha256 "8d2a0f6255243c7f422cbc8d9d65bb381cc6559879df967ba2838ac7d267be3f"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,12 @@ class Bcpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "595a1ddbfb6d7b64a1b98ac2b99fb83b417f145f5b47925db5c6091a0cccc0a6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d543a71f77b6a9ef7ae4497c5114153a5fbe35cb5d610a8b3b8c472b2709b20"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "415b0a2c2f3a201a6382957c0ccca9d79fc4733a0ed4f335f782c45861de7845"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "76e722eee04aac5c5ce137cba0c031e42581003f5b27e0e9eefd45011e8c5bc6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3790cb06332cdc0c857a1e780d4edd9ac899d69d4a1a08047b61249ad40456c6"
-    sha256 cellar: :any_skip_relocation, ventura:       "2b082e9a692aa8e77fea3c96eb48a25ca75b45a6599207a4ecc2b2e10b1c91b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "15cd7515cfbe19bfc6cef04b30a3f4bc56104fbbd790c1eeab2d59d487078491"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e99e6dc868a2b3bd6fcf189124cccaccdd1322ee18a51dc23055e8579d2e28e8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa74cdc2fb3f1809b90239f1e60363605cb9d5fc76bded0ea406d6e6920e1bdb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25716040eca8bdd532b128d8f285d5eaea77d8522a893ede0a59c69515a95b66"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e169551e3a3120dc6966df837814802d00a8a6d1c799b40226ff72c2bfd79b46"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d6d74b99d7963c3f7403a8bd3991cbcccebf0fa2da16672ad912ef6857055a3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a1a406681f95c80d946ca3155ea3cea7397a119634746b2d873b7520aa1ba4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b501371fb124bd5814589d0e6f3dd850221ccb40e0e4b4d3fc41b72fcec32c6"
   end
 
   def install

@@ -19,13 +19,13 @@ class Influxdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b10852e16acbfb12c347020a1eb7c51b27492fc6bba48c4657678d7a3875d099"
-    sha256 cellar: :any,                 arm64_sequoia: "251b2e5e5062197c33fc5c6ecf84d738c61b7ef7867fa31765144473c393b605"
-    sha256 cellar: :any,                 arm64_sonoma:  "b8fbde9575e53107687390fab5bf88b9ebbdb139bba58944ef7edb99e5192b70"
-    sha256 cellar: :any,                 arm64_ventura: "0ce4f55589ca17b33b09b0bd5288e673bac636716584009bb3bd61aeb68e3901"
-    sha256 cellar: :any,                 sonoma:        "b423c21c66e35080ba59e3f5646fbbc09cee9ff7bc44457687316b45242c9cc8"
-    sha256 cellar: :any,                 ventura:       "80e49708a33b6286d5c2801027de5f92438e9df0eff8c98b788fccedd061d28b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "471ea101ee4cbdf4d4bdb7a3542edaf2f5c15927cd928eda9106e72cfe1ed0ee"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "76a35e5f711f46d0f205f5a4e392154cfa04dd3d3b68441e81d8a9ec6d790522"
+    sha256 cellar: :any,                 arm64_sequoia: "741206932e2e625db4bceabf409fde90106b35cab787fee113aa3d61cac25112"
+    sha256 cellar: :any,                 arm64_sonoma:  "00012928fc8096db1f566a444188fd2728f7c2e034d03acfdad36f4a6f196afe"
+    sha256 cellar: :any,                 sonoma:        "fc709d2eae34adb07ae878c4f94800ff28e4c1dc22f92b1f03cfb86e3545c894"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a699da6b82efe3bd8c83094fff0a3f63c5b7014e5e26dc4d8698327bad357286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e51586615ec61fc1bd4af814f2462f7175762393964fd4b034b6fe438b2a4cf"
   end
 
   depends_on "pkgconf" => :build
@@ -33,32 +33,29 @@ class Influxdb < Formula
   depends_on "rust" => :build
   depends_on "python@3.13"
 
-  uses_from_macos "llvm" => :build
+  uses_from_macos "bzip2"
 
   on_linux do
-    depends_on "lld" => :build
+    on_intel do
+      depends_on "lld" => :build
+    end
   end
 
   def install
-    py = Formula["python@3.13"].opt_bin/"python3"
-    ENV["PYO3_PYTHON"] = py
-    ENV["PYTHON_SYS_EXECUTABLE"] = py
+    python3 = which("python3.13")
+    ENV["PYO3_PYTHON"] = python3
+    ENV["PYTHON_SYS_EXECUTABLE"] = python3
 
-    # Configure rpath to locate Python framework at runtime
-    if OS.mac?
-      fwk_dir = Formula["python@3.13"].opt_frameworks/"Python3.framework/Versions/3.13"
-      ENV.append "RUSTFLAGS", "-C link-arg=-Wl,-rpath,#{fwk_dir}"
-    end
+    # Avoid upstream's default of Haswell and instead let superenv set this
+    inreplace ".cargo/config.toml", '"-C", "target-cpu=haswell",', ""
+
+    # Work around SIGKILL on arm64 linux runner from fat LTO
+    github_arm64_linux = OS.linux? && Hardware::CPU.arm? &&
+                         ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
+                         ENV["GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"].blank?
+    ENV["CARGO_PROFILE_RELEASE_LTO"] = "thin" if github_arm64_linux
 
     system "cargo", "install", *std_cargo_args(path: "influxdb3")
-  end
-
-  service do
-    run opt_bin/"influxdb3"
-    keep_alive true
-    working_dir HOMEBREW_PREFIX
-    log_path var/"log/influxdb3/influxd_output.log"
-    error_log_path var/"log/influxdb3/influxd_output.log"
   end
 
   test do

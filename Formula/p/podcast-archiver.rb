@@ -8,6 +8,7 @@ class PodcastArchiver < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8b5906bbc6a2cb9d5b8c491d4c684268ec5ee8d45e2044a865472740f654ae39"
     sha256 cellar: :any,                 arm64_sequoia: "e9e73c104d1e8573f88d59a3579c3889647bf07de8776b39ffa7df60b696b7ca"
     sha256 cellar: :any,                 arm64_sonoma:  "7115f028d4c7062e2bb45176eb51605fd9b1d73bd6fdcda86445604c711e69c9"
     sha256 cellar: :any,                 arm64_ventura: "1e7a571764650d144c4efb0408153f3d6c9adee1d649c3110721fbac683e4180"

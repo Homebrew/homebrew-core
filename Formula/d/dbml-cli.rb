@@ -1,13 +1,12 @@
 class DbmlCli < Formula
   desc "Convert DBML file to SQL and vice versa"
   homepage "https://www.dbml.org/cli/"
-  url "https://registry.npmjs.org/@dbml/cli/-/cli-3.13.9.tgz"
-  sha256 "f75f57714510cdb0b8ee5ba3e69a3c050f7cd1ecc12ce0af9a882ac86ebc15c7"
+  url "https://registry.npmjs.org/@dbml/cli/-/cli-3.14.1.tgz"
+  sha256 "0ab76369762733d2b7550b9ec91e116a5d9958f1af4947a050ef9d419ebb80c3"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "0f96bc6f2206f075ab7cdc7f47c9c9ad23d2e1135eaf165b9d8224e01b9502d8"
+    sha256 cellar: :any_skip_relocation, all: "3bd611c7c1355c3364ddfe6dd0d2a097185c13172351f39a1f7832fd6e9d72b7"
   end
 
   depends_on "node"
@@ -15,9 +14,6 @@ class DbmlCli < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    # Build an `:all` bottle by removing log file.
-    rm libexec/"lib/node_modules/@dbml/cli/yarn-error.log"
   end
 
   test do

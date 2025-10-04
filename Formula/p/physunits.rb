@@ -1,21 +1,19 @@
 class Physunits < Formula
   desc "C++ header-only for Physics unit/quantity manipulation and conversion"
   homepage "https://github.com/martinmoene/PhysUnits-CT-Cpp11"
-  url "https://github.com/martinmoene/PhysUnits-CT-Cpp11/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "e9bcce99d9c90ac8ce96746eff49c20b7c9717aee08b3cd6e58127c7ad9fa7c6"
+  url "https://github.com/martinmoene/PhysUnits-CT-Cpp11/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "64187aadf886f9bade5976f5f3289637f8882f36ac4767f1be201f89e5a4a47d"
   license "BSL-1.0"
   head "https://github.com/martinmoene/PhysUnits-CT-Cpp11.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d1aab63a49f0f5ca8b530354e7efe1b884c7d57e69509aca43bc4416191e3079"
+    sha256 cellar: :any_skip_relocation, all: "0d821322abd11d644d0dbf1fe20bbee6fc39a44f2e2404eea9f0e5042605d772"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "builddir", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "builddir", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "builddir"
     system "cmake", "--install", "builddir"
   end

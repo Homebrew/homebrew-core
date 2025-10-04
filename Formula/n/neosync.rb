@@ -7,6 +7,7 @@ class Neosync < Formula
   head "https://github.com/nucleuscloud/neosync.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7dff0d67b524213408aba298d75f80fea1eafaf7756313dba20b8079d41b0f2b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d955843c57eaa847b43b5aefcce7d239677049fcd650059f7b056df93b4ee67"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d955843c57eaa847b43b5aefcce7d239677049fcd650059f7b056df93b4ee67"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2d955843c57eaa847b43b5aefcce7d239677049fcd650059f7b056df93b4ee67"
@@ -14,6 +15,8 @@ class Neosync < Formula
     sha256 cellar: :any_skip_relocation, ventura:       "14bcd6d91cb2fd66bc410cc059692c1a25db636a2e778fbdff31ef10f7b5b018"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9fe641cfecd902842f7dc37e292bc6eef5d6d545dc60bf266a59fc970de2976"
   end
+
+  deprecate! date: "2025-10-02", because: :repo_archived
 
   depends_on "go" => :build
 

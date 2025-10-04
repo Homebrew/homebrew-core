@@ -13,6 +13,8 @@ class Siril < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "08563c86ad8444f9f5bb08aa418380342448b6ff62dc37f62f2dae5ae2ca2d8f"
+    sha256 arm64_sequoia: "056cc668684cab712e919c26b6817f59069fc10c607f88ee7d76e0725e19604e"
     sha256 arm64_sonoma:  "e56ba213d399b3e1ac714a78c9d710f0cd49ea9245dd3d25f667f88db5c0dad5"
     sha256 arm64_ventura: "a71c1f6a8798b1bdaf26d88d0f9e8bde62603c933859e9e8f34d5c69e1b7a452"
     sha256 sonoma:        "852c1a015a8472d91394191923c377832c02b5cfb30f3695d0979a3702b143b1"

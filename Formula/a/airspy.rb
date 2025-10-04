@@ -20,7 +20,6 @@ class Airspy < Formula
     sha256 cellar: :any,                 monterey:       "53843ed22a54472fe5d40ca9191f5425af68ab2996981c489ecd5b0cd8fae221"
     sha256                               big_sur:        "acada5e4e39e99dfad89cbcd1d0440cc3b4814936160b37220059cf602b94b4d"
     sha256                               catalina:       "5e8d910759443d83f3975b41e2805b4bfeb605d55271f0e37e8ca7de470415f0"
-    sha256                               mojave:         "28e8a9afd6a78a3c091e70d0326431a68738ec26e08448d88d62974374a08a42"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "04a3fc8d7785a617963f05f454e5c18526e855ad8171285420aa68c7f5a38391"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1705571f2f7cc979706ceb8340ee737fde0b538002c3942145f35355b9b41d3"
   end

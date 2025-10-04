@@ -11,6 +11,7 @@ class Libgoa < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "a9923710839c9ee6b42ad96a3b4f42b4e5551103c6dd271f92584fc12099d648"
     sha256 cellar: :any, arm64_sequoia: "51c4ac233ca5142f003159b942d8ce10b493881c0f12bb498861d73363b143c5"
     sha256 cellar: :any, arm64_sonoma:  "2cfb69ff8f7c90dfdcd8d3f4d6e8c7f85642231094dfc1b084962935c00b90c2"
     sha256 cellar: :any, sonoma:        "1be61e75afaac63ab5242b10b9a3aa23fd5c97d011b9d871e6c682819f2fc32e"

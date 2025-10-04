@@ -10,17 +10,16 @@ class Libblastrampoline < Formula
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "02529f6d1e6a9e96282b010920aa60584677c57fc169e0843947ad8fb1a68a59"
-    sha256 cellar: :any,                 arm64_sequoia: "321796555ea966414963f103e363b2763f50f8bc7cd3af5a427e9b7c5019b7f4"
-    sha256 cellar: :any,                 arm64_sonoma:  "2b2ca33deeb68457c7a163db9f38e6aa2ba0c63f641968d63579aaaf26c69825"
-    sha256 cellar: :any,                 arm64_ventura: "5131ca461fc9483dc2c058333998ba84b3d82bddb6b649164cff08cdd88cd5f5"
-    sha256 cellar: :any,                 sonoma:        "1da55896bc950f7bbc231519bffb881d00c284e362f4647ab15f59cb4baf35df"
-    sha256 cellar: :any,                 ventura:       "26c531ad1c3ae73049dc270da5c73e7652e34f1a8acdc63fb76066630174498f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a29f69f1580759dec7d3001b335b89b12602579ee156c3f28e73693ddc897f4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e90636c4edc3ae00b4dceca5182d409ab08d7327cac94274635fbcd454c4745c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8246c1e2d9ac09019805c91834c8c1721f0523789e625f5ceceb399c9c8f592f"
+    sha256 cellar: :any,                 arm64_sequoia: "f6e8e315b5c6eb96d380b886f3abbec62af142371bec18e05d1b0163811bec65"
+    sha256 cellar: :any,                 arm64_sonoma:  "00b80856ba5d493784d14d1623bfb62a238a78215bb21387b43ef223aca74311"
+    sha256 cellar: :any,                 sonoma:        "5ac2b19824d89120ed9795a916eeda8e1d7d7cb56982e1dca2492a440472accb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6cd17d80c1c8fdde9d0938d682096e07532a3e4a0c15df5a6dffd258112bdf97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "923847ec57d5d5dd767727d163b90a442393b77fea844d31995ca7e220c1f4fd"
   end
 
-  depends_on "openblas" => :test
+  depends_on "openblas64" => :test
 
   def install
     system "make", "-C", "src", "install", "prefix=#{prefix}"
@@ -52,10 +51,12 @@ class Libblastrampoline < Formula
     system ENV.cc, "dgemm_test.c", "-I#{include}", "-L#{lib}", "-lblastrampoline", "-o", "dgemm_test"
     system ENV.cc, "api_test.c", "-I#{include}", "-L#{lib}", "-lblastrampoline", "-o", "api_test"
 
-    test_libs = [shared_library("libopenblas")]
+    test_libs = [shared_library("libopenblas64_")]
     if OS.mac?
       test_libs << "/System/Library/Frameworks/Accelerate.framework/Accelerate"
-      ENV["DYLD_LIBRARY_PATH"] = Formula["openblas"].opt_lib.to_s
+      ENV["DYLD_LIBRARY_PATH"] = Formula["openblas64"].opt_lib.to_s
+    else
+      ENV["LD_LIBRARY_PATH"] = Formula["openblas64"].opt_lib.to_s
     end
 
     test_libs.each do |test_lib|

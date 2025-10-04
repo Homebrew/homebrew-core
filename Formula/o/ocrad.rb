@@ -9,6 +9,7 @@ class Ocrad < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "116d23e8c9dd05261d3591a6c71bc68f21eaf4f31ecb196ab1663a922a382e4a"
     sha256 cellar: :any,                 arm64_sequoia:  "e64667cc0efcf07cbbdb3459f9cbb88be11b2718b75417226e910e2cfb71a5a4"
     sha256 cellar: :any,                 arm64_sonoma:   "36d45f3af4754048ddde02ce9b7d9668ae188d7140b76aeda80f65ee6bb69a17"
     sha256 cellar: :any,                 arm64_ventura:  "31bd92179ff109e10d90fbf1af54975c3a9728af8aaa01af5111ab1d6e8cc7e9"

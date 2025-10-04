@@ -12,6 +12,7 @@ class LibniceGstreamer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "7d8ec7c8991e1c12e4382372d7ce519b9a7cd64938ec2e3b454ed415f7083dd3"
     sha256 cellar: :any, arm64_sequoia: "aa2003f8a95578016094c529b41b9e0afae4124421796c7917f2af3dee116c41"
     sha256 cellar: :any, arm64_sonoma:  "e78f31b88426c267bd4ccc9626494130fe1f02cf2279a2941f32b96f825e0742"
     sha256 cellar: :any, arm64_ventura: "b2c462902cec4eb8b59e895c9b2cc9e027b42d1421dcf0f8199c9ee41bace504"

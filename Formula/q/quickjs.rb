@@ -1,8 +1,9 @@
 class Quickjs < Formula
   desc "Small and embeddable JavaScript engine"
   homepage "https://bellard.org/quickjs/"
-  url "https://bellard.org/quickjs/quickjs-2025-09-13.tar.xz"
-  sha256 "6f1f322aea3bb3a90858db85c9fe717013fde4df7dfcafe2f57e78f5bb4b4a0c"
+  url "https://bellard.org/quickjs/quickjs-2025-09-13-2.tar.xz"
+  version "2025-09-13-2"
+  sha256 "996c6b5018fc955ad4d06426d0e9cb713685a00c825aa5c0418bd53f7df8b0b4"
   license "MIT"
 
   livecheck do
@@ -11,19 +12,15 @@ class Quickjs < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e828a899d98c6f7e8a1b355f9b48982f328862fd61b4b0635413da7f6aff585d"
-    sha256 arm64_sequoia: "0ae282e76a2e7c3c4e0ebabb4835a436870cb9d8951dcc54c919d1eb8b7c75e7"
-    sha256 arm64_sonoma:  "dff370175b666cfa4b524c491c55d2608ffa72b1503cf95bb341717d5ff0091c"
-    sha256 sonoma:        "c88ad1eb2a750556ef61d161033e24bb17232283670e22c4cc2b272b7f03d451"
-    sha256 arm64_linux:   "5e03e1662d6892aa1ac8155bbb1c942da7d83c725cd1fb62cc3a8ca8c4003bdc"
-    sha256 x86_64_linux:  "00a5cc4f79e5c907f77229d8d18cb925fbdc179b1a7a922fdd02801048d04a49"
+    sha256 arm64_tahoe:   "0c4a5557adceba07641b2d0df1a7dc4a80a95cb8d95cb8e89a75deabd2cac755"
+    sha256 arm64_sequoia: "6b8a9c3c838646ff828233f6ed5af58974985f076ab68a9b4337da8d0e01411a"
+    sha256 arm64_sonoma:  "6ac5d8f62afabf4912fb5173a417c08f9118f3ed0fd88c069ee91d74d6a08c1b"
+    sha256 sonoma:        "a2ce1cdd3b921b02c123850b83ff78d4d983fc487c04bfdf93352d415bf6f253"
+    sha256 arm64_linux:   "4a3b2817c7f28db585ece2b4e317fe6ce0079a6c716dd2ef9e612a80d7106089"
+    sha256 x86_64_linux:  "547f293bb0c5b1de7fe993352bc26192627f16a36128d64bb9b9dbd9b2afca2e"
   end
 
   def install
-    # Create dummy JSON file in `examples` path
-    # so that `make install` does not return an error
-    # https://github.com/bellard/quickjs/issues/440
-    (buildpath/"examples/message.json").write "{}"
     system "make", "install", "PREFIX=#{prefix}", "CONFIG_M32="
   end
 

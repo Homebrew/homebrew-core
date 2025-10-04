@@ -6,6 +6,7 @@ class Manifold < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "84b1af9336b1e9039270f85e53f289a8ecc927c88a19a070c6ea97a1793437c1"
     sha256 cellar: :any,                 arm64_sequoia: "197871f8de11dc8f1311726c1df7fc4c739f88c5a9352a742ee54a64d4117cfc"
     sha256 cellar: :any,                 arm64_sonoma:  "e53d28fcf341b55b1622c7c23b8e33d0e25d42b9803eb9730c53e07037a0cbef"
     sha256 cellar: :any,                 arm64_ventura: "3cbdbd014289232556ffd784dd8f9440349e5598e925aa28134f05feb45a5767"

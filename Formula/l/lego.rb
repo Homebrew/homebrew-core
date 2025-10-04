@@ -12,6 +12,7 @@ class Lego < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2629d5f9d75920e360c9e7fcde01e2d3b5e58e79a1f0201899287aee757339d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2629d5f9d75920e360c9e7fcde01e2d3b5e58e79a1f0201899287aee757339d4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2629d5f9d75920e360c9e7fcde01e2d3b5e58e79a1f0201899287aee757339d4"
     sha256 cellar: :any_skip_relocation, sonoma:        "8a553f8a16290638f8446cd839e9ae23875f4d8a75f857e2d1221958cb82b28b"

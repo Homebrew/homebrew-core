@@ -7,6 +7,7 @@ class Radamsa < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c6fba460536c28334781bb3c1d5471794de9e6ab3ccd64bf9a9ee67dbfcaae8f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "68a800cd47ad72dcaf605c67d01e86fab1af8c40b678f06317489887d3d1eeb3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4868ee9e0dcbe6da781d40d6a513e2185ba0b8e09a125eca2dbb36c8e5cb4ab3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "568e7f3b24edb8d8aca56b0835eea5fcd32dff97d2c2a2985362329bf8555169"

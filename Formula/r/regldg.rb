@@ -8,6 +8,7 @@ class Regldg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5000f3d0e8bce79454c084a21166ce9603c839e1a535f7777dbc2d39bd1125d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "95d8adc13413bbb6abd01895354b0e47b03ab86dff6c33de659516dc9b301d95"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91af1452780b526334c5393e27c0a833d91175120733a19db43ce1c37b05544d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "11ec4d993c71645c53d5eda04bc1fd8b54c3427b552331ff09b1dec8042cf244"

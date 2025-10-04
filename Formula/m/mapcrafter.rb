@@ -9,6 +9,7 @@ class Mapcrafter < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cfc65e2f4b77a2c1d329e8f19a5895c91f0ff876b232c2397a4e736f41423eb1"
     sha256 cellar: :any,                 arm64_sequoia: "1efb0a38f77cdfd4eb0e609e505104b1939b9c5142f4478235c27b656725e02d"
     sha256 cellar: :any,                 arm64_sonoma:  "43f21cc8321851928f1ee79a9f6141adbfb246ef0e6c5e4e752edc56a4aaed08"
     sha256 cellar: :any,                 arm64_ventura: "d4ca79a0c71b13a2390a7c3f550de43406977ca7c4bd58667992d0acb0f412e8"

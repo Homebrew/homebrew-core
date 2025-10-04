@@ -1,8 +1,8 @@
 class Tiledb < Formula
   desc "Universal storage engine"
   homepage "https://tiledb.com/"
-  url "https://github.com/TileDB-Inc/TileDB/archive/refs/tags/2.28.1.tar.gz"
-  sha256 "f011240a2ab7863b037a2e5531a0cba537dd65f603fa2508878541514a472e90"
+  url "https://github.com/TileDB-Inc/TileDB/archive/refs/tags/2.29.0.tar.gz"
+  sha256 "5340e820323cdd48eac3cbd28ad55c1724f3f0b20dd2b88d196f336cffd92cdf"
   license "MIT"
 
   livecheck do
@@ -11,20 +11,17 @@ class Tiledb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ab4f7f8d37bd85fd72974f6786a90fdafc145152c110d50748b95038c3745334"
-    sha256 cellar: :any,                 arm64_sequoia: "58a3d297198f9475bf928ff9dacdb15e9eaf39abbeea80495a76011124bbb2ce"
-    sha256 cellar: :any,                 arm64_sonoma:  "92d58bb7e8c9bf76e2ef43a13bd4d1444280e2a4ef8a70fd798773a5f5f78387"
-    sha256 cellar: :any,                 arm64_ventura: "d88069d7b5752c6a20559dfb2b11a3e75a396d77c0328dc5a9815ce1ca7b9e3a"
-    sha256 cellar: :any,                 sonoma:        "0572d46029ca4f5970f327a8b8f0c19ce2c303a072d7e88fddd1f172b0d95c55"
-    sha256 cellar: :any,                 ventura:       "a0eab1d6dcc106ca683022f1a66e0921ee6138a57d8d245e55e3c48b5c79c0ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ee6cebf5c288281f53636027ed049ea9cf1860ed4cce4136885e2edb27f5ffe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4bc942a87a4e62ff078cf9ffde7e270ad5552fe67d145e9441f9e0654d7103f5"
+    sha256 cellar: :any,                 arm64_tahoe:   "10a74e5c3058c7e75fab61ddccf610bb87b9f55d08d6450140e3a90b4b8c4ef5"
+    sha256 cellar: :any,                 arm64_sequoia: "a195072c143c898e1b70d633d05ea5ecbd3659ca460d726137afd4f891a68caa"
+    sha256 cellar: :any,                 arm64_sonoma:  "22768991d99b91ad2acbcd24516e8ea817be0ce568ab82b1e255f58800a76310"
+    sha256 cellar: :any,                 sonoma:        "38c236878e7b69c053caaa2d0b2e2dc304743040ec02ae92166f7e8d1634e3b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "68bbb4e7f90d7665f3b74a747d5288c8985521450eb937c255df70f28d09be34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15df5ce31c24ab2b0418c150297fe75c509f172eb65b1e6d6d6ac0538385b5be"
   end
 
   depends_on "cmake" => :build
 
   depends_on "fmt"
-  depends_on "libmagic"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "spdlog"

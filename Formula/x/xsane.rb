@@ -27,6 +27,8 @@ class Xsane < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "4dca3c238d407fc9c1a7f0f1b7c270f0cffefc2f7955a4af932193b8313e0164"
+    sha256 arm64_sequoia:  "e1bc40a49753404b609fce74f94ae755ef6ed1c6ca575703ecd167ff2c26d8b2"
     sha256 arm64_sonoma:   "5532780b9dd6f8768a38d4fa9a845df83367ef96d0514ac41a7f3d337b4a20b5"
     sha256 arm64_ventura:  "937f1a294ababd5e2c7815c599a185b83e67bb07ef6f86da4773bfcfcead1876"
     sha256 arm64_monterey: "c7fc7231fcb5d959fc393a50388e7fa2bd152d6dde8dd0b2cb5530e2b9aa29c0"

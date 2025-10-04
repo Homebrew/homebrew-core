@@ -51,18 +51,8 @@ class X264 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ec18379e16e4e5fd740518dd8964472392725b10dcde1e726f02a34bcba813e"
   end
 
-  on_macos do
-    depends_on "gcc" if DevelopmentTools.clang_build_version <= 902
-  end
-
   on_intel do
     depends_on "nasm" => :build
-  end
-
-  # https://code.videolan.org/videolan/x264/-/commit/b5bc5d69c580429ff716bafcd43655e855c31b02
-  fails_with :clang do
-    build 902
-    cause "Stack realignment requires newer Clang"
   end
 
   def install

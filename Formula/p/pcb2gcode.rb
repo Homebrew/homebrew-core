@@ -10,6 +10,8 @@ class Pcb2gcode < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1c7bb5342f773b41b6b485728e03aac465b7af391595656ca98a534092417cca"
+    sha256 cellar: :any,                 arm64_sequoia: "ff258b7d916b2586d2c1275f340e583352c050ce6e11f5fe88769fa1afa9eb18"
     sha256 cellar: :any,                 arm64_sonoma:  "f34119207d88d392cd9bc22d9e2f8a60b75dac989cfd4eacd3f65c54b6796752"
     sha256 cellar: :any,                 arm64_ventura: "b01464e9d453255290840876db3899984cceff1a5c6c5046bd6bdae5d79d563e"
     sha256 cellar: :any,                 sonoma:        "0cd3f0c8556a36e6bfb7238ecb698108c85c97396e4a6b1966752868c6d3cbe0"

@@ -8,6 +8,7 @@ class DhallToml < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d202ffbdfbf211631563eca1903d4d0a5042a1c121a0846159b5f181b9381e94"
     sha256 cellar: :any,                 arm64_sequoia: "f60b0a53a5b7aea1eb8971c09d147d36b6eb6ac790a58e40feb7d1da7294f425"
     sha256 cellar: :any,                 arm64_sonoma:  "63f45b97bae8d4a1bf2a8c35d76ade363a6438c10f6dddbb7af07ced0e8b5607"
     sha256 cellar: :any,                 arm64_ventura: "bfe459be3cde24c50eaa7cb0f40902c52ce55c96071c70b51353a33ef2a65e22"

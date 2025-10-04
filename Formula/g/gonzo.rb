@@ -1,24 +1,25 @@
 class Gonzo < Formula
   desc "Log analysis TUI"
   homepage "https://gonzo.controltheory.com/"
-  url "https://github.com/control-theory/gonzo/archive/refs/tags/v0.1.7.tar.gz"
-  sha256 "6d6a61e76d3def4094996532e29d95b77c91bbf996cd56601809a812240aca59"
+  url "https://github.com/control-theory/gonzo/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "c8a0c7d3c27049f80b725c723fa08369624615820f2a57889ec36b1156118bf0"
   license "MIT"
   head "https://github.com/control-theory/gonzo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f3324f2e8937861a3f468db6d5b2930328fa359c3a6f7f2c79be6aec54d4a25"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f3324f2e8937861a3f468db6d5b2930328fa359c3a6f7f2c79be6aec54d4a25"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f3324f2e8937861a3f468db6d5b2930328fa359c3a6f7f2c79be6aec54d4a25"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f3324f2e8937861a3f468db6d5b2930328fa359c3a6f7f2c79be6aec54d4a25"
-    sha256 cellar: :any_skip_relocation, sonoma:        "97fb9ef89647c50a7544a5e5e534348d99676f021d3db2c826176272d76951d6"
-    sha256 cellar: :any_skip_relocation, ventura:       "97fb9ef89647c50a7544a5e5e534348d99676f021d3db2c826176272d76951d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d47e5bb77575625fe428f27dd9c66f1d96e258db8ab9ad5b9c27e5da2596ebbc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b27c6ede4bfc32378d89db887fb8fd6e47b23bd31513b4dc54e8574c1a694d89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b27c6ede4bfc32378d89db887fb8fd6e47b23bd31513b4dc54e8574c1a694d89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b27c6ede4bfc32378d89db887fb8fd6e47b23bd31513b4dc54e8574c1a694d89"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f02d2159775ea21c2dd83381fbb8e8149f34b6d3c2184ee2f235261d1a2d87db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6957bf38027fd01c026d2f6da450cefb5f9290255f5388a3f9c657bd7f988fdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7e8e2a0b5a9aa4e3af9ddeb85ec001a9ec556849e11b4db808b96d24ca417f6"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -s -w
       -X main.version=#{version}

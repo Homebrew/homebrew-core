@@ -7,6 +7,7 @@ class Sq < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4e7e26f4d83f7829d91c329688d051d834e8a8af95b2c020d67793a5eb87e236"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f7d17fcc389a770e377f4c1decb25b033b40ed0f3054982f4fcb73ffaa32f32"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ab356e5d43c53e4afbd823d3ed7205b148273fc79ed08e36428bc8b42a50de9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d2d2280b04a8a8b9cdd5ed35dd5686301c9708e580001948012b68ca5377cba7"

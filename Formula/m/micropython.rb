@@ -6,6 +6,7 @@ class Micropython < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34d4153eff140960050eb3b08c24cbfe138fbd55e85c8118a56d4d9e2012d555"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ab765f5f1bc6fa2898c55f91bc30a0d0f1c8581296c0d0453e259be597bae1d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2ecdd66d12c3eb0c78b8d1d85c09c50253f5b5cc5075caaf7ddaa852ab898b9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "122acd6b2da763a9f73f0407c00cf83edba31a4bcf6def7a56836d6d8e57da0e"
@@ -18,7 +19,7 @@ class Micropython < Formula
   end
 
   depends_on "pkgconf" => :build
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "python" # Requires libffi v3 closure API
 
   def install

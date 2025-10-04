@@ -20,7 +20,6 @@ class Minisat < Formula
     sha256 cellar: :any,                 monterey:       "5b028ad6aa66e082709083453b17d150eee4cb2a134b8cccd8c62567928b5859"
     sha256 cellar: :any,                 big_sur:        "ecc424ea3cde4f1a8d7056802d384ce1ab9823393301cac432dc26260685437a"
     sha256 cellar: :any,                 catalina:       "0940a0cb0c4c4d6130d1eb7aa698561d6b01904044ee57731ad2c12092e30e46"
-    sha256 cellar: :any,                 mojave:         "cc7b59b30490175c56a6068c97956c39da31068df2522376da99998761972319"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "63183ba50129d6699c3df8ede63fa932b1daa7c0765fcca11a8a6ba7e245a029"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1277996ab9a57f7c617501f9b386c2bb18ac90e00293738c12222dd89d90a979"
   end

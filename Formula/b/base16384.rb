@@ -2,18 +2,18 @@ class Base16384 < Formula
   desc "Encode binary files to printable utf16be"
   homepage "https://github.com/fumiama/base16384"
   url "https://github.com/fumiama/base16384/archive/refs/tags/v2.3.2.tar.gz"
-  sha256 "60b60c469d9ee7fc9b5f8e2bf93312fd1b66ddb57f803a893638b1912d4d83b5"
+  sha256 "3b612e8ab32e7b108a08cdf4112a04fbebaaa572bc60d386343a954c695e450b"
   license "GPL-3.0-or-later"
   head "https://github.com/fumiama/base16384.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5b0741d12c7fd27e441000588c8f67d5b25219ec354c30d6f1fb71f0895fd21d"
-    sha256 cellar: :any,                 arm64_sonoma:  "54b2e32ca7f2d38367f81786633fa378511721c6c2a7408a34518c4d3de2082b"
-    sha256 cellar: :any,                 arm64_ventura: "4cedcd31ee0046d2b95a03a3bde145840e61e56eff9c4d8c615ca72f52c293d5"
-    sha256 cellar: :any,                 sonoma:        "b14628debc357e0d0fcc2bd0416294addb0a809f0f5be808c0aecae4f0b69976"
-    sha256 cellar: :any,                 ventura:       "66cd155d2f35568095aa49aaace7f2ab61e0a0a2db380735971e184d85c67487"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5262ae0ad2b26cc424db339d0f1315ef6fa9a51bf38c972896f9525ce768801a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab7546bccd5073612b4c45e233d0e78f4010ddf81ebc280c8a4e566279ed01f5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "1f5f8def255ca57e635603ef572bb652a7920bae85be2e2c84a13c446d6d4615"
+    sha256 cellar: :any,                 arm64_sequoia: "deeb2188d7479f513249484059fd1de2adbeeecc433b5017bd352ca29328d9c4"
+    sha256 cellar: :any,                 arm64_sonoma:  "7908aa72a066df28976ac2c33318b3bc14dcdcdb14e03f075aaef4e49f927b0d"
+    sha256 cellar: :any,                 sonoma:        "b9c40a9eeae7fb639505085bf436817583a4bef68ab415966a232facbb1634b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "292b2d8e8b87a90ee2dbb426a69ed69f8c58945cda95c879478eeab33d38c818"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3010ed072ea82794a4f40a0ec7a11e2bc51a6f0a8d25aa18483be84976b9a2b3"
   end
 
   depends_on "cmake" => :build

@@ -7,6 +7,7 @@ class Oj < Formula
   head "https://github.com/ohler55/ojg.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9728fbcdf4ae4e3f19b934c467aaa479d9b1b2c94b0974e0608cdcdd423fc8bf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "37de874893ae11677ca75532557bebd3dde8f1b9e9547dceae4a48e4858c113b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37de874893ae11677ca75532557bebd3dde8f1b9e9547dceae4a48e4858c113b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "37de874893ae11677ca75532557bebd3dde8f1b9e9547dceae4a48e4858c113b"

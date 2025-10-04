@@ -28,6 +28,7 @@ class Ncrack < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "75a55a9850c62e608742a25832c9890770b10d51c73e797f3f8d46346b775580"
     sha256 arm64_sequoia:  "b060799701296da75f956960bbfe2f67b9a529a041bf66c9edfc76450b6bdbbd"
     sha256 arm64_sonoma:   "3ca676300ebb378ef2dc4b7442b15f47df9664e62176b49a1bd7c1d1d0093f42"
     sha256 arm64_ventura:  "79e9c8100ebba864abd6c8534c1d57d1b9d722461b5e3fca035040b3a274b600"

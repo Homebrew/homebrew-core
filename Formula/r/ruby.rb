@@ -7,15 +7,15 @@ class Ruby < Formula
   stable do
     # Consider changing the default of `Gem.default_user_install` to true with Ruby 3.5.
     # This may depend on https://github.com/rubygems/rubygems/issues/5682.
-    url "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.5.tar.gz"
-    sha256 "1d88d8a27b442fdde4aa06dc99e86b0bbf0b288963d8433112dd5fac798fd5ee"
+    url "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.6.tar.gz"
+    sha256 "e3c19ab9e8f41b3723124fbc0114cde7cbf55e65aa9c58c12acd89ec9c0dd1b9"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-3.6.9.tgz"
-      sha256 "ffdd46c6adbecb9dac561cc003666406efd2ed93ca21b5fcc47062025007209d"
+      url "https://rubygems.org/rubygems/rubygems-3.7.2.tgz"
+      sha256 "efece01225a532f4b52cf8764d20a00e0d29ed6f85b33d9302df4896a90fa5ab"
 
       livecheck do
         url "https://rubygems.org/pages/download"
@@ -30,14 +30,12 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e40c90b40d56aa0b26c61b08de183fe4413f2b9d525a0851a9d53fb9ff6f1f2b"
-    sha256 arm64_sequoia: "fe2e6af6b11313883954878627943bf07005163e900df6dd467161856a4a6d56"
-    sha256 arm64_sonoma:  "f167f2d046973aeab53465b39e4be4938af87159f5470d352e533d3227a903ef"
-    sha256 arm64_ventura: "83fd2e8ef72c6d8c019f966c540255bc29b798d500d54dce95569a65bfe73538"
-    sha256 sonoma:        "6bbca4c617a71bc124cd160221529a9bbc84a4cc6583cd990cdc27992fa845d0"
-    sha256 ventura:       "c41f6e7b60de36d562cc8d94d12e40080f5b25dd448f0e727c2ac81a7931509e"
-    sha256 arm64_linux:   "cdd7c07ee9fc9b1081f4e6e22e2f8b7892f97276c13d704f87a2a4fdf6256383"
-    sha256 x86_64_linux:  "b280f0425f4d7a70d05eabbfe5305b6ceb9eb4bc929b04e21b8ab9910db0c5f4"
+    sha256 arm64_tahoe:   "dfbb944f16f62a2ffe4d75e37d0e52d3ff895d5d65d58056a796c25cad6d85ec"
+    sha256 arm64_sequoia: "8db26d72de0d97182fa05e1cc48f2e86ab03c040831f2087705fc94eb0d067a0"
+    sha256 arm64_sonoma:  "e0690fb2ef65bc660808e8caf2cb73215c526fc9d0783256240d5c2425feb5a7"
+    sha256 sonoma:        "3cb2e3f7f8a20f0ba7cff089b9b7c1755c656fc85f99fe8073fdd09d77b616f7"
+    sha256 arm64_linux:   "0eb67642f5027acb33f304ab0ce165700216799dacba2cbb3ec53c71826cb329"
+    sha256 x86_64_linux:  "3dd735f812a07714372bb07f13e4d3eb167bb9bcaf3a778124dd4dc508066cbf"
   end
 
   keg_only :provided_by_macos

@@ -2,7 +2,7 @@ class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
   license "Apache-2.0"
-  revision 4
+  revision 5
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   # Remove `stable` block when patch is no longer needed.
@@ -24,13 +24,13 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "2f41f4f61000dd2ac56cd8b4d0419916077fa2e10cc4a294a1d100b8b29bfed7"
-    sha256 cellar: :any, arm64_sonoma:  "40f1bdafd61fb20f09a8fbc2d17445ac12387ae2e46ac1c1131d0e54f02c891a"
-    sha256 cellar: :any, arm64_ventura: "711c37000c74bd1a3a44da29cafdcebe38a2a2ffe7e4f2a0971d7c8a5ad506b7"
-    sha256 cellar: :any, sonoma:        "6a7fbff38e8933616a7052935195ca08de4a9872d48554cb939c4687166d8331"
-    sha256 cellar: :any, ventura:       "37b2f307068cdad2adcdcb4c6dfc82216a7e6858f851c70d1804d4a0916c3fb0"
-    sha256               arm64_linux:   "f142fd5479d4de9c400b50c92777c3cff7a375c04582ab1f05ea06c881e8352f"
-    sha256               x86_64_linux:  "d5ff712bf00d2955ca8e1c6b695b75b233221f70d9bb51c89a5ac7cf85500521"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "68f1360be26513f2c7df331cc9d3a37b6f3a13ad4dc089235af2b566888b5ae5"
+    sha256 cellar: :any, arm64_sequoia: "74eaae9e575db9fab340a6f2ba562534f23bf701bdcfd6721760455618901f8a"
+    sha256 cellar: :any, arm64_sonoma:  "45b0bbc7a29c9b970d178799a82456045e7803accf760eb0538c830970ea325b"
+    sha256 cellar: :any, sonoma:        "8f2cef449475cecd3eec0b52b607598367203a7e068046a36874b645bd14f5a5"
+    sha256               arm64_linux:   "7082187fb6d7d4d40eaa9989be3a9ef4ed5d075da4478752ba6299319ba623ea"
+    sha256               x86_64_linux:  "ee29a34374a2340acd72ff771bbe37a05908d015f945e84ebf47b26cce200d2d"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -41,6 +41,7 @@ class OrTools < Formula
   depends_on "clp"
   depends_on "coinutils"
   depends_on "eigen"
+  depends_on "highs"
   depends_on "openblas"
   depends_on "osi"
   depends_on "protobuf"
@@ -49,25 +50,12 @@ class OrTools < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  on_linux do
-    # LLVM Clang helps avoid building with indirect GCC dependency which uses newer libstdc++
-    depends_on "llvm" => :build if DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
-  end
-
-  fails_with :gcc do
-    version "11"
-    cause "absl/log/internal/check_op.h error: ambiguous overload for 'operator<<'"
-  end
-
   # Workaround until upstream updates Abseil. Likely will be handled by sync with internal copy
   patch :DATA
 
   def install
-    ENV.llvm_clang if OS.linux? && DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
-
-    # FIXME: Upstream enabled Highs support in their binary distribution, but our build fails with it.
     args = %w[
-      -DUSE_HIGHS=OFF
+      -DUSE_HIGHS=ON
       -DBUILD_DEPS=OFF
       -DBUILD_SAMPLES=OFF
       -DBUILD_EXAMPLES=OFF
@@ -125,6 +113,28 @@ class OrTools < Formula
                     *shell_output("pkg-config --cflags --libs #{absl_libs.join(" ")}").chomp.split,
                     "-o", "simple_sat_program"
     system "./simple_sat_program"
+
+    # Highs backend
+    (testpath/"highs_test.cc").write <<~EOS
+      #include "ortools/linear_solver/linear_solver.h"
+      using operations_research::MPSolver;
+      int main() {
+        if (!MPSolver::SupportsProblemType(MPSolver::HIGHS_LINEAR_PROGRAMMING)) return 1;
+        MPSolver solver("t", MPSolver::HIGHS_LINEAR_PROGRAMMING);
+        auto* x = solver.MakeNumVar(0.0, 1.0, "x");
+        auto* obj = solver.MutableObjective();
+        obj->SetCoefficient(x, 1.0);
+        obj->SetMaximization();
+        if (solver.Solve() != MPSolver::OPTIMAL) return 2;
+        return x->solution_value() > 0.99 ? 0 : 3;
+      }
+    EOS
+    system ENV.cxx, "-std=c++17", "highs_test.cc",
+                    "-I#{include}", "-L#{lib}", "-lortools",
+                    "-DOR_PROTO_DLL=", "-DPROTOBUF_USE_DLLS",
+                    *shell_output("pkg-config --cflags --libs #{absl_libs.join(" ")}").chomp.split,
+                    "-o", "highs_test"
+    system "./highs_test"
   end
 end
 

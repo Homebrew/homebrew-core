@@ -9,6 +9,7 @@ class Pdf2image < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "3441323b63b2667e68a90b70633c40813b10f0597933aadd8a46ff7a36413f8a"
     sha256 arm64_sequoia:  "412c25b88af18ef42fc4c705a409449b38f3fab9a792b40067ce2c510e524903"
     sha256 arm64_sonoma:   "caf804519e1009c069f081987d8cf3a9052649c7fa2359bf9749df195bbdbb21"
     sha256 arm64_ventura:  "fd39ba0dc18b50fd76f8be5b8d85335cc2b7fc40ab14e3a096890ed60f6f50b1"
@@ -19,8 +20,6 @@ class Pdf2image < Formula
     sha256 monterey:       "dd02bfaa0f17e894f94ddae7848a7ed0d769a631b294b853bcab234be626c704"
     sha256 big_sur:        "51717dc099723d65d1aeedd18be5886fdb228dca2ceb190cde744a63e1b51bbf"
     sha256 catalina:       "9550e644b89b03d2e78880145d64446d1fe07ef575c2fd4109a932ef2d5258b0"
-    sha256 mojave:         "00f2f25eb5580dc2a4bbab2ac2913fea732967098cd373e52b6f5317098d8936"
-    sha256 high_sierra:    "622e0f3caa2eeffe59384682a196fd42b381e638d67ddb399e39342e08fee1b1"
     sha256 arm64_linux:    "7b1588d8a5fb1c0dac620c9bebada39b426bea18c9310c9bea1de7586885a381"
     sha256 x86_64_linux:   "86497b2d47fec1c951e40a9ed363e8826ded682eaf6d36403ab394f0dc09e7ff"
   end

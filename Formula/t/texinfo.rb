@@ -22,7 +22,7 @@ class Texinfo < Formula
   uses_from_macos "ncurses"
   uses_from_macos "perl"
 
-  on_system :linux, macos: :high_sierra_or_older do
+  on_linux do
     depends_on "gettext"
     depends_on "libunistring"
   end

@@ -1,17 +1,16 @@
 class Colmap < Formula
   desc "Structure-from-Motion and Multi-View Stereo"
   homepage "https://colmap.github.io/"
-  url "https://github.com/colmap/colmap/archive/refs/tags/3.12.5.tar.gz"
-  sha256 "93dfb220cce24d988506bbb1d27d4278eacfd4e372df61d380559d414c1bd9e4"
+  url "https://github.com/colmap/colmap/archive/refs/tags/3.12.6.tar.gz"
+  sha256 "f66d34be7a738fa753d1b71aec4fb7411d8c117beb58d1f2ba84ee2696c96410"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sonoma:  "f30b343b6a57e5455a19b70b1d50d493a1466b48f1b64acbf24602e07059e335"
-    sha256 cellar: :any, arm64_ventura: "32e1527cf7ec53e989b9d1fca76bdbf57544679044971b0e56a1a9ddd523822b"
-    sha256 cellar: :any, sonoma:        "9c6e639171b656295978741177bd1f09c792c27721b631b72833bf6c4912ca30"
-    sha256 cellar: :any, ventura:       "009de8b69f339954254259379a70e0da28f96802b40cece12f5d9c5f5d90ab4c"
-    sha256               x86_64_linux:  "8fa780ef4d4efc4abdf829d0afe66a03e1fca6c553a4af158ad05fbc1886d465"
+    sha256 cellar: :any, arm64_tahoe:   "38673b04e380657db56daca34d6f9bac63c6cf6fcdd9a84ebbf1820d5f56cce2"
+    sha256 cellar: :any, arm64_sequoia: "04f4acca4579eb55387f90840e8d6bd959c59cfc989423004c3f007405602618"
+    sha256 cellar: :any, arm64_sonoma:  "a695a903669295bf7c7d0600fda4d8c17aa00ae4a452a0de58c9a76e99c037f7"
+    sha256 cellar: :any, sonoma:        "f4d49e7926090e199c3e5a6e92d8825da1e124172dd157ed9bdb25cba74b1f7d"
+    sha256               x86_64_linux:  "b5bdae09804df82c4eb7dae50e41f167ff54909b369a67b2f533f99cad110e67"
   end
 
   depends_on "cmake" => :build
@@ -28,10 +27,12 @@ class Colmap < Formula
   depends_on "gmp"
   depends_on "lz4"
   depends_on "metis"
+  depends_on "openssl@3"
   depends_on "poselib"
   depends_on "qt"
   depends_on "suite-sparse"
 
+  uses_from_macos "curl"
   uses_from_macos "sqlite"
 
   on_macos do
@@ -42,12 +43,6 @@ class Colmap < Formula
 
   on_linux do
     depends_on "mesa"
-  end
-
-  # Backport support for Qt6
-  patch do
-    url "https://github.com/colmap/colmap/commit/1625d9e8c97aa8beef0df0c00430c1c3d79190ab.patch?full_index=1"
-    sha256 "146e444bfe7209b046a8a5a9f14acb84bd381295ba7f2cc70a38f768e9137136"
   end
 
   def install

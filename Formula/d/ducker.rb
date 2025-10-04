@@ -1,19 +1,17 @@
 class Ducker < Formula
   desc "Slightly quackers Docker TUI based on k9s"
   homepage "https://github.com/robertpsoane/ducker"
-  url "https://github.com/robertpsoane/ducker/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "8a194a077ad6c278f3b5a3157fdf70285d517c5a9b76d09740cbd56ae685b1c0"
+  url "https://github.com/robertpsoane/ducker/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "822a360262df27a288f38ef04ab1ceb8e32fff2c907dc4a3bbc3e1c7dd3d0467"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "defc468da3eb6f91024954c7cef1d5ec725cb132901c23f690e3f8b09f1cfa3e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65a084efb351dc275a0451a0d3cebf8c8b232d29e82892eb248ffadfb642b318"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "641bae2181d618051a983cf8bd891b6293b2cf7c4f8a2fcd95fde6a07e5f2375"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c38cd0f5c02d0df00fe2c6a9682af7c60a2aa49fbe2f9e5045e8b01f0cc641ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad2e836505663c917060b08cd244720459f70290a4aab0e4d2a832d2a3c0090b"
-    sha256 cellar: :any_skip_relocation, ventura:       "31970d3d323e8ff6bc49d2a6f359693958ae6461bcec3ed9a55ddf8bfc5f8a3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d68dab3a1f328cb6060709b9b82674d6c6e69a9e597f3563875916fc935c4957"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67f68fd898023c6f6b29c4404e07be98806f073862a2e005c2174d4c34175a8a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9cbf4acbe7381da8e026679e6c316dc42eb1fc124cba4e2fc46650b4846e636"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3f2fbc2936d4dad3a8732437b413c29fb7405efcfa201a69f41617f037360f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7849dce2fcb20ca1d0c01864c015801af53ca342b4835c5d1f3026dcfac49cca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "de48399dd9706be66f7d9e27c4d1f755130eb442ca10b3b348620f69c4005d73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fdc136512f71e120dac7be080a2511b5152af7173aaa3f256e26c2b47603416"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5768dd564b60e0d8bb527b2734d901c910e4f04d06db87d083541b722be1dda0"
   end
 
   depends_on "rust" => :build

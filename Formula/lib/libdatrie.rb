@@ -6,13 +6,13 @@ class Libdatrie < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "95efc78786bed41afeb85e4481b7e418982b2a1c9ba2eca5f058b779dd204687"
     sha256 cellar: :any,                 arm64_sequoia: "f864dccadb35cd53fcee3e84a369d0b7ca10c842b8771a1c465d44fb03b71a84"
     sha256 cellar: :any,                 arm64_sonoma:  "66daae07645d7b488dfdd19120830ea7226934de6434370f3a174d6b49a6c16c"
-    sha256 cellar: :any,                 arm64_ventura: "541b03e5526b7ff6814697f7d343827d120cbeb42e83b441e4264b5f72bc8f1a"
     sha256 cellar: :any,                 sonoma:        "cae5e0af929b08ab076d3669675a659a974ae1a860d6a57cce0f75728c22037d"
-    sha256 cellar: :any,                 ventura:       "83b886b9fc24c2f45cd98584c91ab3eeb14c3838c456026216886d9151811f93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a04b4f1c659bb58c95db895643c02d3b197439c3ae2b0530bde75ea898a7d4b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "21930fcf438508398cf6795b7f5bbde1f4f2af2ceeadf315de7cc7029e30e9b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f97bc60dfd8e9c4490f98537b6a99f81e9ab32d78ca9e23ad9faa4a6cc9a194"
   end
 
   depends_on "pkgconf" => :build

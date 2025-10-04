@@ -1,12 +1,22 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.40/newsboat-2.40.tar.xz"
-  sha256 "1e656636009ffad3aeb87f8d0e4c36d2e913eac155b5f3ec85d00e8287b477c2"
   license "MIT"
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
+  stable do
+    url "https://newsboat.org/releases/2.40/newsboat-2.40.tar.xz"
+    sha256 "1e656636009ffad3aeb87f8d0e4c36d2e913eac155b5f3ec85d00e8287b477c2"
+
+    # Backport fix for Rust 1.89
+    patch do
+      url "https://github.com/newsboat/newsboat/commit/3a018bbf88fef74d1af24c79f5d640c6d753ab16.patch?full_index=1"
+      sha256 "af1f0969b14ae80439e4e14c5126425221eabae285ba15eeb1c63980cd905612"
+    end
+  end
+
   bottle do
+    sha256 arm64_tahoe:   "08e61ae78bb180d94bacfd18718e0ff22ec506c1fe3ddc66140ddf43342434fe"
     sha256 arm64_sequoia: "62beb795654ad0e034cae9415b3d9762037dd5b7a6b084195338d66dfe12e5d4"
     sha256 arm64_sonoma:  "eaab1099251d9341a040788309e8de0cd3a2210eb45b8feaa15dd96303c3ad94"
     sha256 arm64_ventura: "00456fdf96b6cf458a1ef3e68343ded5c41f4c41dea5af060c477c782b74e535"
@@ -31,6 +41,15 @@ class Newsboat < Formula
 
   on_macos do
     depends_on "make" => :build
+  end
+
+  on_tahoe do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1700
+
+    fails_with :clang do
+      build 1700
+      cause "https://github.com/llvm/llvm-project/issues/142118"
+    end
   end
 
   # Newsboat have their own libstfl fork. Upstream libsftl is gone:

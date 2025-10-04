@@ -7,6 +7,7 @@ class Dissent < Formula
   head "https://github.com/diamondburned/dissent.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "97643003bef7a54d768a1f7878b036270d6e1845a7089fd76d99141a9eea56a8"
     sha256 cellar: :any,                 arm64_sequoia: "c910693be03f0bd067d9f4d007b836145221602c286039353719daaad66e58c2"
     sha256 cellar: :any,                 arm64_sonoma:  "2b481aebf10e511c8598309b4d2a0e8fbf6ec099af82d4c2102699976e50bd3d"
     sha256 cellar: :any,                 arm64_ventura: "ed3a59ef647f6a22544b57a23ee1a248ba0b03f49ad55145b9acfa3af1488f3d"

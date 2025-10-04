@@ -33,6 +33,7 @@ class Povray < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "204252605683714d5a61ba06de5cd5d85f99c2611d685af671c32ae116647030"
     sha256 arm64_sequoia: "44ec7713b1607ecf66042d6111a44a1bf58e7afb2965c42721857af84ce81deb"
     sha256 arm64_sonoma:  "9785bd774a6e501ac50dacfbce4df93801e2ac799a15e6b8a929d5b35925718a"
     sha256 arm64_ventura: "b8ea24b342d54d613f811190b424ab43e5a2f6504e9596fbbb02a539fa0c73aa"

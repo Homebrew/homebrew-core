@@ -19,8 +19,6 @@ class Cmatrix < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "6e3f0b2e04f4f87f62b138124b750591e5012fb3f5ebea8558371a11d7630724"
     sha256 cellar: :any_skip_relocation, big_sur:        "745b7d4d2da66a0c4d159909cb16b0b6a29647a96ac6ae74fcf3b993fd730e6c"
     sha256 cellar: :any_skip_relocation, catalina:       "fcc9c366c560e89ee2b4f61d1bdece14379a2c598719fd2eef784564bf9ed677"
-    sha256 cellar: :any_skip_relocation, mojave:         "1b3d3155c87c8f2b788fe18c3e72f04af4e79c609030e3447c3e17f9d3870c7b"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "2c3b0ce73a2f89ece3783885e44aba5f584268768283e650d8b6552bc00f058d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "f3001650675f0947543d0556e8b3338984368e8fb81eb6ffa4555523b34d2644"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "15aea39b9be08c26c94c9e2f8c82e977aaa7bf0884fbc4543114a52321e6cbc2"
   end

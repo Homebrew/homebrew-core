@@ -1,18 +1,17 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-23.5.1.tgz"
-  sha256 "137d9a6d5b447ba4d0c3d71f2ce01b8b4a077cd1cad1202bf7845da72882635a"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-23.9.1.tgz"
+  sha256 "d28903678ce2886a9dc2b5b51411eb59008fcd99c9b0a27fc8a045f7f3a81a29"
   license "MIT"
 
   bottle do
-    sha256                               arm64_sequoia: "f6013398b495a61fe7efce9da3bcd2db96e157b63448ec682c68d355f581e509"
-    sha256                               arm64_sonoma:  "f6bb3b7262e974d1642e6bf45321507399d9b1b487573c014693b82df496f434"
-    sha256                               arm64_ventura: "8a8da504010c765191a6b3d10d224c807836dbdebbc16da00bb057e8b01fc603"
-    sha256                               sonoma:        "4dac2afe374ac7363a20638f2e2f07b51df0141979e741feecb73c9f78ac77e1"
-    sha256                               ventura:       "3ba1052e47f90c0f85edf4762b3b5ed7fb2a6419e94b7be3bb3fec453679c121"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c7e2c5fa01127328385f302e8935498c35e76afdc4a28ddbe2af7691205b5cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae0a2b2ac285b8b286c7210bbfe073064b459be83752e5fa92dd7b2e9702d978"
+    sha256                               arm64_tahoe:   "ca94b603867829d9aadba53577e7ff805b5de18734cde857d597b82e7e627dc4"
+    sha256                               arm64_sequoia: "6de98bf9c092dd12119eacfa925f7c7ea7e16930bc0ebb48d78a5a712c33c929"
+    sha256                               arm64_sonoma:  "213e6eafee148492582788959dc682ddd169b9b7d0599f6143f78d0162fde7d1"
+    sha256                               sonoma:        "be26a319a2a25bbef309aeb55f2b552af8d78671c6c31a1995bc0006c26cf50c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18ab340a2ae229ffb4e3354abfba48b51efdd8b04b7590b4f01516f7e641831b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18026cbd1c68a0e167b4f2009f0da12ae3de89715de6f124f34b406dcdb5236d"
   end
 
   depends_on "pkgconf" => :build

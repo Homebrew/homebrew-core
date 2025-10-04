@@ -8,6 +8,7 @@ class Glyph < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "fcddc6c86d264cdd659ebbfedc657e38928226f4d5aa4bf287093e063c545c0f"
     sha256 cellar: :any,                 arm64_sequoia: "d08bfccc02c09b9799d646e37993f36e8c3361db5f07847ddb46a051460bd9d6"
     sha256 cellar: :any,                 arm64_sonoma:  "1023ab2fe863ebe3d7363f38721ea896612dbf08366ae02d10c9eeaa080974de"
     sha256 cellar: :any,                 arm64_ventura: "e31e144ff58e79196da8eded25d0e0b926e8c9aa13f7da01986d9c92200d3e1a"

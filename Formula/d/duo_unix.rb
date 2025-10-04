@@ -1,19 +1,17 @@
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
-  url "https://github.com/duosecurity/duo_unix/archive/refs/tags/duo_unix-2.2.0.tar.gz"
-  sha256 "186d3af8659093903e7c2e3e4a44717b6a502877016125242622dfa9aaa91098"
+  url "https://github.com/duosecurity/duo_unix/archive/refs/tags/duo_unix-2.2.1.tar.gz"
+  sha256 "3461d6f5818388ecf84f0a2ef97a1a7af5f9dfb9fe09f3a0a5bc4717ba0be027"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256               arm64_tahoe:   "ed5e191e34723d1eb8bddae4b5971dd2eba5c75497368d974f7e4dfcdb0a4af1"
-    sha256               arm64_sequoia: "c3a62df3263a0fcea182075746ffe5301fd11be35c01812abccb841caddb90b0"
-    sha256               arm64_sonoma:  "61e8b4090f241f8685f5913989b06b2592050f98d7aa0a920a1951509afbed3d"
-    sha256               arm64_ventura: "82ef15d990999217957a13bf354312c9f7c2fc2771dc45911340deb5e8ee5dc1"
-    sha256 cellar: :any, sonoma:        "bbaffb904216e3dea759c385265aa2d86998197f5311f333ecc10be173c0df5c"
-    sha256 cellar: :any, ventura:       "49f259e1d33e26074c22f620b7f5b0fb31c2dbea9e6ae3d92e26e07952033556"
-    sha256               arm64_linux:   "a33c8ef5fcff310580983e68e3125a5cbff8e5376d69f48e90ebca8179bd2b16"
-    sha256               x86_64_linux:  "c72420eabe0a8175683dcbc39470e4589c4791c5d014bbe9fe252b872899ea90"
+    sha256               arm64_tahoe:   "b354b4407675279464957db28281e1298e495be6ac1f67b3cb37bf9c41b570a8"
+    sha256               arm64_sequoia: "bce0a9f9c0a4a0956dbc87a25fa3b1aab66b75be56efd83b55071ffcd0dca72e"
+    sha256               arm64_sonoma:  "f4e6ba38f45ca5d24cb8d2590a35198703be47a081314a2602218ff3b939539e"
+    sha256 cellar: :any, sonoma:        "3805539d83ca20ff03edaf05668158b3d32f97eb75d5a22c2d15884f82c3d316"
+    sha256               arm64_linux:   "d909789b3dccacdeb365f20e78e1741c8ce5518ebbbab825c3c0889782ef7142"
+    sha256               x86_64_linux:  "19c17623d2f22249ea692c36cda0bdc533d35fe7b9d7fc9da20622eb2f9bd7dc"
   end
 
   depends_on "autoconf" => :build

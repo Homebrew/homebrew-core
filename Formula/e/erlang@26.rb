@@ -13,6 +13,7 @@ class ErlangAT26 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1233c5ba6c829f3257522a3c081ebf408f2cbe9fb113ca168cf22be54e99518b"
     sha256 cellar: :any,                 arm64_sequoia: "5c0dbfe379a329fd058e893ffd29381561fbbb517e8c8918f70e250687100303"
     sha256 cellar: :any,                 arm64_sonoma:  "be3fee46237e9575c0af1b35c9d305201160655ba6f7b68e869a633fc3814aff"
     sha256 cellar: :any,                 arm64_ventura: "b7dfab438bd7a57c68f14d11007fd9c10709ea656994b955b23842d72b5c87ea"
@@ -73,7 +74,7 @@ class ErlangAT26 < Formula
 
     if OS.mac?
       args << "--enable-darwin-64bit"
-      args << "--enable-kernel-poll" if MacOS.version > :el_capitan
+      args << "--enable-kernel-poll"
       args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
     end
 

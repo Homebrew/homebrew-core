@@ -11,6 +11,7 @@ class Vips < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "3c69ac3283ae0d174f1409451118ac2137ef8863605ac4dae1461bac374d1427"
     sha256 arm64_sequoia: "1c136e4f3b49f9f3e92169e98af25a9d4e8bd8fe3716354b3899026dd23219ff"
     sha256 arm64_sonoma:  "5723d323619acd061b08905bf7e86ce826ce36ad36a8c5aa1d516695c8272428"
     sha256 sonoma:        "27099adff407a3ebd991a1d4bf45e8f71d87a110e3d91cbd3b0cabe4f4c83cfb"

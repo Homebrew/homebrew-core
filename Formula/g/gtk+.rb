@@ -17,6 +17,8 @@ class Gtkx < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:    "50bf4d48f706e87bc7bff60b97ea41bc0ca1d4616390be8fe2781360531244c2"
+    sha256 arm64_sequoia:  "a431feb1110a7b24050d4115bf8a0701eefb6ea735c276acc99c23a9260f72e8"
     sha256 arm64_sonoma:   "659b62a2677b7e945221ab78abfab6919d7a4ac7c635de52417ab96eb4970a92"
     sha256 arm64_ventura:  "140729098a62031c80b8e43c29314f84a5d0152b1348612f83d01331251ba02c"
     sha256 arm64_monterey: "88b226c05abe1a848ee8ab7d98e7b0388383b3cdd003dff8448aa9d1901202c3"
@@ -28,10 +30,6 @@ class Gtkx < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  # error: 'CGWindowListCreateImage' is unavailable: obsoleted in macOS 15.0 - Please use ScreenCaptureKit instead
-  # NOTE: We could potentially use an older deployment target; however, `gtk+` has been EOL since 2020.
-  # So rather than trying to workaround obsolete APIs, the limit is a deadline to deprecate `gtk+` and dependents.
-  depends_on maximum_macos: [:sonoma, :build]
   depends_on "pkgconf" => [:build, :test]
   depends_on "at-spi2-core"
   depends_on "cairo"
@@ -86,6 +84,9 @@ class Gtkx < Formula
   end
 
   def install
+    # Uses obsolete CGWindowListCreateImage. GTK+ is EOL so won't be updated to ScreenCaptureKit
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = "14.0" if OS.mac? && MacOS.version >= :sequoia
+
     # Work-around for build issue with Xcode 15.3
     if DevelopmentTools.clang_build_version >= 1500
       ENV.append_to_cflags "-Wno-incompatible-function-pointer-types -Wno-implicit-int"

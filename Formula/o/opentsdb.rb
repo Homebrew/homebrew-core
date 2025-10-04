@@ -19,6 +19,13 @@ class Opentsdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "8c51dd6ebd008e6868a745d85dfe01374ef3b4e3ada22a54d4015d89e7973443"
   end
 
+  # Deprecated since:
+  # * No arm64 macOS support: https://docs.brew.sh/Support-Tiers#future-macos-support
+  # * CVE in stable release: https://nvd.nist.gov/vuln/detail/CVE-2023-36812
+  # * Still needs OpenJDK 8 to build
+  deprecate! date: "2025-09-25", because: :unmaintained
+  disable! date: "2026-09-25", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "openjdk@8" => :build

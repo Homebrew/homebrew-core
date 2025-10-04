@@ -21,7 +21,6 @@ class Cql < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "29676dd87b84617809ee42f862ddbeabb56a52df5ddffa4acc9e8fe807e7244a"
     sha256 cellar: :any_skip_relocation, big_sur:        "ba7c4a2af433caab8ca7d413629cb7a7f16c603bbe982029b0b9cf651e58b3d5"
     sha256 cellar: :any_skip_relocation, catalina:       "aca52c8e6eb35cda498056f2047efbed677cda2632d9993f19b6b26f558dd82b"
-    sha256 cellar: :any_skip_relocation, mojave:         "aabedbf76babd3b74753cd478fc431a8b4da832de192c9cab733ba92564a4b1c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "954bda484c06dd6041bc1e3e0e8c582db2b0257060a4f457df0557f1c9f6c591"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "35126cd0a047a47d7f08b3dc2a2967eee1d2263ef55c8eccafe4b4bfa9047385"
   end

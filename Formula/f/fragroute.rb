@@ -27,7 +27,6 @@ class Fragroute < Formula
     sha256               monterey:       "de505dc5218cbde66b8d8dc1538be12fa87ab717c35ea3002c3e8dd017c50fe1"
     sha256               big_sur:        "6d9bc388969f3798ca6ff4bc6e4cf5ecbc03f995b5f21268ae57fd49a69ec1c2"
     sha256               catalina:       "1427f299e84d0b1662a3492dc9c69cd46776265dc8b76488752b19eee1126ba6"
-    sha256               mojave:         "2e4c49a602719693ed6a285aab60158a489d0f6592920b37a41e7ee933959ea6"
     sha256               arm64_linux:    "d523c515c30c72b7c706b497f2f84facb09e3b97a952efbdfd14791fb8fe10b7"
     sha256               x86_64_linux:   "8bb5693e0c2a0b3f5b0d10750d306b75fde72e4e7d9247c8e3717f95204aa534"
   end
@@ -73,10 +72,10 @@ class Fragroute < Formula
       --with-libdnet=#{Formula["libdnet"].opt_prefix}
     ]
 
-    if OS.mac? && (!MacOS::CLT.installed? || MacOS.version != :sierra)
-      args << "--with-libpcap=#{MacOS.sdk_path}/usr"
-    elsif OS.linux?
-      args << "--with-libpcap=#{Formula["libpcap"].opt_prefix}"
+    args << if OS.mac?
+      "--with-libpcap=#{MacOS.sdk_path}/usr"
+    else
+      "--with-libpcap=#{Formula["libpcap"].opt_prefix}"
     end
 
     system "./configure", *args

@@ -1,24 +1,25 @@
 class GiteaMcpServer < Formula
   desc "Interactive with Gitea instances with MCP"
   homepage "https://gitea.com/gitea/gitea-mcp"
-  url "https://gitea.com/gitea/gitea-mcp/archive/v0.3.2.tar.gz"
-  sha256 "7a5eef86d1217bf607656814a70e96f9093794f17ca223dc957dcf7b503da855"
+  url "https://gitea.com/gitea/gitea-mcp/archive/v0.4.0.tar.gz"
+  sha256 "a1708fa8a16786a592e09e84f7f4863e033a692e50bd4a7a20781deaa6b633c3"
   license "MIT"
   head "https://gitea.com/gitea/gitea-mcp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "88ebb3e23cf25d48fb0a5ac2c6bc40b6ada1515fc17ce614a3522eeab18dac63"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d124adc4eb69844159365083581823b2ebac5853b043cf57e77f46df27b5e0d9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d124adc4eb69844159365083581823b2ebac5853b043cf57e77f46df27b5e0d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d124adc4eb69844159365083581823b2ebac5853b043cf57e77f46df27b5e0d9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39e5b997ee1f9ec5b0bae198e3a7588bf18451ca26b86488e2c8b1d62325d9b9"
-    sha256 cellar: :any_skip_relocation, ventura:       "39e5b997ee1f9ec5b0bae198e3a7588bf18451ca26b86488e2c8b1d62325d9b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6610811806ce4120d81ee9c1caeb53f9565a9a05c3e2669b51a74ca4bf54150b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f72c421e386fbc4ec3038787aac700f8faa19f861a1f25a54781d06bb63230f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f72c421e386fbc4ec3038787aac700f8faa19f861a1f25a54781d06bb63230f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f72c421e386fbc4ec3038787aac700f8faa19f861a1f25a54781d06bb63230f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "41837172b03d3b7e56f47a6b4ddfb360c626be5765392008c2eac6e245f78066"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "107695d723d7e72a9e56afc750f23ad5d01038d26fbb60e05c07864a9c0c2d78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d47d8641e2c8430649ca5a7c609b95ab88ba676ce46ea66fdfcc7a5606a98163"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
   end
 

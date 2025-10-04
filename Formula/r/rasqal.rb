@@ -24,10 +24,6 @@ class Rasqal < Formula
     sha256 cellar: :any,                 monterey:       "8f0d23af21ab8a802e58d7f6b31234411ccb492884d9a87eba8205be79ce6899"
     sha256 cellar: :any,                 big_sur:        "14c26a4f0d108107281be78dbca4948b52a3ff157fb2dd33bdc123b2a467c492"
     sha256 cellar: :any,                 catalina:       "c815139d0154570fcab0e42ce7244682d13c47c4d4102b61260ffd1d0694d218"
-    sha256 cellar: :any,                 mojave:         "61669830b056a2d79757a38bdaa53ea52c6bb84e58dfcff75804252fa12c752e"
-    sha256 cellar: :any,                 high_sierra:    "c9a39d850c71f2ffcc6d0368cb9f575df1a0bd727992dfb553baccc8ecec97ce"
-    sha256 cellar: :any,                 sierra:         "8d57d6803a7323f9e13c45d56b3cea41f71f7dc7cab493ddf9b34d0a2a6b68f5"
-    sha256 cellar: :any,                 el_capitan:     "fa7368eb30256eb80ead76f7b551bc5980ed15ae8aa655d332a200edb073c2a3"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d767881b0338446f5c5d2256e184167071d10cacc05bea13a78dc009ec891fd6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2267d3f39fc7d088095d64bb6cf86f5fcad6c2a72fdd72dde8237cc910b123d1"
   end

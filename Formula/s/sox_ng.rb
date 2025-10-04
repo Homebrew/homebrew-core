@@ -7,6 +7,7 @@ class SoxNg < Formula
   head "https://codeberg.org/sox_ng/sox_ng.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d71a82586784fca8f39ffddd4f4bafc1f2f4ec00804999658aaeabef5ceb8a05"
     sha256 cellar: :any,                 arm64_sequoia: "ef0c00d04f83842b9edf92aaee3eeab41227d15b6de9850e5f0fa8245aa8a155"
     sha256 cellar: :any,                 arm64_sonoma:  "61c54bcac65f22b9301bc5cd0dd1e8473dcb9dbb1f38ce6d24e62bec16b479d1"
     sha256 cellar: :any,                 arm64_ventura: "2d151503ad1b08204140a3cb8c21bd3f8f6aee89b36724e3f0f8e02d356c508a"

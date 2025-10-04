@@ -15,6 +15,7 @@ class Pango < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "cc25f12c05e5a49b2d73b0c4161554f72dce3b813ad9790ed94f146564e4a79f"
     sha256 cellar: :any, arm64_sequoia: "af46edb4113ff0190d78175fb4e82296467cef2ed216267bcc3b26f151b2fe0a"
     sha256 cellar: :any, arm64_sonoma:  "5574b80791985eddd56246754eae3b4d35404fef8618d217595dbcd115e87cf9"
     sha256 cellar: :any, arm64_ventura: "a540a741aa1f48d1aa12a4da48c14ed0684f7622e5f5c00acbec5fbf8cdbad08"

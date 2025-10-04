@@ -4,6 +4,7 @@ class HierarchyBuilder < Formula
   url "https://github.com/math-comp/hierarchy-builder/releases/download/v1.10.1/hierarchy-builder-1.10.1.tar.gz"
   sha256 "8fa555024ffee5892b3bf516db2ade1378d9902479fa6109c8f047bf760cdfa4"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,14 +12,12 @@ class HierarchyBuilder < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b596ee3cfb1c054d136163cc636869e11c343fbd10778750cae303d6123edb71"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1cb39a2337b16388228d5efbc29eb0b358c6efd47b843246ae82d9398ca5800"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "10429ee84f930e6ce3111647820c2f8c941a4bc0fe3784cbe7bc0fd2b2c9b572"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "289d661ef28a03a4d0fa042a61a523f5f3c6bfe33032ceab6f427db93f2d0327"
-    sha256 cellar: :any_skip_relocation, sonoma:        "43688cdf9f6b15306d69aa02becfea9bea883a9e0c0d8936d5b7fe051b537811"
-    sha256 cellar: :any_skip_relocation, ventura:       "28f73a673c7ab41b112cb84e65871bb44871c5b066064ed9feb9ce4f9d1422a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10420e9b3f416c64b133a4ab7e445524869a77b721d478be8301b6b5343cd4f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65473696ae3f70c57055500d9ff29a60c40ca126b760a520a7927526ad3095dd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "35bd362525c05769fcc16683fef86c01e80b63a365930286fdc912896b2f4848"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53b37a7304a07e4ee3ed7cfdfc951e2befd4a19d548fc17c352dc2db0f60c2d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e56941b23009101a257cd9b3f09aad055b9f0d8551ec3f417e33423afb1bc11"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b26edb3883602514fcc7d883e143ddad2eb7a8f1ff9796fa9a82907491d3bd46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcf273f10da3a09b950f9ee8642141b62dc0c2e9ff56a474543ba1d41427febb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "162acce4300ab6afc3d72ca5abda155530a9a22bfa09389d8eddf420cddb1408"
   end
 
   depends_on "rocq"

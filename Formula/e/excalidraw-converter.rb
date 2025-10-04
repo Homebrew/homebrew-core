@@ -1,19 +1,17 @@
 class ExcalidrawConverter < Formula
   desc "Command-line tool for porting Excalidraw diagrams to Gliffy"
   homepage "https://github.com/sindrel/excalidraw-converter"
-  url "https://github.com/sindrel/excalidraw-converter/archive/refs/tags/v1.5.3.tar.gz"
-  sha256 "99b66ce4cfc8ee2c6650b2fefa69a6a3cf8790267914492d2337a84e0c47b3d6"
+  url "https://github.com/sindrel/excalidraw-converter/archive/refs/tags/v1.5.4.tar.gz"
+  sha256 "ae4c9da1d9710a3bd2895730852fdb159aef7638abecfe8a204f57c01de242ed"
   license "MIT"
   head "https://github.com/sindrel/excalidraw-converter.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "144409f3df01c95af8cf105e4169dbe932ad63e8dee554a7483db563a91786ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbf2a3cccd67292ad498e23cc277d71be3206d44d94b1460e47f35ce21662def"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbf2a3cccd67292ad498e23cc277d71be3206d44d94b1460e47f35ce21662def"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fbf2a3cccd67292ad498e23cc277d71be3206d44d94b1460e47f35ce21662def"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b505b20a3f8ec4f27cc8be1d9f225043b2ca3bfb7910d9b84759e06340af15a2"
-    sha256 cellar: :any_skip_relocation, ventura:       "b505b20a3f8ec4f27cc8be1d9f225043b2ca3bfb7910d9b84759e06340af15a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1604d38d0eb30d65c5283b0b79b88293d1491f49967af15f6fc5d6e63474380d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "239e08c5dded5806cf0d566afeff81f5ce9d9f47b6b26aa00b64cba2f8962306"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "239e08c5dded5806cf0d566afeff81f5ce9d9f47b6b26aa00b64cba2f8962306"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "239e08c5dded5806cf0d566afeff81f5ce9d9f47b6b26aa00b64cba2f8962306"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff6a85a94f869ea38d513a0ce49707fd012508a02058f12546d9619cdd40fdf6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44cfe32ef09fdbd1474b857667bb398042a74318a70d88ff1ecc626e5632e26b"
   end
 
   depends_on "go" => :build

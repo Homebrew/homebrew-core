@@ -15,6 +15,7 @@ class Gom < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "ac68b886f3936f558ee1a6f7023bf6789fa4479806011d55cbcde1f3f530dc24"
     sha256 cellar: :any, arm64_sequoia: "286804e2a0f7f463371deb3b386ea5943a2546725f730d9023b1c8ef94b58229"
     sha256 cellar: :any, arm64_sonoma:  "a1da7b8efd1e81f0e2042e6b6ab12ae7ee6d59078b618f9084646cfa813e8077"
     sha256 cellar: :any, arm64_ventura: "8710fd832106faaf1887b3a6c13959cd42879f780fe2173c798d50a675f0cfc7"

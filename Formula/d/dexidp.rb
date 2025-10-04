@@ -6,6 +6,7 @@ class Dexidp < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bd3a79c12a65cf0c632bbb7610431b24be1627dc712465b5105d1f59c299f356"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "df23a6fb031357ae2c3095c00e6713a98b74485859d3db36ad8340436309c77c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f610bf0613e8446cc7173fb3af3ed417d90c0b3b53743d4e4480ae2670798378"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9685e4b7b7b4eba901c45fd435fe84ce00cd579c17fc6661ddeadf6f4407ee2f"

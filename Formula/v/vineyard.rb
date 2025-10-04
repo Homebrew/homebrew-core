@@ -7,6 +7,7 @@ class Vineyard < Formula
   revision 2
 
   bottle do
+    sha256                               arm64_tahoe:   "f1e3cf37c97f6df875c231ec0f5c9cf5ba6902efeaa160acea5100f2213f9e7b"
     sha256                               arm64_sequoia: "cf36da22f881d05d547cc46b34e2e15aeb30bdd750b2760573206eabe771614e"
     sha256                               arm64_sonoma:  "bc54a45dfec84b89eccc430cb9debb4a45fc122e0676cdeb4b701989f0df3058"
     sha256                               arm64_ventura: "4a0e6285f2e73be22689cbfe3a4cc88cbb6651c0906f85e5596216ed35fdb4fb"
@@ -31,6 +32,13 @@ class Vineyard < Formula
   depends_on "libgrape-lite"
   depends_on "open-mpi"
 
+  on_tahoe do
+    fails_with :clang do
+      build 1700
+      cause "https://github.com/llvm/llvm-project/issues/142118"
+    end
+  end
+
   on_linux do
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -45,6 +53,9 @@ class Vineyard < Formula
   end
 
   def install
+    # TODO: Remove after https://github.com/Homebrew/brew/pull/20696
+    ENV.llvm_clang if OS.mac? && MacOS.version == :tahoe && DevelopmentTools.clang_build_version == 1700
+
     # Workaround to support Boost 1.87.0+ until upstream fix for https://github.com/v6d-io/v6d/issues/2041
     boost_asio_post_files = %w[
       src/server/async/socket_server.cc

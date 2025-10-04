@@ -3,21 +3,21 @@ class AivenClient < Formula
 
   desc "Official command-line client for Aiven"
   homepage "https://aiven.io/docs/tools/cli"
-  url "https://files.pythonhosted.org/packages/fe/86/0a00382cd2fa03a256d7079ba929e0ee3ac2672253583d94ee16b59bddba/aiven_client-4.8.0.tar.gz"
-  sha256 "c1b2a9ffe82288936070bc2882cd270754f2d7b7bc9d1d3355abeadb177053fe"
+  url "https://files.pythonhosted.org/packages/dd/b0/d19b27d7e3f2e765d80a9efd0ce9516addd818fb5e7339ae5016d7a48f20/aiven_client-4.9.0.tar.gz"
+  sha256 "a084073a7f8c25ec6b4976fd11c347a95e189f5a358a792661f2c54636e52695"
   license "Apache-2.0"
   head "https://github.com/aiven/aiven-client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d8300631f25951101102258313e2301ca94d752a5a14a738e3054c6402c4f1e9"
+    sha256 cellar: :any_skip_relocation, all: "095578d353fc2ac200c29704a6bb1533a0cb18b1fb0b534a6e4b7e233c871555"
   end
 
   depends_on "certifi"
   depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "idna" do
@@ -26,8 +26,8 @@ class AivenClient < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "requests-toolbelt" do

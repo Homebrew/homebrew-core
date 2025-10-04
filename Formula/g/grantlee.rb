@@ -8,6 +8,8 @@ class Grantlee < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "109ece49f26ab73a697b801ca9602b82bb71b57c3da66019a4d4cc669dfbf7ed"
+    sha256 arm64_sequoia:  "3e0b1229496c05391ecda123d52614c790f184b275413f6b5d7c8450e1b8aff7"
     sha256 arm64_sonoma:   "7821ba762af4dd4005b8c82ef9f2d3cbb9b03ad5ad67823ef92c9c6e8b249d48"
     sha256 arm64_ventura:  "cd51401e55656ade5d8842df92957a6af33ea3d3da309c418d0dd3b9c360e85d"
     sha256 arm64_monterey: "c48770f2d0dd9d96cff5f935f24da74cbba4bc03711803d86ca43a40bdb74d74"

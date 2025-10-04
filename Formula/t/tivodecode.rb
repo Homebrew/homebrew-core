@@ -27,10 +27,6 @@ class Tivodecode < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "dab7b05eb81397cfcb9e875a351d24d3a05741c77aaf28da7411318ef72dd770"
     sha256 cellar: :any_skip_relocation, big_sur:        "aeec3ab80bd78902f47343a699f3ebd4566b2d3fd9ce8076550bd705caf69486"
     sha256 cellar: :any_skip_relocation, catalina:       "153d8b8e152ccf3c87041ff40739a80952da5ad06c572d7febb9b222b16069e1"
-    sha256 cellar: :any_skip_relocation, mojave:         "efa83924ac8d8e07e539c6d9b3aa5d5d7440fd34bccc1da793ead1224eabdbbf"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "0016f711d79454b154708804c574633c48e472b9a81c257730e5cf4aa00dd220"
-    sha256 cellar: :any_skip_relocation, sierra:         "5682668b2e721933054656cebc49ccb46c382428b77409d94251c6f1dfd3092d"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "d50450e62c6fcf71643ceaf5f33dcf4e904e389c89597ccbe148de3053839ccd"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "69e56e2279ac41857a466d4eac31b69c6dfc3ad70899e26adb1908e39bdcf387"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "28e4184504b5139d3532d972cad416bcd9188669c075681e36834f4e93d2b60d"
   end

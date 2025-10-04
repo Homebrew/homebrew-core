@@ -37,12 +37,6 @@ class Zeromq < Formula
   depends_on "libsodium"
 
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    if OS.mac? && MacOS.version == :high_sierra
-      ENV.delete("HOMEBREW_SDKROOT")
-      ENV.delete("SDKROOT")
-    end
-
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     # Disable libunwind support due to pkg-config problem

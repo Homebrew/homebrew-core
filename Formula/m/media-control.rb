@@ -8,6 +8,7 @@ class MediaControl < Formula
   head "https://github.com/ungive/media-control.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "5d30162759b982c646ca3223f2edd5891e28dc73debfe336e0ae8307c81eec05"
     sha256 cellar: :any, arm64_sequoia: "b19b1fb4cabe60ff109d6cda49c4e672cc4dd6cebdda68b058360ca613c22adf"
     sha256 cellar: :any, arm64_sonoma:  "74a0f658133dc87eb38de4622fd6492da586914aa4d7a91db9777b2826d23523"
     sha256 cellar: :any, arm64_ventura: "c66d4d35ce48365ad154df1549ac24a5a51ad01e7410357dae2f4e4afea46c79"
@@ -25,6 +26,7 @@ class MediaControl < Formula
   end
 
   test do
-    system bin/"media-control", "get"
+    assert_match version.to_s, shell_output("#{bin}/media-control version")
+    system bin/"media-control", "test"
   end
 end

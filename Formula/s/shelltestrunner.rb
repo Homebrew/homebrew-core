@@ -8,6 +8,7 @@ class Shelltestrunner < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f1b8d8c242e9220cb7614ac47d110975539cfc97b3d8b2857e9dde0685bce584"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b7efdd51d33de7f1a6d0faf5b7cba05a2d6958ab6f2b953cf24dbd1f452dc2d9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14e0822f1871ee0db643fdffff2dd6a9caae2093f9b14035c2303a1666917263"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "582cff21d33d8c6b12327c308028ab04c6bdf522e9dabc44768bce82f044034d"

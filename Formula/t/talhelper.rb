@@ -1,17 +1,17 @@
 class Talhelper < Formula
   desc "Configuration helper for talos clusters"
   homepage "https://budimanjojo.github.io/talhelper/latest/"
-  url "https://github.com/budimanjojo/talhelper/archive/refs/tags/v3.0.35.tar.gz"
-  sha256 "27e509a301b2f4d147311b81757840ae9eec659c54bf1bf8403987b68c07528d"
+  url "https://github.com/budimanjojo/talhelper/archive/refs/tags/v3.0.36.tar.gz"
+  sha256 "60f18116db6966669215a336e9fbdb896a1536b9484d0758ba575905abbab003"
   license "BSD-3-Clause"
   head "https://github.com/budimanjojo/talhelper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ac862a32f65b05367fe5f2d13aeae2aab7254303ddf85cf58e2e1e0b3eb06ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ac862a32f65b05367fe5f2d13aeae2aab7254303ddf85cf58e2e1e0b3eb06ef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ac862a32f65b05367fe5f2d13aeae2aab7254303ddf85cf58e2e1e0b3eb06ef"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bd693d57bd4c7561ae4f2c7c2613b311482e7a555411da2da0c537a0feb03451"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09f28d7dabb0bfd5e07d42d382856290b7c444b03cabb65cae44c9831cb5fb9b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d15eccb11d131de875496ca18bdcd11e3f665f1253a9de9a457084a8c46b1c6d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d15eccb11d131de875496ca18bdcd11e3f665f1253a9de9a457084a8c46b1c6d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d15eccb11d131de875496ca18bdcd11e3f665f1253a9de9a457084a8c46b1c6d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "35f77f5543f343de908a2254eee3d832ff45dbded60501197fcb3d4ff03b1064"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f56ce30ed0707893f7d9bdb1d27ca478ca9783f13c98277d8ccef4df262b81c5"
   end
 
   depends_on "go" => :build

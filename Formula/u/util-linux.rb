@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.1.tar.xz"
-  sha256 "be9ad9a276f4305ab7dd2f5225c8be1ff54352f565ff4dede9628c1aaa7dec57"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.2.tar.xz"
+  sha256 "6062a1d89b571a61932e6fc0211f36060c4183568b81ee866cf363bce9f6583e"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -12,7 +12,6 @@ class UtilLinux < Formula
     "LGPL-2.1-or-later",
     :public_domain,
   ]
-  revision 1
 
   # The directory listing where the `stable` archive is found uses major/minor
   # version directories, where it's necessary to check inside a directory to
@@ -25,14 +24,12 @@ class UtilLinux < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a1af5b0dfc9d75764bb87596d12fd0da8f5d275db6faf6619940e5b791e96f6b"
-    sha256 arm64_sequoia: "535204861eba897448b6c28b54d10276c7f9b71b7a327ed4fd4212c6992617ce"
-    sha256 arm64_sonoma:  "9c311e7df48c432995f0b3991512b0175cf13ce4c91ad635f13e5d5818ec5773"
-    sha256 arm64_ventura: "6d31dd7ee88f4517f55cfbe4cf175fc9da7aa2c9740d862428ead9aa48139e6e"
-    sha256 sonoma:        "bd6d38cd960ba14580f5df59e1ce4086045c99029c488743fcf2083d4e5defa7"
-    sha256 ventura:       "cec277c842259f9259d4bc8bb4a982e11d4c1ec88621d4b539d96fcd6886ed67"
-    sha256 arm64_linux:   "fa1b4b02f96da7f50c7fe6b22baa322e7ab0c28f42755a216f34286aa06f7897"
-    sha256 x86_64_linux:  "62c1095923e34635ab90c5029cac6876ea55e3c8ba089893679038179fbda3c4"
+    sha256 arm64_tahoe:   "040b136047c445817906cd47d3a5f631e0a4dff4d4157e2aa7a737538db852f1"
+    sha256 arm64_sequoia: "36a1fd226b4a6b70250535118ffaa3365abb70c5d7241fe1ef9caa4d289b994c"
+    sha256 arm64_sonoma:  "a0da9dac552c00c8b27ed475d30bf3ae4c792ccefea72340ddca02c39bc8d99e"
+    sha256 sonoma:        "27500fdc87061175f627971705e9e024c4d92007e3ec963e6cd1c92ff8aab7b4"
+    sha256 arm64_linux:   "f3e6d3197f597780d22fe50674fb3567408775e9ddf13274dbfd8f8b287bf2cc"
+    sha256 x86_64_linux:  "b3d0437207ab023cd13567d4b9ca2de87c09ce4a2b86b29996d0df97039217d9"
   end
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
@@ -69,12 +66,6 @@ class UtilLinux < Formula
   patch do
     url "https://github.com/util-linux/util-linux/commit/45f943a4b36f59814cf5a735e4975f2252afac26.patch?full_index=1"
     sha256 "b372a7578ff397787f37e1aa1c03c8299c9b3e3f7ab8620c4af68c93ab2103b5"
-  end
-
-  # fix bash completion, upstream pr ref, https://github.com/util-linux/util-linux/pull/3627
-  patch do
-    url "https://github.com/util-linux/util-linux/commit/565eb6370c76721bbd0d7fa292d9315a6856f627.patch?full_index=1"
-    sha256 "3945234bcfbf4d9126e92b4f808029971ab26330618da53671941ba1a52d8427"
   end
 
   def install

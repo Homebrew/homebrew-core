@@ -22,8 +22,6 @@ class Afio < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "f01da50d10c66c547df1cbaafd07131eb1307737d5e8556c85da1741b1c8c056"
     sha256 cellar: :any_skip_relocation, big_sur:        "0daf7df23f36271e3141cc11cab067b33ed5855b9faba53bc697d5259deb82ca"
     sha256 cellar: :any_skip_relocation, catalina:       "28494133d10acea2c1a298fe858d26889ba8567422b9f431710b156a4a8ac858"
-    sha256 cellar: :any_skip_relocation, mojave:         "733a4169a7be82dc173cc302994ad205493a9085580634b92faa38c96c84608b"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "53dbb826f2c3e050bd70078945d92772a4c434b0aa75e1a71cb29e56ed8e62fa"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "8a697f6c0f0e1fd2b2fca0db9d4eacb4e12dbb0f82212fbe00947bca01c3eea6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "93dee32378176bea139dadf874fed07b411076443fee3a7ff33c84eadfc7760d"
   end

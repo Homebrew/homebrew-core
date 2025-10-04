@@ -10,6 +10,7 @@ class Pomsky < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "07c3c1a818b5e2925cc7bb37493554ae6fc726ba219d0ba88670c5799007d85a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e2c2f94091ab38f06f95ddca0c90df7cb9c7f4fb16e78518b365756f68d04d8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f191a0eb866fe3c9a43e6af5ffc963c5a08ba72ea49dd93eabf5ced8c960081"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "41595db77e38123a28d0976497c6ac257214fed22254755e54b89cb5dee7d127"

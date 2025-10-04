@@ -24,10 +24,6 @@ class Gzrt < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "003e9f13cb64da84793030b3b224e9dc2083b97b7bae69527857bb359f856331"
     sha256 cellar: :any_skip_relocation, big_sur:        "6f9f146178364bb1306a145076a4c79f01f1ba08726b2e90a022597fe34b63f9"
     sha256 cellar: :any_skip_relocation, catalina:       "d1d5378de11679a973ce6a5893984b0431f7ad62f369215814927cdb5fbf6678"
-    sha256 cellar: :any_skip_relocation, mojave:         "4d2f5fca0f32dd8a88d7aba3d8e6f926d89f74fa1748b9e7f618bdc76e3500fe"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "2e7f8e8743943f1e83c4b1ed6372fa3c4cab00f7a090dbb4f967b7fade1e5e20"
-    sha256 cellar: :any_skip_relocation, sierra:         "da5c89596737f514900f32986dd9eb32f010c6c1b9f1643dd03a07eae7e383a7"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "01df00fd35c6eaee9d32da4644d694ce33deda79a9c3da0284b52694f94a9515"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "654f7cd9822abb04c3e99f03452260a1ba3adb935d74199dfee2c67530b0eb51"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "befaf922391daf55b95098ef2c66c02fcd04813517cef56c60caf3cd1297d986"
   end

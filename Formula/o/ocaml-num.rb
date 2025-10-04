@@ -9,6 +9,7 @@ class OcamlNum < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "809ea16a1084fe15c05b7cd922e3e961c917b2fde56c874da6857e9dae30f240"
     sha256 cellar: :any,                 arm64_sequoia: "781da529cdba86087750a800642a8cc2299be1d255149daff379164073ce7785"
     sha256 cellar: :any,                 arm64_sonoma:  "ce6ae8fa010523ccf585e594d8822f0756f25b188ad869b191fa9bdd11294c01"
     sha256 cellar: :any,                 arm64_ventura: "73245a4b0918db27313822585644728b34ca7b22d1fc4d765321c00f71d4d549"

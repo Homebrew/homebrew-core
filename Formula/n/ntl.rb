@@ -24,7 +24,6 @@ class Ntl < Formula
     sha256 cellar: :any,                 monterey:       "d882847db4da92801d989382e682e6ba372263942ef42eafdd16e2672cdeb107"
     sha256 cellar: :any,                 big_sur:        "e108c06f39537cdc58cd6e7f681395ae069c381af5e0c95abca97d1ccc90ec9e"
     sha256 cellar: :any,                 catalina:       "b97739b3b8de3daabe0d76cec3e29ef47f4bc85e6197054aec6d10f6b8f1a4ae"
-    sha256 cellar: :any,                 mojave:         "bc2ffa687c16e3ee99c093dc0b55275df08c278e20c1d2281e798f1144816634"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "640bacf81998649350ec51bd93978b6f723e2631bea4e136321413ee33b90dc5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0612d19a82889b93ddae2920ccd148644bee62f74c0c39662c20bb8447fe6c2"
   end

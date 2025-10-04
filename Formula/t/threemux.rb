@@ -20,7 +20,6 @@ class Threemux < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "64497230017e4e033cbafc7ae8f684e5ff77c1a8af3ec153f715269d5f4dab01"
     sha256 cellar: :any_skip_relocation, big_sur:        "c87ed9904dccc4872aa6c8ed0e6de39bc7f3ccdb5fa7fef1b99e45871d85da18"
     sha256 cellar: :any_skip_relocation, catalina:       "8071788129cb66bd2e7c6fe9f877a56fe2807b70204747a858a4e68a650a07b8"
-    sha256 cellar: :any_skip_relocation, mojave:         "d8ee02f2139e26800e6fa830e02a09b52df74164ec3cdf2306bf89c4ef6b92f9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "33200f3fd9175837129386fdfa67575eebacc806d9da099d98b0888aaff56124"
   end
 

@@ -16,20 +16,20 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "b4b468ff0de2145df08a98183a46ad15ed2f0d761f6614926ee4c3b170bc7a25"
-    sha256                               arm64_sonoma:  "4d7d93c11b3bf4e9747db5e3669640646fc01c2e1588f6708d8ffb9c3a804c3e"
-    sha256                               arm64_ventura: "9b6964d0fd4b741d9e02ebbc73cae246d80c4b97bc1a4df508743ca1c302a22a"
-    sha256 cellar: :any,                 sonoma:        "a010b38b78b965e5a6b455cea035b1c02b55b61c62e0869e9182462b3f4207ce"
-    sha256 cellar: :any,                 ventura:       "8d41d6393e396e8b7b8ee70f26bc5b952f7ea4cdbf5751f4e9f561fe4d3ad577"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b5e2059c77845b67979e05df2e1ac1fd2916e88cb71a14b42ac16e01cbe5920"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53975dce86f4230fa564f0d971067ccad0fc085811b5f84f8085231564205a4a"
+    rebuild 1
+    sha256                               arm64_tahoe:   "0dd80635fd7369baa26bfb1edd4c813a340e8e57c898f7f860f2554e648134d4"
+    sha256                               arm64_sequoia: "e66fc7063cc7f745050b1671fa9991a37e46b8862476a142db8aba76daf59301"
+    sha256                               arm64_sonoma:  "83c186ea6e2dc07dbe82fc0ad4db1629e8620ff1f7d7639a1038ed3bb581d95a"
+    sha256 cellar: :any,                 sonoma:        "afbc7513d4f26d43d428f92ceecece33c36de24a301786fab0abee82c9fa060f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "450c2cc13a3ba42765dbde5ff69724e333a520f92c218be38ba631fdc8c6a4ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bba31ca93d2a1beb7067cc8c37fc5bb3f3fc31c627992cb720e5456bd79f196f"
   end
 
   depends_on "catch2" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "cairo"
@@ -57,6 +57,7 @@ class Rdkit < Formula
   end
 
   def install
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
     (buildpath/"better_enums").install resource("better_enums")
 
     python_rpath = rpath(source: lib/Language::Python.site_packages(python3))

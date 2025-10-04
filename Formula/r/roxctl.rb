@@ -15,6 +15,7 @@ class Roxctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "86973d2f42ecd9003f0dfc0b8d3fd60c62dc06e77b5c0c2bc071f5a798d3f58e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0705706c82ab22bd723075c800f526642c7d356f96109051fe7c23ac0a297c46"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8204f96440b1cde1ad5a2450644a078a4eeca2536d6d2844ded8414e0ed8f70c"
     sha256 cellar: :any_skip_relocation, sonoma:        "ebf6d523563e3e7251a21d5048df7c2fe09b4dee4ca5fda8342f39fb5135c9d9"

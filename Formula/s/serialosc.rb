@@ -9,6 +9,7 @@ class Serialosc < Formula
   head "https://github.com/monome/serialosc.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "88048b5ee792c6b2b31ad617c6e5289ae2238b6ae9370b9b7a4774291c4cd015"
     sha256 cellar: :any,                 arm64_sequoia: "6bf7e4ce2c236c488e3d5f5779f97d888f19c471aaf0d08e9fdefea7afea20c2"
     sha256 cellar: :any,                 arm64_sonoma:  "498514d0881e192dd36837716da1df5a7256179f515dc8b1dace4f480348b724"
     sha256 cellar: :any,                 arm64_ventura: "9e549647a50621a2bafce9aad05daef120e36767af5e57a3df117d6afc5c580e"

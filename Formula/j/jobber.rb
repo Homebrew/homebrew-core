@@ -21,7 +21,6 @@ class Jobber < Formula
     sha256 monterey:       "d54b324e8914c637f54418851308b825241d2c3142c8c13e9a6316ff31ab6e99"
     sha256 big_sur:        "669af998fd35ba85849f725ba8360cffbadfba87a8bd5f7adc43aa3a830caba5"
     sha256 catalina:       "993170495768a40b7f86927bfc14a66397b9109c3d9520815727f0123409b1e0"
-    sha256 mojave:         "3767f3c9fa38a4ad1d8df745f8e5451bef3fea39e0f758a081e414f7d87feafa"
     sha256 x86_64_linux:   "e8d9630a84c0fce0514498c0379961df72d461ad3eb2d82847b66ea34732188c"
   end
 

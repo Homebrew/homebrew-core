@@ -18,6 +18,7 @@ class Mu < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "5e5fc9e812deba243fa8520b2c2aada171f75946572eb2a33727adcb466e34ac"
     sha256 cellar: :any, arm64_sequoia: "e51488141f1a30e5d65ee50c1f2e0da96347c8bda2c27dd1381220b2a2621d4b"
     sha256 cellar: :any, arm64_sonoma:  "4738b8f33307f661104c73da9f6217ffea9438e5264818a5f8e685713434dfe3"
     sha256 cellar: :any, sonoma:        "3cb039b58cbff76802cbc70bf9498044660f4f7f8d09a3875aa20d022dae7c30"

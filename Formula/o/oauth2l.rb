@@ -7,6 +7,7 @@ class Oauth2l < Formula
   head "https://github.com/google/oauth2l.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "879e5bfdd9fa0af54da369fa085e549dfff5416dd09be7415e34e3d0bda8b7a0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4410571958fb9512c71c88460b8c5ce402fd02885e6f157422ca133598dc4fbb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4410571958fb9512c71c88460b8c5ce402fd02885e6f157422ca133598dc4fbb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4410571958fb9512c71c88460b8c5ce402fd02885e6f157422ca133598dc4fbb"

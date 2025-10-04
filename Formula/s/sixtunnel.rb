@@ -8,6 +8,7 @@ class Sixtunnel < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "31ea36bb0c9a65137e00a01c1771740d1e716bbec5fcbd9d1395488ed8fbe9d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4835e877672bb690cf45d67eb1abc2d818034668b0c1980927151e1ae9fb6025"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1acfbe3de474e92cd90bd4a9047f2324f5b0e2290a69dc389e418cde045d8547"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d4aebd48a551546f4cc6d56779be9fc64d7384eef2f64ce4cd5d6cef5b94a568"

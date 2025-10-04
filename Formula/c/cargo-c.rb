@@ -1,8 +1,8 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.15.tar.gz"
-  sha256 "59fe45092141f59b4d34948423a8e535ea8a2f0802a7436fb31e6c6663afa46a"
+  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.16.tar.gz"
+  sha256 "c0ebb3175393da5b55c3cd83ba1ae9d42d32e2aece6ceff1424239ffb68eb3e3"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,12 @@ class CargoC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "642de913b254c1ae01ca4054b09fc85e32378c4be8c5e9ee96c729087b01cccd"
-    sha256 cellar: :any,                 arm64_sequoia: "dccb5ede06642542cbcf4ff996e400860874c2e8407bb92dfb6b4bfed9c88b28"
-    sha256 cellar: :any,                 arm64_sonoma:  "0c0e57d732a3c02a600adf51e928115f2aed3b0592c4f7ca00bf6342d554cdfa"
-    sha256 cellar: :any,                 arm64_ventura: "09c151e8fd0f25348de43ef5fe9afcf0b39ed552ad91c724ac04fb146ae80dcf"
-    sha256 cellar: :any,                 sonoma:        "a54c98c73299d351070ce5d6768c8c10952898c26516621eb22b8356428c1ee8"
-    sha256 cellar: :any,                 ventura:       "3fcc1a6a71a07f18b7da4bc56db2101abc2c2ad337629e122391cb2ba5919356"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf2a96760dae3d987dfe2d9c12fbe77d4f8260c115850ca6d1f83ed9845a047c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "305983190b33ac036789b5054e07597e782071e7627645af11a4f598dcd1e573"
+    sha256 cellar: :any,                 arm64_tahoe:   "ca4a3442330dd71c51d58f341efb6e61b45ee79a0c769d6b3243e028094dced4"
+    sha256 cellar: :any,                 arm64_sequoia: "79f26b4f13f90bfb58657fca6f9724163864e90485f782e133de00012e2d9058"
+    sha256 cellar: :any,                 arm64_sonoma:  "b492462e9a4a843498b48c7b950657647eed54c67d9191510bbe7035c11de54b"
+    sha256 cellar: :any,                 sonoma:        "b4751b2f05fb6c0ebd44b499bd6bed52135d44a1f3a4ce820caf81f0c3b141e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28cdc7b91c6342464117286f5d1d97d920996d5e9c4e3042c5ba23b6f9233b1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d0018a3baa73a767c2c3f8607c0613d4ce07e705a9a7aa1c5225357f315eb1f"
   end
 
   depends_on "pkgconf" => :build

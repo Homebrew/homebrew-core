@@ -7,6 +7,7 @@ class Dprint < Formula
   head "https://github.com/dprint/dprint.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b776542191504aadb80e01febd82744fdfd5de0b93cf74ba4ac738370653b7a9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bba2a20c6b7165229852acd0fa1ca867563c273edb862f2f5f0596e6c80f1ac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47710226f52c96c47759cf2f34b456113ef31a74b9af64e387bd986fdf476eeb"
     sha256 cellar: :any_skip_relocation, sonoma:        "b368266cef3eb8ffe2272a229c0f9b591db4a7adc92c9ebeee3bdc1cb168ce5d"

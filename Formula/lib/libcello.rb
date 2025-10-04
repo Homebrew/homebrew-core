@@ -25,10 +25,6 @@ class Libcello < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "96b8179944a4750d50e977d1b721569287476fa08fa8af3d832934c12c77761f"
     sha256 cellar: :any_skip_relocation, big_sur:        "171593b100ed2671982457816482a474c3be1223bad986a68df71803f3f6b435"
     sha256 cellar: :any_skip_relocation, catalina:       "a6ad4a498c30ce4713cf0a76800cabe412f1471a4262459ce38a477f163354e9"
-    sha256 cellar: :any_skip_relocation, mojave:         "53ef17fbae26388e22354b9c5d536dfc0f0e0b604281878fbccbad7e6db5c30e"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "1c7719b74c5507dfd84ec93c043c11a4113e13a66f06e9d6f32349ec83042ad2"
-    sha256 cellar: :any_skip_relocation, sierra:         "561319859455b756f53013090f91d6b06b1093c00d59593519ec09210f6bf830"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "05384667bb4d98a603406b3bc35962651af06d44eb55f2080c80f8dd979a9d80"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "563e0e5d5ee43073bccca6c732787f32af5a864fc9bcbf3854049cfc0f99ff37"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d935c25174d4315105cccb0a72dd60f184881d7929f9ca51aaaea2dd7262f28b"
   end

@@ -20,7 +20,6 @@ class Bsdconv < Formula
     sha256 monterey:       "1e695c9018c174f1dc39d4205e26a507acd12f789733c5c76608f5ceef92a2b4"
     sha256 big_sur:        "18fa8aff61b229d34b05516953d49aa807edb4f2231108e84bbe5c4847aac9e0"
     sha256 catalina:       "c7c3ee826009c6a77d2e435b56deee58b3243e7dc2ac54a7ddea90555a16ef7a"
-    sha256 mojave:         "8ae3048037104e7a91ffd76ff6ef1910c8252d050e98b03e4083841525d19a0c"
     sha256 arm64_linux:    "2be08396cd20f1a195b1f1322e48fb636b76ab7d484c28790578286dcbaf011d"
     sha256 x86_64_linux:   "a77ffb5b4b404f82c6dcaa52eb3f63e23931e93782a3b179e873f47628673213"
   end

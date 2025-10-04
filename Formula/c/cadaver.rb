@@ -1,8 +1,8 @@
 class Cadaver < Formula
   desc "Command-line client for DAV"
   homepage "https://notroj.github.io/cadaver/"
-  url "https://notroj.github.io/cadaver/cadaver-0.27.tar.gz"
-  sha256 "12afc62b23e1291270e95e821dcab0d5746ba4461cbfc84d08c2aebabb2ab54f"
+  url "https://notroj.github.io/cadaver/cadaver-0.28.tar.gz"
+  sha256 "33e3a54bd54b1eb325b48316a7cacc24047c533ef88e6ef98b88dfbb60e12734"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,12 @@ class Cadaver < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "9e3056dd09c954bae6f471b03b1ba89f3298eab5f972e0a45749ee2ed0ce6265"
-    sha256 arm64_sonoma:  "cc914c3ccfc2d29c98bcd56e848c2b73bc9ac1c13e52c7fd94b7073604e1ee02"
-    sha256 arm64_ventura: "7508f868b529213b9a0f2a064578ab9813ebd60c3a3248a84b7a1c9282d0f07a"
-    sha256 sonoma:        "a3e1a9c0d52a1b085a5ea19ab326938f87ff1a67f5452a57141aedd39db148a6"
-    sha256 ventura:       "14cffe45161927b1b46cdd1ffee087428a5c8eeb18a4d4f048a84eb6b9e81a11"
-    sha256 arm64_linux:   "8ed37bdd804521eb9a66f0d35556a13ba0cda1fc996095f1e9e282dc8d0e861d"
-    sha256 x86_64_linux:  "a87d9b4c1c7bbd355c46d4ba2335d1ae92a3964f513e21b45ce59ad51e2f21be"
+    sha256 arm64_tahoe:   "f2bf16931909ac6eec57117bf09175a2e0caa1082d2b6e2ae3b7a8245af29bc7"
+    sha256 arm64_sequoia: "d5bcd805b50034bd950a9a5ff34eb57460468f62e8e5790609b41efc0f643699"
+    sha256 arm64_sonoma:  "2f7c951cd0fbd473492db2e3e32ca73bd1182d835aa2fa4e16bc18bb599b0fc0"
+    sha256 sonoma:        "3149e1aad7c35c9a2d5bcde614fd25a8e53cfd8117c10044867ebcb827fe1cf9"
+    sha256 arm64_linux:   "d8a6f3859f5db0c9cd26fbf52e655392bf1a06ca6298aca1d0ddf45e85a53122"
+    sha256 x86_64_linux:  "ea95ccc4cb3825ef2732ea6df7864c87016b40915fed14dac542bdff5a0b6868"
   end
 
   head do

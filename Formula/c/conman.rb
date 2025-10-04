@@ -8,6 +8,7 @@ class Conman < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "3e0eeafbb0e2a0f4be6952f0a557232cf2ab06d7316fe798202562e7c1af9eb4"
     sha256 arm64_sequoia:  "1173da53dd141c2960aea7c848be0ea4c65897ba0c47e5549656f4142879e2c0"
     sha256 arm64_sonoma:   "12e867d583636858f7ed1b9feb145c2783448252837b0a384f22247f7c9ca605"
     sha256 arm64_ventura:  "a0be94a97c0d77a9078b71d6f7be6066c5ba7f0fbb43d9c129a014804b4221f0"

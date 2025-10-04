@@ -19,10 +19,6 @@ class Cconv < Formula
     sha256 cellar: :any,                 monterey:       "0e2e409ca1a2358465d8a780c94df0041cf7f162139eebdb86e9b6443376fac8"
     sha256 cellar: :any,                 big_sur:        "f39720a1d032edbcdbf6ccfd6a5f8c9dc46faaf95e479904cfde25ec5c7622d6"
     sha256 cellar: :any,                 catalina:       "06b6bafaadcaa16329ba0cdeee7d11a13e94f126a4011b54253e31a1ea82108e"
-    sha256 cellar: :any,                 mojave:         "ffaf8b5cab0618e52cfedff14a5084cfe54e0b1b6480433e2ffb4beee8e47ec9"
-    sha256 cellar: :any,                 high_sierra:    "c4d197f979340a89d5a87e05eae6a39db38863f89b6ddda42f924472d87a5b0d"
-    sha256 cellar: :any,                 sierra:         "2e885b9571a8814f2b23b088f3f0d45f47b1fe762f040c3e66b1a81f84673646"
-    sha256 cellar: :any,                 el_capitan:     "bda78602260276dd3e5187a5a9d6bbcfb95ff40aa513840569e490d5dc96aab2"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "bb747250621542e8deeda2696a06b14ce399459ce02ace26986e858446535c50"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7176512194c3bed0f8db76bf768136559dd09bfaaa3562908acaa748ccbd288"
   end

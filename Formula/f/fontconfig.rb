@@ -30,7 +30,7 @@ class Fontconfig < Formula
   depends_on "freetype"
 
   uses_from_macos "gperf" => :build
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "expat"
 
   on_macos do
@@ -48,9 +48,7 @@ class Fontconfig < Formula
       ~/Library/Fonts
     ]
 
-    if OS.mac? && MacOS.version >= :sierra
-      font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max
-    end
+    font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max if OS.mac?
 
     args = %W[
       --default-library=both

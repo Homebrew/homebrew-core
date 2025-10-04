@@ -11,6 +11,7 @@ class Otf2 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "3fe0533a89517cc75cdc50328dd06b635a96fb7651cd7037874c1e34515b762d"
     sha256 arm64_sequoia: "bf03e30a4b748814623d920cf6ca4ba61462ae684a44771f989c05ba2b0934d2"
     sha256 arm64_sonoma:  "b4dff2dd5254e62c3cd810ac1c16867b18a81234d6a093ab75133d4079fe647b"
     sha256 arm64_ventura: "638de457bf40ab80944527bfd56ca70b2235b38e2a4af71f6cde66f12d2389b4"

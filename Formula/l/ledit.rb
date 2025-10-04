@@ -15,6 +15,7 @@ class Ledit < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "43b80195f585913bed776d670edba2de09548bae5b4bd0c025b9d9288490f1fa"
     sha256                               arm64_sequoia: "653f7b3a2c1e9e43277cd71a1372411055cffdb00c117338b7bad7a25f46105d"
     sha256                               arm64_sonoma:  "561049e6938a5ea683f00cdfba159504b442c45f2d81ff2daf0dea68ac9ce92b"
     sha256                               arm64_ventura: "00a97eb38296ecdd8477456b8e8d584c6c6798bab6075fe3188058d95636d1a1"

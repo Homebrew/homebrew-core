@@ -12,6 +12,7 @@ class SlothCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7dfe08bbc2892dbc368b9f7b4d9dbcf4726fd357eae1181ab51840b66bde183c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae96943b9b9a9edcb04e824a1a4df89ce423c62f6f31af46129a4bfd221aa7cb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5291b1caef4f672715f6c31b82efde32956e4318d72439ba5640596e595365ee"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "376063402c9cac1589b7502331bde641368c14eec1968affed12e98233fb23c5"

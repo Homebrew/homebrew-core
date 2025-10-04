@@ -14,6 +14,8 @@ class Qcachegrind < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "424ac5ecc534cd7b54dc2af372b6cb04175c7bc5c674f3f0d96cb3964d7c9426"
+    sha256 cellar: :any,                 arm64_sequoia: "b16db89e164f93666735793a546ec759886eae216064f58b4a48d9aaae30392d"
     sha256 cellar: :any,                 arm64_sonoma:  "5d9bcf738d3fcaae9174e20ecb908411cf97fbe389e0b7b9e56a09bed8dd21da"
     sha256 cellar: :any,                 arm64_ventura: "1ed635951e37a8a133c2e1f148491863c57bbc682b6a508eaf468a859357f91c"
     sha256 cellar: :any,                 sonoma:        "fda1553797fe5d48c33ebc78214d7ebf91a01ad4ab0061c9a6b0cc530de5a3f4"

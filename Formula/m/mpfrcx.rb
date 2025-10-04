@@ -1,6 +1,6 @@
 class Mpfrcx < Formula
   desc "Arbitrary precision library for arithmetic of univariate polynomials"
-  homepage "https://www.multiprecision.org/mpfrcx/home.html"
+  homepage "https://www.multiprecision.org/mpfrcx/"
   url "https://www.multiprecision.org/downloads/mpfrcx-0.6.3.tar.gz"
   sha256 "9da9b3614c0a3e00e6ed2b82fc935d1c838d97074dc59cb388f8fafbe3db8594"
   license "GPL-3.0-or-later"
@@ -9,6 +9,7 @@ class Mpfrcx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "0040f42d09efca8b3d759eb4b6f52158d89edbd1019d4919152d56666eb9de81"
     sha256 cellar: :any,                 arm64_sequoia:  "e9d9fcb8796dc03e08d4f3b1d1e6e1cd054befac43f75f20f6592891e01c366f"
     sha256 cellar: :any,                 arm64_sonoma:   "3943e6b49295761e2d5ca64145d1f0ca80255d0d6c608c1dc2df5c8d964a9c55"
     sha256 cellar: :any,                 arm64_ventura:  "0525d37742602a124d2bc1631cf9d201d0e2d88002b57257ddb444d8407b5ac8"

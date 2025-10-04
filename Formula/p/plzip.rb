@@ -12,19 +12,36 @@ class Plzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90e3cd08078f11ba7ceed4c93c1e0fdc788decf11d2d4d0855c52e803e3ade99"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c69f87f246b7b84977dd3690867ec9db32e05610a415d2fbe9a6be69ff4b63da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bedd1525dd0a949b298fc354e05ce35f3c08bc9b8edb9778ccc9186e838d0624"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3a6fa3ffd911737b50041ffbede6cf6d39cf54608be10093c755b28dae1d7121"
-    sha256 cellar: :any_skip_relocation, ventura:       "21bed828b80d4dd6b40a0e75b236996f334ab8b76f92155192b3ea984410df6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d600a14782d931755a8998785a5b284296bbee80a13f76ebfadbbf69c0cf9ddb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a35aab3bc41f9112cd01216df0902af5b126cdbe340c91396acdbf006506fe3d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6ba7db43465095e0bfb4b8a117f14bda8588fafc7dc605a2ada4035e81cfdb37"
+    sha256 cellar: :any,                 arm64_sequoia: "fa68bcaa48dd0802050154c8d55a806cdb2438147002937446900a25f252d386"
+    sha256 cellar: :any,                 arm64_sonoma:  "f1170578b9745c5eea571dbafe958f3fdcdf455e3e2e60a8e2ced6cb7bf0b1b4"
+    sha256 cellar: :any,                 sonoma:        "c8ca22b92ad54aa1ead0e792d0f34731d24b288d18968ae47f31a136d994434d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8bc9d28a291384c6be41a8db706e57f5fe186d65fcab884ce351651e6439abf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1ca5446b35b910a59409dcde145db4957a80fcf1a65d6b5cb0903476070eb6b"
   end
 
   depends_on "lzlib"
 
+  # `make check` fails with "(stdin): Not enough memory" since Apple Clang 1700 / LLVM Clang 18
+  on_macos do
+    depends_on "llvm@17" => :build if DevelopmentTools.clang_build_version >= 1700
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    args = ["--prefix=#{prefix}"]
+
+    # `make check` fails with "(stdin): Not enough memory" since Apple Clang 1700 / LLVM Clang 18
+    if ENV.compiler == :clang && DevelopmentTools.clang_build_version >= 1700
+      ENV.append_to_cflags "-I#{Formula["lzlib"].opt_include}"
+      args += %W[
+        CC=#{Formula["llvm@17"].opt_bin}/clang
+        CXX=#{Formula["llvm@17"].opt_bin}/clang++
+        CXXFLAGS=#{ENV.cxxflags}
+      ]
+    end
+
+    system "./configure", *args
     system "make"
     system "make", "check"
     ENV.deparallelize

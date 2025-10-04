@@ -16,6 +16,7 @@ class Kubekey < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62deda7ff4490da5db9057e8d1e4635317df2005d620d7dd1b2cefa69a19639a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "648ea4d70c883e8db01cc5db82879357b9b100fcdc320cba1d04116ab589fc5c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f3bb23bec12c8c67ccad9e4febd73031ee5235a5c8561e45ff41e72486df41d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c157465c57554f81de4ac425b41a74f436dd15c717002bf2e7886ac9fcefbe6d"

@@ -19,8 +19,6 @@ class Avra < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "af3758871e939781a5bb4842caf21fe8db90dd2f86e3b6b08a5ce49ac00a7f86"
     sha256 cellar: :any_skip_relocation, big_sur:        "b1b6077185e775675dfd538ee67fab94c5e24219dd8cd76b1dbc962748572513"
     sha256 cellar: :any_skip_relocation, catalina:       "752edb7e9140387d4b763229ff05cdf973056a70c5a4799b63cce83c2ff18be5"
-    sha256 cellar: :any_skip_relocation, mojave:         "cedf5547712134c47d3659e1cddde7d506643448eca98fb428734165fbb5afc7"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "f380ed5ddc18ece7b83f4c32290f56dfcc8a27065cc1a39423debfc482d369d2"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "12e71df9eb59795607bf04ad34be2fd45cafe2b73fa1e5eeb94197d31c40b13c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "db5dc219fb53c28e191c9f2a4127efe2de53a27e7526b2b0d6b705c4ff57ee69"
   end

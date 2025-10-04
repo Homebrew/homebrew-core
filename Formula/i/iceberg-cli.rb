@@ -12,12 +12,15 @@ class IcebergCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "647a30360d91f967cb13355a298d5eaa17aef1a33fd80b40eeb832225747d77c"
     sha256 cellar: :any_skip_relocation, sonoma:        "98428be6efcefb5a5e390c480b89e26424da60ee1cf0f56624a1c5f9c5f91f20"
     sha256 cellar: :any_skip_relocation, ventura:       "98428be6efcefb5a5e390c480b89e26424da60ee1cf0f56624a1c5f9c5f91f20"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2010dfb54ffeb582651d3790c22e6ad94b5c5001bdc264371a83cc4f1a47b2d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa20e65aadbb859fe41865cb7cce175052cba10bd729b5421a5a3f051dd825a4"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     # See: https://github.com/apache/iceberg-go/pull/531
     inreplace "utils.go", "(unknown version)", version.to_s
 

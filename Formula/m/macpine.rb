@@ -21,6 +21,7 @@ class Macpine < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8495d76e684a27114dca4f141d8dc401cac0e41a245bceed0031bc78520106d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8689372d0346df460ef0e425ffcbe4c610319a26a824601d6fbbce513ce674bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4832e309a88a2ffea2cad239fd67a437993c3f1df8bcdd5f43fac670f9da2b1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ca655058d4c7ac1134b31af7cf7f55c1ab3243bba8e4331686079d7537606e39"

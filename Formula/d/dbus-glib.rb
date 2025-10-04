@@ -14,6 +14,7 @@ class DbusGlib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "401e43f50e9b03988ef5f057f5c4bfc097e593ae90403e9a5536a004bcefb7be"
     sha256 cellar: :any,                 arm64_sequoia: "c6b0c2054217bf77789f11c4cf02732d2397576cdb25ed828845bc8c6808dbd7"
     sha256 cellar: :any,                 arm64_sonoma:  "2fccf8368eafc625c759030d1c3528bd42e60e5212f1d9c8255875280c20c799"
     sha256 cellar: :any,                 arm64_ventura: "d257be9b74a17d6e35a8b8c5e89491ff2fb9f83a828f442e787110c27a9c5cd2"

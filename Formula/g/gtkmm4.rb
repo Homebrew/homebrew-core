@@ -1,19 +1,9 @@
 class Gtkmm4 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
+  url "https://download.gnome.org/sources/gtkmm/4.20/gtkmm-4.20.0.tar.xz"
+  sha256 "daad9bf9b70f90975f91781fc7a656c923a91374261f576c883cd3aebd59c833"
   license "LGPL-2.1-or-later"
-  revision 1
-
-  stable do
-    url "https://download.gnome.org/sources/gtkmm/4.18/gtkmm-4.18.0.tar.xz"
-    sha256 "2ee31c15479fc4d8e958b03c8b5fbbc8e17bc122c2a2f544497b4e05619e33ec"
-
-    # Fix build failure with Gtk4 >=4.20.0
-    # https://gitlab.gnome.org/GNOME/gtkmm/-/commit/94959145f8b9248e7f6384fb293f1429599f614d
-    # We can't use the upstream commit because it requires re-generating pre-generated files in the tarball.
-    # This requires many extra dependencies (see the `head` spec) and fails on Linux for some reason.
-    patch :DATA
-  end
 
   livecheck do
     url :stable
@@ -21,13 +11,12 @@ class Gtkmm4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "2c90560baeab5574799ad941c526f4bddea3a036ee50246a1fa20f115bc83706"
-    sha256 cellar: :any, arm64_sonoma:  "4765665435e5ede864791e4515d61c82eefe4f0b4ecaab402b08e349d2e8db0f"
-    sha256 cellar: :any, arm64_ventura: "3c376f06a9a0e79fd91d916f1acf3065570d4981759202f6ed239ef80e4b7c38"
-    sha256 cellar: :any, sonoma:        "b429e64dc8909038b3b72fc1a317a1f7488ee132902cb690f00de01a6ada0395"
-    sha256 cellar: :any, ventura:       "33fb1e507d12094ecd6e2bb2afa5b0bf34c52b8dc371102d1459db425bd05f28"
-    sha256               arm64_linux:   "f8faf04812bab8c0d947808334bb0b6e866bdad9f4e9cceb621b30c96a230da7"
-    sha256               x86_64_linux:  "0c4bb4079e03fd81994829459e64b3843121e95b86ab0f90b2242d287b2c50d2"
+    sha256 cellar: :any, arm64_tahoe:   "75f595a7d74ebe4f7fb3d531be9ce70cc70e6b77194d0c6984907da14497d1fd"
+    sha256 cellar: :any, arm64_sequoia: "fac1c12fd0d8e2ae213e1ac9957a1bacbe662e466144769df805c966b0322f89"
+    sha256 cellar: :any, arm64_sonoma:  "af3d4f4127d457bdef6639c83ac0c850e41d236ffd3a33e4ac0f3aaa53672ab0"
+    sha256 cellar: :any, sonoma:        "54c7c7e6a00276d3b9f21c144b8a2c3cc359f5cd2c073b6c5b51b82d4d48bb46"
+    sha256               arm64_linux:   "0077f613e776d7d5e27c23082c73cd2405a27534b025708443cf4e69979c2e29"
+    sha256               x86_64_linux:  "3ea11d6e9eeb9634d885d182615693f80b81c890d650233dbb8f20e298f141e0"
   end
 
   head do
@@ -79,22 +68,3 @@ class Gtkmm4 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git i/untracked/gtk/gtkmm/iconpaintable.h w/untracked/gtk/gtkmm/iconpaintable.h
-index dfdedf3..432ab1b 100644
---- i/untracked/gtk/gtkmm/iconpaintable.h
-+++ w/untracked/gtk/gtkmm/iconpaintable.h
-@@ -29,11 +29,10 @@
- #include <glibmm/object.h>
- #include <gdkmm/paintable.h>
- #include <giomm/file.h>
-+#include <gtk/gtk.h>
- 
- 
- #ifndef DOXYGEN_SHOULD_SKIP_THIS
--using GtkIconPaintable = struct _GtkIconPaintable;
--using GtkIconPaintableClass = struct _GtkIconPaintableClass;
- #endif /* DOXYGEN_SHOULD_SKIP_THIS */
- 
- 

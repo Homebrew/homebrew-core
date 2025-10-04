@@ -20,9 +20,6 @@ class Gengetopt < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "90b1ee25cdf823bad41c76f92afabe8a1b7a8db6f29b4cc533c6914d833d992f"
     sha256 cellar: :any_skip_relocation, big_sur:        "f57ffafddb271d729ec0c07bdc564fc1bf0a52ee9b060cde1c5c8da3dbe3f515"
     sha256 cellar: :any_skip_relocation, catalina:       "7134042a80bb314db08216b1de2d293b5925ab729ba87649fdab4dc6298256f4"
-    sha256 cellar: :any_skip_relocation, mojave:         "2ae5eeef439a6abc4d1f65965e1bafa9ac5ad0620cb4ef5e9444a4b2dbef1872"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "00f2578e7697c01d060a422e1be0ce8f4c6d23b365967ff7b5501d5cd6306dd1"
-    sha256 cellar: :any_skip_relocation, sierra:         "57acd0ca20988a1b4f0f16383edb985549597b8a5266316e3a314b7775bab3c0"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "44cfbe8a7d55d574a917f8f35264ecf1f4798c3686c8288750ea971b66a0d9d6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "379c0b354e21a5da13e62c6dbce3edfc1580561fb59015f015769c18cc804a60"
   end

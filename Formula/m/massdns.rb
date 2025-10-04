@@ -8,6 +8,7 @@ class Massdns < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "4ccc67bf2a881c34a2cd1ab5fab97cb109e9cdf1ac60eb6861ae8cea2f02b31d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a9a5d00f32970e270e6d1ab85b7ec437efdd1b74e1e4b40f6d938f74f74ee7f0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e7c9496b840fee8c62fdde8b1799a12e957ccf055a938d34c115c4a1791c9aac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e9ffbddb8c8d7f7d2d6ce7c65a144b01c038332feee271f1168b8d2885876db"

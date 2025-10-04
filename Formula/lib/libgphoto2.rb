@@ -13,6 +13,7 @@ class Libgphoto2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "0a5b3e86a52ba18433aa26a723ba0541d7e150cd0a4e105887e8a0b0b3e6d421"
     sha256 arm64_sequoia: "7b1623d4b3344b30dfc4ad0d367aea6723c66885c7de2b8a90396592b2782553"
     sha256 arm64_sonoma:  "1d8ebf1c8da4b2faaa3ebae9db25ec16f0d7009ecfa375357559779e9e5c1b85"
     sha256 arm64_ventura: "633b4bf8082baa3098da2912e448b8b20a6f7002270e40fef9638823c8a3dd0c"

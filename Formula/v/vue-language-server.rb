@@ -1,16 +1,17 @@
 class VueLanguageServer < Formula
   desc "Vue.js language server"
   homepage "https://github.com/vuejs/language-tools"
-  url "https://registry.npmjs.org/@vue/language-server/-/language-server-3.0.7.tgz"
-  sha256 "741c85404be6ab468f3a24f6921c6900229f9c87737ca630f7f5aac71ff947d3"
+  url "https://registry.npmjs.org/@vue/language-server/-/language-server-3.1.0.tgz"
+  sha256 "f21696e3aeb27e5c4b8f44fe8d021e3b322a1cb4e131f8a2e22716eb6d917e43"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7ea70419d72b3aea7417f0c5fe67c84d801a1d651e6c639908c67858aec7192"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f749da3268eb9f737f23061eeee7c4460a7b5325221dee17addd58e5cbbfa76"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b52acffc3963f5908f2175c5066b5019edd18e1efc2cd94f077c6e2470f8884"
-    sha256 cellar: :any_skip_relocation, sonoma:        "37e2b7990c4ad644193c7214d3c147cd299dcf7a25f5ed3ee7f7636051f26637"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ea38a4e9e766eeddfa9a68accc313fb8302ff1db7962e05a0a47d8af5369b1b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11f8e5c233d9e39f9cc1611eb6b06f3a03dd1344eeceb31fa03da590a1c8c198"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4389f0b6a7054972547a48b9334313f2b0c0e0b820062bb19ca02b457058d53"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49a6f34743c064967e156eae8cd109f8ac9355e712ca030f7c7fb1792971d296"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a27bcacc70976b7e62fba8d0481189c81af7919cbaf77a8e1c6814b12312ca9a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b2d02be8bec5cf8765ed0dd361ae7481e65afe9ffb623ce4eb4605881a83f07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17c3acfaaf8f79715a1fe2f596eda34a283aa08337fe4b3241633c05d454ecc7"
   end
 
   depends_on "node"

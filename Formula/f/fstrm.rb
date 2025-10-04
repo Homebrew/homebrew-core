@@ -34,7 +34,6 @@ class Fstrm < Formula
     sha256 cellar: :any,                 monterey:       "1e8daf8e57af116ffdcf7ada7a945181d3ef35d955f1631a8ed4e2c27ac8ebcb"
     sha256 cellar: :any,                 big_sur:        "32c20ee504e029088d36ee45177137411beed0aaaac76ce287810cec71d3eea9"
     sha256 cellar: :any,                 catalina:       "3b775d63b3594f2264b413184aad3fbb33990c07473e0db9db12c86bd0f19950"
-    sha256 cellar: :any,                 mojave:         "7f18a4569511492fdad064427c67fc88f988046c1fc6804a7973e1ae2911714e"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "6b511dcdd149db9a62c58e4fc0cfb79c2c72defb16a5bad62d5295beb601a5e0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a1db14f84679ffb80882a5a00b733e671f82242d2a338ce485e180b4f40f1a0"
   end

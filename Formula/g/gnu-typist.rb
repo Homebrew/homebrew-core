@@ -8,6 +8,7 @@ class GnuTypist < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "f47594d59df3c42dcaeee9f73264471981464416b412786124b0c4a7b3a70df1"
     sha256 arm64_sequoia: "15ba375ec67355fe2043282cd1de4a229fd8d29b4857f73e22b05c8d702fe9e2"
     sha256 arm64_sonoma:  "df74aca9130820bcdbc021116652a23122835e14016003aac9ef0f0d8bdab972"
     sha256 arm64_ventura: "790643311a056fa38bc014e51107bf0984f25d77506f86e60f3843ac8ee5b3cc"

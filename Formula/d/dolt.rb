@@ -1,8 +1,8 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://github.com/dolthub/dolt"
-  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.59.9.tar.gz"
-  sha256 "4fcd588f6736c237c93da026101ad85912bca93bf982361c5a010ba2c3aeb8a7"
+  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.59.17.tar.gz"
+  sha256 "536c6a44af243f11d316b09a960f0c544e97d58e6218e62a0f8ec817b60d56ef"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/dolthub/dolt.git", branch: "main"
@@ -13,14 +13,16 @@ class Dolt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51ea9a5aaccc2b75973a46318accad60dfa911938a417c04ad21f9cc2153e32c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5aad84eff248c4180fed8b0e82341eedaef5991d37d9a08dbe08a7c8e43b31a1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2dc7cc1d0dc307d2faa88310dcb030fb4f1c6704a1a955ebb8c105e9024e8bb8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8a7078e09424a37e0bd68077bcc6fc408a407beacbdeb58da8b353e25f38e9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0802809d27a8c59a83a042f45e83482677c16a20d915e531ef8c59cbe5b7dbc"
+    sha256 cellar: :any,                 arm64_tahoe:   "f8b8bb3ba537adc1e49b0517e043d8a688228b8dd0c9740bc538173521749909"
+    sha256 cellar: :any,                 arm64_sequoia: "002ec40a9523544686199939a2237d27c238d66b04794e74176ed13713bfee0e"
+    sha256 cellar: :any,                 arm64_sonoma:  "aad9af7cd8caee30f7eb31a28d69f9ca8a2306b4df51d285749a6235cff4faff"
+    sha256 cellar: :any,                 sonoma:        "2c5a8b26c92a70ebc902f172360061e14de2fa5d417e7cc20cac87468bb06239"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb7c7ae00be6704ba0e778b2d4f8f8ecf202a781e93b3dd6c791517bba061768"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4dd599512cb6afd7da591133ad8dc26b8813d180e1bc92c4e02ffee21f08befe"
   end
 
   depends_on "go" => :build
+  depends_on "icu4c@77"
 
   def install
     chdir "go" do

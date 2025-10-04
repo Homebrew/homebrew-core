@@ -11,6 +11,7 @@ class Gdal < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "7a6c9ed5a1de24f1c165c76cd98c3d1e3c27f6e213b46900bcf70e9a57dfb60b"
     sha256 arm64_sequoia: "ebacff0384f2fafa050ccf681609ce30ee12be0b5d027953b0ad2446b0c9af5b"
     sha256 arm64_sonoma:  "cc0cb0e621b913b50b72a43fe7d0d4b08f3051ec0c290e6744de9e82f97f8035"
     sha256 arm64_ventura: "bd16bd0206f8ebaa91802a08f7af64c76e8d3ed2c39ca8ea07cab7cde9bf171e"

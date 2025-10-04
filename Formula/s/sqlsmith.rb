@@ -14,6 +14,7 @@ class Sqlsmith < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d2eeed7e3a0447e19564eeca544e3fc0fc2331c5165f53b3145b865a76855745"
     sha256 cellar: :any,                 arm64_sequoia: "3d3b4d8a61c5b1012c165f83da60cad4a1de62653d24c378b42aa5505a986551"
     sha256 cellar: :any,                 arm64_sonoma:  "9f8a63bc4257b008ecc16ba3913c1e1b2b263f34f00e3385d45bc002f9221a11"
     sha256 cellar: :any,                 arm64_ventura: "d04086ed41c23bdeb8f3a2530e3ab40dfc49b48ee25ebfb0e7e98678ff6ed366"

@@ -19,9 +19,6 @@ class Heatshrink < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e211c2b12e4cfb4ccc65155ec91a03d4b5eaf04538814a7404787f308463fbcd"
     sha256 cellar: :any_skip_relocation, big_sur:        "9131daef95de9b3c7fecb082ade54be4b67f8c4ca3f3bce6d18f19b1492078d9"
     sha256 cellar: :any_skip_relocation, catalina:       "5956959544286fc9b6474a0f6df508530431c1632527fa4048091f33f319fab2"
-    sha256 cellar: :any_skip_relocation, mojave:         "504b4b64164343217c6852509b59858494ba38ad9b63e7a9b3bb247290833582"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "865d11380a3e586a962a5dec0069def43e777f20626bdc5396735d003d90d20b"
-    sha256 cellar: :any_skip_relocation, sierra:         "3965350f672040dfec9d2e07ac5f26aa16b324f59d2a762a4faac0930d2de684"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "b403c35dc1c684ff7fd3c7bad6e7b3724c458ba77537c7208660a0c0cd2986fe"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff464d4696b56788cdbde22f9ec08015f65626ee0b8a4707fad973fd0f493495"
   end

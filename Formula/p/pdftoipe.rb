@@ -9,6 +9,7 @@ class Pdftoipe < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "963700600ea943f69ca9c77a5efa04ffb52e0e82b68de64aec105dc337e14fb8"
     sha256 cellar: :any,                 arm64_sequoia: "4cb6ee7067d29c1ec17a192f6cbd6d756ed510bd8dd932bfc8511b7a696e8fdf"
     sha256 cellar: :any,                 arm64_sonoma:  "e761b956dcdaa5d5e5d43044662b07289c0bc8fceb78bb60dc63d05c9e6d8c32"
     sha256 cellar: :any,                 arm64_ventura: "f94a45d24f66f8be3f5253c3e03269fc936f80fe8cbf76940eaea6473364a7ef"

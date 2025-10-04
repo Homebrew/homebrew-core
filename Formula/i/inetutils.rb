@@ -7,6 +7,7 @@ class Inetutils < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "8de72231a19193dc6b8bbc2ca68869494572f7847870529fe4917e8ef980ed0a"
     sha256 arm64_sequoia: "d6effc6962c93d36abc4c5912fad2235fb8a22660e0564134e04d4bab636b6b3"
     sha256 arm64_sonoma:  "c597d9559731d11246683d104edfe3a0cefc5051cf2c522e865540a19e39b225"
     sha256 arm64_ventura: "2fcf900ec14e1c171d02ca16dc8f39123de7a3efd2a9881770fe6ed095bab2b4"
@@ -32,11 +33,7 @@ class Inetutils < Formula
 
   def noshadow
     # List of binaries that do not shadow macOS utils
-    list = %w[dnsdomainname rcp rexec rlogin rsh]
-    on_high_sierra :or_newer do
-      list += %w[ftp telnet]
-    end
-    list
+    %w[dnsdomainname ftp rcp rexec rlogin rsh telnet]
   end
 
   def linux_conflicts

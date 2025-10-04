@@ -24,6 +24,8 @@ class Quictls < Formula
 
   keg_only "it conflicts with OpenSSL"
 
+  deprecate! date: "2025-10-02", because: :repo_archived
+
   depends_on "ca-certificates"
 
   on_linux do

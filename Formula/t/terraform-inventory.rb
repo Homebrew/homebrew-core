@@ -18,7 +18,6 @@ class TerraformInventory < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7444adf6b3ea13567454c7ef34feebc5d5fddedeaefe5be07382544ebf67d79b"
     sha256 cellar: :any_skip_relocation, big_sur:        "ab56b7c132afc5508e5e10cfa21b784aa2f84fa8a23d9985b7b45eb04c8bdae1"
     sha256 cellar: :any_skip_relocation, catalina:       "ab56b7c132afc5508e5e10cfa21b784aa2f84fa8a23d9985b7b45eb04c8bdae1"
-    sha256 cellar: :any_skip_relocation, mojave:         "ab56b7c132afc5508e5e10cfa21b784aa2f84fa8a23d9985b7b45eb04c8bdae1"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "81cac3290ff42bd1c1759d9596b08e9647533f202dfabf5b9ad91e44a6f696bc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "853cf36916d4bb9834f0f6b491e347a109a2930d350a1a31b8e7b8233720c20b"
   end

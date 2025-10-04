@@ -1,20 +1,17 @@
 class Gnmic < Formula
   desc "GNMI CLI client and collector"
   homepage "https://gnmic.openconfig.net"
-  url "https://github.com/openconfig/gnmic/archive/refs/tags/v0.41.0.tar.gz"
-  sha256 "a684f627680eff51acec81f8eb3c4fa920c32b05afde0c040e9c51d1d2fe3067"
+  url "https://github.com/openconfig/gnmic/archive/refs/tags/v0.42.0.tar.gz"
+  sha256 "6eb7ea65874e748b47bc01dd002d67dd54ee3d06093c050e1dbc7188d97fb560"
   license "Apache-2.0"
   head "https://github.com/openconfig/gnmic.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d935715db6f289a692489c03ad062bc856d5d1d3456607e79fc50d625269f2a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fcd24eccee10681afac6e6521019b46888d04ec6407f9f490afacd8d96fef3a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5fcd24eccee10681afac6e6521019b46888d04ec6407f9f490afacd8d96fef3a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5fcd24eccee10681afac6e6521019b46888d04ec6407f9f490afacd8d96fef3a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2bbd01e38ff950c8741754ef25a8be572d8e6c1537db0f04ec85c6e0574d7d54"
-    sha256 cellar: :any_skip_relocation, ventura:       "2bbd01e38ff950c8741754ef25a8be572d8e6c1537db0f04ec85c6e0574d7d54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b231254c7d76ec467980b2b47ac34a1cd2fe3e2e42379f66b276cf45039ec3f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1354f289e26ccdf5d5a1cfd104c671f4d48d08e4a482b8062b0027bde80d6894"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1354f289e26ccdf5d5a1cfd104c671f4d48d08e4a482b8062b0027bde80d6894"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1354f289e26ccdf5d5a1cfd104c671f4d48d08e4a482b8062b0027bde80d6894"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a023b6eb3e04cd4ace41153c47590d97c1e725f14968c982cc0d831ec243cc6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "446523e8a237f393d9a309a9477eb601a3435187fc6d3bec9ac5887a71d559a1"
   end
 
   depends_on "go" => :build

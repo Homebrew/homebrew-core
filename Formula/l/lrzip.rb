@@ -13,6 +13,7 @@ class Lrzip < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "7ba040424b61861e2e583c5797cde65885622182d4a99a20a38be74e0c4b86b9"
     sha256 cellar: :any,                 arm64_sequoia:  "34d8b5415f33f6227a73dbc8ab1957c2b1e3591e1c3ee5b8d01ca6123b9d9525"
     sha256 cellar: :any,                 arm64_sonoma:   "06cde83e30ff4c3ceb76cf9c855fe24540429fb009ab3b4d9cf92a470138240d"
     sha256 cellar: :any,                 arm64_ventura:  "ad6e28ccfb37ce81646fb1b40b000e7172906ff50da4e9804c8d41f3562e0e63"
@@ -23,7 +24,6 @@ class Lrzip < Formula
     sha256 cellar: :any,                 monterey:       "d270d7085f30f8d07e32f746e8e9a10a09729ef6e60d0fbad9a5af85b1193522"
     sha256 cellar: :any,                 big_sur:        "33d561fad2bba643625d358fc65cfa2d8f37ae51d3329887da76e884d43b1515"
     sha256 cellar: :any,                 catalina:       "701705808812d442dbd211235510a039a53cd4de9a4b28c014da5ad8a000014d"
-    sha256 cellar: :any,                 mojave:         "a3230ecfa68e08deb5f1414cb67736cffcde179ba34748df8e0fcdcb0d2c1ef7"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "3f8dfe3dd08b7231d134922f66dca8c88575590259bc3646d6582f2b4c6fb011"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5515b974789a0665b67ceb99c09d7c2b4edae560c5d7e4d7aee765fe95a563e0"
   end

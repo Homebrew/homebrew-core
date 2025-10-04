@@ -8,6 +8,7 @@ class Ulfius < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a535c2a3e95d6f0a6d9426b4bebb34b17337aa1d2eb3352464c00c01062f8bad"
     sha256 cellar: :any,                 arm64_sequoia:  "6020a868ce69b336b8ef6dd3b37bd70cd21eb8a246ddae1ae45a9b713b672e42"
     sha256 cellar: :any,                 arm64_sonoma:   "453e5f09539969edae37b6aeafbe2165a455a91b12df2d0c4920d7db20b20ced"
     sha256 cellar: :any,                 arm64_ventura:  "4ba9e5737a26c0feece3bfe0ab61c5e48668352323c32d6be741ee7e210b23ff"

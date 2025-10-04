@@ -1,14 +1,12 @@
 class LsusbLaniksj < Formula
   desc "List USB devices, just like the Linux lsusb command"
   homepage "https://github.com/LanikSJ/lsusb"
-  url "https://github.com/LanikSJ/lsusb/archive/refs/tags/1.1.4.tar.gz"
-  sha256 "14eb90962515c4f63aacc56750d0d221e57a5bb7cf12577193de6bc261e70be6"
+  url "https://github.com/LanikSJ/lsusb/archive/refs/tags/1.1.6.tar.gz"
+  sha256 "deaec63e7bc7185982669473cb5aca245adcfd79e9b0b3a22da3c67d13a9b40c"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "478e380b7221d17b4ec6d9de9c843f500032e00ec521bfd539805927e1141914"
+    sha256 cellar: :any_skip_relocation, all: "91567565c865110b0eb54d3764147d207b813c456c2b3cfc8fe857e35ffa5259"
   end
 
   depends_on :macos

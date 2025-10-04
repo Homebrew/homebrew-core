@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2025.9.10.tar.gz"
-  sha256 "1c65596cbf9232aa90d7c7d813cd61b3c7982b1f4aad8d95edfb61338aafb7e6"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2025.10.2.tar.gz"
+  sha256 "38c75cf3cd6ff4854c66ffe242ffc69771f76826e567cdfc665cddb3c0b15f0c"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -12,14 +12,16 @@ class Mise < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8cd55e5e9d372c47b80bbf937f4691f56d0acf23671eaeb147b09ce0ecd22f9a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "99b7bfa7a1896ad0017b673944e3480635044619ee4c45453da64b576e82ad35"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf611eebd4d1b82b0566681587e94dd26e50e678a2deed36db7a861a9829eb78"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2dfd0d09a565626dfe3c376cc13a5ae04d78c439c41dd165423233230d6f0f90"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27cc37c0f0ef4dc6716e3195491d472b4604522517435f27f2f76fcac188c1b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65e9c9d485d816b55b7466a577fbd98598607ff98c220bc9eab422b3f7f3f978"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f56874dbcb4dd2458a499c9f6f38773ef446c1ca2ffae2bbb351aa42e166e63c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18bd5c79c67b32cb1da895900ccdfa5db5a3f45a1faa0dded86079a6637e1892"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1e1374dc01dec922cd846a77c3b031e85b9396349ffd2b643e3091b221d7de3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0b504f0273dfeec69afa28805ce213bc6151c4125b6a7e6ab20fd766fa8a9b41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3adf141358d2b10e00d42dc6de06275eaa6798baadaba2707661bde5aad015c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ee6cdcfca47a075ab9d532fe163857e0da3e75df7c80138576dff0a82115e1c"
   end
 
+  depends_on "cmake" => :build
+  depends_on "llvm" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 

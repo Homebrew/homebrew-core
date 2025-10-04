@@ -12,6 +12,7 @@ class Patchutils < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0bf4589febeda90518d2d4d875a96f4c4a25316a80c7c1d1718e05c96d5eb101"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6a40f8058c158c1bc004362bb9fc905ef2fb7f0b3c1219a8fdcde2de8f19f37"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad5ea66690eeeba9d66fc431e9ed5f839831ae39a5be14ed363e45f3ad3805c8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "02b054e5a449dac5daaf82ff1813498ef3e6155dec5498ef912daf232f169bb2"

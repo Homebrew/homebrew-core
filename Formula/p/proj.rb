@@ -1,20 +1,18 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj.org/"
-  url "https://github.com/OSGeo/PROJ/releases/download/9.6.2/proj-9.6.2.tar.gz"
-  sha256 "53d0cafaee3bb2390264a38668ed31d90787de05e71378ad7a8f35bb34c575d1"
+  url "https://github.com/OSGeo/PROJ/releases/download/9.7.0/proj-9.7.0.tar.gz"
+  sha256 "65705ecd987b50bf63e15820ce6bd17c042feaabda981249831bd230f6689709"
   license "MIT"
   head "https://github.com/OSGeo/proj.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "9cc02dbd57bb9c3f877fe3e71639d5f6a2f015b1d8c61c479c378a99f6a5b9c2"
-    sha256 arm64_sequoia: "37fc9f7eabdc4118117d07a91fca5fbc883600f545e3ce46e74f7c14af00b9c0"
-    sha256 arm64_sonoma:  "15f554ed65e9e9ab8a9c7a0e3d777bf21a56d6fcc753c361e7d680c87eb3855d"
-    sha256 arm64_ventura: "7b991b91425fa3c3e9c0f0e381e5f8f174e514691c2906edac3eaadc112e0ad8"
-    sha256 sonoma:        "517adcf737dbd18c98f4786ea7b49ccd24df57c3f312c848d66bb420b790ff04"
-    sha256 ventura:       "2304f2bdd4ce624f41cc84d26f76a015711c98a78b8ee5341e9604351771f7d8"
-    sha256 arm64_linux:   "bf431c655f9c9a09fd036dfb7c1d453899d37e2a40bd2aab0e1c301aca5f27f4"
-    sha256 x86_64_linux:  "e9fb5dcd6d7955c814fdc170a64782f37f6855e4187984ab41d160f8dc22417f"
+    sha256 arm64_tahoe:   "3f2a261bb59caa3ee347be881638ddcfc12b9ca17932083875dfe349cdbc9c92"
+    sha256 arm64_sequoia: "fca0806f8cd6cb3adda9773905223b8d54953358ab13f3d09e51f2f4cc375b64"
+    sha256 arm64_sonoma:  "294eef8e71361edbff6b498ce36836371fb3649b0daa948164aa0fd3f28ff5b2"
+    sha256 sonoma:        "2bf1a69543056eba5438bec66b6c5db2b6a72c111242f2d2211e20d2d2a7f468"
+    sha256 arm64_linux:   "7e01531f786ca1ddf9ff91a5b272727264ed26488f76cd74e1ce668f3e538169"
+    sha256 x86_64_linux:  "b41f77cb6e2425428d1524a43d635e8a7b648196854a4fde4e424a32779a836a"
   end
 
   depends_on "cmake" => :build
@@ -31,8 +29,9 @@ class Proj < Formula
 
   # The datum grid files are required to support datum shifting
   resource "proj-data" do
-    url "https://download.osgeo.org/proj/proj-data-1.22.zip"
-    sha256 "ebca54b7f9118beafd30a5abeaeacfee6be9f59a0bb52419c9282cf34ee2510a"
+    url "https://github.com/OSGeo/PROJ-data/releases/download/1.23.0/proj-data-1.23.zip"
+    mirror "https://download.osgeo.org/proj/proj-data-1.23.zip"
+    sha256 "f5cac6342566cfa7481ed6f2be24e1cb2f6d7e17544edb9fc829fca25ddcc4a8"
 
     livecheck do
       url "https://download.osgeo.org/proj/"

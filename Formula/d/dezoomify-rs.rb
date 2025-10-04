@@ -15,6 +15,7 @@ class DezoomifyRs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8be8dcfeec19cf3e8255dfb6b70608f591cfffbdee959919d3d99504558657c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "847cc613f3d55a6e7a4240166c77cb3f96361cdd1aae066d00e81810ea71182e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0404ff601c67f74757b3d827fa0eb15e9a2fbedd0916c827b918cc7b1a5164ad"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "347c1182e473e74646a95f9a9351149a33ddb84b3eb446da5602bc1091acb379"

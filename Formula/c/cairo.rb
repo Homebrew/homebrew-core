@@ -13,6 +13,7 @@ class Cairo < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "0a59b15b0790cfdd761af1c0fcb82264fd3fbd9a75202bd2e194fc98999c12ec"
     sha256 cellar: :any, arm64_sequoia: "c3c657a2dd0fac3e84d3c5d4e8327313f0ef217f26da2f73fbc50765fc9e9502"
     sha256 cellar: :any, arm64_sonoma:  "af9f8ed4d44e37149a44f1a6cfdca8bacb7034690dcaa39619485171b15cbc26"
     sha256 cellar: :any, arm64_ventura: "36d4e7c07a598f0aaf9190b4cd5203daa9ca613af73b152c5c6db12ccd235869"

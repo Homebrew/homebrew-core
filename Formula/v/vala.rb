@@ -4,16 +4,15 @@ class Vala < Formula
   url "https://download.gnome.org/sources/vala/0.56/vala-0.56.18.tar.xz"
   sha256 "f2affe7d40ab63db8e7b9ecc3f6bdc9c2fc7e3134c84ff2d795f482fe926a382"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_sequoia: "ff65a2101edaaaf53257e189d4ec20038b9de0680d20e5ac69a5d4b3b8276eda"
-    sha256 arm64_sonoma:  "6b8f451a970480a28b7f0a1262ce351d12fee05b78db1a31cf7bcc0abc018850"
-    sha256 arm64_ventura: "1df01b6ebb0b6ac03027c8621412b8b1f9c8c8e5722d73a9fd9a7ee4233bb41f"
-    sha256 sonoma:        "f79cf8415710b5da9d73c837f0660aa3554d9f21c5cfb3af3e7adc2f7a295f61"
-    sha256 ventura:       "051ca637d14e377b0d3ad5f7ab497d2f612f5c9c59d96ef89099ad1627977c39"
-    sha256 arm64_linux:   "a54dd08666de4550ba75a90050ad1ebaf67cac7bc0990512881b33858cf55ebf"
-    sha256 x86_64_linux:  "284b26bcb2fa09af8f5cb85093f1db9145319950b384797d7c64ba1d6f184ad0"
+    sha256 arm64_tahoe:   "b107f1bbd7f2ef11df45879dfe7eef7c06043148318e1a924b17e8befe0109b5"
+    sha256 arm64_sequoia: "0c9df5e695775789df165924d269b06a50037038d4373bdd47efb84f61cde9ad"
+    sha256 arm64_sonoma:  "3d2afba20cfa6404b491373e85b36252a644a6ba1f9e0dd3f62c3f3b519ace40"
+    sha256 sonoma:        "7be08cdc3ca80eefd9cf5bddffabe828046acd66afa768f6e86baaa69a5e25fd"
+    sha256 arm64_linux:   "d562efbe5304e1d15f1eb40be1a2f8f0fceb6ace109866ec9f1089998b90ef81"
+    sha256 x86_64_linux:  "6d4a016086637ae5654795825ee3d8de34d9ff43f3b78f5c4b89aa304cc7ed20"
   end
 
   depends_on "gobject-introspection" => :build

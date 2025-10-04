@@ -20,7 +20,6 @@ class Libstxxl < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5916828893681e83b360fbd3638499592b65f39a546b64156aac85bf52a90550"
     sha256 cellar: :any_skip_relocation, big_sur:        "c3f8dceb4e0a1716a2c193daf4b5eeb4ae3e8e96224bdc78ae8f74c2a3059152"
     sha256 cellar: :any_skip_relocation, catalina:       "b4d5ef6b70735617973eb1f45214b11e3e6baec242bc6aa5ba9ed4da1834f6ad"
-    sha256 cellar: :any_skip_relocation, mojave:         "9b179722c61ea55b352c9196ae38d6915a3625096117088d43f854bee4eb6a39"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "830762e021660cbe0143faa6737a34aa03104344f17f561b6bbabf5befaa799b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8651bc71eeb58d5fc34d8b934576ceec8d7735575c595e50e8dd8e4d2dc84ae9"
   end

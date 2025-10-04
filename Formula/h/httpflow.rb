@@ -20,8 +20,6 @@ class Httpflow < Formula
     sha256 cellar: :any,                 monterey:       "2733c1f43d12b4581542233c0b0314189756d98b0fbd76e0899ca2342f811bc3"
     sha256 cellar: :any,                 big_sur:        "8fd53a648dc88731b9dc6dd03fbfa68302f287e8c3eb2685273f10d691aee13e"
     sha256 cellar: :any,                 catalina:       "2b7b63f5d82139b4fc017b8848e3b29608738cd510ef1350710c6224a24079a3"
-    sha256 cellar: :any,                 mojave:         "6d911ff1c720035b0b23cf994fbbb37e7d1372dcd32eb60bc54924b78b444431"
-    sha256 cellar: :any,                 high_sierra:    "cf54de7d5e6fda49966d75a0c33580bb8e64d3d0fb6c39337a03e21fb20682d5"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "a0c2f859553f2a542f2ab254d0bcfeedbd29c3f5f8b626cd699c81a2912b77e0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4974439a78ea50c5a49a972f340395f0f2a8305ff2980e9eab9bb27b94de9778"
   end

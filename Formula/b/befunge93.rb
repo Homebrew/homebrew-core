@@ -27,8 +27,6 @@ class Befunge93 < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7ec6a5c6ef76cf0bce2358f3ae72ac2336bba0c7f2b31419438c82bdc3ed6133"
     sha256 cellar: :any_skip_relocation, big_sur:        "bba6c29ce6655061c2f0323b1ee778c275e0bc18f850158274a03af1ea666fc6"
     sha256 cellar: :any_skip_relocation, catalina:       "190fa82b0fef31f096a102f3b33205112cb206f578813f7ac78f78617c7d73d3"
-    sha256 cellar: :any_skip_relocation, mojave:         "23dd470caf59b04ffb652e46061760701269a8a79ce93c3afd71318da000112d"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c8a1e2085413dd0da3036462eeffed2f01198da92f128f4951c0885bf69a0149"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "81943fb8dff560b6d4a8641bd26eea7433127d01044710a3c46fce634cc8ce4d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f71eb1910501903b8af94c21352759032696046be49995beb95caead85a8398"
   end

@@ -12,6 +12,7 @@ class Joern < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d3f38fb9fa56e819666a8000a754f902ec98f9fe741be6046335e16261188bc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "225888d885d65fcda8089530f3d2c4cbcfc4fb35e6effff3ee9c5c12b05e6a56"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "225888d885d65fcda8089530f3d2c4cbcfc4fb35e6effff3ee9c5c12b05e6a56"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3642f836a1fce23ee0cd147d7ad234a020095954d8f236db9aa6600890ecbb2a"

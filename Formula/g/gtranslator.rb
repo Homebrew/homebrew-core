@@ -6,6 +6,7 @@ class Gtranslator < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "c3989a78b0ab3a2c895f893703396ab059c661745f79178ef2b0ff45a32cd18c"
     sha256 arm64_sequoia: "9eff3bc6ccd0b6b83284c24ddc1e648c9a14d4dbcb9a287cf5111c6f5e6817cd"
     sha256 arm64_sonoma:  "d1bc0305b18832a98916975872bd68f8d3bff4e087a7a51cb676ba6406204af9"
     sha256 sonoma:        "0f59c2ffe4ba03104573371c17a007da03489a6b96a0116e987f2cf692ffdaed"

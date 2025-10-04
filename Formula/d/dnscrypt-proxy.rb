@@ -12,6 +12,7 @@ class DnscryptProxy < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f777ca5ee453c1a5f540bd82e96e44aee0ac723a6e0ba27d259bb36ad66e2e2b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e68f4297462c1d9d0c5a6078d876641084bd0961916d2276bda880d96d94e45"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e68f4297462c1d9d0c5a6078d876641084bd0961916d2276bda880d96d94e45"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4e68f4297462c1d9d0c5a6078d876641084bd0961916d2276bda880d96d94e45"

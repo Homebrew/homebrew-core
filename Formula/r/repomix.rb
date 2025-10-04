@@ -1,18 +1,17 @@
 class Repomix < Formula
   desc "Pack repository contents into a single AI-friendly file"
   homepage "https://github.com/yamadashy/repomix"
-  url "https://registry.npmjs.org/repomix/-/repomix-1.4.2.tgz"
-  sha256 "372fd8ec459aa0023cd7e6fa187ea8e6e05f6e5900f578003b031b335f0e3a4c"
+  url "https://registry.npmjs.org/repomix/-/repomix-1.6.1.tgz"
+  sha256 "324bd42644e1b9b68076d378708073c6e2623d473cdd7ab8d37f02b40d750cdf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "232d4b3b45a605c23f927ed48587dcf59b37544fac3816c83ff0d83e800b5e59"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "232d4b3b45a605c23f927ed48587dcf59b37544fac3816c83ff0d83e800b5e59"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "232d4b3b45a605c23f927ed48587dcf59b37544fac3816c83ff0d83e800b5e59"
-    sha256 cellar: :any_skip_relocation, sonoma:        "232d4b3b45a605c23f927ed48587dcf59b37544fac3816c83ff0d83e800b5e59"
-    sha256 cellar: :any_skip_relocation, ventura:       "232d4b3b45a605c23f927ed48587dcf59b37544fac3816c83ff0d83e800b5e59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b66e6d6600e66a04d5f7d69e637d7f9b189ad2fcbd7c5698d4ee44e64a6056d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b66e6d6600e66a04d5f7d69e637d7f9b189ad2fcbd7c5698d4ee44e64a6056d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "19fa21944f4ae451a04d2b2bc64c6d6b16522590f7380d558f70862596863ffa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "19fa21944f4ae451a04d2b2bc64c6d6b16522590f7380d558f70862596863ffa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19fa21944f4ae451a04d2b2bc64c6d6b16522590f7380d558f70862596863ffa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "19fa21944f4ae451a04d2b2bc64c6d6b16522590f7380d558f70862596863ffa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a49534b2113d45b81b4bdef5043618c1b9a0b6bac68b787903bbe04b9426dd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a49534b2113d45b81b4bdef5043618c1b9a0b6bac68b787903bbe04b9426dd4"
   end
 
   depends_on "node"

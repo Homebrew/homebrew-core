@@ -25,6 +25,7 @@ class Gstreamer < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "e969a9aca3d98514b8359c820c14cb7870e9008d98ae179c32ba8708f0fc00bf"
     sha256 arm64_sequoia: "18575de9f5680b58711272b2f46d139074f16d9ce7d4fd6f56df293040c8870d"
     sha256 arm64_sonoma:  "5311791aa17b7cc6c4b75c354c2a3ab1eb87f4a10723344c3bdb2d53a0505799"
     sha256 arm64_ventura: "80b9865406bfc3647a0cff6285a5309c0056d392730b5a40205ef5f615bafe0d"
@@ -72,6 +73,7 @@ class Gstreamer < Formula
   depends_on "libnice"
   depends_on "libogg"
   depends_on "libpng"
+  depends_on "librsvg"
   depends_on "libshout"
   depends_on "libsndfile"
   depends_on "libsodium"
@@ -202,9 +204,6 @@ class Gstreamer < Formula
       -Dgst-plugins-rs:gtk4=enabled
       -Dgst-plugins-rs:sodium-source=system
     ]
-
-    # The apple media plug-in uses API that was added in Mojave
-    args << "-Dgst-plugins-bad:applemedia=disabled" if OS.mac? && MacOS.version <= :high_sierra
 
     # Ban trying to chown to root.
     # https://bugzilla.gnome.org/show_bug.cgi?id=750367

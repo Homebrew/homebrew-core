@@ -8,6 +8,7 @@ class DhallJson < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "73baa2fd19be65be837a3c3309d7504e9d418eb7f0f339904eebb220966b603f"
     sha256 cellar: :any,                 arm64_sequoia: "39ad85b98a17ab00830ff951a371b3307f8f233b45515b5a8a4b508c7e26bf14"
     sha256 cellar: :any,                 arm64_sonoma:  "cb38db666618de2732dc9c6cfdc60011110896a4ecaf74a13c0d6154fd1e8c01"
     sha256 cellar: :any,                 arm64_ventura: "1f626e15918be89bc14f16ca825aed2b448b98b93170fc01ef1a3f53ae2cd7b6"

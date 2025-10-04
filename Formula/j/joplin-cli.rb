@@ -6,6 +6,7 @@ class JoplinCli < Formula
   license "MIT"
 
   bottle do
+    sha256                               arm64_tahoe:   "12dc7725a9c234140b5cea609a65d18cdb900c74f2b9550326bbfe55ca21d7e9"
     sha256                               arm64_sequoia: "1cf70bedd032058de7f272d627dbb70c13e0b6f90d3703ad9afa98516c9a0b30"
     sha256                               arm64_sonoma:  "a898216cfef39884fcf3016d586c38e626dba8f95d4ea620843aa8c3e9b180f1"
     sha256                               arm64_ventura: "02acb6adb35419e1a7205c0234814affcb98d09b08a0083ed1632161bd355d03"

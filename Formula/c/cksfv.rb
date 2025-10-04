@@ -24,8 +24,6 @@ class Cksfv < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "4d6559a12aabd7031e1a56b343681e73a378e3df6dd8eca6409089761c26e97a"
     sha256 cellar: :any_skip_relocation, big_sur:        "a747f42a401eae71dd1931f2d09e8d215646f645ce3024a3702b6af36b22d242"
     sha256 cellar: :any_skip_relocation, catalina:       "9e0b05988d3af7d666d08c8d3f4d8792f043f899a88e689d819e0b1dfd4bc2b4"
-    sha256 cellar: :any_skip_relocation, mojave:         "6110de963cf29500583d02ac6629abc215ec85ce13de8855b251e2aaa67bf6d7"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "309816a8249a73a40760807ce0e5801a3ad223b21eb2a2e4b4a1d4d99859ff8a"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "6d94e6b9d42a2d3ce811f6cf4ed4d1a05cd76e8d77482362b0ee26dcf4c6598f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff8e6905611d7301b37271fdb5486d8d7598c4568a1035fe36269f7f97210723"
   end

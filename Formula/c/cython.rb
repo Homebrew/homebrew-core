@@ -1,19 +1,17 @@
 class Cython < Formula
   desc "Compiler for writing C extensions for the Python language"
   homepage "https://cython.org/"
-  url "https://files.pythonhosted.org/packages/18/ab/915337fb39ab4f4539a313df38fc69938df3bf14141b90d61dfd5c2919de/cython-3.1.3.tar.gz"
-  sha256 "10ee785e42328924b78f75a74f66a813cb956b4a9bc91c44816d089d5934c089"
+  url "https://files.pythonhosted.org/packages/a7/f6/d762df1f436a0618455d37f4e4c4872a7cd0dcfc8dec3022ee99e4389c69/cython-3.1.4.tar.gz"
+  sha256 "9aefefe831331e2d66ab31799814eae4d0f8a2d246cbaaaa14d1be29ef777683"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "36d8750fdc126275dcd66da3d1a645c4128bc274f0f41ef596da4f034706bbaf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "158d41701bbe6894639845b05e3374aac4a720c78a6fb8ef6a40301a665a6d8d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3167db3ea47a59734af4da5d3df42166e8690dc8cd48a4ff0fbf19430b117a08"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9f1a6a5bc07bfd0ab14b43f7760c7a53e586cfa90ad992a9d25432075a965b38"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5fc68d238b388fa9c9705f4810b8f255f5554fc63d49a5b43c68f098f57d42a5"
-    sha256 cellar: :any_skip_relocation, ventura:       "969a2690ab7e877d84dc610383dc2d48fa44d6abfc0ded547bc834296bc2b819"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c59ff2620fafbcea75d421331f9826991dc3f6a7bac4fa441c62e26740b99ab9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa7e8449c996e8102e7c5f0c02f09cf1890b5a97e2d2047361d48e2fac9c968e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9bad722f83c356020e597fc17d523292b041238c2f6594e67e28adf8276dddf8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4588c04df9f54b41a6eb21fa9f64cc193f1d147f26773c3e6f6241f175d031ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38d316e16acfbc8fcdd6173b3a70462b9fdca535676427830635ea39e5731553"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dbf2ef8b9722d589c36e398abd02bc3f5703d9210c03e87b5cf5331640b993a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ad3fddab620092e3755e85fed1e7c825bf1a0f6d8e52b77d90abd99aba25122"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09ffc5aa327c0a08681b74073ddce14f803a927073181ade42a426cdb4ee9ab1"
   end
 
   keg_only <<~EOS

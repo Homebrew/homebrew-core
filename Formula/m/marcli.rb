@@ -7,6 +7,7 @@ class Marcli < Formula
   head "https://github.com/hectorcorrea/marcli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f76947a31b32725929e5172ca3456da7061128f7c9acd0c2de54c3b344bf7fb4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2152b85bd6b2a00ebe84d354e0b09066a463a4442d3478529513021b63769216"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2152b85bd6b2a00ebe84d354e0b09066a463a4442d3478529513021b63769216"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2152b85bd6b2a00ebe84d354e0b09066a463a4442d3478529513021b63769216"

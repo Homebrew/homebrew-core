@@ -1,17 +1,18 @@
 class Nmstatectl < Formula
   desc "Command-line tool that manages host networking settings in a declarative manner"
   homepage "https://nmstate.io/"
-  url "https://github.com/nmstate/nmstate/releases/download/v2.2.51/nmstate-2.2.51.tar.gz"
-  sha256 "000776e5b51757b27339466384024b7a1330c81bcbafd926992f087d9fdcf22f"
+  url "https://github.com/nmstate/nmstate/releases/download/v2.2.52/nmstate-2.2.52.tar.gz"
+  sha256 "d53b314795fab42cfed37ab71f531229b6e863626270026b3d33d22c9d43bf14"
   license "Apache-2.0"
   head "https://github.com/nmstate/nmstate.git", branch: "base"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7546fa2b8a3fbb82dc627c3b0f9be1c5c24bb931c14b7f4a3c393e17c9b1524f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6264e7c73e3fb28c8516d6d91542f9adb6f633a9ef8dbbb372e9413c4f4ea2dd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "382a318589659f7463531a0880b1acb0c59c54338a8840d77291688f91c8c400"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1b133936ab45d03080bcf824e1f8a758fabda675fcaf9a3c4053e2e1f262fce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "224d54b3e992ac77902b8698f07ae7fdeea0497c9064207b6f65906465476792"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dffbe3475c5266abe44abb8074dea6997a959f90dfbf43976bac5826610281dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6544fca0494f7c67921748806a91233ac45fabb19041ebb878277024d531c965"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6ab35ffee79f02f909fa624c870734fef0062c8cb9db723cffba502a3d83be9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a7f43ae9a97fba05f9d3750e093a59147abe0e35ffccb8d50ee0dc6edd0da6e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "55428a0dd5145b2e125d360cf329183fc8d89111ebc55fd031960ba80b19de8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "522d32d3aec932f51d7214ebcf11b22e2b86f59605ab6fc4567a52664fd6bd7f"
   end
 
   depends_on "rust" => :build

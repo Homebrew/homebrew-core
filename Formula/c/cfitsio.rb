@@ -1,8 +1,8 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.6.2.tar.gz"
-  sha256 "66fd078cc0bea896b0d44b120d46d6805421a5361d3a5ad84d9f397b1b5de2cb"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.6.3.tar.gz"
+  sha256 "fad44fff274fdda5ffcc0c0fff3bc3c596362722b9292fc8944db91187813600"
   license "CFITSIO"
 
   livecheck do
@@ -11,14 +11,12 @@ class Cfitsio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "449a5036062cd7b754890340921f2a96177a14e1d208782458ca50db71f170c5"
-    sha256 cellar: :any,                 arm64_sequoia: "5211e3ed2c5d20c27a80a1a60392a0a40ba1124795fcb9a8969dbfc536bf75cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "99f6c0c152eed90cfc797714394de1428abc1e5bc056699bc9f227124fe537e1"
-    sha256 cellar: :any,                 arm64_ventura: "8b92cc30cc355bb0522c74bd91481fedb21e31867812475e867fcb704b1336f6"
-    sha256 cellar: :any,                 sonoma:        "95f8da6e88ef0f411fd4f0769e0ac1651a98760d02ea70e8f3e5df97c2f645e9"
-    sha256 cellar: :any,                 ventura:       "65fb50a8957f974a68ced585b4742f42bc7684d80035499362571d425ccc6edd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9cfb371e8d8f3a17bbed2f50db40636c85bc22012725cd8f9a680474fba16e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5028bfb3c616cfec720d946007f9fe30f0284ad7b348800acb7d8cb9d516cffb"
+    sha256 cellar: :any,                 arm64_tahoe:   "f1f544bfb17b7c775fb0d6e0ef066776eef812632068d0a907e38c3bb8112da0"
+    sha256 cellar: :any,                 arm64_sequoia: "4740877f5ef82d5de96cd115c90726d69cbb6bdbf173e658455a478014980d14"
+    sha256 cellar: :any,                 arm64_sonoma:  "4dc73f475934e5f188eefc117f64ad8ef0eac412b3b0aa65901156594b145334"
+    sha256 cellar: :any,                 sonoma:        "58d81f8c8d8af06c7ce37007789748cdfa283c2d3ef63d6dc3d217d32c295688"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3250dc2bc7f30d60e50d4739d6cce788e91afc5a0f3a350d8412eeea7fbf1fb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ff756bf08e864fbe6416cbe1513a6a88d4c377fa63188a0e2f9c87cbb1ce3ff"
   end
 
   depends_on "cmake" => :build

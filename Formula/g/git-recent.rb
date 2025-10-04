@@ -11,8 +11,6 @@ class GitRecent < Formula
 
   depends_on "fzf"
 
-  depends_on macos: :sierra
-
   on_linux do
     depends_on "util-linux" # for `column`
   end

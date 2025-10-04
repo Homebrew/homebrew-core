@@ -10,6 +10,7 @@ class Manim < Formula
   head "https://github.com/manimCommunity/manim.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f657748566cedb4f178079c3dde2abc7cc5b47949897182935da68f33f12ca30"
     sha256 cellar: :any,                 arm64_sequoia: "444b84bbef2c1f7eb7ca420eab9c7e607f534ae4af60d279387d2983931e08fb"
     sha256 cellar: :any,                 arm64_sonoma:  "aa702435413ccd42951ff9f4555ebb4cf4d7ca0f098d761ab35108c2e1e30168"
     sha256 cellar: :any,                 arm64_ventura: "eb566877493a0f742ecdd9f9aa05d63d9f400519db7c29133fde378aa6437290"

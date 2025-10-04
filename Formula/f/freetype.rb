@@ -5,6 +5,7 @@ class Freetype < Formula
   mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.14.1.tar.xz"
   sha256 "32427e8c471ac095853212a37aef816c60b42052d4d9e48230bab3bdf2936ccc"
   license "FTL"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,16 +13,15 @@ class Freetype < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3c49a5a2d0bab792738c9d59c7c02f5621ece28cfc86d7146daea8574229e0b1"
-    sha256 cellar: :any,                 arm64_sequoia: "fee385426a9952d3908ea5e16ab58d2c163552e830f599ff77803d754ae387de"
-    sha256 cellar: :any,                 arm64_sonoma:  "a289cd53c3e2dd805c3522d60e88eea064ce450bec502f995fc265aa2463245c"
-    sha256 cellar: :any,                 arm64_ventura: "57018a229192c98001aaa3d1130c4e0418f31c0a971b6b077c913a686d9a5031"
-    sha256 cellar: :any,                 sonoma:        "62b0d3d117cd464d5c0a543a70b904cb70b5ad5acbbbc895145198e6a59f5add"
-    sha256 cellar: :any,                 ventura:       "87429574943de1331309e288b9e109ffc0b2eb2319b893df3fe29b3fddce2267"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6bc4db14d9c513a8d1060bf77bff0a294f4d985b3f6b434d326a9f6f282f0d74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cf8c29c64099d537903e4c1eae1ddcd361bac5c9d28440806506d0e94728f57"
+    sha256 cellar: :any,                 arm64_tahoe:   "33b2a967733994fd678f729cce118263f826e46056928d8ae4f816e746a394ae"
+    sha256 cellar: :any,                 arm64_sequoia: "40c5e9659d92bf629661a6580fbbf7f962cb98b81ac982dbfa23d30e4ddaf6d7"
+    sha256 cellar: :any,                 arm64_sonoma:  "eecba82b6352f8a953a8ebbbb340b82a5a6e1bb111001b637790abf0079bd63a"
+    sha256 cellar: :any,                 sonoma:        "600186586fab89dec45ca8e4da1ca6bf00576326fb43b311ff9f705105a6df2e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98a9c56c8d46c5d7bd420d2570d79a23f6a7995a44e64e5ad48168b7a687ff06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ac27d046ced62aa0b41ed4087e91b56fcd01299f7a760a944ec0260b9001983"
   end
 
+  depends_on "gnu-sed" => :build
   depends_on "pkgconf" => :build
   depends_on "libpng"
 
@@ -29,6 +29,9 @@ class Freetype < Formula
   uses_from_macos "zlib"
 
   def install
+    # https://gitlab.freedesktop.org/freetype/freetype/-/issues/1358
+    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+
     # This file will be installed to bindir, so we want to avoid embedding the
     # absolute path to the pkg-config shim.
     inreplace "builds/unix/freetype-config.in", "%PKG_CONFIG%", "pkg-config"

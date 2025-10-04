@@ -1,8 +1,8 @@
 class TreeSitter < Formula
   desc "Incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.25.9.tar.gz"
-  sha256 "024a2478579acebbb8882d7c2c0f0e07fc0aa19a459b48d10469e4abb96cf16e"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.25.10.tar.gz"
+  sha256 "ad5040537537012b16ef6e1210a572b927c7cdc2b99d1ee88d44a7dcdc3ff44c"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
@@ -12,14 +12,12 @@ class TreeSitter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "389d617478b08d0219b4d815a12b1002661c5aec7a4c07921470aacf5046312f"
-    sha256 cellar: :any,                 arm64_sequoia: "50db20e018958001f434cc4b7218e7f716477e14a5a015b37a3773aef2d7b44c"
-    sha256 cellar: :any,                 arm64_sonoma:  "38b306b00ec376d14f562765a342dd300b1309a2165ab80e40f2e2e140bcda5f"
-    sha256 cellar: :any,                 arm64_ventura: "190dda465da4c905e3c2b5d25b93c931d701c75529967fe36c92f990337bdfbb"
-    sha256 cellar: :any,                 sonoma:        "f34a1158199031344dab597eab566753a0a6a9b6524cb936fc73396fe62f151a"
-    sha256 cellar: :any,                 ventura:       "50ba83fdd0743e7a3544312e464b3462ca065dd3695d279fab6323cc59783fd4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b11e6e1bea0c662773edf84614225aa61d872e6809133ba8e3326bd59e5d394a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc1a110b852b1623187b2234b485607e94519f48c1bd83c6d6734158f3f9200f"
+    sha256 cellar: :any,                 arm64_tahoe:   "0f9a598017206ce74d26f36092de8a18e28a5dcc78afba03853a248c46ab5998"
+    sha256 cellar: :any,                 arm64_sequoia: "6296ee2587853fcf55e33195b48366eba0757577b64364e4e71cb84fccd83dfc"
+    sha256 cellar: :any,                 arm64_sonoma:  "62123823b2664ffd87749f9efb3b3f63e87e0e454e373b17bce056f3fbf4a1f9"
+    sha256 cellar: :any,                 sonoma:        "ce78af5bcfc0e9319e3df5149b39371543ac7d58d6de67e3f0c10c8eb7a41bb6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c41c7235ba0dac5544cc6360090d51ecb07b5e977a31c602d98793ece3fccf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a292ee5d00c1c04db4d8083f6dcd8b70807d83cf9d97cc1764a492e4c588fd5"
   end
 
   def install

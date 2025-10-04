@@ -25,7 +25,6 @@ class Ahcpd < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d715f5dc18a9b7dbc91fd34a767c22519f71aabcb62c6a479986b6f6472ad71a"
     sha256 cellar: :any_skip_relocation, big_sur:        "3f3e332726a04e2cb6a639b18d0092a80cf8d83a9363e75c6579d73ba8ac4d16"
     sha256 cellar: :any_skip_relocation, catalina:       "9320f1465296a364f0d55ffca9342f087b781f0853ad2213b278189bfc062202"
-    sha256 cellar: :any_skip_relocation, mojave:         "22a512b076e972064d6b0af3eb696a5d2ee62c06aadd2aea01a0bec886d28379"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "3989aae71302502a2cd749f088ae640087fe698da1cfefc412a9806b7bfde281"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2007cca57256875a13c8dc554e48d2bbfc9b061101bbd2f24f07910b75f0aa00"
   end

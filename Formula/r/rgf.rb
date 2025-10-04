@@ -13,6 +13,7 @@ class Rgf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3cd71826a688d71fb47d733cc05bd43da4f3febe58031901476a7053a5e9e2fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b562241e4a197e502fe1483c9a613bb9c32c272a94583a6f8ef26a1844ed644e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6b81f03b0a52638c91d73ed4681476019f1d1ca9be5f61a2e044e48af2b6fe7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4c1f942c801c42fb03224c8b844b9a93c2c4b10c03f2473b0b8023336bcabdd"

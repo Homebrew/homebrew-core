@@ -19,7 +19,6 @@ class FastqTools < Formula
     sha256 cellar: :any,                 monterey:       "0ead212cb078edbf77f9e58d4186dd4aac103fadd8291c6bc328312cf6383b4c"
     sha256 cellar: :any,                 big_sur:        "18f3e795ec5c2c182bfc995ce662816cf17ccbd719fef30937f5456d28bbccc5"
     sha256 cellar: :any,                 catalina:       "20105d6a89abbf493ceeedfc29a956b9b4cc90bf2843cf73e544b03c0456b0ad"
-    sha256 cellar: :any,                 mojave:         "adf7e00692719889bdaee28870700857b9e1b0ec096b62f48e76eac5ac27f52c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "6705cf6567e0d7c7f8fcb8af52cfc0bd8dcf62b6ad61339ed00433fbeb2f16d5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "abd98e72c698e16a077443d29259f946f7ac36c6e5f5a6e172be5466c4cbf2cd"
   end

@@ -1,11 +1,11 @@
 class Pinocchio < Formula
   desc "Efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.7.0/pinocchio-3.7.0.tar.gz"
-  sha256 "c14c2ac9e5943af9acca9730c31d66c59b57a9407960d5b66d200f50b39a70a1"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.8.0/pinocchio-3.8.0.tar.gz"
+  sha256 "aa4664d95a54af7197354a80f5ad324cb291b00593886b78dd868b1fd13636ca"
   license "BSD-2-Clause"
-  revision 2
-  head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
+  revision 1
+  head "https://github.com/stack-of-tasks/pinocchio.git", branch: "devel"
 
   livecheck do
     url :stable
@@ -13,13 +13,12 @@ class Pinocchio < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "eda82cd8f0c0386776d08a58bee6cab180ce611e6c5cb1a2865f84ec3293b8bc"
-    sha256                               arm64_sonoma:  "27f25f5d0317089c25e91e32fe6198518f959894797ee38a810a80330b8ae8d8"
-    sha256                               arm64_ventura: "cf5349e00902bd01dc2a4f940aa548c11d7132f8a01754b1dbb2e84537bd3972"
-    sha256 cellar: :any,                 sonoma:        "dbbf1c937881561fba861e3afafe15f326c387ecbb62c33bcd814d0572b109be"
-    sha256 cellar: :any,                 ventura:       "b525d0323bed2db79bb28167d26b95953d0335a424b5b1a3b4bdc7a6df9e83fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e84bdaac5bed9927015891d155c4173ba394e0cfbd87924fe0aa40f60664be8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b590019511af6856fec703aa1ee4eedb9ebd86ce8f8b2bef2484f3dfbbada926"
+    sha256                               arm64_tahoe:   "c240dc4a96196bb13d55508582441854d944e0c1189285f87f2620ef3f9ab9a3"
+    sha256                               arm64_sequoia: "3b743220ccb4a9f80f2d7dfa06981188fb1d7b960b7bc673659abcba32f30b82"
+    sha256                               arm64_sonoma:  "5b7e5a57614e09d7b9e5444111c79b0e57dc996f00c8e7ebccccb5baa1f001b6"
+    sha256 cellar: :any,                 sonoma:        "fd13fc7b9fcde2a4d3e7d527d4fb9b8feb444af6c42014c73f4c7ff15c9a9b57"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5648b2ad9953c79d1d8c32e8c12e4c9323b64da1614606fd9a7cf9a46760bc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d45a35b27e9433f3437b9a751bc5d212e21d0d2972d6c3f7a332da52e14d2f59"
   end
 
   depends_on "cmake" => :build
@@ -80,9 +79,9 @@ index 67dd06db..5fbe52be 100644
 @@ -286,7 +286,7 @@ if(BUILD_WITH_EXTRA_SUPPORT)
    message(STATUS "Found Qhull.")
  endif()
- 
+
 -set(BOOST_REQUIRED_COMPONENTS filesystem serialization system)
 +set(BOOST_REQUIRED_COMPONENTS filesystem serialization)
- 
+
  set_boost_default_options()
  export_boost_default_options()

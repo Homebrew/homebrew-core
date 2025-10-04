@@ -11,13 +11,13 @@ class BazelAT7 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7dae7266441ab2beedf3182e5f6a8d2a19ffa7ac14af31c0133abb11f36738f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "966ae2fc6bc711139718ce063e31c48c2b627b474d222a25568233ff07298929"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ff70d65599bbce115caa90cba8efbe7351b6e1341b69c2ae2c18f57059064f02"
-    sha256 cellar: :any_skip_relocation, sonoma:        "52a50ec6c4761251949a723da9b4146e341b2dabe323ebc64fd5f3924cf88936"
-    sha256 cellar: :any_skip_relocation, ventura:       "075b8150e956c31d49b5b5743677020b1406e71b7e5fd839de14b17582ab7ada"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe1c1785992432c380719918b12391ab48f006c67ce072dcf36f82f1e9e6d038"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54038042ac48134b90dc9b711b5e8dda20618817db58b900763547523ff28968"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3713d9e3852d310fa144de0fa0672a821311e90b2fa5300f88ea07593086e24a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1978e98a12bd3f004583aa70d78c475dea2abecda8bf8bc470c858a95a659b7c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9636883052ab0b877121020e61fd16995c8055696f6a947ebf28c46896c2951"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b2a42269cc0ff8bc89a77a0845e1f066fdd2d32971b99cba72f2f765172c2e15"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca27cb9ba9fb8c0035e866456aea3a718db3c891e53e722a7a7163d636f4e958"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "539d749900289bdb1f9b4eed1a755f2fb0b949879354b3e89ee641fdf9a60224"
   end
 
   keg_only :versioned_formula
@@ -32,11 +32,21 @@ class BazelAT7 < Formula
   uses_from_macos "zip"
 
   on_linux do
-    on_intel do
-      # We use a workaround to prevent modification of the `bazel-real` binary
-      # but this means brew cannot rewrite paths for non-default prefix
+    # We use a workaround to prevent modification of the `bazel-real` binary
+    # but this means brew cannot rewrite paths for non-default prefix
+    on_arm do
       pour_bottle? only_if: :default_prefix
     end
+    on_intel do
+      pour_bottle? only_if: :default_prefix
+    end
+  end
+
+  # Fix to avoid fdopen() redefinition for vendored `zlib`
+  # PR ref: https://github.com/bazelbuild/bazel/pull/26956
+  patch do
+    url "https://github.com/bazelbuild/bazel/commit/0d4c2130e356923849033c85d1d31c17372ce8f2.patch?full_index=1"
+    sha256 "6196b60c916e0152eefbc79249758675a860b51c84a6dfd258e83b1698664067"
   end
 
   def bazel_real
@@ -44,6 +54,10 @@ class BazelAT7 < Formula
   end
 
   def install
+    # Workaround for "missing LC_UUID load command in .../xcode-locator"
+    # https://github.com/bazelbuild/bazel/pull/27014
+    inreplace "tools/osx/BUILD", " -Wl,-no_uuid ", " "
+
     java_home_env = Language::Java.java_home_env("21")
 
     ENV["EMBED_LABEL"] = "#{version}-homebrew"

@@ -31,6 +31,7 @@ class Tectonic < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1be8bd6145da06beaad10b842d5d1b4b95437d5b7434393988c2fba1950c75c7"
     sha256 cellar: :any,                 arm64_sequoia: "ffc8602e1b2f1a67000d75005c1cbaae38bdd947e553c9f0b2691b808c37b485"
     sha256 cellar: :any,                 arm64_sonoma:  "d285d2e6edecf5aa4eff882adfc33da8b77f42e5c38e830f71f4df3bfeaa51f2"
     sha256 cellar: :any,                 arm64_ventura: "f32891c5831052e3bb42bc8fb0e16b03bd9c4d7589c352f5aaf44d75f025b23c"
@@ -56,10 +57,11 @@ class Tectonic < Formula
   end
 
   def install
-    if OS.mac?
-      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s # needed for CLT-only builds
-      ENV.delete("HOMEBREW_SDKROOT") if MacOS.version == :high_sierra
-    end
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac? # needed for CLT-only builds
+
+    # Fix to error: implicit autoref creates a reference to the dereference of a raw pointer
+    # for rust 1.89+, remove with next release
+    inreplace "crates/engine_bibtex/src/xbuf.rs", "(*old).len()", "(&(*old)).len()" if build.stable?
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration

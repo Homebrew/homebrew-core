@@ -9,6 +9,7 @@ class Sparkey < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ff757da573f4fb8d73347565dec379edfd8b4310f03a563c98996b262c6a1226"
     sha256 cellar: :any,                 arm64_sequoia:  "452230974e3670cd4241c74f20a71fdeee5ce9f89ab939a5356745e5207bb43e"
     sha256 cellar: :any,                 arm64_sonoma:   "a7fc1a935b2c374f931ba2cef61f4c2a5fab149398dd95524d382423afca230b"
     sha256 cellar: :any,                 arm64_ventura:  "b5b1dd6314393471c6d94f5cd9417add5c2fb18cae43a8aadb55bc27782ff521"
@@ -19,8 +20,6 @@ class Sparkey < Formula
     sha256 cellar: :any,                 monterey:       "8df24a5323536f451f373746c1a1643ce31967502c3d8cb99807ffca49e53413"
     sha256 cellar: :any,                 big_sur:        "6f469c28584124f46a7fa9835dee3311ef02d5a48f2d8fb8c8eb29f2c6688986"
     sha256 cellar: :any,                 catalina:       "b7e64101995d257df010edb67bafcd60745f09c7b0ebb9650c817eb7343f1899"
-    sha256 cellar: :any,                 mojave:         "438c323c343b7aade2da46316d24bcc4d5c7a95910a43914d70125af14a17636"
-    sha256 cellar: :any,                 high_sierra:    "4acbb473ce3be942b808af45789ccb7ede8199c728f7c381cd0dda1a105c8a9e"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "a745bf0f972c860c306af016c89015bc1d39e1b5a90a1b553ff9fe65ca48e93b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b9dcde71d3afafa413ad52116f880796bd49f1a715159a794275fb4bd366de1"
   end

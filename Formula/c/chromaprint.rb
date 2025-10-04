@@ -6,6 +6,7 @@ class Chromaprint < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4dc6986a45afaf618fee24fad316ea1380dd32ee8c682f0d6486cbe7c4178a29"
     sha256 cellar: :any,                 arm64_sequoia: "6830a8d152f94b3e23993d6dd85e1edefc1ededcc4af3e98a089b61fe71b1342"
     sha256 cellar: :any,                 arm64_sonoma:  "ed56a1cf3fc3d3748c593fc9e38d783b8299023000d3197526443410519141b3"
     sha256 cellar: :any,                 arm64_ventura: "55c4b88f06efd67cfe9f17948f10266ed4ce565bcfdbcb18e5610bd6f31f6978"

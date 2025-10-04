@@ -13,6 +13,7 @@ class Mpdscribble < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "2812de40e805a9ea32ff8e5108217294c2b71bd5fe8cea5de4dc0192817d8aaf"
     sha256 arm64_sequoia:  "b3c8401d8bd06997be951e75b158905c4fa35cdeceffee5e6b242ec1843b0074"
     sha256 arm64_sonoma:   "bb677d73c33aa3c1a22f8c85b5c0e829ba230ce3faf3ea433c6662ee33496c0e"
     sha256 arm64_ventura:  "44fe41a3ba49b3b70de39f3b36067ce5011a2d12f92b27848234db79bc561242"

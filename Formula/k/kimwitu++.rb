@@ -24,10 +24,6 @@ class Kimwituxx < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "6f02b1694547ba1ade265cbfaf9cf8357c64260e551abb34d8f5b3341dd16eaa"
     sha256 cellar: :any_skip_relocation, big_sur:        "0dcd1be78b92b98d73dad285fbaaf507bdc23805835a51f56236ddd8b0eb73f5"
     sha256 cellar: :any_skip_relocation, catalina:       "470e06521034cea8db6ad07e8aab45c5bfbe3969cd03891799348eb4e9279c90"
-    sha256 cellar: :any_skip_relocation, mojave:         "067f8d375baa815645201a091c2f8325b469e59d9b2793e5a0dd83bfd9350aa2"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "26ba22bbcdbea896f4af405631bed60dfc198757b6f879765e8d85e373b122db"
-    sha256 cellar: :any_skip_relocation, sierra:         "a5dfd8382b50fc856ba741b79cf7077ae741549b8b8ff32ce727cfd7e8bd2a69"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "98c3516d1f3a9b17397354d8dde712f8a8c0f97ac919c65fc468ab4569534cc4"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "e0031ff223a86e82dfb9450e9d0b0f9a9f77a07f3ce4d4a1c7ed8d7103aff4fe"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cece1163e971acd007363d1bd70c61a0d85a056b85cd878d53b520c330479754"
   end

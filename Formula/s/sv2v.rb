@@ -6,6 +6,7 @@ class Sv2v < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6a3812a608aced60cafc55bd69f20194d4da1aa59a97ee7331113954cec40a80"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "49224a9f8e4f1904b037465be2abcdeba583826c51cf8269cb0397413ced8a56"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a0767a722606d8f2395ed5af345e7c3905d8ea5a5f9c64c81245f6d161f7c4f6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "252e933952b8d680607936324cf65e335bf6287c676ec9b99b853a9a4b10ad64"

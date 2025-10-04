@@ -25,9 +25,9 @@ class Git < Formula
   depends_on "gettext"
   depends_on "pcre2"
 
-  uses_from_macos "curl", since: :catalina # macOS < 10.15.6 has broken cert path logic
+  uses_from_macos "curl"
   uses_from_macos "expat"
-  uses_from_macos "zlib", since: :high_sierra
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3" # Uses CommonCrypto on macOS

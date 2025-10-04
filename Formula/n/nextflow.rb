@@ -1,9 +1,11 @@
 class Nextflow < Formula
   desc "Reproducible scientific workflows"
   homepage "https://nextflow.io"
+  # TODO: Check if we can use `openjdk` 25+ when bumping the version.
   url "https://github.com/nextflow-io/nextflow/archive/refs/tags/v25.04.7.tar.gz"
   sha256 "561d55a29bbebd5c9135f82750331262bf034e0bbf56d014fa5115427fa5ed30"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,17 +13,17 @@ class Nextflow < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f73522dd924f7f30ae3c0ab929c0004444bfc6936f749eb748750c93ba81534e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3c7682b4a6a29b452089ad7876d124df96eba48f320aab1b1bfcbafe94fec08"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd5594c626cf7f152bc96d505fe531acaa4a7fc19565b4a131e37fbb695a5582"
-    sha256 cellar: :any_skip_relocation, sonoma:        "00dd743d1065b998d8b4a1bae8c5adb439ea29129a4bae07dd4a6266b50cd244"
-    sha256 cellar: :any_skip_relocation, ventura:       "e4f41b86dc23da1fdd6cd38578aba628f64ddaadff71124d98636703e7a2f6e2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "12b7951d5ddc42903463e5926cb1d8224d4db6f430432266d0b2e7aebb853dba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3af062465ad60760376052dc480fa4f0f783bbb8ce1477cf0ae173c7d897cb9d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00375687acd20434d16dd7508cb244d94c93e993ca9244e1381a60462404aaa8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d00335e380850ab39fcc468403088045426fd71219097da3558ea21a24c2eee2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee07bbf3ac253b2c439ebdefa18aeaf2d72fb1897ccf0b5d68da6ec10abcd313"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cebe98da007e296d029eec5c1faef120900d065d04f87141e653a7f6147f009f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9ed037c229bf69fd021e5a45582f3e4e8284f27ff6630aa959e4f7f508d60bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c99bdad56d1826d3da3f781f733914cdd995dee8d54da24e2e168f498275b468"
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk"
+  # https://github.com/nextflow-io/nextflow/blob/master/docs/install.md#requirements
+  depends_on "openjdk@21"
 
   def install
     # update Foojay plugin for gradle 9 compatibility, upstream pr ref, https://github.com/nextflow-io/nextflow/pull/6388
@@ -32,7 +34,7 @@ class Nextflow < Formula
     system "gradle", "pack", "--no-daemon", "-x", "test"
     libexec.install "build/releases/nextflow-#{version}-dist" => "nextflow"
 
-    (bin/"nextflow").write_env_script libexec/"nextflow", Language::Java.overridable_java_home_env
+    (bin/"nextflow").write_env_script libexec/"nextflow", Language::Java.overridable_java_home_env("21")
   end
 
   test do

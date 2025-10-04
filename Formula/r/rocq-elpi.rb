@@ -2,8 +2,8 @@ class RocqElpi < Formula
   desc "Elpi extension language for Rocq"
   homepage "https://github.com/LPCIC/coq-elpi"
   # Update resources based on https://github.com/LPCIC/coq-elpi/blob/v#{version}/rocq-elpi.opam#L18-L26
-  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.1.0/rocq-elpi-3.1.0.tar.gz"
-  sha256 "428958cf39fdf7dedb93905e26c2bbbf4c2fe95bfecfefe648790c712555ec65"
+  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.2.0/rocq-elpi-3.2.0.tar.gz"
+  sha256 "46e2e9baa79c7376cf1afb132a6aa9edc256e9c386d0a5f7ddef5fa136e98759"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -12,14 +12,12 @@ class RocqElpi < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "1fdc41c2f172a9d1579558cf44e2e6b62327f2766d72e84c799becfc08bd24cf"
-    sha256 arm64_sequoia: "474578df64f8248241bbd00c6710b6f3fc55dd465679e947c436e25346199602"
-    sha256 arm64_sonoma:  "54305efe3f9da547c091ce02a19e1c78ce04787793d0f5a8b8fb73b5552372f8"
-    sha256 arm64_ventura: "61c933bdd549206d0663a8021874927399492c6dda3023788e76caee87c48d81"
-    sha256 sonoma:        "ebf8d0c6d6e4bc422f7b22b5786acea50eeba5a4333250e7edf0b4d5ffd9b293"
-    sha256 ventura:       "df0343717792e3f09bca28954e423882e91d527e2027253114099fe2fef99160"
-    sha256 arm64_linux:   "64f45a91e1770ee749c8ea50356e83cf8a72024d36abd275555a70cd132406a6"
-    sha256 x86_64_linux:  "33d6a84427c50dbe2eb041859faca647ea6371d3bf1e6f65cb74c45dc6a8eaba"
+    sha256 arm64_tahoe:   "74c51f9e85e43b2bcae1e5d2e4b0b311fe9bb3f49a7c6992bd25fdbf6164f7d4"
+    sha256 arm64_sequoia: "69278e595aff86a82f87a99a8730caf06bd3bf9d64c3157fa264ab6badca5181"
+    sha256 arm64_sonoma:  "a9992a5ae0fd18346ac89619843addb283874467a476f1d4d51f055074868b4a"
+    sha256 sonoma:        "c626df4800345ea4e5410d2d4f821f7f260777477de575248a17646a8edcadb4"
+    sha256 arm64_linux:   "537b020338d859d4e054e2703d1b4653649bf921db5adfc42c6087fc50ba4dac"
+    sha256 x86_64_linux:  "15de053729583cfb9e7ddabd10e23996f8436d1748a811132bbb77f0019ce5e9"
   end
 
   depends_on "dune" => :build
@@ -33,13 +31,13 @@ class RocqElpi < Formula
   # The result is similar to using `--deps-only` in other formulae. We can't
   # run that here as it installs a duplicate copy of `rocq`.
   resource "elpi" do
-    url "https://raw.githubusercontent.com/LPCIC/elpi/refs/tags/v3.1.0/elpi.opam"
-    sha256 "7b05c5835618d5f07f32ad9a7cde2fd19f4849aca9a1d8411a4ac9d15e3b21a4"
+    url "https://raw.githubusercontent.com/LPCIC/elpi/refs/tags/v3.3.1/elpi.opam"
+    sha256 "aca7918b921d7cd029e3d484d27ebcf2ba4eb5fea691deada7da2d8f7632e381"
   end
 
   resource "ppx_optcomp" do
-    url "https://raw.githubusercontent.com/janestreet/ppx_optcomp/refs/tags/v0.17.0/ppx_optcomp.opam"
-    sha256 "9ddda7e28dabea043a0187acf3d0ff378084e0ef75c9e2003bd0350b83f4dd41"
+    url "https://raw.githubusercontent.com/janestreet/ppx_optcomp/refs/tags/v0.17.1/ppx_optcomp.opam"
+    sha256 "59af9cf06bdc1d2682de3eb95bd179e48659d4dc76bd60e15feb5fbe07d42400"
   end
 
   def install

@@ -19,9 +19,6 @@ class Libdill < Formula
     sha256 cellar: :any,                 monterey:       "f3d32c4b24787b52512ae841b0daf82e256bb7f7e42dad115bbc059541103507"
     sha256 cellar: :any,                 big_sur:        "d0bc288a3ce54ab333f48ae08d127aa78300f6ee4921f0a9b59ca7f685649a93"
     sha256 cellar: :any,                 catalina:       "124f2fd7aa4ba68e528bd2700637511943ae55ec9c2b2c9dcdb3bff1f2e34909"
-    sha256 cellar: :any,                 mojave:         "7ebbbe85ab5989b48664688c9fdc833b4bbc7846ea94f3f73c34ef620026b878"
-    sha256 cellar: :any,                 high_sierra:    "062d2f9f6fdeb5588036d3e06752ecfd95b5f4e7b6008b727208fc0a2e7f50a6"
-    sha256 cellar: :any,                 sierra:         "6f75a82c15eafe6818b0d79e9c55df0654c6665f37841ee21cf7fb90ac578a92"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "78f6fb6cd777dc91a61a369bb50c7a6879c50b209391429c7f160a7dea9569f3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a7a4c9cd3cfe580d823fe85732058bbce181f915f348e1d9629bd93e86880f7"
   end

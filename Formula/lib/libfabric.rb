@@ -1,8 +1,8 @@
 class Libfabric < Formula
   desc "OpenFabrics libfabric"
   homepage "https://ofiwg.github.io/libfabric/"
-  url "https://github.com/ofiwg/libfabric/releases/download/v2.2.0/libfabric-2.2.0.tar.bz2"
-  sha256 "ff6d05240b4a9753bb3d1eaf962f5a06205038df5142374a6ef40f931bb55ecc"
+  url "https://github.com/ofiwg/libfabric/releases/download/v2.3.0/libfabric-2.3.0.tar.bz2"
+  sha256 "1d18fce868f8fef68b42fccd1f5df2555369739e8cb7c148532a0529a308eb09"
   license any_of: ["BSD-2-Clause", "GPL-2.0-only"]
   head "https://github.com/ofiwg/libfabric.git", branch: "main"
 
@@ -12,14 +12,12 @@ class Libfabric < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fe6c00750fa57a633eb51e1c41b1cc5a7b9d865fb92a3139fae69d784705af27"
-    sha256 cellar: :any,                 arm64_sequoia: "df57c2e528f8a26eb5da8d417439b0db0ffc59e7627d87e599563be6054e1f3b"
-    sha256 cellar: :any,                 arm64_sonoma:  "7bfcb4c41c4be00209ac13bc4110a846133465c66be65d081b985b02ce7e1393"
-    sha256 cellar: :any,                 arm64_ventura: "da5fce00ddacdfa6d750e5cf0f16ca2e9bb78ed06b5e65d2e41828abd7de88ee"
-    sha256 cellar: :any,                 sonoma:        "d309cda13f5c7db8a49eeb750962205b70db951215eb445da9e70d00c05bc215"
-    sha256 cellar: :any,                 ventura:       "98f165b0a7baaf62924589fbb1abf2f8be1ec5c0cbad366118adf7fd0fc528d7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b537675d192838a46cd11ee2c6286e4256b4de22b6d5b3597da3d165d29d97d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d4b6fe203266b16424cd7aca3bc54bccfe66125d679310602e6eea2103cb4c5"
+    sha256 cellar: :any,                 arm64_tahoe:   "9e6d18f0cf616370a77148ef9bc5763de06f8272e2fe7cd0ea9615df1bf9df38"
+    sha256 cellar: :any,                 arm64_sequoia: "897e92441a0b1759b9bc3bd7e37e0108d86ed5fbc76efe8f6b7042d848e3563c"
+    sha256 cellar: :any,                 arm64_sonoma:  "4d5ca6b7ec48cb3cf7cd17b962bb5198cfbdea09da6576ad2038f4274725482a"
+    sha256 cellar: :any,                 sonoma:        "f3075b3ae5b8a1dcdb8dc20b6ad5b8e021056643dc63a7f7b8b04b7e19601ab5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "027a9371a19aed6edbab64273ace325df3dd6960c86cfe3eb2bb3adeaae8ae89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a605a17dbbfb098c12c9379c49215d7f72868db0646972cc8ca650c5b8355c7"
   end
 
   depends_on "autoconf" => :build

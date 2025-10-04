@@ -9,20 +9,20 @@ class Smlpkg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, sonoma:       "e32a3bb66ffda047e591f59df909bc287720f6ee371ccb4d0e4b0871977c8947"
-    sha256 cellar: :any_skip_relocation, ventura:      "a353c05fc5d0d1abe548aae6a333d6afd9831478324b483a2acfa078ad4b4a39"
-    sha256 cellar: :any_skip_relocation, monterey:     "59f20ca9b49cf17bcb6931a23477ae7e62ab547520509a66c1a6385713f925b8"
-    sha256 cellar: :any_skip_relocation, big_sur:      "dedbec064bc7c579cac83e901849fddf01fd75ff93fb61f547fea21f166995ea"
-    sha256 cellar: :any_skip_relocation, catalina:     "081ba1bc8f93af1f393505ad20d46084498a3a268a9a2f5fcbe0bc274964ba95"
-    sha256 cellar: :any_skip_relocation, mojave:       "0f714a205b9b960956fdd6fde1a3185adcd6cb26a28e30b30adb4f49c53ab344"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c34eb8d99928a9143212f3273c3a51ec4d2eab32f11f70f626aec59855f1a6a9"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "28c00c67af3693cac8219c8cbb574b81d24bc772a01861379ad51e8dea23d608"
+    sha256 cellar: :any,                 arm64_sequoia: "a6d8ea56df569f46bf0a674cbdd5506fe90fa9a9377d5a2bb626eb51e7c2659d"
+    sha256 cellar: :any,                 arm64_sonoma:  "bf39a2cb3d8362fe82da4e15466587cb521403386f0cc5d187d8bf542ab6facc"
+    sha256 cellar: :any,                 sonoma:        "bc992113b06930535a168b765c1e9f0274e642d8bc1a886ecebf07ef574a05ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8fda41d263626cf760a549e000900a2b8810667aea5816dc9157ac207406f2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c781ec2d9590a65aaa91ccb66462d4527d5dbf5254ec3aacd939b73e5d322bf7"
   end
 
-  depends_on "mlkit" => :build
-  depends_on arch: :x86_64 # https://github.com/melsman/mlkit/issues/115
+  depends_on "mlton" => :build
+  depends_on "gmp"
 
   def install
+    ENV["MLCOMP"] = "mlton"
     system "make", "-C", "src", "smlpkg"
     system "make", "install", "prefix=#{prefix}"
   end

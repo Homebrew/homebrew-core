@@ -1,26 +1,18 @@
 class CargoAllFeatures < Formula
   desc "Cargo subcommands to build and test all feature flag combinations"
   homepage "https://github.com/frewsxcv/cargo-all-features"
-  url "https://github.com/frewsxcv/cargo-all-features/archive/refs/tags/1.10.0.tar.gz"
-  sha256 "07ea7112bf358e124ecaae45a7eed4de64beeacfb18e4bc8aec1a8d2a5db428c"
+  url "https://github.com/frewsxcv/cargo-all-features/archive/refs/tags/1.11.0.tar.gz"
+  sha256 "feddbd6a0d517e1813f51080a828a17841a2606c97c61be69b693c2fd1f5c30f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/frewsxcv/cargo-all-features.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "26b2427a7cfce5edf64fae69e10fc1089993f5e53044fdd1fd9c30acac7ac2c8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3230194ce2a1aaf67cf633477a254f8bea2e1661c6849598c31e1e9dee4866a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b12a3968ae8ee10062526525c6cc07c5d288529204b51696e9f3ea104dffb1f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d72b4b7f454143ec36fbaa284c2564c60c97ed8eb0de568e634c18dc485284c8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d399885e0cc2a32003b98de866fc80c9c74b3aeac8a8254ad9c40d1d617a36fd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "50e52b0f7d74b369aebb9809cb318cf03a13c2161b95059810c53bab6698ed4c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "482a7cfad0c83737225ad19497e41ff876434fd9c2ebcf05a9f7c7f452931ebb"
-    sha256 cellar: :any_skip_relocation, ventura:        "39177b01645bfdf19d6d9757c863e96bdd711170d8e87a1f5b2c7d9720f0a33a"
-    sha256 cellar: :any_skip_relocation, monterey:       "912aeeaf3ae966f434cacda0b8e5c5c904f8ad83d33ff3334724c3022e151185"
-    sha256 cellar: :any_skip_relocation, big_sur:        "680c7a563c12800a68c8e24afbad0b5c8ca8380c7e16e5e2a4f045af3bae7406"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "25a0b7ead12f5cabf7889eb7aa847fe12aa3ee7c0c6110e93e7e35b9d1633035"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b948efbbe607b8dd394c6051416e698544960ece99c29c67909228214e3f1c17"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0d3cdd51661611f40f1d134e81810db8433a5a95fbbe13b567207d824279bb3b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0860aeb28cb90d8fe0b7fa368874ec7b4c382e0c9efb876c96d9f98c7b952bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9222951548258bb15a5c8627dbc09cd1e68b6e67a126c83d2e67a56ac1f2c912"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1ef859885303a5874fdda2dfc755c2b9fc75c2f096fb849f9d1b7abc1fbbd398"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ff2741da51727362a55ebca9ce66f6e3149488823e95361a4fef9c6abf54671"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfc7d5343f81c3efc965ef1910cfb8db224fea2d6b6c275dc9cbb71887f146ca"
   end
 
   depends_on "rust" => :build
@@ -52,7 +44,7 @@ class CargoAllFeatures < Formula
       TOML
 
       output = shell_output("cargo build-all-features")
-      assert_match "Building crate=demo-crate features=[]", output
+      assert_match "Running build crate=demo-crate features=[]", output
 
       output = shell_output("#{bin}/cargo-build-all-features --version")
       assert_match "cargo-all-features #{version}", output

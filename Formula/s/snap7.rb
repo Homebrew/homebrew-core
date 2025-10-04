@@ -10,6 +10,7 @@ class Snap7 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "abb76d2d02504c5bbc694f446a88b35f5d6c5e44c06cdf9f2ddef874eada0a8b"
     sha256 cellar: :any,                 arm64_sequoia:  "0251dac8097c7643fbbf1003e422e44773bc86d6c356a8497b2a07bfa163fbdf"
     sha256 cellar: :any,                 arm64_sonoma:   "62a3c97124e8c82bd49a94b9c1273eb8745ccf6e1a9e179bfed9bbc6e117e43a"
     sha256 cellar: :any,                 arm64_ventura:  "e3169f10899c5bbc65ca3982e7ad9ddb27ebaff7577f9f9c8c0c74be8fb0f271"
@@ -20,9 +21,6 @@ class Snap7 < Formula
     sha256 cellar: :any,                 monterey:       "0e80fc31c025dc39b1b551adb4328023a0b9f99643d8e246ab644529b9b7e3e1"
     sha256 cellar: :any,                 big_sur:        "52d04e1646b47ba15e5877e8c24b8f2d0267a51d8b7b07ee47330ecd2c44d95a"
     sha256 cellar: :any,                 catalina:       "015a23b1cb6728a86716811511e51fba427c69febabd1af5507af31d77523802"
-    sha256 cellar: :any,                 mojave:         "71aff7cbb3e78369d6b9a93887820dd7def1afe382ed82211be313942e1bb81d"
-    sha256 cellar: :any,                 high_sierra:    "b0d670ce6a2d780d13cfaa3346c6aa701f280a85be010dc42c802d6ebd028694"
-    sha256 cellar: :any,                 sierra:         "e04dea88411f3b444dcab340d3f11bd739fb853de65701e727546a9481981924"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "55a95fc3a66a84a3cd2a26e57635613ef236d855cf21f42991b7bfc36cd7c58c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fbbcef4c1de91267df9cfad2d3be40570c3be564c5793d874c11452780dc315"
   end

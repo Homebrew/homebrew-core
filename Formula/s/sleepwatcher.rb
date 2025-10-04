@@ -14,6 +14,7 @@ class Sleepwatcher < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "77ad0daae582536562d912657a5a3deeffa9f16ad0f3dc9b7b69e5d345f1f26d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a8ae2f2e3e784b696e707f95007573cfd1e7d64dbaca674c3b13caa05571f99a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44e9a135ca035bf756a113115f71737d5a90162c9beda447624ced1efc77f62e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "009536d9992206c912bd778ca8a596cd56915d900ea30f5db94c5ff48cec6c92"
@@ -24,7 +25,6 @@ class Sleepwatcher < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5a6a9cf80d062199423619e15c9c32be29b1822cb49669ea89f107b6a58cd973"
     sha256 cellar: :any_skip_relocation, big_sur:        "ad8d8729a86763e64a3f555c4197ad6048ee5b8c6589ce4f2763d60b9826bb13"
     sha256 cellar: :any_skip_relocation, catalina:       "6752791ceaab316af2e61c45a6ee5e1a7c05f326be64f31e4bfad412a216b413"
-    sha256 cellar: :any_skip_relocation, mojave:         "651f17a7622a05db38a14b133c15e20f441028c2f540af104421f204a766238d"
   end
 
   depends_on :macos

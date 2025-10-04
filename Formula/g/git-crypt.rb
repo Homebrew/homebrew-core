@@ -1,29 +1,22 @@
 class GitCrypt < Formula
   desc "Enable transparent encryption/decryption of files in a git repo"
   homepage "https://www.agwa.name/projects/git-crypt/"
-  url "https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.7.0.tar.gz"
-  sha256 "50f100816a636a682404703b6c23a459e4d30248b2886a5cf571b0d52527c7d8"
+  url "https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.8.0.tar.gz"
+  sha256 "540d424f87bed7994a4551a8c24b16e50d3248a5b7c3fd8ceffe94bfd4af0ad9"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :homepage
     regex(/href=.*?git-crypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "d2043dcab1b31eb1a886ebb3d060faa2db97eb311ea0a72ad1dac57c7ba1d8c9"
-    sha256 cellar: :any,                 arm64_sequoia:  "2183efc250bd46ddc922be9a3be21a8843699267bd2a2f12e5cfd04a3af99478"
-    sha256 cellar: :any,                 arm64_sonoma:   "a9e4eda2135a14c3a3a87fa5b3812858185361d5c4f04bf6d8c8603cc1700fdd"
-    sha256 cellar: :any,                 arm64_ventura:  "4b3a389b9dbf8a9f3e03009ec3b591dbe4814799b42e8708dc7690d1cce6b362"
-    sha256 cellar: :any,                 arm64_monterey: "8f36b845135fef7f95c1836cce21522ed8c95ab43d3392bd0221268fd61dd1fb"
-    sha256 cellar: :any,                 sonoma:         "311fdbce0d28379fccb498a2dbd28fd0970e28435093fec017b764085d2cb6f4"
-    sha256 cellar: :any,                 ventura:        "58ce66439704ae0c12b982716ab3621e1f8aa4db9626038390e94b415eaa0e98"
-    sha256 cellar: :any,                 monterey:       "ca996f9c7ca04bdae361bcf51f7c88a1ba872442e7734b3d06681e209e2af960"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c983cea52d673f9c724abd853c2f354df480866282b2a8aa00c38c4e119f72a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a4b02697b5b69721c024e072e8a9a2bf0227051bae968305dfdf34a88ff2bf8"
+    sha256 cellar: :any,                 arm64_tahoe:   "406d6b431081540da5ffac631e736ad29046ad5a10d3f9765b03d53129846188"
+    sha256 cellar: :any,                 arm64_sequoia: "48614fc994fde691b6878a1ea9075d5d9da6b837555d882e5644fd2d55dd09b3"
+    sha256 cellar: :any,                 arm64_sonoma:  "cec4e48761c805edae828f411b4831f1aeff7fedb2ecf77a094ff627812e9173"
+    sha256 cellar: :any,                 sonoma:        "3f12d10fad264b7c738ff5c9afb4fdbda6d9178a2ba601507179fc57a446450a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e63acf43e312923852fef13c2ac54950fbb7c2dedbca177e7440b611cbc1b03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d076be65893a0c7a8125a6456cae3757557d660b3d3c5eabb42c1be6693f554"
   end
 
   depends_on "docbook" => :build

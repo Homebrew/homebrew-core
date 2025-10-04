@@ -10,6 +10,7 @@ class Schroedinger < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "802187a5994506ae665bb01bb4457ec3a3f7f41241f6d1734f59d28c02c0485d"
     sha256 cellar: :any,                 arm64_sequoia:  "a9b3bb16d608978a3bfae464380e4110745808274d336d2e1a31834378b2a487"
     sha256 cellar: :any,                 arm64_sonoma:   "cf37204722b07d4b2918e55aa2f71f4321e8b0b340579dd4e1dbcbcc272040fa"
     sha256 cellar: :any,                 arm64_ventura:  "ada44d9f9a740f64fb2d3f66e55f7fc9f523aef0c160866ee301f54a9a9c084b"
@@ -20,10 +21,6 @@ class Schroedinger < Formula
     sha256 cellar: :any,                 monterey:       "eb3f714b77e5562bad12a8071a07cb45690ece3b0b8b544b56fc06501e83fb0e"
     sha256 cellar: :any,                 big_sur:        "81ea2f319f7e300c222b2788fdb03bfc3b3177f5a8166caa88afc1b4538b291d"
     sha256 cellar: :any,                 catalina:       "904f8940085832802e511565d1bcea91262a0ca871612509c1e521db37da4227"
-    sha256 cellar: :any,                 mojave:         "ab901d9879b3bc110eeb7eadd5ab815af7d7fc446b2f5577795737c410c3bf4e"
-    sha256 cellar: :any,                 high_sierra:    "1e9953cbef67e87a7ca9ebecfcc4af5f0eb2261d17f3a1195386b7512b9312be"
-    sha256 cellar: :any,                 sierra:         "7d2d6d343f571e21f27ce5c13645ebe7039e4d45d2b96dba550f6383185c18f6"
-    sha256 cellar: :any,                 el_capitan:     "1b990c49b7d72f3030bcee52bf70094a6cf16111867565cdb7541f670636cf05"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "2f2674c5ae2910ea63da7347b73cbb12f45f1531babac60af4ef50d82a1f79cb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "32c7db0617f2a2d01b89d446860529fc3520f377e601a460fadc5e3ce2bc0baa"
   end

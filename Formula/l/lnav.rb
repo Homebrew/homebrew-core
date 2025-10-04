@@ -1,8 +1,8 @@
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   homepage "https://lnav.org/"
-  url "https://github.com/tstack/lnav/releases/download/v0.13.1/lnav-0.13.1.tar.gz"
-  sha256 "b6443702d56c35b3b8598f9b1bbd1cbf4548e5c213caf01680af7207bb25610b"
+  url "https://github.com/tstack/lnav/releases/download/v0.13.2/lnav-0.13.2.tar.gz"
+  sha256 "2b40158e36aafce780075e05419924faf8dd99d1c0d4ae25a15b00bc944f4d60"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Lnav < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "67680a240a10e7caf6e865cabd617cbbc77c97f5e4b8f257ed5519d2180e6e25"
-    sha256 cellar: :any,                 arm64_sonoma:  "aceeaf1385343eb892e38e3d666f2d09eee08e2fd9861029cbd0b5541ff2b252"
-    sha256 cellar: :any,                 arm64_ventura: "ce354f9f3295c7f420404b7bf03a3fe08fd4cab96f11b0d2584b8c3bc52b6274"
-    sha256 cellar: :any,                 sonoma:        "fb303c355d05bce93e717b7ae7e5e528d487d0d1b2d33206fd3205dc820c1ab9"
-    sha256 cellar: :any,                 ventura:       "7b3082e00ea9c2de8a67144eb584f747003787eb0939ce725e057a7ec1653339"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "91e9aafedef046e6f7cc01bc142280f37f0aa7569bb5b24e5454739592fedb11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee12bf35f2a62221aaef14d354b626a3bf20cc715876da1b2027cbcb6c8ade47"
+    sha256 cellar: :any,                 arm64_tahoe:   "81435ab1b41cc5b56ab2a92c5eef9fca43d824648d3425568c524288ec7f6ee3"
+    sha256 cellar: :any,                 arm64_sequoia: "624271a5f081874270693d12b9e3c198c23e3fbe3b198451bdd9e9564c8360e0"
+    sha256 cellar: :any,                 arm64_sonoma:  "93a90add80e6d36904eb68f9ac3e929afec7761cc574250461e9ac342cc9b20e"
+    sha256 cellar: :any,                 sonoma:        "127a67c37a77feeb88a325e139e29450cb9d5716018dcfc5efcc4c3b1d7919f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e46055ab9c5a4880a8e1d8fb69abb70431b2cd603e4e060f823ffbf89885125"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "700d8f095d115fffc0f26201322e07cde5ad2a9027bb8542056d5289e4073874"
   end
 
   head do
@@ -33,29 +32,16 @@ class Lnav < Formula
   depends_on "rust" => :build
   depends_on "libarchive"
   depends_on "libunistring"
-  depends_on "ncurses"
   depends_on "pcre2"
-  depends_on "readline"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
-  # Fix to error: windows.h: No such file or directory, should be removed in next release
-  # Issue ref: https://github.com/tstack/lnav/issues/1538
-  patch do
-    url "https://github.com/tstack/lnav/commit/5df522e53fea7f07f113c2d83093cd789f8496ef.patch?full_index=1"
-    sha256 "cf2c00335fb56dbb0bfeee958ad4c14687aeb7e8c9ef097f4f5fad9c75f0c4d7"
-  end
-
   def install
-    # TODO: Run autogen.sh on head only upon next release
-    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
-                          "--with-readline=#{Formula["readline"].opt_prefix}",
                           "--with-libarchive=#{Formula["libarchive"].opt_prefix}",
-                          "--with-ncurses=#{Formula["ncurses"].opt_prefix}",
                           *std_configure_args
     system "make", "install", "V=1"
   end

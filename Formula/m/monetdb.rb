@@ -14,6 +14,7 @@ class Monetdb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "4449d87247772a1fd6c2081a9a3b865ca0d8c085ca0af48d4faa21b73bc4f125"
     sha256 arm64_sequoia: "7af914168935ca8b325c33eb58212594170a69761e5282be1fc7b5a700227830"
     sha256 arm64_sonoma:  "a2d8e290f5382a6d1f77b21e2311b1d0f25977dc2ae5780cc90deac84a35afd4"
     sha256 arm64_ventura: "d2f0274260282b8604a2d776ba6922a53b203c3648a0a20106b9b140f8f0b4b7"

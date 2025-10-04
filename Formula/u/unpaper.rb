@@ -10,6 +10,7 @@ class Unpaper < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "320c0664be9f441fb7a5f6bc021d37530845fa4ea4da99d3d8d401db90b2681d"
     sha256 cellar: :any, arm64_sequoia: "99d2fa75bbc4f530241ab2a64e5cbc1a5061fa96c5567faa70eca694b6228ef9"
     sha256 cellar: :any, arm64_sonoma:  "1d183d40ad7c4dfd89f52ca00311238722f2527a6a1a751e3efc6135e1354a3b"
     sha256 cellar: :any, arm64_ventura: "0e1846058cd13818ec2ce52723cede8c9623c31f27f0f9ec86f05c33340f8208"

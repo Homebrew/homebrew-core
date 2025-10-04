@@ -1,25 +1,23 @@
 class VulkanValidationlayers < Formula
   desc "Vulkan layers that enable developers to verify correct use of the Vulkan API"
   homepage "https://github.com/KhronosGroup/Vulkan-ValidationLayers"
-  url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/v1.4.326.tar.gz"
-  sha256 "41b0a3d5b8a0a1ed395650adfc453b9711ee02c27abdc27845dc58c683d31268"
+  url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/vulkan-sdk-1.4.321.0.tar.gz"
+  sha256 "80f929ac4e9a1810401064fcd3a789a98006c7916b73b215c235a5f538daa5e9"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-ValidationLayers.git", branch: "main"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^vulkan-sdk[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eb4e0918a4afe06ff03661e6443221ef2556d16c2e73c3693739fb9747180181"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f56989c5a3b359d448ee2893d2508046a64c285c31b35ea92ad2b33b33ed03b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae729c20f262dffbbd3c31281629e7c26e1fc0236103c21eafda5ad54ccf84e0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "624ea7227f49f8fd45ea615d30eb1c19444fd8ff5485cbf385179a532a82b616"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e79cb999b73934574c1041deec7b8855714dab93036b8aeae77c0621ad31533b"
-    sha256 cellar: :any_skip_relocation, ventura:       "2a80a4cb4418116ee0662bc814c95f2b919acd4464362c1b378153ac73b0d3dc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1c45bf0c1f281d4cfa08d029f75eea2cf91dc7d5d1f1657d19dea1ff4feec1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3caf9efe8dd0e9cee6004fa2cf71bf4c732b5d6fe1a075ee3e87d9c5844f01e4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "284d7b05d954c79f4c27aa28f452163ea57e648c44b8db85540b35a46bf06a30"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f57178ef7dfc6527b16214898933ba203e0bbeccd89650bdc611cf84c09e97ce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00c549edc4baa402feee35f01f77a24dea8dcb3bb1f01cdbebf3fe4d83b7b905"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2efb5adc5ef6fa8fb70a2776a9a9b6e45f593a27fa9b8cdeeb7d36f71fc27481"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "39c19204f8ed834a92729a75a3a30725f81dcb5bfbe4907018a1c146dcf11704"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7bcec1f2d07ae5e5a51cc0b03728b6c9de3a7b6514c9008447e7c112f5608edd"
   end
 
   depends_on "cmake" => :build

@@ -7,6 +7,7 @@ class Nak < Formula
   head "https://github.com/fiatjaf/nak.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "be454c25e7c873cb227a947a19bc40129e6608483114d6e4fa0205ad0c5d2fd7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "be454c25e7c873cb227a947a19bc40129e6608483114d6e4fa0205ad0c5d2fd7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be454c25e7c873cb227a947a19bc40129e6608483114d6e4fa0205ad0c5d2fd7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "be454c25e7c873cb227a947a19bc40129e6608483114d6e4fa0205ad0c5d2fd7"

@@ -9,6 +9,7 @@ class Oq < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "854692fbe7d27bdc8f348a68d0a10b7600556cb9cb5e31588e7366840f8a9d3b"
     sha256 cellar: :any,                 arm64_sequoia: "1a3da7d5c1facf9978ed2e5e4b837db7979b6123839d133c947b9eb9b1200762"
     sha256 cellar: :any,                 arm64_sonoma:  "9ac4ab6b25021efebdd52241b9018349fe42721bf3545bdb991e79fa55bea62f"
     sha256 cellar: :any,                 arm64_ventura: "db3b7b294448ad7861fdbd8c5e7356e56f60567412c8b7a423b2278618975645"

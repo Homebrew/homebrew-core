@@ -1,17 +1,19 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.67.0/nghttp2-1.67.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.67.0.tar.gz"
-  sha256 "f61f8b38c0582466da9daa1adcba608e1529e483de6b5b2fbe8a5001d41db80c"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.67.1/nghttp2-1.67.1.tar.gz"
+  mirror "http://fresh-center.net/linux/www/nghttp2-1.67.1.tar.gz"
+  sha256 "da8d640f55036b1f5c9cd950083248ec956256959dc74584e12c43550d6ec0ef"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "42f88b4ffd14a43cbfb6a9f03db80ab16366e50d3a91181f51d238418058b0c0"
-    sha256 cellar: :any,                 arm64_sonoma:  "ea29e690d42fef25bc3e85809178e9e1c44e4f85dd31a806b1d29ab784a97f91"
-    sha256 cellar: :any,                 sonoma:        "85f786edaa108e482b766c7751be3b72110945a5cdeb877e3f4729b9aa71b24b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83b07a9f03933f7bdf35c271ccd71e114abb3f2a70eeda4dbf8d465d762f47bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7b719af7e146ed2bac32730c617c8b78fe5564bf0190d67b1cbb2bd889a12f3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d3bdb94dd4692d8aa41f54e67191f3cf2e2cf03e53bad026031967b9b78900a5"
+    sha256 cellar: :any,                 arm64_sequoia: "35403d593507053fb6d2cf509e24f43897f7bf713f1b42f86e37867b54e9344c"
+    sha256 cellar: :any,                 arm64_sonoma:  "fd512ded8ffa48afc21c8231032c0f14e83e58f1b989ae59a031d43e97101cc0"
+    sha256 cellar: :any,                 sonoma:        "61bf7a85a2d978ad2e26477ec9ebed54d78b7125eca7d542a410b0411b70ed2e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "353049568227077d092013686eb23bee9cbf5fef5350284ff11d5a4084e91e69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2de9fd14dd8545d06b1d0868427d78a1253ce90b02e2679103ec73ef2b074c2"
   end
 
   head do
@@ -37,10 +39,6 @@ class Nghttp2 < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
   end
 
-  on_linux do
-    depends_on "gcc"
-  end
-
   fails_with :clang do
     build 1500
     cause "Requires C++20 support"
@@ -52,8 +50,6 @@ class Nghttp2 < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
-
     # fix for clang not following C++14 behaviour
     # https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
     inreplace "src/shrpx_client_handler.cc", "return dconn;", "return std::move(dconn);"

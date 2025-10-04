@@ -7,6 +7,7 @@ class Sslh < Formula
   head "https://github.com/yrutschle/sslh.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7df8cb7c01a4de44f8ee62c9d092b3e3c3835a3b810b8ed717ba8d68a2882783"
     sha256 cellar: :any,                 arm64_sequoia: "31f58a5a03884b485c70d3a4bdf8c4fe9dd1f8ca0cebe84c9450607cfc7b2359"
     sha256 cellar: :any,                 arm64_sonoma:  "4b88089a1a7b6f21ec8b414696095c5d292e2e8b87e57dfbc9f97f1c934aa0a4"
     sha256 cellar: :any,                 arm64_ventura: "cef60eec5b2e23041a5bb9fbcf9c547939f961ca58d35c26e3d4efbd4655b67b"

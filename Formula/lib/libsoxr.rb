@@ -25,8 +25,6 @@ class Libsoxr < Formula
     sha256 cellar: :any,                 monterey:       "f1a61556ee8195d611cdf735cad6f36a841cf8ef66fe5e49030b8932cd73033d"
     sha256 cellar: :any,                 big_sur:        "616e7ec0eac9aa1322b9c32a1e2ba71ce18c36ee9cbfc854b43c77153006c142"
     sha256 cellar: :any,                 catalina:       "6fc775411464312fe93dff80cf50497d7b412b36c8115eaa91fe65c321da755e"
-    sha256 cellar: :any,                 mojave:         "ddd19b9146079827cd9065afe6853961e8b0d0857f5a06888efc500a25f087e6"
-    sha256 cellar: :any,                 high_sierra:    "808ad13bdf13729d2f7e881c34b267bcd6598838d4f47d0dcf5ca5e38ba5db9c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "41860cff8cb688bff751be3d79c39e2dff0c0be2e2196b700386aca27b65769b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1753c0562a6494e1437dc79db88d4672bb4b2e2a2b9134ac85952b555baf8559"
   end

@@ -1,21 +1,18 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.11.3/ccache-4.11.3.tar.xz"
-  sha256 "d5a340e199977b7b1e89c0add794132c977fdc2ecc7ca5451e03d43627a1b1be"
+  url "https://github.com/ccache/ccache/releases/download/v4.12.1/ccache-4.12.1.tar.xz"
+  sha256 "42e6c4b260cffd92dfa755e26390f45f5842e8c1a5f64f2b2e68adfbe82d1542"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
-    sha256               arm64_tahoe:   "59c8dd1783dbd2fbb0671cedc0389ed43891a4ffe5dee010adb819b39bd30de1"
-    sha256               arm64_sequoia: "e99e59f16c682d93fe0b9b5c7681cdce749f0b90291108fa74edcad569286d96"
-    sha256 cellar: :any, arm64_sonoma:  "aa9c9558b72ef410e13c8718080ee0d98f67b2c3c04d11bf3ade424965bdd098"
-    sha256               arm64_ventura: "35fed775f7dc5b4822e3b0ca5e59950b289a7840e776e7501133feb5c7830391"
-    sha256 cellar: :any, sonoma:        "4bac698f691b21bb8209121c23e5330397e5eb139646e94dc05f78372f450e85"
-    sha256 cellar: :any, ventura:       "ab684bfb9e86f230652977ef4a3d4fb7ea25856ad094ca029fba3ea8b56ad001"
-    sha256               arm64_linux:   "3bda7b43285d7c6151c7703a56ce4f6ff0047cac34e36d2ed48541dcaebd8a55"
-    sha256               x86_64_linux:  "a504ce0e91c2ad0a929a7fd15a23579f6bbb725e32e952b0ef549f003c69d344"
+    sha256               arm64_tahoe:   "9d9bbdaf2d24e4cee02946fa0df0edcffca959713de36d391c383f0579690a13"
+    sha256               arm64_sequoia: "c6d3f242fa7a4cb1204acda5e505b8f025d7760afa51d4650316dbdf11d12db4"
+    sha256 cellar: :any, arm64_sonoma:  "e6627f8f75706a4b59234d48f97fa0ec7a019d5bc2c9302bd46ddec7ed9a3bf8"
+    sha256 cellar: :any, sonoma:        "7d62854d0cdc0bcd696c6c0129be01ecfd776558d7352ba2875da1aeba07c620"
+    sha256               arm64_linux:   "042b9524aa2cdd38254c075baebe661ecd34238b364078b7007427de19c8d5ad"
+    sha256               x86_64_linux:  "6daee947cfe79be34de9d7b17dea3dc6848fc32d4d2ba08a8615719e790baa60"
   end
 
   depends_on "asciidoctor" => :build

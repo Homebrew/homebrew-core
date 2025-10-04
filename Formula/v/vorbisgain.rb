@@ -24,10 +24,6 @@ class Vorbisgain < Formula
     sha256 cellar: :any,                 monterey:       "2425fba1e48046342e47fc515d958f5c76905679c4c8d2dafa9686860387f2dc"
     sha256 cellar: :any,                 big_sur:        "c70e02a12f7c232b752afebcee063ecb031eb120f64c58bb6a95325100aa6767"
     sha256 cellar: :any,                 catalina:       "b49eb04725bc5ab78fa94e261bb23598b4b4cacf1e8508a9ea543b0069947894"
-    sha256 cellar: :any,                 mojave:         "75aa0134fbe5f63549d0e9328f6ae2d3513670e74d5f35ca7c633917a9383aee"
-    sha256 cellar: :any,                 high_sierra:    "86d9a629d242005f13a1de8a591aee61455059b9072ab528afbebe63ecda9613"
-    sha256 cellar: :any,                 sierra:         "3572efe1e0741ee5b1f3cc0499325ae59acec5f9ab44df5987bab22312d9e3af"
-    sha256 cellar: :any,                 el_capitan:     "00f7047e5d884dbf22ed036154961b41d4ad6ae8295c55043929b008ae82a9f7"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "32f7069967cb439534cab42cacd2edbc3e81d8fb180362260ccd8ee19759e85d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "98180bd55bee493621155475e77ba5de249c1ce27f85edc895a69c9d41a63df3"
   end

@@ -7,6 +7,7 @@ class Wxpython < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "38d620143e11e7c4beb27cd0a8cac430d727fdafffac432264cc760653ed1612"
     sha256 cellar: :any, arm64_sequoia: "2507889ef35df2ea5539226cb11ea7036ce898c72d16a42f7acc05a154e5aada"
     sha256 cellar: :any, arm64_sonoma:  "2b421f7072141f279b42af8d63e96fa62fef03f68c1437f7007117aef07c10ae"
     sha256 cellar: :any, arm64_ventura: "533da5d3db0f8ee7650a59368679ff5a5a30aabeb81c04729bd9d19ef024765e"

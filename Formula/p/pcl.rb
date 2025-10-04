@@ -8,6 +8,8 @@ class Pcl < Formula
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e6e11186394a3299ce3c17c8adb97d60f8ab750b0458bd229278c3ad6755ff52"
+    sha256 cellar: :any,                 arm64_sequoia: "8948b8096627f93807e4b0776587a833591aa8d2fc6e2e1b1746af7e9b79dbe1"
     sha256 cellar: :any,                 arm64_sonoma:  "1e6bcc5ec5e8439f28279d96a4da0f6c4d36d7ca039e0701980da1c1463c6adb"
     sha256 cellar: :any,                 arm64_ventura: "18e0f9c8f40bc9ad0a8fba24c271108072a8ae8a47e62e7de3e80ec1c6be2607"
     sha256 cellar: :any,                 sonoma:        "555298752913e52820e547429dc75cacc52dfd42e5debb39d34c7822a3f1f9f2"

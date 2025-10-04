@@ -17,6 +17,7 @@ class Cppcms < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "3619e0041895da1d408658440b31d97b6b6b8101e3bd1b729fd8ba356a886932"
     sha256 cellar: :any,                 arm64_sequoia: "15a16c5b5f573a43871ff8c74cc01c314fb0e4972d4c70ca7f168c662bf20ef5"
     sha256 cellar: :any,                 arm64_sonoma:  "40b9a78d35c4a82ca461589a699a578b9af04a2db0bd04e996585bd4caab6b00"
     sha256 cellar: :any,                 arm64_ventura: "fd4431e3606205326aec8f484f3244201795ac5d23343489bcbebcee30dab312"

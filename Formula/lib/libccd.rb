@@ -20,7 +20,6 @@ class Libccd < Formula
     sha256 cellar: :any,                 monterey:       "b07fdb5107c0a1e3b912f441d338729ff2d58a50b65f3d6f5d013e26fa1c9dc2"
     sha256 cellar: :any,                 big_sur:        "8257a7f8ab8f5eca8fced2e881b96a68202c08ce94a4aa169d1d80149b61eb0f"
     sha256 cellar: :any,                 catalina:       "caa0aba8d2ba740998b54c73d3ab038747ac984e4d27797b9f768195a487dc4e"
-    sha256 cellar: :any,                 mojave:         "47c19c5f277ecc9016ef1e62a3ce1a0c4aafd1c91e6893fb4f251183ebd505ec"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "01cc57b08faa7b8a20a6d84a3cbe0908b7c5490d2223eea64b0f57df8fc8aa8d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bee053612267522f0eb8c55c24a68dddb787126f46771fc8459d4d3460aa077"
   end

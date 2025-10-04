@@ -8,6 +8,7 @@ class Modsurfer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "771be4aaa710c9ab747d8c99f16be41f132e0f0662cc59c5e5ef1b4827fcbbe2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4de08833308339b9707922798aeede8757c81d4e025667d2290b183aa2c161e6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42474789dbb88caadbcf8c0d113545c1bf40036b77cc89a88368e28413c97886"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7720cac93edc2ab0f29464ba3bc195cca1f5cc1e1d2ad6f9d98303b6b98f46ab"

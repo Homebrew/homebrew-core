@@ -6,6 +6,7 @@ class Libslirp < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "18d81f7392c77441d299e5ea36b08c85553919f407fb5433fb009c032a099b39"
     sha256 cellar: :any, arm64_sequoia: "12a9e671b10f09a59a51c9eb9010baa5d5a787f8404ff7a3ed709444ccd6c1c6"
     sha256 cellar: :any, arm64_sonoma:  "9f5be8a2ff62099f8eedcb100f94ba8d0738f6ac4b0f2008672f61115c0a73c4"
     sha256 cellar: :any, arm64_ventura: "4fc26d7834da55420b1c52fc3485af3a5b9185011c4f279890fb191450acf359"

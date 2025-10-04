@@ -25,7 +25,6 @@ class Foremost < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "8c6fc154197c47c601939579ec62059a00dca3c73793ead083e788cf2daa7dbe"
     sha256 cellar: :any_skip_relocation, big_sur:        "46ddc6fa415ef88bb90b4f14698b8051d6167a7e1763863bbdc4116eed590317"
     sha256 cellar: :any_skip_relocation, catalina:       "6be1f3b67ee3002ab30f9f7bc667f55b02d4311a99b4f974af34b6d0353a0139"
-    sha256 cellar: :any_skip_relocation, mojave:         "a392a7045508e07e54fd7210de043758e9bf84ff0b0d13867a550a71665c51ef"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "58e2366417862112c8567bcaa5387c99b8d855bb76228ce6f928fe36224a3cdf"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ef5c3ada1ea10d3c0a815cdac8f3bb5489897f81dcbd24fbb2edd49efe1188b"
   end

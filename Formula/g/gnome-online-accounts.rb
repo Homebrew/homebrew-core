@@ -7,6 +7,7 @@ class GnomeOnlineAccounts < Formula
   head "https://gitlab.gnome.org/GNOME/gnome-online-accounts.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "ebaa36774ef8adfec19c66f5178e3d092d33687c05181e2decd608e2b31a3d07"
     sha256 arm64_sequoia: "70db5851cbb6a33fa11e8229e646a9da311ca8e3455378e8e5b9133ae4c25b36"
     sha256 arm64_sonoma:  "f04c10f57787c4e59d3497cefe02a1a91e1b51b417c4e06070b8fbeb93fd76ad"
     sha256 sonoma:        "6fc1e15aa4e600388d2732e17f26ef169b95d304ea7d7d7cc0088fb64f215e5f"

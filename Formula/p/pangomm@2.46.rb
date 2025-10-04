@@ -14,6 +14,7 @@ class PangommAT246 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "59acdc333ff48dcaa839724326a109208097bf5395a4a6f932f094e2479f50f4"
     sha256 cellar: :any, arm64_sequoia: "c5c43ab69df3ee85326bb0abf15fd4057a46ce3900015be64abb8c8573d3202e"
     sha256 cellar: :any, arm64_sonoma:  "6468295dc13b7795464c8acbeb4d790c15b33e6431ff71401c05929cf2f9f3ff"
     sha256 cellar: :any, arm64_ventura: "b323db7914c80c804a6804b16cb58c8cb9a11d38ce52826b1cc469fa8dfd2510"

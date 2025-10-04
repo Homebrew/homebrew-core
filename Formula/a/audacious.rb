@@ -23,6 +23,8 @@ class Audacious < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "dd28e858bc3a5e82fb73be784b5a2ceec204418dd915406f14b16925dd29fc32"
+    sha256 arm64_sequoia: "da5a135943193ca45ebc751814045797ced67045e1329b61f3c8d786a58d150e"
     sha256 arm64_sonoma:  "ec5a613c9c634e0e53fa1a39e52fbdd4d1cd48dcbf9d009ed547cd34b5e26a52"
     sha256 arm64_ventura: "0fc42570974a4671bce5381306c275810c1e032e3eb449a23e36b6d6d67dbc2b"
     sha256 sonoma:        "2f37ac529fefa8d6e1165942699c2371bff51984df7b49daef35aa25cec68172"

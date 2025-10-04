@@ -6,6 +6,7 @@ class GuileFibers < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "cc7bd001428bf0240b533ae88c465ebaa7ed4eeaf48ef2862d1540462e830912"
     sha256 arm64_sequoia: "b0ffb1a8e973c4c824afef59cc42b36f02f402ac562157be5eeefe4fd5f35552"
     sha256 arm64_sonoma:  "aecafccfe6ae02c9d8aa3cec97cc91017995e5af3b6844f92f6a895289385828"
     sha256 arm64_ventura: "c4efa5f223403ee3bb438ef926dca0775564e5756e6ce9c0e754698542c7b90a"

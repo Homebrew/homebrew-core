@@ -1,8 +1,8 @@
 class Nest < Formula
   desc "Neural Simulation Tool (NEST) with Python3 bindings (PyNEST)"
   homepage "https://www.nest-simulator.org/"
-  url "https://github.com/nest/nest-simulator/archive/refs/tags/v3.8.tar.gz"
-  sha256 "eb255f8828be001abea0cddad2f14d78b70857fc82bece724551f27c698318c8"
+  url "https://github.com/nest/nest-simulator/archive/refs/tags/v3.9.tar.gz"
+  sha256 "8e67b9dcb72b029f24f3d70ff6d3dd64776dc21bf3e458c822c862677d67d076"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Nest < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sequoia: "1a34d790312185592e775e4e8fe4aef7383006d5043b7c97847d3c0d7db56394"
-    sha256                               arm64_sonoma:  "7d9f9e7ad474c91f30af1f8befd084621a645b6753780c98a03c3bda4c39f681"
-    sha256                               arm64_ventura: "e4997e4c854f79114bf6126b93073cedd165b443f14d1086f7a246690b77b547"
-    sha256                               sonoma:        "c6628a5bb1198d80c5c1e56a2bdea010d585c067bac0603a744bf1f009191b8a"
-    sha256                               ventura:       "a77c3c6db49b56fe36710c8a05bfc36dc4604bc8bd5448ceb7744fdf216ce86c"
-    sha256                               arm64_linux:   "74f9abe8a628e7dd0737b8e16389309f48b3784f275b366ca83463acdc22a368"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e29d5b0a924beffaed5eef267c5c08b78529d3894a8099578d68e0853fb0d65"
+    sha256                               arm64_tahoe:   "065df993ca2c0bde55060073cfe54e12844b3e8b5f94e13b5d5a77919ea92b1a"
+    sha256                               arm64_sequoia: "70045b182e97cdcb9b51d99ba0f3c53f84566dddec80c1e1e98f69701c789c5c"
+    sha256                               arm64_sonoma:  "c848332448d8914ae7ab34424650c41714a6c44fcac3e2f7f51594da42badf8e"
+    sha256                               sonoma:        "15b4296b41bebab8cea62840c22806d55989029e3fba0ad10c05e961da3ad2eb"
+    sha256                               arm64_linux:   "7d7be1baad034757222d9633f129fa3d17b2ba18313d7a44d2bf762c6404dec3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38afd26389b92c2425a3b7ef6ffecf12dc9e597dba4fada55ea101ac51ef5ea3"
   end
 
   depends_on "cmake" => :build
@@ -37,7 +35,6 @@ class Nest < Formula
 
   def install
     # Help FindReadline find macOS system ncurses library
-
     args = if OS.mac? && (sdk = MacOS.sdk_path_if_needed)
       ["-DNCURSES_LIBRARY=#{sdk}/usr/lib/libncurses.tbd"]
     else

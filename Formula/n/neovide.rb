@@ -1,19 +1,18 @@
 class Neovide < Formula
   desc "No Nonsense Neovim Client in Rust"
   homepage "https://neovide.dev/"
-  url "https://github.com/neovide/neovide/archive/refs/tags/0.15.1.tar.gz"
-  sha256 "9042678f2fa33a86662755b3d37f7b264ebbf28b9a5f021ca89c137faeeda37d"
+  url "https://github.com/neovide/neovide/archive/refs/tags/0.15.2.tar.gz"
+  sha256 "a8179c461d41277b41692edcae64af6d1c80454aafff608af0268c5abca95b5c"
   license "MIT"
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c08fd54b4c43582bd0f6e043ca65f227a1de29a81208ca3507f8a86f7199c629"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21d06535abaf109688ff50870ef514838a2d7fa800a239bc5af5285c6aa1043e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "42d229838f126c492755560d495cd18dc78d817c8fb421a54896da2e6e5dd7d2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f6d3c2012e42e2eb885e8069a2a76d4ae2e2d6e83c329a1bab45f3e39ee256dc"
-    sha256 cellar: :any_skip_relocation, ventura:       "2707d9fa16541dc71a43476400e6e4a00c5fe65a6236dab9bbc0497ac2a51852"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "122cb9188977603d27d7afef9214c627f3a35f080cee94a93dc80f4cd05b314d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6547720ec1876a2f4a2fa9c4acb23eba4656c7f1a58698940e0b50e53d113306"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d2016431a76759e0b0ba9cb8f5e91a4451cb4f4a9c92dd16cfee7ef86b444892"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6694ac674ede4461e8cd8f4e585e0899352fb3285132cd9cd23f93f89229c338"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9fcf5b98310365061ef4af169630dc40a3bbdde3ce22f053a3ca57643b436461"
+    sha256 cellar: :any_skip_relocation, sonoma:        "46842ec618082169fbd210f861d75624343f91ec7082ab63e2e9b2b852569605"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5a85281c8403af2e6bddfe9f5b8eefc174cd455e87b8ca403f6f27d44bcc847"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0dfc1de21238aae3f54afdda3f9518050bcdcabf2bd1bcf8b84314b43d056498"
   end
 
   depends_on "ninja" => :build
@@ -21,7 +20,7 @@ class Neovide < Formula
   depends_on "neovim"
 
   uses_from_macos "llvm" => :build
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   on_macos do
     depends_on "cargo-bundle" => :build
@@ -68,6 +67,7 @@ class Neovide < Formula
     # https://github.com/burtonageo/cargo-bundle/issues/118
     with_env(TERM: "xterm") { system "cargo", "bundle", "--release" }
     prefix.install "target/release/bundle/osx/Neovide.app"
+    rm bin/"neovide" # Remove the original binary first
     bin.write_exec_script prefix/"Neovide.app/Contents/MacOS/neovide"
   end
 

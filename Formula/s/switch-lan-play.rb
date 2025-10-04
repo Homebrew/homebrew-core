@@ -20,8 +20,6 @@ class SwitchLanPlay < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5913dc50feffc96b3c7a1a6e76df7f4701d6ec8051a3ce2c8cd67c73e10785a9"
     sha256 cellar: :any_skip_relocation, big_sur:        "520620d6ae69e98a169edda5ed47b0ebb496a843eedacda867b1eb52b14c007e"
     sha256 cellar: :any_skip_relocation, catalina:       "caa1992416c8eae4c281af3166238bb2bf8104c1d91d7dc37a2abd8715712ccc"
-    sha256 cellar: :any_skip_relocation, mojave:         "62da027220b8d01270c8459cec638744ed06eac2ec046ccff56729b7f126eacf"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "41a10e6d0ce45410763c4774afa4286a8c633ac60348c0d0963e33cbef855c1d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "9aac4915530555c0f133b120d4e4535e3248462f8067934b1ac4c554d89ee49d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0575f08e99046febb1ff6e1c00f02ab5b1bfa3e4b944828d0c858339748989b"
   end

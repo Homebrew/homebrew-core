@@ -7,6 +7,7 @@ class Regal < Formula
   head "https://github.com/open-policy-agent/regal.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a989393a22fed5c425914d468543632356c789aec52a5e40cdeb9f9eac199a48"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9773d0e14bf3218a5cdf2de2c485e6eceeaf9368433947ec3ec825de836dc479"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3427efbe1f74c52823b2648888add58a7071eb33ad5d2eaf49ba7f4bacd72ac0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6c18b66cf3ca43dfb39d2fff174fcd021ec33743fd3d9afad9286d3927b3b479"

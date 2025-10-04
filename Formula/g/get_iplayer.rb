@@ -9,6 +9,7 @@ class GetIplayer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "982d47fe108d98d05e659c175ae25a092258635cf49ef3ade7ba2345959f2808"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe0570e670e29b55c71caff7f76158b197edde3bf04ca4a566ff5134c3505892"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe0570e670e29b55c71caff7f76158b197edde3bf04ca4a566ff5134c3505892"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "778f90bf66b84cbc936f725ccbde41f5bb36e0018ccc922cedc8cd0f68331046"

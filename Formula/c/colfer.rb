@@ -20,8 +20,6 @@ class Colfer < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "cf4fd7e02a61239f90e3de47e6016ba6cd9c89d31c7728a1a857be854a85add2"
     sha256 cellar: :any_skip_relocation, big_sur:        "9ee59a49a4e15f40a620d526039cb8ef82e5c323f59f6df3074f1aa153c3fea4"
     sha256 cellar: :any_skip_relocation, catalina:       "dfdb2743960de62ee18ab35a7ead3d2d8de4207cc6ffa11ff0d8ebf393a591e8"
-    sha256 cellar: :any_skip_relocation, mojave:         "dfdb2743960de62ee18ab35a7ead3d2d8de4207cc6ffa11ff0d8ebf393a591e8"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "dfdb2743960de62ee18ab35a7ead3d2d8de4207cc6ffa11ff0d8ebf393a591e8"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "ce8f82ed2dc94b3000d7d4f591058affc15e693b64e62204b39b012915f9068e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e68acefc34743620979a02b3adce372b7a0a0a93c0e3a6c51480bfa2c02c29f"
   end

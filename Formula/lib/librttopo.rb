@@ -25,7 +25,6 @@ class Librttopo < Formula
     sha256 cellar: :any,                 monterey:       "2eb9b1d4133a764edab33bd122c2d7326b95f983edbbb4cea9bec3888be3885f"
     sha256 cellar: :any,                 big_sur:        "59068843a454371abc25ad9421771eb2770febfaa00d41e1527476f4cbfdb05b"
     sha256 cellar: :any,                 catalina:       "9512f32068f310fc02c082828e4ebac85a698ef69f370243aa00a5b873569319"
-    sha256 cellar: :any,                 mojave:         "d6bc9674875a3eeb44cec544f6cc9ac9ce6435f7fd951f446801a8aadcb1a323"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "9665c432abd2195df0985819c583373e355ad0ca39d57fc05814e90194a4d745"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d6d9cbbb4846b4a3147ef8be9041c2d155e2b9c8c3b7b3720b71ec78b472667"
   end

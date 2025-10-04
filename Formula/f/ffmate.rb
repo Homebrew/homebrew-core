@@ -1,47 +1,58 @@
 class Ffmate < Formula
   desc "FFmpeg automation layer"
   homepage "https://docs.ffmate.io"
-  url "https://github.com/welovemedia/ffmate/archive/refs/tags/1.2.0.tar.gz"
-  sha256 "a4c01430041863cd5d7a6ff6935bece7c82f0d7bca94f79a77366c2e784d30b7"
+  url "https://github.com/welovemedia/ffmate/archive/refs/tags/2.0.14.tar.gz"
+  sha256 "00ed2e6bdf9186bdb7dd3061f7ec81011e2b35a0b3e9e1cbff788dfaddaf6a63"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0cfee05bccc5257ea830eeaf08eec41f221a8be106a7963bc8a74830b62d0e76"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "58aae0d2682a7c33b00f0698feca3ec4c78d088c6621919bb243b7aebeb42ee8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc7181eaea7b27e22c41fb4b990550440e3b2ade0612de5a76db31369bcf977b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b01ac2e24f0b43f6977dd26b8c2fdebddea2143d26e4bfcd2b551d93a3b03c25"
-    sha256 cellar: :any_skip_relocation, sonoma:        "79ffd6375fbac01e663f97e9db07da1f5e6e615dda5df9608cf37fa230122b50"
-    sha256 cellar: :any_skip_relocation, ventura:       "21edba16e9504ac493edeb4adefc2223a352677aa42451740e3a1fc3afa8681a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "11450a040b44fc1016a7ad9666e26e485a078ac3204fca95e4ed37e38005c631"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd8a05a9ad42625356760918844fc1162e88c4679168e01215faa0eeb4e42353"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "92408d488c711fac9b49a033f429e51fb67a04a849e71d136e9e1c273e4b4721"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47a86b907b2541137df07205bdb6f2c848b1bbaef68d3fd0eb4c80334372fef2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cbc6eef9425a692ae11e80b1bc1faf000bfb40834d31b8f6abc72d11ae6f4bf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5096866c58d28d847d14b29a5fee4b971523478129f97ef8e39f065ea5dfe779"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f00005f35343f7f478e2d0d0a0b959b453c6ff90a25c5c8aea60da9a550c225"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e53bf04f8afa578f58524e236519a393106efaa8ba69ef15ce2a80d5b1a8fad"
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+
+    generate_completions_from_executable(bin/"ffmate", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do
     require "json"
 
     port = free_port
+
+    database = testpath/".ffmate/data.sqlite"
+    (testpath/".ffmate").mkpath
+
     args = %W[
       server
-      -p #{port}
+      --port #{port}
+      --database #{database}
+      --no-ui
     ]
+
     preset = JSON.generate({
       name:        "Test Preset",
-      command:     "blah",
-      description: "fake it",
+      command:     "-i ${INPUT_FILE} -c:v libx264 ${OUTPUT_FILE}",
+      description: "Test preset for Homebrew",
       outputFile:  "test.mp4",
     })
+
     api = "http://localhost:#{port}/api/v1"
-    pid = spawn(bin/"ffmate", *args)
+    pid = spawn bin/"ffmate", *args
+
     begin
       sleep 2
+
       assert_match version.to_s, shell_output("curl -s #{api}/version")
-      assert_match "uuid", shell_output("curl -s -X POST #{api}/presets -d '#{preset}'")
+      output = shell_output("curl -s -X POST #{api}/presets -H 'Content-Type: application/json' -d '#{preset}'")
+      assert_match "uuid", output
       assert_match "Test Preset", shell_output("curl -s #{api}/presets")
     ensure
       Process.kill "TERM", pid

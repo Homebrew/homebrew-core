@@ -24,10 +24,6 @@ class Unittest < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d83feaeec071b449126875572d29d4df64580c06c2f4a8fcc4fca55a5c68c7f4"
     sha256 cellar: :any_skip_relocation, big_sur:        "8f449bf2ba73aaf03dd8316d6057639bd2c3a38ef347157f3721cbabfb60212f"
     sha256 cellar: :any_skip_relocation, catalina:       "ef8f5c6e18c32b813cb825ce467a6997592dca4762833f8e03f156629ffa74f9"
-    sha256 cellar: :any_skip_relocation, mojave:         "a1ab22f2b4904a5c03ea8642fa096166b9fcc131e535a1d15e07772e1fbcea8d"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b34ab2aa983e33bf86eda07a58af410a769da7e969620e479c6f7e965de2c397"
-    sha256 cellar: :any_skip_relocation, sierra:         "c997c9ce2d6984607af24a6dc7dc21ddefc0570a15d2fb61192b3a361120a83d"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "501b61d05de70cfb53116c66daf380cb35a1665eeecf34dfc6b27ab945458f43"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "fc7cca539bea1e17f6eb787a2061ee632cbde672e48ddb1f551a5802eab80b01"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "253282b6d8bd11e9b124dea0b9356211b422502f0e809cd2f043f791275d7459"
   end

@@ -4,6 +4,7 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.6.0.tar.gz"
   sha256 "8caffef4b457ed70d5328bf4e5a21f9306b06c271662e03e1a65d30090e5f25f"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -11,12 +12,11 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "35b1d86a5ac4dea6594c5c67fb72e09cb2704cfa258733db2d0bc4d38b11fc67"
-    sha256 cellar: :any,                 arm64_sonoma:  "2dd9280503bda0eb56904637d66ae582290ece6c9db6f0db2294b8c307cb7c61"
-    sha256 cellar: :any,                 arm64_ventura: "72993a0b8b3820ee52fcc8a3a929332e3e4de1e70e5c2bee63720d489c339796"
-    sha256 cellar: :any,                 sonoma:        "a284f0f5f15998ea9173c5035c87efeb3c123624141036ebb9122f9ab86780a5"
-    sha256 cellar: :any,                 ventura:       "41d888377f765111bdc1a32825e322d29cb0444c28dfd5b360978a4880fe877a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4fcaa64330866bdfd815c06a06b1149965a9740ee75dc2dc9ab6a3aacf819e9"
+    sha256 cellar: :any,                 arm64_tahoe:   "ba758c3bad80ee44b6337f6740a40de629192060aa0b93539ad8ba7516705313"
+    sha256 cellar: :any,                 arm64_sequoia: "3dc689d8882df3c1b0313a8ec6e92a5e80e2f87c04dfac28e801beffeffce2c0"
+    sha256 cellar: :any,                 arm64_sonoma:  "80a134d70401385c85762b5c7c4faf1d47f4b7860fb599bcaa63519419e2188f"
+    sha256 cellar: :any,                 sonoma:        "25f5e7b840c1279fb3e68e790879456ed668c273c786ca10691e22198e011380"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32d430c1056caaea59d67c5a796ccf310454487eb885c69201ee23a591a31d08"
   end
 
   head do
@@ -28,8 +28,8 @@ class Postgis < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
 
   depends_on "gdal"
   depends_on "geos"
@@ -54,6 +54,8 @@ class Postgis < Formula
   end
 
   def install
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
+
     # C++17 is required.
     ENV.append "CXXFLAGS", "-std=c++17"
     # Avoid linking to libc++ on Linux due to indirect LLVM dependency

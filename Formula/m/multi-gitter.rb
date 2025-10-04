@@ -7,6 +7,7 @@ class MultiGitter < Formula
   head "https://github.com/lindell/multi-gitter.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b987db4796a37d8cebc0e1998fb1d690fbeaa1f22e3b87634e096c33cd55afc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "611c3f1101d7febe7d0fc383356dbf9df7cc6c34820a3346e43fc9deadc3bb01"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "611c3f1101d7febe7d0fc383356dbf9df7cc6c34820a3346e43fc9deadc3bb01"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "611c3f1101d7febe7d0fc383356dbf9df7cc6c34820a3346e43fc9deadc3bb01"

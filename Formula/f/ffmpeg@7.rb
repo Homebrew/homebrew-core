@@ -1,12 +1,11 @@
 class FfmpegAT7 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
-  sha256 "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
+  url "https://ffmpeg.org/releases/ffmpeg-7.1.2.tar.xz"
+  sha256 "089bc60fb59d6aecc5d994ff530fd0dcb3ee39aa55867849a2bbc4e555f9c304"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -14,13 +13,12 @@ class FfmpegAT7 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d47f1d3dbb887a783cc6b4f9e8287c996143451278215ca382366d0a58eb5bdb"
-    sha256 arm64_sonoma:  "a509407f8a6a5f068d61ef9d9384b45e1ed77d967d9e09e52f6d826a09a0fd88"
-    sha256 arm64_ventura: "d858aa45964b77fd81c9e88642c5b6c74cc09e595b3dc1a85081d7a001222de2"
-    sha256 sonoma:        "2811e6f4a583710fdd699c2804bde9bb6f1f061242695f5d3ac650ad11eddec2"
-    sha256 ventura:       "9e3865ca7af37c92740016aa062353bc756a1da27e5cefa07ef617f58a7f6ab2"
-    sha256 arm64_linux:   "7c3d7950f3d08a9651003b5c2bfbdc3aa5311efee7b22f04c0b2e1dc073fddca"
-    sha256 x86_64_linux:  "61826f4e9d8ee6586191b827028f37f69d467e06cb63d27bf72a7292890a268d"
+    sha256 arm64_tahoe:   "731bf62a0969f35b78a6cab0188301f200cc9d9fa995ae06ddd937f7595ec6d2"
+    sha256 arm64_sequoia: "a34b767e72d1af80477defaf3977f138ee953e3ed4e1c81c202173e7da563cae"
+    sha256 arm64_sonoma:  "0ae0cd1b7c497284d59256f7555355832789a66c79676e1ecd1e746f2737a421"
+    sha256 sonoma:        "b9579629e5f2234d46e6d82c8c68776a52b0d4d0783251f1d634c8b239d1898c"
+    sha256 arm64_linux:   "2f87837fdd6cb63799204982d065afa9476c3d5db8c8b91a3a4a09891d70653d"
+    sha256 x86_64_linux:  "4db47a5e9172ff132c581b2855878b93f865fccf92e052c4fa277293c0bad5b0"
   end
 
   keg_only :versioned_formula
@@ -85,12 +83,6 @@ class FfmpegAT7 < Formula
 
   on_intel do
     depends_on "nasm" => :build
-  end
-
-  # Backport support for recent svt-av1 (3.0.0)
-  patch do
-    url "https://github.com/FFmpeg/FFmpeg/commit/d1ed5c06e3edc5f2b5f3664c80121fa55b0baa95.patch?full_index=1"
-    sha256 "0eb23ab90c0e5904590731dd3b81c86a4127785bc2b367267d77723990fb94a2"
   end
 
   # Fix for QtWebEngine, do not remove
@@ -171,9 +163,14 @@ class FfmpegAT7 < Formula
   end
 
   test do
-    # Create an example mp4 file
+    # Create a 5 second test MP4
     mp4out = testpath/"video.mp4"
-    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
-    assert_path_exists mp4out
+    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
+    assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
+
+    # Re-encode it in HEVC/Matroska
+    mkvout = testpath/"video.mkv"
+    system bin/"ffmpeg", "-i", mp4out, "-c:v", "hevc", mkvout
+    assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m, shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
   end
 end

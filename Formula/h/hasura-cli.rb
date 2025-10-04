@@ -7,6 +7,7 @@ class HasuraCli < Formula
   head "https://github.com/hasura/graphql-engine.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bfac97bd3cc1844377187d031aff9b1628fac76275dc4423db2a977f87e8c865"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f385b53709497e0cdcf9eb34e8322cfac34fc063bb406cc542a89b9d172c859c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f385b53709497e0cdcf9eb34e8322cfac34fc063bb406cc542a89b9d172c859c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f385b53709497e0cdcf9eb34e8322cfac34fc063bb406cc542a89b9d172c859c"

@@ -23,7 +23,7 @@ class Ninja < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "13cca961d30a825d800c714dfc04932d916b08127ac866c37fc99a7072e22003"
   end
 
-  uses_from_macos "python" => [:build, :test], since: :catalina
+  uses_from_macos "python" => [:build, :test]
 
   def install
     system "python3", "configure.py", "--bootstrap", "--verbose", "--with-python=python3"

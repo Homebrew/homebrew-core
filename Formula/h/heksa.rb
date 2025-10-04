@@ -21,7 +21,6 @@ class Heksa < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "2c40667b5945ee8ce31d17eef4edb72b05d2238bf6a19210885d29471218eb1a"
     sha256 cellar: :any_skip_relocation, big_sur:        "f58fd184f70cb5601d2da5737aff2add348d98eeb7724460dbdbebef04bd9ea6"
     sha256 cellar: :any_skip_relocation, catalina:       "98f162aca970fdb91350424f8f4fcf94348b07d598a32355c6e2dfda57b31150"
-    sha256 cellar: :any_skip_relocation, mojave:         "deb7aa04db9d74d1300c7b5bfc85243cc853eb7bf81ca0657b3c7bfa6bf499a9"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "81ddc9393c38b0f1fdd8543e44b74bf011c31e1bd71b68ca414b436aeaebbc0b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0c2fa3a47b5d6a492a5bd6b3c881b19714c459adaf3103d1313e9cf9213386a"
   end

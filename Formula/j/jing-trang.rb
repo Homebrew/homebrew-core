@@ -8,6 +8,7 @@ class JingTrang < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8615c4782772326c690705fd978dd13cd97baa9b897c3269f154405869955507"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0890bae04b71b2979b5e95bcc055476ef225a24e02db05288c514c63542606fb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c64de5b7fc48a47a2fea2e480330ca435a177346f7ef4465ebf21312a1387f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e7b9d4dea1561b777b9fe73f26774cab635683266d5da7b1c5996a11e1604aef"

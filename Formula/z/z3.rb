@@ -28,14 +28,6 @@ class Z3 < Formula
   # which does not need Python.
   depends_on "python@3.13" => [:build, :test]
 
-  fails_with :clang do
-    build 1000
-    cause <<~EOS
-      Z3 uses modern C++17 features, which is not supported by Apple's clang until
-      later macOS (10.14).
-    EOS
-  end
-
   def python3
     which("python3.13")
   end

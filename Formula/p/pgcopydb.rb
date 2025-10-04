@@ -10,6 +10,7 @@ class Pgcopydb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "0922fc7e2a6d606e02d8e140e9d621bb9b865cb9c9ba074a057d132cb1b3b187"
     sha256 arm64_sequoia: "f0f0c6e9e3ebe35b9d32a1e127cafe4fe120356dc758a1475c6830af13d048b2"
     sha256 arm64_sonoma:  "ff96b14430ae0b5ccea29365fb3d3b4d37a792534d74744250ebaaf425a6851d"
     sha256 arm64_ventura: "b1fbef60821224b0230fae583caaebf0b70750d0dd7d8ec0a9ec2ec7cb0eb8bd"

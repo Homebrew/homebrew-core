@@ -9,6 +9,7 @@ class Gtkspell3 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "b64eeabbec9be14150c26d9213d525edb028af2546a0a1d85ea26e55d26d3b9d"
     sha256 arm64_sequoia:  "f182f8a623b04c25479cfedab38fcc1bc4c6df7f548b7c3b1ceab211fbe16115"
     sha256 arm64_sonoma:   "af4e893051ace858028bf47a7fe57524b6fefddb105ec7325301468135ee2d1c"
     sha256 arm64_ventura:  "99fdc129ff12ac2e004114076b278d7b7b62b0fc7f6ffc7f40a3eaa186bbb795"

@@ -7,15 +7,13 @@ class Binutils < Formula
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "fd20ebf003bed2def99e4d1394999ed18bb18cffb2ebc3780d28d20001ec70b1"
-    sha256 arm64_sequoia: "3fb936ff0d64e4bc3530ab07f83417f5dea8c098549ec506f19f1c6ae4962cb6"
-    sha256 arm64_sonoma:  "1a6356d10575b843eafe84253ba51c147334239b37e02d99288d998466912471"
-    sha256 arm64_ventura: "4a1b661cba6a910e35d0691d2d1dda1ed6337e212fb6237a6189dfa99bb45888"
-    sha256 sonoma:        "fb94a53dfab0618b68dcf429dfcd54d5854f74bff87225dc2f6465d9bb278f07"
-    sha256 ventura:       "96dcff59ccbb203e0fa8ccb7a36bc9eaba8fe6a63010bbb77f1238df951bce78"
-    sha256 arm64_linux:   "9d452137d4cfe39d4edbf7e9ae47389039345a3ac6ec85e9b3bcdca6911f3b75"
-    sha256 x86_64_linux:  "a6a1fca273e6ac2ed2309c0f0c4180cf10fae283bc303c58da8ce3771598c1b3"
+    rebuild 2
+    sha256                               arm64_tahoe:   "fd20ebf003bed2def99e4d1394999ed18bb18cffb2ebc3780d28d20001ec70b1"
+    sha256                               arm64_sequoia: "3fb936ff0d64e4bc3530ab07f83417f5dea8c098549ec506f19f1c6ae4962cb6"
+    sha256                               arm64_sonoma:  "1a6356d10575b843eafe84253ba51c147334239b37e02d99288d998466912471"
+    sha256                               sonoma:        "fb94a53dfab0618b68dcf429dfcd54d5854f74bff87225dc2f6465d9bb278f07"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7d645ca74225ac60a602aff4c9d9e6f91e1aedb5023f46ed69978a42b5397c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41d647102f58f2500a2d0194da255742ef8e7da26b9886fbd99a6fd080c3b76e"
   end
 
   keg_only "it shadows the host toolchain"

@@ -20,8 +20,6 @@ class Ccheck < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "f4784bc20e952229a571074101e28e68c82393c0ef224b141a0cecd93fa641b1"
     sha256 cellar: :any_skip_relocation, big_sur:        "226e757f5a2253c0dacce3e97e6b325e9bb889c1ba775fb7cb38a9b797458b73"
     sha256 cellar: :any_skip_relocation, catalina:       "edc3a16f072eeca5647916de805bc80a753d00548b860a052f670b4698464632"
-    sha256 cellar: :any_skip_relocation, mojave:         "4afea0fa685001ecf5777cb37975074cc382f2282bfe7fbaf9543c3b520272df"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "564171a220f9f031bd04044319b1e99e0a294208b3e804513ee0fe607525fe81"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "441d2d833959bcf2908a40acf3677e974c2409719f2d353289431cb0bea40d04"
   end
 

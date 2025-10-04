@@ -1,20 +1,18 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v3.0.2/xmake-v3.0.2.tar.gz"
-  sha256 "a89665b6685ea4b0dffc6d9f92eb15e9ee602fdfac0d27cee5632605124593e3"
+  url "https://github.com/xmake-io/xmake/releases/download/v3.0.3/xmake-v3.0.3.tar.gz"
+  sha256 "49d70671f40f28a1d8125df1a2b318cbd44608a26fa3c60587be3a5ad835b0fb"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83c50417dcb392c7cb279f11c1b7f5666fb12ecbd4741401f0f17364a76f470b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a11640d92d9a1c6d6251a35088965b797ad873a9d20db588f42e06fb25e2632e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "678728a217a162b6aa0035d91d108932c272b8f622a3b7f3d8d78a157dacbe20"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0ad8bcb5f02fee86ba758a3ca42339963d5422229bc99b18e4d43dd7511010cb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e38847c1a7bc3bc2998dc28617e916dc7d8121699578f644d88dd6fbe88ca2bf"
-    sha256 cellar: :any_skip_relocation, ventura:       "4c4118a8435a6a4ba8d05127095a19310f8a9b03bf81122698b1ac1e77da5293"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ec23df130c08de1f361e291178ed2f0413bf2dd36de653bd1deabbd40969bec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50c53e5002fd2db67115266f52e387b3fc8943cacac8f2a7e04aa9ebe45b286c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7fe4ed17f870700d33fb837dbc081e087b238886e1e0fc188c8cb80183d2a432"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c67f5af2e5da7aa5223ae67291dd1dcda24516af064dbe206c5c01465c31eff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9792833d08ff580576aa8f0d4ce152812b0b52fed5d49c965c70946a34422851"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f439a5f962c3cb248c884dba5f8ef90a206f0bbe30c6914c707ccc5e4be22dd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e261efbc688263a83a9f04baaced7217ccad27fc5e127bb408d39d8052b9c3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "263d381c2c918a7491e2759359cd32650f0322c3de3d626167cff60a4914eb8b"
   end
 
   uses_from_macos "ncurses"

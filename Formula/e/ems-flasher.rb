@@ -24,10 +24,6 @@ class EmsFlasher < Formula
     sha256 cellar: :any,                 monterey:       "18fabb4f830e3bd8b48f170d173feb47b13f50ab4470e626bec27680c17c4ed2"
     sha256 cellar: :any,                 big_sur:        "7265467864beba18015da5596e84e8cc969fe1860601036b342f12913043200f"
     sha256 cellar: :any,                 catalina:       "708f7bfd2d48d73df85cb8a90f183197e1ebcd3da3be013eedd2bf236d0eaddb"
-    sha256 cellar: :any,                 mojave:         "f14a792cca1e617dec44e6f11ec413aabbb027097f833ec3a70389bf02da37a5"
-    sha256 cellar: :any,                 high_sierra:    "188c1755cfe1e45fbfb7350e7fc9d546668438d3d0647c044a681eeef868d85e"
-    sha256 cellar: :any,                 sierra:         "51ac3640147a25c8cf9f1177c2f3c430fa3c6a95d75022544eea825b14934593"
-    sha256 cellar: :any,                 el_capitan:     "2be0a155a5442879c3cfa7a804e125be814bb3d1b5c002326a33e0b84ce6024b"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "afe3f200bc7c6b136eef20237168d892b9201dd6bd1a70178f0ca1a8c3371a24"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8081dea4fbc1c501388ffb3a38751d47a09ef38b0dacd3e09ad7995f66c9249a"
   end

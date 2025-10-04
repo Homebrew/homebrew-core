@@ -7,6 +7,7 @@ class Stow < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "74d7b0d6d849528a320c63802f21390c65a700a28295f546be29d5b87d78b25f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d4c48d441c3aec3763807b9937c6f8e0aa118fd3e8726f4419ffe3928a4f4ae0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4c48d441c3aec3763807b9937c6f8e0aa118fd3e8726f4419ffe3928a4f4ae0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "22e553b127f24001900605515df147dff27f5eb0b99805d63de1bcffb1c5a0d3"

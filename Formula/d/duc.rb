@@ -9,6 +9,7 @@ class Duc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "737e5d14b749b58fa2640bc9a7ee42a49f7a546ea7332c928a3a19d274b8f875"
     sha256 cellar: :any,                 arm64_sequoia:  "36a33e4afc9997df0f15d7c8a9090054d213c243abd19ec2bb25cc7ddc157615"
     sha256 cellar: :any,                 arm64_sonoma:   "df0c4ee04b4b588ebd6c627e769773354c8c990bd62dcb1d5a2cd4d7d8f7eaa8"
     sha256 cellar: :any,                 arm64_ventura:  "f84fa8689d44e453cc7795e284c4bb33b5406f57e7e3e49dea18eed1e9853269"

@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
-  homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk24u/archive/refs/tags/jdk-24.0.2-ga.tar.gz"
-  sha256 "d5a1b364de4335d86590d2e91eb8fce0560ade28759734c531915b8293e502e8"
+  homepage "https://openjdk.org/"
+  url "https://github.com/openjdk/jdk25u/archive/refs/tags/jdk-25-ga.tar.gz"
+  sha256 "7b84e7c96086b4e75ee128921d301427012447bdfbe1741398725ab6218afe11"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,13 +11,12 @@ class Openjdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "8bf81e5d8275e7f3254ea8763d35c31817493acd1aab32c2325cbf1bf24d9176"
-    sha256 cellar: :any, arm64_sonoma:  "53b07864628ca14780510d3b0e45e4e508c249730d303ae088fc011692cd556c"
-    sha256 cellar: :any, arm64_ventura: "7fbdfb2880f604f5b13e1fcee174c6b6492f8eddffbdc154bd9f6a769f686219"
-    sha256 cellar: :any, sonoma:        "e85b2b4420e2712200e13241cd90df9a2117682fb81aac422812310d42b403cc"
-    sha256 cellar: :any, ventura:       "1ba92e820302e56e7f9c6957ac9dca4dc42be95550d49836287353998f843484"
-    sha256               arm64_linux:   "95971b5825bf1982a8c7c9b22b17834fdd8cd12e4af31ba0fa98b88137398bbe"
-    sha256               x86_64_linux:  "b4ef478b28eaf1ea4670e286161417a2eb0cc89cc75b6ce06f0d7dbe481ab620"
+    sha256 cellar: :any, arm64_tahoe:   "a1f5d5f0196e9c5c8924760367d38dcdf098ba849b81f0b98f9ae404783ce0a9"
+    sha256 cellar: :any, arm64_sequoia: "058d3573acd9f7c376235721cebcd8befbb9274e0050f380987407ebc111d8be"
+    sha256 cellar: :any, arm64_sonoma:  "d7ca286b55c0324a510812894245cc24b168866c99a0253e64a4b6bae5d4f33d"
+    sha256 cellar: :any, sonoma:        "6982aff0f999fdae85f7eac04567cd5bd7b71d732e6dc41672616c7c8ddf530d"
+    sha256               arm64_linux:   "876ac24e22a2a755cab337eea400f08a04b63dd84b86902a1c5a7d1e6b272458"
+    sha256               x86_64_linux:  "698e3196759d93ab7eef806ab4812ea85a16179159e4de55e7cc16a3a5b37281"
   end
 
   keg_only :shadowed_by_macos
@@ -31,7 +30,6 @@ class Openjdk < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "little-cms2"
-  depends_on macos: :catalina
 
   uses_from_macos "cups"
   uses_from_macos "unzip"
@@ -54,22 +52,22 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk23.0.2/6da2a6609d6e406f85c491fcb119101b/7/GPL/openjdk-23.0.2_macos-aarch64_bin.tar.gz"
-        sha256 "bff699bb27455c2bb51d6e8f2467b77a4833388412aa2d95ec1970ddfb0e7b6c"
+        url "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_macos-aarch64_bin.tar.gz"
+        sha256 "d2bcbedc348978625e6ad03dda9f8f9993ce6918c34ec5328ec1c1dd2e71e0c7"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk23.0.2/6da2a6609d6e406f85c491fcb119101b/7/GPL/openjdk-23.0.2_macos-x64_bin.tar.gz"
-        sha256 "b4cc7d7b51520e99308e1b4d3f8467790072c42319b9d3838ec8cfd4f69f0bc1"
+        url "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_macos-x64_bin.tar.gz"
+        sha256 "a2ce194209f0a1c311275cdbaadf586e48295303dbacee3ebdf57d17beecdbb2"
       end
     end
     on_linux do
       on_arm do
-        url "https://download.java.net/java/GA/jdk23.0.2/6da2a6609d6e406f85c491fcb119101b/7/GPL/openjdk-23.0.2_linux-aarch64_bin.tar.gz"
-        sha256 "8e9b2c7e0f138de785dc754ad1dfa067671de66672b5e84bb7f6f6c219a6b02b"
+        url "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_linux-aarch64_bin.tar.gz"
+        sha256 "1c2164216387c2f5cbacc7e96ecaa51168d954ac3805312b0a7d4d1e2726f58a"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk23.0.2/6da2a6609d6e406f85c491fcb119101b/7/GPL/openjdk-23.0.2_linux-x64_bin.tar.gz"
-        sha256 "017f4ed8e8234d85e5bc1e490bb86f23599eadb6cfc9937ee87007b977a7d762"
+        url "https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_linux-x64_bin.tar.gz"
+        sha256 "635050717feab0e4c283c8e90e79e944a2b65a3b6b21f1d37dcaadad4cc29548"
       end
     end
   end
@@ -79,11 +77,6 @@ class Openjdk < Formula
     resource("boot-jdk").stage boot_jdk
     boot_jdk /= "Contents/Home" if OS.mac?
     java_options = ENV.delete("_JAVA_OPTIONS")
-
-    # Remove the offending ISO-8859-1 resource (JDK-8354449)
-    # upstream pr ref, https://github.com/openjdk/jdk24u/pull/220
-    rm "src/java.xml.crypto/share/classes/com/sun/org/apache/xml/internal/security/resource/xmlsecurity_de.properties"
-    odie "Remove the above resource patch" if build.stable? && version.major > "24"
 
     args = %W[
       --disable-warnings-as-errors

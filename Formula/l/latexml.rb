@@ -13,6 +13,7 @@ class Latexml < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dff04066f2f6dd7f3dddec4276fd9d1fd758b2972dd64b75a7b064a2c95a12d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a37c6fd0d637c43e26e452ceb11ae7dcb92c395fb857a031e49530e3cd3a1f14"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb545c7e7242db92803f0576ed29431209e64bdfccd0247a6d23afa5cc39cd82"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e38b026b0b334cc52d75564b715319a30001d6399acd836d19c7024d98ee0372"

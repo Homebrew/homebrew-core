@@ -13,6 +13,7 @@ class Stm32flash < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f8e474cef1409121473bd9d5faaee88d9a164949b2b6f3bba17dff7a20875383"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b888c0246ff2ed980cc2ca7e08e8890641bec73f22a47dea03dad402dfaff6e0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b07e1d419f8b53f22dbd8479b61446e99cf2f9fcad620af12ab8cbcce21d27f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "069b91e908bd359fa0e012376d4eb6718c4ac734319ba06d6dd4e74359528a96"

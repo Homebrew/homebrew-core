@@ -8,6 +8,7 @@ class Gssdp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "757813a4572ec251ec2b0b5d08fac402448d7eb07e798f4ddae34beafb4dd786"
     sha256 cellar: :any, arm64_sequoia: "ebe88f533fe10a5c8bcd40124a1eba3be1fb2d7b1f519b8d52c8e5d72de9a252"
     sha256 cellar: :any, arm64_sonoma:  "583257d286536b6fbb04901b527beeb0782578c667e13cf9fa943bb59bde6a36"
     sha256 cellar: :any, arm64_ventura: "259745694e0f5e9ec0cf3590c2e2e7cfb5ef85a606be7b5399a0e5af5cbaff47"

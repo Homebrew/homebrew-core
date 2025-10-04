@@ -15,6 +15,7 @@ class Massdriver < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa22709bd25d167b9191d7fa251f9a70686e0a5d970010ad36ddc115b37b5731"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa22709bd25d167b9191d7fa251f9a70686e0a5d970010ad36ddc115b37b5731"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa22709bd25d167b9191d7fa251f9a70686e0a5d970010ad36ddc115b37b5731"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fa22709bd25d167b9191d7fa251f9a70686e0a5d970010ad36ddc115b37b5731"

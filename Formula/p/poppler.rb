@@ -12,6 +12,7 @@ class Poppler < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "d4468e24bc4a7897ba5fe07c11d5ead87bbe9dc3f857dc027e9f4f34237bfbf4"
     sha256 arm64_sequoia: "00e6eee934ef6c50356777ce06daac79c01eb6a095293cbd629b40e4f400a638"
     sha256 arm64_sonoma:  "7fb66c590fe789274300ad655a80855eabae763e0ff12368dbdf38bab6e432b9"
     sha256 arm64_ventura: "248dbb7e0809afac27bbdcf9631fa32c4df5e4c88ea1929b2830fbf220eb5265"
@@ -63,9 +64,6 @@ class Poppler < Formula
 
   def install
     ENV.cxx11
-
-    # removes /usr/include from CFLAGS (not clear why)
-    ENV["PKG_CONFIG_SYSTEM_INCLUDE_PATH"] = "/usr/include" if OS.mac? && MacOS.version < :mojave
 
     args = std_cmake_args + %W[
       -DBUILD_GTK_TESTS=OFF

@@ -20,7 +20,6 @@ class ConsulBackinator < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "541a6f16a60cca90b1f70c474d46b0a20bd6d9965e3190d60ae653983915c8bb"
     sha256 cellar: :any_skip_relocation, big_sur:        "f0289e669896c287102e265b0d164021c0eed4d0906d972d4b85df9084dd01a3"
     sha256 cellar: :any_skip_relocation, catalina:       "b984053374292f96bb3b095aa9338f15aa9962be4473f8eaaf64a43598f39c5f"
-    sha256 cellar: :any_skip_relocation, mojave:         "67549b4afb1e36aa92374850a5b5285d04a046e4f0120687613a58b63eab057d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5b914861d80658228a91c3946d85609b07a780a9747e0302ebd4be3a5d1ea94"
   end
 

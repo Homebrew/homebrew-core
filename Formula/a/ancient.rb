@@ -1,21 +1,17 @@
 class Ancient < Formula
   desc "Decompression routines for ancient formats"
   homepage "https://github.com/temisu/ancient"
-  url "https://github.com/temisu/ancient/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "d814b0a1f2c08cb7e8dc94506c096f21471719a6f9d3d2f93ab9416f1ea98712"
+  url "https://github.com/temisu/ancient/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "5d1d71f0fb8c69955bb4ec01ed9ffd2b5bf546b10463030dda85d949ea422bc9"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "d74855265655e7cc2b17d65b446974670a0bb4240527b24a82b09f74ee43615b"
-    sha256 cellar: :any,                 arm64_sequoia:  "6f1107e987a8027289e5c8e7c95b71e85b75a94d0219df48eac31504bbb427b4"
-    sha256 cellar: :any,                 arm64_sonoma:   "1dd610a8f47fb9887ed822f63899eb3cbadcad4d0be848aac8e4dd2bd12105ee"
-    sha256 cellar: :any,                 arm64_ventura:  "cb400c604791468287b32dbb9d5f44b591f0ab9ca2cfccf4b12204eb7f1029ae"
-    sha256 cellar: :any,                 arm64_monterey: "038e7397ac6c20fa7a424bf5565504fc669e986bda08600379c297c9e15bffc4"
-    sha256 cellar: :any,                 sonoma:         "63a480cf9de0421b71aa903cb413749468b3fb6d6d7298566512fae532218d17"
-    sha256 cellar: :any,                 ventura:        "a449ffd0b1f136e18e93f8c9f7e12a41c06f8e3fc29096f8b17a356cff43fe64"
-    sha256 cellar: :any,                 monterey:       "c4f2396ffc6013ba685be7a0193afac0a7fa5563471829bf97c5241ca9146cdd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "7e45905a5086151609dbd4a69d503f98c5abbc11578f29bd83be8e53d6e4eef5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd132df16f6c1a05eb3eda0807ba65ec02deb30aa03d5b7ca39ee4172b725321"
+    sha256 cellar: :any,                 arm64_tahoe:   "6817d9ce2e9d71f8e176280373905983d18dc6984a8cb9fd8587a77189ed77a3"
+    sha256 cellar: :any,                 arm64_sequoia: "08b6b80e0b301194514d37f7bcbfbb9f3f6741a5f76d26d11238591d4095481a"
+    sha256 cellar: :any,                 arm64_sonoma:  "bff6bffe97748fcafa7153b84ab9f4e777140bcd61b283368e1700d059b7a248"
+    sha256 cellar: :any,                 sonoma:        "e7d17674bacf02c4c01a07812e801e662b76fd68de9ad82287bf1fd65c4e2e18"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3c75d64ba336cfa2c79cff5db5f0f918f95448565e93685df2679d25b429aac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc2e89a54843d08f940bf5a541e85ad5ae0ece2fa2f5b146a2e22a792ced7a2e"
   end
 
   depends_on "autoconf" => :build

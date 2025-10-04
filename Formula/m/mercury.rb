@@ -14,6 +14,7 @@ class Mercury < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fe009114d3e453c085f4956f00a894e7262ca8834eff20971202ffdac952e23f"
     sha256 cellar: :any,                 arm64_sequoia: "5a8c953a905318645766c0457bbe546a8bc7b0d65b04d98c838ddf996f5d885a"
     sha256 cellar: :any,                 arm64_sonoma:  "8132aa81235d40e482e84630d4b6d8e037ec0176fbbf7dd0b7a2457ef781ea7a"
     sha256 cellar: :any,                 arm64_ventura: "ff7e02ae589247c4a6c07d1f4c0a8277d000188d8c36920ca1769073b759d562"

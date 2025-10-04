@@ -3,19 +3,17 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/51/f9/bda66afaf393f6914f4d6c035964936cadd98ee1fef44e4e77cba3b5828c/apprise-1.9.4.tar.gz"
-  sha256 "483122aee19a89a7b075ecd48ef11ae37d79744f7aeb450bcf985a9a6c28c988"
+  url "https://files.pythonhosted.org/packages/60/16/e39338b8310af9466fab6f4482b542e24cb1fcbb7e36bf00c089c4e015e7/apprise-1.9.5.tar.gz"
+  sha256 "8f3be318bb429c2017470e33928a2e313cbf7600fc74b8184782a37060db366a"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c111e79a9641a48882a84c823b0bfaf3963bad0053c17ba2b4f62e1fa09c2099"
-    sha256 cellar: :any,                 arm64_sequoia: "7574c998a62e275d358b6f498fed1791c9f82196087626515ce96427914278c6"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b646984e8f96d97a4e6e74e0702fe4bccc31155bdfc343441f4ca18fd834a18"
-    sha256 cellar: :any,                 arm64_ventura: "bcdfedc981695fd3c5c11c6aad94b1bf153c1bb508ed081da6185516447321e8"
-    sha256 cellar: :any,                 sonoma:        "9c26139df8e1c73d83283ad38e3b3ec838a2af06664fc54960f558bb27a5e05b"
-    sha256 cellar: :any,                 ventura:       "d6c7ac83d80f81844d06038ec8d23ee50ddb99a5e2c9a4f69486a0dc48106dea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6d4a7086a88b3242114eb1a1d510adcfab8f7dcffa02904f8152637806f6dc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fdbcda12d00a1582cb4524daf274c6315e0edda2081a22c98fdf2e49248c1a7"
+    sha256 cellar: :any,                 arm64_tahoe:   "4b91625d0790d086718e5a0540b254d5ad86d6e9dfcbb2bb45d170c049e10bec"
+    sha256 cellar: :any,                 arm64_sequoia: "f698b24ff143a08b62cc78ad253257a32a6db0ba576c5b57e720402d79c5202f"
+    sha256 cellar: :any,                 arm64_sonoma:  "497b21707399bf8898be3eda61b374bb02c5f0796e83ba3d6bf51d4f64e19cf0"
+    sha256 cellar: :any,                 sonoma:        "a3ef7ec93389e4ef1311b3c9a9cfbde9c94963d9e1486399652e9fb7f1156f76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c241a3c46d15e0e413925d112848467318f80bd4590ed6afc6aedcd0442b52ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6b3456dfb9c05da477e7390bb67f86bbf2f509cefdcf3169f18eef7c70782ad"
   end
 
   depends_on "certifi"
@@ -23,13 +21,13 @@ class Apprise < Formula
   depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/e9/87/105111999772ec9730e3d4d910c723ea9763ece2ec441533a5cea1e87e3c/click-8.2.2.tar.gz"
-    sha256 "068616e6ef9705a07b6db727cb9c248f4eb9dae437a30239f56fa94b18b852ef"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "idna" do
@@ -38,8 +36,8 @@ class Apprise < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/d7/c2/4ab49206c17f75cb08d6311171f2d65798988db4360c4d1485bd0eedd67c/markdown-3.8.2.tar.gz"
-    sha256 "247b9a70dd12e27f67431ce62523e675b866d254f900c4fe75ce3dda62237c45"
+    url "https://files.pythonhosted.org/packages/8d/37/02347f6d6d8279247a5837082ebc26fc0d5aaeaf75aa013fcbb433c777ab/markdown-3.9.tar.gz"
+    sha256 "d2900fe1782bd33bdbbd56859defef70c2e78fc46668f8eb9df3128138f2cb6a"
   end
 
   resource "oauthlib" do
@@ -48,13 +46,13 @@ class Apprise < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "requests-oauthlib" do

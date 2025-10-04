@@ -21,10 +21,6 @@ class Truecrack < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "b776b06cdbe28835e7899c72a5cc5a54438d052b7b147163edc6adc710c80022"
     sha256 cellar: :any_skip_relocation, big_sur:        "101def9295ec59ebe5391aefe7384944aecc52e6cc610edddbb4cb0fcaad489d"
     sha256 cellar: :any_skip_relocation, catalina:       "fb57614e52a889118b43b5ea47d5ae7174ac84525c7496908804d6aca51a8818"
-    sha256 cellar: :any_skip_relocation, mojave:         "8eff51aec7a5413b11d35adcc1559e036687ae31aee11a477cc7d62f603fd1e1"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "fd148aa52883969c30029e25889c560443347575cb064fe9e93d48e9940afcb6"
-    sha256 cellar: :any_skip_relocation, sierra:         "96ecdedf66599ec83da60c5a64de37dce4aa3411bf3a575bb5d5e1b6646fd5b3"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "2905997955799043b8f07c7cb28854d0a0acd3a84131b92b6c49780570dd198f"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "fd2c903e910b747ac43ee9604851ea08131dbda84ed405b43f51110b3c29037a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "13ed8fdfc8e7a6289dd469d0dbc4bac91f00d8917d3609e5b2ac44d1d641fb86"
   end

@@ -20,10 +20,6 @@ class Crunch < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7797dae15adc8701e4d93c3a0455adb8796aca9f7e366bfa12448ce9aeac7153"
     sha256 cellar: :any_skip_relocation, big_sur:        "9cd9d5ae5afb6b6223e720b99d30990f1884cd8ed4e0b5654a9ab2d72cc4d132"
     sha256 cellar: :any_skip_relocation, catalina:       "67570938790b20aaabcb31c8ac86d4356702b87ce2ae8ea01d19553f531397a6"
-    sha256 cellar: :any_skip_relocation, mojave:         "ad3bd04ba230c46df88ab4ab7a74efa3182cd65b804b65a28a327f74700641e8"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c59cb398b0ed4f28e8d56c49709991f5ea61b61bad4d672f1a481730948cdeb0"
-    sha256 cellar: :any_skip_relocation, sierra:         "737d46b90aaa933abe03e111ece79e3f6a0ecb372cc1903b9dba3a33208111b9"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "84c0c275e63cc5c27fd468587f67ae5f1ab31a3923fe2eda27b4e33477356844"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "abf2c62b42c660eeb58ac32c84c77ee4f425cef5b69a4eeedc2e00cea490a001"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2da41fe3124d8d6fbfd6df0fa1eefd803b2fee839332cdce61b9c8a1e15e977d"
   end

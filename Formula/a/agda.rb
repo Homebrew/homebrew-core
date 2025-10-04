@@ -54,6 +54,7 @@ class Agda < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "67c4869f12105c37ce7d68aafc8ef8c6f86d1024ad8c82701515eee2f5271d70"
     sha256 arm64_sequoia: "d9b340ab2150f6e9becd13e074ad823263f724d2ac26ce62ff90730f18ec3216"
     sha256 arm64_sonoma:  "3ac61a6a0e70f1ff409d14feb6f9b393d7d8265397b20055b467a6664c858081"
     sha256 sonoma:        "4f0b8ad5cc891d516865477f8a2cd9968ed6d9eaf706a37885ad23774b1ad26f"

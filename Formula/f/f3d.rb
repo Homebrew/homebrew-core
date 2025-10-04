@@ -15,6 +15,8 @@ class F3d < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5a6c30f281997c53c8ac66a0c0577df3e0331264f8e39a76eda1705f2a8cf72c"
+    sha256 cellar: :any,                 arm64_sequoia: "3854159961a1a9e2d28004e0b1469c4de48d56b87565df55786f1c85bae06220"
     sha256 cellar: :any,                 arm64_sonoma:  "e8cde110e73ff4b121306655cde089070450c72f336da36086a64e306833c489"
     sha256 cellar: :any,                 arm64_ventura: "aad1d07372463a276187a1d69543455fc332226a73033d9120e4e526ec7894ee"
     sha256 cellar: :any,                 sonoma:        "89dc06e6cf2205f7e0a1f96b7100b5085b545e1fa06cf9c4cb03768003b19c31"

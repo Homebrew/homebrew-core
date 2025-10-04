@@ -1,28 +1,33 @@
 class Cookcli < Formula
   desc "CLI-tool for cooking recipes formated using Cooklang"
   homepage "https://cooklang.org"
-  url "https://github.com/cooklang/cookcli/archive/refs/tags/v0.15.1.tar.gz"
-  sha256 "595003a4d8a6b17447f5b890d21a6a6844becb1cd1e3b4626f552925d3fbd215"
+  url "https://github.com/cooklang/cookcli/archive/refs/tags/v0.18.1.tar.gz"
+  sha256 "9ef5df91b09e0d5e84d58df84dec902c3c9156b833d97f164ffb1949f0ddb972"
   license "MIT"
   head "https://github.com/cooklang/cookcli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "68f94865dcd61a7f16750d42526fb7acc9c33d3b8b4229a087c99739a0afa931"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e73cdde26b9b7c9f4b29444df663e291e3d29a5add73344c40fc00aa6583d677"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3b9597f4ff379f603018adcb93360774a4290deae0a190735c8c8dfd2f128e5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "59c60e264a26ed511f1b7a02641b30be5009c4968cf42287fdb4cbcbb0fbbb7c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7e64e55875888f9e1e75777ac3396ba382ba34c2a4c7f379a5abcad69b34d5fa"
-    sha256 cellar: :any_skip_relocation, ventura:       "866cb33a63dc250144a074a22a2d8d569207eefcb2592905fb64dc1e600aa038"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b56bb250c0a922441c42af3c7eaed3155d20a62f870ea071c5380f8083988530"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d655b0fc99198545b710be63f26a0b500ba6a2b32672d78e8042e3d8e032358"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03192619341d745ab3fc497066b960efec22acfd6a30849582368fd68b215d5e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9277cf74f422acfa65629cb7328f611c04613c2c927c9876fa8212877fb7141d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9bcb0161b749bbb05b0e73510142c9a51c23e2f75177457e8912213c82609b25"
+    sha256 cellar: :any_skip_relocation, sonoma:        "310c083604776b035398ef2f70621422538f63f62ffb5c43db145172eca13718"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8fd17a80516a0916d8c819b9196607dbeb12ecb34a2c0e5739d8254c45eaea6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f92a885635fdad884c8a7b0c7a1b0bbf4bf170bc1352a6305b6f31e789b96e7"
   end
 
+  depends_on "node" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
 
   def install
     ENV["OPENSSL_NO_VENDOR"] = "1"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+
+    # Install npm dependencies and build CSS
+    system "npm", "install", *std_npm_args(prefix: false), "--ignore-scripts"
+    system "npm", "run", "build-css"
+
+    # Build and install the binary
     system "cargo", "install", *std_cargo_args
   end
 

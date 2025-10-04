@@ -24,10 +24,6 @@ class Libgfshare < Formula
     sha256 cellar: :any,                 monterey:       "72af5816492ac0696211008f72b896eee5485c0227964c7eae8caadba28212d4"
     sha256 cellar: :any,                 big_sur:        "619b6bee51163d432b903899d6d86223824e055124ead1856bc6c4399fef4fca"
     sha256 cellar: :any,                 catalina:       "59d6afbdff08b3b457ae3bf6284859eb200929dbcf38c7a2e4f6025a45fe02dc"
-    sha256 cellar: :any,                 mojave:         "23c584fb3f3edcb9516beacb9cc3448c6bd2352ce44063e609d7a3e9aaeadd34"
-    sha256 cellar: :any,                 high_sierra:    "0079ff7fef137a59579eb12e9f15087573ad2c19c8d7a4d53e2a7d8d378e6af1"
-    sha256 cellar: :any,                 sierra:         "ed8e772e5d4b6c8471aa4d711bd2178b873cce23028bcd3831a51aca67c3485e"
-    sha256 cellar: :any,                 el_capitan:     "c50ebaadca206eef93bc6d835f5814e0d640223c2c7e39cd12feff47720c054d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "681eacdb672caf8dd195c5bb9bf891e5bb7c1317eb84e0e81faf1b155dd474ce"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4439a61e14f81e80009ad0e85a4e2a8183c106161d29e232176faa061ba380ba"
   end

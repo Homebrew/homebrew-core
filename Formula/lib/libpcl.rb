@@ -22,6 +22,12 @@ class Libpcl < Formula
 
   on_macos do
     depends_on arch: :x86_64
+
+    # Can be undeprecated if upstream decides to support arm64 macOS
+    # https://docs.brew.sh/Support-Tiers#future-macos-support
+    # TODO: Make linux-only when removing macOS support
+    deprecate! date: "2025-09-25", because: :unsupported
+    disable! date: "2026-09-25", because: :unsupported
   end
 
   # Fix -flat_namespace being used on Big Sur and later.

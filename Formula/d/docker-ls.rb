@@ -10,6 +10,7 @@ class DockerLs < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a9b2cf84ec38d48c0c0137b1a0f61231d5d91a2cddf0b355680ca6d186857333"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5a6ebec1d000be676a4cd9e57ee15c4fb7e42a70aa7e03e32d83cfea4afdf4f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06347d89230140c033d404a279c49dd2d344dec5acb83b918ea6179e1a03f0d1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "061380ab4b800dd7c9963eff07bf88387b1e7816ebd40c41145fc5492ca89868"
@@ -20,7 +21,6 @@ class DockerLs < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "cbd941bf6005f92598ee1c00165c5eb7101fac547fe0c1d2b84a55a999d940a8"
     sha256 cellar: :any_skip_relocation, big_sur:        "69d17d15d79bfa1813ad39ae3a0250ddd919a36b4d3923412cfbc17be56316dc"
     sha256 cellar: :any_skip_relocation, catalina:       "47231e20bcc919d92de35c537c87c54f52bbcdaa85cf2bb9b27bc03a69f25587"
-    sha256 cellar: :any_skip_relocation, mojave:         "38eb334f22797271ae8e121030133f6fc3e33cd178cd938940d4ead6565e0225"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0002977a8ff7a2a2607098a743ec898e1aec0efee43095c06b56b873fbfcda15"
   end
 

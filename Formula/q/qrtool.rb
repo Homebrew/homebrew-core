@@ -10,14 +10,13 @@ class Qrtool < Formula
   head "https://github.com/sorairolake/qrtool.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e0e3f7ea317b79a6529ff508c6cbf0e49fbc56a58901b7eba927f6f215749b31"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25d10f224e95a98626a479a2c84b5e59d50bbd2e6dad787486194d1d5c814fb0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bbd08bee21ec0c02b56086fa4fa927b799937d8dabf814647ec99119eebe03c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a7ed1ea670fcd3bbbf7c854c79f13619d66420e36d29b2d9c0488909d53eab60"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ec1283424b8d254662bba097d31c9d1b73afb7f004bb00ba7be365f1cfa50033"
-    sha256 cellar: :any_skip_relocation, ventura:       "3bee8f7e1d5bee0b8699aaf084395f0f410743fc8e1b91abe28f4809512c0e22"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67bacd460faae54d71afcd4a1544eee9ac1715d4283730bc9bb6aabcbdc06884"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5136be0cb03a9e0e2ff6b15cafa558f85ee23fc9d2d5066186bdc332560419e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4fedf675d255076246a1c5dde75ad9cfe4e1d8daa4d4607cecfd0ace4da8361"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "28358907827b5af05d498f56ac94ce24403b8c2b83330d742039071ae4bbb598"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff046eff17108907732e4e2743971ecdfff87e0d46b57e86367b55029d39d147"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bb86182d74d2060068c14920e5fb6095f85f389333c4730569b1639f95cdce6d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7e5a9e20405e13b574d660c79cf9120500e4c2d14b5e0f001a1330ec5904009d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b82073cad1b195c1e9f1d6c6d81514e9d5ab6c5ddc38221d2ef26c70107689c"
   end
 
   depends_on "asciidoctor" => :build
@@ -28,8 +27,8 @@ class Qrtool < Formula
 
     generate_completions_from_executable(bin/"qrtool", "completion", shells: [:bash, :zsh, :fish, :pwsh])
 
-    outdir = Dir["target/release/build/qrtool-*/out"].first
-    man1.install Dir["#{outdir}/*.1"]
+    system "asciidoctor", "-b", "manpage", "docs/man/man1/*.1.adoc"
+    man1.install Dir["docs/man/man1/*.1"]
   end
 
   test do

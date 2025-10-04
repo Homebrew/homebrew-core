@@ -24,10 +24,6 @@ class Aamath < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "58065a231153b1971495d1d07c7d68740a1e7ca51ff95d8c8684ab511aaa4ab7"
     sha256 cellar: :any_skip_relocation, big_sur:        "588a5ccb517b6d41a4f323f7a376cd9a34e4d0d447baf15179c05fbbf2c0e588"
     sha256 cellar: :any_skip_relocation, catalina:       "1ac1413ef0322b280ae5bd5663373ed959ee54d28dbdd3261fc4da6e57abf44c"
-    sha256 cellar: :any_skip_relocation, mojave:         "79ef03b1d334136b693131b133944109545b07aca2dfd9165531016e4250444c"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "41223cb51bc006abfba33b6af77b665c28de4155d19e5f43d0561b885b73368f"
-    sha256 cellar: :any_skip_relocation, sierra:         "d537cb11d2dcbac9b5d5356c471775699312e83450635ba7676083f381a531cd"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "8b805e37fd5f4536b4fbf7f3ae6251b645b4b132027d56ccd015a6036c304744"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "720220ff8348613058bb9d4ef1cf87bea850c513e721906a37a406136e6d2327"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f803d33b088e251eba9820706307616a771dea7d2994818a8fc36aca85af0541"
   end

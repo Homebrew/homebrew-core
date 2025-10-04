@@ -1,17 +1,17 @@
 class McpToolbox < Formula
   desc "MCP server for databases"
   homepage "https://github.com/googleapis/genai-toolbox"
-  url "https://github.com/googleapis/genai-toolbox/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "71c4810ed2171d4ed7bbb5519826a141f6eafd1b141bbe3694e5924a88bd7fb0"
+  url "https://github.com/googleapis/genai-toolbox/archive/refs/tags/v0.16.0.tar.gz"
+  sha256 "996b1d8197767acd58bf507527373157e57b2758105b59a1835051194bda1733"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6ea523ab9852ddd43cdf2a7d22cd0d8ed040dc52f5ffe37fa465917af92ca6a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e6ea523ab9852ddd43cdf2a7d22cd0d8ed040dc52f5ffe37fa465917af92ca6a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e6ea523ab9852ddd43cdf2a7d22cd0d8ed040dc52f5ffe37fa465917af92ca6a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f0cf893d782197b74d69f904b7b3ad8a2cc1e5221997789579e567960fd8c7d9"
-    sha256 cellar: :any_skip_relocation, ventura:       "f0cf893d782197b74d69f904b7b3ad8a2cc1e5221997789579e567960fd8c7d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdabc47cc57e13c1009984553f898a69fd651ebedbc18f181202ec0d7823760c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9a7229c9d491b06c4a280a0e04b08e13f3430f430ca38217c7dd10b94ccea66"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9a7229c9d491b06c4a280a0e04b08e13f3430f430ca38217c7dd10b94ccea66"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9a7229c9d491b06c4a280a0e04b08e13f3430f430ca38217c7dd10b94ccea66"
+    sha256 cellar: :any_skip_relocation, sonoma:        "713e7aa95115a08df0376d884e3940a37772e44242a9022b7f47adae76a8700e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40299780673ad150c5b869e1d6a140d66711129a513bc5dd442f7dad5ffa897a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d439139401f9c5d2b7f37cb4bf5f95819a2dfa528cef9354b90f8078089e207a"
   end
 
   depends_on "go" => :build
@@ -19,6 +19,8 @@ class McpToolbox < Formula
   conflicts_with "kahip", because: "both install `toolbox` binaries"
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -s -w
       -X github.com/googleapis/genai-toolbox/cmd.buildType=#{tap.user}

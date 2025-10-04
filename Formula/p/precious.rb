@@ -7,6 +7,7 @@ class Precious < Formula
   head "https://github.com/houseabsolute/precious.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "822a22ba71b1b3cee05b904290c5092aeb78c5e84285e18589f1ea6fd3e89349"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9cb162f022c63f777b8ba5af9cd2c54e09fe2f3f8e5482aba299a0704dc87282"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e2c804380323e6c4cc17909f24f8c266c822323557f9e7b8b0be57f93b33be3"
     sha256 cellar: :any_skip_relocation, sonoma:        "ace2380563073b376d18b1a704879d29b33fcb6d01db60c4fc9fbed35aa6ca0c"

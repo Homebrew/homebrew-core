@@ -15,6 +15,7 @@ class Snow < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "53d8451eea7082ead9453a403e836a5287637df3195e25391373df828dda5673"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2a2fc6f30db002d270ad215e53e38a9178038ea9b05a19121dbc4ddd8975282f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bc3cd801f7bd8ab8d936d3ce543de987c9d4536bebfb2c8d67900c6cb866eb47"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b680baf95d8ce110d6afae56c1c693da05a42aa63fd37231a2219ba8b46dc842"

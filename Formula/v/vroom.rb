@@ -26,7 +26,6 @@ class Vroom < Formula
   depends_on "pkgconf" => :build
   depends_on "rapidjson" => :build
   depends_on "asio"
-  depends_on macos: :mojave # std::optional C++17 support
   depends_on "openssl@3"
 
   # Apply changes from open PR to fix build with newer Asio

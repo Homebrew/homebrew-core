@@ -1,26 +1,18 @@
 class Jpegoptim < Formula
   desc "Utility to optimize JPEG files"
   homepage "https://github.com/tjko/jpegoptim"
-  url "https://github.com/tjko/jpegoptim/archive/refs/tags/v1.5.5.tar.gz"
-  sha256 "90a309d1c092de358bb411d702281ac3039b489d03adb0bc3c4ef04cf0067d38"
+  url "https://github.com/tjko/jpegoptim/archive/refs/tags/v1.5.6.tar.gz"
+  sha256 "661a808dfffa933d78c6beb47a2937d572b9f03e94cbaaab3d4c0d72f410e9be"
   license "GPL-3.0-or-later"
-  head "https://github.com/tjko/jpegoptim.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/tjko/jpegoptim.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "ca5eab39e7a7285722a98c9c082ad3c50c26c9f3fde4c09a8f8cf76f66c6cd4c"
-    sha256 cellar: :any,                 arm64_sequoia:  "6f2da3ecfcd521abededbff7aa2d8578773ef9951e9ad2b859fd5cdc05470102"
-    sha256 cellar: :any,                 arm64_sonoma:   "ca3a05d563b803911fcec6940ee9a26bd6e7bb21519e5841947635c856e1bc50"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebded7c6ca4bc0d67213156202bf36cecf058ed16552c085f6b48dd57a334fd2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b388ed2fb35def26b59849050da22ba28c31a94f6a820ea39d396e322c9d70a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45382d1e4a3a561835928eb98d0d6de7dcc8318845ecd34f8ff539b9581703c9"
-    sha256 cellar: :any,                 sonoma:         "8e12fb740776885920bf38fd79497df975e3dc2e062c5b8f59f2cace99ea1812"
-    sha256 cellar: :any_skip_relocation, ventura:        "86fb1ec394a43558d382fbc2544050d361e9586dd5dacdf4257a20c1f9244e34"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa1622b89c22a2d162c211d818828fa0ef1577e9235f936d36643c8ff02f9494"
-    sha256 cellar: :any_skip_relocation, big_sur:        "99529c2dccf16f25d1b31ca8a9d20e638c75a8a13af5875b30fc4174a757c7f9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "0547e662487a78c35cbb4e864224380730a6793cad67414959572cd7c30f08cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e35ae062ab96e9a8bd73a41cdfc896d2366db52f2ed2eb9a67a7a99167f49a2"
+    sha256 cellar: :any,                 arm64_tahoe:   "17b597c1c3a8a0d3ed76c1b01e068e9922d0dc2242c92494e88ab25a53da0c76"
+    sha256 cellar: :any,                 arm64_sequoia: "03905aa303c9a5d5b6669cac8f0c4f46fbf4fe3f54ede70d9bc8d958a1e486b3"
+    sha256 cellar: :any,                 arm64_sonoma:  "6db9dfc80fb96a601bca0a090651dfae9725eccb54bfafd262da733b45f75ef8"
+    sha256 cellar: :any,                 sonoma:        "b2aafb2a469573baffe37024b1086c2b04512e2f3087c1c70100533e3733f866"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd0b242dd53f3b2bfce6c34f065b399ced6b8452225df225e1655c42cf848efd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44cf0605e6d6dc761b5e75770b2534c52da44bfdb0aa913d8841933aa7db35fb"
   end
 
   depends_on "jpeg-turbo"

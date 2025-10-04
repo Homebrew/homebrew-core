@@ -24,6 +24,10 @@ class Launch4j < Formula
     sha256 cellar: :any_skip_relocation, catalina: "8c114ad97d89fad8a9a1a9c6e54d1ce0604f28b71929438db26e97bda57eb58e"
   end
 
+  # https://docs.brew.sh/Support-Tiers#future-macos-support
+  deprecate! date: "2025-09-25", because: :unsupported
+  disable! date: "2026-09-25", because: :unsupported
+
   depends_on "ant" => :build
   depends_on arch: :x86_64
   # Installs a pre-built `ld` and `windres` file with linkage to zlib

@@ -10,6 +10,7 @@ class CucumberCpp < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "a84c27a7c5c122364e12ee74e3140a6ccd22656fc6df6da1cf8dc29b3161cf3b"
     sha256 cellar: :any,                 arm64_sequoia: "35387bbcd3b131388528b44ac54f5d695d1fbc9c927d3b172d4793cba0c0ebb0"
     sha256 cellar: :any,                 arm64_sonoma:  "ff5c68f821cd56afe208298382d865e998f272cf64e8c9810a6154d570317176"
     sha256 cellar: :any,                 sonoma:        "9bf81577eead937163e41fcfa5c32bc9d913bca9364a3d5da546cef5a7fd3252"

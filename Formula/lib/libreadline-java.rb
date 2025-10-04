@@ -11,6 +11,7 @@ class LibreadlineJava < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c0be01dc30e16481895ced158022bde0abd47698532406fe694974695f028e17"
     sha256 cellar: :any,                 arm64_sequoia: "52f86fbe9c1b82c3514d13d7a9c4e60cee6f3bf387290ae7ce0ebba3bc98a106"
     sha256 cellar: :any,                 arm64_sonoma:  "d39da0a4d0597ea0994146549145565b00a23277a2d080fc94391afd0a98d502"
     sha256 cellar: :any,                 arm64_ventura: "94452a56ce5ffe31e34c87c1778f4e761cbe498ab566344072578d699c8e46b5"

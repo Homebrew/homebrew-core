@@ -1,19 +1,17 @@
 class CargoChef < Formula
   desc "Cargo subcommand to speed up Rust Docker builds using Docker layer caching"
   homepage "https://github.com/LukeMathWalker/cargo-chef"
-  url "https://github.com/LukeMathWalker/cargo-chef/archive/refs/tags/v0.1.72.tar.gz"
-  sha256 "62ab1457826bd5d48fd89a505519f499c3a2283c456def1000d460c99bf9f9c7"
+  url "https://github.com/LukeMathWalker/cargo-chef/archive/refs/tags/v0.1.73.tar.gz"
+  sha256 "7222b8b142b1f8a703f728c57faa62723b94767609b94223b736dfb0a192bbf9"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4f25aa8b32a9b2fca33664adc05e770594dc525b1f41e6425978753181dd5374"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "283f2980404e5ef4f6885dd5d8771b1b8f1a65613db76a4816914b631758218e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9cfa16736299cb85096d854c7251296f29ee5cad31b02ebc503ae749722efd07"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "42b2f63b0c6612d9ca4b94a9b72669fb7b5fb096427c6461513835fd4ba299ce"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3fe6de35e8db504790c4c970111343c338f88bee112e8d2340f2f5a16c3cb822"
-    sha256 cellar: :any_skip_relocation, ventura:       "2bcd0307b471b47b0b687ccc4b8fa13a0bac6adb3452db924ed9feba84d8696b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "802d7e4ce54963699b4df6ae31a0eaf9fe0b8c148893ab0ae82257ea16d10270"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86cd965d1004e0b09fe88a191d2e98d4e265a86dfaf41fcbc42c95ea87f2b279"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "08f570a5f9be5ac6e1438f4644dd9a389806b3e085ed812f62e603821d19dfc7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4358c4b2aeda9847b6c9e7d363616b6f296e973f84a1631948bbdc5ae28b5b03"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5853f05d970b3e763e8edc305bffeeb648b1896fc88f46290fd1749c6da5062"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d7faa6f2f7ddee3436e5dadf804a4e6bb9f445ef33e9749b466114c685728798"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fdc6e020bd6fafa627c01e14bcdbc36e08c7f3a17e62ff0601599655c968a307"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddcedd44100687d036260c46c0ba1ce9cbcd2c8a78d58ec1f60f6ab13d7d371e"
   end
 
   depends_on "rust" => :build

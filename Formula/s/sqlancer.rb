@@ -7,6 +7,7 @@ class Sqlancer < Formula
   head "https://github.com/sqlancer/sqlancer.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "434aa776b8e6f535368a67b42df3b0a17dcea382c06c17aaf6ea8961aa7f5aac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0ca4462cee4dbd7d47d818928b112489fe63c4dd0d2489bd305f9e5f172e3697"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "351350797f563ba03179e8c47f8556b5950f8ba52fa6d9eed411384405c11230"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a8f6995c0eaf3002eead99ad6ca75a3922c7e6d4f1206a1f573fc55b2445140"

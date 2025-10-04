@@ -2,19 +2,18 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v9.1.3",
-      revision: "d9d2860c7593868e25d1b2da7da43793fe12c99e"
+      tag:      "v9.1.4",
+      revision: "c50e2cc4adfaed4367b3fba44d27db0222123cec"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d39e5408971fdf3104c2e7705ad9993ed31435650e1ddef4c4593f866d2bd20a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7516c9f4150cd46d03ae6212332b601e9440210e1db4cca36fad960dbea4e174"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1b1f19a35c600ae1d7f0d7fb8f1102a954258d35ec224d80d347469d1c373b30"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fba25193f91a23fc12fc21140fca350c9f8a5115442b515ca1cea34d3a1ed5d4"
-    sha256 cellar: :any_skip_relocation, ventura:       "e1b83cc1cb651d09532465250ffc126229586c84dd68ea79b3f8369256651f2a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65e2ea728f63856215b4a788a8a5983f926a157090837148d8402217e5efed89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb8ae33b6332e4592301e00811717c6e8632e259a86e5db3f43cfbaeb9d20b6e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ecf1f7a57fa17406012c321ffe9ab16710664c4614d61712162f99fe02244b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa6b5b1a1049b690de04cc0bd84276c12fc5de6314b738521113b4f11af810d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "564e2f32c016e01a7ab47b04ccb182d3a881ad02d4184dc88ddf511c0f1e8a02"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a084b3b5fa536865c512073af08534f244c92e8fb2ad070b339ae1f8ffd67eba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "77c452f94c1bf829218e2342e66266aedd7de67604a2dfe8be5262216f1245dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "214deb692c9a7caeffa170d57b3f7108bf7eb803dc7f0e8ab4e4c1385d3cbf7d"
   end
 
   depends_on "go" => :build

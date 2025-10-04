@@ -8,6 +8,7 @@ class Mmtabbarview < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "a502f7deb3e18188669316c46c503980256b4286d0c52d1e211a772d45919844"
     sha256 cellar: :any, arm64_sequoia:  "9ae9758b04f5cbc6068b0e41266db2fbad7065d90134060c27bc73d36d780c2d"
     sha256 cellar: :any, arm64_sonoma:   "4b4fbe5492b90614b36b8a99101acbd15b0b9ebc4b415683c273114e47d3e1cb"
     sha256 cellar: :any, arm64_ventura:  "ec634de2a8f60f6d6d09c88cc8ce9293fd94ee07ba2181a7b07a3ee2f29d99ac"
@@ -18,7 +19,6 @@ class Mmtabbarview < Formula
     sha256 cellar: :any, monterey:       "83aa65e0eaa1ee040131cda4ec9f9c1447ebd06124b7680c754a6c6ed8786d01"
     sha256 cellar: :any, big_sur:        "a16676e466f896888d2e90cc703dd95919b242bcff90ae84d4c5be05eee3b881"
     sha256 cellar: :any, catalina:       "3ef5d2b3664b7ba3def8ba27c4b3c2e5d94af4f5da6aee0400fd148b091e955c"
-    sha256 cellar: :any, mojave:         "6ce9ac264e1e62f9ee98dd08e6837def238b99c3a5506cc0c470be4c5442ba3e"
   end
 
   depends_on xcode: :build
@@ -28,7 +28,7 @@ class Mmtabbarview < Formula
     # Apply workaround for Sequoia based on ViennaRSS fork's fix.
     # This is done via inreplace as pathname has spaces.
     # Ref: https://github.com/ViennaRSS/MMTabBarView/commit/149fd82953a8078c4d60ce3fa855a853619eb3f9
-    if MacOS.version >= :sequoia
+    if DevelopmentTools.clang_build_version >= 1600
       inreplace "MMTabBarView/MMTabBarView/Styles/Mojave Tab Style/MMMojaveTabStyle+Assets.m",
                 "@import Darwin.Availability;", ""
     end
@@ -45,7 +45,7 @@ class Mmtabbarview < Formula
     (testpath/"test.m").write <<~OBJC
       #import <MMTabBarView/MMTabBarView.h>
       int main() {
-        MMTabBarView *view = [MMTabBarView alloc];
+        MMTabBarView *view = [[MMTabBarView alloc] init];
         [view release];
         return 0;
       }

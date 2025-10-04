@@ -1,21 +1,19 @@
 class Libngtcp2 < Formula
   desc "IETF QUIC protocol implementation"
   homepage "https://nghttp2.org/ngtcp2/"
-  url "https://github.com/ngtcp2/ngtcp2/releases/download/v1.15.1/ngtcp2-1.15.1.tar.xz"
-  mirror "http://fresh-center.net/linux/www/ngtcp2-1.15.1.tar.xz"
-  sha256 "06f2eec7ca76552041050473d992d3063782e26fdff57533cb8cd8c9a6859a17"
+  url "https://github.com/ngtcp2/ngtcp2/releases/download/v1.16.0/ngtcp2-1.16.0.tar.xz"
+  mirror "http://fresh-center.net/linux/www/ngtcp2-1.16.0.tar.xz"
+  sha256 "367cbcecaca539f76453c49454d8e7b38ecb162acf89cd571535ac4acf82a2b4"
   license "MIT"
   head "https://github.com/ngtcp2/ngtcp2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2065a28566351cb98a23ffa84edf76e6f2a0754e25c9141d797d61a97fc8b696"
-    sha256 cellar: :any,                 arm64_sequoia: "f20ea5d5069d5e4048e99364117e99073ff2808c653db353fbed54bb37cb22b7"
-    sha256 cellar: :any,                 arm64_sonoma:  "db90e03ed85435878ede1e4cbaaa265604c68c60a562f14366c9ce00f476e332"
-    sha256 cellar: :any,                 arm64_ventura: "1a242a421cf69256429e7880147b9894a2210ff730063ee37df9bba4fa68edc5"
-    sha256 cellar: :any,                 sonoma:        "95846c6f5f617e4fc981e613513aeefc89da066bc699df34ed72015cfff1cc3b"
-    sha256 cellar: :any,                 ventura:       "8cb73d1424c9148c736572ec65fe828a8c646cfa455315303b772f1338f4deda"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0239d0a5b9b55852b5909a6fd0156183503d02151dd2243e33d2b1a6b917780"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fbb87d69ca10a4d8191d3f277f4530f864f7c1b1150e08a98229a451fc5fda6"
+    sha256 cellar: :any,                 arm64_tahoe:   "391a4885a9debd7fbc6950e08b4132fc3467568244e779dbdc9e2ab277692635"
+    sha256 cellar: :any,                 arm64_sequoia: "edcf609b57a4a69c71f7c246ffa39e203e2ef76bb787213a0369b0b3a4e290ad"
+    sha256 cellar: :any,                 arm64_sonoma:  "b900fddca7cd158ff6a4ec51dbfa99eb813073c5a157160c45524d1e6135e5c9"
+    sha256 cellar: :any,                 sonoma:        "942be6702f77383e6cf5651212cd469f4e79e23cd70bdcc1ed10fa0a2d752194"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26f3de8131f56962ad5992bd881a559a3ade2913466d95425d57b0cf066ec377"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b48de8f8646e76d2cc99ae0c4b4a5e0b669e038a990a751b7c777e407840881a"
   end
 
   depends_on "pkgconf" => :build

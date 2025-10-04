@@ -6,6 +6,7 @@ class Plutovg < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "22711ec01c6c22f80d3d08b7dd9654f40b9ca652a739f6a69e5b78461f31ce05"
     sha256 cellar: :any,                 arm64_sequoia: "774025b21d030a547097e0b34ee8cb92698daeef0a4f5e0de33f5795c5af3607"
     sha256 cellar: :any,                 arm64_sonoma:  "a712898f39053da6b3910d408854e8e9b534720fe613ef755f4c144b0773b351"
     sha256 cellar: :any,                 sonoma:        "448ad0244f6b6aecc8b3fde9de6ae55f447adbe8720f2d0b499968621808ec82"

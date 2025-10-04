@@ -1,19 +1,17 @@
 class AwsCCal < Formula
   desc "AWS Crypto Abstraction Layer"
   homepage "https://github.com/awslabs/aws-c-cal"
-  url "https://github.com/awslabs/aws-c-cal/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "f9f3bc6a069e2efe25fcdf73e4d2b16b5608c327d2eb57c8f7a8524e9e1fcad0"
+  url "https://github.com/awslabs/aws-c-cal/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "7033e3efecbb1f6eddd0f549bb071b166e1aaca5f8fb4b215d0d0de5cb2e9496"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ce41266763dbd8e52d649d0d9a7ae70c0b77cd4b9fa2f7bf4752d01c2c9cdbd0"
-    sha256 cellar: :any,                 arm64_sequoia: "fcea0f7f7aca491866dfc8dde2951a338825f574e4dcbb50a0d67d9d47c6a431"
-    sha256 cellar: :any,                 arm64_sonoma:  "25e4b518360d5123ff5577753d32d72e6523e401244a892c4c527a29782a07e4"
-    sha256 cellar: :any,                 arm64_ventura: "ced5ca35e84245ab65c781cbf37c330e9bb073a22facf735baf87269c2b900fc"
-    sha256 cellar: :any,                 sonoma:        "241b691ecc9f66624af328ede78459bfabe87132afac143bdcb9d386b027035f"
-    sha256 cellar: :any,                 ventura:       "7cd710c1280558eac1edcc4a2ab7d4c511db399a95f4c1548b75d444b8b97b62"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d76a2365057aa651a214ae42953974ab34553050cab84befb9b197878d2fb83d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9057d839a963291f3949b5f121d62711e1507978997cfaa18ac8e3efa1d312d0"
+    sha256 cellar: :any,                 arm64_tahoe:   "434acbd55f05ce507ed6f669b3c8b08d5f12045fdff4c7e81a84592f258cdcc1"
+    sha256 cellar: :any,                 arm64_sequoia: "bfccebf081bb4ed0acadb240213bf09be4b505d0b6f89672f37fc0fd00aadbde"
+    sha256 cellar: :any,                 arm64_sonoma:  "cde3aa7630e91c7bb4382486885c7317c1fffa492e2bc04642cd3053cc251663"
+    sha256 cellar: :any,                 sonoma:        "648d4ff9c979e14f539dc9f9307a9e2a44571649f5fae369184c4089adfc58aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c171f9557efc4e2991a9449b2b3422216f74278f2c4bc04d4674ef6124a577b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71d3b8cf1eeb648b3d11b0d5c452a0b8101dfde96b76c7d695b88e54e9516043"
   end
 
   depends_on "cmake" => :build

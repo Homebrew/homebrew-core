@@ -8,6 +8,7 @@ class Pcp < Formula
   head "https://github.com/dennis-tra/pcp.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "04541e8deed7d35083d097a27b11789caacd0807c092a924bcfb20f926c08a1e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b70326a9568fb548f3ce008619104436192af8cd247f06eb722057d8188e828d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1aaac9b306226ce54909757ccdb10996d84803605c1e01f6f08e907ba7b30ec0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1bfa73d57867b1d14809dca455e97ebcb4cb36c67080f64f8a44b242719cf79"
@@ -18,7 +19,6 @@ class Pcp < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "37aa1824b66b4581a3c2054c26731ee41ab757e3d768399ec43dedbfe2bc183e"
     sha256 cellar: :any_skip_relocation, big_sur:        "7fec012a0331f8ded437d4af20dd6ff527ca0b10ca8cfba73a40aa637358ec54"
     sha256 cellar: :any_skip_relocation, catalina:       "672ebdfce1cb30d596792cdc8652b1b2f00e19a66f9266a7796cf6b7b6d25a9f"
-    sha256 cellar: :any_skip_relocation, mojave:         "d5e48f3b7f8e0e0034dede947f94b0d5a23311e6ced60093b2cdfea9427389e2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "be128448d96fd7005c9cbda1c1ba2c71e7f7a58468c1c5bb3ec7a1f75c5109c5"
   end
 

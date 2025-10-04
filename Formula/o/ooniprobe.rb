@@ -2,7 +2,7 @@ class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
   url "https://github.com/ooni/probe-cli/archive/refs/tags/v3.27.0.tar.gz"
-  sha256 "840184371851109191db848ed83df07a13370ff56afb7f340dd6fa4431e9de9c"
+  sha256 "6f52c75c9d09866265ed0e2a025d9b78daa2e165c6c2ff79d14a8a9ea10df4f7"
   license "GPL-3.0-or-later"
   head "https://github.com/ooni/probe-cli.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Ooniprobe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4542e06cf84f76ae47764bb4b54b0082d111335084731085314dc2deb5e98ee4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "504e85cca82a6af8e95a540dd391cdb7b53133cdd23e0ca067f9ab43de9ef42a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "91c13e30ee2d22a3c8bcd453a399c414d8621bdb839017bcb2ae689d5c84384b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ea32d6af789ca14709fabbf5d734d3a2e9f23004855966e873a97da300e658e5"
-    sha256 cellar: :any_skip_relocation, ventura:       "731513dd8fad24b94749cc303ad65ffc27d7c934ab570960756a75f463c73596"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f10df49b70b16f546ca3ac2c3249f2b5fe5528a7ae0e8d7f53f6520ea329e04e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc67b181e65d7bf90276c6af62daf06c239a8a8c865746d32d504dc54399629e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "641cb450eb42b22d54cbf90b6d09c131ab2c51e1b6f961718e9199c4ca063641"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20fca266bd3ba2e8aaa7e4f1d4cac5247930f4644fb57abf1337a0e3a52852e5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0475debc2e040810340a57ff648b5cf887a54f40879edb9fea1a57593d94e8a7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a3399432333f980d7db14e51d293610f3a839e107dc1d90b3ca2cac3f81e29cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "77ad08b39da3a39a68f741f11513cb7817a87f99f3716097499ac485ecb32dcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70740b906739c8eb107db725718f3ba1ceed246cf755f6b1502dc2194d6cb192"
   end
 
   depends_on "go" => :build

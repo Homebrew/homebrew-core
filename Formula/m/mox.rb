@@ -7,6 +7,7 @@ class Mox < Formula
   head "https://github.com/mjl-/mox.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e53a87c58244b39fc69bf6574ddb1970275338efdb332812236a056272cabf99"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "065e4ac1d5ae489416cec6eb4a6663092901dcf41c1844a568538b42ef57d674"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "065e4ac1d5ae489416cec6eb4a6663092901dcf41c1844a568538b42ef57d674"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "065e4ac1d5ae489416cec6eb4a6663092901dcf41c1844a568538b42ef57d674"

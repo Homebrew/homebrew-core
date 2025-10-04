@@ -13,6 +13,7 @@ class Di < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "59958742a09171e533d7106e584f6b38e9dd8be0b53bd07dd28cee1d6b374906"
     sha256 cellar: :any,                 arm64_sequoia: "adc88bc0093e025288c699f376e758089711a840792aea13c990fc379cee1ec8"
     sha256 cellar: :any,                 arm64_sonoma:  "20416d442a7595dce7526c6ad3cf61fadf9fd75378aac82c1895c7ec17e81deb"
     sha256 cellar: :any,                 arm64_ventura: "e00b6b7afc135ab8351c07cf4303540b4c533ca8ece84a4fe69acc13d87dae8f"

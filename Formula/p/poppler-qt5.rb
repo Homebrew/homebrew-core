@@ -11,11 +11,13 @@ class PopplerQt5 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "c0f331d7516711ca699b93ecb9f3f3764228d84a0604edd7b3f8a76f46c8b78d"
     sha256 arm64_sequoia: "79cfe67aa28a576b3146e2b333c531e93194e600e065d8d580a436b63331a0aa"
     sha256 arm64_sonoma:  "641923c0cbeb560bba602bbaea73ce8bc01b5dc44b8d66aa006cee6951b61fd4"
     sha256 arm64_ventura: "af44b978c0f60787268952708c098902c960b9bbb02a6499957a53dff28a1aad"
     sha256 sonoma:        "0d09559050bdaef305aa87daf2d385146d3b3780d809aa115ad2ae0d73aad3ae"
     sha256 ventura:       "74bb43739b49f7792d48e064dab28f55676e8a38166d223b9234026198f1c0da"
+    sha256 arm64_linux:   "9494fa81f776c29fcde0ac421fcefadd4dd7a326391a136f8efd573ff0880f50"
     sha256 x86_64_linux:  "45a507b493c6c2422cf1e69e6c620c52f99aa94cf2ba12b9b4ff38013dc14fa8"
   end
 

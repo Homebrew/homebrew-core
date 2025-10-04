@@ -16,9 +16,11 @@ class Ki18n < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma: "57346e8b7d1665d00f80143e2c8cceee60d494e946e2522d08d2f4a823604b3f"
-    sha256 sonoma:       "21c98cadd03df5c1362048f0b5a335b44a0b6aab98b6efb7330e27970de0aa27"
-    sha256 x86_64_linux: "6ca0f591bfbf1ade6272d9c56fae41de6a4fbd62f9bf14cd6f1655364c1af9fe"
+    sha256 arm64_tahoe:   "32f702053d918af9c6fd96be7409cb6922276e22181f3530abff9c5f8b845aff"
+    sha256 arm64_sequoia: "31de9ff7f03e1dca9fc5c14c02fd6b905596538f72e91eaa059a9d12eb17a574"
+    sha256 arm64_sonoma:  "57346e8b7d1665d00f80143e2c8cceee60d494e946e2522d08d2f4a823604b3f"
+    sha256 sonoma:        "21c98cadd03df5c1362048f0b5a335b44a0b6aab98b6efb7330e27970de0aa27"
+    sha256 x86_64_linux:  "6ca0f591bfbf1ade6272d9c56fae41de6a4fbd62f9bf14cd6f1655364c1af9fe"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -29,7 +31,7 @@ class Ki18n < Formula
   depends_on "iso-codes"
   depends_on "qt"
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   def install
     args = %W[

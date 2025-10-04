@@ -3,20 +3,18 @@ class Btcli < Formula
 
   desc "Bittensor command-line tool"
   homepage "https://docs.bittensor.com/btcli"
-  url "https://files.pythonhosted.org/packages/aa/64/cf95f11a3acd840b1ef37604476bc77f159bd3eb516aedf8227bfa2cd59a/bittensor_cli-9.11.0.tar.gz"
-  sha256 "0664a8e1982bd507cac80d1da210176ee066ad048b4c191878afa62bf1b63013"
+  url "https://files.pythonhosted.org/packages/bf/67/bb115485bfcf45f555ae20f046928847de7b67280af022a52c49f3994a90/bittensor_cli-9.12.0.tar.gz"
+  sha256 "970cc0788a14046df3f8e34c0f03dc1a9a67328ec385ea75ab62d95164bb1113"
   license "MIT"
   head "https://github.com/opentensor/btcli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e0ce4101d38aa9c70088a0e38ddc347ca6c24225a80358aa143384f92f6f0bdc"
-    sha256 cellar: :any,                 arm64_sequoia: "205733c31f0b372707086a0e88be4204281205e54c9a628b81a83bbb3f0cff91"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf4f357823b6724d2640aa4ec320ae17cff64752a8ac796b1d6c7d208f4b9d08"
-    sha256 cellar: :any,                 arm64_ventura: "e27e52182f28a82dd2c3ae19c0a406e1b49a199f82f9fb3d98f6d5b53aab1b37"
-    sha256 cellar: :any,                 sonoma:        "6791518dfa9a8839d8b2dfefdf1cd1c358bbd603b3501baf2d33c1061c555be0"
-    sha256 cellar: :any,                 ventura:       "df6e71d1ec87d67aaaf1e4db1575f3a54f9230f16bb0c292af5460fc78fe8781"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "97e5b7ba8c01f08ce2180f3248f58b252295652075a0c72a5db9500ad8838b34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6757820c166150121be277982a320796ecadbf7ffebcec06617a50aacfb6d26d"
+    sha256 cellar: :any,                 arm64_tahoe:   "9f1c22efc10640ec90b00edf7e22e6213d17d5e6e55cfafc62fec45d46be8885"
+    sha256 cellar: :any,                 arm64_sequoia: "b32f95743c38911b6081c9219d20b23c7c499bb4e785ac1dfbb71655b2d65dca"
+    sha256 cellar: :any,                 arm64_sonoma:  "b3ea148ca78fc33fa8fea4adfc51ace8a8f51b44bffa912d8d2d6ceb2a7cc34f"
+    sha256 cellar: :any,                 sonoma:        "3902271b7277a31283f0d4ef77a7f31118cb68e67e6816fb4d32bb239ea568c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "25f6482df037bff629270216cc59959ad26884c7b9992c0517f921da787dc0b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0113ab3a647cef1212b7f90e92d44adf4ef4e1322503627399eacedccef51c4"
   end
 
   depends_on "rust" => :build # for bittensor-wallet
@@ -50,8 +48,8 @@ class Btcli < Formula
   end
 
   resource "async-substrate-interface" do
-    url "https://files.pythonhosted.org/packages/93/f9/29a26c144b5c2f02b9e27899980e7370602e4f7820c71c2d9418fd17cfd9/async_substrate_interface-1.5.2.tar.gz"
-    sha256 "8d763550f691eed99f351daebba25001201171965a358f47efb3ea122228bf68"
+    url "https://files.pythonhosted.org/packages/70/bf/58af5b1c58f88ad55a1203cb01193c52bb2fbac77b32ef91d0dbc2492161/async_substrate_interface-1.5.4.tar.gz"
+    sha256 "cbe54a98b8e80f051a5af6a069f581b7d1cbe4e8636b45ac58efe254d85cea56"
   end
 
   resource "attrs" do
@@ -85,8 +83,8 @@ class Btcli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "frozenlist" do
@@ -140,8 +138,8 @@ class Btcli < Formula
   end
 
   resource "narwhals" do
-    url "https://files.pythonhosted.org/packages/ec/8f/b0a99455f6e5fe2d4e77deeee8b133cfa06e1f5441c77a70defdbbfbf639/narwhals-2.4.0.tar.gz"
-    sha256 "a71931f7fb3c8e082cbe18ef0740644d87d60eba841ddfa9ba9394de1d43062f"
+    url "https://files.pythonhosted.org/packages/7b/b8/3cb005704866f1cc19e8d6b15d0467255821ba12d82f20ea15912672e54c/narwhals-2.5.0.tar.gz"
+    sha256 "8ae0b6f39597f14c0dc52afc98949d6f8be89b5af402d2d98101d2f7d3561418"
   end
 
   resource "netaddr" do
@@ -180,8 +178,8 @@ class Btcli < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "requests" do
@@ -215,8 +213,8 @@ class Btcli < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/92/e8/2a73ccf9874ec4c7638f172efc8972ceab13a0e3480b389d6ed822f7a822/typer-0.17.4.tar.gz"
-    sha256 "b77dc07d849312fd2bb5e7f20a7af8985c7ec360c45b051ed5412f64d8dc1580"
+    url "https://files.pythonhosted.org/packages/21/ca/950278884e2ca20547ff3eb109478c6baf6b8cf219318e6bc4f666fad8e8/typer-0.19.2.tar.gz"
+    sha256 "9ad824308ded0ad06cc716434705f691d4ee0bfd0fb081839d2e426860e7fdca"
   end
 
   resource "typing-extensions" do

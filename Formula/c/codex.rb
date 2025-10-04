@@ -1,25 +1,24 @@
 class Codex < Formula
   desc "OpenAI's coding agent that runs in your terminal"
   homepage "https://github.com/openai/codex"
-  url "https://github.com/openai/codex/archive/refs/tags/rust-v0.34.0.tar.gz"
-  sha256 "cead4d6551a74965016ae1e494c6132305644de72716fcc7c478d14dd6410f51"
+  url "https://github.com/openai/codex/archive/refs/tags/rust-v0.44.0.tar.gz"
+  sha256 "b873ffd11f5f39148baabf0d070dd27ffe5dc9028d6dd32ee75a043b26ab171e"
   license "Apache-2.0"
   head "https://github.com/openai/codex.git", branch: "main"
 
   livecheck do
     url :stable
     regex(/^rust-v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f2f12ae4639c4326e9b188e19b26893820571999087c586265afb29c16a57a1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c9e4348837a8a918df875648ba753feccbb5a95a5dc80c038bffc715e0c0994"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f60c8a449d58cd275f9eba6b1128212b2ff58c1db234c5b4d56f21f09a84fd8e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "246dbb3625beca8a6d70e8749f0a267a78fa0362360c047d954049876bc642fe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ce8593e6502c0392749a3156e23484a0a8a3b2f9847118b43c558afc15bc219b"
-    sha256 cellar: :any_skip_relocation, ventura:       "19770f16309385ef0d004c22e3a38745a4d992abe85e797e21ae60b9a897b90d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3b5a18c020e52f4a269101fc44fd93d0fa0c2d1a7c9e7a8cc64ef5e0230b8fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b50c962db805b7ef92350831add8a4c2e6e6a0dbba9b0ad8234f3a0a0c6a640a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f93ccc44619f8ec518736387bd06717ffe54c946ce528389719031e9978a2e2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1ab8e65df003b87b67118fc88e2074e4f40ce163e988687262896187e008ba9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb979aeef80104393c73a47749569b437da948f21e3aa3882a65825b40fbc85d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e2ec76b9cadc0c50b9c236ff08a0b6162429c2644df94af4c26dff9fe49d1520"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "031469bc981aca6b3b83076a01219eee88a10af7db593fbbdbf37b45e0e2449b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5b9b6e8cd9da0ce5a29b300845758ec61ae1497d96810e5f6e2adc241093d3a"
   end
 
   depends_on "rust" => :build

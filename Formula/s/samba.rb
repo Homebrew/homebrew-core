@@ -4,8 +4,8 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.22.4.tar.gz"
-  sha256 "a41a828848abdf5e942c900ca178597e18aab7b61d3c06a9b5ba43661988010b"
+  url "https://download.samba.org/pub/samba/stable/samba-4.23.1.tar.gz"
+  sha256 "a4fe464652c136600525dcd2665737c72248c6a49d9d5323661a683800c39f75"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -14,13 +14,12 @@ class Samba < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ab09e8353fe3785cac0921a56f89daf8eaa5321e89f74d98183ab2c60fdc7555"
-    sha256 arm64_sonoma:  "db43825178fb81b36b672ee8f2a4ec517c85fe03a5d73d259a4b254ef1f86dc3"
-    sha256 arm64_ventura: "0967447c53e361fb1c4905f7b4f8bc612cf1ae12a3a7587d10639ee551860fcd"
-    sha256 sonoma:        "9d30b859ea6b046f3566cead48b199e2bdb3c05094da1fc3422eab65a72318ee"
-    sha256 ventura:       "b66455fa4d5b5f96d65d5118ac1f3d6bf0b847349c32f2c3ac80b2c231406d71"
-    sha256 arm64_linux:   "a0644d097aabb8c65c81b2b0f77bacad389f9d9fc995a7b48ddecd8b1603e480"
-    sha256 x86_64_linux:  "2ce11118a7dc13da8168b582b936743274860bf3732ff9d5596c27f92a98858d"
+    sha256 arm64_tahoe:   "189b9ef3b93e6a89362401977b6ba613ee6cc2dd55f5261e170b3dc54779713b"
+    sha256 arm64_sequoia: "edbb8726091c149a8c029c221c28e668c0fd1bb56109e172d1a60e79d63af9e3"
+    sha256 arm64_sonoma:  "cc30334cff48d4086f009d3b02689481eaef2626dfb568760d4cb7444b309f5e"
+    sha256 sonoma:        "3d0ce045133c826ea06da2dd848b3f25f3ffc1c33d329e87ad49b79250e6f1f2"
+    sha256 arm64_linux:   "daf87af6e7c7104e105bcf5e82ec79b44f159c142711a91393b2f2a54b58af05"
+    sha256 x86_64_linux:  "064fec748a04bf4f574021c8d6b46c869f400b6050a93d38c9be077deddcc06f"
   end
 
   depends_on "bison" => :build
@@ -87,8 +86,16 @@ class Samba < Formula
       end
     end
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/private" if OS.linux?
+
+    bundled_libs_list = []
+    # Upstream (https://github.com/lxin/quic) has no tagged releases, so we would have to add an arbitrary
+    # commit as a resource. That's not really better than just using the vendored copy. Consider breaking
+    # it out into a resource or formula once tagged releases become available.
+    bundled_libs_list << "libquic" if OS.linux?
+    bundled_libs = bundled_libs_list.empty? ? "NONE" : bundled_libs_list.join(",")
+
     system "./configure",
-           "--bundled-libraries=NONE",
+           "--bundled-libraries=#{bundled_libs}",
            "--private-libraries=!ldb",
            "--disable-cephfs",
            "--disable-cups",

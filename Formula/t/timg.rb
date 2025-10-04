@@ -1,30 +1,18 @@
 class Timg < Formula
   desc "Terminal image and video viewer"
   homepage "https://timg.sh/"
+  url "https://github.com/hzeller/timg/archive/refs/tags/v1.6.3.tar.gz"
+  sha256 "59c908867f18c81106385a43065c232e63236e120d5b2596b179ce56340d7b01"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/hzeller/timg.git", branch: "main"
 
-  stable do
-    url "https://github.com/hzeller/timg/archive/refs/tags/v1.6.2.tar.gz"
-    sha256 "a5fb4443f55552d15a8b22b9ca4cb5874eb1a988d3b98fe31d61d19b2c7b9e56"
-
-    # Backport support for FFmpeg 8.0
-    patch do
-      url "https://github.com/hzeller/timg/commit/158e465da4a5ab1aa5af855dae3f1aa78b731a23.patch?full_index=1"
-      sha256 "6204606c02178d4afff6c22cbe7d38784602c49c66e73f1980f5cdfa375723a7"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "44fe7c963249e79c47026c8183be7c7e930a6cbd9d4f413782691cd119ccc9e2"
-    sha256 cellar: :any,                 arm64_sonoma:  "cc49b201ed92aae26f956ba474679024d89bf3733643d0698c888bdc7df73815"
-    sha256 cellar: :any,                 arm64_ventura: "08971a6483522c51da06ed0b1894f03901276a66aa753940182df01d7dc162f1"
-    sha256 cellar: :any,                 sonoma:        "54e371e256646fddea9cdc752198fb10c50423bbccb66e71d128c367f2a216db"
-    sha256 cellar: :any,                 ventura:       "0cc3d5aaedb27e74ee0ee2792377ba423879e0fcc532ef5ec5f75afb5c1347c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "61dc9fe1ee8b93499091ca39cde2b895eb6aed3bf6c1e59a66762f76264e794d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76f8acbbdd54951fc1ffaf513c26621a3c01619a59b93b07f679df4119b5e1f0"
+    sha256 cellar: :any,                 arm64_tahoe:   "29d6beebc4277ef79f9d14c083fa370a7b929b03a769d676ac9b2bb87964ed68"
+    sha256 cellar: :any,                 arm64_sequoia: "0c8ee925cc198a9795f2ff70674a1ef3cbc8bee913c5d9372babe3ab74120b54"
+    sha256 cellar: :any,                 arm64_sonoma:  "1e322a578c3f81fd6cbfcb27dd55dd5f9504525668abc56590ef155d0eaa65ba"
+    sha256 cellar: :any,                 sonoma:        "2bdef3af0e1ae32d4e893d6f8d5984bb1568b9f36e3d91276dbf87d40d7abe3e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "318dbf7ec1b15f1e72f684b4d8b749ad81e777e3149d5f86a27956f46c79205f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83740c7f5cc8839d160a8c269e5c4a483e50c0869213a73dd82abecd0ab389bc"
   end
 
   depends_on "cmake" => :build

@@ -11,6 +11,7 @@ class Libtcod < Formula
   ]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9b74aebec81d3ccba2c7272f3041b8336601c84d8e5769a9210b478f4ad4a527"
     sha256 cellar: :any,                 arm64_sequoia: "9204636d7c64daf224117866ea8b740a85b47e99bc2acb50e824e75fc6d420f1"
     sha256 cellar: :any,                 arm64_sonoma:  "e6413d51dc366f870b92bc423a06b0d723425d344302c13acdf841bde807b4b0"
     sha256 cellar: :any,                 arm64_ventura: "d95b990a8dd6007006c88586e34a22945caaf30958c56f728d5cc6e135598055"
@@ -22,7 +23,6 @@ class Libtcod < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on macos: :catalina
   depends_on "sdl3"
 
   uses_from_macos "zlib"

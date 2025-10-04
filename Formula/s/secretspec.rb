@@ -7,6 +7,7 @@ class Secretspec < Formula
   head "https://github.com/cachix/secretspec.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "308b775c028405ece38ad1b91591ae6517d77b0f2ddb6f3bceafbb3941472d1a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d7d9ea7fc927d112fa79296ca97cfab7e6b21abb2efb3686723f180de492e4a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24dc84cb790765cbef406f35995ed5c180627ef52bce1c55a14927fdd04d2f2a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f426d5af0e170d890c12dec15c98e0e2840639df0a9ea7f58fc19da933a5d81b"

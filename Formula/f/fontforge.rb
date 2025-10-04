@@ -9,6 +9,7 @@ class Fontforge < Formula
 
   bottle do
     rebuild 4
+    sha256 arm64_tahoe:   "dea450888b5033710532590ee4ca4624ae61c1861f7ccf6727f72dae6caf2ac9"
     sha256 arm64_sequoia: "f3efe932a2d7e72caf599601b82ee40144cb2ea3a1bef0afd5698b20ab11ff94"
     sha256 arm64_sonoma:  "0d843c5837f6634f8f3c2c2c2862f427f651d24670383e1a470a3e933e6065b4"
     sha256 arm64_ventura: "a6c3b3307443666523cc29b8bec912c6b1f933fe96580f061478b257ad0a992f"

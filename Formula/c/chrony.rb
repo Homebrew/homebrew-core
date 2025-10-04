@@ -11,6 +11,7 @@ class Chrony < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e361230f241f273ef878f5f2bdc2899a414a7973dbd65854e44dfaaa70efc95e"
     sha256 cellar: :any,                 arm64_sequoia: "c69f2a33c2f23e19668207e8a7f019476d48ddd21aac4ac297e447c4f368a8d7"
     sha256 cellar: :any,                 arm64_sonoma:  "d625684f40a9cfb51d98b1ca92f212e940074e4303931fd2e4cf3598b4c2f51c"
     sha256 cellar: :any,                 arm64_ventura: "c9f89d4196e6a7cc762937dea9cb6c2409240399ae95b5077901ae0bf66ead25"

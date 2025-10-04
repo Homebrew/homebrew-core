@@ -11,6 +11,7 @@ class RedwaxTool < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "df4ddf01024dfde7043791c8c816cee438fbd91d6ce6bd4c952e32932f139466"
     sha256 arm64_sequoia: "18943e0545f824c95a02107eb5e2d3113921a4dec7f70e38b0a9c99360838b30"
     sha256 arm64_sonoma:  "4f7ba708291d0a8d55dc60dafaccf9e25c30ed7f69460175937769edee510cbf"
     sha256 arm64_ventura: "636f7fb81a83351e5663edd8a9f55bfcf6da9468e99c294ba718c1682183ffe0"

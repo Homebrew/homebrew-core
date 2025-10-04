@@ -26,7 +26,6 @@ class Connect < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "087274a2b2cd22db73d094b35dbb04389fabe7ce7b3d5d68a18a877bdbf50ac1"
     sha256 cellar: :any_skip_relocation, big_sur:        "90d0c91146180552a3a023ceba3850804139eb30b146151efe9c6d889ab9c99d"
     sha256 cellar: :any_skip_relocation, catalina:       "a08dfce847d75746d2b31ed3561e961fdcf950b051c5860e6d137ff5e1bcd1c7"
-    sha256 cellar: :any_skip_relocation, mojave:         "cc0a39f7e2fea7672f6d691d2e1221d0c5963a9f7e0039317930418fc7c7ebfa"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "1346ceb5b2146940e418e2a95a04d071eda3b97ec0f287231d05856f59639d70"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69ef58829a226ee7573f34e1b8a6282a7f26dfb8d730700eeff992f65a8f84ac"
   end

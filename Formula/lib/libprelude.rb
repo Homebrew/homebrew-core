@@ -8,6 +8,7 @@ class Libprelude < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:    "ee60f8520bdb4b83e136123a3233c36d1f621a866ddae7cae660b9584234ef8c"
     sha256 arm64_sequoia:  "85b094bb36c75510e7cae400478972591a03082b8164e7b183fd0b014fffcec2"
     sha256 arm64_sonoma:   "2ab78aeb01f7a0d2d369ccc3c91e8c14e0e4b192545a222272e7577ded59d56c"
     sha256 arm64_ventura:  "b036b329b9cd3385fdc29af3504dc3cfe66874dd48e3143816d2809b8be86517"
@@ -22,6 +23,7 @@ class Libprelude < Formula
   # shows libprelude has been dropped by Fedora, Gentoo and pkgsrc.
   # Last release on 2020-09-11
   deprecate! date: "2024-11-04", because: :unmaintained
+  disable! date: "2025-11-04", because: :unmaintained
 
   depends_on "pkgconf" => :build
   depends_on "python@3.12" => [:build, :test]
@@ -74,7 +76,7 @@ class Libprelude < Formula
     (testpath/"test.c").write <<~C
       #include <libprelude/prelude.h>
 
-      int main(int argc, const char* argv[]) {
+      int main(int argc, char* argv[]) {
         int ret = prelude_init(&argc, argv);
         if ( ret < 0 ) {
           prelude_perror(ret, "unable to initialize the prelude library");

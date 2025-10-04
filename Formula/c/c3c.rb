@@ -1,8 +1,8 @@
 class C3c < Formula
   desc "Compiler for the C3 language"
   homepage "https://github.com/c3lang/c3c"
-  url "https://github.com/c3lang/c3c/archive/refs/tags/v0.7.5.tar.gz"
-  sha256 "11ac63dde96e0458becf072126555eaa818a117f388f7f3c92330e1220096418"
+  url "https://github.com/c3lang/c3c/archive/refs/tags/v0.7.6.tar.gz"
+  sha256 "607f2147da4f4479887698699fc97134d2172102005ea29fa37ab6f2659c04b4"
   license "LGPL-3.0-only"
   head "https://github.com/c3lang/c3c.git", branch: "master"
 
@@ -15,24 +15,23 @@ class C3c < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e360b9f4b170344b6c20d3345bca8240a69b82ec78ced5340da330344b521edb"
-    sha256 cellar: :any,                 arm64_sonoma:  "dea64f6da845b5aa4579745f82fb74d8f9850ab93c8ac4d0d91d79861d307bde"
-    sha256 cellar: :any,                 arm64_ventura: "7136c6295ba01a79492b2a034b7443eb54141a8194728577e97c5eb5bc1199e3"
-    sha256 cellar: :any,                 sonoma:        "89d197f2cf347e4134d09472abc105674b7be9deff7820a875e562a91416585c"
-    sha256 cellar: :any,                 ventura:       "4fcb0dcdc064f502a4b345c70ffe19d316d393e7732fc9218dbca46b9d49be34"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a42dbb3104b385594f63bdecb4580a0c2a14937854439936ffc12991db978efa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "843d035987148fc169211c4af85011969d62aaee18ce2688a09db1d3d31306cb"
+    sha256 cellar: :any,                 arm64_tahoe:   "80a5e0acb0d811b2188d337a41874037b8afe34b70eefbd84836f5168393c144"
+    sha256 cellar: :any,                 arm64_sequoia: "759cb0f4fdefefc43bebf4d672fd72efbe37e3f661cc2572f1f9593bb6e4128e"
+    sha256 cellar: :any,                 arm64_sonoma:  "ded734b13f9696971c7df2d035d2f6b6ebd615da78c53531b4f1254a53056571"
+    sha256 cellar: :any,                 sonoma:        "2ee8d486fb7bc0948b498a6b098889f8e11e65099c111eda3927b56591eef18f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d18321255d67ee3897ddbe0c2de3e19231b91306077d2e7d06d108eacb719aa3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45f6cc6d7129fea4b0b3c1446e59ef0f2d6a934703cf5ca8baddc1052e49b11c"
   end
 
   depends_on "cmake" => :build
-  depends_on "lld@20"
-  depends_on "llvm@20"
+  depends_on "lld"
+  depends_on "llvm"
 
   uses_from_macos "curl"
 
   def install
-    lld = Formula["lld@20"]
-    llvm = Formula["llvm@20"]
+    lld = Formula["lld"]
+    llvm = Formula["llvm"]
 
     args = [
       "-DC3_LINK_DYNAMIC=ON",

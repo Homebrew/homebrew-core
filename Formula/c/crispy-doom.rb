@@ -1,21 +1,18 @@
 class CrispyDoom < Formula
   desc "Limit-removing enhanced-resolution Doom source port based on Chocolate Doom"
   homepage "https://github.com/fabiangreffrath/crispy-doom"
-  url "https://github.com/fabiangreffrath/crispy-doom/archive/refs/tags/crispy-doom-7.0.tar.gz"
-  sha256 "25eea88fdbe1320ad0d1a3e0ed66ae8d985c39b79e442beab5fc36d9d5ddfc42"
+  url "https://github.com/fabiangreffrath/crispy-doom/archive/refs/tags/crispy-doom-7.1.tar.gz"
+  sha256 "f0eb02afb81780165ddc81583ed5648cbee8b3205bcc27e181b3f61eb26f8416"
   license "GPL-2.0-only"
   head "https://github.com/fabiangreffrath/crispy-doom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "b9b035b756e9b42de763784b2d232e18edd11778a9417f61155011aafef3c03e"
-    sha256 cellar: :any,                 arm64_sonoma:   "5c440e871b1498809e4372de33366c2c3df9e740bb8b541f9e414e4d96de50fe"
-    sha256 cellar: :any,                 arm64_ventura:  "10f31a1dabdaa5709e63146e3ebb56008afce374116da948002b7e611b35f26b"
-    sha256 cellar: :any,                 arm64_monterey: "327d92bb2cad988d5835718b372a77322f2aa7ba507200767e4d5dbb5c278545"
-    sha256 cellar: :any,                 sonoma:         "325da8f1b4334a227d9f54f65434a84973331bec480d46e4136be618c32636b9"
-    sha256 cellar: :any,                 ventura:        "edf187b019afbc43e5326413f87c603b591c964a1792932e3883e2a565ac0682"
-    sha256 cellar: :any,                 monterey:       "b52ae717094041400af36ecbe0f741c7f32e7ec10c93f054f0e6d3a48d7e5c08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "bf4db5216f98d6f2937a33de95e9f49345989bff07ab4873f13ef274dd0e801f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32038b4fcd8556a79441e0f482ea6597e1ae6a8ec934a415c7fadc62ed21cf22"
+    sha256 cellar: :any,                 arm64_tahoe:   "eea3fa7dc16aaa3a18807238c95263dcd290e04d8d9e893959d75f7fcc708059"
+    sha256 cellar: :any,                 arm64_sequoia: "c12f350743f1a9d205256cf1ee7ecd86e0f80a9f67d5815ad09ca85c6aaa3a96"
+    sha256 cellar: :any,                 arm64_sonoma:  "af9be4cadc170f38e4268496261f83f4ebe1c28d713168c7c926ddcaa0417fce"
+    sha256 cellar: :any,                 sonoma:        "d0cace8c3b2d61918d02efbf75187e3257791d96926d63a8cfb308b83f24d999"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "371753cc38f1f6d57feafe1a9c0fb10ed1d7b90120dbc873426d80b62876528f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "460172d447f43fa89378fc732207f52c113c8588960c67b0df061c9b059c47fd"
   end
 
   depends_on "autoconf" => :build

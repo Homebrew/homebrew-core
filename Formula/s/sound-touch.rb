@@ -6,6 +6,7 @@ class SoundTouch < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "023d3c93b87887210efbaea61e5fb4f8d1ad156ac99f69675605df0a053d1d62"
     sha256 cellar: :any,                 arm64_sequoia: "73661d9ef5c0d165ac98a00a189973b287b38609523d2807ca89edffcfafaa73"
     sha256 cellar: :any,                 arm64_sonoma:  "b262bd9eaeee94084f75336d6e9d3e3beaa631dd8168a004ced337f36e433828"
     sha256 cellar: :any,                 arm64_ventura: "c0e31eee1801826eb30ca5a753f35c11ec679b19b802554d00cfb096b494af0f"

@@ -6,6 +6,7 @@ class Menhir < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8e529725dc34ba991c8b1305a39b76b7c38a21a8c872370289a0ed4f98b478a9"
     sha256 cellar: :any,                 arm64_sequoia: "547e0d082c253278979a586c24cc647d2ccab641148077c6c25d073080b75b5c"
     sha256 cellar: :any,                 arm64_sonoma:  "bdfcf60b1735fd0bd6b73ebcf8ddb9d1fb4942dc4c3da793a01494f5e8cde807"
     sha256 cellar: :any,                 sonoma:        "05c5e81dfaa5fee6357ba4d996c18f050c6a33c1705855034efd582e6b8fa38c"

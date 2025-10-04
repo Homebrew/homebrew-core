@@ -10,6 +10,7 @@ class Htmlcleaner < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "481e7ce48a7dc9bddaa359cd8b30412f993266133f606e0970031feb20a3e924"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ee4cfa168e59ef59a77de847f53f23c4f9a2a7be9a1f1844608c72b5ff1b7af"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35348580167a179573bf545a60831a398a8d70a0c567d313acdb1707d9068d15"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b8823d1ba1ef2e847fe95da75054ec681d3aafcafef2c1bf084b7f917c02884c"

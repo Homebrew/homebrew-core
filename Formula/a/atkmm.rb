@@ -8,6 +8,7 @@ class Atkmm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "a0084966800d7cf115466eb824f41e5c4c8fa269437abdc7d874f1ba5d52c04d"
     sha256 cellar: :any, arm64_sequoia:  "7b9d9f8002ad938aeefbdad02a83210e5e0b9e76cfba58cf5754d6d72bf48c45"
     sha256 cellar: :any, arm64_sonoma:   "62dd226fac2e76888483763ecc6ef017a652bde7bb98c914565c8002efe03db3"
     sha256 cellar: :any, arm64_ventura:  "3cc5b98b28dad00ca0c2caf58510534bb1181ec9a649ce4fcf1dc4c587bb7fb9"

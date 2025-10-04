@@ -14,6 +14,8 @@ class Visp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "58f7600c7cdcac9ee5ae3433cab2fee910661fbd8f62d77516274dd9cb8b63ec"
+    sha256 cellar: :any,                 arm64_sequoia: "b06c1101abfadc05df7529408b7599568808a512c07699f5c0e352e536ec84b8"
     sha256 cellar: :any,                 arm64_sonoma:  "9321e8dac8a8a3dc26151f6cbb0f65d6cbc7b4b571644be9b856e772255dbf9c"
     sha256 cellar: :any,                 arm64_ventura: "e35a00507c93dce23998503566228a00c088051a580771d2ae077a2a1c7232db"
     sha256 cellar: :any,                 sonoma:        "03930bd0f39146d33ef62870538be20f37f50736ceacd3f0c3b743ee767d2fe2"
@@ -29,6 +31,7 @@ class Visp < Formula
   depends_on "jpeg-turbo"
   depends_on "libdc1394"
   depends_on "libpng"
+  depends_on "lz4"
   depends_on "openblas"
   depends_on "opencv"
   depends_on "pcl"

@@ -21,6 +21,7 @@ class Root < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "0804a5dc4974c09b3a6dffaabbb6c2bf15da6b7b344c523ce9de3cd0360435b8"
     sha256 arm64_sequoia: "a0cdac95303bf5df2354e549ea219cae20542ab8bc4c36fb6f56d28f28a7f9a2"
     sha256 arm64_sonoma:  "3ef3cd3c3b41a64f5eaf2976ed22c7a9cefb6800c2595c3b8cf444561117a711"
     sha256 arm64_ventura: "7f989daa006a38c3a0dbb25b2260c7828e46403cc3977b13fc1d63ffa35f982f"

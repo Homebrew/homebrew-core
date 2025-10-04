@@ -5,7 +5,7 @@ class Onnxruntime < Formula
       tag:      "v1.22.2",
       revision: "5630b081cd25e4eccc7516a652ff956e51676794"
   license "MIT"
-  revision 2
+  revision 4
 
   livecheck do
     url :stable
@@ -13,13 +13,12 @@ class Onnxruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b6ce4e40bc872d41b3465087f33368be529d012837ee39e623c3f1945687a965"
-    sha256 cellar: :any,                 arm64_sonoma:  "dd9b51559f0018475fcd0e6c69c5b04cd16196344349d7eea66dbc716b8446ea"
-    sha256 cellar: :any,                 arm64_ventura: "429c0123c23cf2cac3b027ad0063689f9420370c7509951c26f6993b12666485"
-    sha256 cellar: :any,                 sonoma:        "4ec256f4208ebf915fdbc3629fece4cdd50168eca52bbdbd325f8d9b35b20d96"
-    sha256 cellar: :any,                 ventura:       "c0aa9cbe0254bceeb4e7d075870fe3804bdbd4d2ef6568f5300fd3b2effec8c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8386275b57e59ee756726ff8ece631847cda5f8033a1331083e8ecc23737630"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "531739b8bdcf50b4b663906499cc37f0bea8b5f8a732cf19c35bd1490939ba1d"
+    sha256 cellar: :any,                 arm64_tahoe:   "012b01908123c5e122d51d13e06c6b9259af934ff42cf8c63a917feef53ce1de"
+    sha256 cellar: :any,                 arm64_sequoia: "6778af32f255d948bc23dca0ec47d893cc87b6e30f4f5cda237c9fe7324622b5"
+    sha256 cellar: :any,                 arm64_sonoma:  "8be8e2fbc11c023f0550237b905ef7603a20c7c6334fc418e64062f326e3d6ef"
+    sha256 cellar: :any,                 sonoma:        "e6938e93e1aff60b0267187359e6f731c1abaa8ba222ea19faecc14431563bda"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "014bc0e3ad88055e062667ba68784f5dc87d56f9ecaf4ca6e9792ebab3831c0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ce1a4a6216412a1625a7b6168762a9ae9acf9836f6209397d3dff4368441e1d"
   end
 
   depends_on "boost" => :build
@@ -59,9 +58,20 @@ class Onnxruntime < Formula
     end
   end
 
-  # Workaround for Abseil >= 20250814.0 which removed absl::low_level_hash[^1].
-  # Upstream only supports using vendored deps which we bypass.
-  # [^1]: https://github.com/abseil/abseil-cpp/commit/2ea5334068f11664a71d1d9dfb9a475482fa05f5
+  # Workaround for Abseil >= 20250814.0 which removed absl::low_level_hash.
+  # Issue ref: https://github.com/microsoft/onnxruntime/issues/25815
+  patch do
+    url "https://src.fedoraproject.org/rpms/onnxruntime/raw/1e041e70baa51b4661c16ec5446daab332937cb4/f/abseil-cpp-20250814.patch"
+    sha256 "9b0bf4fda2acf486907005e781f68c56b47c0b05cc2a2cff04c891f2d35b92f9"
+  end
+
+  # Apply Fedora's workaround[^1] to allow `onnxruntime` to use `onnx` built without
+  # ONNX_DISABLE_STATIC_REGISTRATION[^2]. We can't use this option as it will
+  # break functionality for any dependents/users expecting the default behavior.
+  # The main alternative is to build a bundled copy of `onnx`.
+  #
+  # [^1]: https://src.fedoraproject.org/rpms/onnxruntime/blob/rawhide/f/0013-onnx-onnxruntime-fix.patch
+  # [^2]: https://github.com/microsoft/onnxruntime/issues/8556#issuecomment-1006091632
   patch :DATA
 
   def install
@@ -96,30 +106,92 @@ class Onnxruntime < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~C
-      #include <onnxruntime/onnxruntime_c_api.h>
-      #include <stdio.h>
-      int main()
-      {
-        printf("%s\\n", OrtGetApiBase()->GetVersionString());
+    # Modified copy of upstream's testcase at
+    # https://github.com/microsoft/onnxruntime/blob/main/onnxruntime/test/wasm/test_inference.cc
+    (testpath/"test.cc").write <<~CPP
+      // Copyright (c) Microsoft Corporation. All rights reserved.
+      // Licensed under the MIT License.
+
+      #include <cassert>
+      #include <iostream>
+      #include <onnxruntime/onnxruntime_cxx_api.h>
+
+      int main(void) {
+        Ort::Env ort_env;
+        Ort::Session session{ort_env, "mul_1.onnx", Ort::SessionOptions{nullptr}};
+        auto memory_info = Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeCPU);
+
+        std::array<float, 6> input_data{1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f};
+        std::array<int64_t, 2> input_shape{3, 2};
+        Ort::Value input_tensor = Ort::Value::CreateTensor<float>(memory_info,
+                                                                  input_data.data(), input_data.size(),
+                                                                  input_shape.data(), input_shape.size());
+
+        std::array<float, 6> output_data{};
+        std::array<int64_t, 2> output_shape{3, 2};
+        Ort::Value output_tensor = Ort::Value::CreateTensor<float>(memory_info,
+                                                                   output_data.data(), output_data.size(),
+                                                                   output_shape.data(), output_shape.size());
+
+        const char* input_names[] = {"X"};
+        const char* output_names[] = {"Y"};
+
+        session.Run(Ort::RunOptions{nullptr}, input_names, &input_tensor, 1, output_names, &output_tensor, 1);
+
+        std::array<float, 6> expected_data{1.0f, 4.0f, 9.0f, 16.0f, 25.0f, 36.0f};
+        std::vector<int64_t> expected_shape{3, 2};
+
+        auto type_info = output_tensor.GetTensorTypeAndShapeInfo();
+        assert(type_info.GetShape() == expected_shape);
+        auto total_len = type_info.GetElementCount();
+        assert(total_len == expected_data.size());
+
+        float* result = output_tensor.GetTensorMutableData<float>();
+        for (size_t i = 0; i != total_len; ++i) {
+          assert(expected_data[i] == result[i]);
+        }
+
+        std::cout << Ort::GetVersionString();
         return 0;
       }
-    C
-    system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-lonnxruntime", "-o", "test"
-    assert_equal version, shell_output("./test").strip
+    CPP
+
+    require "base64"
+    mul_1_onnx = "CAMSBmNoZW50YTpwChUKAVgKAVcSAVkaBW11bF8xIgNNdWwSCG11bCB0ZXN" \
+                 "0KiMIAwgCEAEiGAAAgD8AAABAAABAQAAAgEAAAKBAAADAQEIBV1oTCgFYEg" \
+                 "4KDAgBEggKAggDCgIIAmITCgFZEg4KDAgBEggKAggDCgIIAkIECgAQBw=="
+    (testpath/"mul_1.onnx").write Base64.decode64(mul_1_onnx)
+
+    system ENV.cxx, "-std=c++17", "-I#{include}", "test.cc", "-L#{lib}", "-lonnxruntime", "-o", "test"
+    assert_equal version, shell_output("./test 2>&1")
   end
 end
 
 __END__
-diff --git a/cmake/external/abseil-cpp.cmake b/cmake/external/abseil-cpp.cmake
-index 427e77a524..feb2eb26f1 100644
---- a/cmake/external/abseil-cpp.cmake
-+++ b/cmake/external/abseil-cpp.cmake
-@@ -119,7 +119,6 @@ absl::absl_check
- absl::hash_function_defaults
- absl::function_ref
- absl::city
--absl::low_level_hash
- absl::fixed_array
- absl::variant
- absl::meta
+diff --git a/onnxruntime/core/session/onnxruntime_c_api.cc b/onnxruntime/core/session/onnxruntime_c_api.cc
+index b60d97e38f..6951642edb 100644
+--- a/onnxruntime/core/session/onnxruntime_c_api.cc
++++ b/onnxruntime/core/session/onnxruntime_c_api.cc
+@@ -45,6 +45,8 @@
+ #include "core/session/ort_env.h"
+ #include "core/session/utils.h"
+ 
++#include "onnx/onnxruntime_fix.h"
++
+ #if defined(USE_CUDA) || defined(USE_CUDA_PROVIDER_INTERFACE)
+ #include "core/providers/cuda/cuda_provider_factory.h"
+ #include "core/providers/cuda/cuda_execution_provider_info.h"
+@@ -3094,6 +3096,13 @@ ORT_API(const char*, OrtApis::GetBuildInfoString) {
+ }
+ 
+ const OrtApiBase* ORT_API_CALL OrtGetApiBase(void) NO_EXCEPTION {
++  class RunONNXRuntimeFix {
++   public:
++    RunONNXRuntimeFix() {
++      onnx::ONNXRuntimeFix::disableStaticRegistration();
++    }
++  };
++  static RunONNXRuntimeFix runONNXRuntimeFix;
+   return &ort_api_base;
+ }
+ 

@@ -11,6 +11,7 @@ class Scheme48 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "dd9573e777e45950f016f490b3d37b0e5fd1257d3869dbde62a834ed11aed64a"
     sha256 arm64_sequoia: "e60e8422a87777d6f55e02a4a33e510d30d86b593b2f67dade9df8836d8cdac8"
     sha256 arm64_sonoma:  "a832d0cbc2b30a00712198511bc4ca9408e1523bf6ca93bf741780976a307047"
     sha256 arm64_ventura: "28ed573df3796dd14ca4380097dc117173104e860b44c414c065c047cefce4a1"

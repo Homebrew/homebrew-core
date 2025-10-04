@@ -1,8 +1,8 @@
 class Dnscontrol < Formula
   desc "Synchronize your DNS to multiple providers from a simple DSL"
   homepage "https://dnscontrol.org/"
-  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.24.0.tar.gz"
-  sha256 "8d0106e3f10e8efc17e6f5f711ee67cc35540014acdcd10a6baa98712da6fb8e"
+  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.25.0.tar.gz"
+  sha256 "56738616f2783c8c7deb306646f88cad1615c8c0dfb995e1110162536e7cb043"
   license "MIT"
   version_scheme 1
   head "https://github.com/StackExchange/dnscontrol.git", branch: "main"
@@ -16,12 +16,11 @@ class Dnscontrol < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6cb415f15f851f8d3822232511217ad79378003533c29955782e0862086cb2bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cb415f15f851f8d3822232511217ad79378003533c29955782e0862086cb2bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6cb415f15f851f8d3822232511217ad79378003533c29955782e0862086cb2bc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f57fbf87e4eef855e6371d9ee361c7c0d7ef4bf8e0c6329f7bf1b192ee28a1b2"
-    sha256 cellar: :any_skip_relocation, ventura:       "f57fbf87e4eef855e6371d9ee361c7c0d7ef4bf8e0c6329f7bf1b192ee28a1b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "133066c8d17cf42f2c9876c73c21f85ee984f6aa5ffbb67a83f3ebfe2c240cf5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c65534a35178427c4c4aeea09ac462bb040128f0566b75e95f9186fee60aeaa1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c65534a35178427c4c4aeea09ac462bb040128f0566b75e95f9186fee60aeaa1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c65534a35178427c4c4aeea09ac462bb040128f0566b75e95f9186fee60aeaa1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4c46381571f24fdffa4f45b81968af7bdc4956e792d88bcc3df191b983fe81a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "428b5bf05d0361184ad8e6860a07448609c94f7d694ec552a901162db98ec5de"
   end
 
   depends_on "go" => :build

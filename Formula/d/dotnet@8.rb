@@ -31,7 +31,7 @@ class DotnetAT8 < Formula
   depends_on "icu4c@77"
   depends_on "openssl@3"
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 

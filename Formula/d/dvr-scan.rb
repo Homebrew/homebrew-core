@@ -11,6 +11,8 @@ class DvrScan < Formula
   head "https://github.com/Breakthrough/DVR-Scan.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ee8ae5bc7ff402c690a94b738bf97f53cf1c60509740196eebd06efa98526a38"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f241fb1c8e811c48f6fb77b6480bbb3887fc68e3f7a0caf87c55a4e0ccbd3caf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6939c68d80fd38b540ebfdd2a513c8f617139186d1c4f0c0bcb949e4407e272"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "99cf90f97275ed4f15c0df16e89b0a76aba05eff89d663590706e25c872c73ba"
     sha256 cellar: :any_skip_relocation, sonoma:        "db13e965368275d45493590b9190ece8b8b3fa5b44def90c09e80464cf73c39d"

@@ -7,6 +7,7 @@ class Diffoci < Formula
   head "https://github.com/reproducible-containers/diffoci.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "312997c7bb2b42aa19919b4800ffd077558236548791b8f798135de2e7924112"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "94baef5d5a95a35f21622becbf6e538c1690c2266477ed37e240e4b4200e9253"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94baef5d5a95a35f21622becbf6e538c1690c2266477ed37e240e4b4200e9253"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "94baef5d5a95a35f21622becbf6e538c1690c2266477ed37e240e4b4200e9253"

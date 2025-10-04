@@ -24,7 +24,6 @@ class Readosm < Formula
     sha256 cellar: :any,                 monterey:       "37ac4df09be8730582ff8b11bf3480145eabdd697bf3335f80e7c6629b7bc74e"
     sha256 cellar: :any,                 big_sur:        "6f0a6b5f33f57429ed7d4608cf6819d85b829468abd7c954c381a599c8c73647"
     sha256 cellar: :any,                 catalina:       "2ea6c35bdfab9c28d9a5bc8a87e5306cbec6be17c26b1ad6f63ca70207a332a5"
-    sha256 cellar: :any,                 mojave:         "fcc1af52f7c13bfe4b3df0e1ca559ab79cee172c8941f51a335fb0fbb505027f"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "cc269327efe3b1d43e2ef9040b17cd094fa6334f128ee9a18af4e5f58a23a4d3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba3380d75fdc00590269ff90d2f0b6d4daab79b63ded61df883cadb0f5d96c0"
   end

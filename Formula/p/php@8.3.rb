@@ -2,9 +2,9 @@ class PhpAT83 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.3.25.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.3.25.tar.xz"
-  sha256 "187b61bb795015adacf53f8c55b44414a63777ec19a776b75fb88614506c0d37"
+  url "https://www.php.net/distributions/php-8.3.26.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.3.26.tar.xz"
+  sha256 "2f522eefa02c400c94610d07f25c4fd4c771f95e4a1f55102332ccb40663cbd2"
   license "PHP-3.01"
 
   livecheck do
@@ -13,13 +13,12 @@ class PhpAT83 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "3f85f3c6f5f4670985ef97d3632fd32faaa0c5b255250bee24aa835f4d776fd0"
-    sha256 arm64_sonoma:  "26ebd58fae4d7e98e067fce77681f2922237a9bfb6f772784988ee524d111a23"
-    sha256 arm64_ventura: "496995cd5d1599002aded6ba5d1a181cdcdc7efe8bb39de269c564ccd62553bf"
-    sha256 sonoma:        "b3225e8c29481cbcfb718f851d25fb9553077d086f735a8474498267ae35ddaa"
-    sha256 ventura:       "07a3ea531e3e26d04227038497446f333e2e8055135a9d6fb3d5e97aec854670"
-    sha256 arm64_linux:   "b8888c2dfed5c157868d11d1014e06e4f2b3dd34fc56557683dae6df22ffcfc2"
-    sha256 x86_64_linux:  "b018aae937b4276a2e1ee37be6f3225cb0395570376572ab76b26131c7a34cbf"
+    sha256 arm64_tahoe:   "ae677dab003451799519da326ffe8f0fc22fa9045d643317569e71910fc93c99"
+    sha256 arm64_sequoia: "342f7b1c0fceb69b01f92391ea1c27ec75884643dbce0591b0fb1cbdfa3db3fd"
+    sha256 arm64_sonoma:  "9a870facdbe283f5eac0c4c58c84e01eb5e8fd9ec64636bb4dfc59a3b9438998"
+    sha256 sonoma:        "063d71302b7a971d3a3c4dc00ba39f9d904b3f0992327c5dacbe7401f680fe0f"
+    sha256 arm64_linux:   "622a3f7539e27b7eeb372ab5b29ffac9132797d558fa8f3bd7b9fa4fb86186aa"
+    sha256 x86_64_linux:  "e39062cd3b25510b1ee710e09af7cfaed65bafa6f0f8081c95181b4d184214c2"
   end
 
   keg_only :versioned_formula
@@ -56,7 +55,7 @@ class PhpAT83 < Formula
   uses_from_macos "xz" => :build
   uses_from_macos "bzip2"
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"

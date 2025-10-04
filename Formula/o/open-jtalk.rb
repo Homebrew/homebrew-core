@@ -19,9 +19,6 @@ class OpenJtalk < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "6d2bd635abd20f62e50e9d39be4d2b1c50f1bb2a94d87bc2ab396d4f0afba310"
     sha256 cellar: :any_skip_relocation, big_sur:        "b68172f2ccf166ea5e1b46c1908714386cfb24dcafa374a1ab172faa4844cc9a"
     sha256 cellar: :any_skip_relocation, catalina:       "0a251febe3197994355ab780ce02aa45264c7d148b0f1b0dfd1a80a7f7aa9937"
-    sha256 cellar: :any_skip_relocation, mojave:         "bed36f972fe3dc3d5f286eff5c1b1605a1bcfae6cc755b7b2aee57fc497f7913"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "cd50656bb81db4528b82b844c773440d6cdfec63e545a64002a473da05a7eb18"
-    sha256 cellar: :any_skip_relocation, sierra:         "b015d173b77980d0da3a8eedad02fdff95ac919c790917ba9cb197db91207235"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "bb8ac88296db73881f77f3b343ac172562036e06132e06603ca18c8ab66e372d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "09fa6df65a5004730ee6d41ca9580ccd58933ddc33c6b3f64f1ba732ce7f3ce8"
   end

@@ -22,6 +22,7 @@ class Opencascade < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ff6334ea407940bc1be56e709668c12b4ea79ff60d37a84c74e83a7fe8c50951"
     sha256 cellar: :any,                 arm64_sequoia: "f9d87b8dde916c0a051b88b7766f8a0d69d5dd0383fc6dce29a08989f91268bf"
     sha256 cellar: :any,                 arm64_sonoma:  "778cd31a4361eb9ab61e88d5a34138fbc6d4925d6f4193dc0c8749480e903ffd"
     sha256 cellar: :any,                 arm64_ventura: "75ce5693d58108d89c9f033ce907429c046af9589c10298821e5179c54d6bec0"

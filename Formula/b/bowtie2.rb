@@ -19,7 +19,7 @@ class Bowtie2 < Formula
   end
 
   uses_from_macos "perl"
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_arm do

@@ -9,6 +9,7 @@ class Zookeeper < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3a3e616c0425979bce887bb1877a1c9dbac8f7b1084d1063d0866cceb7e316e3"
     sha256 cellar: :any,                 arm64_sequoia: "c043dd88af99227da093e9ef7a1136c3312aad202434a400b72aaefffdca1ded"
     sha256 cellar: :any,                 arm64_sonoma:  "c0589e76ede2fd9ba0e3b72cfc76a8cfaf8a532eb6cc5444a1758de771cdef4d"
     sha256 cellar: :any,                 arm64_ventura: "753fb3e9dc9010f36e650e1314ed958b3e8ffcbf05eaa99c1bb4aa666dc85ca0"

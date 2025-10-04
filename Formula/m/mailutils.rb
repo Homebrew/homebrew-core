@@ -7,6 +7,7 @@ class Mailutils < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "6226a3e8389ad9ce81ec1b43a07196b2ad6469e16b58402d106748a191b30754"
     sha256 arm64_sequoia: "26c6cce1516f6ea2435473db754bc8f5d1df5cfa993dae465acb5926d53f2a0f"
     sha256 arm64_sonoma:  "a7febc3f8b9ce9a2ec7ac88c9a4b0663c0706fd51154fd0aba8ea1c04a95818f"
     sha256 arm64_ventura: "5ef7a611f4898010e32d274502f86702ee4d7415cb41bc8559c616ad0f31f9b8"

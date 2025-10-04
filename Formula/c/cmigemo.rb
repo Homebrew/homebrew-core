@@ -26,10 +26,6 @@ class Cmigemo < Formula
     sha256 cellar: :any,                 monterey:       "19cbf239012e58e7d04dafdf6b10b52f46331f1db420343d7a51331f98b86395"
     sha256 cellar: :any,                 big_sur:        "a113cec93a42734d9751b9199f7aef92d77649d7921128f9f04d83260dd0effb"
     sha256 cellar: :any,                 catalina:       "81ea6aecbf5b3dec1ebc423d3503bd134d79f4fbfbb91b291e90c1b5a9fef1a4"
-    sha256 cellar: :any,                 mojave:         "28db47c1cedcff4dc6ee2d48bd07a147ae18f400e035e6a583d6b8e6cb36dfa1"
-    sha256 cellar: :any,                 high_sierra:    "a56e9422e30145d388649e9c85bf814adb58688c2c5e374385f4260b8daa049a"
-    sha256 cellar: :any,                 sierra:         "612544771bde1676044d35e8cb1f64134788580b76c59ced3b651e8996d46b51"
-    sha256 cellar: :any,                 el_capitan:     "866dfa4f493c088c1b2eb3cff23ed04e33862f7bc5dcff0976ce5b7cb4835dd2"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "e6b4c7d33ec77482edaa20121f9060c0661de32d941565e67da798e5adc37b8c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3551bebcc00f059d5acf9e60c4e757596c4c8349cb2870a00fcfdb75aa079db1"
   end

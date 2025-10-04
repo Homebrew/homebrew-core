@@ -24,8 +24,6 @@ class Cppunit < Formula
     sha256 cellar: :any,                 monterey:       "a373aa7f91fd426cccdf9c8775439b21e620f529488030af40f5bd8ea79013e1"
     sha256 cellar: :any,                 big_sur:        "8890cb5c9b85681b735c3756d301df29beb98e2c0d0b10f2fad073e6f1870101"
     sha256 cellar: :any,                 catalina:       "3e194b84577c733e5641f305a1cb5cc76355f13037898afc56c3096f98bb78fe"
-    sha256 cellar: :any,                 mojave:         "1c107efb84d656dd5327aa8cf13e6cbce8db7542aacba98ae98a2b05940b16ff"
-    sha256 cellar: :any,                 high_sierra:    "08a339bc38db169bce2f5eb0fc0b940bc82562c37274aa770668f681aeca4386"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d0a96b2919d44c81f063814b1e9272618b0144729a1c09f4f2878c63cbc7ee97"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1024a59b0bca4572448d7ed2e1152688d1b9be616d3b0644c15de8cd982c32a5"
   end

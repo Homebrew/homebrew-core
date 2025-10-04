@@ -28,7 +28,6 @@ class Katago < Formula
 
   depends_on "cmake" => :build
   depends_on "libzip"
-  depends_on macos: :mojave
 
   uses_from_macos "zlib"
 

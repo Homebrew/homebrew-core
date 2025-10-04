@@ -1,20 +1,18 @@
 class BaconLs < Formula
   desc "Rust diagnostic provider based on Bacon"
   homepage "https://github.com/crisidev/bacon-ls"
-  url "https://github.com/crisidev/bacon-ls/archive/refs/tags/0.22.0.tar.gz"
-  sha256 "b9d32ceee3fc5389bf3baf887ac1fd02e88f53a58f35fc9fe41c8543dd7a613a"
+  url "https://github.com/crisidev/bacon-ls/archive/refs/tags/0.23.0.tar.gz"
+  sha256 "19c85e175f3b8cd7a7ba30ce6270de766f995463dd296a5a98b04fd43bbc1279"
   license "MIT"
   head "https://github.com/crisidev/bacon-ls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ba1148ff7fd597cfa2d14a5530115a7575e06c8023c8140fd9361dcf820aefd5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0df0d775c1457b55c04a688505e6376104ebdcd6529733b7f4070ca98c5d0139"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ecea0916bac30c51414c9c499eec50e3f32ec56dab4a6a9ce9e229628e90019"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "165e8c9f8643b5df200004739650877fd0b4f0c311783209de19fdd7f1cbb98a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5b197b81414d99594e38525c64204ffe3ce3ca8e29ba6b4c49a8aed32962a6dc"
-    sha256 cellar: :any_skip_relocation, ventura:       "db3054e560914367cdce163aca3ef94bbd3d8f58520066a1d3ac69f9b39de4ef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fcebafe26dcc571419e49e6371bbbaefa98a4f6e32bc4f88c9ca6fcf23f6083"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64cba45a7728e9600bcc0fde786fc9fb96e15061072811b5f042daade1796a6a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2eca67dafbfc92a86203b5900704b547f9fe9b2a5bb79313e2bfde170d51b787"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ea32f28e464938d7dd4d9046ac3930b9f988b1d357afe0a1fb6b6cbcd6f89dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e3936974459aa7b60c72843dd0131ecd5d9c35aa7d824a1ff966b2dc9bc0ef4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ade93b0174b9931c4071dcf9b893c3d9ff441b110e01574b2ac88220e0978436"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ea3ff0cec231a12ad7b73c1d1228fef747afbc37036a1df75559da94ac5a9e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "037eff3fbcdaa390493cb9bea89c0a4ff807b06bfcf04e7a874277793d003988"
   end
 
   depends_on "pkgconf" => :build

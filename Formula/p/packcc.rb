@@ -8,6 +8,7 @@ class Packcc < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "a985b781ba01f8200c457f8acf7e555c5a00d41e0c959dfb6cdd18ed77114b42"
     sha256 arm64_sequoia: "7d5658437a0ceec144106d77f0bae460683421de720515cbad71e8538c4d7cbe"
     sha256 arm64_sonoma:  "3011badb913ee3f4cb4482502e883c68a6b0a0d369c2a63a3a99ba170c946c4e"
     sha256 arm64_ventura: "255f7aea2aa1751e6f4cefb5bdf94c39b8f467d13367b3e1f5a6ebb7bacb4106"

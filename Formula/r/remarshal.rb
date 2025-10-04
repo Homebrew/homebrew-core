@@ -9,6 +9,7 @@ class Remarshal < Formula
   head "https://github.com/remarshal-project/remarshal.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5bf66363bb0cc157e4ec91fc43fca53256b0e6852bdecdcec08a0674a2751441"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6adae90644373c4da5a8203ea425810d59044383ddd53f58804aad63955c8c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65c193176626b08e81f29c76120681b8e3327a50bae9c75397ae8f4405d3db26"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "323ff61b8b389ed086059fcf9a0171a74fcd0848ad072bba193962e37ee48862"

@@ -1,8 +1,8 @@
 class PhpCodeSniffer < Formula
   desc "Check coding standards in PHP, JavaScript and CSS"
   homepage "https://github.com/PHPCSStandards/PHP_CodeSniffer"
-  url "https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/3.13.4/phpcs.phar"
-  sha256 "ec78c8804e4a872979880331bcac8f81a7d485cb08531468af76ae67508b5cd1"
+  url "https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/4.0.0/phpcs.phar"
+  sha256 "10ceb3eeee6755c11a63daf1bd96f8d80a3102944346d4a171af75411b0b3a51"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,14 @@ class PhpCodeSniffer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "66808a9214e9f979f45ceeccdf6cc7070f21c8b4f88df47c8dfcfb4f38464d0c"
+    sha256 cellar: :any_skip_relocation, all: "bce4ee5f352f48fba985123fbae7b41ee52f211abd2ddd6b07e36833d27a75da"
   end
 
   depends_on "php"
 
   resource "phpcbf.phar" do
-    url "https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/3.13.4/phpcbf.phar"
-    sha256 "24b02f927d2319c7eeebc79741a1fe0b54993c0a0833223064c5b87b79299b42"
+    url "https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/4.0.0/phpcbf.phar"
+    sha256 "4c7d6a6c1bd837f70cc3a9df844b01e56c6118a555134e7b44e8b797d9373b8d"
 
     livecheck do
       formula :parent
@@ -46,8 +46,8 @@ class PhpCodeSniffer < Formula
       */
     PHP
 
-    assert_match "FOUND 13 ERRORS", shell_output("#{bin}/phpcs --runtime-set ignore_errors_on_exit true test.php")
-    assert_match "13 ERRORS WERE FIXED", shell_output("#{bin}/phpcbf test.php", 1)
+    assert_match "FOUND 1 ERROR", shell_output("#{bin}/phpcs --runtime-set ignore_errors_on_exit true test.php")
+    assert_match "1 ERROR WERE FIXED", shell_output("#{bin}/phpcbf test.php")
     system bin/"phpcs", "test.php"
   end
 end

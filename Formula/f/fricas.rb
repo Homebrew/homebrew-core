@@ -9,13 +9,13 @@ class Fricas < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7fbe73c52677676edec374061a9889381f7b8dd79d231cd5db743e8b47b83be4"
-    sha256 cellar: :any,                 arm64_sonoma:  "f80b27d9b594c6161a4b882f13cdb0c62f883d42760bb62d8563791d3ce3660b"
-    sha256 cellar: :any,                 arm64_ventura: "e78686fad2f37772d9d575453720622bd63af29ecc888a369672b14f2ca3e1d7"
-    sha256 cellar: :any,                 sonoma:        "716ba2734fc10c1a9540e8b868bfa6ff05c0ff8fa07fc04582808e2c12efb999"
-    sha256 cellar: :any,                 ventura:       "a3737a559b67fb9d5887f00208bf6c56b0e444d8f88be2d627db873c6971fde9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "22865967ea74382926e358484cef468d9eda01c3b251ee98ac8bdcb0095f47db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f35e32107cab4e45364c7f07245b562c6a425283ec655a22214a2c6f8302e8a2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7c87044d00ac54aed75e3c74024198bfa1334da3cc66e378bb084e9bf34e8b2e"
+    sha256 cellar: :any,                 arm64_sequoia: "6a4986f527a329cda2916c92b2065ae6d41aab08377bf751195b26a88036fd50"
+    sha256 cellar: :any,                 arm64_sonoma:  "c254d2cb770eb7c6796fa9293b06d01c6ffb14be778254ab3a26fc17a8eb8bec"
+    sha256 cellar: :any,                 sonoma:        "9b27da492022588d3d26575fa5f103bfe38f6102679fce800ac4ef9ce8e76343"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc084992d8a884fc40ab26b670100ea7aa8e83e91baabb22a9eac3e3687ae9e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8412b5815cf0fa53cadd4b4608ba229c84aa50120023fe04279f4e19a9a83360"
   end
 
   depends_on "gmp"
@@ -29,6 +29,16 @@ class Fricas < Formula
   depends_on "sbcl"
   depends_on "zstd"
 
+  on_linux do
+    # Patchelf will corrupt the SBCL core which is appended to binary.
+    on_arm do
+      pour_bottle? only_if: :default_prefix
+    end
+    on_intel do
+      pour_bottle? only_if: :default_prefix
+    end
+  end
+
   def install
     args = [
       "--with-lisp=sbcl",
@@ -40,12 +50,27 @@ class Fricas < Formula
       system "make"
       system "make", "install"
     end
+
+    # Work around patchelf corrupting the SBCL core which is appended to binary
+    # TODO: Find a better way to handle this in brew, either automatically or via DSL
+    if OS.linux? && build.bottle?
+      cd lib/"fricas" do
+        system "tar", "-czf", "target.tar.gz", "target"
+        rm_r("target")
+      end
+    end
+  end
+
+  def post_install
+    if (lib/"fricas/target.tar.gz").exist?
+      cd lib/"fricas" do
+        system "tar", "-xzf", "target.tar.gz"
+        rm("target.tar.gz")
+      end
+    end
   end
 
   test do
-    # Fails in Linux CI with "Can't find sbcl.core"
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     assert_match %r{ \(/ \(pi\) 2\)\n},
       pipe_output("#{bin}/fricas -nosman", "integrate(sqrt(1-x^2),x=-1..1)::InputForm")
   end

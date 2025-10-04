@@ -16,10 +16,6 @@ class Uggconv < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ad5e3778249cab414b73491a205ffc0c45817d0061dcf59d561315e544eeca4c"
     sha256 cellar: :any_skip_relocation, big_sur:        "820cca76f8c5618ba401a343644cffae2ece5526e0295dc29d0dd0f5f524789a"
     sha256 cellar: :any_skip_relocation, catalina:       "c1fc237ad27120a1804b37d765a47833d67bcd38cfa67be07aed808739021146"
-    sha256 cellar: :any_skip_relocation, mojave:         "71b4a6ad5be4b5dbefe2c64dc17b6bcff00eedcf72070f4a22273ff1f0a392cd"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "ed41635e3235d763c9dcad68db2e390821af5a62ec6709fca8b9c5e9b5d0b995"
-    sha256 cellar: :any_skip_relocation, sierra:         "a22594f94bf7baa1908bd1225f52f1db3dd01daa17f99038ecfbd60e22d12b5d"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "5ab8b271f2ccc17e5229921f01b92ff7b0c297908902c83d24612bb47592af3c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "288f3d97f53ba57c9fbe6901a0e4739ff76c2f1965728dd10e383112365ab7c5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "70d91fd685adcb8943530056934bc1e8f0ed0c5502a9205c6b1c8fa982fdec53"
   end

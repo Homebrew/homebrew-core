@@ -14,6 +14,7 @@ class Hexd < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "542333622e6a776e913cd72d820671ae3da80180673f3f6ce93e911816f04b56"
     sha256 cellar: :any_skip_relocation, sonoma:        "45a53e8aad1758074bbffb8e618a19c25645547d883d5f4ccf62cd2ac312658e"
     sha256 cellar: :any_skip_relocation, ventura:       "dacdc00f2ad09c469316c672491b47d4242bf119eea23ed4de2d361518a3b7f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a4f51eef0ca22a531e73b1b6bc75ae06ed9e987fee0d94a612121651577e22a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b62eca23b33b5257e4fb33ec61b9301700d7c732c2efe2037952fdc3b9e8cf8d"
   end
 

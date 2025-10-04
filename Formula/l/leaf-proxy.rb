@@ -7,6 +7,7 @@ class LeafProxy < Formula
   head "https://github.com/eycorsican/leaf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a54a48647c1f943dfc57d9c5c782d16819f279551441cdc66f898d1cb008cb44"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b0cc5c4e172c32e79c24a0b7659d73e9bf8e7b64f67620da095a3c32abe345e5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c32be304499e78ae7fb2a2b19a0fe5b4a61c8fd647c6dfd6972e58bd475cdfe"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc98199bee56bf76f3948fea9b29c18e643bc106fae7bfa1358162490d4c3ec1"

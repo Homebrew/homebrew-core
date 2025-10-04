@@ -17,6 +17,7 @@ class DhallBash < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "16244660e90287842060815f5e5e0b3390e67a5dd18d0caa171edd9d61460666"
     sha256 cellar: :any,                 arm64_sequoia: "61d284e40933fe164546711dc5595f5e87fb234839fb56af80bbeb360d91700d"
     sha256 cellar: :any,                 arm64_sonoma:  "6220e81ec5cd70de07c1c7e43bdb590a0aea042298700168e6fcf6b854ba9d8f"
     sha256 cellar: :any,                 arm64_ventura: "9e5096f50c89403fabf0797203289e090af5173c8350cc265e5e59268cece9e8"

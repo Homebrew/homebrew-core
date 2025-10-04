@@ -20,10 +20,6 @@ class TtyClock < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d2f40bb8f0155c0b2f5b22d2b6269a37c9fbd73976736476156969944e27bc1c"
     sha256 cellar: :any_skip_relocation, big_sur:        "fd72f43c25837763c243876436de51d99369fb8f540171aec16b2f66cb2870e3"
     sha256 cellar: :any_skip_relocation, catalina:       "dc5a60415f5cd5397d973b361db6bc0db2172621fe6eed037ee05c851097c27d"
-    sha256 cellar: :any_skip_relocation, mojave:         "eab206747869e0190d82dfa71d7763df4a3f202c3035f7bccb5b32fc52580989"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b3d2a19cdb38e0e156be552d6f9ca8926097300f17bbe6628b7443934d3e1cb1"
-    sha256 cellar: :any_skip_relocation, sierra:         "9b0e056ec6d86d9ba9cbd2abc02236607a6ad5601e7a656d10cad20182564315"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "c0d981769811bf1c265e11702ea0d26bcf87102ac92896c04c14a91fbed1cc8c"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "fe5ad63f95c7fcbe74f39fff2206c1e8d20145d023e29ad783109632f8868308"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b676f9ca583791e909a241667741a84289d4f75c5673fdd31176c48450ab701"
   end

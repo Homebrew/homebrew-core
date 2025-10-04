@@ -42,7 +42,6 @@ jobs:
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Configure Git user
         id: git-user-config

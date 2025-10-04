@@ -1,8 +1,8 @@
 class Librealsense < Formula
   desc "Intel RealSense D400 series and SR300 capture"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/refs/tags/v2.57.2.tar.gz"
-  sha256 "89a6b775a541355de2e951b5ff17ef5f0c8c9bcfdacbeb9e21478976c3357f58"
+  url "https://github.com/IntelRealSense/librealsense/archive/refs/tags/v2.57.3.tar.gz"
+  sha256 "06ee3217e753357db6540f5ce475a0619b5be51b0feeb1dbfe78e4e4d72ffa24"
   license "Apache-2.0"
   head "https://github.com/IntelRealSense/librealsense.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Librealsense < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4b4e48154904d5c89454e22762cc68ac800e3052e1f4b1ae9ed5920217eff0e2"
-    sha256 cellar: :any,                 arm64_sequoia: "08618786b556e9f1b42823e2abeb171bfd9a396ba94480ac36e0a682f8e92ca1"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8308fcb0e42763606ef3185f13837334f2633ce9d8108b8b054e17474fad5cd"
-    sha256 cellar: :any,                 arm64_ventura: "f81aa77393ab0c05705dd381cf620082533d47b5eba9498fbca8f3c9cdb4a89c"
-    sha256 cellar: :any,                 sonoma:        "ec196f18758a363f9dab5943eae76aa321cb88f1e4399afbf896c337ddcc3351"
-    sha256 cellar: :any,                 ventura:       "1bffd0682cf8ef3d0bba40857a1013dc62aa419fa5820af661e5935368f0f833"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "953817cb85c015eb4ade3c35297183d07527640ab8d217fb7f0cf255983d2772"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30e5083bf52f4e08af54621381b0e86fde18f699565da8915413319b59755c82"
+    sha256 cellar: :any,                 arm64_tahoe:   "2baf1ec5972a0587e3749f82f6c270dc139727f0538a00951270babd9fe33671"
+    sha256 cellar: :any,                 arm64_sequoia: "283af75b416f67321c2d1b4f0c070745af68b5582f57434d1e93eefe370286d4"
+    sha256 cellar: :any,                 arm64_sonoma:  "e858cc89687cf2a7f3568c262fbd8f8b8a4ffe99fea3c2b88477bc4e1a4a7c27"
+    sha256 cellar: :any,                 sonoma:        "0b23ceac5b0b2257929f41c05837282d7b406ae677169908d91e581f493f13c3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ed7b53f14020bd6e315f416dee48d124cc97ac928cbe9441831ea5dbcc84ade"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c76b912399d9ef5e4aa8fdff036f93db92dd7bc951df55ed2de39ffabcae507"
   end
 
   depends_on "cmake" => :build

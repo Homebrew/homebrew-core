@@ -7,6 +7,7 @@ class Scilla < Formula
   head "https://github.com/edoardottt/scilla.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b6651d35468758abd4e3705929076950a01f8bde061a27e8bf2e6133f51fb69"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e579131e2c41b493e3df24190c43ba8ca77214825c5dc3dca653b6c9a795ec3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e579131e2c41b493e3df24190c43ba8ca77214825c5dc3dca653b6c9a795ec3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5e579131e2c41b493e3df24190c43ba8ca77214825c5dc3dca653b6c9a795ec3"

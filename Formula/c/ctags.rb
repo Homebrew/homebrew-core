@@ -43,7 +43,6 @@ class Ctags < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "dac2afa169f02a036b20d719540124fb030d8e3342a754bd6bbb405f94f417ca"
     sha256 cellar: :any_skip_relocation, big_sur:        "9986b3f6897b60cbdf5d73b4ad819d2d30726043dc0d665b77ba2def399a60b4"
     sha256 cellar: :any_skip_relocation, catalina:       "2292b70a7b744c2238507417e40c2dc7273c6d919c9fe037bf668cf00863ad92"
-    sha256 cellar: :any_skip_relocation, mojave:         "238b65e5e1614f1d24fd88b6741c04d1cf48fd5f5d247cdbcd1f82d5796197d5"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "7300588a624817e1bc68e4fac3a1cb1dec65cfb7073c383910b6ace2d87ddea9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8630326626ccee22ad669f9e7c459735a8dc72c765ae40ec218f31e015dc76a"
   end

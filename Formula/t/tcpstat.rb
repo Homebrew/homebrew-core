@@ -21,10 +21,6 @@ class Tcpstat < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "c4a031f93d9e107740f63c329da289a7b8534d168b66326f67b3f0dc5da82e6e"
     sha256 cellar: :any_skip_relocation, big_sur:        "1a8c9f2f529162b1b5fecee421aaa0c99b80864f752717142fb7f77c5f5acc43"
     sha256 cellar: :any_skip_relocation, catalina:       "86c1f5aad64e2d611dcb9d74b4eb0f51f24f79d1cdcaf636f62199099d625fa1"
-    sha256 cellar: :any_skip_relocation, mojave:         "805b8444d7bcf36e2da7285474b20f5193f8e104fd990e9f87fa922bdb13801d"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "164e0b5ef61bb28432b7a3d5aa23ca78d291130aa9473b9019dce643ac93bc03"
-    sha256 cellar: :any_skip_relocation, sierra:         "378e42522ee14d64c0f5bf9bceeb0100c9193210eea2ee2ff80433b2b3da0166"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "e483bf39d0e42a8124c3e2e50f117e66b285bada33df94c1b070460c6df622ea"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "bfd5b8071a1b3ad738db96ecd1ee944f6b58e781b9759cc9ec0d5be421fe99af"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "036527a4c4492a1ca44c9b7c29ab1437108fc2c57105ade2f98fa8cf43a4e839"
   end

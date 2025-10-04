@@ -24,10 +24,6 @@ class Avimetaedit < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "26bde1d806ea7acbee6a436e57ac7476d069dc78c64b3700b81c5473c9f9c961"
     sha256 cellar: :any_skip_relocation, big_sur:        "c8cbab65b9f81a1015a5550b042fcc91471b288d8e256723be694f5caf402767"
     sha256 cellar: :any_skip_relocation, catalina:       "f3b1bacfbd6b2c53421e97c37eaeee7783c1cda0e614e9a27ba34ae048bbb5c5"
-    sha256 cellar: :any_skip_relocation, mojave:         "2ee42355aa90d5bc5ca8c61dc0c02274edd9c723b8a5b65595285319e9b7dda6"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "323673de85bd3c8f272d5f8d0b32d34304faaa02f88c2ce44f08c697266e889e"
-    sha256 cellar: :any_skip_relocation, sierra:         "75d65e8ef1ecf31ebb016aa7e1a940bdaac33042af895729a230b6ee4beab3f0"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "41873fc416d070f417f1387e50515ffa099018c2f8ef27a2b8ce8b8a94b5c43f"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "01314c71d02ebe43ef66968361d932ca27bcbfe37a498a6b8881812bd0b86427"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4358ad784993160a54dde004c372a315404352d4dfad8e1dcb7e63b232332fa8"
   end

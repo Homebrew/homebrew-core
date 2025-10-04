@@ -34,7 +34,7 @@ class Libecpint < Formula
       "-DBUILD_SHARED_LIBS=ON",
       "-DLIBECPINT_USE_CERF=ON",
       "-DLIBECPINT_BUILD_TESTS=OFF",
-      "-DPython_EXECUTABLE=#{which("python3") || which("python")}",
+      "-DPython_EXECUTABLE=#{which("python3")}",
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

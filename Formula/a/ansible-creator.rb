@@ -3,19 +3,17 @@ class AnsibleCreator < Formula
 
   desc "CLI tool for scaffolding Ansible Content"
   homepage "https://ansible.readthedocs.io/projects/creator/"
-  url "https://files.pythonhosted.org/packages/54/a1/3de42a85245b0f1748ead3c24b45cbd1a8ceb7af616f5fa8025b3f38a230/ansible_creator-25.8.0.tar.gz"
-  sha256 "286e93bf93aa7388587fdaffe733a206f41246e8691dbba39b491ebfcced460d"
+  url "https://files.pythonhosted.org/packages/bb/a4/8f943e48e48cb3d953505313be4b4cc072e3c66ff3abcb2745ecf9a17676/ansible_creator-25.9.0.tar.gz"
+  sha256 "f20e8ceb98606ddd0a60587118403f26916f2e53d01b6d42356e448c3e7fb76a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "34fcd15d859aada9c2168ab54ed68127d780cd92f8f31e7fcf75db256fa48f29"
-    sha256 cellar: :any,                 arm64_sequoia: "28e881c4b229e59fd052cba3a84ebe9b126e1fece3d3de29faf0ca8588fba8bc"
-    sha256 cellar: :any,                 arm64_sonoma:  "69ffaacbc65803c3691152d300a59f5b3757a4dad08bf52281241d6b2451e541"
-    sha256 cellar: :any,                 arm64_ventura: "12f737e1a9dadd3c95fd9f9108c05934839f3f7363a0859f7739fcb0651dd214"
-    sha256 cellar: :any,                 sonoma:        "ee0a676eb7f57925603fc02c15e9bc1e7351eb0da5668d1c49728b9b208af576"
-    sha256 cellar: :any,                 ventura:       "fc0c58e14f8bfe593f9e89071e432b6be2cd871f208ffbf0bc46e84425ffbdab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2750a74f0319c0f7fe14507d698ad0677781fa3bb2196a676cf6ad2b7857c046"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9ca066c9779be1c89ec4d7f2a339434d4b07e98c064422ea80a8057f824ef5f"
+    sha256 cellar: :any,                 arm64_tahoe:   "41da6114493aa4f38a0c6bc5b8dd886f84c39631a9ab9aa28e1375e51b6bd971"
+    sha256 cellar: :any,                 arm64_sequoia: "c74e0611b7f4e8a72f29883c1468f581689ac5157bda3a35b271afad1f5f3960"
+    sha256 cellar: :any,                 arm64_sonoma:  "ebc94cb5e66670ac2bdbb72131ef8264bdb077b12bf8daa5ed06eb1e8120271f"
+    sha256 cellar: :any,                 sonoma:        "31abe616acc38569853957573320760519a4c1ccd14e98901c2890771911b4bd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee3dcb41eff0196b2128194ee53264c0cd4077fc54a837dc76f8fe0c54486356"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c338218da45832d995632efe951ec664d409a0689fbd046ea6a9d99fc4cead9a"
   end
 
   depends_on "libyaml"

@@ -28,7 +28,6 @@ class Hashcat < Formula
   end
 
   depends_on "python@3.13" => :build
-  depends_on macos: :high_sierra # Metal implementation requirement
   depends_on "minizip"
   depends_on "xxhash"
 

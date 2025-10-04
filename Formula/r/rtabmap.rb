@@ -17,6 +17,8 @@ class Rtabmap < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:   "b199d096ccdac528b930bee0e182a62a4f29491b5f6e9f4cab99c1357448d39f"
+    sha256                               arm64_sequoia: "0fe5c24783e6d87a04c08f8d8f28229d18f612491ac8c3ef44861766b8a8ae63"
     sha256                               arm64_sonoma:  "5e5a0bbb1d6b8bbbf43786c1609f141c72da4bb1b696d3f096b9959d2728303f"
     sha256                               arm64_ventura: "673bff5fa8a7f08217e2f3bdd09ece21cf8b65ad2dce5918fb679fc19171f4d9"
     sha256                               sonoma:        "d49aefaffaef001c1e2507376cbd1bd4e24694e2c631b08377ca2512bbda63eb"

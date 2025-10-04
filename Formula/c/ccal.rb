@@ -25,8 +25,6 @@ class Ccal < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ad4cbfca5bf91baacefb99faef58acc28a6cf0517d31ba2b94e365d69bf43086"
     sha256 cellar: :any_skip_relocation, big_sur:        "82e5a0c59583063fdfa23e254f77ac5d7972a8fb5a3e36138233c7a47245abdf"
     sha256 cellar: :any_skip_relocation, catalina:       "ea42afd04ed210cf6e0bedac3ab4ce6b3e37421ba8d79478769d2e117c38a41f"
-    sha256 cellar: :any_skip_relocation, mojave:         "c3a4bead8506e0234e878727e6d7827925e600bcee3857859fd575d4bbb185cc"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "cd9bd38878cee9658e312142edfca7cf35e5223ef30b3a3effc9e4108ccf3d51"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "c88444adaeb8ba5d457d6332da395b62ee03b8ffc25ec9001db44db2ce0fb15c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3d0a1bcea11bb75c5a13e8217bab044677bb6d8e905d84a2c4ba53d8b0b8e5e"
   end

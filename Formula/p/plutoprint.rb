@@ -3,18 +3,17 @@ class Plutoprint < Formula
 
   desc "Generate PDFs and Images from HTML"
   homepage "https://github.com/plutoprint/plutoprint"
-  url "https://files.pythonhosted.org/packages/46/2d/7467cfaa2206eb3acf69adec70f1b51da6f406ac7ac0d5703dd34bcb1374/plutoprint-0.10.0.tar.gz"
-  sha256 "802671eb74521ae97690f25cfb5038ed25db67cfafa12b0b9725f117df651dc9"
+  url "https://files.pythonhosted.org/packages/ef/d0/af1b23123d37d1f672dbf5d68cf33b1ad1e274936079d33118ae9e18ce47/plutoprint-0.12.0.tar.gz"
+  sha256 "cbca7d1f2bc1c61c14c3feb9ab16b54583cfaa350ec8266de879940494e7dbe1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2e5fe4a2e39568447835f6101bfac77dd0484bee2d07c8ba3069fc1c7e24338b"
-    sha256 cellar: :any,                 arm64_sonoma:  "39d677acbdbfa3748a998038dfd685579644866de6dfdcbb37827425ba4b677e"
-    sha256 cellar: :any,                 arm64_ventura: "fbdbdade14cd1893a1e19f4cfcd2d4d3c63407ed0aa084d22f31bcfeb657438f"
-    sha256 cellar: :any,                 sonoma:        "b7c69ad3c87e039b98ea404a14e19cb3f690cb048908d3a419417a609ada49eb"
-    sha256 cellar: :any,                 ventura:       "85249d0f7291845c500e34ecd8d243c06917f386896f4474bda7f1aea67a768d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1a16bae9ac0ce8d59c90b52a1986610adbac3e59c5ea5b469b3c416d906596a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "632dda7e183febcd6f936733e2c495409b30e385aa7bce91b3714037c7dc4f22"
+    sha256 cellar: :any,                 arm64_tahoe:   "51d74f165529178d75073de7ac6e9e724337ee5a3745e8ec2d01189b187196c8"
+    sha256 cellar: :any,                 arm64_sequoia: "1ca288bd85da025d0067ee3c3bc08a6e909696bfa0e92408b2edb37a362a9c1d"
+    sha256 cellar: :any,                 arm64_sonoma:  "10c68efbdc3d8b4f195e5695d21e1d650b9e600406dbf6c5d196652f231b9979"
+    sha256 cellar: :any,                 sonoma:        "e714602f0a380e8a163962fcdad2930cf316ddaf717ee72f4c715268f5b97f6d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebd801aadbab3e675dbfdab5b2d3b9293bbc1a7f9afade0c2370ad50ab4ccd8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "704746c55f3ad1874a3d56edfd3f417c1aa531ca961aae3ccb336fa7da7e2b09"
   end
 
   depends_on "meson" => :build
@@ -24,11 +23,11 @@ class Plutoprint < Formula
   depends_on "python@3.13"
 
   on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1499
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1499
   end
 
   on_ventura do
-    depends_on "llvm"
+    depends_on "llvm" => :build
   end
 
   on_linux do
@@ -50,12 +49,6 @@ class Plutoprint < Formula
   end
 
   def install
-    if OS.mac? && (MacOS.version == :ventura || DevelopmentTools.clang_build_version <= 1499)
-      ENV.llvm_clang
-      llvm = Formula["llvm"]
-      ENV.append "LDFLAGS", "-L#{llvm.opt_lib}/c++ -L#{llvm.opt_lib}/unwind -lunwind"
-    end
-
     virtualenv_install_with_resources
   end
 

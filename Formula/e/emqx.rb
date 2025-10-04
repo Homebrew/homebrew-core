@@ -14,6 +14,7 @@ class Emqx < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2231cc764c1d69dc8f8b037ae721d9332aba3d74595b602f57e4ffd8de4785d2"
     sha256 cellar: :any,                 arm64_sequoia: "5c6851bb1c28fd010bed1392fa867cd81cf40951d2b52434fb5684d3b5317339"
     sha256 cellar: :any,                 arm64_sonoma:  "3bffe679bd7cfadd14e17903bad317a82ccdff14538909a3495cedd807f92b06"
     sha256 cellar: :any,                 arm64_ventura: "7e51b2ff5ed684be4da3ec5ba4d18eb67e385c39375db088147abcc85215b811"

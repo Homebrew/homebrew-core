@@ -9,6 +9,7 @@ class Streamlink < Formula
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "348e92a975dafd5a66ec98be413baf2ad673bb21e34b521a6c22a976a367085a"
     sha256 cellar: :any,                 arm64_sequoia: "718cbdc0203f746d9d31220419f90c0647e64f96e606a97c4ea3dd058d09b7d0"
     sha256 cellar: :any,                 arm64_sonoma:  "dbaee8eda6b344ec0cc14bccdf86c046677ee458fd8163ea8c802d4d4b0159f6"
     sha256 cellar: :any,                 arm64_ventura: "cd5cf6d8e71a4fbd8416b974e1c9c705df9b29a430a04dc0060d5702d8951a86"
@@ -124,15 +125,9 @@ class Streamlink < Formula
     system bin/"streamlink", "https://player.vimeo.com/video/941078932", "240p", "-o", "video.mp4"
     assert_match "video.mp4: data", shell_output("file video.mp4")
 
-    url = OS.mac? ? "https://ok.ru/video/1643385658936" : "https://www.youtube.com/watch?v=pOtd1cbOP7k"
-    if OS.mac?
-      output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'")
-      assert_match "Available streams:", output
-      refute_match "error", output
-      refute_match "Could not find metadata", output
-    else
-      output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'", 1)
-      assert_match(/Could not get video info - LOGIN_REQUIRED|plugin does not support VOD content/, output)
-    end
+    output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug https://ok.ru/video/1643385658936")
+    assert_match "Available streams:", output
+    refute_match "error", output
+    refute_match "Could not find metadata", output
   end
 end

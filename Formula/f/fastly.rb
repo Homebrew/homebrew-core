@@ -1,19 +1,17 @@
 class Fastly < Formula
   desc "Build, deploy and configure Fastly services"
   homepage "https://www.fastly.com/documentation/reference/cli/"
-  url "https://github.com/fastly/cli/archive/refs/tags/v12.0.0.tar.gz"
-  sha256 "5db6b6855208a1d099a7e17e271a85221e79868995cc1860391c71cd0dd3214c"
+  url "https://github.com/fastly/cli/archive/refs/tags/v12.1.0.tar.gz"
+  sha256 "f00a924e51afcb177aac08b324f5d0e6b3fd96a409c8b62d38e2dc9e62c76294"
   license "Apache-2.0"
   head "https://github.com/fastly/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a0d6ad98090d9496d07554217341b13053cf88204644fcd2fb6ecb50d822ff8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a0d6ad98090d9496d07554217341b13053cf88204644fcd2fb6ecb50d822ff8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a0d6ad98090d9496d07554217341b13053cf88204644fcd2fb6ecb50d822ff8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a0d6ad98090d9496d07554217341b13053cf88204644fcd2fb6ecb50d822ff8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "427027c3725a467cd1bcf47b246904de589d7c8ff5ce82497887a14e995111f4"
-    sha256 cellar: :any_skip_relocation, ventura:       "427027c3725a467cd1bcf47b246904de589d7c8ff5ce82497887a14e995111f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "517210b0441d738332357d4e60313dd22e2c125af91c0223055af875bd998c78"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a755774b693c4a48112e89419e110c3c95e7ffcff94ce26d848d8d9ba61bf84d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a755774b693c4a48112e89419e110c3c95e7ffcff94ce26d848d8d9ba61bf84d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a755774b693c4a48112e89419e110c3c95e7ffcff94ce26d848d8d9ba61bf84d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0208f5fe1eb0c6188ae237fbdb59267d5c95e885e732b6d717099dd5c7facd02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0457c884d8d585dcbf0b2fc122eb7b279c870d5eb3e7d1d99eac280e8b8e522"
   end
 
   depends_on "go" => :build

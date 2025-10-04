@@ -9,6 +9,7 @@ class Sourcedocs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4ece7ed5a98c8df2e5e4589c10559f8ed042a413da225b2ca7eb051fe0da7ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "469c4069a84bcc4e8ed58db567eeca9bb8d13311b0c3b5d289bd61a9d1a09aba"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7cb1a6469f057e769fd3ea2e22e2a288b16d42a7b44a3688e1f0787288e6fa2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "54139f452dcce5a6bb3d42f6483a1ddab9a97705b1b07d89f70333e9a0a770dc"

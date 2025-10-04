@@ -7,14 +7,13 @@ class Cabin < Formula
   head "https://github.com/cabinpkg/cabin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "beb71dbc4d107c7296107d2781dfab1405dc184d5b9ad90ac875c51699378618"
-    sha256 cellar: :any,                 arm64_sequoia: "5685234dede00370f7c46d3b6c0733d3291ab36c84b3ec865a7854e125fec004"
-    sha256 cellar: :any,                 arm64_sonoma:  "53fbec25916411c2273c8b33724a2a14ad75205671539e4ca6d08f21167ecab7"
-    sha256 cellar: :any,                 arm64_ventura: "eb9d82658aa6ea34f500dc9ce4630957c4f4d1b2b35136f974d91e348ffa5ee7"
-    sha256 cellar: :any,                 sonoma:        "e11bdfff7ca8f2ac4edcee6dd6dea5580bf1aaaef3876593039cf599e91085f5"
-    sha256 cellar: :any,                 ventura:       "77176f2a7288d3b6e0a824ecb3bd1092275a24189d0a0b0b16f31de8c8a86e4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f1177ed3a2f0fff39c50c9061cca22e1c9d166a4ffa14474e458c2acd848716"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a7d46c04cd3b626a16046a0940cf17d715fddfae02435a2b0e859e5bcc36250"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "876eb4668247fbac986c3fd6bfb114684640ddc5be5db17b4f745d082fcf8926"
+    sha256 cellar: :any,                 arm64_sequoia: "6ab0d5b4f8f0cfd3d8c0251d9d0b905a3ecd28f92c3dab32fc86cbfcce5eafd6"
+    sha256 cellar: :any,                 arm64_sonoma:  "1164395228216093cf43e08f16f1ffdf4c2f7a12fdb24e93924158c73f53d155"
+    sha256 cellar: :any,                 sonoma:        "8a2af41347bf41feefc39c6e28d420a9bd6da2550022608605a92cef60eb1557"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78178ba52dd8c248b40dcc9450ad780873b9b3c329d032010233268e9fdd089e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30a8896f233b63196d7dae8a32bc50979851fc57a5c925d18b3206ff835f8fd1"
   end
 
   depends_on "nlohmann-json" => :build
@@ -37,10 +36,6 @@ class Cabin < Formula
     depends_on "llvm" => :build
   end
 
-  on_linux do
-    depends_on "gcc" # C++20
-  end
-
   fails_with :clang do
     build 1499
     cause "Requires C++20"
@@ -52,7 +47,6 @@ class Cabin < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1499 || MacOS.version == :ventura)
     # Avoid cloning `toml11` at build-time.
     (buildpath/"build/DEPS/toml11").install_symlink Formula["toml11"].opt_include
     system "make", "BUILD=release", "PREFIX=#{prefix}", "install"

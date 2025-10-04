@@ -4,6 +4,7 @@ class MscGenerator < Formula
   url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.6.3/msc-generator-8.6.3.tar.gz"
   sha256 "476115a4f4dc3f71fae43071c388db6323bf2298f9d3b6f5214557a570ceacf2"
   license "AGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://gitlab.com/api/v4/projects/31167732/packages"
@@ -19,13 +20,12 @@ class MscGenerator < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "73a489abffaabce9621c173286b6d2d20ee4e4159cbc6d4e4b1dfe99be8eafc1"
-    sha256 arm64_sonoma:  "635cd79d00fa5681b9935b8c0402f1759dc23f5a1450627f84464c83d112283a"
-    sha256 arm64_ventura: "70cecf1aeb0ab2c0acb517e09c74087f8a838dafd687d68045968d8973ba0656"
-    sha256 sonoma:        "eaab20a72963158bba1aca99b9722a92361eb6f058bcef901c8257b4e01dedb6"
-    sha256 ventura:       "f813d36ec015459e51508ddc0d0a3be1641208a48a0aa6a24ee9af84f42d117c"
-    sha256 arm64_linux:   "a9cd24c1bbd9cc6b1fabf5a9cf018f1a82e93ea1f0f2b04a076aafb98d2dccd2"
-    sha256 x86_64_linux:  "f4d507131178f96240c500639c18dd8df5b6e63e63226bc48c8f3e89a9c5e886"
+    sha256 arm64_tahoe:   "f59601f0cbde128e5bf006d6e209896fece79956672e1b68530d7fd32a9fa7fd"
+    sha256 arm64_sequoia: "85bcc5cfd7b8b439e17e4d1b438f99dd79efabef69a5d7c919bd4d5bc3892636"
+    sha256 arm64_sonoma:  "1cdf8e111c43a0104afa5ef43307adad58eb9f67eab664e751b316d789115617"
+    sha256 sonoma:        "72a0c8f7c7f666b4ba4bb963be292959be2a8d7c77d58aee15d58c4d6a51c932"
+    sha256 arm64_linux:   "02f3c6b42be051258a634306df0100e10dabcfc8dd4113978f4629488d1b4340"
+    sha256 x86_64_linux:  "dbb32f6692261fcf51d8a8b07e4c45d93189ad0565251ae4f3783a9ae3d5aaaa"
   end
 
   depends_on "autoconf" => :build

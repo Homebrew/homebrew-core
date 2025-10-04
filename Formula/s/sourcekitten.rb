@@ -5,18 +5,16 @@ class Sourcekitten < Formula
       tag:      "0.37.2",
       revision: "731ffe6a35344a19bab00cdca1c952d5b4fee4d8"
   license "MIT"
+  revision 1
   head "https://github.com/jpsim/SourceKitten.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e270957f57aef52c0be6a8eac629ed87eb0f9af5b6e0c0068b5b96eb2e4c762"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44c64e1df133d699d98585b6e1e358c2a3e6ddb330d5d82de43b489c6e8f01bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac988164695f5e9bf5dbd42e8440601aeff80355022cddcee0e750916fca784d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7918e02dcba07a9af1934789a236722bb537b726137ae41652ac7c03bfedc07b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "82ca4f63f693f1d9d2c0faea72ce87456c973d3f802ea38e9f6599e4193741bd"
-    sha256 cellar: :any_skip_relocation, ventura:       "ddcda8cfe8a5762582eb5472f8be3f280c602a6a64f4427aef8c21e4524ea4d5"
-    sha256                               arm64_linux:   "4880dde3f371a7852b5c626c806a9d5da2d18d257a0b671513049cad446d42bd"
-    sha256                               x86_64_linux:  "ecaea860a805bc12aaa65cbfb5928b327645c60a3c62115f3ea33ed40a62a2ec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a7b279f3603cae2b43cfc554cfe772cc6a1abda9e6c58bedf624e44981ff789"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2796fe674c035f08a61ff4794a3d5aa2c2572384f31afe4360e24cc6c8c606fb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02deae6e801c0334b8b7e919a22b53887dfa52c4a2c46fc1b5c5488d3c537a4f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d96d22c0dd1561f4739a4ae689d0e6f17144901986525ae2aa047900db9cee26"
+    sha256                               arm64_linux:   "67774c0efaa24dbbf3167ff1b2c44e5d08169e67aee37b85c7034528d55d68c0"
+    sha256                               x86_64_linux:  "55c8b56cd5c2ca875f3d2cc4498fed128fae7b0ee0e5305ae02e390b2ed89814"
   end
 
   depends_on xcode: ["14.0", :build]

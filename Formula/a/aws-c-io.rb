@@ -1,19 +1,17 @@
 class AwsCIo < Formula
   desc "Event driven framework for implementing application protocols"
   homepage "https://github.com/awslabs/aws-c-io"
-  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "07b0ac7271e482e1f5f1e84fcf33ec23fb8a2c12e7a7f331455a5f1d38b9fbfd"
+  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "4ae2ccb8fe9992c7e8aac7eb9f551b49d12548bdfe2cbe9a1ab3415100aae1d0"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "62ad6b49561a51e6b3f9bfce8ae10796a58371dcd3722fb58cd20714ddf8f131"
-    sha256 cellar: :any,                 arm64_sequoia: "c9b15a2e42e675a6d1055c2a9c213fe7ad92c1e7e5e90492f7b8d92d2cf54b30"
-    sha256 cellar: :any,                 arm64_sonoma:  "ea5974b1c0fb0e0446192ca4b169f0c31a1a0c4b90cbbe77d58f8132754bd126"
-    sha256 cellar: :any,                 arm64_ventura: "3e9d6eba02f43a0162bd51b190a907b6fabb834a666729022b43c7ade7c1961a"
-    sha256 cellar: :any,                 sonoma:        "7b11e0a38e19fd261b679203b7c30579d67779c3149a3646d84343ac34236f31"
-    sha256 cellar: :any,                 ventura:       "71159ae671a4203a725dd4e9a9f698e6cbbcd2950e0f3185f52ba287de0e3cb5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e23ec8cc2043c1deecd9a4e79b6b33bd1e9a9625a872fa76001a918d98c5105"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ab27afa87addc6c16d7604dc96325be3aa587120277092fbc833d7d984c9b8c"
+    sha256 cellar: :any,                 arm64_tahoe:   "e6b4cba9f75e409534746e0898ea4a080630274b56436c84a625f256d9fe9b0d"
+    sha256 cellar: :any,                 arm64_sequoia: "bab217fce7acd9aa9966a2c1f81b65b244ab398a8c7114874f9267065a68347a"
+    sha256 cellar: :any,                 arm64_sonoma:  "78015fbef6a052f7d9b22005edef0618dd973c91a65b6bd6fe3a960b38096ec0"
+    sha256 cellar: :any,                 sonoma:        "06571f20fe56639e87461b418aca788ecd496579a29b7b7611d20804e3e558c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5a49e1b8e68bbea40767df5f15ab137b17adb2dfa973d92d22129c61f10a635"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9cba71e1e26393c8d28b8a93d45e5e62c1c514f752c9ca54c5a52b330db6da4"
   end
 
   depends_on "cmake" => :build

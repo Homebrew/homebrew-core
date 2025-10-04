@@ -24,7 +24,7 @@ class CucumberRuby < Formula
   depends_on "pkgconf" => :build
   depends_on "ruby"
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
 
   # Runtime dependencies of cucumber
   # List with `gem install --explain cucumber`
@@ -114,11 +114,8 @@ class CucumberRuby < Formula
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
       r.fetch
-      args = ["--ignore-dependencies", "--no-document", "--install-dir", libexec]
-      # Fix segmentation fault on Apple Silicon
-      # Ref: https://github.com/ffi/ffi/issues/864#issuecomment-875242776
-      args += ["--", "--enable-libffi-alloc"] if r.name == "ffi" && OS.mac? && Hardware::CPU.arm?
-      system "gem", "install", r.cached_download, *args
+      system "gem", "install", r.cached_download, "--ignore-dependencies",
+             "--no-document", "--install-dir", libexec
     end
     system "gem", "build", "cucumber.gemspec"
     system "gem", "install", "--ignore-dependencies", "cucumber-#{version}.gem"

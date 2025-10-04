@@ -16,6 +16,7 @@ class Minio < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de7ad6d6f693b10b89f995407b5609e3dfc01fa7cd8d0aeadaff4fb77bf3be76"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "35dd4ff3b33265bd1d43f443c24cd59af871dcd450e7f200685882e52cd05112"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "106411052fb5757c41e02f4b5ec1aa24e32ca6c556f1a460cc4522f7a5a37db3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1fe50b3e86d618ebef2e1f111abd05f900cdc74f7898de6ef4e9e9497a6b2069"

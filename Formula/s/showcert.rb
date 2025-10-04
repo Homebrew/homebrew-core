@@ -9,6 +9,7 @@ class Showcert < Formula
   head "https://github.com/yaroslaff/showcert.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7db65d5003888d91d5882209b1cd9b0bf6dee69b8e125454c56ffbfc766c2ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7db65d5003888d91d5882209b1cd9b0bf6dee69b8e125454c56ffbfc766c2ee"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7db65d5003888d91d5882209b1cd9b0bf6dee69b8e125454c56ffbfc766c2ee"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e7db65d5003888d91d5882209b1cd9b0bf6dee69b8e125454c56ffbfc766c2ee"

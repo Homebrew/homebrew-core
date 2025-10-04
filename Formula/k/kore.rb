@@ -30,7 +30,6 @@ class Kore < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on macos: :sierra # needs clock_gettime
   depends_on "openssl@3"
 
   def install

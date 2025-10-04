@@ -7,6 +7,7 @@ class Yosys < Formula
   head "https://github.com/YosysHQ/yosys.git", branch: "main"
 
   bottle do
+    sha256 arm64_tahoe:   "1090fa2a9c14ac77e79f849ac9d2537d74bbe45538ab1f5c302065e79c7a0cd7"
     sha256 arm64_sequoia: "1a9f552722886c0c8787f1cdc4244e1ea7cd0af1a61aecab0dca0ad13cd2c171"
     sha256 arm64_sonoma:  "7c145f3d2e84e8a8606203e86543011819d1765dcd826c619e06a953c708a4ac"
     sha256 arm64_ventura: "4442c9393c11562e97f1719cfd870270b3509b2a26f7cb81bc80f3d70f1ad761"
@@ -23,7 +24,7 @@ class Yosys < Formula
   depends_on "readline"
   depends_on "tcl-tk"
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "python"
   uses_from_macos "zlib"
 

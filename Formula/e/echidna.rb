@@ -13,6 +13,7 @@ class Echidna < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f0824468f8ae3cede9d7b9c77848e0ee26f7b8b9501fd94088780ba0a0888b1a"
     sha256 cellar: :any,                 arm64_sequoia: "9f656148996de051b6c650ac8a4e0bda0776b7cd7bdb7a3dd7fe5c12ff9b7b1d"
     sha256 cellar: :any,                 arm64_sonoma:  "c8a49a687794a368c0d4a08c418e2d19731b9c9a34b4e8161be69aba4aa33631"
     sha256 cellar: :any,                 arm64_ventura: "95eb1e24a25981be6e48143cfc873f6d11f32578de0161b966adcf24ad0a681e"

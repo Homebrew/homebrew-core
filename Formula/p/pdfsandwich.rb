@@ -10,6 +10,7 @@ class Pdfsandwich < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "16c76bd4f3d4fd4a22a1b23737aedd8d017cc0a51cc5aea380e6879b958184ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8f02d04e6517c0a842df56f9e7e381a2c3520f20669507f9fe52412c462baa6d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f7cd2c1676f390f9e5951408248c6b8d8682d4b70835ce67af1b89b2acefd74"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "93a40fb73e99c341323d434d2d03b7db027dd7b931aec4c2aed61f640f649b08"
@@ -20,7 +21,6 @@ class Pdfsandwich < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d008b33e11a652bfd5e130f09aa7138fa599b22b4b48db266457aa1ceec17361"
     sha256 cellar: :any_skip_relocation, big_sur:        "eed36d608adf9c4c6a7bcfa2f8d51fc7d7db6b9625d8dd87420b0a49432ed099"
     sha256 cellar: :any_skip_relocation, catalina:       "e45ad2480a96ef2ff2ee1a0a561004510d3d3f2b61117fce51d2995b5a004b34"
-    sha256 cellar: :any_skip_relocation, mojave:         "dd4a617ef7bb8bb83cb9da94556537624bcf188789846e978ccb25926fcd7027"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "38e8f84c9d73b6ee9caa30ecdc46eca87ad44042d0b2afd212ade6b04711fe9b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f77d1aa373059a0b32d879bc45f075527a28c6a0a2068b8d38d634dfd2d7d60"
   end

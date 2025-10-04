@@ -9,6 +9,7 @@ class Mmdbinspect < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3efc2fae82b1892d809f6c612f631639157c0d1d6f2bbfbece9a2dd8b5e22b45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2867196560667fcee30a9b9fb30f38651ffd7e7ac1ab6f352d32d3a9521997a4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dd2ecd32e2d64c6d4b35cfbdf57eeb8cf2c4f79385da300fa791b9e6cac0c449"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "258a073b818c60576f4042913ee4053c632deae2ca47435ed930ebd5057ba945"

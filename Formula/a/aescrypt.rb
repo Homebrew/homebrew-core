@@ -24,10 +24,6 @@ class Aescrypt < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "a2d7637fcca0782a1f78089af50ea8a39d97d84f7e5fff9c9af938a353724887"
     sha256 cellar: :any_skip_relocation, big_sur:        "e41505ebcf2ca60292fd7391501ccc8d81ec41c96b23f2f50f21315bafc97f77"
     sha256 cellar: :any_skip_relocation, catalina:       "c5dac9eb7f3ce8509c766d82ef5f972c8a41984284ae3e01651c6f308164c5bd"
-    sha256 cellar: :any_skip_relocation, mojave:         "55bc9c5be0263f1659ab389b22e1e5f594b037a87d49aa5ed94ab5ccce3af3da"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "1b2326e6dbc73d394cb5d4d7bf655b026fa77a7d66d02da386bff16b84e84d83"
-    sha256 cellar: :any_skip_relocation, sierra:         "2250bd07f689721287269dc70c504b4f08ac2a02b5550ad9f0a51dca60ed6f9a"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "0cd940c7c9e59104746a8f83f92a06e703e7f98195a202d20516c03b588fd63f"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "249795b1e998522e6adeaab21b99f1cd97afcabcdc5069196604a036f68c97dd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a2705c4423a86919b9309235a468b5cc1ac66200501bd255cefe0d26d1f07c6"
   end

@@ -18,7 +18,6 @@ class Pup < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "a4e7f5510d0f6a38934fae0c75c8f54949bb13b8a60e5536afa937e2a8951444"
     sha256 cellar: :any_skip_relocation, big_sur:        "929baa98965ce865620bc15bf4f5951dff558b0ad1f9e439d47faf92798f5405"
     sha256 cellar: :any_skip_relocation, catalina:       "f5f4f5c09cc76054eac2b96357f4b2aca8501daa8c805801d17079aa7e5395f8"
-    sha256 cellar: :any_skip_relocation, mojave:         "1801647618fe8e2367ce3d739513c1811259bf1db3fb9ddfbc9301e559102d9b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "984ec42bb2a863b2afec7954b8b1c706a5474e0cbd278ed5e4f5439c13f02bb2"
   end
 

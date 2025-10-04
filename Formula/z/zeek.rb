@@ -12,6 +12,7 @@ class Zeek < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "5aeaff3bd1468664b9245f65bac6a3cf8a254ce0138c9302253585022d4e153e"
     sha256 arm64_sequoia: "61285c35ac040f8a5707e22b9276582d05f08c7cfc61c63326e51162a9dd7dd4"
     sha256 arm64_sonoma:  "560df0f425c87cbe002c81bf3785417bd6da70e38a499acd4d140c726ab7b66d"
     sha256 arm64_ventura: "b2cc15f7c6ea28ed0d8f706b74cf8dbae755939201f693e6415f5638d49a08b8"
@@ -27,7 +28,6 @@ class Zeek < Formula
   depends_on "swig" => :build
   depends_on "c-ares"
   depends_on "libmaxminddb"
-  depends_on macos: :mojave
   depends_on "openssl@3"
   depends_on "python@3.13"
   depends_on "zeromq"

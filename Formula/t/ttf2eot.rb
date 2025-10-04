@@ -19,10 +19,6 @@ class Ttf2eot < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7b791e8df0d498383f11ccbed2017a57be517169725560b92ccd0d25ef602123"
     sha256 cellar: :any_skip_relocation, big_sur:        "88edb09b376fe32ce292747416549530e92a763c9859817e7eb936c65cf1c696"
     sha256 cellar: :any_skip_relocation, catalina:       "05b1f397b4784a77f36a3d3138e812932db4419d8d03e0f0735e58591677e918"
-    sha256 cellar: :any_skip_relocation, mojave:         "54d328636bcb7d9fe1e28bf46115f0b718fc9f4d8e18c48b39d5b2e87bb3930b"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "7b44ec925ee2bbeeaba775befc77c0c22f2f690ecd94edb72e471c631da80f43"
-    sha256 cellar: :any_skip_relocation, sierra:         "26f40d7a58de2ee396fc04dd47c41e9b65640570fa1ca8b71134dd88e6e88c06"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "5fc89e642b7d51c0c7965d9a952d1b697f94b4ec16d7711ff37387979ce47f5d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "ac667f059eb2d3394c7869f8475a60d36840d7d94992557178974b10166b80bc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "20e9bce41da4284c7cb5a07cc7fa05f911457de66e3ddadf4b0cc1334773100d"
   end
@@ -34,7 +30,7 @@ class Ttf2eot < Formula
 
   test do
     if OS.mac?
-      font_name = (MacOS.version >= :catalina) ? "Arial Unicode" : "Arial"
+      font_name = "Arial Unicode"
       font_dir = "/Library/Fonts"
     else
       font_name = "DejaVuSans"

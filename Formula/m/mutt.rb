@@ -25,6 +25,7 @@ class Mutt < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "1a873051960df2b490cbeefc0e8f01ef20db4ca770684bc078f29b04dac8d8b4"
     sha256 arm64_sequoia: "ad1666b7a72c6ebc86c3ebe83ffdea86e58b72a9cda954531fee16fc01116c3e"
     sha256 arm64_sonoma:  "9643a80c2b69b3bd3ced5b7dd6b11d4a93cf0c8e7ec4ab10194dade10792c968"
     sha256 arm64_ventura: "8e52fb4d5a97894d9309c15f0be00c09b3480dca379b902186f1c54562761fb2"

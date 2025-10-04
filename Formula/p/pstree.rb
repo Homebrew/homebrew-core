@@ -11,6 +11,7 @@ class Pstree < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "999cb5fb08aa25b078cf66c5a24c1b1244532e5757965e0089631b3bf4e4836e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d294c9c8a1f140ad0505ab702204a8d909c860318e0013694dd760b95a39d1d1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05dcf81f64516f4b96ccb2a82fe610e65d2733d0cfb6dbff41b54fcd9f45f111"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca06848c6042d6f8c7ee44477aae9d5e1ed8f73be77dc99d9ec126460bc1f9f8"

@@ -7,6 +7,7 @@ class Roswell < Formula
   head "https://github.com/roswell/roswell.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "609cf8897c3fc361cd9d09404b20ecf46f426625f17f0549c1b6db755fde9129"
     sha256 arm64_sequoia: "aba14ed969bb0a51b5a0e6d2e88e38e7fab528d5f97cc2e5eef13685287f7a35"
     sha256 arm64_sonoma:  "6fe9684d8976b196444abb760c8c2efcdf270be7a8049a85eec0783c6d306b14"
     sha256 arm64_ventura: "2d4fea24b4c5de40377044a3291b4e9c52726471429ccfa7e1d5cb947c469e9a"

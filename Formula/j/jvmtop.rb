@@ -13,7 +13,17 @@ class Jvmtop < Formula
     sha256 cellar: :any_skip_relocation, all: "b9fabbeac0618290d38994f556f5de9288b33c2e23c7dd00e1892d111c23c4ce"
   end
 
+  # Deprecated since:
+  # * No arm64 macOS support: https://docs.brew.sh/Support-Tiers#future-macos-support
+  # * No upstream activity since 2016
+  deprecate! date: "2025-09-25", because: :unmaintained
+  disable! date: "2026-09-25", because: :unmaintained
+
   depends_on "openjdk@8"
+
+  on_macos do
+    depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
+  end
 
   def install
     rm Dir["*.bat"]

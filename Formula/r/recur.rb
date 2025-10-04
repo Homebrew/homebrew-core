@@ -6,6 +6,7 @@ class Recur < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "149117659c69734078b7f8fc1b04dbd5e2656460b033bff06669ca1f48e9bd94"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "149117659c69734078b7f8fc1b04dbd5e2656460b033bff06669ca1f48e9bd94"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "149117659c69734078b7f8fc1b04dbd5e2656460b033bff06669ca1f48e9bd94"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "149117659c69734078b7f8fc1b04dbd5e2656460b033bff06669ca1f48e9bd94"

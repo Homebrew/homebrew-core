@@ -1,19 +1,17 @@
 class Humanlog < Formula
   desc "Logs for humans to read"
   homepage "https://github.com/humanlogio/humanlog"
-  url "https://github.com/humanlogio/humanlog/archive/refs/tags/v0.8.8.tar.gz"
-  sha256 "09d3e632bc10950bd917e248b1c52359f8ea4b164a8ab128e9b58e90724bae54"
+  url "https://github.com/humanlogio/humanlog/archive/refs/tags/v0.8.9.tar.gz"
+  sha256 "7eb257742d52bd292f61312414af49e85acfe3be6fc687c391fa5fbb8e9e08d4"
   license "Apache-2.0"
   head "https://github.com/humanlogio/humanlog.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da95c68b585cb62fc345997b178867646602974986bf2ff3388db622eed56685"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cca96c12e99ffde853524ebd8c7f1baddae830d3b2553472441319380178bd0f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4563aa1caad424851b745915d4cf2afc7ced2d2e1276a4e953f9bf9fe33cf625"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "868b1292e09ac1ebd0ed3419460947e863071028c5230577757d9509a6845886"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b406178087c1f7af0bb8fc5620292e2ce7658831624294ee6e371afdda8907ef"
-    sha256 cellar: :any_skip_relocation, ventura:       "b313bd0d0f8bc4b14ba744979065983358bea554154c0c4e71b832f8faffe2b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9fe12af518863f6786f078f895e46e1d87e87f2911723c1f675471a2fad899e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e202bd633ce912f0e918947e902bef0993a7fdbbe6dc53da6643c9029a2558cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f9a2fb9f23340ff662d481941a9956ee19a09621eba93da80858dc0bc84bd1f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "863588c31724ab74513537910c5d27a6e926e14070e0d8c158c8f1ac616f3af3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "180b1362082f79196e1fd26670086154c37190b82fcd4deac1cf9d9d1514d9ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f28a25ed68a154c0a8f29ff9116691c2882bc9e33ecb5feea1f3bfda1ab1d33b"
   end
 
   depends_on "go" => :build

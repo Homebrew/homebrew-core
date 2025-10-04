@@ -13,6 +13,7 @@ class Mednafen < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "2e8e7a500b841dcafc2bfcd58f95fbbf514ffcfb14646bf70d261934e1916c18"
     sha256 arm64_sequoia: "3ebf9988b2e260b9a1f755f8fcbcc0c9fa3411aae100594a99c03cded175f65c"
     sha256 arm64_sonoma:  "e52bfc223726a04f7d2b656a57ea9f24b5922e281c7cc3eb63260897dc4e11a7"
     sha256 arm64_ventura: "687f37db2e0fb19df00cca7bede658f0c368e5f603f09426bdac47a84e21868d"
@@ -28,7 +29,6 @@ class Mednafen < Formula
   depends_on "flac"
   depends_on "libsndfile"
   depends_on "lzo"
-  depends_on macos: :sierra # needs clock_gettime
   depends_on "musepack"
   depends_on "sdl2"
   depends_on "zstd"

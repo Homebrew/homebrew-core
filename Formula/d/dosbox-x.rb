@@ -20,6 +20,7 @@ class DosboxX < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "fd4d9c52bb24671adbae77223a43788a55d1fb948de6210e71ee59e225c049c2"
     sha256 arm64_sequoia: "b3831fa8f34f93d0947d5b6f784553a26efc62fdfa7899333688a3bd106b2715"
     sha256 arm64_sonoma:  "3f335d476fb1ae9890c156ed2755643b57caa2f0c7f0be693beebd87a8436268"
     sha256 arm64_ventura: "bf746bc868a57ce1b6a790b5a07decea4cb49d5a9681c198cfcca74ce2abad08"
@@ -37,7 +38,6 @@ class DosboxX < Formula
   depends_on "freetype"
   depends_on "libpng"
   depends_on "libslirp"
-  depends_on macos: :high_sierra # needs futimens
   depends_on "sdl2"
 
   uses_from_macos "ncurses"

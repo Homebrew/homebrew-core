@@ -45,7 +45,6 @@ jobs:
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Generate matrix
         id: matrix
@@ -117,7 +116,6 @@ jobs:
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Install and use Homebrew curl if needed
         if: matrix.curl

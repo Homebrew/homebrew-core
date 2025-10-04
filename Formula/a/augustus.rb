@@ -24,7 +24,7 @@ class Augustus < Formula
   depends_on "boost"
   depends_on "htslib"
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   def install

@@ -13,6 +13,7 @@ class FsUae < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a3c4a1d90ae429eb3b3b9c1ecf250ee4b851fde20966963e05849254622ddbab"
     sha256 cellar: :any,                 arm64_sequoia:  "5a73ce64da67c0d1997c5350c97d38a9549853ef97f20d824a74a6d1f9ed31c2"
     sha256 cellar: :any,                 arm64_sonoma:   "9a2fbee9c1775354923db18f96abbd547af702a295b74754efe801addb1559bc"
     sha256 cellar: :any,                 arm64_ventura:  "796be0965c3ac6791c1dc8b2a55ced73b935ce5d74ed1406a2561ae1269bc59b"
@@ -28,7 +29,7 @@ class FsUae < Formula
   end
 
   head do
-    url "https://github.com/FrodeSolheim/fs-uae.git", branch: "master"
+    url "https://github.com/FrodeSolheim/fs-uae.git", branch: "main"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -58,6 +59,10 @@ class FsUae < Formula
 
   def install
     system "./bootstrap" if build.head?
+
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-c++11-narrowing" if DevelopmentTools.clang_build_version >= 1400
+
     system "./configure", "--disable-silent-rules", *std_configure_args
     mkdir "gen"
     system "make"

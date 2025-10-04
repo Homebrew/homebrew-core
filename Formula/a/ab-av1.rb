@@ -8,6 +8,7 @@ class AbAv1 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "82ff422a8078b3f8a55e1f824df2a443549d85980c3d8cf5a395bdf2d6d2d631"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "054d32abb5e30883eba42437e7601f94b610c07fadfb3f843bb8a356cd4ff499"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93f75abbb34e3f11dc8b0102517d5a9769abf26e384ce0aa59904ecb5c78894f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8da4a26639bf8f8adca062321bbcae7452b0953801ddc89153bd06113452c921"

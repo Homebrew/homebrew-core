@@ -11,6 +11,7 @@ class Msmtp < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "b686be7fda6d731ca676842c9bc77494b5aaf609dd79752def7f8d651623f3dd"
     sha256 cellar: :any, arm64_sequoia: "63eed4d34a40306fae1029f3a6e7f1f72cc5177686b620577c42c2d6efa9e1ef"
     sha256 cellar: :any, arm64_sonoma:  "cfd986caacad5c5a535de055684861c6cdd5cf55becd1cb8a4ff15285f017f97"
     sha256 cellar: :any, arm64_ventura: "1a52f0f95089875b40abffa6b42659202da260f00216ba31230b067a2d11ba05"

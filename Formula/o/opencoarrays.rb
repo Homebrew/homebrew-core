@@ -10,22 +10,38 @@ class Opencoarrays < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e263b0b0243719cdaf1ef02de84c8d70c52b1ba4b75254e75eec540daba88fde"
-    sha256 cellar: :any,                 arm64_sonoma:  "8c6e809fff5e543d60f2ee038ca04aa99e398a69b3aec9db067249c84b2beef0"
-    sha256 cellar: :any,                 arm64_ventura: "343c2414094be734db3423e6c2fab208320996971c0475f27e9b4328e20307a3"
-    sha256 cellar: :any,                 sonoma:        "bf66d20a900e5b7880971a9d5c0801cc9b18f3f4fded8be925bf482fb9b86d00"
-    sha256 cellar: :any,                 ventura:       "6918670d6f5c0b401d2aaea00dc994ac8a5879ec7430c0212c058c7a8654f90e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "565fc597f9fee0da1af004bf3ac41b7b161468d4c6814e5d67fb2d3280a0a2ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3be56cc15f1203f55853c88f265444b90868d9228e88fc3c405b5219e401eab5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e5eb18fc59c6f475e11f404cfc5f6d05e856bce5e6513e5573001a644f9e2d74"
+    sha256 cellar: :any,                 arm64_sequoia: "4e5f645394d698c3f4b52fd2c57db55a78bf28de6b07c40df999681e96eb7620"
+    sha256 cellar: :any,                 arm64_sonoma:  "e643b4c38c1d09c076eb61ebe972256b0cbc83b59f0386007c00188aea83145d"
+    sha256 cellar: :any,                 sonoma:        "aab8992088d17d826340b910a5710062d3835b5df3c1d2e944245b4695940054"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06a03424802a7638edee660947add4dbe87e6bce8146047d7d7935f571e450d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a695a2cb428c5a6a651f5752ccfbd95f0fe60871107a4f449380192804874290"
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
+  depends_on "gcc@14"
   depends_on "open-mpi"
 
   def install
+    # Version 2.10.2 and older are incompatible with GFortran 15.
+    # Version 2.10.3 is incompatible with Open MPI when using GFortran 15.
+    # We don't support MPICH dependency as a single MPI is needed across formulae
+    #
+    # Ref: https://github.com/sourceryinstitute/OpenCoarrays/issues/793
+    # Ref: https://github.com/open-mpi/ompi/issues/13385
+    ENV["FC"] = which("gfortran-14")
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
+    # Run test in CI to check if issues mixing direct gcc@14 with indirect gcc in open-mpi.
+    # Avoid running on local source build as tests can be flaky (e.g. newer shellcheck installed)
+    if build.bottle?
+      # Ignore a shellcheck error from ctest if CMake finds locally installed shellcheck
+      with_env(PRTE_MCA_rmaps_default_mapping_policy: ":oversubscribe", SHELLCHECK_OPTS: "-e SC2329") do
+        system "ctest", "--test-dir", "build", "--rerun-failed", "--output-on-failure", "--parallel", ENV.make_jobs
+      end
+    end
     system "cmake", "--install", "build"
 
     # Replace `open-mpi` Cellar path that breaks on `open-mpi` version/revision bumps.

@@ -7,6 +7,7 @@ class GnuApl < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:    "ac779118bbc31c8c7d6a804a4cd19cc34d664fad471408988a67ddef9da6b754"
     sha256 arm64_sequoia:  "82e953cfa3843cb14c56353318d3396ec45c4c000a875a43b01a31d913d626c0"
     sha256 arm64_sonoma:   "f35c1f051bc4aad5808d2197eecf046d6b3a679eadd68e1039b55d7cfc8f9037"
     sha256 arm64_ventura:  "81b929cd47b448e036e52f937498d757daf450b909f201a1d1ea4ed32b643e3d"

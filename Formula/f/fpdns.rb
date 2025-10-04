@@ -7,6 +7,7 @@ class Fpdns < Formula
   head "https://github.com/kirei/fpdns.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "cfd337f105a4585d97bab5497bf08f839b6f7cfc9bc7fc0ef77f0b129b1cde3e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4e0d682473c047769e42d96bc148da4958e6e0f3cf7d7c21810246614da0b922"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3a486095c74d7d69245c053fe75de78305f5f7a78889b51c82b5c5abe6df4f88"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb77e083c32bc72c0f52807fd1ff356ef7fe5f2513e19e7a21df53fa714bd4f8"
@@ -17,8 +18,6 @@ class Fpdns < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "6449eb8bcfee73a6f2c8149075a8f9e04953cff9989a2622511190ddbb5649a1"
     sha256 cellar: :any_skip_relocation, big_sur:        "b0dcb11f28f97cf7ecb129a0e7ecbcd91bb8b60ffe9091fc690da73bf6a88b29"
     sha256 cellar: :any_skip_relocation, catalina:       "fcf157864bccda7f1064856e592acf3b6ef7d46c8dcd48aab66ceae5ef2b394e"
-    sha256 cellar: :any_skip_relocation, mojave:         "dadfa0adfbca40276bc951e541e3d7867d4550fcb552749dca37c95049830a84"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "0de082e3b044641f04bdc018b5a720c89f1ae3f24340c1bc6bfb88fbe0c3f79f"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "ff79574312db8c88bb48b85bc78955369b1c48338953aebd3f1e2f53e9b6d14e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "68319dfe4e90d4370c9571a6b540536ff203da441bdf83b387818a1c6b6eed8d"
   end

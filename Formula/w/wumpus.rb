@@ -22,7 +22,8 @@ class Wumpus < Formula
   end
 
   # checksum got changed and no response from upstream, https://gitlab.com/esr/wumpus/-/issues/2
-  deprecate! date: "2025-09-12", because: :unmaintained
+  deprecate! date: "2025-09-12", because: :does_not_build
+  disable! date: "2026-09-12", because: :does_not_build
 
   def install
     system "make"

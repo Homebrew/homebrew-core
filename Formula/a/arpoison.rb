@@ -25,8 +25,6 @@ class Arpoison < Formula
     sha256 cellar: :any,                 monterey:       "efb931a73eccda7ae706e9138112c9ecb898fd09c42dcb0876b85899734eb93f"
     sha256 cellar: :any,                 big_sur:        "2009a1bff74b3d6e4fd4eb5f76ce104473e1c322e2f666cf3f5962de2bc99a0c"
     sha256 cellar: :any,                 catalina:       "550588e02ce0eb78b47d2d2f9e8b863c29761667aca72e4ad0c0810b13682d9b"
-    sha256 cellar: :any,                 mojave:         "c97bb55590119dbda338a24e634f9089bb3e43889a810a7bece231d6304b7bcf"
-    sha256 cellar: :any,                 high_sierra:    "ee2eedf6780546bcf4610984d36a773300c5528122d08b7873b640a51f76ee56"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "75d63e2ad84b69dae9d22fde3a7a2faaa8f35b67766ae1ca1e7c7fcfd79de484"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d1b74e30daecd8e66750565482b964566fbb0b323f86f360de9f0b1ad332cec"
   end

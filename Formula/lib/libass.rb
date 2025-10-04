@@ -6,6 +6,7 @@ class Libass < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b7b56025da7bfcff9b6d784a2a8179d05f820d9662b67366173c99b3336c3b32"
     sha256 cellar: :any,                 arm64_sequoia: "d097cb72eb4e70bce4ca584649fa8874e4407da3067d6faa0dcc89013ffe1743"
     sha256 cellar: :any,                 arm64_sonoma:  "e24acdc3f1045ed1185c18c3aa48b79bc974df9ec00ebebfa6df2efdd457d9a9"
     sha256 cellar: :any,                 arm64_ventura: "b7b2a447ccc5b838711fdae09c3f01c893ee2e0c81154dcc59efa929280c8550"

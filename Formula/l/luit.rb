@@ -11,6 +11,7 @@ class Luit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d986c063be4b909b0d9d114e025ce89eecd6797a01330a94b0fdc8989ced7354"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "445930198971ca03c36a2f98cf9c86ee055aafcc5deda6b568df75938c1ca852"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1e56ae508014af8c4a7a3fc1ccc656672c5abffa4ded9ded3272006adef3538"
     sha256 cellar: :any_skip_relocation, sonoma:        "fe568b0437c8ecb441292f60d1d354192068ab9aa14f33e6c794796fe4946731"

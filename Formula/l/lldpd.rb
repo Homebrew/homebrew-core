@@ -11,6 +11,7 @@ class Lldpd < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "e1ad496e50ccec168747844a5f730a803987f539975f2a4ae02f2812b1c29de4"
     sha256 arm64_sequoia: "15dd2c95d8710eb6f5bff4a987743ef90153b4ebae141c95e17518fb90b5e0fd"
     sha256 arm64_sonoma:  "2b8909dc507549a6d2b92f0a39fb11a80493314d2eb38a8fa4c1dea8111a3c76"
     sha256 sonoma:        "987dc4b723aab6eac64564a3ab0cd92aabb552c7d686b028d01890e3118fd40a"

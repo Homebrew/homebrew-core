@@ -11,6 +11,7 @@ class Omniorb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c969488dc74c05abf3e0e5c5a800698abb93ef6b0934edc6dc1ccdb313770b56"
     sha256 cellar: :any,                 arm64_sequoia: "e7abf96e7284d7abf7480684e14abf446fbe20776591a9d4eb64bfcfabf3cf25"
     sha256 cellar: :any,                 arm64_sonoma:  "0062f041ee755a5499bcad12c6d304a5f84b77de5633d5fd9528b6a6035900e4"
     sha256 cellar: :any,                 arm64_ventura: "06e5fcc950f5bd8934951855e1acbca7a18777d99ca2073218ee13e888b24cac"

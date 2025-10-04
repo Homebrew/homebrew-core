@@ -9,6 +9,7 @@ class Mpg321 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "4582777d133873930312cc1c4314d0997e3219f582b07c771a4f413b5cb0cfc5"
     sha256 arm64_sequoia:  "ed6f4de0b208b65bdc562fefd7f6cd8dbad5b6489b52bc24b4bf9109de4b6f35"
     sha256 arm64_sonoma:   "00b92592cadd767c25fe24941095b6f6f088cf319b25ab78a83d0a75797e7a43"
     sha256 arm64_ventura:  "963826c2df80f72ba7e5ca28ca63c29484ce57dee4056ab4e54677e166a2f4a2"

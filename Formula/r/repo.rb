@@ -19,9 +19,6 @@ class Repo < Formula
     bin.install "repo"
     doc.install (buildpath/"docs").children
 
-    # Need Catalina+ for `python3`.
-    return if OS.mac? && MacOS.version < :catalina
-
     rewrite_shebang detected_python_shebang(use_python_from_path: true), bin/"repo"
   end
 

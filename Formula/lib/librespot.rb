@@ -7,6 +7,7 @@ class Librespot < Formula
   head "https://github.com/librespot-org/librespot.git", branch: "dev"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4a5eff7a184388970a8d538f9018d9a2e2682b7d113f6886269bbc26c0b061c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "95b5b73657b6c6319da0b199ae7e509e8fdd6835e41af52e06537635bb0bbf78"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5283db5fd6dd968215ed62f6385c2301a310fab98c20891f90dec0b53c35dff3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "af56224e37d14391051f7f5710e00c76170b099bb50f72a341f56415af650430"

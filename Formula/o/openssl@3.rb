@@ -1,9 +1,9 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl-library.org"
-  url "https://github.com/openssl/openssl/releases/download/openssl-3.5.2/openssl-3.5.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/openssl-3.5.2.tar.gz"
-  sha256 "c53a47e5e441c930c3928cf7bf6fb00e5d129b630e0aa873b08258656e7345ec"
+  url "https://github.com/openssl/openssl/releases/download/openssl-3.6.0/openssl-3.6.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/openssl-3.6.0.tar.gz"
+  sha256 "b6a5f44b7eb69e3fa35dbf15524405b44837a481d43d81daddde3ff21fcbb8e9"
   license "Apache-2.0"
 
   livecheck do
@@ -12,16 +12,14 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7c99266a207a94a8e478ae5c23332683c3d70e32edca3a4f2441a4c968401511"
-    sha256 arm64_sequoia: "4066d7983ad535f0e460fc340f343f9de933073882470d5ea968b18698b2777c"
-    sha256 arm64_sonoma:  "c52ef84abb4c58734add7475eafefd91890f7b56f5d4e2271a1ad6ddc40f5ef5"
-    sha256 arm64_ventura: "13545dea2fcfac0542556f969011892b2e0001b5ef0b71a787ca4ad714567ef5"
-    sha256 tahoe:         "126f37678bbdca3e23357b69af1b3f24d6d17628ffed272ea0a052e62e741c0b"
-    sha256 sequoia:       "13d2f6fc2b05e14af0351797e8605bd8aee8888272d8205632f6c981be7e2518"
-    sha256 sonoma:        "dcbc84c30251575424915590a347d12f89088e055a76da319422f887d9e71faf"
-    sha256 ventura:       "b51da4aaa601358273a5161c8aea4b19998ac1c48224a4b067c4c3e5475f9482"
-    sha256 arm64_linux:   "d7f7244863cff02f6e0fc002d50dc7031b36186c036e7d42233ab87dff8ce018"
-    sha256 x86_64_linux:  "df175dfc2681763571f5f680110f82343336171eca4220c8db401341b39dc87d"
+    sha256 arm64_tahoe:   "932329036867164c28752b7b35f7808530b8cd79b72246bf122f36219a79d388"
+    sha256 arm64_sequoia: "9a8fa2ae1ef3424b116d7e6422d979e0290f4affdef072b1592e4535d2617d92"
+    sha256 arm64_sonoma:  "055bf163fbfd98f5de31c25b1e8cac41129d3cb21581843f7ab30aec0c35bdf7"
+    sha256 tahoe:         "422323a6751ed7c4c198d97362d8967e20379daa287db7e8311ae036b9842d62"
+    sha256 sequoia:       "a015d2e06290484b37547a57b60c6bc5bd45be0479e0c58529ffa4359a3f6225"
+    sha256 sonoma:        "cdf6125ff77ed7709a44a0ad95918801a3cfaadedbb66c781db7ccf9ab4fae58"
+    sha256 arm64_linux:   "257a655d8fcb65f1a7b2a0c4ae4cb7c8152454dacc806d7e24bc7457b299829a"
+    sha256 x86_64_linux:  "dae10cea048eae154365f18fc51154093f8ba378ace3fe138f89dda08bf09e4e"
   end
 
   depends_on "ca-certificates"

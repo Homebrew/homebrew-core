@@ -7,6 +7,7 @@ class NovaFairwinds < Formula
   head "https://github.com/FairwindsOps/nova.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "027a219c228a63eb1b4ead35ef84d68bdb0270e0e80bde5eec80012b7215cadf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0307938adcbe20d13815700636303b9d9472f21a6b7b3988db8dba15dd96932d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0307938adcbe20d13815700636303b9d9472f21a6b7b3988db8dba15dd96932d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0307938adcbe20d13815700636303b9d9472f21a6b7b3988db8dba15dd96932d"

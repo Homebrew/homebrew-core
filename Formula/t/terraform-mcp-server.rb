@@ -1,24 +1,25 @@
 class TerraformMcpServer < Formula
   desc "MCP server for Terraform"
   homepage "https://github.com/hashicorp/terraform-mcp-server"
-  url "https://github.com/hashicorp/terraform-mcp-server/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "6148a9099899fab41a818bd905b8c6f495ceb5105d3611d3192b2e677924778e"
+  url "https://github.com/hashicorp/terraform-mcp-server/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "84255e60722620888b6742df56921f2f2762c74450d17efe5e418fd682644945"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform-mcp-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09fcb010bd9a7ad7ff6cb419e91450bee614defc1fa7ed618687174950f90038"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "85b50aae2663e7e4a1c5d5a9e4345a72c6397071bedba5bf04434878c1476c3d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85b50aae2663e7e4a1c5d5a9e4345a72c6397071bedba5bf04434878c1476c3d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "85b50aae2663e7e4a1c5d5a9e4345a72c6397071bedba5bf04434878c1476c3d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c1a3958a4c37f03e795d30a76627439ec3687f7b658a5a429180f668a25bb8e5"
-    sha256 cellar: :any_skip_relocation, ventura:       "c1a3958a4c37f03e795d30a76627439ec3687f7b658a5a429180f668a25bb8e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "993966ce6b21dc2346dab463134e347c792eab4a61dc00919e8c8e71ced03d9a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "43943a4cafaee84416c5fec9a4eae9d13f2c8e2b5b093be37d360e3fdd1d9ffd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43943a4cafaee84416c5fec9a4eae9d13f2c8e2b5b093be37d360e3fdd1d9ffd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43943a4cafaee84416c5fec9a4eae9d13f2c8e2b5b093be37d360e3fdd1d9ffd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe38456b2d9673330a1637034ac3db723292f0e9a1a5c50c923f43495221efbb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b5ede2e3dded083b30a683fec6812e3e7410d2c9f38964b48f64052989b1c7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d7f14c4685ebb6415444e6020d795290eb1564e1245d464cf8b1d7e2fb6ae8d"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -s -w
       -X github.com/hashicorp/terraform-mcp-server/version.GitCommit=#{tap.user}

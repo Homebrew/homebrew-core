@@ -9,6 +9,7 @@ class Libquicktime < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "b6c8fa466534babc330306dd0c67d83ba0e495764ae40900195ddac192971777"
     sha256 arm64_sequoia:  "2d881bd765e84918db5865c5657a0399edb7908b5ee152cbe9cbe0fae4e3e83c"
     sha256 arm64_sonoma:   "97c76d5834a9f3d1279ac572e16ed5d0eb914c01562bd9c54c55e885ac88711d"
     sha256 arm64_ventura:  "9d47d49d00864f37daf0da37928b837402d98cb86205ce67bd31589e522cd2f5"
@@ -19,9 +20,6 @@ class Libquicktime < Formula
     sha256 monterey:       "9ea15abf7204b11e955001777e677f8858a62d9eb94e9ac98e2bc107aa260f55"
     sha256 big_sur:        "4a9a12712bedaa0ca62394a26ae842f64b4ef86108fca99c2e1712c6a7e7d9c4"
     sha256 catalina:       "33d7a1146846e30e48e637ddd64f3e7541728df03becf8175e798a8fd3eb3bab"
-    sha256 mojave:         "56165e3b70f7e444bca93369b3fa4602eefb1aa4b9624ed1ecbaa4741eb7c245"
-    sha256 high_sierra:    "df1b207f23b3edc587629a0fd700a446d4f8210e6a7de3bbfd3d5c122cef16f7"
-    sha256 sierra:         "1770ac237a79cb0d9ae918e4bcd6d92bcca6a6695823f7a3fde6dde7d3077acb"
     sha256 arm64_linux:    "dc03dfa9bc5df60e0dbafe21632ecf596a95adbba0306ed86e6c1673312adc0f"
     sha256 x86_64_linux:   "3c5ec43c6051163260865415f7a3fc0b32b7ca6b49e56ea999ac1fe4119c75d4"
   end

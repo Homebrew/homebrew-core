@@ -16,6 +16,7 @@ class FfmpegAT28 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "7283cae85b5f5e67c2a651dc5f8b91128033c6b7328361adbb951e15e1f691b6"
     sha256 arm64_sequoia: "66758ba4e8df1a54b6b14c165eaec57332e1de2afae5c2296bdfd1aa94d4b507"
     sha256 arm64_sonoma:  "35060e5c989c22c0a9eef15ede9422aed7f98bb86a7acf2647f9a164fc79ac7e"
     sha256 arm64_ventura: "48b23738acea1da8e3ae59ab7ad6e9f49e4a6baa06804723a8d0729c7fc0aac2"
@@ -116,9 +117,14 @@ class FfmpegAT28 < Formula
   end
 
   test do
-    # Create an example mp4 file
+    # Create a 5 second test MP4
     mp4out = testpath/"video.mp4"
-    system bin/"ffmpeg", "-y", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
-    assert_path_exists mp4out
+    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
+    assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
+
+    # Re-encode it in WMV2/Matroska (HEVC support is still experimental)
+    mkvout = testpath/"video.mkv"
+    system bin/"ffmpeg", "-i", mp4out, "-c:v", "wmv2", mkvout
+    assert_match(/Duration: 00:00:05\.00,.*Video: wmv2/m, shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
   end
 end

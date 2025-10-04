@@ -8,6 +8,7 @@ class Weechat < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "3760a027b13f43e0000b45063464b4b7f738fc7f15c1718c3643c81233d1fc5d"
     sha256 arm64_sequoia: "49b2099f0a1e8a5e1e0956d2f12091b1795501ecaaf566c60434ea37f7af67d0"
     sha256 arm64_sonoma:  "f71b979b629e34ab7ed293804d603a38f1655684c74b8aacf7ee1db8f3e2ca14"
     sha256 arm64_ventura: "71284c1d91c338d6b7260c4f06357fe25da1422d4861a335a2238e1df9dd55ef"

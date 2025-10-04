@@ -1,27 +1,23 @@
 class Subfinder < Formula
   desc "Subdomain discovery tool"
   homepage "https://github.com/projectdiscovery/subfinder"
-  url "https://github.com/projectdiscovery/subfinder/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "d4273408c6eeeb9e69fe04e5d7400247502575841c79371dc680fc6b2e3aaaa8"
+  url "https://github.com/projectdiscovery/subfinder/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "90337a91df2924ee385ca048862643d1daab6c7d81ddda66d58e6c100df3ba2d"
   license "MIT"
-  head "https://github.com/projectdiscovery/subfinder.git", branch: "master"
+  head "https://github.com/projectdiscovery/subfinder.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5480d18f26f0a7f42d10cee406cb6eda4978315581bea9644d29d3cfbf71b5d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4bb33f0b28d7c5a0582927b1fbb47543dfc495af2f8ca6b8ac36585e6a061b7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d016d52ab0e1fd1a47cbcd4175d16436f0fc148e0883ce021324ce5f149b4ec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7284c7ab3e13f87e17c2ca36d4f52ac2a1fe9fff5a1182d50e88e3de2498ff59"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8cf9736a33684adcb7efeca52e55e01777f05927b4e5b97ae2fe2fbb882b297d"
-    sha256 cellar: :any_skip_relocation, ventura:       "8094944b73a10f682b0b915b8f4978490cc895f237d1c40e3e2794f6ad07d35e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbf3866c7396c20b2684c1883edf264c2ad8df5eaf9b8e9ba02f7f07ca8df4f0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d64760336155d22c5ef72eeb907dc73969992cc9d5f86fb68f5fb9f5d3553f64"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e1ae86daad76d90829041cc7d826808def24abbbfe148dc5b0780df3a61e1b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "844e40d933ab2a261aae0deec7e20b53e52e9ed735742cbb5586cdc5e2e99690"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7e2039c4056b2893d3de6557a113c33c53f5dd34e9e89e3a8a260d7337350589"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f431031aea8794558f1bd04e41e399cf017ad0eb180a4d20bab4fde6fddd6284"
   end
 
   depends_on "go" => :build
 
   def install
-    cd "v2" do
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/subfinder"
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/subfinder"
   end
 
   test do

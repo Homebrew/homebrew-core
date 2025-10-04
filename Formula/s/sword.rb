@@ -25,8 +25,6 @@ class Sword < Formula
     sha256 monterey:       "47de7e7639fddd186eb0c2c806149ff7c2bbf90837d78bf3f912958f4a4afeb4"
     sha256 big_sur:        "85fd915531e0d5afa3ca380be523b09dd6c7ef4085ac4c7e26fc09e81c945228"
     sha256 catalina:       "65d2da4bfbc5517b4fba2d4da6a4b57ff2429126041c59ee83ad29886df71d70"
-    sha256 mojave:         "84420513bcd1215cfcee1737022551b86d80059a0dfb1de6fc82dcec050280a2"
-    sha256 high_sierra:    "42b2dfd8162cd7b96efeba4da340df7dafae5f581be6c6bbb47f37a07bd9f66a"
     sha256 arm64_linux:    "6edae24de2963c263914a334c7c7fee5c10b96f39af75a937df2bf8fff578a8f"
     sha256 x86_64_linux:   "d24c458654c45c7746615daf3627cd11c1a805ab2eac215f3d9c935575510a0b"
   end

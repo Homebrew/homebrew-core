@@ -15,6 +15,7 @@ class Gnuradio < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "22772ca0e646dd005f4d3cc877f70e37c3db0ef4345c8c5a896a086c6ae6e9ab"
     sha256 cellar: :any,                 arm64_sequoia: "63d6e3bd27704e5aab78c7bd5973dd50a2de768944609810329e43b69a149e03"
     sha256 cellar: :any,                 arm64_sonoma:  "7d2bd04c922373f4b4cb73a35a2967b9c72f459ec8d4f7206664e754e6246f02"
     sha256 cellar: :any,                 arm64_ventura: "84d3b06ea74c3b27b885e769b4c17a4d7cbce19db8e2802a2f721cdaf5878e36"

@@ -9,6 +9,7 @@ class Picocom < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "01b35b20e38a3e06f20de103d7d5b371386fce19b8bab8d6869886c5eb09f329"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "87020c916b8770f7458f4ab8323909d2ed5e1d48706507a2a262289f741ab627"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3a7594ede879b71828a7e5b36cdcccb7e208001d4514c4c8e8367146d561c7ff"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "10704a0718469ac5d0d1b0774341b0c24d9ddeb1a5e6d2d12deb916d27bc3506"

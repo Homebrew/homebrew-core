@@ -7,9 +7,6 @@ class Carla < Formula
     url "https://github.com/falkTX/Carla/archive/refs/tags/v2.5.10.tar.gz"
     sha256 "ae2835b12081f7271a6b0b25d34b87d36b022c40370028ca4a10f90fcedfa661"
 
-    # TODO: Remove in 2.6.0
-    depends_on maximum_macos: [:sonoma, :build]
-
     # TODO: Use `pyqt` and `qt` from HEAD in 2.6.0
     depends_on "pyqt@5"
     depends_on "qt@5"
@@ -21,6 +18,8 @@ class Carla < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "493fbcb8c43cedb7fbe4157bec19026f746b3d8ad7210a5de6641fc37dafb746"
+    sha256 cellar: :any,                 arm64_sequoia: "f7579dbd7722c9c891562025a5087c85a09925b3a02921df731412f6d340de14"
     sha256 cellar: :any,                 arm64_sonoma:  "e68c44affb1640960ee3a5523a637b149d5426ca0e40cc8434c1c93c81fbed9b"
     sha256 cellar: :any,                 arm64_ventura: "ecbea509ddf5ef1074d5838e01669a49d48c24baf4ec10d816d894cb39830b7c"
     sha256 cellar: :any,                 sonoma:        "768c0fccfd67bafa8c1e23bbf0531ae88e3f756d4d074079fbad4c7c2b0fe202"
@@ -53,6 +52,12 @@ class Carla < Formula
   end
 
   def install
+    # Workaround for https://github.com/falkTX/Carla/issues/1926
+    if build.stable? && OS.mac? && MacOS.version >= :sequoia
+      odie "Remove deployment target!" if version >= "2.6"
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = "14.0"
+    end
+
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
 

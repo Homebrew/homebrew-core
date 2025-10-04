@@ -23,6 +23,8 @@ class Wxmaxima < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "cc11b4097517d7f5703e8f68fce4584e1e0bc54608d734c8d1d0375635dad68c"
+    sha256 arm64_sequoia: "ec8ca3fae6f7edc7593eb84c6c4216f9ae2dd4a3c014dbb7553acd78e3302e3d"
     sha256 arm64_sonoma:  "7d82d9ec873119248214f833fb7029eac8875aa57c5701a57370b44f76e3cd58"
     sha256 arm64_ventura: "d557599c3b3eefd79b147758ca60611e9b6d57e57c1e41c004140e418d2205d4"
     sha256 sonoma:        "24fa662cd77d0dd9f745942e8c1b74467b3711e03f13b9dae6f087687abaec69"

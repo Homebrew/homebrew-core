@@ -3,13 +3,12 @@ class Scons < Formula
 
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "https://www.scons.org/"
-  url "https://files.pythonhosted.org/packages/c8/c1/30176c76c1ef723fab62e5cdb15d3c972427a146cb6f868748613d7b25af/scons-4.9.1.tar.gz"
-  sha256 "bacac880ba2e86d6a156c116e2f8f2bfa82b257046f3ac2666c85c53c615c338"
+  url "https://files.pythonhosted.org/packages/91/ff/2c0bab6e1fcd837c52afd99a37e0cc16f2e1c970d313c3d4bc10b5c047f2/scons-4.10.0.tar.gz"
+  sha256 "61e2fc42e0e2c750105d61f26cc1dfebcae9f4103d3dc0e9aeb373016b0d208c"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "b11d27d96f9c7e04dd36c8f4b750c0da9c4c0f8a34c778cdb9154280cff8c1ff"
+    sha256 cellar: :any_skip_relocation, all: "5761c79c411a73e5e65e866bbefcf0c2b040ea14a75c1b607cbaec465ac7d2aa"
   end
 
   depends_on "python@3.13"

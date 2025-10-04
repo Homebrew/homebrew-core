@@ -11,6 +11,7 @@ class ClawsMail < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "9a5ba88479f83d1f077cdb054acbaf51cc275172b3e0886bf8918a4d7cd73c88"
     sha256 arm64_sequoia: "f08e86cad864b6ab6f0693ce3cc7de801eabd3adff964961a06a3fab48a144ab"
     sha256 arm64_sonoma:  "d1de6f91523ebe6eaec2e2742aa8d0db011603e93b1e48a892a7e6c7f3e2d7a2"
     sha256 arm64_ventura: "bd11011eb704199e5d74c02ec1bc6ba4b33df94fe3d1998c121cd3e6b00b5ac2"

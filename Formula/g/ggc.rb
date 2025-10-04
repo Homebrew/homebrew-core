@@ -1,20 +1,18 @@
 class Ggc < Formula
   desc "Modern Git CLI"
   homepage "https://github.com/bmf-san/ggc"
-  url "https://github.com/bmf-san/ggc/archive/refs/tags/v6.0.0.tar.gz"
-  sha256 "c7a19b0a2e7df4b1f43e2d56cc49a0268138af16a9cbb949f2eefdafaa0581c6"
+  url "https://github.com/bmf-san/ggc/archive/refs/tags/v7.0.1.tar.gz"
+  sha256 "3cf10e9d009b008f0730f72583d291b5b6a9c3672de018065b828266aeb86758"
   license "MIT"
   head "https://github.com/bmf-san/ggc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47f5ea5b465f1e39ef7e0a1bd1e6e014b38bbca700f7473b80a81498e8d45536"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47f5ea5b465f1e39ef7e0a1bd1e6e014b38bbca700f7473b80a81498e8d45536"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47f5ea5b465f1e39ef7e0a1bd1e6e014b38bbca700f7473b80a81498e8d45536"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "47f5ea5b465f1e39ef7e0a1bd1e6e014b38bbca700f7473b80a81498e8d45536"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d5fefe8afd183d71dbdef8c32e077d05f3f742362c96d0eac342fc981ef15c91"
-    sha256 cellar: :any_skip_relocation, ventura:       "d5fefe8afd183d71dbdef8c32e077d05f3f742362c96d0eac342fc981ef15c91"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b8d44d63c68828d538cac6559a46db24e51489a302bc6ec056184485c355f1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f76c9290b6f83a1ea8ede1e7903de5668abd5a51103485e5b79dd6395e6d87b9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "40482d63bbbef70d86c68d28c0096f9593a8898280617d2ec0c22d66eacd56e4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "40482d63bbbef70d86c68d28c0096f9593a8898280617d2ec0c22d66eacd56e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40482d63bbbef70d86c68d28c0096f9593a8898280617d2ec0c22d66eacd56e4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14718680571a87f7e951e2816398370abbfbebe5227267a6b31b4ea44ca6295e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "80c4096165d073d7a09db61cca5482dc1cfee447f9202a3edd26cebcb3e23c92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "427f1a767b44aa0638e9f3b1766460aa24cb33e81dd69a7e98a928474f9fb8c1"
   end
 
   depends_on "go" => :build

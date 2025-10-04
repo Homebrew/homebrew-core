@@ -1,18 +1,17 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.net/"
-  url "https://github.com/nco/nco/archive/refs/tags/5.3.4.tar.gz"
-  sha256 "265059157ab4e64e73b6aad96da1e09427ba8a03ed3e2348d0a5deb57cf76006"
+  url "https://github.com/nco/nco/archive/refs/tags/5.3.5.tar.gz"
+  sha256 "f2373b68279ff48b5cacf431f6a9f459bae75dc58d76f74cbff0834938aa6224"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "02353f717e8ed2035866788430a1d0ba3a1d5b42116cf6e6e1dfae9aa3f2d684"
-    sha256 cellar: :any,                 arm64_sonoma:  "d6be5813bad218baf0b2ede0da1841afd8e2274564a91e069c54b243a3461671"
-    sha256 cellar: :any,                 arm64_ventura: "3cc3c1d2ee8d9c1995669a7e06415240bfc4a4845de33adca2c56599866279f2"
-    sha256 cellar: :any,                 sonoma:        "194152055d5fc9b86143adfeebeecd55169f33b7f57b58af57824bf801dd9f47"
-    sha256 cellar: :any,                 ventura:       "e4b5d0ac54363a9ca27c0431db1618890390f8b7fb4d4c5b043addb59b8af559"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "92805e74df3f254369b7fb60e6b35eece0fa5e89093bb0956909d0c632699efc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35c67b790ad4f58cd758283451f25bb05b85c2b54355967f849469c74ab8995c"
+    sha256 cellar: :any,                 arm64_tahoe:   "f7a7027eb6b1f10336f625e842dcf6e67b3b44c70bd0ec1ab1100943a14f510d"
+    sha256 cellar: :any,                 arm64_sequoia: "990ced2127241ba5e013822466b3ac4ae555574eea95a162f545714ed5136d34"
+    sha256 cellar: :any,                 arm64_sonoma:  "4bd2f8b04c8a3bccd095051a7cb5562f28bf2c309cd2b03358e411e6bca1dab4"
+    sha256 cellar: :any,                 sonoma:        "fc75f6acafc3ab3b02aed373a276eeb1f6c490ea71aa145cffe2a415a080f6a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "17c785b9fe80b0eb50c8b922099f99b8619b01af4123c90a41d618e64125fdca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afdd61af2f8aa553149fd3d0e14a41b78491881e52497fa7a21137ce0b48f64a"
   end
 
   head do
@@ -68,7 +67,7 @@ class Nco < Formula
 
   test do
     resource "homebrew-example_nc" do
-      url "https://www.unidata.ucar.edu/software/netcdf/examples/WMI_Lear.nc"
+      url "https://archive.unidata.ucar.edu/software/netcdf/examples/WMI_Lear.nc"
       sha256 "e37527146376716ef335d01d68efc8d0142bdebf8d9d7f4e8cbe6f880807bdef"
     end
 

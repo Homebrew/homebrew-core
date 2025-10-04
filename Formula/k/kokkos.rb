@@ -1,8 +1,8 @@
 class Kokkos < Formula
   desc "C++ Performance Portability Ecosystem for parallel execution and abstraction"
   homepage "https://kokkos.org"
-  url "https://github.com/kokkos/kokkos/releases/download/4.7.00/kokkos-4.7.00.tar.gz"
-  sha256 "126b774a24dde8c1085c4aede7564c0b7492d6a07d85380f2b387a712cea1ff5"
+  url "https://github.com/kokkos/kokkos/releases/download/4.7.01/kokkos-4.7.01.tar.gz"
+  sha256 "404cf33e76159e83b8b4ad5d86f6899d442b5da4624820ab457412116cdcd201"
   license "Apache-2.0"
   head "https://github.com/kokkos/kokkos.git", branch: "develop"
 
@@ -12,14 +12,12 @@ class Kokkos < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c1fd961cffceba68298022156feea4be131a567e25a729a8fb5f718cb93aa1f6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39797d15372aa7af10e5550d93a86dd0c84a88a95e4466bc74555cae81b2a1c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "296ba09f08e88b0ae13f81d8cccaaa29c14578b27742fb290af5818acf54f0ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6e844cafaaf72cafd6d230437d95c8ca41dd0d8fe4cf41c98ad386b275640c61"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fd82ca6dcac67fe4c1aa34ff3fe6e19e89cf6cad4443743ee08a59a541984331"
-    sha256 cellar: :any_skip_relocation, ventura:       "a53bac49f0ca38255e8cb07f94e834b8b9d0fbd2b86d867f1729b804f41118d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "419701c3eb2ddcbb4266393fe80286ae22183172f6d10e9ba90fa2bb5cfce840"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2c82880246d0f1fdc8de55176c0e7b19c073dd56b549475d0f42c040491b481"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9000991d4e73900384ce718c2ffb3fd54ca9897e61b64cbdc7912ecfbf28e60a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7faf47f3685b91d2bacee7333f3bbe4f382adf077743e29368aff6beefac4ee3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a9bb59190dc1969c205ca26717572f0b8b28cd652eeacd94324b816720cb9f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "84f8d30a1d815b45de40a1eab1725e6072935d629a41fdd28a1304c411fa4d01"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8986f9c376c4555ae7d1bcdd058637eec4f0816a0dca32dda2fd51d24b0bf5fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5f0ce6bad4a2e2d1fe35d46d3bddf3f3eba4b7ec00998195bc1576d374346d5"
   end
 
   depends_on "cmake" => :build

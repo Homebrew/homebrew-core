@@ -14,6 +14,7 @@ class Ronn < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:   "d0a7ef5679c656bfa534874696403b31250acb374aafe0c6f6c7a4f18d6e6904"
     sha256                               arm64_sequoia: "ae47bcebfb7b492d6a6aa8f9dedcb248c79f657f37dd851b8148299120750253"
     sha256                               arm64_sonoma:  "2aa277c67249e543b65df95bd8ae64e88276b8be25497c27edf923aa20933049"
     sha256                               arm64_ventura: "4a5a015611099aa8618e53d517cbb481528383ca8a7bcaa9a9684d403378308a"

@@ -13,6 +13,7 @@ class Plplot < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "8299e82b21073d81694f33383bc0dd37931cfc8f468be9107b8c7b8fcd1cf501"
     sha256 arm64_sequoia: "9305edca28268f6aed4efa7da578545c70d5feec4c2161da9f0e60aca9d3ace0"
     sha256 arm64_sonoma:  "bdc0cc407dee50cc18fe7b6b37db420f9331acb5b63b534931337fa151bf1d95"
     sha256 arm64_ventura: "93efe317d3c6e9e265061402aec9a37c332d15420261e47faa3a5c3f06a4aa02"

@@ -7,6 +7,7 @@ class Medusa < Formula
   head "https://github.com/crytic/medusa.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f4f8ee6c825f3410765b1206c1ed2400adf6c5917f90b6a1b31098ed9aa9fa8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "55669251472eb968d7371ca43fd5d87c9f95ac572a7218b0b8242ba9bf8e80a9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7e8120b2c49e2b9a0992ed30813fa43396772783b7007e713fcb6aa7a7688df"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "725187f724421b05db7d16428c27852f5915c8c059de085ea17b71e8368ab589"

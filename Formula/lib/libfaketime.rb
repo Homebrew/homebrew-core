@@ -22,7 +22,6 @@ class Libfaketime < Formula
     # See https://github.com/wolfcw/libfaketime/issues/158 and
     # https://github.com/Homebrew/homebrew-core/issues/26568
     depends_on "coreutils"
-    depends_on macos: :sierra
   end
 
   # upstream bug report, https://github.com/wolfcw/libfaketime/issues/506

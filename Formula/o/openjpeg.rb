@@ -1,20 +1,18 @@
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "https://www.openjpeg.org/"
-  url "https://github.com/uclouvain/openjpeg/archive/refs/tags/v2.5.3.tar.gz"
-  sha256 "368fe0468228e767433c9ebdea82ad9d801a3ad1e4234421f352c8b06e7aa707"
+  url "https://github.com/uclouvain/openjpeg/archive/refs/tags/v2.5.4.tar.gz"
+  sha256 "a695fbe19c0165f295a8531b1e4e855cd94d0875d2f88ec4b61080677e27188a"
   license "BSD-2-Clause"
   head "https://github.com/uclouvain/openjpeg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "067359d0cea7d7a3753b70647f92f312b9c5f45d718780c4224865acd4c7e776"
-    sha256 cellar: :any,                 arm64_sequoia: "a8091181f4cdd66cc41e7c4bebdfb205c70fc52c069f8ddfdc26bc91e3fa417a"
-    sha256 cellar: :any,                 arm64_sonoma:  "9597528b11f6ce50ea16e4b3baa4ff13dc018bccb63f9f8a8b788a5378059dcd"
-    sha256 cellar: :any,                 arm64_ventura: "10a4d7d2b3201baa4762b09a3d399361a11685706e5428cd003d02489cf158b5"
-    sha256 cellar: :any,                 sonoma:        "9c66e3db546bab6fbc2f277075f9a49f1bac10f757f1150e7820f63157c43f24"
-    sha256 cellar: :any,                 ventura:       "5619b9551a495ddbe261ccbcf9e1e457c1eaa920b1e56b7af38775545c106bfb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bacf020994b0d334e1facae54af915d11d5cab319e745f4db5f9c39cab270758"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccea9d571cc6a31c0d32b38608d8507f7b90b555faf276d61375844c6d38205c"
+    sha256 cellar: :any,                 arm64_tahoe:   "e9becf9b440b08fd771dbaa75d4f5b06a49119f9ce163e6ad08f272f4f3b9c9d"
+    sha256 cellar: :any,                 arm64_sequoia: "8e3ac331458daccf876225a4236bad7d28689ea197c6bb7d2640ec47d78a510d"
+    sha256 cellar: :any,                 arm64_sonoma:  "0eff9d5aae88cd27eaaedb4a4f56804ae14c4ed9df1c856846ff81ebc3dcb4c2"
+    sha256 cellar: :any,                 sonoma:        "29b22e2c699765b32b3511f65bd87f6860d6bbf5f5f75e3b3ed5e268f6a547bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b570231cdd2898452318819d0dc97662145a463e0ba3162a113163e0f0066e2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea1906cdeecd5edc87703596cc084dc305834b030af3847a8520f9eb8566eb1e"
   end
 
   depends_on "cmake" => :build

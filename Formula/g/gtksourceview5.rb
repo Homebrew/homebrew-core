@@ -11,6 +11,7 @@ class Gtksourceview5 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "dc47606253425fa7daffd8d1dc0bd26e859ad9fe09a291ff5f422b3f69aec028"
     sha256 arm64_sequoia: "31412b744f83cd14f5ea90decb0247c0e3030251c02508a235ac24dafbc34e2d"
     sha256 arm64_sonoma:  "09f6fbd7eccac73644ac751a32ee33cb51ad5974e872b688c5e291ee60b2c26f"
     sha256 sonoma:        "9fafff0c60954a22c83975374b66bc6288964921149ff699da39455cb73f70b0"
@@ -29,6 +30,7 @@ class Gtksourceview5 < Formula
   depends_on "fribidi"
   depends_on "gdk-pixbuf"
   depends_on "glib"
+  depends_on "graphene"
   depends_on "gtk4"
   depends_on "pango"
   depends_on "pcre2"

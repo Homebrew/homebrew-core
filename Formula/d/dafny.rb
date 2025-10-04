@@ -6,6 +6,7 @@ class Dafny < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e05c17dd373fc4990bfdbb912d8fa47eb1981a5fd34ec150283f53eddaa0c9e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "296346300fcb84014e88bcd5e6a43a3f59c1f5b90f6c4f9c9ff5e6664459f104"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "399f9dc444e83573e736e553df66faeb0c492abe5efc5d547c64b6f5732825e4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "212a957c6cff6a2b3709544c5ed25d75231aa25cd7c46f0dd2b4b7407add8b8f"

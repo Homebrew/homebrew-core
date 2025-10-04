@@ -17,6 +17,7 @@ class PgTop < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9adc494d9d026662d8e072527c22e736fe60bf0153eecdc5d3d4b6271abfc8a9"
     sha256 cellar: :any,                 arm64_sequoia:  "b9d888449873a35c6f29b43698da65bda0e4136eb1f2d0176338fcbc617e4e5b"
     sha256 cellar: :any,                 arm64_sonoma:   "852a0e040171868c8c6c677306c82c81ed1fc52e7cb47413c1ddcb48cf5bb987"
     sha256 cellar: :any,                 arm64_ventura:  "c7d46c3124f4336b96d82dac38fdaf58ecb871587f7e1f1bc52368ab3ba29e78"

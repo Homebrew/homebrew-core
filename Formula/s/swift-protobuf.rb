@@ -1,8 +1,8 @@
 class SwiftProtobuf < Formula
   desc "Plugin and runtime library for using protobuf with Swift"
   homepage "https://github.com/apple/swift-protobuf"
-  url "https://github.com/apple/swift-protobuf/archive/refs/tags/1.31.0.tar.gz"
-  sha256 "34b866853e9e91bda868b912a88da8b976d12924f9a1c1046a505e5c0730bdfc"
+  url "https://github.com/apple/swift-protobuf/archive/refs/tags/1.31.1.tar.gz"
+  sha256 "e34a0b82c8d07184f7bf3c50c97b8cd4ba0351236a8673ea434af4ce11ac1446"
   license "Apache-2.0"
   head "https://github.com/apple/swift-protobuf.git", branch: "main"
 
@@ -12,12 +12,12 @@ class SwiftProtobuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2d117e037a891e1c9f76fa73cb18f0d12de501c3cab9ab63396ae1bd487c91a0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db496d0b907e9b9093f79240df48b7acd02bd0050491623643ca2878e32701e8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "535bfe50132dd72cbc6610debd3dfddd8f0ffe22a021a8c151acc03ad4ff1346"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e85c5881dcbdecbb8d3c40f299faf4d7b668465e15d7ab14737ef79ff6540d52"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7dde1ce8e2ac683416b29374a05ffd527ea4681c8d8833486adf3bcc13c3965"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed7713022073d893733fd6d0d0c13b42e03342cc301c30d54cf10fd02332a455"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3742ea13e69e4edb46f0f9bd2718f3b98cde6548a1a34c2fa7c68f2565c18d10"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43696ac7c329ecb74e45bf3af57c93b5bd8c8b379962cfb0599406774b65f38a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81473fbf488b2080d4d350a4fc0956c655cd84e68b324fd259517e75aef63754"
+    sha256 cellar: :any_skip_relocation, sonoma:        "225ed48daeb016db92c0070a6b27b3a6fc896a0042b2fa46254a781594b8f6f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32c35d77fb868a9d18c2e5eef7a0d2c5e8ef67fa3c07c0745e718c3650202045"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bd814eee9399c834308f413cf4369a82397d76b4951be26dc57f68bec312509"
   end
 
   depends_on xcode: ["15.3", :build]

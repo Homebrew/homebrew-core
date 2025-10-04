@@ -12,6 +12,7 @@ class ProbeRsTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e36d811c347dc2d12c8ef9404312ae0197588936b44a4765f77ea38cd8a83e83"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fde0f0bed4c13c857911063d98b6b9c8212d0fe280fc9753530da3b6451c38f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "454052b0ea56ce7ecfd8b6d6af56b976712e101ac36d479b6ae4c74cb99acaed"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3e97cd23aa96e6f55f40d2d263c224ce18e7459fe9088e60849b227e8203cd67"

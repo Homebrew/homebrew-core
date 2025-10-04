@@ -10,6 +10,7 @@ class Sgn < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d25705bb70e377ddb7415dcbff3d61567a70f21df885d80d8ffed77253ef555d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "225b80b3fc0c69f76b2476b4ac4348d98f2fc09d6130cf9eb16bcd7057187ff5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21c4e093b393168c2c38825c5c7e5bd567fe883895bc7de5dd201a553a77ab09"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0da9903de5c67fa1ab04304476c4d87312e50ec8cecf4f63ca45adac527112e6"

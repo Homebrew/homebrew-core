@@ -5,9 +5,9 @@ class Gcc < Formula
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
-    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-    sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
+    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+    sha256 "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
 
     # Branch from the Darwin maintainer of GCC, with a few generic fixes and
     # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
@@ -27,17 +27,14 @@ class Gcc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "2863d04807543f3a83fa1f5c82fb37bbba7ea95c3b360c015485afbace9da5a3"
-    sha256 arm64_sequoia: "de5fdc43cfc675b0e757e68ebf800b5c0b4e25b8892376e9f42a94b8689b3b3a"
-    sha256 arm64_sonoma:  "6965a13804b1a89081dd9215dc38cc6ba0af511883c591f50ed4929bce9e8afa"
-    sha256 arm64_ventura: "8425651fc7733649b920934e8a5a818fd1f1b2b73519af8db1a2760800d7aee8"
-    sha256 tahoe:         "e89a2808f22d04a83acb323d592c8c1951cf5551082b6f81596939fce142f381"
-    sha256 sequoia:       "3d53e264b28665e82ee3ae3166d702ed9abfbceddc04625f3bedaae049b93f55"
-    sha256 sonoma:        "c1b44923c14c4f17b0cd6b9907da1f022ffacb9cf7f8e6d785c87837aaaa609a"
-    sha256 ventura:       "334853a1ac9cbad6e5b6690190bf81e6baa4caff58ed0646871dfa018eebe1e6"
-    sha256 arm64_linux:   "f98b93168c1e34feb9793e6baaf3735acce28aac1832b31d9578861242316093"
-    sha256 x86_64_linux:  "f7f29cce94c6ec4b5225250483990e40e7986d14525c959b68949a715df51aaa"
+    sha256                               arm64_tahoe:   "e76be6aae85a3a541420be141c63e314444a7dfaaa5594778cf34b79eee81385"
+    sha256                               arm64_sequoia: "aef7b1f77984d6a599b4d5a4002d91b777debea49bdc429be9a0fc13cfd82974"
+    sha256                               arm64_sonoma:  "ae72dbd9b2ba010e956db687b36fee950190dfaa5e33299aedb61c50ec2ebccf"
+    sha256                               tahoe:         "bdb8459b23eb33ba9d503fa8effb6bb79ab59953d2643d5538e90d9ce95447b4"
+    sha256                               sequoia:       "1c6c40e6317501b4158402b3ddab8a138b5ddd7dcecfc661c28a49a95770b325"
+    sha256                               sonoma:        "9b8c47ed04d0dcee9c133ddef1861868252fa6263245fbc6a03ce1e147b0815d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "714ff308f7f00d71d0d7122cd777f12185c1eafe21254b7033edd0e6a8fbaafc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eebab9738ff2c231ec19c5da5725a830d89322914f8aa84d58728c6b45f84a58"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

@@ -8,6 +8,7 @@ class Ripmime < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5736f080200de4ac8a01866619a98584ddb207bc38d62c41654c620bb4a8528e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d5c2db89d1a44f0e239ce29344d3c0fd8cf1bcb87323604a35637c216f74a2f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dda645f1d8cc8b55fcb8fba6747ac3162330de3b50a6e42bb50859ce0d5bb383"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3cdf7a81580930011a430850659749515bf9f58eff2fa0c3589a47178c6f69e2"

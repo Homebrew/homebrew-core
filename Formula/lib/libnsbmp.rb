@@ -13,6 +13,7 @@ class Libnsbmp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d75c82e5602bfb3c49ca8de06f9bb16002f10f1eb09b6c025d3a4e160f4b8aef"
     sha256 cellar: :any,                 arm64_sequoia:  "334b42b3b30917e7cb0850b079cced2c020a9ffe8389d1a703ffcd2896f64a22"
     sha256 cellar: :any,                 arm64_sonoma:   "9a29a254a2f286b15219fa8e1b95858569fe653728184fa20b83130eb67d5f23"
     sha256 cellar: :any,                 arm64_ventura:  "52b3d890d4ed6f2a9763b7848ca24955059fdeb61b1f097dc230e343f44547c6"

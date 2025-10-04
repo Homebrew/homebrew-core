@@ -19,7 +19,6 @@ class Td < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "4de1e88f3b9f6477a154a6f5e946a7411a5a30a4e054d3fac9ad9b62d5964b4c"
     sha256 cellar: :any_skip_relocation, big_sur:        "665d2709804555227ee9fdffdf918574902345547bec837c53cd06fff04212c9"
     sha256 cellar: :any_skip_relocation, catalina:       "b3fb2df4df96602895a40900d682fa42ca9bbbc814463eeccd50ddc2cae8f485"
-    sha256 cellar: :any_skip_relocation, mojave:         "af978b05395618b4e095498b3a9a4aa66086f8bc793804fb59086177535c8565"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "a5463d1085c518796a801c19c708a6a1e68da5769b4209c83de7437a361b1e4c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "32afc5a28386f21e96fad99d94094b1011519e21bcbfd7ee14e6cef892f36e68"
   end

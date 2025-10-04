@@ -9,6 +9,7 @@ class Progress < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8c2f2b8662edb63080b92379916d9a3baf7e79147bdcaac1e5ce734d883eb20a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f661615f320a4ac93f492d247054c8e244b2a234f37b3a7d7852f2b4541ab927"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d7b757f8bcc4961b40058126f0614470418e55ac6fead877cdd8e4f98684a32"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4102bb16c1bf18d9d0a46b8a170cef1f0b1032ec07f0835de750b2f998d03393"

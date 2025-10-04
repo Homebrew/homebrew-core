@@ -8,6 +8,7 @@ class Sd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1538e29545abba000fbd4f6f00092a4e5343e280ffaf5a97aa37b316bb4519f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3cf7ab4495f622a4f245bb1c7c30225ef881dc390ee5edc59a1d3c4381cecca1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6bc773a70934364157591cd888e617601a42ed1f615fda8f77364fa45631d08d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "946a44f567e3528d380fbbee742c3abeed9952f53f7de172a846b63d2e21d5b1"

@@ -33,11 +33,6 @@ class CrystalIcr < Formula
   uses_from_macos "zlib"
 
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    llvm = Formula["llvm"]
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib if DevelopmentTools.clang_build_version >= 1500
-
     system "make", "install", "PREFIX=#{prefix}"
   end
 

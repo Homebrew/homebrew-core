@@ -12,6 +12,7 @@ class Kafka < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8fcbe529216de1ca2aca9eb41755ef7053ae2e644bf5989b047d660e2930e8c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8fcbe529216de1ca2aca9eb41755ef7053ae2e644bf5989b047d660e2930e8c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8fcbe529216de1ca2aca9eb41755ef7053ae2e644bf5989b047d660e2930e8c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f8fcbe529216de1ca2aca9eb41755ef7053ae2e644bf5989b047d660e2930e8c"

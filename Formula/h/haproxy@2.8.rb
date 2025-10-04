@@ -11,6 +11,7 @@ class HaproxyAT28 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9adcffaafce1e1ac90f0297cf3d6ad730510559c5d423ffacaceee35592a0fdf"
     sha256 cellar: :any,                 arm64_sequoia: "9c2974edd35e97688c43cc7d2eeb05f99d7d1e77d4775b75252f0596c7d3be38"
     sha256 cellar: :any,                 arm64_sonoma:  "8d88b51a5bdd02a5ad295a62798be487f2402449da9a00d3a1e894fff2e98760"
     sha256 cellar: :any,                 arm64_ventura: "e48343df1514212e3befa265ef2ccff16f0a8895ec0e19bb6f92edde2bc6a62a"

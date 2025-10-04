@@ -27,7 +27,6 @@ class Tasksh < Formula
     sha256 cellar: :any,                 monterey:       "778d32859e2a65b224819a39d022611b7959fba4d72d08a45d42f76bf6cf6cf8"
     sha256 cellar: :any,                 big_sur:        "987789014e770fb3b4b1d4500321877c457ba2a1dde2fc9925762dfb0d7da541"
     sha256 cellar: :any,                 catalina:       "68a13aa8ea81fd1fe7c2c5e9eadd3850fe21265b34c4cf2f1cf7e7ede3caeaee"
-    sha256 cellar: :any,                 mojave:         "a2178acd290abac6dc8c024b48304c05660616639c7de1c7b35eb166ae8345dc"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "c18914e24a50c9ea3489db09b04c7d702555bc703bb799ff51244419135f5bca"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8a89402e614a9f93aa6716e6b4c442b44f2f0471c0d8534096ee8428565a149"
   end

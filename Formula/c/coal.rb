@@ -1,10 +1,9 @@
 class Coal < Formula
   desc "Extension of the Flexible Collision Library"
   homepage "https://github.com/coal-library/coal"
-  url "https://github.com/coal-library/coal/releases/download/v3.0.1/coal-3.0.1.tar.gz"
-  sha256 "b9609301baefbbf45b4e0f80865abc2b2dcbb69c323a55b0cd95f141959c478c"
+  url "https://github.com/coal-library/coal/releases/download/v3.0.2/coal-3.0.2.tar.gz"
+  sha256 "899eb343ee7d86ae6312401bc969d1d2cb8103a5a67af5e1f06061a9c5fb0743"
   license "BSD-2-Clause"
-  revision 3
   head "https://github.com/coal-library/coal.git", branch: "devel"
 
   livecheck do
@@ -13,14 +12,12 @@ class Coal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3dd6e805964cd404e8eb00f9fdf17cd7bb56aabb97296aa3f6449a9c7624646d"
-    sha256 cellar: :any,                 arm64_sequoia: "3f7ed10af05493f7a2992a98efb2c983004e2b167cd389c43d5feea319da1497"
-    sha256 cellar: :any,                 arm64_sonoma:  "7dab1289d5931423e4c9c88d1a8b6487e6b7c37c058b2afe7e6c3eb4edc0f75b"
-    sha256 cellar: :any,                 arm64_ventura: "50b83e1c52071435771a9c1af840e63fb08a29e681bfdacff8fab9a93df8ccf4"
-    sha256 cellar: :any,                 sonoma:        "4672c87f581b46684c487af03ff08154c2fa9c230b78a5da4b9a0a46f4d5cc77"
-    sha256 cellar: :any,                 ventura:       "572df15279e19d26d3eb5122aeed97bdca259c4f3188ce888f5601e241854aba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f24056b7759b6e17c89cd229595a511b922763fcf3aca52783af98234f4df74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cad2991102527882a216feedd179879dc74ceb85879773d8a4e76191c70eeb60"
+    sha256 cellar: :any,                 arm64_tahoe:   "c4e7f8a9652bc96e3bee148c7511020ae0a6408e5c53e852a1f16ed59d28d79e"
+    sha256 cellar: :any,                 arm64_sequoia: "ee7098a0fc28c6230b173b65b2e41fd168648d8da56b6c0909d022f80637f114"
+    sha256 cellar: :any,                 arm64_sonoma:  "2d1e953a9ef87494e1bd129171db52817e7b33e5364eea301de9fbf0962b3671"
+    sha256 cellar: :any,                 sonoma:        "fa1c9951d3f6bd5c8814ae5d065d3897aa2b1db664a5e8d7381866938a4501fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "67d32a04ed7fddfb1e5f505e9f6cf84566e926943caf6fa1f417e8015e514236"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "270e805707fa846a78e1d267fc20def7c2615a8eb71ec9de3da9ea53da3ead9a"
   end
 
   depends_on "cmake" => :build
@@ -73,10 +70,10 @@ end
 
 __END__
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 4036e3c1..11b6b8d8 100644
+index ec28225..cdbcddc 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -151,7 +151,7 @@ if (COAL_ENABLE_LOGGING)
+@@ -167,7 +167,7 @@ if(COAL_ENABLE_LOGGING)
    ADD_PROJECT_DEPENDENCY(Boost REQUIRED log)
  endif()
  if(BUILD_PYTHON_INTERFACE)
@@ -85,16 +82,3 @@ index 4036e3c1..11b6b8d8 100644
  endif(BUILD_PYTHON_INTERFACE)
  
  if(Boost_VERSION_STRING VERSION_LESS 1.81)
-diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
-index 38b98031..8107bf7d 100644
---- a/python/CMakeLists.txt
-+++ b/python/CMakeLists.txt
-@@ -143,7 +143,7 @@ ENDIF()
- TARGET_LINK_LIBRARIES(${PYTHON_LIB_NAME} PUBLIC
-   ${PROJECT_NAME}
-   eigenpy::eigenpy
--  Boost::system)
-+  )
- 
- SET_TARGET_PROPERTIES(${PYTHON_LIB_NAME} PROPERTIES
-   PREFIX ""

@@ -20,6 +20,7 @@ class Puzzles < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52a260608643882c7293dfac0399e4ae79c9d5e244c93c7fd4df03891cf51a36"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "926d319ead9a6bb23e46d8fa737a4e46bb37176e84b8dc78c2c32b6290547916"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e81ce6c817f6ce4b1394d4bf3166cbe4bb24e932a5fee15227f18a7694502ed"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6daa62e0cdfdd30a34ded0a2815e7f01d6b8300654a0a290c634a4a2ed9ad316"

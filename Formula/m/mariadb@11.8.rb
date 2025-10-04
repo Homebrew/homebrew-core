@@ -18,6 +18,7 @@ class MariadbAT118 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "1c8bce96a779d0fc7d931c87d91a445e27db23a3e3976abacd8242d86d6d4591"
     sha256 arm64_sequoia: "3c946531e97a4c5f2eba0dbefb50916cfe0894b21d2a3365b13af7933ff3e6d7"
     sha256 arm64_sonoma:  "c40dee363157c6100d3df103e0b95012844cf331d967372a43c5424277c255ab"
     sha256 arm64_ventura: "c4fc900ed4d0c1f0b186a316b40c9b86e9dd121ca4f6dbae28c0a30276c20b13"

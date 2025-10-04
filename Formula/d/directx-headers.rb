@@ -1,18 +1,17 @@
 class DirectxHeaders < Formula
   desc "Official DirectX headers available under an open source license"
   homepage "https://devblogs.microsoft.com/directx/"
-  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.616.0.tar.gz"
-  sha256 "125f492802939b40223bfccb83badd3f599af2d3449613d6cb893720607b9025"
+  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.618.1.tar.gz"
+  sha256 "77f81abf03c07dffd4cc76762ff0c3ab465921a0aa0aaa25cdb294c8aaca4210"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb5c5ae2b6de234816a184a62ec9d12d243afc8bd1534b75a86170fae18c72a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7dc221c2bb1cf739f8f4bd9868e18474022926456a28f5a813088882e511659"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9d5a6058f427316afd3395751e19c4b35cca15a8be143c87638d551560228c22"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5513dbb2d1308ab53cf7f961029d78cd5d356d975b9df585dc530393bd4eea58"
-    sha256 cellar: :any_skip_relocation, ventura:       "a45e4983d2abd2a93c2f5d95b8381b0c1716f61566a191f6a9d93d3f70554f56"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "472a6f4261fe6187ceb663bee50f9468dae7e72b08cda2f1d8d9837a7cc6fbf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77a64f9183afa9c7d541d27c99ccf383ce17517e2fd5cdd3eb8594250ec8cf1e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "81c1c06c25dbc2bb98b8864a0d1e0b6dd0811fa94835b557e699c08287691b78"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "caf0726807afbbe3c6aa93a7c28843ecb6f217f3feedefaf517d3397a20659b7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d862b57e74db3af097bcb8b8849da309d5b3e1dffbb45e55677dfcd9f4201c6c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "34062579ca759bf9f4120adecb52448a5871d7e8d285e9de3e30246521f63fc7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6008afa273bf51920f09b7cb487647c9ef4d9e54829ca8e293eb793c6ad795df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61d5a8646d5ae2d9e4f2d11fd3438e5d314e5c0d84db18759dc62ee68e8e92a2"
   end
 
   depends_on "meson" => :build

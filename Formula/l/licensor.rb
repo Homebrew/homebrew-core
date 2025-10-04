@@ -10,6 +10,7 @@ class Licensor < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b7072a1c2d29961fce1e5293dbd58ec4868d7bfa912647dd6373b89b2aceaeb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ac1e3430727502de790d4320731f6108f02d5514a81e9577f963ce4f8294d39c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71b1af76e7d61bd12f4386ea45b16998895aba60a4b3a2ed0403fc2d25b569e0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f184aff71bc45ecea1244c55c2f7f01271ac80a46942a3e60f176d0e86ec36f0"

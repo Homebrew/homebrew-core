@@ -1,8 +1,8 @@
 class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
-  url "https://github.com/apache/camel-k/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "220e779be71e0e2c9e622346975abc5a70f7dd6b6c60daf3515bbcac46b92383"
+  url "https://github.com/apache/camel-k/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "1e2864045f826fb8bf1f298f40b46e3ba6ff7462010165fef47c87a4df4699cf"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git", branch: "main"
 
@@ -12,13 +12,11 @@ class Kamel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7ddb5de785440b6720be420947a6bbb0135d33445de4d3bee2e04f0b32ee07fa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94866f102414ebf2847d884ea8413849d8542144015258123963a61e4d7e71d8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec606d94e76dd467836a1e5dcb9e6f3b8a98459f5c2748181c8553e311dda518"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0be95ba7c330d904c297f623d855798cb59e7478e22838ee5da025f2d672100c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad402478408c92bf84410dbef0df8f0bacf4737a236499f08da453e1ddb761f6"
-    sha256 cellar: :any_skip_relocation, ventura:       "395351fabedb60717cc1e452071cf013c9d7cf7b3d86070d7f66b8566f2b21d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b76d52aec8f5c5d199f96a11cc65a80448064f8904b19537454d3d1d68c8e315"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b5cdc5b87390b67c39ee00ba228cabe74569767a5f9abdc67d1cad6f0330d69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd808b03717da41c07bdf74749df777240cf428c772fb9a6420e6827cffc2722"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b22d2b6a1ee52a78fcebfdabc13684eef32ec4197a60b2e3d31daa7fae840154"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d66fea4cf9160c0af8996b0426c00012a126c2e619124c2d6dcd55ee8957a286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04987ba2b75e6d5e0fc47c4c9e2d282173eacd1c0ebf0c492c241c3b64826b2b"
   end
 
   depends_on "go" => :build

@@ -12,6 +12,7 @@ class MetaPackageManager < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "fb2c5dc73570e208cbd1e371cf15c0ee434d743fd4d052a1bff7d2c23ddaf636"
     sha256 cellar: :any,                 arm64_sequoia: "c7d6894b523b75f457875745d3df9de5994a1e766e4e48f199c97f1b7f41823b"
     sha256 cellar: :any,                 arm64_sonoma:  "03abd283ca4f5dd5cb27329af605c026acf2b4470c9d0b8b510e817353870d78"
     sha256 cellar: :any,                 arm64_ventura: "45cbb8c2032a5222da277e95962a3fdcfcd7999df5e28a9598429da7b2ca80dc"

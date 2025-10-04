@@ -15,6 +15,7 @@ class Needle < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "2cef1302f96a215e8126af9e3ed2c714f7763bbe73b64eb47c68954869cdf350"
     sha256 cellar: :any, arm64_sequoia: "cbcf9f7c69f032ab6ff3a83bad525a86ab607985680870ea905f9fd8d413734b"
     sha256 cellar: :any, arm64_sonoma:  "11b37daadfe93a3be6fe5605b760afbe130d6944100e62f0ceb2b75fce67110d"
     sha256 cellar: :any, arm64_ventura: "dba912fe6c6eb664a0b43092a27e8bb9b9ffab66cea81e559f01bec356eb8265"

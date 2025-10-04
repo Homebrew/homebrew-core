@@ -7,6 +7,7 @@ class Libtatsu < Formula
   head "https://github.com/libimobiledevice/libtatsu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4733e91bdb7fdcd93e030fc7a36174bfb8bc4f4e489270a47a5d5d70d0d9376c"
     sha256 cellar: :any,                 arm64_sequoia: "e729a89bd9fba8be9355e7c4dd4dfc89cb039f6c063ffcd1adb102d3dfec75d5"
     sha256 cellar: :any,                 arm64_sonoma:  "efb9b3d41f8e825551a9047fd46788477ee53b3fa40f1c032bb74297be7ca21b"
     sha256 cellar: :any,                 arm64_ventura: "6324074e98eef39e5bccff4ed8dccd26cd28279d6cfeeb907e48ef8770bdc5bc"

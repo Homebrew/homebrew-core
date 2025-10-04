@@ -7,6 +7,7 @@ class Ocm < Formula
   head "https://github.com/openshift-online/ocm-cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d79bb7ede63fdb0029beffa8972e831444c7309c49b6af52dd8f135a388758e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e6bbd1864db82c6be92b6afd3615e65157afbaffe5b632748e4c7bd455f1064"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "389e8ca5aafc7516e3f1908428a85d87f2e532913ffacb32b7d5746d0bf81b65"
     sha256 cellar: :any_skip_relocation, sonoma:        "c482f421b767271aef663fd3a887952b916876b6652ad846679f5606d0c637b1"

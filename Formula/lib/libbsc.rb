@@ -12,6 +12,7 @@ class Libbsc < Formula
     sha256 cellar: :any,                 arm64_ventura: "72cabda9eb1df38246c1a7e42f8a1b3c6aa3b8f27e1122aa039db04929b0a7de"
     sha256 cellar: :any,                 sonoma:        "b0fb4bcf12cb54f6457c48d6c3ab4140b1f0196ed1deb018633f013cb02121cf"
     sha256 cellar: :any,                 ventura:       "85ebfb7e3ba754f0139d8e003957899adb23840cc977e2096b8d06c4e0c41061"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "823338cedcf64c6f7de67238c9e71f5117011b009167301069674aeaadeb1253"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a40d01db777bfa872f61fa03440755c8a5c13cca0002942b68f5f0c55e3f4215"
   end
 

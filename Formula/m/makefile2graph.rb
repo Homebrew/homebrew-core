@@ -9,6 +9,7 @@ class Makefile2graph < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "237d7eac6030f575df723974c27672758a5c6613222b58eca8f607894cda5426"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f81db552d0aeb5eeed846fe79b930bf69aae6b2b9552bec55ab68db856162a10"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19431085aae2ceefa936a5a426a0d56d30ffd2f1385723741dd8b0fba4d7b624"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d99f194c17cf570aac2bf56cea06e6bfb319e8fbaeba1ec5c536fa04c38bedfc"

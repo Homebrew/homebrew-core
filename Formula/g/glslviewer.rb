@@ -11,6 +11,7 @@ class Glslviewer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f25ca87f936785a700c936f8688f53288f56a0b3381f733903c8015e043c66ca"
     sha256 cellar: :any,                 arm64_sequoia: "f93e79a8c9bbb23141884d1fd55ebbeeb61d5a7665216b9d7db827326696e60d"
     sha256 cellar: :any,                 arm64_sonoma:  "90427fe8b299fa3dd6957524230ba594113461d675d82a24d4a8620dde6fa95b"
     sha256 cellar: :any,                 arm64_ventura: "c9bda2b56948e4699561887fa2bcc1e7aa3569ab1b5809cc8d1735783ba8a484"

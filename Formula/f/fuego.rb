@@ -16,6 +16,7 @@ class Fuego < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:   "0b3ae0284526c1cd44f6eabf02ab7c6b169efceea1127b0dd4768c1bfc792f12"
     sha256                               arm64_sequoia: "dcdbfa5a927fa08abf85f0bc572d63a66e6f41cc132d9e97f6c1ede888b3d93f"
     sha256                               arm64_sonoma:  "e4458c421bde99b3e47227a6c1f700655a9bd24fed37ee3a2505b162be9112f9"
     sha256                               arm64_ventura: "e8289d17aa98ecf078bb29cd9ef32ac2cfc09635372dee6c30ea6f1d0f5ba407"

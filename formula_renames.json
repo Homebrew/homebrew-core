@@ -177,6 +177,7 @@
   "todoist": "todoist-cli",
   "todolist": "ultralist",
   "tomee-jax-rs": "tomee-plus",
+  "tracker": "tinysparql",
   "transfig": "fig2dev",
   "transmission": "transmission-cli",
   "trust-dns": "hickory-dns",

@@ -7,6 +7,7 @@ class Sqlc < Formula
   head "https://github.com/sqlc-dev/sqlc.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6fca7e95ad97972c257cd88e4ffd75cbc4fd466b0ee9fe9a7db21a9eb19b4d35"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "804df54f6aa327864d260e50070f44a1aa0d70e9983c069b3b08dac10a4b21d9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72cf4daabe29f5ac51fe24d7fb511de87d672fe9e007f6e0de3191754376a649"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3a3400a7b98a53ab5b969fc4d7e30f4d7b1cd7e93da93cebc9aff9664690c465"

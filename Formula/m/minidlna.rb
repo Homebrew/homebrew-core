@@ -10,6 +10,7 @@ class Minidlna < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9fc0ed3ac5675b3dbfe74a361c9b43f7d82a29a65a12abc56ac1b9efd30d1258"
     sha256 cellar: :any,                 arm64_sequoia: "f7e718095ef9388cd38793641bcc399107f037cbf6bc744705ce58a5deb9c291"
     sha256 cellar: :any,                 arm64_sonoma:  "a848bf8fdcace687463088fbbbb1095d0259bd65de13e580f76c05673bf31cc3"
     sha256 cellar: :any,                 arm64_ventura: "014e64f8d81857532e0a65c2aaf361d18090fe2ff791ef351ea02311ccd69410"

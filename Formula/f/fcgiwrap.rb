@@ -19,10 +19,6 @@ class Fcgiwrap < Formula
     sha256 cellar: :any,                 monterey:       "520ec05d4f3b387f30876075f77e0fce87c3fd12a616f9c8c08db683ca05510b"
     sha256 cellar: :any,                 big_sur:        "bd98b43c74955117affa9b619376f09eae18890dea9b4bdb3ea81b70c44024ac"
     sha256 cellar: :any,                 catalina:       "c8d117b2a7fed48905548381120a0ce80e6250ea434d8f62dde18fd12542ca04"
-    sha256 cellar: :any,                 mojave:         "c871c0641217165e88fcdde225c8058a62d043083e434fe3b371c0b7d58ea45f"
-    sha256 cellar: :any,                 high_sierra:    "92140b4ed813b4a718ec9ed035b664fe744a6ae860a4b533ed7425b014e25f22"
-    sha256 cellar: :any,                 sierra:         "ed81f5b0cec39f7138a877cea2a0e397007d3271393805af53739b837537bd0f"
-    sha256 cellar: :any,                 el_capitan:     "c0a70c3cc726788dfac52d8b23c79c1a4ef31a8c7e1418ac335cfe182b94f05d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "71efd18bedccd162ba1df3ac939325de41e748e0dcad7a2fe2af6a0e8b6c4408"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "59c76ede41a8876d1c9f2a737e79e314851b757a647d50cebea91247c185afc1"
   end

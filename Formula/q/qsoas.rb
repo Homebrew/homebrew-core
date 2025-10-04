@@ -18,6 +18,7 @@ class Qsoas < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "7b91bd04e345e0cc279acb813e24a5b55cae526ca6df690095b800407e09e1cb"
     sha256 cellar: :any,                 arm64_sequoia:  "709468b0dea8e5700fadd12d2613a64af895204a3b7dfbf48da4fe6239ed7fb6"
     sha256 cellar: :any,                 arm64_sonoma:   "59cf34ad9e7db06d2e7e6d68dd60d12ba6f7a1b1818a322ac866f4895a0e3af8"
     sha256 cellar: :any,                 arm64_ventura:  "1aa8ad3b027fa61914688ca5857cd9ef030fa2d3e07a7555d06479f429d29691"
@@ -36,6 +37,11 @@ class Qsoas < Formula
   uses_from_macos "ruby"
 
   def install
+    # Workaround for MRuby 3.4.0 and to avoid C standard passed to C++ compiler
+    # Issue ref: https://github.com/fourmond/QSoas/issues/5
+    inreplace "src/mruby.cc", "(OP_LOADI,", "(OP_LOADI8,"
+    inreplace "QSoas.pro", "mruby-config --cflags)", "mruby-config --cxxflags)"
+
     gsl = Formula["gsl"].opt_prefix
     qt5 = Formula["qt@5"].opt_prefix
 

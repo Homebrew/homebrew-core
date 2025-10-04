@@ -3,18 +3,17 @@ class Nuitka < Formula
 
   desc "Python compiler written in Python"
   homepage "https://nuitka.net"
-  url "https://files.pythonhosted.org/packages/24/11/005da9e0826ff333096763597699f5ac9ede8e57e31d94d52300e4bc8f1f/Nuitka-2.7.14.tar.gz"
-  sha256 "88233ed175d6d2abb2e1d5fa3c2e28b2fac604764ddc319c614325ff87c77117"
+  url "https://files.pythonhosted.org/packages/e5/87/36bae02fb19e98cdfa5778faf14f90acff396b9b17586355fbefbe971631/Nuitka-2.7.16.tar.gz"
+  sha256 "768909faf365b21ae4777727fc4ae88efc29239c664bd177061fc907e263e0fa"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4569e10bf571c9cc4c0364d29b3d4e4fcdf193ab7d82a5e4a5649b53749bdfe4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c60cd7e39fbcf8504f8be4134969b36e5c02b78a326df2a490098e0011db9329"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "55eff93a7a9eb385341432c06567731606a2753ef4e6bd7ca7d53f722ae95a46"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4efcbe16c0dde9784585545c3310df3127db4f65a969e6e80a056d60437f797f"
-    sha256 cellar: :any_skip_relocation, ventura:       "6f9fce8b792ec1758e4c21d4017f148680c06e4ba7ab21644d8989b2fd36fb6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7dc252e98451a5a20b358de35e9f0a591074cd96d33bf645dd51e0161412407"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "863d93ab4574dbce8fde9707fd220338f25bdcdeb30f3e99447fc93d6b4fc38d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b62f975c162f10c6d662f116546f449eb507e98f6d75ef3cf9d50ae61e02c1f3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84077c8bc6b3a6ea80867a55819e23f3c9315fa1744e93b1ef5aac781a6280ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b69dea4e4b6dfd35c49f514de65179d8211be58fc11fe0f02922c340b9f83ac5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6dfd6dfd0e8e197392c60d51760d37b186b29bc8755a896e466e40cc98617ecf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "52e8a00fac53e0acfebc340bd78b3e2d143d7ff2957ecedd7e161a7d9e41267a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7564625ab233bf99ac7b5ff8b23494adf244c135e82a635a1d91e4acd819d77e"
   end
 
   depends_on "ccache"
@@ -30,8 +29,8 @@ class Nuitka < Formula
   end
 
   resource "zstandard" do
-    url "https://files.pythonhosted.org/packages/09/1b/c20b2ef1d987627765dcd5bf1dadb8ef6564f00a87972635099bb76b7a05/zstandard-0.24.0.tar.gz"
-    sha256 "fe3198b81c00032326342d973e526803f183f97aa9e9a98e3f897ebafe21178f"
+    url "https://files.pythonhosted.org/packages/fd/aa/3e0508d5a5dd96529cdc5a97011299056e14c6505b678fd58938792794b1/zstandard-0.25.0.tar.gz"
+    sha256 "7713e1179d162cf5c7906da876ec2ccb9c3a9dcbdffef0cc7f70c3667a205f0b"
   end
 
   def install

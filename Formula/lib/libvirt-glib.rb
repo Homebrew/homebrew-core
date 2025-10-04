@@ -13,6 +13,7 @@ class LibvirtGlib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "affb8ea8b6475fd40e178de4233279fb352b2662008b61bd1bd4018e7f7bfb59"
     sha256 arm64_sequoia:  "2c02eafd5e6cde6f4bc893e635687e3faeb75cd043ad4a779c6a0e3b8a52de67"
     sha256 arm64_sonoma:   "21ae7fd8db1783b08631d8e44055cd7cc60eb4e4bf688df5cdead90fb7fc841a"
     sha256 arm64_ventura:  "d43fac604883a2625dded58bcea30ac96f1631d534387ec02e990a385b70ee7d"

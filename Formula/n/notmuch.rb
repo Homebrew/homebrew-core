@@ -17,6 +17,7 @@ class Notmuch < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9fee07b53a4c07c793f00b7b7f516bbf2ad67f8a67cf6e015b2df4063ba4241a"
     sha256 cellar: :any,                 arm64_sequoia: "5d75485c3ae6dc4609f63d37a5f577325a6477f37bc65cb2be59603e85928692"
     sha256 cellar: :any,                 arm64_sonoma:  "54e6b5061116ec3bb5a5606bd278c5fe8f7372cee2bd17b5f7004cec9e7ce647"
     sha256 cellar: :any,                 arm64_ventura: "cf06663f10673cb44cd90f3ae233649e3e463b60a34f5772467fe274e9354267"
@@ -40,7 +41,7 @@ class Notmuch < Formula
   depends_on "talloc"
   depends_on "xapian"
 
-  uses_from_macos "zlib", since: :sierra
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"

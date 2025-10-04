@@ -12,6 +12,7 @@ class Tanka < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ba5f87f1a0bf34796946413f0507b6f7f44862de0a11207fa7d8421695a43aa0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba5f87f1a0bf34796946413f0507b6f7f44862de0a11207fa7d8421695a43aa0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba5f87f1a0bf34796946413f0507b6f7f44862de0a11207fa7d8421695a43aa0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ba5f87f1a0bf34796946413f0507b6f7f44862de0a11207fa7d8421695a43aa0"

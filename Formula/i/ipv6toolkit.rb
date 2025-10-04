@@ -26,7 +26,6 @@ class Ipv6toolkit < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "63e06e58b85f10ca935dbfd52860ef330d734ec7c29425aaa8f33a05037c2979"
     sha256 cellar: :any_skip_relocation, big_sur:        "7ccda456d8eb276a1a462bc06e63167984e5c1a45f58ba453063c5a22b5b31bd"
     sha256 cellar: :any_skip_relocation, catalina:       "6ab4963d7d80f42fb444fabe02122f0290842cffd620a38e15060ed1c1b120ef"
-    sha256 cellar: :any_skip_relocation, mojave:         "b589fdd1d51db357ecda7452f10ac8daa48266dc4bb52bd6f3b18864e8e8bcbb"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "c38a0f68b3f06c078555bc39b9bc3a8e57be74769c8c323a250e6e0eb8895ef3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a659a7839c2b43480e498f9fa62a0655ebf3bf3a4c785b1fac682c56d35e788a"
   end

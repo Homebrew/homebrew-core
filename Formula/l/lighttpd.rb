@@ -11,6 +11,7 @@ class Lighttpd < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "0a5583c02185f8052e7eaffd66c71ce3664eade4870b67792aee5cbcd06d2805"
     sha256 arm64_sequoia: "06d7e74518bdfcf530d4f15663438cfb0d20146970099852ff6c3d4c3cbef1ab"
     sha256 arm64_sonoma:  "b7edf2907293e0e10e0498a4e6513d638cc1f6d2bf8ad169018835254d7a7938"
     sha256 sonoma:        "5713e25f7dd33f6817f865858544b5b534b491252574d75140ee3b2a37136080"

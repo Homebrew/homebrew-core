@@ -24,8 +24,6 @@ class Ecasound < Formula
     sha256 monterey:       "34a6f3f1ac115bd659329799ee74b5d3a04fdf5a2bb5c8b99d6786c5a81d1283"
     sha256 big_sur:        "d3a693686266e5570afbd54ecaede7930145c6a69461e7839c97857b373c63f6"
     sha256 catalina:       "f6fede56fea73bdfd32cebd514448b50dec47542ff7d76342f950a61160a9fff"
-    sha256 mojave:         "38869046308b12e2d722f1bcb5e9a7085ffab93448e0490b161a6d18fc2fbd09"
-    sha256 high_sierra:    "9dd2864d7b5a66bf3a7fc674b64a11d3cb1abeaf9fc4c65dd8898a2724c1a5a8"
     sha256 arm64_linux:    "ab701f376ed4da40ce109998841784880580ad6b2cb13c5f97cdcb50dffb10fd"
     sha256 x86_64_linux:   "6c81d3065ae81f06d5c338aa6d892be6916c1215c5cb6c6cfd57f60d2249dd2e"
   end

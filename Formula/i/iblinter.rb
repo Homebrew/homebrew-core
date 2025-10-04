@@ -4,22 +4,18 @@ class Iblinter < Formula
   url "https://github.com/IBDecodable/IBLinter/archive/refs/tags/0.5.0.tar.gz"
   sha256 "d1aafdca18bc81205ef30a2ee59f33513061b20184f0f51436531cec4a6f7170"
   license "MIT"
+  revision 1
   head "https://github.com/IBDecodable/IBLinter.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9f35944d2ab2b5172f97f2153431e5b18e4fa396039214fd8b7997e01dbe2854"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ab02ce27d16504d8ec99411983ecec5503a128fd940bc6d0c9c13ba7347d7632"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c629f36cf48f2703306e635ad77c25ff9d6423789664bcda698403588461a598"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f71014fe66db0a03768d59175053f6d3575dcc7ea91e806cec6912d808df667"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e63e2fe2324d295afb9bba5b8a3b7475480543fcf8145b61cb5931cda5ca97d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "769206183628990b57eec91a82781e399a6e1581551f85308bdc1342cc8b0265"
-    sha256 cellar: :any_skip_relocation, ventura:        "cc719fe755a7c5af129d7e9cf053935ff4daf35fe48ead5fbff3d4a74be49cd4"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc4ca4585eaa86c2fec24e712100925b460dd75ed13c8d15eab5141a88a43a30"
-    sha256                               arm64_linux:    "c38241d3217c0ebb29e163e3f50cbf43308b33197e475a29b9d215286f21e504"
-    sha256                               x86_64_linux:   "7284a5a01c79771e29fa8c9fe44d2cb6412ad4b09f1c3338908eeaf905c34e95"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3ccc5cf7c9e37c007329b85160d1973f853444d151f027469f87501be2ce1dfd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d81bd417d74fbf2809e041c78801e8d83ea8b5e658519e459023197f1e1c3ffb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fba87c8a17f3b162579d58ae7bdb89bc015e7d4c7930d652c8826136767f2f0e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5df5917b52968d0e5ae274fd7ed90a2740b0cefa51b04e59d1a736d4a3de86d0"
+    sha256                               arm64_linux:   "f3d53ef7a5072cd59df9ff826df7809fac46dd2fc764f57ceefd22824640ff96"
+    sha256                               x86_64_linux:  "c3a4dcb0445ce6cc30ee0d563919b23c5f7acd012cb83316d3f9a389343ad74c"
   end
 
   depends_on xcode: ["10.2", :build]

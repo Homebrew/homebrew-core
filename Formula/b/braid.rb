@@ -68,7 +68,7 @@ class Braid < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      next if r.name == "json" && OS.mac? && MacOS.version >= :high_sierra
+      next if r.name == "json" && OS.mac?
 
       r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",

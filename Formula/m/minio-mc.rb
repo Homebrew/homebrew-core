@@ -16,6 +16,7 @@ class MinioMc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de6f7f9346bc488230a9ad97bf4e756b2705218246c89a88a75125d7827e6d66"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b4a41f0de492c2ac69846df380757be259e2d762219a1c5a80119ece845e487"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a2fe5e78c335c757898cb3574775c140c718bffe2ca4ba573df0a606944497c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7ce210974c0bd2f273e67c10970ae25923326b31b1e7823aaeaae4aad73e8f5f"

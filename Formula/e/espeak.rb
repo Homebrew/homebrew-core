@@ -26,10 +26,6 @@ class Espeak < Formula
     sha256 monterey:       "aae3368a900e67099b2f4916af1266cbadae620c129f5cc2aeee959342e213ca"
     sha256 big_sur:        "c8d5f5fd950e7f47f48affb043ba950694c6480d7a12231eb1f2606ab4e05dbe"
     sha256 catalina:       "9e3a743f118a7ca9d177d005d260814d576fc9c72f5cad369204a8c42c54ffb4"
-    sha256 mojave:         "055c918c267f825ed18f089c75db7c7408ea25ca93ba1a99e0aaba6f5b3a446d"
-    sha256 high_sierra:    "ff4334be449510bdea51a7d853890fec167914658eb4c5167c5a6b40c6621ee2"
-    sha256 sierra:         "ad40b912f2b0cf1b72ab89d53729cd61717a9d9b5bc588950cd6318b63c9e133"
-    sha256 el_capitan:     "5e2829905c793de0ccf38ccca04e03bc504f7f70137952d44177461c16cbf174"
     sha256 arm64_linux:    "6ef48951fe27d54ad89d80539bf1ff67f32ddc4c0cad9ac2d1349d376d452328"
     sha256 x86_64_linux:   "cd49a93ccf04b77d8bf926c77cb322615c25ef27d2b01cd8c08e45945bd01183"
   end

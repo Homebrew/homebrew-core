@@ -1,31 +1,31 @@
 class TwoMs < Formula
   desc "Detect secrets in files and communication platforms"
   homepage "https://github.com/Checkmarx/2ms"
-  url "https://github.com/Checkmarx/2ms/archive/refs/tags/v4.1.4.tar.gz"
-  sha256 "7d23eebcbadb9e22b56949c0320ac9a3a6055dc7e8d750bb84583a196fa8d2eb"
+  url "https://github.com/Checkmarx/2ms/archive/refs/tags/v4.4.1.tar.gz"
+  sha256 "7653e61105082564f4f382aaf8871bfdbdae05f445620a49fdb3100f88177109"
   license "Apache-2.0"
   head "https://github.com/Checkmarx/2ms.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "abc81151c14052794caa8c926e442c64cd5a015da0afff03432a3eaa83e85e91"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8badbb0373b9ae4d3b1a158bde6dd0fbe11f9bd19e37ac2ce24eb2afcb96f324"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d3f82712e0ff75d0377706bdcbfb3b18bf068722e2349fb63554a0b38377369c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "41673fc6b52ed2cc84cd0f810aa74d83178b7f220ac545f546d6a73983cdc0d6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "abd0547e62694755bb3939bf6b1c59edec97ce49c1b15e401c66d4e9c2bef0d7"
-    sha256 cellar: :any_skip_relocation, ventura:       "5838c73e628351c3b6eedf65d3d33532b0ce6d7601ed1d1ddee5b60cb7d007d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff6f710f5a932c25c6c8d401432a25381770c697e17b4f841ef4960b876f07f8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "68374543892a2508b21c7dbafdce5aa47a597b2d00b42449d8afbd5337967d2a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2701c94b867d58ebd6f088e5dddbad7e9334d4465438569eeac6e971df9713ca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08ce2d5bd99ea52593ba5f4152c55bfadf3db9336a4656c5833343c409a22ad8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14f1716838cf52e1e9ee1a554c4ae8b2f161d5693b3855a35b95f6cf44582104"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d652b9ba806ffa02ddcd69fc58c871c2fee33f0b93f640d28ca6c3b387070042"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "241994248f67013d69ec89aff3700746d18883b124951f68fab3fbacc08482e0"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/checkmarx/2ms/v3/cmd.Version=v#{version}"
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
+    ldflags = "-s -w -X github.com/checkmarx/2ms/v#{version.major}/cmd.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"2ms"), "main.go"
   end
 
   test do
-    version_output = shell_output("#{bin}/2ms --version 2>&1")
-    assert_match version.to_s, version_output
+    assert_match version.to_s, shell_output("#{bin}/2ms --version")
 
     (testpath/"secret_test.txt").write <<~EOS
       "client_secret" : "6da89121079f83b2eb6acccf8219ea982c3d79bccc3e9c6a85856480661f8fde",

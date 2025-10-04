@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/refs/tags/mame0280.tar.gz"
-  version "0.280"
-  sha256 "ffebdf23f2e3b3628e86e1bf9a217343c7c0462b94e3a201f20e3ebc848bd578"
+  url "https://github.com/mamedev/mame/archive/refs/tags/mame0281.tar.gz"
+  version "0.281"
+  sha256 "8d648b43b0072b3efabc30290c1767a3c22a46ca3c4111a2f456b9f5d2a08319"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -21,12 +21,11 @@ class Mame < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "08fc202c2085f4e79c04ad305cee47e9787b91bfa030fdb47cf2033367eded4c"
-    sha256 cellar: :any,                 arm64_sonoma:  "31378d82fc62af92329b8b89c7f8dabdad9109792bf822c5128964c0b8f61c01"
-    sha256 cellar: :any,                 arm64_ventura: "56d4dede2b76d9ea4c5aaedb4c9bee0cc28fd5551c3f8b1fd0fc7514e468aaa5"
-    sha256 cellar: :any,                 sonoma:        "f375eb8e094494bcc7f85a21f44874f0c54bbb422e6a1c276093f092620caffd"
-    sha256 cellar: :any,                 ventura:       "a464576778e3a18bd048bf7ae7190b90b4e0393ce866c6a0160320f27b2f8fc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a367ff761af5e23bbb37b339d9fde7031806cb3d271f23c694e1c4068dd0a7a8"
+    sha256 cellar: :any,                 arm64_tahoe:   "58da0491c05871a9ef8c91183d7870bb166aafc20d53f21cb09ac61e84f683cb"
+    sha256 cellar: :any,                 arm64_sequoia: "08a3ba4ac1247b0bc427e45d014d284842469a21eb8426b1e71da169a675f764"
+    sha256 cellar: :any,                 arm64_sonoma:  "fe1b65d3fb021440a2778ab3105054cd7c8564d2e0fcb62f048bb5e3e1c6c2cd"
+    sha256 cellar: :any,                 sonoma:        "4f76ebae54bafc1944fa3e2dfa114caa8fc918433256360ccc1e234a98dc7bdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d41584ab574bfe45581a46f885e3286d1c124810c2a5070d6b41f4aff594ec4"
   end
 
   # `asio`` v1.30.1 is bundled and it is not compatible with the `asio` formula
@@ -37,8 +36,6 @@ class Mame < Formula
   depends_on "sphinx-doc" => :build
   depends_on "flac"
   depends_on "jpeg-turbo"
-  # Need C++ compiler and standard library support C++17.
-  depends_on macos: :high_sierra
   depends_on "portaudio"
   depends_on "portmidi"
   depends_on "pugixml"

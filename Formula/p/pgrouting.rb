@@ -4,6 +4,7 @@ class Pgrouting < Formula
   url "https://github.com/pgRouting/pgrouting/releases/download/v3.8.0/pgrouting-3.8.0.tar.gz"
   sha256 "b8a5f0472934fdf7cda3fb4754d01945378d920cdaddc01f378617ddbb9c447f"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
   livecheck do
@@ -12,18 +13,17 @@ class Pgrouting < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d1298e0d55177fa19efd6cc79c0a54733481ac27126ac3fad54495b614b1f08"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c019e8d253e0a1242e6faf24ef0dfa5c8e413f9ac6e936b2f62a250b488cdf0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ac46316a8e7440784db41c6047fff8603b29d46ee19e89a5b0cb08c53ee31ac9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6db98cc05d362db522ebda306baaf618c5750a4813e90fb0c14cac5c1b1c55db"
-    sha256 cellar: :any_skip_relocation, ventura:       "1f839ae39b9725eda43fff5fdb29b9aaa8421fe00ff3274512ca025bb7134f6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ea9fd403a6b1f28bdda54dc537dc60173056cf163f8efb7258f4a69a9f9ffc4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "635b794cef3d095e2dd87b630953c191bdfa2773ed0bec3c6c308ca2891b50ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a726b05d0bb7a9e9595b56ab81382ead5cdffe5e1b5a4c87f615f362f3420549"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7cbfdcd6a1ebbff590ba6d8891e6771d374cb648600cbe7ddf8c5c349956e309"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4c5e7218e0d1621047793dfb8085bfd2229c4d581f50a226434b6e51d1556874"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "761046a6b81bde4e46bffc7c7e07f79a2a4167ee2162fcf150be89abb2aa8f0f"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
   depends_on "postgis"
 
   def postgresqls
@@ -31,14 +31,7 @@ class Pgrouting < Formula
   end
 
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    if DevelopmentTools.clang_build_version >= 1500
-      recursive_dependencies
-        .select { |d| d.name.match?(/^llvm(@\d+)?$/) }
-        .map { |llvm_dep| llvm_dep.to_formula.opt_lib }
-        .each { |llvm_lib| ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm_lib }
-    end
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
 
     ENV["DESTDIR"] = buildpath/"stage"
 

@@ -25,18 +25,7 @@ class Ncurses < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "pkgconf" => :build
-
-  on_linux do
-    depends_on "gpatch" => :build
-  end
-
   def install
-    # Workaround for
-    # macOS: mkdir: /usr/lib/pkgconfig:/opt/homebrew/Library/Homebrew/os/mac/pkgconfig/12: Operation not permitted
-    # Linux: configure: error: expected a pathname, not ""
-    (lib/"pkgconfig").mkpath
-
     ENV.delete("TERMINFO")
 
     args = [

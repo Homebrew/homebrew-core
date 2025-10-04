@@ -8,6 +8,7 @@ class Lazydocker < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b08657caeff8b6a2a7ba76088af111995de9a33aa282502227bf4995a52ad19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d56e3e9243fcce363bcc3af848e66be911f855a1b00c52cfdfe6dce245a7c60e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d56e3e9243fcce363bcc3af848e66be911f855a1b00c52cfdfe6dce245a7c60e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d56e3e9243fcce363bcc3af848e66be911f855a1b00c52cfdfe6dce245a7c60e"

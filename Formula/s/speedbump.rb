@@ -9,6 +9,7 @@ class Speedbump < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f991bd2a54623cf73881d495c86a2d7b4bba3c5af8fae3a74d85a1bec5bb41cc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a52604fc55f69494bce2c79dfe29d9b85ad5b8828242a10358aad3d5f82dd161"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6373e8ea1a8d06a0cd3f82bac417065b98e658a47d51a0f3316909a87ce3e041"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7359cd3407540f98642026e890d0e5ab47d0eb4b6134449b24c5c8829c48b5a0"

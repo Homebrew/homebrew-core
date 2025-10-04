@@ -1,9 +1,9 @@
 class Calicoctl < Formula
   desc "Calico CLI tool"
-  homepage "https://www.projectcalico.org"
+  homepage "https://www.tigera.io/project-calico/"
   url "https://github.com/projectcalico/calico.git",
       tag:      "v3.30.3",
-      revision: "068c7aa62a62c7459c9ecbf929c92f2a6594f22d"
+      revision: "3302e8bfd48e6375013d1d79ccb2c693306400a9"
   license "Apache-2.0"
   head "https://github.com/projectcalico/calico.git", branch: "master"
 
@@ -14,13 +14,12 @@ class Calicoctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a725de2dab9c0afb29d459044baa1ab26b7bb1c33712841417b4755b9c01221e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73df886e51849a9ef8ab02c1ebd9d4ab55106e9c64892638f870923e36a3d3ce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73df886e51849a9ef8ab02c1ebd9d4ab55106e9c64892638f870923e36a3d3ce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "73df886e51849a9ef8ab02c1ebd9d4ab55106e9c64892638f870923e36a3d3ce"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fdbb4338279b2a5f3250b541ccfd7806a651852c36e2e2ac588a44407442059f"
-    sha256 cellar: :any_skip_relocation, ventura:       "fdbb4338279b2a5f3250b541ccfd7806a651852c36e2e2ac588a44407442059f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b29424437fa85d5a2382f032cc58defee797bf583512af80d50ce5ee201ed45b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4774a257e8583e582b178a779eb3fe9b6084bd5b4ead647f69d8a4f120a00420"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4774a257e8583e582b178a779eb3fe9b6084bd5b4ead647f69d8a4f120a00420"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4774a257e8583e582b178a779eb3fe9b6084bd5b4ead647f69d8a4f120a00420"
+    sha256 cellar: :any_skip_relocation, sonoma:        "01e1e40b59008bbe430bc15c6605b0884cb7a43890d4ac05924fdcbbe881b349"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "506921cfdcba075e2b1a78a483d152546e28e488b5539a2d7446758aa9f168d2"
   end
 
   depends_on "go" => :build

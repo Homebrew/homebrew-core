@@ -1,19 +1,18 @@
 class DockerDebug < Formula
   desc "Use new container attach on already container go on debug"
   homepage "https://github.com/zeromake/docker-debug"
-  url "https://github.com/zeromake/docker-debug/archive/refs/tags/v0.7.10.tar.gz"
-  sha256 "5b7682acc6dcf93d9d260de88c269657348c4ef6db1ef184d794786509ba0af3"
+  url "https://github.com/zeromake/docker-debug/archive/refs/tags/v0.7.11.tar.gz"
+  sha256 "f872f649db05f3670650dd7aa3507b0658eb29557d0d2685658ab581b2919101"
   license "MIT"
   head "https://github.com/zeromake/docker-debug.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2dfe42bbe836be8f2fd1345be00fb14810fa823ab353d9aababafdf0ba51737b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2dfe42bbe836be8f2fd1345be00fb14810fa823ab353d9aababafdf0ba51737b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2dfe42bbe836be8f2fd1345be00fb14810fa823ab353d9aababafdf0ba51737b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c6629ef906f47228d1942689538b8d4eb8703f0f19bab4b172d6ec86a431f21"
-    sha256 cellar: :any_skip_relocation, ventura:       "1c6629ef906f47228d1942689538b8d4eb8703f0f19bab4b172d6ec86a431f21"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae4243281887a3e42b54cc89edc0d9d67ecbc4c41140ea9b3db4f9617d8f598c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36b8ffa5f59cbcc3a3b82ff0bc51060accad5a55c8f5a59197f561b89fce2621"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "afbd63cd10a73b068298aacc91fdfb51e91dee353432f710abe981017804c1af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "afbd63cd10a73b068298aacc91fdfb51e91dee353432f710abe981017804c1af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "afbd63cd10a73b068298aacc91fdfb51e91dee353432f710abe981017804c1af"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5f06227dd443be8e30c2c64d16c91fd47ab053fbab87ad0c44eb9637fe84d1e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4339ab5462b42fc79c1504e6e55b8773a40facbfb0619d4d88ef562f37dc4ba9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd5b63ab3c20097b3b4cffe0f6e9b5f163f13dad10da58c26b02516fcf68b46e"
   end
 
   depends_on "go" => :build

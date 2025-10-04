@@ -1,19 +1,17 @@
 class CargoUdeps < Formula
   desc "Find unused dependencies in Cargo.toml"
   homepage "https://github.com/est31/cargo-udeps"
-  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.57.tar.gz"
-  sha256 "369a1387131ca0548d9bd14fe9d344a8ea217d7a6df2343db6fbdf21a8b94dea"
+  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.59.tar.gz"
+  sha256 "255929d3c9d53c3e09e53b38302e68b206b167bc4e10dc69cf7984c0fe1f5814"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "19bc258c407c5f997881a2818bd4379256e2bcfee7caab95b9619b0939e6e17a"
-    sha256 cellar: :any,                 arm64_sequoia: "288551b8c1acff4faaf2f8950b60d9de83e2a6f5643b4bb63ef3689c60f7d029"
-    sha256 cellar: :any,                 arm64_sonoma:  "d16e797594750fb8bd1ad1afc2a49901bea1c48587bef487c2155cb8192c4875"
-    sha256 cellar: :any,                 arm64_ventura: "367123823b4ca2e1bef335e576a33e24926ec638991bafca9144ab4917be0017"
-    sha256 cellar: :any,                 sonoma:        "5e3bfe32151d99bf0dc38f92ebba11452e225269faf7ffcc110b1597aaf72d4c"
-    sha256 cellar: :any,                 ventura:       "da6af4ba4cc045091613a44c346e625977ffc18ae16358e58de46c87260d9d40"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce72a837695ac3d74564b1f7d372f717b65deffa5c69301a4d3d0b74eae59e87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4708ce7778d28d320595eccb0c1e1c7184522a03fb66f1e16e3a0f6769eccdd0"
+    sha256 cellar: :any,                 arm64_tahoe:   "105b0e164ea8f62a30ed017afa00cdbd73ac425150e0590b34733f2cc66ecfab"
+    sha256 cellar: :any,                 arm64_sequoia: "e593bd0889697613a7a36c113cd85abfcf7b842d46f5e67f0cdaabdd8c615fa6"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c562d088f70891a780743d345b572bb445c02187d80352a5af1e9727bcd6577"
+    sha256 cellar: :any,                 sonoma:        "eece9d19ad7c6509777a655e9381b8a10c865ecb5fdd5b71c02ac1b305edebd1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ac41605a30d8a759503500ae902e4849e64d7010c9d37557e9e4ac2a3f52c55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1ff57ca7e9f1ae32c8b262afcc8ce13361a449240efe65e2b66004314a5bf0c"
   end
 
   depends_on "pkgconf" => :build

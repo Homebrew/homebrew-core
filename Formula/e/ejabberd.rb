@@ -15,6 +15,7 @@ class Ejabberd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7d5e2a36b0f3d717927452da6f8066e73a4e523527b7fe09588fbb1f32221be2"
     sha256 cellar: :any,                 arm64_sequoia: "04ef35f86b87b1e83c9ef82de30b418a7effe4745725cc33a04f2696c569cc1d"
     sha256 cellar: :any,                 arm64_sonoma:  "3b51176e909eb1e14f27fbf51e836905b5768126464b7c23125e2c00bf54cdb4"
     sha256 cellar: :any,                 arm64_ventura: "bc5a0c0a5e1022f9f57b7f179447c1111b352045886a19a04611e3b678658807"

@@ -11,6 +11,7 @@ class Promtail < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67b7a91f9c94a4a95b5b7e57da831f7ca4f589247b3d134875466a89c7e05459"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9c8a32ab57f058a8650e096d11f23faed7eb1544469287002ac15a68e8682bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f9f5db0139a284319cd080c09411b1cdb0e6c153f7d6a44143a4c77e11bb542"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "accb8388d640cae6b73f6cc171cc27e8cd196cd1d2bfab77d4397862c3c1ae3e"

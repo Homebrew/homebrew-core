@@ -11,6 +11,7 @@ class Odin < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256                               arm64_tahoe:   "bae00cd3bae1b9454d812e222d881f50bd8794ea08da3c63d129e1f9de16c39a"
     sha256                               arm64_sequoia: "a5e498ca1c762ba9d686e021a65ccb1c4c7584358189d27ba48f6604e9087b19"
     sha256                               arm64_sonoma:  "796b8b218680d84461462926b6b26b3a00f5393fb3b0d0ff633667d436f4ba22"
     sha256                               arm64_ventura: "59576eb80dc97be7ce3c8528e8d789c676957189e20c164f2c635021ae8f5977"

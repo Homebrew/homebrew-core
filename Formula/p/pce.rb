@@ -19,6 +19,7 @@ class Pce < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ee5a720dd9fe3c5d93aa428e31975d31bb1350991109e3cb64f902f5e6ea4112"
     sha256 cellar: :any,                 arm64_sequoia:  "17114b6c0a358160aabd06b3ae1999cfecb546fd8a4e070605e1fa52c318b767"
     sha256 cellar: :any,                 arm64_sonoma:   "06c5d604c5179ef189ace688dd996d55754841ce310066779725b257919a3285"
     sha256 cellar: :any,                 arm64_ventura:  "f4bcc186e10297c857c01a2c1f49f38dd8abe2324de512253fef924664b41dc5"
@@ -38,11 +39,8 @@ class Pce < Formula
     depends_on "sdl2"
   end
 
+  depends_on "nasm" => :build
   depends_on "readline"
-
-  on_high_sierra :or_newer do
-    depends_on "nasm" => :build
-  end
 
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
@@ -50,9 +48,9 @@ class Pce < Formula
     # TODO: Remove in the next release.
     ENV.append_to_cflags "-fcommon" if OS.linux? && build.stable?
 
-    system "./configure", *std_configure_args,
+    system "./configure", "--enable-readline",
                           "--without-x",
-                          "--enable-readline"
+                          *std_configure_args
     system "make"
 
     # We need to run 'make install' without parallelization, because

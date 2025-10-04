@@ -11,6 +11,7 @@ class ZigAT014 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ed459b4f22e43748e723704ba25ed2019707082ecc27fffb9b2772c7ec8a6d56"
     sha256 cellar: :any,                 arm64_sequoia: "03851d2d9118608f887d97b3674d5a8929699855c73fa7bcf6f6dc7c72fdf70b"
     sha256 cellar: :any,                 arm64_sonoma:  "01f5813d555a56abab6d5076bfc93048b7c792336d9839513df1ccef355644d9"
     sha256 cellar: :any,                 arm64_ventura: "bf2bb8d09f1eb6c311609f6d5699206199e06d4d60924e1d19c9e72ba0537b6a"

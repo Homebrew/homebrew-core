@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.2.1.tar.gz"
-  sha256 "2b995025c33785bcd9235c9ae079db26b2871e63547b53590a2b6836b79267fb"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.2.4.tar.gz"
+  sha256 "f411d6b84812c140d36e795184289d860575a1f4580f20293ec4fef19d1c1307"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -18,11 +18,12 @@ class Teleport < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "736bba37aefc0d186126fc4d533ccbeb919b27905f17a5dd290a4dcc794c90a9"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e54d79b83e05ba5cb5ede58c5233a60c9063618dcf4b3c5bc03d03173081e4a"
-    sha256 cellar: :any,                 sonoma:        "f750d8c12fdd9cc599b9f1ed68b6d1e00c6209dd5669a2d884fee75e2ed266a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "836877b81ffa082aaf5ee14ea35120968fe3b5326fe71149f59525c0a12a8609"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d091ed7416cb13f11d63cd84923406092cebf9d733bbfd421522c76b5fe67940"
+    sha256 cellar: :any,                 arm64_tahoe:   "41b2bc24f77ce79e7a461589cfe3554b3e9d3bb52d2a75ae696f6bfbffe1ba9b"
+    sha256 cellar: :any,                 arm64_sequoia: "bdc0ce01d072f8d997a0b897b46b063811a580a152e0a9b5c9fc3aac39804ddc"
+    sha256 cellar: :any,                 arm64_sonoma:  "4f625353767bc3884a3b74b3e76cee508df32677dd1aca3dde2bad0ec707da09"
+    sha256 cellar: :any,                 sonoma:        "8ca3d3bd4803e4a868aaf65624e9e7285271f0b75fd24fb3cedb87f99cd4b3ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "55693b8bf130b6b5eb4bb7cd04e21976e3dcf6d93189c6ff92749632c6b70279"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d82ddc3819e57fb2681948d9d99349cfb633255414171cc60cf886c0bc2287e5"
   end
 
   depends_on "go" => :build

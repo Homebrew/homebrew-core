@@ -19,10 +19,6 @@ class Libghthash < Formula
     sha256 cellar: :any,                 monterey:       "5ccf16cfdcdc676a17a295b4b48458ab91922d0fee37f15d57562084a6f6d56a"
     sha256 cellar: :any,                 big_sur:        "eb1611b48ba1ca6ba97e992f1c18972e375eb2bb2d41cab1b652fb84d11f8aa1"
     sha256 cellar: :any,                 catalina:       "746863cafe6d156513a4ba1c1a456f6d89014dad87ca825390162d8ea58a665a"
-    sha256 cellar: :any,                 mojave:         "b6092f29d1b937b03313780a88f91f224cbbc73a564fca0a0810d036ea20b63d"
-    sha256 cellar: :any,                 high_sierra:    "f9f17a73ef48e31f809d884ce1a419fe4568b167bb962cdf07c4197688572d59"
-    sha256 cellar: :any,                 sierra:         "730eb3945e001efa5ebfc84452c94b69237f3cdf830ef5c58cef8854ed4cd3d6"
-    sha256 cellar: :any,                 el_capitan:     "e889f34ca4f1978869eff48334f1f55248628fbc586abdeb151fe017479d220e"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "616c6f3e4acf1224a29ddea3cdf3a8092b317a197076c006555c43b23999b534"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e68f5371484da5c89bbe2f40b66f8158334bfe4d436047aa521250d7ff111e6"
   end

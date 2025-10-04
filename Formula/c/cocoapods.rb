@@ -19,7 +19,7 @@ class Cocoapods < Formula
 
   depends_on "pkgconf" => :build
   depends_on "ruby"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
 
   conflicts_with cask: "cocoapods-app", because: "both install `pod` binaries"
 

@@ -1,18 +1,17 @@
 class Plutobook < Formula
   desc "Paged HTML Rendering Library"
   homepage "https://github.com/plutoprint/plutobook"
-  url "https://github.com/plutoprint/plutobook/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "832376e16c9604d8dce68425eacf06b6e475bc6eab75251464e26ac674807e2f"
+  url "https://github.com/plutoprint/plutobook/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "466f45581e9e274beede8a78f64ace3b3ad94d813d6c7b1a05594ab7e7f7fa84"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "97bec7b8391ef9df32f955c2360c932fb602842086c23c2a985dd8cb48ea021c"
-    sha256 cellar: :any, arm64_sonoma:  "c9857958665f5c1e39f6c2a3bfa24c0e3f1836fa42415dd78a490d8fd58bbd67"
-    sha256 cellar: :any, arm64_ventura: "00a280132ef37a3393bcd50b8406329bba28862cb400d6e0a48c3709d1d1deac"
-    sha256 cellar: :any, sonoma:        "1e6fa58302781f99633a65e3f2ffd8aef519be3c894be1cae27228fbf30ac915"
-    sha256 cellar: :any, ventura:       "1478dfe0f53f682ccdcada3be0f62e35c84afd48317639cb9fa359e2f910d545"
-    sha256               arm64_linux:   "47ce45c4de5ff118a1c7c63bdc9adc7a3256d376cc6d2d4db2b67ebd464f1056"
-    sha256               x86_64_linux:  "3b14e4ad09e9248353912705542ade446a9e3b0b9738d555c753798794959b79"
+    sha256 cellar: :any, arm64_tahoe:   "baf08dda2b00b8182d5b44b174f7a2c347e9499208097b864458fcd6608182c5"
+    sha256 cellar: :any, arm64_sequoia: "f0a1e4f60e2a9d82d7e484e3fd58bdbd445b334457416fb9a1b6a041995635a1"
+    sha256 cellar: :any, arm64_sonoma:  "65cb56b31039b1f8bbd1fdc884d60c2c03a5b93297dcf214544716114afe3c48"
+    sha256 cellar: :any, sonoma:        "945cdea6346df29eb75eac1e1860502b43ccc3456112449f08d27316d324c0b1"
+    sha256               arm64_linux:   "52b691c9ae517ffc39e70875d29b13fec6cda6a035adf2c383f3865d871debad"
+    sha256               x86_64_linux:  "adc4527c479627b49a983c3fd2e7b952256dac2d01b62f3e90c222adca8f9e00"
   end
 
   depends_on "meson" => :build
@@ -29,11 +28,11 @@ class Plutobook < Formula
   uses_from_macos "expat"
 
   on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1499
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1499
   end
 
   on_ventura do
-    depends_on "llvm"
+    depends_on "llvm" => :build
   end
 
   fails_with :clang do
@@ -47,19 +46,13 @@ class Plutobook < Formula
   end
 
   def install
-    if OS.mac? && (MacOS.version == :ventura || DevelopmentTools.clang_build_version <= 1499)
-      ENV.llvm_clang
-      llvm = Formula["llvm"]
-      ENV.append "LDFLAGS", "-L#{llvm.opt_lib}/c++ -L#{llvm.opt_lib}/unwind -lunwind"
-    end
-
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS
+    (testpath/"test.cpp").write <<~CPP
       #include <plutobook/plutobook.hpp>
 
       static const char kHTMLContent[] = R"HTML(
@@ -75,7 +68,7 @@ class Plutobook < Formula
         book.writeToPdf("test.pdf");
         return 0;
       }
-    EOS
+    CPP
     system ENV.cxx, "test.cpp", "-std=c++20", "-I#{include}", "-L#{lib}", "-lplutobook", "-o", "test"
     system "./test"
     assert_path_exists testpath/"test.pdf"

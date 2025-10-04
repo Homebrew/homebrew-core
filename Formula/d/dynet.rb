@@ -19,8 +19,6 @@ class Dynet < Formula
     sha256 cellar: :any,                 monterey:       "ad0cf700f000d6b03ad08ec1074508eb01f442019f6e1c59fe7a83325bb84add"
     sha256 cellar: :any,                 big_sur:        "8bd7104e80fd7166539f40cf30f4c67ac643f096920582ec6702f81b06ff6910"
     sha256 cellar: :any,                 catalina:       "d699aaf34e601dca84a10d735a822954de02b2139757699da77df2632d9ae95c"
-    sha256 cellar: :any,                 mojave:         "edc5ba7539f3c224b091ae08b2f23ae667f6851ebbc10515e410fbe2efb2aec4"
-    sha256 cellar: :any,                 high_sierra:    "a8b5c58b84c07911937f5b2c633e38e884f860ac97fc45881bfa817f6045c467"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "b34f9dd2d85fa95eb0d7894a2c3e8ae7758c8c2e0caeb10e69fef515d6249398"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6b8b9842ad483b362f47b1a5562e4cf839c26be13dd4fc525ed456f1dae230c"
   end

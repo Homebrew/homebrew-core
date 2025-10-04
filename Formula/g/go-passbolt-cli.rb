@@ -13,12 +13,15 @@ class GoPassboltCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "76c8a1220e7d1fcac1d8dad53d317b0b384bb36a4d83abfda0185589cccd8141"
     sha256 cellar: :any_skip_relocation, sonoma:        "18c3ac460121631899b078594d6082dc038b72492232ad4640ca70712c1f2784"
     sha256 cellar: :any_skip_relocation, ventura:       "18c3ac460121631899b078594d6082dc038b72492232ad4640ca70712c1f2784"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c175f6379a3a319af84ed91d21c30d0525847c5adf8f7da7040e4154966d0136"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2547a6b87ff2587b9e75f2a3b54317c25634d2b1d76656ddb2e93f6bfa978003"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"passbolt")
 

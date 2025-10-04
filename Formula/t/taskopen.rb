@@ -7,6 +7,7 @@ class Taskopen < Formula
   head "https://github.com/jschlatow/taskopen.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ba5315263677626560719cf9b4936356ea4e097211a40863d8ce055e09f0dada"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5f5c99069492f89ba1914486b47319087cadb8cfdf6f01ee6916e54253ca18c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9d13f19de0ae93c8fb39013f97cf6f15746119abfa12dad2b3bf32c0d71960d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2655a0cca3da272aafa320a8ba8e194db08bb9b43fa8beb8c8c5fde23cafca73"

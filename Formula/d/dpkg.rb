@@ -14,6 +14,7 @@ class Dpkg < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "b362544ad40b720b13bf3714ea6a57363e86f912f8c319123deb8fb138bb0463"
     sha256 arm64_sequoia: "c99935cb16e3f8d32773f3dad83466058e43754309b35497de0d9656dfec6422"
     sha256 arm64_sonoma:  "412ed4289f5dbf0c58ddacc4ef2eaa6bf21bb77fdc046e16700e8fa3b24a9f14"
     sha256 arm64_ventura: "a95ed9e6898dfe3f16e530d453670c68a0baab6488c219ffd37447fe86132a1f"

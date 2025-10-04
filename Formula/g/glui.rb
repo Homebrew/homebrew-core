@@ -10,6 +10,7 @@ class Glui < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "291a1781d586b21b5ff3260f10e82cf9604a364ff5396b5eba33a28e6fce90cb"
     sha256 cellar: :any,                 arm64_sequoia: "8571bc2053756921d417d2ffbd49259fcc18f9068f3647cbfeaf4c310cf1f23d"
     sha256 cellar: :any,                 arm64_sonoma:  "b3127c49849ab12bb7ef689a8bf6191012175b219249166fef57f9dc540ef3e3"
     sha256 cellar: :any,                 arm64_ventura: "61a624ac60981cb7dbbbf7c4049bb3d0b19285c732d9178219932641c9fa0799"
@@ -68,6 +69,11 @@ class Glui < Formula
       CPP
       system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
         "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
+
+      # Tahoe running is headless for now, maybe remove this later
+      # ("GLUT Fatal Error: redisplay needed for window 1, but no display callback")
+      return if MacOS.version == :tahoe && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
       system "./a.out"
     else
       (testpath/"test.cpp").write <<~CPP

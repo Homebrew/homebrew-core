@@ -9,6 +9,7 @@ class DarkMode < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f6217678dfa4b8d1be25c7db9e62e604458cf16219b6cc5a4630f5c5d4bdb9f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e1ba7fd046acc377adb6e03543dfa8a5c4376e930ecce45b2ba464b23c808192"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98777785e6fb000da0969b716bb7ee5397ce75872031c7c7d9ebed750cf38d2b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "220d410b3879326e6d7b359cf4ca5e4feeafa76b12998e4fcd64ef420ffc1f29"
@@ -19,12 +20,10 @@ class DarkMode < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "312e08579ba705193ec21f3f10f3b52ac69b752d301788846752f3e160105abf"
     sha256 cellar: :any_skip_relocation, big_sur:        "8ec98a0dfe32ff7933e9f44a4f4933e1e0da4929076e72ed79cbc296240c17dd"
     sha256 cellar: :any_skip_relocation, catalina:       "5533a6c879d399a84a61b0ee6d03e5baaa23c8d598ebc8c3ad1dbd0db6da8958"
-    sha256 cellar: :any_skip_relocation, mojave:         "692456cb6abf428b487c663b4718147fe4fffa5be956054700857d2d9ddb977f"
   end
 
   depends_on xcode: :build
   depends_on :macos
-  depends_on macos: :mojave
 
   def install
     # https://github.com/sindresorhus/dark-mode/blob/main/build

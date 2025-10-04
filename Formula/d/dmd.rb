@@ -36,6 +36,13 @@ class Dmd < Formula
   depends_on "ldc" => :build
   depends_on arch: :x86_64
 
+  on_macos do
+    # Can be undeprecated if upstream decides to support arm64 macOS
+    # TODO: Make linux-only when removing macOS support
+    deprecate! date: "2025-09-25", because: "is unsupported, https://docs.brew.sh/Support-Tiers#future-macos-support"
+    disable! date: "2026-09-25", because: "is unsupported, https://docs.brew.sh/Support-Tiers#future-macos-support"
+  end
+
   def install
     odie "phobos resource needs to be updated" if build.stable? && version != resource("phobos").version
 

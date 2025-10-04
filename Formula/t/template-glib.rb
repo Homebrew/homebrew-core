@@ -6,6 +6,7 @@ class TemplateGlib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "b3ab7adc6345abeb4dc093292a825914ecaffd78d30ba9f0847e12b5aa9f2d97"
     sha256 cellar: :any, arm64_sequoia: "d373da3667fd52328b674bfee2e7e00ae6491c1bb5c062c6a708405024eead88"
     sha256 cellar: :any, arm64_sonoma:  "7f5ece60e9438f43195763b98fdd4288515e1e56a3def2c5ffc18201fcc68fb9"
     sha256 cellar: :any, sonoma:        "3ec54286435a0e5ce5c8eb74b984bfbac346e8170f83591dd5c9984d70c5ab4e"

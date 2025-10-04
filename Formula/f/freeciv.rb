@@ -11,6 +11,7 @@ class Freeciv < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "1bc7f00df7e35af121454d708542473a2360dcece37f7407c813dd185b677a40"
     sha256 arm64_sequoia: "fb2c867eb030fbbc439cbb4dccc2acf235bf0460b03cd578dbe7514d54f4731c"
     sha256 arm64_sonoma:  "4ac90c21f7a924ab576a1219cceb5243bc9e0c4310f94842ed5be18b2f09d7e7"
     sha256 arm64_ventura: "643274522efcd8b67fea947163b7a60e67bc5884d3f3783710bc4fa7254d9f9f"

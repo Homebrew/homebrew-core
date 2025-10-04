@@ -14,6 +14,7 @@ class FfmpegAT5 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "cbdf7eb359617cb05c5a0bc66fd737f438bd3ef94dd9335574c2477b14c319bb"
     sha256 arm64_sequoia: "1deeb36d8bd475badd629cef16cf11c3c1d02d64b4d41d796624ac7dc982fe1c"
     sha256 arm64_sonoma:  "a9e539a381b8e26fe48d9577fc3ec0108f8a588976a2939778e0123bb70d7678"
     sha256 arm64_ventura: "69b2040a614ceb7cd056e2e97a8bd9a859efd23660ae5896a7590406de8313f3"
@@ -159,9 +160,14 @@ class FfmpegAT5 < Formula
   end
 
   test do
-    # Create an example mp4 file
+    # Create a 5 second test MP4
     mp4out = testpath/"video.mp4"
-    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
-    assert_path_exists mp4out
+    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
+    assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
+
+    # Re-encode it in HEVC/Matroska
+    mkvout = testpath/"video.mkv"
+    system bin/"ffmpeg", "-i", mp4out, "-c:v", "hevc", mkvout
+    assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m, shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
   end
 end

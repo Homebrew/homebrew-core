@@ -4,6 +4,7 @@ class Gromacs < Formula
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2025.3.tar.gz"
   sha256 "8bdfca0268f3f10a7ca3c06e59b62f73ea02420c67211c0ff3912f32d7833c65"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -11,14 +12,12 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "cfe47cedd11c1966c6acba0747935a3709f877110bd4992df33ef1d2156db9bd"
-    sha256 arm64_sequoia: "167c304e1fa7a224b6d09d15fc80eb59c3639528d7dac0fc559538ec35ffe776"
-    sha256 arm64_sonoma:  "ae46d768e3e47bbe4ebcc8d025d3ddee1f8714e3179243476a344368d1c300d2"
-    sha256 arm64_ventura: "f296f7cb590d9fab34d08fd432a93613753836ddcdd30b12f95fddd5181e7ce8"
-    sha256 sonoma:        "73645a9084ec15a4c18d3d8b308222ddacc704cd37a1c260cc1a04e8c6f50f07"
-    sha256 ventura:       "910d6580fc7ad9e30eb708c4d50fff66397a0ee12af35886ae9990cdc7717e8b"
-    sha256 arm64_linux:   "8c2b3935fb7ef4bf8f2646b935bdc6d1dc884e80872dd0192024ccd76626b368"
-    sha256 x86_64_linux:  "ffd7c52fef7b389413618ea885aedfeb51ad9d1ff51b26db5263464811b5304e"
+    sha256 arm64_tahoe:   "cc16a154666e88d12f6315df5f72ab2d7b6d63819cc95cbb7cf9f232ffb26b39"
+    sha256 arm64_sequoia: "25af977b9513370eaccc0a682ef95d31d0db9064be6e3932cc40a1f62d18175f"
+    sha256 arm64_sonoma:  "08018bd66e4587a21487da6b4061f966ba543d207b417eb939f52b088917d6d4"
+    sha256 sonoma:        "5abc7a46dfd4c334e5408eb8c1072876f9991592cf55f91367b7b85a83ac1fb7"
+    sha256 arm64_linux:   "614f55427d4e588fdce8841d01681f153557a8aa60df91c086a915e8907e61c5"
+    sha256 x86_64_linux:  "96e54ddca2664710ffeb2b862f761834f2d6d143d8da2734f5ecc902114b2a34"
   end
 
   depends_on "cmake" => :build

@@ -27,8 +27,6 @@ class Swftools < Formula
     sha256 monterey:       "109f5b7057ce61a14f6eb11eb87afb90305b0dc7d830d6ce8d70872e9338b939"
     sha256 big_sur:        "bacf30e9986bb179127942abea49fac9ca05cf1ac3b3851cf3faf1cb970009b4"
     sha256 catalina:       "b0791e6725e6d07610847df7e4431e5839fcf72120cea34f1890b425f8e024c4"
-    sha256 mojave:         "bf18bfc66b1f6d6ed247acd0a4208a09b4acf6a4668e8f7eba2e40ad33ffe9f6"
-    sha256 high_sierra:    "d0e441ed7eef07c3536965d5269f648744ceb62d41fbcfe9a12248b8154c4f62"
     sha256 arm64_linux:    "7130ab9c8a0eefe2d3ff191ac2541f119bdb2b55eaff706fefdf5b57bea2f797"
     sha256 x86_64_linux:   "0ed51b95634f090cb753b57fdd73df90a944cc37fc2c34de45592d74c8b74139"
   end

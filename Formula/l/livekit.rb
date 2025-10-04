@@ -15,6 +15,7 @@ class Livekit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3274697334eb2d9b0f24d9c8eed4d914b5094ca52bb4d58d47d0815049c9bb1a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc56be398ab8da2ff2b6020a2fd6661e0c7b99edb2e3be538d6a4aa2ad22fa29"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc8f8cd1f8f51579c3903f0c48a1989c9a8f2fef4f581271b57c95e36136a8ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "73cf86e427181b8361b54d4209e3e336c67624db5a0b7649a24760a36e649dd5"

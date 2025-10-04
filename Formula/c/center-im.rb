@@ -13,6 +13,8 @@ class CenterIm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "0144e5a04086b115b6c21b4c9dd9448ec8a43f965737aaa7ca21213d5d78a1dd"
+    sha256 arm64_sequoia:  "70d910d088f565556129872ef5a54c802a0ff2e938e05d2f9315efcd4794fe4f"
     sha256 arm64_sonoma:   "65761f72dce3b59dfa0b058aa2eff754ffb132b9c61e9cf36d595f9ad12b3054"
     sha256 arm64_ventura:  "aeaea7b73d4df68699def112fc0b0108d22af0680a9f8bc1d323b9c605044091"
     sha256 arm64_monterey: "5234f05e2c0871d7df29fa263734ee54feb09de3ee6fbd327ec0d8e3655530ab"
@@ -28,9 +30,8 @@ class CenterIm < Formula
   depends_on "pkgconf" => :build
   depends_on "glib"
   depends_on "libsigc++@2"
+  depends_on "ncurses"
   depends_on "pidgin" # for libpurple
-
-  uses_from_macos "ncurses", since: :sonoma
 
   on_macos do
     depends_on "gettext"
@@ -42,7 +43,7 @@ class CenterIm < Formula
     # Issue ref: https://github.com/petrpavlu/centerim5/issues/1
     mv "version", ".tarball-version"
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

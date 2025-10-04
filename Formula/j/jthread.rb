@@ -24,10 +24,6 @@ class Jthread < Formula
     sha256 cellar: :any,                 monterey:       "9c27b5547869cf439f7d5fa99b8bc7de3931f3ea73d113e14d1ad013dbb189d8"
     sha256 cellar: :any,                 big_sur:        "8932e35ce2fd13b2ba082af71db656adc9c9413280b279067773ceea8542dc3b"
     sha256 cellar: :any,                 catalina:       "e228f81df252c35872df1c6e0711857ad7a7312aae17304a7bcefa0905106b61"
-    sha256 cellar: :any,                 mojave:         "e2dcd37c6dbeda04e3a9408d9f09f8d00ff669a3eb7ee8b098742887d800162e"
-    sha256 cellar: :any,                 high_sierra:    "2d9c8a2d9e52f9419cd1015d982e06d58963e29c43a44f7ddfbbf6f149e20cc0"
-    sha256 cellar: :any,                 sierra:         "099b841458d4d6f4ac3f5e7b453d4ec5b2a50f4dd1a6ccac9614ac72a1c1c90f"
-    sha256 cellar: :any,                 el_capitan:     "0e846e47e0350f6dc4ca15f5eb6f9e9d2cf7345c115476bc93fc78ac2cb056af"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "629245be8b81ca21008f231fbda9b316d87b06d94b42df62fbd00b8a600efd38"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0288eb31c63b100814238cd97f4fb9ac7e26fde1bd284b2dfacee67df8de337f"
   end

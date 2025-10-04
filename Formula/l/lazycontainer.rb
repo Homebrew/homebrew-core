@@ -7,6 +7,7 @@ class Lazycontainer < Formula
   head "https://github.com/andreybleme/lazycontainer.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0dc4071f1c199b099256ecbfae20165aefbeef9e9df7a0262d485f346039d13c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0dc4071f1c199b099256ecbfae20165aefbeef9e9df7a0262d485f346039d13c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0dc4071f1c199b099256ecbfae20165aefbeef9e9df7a0262d485f346039d13c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0dc4071f1c199b099256ecbfae20165aefbeef9e9df7a0262d485f346039d13c"

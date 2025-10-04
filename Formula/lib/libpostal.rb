@@ -1,22 +1,20 @@
 class Libpostal < Formula
   desc "Library for parsing/normalizing street addresses around the world"
   homepage "https://github.com/openvenues/libpostal"
-  url "https://github.com/openvenues/libpostal/archive/refs/tags/v1.1.tar.gz"
-  sha256 "8cc473a05126895f183f2578ca234428d8b58ab6fadf550deaacd3bd0ae46032"
+  url "https://github.com/openvenues/libpostal/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "02883c2f62658a09f9e49819f7983c7b19a574f9422424ecd5e4ff43cf7830a8"
   license "MIT"
   head "https://github.com/openvenues/libpostal.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:   "4b9b022b0bbdfc3bdfac3403b22d469a6b6f086708a68567be92a22b218eed49"
-    sha256 arm64_sequoia: "977117dd4cbadd9c7a54b1a98cbf8a4cf5d76435d3fb2a4bd7219777b7ddac8c"
-    sha256 arm64_sonoma:  "814ede166ebe7352cc9850527f29e9395eea6a2248a16ad450d0606216923e25"
-    sha256 arm64_ventura: "e6412f74a7d126a91f3c29337f73e3284329c95b1fba7924a653f3115918802c"
-    sha256 sonoma:        "077f8b1500c01ca5f5c6586b6570d33c0af2285b4d6e2811af431918b4b382c0"
-    sha256 ventura:       "4e553905102caddeb88a154bd251748381ca94ee63ce1b2f56cf80e65aabe327"
-    sha256 arm64_linux:   "aed0795c4d0a2894d8297bca8dd6b758aa4aecac1af139cb5491c9e9b75a98ea"
-    sha256 x86_64_linux:  "6f935c41597746bddc0c0e0fcc132f7e9ed9de317f8a49702f25cc01ce4fe844"
+    sha256 arm64_tahoe:   "0a6f889d4b41b5cbfd4a64dbdfb2c7e61a58eafcffe57335ff88edf9419f2838"
+    sha256 arm64_sequoia: "fbf12aa77b62468c76d5ac57d38f81c0e5cd379a9af827723cded2e09f45db40"
+    sha256 arm64_sonoma:  "9c6f9de07f3285847e3b7831c0f2bf8fc163ef95654574d8b47736392158b709"
+    sha256 sonoma:        "80fa9ed5f262fb37122bff7c246a211ed48a2de3de9e2a64b543e34cbd20dca4"
+    sha256 arm64_linux:   "f462facf77dfb1a6231b76f42201ee1ca5e26de5bfcc8a19b6d57d52218a463e"
+    sha256 x86_64_linux:  "1f054e6c0e4f0a12845e343c5e406a0683faf9ba71dd3880e30bcb23ad5199c1"
   end
 
   depends_on "autoconf" => :build

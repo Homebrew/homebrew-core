@@ -1,18 +1,17 @@
 class Openapv < Formula
   desc "Open Advanced Professional Video Codec"
   homepage "https://github.com/AcademySoftwareFoundation/openapv"
-  url "https://github.com/AcademySoftwareFoundation/openapv/archive/refs/tags/v0.2.0.3.tar.gz"
-  sha256 "9da0f758534d6243cd6e5c5ca46404e6fdd7e298a17da50b676b71c53ce6a083"
+  url "https://github.com/AcademySoftwareFoundation/openapv/archive/refs/tags/v0.2.0.4.tar.gz"
+  sha256 "1d8d31b0758d4b968d9b2ab483b3edb6de3440edcb27f14801ef42d6f2368e55"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4338fcad05732c7704ac85d7cd094c9c75589117def176e24270449033aa28ea"
-    sha256 cellar: :any,                 arm64_sonoma:  "fe0be30a5c3b1afd0be83b2e0b8cf4169e93091b57a467d4068138162c2ee551"
-    sha256 cellar: :any,                 arm64_ventura: "ecb5318dd94fa54e445075fbe45944f3e08b43cae0b421c99a4d0bbe611147ed"
-    sha256 cellar: :any,                 sonoma:        "4637646fc6477fe69c9ef3d549364285866e3b157ac1ad48e602180b8fb5515c"
-    sha256 cellar: :any,                 ventura:       "ed1d54e21f22638ebac413307f7044359b239963d0e1c1039f3aee7e46d9a776"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d71d90a898bcdfb6b6ea1e2c7c36e03871db39c898e1ad4c1bee746df8c42a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5db440d8e9c86855e484c759e45fe59ac8850485a9616313147b2164c3499f5"
+    sha256 cellar: :any,                 arm64_tahoe:   "56c6e41825fec4f798910260cefa1b449eefcc11abf0d261a46b74d991d800f1"
+    sha256 cellar: :any,                 arm64_sequoia: "2e887283159afe070ce1e246a3dd27dd699284fa33127b0baca6d4fe92d456cd"
+    sha256 cellar: :any,                 arm64_sonoma:  "9ae8b4bf546d07efac15c7d06dc4bb036ec93cdb727324cdbb6d2bab609f8a05"
+    sha256 cellar: :any,                 sonoma:        "d3cff51a1604c8afa0e75b19daf7f095abb886facb3e99a4adc857c379c437b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "edc20d196b0b6be866e6995749693c9acbe0b5b5539b3ac4a120608e8420cb56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29d951fa78b8a04e559cbf94c91ade64bec0d4d24234d9357eacdc224f5de162"
   end
 
   depends_on "cmake" => :build

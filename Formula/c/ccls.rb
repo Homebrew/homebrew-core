@@ -51,7 +51,6 @@ class Ccls < Formula
   depends_on "cmake" => :build
   depends_on "rapidjson" => :build
   depends_on "llvm"
-  depends_on macos: :high_sierra # C++ 17 is required
 
   def llvm
     deps.reject { |d| d.build? || d.test? }

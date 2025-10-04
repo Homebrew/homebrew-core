@@ -4,13 +4,15 @@ class Libpeas < Formula
   url "https://download.gnome.org/sources/libpeas/2.2/libpeas-2.2.0.tar.xz"
   sha256 "c2887233f084a69fabfc7fa0140d410491863d7050afb28677f9a553b2580ad9"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "62c9bee04b73e39a6cbc4c863e2dd2f9d80cf8daee4c0e12934de9ee48ea6b56"
-    sha256 arm64_sonoma:  "bc20458f8a32e06cb66b8281dc7b6893a73dd1ca20cad3f2e377954842f68c00"
-    sha256 sonoma:        "73e31e27dd9f0ae87ed1dc1a71ad608c0fce5c1256de6ecc140573ecf8e9fdc2"
-    sha256 arm64_linux:   "917a550712a770ee027117b97af9709008ba7a65893ae50239af51018f85d8e4"
-    sha256 x86_64_linux:  "5fc1a8bc9da800d2295294b8fe82d30e6802f82093fe42b2c77c066d7012698f"
+    sha256 arm64_tahoe:   "14ff01878ee901ba5a2775bb0e144caeb831ef0b8b87d031685a763799cbfc18"
+    sha256 arm64_sequoia: "ca49f0fac62ebebbba6d8eefd5917514ba956e285d5210255ff218d4026ab771"
+    sha256 arm64_sonoma:  "c7eb04b907a90519d1728914e744f0733881ce7d363776510b5e3fa2ea604c34"
+    sha256 sonoma:        "ea6827fdc1357c8cd065520f8cad5c1716b6ed340b3dc139baf14ebc042ac929"
+    sha256 arm64_linux:   "48acbb4421f26c5f6e2a6c3bac9988d828a7695b26e2846c1b2838a9ca21e814"
+    sha256 x86_64_linux:  "c0162f07daa592c20f4bc01fee54874f482c9199d65c999dda484a97f851ca81"
   end
 
   depends_on "meson" => :build

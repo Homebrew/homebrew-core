@@ -13,6 +13,7 @@ class Pypy310 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "de425a276a64d92a0e2d69d589753d119733d0e3cc18aa985ae329aaf1bfa910"
     sha256 cellar: :any,                 arm64_sequoia: "311b947a1528ae90983edc2176864a00865fb678c13c2286efe24075463a1796"
     sha256 cellar: :any,                 arm64_sonoma:  "8276c86a74591aec5dcd72722caeaa9c5a950f922b77c5ac20fc1147e21698b5"
     sha256 cellar: :any,                 arm64_ventura: "9e80dff6aaa3e465055533fe201daa041baf2e24af5ea96dca4951b56a171589"
@@ -54,7 +55,10 @@ class Pypy310 < Formula
   # - Disable Linux tcl-tk detection since the build script only searches system paths.
   #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
   # Upstream issue ref: https://github.com/pypy/pypy/issues/3538
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4b0d62a3a36de71c69e20ab4f0f3f094f6dc459f/pypy/tcl-tk.diff"
+    sha256 "d17725c11842d83b5432312348715241b1b402173cd68166620c1b6bd8162fbd"
+  end
 
   def abi_version
     stable.url[/pypy(\d+\.\d+)/, 1]
@@ -225,25 +229,3 @@ class Pypy310 < Formula
     system scripts_folder/"pip#{abi_version}", "list"
   end
 end
-
-__END__
---- a/lib_pypy/_tkinter/tklib_build.py
-+++ b/lib_pypy/_tkinter/tklib_build.py
-@@ -17,7 +17,7 @@ elif sys.platform == 'win32':
-     incdirs = []
-     linklibs = ['tcl86t', 'tk86t']
-     libdirs = []
--elif sys.platform == 'darwin':
-+else:
-     # homebrew
-     homebrew = os.environ.get('HOMEBREW_PREFIX', '')
-     incdirs = ['/usr/local/opt/tcl-tk/include']
-@@ -26,7 +26,7 @@ elif sys.platform == 'darwin':
-     if homebrew:
-         incdirs.append(homebrew + '/include')
-         libdirs.append(homebrew + '/opt/tcl-tk/lib')
--else:
-+if False: # disable Linux system tcl-tk detection
-     # On some Linux distributions, the tcl and tk libraries are
-     # stored in /usr/include, so we must check this case also
-     libdirs = []

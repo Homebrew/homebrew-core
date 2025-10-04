@@ -20,10 +20,6 @@ class Cpulimit < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "71ef4e07ccd817edc04f0b60f0bdb2a4a2efa7acdb1fdbdf31216871cfe6b61c"
     sha256 cellar: :any_skip_relocation, big_sur:        "f3f394e17febb7af49a1cb35c46e33856263dc58016d959aad2d2a250aae1d7d"
     sha256 cellar: :any_skip_relocation, catalina:       "7330907348c0a181c75b069dba7ee628e8c524c9bb9510487dbfd43730173db5"
-    sha256 cellar: :any_skip_relocation, mojave:         "b9c7f99cbc62eb7c02b19c63a9b7e3f9186175707ff853a7107447fd7b2ee249"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "077ab8835a3b44ce77e3b8bf867633115b1d056046b232e49aeac96ac30e731c"
-    sha256 cellar: :any_skip_relocation, sierra:         "fa5bc8d713837693c6bbd6139bec5e48b8a1d46ef669b2e042715dd1318b1655"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "9d7320465152a12ba75ce924beada5a3ce365b14becaa75e08ee8334c2cb2f6a"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "b4ffc1c3a63a8b4ae82354e6fed41658b2f094cbbe602a37659df8c9f10efc55"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e7b26fdf597d68a1f482095c11f606dc5fc6f88a27e88bf14a3e976cec0998a"
   end

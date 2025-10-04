@@ -1,8 +1,8 @@
 class Iproute2 < Formula
   desc "Linux routing utilities"
   homepage "https://wiki.linuxfoundation.org/networking/iproute2"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/net/iproute2/iproute2-6.16.0.tar.xz"
-  sha256 "5900ccc15f9ac3bf7b7eae81deb5937123df35e99347a7f11a22818482f0a8d0"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/net/iproute2/iproute2-6.17.0.tar.xz"
+  sha256 "9781e59410ab7dea8e9f79bb10ff1488e63d10fcbb70503b94426ba27a8e2dec"
   license "GPL-2.0-only"
   head "https://git.kernel.org/pub/scm/network/iproute2/iproute2.git", branch: "main"
 
@@ -12,8 +12,8 @@ class Iproute2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "64ae17c5134ef468d9d0006aabe29d359407bcbdc8c29e713d32b343324f9046"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ff9331328196988393c9b5a9c9d4d59eb3ab5b7721dd8a08cba6324cba897a87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "0fcb56946e7d1ed1c6089bbd98bebb0dd82b4ef721385643abe548a8cb8c1806"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "65b05368e8f1a9830cb9f7fbc23513747a1aaa9fcc03505f6dbe3a8545e6eec4"
   end
 
   depends_on "bison" => :build

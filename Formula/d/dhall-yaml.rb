@@ -8,6 +8,7 @@ class DhallYaml < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "124fc655cb7e13b6f0d560f16a13ac2c2f6f865f43b941997154b461b12a6737"
     sha256 cellar: :any,                 arm64_sequoia: "8bb4903a07a2b4f814993b70b5803d6d53226034c1e3cfaef567471af101de9f"
     sha256 cellar: :any,                 arm64_sonoma:  "d141b5f7a902b8f927e3ff1d5438cc6ec008b655613d6121b8f2980ef3373f0b"
     sha256 cellar: :any,                 arm64_ventura: "f54bf780f880756c5618e9535a87d459dcfbcb29e2a8d4e842862066ad9e8b14"

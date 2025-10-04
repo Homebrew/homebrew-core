@@ -1,18 +1,16 @@
 class MistCli < Formula
   desc "Mac command-line tool that automatically downloads macOS Firmwares / Installers"
   homepage "https://github.com/ninxsoft/mist-cli"
-  url "https://github.com/ninxsoft/mist-cli/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "aec30c9ff043e17ce0e6dd563480bd8015910ea1f110d4b767522e41e92bc00e"
+  url "https://github.com/ninxsoft/mist-cli/archive/refs/tags/v2.2.tar.gz"
+  sha256 "556b0680ea8aec5be5b111a0858c3434765efe6efe3526432ba13d33232d7706"
   license "MIT"
   head "https://github.com/ninxsoft/mist-cli.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efc0268da168bdef3957814c3abab5e3becda98958225ce0ab3478a8f7fe2584"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a1ea5b8fbae6561a594c3d72706b846a3faaff74ebcf4911bc466f51590bf1b"
-    sha256 cellar: :any,                 arm64_ventura: "c6c0edfdc3f68eabb96bdcf755c9f0ead40dc25394ebdd226a4bb348038e7799"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5bdab24a2100cf79ef66cf23c90c8f7c5b3c12006a60a14af7a4adae2a211921"
-    sha256 cellar: :any,                 ventura:       "9bdc8ca295437ceb51e567998282f24c4b40c82b7a31d07f674f7783e3df80e1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8e66ca77d81b43934d93bb3e970ba85c0c7020536d19aca2048e57405262c1b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "428a8c9a5fd5cc5116421c0e425bd14288398ec2a72e64d7b1bd3a741b8777e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aad7964ffb7a48c142c64e56f134635aa96a2236e7016dbe2a84a09bea870b83"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c4657c924d66b94a23d3bb38fbe10e860ea40683dabfcbda2a98177a6f8ce7fc"
   end
 
   depends_on :macos

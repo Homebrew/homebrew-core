@@ -10,6 +10,7 @@ class Progressline < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6e82f5a1a3adf652f5e8bd8b6941507eb9fd2b995ec36fb5a673c66208c128d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "045e5418e7f4e6b95b5466c1305de384ebe61c46751d945ab9b85e2eff18dd06"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4de062267b1d1ee13d97e9b1b9413f8eb6b921fb586a22ec35603de6bc3a799"
     sha256 cellar: :any,                 arm64_ventura: "0ae3e7443b2d0f26ca6a2707cc5190a8ec2e1a939076fdf4fdd319b37e13fca3"

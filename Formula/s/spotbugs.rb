@@ -1,8 +1,8 @@
 class Spotbugs < Formula
   desc "Tool for Java static analysis (FindBugs's successor)"
   homepage "https://spotbugs.github.io/"
-  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.9.4/spotbugs-4.9.4.tgz"
-  sha256 "d18010adead75959c1e2cc6ee244ee9b1aa10a6e9aa218837ad1db699778cc9a"
+  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.9.6/spotbugs-4.9.6.tgz"
+  sha256 "55aa9b9e3deef0391be285335dcf134d1ce54aae222bba1da757eaa616108957"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,7 +11,7 @@ class Spotbugs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "71d56c9d3728b452c0eeaa7e891944139f8700b88e5bb7b8e85b7461202fae1a"
+    sha256 cellar: :any_skip_relocation, all: "6ce6909a8969366b8d9732d0cc1240915a480f8b2b6bd7a84885139caa9f0551"
   end
 
   head do
@@ -32,9 +32,6 @@ class Spotbugs < Formula
       libexec.install Dir["spotbugs/build/install/spotbugs/*"]
     else
       libexec.install Dir["*"]
-      # Remove carriage return characters
-      # Issue ref: https://github.com/spotbugs/spotbugs/issues/3619
-      inreplace "#{libexec}/bin/spotbugs", "\r\n", "\n"
       chmod 0755, "#{libexec}/bin/spotbugs"
     end
     (bin/"spotbugs").write_env_script "#{libexec}/bin/spotbugs", Language::Java.overridable_java_home_env

@@ -6,16 +6,15 @@ class Graphviz2drawio < Formula
   url "https://files.pythonhosted.org/packages/fb/e9/2ba4114579f8e708b6b5d671afe355c9b8cdd52b15a9d126ec188a2bcad6/graphviz2drawio-1.1.0.tar.gz"
   sha256 "8758b9eefbac5d8c03a0358c0158845235c9c3caa99887f0f6026cfecc2895f2"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "50ab994e55b3da1f78154153eda00cbd046e61622a68166d91a749e9a2f14aeb"
-    sha256 cellar: :any,                 arm64_sonoma:  "5308392ba34b5394e45cb88673b2ad81174c6a04c59c21a4efa60d79baf26405"
-    sha256 cellar: :any,                 arm64_ventura: "682c30229b1763aacbb8c6a242ca5b8ac51911348a311eae43f7195e72f3e74e"
-    sha256 cellar: :any,                 sonoma:        "f9c6d7cdef5d9589a47a6eb8973c9e8cc3183aba7c2d089475bec334e28fcb6a"
-    sha256 cellar: :any,                 ventura:       "975b9d72d80c92eae4c493d6c0875124d246f9c13cdaeab176b6fec001fd354b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "61a0aa57fc3e29714c8561077c5cf190defe648a516b25ae95521414e1aef357"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2898216e7208864eeaebf6bd70e3430ef769e6f8ca656b139a711e930984d3ec"
+    sha256 cellar: :any,                 arm64_tahoe:   "066b2249697049321616006afa5a0f0014f0af66993d7e3a85abffe94ab85b30"
+    sha256 cellar: :any,                 arm64_sequoia: "2fe8dcf491fc333babb0bc4b24aa6485b1d60245aa0b61d7aa65013be4bc813a"
+    sha256 cellar: :any,                 arm64_sonoma:  "567390b769236d110cd932fa10f800a10bd8427c2ee1119d8eb039ee0c013ff6"
+    sha256 cellar: :any,                 sonoma:        "82948bb320565aadc91e341512aee3d985eecdc305d413180751249bee2b414e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce6aa1274f8e7fe34480578015201845f5bd4b963c3544063dc28d1e9a33c549"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32b271a3046503c0c35311eeeef62da8bf193834407842c44880628a7abce506"
   end
 
   depends_on "graphviz"

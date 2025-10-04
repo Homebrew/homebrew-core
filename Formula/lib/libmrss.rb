@@ -9,6 +9,7 @@ class Libmrss < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ff549d15087ee2c00bcf2645bb8626106f785b8a351590211b3e95e9e10b5907"
     sha256 cellar: :any,                 arm64_sequoia:  "183934eb440639c9d4506bcc74cc7c86da915e1bc65d041d79ebbc6eff5f6f1b"
     sha256 cellar: :any,                 arm64_sonoma:   "b28e679db851fa12e08db6e3c5061cd7dc8daa31b8d39686ae4fc40f6e5164a7"
     sha256 cellar: :any,                 arm64_ventura:  "52dbc8575b256260ae711ff08c2a8fbd2bed6151c26fb65c872d7e4e97cfd0f6"

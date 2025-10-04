@@ -6,6 +6,7 @@ class Gensio < Formula
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only", "Apache-2.0"]
 
   bottle do
+    sha256 arm64_tahoe:   "3f24e3984dff7c86b997c5acc7e75b030916d2f4e50fc632e6c54778fb4a765d"
     sha256 arm64_sequoia: "40677c845f93749b3f7b86f4d399a2383b4280ead8429d3edd31f90a8e3eaa54"
     sha256 arm64_sonoma:  "a02b158d13901cdf6b084d94c0d829bcf260c8e68de4d60abadd48859c63a9db"
     sha256 sonoma:        "379095d503b94140e55b993252044cd8739e735df2777b857054bc5aa19c62f5"

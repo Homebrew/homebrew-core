@@ -6,6 +6,7 @@ class Nanoarrow < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "80ebd3cac2eac2d67f2563d335cb9145d94f38a2403ee1470bb3099732f75a0a"
     sha256 cellar: :any,                 arm64_sequoia: "bf71bbbdde9c971b89659c9ae196fc56ce3e7b180caacc3640a62cf20b7c62f1"
     sha256 cellar: :any,                 arm64_sonoma:  "672338d155c58aa60c7fe8107909b6c12c7b39d97581741b6073d6941867bafd"
     sha256 cellar: :any,                 arm64_ventura: "997e95fcd0948c90c9680f98fe02c74b91dcced1937cc2dc74940711753e8ed4"

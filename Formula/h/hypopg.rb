@@ -11,23 +11,25 @@ class Hypopg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e319bf2b836a72e560bcb3496f80917f29cb2d9a4243580a0c1487f7e4b7c9da"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e641b2c2df8ca7f8a6b2c882b42f820f24a3e9326a3605dcfeb97770149889e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8cfe4430907140af1fe4e26ab9ab97c0180e570b7d9c55d1c03932ca050e0566"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f1f748e156c8e3fc1ef64c3d0741df3d8f69cc1c7fd8468576db210b6bdb92f8"
-    sha256 cellar: :any_skip_relocation, ventura:       "37dda840487b942c69f32b88347fbb57f279ee780e385a5a8d6ab653d09e70c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "593f3fcf8179281606f2dd9e22248ad010cea256dac2a17d567660bf0b93ce0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21cc0571fc75444925050a5856e02b3100ca1e5698adcaddf21b6dde1f269d42"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62a5a0b0c592109dbfd59cc2ed251cfc61139444fa11dd43c6a813bf5721dc05"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fdeda4712d8f810bbef1018e34bc93f250736e7d06b52c46237fb72f0203d6b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5944371d52b74079759b3c1697219a83afa8668897d99727d3a8178915d4a0d8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "489ad1c03c7445f390a0b5343368138b5e7f9fcd09f2d93cb2788b77d82c02f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "85797620c0d3f1115917e23044e64b4526d2913b15044a6156d3c69037ca23d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a2cf8d3428a7e9e63c750f8fe2d45a5d0235c0b88d661089e1bc72bfcebff68"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
+
     postgresqls.each do |postgresql|
       ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
       system "make"

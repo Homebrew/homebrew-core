@@ -11,6 +11,7 @@ class PolicySentry < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0c77fd7f0f31e0ac0a19893e8658df34e11a1fe79ae8031da97f508763c0a71a"
     sha256 cellar: :any,                 arm64_sequoia: "04bda82b81431750a22f6bef478631fbb349d3645c42d2723fdeb42975f01ef5"
     sha256 cellar: :any,                 arm64_sonoma:  "edd81e3b6f8efe358eda2677150ff9d08b344022c375e004f52d733e8d51636f"
     sha256 cellar: :any,                 arm64_ventura: "13e9ef949135fe5ea1887a16bf3199caba35004e6f29e16244681f51d967ebe0"

@@ -11,17 +11,18 @@ class ZlibNgCompat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b32d94fa0ff7dc3280c0241fde0c08f57b07150957df9c835e0d2495b2021284"
-    sha256 cellar: :any,                 arm64_sequoia: "d45195acef3111fc30f38266ceb5aab77039826629f4edd15897146ca05b7504"
-    sha256 cellar: :any,                 arm64_sonoma:  "e6cb4d804686d11b277d4a2cb11ddd5ab4cce08a49488e35a1c906729e3ba928"
-    sha256 cellar: :any,                 arm64_ventura: "5dfd915e6230af6ef5b47d84d47aa8a2637c4cf394b3738c82ad3965b9e922b0"
-    sha256 cellar: :any,                 sonoma:        "161a20f0d8ebcc6b35420e4432f76030a3185d59a46c70372ee8774eaddb3d31"
-    sha256 cellar: :any,                 ventura:       "e3cf0ba70aa78eb5aab4781eab9dc83d1f42f8a738ff1972ddaa89194aa62cb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "63f4ad278cdc3ff300a20c6942d02aaaa546e2b5a5dccff15cc4ef399ba1ef50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5c3a36039641f76ec48434419c63e422c8a28ee9027492bcd57860e56f2e8c2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "da58c82380d51a5ac285132e8888610cc14476e95e6280445fd335ef4cbc572c"
+    sha256 cellar: :any,                 arm64_sequoia: "de2b7d5bc1e09399d31f45e1fe5bcec8a7ec2f3981061cd6c8a123925f38dcf7"
+    sha256 cellar: :any,                 arm64_sonoma:  "85aa982fe79a27defd05121af49c64166d89fb1e82ada3d9f2928e1d96121466"
+    sha256 cellar: :any,                 sonoma:        "8ced5ab346a3717bef52de72772277eaf7592906345035fa63aaffaeecfe7e44"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c3b8ff2996ea3df499d16c1438248eec572cc6da8ddd00b5aab359756fd1b94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f2a5ba2917c2e7e97ab4cb5e5a4f56139474ba441ca808ac30915bcfe7aea44"
   end
 
   keg_only :shadowed_by_macos, "macOS provides zlib"
+
+  depends_on "cmake" => :build
 
   on_linux do
     keg_only "it conflicts with zlib"
@@ -29,10 +30,13 @@ class ZlibNgCompat < Formula
 
   def install
     ENV.runtime_cpu_detection
-    # Disabling new strategies based on Fedora comment on keeping compatibility with zlib
-    # Ref: https://src.fedoraproject.org/rpms/zlib-ng/blob/rawhide/f/zlib-ng.spec#_120
-    system "./configure", "--prefix=#{prefix}", "--without-new-strategies", "--zlib-compat"
-    system "make", "install"
+    args = %w[
+      -DZLIB_COMPAT=ON
+      -DWITH_NEW_STRATEGIES=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

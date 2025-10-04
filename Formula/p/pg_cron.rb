@@ -6,17 +6,17 @@ class PgCron < Formula
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "937e5bc2845b6ccf62c19823c03b39678ece0efd0c2834d81aa56795b0ba7199"
-    sha256 cellar: :any,                 arm64_sonoma:  "a14743988807d045690aa9cfbc58d58b2f2f431e1951ddfa41547a55296043e8"
-    sha256 cellar: :any,                 arm64_ventura: "8de0b4c5f4177977f2de2db6ab5fb3047d38d4233836b98a5ade1a45427436ef"
-    sha256 cellar: :any,                 sonoma:        "9fd83573a717b2ccdc615bf0dc196be9ebb33c3f4a614e3fcdfda0bf8503341f"
-    sha256 cellar: :any,                 ventura:       "6e2af376fd0565ccff721ae6cb9f3f7e399c78e494b18008ef2291927cc6dd1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "66babf31f827196051d5f074ccaa9538d26c361908b4a9037a29ce39d657cdc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7206a1fa1242bbed6b486da83c12b373da497bf3ccaa72d81ba0d0dd6db55b5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "09735afcd85669a8b3c460864d987b45a85efa861b23d13d091d0a3044b9d65e"
+    sha256 cellar: :any,                 arm64_sequoia: "c6248b364e481b21ca81bfc63776271f8f3eda1ed42971b88c6b1b6cf87db682"
+    sha256 cellar: :any,                 arm64_sonoma:  "8f312f0971c68d69201ee2d4ed3b544c0572a4d36a2ebbc9ba8c5785ca20a556"
+    sha256 cellar: :any,                 sonoma:        "8eb54aed1bdff05c61bda87a5d30ec13beed7e14539eee17f9450748f67680bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "56feed3b8e5d423e83dc9218a3a17432e819b16fdd1045b7584593649fa3952d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58fc98446a6b2f23b701b53c391b8c4d052cbea137b0ea7e8fa7ff398bfe509a"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
   depends_on "libpq"
 
   on_macos do
@@ -29,6 +29,8 @@ class PgCron < Formula
   end
 
   def install
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
+
     # Work around for ld: Undefined symbols: _libintl_ngettext
     # Issue ref: https://github.com/citusdata/pg_cron/issues/269
     ENV["PG_LDFLAGS"] = "-lintl" if OS.mac?

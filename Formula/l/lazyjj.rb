@@ -7,6 +7,7 @@ class Lazyjj < Formula
   head "https://github.com/Cretezy/lazyjj.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c7e851a5bddfbceb3bd566d77745bf5ac11ed2b9d5d46a8818dd0393aa95e8a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ed3836f114f0532751221dfdfa587c024ee3d2744122e432134b61d00a7fe11"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bc9af5259b9c06bf516af13c9093f49f9b9f7205de8f5de14109b947f67de3d1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "23134bf49a95b53f0e8a6e66f9e9b1d668152b03ff851ae890938720a49407d6"

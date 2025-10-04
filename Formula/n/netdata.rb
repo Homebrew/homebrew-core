@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://www.netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v2.6.3/netdata-v2.6.3.tar.gz"
-  sha256 "ae99834889c04b5d49b1b03cf1db8812a9b3c6498dd097414bee01a3844c9001"
+  url "https://github.com/netdata/netdata/releases/download/v2.7.1/netdata-v2.7.1.tar.gz"
+  sha256 "8ee20481472f1ceeb40f181a3699897dae5785afbd13d88d3e15d8e7f98f5e44"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,17 +12,18 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "581176b022ecae6c52683c111a67067b7d3b7475257d90f62cc0cc784768c9b4"
-    sha256 arm64_sonoma:  "00856eec11eeefe55025ff8fa98d794a20f7876d7b9ee559ae32ad8d99d4e022"
-    sha256 arm64_ventura: "022c12729c28c7c65817c18294009667b323c6e2d9d824ee59a3abe8ceec655b"
-    sha256 sonoma:        "8334892fdabfc2aab32bd1b5502d8f02f2a6613ed07ed3deddcd9bf070ada22d"
-    sha256 ventura:       "56ceb5c9a292721b1e38bfe0e4607ac37f5825945a3a5132749d0630af4eb9ca"
-    sha256 x86_64_linux:  "2fd763d3bb0e18e835fb448cc2a2b66fb4f0185ffcaf986ef04efff9dcb0c763"
+    sha256 arm64_tahoe:   "217d174723b4cd5a29dbcc4c5c48d5c1d1e636fb7e471804599cbb915333ee98"
+    sha256 arm64_sequoia: "9cb201e12b076bba2fcc411b6f3be01724123c5201c6b6886dcdf021a3d15591"
+    sha256 arm64_sonoma:  "9e96f037bbab593e4da6aaf9efc89dc376eb1c1050f1c66639a9931a05cda4e8"
+    sha256 sonoma:        "af6f9fdbb9cc78f026f52ac5cb9a105eab4d328f2ff6255a3f64b927cd2cd4d7"
+    sha256 x86_64_linux:  "706a70e30cd25b07520f67a6457bd391a7777dc7ad014094431a7f27ae08141e"
   end
 
   depends_on "cmake" => :build
+  depends_on "corrosion" => :build
   depends_on "go" => :build
   depends_on "pkgconf" => :build
+  depends_on "rust" => :build
   depends_on "abseil"
   depends_on "dlib"
   depends_on "json-c"
@@ -52,6 +53,14 @@ class Netdata < Formula
   end
 
   def install
+    # Fix to error: no member named 'tcps_sc_zonefail' in 'struct tcpstat'
+    # Issue ref: https://github.com/netdata/netdata/issues/20985
+    if OS.mac? && MacOS.version >= :tahoe
+      inreplace "src/collectors/macos.plugin/macos_sysctl.c",
+                'rrddim_set(st, "SyncookiesFailed", tcpstat.tcps_sc_zonefail);',
+                ""
+    end
+
     # Install files using Homebrew's directory layout rather than relative to root.
     inreplace "packaging/cmake/Modules/NetdataEBPFLegacy.cmake", "DESTINATION usr/", "DESTINATION "
     inreplace "CMakeLists.txt" do |s|
@@ -64,11 +73,18 @@ class Netdata < Formula
       s.gsub! "netdata_add_dlib_to_target(netdata)", ""
     end
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_FOR_PACKAGING=ON",
-                    "-DENABLE_PLUGIN_NFACCT=OFF",
-                    "-DENABLE_PLUGIN_XENSTAT=OFF",
-                    *std_cmake_args
+    args = %w[
+      -DBUILD_FOR_PACKAGING=ON
+      -DENABLE_PLUGIN_NFACCT=OFF
+      -DENABLE_PLUGIN_XENSTAT=OFF
+    ]
+    # Avoid to use FetchContent for `corrosion`
+    args += %w[
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
+      -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+      -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -20,10 +20,6 @@ class EbookTools < Formula
     sha256 cellar: :any,                 monterey:       "64d14b86d0aa4270c9f918b1e8539100f6c2eb495ccc33a16e7bb7a322790328"
     sha256 cellar: :any,                 big_sur:        "e9c49bae08503eaf6e213454bd4f5ce58ead342ef192798c6d7d9c04fb6c2918"
     sha256 cellar: :any,                 catalina:       "65d014f4c91fec7b0d156a751b1e3b409574f3606264f8ae9ccab0a1db0f564f"
-    sha256 cellar: :any,                 mojave:         "93400da1ecc27f229a5ae3b1d49f47f1779e148912c39bcd3955499b0eec84e5"
-    sha256 cellar: :any,                 high_sierra:    "fce5577098322a2b4f6fd73a4a18077f77100adf1f15d9a494594e416354d1cc"
-    sha256 cellar: :any,                 sierra:         "cc01e2bcdd26e6e9b0852e604f2bd56c31bde00ff42eb73fca45d2661fbab159"
-    sha256 cellar: :any,                 el_capitan:     "aa76cbdcef93ac7d4af39b9cbcb1b841fa08f2dd11cf7542c5fa4f4ae365b0cc"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "98bdec0773fa7d43fff2ce47c4d989d62a6d38efd3d4013b147e286ff3dd88c8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a575e5b70146f7fd4e2d13518f105428f59cbd6298f272d4aa9bcfca8944fe05"
   end

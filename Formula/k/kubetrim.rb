@@ -6,6 +6,11 @@ class Kubetrim < Formula
   license "MIT"
   head "https://github.com/alexellis/kubetrim.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6deadec532cc2aa53922e706aed6f60d1ae72a75b34db8a8a658026f4178d7f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"

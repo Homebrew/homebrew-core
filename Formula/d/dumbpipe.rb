@@ -1,19 +1,17 @@
 class Dumbpipe < Formula
   desc "Unix pipes between devices"
   homepage "https://dumbpipe.dev"
-  url "https://github.com/n0-computer/dumbpipe/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "69dadd34b56ff18320a27a69c66cf0591b2f11ee725427b4a281928d269fa905"
+  url "https://github.com/n0-computer/dumbpipe/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "880f5b0ba0d3c39cbc84595676782f50a25f87ad1b7a77d35cdc590c584b2da1"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b7cf4e95b2cd8c19fd6fd757242e1c595e984582a3d7a001a0210798a83d1fd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8da355eab9b6d40fd0af7e17e6b2836d607d9e03435bf2a2f783c2e146903ab7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1dfbb7339265641e4ace1727824e981204118ce52f221b1e850c1097f8ade261"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "315cd7b67781cc009c5426993cb28d486bddd3e242d5ff56ce7370cec725e4fd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a4b735f4a327a59e8cc37857ba5598eff8a6de5d6ddd3dd22edfc1c6fc557f6"
-    sha256 cellar: :any_skip_relocation, ventura:       "f80ede8d2179727cae39b01c9d5f7794db59f82e1b2181edab39097945d0b420"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "005c5ce256398a076425520f77246b82f1b77bc6be39d19d5fd3cd00a018a00c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "687daa777f73debed74ad2fa5a1d7b42acc9460e588136eaf0a835315d989fcb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4e04135d59ddc9e5ef8a8f118010cbe5e0d89bb4734b04ea0fbac68de480309"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb34323ca44a9bd437b1edb1141403bc3fac73d6a81e00352e6d09d53da5a18b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e84a9237fc1d3d705381850c792c8e1a3ffacc56063a538297a00d6265fbae6b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0fffb593d126b6842a041fcb8bcf2c20e7e07fe5a4802409f6a3d6c8a60ec05f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "29ad44441bc079a7632f6e82cee77fdde7a7746a0cbd8ced63142eb5764a6dc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d9aec0fbf0c66e4fc0f047410b212fbe098f4a7e0b6a7f6c6cf9d9e0a07660c"
   end
 
   depends_on "rust" => :build

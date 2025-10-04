@@ -7,6 +7,7 @@ class Rsql < Formula
   head "https://github.com/theseus-rs/rsql.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a936612adb0d6ea4764621131bf0604a23549355bc64f8f578344dd475505693"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b31ac7cc12a1f3a71885c4d0c53b023ea7d7d2a9709128e2ae712253937b6ed"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84a95550759893530a734322482d93f9e6456494e56706d9f93d23bfdcf6715a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c44f42187d6962c11a4a30194753555258ef609fb23dd972adef96354b0ecbc9"

@@ -1,8 +1,8 @@
 class CodeCli < Formula
   desc "Command-line interface built-in Visual Studio Code"
   homepage "https://github.com/microsoft/vscode"
-  url "https://github.com/microsoft/vscode/archive/refs/tags/1.104.0.tar.gz"
-  sha256 "e009e08453fb469d0f6619e40fa506b6549070b623a3dee44a2694256245b67c"
+  url "https://github.com/microsoft/vscode/archive/refs/tags/1.104.3.tar.gz"
+  sha256 "e4aab745cd1f46fa9fdac0735d9e915ea11f48cda468d1eca56881f9ea1beb12"
   license "MIT"
   head "https://github.com/microsoft/vscode.git", branch: "main"
 
@@ -12,14 +12,12 @@ class CodeCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "53c0c2494cb20bf5a3f26df38bda0758330e6335e04d042af97ceab7675681a4"
-    sha256 cellar: :any,                 arm64_sequoia: "fde382eafbd461ccb7123f5b2516dfde646f1adc69302a1cd0ddd20e668a082b"
-    sha256 cellar: :any,                 arm64_sonoma:  "cb13bb2dee82caa9b6b1d49b8d185a9f9598089abf1c7197f8e9d4babcb5a99d"
-    sha256 cellar: :any,                 arm64_ventura: "5ab05c93019a947c336c38f82909131f9e619a41cc962062553fb1ae796446b5"
-    sha256 cellar: :any,                 sonoma:        "6a934e8f88db81dda5c97fe54886c8cf2fa27eeee872b2e6ed170e3a871a2274"
-    sha256 cellar: :any,                 ventura:       "4c80cbc6a613667e83285548094b78899ae2d4ef27daea5dfabdc5c7bda8c517"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8bed6fb4048484600f4c45e6cb718d18e1d4c912290baca3e2cdc6a80a33701d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fff0cad4afcd7c404cbdd1f9460466aceda644f67f259f6456b1f6a0837c88a4"
+    sha256 cellar: :any,                 arm64_tahoe:   "6bcf3351d64adb42fd124031bc125bbff1cef2326aea44c8c7305c25d744c765"
+    sha256 cellar: :any,                 arm64_sequoia: "65eae79dd0899f141bcdb0d85730831cf65c75b4f8d6d701759eeee92775d2ca"
+    sha256 cellar: :any,                 arm64_sonoma:  "a4f8bc29c43d845bbdce4f2144a1c50e8e39843e7b98795f7ff62f1affa093dc"
+    sha256 cellar: :any,                 sonoma:        "e664b3fe82025c05b9a6c66934df37ec1321bd840268513f8979a847604ebfb2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "66fed6e159e5e90115d0bf24958c96d9e1d21fbb266030132a19960af5c831c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "051f58718cbbda8c4df51bde52907e7a173f79df37358d8916c7b1ff01b8fa26"
   end
 
   depends_on "pkgconf" => :build
@@ -31,6 +29,9 @@ class CodeCli < Formula
   conflicts_with cask: "visual-studio-code"
 
   def install
+    # upstream fix PR, https://github.com/microsoft/vscode/pull/265295
+    inreplace "package.json", "1.104.2", version.to_s
+
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix

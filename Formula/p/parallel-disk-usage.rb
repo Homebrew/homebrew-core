@@ -7,6 +7,7 @@ class ParallelDiskUsage < Formula
   head "https://github.com/KSXGitHub/parallel-disk-usage.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "087a9b44fb17f904a0e64a630d18731f378938a06c1d4e1db97c313ba2df0208"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff8961cca5f1555d8e00546b937331b5195d1cdddd15146067534f444a630e11"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52f6a3b9fb2cd8271f2bb0d62b08a0f997172591b2776147d6af15ee1bea2086"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "34c0d90115cfb290f25cdecc1daab6cb57295d54891383ab404cac4fc61a9ccb"

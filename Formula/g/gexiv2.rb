@@ -8,6 +8,7 @@ class Gexiv2 < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "65daf3be90e7c24d84c131e5eb349d90c935f45ceeed7e043cd083617dfde41a"
     sha256 cellar: :any, arm64_sequoia: "6566b30dffe1e55d2dd899cb609d06567ab05122b320a4135d00485aa5fd23a9"
     sha256 cellar: :any, arm64_sonoma:  "df3ffe2eaf8be10632c018f21857988aed01f71e43d72362870f09306e28a3d5"
     sha256 cellar: :any, sonoma:        "1295da3e261bc8240e05d696103954b4cbefb0b2e14d292d475c9195cd32f565"

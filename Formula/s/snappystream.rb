@@ -10,6 +10,7 @@ class Snappystream < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1b9bfaec4d6e7207937aa78282ec7fd13860da55f88a518ad7c0804a4b6004fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8bfb07955fdb8b0896bbb1084651c320a78d2e5e4ae5d26242b86469ae8d39aa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4647e986c27d16e41d5636d0d14b096f09a69e446e6cebf2715e2de88c579527"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3e452bf6ee2fb64d89388ac99d1786218bad625c6fc71f0cb4284f57bf150c7"
@@ -29,7 +30,8 @@ class Snappystream < Formula
       -DBUILD_TESTS=ON
       -DCMAKE_CXX_STANDARD=11
     ]
-
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

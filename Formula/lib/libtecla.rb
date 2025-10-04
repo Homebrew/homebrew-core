@@ -13,6 +13,7 @@ class Libtecla < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3883edbec56c880a52d9805b5fa4688136ccdb26fe9fe8b4c8b302b3f3c79de4"
     sha256 cellar: :any,                 arm64_sequoia:  "389b4e8a32591e201b3c174ce301bfaeb27a38dd8398992eff9171678d1b4bfc"
     sha256 cellar: :any,                 arm64_sonoma:   "30529250bd3e6f9e4533145538200757b6c0abc0592d192b3c3bb5f4fe25d8fc"
     sha256 cellar: :any,                 arm64_ventura:  "b2bad924df3143f0253bf5bee8dcb8522b905812bafd7134e64fabc2b278e94d"
@@ -23,10 +24,6 @@ class Libtecla < Formula
     sha256 cellar: :any,                 monterey:       "7e9cdf4692258796b655934aa501b94a46b88291334b1bed79a44dd4ea205b20"
     sha256 cellar: :any,                 big_sur:        "d0f28c06cf9d2d1669298104439c4e194d21df65fc17e9b95e9dec0383aa7fef"
     sha256 cellar: :any,                 catalina:       "a6bbfa1cee4b62a03186d6fa1a153fceb2b3b9ae5cdf63411d6432c6251c753b"
-    sha256 cellar: :any,                 mojave:         "d39e8711f7a9a5a11433c7c92a2113a97f8846796f93fa7bca1281e06db2e3fe"
-    sha256 cellar: :any,                 high_sierra:    "dffae78362e21bf324ed651a2b80ff924b1bbec60916159863e66c7171072a9c"
-    sha256 cellar: :any,                 sierra:         "21cd696f6e79ae6401dd19f832ac24263f016a62c2d15ec31e25d515bbea5983"
-    sha256 cellar: :any,                 el_capitan:     "3ceb3942ea4ae1434dcc0aea00fa58b6f16787bc1a0067e9497ad4cb050f771a"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "3a0a9b8648b8766487a1d4c13c394f2560d4b24af9df0e10109fa89dd87b0415"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bcf6021a1cff18af685065c3778f709fdcc17e22767818c6e5fef4e309adc3e"
   end

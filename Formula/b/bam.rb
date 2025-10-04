@@ -20,10 +20,6 @@ class Bam < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "be83765718e57f62d746cd72d15451e4074bd34aa334f235dd0aeefbb760ba13"
     sha256 cellar: :any_skip_relocation, big_sur:        "0bd9f6ad25f64fc5282dd4facfea787bbca5855eb855c12eebb12cb60d82261b"
     sha256 cellar: :any_skip_relocation, catalina:       "de24826592ac3d7a97f2ea0372d6a002e67e39bc1f10dc5d2e54563f84953690"
-    sha256 cellar: :any_skip_relocation, mojave:         "195777b4263d8e5d84e91123ab1c47a362a5d92aa2c5c1cf7ac5c45b7728eb1d"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "59aebec505aba51189ccedb1872affd1c48ca84598caa591c2e0c955817e7cd7"
-    sha256 cellar: :any_skip_relocation, sierra:         "f237da39dd743732f3cfa0a5029b3cce4b332fb08e4326183eece8fd50dcf789"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "4ded8f152aa05211053796e77b9b7a9e5671b9d5871c374a85ee74e6b9cb8e50"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "c8b66adf43d301d47e35cb5b45bf01bed4923f7eaf7496d08ded5d2bf70b2b64"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1220e1a71792eacface17e8168d217ca657aeecf3b30a672a0815375536e2d1d"
   end

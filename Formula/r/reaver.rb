@@ -8,6 +8,7 @@ class Reaver < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1a2342c639b7515a7f1870db8baf31ac8d6aec8d7dbf28006b4a98263fdfc142"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "67906250f6cd74d13aa313315e80b46b0998e898a1c0589dcb67a3652b02081f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "700af545d75c81c4edaecf553e15ca681dca5d5c99beb69c54eac5698e75ccc6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5905b2c9cb255997aafa2a96c694b88b75dd39eabddcd1801d05971b4331c24"

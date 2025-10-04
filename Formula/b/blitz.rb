@@ -20,8 +20,6 @@ class Blitz < Formula
     sha256 cellar: :any,                 monterey:       "d18fe13200228947c919659133af057d66da2ccbcbf65febd057a612b2014a8d"
     sha256 cellar: :any,                 big_sur:        "eaf888ad2387b3aabccdc8ba82104b942dfa91b058b335449a7bdeb26213ce7d"
     sha256 cellar: :any,                 catalina:       "2bfa3e5a52f0f51e9e02c84f10f804093b7080c158b3376f330dd51c0f9e3d23"
-    sha256 cellar: :any,                 mojave:         "a06052c039592fe7b41face9c72d715ba0602456a9df07a40a472d3ceba02c00"
-    sha256 cellar: :any,                 high_sierra:    "79901f790ea3583942a72ababfba3dc6569169f228b0428c047da52f1f99c02d"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "634d7e0692358f5c7b6fc9de0b4f553b52b244cfa13cd3e42a1dd0dc1ece06c7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69b643943846376a48b8cf266f639fff523ad74430a2e784c2bfdfab21137179"
   end

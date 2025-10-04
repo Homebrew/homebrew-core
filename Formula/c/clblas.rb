@@ -55,7 +55,7 @@ class Clblas < Formula
                     "-DBUILD_KTEST=OFF",
                     "-DBUILD_TEST=OFF",
                     "-DCMAKE_MACOSX_RPATH:BOOL=ON",
-                    "-DPYTHON_EXECUTABLE=#{which("python3") || which("python")}",
+                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
                     "-DSUFFIX_LIB:STRING=",
                     *std_cmake_args
     system "cmake", "--build", "build"

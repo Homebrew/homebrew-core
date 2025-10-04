@@ -13,6 +13,7 @@ class Nsuds < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "6a85cd2409e3f89ef8578b377b849b1c04ebe32fded4bee64e5ce1961ad1440c"
     sha256 arm64_sequoia:  "bd292cf994f5641b70cfd91b592bc8e82b9a9895d1c95c718ff0530a9b98668d"
     sha256 arm64_sonoma:   "2a478277a19b9cfaf40f2b675cef9113b6db1d662468fdaf2e34c7d9200b5cb9"
     sha256 arm64_ventura:  "3971aacb07fdd707ad1365f0a7b8b27ab1e694cec0aadac8b117d16639baf75d"
@@ -23,10 +24,6 @@ class Nsuds < Formula
     sha256 monterey:       "2a9d8df67a2c0b7689a48960487bc7f240db19f321f492448c30608de7f59c2d"
     sha256 big_sur:        "17ff896355ee4f8905783422f8e1dbb68b88d45ba1ca6cc46116c93ec35bc2ef"
     sha256 catalina:       "dcccae0ffd504a9a09ed57bfe0ac26127723c92513177eb862fa132e21c6968a"
-    sha256 mojave:         "60d318290bb60415eb4abfdd7ffad468a24294892ac4ff90895cc0e589ea3da6"
-    sha256 high_sierra:    "26e82eae22288d51eda3742c0ae4f3e1b0b17a003461f1baec38ccaa52495d9f"
-    sha256 sierra:         "89ae2f310d8b21d98ababce7110f20d3d41da06b7a751447c56aa6dbd13a1950"
-    sha256 el_capitan:     "596fc55d7e2cc63e8fdc4f3648a23d2c3c9c9eee9775a6579410c28708c0a358"
     sha256 arm64_linux:    "e38b08c1f769caeeca6deaca0f3a1c0d22364ad89f38973edd6dd3edc6bfc5b0"
     sha256 x86_64_linux:   "bebff61d5efe0ebc66d905824e0316e2c2f46b0c48128855478271de5abb9bb0"
   end

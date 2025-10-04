@@ -11,6 +11,7 @@ class Minimap2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "106a141d81ca4146eb67910656304caab34900a21bad667eda801f3181b397c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "15a95a85343975c72953717d6aefcca9ee2e04f1f0a0b0403819d053c722368a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cfb5b7c1bc6595db98264d150b10cb4b1f17efcedd60a087a8f3540861679fe0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e71e6111743b87d5005094bbaa9813116922d397b7dbce5f8a7e34bba6e78ef2"

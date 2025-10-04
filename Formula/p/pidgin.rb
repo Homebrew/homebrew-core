@@ -50,6 +50,8 @@ class Pidgin < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "72c05493b863e1278527fbb061d93950db72355c80f712a202eb327cee396d1d"
+    sha256 arm64_sequoia: "b29a4ae2b61df4ebe31ec8351174e8f827504b755b6d6897278fbbbb3fba47b2"
     sha256 arm64_sonoma:  "56d8ee2c91d79fbc88b8545a9afd844042f21a6ad31451160395858e6b4b6caf"
     sha256 arm64_ventura: "67742939cf4f3c3d2fe6ad7caae0e4006378736a08464340889543d2a5d65157"
     sha256 sonoma:        "90e6291f5817c36034e83bb614e2cb186f3f92a4a7d5dda7ee6a5d2fcc90d25f"
@@ -110,7 +112,6 @@ class Pidgin < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
     end
 
-    ENV["ac_cv_func_perl_run"] = "yes" if OS.mac? && MacOS.version == :high_sierra
     if DevelopmentTools.clang_build_version >= 1600
       ENV.append_to_cflags "-Wno-incompatible-function-pointer-types -Wno-int-conversion"
     end

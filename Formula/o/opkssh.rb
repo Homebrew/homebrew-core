@@ -7,6 +7,7 @@ class Opkssh < Formula
   head "https://github.com/openpubkey/opkssh.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44ad548c145cb779e6d50733b58db55b117d4329729b70fe0cffdc3279498c24"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "44ad548c145cb779e6d50733b58db55b117d4329729b70fe0cffdc3279498c24"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44ad548c145cb779e6d50733b58db55b117d4329729b70fe0cffdc3279498c24"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "44ad548c145cb779e6d50733b58db55b117d4329729b70fe0cffdc3279498c24"

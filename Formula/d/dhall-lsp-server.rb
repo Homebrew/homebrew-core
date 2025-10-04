@@ -23,6 +23,7 @@ class DhallLspServer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "797c7aaf9dfa0b1f3ac0fa6f9e60f65104f6e00f32c6e2d8a6ff61bef59cbb26"
     sha256 cellar: :any,                 arm64_sequoia: "c1360370c18b3dd49045a151702e1c47e682061b038da2b8c5c01a4f02061dfb"
     sha256 cellar: :any,                 arm64_sonoma:  "a80e624b671d0a14d92dbc998596e547c0923d35aaabc1f1a6987182c37396b2"
     sha256 cellar: :any,                 arm64_ventura: "246f4f56e4f00e9f21099d476dbc39373678f839f0b0b15cf1ee78a46c42a3d8"

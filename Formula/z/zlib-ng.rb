@@ -14,19 +14,21 @@ class ZlibNg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c0618be9f364de98d86317dd4d2c13a420e4071043a0a7870c4338caf4c6b85f"
-    sha256 cellar: :any,                 arm64_sequoia: "b9d4833018667eceb9c16a3e2d94c02f9da89ad418c131e6449f68d6c9a3b0b6"
-    sha256 cellar: :any,                 arm64_sonoma:  "7836ba4de58a38aebc6e2a4b622c4cb414035b7d6d7656ca88f3d487f1836cbd"
-    sha256 cellar: :any,                 arm64_ventura: "cd4bc03c96c10c9916ce8af977f1ce76a5ee84bcac6bb4e2df9efeec6040020d"
-    sha256 cellar: :any,                 sonoma:        "815ee670c61db45c5c5bf409e63855cedb46ca1263ac25f3208834381ccfa3f5"
-    sha256 cellar: :any,                 ventura:       "7424413d91a8820c6f12fe0abc69c7e50c7cf2543b7ea42af0d9cb0c40eed8d4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac407dd2e07a48f869d007a729add61fed50c56c63e8ca1ef48a597c4f8c4564"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5149e77944f616115e8a9b7653925c4665397e0024d0c3ec3b9e3158d772847"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "707d202777a8492d9743d2c7e382bf62449c7e4ca8ae998d395a1d261c37975d"
+    sha256 cellar: :any,                 arm64_sequoia: "543ae48a252d60483bde45bdc98212d746453a2281af43dda8e86b092bc90a21"
+    sha256 cellar: :any,                 arm64_sonoma:  "9b4dadbd1478ed59de80242758e4593fe3203e9e97463902b1dfb1481046f51e"
+    sha256 cellar: :any,                 sonoma:        "5124c7b8b06709281d92c4e44840e7f9d3e31f32943447f71218fec0e5c6f719"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a87cb7f8f09e1ebf2030e7739aa89174b518a945f467d81ea68d0a5d22ed25b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "876d5f20cbe79e39872673ef215e41c6a7fe21da7600d49dde5052ef3b2a7a7f"
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

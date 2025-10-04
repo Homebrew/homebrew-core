@@ -1,25 +1,22 @@
 class CargoBinutils < Formula
   desc "Cargo subcommands to invoke the LLVM tools shipped with the Rust toolchain"
   homepage "https://github.com/rust-embedded/cargo-binutils"
-  url "https://github.com/rust-embedded/cargo-binutils/archive/refs/tags/v0.3.6.tar.gz"
-  sha256 "431fb12a47fafcb7047d41bdf4a4c9b77bea56856e0ef65c12c40f5fcb15f98f"
+  # missing github tag, use crate url instead
+  # upstream issue, https://github.com/rust-embedded/cargo-binutils/issues/163
+  url "https://static.crates.io/crates/cargo-binutils/cargo-binutils-0.4.0.crate"
+  sha256 "1656b16634e00e0b9f55bebc83f2c6f021cead99cb08aec52a7b9395563674b8"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rust-embedded/cargo-binutils.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6367b34d9c10ac1d5172697f7b34ce9b448960084c1584ad1d6b0f19e40b8ee6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54c3cd2a10fc84faf03c3dfe9ca8ffeef01811c0a264473430c202b624672539"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73469ea42c9f0ee96fbd51f1b08f356104a0a3114a7a8428c9cb659fd636654f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9440dcd36d4c6335d6503aa36766cd83692203b16c36ff184ef8337bb360b65"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea6191a3486774767591b8da025736c7911618aa5d825fc93372bad6a15f4d41"
-    sha256 cellar: :any_skip_relocation, sonoma:         "346badf808aff5c0a49a830a8fe2169ad509c9ea10869d94ed513b7e4626d9fa"
-    sha256 cellar: :any_skip_relocation, ventura:        "06566f6a3668b2ee04e4caada6d092c2be827d17c94d4e3d9dc78b860ae66f24"
-    sha256 cellar: :any_skip_relocation, monterey:       "f723cc7c2965cf903f9bb3e0eb825b4d07fcb343f1c4ab13fd8b9042708dd82d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bbffb949c95924792a8467de511a274b2f0243087ebc3caed26f8fce8ae536d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "624b219c67114ced98abffdaa7d13c8e27722bfce6d8255a220a1ee3f59cbcaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "573501160232330f4511aa8928446522801ade98223b640b3202c8ec0871217c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1462ea07e63a12bca4c626cb452706ea56780f777a580ba4080c87978b661af8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e345e71200c674756c1c5052eb06d5c5476ab91b0446b2f53fb4d21329e86f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0cfeba9cff1b593ea7a254f326889dc486aafac59023839634e961136c19bb60"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5abc3d0339e2790b66b6a2fbc35efc00b80b6738194e16306174debe08b02a9b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18d798e56c93c493b1902da4a8e741093f1cd6dff28ed0ac50ef6c4da439fe52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f02d15c4bedcd6f632dc69a1d2edfd39d8bd8e4388240e0d7e2823aa0fc88d3f"
   end
 
   depends_on "rust" => :build

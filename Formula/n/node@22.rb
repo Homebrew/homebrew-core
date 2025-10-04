@@ -1,9 +1,10 @@
 class NodeAT22 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.19.0/node-v22.19.0.tar.xz"
-  sha256 "0272acfce50ce9ad060288321b1092719a7f19966f81419835410c59c09daa46"
+  url "https://nodejs.org/dist/v22.20.0/node-v22.20.0.tar.xz"
+  sha256 "ff7a6a6e8a1312af5875e40058351c4f890d28ab64c32f12b2cc199afa22002d"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,14 +12,12 @@ class NodeAT22 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0a322400c4cba360f6b3868791b95ad99b25ff97ff7b9553f3d8cf22aa84328f"
-    sha256 arm64_sequoia: "460b5941f33e625888a26b409c4e094d0411f8b18205d39eaccd0cc95daf3b7f"
-    sha256 arm64_sonoma:  "b2147a7ec6ab210b2575b69835967fbf0ed97ddb620c7fb04712964b8e94613a"
-    sha256 arm64_ventura: "bf0100875a8dd2a4379838b6e2f7ef12be5a6f10ea4f6083464f63959567d502"
-    sha256 sonoma:        "e4eb3abaaacf8c50dde31faf0c91c919c82fb5d8e3b952b3950d0a367970ceea"
-    sha256 ventura:       "0c5d8f265cfb2dab3bd22e15b500888f260f95166ff0e2c9431feec3b014c63b"
-    sha256 arm64_linux:   "9a8b2a90f2ff3fa9c24b40d56f3b8b3b1afbca574a619e0350b457a63892eb4e"
-    sha256 x86_64_linux:  "936d3e73e720fb71100066ffe15d84bae3f991931334db7d5c1e708a4a30c23b"
+    sha256 arm64_tahoe:   "726a837306f5e2c2fb579139fc3eb1fcb99e3d433351f1f64b31745a4ab912ec"
+    sha256 arm64_sequoia: "8b1a00beed722f58fca716df4a946806f93578ee9f65221c165b604f1f44a3f0"
+    sha256 arm64_sonoma:  "a2ee888d92005257011b2a6955edd5a091456286d023f7933cf4abb9632c6e6b"
+    sha256 sonoma:        "76ae29265ad0e2140752f4707a2a2ec9ee01284f42a8a4036953d1f24030939b"
+    sha256 arm64_linux:   "69bc8d16668b70ef96a906da6c076c613756398a9272602f3dd8bdcf3f187812"
+    sha256 x86_64_linux:  "9cd68f154f6e61f2a9b45fa6960261998c09d66fd12382b627744e72d280d078"
   end
 
   keg_only :versioned_formula
@@ -43,7 +42,7 @@ class NodeAT22 < Formula
   depends_on "uvwasi"
   depends_on "zstd"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
@@ -108,9 +107,8 @@ class NodeAT22 < Formula
 
     # Enabling LTO errors on Linux with:
     # terminate called after throwing an instance of 'std::out_of_range'
-    # Pre-Catalina macOS also can't build with LTO
     # LTO is unpleasant if you have to build from source.
-    args << "--enable-lto" if OS.mac? && MacOS.version >= :catalina && build.bottle?
+    args << "--enable-lto" if OS.mac? && build.bottle?
 
     # TODO: Try to devendor these libraries.
     # - `--shared-ada` needs the `ada-url` formula, but requires C++20

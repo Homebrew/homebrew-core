@@ -1,23 +1,35 @@
 class Bsc < Formula
   desc "Bluespec Compiler (BSC)"
   homepage "https://github.com/B-Lang-org/bsc"
-  url "https://github.com/B-Lang-org/bsc.git",
-    tag:      "2025.01.1",
-    revision: "65e3a87a17f6b9cf38cbb7b6ad7a4473f025c098"
   license "BSD-3-Clause"
   head "https://github.com/B-Lang-org/bsc.git", branch: "main"
+
+  stable do
+    url "https://github.com/B-Lang-org/bsc.git",
+        tag:      "2025.01.1",
+        revision: "65e3a87a17f6b9cf38cbb7b6ad7a4473f025c098"
+
+    # Backport support for TCL 9
+    patch do
+      url "https://github.com/B-Lang-org/bsc/commit/8dbe999224a5d7d644e11274e696ea3536026683.patch?full_index=1"
+      sha256 "2a17f251216fbf874804ff7664ffd863767969f9b7a7cfe6858b322b1acc027e"
+    end
+    patch do
+      url "https://github.com/B-Lang-org/bsc/commit/36da7029be8ae11e8889db9a312f514663e44b96.patch?full_index=1"
+      sha256 "ba76094403b68d16c47ee4fae124dec4cb2664e4391dc37a06082bde1a23bf72"
+    end
+  end
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ba525929310367c18e193ffb95e0becc4d9ee009ab746286edf3815db231e5d0"
-    sha256 cellar: :any,                 arm64_sequoia: "023b416fedba9f986345a7b06763995b843fedf2fc45d0428d0f6410fedb8b12"
-    sha256 cellar: :any,                 arm64_sonoma:  "bb8dea8de8ae93ed8c76cbb488ea19645acc76e8aebc3560063024fa381c026a"
-    sha256 cellar: :any,                 arm64_ventura: "5fa279ba7f86d9b0fff2ab75b8d8890b852764e67baeebbcd0125b8c7239825a"
-    sha256 cellar: :any,                 sonoma:        "c8959d3244856dc6562bea2cd1f06ff782195bde78363b1a8dd104176ec6c5f9"
-    sha256 cellar: :any,                 ventura:       "9b975bff3f3232bd26626bc308ccba6d24d433575c88c0b72af4a17059ce4d36"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de1d37f49533298da63ccbbff21907afbc8952df0ef6ef5d5553a2b720939ae1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14fba2d067b4da9b16420abf741db79db7eb696f9ff25f629dd205af07409a93"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7073b1c25d1eaa4e1a03a1bca4671e1d9d5ccdb815cb7271569beb25bbabc9d3"
+    sha256 cellar: :any,                 arm64_sequoia: "028d70a33adfee0459fe3b1e86925ee54496b7e9f3ac58d9d4cc1eab1895724a"
+    sha256 cellar: :any,                 arm64_sonoma:  "398571c528bbc22cf0712375da5568afe655c0822457947036f70f4bf6af7014"
+    sha256 cellar: :any,                 sonoma:        "dea530b42317ecab706119b9a802a9b58d7b9765ec150c3627dc17dbcfcf7150"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b7c2c627c3a0d89cb4b3718ef7c9dc90ba7b6ad127537773c2f70f172736c4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "996a523fc7fd725f0630cd44eb71cc3a0e35b5e0cf71285372077a4c436f5998"
   end
 
   depends_on "autoconf" => :build
@@ -28,7 +40,7 @@ class Bsc < Formula
   depends_on "pkgconf" => :build
   depends_on "gmp"
   depends_on "icarus-verilog"
-  depends_on "tcl-tk@8"
+  depends_on "tcl-tk"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -36,6 +48,10 @@ class Bsc < Formula
   uses_from_macos "perl"
 
   conflicts_with "libbsc", because: "both install `bsc` binaries"
+
+  # Workaround to use brew `tcl-tk` until upstream adds support
+  # https://github.com/B-Lang-org/bsc/issues/504#issuecomment-1286287406
+  patch :DATA
 
   def install
     system "cabal", "v2-update"
@@ -123,3 +139,34 @@ class Bsc < Formula
     assert_equal expected_output, shell_output("./mkFibOne.bexe")
   end
 end
+
+__END__
+--- a/platform.sh
++++ b/platform.sh
+@@ -78,7 +78,7 @@ fi
+ ## =========================
+ ## Find the TCL shell command
+ 
+-if [ ${OSTYPE} = "Darwin" ] ; then
++if [ ${OSTYPE} = "SKIP" ] ; then
+     # Have Makefile avoid Homebrew's install of tcl on Mac
+     TCLSH=/usr/bin/tclsh
+ else
+@@ -106,7 +106,7 @@ TCL_ALT_SUFFIX=$(echo ${TCL_SUFFIX} | sed 's/\.//')
+ 
+ if [ "$1" = "tclinc" ] ; then
+     # Avoid Homebrew's install of Tcl on Mac
+-    if [ ${OSTYPE} = "Darwin" ] ; then
++    if [ ${OSTYPE} = "SKIP" ] ; then
+ 	# no flags needed
+ 	exit 0
+     fi
+@@ -146,7 +146,7 @@ fi
+ 
+ if [ "$1" = "tcllibs" ] ; then
+     # Avoid Homebrew's install of Tcl on Mac
+-    if [ ${OSTYPE} = "Darwin" ] ; then
++    if [ ${OSTYPE} = "SKIP" ] ; then
+ 	echo -ltcl${TCL_SUFFIX}
+ 	exit 0
+     fi

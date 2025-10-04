@@ -20,6 +20,7 @@ class CondaLock < Formula
   end
 
   depends_on "rust" => :build # for pydantic
+  depends_on "micromamba" => :test
   depends_on "certifi"
   depends_on "cffi"
   depends_on "libyaml"
@@ -308,7 +309,8 @@ class CondaLock < Formula
       dependencies:
         - python=3.13
     YAML
-    system bin/"conda-lock", "-p", "osx-64", "-p", "osx-arm64"
+    system bin/"conda-lock", "-p", "osx-64", "-p", "osx-arm64",
+                             "--conda", Formula["micromamba"].opt_bin/"mamba"
     assert_path_exists testpath/"conda-lock.yml"
   end
 end

@@ -14,6 +14,7 @@ class Olsrd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a12891626977104dbb673e6a4f810b7c5d8a91279cbdd793c1e663d566feca02"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0aeb303759d085dad7b581e75104d268df5b320c64abe9030b55a10ab6cfbd6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b708682b004bbec11078438431bcfe45287081bfad38dc5642e3b66b8917d6b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5d0390ab383fd753be5a69c7cf979639928716aecbd30cf7125d226c9aec00cf"

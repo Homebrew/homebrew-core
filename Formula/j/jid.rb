@@ -21,8 +21,6 @@ class Jid < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ad33b70ab6cbfb324c1842d3b1294beb011b04c85086e9c8aa4fdfbe1c6aedc4"
     sha256 cellar: :any_skip_relocation, big_sur:        "703bee89d514891dec82186680f2ee9837b1599721c3d68405fd4c72d015a811"
     sha256 cellar: :any_skip_relocation, catalina:       "0b45fe9c59facbc6b2bbacf4b52927934b09d6e2050ad3a5b5a32434a4bd4751"
-    sha256 cellar: :any_skip_relocation, mojave:         "2980bf16f4376b7bdfc27e0e6bbe45d9e1f8aca8a143f6f7b6fd939eb6892617"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "d429ac5400fd67dcee12e5fe962e84f535858c7ecb3235ee01f8a54dc44e7a9e"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "440c0003187faeac72ff82a00fd05eb4de6cc849d82a21e1a07c30b319320abc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c2d04634a851f7ad8d10869571b6820cd31da2ef068a5c7fd6b03f512f5dc4c"
   end

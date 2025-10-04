@@ -13,6 +13,8 @@ class Itk < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "2a5f4047de6894d22c9c0c01405747c0c91985f22efe65e48fc438d52cf29aa0"
+    sha256                               arm64_sequoia: "adf6a5810423f0cefef0524fe1ea63d58cd8e554b615f92de39a1c1c809c5185"
     sha256                               arm64_sonoma:  "da3b07d924f8b330b6d11808742d136e23356e1e9e2d4da49f0c2a176cde599f"
     sha256                               arm64_ventura: "b4c53c3414abe1b5b3c0eee1a3fa2a68638ec8ac3874e9a3332d25574c3ddeba"
     sha256                               sonoma:        "f9f41f0a46a40bab2c40eadd12fdcc5b6c75cb86f1fcdc9b65787285a3e2646d"

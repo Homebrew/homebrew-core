@@ -11,6 +11,7 @@ class Rsyslog < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "40832364259ca7d11ca78f62ce198cc231ffc9cdc9fb082586d6424e25fd9b21"
     sha256 arm64_sequoia: "a6bdd3c313df1e78f07ad1c17d10ad789fcf81fe36a086e20205f5a7e776e9f0"
     sha256 arm64_sonoma:  "354d633feb5a36805573f10f8e1c3fcc5f608ffc5026212635047b346b3e197a"
     sha256 arm64_ventura: "7ea98249ad0dc1e7a4597e7057f5c6876242a249309b9cc49324be1e7e3e4e59"

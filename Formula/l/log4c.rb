@@ -14,6 +14,7 @@ class Log4c < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "ea35b2efc5487ef7bdc2fb3cfe79889d49df229641fe0df54ee2d97ba5da6da6"
     sha256 arm64_sequoia:  "83103a56bdf9b8b2105f679fbeb44dca1c36c46d7afcc542b080e59e6e205f51"
     sha256 arm64_sonoma:   "0a21d82a2a2ee563678a110e2462a9236de30c358b8cfa62c9b919ca09e74ba8"
     sha256 arm64_ventura:  "3d35b584c96f856ebdc672621ae867fc0d14c56b193bc25fcd3f4b122cd9e250"
@@ -24,10 +25,6 @@ class Log4c < Formula
     sha256 monterey:       "26f216931900e3f177c8f9158afc9d1beddab45327606f35e180577ec3b4ca27"
     sha256 big_sur:        "fa93c7beb25097d19cd6408e88e1d5bf8019386cdee22beb0f30d1fa7956286e"
     sha256 catalina:       "25859511ac3302318ca6eed1eaa89c5a9b1e91b611da4233604e443d9c016dec"
-    sha256 mojave:         "8e35c261de43e25fe934f9f77875ff9c5fa6bdc4297fd0dd2fc657a5acd680ae"
-    sha256 high_sierra:    "4019efd84d56e2390feff696e1fa3305b788fdcb3105c5b6117913e81a16a7f2"
-    sha256 sierra:         "171a6c3f12f957d5442998f0f02df959aa4376ef543338765930ed4e062ef0ea"
-    sha256 el_capitan:     "2334e58e3ae201b28362707d2b64701e2e1378695e915baad886956e4edea50a"
     sha256 arm64_linux:    "f5dda797e597bdf6ee587b2f8ad7b70403eff0f0069fce0d4bd9544e382c4bf2"
     sha256 x86_64_linux:   "5182c7b11972d29559087012a708f71137b9795294afb833aff1cf9d40168a9a"
   end

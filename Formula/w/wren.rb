@@ -24,7 +24,6 @@ class Wren < Formula
     sha256 cellar: :any,                 monterey:       "64f267fae9c817599741fa6f00121de14f18c1287df743b33c7c7567e2d5cda0"
     sha256 cellar: :any,                 big_sur:        "c54db478f8ec48d08dc4992bb8efe1308d478f20f3177513d0154460e26ad1f0"
     sha256 cellar: :any,                 catalina:       "afa48d4ceca7e0e2227bf6fd6204194de239c3b67436a46485a7563673fb4fed"
-    sha256 cellar: :any,                 mojave:         "f55d068b6db418338ba1f4622b75d5c36b2b3462e27f28c0844e32c980b6b881"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "33182bdc7645b09e96f4fdc1b7bc949b9b521e15bd6a3b78569966ba0ad132c4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9129580dd56d4ad4ad66ac59e1d43533b54816936fc18d0216a445d576598e0"
   end

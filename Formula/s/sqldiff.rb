@@ -13,6 +13,7 @@ class Sqldiff < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2295908a8ff92190d9438df8c2b27560d2b87530a27a3fe7ef46e856e6b6d65d"
     sha256 cellar: :any,                 arm64_sequoia: "9d34055313224190d6bcd801ec9a3564dfa4d6c4ae45eb15a406afc3b3dd566e"
     sha256 cellar: :any,                 arm64_sonoma:  "51f603907c351e69382526e83c95de0e8323d587bc6282dfdd52f37edb807ad5"
     sha256 cellar: :any,                 arm64_ventura: "1837dc7e8dc18eda684b620c169945938fe5cc31816eb4012a456477b9e742ed"

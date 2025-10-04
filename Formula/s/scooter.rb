@@ -6,6 +6,7 @@ class Scooter < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4af569f924c54c24eee609af4362f5a5c1c6fdf5e4460c8e09475cf1feef5766"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8476ec4dcf8968ea1c198bae325a2069e4e3b11d36bb28af4eb5baf3ab425957"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "509bd674184aadf998162e4379a7238760286413f349d1ecfa9221b43aef7039"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b7b5c01d7fbb4e9444a40e8198862d46847eb0e727ff438f5d4ccc20db057c58"

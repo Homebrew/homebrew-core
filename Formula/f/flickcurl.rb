@@ -24,10 +24,6 @@ class Flickcurl < Formula
     sha256 cellar: :any,                 monterey:       "5b02e704797f3519e3ace4764467339d554557b91a3085e8fc4418c19e22220f"
     sha256 cellar: :any,                 big_sur:        "90c210da66773047b62e3f5922382d97a7da8d4b17b178b25149a07d910c6f4a"
     sha256 cellar: :any,                 catalina:       "6188ec0f80d29fb32f2f6bb08ee8eb3fd7aa66cd1e3a4f8c4a138f33a5b5271a"
-    sha256 cellar: :any,                 mojave:         "731f6f4a68337a3aef6448ec67a0dab1e2cc7eee3d8a827582f398578fc2bc3a"
-    sha256 cellar: :any,                 high_sierra:    "6cc2fc33f360e706671c33d25059784f934f7371142c54977bb50a1d5b47d6e8"
-    sha256 cellar: :any,                 sierra:         "ddffd36ee6ab7c4cfd0edba1be9aa488ed38d1ee66a99c2e2445bf4d21cd0c00"
-    sha256 cellar: :any,                 el_capitan:     "01886ddb800167eed18495d780baa81bac793243a54d452ad9a34a06e876e4d2"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "8d4ac8aae2a14e2cb1237f58a016f586c885171704ee45c5c2fd1e017b935398"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3590c3c9a44504b1a7493018de9e009fc1ff929beb7cc890f8907eed5fc0e05"
   end

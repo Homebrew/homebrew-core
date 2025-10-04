@@ -14,6 +14,7 @@ class Madplay < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "72e70d67702779f7e7afaf31037db5b66789f54396a574e1932f222ca3bac912"
     sha256 arm64_sequoia:  "ba09b6ca2c1a89b49f0df90e4d4330c7271dd39f11d35cf165cb26a9899a6584"
     sha256 arm64_sonoma:   "bb53d0d999f2179e53c438c9fbcfc1fa57a6dfb0a0e87b144fe8d9f5c91689de"
     sha256 arm64_ventura:  "544e014609eb4449054c2cb5ec02f550ec5ab3619e48faf881db9b71bf9a390b"

@@ -27,12 +27,12 @@ class Ecl < Formula
   depends_on "texinfo" => :build # Apple's is too old
   depends_on "bdw-gc"
   depends_on "gmp"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
 
   def install
     ENV.deparallelize
 
-    libffi_prefix = if OS.mac? && MacOS.version >= :catalina
+    libffi_prefix = if OS.mac?
       MacOS.sdk_path
     else
       Formula["libffi"].opt_prefix

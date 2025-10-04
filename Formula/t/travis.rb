@@ -173,8 +173,6 @@ class Travis < Formula
 
   def install
     ENV["GEM_HOME"] = libexec
-    # gem issue on Mojave
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :mojave
 
     resources.each do |r|
       r.fetch

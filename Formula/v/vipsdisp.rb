@@ -11,6 +11,7 @@ class Vipsdisp < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "e96efb520abcfe2ec3480c03967b47f9277827e1e55cd3a5d3d577245aa85ba3"
     sha256 cellar: :any, arm64_sequoia: "eaa67c33717298b5477ad9687a39e9a00a579e3850f90d1b0fb734c1093293bb"
     sha256 cellar: :any, arm64_sonoma:  "821b91ff0853e7b29ad63a002df4817bda0b387e331205540a1a65ca5cf570ab"
     sha256 cellar: :any, arm64_ventura: "10f33027b004be6cf5b6e48f1f01d8447be738e2a69b67e134a46c3c4d00914c"

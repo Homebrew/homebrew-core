@@ -11,6 +11,7 @@ class Trader < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:    "e1479fb417ef273bfa538ccd0427ff4721ddf9861e253f20886bb8924b85422f"
     sha256 arm64_sequoia:  "9be56b4808087e536b25a7728556b09a959e1f41fd17a512de2b911645fbbccf"
     sha256 arm64_sonoma:   "6ae36dfc033af6586d9b339653b74796de0bfca17e12e94a8ad74848ceef2b8c"
     sha256 arm64_ventura:  "38906420c79cc92198a4b560f8d4ab6862c8379b608cb833d0798c9b2cb2126e"

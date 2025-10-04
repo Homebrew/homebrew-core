@@ -48,14 +48,6 @@ class Gdb < Formula
     depends_on "guile"
   end
 
-  fails_with :clang do
-    build 800
-    cause <<~EOS
-      probe.c:63:28: error: default initialization of an object of const type
-      'const any_static_probe_ops' without a user-provided default constructor
-    EOS
-  end
-
   def install
     # Fix `error: use of undeclared identifier 'command_style'`
     inreplace "gdb/darwin-nat.c", "#include \"cli/cli-cmds.h\"",

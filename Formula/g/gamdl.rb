@@ -3,18 +3,17 @@ class Gamdl < Formula
 
   desc "Python CLI app for downloading Apple Music songs, music videos and post videos"
   homepage "https://github.com/glomatico/gamdl"
-  url "https://files.pythonhosted.org/packages/35/76/994c2e9a1a96c7d1022d7a390f08e8e7a92ca7aa371bb64dafa9effa54d2/gamdl-2.6.2.tar.gz"
-  sha256 "6531592f9f7d19f0836abfa95cfc02b80312065fec951f0a107a2390f9a9d099"
+  url "https://files.pythonhosted.org/packages/11/bd/03e4af9b4d2ca27aa702d09317c249c91d6729b93bdd009a88f88233f0d3/gamdl-2.6.4.tar.gz"
+  sha256 "e78cc60c28abeee8b380a6576cfb7096b9db48dfbd0de063449da23749c4f9e0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e6bfeab4c52bffd700b1c347890f3627c61756edd21104ad70063dc94707ce52"
-    sha256 cellar: :any,                 arm64_sonoma:  "748b1925d9e550ba37c111c90fbba9ade5999d1d9115ab5310c8c25a3f03ff83"
-    sha256 cellar: :any,                 arm64_ventura: "48cdbcbcb70c551b80617753d17f2d3b1265b678c8b6a50c421a10a5f8c46c0b"
-    sha256 cellar: :any,                 sonoma:        "14cf4df808204b252bc00524d20dc0179dd3e5aa88990296b531b04add36890c"
-    sha256 cellar: :any,                 ventura:       "bfdfc0a1761b6d853810f3b084479b12ab596fc47bc21ae1193edd541f19d8a1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f61dd4cc1207c09a9c942f96cc6b050b8edc78b13f334fb2fb2992dcc606a570"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a5223297f771c40e25d1c75f1cd50d1a942ab6095a08e07f8aa7b9e2f7f1ee3"
+    sha256 cellar: :any,                 arm64_tahoe:   "e4421f9114585d0127d4ea9e884096b47764dd68c09928c39b98d90108f7b1f8"
+    sha256 cellar: :any,                 arm64_sequoia: "aff9f51c6657a5d668946acff5dc9e8cb8542b7729a226093b4c4f0f0af00850"
+    sha256 cellar: :any,                 arm64_sonoma:  "63cb537560a2dacb0e11ba1529ddcc2c5a31c672bd20f370ab7f60c525a7a5f7"
+    sha256 cellar: :any,                 sonoma:        "e6d07a439dec26290a06000f28d5e1cbdeecff97c3b1deb48b61d86895c5101d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7de7e0a585afa8bb5649dab00edd1a49ea3cae77f731857acad1dee766dd3bc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60cb089de729266b162dddb4a7a4c0411087787d8d1a7ab542806015dfe05dce"
   end
 
   depends_on "certifi"
@@ -28,8 +27,8 @@ class Gamdl < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "colorama" do
@@ -113,13 +112,13 @@ class Gamdl < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
-    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
+    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/f4/d4/d9dd231b03f09fdfb5f0fe70f30de0b5f59454aa54fa6b2b2aea49404988/yt_dlp-2025.8.27.tar.gz"
-    sha256 "ed74768d2a93b29933ab14099da19497ef571637f7aa375140dd3d882b9c1854"
+    url "https://files.pythonhosted.org/packages/90/77/24a13bbd3190849e7e37e6093aa9648f3b26a836d37ba67e3429ee89ad1d/yt_dlp-2025.9.23.tar.gz"
+    sha256 "9282ad1deadb4c90b2e6d3bcf9f360abf88c5f2e4ba836dad7b51387b086d757"
   end
 
   def install

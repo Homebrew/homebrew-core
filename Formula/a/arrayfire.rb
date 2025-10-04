@@ -6,6 +6,7 @@ class Arrayfire < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6a8bc49af4a93ce043a5939fcfc8676b9772c8a13c002784bfaa72126dd946d6"
     sha256 cellar: :any,                 arm64_sequoia: "2e235aefac2e784bbc5893ced68651bc9c404c3764511457fe1f9efc74f2f426"
     sha256 cellar: :any,                 arm64_sonoma:  "5f68d4310507bd292fe21e7161260800bb8692d2b5e4b124f16ff2d6638584ea"
     sha256 cellar: :any,                 arm64_ventura: "5946c6c3ef87f7144131b81e175b531acd13fd2f02c512055cce3390b3512dd2"

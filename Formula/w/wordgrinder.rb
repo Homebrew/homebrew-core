@@ -21,7 +21,6 @@ class Wordgrinder < Formula
     sha256 cellar: :any,                 monterey:       "2ab17d2541132790b1b134a5d33e5e9178ce96b7afeadf28819a9694f87712da"
     sha256 cellar: :any,                 big_sur:        "d2cb8d569e0a7a02abae8deb32adf8a564042cfd6cddaeef4bc1dc16ab05e53b"
     sha256 cellar: :any,                 catalina:       "e084da6193fd984ac541e7c21044f80927b60b85ab69512d3824255be1c54d17"
-    sha256 cellar: :any,                 mojave:         "143c53429552e244089211458fc42bcdbb79171d5f98ae17db9c7175208c8ae4"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "761d5901adbb5d8c732f4b1cadf91c9902fe0d30db0188a93b1648efe1a0b886"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "07fdfa2bd3da72697fbd54cc93a8bc59b2c3afc3ddbfd55a46cde0e557011ca4"
   end

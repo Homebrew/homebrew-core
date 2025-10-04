@@ -8,6 +8,7 @@ class Muparser < Formula
   head "https://github.com/beltoforion/muparser.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cc39c1ae9eafc52f447f685e3441fb31f980efd0fb0345c969871c9cc8d807f2"
     sha256 cellar: :any,                 arm64_sequoia: "11733a36d494bbd6ff343b30f8e0ed776660c41e5e1ea88ffedc9eedadca2ce7"
     sha256 cellar: :any,                 arm64_sonoma:  "b1b39c12aa16a0a6fd45b232594448b7c180a16f182246d9cf7e884a019be577"
     sha256 cellar: :any,                 arm64_ventura: "c8f1479dae9c99b52c1e0efa102eeb876c5e721741fd805963e4f1694eba772c"

@@ -7,6 +7,7 @@ class RonnNg < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "95544c3a98367e90154643f7ba9a8f1294be476483e7f2faa32a65344ed23cb0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d39afaff29b90a17336c9033eb12d405f5b8c29c7e804872a87281c889d84d9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d39afaff29b90a17336c9033eb12d405f5b8c29c7e804872a87281c889d84d9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8d39afaff29b90a17336c9033eb12d405f5b8c29c7e804872a87281c889d84d9"

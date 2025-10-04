@@ -19,7 +19,6 @@ class Gravity < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "106785af925ee88415030eede30c8eadc5cdd590cdfdf992d8c2d3ea4fb7ae27"
     sha256 cellar: :any_skip_relocation, big_sur:        "b3ac70acf8c191279d44ca6ee217677922dbbebd47ce4aeafb08279e25a54c58"
     sha256 cellar: :any_skip_relocation, catalina:       "e8babf831217e11680298ae3fc6eb6881b01b99abe01c37c6cd98ad57a63747f"
-    sha256 cellar: :any_skip_relocation, mojave:         "f3bf9cf96f56a2c11ce36ffe28e68ff1695b4b04432fbfe8a2ddcbc4df17ff43"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "9cc9fc83af4291367585c6525a894449010981db51f9bcd7162635e1b0cd21f2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "86f00ccfa0552e839135dc94c541c791c3562d70b306dab42eee8e3e0762df9b"
   end

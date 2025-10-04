@@ -10,6 +10,7 @@ class LaunchSocketServer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24960fd5bd4f03830d135a4cc6150ec49b516ce8c3bdaf16b240669310565536"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6974a57e3a6bd5f01dc3b62d4a4592afb791af68f230b7ea5e60a46cffc0d395"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "92a59f265b9a67885cd73be07b4fa591b0ff76e382ac7c2db5099e02d2212bfe"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7d09862a50bec1441d8d5cf4eabb2318942fab969ebddb67b9f3739e784e5a13"
