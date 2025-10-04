@@ -1,8 +1,8 @@
 class Cake < Formula
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/archive/refs/tags/v5.0.0.tar.gz"
-  sha256 "0c77a4a8626b1f6aa886e542026f33e2645bda7177e66c6ca1f60a6cf80b9bf0"
+  url "https://github.com/cake-build/cake/archive/refs/tags/v5.1.0.tar.gz"
+  sha256 "32e93073526d1c65d298d573a33b23d908484bb37fdd68b66bc36a9dde7921fb"
   license "MIT"
 
   bottle do
@@ -20,6 +20,9 @@ class Cake < Formula
   conflicts_with "coffeescript", because: "both install `cake` binaries"
 
   def install
+    # Ignore dotnet version specification and use homebrew one
+    rm "global.json"
+
     dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
