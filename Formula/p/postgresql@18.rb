@@ -143,7 +143,7 @@ class PostgresqlAT18 < Formula
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system bin/"initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
   def postgresql_datadir
@@ -161,7 +161,7 @@ class PostgresqlAT18 < Formula
   def caveats
     <<~EOS
       This formula has created a default database cluster with:
-        initdb --locale=C -E UTF-8 #{postgresql_datadir}
+        initdb --locale=en_US.UTF-8 -E UTF-8 #{postgresql_datadir}
 
       When uninstalling, some dead symlinks are left behind so you may want to run:
         brew cleanup --prune-prefix
@@ -170,7 +170,7 @@ class PostgresqlAT18 < Formula
 
   service do
     run [opt_bin/"postgres", "-D", f.postgresql_datadir]
-    environment_variables LC_ALL: "C"
+    environment_variables LC_ALL: "en_US.UTF-8"
     keep_alive true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
@@ -178,7 +178,7 @@ class PostgresqlAT18 < Formula
   end
 
   test do
-    system bin/"initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E UTF-8", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
     [bin/"pg_config", HOMEBREW_PREFIX/"bin/pg_config-#{version.major}"].each do |pg_config|
       assert_equal "#{HOMEBREW_PREFIX}/share/#{name}", shell_output("#{pg_config} --sharedir").chomp
       assert_equal "#{HOMEBREW_PREFIX}/lib/#{name}", shell_output("#{pg_config} --libdir").chomp

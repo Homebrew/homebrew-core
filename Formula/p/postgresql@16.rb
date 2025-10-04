@@ -118,7 +118,7 @@ class PostgresqlAT16 < Formula
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system bin/"initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
   def postgresql_datadir
@@ -136,13 +136,13 @@ class PostgresqlAT16 < Formula
   def caveats
     <<~EOS
       This formula has created a default database cluster with:
-        initdb --locale=C -E UTF-8 #{postgresql_datadir}
+        initdb --locale=en_US.UTF-8 -E UTF-8 #{postgresql_datadir}
     EOS
   end
 
   service do
     run [opt_bin/"postgres", "-D", f.postgresql_datadir]
-    environment_variables LC_ALL: "C"
+    environment_variables LC_ALL: "en_US.UTF-8"
     keep_alive true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
@@ -150,7 +150,7 @@ class PostgresqlAT16 < Formula
   end
 
   test do
-    system bin/"initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E UTF-8", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
     assert_equal opt_pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
     assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
     assert_equal (opt_lib/"postgresql").to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
