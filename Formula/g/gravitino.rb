@@ -1,8 +1,8 @@
 class Gravitino < Formula
   desc "High-performance, geo-distributed, and federated metadata lake"
   homepage "https://gravitino.apache.org"
-  url "https://github.com/apache/gravitino/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "fa141ce3bfc68630d208b32a24de65e8639bfc1774133494837452ffa879031a"
+  url "https://github.com/apache/gravitino/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "cf29b125fe94e1af419386c9ba139e096aae56c176a1376c82c91449e7df9e30"
   license "Apache-2.0"
 
   livecheck do
@@ -11,14 +11,12 @@ class Gravitino < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c948147618da262c7b6cd75528fa407268a8a54c392f4ba2707ef91d228b6fe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f74f55cad208bb19e1aca2c86477a5bf2d9e6f26befaabbadc05435fef4d1523"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df67562b97e3b4137c67416ff781a9846b57c65f2cfc250477ec3b2cb9891fc9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d873054da69be3d3a9595d737708f7282fd9b0df6f59b7c2e4b6b6979f66a2a2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9d53038e47aa88deadb696e19e1b9cab19996537261160982a5eae01d3fb9b7"
-    sha256 cellar: :any_skip_relocation, ventura:       "976e7814856f21c4d1e2b8cdf7f8c53381ca0a28e576b07ed1ef4cf3144d4297"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fafeacb8afb939f53eafee24b2bd55378be21f2778f335e9980b40455762eb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9432a842a266f9eb8e8277aa74863319499de21726ab1a57b8ed7457d7613c03"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "278250347c3765bdf1f146bceee97a62497e3bbff81e73081c24824010303d9c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a206a27a30b16f1f407c8ad555c5a5348a03dc1b37681007ee42d181e8ab4539"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d215cdd76606769c515affedaa6f8573267ad163dd746515151d51bf31e5d4d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b7b490be04cf0fb910155d20d6aaf1ead9eaafae791fb172988d3e4ea38e4216"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "163f63b146832a8446daf06075aeac012721289be1217bc7d9c643786bd9e782"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10819b572a83d0bdfab61bcf2627aaecae9326900d76b30e25acf56df67905f1"
   end
 
   # Issue ref: https://github.com/apache/gravitino/issues/8571

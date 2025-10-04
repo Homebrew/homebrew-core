@@ -1,17 +1,17 @@
 class Snapcast < Formula
   desc "Synchronous multiroom audio player"
   homepage "https://github.com/badaix/snapcast"
-  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.33.0.tar.gz"
-  sha256 "5da21ab4a609550308be389d6af628628a89b6beb1d6e996ad2e4960e8e36d1d"
+  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "a2918ea4d1f9b2df9c4247fd71bd452ea03a5d20ac44f60a736df90488858944"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3d37d627aab2244ea9c63f890e77ceb48b8715e78c9d09e1c6d215d4b93abf4e"
-    sha256 cellar: :any,                 arm64_sequoia: "4df996bd8edeafea7ed418f3e3b726999b2d0a1e7015b84d9597a9505e5e511b"
-    sha256 cellar: :any,                 arm64_sonoma:  "a702f22f94c6fb70e281f9aa5b2e4498201628b5a9b9274f98f2dfa7c17e53e6"
-    sha256 cellar: :any,                 sonoma:        "674e87d9652eef30c68a1a743f6f774be7f04cf9732b45611e4994cb028d1fa0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72bd589f700c16f2bffa0565fd87b4b537e6542c214ba0a95db61f3352cb5d9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f9892083f3cd9337b05d1abc0db933641012355cc191ac11cc7b01f770113e2"
+    sha256 cellar: :any,                 arm64_tahoe:   "645caa8ed11fc578ac65e91f85fafdba5b0d39f1f127e8232e94e94c1924fb48"
+    sha256 cellar: :any,                 arm64_sequoia: "98bd7f18a7fe9d9e3ca15b574a5fbd7035df6ae35432772da37ee0da7e8fcd86"
+    sha256 cellar: :any,                 arm64_sonoma:  "bf2d72adf4a6869b4e13a7cca9b3768c865ae03a097297c78a092319a75c7972"
+    sha256 cellar: :any,                 sonoma:        "a365b2cd656103c268e2c88b742e5ba3a311d313b28213b10e86cc7c1346ab6f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc0c0174d7aeed8002be34138d445a2cebdbcc48e9898cc39857fc698b3b0b82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ac5b3447b3d7e1fd765fda683dde042994960aaaf190bf9a9dd5eb593f5304c"
   end
 
   depends_on "boost" => :build

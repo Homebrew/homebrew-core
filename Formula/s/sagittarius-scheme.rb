@@ -22,7 +22,7 @@ class SagittariusScheme < Formula
   depends_on "openssl@3"
   depends_on "unixodbc"
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   def install

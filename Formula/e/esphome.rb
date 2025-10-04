@@ -3,17 +3,17 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/d2/8e/c72256cbfa20032aa1ab5030633cca4d3233b54ef7e7fbeb008b4129f880/esphome-2025.9.1.tar.gz"
-  sha256 "628daf2791d07cf766b5ff1e4392544095c651b9d9b65ace4caec04a25fd3a63"
+  url "https://files.pythonhosted.org/packages/50/8d/85f92f8cd14f9dabc6a72b62c3dd98f91487f3f3475345b9756c1d9ce959/esphome-2025.9.3.tar.gz"
+  sha256 "49521ffff891bea5b04b53746e3cff876faecca9ff4e5daa96c02076a657994f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c34ba54902da7f5696b862d3ec0c66e6a1ac1ca48a3740f224c1e00ffc8593c1"
-    sha256 cellar: :any,                 arm64_sequoia: "947873492ed0446613e2870694a9bee8280e6fdac68222a4f56a16108b900cf1"
-    sha256 cellar: :any,                 arm64_sonoma:  "22e8d6c304a06d842a52c66ed4ca25efe216fdc6fce0d855539833a2c5fbe9c1"
-    sha256 cellar: :any,                 sonoma:        "ab7b05ccc4db6ead2c0ac7956f43987e46c65498c667d389cd775a2c09f4a56d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "adb030ebf87027b7e34182991681c28cbd9203f7fe117404ccb956a4a81c1193"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4155ee8236fd9c7dfeefcab105a49aa7576560b1b6f3f1aee29d7efc6f39dac"
+    sha256 cellar: :any,                 arm64_tahoe:   "0d557c28c3bdf0028759544d3192934d61304e0682688c2ddcb4d8c3a3a55a39"
+    sha256 cellar: :any,                 arm64_sequoia: "5ce96017e12f88afb7c1d3bf83ceb86fad09c63830adc4c1da873f00133977b5"
+    sha256 cellar: :any,                 arm64_sonoma:  "7460a621a4e93bd16083d9a3c38c45f1d5e558c01b97bece0e84e2ad7b7cf829"
+    sha256 cellar: :any,                 sonoma:        "063b207ba20dc0b99c80f4d83651b9f24d5d1431ae73ef260832d183a22fddc8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3291611444f09d5da7daa7087a8dbb9c2d1fd2796dc19b125abf106a637f3b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2ddda16aa9667cbd28745fa505dbd280f122e021f68f76c81edee28b4fd9311"
   end
 
   depends_on "certifi"
@@ -38,8 +38,8 @@ class Esphome < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/f1/b4/636b3b65173d3ce9a38ef5f0522789614e590dab6a8d505340a4efe4c567/anyio-4.10.0.tar.gz"
-    sha256 "3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6"
+    url "https://files.pythonhosted.org/packages/c6/78/7d432127c41b50bccba979505f272c16cbcadcc33645d5fa3a738110ae75/anyio-4.11.0.tar.gz"
+    sha256 "82a8d0b81e318cc5ce71a5f1f8b5c4e63619620b63141ef8c995fa0db95a57c4"
   end
 
   resource "argcomplete" do
@@ -168,8 +168,8 @@ class Esphome < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "marshmallow" do
@@ -223,8 +223,8 @@ class Esphome < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/98/c9/b4594e6a81371dfa9eb7a2c110ad682acf985d96115ae8b25a1d63b4bf3b/pyparsing-3.2.4.tar.gz"
-    sha256 "fff89494f45559d0f2ce46613b419f632bbb6afbdaed49696d322bcf98a58e99"
+    url "https://files.pythonhosted.org/packages/f2/a5/181488fc2b9d093e3972d2a472855aae8a03f000592dbfce716a512b3359/pyparsing-3.2.5.tar.gz"
+    sha256 "2df8d5b7b2802ef88e8d016a2eb9c7aeaa923529cd251ed0fe4608275d4105b6"
   end
 
   resource "pyserial" do
@@ -253,8 +253,8 @@ class Esphome < Formula
   end
 
   resource "rich-click" do
-    url "https://files.pythonhosted.org/packages/c8/f9/f00b3c29c77c24d22dbba7d13ecf65278461c1deabecaabdeabc5a2e2203/rich_click-1.9.0.tar.gz"
-    sha256 "212a19875b1e485803a5448130a9157b04c0d0befcc2bc29cb64d3577b93b005"
+    url "https://files.pythonhosted.org/packages/29/c2/f08b5e7c1a33af8a115be640aa0796ba01c4732696da6d2254391376b314/rich_click-1.9.1.tar.gz"
+    sha256 "4f2620589d7287f86265432e6a909de4f281de909fe68d8c835fbba49265d268"
   end
 
   resource "ruamel-yaml" do
@@ -263,8 +263,8 @@ class Esphome < Formula
   end
 
   resource "ruamel-yaml-clib" do
-    url "https://files.pythonhosted.org/packages/20/84/80203abff8ea4993a87d823a5f632e4d92831ef75d404c9fc78d0176d2b5/ruamel.yaml.clib-0.2.12.tar.gz"
-    sha256 "6c8fbb13ec503f99a91901ab46e0b07ae7941cd527393187039aec586fdfd36f"
+    url "https://files.pythonhosted.org/packages/d8/e9/39ec4d4b3f91188fad1842748f67d4e749c77c37e353c4e545052ee8e893/ruamel.yaml.clib-0.2.14.tar.gz"
+    sha256 "803f5044b13602d58ea378576dd75aa759f52116a0232608e8fdada4da33752e"
   end
 
   resource "semantic-version" do

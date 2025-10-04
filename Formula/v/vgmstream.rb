@@ -1,23 +1,13 @@
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://vgmstream.org"
+  url "https://github.com/vgmstream/vgmstream.git",
+      tag:      "r2055",
+      revision: "f499bf0c8b8d746ab2bd7feebd914d972ef40fec"
+  version "r2055"
   license "ISC"
-  revision 1
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
-
-  stable do
-    url "https://github.com/vgmstream/vgmstream.git",
-        tag:      "r2023",
-        revision: "f96812ead1560b43ef56d1d388a5f01ed92a8cc0"
-    version "r2023"
-
-    # Backport CMake install support
-    patch do
-      url "https://github.com/vgmstream/vgmstream/commit/e4a00bc710e99c29b6a932ec353d8bc6ba461270.patch?full_index=1"
-      sha256 "9ee47e5b35e571a9241bcab6ebe8ae09ecffde72702cacb82b4e93f765813e0b"
-    end
-  end
 
   livecheck do
     url :stable
@@ -26,15 +16,12 @@ class Vgmstream < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "af03a94c586e2eb92bc60f3d3c93acaf2215a659ec25d31e6c588695d44b1bfb"
-    sha256 cellar: :any,                 arm64_sequoia: "4bfc16d7e11604d78e45b14a806816ab697d21913cf0c421a21bf58bd54be1c4"
-    sha256 cellar: :any,                 arm64_sonoma:  "ae63cd86273517312f26ed2b044d83a376c907b21d1eb74bd0e5cea844f332c0"
-    sha256 cellar: :any,                 arm64_ventura: "8d8296a13a9c4c0eed313d63d2974dedf5f9ac6af6cc28c7f2dc618b7471fc42"
-    sha256 cellar: :any,                 sonoma:        "29cabdb26b4cf7cf575668cee96f1c8ac443b57629293004b4236cf92235d3ad"
-    sha256 cellar: :any,                 ventura:       "b21b65d7c738ced87097c6934291ed67552556b606e186198dca32d1454d0ff3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "32ec88b2016eaacec8f1817288fd1d846729dea8df4e374cae07e78822d1de0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3672b0394462a9bd7a250af7f8089ee64430f6c56ad20f93c636b9fe3d2c7968"
+    sha256 cellar: :any,                 arm64_tahoe:   "95f555a4ebae967e06fa52f6d49591c155bbf9de76319810103be63f3b36509c"
+    sha256 cellar: :any,                 arm64_sequoia: "ead8ddf1f27baefb7d612d6a8f6d4bd639fad43d26f07927b6ba7b7c3790d40c"
+    sha256 cellar: :any,                 arm64_sonoma:  "190dcf8e315535c20f12236b232ba58fcd9384b89a6b06a496d3f4a39fc33fcd"
+    sha256 cellar: :any,                 sonoma:        "e4c2649bfa4b4312947ef25e0c4a039cdbf012dd1ed27bd5ac40d56fa2e7b41c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "27f007d2599de73dc38adda802b63e697045fa2d6b4c149b53953560219aecc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b41fedd96803ea083f2bbe486e2818da5fd985b96daaa2d294c36fd448471714"
   end
 
   depends_on "cmake" => :build
@@ -48,13 +35,6 @@ class Vgmstream < Formula
 
   on_macos do
     depends_on "libogg"
-  end
-
-  # Apply open PR to support FFmpeg 8
-  # PR ref: https://github.com/vgmstream/vgmstream/pull/1769
-  patch do
-    url "https://github.com/vgmstream/vgmstream/commit/3e12a08a248cfb06f776b746238ee6ba38369d02.patch?full_index=1"
-    sha256 "4d0eed438f24b0dd8fa217cf261cf8ddb8e7772d63fc51180fe79ddceb6a8914"
   end
 
   def install

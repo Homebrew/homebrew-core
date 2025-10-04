@@ -1,8 +1,8 @@
 class Geographiclib < Formula
   desc "C++ geography library"
   homepage "https://geographiclib.sourceforge.io/"
-  url "https://github.com/geographiclib/geographiclib/archive/refs/tags/r2.5.2.tar.gz"
-  sha256 "e3d0c996c299046f2607205445afca3982557ee03ea586a32179ef4581e6ff8d"
+  url "https://github.com/geographiclib/geographiclib/archive/refs/tags/r2.6.tar.gz"
+  sha256 "6cf42e3477c295c184945a16e9f80b76d5b1a42704bec849928530d968bfc059"
   license "MIT"
   head "https://github.com/geographiclib/geographiclib.git", branch: "main"
 
@@ -12,14 +12,12 @@ class Geographiclib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c902a3c57d14896d9c2187aa39e653bd25971ff1125345652c50801d3bab817f"
-    sha256 cellar: :any,                 arm64_sequoia: "39088909eb85c9a2bfd8ec5d8e1bb9508f54d2afca241caf683a1fd1bb31f2f0"
-    sha256 cellar: :any,                 arm64_sonoma:  "b35c381557b5d0a342e7b35324a8df9bd36af7ef9252c677a0177ef556b023c0"
-    sha256 cellar: :any,                 arm64_ventura: "c81d2a16894ae18639ae89d33b7303fe893816928688444e900a0300e728db57"
-    sha256 cellar: :any,                 sonoma:        "000136e622f180771e8e97d144030dfb51f488ac014826e9e0ae358eeec4d509"
-    sha256 cellar: :any,                 ventura:       "c7ca19559c590aa40f3b9d41255dfbbb05fc5688e5a18abded5d40bda8f1b4f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de842531fdf7fc4461b9d129ef838e15ae8bee46fce1414e73124c14397cb415"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "974b98b6bec6774610527ad87d068fa434c9ff106894376e3a64879bdfad8e4c"
+    sha256 cellar: :any,                 arm64_tahoe:   "c6daafba69993f538bac76f6bc95d3947c6aac80ce4e327a6ed4632ce853e300"
+    sha256 cellar: :any,                 arm64_sequoia: "85bf3a443598e3e6591c9e3fe65ab9e4ae6d0def72de3227a5b0f05b955d2403"
+    sha256 cellar: :any,                 arm64_sonoma:  "36054edc5ead5d58705b9abc937c79e7c4a846a2855f951339813f36f7213186"
+    sha256 cellar: :any,                 sonoma:        "1865b4e7137f56724bb11ef49dc7cf7fb1fe37a0e9dbcb5cfae3a3860528e3cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "292d82ffc4f8815838c1de87b0aca307ab71c0ffa8529f5247080aeab8216906"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27125a5451388fa40df4089884aed7f793fdce743bcc29f15e8d7382043510cb"
   end
 
   depends_on "cmake" => :build

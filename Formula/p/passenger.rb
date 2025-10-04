@@ -25,7 +25,7 @@ class Passenger < Formula
   uses_from_macos "xz" => :build
   uses_from_macos "curl"
   uses_from_macos "libxcrypt"
-  uses_from_macos "ruby", since: :catalina
+  uses_from_macos "ruby"
   uses_from_macos "zlib"
 
   def install

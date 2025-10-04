@@ -2,23 +2,18 @@ class Libserdes < Formula
   desc "Schema ser/deserializer lib for Avro + Confluent Schema Registry"
   homepage "https://github.com/confluentinc/libserdes"
   url "https://github.com/confluentinc/libserdes.git",
-      tag:      "v8.0.0",
-      revision: "152fad7ddec001e886452726e71f3b6a5c8e8c65"
+      tag:      "v8.0.1",
+      revision: "8cf97f7395bf5131d14bacfe896c6a5731b1f0c8"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/confluentinc/libserdes.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2d14c0904a6396fc3b7d63bff0fac59cdbaa5c30f6f758df178125e1dcb6b821"
-    sha256 cellar: :any,                 arm64_sequoia: "319bea2747221a48f11a7c3d6e8363793610293f32404bbd91dc2eb61f7b6dd1"
-    sha256 cellar: :any,                 arm64_sonoma:  "7e614941c2920db28479be0d9854510739862a5b40caaa8529d4c876f1c2e5ff"
-    sha256 cellar: :any,                 arm64_ventura: "7ed196b9eea5699f8f4df9e45111f01ee30685b558e980100a77d9ec8705eabe"
-    sha256 cellar: :any,                 sonoma:        "76d1e59097226848b086b01c595f3a66434c0274ef39affd0b10e82be1a50d78"
-    sha256 cellar: :any,                 ventura:       "14bea0c4c0988ddc6d113f9ac1299125f3ae045bf4816750f4ade018ae30edf3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d1d696270184609077865420700b402e977fba0e81252ff0876bdc27f54f288e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2c24fafc2c911f512bc7b4e96f4eb5ee86992539a7a021fbc2b85874deffb48"
+    sha256 cellar: :any,                 arm64_tahoe:   "c14cdfa9ed6f431072d8c34d5b3e17e15626177570e3cb8f0f47748efceeb623"
+    sha256 cellar: :any,                 arm64_sequoia: "a361ce1442a89dca8a58be5660f9ce8b3642b7cf41e9fb86e4db2e26e777b5fb"
+    sha256 cellar: :any,                 arm64_sonoma:  "2f76ddcfcaccaaa52cf2eee0bfb58adb993d62c18a0748e3803544677cd23628"
+    sha256 cellar: :any,                 sonoma:        "be8d9684ec653b78b12ec47758ff3753ec990bbff7c0b8512dd98e87f252ceb3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a56e6ecdd23d8e7e734a157fc7323867cadb4c857a0b8cb23ebaa85c16bfcc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed7e4c5687585875bdd1139e219a4a2d567f319d9c8360065be564e62826140c"
   end
 
   depends_on "avro-c"

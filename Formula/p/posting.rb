@@ -3,17 +3,20 @@ class Posting < Formula
 
   desc "Modern API client that lives in your terminal"
   homepage "https://github.com/darrenburns/posting"
-  url "https://files.pythonhosted.org/packages/c8/63/07c1f793c26b48d338f53c96ec8cf233b2f094173cdad9e79607804bc4c2/posting-2.9.0.tar.gz"
-  sha256 "323875495837bc607f6ac3f05dcfbf103daec3b18b85bcdf9b2efc68952b983d"
+  url "https://files.pythonhosted.org/packages/e8/91/34c4943a50253b3871938bbe131edc86df76d337c84e7caa5deb1a234c91/posting-2.9.1.tar.gz"
+  sha256 "c458a26efeeea3e200d91c50cde7a8dad5c26ef61f9ab04b57ffc596f09209a3"
   license "Apache-2.0"
 
+  no_autobump! because: "contains non-PyPI resources"
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "852a071e2625837763f24abe68ccd029d762f0cbe443a7ff36f923cf1d6feb69"
-    sha256 cellar: :any,                 arm64_sequoia: "d5c09dc79364468b7ab89360871c5476510e71add6eb481de971cd9127b187c5"
-    sha256 cellar: :any,                 arm64_sonoma:  "ea260eeee908a946b55b052dcb197f51468b70489ecfcecee3e68bad83bd79b6"
-    sha256 cellar: :any,                 sonoma:        "df1a3ad6134684cc12df688061ca91b2650fdf65e3d3285ab24a4a85ca9fa564"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba63aad80cde1a9c326b4622ae7bd12ff68a10b3c53e76a171a06eacf23b2c2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "264f5f2141bfe9755dfeeddd9506bb34b9fec7b8229b3cde24e7eeaf13480d00"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "da5dfc9ff00416b865206b3764710a105ea103acb1df0e97a44d3b4331b97287"
+    sha256 cellar: :any,                 arm64_sequoia: "c98cb559915a760fd1fefe817551b5cfce88edbde77b61cdb7c5cc3dca8229a2"
+    sha256 cellar: :any,                 arm64_sonoma:  "d1cda9b87f6ca2d9b63b8253bd3808d25d58c45e37e0f84b57ca47465bf479f7"
+    sha256 cellar: :any,                 sonoma:        "66fe4f63c0d053d20e09f32b85da1577c727823baf1324c1b3c498307be1ad12"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d3af2cf9f6515deab75a01047fe2cbebd25eb600b3a83c3cc08d0974972bad6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4429863ad2ea2e6b5f1617028df8dd75d83421833bfce7067681321a44509611"
   end
 
   depends_on "cmake" => :build
@@ -31,8 +34,8 @@ class Posting < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/f1/b4/636b3b65173d3ce9a38ef5f0522789614e590dab6a8d505340a4efe4c567/anyio-4.10.0.tar.gz"
-    sha256 "3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6"
+    url "https://files.pythonhosted.org/packages/c6/78/7d432127c41b50bccba979505f272c16cbcadcc33645d5fa3a738110ae75/anyio-4.11.0.tar.gz"
+    sha256 "82a8d0b81e318cc5ce71a5f1f8b5c4e63619620b63141ef8c995fa0db95a57c4"
   end
 
   resource "brotli" do
@@ -116,8 +119,8 @@ class Posting < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/68/85/1ea668bbab3c50071ca613c6ab30047fb36ab0da1b92fa8f17bbc38fd36c/pydantic_settings-2.10.1.tar.gz"
-    sha256 "06f0062169818d0f5524420a360d632d5857b83cffd4d42fe29597807a1614ee"
+    url "https://files.pythonhosted.org/packages/20/c5/dbbc27b814c71676593d1c3f718e6cd7d4f00652cefa24b75f7aa3efb25e/pydantic_settings-2.11.0.tar.gz"
+    sha256 "d0e87a1c7d33593beb7194adb8470fc426e95ba02af83a0f23474a04c9a08180"
   end
 
   resource "pygments" do
@@ -126,8 +129,8 @@ class Posting < Formula
   end
 
   resource "pyperclip" do
-    url "https://files.pythonhosted.org/packages/15/99/25f4898cf420efb6f45f519de018f4faea5391114a8618b16736ef3029f1/pyperclip-1.10.0.tar.gz"
-    sha256 "180c8346b1186921c75dfd14d9048a6b5d46bfc499778811952c6dd6eb1ca6be"
+    url "https://files.pythonhosted.org/packages/e8/52/d87eba7cb129b81563019d1679026e7a112ef76855d6159d24754dbd2a51/pyperclip-1.11.0.tar.gz"
+    sha256 "244035963e4428530d9e3a6101a1ef97209c6825edab1567beac148ccc1db1b6"
   end
 
   resource "python-dotenv" do
@@ -136,8 +139,8 @@ class Posting < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "rich" do
@@ -156,13 +159,13 @@ class Posting < Formula
   end
 
   resource "textual-autocomplete" do
-    url "https://files.pythonhosted.org/packages/02/6a/40d48d98ac4417943a55832d44001e2940fc68f6a671d12f5818c65cec52/textual_autocomplete-4.0.5.tar.gz"
-    sha256 "db8066fc7d87c74afd08367f8fc2144bcec5ddbdea63a637249754e9d1fd8755"
+    url "https://files.pythonhosted.org/packages/1e/3a/80411bc7b94969eb116ad1b18db90f8dce8a1de441278c4a81fee55a27ca/textual_autocomplete-4.0.6.tar.gz"
+    sha256 "2ba2f0d767be4480ecacb3e4b130cf07340e033c3500fc424fed9125d27a4586"
   end
 
   resource "tree-sitter" do
-    url "https://files.pythonhosted.org/packages/a7/a2/698b9d31d08ad5558f8bfbfe3a0781bd4b1f284e89bde3ad18e05101a892/tree-sitter-0.24.0.tar.gz"
-    sha256 "abd95af65ca2f4f7eca356343391ed669e764f37748b5352946f00f7fc78e734"
+    url "https://files.pythonhosted.org/packages/66/7c/0350cfc47faadc0d3cf7d8237a4e34032b3014ddf4a12ded9933e1648b55/tree-sitter-0.25.2.tar.gz"
+    sha256 "fe43c158555da46723b28b52e058ad444195afd1db3ca7720c59a254544e9c20"
   end
 
   resource "tree-sitter-bash" do
@@ -221,14 +224,8 @@ class Posting < Formula
   end
 
   resource "tree-sitter-sql" do
-    url "https://github.com/DerekStride/tree-sitter-sql/archive/refs/tags/v0.3.7.tar.gz"
-    sha256 "a4aae1eeebe31dbbf7f823ee56b3ce257f6bb3f32fc5ee732bb785bce257fd3e"
-
-    # patch to include generated artifacts, upstream pr ref, https://github.com/DerekStride/tree-sitter-sql/pull/323
-    patch do
-      url "https://github.com/DerekStride/tree-sitter-sql/commit/e4d1a34b556e31ff473cd9ed10805489646b163a.patch?full_index=1"
-      sha256 "cd69ece539701cb8dce5cabd119c705e41c901606f39bf6c700e4bb25d3a8ce8"
-    end
+    url "https://github.com/DerekStride/tree-sitter-sql/releases/download/v0.3.11/tree-sitter-sql-v0.3.11.tar.gz"
+    sha256 "a97a324eae9c81ed68f6e162b9b33f8911fc6442caa2950e57c498e2460d1387"
   end
 
   resource "tree-sitter-toml" do
@@ -252,8 +249,8 @@ class Posting < Formula
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/f8/b1/0c11f5058406b3af7609f121aaa6b609744687f1d158b3c3a5bf4cc94238/typing_inspection-0.4.1.tar.gz"
-    sha256 "6ae134cc0203c33377d43188d4064e9b357dba58cff3185f22924610e70a9d28"
+    url "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz"
+    sha256 "ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464"
   end
 
   resource "uc-micro-py" do

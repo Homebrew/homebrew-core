@@ -3,17 +3,17 @@ class LueReader < Formula
 
   desc "Terminal eBook reader with text-to-speech and multi-format support"
   homepage "https://github.com/superstarryeyes/lue"
-  url "https://files.pythonhosted.org/packages/2b/22/e504c7b670ba2b40444cd25a4420ca77dac3d15e12b518b96e4a9db2685d/lue_reader-0.2.0.tar.gz"
-  sha256 "707f11d7992b2512e47c5ceaf4273dc1937b2f366955caf1bf776cbd97fbf4da"
+  url "https://files.pythonhosted.org/packages/61/93/5cd6b664878f09e0f9c8e487cd7b4f91e14a5a2cc33ebe4e0641cbb9e0bc/lue_reader-0.3.0.tar.gz"
+  sha256 "f54413d8b4e689c6d676f48eb27ef277361a8ba1a75ae40d37fd0b39d4ee610b"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9b03cb9bdeccdd58a4443f39dd723102e3e9f96aa7a082b00c0fe607f7e8057c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e20b27decb3d2dd804f8b56159b470464fd9d1d0fa647760a5e0acdb659a363"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b60c26c222d796ad92f94b1a124a2a927fb8b94054a5d49fd4fbf41c37a4f771"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ab90912516b2b8ec0036f6491ee35f27b4604cc1e368ad2a6e1feff9e36af3cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d7e14ff3e6ace6dfe5c7a8189400aa04cff790cf424bc6779d78fc2308f27fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4ea7529b5cb2f300b9078c848b11f916bcb8f7e5255d44cfe4bcb3f0d0e651f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "366b524bbabe1ed540957aa668fc6b8c4d58efd959f96cf02cda89268c1b0b8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2930717da68f105ac6840c7d7600b2df57ae1085cdf7bfaceb1718ae24885b57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08ecb2a67f54eca5b4b4aed2aa677da728001d7d3feab2c96d81c6d147674498"
+    sha256 cellar: :any_skip_relocation, sonoma:        "935313edadb616562926faaf3c7cd9054ab602ca6e27876c40ad97137138b214"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "abc6c1fb0d487203be46e5d0f86e1467aa6b5e6bef461d31c1c452059cdc6c53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a924de77c41e0df82456e29926208127f7a1f612692af5288ad97da285c5ee53"
   end
 
   depends_on "certifi"

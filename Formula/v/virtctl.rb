@@ -1,8 +1,8 @@
 class Virtctl < Formula
   desc "Allows for using more advanced kubevirt features"
   homepage "https://kubevirt.io/"
-  url "https://github.com/kubevirt/kubevirt/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "c66dc7043285ca91f8a5cf67f6e491d1aff5a2d5afc3c21cd98f845396a36349"
+  url "https://github.com/kubevirt/kubevirt/archive/refs/tags/v1.6.2.tar.gz"
+  sha256 "be69c1d91c4534e0391f4101f2eedc4dc6c0b30569d9d60a6569033f5edd8465"
   license "Apache-2.0"
   head "https://github.com/kubevirt/kubevirt.git", branch: "main"
 
@@ -15,11 +15,11 @@ class Virtctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bd698dd310a1879eb2f0830d5724ebe59d3cff4240c692cb929d9e0eb7d6c048"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd698dd310a1879eb2f0830d5724ebe59d3cff4240c692cb929d9e0eb7d6c048"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd698dd310a1879eb2f0830d5724ebe59d3cff4240c692cb929d9e0eb7d6c048"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7abee3e56163c334f624c69b59584060b45cfff6f0c45727ee93dc42bf239795"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9463f7836c75cd32bbd2e08c1a8962ce0fdd9a0040b9af806ae68bc69658129"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ef9a9acd294de1dc3153b8763f0383b2f93bbaf067db52744b37b6dec048c773"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef9a9acd294de1dc3153b8763f0383b2f93bbaf067db52744b37b6dec048c773"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef9a9acd294de1dc3153b8763f0383b2f93bbaf067db52744b37b6dec048c773"
+    sha256 cellar: :any_skip_relocation, sonoma:        "acb70b3c204315e3b8f0e6a143e3ca56a1fd6cb809e83057fbdc1de33afe9c9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68eb00732fb622f92e72c51b2f8f86bfc07693f80ed87f0173d35fdccd7c70ee"
   end
 
   depends_on "go" => :build

@@ -1,17 +1,17 @@
 class Cobalt < Formula
   desc "Static site generator written in Rust"
   homepage "https://cobalt-org.github.io/"
-  url "https://github.com/cobalt-org/cobalt.rs/archive/refs/tags/v0.20.1.tar.gz"
-  sha256 "b7290079f7bad945c5118769948478e8cc366c2bbae198af6a3e584244045ead"
+  url "https://github.com/cobalt-org/cobalt.rs/archive/refs/tags/v0.20.2.tar.gz"
+  sha256 "0e3b6b34271b78f0cdbd0851a6c7b37e1b4562d546f4f93124a7c7c038b2315f"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cf9c66df2fb9ea12258a22cf535c90cf0bbb4911998415cca88836a4004577f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5686a1f7a704889783de56052ab51b2d903ace30ebfba90a6d5a41bdb2e12fc1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6dd6e7b7380c8bed5b0419a07094791a12fefe7dca2241257a719d6bb399ac37"
-    sha256 cellar: :any_skip_relocation, sonoma:        "37823a3a9fc252f22412c31d66e5f15a627312b05a9184b4a9c372b980d3bf39"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "634eb555d3065ab49bd1a2965199c7467f0ea674cdb55c917439cfbc1e74aa1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6de9e6255edec1119d5d4aa89dafc5a6cbff8aadc5ec84b43bd58a0977e24c6f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7848829328461e664a481412e65a757cd8afd812f6a5fd3e7aabe3ad97846ee0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd41dd2db1d29bf4f2c9b04a8eba05d6989b90e3dc93bd9eb4fdd775b28b8a75"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "111fad02160c367d7c97beafb94c88128355b67536836de8ff1c4bbf3984a604"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b7abe100a92a43c73916f395495e1f1afce41ee1c5a9b2cf1f00ca70ffb1f6fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa683dc8a5589631e0cffd6d5b162272fda2e864270cf559afcf3dae2b90263e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84fa98dcf3ef131f628b6d16018bbc67771f194ae7f69dda9e6a132cf9c2a893"
   end
 
   depends_on "rust" => :build

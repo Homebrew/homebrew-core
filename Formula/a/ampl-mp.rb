@@ -1,8 +1,8 @@
 class AmplMp < Formula
   desc "Open-source library for mathematical programming"
   homepage "https://ampl.com/"
-  url "https://github.com/ampl/mp/archive/refs/tags/v4.0.3.tar.gz"
-  sha256 "229c2e82110a8a1c1a845b14e5faa960785c07e2df673bd366f755aca431c1a9"
+  url "https://github.com/ampl/mp/archive/refs/tags/v4.0.4.tar.gz"
+  sha256 "17cedaddb57a1df4d47bbe5fe0782f2e8d90a416130b70d291ef97513128b8dc"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,12 @@ class AmplMp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ea5ac06e7c06626cf8afafc31913afc8731d214473bfaffc79e13b7aeaf24214"
-    sha256 cellar: :any,                 arm64_sequoia: "72d3f332e77de2e5b258bf56fdaec683156df0ea50bd69183472ecd3406b2f8e"
-    sha256 cellar: :any,                 arm64_sonoma:  "2a002c99e2dd2fc455f9f020441173b578c990a6c2ed1cddb5ad6ba66e06c9aa"
-    sha256 cellar: :any,                 arm64_ventura: "ba31187ed3d38c63fa5ce3147a1585da4dfba58c3ffc963e96b9b62bec3a51eb"
-    sha256 cellar: :any,                 sonoma:        "688d982bcba62f0093d30a4a13a687bb82d2af614be4c13a38e9c5b30b9e01bd"
-    sha256 cellar: :any,                 ventura:       "d3b8e2cb8821b8c3d707b873397ebdc414113380feb8d0f3c96009234a8c9234"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "93c41c2792707a2fcc66dda70e71dfab73c2e719360b44b54dc2fe5930b4b8b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1589822e026ea8029f3b8d187c37979188a056aef87dde9c30f0414a0738e436"
+    sha256 cellar: :any,                 arm64_tahoe:   "9bf5a0d43eed837f69e6e7a1cd20d0b1e0d5cd7d17341b11bd44a9f1f2497ee7"
+    sha256 cellar: :any,                 arm64_sequoia: "243e01399f49efaa494912effa97b114f146886fd2da61e383fe5ee03cbe81fc"
+    sha256 cellar: :any,                 arm64_sonoma:  "a9da950919b6eb5c47123fbff37e2c9597ac01fa6ac3d8b46b9770e7c052e95a"
+    sha256 cellar: :any,                 sonoma:        "12be92be01cb47cf32fa277a1f86f94cf565c01019d88011e0f60d223a7e6468"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d65ee2909acdab137ba45976e25bf19b23c91704d2f460b85c3fd274a7f82543"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbe407627bdc0227755d9b7f90b9ebbde9657b7273a338fd506e67abd855a70f"
   end
 
   depends_on "cmake" => :build

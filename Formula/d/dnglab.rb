@@ -1,19 +1,17 @@
 class Dnglab < Formula
   desc "Camera RAW to DNG file format converter"
   homepage "https://github.com/dnglab/dnglab"
-  url "https://github.com/dnglab/dnglab/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "dffe4dd94913a687184b2a453eeb170c87afbca62ecf3a4bc680e5f5bf22cacc"
+  url "https://github.com/dnglab/dnglab/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "9a62c63a0775c946ccc378dbbc0f9206f593659f2f998cfb66bf6a0f64487e2f"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c6f8df88f218e2cbe364ece9282ccbca4519ffd7255062701da87be9354c6f59"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f88419fd19c10e08b35eccb622ba8737b44eb3cd4f475fe5dc46ae9572ce060f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ceabff3e17c704a0012a939a99c4270771de1d6b76617cf376814b93b2f164c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "156a083c9ebb78650ac6e7433297500c36ed4ad5d9f6c2fa47f6addf5e520942"
-    sha256 cellar: :any_skip_relocation, sonoma:        "87090195be4c7ed7b6208ef0ec993811384ddd5672fdd640409d41a653fe5fb9"
-    sha256 cellar: :any_skip_relocation, ventura:       "cbf1fee7f7aac51b50b40906c4810bb211927af587b201977af9cc8118197922"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6200689f2e64a2442a841db5a2a59e40529d76ac4c7febf240c050e1607999e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "509248fe57abfefa18c941b6fac42e28e5682ac0a31c79c81ddc704a53dbb394"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6410ed4f43547dc92824e6b48d006bc00be417340eea0462c6465ec1b24dca74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c61a28cf5d7d13f639076f3930ddc3997ed6b8830cc75bfed3888671c18332f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee059bfa26e1ef45495929c1b55096111957dca084d06eb1a2df92c6f7eb043f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f904d3fcb256714d1c908dd984e7232b9735d0c6912539a72848fb29851f803"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e2d67f8e56a74ae98fae362571b0d3a86f0070d4dd1af94869df10391fd4ba4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e261fc76ad602c3aa4b609ce09728eb66b90fe01e473a3fa5db6cd4c89d17cd"
   end
 
   depends_on "rust" => :build

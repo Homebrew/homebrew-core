@@ -1,8 +1,8 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "https://github.com/DanBloomberg/leptonica/releases/download/1.85.0/leptonica-1.85.0.tar.gz"
-  sha256 "3745ae3bf271a6801a2292eead83ac926e3a9bc1bf622e9cd4dd0f3786e17205"
+  url "https://github.com/DanBloomberg/leptonica/releases/download/1.86.0/leptonica-1.86.0.tar.gz"
+  sha256 "1fa08e40bb37fd45802d5e6e7b43927449a5c47d4608ef99d3bd3f0fa76baedc"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,14 +11,12 @@ class Leptonica < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b0df5281a5e9df13b6a8f4ec4be8ad946e61a48dc79f79b58af42237901dda21"
-    sha256 cellar: :any,                 arm64_sequoia: "d2d966918337ee5feda18544d4546734f77aeaf4dde87ae8979589bd97c799c1"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b742a3445f7a24454ebf897551b8d49fc5cdc2ab7c93fc5a5c6ec4695292ef0"
-    sha256 cellar: :any,                 arm64_ventura: "c63d4257101ed2af4aca050ce013a6825ca189ec0f4cea03bdd650ecea77cc71"
-    sha256 cellar: :any,                 sonoma:        "97b295e17239dca10dbc284995b439594ad857afa84b9e81b12b6dd597e8daa8"
-    sha256 cellar: :any,                 ventura:       "b85f75996d77b388e32d762a3b5c9d70f6a4d6be088353822b57b52c71a4d8b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1337f4e47a28be51760dc07833dd60892c01687e62cdcbe04dffec94f5fb20fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b2c01e724c093ba4b4bf19bdd65edcc3ff70dbc5071e5e801f07b9f24cc2d63"
+    sha256 cellar: :any,                 arm64_tahoe:   "373b3c03b29d240d7ebecb0b513b8829bb2fe7d2d8b1c27a1dd95cbe076487ca"
+    sha256 cellar: :any,                 arm64_sequoia: "797df03f03bfa17345d7064ca4128d92943224c0a496ab77426b5a6710903348"
+    sha256 cellar: :any,                 arm64_sonoma:  "56e1fae220bd7d340b66fd04409d9cf61c61d2a50866319caf02517452c85a77"
+    sha256 cellar: :any,                 sonoma:        "f536e5d74cf3c967f33bc6ae9b55571961f81818590380bc4d58a331bc8e71f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f84cd2d6e6ea28c22b6bed9bad130e7af630c4d41a43a0b79c25b892d407979"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "848250f50de5d83d97ffce88a6093a29fa01ea149b9e7ea3137ea480dce3ff81"
   end
 
   depends_on "pkgconf" => :build

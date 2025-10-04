@@ -1,17 +1,17 @@
 class Superhtml < Formula
   desc "HTML Language Server & Templating Language Library"
   homepage "https://github.com/kristoff-it/superhtml"
-  url "https://github.com/kristoff-it/superhtml/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "6b6938446b86478608df954755ba0d212e6d2defb4b12d64395c79a091d9c087"
+  url "https://github.com/kristoff-it/superhtml/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "e84b0f4c95187561c16d216fb520c1fb7362b4d8f0ff1cec8d4a3694fbd379b2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d5a88ab418b32a50ca3389a0adbf6d655aebd8dc6b4680a2e9eefa47411e28ff"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16805618a92e9cb64d33ddf5e556ed38b5bedd0c76d930f9b80d67fc2d0871cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4b555ecd2f36c8e2514b9f81cc97c3e3e1771fbd64af0dcd82cfb6059208ce1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a762440b5e8dd1a9827d9f40a64f640ab4ab2a458013e2257f7bf92e9b189c25"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d67bc6aaab0d15a7892915ed6dbf533162f0906be46b432f17d2a42f585b22f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c6b03aae0c1bbd1b9f29ea0061b8a0f25981c5b7afc8ff9708c96e6f98a461e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b4f35421ec563af57470210c14dbda4a8e9050dc6b246775c64656850d9d832"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecf7687da152f5b98daeb631869096b1cee93283369bb78a414315fa72bae19a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b479060507e35d2ab4c92b1909764f48fc2a7acd017c5d7a6374684d4ef6876b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5273aa27979d30a8c4d2b0151d177d30109d4ec3b28dec2338295abbf8f1f827"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e77396abe94918e3af64ff87b0c37581743089cdbbb27ec1ad3a6e6bedc60691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b116b12b4d104a638425ba9d23c1bb800d93c738f9d45cbafdf2404c22c7d08"
   end
 
   depends_on "zig" => :build

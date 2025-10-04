@@ -1,8 +1,8 @@
 class Chaoskube < Formula
   desc "Periodically kills random pods in your Kubernetes cluster"
   homepage "https://github.com/linki/chaoskube"
-  url "https://github.com/linki/chaoskube/archive/refs/tags/v0.36.0.tar.gz"
-  sha256 "07cbded64e66f61452b01ae3a11f5c6192bf160d740580a504d39eb423597a8e"
+  url "https://github.com/linki/chaoskube/archive/refs/tags/v0.37.0.tar.gz"
+  sha256 "ee2db89df0136c86997aa867951010e901f59273d840ed43a826d4d5fd89bd9d"
   license "MIT"
   head "https://github.com/linki/chaoskube.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Chaoskube < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "160b8d4c2cd2698c05203f2c1a88ac4d80a76947e549a8440ef42743003f0981"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af07f7023810e073cd9aa80a5d80cd6993304dfbb7db52f40bd8fbb2f17baa2a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a174b2900778310bd759e795fa6ebe6356fb901e03af40ec6c78ed73a631cbf0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "00a09247af2f701fd0e0604276b804f3155e5566e179303ab131e6e03006f51d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d99ecd9428d82edc3c3b3505a7b608093bc04ca65893be1f698acad8d5b410a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf153893fbed4119d54ae61ebc6fb88b744170113ed9836dddad1f010fcf2ccb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36f62ac923f7050c352df7f8ec5068a18987b997c9ddb178ae4e1855da9aec6b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "435adc6fb662974a4945b8188eb64a69c906e54c8e2e9d47cf63c34200422b79"
+    sha256 cellar: :any_skip_relocation, sonoma:        "48a6e3c9d3bc29a859fd5708a788780af9c820457076578a6d45b8a4c7262bb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f4ba35835dbf476ee584b33bc93e97a02f28a250598d8d8b61e397656ad3a6c"
   end
 
   depends_on "go" => :build

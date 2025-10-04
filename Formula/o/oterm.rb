@@ -3,18 +3,17 @@ class Oterm < Formula
 
   desc "Terminal client for Ollama"
   homepage "https://github.com/ggozad/oterm"
-  url "https://files.pythonhosted.org/packages/36/ea/fb180c66977c17c186bd2d00240a03953f25fc32ef5125f3a859a33075cf/oterm-0.14.4.tar.gz"
-  sha256 "30b86ed4a29d8e5bb7eb18e69e4fab8680740eb90ccda1d826f508126f771cbe"
+  url "https://files.pythonhosted.org/packages/2b/94/0766007fafabedaeac3881fe37a2a72f90c3686f6b8d0015071477b9c9d7/oterm-0.14.5.tar.gz"
+  sha256 "99f4a65ac1fa87ac3a4a045ab4b96b4665073bb2b24ae731ec30852b0b00f24b"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "aa39882778e9bf2993ba34d34a196ff66fc18cb93cba6dd67410d6c4b8414c36"
-    sha256 cellar: :any,                 arm64_sequoia: "e8c5062f2f7042526a04da859587b76668c3608a014fd18b577cc5413d6004ba"
-    sha256 cellar: :any,                 arm64_sonoma:  "b5b6c81b8920bcb92a6b5afa9cc03d1cabd856db9474299232c269db47a13321"
-    sha256 cellar: :any,                 sonoma:        "595a60a645878ae2c6b2a1b671ffa49a222e987d322639659a31bd722989373c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "74418e887d5ee66bbe4b4687bd18218ebe47e797b0b573f0a7af6bf6f84adace"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06b4f77879f857e2abb2b6266d306f451c614bb2c3c62c7dbfdc4ce8599baf43"
+    sha256 cellar: :any,                 arm64_tahoe:   "796ba764a35005b1f24bf4773822eb30d9abea0691c78126156c29b1870eb19d"
+    sha256 cellar: :any,                 arm64_sequoia: "cab99f70e0296fec7cf19d55c4e04a7ba295072edc4ed4e95a35aa83c6e44cb6"
+    sha256 cellar: :any,                 arm64_sonoma:  "3972512996fa8fd13700ca65787e1d03e3497ffe28424c2fecf31c0f03ee35da"
+    sha256 cellar: :any,                 sonoma:        "9b641a9b4c9100b7e10f62005f03b7c23da09036671e0ba3ea33753a7d00f3f6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "56ba89dd995b9058f0943d22672dd0a109d308cac03a9b0c9b0794fdace2322a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdfd2d550d951f64eb8d9a7fb7bfc15c228a242bd4012504971e220e545035ce"
   end
 
   depends_on "pkgconf" => :build
@@ -45,8 +44,8 @@ class Oterm < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/f1/b4/636b3b65173d3ce9a38ef5f0522789614e590dab6a8d505340a4efe4c567/anyio-4.10.0.tar.gz"
-    sha256 "3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6"
+    url "https://files.pythonhosted.org/packages/c6/78/7d432127c41b50bccba979505f272c16cbcadcc33645d5fa3a738110ae75/anyio-4.11.0.tar.gz"
+    sha256 "82a8d0b81e318cc5ce71a5f1f8b5c4e63619620b63141ef8c995fa0db95a57c4"
   end
 
   resource "attrs" do
@@ -55,8 +54,8 @@ class Oterm < Formula
   end
 
   resource "authlib" do
-    url "https://files.pythonhosted.org/packages/ce/bb/73a1f1c64ee527877f64122422dafe5b87a846ccf4ac933fe21bcbb8fee8/authlib-1.6.4.tar.gz"
-    sha256 "104b0442a43061dc8bc23b133d1d06a2b0a9c2e3e33f34c4338929e816287649"
+    url "https://files.pythonhosted.org/packages/cd/3f/1d3bbd0bf23bdd99276d4def22f29c27a914067b4cf66f753ff9b8bbd0f3/authlib-1.6.5.tar.gz"
+    sha256 "6aaf9c79b7cc96c900f0b284061691c5d4e61221640a948fe690b556a6d6d10b"
   end
 
   resource "charset-normalizer" do
@@ -100,8 +99,8 @@ class Oterm < Formula
   end
 
   resource "fastmcp" do
-    url "https://files.pythonhosted.org/packages/99/5e/035fdfa23646de8811776cd62d93440e334e8a4557b35c63c1bff125c08c/fastmcp-2.12.3.tar.gz"
-    sha256 "541dd569d5b6c083140b04d997ba3dc47f7c10695cee700d0a733ce63b20bb65"
+    url "https://files.pythonhosted.org/packages/a8/b2/57845353a9bc63002995a982e66f3d0be4ec761e7bcb89e7d0638518d42a/fastmcp-2.12.4.tar.gz"
+    sha256 "b55fe89537038f19d0f4476544f9ca5ac171033f61811cc8f12bdeadcbea5016"
   end
 
   resource "h11" do
@@ -165,13 +164,13 @@ class Oterm < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "mcp" do
-    url "https://files.pythonhosted.org/packages/48/e9/242096400d702924b49f8d202c6ded7efb8841cacba826b5d2e6183aef7b/mcp-1.14.1.tar.gz"
-    sha256 "31c4406182ba15e8f30a513042719c3f0a38c615e76188ee5a736aaa89e20134"
+    url "https://files.pythonhosted.org/packages/3d/a1/b1f328da3b153683d2ec34f849b4b6eac2790fb240e3aef06ff2fab3df9d/mcp-1.16.0.tar.gz"
+    sha256 "39b8ca25460c578ee2cdad33feeea122694cfdf73eef58bee76c42f6ef0589df"
   end
 
   resource "mdit-py-plugins" do
@@ -245,8 +244,8 @@ class Oterm < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/68/85/1ea668bbab3c50071ca613c6ab30047fb36ab0da1b92fa8f17bbc38fd36c/pydantic_settings-2.10.1.tar.gz"
-    sha256 "06f0062169818d0f5524420a360d632d5857b83cffd4d42fe29597807a1614ee"
+    url "https://files.pythonhosted.org/packages/20/c5/dbbc27b814c71676593d1c3f718e6cd7d4f00652cefa24b75f7aa3efb25e/pydantic_settings-2.11.0.tar.gz"
+    sha256 "d0e87a1c7d33593beb7194adb8470fc426e95ba02af83a0f23474a04c9a08180"
   end
 
   resource "pygments" do
@@ -255,8 +254,8 @@ class Oterm < Formula
   end
 
   resource "pyperclip" do
-    url "https://files.pythonhosted.org/packages/15/99/25f4898cf420efb6f45f519de018f4faea5391114a8618b16736ef3029f1/pyperclip-1.10.0.tar.gz"
-    sha256 "180c8346b1186921c75dfd14d9048a6b5d46bfc499778811952c6dd6eb1ca6be"
+    url "https://files.pythonhosted.org/packages/e8/52/d87eba7cb129b81563019d1679026e7a112ef76855d6159d24754dbd2a51/pyperclip-1.11.0.tar.gz"
+    sha256 "244035963e4428530d9e3a6101a1ef97209c6825edab1567beac148ccc1db1b6"
   end
 
   resource "python-dotenv" do
@@ -270,8 +269,8 @@ class Oterm < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "referencing" do
@@ -335,8 +334,8 @@ class Oterm < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/da/44/4b524b2f06e0fa6c4ede56a4e9af5edd5f3f83cf2eea5cb4fd0ce5bbe063/textual-6.1.0.tar.gz"
-    sha256 "cc89826ca2146c645563259320ca4ddc75d183c77afb7d58acdd46849df9144d"
+    url "https://files.pythonhosted.org/packages/a2/30/38b615f7d4b16f6fdd73e4dcd8913e2d880bbb655e68a076e3d91181a7ee/textual-6.2.1.tar.gz"
+    sha256 "4699d8dfae43503b9c417bd2a6fb0da1c89e323fe91c4baa012f9298acaa83e1"
   end
 
   resource "textual-image" do
@@ -365,8 +364,8 @@ class Oterm < Formula
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/f8/b1/0c11f5058406b3af7609f121aaa6b609744687f1d158b3c3a5bf4cc94238/typing_inspection-0.4.1.tar.gz"
-    sha256 "6ae134cc0203c33377d43188d4064e9b357dba58cff3185f22924610e70a9d28"
+    url "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz"
+    sha256 "ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464"
   end
 
   resource "uc-micro-py" do
@@ -380,8 +379,8 @@ class Oterm < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/ef/5e/f0cd46063a02fd8515f0e880c37d2657845b7306c16ce6c4ffc44afd9036/uvicorn-0.36.0.tar.gz"
-    sha256 "527dc68d77819919d90a6b267be55f0e76704dca829d34aea9480be831a9b9d9"
+    url "https://files.pythonhosted.org/packages/71/57/1616c8274c3442d802621abf5deb230771c7a0fec9414cb6763900eb3868/uvicorn-0.37.0.tar.gz"
+    sha256 "4115c8add6d3fd536c8ee77f0e14a7fd2ebba939fed9b02583a97f80648f9e13"
   end
 
   resource "werkzeug" do

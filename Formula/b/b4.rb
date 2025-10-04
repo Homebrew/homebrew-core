@@ -3,19 +3,17 @@ class B4 < Formula
 
   desc "Tool to work with public-inbox and patch archives"
   homepage "https://b4.docs.kernel.org/en/latest/"
-  url "https://files.pythonhosted.org/packages/40/87/3489c1907e9338a3002ff3899d6a5b869aa215eedc0ee2e28ee6baf046fe/b4-0.14.2.tar.gz"
-  sha256 "4f835b6e5ae30eff6004bb25c15fd8f4f6ecd1105596e86db1871fef7d18113d"
+  url "https://files.pythonhosted.org/packages/70/99/2b34c8451ad6599090f7d9045adb9f19270c2ed8cef4d52c179b297f8e37/b4-0.14.3.tar.gz"
+  sha256 "31a4927b8dfbb5c97edfc9569cda3b6737bbfd8430881e8cc48a0b088ced6147"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1e05e61e7fb5e79f83300de4f463aee0b354e389b8ac587065db2472e5c0754a"
-    sha256 cellar: :any,                 arm64_sequoia: "78e1ab7fdd04911b6ec55f17cef7c4b56895669021ad06d40d5b04f47166d894"
-    sha256 cellar: :any,                 arm64_sonoma:  "0a19827273be52f7f525549c1b973579ba381b5a1976942d567933fccbf99984"
-    sha256 cellar: :any,                 arm64_ventura: "e89ba215ccb8788c2982d405535d8f75d536e97a1449a35ac85f0a80a62334b8"
-    sha256 cellar: :any,                 sonoma:        "146022f8857fd125219db815b4a084ea8e5692693493fc66566f02914566844b"
-    sha256 cellar: :any,                 ventura:       "fae976fa4a22be857ae5440ce1f0d02166187ee6620804133802d7db62c8f5ce"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "958e4f895da095812971882a90ff4bc28b1bcba79f6e067432a29eebf6c7a043"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27959dc1ca798d76a8085dc5fc410226d55f4c89da62226c8487d71d2dc203cb"
+    sha256 cellar: :any,                 arm64_tahoe:   "de36463a236df2ea83b5fb444b43b2437cb99ee4c75b407761273d0ef2745e3a"
+    sha256 cellar: :any,                 arm64_sequoia: "f0d4c4b164c2789138f3a96bc0cadcf357e274576ee705e3cb9bd53b8a83f30c"
+    sha256 cellar: :any,                 arm64_sonoma:  "fb8d91f2d90585c807962f918997a35b7c44c5418b09b9cc42a6fcd911b1f0d6"
+    sha256 cellar: :any,                 sonoma:        "69c0f17e84599c5d02ae28bd209ea3acb438585d4647b9bdc10d7745fa4c4c23"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed46f8545228df5297c28e419498f73774ff45e70506e3237af21068ccafa511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fe38315990452ab3ece1ec14ef7191d878dc454f92a85b8182b70331aad2607"
   end
 
   depends_on "certifi"
@@ -24,8 +22,8 @@ class B4 < Formula
   depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "dkimpy" do
@@ -34,8 +32,8 @@ class B4 < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd94b08ad3a33d5fdae34ecb856678773cc40a3605829/dnspython-2.7.0.tar.gz"
-    sha256 "ce9c432eda0dc91cf618a5cedf1a4e142651196bbcd2c80e89ed5a907e5cfaf1"
+    url "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08bcafa776861060426765fdb422eb10212086fb811d26/dnspython-2.8.0.tar.gz"
+    sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
   end
 
   resource "git-filter-repo" do
@@ -54,13 +52,13 @@ class B4 < Formula
   end
 
   resource "pynacl" do
-    url "https://files.pythonhosted.org/packages/a7/22/27582568be639dfe22ddb3902225f91f2f17ceff88ce80e4db396c8986da/PyNaCl-1.5.0.tar.gz"
-    sha256 "8ac7448f09ab85811607bdd21ec2464495ac8b7c66d146bf545b0f08fb9220ba"
+    url "https://files.pythonhosted.org/packages/06/c6/a3124dee667a423f2c637cfd262a54d67d8ccf3e160f3c50f622a85b7723/pynacl-1.6.0.tar.gz"
+    sha256 "cb36deafe6e2bce3b286e5d1f3e1c246e0ccdb8808ddb4550bb2792f2df298f2"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "urllib3" do

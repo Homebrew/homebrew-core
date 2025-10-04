@@ -3,18 +3,18 @@ class Gptme < Formula
 
   desc "AI assistant in your terminal"
   homepage "https://gptme.org/docs/"
-  url "https://files.pythonhosted.org/packages/0c/db/e9359f2617ef994b7813ef9436f4fd5fb984e914a3a6515ff8400a7507f0/gptme-0.28.1.tar.gz"
-  sha256 "b371421fa2614576cb28156706d626c3244e3be1da75d08ef06aac13945fc94c"
+  url "https://files.pythonhosted.org/packages/9c/ac/a6e6db289f591fb6da0468f3efe542cef8c89b1b9611830e33649bfc0a4f/gptme-0.28.3.tar.gz"
+  sha256 "a8779fb70b5c5291f85a66461bad8961ed670d9df8c5cca97658b1d7ca61c93f"
   license "MIT"
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d81db70221a45e95d2c505fe9236b2d443a2b5f707d275c7fac12712aaaa7e9a"
-    sha256 cellar: :any,                 arm64_sequoia: "2e030413c546192ad678c4bdc9539c3d9c19323f316f52cda53596bb296ad7a0"
-    sha256 cellar: :any,                 arm64_sonoma:  "fd2094ed43b6dde44bd9c2f79de833a4cb0f4da1313e549476071b27cee6fb99"
-    sha256 cellar: :any,                 sonoma:        "b5362a976f3be78e0f4ddcb58414dad4e5bd68f6ca4ac43fcdeb966001e9f63f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ce36966964d1184624e7cbb5e95b4ce2161b8d342e5bd9e5b8062ae1de3abf0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b88ae5d4d8b11049e4937cb14830ab1ab952b00e1e49331086c933f5870a819"
+    sha256 cellar: :any,                 arm64_tahoe:   "3639c93450c33672d3f48a37818cdbe044f84ac6f76b441c1de2f3bd9b03ca29"
+    sha256 cellar: :any,                 arm64_sequoia: "f41fc80b570989e5c704c9de7758b0aebd8705a45dce30ab33993a0d7c48d0ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "a387fc6fdfcf00be4864039708d879a2a60e06de11e5e4259ba9f35cead6d74c"
+    sha256 cellar: :any,                 sonoma:        "8c115718b54bf30fe5cc26ba893d89e48146677e97ccb13001025fbd692a1bab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b274385effc6c112af86dbf7cfa6d0bd9c46455898abe6c61c5d125d7745445"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e3d675a65130eab3326a903ae8e7d450039d1f1222ee13188db82de6432f2c0"
   end
 
   depends_on "rust" => :build
@@ -162,8 +162,8 @@ class Gptme < Formula
   end
 
   resource "mcp" do
-    url "https://files.pythonhosted.org/packages/48/e9/242096400d702924b49f8d202c6ded7efb8841cacba826b5d2e6183aef7b/mcp-1.14.1.tar.gz"
-    sha256 "31c4406182ba15e8f30a513042719c3f0a38c615e76188ee5a736aaa89e20134"
+    url "https://files.pythonhosted.org/packages/0c/9e/e65114795f359f314d7061f4fcb50dfe60026b01b52ad0b986b4631bf8bb/mcp-1.15.0.tar.gz"
+    sha256 "5bda1f4d383cf539d3c035b3505a3de94b20dbd7e4e8b4bd071e14634eeb2d72"
   end
 
   resource "mdurl" do
@@ -177,8 +177,8 @@ class Gptme < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/62/9f/d11cc7fb2d60af14a97dbef4e3c7b23917387995c257951fdc321d8efd0a/openai-1.109.0.tar.gz"
-    sha256 "701e26d13e3953524ba99f44cf5fbbda40eafd41ba15a8d85b76229a2693cfe5"
+    url "https://files.pythonhosted.org/packages/c6/a1/a303104dc55fc546a3f6914c842d3da471c64eec92043aef8f652eb6c524/openai-1.109.1.tar.gz"
+    sha256 "d173ed8dbca665892a6db099b4a2dfac624f94d20a93f46eb0b56aae940ed869"
   end
 
   resource "parso" do
@@ -227,13 +227,18 @@ class Gptme < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/68/85/1ea668bbab3c50071ca613c6ab30047fb36ab0da1b92fa8f17bbc38fd36c/pydantic_settings-2.10.1.tar.gz"
-    sha256 "06f0062169818d0f5524420a360d632d5857b83cffd4d42fe29597807a1614ee"
+    url "https://files.pythonhosted.org/packages/20/c5/dbbc27b814c71676593d1c3f718e6cd7d4f00652cefa24b75f7aa3efb25e/pydantic_settings-2.11.0.tar.gz"
+    sha256 "d0e87a1c7d33593beb7194adb8470fc426e95ba02af83a0f23474a04c9a08180"
   end
 
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
     sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+  end
+
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "python-dotenv" do
@@ -274,6 +279,11 @@ class Gptme < Formula
   resource "rpds-py" do
     url "https://files.pythonhosted.org/packages/e9/dd/2c0cbe774744272b0ae725f44032c77bdcab6e8bcf544bffa3b6e70c8dba/rpds_py-0.27.1.tar.gz"
     sha256 "26a1c73171d10b7acccbded82bf6a586ab8203601e565badc74bbbf8bc5a10f8"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "sniffio" do
@@ -327,8 +337,8 @@ class Gptme < Formula
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/f8/b1/0c11f5058406b3af7609f121aaa6b609744687f1d158b3c3a5bf4cc94238/typing_inspection-0.4.1.tar.gz"
-    sha256 "6ae134cc0203c33377d43188d4064e9b357dba58cff3185f22924610e70a9d28"
+    url "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz"
+    sha256 "ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464"
   end
 
   resource "urllib3" do

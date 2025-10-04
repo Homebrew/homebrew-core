@@ -73,6 +73,7 @@ class Gstreamer < Formula
   depends_on "libnice"
   depends_on "libogg"
   depends_on "libpng"
+  depends_on "librsvg"
   depends_on "libshout"
   depends_on "libsndfile"
   depends_on "libsodium"

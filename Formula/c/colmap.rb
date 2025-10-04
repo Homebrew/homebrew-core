@@ -27,10 +27,12 @@ class Colmap < Formula
   depends_on "gmp"
   depends_on "lz4"
   depends_on "metis"
+  depends_on "openssl@3"
   depends_on "poselib"
   depends_on "qt"
   depends_on "suite-sparse"
 
+  uses_from_macos "curl"
   uses_from_macos "sqlite"
 
   on_macos do

@@ -24,7 +24,7 @@ class FcitxRemoteForOsx < Formula
   depends_on :macos
 
   # need py3.6+ for f-strings
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   def install
     system "python3", "build.py", "build", "general"

@@ -3,10 +3,9 @@ class Mapnik < Formula
   homepage "https://mapnik.org/"
   # needs submodules
   url "https://github.com/mapnik/mapnik.git",
-      tag:      "v4.1.2",
-      revision: "83c1f6b1a2f45a825e9d5764b9a6d33c907c4bad"
+      tag:      "v4.1.3",
+      revision: "838a1730b239c64b49bc4144a4165e093a6d5bd5"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
@@ -15,14 +14,12 @@ class Mapnik < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "8e5b410d72760bbf997debcd9ff9927dff69fddbe1b8ea12c6ff550c9e41ad7a"
-    sha256 cellar: :any, arm64_sequoia: "80745139c8802719f3eefd46bdf97995ed974033ddedcdae5cfa55d539da0eec"
-    sha256 cellar: :any, arm64_sonoma:  "77aaf584fd0bc1bd4301524e1e27c8d76f4a046fac3062e035703ce753e35c11"
-    sha256 cellar: :any, arm64_ventura: "3d55b37b1e59a0416e9f381356bf2913e637e53f0a9b52f393bb3e2ec8c683c4"
-    sha256 cellar: :any, sonoma:        "09e2d4681dd402d6ffb1910f18f4c3e39c7c9f0acc1d9bdd94784fdc835cf39f"
-    sha256 cellar: :any, ventura:       "c37cb04238f5f98a5d9a9409f8ca6e96cd0300f8d57125c0b9a8790073ce5ebd"
-    sha256               arm64_linux:   "20b9a20ca6c577346a6b53b69d39de3a9504a65ec229f0e0c119115fdec735bd"
-    sha256               x86_64_linux:  "2010bf71fb4caffe99888c36e54c9ff1169399226d9ddfb4b3ec6505c730ddb4"
+    sha256 cellar: :any,                 arm64_tahoe:   "0dba27bb885123fcf851c103cdb3d6986ca9971278ece39548ff134fa3d32787"
+    sha256 cellar: :any,                 arm64_sequoia: "6347f7a8f30fcc7987bfbad1ec2b9b86ca9432215f14286138ae63f451fca2e0"
+    sha256 cellar: :any,                 arm64_sonoma:  "5379e002ae90c248fe0661b9e62fb5213bb2ad9beb5f97b0fada2a2819b10e0d"
+    sha256 cellar: :any,                 sonoma:        "ac9ac89f452ed7865c315e6aa0146dcbfccb1b16a983fbe10443850f89acf51c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ca52379f212b6ebb0ac3da870d3ca24e6bbfe02222993daa61b2c076391d1c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abc3d2b6bbdfc29f5e536e7d1588beb8eab726ddb532203e9142da07d7178bc3"
   end
 
   depends_on "cmake" => :build
@@ -39,6 +36,7 @@ class Mapnik < Formula
   depends_on "libpq"
   depends_on "libtiff"
   depends_on "libxml2"
+  depends_on "openssl@3"
   depends_on "proj"
   depends_on "sqlite"
   depends_on "webp"

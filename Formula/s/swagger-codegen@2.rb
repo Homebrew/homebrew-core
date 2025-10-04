@@ -1,8 +1,8 @@
 class SwaggerCodegenAT2 < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/tools/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/refs/tags/v2.4.47.tar.gz"
-  sha256 "789f808d0426bfb1940978c65ad34a7dd9431c635d3e023408398ab15c3eea9d"
+  url "https://github.com/swagger-api/swagger-codegen/archive/refs/tags/v2.4.48.tar.gz"
+  sha256 "a003cf2136650843f43d050228d80e60873622e96a8545279bae6d52cdef68fd"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class SwaggerCodegenAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "951d6fc2fe7f82f1733a6d3b8b48825177cf89bdc4c105d2f564781fe13cbfb4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "619ea2e23be86b361ca7f65b4921e1d6b17d99e08875054e7907bdd1cc513a20"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c317e13184b82924d092893eb1f1f13e117749c9e3aeda0e6032d11cb6aaf28"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9fe135b0e5a905c815266f8d90dd56d4cee75a42f6f0cb5f6b8891e752481abb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d517f02d614a51e82dbe9361555ab3bde786543fd80ecd4f33c0fce094cff663"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "695681c2790dbdf4f8d9e42c735941e3251598cba98bf5c9d4b28955f3149f2d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "85cc8cb7d7e7c2942b2212ac00ca76213ed260550c276701c16864935935c395"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e699507f6905ee446ceeb8dc872356dc38b32d3a279452c59c4390b44752a590"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7cfd9180f46c2765e0b17d3cf8be3e91f3d128e2e4ad5bdcfd1eb2d29778a4cd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0050699c0330a88976102fb5d887a8ba69c19b0c9f04bd7a15d5c6a9ce110bb5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1db92af55f304bff73080b9e23f4f6bcfc310fef4423e366386c64cb17f91ae8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe70ca557ab4c10e59d7d8fc3011e3b4bf3a774d325d3e02a419d71945236a1b"
   end
 
   keg_only :versioned_formula

@@ -19,7 +19,7 @@ class Getmail6 < Formula
     sha256 cellar: :any_skip_relocation, all: "6e0e153c6fb32e3d5b781e90169ccc56a3af19242503cb85ac1f668e29059cd2"
   end
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   def install
     files = %w[getmail getmail_fetch getmail_maildir getmail_mbox]

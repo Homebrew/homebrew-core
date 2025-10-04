@@ -5,9 +5,9 @@ class Php < Formula
 
   stable do
     # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-    url "https://www.php.net/distributions/php-8.4.12.tar.xz"
-    mirror "https://fossies.org/linux/www/php-8.4.12.tar.xz"
-    sha256 "c1b7978cbb5054eed6c749bde4444afc16a3f2268101fb70a7d5d9b1083b12ad"
+    url "https://www.php.net/distributions/php-8.4.13.tar.xz"
+    mirror "https://fossies.org/linux/www/php-8.4.13.tar.xz"
+    sha256 "b4f27adf30bcf262eacf93c78250dd811980f20f3b90d79a3dc11248681842df"
 
     # Fix naming clash with libxml macro
     # https://github.com/php/php-src/pull/19832
@@ -27,13 +27,12 @@ class Php < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "e40592e2731a866feb2b91f16d094e9c9cf605db90035762a2ee367316bc5403"
-    sha256 arm64_sequoia: "8a2728015733295d45652fd123c902301a617f5e5fc138daca5f873f58fbc6ae"
-    sha256 arm64_sonoma:  "db9c8789e22f0b191805554eaf9a2a77f84e69a9cae6cd1764b6144f4e8bbcd0"
-    sha256 sonoma:        "c3c3cfade78d29299f78825a66691f8583380cea416a3f7aa35f0abf9e8574da"
-    sha256 arm64_linux:   "ccf76dc0da52b6d72e19bbcff284628cea4c36508eaff4aa8ff614d3749686a4"
-    sha256 x86_64_linux:  "56a6b123525c3ff49a58b05d05c9e8da50cb349973f048dc1d8963f64a042bfa"
+    sha256 arm64_tahoe:   "609cfd3feabcd9c27b44e4ec70c6592474ddfb7107b93eb288a08fd392325dc3"
+    sha256 arm64_sequoia: "fc14301eb5cd4c5e11c952c0ff68b6d1337d470e2ec85457b19d6b89dd9c48d3"
+    sha256 arm64_sonoma:  "faa3f172e872cbfd34acbc3084cdc1915c2b4dc9b8630deed199b39980ea8232"
+    sha256 sonoma:        "284fdbcdccebe9036d95c73f592c44be0adec34dfa90eb2a6b8cb76bec77770f"
+    sha256 arm64_linux:   "51ac65d0b6b4b102e8a9f1204845f5a1d3cfe05f792fdf84cfd3dd125aabfea9"
+    sha256 x86_64_linux:  "f7db9f2ad43503b41e5ac7d5a339d4dd1763c695d4da5b202a9f8a8e2c06d121"
   end
 
   head do
@@ -52,10 +51,7 @@ class Php < Formula
   depends_on "curl"
   depends_on "freetds"
   depends_on "gd"
-  depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c@77"
-  depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"
   depends_on "libzip"
@@ -71,13 +67,14 @@ class Php < Formula
   uses_from_macos "xz" => :build
   uses_from_macos "bzip2"
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "gcc"
+    depends_on "gcc" => :build # must never be a runtime dependency
+    depends_on "gettext"
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/235820
@@ -87,12 +84,7 @@ class Php < Formula
   end
 
   def install
-    # GCC -Os performs worse than -O1 and significantly worse than -O2/-O3.
-    # We lack a DSL to enable -O2 so just use -O3 which is similar.
-    ENV.O3 if OS.mac?
-
-    # buildconf required due to system library linking bug patch
-    system "./buildconf", "--force"
+    system "./buildconf", "--force" if build.head?
 
     inreplace "configure" do |s|
       s.gsub! "$APXS_HTTPD -V 2>/dev/null | grep 'threaded:.*yes' >/dev/null 2>&1",
@@ -150,6 +142,7 @@ class Php < Formula
       --with-config-file-path=#{config_path}
       --with-config-file-scan-dir=#{config_path}/conf.d
       --with-pear=#{pkgshare}/pear
+      --disable-intl
       --enable-bcmath
       --enable-calendar
       --enable-dba
@@ -157,7 +150,6 @@ class Php < Formula
       --enable-ftp
       --enable-fpm
       --enable-gd
-      --enable-intl
       --enable-mbregex
       --enable-mbstring
       --enable-mysqlnd
@@ -283,6 +275,7 @@ class Php < Formula
     extension_dir = Utils.safe_popen_read(bin/"php-config", "--extension-dir").chomp
     php_basename = File.basename(extension_dir)
     php_ext_dir = opt_prefix/"lib/php"/php_basename
+    (pecl_path/php_basename).mkpath
 
     # fix pear config to install outside cellar
     pear_path = HOMEBREW_PREFIX/"share/pear"
@@ -315,16 +308,18 @@ class Php < Formula
         inreplace ext_config_path,
           /#{extension_type}=.*$/, "#{extension_type}=#{php_ext_dir}/#{e}.so"
       else
-        ext_config_path.write <<~EOS
+        ext_config_path.write <<~INI
           [#{e}]
           #{extension_type}="#{php_ext_dir}/#{e}.so"
-        EOS
+        INI
       end
     end
   end
 
   def caveats
     <<~EOS
+      The PHP Internationalization extension is now in the `php-intl` formula.
+
       To enable PHP in Apache add the following to httpd.conf and restart Apache:
           LoadModule php_module #{opt_lib}/httpd/modules/libphp.so
 
@@ -394,7 +389,7 @@ class Php < Formula
         </FilesMatch>
       EOS
 
-      (testpath/"fpm.conf").write <<~EOS
+      (testpath/"fpm.conf").write <<~INI
         [global]
         daemonize=no
         [www]
@@ -404,7 +399,7 @@ class Php < Formula
         pm.start_servers = 2
         pm.min_spare_servers = 1
         pm.max_spare_servers = 3
-      EOS
+      INI
 
       (testpath/"httpd-fpm.conf").write <<~EOS
         #{main_config}
@@ -416,24 +411,16 @@ class Php < Formula
         </FilesMatch>
       EOS
 
-      pid = fork do
-        exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
-      end
+      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
       sleep 10
-
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 
       Process.kill("TERM", pid)
       Process.wait(pid)
 
-      fpm_pid = fork do
-        exec sbin/"php-fpm", "-y", "fpm.conf"
-      end
-      pid = fork do
-        exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
-      end
+      fpm_pid = spawn sbin/"php-fpm", "-y", "fpm.conf"
+      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
       sleep 10
-
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure
       if pid

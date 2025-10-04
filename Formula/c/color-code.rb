@@ -21,6 +21,7 @@ class ColorCode < Formula
     sha256 cellar: :any,                 sonoma:         "7d1b463d79dd8300b303a00ab0f578d1468e43cdce5c7a13b1638cf68f91c49e"
     sha256 cellar: :any,                 ventura:        "b954f75bdcddf2b8e43abe941bd31564c24e9571b08f9cd4e4631a58cee0003c"
     sha256 cellar: :any,                 monterey:       "af2e8d3a61997ad1b25189d2a9b148cbf7fdb34d5f0c92c8c118ba477b68e586"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e8bbc4be9fdd3d92db8ca9620bac00252cd3eee18dce7ebdbdfab5d83d13aa33"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd2a46ae5f69b106738617bd41d8fe1d2a71a34dcb876850ac1c698b4ca09496"
   end
 

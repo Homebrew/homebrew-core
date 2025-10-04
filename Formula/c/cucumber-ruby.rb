@@ -24,7 +24,7 @@ class CucumberRuby < Formula
   depends_on "pkgconf" => :build
   depends_on "ruby"
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
 
   # Runtime dependencies of cucumber
   # List with `gem install --explain cucumber`

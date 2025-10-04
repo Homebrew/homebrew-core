@@ -1,8 +1,8 @@
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "https://www.gegl.org/babl/"
-  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.114.tar.xz"
-  sha256 "bcbb7786c1e447703db3bc7fa34d62d0d2d117b22f04d8834c7b2d5ded456487"
+  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.116.tar.xz"
+  sha256 "50fae069867c7ade1259888ff1e3db85fec86d708252e5385b5a4f39a78ec483"
   license "LGPL-3.0-or-later"
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git", branch: "master"
@@ -13,14 +13,12 @@ class Babl < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a5e679a83f60b41f8da0c3d867af7c2dc48cc7389f6cbb51802aea0594839d16"
-    sha256 arm64_sequoia: "5ce954090d32baf2105b51b9181fc0033dd948598929f5391b17d3f64d89d6fb"
-    sha256 arm64_sonoma:  "ebea9657244533795a3b5244acff93bdb0c68394e3f337b513fe10fa31e82ac2"
-    sha256 arm64_ventura: "d69c75d99f6b01bb19b7e575bc05f2a105b5d16e6122c106c013163eb0afa63f"
-    sha256 sonoma:        "711bcc1ca2003825471449a9d759f71c34e971909e6b5d46285c0bbc04d37198"
-    sha256 ventura:       "80fac3c8153b352e4cae06c647461c1eccb8caa0295c5472354fd25719240178"
-    sha256 arm64_linux:   "a6b592bfd886d0c851e52d4d58698b4b0f141a7e6c469fde635ba320444c6d48"
-    sha256 x86_64_linux:  "3da3985cdc276fdfed64fce9fffdbbe174f5bd66ba2a9592619b80cc92b95a78"
+    sha256 arm64_tahoe:   "85c839537f9471af091c716deff006d3c533a179fdff40fa2a191d257f72afa8"
+    sha256 arm64_sequoia: "d9811006ba4c60cbfa2d3cb23c85b2446a6f8c3b8e3a291b677cd2a1f82e47b8"
+    sha256 arm64_sonoma:  "ca8508bda2750d69d76d513be77360f6b15981969dc9526d9454954e5dbf5f54"
+    sha256 sonoma:        "bbdbf27e0c0b4eb55b0f3a8c9d8287d64e836c1482358e7349e15ad1c82c12d6"
+    sha256 arm64_linux:   "08bf951f290b244cb91e6b3f871d2976809c17e76da10b7cb2b1b13fd1d84907"
+    sha256 x86_64_linux:  "864d00c576fa0df3f7b2a80d3fdcfa1f2fb252f04c36d4260b95915b25467747"
   end
 
   depends_on "glib" => :build # to add to PKG_CONFIG_PATH for gobject-introspection

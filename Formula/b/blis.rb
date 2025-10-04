@@ -7,17 +7,21 @@ class Blis < Formula
   head "https://github.com/flame/blis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5bb226f60a5cffc5e2e7a79daa6daefbe33dcc46c0aef737e0cf71398ce49407"
-    sha256 cellar: :any,                 arm64_sequoia: "eaa5b7da801e3b1915288ce0938b19d5add45ba87ce3dab1277e2beb78d77654"
-    sha256 cellar: :any,                 arm64_sonoma:  "ffd36f20fb15992d43255e6cd4ef2180d7415d54504d4793f9355e365e9bbc28"
-    sha256 cellar: :any,                 arm64_ventura: "90e2dad3813b09a2782a32a20555d5e2a9f046040bbcbda52f53ce6962a9b25d"
-    sha256 cellar: :any,                 sonoma:        "2164b835421ca2348ea9345fb673e48f97590f763fba9067ce10a181d42e661a"
-    sha256 cellar: :any,                 ventura:       "d8f4e5be9a956ac208b0aa9abde47dabac3968e194b008b1b5816cca934c538a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e26aed017b11935a26a0390a2ce77619d9886ff9c760db40509f3ae106390dea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dca702952b8f726f414761a5714ba34a5ba69df4e4f1e5e94a45a2d55aaa023a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ae5b40dcc1bb83dcc0742f24a1bfe0991bc3a349d34aa329a0b12f88b2b880fe"
+    sha256 cellar: :any,                 arm64_sequoia: "461fd80b3bd293dffab9b1a1ed90a35ef4c9b2f6f3546bc44fa06411681871dd"
+    sha256 cellar: :any,                 arm64_sonoma:  "91e2bd552c5f1df187fdee979635b0c87ce5ea700127ec2110ef16da2ea005dd"
+    sha256 cellar: :any,                 sonoma:        "a6f83d702d2ca94890919df8c80e998a874846677d9c6131358e10f5c03bdb35"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c654866bff3d54735f76b81eb0318d3d85727b3224c84c95f7e4a3db851593b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f201ae6efcebd05d84ae5360d95bffa2871344f6384a92be7019948429704776"
   end
 
   uses_from_macos "python" => :build
+
+  on_macos do
+    depends_on "libomp"
+    patch :DATA # patch to use libomp when CC=clang as common.mk is installed
+  end
 
   def install
     # https://github.com/flame/blis/blob/master/docs/ConfigurationHowTo.md
@@ -33,7 +37,7 @@ class Blis < Formula
       Hardware::CPU.arch
     end
 
-    system "./configure", "--prefix=#{prefix}", "--enable-cblas", config
+    system "./configure", "--prefix=#{prefix}", "--enable-cblas", "--enable-threading=openmp", config
     system "make"
     system "make", "install"
   end
@@ -64,3 +68,18 @@ class Blis < Formula
     system "./test"
   end
 end
+
+__END__
+--- a/common.mk
++++ b/common.mk
+@@ -989,8 +989,8 @@ ifeq ($(CC_VENDOR),clang)
+ #THREADING_MODEL := pthreads
+ #endif
+ ifneq ($(findstring openmp,$(THREADING_MODEL)),)
+-CTHREADFLAGS += -fopenmp
+-LDFLAGS      += -fopenmp
++CTHREADFLAGS += -I@@HOMEBREW_PREFIX@@/opt/libomp/include -Xpreprocessor -fopenmp
++LDFLAGS      += -L@@HOMEBREW_PREFIX@@/opt/libomp/lib -lomp
+ endif
+ ifneq ($(findstring pthreads,$(THREADING_MODEL)),)
+ CTHREADFLAGS += -pthread

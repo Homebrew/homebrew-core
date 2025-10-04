@@ -1,21 +1,17 @@
 class Gobo < Formula
   desc "Free and portable Eiffel tools and libraries"
   homepage "https://www.gobosoft.com/"
-  url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/25.09/gobo-25.09.tar.gz"
-  sha256 "40f7b64dbbeca28865c78df07194ac5da2ec701a41c53ed7e137337a03a2e38a"
+  url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/25.10/gobo-25.10.tar.gz"
+  sha256 "09775e976891df2e118b33daa045871da0bed25df4a61bcd36ca3b44a7ac4c9c"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0aaba4f008e105ca513742945acfb21ba9a2de3bdc780f0bb8fb7a70659092a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af40930a8fc0cff9154b8b8b68f106c4b7f3123ba4ac2dfd59867b6710e08fd8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cc3bd3ed8ef2f699fda1145b075da7c5e0a08555e9c680c27514fb228240dee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "70d705b128377d717e094addd8307fbead066ff640b292cbeebaefeca1699eb1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "09ea3366c0b0f7217ed32b31e3e8efd603017452a4d731689f1e6e7a89ed8d6d"
-    sha256 cellar: :any_skip_relocation, ventura:       "27fed5c47c2a2a01d03fe07cb8f11bc46ad07805c5db922d42db0d2a59859035"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "14e958f4ede43b580301c160e62d905821a60636687bf12bdccf28e27beed7cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12358e26299d1e17dead9f7b55d9de2daf28342d05a6342464d85cb45a9ec08e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dc85b7f115c327f36d7e2bc794c6a1dec739be59fec7746ae6ba53942322c310"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93b9b059e0f217b4bf54d398af39e3c792d0360cdf55de294efd37e26178f938"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "127c2d83afd84a0b48ec62679eefd337382a81182cab76ee079f91800b0d059c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1dcedc46570eb1a88b49719ac97c5146b23f1216a580360650c2ec4af904f3b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "265ac70231a5a5d39be2e4876680b9e221f687a26c271677d43d47fcbc6c3215"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a3cf71ebd1bc9a673793c40cd38a632d4c308aaa870f1c1f9870fbf6d10551a"
   end
 
   depends_on "eiffelstudio" => :test

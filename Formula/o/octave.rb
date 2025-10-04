@@ -1,9 +1,9 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://octave.org/index.html"
-  url "https://ftpmirror.gnu.org/gnu/octave/octave-10.2.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/octave/octave-10.2.0.tar.xz"
-  sha256 "c9a0b0f83381866e816842e83eb35042d9dbc9d684557ba776e9e30292b2f76b"
+  url "https://ftpmirror.gnu.org/gnu/octave/octave-10.3.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/octave/octave-10.3.0.tar.xz"
+  sha256 "92ae9bf2edcd288bd2df9fd0b4f7aa719b49d3940fceb154c5fdcd846f254da1"
   license "GPL-3.0-or-later"
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
@@ -14,13 +14,11 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b260a14d07e4ba57887c0022a355ecafcfb29c136c8f7fdfecce72e6a67193ee"
-    sha256 arm64_sequoia: "0a1a72242e74867f7d24cce9f678a02d545d04a14a98abb86f0db4de46d22e56"
-    sha256 arm64_sonoma:  "81a6660582b444e9101d6dc666df16130d33ea850bdcb1b68fb6f91d5c96e7ee"
-    sha256 arm64_ventura: "a6bbb865bffb7dc645519f38c5f8b1a619b43de05221007e1ebc44d2dd991cda"
-    sha256 sonoma:        "27e44b32d80e4f1c6816655b3675df6d1530b1e3bc8e77526bd0c4cb3901a7d7"
-    sha256 ventura:       "e04ff535d11fa6161ee451e1f60d8607e656a8e7a48cf49ac84d1962cf308def"
-    sha256 x86_64_linux:  "d864c2523e0e5f11a725b3c13727eff24e3b4b3f48e914bddcf814ec0639f8fd"
+    sha256 arm64_tahoe:   "2b7b3fd553c3ae4d242179c5fae9f57a4d683743db65afa4a4a2d956637a32b6"
+    sha256 arm64_sequoia: "03a1ecfb5e0ea9bf5c414d9ceb65941f086742d5568f1ea25b60ea182571e143"
+    sha256 arm64_sonoma:  "07a113786da7682645e09d0edbe1ff4b121e764506b8947ab2bf3b344e6ec5b9"
+    sha256 sonoma:        "abf9adb21cc5533bb5a633add5c8728e29172816e7da8164148b6dc418dda7b1"
+    sha256 x86_64_linux:  "01e12aea5d18aaa450ea32767745dd3af288f19a57d21182366f95d75e745589"
   end
 
   head do

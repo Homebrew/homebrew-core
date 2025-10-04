@@ -13,12 +13,15 @@ class Aiac < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4db2b9d958b304727cdaa0a7147908f4f01bdbe3ee2d43ade18426b9dfb6aeaa"
     sha256 cellar: :any_skip_relocation, sonoma:        "2dbaa7b25dc9be8356f083cd11c3e5d6738b8b0545cac4f4000196bb4d2bf39a"
     sha256 cellar: :any_skip_relocation, ventura:       "2dbaa7b25dc9be8356f083cd11c3e5d6738b8b0545cac4f4000196bb4d2bf39a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "03d5c8fd027682c85c921bfa1fad5d4bb2b4ed7fa4c75f14777ec8c043ac9911"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e74cfb47682506cce9ef87848aa085274b067c36139d49cdbaee1ed9259c193"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -s -w
       -X github.com/gofireflyio/aiac/v#{version.major}/libaiac.Version=#{version}

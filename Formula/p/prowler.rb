@@ -3,18 +3,18 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/ce/6f/7492bc0ec09789b994401d09250b60ad6ed7381e8454486e9242e0f91e3d/prowler-5.12.2.tar.gz"
-  sha256 "51021c7459beee0701825022864c59cf7fd7f507ae471b54fd303a006fd4654f"
+  url "https://files.pythonhosted.org/packages/f8/d4/bb80171d50010eb713adfa6528718d4ee328148528ffa76dc2c904022531/prowler-5.12.3.tar.gz"
+  sha256 "b15c9e70ca6fb745de37d8b2098b18dcfdba35f14f64f048758587b8464767b0"
   license "Apache-2.0"
   head "https://github.com/prowler-cloud/prowler.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3e0d14a37ba2dc4290c70e3df36375bdcfca650b96e8127dc8b7daa15c192ca9"
-    sha256 cellar: :any,                 arm64_sequoia: "3b1ed2851312356375aecf30e55ebb1a0740b8e787873ede940cf4be3c16d893"
-    sha256 cellar: :any,                 arm64_sonoma:  "242b80218ab49d19356b527502c60b053fee9e6ef32d34640cc63471e14463c2"
-    sha256 cellar: :any,                 sonoma:        "5587e5a3cee59b4949fbccd97d64b895055fd863336d4d471c8ec873dab2a363"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "60356af68c5597c3b39c264c49a80c236ec0394d95b8d6481b9a46434b0301aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b779b99201a5432cdaf0e50ebecba1deead9b8f95b342d89f03342c982d1a963"
+    sha256 cellar: :any,                 arm64_tahoe:   "30ca3f406aaa690cf54e9ac864f726c0f27e0c7c5062fa2ec4fb7211f63c9446"
+    sha256 cellar: :any,                 arm64_sequoia: "9305cf334d17b7ea69d8962fd0d7becbf59359b2689acb0a2b0aafe4c9e812ec"
+    sha256 cellar: :any,                 arm64_sonoma:  "be1b5feb05d1289ba07280db5ee1cfe958bf017375f3001d5d70e79a26fbf992"
+    sha256 cellar: :any,                 sonoma:        "821c25f825b8de524b9b926491e51a16918b7ab6fbe366332169337069d8e526"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea1100c4e7962e97ff4927c136d960709333a37be1535bf7a6177d25d3480684"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a49124d44806f0289829c5d8a7dca0bc85f0fd546b37d5fe4b2a91445df84713"
   end
 
   depends_on "cmake" => :build
@@ -239,8 +239,8 @@ class Prowler < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/6c/81/3747dad6b14fa2cf53fcf10548cf5aea6913e96fab41a3c198676f8948a5/cachetools-5.5.2.tar.gz"
-    sha256 "1a661caa9175d26759571b2e19580f9d6393969e5dfca11fdb1f947a23e640d4"
+    url "https://files.pythonhosted.org/packages/9d/61/e4fad8155db4a04bfb4734c7c8ff0882f078f24294d42798b3568eb63bff/cachetools-6.2.0.tar.gz"
+    sha256 "38b328c0889450f05f5e120f56ab68c8abaf424e1275522b138ffc93253f7e32"
   end
 
   resource "charset-normalizer" do
@@ -334,8 +334,8 @@ class Prowler < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/9e/9b/e92ef23b84fa10a64ce4831390b7a4c2e53c0132568d99d4ae61d04c8855/google_auth-2.40.3.tar.gz"
-    sha256 "500c3a29adedeb36ea9cf24b8d10858e152f2412e3ca37829b3fa18e33d63b77"
+    url "https://files.pythonhosted.org/packages/a8/af/5129ce5b2f9688d2fa49b463e544972a7c82b0fdb50980dafee92e121d9f/google_auth-2.41.1.tar.gz"
+    sha256 "b76b7b1f9e61f0cb7e88870d14f6a94aeef248959ef6992670efee37709cbfd2"
   end
 
   resource "google-auth-httplib2" do
@@ -389,8 +389,8 @@ class Prowler < Formula
   end
 
   resource "iamdata" do
-    url "https://files.pythonhosted.org/packages/a5/9c/f4521ebf8afa0d8bde72f6ffdbc6d6dbdf23970af6045b1643023f04da97/iamdata-0.1.202509241.tar.gz"
-    sha256 "47e57850bfd55a5347d949c0737d591e0733ac1396c781a2c592f558cf2b58f3"
+    url "https://files.pythonhosted.org/packages/fb/16/5a3ad04d7b3e20356c2cfc53a15c75591b13c0c37fa59b6ad9794617a6d4/iamdata-0.1.202510011.tar.gz"
+    sha256 "0607914153ec41edc77ffdc9cc6eead8bdd1ed2fad3977ce65361e5bc79c59b3"
   end
 
   resource "idna" do
@@ -439,8 +439,8 @@ class Prowler < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "microsoft-kiota-abstractions" do
@@ -509,8 +509,8 @@ class Prowler < Formula
   end
 
   resource "narwhals" do
-    url "https://files.pythonhosted.org/packages/7b/b8/3cb005704866f1cc19e8d6b15d0467255821ba12d82f20ea15912672e54c/narwhals-2.5.0.tar.gz"
-    sha256 "8ae0b6f39597f14c0dc52afc98949d6f8be89b5af402d2d98101d2f7d3561418"
+    url "https://files.pythonhosted.org/packages/00/dd/40ff412dabf90ef6b99266b0b74f217bb88733541733849e0153a108c750/narwhals-2.6.0.tar.gz"
+    sha256 "5c9e2ba923e6a0051017e146184e49fb793548936f978ce130c9f55a9a81240e"
   end
 
   resource "nest-asyncio" do
@@ -629,8 +629,8 @@ class Prowler < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "referencing" do
@@ -704,8 +704,8 @@ class Prowler < Formula
   end
 
   resource "std-uritemplate" do
-    url "https://files.pythonhosted.org/packages/74/cc/f3d2e47d2fe828da95321ab0f4ac54e4a02294c86832469de33a048f6061/std_uritemplate-2.0.5.tar.gz"
-    sha256 "7703a886cce59d155c21b5acf1ad8d48db9f3322de98fa783a8396fbf35cbc06"
+    url "https://files.pythonhosted.org/packages/89/7c/86a0dc9e04aed42b33a3071a2db322851a9b9fa0bbee17b1e8eeaa3b739a/std_uritemplate-2.0.6.tar.gz"
+    sha256 "73353da20f3c7d73a4e7bc0ec0acdbd51787978048632280a1a33731916fb947"
   end
 
   resource "tabulate" do
@@ -724,8 +724,8 @@ class Prowler < Formula
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/f8/b1/0c11f5058406b3af7609f121aaa6b609744687f1d158b3c3a5bf4cc94238/typing_inspection-0.4.1.tar.gz"
-    sha256 "6ae134cc0203c33377d43188d4064e9b357dba58cff3185f22924610e70a9d28"
+    url "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz"
+    sha256 "ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464"
   end
 
   resource "tzdata" do

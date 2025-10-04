@@ -1,29 +1,18 @@
 class ScryerProlog < Formula
   desc "Modern ISO Prolog implementation written mostly in Rust"
   homepage "https://www.scryer.pl"
+  url "https://github.com/mthom/scryer-prolog/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "353eca4eea539e0a0eedb1572736bfcc64c5fb6fd2da3b8737c513ad62f60f3b"
   license "BSD-3-Clause"
   head "https://github.com/mthom/scryer-prolog.git", branch: "master"
 
-  stable do
-    url "https://github.com/mthom/scryer-prolog/archive/refs/tags/v0.9.4.tar.gz"
-    sha256 "ccf533c5c34ee7efbf9c702dbffea21ba1c837144c3592a9e97c515abd4d6904"
-
-    # patch libffi to build against rust 1.87
-    # upstream pr ref, https://github.com/mthom/scryer-prolog/pull/2895 and https://github.com/mthom/scryer-prolog/pull/2956
-    patch :DATA
-  end
-
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "20b2eac4ef795a6887ddc309e982005d36092ca41e6af2d1c1723ea8b79e5875"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d9e835b97c19a21a9e951a9cb4f3e63b2df085d146a45e1a83fcd6f7c2e2e03"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a56ddd4c07ac2d2b7efaa3d425e8372164d177ae2051716004fe690c4581788"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a0384d324b743441527508b58a077149303dd2dd96a5503c369408f9719cc5cd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d3e024f19ee8e58837198cd389c3b7c480ba7c5e387d0857f4922661a79e7c18"
-    sha256 cellar: :any_skip_relocation, ventura:       "ca1a6421cda477896165eb0565e298dee3d6a8cbda834b96319d8ecfae1d3b93"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3568e4dbd9505bd8bb67952b815e18631d464d1608295e9d699b91669533fd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "440649067671da13802d98cdcd24d605c6eec246d55b3be4b8cb90c612ee7854"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d48c0a73df9bf67c54bc855ed865155ad79f41a4561591ed3f7359c3e9d2022d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da512766a1a27fe22eb01c1ae6a7c89dd934425d2388d1d482512689fedebd6e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b08c3101dbe3c77c75ab5025e9a4d2fc49c2ed1f17a9839d7357d6972db614db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff71107fc21ebf2fad8c3be28b9801f65fba480207d8300af56b8df3975f5c1e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e3d6f8f168ef2b0bdd2c27755d68f1d6a8133fe9740e52d4914c509fca6e5fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "549989dbd09c1d6885e73357b5f2ba49e762bcbd3eaa0d35110832b0719db02e"
   end
 
   depends_on "pkgconf" => :build
@@ -46,75 +35,3 @@ class ScryerProlog < Formula
     assert_equal "Hello from Scryer Prolog", shell_output("#{bin}/scryer-prolog -g 'test,halt' #{testpath}/test.pl")
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 5e406c6..26f3d5a 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -1477,9 +1477,9 @@ checksum = "302d7ab3130588088d277783b1e2d2e10c9e9e4a16dd9050e6ec93fb3e7048f4"
-
- [[package]]
- name = "libffi"
--version = "3.2.0"
-+version = "4.1.0"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "ce826c243048e3d5cec441799724de52e2d42f820468431fc3fceee2341871e2"
-+checksum = "ebfd30a67b482a08116e753d0656cb626548cf4242543e5cc005be7639d99838"
- dependencies = [
-  "libc",
-  "libffi-sys",
-@@ -1487,9 +1487,9 @@ dependencies = [
-
- [[package]]
- name = "libffi-sys"
--version = "2.3.0"
-+version = "3.3.1"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "f36115160c57e8529781b4183c2bb51fdc1f6d6d1ed345591d84be7703befb3c"
-+checksum = "f003aa318c9f0ee69eb0ada7c78f5c9d2fedd2ceb274173b5c7ff475eee584a3"
- dependencies = [
-  "cc",
- ]
-diff --git a/Cargo.toml b/Cargo.toml
-index 2af52e2..af8a464 100644
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -80,7 +80,7 @@ serde = "1.0.159"
- crossterm = { version = "0.20.0", optional = true }
- ctrlc = { version = "3.2.2", optional = true }
- hostname = { version = "0.3.1", optional = true }
--libffi = { version = "3.2.0", optional = true }
-+libffi = { version = "4.0.0", optional = true }
- native-tls = { version = "0.2.4", optional = true }
- reqwest = { version = "0.11.18", optional = true }
- rustyline = { version = "12.0.0", optional = true }
-diff --git a/src/ffi.rs b/src/ffi.rs
-index a8ffd74..835a06e 100644
---- a/src/ffi.rs
-+++ b/src/ffi.rs
-@@ -53,13 +53,23 @@ pub struct ForeignFunctionTable {
-     structs: HashMap<String, StructImpl>,
- }
-
--#[derive(Debug, Clone)]
-+#[derive(Clone)]
- struct StructImpl {
-     ffi_type: ffi_type,
-     fields: Vec<*mut ffi_type>,
-     atom_fields: Vec<Atom>,
- }
-
-+impl std::fmt::Debug for StructImpl {
-+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-+        f.debug_struct("StructImpl")
-+            .field("ffi_type", &&"<???>")
-+            .field("fields", &self.fields)
-+            .field("atom_fields", &self.atom_fields)
-+            .finish()
-+    }
-+}
-+
- struct PointerArgs {
-     pointers: Vec<*mut c_void>,
-     _memory: Vec<Box<dyn Any>>,

@@ -35,7 +35,7 @@ class Fdroidserver < Formula
   depends_on "rclone"
   depends_on "s3cmd"
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
 

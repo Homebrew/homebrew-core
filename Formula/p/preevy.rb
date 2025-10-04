@@ -12,6 +12,7 @@ class Preevy < Formula
     sha256                               arm64_ventura: "b3d2111934d904a21e073113ffb2a53da7d8784907cf06bd92a64d24be3e6399"
     sha256                               sonoma:        "a511ef38d0a334bb9eb9ab49781d75974a33d08074870a153339087e9e950428"
     sha256                               ventura:       "92c7b3fe2e0fb816a63b6b0c2feb8446be062eec443dbb6a5416b4b9937f056a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e99bec653db6fb724499c73557bfde947aad0f58d6e1b0698ec173803efa175"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a58855d54fa97236e0fad7088c96a745ac2ef33b6f3a9caf03bd6cfd08ebaa1"
   end
 

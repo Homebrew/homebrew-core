@@ -25,14 +25,19 @@ class AmqpCpp < Formula
   depends_on "cmake" => :build
   depends_on "openssl@3"
 
+  # Backport fix for CMake 4
+  # PR ref: https://github.com/CopernicaMarketingSoftware/AMQP-CPP/pull/541
+  patch do
+    url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/commit/3a80a681ec258807c24f54214a3b6c7fc0dc28c0.patch?full_index=1"
+    sha256 "70337b274251cfe890ecf560109d7389e43ae44fb93b43f1279871aa9aa7f139"
+  end
+
   def install
     args = %w[
       -DAMQP-CPP_BUILD_SHARED=ON
       -DAMQP-CPP_LINUX_TCP=ON
       -DCMAKE_MACOSX_RPATH=1
     ]
-    # Workaround to build with CMake 4
-    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

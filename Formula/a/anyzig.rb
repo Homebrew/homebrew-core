@@ -16,9 +16,9 @@ class Anyzig < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d68a435c3c52c8d944409175fe05f977932382420388bda1f341edb3270d6cc"
   end
 
-  keg_only "it conflicts with zig"
-
   depends_on "zig@0.14" => :build
+
+  conflicts_with "zig", because: "both install `zig` binaries"
 
   def install
     args = %W[-Dforce-version=v#{version.to_s.tr(".", "_")}]

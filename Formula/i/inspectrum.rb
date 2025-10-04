@@ -17,6 +17,7 @@ class Inspectrum < Formula
     sha256 cellar: :any,                 sonoma:         "d362f00903bb5068748061931788f911ecc8f219453822eb5e2dbfbefbe77e7d"
     sha256 cellar: :any,                 ventura:        "4698d8a738a586230abc96eafdf2b8e5ddc404eed157a9793232742c60689f0d"
     sha256 cellar: :any,                 monterey:       "dd6e9a06f5bb1a627906d9b87b5f2a54c0589f9663335224092eed9d4ec8e038"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "dc6d00d7c08d2827e7c767d714e052a5b005183b9ca7febbce13cbb8c605471e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebd0cb2283b88fad36bb8c481cab44ee8fa12be897a798697d3643646772cf4c"
   end
 

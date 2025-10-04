@@ -12,8 +12,8 @@ class GitFilterRepo < Formula
     sha256 cellar: :any_skip_relocation, all: "774b68744bca239b25b7e82693204f198c6ab1224ded38d8dd33ec1c23c245d8"
   end
 
-  uses_from_macos "git", since: :catalina # git 2.22.0+ is required
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "git"
+  uses_from_macos "python"
 
   def install
     rewrite_shebang detected_python_shebang(use_python_from_path: true), "git-filter-repo"

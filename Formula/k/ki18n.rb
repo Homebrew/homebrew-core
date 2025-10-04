@@ -31,7 +31,7 @@ class Ki18n < Formula
   depends_on "iso-codes"
   depends_on "qt"
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   def install
     args = %W[

@@ -4,6 +4,7 @@ class Pinocchio < Formula
   url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.8.0/pinocchio-3.8.0.tar.gz"
   sha256 "aa4664d95a54af7197354a80f5ad324cb291b00593886b78dd868b1fd13636ca"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "devel"
 
   livecheck do
@@ -12,12 +13,12 @@ class Pinocchio < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "98b6f465c0e9d35d4d5aeb95c9fe3e2248e6f42bf422e94cd4e09c210016f27f"
-    sha256                               arm64_sequoia: "b1143e077fad5bd8fd7d3467ad3ee20a4ddc5ff9b9e10b9f79c551f79ac490d6"
-    sha256                               arm64_sonoma:  "066c9d7e969c73d1f912680beb3e3670f3e3bbdb0dac552c79eaf1ea1960fe1e"
-    sha256 cellar: :any,                 sonoma:        "037916541261b61dbe602b59aba88eccc2b299e16829c2336e2bddd2badaf0d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f69d519e136bb03a01bb868ec2f25f2c3a9f91539bd0aec19d4eff51b11c633"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a9a3fd0ce7d1891f9cd35be59cd35280986e7afeb309502cc7fc3e3dfb0b06f"
+    sha256                               arm64_tahoe:   "c240dc4a96196bb13d55508582441854d944e0c1189285f87f2620ef3f9ab9a3"
+    sha256                               arm64_sequoia: "3b743220ccb4a9f80f2d7dfa06981188fb1d7b960b7bc673659abcba32f30b82"
+    sha256                               arm64_sonoma:  "5b7e5a57614e09d7b9e5444111c79b0e57dc996f00c8e7ebccccb5baa1f001b6"
+    sha256 cellar: :any,                 sonoma:        "fd13fc7b9fcde2a4d3e7d527d4fb9b8feb444af6c42014c73f4c7ff15c9a9b57"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5648b2ad9953c79d1d8c32e8c12e4c9323b64da1614606fd9a7cf9a46760bc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d45a35b27e9433f3437b9a751bc5d212e21d0d2972d6c3f7a332da52e14d2f59"
   end
 
   depends_on "cmake" => :build
@@ -78,9 +79,9 @@ index 67dd06db..5fbe52be 100644
 @@ -286,7 +286,7 @@ if(BUILD_WITH_EXTRA_SUPPORT)
    message(STATUS "Found Qhull.")
  endif()
- 
+
 -set(BOOST_REQUIRED_COMPONENTS filesystem serialization system)
 +set(BOOST_REQUIRED_COMPONENTS filesystem serialization)
- 
+
  set_boost_default_options()
  export_boost_default_options()

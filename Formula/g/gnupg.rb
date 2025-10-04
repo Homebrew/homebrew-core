@@ -36,7 +36,7 @@ class Gnupg < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "openldap"
-  uses_from_macos "sqlite", since: :catalina
+  uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
   on_macos do

@@ -4,6 +4,7 @@ class DsdaDoom < Formula
   url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.29.4.tar.gz"
   sha256 "f866db79381862080718668f582b0f358811a016db17680e507abb9250afbea5"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
 
   livecheck do
@@ -12,19 +13,21 @@ class DsdaDoom < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "97abb02a08acd3c763e109e891b66148f2d6103a605f05813f7a55d0d7de0bcb"
-    sha256 arm64_sequoia: "65be4eb9d9ec81c0c262449db661eb0905b7f67e1c97d552e76a52c34f5ad95c"
-    sha256 arm64_sonoma:  "4e884d4536861319933dcd27ed383b39b2671457af6541dae5e08548c18bbb1c"
-    sha256 sonoma:        "98ab1dbabeca9d84a81cbebab2b63a15f6525e44faa1807f94bf71ed52f84db2"
-    sha256 arm64_linux:   "fb91560cb710053417fc102bff45242ccaf8f7acdbc3b20cde172a59214259a8"
-    sha256 x86_64_linux:  "5c154ad60a1a8c093008eb446bd8512cbf8308e016c847274c55a7b54fe3fcd1"
+    sha256 arm64_tahoe:   "5cc7555e4275b5668e1fce806478390614ee9b2807089df3e3b66481af31c9b0"
+    sha256 arm64_sequoia: "6f82f0faa9f35c0db0b6bcee40f4c9d4c179ec9b28f82fda45fe0a086e49db25"
+    sha256 arm64_sonoma:  "171541adf4020cc98ef206dbaa7ff051e9015e46cdc3f8666281f5dd4424f487"
+    sha256 sonoma:        "aec8309a2bfccdc7e16304978440401dae23a0e2f0f9776af27f7f3e9d3a2a50"
+    sha256 arm64_linux:   "ba6d641574ae6e730884386e56ad258f1d708b43a2e5cf416feca7f1056aadbc"
+    sha256 x86_64_linux:  "b359ea353f4a2585139d7528ba4b822267d68f1b26cbc4209278ab3579527f08"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "fluid-synth"
-  depends_on "libopenmpt"
+  depends_on "libsndfile"
   depends_on "libvorbis"
+  depends_on "libxmp"
   depends_on "libzip"
   depends_on "mad"
   depends_on "portmidi"
@@ -33,10 +36,6 @@ class DsdaDoom < Formula
   depends_on "sdl2_mixer"
 
   uses_from_macos "zlib"
-
-  on_macos do
-    depends_on "libogg"
-  end
 
   on_linux do
     depends_on "mesa"
@@ -51,12 +50,13 @@ class DsdaDoom < Formula
     system "cmake", "-S", "prboom2", "-B", "build",
                     "-DDOOMWADDIR=#{doomwaddir(HOMEBREW_PREFIX)}",
                     "-DDSDAPWADDIR=#{libexec}",
+                    "-DSTRICT_FIND=ON",
                     "-DWITH_FLUIDSYNTH=ON",
                     "-DWITH_IMAGE=ON",
-                    "-DWITH_LIBOPENMPT=ON",
                     "-DWITH_MAD=ON",
                     "-DWITH_PORTMIDI=ON",
                     "-DWITH_VORBISFILE=ON",
+                    "-DWITH_XMP=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

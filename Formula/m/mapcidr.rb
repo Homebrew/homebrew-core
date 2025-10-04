@@ -1,19 +1,17 @@
 class Mapcidr < Formula
   desc "Subnet/CIDR operation utility"
   homepage "https://projectdiscovery.io"
-  url "https://github.com/projectdiscovery/mapcidr/archive/refs/tags/1.1.94.tar.gz"
-  sha256 "2c905a2993638d57dc335005a709e19e37ba8c6512f2a8136a7df278cd49df08"
+  url "https://github.com/projectdiscovery/mapcidr/archive/refs/tags/v1.1.95.tar.gz"
+  sha256 "f5d501a3cc742fac78ad84c9534af8342dd3936245f89ec85511e2bc4fb64dda"
   license "MIT"
-  head "https://github.com/projectdiscovery/mapcidr.git", branch: "master"
+  head "https://github.com/projectdiscovery/mapcidr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "591b0e1f1f69b6d0ee020166aa73c064c47b217af696a959a4c1206ee8747088"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "686bfce3317571c04dce3cac870517c935268e7640c10430066ef36f51936079"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dac8b92952f6143c0083c49aaec1806fd1f5bde2c26a6671f98450623820ebe0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "71df5c68774568b12f5edc82f3ea2eb792f10c7602a03099fa85f2ced8b46c0e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1a4b205a3339eeb94c4ce605303fb7be40c1c0a9ef2a3567dd0fbb0702c84c9b"
-    sha256 cellar: :any_skip_relocation, ventura:       "a0ead83131742a6efcd5d84694521041d359bb131dfdeb7b08fd3cc673b92b94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70109f0a3ef54ef62fd245cc4e05e598c342812a2e390b0670d28799509958ed"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c8cdcb2bda8f943721a3f86b49621930c1aaecc5c9fea53e76abdd4888d75369"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e1a90b03b64e230a8765cbfa490ef9cb6fd05708e172f0bedcfc48c18bcefe6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4560d50968443f512b981abccb15b2ffb7e1fb83ea755081d1b4b91f364c62ce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a9c7dc0495665e22afb09ce2c10a13820e11693020cc33ca902cf35f384c5c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56ea4d7d25ba222cd69ad9de7642a1dbc515aa5d2303fc1d09e5f7e9a978c4c8"
   end
 
   depends_on "go" => :build

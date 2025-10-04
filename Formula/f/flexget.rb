@@ -3,17 +3,17 @@ class Flexget < Formula
 
   desc "Multipurpose automation tool for content"
   homepage "https://www.flexget.com"
-  url "https://files.pythonhosted.org/packages/85/78/d34af4c7f14aa6a85b47165d17405a16c330a39fddd910a9427c52b7c1cf/flexget-3.18.11.tar.gz"
-  sha256 "54ba6f9f154a858f4503bf7898ec4f08f59cebad315a68629d66f40059605900"
+  url "https://files.pythonhosted.org/packages/c4/7b/8f01e7376032f72aee824e954fe5d3c11bb60c4a427df97c9197e0a1ebb9/flexget-3.18.13.tar.gz"
+  sha256 "65994b180f75945e477c235fe297df5804d854a2be8b3695fd0faaff067e30cc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "16653cdd056bd2ca90a7224b18c15abd0bea35532d65a24d2a6a22583124ae47"
-    sha256 cellar: :any,                 arm64_sequoia: "56ce2cb1652fb22e89c668c89e3988727cedd81d02bde66dcf5ef4c54161d68c"
-    sha256 cellar: :any,                 arm64_sonoma:  "c497426bcfdc2be14fdb990efad3f33abd77bd3864558411bb59c4f365083e1a"
-    sha256 cellar: :any,                 sonoma:        "23563ca37c01dcfe55c79a6ff1ef32031f4370d7ca4d8fde9458a9a5c362aab2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bb99a6b306034f4aad3ca9408034ac7916bb594c0bd273e3f697fd40578aaba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "961493244db387be4fbb67d37cd5f05999313999766e72411807ab3e18e38790"
+    sha256 cellar: :any,                 arm64_tahoe:   "de95cf67c594ff1eb59c74548cb91b38afece3aae7434a7c3d3ea1839b9ad464"
+    sha256 cellar: :any,                 arm64_sequoia: "1be4a13fb3b3decf73a68debe8fbb8be41ea698f323691e402afdb8eae420afe"
+    sha256 cellar: :any,                 arm64_sonoma:  "7f643335f9e4fe01d4c7f3fd9c8bac7a2cc99cc03f9202aff436290aeb6061e7"
+    sha256 cellar: :any,                 sonoma:        "7a7ec49f94f51165cd3020679730b45c6f6ce12cd1dd5e518034ebac8012f789"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b01709cd38c75be0809a383aeccfdf9f31a7aef7b2fd6a90c1ab8f3b378e1702"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6041b6e2a835740b1fa238a72b232d65bf51be5847079ec4066ddfe7dc87ad3e"
   end
 
   depends_on "rust" => :build
@@ -63,8 +63,8 @@ class Flexget < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/85/2e/3e5079847e653b1f6dc647aa24549d68c6addb4c595cc0d902d1b19308ad/beautifulsoup4-4.13.5.tar.gz"
-    sha256 "5e70131382930e7c3de33450a2f54a63d5e4b19386eab43a5b34d594268f3695"
+    url "https://files.pythonhosted.org/packages/77/e9/df2358efd7659577435e2177bfa69cba6c33216681af51a707193dec162a/beautifulsoup4-4.14.2.tar.gz"
+    sha256 "2a98ab9f944a11acee9cc848508ec28d9228abfd522ef0fad6a02a72e0ded69e"
   end
 
   resource "blinker" do
@@ -283,8 +283,8 @@ class Flexget < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "mdurl" do
@@ -564,6 +564,31 @@ class Flexget < Formula
       system venv.root/"bin/python", "-m", "pip", "install", system_zstd,
                                            *std_pip_args(prefix: false, build_isolation: true), "."
     end
+    system venv.root/"bin/python", "-m", "pip", "install", "--group=all", "."
+    cd venv.site_packages do
+      directories = [
+        "Crypto/Cipher",
+        "Crypto/Hash",
+        "Crypto/Math",
+        "Crypto/Protocol",
+        "Crypto/PublicKey",
+        "Crypto/Util",
+      ]
+      directories.each do |dir|
+        pattern = File.join(dir, "_*.so")
+        files_to_delete = Dir.glob(pattern)
+        next unless files_to_delete
+
+        files_to_delete.each do |file|
+          rm(file)
+        end
+      end
+    end
+  end
+
+  service do
+    run [opt_bin/"flexget", "--cron", "daemon", "start"]
+    keep_alive true
   end
 
   service do
@@ -573,9 +598,67 @@ class Flexget < Formula
 
   test do
     (testpath/"config.yml").write <<~END
+      variables:
+        media_folder: ~/Downloads
+      schedules:
+        - tasks: [task-1]
+          interval:
+            minutes: 30
       tasks:
         task-1:
+          imdb_lookup: yes
+          tmdb_lookup: yes
+          thetvdb_lookup: yes
+          tvmaze_lookup: yes
+          nfo_lookup: yes
           rss: https://example.com/rss
+          all_series: yes
+          transmission: yes
+          deluge: yes
+          set:
+            path: '{? media_folder ?}'
+          aria2:
+            path: '{? media_folder ?}'
+          nzbget:
+            url: http://localhost:6789/xmlrpc
+            category: movies
+          sabnzbd:
+            key: "123456"
+            url: http://localhost/sabnzbd/api?
+            category: movies
+          pyload:
+            username: user
+            password: pass
+            package: '{{series_name}} - {{series_id}}'
+            folder: '{? media_folder ?}'
+          qbittorrent: yes
+          rtorrent:
+            uri: scgi://localhost:5000
+            path: "{? media_folder ?}/{{ tvdb_series_name }}"
+            custom1: TV
+          subliminal:
+            languages:
+              - eng
+            exact_match: yes
+          utorrent:
+            url: http://localhost:8080/gui/
+            username: user
+            password: pass
+            path: "{? media_folder ?}/{{ tvdb_series_name }}"
+        subtitles:
+          filesystem:
+            path:
+              - '{? media_folder ?}'
+            regexp: '.*.(avi|mkv|mp4)$'
+            recursive: yes
+          accept_all: yes
+          periscope:
+            languages:
+              - it
+            alternatives:
+              - en
+              - fr
+            overwrite: yes
     END
     system bin/"flexget", "-c", "#{testpath}/config.yml", "check"
   end

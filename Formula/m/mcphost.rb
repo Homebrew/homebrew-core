@@ -13,12 +13,15 @@ class Mcphost < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b9023920e8eb7416432a30ddec51e54474e688eaf4eb89d9da91f997e8300630"
     sha256 cellar: :any_skip_relocation, sonoma:        "8a45eae900fae19fd5602270904693c4fc4f00c23b0bd03ed48e65e41b5648a2"
     sha256 cellar: :any_skip_relocation, ventura:       "8a45eae900fae19fd5602270904693c4fc4f00c23b0bd03ed48e65e41b5648a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48eecb8ae5d5d83ca084fd6febc05e15f29b2daa2e45b1140dfeb2f6ab5db620"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e18f7439f1ee444de078228b9769ddee92c52069f29081200bf0c47a68baebd"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
 
     generate_completions_from_executable(bin/"mcphost", "completion")

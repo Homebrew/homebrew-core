@@ -1,20 +1,18 @@
 class Darklua < Formula
   desc "Command-line tool that transforms Lua code"
   homepage "https://darklua.com/"
-  url "https://github.com/seaofvoices/darklua/archive/refs/tags/v0.17.1.tar.gz"
-  sha256 "91551c27342170b95fe46dcd07b07cedb09a8cbb569cd6560419e5a8937e2d97"
+  url "https://github.com/seaofvoices/darklua/archive/refs/tags/v0.17.2.tar.gz"
+  sha256 "6afa725dfbc89686359072a69c10ec2d4f319612db73f80fa4e83f0fda514289"
   license "MIT"
   head "https://github.com/seaofvoices/darklua.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "82e7a3a6cdf74e65912535f33c1a9040ae06f25b8d0be43e5c137a6074b7d9b5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7af58ed3c672813e379e59e82b270ad9a64a45c88e552452e2dfce959deec18"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7239cc3f3c673d4614eb5d1068bad9e4c01bdc759d8b0f046408704910d94c2d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f6ead565a0cb0a87a66ba7507bd372904d75194ae726f6596406e2afa1757fcb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "19659844a1bf8a898dc16a85162ba1a582eac73797eb42e07d81da18d29fb000"
-    sha256 cellar: :any_skip_relocation, ventura:       "88568d1f77a4132f107da283e5b29cbf4ffcb44431b836a82e8fe49f35abbdc9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39cad6f2f185952fa1f065b429c32724d9041546440d64a57a0dc653ed8d21bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d34eb733ab75310bfe44584013873675db550a780873f228ce23f2493cb4e154"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d951ca61ebe373fe7e69d59cfe711edb1d708a9243ebfb7893579fb47c8ab210"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "460be7c614fb4638e270e891c6151a5ff52e0921138aa7959f41697d49dba980"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a71c633f36b175216c553ca8f6b6553f88429ed21c2a9c04ff10b74aa0b4a45f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2331fba9c74ea75c2a663f16683050ed7e00991f5777e23d6d150152dc5244ca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4166b93ee7a64962bc924d89d34a2406e641fec4c185c3e7e6e3645bf0e5543"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "947d96bdf59b50c7def06b4cca785e2553edde09bcb88e4e738048ed16faf973"
   end
 
   depends_on "rust" => :build

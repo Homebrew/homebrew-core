@@ -1,19 +1,19 @@
 class Stylua < Formula
   desc "Opinionated Lua code formatter"
   homepage "https://github.com/JohnnyMorganz/StyLua"
-  url "https://github.com/JohnnyMorganz/StyLua/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "257863316696fcb868186254c47cef54f80343c66a8bf1430cf24f35add0a475"
+  url "https://github.com/JohnnyMorganz/StyLua/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "e1dfdae2fcbeeae60d1e25102d1845a09501e0afa98a7d31f1e8a4f636695adc"
   license "MPL-2.0"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eda2b1d3ba07ac901b4a56227852338f08dc9b93a825048205e18b73ef6bd542"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1900600da0fba318cb8c9160f00f509e25c2110b58bf5ae7bc95f3655c0d1b13"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "143a81087de47a92c02c6cc5defa03bce510349f53ca8338831d2b176264fda7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b314307b6786f249bb78ca539b73dd45171d8a1033341d6d0bfe1c5dfde4c9bc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "623721c0724c51963b9239affaffb2f527c206a4837d2c9fcb8300a995dced8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa602e46ab72f3401a60f9740f3a772527e8f3197284adf6d3952116242b6ee4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1230bebcfe854066901fbb286e7fec71dfad774f4b8ca4f965caaed26cffa98"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fcbae5529a7cb686e7c86b257fb042ba00e8bc3adbb04a5e7d6c089bd94d8c99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6976df32f2e306e0eb65f28abd48e2adb4542732efabf119ed90871b8b48e549"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2da7406784b47eb720cc8f8bbaecd69f5adc35d79500f2aa2caab377b86ef27d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c672f50b1525a63719ba3803344d695085b54c0850f7ccbb7b1aa09fd3e44da9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e249544eec070a1d11f5429a1948ab74b2fd07398bfc1ccc95ba64dbbee02661"
   end
 
   depends_on "rust" => :build

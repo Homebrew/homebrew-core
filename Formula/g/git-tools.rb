@@ -12,7 +12,7 @@ class GitTools < Formula
     sha256 cellar: :any_skip_relocation, all: "ba1a42e203720e6a74dcdfefb2653be957015fbd115415686b119975f111bdb6"
   end
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   def install
     rewrite_shebang detected_python_shebang(use_python_from_path: true), "git-restore-mtime"

@@ -13,12 +13,15 @@ class Gtrash < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "857a779ba0bfda17f825bd37e0c694b39abe6c85ff518432e0904026643fa9d6"
     sha256 cellar: :any_skip_relocation, sonoma:        "3596f9c58e086381b19eaf305f014e68f6f000fd7ef05a074f5531f474dccb15"
     sha256 cellar: :any_skip_relocation, ventura:       "3596f9c58e086381b19eaf305f014e68f6f000fd7ef05a074f5531f474dccb15"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f999d88ee8f19088384800b64e9e9924df91ecff3dd2db2b674f07f3d6bc808"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3e297de1658a618cb06feb006a9a5498e313aad3ccfcecc11430ef645f129fe"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601} -X main.builtBy=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:)
 

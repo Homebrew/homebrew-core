@@ -12,12 +12,15 @@ class Lnk < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d71fc2be863d7be2913848dd5486e4b9243fbf04effa1cf809173bc1aa1fc2fa"
     sha256 cellar: :any_skip_relocation, sonoma:        "eb37e958c139a758a0fd2f895a3aba48bcb7ae79f636130ee1801b3d0a26631e"
     sha256 cellar: :any_skip_relocation, ventura:       "eb37e958c139a758a0fd2f895a3aba48bcb7ae79f636130ee1801b3d0a26631e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "63f5acaa7b5238f9e758333747b6d394c83da24fc82600ddd9388420f77a48d6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2150e35b28dea149e41d618fee43d8d418dd793cfbcf75935768cc206248dade"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -s -w
       -X main.version=#{version}

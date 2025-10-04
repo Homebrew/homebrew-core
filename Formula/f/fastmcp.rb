@@ -6,6 +6,7 @@ class Fastmcp < Formula
   url "https://files.pythonhosted.org/packages/a8/b2/57845353a9bc63002995a982e66f3d0be4ec761e7bcb89e7d0638518d42a/fastmcp-2.12.4.tar.gz"
   sha256 "b55fe89537038f19d0f4476544f9ca5ac171033f61811cc8f12bdeadcbea5016"
   license "Apache-2.0"
+  head "https://github.com/jlowin/fastmcp.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "64f809cf075651ae2d0e848b94292e4891bd2cdb9ecc1228e5a33a36bcefbd93"
@@ -310,31 +311,39 @@ class Fastmcp < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/fastmcp --version")
 
-    # https://github.com/jlowin/fastmcp/blob/main/examples/fastmcp_config/fastmcp.json
-    (testpath/"fastmcp.json").write <<~JSON
-      {
-        "$schema": "https://gofastmcp.com/schemas/fastmcp/v1.json",
-        "source": {
-          "path": "server.py"
-        },
-        "environment": {
-          "python": "3.13",
-          "dependencies": ["requests"]
-        },
-        "deployment": {
-          "transport": "stdio"
-        }
-      }
-    JSON
+    (testpath/"server.py").write <<~PYTHON
+      from fastmcp import FastMCP
 
-    resource "test_server" do
-      url "https://raw.githubusercontent.com/jlowin/fastmcp/refs/heads/main/examples/fastmcp_config/server.py"
-      sha256 "d66f63122f35ed356f062713c8e4c05e35fbcbe88bad394f969d644f2548a306"
+      mcp = FastMCP("Demo 🚀", stateless_http=True)
+
+      @mcp.tool
+      def add(a: int, b: int) -> int:
+          return a + b
+    PYTHON
+
+    port = free_port
+    pid = spawn bin/"fastmcp", "run", "server.py:mcp", "--transport=http", "--port=#{port}", "--no-banner"
+
+    begin
+      sleep 5
+      system "curl", "-sX", "POST", "http://127.0.0.1:#{port}/mcp",
+              "-H", "Content-Type: application/json",
+              "-H", "Accept: text/event-stream, application/json",
+              "-o", testpath/"response.txt",
+              "-d", <<~EOS
+                {
+                  "jsonrpc": "2.0",
+                  "id": "1",
+                  "method": "tools/call",
+                  "params": {
+                    "name": "add",
+                    "arguments": {"a": 1, "b": 2}
+                  }
+                }
+              EOS
+      assert_match '{"result":3}', (testpath/"response.txt").read
+    ensure
+      Process.kill "TERM", pid
     end
-
-    testpath.install resource("test_server")
-
-    output = shell_output("#{bin}/fastmcp project prepare --output-dir #{testpath} 2>&1")
-    assert_match "Environment prepared successfully", output
   end
 end

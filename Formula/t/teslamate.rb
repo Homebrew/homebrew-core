@@ -17,7 +17,7 @@ class Teslamate < Formula
   end
 
   depends_on "node" => :build
-  depends_on "postgresql@17" => :test
+  depends_on "postgresql@18" => :test
   depends_on "elixir"
   depends_on "erlang"
   depends_on "openssl@3"
@@ -64,7 +64,7 @@ class Teslamate < Formula
     ENV["LC_ALL"] = "C"
 
     pg_port = free_port
-    pg_bin = Formula["postgresql@17"].opt_bin
+    pg_bin = Formula["postgresql@18"].opt_bin
     pg_ctl = pg_bin/"pg_ctl"
     datadir = testpath/"postgres"
     system pg_ctl, "init", "-D", datadir

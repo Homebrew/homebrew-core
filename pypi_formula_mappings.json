@@ -510,6 +510,9 @@
     "exclude_packages": ["certifi"]
   },
   "jinja2-cli": "jinja2-cli[yaml,toml,xml]",
+  "jiratui": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "jrnl": {
     "exclude_packages": ["cryptography"]
   },
@@ -587,6 +590,9 @@
     "exclude_packages": ["pygobject"]
   },
   "mcp-atlassian": {
+    "exclude_packages": ["certifi"]
+  },
+  "mcp-google-sheets": {
     "exclude_packages": ["certifi"]
   },
   "mcp-proxy": {
@@ -870,6 +876,9 @@
   },
   "sail": {
     "exclude_packages": ["certifi", "cryptography"]
+  },
+  "sarif-tools": {
+    "exclude_packages": ["numpy", "pillow"]
   },
   "scdl": {
     "exclude_packages": ["certifi"]

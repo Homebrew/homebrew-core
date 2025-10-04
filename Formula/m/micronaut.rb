@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v4.9.2.tar.gz"
-  sha256 "de1b9f89e2eb5f0934d5298890c282b2ec0a11abfe8526b29243df3e2fdb4336"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v4.9.4.tar.gz"
+  sha256 "869abb30d22786d5d9b301c90986b98524f3525fc593dd5a243e154168838496"
   license "Apache-2.0"
 
   livecheck do
@@ -11,14 +11,12 @@ class Micronaut < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "062e48b0a2942373cbaabff00f4d548188f528c0e702049b1669bc5dda06b854"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d65e4f16a1024fedc674df0141f46f30d9c7d03240f327bdf23a1a6ad8358f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b560120018fa275cef83da12f10ded8afaafea0fa8adb01746d17e216af0073e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4c1736e65b39b05548810e1223894da575a9653f41839d4f0bc60047f82e1d16"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7ada075670cf0cc45de5530c14100a289bad45b9cf3330741a74af58def97389"
-    sha256 cellar: :any_skip_relocation, ventura:       "df2e2d11183886c96b8fc9c8348fb3d220c289ccde6d387f4f33544caa00c4df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "592f8e87747791193dcf26d6a045a86b5054e00eaf11ddfa37e634f4aa3a3c1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "891bd5e6187d49985683404e41dd85edbaf3db639d9a4ff0b82de3f93829ca60"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42432c19454c1b12a8ec22642ab05d31606d6cbca09506723c724f6cb04c665f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e5bed91d8f7d2bc12db86d3978a7676105549fd447bb8c152f7819b672709e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30c0774b61d4d0f366dec9b53344fc74cb8be86200fc3f6257cf44580a40a8a0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bc44ba926fc4739ebdfdc2b0247638d626ed0f9af8b02d8a34150228853ab778"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7ca3089bc820fa9bbc66edf2cdaf17fed17d648f677cf7d1070ad06703a52a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14739f062e2657901ec909d02a82614530a46c3496079e5da8b529668bf20945"
   end
 
   # Issue ref: https://github.com/micronaut-projects/micronaut-starter/issues/2848

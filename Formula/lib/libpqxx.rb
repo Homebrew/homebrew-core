@@ -1,19 +1,17 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "https://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/refs/tags/7.10.1.tar.gz"
-  sha256 "cfbbb1d93a0a3d81319ec71d9a3db80447bb033c4f6cee088554a88862fd77d7"
+  url "https://github.com/jtv/libpqxx/archive/refs/tags/7.10.2.tar.gz"
+  sha256 "9e109ffe12daa7b689da41dac05509f41b803f8405e38b1687b54e09df19000f"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "50cf09f0ac274da1b71c154862b9465a62ae2e51542662820346d55e6c230a83"
-    sha256 cellar: :any,                 arm64_sequoia: "69a1b8a5ca5b3dbef5c4d8d2e5551951f94b9d14a0764923d187c47248f05f76"
-    sha256 cellar: :any,                 arm64_sonoma:  "a2d7f9df60c26e02077ef4e75fa056f462ecb7f246289d0b286037ec5f21d0cc"
-    sha256 cellar: :any,                 arm64_ventura: "3ad77f64389847790537623eb4d13ba241382d47720888c7ec494bc716bbd026"
-    sha256 cellar: :any,                 sonoma:        "2a14042a342c722b41854636513e97561592a584e0df9f9092285d33590888cc"
-    sha256 cellar: :any,                 ventura:       "3068d9da7e7738e52292fa050ad17da295374c1a1e7da2d5c79a2b42f08a1b1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b3888afb0a0301fd3cab111d947e3c8c341a98f704a8e98ac6a5a2b78613bce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2736a2bc32c9f4cadacd4c0175680b9526b6a9250509747e96627da395bbd0f"
+    sha256 cellar: :any,                 arm64_tahoe:   "ed21501081fd8404fb8e8a4b550f0f9d958185eb1f6dec863c63e751cf6ba198"
+    sha256 cellar: :any,                 arm64_sequoia: "96e2cb1bcd4a07516d7776fad1a5f95de023fc5248fbbb77757bb39d855a78a4"
+    sha256 cellar: :any,                 arm64_sonoma:  "0dec7d9673083805891550a4de3bc04cc5cf386e37dbc5e40d4d6be8ff88750c"
+    sha256 cellar: :any,                 sonoma:        "c37e557a9aec7bcb1a2003d756a74ed191e363c2f5a2d6fd47b39f5a075596ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "86e04928947649716b353f5f09e76e97cca4fcba3ee403afc09ab15e2b02174d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7430a7b89c6992d6ce6deffda1d173b096bcae4ea10c7312ea100033a89a7d4c"
   end
 
   depends_on "pkgconf" => :build

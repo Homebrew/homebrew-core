@@ -1,16 +1,16 @@
 class Infat < Formula
   desc "Tool to set default openers for file formats and url schemes on macOS"
   homepage "https://github.com/philocalyst/infat"
-  url "https://github.com/philocalyst/infat/archive/refs/tags/v3.0.1.tar.gz"
-  sha256 "c931cc909c98cabe24e6ee92f10e9fc45941499f4e07e4f201bcc6c9aa910a7d"
+  url "https://github.com/philocalyst/infat/archive/refs/tags/v3.0.3.tar.gz"
+  sha256 "116c0064ef15bccd358cc067ed52fefc745c6108854c6516d74c8c77a1ed437f"
   license "MIT"
   head "https://github.com/philocalyst/infat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe6f1a78d38e982b0fd8d23361d716b1e83dcc3d1d8315a65d1767198467ab4f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5df6d527ed3a5469b149cf0760fb54efdc7a696b093aa4535de5c1e8cfc1c401"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9357f7f53cee6c3bb35fc3b1ddf8ec6b4138f157ec57ccc63bf0bc364cac140"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9de06ae326145af75483ab8334e35a35bb24ca56cd502638df23e0edb493fc80"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1f2cb6fd37b0c763c9fc03395c13858dab043c4d40d2c22762878adfbc7ae02"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43dd403f5cd8c8a778e1282825fc745fb616a34dc04362ce357b1d24e83e7a2c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5326c2d384749be109e9c5cf01b378fd0bf7f6eaee02d8751569249cba98b67"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9e02db5993f76fd6dd7355acba247259de511a6fc70d03cbafe29cde80fc16b"
   end
 
   depends_on "rust" => :build

@@ -13,12 +13,15 @@ class Goodls < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dcaf66196cb83773ee01ecbafb2db92b9640641a90ba38388ea60904240beb4c"
     sha256 cellar: :any_skip_relocation, sonoma:        "16161f75d9eabbe1263b7115aedd206dc84581c7e20f6775ad2d3f51ae355f2c"
     sha256 cellar: :any_skip_relocation, ventura:       "16161f75d9eabbe1263b7115aedd206dc84581c7e20f6775ad2d3f51ae355f2c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9480958e7d8d1901b2b4f21204a54a53562d089f4298d36521201cdb03c7ce0f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "590b91e949cadbf80fdeaca615297fa72ed5afd864fa762fc584d49368958390"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 

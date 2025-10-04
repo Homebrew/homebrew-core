@@ -1,23 +1,24 @@
 class Codex < Formula
   desc "OpenAI's coding agent that runs in your terminal"
   homepage "https://github.com/openai/codex"
-  url "https://github.com/openai/codex/archive/refs/tags/rust-v0.42.0.tar.gz"
-  sha256 "e0ac101e004f6aa7b8b88d23e822e4fc157e390ee1646d435b06fd1a1e5378aa"
+  url "https://github.com/openai/codex/archive/refs/tags/rust-v0.44.0.tar.gz"
+  sha256 "b873ffd11f5f39148baabf0d070dd27ffe5dc9028d6dd32ee75a043b26ab171e"
   license "Apache-2.0"
   head "https://github.com/openai/codex.git", branch: "main"
 
   livecheck do
     url :stable
     regex(/^rust-v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67a02ce8339dc2fadcb4a3ee057275524dfa6f5941ff49da91ee638b4cda1baa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "58556a29f9efc5c9c8289a6f48d43d4ba02268bd2100fb311e6a56f673b830fb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "037dab449b1ee8175e70dcfc144f18181fc87bd333225c1d8f0c2746a3a3217b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "814e829ffac044df4c951367badc3f69dab7d23efb6aa4a457d167e4cacd5066"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "614f78f9b919a0302c5b81660bd5b4e1364d931f26ef04a8fcddfb52a82d23ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b07f80c7e7f24f4496f928513ed8273db19c1ec495e573a54e49400c1945839"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f93ccc44619f8ec518736387bd06717ffe54c946ce528389719031e9978a2e2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1ab8e65df003b87b67118fc88e2074e4f40ce163e988687262896187e008ba9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb979aeef80104393c73a47749569b437da948f21e3aa3882a65825b40fbc85d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e2ec76b9cadc0c50b9c236ff08a0b6162429c2644df94af4c26dff9fe49d1520"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "031469bc981aca6b3b83076a01219eee88a10af7db593fbbdbf37b45e0e2449b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5b9b6e8cd9da0ce5a29b300845758ec61ae1497d96810e5f6e2adc241093d3a"
   end
 
   depends_on "rust" => :build

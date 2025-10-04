@@ -13,14 +13,13 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ac7aab68c2e34b295142684b6b84d8896b71a797473af4d778a7020d17152de7"
-    sha256 arm64_sequoia: "a5c26f29c5481ad6c5e2062288db4efb4cf0a8371bfecf35453879d4282a3032"
-    sha256 arm64_sonoma:  "a32183b200cea79b590c9a20a82b80ed26cbe3f4ee6edbd8cb3e6944a8137f2a"
-    sha256 arm64_ventura: "7b767dd4d6dfcd04b3decd2fa20b438f2637cb750385803441ffb98034f0a22c"
-    sha256 sonoma:        "d77980bfd98a03c876826ab460b8cd15edff7f373c93b32beea75f115daf32b6"
-    sha256 ventura:       "b6f49ea5151d62bd4c318b2901bdbab7c2595bed65bd808f851df63de0a5016d"
-    sha256 arm64_linux:   "fb7ec4d371af367d8c81679e3de7b6c078b80bfdef4d7835316a2cdcefe06829"
-    sha256 x86_64_linux:  "41eadf77755629156d7aab28d1f36033ebf13827d0f75b85c2693e33b50dce50"
+    rebuild 1
+    sha256 arm64_tahoe:   "cdd1618ef9ab988336c7fa17dec621b8fa42396902d2239a3908774d2e5c2cc8"
+    sha256 arm64_sequoia: "2b2a0077dcab376e3856af7b72a55905073d7464408ebd310705290070adea93"
+    sha256 arm64_sonoma:  "f03a2dce08d4a8e83c9b7a04ddf0f443f6e840e58a6e5a22f97c8067a62bc9a2"
+    sha256 sonoma:        "c0009f127d35b90a653f53453ed4b06af0b102456b307ccf0220d286f43e36e0"
+    sha256 arm64_linux:   "3f73e38fc5b9368f17d2ee2c83968c492aa90c3eae23549d29052cd3468f0e51"
+    sha256 x86_64_linux:  "193cc4ce3bd77376570a7195746618e9bca6601f29b881f71fc9281aba58bb38"
   end
 
   depends_on "pkgconf" => :build
@@ -34,6 +33,7 @@ class Imagemagick < Formula
   depends_on "libraw"
   depends_on "libtiff"
   depends_on "libtool"
+  depends_on "libzip"
   depends_on "little-cms2"
   depends_on "openexr"
   depends_on "openjpeg"
@@ -78,6 +78,7 @@ class Imagemagick < Formula
       "--with-webp=yes",
       "--with-heic=yes",
       "--with-raw=yes",
+      "--with-zip=yes",
       "--without-gslib",
       "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts",
       "--with-lqr",

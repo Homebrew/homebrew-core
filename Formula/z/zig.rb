@@ -31,6 +31,8 @@ class Zig < Formula
     depends_on "zstd"
   end
 
+  conflicts_with "anyzig", because: "both install `zig` binaries"
+
   # https://github.com/Homebrew/homebrew-core/issues/209483
   skip_clean "lib/zig/libc/darwin/libSystem.tbd"
 

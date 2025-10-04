@@ -1,15 +1,12 @@
 class PatchPackage < Formula
   desc "Fix broken node modules instantly"
   homepage "https://github.com/ds300/patch-package"
-  url "https://registry.npmjs.org/patch-package/-/patch-package-8.0.0.tgz"
-  sha256 "4d2bd29c0d73a6eb8c43270125998bb7586d4f4128a2f1f7002e69edc5fed8e2"
+  url "https://registry.npmjs.org/patch-package/-/patch-package-8.0.1.tgz"
+  sha256 "fb36b47e1f22a3d612311bc9a0464b0213e0971958cfabb8f26a9537b1d7c4f7"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "5f5aa0acb3f3dbe909a6f06181218d216342a95554c5338ca894657322ca0f31"
+    sha256 cellar: :any_skip_relocation, all: "6bc435f63e2565dd2a21b9502465d52188b934b4e926f1511fe18597d18d50ee"
   end
 
   depends_on "node"

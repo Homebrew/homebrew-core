@@ -3,19 +3,17 @@ class Ramalama < Formula
 
   desc "Goal of RamaLama is to make working with AI boring"
   homepage "https://github.com/containers/ramalama"
-  url "https://files.pythonhosted.org/packages/ff/d9/ccd94fabde435a22815485e68d1800bd74b57ccda51cab6528930651bca5/ramalama-0.12.2.tar.gz"
-  sha256 "a1eabbb03e2d5f926a3dfef953fcaaedbc13b58002cda81306b0f9fd1558d915"
+  url "https://files.pythonhosted.org/packages/08/31/e033911fb8c6332b1f935cfa91bfa9a2ece930e9f7150f4f8008eb9b7427/ramalama-0.12.3.tar.gz"
+  sha256 "666ce5a71c8560682a2ec9e83e97597d0d26c201e6b01222ef7d82b46f679ed7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "54b6c5e1c7f4c5e32ca5a1e4e93c893cfdcbb3f669fe27cf5a77aa4cfe673e71"
-    sha256 cellar: :any,                 arm64_sequoia: "8cd0bcca6f9672dacdfb536d7c6261bc72f67d66d3abbe6e7e870aaec5029dec"
-    sha256 cellar: :any,                 arm64_sonoma:  "83223d1e70d7a781d2693d25895b3ed88713cf15d3221e723e7680499955bb90"
-    sha256 cellar: :any,                 arm64_ventura: "efeb0c94f1ae66d3b0e7aabaecf7ada095ddbca87d3ae0f316427ef4910ee9a7"
-    sha256 cellar: :any,                 sonoma:        "993ec5113ca4533951a38b2da583b628d86d48d1e46e0f626c2a910236e3e374"
-    sha256 cellar: :any,                 ventura:       "c43bee4b0deae819d1975ce196d81d6504d6d691b8b1768ca13b1961194dba84"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d556b0f6b2b270f22dcca6cda1ec1b7731e767c761c08a36006bf90b9cf75dbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93bfd367b056687762dff895d86c41b16e501e6a7e3742b0dfdaab2a7b69e137"
+    sha256 cellar: :any,                 arm64_tahoe:   "f48f05ebdb266394b5734753e7e61c5be8d1bd083f917c1d91240b58c2531409"
+    sha256 cellar: :any,                 arm64_sequoia: "de034fd5d6472781b5da02a25a293ffab58ebafa2342cce098ccc40bfa0dbdd7"
+    sha256 cellar: :any,                 arm64_sonoma:  "44f2a8c53a1671357dc6f2c33ec9390195d27ae2010a6b8ad54feea0dd6f0661"
+    sha256 cellar: :any,                 sonoma:        "ec16dbf1324aa756c24b3d5143ce38ae81a0cb3464be45604f80101135cae8aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08f9c38d9dc91be915be76423f55ce0e3496bf23b94e3c3415804cb02702d2da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ebe3919ff66311b08a46c795198e8bc928e8852e8cfd174f0336c8a4d3ee8d0"
   end
 
   depends_on "libyaml"
@@ -28,8 +26,8 @@ class Ramalama < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   def install

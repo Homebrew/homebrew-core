@@ -11,12 +11,15 @@ class Bom < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d6db2ec5c4b09535a54d3d5d22d333082c00874771e37cf5ba956178621c5cc7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6db2ec5c4b09535a54d3d5d22d333082c00874771e37cf5ba956178621c5cc7"
     sha256 cellar: :any_skip_relocation, sonoma:        "5c03b4702c232ee981567805de93cd236d5c1dacab4308b2d335a2dcd51cdf06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9876413b628df258e61da35b3cb16261a9004eee9ceb72c116d7f74c65a2d4e5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "596ccf20880d7904ed00aceece1233e21f9685d0655e7cd9e83352401ee5525a"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -s -w
       -X sigs.k8s.io/release-utils/version.gitVersion=v#{version}

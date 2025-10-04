@@ -13,12 +13,15 @@ class Mcptools < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dd293a1418a1f5bed9049cbe3a7adfcf0da1b90fa3ec205b1535ded3d134e9d9"
     sha256 cellar: :any_skip_relocation, sonoma:        "5ab73dfea053a7272cd6afabc3d36da454d85fd304c7fc340e143863b912d88e"
     sha256 cellar: :any_skip_relocation, ventura:       "5ab73dfea053a7272cd6afabc3d36da454d85fd304c7fc340e143863b912d88e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "634ea303a4300ab4a6eb836c866d646954d380e9238d18a484b63ad0719c3d2f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc017eb921064bcb0820f8f141510aded2edc131bac3e2901c36ea0a6b2b773f"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}"), "./cmd/mcptools"
 
     generate_completions_from_executable(bin/"mcptools", "completion", shells: [:bash, :zsh, :fish, :pwsh])

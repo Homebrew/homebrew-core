@@ -27,7 +27,7 @@ class Simgrid < Formula
   depends_on "boost"
   depends_on "graphviz"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   def install
     # Avoid superenv shim references

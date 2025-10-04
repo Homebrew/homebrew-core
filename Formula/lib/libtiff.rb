@@ -29,6 +29,7 @@ class Libtiff < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
+      --disable-libdeflate
       --disable-webp
       --enable-zstd
       --enable-lzma

@@ -24,7 +24,7 @@ class Yosys < Formula
   depends_on "readline"
   depends_on "tcl-tk"
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "python"
   uses_from_macos "zlib"
 

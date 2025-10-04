@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.2.3.tar.xz"
-  sha256 "f2d6b28562f1d6cb9c17ee8e58eeade7aa5faf927ae71065eadb41e17f92b4f8"
+  url "https://archive.mesa3d.org/mesa-25.2.4.tar.xz"
+  sha256 "a370b4c549cbfbe646b319e34d73edb50ed883978f5e95133f282f0eae39ab52"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -23,12 +23,12 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "e02c27d6d35ff512a00790ade0832595248413e9097291ff9ee774e618ec715d"
-    sha256 arm64_sequoia: "a45ca1043af3f0db0f6b47875929e33f1a84d943fc23f444c6eb3dcd2226d02c"
-    sha256 arm64_sonoma:  "611bb6b044f2b705cb2d21b77cd2c87e275625ab0a8f98cd4797a54cdf831f2d"
-    sha256 sonoma:        "704dcc2f4fc4ba784e01a6a00ea8e372882e69599f73a7033b1562b94d67ab35"
-    sha256 arm64_linux:   "5487936a105b3e4a04dd666fb1f82fd7f3f40129096f088e9abf9325da0d73fe"
-    sha256 x86_64_linux:  "917fb4487c5c888c1481976c0d9de828f15209ce69ef1b1083b5dc1cb67765ac"
+    sha256 arm64_tahoe:   "86d0f81c28dd8c7df8599252a283a5394e897fb7b56c7e8872ec300bc61dd8ac"
+    sha256 arm64_sequoia: "03e269771a4e573f796889d5653386febdf21f478e434f41bead89de91f583ad"
+    sha256 arm64_sonoma:  "8dc87e41549edefa8111e7be2e4619a34f2c5dfd8f9acecc87c62edc9de39ecb"
+    sha256 sonoma:        "2a802ab19342e844b6a1e31616cee192d6e828b4bdd349bcf4ab606cf0e94c75"
+    sha256 arm64_linux:   "56af392a06d0c2ef25c3a7a2bd8725f66e638f7d99c81f8b03899f64bbd015dc"
+    sha256 x86_64_linux:  "28ca14b5ee091ac9f48d01b0fccfd1a3d56a0b74351952cd1959fba6b54576a1"
   end
 
   depends_on "bindgen" => :build
@@ -92,8 +92,8 @@ class Mesa < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "packaging" do
@@ -107,8 +107,8 @@ class Mesa < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   def python3

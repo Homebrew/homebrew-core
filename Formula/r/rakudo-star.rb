@@ -31,7 +31,7 @@ class RakudoStar < Formula
   depends_on "zstd"
 
   uses_from_macos "perl" => :build
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxml2"
 
   on_macos do

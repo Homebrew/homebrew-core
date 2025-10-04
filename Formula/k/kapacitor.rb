@@ -2,8 +2,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-      tag:      "v1.8.1",
-      revision: "ca9618e5382acb845868c80d2271c25f5dd1e9aa"
+      tag:      "v1.8.2",
+      revision: "10da10eedc8af65e92ae49d6e121359f25cd4d57"
   license "MIT"
   head "https://github.com/influxdata/kapacitor.git", branch: "master"
 
@@ -13,11 +13,11 @@ class Kapacitor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a7a0ac2973b2325253c749ca4bfe31a3e2f5fc492b4deb9014f4f3b12d065460"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "155839ab6dcdc0a00349d707dd824373233b26c39d737f705ff8d7397ae8ad2b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d03ca6dac361715d6b525eb5edca08d7bcf3920db10cb8c379c33cd47ef0384"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4ab0704733ba309000230991e04804529bc16231bf363b6605ba421cbd4bbc18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71c74c58ce199314b96304ef24c73871600488d60cadc6c3c78ed024298120af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5c787f9658dfd91fd91dae3c1867902059cc5b6d1958ad6e132ba638a9019a71"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ecf28f57adf15825e969749d95ac1ffffa8a6d51d22033c659cf9ee190dc444"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c6154a7bff94a8b87fb32af60a488b1fe0f861e6eef4ea441a95cb12c7aa350c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c6c8157a96f9ac9ee0a99c01c9c3f5b01b8472a24eec0f5253983ca7ee08a2d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec22e1f5f4c7cda335e36dbb619373ae06144da2971d56b4424aba3034f828ce"
   end
 
   depends_on "go" => :build
@@ -27,8 +27,13 @@ class Kapacitor < Formula
   # NOTE: The version here is specified in the go.mod of kapacitor.
   # If you're upgrading to a newer kapacitor version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.3.0.tar.gz"
-    sha256 "769deabe12733224eaebbfff3b5a9d69491b0158bdf58bbbbc7089326d33a9c8"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.12.tar.gz"
+    sha256 "23b2ed6a2f04d42906f5a8c28c8d681d03d47a1c32435b5df008adac5b935f1a"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/influxdata/kapacitor/v#{LATEST_VERSION}/go.mod"
+      regex(/pkg-config\s+v?(\d+(?:\.\d+)+)/i)
+    end
   end
 
   def install

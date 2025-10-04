@@ -16,6 +16,8 @@ class Neosync < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9fe641cfecd902842f7dc37e292bc6eef5d6d545dc60bf266a59fc970de2976"
   end
 
+  deprecate! date: "2025-10-02", because: :repo_archived
+
   depends_on "go" => :build
 
   def install

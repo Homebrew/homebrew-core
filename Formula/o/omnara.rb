@@ -3,24 +3,29 @@ class Omnara < Formula
 
   desc "Talk to Your AI Agents from Anywhere"
   homepage "https://omnara.com/"
-  url "https://files.pythonhosted.org/packages/a3/2b/0ee37d66977e448e1a062bf25bac9443089e64ff6aea27e07376c61bbbf3/omnara-1.6.18.tar.gz"
-  sha256 "95e96009877b62b8e6e82535740103cd01ef71601d4ad9db7faa2fe5863d8212"
+  url "https://files.pythonhosted.org/packages/73/9c/005c8fca6941d5ebf12df7a49d1a1dc8bec984a53e8f5c5841da379cb6e4/omnara-1.6.20.tar.gz"
+  sha256 "bfb17a61afc3005d10f8d13fd721c538984e0a8c73ce1fa500937c0c15caf74a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9e261d9491c8588fa7b8d09c9d323df3cd9b6ff02c8f414e006822a7f77b0bda"
-    sha256 cellar: :any,                 arm64_sequoia: "433819ae42562daaf781bc766dec1d6067c58cc7d40c722e2d37122915cc79a1"
-    sha256 cellar: :any,                 arm64_sonoma:  "fd1e3ba56b00403aaa732bcb0627a5eabbf4ea259acf6653fa09afe8e2f6653e"
-    sha256 cellar: :any,                 sonoma:        "238dd6d9ed1706a0c2a2d7a49495e22e2e62c6effaccdcc8f3b72ec6c4dae7dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bfb027f47178fc70a9a6c796e76dbd114286ca3f6f0538a53065528e11bf47b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d22d9a28eb5b58149daf69aa5b4fa21597a4db91f52d596a85aa11c05a788b3a"
+    sha256 cellar: :any,                 arm64_tahoe:   "4b31724747020af5c4507a3f54713839bbfcf3d4454f97fe34a3b737104115b0"
+    sha256 cellar: :any,                 arm64_sequoia: "14469774d5a34bbb84a018bad70fac94e8d50c9735ccd77d2dcd29e65c1ac035"
+    sha256 cellar: :any,                 arm64_sonoma:  "3d75772fdd0e9c95a0b2cb247c8d468cd041a42b05c76a19796813940345bfe9"
+    sha256 cellar: :any,                 sonoma:        "2d1bb17e18c81de9f477af7314285e4306210c73741c3f52289b53f61bebb19c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e4f1d20e449e6e8f74c522dc773382315984f7f7dd83fee8e74efc52f752e655"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f176c62977ecbb0eb88e463f6506224edd95da50e8fe6dfe7424f7e9ca509a2"
   end
 
-  depends_on "rust" => :build # for pydantic-core
+  depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "libyaml"
   depends_on "python@3.13"
+  depends_on "ripgrep"
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
@@ -352,8 +357,21 @@ class Omnara < Formula
     sha256 "d017a4997ee50c91fd5466cef416231bb82177b93b029906cefc542ce14c35ac"
   end
 
+  resource "codex" do
+    url "https://github.com/omnara-ai/codex/archive/refs/tags/rust-v0.2.1.tar.gz"
+    sha256 "ef66b4b2237024053c98bc86089fe30d240a3e368926566c7cc17e0c40edf5db"
+  end
+
   def install
-    virtualenv_install_with_resources
+    if OS.linux?
+      ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+      ENV["OPENSSL_NO_VENDOR"] = "1"
+    end
+    resource("codex").stage do
+      system "cargo", "install", *std_cargo_args(path: "codex-rs/cli", root: libexec)
+    end
+    virtualenv_install_with_resources without: "codex"
+    bin.env_script_all_files libexec, OMNARA_CODEX_PATH: libexec/"bin/codex"
   end
 
   test do

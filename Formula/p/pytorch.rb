@@ -16,11 +16,13 @@ class Pytorch < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b5c9eed19ddb1452a1c1f135023c473ec4f66f2573080474ee9ceeec4e572ea0"
-    sha256 cellar: :any, arm64_sequoia: "6722143bb809eb0572141d967c9fa6abc1accab6ec79a38b7ca74c597e416077"
-    sha256 cellar: :any, arm64_sonoma:  "b0b962f7c136412276731645649a35218c0b5b6bee3ccc5fc885ffdd9e66be88"
-    sha256 cellar: :any, sonoma:        "d875b198d9d1096d9210425f9dc2f837308c3aa9183a62dc1b6a1a200d6a2865"
-    sha256               x86_64_linux:  "af1e57ff11fe0743c4c1e501647a8d734e2e70646441be7ee11796038872b50a"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "135e2bdd53e05c1c71ff6f950c5cfae632c690a8a08ba4fecf5f523e804b6754"
+    sha256 cellar: :any, arm64_sequoia: "3175432af2e446829b52f87cc8a83775952723d7c4e14a468150fddd6b006375"
+    sha256 cellar: :any, arm64_sonoma:  "236853bcf5fb02e1bdc67d553a901fd0de4e1cd261daccf93ce41b18adf64b60"
+    sha256 cellar: :any, sonoma:        "d66b647559e161462eee604e6bfc6cc5de331f664797b254b4b72fcd0260d4f4"
+    sha256               arm64_linux:   "6eb0f90e3e53baa0dfd772d2a4c237195df083ac2370e076709412359f59cb12"
+    sha256               x86_64_linux:  "1bff36a2253b3fef02a583e7c6f6cf43b5ebb9465b8eab7c69f77d5b0f1a1adc"
   end
 
   depends_on "cmake" => :build
@@ -103,6 +105,11 @@ class Pytorch < Formula
     # Avoid building AVX512 code
     inreplace "cmake/Modules/FindAVX.cmake", /^CHECK_SSE\(CXX "AVX512"/, "#\\0"
 
+    # Disable SVE support as it requires enabling support in `sleef` formula.
+    # This is not recommended as SLEEF is moving SVE support to unmaintained status:
+    # https://github.com/shibatch/sleef/discussions/673#discussioncomment-12610711
+    inreplace "cmake/Modules/FindARM.cmake", /^\s*CHECK_COMPILES\(CXX "SVE256"/, "#\\0"
+
     # Avoid bundling libomp
     inreplace "setup.py", /^(\s*)self\._embed_libomp\(\)$/, "\\1pass"
 
@@ -136,6 +143,10 @@ class Pytorch < Formula
 
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
+
+    # PyTorch needs to pass `-march=armv8.2-a+fp16` to compile runtime detected code
+    ENV.runtime_cpu_detection if OS.linux? && Hardware::CPU.arch == :arm64
+
     venv.pip_install_and_link(buildpath, build_isolation: false)
 
     # Expose C++ API

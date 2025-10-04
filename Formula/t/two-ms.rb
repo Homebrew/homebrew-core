@@ -11,12 +11,15 @@ class TwoMs < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2701c94b867d58ebd6f088e5dddbad7e9334d4465438569eeac6e971df9713ca"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08ce2d5bd99ea52593ba5f4152c55bfadf3db9336a4656c5833343c409a22ad8"
     sha256 cellar: :any_skip_relocation, sonoma:        "14f1716838cf52e1e9ee1a554c4ae8b2f161d5693b3855a35b95f6cf44582104"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d652b9ba806ffa02ddcd69fc58c871c2fee33f0b93f640d28ca6c3b387070042"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "241994248f67013d69ec89aff3700746d18883b124951f68fab3fbacc08482e0"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = "-s -w -X github.com/checkmarx/2ms/v#{version.major}/cmd.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"2ms"), "main.go"
   end

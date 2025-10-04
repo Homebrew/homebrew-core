@@ -1,8 +1,8 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/3.24/gtk-3.24.50.tar.xz"
-  sha256 "399118a5699314622165a11b769ea9b6ed68e037b6d46d57cfcf4851dec07529"
+  url "https://download.gnome.org/sources/gtk/3.24/gtk-3.24.51.tar.xz"
+  sha256 "0013877c6bd23c2dbe42ad7c70a053d0e449be66736574e37867c49c5f905a4f"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Gtkx3 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7d63c751171e6dda121f18567dfae8c73e472683004689f926fc1c2f2870cb69"
-    sha256 arm64_sequoia: "c8711f5fec80d667cd1eb0bfbcc620a8aee729fe511e57cfba7df74e209b3683"
-    sha256 arm64_sonoma:  "926dd56665530a2e37c2ebe4d0313c6facf53d64cae2c961c641a833f7932308"
-    sha256 arm64_ventura: "49e3b0b636a54a7349919e892f45be715342d48ae119a7c7c5c2c88a6c46e7a0"
-    sha256 sonoma:        "e747c7f437c2d8889186290ace922e4f2bdf29a5b7f9b839a3a79c32e326cffd"
-    sha256 ventura:       "31c672e70c2de75a8f156725f2b0c36cfefec5c7639d35f68d7ec0b61895eb88"
-    sha256 arm64_linux:   "75cfdb6cba25aeed3ee6462a3bc900ef103515d3cf3546c3d3bdf0d40e9d42d2"
-    sha256 x86_64_linux:  "9c268910b9653112e7f8b74b895ddd2939fa1dcaac4ceb110508e100179e616f"
+    sha256 arm64_tahoe:   "8a6b1cf042150d78cc3707274cad033f554eaac9b20732a3b700406e382cdabd"
+    sha256 arm64_sequoia: "11b496591b4566d112944143af4dc9b177040da48eb687e4c4880351ad145fb5"
+    sha256 arm64_sonoma:  "aa364198c45fefc951d4787d8ca1156b14bfedce16687a9769613ef587410632"
+    sha256 sonoma:        "801962fdd5db7aace2774d1f007b480b744d8c6e52cb0a2a3f9e02b4fae867d9"
+    sha256 arm64_linux:   "3789850042fdd0cd821f80f634ac9b1c86998eb1e6b34e0231d8ab087e3a51a5"
+    sha256 x86_64_linux:  "ae3319b30112bf8f755220fa0aad79edd051f3b710fb66ad6406d93ab2cd9690"
   end
 
   depends_on "docbook" => :build

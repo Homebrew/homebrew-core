@@ -3,20 +3,18 @@ class Standardebooks < Formula
 
   desc "Tools for producing ebook files"
   homepage "https://github.com/standardebooks/tools"
-  url "https://github.com/standardebooks/tools/archive/refs/tags/2.9.3.tar.gz"
-  sha256 "3f95bea1bbf9094f8e0988eccdd45889bf0f61a7f62e955edd1cae559999af28"
+  url "https://github.com/standardebooks/tools/archive/refs/tags/2.10.0.tar.gz"
+  sha256 "817948c4d7c0d25db2c8a05c09449f9d6a39e75343ca31571430f2c3fba0a8e9"
   license "GPL-3.0-or-later"
   head "https://github.com/standardebooks/tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "92b82173a05e709fc858f4cd0019cc46dc38534d48a56ddbfffd83b5b02b4ef6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b768aeaf156739f5fae69465feadbf7fff5985c6ed52eefaf0d819345a3721eb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "559003946a9742abfcfb3a856066c8df056d7d8f39bd2c3efd52250a71364723"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bb436bdcf19bf80db9b988925891174ae58a1d5850951cc140f33502ee0d71b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "424b056f9ba0cdd58c07eb77fbfa0eb8756e1b9bb0847634a76a985a50ccbd41"
-    sha256 cellar: :any_skip_relocation, ventura:       "cbd41181c7ce8bf5dc8189078c01770e5ec36b20f0b0e948fbe43d71aa322dc9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f0a0ba6762c8eec7a9833e8378b90a29688d915adbec50cf5b13884bbfc3020"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67609e8750fa206b732f5c5cf850104ac900bdb4966665bc80ffbad9d17007b2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "911a6a28e499a83532319c0f6fbe8feabbe671dc6c9cd1de2872d654eff7dc66"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f36fd3fe0750469eae746da661226e0f37a25a97dd9dece1f57edf2fc570974"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5c5f80030cc037a3d16ee8eff8941a7f054ce4eac088cd4e26c482339dae4e8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5e2d60183f7a0d3e0fbc881f9c7598fc1fe57d7392c6de4e42ddaa2c76a589ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "87fff7ac8e210af91438c3af38c476ac7262eea6b1db661585e954b6b6bf766a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c0df4298bd9fc9ab9efbdb25eee9ec54f71b31782294d67a76418ceb6c86648"
   end
 
   depends_on "rust" => :build # for selenium

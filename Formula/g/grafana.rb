@@ -23,7 +23,7 @@ class Grafana < Formula
   depends_on "node@22" => :build
   depends_on "yarn" => :build
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   on_linux do

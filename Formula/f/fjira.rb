@@ -11,12 +11,15 @@ class Fjira < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5242e1acfbf6e1549c28d1159270b65ab33fedb5aebc19ab8dec448378bb505b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5242e1acfbf6e1549c28d1159270b65ab33fedb5aebc19ab8dec448378bb505b"
     sha256 cellar: :any_skip_relocation, sonoma:        "d16abff2ed1dfba9df90a348b1eba3613c3cd61fe3f661782af358b8ae73a222"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "953add833eff39352686ab05854ec85acb5e2f3a81e68daac42c16a47d7fd98e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "51f87ef9441e760c1ebb2c8f60a136be0b3238355d8ba8e4d8a984ab3b101576"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/fjira-cli"
 
     generate_completions_from_executable(bin/"fjira", "completion", shells: [:bash, :zsh, :fish, :pwsh])

@@ -1,8 +1,8 @@
 class DashShell < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
   homepage "http://gondor.apana.org.au/~herbert/dash/"
-  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.12.tar.gz"
-  sha256 "6a474ac46e8b0b32916c4c60df694c82058d3297d8b385b74508030ca4a8f28a"
+  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.13.tar.gz"
+  sha256 "fd8da121e306b27f59330613417b182b8844f11e269531cc4720bf523e3e06d7"
   license "BSD-3-Clause"
   head "https://git.kernel.org/pub/scm/utils/dash/dash.git", branch: "master"
 
@@ -11,17 +11,13 @@ class DashShell < Formula
     regex(/href=.*?dash[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bb6b395b28022caed67497213f483589256a9c9d3a818bd277ab2caa699ab1b4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ed8b5c3067b48a7ec6f8a11dbc3b76a48db45212fe136bf8ee921db004cdc6b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50cacbfd6242b8a779665b21ddaa9f4e97c08eff5e0707d095d89dee599ba676"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "348d2957ace43b03c57eddd6c2697befd3a2afef45e2d9d91deb7833b3930edb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c383f58c7cc463ca50c897dcedc4eafeea3c819f007b8363e341dd31764e25b"
-    sha256 cellar: :any_skip_relocation, ventura:       "d89ba70e81c7aa2df99f5188ef301aecd5dfa724bc50ab2dd5c3adc610cebcff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "04cb4135adf52aecc6371de7338eaf3e359ebdf102c4bb0ee4f760cd42bc47fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc253f40ad6f25e27fdb7ea2851c3382336b2ce4b62141bfa223e7aed32355b5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9d23db2f3b32191917ebb7597c48fffa49c5dc7a5287c75ddec9e0c7dc987792"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a1b763978216798991a3aac96d31de930175918710b7852a2bc6e6f6f24df0e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c477b0796465f13b700beffa460072270cf7190665dff78109e39fe1bc2ccd39"
+    sha256 cellar: :any_skip_relocation, sonoma:        "75d2eabfdab1bb8a70096359d64d30e7ab75a9a7cb95271ba9979a9c6798e491"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea789f76d211c1d095346b3d8a0a1869a69b68500f95db8e448c387e2fd12780"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17f763b9e05df4869e14f8a3bab77fcc928beda8ff273f986a2aedb83ce06111"
   end
 
   depends_on "autoconf" => :build

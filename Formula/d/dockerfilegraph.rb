@@ -1,19 +1,17 @@
 class Dockerfilegraph < Formula
   desc "Visualize your multi-stage Dockerfiles"
   homepage "https://github.com/patrickhoefler/dockerfilegraph"
-  url "https://github.com/patrickhoefler/dockerfilegraph/archive/refs/tags/v0.19.0.tar.gz"
-  sha256 "1e1013c9482e7cf55b5e4bb9ca7fefbab02c1cb311220b86e665a1ac3a4f73b7"
+  url "https://github.com/patrickhoefler/dockerfilegraph/archive/refs/tags/v0.19.1.tar.gz"
+  sha256 "6a8881599851c683401679ec597be7ee235dc3b21521d03d278980bc5811fca7"
   license "MIT"
   head "https://github.com/patrickhoefler/dockerfilegraph.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da81dcc0ef5965cbe6e323d345de953b5127f5d5a69346983768df3716ba8c24"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3cec0eb74fbe428aa3c49ece64e51a210aaaeebff2d26d492ef3b88c020f709"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3cec0eb74fbe428aa3c49ece64e51a210aaaeebff2d26d492ef3b88c020f709"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b3cec0eb74fbe428aa3c49ece64e51a210aaaeebff2d26d492ef3b88c020f709"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f43622e507c6c2f0774f052a201c7cf822e88cea83a1951c27b242e9001a97fc"
-    sha256 cellar: :any_skip_relocation, ventura:       "f43622e507c6c2f0774f052a201c7cf822e88cea83a1951c27b242e9001a97fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17f0f1a774431f48b1facbf9f56bd5526e8aa2ad877c5f9dd27e3319caa3ab8c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c2a4bdec5bf0a8ac4e0a78c7c1eb3f59f346ce1a6332b07e24d0f8fa9d00812c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2a4bdec5bf0a8ac4e0a78c7c1eb3f59f346ce1a6332b07e24d0f8fa9d00812c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2a4bdec5bf0a8ac4e0a78c7c1eb3f59f346ce1a6332b07e24d0f8fa9d00812c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e6a4f66f2c6b8d19626f993de642d7c7d0edd5b421c460dd8a9d5cc8979e0dfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71254a91804c45cf519859dd644cd22e3da9d8eadf6b12e984ea916acc83349c"
   end
 
   depends_on "go" => :build

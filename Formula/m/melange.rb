@@ -1,8 +1,8 @@
 class Melange < Formula
   desc "Build APKs from source code"
   homepage "https://github.com/chainguard-dev/melange"
-  url "https://github.com/chainguard-dev/melange/archive/refs/tags/v0.31.4.tar.gz"
-  sha256 "01de8d86d9c37fe11c0645d00bd586ebb780c0d92fb84b9f05677980f2328cb6"
+  url "https://github.com/chainguard-dev/melange/archive/refs/tags/v0.31.5.tar.gz"
+  sha256 "9fc7057445b1828787aeb9d594bf0ed951ea2fba9bb2a7abb0ee9b7ac25726f8"
   license "Apache-2.0"
   head "https://github.com/chainguard-dev/melange.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Melange < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca276b187f20fc35df7c7ff8d5a243ae4e6f414f5859f9b3abce396443470c5a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6326cc0ab52f640eb39698975362f2aea7399d9d8191e067af2a72c3389962e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a83e6aabb2998c682e44ef8e7ecc81670995a95f330646d3ccc413b44e7fbfe6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6748632c3102456edc3403b132be4fb5d9639c865c63a9c0d64873bbef0bd1cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6285fcbb9495ee5d5967f23e3172fbca3b1c5325d85ef8197a7874b6027136d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "13a8a5e43ccb3da0be48a395bfa17fc34e8e5f4fe98ff8d581eb4cb97dcdf73a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a07a2702aafa8e3b0c19ea797de9410f2a22a76f23ae09086034594e677b00dd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f0d5749229786a65543b46d8e3cbb158bdeb36d1ac14a29dcbc57ba1bce0d7e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d0b2458b2ff09f48e44ebd5af7eb6a0ac11bbf568fbf841b36cc4b6d21f14aa3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f2feb5ebea7d19c41da7242fb3a28f26a2ff6bcd1fbb37f95cc0a7aca38f348"
   end
 
   depends_on "go" => :build

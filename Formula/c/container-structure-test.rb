@@ -1,17 +1,17 @@
 class ContainerStructureTest < Formula
   desc "Validate the structure of your container images"
   homepage "https://github.com/GoogleContainerTools/container-structure-test"
-  url "https://github.com/GoogleContainerTools/container-structure-test/archive/refs/tags/v1.20.0.tar.gz"
-  sha256 "7c5a492941c51e074edf6ea8af8ab7e77f695a89a27c7617c4ddbb3641a650ab"
+  url "https://github.com/GoogleContainerTools/container-structure-test/archive/refs/tags/v1.21.1.tar.gz"
+  sha256 "e29075885dac64ae88ef44d6d37b6f8f7e1cf6aa6cb298f641ce96fc279270bc"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/container-structure-test.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f605ec58dc341353735af49d2952ea4e94c7a98c541474be20b49310c6d8d6c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f605ec58dc341353735af49d2952ea4e94c7a98c541474be20b49310c6d8d6c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f605ec58dc341353735af49d2952ea4e94c7a98c541474be20b49310c6d8d6c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "78a9a6d9bfb9e15551fa449dee354be4fd01c9b89c806a81387536c621e84ce7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdd64ae6a720ab37daeb66364674c6f5e7606499d71c85db41edff665cfca498"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "26c63631775802c40ec12552e68fb579894b0bbd9ff5064924d479650f613c06"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26c63631775802c40ec12552e68fb579894b0bbd9ff5064924d479650f613c06"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "26c63631775802c40ec12552e68fb579894b0bbd9ff5064924d479650f613c06"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6b1ca5ac1b3121bdc1e9e8f1863f73e4096d43f120f2dcdac202c241d1a03520"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c3b923e12b6368b5a1991186d56cbae3db6a19f2fa1134bdd4a23b6d548560c"
   end
 
   depends_on "go" => :build

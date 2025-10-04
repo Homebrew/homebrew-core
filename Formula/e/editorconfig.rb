@@ -1,22 +1,18 @@
 class Editorconfig < Formula
   desc "Maintain consistent coding style between multiple editors"
   homepage "https://editorconfig.org/"
-  url "https://github.com/editorconfig/editorconfig-core-c/archive/refs/tags/v0.12.9.tar.gz"
-  sha256 "4aaa4e3883332aac7ec19c169dcf128f5f0f963f61d09beb299eb2bce5944e2c"
+  url "https://github.com/editorconfig/editorconfig-core-c/archive/refs/tags/v0.12.10.tar.gz"
+  sha256 "ab9f897a90fb36cfc34e5b67221e55ab0e3119b3512de8e31029d376c6bab870"
   license "BSD-2-Clause"
   head "https://github.com/editorconfig/editorconfig-core-c.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "220845075a01418d0d4d08601f5653866cf8c4b76c3881a158595c4c8e9a6667"
-    sha256 cellar: :any,                 arm64_sequoia:  "6ce5b3c6be160eb7ef11cc41b3dd60231e8100c970a5d7888984c8003e426977"
-    sha256 cellar: :any,                 arm64_sonoma:   "68292eee4ca5bb261e091e5546caf2d6e6ecdf78e5d6bfd359bc66cfb4676230"
-    sha256 cellar: :any,                 arm64_ventura:  "758d3759492e33359ab231574bb223c5fed86b3b207139701ba5798963c09836"
-    sha256 cellar: :any,                 arm64_monterey: "f65e5c1e7edef043e3042347662ed957cc2cadbbab09b8de64f1e57d6727e4bf"
-    sha256 cellar: :any,                 sonoma:         "ac46d5659ab9aaafd7552a796ce848b72c6872fb26d1542f84ea87370e8b0b86"
-    sha256 cellar: :any,                 ventura:        "ed9992d208d2eceeabcd646ad6c5a2d8d5ac36e8da10dd61ee4080cf97cc4148"
-    sha256 cellar: :any,                 monterey:       "20c4080381d9f63379cdaf63e5b827f03698334ed2c3d65ae7cbe936124a713f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "da0b49ae920c2a24b6614374194e1e05a2e44408fe2cd6d5cd62cef9c9255e4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edae75cc4622ec47783d0c1293c84f0f3eb4d2f1d1c4f0e837f636a1810c18c0"
+    sha256 cellar: :any,                 arm64_tahoe:   "e6eb22b09b7bdb92f13b0bbca313c416f3bc35afb49fdccd3e545b0c3e2a7495"
+    sha256 cellar: :any,                 arm64_sequoia: "3d105c1564af5478682b0eecbae33493d4d7bce1fa27deefce379cd4a378b2a3"
+    sha256 cellar: :any,                 arm64_sonoma:  "2219306829c82d5ae3871ea89775c8df2fe51ddf499b3552993f61a037a8d3cf"
+    sha256 cellar: :any,                 sonoma:        "7fc20435dafc3a2bff98f8d124cea1c614217b645259e0b6f05fd910898fca70"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7862f424b0deaf548cf321bea439d646a6572df6f71687f22ede45233c06f10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a006709cbeafe7bc51cf287cf8a831c26df8b85ad65a7ffe35d360a0c741bef6"
   end
 
   depends_on "cmake" => :build

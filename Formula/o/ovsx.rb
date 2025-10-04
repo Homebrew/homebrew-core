@@ -1,19 +1,17 @@
 class Ovsx < Formula
   desc "Command-line interface for Eclipse Open VSX"
   homepage "https://www.npmjs.com/package/ovsx"
-  url "https://registry.npmjs.org/ovsx/-/ovsx-0.10.5.tgz"
-  sha256 "6c20f2ed2580a6ee4700350da226befc8d28419417124fca5a84fbc200490101"
+  url "https://registry.npmjs.org/ovsx/-/ovsx-0.10.6.tgz"
+  sha256 "d50e7b083f235346c0b9b2a3a7c4985bf4f3f2ddd87d528e07a28859aed1045d"
   license "EPL-2.0"
 
   bottle do
-    sha256                               arm64_tahoe:   "d18539700daad887df992ef80115d3eabd5a58bbf70d6161ee0bfba34ac9468d"
-    sha256                               arm64_sequoia: "021c68046daa02c5edaa74b35933717f7144199c82edcfcf85f9a7ac21c2dc72"
-    sha256                               arm64_sonoma:  "b8d3d472537cb3f599d55ff06b070090f62bfbcb471022cf9232e5bea59d1bec"
-    sha256                               arm64_ventura: "e1980a772c01f68d90ab1d1da1c844b410f82ea0afe3834169b959642b1112d8"
-    sha256                               sonoma:        "4a2deeb3b338a9c896851241e581f91a110d134667af95ae99920becb5e006d8"
-    sha256                               ventura:       "551128b6c61eadd36ab8a280d5424069dc85b91ff813f0a73826f83773f0f3b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f905ca29b8e8d9f7f51eb85c5dbb1a3fb07c8fbbe4c4c2b7d830917288975977"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a675c25475f1cbb84c7bc340e6a3554513557ef248bd2d21fc392f3e943f50c0"
+    sha256                               arm64_tahoe:   "d9a7b92f30e129532d003c31b98ba86efc31ee0f2d5eb2fc4a6dfccd829d2b42"
+    sha256                               arm64_sequoia: "21fda98823a6dc025e0a0e747d7035bdbdfb2bac339a33fdd92cc9faf3e53ab2"
+    sha256                               arm64_sonoma:  "f962ec113990e460707a443e6918f1a7f64d33b69eade644673875fb1376ffca"
+    sha256                               sonoma:        "e1652231f028b1c9c91c8143f6f3c6cd560b680391d2ef38dc5b2d98b789b640"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4013676dbca2fec57fa5cba652a53aa375532afe4b07f9ae106db75a2a9bd3c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9092529f7724d6169b014570bff62ab784ef2c66a819ff8da62fd227059b2e5c"
   end
 
   depends_on "node"

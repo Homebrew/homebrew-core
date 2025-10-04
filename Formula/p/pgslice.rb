@@ -16,7 +16,7 @@ class Pgslice < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ae944ff188b457801ef9cbd8aed418e6a41e43eada6051ea43180fb2e357fb9"
   end
 
-  depends_on "postgresql@17" => :test
+  depends_on "postgresql@18" => :test
   depends_on "libpq"
   depends_on "ruby"
 
@@ -50,7 +50,7 @@ class Pgslice < Formula
   test do
     ENV["LC_ALL"] = "C"
 
-    postgresql = Formula["postgresql@17"]
+    postgresql = Formula["postgresql@18"]
     pg_ctl = postgresql.opt_bin/"pg_ctl"
     port = free_port
 

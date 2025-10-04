@@ -1,20 +1,18 @@
 class DockerCredentialHelper < Formula
   desc "Platform keystore credential helper for Docker"
   homepage "https://github.com/docker/docker-credential-helpers"
-  url "https://github.com/docker/docker-credential-helpers/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "1111c403d50fc26bee310db8bed4fb7d98a43e88850e2ad47403e8f2e9109860"
+  url "https://github.com/docker/docker-credential-helpers/archive/refs/tags/v0.9.4.tar.gz"
+  sha256 "6cb45cdd1e7f964fb15bc260f55238d90eb365d1d3d4cb7f41418637a9316a6d"
   license "MIT"
   head "https://github.com/docker/docker-credential-helpers.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "53e8a2a2b2c5dab459446b9c762212e8d4c31c7381e71f53061f9cb376c1f47b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a366588cad8733a471b83be8c4ecd16b9d3e46a21981ebb1aaac7e5d975eb218"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65cf8b678861bf541c2add288c76ffd8f55449e0d785531ee886335dc548cfed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e7d0a074a828667999d5ccbc63a9014c496d8080f5588c5ca97c3f960ffab3e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "87eb53c2e0c38484d644a34fa771252fa80a9357b448029a6878e5e8e8db58e7"
-    sha256 cellar: :any_skip_relocation, ventura:       "e1fe2f7169aa164531f1184404d8213af4725dd85c9ff5257487c28d260788a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81fe5fb3a19c029f2a4b89a5b8f7446de61c7ef9749630419c4e8c6760f55bee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a87eaee572a78cf7b00111afa196e6732f05794d83189620bb7be85c4dd217ed"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b95477e4ef5163a38e72ca7b622c5b3f5f2cb5eb38b7c99b8950f16e55e936e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff0a53237392b5a24e0727d8c45a041210cc745b61e09a530ad637a4741ecc46"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0c869867e03018a03b4a7dcd8a68a85ad24c05ee5cc739f8631534865393dbe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "da785d8c64ad263cccb3378927b3bf4f1e059f17e95407a0fc5eb31c77da3510"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b796438e486677e81ecc9cb60ad572ee4ba24c21bd0f9d81579b0d961345a3c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "009a3b5b8130a1e8de00518ccf96ba57b1445a710308dd41aeffd283e6d14308"
   end
 
   depends_on "go" => :build

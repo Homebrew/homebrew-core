@@ -1,18 +1,18 @@
 class Fblog < Formula
   desc "Small command-line JSON log viewer"
   homepage "https://github.com/brocode/fblog"
-  url "https://github.com/brocode/fblog/archive/refs/tags/v4.15.0.tar.gz"
-  sha256 "c2f56c9e2f4c5fbd8b36cf1611905255a0ec1db51b8eea49d1c0db779a4949d3"
+  url "https://github.com/brocode/fblog/archive/refs/tags/v4.16.0.tar.gz"
+  sha256 "061288675d40ca9b70c8e3e0508f09ddee70b8a09f25c7b8ef2dbd6406d4e213"
   license "WTFPL"
   head "https://github.com/brocode/fblog.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d880eb47bc2a35f50be3b559861893f44ed2ba1605ddc94e23ffd0794685962b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "659c69b889b5124faa6929d2c16b168e04efa56c3cb7f89ffd4ceb1fb4f14a87"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7281d67ebb14e70e729b18ff52acb073c5ea4ccecd52e3dc5681a2272f5834bf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "962cf39cf3694ed371cf8d07ebf32f9dca500a5227b7c73892fb7bdc400c0b1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "76407016421d9b0151af5fe33e7289c2ecd9d30a1e3920e3e62590d3005d412c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c1506405883fb3390fff3380668015d7875296e04a8effe74322dda2de65f83"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e62c1df074a325ab3f71371381b5f5dd5f20c4ee53f05a837c83e63ac083ec2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "381480934871991b0a56987665a7ccbaa4d128ddebf621b1c8a8c7151816b67a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c80c168615dfe64c1a16b0ba3f1d68b5c07b2c06447b36374f35264830ef182"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3b0de29e2041cdf11f3780ce191fc829c86589d4918a58c9bf9c708bae6fccc3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d29a71a71779a8b40b04567f42f778f564dc868723416a78a59bf779f094747"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c62f60bbbf46aed83a64559c5027ec240c30fc68d04420a8aea7748df176e09"
   end
 
   depends_on "rust" => :build

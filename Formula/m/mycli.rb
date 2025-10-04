@@ -3,19 +3,17 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "https://www.mycli.net/"
-  url "https://files.pythonhosted.org/packages/0d/e8/0cfec95a4da770a03fe0f665ad7ffc107e051086f79fb314c2f7f62fad2a/mycli-1.38.4.tar.gz"
-  sha256 "278eee4e3a8aeecc014a85004e2b47364ba9377501091a80b49e0641703c0595"
+  url "https://files.pythonhosted.org/packages/72/97/7c5b8d4073da7587b239855b8be2e00bd8f42625c417d0354b98f54868c8/mycli-1.39.0.tar.gz"
+  sha256 "cc756c9008623be1a6e0816d3c3fa1106c206105fa0483aedbafdfed89145c44"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "394683b0dd9569d579dd5a8c57a511ea7e6465e14d0728d8171663c2b986cb12"
-    sha256 cellar: :any,                 arm64_sequoia: "47493fdc81dd19a912d1842e240d35ca976addb521d0b3068449aee78d23ec4a"
-    sha256 cellar: :any,                 arm64_sonoma:  "3f5aed2af8c28c7bfce2b6b906ec811e208417be74771866c1e49153aa052aaf"
-    sha256 cellar: :any,                 arm64_ventura: "a0e52f1d1e7f0d8f6ff10493e485efcf26dc5f30dc098a952cb755f742106ad2"
-    sha256 cellar: :any,                 sonoma:        "0150e18685dd6c8fcb4870ca32f96da388841ea34aa843fa35992d2df176f501"
-    sha256 cellar: :any,                 ventura:       "6a0f6fea1aec872db008aa1baf7102f8303c4ac368dcd961ab1522fc5a3ed276"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "320475f3cd4fb9a899873ad4d0bfae691b714ed5d4fc80bcfcd86a020d1aaec0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa6c53d9064647f8ff0d0fd889d7d8053ff821b7edb4821a79e2faa92652f614"
+    sha256 cellar: :any,                 arm64_tahoe:   "47dc3e07b7f5a7f67bcb3202717014c655031d134dad42219ec101cf2e78d2a0"
+    sha256 cellar: :any,                 arm64_sequoia: "ffd355e6360d08dc2aa8a8e2027a414e711d96845051cb4651d880ac5be3260d"
+    sha256 cellar: :any,                 arm64_sonoma:  "bd9f8d386a99dd59f45df07b2f7f5ace2ee02aeb7f8ed0129cc1c0944f55a012"
+    sha256 cellar: :any,                 sonoma:        "3693d9b4810c9131562efe5ba859043a9460e3393af24bed38ff972561557328"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8473d81b06e73edb7f488d22b65e151ffb25cbe981b18b4a4f40e4033995ee4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e449472ca68bf91f5e8578154ad92dce740ee4c4adbcfda20e77daffb0ac4415"
   end
 
   depends_on "rust" => :build # for sqlglotrs
@@ -32,8 +30,8 @@ class Mycli < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/f1/b4/636b3b65173d3ce9a38ef5f0522789614e590dab6a8d505340a4efe4c567/anyio-4.10.0.tar.gz"
-    sha256 "3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6"
+    url "https://files.pythonhosted.org/packages/c6/78/7d432127c41b50bccba979505f272c16cbcadcc33645d5fa3a738110ae75/anyio-4.11.0.tar.gz"
+    sha256 "82a8d0b81e318cc5ce71a5f1f8b5c4e63619620b63141ef8c995fa0db95a57c4"
   end
 
   resource "cli-helpers" do
@@ -87,8 +85,8 @@ class Mycli < Formula
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/ee/9d/ae7ddb4b8ab3fb1b51faf4deb36cb48a4fbbd7cb36bad6a5fca4741306f7/jiter-0.10.0.tar.gz"
-    sha256 "07a7142c38aacc85194391108dc91b5b57093c978a9932bd86a36862759d9500"
+    url "https://files.pythonhosted.org/packages/9d/c0/a3bb4cc13aced219dd18191ea66e874266bd8aa7b96744e495e1c733aa2d/jiter-0.11.0.tar.gz"
+    sha256 "1d9637eaf8c1d6a63d6562f2a6e5ab3af946c66037eb1b894e8fad75422266e4"
   end
 
   resource "llm" do
@@ -97,8 +95,8 @@ class Mycli < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/79/b6/1aff7d6b8e9f0c3ac26bfbb57b9861a6711d5d60bd7dd5f7eebbf80509b7/openai-1.106.1.tar.gz"
-    sha256 "5f575967e3a05555825c43829cdcd50be6e49ab6a3e5262f0937a3f791f917f1"
+    url "https://files.pythonhosted.org/packages/d8/5d/74fa2b0358ef15d113b1a6ca2323cee0034020b085a81a94eeddc6914de9/openai-2.0.0.tar.gz"
+    sha256 "6b9513b485f856b0be6bc44c518831acb58e37a12bed72fcc52b1177d1fb34a8"
   end
 
   resource "pluggy" do
@@ -122,8 +120,8 @@ class Mycli < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/00/dd/4325abf92c39ba8623b5af936ddb36ffcfe0beae70405d456ab1fb2f5b8c/pydantic-2.11.7.tar.gz"
-    sha256 "d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"
+    url "https://files.pythonhosted.org/packages/ff/5d/09a551ba512d7ca404d785072700d3f6727a02f6f3c24ecfd081c7cf0aa8/pydantic-2.11.9.tar.gz"
+    sha256 "6b8ffda597a14812a7975c90b82a8a2e777d9257aba3453f973acd3c032a18e2"
   end
 
   resource "pydantic-core" do
@@ -147,8 +145,8 @@ class Mycli < Formula
   end
 
   resource "pyperclip" do
-    url "https://files.pythonhosted.org/packages/30/23/2f0a3efc4d6a32f3b63cdff36cd398d9701d26cda58e3ab97ac79fb5e60d/pyperclip-1.9.0.tar.gz"
-    sha256 "b7de0142ddc81bfc5c7507eea19da920b92252b548b96186caf94a5e2527d310"
+    url "https://files.pythonhosted.org/packages/e8/52/d87eba7cb129b81563019d1679026e7a112ef76855d6159d24754dbd2a51/pyperclip-1.11.0.tar.gz"
+    sha256 "244035963e4428530d9e3a6101a1ef97209c6825edab1567beac148ccc1db1b6"
   end
 
   resource "python-dateutil" do
@@ -162,8 +160,8 @@ class Mycli < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "setuptools" do
@@ -232,8 +230,8 @@ class Mycli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
-    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
+    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
   def install

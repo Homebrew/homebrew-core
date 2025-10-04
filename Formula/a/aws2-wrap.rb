@@ -19,6 +19,8 @@ class Aws2Wrap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "18b0b56d7d195178f4c4e53c5171e0ec0fcecbea18537a4c2692854d38559098"
   end
 
+  deprecate! date: "2025-10-02", because: :repo_archived
+
   depends_on "python@3.13"
 
   resource "psutil" do

@@ -3,18 +3,17 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/51/f9/bda66afaf393f6914f4d6c035964936cadd98ee1fef44e4e77cba3b5828c/apprise-1.9.4.tar.gz"
-  sha256 "483122aee19a89a7b075ecd48ef11ae37d79744f7aeb450bcf985a9a6c28c988"
+  url "https://files.pythonhosted.org/packages/60/16/e39338b8310af9466fab6f4482b542e24cb1fcbb7e36bf00c089c4e015e7/apprise-1.9.5.tar.gz"
+  sha256 "8f3be318bb429c2017470e33928a2e313cbf7600fc74b8184782a37060db366a"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "6a29047a768a113a438f4a89b1fe94e1ff9fc57721d5ebb5ab296516a79a5744"
-    sha256 cellar: :any,                 arm64_sequoia: "4a50ff0927b77e2fe7877f0c545e50f3f23f7c51959d14e8e634e32fc3c27084"
-    sha256 cellar: :any,                 arm64_sonoma:  "260c307ca220837f6f71e27ecad54cb54b65ab9014c7bc6ee4e5e51daaa072ec"
-    sha256 cellar: :any,                 sonoma:        "dd20e915129afc738c88e3eb65dd8240f1b87463ff9e20a6c88c687bfccea0a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0fd1a63e96d97233d4678ba5e941bed4d22854dc817587e9c09b85bccbfafb93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e487a32da26b5aebae642655ff43ef64759686bc02f246e657e33acb0ec39af7"
+    sha256 cellar: :any,                 arm64_tahoe:   "4b91625d0790d086718e5a0540b254d5ad86d6e9dfcbb2bb45d170c049e10bec"
+    sha256 cellar: :any,                 arm64_sequoia: "f698b24ff143a08b62cc78ad253257a32a6db0ba576c5b57e720402d79c5202f"
+    sha256 cellar: :any,                 arm64_sonoma:  "497b21707399bf8898be3eda61b374bb02c5f0796e83ba3d6bf51d4f64e19cf0"
+    sha256 cellar: :any,                 sonoma:        "a3ef7ec93389e4ef1311b3c9a9cfbde9c94963d9e1486399652e9fb7f1156f76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c241a3c46d15e0e413925d112848467318f80bd4590ed6afc6aedcd0442b52ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6b3456dfb9c05da477e7390bb67f86bbf2f509cefdcf3169f18eef7c70782ad"
   end
 
   depends_on "certifi"
@@ -47,8 +46,8 @@ class Apprise < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "requests" do

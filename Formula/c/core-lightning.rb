@@ -38,7 +38,7 @@ class CoreLightning < Formula
   depends_on "libsodium"
 
   uses_from_macos "jq" => :build, since: :sequoia
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 

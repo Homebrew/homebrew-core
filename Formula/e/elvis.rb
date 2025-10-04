@@ -6,6 +6,11 @@ class Elvis < Formula
   license "Apache-2.0"
   head "https://github.com/inaka/elvis.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa95f536000cc0546c7237ac4dd7a4aadbe7b8da1f73e753b1f6a6159e6d1001"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bbbf2d22dc2579b2bf23653ca33921cf3c09c761553b48a20772e05467f00b0"

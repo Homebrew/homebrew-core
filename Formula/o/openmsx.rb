@@ -1,14 +1,10 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "https://openmsx.org/"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_21_0/openmsx-21.0.tar.gz"
+  sha256 "28838bfa974a0b769b04a8820ad7953a7ad0835eb5d1764db173deac75984b6f"
   license "GPL-2.0-or-later"
-  revision 1
-
-  stable do
-    url "https://github.com/openMSX/openMSX/releases/download/RELEASE_20_0/openmsx-20.0.tar.gz"
-    sha256 "4c645e5a063e00919fa04720d39f62fb8dcb6321276637b16b5788dea5cd1ebf"
-    depends_on "tcl-tk@8"
-  end
+  head "https://github.com/openMSX/openMSX.git", branch: "master"
 
   livecheck do
     url :stable
@@ -21,23 +17,15 @@ class Openmsx < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "a15148e1fd3c7ece9f97d6c2b5e30ec03e5ae5613b44955fee21f49e44797f74"
-    sha256 cellar: :any, arm64_sequoia: "4b315226f72089a44114b59aac99c0ba287437dec71b40be00e1c6b8d02e4ed4"
-    sha256 cellar: :any, arm64_sonoma:  "08a73c81781242564a33a8c2e9a7a857459338dc2d3ac663c3621e3d682c786d"
-    sha256 cellar: :any, arm64_ventura: "09277a1aa755529546bd671baf93e8c5ccac515bc07224fa8cc1ed1721f3eced"
-    sha256 cellar: :any, sonoma:        "496e6ecb68035df31905e59a8cb50eb98a5a391c64220dfc28ca07d2b1f4df61"
-    sha256 cellar: :any, ventura:       "c267e3a327095b54adbefad82c7c3b67c93c9f1420abc8c9c63683a366715fb9"
-    sha256               arm64_linux:   "9f95dd7fa08f9e37773dc870573b8950196de1f58a4c4dce24d9ea13ebf33eec"
-    sha256               x86_64_linux:  "6b4a654d5f1954125ed32caa067d7b441c384143c8a130702c68a90fd8b58e46"
-  end
-
-  head do
-    url "https://github.com/openMSX/openMSX.git", branch: "master"
-    depends_on "tcl-tk"
+    sha256 cellar: :any,                 arm64_tahoe:   "f163141e884181d6ddc1dfec63acfde452c26af4bc20cd424756b96f199cdf4d"
+    sha256 cellar: :any,                 arm64_sequoia: "524064efe7274201bd28490cb9b515429efa67ffbd072f84528d8f94f4485123"
+    sha256 cellar: :any,                 arm64_sonoma:  "1e2a22829a8bc5ff0cfa1ed57d89d016c3d071720d419dfb7b9ca921c0f44618"
+    sha256 cellar: :any,                 sonoma:        "4994c71b8a54a53fc30e51a56b4fc71076550a4f0e186a0e84b6188d6ddb1e27"
+    sha256                               arm64_linux:   "74a866c43df3f6ecccfe78e8164b37eb5d365f68a6d2dee9f72cb5dec3f03b72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25c217d5db0b730426c2afa84ef465e4b5f60b29659c91f8fc6f58382a0f4673"
   end
 
   depends_on "freetype"
@@ -47,6 +35,7 @@ class Openmsx < Formula
   depends_on "libvorbis"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
+  depends_on "tcl-tk"
   depends_on "theora"
 
   uses_from_macos "python" => :build
@@ -85,7 +74,7 @@ class Openmsx < Formula
     inreplace "build/probe.py", "/usr/local", HOMEBREW_PREFIX
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
-    ENV["TCL_CONFIG"] = Formula[build.head? ? "tcl-tk" : "tcl-tk@8"].opt_lib
+    ENV["TCL_CONFIG"] = Formula["tcl-tk"].opt_lib
 
     system "./configure"
     system "make", "CXX=#{ENV.cxx}", "LDFLAGS=#{ENV.ldflags}"

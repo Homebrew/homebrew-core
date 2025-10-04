@@ -20,7 +20,7 @@ class Neovide < Formula
   depends_on "neovim"
 
   uses_from_macos "llvm" => :build
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   on_macos do
     depends_on "cargo-bundle" => :build

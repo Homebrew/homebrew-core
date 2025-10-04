@@ -1,8 +1,8 @@
 class Aptos < Formula
   desc "Layer 1 blockchain built to support fair access to decentralized assets for all"
   homepage "https://aptosfoundation.org/"
-  url "https://github.com/aptos-labs/aptos-core/archive/refs/tags/aptos-cli-v7.8.1.tar.gz"
-  sha256 "42d94e3e40654a1bb43399f75ea5c9a5f99d4b920b5fae20a46d085b548c4916"
+  url "https://github.com/aptos-labs/aptos-core/archive/refs/tags/aptos-cli-v7.9.1.tar.gz"
+  sha256 "b67872d67f432e1a3bdaf5d2a38ddae37f64a076e9a7c682525ea294be4042f2"
   license "Apache-2.0"
   head "https://github.com/aptos-labs/aptos-core.git", branch: "main"
 
@@ -14,12 +14,12 @@ class Aptos < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67776495afdbba9316fd487e2adbd88a99cb08b18c73a893a61fd767eb0ea26f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b560adeff500e887ea009101ee42462740aa3dfb838b9df93bcad232d371c75"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf022cc48a1da1752712c95258d8c53034242313dfaa10add045b553bccd408a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a8368be4ad77261cbf56581d0159ca4a96ad87eb437901942f7a20c2a6a0b5ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebc600bcff59189985389af9d64cdeec69089926740ee2ee181f3508ce27387d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b9541d2f5ed3b56e57c081fe8f5747b41911eedc0c57f5706180041e89070a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "daecfc7d11b167cf0fd9c0ea8cf73cc2cf86c35031c3e7e33eda982cc90a1d35"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20a05e33a47dd7775848b9634c37013832cb810b60fd43fed7667c0879042a06"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "977188dce23540a779cc87ccef696d60e0da32043e375db87fa2fcf1c478868d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d0052dea520d9b7d2eea828cf1b4c724d44bb53b96e3dfbb463784ebf0ca6a33"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5eb12c375093b2af3da2eb786e7f1f5299ba89c50a1d38e74ca2556e6b067899"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30f15c4d0bcdb7d1faac095336eca9f57045dc54cf5457a8c18fb83060e2d253"
   end
 
   depends_on "cmake" => :build

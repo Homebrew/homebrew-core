@@ -1,20 +1,18 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
   homepage "https://github.com/protocolbuffers/protobuf-go"
-  url "https://github.com/protocolbuffers/protobuf-go/archive/refs/tags/v1.36.9.tar.gz"
-  sha256 "4d82e5c1f83f4dc3145452055c549bec8d795e24d66aebc6bf0af2bc2839b46b"
+  url "https://github.com/protocolbuffers/protobuf-go/archive/refs/tags/v1.36.10.tar.gz"
+  sha256 "41671a3121345fb6b9f98cf41609379ba379c0aaf86be9e862f87a1d69a40e89"
   license "BSD-3-Clause"
   head "https://github.com/protocolbuffers/protobuf-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf88f7d3e3d96fa5744c021c050fe7975789fa6880aa170c5d550dcbe7bf8945"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf88f7d3e3d96fa5744c021c050fe7975789fa6880aa170c5d550dcbe7bf8945"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf88f7d3e3d96fa5744c021c050fe7975789fa6880aa170c5d550dcbe7bf8945"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf88f7d3e3d96fa5744c021c050fe7975789fa6880aa170c5d550dcbe7bf8945"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ff23a83f1b1f27979211eb02d848c2ad32ba2cdabd0e6fa8fae60674c585e37b"
-    sha256 cellar: :any_skip_relocation, ventura:       "ff23a83f1b1f27979211eb02d848c2ad32ba2cdabd0e6fa8fae60674c585e37b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "66d2000e9f59782fae5f99e470b20608b7ee1170318412da4e64696ed2fdfdc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87e970d043d1c5a3852a36268fe4b95ad5e4284cb8ef939948b6ab9e0357cd2d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "54a88571329f7a1cedfe1bb20d6e216ec8dcdc03302d1a800f879e0f02f3edf9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "54a88571329f7a1cedfe1bb20d6e216ec8dcdc03302d1a800f879e0f02f3edf9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "54a88571329f7a1cedfe1bb20d6e216ec8dcdc03302d1a800f879e0f02f3edf9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6ad92eb7e2e6a5e91d5ebc21ca2a718e27e3671c25a5da5a31370fb42c5cbd12"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "078aa03a0d5c3fb93240afc99bbaa40074e806f30a276a251f23059cec11a7ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d68e135ce9be4aadd202bcb969accc48113d57e511d1d35f1565b5154735dfab"
   end
 
   depends_on "go" => :build

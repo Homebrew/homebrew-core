@@ -13,7 +13,7 @@ class Fpp < Formula
     sha256 cellar: :any_skip_relocation, all: "3cd7e3e25d729646c8cbb993eaa2c3d517dc128693dcdbc39bd1362c11429390"
   end
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   def install
     rm_r(buildpath/"src/tests")

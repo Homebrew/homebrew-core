@@ -31,6 +31,7 @@ class Visp < Formula
   depends_on "jpeg-turbo"
   depends_on "libdc1394"
   depends_on "libpng"
+  depends_on "lz4"
   depends_on "openblas"
   depends_on "opencv"
   depends_on "pcl"

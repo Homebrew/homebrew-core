@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.138.0",
-      revision: "319175c14170da2d8b072c882dd434dfc5bd2f0b"
+      tag:      "v1.139.0",
+      revision: "984f76026160ea94163eee091bc3caa876476b35"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -15,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b70f2c5ae72a70be05cc33ed25e647480b47016bdbf67669affb04494f6a1604"
-    sha256 cellar: :any, arm64_sequoia: "f288c64f9a8395eab9195e670a6584c46bc8dc475a6335a719a896494dff1c51"
-    sha256 cellar: :any, arm64_sonoma:  "0ab0da609857bd13ddf84bba8b867da41435bc50ba2b081807aba57d9cda6977"
-    sha256 cellar: :any, sonoma:        "0cc33c0dee8dd140446266014f545433d86d1913d740a121d15c2c4678c26c5f"
-    sha256               arm64_linux:   "f038233125c5256ebb14d2d4ccbafca08259e8fca3bac79094b087a27f78befd"
-    sha256               x86_64_linux:  "a7ff3577493538cdf9622faf5d3ce429dac089724209cb75d79cca4fbc353b73"
+    sha256 cellar: :any, arm64_tahoe:   "126b5dedad0ca54b056ef36b468074b3628a74df2e4ca563bee327c6ba48bf3b"
+    sha256 cellar: :any, arm64_sequoia: "74be93352b9d36a50ede07446ecedebfa2e13a5652fa5489cc1887aa9bc108aa"
+    sha256 cellar: :any, arm64_sonoma:  "960977e034bb22df94b0816ccbc1ca7d5822ebf740c6464a97b10f186784306a"
+    sha256 cellar: :any, sonoma:        "57c7a54a2d7c9398d49560de5205a2d5fe1bb0209b9d4c316ce2425d6fae5b9c"
+    sha256               arm64_linux:   "ef9a252ee1dd24d8c853bd852d7493cf8e3ecdb3f06fe91056912db2db71eda3"
+    sha256               x86_64_linux:  "0674405bd60fddc22ccc26d68eb19a85b3ab55f517488162895dd5eb9110f59c"
   end
 
   depends_on "autoconf" => :build
@@ -322,8 +322,8 @@ class Semgrep < Formula
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/f8/b1/0c11f5058406b3af7609f121aaa6b609744687f1d158b3c3a5bf4cc94238/typing_inspection-0.4.1.tar.gz"
-    sha256 "6ae134cc0203c33377d43188d4064e9b357dba58cff3185f22924610e70a9d28"
+    url "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz"
+    sha256 "ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464"
   end
 
   resource "urllib3" do

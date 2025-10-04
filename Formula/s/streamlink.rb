@@ -125,15 +125,9 @@ class Streamlink < Formula
     system bin/"streamlink", "https://player.vimeo.com/video/941078932", "240p", "-o", "video.mp4"
     assert_match "video.mp4: data", shell_output("file video.mp4")
 
-    url = OS.mac? ? "https://ok.ru/video/1643385658936" : "https://www.youtube.com/watch?v=pOtd1cbOP7k"
-    if OS.mac?
-      output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'")
-      assert_match "Available streams:", output
-      refute_match "error", output
-      refute_match "Could not find metadata", output
-    else
-      output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'", 1)
-      assert_match(/Could not get video info - LOGIN_REQUIRED|plugin does not support VOD content/, output)
-    end
+    output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug https://ok.ru/video/1643385658936")
+    assert_match "Available streams:", output
+    refute_match "error", output
+    refute_match "Could not find metadata", output
   end
 end

@@ -1,8 +1,8 @@
 class Fetchmail < Formula
   desc "Client for fetching mail from POP, IMAP, ETRN or ODMR-capable servers"
   homepage "https://www.fetchmail.info/"
-  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.5/fetchmail-6.5.5.tar.xz"
-  sha256 "f989b62729c76afbcd65ec43b9c477f2d990f0913da141ff8166aa4e2bf56025"
+  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.5/fetchmail-6.5.6.tar.xz"
+  sha256 "ec10e0e0eaa417313559379ede76c74614766d838b39470b66474863aa690dab"
   license all_of: [
     "LGPL-2.1-or-later",
     "ISC",
@@ -17,12 +17,12 @@ class Fetchmail < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "baa266899a5d0762c1c8de72d66172046d16a8936d916d59ecd38949b810355e"
-    sha256 cellar: :any, arm64_sequoia: "2d3cc96ba9eab37a4c90e69e0ded42da4d317aa71c50bcf9d67b423ff13fd99f"
-    sha256 cellar: :any, arm64_sonoma:  "5636b1a32fa0c3dc428a71ab1414ef56270018513807129d25e56d23d401fe50"
-    sha256 cellar: :any, sonoma:        "649c97111eb7de63e1f5090278cb6570553750672b13a61e8643ddd4b8c5a28f"
-    sha256               arm64_linux:   "4095e91d22c75dd76b6caa077d73335a232c9b878aabd0171925ea83633a1a79"
-    sha256               x86_64_linux:  "681ef55b7a2f8d0c6e4e650d252a4cab9c04288cac8706c2c88680b50a578d1d"
+    sha256 cellar: :any, arm64_tahoe:   "bbbeb15ec10bcc29516f3a4f96cb4a906baaea54fb9b7fec53909048d2ac6bfb"
+    sha256 cellar: :any, arm64_sequoia: "74709f66cdc31a33eecdaab5e373c3a05edc03cae3dcc7d33910650e63b408e6"
+    sha256 cellar: :any, arm64_sonoma:  "9af541e86cb257e21358be6ad87002f87f2278fce32b754f404915ca68c71d84"
+    sha256 cellar: :any, sonoma:        "a33e56f3b1b328dd1e0ef6577765c4578b690baac0567de2c3269717a7fbbfb2"
+    sha256               arm64_linux:   "475e701040bb7b20d9b2b9466236ac6a379a3cf8be53932c367b5df3982eb0b9"
+    sha256               x86_64_linux:  "95c209d0c4e15e1402ed56db8763394bdf2e5694ab0437fe4ae1a6804f66a356"
   end
 
   depends_on "pkgconf" => :build

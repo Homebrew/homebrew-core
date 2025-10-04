@@ -63,7 +63,7 @@ class Restview < Formula
     port = free_port
     begin
       pid = spawn bin/"restview", "--listen=#{port}", "--no-browser", "sample.rst"
-      sleep 5
+      sleep 15
       output = shell_output("curl -s 127.0.0.1:#{port}")
       assert_match "<p>Here we have a numbered list</p>", output
       assert_match "<li>Four</li>", output

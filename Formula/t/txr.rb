@@ -11,38 +11,42 @@ class Txr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0feab2e83756d3361b3aa05cd98fcbcb4e9fe346f5796a9020f971c8aa2a284c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3190a9ee3e9cad9ea15afb5e5950fd15b2547ad06fd78c9dfc972439628cfb11"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f470ff3b63fc4ca54e373852496d845bd64150a2b092702f1f33cbf7ab257bb1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d10ef0d21324ea961c822c61ff44de39177b401c70f08bb89b5e4473df3b6f97"
-    sha256 cellar: :any_skip_relocation, sonoma:        "275b1b90e5d210cbcbf43ca06fb42f7ee4b881af984b554237b959e37d1203bc"
-    sha256 cellar: :any_skip_relocation, ventura:       "c576ede754b86b6672d3e96e16a204eb9b6173ac30438dfff9d179340bef5aa6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d10f50542ed10a224eb99faddb04ba00250aa2509788b893512b6c7f70a0a759"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8641468e2c261437ffcc3f0c9625a8f1f839f995c7ed7b452684db37bd3a24d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5011b7cb0fcfeae6fd9ad108ff54d0662a55db8478002b0ab333a74ea36e7222"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8c9a0c0475cda5d4c108ff27f40e87150656795008ea14ad7657076421fdaf4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5dc1e4925fd0d626bdf266f85a3fd44c30845db68915acefb6d16ccb55926723"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "43cd336b765f13dea501739ea53c0c6354301433645fb8da16c8d51217d8170d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f836edb00ae58379e6ff4153e6a84ab60fa1fdb97f0c6ae9121ddacde2b526be"
   end
 
   depends_on "pkgconf" => :build
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc" => :build
-  end
-
-  fails_with :gcc do
-    version "12"
-    cause "Segmentation faults running TXR"
-  end
-
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
+    # FIXME: We need to bypass the compiler shim to work around `-mbranch-protection=standard`
+    # (specifically pac-ret) causing tests/012/compile.tl to fail with an illegal instruction
+    if OS.linux? && Hardware::CPU.arch == :arm64
+      ENV["CC"] = DevelopmentTools.locate(ENV.cc)
+      ENV.append_to_cflags ENV["HOMEBREW_OPTFLAGS"] if ENV["HOMEBREW_OPTFLAGS"]
+      ENV.append "CPPFLAGS", "-mbranch-protection=bti"
+    end
+
+    # FIXME: Workaround to avoid the compiler shim suppressing warnings needed during configure.
+    # Existing shim logic only works for autotools configure scripts where `as_nl` is used.
+    with_env(as_nl: "\n") do
+      system "./configure", "--no-debug-flags", "--prefix=#{prefix}"
+    end
+    system "make", "VERBOSE=1"
     system "make", "tests" # run tests as upstream has gotten reports of broken TXR in Homebrew
     system "make", "install"
     (share/"vim/vimfiles/syntax").install Dir["*.vim"]
+    Utils::Gzip.compress(*man1.glob("*.1"))
   end
 
   test do

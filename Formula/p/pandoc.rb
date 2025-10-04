@@ -1,18 +1,18 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://github.com/jgm/pandoc/archive/refs/tags/3.8.tar.gz"
-  sha256 "2d375526e7d26d46ebcdaf107564c8bbfd68e40a7af425906e9612889699bcf6"
+  url "https://github.com/jgm/pandoc/archive/refs/tags/3.8.1.tar.gz"
+  sha256 "1d66d35952e7037cc049a9f170c9ba394693014a71925a84c55dffcaf98ff677"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/pandoc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "80e4784ed8e01ca7ea4ecc98a04dd14ca77de02a7ca1481eb213144d205aee5a"
-    sha256 cellar: :any,                 arm64_sequoia: "3ee41fbc2c37ca43f9a1d5e9005328ad0848e4902fe170a42d8c930a8aa1872d"
-    sha256 cellar: :any,                 arm64_sonoma:  "a0f027f9ae21d782a42cb6aed4bd1c093401753d638c5ef0e9b81865e3053ef1"
-    sha256 cellar: :any,                 sonoma:        "dd6cec95b0a4843bada2bb028f1d70780f6df6a2a1a1088ebd87995f2a390545"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "151e60036a14ddfb9a34febf3dc783d341c99a4d8f400854f9226828599001ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f6994527b91f6cc6365839c0d8125b5fa1e2d223b45e4f9e56de15b8fe5cb9f"
+    sha256 cellar: :any,                 arm64_tahoe:   "de1335f30bad4df53c26fc8f7d12f09412b22d3186c1d9c57e800281e75ed254"
+    sha256 cellar: :any,                 arm64_sequoia: "8c5f6ed574073d2ef6821620d93d5f56225bb0a9e098f7d245743b1be0b1ce00"
+    sha256 cellar: :any,                 arm64_sonoma:  "b48ea533c62b9be6987e9489e6408e21cc05221f77dba86030c94d54e976af6a"
+    sha256 cellar: :any,                 sonoma:        "b2b424b7ad249299d1c02e47ce09ed830d2431c7a5da47d13c7d3e2d8f9a2b0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e51c6e70d648272fa01f375583a6ff69af679926e9dda0737dbd800857f7c025"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edbf643e6ea2cfcc3aae30012e34a4b7e29e13a94b72f0d15e1abda749280975"
   end
 
   depends_on "cabal-install" => :build

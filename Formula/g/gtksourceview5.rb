@@ -30,6 +30,7 @@ class Gtksourceview5 < Formula
   depends_on "fribidi"
   depends_on "gdk-pixbuf"
   depends_on "glib"
+  depends_on "graphene"
   depends_on "gtk4"
   depends_on "pango"
   depends_on "pcre2"

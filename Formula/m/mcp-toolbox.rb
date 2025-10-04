@@ -10,6 +10,7 @@ class McpToolbox < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9a7229c9d491b06c4a280a0e04b08e13f3430f430ca38217c7dd10b94ccea66"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9a7229c9d491b06c4a280a0e04b08e13f3430f430ca38217c7dd10b94ccea66"
     sha256 cellar: :any_skip_relocation, sonoma:        "713e7aa95115a08df0376d884e3940a37772e44242a9022b7f47adae76a8700e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40299780673ad150c5b869e1d6a140d66711129a513bc5dd442f7dad5ffa897a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d439139401f9c5d2b7f37cb4bf5f95819a2dfa528cef9354b90f8078089e207a"
   end
 
@@ -18,6 +19,8 @@ class McpToolbox < Formula
   conflicts_with "kahip", because: "both install `toolbox` binaries"
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -s -w
       -X github.com/googleapis/genai-toolbox/cmd.buildType=#{tap.user}

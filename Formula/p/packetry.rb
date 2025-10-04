@@ -1,21 +1,17 @@
 class Packetry < Formula
   desc "Fast, intuitive USB 2.0 protocol analysis application for use with Cynthion"
   homepage "https://github.com/greatscottgadgets/packetry"
-  url "https://github.com/greatscottgadgets/packetry/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "2f2e36500fd29a46bf9043cf3b9a8dde6d14864ac7e6a1782cdce573b81859ee"
+  url "https://github.com/greatscottgadgets/packetry/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "158cd25536c6d4feab2b9e76fcbb4174fdb2fd6fb1c309775a3b2efbe84db33b"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fbd4c3f0070d38078f3ec44e78a36e6bafef53c46b79a0af7f63d214f4808d8d"
-    sha256 cellar: :any,                 arm64_sequoia: "22c49ae08e3854c4719cd38f6946c7a23f937d95f2af9d4f124adb5d85418fdf"
-    sha256 cellar: :any,                 arm64_sonoma:  "1522f63e422bbab63675874bdf08cf8696ffd5478eb9c7986928dc5226eae06b"
-    sha256 cellar: :any,                 arm64_ventura: "ac33c2598d3ab7e4ba32c23b306510eea957383caddcbd8f9a8d4ec4fde0564e"
-    sha256 cellar: :any,                 sonoma:        "08dddc60262a32e355af6a43d70c1eaa0c782d482c61f958891359d672405005"
-    sha256 cellar: :any,                 ventura:       "21ddfa4541496350dada1a3ec6361180ae1a70c2d5bf3920cc92c1190437f376"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7f3300e7ef993045cc58515cb726db211888c35a3765c7553f7fed862fb8da6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46ab971b2e7e71791bf0e2bfbcbc2a8d89beed2069f3b82b9c096a6f17914273"
+    sha256 cellar: :any,                 arm64_tahoe:   "7b44a327337008bac85d41e08c6c01d443ec193d25671791275bb846fbb49a98"
+    sha256 cellar: :any,                 arm64_sequoia: "96b22357843f520ea804060b1a2016ca1597d2944bd9ba421ee18cb4400aed5f"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e922696b8fe099ee251474983e678d5dca2a66fd51f9e9ca0655f44c57828bf"
+    sha256 cellar: :any,                 sonoma:        "4cbed67c2f94db98371ffd4e1c22339461ced6aefcb3e1aed5aa780088a587df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2069f0fd40e8bb856ffa695b73c5d446b2f4f334413ecc63a1412e185160d162"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feb64fb888f5d3e9769b784226363100a57f2b81ff3ede2c8ebceec074d72d8c"
   end
 
   depends_on "pkgconf" => :build

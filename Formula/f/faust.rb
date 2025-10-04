@@ -1,10 +1,9 @@
 class Faust < Formula
   desc "Functional programming language for real time signal processing"
   homepage "https://faust.grame.fr"
-  url "https://github.com/grame-cncm/faust/releases/download/2.81.2/faust-2.81.2.tar.gz"
-  sha256 "c91afe17cc01f1f75e4928dc2d2971dd83b37d10be991dda7e8b94ffab1f1ac9"
+  url "https://github.com/grame-cncm/faust/releases/download/2.81.8/faust-2.81.8.tar.gz"
+  sha256 "2bc6ca210957008dfb8423e65e135b65938acf345299ed05d655c290b1c44a11"
   license "GPL-2.0-or-later"
-  revision 1
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -15,13 +14,12 @@ class Faust < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "3e337f0ad78a144961265bac26dcda9e84a0ea9b5f2a260a6ea72f32d923aad0"
-    sha256 cellar: :any,                 arm64_sequoia: "aafdddadada9756ff0238186fa7bf0fefbd79e669ea4aa7e1b40e86d21dce96a"
-    sha256 cellar: :any,                 arm64_sonoma:  "5053f847c93970cd6afb6fbabd4ebb3fb0a549d33df09d3863b5e9dfa97258b9"
-    sha256                               sonoma:        "8e925300b4d5bffb5e0f62c1f8e2c541809c3fe8462db3dfc68ba246564b8bff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c2487e5a12802bb6708a644c1de36da96f42176ad4e75470b65608e9522809e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e5c10c3174fa3a69f42829a698df8bb51abc034cc469abf1cc841ef77d7054a"
+    sha256 cellar: :any,                 arm64_tahoe:   "c63ae6d26a33ecf3d9231b5ac1a75b4a9ec7c3b5e9ae38775bb91e7882ee8dd8"
+    sha256 cellar: :any,                 arm64_sequoia: "f026127aaf3d4122e4ec584c94cad7a2e705dc3a6be8bdd20862a7afca12a6c3"
+    sha256 cellar: :any,                 arm64_sonoma:  "180bac0f4952d763b8dbea74a15faa8cba738c241a082506bbc3ddb1d4e17b9e"
+    sha256                               sonoma:        "a18c9563d11c151639252e8328da865fe2cbe7f2954eabe0f2086609c00807dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5658a77c19930cfef1ce154ae9495a021a018ee8e69e5698aa30c702151b5c60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "760cb14ca664bb8556103910dae5125b2d99e8282e8439c7de3b03868a13dd9d"
   end
 
   depends_on "cmake" => :build
@@ -30,9 +28,15 @@ class Faust < Formula
   depends_on "libsndfile"
   depends_on "llvm"
 
-  # Backport support for LLVM 21. Skipping wasm whitespace changes in:
-  # https://github.com/grame-cncm/faust/commit/0b773c503ce77a753579c52ecf2531845ae7532a
-  patch :DATA
+  # Fix to add shebang for `faust2wwise.py`, remove in next release
+  patch do
+    url "https://github.com/grame-cncm/faust/commit/bbf44bcc16b093615a86771309ab5a79d366fcd0.patch?full_index=1"
+    sha256 "21ddf9f006fe0a98addb94c248b145c1290df4a3abb7650d83293d2ead96e9fe"
+  end
+  patch do
+    url "https://github.com/grame-cncm/faust/commit/d254b879a837ac5eb24c222629804814e810426f.patch?full_index=1"
+    sha256 "5abfa30121d4314247c97955d9e5d7df2cc5ebcdf2e6f0ef6b8b0cee8a998691"
+  end
 
   def install
     # `brew linkage` doesn't like the pre-built Android libsndfile.so for faust2android.
@@ -75,6 +79,9 @@ class Faust < Formula
 
     system "make", "--directory=tools/sound2faust", "PREFIX=#{prefix}"
     system "make", "--directory=tools/sound2faust", "install", "PREFIX=#{prefix}"
+
+    # Remove Windows files
+    rm(Dir[bin/"*.cmd"])
   end
 
   test do
@@ -86,88 +93,3 @@ class Faust < Formula
     system bin/"faust", "noise.dsp"
   end
 end
-
-__END__
-diff --git a/compiler/generator/llvm/llvm_code_container.cpp b/compiler/generator/llvm/llvm_code_container.cpp
-index 827360940b..c1abacb3fa 100644
---- a/compiler/generator/llvm/llvm_code_container.cpp
-+++ b/compiler/generator/llvm/llvm_code_container.cpp
-@@ -90,7 +90,12 @@ void LLVMCodeContainer::init(const string& name, int numInputs, int numOutputs,
-         fBuilder->setFastMathFlags(FMF);
-     }
- 
-+#if LLVM_VERSION_MAJOR >= 21
-+    llvm::Triple TT(llvm::sys::getDefaultTargetTriple());
-+    fModule->setTargetTriple(TT);
-+#else
-     fModule->setTargetTriple(sys::getDefaultTargetTriple());
-+#endif
- }
- 
- LLVMCodeContainer::~LLVMCodeContainer()
-diff --git a/compiler/generator/llvm/llvm_code_container.hh b/compiler/generator/llvm/llvm_code_container.hh
-index e97230a1f8..c0e5c503aa 100644
---- a/compiler/generator/llvm/llvm_code_container.hh
-+++ b/compiler/generator/llvm/llvm_code_container.hh
-@@ -55,7 +55,11 @@ class LLVMCodeContainer : public virtual CodeContainer {
-     template <typename REAL>
-     void generateGetJSON()
-     {
--        LLVMPtrType         string_ptr = llvm::PointerType::get(fBuilder->getInt8Ty(), 0);
-+#if LLVM_VERSION_MAJOR >= 21
-+        LLVMPtrType string_ptr = llvm::PointerType::get(fModule->getContext(), 0);
-+#else
-+        LLVMPtrType string_ptr = llvm::PointerType::get(fBuilder->getInt8Ty(), 0);
-+#endif
-         LLVMVecTypes        getJSON_args;
-         llvm::FunctionType* getJSON_type =
-             llvm::FunctionType::get(string_ptr, makeArrayRef(getJSON_args), false);
-diff --git a/compiler/generator/llvm/llvm_dynamic_dsp_aux.cpp b/compiler/generator/llvm/llvm_dynamic_dsp_aux.cpp
-index d7bca74eea..a6a71e20cf 100644
---- a/compiler/generator/llvm/llvm_dynamic_dsp_aux.cpp
-+++ b/compiler/generator/llvm/llvm_dynamic_dsp_aux.cpp
-@@ -296,7 +296,12 @@ bool llvm_dynamic_dsp_factory_aux::initJIT(string& error_msg)
- 
-     string triple, cpu;
-     splitTarget(fTarget, triple, cpu);
-+#if LLVM_VERSION_MAJOR >= 21
-+    llvm::Triple TT(triple);
-+    fModule->setTargetTriple(TT);
-+#else
-     fModule->setTargetTriple(triple);
-+#endif
- 
-     builder.setMCPU((cpu == "") ? sys::getHostCPUName() : StringRef(cpu));
-     TargetOptions targetOptions;
-@@ -485,7 +490,13 @@ bool llvm_dynamic_dsp_factory_aux::writeDSPFactoryToObjectcodeFileAux(
-     const string& object_code_path)
- {
-     auto TargetTriple = sys::getDefaultTargetTriple();
-+#if LLVM_VERSION_MAJOR >= 21
-+    llvm::Triple TT(TargetTriple);
-+    fModule->setTargetTriple(TT);
-+#else
-     fModule->setTargetTriple(TargetTriple);
-+#endif
-+
-     string Error;
-     auto   Target = TargetRegistry::lookupTarget(TargetTriple, Error);
- 
-diff --git a/compiler/generator/llvm/llvm_instructions.hh b/compiler/generator/llvm/llvm_instructions.hh
-index 9e5b001d41..80dadcef22 100644
---- a/compiler/generator/llvm/llvm_instructions.hh
-+++ b/compiler/generator/llvm/llvm_instructions.hh
-@@ -216,8 +216,13 @@ struct LLVMTypeHelper {
-     LLVMType getInt64Ty() { return llvm::Type::getInt64Ty(fModule->getContext()); }
-     LLVMType getInt1Ty() { return llvm::Type::getInt1Ty(fModule->getContext()); }
-     LLVMType getInt8Ty() { return llvm::Type::getInt8Ty(fModule->getContext()); }
-+#if LLVM_VERSION_MAJOR >= 21
-+    LLVMType getInt8TyPtr() { return llvm::PointerType::get(fModule->getContext(), 0); }
-+    LLVMType getTyPtr(LLVMType type) { return llvm::PointerType::get(fModule->getContext(), 0); }
-+#else
-     LLVMType getInt8TyPtr() { return llvm::PointerType::get(getInt8Ty(), 0); }
-     LLVMType getTyPtr(LLVMType type) { return llvm::PointerType::get(type, 0); }
-+#endif
- 
-     /*
-         Return the pointee type:

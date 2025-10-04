@@ -27,7 +27,7 @@ class SpirvTools < Formula
 
   depends_on "cmake" => :build
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   resource "spirv-headers" do
     # revision number could be found as `spirv_headers_revision` in `./DEPS`

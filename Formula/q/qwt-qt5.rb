@@ -20,6 +20,7 @@ class QwtQt5 < Formula
     sha256 cellar: :any,                 sonoma:         "f99f4ba3c3aec0a92ee319b16bf8478258eecb4fedb0c635a9bbfdb605110adf"
     sha256 cellar: :any,                 ventura:        "2ee3ad50be50bb89db51bc72219f66fde4cb89638bf0f65b39116ca223b26fb3"
     sha256 cellar: :any,                 monterey:       "861ae528a6977db8f7588aa055849d5e45e4dbb36b596313ff76d33da4e56de5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7499edc1cd2721d47889cdd38e30ebefdeb7137090e25eebd1f310a5f6a91cfa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a367f75f804b12fd9f2bd9706a47a0f67cd9862035448063e81d9e8ae1c620e"
   end
 

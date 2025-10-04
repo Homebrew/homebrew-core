@@ -23,6 +23,7 @@ class Mgba < Formula
     sha256 arm64_ventura: "0e89003774f3a0164c890f1732242969cc013b269b037bd01d8b97a3ae4bf4a7"
     sha256 sonoma:        "d56566a7d206c7850126abbcb2c85ea659f995c30efce5886344e27aeca427e7"
     sha256 ventura:       "d90396f1c7b48efb28edfd391a82fc0a6bb83a9dd3046398f8b5a16b66a4eea3"
+    sha256 arm64_linux:   "4010cdf78831d4f4c5a0be25eb02f7acfa31b6e5d7d74dde4bd00247e1d9cb5b"
     sha256 x86_64_linux:  "4ef9822d552b0d2ac6d038f63539af007285ed9132e0098594ebb49ef10278c1"
   end
 

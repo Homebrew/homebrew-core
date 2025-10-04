@@ -1,6 +1,7 @@
 class Bkt < Formula
   desc "CLI utility for caching the output of subprocesses"
-  homepage "https://www.bkt.rs"
+  # Original homepage `https://www.bkt.rs` is down
+  homepage "https://github.com/dimo414/bkt"
   url "https://github.com/dimo414/bkt/archive/refs/tags/0.8.2.tar.gz"
   sha256 "d9128a13070ebc564bcc70210062bdd60eb757fd0f5d075c50e9aa7f714c6562"
   license "MIT"

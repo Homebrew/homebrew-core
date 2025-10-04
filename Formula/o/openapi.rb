@@ -1,22 +1,25 @@
 class Openapi < Formula
   desc "CLI tools for working with OpenAPI, Arazzo and Overlay specifications"
   homepage "https://github.com/speakeasy-api/openapi"
-  url "https://github.com/speakeasy-api/openapi/archive/refs/tags/v1.7.3.tar.gz"
-  sha256 "7fc3a2d7bc02a6b51631b4826da841c46b7235218847df33c761aa43208de346"
+  url "https://github.com/speakeasy-api/openapi/archive/refs/tags/v1.7.7.tar.gz"
+  sha256 "c37d920af829735a68d5ff46f56bf7304f581094a7e7f5fb7b023546685e0254"
   license "MIT"
   head "https://github.com/speakeasy-api/openapi.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1addc2d2f54522553f8e25ba96e5b196290d8c6418d90fce41daac4510fbefda"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1addc2d2f54522553f8e25ba96e5b196290d8c6418d90fce41daac4510fbefda"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1addc2d2f54522553f8e25ba96e5b196290d8c6418d90fce41daac4510fbefda"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8d4af7367d373b8944df8089d6b17542cb11621813cfdf9ae36cd29e72a1c1fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfe76acea35717d7cd1ada23c676f3a7764c368b752e07bc22d0aa8aa9dd847b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c943043f2a9bbef2840aaf89603a255b34e426ae1c0e53e299efb676cb75289"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c943043f2a9bbef2840aaf89603a255b34e426ae1c0e53e299efb676cb75289"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c943043f2a9bbef2840aaf89603a255b34e426ae1c0e53e299efb676cb75289"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f2ac8a521fc4d32a3ad89d376e61dae9afe82a7dd16a95fb85db553f5fb3c8f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48e20752955ef290092756e81115270d12fcbe6e8dc7c26447ee66ba34bee8bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acbae4adf157bcfb26b765f7588ddaafc63fac580081d37e37409b09d2f1c2d2"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -s -w
       -X main.version=#{version}

@@ -15,8 +15,13 @@ class Tinysparql < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "0fc47926316419c41c5623ff0f6466e03a423198e83e2225144a0fcb3c1fa760"
-    sha256 x86_64_linux: "2d862cfd8882149bacc750e7f5fb2e2e34b51f661691d455ec210c99c7d7256a"
+    rebuild 1
+    sha256 arm64_tahoe:   "7d21caab597880797e3387df79d2eb9ccb2cc53d99c70e1831a3d09bbcdbfbfa"
+    sha256 arm64_sequoia: "fd62d5ed2ef69d01a291154d9a8be5d421fd610a42b022ed6c89d551da6f4baf"
+    sha256 arm64_sonoma:  "da029da1c38448dfb3fd53a065ef6785774cfff8dd6e2cf300e1f11c602543f0"
+    sha256 sonoma:        "be75e0ee38822145e345452791d05631a88404bb0dedf7c29d063965fbf80ca3"
+    sha256 arm64_linux:   "9093fffad5890d83dbacc8ce924e9a82146ed7c303d85d71fbd02df576447ecc"
+    sha256 x86_64_linux:  "50bf08823b13e6d15cc0520c101de74d3215d60e6b9150f5cff2272119011142"
   end
 
   depends_on "gettext" => :build
@@ -31,11 +36,13 @@ class Tinysparql < Formula
   depends_on "icu4c@77"
   depends_on "json-glib"
   depends_on "libsoup"
-  depends_on "libxml2"
-  depends_on :linux # macOS fatal error: 'gio/gdesktopappinfo.h' file not found
   depends_on "sqlite"
 
-  conflicts_with "tracker", because: "both install the same libraries"
+  uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     args = %w[

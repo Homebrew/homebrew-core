@@ -19,7 +19,7 @@ class Micropython < Formula
   end
 
   depends_on "pkgconf" => :build
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "python" # Requires libffi v3 closure API
 
   def install

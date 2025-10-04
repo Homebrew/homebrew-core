@@ -1,20 +1,18 @@
 class NagaCli < Formula
   desc "Shader translation command-line tool"
   homepage "https://wgpu.rs/"
-  url "https://static.crates.io/crates/naga-cli/naga-cli-26.0.0.crate"
-  sha256 "df7820e4a2592266352b0052a4d136e39cde35f15786e8916aeef12b35059ddf"
+  url "https://static.crates.io/crates/naga-cli/naga-cli-27.0.0.crate"
+  sha256 "8748068e95ce3aa171573194b8b35a378e28768df86c15982a8369e8384f216d"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/gfx-rs/wgpu.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e9a1525658ac2dd63e9c8cc23c8f9e5159597a9c2500ed29efe3efd0d876facc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9f2498e1f413a4bc408f742f724e6767c7e72e17868001ace66a71526dd1f85"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6e4da1f2ac534171b246dc483316d1ad11da1f00352d526cc8d6cadaad85c8d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0bf20f7dfcc5a6eeb49c490a153ae822051713f0dc11786a91ad2d2b0f94dc6e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f3376c7455a9067e5336ab0f88f307b3b863e0bb155a3b04f24bc52846ee03c9"
-    sha256 cellar: :any_skip_relocation, ventura:       "5f54c8bc5b07866e2ccec3e4c38b7e577be30a7544adc17aea1e5777d1394849"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "14dcd66f883e76f1a27156e671455408595678b72a848d2cf3e116a2b6d49dfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4489ccb0140424404a24634b6087a1ffefa9baa5ca27bcba1b734ce7cd77788b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1dd9804b6401623b8ff702fff266aa45d8838fbbd380e7b80b0394a49b6a704b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c7c363a8a546ce9b02a94d786bd9a1f3bac73c55b8c98aa8ae294670611a7a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abfd0f32fb60ba28b9787987f1ea175e48a89368385003fd981837f737620000"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1418f7a0ac5309e7ba1e0fe33a4e2c19a5a6269831c438f899c83cf5d1a190be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "957cb3b3a1c9558dc252b372fdc097bd05f19dffd3315b45dd9db07b74c186c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "561a995d340b6b5b39a2d122ca2d46931b1c45279747cdec6dd91371d0b62ff8"
   end
 
   depends_on "rust" => :build

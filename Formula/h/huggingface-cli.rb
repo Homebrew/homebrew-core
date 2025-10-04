@@ -3,16 +3,16 @@ class HuggingfaceCli < Formula
 
   desc "Client library for huggingface.co hub"
   homepage "https://huggingface.co/docs/huggingface_hub/guides/cli"
-  url "https://files.pythonhosted.org/packages/f6/42/0e7be334a6851cd7d51cc11717cb95e89333ebf0064431c0255c56957526/huggingface_hub-0.35.1.tar.gz"
-  sha256 "3585b88c5169c64b7e4214d0e88163d4a709de6d1a502e0cd0459e9ee2c9c572"
+  url "https://files.pythonhosted.org/packages/10/7e/a0a97de7c73671863ca6b3f61fa12518caf35db37825e43d63a70956738c/huggingface_hub-0.35.3.tar.gz"
+  sha256 "350932eaa5cc6a4747efae85126ee220e4ef1b54e29d31c3b45c5612ddf0b32a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c7bd4e918d24c4fb3a47ca66d9a9c8a8ad9dd0716fadbd7eab0bb3d5c9457e0a"
-    sha256 cellar: :any,                 arm64_sequoia: "39e6be0168197b224f79d6f666541ee66fda7a6a282d27256b7890c6465abb32"
-    sha256 cellar: :any,                 arm64_sonoma:  "24f83f11139514c7f1e58648e6e4f8ad427264cfefb73929d9b7637b32483b34"
-    sha256 cellar: :any,                 sonoma:        "7db39df2f0e742b24605e6a187bee1ac92c11a1aeff0df55803b0b7cc40c6ae7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2e0b79456252b55a2fccf7b961cf57831cc668a824f8cae7fdc7782b5cd50b9"
+    sha256 cellar: :any,                 arm64_tahoe:   "ab39d6949baf1fe49e6e60e8d38e249303ca1104b37f7fa6515c71bf7a9234e1"
+    sha256 cellar: :any,                 arm64_sequoia: "718b180bb4ca651175a724d478b42025197bc160dd38e0a0437c35f427f11b5b"
+    sha256 cellar: :any,                 arm64_sonoma:  "2640de2857d8f5616ee674d402131c26f3e7a00cebb6f1a94322a7b3ad7fa455"
+    sha256 cellar: :any,                 sonoma:        "023995068194d76280118093e9539753b2be7b27d80fabbcac3abe45027d0302"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1dbf5ea14f4502279c322cd516312b0fb75beb00daac6dc656906429c7f31f2"
   end
 
   depends_on "pkgconf" => :build
@@ -73,8 +73,8 @@ class HuggingfaceCli < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "requests" do

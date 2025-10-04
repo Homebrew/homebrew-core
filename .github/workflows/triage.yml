@@ -430,6 +430,11 @@ jobs:
               keep_if_no_match: true
               allow_any_match: true
 
+            - label: CI-no-bottles
+              path: Formula/p/portable-.+
+              except:
+                - Formula/p/portable-ruby.rb
+
             - label: bump-formula-pr
               pr_body_content: Created with `brew bump-formula-pr`
 
@@ -478,4 +483,3 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr edit --add-label workflows "$PR" --repo "$GITHUB_REPOSITORY"
-

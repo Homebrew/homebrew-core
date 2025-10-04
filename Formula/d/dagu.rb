@@ -1,22 +1,29 @@
 class Dagu < Formula
   desc "Lightweight and powerful workflow engine"
   homepage "https://dagu.cloud"
-  url "https://github.com/dagu-org/dagu/archive/refs/tags/v1.22.5.tar.gz"
-  sha256 "bf5071728cdeaa39b47ddb8aff8c4d068be1d03992beb9c3c0a007d66a8ae920"
+  url "https://github.com/dagu-org/dagu/archive/refs/tags/v1.22.9.tar.gz"
+  sha256 "d67fc8146ff978f3fc1bf7789b14f74f630715d4850f81f777c0869dd187b4a4"
   license "GPL-3.0-only"
+  head "https://github.com/dagu-org/dagu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "26a6657a8feb2b2f319e17f719aedad08e1c0be239283a3467daa728237fd10d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e254701305c2b6b84c976b772cf97b2496c37aecc43d1552cc02f075ef04df01"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd58ae843174c107d6c104ad2f13fad7541573c2254a3a0717d0dd0775f2bbf4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ae2231ffa5fc24e1ad106f21ddd1445937e9b962b8934de89340e82fa7179818"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69cacd095ae7a3db4fbd35327dcfab6a887e5b9bbfd485c23cb9b5f892ebefd6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03c50055b0ae97387dd3ec8a698cf98e27afeef59de6783106782609eb8e1048"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2ab270539638d5cf1dd2e7134971a1c9c4dcf226bc4db697cce1c618df6297f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6e5ca99d323a224ac77dc97cd39c506113250b97cffc6f5c2f09d1993b4e24d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ef4b5f4b6431cb55b35835879607b5cd4676f93134e1bf887cc0baca5b8f72e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a8dfb48128ac41009cafeb103cc31e0d121e4c35081c90f99d00ce995d49a8a"
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "pnpm" => :build
 
   def install
-    ldflags = %W[-s -w -X main.version=#{version}]
+    system "pnpm", "--dir=ui", "install", "--frozen-lockfile"
+    system "pnpm", "--dir=ui", "run", "build"
+    (buildpath/"internal/frontend/assets").install (buildpath/"ui/dist").children
+
+    ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd"
   end
 

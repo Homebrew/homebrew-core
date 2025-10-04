@@ -1,19 +1,17 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://getsops.io/"
-  url "https://github.com/getsops/sops/archive/refs/tags/v3.10.2.tar.gz"
-  sha256 "2f7cfa67f23ccc553538450a1c3e3f7666ec934d94034457b3890dbcd49b0469"
+  url "https://github.com/getsops/sops/archive/refs/tags/v3.11.0.tar.gz"
+  sha256 "0182659099cd6a2fbcb41b507f8cd363667a0d6eb442098f6cebdf4ca8ecd2ac"
   license "MPL-2.0"
   head "https://github.com/getsops/sops.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a91726c39d19e9de0be9dae98239f380bd0b97f58af2f26d23a1a76dac5d938e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94f96e22f7a5e0aa190cd3ad84bd1c69c8a301c82c40c4aa915a7bfd47d3e59b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94f96e22f7a5e0aa190cd3ad84bd1c69c8a301c82c40c4aa915a7bfd47d3e59b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "94f96e22f7a5e0aa190cd3ad84bd1c69c8a301c82c40c4aa915a7bfd47d3e59b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5103c9c60d2e5117114d429e3f488560127788b9bda5463fb4dff972417bd220"
-    sha256 cellar: :any_skip_relocation, ventura:       "5103c9c60d2e5117114d429e3f488560127788b9bda5463fb4dff972417bd220"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86539d39f3aef614e81590fb805a61ffd4112dfd5abca1d35e553da388f3d4dd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52994ee8ae4c40be548d83f52e47549788fe07bb4cb04a9700c605d26b773d7f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52994ee8ae4c40be548d83f52e47549788fe07bb4cb04a9700c605d26b773d7f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52994ee8ae4c40be548d83f52e47549788fe07bb4cb04a9700c605d26b773d7f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fb2334538fae10f195960465f656619f7a123dbe5a7bb21c447715909b14dae5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9557d761c6abc996ce3e66b6411956fcd7c5dd984ee27eb2fe4ad6f0f34f19a"
   end
 
   depends_on "go" => :build

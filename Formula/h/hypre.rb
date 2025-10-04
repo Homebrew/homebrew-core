@@ -1,10 +1,9 @@
 class Hypre < Formula
   desc "Library featuring parallel multigrid methods for grid problems"
   homepage "https://computing.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods"
-  url "https://github.com/hypre-space/hypre/archive/refs/tags/v2.33.0.tar.gz"
-  sha256 "0f9103c34bce7a5dcbdb79a502720fc8aab4db9fd0146e0791cde7ec878f27da"
+  url "https://github.com/hypre-space/hypre/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "d9dbfa34ebd07af1641f04b06338c7808b1f378e2d7d5d547514db9f11dffc26"
   license any_of: ["MIT", "Apache-2.0"]
-  revision 1
   head "https://github.com/hypre-space/hypre.git", branch: "master"
 
   livecheck do
@@ -13,14 +12,12 @@ class Hypre < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "611f26f8b27465513001a968d557b00fbd50c8a0c08d35b47f3673b5540da7d1"
-    sha256 cellar: :any,                 arm64_sequoia: "beb3d2c609d542c1a74709ac01faffc25148b0e052a617342bca693b18241823"
-    sha256 cellar: :any,                 arm64_sonoma:  "03aaacdf60bc773d746538b5e6bc5815481af39d8dbe2b554e75d6f5f32424a2"
-    sha256 cellar: :any,                 arm64_ventura: "324360d183876464b8ccf254e668820d0287b29cfaabcfabc2b228402d9fdbd0"
-    sha256 cellar: :any,                 sonoma:        "dc6ed08e556be37a1f34b5b557e949228826b857a6c29de98fdd4176a5599262"
-    sha256 cellar: :any,                 ventura:       "e7931d4b3a96f1020dd44551449dbc89fa27476cface7366385a1f17e4b4783f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c37c9517a610c9051d5fc5ea268945c2214b06fbf81aa2b51167dd909052bc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7381b210318269b8894f650e2b682fe9bf8751628022553104e3f25d5d3502cb"
+    sha256 cellar: :any,                 arm64_tahoe:   "9e63fd1cc1cb3ea9de65cf75be9f7b37e5fb83f940b5c1338c097deda0b84e93"
+    sha256 cellar: :any,                 arm64_sequoia: "2361e794f4bb241e65415f19b9b0c95de56018c8daf5aa7bd2bdbea397aaedaa"
+    sha256 cellar: :any,                 arm64_sonoma:  "77cb6097397709b6f8b0fe713c2ebfc513734c0c6d5fe99361e8c314f42bebd4"
+    sha256 cellar: :any,                 sonoma:        "39d9063d7149e4afee2b9eb19021a0f6b0d9567634de8e837cf3498a90a8ab06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de5e8eaea0851519ffea47be23ef7f0d53bc928993845e1602db0d95c7efa10c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f12e2544f97757c210e3f6fbf136eec98ba2e33fb338922fbb3ccbab19debf47"
   end
 
   depends_on "cmake" => :build

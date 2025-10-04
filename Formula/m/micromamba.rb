@@ -4,6 +4,7 @@ class Micromamba < Formula
   url "https://github.com/mamba-org/mamba/archive/refs/tags/2.3.2.tar.gz"
   sha256 "c969d189b0263218467b9e3b8922fcad8f7023bd8b5a981edc37e0da27cf953f"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   livecheck do
@@ -14,13 +15,12 @@ class Micromamba < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "eabb36bb5fb86e3de871262890b44d3ff71cab36f3c8c1681d9f1b5157ed5ba7"
-    sha256 cellar: :any,                 arm64_sequoia: "756e227757ad235400883f8e0e56da2f6b91ba874b625d9d8217c9800744bc5d"
-    sha256 cellar: :any,                 arm64_sonoma:  "5ae6ea311236f75eb66b2a2cb2994bf0026508ebf9c92ed92a4ebb33c27cfe5b"
-    sha256 cellar: :any,                 sonoma:        "22539d997ea31eed0c7d89339d05537458b05da8171b28faabac896638a6b587"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d85f21a5fe7fc1fe8fe7e9565bed190be1e86e906c0d36fd49ec08c5c28462f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01019845bc798a18af8a77f9cad79f747ee1ac7ad7c71dd619de752ca3931507"
+    sha256 cellar: :any,                 arm64_tahoe:   "b4ff8d9f562bf93b2a81081aa22b5b78f8408a86983bdf96727d28c8b57e5e9c"
+    sha256 cellar: :any,                 arm64_sequoia: "604f6766e41c6261c3aa963de5ffe64974f06c4516d77c1fcf9353fc22ef25ae"
+    sha256 cellar: :any,                 arm64_sonoma:  "e22355a4e0f06fe8cd16e0a93916f69f03bf7729d000382cc2e4890e29afb515"
+    sha256 cellar: :any,                 sonoma:        "5a684ab2ca9a31569df39f7ffe92c2155efd0a93fbcc9fa29040872900b14ef7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a86410e1891ad9b10c1093d0e17187a9cc7d972678729872c6313ff9a671e3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3de45598e5ffab868f9e1b63665dfef9ae9b7925714d3980bff1c6ac36fbcdbd"
   end
 
   depends_on "cli11" => :build

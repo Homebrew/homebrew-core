@@ -40,7 +40,7 @@ class Inko < Formula
 
   depends_on "rust" => :build
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
 
   def install
     # Avoid statically linking to LLVM

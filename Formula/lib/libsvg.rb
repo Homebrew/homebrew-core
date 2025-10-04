@@ -25,6 +25,7 @@ class Libsvg < Formula
     sha256 cellar: :any,                 monterey:       "4240c3c651800b8f8a25ab51dfa6ed069903e22b5495803633e918a345a74479"
     sha256 cellar: :any,                 big_sur:        "8ec002009c6156b77c475d1841ea2c98224afce021dfb629cdd2dda3cb18d37e"
     sha256 cellar: :any,                 catalina:       "a46a3e610e875c4d3de003a0399a73272970cd89617aacc8eb0fa1257b967208"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8742eac6955fae3493c2b146ed5ac5f00b5ea0803e332ac9a9cbd371d423d1aa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e8c036d685732349dde481452b4cf7c7f478ee075016dffdd66d49e2dc4010a"
   end
 
@@ -48,6 +49,9 @@ class Libsvg < Formula
   patch :DATA
 
   def install
+    # Workaround to avoid segfault on arm64 linux. Upstream isn't actively maintained
+    ENV.append_to_cflags "-include stdlib.h"
+
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"

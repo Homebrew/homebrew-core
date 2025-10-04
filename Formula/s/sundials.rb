@@ -1,8 +1,8 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computing.llnl.gov/projects/sundials"
-  url "https://github.com/LLNL/sundials/releases/download/v7.3.0/sundials-7.3.0.tar.gz"
-  sha256 "fd970a9023f8ea37b81c5065c067bf1726f656b39f5907b48169a6f98d306ba7"
+  url "https://github.com/LLNL/sundials/releases/download/v7.5.0/sundials-7.5.0.tar.gz"
+  sha256 "089ac659507def738b7a65b574ffe3a900d38569e3323d9709ebed3e445adecc"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,12 @@ class Sundials < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "964659b61931a18eef66f7f009f20f5fabce1ab983c2616ae969724a07be9033"
-    sha256 cellar: :any,                 arm64_sequoia: "4ecec4e8bf4e1b6e572703cf17f0bfcb9285455dee39c16e35faa27f99f0fdaf"
-    sha256 cellar: :any,                 arm64_sonoma:  "82594d8cbaef0cbe0900eec063fdba9efc1e4cf03d60e2bac49ae88f098ecd40"
-    sha256 cellar: :any,                 arm64_ventura: "3b657e3cddd3e81ecdf080e08803e88b9f9d8c1266e168f3434f85e85c991910"
-    sha256 cellar: :any,                 sonoma:        "86a6f5675566ea55e2e41371e2d1b6273629bfb0bf9cf2d973a596e4f7965f63"
-    sha256 cellar: :any,                 ventura:       "ad6239a7fc87965e8c83e5c7215c8c952995cd45259d3b88d5dbbe53c5b2f32b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7075989ebd108d0bc53b137af6239174fbd6ccb8aa7e1af0b009be26e3c6aef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd6c4d6a5f8ff05623f58a8739b5aebb6db1aa2e723df0fb0c420174205cec87"
+    sha256 cellar: :any,                 arm64_tahoe:   "bdca6a1965e3c4d23438f226a3538d52d500466e25936a0cb2c6602ce634649f"
+    sha256 cellar: :any,                 arm64_sequoia: "6d96641c4b35e673d83df8cd8a77ec055e656521b34a0913e04c9b66b79131f5"
+    sha256 cellar: :any,                 arm64_sonoma:  "52797bd57e4862acd1dde93475613a8c7928c8f1bc0cbb22c06d25b1e0c9ac6c"
+    sha256 cellar: :any,                 sonoma:        "cf97a4b063dd8ec56ca682bc2aa33444b5cd90e02c82e6b6eb70c3b7b344a531"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e3d8fc19a1cf7cfd31037d7f7899150cc43e19b79eab8af0f1424b6a4cfee8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d46ac702b24f49dc7ae07a1ea2514876806b64c1c1418507f1abe5a7d00d70b"
   end
 
   depends_on "cmake" => :build

@@ -3,31 +3,29 @@ class PipTools < Formula
 
   desc "Locking and sync for Pip requirements files"
   homepage "https://pip-tools.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/33/06/25a48f5f04851c4a5a010e8ce2b0070f19ac514b4d23e7ae687741bdaa76/pip_tools-7.5.0.tar.gz"
-  sha256 "30639f50961bb09f49d22f4389e8d7d990709677c094ce1114186b1f2e9b5821"
+  url "https://files.pythonhosted.org/packages/94/a1/54ac29bdb98660f2b9aeab8c2bf105595614edc7858d899fd4ec1bfaad20/pip_tools-7.5.1.tar.gz"
+  sha256 "a051a94794ba52df9acad2d7c9b0b09ae001617db458a543f8287fea7b89c2cf"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7acba0684730d3cd9953290951850ab5f6705f232603b3a086cb0676f5ab98c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d66a627e42f665671d79a2c998ac6176dab1e872ddd596407150fa853a82c8c2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d66a627e42f665671d79a2c998ac6176dab1e872ddd596407150fa853a82c8c2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d66a627e42f665671d79a2c998ac6176dab1e872ddd596407150fa853a82c8c2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b3bd6ad060fbd2ae18667a3651dcb3f69761b091610ca7ebe56f7184b990f380"
-    sha256 cellar: :any_skip_relocation, ventura:       "b3bd6ad060fbd2ae18667a3651dcb3f69761b091610ca7ebe56f7184b990f380"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "824aace6260a5e016bf0b559693deb7d1c25705f80eb0a15e431e46b35d394f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "824aace6260a5e016bf0b559693deb7d1c25705f80eb0a15e431e46b35d394f3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "603de2533291c3b8102439cce179a4f8248c0225950a5fbeae26600bf3d4b72f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "603de2533291c3b8102439cce179a4f8248c0225950a5fbeae26600bf3d4b72f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "603de2533291c3b8102439cce179a4f8248c0225950a5fbeae26600bf3d4b72f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f2ed503220f618cb22a4ef8344ddc5fdf2678db7209876f0ece795a82a5f47c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f2ed503220f618cb22a4ef8344ddc5fdf2678db7209876f0ece795a82a5f47c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f2ed503220f618cb22a4ef8344ddc5fdf2678db7209876f0ece795a82a5f47c"
   end
 
   depends_on "python@3.13"
 
   resource "build" do
-    url "https://files.pythonhosted.org/packages/7d/46/aeab111f8e06793e4f0e421fcad593d547fb8313b50990f31681ee2fb1ad/build-1.2.2.post1.tar.gz"
-    sha256 "b36993e92ca9375a219c99e606a122ff365a760a2d4bba0caa09bd5278b608b7"
+    url "https://files.pythonhosted.org/packages/25/1c/23e33405a7c9eac261dff640926b8b5adaed6a6eb3e1767d441ed611d0c0/build-1.3.0.tar.gz"
+    sha256 "698edd0ea270bde950f53aed21f3a0135672206f3911e0176261a31e0e07b397"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "packaging" do

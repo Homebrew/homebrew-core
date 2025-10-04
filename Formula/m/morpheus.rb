@@ -19,6 +19,7 @@ class Morpheus < Formula
     sha256                               arm64_ventura: "e30b659545e485356790d7938d5a4af5570584315b9272ca03b7aee3b4219160"
     sha256 cellar: :any,                 sonoma:        "256731739687f46cf2509eb9a3e5f0c7139dea775ce5f8e450b855ef910ac703"
     sha256 cellar: :any,                 ventura:       "00fdbd8f0594d9daca951726618c1275396758a60aac129dc85451af78a7657e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebe312239729e7e3b45e975d1fa6e6c9c69d2107e8e15104c2f735c90af1480f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d216e4cd5fcec17db0a326688795f2ee4e3517379b79b3f94ef0f53a0f56ee3"
   end
 

@@ -34,10 +34,14 @@ class Lolcode < Formula
 
   conflicts_with "lci", because: "both install `lci` binaries"
 
+  # Backport fix for CMake 4 compatibility
+  patch do
+    url "https://github.com/justinmeza/lci/commit/42ac17a22ddce737664b39a50442e6623a7e51a2.patch?full_index=1"
+    sha256 "03b8a8bd907501818d0c7b71444727e6a49143aabd280966bfb5eab7d9fe3fc6"
+  end
+
   def install
-    # Workaround for CMake 4 compatibility
-    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
 
     # Don't use `make install` for this one file

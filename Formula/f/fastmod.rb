@@ -1,5 +1,5 @@
 class Fastmod < Formula
-  desc "Fast partial replacement for the codemod tool"
+  desc "Fast, partial replacement for codemod (find/replace tool for programmers)"
   homepage "https://github.com/facebookincubator/fastmod"
   url "https://github.com/facebookincubator/fastmod/archive/refs/tags/v0.4.4.tar.gz"
   sha256 "b438cc7564ef34d01f27cdd3cd50ee66a9915b9c50939ca021c6bee2e9c1f069"

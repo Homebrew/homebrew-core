@@ -24,7 +24,7 @@ class Verilator < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "perl"
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 

@@ -26,6 +26,7 @@ class QtAT5 < Formula
     sha256 cellar: :any,                 arm64_ventura: "7149d97837f5cecc2a773f32e855f059e7d92b1fe2502a142c97f777acb4fe66"
     sha256 cellar: :any,                 sonoma:        "18882946bb6b34ace4fae1fe0fd53bc94666823b1d8007c7add580d4128d8884"
     sha256 cellar: :any,                 ventura:       "2b768884998655899253a3887c8d01011bd609bc754c5ef897323af5cb4b361d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9907eed9a4529f6dbc095e09244c2fb124fc60bebef4489301cb1ad16456a462"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "343311cd12f13c145f45fcb608b4803a4aebbb1d78914ca7fcd2982feb50303c"
   end
 
@@ -318,6 +319,9 @@ class QtAT5 < Formula
         -webengine-pulseaudio
         -webengine-webp
       ]
+
+      # Chromium in QtWebEngine needs hardware CRC32 support via `-march=armv8-a+crc`
+      ENV.runtime_cpu_detection if Hardware::CPU.arm?
 
       # Homebrew-specific workaround to ignore spurious linker warnings on Linux.
       inreplace "qtwebengine/src/3rdparty/chromium/build/config/compiler/BUILD.gn",

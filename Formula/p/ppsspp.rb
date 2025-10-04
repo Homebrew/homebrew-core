@@ -38,7 +38,7 @@ class Ppsspp < Formula
   depends_on "snappy"
   depends_on "zstd"
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   on_macos do

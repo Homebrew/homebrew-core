@@ -33,7 +33,7 @@ class Thrax < Formula
   depends_on "libtool" => :build
 
   depends_on "openfst"
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   # patch to build with openfst 1.8.4, notified upstream about this patch
   patch :DATA

@@ -2,6 +2,7 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
+  revision 1
 
   stable do
     # Use the `-full` tarball to avoid having to download during the build.
@@ -30,11 +31,11 @@ class Julia < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fb582d9c142ccf0da3df893ef1e016c625824d437679c304aa7fe1a2000be55f"
-    sha256 cellar: :any,                 arm64_sequoia: "45156adbcc7c656297d0851375f6a25f6febf0e78b326fdc1d8d3f16fbb6b805"
-    sha256 cellar: :any,                 arm64_sonoma:  "f164a321b89bc16fac716690a038f3996fffbcfb77b4414e154adcde45014eb0"
-    sha256 cellar: :any,                 sonoma:        "415636e439a802095bb9c3e985a6a76782cdbbca55b7afeebfa58d012a2c62c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6def84d8655c4bdd4d26cd77ca5269bfea6814700cda6b52ac24ea1a77170333"
+    sha256                               arm64_tahoe:   "092333ade2286a1f53bf47faedb9b0ee8305eea073609fb117e4c8b9b341b355"
+    sha256 cellar: :any,                 arm64_sequoia: "f400ba4318e48b993ccd3261b375738121e46453eb74ac79e4b7ff9ba710aaf9"
+    sha256                               arm64_sonoma:  "a1dd60df727b56247a101c3d310c76ef37133efdb46c17681e646f5aefe57f19"
+    sha256 cellar: :any,                 sonoma:        "34cb58cdae7b1eeb7fae86acec027137fc8d6739441e44fe8c4557ef14515e5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ce79c5dc436f8e4de507bb64fa4e34eb5dca8168f146786e765b84fcaf7ac5b"
   end
 
   head do
@@ -53,7 +54,7 @@ class Julia < Formula
   depends_on "libnghttp2"
   depends_on "libssh2"
   depends_on "mpfr"
-  depends_on "openblas"
+  depends_on "openblas64"
   depends_on "openlibm"
   depends_on "p7zip"
   depends_on "pcre2"
@@ -99,11 +100,11 @@ class Julia < Formula
       USE_SYSTEM_UTF8PROC=1
       USE_SYSTEM_ZLIB=1
       VERBOSE=1
-      LIBBLAS=-lopenblas
-      LIBBLASNAME=libopenblas
-      LIBLAPACK=-lopenblas
-      LIBLAPACKNAME=libopenblas
-      USE_BLAS64=0
+      LIBBLAS=-lopenblas64_
+      LIBBLASNAME=libopenblas64_
+      LIBLAPACK=-lopenblas64_
+      LIBLAPACKNAME=libopenblas64_
+      USE_BLAS64=1
       WITH_TERMINFO=0
     ]
 

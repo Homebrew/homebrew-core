@@ -1,8 +1,8 @@
 class Highlight < Formula
   desc "Convert source code to formatted text with syntax highlighting"
   homepage "http://andre-simon.de/doku/highlight/en/highlight.php"
-  url "http://andre-simon.de/zip/highlight-4.16.tar.bz2"
-  sha256 "92261ff5c27c73e7a5c85ab65ada2a2edf8aa3dbe9c9c3d8e82e062088e60e5a"
+  url "http://andre-simon.de/zip/highlight-4.17.tar.bz2"
+  sha256 "d4f7baa98bd162d8f15642793bd7b8671cfa47ad5100707ac609be3ed486ff94"
   license "GPL-3.0-or-later"
   head "https://gitlab.com/saalen/highlight.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Highlight < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "d5a1ccd54b916d9a9c8373084b60a28c3cba706904e423f34a1da8d1a8acdab7"
-    sha256 arm64_sequoia: "d95a78c12eb84a96b8c0f86f26732cc3954c3c22ca04e26edc239d4ec1994b6d"
-    sha256 arm64_sonoma:  "82cb217618b5972d2db87b0f43c318c1bc8cc8c2ba70727e7c2c2ae32896d438"
-    sha256 arm64_ventura: "9a6537b5b06c050ebf31214d45e1eb847a142fd4a5b0ac6a85dcc90a9ebc8d9b"
-    sha256 sonoma:        "7450160afce596059f8fa53fbbf5ac8109daa02a0661e8da45e99bd390687a1a"
-    sha256 ventura:       "8793ec0f67ab499584dc2b6fdcb733dc2942c4b792f51ef4f8108fdd00d9e22f"
-    sha256 arm64_linux:   "74bb1ff6983985224abf7647b6d2f6c1b22eaf2b0a906a4e10142d926b5a2265"
-    sha256 x86_64_linux:  "114786274b25fad2abd81d7796f40d38d2e458ece83028fbd0a23b918d56dc2d"
+    sha256 arm64_tahoe:   "343f80fc682d1fd48c363b8ab191efb2662ce4cd9c6e43655fadb31f0f28f605"
+    sha256 arm64_sequoia: "94f2843502337c67babc7ce4be21990ef1fc1ed3ff24847967b71e7c4988b9b6"
+    sha256 arm64_sonoma:  "0b871ffd87c3918b8df26b5a4ca6af61db22210ff541854870ee92bf04489ce4"
+    sha256 sonoma:        "7a85c8e3c499f88875352cb4682aef9358cdf125f386b0aa2be05c9c27bd0950"
+    sha256 arm64_linux:   "d38c3ecc73ff7f51bd820e7e335d871b260e6effce061dd9f645d8dbce18d394"
+    sha256 x86_64_linux:  "99dee84c59601cf891420f24fb3e27db25f9ea7415a2e88161ea3ed3f901252b"
   end
 
   depends_on "boost" => :build

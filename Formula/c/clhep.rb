@@ -1,33 +1,25 @@
 class Clhep < Formula
   desc "Class Library for High Energy Physics"
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
-  url "https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.7.1.tgz"
-  sha256 "1c8304a7772ac6b99195f1300378c6e3ddf4ad07c85d64a04505652abb8a55f9"
+  url "https://gitlab.cern.ch/CLHEP/CLHEP/-/archive/CLHEP_2_4_7_2/CLHEP-CLHEP_2_4_7_2.tar.gz"
+  sha256 "c40c239fa2c5810b60f4e9ddd6a8cc2ce81b962aa170994748cd2a2b5ac87f84"
   license "GPL-3.0-only"
   head "https://gitlab.cern.ch/CLHEP/CLHEP.git", branch: "develop"
 
-  livecheck do
-    url :homepage
-    regex(%r{atest release.*?<b>v?(\d+(?:\.\d+)+)</b>}im)
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "f5f65d6a038d43f07b9dfadd2303293a72aa6756a021452863ef4bf1e9f98074"
-    sha256 cellar: :any,                 arm64_sequoia:  "8e9dd4065ed1dfa0f4542454189540d428093451a913bd59ccfda465c51ffd47"
-    sha256 cellar: :any,                 arm64_sonoma:   "0e69dfb6c076d3b6c87ff2fa67018eabf9e2d33ecfcc60505e614958a8baa748"
-    sha256 cellar: :any,                 arm64_ventura:  "7394489e65b6b3b4eb7af0878e70fa4d77a93ff343093594cb591022cf193239"
-    sha256 cellar: :any,                 arm64_monterey: "f46bbb06f3914fe69fa4e59c1eba50702765c0143f3f0b5fbc974ca1e53fae20"
-    sha256 cellar: :any,                 sonoma:         "cbcacb7078f9300077e8f44c0dc740e9fd61e3b4605459f46c5fba0839896375"
-    sha256 cellar: :any,                 ventura:        "970da332b593e58aa660a15ace387d67cc281dcf9acaf06282902bb3086e13fc"
-    sha256 cellar: :any,                 monterey:       "d2fffe1750260f11c55af6d2c5d8aac74721ef309f0d8d475e38f48200489619"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "122fc5a8546dd1f571eb0f687962c74adf74c8f4593e388a19293a6b7e19f496"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb0cb80110d08ad05f90f16b7186651d15288c3ab770121ae1edfa45ce9b88c9"
+    sha256 cellar: :any,                 arm64_tahoe:   "cf183afa1e10e5cf5a22b0c8e56acd6dc3ee832cb38abc08c4f65ccc6d61be32"
+    sha256 cellar: :any,                 arm64_sequoia: "4d6bda58d173b42913d91dded7b7ad721b358260a8382934fafdb464cafbc786"
+    sha256 cellar: :any,                 arm64_sonoma:  "3645180de75c594150af1353381b28d732b2d75944a6110d67d4d9ae408de220"
+    sha256 cellar: :any,                 sonoma:        "820fbd323a9a40b44053ae03d2c0598df6d8d5b58fcefe07ff4dd1fdb4704d52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf31c521a79cc3bff39ab122f7ae26bbea6b4e5d5304df4420378a90ad7388ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08488a8b36a245edbb41e6f91f84e8a264d6f4cf35fc1e0b89041bd37f3c44fd"
   end
 
   depends_on "cmake" => :build
 
   def install
-    (buildpath/"CLHEP").install buildpath.children if build.head?
+    # Build directory is not allowed inside source folder
+    (buildpath/"CLHEP").install buildpath.children
     system "cmake", "-S", "CLHEP", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

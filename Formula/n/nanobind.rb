@@ -52,7 +52,7 @@ class Nanobind < Formula
       cmake_minimum_required(VERSION 3.27)
       project(test_nanobind)
 
-      find_package(Python #{python_version} COMPONENTS Interpreter Development.Module REQUIRED)
+      find_package(Python #{python_version} EXACT COMPONENTS Interpreter Development.Module REQUIRED)
 
       if(FIND_NANOBIND_USING_PYTHON)
         execute_process(

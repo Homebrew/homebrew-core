@@ -1,19 +1,17 @@
 class Libnotify < Formula
   desc "Library that sends desktop notifications to a notification daemon"
   homepage "https://gitlab.gnome.org/GNOME/libnotify"
-  url "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.6.tar.xz"
-  sha256 "c5540aaefb60e1d63b1c587c05f2284ebe72ece7d0c0e5e4a778cfd5844b6b58"
+  url "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.7.tar.xz"
+  sha256 "4be15202ec4184fce1ac15997ece5530d2be32fe9573875aeb10e3b573858748"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "37130f7d7162f24437752470ce7fd08b17c1445861322e2b5d8e9b35bb853478"
-    sha256 cellar: :any, arm64_sequoia: "ea69f7b5455c3a6541cf0860074b7b6e3e68e6bbb48c64cb4cc6221e6ce8dde9"
-    sha256 cellar: :any, arm64_sonoma:  "ebea4c89f379ab596f73e8613cdb45085b91995f8ab225b22abc9143ef3418c6"
-    sha256 cellar: :any, arm64_ventura: "d4c06f68f3f4fd97e56695bb166a806488f78ccd6d677d943d2a49bde302aef7"
-    sha256 cellar: :any, sonoma:        "d6a909e188f2dff4caa76a5c8cdc1204cb8b8e6cf752cefb5dd8e25b19be774f"
-    sha256 cellar: :any, ventura:       "75bab3ee807d8c9f36a039b973279f8e154bd29d9a2cbcf533141b82bced5450"
-    sha256               arm64_linux:   "995dc473382763e33a51546b3ae69ba723c5cb5815e1a5f688f9c17e62ba9b42"
-    sha256               x86_64_linux:  "f040cf5598067f5d9af35c90bd5df9520f5a3d422c78a1b0fd01c01ddcbee021"
+    sha256 cellar: :any, arm64_tahoe:   "432a1a5516773598e091d855d0ea1794d18465685c8b0c7bc634b0298440fb19"
+    sha256 cellar: :any, arm64_sequoia: "ae0b1cb150777c646427142e8b1c1bee766e0494a2dcb57304d56ce2fc4d96a6"
+    sha256 cellar: :any, arm64_sonoma:  "a3d7d0aa240cc2e3239448a84b2345b6e92dd5992e40be29e66b916a2c7a34a0"
+    sha256 cellar: :any, sonoma:        "c5f342a40d5eb2daea339a3321f600e0fe134926f51ecb13b18022727cd2f0fe"
+    sha256               arm64_linux:   "6964c240d0cbcd83d519a48cb96773fe9537374c35324f5e2cc1ca8451899a53"
+    sha256               x86_64_linux:  "0fbf7d4e76fec144b95d570657b493bc41d4cac2cab6482038455f35b7ea9f43"
   end
 
   depends_on "docbook-xsl" => :build
@@ -28,6 +26,14 @@ class Libnotify < Formula
 
   on_macos do
     depends_on "gettext"
+  end
+
+  # Do not include <gio/gdesktopappinfo.h> header
+  # on the platforms that do not support it (i.e. macOS)
+  # https://gitlab.gnome.org/GNOME/libnotify/-/merge_requests/53
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libnotify/-/commit/13de65ad2a76255ffde5d6da91d246cd7226583b.diff"
+    sha256 "243f8b03abb80bbd9df9d69f4883ee249b44d6260fbf7bc2e54c9f612f478c59"
   end
 
   def install

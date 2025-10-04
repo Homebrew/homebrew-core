@@ -32,7 +32,7 @@ class NodeAT16 < Formula
   uses_from_macos "zlib"
 
   # node-gyp bundled in npm does not support Python 3.12.
-  on_system :linux, macos: :mojave_or_older do
+  on_linux do
     depends_on "python@3.11"
   end
 
@@ -98,9 +98,7 @@ class NodeAT16 < Formula
     # make sure npm can find node
     ENV.prepend_path "PATH", opt_bin
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
-    if OS.linux? || (OS.mac? && MacOS.version <= :mojave)
-      ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
-    end
+    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin" if OS.linux?
     assert_equal which("node"), opt_bin/"node"
     assert_path_exists bin/"npm", "npm must exist"
     assert_predicate bin/"npm", :executable?, "npm must be executable"

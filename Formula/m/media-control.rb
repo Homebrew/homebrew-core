@@ -26,6 +26,7 @@ class MediaControl < Formula
   end
 
   test do
-    system bin/"media-control", "get"
+    assert_match version.to_s, shell_output("#{bin}/media-control version")
+    system bin/"media-control", "test"
   end
 end

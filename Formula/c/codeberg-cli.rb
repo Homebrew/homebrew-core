@@ -1,18 +1,18 @@
 class CodebergCli < Formula
   desc "CLI for Codeberg"
   homepage "https://codeberg.org/Aviac/codeberg-cli"
-  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.5.0.tar.gz"
-  sha256 "61ef60a161e77b81cda5fcb0c2878f8d2a8acb7d47b8e9d319ba1e773644f1df"
+  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.5.1.tar.gz"
+  sha256 "6f91dd631ec630d7b558abcc783757ea189e934aee5ea645691268f859d0c197"
   license "AGPL-3.0-or-later"
   head "https://codeberg.org/Aviac/codeberg-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "799c3a3470daf5688ffd618b60d745e84cfe20c85e65091021ac1aaa67349db0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c77f7b8ad61876c63da8fb21d00e5f6954566f582aba19f14b3e1bb0d832991"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a08fdb239a93dfa87775798a1eb4f1d395aa08a31e90a04f6243dd6d2ea78337"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0b1f5170503ce10eb5110a532be31a23c3ba44c211df6f685c4f334343cebf27"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "25a03ecb3864db2a9a98390bba56f8c1531fe5c9421d96ef453deb9490baca3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b460065020e4d7f5bffc93fbe3babd6146a9001758c4cfcd58c889339f068d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91efe8b40f25e6644cc11fd3be27808838492721f99a5ed795f609dc1c3cf7a7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "323ef96918f9740c6e431bfbc748326684ed9d4f421b982da6da272dbc8f1dc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fc01fcd334144beb505210380e83dd7514146db1d31fce07887b6d57d894280"
+    sha256 cellar: :any_skip_relocation, sonoma:        "222220b93d6966eeec23533a3854e5f75fb75c8a95e460a32434a57ff20f8809"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6c32a32a1d231c45e72cde7ee83d0204a36e7d8296473370a5ee09a4793767f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b0183090aff316d6d089bba04b428e0f96a3838de815fca3308ec1be70f2430"
   end
 
   depends_on "pkgconf" => :build
@@ -32,7 +32,7 @@ class CodebergCli < Formula
 
     assert_match "Successfully created berg config", shell_output("#{bin}/berg config generate")
 
-    output = shell_output("#{bin}/berg repo info Aviac/codeberg-cli 2>&1")
+    output = shell_output("#{bin}/berg repo info Aviac/codeberg-cli 2>&1", 1)
     assert_match "Couldn't find login data", output
   end
 end

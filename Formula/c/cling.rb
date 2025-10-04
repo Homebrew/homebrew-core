@@ -29,7 +29,7 @@ class Cling < Formula
 
   depends_on "cmake" => :build
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "libedit"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"

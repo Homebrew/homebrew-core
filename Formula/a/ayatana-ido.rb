@@ -20,14 +20,17 @@ class AyatanaIdo < Formula
   depends_on "gobject-introspection" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "vala" => :build
-  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "harfbuzz"
   depends_on "pango"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
 
   def install
     args = %w[-DENABLE_TESTS=OFF]

@@ -1,6 +1,6 @@
 class Mpfrcx < Formula
   desc "Arbitrary precision library for arithmetic of univariate polynomials"
-  homepage "https://www.multiprecision.org/mpfrcx/home.html"
+  homepage "https://www.multiprecision.org/mpfrcx/"
   url "https://www.multiprecision.org/downloads/mpfrcx-0.6.3.tar.gz"
   sha256 "9da9b3614c0a3e00e6ed2b82fc935d1c838d97074dc59cb388f8fafbe3db8594"
   license "GPL-3.0-or-later"

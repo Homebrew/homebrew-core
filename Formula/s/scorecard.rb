@@ -2,8 +2,8 @@ class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://github.com/ossf/scorecard"
   url "https://github.com/ossf/scorecard.git",
-      tag:      "v5.2.1",
-      revision: "ab2f6e92482462fe66246d9e32f642855a691dc1"
+      tag:      "v5.3.0",
+      revision: "c22063e786c11f9dd714d777a687ff7c4599b600"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
@@ -16,13 +16,11 @@ class Scorecard < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b8d3306cdddbbf13157585b55c120a26aef6cce2cf001913d46599a730191865"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d7c8ecd2f3e9ae735e3c48c7984f1b48d32007a6faeb4c54319decb5042988f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d7c8ecd2f3e9ae735e3c48c7984f1b48d32007a6faeb4c54319decb5042988f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0d7c8ecd2f3e9ae735e3c48c7984f1b48d32007a6faeb4c54319decb5042988f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3e31a900dcff23bde75e4dd5677ec17d63c880424be1fb767921a74d2ccd5e21"
-    sha256 cellar: :any_skip_relocation, ventura:       "3e31a900dcff23bde75e4dd5677ec17d63c880424be1fb767921a74d2ccd5e21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "283d4f6eb3d27bd224130ced139af7a22fa4a0044eb72411e314a6e3ae7ea589"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "351c496a03c888ef7ff69146b9264e8f40a583dc16f23e105c3a0f17b685467e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "351c496a03c888ef7ff69146b9264e8f40a583dc16f23e105c3a0f17b685467e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "351c496a03c888ef7ff69146b9264e8f40a583dc16f23e105c3a0f17b685467e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "33bc563cc092decdd46e997eb9232535cb306efbac542a29509ade0aaa75ab9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48c59c9037ece6a45bf092e71ab9e75646f2e93df8f7bcc05a9e417be2e1e910"
   end
 
   depends_on "go" => :build

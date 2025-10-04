@@ -10,15 +10,18 @@ class Pgstream < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "95946a3526e6251f6651ce5cb832b62aa656f72dc178677ec457a1f6ebf4f57e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95946a3526e6251f6651ce5cb832b62aa656f72dc178677ec457a1f6ebf4f57e"
     sha256 cellar: :any_skip_relocation, sonoma:        "168246a74a19417fab36371d8783f7bc3e110dc8263d616a757e5082d7a06ea8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bbe9f6f1e553eed56a423cddd5f51dc471c7b2df1e8369bd5f27f2d5c1e879ff"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "544424f595746b673a96b1a60684eced9bed5ce61e6de3edfd43e2c58f246f44"
   end
 
   depends_on "go" => :build
-  depends_on "postgresql@17" => :test
+  depends_on "postgresql@18" => :test
   depends_on "wal2json" => :test
 
   def install
-    ldflags = %W[-X github.com/xataio/pgstream/cmd.Version=#{version}]
+    ENV["CGO_ENABLED"] = "0" if OS.linux? && Hardware::CPU.arm?
+
+    ldflags = "-s -w -X github.com/xataio/pgstream/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
   end
 
@@ -27,7 +30,7 @@ class Pgstream < Formula
 
     ENV["LC_ALL"] = "C"
 
-    postgresql = Formula["postgresql@17"]
+    postgresql = Formula["postgresql@18"]
     pg_ctl = postgresql.opt_bin/"pg_ctl"
     port = free_port
 

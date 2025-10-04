@@ -29,7 +29,7 @@ class P11Kit < Formula
   depends_on "ca-certificates"
   depends_on "libtasn1"
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
 
   def install
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1

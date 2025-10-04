@@ -4,6 +4,7 @@ class IncludeWhatYouUse < Formula
   url "https://include-what-you-use.org/downloads/include-what-you-use-0.25.src.tar.gz"
   sha256 "be81f9d5498881462465060ddc28b587c01254255c706d397d1a494d69eb5efd"
   license "NCSA"
+  revision 1
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
@@ -16,12 +17,13 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "98c00c4267b68a7d1d7650cefdd41d3f14946f689f544c150684ba94044c4176"
-    sha256 arm64_sequoia: "e7796887269100ce17a7fd7f1f2d7d3a21a2400bf139930316783aaae3279a91"
-    sha256 arm64_sonoma:  "4413bdbe8dad5c421d4c73129d35a505ea82e2c667888f94477a9e60cec06ba6"
-    sha256 sonoma:        "2e9b3c08f005502a54aa1423710b48365aacc26425bae1c323ea160155824c09"
-    sha256 arm64_linux:   "2e4362a4b9969a76fe629ea7652c26905539643992e0b72312f95f1267f6d538"
-    sha256 x86_64_linux:  "1acf1c3309c6ac3e4730fe8c691fb80fb5191b6e2d0cad5132359895e148f13a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "febb29971c3e8ec198cc46aab490b9d5a1b1f9897618ab0c08d571fc7e405e24"
+    sha256 cellar: :any,                 arm64_sequoia: "213bdf2e2a8094c3f9e80f9453529e459075b00667aa3869488ca330633c8d7e"
+    sha256 cellar: :any,                 arm64_sonoma:  "ce1afe4cf2eda64076bcecc7ac53578564fded555d6786ab46b5b26fd8022679"
+    sha256 cellar: :any,                 sonoma:        "5525b7f43377fd15a36821b00c8fcda1cffa466315fc189881cd843e6a14ec54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c63e00abc6b27ee41877b9dab66a79f961be696bd0899649dc48c4e7ba02a9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33758f6714ab8c29596918913cd70a1f162406e4ea2c161ba5a55f932bf4d90c"
   end
 
   depends_on "cmake" => :build
@@ -34,33 +36,17 @@ class IncludeWhatYouUse < Formula
   end
 
   def install
-    # FIXME: CMake stripped out our `llvm` rpath; work around that.
+    resource_dir = Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp
+    resource_dir.sub! llvm.prefix.realpath, llvm.opt_prefix
+
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath(source: libexec/"bin", target: llvm.opt_lib)}
+      -DIWYU_RESOURCE_RELATIVE_TO=iwyu
+      -DIWYU_RESOURCE_DIR=#{Pathname(resource_dir).relative_path_from(bin)}
     ]
 
-    # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
-    # so install to libexec to ensure that the resource path, which is always
-    # computed relative to the location of the include-what-you-use executable
-    # and is not configurable, is also located under libexec.
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec), *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    bin.write_exec_script libexec.glob("bin/*")
-    man1.install_symlink libexec.glob("share/man/man1/*")
-
-    # include-what-you-use needs a copy of the clang and libc++ headers to be
-    # located in specific folders under its resource path. These may need to be
-    # updated when new major versions of llvm are released, i.e., by
-    # incrementing the version of include-what-you-use or the revision of this
-    # formula. This would be indicated by include-what-you-use failing to
-    # locate stddef.h and/or stdlib.h when running the test block below.
-    # https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
-    (libexec/"lib").mkpath
-    ln_sf (llvm.opt_lib/"clang").relative_path_from(libexec/"lib"), libexec/"lib"
-    (libexec/"include").mkpath
-    ln_sf (llvm.opt_include/"c++").relative_path_from(libexec/"include"), libexec/"include"
   end
 
   test do

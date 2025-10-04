@@ -1,8 +1,8 @@
 class Testkube < Formula
   desc "Kubernetes-native framework for test definition and execution"
   homepage "https://testkube.io"
-  url "https://github.com/kubeshop/testkube/archive/refs/tags/v2.2.6.tar.gz"
-  sha256 "54a936519598d52136e69b9cb523c963945ac4db8a6811f477b70dd005d7c26e"
+  url "https://github.com/kubeshop/testkube/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "cf8d2519691e7d3c05be796ef6404c3d711c544a803180842a2563cb998ceb75"
   license "MIT"
   head "https://github.com/kubeshop/testkube.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Testkube < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "928ce94e9e343d80107e7088f17ad283ad7b072a6dc5d44cc622f5e93caf47bf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "928ce94e9e343d80107e7088f17ad283ad7b072a6dc5d44cc622f5e93caf47bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "928ce94e9e343d80107e7088f17ad283ad7b072a6dc5d44cc622f5e93caf47bf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "83650968582a3798e44373bc98ca5e93e19211a54e04946b62eac9aa041ff5e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20646e711890b076e8c2394cb352e59c9ea7f8a56bcc594196bd7f1e49a5e2f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6b3c1dfb3c4cd6d6528ffdf474fd2c1d832aadc9e037be0e8ee65bf021e9fb4d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b3c1dfb3c4cd6d6528ffdf474fd2c1d832aadc9e037be0e8ee65bf021e9fb4d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b3c1dfb3c4cd6d6528ffdf474fd2c1d832aadc9e037be0e8ee65bf021e9fb4d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "01e0c5489fdea3cf4b51f71564d61564868f89bc46a257354d15829f1b7f8601"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6e9540598fed819983a2196a3d0f7648a073d961162466aa410380a63f8a35b"
   end
 
   depends_on "go" => :build

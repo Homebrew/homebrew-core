@@ -17,12 +17,13 @@ class Checkov < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3bb43a8ce603c12086cc184d4cd5bd8ed860d806d1cc77fbd34b8692214f042f"
-    sha256 cellar: :any,                 arm64_sequoia: "1e42a25258eac102fb7d6b67890918d5cf4fafedf6381c3e7b39b410a3c57168"
-    sha256 cellar: :any,                 arm64_sonoma:  "ee7975e55c4153b714df9bfd06aa5af3273a4caac56c7b92be7d1dc82192ffba"
-    sha256 cellar: :any,                 sonoma:        "52ff0641a6bd7404ce421fe5d1e6a713b1bd8b35f08bb5bb6da054dd9e330738"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c4b7496bdff6fd754bcb332398ffa45ef3c1c6fd60cdd93892e72beda42e258"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "233c58695c451c54ecae50868fede5aa2768e62773711130cbe9853c19588949"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8dd1a49d02ec3397aa699b1cd727ae53ca772955e0913277a5e87b3f4ee2f9f3"
+    sha256 cellar: :any,                 arm64_sequoia: "04164a1f0692050b36eb20b903fb014680c9a8864be3b23128e762d0ad15ade3"
+    sha256 cellar: :any,                 arm64_sonoma:  "c8a0393e9908b3837a58d5bb56a655940e99fff2d2c29f62d2878e89fa2bd206"
+    sha256 cellar: :any,                 sonoma:        "5f808a5e8cc2e79b5bf18f3b36ba4dfa80b95f016efb18f6fcee4b48e1c4d0a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93deeb7d032aa27b16f2d0760ec0fedaee317bfd1196ad2d2e4d942ab5cb3225"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3cb84e31252cab084fd88cc307d9dbb6fd96e11e68f46f0fc1569b60b53f717"
   end
 
   depends_on "cmake" => :build # for igraph
@@ -385,8 +386,8 @@ class Checkov < Formula
   end
 
   resource "rustworkx" do
-    url "https://github.com/Qiskit/rustworkx/archive/refs/tags/0.17.1.tar.gz"
-    sha256 "dc248da9cc364b81ac67f5d67b626ee3f03a1f6299f7a9b4d0a0501548715365"
+    url "https://files.pythonhosted.org/packages/e7/b0/66d96f02120f79eeed86b5c5be04029b6821155f31ed4907a4e9f1460671/rustworkx-0.17.1.tar.gz"
+    sha256 "59ea01b4e603daffa4e8827316c1641eef18ae9032f0b1b14aa0181687e3108e"
   end
 
   resource "s3transfer" do
