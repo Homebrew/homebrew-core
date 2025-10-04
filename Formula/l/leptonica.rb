@@ -30,6 +30,10 @@ class Leptonica < Formula
   uses_from_macos "zlib"
 
   def install
+    if OS.linux?
+      ENV.append "CFLAGS", "-fPIC"
+      ENV.append "CXXFLAGS", "-fPIC"
+    end
     system "./configure", "--with-libwebp", "--with-libopenjpeg", *std_configure_args
     system "make", "install"
   end
