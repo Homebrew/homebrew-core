@@ -4,7 +4,7 @@ class CeresSolver < Formula
   url "http://ceres-solver.org/ceres-solver-2.2.0.tar.gz"
   sha256 "48b2302a7986ece172898477c3bcd6deb8fb5cf19b3327bc49969aad4cede82d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://ceres-solver.googlesource.com/ceres-solver.git", branch: "master"
 
   livecheck do
