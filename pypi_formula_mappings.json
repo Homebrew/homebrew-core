@@ -827,6 +827,10 @@
   "pytr": {
     "exclude_packages": ["certifi"]
   },
+  "qtwebengine": {
+    "package_name": "",
+    "extra_packages": ["html5lib"]
+  },
   "rasterio": {
     "exclude_packages": ["certifi", "numpy"]
   },
