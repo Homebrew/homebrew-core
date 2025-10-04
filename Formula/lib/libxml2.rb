@@ -1,23 +1,9 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
+  url "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.0.tar.xz"
+  sha256 "5abc766497c5b1d6d99231f662e30c99402a90d03b06c67b62d6c1179dedd561"
   license "MIT"
-
-  stable do
-    url "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.8.tar.xz"
-    sha256 "277294cb33119ab71b2bc81f2f445e9bc9435b893ad15bb2cd2b0e859a0ee84a"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-
-    # Fix pkg-config checks for libicuuc. Patch taken from:
-    # https://gitlab.gnome.org/GNOME/libxml2/-/commit/b57e022d75425ef8b617a1c3153198ee0a941da8
-    # When the patch is no longer needed, remove along with the `stable` block
-    # and the autotools dependencies above. Also uncomment `if build.head?`
-    # condition in the `install` block.
-    patch :DATA
-  end
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -48,9 +34,6 @@ class Libxml2 < Formula
   keg_only :provided_by_macos
 
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => [:build, :test]
-  depends_on "python@3.13" => [:build, :test]
   depends_on "icu4c@77"
   depends_on "readline"
 
@@ -61,12 +44,6 @@ class Libxml2 < Formula
         .to_formula
   end
 
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
-
   def install
     # Work around build failure due to icu4c 75+ adding -std=c11 to installed
     # files when built without manually setting "-std=" in CFLAGS. This causes
@@ -74,7 +51,7 @@ class Libxml2 < Formula
     # nanohttp.c:1019:42: error: invalid use of undefined type 'struct addrinfo'
     ENV.append "CFLAGS", "-std=gnu11" if OS.linux?
 
-    system "autoreconf", "--force", "--install", "--verbose" # if build.head?
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
                           "--with-history",
@@ -82,7 +59,6 @@ class Libxml2 < Formula
                           "--with-icu",
                           "--with-legacy", # https://gitlab.gnome.org/GNOME/libxml2/-/issues/751#note_2157870
                           "--without-lzma",
-                          "--without-python",
                           *std_configure_args
     system "make", "install"
 
@@ -98,29 +74,6 @@ class Libxml2 < Formula
       inreplace lib/"pkgconfig/libxml-2.0.pc",
                 /^Requires\.private:(.*)\bicu-uc\b(.*)$/,
                 "Requires.private:\\1#{icu_uc_pc}\\2"
-    end
-
-    sdk_include = if OS.mac?
-      sdk = MacOS.sdk_path_if_needed
-      sdk/"usr/include" if sdk
-    else
-      HOMEBREW_PREFIX/"include"
-    end
-
-    includes = [include, sdk_include].compact.map do |inc|
-      "'#{inc}',"
-    end.join(" ")
-
-    # We need to insert our include dir first
-    inreplace "python/setup.py", "includes_dir = [",
-                                 "includes_dir = [#{includes}"
-
-    # Needed for Python 3.12+.
-    # https://github.com/Homebrew/homebrew-core/pull/154551#issuecomment-1820102786
-    with_env(PYTHONPATH: buildpath/"python") do
-      pythons.each do |python|
-        system python, "-m", "pip", "install", *std_pip_args, "./python"
-      end
     end
   end
 
@@ -149,35 +102,9 @@ class Libxml2 < Formula
     system ENV.cc, "test.c", "-o", "test", *args
     system "./test"
 
-    pythons.each do |python|
-      with_env(PYTHONPATH: prefix/Language::Python.site_packages(python)) do
-        system python, "-c", "import libxml2"
-      end
-    end
-
     # Make sure cellar paths are not baked into these files.
     [bin/"xml2-config", lib/"pkgconfig/libxml-2.0.pc"].each do |file|
       refute_match HOMEBREW_CELLAR.to_s, file.read
     end
   end
 end
-
-__END__
-diff --git a/configure.ac b/configure.ac
-index c6dc93d58f84f21c4528753d2ee1bc1d50e67ced..e7bad24d8f1aa7659e1aa4e2ad1986cc2167483b 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -984,10 +984,10 @@ if test "$with_icu" != "no" && test "$with_icu" != "" ; then
-
-     # Try pkg-config first so that static linking works.
-     # If this succeeeds, we ignore the WITH_ICU directory.
--    PKG_CHECK_MODULES([ICU], [icu-i18n], [
--        WITH_ICU=1; XML_PC_REQUIRES="${XML_PC_REQUIRES} icu-i18n"
-+    PKG_CHECK_MODULES([ICU], [icu-uc], [
-+        WITH_ICU=1; XML_PC_REQUIRES="${XML_PC_REQUIRES} icu-uc"
-         m4_ifdef([PKG_CHECK_VAR],
--            [PKG_CHECK_VAR([ICU_DEFS], [icu-i18n], [DEFS])])
-+            [PKG_CHECK_VAR([ICU_DEFS], [icu-uc], [DEFS])])
-         if test "x$ICU_DEFS" != "x"; then
-             ICU_CFLAGS="$ICU_CFLAGS $ICU_DEFS"
-         fi],[:])
