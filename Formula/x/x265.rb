@@ -38,6 +38,7 @@ class X265 < Formula
     ENV.runtime_cpu_detection
     # Build based off the script at ./build/linux/multilib.sh
     args = %W[
+      -DENABLE_ALPHA=ON
       -DLINKED_10BIT=ON
       -DLINKED_12BIT=ON
       -DEXTRA_LINK_FLAGS=-L.
@@ -47,6 +48,7 @@ class X265 < Formula
     args << "-DENABLE_SVE2=OFF" if OS.linux? && Hardware::CPU.arm?
     args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5" # FIXME: Workaround for CMake 4.
     high_bit_depth_args = %w[
+      -DENABLE_ALPHA=ON
       -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF
       -DENABLE_SHARED=OFF -DENABLE_CLI=OFF
     ]
