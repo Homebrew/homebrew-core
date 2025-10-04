@@ -35,6 +35,7 @@ class Julia < Formula
     sha256 cellar: :any,                 arm64_sequoia: "f400ba4318e48b993ccd3261b375738121e46453eb74ac79e4b7ff9ba710aaf9"
     sha256                               arm64_sonoma:  "a1dd60df727b56247a101c3d310c76ef37133efdb46c17681e646f5aefe57f19"
     sha256 cellar: :any,                 sonoma:        "34cb58cdae7b1eeb7fae86acec027137fc8d6739441e44fe8c4557ef14515e5e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6def84d8655c4bdd4d26cd77ca5269bfea6814700cda6b52ac24ea1a77170333"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ce79c5dc436f8e4de507bb64fa4e34eb5dca8168f146786e765b84fcaf7ac5b"
   end
 
@@ -108,11 +109,13 @@ class Julia < Formula
       WITH_TERMINFO=0
     ]
 
+    args << "TAGGED_RELEASE_BANNER=Built by #{tap&.user || "unknown user"} (v#{pkg_version})"
     args << "MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
 
     # Set MARCH and JULIA_CPU_TARGET to ensure Julia works on machines we distribute to.
     # Values adapted from https://github.com/JuliaCI/julia-buildkite/blob/main/utilities/build_envs.sh
-    args << "MARCH=#{Hardware.oldest_cpu}" if Hardware::CPU.intel?
+    march = ENV.fetch("HOMEBREW_OPTFLAGS", "")[/-march=(\S+)/, 1]
+    args << "MARCH=#{march}" if march
 
     cpu_targets = %w[generic]
     if Hardware::CPU.arm?
@@ -130,12 +133,6 @@ class Julia < Formula
                         x86-64-v4,-rdrnd,base(1)]
     end
     args << "JULIA_CPU_TARGET=#{cpu_targets.join(";")}"
-    user = begin
-      tap.user
-    rescue
-      "unknown user"
-    end
-    args << "TAGGED_RELEASE_BANNER=Built by #{user} (v#{pkg_version})"
 
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/julia"
     # Help Julia find keg-only dependencies
@@ -196,7 +193,8 @@ class Julia < Formula
     end
 
     # Create copies of the necessary gcc libraries in `buildpath/"usr/lib"`
-    system "make", "-C", "deps", "USE_SYSTEM_CSL=1", "install-csl"
+    system "make", "-C", "deps", "install-csl", *args
+
     # Install gcc library symlinks where Julia expects them
     gcclibdir.glob(shared_library("*")) do |so|
       next unless (buildpath/"usr/lib"/so.basename).exist?
