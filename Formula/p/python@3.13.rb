@@ -4,6 +4,7 @@ class PythonAT313 < Formula
   url "https://www.python.org/ftp/python/3.13.7/Python-3.13.7.tgz"
   sha256 "6c9d80839cfa20024f34d9a6dd31ae2a9cd97ff5e980e969209746037a5153b2"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -40,22 +41,8 @@ class PythonAT313 < Formula
     depends_on "berkeley-db@5"
   end
 
-  link_overwrite "bin/idle3"
-  link_overwrite "bin/pip3"
-  link_overwrite "bin/pydoc3"
-  link_overwrite "bin/python3"
-  link_overwrite "bin/python3-config"
-  link_overwrite "bin/wheel3"
-  link_overwrite "share/man/man1/python3.1"
-  link_overwrite "lib/libpython3.so"
-  link_overwrite "lib/pkgconfig/python3.pc"
-  link_overwrite "lib/pkgconfig/python3-embed.pc"
   link_overwrite "lib/python3.13/site-packages/pip*"
   link_overwrite "lib/python3.13/site-packages/wheel*"
-  link_overwrite "Frameworks/Python.framework/Headers"
-  link_overwrite "Frameworks/Python.framework/Python"
-  link_overwrite "Frameworks/Python.framework/Resources"
-  link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   resource "flit-core" do
     url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
@@ -445,11 +432,14 @@ class PythonAT313 < Formula
   def caveats
     <<~EOS
       Python is installed as
-        #{HOMEBREW_PREFIX}/bin/python3
+        #{HOMEBREW_PREFIX}/bin/python#{version.major_minor}
 
-      Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
-      `python3`, `python3-config`, `pip3` etc., respectively, are installed into
+      Unversioned and major-versioned symlinks `python`, `python3`, `python-config`, `python3-config`, `pip`, `pip3`, etc. pointing to
+      `python#{version.major_minor}`, `python#{version.major_minor}-config`, `pip#{version.major_minor}` etc., respectively, are installed into
         #{opt_libexec}/bin
+
+      If you do not need a specific version of Python, and always want Homebrew's `python3` in your PATH:
+        brew install python3
 
       `idle#{version.major_minor}` requires tkinter, which is available separately:
         brew install python-tk@#{version.major_minor}
