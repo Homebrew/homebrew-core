@@ -193,7 +193,7 @@ class Julia < Formula
     end
 
     # Create copies of the necessary gcc libraries in `buildpath/"usr/lib"`
-    system "make", "-C", "deps", "install-csl", *args
+    system "make", "-C", "deps", "install-csl", *args if !OS.linux? || !Hardware::CPU.arm? # TODO: testing
 
     # Install gcc library symlinks where Julia expects them
     gcclibdir.glob(shared_library("*")) do |so|
