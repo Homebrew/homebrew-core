@@ -35,7 +35,7 @@ class Libint < Formula
   end
 
   test do
-    system ENV.cxx, "-std=c++11", pkgshare/"hartree-fock.cc", "-o", "hartree-fock",
+    system ENV.cxx, "-std=c++14", pkgshare/"hartree-fock.cc", "-o", "hartree-fock",
                     "-I#{Formula["eigen"].opt_include}/eigen3",
                     *shell_output("pkgconf --cflags --libs libint2").chomp.split
     system "./hartree-fock", pkgshare/"h2o.xyz"
