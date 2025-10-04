@@ -356,7 +356,7 @@
     "exclude_packages": ["certifi"]
   },
   "flexget": {
-    "package_name": "flexget[all]",
+    "package_name": "flexget[transmission]",
     "exclude_packages": ["certifi", "cryptography", "pillow", "pycparser"]
   },
   "flintrock": {

@@ -564,26 +564,6 @@ class Flexget < Formula
       system venv.root/"bin/python", "-m", "pip", "install", system_zstd,
                                            *std_pip_args(prefix: false, build_isolation: true), "."
     end
-    system venv.root/"bin/python", "-m", "pip", "install", "--group=all", "."
-    cd venv.site_packages do
-      directories = [
-        "Crypto/Cipher",
-        "Crypto/Hash",
-        "Crypto/Math",
-        "Crypto/Protocol",
-        "Crypto/PublicKey",
-        "Crypto/Util",
-      ]
-      directories.each do |dir|
-        pattern = File.join(dir, "_*.so")
-        files_to_delete = Dir.glob(pattern)
-        next unless files_to_delete
-
-        files_to_delete.each do |file|
-          rm(file)
-        end
-      end
-    end
   end
 
   service do
@@ -593,67 +573,9 @@ class Flexget < Formula
 
   test do
     (testpath/"config.yml").write <<~END
-      variables:
-        media_folder: ~/Downloads
-      schedules:
-        - tasks: [task-1]
-          interval:
-            minutes: 30
       tasks:
         task-1:
-          imdb_lookup: yes
-          tmdb_lookup: yes
-          thetvdb_lookup: yes
-          tvmaze_lookup: yes
-          nfo_lookup: yes
           rss: https://example.com/rss
-          all_series: yes
-          transmission: yes
-          deluge: yes
-          set:
-            path: '{? media_folder ?}'
-          aria2:
-            path: '{? media_folder ?}'
-          nzbget:
-            url: http://localhost:6789/xmlrpc
-            category: movies
-          sabnzbd:
-            key: "123456"
-            url: http://localhost/sabnzbd/api?
-            category: movies
-          pyload:
-            username: user
-            password: pass
-            package: '{{series_name}} - {{series_id}}'
-            folder: '{? media_folder ?}'
-          qbittorrent: yes
-          rtorrent:
-            uri: scgi://localhost:5000
-            path: "{? media_folder ?}/{{ tvdb_series_name }}"
-            custom1: TV
-          subliminal:
-            languages:
-              - eng
-            exact_match: yes
-          utorrent:
-            url: http://localhost:8080/gui/
-            username: user
-            password: pass
-            path: "{? media_folder ?}/{{ tvdb_series_name }}"
-        subtitles:
-          filesystem:
-            path:
-              - '{? media_folder ?}'
-            regexp: '.*.(avi|mkv|mp4)$'
-            recursive: yes
-          accept_all: yes
-          periscope:
-            languages:
-              - it
-            alternatives:
-              - en
-              - fr
-            overwrite: yes
     END
     system bin/"flexget", "-c", "#{testpath}/config.yml", "check"
   end
