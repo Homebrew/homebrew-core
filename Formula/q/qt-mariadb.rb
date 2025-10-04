@@ -1,28 +1,28 @@
 class QtMariadb < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.2/submodules/qtbase-everywhere-src-6.9.2.tar.xz"
-  sha256 "44be9c9ecfe04129c4dea0a7e1b36ad476c9cc07c292016ac98e7b41514f2440"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
+  sha256 "c5a1a2f660356ec081febfa782998ae5ddbc5925117e64f50e4be9cd45b8dc6e"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
-    formula "qt"
+    formula "qtbase"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f88bc5bff4a42aa118f4083632593389030b161f2bf7d013133fa797a5322645"
-    sha256 cellar: :any,                 arm64_sequoia: "e067c54edbfd9cae98aa77e0093c6094f4a1522102620f624019414f7fbdfb8e"
-    sha256 cellar: :any,                 arm64_sonoma:  "cbb411b1b7dddb367615925cb92e1c617085e8fcf2112a8634506ee1e263172b"
-    sha256 cellar: :any,                 arm64_ventura: "4bc8cb1b433e25c7eea4d8d74db1ca9b01e7ef73317c23fc1d64c14b880b056e"
-    sha256 cellar: :any,                 sonoma:        "1e0749cce6cc14884c6c020c22e61c54b6d2445887accf191f728e88087ed478"
-    sha256 cellar: :any,                 ventura:       "825ef5dcb8555457b67dd74c6a116bbb5728413563773a42d554b1ef8c02316e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69e5b57abc5db719f6c0fd62204bfc2f745216bfb833b335a444b31c80f22c2f"
+    sha256 cellar: :any,                 arm64_tahoe:   "8bf1788850de1c6cec6aa1db77a53340d5dcb39c06e4656405ad063fb377bcdc"
+    sha256 cellar: :any,                 arm64_sequoia: "8e9eca41a0b17b84d468b04f043259e9515ba0d0a4d1d851b1cf0f55af0956ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "5f255d8ed571f6bc636303d9d125e4e2c0ceeb739fdf5c2b8b2baf39d89c48d9"
+    sha256 cellar: :any,                 sonoma:        "de0dc48006e82698892b108199782fecaf51fd3c2564cd7f24f195b91e14b428"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ea7baba2dbba72d8a457901a22a6750095a3edfd57a681815a4a3697ba6366b"
   end
 
   depends_on "cmake" => [:build, :test]
 
   depends_on "mariadb"
-  depends_on "qt"
+  depends_on "qtbase"
 
   conflicts_with "qt-mysql", "qt-percona-server",
     because: "qt-mysql, qt-mariadb, and qt-percona-server install the same binaries"
@@ -38,6 +38,7 @@ class QtMariadb < Formula
       -DFEATURE_sql_sqlite=OFF
       -DQT_GENERATE_SBOM=OFF
     ]
+    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
 
     system "cmake", "-S", "src/plugins/sqldrivers", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -54,21 +55,19 @@ class QtMariadb < Formula
       set(CMAKE_AUTORCC ON)
       set(CMAKE_AUTOUIC ON)
       find_package(Qt6 COMPONENTS Core Sql REQUIRED)
-      add_executable(test
-          main.cpp
-      )
+      add_executable(test main.cpp)
       target_link_libraries(test PRIVATE Qt6::Core Qt6::Sql)
     CMAKE
 
-    (testpath/"test.pro").write <<~EOS
-      QT       += core sql
-      QT       -= gui
-      TARGET = test
-      CONFIG   += console debug
-      CONFIG   -= app_bundle
+    (testpath/"test.pro").write <<~QMAKE
+      QT      += core sql
+      QT      -= gui
+      TARGET   = test
+      CONFIG  += console debug
+      CONFIG  -= app_bundle
       TEMPLATE = app
       SOURCES += main.cpp
-    EOS
+    QMAKE
 
     (testpath/"main.cpp").write <<~CPP
       #include <QCoreApplication>
@@ -84,6 +83,7 @@ class QtMariadb < Formula
       }
     CPP
 
+    ENV["LC_ALL"] = "en_US.UTF-8"
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_BUILD_TYPE=Debug"
     system "cmake", "--build", "build"
     system "./build/test"
