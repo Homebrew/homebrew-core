@@ -1,8 +1,8 @@
 class Faust < Formula
   desc "Functional programming language for real time signal processing"
   homepage "https://faust.grame.fr"
-  url "https://github.com/grame-cncm/faust/releases/download/2.81.8/faust-2.81.8.tar.gz"
-  sha256 "2bc6ca210957008dfb8423e65e135b65938acf345299ed05d655c290b1c44a11"
+  url "https://github.com/grame-cncm/faust/releases/download/2.81.10/faust-2.81.10.tar.gz"
+  sha256 "c69977380d07aaabb939362c6c306401d55fd9ccd9336c49cabf9adb8f7d4756"
   license "GPL-2.0-or-later"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -27,16 +27,6 @@ class Faust < Formula
   depends_on "libmicrohttpd"
   depends_on "libsndfile"
   depends_on "llvm"
-
-  # Fix to add shebang for `faust2wwise.py`, remove in next release
-  patch do
-    url "https://github.com/grame-cncm/faust/commit/bbf44bcc16b093615a86771309ab5a79d366fcd0.patch?full_index=1"
-    sha256 "21ddf9f006fe0a98addb94c248b145c1290df4a3abb7650d83293d2ead96e9fe"
-  end
-  patch do
-    url "https://github.com/grame-cncm/faust/commit/d254b879a837ac5eb24c222629804814e810426f.patch?full_index=1"
-    sha256 "5abfa30121d4314247c97955d9e5d7df2cc5ebcdf2e6f0ef6b8b0cee8a998691"
-  end
 
   def install
     # `brew linkage` doesn't like the pre-built Android libsndfile.so for faust2android.
