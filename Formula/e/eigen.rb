@@ -1,18 +1,23 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
-  homepage "https://eigen.tuxfamily.org/"
-  url "https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz"
-  sha256 "8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72"
-  license "MPL-2.0"
-  revision 1
+  homepage "https://gitlab.com/libeigen/eigen"
+  url "https://gitlab.com/libeigen/eigen/-/archive/5.0.0/eigen-5.0.0.tar.gz"
+  sha256 "315c881e19e17542a7d428c5aa37d113c89b9500d350c433797b730cd449c056"
+  license all_of: [
+    "MPL-2.0",
+    "Apache-2.0",   # BFloat16.h
+    "BSD-3-Clause", # bindings to BLAS, LAPACKe and MKL
+    "Minpack",      # LevenbergMarquardt
+  ]
   head "https://gitlab.com/libeigen/eigen.git", branch: "master"
 
   livecheck do
-    url :stable
+    url "https://gitlab.com/api/v4/projects/libeigen%2Feigen/releases"
     regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :json do |json, regex|
+      json.filter_map { |item| item["tag_name"]&.[](regex, 1) unless item["upcoming_release"] }
+    end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 3
@@ -22,8 +27,14 @@ class Eigen < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "eigen-build", "-Dpkg_config_libdir=#{lib}", *std_cmake_args
-    system "cmake", "--install", "eigen-build"
+    args = %w[
+      -DEIGEN_BUILD_BLAS=OFF
+      -DEIGEN_BUILD_LAPACK=OFF
+    ]
+    args << "-DEIGEN_PRERELEASE_VERSION=" if build.stable?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -41,7 +52,7 @@ class Eigen < Formula
         std::cout << m << std::endl;
       }
     CPP
-    system ENV.cxx, "test.cpp", "-I#{include}/eigen3", "-o", "test"
+    system ENV.cxx, "-std=c++14", "test.cpp", "-I#{include}/eigen3", "-o", "test"
     assert_equal %w[3 -1 2.5 1.5], shell_output("./test").split
   end
 end
