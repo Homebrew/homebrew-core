@@ -1,4 +1,5 @@
 class Qt < Formula
+  # TODO: PR test only change to verify build performance fix on Linux
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
   url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/md5sums.txt"
