@@ -3,10 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.2/single/qt-everywhere-src-6.9.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.2/single/qt-everywhere-src-6.9.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.2/single/qt-everywhere-src-6.9.2.tar.xz"
-  sha256 "643f1fe35a739e2bf5e1a092cfe83dbee61ff6683684e957351c599767ca279c"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/single/qt-everywhere-src-6.10.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/single/qt-everywhere-src-6.10.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/single/qt-everywhere-src-6.10.0.tar.xz"
+  sha256 "81895fb038a9c3d6c6f698d7611339a189eb45c3d91746c7789b0b77a5981aa3"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -150,10 +150,6 @@ class Qt < Formula
     directory "qtquick3d"
   end
 
-  # Backport support for FFmpeg 8.0 from Chromium
-  # https://chromium.googlesource.com/chromium/src/media/+/065e95ae56bbba9b6c8832864c1f0ab89ae777b7
-  patch :DATA
-
   def install
     python3 = "python3.13"
 
@@ -166,11 +162,6 @@ class Qt < Formula
     # arch-specific code with runtime detection of capabilities:
     # https://bugreports.qt.io/browse/QTBUG-113391
     ENV.runtime_cpu_detection
-
-    # Fix build with Xcode 26, metal and metallib have moved
-    # https://bugreports.qt.io/browse/QTBUG-140206
-    inreplace "qtwebengine/src/3rdparty/chromium/third_party/angle/src/libANGLE/renderer/metal/BUILD.gn",
-              "mac_bin_path +", '"xcrun",'
 
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/apple/toolchain.gni",
@@ -442,127 +433,3 @@ class Qt < Formula
     assert_equal HOMEBREW_PREFIX.to_s, shell_output("#{bin}/qmake -query QT_INSTALL_PREFIX").chomp
   end
 end
-
-__END__
---- a/qtwebengine/src/3rdparty/chromium/media/ffmpeg/ffmpeg_common.cc
-+++ b/qtwebengine/src/3rdparty/chromium/media/ffmpeg/ffmpeg_common.cc
-@@ -263,22 +263,22 @@
- static VideoCodecProfile ProfileIDToVideoCodecProfile(int profile) {
-   // Clear out the CONSTRAINED & INTRA flags which are strict subsets of the
-   // corresponding profiles with which they're used.
--  profile &= ~FF_PROFILE_H264_CONSTRAINED;
--  profile &= ~FF_PROFILE_H264_INTRA;
-+  profile &= ~AV_PROFILE_H264_CONSTRAINED;
-+  profile &= ~AV_PROFILE_H264_INTRA;
-   switch (profile) {
--    case FF_PROFILE_H264_BASELINE:
-+    case AV_PROFILE_H264_BASELINE:
-       return H264PROFILE_BASELINE;
--    case FF_PROFILE_H264_MAIN:
-+    case AV_PROFILE_H264_MAIN:
-       return H264PROFILE_MAIN;
--    case FF_PROFILE_H264_EXTENDED:
-+    case AV_PROFILE_H264_EXTENDED:
-       return H264PROFILE_EXTENDED;
--    case FF_PROFILE_H264_HIGH:
-+    case AV_PROFILE_H264_HIGH:
-       return H264PROFILE_HIGH;
--    case FF_PROFILE_H264_HIGH_10:
-+    case AV_PROFILE_H264_HIGH_10:
-       return H264PROFILE_HIGH10PROFILE;
--    case FF_PROFILE_H264_HIGH_422:
-+    case AV_PROFILE_H264_HIGH_422:
-       return H264PROFILE_HIGH422PROFILE;
--    case FF_PROFILE_H264_HIGH_444_PREDICTIVE:
-+    case AV_PROFILE_H264_HIGH_444_PREDICTIVE:
-       return H264PROFILE_HIGH444PREDICTIVEPROFILE;
-     default:
-       DVLOG(1) << "Unknown profile id: " << profile;
-@@ -289,23 +289,23 @@
- static int VideoCodecProfileToProfileID(VideoCodecProfile profile) {
-   switch (profile) {
-     case H264PROFILE_BASELINE:
--      return FF_PROFILE_H264_BASELINE;
-+      return AV_PROFILE_H264_BASELINE;
-     case H264PROFILE_MAIN:
--      return FF_PROFILE_H264_MAIN;
-+      return AV_PROFILE_H264_MAIN;
-     case H264PROFILE_EXTENDED:
--      return FF_PROFILE_H264_EXTENDED;
-+      return AV_PROFILE_H264_EXTENDED;
-     case H264PROFILE_HIGH:
--      return FF_PROFILE_H264_HIGH;
-+      return AV_PROFILE_H264_HIGH;
-     case H264PROFILE_HIGH10PROFILE:
--      return FF_PROFILE_H264_HIGH_10;
-+      return AV_PROFILE_H264_HIGH_10;
-     case H264PROFILE_HIGH422PROFILE:
--      return FF_PROFILE_H264_HIGH_422;
-+      return AV_PROFILE_H264_HIGH_422;
-     case H264PROFILE_HIGH444PREDICTIVEPROFILE:
--      return FF_PROFILE_H264_HIGH_444_PREDICTIVE;
-+      return AV_PROFILE_H264_HIGH_444_PREDICTIVE;
-     default:
-       DVLOG(1) << "Unknown VideoCodecProfile: " << profile;
-   }
--  return FF_PROFILE_UNKNOWN;
-+  return AV_PROFILE_UNKNOWN;
- }
- 
- SampleFormat AVSampleFormatToSampleFormat(AVSampleFormat sample_format,
-@@ -443,7 +443,7 @@
-     // TODO(dalecurtis): Just use the profile from the codec context if ffmpeg
-     // ever starts supporting xHE-AAC.
-     // FFmpeg provides the (defined_profile - 1) for AVCodecContext::profile
--    if (codec_context->profile == FF_PROFILE_UNKNOWN ||
-+    if (codec_context->profile == AV_PROFILE_UNKNOWN ||
-         codec_context->profile == mp4::AAC::kXHeAAcType - 1) {
-       // Errors aren't fatal here, so just drop any MediaLog messages.
-       NullMediaLog media_log;
-@@ -661,16 +661,16 @@
-       break;
-     case VideoCodec::kVP9:
-       switch (codec_context->profile) {
--        case FF_PROFILE_VP9_0:
-+        case AV_PROFILE_VP9_0:
-           profile = VP9PROFILE_PROFILE0;
-           break;
--        case FF_PROFILE_VP9_1:
-+        case AV_PROFILE_VP9_1:
-           profile = VP9PROFILE_PROFILE1;
-           break;
--        case FF_PROFILE_VP9_2:
-+        case AV_PROFILE_VP9_2:
-           profile = VP9PROFILE_PROFILE2;
-           break;
--        case FF_PROFILE_VP9_3:
-+        case AV_PROFILE_VP9_3:
-           profile = VP9PROFILE_PROFILE3;
-           break;
-         default:
---- a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_aac_bitstream_converter.cc
-+++ b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_aac_bitstream_converter.cc
-@@ -68,17 +68,17 @@
-   hdr[1] |= 1;
- 
-   switch (audio_profile) {
--    case FF_PROFILE_AAC_MAIN:
-+    case AV_PROFILE_AAC_MAIN:
-       break;
--    case FF_PROFILE_AAC_HE:
--    case FF_PROFILE_AAC_HE_V2:
--    case FF_PROFILE_AAC_LOW:
-+    case AV_PROFILE_AAC_HE:
-+    case AV_PROFILE_AAC_HE_V2:
-+    case AV_PROFILE_AAC_LOW:
-       hdr[2] |= (1 << 6);
-       break;
--    case FF_PROFILE_AAC_SSR:
-+    case AV_PROFILE_AAC_SSR:
-       hdr[2] |= (2 << 6);
-       break;
--    case FF_PROFILE_AAC_LTP:
-+    case AV_PROFILE_AAC_LTP:
-       hdr[2] |= (3 << 6);
-       break;
-     default:
