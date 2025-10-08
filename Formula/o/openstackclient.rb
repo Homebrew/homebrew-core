@@ -416,6 +416,11 @@ class Openstackclient < Formula
     sha256 "f66eb08feaa410fe4eebd17f2a2c8e2e46d3476e9f8c783daa8e09e0faa666d0"
   end
 
+  resource "gnureadline" do
+    url "https://files.pythonhosted.org/packages/cb/92/20723aa239b9a8024e6f8358c789df8859ab1085a1ae106e5071727ad20f/gnureadline-8.2.13.tar.gz"
+    sha256 "c9b9e1e7ba99a80bb50c12027d6ce692574f77a65bf57bc97041cf81c0f49bd1"
+  end
+
   def install
     virtualenv_install_with_resources
   end
