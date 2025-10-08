@@ -308,15 +308,15 @@ class Btcli < Formula
       "balances" => {
         "brew-test" => {
           "coldkey" => ss58_address,
-          "free"    => 4.0e-05,
+          "free"    => 0.0,
           "staked"  => 0.0,
-          "total"   => 4.0e-05,
+          "total"   => 0.0,
         },
       },
       "totals"   => {
-        "free"   => 4.0e-05,
+        "free"   => 0.0,
         "staked" => 0.0,
-        "total"  => 4.0e-05,
+        "total"  => 0.0,
       },
     }
 
