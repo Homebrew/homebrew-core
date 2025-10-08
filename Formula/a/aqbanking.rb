@@ -4,6 +4,7 @@ class Aqbanking < Formula
   url "https://www.aquamaniac.de/rdm/attachments/download/548/aqbanking-6.6.4.tar.gz"
   sha256 "a25c209538fa163f3749676a084493c9a43d9045a945aeee2db25dfd9a502b7f"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.aquamaniac.de/rdm/projects/aqbanking/files"
