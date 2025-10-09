@@ -15,6 +15,7 @@ class Immortal < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "f4e75b4f8c75d8aae9cc0fae052916f1424b36ac6183942d974077191b6079f6"
     sha256 cellar: :any_skip_relocation, ventura:        "bbe372718d137b00ec707786441d1a6ef0df3a472e5c282464358bdbfef8571f"
     sha256 cellar: :any_skip_relocation, monterey:       "ab444396fab083b3938dc87cfae485a1c2eb0fad2b221a5a00a9bccf5a88f62b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a914374c56ca92616514cd687e47b3d0204266abf5166b5eb229a171b1a53b65"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "75184bcc104152d9b8c6d418f09dcde65d93863645794c19a2482278354dd281"
   end
 
