@@ -17,6 +17,7 @@ class Reflex < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "4a8fe936c5517d03286b32d973ad16f3786bc1dd733b92fde096a6e8ada31579"
     sha256 cellar: :any_skip_relocation, ventura:        "aad285d2fecca78427be231f332fa6cf6786f422a5be10bfb1bfb9f9f3e2f174"
     sha256 cellar: :any_skip_relocation, monterey:       "8b16ba2cf36a17407a6753d3ad261cabe78f4fc32b6c2a648206279cc69285f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "88c02456efa9988132da46ce3f2aa7064add4a973603b1dcf7d78006028a9265"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6016c96f2e24a11b3b75b983c0d92d5739d18e1308c52440286034255cc2c709"
   end
 
