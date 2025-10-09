@@ -6,9 +6,10 @@ class AddDeterminism < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "32e47defa47bb9c60faa4590ff747249d0a7a137df8a28f25385ace015f6e407"
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "8320195d668c1822ed3c0d9a9be244f7e022be0812d318339cbcba1009125cc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dcd9b16144899992dbafb28d162ad3796002fe605749650292c46057c7952ced"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c1fcd780d6cd60bb5b5a87a9034396d1fc7e389fbfb162b0bc0133398fcb5e7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32e47defa47bb9c60faa4590ff747249d0a7a137df8a28f25385ace015f6e407"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8320195d668c1822ed3c0d9a9be244f7e022be0812d318339cbcba1009125cc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcd9b16144899992dbafb28d162ad3796002fe605749650292c46057c7952ced"
   end
 
   depends_on "pkgconf" => :build
