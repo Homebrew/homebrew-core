@@ -14,6 +14,7 @@ class Ratify < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "76678d359f1e6ab18b91b1703a44b6171e3a03d200a41db6a7d3568a9727b334"
     sha256 cellar: :any_skip_relocation, sonoma:        "4f8913f574364f7b1f4269e539bfe4b1ff128bf4ef3266c2c46c5121fc9132e9"
     sha256 cellar: :any_skip_relocation, ventura:       "d446ade57aad5022820d43cff3e52206a2521189ea30fe1f39ba198d4789977d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec3bab691e984cc0fc73aae4bd8143a39affc203ef6baa5ecdb242d943465235"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e76330b293fc305772b44b705cc2d7700100276bb27981382984fa474824c851"
   end
 
