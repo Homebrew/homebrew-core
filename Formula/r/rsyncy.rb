@@ -13,6 +13,7 @@ class Rsyncy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d497726367711d8d1a895ead4a6fa888e797a523c027cbc4f4934173803c8c7e"
     sha256 cellar: :any_skip_relocation, sonoma:        "f55977e00c3f3332fff7a5c1e1496772a029495d444f864e0d2eb4f9e21119ff"
     sha256 cellar: :any_skip_relocation, ventura:       "f55977e00c3f3332fff7a5c1e1496772a029495d444f864e0d2eb4f9e21119ff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ad178b303f9cb24ff78049c95d4bca214027d5261fe87b4d7bc35cccfed52a4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b7ff0ec6c2c7e4564370e7ede4c760136fae508f3a9312b9ebacb4f0a0f1ef3"
   end
 
