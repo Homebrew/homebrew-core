@@ -20,6 +20,7 @@ class RedTldr < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "a93d3617f3167e69b45961b876ea5ea4dfbc60b080d143e2ca95870089cb24ab"
     sha256 cellar: :any_skip_relocation, big_sur:        "7052eff293193940046fd1dc13c439fa81fcca5e1d7b71d9ea81e060f31284bd"
     sha256 cellar: :any_skip_relocation, catalina:       "b55c620a9eae179704c06f4cbb6421b6a4dc8fe4ffe6771f1e15d538ec0eaf92"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "1d74d6d17577a9399660266ebbec687c39657241c2252757cb66502636cde922"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b20f8338fedd79014c80a96c9e3ec990454be276fe98dcb112c169b13a7f0cf2"
   end
 
