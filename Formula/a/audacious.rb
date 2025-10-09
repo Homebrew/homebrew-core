@@ -44,6 +44,7 @@ class Audacious < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "qttools" => :build
   depends_on "faad2"
   depends_on "ffmpeg"
   depends_on "flac"
@@ -65,7 +66,10 @@ class Audacious < Formula
   depends_on "mpg123"
   depends_on "neon"
   depends_on "opusfile"
-  depends_on "qt"
+  depends_on "qtbase"
+  depends_on "qtimageformats" => :no_linkage # for webp album covers
+  depends_on "qtmultimedia"
+  depends_on "qtsvg" => :no_linkage # for svg icons
   depends_on "sdl2"
   depends_on "wavpack"
 
@@ -74,7 +78,6 @@ class Audacious < Formula
 
   on_macos do
     depends_on "gettext"
-    depends_on "opus"
   end
 
   on_linux do
