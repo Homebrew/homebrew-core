@@ -13,6 +13,7 @@ class Runme < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "22d600f328e20fac3b5f30f24921711a9eed4b3e88da1f5f4fe5ae436e13931e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b550bb2eb45f608b79c63b6ad2c56b5188c18050492f5fcc44a9fffa2e7c6b8"
     sha256 cellar: :any_skip_relocation, sonoma:        "d1b67a5d8b29078e29764f46bd01e0e240f1948310b8bce315d231f065bf8821"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81c1eef1d3302f2dcd9a6b4ee0c31c00062bb14240484688e49dbbf2980b7b79"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa4e11f76a821165f9239992054ee4806de84c00a6a228970188eb4491ee5e56"
   end
 
