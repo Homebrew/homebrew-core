@@ -20,6 +20,7 @@ class IpinfoCli < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "93d7de1ed1ffcb8e5e7399debf034c5818874fd09666341ed70d46031d0ebccd"
     sha256 cellar: :any_skip_relocation, ventura:        "1b62948b8934538adb736f4c828fe28ea5c12598adfa4023af12902d7021db24"
     sha256 cellar: :any_skip_relocation, monterey:       "77e2425a41302f25261670c67c2d84730e24ec207d2ae7eea3fb22c57e1c4f3a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "df0244e963291a67068c47f729a080c427294d54bcac835814ba450da51b1684"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2880d661339a626ecb23cc58f0049c21f35c1991c1db50b9d40872cb5bac5207"
   end
 
