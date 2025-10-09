@@ -13,6 +13,7 @@ class Regclient < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1ee086607d20229b30ebbf7cec5d8ea366138f4500acb5ac1885299d2e6bdf49"
     sha256 cellar: :any_skip_relocation, sonoma:        "715745cdec3c559a0beee810c5d25dec5d9d02077de5e5763dfa4f51b7a3563f"
     sha256 cellar: :any_skip_relocation, ventura:       "715745cdec3c559a0beee810c5d25dec5d9d02077de5e5763dfa4f51b7a3563f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3d4b38afd6181cde707b721e688187459e89291af6707eac5e6c11e160c76f8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d55e4b69373d1d3720c91b8d0ed0ebd30961ef5a90bebbd414e2d5cf40162e6"
   end
 
