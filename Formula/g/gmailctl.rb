@@ -13,6 +13,7 @@ class Gmailctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ee77aed19516c088c2d625ce4a0c235834e22b74092fec144dc1b48494f742ce"
     sha256 cellar: :any_skip_relocation, sonoma:        "7fe6d471d8f4fda9b6c6e2f39b3d09b70c745291150d982db48ce8e03792a988"
     sha256 cellar: :any_skip_relocation, ventura:       "7fe6d471d8f4fda9b6c6e2f39b3d09b70c745291150d982db48ce8e03792a988"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95f6a9a9413f3826b37ca2b6a494867ba61a91512973e00b3fdbdaa7d437bb94"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "60d4a9f72f8bb954e35ad8a7b31147f1f5f87fa3f56a18eaacc62b570fe1a399"
   end
 
