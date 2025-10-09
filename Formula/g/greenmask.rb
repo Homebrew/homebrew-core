@@ -16,6 +16,7 @@ class Greenmask < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "40f7addd4b7753351668fc425edc44d851de3b552625d8384938b3f699c7206a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40f7addd4b7753351668fc425edc44d851de3b552625d8384938b3f699c7206a"
     sha256 cellar: :any_skip_relocation, sonoma:        "eab90a00c7deaac2172b89e011d7e9fe36e0661b8f65d6f16066217ae27edb6c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c1e3fe7445896196e5d14731a4fedafad292b0cbd3bbff3889dc417766e4210"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf3a3d87ffa8bc41a5720ec6a7e8e82cbdaf5e7f0771b9b4ec9be94ae8ce3fdc"
   end
 
