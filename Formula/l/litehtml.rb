@@ -10,6 +10,7 @@ class Litehtml < Formula
     sha256 cellar: :any,                 arm64_sequoia: "8e83b6bb6e9576cfc87e68c3e2af8395ade9410909e69fe6b0e7dd0fa84628e6"
     sha256 cellar: :any,                 arm64_sonoma:  "f523092d1e8b207643978a8fb84d9c3734c5ff123eaf3c8ef3a5ee5dd040b9ef"
     sha256 cellar: :any,                 sonoma:        "bd159f548833cb3e58a2ccd7637661121d68b20ac24e2023f15d0361d2876b0a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e533110ac64cb56657b385b8b9dca426ef402625b286de737caabf30a3b6bf24"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b010dde65bdf09f5d5f5bc991512f64d21ed598532966b212123e643e4e1dcd"
   end
 
