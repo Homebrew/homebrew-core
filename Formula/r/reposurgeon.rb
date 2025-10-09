@@ -13,6 +13,7 @@ class Reposurgeon < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f6045878a2a1f779ed09291a9c6d21eff4698be4377a7b6f958ef17faf3017c6"
     sha256 cellar: :any_skip_relocation, sonoma:        "479f8b063e2fb806b3b2585bb65fb65308b0209b3c7687d5d3bb44ff641d131f"
     sha256 cellar: :any_skip_relocation, ventura:       "97eba5c7136a5397bdf4ed46af8a7068edf5710e1d0c893081078cc64eaf5fc8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "52b7350eaacb2a1a4203d7927265fad7e1f48f3abee399db014f357e7ef12b8b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d79f22e49216e32de6b2e6e1575dae5a1d3c7dc140bd672ecbe203862fa30b08"
   end
 
