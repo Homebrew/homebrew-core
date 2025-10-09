@@ -18,6 +18,7 @@ class Goreman < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bbb40f361d8ddd7292c0ce9151d7bd4eebb8760ad345f7a1ab16fd22358963ff"
     sha256 cellar: :any_skip_relocation, sonoma:        "30922c5420a9a47be96ee22712eb3538916de8d49e086d8030a0db7622e32819"
     sha256 cellar: :any_skip_relocation, ventura:       "30922c5420a9a47be96ee22712eb3538916de8d49e086d8030a0db7622e32819"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e99d4fd9f35eda6db79460c5c2a3b7f2ba973bf77c72e6997d5a799f92a040e9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e214a6fe2efef00e69e55da73ded0439da12585b5bf3fe93e58e091c6b3de99"
   end
 
