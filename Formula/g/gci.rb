@@ -13,6 +13,7 @@ class Gci < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c0c03634905d310823a14ef722f47b845c5cc7b6146b515d8db1d448dadb61a6"
     sha256 cellar: :any_skip_relocation, sonoma:        "700cf3bc54e94bd585135973e68ad53dabc9bb80b931882b1a1cab19373a6020"
     sha256 cellar: :any_skip_relocation, ventura:       "700cf3bc54e94bd585135973e68ad53dabc9bb80b931882b1a1cab19373a6020"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b46392d9a7e515bf8ae3d80bd2cd888d686f4c5dfb455c3d71df4974fd1a8ab0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7a222a6d1853f3bce67bc65708056e6f1cf92670b5648e28f43456046405ca2"
   end
 
