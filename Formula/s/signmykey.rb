@@ -11,6 +11,7 @@ class Signmykey < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "27f091d7952b6c13a343a1fa9977c509f2875a64becc8abdf4b33be742e4d208"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27f091d7952b6c13a343a1fa9977c509f2875a64becc8abdf4b33be742e4d208"
     sha256 cellar: :any_skip_relocation, sonoma:        "a461a5e9e52319c9c2c250e65ac57ce72df6ae095fd8170083cf7852dc8144cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a35476497be7495bb9b6a1897532f5f372b4f3ac8acaf7da80b50e6357d86f08"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dd151516a08ba5eb54ec55bd82b3fed379f2286b2ca5e00caf2a0e3a671bb62"
   end
 
