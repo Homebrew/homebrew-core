@@ -13,6 +13,7 @@ class Ipatool < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8e91289591a8fc30fae2288c79fc25ff14c586c3a169f58c88f2a8a1f654b666"
     sha256 cellar: :any_skip_relocation, sonoma:        "82cf37a21c4ad4a910d301b99bc05a530930f20c6ffc3e196ea87c889ffe006c"
     sha256 cellar: :any_skip_relocation, ventura:       "44d411588250325cada66a9611f59bcc8111776b919d3594cc8b9edc7d85b3dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "db4b81f0d5228c0d992daa2b63fd37df025e805af6fa8a9b6affcfc89bc35dfa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6e0dd1772ebbb419eb4dad3f418b48a83b2e3be7c1539c3f242e2d582fa3802"
   end
 
