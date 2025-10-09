@@ -17,6 +17,7 @@ class Invoice < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "9998524c8a3e9e2eb17ddf71de7290230b3f1caa7f37ef1398beaed2908da774"
     sha256 cellar: :any_skip_relocation, ventura:        "f4f343dc13b544093113964003344450c555714b286bb4be8049bf7dacd747f7"
     sha256 cellar: :any_skip_relocation, monterey:       "8c2382bc80db909ed4d6e4ad929f31b8a042545fe0c822b0247197d6c7afa756"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "529e6844604ba6c0a311e74540468d0e79c6a161959d2fef833659c1e834bfe4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc46d1f1aba2274b4f41c09a95b9beed529e456ecb3c0d8fe8f0f7f0246bc616"
   end
 
