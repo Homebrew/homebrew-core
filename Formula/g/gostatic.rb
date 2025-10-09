@@ -17,6 +17,7 @@ class Gostatic < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "702b45e745c213901ee9bac69898a39fca340055bea4257ed12967563990d842"
     sha256 cellar: :any_skip_relocation, monterey:       "702b45e745c213901ee9bac69898a39fca340055bea4257ed12967563990d842"
     sha256 cellar: :any_skip_relocation, big_sur:        "702b45e745c213901ee9bac69898a39fca340055bea4257ed12967563990d842"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "25383ed9edc30c872a42d57184bc8555aac628c482eb8705ba7deed28f526050"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fc806119828adc0ed8433ff0dfdb9573f76bac686ffa19d368726d978d7aacb"
   end
 
