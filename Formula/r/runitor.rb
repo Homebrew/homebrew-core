@@ -18,6 +18,7 @@ class Runitor < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5126ca445a8d5515158165a2de556eba26e2371ea5bcf18d4c6b6cd382781f1c"
     sha256 cellar: :any_skip_relocation, sonoma:        "0effd12000e9ee680cabca8c05a25dc33df6dd0816d6c5337f22eb7e4b2c4e89"
     sha256 cellar: :any_skip_relocation, ventura:       "0effd12000e9ee680cabca8c05a25dc33df6dd0816d6c5337f22eb7e4b2c4e89"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07e21132d3392dee21baf84f985077d200e6c68004a44f342a94ec9c15bff883"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "385c34c59826cd643af53842d7517eab4a8315aa21705a7e7ce58cba0782eaf1"
   end
 
