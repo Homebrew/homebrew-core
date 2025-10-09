@@ -79,6 +79,13 @@ class Qtbase < Formula
     depends_on "xcb-util-wm"
   end
 
+  # Add framework directory to Cflags on macOS
+  # Ref: https://codereview.qt-project.org/c/qt/qtbase/+/682915
+  patch do
+    url "https://codereview.qt-project.org/changes/qt%2Fqtbase~682915/revisions/1/patch?zip"
+    sha256 "41fc97843c891cc8c5fe513acfc5779bb42a2ac417e6c931efee08ed5eb62201"
+  end
+
   def install
     # Allow -march options to be passed through, as Qt builds
     # arch-specific code with runtime detection of capabilities:
