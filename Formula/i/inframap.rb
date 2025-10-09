@@ -18,6 +18,7 @@ class Inframap < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "18e6aacb8e602b2c4fd488a1071209c1711ba388fda1f19797665915b6e84c36"
     sha256 cellar: :any_skip_relocation, sonoma:        "95af43179d426a7a6dd382dea950559c3bc479bc00cf7b9bf4865a854a44b57d"
     sha256 cellar: :any_skip_relocation, ventura:       "95af43179d426a7a6dd382dea950559c3bc479bc00cf7b9bf4865a854a44b57d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "803d93620c47d794eb3b6336c1c0059725a941382b8c546c3f00ceb02ecdb3ac"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf01e9146e3abf82239ed0e2f498916a5eb8ff863099e70c840393adf8423dbf"
   end
 
