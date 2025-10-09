@@ -11,6 +11,7 @@ class Gotpm < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce8c67811882e10423554d3ababfae799b1cf51dd5d6b79e91f9d882804e48cd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce8c67811882e10423554d3ababfae799b1cf51dd5d6b79e91f9d882804e48cd"
     sha256 cellar: :any_skip_relocation, sonoma:        "96c81a11e82f78dfa9e3dfd44f2df05e00e2bd1bf2af54f4190a3b92214e8dd6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "602666be69f955a4a8c38e13b909575692b83988da4d0f16d0d75cd3d9ff84eb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "31df5aa71e0a8e8208510e57539b2b6f4dc42e8938f5ed965687758b788ee291"
   end
 
