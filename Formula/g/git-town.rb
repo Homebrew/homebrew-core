@@ -11,6 +11,7 @@ class GitTown < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c88efb56501ada3e9a06aa5688eba4ff5378c9eac4329dea5a048a2550f3fa41"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c88efb56501ada3e9a06aa5688eba4ff5378c9eac4329dea5a048a2550f3fa41"
     sha256 cellar: :any_skip_relocation, sonoma:        "33f9b652bd4a1660ce082cd210cd58f085c7e36db28ee547cdad58927d526118"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fdf9ee327dc1e0f0f7d2b7bd6f6f4d7f5b6115813185f615c8d00b90eae6684"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ab4f5d36ed387ce66dafb623b19f6f8dc2802ea693feed8cc2df0b16cb2dafc"
   end
 
