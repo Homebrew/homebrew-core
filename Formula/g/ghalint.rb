@@ -13,6 +13,7 @@ class Ghalint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ed279b0a5822563dd39b43662ac04497b50fed43b3e137d2d65cde5fb968596c"
     sha256 cellar: :any_skip_relocation, sonoma:        "48e974049a4e67d70875206faec08ee32983da211af681f1008f23a38babe33a"
     sha256 cellar: :any_skip_relocation, ventura:       "48e974049a4e67d70875206faec08ee32983da211af681f1008f23a38babe33a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "877bfb07a484a7c272388915fea67f151cefef8de6be1d17ace20aba9c74627e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "de425404f1ad3945363738fa2ec547f0b9a1e8fd5501e7e29b3f595edd015eb3"
   end
 
