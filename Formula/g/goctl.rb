@@ -16,6 +16,7 @@ class Goctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf15159d2386000f916a4dcb8a238b451f0ac63a9e8810cbe5b76f9c7a52816e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c742eb0280e24107ac0d9bc7b731391f7f7b46e7bd8f5d70385b04b1308a6c3e"
     sha256 cellar: :any_skip_relocation, sonoma:        "8b1aefce07d72ffbbe774e3fd94ae212ade0ed2d01f9d1b49e6dbac985ddd593"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "59677856ef94ab569e49e392d8f01d68c421f0de9616d292fdc4798d450fd4a2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ddee414dd5eed709490400dfbea801f1590eccde379fe34ee09b6d2e9972581"
   end
 
