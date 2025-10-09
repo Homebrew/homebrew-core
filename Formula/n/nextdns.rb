@@ -13,6 +13,7 @@ class Nextdns < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cf3fbb66344f1ed946878fed8e595a9e8c3f208c25ced6b89c2e3dc510c10d9d"
     sha256 cellar: :any_skip_relocation, sonoma:        "19a58a90339973be0450f4c7edfbf8667f04f19d2212bc999b2f4fe1035d98b7"
     sha256 cellar: :any_skip_relocation, ventura:       "6c73488ba8fdb273712fb7cf9c14d0743228845ac67459fe3a4163083c33e9e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dfc718c32615c7d565d27ab62ba9d5472f8304ad7128714e1bd5a5529320193"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9fc4d299d13dec764c87e745d9eb3a597d5fa47734727fe05bfb9b0ea1e5e62"
   end
 
