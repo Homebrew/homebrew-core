@@ -11,6 +11,7 @@ class GitCredentialOauth < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "24ea8af684332afb407196d13f81a9b612f9b72eff1b5ee23339bb2c0bd1948e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24ea8af684332afb407196d13f81a9b612f9b72eff1b5ee23339bb2c0bd1948e"
     sha256 cellar: :any_skip_relocation, sonoma:        "40639e93a82f843be26bf8c1f90754e5a5a24d669f58c6bdbcfbc867381b80e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7715f005b2445ae554fbdc5886303a159ac4d0a3f48f25549832013dcf679ef"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cac6bda79920bea6a21b2ae36e054abb6f65da276be5c82d7482e01e3f9caba"
   end
 
