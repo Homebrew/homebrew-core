@@ -20,6 +20,7 @@ class Gotests < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "cbd11e7ba3400d2a6896974899257d37105759cabebe94bc4a599c739e3ade92"
     sha256 cellar: :any_skip_relocation, big_sur:        "222e2a0280ae3d085bbf76080b9bd30e4fe1e9942a0427dc2840d74337621f76"
     sha256 cellar: :any_skip_relocation, catalina:       "717ea92ad6172ab6ca8987b618683c85f4a576161e78bc75c02000966ea3f9ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8b6170f5549b26603900f77372b9c19979e37bd363e6a9f3e9cabef4f3cb1f2f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2f0b6e37e88deaf7713ebf6a2e34baf767e2a7b6168244f31e909ef4b8f8100"
   end
 
