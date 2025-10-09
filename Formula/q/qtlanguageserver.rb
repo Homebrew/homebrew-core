@@ -20,6 +20,7 @@ class Qtlanguageserver < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "224eff3ca1a5461c2e30e2a2ce2e08255c5ef59e6e155a101fd76f89f0ce3658"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e70336d46487107ec97a74126f4abe4fb81eb376f1fbb44194ee330b690330c"
     sha256 cellar: :any_skip_relocation, sonoma:        "c02e42a854bdce647fbdbee94996bd4ef0527d55768b1a724279d003a4589a66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "38f6f031e539929940c80febf7c5720e4efeae36b98f626a6a9a4ac8be9acca9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f88fd9cdb6fde0da393d684f91fd8d80a7edbbbcce56d33a8131ffa838f464f5"
   end
 
