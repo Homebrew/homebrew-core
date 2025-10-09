@@ -13,6 +13,7 @@ class Gittuf < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bf4ea3da53307721e7723579d2a2d7186973515dc9a6ef3e0bd45006ecc07b86"
     sha256 cellar: :any_skip_relocation, sonoma:        "303c0cc95a1591d6b76a1105481ac01a9ba6b3fe3cda0f3e43367cdeb7d676e2"
     sha256 cellar: :any_skip_relocation, ventura:       "0a5166424f6694bfa31c0cbd1d6804f7606a63f799eb58e5312a7784d18ef94f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74448791d88ea429a8a8cb3a1996eeea11bd5e710cfa41ece5a7f0f5e87d08dc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3b2eb9a3004b065e3114d252a951c2648246753551e76a4e170d533052fbc7f"
   end
 
