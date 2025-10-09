@@ -20,6 +20,7 @@ class GitHooksGo < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "cfd0c4ba88b9fa6debe95d147e069636e78093976eafefb0e245185a313a6a8a"
     sha256 cellar: :any_skip_relocation, big_sur:        "bb65c1d92db2e31b8d3d2447e3c4642a1865658f9d8075a381439ca311b2ddde"
     sha256 cellar: :any_skip_relocation, catalina:       "c297503f6623a3c258c84a887225f3690433a16e97492f7071cc0c3ebee0d073"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "72bdb33fbc10fd63b3be8cbd152512d10891081cd050a905521c691a08ba58df"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2e2a568a671db87621def2f35483cb89b4e7b58605ef724db8912868c76a327"
   end
 
