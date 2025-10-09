@@ -1,8 +1,8 @@
 class Libadwaita < Formula
   desc "Building blocks for modern adaptive GNOME applications"
   homepage "https://gnome.pages.gitlab.gnome.org/libadwaita/"
-  url "https://download.gnome.org/sources/libadwaita/1.8/libadwaita-1.8.0.tar.xz"
-  sha256 "2836d2c0c0f46dcdb52f94019477f537810283c710802d8e6671efdebe2637c9"
+  url "https://download.gnome.org/sources/libadwaita/1.8/libadwaita-1.8.1.tar.xz"
+  sha256 "8b1d4d5f89373a5b6eea8d93ecdaee34cd26ad27a4dd396c06f5d9929fb313bc"
   license "LGPL-2.1-or-later"
 
   # libadwaita doesn't use GNOME's "even-numbered minor is stable" version
