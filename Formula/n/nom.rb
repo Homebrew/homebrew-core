@@ -1,8 +1,8 @@
 class Nom < Formula
   desc "RSS reader for the terminal"
   homepage "https://github.com/guyfedwards/nom"
-  url "https://github.com/guyfedwards/nom/archive/refs/tags/v2.16.2.tar.gz"
-  sha256 "96a9bd8cbc3bfb1bded8e4dba82953708f1fa3c28bf984dcebff86ec77447f23"
+  url "https://github.com/guyfedwards/nom/archive/refs/tags/v2.17.0.tar.gz"
+  sha256 "c55b6bd918a029e02704528e49d6ae554b41df745fcb1814d527b4eeca3086d9"
   license "GPL-3.0-only"
   head "https://github.com/guyfedwards/nom.git", branch: "master"
 
@@ -18,6 +18,8 @@ class Nom < Formula
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1" # Required by `go-sqlite3`
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/nom"
   end
 
