@@ -10,6 +10,7 @@ class Tmuxai < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5dc7a133131bd0d4d8ce910b93ba143dcefebd68fd48facc08c7078b37c5b7a8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5dc7a133131bd0d4d8ce910b93ba143dcefebd68fd48facc08c7078b37c5b7a8"
     sha256 cellar: :any_skip_relocation, sonoma:        "9f6032c6d3e357265d83c96bec89d385d565005eabfb421091681deaf709a297"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bba69a198d9f54876f0ae90ee4945955822d90fe117c5c687be08f69cd1a747"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cb94895edc37ef1e1d9f1575241ff02445e5de2f1931b74da083a1fc063e80c"
   end
 
