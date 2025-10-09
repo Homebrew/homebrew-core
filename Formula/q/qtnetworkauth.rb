@@ -20,6 +20,7 @@ class Qtnetworkauth < Formula
     sha256 cellar: :any,                 arm64_sequoia: "5377a05fb0d37fd2a3ade99f81275728ec8a48af682da3a9cbb59f2986a83943"
     sha256 cellar: :any,                 arm64_sonoma:  "8d8ad5c1ebb1011236058ee0d21fe06f665010072a9f578e7ccc8b2a7fdbd62d"
     sha256 cellar: :any,                 sonoma:        "3c569735e684a5926c427b6afed07add72853779889a649d2f30c5215a077bf8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d9cb0f09c8be38179c5098167c34466751869600c47d596435a1201c1354911"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fef5988a3cb2a31a2f2673aa4ade0d78512f681ef5350fd7fca1020b31f7e0be"
   end
 
