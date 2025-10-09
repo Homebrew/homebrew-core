@@ -11,6 +11,7 @@ class Mdz < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa9a3cfa02a6c8075e43692af6fce96ab34ae3de61ebd9d9a49872efd711dfa6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6127718590325e3c0b4a35b3dac4a392d89929e51a0d2271430197de4d1d750"
     sha256 cellar: :any_skip_relocation, sonoma:        "dbce075c6c026b9e5a155b31c550c5a71ad691b0490768e0af6d01337cba7640"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac85ba558fbae2893afbf579a9a4827dd9f017e16876aadc9220d6ec71e8825d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dab7e3db07de88789c5511c5dd6c804f779b9667b6f47c3bc379bb7c185e68fb"
   end
 
