@@ -12,6 +12,7 @@ class GithubMarkdownToc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7d7ee8751ea7e05799330d4d84d3a7fc2123b61d1baba4e321e2755e9e323532"
     sha256 cellar: :any_skip_relocation, sonoma:        "d96f8173b9c0f691413a341afa625a9710ecb730f1cdff75eacddb191b8d341a"
     sha256 cellar: :any_skip_relocation, ventura:       "d96f8173b9c0f691413a341afa625a9710ecb730f1cdff75eacddb191b8d341a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba13de21ea7e27b1a1014b3bf13b3d2fd50feccd9aabeb96422e19fc413e35a5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "74e6a947ea6483267d1b3e213c6986632e267c6592bca1da70e64440f625999a"
   end
 
