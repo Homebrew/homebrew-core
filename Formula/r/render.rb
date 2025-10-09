@@ -11,6 +11,7 @@ class Render < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b917682544926b65f8bc58229a2b76303c73768e0dc9a2ed7749dfb4c4a6f249"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b917682544926b65f8bc58229a2b76303c73768e0dc9a2ed7749dfb4c4a6f249"
     sha256 cellar: :any_skip_relocation, sonoma:        "b46ad525207ece7036e5e358023a8d836080eeceefb890b022de09042b09a7fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1468ab22e0072a43e793404382af22964b728d4142b35a30c56963ebf8b01ae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9a147e1cd0c2ad1ce91b2207b059768536f6b3ec4af017def2412fdae7cf98f"
   end
 
