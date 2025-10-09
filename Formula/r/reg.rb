@@ -19,6 +19,7 @@ class Reg < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "9dad4aea34600bf11782f4c4e9867439369a4b59e1eae7ad05a7640fe39c1917"
     sha256 cellar: :any_skip_relocation, big_sur:        "ca9db7f72804b3701ea833c24802b5c81f4297d556482596cc755f67a1061dbb"
     sha256 cellar: :any_skip_relocation, catalina:       "566141035e7c94c92a4422addea68ea86431916055d14bfe5e20de79c3a6451c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "293883fc2cf4c4380eac853819e833eeac21f8d184814aca4c0cb53d8ca80a57"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e1f1396a2eec2571aed2861955e94d41c841e2e57d85202084f263e95ecb1ca"
   end
 
