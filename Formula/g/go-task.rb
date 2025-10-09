@@ -11,6 +11,7 @@ class GoTask < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0874b8687f2653d1e92e0c4352089df2327b7b4b9798d174e5958b148c4fb99a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0874b8687f2653d1e92e0c4352089df2327b7b4b9798d174e5958b148c4fb99a"
     sha256 cellar: :any_skip_relocation, sonoma:        "f59157076990f687c6f97c2382537ff0e5ad8d133041c4193e840976d0e78634"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b01ac63feb80bd10c68908a1a8688c304be31d183872534f713113b8e92aea07"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ddd46e97f33014d88204cae04f6d64a16c945bee44a77af2a527b0839e28cea"
   end
 
