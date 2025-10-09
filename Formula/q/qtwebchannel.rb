@@ -20,6 +20,7 @@ class Qtwebchannel < Formula
     sha256 cellar: :any,                 arm64_sequoia: "28052c4594637a53dfdf9f2bcd777aa4099536804683a1d3bf91e7dc16bf5780"
     sha256 cellar: :any,                 arm64_sonoma:  "062a158a045c00529d538dbdb8c66ab3a761960546fbb5cf969cbd8fc03ec6a7"
     sha256 cellar: :any,                 sonoma:        "8892f43cf82fd849d38024a2c7aebc4e0c27f38770e9cb55b8d0edf9eb89ed3b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08d9c962e3dd1f1b3c40ad953d624b6fa33b5940e0f588c251115d3f7b6da05d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c48878bc36675db7e0c090eecd81d000abf759ffb0ee2ae90b222e9aac6360c"
   end
 
