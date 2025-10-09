@@ -13,6 +13,7 @@ class GatewayGo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d2fee6e26ef52c684f07404f43b28cca3d6c98c7e2eb77c05778e71a0892be54"
     sha256 cellar: :any_skip_relocation, sonoma:        "ea1f7e04b61873ecc112c7a780d9f6865a0361b48bdd4ba4ee88544fa7bf898b"
     sha256 cellar: :any_skip_relocation, ventura:       "b908b6d560ba03720d79b9346d86966f62b0bfb54dc849013224ab08463aa4fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75f39c500b0df9aa0e7a6edc132e0989784cb70589ee49f38f88462a835b96cb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "574a9244c32bf65a8bf49a14573b4911ce71cfaf344a3efadbad65833d5ba854"
   end
 
