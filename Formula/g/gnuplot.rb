@@ -29,8 +29,8 @@ class Gnuplot < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "gnu-sed" => :build # https://sourceforge.net/p/gnuplot/bugs/2676/
   depends_on "pkgconf" => :build
+  depends_on "qttools" => :build
 
   depends_on "cairo"
   depends_on "gd"
@@ -38,7 +38,9 @@ class Gnuplot < Formula
   depends_on "libcerf"
   depends_on "lua"
   depends_on "pango"
-  depends_on "qt"
+  depends_on "qt5compat"
+  depends_on "qtbase"
+  depends_on "qtsvg"
   depends_on "readline"
   depends_on "webp"
 
@@ -55,32 +57,7 @@ class Gnuplot < Formula
       --with-qt
       --without-x
       --without-latex
-      LRELEASE=#{Formula["qt"].bin}/lrelease
-      MOC=#{Formula["qt"].pkgshare}/libexec/moc
-      RCC=#{Formula["qt"].pkgshare}/libexec/rcc
-      UIC=#{Formula["qt"].pkgshare}/libexec/uic
     ]
-
-    # https://sourceforge.net/p/gnuplot/bugs/2676/
-    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
-
-    if OS.mac?
-      # pkg-config files are not shipped on macOS, making our job harder
-      # https://bugreports.qt.io/browse/QTBUG-86080
-      # Hopefully in the future gnuplot can autodetect this information
-      # https://sourceforge.net/p/gnuplot/feature-requests/560/
-      qtcflags = []
-      qtlibs = %W[-F#{Formula["qt"].opt_prefix}/Frameworks]
-      %w[Core Gui Network Svg PrintSupport Widgets Core5Compat].each do |m|
-        qtcflags << "-I#{Formula["qt"].opt_include}/Qt#{m}"
-        qtlibs << "-framework Qt#{m}"
-      end
-
-      args += %W[
-        QT_CFLAGS=#{qtcflags.join(" ")}
-        QT_LIBS=#{qtlibs.join(" ")}
-      ]
-    end
 
     ENV.append "CXXFLAGS", "-std=c++17" # needed for Qt 6
     system "./prepare" if build.head?
