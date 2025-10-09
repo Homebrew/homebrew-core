@@ -13,6 +13,7 @@ class Notify < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2aeec01296186f92a51779563e40390db5b65585f2f0f9fc5a4339c23af9199c"
     sha256 cellar: :any_skip_relocation, sonoma:        "1da6aac2df79d0f709092d1b2a9449ad3dfee1fe6fb4b2073635b321540b7895"
     sha256 cellar: :any_skip_relocation, ventura:       "b91f8d7fd9626a85fa58b680effdd66c1bc3aa8b8871c699eeeaa7019ff27b44"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eabe485332921912a90cb52151029c5ca2cba52494fdb289d9bcd689870fa94d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b193c3bb416604ece04efc3382efb032885718e2740d26e98d6a6094d6e1eb2b"
   end
 
