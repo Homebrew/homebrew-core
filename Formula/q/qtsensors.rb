@@ -20,6 +20,7 @@ class Qtsensors < Formula
     sha256 cellar: :any,                 arm64_sequoia: "5b6bdfc6f3a672609e24dfd8e2d71b204583f8a71418a422d220cb2fd8ce690c"
     sha256 cellar: :any,                 arm64_sonoma:  "1635586cca09a521c0ee68324e21b3bf85ae9f37a9f5a146fc79cd7edf740afd"
     sha256 cellar: :any,                 sonoma:        "465beb97f05da8f693c3e84489142261c93b9c7bc4aa2d291f3132614ecbffe5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9af92409ff64662bf3b4884b244b86be5bd1e25e73e065b50a139f4cfb42779f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0693ae7ee4d158061579435e40cc4c012984ab7ec61a0ac1817819dde01117f7"
   end
 
