@@ -22,6 +22,7 @@ class Qtpositioning < Formula
     sha256 cellar: :any,                 arm64_sequoia: "752f8c9bddbc745cb99897f30d918b7bbf5481faf19031df5af6d6fa7034953b"
     sha256 cellar: :any,                 arm64_sonoma:  "6d51d148e6cc63c0b1a0178fae03dbc5f1b7f231fe27904f87449eca158e1564"
     sha256 cellar: :any,                 sonoma:        "939737840db8646bcf700862955b1037d7fc15c3e63ec249973b4ffe97c8f637"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b857a07595e1962e101b453e07db1a0acbfaff243a18b572c7ff9407350b8b0e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d21a7d8372cbd1fe44966d5eba3fab9f189d8331c504249e905e36bf1430189"
   end
 
