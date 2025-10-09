@@ -1,10 +1,9 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20230101/fontforge-20230101.tar.xz"
-  sha256 "ca82ec4c060c4dda70ace5478a41b5e7b95eb035fe1c4cf85c48f996d35c60f8"
+  url "https://github.com/fontforge/fontforge/releases/download/20251009/fontforge-20251009.tar.xz"
+  sha256 "69046500185a5581b58139dfad30c0b3d8128f00ebbfddc31f2fcf877e329e52"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/fontforge/fontforge.git", branch: "master"
 
   bottle do
@@ -46,13 +45,6 @@ class Fontforge < Formula
   on_macos do
     depends_on "brotli"
     depends_on "gettext"
-  end
-
-  # build patch for po translation files
-  # upstream bug report, https://github.com/fontforge/fontforge/issues/5251
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9403988/fontforge/20230101.patch"
-    sha256 "e784c4c0fcf28e5e6c5b099d7540f53436d1be2969898ebacd25654d315c0072"
   end
 
   def python3
