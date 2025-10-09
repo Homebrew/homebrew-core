@@ -26,6 +26,7 @@ class PythonAT314 < Formula
   depends_on "openssl@3"
   depends_on "sqlite"
   depends_on "xz"
+  depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "expat", since: :sequoia
@@ -472,6 +473,7 @@ class PythonAT314 < Formula
     system python3, "-c", "import pyexpat"
     system python3, "-c", "import readline"
     system python3, "-c", "import zlib"
+    system python3, "-c", "import _zstd"
 
     # tkinter is provided in a separate formula
     assert_match "ModuleNotFoundError: No module named '_tkinter'",
