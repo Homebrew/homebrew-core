@@ -11,6 +11,7 @@ class Roadrunner < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5936e8b972a6b37100ecf72da3937eba7fa050791b1a8db3e6dbfa427f9d2270"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6e410178ecc56d69b8a33146c49810a2cad8b9527ba504849dedd3f7033e72f3"
     sha256 cellar: :any_skip_relocation, sonoma:        "9e6f496d4752d3f91fce14d547526bc63a787bc42e309e5d2fdbadec5393ef0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a27016fb1a24e063426eef504e79fa9c96ab0e60f67386242e57536b0da55f6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c021a1bc77b1b25f5ebfe1d38f0fe8819e49c79c52dbc930c338cf19ecccdf6d"
   end
 
