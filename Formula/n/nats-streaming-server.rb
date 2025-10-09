@@ -15,6 +15,7 @@ class NatsStreamingServer < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "c2c2b7b5ab4b94551dde455c6ec5ac52dca72a5870245024a0b6c797f51a3e1d"
     sha256 cellar: :any_skip_relocation, ventura:        "d8e27e58088ba913c7847b85e0c518a4398010e73815e2eb07478160f1b88fa1"
     sha256 cellar: :any_skip_relocation, monterey:       "44ad763490fb8fb3d6676c0956ada1d4a8716b149a9fcfbc625b53b15226d26a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6f4f5d83e54e0f6928b4ede08b8f184109ddb60c7fd1e2e61d4dc97f2b1feb50"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f24c7b57b3e4e5dfe672f92a7fe4386ec74a1c807666643bf895b47d57e450c"
   end
 
