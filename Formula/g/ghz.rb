@@ -20,6 +20,7 @@ class Ghz < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "6b5619a75383d5242e401da25dcd2bce75ead6b09fe2cd4d0953c9f6f1da5471"
     sha256 cellar: :any_skip_relocation, ventura:        "aae590227a2a239a67cbfe22676fb3bf1570ac74a958ab90168bc69c32943d5e"
     sha256 cellar: :any_skip_relocation, monterey:       "d3b4eb715afffc5663d43fe8c02bda49e1a4787a333cc60bfb4229ee1f57c309"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "80ea4cc09a406d4890d294bb8f627bee43ccf088d8ecf94ea0ec498e9021353d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea5178ebfb4366a1aa75c1dff50167fb9424911c924a3fee0f1f9471c1273ceb"
   end
 
