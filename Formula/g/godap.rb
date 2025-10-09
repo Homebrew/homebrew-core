@@ -13,6 +13,7 @@ class Godap < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "62370a7cb13319a0bb099c2d8ab0d6cc7f5c05e704fa23c0e33af39b6505179f"
     sha256 cellar: :any_skip_relocation, sonoma:        "4aee3f2cdd062d384e8e1400535510098b75c2ed4fec7e73183734308cdc2798"
     sha256 cellar: :any_skip_relocation, ventura:       "4aee3f2cdd062d384e8e1400535510098b75c2ed4fec7e73183734308cdc2798"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e29866292ba077cf893e46c0510aa3abc08cfee38ae8540bdcc1a90792b045f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2dae7760fd93ea6ccdb0052cbd62ffd58a096c016b997d9faa4478b0b6391ab"
   end
 
