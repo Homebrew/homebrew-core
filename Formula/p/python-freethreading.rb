@@ -25,6 +25,7 @@ class PythonFreethreading < Formula
   depends_on "openssl@3"
   depends_on "sqlite"
   depends_on "xz"
+  depends_on "zstd"
 
   # not actually used, we just want this installed to ensure there are no conflicts.
   uses_from_macos "python" => :test
@@ -42,9 +43,6 @@ class PythonFreethreading < Formula
     depends_on "libnsl"
     depends_on "libtirpc"
   end
-
-  link_overwrite "lib/python3.13t/site-packages/pip*"
-  link_overwrite "lib/python3.13t/site-packages/wheel*"
 
   # Always update to latest release
   resource "flit-core" do
@@ -428,6 +426,7 @@ class PythonFreethreading < Formula
     system python3, "-c", "import pyexpat"
     system python3, "-c", "import readline"
     system python3, "-c", "import zlib"
+    system python3, "-c", "import _zstd"
 
     # tkinter is provided in a separate formula
     assert_match "ModuleNotFoundError: No module named '_tkinter'",
