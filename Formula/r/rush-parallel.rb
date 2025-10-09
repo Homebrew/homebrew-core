@@ -12,6 +12,7 @@ class RushParallel < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4eeac0ea0161b5da75e833e99988060a35e6230d1956cc885022deecbe069714"
     sha256 cellar: :any_skip_relocation, sonoma:        "35f05c81215d36bd242affb3cd4e2f07654b2e5b7b114470acf99adcd147e062"
     sha256 cellar: :any_skip_relocation, ventura:       "e696d0e4b1418f63075cd93842c973361960097fa153594191e67374e4208a96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "773d308ffad34b476fd539d714b2a381ec32b0e24cd2f13bcb4618b2eab8b309"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0a8e3441f54cfe73b04d086413644cca6081a6a7b06273a292d4c3116682b36"
   end
 
