@@ -13,6 +13,7 @@ class NovaFairwinds < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0307938adcbe20d13815700636303b9d9472f21a6b7b3988db8dba15dd96932d"
     sha256 cellar: :any_skip_relocation, sonoma:        "11f78c3a77156aa1e057d30e684cb39c1545173a48a45706ecdf28b356d8ee93"
     sha256 cellar: :any_skip_relocation, ventura:       "11f78c3a77156aa1e057d30e684cb39c1545173a48a45706ecdf28b356d8ee93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bfae47bd109be0a9a73237e98b2bf7309b043f41570a97f2a749e1df156fcf95"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a73502a71157b399cd366debb4c8bf671fe4fe7c4ad20251677bba8f64f1636"
   end
 
