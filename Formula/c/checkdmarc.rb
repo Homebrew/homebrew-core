@@ -3,8 +3,8 @@ class Checkdmarc < Formula
 
   desc "Command-line parser for SPF and DMARC DNS records"
   homepage "https://domainaware.github.io/checkdmarc/"
-  url "https://files.pythonhosted.org/packages/c9/5c/2e88777636e5e2864c4bf794d3499e73c7daed74abc1621a52f20ec82dc6/checkdmarc-5.11.5.tar.gz"
-  sha256 "56599654edcaf052268966c51289842d8281057bf1b233aa60e40b1a897a6732"
+  url "https://files.pythonhosted.org/packages/c3/69/fc37199a1636ac972e8a4d15fc7139941fdd6d6cc4b774463c29ee95fbb8/checkdmarc-5.11.6.tar.gz"
+  sha256 "d7ef34efdee782e800e8df6d59397d6ab6bd2ac76eb82a3bfc7d1014644265ba"
   license "Apache-2.0"
   head "https://github.com/domainaware/checkdmarc.git", branch: "master"
 
@@ -47,8 +47,8 @@ class Checkdmarc < Formula
   end
 
   resource "publicsuffixlist" do
-    url "https://files.pythonhosted.org/packages/3f/9d/fbcdd931af656aa5ee9b55b4ad2f73cd13a157fe857a3ccf72f90281b2c2/publicsuffixlist-1.0.2.20251002.tar.gz"
-    sha256 "6793c97c389745802cabc64622e9391c22611d6423a9266ba34d588c93b03f99"
+    url "https://files.pythonhosted.org/packages/ad/87/0ab464d6984198154d417dd530e2d39e0b50c202a5201ef92229e69899b0/publicsuffixlist-1.0.2.20251009.tar.gz"
+    sha256 "b428a8cd0f468bbf5fd9f956370b9304a0ceee7fdea82ffc4701f0509f1ba413"
   end
 
   resource "pyleri" do
