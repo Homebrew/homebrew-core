@@ -21,6 +21,7 @@ class GoStatik < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "bc500cc264e19fa299d10cee767ea23b79750b4e5891359aa465898e1de6590f"
     sha256 cellar: :any_skip_relocation, big_sur:        "0f05d7b15227e1bdf7be3876d90135232083ae1789c08d32641777b9291ef8a7"
     sha256 cellar: :any_skip_relocation, catalina:       "d6d3e13adce186f49cf35be7be414baec7cfa02e8d884e0a97ec9f15108f4cb4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2912f38eebb2a2fca10361daa336b9d8e01ee7cc0063c71d360339966f00b4c2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8dac98a1bcf9c946d1ec00fcf2249f1796796f1f52f549988b95d96f9e94fc7"
   end
 
