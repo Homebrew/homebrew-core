@@ -19,6 +19,7 @@ class Ultralist < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e400736305be6718a828515079c72ab56f3ee8257672945f0a18c9a435a43ccc"
     sha256 cellar: :any_skip_relocation, big_sur:        "b1c9c3e4f51dcec7c482a44e9111fdb3bf42081195d73df63c858c8c60a66eb0"
     sha256 cellar: :any_skip_relocation, catalina:       "529daa8fdf264f4f13f8f93d785095d4a803f94902772e25094415691bf7f83c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "eb37076414ad6dfb8788d0a12a0cbc3db6d1429a7bb2d3b8c664f11ef2587184"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1d287b06c14adcd326d8dd626209fcfa7a287919dce6f755f80a6513b2ed6e7"
   end
 
