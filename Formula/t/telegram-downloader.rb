@@ -13,6 +13,7 @@ class TelegramDownloader < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "52577886ec767716895563462765268a52edb2f08e4b3140362893d122a9d227"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baa0337af8214dc4119764cf00a59617fe759e404549c0a85865877e458c2e36"
     sha256 cellar: :any_skip_relocation, sonoma:        "6b77e39f55d27404159d6618b5c4a0a0453eb11c2cea72d36f7466f65a4783c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7378ba3a892f1085ba51215c4ea86d1c248b914326a5ea27a26e6a2022da053"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9224b9978bed5e238dcef82735871adf8480499ffd62d010179f6ab0a4652907"
   end
 
