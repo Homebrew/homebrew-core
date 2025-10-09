@@ -65,6 +65,7 @@ class Gdal < Formula
   depends_on "proj"
   depends_on "python@3.13"
   depends_on "qhull"
+  depends_on "sfcgal"
   depends_on "sqlite"
   depends_on "unixodbc"
   depends_on "webp"
