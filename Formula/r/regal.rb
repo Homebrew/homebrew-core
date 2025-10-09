@@ -13,6 +13,7 @@ class Regal < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6c18b66cf3ca43dfb39d2fff174fcd021ec33743fd3d9afad9286d3927b3b479"
     sha256 cellar: :any_skip_relocation, sonoma:        "bc976f8bc62ffb78fe0c86225581dfbec797e8fb57437203216d29810df6843b"
     sha256 cellar: :any_skip_relocation, ventura:       "857facb91526047c761196da0410ab7fffee6e43dab670542641b43b393d1ef5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "02006b7abb82dc21842b482b147f2988a03c64afc448eb75d20fec1e2383a069"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1534d32b616e3e0a99163402425b8f4bdb7ff33f40a40f1d2d9d7de39ed2fc16"
   end
 
