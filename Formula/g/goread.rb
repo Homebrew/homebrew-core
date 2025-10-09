@@ -13,6 +13,7 @@ class Goread < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f54a965d898329bdd7071bcb6b5d3d3fa76e21ec181c48209943ad9a4e424ab3"
     sha256 cellar: :any_skip_relocation, sonoma:        "28c65443c15b23ca7042ac03c8ba09deb9117e4c931e5423e4367403d5b36553"
     sha256 cellar: :any_skip_relocation, ventura:       "28c65443c15b23ca7042ac03c8ba09deb9117e4c931e5423e4367403d5b36553"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a7e6beb7a80ca028a56c0e13ae193fa6a29134e38de1efece8126f21f1bd8f1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bc61108955a4fc3f22de1900278227627b2f5fc44547a92513a751da780e1a1"
   end
 
