@@ -17,9 +17,10 @@ class QalculateQt < Formula
   end
 
   depends_on "pkgconf" => :build
+  depends_on "qttools" => :build
 
   depends_on "libqalculate"
-  depends_on "qt"
+  depends_on "qtbase"
 
   on_macos do
     depends_on "gmp"
@@ -27,7 +28,7 @@ class QalculateQt < Formula
   end
 
   def install
-    system Formula["qt"].bin/"qmake", "qalculate-qt.pro"
+    system Formula["qtbase"].bin/"qmake", "qalculate-qt.pro"
     system "make"
     if OS.mac?
       prefix.install "qalculate-qt.app"
