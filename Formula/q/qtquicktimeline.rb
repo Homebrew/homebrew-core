@@ -20,6 +20,7 @@ class Qtquicktimeline < Formula
     sha256 cellar: :any,                 arm64_sequoia: "b88713278fbdd593b1e7039f6a10d58dcad1e60f8052cb3cb778edfdf5db3aa2"
     sha256 cellar: :any,                 arm64_sonoma:  "c709c762e9bfdf072debaca4350e3a771dca1f938e34105a6c69851d907a334f"
     sha256 cellar: :any,                 sonoma:        "c7359b758c5a20e3246b652739f688937f3a29e4846b4ba42d1b54144181881a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b109e589563914d9675744a0a7fa23c5b08517708d7a8ba69f739af1eb9ab5b9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ef59c4ebf0c10f60ddf24312cea5bbcd8eef955df2a5f702fc3c890dc8470ec"
   end
 
