@@ -1,15 +1,13 @@
 class PythonGdbmAT311 < Formula
   desc "Python interface to gdbm"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.13/Python-3.11.13.tgz"
-  sha256 "0f1a22f4dfd34595a29cf69ee7ea73b9eff8b1cc89d7ab29b3ab0ec04179dad8"
+  url "https://www.python.org/ftp/python/3.11.14/Python-3.11.14.tgz"
+  sha256 "563d2a1b2a5ba5d5409b5ecd05a0e1bf9b028cf3e6a6f0c87a5dc8dc3f2d9182"
   license "Python-2.0"
 
   livecheck do
     formula "python@3.11"
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "42796f871daa51e6e53f0338b569d2b8ac38c4e53c454eaabfb545fd3aee8d39"
