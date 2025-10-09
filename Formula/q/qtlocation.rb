@@ -20,6 +20,7 @@ class Qtlocation < Formula
     sha256 cellar: :any,                 arm64_sequoia: "b23e22d09ff487b3fabcf34448e6e425533a2e0c73bb0d9eca119284ad1cba3b"
     sha256 cellar: :any,                 arm64_sonoma:  "4e8930e10b00a68c2d89dc6bccb2b9b2eec38ee3cf2a68a4bf007ba35a5d214b"
     sha256 cellar: :any,                 sonoma:        "5ddab821cdfd09656ba0fce4078573f82aa16e660ddb064b2ea30fb7ead50dc6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "80fbc6b07511d2d1e483adfe2fdf8dbad85e74aae4916f31418d57f424fce55e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c1ce01496cff0cd094e8466b9bbbea6e56f095a250292d12b1104c88cdda125"
   end
 
