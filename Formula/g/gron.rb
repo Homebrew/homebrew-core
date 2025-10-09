@@ -20,6 +20,7 @@ class Gron < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7b03cebd6d4120718aeb3de935087981d9e234c844df866076518417dfd6e9e0"
     sha256 cellar: :any_skip_relocation, big_sur:        "c28a8bf800179d49a5aeb52d57bac6100eee9a5755c0dc112dc7fd7e7413323f"
     sha256 cellar: :any_skip_relocation, catalina:       "d8422ab18406e6231c4731d0f124641508175c2ee142bd5bd0d99f1a97252c3b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e70945d74b90ca9e8cd455764ba671b2d25408c4548ff5fe99f97ede13e07d63"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b10089d68a7958fb52643f3813b910fb5ab3a89ffb18d5161e5f717956b6bf2c"
   end
 
