@@ -13,6 +13,7 @@ class Reckoner < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e819d54160c7f34ccc327200798bee113bdfa2cac49ce7c73b7b80dd1dbb6512"
     sha256 cellar: :any_skip_relocation, sonoma:        "562a31411a4351cedcc0bb15a92147836bcf3444f36b44086e2bb4be34e8a808"
     sha256 cellar: :any_skip_relocation, ventura:       "562a31411a4351cedcc0bb15a92147836bcf3444f36b44086e2bb4be34e8a808"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f840ec2114c6a8ac13d7c81e0562b1bf14b20c58407f644abdec811b623d6b35"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a04b4b6ff5871fcc12e09cbfe65a9b8b06be2a9a3fd90d2e8b8337100b0087fb"
   end
 
