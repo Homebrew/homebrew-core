@@ -13,6 +13,7 @@ class Glasskube < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "063ecfd9f5070323a625742f6501bfa047a48b75ae7b82034a65019fb28d383a"
     sha256 cellar: :any_skip_relocation, sonoma:        "e973c658e887038f7e9af6391821dd0ab5c5e8c8e576b5a607f0f786b9a1cf98"
     sha256 cellar: :any_skip_relocation, ventura:       "e973c658e887038f7e9af6391821dd0ab5c5e8c8e576b5a607f0f786b9a1cf98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "15fde2176d6a1201b43e0b4edbb5fcffd40d956c77e2885546cc3d5cdf4f6c27"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ba2615470cf6001762cdb9acc28d84417494d385b53bd4c73a69e7a9109d56c"
   end
 
