@@ -13,6 +13,7 @@ class Gau < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bcebe9943094a46ec7b7166718717efd633986c99228a269c0c50f38fcc74037"
     sha256 cellar: :any_skip_relocation, sonoma:        "10d23c1e073ad46bc37e270a2f8c9bab12fb8a620114b86cc3192556922f3265"
     sha256 cellar: :any_skip_relocation, ventura:       "10d23c1e073ad46bc37e270a2f8c9bab12fb8a620114b86cc3192556922f3265"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b77e7c4e7ccd70bd3fb6c34d962dddef411791c84e4c77bcbe736cabab0cf4d5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e7a5ed750fc77cf005a7cd657dcffab2f58d5b75f16ccfefff2fd59f5a881d9"
   end
 
