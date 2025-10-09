@@ -16,6 +16,7 @@ class ImmichGo < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "84ec970d08d0394590367cd4893e304e86a77b1cd6b58c5f7503243b993acd66"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d042b2e1eeb4e162af1f0c63eca8fea1ed48807b8609a3208950ece1a7499e72"
     sha256 cellar: :any_skip_relocation, sonoma:        "387345df6575b7fb799800152804d4eb3d89f25999887c287d9ed834ec3b62b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26509656bd28b78d520cfbac6bc3aee8fef65332f17ded03ff281ae0db1c0fbb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c552751b9b4abdf821ae246f2495e258a24c142a1804c8ff81b23236479de20"
   end
 
