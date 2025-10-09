@@ -13,6 +13,7 @@ class Gut < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e0c4fba2fc790008bd0813b2313e81f75e2d02539e38f09141ee4082c5cafeb3"
     sha256 cellar: :any_skip_relocation, sonoma:        "6e61dc52c2aecadc43b95b5a2a1e3c4b278ac6c182b37d989e81af5bdf162847"
     sha256 cellar: :any_skip_relocation, ventura:       "c0bf2735f14841209395250135915692de7df22bafe1ad32e0e9d2f47c5b7ff5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4de7f052481f406eda6c1bfa8b8cf1ec54b73e476107127fe66927f3e09f3e1b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "41e669eaafcb962c1f07cfe0daed82e5a7342d017e8c0160059498c168db8d35"
   end
 
