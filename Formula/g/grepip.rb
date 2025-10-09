@@ -21,6 +21,7 @@ class Grepip < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ef333d42f469784211e7520c89ac8ac07014ca9e56a7ef3a87a29749ddae30dd"
     sha256 cellar: :any_skip_relocation, sonoma:        "d831e7a316e08e58f230b208ed0b7a5db4b2c3ae425dbb71a52b1099d15bf77b"
     sha256 cellar: :any_skip_relocation, ventura:       "d831e7a316e08e58f230b208ed0b7a5db4b2c3ae425dbb71a52b1099d15bf77b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2ad83ecab46b2e50890c75e9e583b060de0fb480da868639645ad48702f84b1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "89fb159a561f18bd7ddb41e4fe0e280d1aa632165f0b887d4ce2c04af65633bc"
   end
 
