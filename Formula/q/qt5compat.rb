@@ -21,6 +21,7 @@ class Qt5compat < Formula
     sha256 cellar: :any,                 arm64_sequoia: "a9cd817fce35c8a59ebd45d1a38bb1f9bee94eb56212274796ad628791ee752f"
     sha256 cellar: :any,                 arm64_sonoma:  "b1ac9fcfca639fed98614eb6574a0316bc4977421fbe15f7ce3a6a2f9531ea72"
     sha256 cellar: :any,                 sonoma:        "4647c4d81b9e3bd2b84093bd537348a32bd0bcdd3c0189fea7dda826251d7de3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f84073a583286b510c2d2159788f3691205c47b1b2ce3e0d686a0c537acc157c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "91a0dd5f6f77909277a021c4bf80d56012aeb3d2e61aa01f645f7f89028aa82e"
   end
 
