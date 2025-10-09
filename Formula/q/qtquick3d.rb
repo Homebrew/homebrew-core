@@ -23,6 +23,7 @@ class Qtquick3d < Formula
     sha256 cellar: :any,                 arm64_sequoia: "53d5d526f7c5cbfc00784c394d79c9ee0116956c6be33ecb0d5e6709638184ca"
     sha256 cellar: :any,                 arm64_sonoma:  "4ef0671faa485029e32512124fa6d03fcfa27bc3eead1fde5023699abeaac622"
     sha256 cellar: :any,                 sonoma:        "afbcecc705bd9163dfb28a1b87249ff8301f5e09fa8b9c9a9f7bcf2ffef7cd78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "217ed5235e03f772a6531a333f10f1da3ca88a2f6c0081bf649d080758a51882"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "58b559aa384660f248f828ddf6cdcc96e43470468e43620735a2e28ee15a6575"
   end
 
