@@ -13,6 +13,7 @@ class GLs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fc5f4556c356118abc88b66ed21a4ad35565328d422464fc20cac30b29f434b5"
     sha256 cellar: :any_skip_relocation, sonoma:        "7b203477a74e2996df047e202b4f8827d68c98d1db639a6bc9ff33fac6938d6a"
     sha256 cellar: :any_skip_relocation, ventura:       "81225e99df84abf8e659e76c2b48eb4e46f4ce841d1809c66db0b828a9050a0c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dad7f157a9be7a8c16b23b585f24ded385df6d308e3e63ab233f7b965abeae9d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8fbf36aa3e158d614b9a5dfbfcc8598bcbd7b2f79e516a1bec447281a790495"
   end
 
