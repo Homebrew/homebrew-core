@@ -18,6 +18,7 @@ class Tut < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "bb9f6d0b46819c74ed5c2b82d85bb320153853fcb826b8637b6ca6632fc9098f"
     sha256 cellar: :any_skip_relocation, monterey:       "dc6cd4fa84bc565c7f22bab2a4d55e8c313a67ecf21978a98a40cbb7fad5e4f2"
     sha256 cellar: :any_skip_relocation, big_sur:        "931e7398ad80e6374b97fa18da74d2973698e9ef732995347e1bd01a9ac04a8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "57654e947d5c94cdbccd46dadc822ea72599793f890f12ae8823d617443aa53a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3b8f56c413f16c8c270d137048c2a2d7f2f68418f20f7a5b67c6ba2f1d18167"
   end
 
