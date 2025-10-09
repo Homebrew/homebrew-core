@@ -13,6 +13,7 @@ class Gator < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3c2d8262321b5a8e5f22a5a1f307451f181e56f618391b0f4be1ec5d829b0dfb"
     sha256 cellar: :any_skip_relocation, sonoma:        "4473a79a17494403011ceb62a4e6acfc9db90d085ffcca02028875207366cb6d"
     sha256 cellar: :any_skip_relocation, ventura:       "72f863e2b1fb8df14b4bd832acc29ce0605fd68dffc7463eb1307ce62533761e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5b53f7101610952c3a6b496925c9602a7166ec61c0a7255b566e99e3833415b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "04ee65ba50a6b42a5158d9a5080728d3c6ba394e3a8dae9712baf39adc07eba0"
   end
 
