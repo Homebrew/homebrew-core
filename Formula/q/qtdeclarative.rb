@@ -22,6 +22,7 @@ class Qtdeclarative < Formula
     sha256                               arm64_sequoia: "4073f5e4d88bcc78c24f38d8ba11fb9d474b70c0fec3a76c7997108ac50241c8"
     sha256                               arm64_sonoma:  "830c76d0e22f0d7ecc800f1d26b920fd65bc5f5ef3b6e219267e7c673d1534dc"
     sha256 cellar: :any,                 sonoma:        "d4f34e19e1e6ce6dd7452dea1cb4b42bf39c7e3e7d6f7b73e42cf72a5635f53e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "578fa8f1b82c9375bd421b06ec8524e81759b69a0f76cefc1a4adc879ab72828"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "25c2ae6327941d10525bec6b4596b92239bcccd7a6468b522579ae410a1c0e03"
   end
 
