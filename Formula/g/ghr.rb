@@ -13,6 +13,7 @@ class Ghr < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "33eb8a6c60098a3b5f4c8f86fa0362c33a96d9666c2f9327f2af05822c40ad72"
     sha256 cellar: :any_skip_relocation, sonoma:        "5e520a3a2a2fbdeed8ccc62df3d69a9aebd712ecdcd7895badb0d2894f6b0278"
     sha256 cellar: :any_skip_relocation, ventura:       "5e520a3a2a2fbdeed8ccc62df3d69a9aebd712ecdcd7895badb0d2894f6b0278"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "31f11960187e900d2bad217c81ed8e29a59ab1c772fde3943ced1b4c699fdd87"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "62cc14affe982f4b63fe94b4e71d39c3cc4235dd66e6a91294e0b7487ba70de2"
   end
 
