@@ -13,6 +13,7 @@ class Ntfy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4a0e6ef987e43fa3fa4427c556b13e0a045b1b3c7541836b5296e873ab3722cb"
     sha256 cellar: :any_skip_relocation, sonoma:        "b15d82f2bb2142a9e729d1b27f45ae0ae9cdde2065ccd30ea3deb8ab95eaa6f3"
     sha256 cellar: :any_skip_relocation, ventura:       "b15d82f2bb2142a9e729d1b27f45ae0ae9cdde2065ccd30ea3deb8ab95eaa6f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "960187f75fb377b17ed5bcaa2b4a323fe23559b8c887f23e82216b6778c6bc7b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "189313f23ad7768e11084f3ec5f72becc3ca599790b256e8f74818dad63ee7fe"
   end
 
