@@ -31,6 +31,7 @@ class Qttools < Formula
     sha256 cellar: :any,                 arm64_sequoia: "0f55c7a0531956e28a0d43709732dc5aa64d46e00036919512fd8e5667de5a96"
     sha256 cellar: :any,                 arm64_sonoma:  "77936861c7a0e8ef304d1de1984e77f11408085fcdcbd3fe74f40f2b935e7ff7"
     sha256 cellar: :any,                 sonoma:        "c03e46e01c366253d940a8466fbe385ef049f67bbb728ca5a5e0fd8fbd3611e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fffabae308dcaee15d75c9662c0b78c12759073552a598519950e4d98d114c27"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ea8fb896bfb7495515265341360c6090845fa68fc67b9bbee03a1a91d0405a2"
   end
 
