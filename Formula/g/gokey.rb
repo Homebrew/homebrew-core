@@ -14,6 +14,7 @@ class Gokey < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c48361701ef4bb0cb240cac294c443a25c0bbf0c052491374ece690251004c50"
     sha256 cellar: :any_skip_relocation, sonoma:        "60a0379dcee805100101fc743bca36ac50142bb12b7b33aad7b904f47d47691e"
     sha256 cellar: :any_skip_relocation, ventura:       "60a0379dcee805100101fc743bca36ac50142bb12b7b33aad7b904f47d47691e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9cb8bc2998d205691492e1000361cafa3f87adcfecc4518f98c73c5a2b801066"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b858ad23afe1d56612a5e2a586f1d24b5b87acadc282d104e44ff7a2959d425"
   end
 
