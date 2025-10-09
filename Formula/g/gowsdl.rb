@@ -19,6 +19,7 @@ class Gowsdl < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "c810ea3ef7b3a12aeb84b71b71c0c67f6853857cd6fd778c65b9bb0b9fad157e"
     sha256 cellar: :any_skip_relocation, big_sur:        "311386c63c7c7ffda0e89c0cf753b5ce53745909e492b2866f75c157c97e48a8"
     sha256 cellar: :any_skip_relocation, catalina:       "5decccb2c1f5b9c093dc045fceede062ea21bfb0273c7cfa9d7c1cde04229e4c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8579b7b07203ffa43d65de8bd48ba205dca277d0e6057c0eba5f0851a2484b3e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f90850655453570875a7087b0ac6a850d059a68afba01b62a5e30e6aa7cfecc"
   end
 
