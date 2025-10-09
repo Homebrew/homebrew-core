@@ -21,6 +21,7 @@ class Qtserialbus < Formula
     sha256 cellar: :any,                 arm64_sequoia: "eedebb571a0bd192211723eb32c09a2d5bf397f2dd514c44e59800725d3db312"
     sha256 cellar: :any,                 arm64_sonoma:  "49d639f622ba2c58ed055c00ab083d6e4139c0e8cf4a77ac92e7a636a20190a0"
     sha256 cellar: :any,                 sonoma:        "f22b0a4973e5082e8d9ef5cd9e05b952146e45a8c3906c9ac8d63dc9d1a76cf1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28553934744f46bf5a20949ad5cbd788cc28c672fe010ca31bd27f8045394602"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2564f16918575baaac56edace8e77bd0320be2209bc39cdcd09758e0a3c30232"
   end
 
