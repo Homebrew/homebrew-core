@@ -21,6 +21,7 @@ class Qtscxml < Formula
     sha256 cellar: :any,                 arm64_sequoia: "004c40cecb4b10056eb19a8e47637d9c00b58160735c255507930b72741ce927"
     sha256 cellar: :any,                 arm64_sonoma:  "95663d1f120f49b7d62c4dbe805004c2d888f4e1c19c1b7ecf316bd880972759"
     sha256 cellar: :any,                 sonoma:        "46b06c2375955e2ee1e7597006f1eb3cdf55fbf660f10c8cb5a3fd6f28853cc5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4c278705537169c0689b35dc2875eda465d9b7c6aaeb7c0a1ae17e93ca5f27e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e883ccfcb801ac56233c52c5d15c05ae8e290dd3a24c049e87be34eddba9ecb"
   end
 
