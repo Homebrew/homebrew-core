@@ -20,6 +20,7 @@ class Nexttrace < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f2c39329e18e617f4648808d9902bc5031ba3dd5f47381ccd9f0adb47a29285e"
     sha256 cellar: :any_skip_relocation, sonoma:        "4318b378fe0ac302f48bbe6d238cce3ae2883eea0e6e3bda5c8142dab338c466"
     sha256 cellar: :any_skip_relocation, ventura:       "4318b378fe0ac302f48bbe6d238cce3ae2883eea0e6e3bda5c8142dab338c466"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b1fcfaa4e2235048fc9312281689b017ed5ff8ad95ee7009f4833b80b29a459"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2052e55da0989f32bd688d2fc5ca9975ec5e6ccc8ef9d7cc0e6da236d687d79b"
   end
 
