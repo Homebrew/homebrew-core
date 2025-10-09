@@ -13,6 +13,7 @@ class Gaze < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "86b270f20437476abf6aa88f367b734e8176376cfd491bdcb83c657388b612e4"
     sha256 cellar: :any_skip_relocation, sonoma:        "8165d4fde34b016e36c5455ee3578c475e90e6e13e21f14f07e67738a4ffa4fd"
     sha256 cellar: :any_skip_relocation, ventura:       "8165d4fde34b016e36c5455ee3578c475e90e6e13e21f14f07e67738a4ffa4fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8518d80910736965f914e54249f8f375bfd8873cf459faee57665d41b9c4e564"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5704cda4c55581a1a1c2fbf7e6cce916ad75276ac2bbde5b2389823c0c2f6cdd"
   end
 
