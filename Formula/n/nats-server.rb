@@ -16,6 +16,7 @@ class NatsServer < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f7c82a38db1a932fc1f9b2d03c89346b2f3ba4548aa550e88cd830c7a56de37d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7c82a38db1a932fc1f9b2d03c89346b2f3ba4548aa550e88cd830c7a56de37d"
     sha256 cellar: :any_skip_relocation, sonoma:        "04b06e91d9f1aea116ae1440b1fd6268db982d4cd3f06709afcae61ae6e6d071"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df365a3bdc9bfa9ef0a2efad0422d655d1641d51011894150de0cf1920183423"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "251549842d3e838cdcac151ee0f33a4442ad8f996161988ffc5c8f608aea1f29"
   end
 
