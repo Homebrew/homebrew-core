@@ -13,6 +13,7 @@ class Gptscript < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"
     sha256 cellar: :any_skip_relocation, sonoma:        "0ca84273cc3c87fe0ae551ac4cd981b60400e4a8205c6748484ccd3944c3bad9"
     sha256 cellar: :any_skip_relocation, ventura:       "0ca84273cc3c87fe0ae551ac4cd981b60400e4a8205c6748484ccd3944c3bad9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81dac2ae65e2ed29430f02e635640dbc625982bb7dc4c31bf5fc13d62e888a7c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf7dcf27cef7f521453a62a5db71d452ceb23236d17679e4ae1682914df6a50d"
   end
 
