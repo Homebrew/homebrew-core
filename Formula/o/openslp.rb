@@ -9,11 +9,12 @@ class Openslp < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_sonoma: "88497463ae4bc988432fe2ec15a032ee2f4ea3516d8915405a08256c265633ee"
-    sha256 sonoma:       "9f8b91c18c4a8e0738618531ad35f6068daa27cb6069362510622592113aada5"
-    sha256 ventura:      "517653bc27072c320f9159e57040c51d5ba0b4ea8b234bb5af9af55a9aea9f42"
-    sha256 arm64_linux:  "7f3de41c36959025ce20d867cfa90c065fba46d872b055d0b7c2a2e6a631b44d"
-    sha256 x86_64_linux: "aa1988503f1e9688dfd80e0331392ab29a053e62197b60653e933ee1bc681efb"
+    sha256 arm64_sequoia: "8ad62fa05cfa66977820ce7095c95f7f3f9573fe8c11565cc80adb9767bb3ae2"
+    sha256 arm64_sonoma:  "88497463ae4bc988432fe2ec15a032ee2f4ea3516d8915405a08256c265633ee"
+    sha256 sonoma:        "9f8b91c18c4a8e0738618531ad35f6068daa27cb6069362510622592113aada5"
+    sha256 ventura:       "517653bc27072c320f9159e57040c51d5ba0b4ea8b234bb5af9af55a9aea9f42"
+    sha256 arm64_linux:   "7f3de41c36959025ce20d867cfa90c065fba46d872b055d0b7c2a2e6a631b44d"
+    sha256 x86_64_linux:  "aa1988503f1e9688dfd80e0331392ab29a053e62197b60653e933ee1bc681efb"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
