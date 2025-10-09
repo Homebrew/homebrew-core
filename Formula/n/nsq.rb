@@ -15,6 +15,7 @@ class Nsq < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "0ec31e900f313d0c2b7a7a71a12e6264f43346cb53ce66bea885386dc3d301b9"
     sha256 cellar: :any_skip_relocation, ventura:        "1c7e5d999245a576a73ff684c2540c8c2dd0f4dd7e6f0e1d045f97b9099dde0b"
     sha256 cellar: :any_skip_relocation, monterey:       "1d2ae14197604c4964dd5341720da2ec45cf31437eb7d3db811b6ca84e578174"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8afc82c4ac396662ef4530ace7005950a1c2b27b4b1f7747bb9db4c24744a074"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5635d83fc8df021e37cbe8058e509361bc5323ef663f713fdc82d84f1844e597"
   end
 
