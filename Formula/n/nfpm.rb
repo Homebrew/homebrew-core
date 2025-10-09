@@ -11,6 +11,7 @@ class Nfpm < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "60eb6e2afd7d903a4a4974234c2ce1651df024e88fae0bd86fed7d9a4cc153f1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60eb6e2afd7d903a4a4974234c2ce1651df024e88fae0bd86fed7d9a4cc153f1"
     sha256 cellar: :any_skip_relocation, sonoma:        "818c2fee78da738df9750c7ab5cd1dc62261128f2cc5944e5f8621491cd209a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "757a4abfa35bf0904f686e19b47e5d6f3a99cb8e8296bf2d859c28908ad74381"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6abe07ab30fcefdf9acdc1a29bc813d1de1d1bf3f31a4e263b720ce814d5ddc9"
   end
 
