@@ -15,6 +15,7 @@ class RekorCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "90535810c485ddb249857d6f492c1e3ec4b1edb978dda966cd36e7eb0bd714b9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90535810c485ddb249857d6f492c1e3ec4b1edb978dda966cd36e7eb0bd714b9"
     sha256 cellar: :any_skip_relocation, sonoma:        "a8dbbf57b1e5946ac57f6076c4dfcb9183182423aa6b3fc163dcd5e60a7dcec7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "24a2720fc8ac04f0c408708b59289729d451ad18c09aae2d712766b0308fd729"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6a65a455a7f3dbe54c8fc43fb8a0160711783564008dc682abdf851475d4470"
   end
 
