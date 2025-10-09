@@ -15,6 +15,7 @@ class Gibo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "96cff6fc7f7729fd6079afe880c13d7be1c66ad72e2c1a6501f91bb599f64e49"
     sha256 cellar: :any_skip_relocation, sonoma:        "042bd7b78512ac7ca840430bff26d1c1c4651d449a94e2c72c66e0b8b852a04a"
     sha256 cellar: :any_skip_relocation, ventura:       "042bd7b78512ac7ca840430bff26d1c1c4651d449a94e2c72c66e0b8b852a04a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2676f6a0e1bc9345b4bacb4c98077c7ef0477eff3291e79c4ffae275b4ab2fc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c5e560511609a96a820633f3d05454cad2fedf4eb93b07d1d6a22aff0c72602"
   end
 
