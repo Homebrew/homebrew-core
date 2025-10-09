@@ -7,15 +7,12 @@ class Fontforge < Formula
   head "https://github.com/fontforge/fontforge.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 arm64_tahoe:   "dea450888b5033710532590ee4ca4624ae61c1861f7ccf6727f72dae6caf2ac9"
-    sha256 arm64_sequoia: "f3efe932a2d7e72caf599601b82ee40144cb2ea3a1bef0afd5698b20ab11ff94"
-    sha256 arm64_sonoma:  "0d843c5837f6634f8f3c2c2c2862f427f651d24670383e1a470a3e933e6065b4"
-    sha256 arm64_ventura: "a6c3b3307443666523cc29b8bec912c6b1f933fe96580f061478b257ad0a992f"
-    sha256 sonoma:        "174995c9c06977e05958d535f7065c443ecbd9b1a64f97c232f83296852866b9"
-    sha256 ventura:       "ca33c447dc43b3f8d73bd42eb933b1fe1882794898cf387e4f22714d20ee6420"
-    sha256 arm64_linux:   "4963da0c5611725c86b213cffd04f992fb778fa376ed5e0f58cd9144f7a55310"
-    sha256 x86_64_linux:  "91cc737d5d5ff50542c7737cfe8f8f693d64a103b07839d7047a21cb9149e1ee"
+    sha256 arm64_tahoe:   "8243fc1912064ee3473f4b47b475a42ca75d41b7f12dcb7e48fb6d08972b73fb"
+    sha256 arm64_sequoia: "1d1e28bec899066f42338f70cad7ccc45f943317f9b3745d352172d2bc3b4cf9"
+    sha256 arm64_sonoma:  "f10e8516cf513c8cb07e445caaa6eefbb1ee8d878967f60b4217b79ff74469f2"
+    sha256 sonoma:        "6f9e5800319bd7a8b5f9e09948f48ac60f39231ea0b3868790dba12afd59ec38"
+    sha256 arm64_linux:   "6d832984d50f3dac855a70b11bf4d355863c133ad9c5c896f549345a55b37beb"
+    sha256 x86_64_linux:  "39e1be688fa4fec3989fb159625f218c55a154b5c759ecd2943ae94b4fa0ebb3"
   end
 
   depends_on "cmake" => :build
