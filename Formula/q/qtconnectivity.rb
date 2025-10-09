@@ -20,6 +20,7 @@ class Qtconnectivity < Formula
     sha256 cellar: :any,                 arm64_sequoia: "fd9521753c641880c1c195936787a70ad33023c6c481d990e11db44e04e68a4e"
     sha256 cellar: :any,                 arm64_sonoma:  "9309787fa0b27c8a7a17be3a317cf413d8c7db8cdb46b643f6813ca7e40f18c5"
     sha256 cellar: :any,                 sonoma:        "0561107aa7d4c025cd48aec78034789d7629eb5ca918ee3e251c1e9bbaed9925"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe829fc263f15cfd263764fc5707f90fb7c70b315759b91facd869a5f5bf4389"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "49aab37a8f1da9d6b8a68b690d75877f8a5c48265b3dd7dd67e5d0f930059ee5"
   end
 
