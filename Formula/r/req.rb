@@ -19,6 +19,7 @@ class Req < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "dbc6285c19cd5b0564bf5f2fb3a06023b96793ed139984aeadfaa8aa1c1f4181"
     sha256 cellar: :any_skip_relocation, big_sur:        "dc965d02788d551a28e21aff831c60c7cc9ac17197399651fd6a210bd1f0b3b4"
     sha256 cellar: :any_skip_relocation, catalina:       "e4d3f87b52397cf896e418a57719c8cebdd81c97a54eab5559c3606e0f91bbe2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4459ae7f23e6236b6505f02322ba53e9a78a6c0a87b02b98236de6a32fff83d5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "235b2a9a3aa0e458c04d7c4d77fc8bfbb7951c98bedbe5e4d1f7263609e964a2"
   end
 
