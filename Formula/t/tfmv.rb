@@ -13,6 +13,7 @@ class Tfmv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "04674f9a20ae847e01db7ff8f04cbf24daa3b41bed2ce646830804c2843493f5"
     sha256 cellar: :any_skip_relocation, sonoma:        "9cc0e643c4f038d1a84e0366ebeceb14d52dcdc7c68941a2da84257098bcfc4c"
     sha256 cellar: :any_skip_relocation, ventura:       "9cc0e643c4f038d1a84e0366ebeceb14d52dcdc7c68941a2da84257098bcfc4c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60fdec9de2f834f8cf0eabd9dfc59cbe2258863efa75bd42928dd9fb17bd9a7b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "43eff6cba1a9ceb6e4896c71b7924740f0354ad148eb2379208e6d0a3418fb95"
   end
 
