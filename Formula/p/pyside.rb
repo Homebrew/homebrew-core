@@ -1,6 +1,4 @@
 class Pyside < Formula
-  include Language::Python::Virtualenv
-
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
   url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.9.3-src/pyside-setup-everywhere-src-6.9.3.tar.xz"
@@ -32,14 +30,47 @@ class Pyside < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "python-setuptools" => :build
+  depends_on "qtshadertools" => :build
   depends_on xcode: :build
   depends_on "pkgconf" => :test
+
   depends_on "llvm"
   depends_on "python@3.13"
-  depends_on "qt"
+  depends_on "qt3d"
+  depends_on "qtbase"
+  depends_on "qtcharts"
+  depends_on "qtconnectivity"
+  depends_on "qtdatavis3d"
+  depends_on "qtdeclarative"
+  depends_on "qtgraphs"
+  depends_on "qthttpserver"
+  depends_on "qtlocation"
+  depends_on "qtmultimedia"
+  depends_on "qtnetworkauth"
+  depends_on "qtpositioning"
+  depends_on "qtquick3d"
+  depends_on "qtremoteobjects"
+  depends_on "qtscxml"
+  depends_on "qtsensors"
+  depends_on "qtserialbus"
+  depends_on "qtserialport"
+  depends_on "qtspeech"
+  depends_on "qtsvg"
+  depends_on "qttools"
+  depends_on "qtwebchannel"
+  depends_on "qtwebsockets"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+
+  on_macos do
+    depends_on "qtshadertools"
+  end
+
+  on_system :linux, macos: :sonoma_or_newer do
+    depends_on "qtwebengine"
+    depends_on "qtwebview"
+  end
 
   on_linux do
     depends_on "mesa"
@@ -55,15 +86,8 @@ class Pyside < Formula
 
   def install
     ENV.append_path "PYTHONPATH", buildpath/"build/sources"
-    if OS.mac?
-      # Avoid detection of unwanted formulae. Should be handled in brew instead
-      ENV["CMAKE_PREFIX_PATH"] = ENV["CMAKE_PREFIX_PATH"].split(":")
-                                                         .reject { |p| p == HOMEBREW_PREFIX.to_s }
-                                                         .join(":")
-    end
 
-    extra_include_dirs = [Formula["qt"].opt_include]
-    extra_include_dirs << Formula["mesa"].opt_include if OS.linux?
+    extra_include_dirs = [Formula["qttools"].opt_include]
 
     # upstream issue: https://bugreports.qt.io/browse/PYSIDE-1684
     inreplace "sources/pyside6/cmake/Macros/PySideModules.cmake",
@@ -76,10 +100,11 @@ class Pyside < Formula
     # Avoid shim reference
     inreplace "sources/shiboken6/ApiExtractor/CMakeLists.txt", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
+    shiboken6_module = prefix/Language::Python.site_packages(python3)/"shiboken6"
+
     system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_INSTALL_RPATH=#{lib}",
-                    "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}",
-                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
+                    "-DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,#{rpath(source: shiboken6_module)}",
+                    "-DPython_EXECUTABLE=#{which(python3)}",
                     "-DBUILD_TESTS=OFF",
                     "-DNO_QT_TOOLS=yes",
                     # Limited API (maybe combined with keg relocation) breaks the Linux bottle
