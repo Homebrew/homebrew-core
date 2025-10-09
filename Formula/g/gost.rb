@@ -16,6 +16,7 @@ class Gost < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e787f163b99a3d181c7d80c405d1b28b0e1e3c228008a17fdf1e76f518a787d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e787f163b99a3d181c7d80c405d1b28b0e1e3c228008a17fdf1e76f518a787d"
     sha256 cellar: :any_skip_relocation, sonoma:        "29fef5f7669f9e1177b8d7dc25d6b960cade021ede591454bd219b0441de54a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91df1223999fa06cae7b2c9c85c44b90dc0166d1dd09991eaf3cc7ae28868217"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "551ebd4cffd93ed23342dfb4545112cc3c636579b4b7330f4b94a28071cceaf8"
   end
 
