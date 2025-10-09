@@ -22,6 +22,7 @@ class Qtgrpc < Formula
     sha256 cellar: :any,                 arm64_sequoia: "233ef57468ad5b651a2d37c8ab975f06d0827a4c11fc12d3dad58761c42d23db"
     sha256 cellar: :any,                 arm64_sonoma:  "5fbd8ba7577a6a7cc06c23b0f1d35423e6871831c108eaccc758945ca67a3b88"
     sha256 cellar: :any,                 sonoma:        "9f0602afced7f21647cf8d548186c9acf92020238ba19084eed864fc30657cbc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ca10aa2fec7703dedb97d06cfbb5bccb1a215b71756cc7f6013b70e0a1a94fb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1aa06fdc8411750fe70d995864f44c43b9df825cddea956ded2309d8f324b230"
   end
 
