@@ -16,6 +16,7 @@ class TofuLs < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2d8f16af504aa1c90ce82406a9efc8e2088e6ea15671f9caddde2be60302d2b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2d8f16af504aa1c90ce82406a9efc8e2088e6ea15671f9caddde2be60302d2b"
     sha256 cellar: :any_skip_relocation, sonoma:        "d2256eda2b4338cef197a77a978dff0a27e81e73da2e370339b61f88c5350e8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "38fe4e04b8061a9ff8a97d1571ac184547586df63980582b01ffcf8bce1374fa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "889195511b320eb2a74946e39061867f4c9c357642483e8f7c4e57eeaee2c8e1"
   end
 
