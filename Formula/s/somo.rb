@@ -6,14 +6,12 @@ class Somo < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09f8b7e68a7244f5e8c22130a6d8295632f40b0ba514b3ca17ee0e402d0631d9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff92fa583e36ab6ff1bf876f7b03497152930ca15512bcaae416bd51c4f66810"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "401e1c65bcd88e3a6f022fd411b36b95c164d139dd0e3a7252fd52c1e8a7accf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8bfcf91e8871572764d63c09923debc006b37a59f08d543416a02cf4eb32d296"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85b8ad9fb541d090281c5a01bac8dfc5abccc711f3462bf5908f7ac2d56d436a"
-    sha256 cellar: :any_skip_relocation, ventura:       "bce7fa3b61ba0645aa6e9caecef55247213fb6a8e5e282593a96dcf6ea0a5305"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d04b3983ed5b9d96692c803f76c90d2c9ec8b113cffda39a93b38a987c376e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3297f2a8d8b3c350337e112ab462e2f5748b0fbdf0cfbc4619c4191f1f64d25"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f7e71eb3e92c9f824271445b6bc9acedef1fab585256bfb96166685cf02326f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08a35a350cbb0b833e804dc0512eca3a5b730f3c982795a008300bed6f903ac2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd1de69079b2dc705459349aeb10e7b1f9185e93871cd562058a1471a7bb5fbd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "67c190daa017dca0b5eeb53f23df6efb607995a8e0df7223a99d55b7db1471ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "01a2fda10ce89efe876b1dfdb63a5e4891670b66ed3f9f815ec14de591f60b16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d9467ef9bb64060bcf096643b2affbd0b234ed23f9558e6190010b794e65f73"
   end
 
   depends_on "rust" => :build
