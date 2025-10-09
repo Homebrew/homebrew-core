@@ -1,8 +1,8 @@
 class CodeCli < Formula
   desc "Command-line interface built-in Visual Studio Code"
   homepage "https://github.com/microsoft/vscode"
-  url "https://github.com/microsoft/vscode/archive/refs/tags/1.104.3.tar.gz"
-  sha256 "e4aab745cd1f46fa9fdac0735d9e915ea11f48cda468d1eca56881f9ea1beb12"
+  url "https://github.com/microsoft/vscode/archive/refs/tags/1.105.0.tar.gz"
+  sha256 "9dc975278cb370cb52e66c68cf49b12345efb92e86019264a891eadf74795c43"
   license "MIT"
   head "https://github.com/microsoft/vscode.git", branch: "main"
 
@@ -29,9 +29,6 @@ class CodeCli < Formula
   conflicts_with cask: "visual-studio-code"
 
   def install
-    # upstream fix PR, https://github.com/microsoft/vscode/pull/265295
-    inreplace "package.json", "1.104.2", version.to_s
-
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
