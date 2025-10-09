@@ -19,6 +19,7 @@ class Talisman < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c92711cc5d8857281b8bb8d7ba99f01b8389511e80ca0106cf2fbd9ab1d95e19"
     sha256 cellar: :any_skip_relocation, sonoma:        "8918ff5adb067d32ec162569baf29e824d96b9f51e2a2c4a8dd118a8f3f02aca"
     sha256 cellar: :any_skip_relocation, ventura:       "8918ff5adb067d32ec162569baf29e824d96b9f51e2a2c4a8dd118a8f3f02aca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "29eafe05ccc38bcc04e8c8f5669c9fc25b2a15c9781a72d0959710b41a96ecc0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "89549ecbadfe50fcce80851f3503243a9ea156a19561814ef73359fd44ea3abf"
   end
 
