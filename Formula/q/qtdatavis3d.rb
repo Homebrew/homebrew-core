@@ -20,6 +20,7 @@ class Qtdatavis3d < Formula
     sha256 cellar: :any,                 arm64_sequoia: "048fb1a7ca21911b673b60cfab84ffe5b1df0e456074c3d2ae0931c6082d782b"
     sha256 cellar: :any,                 arm64_sonoma:  "0f775673261ecc87fa57013deca8507e97c9f4460f3292fa8bd9d269535ae747"
     sha256 cellar: :any,                 sonoma:        "d93635c60a9b4748fb72d17cc7ff1e340656967a0bcfa61083404813d472f4b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8fe73f58cae95e31b26674b9a2090efb1f53958ce69a23df4fdf8a1746a2f03d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4eb1f8259a9425da6ea8f22654c6226f5382f7be12e8b37c2e5f5bf9bd41752e"
   end
 
