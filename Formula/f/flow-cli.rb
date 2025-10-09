@@ -12,12 +12,12 @@ class FlowCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "68df6de8fd433569e00f3259df1682f3f5bc6a982e2a1b608a9377a53fcfbfb2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c06f369353d2d014dd835af9da879c920160ac9b65f3a293499465444f799156"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea2ba98c955fef0445c7fd4a3fddc7390a0e6f8b4f90b1875f4477f5b7aa3d65"
-    sha256 cellar: :any_skip_relocation, sonoma:        "06600cdee11a3d9a60d7d3f86a00926fd13d05e04db3528b918e4aa117dfbdec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27ff8d94784dc97aac8fd6993672373ed9188b9581611f943e87acf492e678f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60272a350a7ab29ad4fb6dd7a6550d650dd2939984cbfbc21fa1661e54124d48"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7dd5aae83cfb5fd57ade99b4eadc50bc950baa655ac22cb16ed55daaae557257"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5840420b340d381a923eeeb5e9a96da820d895bc9f7365a2acf558eb7e58fbb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cbba121fe39353037fd77496603f0975a6e355842f8e40a3a773ea29e9656e59"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1486af544e8a7a6df0a5706d8112e658aecb510def278551d580fa3f0abb9d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95dfdf3e412ea7a9a67472687f4875b95081115af6191dbc25f4797ad61623c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7285ce2286027e1413e0a9a8409b3065351d38bea6ca022fb89ed40422f8a6a9"
   end
 
   depends_on "go" => :build
