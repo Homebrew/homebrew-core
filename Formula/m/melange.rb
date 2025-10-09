@@ -16,6 +16,7 @@ class Melange < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad6805eec7467d35b2de1520c8b1316ca7237a90352bf81b38ee81a6a95bb169"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d80f2d642abbc513983dd209ad03867d835320fb446774ab0a32b29811ef613e"
     sha256 cellar: :any_skip_relocation, sonoma:        "397bb418d6b17bada5371c4dd8ea698a115b22aa3570c9e5132f86850131eeda"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b249d9ac7c1cc3503f30a1666c1bc8a34e1e6a5aee0adeb387b0c2b0b07fe99d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a3fee4dd0d8f75ae0463a805fffc9d19ba5e118dd757fd45468bf7b1eb04e10"
   end
 
