@@ -13,6 +13,7 @@ class Ratchet < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "87e9d4f5ece669b81b693c4e13c8d0e66a879fcbc40f99337a0f0e5c3065716d"
     sha256 cellar: :any_skip_relocation, sonoma:        "0afec9e6ec42dffa7e6c9d5c4119bd21e326f38eeb73dfe212dcbd4deca9f5a4"
     sha256 cellar: :any_skip_relocation, ventura:       "0afec9e6ec42dffa7e6c9d5c4119bd21e326f38eeb73dfe212dcbd4deca9f5a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "735721ebf63318e966738056cba7806b62a7b2029eb6c8c8c2b512ae6c090723"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2b32f00ee26be2f4e60855b7f0a71d122df2b94c55509360052d15d7001c167"
   end
 
