@@ -12,6 +12,7 @@ class Rdb < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "93b8a40b410523d20c0315336297499df1c6de1d6eee460910d20f4f6057a5ff"
     sha256 cellar: :any_skip_relocation, sonoma:        "33648612c014fb58c57c303cbaf1068486c5af7d7f2476b54e8c3379032143e3"
     sha256 cellar: :any_skip_relocation, ventura:       "33648612c014fb58c57c303cbaf1068486c5af7d7f2476b54e8c3379032143e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e3e2ef9e581dbd9eea5c5c29e4ecd555e725abb1713f1df0bb7d008ddf80966"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5062866080f8ed9b34b681f19bea995f9d629c048d7304a7026e20cc0ba5dcaf"
   end
 
