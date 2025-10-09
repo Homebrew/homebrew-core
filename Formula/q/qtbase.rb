@@ -25,6 +25,7 @@ class Qtbase < Formula
     sha256 cellar: :any,                 arm64_sequoia: "f81cd92620f9a76049a118e983b68141d469825828fbc317e04c4449c3e7066d"
     sha256 cellar: :any,                 arm64_sonoma:  "73404da080f30f866f0edd489527ed879a06a2a956f59c6ed52d47c7e32668f5"
     sha256 cellar: :any,                 sonoma:        "6a51ae0cf024a196bba21a5ba75bf7d4c35aedcdae23476ff2f948cecb3602a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e4852adbad72798a532d616ebbda7fb3576ae2293ca31252dace8a4415848975"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "28447cd1dc3f8930358e067866bc3b68c24f26ab5a19ba7bd7d22e8978924a42"
   end
 
