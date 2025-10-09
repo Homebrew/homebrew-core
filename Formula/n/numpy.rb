@@ -4,6 +4,7 @@ class Numpy < Formula
   url "https://files.pythonhosted.org/packages/d0/19/95b3d357407220ed24c139018d2518fab0a61a948e68286a25f1a4d049ff/numpy-2.3.3.tar.gz"
   sha256 "ddc7c39727ba62b80dfdbedf400d1c10ddfa8eefbd7ec8dcb118be8b56d31029"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
@@ -22,6 +23,7 @@ class Numpy < Formula
   depends_on "ninja" => :build
   depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "openblas"
 
   on_linux do
