@@ -13,6 +13,7 @@ class Nerdlog < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9ce359089fa9e49ad6b31ce3e6b85e7c39f4ecdc0a71acc8f9070246566bfa24"
     sha256 cellar: :any_skip_relocation, sonoma:        "942073a7a936ef2b14570bb472c2e044a21ccd43d9cc8076bb4524e2f026dd60"
     sha256 cellar: :any_skip_relocation, ventura:       "fe0e4d94a6541428b5932e6dd1fd26165f4ea70dfc4767d3051bb2191c302a02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e9c31155687ffe5ca26602124ab8326b6241afe7c78ec2d7595ade960d85dbb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9007cfebff78d395297b19ebf89943c4ca617db012ba47246a8f9389030e5faf"
   end
 
