@@ -19,6 +19,7 @@ class Imgdiff < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "29720df056b9a1efc37bba9541506c34472f15e3a76e8e7c5da2bd72d9a76633"
     sha256 cellar: :any_skip_relocation, monterey:       "da646305519f434e028ef7ab1e1c8a53df4ce19444e7c54aaac8d92b78a34823"
     sha256 cellar: :any_skip_relocation, big_sur:        "050b20915575431bee1ec827bdbc497c7203cf80999fd926da0b89bd206ff0e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "38a86c696c71faaa5eab6ccd4f11989c31d5e571f4be2bbc3cf16459d85bd9c6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba0cd4c33ae5e8d1bc7a2cf32152c75c02b24e4477a3c674857b1547b43baec2"
   end
 
