@@ -13,6 +13,7 @@ class GithubRelease < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "783735e7a1d5f4bc00ebfb61e97c31b815af39718562f6efd8b3aa228600e2b0"
     sha256 cellar: :any_skip_relocation, sonoma:        "a20268af91f08bc5e7eb972f9713dd0d5a9cb68be43a0e16b1e822bfa4c7e71e"
     sha256 cellar: :any_skip_relocation, ventura:       "a20268af91f08bc5e7eb972f9713dd0d5a9cb68be43a0e16b1e822bfa4c7e71e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4288f2f1c32a376ff28685879e6040efb1463f6670289ed3194f72e89ceb4db1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "510735d16c9f1d621e3012a676d55ec0b72a6fc1a9d0a6476c30a84ba627daf0"
   end
 
