@@ -17,6 +17,7 @@ class GitlabRunner < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9eeb97d3550ecd2d0973ad148155994c16f99a3bbef79c78a37ac5855c1de1e6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9eeb97d3550ecd2d0973ad148155994c16f99a3bbef79c78a37ac5855c1de1e6"
     sha256 cellar: :any_skip_relocation, sonoma:        "65c12f8de0671218b23ad45698b4365fcf51636a63c27e283b8ded5950fee4d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd1780427c67e4f46a4c9282b287bffa9a2824ea99b49221d4baa5973763201e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1afc787c0812067f4b8b3892a8d8fb06dd4a5ef35f143183b435d8b266df56f"
   end
 
