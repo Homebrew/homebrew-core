@@ -13,6 +13,7 @@ class Notation < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b4bdb5bb2c42513ae6b08e6fc8da7b11a7e7caf9693d24375f296a9b5fa28386"
     sha256 cellar: :any_skip_relocation, sonoma:        "da080867497c76b99f1499f3394e0dff732029f3c946e46a3a24e670b7ca3e35"
     sha256 cellar: :any_skip_relocation, ventura:       "da080867497c76b99f1499f3394e0dff732029f3c946e46a3a24e670b7ca3e35"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4e4276032d96d841d5c4906a097480d2aa27188d9b68be6d327a6aceddc14f8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "31bd008ba39c788f55adee11eed08cc7da11ef52f052818d000d6b22f3bc1c9a"
   end
 
