@@ -19,6 +19,7 @@ class Gopls < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fc404c5c044916bcaf735ee34c124a6d09d0537294a16d6c2249a925518a7973"
     sha256 cellar: :any_skip_relocation, sonoma:        "00c0f74e4d28da481f4516ff0b575dbbda08a5943993907da714db0f93108166"
     sha256 cellar: :any_skip_relocation, ventura:       "00c0f74e4d28da481f4516ff0b575dbbda08a5943993907da714db0f93108166"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e267c7b784d6e2a11edef2def0152bb1a5c8741e6aea3f25691e32b0795c3e5c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca0d727d3748fea8756d7212552060bf2df0373e9558fc149ec3956ff2446bd6"
   end
 
