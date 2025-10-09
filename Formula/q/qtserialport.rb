@@ -20,6 +20,7 @@ class Qtserialport < Formula
     sha256 cellar: :any,                 arm64_sequoia: "e73491d79f3318f356bbedfdf194b30e24d4591c3c7e0daa3556d1977b812607"
     sha256 cellar: :any,                 arm64_sonoma:  "be4b0ebdc65e7f9c6162d08e86db40e90923bb6c70907591533f39c107e582b9"
     sha256 cellar: :any,                 sonoma:        "6c03a8b4fb34e06d80abdab55dc6821dbb7b04d7f508b980af32681e3ef91f02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a6286dcb267ef4602cb8b11faba3a1ce80c19fd1affd2d0dca59bc3e59384ae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6f4079925529e453d07694d63aa22a15a19cec659cce192559a3857832d67c9"
   end
 
