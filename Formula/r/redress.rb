@@ -16,6 +16,7 @@ class Redress < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5e0d2a6a1f14a150d60c023d851546d8d0e0a67c3ef8755bbc06dd06f251599"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5e0d2a6a1f14a150d60c023d851546d8d0e0a67c3ef8755bbc06dd06f251599"
     sha256 cellar: :any_skip_relocation, sonoma:        "83e5dd724f1c6c2798356117f2c4e303cd1d99a400cc21fe4659b6b5cfd30157"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1817178b93fce77bf7b01c7b429c642eee0cbee2de63c224a626a24f0eac512e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "faec88a6be95a6b664ae571739402a64b2366fba549274418e64b63b907c0148"
   end
 
