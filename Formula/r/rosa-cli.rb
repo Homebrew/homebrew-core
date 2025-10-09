@@ -16,6 +16,7 @@ class RosaCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "372ef5c6b6abd6a0e8ba6e87f5bc771e5b256ca9fb3ee662737d5e370a13ea7f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d164b3a7dac7c63fdb4d26b68296583a3e9a25aa75fbe4cf3dc93ab5b75acaf2"
     sha256 cellar: :any_skip_relocation, sonoma:        "4bba0a0bdb02328ea274b0f6a80ed1e5242027f720091c39c83c3ccc38113e65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93c7ca49b46c5aa1f2320cadce69feda61ba97bb101245efccf174d492bece9f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8cf08b8f74c2b2afd7ec9aa2dbe0f444caf3f5eb51acc2e5c89abd0146b68f8"
   end
 
