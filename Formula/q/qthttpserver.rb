@@ -20,6 +20,7 @@ class Qthttpserver < Formula
     sha256 cellar: :any,                 arm64_sequoia: "00448db412835a0cbf5122710eb850691d623e684bbeebdd29b8453455d1871e"
     sha256 cellar: :any,                 arm64_sonoma:  "21021f558680347f1d8eb095da082e1493841578f3d8ad0e9d1b4f5a48f0901c"
     sha256 cellar: :any,                 sonoma:        "e1ada1a98da0ea43fa4132be5fb312dfc492adfbd8e2385d0fd8a6ddae320afa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "035ab1808fdd1405de0d238dfe15ae2a2131bb5db2485a64c7331f3cfc653125"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7d1ce8ddcb81a5820e6a2598c314a026a80487a4c577babc0c94ee4cc5a436b"
   end
 
