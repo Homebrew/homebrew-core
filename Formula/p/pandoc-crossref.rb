@@ -1,9 +1,8 @@
 class PandocCrossref < Formula
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.21a.tar.gz"
-  version "0.3.21a"
-  sha256 "0eefdf2c06264dd35669581b597f4a2b75cf48e81ef8c786cb2de45dde9566cc"
+  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.22.tar.gz"
+  sha256 "a276ba571db8912debfc53fddae7cfd686f2c10c99755d55d433721fb3c4e021"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -16,7 +15,7 @@ class PandocCrossref < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build
+  depends_on "ghc" => :build
   depends_on "pandoc"
 
   uses_from_macos "unzip" => :build
