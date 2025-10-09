@@ -9,19 +9,13 @@ class Graphite2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "f21bef3300cfbed567eb476ac1825af9fd32abbcb222c1005b45aa6e3617347b"
-    sha256 cellar: :any,                 arm64_sequoia:  "150b286ab4cfc8696fcd3fa4e7fa24c9825f024ef991899850b850e6f334100f"
-    sha256 cellar: :any,                 arm64_sonoma:   "4cdee055db9958e12662c53661fab627057d3553974d15b289e2955b439f4a9d"
-    sha256 cellar: :any,                 arm64_ventura:  "3ec770419ed60d211670f73bf078512824151b460c5c37740ee8b83e3dbb8357"
-    sha256 cellar: :any,                 arm64_monterey: "2254ea02844280605c79ab735ce1c5eb4a943fe897c3119611de54169130a88e"
-    sha256 cellar: :any,                 arm64_big_sur:  "544e2c344f6c0a7c2c3cb6541150f0d0d91cd1100460dac9c6a08578823f91c3"
-    sha256 cellar: :any,                 sonoma:         "afd3067ded2f8fb2ae3400d908a271825c5f7013f089312949ac9576b2a26d96"
-    sha256 cellar: :any,                 ventura:        "db73b7ef0318611d6dcf795cd4e43c5b62c5798190bc634dc94c6530e35afc46"
-    sha256 cellar: :any,                 monterey:       "3469eaae77f6c9cb802730d060f26fd0bd56d390674490dc8b17c4624705df0e"
-    sha256 cellar: :any,                 big_sur:        "ddc468a1eec491aed5d5b05b22d0cffa38b6059d87eab747301011507fcf6366"
-    sha256 cellar: :any,                 catalina:       "0831f474c920b66bbeab3f93a91fa019b82bfffcdd40e369fdab76372700e980"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "06da87293745fa5229be472b70052a947e0ab3323c47782662a6fbbf2cd920c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e811b079268bc99d1b6253fc0c979e76325e91e294fd0596349dd0285e847b9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "564c88f3eb3606791d553c4720230f2f67d82e62b9bd5628914eeaa00dc179f9"
+    sha256 cellar: :any,                 arm64_sequoia: "931ebffc79a1e2cd5b0f4a1493a4c40773306933bef6f192987435f2684c77e4"
+    sha256 cellar: :any,                 arm64_sonoma:  "88ef9a96fb0815b194c1cc19ea094665ec594d54733fca8ed99fd2ba11a403d5"
+    sha256 cellar: :any,                 sonoma:        "3871c6bd9b5511974b9e95269cbfe2f58fdd01c85f541707a1863234e983da01"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d886ee59d22f32728467a62b8e58532444025db855f4c34aec7a0ef246787ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2fbd85d102a20b10da386b5f00a533ba225726e4a8a53fcbd6664b6f535725b"
   end
 
   depends_on "cmake" => :build
