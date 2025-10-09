@@ -24,6 +24,7 @@ class Qtshadertools < Formula
     sha256 cellar: :any,                 arm64_sequoia: "205156158b29aa23357605ad9e2be6a4d784641dbf2dd42ac6d69107375ca84d"
     sha256 cellar: :any,                 arm64_sonoma:  "1e54af54279cb0d96388f878e4f8ffb4f1b46a22ef0ae292b86a5631b951b377"
     sha256 cellar: :any,                 sonoma:        "21f5464d71410117011e6035ab999264e902d90d28c91649d42b2aaded0f3830"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64925118158a7861dd2d6291a7cee093ac87bbdc69db3857f8e87876e769e2a0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "de225d737f69ffacd8b1b130fa55dc1c6e844e5df18d876c73653821a947cc5a"
   end
 
