@@ -13,6 +13,7 @@ class TotpCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9515bdef2db3bf5da965a8277124a63896168381b4b137081f0a00aa8f2d77ac"
     sha256 cellar: :any_skip_relocation, sonoma:        "65b2d6046eea06c4d909b30fbbc6c63ba549bcd7d11b638f6567bcd938a99b87"
     sha256 cellar: :any_skip_relocation, ventura:       "65b2d6046eea06c4d909b30fbbc6c63ba549bcd7d11b638f6567bcd938a99b87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "917d681477bf4f6ae1ea440252d6ce6afe051b83c81de3df631b5fb93912b0f2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "17aa04b4b9f66b5ef84c7584f1195cff95d76395cda1a02b5e756f90e5227576"
   end
 
