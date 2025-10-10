@@ -11,6 +11,7 @@ class Fastly < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a755774b693c4a48112e89419e110c3c95e7ffcff94ce26d848d8d9ba61bf84d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a755774b693c4a48112e89419e110c3c95e7ffcff94ce26d848d8d9ba61bf84d"
     sha256 cellar: :any_skip_relocation, sonoma:        "0208f5fe1eb0c6188ae237fbdb59267d5c95e885e732b6d717099dd5c7facd02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18b63df4c5a96be1c78f5f326634adeca2902dbd878a105e67f0d6530f7bc621"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0457c884d8d585dcbf0b2fc122eb7b279c870d5eb3e7d1d99eac280e8b8e522"
   end
 
