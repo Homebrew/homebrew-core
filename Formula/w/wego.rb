@@ -15,6 +15,7 @@ class Wego < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "b6d7829893896b8576788a0d7df2f95c59c4ca98df57af9a66f87547a14d01a3"
     sha256 cellar: :any_skip_relocation, ventura:        "b6d7829893896b8576788a0d7df2f95c59c4ca98df57af9a66f87547a14d01a3"
     sha256 cellar: :any_skip_relocation, monterey:       "b6d7829893896b8576788a0d7df2f95c59c4ca98df57af9a66f87547a14d01a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "de837fb971e18f6b3763b0be2178b476699c76697e83b83156d857208650bf97"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5028e25c825625552b1788d3ce16572f52eeff6837c983279b1f5c10b44ff74e"
   end
 
