@@ -10,10 +10,10 @@ class Qttools < Formula
   head "https://code.qt.io/qt/qttools.git", branch: "dev"
 
   stable do
-    url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qttools-everywhere-src-6.9.3.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qttools-everywhere-src-6.9.3.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qttools-everywhere-src-6.9.3.tar.xz"
-    sha256 "0cf7ab0e975fc57f5ce1375576a0a76e9ede25e6b01db3cf2339cd4d9750b4e9"
+    url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/qttools-everywhere-src-6.10.0.tar.xz"
+    mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/qttools-everywhere-src-6.10.0.tar.xz"
+    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/qttools-everywhere-src-6.10.0.tar.xz"
+    sha256 "d86d5098cf3e3e599f37e18df477e65908fc8f036e10ea731b3469ec4fdbd02a"
 
     # Backport fix for build on Linux
     patch do
@@ -48,6 +48,8 @@ class Qttools < Formula
     depends_on "gumbo-parser"
   end
 
+  # TODO: preserve_rpath # https://github.com/orgs/Homebrew/discussions/2823
+
   def install
     rm_r("src/assistant/qlitehtml/src/3rdparty/litehtml")
 
@@ -62,15 +64,16 @@ class Qttools < Formula
 
     # We disable clang feature to avoid linkage to `llvm`. This is how we have always
     # built on macOS and it prevents complicating `llvm` version bumps on Linux.
-    args = %W[
+    args = %w[
       -DFEATURE_clang=OFF
-      -DCMAKE_STAGING_PREFIX=#{prefix}
       -DQLITEHTML_USE_SYSTEM_LITEHTML=ON
     ]
-    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
+    if OS.mac?
+      args << "-DQT_EXTRA_RPATHS=#{(HOMEBREW_PREFIX/"lib").relative_path_from(lib)}"
+      args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON"
+    end
 
-    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
-                    *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST")
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *args, *std_cmake_args(find_framework: "FIRST")
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -116,7 +119,7 @@ class Qttools < Formula
     XML
 
     ENV["LC_ALL"] = "en_US.UTF-8"
-    system "cmake", "."
+    system "cmake", ".", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", ".", "--target", "update_translations"
     inreplace "hellotr_la.ts", '<translation type="unfinished"></translation>',
                                "<translation>Orbis, te saluto!</translation>"
