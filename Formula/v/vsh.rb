@@ -12,6 +12,7 @@ class Vsh < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8f8b53244f2ef6156f7b8bc917c9ecd86baca799a2ea791415ce2f9b84e825e2"
     sha256 cellar: :any_skip_relocation, sonoma:        "d5909bc9d4463dce38dabfa0238cd0dae7a60c451d9ce83cdde4350aca6cc43c"
     sha256 cellar: :any_skip_relocation, ventura:       "d5909bc9d4463dce38dabfa0238cd0dae7a60c451d9ce83cdde4350aca6cc43c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1840008cbb5e34dc3de6f5ad429ee45dc1ad00ba537d3999a65de0f623e3fe88"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "efcf0ec78b552d792483b5f77b6e6bd69bdb1dc02ab8221d2acf8a4662ed933b"
   end
 
