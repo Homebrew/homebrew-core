@@ -21,6 +21,7 @@ class TerraformLsp < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "10cca16bfcddb58b30bfbe1e3a1aea9c58e4433b9b6260e0108d86fca7cb48c1"
     sha256 cellar: :any_skip_relocation, big_sur:        "4f3c322749538d6e2872b0c7741d448e60d8552028c378a37ec91fc1fe9f1ab0"
     sha256 cellar: :any_skip_relocation, catalina:       "0606bf7a3d018590555ff5060a38dcec78f57a11927791e7f20caa614caa49db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4e5d4b396b057db51b2ab3ee755341626e016a5da660bd68a2f832b397b89def"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eae59625f858958621455404b365659464230b5a54783cb20be44e4569d539f"
   end
 
