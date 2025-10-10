@@ -13,6 +13,7 @@ class Chroma < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cdb12c76b2e422651a57d5825f0a932e63df62c452366ee34c6412ccd71fb7ec"
     sha256 cellar: :any_skip_relocation, sonoma:        "3f935044062a7903bbd3585905a8bb564844236dcd232806fdb69828b18d1df0"
     sha256 cellar: :any_skip_relocation, ventura:       "3f935044062a7903bbd3585905a8bb564844236dcd232806fdb69828b18d1df0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "66d7f12d81a4ac8193b49343b87b9b3a377c5b0d47558841afdd81b3e88075bc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2601da81eafe25841d6fd42c87f7b312a29166f7ccc3dfe53d17ac73e1057bd"
   end
 
