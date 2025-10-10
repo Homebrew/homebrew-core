@@ -11,6 +11,7 @@ class Terramate < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "85696b980c239adcc6a0c72bde226cb75ee260bef0f4ef510d660d58f44260e4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85696b980c239adcc6a0c72bde226cb75ee260bef0f4ef510d660d58f44260e4"
     sha256 cellar: :any_skip_relocation, sonoma:        "b7c71fcee8c316625c0ec526e21236c913b1ce347e84d8cadb2917d9c9c7d255"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d4deae325bc1095d5e474e786258270de3c1ccd45b9b1f21abcf6201358ec15"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e12442e853b2b354c045cfad4fc4ffa00189590a9ea37025b391017610f0c361"
   end
 
