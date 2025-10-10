@@ -13,6 +13,7 @@ class Porter < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0ede90d8affd7f13e50c9f43dec5e968e5dc81ce4aa68287ef7e03e904cdf898"
     sha256 cellar: :any_skip_relocation, sonoma:        "85e03f0fbf0ff9ff72bf512a2a46c17b5b413576bbb39ca81655b61bce5d28da"
     sha256 cellar: :any_skip_relocation, ventura:       "329ebe1db268ace4d7650608ff9659ca175c8d02c24490ddb41a97f74d2b1a43"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ed5ddbd8e7281a5722ee70190bcb2436cf16ba1e0ec28afad159546bf458b55"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "92ff44a87f882ae8cb5184f67804cbdcff4340d2feab37d3aa7f2fdcb2c6686a"
   end
 
