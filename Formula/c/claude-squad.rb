@@ -13,6 +13,7 @@ class ClaudeSquad < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1cfac1e30a04b1c13f84169a26471b35e1dfa316235c3a20078304cfa840f9ed"
     sha256 cellar: :any_skip_relocation, sonoma:        "cc839785050b1cda8d2a5994c87b6424e9cbb6bf7e44956e781a6e3f27f45501"
     sha256 cellar: :any_skip_relocation, ventura:       "cc839785050b1cda8d2a5994c87b6424e9cbb6bf7e44956e781a6e3f27f45501"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df6a88d6bbda2a5bae08218ba787e5c274c0541f5589c613925ec9a65b87f25a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccdf7ad9252d0b8921928319a70fc9afcb63a1cc1a2b90f6e0255eda0e0b336b"
   end
 
