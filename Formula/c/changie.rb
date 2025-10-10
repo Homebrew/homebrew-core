@@ -13,6 +13,7 @@ class Changie < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0c2054b5806ebaa4c334630133fc4dfd9c4220a86580236d18e4b047b6eef5e3"
     sha256 cellar: :any_skip_relocation, sonoma:        "5368c47524415aa9e4e26e54957479396c530ddefd197b9b0b1d40718e80ff03"
     sha256 cellar: :any_skip_relocation, ventura:       "5368c47524415aa9e4e26e54957479396c530ddefd197b9b0b1d40718e80ff03"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "540829d6fb7e6eb0cb2a12367505dfc522866be46ec513f94ce5663a9b4a6959"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b73b899d74730298d81313dd97bbc2e68a6ca234bcd10c0781023b9d5cf683be"
   end
 
