@@ -25,6 +25,7 @@ class Cidr2range < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "488509c006b7fe25a2d366655e12a4cbe6dfe782bac351e3c2fb7c0caac9da04"
     sha256 cellar: :any_skip_relocation, big_sur:        "4b60567820427b73945cea5ce77d6a73c10954d36f82c9f0e1d87aa5ae6d6432"
     sha256 cellar: :any_skip_relocation, catalina:       "89f76772d934321dcf4e6c9417071cce8074a3666946decc12c3d5a861001d31"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d28a210ccb7d1d612f7bc936c4cf66c5a5bcab1e3f8d483f9e08bebe3a834ba0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8d60c39ba96620c8b8cd5f34e81a02365f0c09db476a3e7626670a12e80c2a8"
   end
 
