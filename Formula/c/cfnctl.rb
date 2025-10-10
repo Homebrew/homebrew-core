@@ -13,6 +13,7 @@ class Cfnctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d18150beed91b47a03146e5cceaa9d117dbde79fc14bdc923fd32b83443af4e5"
     sha256 cellar: :any_skip_relocation, sonoma:        "09f3b8deeefea7efd4bbdc4f7abc993cf90e9c8791fd32bc45685bd290bc0372"
     sha256 cellar: :any_skip_relocation, ventura:       "09f3b8deeefea7efd4bbdc4f7abc993cf90e9c8791fd32bc45685bd290bc0372"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d041b39ff1b823af16f06c2e647a5c30d8d9ff0705aefb9791002e0a3bd953f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c656851efb6ce909bc879ba960c4d134c824d725909b01799dea6a29405cfe9"
   end
 
