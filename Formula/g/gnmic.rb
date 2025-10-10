@@ -11,6 +11,7 @@ class Gnmic < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1354f289e26ccdf5d5a1cfd104c671f4d48d08e4a482b8062b0027bde80d6894"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1354f289e26ccdf5d5a1cfd104c671f4d48d08e4a482b8062b0027bde80d6894"
     sha256 cellar: :any_skip_relocation, sonoma:        "a023b6eb3e04cd4ace41153c47590d97c1e725f14968c982cc0d831ec243cc6d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc0cc26d93fdad09a9a900166b32b1d58c43d91ff27152bf66d3ad2514dc8cdc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "446523e8a237f393d9a309a9477eb601a3435187fc6d3bec9ac5887a71d559a1"
   end
 
