@@ -15,6 +15,7 @@ class Cdebug < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "d8bbecf15e4a887884194ce9d3de0e054c2967cd6b3f6b6604ca7d2979b416f0"
     sha256 cellar: :any_skip_relocation, ventura:        "44591eccd5959f57814791f5f28b62ab873ecb32bc8cf95ecbe1acf1dfec2374"
     sha256 cellar: :any_skip_relocation, monterey:       "162efaee908ca5548c0b1cd599171b845a19283be9d7daa8c299c4d81d306ca9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8b13d0364e917932705d8a3604ee37b1c7e4570322043fa0012d29138ed74dc8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fb21211a688f48562c5aeb2aa0e58922af7e31ab33486722d2bb58514b64c17"
   end
 
