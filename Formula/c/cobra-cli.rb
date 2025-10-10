@@ -15,6 +15,7 @@ class CobraCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d05baad8dd6bcebac5c184b14d30a29ac84e15c8f5cb74a19f604c87d4a42869"
     sha256 cellar: :any_skip_relocation, sonoma:        "66330dc06dd3a086ca90c0c5fa45e3b69295fbe30a029a70f4f7dc70c7b6daef"
     sha256 cellar: :any_skip_relocation, ventura:       "66330dc06dd3a086ca90c0c5fa45e3b69295fbe30a029a70f4f7dc70c7b6daef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9958c8c2360e475734d0f1c3fd89d040887059714787b5458b306121d73b67c7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "116ebe675a0b8b1f1c398867a95cf3fa0c27b097e64ae5772e836c83113f4ddb"
   end
 
