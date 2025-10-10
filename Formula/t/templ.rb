@@ -12,6 +12,7 @@ class Templ < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "29c7d968ad0042f39269e61b8cf64056635302b66124c83fad1cb8a00f800716"
     sha256 cellar: :any_skip_relocation, sonoma:        "49a391dd82a9e897aeb19d1b5e95cd17c820e051a9ae4d1500b31acc100ce544"
     sha256 cellar: :any_skip_relocation, ventura:       "49a391dd82a9e897aeb19d1b5e95cd17c820e051a9ae4d1500b31acc100ce544"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "792bdee53fb88910015ab060fae3eb30490fcc532c2c3d270158d7ad238df2dc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6965248db6bf03a83addd3ae24c1be14e2e9ec91dae6903558c26a68dab64c8"
   end
 
