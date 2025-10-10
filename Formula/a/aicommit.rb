@@ -15,6 +15,7 @@ class Aicommit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7a7c316f47dae0539e95407a1d404c7ccbb37f771f6a9049e3abc6dc6421484c"
     sha256 cellar: :any_skip_relocation, sonoma:        "03e62c692d3d64bc97dd6a388a8e3b810c1c8d8830a76495e0c8a80a689655a4"
     sha256 cellar: :any_skip_relocation, ventura:       "03e62c692d3d64bc97dd6a388a8e3b810c1c8d8830a76495e0c8a80a689655a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b473355665502296b1832fdc242a0056bac8dfec6eeb7fab010c89b596d3bb5f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "848a5368d7881eb41335e58e54eb995252a4339ef65802360df8abcd05928b6b"
   end
 
