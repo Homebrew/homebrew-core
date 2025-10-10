@@ -20,6 +20,7 @@ class Buildkit < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "da73b3ea99c3dd3059714f2c45cb2afab392e141a4e7e48d7ec64abf8cd0d53c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da73b3ea99c3dd3059714f2c45cb2afab392e141a4e7e48d7ec64abf8cd0d53c"
     sha256 cellar: :any_skip_relocation, sonoma:        "dd48d41872875377dbd8fe7ef557048fa9b1cbded79f4344184f002669d39af5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7264371ed8737cf5050359ad8f77643998cad0aed0fd6b97c6c7e6b34894ee52"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6371b7e0ad7da333e7df2fe8713cfa0dca3d2dff82c220e9581aadfc6afb916"
   end
 
