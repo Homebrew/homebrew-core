@@ -11,6 +11,7 @@ class McpGrafana < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a0aca055340e71f7f2ae1afb77f5e6fd890db013de51ce46240e19892de0315"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b93a7bdee9028fdaaf9ac8a69055aefad6c78ce4cef2d176860b1c8a5922b9db"
     sha256 cellar: :any_skip_relocation, sonoma:        "3daeb7a883da6d01d3eee08a49fbffb0902d9459ea65298e3c414d42fbb06191"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bde8e4df87dadfd3030f6e1a7030bff0f5d11ad9815ed37de89e5d63837fe8c7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bc4a69a7a5ad5a228917b83bd512bdc082e90183160f2cf8b5ec36245f97c47"
   end
 
