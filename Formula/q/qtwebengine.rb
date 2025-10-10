@@ -3,10 +3,10 @@ class Qtwebengine < Formula
 
   desc "Provides functionality for rendering regions of dynamic web content"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtwebengine-everywhere-src-6.9.3.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtwebengine-everywhere-src-6.9.3.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtwebengine-everywhere-src-6.9.3.tar.xz"
-  sha256 "d50b3b11d51dd876418cc36b4d6c96b4721e0aab773a3dd6beda606d46da8966"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/qtwebengine-everywhere-src-6.10.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/qtwebengine-everywhere-src-6.10.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/qtwebengine-everywhere-src-6.10.0.tar.xz"
+  sha256 "c44c77b11c30f9d11b423d0a38debe272cdec5883b5e54703eb1f7e96651c51c"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qwebengine_convert_dict; QtWebEngineProcess
@@ -113,6 +113,8 @@ class Qtwebengine < Formula
     depends_on "webp"
   end
 
+  # TODO: preserve_rpath # https://github.com/orgs/Homebrew/discussions/2823
+
   resource "html5lib" do
     url "https://files.pythonhosted.org/packages/ac/b6/b55c3f49042f1df3dcd422b7f224f939892ee94f22abcf503a9b7339eaf2/html5lib-1.1.tar.gz"
     sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
@@ -143,11 +145,10 @@ class Qtwebengine < Formula
               'rebase_path("$clang_base_path/bin/", root_build_dir)', '""'
 
     args = %W[
-      -DCMAKE_STAGING_PREFIX=#{prefix}
-      -DFEATURE_webengine_proprietary_codecs=ON
       -DFEATURE_webengine_kerberos=ON
+      -DFEATURE_webengine_proprietary_codecs=ON
+      -DNinja_EXECUTABLE=#{which("ninja")}
     ]
-
     # Chromium always uses bundled libraries on macOS
     args += if OS.mac?
       # Cannot deploy to version later than 14, due to functions obsoleted in macOS 15.0
@@ -157,6 +158,7 @@ class Qtwebengine < Formula
       %W[
         -DCMAKE_OSX_DEPLOYMENT_TARGET=#{deploy}.0
         -DFEATURE_webengine_native_spellchecker=ON
+        -DQT_EXTRA_RPATHS=#{(HOMEBREW_PREFIX/"lib").relative_path_from(lib)}
         -DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON
       ]
     else
@@ -188,8 +190,7 @@ class Qtwebengine < Formula
       ]
     end
 
-    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
-                    *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST")
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *args, *std_cmake_args(find_framework: "FIRST")
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -202,7 +203,8 @@ class Qtwebengine < Formula
       cmake_minimum_required(VERSION 4.0)
       project(test VERSION 1.0.0 LANGUAGES CXX)
       find_package(Qt6 REQUIRED COMPONENTS WebEngineWidgets)
-      add_executable(test main.cpp)
+      qt_standard_project_setup()
+      qt_add_executable(test main.cpp)
       target_link_libraries(test PRIVATE Qt6::WebEngineWidgets)
     CMAKE
 
@@ -234,7 +236,7 @@ class Qtwebengine < Formula
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
     ENV.delete "CPATH" if OS.mac?
 
-    system "cmake", "-S", ".", "-B", "cmake"
+    system "cmake", "-S", ".", "-B", "cmake", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", "cmake"
     system "./cmake/test"
 
@@ -245,7 +247,7 @@ class Qtwebengine < Formula
     end
 
     flags = shell_output("pkgconf --cflags --libs Qt6WebEngineWidgets").chomp.split
-    system ENV.cxx, "-std=c++17", "main.cpp", "-o", "test", *flags
+    system ENV.cxx, "-std=c++17", "main.cpp", "-o", "test", *flags, "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
     system "./test"
   end
 end
