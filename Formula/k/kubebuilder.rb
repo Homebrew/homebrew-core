@@ -12,6 +12,7 @@ class Kubebuilder < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "65052e7ffd6ff1c4f47fd67a7ef293612c2c92e2c9af0dacf46138c619b35691"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65052e7ffd6ff1c4f47fd67a7ef293612c2c92e2c9af0dacf46138c619b35691"
     sha256 cellar: :any_skip_relocation, sonoma:        "5ab6fb953a944a65c051a42eaf9c7b9fb66cf546d5415baf0339a738fe5dbb77"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3acff6b9c675f0626aba9eab6eaaee9c5d97870cc63a765504fd3b5b99c8736c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4822f91df253aff1214200eec5b97c6e57dbeb84a9d8f473158a0994d77a475"
   end
 
