@@ -14,6 +14,7 @@ class Gecode < Formula
     sha256 cellar: :any,                 arm64_sequoia: "fcd5d80e9d1d6fada71c424647c5be7ed126831b83d57deece2b836fa44dfe58"
     sha256 cellar: :any,                 arm64_sonoma:  "b7653b544c06145b4a39d83311a0583849d4d4cf2873b81c341cddd135bed39f"
     sha256 cellar: :any,                 sonoma:        "313e206a83f8a8459519f23e0c1d6e96978791ec62b162118aa7f036204615e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0762e8669a3b0aff790ec8673ca1fc8dda25b741368d289c3c3cc5c2d559c0a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "829f38b21be0258bcc84402afb8b7cefa9272a8a59e36f94aee33b7d8ace7ac4"
   end
 
