@@ -13,6 +13,7 @@ class ChaosClient < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5a847c1647361de8fe446c786e5954939b70d4bdce2fba6b191da934b3f67c01"
     sha256 cellar: :any_skip_relocation, sonoma:        "beba47d0434fe37e817143e1f41e8025678220d0e428f4347fba7d11fe6951b8"
     sha256 cellar: :any_skip_relocation, ventura:       "d0d8eeea7253bc21784261ea3b5127928bc9b0eb174291c879094378c548c4a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d1ef6c9c127554af8fd43ab70371318ea225d9c9689f18dcb56e2e78b749562"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d4734d00dfa7a505a34db36e3121a9b8562da89f79923164f65f742fb50fc55"
   end
 
