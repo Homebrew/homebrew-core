@@ -18,6 +18,7 @@ class WireguardGo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b1c19618a231e9ca6c62dd268de8ab8905256d96540a252f0cebf05548a3939c"
     sha256 cellar: :any_skip_relocation, sonoma:        "db6d403f493b281677d95e79448776275d37b728b966fe23f80f1079ecf35d61"
     sha256 cellar: :any_skip_relocation, ventura:       "db6d403f493b281677d95e79448776275d37b728b966fe23f80f1079ecf35d61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfba7916b334b184cde873b2fb11f67369ca88c1a55d176e3bee0811b679a53f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0fa36967d0cf07ae25e5af14c9b136de29cf5d53f6bfc4f58e66574d3a5aa61"
   end
 
