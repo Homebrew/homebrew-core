@@ -11,6 +11,7 @@ class K6 < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f86cb5aad5aa0b7406c4f4db0a36140a047adf838cef10b7cd4897bf99cedebc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f86cb5aad5aa0b7406c4f4db0a36140a047adf838cef10b7cd4897bf99cedebc"
     sha256 cellar: :any_skip_relocation, sonoma:        "c56d6e521a984911201bc6a720be27c0484a7ca8c0063a486e587fdf4bb053dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64ba80a4a9d90914f3823c9b7beac82b09ae1c5abdfe9cf2623f7e8f91db2ded"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "24d3c029192b3d1abb05271b2e182075b8e8785422fb37815d78a44abf31844a"
   end
 
