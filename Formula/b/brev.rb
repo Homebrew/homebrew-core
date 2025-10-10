@@ -19,6 +19,7 @@ class Brev < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf6e04bc9b6014cdd639e5737f2f97109d16f4c035393a38b76165d35b6eb6cf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf6e04bc9b6014cdd639e5737f2f97109d16f4c035393a38b76165d35b6eb6cf"
     sha256 cellar: :any_skip_relocation, sonoma:        "f24f9c60f50288e46e10b8a8a30f9efcf2c4adfa51503889bb0ac7c902e8276e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "955d4d2288fd7b955eafdd9644c31bbfdf2bff066977aede8d01750ec362f329"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c38cdda4fae73cfa38c071ee8547148ebc0446ee55afa095c424f16d4b9cdab6"
   end
 
