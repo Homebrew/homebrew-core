@@ -16,6 +16,7 @@ class Chaoskube < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "36f62ac923f7050c352df7f8ec5068a18987b997c9ddb178ae4e1855da9aec6b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "435adc6fb662974a4945b8188eb64a69c906e54c8e2e9d47cf63c34200422b79"
     sha256 cellar: :any_skip_relocation, sonoma:        "48a6e3c9d3bc29a859fd5708a788780af9c820457076578a6d45b8a4c7262bb6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c497205d2196f6073ce552f34321bfee4198ec338d3da8c376fcb1c9885e41ff"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f4ba35835dbf476ee584b33bc93e97a02f28a250598d8d8b61e397656ad3a6c"
   end
 
