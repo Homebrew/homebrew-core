@@ -21,6 +21,7 @@ class Ki18n < Formula
     sha256 arm64_sequoia: "a32e5e00b9d7fdfeeb6f7e2651c0eb99fe3673b9da511dcbd06df972c044db75"
     sha256 arm64_sonoma:  "726b56095d86c62a75b0673314e0972962a820895d0002dbbbd279be4cfddd9c"
     sha256 sonoma:        "4a1d527daa9cea149ad3f734a4ec0c8d9163734d317d8e43946b9f2182ec0e7b"
+    sha256 arm64_linux:   "38c10b79ee34e2aac8ea7f3cae731af29e6f3ac4219e197acffaa8aa05b05fdb"
     sha256 x86_64_linux:  "3331c2396acb2b491d47931d8c779684268952a71c89d84340190ff381b271b6"
   end
 
