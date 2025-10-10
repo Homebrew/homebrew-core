@@ -14,6 +14,7 @@ class DockerMachine < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b1275c823c9458fbdf5408266b8c6ab6a4848c3fd103d442142a4db5246a8f4a"
     sha256 cellar: :any_skip_relocation, sonoma:        "7f29bffd32c150b0ad2d8196aa39f6415002bf8fa06d57448592976eaa9dd785"
     sha256 cellar: :any_skip_relocation, ventura:       "7f29bffd32c150b0ad2d8196aa39f6415002bf8fa06d57448592976eaa9dd785"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "883cba769fdb335d241c05b7503cec490dbca954599c183e865516db1c5e71da"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "314a732f0b72cf8f57b5019e64fa5c2afc88440053e169022b8dcde83e25856f"
   end
 
