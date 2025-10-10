@@ -19,6 +19,7 @@ class BuildpulseTestReporter < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d9517c8459dbd5480f9c0d20230d1a331e22de9225109d0b777fc9c438fbb366"
     sha256 cellar: :any_skip_relocation, sonoma:        "3f5d4e0bcadb62fd9c54073b4868129f67bb484189800987c64a663a6b594a49"
     sha256 cellar: :any_skip_relocation, ventura:       "3f5d4e0bcadb62fd9c54073b4868129f67bb484189800987c64a663a6b594a49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b19d3cb0925d0cb510b6a5fd8e0fb277309db68a43bda6e6687cb474b6e0e734"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2acf192f12d0435f4d764e2fccd9a532b708ec0bd24cfc2d4b7a0beed3840c2"
   end
 
