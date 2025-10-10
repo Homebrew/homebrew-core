@@ -14,6 +14,7 @@ class Tygo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "24e755baa5f3a58505d2f3adfb074d623a9d9c7e7fe050bde251db2efbdb3f20"
     sha256 cellar: :any_skip_relocation, sonoma:        "aaee779ee95a066318e97f7511e1c469d66d1a3f6d15f0abf74710cf5678ca85"
     sha256 cellar: :any_skip_relocation, ventura:       "aaee779ee95a066318e97f7511e1c469d66d1a3f6d15f0abf74710cf5678ca85"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3cc839d1d8c5bf38b6fdf1efd7859932b8af62a80be8fb49a69dd8dc60cca5b6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8116df3dbb098c78a642fd54ac52e926a40a083d3418b4e99e33408d08ca5af"
   end
 
