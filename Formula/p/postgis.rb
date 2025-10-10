@@ -16,6 +16,7 @@ class Postgis < Formula
     sha256 cellar: :any,                 arm64_sequoia: "3dc689d8882df3c1b0313a8ec6e92a5e80e2f87c04dfac28e801beffeffce2c0"
     sha256 cellar: :any,                 arm64_sonoma:  "80a134d70401385c85762b5c7c4faf1d47f4b7860fb599bcaa63519419e2188f"
     sha256 cellar: :any,                 sonoma:        "25f5e7b840c1279fb3e68e790879456ed668c273c786ca10691e22198e011380"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "efaf47acc8546d833bfa7514986405af88954d2e600230d7b696b8027ed58f21"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "32d430c1056caaea59d67c5a796ccf310454487eb885c69201ee23a591a31d08"
   end
 
