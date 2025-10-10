@@ -13,6 +13,7 @@ class Bed < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "140a9d0772340162a6369e5662a344f6d08366322e4ff1e36fe974f08fc2d666"
     sha256 cellar: :any_skip_relocation, sonoma:        "f6ca3ed867cf825422e5b5a133799ecab751b017135bdb2593023977e9a44557"
     sha256 cellar: :any_skip_relocation, ventura:       "f6ca3ed867cf825422e5b5a133799ecab751b017135bdb2593023977e9a44557"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2562c5a4257daa51a5cca6592df17b3cd87389f0f8a54677ebf684b327723aa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "68f7873e2b5d5e5f871862af9004cdcd4b99fc6b51af6d1e8d100afe4418fe21"
   end
 
