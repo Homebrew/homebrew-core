@@ -11,6 +11,7 @@ class Tea < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8cf341d370a6e754b0b6c892fc6f2f40b6404180add2d56994dcf59de7a3da9b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8cf341d370a6e754b0b6c892fc6f2f40b6404180add2d56994dcf59de7a3da9b"
     sha256 cellar: :any_skip_relocation, sonoma:        "aecd03dd5cd0eacabc0e78fd3ee8ca55067f2568e934f57cde586336581ec66f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cfabb775bad65932c31488388d7ac848490fa0f5efa040d5919e95527e152283"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c998a91bc984ca9df6ed6af5d598180c020ac7371cec6e7b86d319cf2d698993"
   end
 
