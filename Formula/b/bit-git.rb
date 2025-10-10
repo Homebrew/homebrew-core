@@ -20,6 +20,7 @@ class BitGit < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e80cd43fa56f86ba282f2f91ca68336eecc331119e78e5757e53a3c4c5f9fe37"
     sha256 cellar: :any_skip_relocation, big_sur:        "f321a7d78c247054446dfbd07a46de743a36ad591f034e2e81c93b443741288a"
     sha256 cellar: :any_skip_relocation, catalina:       "4e4e377fc26a5574fa6b38f63f2aa1979f0639854ece3a14cbc95fb6a2cc037b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "353231b7f6e264d45c4aaeac8e79b17bbc5dd10f917c333725f28084644824fd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9242804e17ecbd8e6a42368a26c83fd8d97567ce6adbe5c2471dce9f6969f90"
   end
 
