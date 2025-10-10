@@ -20,6 +20,7 @@ class Dockerfmt < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b2931df2b05848a2fab07c0e3e6b01cf62c06f5401a776144b0b675c973ff8d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b2931df2b05848a2fab07c0e3e6b01cf62c06f5401a776144b0b675c973ff8d"
     sha256 cellar: :any_skip_relocation, sonoma:        "c5e5c4808cc9bc5dbc7167e02c8f55362209816c4bb83de409e878542ae972f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d481bb9e327635268567bb842c14440013834c7766f368fbea140d8e3d350a1a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "34f32da196d27fae08da34dc8882d1001012aa46140dae46cbd250d6d433074c"
   end
 
