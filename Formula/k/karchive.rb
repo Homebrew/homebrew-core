@@ -22,6 +22,7 @@ class Karchive < Formula
     sha256 cellar: :any,                 arm64_sequoia: "1b2fbb2368d8522731a41833359568fbaa1920fbcdf0ba53bcb4024885c4f8fa"
     sha256 cellar: :any,                 arm64_sonoma:  "966c7c2c9bb5735fb891c0e3c87061af05fb19ec9afd1c78fe97397fc47df5c9"
     sha256 cellar: :any,                 sonoma:        "103f540e8a8c6d3c8e8559c7176af2a174793eb3079a7b29fff0652043e776b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f4769bf0f3c018c47ed3d59c956204ce51f39e0d0682ea699801d70c604c53c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b67787820d0472d369ba9773823077558d47031051d2203c9fcdf7d2ba0ebe3"
   end
 
