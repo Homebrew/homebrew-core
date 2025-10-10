@@ -13,6 +13,7 @@ class JenkinsCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "85ed47aaf4a16751608eef650d8b7cab3e8af8c8133ed82bf6a7305004adb110"
     sha256 cellar: :any_skip_relocation, sonoma:        "61397dd36ee2b9195bbef96430a8aed787a0a38e733ed397c425400e03304848"
     sha256 cellar: :any_skip_relocation, ventura:       "61397dd36ee2b9195bbef96430a8aed787a0a38e733ed397c425400e03304848"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4db512858657d7df787c2cb9c9c211e3dee2d6db7e3932ee284419c8728df9a9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b253ad3ba372e8bf59b0724c656e5ce77b8b522cd9651e731aaea6d846309e78"
   end
 
