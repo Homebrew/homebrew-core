@@ -17,6 +17,7 @@ class AliyunCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "35b1463dbc3c48cc2fdddb305e8cab40f80ec5975a08819334ecc2f796127e05"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35b1463dbc3c48cc2fdddb305e8cab40f80ec5975a08819334ecc2f796127e05"
     sha256 cellar: :any_skip_relocation, sonoma:        "a22751a9980e5be2e3e66f6a4caa2497be9e02f823cdabf50452adec270db836"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0e3097e0b1778cf88559e3202f9c526e09c5e03eb564f2cc56cfe85e0ef1f58"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "08170413de84408fd0432e53d872bfb8ea224567adc87be6481bed09c29e8003"
   end
 
