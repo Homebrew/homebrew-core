@@ -1,10 +1,10 @@
 class Qtbase < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
-  sha256 "c5a1a2f660356ec081febfa782998ae5ddbc5925117e64f50e4be9cd45b8dc6e"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/qtbase-everywhere-src-6.10.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/qtbase-everywhere-src-6.10.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/qtbase-everywhere-src-6.10.0.tar.xz"
+  sha256 "ead4623bcb54a32257c5b3e3a5aec6d16ec96f4cda58d2e003f5a0c16f72046d"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qmake
@@ -73,12 +73,15 @@ class Qtbase < Formula
     depends_on "mesa"
     depends_on "pango"
     depends_on "systemd"
+    depends_on "wayland"
     depends_on "xcb-util-cursor"
     depends_on "xcb-util-image"
     depends_on "xcb-util-keysyms"
     depends_on "xcb-util-renderutil"
     depends_on "xcb-util-wm"
   end
+
+  # TODO: preserve_rpath # https://github.com/orgs/Homebrew/discussions/2823
 
   # Add framework directory to Cflags on macOS
   # Ref: https://codereview.qt-project.org/c/qt/qtbase/+/682915
@@ -216,11 +219,9 @@ class Qtbase < Formula
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 4.0)
       project(test VERSION 1.0.0 LANGUAGES CXX)
-      set(CMAKE_AUTOMOC ON)
-      set(CMAKE_AUTORCC ON)
-      set(CMAKE_AUTOUIC ON)
       find_package(Qt6 REQUIRED COMPONENTS #{modules.join(" ")})
-      add_executable(test main.cpp)
+      qt_standard_project_setup()
+      qt_add_executable(test main.cpp)
       target_link_libraries(test PRIVATE Qt6::#{modules.join(" Qt6::")})
     CMAKE
 
@@ -259,7 +260,7 @@ class Qtbase < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "cmake", "-S", ".", "-B", "cmake"
+    system "cmake", "-S", ".", "-B", "cmake", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", "cmake"
     system "./cmake/test"
 
@@ -270,8 +271,10 @@ class Qtbase < Formula
       system "./test"
     end
 
-    flags = shell_output("pkgconf --cflags --libs Qt6#{modules.join(" Qt6")}").chomp.split
-    system ENV.cxx, "-std=c++17", "main.cpp", "-o", "test", *flags
+    cflags = shell_output("pkgconf --cflags Qt6#{modules.join(" Qt6")}").chomp.split
+    ldflags = shell_output("pkgconf --libs Qt6#{modules.join(" Qt6")}").chomp.split
+    system ENV.cxx, "-std=c++17", "-c", "main.cpp", "-o", "main.o", *cflags
+    system ENV.cxx, "main.o", "-o", "test", *ldflags, "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
     system "./test"
 
     # Check QT_INSTALL_PREFIX is HOMEBREW_PREFIX to support split formulae
