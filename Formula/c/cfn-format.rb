@@ -17,6 +17,7 @@ class CfnFormat < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7d80d5ebfd7bdf016d23d94f2920dc15047432c4d28b92e79c04f8380c10d0e8"
     sha256 cellar: :any_skip_relocation, sonoma:        "c099d1a070b7e49d77c97cb34792a3abad5ae2f29609258646835191a426efd8"
     sha256 cellar: :any_skip_relocation, ventura:       "c099d1a070b7e49d77c97cb34792a3abad5ae2f29609258646835191a426efd8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e50eb2a517b06b81a5802531ca22bf9333e975a63fe39160d6120e6abdd5cd14"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0594cf1b143356dc4d4b586dbbd5ff9a8dc67b1bc329666e9657d7987074a2cd"
   end
 
