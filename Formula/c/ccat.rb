@@ -20,6 +20,7 @@ class Ccat < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e099e55ef5f1c7d3c8eaf14c0d5bcb9ec4de6314ea4e992307ea59369a136b37"
     sha256 cellar: :any_skip_relocation, big_sur:        "56555b8a3744a0af29b6bddcab2587457bb8622f78484b38fbbaceab88ea3f5b"
     sha256 cellar: :any_skip_relocation, catalina:       "aec38270a3b41a57fe6d05df08eea67042f2b65a2a5de30b2452afefd81a6d9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "74f9f37c1766000c954ceaba33a4238b8879a243dfc90f0fa215c5d98e2dd155"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "340dbf0c6e8f10d588a4a7c63edc14fe38c64cac809c2107f911d57f59a74f8c"
   end
 
