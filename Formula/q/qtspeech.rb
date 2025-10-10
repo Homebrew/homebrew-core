@@ -20,6 +20,7 @@ class Qtspeech < Formula
     sha256 cellar: :any,                 arm64_sequoia: "5ed7f091c061e87dafff8a91d1133b975b3e7f2da8490e7d01fe409483c46125"
     sha256 cellar: :any,                 arm64_sonoma:  "de34302e9338a9ea4b837526d5fb8df7310ebda11caf609bc0834811b9c29cc2"
     sha256 cellar: :any,                 sonoma:        "e10253cae4f4c384f17743fd8750d66b3589bd20c56bf203990be678ae25de62"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "edae18bb214bc1d6821d72d030dd5398dc0411b76f3decd6d36aba700ecda803"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1855d1dd465f4f8c9ab8a8f6bec354b5ca062794d072b6d0eb21438d4478683"
   end
 
