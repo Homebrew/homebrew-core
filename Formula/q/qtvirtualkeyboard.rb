@@ -1,10 +1,10 @@
 class Qtvirtualkeyboard < Formula
   desc "Provides an input framework and reference keyboard frontend"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtvirtualkeyboard-everywhere-src-6.9.3.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtvirtualkeyboard-everywhere-src-6.9.3.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtvirtualkeyboard-everywhere-src-6.9.3.tar.xz"
-  sha256 "a1a0d5c91c9e7fe608867718c152272feae8560d920effa59c2c84b6dd415534"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/qtvirtualkeyboard-everywhere-src-6.10.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/qtvirtualkeyboard-everywhere-src-6.10.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/qtvirtualkeyboard-everywhere-src-6.10.0.tar.xz"
+  sha256 "abb267f2682bc66d078b71fb342aca946414d3c60adb97d454308acc0ca31381"
   license all_of: [
     "GPL-3.0-only",
     "Apache-2.0",   # bundled openwnn, pinyin and tcime
@@ -35,17 +35,18 @@ class Qtvirtualkeyboard < Formula
   depends_on "qtmultimedia"
   depends_on "qtsvg"
 
+  # TODO: preserve_rpath # https://github.com/orgs/Homebrew/discussions/2823
+
   def install
     rm_r("src/plugins/hunspell/3rdparty/hunspell")
 
-    args = %W[
-      -DCMAKE_STAGING_PREFIX=#{prefix}
-      -DFEATURE_system_hunspell=ON
-    ]
-    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
+    args = ["-DFEATURE_system_hunspell=ON"]
+    if OS.mac?
+      args << "-DQT_EXTRA_RPATHS=#{(HOMEBREW_PREFIX/"lib").relative_path_from(lib)}"
+      args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON"
+    end
 
-    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
-                    *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST")
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *args, *std_cmake_args(find_framework: "FIRST")
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
