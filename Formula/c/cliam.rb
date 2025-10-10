@@ -17,6 +17,7 @@ class Cliam < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "2a6d64eb832b3f1c9697a494a1e81a126ca99642242e5bbd9eb0b7d5f49801f4"
     sha256 cellar: :any_skip_relocation, ventura:        "5fd86d65d9168a5cf41321b8e972326c9a5d0f387cda0829aa20e95fa55bc016"
     sha256 cellar: :any_skip_relocation, monterey:       "2ffb08eafd8af22b575ec3380b2a17e61ea6bafce22d9335c951aba4e8d9e7b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4f73cfe2097f8574bed1d44bc8fd29cd66a95e122dbb8866d17724a1ff2a7aa1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "25ab86af9ed168ceecfafde29cbc74503b4c929ab102e94492c8e423145b55d6"
   end
 
