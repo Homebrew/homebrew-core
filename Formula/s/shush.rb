@@ -14,6 +14,7 @@ class Shush < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "38e8b3daac478d4f716b340df549741e7bd46d2fead43762a20e896357f73697"
     sha256 cellar: :any_skip_relocation, sonoma:        "2f4578b270925b1861d476ea6e55e5aed44e3d690f27c9a2118e2079f3ed1fc7"
     sha256 cellar: :any_skip_relocation, ventura:       "2f4578b270925b1861d476ea6e55e5aed44e3d690f27c9a2118e2079f3ed1fc7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee89a1978ca2de39602e1e0b0bdd7b66b01a428af95621dc9b6c7b2f66297753"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dd8b6893291ab04f6aab2a7928e694cef9601feddc6b7bf4f59b1f54df023a3"
   end
 
