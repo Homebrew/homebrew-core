@@ -16,6 +16,7 @@ class Telegraf < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d78d2d6ae6017e7954c4b9071ae77096fc0c30857d2f7f88dc80900e148ca344"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b942f05fa4ae3fb7d55c9d927dab0c4b4521dc34c2ee0ea85d45aa6413951582"
     sha256 cellar: :any_skip_relocation, sonoma:        "5311c9856c564e7165bab798c174daeb5a0b5a7ab6b280b2569b522a4194b138"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3da6cb26ea1e09ab07ad1fe3fa7141c7b0f9bf191009cf5f8aefb8afdb53b197"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a5e151e876d28bd0053269bdec9f03d23ca62fbd29a24320643143656bb2d62"
   end
 
