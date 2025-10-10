@@ -16,6 +16,7 @@ class VespaCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d3b45f4084067e34f85fe32a33b2b649f3c1bd2e9ef19ec240e350dc33e9b26"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba63f85b4195d89d6dfc9db7e111d56eef436370356c31f0c826e4649ec5e11b"
     sha256 cellar: :any_skip_relocation, sonoma:        "c5a6daffb7f7dd4cbb0808e62127e1293db16752a9066103bdc71940fdf4c749"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed9f102614f55e3217e99db8d03a9a049255b48ddeb483d75e533821c81e5593"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "67cbc9561eb67b1a6538670798c4a912ddbf034bfcb71b1425065bc149553043"
   end
 
