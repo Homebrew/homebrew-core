@@ -18,6 +18,7 @@ class Certigo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "90657fc29a0515bac14c9386da4f44941322a733c99d39553cb70679246e561a"
     sha256 cellar: :any_skip_relocation, sonoma:        "af2deb051e563fb696a4d9eabbb2b048264d0039502f3b06497d374031205e9a"
     sha256 cellar: :any_skip_relocation, ventura:       "0d9f5fa9aa9d3f134bb7fc49847e3527f5d3cdc256b8a6aefe6f004e183e6693"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4386ccf3e4676d87da7bf027d5eadc56eb40bf7fe9bfd000643b442a14235b9f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6cd101ccf0fc12278a68a8c7de6fb9d0f24b7230bc9a4b81a5f5e642cc8f245"
   end
 
