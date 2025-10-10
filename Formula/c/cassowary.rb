@@ -13,6 +13,7 @@ class Cassowary < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "af786d30b88554a9252cf4eafc40831f1fd796a03a76f4ee669ed565b1e526fc"
     sha256 cellar: :any_skip_relocation, sonoma:        "58016ae507acc0044612858a240461d94175a7cd772a5e2ba9290c790ecd9455"
     sha256 cellar: :any_skip_relocation, ventura:       "58016ae507acc0044612858a240461d94175a7cd772a5e2ba9290c790ecd9455"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f1affd04f536b966c985fb11c1a1466f6fe7b9cb73fd8460fbba2e80648e04d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7668f4bb871a15e8e62e10502746152ba54fba5ae49591de97281edc53c9c2b9"
   end
 
