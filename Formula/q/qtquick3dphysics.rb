@@ -21,6 +21,7 @@ class Qtquick3dphysics < Formula
     sha256 cellar: :any,                 arm64_sequoia: "ea3cf9eac77865b8a79a12e4cd4f0ff8617f902307b91ca30072fcb9a0b5dbc0"
     sha256 cellar: :any,                 arm64_sonoma:  "b548ef2824ee560dfeecdd114cc05fe2a0d453f12bc73b185dcaf62a3681799a"
     sha256 cellar: :any,                 sonoma:        "e4390f70dd85beff44fa7fae526836cffe45532c9acff35ec14b55aeaf7db196"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccdaee4f4fe6eca58805b1aba30d2798c239c6127ce9f8497c1c0d9f4d462c02"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "10884c823dcc774344c7fb8bfa38d90532ad4bcc8fbe815aeefb912651183faf"
   end
 
