@@ -19,6 +19,7 @@ class Buf < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e1aa0b6485a6b235921356df37230d43b59ad6a54286911a708c657bb6f6b67"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e1aa0b6485a6b235921356df37230d43b59ad6a54286911a708c657bb6f6b67"
     sha256 cellar: :any_skip_relocation, sonoma:        "54b1584b1f4301c10a5d7448a3df66ba5d4a3524eca6bd44a151f9b52ebb705f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d762d884f3a798bb6ab2a0234105b27b9143ef22703ec313ad9179250bf3010f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "04fe24efa9218dda64e16db8661126d271dabe0cd374b0893112e23839df5dca"
   end
 
