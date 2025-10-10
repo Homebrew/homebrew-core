@@ -12,6 +12,7 @@ class Libqalculate < Formula
     sha256                               arm64_ventura: "1b8390d632cc76910b2479502df78df1f8cb0b5f733c594d8b9518034331da21"
     sha256                               sonoma:        "63e76cccbd23e2ac3c362adbc76b9e0b152381e74cd271ec7dccd50349c3e8b5"
     sha256                               ventura:       "8997d64a7f5164811710cd537ec8613bcd909f9b0f6a3514cb07b00daff9f8dc"
+    sha256                               arm64_linux:   "55b6bf27e0bdf2c1cabe4a96c67c9b126fd9623fc69470886a3f9038d11d75d3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c535e5312b7c71f0cd7110bc85f3a49ded8902fb743bb4b4314ce64e03f8bfe3"
   end
 
