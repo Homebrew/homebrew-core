@@ -13,6 +13,7 @@ class JiraCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ee1279968ff0b3a34f102a0bcd15b1ac98a66641794a15c018b6eb453413bacd"
     sha256 cellar: :any_skip_relocation, sonoma:        "f4d6654d25a445c48936e449877092ebf19a0689d5ae42c0209c87e27d17239a"
     sha256 cellar: :any_skip_relocation, ventura:       "c42cfff329d68f7279779f1b21a7e946b94de6efbe63e18a011d4f543039361e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75e47438f11222771cb67f0d697882582dfa08c6d27d0e1f68216a6b1b1a1bd7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c20b26f416c6706892e92db9bc495e5e195ef9ac4a9bbf805bf7807755900e0c"
   end
 
