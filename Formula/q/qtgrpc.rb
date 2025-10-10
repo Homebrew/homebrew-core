@@ -1,10 +1,10 @@
 class Qtgrpc < Formula
   desc "Provides support for communicating with gRPC services"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtgrpc-everywhere-src-6.9.3.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtgrpc-everywhere-src-6.9.3.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtgrpc-everywhere-src-6.9.3.tar.xz"
-  sha256 "7963c879cb72d5bebea1724602e6896cdc26e8555d872259f217c6b1130afe02"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/qtgrpc-everywhere-src-6.10.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/qtgrpc-everywhere-src-6.10.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/qtgrpc-everywhere-src-6.10.0.tar.xz"
+  sha256 "fb722289066101ae08865378e7fb29a22b416a71f6b1c19ae5a957f53a91a445"
   license all_of: [
     "GPL-3.0-only", # QtGrpc
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] }, # QtProtobuf
@@ -35,12 +35,16 @@ class Qtgrpc < Formula
   depends_on "qtbase"
   depends_on "qtdeclarative"
 
-  def install
-    args = ["-DCMAKE_STAGING_PREFIX=#{prefix}"]
-    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
+  # TODO: preserve_rpath # https://github.com/orgs/Homebrew/discussions/2823
 
-    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
-                    *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST")
+  def install
+    args = []
+    if OS.mac?
+      args << "-DQT_EXTRA_RPATHS=#{(HOMEBREW_PREFIX/"lib").relative_path_from(lib)}"
+      args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON"
+    end
+
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *args, *std_cmake_args(find_framework: "FIRST")
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -93,7 +97,7 @@ class Qtgrpc < Formula
       }
     CPP
 
-    system "cmake", "-S", ".", "-B", "."
+    system "cmake", "-S", ".", "-B", ".", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", "."
     system "./clientguide_client"
   end
