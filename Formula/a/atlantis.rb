@@ -16,6 +16,7 @@ class Atlantis < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c65a1de357b8701e3bfa231d403af4cf3a19cd7ca0d33dc1de44704ead7b4974"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c65a1de357b8701e3bfa231d403af4cf3a19cd7ca0d33dc1de44704ead7b4974"
     sha256 cellar: :any_skip_relocation, sonoma:        "8f820a1c3f5f82218d25a2c57456a0d5d4326eef449be767b4c1bb75ef552343"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff008dfd191baa436d101ff42c1bdf95450fdee61dd4f850062b9f2015102da7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fab9f3c7d443074ea6e780ca96ead6ed9f755fcb1ad3d416071a11ac47e9b74"
   end
 
