@@ -20,6 +20,7 @@ class Zurl < Formula
     sha256 cellar: :any,                 arm64_sequoia: "bbd753d9817b81765da1018bbf987e927a8456e14fe2fff6c515ed985089f51f"
     sha256 cellar: :any,                 arm64_sonoma:  "959deca1f83b07706a5e7975f8ecefc5d344a2377c3f963ca92f1c0b5d38266e"
     sha256 cellar: :any,                 sonoma:        "7641342f8a326d2ea9bfe5a763e2619c8e9bcf4075752a1f228ee32c1eba14af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7287eb439760c980839125aee5e253893fb5f2ef1be23830f1637bc995160a9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "65d8a25744f4bdcf31b030aa132632d5be92c7a0d9c89e6c0f59d29bfce5a146"
   end
 
