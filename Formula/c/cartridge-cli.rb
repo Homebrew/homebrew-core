@@ -18,6 +18,7 @@ class CartridgeCli < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "874bc7b926c982d443adb209a19969ad5032f2e35d1a910244dec1811f998409"
     sha256 cellar: :any_skip_relocation, ventura:        "a64cba32bee84f91839d527ce7abc3ec6a2d615ba82958940095e4358aafc771"
     sha256 cellar: :any_skip_relocation, monterey:       "7f4458bfa8b116866c305eac02b5fac4fcbd2b210a903ad2026003fa1782119b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3637454fe1c7db9dccdddebca64969bd78e4fff3f3ca69c773a2f409dec60974"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "81f45b6fa23e7590d4aa466946ce87f8b8fa9dec0fb3863f853d3131c8659c61"
   end
 
