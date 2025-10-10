@@ -13,6 +13,7 @@ class Zlint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d01d88f23a941d2686472a302179cb5ffeb2d5639f798a3119f3c4c6fd5cf952"
     sha256 cellar: :any_skip_relocation, sonoma:        "a5b4896284fec310bfd283b871e789b37cf9d49fd76ac39c4c8b70c4d2df7e1e"
     sha256 cellar: :any_skip_relocation, ventura:       "a5b4896284fec310bfd283b871e789b37cf9d49fd76ac39c4c8b70c4d2df7e1e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "85b24934bb5a2bdab11639aac590ed91f242cb3bef3aa7796724af42355a72e6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "77bc3761ab0027e95068865a162c56ff611e6292099940073ce1ae99c75b8c51"
   end
 
