@@ -17,6 +17,7 @@ class Kubeseal < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7336dca30f13c3ab941cc2102ad5597020e555974e94cac28f35db5b1f71889e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "466a200e6ba02a56dd0d4340dbbcd7e2d55db7d45b2c2eed1b27a417517ebd53"
     sha256 cellar: :any_skip_relocation, sonoma:        "051340522540d740a2e21d9822820bef6609979c4e88bc57296baba58707c005"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0b61cef554f3df83d77f1a0a717905695b0b666fd643ed75d6327b90cdc983f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cc80ec44dfdfa967c04c0e0b60b4ff59d509e339cbc0cd92556590093abbfac"
   end
 
