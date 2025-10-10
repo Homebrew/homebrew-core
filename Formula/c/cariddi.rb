@@ -11,6 +11,7 @@ class Cariddi < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "930d5513059d88f7ae9930d6a52c6b22740b7f7244e4026c72896be4c2f9ddfc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "930d5513059d88f7ae9930d6a52c6b22740b7f7244e4026c72896be4c2f9ddfc"
     sha256 cellar: :any_skip_relocation, sonoma:        "f4220d6066dcc119d35932ccfd13cec1bed4ff528c480336e3d6f1f000b79ced"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b1234dabf76b85b33d4dfb6822a1115ba0ba44ff787803f254f925a09b258c1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c598cf7c84333d0e659ad87d1c96f67b79fd5ab367eea1311eddb993cb45cda"
   end
 
