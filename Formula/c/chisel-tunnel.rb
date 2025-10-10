@@ -11,6 +11,7 @@ class ChiselTunnel < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b638b4ba292b0585336998be698480619bbcffed2eb44677e72818c6717f8868"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b638b4ba292b0585336998be698480619bbcffed2eb44677e72818c6717f8868"
     sha256 cellar: :any_skip_relocation, sonoma:        "d3e5be84bf2849ddbf931b4142f069382fbdf7c6d567d377ac23153fcedd1a8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7e97edd404a431b1228dce95381e116f68c600d06d47ee86d3f7de42738391d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e04c08eb9c095bee99af08292b4f6a9e730441c40d7f60365f6831e384ec1dcc"
   end
 
