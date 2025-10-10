@@ -19,6 +19,7 @@ class JfrogCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2228807789c5ae84e5d3541b63504a281b985fa223789b9e9b9f95aa98b584b9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2228807789c5ae84e5d3541b63504a281b985fa223789b9e9b9f95aa98b584b9"
     sha256 cellar: :any_skip_relocation, sonoma:        "2fea5a389a144bbbdc47a4c83b54d8bd235abe1f2eba22398264509ed0ed191d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f2ac9eb39a64bb878e83b24228f416536f37697df20f6465f81cd72495ee236"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd679c609f662bc2eece78ad46267011ce384adb1cb4aab9f617cfc62d0525f4"
   end
 
