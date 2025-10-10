@@ -13,6 +13,7 @@ class BoshCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "25b938dc596190a50e3bf41aaffc8a4fdb9c8f15f8e6be07f74d577c9c685181"
     sha256 cellar: :any_skip_relocation, sonoma:        "4794a8a600aa029b080a47f2ed2ef89ce342ef886ba8038d99e9a23fa10c9934"
     sha256 cellar: :any_skip_relocation, ventura:       "4794a8a600aa029b080a47f2ed2ef89ce342ef886ba8038d99e9a23fa10c9934"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ccd060f309692b09993709914316e1a2871cac2ec20dda7a65c4ee911aa6bac"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "265e39dc328d68f6bb1a1f3d03ae6679062597a655f051ba15c159b6bb9afe0c"
   end
 
