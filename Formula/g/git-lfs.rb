@@ -19,6 +19,7 @@ class GitLfs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1e905231194b4144c52b981a2a52868f6fb2c8ffc27099a0771362dc45890879"
     sha256 cellar: :any_skip_relocation, sonoma:        "db9022729517fff9457056b559e9d43db5bba5531ae9b636f140ce41bb4e0d95"
     sha256 cellar: :any_skip_relocation, ventura:       "db9022729517fff9457056b559e9d43db5bba5531ae9b636f140ce41bb4e0d95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a35536afd152cf75f2cabf8500ba7c5641dbb4292a5d5e3d05f252fd9f3f7e30"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6926c738974ed58fb5dec2bf00cbb4f759db8d7e8554c347d7d039a7135ba4da"
   end
 
