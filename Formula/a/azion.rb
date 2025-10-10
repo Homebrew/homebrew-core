@@ -11,6 +11,7 @@ class Azion < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf8a35a530c0dbf091b5e1258f7fd0159f182c6825010c670695baa6f5834ba4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf8a35a530c0dbf091b5e1258f7fd0159f182c6825010c670695baa6f5834ba4"
     sha256 cellar: :any_skip_relocation, sonoma:        "d4c3f4939d6982dd2f1fad8b886aa83368cb454c3f9d4180e3e3d8ab86382b80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "caa4b492eee0388640b2e1f4991089457f3555598820832dd49283e91d91ddbd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf58050a8d62e657cfe1ea0187dddb1e94d34ab0b6bce9b9dddcf0c32acc997e"
   end
 
