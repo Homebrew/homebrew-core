@@ -9,6 +9,7 @@ class Openslp < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "03318a808866a33ea675a2520d6d889c9aa74f6817b9a30bed9bbc0cf4a6938d"
     sha256 arm64_sequoia: "8ad62fa05cfa66977820ce7095c95f7f3f9573fe8c11565cc80adb9767bb3ae2"
     sha256 arm64_sonoma:  "88497463ae4bc988432fe2ec15a032ee2f4ea3516d8915405a08256c265633ee"
     sha256 sonoma:        "9f8b91c18c4a8e0738618531ad35f6068daa27cb6069362510622592113aada5"
