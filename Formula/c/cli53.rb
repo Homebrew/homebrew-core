@@ -13,6 +13,7 @@ class Cli53 < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e4b9ffd175d7e981bdd4c7c2356e6268b94c6b5347a2d50d5781318a9ac53136"
     sha256 cellar: :any_skip_relocation, sonoma:        "cdb240862a0674ac5a321b32faaac47bd536dc774b45be2c27d8d9252f3feaa2"
     sha256 cellar: :any_skip_relocation, ventura:       "cdb240862a0674ac5a321b32faaac47bd536dc774b45be2c27d8d9252f3feaa2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c9813986e728f56443c377c9117e35bcb63e306e76e8186a5b5eb7e08f817c9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a78fd47c4eac438afac66284ad3aa5b4f2dd37232b5330405d1fe6657d480f76"
   end
 
