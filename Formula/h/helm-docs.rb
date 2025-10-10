@@ -24,6 +24,7 @@ class HelmDocs < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "75d1650efc32f8b5539301435719ddd40d32ca7e619e497f0baa5ba374ee6b7f"
     sha256 cellar: :any_skip_relocation, ventura:        "1f25d968c9cd5ae22a5e2cc08f5ff15361fc990b9a3aa618dfb9c3180109b2f8"
     sha256 cellar: :any_skip_relocation, monterey:       "8967c19d3cea006bd846275c7be9e97e289dd7fff3763e763c50ec20c410ce73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "426ed8f120588091d3e45a7f22f4b4ffb3b43f3cdf4c71f5b5b64aead9ad40ae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "78df0661852c388c2245a14aeeaf3442206a33ac08b1b7b74f233c72ec5d0cc5"
   end
 
