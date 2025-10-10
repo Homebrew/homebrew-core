@@ -13,6 +13,7 @@ class CloudSqlProxy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "86cce3e6a7fa831e3e70ffa2060cef652e2ef7ae96749d7ccf8074d47203783e"
     sha256 cellar: :any_skip_relocation, sonoma:        "45303b4eea93382f0ed7dbc66e280d485f2009cf5fee48c30da660ebb415b48e"
     sha256 cellar: :any_skip_relocation, ventura:       "0bdb2c15f93d94f7df25a435ef8ac3a63b73c915f439f9b34aa39fc27304e1c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fa517e830c3b918852849d4340ee7533f4258880a0f778a1ff055e98300e941"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0a8ba8d971b891a9a44f7c9384630de7022d3a237b3d60773b4f9dca631936b"
   end
 
