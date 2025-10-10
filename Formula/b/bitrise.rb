@@ -18,6 +18,7 @@ class Bitrise < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2228bb1ff5385bc16f84ea68a2d23fa97a4fbbdecbfbe261997b663b5accb360"
     sha256 cellar: :any_skip_relocation, sonoma:        "25aefb7ef419cb4f4286ebf0bdc7ae48f506baec6d5a99daa5a71234f68a8ec5"
     sha256 cellar: :any_skip_relocation, ventura:       "25aefb7ef419cb4f4286ebf0bdc7ae48f506baec6d5a99daa5a71234f68a8ec5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "192842c22c86909992ab3ad5020997f47489a128a21cbd0b2ff9748e067c88d5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf2f0929fc27ea624044289c03a06c5044c295ea0e07989bacd9fde6f8dd3e0d"
   end
 
