@@ -13,6 +13,7 @@ class Kubecm < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c51fbb3083b295f06961456070cbecb9e4bd98771ef175ee9146a6b5e97a6190"
     sha256 cellar: :any_skip_relocation, sonoma:        "7d61ddf8bd9166e502ae088f4d0ac02f1f03498e529d5b01a8b1f9b0ac0ebd53"
     sha256 cellar: :any_skip_relocation, ventura:       "7d61ddf8bd9166e502ae088f4d0ac02f1f03498e529d5b01a8b1f9b0ac0ebd53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "61ef2d04a225bb290a039baa56d37c002cbe7163137a370195f3f627060dbd5a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f411c58816d4ced391cec7df8677fd7e5415ff245d027330a3d2b64652a92fff"
   end
 
