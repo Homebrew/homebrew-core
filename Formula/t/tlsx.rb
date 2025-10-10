@@ -18,6 +18,7 @@ class Tlsx < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4910b7d50091cdcb006c704f748248db8d01739cdeb10332451e21d78f1162d8"
     sha256 cellar: :any_skip_relocation, sonoma:        "743d4e7e663604afe1c9f4311c5cbe047644c2e4342373969c6a2c44ac8d5cac"
     sha256 cellar: :any_skip_relocation, ventura:       "02cee159f2b303a124a4ed749730b301fa6d5a7dc50e551c1ee248e59b14fb73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "20f4d72c7b38682c7e8564fa7d4f1264e51cafb3d5bc6d49a3e66a523cfdec10"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "17c25ab219ce2f06967bff6fe499ed44fa9dc6ab7c20225ef50369eaca6ef3a7"
   end
 
