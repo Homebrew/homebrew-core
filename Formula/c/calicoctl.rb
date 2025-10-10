@@ -19,6 +19,7 @@ class Calicoctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4774a257e8583e582b178a779eb3fe9b6084bd5b4ead647f69d8a4f120a00420"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4774a257e8583e582b178a779eb3fe9b6084bd5b4ead647f69d8a4f120a00420"
     sha256 cellar: :any_skip_relocation, sonoma:        "01e1e40b59008bbe430bc15c6605b0884cb7a43890d4ac05924fdcbbe881b349"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4197a28caa1738e756c50803388d0c8f055121b2771c8f8b59bad6ae06e3cdfa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "506921cfdcba075e2b1a78a483d152546e28e488b5539a2d7446758aa9f168d2"
   end
 
