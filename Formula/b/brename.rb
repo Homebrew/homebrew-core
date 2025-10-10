@@ -14,6 +14,7 @@ class Brename < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "39e2df7de67e853a566edaa7a2ba0f092013367b2efcea51d3c5c5d311b8fd94"
     sha256 cellar: :any_skip_relocation, sonoma:        "b8b913eb74ec7ad4a0173416d14bbf3b0778e4cfcfbab96074d23f3dc3eb599e"
     sha256 cellar: :any_skip_relocation, ventura:       "b8b913eb74ec7ad4a0173416d14bbf3b0778e4cfcfbab96074d23f3dc3eb599e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "170e7aab9d87ab1c8f1d8dfc8fdf21e50317f6de279a87e41fe0c1f3da895b49"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a2f5be698351339e8d38e1f6c0349a527c16bba384f8af516b732d4dc0330af"
   end
 
