@@ -20,6 +20,7 @@ class Qtgraphs < Formula
     sha256 cellar: :any,                 arm64_sequoia: "00e182933e70c234a022d5a2afaf6550df39fd7a3b9a17af0b6cc06e6dad9d31"
     sha256 cellar: :any,                 arm64_sonoma:  "b02ebfcc4f94c3ac10445b271b43fb36d31fc0dd93c7d8aa08862a2936727ada"
     sha256 cellar: :any,                 sonoma:        "7d4b370a336415cf30358bad0baf6e6054497ed77c3860a85abdbb66f1679e45"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "180e3431696718ea0010ade945c930e16c1aa331027b6d3b9af4c36731cab5b8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8132f63315170949acea92ad6b5c39e6b593219f848455984ae5d7c33119e87b"
   end
 
