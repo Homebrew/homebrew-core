@@ -16,6 +16,7 @@ class Kubehound < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0edb68186363bee23d020676c1a72771bbeb5aa677ad92a4d03250c9e58852b6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8888b129fcc1ee3124650623dcea8aa3f10847da06ec932cd370a8604e617e6"
     sha256 cellar: :any_skip_relocation, sonoma:        "9bda2172d58e2a77075289b5c1842a464532a48fe80d0297adc0c482be261e36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "938ac1e9a811d346e783de5611f336e9de3251a411b6bafe9a49c44929c4984c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "769eade350344b79607a86d55d780a148f22dae16acdcee40056a1f55c4d1654"
   end
 
