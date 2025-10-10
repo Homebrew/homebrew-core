@@ -20,6 +20,7 @@ class Qtquickeffectmaker < Formula
     sha256 cellar: :any,                 arm64_sequoia: "8d1a4e9a7b3b73527846100eca76403824a6dd7d8197f09063dc3f372f2e687d"
     sha256 cellar: :any,                 arm64_sonoma:  "a7bb6d986ce05d5944ff0f1a3d020bf8d33ffcb0be5424789f0082b8039ffd6d"
     sha256 cellar: :any,                 sonoma:        "4c3b005e4a97bb2243b6e7f591c27a4da2f2040c75d0f1e587c63d99b828a19e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "56e1b9cd2562345d7aa91f7a6b5f5e4c715f99478815f5f4306b868bcba828fc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "978ad9f866e424a5ca384c2cb0c4e0c6269ad2a39893bb5e5a12d23c0788a9e4"
   end
 
