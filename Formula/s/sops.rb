@@ -11,6 +11,7 @@ class Sops < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "52994ee8ae4c40be548d83f52e47549788fe07bb4cb04a9700c605d26b773d7f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52994ee8ae4c40be548d83f52e47549788fe07bb4cb04a9700c605d26b773d7f"
     sha256 cellar: :any_skip_relocation, sonoma:        "fb2334538fae10f195960465f656619f7a123dbe5a7bb21c447715909b14dae5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fe0236b892c9bb0a7bb74d2d69cfd14303bb46bc992da2577ab380462055303"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9557d761c6abc996ce3e66b6411956fcd7c5dd984ee27eb2fe4ad6f0f34f19a"
   end
 
