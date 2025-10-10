@@ -16,6 +16,7 @@ class Butane < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "462e8be7b0aa75adecb7309207b6820cc18ca2991159e8bf3e79f8a14c5d4f93"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "462e8be7b0aa75adecb7309207b6820cc18ca2991159e8bf3e79f8a14c5d4f93"
     sha256 cellar: :any_skip_relocation, sonoma:        "1c227b7f81ac0f40e7be5a2d263ddb1825a87c5ebbe552033abdd1cbcf6423e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "acc15c74454f7db160bfb6801d1ddab0d043cff9152245aeaeb7e9a518c64deb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9791d51417e488f5aa4e00a60d95b46412f29f02e686ba4c7787ceee56af5aeb"
   end
 
