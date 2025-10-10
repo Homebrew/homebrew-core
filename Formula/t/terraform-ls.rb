@@ -16,6 +16,7 @@ class TerraformLs < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e22dc5c03073df6d2cfb6327ddc9132130fcc31753621ffdb5c7d4fa87aa78d7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e22dc5c03073df6d2cfb6327ddc9132130fcc31753621ffdb5c7d4fa87aa78d7"
     sha256 cellar: :any_skip_relocation, sonoma:        "5aa0bd88c9a2579fa25b2ab37a9f8c063619308153406bf52d24ad4c57553b57"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "008feee1598ebbcc0450e7ffea44bc8843bcaaf757ec2c6e80a70e1e40912026"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a52adac219fbde5f56abe43322ad66a0379387fc6aa663e512b6d1c5c03d3c4d"
   end
 
