@@ -12,6 +12,7 @@ class Garble < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dca149aa49d2190f405e83f6fb513646045c5d37013c15e856e38952adc04d8d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dca149aa49d2190f405e83f6fb513646045c5d37013c15e856e38952adc04d8d"
     sha256 cellar: :any_skip_relocation, sonoma:        "8fc0e7a8e7041ff0b4b654c5a05d9acdb0cbd1be73c01dfe9013997d6f22d640"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "03275553286d7a4a77e37585d4cfb5a1965f86b63374cc624970e3e35298de1e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc806bf1e6ded5ecba0d4538285904c6e5fdaf94a892fe9d8df4592bcc23dacc"
   end
 
