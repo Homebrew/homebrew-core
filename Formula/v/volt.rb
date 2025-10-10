@@ -20,6 +20,7 @@ class Volt < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d7d07259218a768843d6c9131e6e9f616e242b50f01aacbbdb9f539960cbcf77"
     sha256 cellar: :any_skip_relocation, big_sur:        "f08427b7e8f71b984417f65a5154dde9883610fb683891e16e267928c578bd59"
     sha256 cellar: :any_skip_relocation, catalina:       "60210297f62f908ef4090a7f69631ad02cb4fe2ce8472e953f67ad91caa9461c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5d73df7f1d4f25fcf52a63390fb88fc5416df7c599556ea2f90f38f6a3151c5d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe7d78905a357fa59f18330aab57269cce1fda6af521552918d54911fd075035"
   end
 
