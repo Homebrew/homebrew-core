@@ -16,6 +16,7 @@ class Lux < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "9d09d3f7176d099619dd6f5578c65af77e9e74a0604cc248f879959c204136a8"
     sha256 cellar: :any_skip_relocation, ventura:        "06dac67a49a44e204415365d22dec09363c2ad4247fc8e787791960ad25da706"
     sha256 cellar: :any_skip_relocation, monterey:       "3293e792b745857668443f88fdbd7cbb50f599e2c5720da0419a0765e897e049"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0e97fcc580fd60597f9373e72a185c7863f2ea3cd0dbb3d46f3f85d9c3d81de2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "52fd63821ac62400e3c1a1ade593edd328d4f6136d44a21309fd9d188120c115"
   end
 
