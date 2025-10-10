@@ -14,6 +14,7 @@ class Cfssl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2f00e10322e3ca648154246d1f33b622d3043030842d571c320f423f10baa20a"
     sha256 cellar: :any_skip_relocation, sonoma:        "7343337bf340f001683abb5f00711d3d1e504ec77cdac8dd8f1905368fb312a7"
     sha256 cellar: :any_skip_relocation, ventura:       "b4ce95ba0600589a5dd79efd12ab197f688b10ae8c732943b8171520cad39ffe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74ef31d5f9c24be580f7ca74e48173640cc28a381eba8463bf56c6a0c81d2e9d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "46934407006530d046e2171da9988fdc1cf8cc5e519924d7ba050ee6dee8f0fb"
   end
 
