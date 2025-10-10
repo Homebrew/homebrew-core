@@ -13,6 +13,7 @@ class Chkbit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e6bd3e9f0e1782b5239cd3afe0bb894a30cff7a7566575f261771dbfe3fda2ba"
     sha256 cellar: :any_skip_relocation, sonoma:        "4a6e6094b9841bbac174355d66c92b6cc614a0dde922f182a1314c68d884cf05"
     sha256 cellar: :any_skip_relocation, ventura:       "4a6e6094b9841bbac174355d66c92b6cc614a0dde922f182a1314c68d884cf05"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa39e823a7cf41766ab91bbf62ca1cf966a967e38015dd958e67cf0b016de545"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a2661267a7ec58290b600b45ecbc4a66388035b4c8e1cc6c255fd81abc0efab"
   end
 
