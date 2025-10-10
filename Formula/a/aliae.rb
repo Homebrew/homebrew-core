@@ -13,6 +13,7 @@ class Aliae < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5c2e3fbd5cbacc683410564241b3af976f0dd7cce4927a01c44bae2617a5085a"
     sha256 cellar: :any_skip_relocation, sonoma:        "80f94a1ed79e0501da37ec491c68eeac725df677a1e4277a6f22a0a9f189798b"
     sha256 cellar: :any_skip_relocation, ventura:       "c2147bc050d3bc14bd1d48a1bd2b9625143179da77c9666260e0dac634c2d1ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73937fe03334e20ce13283b3cca4f9494fa0ff1065238424584e39b553bf3393"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4322cff6d3ca1b321177b9f03422de1259caa1f173cd52c099e6e7afa1d696c1"
   end
 
