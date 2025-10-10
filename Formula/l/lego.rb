@@ -16,6 +16,7 @@ class Lego < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2629d5f9d75920e360c9e7fcde01e2d3b5e58e79a1f0201899287aee757339d4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2629d5f9d75920e360c9e7fcde01e2d3b5e58e79a1f0201899287aee757339d4"
     sha256 cellar: :any_skip_relocation, sonoma:        "8a553f8a16290638f8446cd839e9ae23875f4d8a75f857e2d1221958cb82b28b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7750f2d6bd0d0ba21a4bec4a9d019312bbcc40c194202212805c73dba3e3c52d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "094c9f054cd2c49d28a7ade8d2df340f596ef130c7cf73d3be633d98e004d199"
   end
 
