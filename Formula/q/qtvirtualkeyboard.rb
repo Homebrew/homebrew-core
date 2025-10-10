@@ -21,6 +21,7 @@ class Qtvirtualkeyboard < Formula
     sha256 cellar: :any,                 arm64_sequoia: "ea7625eabe9a4c93c1866da81e1ba50bae0297c6e03b5f95f14fd7522b98d1e0"
     sha256 cellar: :any,                 arm64_sonoma:  "2010c623e221e4c520775236e7eedfe42e5cabba2434a5b5525073aa9b13e1b4"
     sha256 cellar: :any,                 sonoma:        "460f1745bcb772f68336ac4e6ff43a328a6628db1b2fc7ce1c5c5d28a5cd0af5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ab62e97585753a9c834b12f2078add9d4e73fb46e5082cc9fabb9bb7e2f7573"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "752a918558c0469dadfee3a461ae4c61bd833a68280d8c50bd3f1ed5c168ddb2"
   end
 
