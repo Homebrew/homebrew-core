@@ -16,6 +16,7 @@ class Micro < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "f72a6f86533a0065f6e29964b5f6b88d20528b6cec86411a4cb22fe2aa5a2e89"
     sha256 cellar: :any_skip_relocation, ventura:        "bf44beaab0f1a685d5bca117b0aa86ce0bfe4edcbd44c12dbcb493fdb5b27c29"
     sha256 cellar: :any_skip_relocation, monterey:       "05906fffbde05ec39f1f1d2b05c2f73fa43c4f5c5b7bd233fea1a9292a8c9265"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "70725916fc322eaca076503f83e6782ddaebf10794841b3220dcaabbc7f6bd4c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbb3b288471091c23205f85c2dd964c4c855fb60165f075f5eca4f23ec998a08"
   end
 
