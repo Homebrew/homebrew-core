@@ -11,6 +11,7 @@ class Burrow < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "96d98011b5b9e0943087196c71dbcf60904ab9e4e22602baeea422a96e488620"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed299aece4ff3ffe4f5c676b3b2afda41d5d8a97dc937e3babceef7387dce6a7"
     sha256 cellar: :any_skip_relocation, sonoma:        "261a4bfe121fa8af48ee190fdab037c5c16d65a5ee672d9b3a9cb90c68260e54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3e5b31685703828e5b444374c29942c97afbbb18d85959916d2a46778c9d0a6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1701af844c34f0f248f80cf39e42f0f75c29b39ca976acc8a129c8a382eb5168"
   end
 
