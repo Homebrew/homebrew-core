@@ -16,6 +16,7 @@ class Cog < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "52f469364f8866c4016cd433cb8cf9b11657e2ad6bae2b516452651599502260"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52f469364f8866c4016cd433cb8cf9b11657e2ad6bae2b516452651599502260"
     sha256 cellar: :any_skip_relocation, sonoma:        "c1ec610e6e0f6583a81e2027436080a29c813f8e2422023668f672088fc3405e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97e75d6710886a60bf0764d1be05cdec345b6f41f9e90c64effa4923a498a220"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a657e2bc81f01e5e755e76de05f8cc022da603b058a28e94f6569be8b12da51"
   end
 
