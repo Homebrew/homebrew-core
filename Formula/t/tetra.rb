@@ -17,6 +17,7 @@ class Tetra < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "430b8a8ad4b0efaafa7093f166301a7d0337157b8c5c024fe62ef3504f287afb"
     sha256 cellar: :any_skip_relocation, sonoma:        "49d789f1e189d0a5b60ed52fef7dce298a03ed209e71cfdfc0c70986fead942f"
     sha256 cellar: :any_skip_relocation, ventura:       "cb363b0cad2c6aa530020115b7c692cd9868f7dd6cfd6d2ff6c1077be75cfe13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "02e0d2c57148d4e5003f3371b0fe7add646693daca8e35c49aaaf47b5b71b4d9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e76f8eb4ee34b69d7c0e802f15d9051d2a5bce72fc38e3f7d6a9c4f3247a2f26"
   end
 
