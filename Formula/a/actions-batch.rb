@@ -17,6 +17,7 @@ class ActionsBatch < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "9105a8d2904a59cb2be1808eb38576c2e9910fbb485b415cf89604f6bce65a43"
     sha256 cellar: :any_skip_relocation, ventura:        "20bb3b2e0c456933a1af59fc18ea0b528de5cae7e9206a1f65b8cac0ae49a7cb"
     sha256 cellar: :any_skip_relocation, monterey:       "70c67253a00f5e78afb71eb99933748d8d079466e8e880cee888c80bbcc529b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4013124489ea2fb57e41de5bac37a514888b6d38adb121c6d6ebd3ec993520cd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8dfaef2b9edcf0f025dafa223cecbdd96bfeebcc01feac706576d0fae729ef2"
   end
 
