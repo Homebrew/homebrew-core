@@ -16,6 +16,7 @@ class Charm < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e2ddeaf1bab0b233267484c6bdac331a9113af93d5819e6f48ef7642b4696dc1"
     sha256 cellar: :any_skip_relocation, sonoma:        "4a50613b56ac6dbd9bd7c8def6f03899188f3a4a0992098e75e6d49493b4cd19"
     sha256 cellar: :any_skip_relocation, ventura:       "4a50613b56ac6dbd9bd7c8def6f03899188f3a4a0992098e75e6d49493b4cd19"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60e259f6541281a54f94e6b9dea178bacc9d348330e7b781441995f35e97eb73"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "393502f468997806b663a548026487a0cc7bdceec9bfce3bfa6cccba45551d59"
   end
 
