@@ -12,6 +12,7 @@ class Goreleaser < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "374faeb33b5321720c9e3b5eaf30c3267ba16b7b2c150f9d565f4a653c56e31f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "374faeb33b5321720c9e3b5eaf30c3267ba16b7b2c150f9d565f4a653c56e31f"
     sha256 cellar: :any_skip_relocation, sonoma:        "e00da45d72f0974ff3ff2ce9ef316323985225ef99eab7fc97cfa03770fe1bdb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb047c00b3b0f8a62741ee4aac526403db9c725bd0390f5e0e0eea9abb3e6995"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a198a318971ead453918a1ffa7ea6c5ba995bb7f26466b2bbd9b165862c24c1"
   end
 
