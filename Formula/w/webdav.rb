@@ -15,6 +15,7 @@ class Webdav < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "baf72b71abacfc241a374cb784db63779bed55040b4dec593d8fe4c35177331b"
     sha256 cellar: :any_skip_relocation, sonoma:        "061895843ab8e5c0174f3456a265eeda0cdaf3a94509a6db1c5d86848910d6db"
     sha256 cellar: :any_skip_relocation, ventura:       "061895843ab8e5c0174f3456a265eeda0cdaf3a94509a6db1c5d86848910d6db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f9bd3fa2a7afa3c87f6bcc44358df23163ae5250d1e9b8ae929d2266d481e5b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecf0b783e2adc344c36b94769f905517878de854f8eb4929238dbb1985284ac1"
   end
 
