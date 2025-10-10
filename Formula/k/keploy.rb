@@ -11,6 +11,7 @@ class Keploy < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2bf5599602da0bf9293bc855d3f105e0901ebe157614b1af262d2bb0d22b9b3c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2bf5599602da0bf9293bc855d3f105e0901ebe157614b1af262d2bb0d22b9b3c"
     sha256 cellar: :any_skip_relocation, sonoma:        "710d8c5e3cc6fc4042a12dca0787c48c9d5db765086ab49b5b0ace617695360d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "83365970bf2e85c6b28f2f0ead62ff6a563cc566a6f19f9b613d2afaeb57aaf9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cca6ac3d71acf1c5a5746c80ec476f9b2ae1f6307502a0d2fbb8b2690ff1d1e"
   end
 
