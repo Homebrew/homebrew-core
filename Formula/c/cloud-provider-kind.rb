@@ -13,6 +13,7 @@ class CloudProviderKind < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "07c500427b5660c360bf3839e352ec64431e0934be5eaa0f7c96b0f72b109202"
     sha256 cellar: :any_skip_relocation, sonoma:        "7c9947498d2552ed15df2f150a58d4c0f1222ce5685aa82b94a1fcca55a13061"
     sha256 cellar: :any_skip_relocation, ventura:       "53d6080c324e2d38069b5ffd4d158fe67c4e6eb2309a5809161967551f54ca76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c5d9a1561637789239eae5df64a7ef0a18f94521e919f98c9f5bb6e7da558ad"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "18b0f8c3571a8b31aef96e6f0b1794b0fb90eae733211bfbe28076e6834183dc"
   end
 
