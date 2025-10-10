@@ -13,8 +13,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-5.3/ocaml-5.3.0.tar.xz"
-  sha256 "b0229336d9ebe0af905954bcd1ae5b293306bbcb08c01ead03500d9e5bc90164"
+  url "https://caml.inria.fr/pub/distrib/ocaml-5.4/ocaml-5.4.0.tar.xz"
+  sha256 "dfaa8a2e11c799bc1765d8bef44911406ee5f4803027190382a939f88c912266"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
@@ -39,12 +39,6 @@ class Ocaml < Formula
   # The ocaml compilers embed prefix information in weird ways that the default
   # brew detection doesn't find, and so needs to be explicitly blocked.
   pour_bottle? only_if: :default_prefix
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
