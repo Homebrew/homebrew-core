@@ -15,6 +15,7 @@ class Terrahash < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "2d73a995a7cd3b4ab3beec53269ad53cffffc28e76fb7f9a88b4e065ec1771bd"
     sha256 cellar: :any_skip_relocation, ventura:        "4645c23fc4859d34d2d03e6e1ad252dd833cb00f3d16be8996468e8f1507184d"
     sha256 cellar: :any_skip_relocation, monterey:       "a41c2cebf76de380cabfa016a7403e93b46367daa53570645543153013af6648"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2d25b8e45a3885003a2ded44bcf917175d7a383659472c7d520e487cbcf8d1b1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c60a0bdc8f9cb977a7e4b7804e1d845f70af7e697b06c2e1eca856ac55f533f"
   end
 
