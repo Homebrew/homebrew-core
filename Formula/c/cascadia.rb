@@ -19,6 +19,7 @@ class Cascadia < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "bd7802721fdc17cfa6a5c99688899786c5d850679c83a3fa9cbbdb91a490ae53"
     sha256 cellar: :any_skip_relocation, monterey:       "bd7802721fdc17cfa6a5c99688899786c5d850679c83a3fa9cbbdb91a490ae53"
     sha256 cellar: :any_skip_relocation, big_sur:        "bd7802721fdc17cfa6a5c99688899786c5d850679c83a3fa9cbbdb91a490ae53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5a686246bda98826d65f1467fad2701e3ded1e2e872be2f41e8b356943004a09"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "526b3788f4ac0884adfd8b6603bb0e8fe5719d77cca281ad5846b45f3c729106"
   end
 
