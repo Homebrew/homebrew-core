@@ -35,7 +35,7 @@ class Adios2 < Formula
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "pugixml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sqlite"
   depends_on "yaml-cpp"
   depends_on "zeromq"
@@ -55,7 +55,7 @@ class Adios2 < Formula
   fails_with :clang if DevelopmentTools.clang_build_version == 1400
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
