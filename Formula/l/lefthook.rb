@@ -13,6 +13,7 @@ class Lefthook < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f81f3e06a19eccba939115e18d66ef239f57efd8d7758b40b34a480a3692856b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f81f3e06a19eccba939115e18d66ef239f57efd8d7758b40b34a480a3692856b"
     sha256 cellar: :any_skip_relocation, sonoma:        "5d98d5fe1ec5e2005731bde950c581d5a5adee9554c6f1f7ccf3be760aed3d51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08f0d8f9e0c4d843df048301614759f38c88b59a66f4118911bcf36e90d444d0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b6607661c2a7508034cf2199a8d1006851a13c76a7214123a551dd5b20fa04b"
   end
 
