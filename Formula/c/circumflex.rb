@@ -13,6 +13,7 @@ class Circumflex < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7703a8fe49c3a13299c37b9bd75f42674a245a866148a0d71d0b050be0e5b441"
     sha256 cellar: :any_skip_relocation, sonoma:        "9b50ad11b46f45cde111438cb6f63bf91c204d55dc054175b74da06cea8b68da"
     sha256 cellar: :any_skip_relocation, ventura:       "9b50ad11b46f45cde111438cb6f63bf91c204d55dc054175b74da06cea8b68da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53c94f24dca42570b50974959436b94e090dc99d380e9226b29b72f9f1c43630"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "186c35290bbefbbf90f8e42467aebf479c405be7d4803a66dee198b6dbbcf879"
   end
 
