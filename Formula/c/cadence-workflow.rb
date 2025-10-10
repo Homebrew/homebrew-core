@@ -20,6 +20,7 @@ class CadenceWorkflow < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "08b92319418ae620df0e9c739e14b406fa0da2712f476acaf801107ed7318db9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "163b04b3bb02ea13972832f21a7e00e2b8e13328259c0b5b64d3f8c6dcf69f9a"
     sha256 cellar: :any_skip_relocation, sonoma:        "abfced27d538d1cc53d11b46e9385058d030548d9961a9730643571f1c87d40c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6969df5c45b8c4413f6e7a3967ea4d39795ca3fd5daaaa29b3bf8f30b8f9e57a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "141bc9f6e7644423b3eca4efd2aadaf699a431986f64924037b782408edf042b"
   end
 
