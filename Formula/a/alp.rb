@@ -15,6 +15,7 @@ class Alp < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "37d8da350c6ca544b05f4cf14e4a60037865958c73d6023e75f2f61000b3f572"
     sha256 cellar: :any_skip_relocation, ventura:        "ba54691789ec295053d9a208d3ecae57fbdd176692ddee4cbbcdecbea570d0a8"
     sha256 cellar: :any_skip_relocation, monterey:       "508bdbaf309ca746ed76d0fbc3028a5f3f8b1bacafa65ffd2a46282f1afe147a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7f2879c7909a7f8a13c186c306f23b79438b56ea013a26e063b229c04721a4d4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e1770f74c2881e2147f43cf2a182b4a5c60cd5c324120127d70c938459cd735"
   end
 
