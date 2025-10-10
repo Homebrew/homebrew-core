@@ -11,6 +11,7 @@ class Cloudflared < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "86fa5a859f5fe98c5355c41acf895d1c5e23b4c6d3767085014d8674233dc879"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cba71bf2d79ac8d7180d6b54aebd91575a8937d470988a88fc6bcd9da94c89c0"
     sha256 cellar: :any_skip_relocation, sonoma:        "f1f8e46b1dd1d1777a6568fb7ba16949d1169f1c212f6aa86e96d3ba0c00a6ed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e1af445134e042e654b5426e9eb8b54485e513c33b4b564d3ea798287b3438e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "31601dc399ad3971ab637ae47ee71c740fc220e1c4bb70e770390ead615d20a0"
   end
 
