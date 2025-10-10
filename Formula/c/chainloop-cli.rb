@@ -16,6 +16,7 @@ class ChainloopCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b911f1e7a5de2859dae89d8ca43747ed6799fcea79f0292b61c6965170366450"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bbe5566e3a1594304235e9ab8760381a4db8837fb410f4e9a3e15c49210e95e"
     sha256 cellar: :any_skip_relocation, sonoma:        "83908b8b45ac465830fc490d42f37a75130cece9a3c3eeb4b8b857a2abd0ae05"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "70ad82f7d821b5310db05624c78048b19044b7f3e1b451922520e3781f11dc22"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "987f6dda2aa764d466f311c92085b6825398b75d8e421ed99512e82e67ea3391"
   end
 
