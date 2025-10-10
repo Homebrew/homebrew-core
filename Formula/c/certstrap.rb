@@ -25,6 +25,7 @@ class Certstrap < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "f5a6dd11e17cddf336dcbf0a89da75c5e0d96eeae71bd96377ecdc353bbd6d65"
     sha256 cellar: :any_skip_relocation, big_sur:        "d97b07034dafd41e77947288ec901c169c2afbe12e302e30a188f55a5f6050b0"
     sha256 cellar: :any_skip_relocation, catalina:       "bc00650c04cae6f16bf49b6fe7f22db094fe8c948b39a1cf3ae1bebeaf4ba8a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fe8dd3c67c30b994bca7946bbb6b94f90ba70d0fe2df2c71032332ae2d9cf608"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "87ccd6d8769ae051ec3c65a3072f704be545747acdd3c0f31a6326c1467ed50a"
   end
 
