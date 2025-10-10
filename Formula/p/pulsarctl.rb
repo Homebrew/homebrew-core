@@ -22,6 +22,7 @@ class Pulsarctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb9ba741345682c01fb0d5bdf014d191d3637b869dc2b16f513039ab659b21bb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19b8d5007fe034e63f6b50f3985b7e0fd5a25567dd368ec5833c091a19faeea7"
     sha256 cellar: :any_skip_relocation, sonoma:        "aa4da8ad110f4211470baddba87d6d70c8aaeb59565fbef0f7a0fd15e69256ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "042d015c286e8714363e86ee8d6720ec28ef2229945fac8439ca974c54606274"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5622cb66d59481ace301d70906ae46029b1339c7032f45963b181d9eb269b95"
   end
 
