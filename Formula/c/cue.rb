@@ -13,6 +13,7 @@ class Cue < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ee2bb3704a7a236433abe1df72f6299e315d13a09f07d8ad7b8498e9d4eb3ead"
     sha256 cellar: :any_skip_relocation, sonoma:        "555cbd7bd4995ca45a33feb4b0e411289edcb2856889685410a43e82a5cb413c"
     sha256 cellar: :any_skip_relocation, ventura:       "555cbd7bd4995ca45a33feb4b0e411289edcb2856889685410a43e82a5cb413c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "01a480218bf79c9de8e8e520333803d24b0e818bf5ace508363af3861bed1a68"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4bdf1945756930a3d2f9f9ffe20664641da9fbfe18fd52c239b6903a6b9f317"
   end
 
