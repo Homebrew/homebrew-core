@@ -12,6 +12,7 @@ class ActRunner < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8e525763dffbc8e994cb4d45a953a9831c2a55157c0f69594a756f8c430ce91d"
     sha256 cellar: :any_skip_relocation, sonoma:        "8180d78844d19ff451c313ecc30965cd7f0a7c5c8fdb5fcee54a95bfd2ed719f"
     sha256 cellar: :any_skip_relocation, ventura:       "8180d78844d19ff451c313ecc30965cd7f0a7c5c8fdb5fcee54a95bfd2ed719f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0430e7fcdbaec8134f0952177678469a9da4fc497a33f879fd55d5b748ac0a5d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "716c0ddb4c00ee04e35141a73c50b74aeecaaa17b9504a5537f1794927f11cce"
   end
 
