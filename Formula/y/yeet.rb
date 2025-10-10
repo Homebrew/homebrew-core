@@ -13,6 +13,7 @@ class Yeet < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3dc5b3f4ea0d5edbf1dac8696a9d9e11bd334dcc3c9e7ae5b5f152e8f8d601fc"
     sha256 cellar: :any_skip_relocation, sonoma:        "18f56dcbe60a642672a190b31beb9ae884b0bbdb040998582a008241b209eab3"
     sha256 cellar: :any_skip_relocation, ventura:       "18f56dcbe60a642672a190b31beb9ae884b0bbdb040998582a008241b209eab3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2bf582062d141f02da51264b318b0920976f37489ee22375f34fa931aa7f9a84"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc534d2cf20d04fd6db81eff080e71c3457bf1e95d8c3d1b56363941de6a3ec0"
   end
 
