@@ -1,10 +1,10 @@
 class QtPostgresql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
-  sha256 "c5a1a2f660356ec081febfa782998ae5ddbc5925117e64f50e4be9cd45b8dc6e"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/qtbase-everywhere-src-6.10.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/qtbase-everywhere-src-6.10.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/qtbase-everywhere-src-6.10.0.tar.xz"
+  sha256 "ead4623bcb54a32257c5b3e3a5aec6d16ec96f4cda58d2e003f5a0c16f72046d"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -20,13 +20,13 @@ class QtPostgresql < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "ninja" => :build
 
   depends_on "libpq"
   depends_on "qtbase"
 
   def install
-    args = %W[
-      -DCMAKE_STAGING_PREFIX=#{prefix}
+    args = %w[
       -DFEATURE_sql_ibase=OFF
       -DFEATURE_sql_mysql=OFF
       -DFEATURE_sql_oci=OFF
@@ -35,24 +35,23 @@ class QtPostgresql < Formula
       -DFEATURE_sql_sqlite=OFF
       -DQT_GENERATE_SBOM=OFF
     ]
-    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
+    if OS.mac?
+      args << "-DQT_EXTRA_RPATHS=#{(HOMEBREW_PREFIX/"lib").relative_path_from(lib)}"
+      args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON"
+    end
 
-    system "cmake", "-S", "src/plugins/sqldrivers", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", "src/plugins/sqldrivers", "-B", "build", "-G", "Ninja", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION #{Formula["cmake"].version})
+      cmake_minimum_required(VERSION 4.0)
       project(test VERSION 1.0.0 LANGUAGES CXX)
-      set(CMAKE_CXX_STANDARD 17)
-      set(CMAKE_CXX_STANDARD_REQUIRED ON)
-      set(CMAKE_AUTOMOC ON)
-      set(CMAKE_AUTORCC ON)
-      set(CMAKE_AUTOUIC ON)
       find_package(Qt6 COMPONENTS Core Sql REQUIRED)
-      add_executable(test main.cpp)
+      qt_standard_project_setup()
+      qt_add_executable(test main.cpp)
       target_link_libraries(test PRIVATE Qt6::Core Qt6::Sql)
     CMAKE
 
@@ -72,7 +71,6 @@ class QtPostgresql < Formula
       #include <cassert>
       int main(int argc, char *argv[])
       {
-        QCoreApplication::addLibraryPath("#{share}/qt/plugins");
         QCoreApplication a(argc, argv);
         QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
         assert(db.isValid());
@@ -81,7 +79,7 @@ class QtPostgresql < Formula
     CPP
 
     ENV["LC_ALL"] = "en_US.UTF-8"
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_BUILD_TYPE=Debug"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", "build"
     system "./build/test"
 
