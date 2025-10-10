@@ -18,6 +18,7 @@ class Witness < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d7e212c1c6484eadb4d0550f66fcd2149b775940989c9217365ba04e1cc6caf5"
     sha256 cellar: :any_skip_relocation, sonoma:        "4b7c1abd60c7f8b47b2587c1496b6711aa11bf9949e9eb87e679a2bd97d53dba"
     sha256 cellar: :any_skip_relocation, ventura:       "959c124169ea4f63dfa35df3f3b40d655aeb173114923c1ca101ad58e7d0e245"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de299e9fb8a737d54545cb591e5d6f31a0ebc13e62695791ef166795b65c5aed"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "feeddaf898c3773ca1eb25c2039e0ef50e292fd0fe6dd20e4312f2802da38232"
   end
 
