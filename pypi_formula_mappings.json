@@ -39,7 +39,7 @@
     ]
   },
   "ansible@9": {
-    "exclude_packages": ["certifi", "cryptography", "gnureadline"],
+    "exclude_packages": ["certifi", "gnureadline"],
     "extra_packages": [
       "ansible-pylibssh", "apache-libcloud", "boto3", "dnspython", "docker",
       "junos-eznc", "jxmlease", "kerberos", "ntc-templates", "openshift",
