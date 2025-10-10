@@ -18,6 +18,7 @@ class Loki < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b9d0e3144c2caaf53cf2aae185432ebf8d096b421797b4ad6db840c252ca22b2"
     sha256 cellar: :any_skip_relocation, sonoma:        "c6a88407ded88d75a282a0480047704e0f3767c1be3114cd19ed0c05c930d0e4"
     sha256 cellar: :any_skip_relocation, ventura:       "de5d1313e5e60bcfb819b6d5865ebbd07bc069bf067cc0fbe94e4dbddfc2aa95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7035d440d7f764b2d2805c107fb2bf4c8d71ef6ad5e66ad886e70cde3e5598a2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1fa87036fd6453f32860f8d3f78dbd7ed2db76dd1614c59f4de8b279a4074aa"
   end
 
