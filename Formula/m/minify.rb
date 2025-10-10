@@ -13,6 +13,7 @@ class Minify < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a7c8f0ef23f64b15293dd01a9e9f0c8229f337f29928ba4a8121afcaeba65936"
     sha256 cellar: :any_skip_relocation, sonoma:        "775ec8e535bf6e3675459ca997fde6b06b3d603ea73c139f8e4305f17840297b"
     sha256 cellar: :any_skip_relocation, ventura:       "775ec8e535bf6e3675459ca997fde6b06b3d603ea73c139f8e4305f17840297b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb7e79bc5183ee0ea19624619cb14c9b9ab731c282c7c14c7ae0723b8b7da2c2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "94ec9b8b98f822c02ed3ecbda8b9be2abc465d7793cb2a9e9baaf8b1ba0c3d12"
   end
 
