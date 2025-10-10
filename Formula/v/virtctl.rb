@@ -19,6 +19,7 @@ class Virtctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef9a9acd294de1dc3153b8763f0383b2f93bbaf067db52744b37b6dec048c773"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef9a9acd294de1dc3153b8763f0383b2f93bbaf067db52744b37b6dec048c773"
     sha256 cellar: :any_skip_relocation, sonoma:        "acb70b3c204315e3b8f0e6a143e3ca56a1fd6cb809e83057fbdc1de33afe9c9b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a06c8fc127a7662396ccf46d9c4f0ccdf0dd08bebb43c740283d9e0aa745482"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "68eb00732fb622f92e72c51b2f8f86bfc07693f80ed87f0173d35fdccd7c70ee"
   end
 
