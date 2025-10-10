@@ -13,6 +13,7 @@ class Bombardier < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9485c29e3e9dadce928f167deea422c02238f212e5cf46b51de4e3298e25b2ec"
     sha256 cellar: :any_skip_relocation, sonoma:        "fb82f62d4fc9f0766effee00a2b90e8a1e4a05e06244598d1652c4cd8241d051"
     sha256 cellar: :any_skip_relocation, ventura:       "fb82f62d4fc9f0766effee00a2b90e8a1e4a05e06244598d1652c4cd8241d051"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1edb1ce74da03b755bb33b3c1c9c701bfc8b87a93f39e520d0212b27a1485e29"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bcdfdcc9bfb6f81117fce7d1d7d169823c5b7bf15367af83ffdde9041953e9d"
   end
 
