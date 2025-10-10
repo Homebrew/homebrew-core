@@ -13,6 +13,7 @@ class Helmify < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e9292bcbd63dec204dfdfb1ee1445c40af97365351b1013b612f7b8c2d288118"
     sha256 cellar: :any_skip_relocation, sonoma:        "c879d0d8990dd78ae5719e95be9ff32ece4abfb0e0279fce0faaeebb51f19f5b"
     sha256 cellar: :any_skip_relocation, ventura:       "c879d0d8990dd78ae5719e95be9ff32ece4abfb0e0279fce0faaeebb51f19f5b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f34270e75422156d968a46f26861ca499aabcb4d4970171aa54d07161bc83f6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "664f4e993ea457c1f691ecc749086493979d37034b3cc12e589ee2bb9c4f31f2"
   end
 
