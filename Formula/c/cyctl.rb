@@ -13,6 +13,7 @@ class Cyctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a91093fae1c86d9f72483bd78e6b3d24257276cfc656ae5d62637616e301024c"
     sha256 cellar: :any_skip_relocation, sonoma:        "19a8bf0780b4bec03bda21046b752f0ee013089ea7b6f988b0a4ad0c914cf6ee"
     sha256 cellar: :any_skip_relocation, ventura:       "19a8bf0780b4bec03bda21046b752f0ee013089ea7b6f988b0a4ad0c914cf6ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "763911aa14516e73ccd145994385626fe1fba341bf34b3cf974a9d98fdc2b016"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c0f445325ef4060e628b0ee17b4204e6263846f482632163913e45aac934ecd"
   end
 
