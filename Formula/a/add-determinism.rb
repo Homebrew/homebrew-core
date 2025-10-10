@@ -6,6 +6,7 @@ class AddDeterminism < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eeb3e62ac092a45d7c80ad6028866c21e53dd67deca07cd858c60ca08b605115"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c1fcd780d6cd60bb5b5a87a9034396d1fc7e389fbfb162b0bc0133398fcb5e7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32e47defa47bb9c60faa4590ff747249d0a7a137df8a28f25385ace015f6e407"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "8320195d668c1822ed3c0d9a9be244f7e022be0812d318339cbcba1009125cc6"
