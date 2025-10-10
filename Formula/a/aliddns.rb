@@ -16,6 +16,7 @@ class Aliddns < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "b8051122a13e743cc9c0e6aa0eccb86ec9bcf014dff7e23180683068e19bfb75"
     sha256 cellar: :any_skip_relocation, ventura:        "f083114a10855bf586164f35d83235d74b5cd3b848adf3a7d609c26aedc4a496"
     sha256 cellar: :any_skip_relocation, monterey:       "4a87e7615baed5cb9c6e1c2b38091c93bc616a054fecc57488a43c196818cd85"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "04d29e980abbe4840c4a77b971d61dfa6ddc0239d72ab00de599c98d75ad5193"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf0adee43a8efe19657d0aec5deb3aae6bf0d54030f3fe30dd1155935dcc192e"
   end
 
