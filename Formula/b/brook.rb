@@ -13,6 +13,7 @@ class Brook < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "564f95bb9ccd7cb726f77a7edbefa788366804c53d87398715a23a54cd1354d9"
     sha256 cellar: :any_skip_relocation, sonoma:        "43906bd2683a7b8d2d8ebfc55771e74c1161d8cf25af6482e429335e248db075"
     sha256 cellar: :any_skip_relocation, ventura:       "43906bd2683a7b8d2d8ebfc55771e74c1161d8cf25af6482e429335e248db075"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04c6e67447718429922cd0dc6ea53c3e9b3b4c6ed3ea02bc63300070657aef8e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "401093bfe7df589f3e79937615e8f7585e7d916b714cc4c56a3cef1641be514d"
   end
 
