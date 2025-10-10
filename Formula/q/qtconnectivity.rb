@@ -1,10 +1,10 @@
 class Qtconnectivity < Formula
   desc "Provides access to Bluetooth hardware"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtconnectivity-everywhere-src-6.9.3.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtconnectivity-everywhere-src-6.9.3.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtconnectivity-everywhere-src-6.9.3.tar.xz"
-  sha256 "e21bba5efb174c4456c5e5a7b4d52bba1ee62dfb4509bcff73fdfad9cb1dd7f5"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/qtconnectivity-everywhere-src-6.10.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/qtconnectivity-everywhere-src-6.10.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/qtconnectivity-everywhere-src-6.10.0.tar.xz"
+  sha256 "560ad5cf2600a0620b811ff9fb4ad0ca2a18ca7b2b6699dadf1961e5bf41fa99"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
@@ -37,12 +37,16 @@ class Qtconnectivity < Formula
     depends_on "bluez"
   end
 
-  def install
-    args = ["-DCMAKE_STAGING_PREFIX=#{prefix}"]
-    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
+  # TODO: preserve_rpath # https://github.com/orgs/Homebrew/discussions/2823
 
-    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
-                    *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST")
+  def install
+    args = []
+    if OS.mac?
+      args << "-DQT_EXTRA_RPATHS=#{(HOMEBREW_PREFIX/"lib").relative_path_from(lib)}"
+      args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON"
+    end
+
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *args, *std_cmake_args(find_framework: "FIRST")
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -58,7 +62,8 @@ class Qtconnectivity < Formula
       cmake_minimum_required(VERSION 4.0)
       project(test VERSION 1.0.0 LANGUAGES CXX)
       find_package(Qt6 REQUIRED COMPONENTS Bluetooth)
-      add_executable(test main.cpp)
+      qt_standard_project_setup()
+      qt_add_executable(test main.cpp)
       target_link_libraries(test PRIVATE Qt6::Bluetooth)
     CMAKE
 
@@ -88,7 +93,7 @@ class Qtconnectivity < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "cmake", "-S", ".", "-B", "cmake"
+    system "cmake", "-S", ".", "-B", "cmake", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", "cmake"
     system "./cmake/test" if run_executable
 
@@ -100,7 +105,7 @@ class Qtconnectivity < Formula
     end
 
     flags = shell_output("pkgconf --cflags --libs Qt6Bluetooth").chomp.split
-    system ENV.cxx, "-std=c++17", "main.cpp", "-o", "test", *flags
+    system ENV.cxx, "-std=c++17", "main.cpp", "-o", "test", *flags, "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
     system "./test" if run_executable
   end
 end
