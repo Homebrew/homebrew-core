@@ -16,6 +16,7 @@ class CloudNuke < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c2ce9d0f48bdccb4fe31845774ae202977f1212978f8fd0095fe6968e7cdd7c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c2ce9d0f48bdccb4fe31845774ae202977f1212978f8fd0095fe6968e7cdd7c"
     sha256 cellar: :any_skip_relocation, sonoma:        "2b711b91903d25d10c42c93c0e1a8fdd41e69e2625fc6cd5b8d71eca9d546716"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3de812717122619f1c5cce78037b06bb51e52210685af2d11e6945b424c49893"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5da0946d1e117bcba6293d61c3b70eeb6d75d93a2b893492586ebad4e4c3007"
   end
 
