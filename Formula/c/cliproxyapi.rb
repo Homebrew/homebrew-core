@@ -1,8 +1,8 @@
 class Cliproxyapi < Formula
   desc "Wrap Gemini CLI, Codex, Claude Code, Qwen Code as an API service"
   homepage "https://github.com/router-for-me/CLIProxyAPI"
-  url "https://github.com/router-for-me/CLIProxyAPI/archive/refs/tags/v6.1.3.tar.gz"
-  sha256 "3ba69aa7e7af86f0e23230059bfbb01856c5c8b0bece2ec828e31afbe8be687c"
+  url "https://github.com/router-for-me/CLIProxyAPI/archive/refs/tags/v6.1.17.tar.gz"
+  sha256 "671fe33a82e7b682384028eb349e78932f0eb8456198a287be85e466275e76f9"
   license "MIT"
 
   depends_on "go" => :build
@@ -17,7 +17,7 @@ class Cliproxyapi < Formula
     ]
 
     system "go", "build", *std_go_args(ldflags:), "cmd/server/main.go"
-    etc.install "config.example.yaml" => "cliproxyapi.conf"
+    etc.install "config.example.yaml" => "cliproxyapi.conf" unless (etc/"cliproxyapi.conf").exist?
   end
 
   service do
