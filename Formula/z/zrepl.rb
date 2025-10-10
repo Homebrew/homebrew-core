@@ -16,6 +16,7 @@ class Zrepl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "86f94f15cab96087e5f9a17e02756dc1efe8f382635805345d6da7cf4f15a810"
     sha256 cellar: :any_skip_relocation, sonoma:        "0f47b589d4c5a01d645191e7963fc4e62a018f1844b22a3acfec0275354a294d"
     sha256 cellar: :any_skip_relocation, ventura:       "0f47b589d4c5a01d645191e7963fc4e62a018f1844b22a3acfec0275354a294d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d264994b4417c3509cebcfb4b04bc6e2a88e7926d93ab6950fc8e3d5893ded0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2db65d9638d95007c9b4880052f58a08befe29686120bd8fb33d9998a214ce49"
   end
 
