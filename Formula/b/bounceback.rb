@@ -13,6 +13,7 @@ class Bounceback < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8604b183fd34db0dec18fdf3738f5d10accfe83358355a2ac243d8e484ca99e1"
     sha256 cellar: :any_skip_relocation, sonoma:        "151b7cc05ca88b9ad080c6be1424ea7418e2e9c39ce024d11c220240555b19a6"
     sha256 cellar: :any_skip_relocation, ventura:       "151b7cc05ca88b9ad080c6be1424ea7418e2e9c39ce024d11c220240555b19a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6030767cf90445f94a88162d2bdd0994af06608b3b52481e36717a164a6c9991"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddebb59897bab43a8e2b7fcc60b1f2c15b4528fc522e5bb493f391f8659854bd"
   end
 
