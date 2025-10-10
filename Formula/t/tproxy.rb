@@ -13,6 +13,7 @@ class Tproxy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f712de225051b2d0321080046ad650ae2c5b6b978514b371582780eaf33a1cb1"
     sha256 cellar: :any_skip_relocation, sonoma:        "7568f803d5ed42f93f629f5132a3e9bc48deb6f345f600bb43fac27a12f2d78b"
     sha256 cellar: :any_skip_relocation, ventura:       "7568f803d5ed42f93f629f5132a3e9bc48deb6f345f600bb43fac27a12f2d78b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b7d9fdf1c245ec0aba0fd5ccd9724bba77b3c726066b1164f59b7b734d8efd48"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2753876622eab4735d7d5c380464e18626ba7d22a89c99036aa9030e080402a"
   end
 
