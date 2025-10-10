@@ -13,6 +13,7 @@ class Circleci < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4960ec4f4ae3f47d6eb20c489169d6e7af4e0c4c2ed3b10b019f9e50e2aaff51"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "534c268c21763f97dc58981753d1d0cc593ef090a4e6ac48c55589acb7beb0ee"
     sha256 cellar: :any_skip_relocation, sonoma:        "6477db3c9c4d5fdab400d51617836d1ad5e67c07580760f754d7f55f96af3f46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "610e912a5e57af0db997039d35a0557d8b9aeedb868083ff9fa56d5d1c15168f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a132d97bf7b3e565a5c3a0b649cce62126f12bc220f666aeef8559fe03af25de"
   end
 
