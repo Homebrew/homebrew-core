@@ -6,12 +6,13 @@ class Darker < Formula
   url "https://files.pythonhosted.org/packages/df/78/ad6af1661c2eca0ec69b7ff7c99d95dcae29c5e0071c7ebc98e6670f4663/darker-3.0.0.tar.gz"
   sha256 "eb53776f037fcf42b1f5a56f62fb841cd871d95a78a388536dc91dc4355ce8bb"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "32b956ff31dab57b624e2ead8863eabb56cc9447dee37707d523183167fa10f6"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "black" do
     url "https://files.pythonhosted.org/packages/94/49/26a7b0f3f35da4b5a65f081943b7bcd22d7002f5f0fb8098ec1ff21cb6ef/black-25.1.0.tar.gz"
