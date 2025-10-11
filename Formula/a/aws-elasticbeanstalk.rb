@@ -6,6 +6,7 @@ class AwsElasticbeanstalk < Formula
   url "https://files.pythonhosted.org/packages/43/72/f2de9169c01a666a1984dad56e48e38cdf0bf31021769483cb42769d638f/awsebcli-3.25.1.tar.gz"
   sha256 "76655174a354790eb2ff1419ea750fa0a91ba84406b6ba03c1e6b8d432d8a64d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ac540e778b9572339b855f1b7092031f0ac19bd30af15a06df080a1b4ea7fd7c"
@@ -21,7 +22,7 @@ class AwsElasticbeanstalk < Formula
   depends_on "cryptography"
   depends_on "libsodium" # for pynacl
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
 
