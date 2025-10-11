@@ -6,6 +6,7 @@ class Archgw < Formula
   url "https://files.pythonhosted.org/packages/75/22/1fcf44dc8393382fe62ef6c28a108498ed1ee1a964174e39191cb6f5c133/archgw-0.3.7.tar.gz"
   sha256 "b8c69fcb3844beaaafcbc15b151e65d7acf49951402ecd5ec468cc0c509cb943"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "5b9aa896aa2cbe5df37164c4dbd68c5644294780d3e1bbd7dfbedfad951d4f16"
@@ -19,7 +20,7 @@ class Archgw < Formula
   depends_on "certifi"
   depends_on "libyaml"
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "pytorch"
 
   resource "accelerate" do
