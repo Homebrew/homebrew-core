@@ -7,6 +7,7 @@ class Datalad < Formula
   sha256 "4d9f7ffe7a8a7b7eced97ba3d2d2257d527d4218c73ddf7e74eb343cf970d925"
   license "MIT"
   head "https://github.com/datalad/datalad.git", branch: "maint"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93214e354e37d83ae7f02b4c2ccb3ad3fc65599d08158389c369eaf27ea3dcd5"
@@ -23,7 +24,7 @@ class Datalad < Formula
   depends_on "cryptography"
   depends_on "git-annex"
   depends_on "p7zip"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "annexremote" do
     url "https://files.pythonhosted.org/packages/5f/04/d7a39a2ab1de54fd7bfbb26feb4487baa71be4e10f9c677ee5ee6fade89b/annexremote-1.6.6.tar.gz"
