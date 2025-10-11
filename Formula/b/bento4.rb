@@ -5,6 +5,7 @@ class Bento4 < Formula
   version "1.6.0-641"
   sha256 "8258faf0de7253f2aac016018f33d4a04c16d9060735e14ec8711f84aaedf0c8"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.bok.net/Bento4/source/"
@@ -26,7 +27,7 @@ class Bento4 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "mp4v2", because: "both install `mp4extract` and `mp4info` binaries"
 
