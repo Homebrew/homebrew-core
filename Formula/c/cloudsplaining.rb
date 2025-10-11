@@ -7,6 +7,7 @@ class Cloudsplaining < Formula
   sha256 "733085a7648e45714a24e629d05d3dfd592d2925b21fe001c19f55a6d6c1581a"
   license "BSD-3-Clause"
   head "https://github.com/salesforce/cloudsplaining.git", branch: "master"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "6e831cb4f94fc37287db4600901f2f0331c0626fc81006d26dc505b56aa1a122"
@@ -20,7 +21,7 @@ class Cloudsplaining < Formula
   depends_on "rust" => :build # for orjson
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/77/e9/df2358efd7659577435e2177bfa69cba6c33216681af51a707193dec162a/beautifulsoup4-4.14.2.tar.gz"
