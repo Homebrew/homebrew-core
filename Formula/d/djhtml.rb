@@ -6,12 +6,13 @@ class Djhtml < Formula
   url "https://files.pythonhosted.org/packages/76/dc/7d2a8e1e2a5054a50c328e02b4704179b80a8fbf0535bde793d85840c669/djhtml-3.0.10.tar.gz"
   sha256 "dd4ebf778d3b7da7a6e6970f7e66740f08ed7485485491b9a80527f526c838d9"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "23b8d7cb6296a0802f3938e29b627b60e726edf0836a2621d8f6f4e468b0bafc"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources
