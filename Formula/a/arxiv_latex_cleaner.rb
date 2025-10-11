@@ -7,6 +7,7 @@ class ArxivLatexCleaner < Formula
   sha256 "e40215f486770a90aaec3d4d5c666a5695ce282b4bf57cdd39c2f4623866e3f4"
   license "Apache-2.0"
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
+  revision 1
 
   bottle do
     rebuild 1
@@ -22,7 +23,7 @@ class ArxivLatexCleaner < Formula
 
   depends_on "libyaml"
   depends_on "pillow"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "absl-py" do
     url "https://files.pythonhosted.org/packages/7a/8f/fc001b92ecc467cc32ab38398bd0bfb45df46e7523bf33c2ad22a505f06e/absl-py-2.1.0.tar.gz"
