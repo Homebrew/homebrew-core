@@ -7,6 +7,7 @@ class CloudflareCli4 < Formula
   sha256 "36efe09d188678e8c99e654b79162758594107342d11f88192423aa47fd6c0b8"
   license "MIT"
   head "https://github.com/cloudflare/python-cloudflare-cli4.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "6a5a6a58030994bb8f479ba9db371f15fb3c0609c8201f95f508f4cf9301f0ce"
@@ -20,7 +21,7 @@ class CloudflareCli4 < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
