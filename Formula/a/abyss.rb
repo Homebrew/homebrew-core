@@ -4,6 +4,7 @@ class Abyss < Formula
   url "https://github.com/bcgsc/abyss/releases/download/2.3.10/abyss-2.3.10.tar.gz"
   sha256 "bbe42e00d1ebb53ec6afaad07779baaaee994aa5c65b9a38cf4ad2011bb93c65"
   license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url :stable
@@ -34,7 +35,7 @@ class Abyss < Formula
   depends_on "google-sparsehash" => :build
   depends_on "meson" => :build # For btllib
   depends_on "ninja" => :build # For btllib
-  depends_on "python@3.13" => :build # For btllib
+  depends_on "python@3.14" => :build # For btllib
   depends_on "open-mpi"
 
   uses_from_macos "sqlite"
