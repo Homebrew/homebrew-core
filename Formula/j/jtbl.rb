@@ -12,7 +12,7 @@ class Jtbl < Formula
     sha256 cellar: :any_skip_relocation, all: "649e15e7c82c20e93b6227e694bcf623dd7e289efe6920fa00bd19d4747e49fd"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
