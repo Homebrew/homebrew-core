@@ -7,6 +7,7 @@ class Bandit < Formula
   sha256 "dbfe9c25fc6961c2078593de55fd19f2559f9e45b99f1272341f5b95dea4e56b"
   license "Apache-2.0"
   head "https://github.com/PyCQA/bandit.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f0c8fa689ab9519ab196723134eb373af479ceb2448b6c7499a5bcedeced388d"
@@ -20,7 +21,7 @@ class Bandit < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "markdown-it-py" do
     url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
