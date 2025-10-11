@@ -6,6 +6,7 @@ class Bbot < Formula
   url "https://files.pythonhosted.org/packages/ca/dd/bfcd82e0bc320c0e21880c8d6fafb7ab4e086ef2ff0591dccee9aa857027/bbot-2.7.1.tar.gz"
   sha256 "180e51ba30740d0717256c2cb1037f636966d5aec478f1fad885ee016f71ac82"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ebd0b50918a4c443340865e2eeca9176359aaf74c2a2913022af2a5d89c83f89"
@@ -25,7 +26,7 @@ class Bbot < Formula
   depends_on "cryptography"
   depends_on "libyaml"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "zeromq"
 
   uses_from_macos "libxml2", since: :ventura
