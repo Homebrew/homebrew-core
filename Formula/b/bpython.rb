@@ -6,7 +6,7 @@ class Bpython < Formula
   url "https://files.pythonhosted.org/packages/ba/dd/cc02bf66f342a4673867fdf6c1f9fce90ec1e91e651b21bc4af4890101da/bpython-0.25.tar.gz"
   sha256 "c246fc909ef6dcc26e9d8cb4615b0e6b1613f3543d12269b19ffd0782166c65b"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/bpython/bpython.git", branch: "main"
 
   bottle do
@@ -21,7 +21,7 @@ class Bpython < Formula
   end
 
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/0c/5e/3cada2f7514ee2a76bb8168c71f9b65d056840ebb711962e1ec08eeaa7b0/blessed-1.21.0.tar.gz"
@@ -79,7 +79,7 @@ class Bpython < Formula
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
