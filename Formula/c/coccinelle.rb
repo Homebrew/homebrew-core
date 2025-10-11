@@ -6,6 +6,7 @@ class Coccinelle < Formula
       revision: "e1906ad639c5eeeba2521639998eafadf989b0ac"
   license "GPL-2.0-only"
   head "https://github.com/coccinelle/coccinelle.git", branch: "master"
+  revision 1
 
   livecheck do
     url :stable
@@ -30,7 +31,7 @@ class Coccinelle < Formula
   depends_on "ocaml-findlib" => :build
   depends_on "opam" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "ocaml"
   depends_on "pcre"
 
