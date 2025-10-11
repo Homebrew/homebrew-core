@@ -5,6 +5,7 @@ class CdogsSdl < Formula
   sha256 "e2f56262629b175d4a387f6491696edc0a5b9420c9be8e9aa12b60feaa4fefa1"
   license "GPL-2.0-or-later"
   head "https://github.com/cxong/cdogs-sdl.git", branch: "master"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,7 @@ class CdogsSdl < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
