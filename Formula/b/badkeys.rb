@@ -7,6 +7,7 @@ class Badkeys < Formula
   sha256 "5eec8c646e90e1f8f64115ee9ea120d6886a231aae7d619017506f8cc630f48d"
   license "MIT"
   head "https://github.com/badkeys/badkeys.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "eb836ec8e62ce944200bc75d60ce028cf84933d4543da2ed6c18edd0d700be1b"
@@ -23,7 +24,7 @@ class Badkeys < Formula
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "gmpy2" do
     url "https://files.pythonhosted.org/packages/07/bd/c6c154ce734a3e6187871b323297d8e5f3bdf9feaafc5212381538bc19e4/gmpy2-2.2.1.tar.gz"
