@@ -70,7 +70,7 @@ class Texlive < Formula
   depends_on "pixman"
   depends_on "potrace"
   depends_on "pstoedit"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "ncurses"
   uses_from_macos "ruby"
@@ -344,7 +344,7 @@ class Texlive < Formula
   end
 
   def install
-    python3 = "python3.13"
+    python3 = "python3.14"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resource("pygments")
 
