@@ -3,8 +3,8 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/11/4f/a7c617e94666f4886fd0049e66a9dc5e29edee6c56a6878ad22128764a08/tmt-1.58.0.tar.gz"
-  sha256 "e99de972cbe57b2ea16b6da1837de3a8139e4cf284ed80705327c42126a21385"
+  url "https://files.pythonhosted.org/packages/53/9b/01bdecf22588071e5d29fc52f1a7151314b181b6b2c45d7f77bfd6a65535/tmt-1.59.0.tar.gz"
+  sha256 "70f2318de768b735c94f3ce4a8ee26cc37540e94d30bdc7a359ef126ffb16c64"
   license "MIT"
 
   bottle do
