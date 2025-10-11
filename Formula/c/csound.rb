@@ -2,7 +2,7 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   license "LGPL-2.1-or-later"
-  revision 12
+  revision 13
   head "https://github.com/csound/csound.git", branch: "develop"
 
   # Remove `stable` block when patches are no longer needed
@@ -68,7 +68,7 @@ class Csound < Formula
   depends_on "openssl@3"
   depends_on "portaudio"
   depends_on "portmidi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "stk"
   depends_on "wiiuse"
 
@@ -106,7 +106,7 @@ class Csound < Formula
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
