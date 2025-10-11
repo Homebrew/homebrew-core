@@ -6,7 +6,7 @@ class Bilix < Formula
   url "https://files.pythonhosted.org/packages/5c/12/0f885cee77471123a3c82da85bd1934af00aed213910987bbe5b2296997d/bilix-0.18.9.tar.gz"
   sha256 "8ab1be9bcc661369cbeba95439c09716778b6b42b2505a3eaddb45175688e247"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "3e941eba47cfc0241016e4892d73af60f5def7d3fb29c468902dc609be91e0e4"
@@ -21,7 +21,7 @@ class Bilix < Formula
 
   depends_on "rust" => :build # for pydantic_core
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/0b/03/a88171e277e8caa88a4c77808c20ebb04ba74cc4681bf1e9416c862de237/aiofiles-24.1.0.tar.gz"
