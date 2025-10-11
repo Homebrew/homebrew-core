@@ -20,6 +20,13 @@ class Granted < Formula
   def install
     ldflags = "-s -w -X github.com/common-fate/granted/internal/build.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/granted"
+
+    # Install shell wrapper scripts
+    bin.install "scripts/assume"
+    bin.install "scripts/assume.fish"
+
+    # Create assumego symlink
+    bin.install_symlink "granted" => "assumego"
   end
 
   test do
