@@ -1,8 +1,8 @@
 class AtSpi2Core < Formula
   desc "Protocol definitions and daemon for D-Bus at-spi"
   homepage "https://www.freedesktop.org/wiki/Accessibility/AT-SPI2/"
-  url "https://download.gnome.org/sources/at-spi2-core/2.58/at-spi2-core-2.58.0.tar.xz"
-  sha256 "dfdd3300da2783a21969ffade2889817fb7c1906a4ef92497eba65969b3dab5a"
+  url "https://download.gnome.org/sources/at-spi2-core/2.58/at-spi2-core-2.58.1.tar.xz"
+  sha256 "7f374a6a38cd70ff4b32c9d3a0310bfa804d946fed4c9e69a7d49facdcb95e9c"
   license "LGPL-2.1-or-later"
 
   bottle do
