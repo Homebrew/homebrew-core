@@ -2,6 +2,7 @@ class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
   license "MIT"
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.8.tar.xz"
@@ -49,8 +50,8 @@ class Libxml2 < Formula
 
   depends_on "pkgconf" => [:build, :test]
   depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "icu4c@77"
   depends_on "readline"
 
