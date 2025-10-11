@@ -12,7 +12,7 @@ class PythonArgcomplete < Formula
     sha256 cellar: :any_skip_relocation, all: "c2cd4eb62d9b2b5a7ce86ae22159a097bfad8673e20b2386fd859b1f621490c4"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources
