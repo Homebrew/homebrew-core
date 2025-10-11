@@ -6,7 +6,7 @@ class Cppcms < Formula
   url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.2.1/cppcms-1.2.1.tar.bz2"
   sha256 "10fec7710409c949a229b9019ea065e25ff5687103037551b6f05716bf6cac52"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -30,7 +30,7 @@ class Cppcms < Formula
   depends_on "cmake" => :build
   depends_on "openssl@3"
   depends_on "pcre"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "zlib"
 
