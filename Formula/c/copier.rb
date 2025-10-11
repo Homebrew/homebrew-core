@@ -6,6 +6,7 @@ class Copier < Formula
   url "https://files.pythonhosted.org/packages/fc/88/11f7279c994526855576c3d1860fb9bfb950baf4d545b172089352a806de/copier-9.10.2.tar.gz"
   sha256 "495159b796bc745a90238b2097053555f9e4283efc7181ee3b5402a5cbe21614"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "4b576d1da9c24fda1867d9a8c4c10754fea7ae312887b1effafe2c8e9712e48d"
@@ -20,7 +21,7 @@ class Copier < Formula
 
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
