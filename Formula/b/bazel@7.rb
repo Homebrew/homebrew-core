@@ -1,8 +1,8 @@
 class BazelAT7 < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/7.6.1/bazel-7.6.1-dist.zip"
-  sha256 "c1106db93eb8a719a6e2e1e9327f41b003b6d7f7e9d04f206057990775a7760e"
+  url "https://github.com/bazelbuild/bazel/releases/download/7.6.2/bazel-7.6.2-dist.zip"
+  sha256 "320582db87133c6a7b58d93b6a97bb7d67916fe7940d60fbb4ecc36c7a48da6d"
   license "Apache-2.0"
 
   livecheck do
@@ -42,22 +42,11 @@ class BazelAT7 < Formula
     end
   end
 
-  # Fix to avoid fdopen() redefinition for vendored `zlib`
-  # PR ref: https://github.com/bazelbuild/bazel/pull/26956
-  patch do
-    url "https://github.com/bazelbuild/bazel/commit/0d4c2130e356923849033c85d1d31c17372ce8f2.patch?full_index=1"
-    sha256 "6196b60c916e0152eefbc79249758675a860b51c84a6dfd258e83b1698664067"
-  end
-
   def bazel_real
     libexec/"bin/bazel-real"
   end
 
   def install
-    # Workaround for "missing LC_UUID load command in .../xcode-locator"
-    # https://github.com/bazelbuild/bazel/pull/27014
-    inreplace "tools/osx/BUILD", " -Wl,-no_uuid ", " "
-
     java_home_env = Language::Java.java_home_env("21")
 
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
