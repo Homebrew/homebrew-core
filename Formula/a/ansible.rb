@@ -7,6 +7,7 @@ class Ansible < Formula
   sha256 "22dea1938d433fa515b3001cfad65cb308ef97c980f1520174d054dd38f32c83"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
+  revision 1
 
   bottle do
     rebuild 1
@@ -26,7 +27,7 @@ class Ansible < Formula
   depends_on "libsodium" # for pynacl
   depends_on "libssh"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "tree" # for ansible-role-init
 
   uses_from_macos "krb5"
