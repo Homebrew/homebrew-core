@@ -6,7 +6,7 @@ class CloudformationCli < Formula
   url "https://files.pythonhosted.org/packages/12/ed/36f14b63957e99d9f2cbb5ac5671eed9fb93569e57add60534d47fc630e4/cloudformation-cli-0.2.39.tar.gz"
   sha256 "63bd83ad0b40b6ad21983dfe05f0717aeaa36cb3f935ef6825f8ca73d7a8e5a7"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "8a6da33a518b3d37d185083f280350bb65b040116f94da5bc1fb3044e887898e"
@@ -23,7 +23,7 @@ class CloudformationCli < Formula
   depends_on "go" => :test
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
