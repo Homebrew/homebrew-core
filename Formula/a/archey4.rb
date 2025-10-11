@@ -6,6 +6,7 @@ class Archey4 < Formula
   url "https://files.pythonhosted.org/packages/a7/bd/f70b613520c3f683eff6b9ffe5a31ba142bcc1b206db3181606b8e440193/archey4-4.15.0.0.tar.gz"
   sha256 "1cf158ab799fa8a5d15deab0a48df306d2788c81de44d0242c3ab1dfa84865ac"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -19,7 +20,7 @@ class Archey4 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "970c7db826029c191477ba09e3a7b3288e80aee797ababba472b22d9b3a483ac"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "distro" do
     url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"
