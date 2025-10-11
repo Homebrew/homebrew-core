@@ -6,7 +6,7 @@ class Chapel < Formula
   url "https://github.com/chapel-lang/chapel/releases/download/2.6.0/chapel-2.6.0.tar.gz"
   sha256 "e469c35be601cf1f59af542ab885e8a14aa2b087b79af0d5372a4421976c74b6"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
@@ -26,7 +26,7 @@ class Chapel < Formula
   depends_on "jemalloc"
   depends_on "llvm@20"
   depends_on "pkgconf"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
@@ -44,8 +44,8 @@ class Chapel < Formula
 
   def install
     # Always detect Python used as dependency rather than needing aliased Python formula
-    python = "python3.13"
-    # It should be noted that this will expand to: 'for cmd in python3.13 python3 python python2; do'
+    python = "python3.14"
+    # It should be noted that this will expand to: 'for cmd in python3.14 python3 python python2; do'
     # in our find-python.sh script.
     inreplace "util/config/find-python.sh", /^(for cmd in )(python3 )/, "\\1#{python} \\2"
 
