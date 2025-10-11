@@ -7,6 +7,7 @@ class BtrfsProgs < Formula
     "GPL-2.0-only",
     "LGPL-2.1-or-later", # libbtrfsutil
   ]
+  revision 1
 
   livecheck do
     url "https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/"
@@ -20,7 +21,7 @@ class BtrfsProgs < Formula
 
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "sphinx-doc" => :build
   depends_on "e2fsprogs"
   depends_on :linux
@@ -31,7 +32,7 @@ class BtrfsProgs < Formula
   depends_on "zstd"
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   # remove sphinx-rtd-theme extension for html docs
