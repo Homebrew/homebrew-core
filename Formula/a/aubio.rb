@@ -4,7 +4,7 @@ class Aubio < Formula
   url "https://sources.buildroot.net/aubio/aubio-0.4.9.tar.bz2"
   sha256 "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://aubio.org/pub/"
@@ -30,7 +30,7 @@ class Aubio < Formula
   depends_on "python-setuptools" => :build
   depends_on "libsndfile"
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   # Fix build with Python 3.12 using Fedora patch. Failure is due to old waf 2.0.14.
   # Remove on next release as HEAD has newer waf.
@@ -44,7 +44,7 @@ class Aubio < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
