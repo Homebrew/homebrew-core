@@ -7,6 +7,7 @@ class Asciidoc < Formula
   sha256 "d9f13c285981b3c7eb660d02ca0a2779981e88d48105de81bb40445e60dddb83"
   license "GPL-2.0-or-later"
   head "https://github.com/asciidoc-py/asciidoc-py.git", branch: "main"
+  revision 1
 
   bottle do
     rebuild 2
@@ -14,7 +15,7 @@ class Asciidoc < Formula
   end
 
   depends_on "docbook"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "source-highlight"
 
   uses_from_macos "libxml2"
