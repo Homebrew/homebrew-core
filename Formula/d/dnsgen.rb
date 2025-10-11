@@ -6,7 +6,7 @@ class Dnsgen < Formula
   url "https://files.pythonhosted.org/packages/5f/e1/1c7d86f51da5b93f3f99ac99e3ad051ed82234147ddd869f77a3959e6abc/dnsgen-1.0.4.tar.gz"
   sha256 "1087e9e5c323918aa3511e592759716116a208012aee024ffdbeac5fce573a0c"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/AlephNullSK/dnsgen.git", branch: "master"
 
   bottle do
@@ -15,7 +15,7 @@ class Dnsgen < Formula
   end
 
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
