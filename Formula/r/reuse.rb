@@ -24,7 +24,7 @@ class Reuse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0658592215a02ef5ab44cd477a6b020d538c08179471884f5628ef4cdbb90301"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
