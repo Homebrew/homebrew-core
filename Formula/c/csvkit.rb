@@ -6,6 +6,7 @@ class Csvkit < Formula
   url "https://files.pythonhosted.org/packages/80/e2/b6317dc421111a8158ce186095208127b4d53d823b40d9268cffbf06b73b/csvkit-2.1.0.tar.gz"
   sha256 "b91e8f5a485888c3c515b15cc2525ce4be5cfcd4f4766ead83113e787b5fd536"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ed93271e9cca158eb365a7d4f4ccd646ad3e6e59afe1d9c6d986168853f78e8"
@@ -18,7 +19,7 @@ class Csvkit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d1e5f5f59d037761c45c7960dd7834988295aed1150e74ee91b2042e672741c"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "agate" do
     url "https://files.pythonhosted.org/packages/38/a5/3773a25b4b4867efbe69dd34f374020e1c66415ac96afc572ac7aa47d90c/agate-1.13.0.tar.gz"
