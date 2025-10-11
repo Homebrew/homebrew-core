@@ -4,6 +4,7 @@ class Crun < Formula
   url "https://github.com/containers/crun/releases/download/1.24/crun-1.24.tar.zst"
   sha256 "2cc1ceaa609bc4c25c8e316d30e35406d6588aaf9dafcd5294b6cac912499faf"
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_linux:  "3f9504dcf24e5bb7cd2a86880319d61b15db169bf043cac3fff62333a9430c4e"
@@ -15,7 +16,7 @@ class Crun < Formula
   depends_on "go-md2man" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
 
   depends_on "libcap"
   depends_on "libseccomp"
