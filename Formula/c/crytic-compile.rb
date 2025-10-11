@@ -7,6 +7,7 @@ class CryticCompile < Formula
   sha256 "0d7e03b4109709dd175a4550345369548f99fc1c96183c34ccc4dd21a7c41601"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/crytic-compile.git", branch: "master"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "76354911f07a6f4f01c43c621bc810a0ee8f4f2c535bc6a05a762c33f3861b82"
@@ -19,7 +20,7 @@ class CryticCompile < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f712f5194e8feaf6b88e2c71eab95e2f67b3ad64f0d535eb5ebe07a930b0efd"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "cbor2" do
     url "https://files.pythonhosted.org/packages/e4/aa/ba55b47d51d27911981a18743b4d3cebfabccbb0598c09801b734cec4184/cbor2-5.6.5.tar.gz"
