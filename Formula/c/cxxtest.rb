@@ -7,7 +7,7 @@ class Cxxtest < Formula
   mirror "https://deb.debian.org/debian/pool/main/c/cxxtest/cxxtest_4.4.orig.tar.gz"
   sha256 "1c154fef91c65dbf1cd4519af7ade70a61d85a923b6e0c0b007dc7f4895cf7d8"
   license "LGPL-3.0-only"
-  revision 3
+  revision 4
 
   no_autobump! because: :requires_manual_review
 
@@ -16,10 +16,10 @@ class Cxxtest < Formula
     sha256 cellar: :any_skip_relocation, all: "643d46c6ac246d2b736860fd8e318a1a25fb4c2b659a18fead5db9fbe6dc9298"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
-    venv = virtualenv_create(libexec, "python3.13")
+    venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install_and_link buildpath/"python"
 
     include.install "cxxtest"
