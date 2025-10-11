@@ -6,7 +6,7 @@ class Chatblade < Formula
   url "https://files.pythonhosted.org/packages/ff/02/e7dfd50d98139472851d03d793c39aebe1364a960648312d252137b0ec25/chatblade-0.7.0.tar.gz"
   sha256 "bfa5f96aa02b869df76e6f0910b0c2528c44de7b2f95ae08de7d192cb30c7892"
   license "GPL-3.0-only"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "daa503478568e2d47258f82db0cd413f7c80ae3be8e7fa57a09cee91cebd5ab0"
@@ -22,7 +22,7 @@ class Chatblade < Formula
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
