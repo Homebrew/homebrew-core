@@ -6,6 +6,7 @@ class Dolphie < Formula
   url "https://files.pythonhosted.org/packages/e8/d4/d108e7f39caad0d20bfecaa394787e01c0cab75663cc54b8913e9cde1898/dolphie-6.10.2.tar.gz"
   sha256 "0b80a8cad69e45866ca6246fa6b4271d91c194defb23d46a46cf45d89089d6b9"
   license "GPL-3.0-or-later"
+  revision 1
 
   no_autobump! because: "some resources have to be updated manually"
 
@@ -23,7 +24,7 @@ class Dolphie < Formula
   depends_on "rust" => :build # for orjson
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   # `tree-sitter-*` sdists are missing C headers and therefore we have to use GitHub sources
   # Resources can be updated the following way:
