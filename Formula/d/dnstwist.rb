@@ -6,7 +6,7 @@ class Dnstwist < Formula
   url "https://files.pythonhosted.org/packages/e7/0e/88b4c5c7f3077c0d2e8544a14e321fce80b3cf0148a46dec9724e27c61d3/dnstwist-20250130.tar.gz"
   sha256 "8b6dd9c42a643a0e8b087903c0e6d75c0f6cebf94920ab0b7760ac2522c6bb42"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ba65fc29b292f09a04c23ff18b6f22b0c71c73a396be342478d006cee91cadfb"
@@ -21,7 +21,7 @@ class Dnstwist < Formula
 
   depends_on "certifi"
   depends_on "libmaxminddb"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "ssdeep"
 
   uses_from_macos "libffi"
@@ -124,7 +124,7 @@ class Dnstwist < Formula
     ENV["MAXMINDDB_USE_SYSTEM_LIBMAXMINDDB"] = "1"
     ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path_if_needed}/usr/include/ffi" if OS.mac?
 
-    venv = virtualenv_create(libexec, "python3.13")
+    venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install resources
 
     (libexec/"bin").install "dnstwist.py" => "dnstwist"
