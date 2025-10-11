@@ -6,7 +6,7 @@ class BandcampDl < Formula
   url "https://files.pythonhosted.org/packages/78/c2/2c11878a494ceef38ed5ac51dede216547cb14ef40a30f8f009fca0ceab6/bandcamp_downloader-0.0.17.tar.gz"
   sha256 "d5e47777d0b1a14e49ba72d78ffa9b150e72af51d28e981231a0bd32c1c2e159"
   license "Unlicense"
-  revision 2
+  revision 3
   head "https://github.com/evolution0/bandcamp-dl.git", branch: "master"
 
   bottle do
@@ -14,7 +14,7 @@ class BandcampDl < Formula
   end
 
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
