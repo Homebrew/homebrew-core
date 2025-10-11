@@ -1,10 +1,10 @@
 class Qtwayland < Formula
   desc "Wayland platform plugin and QtWaylandCompositor API"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtwayland-everywhere-src-6.9.3.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtwayland-everywhere-src-6.9.3.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtwayland-everywhere-src-6.9.3.tar.xz"
-  sha256 "e413d4bc9263e80a465761debf8cb8317aa6b01e814b20046a05258e6573dadd"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/qtwayland-everywhere-src-6.10.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/qtwayland-everywhere-src-6.10.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/qtwayland-everywhere-src-6.10.0.tar.xz"
+  sha256 "603f2b0a259b24bd0fb14f880d7761b1d248118a42a6870cdbe8fdda4173761f"
   license all_of: [
     "GPL-3.0-only", # WaylandCompositor
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] }, # WaylandClient
@@ -37,10 +37,10 @@ class Qtwayland < Formula
   depends_on "qtsvg"
   depends_on "wayland"
 
+  # TODO: preserve_rpath # https://github.com/orgs/Homebrew/discussions/2823
+
   def install
-    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
-                    "-DCMAKE_STAGING_PREFIX=#{prefix}",
-                    *std_cmake_args(install_prefix: HOMEBREW_PREFIX)
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
