@@ -6,6 +6,7 @@ class Dotbot < Formula
   url "https://files.pythonhosted.org/packages/05/4b/8308f726306d3d983323dd9bfa55e3610a07168f56ef612ecae05998ed55/dotbot-1.23.1.tar.gz"
   sha256 "b6e419a898c03d2ecaaf802af9764041ac583fc59e367bdde509640c5d193f3b"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "b14c5627586521cf6390fa5c21ca52c792766f4d3d4e7af45b6e0514b8e28306"
@@ -19,7 +20,7 @@ class Dotbot < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
