@@ -6,6 +6,7 @@ class Diffoscope < Formula
   url "https://files.pythonhosted.org/packages/01/50/2f7df57b08a3f6045e7a01aa5d6b00c8ccf4dc6603e2d2de02e1ec356c5a/diffoscope-306.tar.gz"
   sha256 "2c489aba7334ab0d4a9946ac51fe1b17085621a5476b89950e9c4f1e612cbab3"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea12431a73f2510e899dacd6cfc8bd6a38c5d9136040bfc59e26a15aa7dd1c71"
@@ -20,7 +21,7 @@ class Diffoscope < Formula
 
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
@@ -43,7 +44,7 @@ class Diffoscope < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.13")
+    venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install resources
     venv.pip_install buildpath
 
