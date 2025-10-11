@@ -6,6 +6,7 @@ class Copyparty < Formula
   url "https://files.pythonhosted.org/packages/24/5f/0975a5dbebd9fc9c8a07018f9daa6829b486ddee078130fa54179f1cd764/copyparty-1.19.16.tar.gz"
   sha256 "ea29aafb872ab2698aa272dc79f81bf56a0ee6ff7c43ced1b2bd35a1abe212fb"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "d2ef79f97a2b20bfa0db91700640d8cdf86672270d233427baa2d9a29db96dc1"
@@ -21,7 +22,7 @@ class Copyparty < Formula
   depends_on "pkgconf" => :build
   depends_on "cryptography"
   depends_on "glib"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "vips"
   depends_on "zeromq"
 
