@@ -6,6 +6,7 @@ class Asitop < Formula
   url "https://files.pythonhosted.org/packages/93/bc/8755d818efc33dd758322086a23f08bee5e1f7769c339a8be5c142adbbbc/asitop-0.0.24.tar.gz"
   sha256 "5df7b59304572a948f71cf94b87adc613869a8a87a933595b1b3e26bf42c3e37"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 3
@@ -17,7 +18,7 @@ class Asitop < Formula
 
   depends_on arch: :arm64
   depends_on :macos
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/25/ae/92e9968ad23205389ec6bd82e2d4fca3817f1cdef34e10aa8d529ef8b1d7/blessed-1.20.0.tar.gz"
