@@ -2,6 +2,7 @@ class Carla < Formula
   desc "Audio plugin host supporting LADSPA, LV2, VST2/3, SF2 and more"
   homepage "https://kx.studio/Applications:Carla"
   license "GPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://github.com/falkTX/Carla/archive/refs/tags/v2.5.10.tar.gz"
@@ -41,7 +42,7 @@ class Carla < Formula
   depends_on "liblo"
   depends_on "libmagic"
   depends_on "libsndfile"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_linux do
     depends_on "alsa-lib"
@@ -63,7 +64,7 @@ class Carla < Formula
     system "make", "install", "PREFIX=#{prefix}"
 
     inreplace bin/"carla", "PYTHON=$(which python3 2>/dev/null)",
-                           "PYTHON=#{which("python3.13")}"
+                           "PYTHON=#{which("python3.14")}"
   end
 
   test do
