@@ -9,21 +9,19 @@ class Mk < Formula
   head "https://github.com/pycontribs/mk.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "0fe1693584e766c3fbd6fc206708c6323e1da92d8b530cc01e049205c165c2d9"
-    sha256 cellar: :any,                 arm64_sequoia: "6d13154bcf33405b9fabcebbb6ad7a399c11e17e820918f09b2f4013ddf8671a"
-    sha256 cellar: :any,                 arm64_sonoma:  "1f78df334281bd6a42a03d8a7b433abdc61dbdd6185ecffc635a321aad0fc366"
-    sha256 cellar: :any,                 arm64_ventura: "121461c02b51ff73c269a35385e6baf279562c8e33827ffeb6838caa2f2a39b7"
-    sha256 cellar: :any,                 sonoma:        "212d25c5e946a4c83b24d4d2ee97c53c6a557abbc1cfa75e656facea77a7871c"
-    sha256 cellar: :any,                 ventura:       "51a0f7af175cbf111981aa68e5c7798b3977682d14ea239f14f8b0bf518c72db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8de5a36e84c54c74f3d658aed15c2499540db09e730e37d37b3f5392d4b059f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae67a7e9176cd1733356bb1a75cf095513c44ae5349addca2e2ea38261a16d94"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "bdda23328de46f32ae5d18b56fd2ea9129f83e7eacdadb98ae76f537112214b2"
+    sha256 cellar: :any,                 arm64_sequoia: "391e5062ba0116dcf405430903cf2e31a509d439f5904ea7ad68d6ee9d1abd84"
+    sha256 cellar: :any,                 arm64_sonoma:  "246360ddc742f1e13c4907b0da9884937b92f78490fd54dceb39e3e5c654bdd0"
+    sha256 cellar: :any,                 sonoma:        "43adea6b94a6058c67161e41d9840ba5cd180a45fde9c2d4cd6bbae1c5098e87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "84578b7c56a6944eff5a20c2a4bf67298a51299850735a67f16fdc1dcabdd46b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "234204de2c7ed2516d7120e0753b2843fcdcf0516f79b4b1c97b2dc70662baa8"
   end
 
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "build" do
     url "https://files.pythonhosted.org/packages/25/1c/23e33405a7c9eac261dff640926b8b5adaed6a6eb3e1767d441ed611d0c0/build-1.3.0.tar.gz"
@@ -36,8 +34,8 @@ class Mk < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "diskcache" do
@@ -46,8 +44,8 @@ class Mk < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/e9/86/5b41c32ecedcfdb4c77b28b6cb14234f252075f8cdb254531727a35547dd/docutils-0.22.tar.gz"
-    sha256 "ba9d57750e92331ebe7c08a1bbf7a7f8143b86c476acd51528b042216a6aad0f"
+    url "https://files.pythonhosted.org/packages/4a/c0/89fe6215b443b919cb98a5002e107cb5026854ed1ccb6b5833e0768419d1/docutils-0.22.2.tar.gz"
+    sha256 "9fdb771707c8784c8f2728b67cb2c691305933d68137ef95a75db5f4dfbc213d"
   end
 
   resource "gitdb" do
@@ -81,8 +79,8 @@ class Mk < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/49/1c/831faaaa0f090b711c355c6d8b2abf277c72133aab472b6932b03322294c/jaraco_functools-4.2.1.tar.gz"
-    sha256 "be634abfccabce56fa3053f8c7ebe37b682683a4ee7793670ced17bab0087353"
+    url "https://files.pythonhosted.org/packages/f7/ed/1aa2d585304ec07262e1a83a9889880701079dde796ac7b1d1826f40c63d/jaraco_functools-4.3.0.tar.gz"
+    sha256 "cfd13ad0dd2c47a3600b439ef72d8615d482cedcff1632930d6f28924d92f294"
   end
 
   resource "keyring" do
@@ -101,13 +99,13 @@ class Mk < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/ce/a0/834b0cebabbfc7e311f30b46c8188790a37f89fc8d756660346fe5abfd09/more_itertools-10.7.0.tar.gz"
-    sha256 "9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3"
+    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
+    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
   end
 
   resource "nh3" do
-    url "https://files.pythonhosted.org/packages/c3/a4/96cff0977357f60f06ec4368c4c7a7a26cccfe7c9fcd54f5378bf0428fd3/nh3-0.3.0.tar.gz"
-    sha256 "d8ba24cb31525492ea71b6aac11a4adac91d828aadeff7c4586541bf5dc34d2f"
+    url "https://files.pythonhosted.org/packages/cf/a6/c6e942fc8dcadab08645f57a6d01d63e97114a30ded5f269dc58e05d4741/nh3-0.3.1.tar.gz"
+    sha256 "6a854480058683d60bdc7f0456105092dae17bef1f300642856d74bd4201da93"
   end
 
   resource "packaging" do
@@ -131,8 +129,8 @@ class Mk < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "readme-renderer" do
@@ -141,8 +139,8 @@ class Mk < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "requests-toolbelt" do
@@ -156,8 +154,8 @@ class Mk < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fe/75/af448d8e52bf1d8fa6a9d089ca6c07ff4453d86c65c145d0a300bb073b9b/rich-14.1.0.tar.gz"
-    sha256 "e497a48b844b0320d45007cdebfeaeed8db2a4f4bcf49f15e455cfc4af11eaa8"
+    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
+    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
   end
 
   resource "setuptools" do
@@ -181,13 +179,13 @@ class Mk < Formula
   end
 
   resource "twine" do
-    url "https://files.pythonhosted.org/packages/c8/a2/6df94fc5c8e2170d21d7134a565c3a8fb84f9797c1dd65a5976aaf714418/twine-6.1.0.tar.gz"
-    sha256 "be324f6272eff91d07ee93f251edf232fc647935dd585ac003539b42404a8dbd"
+    url "https://files.pythonhosted.org/packages/e0/a8/949edebe3a82774c1ec34f637f5dd82d1cf22c25e963b7d63771083bbee5/twine-6.2.0.tar.gz"
+    sha256 "e5ed0d2fd70c9959770dce51c8f39c8945c574e18173a7b81802dab51b4b75cf"
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/c5/8c/7d682431efca5fd290017663ea4588bf6f2c6aad085c7f108c5dbc316e70/typer-0.16.0.tar.gz"
-    sha256 "af377ffaee1dbe37ae9440cb4e8f11686ea5ce4e9bae01b84ae7c63b87f1dd3b"
+    url "https://files.pythonhosted.org/packages/21/ca/950278884e2ca20547ff3eb109478c6baf6b8cf219318e6bc4f666fad8e8/typer-0.19.2.tar.gz"
+    sha256 "9ad824308ded0ad06cc716434705f691d4ee0bfd0fb081839d2e426860e7fdca"
   end
 
   resource "typer-config" do
@@ -196,8 +194,8 @@ class Mk < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
-    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "urllib3" do
