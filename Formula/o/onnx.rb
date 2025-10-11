@@ -1,10 +1,12 @@
 class Onnx < Formula
   desc "Open standard for machine learning interoperability"
   homepage "https://onnx.ai/"
-  url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
-  sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
+  # TODO: Check if workarounds can be dropped,
+  # - https://github.com/onnx/onnx/issues/7377
+  # - https://github.com/onnx/onnx/issues/7378
+  url "https://github.com/onnx/onnx/archive/refs/tags/v1.19.0.tar.gz"
+  sha256 "2c2ac5a078b0350a0723fac606be8cd9e9e8cbd4c99bab1bffe2623b188fd236"
   license "Apache-2.0"
-  revision 8
 
   no_autobump! because: :requires_manual_review
 
@@ -23,6 +25,12 @@ class Onnx < Formula
 
   uses_from_macos "python" => :build
 
+  # Apply ONNX Runtime's patch to remove explicit keyword so we can use `onnx` as dependency
+  patch do
+    url "https://raw.githubusercontent.com/microsoft/onnxruntime/ecb26fb7754d7c9edf24b1844ea807180a2e3e23/cmake/patches/onnx/onnx.patch"
+    sha256 "ab8de8ea01a9981b9b0d001b00685d6f264e141285ba183a90d8da388be45a3e"
+  end
+
   # Apply Fedora's workaround to allow `onnxruntime` to use `onnx` built without
   # ONNX_DISABLE_STATIC_REGISTRATION[^1]. We can't use this option as it will
   # break functionality for any dependents/users expecting the default behavior.
@@ -34,11 +42,27 @@ class Onnx < Formula
   end
 
   def install
+    if OS.mac?
+      inreplace "CMakeLists.txt" do |s|
+        # Disable hidden visibility for onnx_proto to fix build: https://github.com/onnx/onnx/issues/7377
+        # TODO: Remove when upstream issue is resolved
+        s.gsub! "set_target_properties(onnx_proto PROPERTIES CXX_VISIBILITY_PRESET hidden)", ""
+
+        # Also remove hidden visibility in onnx as needed by onnxruntime
+        s.gsub! "set_target_properties(onnx PROPERTIES CXX_VISIBILITY_PRESET hidden)", ""
+      end
+    end
+
+    # Workaround for regression in ONNXConfig.cmake: https://github.com/onnx/onnx/issues/7378
+    inreplace "cmake/ONNXConfig.cmake.in",
+              "if((NOT @@ONNX_USE_PROTOBUF_SHARED_LIBS@@) AND @@Build_Protobuf@@)",
+              "if(ON)"
+
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DONNX_USE_PROTOBUF_SHARED_LIBS=ON
-      -DPYTHON_EXECUTABLE=#{which("python3")}
+      -DPython3_EXECUTABLE=#{which("python3")}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -47,62 +71,70 @@ class Onnx < Formula
   end
 
   test do
-    # https://github.com/onnx/onnx/blob/main/onnx/test/cpp/ir_test.cc
+    # https://github.com/onnx/onnx/blob/main/onnx/test/cpp/function_verify_test.cc
     (testpath/"test.cpp").write <<~CPP
       #include <cassert>
-      #include <cctype>
-      #include <memory>
-      #include <string>
-      #include <onnx/common/ir.h>
-      #include <onnx/common/ir_pb_converter.h>
-      using namespace onnx;
+      #include <onnx/defs/parser.h>
+      #include <onnx/shape_inference/implementation.h>
 
-      bool IsValidIdentifier(const std::string& name) {
-        if (name.empty()) {
-          return false;
-        }
-        if (!isalpha(name[0]) && name[0] != '_') {
-          return false;
-        }
-        for (size_t i = 1; i < name.size(); ++i) {
-          if (!isalnum(name[i]) && name[i] != '_') {
-            return false;
-          }
-        }
-        return true;
+      int main(void) {
+        const char* code = R"ONNX(
+      <
+        ir_version: 8,
+        opset_import: [ "" : 13, "custom_domain_1" : 1, "custom_domain_2" : 1],
+        producer_name: "FunctionProtoTest",
+        producer_version: "1.0",
+        model_version: 1,
+        doc_string: "A test model for model local functions."
+      >
+      agraph (float[N] x) => (uint8[N] out)
+      {
+          o1, o2 = custom_domain_1.bar(x)
+          o3 = Add(o1, o2)
+          o4 = custom_domain_2.foo(o3)
+          out = Identity(o4)
       }
 
-      int main() {
-        Graph* g = new Graph();
-        g->setName("test");
-        Value* x = g->addInput();
-        x->setUniqueName("x");
-        x->setElemType(TensorProto_DataType_FLOAT);
-        x->setSizes({Dimension("M"), Dimension("N")});
-        Node* node1 = g->create(kNeg, 1);
-        node1->addInput(x);
-        g->appendNode(node1);
-        Value* temp1 = node1->outputs()[0];
-        Node* node2 = g->create(kNeg, 1);
-        node2->addInput(temp1);
-        g->appendNode(node2);
-        Value* y = node2->outputs()[0];
-        g->registerOutput(y);
+      <
+        domain: "custom_domain_1",
+        opset_import: [ "" : 13],
+        doc_string: "Test function proto"
+      >
+      bar (x) => (o1, o2) {
+            o1 = Identity (x)
+            o2 = Identity (o1)
+      }
 
-        ModelProto model;
-        ExportModelProto(&model, std::shared_ptr<Graph>(g));
+      <
+        domain: "custom_domain_2",
+        opset_import: [ "" : 13],
+        doc_string: "Test function proto"
+      >
+      foo (x) => (y) {
+            Q_Min = Constant <value = float[1] {0.0}> ()
+            Q_Max = Constant <value = float[1] {255.0}> ()
+            X_Min = ReduceMin <keepdims = 0> (x)
+            X_Max = ReduceMax <keepdims = 0> (x)
+            X_Range = Sub (X_Max, X_Min)
+            Scale = Div (X_Range, Q_Max)
+            ZeroPoint_FP = Sub (Q_Min, Scale)
+            Zeropoint = Cast <to = 2> (ZeroPoint_FP)
+            y = QuantizeLinear (x, Scale, Zeropoint)
+      }
+      )ONNX";
 
-        for (auto& node : model.graph().node()) {
-          for (auto& name : node.output()) {
-            assert(IsValidIdentifier(name));
-          }
-        }
+        onnx::ModelProto model;
+        auto status = onnx::OnnxParser::Parse(model, code);
+        assert(status.IsOK());
+
+        onnx::ShapeInferenceOptions options{true, 1, true};
+        onnx::shape_inference::InferShapes(model, onnx::OpSchemaRegistry::Instance(), options);
         return 0;
       }
     CPP
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.10)
+      cmake_minimum_required(VERSION 4.0)
       project(test LANGUAGES CXX)
       find_package(ONNX CONFIG REQUIRED)
       add_executable(test test.cpp)
