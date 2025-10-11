@@ -5,6 +5,7 @@ class Cog < Formula
   sha256 "a032ffa750f96c1947034249e2bba898c16dc6b474a074dac72ca1124bdf7a9d"
   license "Apache-2.0"
   head "https://github.com/replicate/cog.git", branch: "main"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,12 +22,12 @@ class Cog < Formula
   end
 
   depends_on "go" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
 
   conflicts_with "cocogitto", because: "both install `cog` binaries"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
