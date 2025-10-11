@@ -6,6 +6,7 @@ class WeaviateCli < Formula
   url "https://files.pythonhosted.org/packages/da/8a/c756f576e3d80f7441d284898fce0a4516381c7ba6fa75a8908b63d6ad27/weaviate_cli-3.2.4.tar.gz"
   sha256 "14499e4bdf6d4a9e66565d8bf2ecdf1de4478932123983213c7ca341ad66ab45"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     rebuild 1
