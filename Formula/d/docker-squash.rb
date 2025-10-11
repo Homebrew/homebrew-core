@@ -6,14 +6,14 @@ class DockerSquash < Formula
   url "https://files.pythonhosted.org/packages/77/ef/45dc63f3f0f3fba18306dac34d9be26f9dd0d1a0742a7f0ca39cf1a98b15/docker_squash-1.2.2.tar.gz"
   sha256 "74dd70412ddcf570bcd322567929062342793d1ec70c63b5371cc9e2808ae2ef"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "99d127dcc4e76e15b49ba990c01be8b99c22966dede5b7a7e854dfd3961361f6"
   end
 
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
