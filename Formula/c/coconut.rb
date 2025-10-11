@@ -6,7 +6,7 @@ class Coconut < Formula
   url "https://files.pythonhosted.org/packages/93/75/414f33186846444da53b4e834d5ccfb0577d0e09b997819c183fa509f70a/coconut-3.1.2.tar.gz"
   sha256 "ef0656ee2df4594007f998f4a9c2a1b9bfbc40541a400cbaa00ccbbac50e5414"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83d1d10792d81c169310d529407d9672d853f751374be00b381c5645b7a781e8"
@@ -19,7 +19,7 @@ class Coconut < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe45beaba4b1485125f179ada7eb31ced16be05bed6fe7d515f4eb982f04e6cb"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
