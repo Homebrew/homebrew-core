@@ -6,6 +6,7 @@ class AnsibleCreator < Formula
   url "https://files.pythonhosted.org/packages/bb/a4/8f943e48e48cb3d953505313be4b4cc072e3c66ff3abcb2745ecf9a17676/ansible_creator-25.9.0.tar.gz"
   sha256 "f20e8ceb98606ddd0a60587118403f26916f2e53d01b6d42356e448c3e7fb76a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "41da6114493aa4f38a0c6bc5b8dd886f84c39631a9ab9aa28e1375e51b6bd971"
@@ -17,7 +18,7 @@ class AnsibleCreator < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "jinja2" do
     url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
