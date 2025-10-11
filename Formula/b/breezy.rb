@@ -8,6 +8,7 @@ class Breezy < Formula
   url "https://github.com/breezy-team/breezy/archive/refs/tags/brz-3.3.13.tar.gz"
   sha256 "1a8b1e53263f181e0a6d433aa9dbdd21cf34098d2c9db5b177ef7250f5d0754a"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -28,7 +29,7 @@ class Breezy < Formula
   depends_on "gettext" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz"
