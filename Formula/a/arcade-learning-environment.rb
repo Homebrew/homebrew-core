@@ -6,7 +6,7 @@ class ArcadeLearningEnvironment < Formula
   url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.11.2.tar.gz"
   sha256 "d6ac9406690bb3533b37a99253bdfc59bc27779c5e1b6855c763d0b367bcbf96"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
@@ -24,7 +24,7 @@ class ArcadeLearningEnvironment < Formula
   depends_on "pybind11" => :build
   depends_on "numpy"
   depends_on "opencv"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sdl2"
 
   uses_from_macos "zlib"
@@ -56,7 +56,7 @@ class ArcadeLearningEnvironment < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
