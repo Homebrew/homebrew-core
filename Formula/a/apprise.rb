@@ -6,6 +6,7 @@ class Apprise < Formula
   url "https://files.pythonhosted.org/packages/60/16/e39338b8310af9466fab6f4482b542e24cb1fcbb7e36bf00c089c4e015e7/apprise-1.9.5.tar.gz"
   sha256 "8f3be318bb429c2017470e33928a2e313cbf7600fc74b8184782a37060db366a"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "4b91625d0790d086718e5a0540b254d5ad86d6e9dfcbb2bb45d170c049e10bec"
@@ -18,7 +19,7 @@ class Apprise < Formula
 
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
