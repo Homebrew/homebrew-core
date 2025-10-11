@@ -7,6 +7,7 @@ class BumpMyVersion < Formula
   sha256 "998abb4f3774cf96137a77034a5a12a722b109b26a3afa044ec14622a0180fa3"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "7f1959c0b72f0838f1937e4119619e011a34ef944030574b88ad96008ea64736"
@@ -18,7 +19,7 @@ class BumpMyVersion < Formula
   end
 
   depends_on "rust" => :build # for pydantic_core
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
