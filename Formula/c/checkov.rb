@@ -6,6 +6,7 @@ class Checkov < Formula
   url "https://files.pythonhosted.org/packages/4b/8b/916dd7e5793a2e68aa0689ce4fe07d2de98d2e40d3a4b5f4b29b5df3c597/checkov-3.2.470.tar.gz"
   sha256 "7a2630753bf0c491d75359b11c805a705a3b66b1ab44328ec196c7b252d1a5ce"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://pypi.org/rss/project/checkov/releases.xml"
@@ -31,7 +32,7 @@ class Checkov < Formula
   depends_on "certifi"
   depends_on "libyaml"
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
 
