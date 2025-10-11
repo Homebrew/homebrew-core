@@ -6,7 +6,7 @@ class Dnsviz < Formula
   url "https://files.pythonhosted.org/packages/59/91/aa152739fea36d4456fbcc71a26333ffef587526d722c10c281ab12a6a35/dnsviz-0.11.1.tar.gz"
   sha256 "203b1aa2e3aa09af415a96a0afc98eef4acf845ab8af57bf9f7569bd13161717"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "74492b484c0ba26184440551227d4fd2ec585819dc066c163e75d9edba6845cf"
@@ -24,7 +24,7 @@ class Dnsviz < Formula
   depends_on "cryptography"
   depends_on "graphviz"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd94b08ad3a33d5fdae34ecb856678773cc40a3605829/dnspython-2.7.0.tar.gz"
