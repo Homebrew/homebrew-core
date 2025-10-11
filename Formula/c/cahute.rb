@@ -7,6 +7,7 @@ class Cahute < Formula
   sha256 "2fb0a8f0b14d75fb0d8a6fa07f3feda9b4cfaad11115340285e2c9414565059c"
   license "CECILL-2.1"
   head "https://gitlab.com/cahute/cahute.git", branch: "develop"
+  revision 1
 
   livecheck do
     url "https://ftp.cahuteproject.org/releases/"
@@ -26,7 +27,7 @@ class Cahute < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "libusb"
   depends_on "sdl2"
 
@@ -36,7 +37,7 @@ class Cahute < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
