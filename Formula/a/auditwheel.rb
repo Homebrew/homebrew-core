@@ -6,13 +6,14 @@ class Auditwheel < Formula
   url "https://files.pythonhosted.org/packages/26/a0/8d998628f1d899420a621fcd7b46825cb96f23b5b52c2b93f4f814ae9c59/auditwheel-6.4.2.tar.gz"
   sha256 "b7a61afc9183b6b5c661de59ca586f9c7200445a409c58cdf2049d6f71636d51"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "043e7c2153195b76fa1d2387813a9217c57399f7ab31273641e64ba3027b95a4"
   end
 
   depends_on :linux
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
