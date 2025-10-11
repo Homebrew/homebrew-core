@@ -6,7 +6,7 @@ class AnsibleCmdb < Formula
   url "https://github.com/fboender/ansible-cmdb/archive/refs/tags/1.31.tar.gz"
   sha256 "8de9a02e3f0740967537850f6263756dca1bf506cd95c1f2ef7f4ee6d9ff23b8"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   no_autobump! because: :requires_manual_review
 
@@ -22,7 +22,7 @@ class AnsibleCmdb < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "jsonxs" do
     url "https://files.pythonhosted.org/packages/65/62/67257a84338fde1b89fce8b28164364bf2ad6a5a4459a6a890cf497cf721/jsonxs-0.6.tar.gz"
