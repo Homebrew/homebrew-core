@@ -6,7 +6,7 @@ class Ccm < Formula
   url "https://files.pythonhosted.org/packages/f1/12/091e82033d53b3802e1ead6b16045c5ecfb03374f8586a4ae4673a914c1a/ccm-3.1.5.tar.gz"
   sha256 "f07cc0a37116d2ce1b96c0d467f792668aa25835c73beb61639fa50a1954326c"
   license "Apache-2.0"
-  revision 5
+  revision 6
   head "https://github.com/apache/cassandra-ccm.git", branch: "trunk"
 
   bottle do
@@ -21,7 +21,7 @@ class Ccm < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "cassandra-driver" do
     url "https://files.pythonhosted.org/packages/b2/6f/d25121afaa2ea0741d05d2e9921a7ca9b4ce71634b16a8aaee21bd7af818/cassandra-driver-3.29.2.tar.gz"
