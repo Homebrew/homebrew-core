@@ -6,6 +6,7 @@ class Codelimit < Formula
   url "https://files.pythonhosted.org/packages/c9/c7/8d549c91354c38f1dd8529aa4dcab080a232473c848eb7416673aef7f690/codelimit-0.20.2.tar.gz"
   sha256 "f1c2740644bfe2cda6b4daf677d0d23a7bd6128595dc2f08d72233ab67700727"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c99bc8c7dc3c68ec725209c9695263aa0e288d6539a1d69ab25f8459812016dd"
@@ -20,7 +21,7 @@ class Codelimit < Formula
 
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
