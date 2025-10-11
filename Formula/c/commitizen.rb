@@ -7,6 +7,7 @@ class Commitizen < Formula
   sha256 "b076b24657718f7a35b1068f2083bd39b4065d250164a1398d1dac235c51753b"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "5ba5bb428d3a95c1e52b988425efb54e50d70f1342e995c8bf3f22522341d52f"
@@ -20,7 +21,7 @@ class Commitizen < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
