@@ -46,6 +46,15 @@ class Pixi < Formula
     generate_completions_from_executable(bin/"pixi", "completion", "-s")
   end
 
+  def caveats
+    ENV["PIXI_INSTALL_MESSAGE"] = <<~EOS
+      By default, binaries installed by pixi will be placed into:
+        $HOME/.pixi/bin
+
+      You may want to add this to your PATH.
+    EOS
+  end
+
   test do
     ENV["PIXI_HOME"] = testpath
 
