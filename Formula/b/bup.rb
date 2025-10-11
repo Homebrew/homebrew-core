@@ -5,6 +5,7 @@ class Bup < Formula
   sha256 "310823bb3437b2a9ce8979a31951405e057fa2f387ef176b64ef3ce3041f59d0"
   license all_of: ["BSD-2-Clause", "LGPL-2.0-only"]
   head "https://github.com/bup/bup.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "1eab9c210e11a5589cff8a1b39a8e59e26c05b20c8f3f4b3bc89443eed898c21"
@@ -20,7 +21,7 @@ class Bup < Formula
   depends_on "pandoc" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "readline"
 
   on_linux do
@@ -28,7 +29,7 @@ class Bup < Formula
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
