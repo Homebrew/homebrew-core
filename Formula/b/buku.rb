@@ -6,7 +6,7 @@ class Buku < Formula
   url "https://files.pythonhosted.org/packages/a0/74/a3ecd735d75fc452fa4c6a995141cda20937e21d30ae9810d70ed159f58d/buku-5.0.tar.gz"
   sha256 "895a86b099adfe420c1925f333ce6cb00b851a6f11bcc7e42fb125fa81cae8b2"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/jarun/buku.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Buku < Formula
 
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
 
