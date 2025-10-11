@@ -7,12 +7,13 @@ class CmakeLanguageServer < Formula
   sha256 "005f48367ec569457a7229a58f6762044fddacac647858b39d725ae2b3cd695b"
   license "MIT"
   head "https://github.com/regen100/cmake-language-server.git", branch: "master"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "196609d5f168161292e11fb6799acd9b4c907e1a81a9c476848e981aae23e4a4"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
