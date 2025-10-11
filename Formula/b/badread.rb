@@ -6,6 +6,7 @@ class Badread < Formula
   url "https://github.com/rrwick/Badread/archive/refs/tags/v0.4.1.tar.gz"
   sha256 "236dee5ac99b8d0c1997c482df5b805908b0c34f75277ef706e897af71db1f9a"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5bdbf37f5234814869e8dfe4a03fea167c8fee0d8e0b35c95eaf3f533a6028e"
@@ -19,7 +20,7 @@ class Badread < Formula
   end
 
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "scipy"
 
   resource "edlib" do
