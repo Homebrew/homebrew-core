@@ -5,6 +5,7 @@ class Bullet < Formula
   sha256 "c45afb6399e3f68036ddb641c6bf6f552bf332d5ab6be62f7e6c54eda05ceb77"
   license "Zlib"
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
+  revision 1
 
   no_autobump! because: :requires_manual_review
 
@@ -23,10 +24,10 @@ class Bullet < Formula
   depends_on "cmake" => :build
   depends_on "numpy" => [:build, :test]
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
