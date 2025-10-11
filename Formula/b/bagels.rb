@@ -6,7 +6,7 @@ class Bagels < Formula
   url "https://files.pythonhosted.org/packages/6e/04/e19a99e357221cb41e1e2f0352172e282ac8195fa2418b776345497fb260/bagels-0.3.12.tar.gz"
   sha256 "c3ebd4a727ddd62450528676a1ce3e475f92bd36edfed5f9c0b110bb24592608"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "bdacf9820f05c732bb171c8696e5abb9751c58fae96fa7d0ba814f539561e2fc"
@@ -22,7 +22,7 @@ class Bagels < Formula
   depends_on "rust" => :build # for pydantic_core
   depends_on "libyaml"
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
