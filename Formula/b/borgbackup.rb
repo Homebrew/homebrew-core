@@ -6,6 +6,7 @@ class Borgbackup < Formula
   url "https://files.pythonhosted.org/packages/d3/8b/f24d8ab37b8d8cd85a55fa6cfaf98754bb7b6c7534c03ffe087506080a53/borgbackup-1.4.1.tar.gz"
   sha256 "b8fbf8f1c19d900b6b32a5a1dc131c5d8665a7c7eea409e9095209100b903839"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "23f609388f97a5eabcd70f776e478c59bee9da4a762eae17cb1ea9177384760d"
@@ -22,7 +23,7 @@ class Borgbackup < Formula
   depends_on "libb2"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "xxhash"
   depends_on "zstd"
 
