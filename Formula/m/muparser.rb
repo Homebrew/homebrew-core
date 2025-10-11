@@ -22,7 +22,6 @@ class Muparser < Formula
 
   on_macos do
     depends_on "libomp"
-    conflicts_with "gromacs", because: "gromacs ships its own copy of muparser"
   end
 
   def install
