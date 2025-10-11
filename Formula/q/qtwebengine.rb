@@ -39,6 +39,7 @@ class Qtwebengine < Formula
     sha256 cellar: :any,                 arm64_sequoia: "9df4c8809d485020236fc790ae397b5b2220e6cd26432ea03ad3c1eea8ea393f"
     sha256 cellar: :any,                 arm64_sonoma:  "bcd697cc0be3dcaf4648854c6b954ca8f70994c62ba8cc9dca2b457d15d8eadf"
     sha256 cellar: :any,                 sonoma:        "8812fb7078e8756e40290f9cd5e8c1f7ce4438b93591c8bca36a16bc14e57361"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d44bac3fb4e40746803fdba22decab93539a102434c31dfc6eab4b0ba48a48af"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d44bac3fb4e40746803fdba22decab93539a102434c31dfc6eab4b0ba48a48af"
   end
 
@@ -146,6 +147,7 @@ class Qtwebengine < Formula
       -DCMAKE_STAGING_PREFIX=#{prefix}
       -DFEATURE_webengine_proprietary_codecs=ON
       -DFEATURE_webengine_kerberos=ON
+      -DNinja_EXECUTABLE=#{which("ninja")}
     ]
 
     # Chromium always uses bundled libraries on macOS
