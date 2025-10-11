@@ -7,6 +7,7 @@ class Dooit < Formula
   sha256 "611f078ab3069d6a222e5651e71b72c4578cbfa0db8dda265dd44b4683f84478"
   license "MIT"
   head "https://github.com/dooit-org/dooit.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "b8cab74e9327a57b77c169314a286ae21b6b11d1ecbdac648be63c04150343b2"
@@ -21,7 +22,7 @@ class Dooit < Formula
 
   depends_on "cmake" => :build
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
