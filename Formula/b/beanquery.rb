@@ -6,6 +6,7 @@ class Beanquery < Formula
   url "https://files.pythonhosted.org/packages/7c/90/801eec23a07072dcf8df061cb6f27be6045e08c12a90b287e872ce0a12d3/beanquery-0.2.0.tar.gz"
   sha256 "2d72b50a39003435c7fed183666572b8ea878b9860499d0f196b38469384cd2c"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "052855aec908ee3f0ba7447a123854481ec0299e23f5259d585e0c709473806c"
@@ -21,7 +22,7 @@ class Beanquery < Formula
   depends_on "bison" => :build # for beancount
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "flex" => :build # for beancount
 
