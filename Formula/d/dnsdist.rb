@@ -6,6 +6,7 @@ class Dnsdist < Formula
   url "https://downloads.powerdns.com/releases/dnsdist-2.0.1.tar.xz"
   sha256 "144e2356d07d6577a570782a6f79f426125344221dbdc4ddaaa7f9d468d51900"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -24,7 +25,7 @@ class Dnsdist < Formula
   depends_on "boost" => :build
   depends_on "libyaml" => :build # for PyYaml
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "fstrm"
   depends_on "libnghttp2"
   depends_on "libsodium"
