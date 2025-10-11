@@ -7,6 +7,7 @@ class Beancount < Formula
   sha256 "9f374bdcbae63328d8a0cf6d539490f81caa647f2d1cc92c9fa6117a9eb092ca"
   license "GPL-2.0-only"
   head "https://github.com/beancount/beancount.git", branch: "master"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c750707d300e487491fed0b5a2ff88b78df1d7fef866552a6884c223adcf9f25"
@@ -21,7 +22,7 @@ class Beancount < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "flex" => :build
   uses_from_macos "libxml2", since: :ventura
