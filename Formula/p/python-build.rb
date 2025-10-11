@@ -12,7 +12,7 @@ class PythonBuild < Formula
     sha256 cellar: :any_skip_relocation, all: "de02fabf6590718fd459bd1f64fd57aa91b434d1feacc1aebecdc763513c1a7f"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
@@ -28,7 +28,7 @@ class PythonBuild < Formula
     virtualenv_install_with_resources
 
     # Ensure uniform bottles by replacing a `/usr/local` reference in a comment.
-    inreplace libexec/"lib/python3.13/site-packages/build/env.py", "/usr/local", HOMEBREW_PREFIX
+    inreplace libexec/"lib/python3.14/site-packages/build/env.py", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
