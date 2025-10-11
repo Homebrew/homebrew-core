@@ -7,6 +7,7 @@ class CoboCli < Formula
   sha256 "aed9356a758067dc3f0e80a635d86bd2254673188d3889bb5e847ecf6efe0554"
   license "MIT"
   head "https://github.com/CoboGlobal/cobo-cli.git", branch: "master"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "cb2fe9dc320101c60f2fe3051dcaad361d2527dde27e55bcc9dbd14d5b378daa"
@@ -23,7 +24,7 @@ class CoboCli < Formula
   depends_on "certifi"
   depends_on "libsodium"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
 
