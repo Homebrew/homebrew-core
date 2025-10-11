@@ -6,6 +6,7 @@ class CondaLock < Formula
   url "https://files.pythonhosted.org/packages/92/f9/f69356267a3ba56adb3ab531cb797990d32938532eaeb8097a09d4f8f681/conda_lock-3.0.4.tar.gz"
   sha256 "7ba6f8067834b3aae8662ed6316c5f15def431f129ddf423f7957c6181523db6"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 2
@@ -24,7 +25,7 @@ class CondaLock < Formula
   depends_on "certifi"
   depends_on "cffi"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "zstd"
 
   on_linux do
