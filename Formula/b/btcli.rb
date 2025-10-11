@@ -7,6 +7,7 @@ class Btcli < Formula
   sha256 "e48ba5808704f7853b425820a0525e1f68dda38675ea6714b40097c14316967b"
   license "MIT"
   head "https://github.com/opentensor/btcli.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "36257e36609bb65d3f3bb63eb421a97b4d1040f2b46bb59aa6c8885ed75820ed"
@@ -23,7 +24,7 @@ class Btcli < Formula
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "btpd", because: "both install `btcli` binaries"
 
