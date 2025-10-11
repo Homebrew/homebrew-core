@@ -1,8 +1,8 @@
 class Gowall < Formula
   desc "Tool to convert a Wallpaper's color scheme / palette"
   homepage "https://achno.github.io/gowall-docs/"
-  url "https://github.com/Achno/gowall/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "31992b7895211310301ca169bcc98305a1971221aa5d718033be3a45512ca9a4"
+  url "https://github.com/Achno/gowall/archive/refs/tags/v0.2.3.tar.gz"
+  sha256 "ff5289250cd1bfe7adef728c85c4c97aed906330e9bd79760be540eb49343d51"
   license "MIT"
   head "https://github.com/Achno/gowall.git", branch: "main"
 
@@ -20,6 +20,8 @@ class Gowall < Formula
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1"
+
     system "go", "build", *std_go_args(ldflags: "-s -w")
 
     generate_completions_from_executable(bin/"gowall", "completion")
