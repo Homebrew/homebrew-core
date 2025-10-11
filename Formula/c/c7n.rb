@@ -6,6 +6,7 @@ class C7n < Formula
   url "https://github.com/cloud-custodian/cloud-custodian/archive/refs/tags/0.9.47.0.tar.gz"
   sha256 "99af3f22ea8204e336d3f3f1c5ab13bf1d17fe3773147df01383f4825fc060e9"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class C7n < Formula
 
   depends_on "rust" => :build # for rpds-py
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
