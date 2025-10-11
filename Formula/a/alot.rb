@@ -9,7 +9,7 @@ class Alot < Formula
       tag:      "0.11",
       revision: "a8a108e2344656a13bca21211ccc0df2414cbef6"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
   head "https://github.com/pazz/alot.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -30,7 +30,7 @@ class Alot < Formula
   depends_on "gpgmepy"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
