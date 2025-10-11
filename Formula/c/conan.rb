@@ -7,6 +7,7 @@ class Conan < Formula
   sha256 "709b07998be008044166eaa1368383d700f24cbe79241dbf0c73589f0aa9650d"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop2"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "09bccbf7ea725bf93552ffb3a5abc0de8ee07469ec7ad42a6ed75a315ca2dd60"
@@ -21,7 +22,7 @@ class Conan < Formula
   depends_on "cmake" => :test
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
