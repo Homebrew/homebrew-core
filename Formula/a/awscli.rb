@@ -7,6 +7,7 @@ class Awscli < Formula
   sha256 "042c7844287c5dc3885f9c37b4db1624895f367e5936d06f46360962f49f9281"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c7e56be68072689dcb5ea687ed0e8fdef257a17278189ac6efca1dfed7dc72ae"
@@ -19,7 +20,7 @@ class Awscli < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
   uses_from_macos "mandoc"
@@ -90,7 +91,7 @@ class Awscli < Formula
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
