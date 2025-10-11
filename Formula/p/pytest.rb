@@ -11,7 +11,7 @@ class Pytest < Formula
     sha256 cellar: :any_skip_relocation, all: "723c382b65e63a594c4f1618a7144df3aea0c9626b296a0857e126d6b29d71c9"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "iniconfig" do
     url "https://files.pythonhosted.org/packages/f2/97/ebf4da567aa6827c909642694d71c9fcf53e5b504f2d96afea02718862f3/iniconfig-2.1.0.tar.gz"
