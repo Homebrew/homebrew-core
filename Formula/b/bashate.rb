@@ -6,14 +6,14 @@ class Bashate < Formula
   url "https://files.pythonhosted.org/packages/4d/0c/35b92b742cc9da7788db16cfafda2f38505e19045ae1ee204ec238ece93f/bashate-2.1.1.tar.gz"
   sha256 "4bab6e977f8305a720535f8f93f1fb42c521fcbc4a6c2b3d3d7671f42f221f4c"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "449cf9d326f271eac44f60170e6614b7d19b7585b0a9fa78024c30660bdb2ee7"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/ad/8d/23253ab92d4731eb34383a69b39568ca63a1685bec1e9946e91a32fc87ad/pbr-7.0.1.tar.gz"
