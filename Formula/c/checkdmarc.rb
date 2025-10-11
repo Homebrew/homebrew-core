@@ -7,6 +7,7 @@ class Checkdmarc < Formula
   sha256 "d7ef34efdee782e800e8df6d59397d6ab6bd2ac76eb82a3bfc7d1014644265ba"
   license "Apache-2.0"
   head "https://github.com/domainaware/checkdmarc.git", branch: "master"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "57b843b1e0c41da6832e39cd7240107f0780c7153a0b7dea8d5f152c6eeefbae"
@@ -14,7 +15,7 @@ class Checkdmarc < Formula
 
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
