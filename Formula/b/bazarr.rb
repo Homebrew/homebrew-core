@@ -7,6 +7,7 @@ class Bazarr < Formula
   sha256 "63519d9855e5b84c947b18d72fa36dfa9341a040879d1079bfde2fabfe8ab30e"
   license "GPL-3.0-or-later"
   head "https://github.com/morpheus65535/bazarr.git", branch: "master"
+  revision 1
 
   bottle do
     rebuild 2
@@ -24,7 +25,7 @@ class Bazarr < Formula
   depends_on "ffmpeg"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "unar"
 
   uses_from_macos "libxml2", since: :ventura
@@ -47,7 +48,7 @@ class Bazarr < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.13")
+    venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install resources
 
     if build.head?
