@@ -7,6 +7,7 @@ class Certbot < Formula
   sha256 "d652a598f67af78ecf122860e85cd2e9c19a2bbe79a71775eccf6e8d642a4fca"
   license "Apache-2.0"
   head "https://github.com/certbot/certbot.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "2dafd177b02b33fb36a6afa4dd9308bc7077bb305a1ab382e742c80bd4ec665c"
@@ -21,7 +22,7 @@ class Certbot < Formula
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
 
@@ -133,7 +134,7 @@ class Certbot < Formula
   def install
     if build.head?
       head_packages = %w[acme certbot certbot-apache certbot-nginx certbot-dns-cloudflare]
-      venv = virtualenv_create(libexec, "python3.13")
+      venv = virtualenv_create(libexec, "python3.14")
       venv.pip_install resources.reject { |r| head_packages.include? r.name }
       venv.pip_install_and_link head_packages.map { |pkg| buildpath/pkg }
       pkgshare.install buildpath/"certbot/examples"
