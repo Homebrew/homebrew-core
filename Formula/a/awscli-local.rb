@@ -6,6 +6,7 @@ class AwscliLocal < Formula
   url "https://files.pythonhosted.org/packages/7a/71/591a30da6819c96deca2286f145d5982e73b11e7f657e8cbfc5e003ca73f/awscli_local-0.22.2.tar.gz"
   sha256 "07c532c372753bf5f15426451dc91d6eec9de8779748049329a9a882bdac8a0b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -14,7 +15,7 @@ class AwscliLocal < Formula
 
   depends_on "awscli" => :test # awscli-local can work with any version of awscli
   depends_on "localstack"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/03/2e/606fa848f0b6fb0acdcfaefed5b6c663bdb9bcf611760be3f273848d149c/boto3-1.40.14.tar.gz"
