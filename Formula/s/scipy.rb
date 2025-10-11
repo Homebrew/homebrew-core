@@ -4,6 +4,7 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/4c/3b/546a6f0bfe791bbb7f8d591613454d15097e53f906308ec6f7c1ce588e8e/scipy-1.16.2.tar.gz"
   sha256 "af029b153d243a80afb6eabe40b0a07f8e35c9adc269c019f364ad747f826a6b"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
@@ -20,8 +21,8 @@ class Scipy < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "openblas"
