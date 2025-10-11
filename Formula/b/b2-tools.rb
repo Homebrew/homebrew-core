@@ -6,13 +6,14 @@ class B2Tools < Formula
   url "https://files.pythonhosted.org/packages/e8/be/5787c4a1ab6d996e6740904fc8bfcf9b39de5cafc2aae0b8d84a997d26e2/b2-4.4.2.tar.gz"
   sha256 "61ac927da23e5c69bbc87b217b21cec442c809f890bc07e2dcc9f66a75e2d60b"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "7a853a02cddfe2a39eba1e730affe5a073b691b332bbff3f4051ccbd57c8215d"
   end
 
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "boost-build", because: "both install `b2` binaries"
 
