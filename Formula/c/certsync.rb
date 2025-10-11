@@ -6,7 +6,7 @@ class Certsync < Formula
   url "https://files.pythonhosted.org/packages/c8/75/3928920bdbfb0af317446236fad17b47a1d6aad507f1ae2eed6bbf7e7ad9/certsync-0.1.6.tar.gz"
   sha256 "bbfffd10f36edcb8c4d2d5033f2a2e1e7d641e41d6c5bd11069e7b0827fa1c8d"
   license "MIT"
-  revision 1
+  revision 2
 
   no_autobump! because: "has non-PyPI resources"
 
@@ -23,7 +23,7 @@ class Certsync < Formula
 
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
 
