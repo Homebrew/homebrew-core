@@ -6,7 +6,7 @@ class CharmTools < Formula
   url "https://files.pythonhosted.org/packages/da/8c/26dcc9b99c6fbacd989f5d54b7a3a976cfa5b8ac26f6992d134091add085/charm_tools-3.0.8.tar.gz"
   sha256 "ad1e8aaf8f6aece19f3f7db1d45010b471be998b54a0b2861f24b62912f24b9d"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -23,7 +23,7 @@ class CharmTools < Formula
   depends_on "charm"
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_linux do
     depends_on "gmp"
