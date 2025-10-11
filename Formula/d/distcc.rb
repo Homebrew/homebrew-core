@@ -6,7 +6,7 @@ class Distcc < Formula
   url "https://github.com/distcc/distcc/releases/download/v3.4/distcc-3.4.tar.gz"
   sha256 "2b99edda9dad9dbf283933a02eace6de7423fe5650daa4a728c950e5cd37bd7d"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/distcc/distcc.git", branch: "master"
 
   bottle do
@@ -20,7 +20,7 @@ class Distcc < Formula
     sha256 x86_64_linux:  "92bb7674804a00828013b7a43534c3875624168e13934e3b099afcc8b50698a8"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "libiberty" do
     url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20250315.orig.tar.xz"
@@ -45,7 +45,7 @@ class Distcc < Formula
   end
 
   def install
-    ENV["PYTHON"] = python3 = which("python3.13")
+    ENV["PYTHON"] = python3 = which("python3.14")
     site_packages = prefix/Language::Python.site_packages(python3)
 
     build_venv = virtualenv_create(buildpath/"venv", python3)
