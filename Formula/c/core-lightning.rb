@@ -7,6 +7,7 @@ class CoreLightning < Formula
   sha256 "a97f44647b83b44718094f1838c6c74e8dc90c0009f2773a37b17ff80004a67e"
   license "MIT"
   head "https://github.com/ElementsProject/lightning.git", branch: "master"
+  revision 1
 
   livecheck do
     url :stable
@@ -32,7 +33,7 @@ class CoreLightning < Formula
   depends_on "lowdown" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "rust" => :build
   depends_on "bitcoin"
   depends_on "libsodium"
@@ -71,7 +72,7 @@ class CoreLightning < Formula
   def install
     rm_r(["external/libsodium", "external/lowdown"])
 
-    venv = virtualenv_create(buildpath/"venv", "python3.13")
+    venv = virtualenv_create(buildpath/"venv", "python3.14")
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
     ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
