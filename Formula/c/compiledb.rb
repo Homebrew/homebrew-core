@@ -7,13 +7,14 @@ class Compiledb < Formula
   sha256 "97752d8810b6977654a11a22cdc41bf6b71473bcdb5da312bc135f36d6af8271"
   license "GPL-3.0-or-later"
   head "https://github.com/nickdiego/compiledb.git", branch: "main"
+  revision 1
 
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a2760dac28a0aa58128feab53e6f51e631f1b7918560cc8772f883b095875143"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "bashlex" do
     url "https://files.pythonhosted.org/packages/76/60/aae0bb54f9af5e0128ba90eb83d8d0d506ee8f0475c4fdda3deeda20b1d2/bashlex-0.18.tar.gz"
