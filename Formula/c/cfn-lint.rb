@@ -6,6 +6,7 @@ class CfnLint < Formula
   url "https://files.pythonhosted.org/packages/95/82/b07ffafa194469f1d451386dcf1c6bef96fc67e00f69e78455fb85d967de/cfn_lint-1.40.1.tar.gz"
   sha256 "4874f3f48b3775c6f450aa77b0091da8598e3ef9ba4c4f6fcbf9e64ce19b9c87"
   license "MIT-0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "9421257b9d8c3b5d31213ca57fee8db01252d1d7c9013b5ac9a4bd1ecc747bab"
@@ -18,7 +19,7 @@ class CfnLint < Formula
 
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
