@@ -6,7 +6,7 @@ class Aqtinstall < Formula
   url "https://files.pythonhosted.org/packages/76/19/24a588de6c25d43169d172dab47e63a63cd0d8f90e98cf86487acbf00ac7/aqtinstall-3.3.0.tar.gz"
   sha256 "9c7d85fbe7258be2d7d23fda33f8aff2e8b7536817255eaeaaf4226da8546a31"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -20,7 +20,7 @@ class Aqtinstall < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6053e1076ca33e265b4486c9b994cd91cb1bb9a12d238460ff53a34f1e364fbf"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "zstd"
 
   resource "beautifulsoup4" do
