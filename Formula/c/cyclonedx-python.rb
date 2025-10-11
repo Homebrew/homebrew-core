@@ -7,6 +7,7 @@ class CyclonedxPython < Formula
   sha256 "dbaa3cecb1d26818963cd5f8e32e9cab41fd9baefedde0781ec134ab3bec1496"
   license "Apache-2.0"
   head "https://github.com/CycloneDX/cyclonedx-python.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c1e68e235844c2a2a3fd83467bc06f6ca07d0541413aa058d083446795f93305"
@@ -20,7 +21,7 @@ class CyclonedxPython < Formula
   end
 
   depends_on "rust" => :build # for rpds-py
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
