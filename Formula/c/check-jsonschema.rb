@@ -7,6 +7,7 @@ class CheckJsonschema < Formula
   sha256 "7ff811bbd6d3936a9729375fb1e42835ecdc3758d837e2c67330c738a8b4945f"
   license "Apache-2.0"
   head "https://github.com/python-jsonschema/check-jsonschema.git", branch: "main"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "a4767c555a1a62125a8ce6a42be118cce80db819a34d2846d0c16c21b4bf342c"
@@ -19,7 +20,7 @@ class CheckJsonschema < Formula
 
   depends_on "rust" => :build
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/2e/00/0f6e8fcdb23ea632c866620cc872729ff43ed91d284c866b515c6342b173/arrow-1.3.0.tar.gz"
