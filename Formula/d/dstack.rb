@@ -6,6 +6,7 @@ class Dstack < Formula
   url "https://files.pythonhosted.org/packages/0b/2c/221cae00fb341cc77444800f6aa772db2eac673161aa4e3cfca9e1a63e8c/dstack-0.19.32.tar.gz"
   sha256 "9fea224111091008fa0c5b89135d857545e24eac1568af36d3d144f18f86cda0"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "cfdc666660bd474e78c1d2b2da242d4c58d810e9ffcc21cd6b11e1b94e0d6d57"
@@ -23,7 +24,7 @@ class Dstack < Formula
   depends_on "cryptography"
   depends_on "libsodium" # for pynacl
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "aiocache" do
     url "https://files.pythonhosted.org/packages/7a/64/b945b8025a9d1e6e2138845f4022165d3b337f55f50984fbc6a4c0a1e355/aiocache-0.12.3.tar.gz"
