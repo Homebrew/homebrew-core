@@ -6,6 +6,7 @@ class CodecovCli < Formula
   url "https://files.pythonhosted.org/packages/cf/93/57e484d41082818a91badfd64f31618431a0c55eeadbc1dde41f2ee4f6b7/codecov_cli-11.2.3.tar.gz"
   sha256 "89cd48341b3fd7941760336d0fa03d99ee1a4cb262ac85d5e04089e5a25688e7"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "aadf4a2374a70c622f052384d113d8354bb3fcf30ab73ebcb2a9abe84cccbabc"
@@ -18,7 +19,7 @@ class CodecovCli < Formula
 
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/dc/67/960ebe6bf230a96cda2e0abcf73af550ec4f090005363542f0765df162e0/certifi-2025.8.3.tar.gz"
