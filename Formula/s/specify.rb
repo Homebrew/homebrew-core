@@ -3,8 +3,8 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.com/github/spec-kit"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v0.0.61.tar.gz"
-  sha256 "1254c105c727feca09acc2647fbbe752138bd1718ee1dd21f7dda435a0945668"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v0.0.62.tar.gz"
+  sha256 "1029447ff9ba4642397c758ebcb2571042000847407f7924ae873756067f84b7"
   license "MIT"
 
   bottle do
@@ -12,7 +12,7 @@ class Specify < Formula
   end
 
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/c6/78/7d432127c41b50bccba979505f272c16cbcadcc33645d5fa3a738110ae75/anyio-4.11.0.tar.gz"
