@@ -6,6 +6,7 @@ class AwsSamCli < Formula
   url "https://files.pythonhosted.org/packages/6d/85/000b8a0851de8a24998b75048540d27bfe187b8f405f229e3fa998b16fc1/aws_sam_cli-1.144.0.tar.gz"
   sha256 "1c87a7bcbfdf937fce13a74dc0931744f12b97a43c3c0915845f531199b33aca"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "088418e8ed358bc47bd5c86625df75718bcd9b06b3ccaca637abb6ad9ee4ed44"
@@ -23,7 +24,7 @@ class AwsSamCli < Formula
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
 
