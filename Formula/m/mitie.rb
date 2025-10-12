@@ -7,8 +7,6 @@ class Mitie < Formula
   revision 3
   head "https://github.com/mit-nlp/MITIE.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_tahoe:   "7eb66753872e8c7d0335a8d02907594a117d01db7d232c73d5ebd331f9c92df2"
@@ -21,7 +19,7 @@ class Mitie < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae4cfbe0ce3984b155dd82c76fb0434f23ede413e5adbd7927819c2c9f22717a"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "models-english" do
     url "https://downloads.sourceforge.net/project/mitie/binaries/MITIE-models-v0.2.tar.bz2"
@@ -38,7 +36,7 @@ class Mitie < Formula
     include.install Dir["mitielib/include/*"]
     lib.install "mitielib/#{shared_library("libmitie")}", "mitielib/libmitie.a"
 
-    (prefix/Language::Python.site_packages("python3.13")).install "mitielib/mitie.py"
+    (prefix/Language::Python.site_packages("python3.14")).install "mitielib/mitie.py"
     pkgshare.install "examples", "sample_text.txt",
                      "sample_text.reference-output",
                      "sample_text.reference-output-relations"
