@@ -1,8 +1,8 @@
 class Crow < Formula
   desc "Fast and Easy to use microframework for the web"
   homepage "https://crowcpp.org"
-  url "https://github.com/CrowCpp/Crow/archive/refs/tags/v1.2.1.2.tar.gz"
-  sha256 "dc008515f64c9054250909a16bf0d9173af845d2c6d4e49ed6d3f0f32dfdc747"
+  url "https://github.com/CrowCpp/Crow/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "d09f59a62ce378cd197857ca01b1b1bb69770c814ab062c604915fb32074f4ca"
   license "BSD-3-Clause"
   head "https://github.com/CrowCpp/Crow.git", branch: "master"
 
