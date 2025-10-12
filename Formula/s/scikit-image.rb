@@ -23,9 +23,9 @@ class ScikitImage < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "numpy"
-  depends_on "pillow"
-  depends_on "python@3.13"
-  depends_on "scipy"
+  depends_on "pillow" => :no_linkage
+  depends_on "python@3.14"
+  depends_on "scipy" => :no_linkage
 
   on_linux do
     depends_on "patchelf" => :build
@@ -42,18 +42,18 @@ class ScikitImage < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/fd/1d/06475e1cd5264c0b870ea2cc6fdb3e37177c1e565c43f56ff17a10e3937f/networkx-3.4.2.tar.gz"
-    sha256 "307c3669428c5362aab27c8a1260aa8f47c4e91d3891f48be0141738d8d053e1"
+    url "https://files.pythonhosted.org/packages/6c/4f/ccdb8ad3a38e583f214547fd2f7ff1fc160c43a75af88e6aec213404b96a/networkx-3.5.tar.gz"
+    sha256 "d4c6f9cf81f52d69230866796b82afbccdec3db7ae4fbd1b65ea750feed50037"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "tifffile" do
-    url "https://files.pythonhosted.org/packages/d5/fc/697d8dac6936a81eda88e7d4653d567fcb0d504efad3fd28f5272f96fcf9/tifffile-2025.1.10.tar.gz"
-    sha256 "baaf0a3b87bf7ec375fa1537503353f70497eabe1bdde590f2e41cc0346e612f"
+    url "https://files.pythonhosted.org/packages/a8/13/1dcd158fdcd99d697ba60af153db5034613011516fc0b37a4ca0b7e61b66/tifffile-2025.10.4.tar.gz"
+    sha256 "2e437c16ab211be5bcdc79f71b4907359115f1f83b5d919e7c297c29725d3e38"
   end
 
   def install
