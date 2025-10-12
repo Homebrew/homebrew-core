@@ -51,7 +51,8 @@ class PipTools < Formula
 
   def install
     virtualenv_install_with_resources
-
+    platformdirs_macos = libexec.glob("lib/python*/site-packages/setuptools/_vendor/platformdirs/macos.py")
+    inreplace platformdirs_macos, "/opt/homebrew", "@@HOMEBREW_PREFIX@@"
     %w[pip-compile pip-sync].each do |script|
       generate_completions_from_executable(bin/script, shell_parameter_format: :click)
     end
