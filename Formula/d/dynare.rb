@@ -37,11 +37,22 @@ class Dynare < Formula
   depends_on "openblas"
   depends_on "suite-sparse"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1600
+    depends_on "libomp"
+
+    # Work around LLVM issue with structured bindings[^1] by partly reverting
+    # commit[^2]. Upstream isn't interested in supporting Clang build[^3].
+    #
+    # [^1]: https://github.com/llvm/llvm-project/issues/33025
+    # [^2]: https://git.dynare.org/Dynare/dynare/-/commit/6ff7d4c56c26a2b7546de633dbcfe2f163bf846d
+    # [^3]: https://git.dynare.org/Dynare/dynare/-/issues/1977
+    patch :DATA
+  end
+
   fails_with :clang do
-    cause <<~EOS
-      GCC is the only compiler supported by upstream
-      https://git.dynare.org/Dynare/dynare/-/blob/master/README.md#general-instructions
-    EOS
+    build 1600
+    cause "needs C++20 std::jthreads"
   end
 
   resource "slicot" do
@@ -66,8 +77,14 @@ class Dynare < Formula
 
     # Help meson find `boost`, `suite-sparse` and `slicot`
     ENV["BOOST_ROOT"] = Formula["boost"].opt_prefix
-    ENV.append_path "LIBRARY_PATH", Formula["suite-sparse"].opt_lib
     ENV.append_path "LIBRARY_PATH", buildpath/"slicot/lib"
+    # NOTE: LIBRARY_PATH doesn't seem to work in Clang when `static` arg is used.
+    # May be related to https://github.com/mesonbuild/meson/issues/10172
+    inreplace "meson.build", "'umfpack', dirs : octlibdir / '../..',",
+                             "'umfpack', dirs : '#{Formula["suite-sparse"].opt_lib}',"
+
+    # Enable jthreads in Xcode 16.3-16.4: https://github.com/llvm/llvm-project/issues/104154
+    ENV.append_to_cflags "-fexperimental-library" if OS.mac? && MacOS.version == :sequoia
 
     system "meson", "setup", "build", "-Dbuild_for=octave", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -110,3 +127,35 @@ class Dynare < Formula
            "--no-history", "--path", "#{lib}/dynare/matlab", "dyn_test.m"
   end
 end
+
+__END__
+diff --git a/mex/sources/local_state_space_iterations/local_state_space_iteration_2.cc b/mex/sources/local_state_space_iterations/local_state_space_iteration_2.cc
+index 5d0b0800b..97708e607 100644
+--- a/mex/sources/local_state_space_iterations/local_state_space_iteration_2.cc
++++ b/mex/sources/local_state_space_iterations/local_state_space_iteration_2.cc
+@@ -69,8 +69,10 @@ ss2Iteration_pruning(double* y2, double* y1, const double* yhat2, const double*
+   const double one = 1.0;
+   const blas_int ONE = 1;
+ #endif
+-  auto [ii1, ii2, ii3] = set_vector_of_indices(n, m); // vector indices for ghxx
+-  auto [jj1, jj2, jj3] = set_vector_of_indices(q, m); // vector indices for ghuu
++  std::vector<int> ii1, ii2, ii3;// vector indices for ghxx
++  std::tie(ii1, ii2, ii3) = set_vector_of_indices(n, m);
++  std::vector<int> jj1, jj2, jj3;// vector indices for ghuu
++  std::tie(jj1, jj2, jj3) = set_vector_of_indices(q, m);
+ #pragma omp parallel for num_threads(number_of_threads)
+   for (int particle = 0; particle < s; particle++)
+     {
+@@ -148,8 +150,10 @@ ss2Iteration(double* y, const double* yhat, const double* epsilon, const double*
+   const double one = 1.0;
+   const blas_int ONE = 1;
+ #endif
+-  auto [ii1, ii2, ii3] = set_vector_of_indices(n, m); // vector indices for ghxx
+-  auto [jj1, jj2, jj3] = set_vector_of_indices(q, m); // vector indices for ghuu
++  std::vector<int> ii1, ii2, ii3;// vector indices for ghxx
++  std::tie(ii1, ii2, ii3) = set_vector_of_indices(n, m);
++  std::vector<int> jj1, jj2, jj3;// vector indices for ghuu
++  std::tie(jj1, jj2, jj3) = set_vector_of_indices(q, m);
+ #pragma omp parallel for num_threads(number_of_threads)
+   for (int particle = 0; particle < s; particle++)
+     {

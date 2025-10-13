@@ -1,7 +1,7 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.30.tar.gz"
+  url "https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.30/OpenBLAS-0.3.30.tar.gz"
   sha256 "27342cff518646afb4c2b976d809102e368957974c250a25ccc965e53063c95d"
   # The main license is BSD-3-Clause. Additionally,
   # 1. OpenBLAS is based on GotoBLAS2 so some code is under original BSD-2-Clause-Views
@@ -9,6 +9,7 @@ class Openblas < Formula
   # 3. interface/{gemmt.c,sbgemmt.c} is BSD-2-Clause
   # 4. relapack/ is MIT but license is omitted as it is not enabled
   license all_of: ["BSD-3-Clause", "BSD-2-Clause-Views", "BSD-3-Clause-Open-MPI", "BSD-2-Clause"]
+  revision 1
   head "https://github.com/OpenMathLib/OpenBLAS.git", branch: "develop"
 
   livecheck do
@@ -30,22 +31,18 @@ class Openblas < Formula
 
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
 
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :test
   depends_on "gcc" # for gfortran
-  fails_with :clang
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   def install
     ENV.runtime_cpu_detection
-    ENV.deparallelize # build is parallel by default, but setting -j confuses it
 
-    # The build log has many warnings of macOS build version mismatches.
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
-    ENV["DYNAMIC_ARCH"] = "1"
-    ENV["USE_OPENMP"] = "1"
-    # Force a large NUM_THREADS to support larger Macs than the VMs that build the bottles
-    ENV["NUM_THREADS"] = "56"
-    # See available targets in TargetList.txt
-    ENV["TARGET"] = case Hardware.oldest_cpu
+    target = case Hardware.oldest_cpu
     when :arm_vortex_tempest
       "VORTEX"
     when :westmere
@@ -54,17 +51,30 @@ class Openblas < Formula
       Hardware.oldest_cpu.upcase.to_s
     end
 
-    # Apple Silicon does not support SVE
-    # https://github.com/OpenMathLib/OpenBLAS/issues/4212
-    ENV["NO_SVE"] = "1" if Hardware::CPU.arm?
+    args = %W[
+      -DUSE_OPENMP=ON
+      -DBUILD_SHARED_LIBS=ON
+      -DBUILD_STATIC_LIBS=ON
+      -DNUM_THREADS=64
+      -DTARGET=#{target}
+    ]
 
-    # Must call in two steps
-    system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
-    system "make", "PREFIX=#{prefix}", "install"
+    args << "-DDYNAMIC_ARCH=ON" if !OS.mac? || Hardware::CPU.intel?
+
+    if OS.mac?
+      args << "-DOpenMP_Fortran_LIB_NAMES=omp"
+      args << "-DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_lib}/libomp.dylib"
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     lib.install_symlink shared_library("libopenblas") => shared_library("libblas")
     lib.install_symlink shared_library("libopenblas") => shared_library("liblapack")
     pkgshare.install "cpp_thread_test"
+
+    inreplace lib/"pkgconfig/openblas.pc", prefix, opt_prefix
   end
 
   test do
@@ -89,12 +99,14 @@ class Openblas < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lopenblas", "-o", "test"
-    system "./test"
 
-    cp_r pkgshare/"cpp_thread_test/.", testpath
     ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig" if OS.mac?
     flags = shell_output("pkgconf --cflags --libs openblas").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
+    system "./test"
+
+    flags += %W[-I#{Formula["libomp"].opt_include} -L#{Formula["libomp"].opt_lib} -lomp] if OS.mac?
+    cp_r pkgshare/"cpp_thread_test/.", testpath
     %w[dgemm_thread_safety dgemv_thread_safety].each do |test|
       inreplace "#{test}.cpp", '"../cblas.h"', '"cblas.h"'
       system ENV.cxx, *ENV.cxxflags.to_s.split, "-std=c++11", "#{test}.cpp", "-o", test, *flags
