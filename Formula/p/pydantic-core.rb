@@ -3,8 +3,8 @@ class PydanticCore < Formula
 
   desc "Core functionality for Pydantic validation and serialization"
   homepage "https://github.com/pydantic/pydantic-core"
-  url "https://files.pythonhosted.org/packages/7d/14/12b4a0d2b0b10d8e1d9a24ad94e7bbb43335eaf29c0c4e57860e8a30734a/pydantic_core-2.41.1.tar.gz"
-  sha256 "1ad375859a6d8c356b7704ec0f547a58e82ee80bb41baa811ad710e124bc8f2f"
+  url "https://files.pythonhosted.org/packages/00/e9/3916abb671bffb00845408c604ff03480dc8dc273310d8268547a37be0fb/pydantic_core-2.41.3.tar.gz"
+  sha256 "cdebb34b36ad05e8d77b4e797ad38a2a775c2a07a8fa386d4f6943b7778dcd39"
   license "MIT"
 
   bottle do
@@ -24,6 +24,11 @@ class PydanticCore < Formula
     deps.map(&:to_formula)
         .select { |f| f.name.start_with?("python@") }
         .map { |f| f.opt_libexec/"bin/python" }
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   def install
