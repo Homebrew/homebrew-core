@@ -31,7 +31,7 @@ class Pinocchio < Formula
   depends_on "console_bridge"
   depends_on "eigen"
   depends_on "eigenpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "urdfdom"
 
   on_macos do
@@ -43,7 +43,7 @@ class Pinocchio < Formula
   patch :DATA
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
