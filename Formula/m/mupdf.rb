@@ -2,6 +2,7 @@ class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
   license "AGPL-3.0-or-later"
+  revision 1
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
 
   stable do
@@ -50,7 +51,7 @@ class Mupdf < Formula
   depends_on "mujs"
   depends_on "openjpeg"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "tesseract"
 
   uses_from_macos "zlib"
@@ -74,7 +75,7 @@ class Mupdf < Formula
     (buildpath/"thirdparty").each_child { |path| rm_r(path) if keep.exclude? path.basename.to_s }
 
     # For python bindings needed by `pymupdf`: https://pymupdf.readthedocs.io/en/latest/packaging.html
-    site_packages = Language::Python.site_packages("python3.13")
+    site_packages = Language::Python.site_packages("python3.14")
     ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/site_packages
 
     args = %W[
