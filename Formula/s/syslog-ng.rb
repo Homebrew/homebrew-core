@@ -3,8 +3,8 @@ class SyslogNg < Formula
 
   desc "Log daemon with advanced processing pipeline and a wide range of I/O methods"
   homepage "https://www.syslog-ng.com"
-  url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.10.1/syslog-ng-4.10.1.tar.gz"
-  sha256 "dea90cf1dc4b8674ff191e0032f9dabc24b291abfd7f110fd092ae5f21cde5d7"
+  url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.10.2/syslog-ng-4.10.2.tar.gz"
+  sha256 "841503de6c2486e66fd08f0c62ac2568fc8ed1021297f855e8acd58ad7caff76"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://github.com/syslog-ng/syslog-ng.git", branch: "develop"
 
