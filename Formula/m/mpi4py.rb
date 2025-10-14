@@ -15,10 +15,10 @@ class Mpi4py < Formula
   end
 
   depends_on "open-mpi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
