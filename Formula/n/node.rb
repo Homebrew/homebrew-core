@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v24.10.0/node-v24.10.0.tar.xz"
-  sha256 "f17e36cb2cc8c34a9215ba57b55ce791b102e293432ed47ad63cbaf15f78678f"
+  url "https://nodejs.org/dist/v25.0.0/node-v25.0.0.tar.xz"
+  sha256 "2822cd7b510c955f8c4d448fa483f01d2839251774220a356a6b9bc2ab2039ae"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -22,7 +22,7 @@ class Node < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c@77"
@@ -61,13 +61,13 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.6.0.tgz"
-    sha256 "ddf7e6e42ae5b9e28d84945d1c37188f9a741af492507b513b3e80af5aeba4f1"
+    url "https://registry.npmjs.org/npm/-/npm-11.6.2.tgz"
+    sha256 "585f95094ee5cb2788ee11d90f2a518a7c9ef6e083fa141d0b63ca3383675a20"
   end
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3.13")
+    ENV["PYTHON"] = which("python3.14")
 
     # Ensure Homebrew deps are used
     %w[brotli icu-small nghttp2 ngtcp2 npm simdjson sqlite uvwasi zstd].each do |dep|
