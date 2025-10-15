@@ -1,8 +1,8 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.4/mbedtls-3.6.4.tar.bz2"
-  sha256 "ec35b18a6c593cf98c3e30db8b98ff93e8940a8c4e690e66b41dfc011d678110"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.0.0/mbedtls-4.0.0.tar.bz2"
+  sha256 "2f3a47f7b3a541ddef450e4867eeecb7ce2ef7776093f3a11d6d43ead6bf2827"
   license "Apache-2.0"
   head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development"
 
@@ -27,14 +27,15 @@ class Mbedtls < Formula
   depends_on "python@3.13" => :build
 
   def install
-    inreplace "include/mbedtls/mbedtls_config.h" do |s|
+    inreplace "tf-psa-crypto/include/psa/crypto_config.h" do |s|
       # enable pthread mutexes
       s.gsub! "//#define MBEDTLS_THREADING_PTHREAD", "#define MBEDTLS_THREADING_PTHREAD"
       # allow use of mutexes within mbed TLS
       s.gsub! "//#define MBEDTLS_THREADING_C", "#define MBEDTLS_THREADING_C"
-      # enable DTLS-SRTP extension
-      s.gsub! "//#define MBEDTLS_SSL_DTLS_SRTP", "#define MBEDTLS_SSL_DTLS_SRTP"
     end
+
+    # enable DTLS-SRTP extension
+    inreplace "include/mbedtls/mbedtls_config.h", "//#define MBEDTLS_SSL_DTLS_SRTP", "#define MBEDTLS_SSL_DTLS_SRTP"
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
