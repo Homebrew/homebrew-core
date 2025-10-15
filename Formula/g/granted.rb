@@ -15,6 +15,12 @@ class Granted < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf9dfb7396fd9de587fabb3b7fa0246efdf9155a5c2ed32cf5ec2fab0d27848c"
   end
 
+  # Formula does not function properly without additional shell wrapper scripts
+  # that must be sourced into the user's shell environment. The upstream project
+  # maintains a third-party tap with the complete installation:
+  # https://github.com/common-fate/homebrew-granted/issues/2
+  deprecate! date: "2025-10-15", because: "requires shell wrapper scripts not suitable for homebrew-core"
+
   depends_on "go" => :build
 
   def install
