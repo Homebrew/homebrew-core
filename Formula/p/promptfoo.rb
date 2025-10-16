@@ -4,6 +4,7 @@ class Promptfoo < Formula
   url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.118.17.tgz"
   sha256 "3c8b18b2e84c676e6ffc65c50b57143559439be02dc595025cbdbde714273125"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "e2430ac0fd4526ead87c99272678c341907c1e27711792f63c3362d6ad162eff"
