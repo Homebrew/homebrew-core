@@ -4,8 +4,7 @@ class SqlLanguageServer < Formula
   url "https://registry.npmjs.org/sql-language-server/-/sql-language-server-1.7.1.tgz"
   sha256 "c92fe8ae8756f86bc893ec3dff6d85653de242eb671af0430807064db79d9cd6"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f85dc5288ec7627e0443b97b7a1802c6ca5a639fb6f4cd86738b52488d1bf9f0"
