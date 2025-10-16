@@ -1,31 +1,60 @@
 class Granted < Formula
-  desc "Easiest way to access your cloud"
+  desc "The easiest way to access your cloud."
   homepage "https://granted.dev/"
-  url "https://github.com/fwdcloudsec/granted/archive/refs/tags/v0.38.0.tar.gz"
-  sha256 "b6e2bc8fda38f55ee4673cc0f3f762e076d2029df1d9a8552681a2aacce88721"
+  version "0.38.0"
   license "MIT"
-  head "https://github.com/fwdcloudsec/granted.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "905d6f692d85563eca73585449c2936f5086ce5cc1cc1e101a3bcd71ecf1e8f0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "826f554acd21683c694d7b3ab363aee7a5339b9f488c8672b723494557dda323"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4d6a65dc8bcb372ebbbdaee1ce5d47f14adec08b67b2ff8d6a6c28da6d29e8ad"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2082c978cba759a2f55bcaa9e1afe102dc6bd03687deba376b075b043158358a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ecdd52db4973da236d1317fbcd89309dd0ec5e36da27515463e29383ac423fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf9dfb7396fd9de587fabb3b7fa0246efdf9155a5c2ed32cf5ec2fab0d27848c"
+  on_macos do
+    on_intel do
+      url "https://releases.commonfate.io/granted/v0.38.0/granted_0.38.0_darwin_x86_64.tar.gz", using: CurlDownloadStrategy
+      sha256 "3f7a4649ad3ac6636555a3902eb5876acdc6c93be8be14a5a3a2368e2384f8c9"
+
+      def install
+        bin.install "granted"
+        bin.install_symlink "granted" => "assumego"
+        bin.install "assume"
+        bin.install "assume.fish"
+      end
+    end
+    on_arm do
+      url "https://releases.commonfate.io/granted/v0.38.0/granted_0.38.0_darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "cfab086d85baa4177060391d94b6d61ae141dc67659eb7e803ecee4ae4789cf6"
+
+      def install
+        bin.install "granted"
+        bin.install_symlink "granted" => "assumego"
+        bin.install "assume"
+        bin.install "assume.fish"
+      end
+    end
   end
 
-  depends_on "go" => :build
+  on_linux do
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://releases.commonfate.io/granted/v0.38.0/granted_0.38.0_linux_x86_64.tar.gz", using: CurlDownloadStrategy
+        sha256 "2547cc521f1c932b32d0132b8fd82f43d1880f53a457b17b58b2f27711ed20bc"
 
-  def install
-    ldflags = "-s -w -X github.com/common-fate/granted/internal/build.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/granted"
-  end
+        def install
+          bin.install "granted"
+          bin.install_symlink "granted" => "assumego"
+          bin.install "assume"
+          bin.install "assume.fish"
+        end
+      end
+    end
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://releases.commonfate.io/granted/v0.38.0/granted_0.38.0_linux_arm64.tar.gz", using: CurlDownloadStrategy
+        sha256 "3c27a5740cdcd2b414a70b90cc381eb57323128401e9705ae8587f6df8f8e633"
 
-  test do
-    assert_match version.to_s, shell_output("#{bin}/granted --version")
-
-    output = shell_output("#{bin}/granted auth configure 2>&1", 1)
-    assert_match "[✘] please provide a url argument", output
+        def install
+          bin.install "granted"
+          bin.install_symlink "granted" => "assumego"
+          bin.install "assume"
+          bin.install "assume.fish"
+        end
+      end
+    end
   end
 end
