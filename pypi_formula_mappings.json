@@ -929,7 +929,7 @@
   },
   "semgrep": {
     "package_name": "semgrep",
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "rpds-py"]
   },
   "sgr": {
     "exclude_packages": ["certifi", "cryptography"]
