@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.35.4.tar.gz"
-  sha256 "8713884f7b325bc7eb42daa6d5aca8802494cf60ddcd0b165d348edb06242867"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.36.2.tar.gz"
+  sha256 "b98e71f73607cb5373fb04c1833b4e5e8d009a220cf1ede3e64688b5ad397885"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
