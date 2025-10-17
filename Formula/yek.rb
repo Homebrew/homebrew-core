@@ -14,7 +14,7 @@ class Yek < Formula
   depends_on "rust"
 
   def install
-    system "cargo", "install", "--path", ".", "--root", prefix
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
