@@ -11,7 +11,7 @@ class Yek < Formula
     strategy :github_latest
   end
 
-  depends_on "rust"
+  depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
