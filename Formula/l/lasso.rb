@@ -6,6 +6,7 @@ class Lasso < Formula
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.9.0.tar.gz"
   sha256 "63816c8219df48cdefeccb1acb35e04014ca6395b5263c70aacd5470ea95c351"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
