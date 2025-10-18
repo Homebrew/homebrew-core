@@ -1,10 +1,12 @@
 class Itstool < Formula
+  include Language::Python::Virtualenv
+
   desc "Make XML documents translatable through PO files"
   homepage "https://itstool.org/"
   url "https://files.itstool.org/itstool/itstool-2.0.7.tar.bz2"
   sha256 "6b9a7cd29a12bb95598f5750e8763cee78836a1a207f85b74d8b3275b27e87ca"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://itstool.org/download.html"
@@ -28,12 +30,19 @@ class Itstool < Formula
   depends_on "libxml2"
   depends_on "python@3.14"
 
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+  end
+
   def python3
     "python3.14"
   end
 
   def install
-    ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages(python3)
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resource("lxml")
+    ENV.prepend_path "PYTHONPATH", venv.root/Language::Python.site_packages(python3)
 
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, "--prefix=#{libexec}", "PYTHON=#{which(python3)}"
