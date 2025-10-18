@@ -7,7 +7,7 @@ class VirtManager < Formula
   url "https://releases.pagure.org/virt-manager/virt-manager-5.1.0.tar.xz"
   sha256 "ccfc44b6c1c0be8398beb687c675d9ea4ca1c721dfb67bd639209a7b0dec11b1"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
