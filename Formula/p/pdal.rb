@@ -4,7 +4,7 @@ class Pdal < Formula
   url "https://github.com/PDAL/PDAL/releases/download/2.9.2/PDAL-2.9.2-src.tar.bz2"
   sha256 "a74bbc7f4e4f709ed589dbbb851926a63c391c974e3fc40a4c3ff34f7923021b"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   livecheck do
