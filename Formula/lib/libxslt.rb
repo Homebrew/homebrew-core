@@ -4,6 +4,7 @@ class Libxslt < Formula
   url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.43.tar.xz"
   sha256 "5a3d6b383ca5afc235b171118e90f5ff6aa27e9fea3303065231a6d403f0183a"
   license "X11"
+  revision 1
 
   # We use a common regex because libxslt doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
