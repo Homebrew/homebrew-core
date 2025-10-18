@@ -4,7 +4,7 @@ class Gxml < Formula
   url "https://gitlab.gnome.org/GNOME/gxml/-/archive/0.20.4/gxml-0.20.4.tar.bz2"
   sha256 "d8d8b16ff701d0c5ff04b337b246880ec4523abfe897a1f77acdf7d73fb14b84"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_tahoe:    "ace7b4e24823b8626e5cb1c8663617a68ac0f38fbd8e97926d5db59198746ef9"
