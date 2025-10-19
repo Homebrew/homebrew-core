@@ -90,6 +90,7 @@ class Mandoc < Formula
     ENV.deparallelize do
       system "make"
       system "make", "install"
+      system "make", "lib-install"
     end
   end
 
