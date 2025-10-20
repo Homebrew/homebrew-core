@@ -1,21 +1,18 @@
 class FalcosecurityLibs < Formula
   desc "Core libraries for Falco and Sysdig"
   homepage "https://falcosecurity.github.io/libs/"
-  url "https://github.com/falcosecurity/libs/archive/refs/tags/0.20.0.tar.gz"
-  sha256 "4ae6ddb42a1012bacd88c63abdaa7bd27ca0143c4721338a22c45597e63bc99d"
+  url "https://github.com/falcosecurity/libs/archive/refs/tags/0.22.0.tar.gz"
+  sha256 "1a46032e8eadbc5c4d29b767178cc3d2e04810cbf13ba2057854661aa74abbe6"
   license all_of: [
     "Apache-2.0",
     { any_of: ["GPL-2.0-only", "MIT"] }, # driver/
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # userspace/libscap/compat/
   ]
-  revision 10
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "9bfc3a5565d4a0c1627ba1676e046b026a4749bd18a9fa6515ea6f86bb0ada18"
@@ -56,9 +53,6 @@ class FalcosecurityLibs < Formula
       -DFALCOSECURITY_LIBS_VERSION=#{version}
       -DUSE_BUNDLED_DEPS=OFF
     ]
-    # TODO: remove on next release which has dropped option
-    # https://github.com/falcosecurity/libs/commit/d45d53a1e0e397658d23b216c3c1716a68481554
-    args << "-DMINIMAL_BUILD=ON" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -71,7 +65,7 @@ class FalcosecurityLibs < Formula
     system ENV.cxx, "-std=c++17", pkgshare/"scap_event.cpp", "-o", "test",
                     "-I#{include}/falcosecurity",
                     "-L#{Formula["googletest"].lib}", "-L#{lib}",
-                    "-lgtest", "-lgtest_main", "-lsinsp"
+                    "-lgtest", "-lgtest_main", "-lsinsp", "-lscap_event_schema"
     system "./test"
   end
 end
