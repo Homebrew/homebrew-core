@@ -17,7 +17,7 @@ class Nuitka < Formula
   end
 
   depends_on "ccache"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_linux do
     depends_on "patchelf"
