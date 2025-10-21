@@ -1,8 +1,8 @@
 class GithubMcpServer < Formula
   desc "GitHub Model Context Protocol server for AI tools"
   homepage "https://github.com/github/github-mcp-server"
-  url "https://github.com/github/github-mcp-server/archive/refs/tags/v0.19.0.tar.gz"
-  sha256 "ba8e5897500ded6aaf974416bfc2bb3d6800e75cdc34e54d062a23473216cee1"
+  url "https://github.com/github/github-mcp-server/archive/refs/tags/v0.19.1.tar.gz"
+  sha256 "5f89d3f088eeb7826d3709b13a057a257e8c6a6b7e5bb8c8c60a3d05f3df6544"
   license "MIT"
   head "https://github.com/github/github-mcp-server.git", branch: "main"
 
