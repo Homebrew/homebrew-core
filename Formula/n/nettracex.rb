@@ -33,3 +33,4 @@ class Nettracex < Formula
     assert_predicate bin/"nettracex", :executable?
   end
 end
+
