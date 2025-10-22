@@ -6,12 +6,12 @@ class Oxlint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5bce182a185fd8776d9255a371502adcbd11f41362e74daa1a3807963bd1c259"
-    sha256 cellar: :any,                 arm64_sequoia: "febe567c43fecf6cec8529e26515f0a789181a4d1fd9ae48f9a90195962a86dd"
-    sha256 cellar: :any,                 arm64_sonoma:  "febe567c43fecf6cec8529e26515f0a789181a4d1fd9ae48f9a90195962a86dd"
-    sha256 cellar: :any,                 sonoma:        "eb9ca6f01fbfb34374bf17d6bfdc2dfe8dfb8ea90b204115167935489cfc9b61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "02258114ec0d4e9425d2166ddcb4ea3aec5b7725644160a5dcce7406e83b4fc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "849fbf5fa6e41ca1de32ad664ce5892c6280575efae7aa41ce0148f61ea6a8f9"
+    sha256 cellar: :any,                 arm64_tahoe:   "150ed713ddbe08984f2aa4796585e54d95a8f2f09cfb2d34b11204c81b0e7cb2"
+    sha256 cellar: :any,                 arm64_sequoia: "74a6fc57cedc621170dd71cef8e675592ec21284075b378c74c91459270aa845"
+    sha256 cellar: :any,                 arm64_sonoma:  "74a6fc57cedc621170dd71cef8e675592ec21284075b378c74c91459270aa845"
+    sha256 cellar: :any,                 sonoma:        "619883d70cfc079cb4e08467c7fe71fe5c29a7f0725e8a7a22743de61aace15b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b819b35851ed431b7e51649a2ee56d00762732ab8713099060269b4592f3649"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3018ef6a093daaef69130e1faf7fde17603adfd53cf131b64748d91d6172fbe0"
   end
 
   depends_on "node"
