@@ -4,7 +4,7 @@ class Qscintilla2 < Formula
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.14.1/QScintilla_src-2.14.1.tar.gz"
   sha256 "dfe13c6acc9d85dfcba76ccc8061e71a223957a6c02f3c343b30a9d43a4cdd4d"
   license "GPL-3.0-only"
-  revision 4
+  revision 5
 
   # The downloads page also lists pre-release versions, which use the same file
   # name format as stable versions. The only difference is that files for
@@ -19,12 +19,11 @@ class Qscintilla2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "78da1e80ff4ae84a83a8d0ee56d8b1590b50c8eb0120782b1dc5f9da04264b2b"
-    sha256 cellar: :any,                 arm64_sequoia: "e8db7c7f4770a94417832b5d22d69029b3149d8fc4ce5b906d3201701d312c7e"
-    sha256 cellar: :any,                 arm64_sonoma:  "87b715549db29110255cc022c84c8abefcb29b5710921dbfec55f66f0364b15c"
-    sha256 cellar: :any,                 sonoma:        "96e6d9849c2f04eabc96b3ae045cddf9306c727ffb94643419aa5f1bb0ef04fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f75a9a3c3eb5ca10d731c0bed58aa00b484c2de9dc464ff7e425ef6b93cf0cf6"
+    sha256 cellar: :any,                 arm64_tahoe:   "a4ce4700e5e688b9b0b60890459a3793fc53e8cbaf27884f9ba88e94fa719515"
+    sha256 cellar: :any,                 arm64_sequoia: "27499e5e9430c801ac7265f06845ccc56d6669f1626fab44a16f1b7aec80d61b"
+    sha256 cellar: :any,                 arm64_sonoma:  "02d7ea7c1097a24289133b376012cc1592b395c6dd6bae358491de18a2c89d0d"
+    sha256 cellar: :any,                 sonoma:        "d31a27c30e7b08f0635bb310d7f585de74a99d41f31705cb3ab3bf6b9f921cdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "388eef42d4cde7ec7ebd053bea92d3fae910ba2aff0167644b0b14bc3428e28f"
   end
 
   depends_on "pyqt-builder" => :build

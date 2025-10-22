@@ -1,17 +1,12 @@
 class ChromeDevtoolsMcp < Formula
   desc "Chrome DevTools for coding agents"
   homepage "https://github.com/chromedevtools/chrome-devtools-mcp"
-  url "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-0.8.1.tgz"
-  sha256 "14628110ac79e3f6c2ffeac19189184f74ee34f0da84d66eb260e151ff9a3357"
+  url "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-0.9.0.tgz"
+  sha256 "0dcd3a564ff913416a5a256b139fb22a04b34bbf81330148eb9fc98313302df0"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3e14178e2cfa251d97a090496d9c5154d3ad2e3afea329123a7d3b42765cdf87"
-    sha256 cellar: :any,                 arm64_sequoia: "7bbd4f608cddf0089e79331e2142b33904fc3f595d744c91bd88379c077d1c92"
-    sha256 cellar: :any,                 arm64_sonoma:  "7bbd4f608cddf0089e79331e2142b33904fc3f595d744c91bd88379c077d1c92"
-    sha256 cellar: :any,                 sonoma:        "b8934c1bad0a84bf8f937dab8d35a32c8eb34c3407cada08fe3f9abf0e97b34c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c94a2a747e58aaf2d49dceb68a727524c9343722158a4130b93dededbb7f860"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "298ac18dc507489802267759d994f33377a07c0472a50b007fe77cd3c0eb5b54"
+    sha256 cellar: :any_skip_relocation, all: "55982715db1dd4668a09c432ac5da68ed0a700eda4feeaf3250125e43ecca420"
   end
 
   depends_on "node"

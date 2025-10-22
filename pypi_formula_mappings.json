@@ -924,7 +924,7 @@
     "exclude_packages": ["numpy"]
   },
   "scoutsuite": {
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi", "cryptography", "pydantic-core"]
   },
   "scrapy": {
     "exclude_packages": ["certifi", "cryptography"]

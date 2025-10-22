@@ -1,21 +1,19 @@
 class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.gitlab.com/runner/executors/docker_machine.html"
-  url "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/archive/v0.16.2-gitlab.41/docker-machine-v0.16.2-gitlab.41.tar.bz2"
-  version "0.16.2-gitlab.41"
-  sha256 "1c8e4b303e49aaf31061657ec68ff85f5bf0559b174ec4d5f358a63c18292a12"
+  url "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/archive/v0.16.2-gitlab.42/docker-machine-v0.16.2-gitlab.42.tar.bz2"
+  version "0.16.2-gitlab.42"
+  sha256 "d4589bad573dbfaefbc72965f3fbdef686dc5aa3df388800f0ef98f6c84fbc79"
   license "Apache-2.0"
   head "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a0a454546964b233fbb4fd58385259976707eac429e1df3c24f2b789ccf5b6b0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1275c823c9458fbdf5408266b8c6ab6a4848c3fd103d442142a4db5246a8f4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1275c823c9458fbdf5408266b8c6ab6a4848c3fd103d442142a4db5246a8f4a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b1275c823c9458fbdf5408266b8c6ab6a4848c3fd103d442142a4db5246a8f4a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7f29bffd32c150b0ad2d8196aa39f6415002bf8fa06d57448592976eaa9dd785"
-    sha256 cellar: :any_skip_relocation, ventura:       "7f29bffd32c150b0ad2d8196aa39f6415002bf8fa06d57448592976eaa9dd785"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "883cba769fdb335d241c05b7503cec490dbca954599c183e865516db1c5e71da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "314a732f0b72cf8f57b5019e64fa5c2afc88440053e169022b8dcde83e25856f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6a21920e3f403d5d982fee93d4b5d4f9e5979b3640c5a1662f60baa55cc07d8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a21920e3f403d5d982fee93d4b5d4f9e5979b3640c5a1662f60baa55cc07d8b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a21920e3f403d5d982fee93d4b5d4f9e5979b3640c5a1662f60baa55cc07d8b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0f1d5cf19ac0ce993fbe5a0a6ebc318956255d37ba286c994612873a686d2330"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0f81fb5ae7314f8fc762217a564c443011174ef6f3100dcc64c6349288cf9dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34a0b95a12e75b2a02a5ec0bdc995258874a015b3e8830cd8a36f9d7843ca483"
   end
 
   depends_on "go" => :build

@@ -3,21 +3,20 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/45/b2/7dad2d0049a904d17c070226a4f78f81905f93bfe09503722d210ccf9335/jupyterlab-4.4.9.tar.gz"
-  sha256 "ea55aca8269909016d5fde2dc09b97128bc931230183fe7e2920ede5154ad9c2"
+  url "https://files.pythonhosted.org/packages/6a/5d/75c42a48ff5fc826a7dff3fe4004cda47c54f9d981c351efacfbc9139d3c/jupyterlab-4.4.10.tar.gz"
+  sha256 "521c017508af4e1d6d9d8a9d90f47a11c61197ad63b2178342489de42540a615"
   license all_of: [
     "BSD-3-Clause",
     "MIT", # semver.py
   ]
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "68175fef0bfc5d1ced8163e4c345eb3d9f43c1ee6ac548beccd82b710431a457"
-    sha256 cellar: :any,                 arm64_sequoia: "8e64acb7d4d509423472af6472743c5bdafcd0ce8b21b8cf718713dd1aae650d"
-    sha256 cellar: :any,                 arm64_sonoma:  "838896e17d0ea10a6c1663be0c7f03f7cdc7f9dcacbbb1a425bc2ebb14ecfd58"
-    sha256 cellar: :any,                 sonoma:        "7ba27854eb668c873394ea3b2558e656f4d96844e755b7bd181e376a1e5ff104"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65460cf95bd3f71135bde5ec5bb84538c984dcfb62bba3b5b859146f1f425cd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68e4c66f44deb7131fa8429cfabe58cc8fef6ff9f34455cc38658caf1dce416c"
+    sha256 cellar: :any,                 arm64_tahoe:   "2ca66b1c1192cca7b597879555f3d69d70ecf9579dae43c730806df0ef9fa217"
+    sha256 cellar: :any,                 arm64_sequoia: "35535aa7a6b0ac21def0720a997bd7a61177b258ed952387f49660134e973539"
+    sha256 cellar: :any,                 arm64_sonoma:  "e0bc055e782552a8dfc97307c658213c024229f8e9af68573ba6a8463b367d41"
+    sha256 cellar: :any,                 sonoma:        "32e278e00ad9f999b8db5389c258d9852f561603bb3d72382df3dfac772531c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "29a7b7e6d20e594ebe4c88b8a3f112f178826c307e0a371576eece9c761d6b2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c884b2733467def2c1ae80fc9e7d61f9fad8424cdfe41bb30b2356bb2e733c1e"
   end
 
   depends_on "cmake" => :build # for ipykernel
@@ -260,8 +259,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyterlab-server" do
-    url "https://files.pythonhosted.org/packages/0a/c9/a883ce65eb27905ce77ace410d83587c82ea64dc85a48d1f7ed52bcfa68d/jupyterlab_server-2.27.3.tar.gz"
-    sha256 "eb36caca59e74471988f0ae25c77945610b887f777255aa21f8065def9e51ed4"
+    url "https://files.pythonhosted.org/packages/d6/2c/90153f189e421e93c4bb4f9e3f59802a1f01abd2ac5cf40b152d7f735232/jupyterlab_server-2.28.0.tar.gz"
+    sha256 "35baa81898b15f93573e2deca50d11ac0ae407ebb688299d3a5213265033712c"
   end
 
   resource "lark" do

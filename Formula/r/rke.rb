@@ -1,8 +1,8 @@
 class Rke < Formula
   desc "Rancher Kubernetes Engine, a Kubernetes installer that works everywhere"
   homepage "https://rke.docs.rancher.com/"
-  url "https://github.com/rancher/rke/archive/refs/tags/v1.8.7.tar.gz"
-  sha256 "924660338c75467112f954db672eb9db428ca119c830179e2c2943d7601366d8"
+  url "https://github.com/rancher/rke/archive/refs/tags/v1.8.8.tar.gz"
+  sha256 "77f1f5533c2cf1cd4b51da59b8bbae4e95352c036dfadd0a79b6f33e0be48a3e"
   license "Apache-2.0"
 
   # It's necessary to check releases instead of tags here (to avoid upstream
@@ -16,12 +16,12 @@ class Rke < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "21db2391a28c8e7f8467418de57a3f0ffc233902ccd8bcbafc7f22077f79870d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4e839f1a8048ab5e73313544c56280ab3db9bfeed84a21f27438c2fec9b3fc3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b89007437df059a5f27b7c9eac142b0a0a667f47c160b8e6e50a7db85b0ca59"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e656b5820654440d03b1141a0be42b37de5f4f5085ab24afd9d72a02f2afb596"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f17c425b64af9f06b6a0c18d2d5ddbab2d680e90fd2c9a6ae45aa92c14dde40a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d882b291d73020d84903af74e23ae56fdef5399d787e17dc978b85bb00d01099"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f1f641e6b05ec34f534c4935fa3304964b7871285ff0b1fdda21182775bd362"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "003438f6e667eec6ddb5393fbe17e30d9427ef8b88afcf6ba717cc69390d1c2a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc9ba16c19f28bcf784cba0247e2ee673fc56bc9129799e35553cf4b15a52c61"
+    sha256 cellar: :any_skip_relocation, sonoma:        "69fed3bb06965645bdc13e5806cc872229f634916513d761e49371f5fe441d65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3759ef887c34616b7e5de4eaae940b4f345837461ce3c4e1c74b4ef304edcf30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfa53216d5950e9fafee13e6d02de65e8532019ef48abdb67eae8cd337da2e65"
   end
 
   depends_on "go" => :build

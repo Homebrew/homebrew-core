@@ -3,18 +3,17 @@ class Mapproxy < Formula
 
   desc "Accelerating web map proxy"
   homepage "https://mapproxy.org/"
-  url "https://files.pythonhosted.org/packages/08/9a/a2141736315337d427310b0d51759b67f56aef540ca3f540cad890685a54/mapproxy-5.1.1.tar.gz"
-  sha256 "df7dc32a02f8cd280b541d1ea5e7b0b0f0a4d1f3b7ca173bfad4410cec163389"
+  url "https://files.pythonhosted.org/packages/c0/01/3e5ee20ab194ba5a5a97bf24c46a077f27a1c5cfd81e98fa2afa08aa2e28/mapproxy-6.0.0.tar.gz"
+  sha256 "1c82480dec8ed61504bf669cea2253ccd0e7127fb287ec3b4f34569f696d25b4"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "7b3aa6676ad2964167f4ee7fd6e287b25c2f0030d6e329b04bb2ab49e2d3623a"
-    sha256 cellar: :any,                 arm64_sequoia: "1c6c04210c9cc06f3beac70fc2bab52c35160dc699caf4680b390a24fe52a73e"
-    sha256 cellar: :any,                 arm64_sonoma:  "c641dea15ac5558e4b2c739d4a42b1585f92c67e6431ce679bd0e532e0da64aa"
-    sha256 cellar: :any,                 sonoma:        "5b4fb04c2c2ee523ec97f49c44bdae2ba492577e97348cc9ce724360c6de96ee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee81f0600c9580bc7c03a7234684348f207aac8c9212fdf4dac395976ce0f6a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "714bfe89806de48a9645a22dea46e5ffe04c56df5d3bd03b528a7e120a55d02b"
+    sha256 cellar: :any,                 arm64_tahoe:   "bb6f28cac8d3c4e40fb29681377caa49740d9a99a1cf3727934093c8921a9f04"
+    sha256 cellar: :any,                 arm64_sequoia: "755fda386852e471021f1fa2eb05bfa4f3af5abdccec8e4e6098f7338f4519f4"
+    sha256 cellar: :any,                 arm64_sonoma:  "72363021accda8c3880d4f00b7da5c3cbbbbc7d6aa8f4faa087866fd440f5c04"
+    sha256 cellar: :any,                 sonoma:        "287aa830539b53f7125eb3547738cff36df0ce55a35fbe909dcbb845658454be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7d132d7d9201a6e03f16f9286276024dfdf323f51180c1583c632ca76628d7d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fad2bb3366611d42fd101408c37fd76150f68a0aecc4a7bf3cecf35ee8dba15"
   end
 
   depends_on "pkgconf" => :build
@@ -40,9 +39,19 @@ class Mapproxy < Formula
     sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
   end
 
+  resource "babel" do
+    url "https://files.pythonhosted.org/packages/7d/6b/d52e42361e1aa00709585ecc30b3f9684b3ab62530771402248b1b1d6240/babel-2.17.0.tar.gz"
+    sha256 "0c54cffb19f690cdcc52a3b50bcbf71e07a808d1c80d549f2459b9d2cf0afb9d"
+  end
+
   resource "future" do
     url "https://files.pythonhosted.org/packages/a7/b2/4140c69c6a66432916b26158687e821ba631a4c9273c474343badf84d3ba/future-1.0.0.tar.gz"
     sha256 "bd2968309307861edae1458a4f8a4f3598c03be43b97521076aebf5d94c07b05"
+  end
+
+  resource "jinja2" do
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "jsonschema" do

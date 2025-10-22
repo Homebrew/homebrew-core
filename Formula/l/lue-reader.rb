@@ -3,18 +3,17 @@ class LueReader < Formula
 
   desc "Terminal eBook reader with text-to-speech and multi-format support"
   homepage "https://github.com/superstarryeyes/lue"
-  url "https://files.pythonhosted.org/packages/61/93/5cd6b664878f09e0f9c8e487cd7b4f91e14a5a2cc33ebe4e0641cbb9e0bc/lue_reader-0.3.0.tar.gz"
-  sha256 "f54413d8b4e689c6d676f48eb27ef277361a8ba1a75ae40d37fd0b39d4ee610b"
+  url "https://files.pythonhosted.org/packages/35/23/09469ec526a11c8cd5582fa5a5cced11175a2418bf741d56a52fe3cf5fb2/lue_reader-0.3.1.tar.gz"
+  sha256 "d02ebef59873075bc877008368d3036bb7685f687b630b378f0e1849d14c50a2"
   license "GPL-3.0-only"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "366b524bbabe1ed540957aa668fc6b8c4d58efd959f96cf02cda89268c1b0b8b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2930717da68f105ac6840c7d7600b2df57ae1085cdf7bfaceb1718ae24885b57"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08ecb2a67f54eca5b4b4aed2aa677da728001d7d3feab2c96d81c6d147674498"
-    sha256 cellar: :any_skip_relocation, sonoma:        "935313edadb616562926faaf3c7cd9054ab602ca6e27876c40ad97137138b214"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "abc6c1fb0d487203be46e5d0f86e1467aa6b5e6bef461d31c1c452059cdc6c53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a924de77c41e0df82456e29926208127f7a1f612692af5288ad97da285c5ee53"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e63c227ac823058c6051adc1b32e23eeccab05b657ab610c70a503da1ca15ad1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70b6769cae29817c179f30b240b7f51a2ca4e01579cbaa7bee0db509ca344146"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09f3442894a148e80a172f84d893721cf2ed7d6e00579b596bb7033c56abdec9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "301dd256f01605f6aa770899753767ee0c2874af69f8acdfc6c549eb818f159a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e689d163104bdc07c37da5acd86883fe8aeef2da065d9070e2c2e17cd112b79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f381c22de3886a4d5f9a082c6f52fa7786e6f50fb019817c99691f60d4fed875"
   end
 
   depends_on "certifi" => :no_linkage

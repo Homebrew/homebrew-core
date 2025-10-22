@@ -1,8 +1,8 @@
 class Doltgres < Formula
   desc "Dolt for Postgres"
   homepage "https://github.com/dolthub/doltgresql"
-  url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.52.2.tar.gz"
-  sha256 "69af3c15dc64653e6a6ad0ea1b25a1ca15a36ff4e3006a98ede8c3148061d8fc"
+  url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.52.3.tar.gz"
+  sha256 "6845271979c18e05061329faf4bcc9c4aa61d095cb53722fcefe516ccc0b1289"
   license "Apache-2.0"
   head "https://github.com/dolthub/doltgresql.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Doltgres < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6c749a597b27bf9d34954a77425a41516625f2d2b1ad507c1dc152cab5f08fa8"
-    sha256 cellar: :any,                 arm64_sequoia: "3b286d56fd7272530efd92f2de5ee606d652cab1c2c112e72ca2baee43fae487"
-    sha256 cellar: :any,                 arm64_sonoma:  "cfa91c249769f6b755757681a4745816348e7ba43b4c66bf4e22de20ce3181b8"
-    sha256 cellar: :any,                 sonoma:        "74485b1ed1f88d0055c64028fd0668042e211caab507fbdb785c404e0f75eda2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "80c9e0d49f68f5ee3442924c849154e8d14e45d155f140f4c696ef864802268a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1eeecf8706b5e8662f93e1d581f26e84bcdb8bf39409f4c3d33b24007ba2179"
+    sha256 cellar: :any,                 arm64_tahoe:   "98d9fa8933a8aaeb93d15de1edd3169296c8ab462ab810d3b60cfeab9bf277e3"
+    sha256 cellar: :any,                 arm64_sequoia: "86ee7198da58e7b0b586076e959ee1fd1638669e9aa83ceae9991f5dff09936b"
+    sha256 cellar: :any,                 arm64_sonoma:  "ea758c1e0f018dd6ba69a5f939df985a7f94c008dd1b8454ae4dcb4bb9acf8c5"
+    sha256 cellar: :any,                 sonoma:        "0954180522e88590d1c78c96af6e990fa8c49f97195238defa4e09157568aacd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b0631268877684549751a886cda3ac1d59e7331158dcb2ecf7405de2a639ed5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6b3bcf824b50b4743f321b99a45718aa2c40e09d27749f14c02e8c418a9c824"
   end
 
   depends_on "go" => :build
@@ -28,6 +28,8 @@ class Doltgres < Formula
   depends_on "icu4c@77"
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     system "./postgres/parser/build.sh"
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/doltgres"
   end

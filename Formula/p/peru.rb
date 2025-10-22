@@ -3,18 +3,17 @@ class Peru < Formula
 
   desc "Dependency retriever for version control and archives"
   homepage "https://github.com/buildinspace/peru"
-  url "https://files.pythonhosted.org/packages/0e/96/dc9e467f61327b686b6e775ecf7e365011c44fd25b34114de926dfb54f15/peru-1.3.4.tar.gz"
-  sha256 "2ff19ae8569b783177d5cf9fb6c0e306698f7397603f2fdf4a0672d15f7dbd73"
+  url "https://files.pythonhosted.org/packages/46/93/97b31e2052b4308cbc413d85b6b6b08a3beeeac81996b070723418a0c24e/peru-1.3.5.tar.gz"
+  sha256 "2cc1a0d09c5d4fc28dda5c4bf87b4110ee2107e9ce7fb6a38f8d6f60a91af745"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "0e6db76fb7d9e625270f674647f7ffc117be781df15b587aa4eecfb7a23677ae"
-    sha256 cellar: :any,                 arm64_sequoia: "6c44172cb1bb4e9f68b248aeed7058107e48ec3b7b6920b1e4fdb8f98adbf822"
-    sha256 cellar: :any,                 arm64_sonoma:  "ae877adc898be55ea289ec5996aca6f9039ac44cc3a2c484b81f23f1be763816"
-    sha256 cellar: :any,                 sonoma:        "e063ed53447b77f612299323fda24cd5e34c8ff3713e3accd1e766e5d632e9ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "18f0fd3c6af85d2ade9e26a75f0d8b444d42a1f41952c1aac1864fa9b8dcb7c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6f2ea8109ac0a0061e8ecd68292e2d7858ce4e1c061a55bd8c4514e38cc39b6"
+    sha256 cellar: :any,                 arm64_tahoe:   "5a7e7669fb8cdf7e4bf5175f9d01be1d0a9d75aa693c6161c2b27145a8c62059"
+    sha256 cellar: :any,                 arm64_sequoia: "1b2840d24355227568032ad13df06a4ab9d0ae8c61bf2477d0f837fe7bb7b4a2"
+    sha256 cellar: :any,                 arm64_sonoma:  "d4b0ba0f201b97d60292fd8f2539cdfa0e71b24ccccc963f40dbcd5ab03e8565"
+    sha256 cellar: :any,                 sonoma:        "1d7ba45fd3db6b8154eee9d11ddc65859dc8be21ed882e9907c856d2d496c975"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d90e59b8f68ff875b46e7edea66ca293733abcdc5b071153ce347d3ca3ee484e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65b950ac4d3bb7af7bdd3221cad598590f02663010bb27d6176501dea43bd61c"
   end
 
   depends_on "libyaml"

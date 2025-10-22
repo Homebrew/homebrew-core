@@ -12,6 +12,7 @@ class PydanticCore < Formula
     sha256 cellar: :any,                 arm64_sequoia: "1428d96bb50eb9df27fb8802b67f0f0c2e8a1f58593adf918140b398f7d95a6e"
     sha256 cellar: :any,                 arm64_sonoma:  "629ea1f77bd3b2337ed11be11477497e99e7685cf5d02cbf5f264daccfce6243"
     sha256 cellar: :any,                 sonoma:        "7f83e5e52e2f6d831b7eae4a322807486502a26633a9c74217caad25195b41df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5785e0d43e69891af22932b9a7eeef76a49d1b9b184110de680cbd9e009e6034"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "846245f7d616a112af9c85c8978851b158543681a0242e1f3818e4ca246dda9a"
   end
 

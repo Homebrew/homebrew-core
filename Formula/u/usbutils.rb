@@ -2,8 +2,8 @@ class Usbutils < Formula
   desc "List detailed info about USB devices"
   # Homepage for multiple Linux USB tools, 'usbutils' is one of them.
   homepage "http://www.linux-usb.org/"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/usbutils-018.tar.gz"
-  sha256 "0048d2d8518fb0cc7c0516e16e52af023e52b55ddb3b2068a77041b5ef285768"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/usbutils-019.tar.gz"
+  sha256 "347c52b65a6aeb22cfe3af8382192004f99725850e1dc5f705336e54cf6d59fc"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -16,14 +16,12 @@ class Usbutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "9743fc5a671d1ead0a2c3b6d55872050f2e5a746831a4e9746ab5e7a973d432c"
-    sha256 cellar: :any, arm64_sequoia: "19bc5627cb39ad4877754708f98e513f74d74d51a66a2c40e5fb904b44c97851"
-    sha256 cellar: :any, arm64_sonoma:  "04127d6f7b7f69f9cf13d59e64c41f75628b9ac4cd4c72da70d9ee892eec1be5"
-    sha256 cellar: :any, arm64_ventura: "620a18e00aedf3f6216972e411044b3b212186daf06de35aaba4c01b0da88b75"
-    sha256 cellar: :any, sonoma:        "5a46602f76dd8cc39b901f1ec384593ca95183ecb8c013dd5db6be6692129ef9"
-    sha256 cellar: :any, ventura:       "4e352bf259ad82c3c2f794c009cb7adcc3fe29829373720529180c28a03902b5"
-    sha256               arm64_linux:   "6e9597423b73e6ccdfb60f53e7af93d8e5d9eafd576b6477fc58bf23ad7d3e88"
-    sha256               x86_64_linux:  "b6f4d16b0e4a42673c5725cbc31c25a8bfbe702ca82ecc1b58493248285f57c4"
+    sha256 cellar: :any, arm64_tahoe:   "26e37532e86411091b25054bfc3967d825fd533557c8a59296867caab2fb9c95"
+    sha256 cellar: :any, arm64_sequoia: "3fd964e13e53ac02a5ab1e3aad9507622a2ca4b950f53a39fc644492c7e0bb25"
+    sha256 cellar: :any, arm64_sonoma:  "625af4354b888ad7fd99c48bd952b0f90191ca0f5212a77a4e5878d8c3336f05"
+    sha256 cellar: :any, sonoma:        "235c82fe47c5faec50df91713b449941b4a89d8895b87c6b5950e78d2e099cb6"
+    sha256               arm64_linux:   "9dd93abd2b124a8d0beb4c155fcd417ec99b837d38db7a7b4f8b82745761d51a"
+    sha256               x86_64_linux:  "7d95c8f655bf97ceb6e232dbdbb27e9ce977dd6590311bff52077f652d0512b0"
   end
 
   depends_on "meson" => :build
