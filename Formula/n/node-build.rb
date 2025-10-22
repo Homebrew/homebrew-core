@@ -1,8 +1,8 @@
 class NodeBuild < Formula
   desc "Install NodeJS versions"
   homepage "https://github.com/nodenv/node-build"
-  url "https://github.com/nodenv/node-build/archive/refs/tags/v5.4.13.tar.gz"
-  sha256 "24f080b2925508f4eb8bbf45ffab34eef70e71f2135aaf6acc7dec1217a9c273"
+  url "https://github.com/nodenv/node-build/archive/refs/tags/v5.4.15.tar.gz"
+  sha256 "c9f6fe943550d37d9704b67be05fc1e70a486944bd172eb3cc53859fc3cfda0f"
   license "MIT"
   head "https://github.com/nodenv/node-build.git", branch: "main"
 
