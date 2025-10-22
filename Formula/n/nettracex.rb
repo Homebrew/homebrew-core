@@ -1,7 +1,8 @@
 class Nettracex < Formula
   desc "A comprehensive network diagnostic toolkit built with Go, featuring a beautiful terminal user interface"
-  homepage "https://github.com/nettracex"
+  homepage "https://nettracex.net"
   version "0.1.0"
+  license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
