@@ -18,7 +18,7 @@ class Nettracex < Formula
     ]
 
     # Build the application
-    system "go", "build", *std_go_args(ldflags: ldflags), "."
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
