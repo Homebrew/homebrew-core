@@ -13,7 +13,7 @@ class Nettracex < Formula
     ldflags = %W[
       -s -w
       -X main.version=#{version}
-      -X main.gitCommit=#{tap.git_head || "unknown"}
+      -X main.gitCommit=#{tap.user}
       -X main.buildTime=#{Time.now.utc.iso8601}
     ]
 
