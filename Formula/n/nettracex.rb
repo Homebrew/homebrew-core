@@ -14,7 +14,7 @@ class Nettracex < Formula
       -s -w
       -X main.version=#{version}
       -X main.gitCommit=#{tap.user}
-      -X main.buildTime=#{Time.now.utc.iso8601}
+      -X main.buildTime=#{time.iso8601}
     ]
 
     # Build the application
