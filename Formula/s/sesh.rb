@@ -1,18 +1,18 @@
 class Sesh < Formula
   desc "Smart session manager for the terminal"
   homepage "https://github.com/joshmedeski/sesh"
-  url "https://github.com/joshmedeski/sesh/archive/refs/tags/v2.18.1.tar.gz"
-  sha256 "9d11398455443b8dc90ef2ec8f1038b01913a3f699b60b78e39091403173b8ab"
+  url "https://github.com/joshmedeski/sesh/archive/refs/tags/v2.18.2.tar.gz"
+  sha256 "c24caf4ba2842dd6dfb349f8f2facb248571ecd371f75b38a62b278786e87729"
   license "MIT"
   head "https://github.com/joshmedeski/sesh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "88aa022a372fe16b3ec437059b16a6e027c680f59c204d9acffaea3ff24ab42f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88aa022a372fe16b3ec437059b16a6e027c680f59c204d9acffaea3ff24ab42f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88aa022a372fe16b3ec437059b16a6e027c680f59c204d9acffaea3ff24ab42f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2ad16b80919a48847eebd1c443c50611727b468b2342685f7a5e4330f4cef6d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd50918c90a028b17939ae33712473d7ba426e83bc82ab4fbdbef222e3b96e32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b01c2dc1b0bbdea6fc2ca52ae8df006fceaa1153421f031f41cbd4cc5d2899f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "947ec9adf0f0a9659dfd318be348ffd3eb3930d219e118694006d79835d5de20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "947ec9adf0f0a9659dfd318be348ffd3eb3930d219e118694006d79835d5de20"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "947ec9adf0f0a9659dfd318be348ffd3eb3930d219e118694006d79835d5de20"
+    sha256 cellar: :any_skip_relocation, sonoma:        "243c213cf6e688d72f828f58346b22d5c35e6b8805d2bdabe86be9130da274a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "86aef3668409a7a678bb55fb1a8611b35257121753bf2b4737ec2003f371ba97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98b0132b861cbeb49e57b3b3ffc8bc41a660c7d5d3ab866abe7808e2aae03b39"
   end
 
   depends_on "go" => :build
