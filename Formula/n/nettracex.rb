@@ -1,36 +1,35 @@
 class Nettracex < Formula
   desc "A comprehensive network diagnostic toolkit built with Go, featuring a beautiful terminal user interface"
   homepage "https://nettracex.net"
-  version "0.1.0"
+  url "https://github.com/nettracex/nettracex-tui/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "85595b8300f6dd4072bafa267ca5d718e36e8c5b74f296fc51154b324336b478"
   license "MIT"
+  head "https://github.com/nettracex/nettracex-tui.git", branch: "main"
 
-  on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/nettracex/nettracex-tui/releases/download/cross-platform/nettracex-v0.1.0-darwin-arm64"
-      sha256 "efde7f944a65de5925af970ee39c8cd36f30c7c3ace0a920bdefd873d0595820"
-    else
-      url "https://github.com/nettracex/nettracex-tui/releases/download/cross-platform/nettracex-v0.1.0-darwin-amd64"
-      sha256 "59ea9e9d9430760fbbbf4a0685c04c01429e74abc75f6548fec0375aab57375d"
-    end
-  end
-
-  on_linux do
-    if Hardware::CPU.arm?
-      url "https://github.com/nettracex/nettracex-tui/releases/download/cross-platform/nettracex-v0.1.0-linux-arm64"
-      sha256 "d3b6d64de1b2fbd9e8bb2bb91caf8a7082f1b51310376a671d2c05a60ef7f5ee"
-    else
-      url "https://github.com/nettracex/nettracex-tui/releases/download/cross-platform/nettracex-v0.1.0-linux-amd64"
-      sha256 "ea10eea4cb691d6e2caab0663e274267246f8520beecee97030b45977f1e5597"
-    end
-  end
+  depends_on "go" => :build
 
   def install
-    bin.install Dir["nettracex*"].first => "nettracex"
+    # Set build variables
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+      -X main.gitCommit=#{tap.git_head || "unknown"}
+      -X main.buildTime=#{Time.now.utc.iso8601}
+    ]
+
+    # Build the application
+    system "go", "build", *std_go_args(ldflags: ldflags), "."
   end
 
   test do
-    assert_predicate bin/"nettracex", :exist?
-    assert_predicate bin/"nettracex", :executable?
+
+    # Test version output
+    version_output = shell_output("#{bin}/nettracex -version 2>&1")
+    assert_match "NetTraceX", version_output
+    
+    # Test help output
+    help_output = shell_output("#{bin}/nettracex -help 2>&1")
+    assert_match "network diagnostic toolkit", help_output.downcase
+    assert_match "Interactive Mode", help_output
   end
 end
-
