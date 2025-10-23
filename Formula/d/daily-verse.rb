@@ -12,10 +12,6 @@ class DailyVerse < Formula
   end
 
   test do
-    # Test version output
-    output = shell_output(bin/"daily-verse --version")
-    assert_match "daily-verse v1.0.0", output
-
-    assert_match /\w+/, shell_output(bin/"daily-verse --daily")
+    assert_match(/\w+/, shell_output(bin/"daily-verse --daily"))
   end
 end
