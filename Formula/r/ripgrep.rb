@@ -1,8 +1,8 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher"
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/refs/tags/15.0.0.tar.gz"
-  sha256 "e6b2d35ff79c3327edc0c92a29dc4bb74e82d8ee4b8156fb98e767678716be7a"
+  url "https://github.com/BurntSushi/ripgrep/archive/refs/tags/15.1.0.tar.gz"
+  sha256 "046fa01a216793b8bd2750f9d68d4ad43986eb9c0d6122600f993906012972e8"
   license "Unlicense"
   head "https://github.com/BurntSushi/ripgrep.git", branch: "master"
 
@@ -10,8 +10,6 @@ class Ripgrep < Formula
     url :stable
     strategy :github_latest
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "69fb4ba07c0c4376cd4a9b2ec5e5af9358c4399a67dbc5524153e62c6020ba99"
