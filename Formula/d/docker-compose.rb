@@ -44,6 +44,14 @@ class DockerCompose < Formula
         "cliPluginsExtraDirs": [
             "#{HOMEBREW_PREFIX}/lib/docker/cli-plugins"
         ]
+    
+      Note: Some Docker configurations require an absolute path instead of the variable.
+      Find the correct path with:
+        brew --prefix
+
+      Common paths:
+        - Apple Silicon: /opt/homebrew/lib/docker/cli-plugins
+        - Intel Mac: /usr/local/lib/docker/cli-plugins
     EOS
   end
 
