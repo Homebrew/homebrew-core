@@ -1,21 +1,11 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-22.0.0/apache-arrow-22.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-22.0.0/apache-arrow-22.0.0.tar.gz"
+  sha256 "131250cd24dec0cddde04e2ad8c9e2bc43edc5e84203a81cf71cf1a33a6e7e0f"
   license "Apache-2.0"
-  revision 9
   head "https://github.com/apache/arrow.git", branch: "main"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
-    mirror "https://archive.apache.org/dist/arrow/arrow-21.0.0/apache-arrow-21.0.0.tar.gz"
-    sha256 "5d3f8db7e72fb9f65f4785b7a1634522e8d8e9657a445af53d4a34a3849857b5"
-
-    # Backport support for LLVM 21
-    patch do
-      url "https://github.com/apache/arrow/commit/57b4b4b77df5ae77910a91b171fa924d4ce78247.patch?full_index=1"
-      sha256 "8331efaf6ed21cba8d90ee802e685a8f113af11aa92da59457c36c06aa21dab6"
-    end
-  end
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "f5776e86c85ccbb3c0de4e91a1b13f2616d8e9702e23b1b72717a37e6d1d4675"
@@ -55,6 +45,8 @@ class ApacheArrow < Formula
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DLLVM_ROOT=#{Formula["llvm"].opt_prefix}
+      -DCMAKE_C_COMPILER=#{Formula["llvm"].opt_bin}/clang
+      -DCMAKE_CXX_COMPILER=#{Formula["llvm"].opt_bin}/clang++
       -DARROW_DEPENDENCY_SOURCE=SYSTEM
       -DARROW_ACERO=ON
       -DARROW_COMPUTE=ON
