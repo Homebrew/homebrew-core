@@ -6,6 +6,7 @@ class Torchvision < Formula
   url "https://github.com/pytorch/vision/archive/refs/tags/v0.24.0.tar.gz"
   sha256 "f799cdd1d67a3edbcdc6af8fb416fe1b019b512fb426c0314302cd81518a0095"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,7 @@ class Torchvision < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "numpy"
@@ -46,14 +47,14 @@ class Torchvision < Formula
       'jpeg_found, jpeg_include_dir, jpeg_library_dir = find_library(header="jpeglib.h")',
       "jpeg_found, jpeg_include_dir, jpeg_library_dir = True, '#{jpeg.include}', '#{jpeg.lib}'"
 
-    python3 = "python3.13"
+    python3 = "python3.14"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
     # We depend on pytorch, but that's a separate formula, so install a `.pth` file to link them.
     # This needs to happen _before_ we try to install torchvision.
     # NOTE: This is an exception to our usual policy as building `pytorch` is complicated
-    site_packages = Language::Python.site_packages(python3)
+    site_packages = Language::Python.site_packages(venv.root/"bin/python3")
     pth_contents = "import site; site.addsitedir('#{Formula["pytorch"].opt_libexec/site_packages}')\n"
     (venv.site_packages/"homebrew-pytorch.pth").write pth_contents
 
