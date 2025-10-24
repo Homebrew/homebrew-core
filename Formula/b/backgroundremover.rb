@@ -6,7 +6,7 @@ class Backgroundremover < Formula
   url "https://files.pythonhosted.org/packages/81/c9/5c7d668bea7bb5ae6e069afe33c19e55ae95975a87a7e3a5bbd3d6199f74/backgroundremover-0.3.4.tar.gz"
   sha256 "c4ce35da0194138c115017dba9f5dae38b7e2bfcf15a413ef04d8ce01e66e214"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -23,7 +23,7 @@ class Backgroundremover < Formula
   depends_on "llvm@20"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "scikit-image"
   depends_on "scipy"
   depends_on "torchvision"
@@ -33,8 +33,8 @@ class Backgroundremover < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
-    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
+    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
+    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
   resource "commandlines" do
@@ -68,8 +68,8 @@ class Backgroundremover < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
-    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
+    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
+    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
   resource "imageio-ffmpeg" do
@@ -78,8 +78,8 @@ class Backgroundremover < Formula
   end
 
   resource "llvmlite" do
-    url "https://files.pythonhosted.org/packages/9d/73/4b29b502618766276816f2f2a7cf9017bd3889bc38a49319bee9ad492b75/llvmlite-0.45.0.tar.gz"
-    sha256 "ceb0bcd20da949178bd7ab78af8de73e9f3c483ac46b5bef39f06a4862aa8336"
+    url "https://files.pythonhosted.org/packages/99/8d/5baf1cef7f9c084fb35a8afbde88074f0d6a727bc63ef764fe0e7543ba40/llvmlite-0.45.1.tar.gz"
+    sha256 "09430bb9d0bb58fc45a45a57c7eae912850bedc095cd0810a57de109c69e1c32"
   end
 
   resource "more-itertools" do
@@ -93,8 +93,8 @@ class Backgroundremover < Formula
   end
 
   resource "numba" do
-    url "https://files.pythonhosted.org/packages/e5/96/66dae7911cb331e99bf9afe35703317d8da0fad81ff49fed77f4855e4b60/numba-0.62.0.tar.gz"
-    sha256 "2afcc7899dc93fefecbb274a19c592170bc2dbfae02b00f83e305332a9857a5a"
+    url "https://files.pythonhosted.org/packages/a3/20/33dbdbfe60e5fd8e3dbfde299d106279a33d9f8308346022316781368591/numba-0.62.1.tar.gz"
+    sha256 "7b774242aa890e34c21200a1fc62e5b5757d5286267e71103257f4e2af0d5161"
   end
 
   resource "proglog" do
