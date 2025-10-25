@@ -2,8 +2,8 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      tag:      "0.61.0",
-      revision: "cc6fbaf355caf9ebe02c1b631a8edaa6df9145c5"
+      tag:      "0.62.1",
+      revision: "57dba9819eb3e2b25daf71a06eb414fda7e43078"
   license "MIT"
   head "https://github.com/realm/SwiftLint.git", branch: "main"
 
@@ -28,10 +28,16 @@ class Swiftlint < Formula
   uses_from_macos "libxml2"
 
   def install
-    args = if OS.mac?
-      ["--disable-sandbox"]
+    if OS.mac?
+      args = ["--disable-sandbox"]
     else
-      ["--static-swift-stdlib"]
+      libxml2_lib = Formula["libxml2"].opt_lib
+      args = [
+        "--static-swift-stdlib",
+        "-Xlinker", "-L#{Formula["curl"].opt_lib}",
+        "-Xlinker", "-L#{libxml2_lib}"
+      ]
+      ENV.prepend_path "LD_LIBRARY_PATH", libxml2_lib
     end
     system "swift", "build", *args, "--configuration", "release", "--product", "swiftlint"
     bin.install ".build/release/swiftlint"
