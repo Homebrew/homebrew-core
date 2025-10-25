@@ -19,7 +19,7 @@ class SpotifyPlayer < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "alsa-lib"
+    depends_on "pulseaudio"
     depends_on "dbus"
     depends_on "openssl@3"
   end
@@ -29,7 +29,11 @@ class SpotifyPlayer < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    system "cargo", "install", "--features", "image,notify", *std_cargo_args(path: "spotify_player")
+    if OS.linux?
+      system "cargo", "install", "--no-default-features", "--features", "pulseaudio-backend,streaming,media-control,image,notify", *std_cargo_args(path: "spotify_player")
+    else
+      system "cargo", "install", "--features", "image,notify", *std_cargo_args(path: "spotify_player")
+    end
     bin.install "target/release/spotify_player"
   end
 
