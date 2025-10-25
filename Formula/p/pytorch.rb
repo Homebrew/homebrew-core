@@ -6,6 +6,7 @@ class Pytorch < Formula
   url "https://github.com/pytorch/pytorch/releases/download/v2.9.0/pytorch-v2.9.0.tar.gz"
   sha256 "c6980af3c0ea311f49f90987982be715e4d702539fea41e52f55ad7f0b105dc3"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +26,7 @@ class Pytorch < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on xcode: :build
   depends_on "abseil"
   depends_on "eigen"
@@ -98,7 +99,7 @@ class Pytorch < Formula
   end
 
   def install
-    python3 = "python3.13"
+    python3 = "python3.14"
 
     # Avoid building AVX512 code
     inreplace "cmake/Modules/FindAVX.cmake", /^CHECK_SSE\(CXX "AVX512"/, "#\\0"
