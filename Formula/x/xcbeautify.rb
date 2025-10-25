@@ -1,8 +1,8 @@
 class Xcbeautify < Formula
   desc "Little beautifier tool for xcodebuild"
   homepage "https://github.com/cpisciotta/xcbeautify"
-  url "https://github.com/cpisciotta/xcbeautify/archive/refs/tags/2.30.1.tar.gz"
-  sha256 "6cc64ef9167a02b1c097f995941e93d756e27c570006ad6f9e9c83db83ed2603"
+  url "https://github.com/cpisciotta/xcbeautify/archive/refs/tags/3.0.0.tar.gz"
+  sha256 "de5c61f00adb8cfd56029a113920d5420345cdac4462e8eb3324a154d4765ac6"
   license "MIT"
   head "https://github.com/cpisciotta/xcbeautify.git", branch: "main"
 
@@ -18,17 +18,22 @@ class Xcbeautify < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d81bcec58668fba3b890772640a7d26f456a093379755b548a41bc3e9772f079"
   end
 
-  # needs Swift tools version 5.9.0
-  depends_on xcode: ["15.0", :build]
+  # needs Swift tools version 6.1.0
+  depends_on xcode: ["16.3", :build]
 
   uses_from_macos "swift" => :build
   uses_from_macos "libxml2"
 
   def install
-    args = if OS.mac?
-      ["--disable-sandbox"]
+    if OS.mac?
+      args = %w[--disable-sandbox]
     else
-      ["--static-swift-stdlib"]
+      libxml2_lib = Formula["libxml2"].opt_lib
+      args = %W[
+        --static-swift-stdlib
+        -Xlinker -L#{libxml2_lib}
+      ]
+      ENV.prepend_path "LD_LIBRARY_PATH", libxml2_lib
     end
     system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/xcbeautify"
