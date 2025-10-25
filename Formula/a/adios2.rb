@@ -4,6 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.10.2.tar.gz"
   sha256 "14cf0bcd94772194bce0f2c0e74dba187965d1cffd12d45f801c32929158579e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -35,7 +36,7 @@ class Adios2 < Formula
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "pugixml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sqlite"
   depends_on "yaml-cpp"
   depends_on "zeromq"
@@ -55,7 +56,7 @@ class Adios2 < Formula
   fails_with :clang if DevelopmentTools.clang_build_version == 1400
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
