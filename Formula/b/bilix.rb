@@ -7,6 +7,7 @@ class Bilix < Formula
   sha256 "8ab1be9bcc661369cbeba95439c09716778b6b42b2505a3eaddb45175688e247"
   license "Apache-2.0"
   revision 4
+  head "https://github.com/HFrost0/bilix.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -20,6 +21,7 @@ class Bilix < Formula
 
   depends_on "rust" => :build # for pydantic_core
   depends_on "certifi"
+  depends_on "lz4"
   depends_on "python@3.14"
 
   resource "aiofiles" do
