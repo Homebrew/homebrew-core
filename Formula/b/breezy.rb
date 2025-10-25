@@ -28,7 +28,7 @@ class Breezy < Formula
   depends_on "gettext" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz"
@@ -41,8 +41,8 @@ class Breezy < Formula
   end
 
   resource "fastbencode" do
-    url "https://files.pythonhosted.org/packages/78/e2/e6a8f5598c1d1e1181776678691dc66f2cd74a745ef175ac15ac9d9c148c/fastbencode-0.3.5.tar.gz"
-    sha256 "2445663753bb41ffba1c43e9e94e7c1145d1dd6f7c8f62a97f0585063ee449c3"
+    url "https://files.pythonhosted.org/packages/cd/e5/0e98b0154da2705852a1154a4d325830583670c376a6c46e9f557b0aa3c5/fastbencode-0.3.6.tar.gz"
+    sha256 "114f853ebbb0a5168ac7ca4337bd9a542105e3d403b970111bfef16e0037c1c5"
   end
 
   resource "merge3" do
@@ -56,8 +56,8 @@ class Breezy < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "urllib3" do
