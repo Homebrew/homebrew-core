@@ -1,11 +1,11 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/md5sums.txt"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/md5sums.txt"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/md5sums.txt"
-  version "6.9.3"
-  sha256 "6da59a97380cfb2dd7e93c8172e794f2cc2ccc6ab29620689932ee3b8169c964"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/md5sums.txt"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/md5sums.txt"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/md5sums.txt"
+  version "6.10.0"
+  sha256 "f84e7f1240469b4af7cb2695eda67f4f181cc50d24e615a10f223371379858ab"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -129,29 +129,23 @@ class Qt < Formula
     modules << "WebEngineCore" if webengine_supported
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION #{Formula["cmake"].version})
+      cmake_minimum_required(VERSION 4.0)
       project(test VERSION 1.0.0 LANGUAGES CXX)
-
-      set(CMAKE_CXX_STANDARD 17)
-      set(CMAKE_CXX_STANDARD_REQUIRED ON)
-      set(CMAKE_AUTOMOC ON)
-      set(CMAKE_AUTORCC ON)
-      set(CMAKE_AUTOUIC ON)
-
       find_package(Qt6 REQUIRED COMPONENTS #{modules.join(" ")})
-      add_executable(test main.cpp)
+      qt_standard_project_setup()
+      qt_add_executable(test main.cpp)
       target_link_libraries(test PRIVATE Qt6::#{modules.join(" Qt6::")})
     CMAKE
 
-    (testpath/"test.pro").write <<~EOS
-      QT += #{modules.join(" ").downcase}
-      TARGET = test
-      CONFIG += console
-      CONFIG -= app_bundle
+    (testpath/"test.pro").write <<~QMAKE
+      QT      += #{modules.join(" ").downcase}
+      TARGET   = test
+      CONFIG  += console
+      CONFIG  -= app_bundle
       TEMPLATE = app
       SOURCES += main.cpp
       INCLUDEPATH += #{Formula["vulkan-headers"].opt_include}
-    EOS
+    QMAKE
 
     (testpath/"main.cpp").write <<~CPP
       #undef QT_NO_DEBUG
@@ -197,7 +191,7 @@ class Qt < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "cmake", "-S", ".", "-B", "cmake"
+    system "cmake", "-S", ".", "-B", "cmake", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", "cmake"
     system "./cmake/test"
 
@@ -209,7 +203,7 @@ class Qt < Formula
     end
 
     flags = shell_output("pkgconf --cflags --libs Qt6#{modules.join(" Qt6")}").chomp.split
-    system ENV.cxx, "-std=c++17", "main.cpp", "-o", "test", *flags
+    system ENV.cxx, "-std=c++17", "main.cpp", "-o", "test", *flags, "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
     system "./test"
 
     # Check QT_INSTALL_PREFIX is HOMEBREW_PREFIX to support split `qt-*` formulae
