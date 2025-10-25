@@ -170,5 +170,9 @@ class Dotnet < Formula
     resource("docfx").stage do
       system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache"
     end
+
+    # Confirm that building/publishing with native AOT works
+    system bin/"dotnet", "new", "console", "-o", "TestConsoleAOT", "--aot"
+    system bin/"dotnet", "publish", "TestConsoleAOT"
   end
 end
