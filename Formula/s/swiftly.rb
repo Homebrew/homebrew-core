@@ -44,10 +44,11 @@ class Swiftly < Formula
         -Xswiftc -I#{HOMEBREW_PREFIX}/include
         -Xlinker -L#{HOMEBREW_PREFIX}/lib
       ]
+      ENV.prepend_path "LD_LIBRARY_PATH", Formula["libarchive"].opt_lib
     end
     system "swift", "build", *args
-
     bin.install ".build/release/swiftly"
+    generate_completions_from_executable(bin/"swiftly", "--generate-completion-script")
   end
 
   test do
