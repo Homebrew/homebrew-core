@@ -1,9 +1,9 @@
 class Metview < Formula
   desc "Meteorological workstation software"
   homepage "https://metview.readthedocs.io/en/latest/"
-  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2025.4.0-Source.tar.gz"
-  version "5.25.0"
-  sha256 "ebfa17e3db63c72a2caad5a13136d0e86f300cc8cdaa31c98ed4ff5034aebc09"
+  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2025.10.1-Source.tar.gz"
+  version "5.26.1"
+  sha256 "2dc2be8146cb7bcbae3d7cd833f521e426d8bb743452202f0e36e857b38f6d85"
   license "Apache-2.0"
 
   livecheck do
@@ -61,8 +61,6 @@ class Metview < Formula
   end
 
   def install
-    # https://jira.ecmwf.int/plugins/servlet/desk/portal/4/SD-110363
-    inreplace "metview/CMakeLists.txt", "cmake_policy(SET CMP0046 OLD)", "cmake_policy(SET CMP0046 NEW)"
     args = %W[
       -DBUNDLE_SKIP_ECCODES=1
       -DENABLE_MIR_DOWNLOAD_MASKS=OFF
