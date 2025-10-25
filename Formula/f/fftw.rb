@@ -52,10 +52,17 @@ class Fftw < Formula
       "--enable-openmp",
     ]
 
+    # Make sure configure finds expected architecture
+    args << "--build=aarch64-apple-darwin#{OS.kernel_version}" if OS.mac? && Hardware::CPU.arm?
+
+    # FFTW supports hardware counters to improve performance measurements.
+    args += %w[--enable-armv8-cntvct-el0] if OS.mac? && Hardware::CPU.arm?
+
     # FFTW supports runtime detection of CPU capabilities, so it is safe to
     # use with --enable-avx and the code will still run on all CPUs
     simd_args = []
     simd_args += %w[--enable-sse2 --enable-avx --enable-avx2] if Hardware::CPU.intel?
+    simd_args += %w[--enable-neon] if Hardware::CPU.arm?
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
