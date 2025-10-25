@@ -41,8 +41,8 @@ class Ghidra < Formula
     (testpath/"analyzeHeadless").write_env_script libexec/"support/analyzeHeadless",
                                                   Language::Java.overridable_java_home_env("21")
     (testpath/"project").mkpath
-    system shellpath.to_s, testpath/"analyzeHeadless", testpath/"project",
-                           "HomebrewTest", "-import", shellpath.to_s, "-noanalysis"
+    system shellpath, testpath/"analyzeHeadless", testpath/"project",
+                           "HomebrewTest", "-import", shellpath, "-noanalysis"
     assert_path_exists testpath/"project/HomebrewTest.rep"
   end
 end
