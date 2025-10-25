@@ -20,18 +20,6 @@ class SandboxRuntime < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
-  def caveats
-    <<~EOS
-      Sandbox Runtime is a beta research preview. APIs and configuration formats may evolve.
-
-      To use the CLI tool, run:
-        srt --help
-
-      For more information, visit:
-        https://github.com/anthropic-experimental/sandbox-runtime
-    EOS
-  end
-
   test do
     output = shell_output("#{bin}/srt --version")
     assert_match version.to_s, output
