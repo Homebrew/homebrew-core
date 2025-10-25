@@ -1,4 +1,5 @@
 [
+  "bun",
   "cabal-install",
   "clozure-cl",
   "crystal",
