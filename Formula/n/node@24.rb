@@ -1,28 +1,23 @@
-class Node < Formula
+class NodeAT24 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v25.0.0/node-v25.0.0.tar.xz"
-  sha256 "2822cd7b510c955f8c4d448fa483f01d2839251774220a356a6b9bc2ab2039ae"
+  url "https://nodejs.org/dist/v24.10.0/node-v24.10.0.tar.xz"
+  sha256 "f17e36cb2cc8c34a9215ba57b55ce791b102e293432ed47ad63cbaf15f78678f"
   license "MIT"
-  head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
     url "https://nodejs.org/dist/"
-    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    regex(%r{href=["']?v?(24(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "c89ca22e152b63293e4323b427bffb3f4fae6b0cfd52d342a76d07a0a0db1fd0"
-    sha256 arm64_sequoia: "b59155fcc0b6d1c75e5f5325179cd97d1fe6724d75e0cba0dd0bd4ae3f321cb7"
-    sha256 arm64_sonoma:  "37af88b764ea1a142c8b1148e6fd4fcd2f57eac2d68b0dc75c4b9a883dd1f745"
-    sha256 sonoma:        "7c4367eecd2baf026b90288615e5e8f04caf917170129d2bfab8017648eecbf7"
-    sha256 arm64_linux:   "452e05469390d8f9df7cf1acf15f0289c0209baac3ce63f07cd3e47365ddabcb"
-    sha256 x86_64_linux:  "410ceceb7654f10487dd822d503d710b728b41d5803b94acf7b195986dafb579"
-  end
+  keg_only :versioned_formula
+
+  # https://github.com/nodejs/release#release-schedule
+  # disable! date: "2028-04-30", because: :unsupported
+  deprecate! date: "2027-04-30", because: :unsupported
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c@77"
@@ -43,8 +38,6 @@ class Node < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
   end
 
-  link_overwrite "bin/npm", "bin/npx"
-
   # https://github.com/swiftlang/llvm-project/commit/078651b6de4b767b91e3e6a51e5df11a06d7bc4f
   fails_with :clang do
     build 1699
@@ -58,27 +51,17 @@ class Node < Formula
     cause "needs GCC 12 or newer"
   end
 
-  # We track major/minor from upstream Node releases.
-  # We will accept *important* npm patch releases when necessary.
-  resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.6.2.tgz"
-    sha256 "585f95094ee5cb2788ee11d90f2a518a7c9ef6e083fa141d0b63ca3383675a20"
-  end
-
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3.14")
+    ENV["PYTHON"] = which("python3.13")
 
     # Ensure Homebrew deps are used
     %w[brotli icu-small nghttp2 ngtcp2 npm simdjson sqlite uvwasi zstd].each do |dep|
       rm_r buildpath/"deps"/dep
     end
 
-    # Never install the bundled "npm", always prefer our
-    # installation from tarball for better packaging control.
     args = %W[
       --prefix=#{prefix}
-      --without-npm
       --with-intl=system-icu
       --shared-brotli
       --shared-cares
@@ -116,7 +99,13 @@ class Node < Formula
       --shared-zstd-libpath=#{Formula["zstd"].lib}
       --openssl-use-def-ca-store
     ]
-    args << "--tag=head" if build.head?
+
+    # Enabling LTO errors on Linux with:
+    # terminate called after throwing an instance of 'std::out_of_range'
+    # macOS also can't build with LTO when using LLVM Clang
+    # LTO is unpleasant if you have to build from source.
+    # FIXME: re-enable me, currently crashes sequoia runner after 6 hours
+    # args << "--enable-lto" if OS.mac? && DevelopmentTools.clang_build_version > 1699 && build.bottle?
 
     # TODO: Try to devendor these libraries.
     # - `--shared-ada` needs the `ada-url` formula, but requires C++20
@@ -134,79 +123,16 @@ class Node < Formula
       matches.each do |flag|
         next if args.include?(flag) || ignored_shared_flags.include?(flag)
 
-        message = "Unused `--shared-*` flag: #{flag}"
-        if build.head?
-          opoo message
-        else
-          odie message
-        end
+        odie "Unused `--shared-*` flag: #{flag}"
       end
     end
 
-    # Enabling LTO errors on Linux with:
-    # terminate called after throwing an instance of 'std::out_of_range'
-    # macOS also can't build with LTO when using LLVM Clang
-    # LTO is unpleasant if you have to build from source.
-    # FIXME: re-enable me, currently crashes sequoia runner after 6 hours
-    # args << "--enable-lto" if OS.mac? && DevelopmentTools.clang_build_version > 1699 && build.bottle?
-
     system "./configure", *args
     system "make", "install"
-
-    # Allow npm to find Node before installation has completed.
-    ENV.prepend_path "PATH", bin
-
-    bootstrap = buildpath/"npm_bootstrap"
-    bootstrap.install resource("npm")
-    # These dirs must exists before npm install.
-    mkdir_p libexec/"lib"
-    system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
-            "--prefix=#{libexec}", resource("npm").cached_download
-
-    # The `package.json` stores integrity information about the above passed
-    # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
-    # This copies back over the vanilla `package.json` to fix this issue.
-    cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
-
-    # These symlinks are never used & they've caused issues in the past.
-    rm_r libexec/"share" if (libexec/"share").exist?
-
-    # Create temporary npm and npx symlinks until post_install is done.
-    ln_s libexec/"lib/node_modules/npm/bin/npm-cli.js", bin/"npm"
-    ln_s libexec/"lib/node_modules/npm/bin/npx-cli.js", bin/"npx"
-
-    generate_completions_from_executable(bin/"npm", "completion",
-                                         shells:                 [:bash, :zsh],
-                                         shell_parameter_format: :none)
   end
 
   def post_install
-    node_modules = HOMEBREW_PREFIX/"lib/node_modules"
-    node_modules.mkpath
-    # Remove npm but preserve all other modules across node updates/upgrades.
-    rm_r node_modules/"npm" if (node_modules/"npm").exist?
-
-    cp_r libexec/"lib/node_modules/npm", node_modules
-    # This symlink doesn't hop into homebrew_prefix/bin automatically so
-    # we make our own. This is a small consequence of our
-    # bottle-npm-and-retain-a-private-copy-in-libexec setup
-    # All other installs **do** symlink to homebrew_prefix/bin correctly.
-    # We ln rather than cp this because doing so mimics npm's normal install.
-    ln_sf node_modules/"npm/bin/npm-cli.js", bin/"npm"
-    ln_sf node_modules/"npm/bin/npx-cli.js", bin/"npx"
-    ln_sf bin/"npm", HOMEBREW_PREFIX/"bin/npm"
-    ln_sf bin/"npx", HOMEBREW_PREFIX/"bin/npx"
-
-    # Create manpage symlinks (or overwrite the old ones)
-    %w[man1 man5 man7].each do |man|
-      # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
-      mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
-      # still needed to migrate from copied file manpages to symlink manpages
-      rm(Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.,npx.}*"])
-      ln_sf Dir[node_modules/"npm/man/#{man}/{npm,package-,shrinkwrap-,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
-    end
-
-    (node_modules/"npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   test do
@@ -225,14 +151,14 @@ class Node < Formula
     ENV.prepend_path "PATH", opt_bin
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
     assert_equal which("node"), opt_bin/"node"
-    assert_path_exists HOMEBREW_PREFIX/"bin/npm", "npm must exist"
-    assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
+    assert_path_exists bin/"npm", "npm must exist"
+    assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
-    system HOMEBREW_PREFIX/"bin/npm", *npm_args, "install", "npm@latest"
-    system HOMEBREW_PREFIX/"bin/npm", *npm_args, "install", "nan"
-    assert_path_exists HOMEBREW_PREFIX/"bin/npx", "npx must exist"
-    assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
-    assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --yes cowsay hello")
+    system bin/"npm", *npm_args, "install", "npm@latest"
+    system bin/"npm", *npm_args, "install", "nan"
+    assert_path_exists bin/"npx", "npx must exist"
+    assert_predicate bin/"npx", :executable?, "npx must be executable"
+    assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
 
     # Test `uvwasi` is linked correctly
     (testpath/"wasi-smoke-test.mjs").write <<~JAVASCRIPT

@@ -4,7 +4,7 @@ class Monika < Formula
   url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.22.0.tgz"
   sha256 "2b2ed6ac3186d72a9f060efb62d183c4b156494b2c37de9808c108f54655b84c"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256                               arm64_tahoe:   "5478609522829f4c4158e9eb9be476ed2886176e47f64da4fc6eff2c5db425cb"
