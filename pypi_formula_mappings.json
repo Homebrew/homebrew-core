@@ -620,7 +620,7 @@
     "exclude_packages": ["pygobject"]
   },
   "mcp-atlassian": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "pydantic-core", "rpds-py"]
   },
   "mcp-google-sheets": {
     "exclude_packages": ["certifi"]
