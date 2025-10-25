@@ -37,11 +37,12 @@ class Ghidra < Formula
   end
 
   test do
+    shellpath = OS.mac? ? "/bin/zsh" : "/bin/bash"
     (testpath/"analyzeHeadless").write_env_script libexec/"support/analyzeHeadless",
                                                   Language::Java.overridable_java_home_env("21")
     (testpath/"project").mkpath
-    system "/bin/bash", testpath/"analyzeHeadless", testpath/"project",
-                        "HomebrewTest", "-import", "/bin/bash", "-noanalysis"
+    system shellpath.to_s, testpath/"analyzeHeadless", testpath/"project",
+                           "HomebrewTest", "-import", shellpath.to_s, "-noanalysis"
     assert_path_exists testpath/"project/HomebrewTest.rep"
   end
 end
