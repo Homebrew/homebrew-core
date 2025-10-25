@@ -23,7 +23,7 @@ class Btcli < Formula
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "btpd", because: "both install `btcli` binaries"
 
