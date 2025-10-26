@@ -2,8 +2,8 @@ class Openj9 < Formula
   desc "High performance, scalable, Java virtual machine"
   homepage "https://www.eclipse.org/openj9/"
   url "https://github.com/eclipse-openj9/openj9.git",
-      tag:      "openj9-0.48.0",
-      revision: "1d5831436ec378c7dd9f57415bec39d3f5817d57"
+      tag:      "openj9-0.56.0",
+      revision: "14b3b2de26cdbab340416bc6b5d367b6ceb11df0"
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
@@ -94,15 +94,8 @@ class Openj9 < Formula
 
   resource "omr" do
     url "https://github.com/eclipse-openj9/openj9-omr.git",
-        tag:      "openj9-0.48.0",
-        revision: "d10a4d553a3cfbf35db0bcde9ebccb24cdf1189f"
-
-    # Fix syntax error in OptionFlagArray class definition
-    # Remove when bumped to openj9-0.53.0 or later.
-    patch do
-      url "https://github.com/eclipse-openj9/openj9-omr/commit/29203c807abe45fce56e70b93e80ebaef22b0844.patch?full_index=1"
-      sha256 "044a26ac76fafc536feb8dfc24c521ef26a66c98b78948f4571293a41ede24ca"
-    end
+        tag:      "openj9-0.55.0",
+        revision: "b62e200777c764a87a3e0a2b8136c8f9581b3ad7"
   end
 
   resource "openj9-openjdk-jdk" do
