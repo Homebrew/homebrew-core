@@ -2,8 +2,8 @@ class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
   # Using git tarball as Debian does not retain old versions at deb.debian.org
-  url "https://salsa.debian.org/apt-team/apt/-/archive/3.1.9/apt-3.1.9.tar.bz2"
-  sha256 "679d608e4b7ffe269bd59dcd4b6673e0fa808101cba2693aca187a1076882ca7"
+  url "https://salsa.debian.org/apt-team/apt/-/archive/3.1.10/apt-3.1.10.tar.bz2"
+  sha256 "0abcf32aa435a86d7ba148ea5eb09fc0f52cda8ce8e1bdadf8f006e141ab5b24"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -46,6 +46,9 @@ class Apt < Formula
     sha256 "289a0966c02c2008cd263d3913a8e3c84c97b8ded3e08373d63a382c71d2199c"
   end
 
+  # Add missing <optional> header
+  patch :DATA
+
   def install
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -73,3 +76,17 @@ class Apt < Formula
                  shell_output("#{bin}/apt list 2>&1")
   end
 end
+
+__END__
+diff --git a/apt-private/private-cmndline.cc b/apt-private/private-cmndline.cc
+index 7ea1878..117644d 100644
+--- a/apt-private/private-cmndline.cc
++++ b/apt-private/private-cmndline.cc
+@@ -17,6 +17,7 @@
+ #include <cstdarg>
+ #include <cstdlib>
+ #include <cstring>
++#include <optional>
+ #include <unistd.h>
+ 
+ #include <algorithm>
