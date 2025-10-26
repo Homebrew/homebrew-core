@@ -28,7 +28,7 @@ class Ghc < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "sphinx-doc" => :build
   depends_on "xz" => :build
   depends_on "gmp"
@@ -44,10 +44,10 @@ class Ghc < Formula
 
   on_linux do
     on_arm do
-      depends_on "gcc" => :build if DevelopmentTools.gcc_version("gcc") < 12
+      depends_on "gcc" => :build if DevelopmentTools.gcc_version < 13
 
       fails_with :gcc do
-        version "11"
+        version "12"
         cause <<~CAUSE
           _build/stage1/compiler/build/GHC.p_dyn_o:(.text..LsO3B_info+0x198):
           relocation truncated to fit: R_AARCH64_JUMP26 against symbol
@@ -63,22 +63,22 @@ class Ghc < Formula
   resource "binary" do
     on_macos do
       on_arm do
-        url "https://downloads.haskell.org/~ghc/9.10.1/ghc-9.10.1-aarch64-apple-darwin.tar.xz"
-        sha256 "ffaf83b5d7a8b2c04920c6e3909c0be21dde27baf380d095fa27e840a3a2e804"
+        url "https://downloads.haskell.org/~ghc/9.10.3/ghc-9.10.3-aarch64-apple-darwin.tar.xz"
+        sha256 "9f50ddd87be5cb994c719402778d6c7fdd341934fd4fbc0fcc3ecb40d49f860c"
       end
       on_intel do
-        url "https://downloads.haskell.org/~ghc/9.10.1/ghc-9.10.1-x86_64-apple-darwin.tar.xz"
-        sha256 "8cf22188930e10d7ac5270d425e21a3dab606af73a655493639345200c650be9"
+        url "https://downloads.haskell.org/~ghc/9.10.3/ghc-9.10.3-x86_64-apple-darwin.tar.xz"
+        sha256 "01e4ff9530c124408db0b0f9ec7e4be35b300a6aee939c5758d1acf22d51693f"
       end
     end
     on_linux do
       on_arm do
-        url "https://downloads.haskell.org/~ghc/9.10.1/ghc-9.10.1-aarch64-deb10-linux.tar.xz"
-        sha256 "e6df50e62b696e3a8b759670fc79207ccc26e88a79a047561ca1ccb8846157dd"
+        url "https://downloads.haskell.org/~ghc/9.10.3/ghc-9.10.3-aarch64-deb10-linux.tar.xz"
+        sha256 "99b85c1948e58e310f4e29cd2c8724a18c246c07e12637d8cbd591a064138236"
       end
       on_intel do
-        url "https://downloads.haskell.org/~ghc/9.10.1/ghc-9.10.1-x86_64-ubuntu20_04-linux.tar.xz"
-        sha256 "ae3be406fdb73bd2b0c22baada77a8ff2f8cde6220dd591dc24541cfe9d895eb"
+        url "https://downloads.haskell.org/~ghc/9.10.3/ghc-9.10.3-x86_64-ubuntu20_04-linux.tar.xz"
+        sha256 "b6200c32a56f26f5d2ff77c92481a47a53bb3d43cbc82b59a997aed2ad5fd937"
       end
     end
   end
@@ -117,7 +117,7 @@ class Ghc < Formula
     ENV["CC"] = ENV["ac_cv_path_CC"] = OS.linux? ? "cc" : ENV.cc
     ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = ENV["MergeObjsCmd"] = "ld"
-    ENV["PYTHON"] = which("python3.13")
+    ENV["PYTHON"] = which("python3.14")
 
     # Workaround for https://gitlab.haskell.org/ghc/ghc/-/issues/26166
     if DevelopmentTools.ld64_version == "1221.4"
