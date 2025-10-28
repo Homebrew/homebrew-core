@@ -1,10 +1,10 @@
 class Qt3d < Formula
   desc "Provides functionality for near-realtime simulation systems"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qt3d-everywhere-src-6.9.3.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qt3d-everywhere-src-6.9.3.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qt3d-everywhere-src-6.9.3.tar.xz"
-  sha256 "7e8664ddf21a79d4eeaebf76dddf017ed31142a2df005cf4ac784dff10627fff"
+  url "https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/qt3d-everywhere-src-6.10.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.10/6.10.0/submodules/qt3d-everywhere-src-6.10.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.10/6.10.0/submodules/qt3d-everywhere-src-6.10.0.tar.xz"
+  sha256 "bd885ff3741f4b6e4e9b29e1dd05feeae834063c0ca84239f38e3f4eed78e9b7"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
@@ -37,6 +37,8 @@ class Qt3d < Formula
   depends_on "qtdeclarative"
   depends_on "qtshadertools"
 
+  # TODO: preserve_rpath # https://github.com/orgs/Homebrew/discussions/2823
+
   # Apply Arch Linux patches for assimp 6 support
   # Issue ref: https://bugreports.qt.io/browse/QTBUG-137996
   patch do
@@ -47,15 +49,16 @@ class Qt3d < Formula
   def install
     rm_r("src/3rdparty/assimp/src")
 
-    args = %W[
-      -DCMAKE_STAGING_PREFIX=#{prefix}
+    args = %w[
       -DFEATURE_qt3d_system_assimp=ON
       -DFEATURE_qt3d_vulkan=ON
     ]
-    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
+    if OS.mac?
+      args << "-DQT_EXTRA_RPATHS=#{(HOMEBREW_PREFIX/"lib").relative_path_from(lib)}"
+      args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON"
+    end
 
-    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
-                    *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST")
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *args, *std_cmake_args(find_framework: "FIRST")
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -70,7 +73,8 @@ class Qt3d < Formula
       cmake_minimum_required(VERSION 4.0)
       project(test VERSION 1.0.0 LANGUAGES CXX)
       find_package(Qt6 REQUIRED COMPONENTS #{modules.join(" ")})
-      add_executable(test main.cpp)
+      qt_standard_project_setup()
+      qt_add_executable(test main.cpp)
       target_link_libraries(test PRIVATE Qt6::#{modules.join(" Qt6::")})
     CMAKE
 
@@ -106,7 +110,7 @@ class Qt3d < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "cmake", "-S", ".", "-B", "cmake"
+    system "cmake", "-S", ".", "-B", "cmake", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", "cmake"
     system "./cmake/test"
 
@@ -118,7 +122,7 @@ class Qt3d < Formula
     end
 
     flags = shell_output("pkgconf --cflags --libs Qt6#{modules.join(" Qt6")}").chomp.split
-    system ENV.cxx, "-std=c++17", "main.cpp", "-o", "test", *flags
+    system ENV.cxx, "-std=c++17", "main.cpp", "-o", "test", *flags, "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
     system "./test"
   end
 end
