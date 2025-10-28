@@ -1,10 +1,9 @@
 class Onnx < Formula
   desc "Open standard for machine learning interoperability"
   homepage "https://onnx.ai/"
-  url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
-  sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
+  url "https://github.com/onnx/onnx/archive/refs/tags/v1.19.1.tar.gz"
+  sha256 "ce9d2569a61d64e8a3d05b92194f60ffb7c868dbb754a71f5b4d992273a9413d"
   license "Apache-2.0"
-  revision 9
 
   no_autobump! because: :requires_manual_review
 
