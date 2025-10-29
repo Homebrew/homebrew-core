@@ -3,10 +3,10 @@ class Backgroundremover < Formula
 
   desc "Remove background from images and video using AI"
   homepage "https://github.com/nadermx/backgroundremover"
-  url "https://files.pythonhosted.org/packages/81/c9/5c7d668bea7bb5ae6e069afe33c19e55ae95975a87a7e3a5bbd3d6199f74/backgroundremover-0.3.4.tar.gz"
-  sha256 "c4ce35da0194138c115017dba9f5dae38b7e2bfcf15a413ef04d8ce01e66e214"
+  url "https://files.pythonhosted.org/packages/c5/ac/c129d58ddf42272ee4474ddcddb7f978063b07299efb2603b731b8fac19e/backgroundremover-0.3.5.tar.gz"
+  sha256 "51db9883bcc814421ec23c4a21d9ea8ef5c0b1c6eb8fec2dc5df315e54218f25"
   license "MIT"
-  revision 2
+  head "https://github.com/nadermx/backgroundremover.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "47670e19d3401ac962ad008a87e145636fc0700592fbe82e216577aa859de77d"
@@ -18,8 +18,10 @@ class Backgroundremover < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
   depends_on "certifi"
   depends_on "ffmpeg"
+  depends_on "libheif"
   depends_on "llvm@20"
   depends_on "numpy"
   depends_on "pillow"
@@ -34,6 +36,11 @@ class Backgroundremover < Formula
 
   pypi_packages exclude_packages: %w[certifi numpy torch torchvision pillow scipy scikit-image],
                 extra_packages:   "imageio"
+
+  resource "blinker" do
+    url "https://files.pythonhosted.org/packages/21/28/9b3f50ce0e048515135495f198351908d99540d69bfdc8c1d15b73dc55ce/blinker-1.9.0.tar.gz"
+    sha256 "b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf"
+  end
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
@@ -60,6 +67,11 @@ class Backgroundremover < Formula
     sha256 "66b56cd6474bf41d8c54660347d37afcc3f7d1970648de365c102ef77548aadb"
   end
 
+  resource "flask" do
+    url "https://files.pythonhosted.org/packages/dc/6d/cfe3c0fcc5e477df242b98bfe186a4c34357b4847e87ecaef04507332dab/flask-3.1.2.tar.gz"
+    sha256 "bf656c15c80190ed628ad08cdfd3aaa35beb087855e2f494910aa3774cc4fd87"
+  end
+
   resource "future" do
     url "https://files.pythonhosted.org/packages/a7/b2/4140c69c6a66432916b26158687e821ba631a4c9273c474343badf84d3ba/future-1.0.0.tar.gz"
     sha256 "bd2968309307861edae1458a4f8a4f3598c03be43b97521076aebf5d94c07b05"
@@ -78,6 +90,11 @@ class Backgroundremover < Formula
   resource "imageio-ffmpeg" do
     url "https://files.pythonhosted.org/packages/44/bd/c3343c721f2a1b0c9fc71c1aebf1966a3b7f08c2eea8ed5437a2865611d6/imageio_ffmpeg-0.6.0.tar.gz"
     sha256 "e2556bed8e005564a9f925bb7afa4002d82770d6b08825078b7697ab88ba1755"
+  end
+
+  resource "itsdangerous" do
+    url "https://files.pythonhosted.org/packages/9c/cb/8ac0172223afbccb63986cc25049b154ecfb5e85932587206f42317be31d/itsdangerous-2.2.0.tar.gz"
+    sha256 "e0050c0b7da1eea53ffaf149c0cfbb5c6e2e2b69c4bef22c81fa6eb73e5f6173"
   end
 
   resource "llvmlite" do
@@ -143,6 +160,11 @@ class Backgroundremover < Formula
   resource "waitress" do
     url "https://files.pythonhosted.org/packages/bf/cb/04ddb054f45faa306a230769e868c28b8065ea196891f09004ebace5b184/waitress-3.0.2.tar.gz"
     sha256 "682aaaf2af0c44ada4abfb70ded36393f0e307f4ab9456a215ce0020baefc31f"
+  end
+
+  resource "werkzeug" do
+    url "https://files.pythonhosted.org/packages/9f/69/83029f1f6300c5fb2471d621ab06f6ec6b3324685a2ce0f9777fd4a8b71e/werkzeug-3.1.3.tar.gz"
+    sha256 "60723ce945c19328679790e3282cc758aa4a6040e4bb330f53d30fa546d44746"
   end
 
   def install
