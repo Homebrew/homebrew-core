@@ -1,8 +1,8 @@
 class Mlkit < Formula
   desc "Compiler for the Standard ML programming language"
   homepage "https://melsman.github.io/mlkit"
-  url "https://github.com/melsman/mlkit/archive/refs/tags/v4.7.14.tar.gz"
-  sha256 "2fdffd543c9d8337e8a20d9270f5b1738873b78b631daa46735d5fd2a6b80ece"
+  url "https://github.com/melsman/mlkit/archive/refs/tags/v4.7.15.tar.gz"
+  sha256 "9f2edaaf699006b835bc3c5cf52c10eee6adee0a6508415b21747da242ea54d3"
   license "GPL-2.0-or-later"
   head "https://github.com/melsman/mlkit.git", branch: "master"
 
