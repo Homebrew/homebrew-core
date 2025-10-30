@@ -111,7 +111,7 @@ class Julia < Formula
                         haswell,-rdrnd,base(1)
                         x86-64-v4,-rdrnd,base(1)]
     end
-    args << "JULIA_CPU_TARGET=#{cpu_targets.join(";")}"
+    args << "JULIA_CPU_TARGET=#{cpu_targets.join(";")}" if !OS.linux? || !Hardware::CPU.arm?
     user = begin
       tap.user
     rescue
@@ -151,6 +151,24 @@ class Julia < Formula
     (buildpath/"usr/share/julia").install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
 
     system "make", *args, "install"
+
+    # FIXME: TESTING
+    if OS.linux? && Hardware::CPU.arm?
+      prefix.find do |pn|
+        next if pn.symlink? || pn.directory?
+
+        ohai "Checking #{pn} dylib?"
+        pn.dylib?
+
+        ohai "Checking #{pn} binary_executable?"
+        pn.binary_executable?
+      rescue EOFError
+        opoo "Failed on #{pn}"
+        logs.install pn
+        raise
+      end
+      return
+    end
 
     if OS.linux?
       # Replace symlinks referencing Cellar paths with ones using opt paths
