@@ -17,12 +17,11 @@ class SwiftSection < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "33bd0561f24b2a832733a8acf0deac577462b2ca382f2a01df72308e75ce141b"
   end
 
-  # The Package.swift file requires Swift 5.10 or later.
-  # But it is actually only builable with Swift 6.1+ due to the usage of trailing commma in comma-separated lists.
-  depends_on xcode: ["16.3", :build]
   depends_on :macos
 
-  uses_from_macos "swift" => :build
+  # The Package.swift file requires Swift 5.10 or later.
+  # But it is actually only builable with Swift 6.1+ due to the usage of trailing commma in comma-separated lists.
+  uses_from_macos "swift" => :build, since: :sequoia
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
