@@ -1,8 +1,8 @@
 class Anubis < Formula
   desc "Protect resources from scraper bots"
   homepage "https://anubis.techaro.lol"
-  url "https://github.com/TecharoHQ/anubis/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "81b45cf8d210927c6bdf81b4d925734b623e0c0c3f04f48c2034a85eea3bcd32"
+  url "https://github.com/TecharoHQ/anubis/archive/refs/tags/v1.23.0.tar.gz"
+  sha256 "a7b8fed675deb2585a7751caefea457005d846a05ef6f5fc0f2419693c00d678"
   license "MIT"
   head "https://github.com/TecharoHQ/anubis.git", branch: "main"
 
@@ -22,6 +22,7 @@ class Anubis < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef17f1e143a3f82ca4a9291e51b6490a1dc0564ad5972f9284261fc48c2be72d"
   end
 
+  depends_on "bash" => :build # error: shopt: globstar: invalid shell option name on macos
   depends_on "brotli" => :build
   depends_on "go" => :build
   depends_on "node" => :build
