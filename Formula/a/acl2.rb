@@ -19,7 +19,27 @@ class Acl2 < Formula
     sha256 x86_64_linux:  "0ae5f2bf2d53143d05ad171874894656618f1b10b23a2d7c5e43a461351aa6b9"
   end
 
-  depends_on "sbcl"
+  on_macos do
+    depends_on "sbcl"
+  end
+
+  on_linux do
+    # FP overflow trap isn't behaving as expected on GitHub runner so using `gcl` instead.
+    # https://github.com/acl2/acl2/issues/1616#issuecomment-3448760740
+    # https://github.com/jimwhite/acl2-jupyter/commit/6c062e8c5c02f996476c461fa18e464bf7c6ceea
+    on_arm do
+      # Use same tarball as Debian for gcl 2.7 fixes
+      url "https://github.com/acl2/acl2/archive/refs/tags/post-8.6-for-debian-gcl.tar.gz"
+      sha256 "d91d7cdc46812869d5be7fa393b1cbdbaa323250a6ed47a4a7ccf2623829903f"
+
+      depends_on "gcl" => :build
+      depends_on "gmp"
+      depends_on "libtirpc"
+    end
+    on_intel do
+      depends_on "sbcl"
+    end
+  end
 
   def install
     # Remove prebuilt binaries
@@ -27,17 +47,30 @@ class Acl2 < Formula
       "books/kestrel/axe/x86/examples/popcount/popcount-macho-64.executable",
       "books/kestrel/axe/x86/examples/factorial/factorial.macho64",
       "books/kestrel/axe/x86/examples/tea/tea.macho64",
+      "books/kestrel/axe/x86/examples/tea/tea.elf64",
+      "books/kestrel/axe/x86/examples/add/add.elf64",
     ])
 
     # Move files and then build to avoid saving build directory in files
     libexec.install Dir["*"]
 
-    sbcl = Formula["sbcl"].opt_bin/"sbcl"
-    system "make", "-C", libexec, "all", "basic", "LISP=#{sbcl}", "USE_QUICKLISP=0"
-    system "make", "-C", libexec, "all", "basic", "LISP=#{sbcl}", "USE_QUICKLISP=0", "ACL2_PAR=p"
+    variants = ["acl2"]
+    lisp = "sbcl"
+    if OS.linux? && Hardware::CPU.arm?
+      lisp = "gcl"
+      ENV["ACL2_SNAPSHOT_INFO"] = "NONE" # TODO: remove in next release
+      ENV["GCL_ANSI"] = "1"
+      ENV.remove "PATH", Superenv.shims_path # FIXME: shims path is getting saved in binary
+    else
+      variants << "acl2p"
+    end
 
-    ["acl2", "acl2p"].each do |acl2|
-      inreplace libexec/"saved_#{acl2}", Formula["sbcl"].prefix.realpath, Formula["sbcl"].opt_prefix
+    variants.each do |acl2|
+      args = ["LISP=#{Formula[lisp].opt_bin/lisp}", "USE_QUICKLISP=0", "ACL2_MAKE_LOG=NONE"]
+      args << "ACL2_PAR=p" if acl2 == "acl2p"
+      system "make", "-C", libexec, "all", "basic", *args
+
+      inreplace libexec/"saved_#{acl2}", Formula[lisp].prefix.realpath, Formula[lisp].opt_prefix if lisp == "sbcl"
       (bin/acl2).write_env_script libexec/"saved_#{acl2}", ACL2_SYSTEM_BOOKS: "#{libexec}/books"
     end
   end
