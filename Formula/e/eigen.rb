@@ -1,15 +1,13 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://gitlab.com/libeigen/eigen"
-  # TODO: remove LGPL from licenses in 5.0.0
-  url "https://gitlab.com/libeigen/eigen/-/archive/3.4.1/eigen-3.4.1.tar.gz"
-  sha256 "b93c667d1b69265cdb4d9f30ec21f8facbbe8b307cf34c0b9942834c6d4fdbe2"
+  url "https://gitlab.com/libeigen/eigen/-/archive/5.0.0/eigen-5.0.0.tar.gz"
+  sha256 "315c881e19e17542a7d428c5aa37d113c89b9500d350c433797b730cd449c056"
   license all_of: [
     "MPL-2.0",
     "Apache-2.0",   # BFloat16.h
     "BSD-3-Clause", # bindings to BLAS, LAPACKe and MKL
     "Minpack",      # LevenbergMarquardt
-    "LGPL-2.1-only", # IterativeSolvers, removed in 5.0.0
   ]
   head "https://gitlab.com/libeigen/eigen.git", branch: "master"
 
