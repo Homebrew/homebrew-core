@@ -5,19 +5,7 @@ class Icu4cAT77 < Formula
   version "77.1"
   sha256 "588e431f77327c39031ffbb8843c0e3bc122c211374485fa87dc5f3faff24061"
   license "ICU"
-
-  # We allow the livecheck to detect new `icu4c` major versions in order to
-  # automate version bumps. To make sure PRs are created correctly, we output
-  # an error during installation to notify when a new formula is needed.
-  livecheck do
-    url :stable
-    regex(/^release[._-]v?(\d+(?:[.-]\d+)+)$/i)
-    strategy :git do |tags, regex|
-      tags.filter_map { |tag| tag[regex, 1]&.tr("-", ".") }
-    end
-  end
-
-  no_autobump! because: :requires_manual_review
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "57af4061e0e0d0b6266470343d2db56fc51a0cbaa1bd459bd3bee3c916c0fab9"
@@ -30,11 +18,9 @@ class Icu4cAT77 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f82d4ca07fbdcf99cb5553ae9cf298bbff475a465f13e1c5d934dcbcb1e14741"
   end
 
-  keg_only :shadowed_by_macos, "macOS provides libicucore.dylib (but nothing else)"
+  keg_only :versioned_formula
 
   def install
-    odie "Major version bumps need a new formula!" if version.major.to_s != name[/@(\d+)$/, 1]
-
     args = %w[
       --disable-samples
       --disable-tests
