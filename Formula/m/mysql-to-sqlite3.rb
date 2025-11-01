@@ -10,7 +10,12 @@ class MysqlToSqlite3 < Formula
 
   depends_on "python-setuptools"
   depends_on "python@3.14"
-  depends_on "sqlite"
+
+  uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "sqlite"
+  end
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
