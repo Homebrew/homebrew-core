@@ -9,12 +9,12 @@ class Librcsc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "07beb2a93eae2a1bf5c87a0c7eca366b76d8a90306ce2b50f0cb24e687a30a34"
-    sha256 cellar: :any,                 arm64_sequoia: "2c84e2c68411d6172546af9ee7bd2784cfb14441c33dce795fe09d4bb9b2d59d"
-    sha256 cellar: :any,                 arm64_sonoma:  "ef91944effe7450efdfc9fd5b38556acbdde006c213b013908931e376ad2067b"
-    sha256 cellar: :any,                 sonoma:        "c29606bad6fb82c01c05c08abb5371fe04257723c2dc6a01d530b2521e9d568a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "62ddb5361327a271b6707af7a430c9f3b5626fdbdbecd8fad2c5c9d9ac046edc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d876f394772c398bd05c2ffc2758343fe35c95929d3e793881291bac5c95311"
+    sha256 cellar: :any,                 arm64_tahoe:   "14821ef86b343dc13f61e7a28dff448a4bfba5cca8112bd1b0bfbdeaa8930a46"
+    sha256 cellar: :any,                 arm64_sequoia: "831081261a2182dc77ddc719e6e866f2727fa8f53a3c6d0d3a912de5aa1d992c"
+    sha256 cellar: :any,                 arm64_sonoma:  "e59bff03cd7e217bfb281e868cc4ed37ddd8ce0835e98309279b9bdb37b2a014"
+    sha256 cellar: :any,                 sonoma:        "d397df043bf01f98110c40648d768f82431ec36694995d4476036e093ce51821"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa07658ee323916191ce7fa2761674da291d85ab76219d70c3f04f9c76d55416"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e69464a5e81e618e7c66b0ab37cf77fe61f31860c64ef40974b9cd257079742"
   end
 
   depends_on "autoconf" => :build
