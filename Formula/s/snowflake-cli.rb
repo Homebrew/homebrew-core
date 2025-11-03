@@ -3,8 +3,8 @@ class SnowflakeCli < Formula
 
   desc "CLI for snowflake"
   homepage "https://docs.snowflake.com/developer-guide/snowflake-cli/index"
-  url "https://files.pythonhosted.org/packages/19/c0/da509cbceebcdfd31988288809157519eff94a034725867214ff85cc92c1/snowflake_cli-3.12.0.tar.gz"
-  sha256 "96dd0baf7a383b31ee4788c475ac85b1f47a9a4f374d90eece93e50c2db93b02"
+  url "https://files.pythonhosted.org/packages/a6/83/84a7372e08b8bd058b463646bad343313ec839828e9bf47e44d2fe5a4b1f/snowflake_cli-3.13.0.tar.gz"
+  sha256 "602be637aa34bcaa38bdce8c4676590c7ffba61f09f3e78c7c3e01d7c8e37a55"
   license "Apache-2.0"
   head "https://github.com/snowflakedb/snowflake-cli.git", branch: "main"
 
@@ -233,8 +233,8 @@ class SnowflakeCli < Formula
   end
 
   resource "snowflake-connector-python" do
-    url "https://files.pythonhosted.org/packages/02/cc/375e43ee01d44fbeb375673a45e6c0ca20a17540d1618f20ca78977481fd/snowflake_connector_python-3.17.3.tar.gz"
-    sha256 "8d3847a3738702b58f7416a2adf4b43abaaef36403e4be619c5aabd900e03cf7"
+    url "https://files.pythonhosted.org/packages/25/df/41fe26b68801e3d59653a5dc7ce87a92e9d967dcad7b59b035b8c9804815/snowflake_connector_python-3.18.0.tar.gz"
+    sha256 "41a46eb9824574c5f8068e3ed5c02a2dc0a733ed08ee81fa1fb3dd0ebe921728"
   end
 
   resource "snowflake-core" do
