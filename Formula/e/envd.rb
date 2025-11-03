@@ -1,8 +1,8 @@
 class Envd < Formula
   desc "Reproducible development environment for AI/ML"
   homepage "https://envd.tensorchord.ai"
-  url "https://github.com/tensorchord/envd/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "73d6436a8df10ca5bc00b66a56f3302c138098485808b70d39151d44f6fa10d2"
+  url "https://github.com/tensorchord/envd/archive/refs/tags/v1.2.2.tar.gz"
+  sha256 "6506e54ec5dd2e4ecd0148f71428a687d57eea76ec484ae8b03e623810072438"
   license "Apache-2.0"
   head "https://github.com/tensorchord/envd.git", branch: "main"
 
