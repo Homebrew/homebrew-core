@@ -27,15 +27,13 @@ class Ldid < Formula
 
   depends_on "libplist"
   depends_on "openssl@3"
-  uses_from_macos "libxml2"
 
   conflicts_with "ldid-procursus", because: "ldid-proucursus installs a conflicting ldid binary"
 
   def install
     ENV.append_to_cflags "-I."
     ENV.append "CXXFLAGS", "-std=c++11"
-    linker_flags = %w[lookup2.o -lcrypto -lplist-2.0 -lxml2]
-    linker_flags += %w[-framework CoreFoundation -framework Security] if OS.mac?
+    linker_flags = %w[lookup2.o -lcrypto -lplist-2.0]
 
     system "make", "lookup2.o"
     system "make", "ldid", "LDLIBS=#{linker_flags.join(" ")}"
