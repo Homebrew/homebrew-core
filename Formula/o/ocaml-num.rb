@@ -1,10 +1,9 @@
 class OcamlNum < Formula
   desc "OCaml legacy Num library for arbitrary-precision arithmetic"
   homepage "https://github.com/ocaml/num"
-  url "https://github.com/ocaml/num/archive/refs/tags/v1.5.tar.gz"
-  sha256 "7ae07c8f5601e2dfc5008a62dcaf2719912ae596a19365c5d7bdf2230515959a"
+  url "https://github.com/ocaml/num/archive/refs/tags/v1.6.tar.gz"
+  sha256 "b5cce325449aac746d5ca963d84688a627cca5b38d41e636cf71c68b60495b3e"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
-  revision 3
 
   no_autobump! because: :requires_manual_review
 
@@ -23,12 +22,10 @@ class OcamlNum < Formula
   depends_on "ocaml"
 
   def install
-    # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
-    if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
-      ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
-    end
-
     ENV["OCAMLFIND_DESTDIR"] = lib/"ocaml"
+
+    # Work around https://github.com/ocaml/num/issues/43
+    inreplace "src/Makefile", "cp META.num META", "mv META.num META"
 
     (lib/"ocaml").mkpath
     cp Formula["ocaml"].opt_lib/"ocaml/Makefile.config", lib/"ocaml"
