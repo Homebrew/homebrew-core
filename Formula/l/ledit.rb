@@ -4,7 +4,7 @@ class Ledit < Formula
   url "https://github.com/chetmurthy/ledit/archive/refs/tags/ledit-2-07.tar.gz"
   sha256 "0252dc8d3eb40ba20b6792f9d23b3a736b1b982b674a90efb913795f02225877"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
