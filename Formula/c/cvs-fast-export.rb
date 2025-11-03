@@ -1,4 +1,6 @@
 class CvsFastExport < Formula
+  include Language::Python::Shebang
+
   desc "Export an RCS or CVS history as a fast-import stream"
   homepage "http://www.catb.org/~esr/cvs-fast-export/"
   url "http://www.catb.org/~esr/cvs-fast-export/cvs-fast-export-1.68.tar.gz"
@@ -33,16 +35,14 @@ class CvsFastExport < Formula
   depends_on "asciidoctor" => :build
   depends_on "cvs" => :test
 
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
+  uses_from_macos "python"
 
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     system "make", "install", "prefix=#{prefix}"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), *bin.children
   end
 
   test do
