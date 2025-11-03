@@ -29,7 +29,7 @@ class Cppcheck < Formula
   depends_on "pcre"
   depends_on "tinyxml2"
 
-  uses_from_macos "libxml2"
+  uses_from_macos "libxml2" => :build
 
   def python3
     which("python3.14")
