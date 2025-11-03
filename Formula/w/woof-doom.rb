@@ -1,8 +1,8 @@
 class WoofDoom < Formula
   desc "Woof! is a continuation of the Boom/MBF bloodline of Doom source ports"
   homepage "https://github.com/fabiangreffrath/woof"
-  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_15.2.0.tar.gz"
-  sha256 "aa2842c2897b1a8c733a79db190c2e6c17cef10651c5cd5105c7bf1360799932"
+  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_15.3.0.tar.gz"
+  sha256 "0479d078643a57bcd0203fbd8aeefc12035999d0a2b5e7bd3d82926749cce6bc"
   license "GPL-2.0-only"
   head "https://github.com/fabiangreffrath/woof.git", branch: "master"
 
@@ -23,8 +23,7 @@ class WoofDoom < Formula
   depends_on "libsndfile"
   depends_on "libxmp"
   depends_on "openal-soft"
-  depends_on "sdl2"
-  depends_on "sdl2_net"
+  depends_on "sdl3"
 
   on_linux do
     depends_on "alsa-lib"
