@@ -6,6 +6,7 @@ class Haxe < Formula
       tag:      "4.3.7",
       revision: "e0b355c6be312c1b17382603f018cf52522ec651"
   license all_of: ["GPL-2.0-or-later", "MIT"]
+  revision 1
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   livecheck do
@@ -38,6 +39,10 @@ class Haxe < Formula
   end
 
   def install
+    # Workaround for OCaml >= 5.4 until next release. This only drops upper bound added for Windows.
+    # https://github.com/HaxeFoundation/haxe/commit/034178b97ba0d7a97e0230ecf76b5872c4b3c197
+    inreplace "haxe.opam", '"dune" {>= "1.11" & < "3.16"}', '"dune" {>= "1.11"}' if build.stable?
+
     ENV["OPAMROOT"] = buildpath/".opam"
     ENV["OPAMYES"] = "1"
     ENV["ADD_REVISION"] = "1" if build.head?
