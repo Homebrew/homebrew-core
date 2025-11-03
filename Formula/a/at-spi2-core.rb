@@ -19,23 +19,26 @@ class AtSpi2Core < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
+  depends_on "xorgproto" => :build
 
   depends_on "dbus"
   depends_on "glib"
   depends_on "libx11"
   depends_on "libxi"
   depends_on "libxtst"
-  depends_on "xorgproto"
 
-  uses_from_macos "libxml2"
+  uses_from_macos "libxml2" => :build
 
   on_macos do
     depends_on "gettext"
   end
 
   def install
-    # Workaround for https://gitlab.gnome.org/GNOME/at-spi2-core/-/issues/203
-    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
+    if OS.linux?
+      # Work around brew not adding dependencies of build dependencies to PKG_CONFIG_PATH
+      icu4c_dep = Formula["libxml2"].deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
+      ENV.append_path "PKG_CONFIG_PATH", icu4c_dep.to_formula.opt_lib/"pkgconfig"
+    end
 
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
