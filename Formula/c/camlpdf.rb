@@ -4,7 +4,7 @@ class Camlpdf < Formula
   url "https://github.com/johnwhitington/camlpdf/archive/refs/tags/v2.8.1.tar.gz"
   sha256 "148994c70016f1b02fee1f5548ff7d36ba7d0a5716e03f95011160fcc495657b"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
-  revision 1
+  revision 2
 
   no_autobump! because: :requires_manual_review
 
