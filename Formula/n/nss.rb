@@ -4,6 +4,7 @@ class Nss < Formula
   url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_117_RTM/src/nss-3.117.tar.gz"
   sha256 "5786b523a2f2e9295ed10d711960d2e33cd620bb80d6288443eda43553a51996"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url "https://ftp.mozilla.org/pub/security/nss/releases/"
@@ -33,11 +34,12 @@ class Nss < Formula
   conflicts_with "resty", because: "both install `pp` binaries"
 
   def install
-    # Fails on arm64 macOS for some reason with:
-    #   aes-armv8.c:14:2: error: "Compiler option is invalid"
-    ENV.runtime_cpu_detection if OS.linux? || Hardware::CPU.intel?
+    ENV.runtime_cpu_detection
     ENV.deparallelize
     cd "nss"
+    # Set architecture flags for ARM-based Macs correctly.
+    inreplace "coreconf/Darwin.mk", "# Nothing set for arm currently.",
+      "CC += -arch aarch64\nCCC += -arch aarch64\noverride CPU_ARCH	= aarch64"
 
     args = %W[
       BUILD_OPT=1
