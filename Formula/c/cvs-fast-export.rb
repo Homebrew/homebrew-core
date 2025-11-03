@@ -15,16 +15,13 @@ class CvsFastExport < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8b33348456f1f956356bb36a8fdbc6e851400e27b57ff71f95a05f089b036984"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f7b2c67fe9436b3cfc2d64706c46ed8913e75db0486e72527be0c200fd31fbf2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9dba6bf27f82465c252bd146ea828f2e93849c7886015a66a3359957be1a32ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5e0e6010700405c1ef04acc75e09e45b2e513dd884e85145cc0876de50b6f10"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "034da199bcd8f5bef619c446d548727e6657dccdcda38933a23247c5cd476d0c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f6aca690bf14add0b2daa03afc21b4efdfe093770c8547eb17ee271aea9a32bc"
-    sha256 cellar: :any_skip_relocation, ventura:        "b70d7f541af12e97ee607b9d7fa1665af6bbfd6051e31bb6b93b71c220fa115d"
-    sha256 cellar: :any_skip_relocation, monterey:       "3dde4030da24cab974a110ff6954b9d5b01091f33f16d936cad581e8db55067b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "feebbd85a5fe77606bb7abfd693844c374b11bf3b9e7af2201e31a9010854a52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9a04b0289478952e4f7991b95d9f0ced10fedc353c263e28924195dc60a1727"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a588033b25137b05eb8ae709e17fb689d36d7951138960f11cba6f3a122cfa37"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be684c4690ae50c5b8d35704827eee375b29fa7aacd6c1d3e16a96e1e73d552f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c2463a58adaea270f14076290f5fad917c46438e4a08f68583cfc1e4c493315"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9a118a01f3633866024f0ccf210ed45b1bd3b2d08b9f56ed072abdcb11c1bb6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4f8a83d4bb3915ac036b726f5e5b68a43db5874c076afe363b3fc1ef6e194d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61a5bca34f0a70c12aff21f7ec5f3188f7703036d40e150b76c6c91bd4de92fd"
   end
 
   head do
