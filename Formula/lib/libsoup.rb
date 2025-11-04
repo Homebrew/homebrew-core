@@ -23,7 +23,7 @@ class Libsoup < Formula
   depends_on "vala" => :build
 
   depends_on "glib"
-  depends_on "glib-networking"
+  depends_on "glib-networking" => :no_linkage
   depends_on "gnutls"
   depends_on "libnghttp2"
   depends_on "libpsl"
@@ -31,7 +31,6 @@ class Libsoup < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "krb5"
-  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   on_macos do
