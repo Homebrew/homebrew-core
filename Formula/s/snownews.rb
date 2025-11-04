@@ -4,7 +4,7 @@ class Snownews < Formula
   url "https://downloads.sourceforge.net/project/snownews/snownews-1.11.tar.gz"
   sha256 "afd4db7c770f461a49e78bc36e97711f3066097b485319227e313ba253902467"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
 
   no_autobump! because: :requires_manual_review
 
@@ -37,6 +37,7 @@ class Snownews < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}"
+    ENV.deparallelize # due to `install: mkdir /usr/local/Cellar/snownews/1.11_2/share: File exists`
     system "make", "install", "CC=#{ENV.cc}"
   end
 
