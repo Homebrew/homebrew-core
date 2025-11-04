@@ -12,13 +12,12 @@ class Gdcm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "6ce4c09d9f7fa7bda95ddc5d5e985f1ca279ddfd4b6250d477ac63ba6c5de68a"
-    sha256 arm64_sequoia: "56944709b1eef3d27bb1874f2b98de671f827df3a0a7cbded98564e80628082b"
-    sha256 arm64_sonoma:  "edef8d78b79f9648e3f32994001a6df3dc04901ab9ac3d9766295d51598ad1c0"
-    sha256 sonoma:        "c2dd510832249deb9315ef84a2fd22098babae2ddd6457c263f5ca5ce42d54d5"
-    sha256 arm64_linux:   "1c1a09e9234fb742986f0436b65c827aa945d9e366d1242e07e2e277c9ecd469"
-    sha256 x86_64_linux:  "4ba447c88a6e8ac5489bae3ede532c45669f55d50e9ed89eba2fd82b86dc4ad5"
+    sha256 arm64_tahoe:   "0d44c545f9856a7d3a7f7c429519b7f2c69256adebe5b7ebfe825fa1a5664464"
+    sha256 arm64_sequoia: "b23e7c111b6193d7c869673e1ec47fc2206c18b38ab23877b681c6b4b53bc170"
+    sha256 arm64_sonoma:  "916c6dd70313845e8f15e1da7d9639228f9dec169f3026dbcbc927b13537e87d"
+    sha256 sonoma:        "fc6d88995fff90ebeb9d7b1732cba84994f90cfa7aff655d6e23100c581a5403"
+    sha256 arm64_linux:   "645ead455a8cbc207407d8fd3c94e2c2fcc46872ea1b483f6d4ddac8c57bf60b"
+    sha256 x86_64_linux:  "85ad6080d6eff0f377068cf01d53e64d14fe395a6ac9ce4271a2bb7748ed503b"
   end
 
   depends_on "cmake" => :build
