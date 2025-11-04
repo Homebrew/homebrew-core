@@ -4,7 +4,7 @@ class Sollya < Formula
   url "https://www.sollya.org/releases/sollya-8.0/sollya-8.0.tar.gz"
   sha256 "58d734f9a2fc8e6733c11f96d2df9ab25bef24d71c401230e29f0a1339a81192"
   license "CECILL-C"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.sollya.org/download.php"
@@ -12,14 +12,12 @@ class Sollya < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1f8f9680bdd353bb6532f481446eceab77e5fb59b9449359cfa18e70fa0dc1c1"
-    sha256 cellar: :any,                 arm64_sequoia: "c65c8b258fe962a56c94a4e36af2bb30541289140b81a4d9503278cc8aeac144"
-    sha256 cellar: :any,                 arm64_sonoma:  "e04b5831f6e8ead9121935f1e6ddf55821d68da7ae5370347063c2e832ec7c21"
-    sha256 cellar: :any,                 arm64_ventura: "7fe203ca548328e6cffb2e6d963d00cba80e9842b4c1b71f43ae9b1fcb4b27e6"
-    sha256 cellar: :any,                 sonoma:        "2c83c3d2bb45f3b7e16c96530a6a72b114db18a81c7b4c71db50e47c385e6815"
-    sha256 cellar: :any,                 ventura:       "ba802f6fe9e582b5fb012aba5c14b69e8ab8586ac5c2d3e02d8f290ebedc64fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34dce0bd22536f4136ca5a874480f1ffe4228f86ba584b292af23c64cbc80ce4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57e1b7f081dcf28664b497a41800a3eb455cb3ce7a4676ff651e06d67cbe6142"
+    sha256 cellar: :any,                 arm64_tahoe:   "c3da627c992a35dc3af1daf6c84f1e74485277155ebb5793e10a7a68dc2f12a3"
+    sha256 cellar: :any,                 arm64_sequoia: "0fc18b3fff4949b1a139a30bcc8e2ab3e08df265b45d4d9a1221fd50e0e35ec3"
+    sha256 cellar: :any,                 arm64_sonoma:  "6c5c7c03cc7fd565f55c423cbc69f1050ec019074b9823e3618ed70b94cacc7d"
+    sha256 cellar: :any,                 sonoma:        "b623d5218033d5f33a5b370b4f27ceab4177326cf7b3d71660ec2492d2818a95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d25abc81dc57e49af305df1244e0c9fed2e6d5dfc2ef779bc021e02aaad81b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f3828e3be08c6b06af99a2c95fc5aa52d2ab5554ec2c79a62b2b4e557e52e11"
   end
 
   depends_on "automake" => :build
