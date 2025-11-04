@@ -4,6 +4,7 @@ class SaneBackends < Formula
   url "https://gitlab.com/-/project/429008/uploads/843c156420e211859e974f78f64c3ea3/sane-backends-1.4.0.tar.gz"
   sha256 "f99205c903dfe2fb8990f0c531232c9a00ec9c2c66ac7cb0ce50b4af9f407a72"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :head
