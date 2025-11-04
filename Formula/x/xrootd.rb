@@ -5,16 +5,16 @@ class Xrootd < Formula
   mirror "https://xrootd.slac.stanford.edu/download/v5.9.0/xrootd-5.9.0.tar.gz"
   sha256 "e08e6fc73aeab08e56f716adafa9476cdfd293e28c14d0af5b1a67c06b1e6831"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "3c1bd70828213956662a25df2ad7fcc7fdda2a53c2d94b60065f2e6e3ca7e302"
-    sha256 cellar: :any,                 arm64_sequoia: "6e0505dddd88bc2133641506ee5db0326366bea061e5b7ed4005e2ee7e369aa2"
-    sha256 cellar: :any,                 arm64_sonoma:  "2bbe7b565d73a18f075d9f4cdb31aab74dabbe2a845dc8cfb196002270ce96ea"
-    sha256 cellar: :any,                 sonoma:        "7a50482ab6d748f862034fbb40fb871c304955c061b0314d9adf6d1abdb58d6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "affd7d3ddcb18bf3c7548823cf9805a6f498f837ea9ea526d688d6c1fbdd1a0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4426026838084d73ab75b25b12c498b3e68268b4b525cff8250a14b0616b900a"
+    sha256 cellar: :any,                 arm64_tahoe:   "3fa02ae35434b08ff0818a37de2b0a409c6b08123ba2a6cfb4d9a5a9cdc212ac"
+    sha256 cellar: :any,                 arm64_sequoia: "064000b37f6b32d656cbf759b09b22e776bb783856d2892dcee191c2d77ec45e"
+    sha256 cellar: :any,                 arm64_sonoma:  "b6d47f90d916f5f7b9c39f3dc0ffa9d8fa0b3cf953a33e466624020d5e1f82de"
+    sha256 cellar: :any,                 sonoma:        "1a22ffe56ca4b9f9cbe0bbf20452c9c4fb438031b747c171983b0352bf1a9a63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcc51ac16880f290f6f89c0cae095d85ed63742f143b9922cbde6ecd69a1e0ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c327ea1ba255eac2b6c4c89116d4a9f6bcf3ca462afde41bb967d4b776d02b84"
   end
 
   depends_on "cmake" => :build
