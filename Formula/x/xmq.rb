@@ -4,16 +4,15 @@ class Xmq < Formula
   url "https://github.com/libxmq/xmq/archive/refs/tags/4.0.1.tar.gz"
   sha256 "846cdd078209ee15189420c1ec47e6ffcf97fc5b196cd78b9952dc5de6c3e50e"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7e8e71d92b11f5e3ec1b5b5a863c3d173c967286d301006af555b6b9ecfb6a23"
-    sha256 cellar: :any,                 arm64_sequoia: "42095874ba74ca331ada2c067d2fbcd6e19efe70413c5f718bb4b09aef313e5d"
-    sha256 cellar: :any,                 arm64_sonoma:  "d57deede2a93c04f0f14906dd26b227cf4a155f3cbbbfec8f8907058bf0c5fc3"
-    sha256 cellar: :any,                 arm64_ventura: "8aca1bdd68bd3920d5849df45614c55c38af154ee1dd40e28cd4828ca614eb6a"
-    sha256 cellar: :any,                 sonoma:        "bf5db137f33a6b09d401804efd10ce28710a2143d8adb482a56dc24b275e26ad"
-    sha256 cellar: :any,                 ventura:       "12e55f6db9480dc671c5d23f603b88c9adac0051391b9fcbdc37116974f84918"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "165b86a489c050cdfedb74e27c16ef77d3bfb90c0f1d8e73cde376b6552531e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abaff1f72a7abb52ae8a84f576fae750c4322345327209ad996c363709fc3363"
+    sha256 cellar: :any,                 arm64_tahoe:   "abef4eb1ecee27916d91f329d384a3c1a17ca5125153e8fd3ddb254d107d7593"
+    sha256 cellar: :any,                 arm64_sequoia: "b571e14d2e29ff17a03e8473e35d9edca038c709e0d79205749330b1aa1e7a6f"
+    sha256 cellar: :any,                 arm64_sonoma:  "562c8cb50dfdc9ff71598b87fa9d6efaadf2b25f706630f29ddb44e5b445f395"
+    sha256 cellar: :any,                 sonoma:        "970ac3cf05557867cf60c48cc5426cd0703695fa946bcab872291cca1957efc1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e49777a1bc398cf8d44f69ad880f12482b632186dbb7482e66d79cc0347dd985"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f35af178ae26bb39d1dbd4ce4178c4e5e16a980ef2831aa5670b7c4adbb522be"
   end
 
   head do
