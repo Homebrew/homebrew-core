@@ -4,6 +4,7 @@ class Phodav < Formula
   url "https://download.gnome.org/sources/phodav/3.0/phodav-3.0.tar.xz"
   sha256 "392ec2d06d50300dcff1ef269a2a985304e29bce3520002fca29f2edc1d138d1"
   license "LGPL-2.1-only"
+  revision 1
   head "https://gitlab.gnome.org/GNOME/phodav.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
