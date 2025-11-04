@@ -9,6 +9,7 @@ class Gettext < Formula
     "GPL-3.0-or-later",
     "LGPL-2.1-or-later", # libintl, libasprintf
   ]
+  revision 1
 
   bottle do
     sha256 arm64_tahoe:   "f1a3876bef27aa262949baa369395e4b9312845f79b86860124773ec6eef8608"
