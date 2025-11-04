@@ -6,16 +6,16 @@ class Xml2rfc < Formula
   url "https://files.pythonhosted.org/packages/e5/bf/958badb4a48c9a91abf1e4896f81a2164127f86b53b0b099fc024c849584/xml2rfc-3.31.0.tar.gz"
   sha256 "0a1d4ccc4425aed39b5f0f833a8eb1e0f9e8f1897d3441c3a15877dee36cf484"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ietf-tools/xml2rfc.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "cc0e3717a648d36434887e28b1f0efd99ac2b65c7492a6001f75e7ffa4809e87"
-    sha256 cellar: :any,                 arm64_sequoia: "c2d946772cdc683607584b14d0a10617b3035c17ad1570606186b2074ed8bd30"
-    sha256 cellar: :any,                 arm64_sonoma:  "d2b15b0c5389ae4b8bc105e21e94b411646946d7e19250b898adc6668d24ea70"
-    sha256 cellar: :any,                 sonoma:        "67736a7b67a57e46b185fbdfcd4e85b3f31783b487cb2d8969c95842b019ee23"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b8ea54680a7ccde27e73e92e3b1669a3df2d8f414dff76027db3902f2fd72d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43a237933650d6433443b04abb1e005b83fb49e410bca08c2183d8d208df078b"
+    sha256 cellar: :any,                 arm64_tahoe:   "f18d86e7b2fa60587d8a594ad20e68c1586e90f6dee6656d5b8346e7bf60e294"
+    sha256 cellar: :any,                 arm64_sequoia: "6255a8f3ccf9370cff0210a9162692840e75138ab2b54ce08c7859d6f82fe246"
+    sha256 cellar: :any,                 arm64_sonoma:  "42d30f845e9bf29c3a040d54a6955432c95a8876b32c17e5c4eb44853a1efeda"
+    sha256 cellar: :any,                 sonoma:        "609bafb56b3582e07ca168090b34d56b0648947fc96169248e2688dae1e169c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72a6b211f38fd0550e320901a7333e560af4f790999abd982c53a94b765c83d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80b154aea07d192be381e69d8b50d8d763e4cd8a541f2e93708020dd0a1ced84"
   end
 
   depends_on "certifi" => :no_linkage
