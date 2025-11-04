@@ -5,6 +5,7 @@ class Xrootd < Formula
   mirror "https://xrootd.slac.stanford.edu/download/v5.9.0/xrootd-5.9.0.tar.gz"
   sha256 "e08e6fc73aeab08e56f716adafa9476cdfd293e28c14d0af5b1a67c06b1e6831"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   bottle do
