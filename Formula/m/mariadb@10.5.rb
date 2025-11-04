@@ -4,6 +4,7 @@ class MariadbAT105 < Formula
   url "https://archive.mariadb.org/mariadb-10.5.29/source/mariadb-10.5.29.tar.gz"
   sha256 "de49ed417f6fa90e8fee72a41e526e0983dc47f388caff9e703803cec263b826"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
