@@ -4,7 +4,7 @@ class Libsvg < Formula
   url "https://cairographics.org/snapshots/libsvg-0.1.4.tar.gz"
   sha256 "4c3bf9292e676a72b12338691be64d0f38cd7f2ea5e8b67fbbf45f1ed404bc8f"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://cairographics.org/snapshots/"
@@ -14,19 +14,12 @@ class Libsvg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "d320978f054ea4531382f20eb4b849073d774f2a9c9f97b02d6ea4fdd3423d14"
-    sha256 cellar: :any,                 arm64_sequoia:  "e0f24ee9236415330cf795a256e7b03af615239c4e81d2a26ada7f2995baf776"
-    sha256 cellar: :any,                 arm64_sonoma:   "f2adf0b4734d218b0ebdab5ae4c0eada74f36edb628d6a8a2c41d7ab7b4421ea"
-    sha256 cellar: :any,                 arm64_ventura:  "331a886e259749749bbaeed305a1727a8c4ecea79e1eca5949be34d87f0abfa0"
-    sha256 cellar: :any,                 arm64_monterey: "9b82d4f937112bd04869cb7089cf8af73a5bcaf9273c0078be79c2bd5aac6510"
-    sha256 cellar: :any,                 arm64_big_sur:  "c77d338da584cd0b58841e34be440b16ac012994888d1b4ad0938c1ea0d28dde"
-    sha256 cellar: :any,                 sonoma:         "8cf662fe70c2b08e5e3609b1538f350e111a81e825ad0499e7cd9e4ed4d96755"
-    sha256 cellar: :any,                 ventura:        "ba25653dfad1cd950f306b008f475a1a270f86615cae4ccdf86299596e5361fd"
-    sha256 cellar: :any,                 monterey:       "4240c3c651800b8f8a25ab51dfa6ed069903e22b5495803633e918a345a74479"
-    sha256 cellar: :any,                 big_sur:        "8ec002009c6156b77c475d1841ea2c98224afce021dfb629cdd2dda3cb18d37e"
-    sha256 cellar: :any,                 catalina:       "a46a3e610e875c4d3de003a0399a73272970cd89617aacc8eb0fa1257b967208"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8742eac6955fae3493c2b146ed5ac5f00b5ea0803e332ac9a9cbd371d423d1aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e8c036d685732349dde481452b4cf7c7f478ee075016dffdd66d49e2dc4010a"
+    sha256 cellar: :any,                 arm64_tahoe:   "091152c66a1d15b4dd1fb58d23f484a24bc7e4e6f3f5d93d864400e30b2a14ad"
+    sha256 cellar: :any,                 arm64_sequoia: "749dd33b051aa0a0f32dab2201dc1f34b47ca79bd40ba3c729c5a31f8ac97c59"
+    sha256 cellar: :any,                 arm64_sonoma:  "c659725aa7a0668f5995f11a2cc7b33211a88812b5d4d2d7a6f79d9d3bf4abe7"
+    sha256 cellar: :any,                 sonoma:        "aab50b6244e0d5ecc012c6e7c57eead017e45e7498beebd0ace1636ea88e7a55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7070d99efb5a529a8c86d31f0b00cc42f5840ee6abb6a240fa6778516b99d49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15d4f5e9b94291566d7a4542c8a7a58cc6fac2572825e1ecaa41edfa7d266787"
   end
 
   depends_on "autoconf" => :build
@@ -51,6 +44,8 @@ class Libsvg < Formula
   def install
     # Workaround to avoid segfault on arm64 linux. Upstream isn't actively maintained
     ENV.append_to_cflags "-include stdlib.h"
+    # Workaround for error: unknown type name 'xmlParserCtxtPtr'
+    ENV.append_to_cflags "-I#{Formula["libxml2"].opt_include}/libxml2 -include libxml/tree.h" unless OS.mac?
 
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
