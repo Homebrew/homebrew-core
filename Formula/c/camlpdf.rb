@@ -9,14 +9,12 @@ class Camlpdf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "054523536942144aac397e1cfe790c696e490cef0a141dc007507cc44713a12a"
-    sha256 cellar: :any,                 arm64_sequoia: "77f6a233df39070c851ee537db4b8bf91a7129b24eff67836cb333048d31277d"
-    sha256 cellar: :any,                 arm64_sonoma:  "5926cd4ac90bf03933efccbda9b160da172534394aab20b867bd6e36dbb6cf83"
-    sha256 cellar: :any,                 arm64_ventura: "39b8857baa16288fe2d5e3c578e6d0f2cd76a08f758cbb076ba5cba0d4cb10aa"
-    sha256 cellar: :any,                 sonoma:        "510044b9ccacc708db2f2afe0dcc4ff5b3b40531f1bd5ee9ca1774fb60fb1557"
-    sha256 cellar: :any,                 ventura:       "6635e7d007d6ba376988c8fcebe1c91a46139cbdaa0129545c3c528dbf08d842"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c0dbea7a2dcf1a9848cb38eb24735880a20657713a0b59e9108d90c260e89003"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd51104090ae31d9d09591a89cf67718c2a107fd3974d97f06d0eccdc9ebd969"
+    sha256 cellar: :any,                 arm64_tahoe:   "11905e6ecf963dd498f8375ed474be764b50922044fc210d660376d250c49f98"
+    sha256 cellar: :any,                 arm64_sequoia: "aefadfc9531ad433514d250c0ded7c4ff496682302e30157f253ed8e90ef2bfd"
+    sha256 cellar: :any,                 arm64_sonoma:  "e84c0baa3eb14d7aea916545164eeaa878a2f8bd3c9cabb80f815121018dc1c9"
+    sha256 cellar: :any,                 sonoma:        "a27ffe411ba9917e6805e1ee6f7f1a3df9258b1fa143cf48bd866d604d52a559"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8012e43591114b66a5a4e7457170dd2fc2d47b2b0957bce6e5ac730ef75677ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b238372051d39a3ccfbbbd3da90454e8977f2798df5f0f2315b827b97bdad6cb"
   end
 
   depends_on "ocaml-findlib" => :build
