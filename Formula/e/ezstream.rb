@@ -5,7 +5,7 @@ class Ezstream < Formula
   mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/ezstream/ezstream-1.0.2.tar.gz"
   sha256 "11de897f455a95ba58546bdcd40a95d3bda69866ec5f7879a83b024126c54c2a"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/ezstream/?C=M&O=D"
@@ -15,14 +15,12 @@ class Ezstream < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ce44122d7572b02ef957fe4f1a6d58512174cc2ace5021cb18e11a48df854138"
-    sha256 cellar: :any,                 arm64_sequoia: "34332f32987c8a53a1d5368b7f9a08d46410609e7c82132d8b8e124a51f2b1aa"
-    sha256 cellar: :any,                 arm64_sonoma:  "f707c6216526edfd36d62e773bccfbf616dc72071955b6811b60de26d923995b"
-    sha256 cellar: :any,                 arm64_ventura: "6f96ec34c4132e9c10c5418f8515f09c113f871e775c3550a35823f6ef97e914"
-    sha256 cellar: :any,                 sonoma:        "1fcd81d78cde696329fde5219e6f4137a494afd8212d06219957234822a95bcf"
-    sha256 cellar: :any,                 ventura:       "b4403b4d9aa440098ffe49937e5830639f54063bad5b5dd0899baca8b304d345"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "01f81316dfd43a8f52f0cebf766a635ed67884341968e18090aa76e8a6cf3d5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4227d8f8ab41ba89783745d543c132aec8b2e3edef500adce8472f8055f7bca"
+    sha256 cellar: :any,                 arm64_tahoe:   "985d55fee7a55d60c0d2cfa98a71f35e87b1e03272c9ecece67e267e14f53eae"
+    sha256 cellar: :any,                 arm64_sequoia: "6d75b37759ae3b6c4345e1ed4a137e860919c432e918b68e706937f99c049b90"
+    sha256 cellar: :any,                 arm64_sonoma:  "886d97ef61a1b7cf365634c4c1ffe893cc50242f1cc228e6d22a92f418bb4735"
+    sha256 cellar: :any,                 sonoma:        "9d21015b77c920498b613d65a7467749cb595e76a48358ddd7461cf8c3eb1d13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "953f775b15e5a138f324c0a65ac9147202c683d4ca3395e3d7718c3c30045772"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff747b5e7626436d26008c0c4f328e9817e6bf61b78ec187e2dab279cea25029"
   end
 
   head do
