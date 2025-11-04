@@ -6,6 +6,7 @@ class Fonttools < Formula
   url "https://files.pythonhosted.org/packages/4b/42/97a13e47a1e51a5a7142475bbcf5107fe3a68fc34aef331c897d5fb98ad0/fonttools-4.60.1.tar.gz"
   sha256 "ef00af0439ebfee806b25f24c8f92109157ff3fac5731dc7867957812e87b8d9"
   license "MIT"
+  revision 1
   head "https://github.com/fonttools/fonttools.git", branch: "main"
 
   bottle do
