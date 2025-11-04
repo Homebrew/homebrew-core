@@ -5,6 +5,7 @@ class Emacs < Formula
   mirror "https://ftp.gnu.org/gnu/emacs/emacs-30.2.tar.xz"
   sha256 "b3f36f18a6dd2715713370166257de2fae01f9d38cfe878ced9b1e6ded5befd9"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_tahoe:   "42ddbf461362556845f06e25d6541ac6cdf06ff8c0a227cf0dd0359538d69927"
