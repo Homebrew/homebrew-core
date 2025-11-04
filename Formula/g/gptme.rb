@@ -6,7 +6,7 @@ class Gptme < Formula
   url "https://files.pythonhosted.org/packages/d0/a2/0dc222a2854c70bce25c00c9a1c3a86e66cdde077eebeda4eb9b5199387e/gptme-0.29.0.tar.gz"
   sha256 "3cf7579f2eb5896f3c5c0b8ad6a3d27fc485b3a058da505c4183a83378f8fff0"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
