@@ -4,6 +4,7 @@ class MariadbAT118 < Formula
   url "https://archive.mariadb.org/mariadb-11.8.3/source/mariadb-11.8.3.tar.gz"
   sha256 "1014a85c768de8f9e9c6d4bf0b42617f3b1588be1ad371f71674ea32b87119c0"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
