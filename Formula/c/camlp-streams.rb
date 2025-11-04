@@ -9,14 +9,12 @@ class CamlpStreams < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a024fcd64fbed528d969bd51a27452741c1822b7f2946ece9c9b68c2d784e8ff"
-    sha256 cellar: :any,                 arm64_sequoia: "970fd620e3640135d45f61c7844b988f5a09dde94168f8649a8ec7f9e6f4a2cf"
-    sha256 cellar: :any,                 arm64_sonoma:  "1f73dac23e1b752a50fe5f3f68a6397c4a0cd7c350852451e5700c7806e00e71"
-    sha256 cellar: :any,                 arm64_ventura: "0a886bbea94a7e4d0540630b51923b68398a01ae609dd1193a251857567033fe"
-    sha256 cellar: :any,                 sonoma:        "38329d0763fc0c96171a6ac720b2bdc1cb88f66d2fff5422120cc54624123ec2"
-    sha256 cellar: :any,                 ventura:       "f4ee40b44bb00867dc0b570a71469bcf6e5f2024a32512747cddd2c5b29ff8e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "931af370b98b65b36f884ed1cb981cd88cb078bee5dac2be0dab438dd27eab07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "037b83a383c536e2c9c5303ead944d3e4439bfaeba3d5d9f21f6165ca82bf1ed"
+    sha256 cellar: :any,                 arm64_tahoe:   "e7fe4bfbf60135b74ed63cd5430c8aaa06afc4b6755562448b43061c33dc92bb"
+    sha256 cellar: :any,                 arm64_sequoia: "bb52bd02f32203ab2afd5ba95e31870d7a1434958b1c738a05d9b74d4d5d8117"
+    sha256 cellar: :any,                 arm64_sonoma:  "367be637dbd5fb4baadb86f92ca0c6758d896f78fae0ae48beb93be26004fcf3"
+    sha256 cellar: :any,                 sonoma:        "9b129d7d4072cf67c52b0ae723390101a5790799788d34d9a169111c52220325"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c6078a8ea7c69644008875bd7f8a77025cd725f0ad98038136fe39c27536533"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fb3cdc0726e6a68db04b269e89f5e3e6754bbbbf2ac102628f19edb9f8dda3a"
   end
 
   depends_on "dune" => :build
