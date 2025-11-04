@@ -4,6 +4,7 @@ class Hivex < Formula
   url "https://download.libguestfs.org/hivex/hivex-1.3.24.tar.gz"
   sha256 "a52fa45cecc9a78adb2d28605d68261e4f1fd4514a778a5473013d2ccc8a193c"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-only"]
+  revision 1
 
   livecheck do
     url "https://download.libguestfs.org/hivex/"
@@ -11,16 +12,12 @@ class Hivex < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:    "1ed30715f7cbe9d9ea8bcfbe6a257a3d2070046bbd586fcd688ad3477c3266d2"
-    sha256 cellar: :any, arm64_sequoia:  "56591673b746f964c9a11aa5d00f3f7414aecaf44189650e7542eef6796a56a5"
-    sha256 cellar: :any, arm64_sonoma:   "fec44a3603f70ad668b8340f75d5c2efd21eec82d87dbdf9e7c6272f9e41ac87"
-    sha256 cellar: :any, arm64_ventura:  "2788843263f4b80761e8c47fd4c565a2b17c740ea786b6d3c07a56cb548e9cc9"
-    sha256 cellar: :any, arm64_monterey: "4f43e6cb50e86f7035276b2f80d5f158329c3320caa06eef2f7b7cd25799584f"
-    sha256 cellar: :any, sonoma:         "b02c58d064c1463fbb8375839a8a43d4511f9e7869f934e26dfd4471a3493b76"
-    sha256 cellar: :any, ventura:        "be3ab0e828697756aef7048c02c6c9be7f2e05b7eb1445822931371f11309093"
-    sha256 cellar: :any, monterey:       "bc1a776d2a57db7b102fb788d7b7c2a7fd3b6d753df57b4881c911c99a0c0928"
-    sha256               arm64_linux:    "ae8bb40fdea46651ab1105f9c50c1bb1001809398414452f4ca597b0db5f8654"
-    sha256               x86_64_linux:   "521ab163122aa40680fe0473ca6ea2f77fdb877ac4ef417dfff93eef66608a0b"
+    sha256 cellar: :any, arm64_tahoe:   "513f520b5576ba24f182a2de912bfa318f37f7f792976b5bef917af066113820"
+    sha256 cellar: :any, arm64_sequoia: "8af38ad8bd4300148430887052eb5f84fdbe094a2bf1e9a049b6e5d5f344d96a"
+    sha256 cellar: :any, arm64_sonoma:  "103d76ee907491f3082f1225740be40d1de8c6b8f39d3f55d417a10ea41c2522"
+    sha256 cellar: :any, sonoma:        "8b0a01c675005731b25f5c38719cc69e9f3eb77bcb92c2883b88adeb90daf5c6"
+    sha256               arm64_linux:   "2e399093f65da88d153957e646969f331e252eff7863a5af3e4055dbf342ed88"
+    sha256               x86_64_linux:  "ffdf125155e8818f0a520df7b9da7da779737af046214192e16bf25be5774c07"
   end
 
   depends_on "pkgconf" => :build
