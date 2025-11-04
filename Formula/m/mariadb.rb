@@ -4,6 +4,7 @@ class Mariadb < Formula
   url "https://archive.mariadb.org/mariadb-12.0.2/source/mariadb-12.0.2.tar.gz"
   sha256 "2640eaa80b6d90bedb98d1b77efd0972cb20177c72f1b01dda11b0617c427743"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
