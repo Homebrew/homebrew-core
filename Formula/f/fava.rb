@@ -6,15 +6,16 @@ class Fava < Formula
   url "https://files.pythonhosted.org/packages/47/6f/173a424879661047438fbf8fd79eac92aa5c2f86df7129eb53c3af80d68a/fava-1.30.7.tar.gz"
   sha256 "73fa5895c9460d318e1a43f353e9571bd27c0398864e39302e052923572b57b4"
   license "MIT"
+  revision 1
   head "https://github.com/beancount/fava.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a665d52172cd087138abb3b7630a8365a1d2623fe958762d9ee77850cf7a4d21"
-    sha256 cellar: :any,                 arm64_sequoia: "1931b65b2029d4dd3d5fa8201c13f53f3cdafac87c47de4a9c6ffa6ca6715be3"
-    sha256 cellar: :any,                 arm64_sonoma:  "29d07ff2035ce05b50eabc45ac12ed3667c085099c9575263796274c5733ba68"
-    sha256 cellar: :any,                 sonoma:        "4883874568bf4ec1203b2cb6b2289a3c204ad66ffa002c5faba959a03080d35b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "163bf017a0a59f23c8be644889dbfc560e8d82bfe92cec99024e711b9a5bac32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a3b8b923ee770ba928fb5ad15c02f0fe44476f6328efa1246266d6a353a4030"
+    sha256 cellar: :any,                 arm64_tahoe:   "468fe76689d0eb44a3f70132a56f8b8e89554b5b2ab20203c9798c4f448ce472"
+    sha256 cellar: :any,                 arm64_sequoia: "54828474b6c1c2122450e36b0aeed598e62dbdb4431ef58de1156d151d4ee54e"
+    sha256 cellar: :any,                 arm64_sonoma:  "3dae9f31a2a7bc3e50d723cd63caec79f0505c0076c200254dc999971d6dcb1b"
+    sha256 cellar: :any,                 sonoma:        "3fc4eae34da88f0b72c0131cf6a581c201f5b063904061e1bf2f1b34e5b1d901"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2aaec079190a19313a52716c6fee3697a1936a321cf618069966bada8577808"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "768ac1cc894f722b9e29c282baf3b22f31175a66fd2a5363dcf276ab0abd65ea"
   end
 
   depends_on "bison" => :build # for beancount
