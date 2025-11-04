@@ -9,14 +9,13 @@ class Coconut < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83d1d10792d81c169310d529407d9672d853f751374be00b381c5645b7a781e8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aca72ab34ede7dbd58511c74d31dcebe2b90c7948d65a2ce92401e1698bd3e32"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bb036eec407591dbd4d31cdc97c01f696460ad656dcc5d0a21eb63848c551ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c486d46e3415d8c0f5064f71687f0664ad5dfe149a5ec130e459e02582b892fd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "35c3781561619654eeaf06241ab7b28e448cb3c6b8a7207757b8a00bef0428a1"
-    sha256 cellar: :any_skip_relocation, ventura:       "f2c4749a3c72981112af8c425aba75e6e249c865deb2bfcfbd38117405cfd490"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e4fd56117be54c41ce2ab71455b742018dd7a75a615f1c0098531738aeaa4d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe45beaba4b1485125f179ada7eb31ced16be05bed6fe7d515f4eb982f04e6cb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6a1429eacd7ba88e78c7cc9e1c8b0208845c4d7dcc675315fcb831e6ad797c4e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6502a220c4da2b19a4dc7194abb01a95c02f02e3f5d9837a440b95452a6d691"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c59cb4b6a3e3c16a8e12dcb6ccef7119f35649fe14cfcecf74da20dac3ea268"
+    sha256 cellar: :any_skip_relocation, sonoma:        "913e4387061d7e486ca1f85b02eb080af9078121ec3a29784433f090292f0e45"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b84d98135ff77c2dbadbd696b92746185826c2dcdb78111c6d10bf916e65c6c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59e33f91e69d5216ddc4d2dec613b7ea6e23e8f17a37946b8539cf52d1349f1e"
   end
 
   depends_on "python@3.13" # planning to support Python 3.14, issue ref: https://github.com/evhub/coconut/issues/866
