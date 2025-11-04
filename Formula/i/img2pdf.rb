@@ -6,15 +6,15 @@ class Img2pdf < Formula
   url "https://files.pythonhosted.org/packages/82/c3/023387e00682dc1b46bd719ec19c4c9206dc8eb182dfd02bc62c5b9320a2/img2pdf-0.6.1.tar.gz"
   sha256 "306e279eb832bc159d7d6294b697a9fbd11b4be1f799b14b3b2174fb506af289"
   license "LGPL-3.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "ef3cbeaff3755191c9ce0ee7776a301394eda86f9e86021015c71fa3a0456a6f"
-    sha256 cellar: :any,                 arm64_sequoia: "b88958e75b9764269eebec2f048dc3b8a9438c5f5b6165fe0390356fefbeb0db"
-    sha256 cellar: :any,                 arm64_sonoma:  "b9588271a96d950bb106f381bd56945d85901564162978052aaf70ff67ae5e11"
-    sha256 cellar: :any,                 sonoma:        "ce6146a10bc53c0407359b10e093e4803520d61a00a7cd2982aa19e2573d3a0c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f13d064d7511b8f99b887b629f6d1c07e9a54456a91c5c447ad89f6fe34b4eba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0da3f0eeb263fb2cedc3426e1b5528a86d693dd6988a231bcd7b9cc573e8cd97"
+    sha256 cellar: :any,                 arm64_tahoe:   "0d31f692a2983d5bc98d11466673c45a4f94a64ecb54eaee752e0e2d86d16d17"
+    sha256 cellar: :any,                 arm64_sequoia: "551cf1509f635a544b1b59c4391608e0a6b20a0612ae7c57907fc9a293b82f39"
+    sha256 cellar: :any,                 arm64_sonoma:  "db3f99324a3d1b96efbd6f18575c4b392e7a1a1401c70a3f771c86b507b2db71"
+    sha256 cellar: :any,                 sonoma:        "40a2edaa42895e0d5f9b6000fe9648838e035d82eee4fa9fee1dbd680693bab6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7da29336c3e06edb02a8229716e2794b6d0b386fcbae676e2c44e21752064f9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "badaac16e89bf071dbe1d7765965d199f879cf2b74e0f8dccec0a9a873888490"
   end
 
   depends_on "pillow" => :no_linkage
