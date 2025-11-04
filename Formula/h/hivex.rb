@@ -4,6 +4,7 @@ class Hivex < Formula
   url "https://download.libguestfs.org/hivex/hivex-1.3.24.tar.gz"
   sha256 "a52fa45cecc9a78adb2d28605d68261e4f1fd4514a778a5473013d2ccc8a193c"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-only"]
+  revision 1
 
   livecheck do
     url "https://download.libguestfs.org/hivex/"
