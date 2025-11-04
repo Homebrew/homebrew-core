@@ -4,6 +4,7 @@ class Libmobi < Formula
   url "https://github.com/bfabiszewski/libmobi/releases/download/v0.12/libmobi-0.12.tar.gz"
   sha256 "9a6fb2c56b916f8fa8b15e0c71008d908109508c944ea1d297881d4e277bf7e7"
   license "LGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "e1c609cd859eb380bbf438e97604222a100c5c55afa19c2d49f0ee6c24c9aad9"
