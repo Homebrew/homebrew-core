@@ -2,6 +2,7 @@ class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
   license "MIT"
+  revision 1
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
   stable do
@@ -12,6 +13,12 @@ class Newsboat < Formula
     patch do
       url "https://github.com/newsboat/newsboat/commit/3a018bbf88fef74d1af24c79f5d640c6d753ab16.patch?full_index=1"
       sha256 "af1f0969b14ae80439e4e14c5126425221eabae285ba15eeb1c63980cd905612"
+    end
+
+    # Backport fix for curl 8.16
+    patch do
+      url "https://github.com/newsboat/newsboat/commit/c80d4c30901514188502f6f858b78a0896d9603e.patch?full_index=1"
+      sha256 "92b86c657555c4b5c841e5a185c26f9b1532cd9423dc7fbbe12d3c433e2ccadb"
     end
   end
 
