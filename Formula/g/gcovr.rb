@@ -6,16 +6,16 @@ class Gcovr < Formula
   url "https://files.pythonhosted.org/packages/e4/ce/b7516854699f807f58c3c9801ad44de7f51a952be16b62a5948b358f1aa4/gcovr-8.4.tar.gz"
   sha256 "8ea0cf23176b1029f28db679d712ca6477b3807097c3755c135bdc53b51cfa72"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gcovr/gcovr.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f3219683a48643bf1589b1f819afafaf19083dff988a832967e988e9be44f73"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42b5d784304a609b5684e0b3d99f143dec0a6a9789371f5d2ab88b6102978011"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1840f1ef6bddb34a592982722c20daa6565c95266a7626f25414bf685459ed59"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7b433041ec80e4157c417ffdf835acfc505648b99c085cbe6dcfffc25bf1639b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "078e5f6d18fbc4b2b3beba412607674aef9970fbe4094a0e0e06c4d4e2c7324a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1980b16e86f79ae5443c90d0e6890c08dc3227f5875f7c195e57db474c9c9be2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6245154c7a888383910468cdb7d7431b15eabc3c01e2e462ef2e865a49c411d8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "856453915ec622e2e806e6564115a8b29acc10eb3e8848f517b7f886b9e481c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3001317222ca281652e142c40aaf297e5bf267bf4939fcb5343c7c8fe6ba4c58"
+    sha256 cellar: :any_skip_relocation, sonoma:        "15a551d30e43fbd76a9bc724fed4a1de7c3ab719a10bfad5b9e449944cc92d5f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91e733bf266a318c07a778a1fa4993b608b8d6a29cacfc5493c69a20903869d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba749608e29a48a382efa802ec17ba1e7f28897ffa2fe586f2af1cee2d3367ef"
   end
 
   depends_on "python@3.14"
