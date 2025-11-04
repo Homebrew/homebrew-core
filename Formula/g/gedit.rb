@@ -48,7 +48,6 @@ class Gedit < Formula
   depends_on "libgedit-gtksourceview"
   depends_on "libgedit-tepl"
   depends_on "libpeas@1"
-  depends_on "libxml2"
   depends_on "pango"
 
   on_macos do
