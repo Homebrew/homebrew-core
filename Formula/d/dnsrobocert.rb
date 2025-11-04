@@ -6,17 +6,16 @@ class Dnsrobocert < Formula
   url "https://files.pythonhosted.org/packages/5f/19/e8d64f9edb462c060c3fc95cae1410d7263fe8d66f80ff4a0253d7201758/dnsrobocert-3.26.1.tar.gz"
   sha256 "b4f49ce4ff6db7e845e46597e99d9d464d1ddb15bea3e9dee729643a0092a911"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/adferrand/dnsrobocert.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "b27b5c88dbe8eb251b879a6d641d7130477bee8149ac85c8c0a6063684d22039"
-    sha256 cellar: :any,                 arm64_sequoia: "f3fca402ed2835486c1ad478b73b447a9fc80659182cabe40d4fc11108e0da6a"
-    sha256 cellar: :any,                 arm64_sonoma:  "ffa1ba2c8f43cc7ed4cfc64a8403c81589da7bfc426ae3b88a6fb0b6e4637af0"
-    sha256 cellar: :any,                 sonoma:        "5c8151035024c5c1d23a148f24fc3dee751df26f9d1cffefa043543460dd4cd4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2caafe336ef5805dbc6eae9ad76ba9112957cca373409bbc0070e29c98ee9aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08bdad42249729b7419bf9e8e69edee2461c919a762aa2123feb18e4df6ca23f"
+    sha256 cellar: :any,                 arm64_tahoe:   "0a8908cd60e36de8fd553948675e10f411030ec4c478f42de0ee63afb822d369"
+    sha256 cellar: :any,                 arm64_sequoia: "809dd17d78398ad207c37f83b4017ef05b2d68d99338d07b6fcd02fec551752d"
+    sha256 cellar: :any,                 arm64_sonoma:  "bca48202aa58b327bd229ea47039640dbd0ee77286e8c6ce7f47fcc3d666fefd"
+    sha256 cellar: :any,                 sonoma:        "318a78fb8ccd934fe8b816a1c68ccc109e722ff2ead2df38b9c11e725a5cceaf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3969576bb5c4e4df904eb8f3b50163146047be67869d3171affef155069030f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "615e011d967dc6032590e65e4d515f7ee6164b8ac7b52f66152c7502264702eb"
   end
 
   depends_on "rust" => :build
