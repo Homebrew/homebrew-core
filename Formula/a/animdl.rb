@@ -7,17 +7,16 @@ class Animdl < Formula
   url "https://files.pythonhosted.org/packages/5b/79/4be6ac2caca32dea6fe500e5f5df9d74a3a5ce1d500175c3a7b69500bb3f/animdl-1.7.27.tar.gz"
   sha256 "fd97b278da4c82da88759993eaf6d8ad6fc3660d0f03de5b2151279c4ebd8370"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/justfoolingaround/animdl.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "76c8e70495c3f20a11443fb7bb5e60ab3a3b4d1588b452036d10b00e4943825c"
-    sha256 cellar: :any,                 arm64_sequoia: "83f5d6273bcde5662f5b6b94ce85ef2d4888f3730293e15b12b6abb5646b8c38"
-    sha256 cellar: :any,                 arm64_sonoma:  "8feb0684a8199f1cc06c2b544c974f3dc66721a9991cac3c40c8a31f30878e71"
-    sha256 cellar: :any,                 sonoma:        "55d2dfddf0ad960407db20f1c4ddba33bb299c4179417903846e4f707aa81c73"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "137dc036fd3c25046c9642b4cdf260a3cf175a2474dcf45cbb66de786a71a47a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b4586b185802368c5c14fe17ff1652a6cbd0f9a91ab2657c6dd5fed61a810df"
+    sha256 cellar: :any,                 arm64_tahoe:   "9a663d581aaa831267a9d020758c8e5962d4dece43a67489a4525d68fcfade28"
+    sha256 cellar: :any,                 arm64_sequoia: "d4336be64ad08c2357dcbecf84b0fb609535038a10fd64dde7c406e6b652dcf7"
+    sha256 cellar: :any,                 arm64_sonoma:  "3426b7b2035ccffc75e4c2be898123954df6d09625b9459a47423ce05ee6fd14"
+    sha256 cellar: :any,                 sonoma:        "0c05e962bd34c1c60da5d29f7ffdc5f527ee3c2c9531b4dacf61379afc5d59ba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdd4e7d41e4ed34284d9229e198f95eb05c2e445c7d3f528a10abeb1bec371b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "139de394e6a5375b2e3276ea77f3a0f58cff05e17bb60903307b5e451d9493cf"
   end
 
   depends_on "certifi"
