@@ -4,6 +4,7 @@ class Wayland < Formula
   url "https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.24.0/downloads/wayland-1.24.0.tar.xz"
   sha256 "82892487a01ad67b334eca83b54317a7c86a03a89cfadacfef5211f11a5d0536"
   license "MIT"
+  revision 1
 
   # Versions with a 90+ patch are unstable (e.g., 1.21.91 is an alpha release)
   # and this regex should only match the stable versions.
