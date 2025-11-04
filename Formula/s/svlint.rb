@@ -7,14 +7,12 @@ class Svlint < Formula
   head "https://github.com/dalance/svlint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d40b78886e5598a3f1e7ab0bc66572e6e7d2c848ceeb7ddaad8d42737132c755"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc512aca745d4aa144c5c1e747f83c2379c2ab9ff59003b814528e6bc17b3c82"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d77af372524eac001d83bfd9a64d2289ae559ecf29cc3da6e9994a42080785ec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6b32034e9b4c0acdf08b05b30ea05eb70d9591392c0fd2bbe8ccc2c32ebd368"
-    sha256 cellar: :any_skip_relocation, sonoma:        "43270ec7ea8569238437f95a9bb548e483d8d95d49f71d16ebc3bd45756dbba8"
-    sha256 cellar: :any_skip_relocation, ventura:       "8787afb02c4a3cef60eabb963e881cee53b4331cb42d1820c54cd771b4b4069d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c52133f3b10c69aec264a3a1372abef0bf7d9238b38faad08a476894805de8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ab4834d5d9e90d2e26c7a46029013e12e0f6c59febf6a3a94c6541c15ac3762"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0c7f5d699c98ce1810f10f1341ddb6be404ef7bbb78f1691e54b1b30ca7ab11d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f304dfea7f9fa13a5ad184799901d98b97fb3d63e0fcb29f47b493c472c8ab2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45535bbe0f59b90e30295c90ab9501417562413e8142fc5db1c04c79945e318c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60542d776cd14eacbda668e5071821fd3afb3f46307c58fad1b3fb5e174bed0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb5f9fe1851248d81df1f8a116a6091cf818265bd85d80978f7a3a99f3fbe623"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6335fa6a65a382040f5c71d8a377c97f65a0637771d955282303bbda39da9ea8"
   end
 
   depends_on "rust" => :build
