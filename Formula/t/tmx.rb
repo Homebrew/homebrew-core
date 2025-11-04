@@ -7,15 +7,12 @@ class Tmx < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "1b3a8a6fd858dd20ae6077447eada7a22689c93c0e11beeaccd3231d997be4be"
-    sha256 cellar: :any,                 arm64_sequoia: "b90d11cd5cb3b8b5d3ed6755386f7a0c61cba35135bf113366b0fe55170c16ed"
-    sha256 cellar: :any,                 arm64_sonoma:  "338149122323df8764c414aca5f168221b3b239e988c28a10e4f2a1f08aeb10d"
-    sha256 cellar: :any,                 arm64_ventura: "824f876037e825eee41439481c88496183ceeaf3b28b2f6713b76947e000e1d5"
-    sha256 cellar: :any,                 sonoma:        "373c7ff58f085aae49d1472d061222aed7d3ed7c67675a982333c77d5bff6ad2"
-    sha256 cellar: :any,                 ventura:       "245d68a570c8b1bf021dd5d1fbf40d1b35d0ad3a3fe6839824af29548d8e05b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "86b83ccccb9e5ab0ab728bcb5fa4c3ec20f95e2a837d28f0ef20de71cd7f8adf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c43d5b6605675c73193fff26c3f7e8dadbeb89833e9d5dc4a8e6cdbef76526cf"
+    sha256 cellar: :any,                 arm64_tahoe:   "59fd63f6b2a662a31a2fe3236c1de7ba84f6e77a2841aeff3b88887529c6ee0a"
+    sha256 cellar: :any,                 arm64_sequoia: "02fab021d2ec2f4b39dbf13c2b9413b8fb83dff9a6ef545c9cdd33a4b836f0c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "113721aaa83e493f710b297e0d2380184ec6f833d60e00e29ff791df81678de4"
+    sha256 cellar: :any,                 sonoma:        "a73375f15292e0db390e8558cdbee774ef6de08263b01d0559e7fadd20c46ca7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "09de5000a939def5e7509f5f5b1336ed49e1fe1971ee0edde526cc1d4eddf854"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc85e452c93cdf87fc8433f8ec600978b8083dc7b1d56797c6596270a48b62ae"
   end
 
   depends_on "cmake" => :build
