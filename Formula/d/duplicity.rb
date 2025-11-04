@@ -10,13 +10,12 @@ class Duplicity < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "384158d253d31f0e8af44f2befa8e6ea746144fc59b28dd58ea7b087c34c53e1"
-    sha256 cellar: :any,                 arm64_sequoia: "a6622fd6935aa16ee7a036e3521e9027b9b02bfc0ca0ee587b86cbcd29734999"
-    sha256 cellar: :any,                 arm64_sonoma:  "2859cd0333c0d6fafbb9ad9f3e2840c3145a290b9cb488f502c8396e1cf8458e"
-    sha256 cellar: :any,                 sonoma:        "d3dc3a8d369b236189ee1c60fd9677981940aabeaf09370b98562c54fc8a78f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2a6a8b1bef462737ccfb46e6a7e8d2b902ee7828f1422ef624e281dc01e809a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b4f2b0e23250ef8eed756291606fe90b10453758eb0bcd8297dcbaa6627b675"
+    sha256 cellar: :any,                 arm64_tahoe:   "93d9f22d8f2c1a87dd31eca6d75f9ab00a6b41a96e72dbc23253db5fe129edc7"
+    sha256 cellar: :any,                 arm64_sequoia: "be6a7adec0c562300f819a330c712d46a52a071b1529450c923cfebbcf268a15"
+    sha256 cellar: :any,                 arm64_sonoma:  "f2e5cb4c94716ce318352bfb709e66190289b2fcf9dc5ae5904ed401c6d964f4"
+    sha256 cellar: :any,                 sonoma:        "97d0e028e24abf210ee87bb23c79c5563e4ddee3c9702a55c89a70d85ac1ccb6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dbf1a5e1aa9f6aaa4317c57cfb8d0220f5288d69884fc9faf8f12decaf2c864"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc8ba6b30fea5cf2c0da111c2cea7b8c95acdbf9dbecfd9df133826e511f4b1c"
   end
 
   depends_on "gettext" => :build # for msgfmt
