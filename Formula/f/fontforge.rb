@@ -4,6 +4,7 @@ class Fontforge < Formula
   url "https://github.com/fontforge/fontforge/releases/download/20251009/fontforge-20251009.tar.xz"
   sha256 "69046500185a5581b58139dfad30c0b3d8128f00ebbfddc31f2fcf877e329e52"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/fontforge/fontforge.git", branch: "master"
 
   bottle do
