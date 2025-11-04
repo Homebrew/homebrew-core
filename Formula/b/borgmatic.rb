@@ -3,9 +3,10 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/27/a7/b4b1f41084badb6006a7be278a5f92d2d383fc91e413dcae070281d2e779/borgmatic-2.0.10.tar.gz"
-  sha256 "af498739ee3651c8dc40d8266668a93f8e1a1ba0937b8820059e23f19cc8cc58"
+  url "https://files.pythonhosted.org/packages/4f/47/ae5bb4c00d5a72c975bf95453ea39ce433e2788950c21039d6ccdad6c299/borgmatic-2.0.11.tar.gz"
+  sha256 "5fc22b2c01f4af050e196331f6d0c720bf03788237e5808e799c83f7bf71fe09"
   license "GPL-3.0-or-later"
+  head "https://projects.torsion.org/borgmatic-collective/borgmatic.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "d8a00c7a6e3e99a5d33afaedd9c6024aa852fa7329f819725a025e52636d10e6"
@@ -15,8 +16,7 @@ class Borgmatic < Formula
   depends_on "python@3.14"
   depends_on "rpds-py" => :no_linkage
 
-  pypi_packages package_name:     "",
-                exclude_packages: ["certifi", "rpds-py"]
+  pypi_packages exclude_packages: ["certifi", "rpds-py"]
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
