@@ -5,6 +5,7 @@ class Gnucobol < Formula
   mirror "https://ftp.gnu.org/gnu/gnucobol/gnucobol-3.2.tar.xz"
   sha256 "3bb48af46ced4779facf41fdc2ee60e4ccb86eaa99d010b36685315df39c2ee2"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
