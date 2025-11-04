@@ -6,6 +6,7 @@ class Parsedmarc < Formula
   url "https://files.pythonhosted.org/packages/64/7c/4af02563cba88551f6dc3d028eae195f411699554f5cf1ac544a6d86ff05/parsedmarc-8.18.7.tar.gz"
   sha256 "9906552d9ea39e51f3fc2f529b1c2b82a955d91e2153202efde27696711660ca"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/domainaware/parsedmarc.git", branch: "master"
 
   bottle do
