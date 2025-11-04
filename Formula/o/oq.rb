@@ -4,7 +4,7 @@ class Oq < Formula
   url "https://github.com/Blacksmoke16/oq/archive/refs/tags/v1.3.5.tar.gz"
   sha256 "66b2d879b6e2061121c50b8e584ce82f95fe79348bf3696ca38e5910a6c42495"
   license "MIT"
-  revision 1
+  revision 2
 
   no_autobump! because: :requires_manual_review
 
