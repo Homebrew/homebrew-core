@@ -4,6 +4,7 @@ class LibxmlxxAT5 < Formula
   url "https://download.gnome.org/sources/libxml++/5.4/libxml++-5.4.0.tar.xz"
   sha256 "e9a23c436686a94698d2138e6bcbaf849121d63bfa0f50dc34fefbfd79566848"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
