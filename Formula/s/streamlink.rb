@@ -6,16 +6,16 @@ class Streamlink < Formula
   url "https://files.pythonhosted.org/packages/51/8c/6c3d281451dd46751b03a16b297bdf16b3145e5051c1c3c7335a59576c2f/streamlink-7.6.0.tar.gz"
   sha256 "a1df953fab7dab55c61f563b533ce237159a1b48f6159bec95e907857fc09266"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "2edcd6af5d9da9284e198dcf60268c7c4ddb994c372757a5ab3a233ad0a93a57"
-    sha256 cellar: :any,                 arm64_sequoia: "c5b729c2dbe81dfbb6b52951257e064273fbe469100e8ad4a510b803944be20f"
-    sha256 cellar: :any,                 arm64_sonoma:  "7a7ec732c85252af37e9ebf518c76871e578ceb9e96ebce241966a573f893f65"
-    sha256 cellar: :any,                 sonoma:        "c7269135c446658c7cbb7156acf53e1403e34d1c0c1585c5c170a80c4fbd764c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "174df4b2d5f4c07ad97a97562b8f9aed88dbb956fa80c0b20b0ca4fc4b28ebab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a395f24acfaf7dc48e1d0eb085f47f3cfcfe24bf9782c718b286836b5d66365f"
+    sha256 cellar: :any,                 arm64_tahoe:   "8a09af58d4d2436ee13012965fa15f33a6ad00b3ae45ebd26a270ff3070edc2a"
+    sha256 cellar: :any,                 arm64_sequoia: "338424f3e4c9b1e56d3ff345769796d4c2d14acce2d2140c241c502321d1f1b7"
+    sha256 cellar: :any,                 arm64_sonoma:  "1a5f612823a4f44142604203b22e2271db290dbe3a0ed96691e125cf73d2e4a0"
+    sha256 cellar: :any,                 sonoma:        "7bca375c51f37a01967ee74a7c95079111643aa98d96f9ad44f81fc1d64990b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "03585397826b47b03d311eb638fc3d286d171f5b11a4e7100a3e35d99cf066f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68686672bc3a39d0684c1c4823938a6942d5084c5ea83ff940559431dff8fbe5"
   end
 
   depends_on "pkgconf" => :build
