@@ -48,7 +48,6 @@ class Manticoresearch < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "expat"
-  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   # Workaround for Boost 1.89.0 until fixed upstream.
