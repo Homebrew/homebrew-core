@@ -6,6 +6,7 @@ class GtkDoc < Formula
   url "https://download.gnome.org/sources/gtk-doc/1.35/gtk-doc-1.35.1.tar.xz"
   sha256 "611c9f24edd6d88a8ae9a79d73ab0dc63c89b81e90ecc31d6b9005c5f05b25e2"
   license "GPL-2.0-or-later"
+  revision 1
 
   # We use a common regex because gtk-doc doesn't use GNOME's
   # "even-numbered minor is stable" version scheme.
