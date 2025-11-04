@@ -6,6 +6,7 @@ class Fava < Formula
   url "https://files.pythonhosted.org/packages/47/6f/173a424879661047438fbf8fd79eac92aa5c2f86df7129eb53c3af80d68a/fava-1.30.7.tar.gz"
   sha256 "73fa5895c9460d318e1a43f353e9571bd27c0398864e39302e052923572b57b4"
   license "MIT"
+  revision 1
   head "https://github.com/beancount/fava.git", branch: "main"
 
   bottle do
