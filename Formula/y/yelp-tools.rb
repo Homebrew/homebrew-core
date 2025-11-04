@@ -7,17 +7,17 @@ class YelpTools < Formula
   url "https://download.gnome.org/sources/yelp-tools/42/yelp-tools-42.1.tar.xz"
   sha256 "3e496a4020d4145b99fd508a25fa09336a503a4e8900028421e72c6a4b11f905"
   license "GPL-2.0-or-later"
+  revision 1
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any,                 arm64_tahoe:   "7cc5521c969220f384b20411deb90d5e05f1d178d8203a52303ce5a89d38ab82"
-    sha256 cellar: :any,                 arm64_sequoia: "772ad45116fc15ae25475b985b6248b4c3c18c78116f012864c62aec91fca64f"
-    sha256 cellar: :any,                 arm64_sonoma:  "5a3a6c2a52bbae96adc5eaebe69181fd4b4451d2626deca6008dd012b1e54ca8"
-    sha256 cellar: :any,                 sonoma:        "2afea63853c934f240b83e6a48e83a107259c812a13e2725b033cc98ae0618f7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8186b8958c98951dade64261639e1964cd136c2e806bd9eebce23fd6d0bef8a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9d7a219224a7171620bf7f88e571a7c2af1bf887601012691817c420f2f7361"
+    sha256 cellar: :any,                 arm64_tahoe:   "aadb2689c5b993d7f4905f462f40ef9f83c2460e35122d580da4e7fd5303b3db"
+    sha256 cellar: :any,                 arm64_sequoia: "194d205a98e507aa391c1ee0df60a573a1f208cf18c44a8818de61fbe2cfea0c"
+    sha256 cellar: :any,                 arm64_sonoma:  "f9ae800d882b00715a2dc569a206ae2023db271190f6e638e674e90e1fe0e5ac"
+    sha256 cellar: :any,                 sonoma:        "80c6a766ea856ce7c3bc6350687e7d2462ad9ee068bde3aa7cb9c7595c77f3b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c81f1d642b3dcb2ba87061c787c8bc93836b1b82d572b5cc188283c2912db85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "116324ef6b430649dec205fb66c33adc09ba9f719cadf7f33cf9d32e54c48de1"
   end
 
   depends_on "gettext" => :build
