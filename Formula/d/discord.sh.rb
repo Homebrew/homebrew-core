@@ -15,7 +15,7 @@ class DiscordSh < Formula
   end
 
   test do
-    assert_match "Usage: discord.sh", shell_output("#{bin}/discord.sh --help 2>&1")
+    assert_match "{ \"wait\": true, \"content\": \"Hello, world\" }", shell_output("#{bin}/discord.sh --webhook-url https://example.com --text \"Hello, world\" --dry-run 2>&1")
 
     assert_predicate bin/"discord.sh", :executable?
   end
