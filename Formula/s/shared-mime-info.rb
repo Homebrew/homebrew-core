@@ -4,6 +4,7 @@ class SharedMimeInfo < Formula
   url "https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.4/shared-mime-info-2.4.tar.bz2"
   sha256 "32dc32ae39ff1c1bf8434dd3b36770b48538a1772bc0298509d034f057005992"
   license "GPL-2.0-only"
+  revision 1
   head "https://gitlab.freedesktop.org/xdg/shared-mime-info.git", branch: "master"
 
   livecheck do
@@ -17,15 +18,12 @@ class SharedMimeInfo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_tahoe:   "634a2d63c5004f785c5186faab2930fed9ab42ab3bf7668c57f66c9d8f4d059d"
-    sha256 cellar: :any, arm64_sequoia: "7feb34ce6afb650a39b05fd0dfd75225b659123ae42ce571076eaf2d640c8232"
-    sha256 cellar: :any, arm64_sonoma:  "a8235d09d748ebe4c84a0aebdb57c33cd030334050bc9bf4efd57a5f732780d8"
-    sha256 cellar: :any, arm64_ventura: "887f26165f0917b9ff0e72f0fe15facb37402df8209d98433358d631a482e7ec"
-    sha256 cellar: :any, sonoma:        "6ac3353108a294266ac4769c90c06f28f73ad1bee527869fbb5a96414ffe136f"
-    sha256 cellar: :any, ventura:       "a58ae3ada921d8b224fd9c0c0ca992ea6c71cfadb99c1d87dd21a94aa26580c7"
-    sha256               arm64_linux:   "8785de2e5e75756fba7ad4d6c686ed6cdc43047124f7f63c373cdd5a131853c4"
-    sha256               x86_64_linux:  "d657dadf099a3aea5f7fbdb74310d7f973f551ac62555a8f5699cd6a02642ce7"
+    sha256 cellar: :any, arm64_tahoe:   "fa674742c5c404fb7265f93a797e483c3ddec4a405180c467d73ffa3a4c2ad86"
+    sha256 cellar: :any, arm64_sequoia: "e67c7e8b3bb8386eaebdcaae85eae6a93b8ff0c0f5a710f80c114885edd8d784"
+    sha256 cellar: :any, arm64_sonoma:  "a3364bac447af0df2a587c1383b846f425fecd8ce465d804ddfda36ddb64dd94"
+    sha256 cellar: :any, sonoma:        "b5060956f4a630be979756cd6a331c223d6537951ee60d925f5e756ad15a1cdb"
+    sha256               arm64_linux:   "a1d39e8208f92717cee852ccc2f2fede36477a6e35bad0c95d2473989c789262"
+    sha256               x86_64_linux:  "fa1730cfb12535854fbbefeadec508fc4d066b8284b17ed3e89be9405ab8ddc2"
   end
 
   depends_on "gettext" => :build
