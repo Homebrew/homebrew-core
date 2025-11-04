@@ -4,6 +4,7 @@ class Igraph < Formula
   url "https://github.com/igraph/igraph/releases/download/1.0.0/igraph-1.0.0.tar.gz"
   sha256 "91e23e080634393dec4dfb02c2ae53ac4e3837172bb9047d32e39380b16c0bb0"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "2bbee1fb97caa1f10aa7744ff1bc2e817099c60b1219efc397d7aef64bfd3263"
