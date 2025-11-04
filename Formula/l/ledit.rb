@@ -15,14 +15,12 @@ class Ledit < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "43b80195f585913bed776d670edba2de09548bae5b4bd0c025b9d9288490f1fa"
-    sha256                               arm64_sequoia: "653f7b3a2c1e9e43277cd71a1372411055cffdb00c117338b7bad7a25f46105d"
-    sha256                               arm64_sonoma:  "561049e6938a5ea683f00cdfba159504b442c45f2d81ff2daf0dea68ac9ce92b"
-    sha256                               arm64_ventura: "00a97eb38296ecdd8477456b8e8d584c6c6798bab6075fe3188058d95636d1a1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f6de3036421e83e22dd080005616d42109671979947a7408428871a7a51e6239"
-    sha256 cellar: :any_skip_relocation, ventura:       "be5d93d43d670cf829f83b8540811d701a7eba2310a0c49b75b0349ff160ddbe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa138a11a2f7d147c880e4075da50d042f01f53587356384430e6610f2473eb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa138a11a2f7d147c880e4075da50d042f01f53587356384430e6610f2473eb0"
+    sha256                               arm64_tahoe:   "0fe88c4c03d6f9d38e2b230ecf971637752d04a927d710cfc8e62e8f9b0dd899"
+    sha256                               arm64_sequoia: "710dc116b1f5858005b3b135313ecd8c156ae196d0e3107877f31ef226ef11d9"
+    sha256                               arm64_sonoma:  "7f8f6e093464dc08dd0d0066ddd1c1297ca5028ed1a00d24d0781615323572a9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6443e3f4a7374c9fbb06bc37c792739d9abdc6762ad7607eac74c8ea28f3c158"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed4115e5c24dd1325cb8c5106f59b4aaa6a719a9e719a5ce0437a273b752ca3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed4115e5c24dd1325cb8c5106f59b4aaa6a719a9e719a5ce0437a273b752ca3c"
   end
 
   depends_on "ocaml-findlib" => :build
