@@ -4,6 +4,7 @@ class Podofo < Formula
   url "https://github.com/podofo/podofo/archive/refs/tags/1.0.2.tar.gz"
   sha256 "4f46edac16e0b3badba2e972b3e3b7d8381845fad3eb39a02562cb7a04207d45"
   license all_of: ["LGPL-2.0-only", "GPL-2.0-only"]
+  revision 1
   head "https://github.com/podofo/podofo.git", branch: "master"
 
   livecheck do
@@ -12,14 +13,12 @@ class Podofo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "087debfaf5086a933deda3bd9178e3d5b7f094ad5e03bb2a4dccdcef42194273"
-    sha256 cellar: :any,                 arm64_sequoia: "7355a7ea6cef2c5e2a9594fb743d9ac9f2be8fd88521e259467197ba1aeccfab"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8724b528af9b6c9002f30793a6fe1a0d1e95b72ed4757a1d0ddf24709a85f37"
-    sha256 cellar: :any,                 arm64_ventura: "e94c577a3ee275ebc4c9b917441af055b91bae18aa9469916fc44ddd9fb7cc90"
-    sha256 cellar: :any,                 sonoma:        "a4cb1de96cf8c928fe96293e051c41a81c6dd1de35ac0bd0f93abc806c3afe15"
-    sha256 cellar: :any,                 ventura:       "d2ca3b3ed1d023f777971e46b535956bdc55172973cf296f241c057a95e068fa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de028ffaf3cde82277c24a1d67897753bff5ea8659876db678a305231406d2d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be719e3165a2147327f15f9e338fcf218589c60c594df3455927be5e31868b73"
+    sha256 cellar: :any,                 arm64_tahoe:   "b2ede0bb36c3b39bbd826f2dcc6839c51d670d4384a5fe29b7e0f01158a29122"
+    sha256 cellar: :any,                 arm64_sequoia: "366bba6682bf44d25287746fee42cbf2681d3f29e288814ee6fce5e83a046fb3"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d8700373b6887e4907eda39021308a10744b838b9ecec6e5e2849b501900c4d"
+    sha256 cellar: :any,                 sonoma:        "b0ba3e2db8230e2d7906710b5c7647b72ecb4076eb5096383f473354bb5757e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "473e71fd94c3eece308f21527168da7e78d776c4cb164aea987d81d545544596"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "256c8a39e4debe49299776dac6661a0eca9b0fa679ab0ae8af8249890baaf16d"
   end
 
   depends_on "cmake" => :build
