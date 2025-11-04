@@ -13,13 +13,12 @@ class Camlp5 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "177918da0e18160f266ff72f36207ab0e2400064bd8af57e19d8e6f2201639f3"
-    sha256 arm64_sequoia: "a8d26e5584cfa10b9134b32810973d7609ed309df3096b2eaff633d89ccb526b"
-    sha256 arm64_sonoma:  "9b360c9971322cd2f08cad30e1aad3a5095cdd31ddd2b7367841b2abd4910a7e"
-    sha256 sonoma:        "1d2860a5ceb227d268ec5b2ea2138d72e5eedc4765620ab7268f12b86fe4947b"
-    sha256 arm64_linux:   "a502e19ab5426f0e9a7f9a2f2e1e6853d7826e8fe8f4cb94c0e34a591a71c0e2"
-    sha256 x86_64_linux:  "215a197c95d790cb24d50c6f55a82bbe84b2de7beaf9ac5039ad680bb04a83dc"
+    sha256 arm64_tahoe:   "61dc0c7d0bf2a5e91afcba91ce127172c6ad3e2cd64d18950875ea6e914433f5"
+    sha256 arm64_sequoia: "2c10995a40dac4ff4e5686d498ea76a4c680b5e0ac0d2d4e26992e3488e94fa6"
+    sha256 arm64_sonoma:  "3a07acb738d7410fa991e69d9bf9ee454c152c21060a1989715c6ce8db80c4a9"
+    sha256 sonoma:        "83822f4200ee229c2d9c46b5c650efd37aba4cd0f73dc1effc815b841b649986"
+    sha256 arm64_linux:   "9037191c4e95682c02785002444fd5cbbea75035025216a49cecda6bb60b92f7"
+    sha256 x86_64_linux:  "a4411131337232c2a85b7dc0153fcc020ea43b177991952fe6bea444fd4f4cc7"
   end
 
   depends_on "ocaml-findlib" => :build
