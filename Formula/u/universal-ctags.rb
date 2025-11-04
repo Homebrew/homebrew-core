@@ -5,6 +5,7 @@ class UniversalCtags < Formula
   version "p6.2.20251102.0"
   sha256 "a920c411c2da33f7acfc0e53dbfe610080b78330114fbdd435856257a4234be0"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/universal-ctags/ctags.git", branch: "master"
 
   livecheck do
@@ -13,12 +14,12 @@ class UniversalCtags < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "012dd4be0ec320cb272e2c9f9e7fe8db14ceba515eef61b8c3a0496f68a0c936"
-    sha256 cellar: :any,                 arm64_sequoia: "afeb31c2b7324d5490229fa87296ff3ab2de6a5ed118e648108448b76e90302f"
-    sha256 cellar: :any,                 arm64_sonoma:  "0c8961ab1a1888cf8a8466de0ce35d1b9245d7c1eb36d0d05a25e7b1bab8ce18"
-    sha256 cellar: :any,                 sonoma:        "58ded787f2ae1acae7ae91a1ad0f0c41a472c318531e2a383fb2701af24f54d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "664cd0e44ed35789d1dfb0e916f68e8fb06b5ab7f46748ba7181a0f304b89377"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfed90184e56481e5059b02f1972fbb647475b6b97a4f2754343eb9e56b9f53b"
+    sha256 cellar: :any,                 arm64_tahoe:   "2e7a11740fe250ea2d7976caf01a77b053ef119908b1f69e6660ab0e27bcd747"
+    sha256 cellar: :any,                 arm64_sequoia: "4f1059e8be111dfc797b0cc30e1310032c4a11401b26498f46761827b5dad13c"
+    sha256 cellar: :any,                 arm64_sonoma:  "75d5f8dac8ca4389c80398787df12e49be2a82d94dc7c3d766729553f3da14bf"
+    sha256 cellar: :any,                 sonoma:        "4cb5b7c11a7e501dbe63e75680463b9eb8f2e1c3aec863492afe5fd31db7a666"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5765a37d86b1c4b714d5f97e29704634332397e05ac6797887b4bee0ba61f1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28546b8f6d383806ab61f335e04cf55849b7636f349bc4c2a37b6b3b37fa8e48"
   end
 
   depends_on "autoconf" => :build
