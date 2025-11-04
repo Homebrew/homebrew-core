@@ -4,20 +4,18 @@ class ColladaDom < Formula
   url "https://github.com/rdiankov/collada-dom/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d"
   license "MIT"
-  revision 13
+  revision 14
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "79f4fe2716ff40c5d428aa426e196a4e7f4d35650ba98aa8e94ff6b7240872d1"
-    sha256 cellar: :any,                 arm64_sequoia: "121ac6caf851ce8419fdcd32022e39581347816399d24dcb831c042d0a4e1ff9"
-    sha256 cellar: :any,                 arm64_sonoma:  "4369bf4e5c16cf901edbbdaec4b1e374fa42dee2a527c6cfc6c55bdc5e7dd4c2"
-    sha256 cellar: :any,                 arm64_ventura: "c3386425b2597b815b79002e2bfa629e4c8c92b50119def90c2e63153f86eacb"
-    sha256 cellar: :any,                 sonoma:        "d649bd1ff5c6c3db62909c949f9ce6f6713b46fed91255ef93be32742ca58b7b"
-    sha256 cellar: :any,                 ventura:       "3c00de7fa89c1d6e750d77308ccc56f46e0698e4192e42c33d420e0534ab9535"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "62ec1ee257626dd9e7f5c1c874695a99a388401a0597d8f4bf9c9fc22caef0a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "405679197a0c02d886159df43321ac8d3553bb91089aa61da54a83c3643ee18f"
+    sha256 cellar: :any,                 arm64_tahoe:   "262ff6d093cd5cf4c93d6771dc5652189d1d0545c1ed5fb9ed7a0924d2394e6c"
+    sha256 cellar: :any,                 arm64_sequoia: "13413012e59dd5274b56bcbedff590d2940e6f2929fe75e210d59e1ce79b1e4d"
+    sha256 cellar: :any,                 arm64_sonoma:  "2e667eedc409a0c7d7fc905667fee3e9b99d3784993096cf9f8295b9a5a31c8b"
+    sha256 cellar: :any,                 sonoma:        "1594a0565e3052099419571b88bd2cbceb229163ac33bf6d2a2c6025c3eab57d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a41950947d7ce752b2d9fb00fc3a0d035a57efdca87ce2ca471e2092797fdc9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "199d63bc915ff1606d3a61710ed010a564f6ed5235be4e2928651d9b610c1ac9"
   end
 
   depends_on "cmake" => :build
