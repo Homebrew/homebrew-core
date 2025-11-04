@@ -17,14 +17,20 @@ class Haiti < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf1cab0eaadd053425ec6af959b808b9b8c60f12e531791ec6215cf009529e33"
   end
 
+  depends_on "rust" => :build # for commonmarker
   depends_on "ruby"
 
-  def install
-    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
-    ENV["GEM_HOME"] = libexec
+  uses_from_macos "llvm" # for libclang
 
-    system "bundle", "config", "set", "without", "development", "test"
-    system "bundle", "install"
+  def install
+    ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"
+    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
+    ENV["BUNDLE_WITHOUT"] = "development test"
+    ENV["GEM_HOME"] = libexec
+    ENV["RB_SYS_FORCE_INSTALL_RUST_TOOLCHAIN"] = "false" # Avoid installing rustup
+
+    # commonmarker fails to build with parallel jobs
+    ENV.deparallelize { system "bundle", "install" }
     system "gem", "build", "#{name}.gemspec"
     system "gem", "install", "#{name}-hash-#{version}.gem"
 
