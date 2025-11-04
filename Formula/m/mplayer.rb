@@ -4,7 +4,7 @@ class Mplayer < Formula
   url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.5.tar.xz"
   sha256 "650cd55bb3cb44c9b39ce36dac488428559799c5f18d16d98edb2b7256cbbf85"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later"]
-  revision 1
+  revision 2
 
   livecheck do
     url "https://mplayerhq.hu/MPlayer/releases/"
