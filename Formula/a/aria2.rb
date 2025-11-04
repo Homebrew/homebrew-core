@@ -4,6 +4,7 @@ class Aria2 < Formula
   url "https://github.com/aria2/aria2/releases/download/release-1.37.0/aria2-1.37.0.tar.xz"
   sha256 "60a420ad7085eb616cb6e2bdf0a7206d68ff3d37fb5a956dc44242eb2f79b66b"
   license "GPL-2.0-or-later"
+  revision 1
 
   no_autobump! because: :requires_manual_review
 
