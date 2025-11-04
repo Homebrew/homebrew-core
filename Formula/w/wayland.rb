@@ -14,8 +14,8 @@ class Wayland < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "9a73dcb69876109613e1600769b212cc38b75e86845984ce28d3cdf018e5f0d7"
-    sha256 x86_64_linux: "f4c8b2eb5f7f99e5ed8dfb3a3df173d1df5ddd53437f23d9d147a6ee0f09c111"
+    sha256 arm64_linux:  "0402aef28c24817e975daefaffff0ef5b308e6de8e467cdded83d70a8ed75c39"
+    sha256 x86_64_linux: "dee44b400011624d32fa05d48af97d2ea6856180bee9859aa9d6e2026094891c"
   end
 
   depends_on "meson" => :build
