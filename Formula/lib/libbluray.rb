@@ -4,6 +4,7 @@ class Libbluray < Formula
   url "https://download.videolan.org/videolan/libbluray/1.4.0/libbluray-1.4.0.tar.xz"
   sha256 "77937baf07eadda4b2b311cf3af4c50269d2ea3165041f5843d96476c4c92777"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://code.videolan.org/videolan/libbluray.git", branch: "master"
 
   livecheck do
@@ -14,14 +15,12 @@ class Libbluray < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "6d5900d7399a70d07ceee573051914a3df9dac1b64eeb8e0ea6dc85d0ab5370b"
-    sha256 cellar: :any, arm64_sequoia: "c0de9ea880e1f735514ed9857c8c862b37fb3cfdca7c929e8f0ef334900b7864"
-    sha256 cellar: :any, arm64_sonoma:  "5d85e63aaf5ce3cf414ae9d0a8f6a274e4899dd8fdeabb249799cc5237644498"
-    sha256 cellar: :any, arm64_ventura: "0a29f835646644de3a4933c9a56d9555683311f1c5f05bd2160e9ff0bddd77cd"
-    sha256 cellar: :any, sonoma:        "e2b27ef091b17aaf34664816d28ca6586e76930b53b65d5e39b05f4f3e8cddbc"
-    sha256 cellar: :any, ventura:       "f31c8017c1892bf08afe674a68ae7ebd08c7c5624903ee7e5ae6a31a17ea957b"
-    sha256               arm64_linux:   "10279aae15df24736310c22e8680e5e2d803a6d6a8b3e2c478dadfdf189e540e"
-    sha256               x86_64_linux:  "78832467961baa9a449b095d9bb0a9f015336e7286c7bc5cb37cfadadbaa29bf"
+    sha256 cellar: :any, arm64_tahoe:   "0ec773a6a338ab74b0e563a13065853d94252ff2c8adbbe5758bed9086d052de"
+    sha256 cellar: :any, arm64_sequoia: "b14c0952114a372fe73e50c6110b8970e01e6e0d5227c5357bc0080a0a0033c6"
+    sha256 cellar: :any, arm64_sonoma:  "dbe261eb5439a5343510b81e30df6c594a92fc9cedd079ada19b2f8967d26541"
+    sha256 cellar: :any, sonoma:        "fa37611ed58f0f605ed1851b67c3b06ea40072b08f2470b82aaa2d831e94bf03"
+    sha256               arm64_linux:   "ed084dfc530c28566bf359d39ca0c163e996c9fba68ebc96446e83e2638ed68f"
+    sha256               x86_64_linux:  "e31331a46d51e377ef252a0ed10aec41479d35dd99e58a67c2420dfc419cd901"
   end
 
   depends_on "meson" => :build
