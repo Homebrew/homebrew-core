@@ -4,6 +4,7 @@ class Modsecurity < Formula
   url "https://github.com/owasp-modsecurity/ModSecurity/releases/download/v3.0.14/modsecurity-v3.0.14.tar.gz"
   sha256 "f7599057b35e67ab61764265daddf9ab03c35cee1e55527547afb073ce8f04e8"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "2fc44acabce7d4c67b6173c40a2c130fb7f164ca74730922b5cbfc7f8a4194a3"
