@@ -6,16 +6,15 @@ class Trafilatura < Formula
   url "https://files.pythonhosted.org/packages/06/25/e3ebeefdebfdfae8c4a4396f5a6ea51fc6fa0831d63ce338e5090a8003dc/trafilatura-2.0.0.tar.gz"
   sha256 "ceb7094a6ecc97e72fea73c7dba36714c5c5b577b6470e4520dca893706d6247"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "78eeb8533c2e41af7dc4c93e93ed552aeb051edf082214038a63ccd26b980fe7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "985ab3f8594e40cfbf4d91afefbea3a0f5a9b58add3c5ba485fdaecb077c04af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67a57c816e4a8af511baff49bff416e0cf95af47be65d6d9e8f05e9f01ed961a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b28c628b22023d9f0ad4a61a23197bb3c40975e2f6964a2020ec36a8343a2269"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c6e645e3f89f424599cb55f7589fcbb74419a5fbe424c3f4ea7c0986ecb1efa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b6fb43a785f9db7f5993c5192019184ac67f5a93883277533d4707268bcc42a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0cd01de9b165334ffddd5a5b3d1e952c678d134f73c075b988e50989eafd90fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89ed50ebfe32dbc5a15221bd5f84d482b332582d26a8fa410e180e38e81ce808"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "305504dc0928f0a8887c4be2b02fd9d3f0e5e40cc437fea914a373d5e3e5aed2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c601f445b31f795d445d1c1bc13e9b505077e10ae163c3f23415145f779782cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "080ecffd18986d7a717b5cd128fcb321733a4f48faa6596546abbb94ebf20876"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45638f28994b38f08c67de0aa5d6801f5643be32b5e400b4956c87571e1c4eec"
   end
 
   depends_on "certifi"
