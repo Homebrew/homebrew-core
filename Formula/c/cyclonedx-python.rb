@@ -6,15 +6,16 @@ class CyclonedxPython < Formula
   url "https://files.pythonhosted.org/packages/18/b4/d6a3eee8622389893480758ada629842b8667e326ec8da311dbc7f5087f4/cyclonedx_bom-7.2.1.tar.gz"
   sha256 "ead9923a23c71426bcc83ea371c87945b85f76c31728625dde35ecfe0fa2e712"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/CycloneDX/cyclonedx-python.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9e715c97bf7bdd3965b5035201236d47166d9efb6bd8009337a6a37608beca98"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36ed41e90be9c27639a2d6cd3c0f54e32e1a60d31d859fe4d8a56db206b33131"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2171d0842fd1a65c6c7026d27d66084cddecb2091f336414dcc742e978778f2f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85c827e6be4dfc474d804742e89067c54055042ab5b815412ad193565d0648cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "faa16a2b7e8a0fb9357118dffde70eceb31cb3855fa1bf24b15f1fe49adde4da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f89d893a3ac4835d6ce96c2213ddd71b197315d214bd68d184f745e1393e664"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac1ddec93852b9f0f5d47d6a7e676427f257303a5c19b67b7464aa6147de5aad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ba4fe4da1ed19419c37b0993c15f4d72d3e2ef9a31bda6824009070eb8a9ac1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d737508e609ec89757c960b0ddc500a885ca34423581e4a8aec35694295e4c3b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "727dac16070c7a42fa67d778adc0b2330b9d33a31ddcfd21f26960de004857f6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "911ce9859385d625ea59a2082984119367e757075c6f84295d99e504ee094f70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6df345e6bb6f5d50017fb526bd6f52ff642d6f08679fab2a25da5814669815c"
   end
 
   depends_on "python@3.14"
