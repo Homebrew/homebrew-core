@@ -6,6 +6,7 @@ class Gcovr < Formula
   url "https://files.pythonhosted.org/packages/e4/ce/b7516854699f807f58c3c9801ad44de7f51a952be16b62a5948b358f1aa4/gcovr-8.4.tar.gz"
   sha256 "8ea0cf23176b1029f28db679d712ca6477b3807097c3755c135bdc53b51cfa72"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gcovr/gcovr.git", branch: "main"
 
   bottle do
