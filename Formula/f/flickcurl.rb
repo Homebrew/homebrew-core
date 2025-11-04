@@ -4,6 +4,7 @@ class Flickcurl < Formula
   url "https://download.dajobe.org/flickcurl/flickcurl-1.26.tar.gz"
   sha256 "ff42a36c7c1c7d368246f6bc9b7d792ed298348e5f0f5d432e49f6803562f5a3"
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   livecheck do
     url :homepage
