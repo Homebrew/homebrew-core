@@ -22,10 +22,6 @@ class Fastapi < Formula
   depends_on "pydantic-core" => :no_linkage
   depends_on "python@3.14"
 
-  uses_from_macos "libffi"
-  uses_from_macos "libxml2", since: :ventura
-  uses_from_macos "libxslt"
-
   pypi_packages package_name:     "fastapi[standard]",
                 exclude_packages: ["certifi", "pydantic-core"]
 
