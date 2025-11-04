@@ -4,6 +4,7 @@ class Libabigail < Formula
   url "https://mirrors.kernel.org/sourceware/libabigail/libabigail-2.8.tar.xz"
   sha256 "0f52b1ab7997ee2f7895afb427f24126281f66a4756ba2c62bce1a17b546e153"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
 
   livecheck do
     url "https://mirrors.kernel.org/sourceware/libabigail/"
