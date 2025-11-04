@@ -4,7 +4,7 @@ class AptDater < Formula
   url "https://github.com/DE-IBH/apt-dater/archive/refs/tags/v1.0.4.tar.gz"
   sha256 "a4bd5f70a199b844a34a3b4c4677ea56780c055db7c557ff5bd8f2772378a4d6"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   version_scheme 1
 
   no_autobump! because: :requires_manual_review
