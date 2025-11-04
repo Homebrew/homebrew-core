@@ -6,7 +6,7 @@ class AnsibleAT9 < Formula
   url "https://files.pythonhosted.org/packages/d1/63/a136e8c5ff5768c26edb2098dca116bd9cf430d8921fbbc4e199dca51655/ansible-9.13.0.tar.gz"
   sha256 "b389a97d1e85c2b2ad6ace9e94f410111f69cc5aa3845c930c873b34c0ddd6e2"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "a7c7e3e76269ad310333c8da3b55b190ad729a875ee01812c310508792997f8a"
