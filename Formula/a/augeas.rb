@@ -25,17 +25,12 @@ class Augeas < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "22a645d56e63c0d75b634e795b25862ea9b9ba1572d1614060a4784c0bb112c6"
-    sha256 arm64_sequoia:  "235513308423f52fd6d049cf16b5e0c31b0862bce0d8aa6afb11ce2e8208020a"
-    sha256 arm64_sonoma:   "72892294927f45da15836ea628404d5ea93597344d93dfe1ba3889dc9c1daf68"
-    sha256 arm64_ventura:  "9d42d73d125f3aa9e859ecf4e0029b9e0e4a9354b166d7d7d96e4753bf99348c"
-    sha256 arm64_monterey: "6ce2ccf218f4ac51eae364b50a74eae014820ddb0e2073700da3e8b3b58735e3"
-    sha256 sonoma:         "8a2fe89ec726bcc30aeb669014f3a22dee5f5d649cd35f32839fb41f01ac1e10"
-    sha256 ventura:        "9ecddaf5c923d43477fcd22de3949bf85bdadd5c69c424af840e7e636ecd47de"
-    sha256 monterey:       "39ec06ee5c541c591d89ed0770a9b6de354f4df19413217d70eecf272e4662b2"
-    sha256 arm64_linux:    "ba1db64d2aeb385be8c6b34cae38571d0c05693ce273115b0e88a8352a801aba"
-    sha256 x86_64_linux:   "b42ec1edf00ea7a66acff5ea7286a68b5bbbfa49442a3ab818f8c6c13eafdb32"
+    sha256 arm64_tahoe:   "a08a4025060f11bc910787a5d6b162574eade8ff34e7356993a350ddb1e8513e"
+    sha256 arm64_sequoia: "61ecffdbb3274cba9dadd7dd5ec7228ee5f295657770e51bdd373e10c218649e"
+    sha256 arm64_sonoma:  "0a7c0baf3f14c5d22153f4305a6e0a5bed461ea772531e9a241c730e404b49d4"
+    sha256 sonoma:        "c1783548eb059f6683082c9bafa82feb42e14db5f6898fb226491ab280f37cdd"
+    sha256 arm64_linux:   "df6d3bc86b8c810bd1f1584d6487e119dcf4815e64460ce66785ee6c8e040993"
+    sha256 x86_64_linux:  "1cc2e3a0712c76dd52bf5d15b7c816464539de6d400f6a12e30f8474eda0d87e"
   end
 
   head do
