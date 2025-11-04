@@ -4,6 +4,7 @@ class Lldpd < Formula
   url "https://media.luffy.cx/files/lldpd/lldpd-1.0.20.tar.gz"
   sha256 "61b8cb22d4879e68f7825a2fb8e1e92abb4aba4773977cf0258bc32ed9f55450"
   license "ISC"
+  revision 1
 
   livecheck do
     url :homepage
