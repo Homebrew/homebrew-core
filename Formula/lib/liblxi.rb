@@ -4,17 +4,16 @@ class Liblxi < Formula
   url "https://github.com/lxi-tools/liblxi/archive/refs/tags/v1.22.tar.gz"
   sha256 "d33ca3990513223880ec238eb2e5aa1cc93aff51c470ef0db9df3e0c332493d5"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/lxi-tools/liblxi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6f1c0e54526b619b757b44c61c4b4f7acb026ced2de7d3f23248e2b2f58e0219"
-    sha256 cellar: :any,                 arm64_sequoia: "831cb59dad3bca5bed6c74817fd5597fdd4fd54ae2090e3ebab6ef5ef54a7fc4"
-    sha256 cellar: :any,                 arm64_sonoma:  "16a11167f071f03bd1e765f0c8589a5d6bc344a0fe2d2deb31c0de8ed76fa751"
-    sha256 cellar: :any,                 arm64_ventura: "d78d4fbae7b6cc939fa66c4dd2076ad656da648a166f678b2eacd2e61e24588c"
-    sha256 cellar: :any,                 sonoma:        "53fbcaa96206292e4bf9c2cd1a1ff58923aff7a7e2158ed7e9b61c1fd8cbc672"
-    sha256 cellar: :any,                 ventura:       "7dbb5b441482ca8698090704c45aa776b2680957ae39325c93fc5ae7b81a2b80"
-    sha256                               arm64_linux:   "753ec0b4dbf9b8decd7d1902f64c98630f5d50225226d4681aec063166fd2b8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21dab7abe5a6f4c2c6ff59733b4e25232a5ec4bd0085adf179890a8b68b88b85"
+    sha256 cellar: :any, arm64_tahoe:   "90b99e8ef648703285fa24caf9d05f63402da9cc0d9c64860ca2559ed3c0fa7b"
+    sha256 cellar: :any, arm64_sequoia: "18d6b33c092ccdac797c676b1805f09da03bf985530f691016fa1928adb3ca66"
+    sha256 cellar: :any, arm64_sonoma:  "20811fe73cca39574313757b888a06e8fbd8ce4d347d5cff8d43d244bc23ab93"
+    sha256 cellar: :any, sonoma:        "d16e24e3272e1036851c6ec820e9a328dadb3c79dbf35e8fc81e4fc97660344e"
+    sha256               arm64_linux:   "7c962e15081bbdd29b93a4714f8a3f3b27225fbf209ffa3d39415d6fd5c63911"
+    sha256               x86_64_linux:  "3a3ea1867af1936c3d441d4799fd7b448701e984679be728dffdee1cd24f8728"
   end
 
   depends_on "meson" => :build
