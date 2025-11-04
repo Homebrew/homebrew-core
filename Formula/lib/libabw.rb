@@ -4,6 +4,7 @@ class Libabw < Formula
   url "https://dev-www.libreoffice.org/src/libabw/libabw-0.1.3.tar.xz"
   sha256 "e763a9dc21c3d2667402d66e202e3f8ef4db51b34b79ef41f56cacb86dcd6eed"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/libabw/"
