@@ -4,6 +4,7 @@ class Hurl < Formula
   url "https://github.com/Orange-OpenSource/hurl/archive/refs/tags/7.0.0.tar.gz"
   sha256 "3f505848aabd9eec78360928b0fcbfea237a049b5c8d25b8d9e0aeb3f9d8dfed"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Orange-OpenSource/hurl.git", branch: "master"
 
   # Upstream uses GitHub releases to indicate that a version is released
