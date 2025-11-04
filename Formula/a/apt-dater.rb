@@ -10,17 +10,12 @@ class AptDater < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "cfed8555fc3c444c0146d47d4715b81c0898b29997fb139a76db99565417bd08"
-    sha256 arm64_sequoia:  "e89784e139fbbe28d5b78275b2242171bac80c2ef9499613154b3e7811c08468"
-    sha256 arm64_sonoma:   "2f391ec78361caf2e94d1e63cc21f0b1f00939ada71065b215e41f798025018f"
-    sha256 arm64_ventura:  "c22ae498b3b9ffaa679ccf61ce23dc2938d2acd6960db44c422269c2673cab2a"
-    sha256 arm64_monterey: "fe34f1009b1e42d85afbcbbae7c61554e6ebe527112d8249430f896661c82817"
-    sha256 sonoma:         "34b892275adfc73fe17bd925f2cf7a29b9f02d29c84dca818b46a1d9e5faf6ac"
-    sha256 ventura:        "bdd43755453bb7b579382091ce430bc9d16bb8fbf128ece766b92034ff547963"
-    sha256 monterey:       "3bcfbb9b3f6648f528de329d439840049cabfcb55d81757eebb74f3da88e7ad3"
-    sha256 arm64_linux:    "b80fdf17b885b19e6c905fd64524968669f4cd80aed8119526377ad774c3c62b"
-    sha256 x86_64_linux:   "0aa11ef9c978a52cc0b1941bd4484df092e4dd1c0682f616692b30bc894feb85"
+    sha256 arm64_tahoe:   "ca8d65020e488e692c5785619fda1d960a49f88b2f80e2213f1d56f39b6f40de"
+    sha256 arm64_sequoia: "e9a104010e991369030ef2f6b060658977e33252724fb5a1891a69242a8c3fc8"
+    sha256 arm64_sonoma:  "cd11a9f62b4e94d1909c0f60bb5a30703d5558e5572b583ccf92ff235e055503"
+    sha256 sonoma:        "ad40cadf8e75368960e13f510c8e91977ff13908150431a50066bbab0dfd521b"
+    sha256 arm64_linux:   "8aaa2fb5be47e7037a24f2b6bfc14fac79eabf28187a11d5c949db515b34b4a9"
+    sha256 x86_64_linux:  "b68bb3ff46e775c78d4201392f44d95e8e28aacdce0dd624469f5bfe6a839557"
   end
 
   depends_on "autoconf" => :build
