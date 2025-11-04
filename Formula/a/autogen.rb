@@ -5,7 +5,7 @@ class Autogen < Formula
   mirror "https://ftp.gnu.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.xz"
   sha256 "f8a13466b48faa3ba99fe17a069e71c9ab006d9b1cfabe699f8c60a47d5bb49a"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -15,19 +15,12 @@ class Autogen < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:    "5913abd2c6cbe11a0df0c52b48b9e27554c8976378c59203bd45a2b86cc6edc8"
-    sha256 arm64_sequoia:  "6e840d15bd4394ae8d7896f12bc04d5531f182dd9b21c855b2d5752cf1f3fce7"
-    sha256 arm64_sonoma:   "00050be1bb38030c899331d274860d7b90a6938d59800b5930669ee7887c8b71"
-    sha256 arm64_ventura:  "3158365c07858e79995b689eb2e3d91c3e666db591d7b932d73c895aefc9ad0e"
-    sha256 arm64_monterey: "002ff8cce7e99ea4013348ada75389cb74804dcf3fa810488aeed5812f160b81"
-    sha256 arm64_big_sur:  "96cccae43990d233afe756eef8b9d700c7fc6ab316b3d119a809df04e04289dc"
-    sha256 sonoma:         "69e23cf2d8b4959dc6ea1b9e98973d4cc3e5545139e678dd4c187245acdff92a"
-    sha256 ventura:        "914ff2b610598f432b4bd816bf7149c1a05a828b797260b74c53f9811f950d2d"
-    sha256 monterey:       "ed4a28138185633424aa705f44e1449e5706c40f055b0e86fc58008f7400f0d7"
-    sha256 big_sur:        "a26ab2c3665e3fabb1a3b3ca20f52b0e1ee0c4a0ccd12beea3af97b73d347690"
-    sha256 catalina:       "45b3f716163b29ab1aab05aa9fbcf9e53bcee5c815b505165c52e80d9fa9234c"
-    sha256 arm64_linux:    "1aa11356e7c39b6c92fac2a616a062030c3d729b7a333eadd37cad14922c1e59"
-    sha256 x86_64_linux:   "1f564be58133732a4c9a380c85da6cc27dfe1b465c0a29c136c1a7ccb470a105"
+    sha256 arm64_tahoe:   "11f0bdd04ae3db9ab2d6f2e12d2554db59111391ded8f941cd2bf08f79475f8a"
+    sha256 arm64_sequoia: "4d986c1d9d478a402348836169d0a35f56a6fc9f7ad7f5d14acfd1bcd101b9c9"
+    sha256 arm64_sonoma:  "58e8865aa281a5dea676f8ee73f750ef1e8f357dad557fb35c00c09a94d10566"
+    sha256 sonoma:        "7748ba11598da28c7e554768ed83c34a3fed3e5c2eea7ff9ac5811b652dd11b0"
+    sha256 arm64_linux:   "6778d7687bfc74353db0b0ae81d994322814df152f7ec42f576e5eb591fd2958"
+    sha256 x86_64_linux:  "d109eab1f0b3a0293f60e0da2360694b3027ac39b0015e3573c57d10125da77f"
   end
 
   depends_on "coreutils" => :build
