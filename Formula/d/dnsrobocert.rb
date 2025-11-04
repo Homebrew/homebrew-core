@@ -6,7 +6,7 @@ class Dnsrobocert < Formula
   url "https://files.pythonhosted.org/packages/5f/19/e8d64f9edb462c060c3fc95cae1410d7263fe8d66f80ff4a0253d7201758/dnsrobocert-3.26.1.tar.gz"
   sha256 "b4f49ce4ff6db7e845e46597e99d9d464d1ddb15bea3e9dee729643a0092a911"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/adferrand/dnsrobocert.git", branch: "main"
 
   bottle do
