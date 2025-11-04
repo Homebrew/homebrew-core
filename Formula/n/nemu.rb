@@ -4,6 +4,7 @@ class Nemu < Formula
   url "https://github.com/nemuTUI/nemu/archive/refs/tags/v3.4.0.tar.gz"
   sha256 "e272b3e80623f8aef66c3ecb5e2d8846ac89b2514a4bbb5026e74f51c1a5ef42"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_tahoe:   "a85570304ed9582ca07aab731b00e4cd2e4f88b4dfddaeacf119d5362f1dc670"
