@@ -6,6 +6,7 @@ class GtkDoc < Formula
   url "https://download.gnome.org/sources/gtk-doc/1.35/gtk-doc-1.35.1.tar.xz"
   sha256 "611c9f24edd6d88a8ae9a79d73ab0dc63c89b81e90ecc31d6b9005c5f05b25e2"
   license "GPL-2.0-or-later"
+  revision 1
 
   # We use a common regex because gtk-doc doesn't use GNOME's
   # "even-numbered minor is stable" version scheme.
@@ -15,13 +16,12 @@ class GtkDoc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a90c3d33110464699a6c11e6a01ba0cea2e780ab6cae064364ccaba924607ae6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c323f71e2b55623ccb7d8235bd79f04bd02b8e5b435aeefa35093cc0f2f1fbcc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ea95bfdc68fc15762a49339006d88e2292f5fdcc790c41aa1665dd7d785eaaf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d8058ae6f1c944ebc5c11e8154c0dabdc6b18fe200b9125f55416bc8ecb84473"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8290d097809af9fb72aeea7aaca594ecbc170ae542c677508e1a394956d575c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06bc0e0c42aadb3c4c90e6f4f68296e1da0c23a9311bfa3cf0ae6b1e25c8a7f9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67a09406091e040819bc13b3058556a515aa928f4e4bc8b198a7bfa121dc3ecc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e454c447eff2b55455f9982a4ab9a702f0dd51c593a771be9dcae29ba146366"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "866c6675c4c79ff241b06f491642c9eadfc85a653cd74f699bc46cd474324d79"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3490738954bfbe69c87b197747607ecba230cd5a418bee8264a1903a4f32e9e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "649ef0b77f32d76501c7f8932e4dc82720c7f7b1a2f10ebc352a7225d0a688ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4843c19d63f4d41befdc171adf726bcec1255b2781c328795b0e5d40456d405"
   end
 
   depends_on "meson" => :build
