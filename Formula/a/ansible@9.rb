@@ -6,15 +6,15 @@ class AnsibleAT9 < Formula
   url "https://files.pythonhosted.org/packages/d1/63/a136e8c5ff5768c26edb2098dca116bd9cf430d8921fbbc4e199dca51655/ansible-9.13.0.tar.gz"
   sha256 "b389a97d1e85c2b2ad6ace9e94f410111f69cc5aa3845c930c873b34c0ddd6e2"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a7c7e3e76269ad310333c8da3b55b190ad729a875ee01812c310508792997f8a"
-    sha256 cellar: :any,                 arm64_sequoia: "2a854f10c05a023c4dd993a26dcffcda031e1e27e5d6c68703869a57ddd63a85"
-    sha256 cellar: :any,                 arm64_sonoma:  "4163000e583f8b5c9781ec1bcb37cb42056bee496b671522ae70474468c3e712"
-    sha256 cellar: :any,                 sonoma:        "60f3c61e6427a0feede4dc5b2e2ca8e58ad88a77c538d108d9d3c84f6b060acc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4704d185ad03c1c53a09eeaef1e4b53882b44c190a100dae02a883ccb0486f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "926e81b0883f75eeb36abbcf939960675fdd079cb5b5230fb6500ffd8249bd48"
+    sha256 cellar: :any,                 arm64_tahoe:   "86d6dd9f15817bb34dd5fc693b90fe5d8386bb26247f96af423441a54b05570c"
+    sha256 cellar: :any,                 arm64_sequoia: "b8dbba2fa6358fc8136ebfad446abc6a50a3355ddccfe718131c2c1d6189402d"
+    sha256 cellar: :any,                 arm64_sonoma:  "a28b751ae6f6edd53e70963036645e0376aa72ecdb20fc238fdddd994eed9faf"
+    sha256 cellar: :any,                 sonoma:        "630469ebb04e2361f1f12587418dcc4e8ddb209c17ec040602a8c283ca69630b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1dce56fd56b7fe78479531c0945cd0dfd7b30c451e997ff75b05d0f7571bfad0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bad5a2fe54589615442195b8e5a1dd37baa565e47652a4ac414d89f997a3c003"
   end
 
   keg_only :versioned_formula
