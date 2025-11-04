@@ -4,6 +4,7 @@ class Dcmtk < Formula
   url "https://dicom.offis.de/download/dcmtk/dcmtk369/dcmtk-3.6.9.tar.gz"
   sha256 "b93ff5561244916a6e1e7e3ecccf2e26e6932c4edb5961268401cea7d4ab9c16"
   license "BSD-3-Clause"
+  revision 1
   head "https://git.dcmtk.org/dcmtk.git", branch: "master"
 
   livecheck do
@@ -14,14 +15,12 @@ class Dcmtk < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:   "421d412e19d5ccd1b9d83b43ed604c5bafbb7710b6f1a4a04531411ce8022056"
-    sha256 arm64_sequoia: "6349ba68f65ba257caa778ea8ab86fbf2b70141baf5a0a8f7bfa3759765c42a8"
-    sha256 arm64_sonoma:  "86d3578d795ba30a2a75a9c3d5fa8c5f692bc54c38ed5c2a901cdd10c8e15023"
-    sha256 arm64_ventura: "fd350d43be22126a196b194747b45df08b58919507fd61bde058c153a97ccf33"
-    sha256 sonoma:        "b5496a75247e5fd852d750a503dc788829bcc3e9532a90fae42d64508bf72ba6"
-    sha256 ventura:       "acaae376685ecc370ccf3f6b363b6c1d8b1ace7f752999103eb01eaf44e4716a"
-    sha256 arm64_linux:   "daba3c30c6cf392a687cc367de332af8ff31c125542b6c474349b2b7c9ad5277"
-    sha256 x86_64_linux:  "bf2a2675135b64915b5c5b427c536289e68a904007d0d0ef0c999845005aae14"
+    sha256 arm64_tahoe:   "76dc8240010bf2c6acf90a08fda3b77c4776ffa192f06b12aa838074529c66a4"
+    sha256 arm64_sequoia: "f160534389aad829b4683786aff6bedddef73682920c2f014a6783b3fe3fcd6f"
+    sha256 arm64_sonoma:  "fbc50e817048baf3356e3d6b86c1ec6142fd55dc414daa1e59ab95f352e5d2ab"
+    sha256 sonoma:        "3f54b37d96f4595a543c7d9a4ebcac52ef09664f1cf2588838efae58d072fcc1"
+    sha256 arm64_linux:   "2fb17aba6d6db1e13d85ac282f2085d5daa7af3cc4d6d21d8f549563493a7f98"
+    sha256 x86_64_linux:  "f00223f0ae751c365c1bc3d4ec4a2bdbfe2ab13dee4fb9b57bbfaae97a36375d"
   end
 
   depends_on "cmake" => :build
