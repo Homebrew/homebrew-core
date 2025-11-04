@@ -24,7 +24,6 @@ class Libstrophe < Formula
   depends_on "openssl@3"
 
   uses_from_macos "expat"
-  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   def install
