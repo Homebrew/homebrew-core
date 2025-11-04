@@ -5,6 +5,7 @@ class Clamav < Formula
   mirror "https://www.clamav.net/downloads/production/clamav-1.5.1.tar.gz"
   sha256 "64fe4a16a5622c1d71efe9ed7f2c2fbd37f8f237da9f11ff66b73038df71db91"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Cisco-Talos/clamav.git", branch: "main"
 
   livecheck do
@@ -13,12 +14,12 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f9061e21e5e8be51c643545c9fc6aa4dbfaef9294c12c36fa29e9575b46db211"
-    sha256 arm64_sequoia: "1556cc710f507cd3ba785385a840522136aa3bf23f442d2356848f64316c6a62"
-    sha256 arm64_sonoma:  "be240b782663b9a07eead860d8637d184d0ce4c150af1ed0b75c68cf12824100"
-    sha256 sonoma:        "8a53341ce3a8a53afb34938cc95f2f3830c8eabb46899ef7571f0eef65cc2c59"
-    sha256 arm64_linux:   "16dc07361e61b82370eed46a4404c40be03dcc47e38e7edabc5dc087479f59c2"
-    sha256 x86_64_linux:  "f6e72d49678590c275b2feb564926d5d7ad8c64525289c47fed5880d0d674f87"
+    sha256 arm64_tahoe:   "1d8bfd2ecb4104a16db37182c3d4a3ff88bdf3b1c36c1cba1c0b88ce6122ab98"
+    sha256 arm64_sequoia: "c009af8083d6235331d389f17890c585ab30e45282b18f6d5730ab42b9b5a18c"
+    sha256 arm64_sonoma:  "4bfda2af646d967128cb2f4a83f03e57a3bb3a5858c74f0ece82122e18c7c209"
+    sha256 sonoma:        "d15aa15590dad8d82f7ef1b0c6e2a770d8fe6663e3579d3d544010fb5d56d34e"
+    sha256 arm64_linux:   "f9e10712b361e5a55066a4efd66579c033ec74fd2a69bea2e546f3087bbccf9d"
+    sha256 x86_64_linux:  "0f816d671608aa0b586e991b5b713b20679f17b3e88edfe4cae8916a51226894"
   end
 
   depends_on "cmake" => :build
