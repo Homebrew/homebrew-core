@@ -1,8 +1,8 @@
 class Svls < Formula
   desc "SystemVerilog language server"
   homepage "https://github.com/dalance/svls"
-  url "https://github.com/dalance/svls/archive/refs/tags/v0.2.13.tar.gz"
-  sha256 "7261f2baf8169146d21b88a8339f161f51a8b8a57982a96aaa8b9dc5402fc1de"
+  url "https://github.com/dalance/svls/archive/refs/tags/v0.2.14.tar.gz"
+  sha256 "d491620c8c89d29a277625afa2e99767f00e7c61cc96e6b91fae709ee1d45ceb"
   license "MIT"
   head "https://github.com/dalance/svls.git", branch: "master"
 
