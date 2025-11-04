@@ -6,6 +6,7 @@ class Netpbm < Formula
   url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "5109"
   version "11.02.19"
   license "GPL-3.0-or-later"
+  revision 1
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
@@ -18,12 +19,12 @@ class Netpbm < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "b06ec2957a4c33c6cdea509e31c693c4b764b07b0289d5ae8e66618fec6661e2"
-    sha256 arm64_sequoia: "9fcb3967730836d638c0f1fe36ac3acafa87e9621e538dea0938961a59464e22"
-    sha256 arm64_sonoma:  "7ba0e674a3b087b108dd5cf13a630979de8ed19207de6a1dbfc3e5f24ba10964"
-    sha256 sonoma:        "f91914baa422ddca9ee6b8920f7e3a7f45016de5f73f4785d2eccbe5fb3bbda7"
-    sha256 arm64_linux:   "0373720d2395affd44f5ffe5b37c1deb1840465bfdbe6ecccfa2e37045ded1b3"
-    sha256 x86_64_linux:  "96594d162e14e5ae4acd57eaac72d197187335c6083cb6123425b1ed44c19fce"
+    sha256 arm64_tahoe:   "4689f74bc56b38c19175186809adbfc7ba5d51903f70ab53cb1f7d1739c4b7d3"
+    sha256 arm64_sequoia: "0a63f84f2c4a9852fd19abc7710eafc3d311a41f7e9ac41f76f38ae757689dd3"
+    sha256 arm64_sonoma:  "b1441b3a5232d69a63a7ecca8c9a32d9f93459fb772534c4252d06550acaa50e"
+    sha256 sonoma:        "1f581585196a99e0095115c54f0a06f85caa58de8389f0b9eed2f21892b50d98"
+    sha256 arm64_linux:   "85635e12905266461f184b9771a0316bb42645f46d98719750ecb4c5c72d6217"
+    sha256 x86_64_linux:  "531fcef170784145c0bb0601dbdd68aa3c52df883dfbce02b863d76f84689f89"
   end
 
   depends_on "pkgconf" => :build
