@@ -8,14 +8,12 @@ class OcamlNum < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "809ea16a1084fe15c05b7cd922e3e961c917b2fde56c874da6857e9dae30f240"
-    sha256 cellar: :any,                 arm64_sequoia: "781da529cdba86087750a800642a8cc2299be1d255149daff379164073ce7785"
-    sha256 cellar: :any,                 arm64_sonoma:  "ce6ae8fa010523ccf585e594d8822f0756f25b188ad869b191fa9bdd11294c01"
-    sha256 cellar: :any,                 arm64_ventura: "73245a4b0918db27313822585644728b34ca7b22d1fc4d765321c00f71d4d549"
-    sha256 cellar: :any,                 sonoma:        "3348af9bf9743fb08b24d8ca2b0c33c6ce5aa2ccad30af20eca1fb56ca1365cc"
-    sha256 cellar: :any,                 ventura:       "47b73fc8a4b41adcf949df605dd13c99f3387d0118aafd7f9795aea53fcd7062"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e692a6429d05500c5958081b2a5c863913b9d62a23d88bf692ba76fd34988bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19bc0687d271a60a5acc1f4b8fd6d0a52c9d27ce3a4271760b39ea36ddaef17c"
+    sha256 cellar: :any,                 arm64_tahoe:   "8ee79694c29aed327203abaa275dee7f5e041f318cd137c3a3eceaf487317cf6"
+    sha256 cellar: :any,                 arm64_sequoia: "6ee1ee0d2051f4c239c9237132fa360040acd888fc3f1e22c7d09c8d848dfa23"
+    sha256 cellar: :any,                 arm64_sonoma:  "459cea86755ea336dfb81795e7b1bc2109129c4db64190bc1c06e2b90e644418"
+    sha256 cellar: :any,                 sonoma:        "10857c605731b1a3f944b1a3c6fcc03a2cca2857faa0ba46e0970413bb4a8b62"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "713ed3e565058a66c023563a55c0f53fd44d479b5cf0df611fd734913711837f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1558cfe67cec4a8ce6f51be96437ddcad3a4c0ebc017e8dac395b9aacb2afa70"
   end
 
   depends_on "ocaml-findlib" => :build
