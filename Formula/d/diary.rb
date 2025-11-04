@@ -4,6 +4,7 @@ class Diary < Formula
   url "https://code.in0rdr.ch/diary/archive/diary-v0.16.tar.gz"
   sha256 "9140762d44251ebce08d5ae45878a30fc9c35dcdd98fe64da618cdd2062552dc"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://code.in0rdr.ch/diary/archive/"
@@ -13,14 +14,12 @@ class Diary < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62a3ad3b8361f86f8f699ffa0377b354163ee2441fc9594e31d229c0d6a507ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d646d24e89a8eb7dce47ec54e42214c09010d070e893c29e2a55427cfe7e846b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30581920926485a47ab45731defce3acf5dd1c2366e4551a9b25952d03c171ea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0b4f3a31788c1181823adcb3236ac4353eb442e293f39e320d9af8706cc6a098"
-    sha256 cellar: :any_skip_relocation, sonoma:        "48d82219a584be1acb7add11dce24b2258c38baf4b5e39f7b3afcbdb4a7c3976"
-    sha256 cellar: :any_skip_relocation, ventura:       "609b1792141d8537dfef086956db2cd0c81815ef038aae86bbb31343c10bbfe6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9b9443c49ef95c8a613df3d244a14db2285fce87537931f53c05d5c527c3159"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9916f762d45e4d351e2d678b938d05a5d4ce2ac7a366488706d2c3de3627a9ca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cf6dc0be5b3beea462918ef2b58d2c94ecec01aba46b260a85772abbef73b94"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d4d8011263079585a4927de9a321597b04e522c33940059d1a97b9f31acf8763"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "891d2197e94e6598c94359a6733c1962541e4f031747b09ee3d1222250136c69"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d51e5e2b94e5b9dc1785e7aa078d3b172efec352cdec902868d9b6b4a98a9449"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "88308136c0405f059f6e90173f4b8ff9416a752585917d144eb4818f2243b4bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b704142ff01e044dcdec4d07de67dc87a5a19493359cddeea44652d4de1ce193"
   end
 
   depends_on "pkgconf" => :build
