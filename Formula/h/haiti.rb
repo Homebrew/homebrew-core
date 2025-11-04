@@ -6,15 +6,13 @@ class Haiti < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "a4d686b062edfd94c58019e882f88feea40f7253189dde24fb4be6b6a39be301"
-    sha256 cellar: :any,                 arm64_sequoia: "437a900ef99a2a9ce151f54852b5ceba54b04b0ae4f7dbdfca33ac96262db51c"
-    sha256 cellar: :any,                 arm64_sonoma:  "d256b2ab7188e82c043c22fc4ca8e5df092d581e4d0c7db6a1feda3110a3054e"
-    sha256 cellar: :any,                 arm64_ventura: "cd3f25be3ff7e82d716d0c04b6703687a104014703d0fca01ef6b743014a1112"
-    sha256 cellar: :any,                 sonoma:        "03b15c6432552b2f1bf9b501292dec5d9981c1b31e48b371c5368248bd3c9498"
-    sha256 cellar: :any,                 ventura:       "eacc0e910d7028495d5ac2dd6fc488fef97f660bd586ab4f4638d90ca9830345"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7ba6681ea727c139e302ef47608117ceba1ec44781fd0f37ba9eb646cfa3acd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf1cab0eaadd053425ec6af959b808b9b8c60f12e531791ec6215cf009529e33"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "13b48fd2a1dd6cc4204ad1c00733a604ca0515d8f3139206b6f98c08d0fa8377"
+    sha256 cellar: :any,                 arm64_sequoia: "7411eadde72e740156cef4aacaed4a454bb2dbc956624e0bc5a8cd263ff74575"
+    sha256 cellar: :any,                 arm64_sonoma:  "21163fe9aa22b82cad01e8fe134c46defa97b35bafffd4724d4e930d30313aee"
+    sha256 cellar: :any,                 sonoma:        "1ca996eee260a6e729bc8b99cd1274c1c7e518bb305765c0a6686f1d6051fca4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "56fb594b6e92322b2bb6294c40b8d7a5fbe140324b72eb20a5e4aaac85e5d577"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b11c569349cc73a9344dfbe7b6110a1a3951fa8f0dbe0e9685b7528cb235f57a"
   end
 
   depends_on "rust" => :build # for commonmarker
