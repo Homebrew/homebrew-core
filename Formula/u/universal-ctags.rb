@@ -5,6 +5,7 @@ class UniversalCtags < Formula
   version "p6.2.20251102.0"
   sha256 "a920c411c2da33f7acfc0e53dbfe610080b78330114fbdd435856257a4234be0"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/universal-ctags/ctags.git", branch: "master"
 
   livecheck do
