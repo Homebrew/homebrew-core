@@ -6,7 +6,7 @@ class Ansible < Formula
   url "https://files.pythonhosted.org/packages/98/ca/e4e29f2f222b675e2708d35b98f8e2156de080a47fcfbea6e03be9c2afe3/ansible-12.1.0.tar.gz"
   sha256 "22dea1938d433fa515b3001cfad65cb308ef97c980f1520174d054dd38f32c83"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
