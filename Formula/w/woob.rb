@@ -6,7 +6,7 @@ class Woob < Formula
   url "https://files.pythonhosted.org/packages/85/f3/a2dc1bb679de004aa1e48c8b77b5d5b9bca3007b2f25e0c39f850a009186/woob-3.7.tar.gz"
   sha256 "b1d7113ba87a9b947c13a1e3b4bb4fa616ba3037092b54912fc3fee2647d1b2f"
   license "LGPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
