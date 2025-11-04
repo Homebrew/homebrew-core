@@ -6,7 +6,7 @@ class AnsibleAT10 < Formula
   url "https://files.pythonhosted.org/packages/d4/64/29fdff6fe7682342adb54802c1cd90b2272d382e1743089af88f90a1d986/ansible-10.7.0.tar.gz"
   sha256 "59d29e3de1080e740dfa974517d455217601b16d16880314d9be26145c68dc22"
   license "GPL-3.0-or-later"
-  revision 5
+  revision 6
 
   livecheck do
     url "https://pypi.org/rss/project/ansible/releases.xml"
@@ -17,12 +17,12 @@ class AnsibleAT10 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1c5318d8e7b6d9d8a03d75260f0ad11960cec47b45e346fae8c68529f5af95bb"
-    sha256 cellar: :any,                 arm64_sequoia: "65798350999edd68ccbb5d0b418d8f3c7bb6499af312b49c6c12435f7893bae4"
-    sha256 cellar: :any,                 arm64_sonoma:  "7e5b77c0c432ac1dded6869a75a4300b2f6390884eca4f8d10bb4ff3ae9a797e"
-    sha256 cellar: :any,                 sonoma:        "d5524287c95020c875b33b8acf5286dcfbae2644991ed198dbd93b8e569f39d7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d551bf40e756f7ede27ff3600f49b87e3ffb39880bb9091010705eccf731ccaf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c409d652ca7c06fe9b90e24661caaa49a43c1498427452c19a17f3ab73b9048d"
+    sha256 cellar: :any,                 arm64_tahoe:   "f9d73aae386e968bb5bc720aabf62f83fcee6ee1e1b460fd2c95ef8b6c467190"
+    sha256 cellar: :any,                 arm64_sequoia: "f8e04a12807cbf214cfe13cd8a8cb5654951a6936d4cfd6b7423b2dd79c240bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "2cd30eb6e7c308922a01742bcef68703e6e2c09ad9ce984bf999263da3e9385c"
+    sha256 cellar: :any,                 sonoma:        "49aea77ed0bf48061af9e62df8ec723148156b7fd33640a92402e72ffb225a2f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9b05370b1ddd95fb36528d13e064944a315c9e2333177631af0e3ba521866c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5128b6ad0188292d40b1300860c201472a36ff9c376f9900c5ffa24858c41653"
   end
 
   keg_only :versioned_formula
