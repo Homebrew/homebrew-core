@@ -4,6 +4,7 @@ class Dcmtk < Formula
   url "https://dicom.offis.de/download/dcmtk/dcmtk369/dcmtk-3.6.9.tar.gz"
   sha256 "b93ff5561244916a6e1e7e3ecccf2e26e6932c4edb5961268401cea7d4ab9c16"
   license "BSD-3-Clause"
+  revision 1
   head "https://git.dcmtk.org/dcmtk.git", branch: "master"
 
   livecheck do
