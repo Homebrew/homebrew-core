@@ -3,8 +3,8 @@ class Httptap < Formula
 
   desc "HTTP request visualizer with phase-by-phase timing breakdown"
   homepage "https://httptap.dev"
-  url "https://files.pythonhosted.org/packages/a8/91/7e79822db213079ccff967531f98302d3faf7929abf265e16717f14d0f58/httptap-0.2.1.tar.gz"
-  sha256 "9cdbbeb6f98c5fa163fae948bfe8a007572767e276abbb6b1f961654da056fca"
+  url "https://files.pythonhosted.org/packages/2a/e7/04da55809e1e7f743c148d443dec3f0e882c7332f40d3572114981e5db14/httptap-0.3.0.tar.gz"
+  sha256 "d989b1e2f96032a05819d4d0c6d6d38dfc985ac6c229ea5ec3b81e78920baa48"
   license "Apache-2.0"
 
   bottle do
@@ -98,6 +98,11 @@ class Httptap < Formula
       url "https://github.com/sethmlarson/socksio/commit/b326406915fd98a8185c1c160165c5b8963b30c1.patch?full_index=1"
       sha256 "7aefa906b62e2c9a8df255ea742ca97e155ac2e1238e49ce11e3e56e37ee1f8b"
     end
+  end
+
+  resource "argcomplete" do
+    url "https://files.pythonhosted.org/packages/38/61/0b9ae6399dd4a58d8c1b1dc5a27d6f2808023d0b5dd3104bb99f45a33ff6/argcomplete-3.6.3.tar.gz"
+    sha256 "62e8ed4fd6a45864acc8235409461b72c9a28ee785a2011cc5eb78318786c89c"
   end
 
   def install
