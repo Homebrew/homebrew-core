@@ -4,6 +4,7 @@ class RakudoStar < Formula
   url "https://github.com/rakudo/star/releases/download/2025.10/rakudo-star-2025.10.tar.gz"
   sha256 "9d22698c9b8186e9a7191a34c24ebf0dcb53b167ae2fe46984dd7664c6c87bb5"
   license "Artistic-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class RakudoStar < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "955e6251c63e1f059f9ebb61c45fd3425c2ce72256b42031c45fa36854f5ce8b"
-    sha256 arm64_sequoia: "297adbe00022fde2f7f209c36fc26a11ac43ffcc7857be8b081a326eef41b92f"
-    sha256 arm64_sonoma:  "70b07d4e4e99300dc994e2e71d9ecc20d8fb7fe7413ca57abbaca863f1f3f5a7"
-    sha256 sonoma:        "737b3d653d64b3ca5c32c53fd31cdc9e246a6f9c3f960e37bf6ef5a8e3f239c0"
-    sha256 arm64_linux:   "43fffe25eac19346a82adf1557e6e64f91bb93ee6799cfc09e638e11f9af7405"
-    sha256 x86_64_linux:  "480be35d3ca6ec9eb36d5833b0314ac0923b0a3669bcc11cf1345f8ccd031007"
+    sha256 arm64_tahoe:   "fdfd3a284bf9daf006ad5cc81046bb4168f8eb22c84f4e62fe699b4a69dda921"
+    sha256 arm64_sequoia: "249f3394cc5e7e15784a1f8e0477158646a4bbebd51641fbca360e17cace7594"
+    sha256 arm64_sonoma:  "e35ac5a8b9b06830911bc5e80574a152e34a357cd6b50d5cb8ae4b911cfa6af5"
+    sha256 sonoma:        "95c86481e09cfb608e8a58a2c2b1fec4e17d34182e0e2abab0cf758be41acbf8"
+    sha256 arm64_linux:   "99edd9086d32556cda5efb0042ab1feb9702c0d1836dc288a0e061d7cff7c39d"
+    sha256 x86_64_linux:  "3f4f22657b142cb15a086bf4f85ea2ed6c8c4f379ef8b4becae62e3a302de3b1"
   end
 
   depends_on "bash" => :build
