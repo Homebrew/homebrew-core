@@ -4,6 +4,7 @@ class Mediaconch < Formula
   url "https://mediaarea.net/download/binary/mediaconch/25.04/MediaConch_CLI_25.04_GNU_FromSource.tar.bz2"
   sha256 "800d076ca374a0c954c928f471761fb000b36b7df9d8e1d1bb03b233edff8857"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://mediaarea.net/MediaConch/Download/Source"
