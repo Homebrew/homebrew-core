@@ -8,13 +8,12 @@ class Deadfinder < Formula
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "448e26881179bf3f0f022981f67d1347c8d3161e06a4d1ad745f9769d646bbf1"
-    sha256 cellar: :any,                 arm64_sequoia: "811b46222ba9c98fd2b3a151dd4242dbaa14fe6b3c1b32539740aa0ed4143406"
-    sha256 cellar: :any,                 arm64_sonoma:  "6213001f424bb7679faa42135fd6d97a4fad66812c79e6001be753310868c974"
-    sha256 cellar: :any,                 sonoma:        "610e13ff9a7ee7ae751855dc9ada543f44edeb0077e3083c63e8e82cfa12d79e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "38563a363b2664a1b9460d15020697a0800027508947d164d9bdc2e9215208dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16b97dbdf95b938d559ebba67ed8f6a66993d3b17b18d026faa55cb8ec22bb96"
+    sha256 cellar: :any,                 arm64_tahoe:   "1196ba7f69fa9a76f88885d99e4d5fa64075abbe0f6c89a4c2bb52989197d564"
+    sha256 cellar: :any,                 arm64_sequoia: "0785938ab4601e4c8371a92312db832f87987c81222eb739c54d943ecd7c8deb"
+    sha256 cellar: :any,                 arm64_sonoma:  "55e3dfeaebcc4fcef7a89bccdfea2b6f7992b9a42efd534bd6f2e76a463493c0"
+    sha256 cellar: :any,                 sonoma:        "defe5253cc1e6191ffe124ac210238638d4045a0d2d3c3d091871107ad571daa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b94db3d53d160760d22898af2ba63d16585acf50382f38de0b98bd36ab58f45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e7ca7f45309f8d124e6da42cabcdf6358fd4cc149d95f03aa88a712d83654a7"
   end
 
   depends_on "pkgconf" => :build
