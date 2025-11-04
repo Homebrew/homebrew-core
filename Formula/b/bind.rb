@@ -11,6 +11,7 @@ class Bind < Formula
   url "https://downloads.isc.org/isc/bind9/9.20.15/bind-9.20.15.tar.xz"
   sha256 "d62b38fae48ba83fca6181112d0c71018d8b0f2ce285dc79dc6a0367722ccabb"
   license "MPL-2.0"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
 
@@ -22,12 +23,12 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e270ff3e68a808a35278cba49eacb883eec4b97f93a1e2175ba9a37a8edb0f42"
-    sha256 arm64_sequoia: "45b19505e24cec51ea56e78405bb5a3d155eaebe4ef7c91816855cc03e1eec9f"
-    sha256 arm64_sonoma:  "8eddcd1a1803d2827a52c6e8e9330bfbc36be2dfcb57d8588bcf19c24064bbff"
-    sha256 sonoma:        "e66bce6974413ec5859fc6d3af35e9835460a86ba9d261f9370fcc4d58b47522"
-    sha256 arm64_linux:   "c75093d72f5d5b01a45b3f6b116fdb997183f4f6fbed26778f51f01462804f15"
-    sha256 x86_64_linux:  "96e1567e4b0b8bbf0392dcd61576f9290a76914f8e5b5a2fc23b86f22bd903dc"
+    sha256 arm64_tahoe:   "44393a798318179319f4f70151a72019191345fe9023b8b1d0b39a6120e70618"
+    sha256 arm64_sequoia: "bd545a0445b8a1df5b2c63fdddf4eb435166c8224d79e322cad60ccb2e195d85"
+    sha256 arm64_sonoma:  "f4ccb60cb17ad4cd26d2441c7960481a8fceb9052d949f5eee928720d765e579"
+    sha256 sonoma:        "2d87e2a9996c25af2ac9506e5cffed7259e3359c145d35a7cf9e5b9a879e92e7"
+    sha256 arm64_linux:   "ee6ee7b7f7747df10a0daf47a00be9b52618d81f51d1de4c6715ccec011c8d6c"
+    sha256 x86_64_linux:  "31d3cfc4ad8d5468db468be6b861655836f84988551ffede31a1d682bb0d121a"
   end
 
   depends_on "pkgconf" => :build
