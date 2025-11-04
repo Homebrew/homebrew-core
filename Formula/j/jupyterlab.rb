@@ -31,8 +31,6 @@ class Jupyterlab < Formula
   depends_on "zeromq"
 
   uses_from_macos "libffi"
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
 
   pypi_packages extra_packages:   %w[appnope hatch-jupyter-builder hatch-nodejs-version jupyter-console notebook],
                 exclude_packages: %w[certifi rpds-py]
