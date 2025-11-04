@@ -5,7 +5,7 @@ class Ezstream < Formula
   mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/ezstream/ezstream-1.0.2.tar.gz"
   sha256 "11de897f455a95ba58546bdcd40a95d3bda69866ec5f7879a83b024126c54c2a"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/ezstream/?C=M&O=D"
