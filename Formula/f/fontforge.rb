@@ -4,16 +4,16 @@ class Fontforge < Formula
   url "https://github.com/fontforge/fontforge/releases/download/20251009/fontforge-20251009.tar.xz"
   sha256 "69046500185a5581b58139dfad30c0b3d8128f00ebbfddc31f2fcf877e329e52"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/fontforge/fontforge.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "5773c212fbc194ca0f0f2dc508e38f68a952cc3302403e9fe9ec3d1345bf42df"
-    sha256 arm64_sequoia: "7695fa33ce3a3078a9cce2e60adcf9ba268895343b329b0f7f1daf8163d931f3"
-    sha256 arm64_sonoma:  "d4e9ae11f6eda0e2f45213d6a0b2ff6ef381004c22e8df6982272312dd46828b"
-    sha256 sonoma:        "bd6fd2e7cb317f020230adb904ece9eb069e1556d222dca1e11caa25f82a493c"
-    sha256 arm64_linux:   "5d9105a4d5b55de112e59ddc82891a9960567b36f86ca1c14a88d8ca56e2e50a"
-    sha256 x86_64_linux:  "b54095c8e2a6ba64b64670808ee076258bc4aff487709011b17deda33bc105e5"
+    sha256 arm64_tahoe:   "9842a2fb9af32ffb0b9f42eee17632315a97851b78c7f8200d174604470137e7"
+    sha256 arm64_sequoia: "84ec0be09f626a8742659e590293b827e59dce3b17db7df66f7edcfebd04af36"
+    sha256 arm64_sonoma:  "c3709d57ce02996b5a78de23cbdcb3d23bcd1c905d51b36ffa8df0c5c89cd545"
+    sha256 sonoma:        "d69b2a27564efd612d118c3d21af11ed90884a0b6ab39d4a1f4aaad0ec2c2aef"
+    sha256 arm64_linux:   "4f5dda211c788f14f2e496718afc1e4a76652a3f09a7542b5c5970ac9b8e90b5"
+    sha256 x86_64_linux:  "c7670ee26c9d7fc053de2c9b0c17d84e801abf7c06e7d1f354cf4eb2204a0a09"
   end
 
   depends_on "cmake" => :build
