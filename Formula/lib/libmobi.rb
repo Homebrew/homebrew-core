@@ -7,16 +7,12 @@ class Libmobi < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "e1c609cd859eb380bbf438e97604222a100c5c55afa19c2d49f0ee6c24c9aad9"
-    sha256 cellar: :any,                 arm64_sequoia:  "208651021ee3e089ea2c3665b2f94f9acc0ad7401205f9177d82381f2da261b5"
-    sha256 cellar: :any,                 arm64_sonoma:   "d1fe8e0413649a0a838d650e614ef07010aa121e1ab3a2b360d8ba6da1124a77"
-    sha256 cellar: :any,                 arm64_ventura:  "1f4ea76703406a4f5453ac1767100a8198d6bf14782c1a6a862fcb3e2dd5d908"
-    sha256 cellar: :any,                 arm64_monterey: "4745216331bec2106dad3b68997ff46888b15ca74a19f4e6aafc510ed16daa26"
-    sha256 cellar: :any,                 sonoma:         "d510c86ba6f58c1835f3b4721986058711d2db5d94c9d6c9afc1d08f6f7a5316"
-    sha256 cellar: :any,                 ventura:        "5182d5625306772b104ee2fa38105e399c82bc33b25c01934f5722bfefddd177"
-    sha256 cellar: :any,                 monterey:       "ac43b774943fed966a0698c82cf05ec9bd8f020380ac12810cb60613d7d8923b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "633df7f3e0d7c1287ea87f79b6ae22f088a9f87fafb9ad825f56e619ba72b8ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "380132da0b9faf43d841d6eeaeafa37cfbf1381d2a66549a105c44808022fcc8"
+    sha256 cellar: :any,                 arm64_tahoe:   "15132d90bd4d7bee048fa33193aec9375cfddda3219f7d6f9cbcadad655e2e6d"
+    sha256 cellar: :any,                 arm64_sequoia: "39ee04b0a5a0be276b28b90f97dca5324ca331cb73f4da35631b47b321448972"
+    sha256 cellar: :any,                 arm64_sonoma:  "dd23aee2c80c8abae72694b9a67bb29838794a54278c1f5d4a924704116bdb61"
+    sha256 cellar: :any,                 sonoma:        "604397f80c682a2f0cb4e0247cf254a5ba7c8d69a131081fd99abac641b9e3a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a542a91a7c394a9d1b44f7bb2b3d5221a4d0082e70517883759b238a10bd25cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b740ba63e81ce6d375886cd8cae28a16acedbd25051004f236ff259c991fe330"
   end
 
   uses_from_macos "libxml2"
