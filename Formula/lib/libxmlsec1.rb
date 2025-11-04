@@ -5,6 +5,7 @@ class Libxmlsec1 < Formula
   mirror "https://github.com/lsh123/xmlsec/releases/download/1.3.8/xmlsec1-1.3.8.tar.gz"
   sha256 "d0180916ae71be28415a6fa919a0684433ec9ec3ba1cc0866910b02e5e13f5bd"
   license "MIT"
+  revision 1
 
   # Checking the first-party download page persistently fails in the autobump
   # environment, so we check GitHub releases as a workaround.
