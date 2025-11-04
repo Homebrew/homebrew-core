@@ -17,7 +17,10 @@ class Cpufetch < Formula
 
   # Compile with `src/common/sysctl.c` on x86_64 Macs
   # https://github.com/Dr-Noob/cpufetch/issues/375
-  patch :DATA
+  patch do
+    url "https://github.com/Dr-Noob/cpufetch/commit/b1f20cfec6ff902975919ab6f3fd18be744f16fe.patch?full_index=1"
+    sha256 "f1bf9e438abd9d076de880d16404a9fd6fe74e7411fabbd550b6ff68fd3c9234"
+  end
 
   def install
     system "make"
@@ -49,33 +52,3 @@ class Cpufetch < Formula
     assert_match expected, actual
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index d07f036..c88baba 100644
---- a/Makefile
-+++ b/Makefile
-@@ -20,6 +20,11 @@ ifneq ($(OS),Windows_NT)
- 		COMMON_HDR += $(SRC_COMMON)freq.h
- 	endif
- 
-+	ifeq ($(os), Darwin)
-+		SOURCE += $(SRC_COMMON)sysctl.c
-+		HEADERS += $(SRC_COMMON)sysctl.h
-+	endif
-+
- 	ifeq ($(arch), $(filter $(arch), x86_64 amd64 i386 i486 i586 i686))
- 		SRC_DIR=src/x86/
- 		SOURCE += $(COMMON_SRC) $(SRC_DIR)cpuid.c $(SRC_DIR)apic.c $(SRC_DIR)cpuid_asm.c $(SRC_DIR)uarch.c
-@@ -51,11 +56,6 @@ ifneq ($(OS),Windows_NT)
- 		ifeq ($(is_sve_flag_supported), yes)
- 			SVE_FLAGS += -march=armv8-a+sve
- 		endif
--
--		ifeq ($(os), Darwin)
--			SOURCE += $(SRC_COMMON)sysctl.c
--			HEADERS += $(SRC_COMMON)sysctl.h
--		endif
- 	else ifeq ($(arch), $(filter $(arch), riscv64 riscv32))
- 		SRC_DIR=src/riscv/
- 		SOURCE += $(COMMON_SRC) $(SRC_DIR)riscv.c $(SRC_DIR)uarch.c $(SRC_COMMON)soc.c $(SRC_DIR)soc.c $(SRC_DIR)udev.c
