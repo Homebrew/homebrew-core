@@ -6,6 +6,7 @@ class Pyspelling < Formula
   url "https://files.pythonhosted.org/packages/d2/8d/10c7685389449464172ff4383d9f1b6b96df8825ea6b513004a713aa034e/pyspelling-2.12.tar.gz"
   sha256 "7b397911e46b7fa7c1056b2867c02e81547fc8d00bbcd84465655df23e49dbaa"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ac2397e3f98b7012bf1424ee7be07594f278eb105685043fc2aa7c36c2db92a2"
