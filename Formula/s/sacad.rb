@@ -6,15 +6,16 @@ class Sacad < Formula
   url "https://files.pythonhosted.org/packages/df/39/3ec259100446937a0c36c14e1bc0794e990259100e90f5b83463b23c740d/sacad-2.8.3.tar.gz"
   sha256 "e9b2b114e3f884f6d4e5dd49ff0ae8d4133f061f56fff433719e186df69aa986"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/desbma/sacad.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5edb627d7d02ad768c580fc15a801b91e916bd9697b7d7a4050a012fc04417c9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac46be4b12402986b29f2c6e7a8e1caf45599e3f1a63b4bf5224e5ac064cac63"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0e27eea2724c254641ffa443834f16592eebae7010928d049aec0818dde527e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ce04631b97d2fef39a735cd749737d4a8c7774d1afe4885c1089518aea56112a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "38d4ac647b1f5596ca142185bb19e2b91d9acaab8b6608fcf11044cbd2f9e64f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac5b49fe187971a92bb0eae6f3234e8901e85a63f4d0b161ecc8366d29cd1c0a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e97a62ff2af8ac121204b7afd128e7e9dc4a6e1c3838fc590b18d1b12628486"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "347a7fefb095c19777a0442783250d2e8434af34f7ba65b3d619384888251831"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2e874bd76a2759eaafa13e5d4fd9f8c9eeebc382810bbdaba30be6fcc7fb6cb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "90fb8dfbf49f7a6a84c381f58b9cbee73859d762f55ff9bc2b703dfd8f8995b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e39cea169707f9afce0566efd95632b3bf5d0bef92bf0a25c27c3f9a05f6b692"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8e38a753627122a0052fbf06dbff1bc71387dcdbb49dfc1438720887ccf3b3e"
   end
 
   depends_on "pillow" => :no_linkage
