@@ -4,6 +4,7 @@ class Precice < Formula
   url "https://github.com/precice/precice/archive/refs/tags/v3.3.0.tar.gz"
   sha256 "300df9dbaec066c1d0f93f2dbf055705110d297bca23fc0f20a99847a55a24f4"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/precice/precice.git", branch: "develop"
 
   bottle do
