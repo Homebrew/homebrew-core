@@ -5,6 +5,7 @@ class Wireshark < Formula
   mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.0.tar.xz"
   sha256 "ab016463062bb635285b9678dd45ddd84c65938911fd40b3cca9a903a08ad8d9"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
   # Upstream indicates stable releases with an even-numbered minor (see:
@@ -15,12 +16,12 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "0be567a2410a1943f6aa48f6d7ebd41785b8742b9a2a7e52263e7404fe0d21ae"
-    sha256                               arm64_sequoia: "cd775354ae62c51a2d70c1778fc2478632ab51309b71a25dcd0404e1ee6cfbd0"
-    sha256                               arm64_sonoma:  "0b5b2f45a6513bcabea5a638d8fc0eb21fee00bfa8ffd17a29c6999267687b6c"
-    sha256                               sonoma:        "ac57ba34a566fa522e22c8a0693ce6d780e0a6a91034883462bf694dd62c2d5c"
-    sha256                               arm64_linux:   "093f5cfb0f3d7512c9a85956e971e8660ac3d88aaf9d4dcb0b8463154340a3c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cad6a7c06dca4c74ddc501e432d1d1ccf7d905d51d5da70e292edc5f6ef6ef9"
+    sha256                               arm64_tahoe:   "e931dee6d9a745b4e52a27699f8a69a344165eabdafd1d3a2e6e297444ee65a0"
+    sha256                               arm64_sequoia: "01535c78d8b3785392c9e86b673cd06c584bc7758c4d8a230b5dd7ba71a2ba0e"
+    sha256                               arm64_sonoma:  "79c087744a3e31e3f4df32255de8e24e6eb2c480b32d2920a257262100678f79"
+    sha256                               sonoma:        "3f86c4c25c879f291e6204901b96501e634fc3b412e474683b53a608a482f3ea"
+    sha256                               arm64_linux:   "0b33d81caa3bb388c5a982d83743a447b70d90ddcd5e173834d08f3fdfe4c354"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfd57b90abfe26a0a90b65efeeb02cc606de388d0c2202350735ae0c5c9b9a95"
   end
 
   depends_on "cmake" => :build
