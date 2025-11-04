@@ -6,16 +6,16 @@ class Parsedmarc < Formula
   url "https://files.pythonhosted.org/packages/64/7c/4af02563cba88551f6dc3d028eae195f411699554f5cf1ac544a6d86ff05/parsedmarc-8.18.7.tar.gz"
   sha256 "9906552d9ea39e51f3fc2f529b1c2b82a955d91e2153202efde27696711660ca"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/domainaware/parsedmarc.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "154c217e016b33a170b71826b48be487518aa765cbc538034e05b4c48847e3db"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c86d4ab21be4e147536023ce71988581fcbd30a3bc58da941d361c4fb2ab9ef3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33e831c1af38da5503cf11cf9142a5dd6a25f9549a7f0aa378237c8d4b6e587e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "31341ce3a0d0055dfa193b72e2e09f533b0e2e37d5ce077c3c3f2b5ba1363c46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "60abd1cd5d14a5ff51d5e21e05b9df23ee5ca7512bbc038200fcbeeee7a613e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5713de213deeb32872ecb04c30757de47a2882d70c414470b766b0c42533a76b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "55529f85576a09e7c3433d93040b9fda45f27fa3d0889de6881e6c47c1cfdd0b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e2e005d09768ae46b5b131f59a4b4f1fa0e8eb2c5e60b3f73c0d79b1f70e9bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2db651e070738436c2cecab1feac1dabf588d51c435635e00ea1199039cbaacd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "35bf318d2ffa8839f6101a002a06d8ea4994a1d2f06b7e9b1572d1116f359f78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d48b66c1613a712ca1d0b94fc1ab3748fdb29d403734c106c2ca1df54ea124a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cfddab4e9190cc731edb6daa630f7fa686199c02abe8a21d51339c71a63ad2e"
   end
 
   depends_on "certifi"
