@@ -4,6 +4,7 @@ class OsinfoDbTools < Formula
   url "https://releases.pagure.org/libosinfo/osinfo-db-tools-1.12.0.tar.xz"
   sha256 "f3315f675d18770f25dea8ed04b20b8fc80efb00f60c37ee5e815f9c3776e7f3"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
