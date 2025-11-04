@@ -4,6 +4,7 @@ class Castget < Formula
   url "https://download.savannah.gnu.org/releases/castget/castget-2.0.1.tar.bz2"
   sha256 "438b5f7ec7e31a45ed3756630fe447f42015acda53ec09202f48628726b5e875"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/castget/"
@@ -13,19 +14,12 @@ class Castget < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "979aca84c92c2cb5ab58080f1e6191bf96b4569f1899e2166cb76f0ddc2671a7"
-    sha256 cellar: :any,                 arm64_sequoia:  "4ef2a3166dbe4c983bc4a83b891b28b430ecb348e0043da7f0a512cdf7391444"
-    sha256 cellar: :any,                 arm64_sonoma:   "a2f710b3cc40945afaef214606dc94e036ab266e176158fcd5dbd3e11b3de117"
-    sha256 cellar: :any,                 arm64_ventura:  "85bc8985e90ece6ae58bf9d7a1f68eda1d2d2b3744694f5d7dfcfaf82d9b33df"
-    sha256 cellar: :any,                 arm64_monterey: "dab2c9c9952ce1ecd3263ed1d6c1c002c772c9e7c310bde0b6277c46fd424edf"
-    sha256 cellar: :any,                 arm64_big_sur:  "320ee21622d1bd939ea95055395d84e5d7cb2d6f091d0da9f05c9eb3d0cff7b9"
-    sha256 cellar: :any,                 sonoma:         "429edbc96bddebb64265eb6450a5ef92b6205979ce49d643b02c37b5a6928551"
-    sha256 cellar: :any,                 ventura:        "6fc622c18f0e57ca04747ce77b5663200f6669c6a1a4f01b071a13ae942ca231"
-    sha256 cellar: :any,                 monterey:       "e504eb4b4d6c38f21fdb20a8424de8ac6e98ee4dd970c397da89c0f936520be6"
-    sha256 cellar: :any,                 big_sur:        "b91da84bac0b31dfb521f193b519c984cf943f15974f9427fa3e780028ea07aa"
-    sha256 cellar: :any,                 catalina:       "83d589037e4418829134060be140fce4b4b9883b9b68376f20257df68d9fff9a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "830e5a5c2cc130c2134ccfa526f99794cb737726f810c23d773cfe060d84faeb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "590a6ec3e2fe983ff5c82e3b5b96b43c87f3a51fd7848216da86dc48ba01b8ca"
+    sha256 cellar: :any,                 arm64_tahoe:   "6260cc2436ada19971dceea5edf959d05602b072b8c9e4fe4e3cd4ba2d1cd414"
+    sha256 cellar: :any,                 arm64_sequoia: "0a168ca1b2f72f15dec7ccc87492f7687daa913751dc92f93e170847d725d415"
+    sha256 cellar: :any,                 arm64_sonoma:  "ee0922a3c5490cca1a84c0d904fdfc85c009e1a78ec97bde96160268d70aa313"
+    sha256 cellar: :any,                 sonoma:        "3646b6392004a2f98d56791883ba1ca786ec99adae13d51ca03f92ad5e7b60d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "84883011e5ed23dc9d2fa31362f00893d18f6f8071c736b60e5068a0ed9785ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ad8497c3d8ea308f9e37f9da0fed84e68dc1194d44e9a5f27c89b2b37d0ce44"
   end
 
   depends_on "pkgconf" => :build
