@@ -6,6 +6,7 @@ class Ns3 < Formula
   url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.46.1/ns-3-dev-ns-3.46.1.tar.gz"
   sha256 "3cb25d4ce1fb5c8597c91ab3d14c52a9f37eff92c36c2961772966c440850171"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256                               arm64_tahoe:   "056ad158ebdcf047c7326fdf17a978fcc6d4163d76ab8d6ce8e9f307f9ebeeb0"
