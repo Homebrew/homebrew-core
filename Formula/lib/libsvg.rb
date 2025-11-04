@@ -4,7 +4,7 @@ class Libsvg < Formula
   url "https://cairographics.org/snapshots/libsvg-0.1.4.tar.gz"
   sha256 "4c3bf9292e676a72b12338691be64d0f38cd7f2ea5e8b67fbbf45f1ed404bc8f"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://cairographics.org/snapshots/"
@@ -51,6 +51,8 @@ class Libsvg < Formula
   def install
     # Workaround to avoid segfault on arm64 linux. Upstream isn't actively maintained
     ENV.append_to_cflags "-include stdlib.h"
+    # Workaround for error: unknown type name 'xmlParserCtxtPtr'
+    ENV.append_to_cflags "-I#{Formula["libxml2"].opt_include}/libxml2 -include libxml/tree.h" unless OS.mac?
 
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
