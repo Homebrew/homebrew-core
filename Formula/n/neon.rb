@@ -5,6 +5,7 @@ class Neon < Formula
   mirror "https://fossies.org/linux/www/neon-0.35.0.tar.gz"
   sha256 "1467afb73f35e3f5d0e9fd70628c14cba266a65e2a1fb6e3f945ee3385c8595b"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
