@@ -4,6 +4,7 @@ class RakudoStar < Formula
   url "https://github.com/rakudo/star/releases/download/2025.10/rakudo-star-2025.10.tar.gz"
   sha256 "9d22698c9b8186e9a7191a34c24ebf0dcb53b167ae2fe46984dd7664c6c87bb5"
   license "Artistic-2.0"
+  revision 1
 
   livecheck do
     url :stable
