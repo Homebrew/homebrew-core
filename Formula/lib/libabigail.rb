@@ -4,6 +4,7 @@ class Libabigail < Formula
   url "https://mirrors.kernel.org/sourceware/libabigail/libabigail-2.8.tar.xz"
   sha256 "0f52b1ab7997ee2f7895afb427f24126281f66a4756ba2c62bce1a17b546e153"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
 
   livecheck do
     url "https://mirrors.kernel.org/sourceware/libabigail/"
@@ -11,8 +12,8 @@ class Libabigail < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "ea4bb90e1a4f2243dbb3da8b41c639b8f86cf26b31a81a0ed0f78fbd5b2dbfb9"
-    sha256 x86_64_linux: "107b3688c8a17ab46cc159f6e28401af834ad1175590d6a57f601e659fe9752d"
+    sha256 arm64_linux:  "6fbb19ac846182757c8efbf2c16b50453e0d4c0d1db712e668187b26d5efe7b0"
+    sha256 x86_64_linux: "d4528ffc550deef135b5002e9aa3becc57096c9cbf7ead47eabe20a3a9baf5ca"
   end
 
   head do
