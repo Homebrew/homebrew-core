@@ -5,16 +5,15 @@ class Httpd < Formula
   mirror "https://downloads.apache.org/httpd/httpd-2.4.65.tar.bz2"
   sha256 "58b8be97d9940ec17f7656c0c6b9f41b618aac468b894b534148e3296c53b8b3"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "e59049bd201e93f1c73548393f516497562ce1e1bf09695fe8d82cf9caee5c2e"
-    sha256 arm64_sequoia: "91a85b0c7d22e16b835c944594806651227b0740b0d74d8b0cbb5c8df275e27a"
-    sha256 arm64_sonoma:  "d2f0595ffacaefaecff8ab305c88f4f0c68c1f3493b662243c6fdea117d81915"
-    sha256 arm64_ventura: "c335d95bee9dc0d6c39abd07c94a57f019ae6f123c7f7b86929748858bea25b3"
-    sha256 sonoma:        "58446bbfe056b8b0cd590e7c2a41dfad18d75fbf4bca1d05c614cd5b23f30ad5"
-    sha256 ventura:       "f256ac4ff3824cde9a0b9cad87b5c6316f690b88d43d2662df54010f283ccdd0"
-    sha256 arm64_linux:   "ad4d6076d1b2f7e590bd2123438e9bd9bb29cb3b53402da6d5e4f4556af37162"
-    sha256 x86_64_linux:  "88ada0fcb0741422d513bec60d6dce0685ab8286bd640bc46ebc14ce11d5ad12"
+    sha256 arm64_tahoe:   "4bda26a478ddb999b3233bbf9de29192548d3132e34bd6fbbbcb570087b70de4"
+    sha256 arm64_sequoia: "a58826352b90299d2c44cae5714cf4169ed6e3ef8ef5e5218627977ebf764694"
+    sha256 arm64_sonoma:  "79706262a6a24d26cac3281afcad19f44c8cbc7ac974068c441de764d7c60608"
+    sha256 sonoma:        "6f82dd959d147fe74ffd9ab38e50db3c8c5122893dfaa2a7d91ffc763acdaeb8"
+    sha256 arm64_linux:   "28bb3ef476810921d1bab7461757cd122661846b8fa2f37f2f876bcaab6459a0"
+    sha256 x86_64_linux:  "1f5217e3039ee4f88f01dd0b0e73af85b7556d9a569d9c0e780292c6a1b45188"
   end
 
   depends_on "apr"
