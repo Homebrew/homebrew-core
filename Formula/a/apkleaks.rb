@@ -6,6 +6,7 @@ class Apkleaks < Formula
   url "https://files.pythonhosted.org/packages/1e/e6/203661abe151dbc59096de65d6f0cf392d1aad3acba32f4e9f3f389acad0/apkleaks-2.6.3.tar.gz"
   sha256 "e247b59acf4448f3c2e45449bc7564bc5b7a216ebfb166236baf602d625b1df5"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 2
