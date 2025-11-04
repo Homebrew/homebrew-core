@@ -11,6 +11,7 @@ class Bind < Formula
   url "https://downloads.isc.org/isc/bind9/9.20.15/bind-9.20.15.tar.xz"
   sha256 "d62b38fae48ba83fca6181112d0c71018d8b0f2ce285dc79dc6a0367722ccabb"
   license "MPL-2.0"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
 
