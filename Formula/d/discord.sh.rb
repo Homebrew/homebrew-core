@@ -6,8 +6,9 @@ class DiscordSh < Formula
   license "GPL-3.0-or-later"
 
   depends_on "bash"
-  depends_on "curl"
   depends_on "jq"
+
+  uses_from_macos "curl"
 
   def install
     bin.install "discord.sh"
