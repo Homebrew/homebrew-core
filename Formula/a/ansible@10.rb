@@ -6,7 +6,7 @@ class AnsibleAT10 < Formula
   url "https://files.pythonhosted.org/packages/d4/64/29fdff6fe7682342adb54802c1cd90b2272d382e1743089af88f90a1d986/ansible-10.7.0.tar.gz"
   sha256 "59d29e3de1080e740dfa974517d455217601b16d16880314d9be26145c68dc22"
   license "GPL-3.0-or-later"
-  revision 5
+  revision 6
 
   livecheck do
     url "https://pypi.org/rss/project/ansible/releases.xml"
