@@ -4,6 +4,7 @@ class XmlrpcC < Formula
   url "https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.60.05/xmlrpc-c-1.60.05.tgz"
   sha256 "67d860062459ea2784c07b4d7913319d9539fa729f534378e8e41c8918f2adf6"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "b6237e79f4ac49f6fa6c1e573c46368d5c6c02f1591e29f2dc991694afff23ba"
