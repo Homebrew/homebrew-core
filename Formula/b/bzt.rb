@@ -6,17 +6,16 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/ff/7a/84abef5f6b22ed50b25dfbdc73e65af2ab70df182e31bd4c85161b2a5821/bzt-1.16.46.tar.gz"
   sha256 "0e0b0feaf5a93e14a746aa14fab56faffedcd2cd80213f6eba7a995c34c7bdf7"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "fccff6f39e7d0eed8258d20d94713011b3b6facb6bdbd292fdf7d67319191b09"
-    sha256 cellar: :any,                 arm64_sequoia: "95398ae41c0f76670f708daa7c20f99a2fd0138541732b9bc604246ee84083ac"
-    sha256 cellar: :any,                 arm64_sonoma:  "49f853afc44f35db6e69d263a7d01d6c1c4a1123bd01dd56ab26fa42731e6450"
-    sha256 cellar: :any,                 sonoma:        "4e7d19102b7eb270a8e1cd86664a6f0291ac40b78e241eb430034a5ce21448e1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fe5dcb23f5c41a253d1535318f287145e4aa725de09e580433a7cf93d2767b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1f558297bb47a57020c7fd6c5d323cc5cf6371458520c187b90257767bf5555"
+    sha256 cellar: :any,                 arm64_tahoe:   "c0dc93972f62d8cb75b564a1f4d9d795858d166a5b5277dfb88e7a11e393dc8e"
+    sha256 cellar: :any,                 arm64_sequoia: "cbed694a2c04d4cd2421136290ebf7a71927e9790fe0f47774690f8c9040852d"
+    sha256 cellar: :any,                 arm64_sonoma:  "546efae72e8b32095d2c245ed9b6da7dd9756354aea81be114ca38494f623385"
+    sha256 cellar: :any,                 sonoma:        "3d8814d3d242439042c83ee09fda5430ce990be45b7f2d1b922dba1dcad91be3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd64499143ba7d62606e8c54c59349b019278bb9eb3b07de44a683d49d804ec5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4dbf18728c610f3002f9febe08d17df7ebff12ce09e310ba83db2bf71fd1b84e"
   end
 
   depends_on "cmake" => :build
