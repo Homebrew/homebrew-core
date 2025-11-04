@@ -6,6 +6,7 @@ class CyclonedxPython < Formula
   url "https://files.pythonhosted.org/packages/18/b4/d6a3eee8622389893480758ada629842b8667e326ec8da311dbc7f5087f4/cyclonedx_bom-7.2.1.tar.gz"
   sha256 "ead9923a23c71426bcc83ea371c87945b85f76c31728625dde35ecfe0fa2e712"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/CycloneDX/cyclonedx-python.git", branch: "main"
 
   bottle do
