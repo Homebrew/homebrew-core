@@ -25,12 +25,11 @@ class Clazy < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "qtbase" => :test
-  depends_on "coreutils"
   depends_on "llvm"
 
-  uses_from_macos "libxml2"
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+  on_macos do
+    depends_on "coreutils" # for greadlink
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCLAZY_LINK_CLANG_DYLIB=ON", *std_cmake_args
