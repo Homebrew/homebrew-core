@@ -16,14 +16,12 @@ class Hurl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0dd53506b57247d6b5ec551212433ec0adb199898179ad11a51a8162d42849db"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02271320877e0025edd124cfac43983c66d7e434a00d01c71fa12fd48bf1d174"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "569b483cb9265abea3607bcc534363052304c71ef72982377ac9112d658dadc1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9fc5113c8ed3bcb8952ba034a152daa71da8fd84ac7e46ac576f088bbee2a9c0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "056bdf68cc286e87ea170f3802a46d7a0a09eb9c7ff7f0feba68ad747d3ad3fc"
-    sha256 cellar: :any_skip_relocation, ventura:       "63cb4d7e897774ec1ef425771e88aaccbef5bf823aaaf184c765f6749d06513b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4164ea2b7cfca670493aad3b2dd761a2f44077fbba3b4339eeaa1191b98b119"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd38d4a95494e8df47aac5fe57b8b3585358afedb990683fd26ac7c1de49728c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "08dd179f243a2f46255d613bc0b799b8f461fe13c11f3c5741ffe9e2e1c37a2c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44dbde85cbbcad1e8aac88a7ea190fa2b0ca5898685350acd3d6ce138a94449d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85df68ff39fa518698dca50aef477aaed3f4b86a128fcf12e8bbd6d3661f1e21"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20a204dda0fe775d61ebfe0771ad9113ddb0a256e90e1e367d4b02a746d16c01"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "135b3d0a2f49f086c1467670d9edad2dfa1364c7689fffadcb5b2f1ab0076c21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c87af7604443f3d0295a4dc3e63819ea38c1418bc2f7c4da7a7fcf7eb14c3ee3"
   end
 
   depends_on "pkgconf" => :build
