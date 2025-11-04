@@ -7,14 +7,12 @@ class XmlrpcC < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b6237e79f4ac49f6fa6c1e573c46368d5c6c02f1591e29f2dc991694afff23ba"
-    sha256 cellar: :any,                 arm64_sequoia: "c618884cc42669b7cdd4147ffa1897b487ba9c1022c54c048cf0c40cc14ca1a4"
-    sha256 cellar: :any,                 arm64_sonoma:  "c5322ce6f4b0d23b9c3b30dec56598faf7b9f6a880f679d9e1fb691e39caf5b8"
-    sha256 cellar: :any,                 arm64_ventura: "1777fac56090d27fcd30b36e3d650da992bf6ba89e5898c87fa8ca38d34352e5"
-    sha256 cellar: :any,                 sonoma:        "73add0f6405a8d62a7b76c0538c548a6ae8abc73669c50655f150fa7b35b7aaf"
-    sha256 cellar: :any,                 ventura:       "e93fdf25ead371a86ef0f61d0af71ed63118f15387dd5e6c5902cfb9dec57df2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fc68a4419b803d9e9f6badf6966d955e15bbf81bad146d68f0b6be25fbce2d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8abc661587c2c0aa4f4fe5cb086c812b448e4cc59ec388f492d7e871a1ce77dc"
+    sha256 cellar: :any,                 arm64_tahoe:   "2b6ed5b519e919c5e5d01c4398b5265650dc4be735152c2ef6284710a3cd24b9"
+    sha256 cellar: :any,                 arm64_sequoia: "abe47cd7ae4198f396127bc04c73cb0fcf5c02ad44492f6ec35a8c855bf180e6"
+    sha256 cellar: :any,                 arm64_sonoma:  "48a211f5416eb72fa3c95cfb908099e03ef7450f0be15d118ee322dc093d2658"
+    sha256 cellar: :any,                 sonoma:        "a5bc2c69bac0b46244d5ba8fecda24094574a919c9bc9b838e1214d4d007715d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b95ce8d8a4831ceb6a72c8a8f9c541a1e938aaa864cfc64d078ac173daca811"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b26ad9df48179d8dc1a9f7adc4ebae995c73bb5d0e8c2b29fcbe498a98c17f1"
   end
 
   depends_on "pkgconf" => :build
