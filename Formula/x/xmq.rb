@@ -4,6 +4,7 @@ class Xmq < Formula
   url "https://github.com/libxmq/xmq/archive/refs/tags/4.0.1.tar.gz"
   sha256 "846cdd078209ee15189420c1ec47e6ffcf97fc5b196cd78b9952dc5de6c3e50e"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "7e8e71d92b11f5e3ec1b5b5a863c3d173c967286d301006af555b6b9ecfb6a23"
