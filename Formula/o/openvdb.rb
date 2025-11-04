@@ -7,12 +7,12 @@ class Openvdb < Formula
   head "https://github.com/AcademySoftwareFoundation/openvdb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b72fcc8c9a6af539ad9fbe8f77b33e5cdf536b3387da600b26e1fa3d482330d1"
-    sha256 cellar: :any,                 arm64_sequoia: "3b47e9516fccd5f50d51eebd8bbbfee8561c958f413cbc3ed54bb477eddf643a"
-    sha256 cellar: :any,                 arm64_sonoma:  "56fcc1277af3d4241f4f1b1516ecf2e0689513078f983f55aeaefae59c34daa4"
-    sha256 cellar: :any,                 sonoma:        "729e1cd1d8866b2fe292f899fad16aa8924f645e6161cd29782c6e154a4b1e6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37916dd0822369844e0bbd29e1152a70006a9d27617a97c61f5b50082b8d68f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec203adc7cd404e6ad79dc6dddfba072f37140064dcaa6bf9aa98812dd775bea"
+    sha256 cellar: :any,                 arm64_tahoe:   "445ead0c4325371ced66df0d99da1f8424dfb49c4347709f14fae008f1dd5f0e"
+    sha256 cellar: :any,                 arm64_sequoia: "420be15429bb1e5466dd1ed118089d2bda393112bb0e6cb185cf7718e26447bd"
+    sha256 cellar: :any,                 arm64_sonoma:  "9cc0cd25b0f828f31b22fdf35678f1103d236afb1e0b3085567a40d5b9412582"
+    sha256 cellar: :any,                 sonoma:        "7dce3911efbd25d010ea5d421456aeea2e434ab02680a6058aae9e3d843a1f31"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dbfa41538b6984822cd664d9b806a6a080fc0fa73d2446086365d556c182b06e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "777fc2c5878dac4d41c5a862a5df09605afa41bf733685b2ccdccd7d77ac7817"
   end
 
   depends_on "cmake" => :build
