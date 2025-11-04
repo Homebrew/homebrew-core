@@ -4,6 +4,7 @@ class PostgresqlAT17 < Formula
   url "https://ftp.postgresql.org/pub/source/v17.6/postgresql-17.6.tar.bz2"
   sha256 "e0630a3600aea27511715563259ec2111cd5f4353a4b040e0be827f94cd7a8b0"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,13 +12,12 @@ class PostgresqlAT17 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "414f2c7c21e50d5b2928efa985e0db9e94dbaf893f34506ba9bf357b731cf2c3"
-    sha256 arm64_sequoia: "0d45910e5c1b1df8f707960b7b3854a4eef08ce9da60db91dd633ad8b24e5cc0"
-    sha256 arm64_sonoma:  "75a39672f8b779c5d668c1e19e139f3ba7835617f41d21f7f05ea2bf8523b30a"
-    sha256 sonoma:        "b7b92a725fca35f974d036e3c3cfb5df67d269dc6139bb6debf01bf26ed4e560"
-    sha256 arm64_linux:   "a98397a993f02bf41f29ed25f339756df2b4f1977839e9293fa9997c74f03b4a"
-    sha256 x86_64_linux:  "2a3ffe4158f5966926463ad03a2d0450879f673b816e45fa3dc73e107c05fd06"
+    sha256 arm64_tahoe:   "0c005391090f88013eed28078f470c48d6c46ea30efb1c39c797876b5aca1744"
+    sha256 arm64_sequoia: "ae9d01adb178d50aa8feaefa7f5e0a60ce7af9842ed91f83f4d56d27bf111697"
+    sha256 arm64_sonoma:  "5fe57a8fdc8e0b59b8b8c4bf5c54ab04c0dd6cbbac6a243133ba14c6525e7b15"
+    sha256 sonoma:        "a8262b3e491a911e6d65fd41e17d403733fcbd8260d13f17ec451a0128c0181f"
+    sha256 arm64_linux:   "dc7bd0d18f8df0fcf8769fd2e657baabfd30748c8d595f835bb9b060adb2dff2"
+    sha256 x86_64_linux:  "9ff565c8776d3674dded1d19b0a53cbdd33e27c07a9ad3b990db08e326e4565f"
   end
 
   keg_only :versioned_formula
