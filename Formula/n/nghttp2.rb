@@ -5,6 +5,7 @@ class Nghttp2 < Formula
   mirror "http://fresh-center.net/linux/www/nghttp2-1.68.0.tar.gz"
   sha256 "2c16ffc588ad3f9e2613c3fad72db48ecb5ce15bc362fcc85b342e48daf51013"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "b7be3d515c9362428c703d65e45e0cc12394b2a2eca61f5feb398421ce1f2b72"
