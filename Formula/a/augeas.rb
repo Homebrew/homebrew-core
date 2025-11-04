@@ -2,6 +2,7 @@ class Augeas < Formula
   desc "Configuration editing tool and API"
   homepage "https://augeas.net/"
   license "LGPL-2.1-or-later"
+  revision 1
 
   stable do
     url "https://github.com/hercules-team/augeas/releases/download/release-1.14.1/augeas-1.14.1.tar.gz"
