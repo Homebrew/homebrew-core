@@ -7,6 +7,7 @@ class Cling < Formula
     { any_of: ["LGPL-2.1-only", "NCSA"] },
     { "Apache-2.0" => { with: "LLVM-exception" } }, # llvm
   ]
+  revision 1
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead
@@ -17,17 +18,16 @@ class Cling < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7661fbd1fa95f13e2cf3fa662dd9b260b72d50704807ee055e9c37a17fbb3603"
-    sha256 arm64_sequoia: "2180b446aa9cee44f570e641dd6ec247844271c9113f44e5669d743cf7b90e4f"
-    sha256 arm64_sonoma:  "b50cf5b6af8e38837eb7cbe80ddc5972e4b7574b7631129dd58ab74a36d1426f"
-    sha256 arm64_ventura: "63a6979bd28f2e05a9a4639f7d5eeec99268be12af84074bf5afe731c63537a5"
-    sha256 sonoma:        "616917ec942914038178ab9c18baf11f09adb518fd09a1bc453d8c570d87303e"
-    sha256 ventura:       "2e72a1bb7d132bfd0d3630d7d556b04ad7440bab3c6ce4ba6b9a1feb823bc81e"
-    sha256 arm64_linux:   "a8e84114fbe1eb79d64b4eb40107f97bdaf8820bde24dce48adb47c47d95e18d"
-    sha256 x86_64_linux:  "0babe63deefb1727a2da1fcb90c9c95a296a04317cb87ccd923f652f8b034121"
+    sha256 arm64_tahoe:   "b09e0249110083ea166e4abddcd0fd0b1baae544cbb27c2b980d7df0473a15fe"
+    sha256 arm64_sequoia: "4c56a4179592ca8b3aa5ef8c172edfc46356382454fc56872c7cdac015614ad2"
+    sha256 arm64_sonoma:  "aaa711f705fd0e99b0c8a9ef9e831243b8fffdf8ec847952713ed806dd70d45d"
+    sha256 sonoma:        "b45e65c4c0a399f23eb9cdae58f502aa3f66ec6be01d4bfd72347551ecc1b9ef"
+    sha256 arm64_linux:   "1280cc977c508d088cca5ebf924a9777cffa894834295ee18beba4b58485e21c"
+    sha256 x86_64_linux:  "8664aa806ec0740a3fa1b79d8c7773941b301485e61d0b4d5483470fedf7961c"
   end
 
   depends_on "cmake" => :build
+  depends_on "zstd"
 
   uses_from_macos "python" => :build
   uses_from_macos "libedit"
