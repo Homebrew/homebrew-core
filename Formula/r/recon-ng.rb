@@ -10,16 +10,15 @@ class ReconNg < Formula
   url "https://github.com/lanmaster53/recon-ng/archive/refs/tags/v5.1.2.tar.gz"
   sha256 "18d05030b994c9b37f624628251d3376d590f3d1eec155f67aca88fa5f3490cc"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "624c5eeb28aa689db420ded883a707a545c292eeeb54f17eac5e2d18a65c9514"
-    sha256 cellar: :any,                 arm64_sequoia: "617bda432f768eaf5168a93ec58b5c8eceddeca49b22980e21b3d6f4e4c6c741"
-    sha256 cellar: :any,                 arm64_sonoma:  "10b38a28d92ce036e3a69d96d04efec61e63a99c80b60cad42ba54a17cd55191"
-    sha256 cellar: :any,                 sonoma:        "7790200ba77568d8695235433a5b833dfe76b29484c4cd9f68d58f3970c7e229"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2bca243e4f8d7216b1c93808f5d7d611604951a8a4c932df82d3224b2779634"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8aaf3b13b3f6b68dfe5bac610c9cb849824e8cc2509b9be4ef27b6f9aea816f"
+    sha256 cellar: :any,                 arm64_tahoe:   "1d7c0b7d8ed398bdb0e03ed7683368ce7e1d4cf26d72e11f27459e26c3ac6782"
+    sha256 cellar: :any,                 arm64_sequoia: "3e4994923ab77db46253b6cbe914dcc546398a44660ea726444c39e0fa189087"
+    sha256 cellar: :any,                 arm64_sonoma:  "19d787a0c379c5170e21a571ac3360caf2e6f2757717de03117ad64ebeb01c41"
+    sha256 cellar: :any,                 sonoma:        "4741320236a49497ccc4f293a697f0c45b56ca7d089e845638f6520ed9c42cfc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "953e0ca13ebd0e4bc07afe4cd07858bdcb29115720d0c9dacb8866ab981e76dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7f61384233f3bfe6ae5564b22f890d99bc64bf6a8470b84b586530c6dab7501"
   end
 
   depends_on "certifi" => :no_linkage
