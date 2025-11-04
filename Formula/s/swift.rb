@@ -7,6 +7,7 @@ class Swift < Formula
   url "https://github.com/swiftlang/swift/archive/refs/tags/swift-6.2-RELEASE.tar.gz"
   sha256 "012bd56c8edd2c61df4cddad5d2fd634c045146016570a431cd1a0e0c28a16a9"
   license "Apache-2.0"
+  revision 1
 
   # This uses the `GithubLatest` strategy because a `-RELEASE` tag is often
   # created several days before the version is officially released.
