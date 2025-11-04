@@ -5,7 +5,7 @@ class Icecast < Formula
   mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/icecast/icecast-2.4.4.tar.gz"
   sha256 "49b5979f9f614140b6a38046154203ee28218d8fc549888596a683ad604e4d44"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
 
   # Upstream has used a 999 patch version to presumably indicate an unstable
   # version. We've seen this in other projects that use a 90+ patch to indicate
