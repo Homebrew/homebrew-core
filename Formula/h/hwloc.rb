@@ -4,6 +4,7 @@ class Hwloc < Formula
   url "https://download.open-mpi.org/release/hwloc/v2.12/hwloc-2.12.2.tar.bz2"
   sha256 "563e61d70febb514138af0fac36b97621e01a4aacbca07b86e7bd95b85055ba0"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://www.open-mpi.org/software/hwloc/current/downloads/latest_release.txt"
@@ -11,14 +12,12 @@ class Hwloc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "baedf023ef614fc146195b2d63d8bd7fd73cc17de666765961f589dd27ba9d79"
-    sha256 cellar: :any,                 arm64_sequoia: "356391e580cf546a4b1b4180fa630a64ba6bd7bf00164914b58e41f0f2fa2cea"
-    sha256 cellar: :any,                 arm64_sonoma:  "3eedeb79b2c25c7bb3b5fbe2a3a25f60b9c05779b75db2d871bdaf560b6a7c38"
-    sha256 cellar: :any,                 arm64_ventura: "fd80369eabf2c1ae59af139efb7bf7d31becf28112e662630ead948e6ee0bf63"
-    sha256 cellar: :any,                 sonoma:        "567c5b15c6b01b8702b87230d517f6d12573d46d396830e5fc5fae13745a2888"
-    sha256 cellar: :any,                 ventura:       "4710f1b590faecc187f6d7d9b44053e7ac7d986ab55ba7d67b91539f93155170"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6eac8d23df5e4d723bf09c5cc5d245e76e6ae35e37b8ed708300090d0cbf672e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e89ad68f540bc1c8ebe958702be09680dbfb67b9f249ea7b8867088e4a05e4d"
+    sha256 cellar: :any,                 arm64_tahoe:   "2018718c080f9e5fcc9556800857327d7e3ca8d3b61e33099697bbc1d55cfd7a"
+    sha256 cellar: :any,                 arm64_sequoia: "bc1ad16844c07c32e1b3e96f58e33cb10079cfa464838e43e027a1c8314cb846"
+    sha256 cellar: :any,                 arm64_sonoma:  "a1290bff135b7759e68b6a5c221c6dad640676d0d95de6764bda04bee3d7f3cd"
+    sha256 cellar: :any,                 sonoma:        "cb64e9f5c6fb775c6b16204ca8937500db9d590ce7a1693e54a13f9598b53c51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e37887e285f3808eaf5dfa5ed3bd6b6b07d789aba2c017541b68947527e89ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16f5daa770492c2cd80557fc3ba5f3de4e502502d6db5a95452fad8e1d0d5a62"
   end
 
   head do
