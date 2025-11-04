@@ -4,6 +4,7 @@ class Stoken < Formula
   url "https://github.com/stoken-dev/stoken/archive/refs/tags/v0.93.tar.gz"
   sha256 "102e2d112b275efcdc20ef438670e4f24f08870b9072a81fda316efcc38aef9c"
   license "LGPL-2.1-only"
+  revision 1
 
   no_autobump! because: :requires_manual_review
 
