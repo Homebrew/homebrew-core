@@ -4,6 +4,7 @@ class Davix < Formula
   url "https://github.com/cern-fts/davix/releases/download/R_0_8_10/davix-0.8.10.tar.gz"
   sha256 "66aa9adadee6ff2bae14caba731597ba7a7cd158763d9d80a9cfe395afc17403"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/cern-fts/davix.git", branch: "devel"
 
   no_autobump! because: :requires_manual_review
