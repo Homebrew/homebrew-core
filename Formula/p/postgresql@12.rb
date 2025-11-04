@@ -4,17 +4,15 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.22/postgresql-12.22.tar.bz2"
   sha256 "8df3c0474782589d3c6f374b5133b1bd14d168086edbc13c6e72e67dd4527a3b"
   license "PostgreSQL"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_tahoe:   "7dbbc04a01b70d5a0dd2ff13259a235abb3f0594a25c2f2ee14dab982ba49312"
-    sha256 arm64_sequoia: "770808f2893a90101c6043beb222509fdbaeb27d43231ce86a823c880167a869"
-    sha256 arm64_sonoma:  "5c7563d9142be7b9f6d9a196ac5962f0df9d2b280b89c3d4a854c88d9a4ddbef"
-    sha256 arm64_ventura: "b033000c5e7fbb428492181650dc33b07da3046da0e0f78daa7a26154db5c5ce"
-    sha256 sonoma:        "e0bbf74f24d63185fb22e85127c6ba5f02909a85b50f3df6a26420572f7148e4"
-    sha256 ventura:       "5bdb379616fc91d0bbca3f337a2f15360a3f417f323de32fef2171be4af4652e"
-    sha256 arm64_linux:   "2c9084a2fbc2dc1ce69a132d0d5e05ddfb21bef567e03bddb5ca940cd477cce8"
-    sha256 x86_64_linux:  "a75e2288530172594e6ec77b02a22a0aeda119feaaa21337b8d1922926472fdb"
+    sha256 arm64_tahoe:   "7eebc44b6f6fdd3655951ab6b671c3fcafd134dba397657e444fdf8deeca66bf"
+    sha256 arm64_sequoia: "a298c1ffaca071ca5c61293b253109bd6f9145e3992c8fdb1814b8efeae18a65"
+    sha256 arm64_sonoma:  "c01dcad85dd0159afdb19a31bc0ef7311a17743290151fea742763e59fa418f5"
+    sha256 sonoma:        "127c10f4b874c14e5ebdec658b592e8e4cca59d206c474d518a9ee055cc11b3e"
+    sha256 arm64_linux:   "e111736fed680690c6f4a8702a946588045db4c52ac0c284d3b238a03efca183"
+    sha256 x86_64_linux:  "43dee3defb61a85fa962fa71f6a3d09ebf49128ed46a8575a828141b817dff19"
   end
 
   keg_only :versioned_formula
