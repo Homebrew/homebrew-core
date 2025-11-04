@@ -4,6 +4,7 @@ class Diary < Formula
   url "https://code.in0rdr.ch/diary/archive/diary-v0.16.tar.gz"
   sha256 "9140762d44251ebce08d5ae45878a30fc9c35dcdd98fe64da618cdd2062552dc"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://code.in0rdr.ch/diary/archive/"
