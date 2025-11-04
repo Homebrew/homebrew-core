@@ -6,7 +6,7 @@ class Fdroidserver < Formula
   url "https://files.pythonhosted.org/packages/33/76/2b5b90013b559a4cdc8dd627a937523ba58196dab16e48d4badb54bf5da5/fdroidserver-2.4.2.tar.gz"
   sha256 "5dc926f8306473c33082fc4fdd3356207e5874f91c00c0d76125f26ce35bbe1b"
   license "AGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c79a546000df303dcbea27f9db12bd1f66a747119cb07e65b6ad4fe1739f995b"
