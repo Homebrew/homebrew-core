@@ -6,6 +6,7 @@ class Vunnel < Formula
   url "https://files.pythonhosted.org/packages/6d/a9/0a55bc84983ed23bcda8b0d61c83a941b60f92faf1c275edc5acdf99fc5f/vunnel-0.43.0.tar.gz"
   sha256 "8c434be0accbbc4a3cbcdc2fe899550bc1e36730917234cb632fbfd5108e0a6f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
