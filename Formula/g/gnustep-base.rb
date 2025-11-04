@@ -4,7 +4,7 @@ class GnustepBase < Formula
   url "https://github.com/gnustep/libs-base/releases/download/base-1_31_1/gnustep-base-1.31.1.tar.gz"
   sha256 "e7546f1c978a7c75b676953a360194a61e921cb45a4804497b4f346a460545cd"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
