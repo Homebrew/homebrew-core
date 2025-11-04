@@ -39,7 +39,7 @@ class Nss < Formula
     cd "nss"
     # Set architecture flags for ARM-based Macs correctly.
     inreplace "coreconf/Darwin.mk", "# Nothing set for arm currently.",
-      "CC += -arch aarch64\nCCC += -arch aarch64\noverride CPU_ARCH	= aarch64"
+      "CC += -arch aarch64\nCCC += -arch aarch64\noverride CPU_ARCH = aarch64"
 
     args = %W[
       BUILD_OPT=1
