@@ -28,9 +28,6 @@ class OsrmBackend < Formula
   depends_on "pkgconf" => :build
 
   depends_on "boost"
-  depends_on "libstxxl"
-  depends_on "libxml2"
-  depends_on "libzip"
   depends_on "lua"
   depends_on "tbb"
 
