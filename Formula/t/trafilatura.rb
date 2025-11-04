@@ -6,7 +6,7 @@ class Trafilatura < Formula
   url "https://files.pythonhosted.org/packages/06/25/e3ebeefdebfdfae8c4a4396f5a6ea51fc6fa0831d63ce338e5090a8003dc/trafilatura-2.0.0.tar.gz"
   sha256 "ceb7094a6ecc97e72fea73c7dba36714c5c5b577b6470e4520dca893706d6247"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
