@@ -4,6 +4,7 @@ class Tmx < Formula
   url "https://github.com/baylej/tmx/archive/refs/tags/tmx_1.10.0.tar.gz"
   sha256 "8ee42d1728c567d6047a58b2624c39c8844aaf675c470f9f284c4ed17e94188f"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     rebuild 1
