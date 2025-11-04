@@ -2,7 +2,7 @@ class OpenBabel < Formula
   desc "Chemical toolbox"
   homepage "https://github.com/openbabel/openbabel"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
   head "https://github.com/openbabel/openbabel.git", branch: "master"
 
   stable do
