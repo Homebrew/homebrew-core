@@ -6,6 +6,7 @@ class KimiCli < Formula
   url "https://files.pythonhosted.org/packages/0a/a5/d5743f372a6e2777006d097046bf7a34711f100c8b403327403217e7a4de/kimi_cli-0.46.tar.gz"
   sha256 "f109124f23ad97a297b9a9d377fbc46c0cf0cccbf2f85bfd22a18c1b9eb041c3"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/MoonshotAI/kimi-cli.git", branch: "main"
 
   bottle do
