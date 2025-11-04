@@ -6,16 +6,16 @@ class Fonttools < Formula
   url "https://files.pythonhosted.org/packages/4b/42/97a13e47a1e51a5a7142475bbcf5107fe3a68fc34aef331c897d5fb98ad0/fonttools-4.60.1.tar.gz"
   sha256 "ef00af0439ebfee806b25f24c8f92109157ff3fac5731dc7867957812e87b8d9"
   license "MIT"
+  revision 1
   head "https://github.com/fonttools/fonttools.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9750d4dbce094741a4357df64655176abd2fb61a2069df19321e7285de069a93"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8190ef8428a9e50b7a175b986af2a567b06a205e6cea71078756e8ccc6e93a67"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a901df32bb941726488ef413d689eb3bd7ee8f960a24e0721748b1b9d301e5f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "af41581aa85cd0c7bd94e3186286b8c9260db4d6fa8e1c9bf319ba4a552f5abc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4336ad7dd1dd3bfb4ff0a40552c85948d8dea8a8ed17b16821eb0878b3465f60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4756ba3d53721506c38ebc6071b1c252b354ad0ecda1b0753a60da398a4a3cad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "15c0f815274279adaccda8da7447099c2cf0c6a48d1d265422b765177dcaf140"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd9bdb261eba38f01da918b4c51aab21d8e52b27380000bbb30e194719eb69bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5df016a7a7ebc9e2c835b44625b08d880901ba721dddcecca9986dce4c3ac547"
+    sha256 cellar: :any_skip_relocation, sonoma:        "17eac0a58d3c06cad0b5591699a51de1c5bb2d81ad3ba4c87a5439c7477e6097"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bae2b4e45bf04b5fc707431f691bd30ce1d4b8b2480b21df8d1fb45b6de20c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e92f98edbcda6155e54809a1d4f4dcc08db76794d99c5b96e291df691df2a38f"
   end
 
   depends_on "python@3.14"
