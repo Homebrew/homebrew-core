@@ -6,17 +6,16 @@ class Pocsuite3 < Formula
   url "https://files.pythonhosted.org/packages/12/33/a9f77b222075f034c04c615de19c9ef0f93457d9b627e95cc40d07949e70/pocsuite3-2.1.0.tar.gz"
   sha256 "4107396b5fbbeeb65b27b574c6fb5a40831d1983ad4fd2f9a83c87006bed98e6"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "3820c4606bf2391ddbc2443aeaece0eb4ebdc955b365ce1b6cb0eaa16d2995d3"
-    sha256 cellar: :any,                 arm64_sequoia: "8eefd6ea533f2dac62d1c5c2110315c394e9df5cad497a477181eeac308715bc"
-    sha256 cellar: :any,                 arm64_sonoma:  "945f59e5feee3b7fc8aed95829823ad4c9ff0257115f75bbf2b6ed7eff164691"
-    sha256 cellar: :any,                 sonoma:        "bc83c8f39b3487f28deeaab0ea034c8b9271211fee6d79c7fb0adae4b0f53510"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d542f8d47225c6d97d08ad71720542ba320c8789cf587df52b988cd757b6490e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b1ef91ce3014750a36196c2fc64d7a00f100b996bd464057ae0522aabfc5bca"
+    sha256 cellar: :any,                 arm64_tahoe:   "497c4438f71eb744a852c1ad4c476cd8dab4a702a497b310656034a0db0c6aa4"
+    sha256 cellar: :any,                 arm64_sequoia: "e71fbb7a782638a1b21c4348602be525332b171109ccf6f25fef79feae7706f6"
+    sha256 cellar: :any,                 arm64_sonoma:  "e6e25f5fa7eb6007f396fe06e2b591771cd60d39b7b3429fc59ea796dc09235c"
+    sha256 cellar: :any,                 sonoma:        "f04cdfcac4f8e80466bb15fa2f2cc420a52a03eadbb1ed80698dc58893d40c22"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc6941b1dd072dce9c4365e28e6143344a035120db71bbc666278bd786ed3641"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edd4484847240b1bcbbd39ddf103cf1cf742ceb08d6057e3b81d7ed88c17c5e3"
   end
 
   depends_on "pkgconf" => :build
