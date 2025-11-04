@@ -11,18 +11,13 @@ class Ldid < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "e4021a8a2c96cc660130770ab648a3190798096b150db10a01dcd06f52ff5847"
-    sha256 cellar: :any,                 arm64_sequoia:  "84258b91d4f2085704b5d30a0a3cd50d32bebe0ca6e8e3adde999632afd63f4e"
-    sha256 cellar: :any,                 arm64_sonoma:   "e3c26343041639b82e88edf54d3af9f579876f800b7aeada94d36c807e441c27"
-    sha256 cellar: :any,                 arm64_ventura:  "552c265e507a066ffec6f2476dc9d6057a2ba41537f44f067a50c74ece9429bf"
-    sha256 cellar: :any,                 arm64_monterey: "a14aa56dab553afd69f82c3b63a167edb6ae2c3355a8f393e9a6c6c3c05e8432"
-    sha256 cellar: :any,                 arm64_big_sur:  "a5f4fffe051e8b54f8c0158ce937802297a76af4dad9140c13ad25a935f4f38d"
-    sha256 cellar: :any,                 sonoma:         "a2b4c79cc1cdc1cc91cd7a9474f5edbdd7ed299aad720c65a8e63bbb68d594b0"
-    sha256 cellar: :any,                 ventura:        "b6aba3db5dd5aab6835280e0fe777a566cc5eb524290482602ee2b8018145760"
-    sha256 cellar: :any,                 monterey:       "2adcc78190f359d7c5485a29cc84c37f5bf3360c39e2cd2cc975a5449bf3db6c"
-    sha256 cellar: :any,                 big_sur:        "7373fc777890c829de08c79475c3b2caa55f68c30f97398201ff3dd9c55638ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "81c37cabe7538847906e84785f70a8592c5853374424e5866e124dabde43ea2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4519a8fb688fea614c230562638a0d4704e7f1aad8d9372845d0b28cc5281479"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4c28297c1094cde3ae7fe7061400807d8936b9d0fb9fc317a354ce7cd856bf33"
+    sha256 cellar: :any,                 arm64_sequoia: "1aa932cfbef34182e232838733a904cd0f3579ea04f5593de9611afaff5e19e3"
+    sha256 cellar: :any,                 arm64_sonoma:  "63d9fa30a42dadd7fc7ca9d171d34b73159a082ab37dfb0cb8bd713388e8820a"
+    sha256 cellar: :any,                 sonoma:        "b60a204f73db3794d0cba7d85ec6318bb29050e69cd705a4e9ac540ef395cac1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c406cbaf506a024df5d668b9fba39c5a776a28ad3601b34a89c445894fa7b646"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8a69a0616a8dda110f61623b22635142b61d1cf611e60f17a70b336a1df20e6"
   end
 
   depends_on "libplist"
