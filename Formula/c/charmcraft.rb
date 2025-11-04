@@ -6,6 +6,7 @@ class Charmcraft < Formula
   url "https://files.pythonhosted.org/packages/48/e7/0528770d02d99ab1d840b69131fba020294e84da734e18fb8f41735fdc63/charmcraft-3.5.3.tar.gz"
   sha256 "9e3e10af1cb707d3e054a79e328bffd42eb70721255b9e7715fcb66a8c87cf8f"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 3
