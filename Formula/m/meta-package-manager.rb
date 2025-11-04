@@ -7,7 +7,7 @@ class MetaPackageManager < Formula
   url "https://files.pythonhosted.org/packages/5b/49/d4e663f67c2376f4e26864fa10ec78a6047f765d580daa6a510766ef2d2b/meta_package_manager-5.21.0.tar.gz"
   sha256 "9d438f4cf34b2bebbd46525759f6d5305d98e9ff02975be4e1b18befc4fffffa"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
   bottle do
