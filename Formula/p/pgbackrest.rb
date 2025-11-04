@@ -4,6 +4,7 @@ class Pgbackrest < Formula
   url "https://github.com/pgbackrest/pgbackrest/archive/refs/tags/release/2.57.0.tar.gz"
   sha256 "d794519c0ecb4ec17f41c4267d07fe80ab6b3ac9cc1de5c7984887c5e6d7448a"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "8a8c360967998cee0ae02e55a31a722ce42ce57d9a2cf66e7d9ffbfee4ef5b2e"
