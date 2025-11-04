@@ -5,6 +5,7 @@ class Libodfgen < Formula
   mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.8/libodfgen-0.1.8.tar.xz"
   sha256 "55200027fd46623b9bdddd38d275e7452d1b0ff8aeddcad6f9ae6dc25f610625"
   license any_of: ["MPL-2.0", "LGPL-2.1-or-later"]
+  revision 1
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
