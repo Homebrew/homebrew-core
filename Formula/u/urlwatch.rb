@@ -6,16 +6,15 @@ class Urlwatch < Formula
   url "https://files.pythonhosted.org/packages/76/a3/e3bc54a669fa3ec440ea9d8db64590e761343b02b6ae9fcfcdc05c28d9ea/urlwatch-2.29.tar.gz"
   sha256 "f317ca8b123b15af510ec9e08bf885d8a8b574f502253e5ded200d757366da98"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "ea236318d1131719a6e57a455f3f8f77b38234a4f7d3934e70ff1aa2501f32d5"
-    sha256 cellar: :any,                 arm64_sequoia: "fb04b5ba8d463d374d68019d0c9b49bc5bfb6909138318a32117ff36124c194b"
-    sha256 cellar: :any,                 arm64_sonoma:  "7c4e8da6f2e2c90dca91f0b084fb6ae897ed06f9e1ec97c12d0e8f113c40d0eb"
-    sha256 cellar: :any,                 sonoma:        "2184dcfadbe944b36361a9e85bc40036d86774640f7c838dd13e9cad6ef0f70b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39da67529211c63a0533556346a7b8580045fcd08d9446745a30d82c7a17d105"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fb0c11c63bb9871912bf09b8822befd11c47f5d384eab827feed8cde05f9683"
+    sha256 cellar: :any,                 arm64_tahoe:   "cdaf26e57035b50be508b6a033d8f6357fa840ace9780e5f5bf2e597436ec198"
+    sha256 cellar: :any,                 arm64_sequoia: "b71bec13eea4693f165674d455764e9c7fb60d7de8e06b9441975ab35918c8fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "75eea3e1bb7f93a5791ed7689c0fbb963ef1a8bd407201640667205ab5b15897"
+    sha256 cellar: :any,                 sonoma:        "9338d457064a49c2daf192d53dca72444fe71f9bf8a185904800747789efecde"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c51ad9cac87abf83d60981c48550ef1b7100a4a533e22909442d80d29ec811c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35ded310e222115a075bbe5a3cbd99dc6d0e3426752ed14c187898731f150dce"
   end
 
   depends_on "certifi"
