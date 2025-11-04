@@ -4,6 +4,7 @@ class Swfmill < Formula
   url "https://www.swfmill.org/releases/swfmill-0.3.6.tar.gz"
   sha256 "db24f63963957faec02bb14b8b61cdaf7096774f8cfdeb9d3573e2e19231548e"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "f72fbfa8ade5ccfd50e5166466e4bcc69adda17fe49bf1b6a1f2fee1f104b0d6"
