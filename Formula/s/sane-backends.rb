@@ -4,6 +4,7 @@ class SaneBackends < Formula
   url "https://gitlab.com/-/project/429008/uploads/843c156420e211859e974f78f64c3ea3/sane-backends-1.4.0.tar.gz"
   sha256 "f99205c903dfe2fb8990f0c531232c9a00ec9c2c66ac7cb0ce50b4af9f407a72"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :head
@@ -13,14 +14,12 @@ class SaneBackends < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "660c47f3e2ef991dd65db76d209c5fa64fb60287dcabab73c33d14f493d2aca9"
-    sha256 arm64_sequoia: "0216c81f23f34c4ed8528ac75f3bb668b217619569b16ebfc9b38483c6ab4770"
-    sha256 arm64_sonoma:  "90ff1226986965d15ab21286260ee3323140be3fe91c299bffae18c215cc2b47"
-    sha256 arm64_ventura: "aa5d8003afa1bedfe0ce827f717afac8f8f372ebffd92d01661240eaf1fb2ce7"
-    sha256 sonoma:        "7e5c5a8c11e1ec6fb70648e1413e736b5d814fe8dc89fc92634a18c08df524b4"
-    sha256 ventura:       "f74beb185bd7120dd63fd6bc37e5bcad2465957dc6f22fb88565e5dababd62cd"
-    sha256 arm64_linux:   "c3852b66436ad775efb69b9909252d993f49fc03f6cb632b518c4d8d4f675531"
-    sha256 x86_64_linux:  "d9ef1834b9b578e87a81e1b2050eb939de23cc9febff41af035a2a2dbc0f1923"
+    sha256 arm64_tahoe:   "f81a22b9525395d64cef165c6de06f74881552907238f7e0f1934d058faeb594"
+    sha256 arm64_sequoia: "29dfa6f1c69f3008ed6f80def50a7478434540ae9d34a98f9ea2c9fc22976a04"
+    sha256 arm64_sonoma:  "ba88016ee3c9ded4f68cce2ab6c532df4eabe9d22abec61795c5ec6613d3531b"
+    sha256 sonoma:        "0ba7b3beaa7aed07689e9e76298e8eb9a4687d5697a89c94c21f0ad334f83ed9"
+    sha256 arm64_linux:   "08fd943978f5f13dd3460508f5b8a48bea19025a4d4703b7389b0f1eabbc46af"
+    sha256 x86_64_linux:  "ab6d2dea1f471d4c28bf4cc4843938337e701c55204b50c7304e5918feaf1116"
   end
 
   head do
