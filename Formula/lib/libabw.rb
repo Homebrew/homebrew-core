@@ -4,6 +4,7 @@ class Libabw < Formula
   url "https://dev-www.libreoffice.org/src/libabw/libabw-0.1.3.tar.xz"
   sha256 "e763a9dc21c3d2667402d66e202e3f8ef4db51b34b79ef41f56cacb86dcd6eed"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/libabw/"
@@ -13,19 +14,12 @@ class Libabw < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "b05fc409964a522f49facea70e05860b9ce3d041d44d2eebe4724621a35a9386"
-    sha256 cellar: :any,                 arm64_sequoia:  "a458a7c83461966a67f75a3cb31fa042af7e20befe3ef21de818ca036a8263e7"
-    sha256 cellar: :any,                 arm64_sonoma:   "8ac829af4a67294bc85e6959843282df8944dc88c3d295dca20a1f7914881119"
-    sha256 cellar: :any,                 arm64_ventura:  "6ad85dc29ed6262c148bd70631ea06886e1e7fce5d6c8abf66b9486d85e8055b"
-    sha256 cellar: :any,                 arm64_monterey: "32cfa5aeedc8f7bff68a474f0bb6cc8d3501b301bb57c3a13c2a3bf535bedada"
-    sha256 cellar: :any,                 arm64_big_sur:  "7218127205f7f8cc1032b769e29ec9d12aba7d24c919b5afecde92b5e877953d"
-    sha256 cellar: :any,                 sonoma:         "86c2fb927daac6b886d4262e5ee7481bb783fe76495c3cee38fc156b61531b9b"
-    sha256 cellar: :any,                 ventura:        "8e7b0a87423c367ac899cb7459b8d28604f3f75988de7ba3daea77ef2bf70bb0"
-    sha256 cellar: :any,                 monterey:       "79862a34d53145dcd6c2435578500f6fa01f8697e294d20001430d07ee4fcde6"
-    sha256 cellar: :any,                 big_sur:        "cb183a618afaa39fca1c827c37d3e93c163b160af94290a65f87ca226a129415"
-    sha256 cellar: :any,                 catalina:       "01cfa53a2e623a95444477cc924aaa67f362dcf18b5c0780ed271284fa66174b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "974b1ad55085f776105bd4bd54436690dc75fe3552769d18da5babf6288e5ad0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3080aed8222be7eb35addd5e04c18ed6c0b322832059a07d029ab1c814c2190e"
+    sha256 cellar: :any,                 arm64_tahoe:   "c5e554c8eaac91a2116320a12ed9700f5043d7ee1649ff12ac6bf100f592d85e"
+    sha256 cellar: :any,                 arm64_sequoia: "1929be6ef60ca2ff2bef046ee353ad20cf7341d63d3eac43f7b7f5bbd386ee25"
+    sha256 cellar: :any,                 arm64_sonoma:  "d4eeb055aa536796728ac58c6ffb974b2edde14dac3c02ced2e2f26752b797d9"
+    sha256 cellar: :any,                 sonoma:        "eb91f348d176eaa3ea84d170a3ffc43debad1cfa66f6d8ac7f6a286af97d8bec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a03e3ba5c5b3783867148421e68b9f6dcefd078bde39158781d60b33f42bf7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e0f203da1524d6ff7b2df39cc4585bca3e16c923a4a21dca9633161a288c706"
   end
 
   depends_on "boost" => :build
