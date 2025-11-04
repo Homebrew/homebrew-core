@@ -6,6 +6,7 @@ class Img2pdf < Formula
   url "https://files.pythonhosted.org/packages/82/c3/023387e00682dc1b46bd719ec19c4c9206dc8eb182dfd02bc62c5b9320a2/img2pdf-0.6.1.tar.gz"
   sha256 "306e279eb832bc159d7d6294b697a9fbd11b4be1f799b14b3b2174fb506af289"
   license "LGPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
