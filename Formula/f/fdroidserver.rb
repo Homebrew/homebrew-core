@@ -6,15 +6,15 @@ class Fdroidserver < Formula
   url "https://files.pythonhosted.org/packages/33/76/2b5b90013b559a4cdc8dd627a937523ba58196dab16e48d4badb54bf5da5/fdroidserver-2.4.2.tar.gz"
   sha256 "5dc926f8306473c33082fc4fdd3356207e5874f91c00c0d76125f26ce35bbe1b"
   license "AGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c79a546000df303dcbea27f9db12bd1f66a747119cb07e65b6ad4fe1739f995b"
-    sha256 cellar: :any,                 arm64_sequoia: "c95a22ee1928803645003db8a0ebfbd0666d73faa07e90a2dfc2e3d558a1c1e7"
-    sha256 cellar: :any,                 arm64_sonoma:  "794a158275227e574b56be9ffb7a560e7cafe0a27a58aaad229895a442d9462a"
-    sha256 cellar: :any,                 sonoma:        "3003f0cec4faaf08f4bab3f6ed475df0d09914f3cb2635b3fe1691088402d430"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2af2544adc55701c9b71b25576d7e4f4b38eb9cfefee7e769af4d1f53fbbc1a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50980d20c2d39de5055a88ee5b3921d95cd33751cf2bb5ac8ec5229828fa2486"
+    sha256 cellar: :any,                 arm64_tahoe:   "312fb7235f8225e68feb66d728ad802a911b3ac4ca59765b7fd2fbe6d42fdbac"
+    sha256 cellar: :any,                 arm64_sequoia: "f9fd3aeee9ce8dd4ce7b1718c845231038d43c09bcbec8d97ae15d159ea98345"
+    sha256 cellar: :any,                 arm64_sonoma:  "2b183fd00b3e1b34a13ada47c8e84f4ebee56e558e84c1a6e71a7bf590cc1266"
+    sha256 cellar: :any,                 sonoma:        "5064c5b1a0763e90b2af658ed7346ccd36b296d2e6ecded013e361e269763bea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebb930e13a6db73138e6dfbf8e50b891006fa731080a06bbf6d4ed1b49d14ea6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "580b1058857f78f19e4a8fa3c5c390afcb5b2cc6899e1d018dabb114192e6fe9"
   end
 
   depends_on "ninja" => :build
