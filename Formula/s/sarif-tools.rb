@@ -6,6 +6,7 @@ class SarifTools < Formula
   url "https://files.pythonhosted.org/packages/16/3c/68e41db88aa15124175936017928e99182b3df8e6913c5e194c67d641996/sarif_tools-3.0.5.tar.gz"
   sha256 "52d09c101121231fb3489ad8c7af56896b8a95415cef726a6db5e7d74c6834d2"
   license "MIT"
+  revision 1
   head "https://github.com/microsoft/sarif-tools.git", branch: "main"
 
   bottle do
