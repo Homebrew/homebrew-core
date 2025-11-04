@@ -4,6 +4,7 @@ class Podofo < Formula
   url "https://github.com/podofo/podofo/archive/refs/tags/1.0.2.tar.gz"
   sha256 "4f46edac16e0b3badba2e972b3e3b7d8381845fad3eb39a02562cb7a04207d45"
   license all_of: ["LGPL-2.0-only", "GPL-2.0-only"]
+  revision 1
   head "https://github.com/podofo/podofo.git", branch: "master"
 
   livecheck do
