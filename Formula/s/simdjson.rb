@@ -7,12 +7,12 @@ class Simdjson < Formula
   head "https://github.com/simdjson/simdjson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3745d0b910d0ca02645c0ce6e401db9f86b737b28f0be1b3d3f26759efc659a7"
-    sha256 cellar: :any,                 arm64_sequoia: "b523f1c220781cd1b0c7f4c5263c29d451fb640c650642958f8e5551ff882942"
-    sha256 cellar: :any,                 arm64_sonoma:  "22ca7c84650ef77d95c3594b007f5f470a03018932607587cc0f96814690983d"
-    sha256 cellar: :any,                 sonoma:        "345d998ee82a446340d930bd3b80b1e32937b0fe9766daa4a06b856ad80ecdeb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcaf1caee9c0480f9068fb61abce607c22543ad75d3870faa69fdd0c889b50f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94faa92736d1afda75d551b1830e12913f354af3d09bcd28c163ab7edb103022"
+    sha256 cellar: :any,                 arm64_tahoe:   "a5c5b7d4076b9832a49d4c046159793b9d5b1d62ae0f8dc728200b01e0cd3be5"
+    sha256 cellar: :any,                 arm64_sequoia: "156102c5972d1d22e3bc19b0b4c595eee8d1963d1f70194e2ac41f74a9c05417"
+    sha256 cellar: :any,                 arm64_sonoma:  "c4186fe15156691d8acf816dd4542fffd18224efc959d1ef981bac64a8b4a23c"
+    sha256 cellar: :any,                 sonoma:        "c1499dc97aaf9c88d5ee82c996e2428d440746fec327baa8a65ca11df6702127"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf7340909bbe6278f23b45704aeabb9b5cec660b30e9fecfa8a55426b9ca019b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f59fd4bf2f47474c2eb922676adc8cf24a2c940b5bc92439df4719e7a5136d9f"
   end
 
   depends_on "cmake" => :build
