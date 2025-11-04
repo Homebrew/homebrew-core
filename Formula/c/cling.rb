@@ -7,6 +7,7 @@ class Cling < Formula
     { any_of: ["LGPL-2.1-only", "NCSA"] },
     { "Apache-2.0" => { with: "LLVM-exception" } }, # llvm
   ]
+  revision 1
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead
@@ -28,6 +29,7 @@ class Cling < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "zstd"
 
   uses_from_macos "python" => :build
   uses_from_macos "libedit"
