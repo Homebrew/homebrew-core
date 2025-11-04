@@ -6,16 +6,15 @@ class Howdoi < Formula
   url "https://files.pythonhosted.org/packages/6d/43/0e8166583575bd500c0f8f1a4ab9429af9466feb6fcdc006e88de8fd23e9/howdoi-2.0.20.tar.gz"
   sha256 "51cd40c53e0c0f8f8da88f480eb7423183be2350ab4f0a4d9d4763ca6ac3e2a9"
   license "MIT"
-  revision 11
+  revision 12
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "38668722b06d5542305581f523a3db847b6b9bccd1ca24abaa41d07f530e43f6"
-    sha256 cellar: :any,                 arm64_sequoia: "58b2634d3beae26c10b5f1a91c1561a8a63f5ced6c5e00917468f56ab1f863db"
-    sha256 cellar: :any,                 arm64_sonoma:  "516f0c71bfba9e6de32a6284c2573127130b450dd9046e371a17134ea9e7d8ad"
-    sha256 cellar: :any,                 sonoma:        "8980231decd16eaffa1d4061916f9c12a5c494b0cdbac820c35bf8c44a1b9873"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3e2a51a448800376dfd3fa80e647977fca283cd8f59472d58f2f1edf50bc842"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8629295e0bec2314b7af2f4979fa3dd9eb326fa9801947fb80d91823478f113"
+    sha256 cellar: :any,                 arm64_tahoe:   "d4cf3bcc5baad67f0cb8d4e76e9a0ba73d0da4ed63bbe21f45605673492c4e48"
+    sha256 cellar: :any,                 arm64_sequoia: "c0f852a59db0301fdff14f0c814a1e64ba3c7c32b9c0b14da8cd43d67a189af9"
+    sha256 cellar: :any,                 arm64_sonoma:  "bb0b7cb7825a72895474a10f805448c5cfb0c85aede7e55e5dedda5dcaf5b4e4"
+    sha256 cellar: :any,                 sonoma:        "3ae34fa29b219b7c0cd288c21723c300dfd623c37f1d264cdb094cece2073706"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a31d4df21c6f56648cc0a3a94231ffdc49c0e020ed52a46e634ae23c8e7bb56d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e2febadfec6f17cbe9e8e208fce13cea83db2d8eba4b05dab2a102bc8d0a30a"
   end
 
   depends_on "certifi" => :no_linkage
