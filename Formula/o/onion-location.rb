@@ -6,6 +6,7 @@ class OnionLocation < Formula
   url "https://files.pythonhosted.org/packages/72/0d/e2656bdb8c66dc590da40622ca843f0513cd6f4b78bb1f9b6ed4592d283e/onion_location-0.1.0.tar.gz"
   sha256 "37dc14eab3a22b8948f8301542344144682108d1564289482827dc45106ee1d5"
   license "AGPL-3.0-or-later"
+  revision 1
   head "https://codeberg.org/Freso/python-onion-location.git", branch: "main"
 
   bottle do
