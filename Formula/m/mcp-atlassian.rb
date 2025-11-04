@@ -6,6 +6,7 @@ class McpAtlassian < Formula
   url "https://files.pythonhosted.org/packages/36/89/d3a551c89e346ea2a81b53d5897192b703b0ff3951de3034158a6d822b06/mcp_atlassian-0.11.9.tar.gz"
   sha256 "1ba6a171b5299e554d4e0eff98279e74cdc4eb1c12c8e62be924103d9cd38e5e"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 2
