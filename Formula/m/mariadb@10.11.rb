@@ -4,6 +4,7 @@ class MariadbAT1011 < Formula
   url "https://archive.mariadb.org/mariadb-10.11.14/source/mariadb-10.11.14.tar.gz"
   sha256 "8a571cb14fb1d4e3663d8e98f3d4200c042fc8b2a4aaaab495860dea8b7d052f"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
@@ -18,14 +19,12 @@ class MariadbAT1011 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "dfc3159e6539c4eafaac967afa20fa81b040ffa5d92ce6f83418694dfee3f753"
-    sha256 arm64_sequoia: "6b490776bd524cb431fbff86bb6a5d4d2a5c336c5ddff5283efa3be6bc7423ce"
-    sha256 arm64_sonoma:  "c70ce49ba413b7b40bfd2fb4baf557b1aae5c98e2faaa15b2093a5abfc6d0eb2"
-    sha256 arm64_ventura: "60d8243772f318dc514b75ad69a506b0cd9f932afc6fd2b51ef88da35ab88d92"
-    sha256 sonoma:        "7a0bf8060c8c3a3ca619c19b374fae8a5502268c6497966d9047ca7ad8b11028"
-    sha256 ventura:       "033b5741aff013dd1fd10c753d3fc7a836cf019c92b7dff595c3262a3dfc0766"
-    sha256 arm64_linux:   "85e46cb374a0ddf75d7997fdee06880e34dc1585f30a184620fa929baa4714c7"
-    sha256 x86_64_linux:  "9ca65bdbe80308f2e978826f524742e6ce21703012ea0fc60f41fee9dcb83d98"
+    sha256 arm64_tahoe:   "68dfccc9fbdba650393d7101c5be5047092d5afaea16976446adb8b4f952adfb"
+    sha256 arm64_sequoia: "7d6d31ac35bb333bd7d35832f0718a13c215152b1d1925cf1997f9896ba04f9a"
+    sha256 arm64_sonoma:  "65a279b1546a0cbf5c99fd34a3125d33bc5bb9b71370a48dd4ba692f6b7984e1"
+    sha256 sonoma:        "8577236c9bcc1ab55a22ccfebabab8e2aa84695d3f2b0cfd52738dda9f236ab3"
+    sha256 arm64_linux:   "c667c83636249b2a37375c7f72d45ec9ca3f98cad3b9bd815526538b1c061f5a"
+    sha256 x86_64_linux:  "a34bc55fe2b8d177e5a6559ceccc15c599ea00bde6048a67bddaab556ca23ff8"
   end
 
   keg_only :versioned_formula
