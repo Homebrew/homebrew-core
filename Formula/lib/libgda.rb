@@ -11,14 +11,12 @@ class Libgda < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:   "cbc8b42b8facee67f08ef92ac01b2ff01a163f92120d0e7d88200416d5b88e7a"
-    sha256 arm64_sequoia: "2be57dbae0d6ba2cb489b405aeed1d4b00f6dc4ce1182dce49aec0fd1093a813"
-    sha256 arm64_sonoma:  "9cf877eaebc81fecfc1970b452f851b801f326d8154291d88fdbbad78cceecfd"
-    sha256 arm64_ventura: "4c863bea61f7fe27324a05e1ecaeb3f5baf67a87ad8fc0cdb9dbec71102a44db"
-    sha256 sonoma:        "6385eb68f99390c392e26c8798c20fac9f07c3a22ca4f7bb6550b2cac507c6fc"
-    sha256 ventura:       "1753780cc82f8f481ebaed1f645416d8aea7586a020876cebe631485977799a4"
-    sha256 arm64_linux:   "5fe8b7ec5d76567900e301e69b302f05a282fc2ead4063002502581bf6a1692e"
-    sha256 x86_64_linux:  "2c0269be185ff06ae59bbd4eabf89b43b465a20c9282095ace9d4dd8ddb54762"
+    sha256 arm64_tahoe:   "3b88a622a31068287a6ffb6cbc65f564087bf4075f9b7d12e1558a271dfa4098"
+    sha256 arm64_sequoia: "8f4076b1d7e3f9d4638d740248e2b2e2533e078c559701115c5a75fcea611a91"
+    sha256 arm64_sonoma:  "a5f1c8797863b56478b0a90eafff8fa01118e5e5f65f5d6312366e27cf62f1ab"
+    sha256 sonoma:        "dde0d4d9216afd054308c32af549d5da2f4ef1132560de75fb45294e22c62eab"
+    sha256 arm64_linux:   "432428c494240cbb76d0399b1ffcacd120214b14259a8c69b9ddeb8b85404be8"
+    sha256 x86_64_linux:  "94e7dcaf6d1c37b5acd8ba1657acbd9a06ab82064a1709ad97050458cb41f174"
   end
 
   depends_on "gettext" => :build
