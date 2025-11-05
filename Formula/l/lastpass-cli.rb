@@ -8,14 +8,12 @@ class LastpassCli < Formula
   head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "af6269576d040b28fc4ebb3d324bd6593a7b0a2b8acd3fbe06a251f4438bcd43"
-    sha256 cellar: :any,                 arm64_sequoia: "5ef0e66dd2a0206034d4750a932bdf7b3842ad64bf394791cbb7b4de5e0ebfdc"
-    sha256 cellar: :any,                 arm64_sonoma:  "b381ad7ecd30a993342cf22f59f91de72a6f9a7006225f2ee76a3c9abb10bc80"
-    sha256 cellar: :any,                 arm64_ventura: "c015a4006f07dd1dc19005a042712559699c49a687e251583e2307e1f00a21d2"
-    sha256 cellar: :any,                 sonoma:        "a7610f932a5e2cb85bd7aaf671cab2c9ee6e00c6775ae6dc0268e115b77218f4"
-    sha256 cellar: :any,                 ventura:       "043a2e2ed36e33158ea8318ee177294c4064151cb053834a4eb4bf00d36420b2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d146e7c5eabe5ce158e610cf34a0ba6b853a3afe1e16673d4c785d97223e5f21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4503fb1a86f94795f9ccd9433497cde32a9186968873dae16782e53adcb61d79"
+    sha256 cellar: :any,                 arm64_tahoe:   "93b96dc3bb80345c74934995e2e4899bad889abf98fefec321707ef216d787cd"
+    sha256 cellar: :any,                 arm64_sequoia: "840a351d5bd7022e7c60f2cc9c47b65bacd9b1cfb4314d604b7a5b9ee119c273"
+    sha256 cellar: :any,                 arm64_sonoma:  "76fcf9be8c41da58c8f15255048f4a755579655d8eaeccc84b5ac05a96c9d9e0"
+    sha256 cellar: :any,                 sonoma:        "09a1378f0bc30b4718a8a2752c75be049cf6ca5cdf105fd6a0307e26656fe149"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ab592522ad509c596a81bc676aaaf6e19bfed68672037d42637f293d69c9918"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "604fa7938c619c42ddb92b76c410f1d9fd2d16b156befc61cc36ad1121fe243f"
   end
 
   depends_on "asciidoc" => :build
