@@ -14,14 +14,12 @@ class FfmpegAT4 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "1595109a6a9bdbc696bb08cf8179123c69b3cd2b6ab8315cde92ed029dad566f"
-    sha256 arm64_sequoia: "f6a1da70f31863bc297d2b6c0719c47427cee93e1a4288063de4204d731adf38"
-    sha256 arm64_sonoma:  "be2f161312e0547a838b2aa161cbfdcc3c5c01e4295d2912018dce3e1c5e82e0"
-    sha256 arm64_ventura: "34faf5224c373d9d68fbd7974206b7c650c3075a0e0a2d10cdb9254c8bdab42d"
-    sha256 sonoma:        "dcc94072cb43bf7791a6961f747be311152d5c0c9eb25324826d198863d591b2"
-    sha256 ventura:       "5929deded8985d6d8885f93cf2ab85a12a381398249c3ae004d5b066e45ceda2"
-    sha256 arm64_linux:   "e98bd211efcbce53e2b23e535040abb271bbab727366a5223dedbd2e4df9ab40"
-    sha256 x86_64_linux:  "cf078e54cd3122ca70af8304f8e5c5df5d648c936faf106a5f2a3aaa61f7ca78"
+    sha256 arm64_tahoe:   "62b624d1f908dd1c369490c5b1f3fa05c1bab9732d87a3e106ca9eb7b8e2a089"
+    sha256 arm64_sequoia: "50acb5e522484934cd58b1e1d7ec0162d37a0afdfbb7490aa4d29461a4e31567"
+    sha256 arm64_sonoma:  "e4857e98013c47c2cbe46f9ed5ab803059f0d2ccecdb87d166a58a9b995d31e4"
+    sha256 sonoma:        "39c5e940ad811a6d5fb699a9a190cb1e4f3480a3389db27b96015242131a485c"
+    sha256 arm64_linux:   "2a2e8407f5b8f0dc860b58c525cc0de32515667fca57340b388ffa453da5ac4e"
+    sha256 x86_64_linux:  "3dc52b66b91a676d8fb12e40c0f598ad9271bcc5c11f2e646ff1ed24ba9b2125"
   end
 
   keg_only :versioned_formula
