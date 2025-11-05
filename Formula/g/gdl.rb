@@ -7,16 +7,12 @@ class Gdl < Formula
   revision 2
 
   bottle do
-    sha256                               arm64_tahoe:    "5ed4ab5773b48a89064e5e421b83e4aa4241893a486e1efceeab697e5a57c0af"
-    sha256                               arm64_sequoia:  "2e9f8f552db78335d815e67a085b8d26e42002308d0b138ec1dbdf9aba2b232f"
-    sha256                               arm64_sonoma:   "1cfd6543098b8fbd77e7fd87c1c16f37d6f486c50323e39bf2d52605409b0f11"
-    sha256                               arm64_ventura:  "d896433e025e9c24f986d70fbd82afca5692a82a1a94613b6f4542f341a9896d"
-    sha256                               arm64_monterey: "b3769eef48ccbaf262852d48819309afac933d962c7464d4fa3e28a1449b0334"
-    sha256                               sonoma:         "4696c6de941ce9c03db4631ce5bc3a53d83f5edfdbff117b3d9c4cba1af3ca1f"
-    sha256                               ventura:        "9485abd2cefbb7793c73f8de136bed12524f5e54452bc89b386bc19274f09b1b"
-    sha256                               monterey:       "96f6f072cd160b556e5f3e02eb8ffd5cbbe1d4a77877d8f1f4b0d9d986bdfc19"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "ded0ca92240f97cb5a6b90b5df67e139c5ef4bc6e82e093f8046834d260b2bae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83b01e8322122e6bbca3d696cb820b83409a1320a3439ef5aa3f56a2de3e908f"
+    sha256                               arm64_tahoe:   "d3c6f207816d35acd3038740b15ec3147330ebe7d50090878d003def62673900"
+    sha256                               arm64_sequoia: "926e80bc2182e0bdb36a4ca054d212955ad221c792cf7b17a15f75315a802046"
+    sha256                               arm64_sonoma:  "cfe7f704c7686a258efdad7a4b4406f47dc6e807f55b658fb16dd84ee227c920"
+    sha256                               sonoma:        "e3c86df3e2c6aff4656165ddba3a9ee68d501a42779d114b390a6cc98310873b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "368bec5f86eb60574abaa8d9dfbe5ceb6fa4049689baf884ce2402fa81d8667c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a1f91ac57eab7c7e0c1a185480776b795e6ad722631064c280d5ced4ac83bdf"
   end
 
   deprecate! date: "2025-01-15", because: :repo_archived
