@@ -7,12 +7,12 @@ class Pgbackrest < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "8a8c360967998cee0ae02e55a31a722ce42ce57d9a2cf66e7d9ffbfee4ef5b2e"
-    sha256 cellar: :any, arm64_sequoia: "7998ebdb5fac0d09d13d88e764f4bbf1f01d95d651a689195e019a659b3d36c0"
-    sha256 cellar: :any, arm64_sonoma:  "d7901e3a61b966084f86a8941e611cf423bf5a95029930faa63dcff1b3882e78"
-    sha256 cellar: :any, sonoma:        "88390d24c0b4a788a38f8f10633a826f3784a6d70cd923cee61068bac9860c0f"
-    sha256               arm64_linux:   "c5f14f2d2fc6b3251bfd16688a9b0df51f70ee281bc5b2724f277649fdbfce9d"
-    sha256               x86_64_linux:  "c3c62af8aa93ded209ad328f0ea54b2bfbe2b22052d7fdf3894f83a9fbe08488"
+    sha256 cellar: :any, arm64_tahoe:   "d3cf07a615ec618eb8dbdc3cefa03ce8dd3895d3d6a5557116b7b5e431a48ab6"
+    sha256 cellar: :any, arm64_sequoia: "c93d342cd7c58c9029c67c457709ac1782a9caad192599a72acbb067ab1f3a4b"
+    sha256 cellar: :any, arm64_sonoma:  "b78cc317d9f2565005350cc20eeb32d8e29a2f355a2a5a97bf632dc04a5a80e8"
+    sha256 cellar: :any, sonoma:        "52894f51c68d6dbe4b4672c21eb426064a0b47db92a780a92f8e6e6673ff57d1"
+    sha256               arm64_linux:   "d274195e3026a4a3a480e434d1e22172fe191db03be45a695f437c0055e6ee45"
+    sha256               x86_64_linux:  "bb4c77567c72f4e9adfa418b0b8d2ca559e68af4bf03494c207994e78138a2e1"
   end
 
   depends_on "cmake" => :build
