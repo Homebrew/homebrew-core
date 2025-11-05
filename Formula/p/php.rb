@@ -6,6 +6,7 @@ class Php < Formula
   mirror "https://fossies.org/linux/www/php-8.4.14.tar.xz"
   sha256 "bac90ee7cf738e814c89b6b27d4d2c4b70e50942a420837e1a22f5fd5f9867a3"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads?source=Y"
@@ -13,12 +14,12 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "dee2519201495b54f11ca262060f660c1027b68df619e3edb534e725248617e3"
-    sha256 arm64_sequoia: "b20f0fd40dc7ddd4f54bec06f83ff68924dc14c4c2bb6d770f50c9d059299d6e"
-    sha256 arm64_sonoma:  "72fdaa80d385c7870266d42f2517f57d6f0b5c6c64b0c85c2ed98777a525f175"
-    sha256 sonoma:        "1c89f113cf7f46eacdd4dedaba557fff4d7dfa1f640f219d93de394ce2235af5"
-    sha256 arm64_linux:   "a8694324060cf31ac6e0cf2b71891c275fd52b37545ab7f46bc679ab5f23a401"
-    sha256 x86_64_linux:  "d7b180836d8035a85b7681b59ed3ecb971a7071fb38c3e79fb790485b1437a9b"
+    sha256 arm64_tahoe:   "52320a2f51c34df3a6d1043fe9a428c9413d2da47f58ddb8a56ea8bd9dccd087"
+    sha256 arm64_sequoia: "254e19f347b729042bddc9cfb90dcb5758b8b9e03824b64ce0a6af59d496e4b3"
+    sha256 arm64_sonoma:  "0c8ae5a443f8c2fabbb59e78a8dc0ca8ca2efc61cd19dcf5833df6d83b62eef2"
+    sha256 sonoma:        "52e9795f76b53df0be4faff0cf4962dc2bf58936bd0140ff0f16ed73207508c2"
+    sha256 arm64_linux:   "3832c66cd7b79d6a9b037924083010a1f60fefd0e765595fa1c031b41d5604df"
+    sha256 x86_64_linux:  "611f82344e4ab859c25b499d50c22e446df5b7850647b06d6790eb9310980aa6"
   end
 
   head do
