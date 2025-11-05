@@ -4,6 +4,7 @@ class LastpassCli < Formula
   url "https://github.com/lastpass/lastpass-cli/releases/download/v1.6.1/lastpass-cli-1.6.1.tar.gz"
   sha256 "5e4ff5c9fef8aa924547c565c44e5b4aa31e63d642873847b8e40ce34558a5e1"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
+  revision 1
   head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
   bottle do
