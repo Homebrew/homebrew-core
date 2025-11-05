@@ -4,14 +4,15 @@ class Nemu < Formula
   url "https://github.com/nemuTUI/nemu/archive/refs/tags/v3.4.0.tar.gz"
   sha256 "e272b3e80623f8aef66c3ecb5e2d8846ac89b2514a4bbb5026e74f51c1a5ef42"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "a85570304ed9582ca07aab731b00e4cd2e4f88b4dfddaeacf119d5362f1dc670"
-    sha256 arm64_sequoia: "f8e00617670f088a45154eed42c7a37257d23692128cb325e880df8fd340c834"
-    sha256 arm64_sonoma:  "85ed732c4c8c5a1289c3d78d425798876f32d6a3095c04a744d4ef1f32339c4d"
-    sha256 sonoma:        "988e07f3dc2a6a26b82a63b6583775f48b7d8eeed7ca2a648d5ada870d9d97de"
-    sha256 arm64_linux:   "8587fe0509237203b730dd4736cec438559fb2e52c2fe2c219d0764e69851be4"
-    sha256 x86_64_linux:  "a3b5579daa967e5637df12043eaef848eacc00d9dbc44a4180cfec9d3730a467"
+    sha256 arm64_tahoe:   "e6f30abdf8f40e196974dad2c6f80ffb5353c98997f4a0733c388c0515e34ae8"
+    sha256 arm64_sequoia: "4069114fbb7f617e8f43ed1e3c3fb0f7c61bc99802ad84ae933b34526814d236"
+    sha256 arm64_sonoma:  "fff82177fe56ae398e0c174948400f1c36821185bcdbf96d04accc7f461dbe0c"
+    sha256 sonoma:        "bd4227695993da67ba07b55f0ee3eb3e671f33444dd013a62b060c76937489d2"
+    sha256 arm64_linux:   "53aa94025e389c228af7eae6478da28df2bc57dcae31ed8c19b594a923bff202"
+    sha256 x86_64_linux:  "cc06ac5e231324623d7ef68c67c5a77c545b8c33aa1a1170357b6e62d8af8f21"
   end
 
   depends_on "cmake" => :build
