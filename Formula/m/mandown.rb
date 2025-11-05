@@ -7,14 +7,12 @@ class Mandown < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e63c89304ccea714091074688c5d95685c8487d11dbbb1ef54c83c7a1238a969"
-    sha256 cellar: :any,                 arm64_sequoia: "62058c08be40e955aa5a9092da1b9c5975391f1715432219bbe6dad514c681b1"
-    sha256 cellar: :any,                 arm64_sonoma:  "d343e0a1552d905a9fcd584e61c76529bcc8d26d91974b93b29ec0af577f7291"
-    sha256 cellar: :any,                 arm64_ventura: "51097a822ac6600795f5edcc3731477189e06856cf244d8d21ba6c0ff565ac26"
-    sha256 cellar: :any,                 sonoma:        "2bb2bfe9ada4cdbb8c6a6076919aeaff49d7cc62624370f887193b55dd7963f1"
-    sha256 cellar: :any,                 ventura:       "ab61a2e08c5a47dc9cac7f6dfed509bae5bf0b4639710b68bbb8b2c4414d1c70"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "57dfe62d68152f7084d3a6e565ad0ff2dc182e78134938d16e73fd8a845c310e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0629af3814a1f1ddb1db8d5d1c2fa110114b959899dce4b8e4e3261e91469c4a"
+    sha256 cellar: :any,                 arm64_tahoe:   "e0a71f4348614a71714f3bae661966e3bae6c30d234f5b887fbf32953c39efc6"
+    sha256 cellar: :any,                 arm64_sequoia: "a4d4f41216199da615810de57b142746d9250c1bd358498897b140adf3dc77b5"
+    sha256 cellar: :any,                 arm64_sonoma:  "f70416d10f93c0cb2479202290365d407922ae817919c0dbd9bf962b2403f1fb"
+    sha256 cellar: :any,                 sonoma:        "7f71e396b11bb72dcb1cd7f5e604d5af2c6a2a24b0db14e21280cb54229fb544"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e62004a89ba8f886aa8b7b2cd31336ed9d40ff699257a9ce3655f6fb7c18556"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1381bf6e475ce5933e9c36111695f9df2e17073c65e934d518c89cd54c4c74cd"
   end
 
   depends_on "pkgconf" => :build
