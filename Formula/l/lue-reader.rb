@@ -6,6 +6,7 @@ class LueReader < Formula
   url "https://files.pythonhosted.org/packages/35/23/09469ec526a11c8cd5582fa5a5cced11175a2418bf741d56a52fe3cf5fb2/lue_reader-0.3.1.tar.gz"
   sha256 "d02ebef59873075bc877008368d3036bb7685f687b630b378f0e1849d14c50a2"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     rebuild 1
