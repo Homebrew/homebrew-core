@@ -12,14 +12,12 @@ class Libosinfo < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "af19b150811ba844c74951717755f894fe43c137e2f642e7aa37ba432d69a007"
-    sha256 arm64_sequoia: "cf2259dd949ebcdd2cb0c9ea883d0f67abe07c351af73869cf6bfd300f24161f"
-    sha256 arm64_sonoma:  "948b6a24382554b4f305e2273217f9e95e2928afc3df1819ce6ab37199c5d66e"
-    sha256 arm64_ventura: "56c9fcb470ba6c18017696c84b0ac0efac45842166e440f6ce507102c167b964"
-    sha256 sonoma:        "a9ddacdeac8d20b1a918ba60006a08eccc0d8b1b9296324eec944278a1a9aac1"
-    sha256 ventura:       "44b619cc3c7a49a8ead42200b497313def8ea75111587cfcc97eced74b542293"
-    sha256 arm64_linux:   "62838ed8c6d506a076cbd2cb1dbaef4ec846f15590fc6922fbb0fd20fe8214c4"
-    sha256 x86_64_linux:  "42ed4e3587f00f42ac72e46d24c9baea274589e693f404d469297e7caf185b7f"
+    sha256 arm64_tahoe:   "4773ff32945a3d4c0b60862f9d922197cccd51007e8ef68be8406a1d47377d83"
+    sha256 arm64_sequoia: "007bbf084f955d4977136156f0a4b04ab76b5b78c28c7c4312b56a100470696f"
+    sha256 arm64_sonoma:  "f80f6cb7e7e20720683e5f4acbbb0a8b18888cd45d8e86c8dfb85c8c11578947"
+    sha256 sonoma:        "8695c32adedebb47e0193b2630bf5e4be7face356688702edd6fcd3cf2100c5d"
+    sha256 arm64_linux:   "4f2544454bcb943bb021c39e9533262b1c1384f86cbd642f192f036e5ba7aaa5"
+    sha256 x86_64_linux:  "c543a59fcf39583b1f55839d2ec00ea5575aa88b8956ed86e0a284131411dacd"
   end
 
   depends_on "gobject-introspection" => :build
