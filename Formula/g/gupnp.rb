@@ -9,13 +9,12 @@ class Gupnp < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "ab74b2b29eec53d67f11a11d3354800899f992e24da6d3d693c0fb04d2063aa3"
-    sha256 cellar: :any, arm64_sequoia: "0d1e974b86bfaa707eb37835df07485b2a273a9ef467771decfea0da8fd0184a"
-    sha256 cellar: :any, arm64_sonoma:  "7b59de60b70948171b64ee2814123965ed8726a2dae73b9347905e63a633106a"
-    sha256 cellar: :any, sonoma:        "45244539aef7fe6f6bcf8ee612a66a0ceda7d1b6e52e6667bb0a988bea976657"
-    sha256               arm64_linux:   "c286218a5c1f6535d9b360a9cd830e1260868a264b2860d46ea31bf7618aabb2"
-    sha256               x86_64_linux:  "0bb3f9efc33b61b70ac7600893c6e7b4916cffc454712cfc5ab1589cbb5fd8d9"
+    sha256 cellar: :any, arm64_tahoe:   "aab39250b6637df75928cd584b22ac892b3bc88ade13c441c196462147c1e93e"
+    sha256 cellar: :any, arm64_sequoia: "87e030e2cd95bdd576452417203084d6bc5be6ac69ad7d39192468203aee28e9"
+    sha256 cellar: :any, arm64_sonoma:  "8c21ee0403e3e7ac240896b75abab35d089984f0652bdb85b67b3c4b02585f52"
+    sha256 cellar: :any, sonoma:        "20d86cbc848ba2e6cf7eda321d5c88e8ea40193657440d65da84bf34444b7805"
+    sha256               arm64_linux:   "c1d473934e2af40455da184401559fd4a280f7f9ccf41c0ed1f62aa4a7849528"
+    sha256               x86_64_linux:  "ad0e453a04da1f3183e56f79bb793215ce8703bc11f34671aaa28b8b4b4ac5e8"
   end
 
   depends_on "docbook-xsl" => :build
