@@ -4,6 +4,7 @@ class Libgphoto2 < Formula
   url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.33/libgphoto2-2.5.33.tar.bz2"
   sha256 "c55504e725cf44b6ca67e1cd7504ad36dc98d7a0469a9e8d627fd0fb3848aa1d"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
