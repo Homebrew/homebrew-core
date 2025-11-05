@@ -4,6 +4,7 @@ class LibxmlxxAT3 < Formula
   url "https://download.gnome.org/sources/libxml++/3.2/libxml++-3.2.5.tar.xz"
   sha256 "0c9b381b5a83d6b3ab4b0b865d7256dab27d575981b63be2f859edcb94da59c7"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,15 +14,12 @@ class LibxmlxxAT3 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "8913adaf8f40d6a47f8725d9522c2a5a5cba3bb2f339f68968d7233b98d63506"
-    sha256 cellar: :any, arm64_sequoia: "a44be374982b3a3b7adb3c13f31c97feb882b6268b85fb337b3a30980f0a9531"
-    sha256 cellar: :any, arm64_sonoma:  "6cb350dd2f4c0d81c9ca84395a31d0ca9d89e8331b175cef126678c758dcb9ca"
-    sha256 cellar: :any, arm64_ventura: "93b3ed88b404c4d7897789a37fa78a5798b395916a4753a1ab4b5df53ae83439"
-    sha256 cellar: :any, sonoma:        "04fe9da87109a92954ffa01cd5d7cb02356d6e1d6a7526240af5bf92c0836920"
-    sha256 cellar: :any, ventura:       "1ce4596e40a056ceffebf9d53e9d1af0c1dd1b392590a5c528412eeb8093ea12"
-    sha256               arm64_linux:   "4c076e487be6a8ab63d8bc581a94769a5f720265c2991fd56182b034c70d8c09"
-    sha256               x86_64_linux:  "982a460245b85912af6064eec18e6fc0a1bd9cc42f96a949df9d309640a5088c"
+    sha256 cellar: :any, arm64_tahoe:   "54ba6ed6a67f9b5c7d41eff654c3aae571203f7c655df54e40cafffa44b1210d"
+    sha256 cellar: :any, arm64_sequoia: "5008acc2b89b32ebdeb9324790ba38159cba9056fcc3dda2e8b8870b1469e357"
+    sha256 cellar: :any, arm64_sonoma:  "4532af815321f64d165936a020e53748c0e8f2fb4b973fb5e78db08cab3dcfe6"
+    sha256 cellar: :any, sonoma:        "21e9caba9dfc62295dc93ccbdefec27b10a82454039ac8205b61cf26bc508c84"
+    sha256               arm64_linux:   "12f145b95b67afec328ace9aff3581308ad4782d4978d1c0c00c1350db51cf65"
+    sha256               x86_64_linux:  "9d986b3cbb2382d7379e001598db8c6229e2624213c21e4f50c372ed053a644e"
   end
 
   depends_on "meson" => :build
