@@ -6,16 +6,15 @@ class Woob < Formula
   url "https://files.pythonhosted.org/packages/85/f3/a2dc1bb679de004aa1e48c8b77b5d5b9bca3007b2f25e0c39f850a009186/woob-3.7.tar.gz"
   sha256 "b1d7113ba87a9b947c13a1e3b4bb4fa616ba3037092b54912fc3fee2647d1b2f"
   license "LGPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "02fe81dedf2bf80816e4b6d92603d515cf3f6e1672861ed3123cee3e56485513"
-    sha256 cellar: :any,                 arm64_sequoia: "d80a72b294f9514f7cc3e92616ddbc40515d4a2fb44f16d41b8993e119de6eea"
-    sha256 cellar: :any,                 arm64_sonoma:  "daf27d15b07a42c37f7f164f98ba0c5caa5f2036a777051ba963373efb8a4006"
-    sha256 cellar: :any,                 sonoma:        "1ad538cfd73dd7d2ea3f506c3bcd04826d0fa26511bd9cd29f1622e75626957e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1d19015c67bc642556573549da49ec4a61e0f4fcae0393d1c75b670e9536b14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81563926c012d47e4878c4d88c25e49a22570df1704722a67f311ced71b9e017"
+    sha256 cellar: :any,                 arm64_tahoe:   "a96971610ed4df1a71f5e8caafe14b8d3d0a8cf6e3cf54d7cc5ac6b4ce5a6cf1"
+    sha256 cellar: :any,                 arm64_sequoia: "0ce5ff479919856747b2a2bff3c76909dcd6568615383a72451a17954b35cfb5"
+    sha256 cellar: :any,                 arm64_sonoma:  "33928216107b61322f48c1051a2ab7d212895052f92803196283f0dce16e38c7"
+    sha256 cellar: :any,                 sonoma:        "d7d946b358704484e50ee5c9856b51833c78c67d6b81640ae632e7ec59af0644"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "85bfc9746e0ab06cdef435e546ee37404593cf23e34fe9d17bd1669333f5a494"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36c9af5cf458d0277bbac082a3d09772d0d9fac1110b69667bca9ef3d6338949"
   end
 
   depends_on "certifi"
