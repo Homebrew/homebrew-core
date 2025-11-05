@@ -1,13 +1,13 @@
 class Libgnt < Formula
   desc "NCurses toolkit for creating text-mode graphical user interfaces"
-  homepage "https://keep.imfreedom.org/libgnt/libgnt"
-  url "https://keep.imfreedom.org/libgnt/libgnt/archive/v2.14.4.tar.gz"
-  sha256 "40840dd69832fdae930461e95d8505dabc8854b98a02c258c8833e0519eabe69"
+  homepage "https://pidgin.im/"
+  url "https://downloads.sourceforge.net/project/pidgin/libgnt/2.14.4/libgnt-2.14.4-dev.tar.xz"
+  sha256 "195933a9a731d3575791b881ba5cc0ad2a715e1e9c4c23ccaaa2a17e164c96ec"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
-    url "https://keep.imfreedom.org/libgnt/libgnt/tags"
-    regex(%r{href=["']?[^"' >]*?/rev/v?(\d+(?:\.\d+)+)["' >]}i)
+    url "https://sourceforge.net/projects/pidgin/rss?path=/libgnt"
   end
 
   no_autobump! because: :requires_manual_review
