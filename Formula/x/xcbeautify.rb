@@ -4,6 +4,7 @@ class Xcbeautify < Formula
   url "https://github.com/cpisciotta/xcbeautify/archive/refs/tags/3.1.0.tar.gz"
   sha256 "3b96197098efc79a855f8f5950bc25142f3fe4e561e15f311fc018479f90d5ee"
   license "MIT"
+  revision 1
   head "https://github.com/cpisciotta/xcbeautify.git", branch: "main"
 
   bottle do
