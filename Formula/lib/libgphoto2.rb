@@ -12,12 +12,12 @@ class Libgphoto2 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c68e44acb62132269d8b640bfbdc216658e413793c7a17218a7c4f9e37eac1a8"
-    sha256 arm64_sequoia: "56c47cf232de5b4b179fca5b188ef3ed22d7f0804d98be2351b42c2cdefbf8a7"
-    sha256 arm64_sonoma:  "901f73be2f4d69442f67bf7bcc36ad8a8bedef3584c3a8d9518f525203c10085"
-    sha256 sonoma:        "e1c39e6008ef9e7d846cd4c7c6c20d7da5a4658d4ea98096544b5ee039d5b485"
-    sha256 arm64_linux:   "86cc3bc890a442918626e8a6243ef5abb72471a216a342a10329e7b4754c4c52"
-    sha256 x86_64_linux:  "addf5a20ef635d4498082be132fb0ce992132cc19a1d9d0d88b9f1fc54dd18f4"
+    sha256 arm64_tahoe:   "4787debd14a4f061a5b1dfdb313268a6e03abe10dc39343e135da821f41a6f88"
+    sha256 arm64_sequoia: "761131f6530a6f51e1d9d1492af5232cb1217128e3bf73fa235d0d03a3da2118"
+    sha256 arm64_sonoma:  "631cdc3341dfc5907fa83887dc913311aa36a0c219261ef9fd7f46cf8037cda8"
+    sha256 sonoma:        "2de747a420398a3a4e7b5cb01cec1511e37d7fbe534895f6a76fd9fac18fdc0e"
+    sha256 arm64_linux:   "4af836cfd70a87e5927caf8cf9934b3c633f92234a3c369eeff623f6a1e53993"
+    sha256 x86_64_linux:  "6c59a4f801f570abede5df74fa27c3fbcd5f9a4c850a3a7be0143cbd51787b32"
   end
 
   head do
