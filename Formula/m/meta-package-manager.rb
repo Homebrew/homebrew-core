@@ -7,17 +7,16 @@ class MetaPackageManager < Formula
   url "https://files.pythonhosted.org/packages/5b/49/d4e663f67c2376f4e26864fa10ec78a6047f765d580daa6a510766ef2d2b/meta_package_manager-5.21.0.tar.gz"
   sha256 "9d438f4cf34b2bebbd46525759f6d5305d98e9ff02975be4e1b18befc4fffffa"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "9ccf797feb1dd125ab60c98ca41e8632df5fd29209cb7c7a2443bc8e104c0881"
-    sha256 cellar: :any,                 arm64_sequoia: "f77ae134382c799cd80ab9198557d42624a1ddf387f4ee5d6f703ede1b5e02db"
-    sha256 cellar: :any,                 arm64_sonoma:  "44d3af2cd5533967e36fe749952c1ad2f11f207c7d13a7be3e21237250984851"
-    sha256 cellar: :any,                 sonoma:        "80f8c931a19b59089efb8f3384a33b15d0d782e429b1ec3c1e3625da4e48a3f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bfde1905b75e11a8129d822caa268821ba875c60472b4aa4a8dae751c1144b6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1bc4fdb2e6a1d882d9288318697bbde7484c72be9787966c4f094e4e6d6416b"
+    sha256 cellar: :any,                 arm64_tahoe:   "d2ae42fd3f95ac6cc71972cad5f9ab9e8a316c47e2f50786e5fa58dd0aa505a1"
+    sha256 cellar: :any,                 arm64_sequoia: "af368f72b2811e0683bef4004579670bfcf9a144ca3e8aeeea3739563c98bb50"
+    sha256 cellar: :any,                 arm64_sonoma:  "a6d647df24759d953a4c224d11ab17976bd4a08f51e9ef14186358462773feba"
+    sha256 cellar: :any,                 sonoma:        "e7bf553fdde24f07ff1773795025210ea06d38f44d87b90dba65468def153c91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a84535826735c0310c159fd21ec808fb2e8af449a0fa628416965cb4d1cf8c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75a87e1c75ebd98011ce2a7577a9e141cedc8c66d56e8ba5ae254879a43987e7"
   end
 
   depends_on "certifi" => :no_linkage
