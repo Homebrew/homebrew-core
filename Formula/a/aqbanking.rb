@@ -14,12 +14,12 @@ class Aqbanking < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "290db8be664463305324ef1fbcfc7a099d0c7cde5adf26ba17382846935a584b"
-    sha256 arm64_sequoia: "b985704676223c04fc03a105140aab9e751a65d6835a5b66a6f44054891d0b84"
-    sha256 arm64_sonoma:  "35919380f881247c239d3bb486d6ac5e415b01135955c634e103dfa4640dced1"
-    sha256 sonoma:        "8b549c2edc5250cd4a2e29b767022a1fccc2dd0d2574d5acb1b9022d25edcb1d"
-    sha256 arm64_linux:   "4b821d035a16ba1e42f5553a7ec80b78895a44510098c26785047f92cd3f874b"
-    sha256 x86_64_linux:  "e44f6dab27441e02921afaa60265c0b6ccf5fdba95474b76827de4f64e8ea9e4"
+    sha256 arm64_tahoe:   "95db5bea2a65e112463cf4c5a72edabad0cf956eb99f229233486ae1b338eb3f"
+    sha256 arm64_sequoia: "2844c4cd3e5278d5b3aadf63f4c12a433e7f85ea63136ab3277223324e86b593"
+    sha256 arm64_sonoma:  "8a28d4318219b92bd8c0a7401112abe1c76c649087ae969a234eed69ffdd93df"
+    sha256 sonoma:        "1f2dafb70c12b688cdeeb4747adfdb27680ba4e2726d1e11c7d6397147093372"
+    sha256 arm64_linux:   "2778ef486f30ba37ab9fa619159ba213e6af872d53742e96cec3ea31d25e5d0f"
+    sha256 x86_64_linux:  "4219de3dce03e13d7af4a8eba3be2d7c08af46a8247d537bae1051118253ccfd"
   end
 
   depends_on "gmp"
