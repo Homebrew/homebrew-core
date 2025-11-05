@@ -6,16 +6,16 @@ class Gptme < Formula
   url "https://files.pythonhosted.org/packages/d0/a2/0dc222a2854c70bce25c00c9a1c3a86e66cdde077eebeda4eb9b5199387e/gptme-0.29.0.tar.gz"
   sha256 "3cf7579f2eb5896f3c5c0b8ad6a3d27fc485b3a058da505c4183a83378f8fff0"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "547bff519f341018da73e54733baf1fa6a7fba7fabfd9cfc8944d4fb7008e854"
-    sha256 cellar: :any,                 arm64_sequoia: "0e8939d098c4ef263ca7842c3fad459aa88c4635f4a2028670fc7abb15e3c999"
-    sha256 cellar: :any,                 arm64_sonoma:  "799406c96e479f16504674fbd521e874c164df4bf180a72102e458e0040295c8"
-    sha256 cellar: :any,                 sonoma:        "424d5b617a9f86b479d58332bff83c4d3c0b18e405f30ca8a53a651c2b8535fa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e5e5c7a7f75bfe1f4162a5d71bac8c81644fc15d31a917c69e8cbeaf64a38ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aadc6dbeb0a5ea828fbe87fc93a4cef3efe4c1313f0d4af37aefa074118e8f22"
+    sha256 cellar: :any,                 arm64_tahoe:   "651bc45013e3f21fd4aa8b96f2f4b412307358dc9f12b2ecadf7f0bd444a22bd"
+    sha256 cellar: :any,                 arm64_sequoia: "215e7639089460562f8f178b921189325a4df6e5348f3de3af9773a11419a179"
+    sha256 cellar: :any,                 arm64_sonoma:  "9c6bea6338b26653ce64bcbbc1ac491af4ff802a69cd2659b3b04dd77e81695c"
+    sha256 cellar: :any,                 sonoma:        "d82934121f6e58a004adb83153f337c819ea5a6b9aa237ff0fb47da6e1fb5984"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "66ec5b9044c13ae882d202390c26ce1d15bd1cb0f2796e4f587f3963daccef3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "caf370a74e4845da624a282df83e5110cc1c3771cf97a471d17a21fb575300a7"
   end
 
   depends_on "rust" => :build # for jitter
