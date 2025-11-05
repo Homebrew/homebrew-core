@@ -8,12 +8,12 @@ class Libxkbcommon < Formula
   head "https://github.com/xkbcommon/libxkbcommon.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "c373381a668bb08c02029141f4bc69560c46d9ec5c23c7df3a3cb629a9dad7c7"
-    sha256 arm64_sequoia: "e2b6d1418cd08f1ca8db11cc0c11658d756e51b3cd156f336c8cdee073876720"
-    sha256 arm64_sonoma:  "feda05d7dd1a819d84e9ee7dbebd362c526a3c395484b00557be45188cf41396"
-    sha256 sonoma:        "7a4a688472778bbc74a6bfb85f08e54f9fc94fff2dc91f55f4fdfb7eec03e16c"
-    sha256 arm64_linux:   "134c8eea78b42208970ded161e327d215371a51591127eafcc1603b06b091922"
-    sha256 x86_64_linux:  "3e6d884ec8e184ac4ff96dea793acdf1b669ad6894a5f70808b792f714e97ffc"
+    sha256 arm64_tahoe:   "4c7b437c40ccf5deb9dcf8326058fda915bb076ed02a9431ebdb6e3939445b3b"
+    sha256 arm64_sequoia: "3032fd60cf8eeed47400ac22c23725d9c74dd5cc85aed20a89598e7731c83952"
+    sha256 arm64_sonoma:  "449f7aab7fe5593691dcb890149dcc1036d11bbdd6bb959ff681f276f08074fc"
+    sha256 sonoma:        "6a6e79cc7d6ae801861fd33b69fb8069f01b40253f1e785b10de0de144e1a30b"
+    sha256 arm64_linux:   "bcae305e7a29d939b53cbe4f0d11f8a1bd7f9064ffc33e691430e0e167952910"
+    sha256 x86_64_linux:  "0404b0e467e2cff31d4139ac7a29c23d0b9653a0c5b3c6659b64b4df6bc92600"
   end
 
   depends_on "bison" => :build
