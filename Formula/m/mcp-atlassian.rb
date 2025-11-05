@@ -6,15 +6,15 @@ class McpAtlassian < Formula
   url "https://files.pythonhosted.org/packages/36/89/d3a551c89e346ea2a81b53d5897192b703b0ff3951de3034158a6d822b06/mcp_atlassian-0.11.9.tar.gz"
   sha256 "1ba6a171b5299e554d4e0eff98279e74cdc4eb1c12c8e62be924103d9cd38e5e"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "e37dde66a2ce3db67252bad2b906d11d6d0b43d9679323e061bed5996f3e3460"
-    sha256 cellar: :any,                 arm64_sequoia: "b0c1ba6ab0e91da65a2399ef7a279912e4829bee2cb7eee9a05b67b9653a7c26"
-    sha256 cellar: :any,                 arm64_sonoma:  "cbadd1383c91bbe408e9bb4b275899bf3a7fdd8064fa8699cd47570c4f5c9f38"
-    sha256 cellar: :any,                 sonoma:        "f68eed83804aa5e75c92c8305c9a8ba04318ce5e32fe898a2b07d71b0bb0b41f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d576ded8f50ed3a361c1a18b346a291e2bc251015479e56df6482ea26f9fb06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06b92ea8479ca5f5bc0c8d9b2a8eb8514206eb4e4e842a2a8b54d4e47f4c52ec"
+    sha256 cellar: :any,                 arm64_tahoe:   "fc5ec3f31982f9f531660583c0076ed3e677227203ca60b3f9f1352999a992af"
+    sha256 cellar: :any,                 arm64_sequoia: "ac849e1752e5cfa46bd7dabaedb828a2df974df370bf0a3bc738280da19a8098"
+    sha256 cellar: :any,                 arm64_sonoma:  "1eb05b82b9777e40ce7499f70981ff2be21675d04ba94de75a666d159b959b26"
+    sha256 cellar: :any,                 sonoma:        "3cdb69eb7fc72189060c12f2da6e5c2eb53522fb586b4f07cd9a2faa70b9ad55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f4a88590965a8da77ad081319ccd542105c007935539207269f9ddbaa3b9e41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f9ff5aad39789f566732c05030c4cb97f3d0b084419dcbef521eb0716a34c9f"
   end
 
   depends_on "certifi" => :no_linkage
