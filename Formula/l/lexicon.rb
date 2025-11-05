@@ -6,17 +6,16 @@ class Lexicon < Formula
   url "https://files.pythonhosted.org/packages/60/58/055f9552cafeeac094a5e0334fe0eaf4cbf8e1485cc545a26c079ca632f1/dns_lexicon-3.21.1.tar.gz"
   sha256 "7cd19f692b384fe5eaa47cce334d24c78ae2eba1d2fb24d2b8a05e04fe294497"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/dns-lexicon/dns-lexicon.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "972cf821f47241c1776eb012520141f713b43cddaf03bd7fc8d9e2330b1d7a97"
-    sha256 cellar: :any,                 arm64_sequoia: "ec9e86446ad234f1518e13a458d121d9c72471028683dbab8f4489d79aba8ae0"
-    sha256 cellar: :any,                 arm64_sonoma:  "277aa8c610d1720849c04e127cdd6e09bf526f8352fc3c05b942f010034fae46"
-    sha256 cellar: :any,                 sonoma:        "939b6e0634c284f7475e1af909a9d71fe35550a7746e232506c2796a9ac5643e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf23d37f5366b67629423902c7caf11c93e9c52221527f887b3c366b4dabceda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3744401b3cdc5a2ec0b4d26f5989d9065149326891049f67592ab8b6bab710f4"
+    sha256 cellar: :any,                 arm64_tahoe:   "cb3e2619ea271f2faeaecf4cf6f4c80a20d3a4e9d93d426bb7ca62f4288b8b9c"
+    sha256 cellar: :any,                 arm64_sequoia: "1dc2a47027fbdb2b6502ff8bbd698a623085b487fede5b2935e9709e333a36e5"
+    sha256 cellar: :any,                 arm64_sonoma:  "0124beb26d5e83d964d0fae674868503cb21e5310e8bc10b6b1f6cdd90b9d759"
+    sha256 cellar: :any,                 sonoma:        "ce5aa15cc0348056ead3056a409209a511f4ce87475536ca9462627e87ee1a58"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5bb61ab2c61e19e9ef58a1732668d53a451d27847559aa271160b491da358762"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "592db36269d191ad3388bd0ee29ba9269af4d633a748ee2715871f396059fd37"
   end
 
   depends_on "certifi" => :no_linkage
