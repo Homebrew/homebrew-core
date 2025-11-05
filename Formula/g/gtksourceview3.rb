@@ -14,16 +14,12 @@ class Gtksourceview3 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:    "965305cc345e88dd40959fa0a2ca403a2921cf89e53a5aea131718d896938ab5"
-    sha256 arm64_sequoia:  "224ac2e0b389c7042f62b4402665368612132e6c25715017700ad776bfff7524"
-    sha256 arm64_sonoma:   "52fd0b688066b7ae0c5d9a87ddb185136dbeebd11b336ae776eeed43f4ce6399"
-    sha256 arm64_ventura:  "c0e6dcec74dcad611bbd070ec935726d1a6e2ab55db8de33fd1aff89171cca21"
-    sha256 arm64_monterey: "1478db6878ebe7cf4e472197126c565df4ea939aeb91470a610cfe88ce3de7b0"
-    sha256 sonoma:         "79296a156876f62aed3b1025d8dd869403562d03ed112d118d1076496e3cd8ef"
-    sha256 ventura:        "fb3887ecc8c0938f012b851eaba6c3025ed6836f54aad8cd07e5d367c63084bd"
-    sha256 monterey:       "e72638ee3511326f622b20975c568d0b0f054c318ae944b15505d1816af10c2d"
-    sha256 arm64_linux:    "57b4a62f57cac2da14e784b1fd9f5e33b359ceb0e78cec0fb07cbbba7834cca2"
-    sha256 x86_64_linux:   "a29fc106c186da13c48399358ec0152907ca4bc3be2545632400409aaffcce2e"
+    sha256 arm64_tahoe:   "72ddfb15569484b9703111b8e49c012ef5b58ef5e13c528d7b69773e1033826e"
+    sha256 arm64_sequoia: "8260f146baeaee7420598450f7c4929891722c45afd354a601c8ff1f9ee60b71"
+    sha256 arm64_sonoma:  "f18f2ad10cc993eb869c07f4be3a493eca3e1f0548dd4c4cd89957ce3d3148c8"
+    sha256 sonoma:        "0f7bc2f472cdfcc84b6010bf32748e1244e695b899d946d8b49513fac2907c7b"
+    sha256 arm64_linux:   "e2c6ba8b631090fdd53be054401f3446d36c4efeb4c5032e40304c92cad14dee"
+    sha256 x86_64_linux:  "c7614f41dcc75bd7ecd2b004547af214c35199b55d9aa0e1040f57239938f03c"
   end
 
   depends_on "gobject-introspection" => :build
