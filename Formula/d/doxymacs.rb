@@ -9,19 +9,12 @@ class Doxymacs < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c8cd54abb531fe75440204a59834ef7807442cd7d8543f1335fb4c6428977421"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d6f35d29f2d9bf0ab3a13916922b7fb4506e133d83fe26c10b00fe0c6c27be17"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2aa03231378a72916d1f1bdb3c63d47751fd1891d9d92daa680b44cbf80e3ce2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "699c57cf8869c5eda84db1f8d58a160c6c821015c1c7bc4892d5ad2f1447c73e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "32c79209e9d8c2f8e47a4e6e28993954250060f74717a749e48ea04b381b63a8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ffe57742c559c3ef80b3bf338d2903c7fc0137d4d9cc96f2b23bea2e0cab832"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c8870836bd8052c49da1d950c863efc99d804be590ae85f2fd6c5176d65ec177"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2ff086ebd4cdeb4945b9a67de2c74a6d22f47e84db58b17597ea5d6ef6d0fe4"
-    sha256 cellar: :any_skip_relocation, monterey:       "dba8d6a64b38ed2b2912d6ecc9fa0e895bfbeffb06255a183676f6be56c55c63"
-    sha256 cellar: :any_skip_relocation, big_sur:        "761f34a12276f673ad5914b0b9caa8891eaab8fb213292a897e1000375a0370a"
-    sha256 cellar: :any_skip_relocation, catalina:       "060a755f85149143e0aea876b488f98e685e320c7ced43d3ae87dfcbd4931f14"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "fe41948e3c5a21e01c2db606c4001bc17a9f3a5e610da7adefad289bc521420a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00c2ebbdf243dded3a23783b3a22ee3705a53dd0ba50c292dcb190bb5bcebc9a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe13bd89660f57f1c74c95e0b0ae7def510c8a80d6a9ec1bb05799153d546496"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e22393964e0e2f3f1b841be5fcadcf4cacc9d6ac8597e4ba77cdd2a883e0417a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b772c42b30f9e256e9ff43da7d3a5e184cc2c5d535431f78f92282774889205e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe9b383131419cf3949ee0f039b501a8d518e6ab92368123d537800d85bc7333"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "35833ff40dab157ebfaed94448b822bbc044a87ab1e57d09aba41d13c200c1b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87d7b48342fe0049e9c50a632c74a0d4fb8abca3928e2875871e69487cd8d387"
   end
 
   head do
