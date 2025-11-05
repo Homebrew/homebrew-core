@@ -5,14 +5,15 @@ class Nghttp2 < Formula
   mirror "http://fresh-center.net/linux/www/nghttp2-1.68.0.tar.gz"
   sha256 "2c16ffc588ad3f9e2613c3fad72db48ecb5ce15bc362fcc85b342e48daf51013"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b7be3d515c9362428c703d65e45e0cc12394b2a2eca61f5feb398421ce1f2b72"
-    sha256 cellar: :any,                 arm64_sequoia: "c2c240b8ff5ed52921555bad20cfc5649332b254bfe98d62369f81bf7c6b64fe"
-    sha256 cellar: :any,                 arm64_sonoma:  "96d45f2d2de69efd37ccd92f4195f8dd1e5812704f47f27775b6d6e659528c8a"
-    sha256 cellar: :any,                 sonoma:        "a2127d1b956e99f06e395c1c11344a3d59e3bbfd31a3633d12d982b1a98c2a07"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a21f417bcbeb033c594478b3de4c559997420a378b334a3278766897a3da7983"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fc15f87a76fe5088393c12dbfc1323696bbb5e43c5a86e2c66492777adc00fd"
+    sha256 cellar: :any,                 arm64_tahoe:   "edc3918d4f7eaae2e0139b23d0726cf2366bd40b9ca42b588c5db31f6d5862bd"
+    sha256 cellar: :any,                 arm64_sequoia: "65693fd8c12755bd248de72d054bdb2fa40c08b07504063ccff35a0b7c96cdab"
+    sha256 cellar: :any,                 arm64_sonoma:  "c14f803178054a097d5ad7e77cf456d85657454059fab94140053ea6917a00a7"
+    sha256 cellar: :any,                 sonoma:        "91481ad34cfda34a8c04c246b6f295c656d3b0d2eb36c7040e50f27ef3755373"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b970fea49cc1fe0648d53440996bec54d5f49d6533b61a18b1f6842f509094ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aae534df297851aa9ab15c0a9fe088435d1cff39d1290acab7649ff778629fea"
   end
 
   head do
