@@ -7,6 +7,7 @@ class Swift < Formula
   url "https://github.com/swiftlang/swift/archive/refs/tags/swift-6.2-RELEASE.tar.gz"
   sha256 "012bd56c8edd2c61df4cddad5d2fd634c045146016570a431cd1a0e0c28a16a9"
   license "Apache-2.0"
+  revision 1
 
   # This uses the `GithubLatest` strategy because a `-RELEASE` tag is often
   # created several days before the version is officially released.
@@ -19,13 +20,12 @@ class Swift < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "ee2347d8ab854ab4335c931685c33419380aae1716feac45a954993ab0d77ba1"
-    sha256 cellar: :any, arm64_sequoia: "7da4ef3be641c5fea5cb70dce5aa70fd3613c83b8bd80b226c16adf1af1ab451"
-    sha256 cellar: :any, arm64_sonoma:  "ef065340c8dd686de7e4e2810dd2cae07dba27386fff7eea6b4a10b3c002b88f"
-    sha256 cellar: :any, sonoma:        "7df54bbe49c6146b2e0a2e89284edbc3e062f9e3738381de8a391f743fb8d822"
-    sha256               arm64_linux:   "b69426e8e76d862877f4559e5686dfbf6f467d6f617aaa675d01ebcc950845b7"
-    sha256               x86_64_linux:  "cdab9ba0ca3e6b0fc2ed962463f721cec156df3608891732877354bc618e3cbc"
+    sha256 cellar: :any, arm64_tahoe:   "f672d11601c28156931d316d53b358c1af6f5c480f3ef45c611e557d889c5e4f"
+    sha256 cellar: :any, arm64_sequoia: "28dd7a7f828b3c0d6240762a2cb00f1a7de32e4c81a8613f19d3681a9eaad47e"
+    sha256 cellar: :any, arm64_sonoma:  "911246f76232c4004d8de72a11fef454b4cc6bd25d5c65addca654b803c17b9c"
+    sha256 cellar: :any, sonoma:        "eea29016ef3fe2a0c571d13ed6d26e8d1dd09003fc43d786f9963094f1ed6960"
+    sha256               arm64_linux:   "10e20ddd7e28448b0d51025027b5d27cbb357204b66fc99b3b16b91fb61667ca"
+    sha256               x86_64_linux:  "7d9322394ac30549d21767f5ef005378a64150b11d25cddab0b821fb7885d0a9"
   end
 
   keg_only :provided_by_macos
