@@ -4,7 +4,7 @@ class Gtksourceview3 < Formula
   url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz"
   sha256 "691b074a37b2a307f7f48edc5b8c7afa7301709be56378ccf9cc9735909077fd"
   license "LGPL-2.1-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
