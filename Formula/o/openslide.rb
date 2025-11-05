@@ -9,16 +9,12 @@ class Openslide < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:    "908c32009c2c77cedf1e78df9d885f07f170ab3a17213777945ed232160b1d5d"
-    sha256 cellar: :any, arm64_sequoia:  "cc59b3af87286b37130ec9a898f182814aa291268a9e2548e5525e765f4996df"
-    sha256 cellar: :any, arm64_sonoma:   "5bdd7e9c3409e9a540d861b0cb58ff7e94b51f38ec1c04d2b07dbf8d69d01933"
-    sha256 cellar: :any, arm64_ventura:  "389ba9d6f9bb8e28d960277976ba1159083ded06ca6b6d01cbbdb5688296579b"
-    sha256 cellar: :any, arm64_monterey: "413e235cb5da773c304affa0719c5b8d1e0031d0f17fbc4263ad411d4c97b784"
-    sha256 cellar: :any, sonoma:         "24268fa9a0759d1ee9997ca8b4f34d8fbd24ad5f0b5b5cbdbf7a4eea8f447324"
-    sha256 cellar: :any, ventura:        "954bbde8c99630dd94c6486021674eed997475307f248d4957767e4a018b0739"
-    sha256 cellar: :any, monterey:       "05788d5b3c3101ce73c9080c0d0c360d151cf2460a68b7dfe0bd3effb2c20460"
-    sha256               arm64_linux:    "7912c26023d19f9f9394046ab56ef53929c9c3c59e3a725f2472ebece1f0f9a0"
-    sha256               x86_64_linux:   "d67053c017a5e1e57189a2d774cac9d8bbe2c655240183ce65247a0a8650c917"
+    sha256 cellar: :any, arm64_tahoe:   "f6732044b22142a2bd2720461df199de641a51534e55fa730c043e284f7e11fa"
+    sha256 cellar: :any, arm64_sequoia: "5674f43c8c5f3495a223de96360ec92306bef079d897c6ac2b4d4634f1ce27fb"
+    sha256 cellar: :any, arm64_sonoma:  "f90a97a6b1861db3924b62c79c38d07ce6c67e3c181d6be05f50151358db269a"
+    sha256 cellar: :any, sonoma:        "b6394094dcbaf4b34605e30db09d1ac4a9446d092f9a8bc2e85de05b5eccde1c"
+    sha256               arm64_linux:   "27b0aa609f33715e0e4e7a404cdcf44086401e1604696701c3f9f5a7f6aa250b"
+    sha256               x86_64_linux:  "d8c2c8c3e74e9d463df6d5a68ba5a8a69e6e4558de237e039de88fd8f5bffb10"
   end
 
   depends_on "meson" => :build
