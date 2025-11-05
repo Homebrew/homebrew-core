@@ -4,6 +4,7 @@ class LibsoupAT2 < Formula
   url "https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.3.tar.xz"
   sha256 "e4b77c41cfc4c8c5a035fcdc320c7bc6cfb75ef7c5a034153df1413fa1d92f13"
   license "LGPL-2.0-or-later"
+  revision 1
 
   no_autobump! because: :requires_manual_review
 
