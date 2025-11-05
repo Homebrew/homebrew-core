@@ -6,16 +6,16 @@ class Theharvester < Formula
   url "https://github.com/laramies/theHarvester/archive/refs/tags/4.8.2.tar.gz"
   sha256 "193611579f9a14507f2d7a0b2ecde778335b22fa0b6279898b5b5cd1f72439b1"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "5a94e44dd2b39a1184cf83f4d033af7e88b683ed06427a13871733d739b22a5b"
-    sha256 cellar: :any,                 arm64_sequoia: "993ca4993464b2fccdda10492a4665530b7f0c05fa019688e8094eaf5ecaabb7"
-    sha256 cellar: :any,                 arm64_sonoma:  "2ae58d0bbb213d540eca82d9777f4131ee821bcc642cf7c9c269f32bd1782b0a"
-    sha256 cellar: :any,                 sonoma:        "54b608cfb3a7215f5b10dbc15739d2b10012d1234b58296ce55cfedde87d0983"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0036ca085a1637143a74449c675ae5801098465ba2bb807fb21a80ca3c3c9725"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68a2eba22a5c6d5f98e6c134804f670dec38dd19511e6798761f1937d774050d"
+    sha256 cellar: :any,                 arm64_tahoe:   "d206a2e0f81d7e9166e5fbde14dba7194e62b9d67f684ae1196d99ec519cb012"
+    sha256 cellar: :any,                 arm64_sequoia: "a8e0914ff2ec6df354d382bfeb2d23308fc2931f83a7972ad786d8c1919a4364"
+    sha256 cellar: :any,                 arm64_sonoma:  "ade27d74192b9db982a8d7f53c14344f685996e167a16545fca17b7393c57c41"
+    sha256 cellar: :any,                 sonoma:        "4f41b1b3a7f66b97393e36eb048bf0f8b1ddf61e5bd558bb747a37fa3044baac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60e0d81ca5c69b669d3fcf310f180db3c22da4246086f28d872612605acb50f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6dc0f42def2aa6d4a58fc9c62b8d57610c3f7257b3bd2c4ba9cccbfbffa4ee3"
   end
 
   depends_on "certifi" => :no_linkage
