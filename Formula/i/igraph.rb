@@ -4,14 +4,15 @@ class Igraph < Formula
   url "https://github.com/igraph/igraph/releases/download/1.0.0/igraph-1.0.0.tar.gz"
   sha256 "91e23e080634393dec4dfb02c2ae53ac4e3837172bb9047d32e39380b16c0bb0"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2bbee1fb97caa1f10aa7744ff1bc2e817099c60b1219efc397d7aef64bfd3263"
-    sha256 cellar: :any,                 arm64_sequoia: "97fd516356e753b74e2b43f8ce7f5f36b3a05f10ad7c5faa95f959273167a32a"
-    sha256 cellar: :any,                 arm64_sonoma:  "af513ee68a687b06d5568f8b58c426b6fa1a3276926b20e29373365d41137889"
-    sha256 cellar: :any,                 sonoma:        "7d9ef0b86e218b330fbe9acf8c760bff2fed0998fd8e57cdf67984ef97c515f9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "55b153c6bbf5cc63d72fa397a1d0cc329fad87f513ccf480f5f7247199bec063"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f61547e0249555f2d75365f26e7431c99d5af822a7564c7051608a6dbc0f3a12"
+    sha256 cellar: :any,                 arm64_tahoe:   "fe00edb994e146b0cbec52620726016f7f0cfc9c30e24e34ebfd057770cbf20d"
+    sha256 cellar: :any,                 arm64_sequoia: "0c97c91e503b6f70db933d5bfafbc2cce75ebea5f22fa71cc119a537b18d4eec"
+    sha256 cellar: :any,                 arm64_sonoma:  "651b32c9be6f0e65008fc25a8023aa6a8b9518e7f115f5403e69b4162203d3ce"
+    sha256 cellar: :any,                 sonoma:        "acfc0a3257fbaade1e7d6353ca2c5519ea439c0d7ae7096b026f54f04639d918"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9459bd61fc47cbe5d04ee52e3e45a46ec6f8a57be6107884d0edefb43e3e9c91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7609c6d569ec5d74fc5d065201756f3209e9368421065ad77e179edadfe6f988"
   end
 
   depends_on "cmake" => :build
