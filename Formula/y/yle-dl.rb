@@ -10,13 +10,12 @@ class YleDl < Formula
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0630fd9edc03fa57d574116c12b8494f05e0ec3e1564c879f6431bc131bebdd1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f021f22baa3cdceec01432ab2c72409f95e20448c3609a611e1a7f39803e12f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8558f705675ed2a44797ffb4fc5a32c02e445e6ec2cdc3aa613f60c961e7ba9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ef70ee57200f5a42bcc5339adc3fce6c17e7b9097ca89a2bc1c45b3d61b1328f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b47a3be2e2f9efdb3c4db29d7f790470e05439871b9cc252602e1c5dee69c28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87e8aa9962fbe6a87839626f227e55e12ebba3a87dc903c4f5cd3a223ccc0c7b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d60fceca358ed21c8a9cd86e64a9162f51411f3240bf6d7acbc782bba749d70c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39e4f7f45be94dc9f7c3118f10855641c77e38382698436915f1e92b15e8495d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6730039aa49d7f5cc223082ec30f1a0e2d1d1d7975bce0fc5a8bd84fc778982"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa72f31d02664a9ad4c8a633047cf34cf3c90f54d33b1f4d5cac77ab6260d3db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "68b855149d6945b8016ff78833d5a817876fd4319883cbb0cec9f0af8cb62394"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "939da7d3254ce1ed9a019aa023d4295db733246fdb2a4b0d2bcbb755c8cf4f46"
   end
 
   depends_on "certifi"
