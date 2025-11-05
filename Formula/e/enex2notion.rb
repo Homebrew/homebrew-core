@@ -6,16 +6,15 @@ class Enex2notion < Formula
   url "https://files.pythonhosted.org/packages/de/5c/c0ce22d810226345411b03177f9b43c35b82c3a671d5d73f56fc43b0858e/enex2notion-0.3.1.tar.gz"
   sha256 "f11d8a7b6c135b4d08c63e1256279d56b3798cdd48ad3b6e39c0770dc3bd82e6"
   license "MIT"
-  revision 14
+  revision 15
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4e7bae4b3d8016ac1753c12b44e1ad4c1a93c46de3a6a0954cf96d3c64a7f5e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47a46807d5a5f7aef69a2d3ac9d726d8b3c35b3e6b16560f3dd9a4d1f96f9d09"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d5c8210d5757ac7a8a12d5a125f9bf34a6efc3d3a22dff1d1c78ef081f7dc75"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ac95620fad558b98b0b4986df3fb926a8c31e939c89f6b11e74fb791c81fd69c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe43b06ed2fa903c6fe50794bbf3a4153b2505a45333ce3bc550f1b08ecfb39f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4044be7d486321aee486182e0a04b61d93b040504717ac7f4bd7ef904c38640"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "391ca59032d0847b93128ae16fc178be883bb038935957f48b12f9449cd6225e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4aa3df6a4bebd75cf0c51a8b50da9949db67a0523de0e743d84c836b97bd5396"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44f1a30d4250732bb0e780a78d9a0126a1ba5b440ef01601980caa9e4dd3073c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cb81783c6587372ecb88fd22aa21e2878a548a88aa96a52e753889b8b7287a7e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e53f6eb4066fe232a7c4ba938c00a0219829a6cae7269d4f8d7a26582a7f099"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7aff65c96d74c564ff9ed7e67532ac4a51ffd8b8113c710118a2d4fc426cf43"
   end
 
   depends_on "certifi" => :no_linkage
