@@ -4,6 +4,7 @@ class Libgweather < Formula
   url "https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.4.tar.xz"
   sha256 "7017677753cdf7d1fdc355e4bfcdb1eba8369793a8df24d241427a939cbf4283"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
   version_scheme 1
 
   # Ignore version 40 which is older than 4.0 as discussed in
