@@ -4,6 +4,7 @@ class Mediaconch < Formula
   url "https://mediaarea.net/download/binary/mediaconch/25.04/MediaConch_CLI_25.04_GNU_FromSource.tar.bz2"
   sha256 "800d076ca374a0c954c928f471761fb000b36b7df9d8e1d1bb03b233edff8857"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://mediaarea.net/MediaConch/Download/Source"
@@ -11,14 +12,12 @@ class Mediaconch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e2fed8cab5d4a3c8a16f5a5d407a2bcfd78195fb849313642b94084fa0902798"
-    sha256 cellar: :any,                 arm64_sequoia: "192df199a6d3d806ba48aee44ed9bbfa171777699d5bbe4e2c9368f7a0b5667d"
-    sha256 cellar: :any,                 arm64_sonoma:  "677887e14ce2feab7e110e7e8ef7a07d507da8c055d57008b11263516e3e893a"
-    sha256 cellar: :any,                 arm64_ventura: "80a7eb928adcfd633886fde7f945322e7c34767d6cab943fe787331aff3fdf47"
-    sha256 cellar: :any,                 sonoma:        "7f5dd6a3e6e60731a37164f8745b42002e4aaf710c797c5664d17454b9d30454"
-    sha256 cellar: :any,                 ventura:       "54997bdec0585a932b7e2e7f8d7cb10e48ddde5ef5a385ed0a2f04f5ce33ac33"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b2a5bf4219731fbb34eaa994e53fa25874448ed49dee323c9cfbdbcf5321cc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c11e7b0b33b4072bdeb52e5c3acffbb2b86c677458ee23a5e981c0878f21fccc"
+    sha256 cellar: :any,                 arm64_tahoe:   "844ab2be12e5e698eca1b88045f8daddbd39ac8b01498ea1c5617914d7f28041"
+    sha256 cellar: :any,                 arm64_sequoia: "a25abff496997bda4f16f34850447b72f0339236e563d66f478678457b703aad"
+    sha256 cellar: :any,                 arm64_sonoma:  "360ba609196b870ead90356eba2d6c586b4de5b1049582edc85bbdde89e4066f"
+    sha256 cellar: :any,                 sonoma:        "fbef1a650094552ecc64f13889ac9a25f0f9c5dd40fdd3ad738c953eaec8bf3b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f56ef42b6c53531222833ebe2745d1c04ea8bcd113a853cb2f560806821bf26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0632cb17d9d660d07aa5ccf1d69b9c88801443af6bacb2e5e99b4ef55bde6476"
   end
 
   depends_on "pkgconf" => :build
