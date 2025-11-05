@@ -10,14 +10,12 @@ class GetIplayer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "982d47fe108d98d05e659c175ae25a092258635cf49ef3ade7ba2345959f2808"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe0570e670e29b55c71caff7f76158b197edde3bf04ca4a566ff5134c3505892"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe0570e670e29b55c71caff7f76158b197edde3bf04ca4a566ff5134c3505892"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "778f90bf66b84cbc936f725ccbde41f5bb36e0018ccc922cedc8cd0f68331046"
-    sha256 cellar: :any_skip_relocation, sonoma:        "70efc995f75309e52e41cdb02ecaa28c0abee82fdaded3859a73037c30aba2e4"
-    sha256 cellar: :any_skip_relocation, ventura:       "bdb8fe4d4e0251e3eda0d7891544a4567a0303fb75fd1802253b1016ee9add64"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2980bb4bf82c8b923ca76764b062848dceb99f0d3b9bf9d0df86129240a3b96d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "388dd1be26959b14f608452d34b4b582d49aab98a37c7fc7911e4a704f05137a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16975185ec23619e11979c53bfb09e1240adbddaadf27c6f91147eccee1423b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16975185ec23619e11979c53bfb09e1240adbddaadf27c6f91147eccee1423b1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16975185ec23619e11979c53bfb09e1240adbddaadf27c6f91147eccee1423b1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bf51b1e16ecb58a1a156f7e18a08bd7666146c30a1d7d0f9d624aad3d17221b7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8232221c7ae8dcde4c82e14275040794acc3a1a85902fe99ba71bb0eef08eda3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "318150756c9f0a8ef825564959bee9584f5d2f3c5a19e90f727f7c1d3fba5b11"
   end
 
   depends_on "atomicparsley"
