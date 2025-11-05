@@ -13,14 +13,12 @@ class Libgnt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "41b1747c18a4361f78adb16bb91dcdd7f6458259074bd01efdc0ec2f94008a30"
-    sha256 cellar: :any, arm64_sequoia: "83d17065c582bdcf162513a0523c19c44db30b00842cda416a2d335b7abc0eb9"
-    sha256 cellar: :any, arm64_sonoma:  "40ab4a1893fe00347a02fb7b4cdf258598e1ae27e1594a1c4dff5461633f1a8a"
-    sha256 cellar: :any, arm64_ventura: "c564614df4b284c52854d467589dd9603a3502f38c9a07f11a8c35e778617c8b"
-    sha256 cellar: :any, sonoma:        "4f3826fd8c722f84e3c568a74c27d48bc3f6a3a15db15721da56447c3f9d9d15"
-    sha256 cellar: :any, ventura:       "567c90442a84e13142d104bd45b65df01359f65aa38b67f52f644d4cd1f5c90f"
-    sha256               arm64_linux:   "b0f97890b91d6ca699459d1eca4c92793ea59dbf1e5cb7127f7ed051f9cfdfeb"
-    sha256               x86_64_linux:  "23fe502bda696d00cfd7dd0f0f4022c46268337ae7bea8b0470b497d89540240"
+    sha256 cellar: :any, arm64_tahoe:   "8e41afafab8780d6c9415e0be6819934f2256539126ac13ca992f20a735a4dec"
+    sha256 cellar: :any, arm64_sequoia: "54589732aa242fcd90ecc861024846b94b55280206e11300614a5b537fad3809"
+    sha256 cellar: :any, arm64_sonoma:  "695500c7f125f6c406172b912c445ee7d94af2520af5ae2553a65d1ab8996e4e"
+    sha256 cellar: :any, sonoma:        "2bf80b7019063730cf2969de24002cee9fd5d5198607273b38b472bb92747701"
+    sha256               arm64_linux:   "56791137e22a683d5eda5e39807f75c4a7350009c9d218969b5add59f54f7802"
+    sha256               x86_64_linux:  "7b441c9f9f4ef6546098899d79a1a28705715d232e16e43cf1050ba96df1b00b"
   end
 
   depends_on "gtk-doc" => :build
