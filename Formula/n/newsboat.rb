@@ -2,6 +2,7 @@ class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
   license "MIT"
+  revision 1
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
   stable do
@@ -13,17 +14,21 @@ class Newsboat < Formula
       url "https://github.com/newsboat/newsboat/commit/3a018bbf88fef74d1af24c79f5d640c6d753ab16.patch?full_index=1"
       sha256 "af1f0969b14ae80439e4e14c5126425221eabae285ba15eeb1c63980cd905612"
     end
+
+    # Backport fix for curl 8.16
+    patch do
+      url "https://github.com/newsboat/newsboat/commit/c80d4c30901514188502f6f858b78a0896d9603e.patch?full_index=1"
+      sha256 "92b86c657555c4b5c841e5a185c26f9b1532cd9423dc7fbbe12d3c433e2ccadb"
+    end
   end
 
   bottle do
-    sha256 arm64_tahoe:   "08e61ae78bb180d94bacfd18718e0ff22ec506c1fe3ddc66140ddf43342434fe"
-    sha256 arm64_sequoia: "62beb795654ad0e034cae9415b3d9762037dd5b7a6b084195338d66dfe12e5d4"
-    sha256 arm64_sonoma:  "eaab1099251d9341a040788309e8de0cd3a2210eb45b8feaa15dd96303c3ad94"
-    sha256 arm64_ventura: "00456fdf96b6cf458a1ef3e68343ded5c41f4c41dea5af060c477c782b74e535"
-    sha256 sonoma:        "a1f9d6d589a29fcead823ff5598eac302898403c3faa4936eb946224fa05a16a"
-    sha256 ventura:       "c0f4e28fdd96b4e278f37f97ba42376a3fd896e938904e28e971d232c0663b5a"
-    sha256 arm64_linux:   "a00dbb6fe0ed510fd078d1690c6a64881f674ac2af943e944ca1895d3282246a"
-    sha256 x86_64_linux:  "c9ec61ffc627d29d3a32c984db34f6ae4cc641804b37aeb2b0b5918fb59aceec"
+    sha256 arm64_tahoe:   "77be3fdd5e78e568ab0f85f4e579ad557b504450cbd957c0943a5c7a42cdb566"
+    sha256 arm64_sequoia: "e21e148c22b1be21032db1cd876ff935df8131e9a732dd5b1092a8b2769268f7"
+    sha256 arm64_sonoma:  "c0e8453d573451fd06bfb8115249fff274efe7b6836bff59b7484c645e0dafc8"
+    sha256 sonoma:        "43b76b8fa54e2cc89ffeb1233755a9d2c344d8d58ac3a9fdaa1dda1f14e94aec"
+    sha256 arm64_linux:   "859ab5f98262ab39657b2976f98302ce0b40f2849d8399e93cdf24014bb45818"
+    sha256 x86_64_linux:  "2a66752a0919a45b762aa4b2198759f743370f60a3d7b66524037505fe49f037"
   end
 
   depends_on "asciidoctor" => :build
