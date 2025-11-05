@@ -5,6 +5,7 @@ class Swiftlint < Formula
       tag:      "0.62.2",
       revision: "da9d742874d88f6d5d0f7b315d1fcf12655f2311"
   license "MIT"
+  revision 1
   head "https://github.com/realm/SwiftLint.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
