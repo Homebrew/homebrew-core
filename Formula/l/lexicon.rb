@@ -6,7 +6,7 @@ class Lexicon < Formula
   url "https://files.pythonhosted.org/packages/60/58/055f9552cafeeac094a5e0334fe0eaf4cbf8e1485cc545a26c079ca632f1/dns_lexicon-3.21.1.tar.gz"
   sha256 "7cd19f692b384fe5eaa47cce334d24c78ae2eba1d2fb24d2b8a05e04fe294497"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/dns-lexicon/dns-lexicon.git", branch: "main"
 
   bottle do
