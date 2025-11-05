@@ -8,6 +8,7 @@ class Snapcraft < Formula
       tag:      "8.12.0",
       revision: "17ec09c928ce22e606dc0bc6be83483f6c2e52c3"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/canonical/snapcraft.git", branch: "main"
 
   livecheck do
@@ -16,13 +17,12 @@ class Snapcraft < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "ee6abb55783b90f45bd1f900c3277f1a1d4d46ba00fc10b3eb203abe24ff6e0c"
-    sha256 cellar: :any,                 arm64_sequoia: "5e598c797436655589fd35aba36751ce6aaca894decfd77cbc45b8b9ddab2b16"
-    sha256 cellar: :any,                 arm64_sonoma:  "06eb933755eadbcefb8fb4404d78993ed7c49dcc640e365234a38f451d0d2be4"
-    sha256 cellar: :any,                 sonoma:        "c6e2ecadea9d7422c2a8ec1877ccbf030db35e0cca41c7c921dc1b8645896b94"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d89a4a457db0ad49bcd30e4dc6c1e8d44d71a78121f6b280404af5ac89de8923"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3eb88afa4c03dc6c2b262c99d2d16b727e24100902a5c1ba1b940a3d0d06b98"
+    sha256 cellar: :any,                 arm64_tahoe:   "48a4f77a2aff8fdbe81b61dcef863018ad5fc696d44d51d10b846fded479410f"
+    sha256 cellar: :any,                 arm64_sequoia: "4009c1dd0ca28af22457aa2b791ee9b510f7f551a465ec7eec4649e45e03968d"
+    sha256 cellar: :any,                 arm64_sonoma:  "422783259ef19534086da92f592e56c74ef75df671ab78ba110f1f85bb872386"
+    sha256 cellar: :any,                 sonoma:        "9e5cdf549127f1bc46a37572b5dcd48c5a3a5e153b393515df2becd68995d594"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "136ddeb6f16b449495037387542053cfc77b8c5714377f480639d1a99a0291cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f337af8651da30f02acb62d9bb69cf3756f864e822844c46e149d0c3885f90e"
   end
 
   depends_on "certifi" => :no_linkage
