@@ -11,6 +11,7 @@
   "cryptopp",
   "fftw",
   "fio",
+  "geni",
   "groestlcoin",
   "handbrake",
   "highway",

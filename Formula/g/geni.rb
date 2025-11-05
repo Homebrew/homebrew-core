@@ -1,8 +1,8 @@
 class Geni < Formula
   desc "Standalone database migration tool"
   homepage "https://github.com/emilpriver/geni"
-  url "https://github.com/emilpriver/geni/archive/refs/tags/v1.1.6.tar.gz"
-  sha256 "b157ff3c57b4c36e2f48f57da1b6dba60bf2f9770061e068e4302bc555df3b3c"
+  url "https://github.com/emilpriver/geni/archive/refs/tags/v1.1.7.tar.gz"
+  sha256 "62c2606da2e1366e4527a350bbf90b631c705d9bb7de3183d9a5a80c72bf27aa"
   license "MIT"
 
   bottle do
@@ -19,6 +19,10 @@ class Geni < Formula
   depends_on "rust" => :build
 
   def install
+    # The aegis crate needs to enable armv8 crypto extension via `-march`.
+    # There is a pure rust implementation but tunso doesn't support it.
+    ENV.runtime_cpu_detection if OS.linux? && Hardware::CPU.arch == :arm64
+
     system "cargo", "install", *std_cargo_args
   end
 
