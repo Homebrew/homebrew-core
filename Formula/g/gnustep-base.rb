@@ -20,14 +20,12 @@ class GnustepBase < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ddbe9f00a55f979b1c4d7847a776463e87b8e3ed3db5bff295630bab47332df0"
-    sha256 cellar: :any,                 arm64_sequoia: "022cbc646ea0a05743c51cb7d804549b78d53bd2b9900113421ba9b37853e515"
-    sha256 cellar: :any,                 arm64_sonoma:  "c87551242fea4d1739d7c651a590113ef97ec2f25a7e5ed3067ef4d5d382d62b"
-    sha256 cellar: :any,                 arm64_ventura: "32af6ef0e1a74f765fb361e8012b32a0f8b0d47d8d0ccd3f37eb616992c554e0"
-    sha256 cellar: :any,                 sonoma:        "7ca4a56508b6eaa4fb8ba7d3f111795bf180588709537e3dda6657a86925b328"
-    sha256 cellar: :any,                 ventura:       "c396d40c48b47283351eff5a976ad62cb4d11a3456e9d96abd4364d2fd457c39"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d2863a3711b39dc8c010b1dd8888245a5969b3ac88b7649fd532f83da050ccd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6fa791efd053cb237f8194a380d86325b69ed5a65fcc7ba442265f89bcb9c5ad"
+    sha256 cellar: :any,                 arm64_tahoe:   "8c99d42136e8fdbb022aa2eb1395d96018c1be0055c3bef6cabeb489dd552323"
+    sha256 cellar: :any,                 arm64_sequoia: "1e5a8582ead69977c155a8ac3f0afc01b96ae6d82012432fe496a54c4a94dfbb"
+    sha256 cellar: :any,                 arm64_sonoma:  "1d3c8a9c13c7fdfe40eebc6a35fb88e97ea220e8842ba5aace4373609a328e07"
+    sha256 cellar: :any,                 sonoma:        "c602bc642e5006f38c720be4e0e1b46f7bc35850e22ffd1ebf3f19b4ac5d25ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f8574f9b40f42da356a43700591ae8111c084194ab5b3a8e28406f9c51e70e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c59eca62140d4b067850a68df92e81ed3397e82136faca8e9d146512839d1371"
   end
 
   depends_on "gnustep-make" => :build
