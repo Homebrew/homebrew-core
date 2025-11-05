@@ -7,14 +7,12 @@ class GupnpTools < Formula
   revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "e92c993b11ff4ef5192eb0238d63ba5854f303f83f9bda753266a789eb1eb552"
-    sha256 arm64_sequoia: "d769ee08439b846b2a90fff8ac563aef69c0e5b9aeeb4f04c79d843b892c36b8"
-    sha256 arm64_sonoma:  "065c59cdc36ec8557bdca9bc3da04847cfcd2e7e55ea4a161e6ee669601639d0"
-    sha256 arm64_ventura: "323caa61cc2fcb5fb594cd8c84f6761530bfb7e48fa160ae77f491ea98d1fe5c"
-    sha256 sonoma:        "58c18fa2d0b58685ddb29a4d05064b4b1b76f537a63c943d6ba9db792a40b0d5"
-    sha256 ventura:       "e9282722d1cba7a1661fa377fb504f6162350fc45382417172ae4babeab4ba8b"
-    sha256 arm64_linux:   "2de86896f479386cda2f9f02c314f7f30456698873e493e57e96b2ef6c7c1581"
-    sha256 x86_64_linux:  "6159c1527a0dfef2c43b726927c57fc69d64b0a51d4ff6a42809dea33ae5221c"
+    sha256 arm64_tahoe:   "2085bbc212516df9466cfb8c53c5bd9faf9864c8dc021ed238d6ea6b1510283c"
+    sha256 arm64_sequoia: "37dd3ac2195ffdf423e3b2e21ba907bfec6c42ad419363108ca2eb1dfde4a131"
+    sha256 arm64_sonoma:  "fcfb7d8815e459dedff64b0359b94cd2e1e805ec4eddbda785fd88aa4c6408c5"
+    sha256 sonoma:        "17c6d68b82e895036376b40d0300f96edd9bae8134e8f6bd5b1350d77b0e1861"
+    sha256 arm64_linux:   "9abd9fc3ecf06cebe86951add9411a5d3c6df8bf82718774ee8ab194d8956954"
+    sha256 x86_64_linux:  "0561372946dc1e5ca75fb568d5d6eff2157694641bd42380a8c1ae0d51aa1e57"
   end
 
   depends_on "meson" => :build
