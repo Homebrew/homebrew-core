@@ -4,7 +4,7 @@ class Mplayer < Formula
   url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.5.tar.xz"
   sha256 "650cd55bb3cb44c9b39ce36dac488428559799c5f18d16d98edb2b7256cbbf85"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later"]
-  revision 1
+  revision 2
 
   livecheck do
     url "https://mplayerhq.hu/MPlayer/releases/"
@@ -14,17 +14,12 @@ class Mplayer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:    "0150e25218e25764d83aae76520b136b852ce6665dad81c6efb3294b5f0237c7"
-    sha256 cellar: :any,                 arm64_sequoia:  "4d99950e65cb0275765a4b1c8b0ebfc33723d09d20b009a01751f991af55148e"
-    sha256 cellar: :any,                 arm64_sonoma:   "203e6bd9b216cf53d6042de09ed3c4dc1070cd56034279b7eebf3f8f18379b10"
-    sha256 cellar: :any,                 arm64_ventura:  "1b17dde1bb0e77e6b994464b92081b3be76df73ab89634c978711c5bb8f4e593"
-    sha256 cellar: :any,                 arm64_monterey: "c5516ace4b68e19b4ebcce79ca80ae09bdd7a950054963241333eec4275a80b0"
-    sha256 cellar: :any,                 sonoma:         "25f304026cc023e94a49693c47193d3068199cf978d270889fb514f4427495bf"
-    sha256 cellar: :any,                 ventura:        "6e159e7274b6c6a461eaf17a9121c97e840a1eeaf93228ee1508d57eed6ad230"
-    sha256 cellar: :any,                 monterey:       "ee6ac92f78cb0f428c78f4184ac2e5fb391f6a7cc6083541f3df483bf9a2239e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d6ab378507dcc179f3c80bfa9b84a8127c50223ae74746bb58b9c733fa4736da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "364ce29a5a68f3ebbcf8dec1f198cfb84e7efb4de60064a06af90babc8ece54d"
+    sha256 cellar: :any,                 arm64_tahoe:   "65274400f1b0e7ead48b8ea7c5b17b1e7f14d7f826e6e9f0db18f177b199c9a7"
+    sha256 cellar: :any,                 arm64_sequoia: "b5b83382af26c00721f3c592f665632510acb2b8e2e392da2960bf888c3a5d7d"
+    sha256 cellar: :any,                 arm64_sonoma:  "0ce6193aca1ab3fd60830eab3056077798a914bb5d1e091b25a9a6e6ffa860b8"
+    sha256 cellar: :any,                 sonoma:        "c3de6bdfb89c6ddaae79383c1599bd1da35a637c3c9f53e450429f33a5b5ef51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd6b437e842eaab0196c05823d0a3d662ccc521db89c90c131b826b1cf4d9a1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2069ea96f8e706d6feba320f19ed419b02007caf4080e8f8edbfd7826e4fe938"
   end
 
   head do
