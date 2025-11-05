@@ -11,12 +11,12 @@ class Swiftlint < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ed586726c1623ba93c47dc0ba61269a86ab5e1a85ff7be4612208aaa0d205fde"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6eea04003f353ad0990a495cd868b9b365614d961017d62aaf53492920515f7a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "863e5f72419206216175b73077d7b81b97841a09fae2526faa6b35437fc8902a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86393786858e99c7411d1b1a21164671e336abbbce89d6168af718b33974f8cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "276275c4ba04aeb34c2211fe533116b3ad8530ccb212ae18f4b2a678e6f5141d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a68241403223541dd3999112631bbae0a2185d8c31acbff20003ad41a1b13c19"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cb2d6b1098854c845274b4dc22921af32bf76e1e925c07c3c436af749553dd0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2914e328400b90f66824f4be94d25fb7c814ad19135a465984d65d5334bd40d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "700a3adc43be2eaa8b547f0c58c5ca6fac4b9420df1d94ddfb5bd2f71703b147"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3df8ef1565ac4424b04aa96d6ea70d288c33f4a65151a36eb5b1060a23b1e69b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97119f1ea9d4d9136b62f255a20c36efef40773b942f5b8c84832638dc1d8358"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "618f29a2e8ee39339a32076172975616e090ab27889a9f1dcb2aeea07a598d8a"
   end
 
   depends_on macos: :ventura
