@@ -4,7 +4,7 @@ class Pazpar2 < Formula
   url "https://ftp.indexdata.com/pub/pazpar2/pazpar2-1.14.1.tar.gz"
   sha256 "9baf590adb52cd796eccf01144eeaaf7353db1fd05ae436bdb174fe24362db53"
   license "GPL-2.0-or-later"
-  revision 8
+  revision 9
 
   livecheck do
     url "https://ftp.indexdata.com/pub/pazpar2/"
@@ -14,14 +14,12 @@ class Pazpar2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "650626377082bec8c3530b1f8cf144b83a54b1770da9059423c23b0bc7093869"
-    sha256 cellar: :any,                 arm64_sequoia: "44eb9c8baaa3da4352d9bffbbc57a4d97023c2f26ac3c82f11791cc43b17012d"
-    sha256 cellar: :any,                 arm64_sonoma:  "2aa9e4eb2662d4e016671bd0c1dd0c23f185ff7d98d5b1ad77fe59ae5728a6a6"
-    sha256 cellar: :any,                 arm64_ventura: "f30a7a5de7036e177a68214b7f727ead6dbcc832d52389d80d01521b3c636d91"
-    sha256 cellar: :any,                 sonoma:        "2c60c0c004da43eb19a4b349a22d6f4da124acefb48238881550625bfbb9a129"
-    sha256 cellar: :any,                 ventura:       "489ed1569becf8b4dad09fb19fa0085a40dca876351f8165c404cf6c1ecaabf3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "50996b95efc667e7e352ec8f13b1e4183b5d425da8779b5e872ac51b096e9ce0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dc29a2de7c71fb13f0defd9fc5e20d4466a9a74d1d67afb3b1710f52be869bc"
+    sha256 cellar: :any,                 arm64_tahoe:   "231f0c8f4214d759fecc1870af5b230ae5f37f1f0ef58ce8f69f847ca69f512f"
+    sha256 cellar: :any,                 arm64_sequoia: "163b4b6d4768f37dbc6b33e8c07dec61fc4557d91448820ae57c52f31150ad1f"
+    sha256 cellar: :any,                 arm64_sonoma:  "5aec4b1dfb539ff39d55d09a607a9c752b9255b1f9a12a6531e410938ebcf5a3"
+    sha256 cellar: :any,                 sonoma:        "59fa9f4f1fc9aac20cfbcec82d9b0c3538931d95b52dbf40678e61ba5d8dda84"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b5fcb8c2c9e688fb68a7b3e31bc5e3835b13d80a99446b35e50f414b4aa89ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1786a9f89d196bc588dba5b9a5549fb4044852ae833e72e9eebccbd0e060f117"
   end
 
   head do
