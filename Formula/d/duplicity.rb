@@ -8,14 +8,15 @@ class Duplicity < Formula
   url "https://files.pythonhosted.org/packages/b4/f2/5d5a3ab5dc3fecc672c4b1d40bc06717f85a886e963bdba13f40c8601f7d/duplicity-3.0.6.tar.gz"
   sha256 "c538fd9883173df1c5c7d8724433b116fe4929471d46b60809f5a4c33dffd370"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "93d9f22d8f2c1a87dd31eca6d75f9ab00a6b41a96e72dbc23253db5fe129edc7"
-    sha256 cellar: :any,                 arm64_sequoia: "be6a7adec0c562300f819a330c712d46a52a071b1529450c923cfebbcf268a15"
-    sha256 cellar: :any,                 arm64_sonoma:  "f2e5cb4c94716ce318352bfb709e66190289b2fcf9dc5ae5904ed401c6d964f4"
-    sha256 cellar: :any,                 sonoma:        "97d0e028e24abf210ee87bb23c79c5563e4ddee3c9702a55c89a70d85ac1ccb6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dbf1a5e1aa9f6aaa4317c57cfb8d0220f5288d69884fc9faf8f12decaf2c864"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc8ba6b30fea5cf2c0da111c2cea7b8c95acdbf9dbecfd9df133826e511f4b1c"
+    sha256 cellar: :any,                 arm64_tahoe:   "eeef6b9688ee764c2016b6badf1fcd28f55fe69fd4f2b3bf2de21239ae710285"
+    sha256 cellar: :any,                 arm64_sequoia: "8fcee92e073cc3accacaa4307979e90bf4de3c65315cc7172515f4d78602658d"
+    sha256 cellar: :any,                 arm64_sonoma:  "5068c1c79bff3b4204f500a4d04342ae210b80029be22e6f19391c8d4aa5634a"
+    sha256 cellar: :any,                 sonoma:        "70b6c1d7208c009e0da91f826df8acf8ee881aa7ebe4e1cec18ddf5aa7f7a90a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a370e44071d8cb68b7bafbd73acf954fe5c1a0354e49be61070d7993d6e30ab1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "541c54cb0c8158dfcf6a38a975f92411e50b4be0c8aa5ec23b2ad42bb3cc87d5"
   end
 
   depends_on "gettext" => :build # for msgfmt
