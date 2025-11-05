@@ -2,7 +2,7 @@ class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
 
   stable do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.1.0.tar.gz"
@@ -25,16 +25,12 @@ class Libspatialite < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "24fe22a872c908ca7635814cf6c0bf509c126f6d02305e594198680a35746bf6"
-    sha256 cellar: :any,                 arm64_sequoia:  "cd162e7a36e33bc982374bc2e8efced6d1669810852c6bef404967dc7507eefa"
-    sha256 cellar: :any,                 arm64_sonoma:   "efd80614ae13d20ae2af905b7b6a673455d5d281e14e75e6511d1d4a1fdeda8d"
-    sha256 cellar: :any,                 arm64_ventura:  "1a05eb0afc04b80535b62c3f6c602ed5ef6f7eaed37cf7bc940bf4539dab1753"
-    sha256 cellar: :any,                 arm64_monterey: "2222ce79b7ac80c9d858390e201da7a3bae3fb432e363b358c943171cfe0294b"
-    sha256 cellar: :any,                 sonoma:         "1f29fd1ce9216f960a3e22279b67cd0411ca3694160f6c5c0c769524dfa57567"
-    sha256 cellar: :any,                 ventura:        "a45dd6acc0e93aa02176b73e0ff7ed57ac6c020e6a72538d16cbdd67c19a4012"
-    sha256 cellar: :any,                 monterey:       "1bff63a0b2139edfa2d2df74870f98d6dba930d840973b6b523c1405e33c0279"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d86a5e1a777cceebc9eb059098c75d53d2fc0597c6b0e09799c9a66fc9ff4f74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5fbfff96039dfc137d483a59d19c45d97c57c461570073f7005c602edf8f356"
+    sha256 cellar: :any,                 arm64_tahoe:   "d2449d25a5846ffdad3cb2a6a40f9185e1b9f36dbffc4a13e98e3bfe9fcf9de0"
+    sha256 cellar: :any,                 arm64_sequoia: "ba5cba2cdd2fc0767f89788c3f05b8609b9cac6861256050ec920dd8e94e0a01"
+    sha256 cellar: :any,                 arm64_sonoma:  "e08b2a520b656ba2b4f60606034e5844012e1816af1a9fdac162acd8c591fc0b"
+    sha256 cellar: :any,                 sonoma:        "76d89daed0f282ee4479694783d828765047fa1c722d1cf2e67943fc5d2f787e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1687abac4fba6dd0be2972527cbda92aca130d517617c46856e6722844cf4dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc4f78d60c5db59102f81e68b1dbb54fbb87687554a2afb5db0a3eac0f782f6f"
   end
 
   head do

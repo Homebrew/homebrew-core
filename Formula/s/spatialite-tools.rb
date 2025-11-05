@@ -4,6 +4,7 @@ class SpatialiteTools < Formula
   url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-5.1.0a.tar.gz"
   sha256 "119e34758e8088cdbb43ed81b4a6eaea88c764b0b7da19001a5514b2545501ce"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/"
@@ -13,14 +14,12 @@ class SpatialiteTools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4fe285baee899201bdbeea2a8e461972a690ed5ed741bccf6cfeaf2277b0bf21"
-    sha256 cellar: :any,                 arm64_sequoia: "3a2225e7ff88a5434b9935dc47f265e045644d5efa22e4a942d32c71869833cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "04ec75c512a3d0c0e9aef46df243130f9c1c9e217c9605af148554a321946642"
-    sha256 cellar: :any,                 arm64_ventura: "d7fbe72eae1741ce20b5fe2dcd06b257af9cb642cf706f2012a0c42e007d8b73"
-    sha256 cellar: :any,                 sonoma:        "fe5c356ae405535cfb7bb9f1ac262b7e6d7178ca84396c4b34a7eb1b8778606b"
-    sha256 cellar: :any,                 ventura:       "c6ac73412b33855140008c7a03d8216532f3cb91455c779d653d8c6926ea19a1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f102739c6d45f16910fa2e1e31cef488345424601fdd0bd31cf42851adb48eba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "670d92603126025a4964546cc86588142cb7211dbbfb9cd43a6c09e1d83fd411"
+    sha256 cellar: :any,                 arm64_tahoe:   "069ec4b7d85f688eb77bad3c5feeca57ee0c791c666bea3413ea8ce710a5acaa"
+    sha256 cellar: :any,                 arm64_sequoia: "b95d28cf596499b58e056c8036a12aa8d642dcbca6f798eeaf4d24b21b6f985b"
+    sha256 cellar: :any,                 arm64_sonoma:  "e0a3160b4865ca95d21573b74f9f55a359aaa59f94fd6056530e71a19ff253ca"
+    sha256 cellar: :any,                 sonoma:        "5221eae263ba51e8fa7cdf15531d3e1b8c5e3ba155778a5c5462173a2cef6c54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e62a762b38e87ffdb9843897642b86deb5efec236179c21663acf933451d3d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "daae488886ac7af7caf09434e40eacc7ae30a8c9dc578f079e791440ab2d15b8"
   end
 
   depends_on "pkgconf" => :build
