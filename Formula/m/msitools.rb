@@ -4,6 +4,7 @@ class Msitools < Formula
   url "https://download.gnome.org/sources/msitools/0.106/msitools-0.106.tar.xz"
   sha256 "1ed34279cf8080f14f1b8f10e649474125492a089912e7ca70e59dfa2e5a659b"
   license "LGPL-2.1-or-later"
+  revision 1
 
   # msitools doesn't seem to use the GNOME version scheme, so we have to
   # loosen the default `Gnome` strategy regex to match the latest version.
