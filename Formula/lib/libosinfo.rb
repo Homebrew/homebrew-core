@@ -4,6 +4,7 @@ class Libosinfo < Formula
   url "https://releases.pagure.org/libosinfo/libosinfo-1.12.0.tar.xz"
   sha256 "ad8557ece26793da43d26de565e3d68ce2ee6bfb8d0113b7cc7dfe07f6bfc6b6"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
@@ -40,6 +41,12 @@ class Libosinfo < Formula
   resource "pci.ids" do
     url "https://raw.githubusercontent.com/pciutils/pciids/fd7d37fcca8edc95f174382a9a5a29c368f26acf/pci.ids"
     sha256 "3ed78330ac32d8cba9a90831f88654c30346b9705c9befb013424e274d2f3fbf"
+  end
+
+  # Backport fix for libxml2 >= 2.14
+  patch do
+    url "https://gitlab.com/libosinfo/libosinfo/-/commit/0adf38535637ec668e658d43f04f60f11f51574f.diff"
+    sha256 "19fd45d55549decb981a6c1d83e4c8177eab88054ec545e4d97b63ab787df4d0"
   end
 
   def install
