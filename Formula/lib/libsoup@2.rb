@@ -9,14 +9,12 @@ class LibsoupAT2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:   "9e08bb8c83732fbf04a0c61fed7072f866921ea1b09e4f344e2f86ed6a61ae8d"
-    sha256 arm64_sequoia: "93cc36e0aca55d8d3ad613e40d4c4f870792d544472236eaa4e2007e8bdccdd7"
-    sha256 arm64_sonoma:  "30cc853c0df1b294a5bb54f4224c01892dd8a227eef2b2f9db4525ee5660dda3"
-    sha256 arm64_ventura: "2a309b1eccf23b179e5812c98df8d8fcb377cf5af35dd1e3cd4c88e23d1fa852"
-    sha256 sonoma:        "10bcbb15d4a0c105a32894d3211d54a57a69e16296ccd59e6374002c33be6bb2"
-    sha256 ventura:       "848cd63411742567dad48774cd56f9f3d2091a115e2a9cc803021af250e91c6f"
-    sha256 arm64_linux:   "f894a1f3fae10a780ec0a489cc4c84636f792c6013337c3d07f50e6af02303a2"
-    sha256 x86_64_linux:  "128d3fa437db9352c8c33b6937083fbb708ddd23566b957b243e9cee2debab16"
+    sha256 arm64_tahoe:   "8d0b9024c71c3dedf27463fb24861679a4c1e462c32dba678eae3b233784e5da"
+    sha256 arm64_sequoia: "ec4bd5e3db72b68f217650bdb80f3640649624fc7e45f2da67113061dffbb570"
+    sha256 arm64_sonoma:  "1563ef4a32d45d51a7b5c5fff98f5c74f4f15f4e2d30bc43754e5865ca422dc1"
+    sha256 sonoma:        "f335f613fdb50f36e0f75aa005d829a3494b523c5d27f70b000b291fe32cfa4d"
+    sha256 arm64_linux:   "b08fb4563a62d3b610014e5a6f4e6f0cea0680075ed0c7bbe1d89644585d004c"
+    sha256 x86_64_linux:  "0b6fec65bf0c66eaac516a655954a9dbbe86f51e4517872732937ded648ccdd5"
   end
 
   keg_only :versioned_formula
