@@ -6,7 +6,7 @@ class Libgda < Formula
   # The executable tools are GPL-2.0-or-later, but these are considered experimental
   # and not installed by default. The license should be updated when tools are installed.
   license "LGPL-2.0-or-later"
-  revision 4
+  revision 5
 
   no_autobump! because: :requires_manual_review
 
