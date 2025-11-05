@@ -2,6 +2,7 @@ class Rrdtool < Formula
   desc "Round Robin Database"
   homepage "https://oss.oetiker.ch/rrdtool/"
   license "GPL-2.0-only"
+  revision 1
 
   stable do
     url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.9.0/rrdtool-1.9.0.tar.gz"
