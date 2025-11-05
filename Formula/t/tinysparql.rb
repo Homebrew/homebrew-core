@@ -16,12 +16,12 @@ class Tinysparql < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "90a9d4e285934a23cfb38b4a8410f19f9b20e0086447f34d5489b953bf950253"
-    sha256 arm64_sequoia: "1f73787281850f174147e4a66a4be08baa96539bb61debc4f464cae1ab45eabe"
-    sha256 arm64_sonoma:  "236421dcbf8307292b06b0a8599a1a694d1cd4ac4faad453e0f53190a59e15fa"
-    sha256 sonoma:        "40eb8fa83ed0f88fabb44b05e68dec6ed7b79719929cab94e2037f40f1dab09c"
-    sha256 arm64_linux:   "41dee40c34bf2f0c6556060937d92f8eca469425a82707d098eeefea9a88b011"
-    sha256 x86_64_linux:  "d06043b1ac9cd894653d4ea399765da704dc8ba2e7768405b9f0ce9bea75dc47"
+    sha256 arm64_tahoe:   "4d1431c8dd7050ce5db5de2a499c9445d88ed754ab3671a71d2a325510e3a58c"
+    sha256 arm64_sequoia: "f0b27de568d0309ae5319d37cd658dee48239d2a0ad7acd51c76c835371ac1c1"
+    sha256 arm64_sonoma:  "3e545339ac59bc11481625cad9d4d69ad45031feed114f0d3b072702e7fdf029"
+    sha256 sonoma:        "0eabc6df38fb663f87e97b89236f5152949b1276b7a46e17f9f2055460871c65"
+    sha256 arm64_linux:   "c0e555b37f1a2f3dd850c3f7cde887eb152bc15f726b7d414b07a695fe059384"
+    sha256 x86_64_linux:  "96e476df8358efe4e56ec2db9f60795c3ff579296f7b76a6420ad1748d72f107"
   end
 
   depends_on "gettext" => :build
