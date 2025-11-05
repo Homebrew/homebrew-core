@@ -4,7 +4,7 @@ class Dartsim < Formula
   url "https://github.com/dartsim/dart/archive/refs/tags/v6.15.0.tar.gz"
   sha256 "bbf954e283f464f6d0a8a5ab43ce92fd49ced357ccdd986c7cb4c29152df8692"
   license "BSD-2-Clause"
-  revision 6
+  revision 7
 
   bottle do
     sha256                               arm64_tahoe:   "1920dc73653aeb057dcf27644f2ec2b57749ee6c9d2328733712cd0876d4df98"
@@ -40,6 +40,18 @@ class Dartsim < Formula
     depends_on "mesa"
   end
 
+  patch do
+    # Fix for finding eigen 5.0
+    url "https://github.com/dartsim/dart/commit/bb558d1a0cfe06d9d7a9da1061b42bcd5411ab83.patch?full_index=1"
+    sha256 "9e10dbeb0be4a0454c05ab5adf4a3b5e095e503acef20188da59456ee1244748"
+  end
+
+  patch do
+    # Fix for compilation error related to asserts
+    url "https://github.com/dartsim/dart/commit/bc2e99b19c5a0609d1091b1b7667f6f1a2a3bb9b.patch?full_index=1"
+    sha256 "60154cf3211d499731fd47b8fcf74dba398dbbbee23d1445fc919acd54e25df7"
+  end
+
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -70,6 +82,12 @@ class Dartsim < Formula
         return 0;
       }
     CPP
+    (testpath/"CMakeLists.txt").write <<-CMAKE
+      cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)
+      find_package(DART QUIET REQUIRED)
+      add_executable(test_cmake test.cpp)
+      target_link_libraries(test_cmake dart)
+    CMAKE
     system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
                     "-I#{include}", "-L#{lib}", "-ldart",
                     "-L#{Formula["assimp"].opt_lib}", "-lassimp",
@@ -77,5 +95,11 @@ class Dartsim < Formula
                     "-L#{Formula["fcl"].opt_lib}", "-lfcl",
                     "-std=c++17", "-o", "test"
     system "./test"
+    # build with cmake
+    mkdir "build" do
+      system "cmake", ".."
+      system "make"
+      system "./test_cmake"
+    end
   end
 end
