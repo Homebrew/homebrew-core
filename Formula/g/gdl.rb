@@ -4,7 +4,7 @@ class Gdl < Formula
   url "https://download.gnome.org/sources/gdl/3.40/gdl-3.40.0.tar.xz"
   sha256 "3641d4fd669d1e1818aeff3cf9ffb7887fc5c367850b78c28c775eba4ab6a555"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256                               arm64_tahoe:    "5ed4ab5773b48a89064e5e421b83e4aa4241893a486e1efceeab697e5a57c0af"
