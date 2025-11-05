@@ -6,15 +6,15 @@ class Cppman < Formula
   url "https://files.pythonhosted.org/packages/f7/ec/3965a47a4bfb8426037061ab429320cc306c229827db1c213eda52fe4a4d/cppman-0.5.9.tar.gz"
   sha256 "15a4e40ab025b4dcec5a73a50df26b7ddaef7c148fcb197940fff2484f9e9903"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a95cc1c58b520b23b42327ee31062260c4b4ba4f9f84c6ed04f8ee8fffcdebe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "220b9a45ca0d042bd6ac5b367bcf39b4fd3a4336d6d61f6b3d98eee1310db2bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d06e98c5d58b5ed41584aec6f8be57eb1bcf56f447edc0a6bf795c74cfdffba4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "68a96323828f982d28b348af2eb139a34dae85a248495fde981a082c687a97cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "63e61096985aefe69be35fdac8f537198efb7fcc85c9bceb5cc439266cae2e61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e88d120761abc8d4909f0544824d057a3010c5a0232699f3a2af5d87e9e3bc6b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50314626915da53a6878e6a05c01067c3c4d64b941c592ecabbbd95c789cf03a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c386f4f384c296b6a6e195616140c666621aacfe96c2068b73eb3cd193484c1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a1301d0c64dd255e0aeac8403427e5e5d74ef14f01abf5fb5df053eb7827ec69"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2b96b5fce1d42442cc9e5b4be0619b20ae9058208fea0f127005889027ef1830"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc5c51475e9fe77e973501eccfc000278e5c5bdabbd0c2540cfbdaf4a3cf6706"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fab5024b43e4396249eded3c316f9655a4542dfea971fdb26da6810f361618fd"
   end
 
   depends_on "python@3.14"
