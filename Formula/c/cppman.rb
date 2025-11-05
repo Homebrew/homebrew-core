@@ -6,6 +6,7 @@ class Cppman < Formula
   url "https://files.pythonhosted.org/packages/f7/ec/3965a47a4bfb8426037061ab429320cc306c229827db1c213eda52fe4a4d/cppman-0.5.9.tar.gz"
   sha256 "15a4e40ab025b4dcec5a73a50df26b7ddaef7c148fcb197940fff2484f9e9903"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
