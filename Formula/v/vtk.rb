@@ -8,13 +8,12 @@ class Vtk < Formula
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "eaeffd8adfb0d751affbca472ad5262eb8080cd69a93fba419eea65e4c284e04"
-    sha256 cellar: :any,                 arm64_sequoia: "c00bd8996fdeafbc88512f222086aa450f1f337a4032896b0578af4ce1e50d3f"
-    sha256 cellar: :any,                 arm64_sonoma:  "2a1607f21b1e98cd23b1ea45bc776d66b1b05387ee7c59f89180f9b10b4fcac9"
-    sha256 cellar: :any,                 sonoma:        "f7021fd6e91f4ce36d1b13e5deeda31de64b75781deb00e6486079f5c466c980"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad44c6d5d2195f8cfa98c4e73d8445e939a8e2e70e5534c38f2259f495da05a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73692fd4d3b2f8ac3ef7c57c904d2881f007c448f7407606215ebdd8f5da60cf"
+    sha256 cellar: :any,                 arm64_tahoe:   "01ec7151d258d8c11a189dd87a133b7b22f1dde1504710dd8a9a29a53fdf67cc"
+    sha256 cellar: :any,                 arm64_sequoia: "fbc3eefbb9d178c1f801daf5b6ad07300b2273b0c06328e0c76ac2a3c6e29407"
+    sha256 cellar: :any,                 arm64_sonoma:  "6781901f9e9760b73d72512666c759af6374a44a5970991395bab9343ebdfd02"
+    sha256 cellar: :any,                 sonoma:        "06b27cfdb426539063afedccab17c3ee41372a8745acba8c167cc88ef6325553"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a611f49b0f99aed9294113ab26c758fc0cd04afa5cc3d6969c09f781fbd2da7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3af60eb9809606a2737f0bef3ed2a617055bc66e40a225c67aa66bfac0b75da"
   end
 
   depends_on "cmake" => [:build, :test]
