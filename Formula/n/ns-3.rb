@@ -6,14 +6,15 @@ class Ns3 < Formula
   url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.46.1/ns-3-dev-ns-3.46.1.tar.gz"
   sha256 "3cb25d4ce1fb5c8597c91ab3d14c52a9f37eff92c36c2961772966c440850171"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
-    sha256                               arm64_tahoe:   "056ad158ebdcf047c7326fdf17a978fcc6d4163d76ab8d6ce8e9f307f9ebeeb0"
-    sha256                               arm64_sequoia: "d22d30dcce8d6c063c9ed33b784fc5a83615e1ee9a4870e6cd8f8e6a104cf75e"
-    sha256                               arm64_sonoma:  "77bda72c0389cbc365aae61b2184047cc3f6eed1a6c1bc8fc056f96884d626ad"
-    sha256                               sonoma:        "1bfca6a9c11da394758d98720f00ac08737f100600e6512975f889f8088fcf56"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f210ed90adcdfc7243fd9a6058ca6723f6ce7c5f1c28adacd99fe3ac2a4bd871"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d809b943bc13cb7e20247616806148a3fcbe5ef7d99adcf5e7f3e5ecdfd52f09"
+    sha256                               arm64_tahoe:   "f5b12412aa2879bbc0c58aa2cb6f4856287cb5c3bd6a50c2e7ab450a70aebea2"
+    sha256                               arm64_sequoia: "0171d128dac59723f0744b418963b211d46c7294df76f20c1a501cb4cae64d7b"
+    sha256                               arm64_sonoma:  "83247717e3fb87de6793c2ab34dab43992e05361c0b5fd414e659662cbabcce0"
+    sha256                               sonoma:        "95b426f45d078af9c3cbbb98fa11c276e6dfa2d1c48dd9f8424d5026eb279a16"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b78802a98d2bfbe8b5c19420b9975af724a83f8b70fdee08944ddd1543cac67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3182a93ec5baf35b4d33357235fcc0ba712c4e10eb036b4330961dcbfe32a047"
   end
 
   depends_on "boost" => :build
