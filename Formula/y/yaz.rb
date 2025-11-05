@@ -4,6 +4,7 @@ class Yaz < Formula
   url "https://ftp.indexdata.com/pub/yaz/yaz-5.35.1.tar.gz"
   sha256 "db030d6d66880398a44215e26132630ee94f5e462d838809e43f97e6399c1353"
   license "BSD-3-Clause"
+  revision 1
 
   # The latest version text is currently omitted from the homepage for this
   # software, so we have to check the related directory listing page.
@@ -13,14 +14,12 @@ class Yaz < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8a51c6c51d70b5dfa34a4c634fb1361b26dbc4830760d505dc81b52035733bee"
-    sha256 cellar: :any,                 arm64_sequoia: "24497a672f546f23ee52b7ff9b83863795545bd58a0c1561f3f634dcf220da7f"
-    sha256 cellar: :any,                 arm64_sonoma:  "e37f1921f43470a9a19b506b89f16e8f9b75a9965b8787dd5cf0e4ac28108555"
-    sha256 cellar: :any,                 arm64_ventura: "3ea0e0e6977e0a3bf1808e954386310246bdbc908051d9b653687cdd0b64e13b"
-    sha256 cellar: :any,                 sonoma:        "88022627e10356d887045d2d1be55bde3d09065ece5cbaec875047c748c7598c"
-    sha256 cellar: :any,                 ventura:       "280d60697fd3cb7fd04fdfb3ee24bd4df75e1de94408db54042d66786a7736a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "403a708cb2e5a97a3702dea76a7b43ef8b23a1974aa6d6eebd8aaf3a07c37dad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b26f737c242d969fa3a4c151fe73e72949af1e049a9f0fefae57533e2db44fe6"
+    sha256 cellar: :any,                 arm64_tahoe:   "5b2b9f709598e7ce4c80e199f1a9a0cf47c7dc58570d07aecb74760aa2f7ded2"
+    sha256 cellar: :any,                 arm64_sequoia: "65f78a69683c57d6fb0ded2fc4c35d8e03a7c1c5f00c84bb71fa06a1a90f2d30"
+    sha256 cellar: :any,                 arm64_sonoma:  "6d59eb244c9f5802ec3cf86970f8c1124862de6d2a0e131be1e904d568d3542b"
+    sha256                               sonoma:        "882c3801d8ab33da6cbb3917e1c042947975559738848e6e444aa6aac33e7b67"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba5cb69aa7485cfeea383b56a6bcb12e1d86619998b0ab77cd6c377db9a45c90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d52f458c920934433467f0b24ce1ed0d8e637833c40a863b8dd96537ae208e4"
   end
 
   head do
