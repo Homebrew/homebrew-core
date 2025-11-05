@@ -8,6 +8,7 @@ class Duplicity < Formula
   url "https://files.pythonhosted.org/packages/b4/f2/5d5a3ab5dc3fecc672c4b1d40bc06717f85a886e963bdba13f40c8601f7d/duplicity-3.0.6.tar.gz"
   sha256 "c538fd9883173df1c5c7d8724433b116fe4929471d46b60809f5a4c33dffd370"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "93d9f22d8f2c1a87dd31eca6d75f9ab00a6b41a96e72dbc23253db5fe129edc7"
