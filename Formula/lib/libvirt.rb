@@ -13,12 +13,12 @@ class Libvirt < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0c5ec005ef5c1ca7a52f094178f257a81bc0508db60612b47a6f107daac15e7b"
-    sha256 arm64_sequoia: "b146f83e6043052182b10646ea7819cb0146759f0ae21b9956f6aad8d69cfb55"
-    sha256 arm64_sonoma:  "784c8f9dbb3068da837b7f9d2be36b20c0000b7f4e8d3dde5f06e0ec6af999a4"
-    sha256 sonoma:        "13be323246c6e1432851db2c269c168265a84ea02a53d302403cdcd20e46e5d5"
-    sha256 arm64_linux:   "b197e1a0fbd42b975ecd449d3c2c4d19c4c47aa23077d8b6171912aa997498bb"
-    sha256 x86_64_linux:  "5bf0a6f4e28ef3034fd4ce55e15ff1a4a8b87eabf35281036eface4778cae8b4"
+    sha256 arm64_tahoe:   "0d20962672b70fb458b70211e30a7efdd52f48278ff077ffd18b8324716119e7"
+    sha256 arm64_sequoia: "f835001451b5c6cb6ba0c9d8a69fbf18487c354f0c66df9cc92bf061176d1a0a"
+    sha256 arm64_sonoma:  "0b5991e43e5a6cdbab42d281446c39f31a08a1b7b1bc0a7f88b97e1dc48c99ca"
+    sha256 sonoma:        "ce8bbc5f450fd61e5add2ab958be633753a9c45feb9e843ad7dd5876f0c8932f"
+    sha256 arm64_linux:   "6f6eae64e8d7440b395f51386090c00a53c13f21724a2fbfe86a1802dac904e4"
+    sha256 x86_64_linux:  "1c0d8332e6bb501d2867b10dd1ea6cd3faa87e629b56f918f5b62332ea92a003"
   end
 
   depends_on "docutils" => :build
