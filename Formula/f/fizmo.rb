@@ -4,7 +4,7 @@ class Fizmo < Formula
   url "https://fizmo.spellbreaker.org/source/fizmo-0.8.5.tar.gz"
   sha256 "1c259a29b21c9f401c12fc24d555aca4f4ff171873be56fb44c0c9402c61beaa"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://fizmo.spellbreaker.org/download/"
@@ -14,19 +14,12 @@ class Fizmo < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:    "a6a21f94fac9ec07a9f1ab8bd9e836b8b3fdad064b33b18d79af90dde088a338"
-    sha256 arm64_sequoia:  "4e3cac7e500d651ad426903ea1016ab8c1814b75c9f8bd421a089b308c8a2ce7"
-    sha256 arm64_sonoma:   "40879942bfcd0d7fe5b9ffbf4ae0392d0e93b3ffc148aaa06b803388284ab23f"
-    sha256 arm64_ventura:  "878df159a06663acf65f7038069c45e7b679269c5e8dcb9c4490f512f1cd2826"
-    sha256 arm64_monterey: "869fedbd10336fffd09d9f28cb0459dba50d54e5d99f9977c57359a4af33f6fb"
-    sha256 arm64_big_sur:  "71a6701b5983df601d714b574d480ac3943efc0f67f119b43a6c37bd3b4cef2e"
-    sha256 sonoma:         "802b7299660b696f26bce7418aa0d214a896bf08bdae7e14767923775aee3dbf"
-    sha256 ventura:        "3bb045bbcbb685260968f288bce323bb4d13c10a242c24dd67811d90d9c35d09"
-    sha256 monterey:       "d34d8d73e7d009ec869a41d39e058a2cdd5b53584f4d6e91de6007808c17e420"
-    sha256 big_sur:        "2b316eea30d6bc1c9b1d031a33d267320ff05ec61da20d5b3698c760d3acd1be"
-    sha256 catalina:       "40d46b98fd262acb6bfbe87d2716a51a715367be1f38d8a7a027b071649bf5cd"
-    sha256 arm64_linux:    "6c553882a7549dab6864ee7b1519091bb94a0f483c7ccdaabb66b0f510bf5261"
-    sha256 x86_64_linux:   "9fe334a5cf5e393d868f48d5be496001315fd76a84058458c7244b4970ffda4d"
+    sha256 arm64_tahoe:   "84b3dabce41fa7fd0883ff4cc412d65b73d42da0b9f5968db0570df314ba20d7"
+    sha256 arm64_sequoia: "25c9f7c41969ef25f4487be678d26f761384e6f13aed58856138c6c5cea6a3f1"
+    sha256 arm64_sonoma:  "62635a4d8f0c4ac90a551e1fd1e6a8ca823c436654f3c467c2a58436457e4102"
+    sha256 sonoma:        "28a1e73cd22c90f530ff66da225fc5d2a0b83cd851cce66ff2a4e39397930ad9"
+    sha256 arm64_linux:   "6a6002114ad34ebc2792bab4d6d230e1f7bb206a88dd4e86d2764fead910d111"
+    sha256 x86_64_linux:  "c21432000515a2c9e3d51d38f66d0bc3203baedc971da06ab80f4b650e4f8c08"
   end
 
   depends_on "pkgconf" => :build
