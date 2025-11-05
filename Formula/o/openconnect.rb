@@ -4,6 +4,7 @@ class Openconnect < Formula
   url "https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz"
   sha256 "a2bedce3aa4dfe75e36e407e48e8e8bc91d46def5335ac9564fbf91bd4b2413e"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url "https://www.infradead.org/openconnect/download.html"
