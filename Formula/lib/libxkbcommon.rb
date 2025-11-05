@@ -4,6 +4,7 @@ class Libxkbcommon < Formula
   url "https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.12.3.tar.gz"
   sha256 "b08bbd1ac6faef2b80774fbe22a0dda5563ef77480ad86677b51798bf0afef6d"
   license "MIT"
+  revision 1
   head "https://github.com/xkbcommon/libxkbcommon.git", branch: "master"
 
   bottle do
