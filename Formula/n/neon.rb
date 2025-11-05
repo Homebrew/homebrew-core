@@ -5,6 +5,7 @@ class Neon < Formula
   mirror "https://fossies.org/linux/www/neon-0.35.0.tar.gz"
   sha256 "1467afb73f35e3f5d0e9fd70628c14cba266a65e2a1fb6e3f945ee3385c8595b"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -12,14 +13,12 @@ class Neon < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9209ee7b15a76a8a5d4a86450d865b1806ba45102ceb58318a55cd7499fee5e0"
-    sha256 cellar: :any,                 arm64_sequoia: "d2678bf553b660959a46fa76015d02248a4bad6170c9f1f6fc431df55c385acf"
-    sha256 cellar: :any,                 arm64_sonoma:  "fadf31281622306d3cb61696ecdfd8377ff16020ae06ad15ebbb2bd45a62e386"
-    sha256 cellar: :any,                 arm64_ventura: "d8d09b9f936ba9af41aa655d4d518e13f4c19ec377f11810839995b27c10c10e"
-    sha256 cellar: :any,                 sonoma:        "8be89f6c7690b43cad0f9fe25bb23a1be0e931e4012360ad5b035ebf5666d290"
-    sha256 cellar: :any,                 ventura:       "27223b58b2ef27a340c90478e3d0c090a825775c2d7ee1cfbdd6005d0f3f9cd2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1452d52bbae2d279acaa6c18ff7c989a67c356c6f5b2eeebdd91df31d172eee1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8ae683a2e4863090997632a45ca8aca8d65c32624e18ce06ce08509ab9214b3"
+    sha256 cellar: :any,                 arm64_tahoe:   "4132cdc867b60cc78c721b5a851312d105bb30efbade9d1e1c2b41a95d7d1c68"
+    sha256 cellar: :any,                 arm64_sequoia: "d44eb24d6ae64fd82eb1e0620c3a44d1192b37981022c1195e07cc48c871cefd"
+    sha256 cellar: :any,                 arm64_sonoma:  "72cc292b6a0ad843804e6a7dba94da066a900fe65f9bcd4bc931d0391fddef66"
+    sha256 cellar: :any,                 sonoma:        "cb4e3d7cc5a9cbd305804080418355d0ce1ccc11d08ce98125030301868e4dbc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d6252771625091499a4f4631867f91e64c93062de344cd19adb17634c68e53fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fbe7e80c737402218acc6a28e582b319dd2341509d92230f2f68629f6b29c34"
   end
 
   depends_on "pkgconf" => :build
