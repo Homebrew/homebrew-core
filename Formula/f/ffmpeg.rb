@@ -6,7 +6,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -15,14 +15,12 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c844b922092c9b1a0029cab048e3c43f2f1afbb09ed814f25d76e2fd143ee783"
-    sha256 arm64_sequoia: "e187d42e699e7d9c05722b37c8b8f3d03d2e874cdea67f3f04c2f3134aaa683e"
-    sha256 arm64_sonoma:  "b9991b9b4f03ecdd45188f7d21f5f3c33db34465559ecb5c29ea6fe48ee26428"
-    sha256 arm64_ventura: "5ac7089600d4c23ed9e8cd26bde94b8341c9138ada7244dcced60f8ee5e3b617"
-    sha256 sonoma:        "634b227cbf3ad5772de41f501c152fa9e27a4ece621008728ebb6d3cd00a71a4"
-    sha256 ventura:       "8b544fb3b19d44aa0d79e7340490cadbc98e27181efa3b95abe96031b3bf7c71"
-    sha256 arm64_linux:   "ac91a0f2214602403642617c1ca7cc5bb8cf115deb1917ca3582ac63a6817e8c"
-    sha256 x86_64_linux:  "759ad3eb9a1d52caae13e1d4ad8c216225a18742961937d529e7bb3c80c7a20a"
+    sha256 arm64_tahoe:   "0e90bf91de4b63e49e59d16ed7311176fc59471a9ab9da82ffa1df740c1a4981"
+    sha256 arm64_sequoia: "3f7d86973c2944aa1d303c055157c85f6c10f5b805b095f4f6783bf8c13cfef5"
+    sha256 arm64_sonoma:  "290e96a7c54c2914aa17523f4d1edb47850d770f576ab503c4b2653ea27e8b97"
+    sha256 sonoma:        "baf5c5844935b8b086b66051824139b81db0443b56aab82c593819c2b20fad2b"
+    sha256 arm64_linux:   "b5815b5765cf7f50c66ae36dfaf508b648ea960aa16071baf70fce85d86cfb0c"
+    sha256 x86_64_linux:  "bcd346826d9ceaaf494795b8b1d4f0b2dbc3d89d9850f38f87cb509ee24cefd6"
   end
 
   depends_on "pkgconf" => :build
