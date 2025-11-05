@@ -2,6 +2,7 @@ class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
   license "GPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.14/pidgin-2.14.14.tar.bz2"
