@@ -4,6 +4,7 @@ class Openconnect < Formula
   url "https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz"
   sha256 "a2bedce3aa4dfe75e36e407e48e8e8bc91d46def5335ac9564fbf91bd4b2413e"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url "https://www.infradead.org/openconnect/download.html"
@@ -13,15 +14,12 @@ class Openconnect < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 3
-    sha256 arm64_tahoe:   "be0a6e0c44074274470b40a2687f0d36545111f937f6e87776dde90c1ce30900"
-    sha256 arm64_sequoia: "5f8451259fc62b9d9137d92ef27cb8674d429b06e4a3e2d30bd7352131126b24"
-    sha256 arm64_sonoma:  "90a8abdf95806d378499c11c363e93ff20724d02d8366d3a0f3ad9c1484281a3"
-    sha256 arm64_ventura: "2c25aee8a4b6d654d03f3f66d3a2ef14193c1d4bf1c5be5a7ac8de1a39030411"
-    sha256 sonoma:        "30ba2ca9744e4083be325a54aa62bbcb63044ffbfb1d1b22bfa1a6e4f7425e97"
-    sha256 ventura:       "a4b0f68f401974f354e8116066306fb6c39932024911a4a64d524894ac387633"
-    sha256 arm64_linux:   "02d74cdcd601f029c380d447f55b807ea503c88133484edca2a9757fc8d052c0"
-    sha256 x86_64_linux:  "04741ae1bce5f7c984ddb98c787972f7186cb6b9d366e7e6ee743ea65927cafa"
+    sha256 arm64_tahoe:   "bacd0a4fde84646627d45b4b821956d89442cd67e3645d6b6acb78957f96e01f"
+    sha256 arm64_sequoia: "8cf6e196c261898329d0bcf1ef0a0f6ea239c12f0884377e240262655464d85b"
+    sha256 arm64_sonoma:  "1612de7a532555d862636d428aaee7bb2042ed62adade421425f93fb64f5ffdf"
+    sha256 sonoma:        "8ddfafaffa683afac65283d1cb7386916d6dd81cf1bd35f04e51572ca5e2ce37"
+    sha256 arm64_linux:   "2525fee7be139490f52d7426415ac2bc8fcc916737bdddbeb464295314167429"
+    sha256 x86_64_linux:  "8a12c919696a92c83d8da6ac36c3965e70ad500810db4322e0abd72ab7bd9a4f"
   end
 
   head do
