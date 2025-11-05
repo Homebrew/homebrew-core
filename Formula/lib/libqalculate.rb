@@ -4,6 +4,7 @@ class Libqalculate < Formula
   url "https://github.com/Qalculate/libqalculate/releases/download/v5.8.1/libqalculate-5.8.1.tar.gz"
   sha256 "59588d69475cbb374b0b90ddef731802edd5b2da696ef706d0ca5fff4dbcfdfa"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256                               arm64_tahoe:   "3b07faeec3822a3d1bb7bcf17a102d82306c3df17bbd0c6aae9b54f61bc7ee9c"
