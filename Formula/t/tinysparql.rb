@@ -4,6 +4,7 @@ class Tinysparql < Formula
   url "https://download.gnome.org/sources/tinysparql/3.10/tinysparql-3.10.1.tar.xz"
   sha256 "5a7f3e789db6671a550ed6280ed4f60a60bea77368da92be68dc7d8d7e230265"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
   head "https://gitlab.gnome.org/GNOME/tinysparql.git", branch: "main"
 
   # TinySPARQL doesn't follow GNOME's "even-numbered minor is stable" version
