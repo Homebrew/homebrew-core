@@ -4,7 +4,7 @@ class Metaproxy < Formula
   url "https://ftp.indexdata.com/pub/metaproxy/metaproxy-1.22.1.tar.gz"
   sha256 "d67a9f7fc9d36ccea8c4770c96c4ae2bc4250f484f941cbeec2a11695ec8d7b8"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   # The homepage doesn't link to the latest source file, so we have to check
   # the directory listing page directly.
@@ -14,14 +14,12 @@ class Metaproxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0fde30e0981972930b36cec80c9199fecc4d587e5500d3e5db86b793feebc066"
-    sha256 cellar: :any,                 arm64_sequoia: "fac499e49d91fe8f9056887c49190c481701ab349351801c0cf214a278283f35"
-    sha256 cellar: :any,                 arm64_sonoma:  "dc7dd1dab2e198f98ce502f952cc8ba62f76564400168210faa684caf34de6de"
-    sha256 cellar: :any,                 arm64_ventura: "8c4fc4ab5fd41b9f8a3255965c5ee70cda3e82503e697658725572f587c23b78"
-    sha256 cellar: :any,                 sonoma:        "e3d0259354592605d7fbbe51be7ea0e8cf011a96b81890c1d55dfc80a806abbb"
-    sha256 cellar: :any,                 ventura:       "13923079d23db8b49cc6d1999ff465f7cd1ed26dd6db36dd3dd2b3a8cf52eb46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0007cf2d8f23ab1d9372bd3da36f46fbe2caf53fb333237e550ff46099dba18b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6dc76a8d16502d41218106da2a8ef91facdfd393ef05bd69c9f15cc30399f6ec"
+    sha256 cellar: :any,                 arm64_tahoe:   "f4956b09ae4b75d8cce231866f3d798e3878996906d6712ccdae7609b80965bd"
+    sha256 cellar: :any,                 arm64_sequoia: "66f5507257723416ff71f532e0f1804919c40b692ff0faab53711708c773c900"
+    sha256 cellar: :any,                 arm64_sonoma:  "a73f629780d3c6039abf65e7ccb84ab73e2601c768c1a150fdc0aecbaf60af36"
+    sha256 cellar: :any,                 sonoma:        "bb1658d390545e44b15a185701954ee6e848cfad38b27a1472f0f2cb3e8b7c51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a241d61c986556b58b5a3713bcd5d6d05582e6dbe78ee7518c5de09efc8347cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae9d50c8de8c6250bb1ca5f28de2be040a2b929f9172be1fffb56e7743358279"
   end
 
   depends_on "pkgconf" => :build
