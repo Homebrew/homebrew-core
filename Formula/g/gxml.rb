@@ -7,16 +7,12 @@ class Gxml < Formula
   revision 2
 
   bottle do
-    sha256 arm64_tahoe:    "ace7b4e24823b8626e5cb1c8663617a68ac0f38fbd8e97926d5db59198746ef9"
-    sha256 arm64_sequoia:  "47216df062f881bebea1796d72ce28358e3eeb746dbf9215e80ae4476daa3902"
-    sha256 arm64_sonoma:   "8f97268cf4c3e02ebb80664ad7130ed9e8a73651c8ee4a4edff6a0c49f109518"
-    sha256 arm64_ventura:  "e6e950ee7e48514e6ba3b1f81037e99799886d05adf2fdf7a31d3939bf9b7196"
-    sha256 arm64_monterey: "6fe172d27e676eb132acbef9b7a82d7e42658b1998babea50783504c2c4fa22c"
-    sha256 sonoma:         "09e480a1b3fc86510efff4ec18fb6f2566d2f29a1c847289329db6625c4f3c25"
-    sha256 ventura:        "bee9013ba03bee81e7224dcf0a4788daa943b53143033534b10f761d6c210630"
-    sha256 monterey:       "19b816073438f3440875bfc354c81d5ac877576df616aa633a63c6951887fcd4"
-    sha256 arm64_linux:    "138f902ae62c44ff26d94030f742d6d8bb7e0a2067337b15b4440562823acd9d"
-    sha256 x86_64_linux:   "2655af742b291d5b01f09956dd4d7f812cf0351b4285a0a2e04bec744bfdc4bc"
+    sha256 arm64_tahoe:   "a3da5e42590fe64560597a9dd87d4ef7b99a7fab333a8ce2b1b307709892eab6"
+    sha256 arm64_sequoia: "371bfb0dcf652b8f7fa6f79783ca427c1228fba85314a430397080ba47aebe2a"
+    sha256 arm64_sonoma:  "440e8583de82f846393564e4e505b952250609103377dce30cc4141cdb9a5afd"
+    sha256 sonoma:        "f26bdae2e98a12878bf0266f81ead6d0d35049aac22f6d7e998dec91f4cbe1ab"
+    sha256 arm64_linux:   "a005ed52b097ee095f4ec60799afa0428ddc924a84715522d5787e5430f50448"
+    sha256 x86_64_linux:  "34f65c1d4ae3dedf814cf963ac7bcc5619bd80285d22f151a679cc1eb24e6e4b"
   end
 
   depends_on "gobject-introspection" => :build
