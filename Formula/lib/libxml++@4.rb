@@ -4,6 +4,7 @@ class LibxmlxxAT4 < Formula
   url "https://download.gnome.org/sources/libxml++/4.2/libxml++-4.2.0.tar.xz"
   sha256 "898accd9c6fa369da36bfebb5fee199d971b86d26187418796ba9238a6bd4842"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,16 +12,12 @@ class LibxmlxxAT4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:    "56769049964a463d7685af8129e84b78cb9a743b82fad084328322c028ea3605"
-    sha256 cellar: :any, arm64_sequoia:  "313eb1af5b040a240c54769a0ea30007bb2ade22d25b0858a457922a37fa53f1"
-    sha256 cellar: :any, arm64_sonoma:   "987e41fbe309acddde459a94d9ad151f8644cefee95be180366f3b774b3d6ff6"
-    sha256 cellar: :any, arm64_ventura:  "35b445c5b312aa2a990ad57372c57f3c00d3b79d6247ac6007d5b00397467a9d"
-    sha256 cellar: :any, arm64_monterey: "4d431e0cb82051dcf01c8e05d75c067ab5716852a61fc10f7d65655628c5c010"
-    sha256 cellar: :any, sonoma:         "3784bffd82c84684b1c75fa7ea33adff114727fffebe2ccef5fcdb590c92c937"
-    sha256 cellar: :any, ventura:        "bc1972685d7e69a840ebdb2c53b0596055ec1f5371c94508d02f04d9c70b5124"
-    sha256 cellar: :any, monterey:       "1d4f0949c6e5caafd5e0d4476241bf827244bca988698aa9d78a8d03ad3e12c9"
-    sha256               arm64_linux:    "b46a5d38b50a62cb3e2120ef3eed2794a0ea47394255ab88439a44fe4cfe92e3"
-    sha256               x86_64_linux:   "02e771bea9bfa9710d1425f7bce4e387eafb8056c8fd526935f5a661ccc74281"
+    sha256 cellar: :any, arm64_tahoe:   "8a4f4f5422ef18c15e06258c50b4abb86f77359639b9799aab1c4898f3553a25"
+    sha256 cellar: :any, arm64_sequoia: "2ddd9704aedbbb06275db9feeec79f1513a82480e8810514a10ca843dfcd01f7"
+    sha256 cellar: :any, arm64_sonoma:  "963f340b83ba711f769a78d78897f1c1fe083b86cad7f16ffa746cf4cf2dd599"
+    sha256 cellar: :any, sonoma:        "8646196252e15695ee73aed4d3df3608520099057a937daa076f8f1a711a25b2"
+    sha256               arm64_linux:   "a6ba92468426a91bc330aa33a9cd23556b52d1a7cccdbc004fb33115766edc1b"
+    sha256               x86_64_linux:  "3294b3a20fef0cfffdf4062291d1b7fe8ac9e969258e2b3b41812a3219d8c903"
   end
 
   depends_on "meson" => :build
