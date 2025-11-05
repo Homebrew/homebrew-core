@@ -4,6 +4,7 @@ class LibvirtGlib < Formula
   url "https://download.libvirt.org/glib/libvirt-glib-5.0.0.tar.xz"
   sha256 "9bfec346382416a3575d87299bc641b2a464aa519fd9b1287e318aa43a2f3b8b"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://download.libvirt.org/glib/"
