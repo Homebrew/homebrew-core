@@ -6,14 +6,15 @@ class Mapproxy < Formula
   url "https://files.pythonhosted.org/packages/7d/5e/972a52a0b3f646a53dd3e8a552256a649548b8fb84b4fbb1b43b90de86ea/mapproxy-6.0.1.tar.gz"
   sha256 "aada98e509b8b0b99eb3f9f97bebf5f284711bd1bfae46e8e6f2b296581bc677"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2fb226ed6decd64a1983a72a825aa3a9fbf008590ff257952de71a60d87b3cd2"
-    sha256 cellar: :any,                 arm64_sequoia: "9c5a9301ec6b1737fd95cd3de14a0ba941d5ffaba24b9e0cf616939bf8296c5a"
-    sha256 cellar: :any,                 arm64_sonoma:  "340462b4453092cec6412f36149a4b2053afbc00a2ed805d6f7af9dc6a53e28d"
-    sha256 cellar: :any,                 sonoma:        "2a0113f85cf2dc4b493730b4f21ac6f6222a5c2a832dc1f9eae4f3ed83c7c538"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4c40715fff3954b168dcd8d3bd5b12e94de96581effea3b689e2c44369ea16e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8539dede41074d3a5a8c22056c071140c524983b70436cc4a5e3bba31616252"
+    sha256 cellar: :any,                 arm64_tahoe:   "627dc45ce4f2c9acd21993f6b09867f3ec0435015f4a3be37fe97bc7982ada9c"
+    sha256 cellar: :any,                 arm64_sequoia: "91cd19662fc9e9c02c0f1384f8578240c77f377cfbba3182df49355da3831c6e"
+    sha256 cellar: :any,                 arm64_sonoma:  "7cfcf1e5be4f47d421f76f084507342c1b58f29a25dd345f5dbd2f93c1020cd4"
+    sha256 cellar: :any,                 sonoma:        "97c9476b50053fdb4b34ad1c90a2d512d006b9d2bad8be2280eba7e884938006"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1b460cd1bab041aca2aa106ed19fe4db2ee473979a976ee4c2e061189bc4a78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "064a30044275d2aa1e4c6979719f99b8933126d8442bba9dd405a23dc02c6b93"
   end
 
   depends_on "pkgconf" => :build
