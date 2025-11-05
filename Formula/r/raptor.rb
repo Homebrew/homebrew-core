@@ -43,6 +43,7 @@ class Raptor < Formula
   end
 
   test do
+    # testing linux
     system bin/"rapper", "--output", "ntriples", "https://planetrdf.com/guide/rss.rdf"
   end
 end
