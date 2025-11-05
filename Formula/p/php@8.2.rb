@@ -6,6 +6,7 @@ class PhpAT82 < Formula
   mirror "https://fossies.org/linux/www/php-8.2.29.tar.xz"
   sha256 "475f991afd2d5b901fb410be407d929bc00c46285d3f439a02c59e8b6fe3589c"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads?source=Y"
@@ -13,15 +14,12 @@ class PhpAT82 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "5f9b6752e46dd806b61c583840091e66477fe7520306e6ee21e054200d2c2c4a"
-    sha256 arm64_sequoia: "7576aec65c4ac7ab192e487e3942ce2e769db1b52da0d9a620f22f0cbe70af6d"
-    sha256 arm64_sonoma:  "e12c26df9115adb17c624e6284cc95a83cdd0306d3e9facf5ef54aa8162ee91b"
-    sha256 arm64_ventura: "302ac8f571039ceac4bbd0c6785067d27a2974dd785c9ea0c62cad52af9b00c5"
-    sha256 sonoma:        "bd8d3246d0af397358434dfbe6c7befec15a21626c20b1b468ad15d9d3695996"
-    sha256 ventura:       "0322eb8c8d9e10ef6e118a9bc0cd71b83b5264edfe95fb754422e6ae6dbca30a"
-    sha256 arm64_linux:   "210b1f02cddfce250b0f4566a36b2b7221a2f82dbd666ca3135330797bee777e"
-    sha256 x86_64_linux:  "eab0f89ecce0f230609c0ea10c0164a227170e375735aaec8607cdc2fab9b68c"
+    sha256 arm64_tahoe:   "857672c9c4e3c92e461617b0cc2e9e3846c9b79e464b123579bde318ce988c94"
+    sha256 arm64_sequoia: "b67960277c226ec1775581fc62630243e10d8e100975d2d3774d87ef7cf171e4"
+    sha256 arm64_sonoma:  "362e6db6c90f1d7d01e2d1fa1e0de2e47ea517d95218dfa7b927ee085b3c4c4f"
+    sha256 sonoma:        "e2cb93f6808dcc94c30419d098f1f9d5b31f13870dc1417983881d38ada78c40"
+    sha256 arm64_linux:   "9d20b61ce1ddb353d7370d8de8f09cb52bd90482d4b2fc68026bdfdb1f6aac01"
+    sha256 x86_64_linux:  "bc6c6c5f17e377079d670c1ceb29d6c8a0816742eba6c2608b98e01cf038aa2f"
   end
 
   keg_only :versioned_formula
