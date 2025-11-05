@@ -6,14 +6,15 @@ class Pyspelling < Formula
   url "https://files.pythonhosted.org/packages/d2/8d/10c7685389449464172ff4383d9f1b6b96df8825ea6b513004a713aa034e/pyspelling-2.12.tar.gz"
   sha256 "7b397911e46b7fa7c1056b2867c02e81547fc8d00bbcd84465655df23e49dbaa"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ac2397e3f98b7012bf1424ee7be07594f278eb105685043fc2aa7c36c2db92a2"
-    sha256 cellar: :any,                 arm64_sequoia: "665f7c3576dd4d9093f2a0819fa7bcdcc8cfc7d3f33eef95136c68b02ef7cca5"
-    sha256 cellar: :any,                 arm64_sonoma:  "91c505186ec1f7451f06887a96298b6c7659228f69fdf89b62ece14da92816f8"
-    sha256 cellar: :any,                 sonoma:        "2ec92d3172a81a404d68e96fd45006d236913e145850ae3a928ff92b4f977e84"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3829c5760504c4acae172a24ac06b23b6bba44367d958d2291b32ea3d952392"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edad5d0d721973f7a20493a8dcecfeb8bc6275624c8d854bcbd86ec087309e3b"
+    sha256 cellar: :any,                 arm64_tahoe:   "563787c3dfe155c3b010ffea1d31725207ec26e9f194ebb6cc572a1a76d176a7"
+    sha256 cellar: :any,                 arm64_sequoia: "52b6f79bc78d7e07444a4961f53397f596ae076a3934dc2380c99e8f208b7971"
+    sha256 cellar: :any,                 arm64_sonoma:  "f1668812814ef5dad8e8ea633cece3fcb3d086332cecde7951d6fa4c7dd416d4"
+    sha256 cellar: :any,                 sonoma:        "5268c23b189bd37188b8e3e9dfabd15a1cc01c50678492401bce00982ec7276c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2998e5b1055e88c3e438a4368101a0434735a2324cd1ff76348caf7ef412155"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c56d8a388766ac248211880acb743f52d81f1f8de95b05531513f31703f3c4a8"
   end
 
   depends_on "aspell" => :test
