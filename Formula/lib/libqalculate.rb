@@ -7,12 +7,12 @@ class Libqalculate < Formula
   revision 1
 
   bottle do
-    sha256                               arm64_tahoe:   "3b07faeec3822a3d1bb7bcf17a102d82306c3df17bbd0c6aae9b54f61bc7ee9c"
-    sha256                               arm64_sequoia: "f37526ba62b73c9c13ed7ef9769a37c539c9c484e48783805cea50366d26b55c"
-    sha256                               arm64_sonoma:  "fc12dfee241547f880da1b95bcef21b4687e33d93bae1253acf6aff0d0d3c268"
-    sha256                               sonoma:        "a396ad117af60508bed43e707122c0163f1e76eb83d47358a61b87a9039222b8"
-    sha256                               arm64_linux:   "726aa1c07ad7479f291b69f13b856e5e1b3e55c79c31c04d30e966352d1722c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd3fa1f5a42b79eaa89c53f099152f560287d35b07ac5664d4c48117a17425cc"
+    sha256                               arm64_tahoe:   "ec337d00b94f6f27628c8bbf8d9c8f1f36fec98fa9d909d2f3c152de88db5d76"
+    sha256                               arm64_sequoia: "4b833202d6e00904b44d105deeddd1896eba2d9f274b33717961f54255749618"
+    sha256                               arm64_sonoma:  "040c8a336a4835a752f2a6e8f83d59a4e3aa1ffc56111a3a334d4024e6372696"
+    sha256                               sonoma:        "ea172d11886076ca8b86a448c263a8f791105cdbf2befb0c25759efcb4e50b2a"
+    sha256                               arm64_linux:   "a6605f666644dd4e3d7cb45feb5e1b00f937f4abdb06eb8048b6f2579b89408a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1700e71c9d8d1d500fbfe9d18434b040486f644179635a0331e95e9e5f5265d5"
   end
 
   depends_on "gettext" => :build
