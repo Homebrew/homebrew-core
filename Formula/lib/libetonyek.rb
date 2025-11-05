@@ -4,6 +4,7 @@ class Libetonyek < Formula
   url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.13.tar.xz"
   sha256 "032b71cb597edd92a0b270b916188281bc35be55296b263f6817b29adbcb1709"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
