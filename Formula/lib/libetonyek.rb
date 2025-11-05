@@ -4,6 +4,7 @@ class Libetonyek < Formula
   url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.13.tar.xz"
   sha256 "032b71cb597edd92a0b270b916188281bc35be55296b263f6817b29adbcb1709"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -11,12 +12,12 @@ class Libetonyek < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "6d771bb8fe17a85d3b2a9002386e939430093dc183994fdec8099557e7a720ee"
-    sha256               arm64_sequoia: "7d189eec7883d3a155b1af40d0fa62d9a7c811880a6c111e9c44f607d09abc01"
-    sha256               arm64_sonoma:  "bed128b541a6bdb57fc33c0b768b5687a2fc49530ce55ed79504e06ff41f7eb8"
-    sha256 cellar: :any, sonoma:        "b441be21fc635de2cc808402d8922eb7eaefd48a11851774a078468c6f12fbc9"
-    sha256               arm64_linux:   "e01a1def146c1dc1e3394df6753fea3275b0f5a2854122f09cb861b2c2f0d8d0"
-    sha256               x86_64_linux:  "73ae1b87ec6ca1b4e3cf3688956975ba37fa3ec44c28ba184ee51f311167a6ec"
+    sha256               arm64_tahoe:   "1faea6adb1a62764129a5109c166335ddcb14b29773e72cf7662dd8ec37b2925"
+    sha256               arm64_sequoia: "e9a1d39588485bb16c2f55a0710bf1152a62e04c19e17aa7c1e8a09fb70ecf48"
+    sha256               arm64_sonoma:  "453067d70c2825964ea986934adb68642d4b7a979acbffd8446ecb07f55b5886"
+    sha256 cellar: :any, sonoma:        "63485b881e4d4de00b5fd986fdb4b5fcd3611e23bf3ff99069acc3f7aafbe361"
+    sha256               arm64_linux:   "63e082b7862f8e494b4df199d7ea43869332f4dc4ee91a8de6112707040b00ce"
+    sha256               x86_64_linux:  "52adea77c0e439e4c1186052e285dc1adcea5bf998bb1e4aaf3916728c4ebd68"
   end
 
   depends_on "boost" => :build
