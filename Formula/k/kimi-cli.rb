@@ -3,10 +3,9 @@ class KimiCli < Formula
 
   desc "CLI agent for MoonshotAI Kimi platform"
   homepage "https://github.com/MoonshotAI/kimi-cli"
-  url "https://files.pythonhosted.org/packages/0a/a5/d5743f372a6e2777006d097046bf7a34711f100c8b403327403217e7a4de/kimi_cli-0.46.tar.gz"
-  sha256 "f109124f23ad97a297b9a9d377fbc46c0cf0cccbf2f85bfd22a18c1b9eb041c3"
+  url "https://files.pythonhosted.org/packages/4a/2c/6d9b2d4705e8bc0574942322c5767e7c6a7ea1f17c9c365f964ec8ed51a7/kimi_cli-0.47.tar.gz"
+  sha256 "954f55f783b3cd8166f3db46b3f42cb83a4610bac4dbcb4893f3dc8eb736f600"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/MoonshotAI/kimi-cli.git", branch: "main"
 
   bottle do
@@ -35,8 +34,8 @@ class KimiCli < Formula
   pypi_packages exclude_packages: %w[certifi cryptography pillow pydantic-core rpds-py]
 
   resource "agent-client-protocol" do
-    url "https://files.pythonhosted.org/packages/ee/59/5c6c8571dd1ae7a808b4208c7fbccab8f365762ead30980d08c0d3340747/agent_client_protocol-0.6.2.tar.gz"
-    sha256 "2260025f4acc15884ec982b0f484aeb60c49beef6c16e544b854b4c99aecb996"
+    url "https://files.pythonhosted.org/packages/c6/fe/147187918c5ba695db537b3088c441bcace4ac9365fae532bf36b1494769/agent_client_protocol-0.6.3.tar.gz"
+    sha256 "ea01a51d5b55864c606401694dad429d83c5bedb476807d81b8208031d6cf3d8"
   end
 
   resource "aiofiles" do
@@ -165,8 +164,8 @@ class KimiCli < Formula
   end
 
   resource "htmldate" do
-    url "https://files.pythonhosted.org/packages/a5/26/aaae4cab984f0b7dd0f5f1b823fa2ed2fd4a2bb50acd5bd2f0d217562678/htmldate-1.9.3.tar.gz"
-    sha256 "ac0caf4628c3ded4042011e2d60dc68dfb314c77b106587dd307a80d77e708e9"
+    url "https://files.pythonhosted.org/packages/9d/10/ead9dabc999f353c3aa5d0dc0835b1e355215a5ecb489a7f4ef2ddad5e33/htmldate-1.9.4.tar.gz"
+    sha256 "1129063e02dd0354b74264de71e950c0c3fcee191178321418ccad2074cc8ed0"
   end
 
   resource "httpcore" do
@@ -235,8 +234,8 @@ class KimiCli < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/76/3d/14e82fc7c8fb1b7761f7e748fd47e2ec8276d137b6acfe5a4bb73853e08f/lxml-5.4.0.tar.gz"
-    sha256 "d12832e1dbea4be280b22fd0ea7c9b87f0d8fc51ba06e92dc62d52f804f78ebd"
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
   end
 
   resource "lxml-html-clean" do
