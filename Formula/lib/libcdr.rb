@@ -4,7 +4,7 @@ class Libcdr < Formula
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.8.tar.xz"
   sha256 "ced677c8300b29c91d3004bb1dddf0b99761bf5544991c26c2ee8f427e87193c"
   license "MPL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,19 +12,17 @@ class Libcdr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "41bfad23ad1e769c2795ebb3f55e901c86ecb9c252d65540c670e9f2cabb2f73"
-    sha256 cellar: :any,                 arm64_sequoia: "c92d2906e9c17ed5a9e0a12541a9f57f9af90a159a8c415ac93f0849f1cf502b"
-    sha256 cellar: :any,                 arm64_sonoma:  "78d0a8ac7a817bdf7fccecae5b1914bc2c54e6e42049277e3118b5ecb7a8a8a6"
-    sha256 cellar: :any,                 arm64_ventura: "47f696438e82d0a76e5a9e571dc9805fffd5699e99cee039593cbea2797631da"
-    sha256 cellar: :any,                 sonoma:        "d44ec2dbff4e7e9f375100722196a1d2598f494544da3324574fb807ff267cc8"
-    sha256 cellar: :any,                 ventura:       "baebcf4d51a1ec8b9eb06eb5f08ed637604b54c62bfdf0a85d158e97656c824a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf43c9de53346d4c5916d81221c17d46af2a5b56688f279b560090c0d71ecf39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e3b5db26db8975d499f3838c57e8e62320f90cf4040297eebcf7799948afea7"
+    sha256 cellar: :any,                 arm64_tahoe:   "b1a695c949efb8d7f2e380a8d01b224a90911881c0f5435ca4995c96d6d26575"
+    sha256 cellar: :any,                 arm64_sequoia: "e77030c245d7c639a0d4b5c1d0f23ff272c78bb8e46b1b3a53c62d5f7d20e723"
+    sha256 cellar: :any,                 arm64_sonoma:  "7069fcc69d37a632f544475111d491c3daea096a1e4701374c300a5862875bfa"
+    sha256 cellar: :any,                 sonoma:        "07e9e8a535ca16a5f3211825c438b32cf0dd4fcaf96eb7c0151b4ab10e13f5f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ebc06804a889d1d207d1ffb40358e97e1f36bb9809f1022f9c47ca62b681fbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c758fcc34e2bbc56a5554e2f0f32ee7bbd1cf8be117f2fe8829f270238b74bd6"
   end
 
   depends_on "boost" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "librevenge"
   depends_on "little-cms2"
 
