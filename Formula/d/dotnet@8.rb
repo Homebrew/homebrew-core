@@ -5,6 +5,7 @@ class DotnetAT8 < Formula
   url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.121.tar.gz"
   sha256 "a1f127c69ddd4b665bd300b0458e7359adf2d9f720e101de327e87e504a938ca"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +13,8 @@ class DotnetAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f5176a93cc507c4ca7ccfb55fd27560e8b45900b00d65d25b987ecdd8bfac62b"
-    sha256 cellar: :any,                 arm64_sequoia: "d75c9c232164c95880350ed98bb56b990848b82b51e8e81c3e03099d178a5ce0"
-    sha256 cellar: :any,                 arm64_sonoma:  "f6bf0f3adc1125cd9fb8d7c844ab4a1bf40be0c3ab6020d806a4922a6db74132"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "610bd3569b5dbb64b7c52ac3939bba6bdee50b9d236ab4a6b1e20e6b53308d5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "768fa912eb97d7ecd219b4d36872e631c3b134e0e0c79c2d7053e03f8c879c65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "8a3ad77e8f5afebb904199bb91e4d60371bc655eba32dff50bf684bd6858d3ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "433442b742af45ca942c9f93269aefd93955f2dd47b935374d025d56a725f429"
   end
 
   keg_only :versioned_formula
@@ -26,7 +24,7 @@ class DotnetAT8 < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "openssl@3"
 
   uses_from_macos "python" => :build
