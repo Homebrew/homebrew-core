@@ -4,23 +4,21 @@ class Nuspell < Formula
   url "https://github.com/nuspell/nuspell/archive/refs/tags/v5.1.6.tar.gz"
   sha256 "5d4baa1daf833a18dc06ae0af0571d9574cc849d47daff6b9ce11dac0a5ded6a"
   license "LGPL-3.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4397678cc274e63c36b96748a8cf5f616734cf53addf6249a39c24b2d35e8e52"
-    sha256 cellar: :any,                 arm64_sequoia: "14ba0bb0f17a8fc5967e48e18fde6cab3bb3b8b001bc9bc35faef3aa59c5ced8"
-    sha256 cellar: :any,                 arm64_sonoma:  "f4bd583376d69180bec744cdcd0c8d2ab7a9bb0b4677460d6ffc7e824c59ff3f"
-    sha256 cellar: :any,                 arm64_ventura: "02756d92662cd21767555be0978764212c94bf7be5a9194fa6635e49239f1de5"
-    sha256 cellar: :any,                 sonoma:        "23775d359fef306735dc2afd3042a386f22ec7de882bea316685d1822942e3a5"
-    sha256 cellar: :any,                 ventura:       "90574b2385853fd7d0894a9c06e10385f371a63e56c5299eacf0f96783547ed0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff039a8596d1432cda8a748094dfa39d7952e31164a4ad62b3f0b442daff43eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "108063c1f0d81a9da12e8f82a98b942a80245bba5458415d76e6cd2f760ac678"
+    sha256 cellar: :any,                 arm64_tahoe:   "5c3a95852340bbb21b54820e886e41d1fc2b4b8967fd96fe25e020f73d883c0d"
+    sha256 cellar: :any,                 arm64_sequoia: "d7f6faea40e571722b97b290586074446559b554f7de96adc77158462197c84e"
+    sha256 cellar: :any,                 arm64_sonoma:  "ab72aef2742998bb2bd3a6bad299c5a19fb43801477f524d6c64131afa154540"
+    sha256 cellar: :any,                 sonoma:        "71f8a6c0ccef10c60ff7f12d7401e838957a7b6ce385df1e460fedcd4193bf2f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bbf11b8876a083a9a4310c855211fc3bca1a4b4517d5368f47986c96fe236037"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f6fbc8698a0299c0801e29574333a1d7515365a901977f92e489f38b0f0f091"
   end
 
   depends_on "cmake" => :build
   depends_on "pandoc" => :build
   depends_on "pkgconf" => :test
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
