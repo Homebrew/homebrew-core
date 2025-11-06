@@ -4,6 +4,7 @@ class Tesseract < Formula
   url "https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.5.1.tar.gz"
   sha256 "a7a3f2a7420cb6a6a94d80c24163e183cf1d2f1bed2df3bbc397c81808a57237"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
   livecheck do
@@ -12,14 +13,12 @@ class Tesseract < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "375581dadab9eb9664e9a1f3ca4a0e621c9f1a9e016ce0653f68c01091829bd0"
-    sha256               arm64_sequoia: "868efa52231ba29227c3f394bbb6ed684743222cf15622661f253a9f0d6164ed"
-    sha256               arm64_sonoma:  "7b80671e010cd121964ed5962159fc8b42950796c33304de155c850378eaa49d"
-    sha256               arm64_ventura: "894270307a4fe98f7b0caa386c24efc7d995b60e468f5e4536b48b4b5275126d"
-    sha256 cellar: :any, sonoma:        "1a804044fac31660e5d4bdffec1de80c60b6d99b21312cdaa7f69fc6c4c42304"
-    sha256 cellar: :any, ventura:       "3f17c42eb79554bf6544344380fd67e22ecc54aed07e719b4f7f03c4fb6f83c7"
-    sha256               arm64_linux:   "a1f93cc60eca99a4c5bac11c40b02620df5628ea55b95bf6dd7813f533947724"
-    sha256               x86_64_linux:  "1874dfec6cedc7cd1bd7fd117623933eab4bbf7193128f81b6dffc7d8791eed3"
+    sha256               arm64_tahoe:   "19cd51b8a4d3785d6b421a96df1edc9cc8b35e6e5d991d29ef73dc8c78a22aa9"
+    sha256               arm64_sequoia: "9966a85592e1a45a2adc679134fa4aff9a63026857711571c9d6b6e1a279ef23"
+    sha256               arm64_sonoma:  "41ce01776d079891f90d2d294decebe6592fa8e0bbb64428049a8fb098538714"
+    sha256 cellar: :any, sonoma:        "e24ba94ee76bf80ccea293f6fb696636ce12d667573f071f5ea75808e5d25413"
+    sha256               arm64_linux:   "da7dd6497b61783d9582b683118d4002a5a4ba84a7791bce366e9de0368c6a5c"
+    sha256               x86_64_linux:  "8675ea67bf36cf776bc3f0023d441fa6b7c1b852d06616f9e6279c83023688ce"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +29,7 @@ class Tesseract < Formula
   depends_on "fontconfig"
   depends_on "glib"
   depends_on "harfbuzz"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "leptonica"
   depends_on "libarchive"
   depends_on "pango"
