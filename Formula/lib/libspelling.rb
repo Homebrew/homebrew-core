@@ -7,14 +7,12 @@ class Libspelling < Formula
   revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "bebedccb83fb042d25224aaf21137d07cfec6364c9505423afe3d980e1bd6eda"
-    sha256 arm64_sequoia: "4a880aa0400ad1c137f5cf3c8169b5870c1198eba53bcaa42eebaf884c14cc36"
-    sha256 arm64_sonoma:  "3d16b48b085c1ee327d83c5ed09e373eb0ce04874baf515d59b7f17c943eec1e"
-    sha256 arm64_ventura: "02eba6554cff809702815658b608c9fc1231ace3f90d43b7827a029b0845aa3f"
-    sha256 sonoma:        "6ac221fdeb025b196935a883143beb5b7fb643e9e630cf0c7dbacbf78a3c5ac7"
-    sha256 ventura:       "94e0f296093b08efe25776dd5fc797453e87397941f388bccee13c125498e326"
-    sha256 arm64_linux:   "c04adda1ccd39ab991eba2c7937620b89dd969a11b52fe4205315ee3250fd98d"
-    sha256 x86_64_linux:  "6b4a43c001061665952d938bcfef8ab13c9bc944f00a9bc721b94641ee8ac6fb"
+    sha256 arm64_tahoe:   "82fb463faf73331e5efc24529bb3d9b95f764782ca8ec4bbd9e1a3e94261dae6"
+    sha256 arm64_sequoia: "ed3c16c67afa11b0e4a58f14b38699247642d2147f1c47839035d159eb4f3399"
+    sha256 arm64_sonoma:  "3d6a6e816c163f78be811b0771b0b15b0e0aec76949dc41f6a21c9cb70c764e0"
+    sha256 sonoma:        "67ce6630b65a1d008909c63d26211a87f886c1765cf4a187d7d25216ac324572"
+    sha256 arm64_linux:   "2e6b11ad8ea4ea589d7a248f23acae67d35f28dd0ef3742ec0037499c564a8ba"
+    sha256 x86_64_linux:  "b039e443ee31e1f5706c6c8b504b1225821f4367d6d7aa4a9ba3cd079d222842"
   end
 
   depends_on "gobject-introspection" => :build
