@@ -5,6 +5,7 @@ class DotnetAT8 < Formula
   url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.121.tar.gz"
   sha256 "a1f127c69ddd4b665bd300b0458e7359adf2d9f720e101de327e87e504a938ca"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -26,7 +27,7 @@ class DotnetAT8 < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "openssl@3"
 
   uses_from_macos "python" => :build
