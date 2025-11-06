@@ -4,7 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v25.1.0/node-v25.1.0.tar.xz"
   sha256 "ee7741190e47402dfc621547ac23d3f58e6463a86878dc1879fb9e8de1ce3226"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -25,7 +25,7 @@ class Node < Formula
   depends_on "python@3.14" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libnghttp2"
   depends_on "libnghttp3"
   depends_on "libngtcp2"
