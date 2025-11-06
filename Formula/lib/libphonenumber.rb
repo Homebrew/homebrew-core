@@ -4,6 +4,7 @@ class Libphonenumber < Formula
   url "https://github.com/google/libphonenumber/archive/refs/tags/v9.0.17.tar.gz"
   sha256 "977a3be64308bf8faeb0138dd5c6dd06f55a1de400106e2c5502a44315de0ba2"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,19 +12,19 @@ class Libphonenumber < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7f0709282b45e9d2c2ccc85bab5df0e5a03eb7f820a3d46d06d509722d223156"
-    sha256 cellar: :any,                 arm64_sequoia: "5efa7c1a2340cf2586454e59ba03ef6a2f72bf93724967eb7530eb0ea5f37b24"
-    sha256 cellar: :any,                 arm64_sonoma:  "6725235a068fbc3c1c430606a0efdc5a6ed8dc4a46b20cd9b15eecb6ea6a034f"
-    sha256 cellar: :any,                 sonoma:        "08a5ce24240aca79dd904dfb7416f5887b8d560502a331ab7c5e850681e2caf9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10684771f534e8558e5726f34fb4d6634f02485191e8bf7ca419c638c19b056e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bceb5606ae3cb65c564408d0e8cc752d95afffdc697ca3722d32e634b3cfe080"
+    sha256 cellar: :any,                 arm64_tahoe:   "81571c7005af90959b4e84888ecad2cad86451a2b6920aa2c53a3a740e2c627c"
+    sha256 cellar: :any,                 arm64_sequoia: "fd7993a4f45c4467192e5581b69f5c06ba0f85a56ffc75d1cda8df8ffa686d4b"
+    sha256 cellar: :any,                 arm64_sonoma:  "579da19afe862b2dc4b0743892806be2073816547efadbe2476e5b5af6085e7d"
+    sha256 cellar: :any,                 sonoma:        "84c7dfce822cd53030f3b03df8ca8d0110978589a681efb7bc714b8f922a0c9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5bf0a22086b8ec712589df47241b45a87b580a5b83b189d44a317b04c176321"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85b2820380d2c3d45f241d2e31929e74bf4061457999ffae7bf15cc8434c4930"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "openjdk" => :build
   depends_on "abseil"
   depends_on "boost"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "protobuf"
 
   # Fix build with Boost 1.89.0, pr ref: https://github.com/google/libphonenumber/pull/3903
