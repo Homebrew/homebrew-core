@@ -5,7 +5,7 @@ class ClickhouseOdbc < Formula
   url "https://github.com/ClickHouse/clickhouse-odbc/archive/refs/tags/v1.2.1.20220905.tar.gz"
   sha256 "ca8666cbc7af9e5d4670cd05c9515152c34543e4f45e2bc8fa94bee90d724f1b"
   license "Apache-2.0"
-  revision 9
+  revision 10
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   livecheck do
@@ -29,7 +29,7 @@ class ClickhouseOdbc < Formula
   depends_on "cmake" => :build
   depends_on "folly" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "openssl@3"
   depends_on "poco"
   depends_on "utf8proc"
@@ -37,6 +37,15 @@ class ClickhouseOdbc < Formula
   on_macos do
     depends_on "libiodbc"
     depends_on "pcre2"
+  end
+
+  on_sequoia do
+    # Fix `error: implicit instantiation of undefined template `std::char_traits<signed char>` on Sequoia
+    # For some reason Xcode upgrade from 16.3 (where it was removed) to a newer version (26.1) that restored
+    # this template didn't help
+    #
+    # Use LLVM 18 as `std::char_traits` does not support `signed char` and many other types in LLVM 19+
+    depends_on "llvm@18" => :build
   end
 
   on_linux do
@@ -50,6 +59,12 @@ class ClickhouseOdbc < Formula
   end
 
   def install
+    # See `on_sequoia` block
+    if OS.mac? && MacOS.version == :sequoia
+      ENV["CC"] = Formula["llvm@18"].opt_bin/"clang"
+      ENV["CXX"] = Formula["llvm@18"].opt_bin/"clang++"
+    end
+
     # Remove bundled libraries
     %w[folly googletest nanodbc poco ssl].each { |l| rm_r(buildpath/"contrib"/l) }
 
