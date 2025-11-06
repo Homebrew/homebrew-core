@@ -4,6 +4,7 @@ class Doltgres < Formula
   url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.52.4.tar.gz"
   sha256 "869c18fc65289318034fc3e282802fe5262306230560d7a192401570cfb10854"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/dolthub/doltgresql.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -25,7 +26,7 @@ class Doltgres < Formula
 
   depends_on "go" => :build
   depends_on "libpq" => :test
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
