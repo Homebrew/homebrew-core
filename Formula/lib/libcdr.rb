@@ -4,7 +4,7 @@ class Libcdr < Formula
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.8.tar.xz"
   sha256 "ced677c8300b29c91d3004bb1dddf0b99761bf5544991c26c2ee8f427e87193c"
   license "MPL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -24,7 +24,7 @@ class Libcdr < Formula
 
   depends_on "boost" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "librevenge"
   depends_on "little-cms2"
 
