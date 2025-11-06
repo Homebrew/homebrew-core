@@ -4,7 +4,7 @@ class Libvisio < Formula
   url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.10.tar.xz"
   sha256 "9e9eff75112d4d92d92262ad7fc2599c21e26f8fc5ba54900efdc83c0501e472"
   license "MPL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,17 +12,17 @@ class Libvisio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d21f8260dc1cf5d5d02afe609b97470e1ead480092f91357952bbac5dfdde368"
-    sha256 cellar: :any,                 arm64_sequoia: "96a23a4cb67c3c5da5d2bece12cab4ac28ca428ae147fd745d82f727ab735d02"
-    sha256 cellar: :any,                 arm64_sonoma:  "b0b74a78ef0df049e17fa445170740bb3473645218e601eb5e2c61d2ed9b8c6f"
-    sha256 cellar: :any,                 sonoma:        "433041fc1f51912b52c97af1eef4d7d28393d9d7a74cefcb649872db63046a05"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5d529ab9200e06d77a9d6eb2442530b67890028159d455bf606c0710392244f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14261318fb42b0b53b27efc301702f60f49b36cf8c6f11ff86777bddbcf4ca91"
+    sha256 cellar: :any,                 arm64_tahoe:   "e241eb77c998c706f44a477749306d05bbc0b8217679cba715b97ede9f9ec2b6"
+    sha256 cellar: :any,                 arm64_sequoia: "9cdbc5cb4a38eb26f6d184e381df163a62eba6f29611c4f7e7be3bd2b0658ec7"
+    sha256 cellar: :any,                 arm64_sonoma:  "e392fa4282309aa0d095e2a736a1f4e390d74d072edbe27e8b2451779fcdc750"
+    sha256 cellar: :any,                 sonoma:        "26419e2bf884b48b7d94dfdf19de9bbc8f118c89585f1d83818b90e46742c867"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f05a917fed1e4685878ed8b3821a5ba5cfc481ce5f4dca4ec6195bb985e4b6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69d9ebc9fa47e7fb49aa8d379935dee191957a24dbabb7b40d23ec0c0bd76159"
   end
 
   depends_on "boost" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "librevenge"
 
   uses_from_macos "gperf" => :build
