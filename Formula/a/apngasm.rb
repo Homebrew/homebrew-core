@@ -4,7 +4,7 @@ class Apngasm < Formula
   url "https://github.com/apngasm/apngasm/archive/refs/tags/3.1.10.tar.gz"
   sha256 "8171e2c1d37ab231a2061320cb1e5d15cee37642e3ce78e8ab0b8dfc45b80f6c"
   license "Zlib"
-  revision 18
+  revision 19
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -22,7 +22,7 @@ class Apngasm < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libpng"
   depends_on "lzlib"
 
