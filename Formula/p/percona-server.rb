@@ -4,6 +4,7 @@ class PerconaServer < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.4/Percona-Server-8.4.6-6/source/tarball/percona-server-8.4.6-6.tar.gz"
   sha256 "ab4d64fbf4f3bd3ee1e766ea9fd89c73a54c96b5148cc0cd2b3d14753c805a35"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -35,7 +36,7 @@ class PerconaServer < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
