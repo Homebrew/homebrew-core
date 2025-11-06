@@ -4,7 +4,7 @@ class Yaz < Formula
   url "https://ftp.indexdata.com/pub/yaz/yaz-5.35.1.tar.gz"
   sha256 "db030d6d66880398a44215e26132630ee94f5e462d838809e43f97e6399c1353"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   # The latest version text is currently omitted from the homepage for this
   # software, so we have to check the related directory listing page.
@@ -36,7 +36,7 @@ class Yaz < Formula
 
   depends_on "pkgconf" => :build
   depends_on "gnutls"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
 
   uses_from_macos "libxml2"
