@@ -4,6 +4,7 @@ class Doltgres < Formula
   url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.52.4.tar.gz"
   sha256 "869c18fc65289318034fc3e282802fe5262306230560d7a192401570cfb10854"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/dolthub/doltgresql.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -15,17 +16,17 @@ class Doltgres < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0942adebe5c1ba679c99136371cec3b3b1a7a48546ea857ba1e0fb9fcce900ed"
-    sha256 cellar: :any,                 arm64_sequoia: "68d9fae1a9dbffd4ec9a178040eeeffd08de5e0dfa48e71f9aad02ec11ad77bc"
-    sha256 cellar: :any,                 arm64_sonoma:  "b04984641dd3def1a82ae49f66c330d4c9089c4f81dfaf2f70b48514efbc200c"
-    sha256 cellar: :any,                 sonoma:        "3562c6dbc2b28f452a16d8ca97787b566f77d4b4edf286e49cc12eb33fe2937b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b1e04d6b897703b1827667307b30df1f4e13972baf05ab0abf93d04c00416b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "494fa5e5e7792d8468b86994426a791c4c77610b4f49ea4d1cf5e0a221f7f6f5"
+    sha256 cellar: :any,                 arm64_tahoe:   "62a234760bb44b2170d406a852edf37d512eafb257cc482e83ceb0f9aec25311"
+    sha256 cellar: :any,                 arm64_sequoia: "e4a7bb60de5377d0753ef3ca2caf3bff2bcb6c1d380f9c7d4b62a9ad8c453860"
+    sha256 cellar: :any,                 arm64_sonoma:  "c5429810cd75469506d9ade512b98b47c9a3caceef7cf132190549b283fce3be"
+    sha256 cellar: :any,                 sonoma:        "ecf3b7058214d55f4f1dcf26464cf540f53e904679f3cdc5eca5a79dbcb685e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0a5089fbf97b4e95c6c22d527c5f4f22447d9ed4eb22e2fc855ec673a03ada4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6311b11bc096cb31a6364ec19be754e1129970b0c873ac80ac52b3d68a5cc440"
   end
 
   depends_on "go" => :build
   depends_on "libpq" => :test
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
