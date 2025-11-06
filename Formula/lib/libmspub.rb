@@ -4,7 +4,7 @@ class Libmspub < Formula
   url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.4.tar.xz"
   sha256 "ef36c1a1aabb2ba3b0bedaaafe717bf4480be2ba8de6f3894be5fd3702b013ba"
   license "MPL-2.0"
-  revision 18
+  revision 19
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -14,20 +14,18 @@ class Libmspub < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8fd554f185aa01e2e7c43e79c02b410f6d4da3af79778f3dcf5abc65382e0cc5"
-    sha256 cellar: :any,                 arm64_sequoia: "1847309881161a713cb9c37bec7a23c452cdc44bf87c28c016f449c101b57b84"
-    sha256 cellar: :any,                 arm64_sonoma:  "249d78a5299e65bd9ef5df4ea21d70aae17f40c3f075f34e04923b3880fb0257"
-    sha256 cellar: :any,                 arm64_ventura: "fca947dbb384a02a7384989d0f5aa87e74d51460ef01e90555414d3b6b221473"
-    sha256 cellar: :any,                 sonoma:        "363ef78cf1ad4658325059fb88d5ffbd1ff9dfb755a46480d7bf355dad00a07c"
-    sha256 cellar: :any,                 ventura:       "3ff4c780cd0546ea13e77aeffa63b9b8b5e31dd6a12c1b34bcc9275239942965"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "87665795cf7ed3a80d5798d80760aa4780ee5658512ee0563802951cb9057c60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "256986816dfba4c397abe672d087ed464766aff3aaad05f80c4a99672fb155d4"
+    sha256 cellar: :any,                 arm64_tahoe:   "31f0d45061521ad60c74068d3168c7caa58063269eceb5a25e8316e8652acbfd"
+    sha256 cellar: :any,                 arm64_sequoia: "a45c64efbfb50b6132e5e0a4413ffaeca5cf5f2f0ecb4121ca45cdea442d3c4e"
+    sha256 cellar: :any,                 arm64_sonoma:  "763c9fc1fe11c7aca1e24c7a8836eee6a25aad48a6db305db59b41959ab507d8"
+    sha256 cellar: :any,                 sonoma:        "a06fe753651c7cf3031134250a2f5dc673af8bf7fe33abb4608362d81c77fd2c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d62097ea1a015c9a5627ce4bd32cb50704deb6ac7ce2331c12ee34dec39848f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba62e51b3b781d760e3739c5744091ed7d9f2e64926787467fa6f9eb281b204d"
   end
 
   depends_on "boost" => :build
   depends_on "libwpg" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "librevenge"
   depends_on "libwpd"
 
