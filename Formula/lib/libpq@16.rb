@@ -4,6 +4,7 @@ class LibpqAT16 < Formula
   url "https://ftp.postgresql.org/pub/source/v16.10/postgresql-16.10.tar.bz2"
   sha256 "de8485f4ce9c32e3ddfeef0b7c261eed1cecb54c9bcd170e437ff454cb292b42"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -27,7 +28,7 @@ class LibpqAT16 < Formula
   deprecate! date: "2028-11-09", because: :unmaintained, replacement_formula: "libpq"
 
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
