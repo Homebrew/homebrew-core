@@ -4,7 +4,7 @@ class Nuspell < Formula
   url "https://github.com/nuspell/nuspell/archive/refs/tags/v5.1.6.tar.gz"
   sha256 "5d4baa1daf833a18dc06ae0af0571d9574cc849d47daff6b9ce11dac0a5ded6a"
   license "LGPL-3.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "4397678cc274e63c36b96748a8cf5f616734cf53addf6249a39c24b2d35e8e52"
@@ -20,7 +20,7 @@ class Nuspell < Formula
   depends_on "cmake" => :build
   depends_on "pandoc" => :build
   depends_on "pkgconf" => :test
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
