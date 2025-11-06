@@ -5,16 +5,15 @@ class Couchdb < Formula
   mirror "https://archive.apache.org/dist/couchdb/source/3.5.0/apache-couchdb-3.5.0.tar.gz"
   sha256 "6a98b90a9a980bbef2c35b4996a8e71a2f1ae5227546c85f04c436101bdf78bf"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bd3b94f54a24f135c734c12ccfad7c224d5fa0aaaed5e6952dc4ed59bf104cc4"
-    sha256 cellar: :any,                 arm64_sequoia: "494834ac7eb89abaa626f40da8e36d66d1baa25208461e4291ee8b137a966046"
-    sha256 cellar: :any,                 arm64_sonoma:  "a2bc0d8e0b255d86fcf372d4018c9f93e9b3c7edc909b6c620eb29d3a24a8076"
-    sha256 cellar: :any,                 arm64_ventura: "330edda7ac863727ff503967b804b4478b56ed77da7bdf224e003f170e079233"
-    sha256 cellar: :any,                 sonoma:        "d20b7f7a61e7ee14a2cf4bf79c6c2ab9a0bd04e87b1c9b21caec8960ec2eef5b"
-    sha256 cellar: :any,                 ventura:       "caf1090e2e3afa205a16fd65a7eaf2648b357345485f33b2d739398f9d0ac6bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9f7686fac2918b759cf2b144a4bab228da34dbd4b6562ce8a615b68634cc9d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6950b0cef1186e7176df89242bab15c8840cae22df96f1adbbef0f18cf6c4b78"
+    sha256 cellar: :any,                 arm64_tahoe:   "f8b59edba04e1dbe3872be868ae197372c7883037f4214b6e5629b5066721c25"
+    sha256 cellar: :any,                 arm64_sequoia: "927494b62d7382adec8185eb6f306b0ef99b482c3daefb681beeee0a664bc2a7"
+    sha256 cellar: :any,                 arm64_sonoma:  "e0d413083fa0704df0d9656672aee2ce4e4efb9cb659dd6d6ac04bdc3343fae7"
+    sha256 cellar: :any,                 sonoma:        "9a5a2346845a54281ffc0b1899fd91dbca43dc2c45824bb6760002a3b2914d9b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a44ac0926c11ff836f54e6903813cf88ef2b5dcfd9d021c29f9a71728326fd73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "195a9ab08f8bc03c3f7d329be1c1fbfc09211c6baba4f4c10fc879a344ed027b"
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +22,7 @@ class Couchdb < Formula
   depends_on "erlang" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "openssl@3"
 
   uses_from_macos "ncurses"
