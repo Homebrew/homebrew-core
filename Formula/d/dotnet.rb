@@ -2,6 +2,7 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/dotnet/dotnet.git", branch: "main"
 
@@ -41,7 +42,7 @@ class Dotnet < Formula
   depends_on "pkgconf" => :build
   depends_on "rapidjson" => :build
   depends_on "brotli"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "openssl@3"
 
   uses_from_macos "python" => :build
@@ -53,6 +54,13 @@ class Dotnet < Formula
   end
 
   on_linux do
+    # https://github.com/Homebrew/homebrew-core/issues/249982
+    # https://github.com/dotnet/runtime/issues/119706
+    on_intel do
+      depends_on "lld@20" => :build
+      depends_on "llvm@20" => :build
+    end
+
     depends_on "libunwind"
     depends_on "lttng-ust"
   end
@@ -63,6 +71,8 @@ class Dotnet < Formula
   conflicts_with cask: "dotnet-sdk@preview"
 
   def install
+    ENV.llvm_clang if OS.linux? && Hardware::CPU.intel?
+
     if OS.mac?
       # Need GNU grep (Perl regexp support) to use release manifest rather than git repo
       ENV.prepend_path "PATH", Formula["grep"].libexec/"gnubin"
@@ -81,6 +91,11 @@ class Dotnet < Formula
       inreplace "repo-projects/Directory.Build.targets",
                 '"$(DotnetTool) build-server shutdown --vbcscompiler"',
                 '"true"'
+
+      %w[brotli krb5 openssl@3 zlib].each do |f|
+        ENV.prepend_path "CPATH", Formula[f].opt_include
+        ENV.prepend "LDFLAGS", "-L#{Formula[f].opt_lib}"
+      end
     end
 
     args = ["--clean-while-building", "--source-build", "--with-system-libs", "brotli+libunwind+rapidjson+zlib"]
