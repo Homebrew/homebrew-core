@@ -4,6 +4,7 @@ class Dolt < Formula
   url "https://github.com/dolthub/dolt/archive/refs/tags/v1.76.5.tar.gz"
   sha256 "a6f0b38e97a20e7030ae39c18f02eace87bb21e9ea6bdbbe1cb8386eae16f0b2"
   license "Apache-2.0"
+  revision 1
   version_scheme 1
   head "https://github.com/dolthub/dolt.git", branch: "main"
 
@@ -22,7 +23,7 @@ class Dolt < Formula
   end
 
   depends_on "go" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   def install
     ENV["CGO_ENABLED"] = "1"
