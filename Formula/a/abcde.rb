@@ -32,6 +32,7 @@ class Abcde < Formula
 
   depends_on "pkgconf" => :build
 
+  depends_on "cd-discid"
   depends_on "cdrtools"
   depends_on "eye-d3"
   depends_on "flac"
