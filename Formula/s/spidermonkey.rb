@@ -5,6 +5,7 @@ class Spidermonkey < Formula
   version "140.4.0"
   sha256 "49f20673171046bc7b64f4caa340c46e1e105b9107f0ef68b7a94f379bcea4f7"
   license "MPL-2.0"
+  revision 1
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
@@ -15,19 +16,19 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "3a28ebb02b5888065b10c8e4ba82b614752a673f3b434ed478269344dcc800f7"
-    sha256 cellar: :any, arm64_sequoia: "c71064580630d107b12f705f915fb529fc8e27fdd3a544ba4e6f76754a3d7db9"
-    sha256 cellar: :any, arm64_sonoma:  "959c4f7351049c19009c8b5cd9f51c123a081a048d14bf5770507e31fd7bccde"
-    sha256 cellar: :any, sonoma:        "d635c355122e1b8ceff75cb0e1701897bdf05a0b9f746a10645f7f4a150d277c"
-    sha256               arm64_linux:   "7eada99808c5eea9d60084c33e5afd74b46de7f883264904f2bb44709279daf2"
-    sha256               x86_64_linux:  "d812961c2752629cbb6803f83d3b0de4c646448c3636ee14f1e9469ff41f772b"
+    sha256 cellar: :any, arm64_tahoe:   "1e7d5bf78b78bddce76afbbf85eba814fa2fcbc244bda6462c7598fa6886f8e7"
+    sha256 cellar: :any, arm64_sequoia: "91836f12a7ea25792174c86fa4b476e6cff8044a5c4c2d5f9acadb61bdf5ee72"
+    sha256 cellar: :any, arm64_sonoma:  "70719e60d16fb08264051c9d51ffe70c1902b3d73fda02b56afebbaccadd7617"
+    sha256 cellar: :any, sonoma:        "7ec77ac2346a48027b9d418b41ea9576836dc17bf3e32782e1da6ce17cb1d993"
+    sha256               arm64_linux:   "8fbbe108f32a374bee39ffc23026ea8af4bc465f8206382a96f52b763350139e"
+    sha256               x86_64_linux:  "6cfceb761febf9fee7f0bef33157e5527fbdd2b90177a691bdfacef9749a61de"
   end
 
   depends_on "cbindgen" => :build
   depends_on "pkgconf" => :build
   depends_on "python@3.14" => :build
   depends_on "rust" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "nspr"
   depends_on "readline"
 
