@@ -4,25 +4,23 @@ class Apngasm < Formula
   url "https://github.com/apngasm/apngasm/archive/refs/tags/3.1.10.tar.gz"
   sha256 "8171e2c1d37ab231a2061320cb1e5d15cee37642e3ce78e8ab0b8dfc45b80f6c"
   license "Zlib"
-  revision 18
+  revision 19
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256                               arm64_tahoe:   "8d4cb366969b69d558489a3225602608880d1618caa18f597b2ee57997affcb9"
-    sha256                               arm64_sequoia: "909813b7286d5c3dbff8d6b13497fe607037fc65fe0ea065b676e2b831789073"
-    sha256                               arm64_sonoma:  "e0d5bf50c94003d87095dcdd397ede2dcff470f208dfd60a63a49f2a5713490f"
-    sha256                               arm64_ventura: "1eaf62b76489a8137ce94807e4620bb9858aa5fe14c2aae549ee21225549a6c8"
-    sha256                               sonoma:        "f58b86508e14f1eec53218dab0e9ca5f4416fe48884f2be2439224f4763ec7bd"
-    sha256                               ventura:       "9db2561881222680a4b2740f342ce45ec1ada0c4c95a211ad0bdb16c274fbc24"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7799fbab3ad13774e371173cdf0c16d09506fa5e4bac755dd29d513e2d4be41e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab4cf496aea65ea1db6d5e1ac594e76e5f6e82454d8bc3e48fe03672d115bf3d"
+    sha256                               arm64_tahoe:   "23d3e8adfa479edcb2b2f37b4609afa91e898d2120cf810913139a9aa5da9a6a"
+    sha256                               arm64_sequoia: "7410b645d60a0841b47dce654750b6d900f85f21684be57dba2140f5ab071e7a"
+    sha256                               arm64_sonoma:  "0cfd5e3130eb003fbd93c80f6e95c0ce320f9587b60c7b6432058d8fe0a33fe5"
+    sha256                               sonoma:        "110930120d597424baf52e2b15f7a82b76c8b792d96dca9f6acc818eaaf97079"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7abee4b8b78412bab13d747b14e38aec267c41fec55b9648b64bf2ae0386fc09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f19066f5c13ade30bb33a6876f11b5f88294ef0672e19b3f1c6cd9b162cac2b"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libpng"
   depends_on "lzlib"
 
