@@ -4,6 +4,7 @@ class Zk < Formula
   url "https://github.com/zk-org/zk/archive/refs/tags/v0.15.1.tar.gz"
   sha256 "1f30aae497476342203b3cecb63edd92faf4d837860a894fdee4b372184e9ec4"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/zk-org/zk.git", branch: "dev"
 
   livecheck do
@@ -24,10 +25,12 @@ class Zk < Formula
 
   depends_on "go" => :build
 
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   uses_from_macos "sqlite"
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = "-s -w -X main.Version=#{version} -X main.Build=#{tap.user}"
     tags = %w[fts5 icu]
     system "go", "build", *std_go_args(ldflags:, tags:)
