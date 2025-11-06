@@ -4,7 +4,7 @@ class Libvisio < Formula
   url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.10.tar.xz"
   sha256 "9e9eff75112d4d92d92262ad7fc2599c21e26f8fc5ba54900efdc83c0501e472"
   license "MPL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -22,7 +22,7 @@ class Libvisio < Formula
 
   depends_on "boost" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "librevenge"
 
   uses_from_macos "gperf" => :build
