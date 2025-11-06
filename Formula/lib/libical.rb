@@ -4,7 +4,7 @@ class Libical < Formula
   url "https://github.com/libical/libical/releases/download/v3.0.20/libical-3.0.20.tar.gz"
   sha256 "e73de92f5a6ce84c1b00306446b290a2b08cdf0a80988eca0a2c9d5c3510b4c2"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,18 +12,18 @@ class Libical < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e1775a193b70aa777149fe615df614690b76c8dfae6218b3bde9b99d7ddeff0d"
-    sha256 cellar: :any,                 arm64_sequoia: "fa2e31da1a9ae0c91f0e0c40781c1944ef4d0264d800e522cb64005201d51eb8"
-    sha256 cellar: :any,                 arm64_sonoma:  "7724be091019953ea44192d748b4779734e38e3c75dc8c37816ae30e59b43fe2"
-    sha256 cellar: :any,                 sonoma:        "2810b40ad0cdbfccc9c9fe85e464e2b02b51df136f0e3b6873fa15a09f5a4596"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2d4abf841da30c205d8bed921b326366b71f1ede6f73dfd3261f6d1e09d0bc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b3213a9eee392cad9cface173a0b533f0a137a6585ed22501c8eea8e9b9d959"
+    sha256 cellar: :any,                 arm64_tahoe:   "9947b3e026805b69dd932ff37e8f5b038f33d55042783f01320805aa0eaf2525"
+    sha256 cellar: :any,                 arm64_sequoia: "8a95d52f3fae76f4252b74adafd4e82a2512a0c78c4a1cbe9b83ea215143e513"
+    sha256 cellar: :any,                 arm64_sonoma:  "5592f102e7a4da49d6de58655e2ea3b8998aaef51bf74c5f524a4694cc612f98"
+    sha256 cellar: :any,                 sonoma:        "8cc7a1bc62d20db855e43f0c2c42cccb9cc17e2c14fe4bc2779ce40e410df32d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3662c9b1e5cf9c1f2824266ef71cebcc93dde2cef195477c1238f968353516f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5cc9dc2fa2fe2deca5871429fc5f2023a9ca677f23d9680804652514a03edb2"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "glib"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   uses_from_macos "libxml2"
 
