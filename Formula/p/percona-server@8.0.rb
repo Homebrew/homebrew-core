@@ -4,7 +4,7 @@ class PerconaServerAT80 < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.43-34/source/tarball/percona-server-8.0.43-34.tar.gz"
   sha256 "4469b5e3873559f366eb632c7c231e01aa700c1b9c13cce869085dbe1ec9203e"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -38,7 +38,7 @@ class PerconaServerAT80 < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"
