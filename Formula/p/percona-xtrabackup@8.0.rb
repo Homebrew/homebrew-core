@@ -4,7 +4,7 @@ class PerconaXtrabackupAT80 < Formula
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.0/Percona-XtraBackup-8.0.35-34/source/tarball/percona-xtrabackup-8.0.35-34.tar.gz"
   sha256 "6ca81cd647e7cb1d8fd341f97cd32248bd719f9104a63eb24f1edda6a2d2441c"
   license "GPL-2.0-only"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -37,7 +37,7 @@ class PerconaXtrabackupAT80 < Formula
   depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
   depends_on "mysql@8.0" => :test
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "lz4"
