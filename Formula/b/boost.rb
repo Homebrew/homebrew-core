@@ -4,6 +4,7 @@ class Boost < Formula
   url "https://github.com/boostorg/boost/releases/download/boost-1.89.0/boost-1.89.0-b2-nodocs.tar.xz"
   sha256 "875cc413afa6b86922b6df3b2ad23dec4511c8a741753e57c1129e7fa753d700"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -27,7 +28,7 @@ class Boost < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bbe66a1b57f7696e9f6815a1a0aef5e476827840a010dcc76a097ac2bf5ea6f"
   end
 
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "xz"
   depends_on "zstd"
 
