@@ -4,25 +4,23 @@ class Freeling < Formula
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.1.tar.gz"
   sha256 "c672a6379142ac2e872741e7662f17eccd8230bffc680564d2843d87480f1600"
   license "AGPL-3.0-only"
-  revision 11
+  revision 12
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "274f39196a43fd18262ffb687dff3e46a5b9735bd614e44d3d3ae0642a811944"
-    sha256 cellar: :any,                 arm64_sequoia: "4d03e05512e15205712905c6fcce7f8c60eab88d1aa5d25416d0efa7a7c11e15"
-    sha256 cellar: :any,                 arm64_sonoma:  "e42599bb112cad791a8b2da21fe4dbd84d0783b5fb9f21106c9bbf2a786c256f"
-    sha256 cellar: :any,                 arm64_ventura: "9914627e7c0754f65831e135913ceac39a906076aea1f1ce89067efcc23a67f4"
-    sha256 cellar: :any,                 sonoma:        "c07d45a1ba0dc3f160792207222ed4283298bbadbbe1701d5749b1c5eea1ff06"
-    sha256 cellar: :any,                 ventura:       "707b36583e45938822b0d02cdc5d1485530c1c1692780e07bc2e8eb3fe6be2b9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eef0f2dba68b9d9f25fad1aa0b795717424838b825291fce5427d386def0d427"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4268db05446a7752caffc6e796dceacad945556c9220b930ea21b220a34473d4"
+    sha256 cellar: :any,                 arm64_tahoe:   "f52d5f615f623c4b8370bd5f03ea156da7a4a5f5e1eaf6d63fa6073a9b741f82"
+    sha256 cellar: :any,                 arm64_sequoia: "f6851b8266fbb47b155f46e8ef1bb86d4be27c31795314b30922bbd554eb223a"
+    sha256 cellar: :any,                 arm64_sonoma:  "21b03d396a4e4d55031d4e5f0ff72ed7162af9ea1f88ccb73931465664ed9ccd"
+    sha256 cellar: :any,                 sonoma:        "c82c10eb1d8d237f771cb39f7cbbabe930e04c128f7433100cb1b2e77313c56b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cef326658f4d61c5a757a4571d62a02cc78cdf4049463594321e83b70d2c51e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8901505faeac339eb4a73a7bdb9c71329423e73afb5523473cfdef72e93ddb94"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "dynet"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   uses_from_macos "zlib"
 
