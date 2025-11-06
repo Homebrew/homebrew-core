@@ -4,6 +4,7 @@ class Libxml2 < Formula
   url "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz"
   sha256 "c008bac08fd5c7b4a87f7b8a71f283fa581d80d80ff8d2efd3b26224c39bc54c"
   license "MIT"
+  revision 1
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -13,12 +14,12 @@ class Libxml2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "154d851821bf793538fbacbe4c48de70a03cdaf3628339d5862d6d2b986629f5"
-    sha256 cellar: :any,                 arm64_sequoia: "012d252cc642699213bc8ec39c09e6c3d8b7d8688557746fac2cf5c1a8070fb9"
-    sha256 cellar: :any,                 arm64_sonoma:  "a033ccee8c5ca031c62685c9791ae6f119101272a2a8a881b62a60d54252a89e"
-    sha256 cellar: :any,                 sonoma:        "d8924fae992ba9d98807878e0f6921fd31bc82ad36ab343fc0f4c392dd8a3ac1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f67acfcb6d5a015c4f5b6caf0010eee36c7a4d36d7766675639debe8a914d93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a27e8a33894a736663efb4f3c6fec996dc7cc9c9774525a5d5bcc03c10f94ab0"
+    sha256 cellar: :any,                 arm64_tahoe:   "e76405cf2d17023bd38266cc74f7ad310e29fd39828dcc2786752cb598e84d74"
+    sha256 cellar: :any,                 arm64_sequoia: "b5c41a7a40c8e68e45b551d0b520adc23a9ebd4a0f3a40662e08e45dfdea0b68"
+    sha256 cellar: :any,                 arm64_sonoma:  "4aa659b9756ace59200bd7ffa3f53fde9b7317ed276d5e1d63386fb12c133b4e"
+    sha256 cellar: :any,                 sonoma:        "cd4e6a57e38d34a95165af7124fce4a677afe534487174e62d8a721495047415"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0568bf7925c997532e450bc025663be693de3dda965b2f2a5aed1b067c6d18c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3d6e52d3b7b6343c519784cb4509b5082403e0d81e6e4648bcf99a47b0c75ff"
   end
 
   head do
@@ -32,7 +33,7 @@ class Libxml2 < Formula
   keg_only :provided_by_macos
 
   depends_on "pkgconf" => [:build, :test]
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "readline"
 
   uses_from_macos "zlib"
