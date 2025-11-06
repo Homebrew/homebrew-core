@@ -4,6 +4,7 @@ class Harfbuzz < Formula
   url "https://github.com/harfbuzz/harfbuzz/archive/refs/tags/12.2.0.tar.gz"
   sha256 "f63fc519f150465bd0bdafcdf3d0e9c23474f4c474171cd515ea1b3a72c081fb"
   license "MIT"
+  revision 1
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
 
   bottle do
@@ -25,7 +26,7 @@ class Harfbuzz < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "graphite2"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   def install
     args = %w[
