@@ -4,7 +4,7 @@ class GnustepBase < Formula
   url "https://github.com/gnustep/libs-base/releases/download/base-1_31_1/gnustep-base-1.31.1.tar.gz"
   sha256 "e7546f1c978a7c75b676953a360194a61e921cb45a4804497b4f346a460545cd"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -20,12 +20,12 @@ class GnustepBase < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8c99d42136e8fdbb022aa2eb1395d96018c1be0055c3bef6cabeb489dd552323"
-    sha256 cellar: :any,                 arm64_sequoia: "1e5a8582ead69977c155a8ac3f0afc01b96ae6d82012432fe496a54c4a94dfbb"
-    sha256 cellar: :any,                 arm64_sonoma:  "1d3c8a9c13c7fdfe40eebc6a35fb88e97ea220e8842ba5aace4373609a328e07"
-    sha256 cellar: :any,                 sonoma:        "c602bc642e5006f38c720be4e0e1b46f7bc35850e22ffd1ebf3f19b4ac5d25ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f8574f9b40f42da356a43700591ae8111c084194ab5b3a8e28406f9c51e70e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c59eca62140d4b067850a68df92e81ed3397e82136faca8e9d146512839d1371"
+    sha256 cellar: :any,                 arm64_tahoe:   "b4e784229fba45e3cf7e766550621836a32ca09fffa5f4bbb6de15a4a94b1c05"
+    sha256 cellar: :any,                 arm64_sequoia: "5ff4a3360ffad358e87d9c556f41ccfd5e6fe44dfda235056a2129cf83807417"
+    sha256 cellar: :any,                 arm64_sonoma:  "d57d4f9a586463bb70761168d02c4998603d85b0c8283811a09e1043817791aa"
+    sha256 cellar: :any,                 sonoma:        "9a4d52b364feff116b951a9791795be6c008e3b59fafe660025da9cb48e9595b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9ad9b2062112680e37f2e0c66d37e04babfa46ccfb8240ba9ce47c831c450d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb5b281a17b65f980415c499f9cccacde252a20b0be65a26a114bd7e4f500c06"
   end
 
   depends_on "gnustep-make" => :build
@@ -40,7 +40,7 @@ class GnustepBase < Formula
   uses_from_macos "zlib"
 
   on_system :linux, macos: :big_sur_or_older do
-    depends_on "icu4c@77"
+    depends_on "icu4c@78"
   end
 
   on_linux do
