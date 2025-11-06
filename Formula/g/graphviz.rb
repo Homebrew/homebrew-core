@@ -22,13 +22,12 @@ class Graphviz < Formula
 
   head do
     url "https://gitlab.com/graphviz/graphviz.git", branch: "main"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "bison" => :build
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
+  depends_on "aalib"
   depends_on "cairo"
   depends_on "gd"
   depends_on "glib"
@@ -53,26 +52,43 @@ class Graphviz < Formula
   end
 
   def install
-    args = %w[
-      --disable-silent-rules
-      --disable-php
-      --disable-swig
-      --disable-tcl
-      --with-quartz
-      --without-gdk
-      --without-gtk
-      --without-poppler
-      --without-qt
-      --without-x
-      --with-freetype2
-      --with-gdk-pixbuf
-      --with-gts
-    ]
+    if build.head?
+      # CMake build for HEAD (includes aalib ASCII art support)
+      args = %W[
+        -DENABLE_PHP=OFF
+        -DENABLE_SWIG=OFF
+        -DENABLE_TCL=OFF
+        -DWITH_POPPLER=OFF
+        -DWITH_QT=OFF
+      ]
 
-    system "./autogen.sh" if build.head?
-    system "./configure", *args, *std_configure_args
-    system "make"
-    system "make", "install"
+      args << "-DWITH_QUARTZ=ON" if OS.mac?
+
+      system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+    else
+      # Autotools build for stable release
+      args = %w[
+        --disable-silent-rules
+        --disable-php
+        --disable-swig
+        --disable-tcl
+        --with-quartz
+        --without-gdk
+        --without-gtk
+        --without-poppler
+        --without-qt
+        --without-x
+        --with-freetype2
+        --with-gdk-pixbuf
+        --with-gts
+      ]
+
+      system "./configure", *args, *std_configure_args
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
