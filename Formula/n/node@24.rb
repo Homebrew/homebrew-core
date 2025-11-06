@@ -4,7 +4,7 @@ class NodeAT24 < Formula
   url "https://nodejs.org/dist/v24.11.0/node-v24.11.0.tar.xz"
   sha256 "cf9c906d46446471f955b1f2c6ace8a461501d82d27e1ae8595dcb3b0e2c312a"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -12,12 +12,12 @@ class NodeAT24 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "041314daeef221105568200e5cb7f42b8b6a2f735eaae150f660127342ae5941"
-    sha256 arm64_sequoia: "d184edef1decd6d4856d48917f796acd19588efb919af702b443ab8134e06002"
-    sha256 arm64_sonoma:  "7167c67030a93f9c922ea238e3ec57c639093efb09279a0d6f7a302f419eddc7"
-    sha256 sonoma:        "8fd5a97245edf0dab889de9c3a34174da9a6c3ae195128428457c71071d27f31"
-    sha256 arm64_linux:   "2dd9fc94c4483315f5bc95cd72b2832a108bc45e84f086a49dae5bb9bb423054"
-    sha256 x86_64_linux:  "f578381665339bbc7c9ea6a2488430ad77b4c7daed7bcaca5b91c6b2337540a6"
+    sha256 arm64_tahoe:   "3bc7946d1c7b99e3e66bc95bc06ef420ee9bd43a8598927d68171534c0d45788"
+    sha256 arm64_sequoia: "428dfea7d21e7fa697c26710b638f059bf2996eb848a64cc5e3f5d445a24122c"
+    sha256 arm64_sonoma:  "c96839a63afa0352dd4452eadcdae9dbec25f95e82150d6aa01321728d2e639e"
+    sha256 sonoma:        "fcb18fbeb0da1af6697d65dc359a46e550cc1882aa2eba7cf6148a3f0609d535"
+    sha256 arm64_linux:   "dbe4a98e56c34754cde681ab309e4e412dfa71b86d844fb684de9c6c3708f27e"
+    sha256 x86_64_linux:  "b5c1a4ed6fcf422bed8f1d953f7596e4b1ec53a82f408ba1e952b601021bbfaa"
   end
 
   keg_only :versioned_formula
@@ -30,7 +30,7 @@ class NodeAT24 < Formula
   depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libnghttp2"
   depends_on "libnghttp3"
   depends_on "libngtcp2"
