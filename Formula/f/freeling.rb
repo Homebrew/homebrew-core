@@ -4,7 +4,7 @@ class Freeling < Formula
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.1.tar.gz"
   sha256 "c672a6379142ac2e872741e7662f17eccd8230bffc680564d2843d87480f1600"
   license "AGPL-3.0-only"
-  revision 11
+  revision 12
 
   no_autobump! because: :requires_manual_review
 
@@ -22,7 +22,7 @@ class Freeling < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "dynet"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   uses_from_macos "zlib"
 
