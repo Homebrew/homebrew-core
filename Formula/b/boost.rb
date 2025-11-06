@@ -4,6 +4,7 @@ class Boost < Formula
   url "https://github.com/boostorg/boost/releases/download/boost-1.89.0/boost-1.89.0-b2-nodocs.tar.xz"
   sha256 "875cc413afa6b86922b6df3b2ad23dec4511c8a741753e57c1129e7fa753d700"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -17,17 +18,15 @@ class Boost < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256                               arm64_tahoe:   "e9745a842c4035440724322d59aca19d1688485a330b6db60bf859dd3e540c0a"
-    sha256                               arm64_sequoia: "e426fe85650221c715219ff5b86573b43889f48e41f2bc3329185e99d01c4481"
-    sha256                               arm64_sonoma:  "a149224ca5e08f36632f69f77e732f0efcbf97f65baada6e515c7f55ba22ff68"
-    sha256                               arm64_ventura: "41327f524cff0592f6bdf53325eee9832e1337cce401f0f0a80a5bc9a93226bc"
-    sha256 cellar: :any,                 sonoma:        "eb36169206c88a8e9c921516356b8e48cd2019bae7210511e46f83dc9428760e"
-    sha256 cellar: :any,                 ventura:       "60c15a0814630f5deb9142d94396dc52360d01b201457c4092873fc2c6d41ca8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "92d10c7a9e662292953e52bc5eb707f81cd54373c6587d1c6cd0b9719500e662"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bbe66a1b57f7696e9f6815a1a0aef5e476827840a010dcc76a097ac2bf5ea6f"
+    sha256                               arm64_tahoe:   "17d67451900bfa6c77b9acf33509e50fd716118a61bc61060957287db9f63959"
+    sha256                               arm64_sequoia: "3619145b1589dca6292290005772953c1f9950121d8d5e97ac99e1b0a9c31e57"
+    sha256                               arm64_sonoma:  "2a5716b3b010d3b70a1df34f5e407cec6321e2bcaa653cc6aad684ee1bbfb35c"
+    sha256 cellar: :any,                 sonoma:        "d48c415a7fccdc7f526ca90de198b01dad494017fc931b5ecffcd45143abaf75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a60f735d755c1a1836f784ccb34c46bc9c0d26870fba374da532088d9ac13d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55b460f7f6465e6d4b3313a52819e8690db5fd01796d8a87f7c867504c9199ac"
   end
 
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "xz"
   depends_on "zstd"
 
