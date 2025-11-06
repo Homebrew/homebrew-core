@@ -4,6 +4,7 @@ class Liblcf < Formula
   url "https://easyrpg.org/downloads/player/0.8.1/liblcf-0.8.1.tar.xz"
   sha256 "e827b265702cf7d9f4af24b8c10df2c608ac70754ef7468e34836201ff172273"
   license "MIT"
+  revision 1
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Liblcf < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "inih"
 
   uses_from_macos "expat"
