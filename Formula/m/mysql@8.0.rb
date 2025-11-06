@@ -6,6 +6,7 @@ class MysqlAT80 < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.44.tar.gz"
   sha256 "a8cc09a35af63668c5235cf282aef789428c6f30c1d9a581b337c816ce8ce8bb"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.0.html?tpl=files&os=src&version=8.0"
@@ -30,7 +31,7 @@ class MysqlAT80 < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"
