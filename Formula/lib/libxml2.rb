@@ -4,6 +4,7 @@ class Libxml2 < Formula
   url "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz"
   sha256 "c008bac08fd5c7b4a87f7b8a71f283fa581d80d80ff8d2efd3b26224c39bc54c"
   license "MIT"
+  revision 1
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -32,7 +33,7 @@ class Libxml2 < Formula
   keg_only :provided_by_macos
 
   depends_on "pkgconf" => [:build, :test]
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "readline"
 
   uses_from_macos "zlib"
