@@ -4,7 +4,7 @@ class Znc < Formula
   url "https://znc.in/releases/znc-1.10.1.tar.gz"
   sha256 "4e6e76851dbf2606185972b53ec5decad68fe53b63a56e4df8b8b3c0a6c46800"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://znc.in/releases/"
@@ -12,13 +12,12 @@ class Znc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "f3e591d177d67dfcf9862e28263c2a7e41bed67e068851e49bbaff9002dfadf2"
-    sha256 arm64_sequoia: "b94c29f33a1caac275da0e4b696e17dca30a2a72ff7fe076aad048288ab90075"
-    sha256 arm64_sonoma:  "4e10a3064792c123a98d2187233c3b0bb912e6374fc437b45848f6b66964bbe3"
-    sha256 sonoma:        "0d63b728adcbfd850910495cd802a75fd88b7c5a807f317dc4167b676a7829b3"
-    sha256 arm64_linux:   "8e7499140c420629555642ffb7c1d2da60176e1c0f2fee2b29540c0abd10fd1f"
-    sha256 x86_64_linux:  "bf43c9ddc619177585d80befefb1cb090fc72baf95066caae45e0e80c3633ea7"
+    sha256 arm64_tahoe:   "632756fb48b0fffafa9475a050161c4eb8a4bf59757e9acc61d783774c201819"
+    sha256 arm64_sequoia: "8bd7d993632e09424278354b9524f86d17d54bc108d9b4e13ebf0a00694fe5a5"
+    sha256 arm64_sonoma:  "6746a8d979027c3378889ffc5b9c14baf4d18a2c1dd7e9574bc695377bd899b0"
+    sha256 sonoma:        "c792361538ef5fabf89946aa8392831514befe4cedda867bf9a3ce4c5f388ec0"
+    sha256 arm64_linux:   "961ec6458b904b9d1d98c6a7ac617d1c09d2226082c8b6d3c6520694e6c2a63b"
+    sha256 x86_64_linux:  "7dfd938d455a6e79801bfe124e68bde87f66f99c1251c2fe0550f821c2587a7f"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +25,7 @@ class Znc < Formula
   depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "cctz"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "openssl@3"
   depends_on "python@3.14"
 
