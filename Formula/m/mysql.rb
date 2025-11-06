@@ -7,6 +7,7 @@ class Mysql < Formula
   mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_9.5.0.orig.tar.gz"
   sha256 "ef3343981375865a2519f72b600e55f9c646e60e204a2964d3b7e8e748a110a5"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -29,7 +30,7 @@ class Mysql < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
