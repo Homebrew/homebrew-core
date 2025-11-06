@@ -4,7 +4,7 @@ class NodeAT22 < Formula
   url "https://nodejs.org/dist/v22.21.1/node-v22.21.1.tar.xz"
   sha256 "487d73fd4db00dc2420d659a8221b181a7937fbc5bc73f31c30b1680ad6ded6a"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -30,7 +30,7 @@ class NodeAT22 < Formula
   depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libnghttp2"
   depends_on "libnghttp3"
   depends_on "libngtcp2"
