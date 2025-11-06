@@ -8,14 +8,12 @@ class Icu4cAT77 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "57af4061e0e0d0b6266470343d2db56fc51a0cbaa1bd459bd3bee3c916c0fab9"
-    sha256 cellar: :any,                 arm64_sequoia: "19f6b5fef0cdf1dfc7f136ca103348ec8530ffdf8012273f6ee4a6159cdfaf75"
-    sha256 cellar: :any,                 arm64_sonoma:  "f2b3a9d78e046b3b1ca1f06227272c0ea25490bd8efa4c98a33ffdcc734452ff"
-    sha256 cellar: :any,                 arm64_ventura: "425a38eb7a7a1bb54dd25ac58194ef89d79caf1777a01fb244ed37487c1f7d80"
-    sha256 cellar: :any,                 sonoma:        "54d609febedd08e8a4a825435d85f6d4db045f586523edb8965434e8e9c93fa6"
-    sha256 cellar: :any,                 ventura:       "6f04d1757707495212ff68722bab629766329874ef7d0531e756903dff5022cb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d633e676a17c418e7e1e6e58d41a7c61856f06cf198a3efa97e4a5489ab0196"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f82d4ca07fbdcf99cb5553ae9cf298bbff475a465f13e1c5d934dcbcb1e14741"
+    sha256 cellar: :any,                 arm64_tahoe:   "e48aa1a83777472421aeeb4d8163fed5b6012c4882b6024e3025edff3dde69f7"
+    sha256 cellar: :any,                 arm64_sequoia: "d81c23dafe82a94efc115335fd292b849fa8e4809bb333764971e8f20001ded8"
+    sha256 cellar: :any,                 arm64_sonoma:  "9cdb1eeea1514d12a167a01688b43072ed358e8a0df0e1110e123cc13d214210"
+    sha256 cellar: :any,                 sonoma:        "919cc9bb093792d0a37354eb95974feec4d36c89b422484ac1b83f142a8780c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7cb1b29d05dbb75baf6068403a8b04131e5d0eb5ac0d36da8453506908ee6a46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab9144b3d86a3f6ddee00e53aa7d0aa6ea6d0037f454078f6dd1b336057679ee"
   end
 
   keg_only :versioned_formula
