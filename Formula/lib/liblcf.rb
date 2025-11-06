@@ -4,21 +4,20 @@ class Liblcf < Formula
   url "https://easyrpg.org/downloads/player/0.8.1/liblcf-0.8.1.tar.xz"
   sha256 "e827b265702cf7d9f4af24b8c10df2c608ac70754ef7468e34836201ff172273"
   license "MIT"
+  revision 1
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e9b5a5d996144c544ba2957b226c601f3ceb06610b3ac6967deef39612ee8173"
-    sha256 cellar: :any,                 arm64_sequoia: "3b50d8d26ad9ae4223f2b32c6e6339286076967625db097d6f59e51e301839ef"
-    sha256 cellar: :any,                 arm64_sonoma:  "b46ebee74b740c0c6fab8ed2c4d54126a190cb2f16d9c6528e9900e3dc51fb0e"
-    sha256 cellar: :any,                 arm64_ventura: "c36ac2cb17b1d1057e197d9e2f22d8dae23d1d44142dfab5d595e46edc6cb1fd"
-    sha256 cellar: :any,                 sonoma:        "a043c615f9b5d1c946eeec170beebf0fcdb561ff35f7bbc34561102519e3f452"
-    sha256 cellar: :any,                 ventura:       "8088af20377163a45aac512fc22a33d774d888dbe7becac630eda6ffa29cb0b3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4dbcfc8241bf5efa4380109aed635b6107a0f53fb0f698bf469e3f2a50a4c6ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "beefb8b7b075411dc9335ea16e330d963cf8d02f3e9d8d4b5f706ca82ecdcd03"
+    sha256 cellar: :any,                 arm64_tahoe:   "c70e1c25f43bd1afb5cded83eeea2c881255af73ea1fcbc9b997d598418b455f"
+    sha256 cellar: :any,                 arm64_sequoia: "6a2722660c5d96461a555e686202a7a9b10199434a81418e87fae39b94832da3"
+    sha256 cellar: :any,                 arm64_sonoma:  "083c35e52b98fab1615961b3328d1a9a023bb074fd0337b0266f9f6fbb412ad9"
+    sha256 cellar: :any,                 sonoma:        "b5f3a2a51b789a81455b7619889327260a3b7c3a624a6d39ff72df566e6a1089"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "12c761ee5225d3f19c5b16dc98851daa031eb0f554d297866879ab9415b276a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e17a85a805ff92cbd72063eb5a5d724f894938fcdf8a0ccbf996016c4f926715"
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "inih"
 
   uses_from_macos "expat"
