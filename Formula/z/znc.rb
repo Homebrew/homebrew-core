@@ -4,7 +4,7 @@ class Znc < Formula
   url "https://znc.in/releases/znc-1.10.1.tar.gz"
   sha256 "4e6e76851dbf2606185972b53ec5decad68fe53b63a56e4df8b8b3c0a6c46800"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://znc.in/releases/"
@@ -26,7 +26,7 @@ class Znc < Formula
   depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "cctz"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "openssl@3"
   depends_on "python@3.14"
 
