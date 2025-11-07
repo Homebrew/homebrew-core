@@ -8,14 +8,12 @@ class Unar < Formula
   head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "56993d0f9b04a85ef06f0fc00e2309459a509a0bcc5da2dabf3fc2371eb1a73e"
-    sha256 cellar: :any,                 arm64_sequoia: "3c3885c3e70e7e37ad4d2d2a4a3d8840cf53e9f675a6642f57ad93d4da4fa8a8"
-    sha256 cellar: :any,                 arm64_sonoma:  "456de86a2a8cf4b63c7b598f9b4740a4598af1b8dcfe066724601075da938739"
-    sha256 cellar: :any,                 arm64_ventura: "b9d20ecd5c6627f96ff7554775a5944848ff89ffc666e4b841bb67ab51782950"
-    sha256 cellar: :any,                 sonoma:        "e398cb80ec4fe5195312ecef6986e96858c7a172bf0aa5fb310d7a5738ba4bd8"
-    sha256 cellar: :any,                 ventura:       "ff08a4c92f3b66fc3bbd8f8e6ddfab7c4f82a7cad165c116a773402054131a74"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9447a1e19c7166109c05fbd7760c44e33442a3523857f0f7e71d1e46d8f59a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19ffbed9a0f8c86c8b688e347e6b4bcb4f63aeaee730d511aa90b9e553a3060e"
+    sha256 cellar: :any,                 arm64_tahoe:   "7b0c0857811518183003efc8ad4f2ff29bdfe25975263939f53091d4cbd48a24"
+    sha256 cellar: :any,                 arm64_sequoia: "b4bfdfb90639a2152fac34b8449e8c3f37408ab40cb61e7ea449c3fa8b5da2fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "fa3a9602a7e50a70bd82c4d9d6c980002d45b52c4283480ad6d7f8fcec9afd0f"
+    sha256 cellar: :any,                 sonoma:        "b096eff750abefa23a208c882b6a344ba3ed3f4d5048be6ea7014c71199559da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c188cf22fd54207f8bd2bf2b5d7c6a2f213b3ca8a6b00ac89e145a3a613ac23c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51ddaef98a6c11ca8dbc11f53a8a9a3ae0398e9822d814a28e380698d44d048d"
   end
 
   depends_on xcode: :build
