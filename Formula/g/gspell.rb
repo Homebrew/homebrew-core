@@ -7,14 +7,12 @@ class Gspell < Formula
   revision 4
 
   bottle do
-    sha256 arm64_tahoe:   "389bde910e732feb9e461e8ad1f3eca669252f5662a6cbf3decbc4a1d93d9125"
-    sha256 arm64_sequoia: "7be7549f59cefa28a9820aa692e61beae5ac3907c00f405312ecd18ed13f657c"
-    sha256 arm64_sonoma:  "956f9e9bba4d346b611b2ace7494592c26b764073c6063e453facb94973ecb12"
-    sha256 arm64_ventura: "ae7078de1e4777703851e5f72fe339feb3306b55c93ddd5446da1aac4c0fe6b8"
-    sha256 sonoma:        "7f0f171e26e6a956b23b54bcfdb47665a763999ac1dade0011899664aafc977f"
-    sha256 ventura:       "2dec4a4e7abf1ccd9564cc91b1259a0896f854f809d5cb0271982a77e4b83050"
-    sha256 arm64_linux:   "74ee2677d98ec0caffe66e3989f73977065f2d2ae6ae198c36a2f535bd31ef20"
-    sha256 x86_64_linux:  "65b869605e06e7571c5e74776a815949afa4acf36185a0fee15c008db1979f60"
+    sha256 arm64_tahoe:   "91a5e1fb5d1aa6c8636a5e5bab3c52c4f62e83638d3864f0a6c8885019efb3c8"
+    sha256 arm64_sequoia: "8b1df275aa6cbc4f4c0151604ede17c1c08a1a91ee5bca764aec7bdf805fbb18"
+    sha256 arm64_sonoma:  "35e901810b4f741b4c1f9db969ff3a57368ca60c204f706ea1befaafeee60ae9"
+    sha256 sonoma:        "b92576cb9b42266307ccb3d69e4de14479c2145fdcb420864d65bbca42b213aa"
+    sha256 arm64_linux:   "5a4280fa6e90599f95cefa8b456649a4d59129fd59699234240c2c982b9c6f7a"
+    sha256 x86_64_linux:  "d08727eb047fc1c639cd3c3362ccf789d7da29a41f98322084c841ff8e070ae1"
   end
 
   depends_on "gobject-introspection" => :build
