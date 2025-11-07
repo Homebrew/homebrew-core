@@ -1,14 +1,13 @@
 class CdDiscid < Formula
   desc "Read CD and get CDDB discid information"
-  homepage "https://linukz.org/cd-discid.shtml"
+  homepage "https://github.com/taem/cd-discid"
   license "GPL-2.0-or-later"
   revision 2
   head "https://github.com/taem/cd-discid.git", branch: "master"
 
   stable do
-    url "https://linukz.org/download/cd-discid-1.4.tar.gz"
-    mirror "https://deb.debian.org/debian/pool/main/c/cd-discid/cd-discid_1.4.orig.tar.gz"
-    sha256 "ffd68cd406309e764be6af4d5cbcc309e132c13f3597c6a4570a1f218edd2c63"
+    url "https://github.com/taem/cd-discid/archive/refs/tags/1.4.tar.gz"
+    sha256 "6f07df25ebf17b8336c17a50092ed288cc5a6b86f85705db7e1aa35ba26683cf"
 
     # macOS fix; see https://github.com/Homebrew/homebrew/issues/46267
     # Already fixed in upstream head; remove when bumping version to >1.4
@@ -33,9 +32,6 @@ class CdDiscid < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "92144152a7fa53e3cbe4c6eced912ab7a569079a1d40fb9a72c73635f70027c3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6e37cc61545d58bebb66ffffada804ca5e39e47e503684c7ed84cfa856dbb14"
   end
-
-  # Last commit was 9 years ago, upstream site is gone
-  deprecate! date: "2025-10-16", because: :unmaintained
 
   def install
     system "make", "CC=#{ENV.cc}"
