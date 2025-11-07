@@ -21,12 +21,12 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "48273ebad9e9cec37fa654b312b5eefbdfbbec59cc616e80f91e33e159419394"
-    sha256 arm64_sequoia: "317ae10f2b67d2a65a17be403119b20817a23abb3af19624c05a895dff86a799"
-    sha256 arm64_sonoma:  "f19299bb7d7888668345d69c319e9bf233c6ec8756137ff7fa26f68b5ebe105d"
-    sha256 sonoma:        "7823de5ca1ca4a9ec17c40e8bbac62d6482a64c24a0f0eb662c35678370e4eab"
-    sha256 arm64_linux:   "714d3e9fd371d244bf1503a47a297b71c4cd1059eea158128bd4c8c7792ab21d"
-    sha256 x86_64_linux:  "6d0e3c971710b146bf5f6e0b51a294b07f8c46d22bbc23033fc75c6254bc34f4"
+    sha256 arm64_tahoe:   "ce03f2c93208fc66e8cd3af8593289ab8c0d881b441c49e6778ca5741bb4ee73"
+    sha256 arm64_sequoia: "52b1a9edd18e3f169b8d661409055100a97e82ed692f3eadbbc96302b6d88063"
+    sha256 arm64_sonoma:  "416cba101a41c15c89990ef312cd5b4ff126c1b9d92f94cc1fe1f5b0d21ff41c"
+    sha256 sonoma:        "1a080d79ebc997905425876897248e5c35751f14935684b32c04a75d257bc6c1"
+    sha256 arm64_linux:   "da92ce809ad07e4a6128b26edc76d2f6a6a2a9df4762cd88ea0632bb2af3d065"
+    sha256 x86_64_linux:  "23279fb8464744b57c7660d089f6c090b41e9ff77c8f4e27a7e550d9cd3ad4d1"
   end
 
   depends_on "bison" => :build # needs bison >= 3.0.4
