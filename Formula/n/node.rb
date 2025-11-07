@@ -13,12 +13,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "fadaf30b9c5e512105a08b3542e213086aa8d25c2621b68207f0861e97100310"
-    sha256 arm64_sequoia: "1340fe4760ee3a744ff90f13f0f22ae6ddb5e3c90070c894198ac95719af6e10"
-    sha256 arm64_sonoma:  "1a330640f0b1dbeb5e60e9809acaa9a4a088fe040aef7682cea5c457099f35db"
-    sha256 sonoma:        "bc3d4077b6fa78885348c9f195cde4e539d423923582b820a9b36661e4e1fbdc"
-    sha256 arm64_linux:   "344672ae7d311362cb68d94e8d19f798fbcbf3c8585481caf2cf68a9ff2c720b"
-    sha256 x86_64_linux:  "7e5bdba8daa6c3ff70bdbbd03dd9f2cd3c8593b010216b80183a9403ee2eadaa"
+    sha256 arm64_tahoe:   "e2ab8baa77be1d5e93f38dbcd957eea7fd3338a808430fe305efa1d69ab33928"
+    sha256 arm64_sequoia: "ef01f6420a8256ead8d7646bd5452a98e2a07beba2addd048f9b96418895d125"
+    sha256 arm64_sonoma:  "27cd7685d6c277a9826788e56aa09ef96cc802543537ff1e4eec0701fbd3a244"
+    sha256 sonoma:        "76ea3e100e043d0c7e00c51c30a891a562988eb798584bf5c1efc9479d5b6ef8"
+    sha256 arm64_linux:   "84461dcac9e044a1ce95aa2f8ce9f21b605d39e7d1b2606b4428ffa4671c4ad3"
+    sha256 x86_64_linux:  "3711e551b0af6782a58f51694fd68af6dd3036db5566c5f82c243d8944b05869"
   end
 
   depends_on "pkgconf" => :build
