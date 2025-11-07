@@ -36,13 +36,12 @@ class Texlive < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "bb72cec70fc9b442faec35816b8e5c9006b08534252dca16a299ddc2ea44182f"
-    sha256 arm64_sequoia: "4189f13ae380fdcd0b7183e2fdcb30a9c3b9e30767a9e94650da62d65e0774d2"
-    sha256 arm64_sonoma:  "075e9b05001a12a666e5b7d955e820e7131c699113a83334f0ee9ebbc22c2b22"
-    sha256 sonoma:        "f071ce2cbc2b8c45aeedfd9cc70f17c56460a9228d400c003201ae30d567a069"
-    sha256 arm64_linux:   "b0ff02eb93542fb35401627b1c800e214c123457c108e11898bb30c3bd260e4f"
-    sha256 x86_64_linux:  "c2332cb42c33291614a46cf51621585791fe6510f254bc008180d924305a07b3"
+    sha256 arm64_tahoe:   "471f7e5214e3ab4c76acd78d2590fa138b7e1a2371e732501783a5fa7f864ee9"
+    sha256 arm64_sequoia: "55c883a3c91d1f4f78e296797b03b92e8014e2be22381e0fc56d1635c37006f2"
+    sha256 arm64_sonoma:  "7167dd978f68302473502f115d92cae0e5a90a3b3a384b58b2b5cfcf14b1dade"
+    sha256 sonoma:        "ea49145d420909cea69d40c39c1c163467755baa718f14943e3d28f91659e48c"
+    sha256 arm64_linux:   "55905476b8ff7ca098788bd7e52dd3385604703332c155caede4aed94eddb479"
+    sha256 x86_64_linux:  "5246ba8db60933f761a9a803359fe9a406f5287fc9c5304b9ecfd51c501d7b27"
   end
 
   depends_on "pkgconf" => :build
