@@ -13,7 +13,7 @@ class Nanobind < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "python@3.14" => [:build, :test]
-  depends_on "robin-map" => [:build, :test]
+  depends_on "robin-map"
 
   def install
     system "cmake", "-S", ".", "-B", "build",
