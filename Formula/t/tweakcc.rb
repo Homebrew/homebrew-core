@@ -1,8 +1,8 @@
 class Tweakcc < Formula
   desc "Customize your Claude Code themes, thinking verbs, and more"
   homepage "https://github.com/Piebald-AI/tweakcc"
-  url "https://registry.npmjs.org/tweakcc/-/tweakcc-2.0.3.tgz"
-  sha256 "43d64a758edd3fdbe2e14676baaa7ca8c2c2fa475509bd775730fa30b15e5d7d"
+  url "https://registry.npmjs.org/tweakcc/-/tweakcc-3.0.0.tgz"
+  sha256 "3b708eb0a9376da92c36fb8d84126ebe33e4458e8c9b2a598ef2dcd4ed88051e"
   license "MIT"
 
   bottle do
@@ -19,6 +19,14 @@ class Tweakcc < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Remove incompatible pre-built binaries
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    node_modules = libexec/"lib/node_modules/tweakcc/node_modules"
+    (node_modules/"node-lief/prebuilds/linux-x64/node-lief.musl.node").unlink
+    libexec.glob("#{node_modules}/node-lief/prebuilds/*")
+           .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
   test do
