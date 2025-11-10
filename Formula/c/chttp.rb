@@ -6,8 +6,8 @@ class Chttp < Formula
   license "MIT"
 
   depends_on "pkg-config" => :build
-  depends_on "curl"
   depends_on "cjson"
+  depends_on "curl"
 
   def install
     ENV.append "CFLAGS", "-I#{Formula["cjson"].opt_include}"
