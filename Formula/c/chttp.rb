@@ -18,13 +18,12 @@ class Chttp < Formula
   end
 
   test do
+    (testpath/"test.c").write <<~EOS
+      #include <chttp.h>
+      int main() { return 0; }
+    EOS
 
-  (testpath/"test.c").write <<~EOS
-    #include <chttp.h>
-    int main() { return 0; }
-  EOS
-
-  system ENV.cc,
+    system ENV.cc,
          "test.c",
          "-I#{include}",                              # chttp include
          "-I#{Formula["cjson"].opt_include}",         # cjson include
@@ -33,7 +32,6 @@ class Chttp < Formula
          "-lcjson", "-lchttp", "-lcurl",
          "-o", "test_chttp"
 
-  system "./test_chttp"
-
+    system "./test_chttp"
   end
 end
