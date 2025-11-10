@@ -5,7 +5,7 @@ class Chttp < Formula
   sha256 "6fd22b6cfad7078180b3fd76f4a2c1970672015786701c90595d91037320e1ba"
   license "MIT"
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "cjson"
   depends_on "curl"
 
