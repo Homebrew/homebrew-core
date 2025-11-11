@@ -1,4 +1,4 @@
-class ScopeTui < Formula
+class SgramTui < Formula
   desc "Terminal spectrogram viewer (WAV/mic) with palettes and exports"
   homepage "https://github.com/arian-shamaei/sgram-tui"
   url "https://github.com/arian-shamaei/sgram-tui/archive/refs/tags/v0.1.0.tar.gz"
@@ -9,10 +9,10 @@ class ScopeTui < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    bin.install_symlink bin/"sgram-tui" => "scope-tui"
+    
   end
 
   test do
-    assert_match "Terminal spectrogram viewer", shell_output("#{bin}/scope-tui --help")
+    assert_match "Terminal spectrogram viewer", shell_output("#{bin}/sgram-tui --help")
   end
 end
