@@ -1,8 +1,8 @@
 class Tracy < Formula
   desc "Real-time, nanosecond resolution frame profiler"
   homepage "https://github.com/wolfpld/tracy"
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.11.1.tar.gz"
-  sha256 "2c11ca816f2b756be2730f86b0092920419f3dabc7a7173829ffd897d91888a1"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "b0e972dfeebe42470187c1a47b449c8ee9e8656900bcf87b403175ed50796918"
   license "BSD-3-Clause"
 
   bottle do
