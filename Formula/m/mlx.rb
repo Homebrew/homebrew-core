@@ -3,8 +3,8 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://github.com/ml-explore/mlx"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.29.3.tar.gz"
-  sha256 "54ede208b267ea8cda566a659b7095266da78ce4d6046cf17fbeb8c5fbc9b2ee"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.29.4.tar.gz"
+  sha256 "c0d7c435a4d1f2253c709907f847df8206dbcc339f707cfbcf73f9a0fa78adc9"
   license all_of: [
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
@@ -25,7 +25,7 @@ class Mlx < Formula
   depends_on "python-setuptools" => :build
   depends_on "robin-map" => :build
   depends_on :macos
-  depends_on macos: :ventura
+  depends_on macos: :sonoma
   depends_on "python@3.14"
 
   on_arm do
@@ -40,8 +40,8 @@ class Mlx < Formula
   # Included in not_a_binary_url_prefix_allowlist.json
   resource "metal-cpp" do
     on_arm do
-      url "https://developer.apple.com/metal/cpp/files/metal-cpp_macOS15_iOS18.zip"
-      sha256 "0433df1e0ab13c2b0becbd78665071e3fa28381e9714a3fce28a497892b8a184"
+      url "https://developer.apple.com/metal/cpp/files/metal-cpp_26.zip"
+      sha256 "4df3c078b9aadcb516212e9cb03004cbc5ce9a3e9c068fa3144d021db585a3a4"
     end
   end
 
