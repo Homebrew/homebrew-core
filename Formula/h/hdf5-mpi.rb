@@ -1,16 +1,14 @@
 class Hdf5Mpi < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/solutions/hdf5/"
-  url "https://github.com/HDFGroup/hdf5/releases/download/hdf5_1.14.6/hdf5-1.14.6.tar.gz"
-  sha256 "e4defbac30f50d64e1556374aa49e574417c9e72c6b1de7a4ff88c4b1bea6e9b"
+  url "https://github.com/HDFGroup/hdf5/releases/download/hdf5_2.0.0/hdf5-2.0.0.tar.gz"
+  sha256 "6e45a4213cb11bb5860e1b0a7645688ab55562cc2d55c6ff9bcb0984ed12b22b"
   license "BSD-3-Clause"
   version_scheme 1
 
   livecheck do
     formula "hdf5"
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "0ba24bdbc4fb2fdbf5ffc2e602d49bba1d8d3e85a2c84e9d648749a0ea19032b"
@@ -34,14 +32,19 @@ class Hdf5Mpi < Formula
   conflicts_with "hdf5", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 
   def install
+    gcc_version = Formula["gcc"].version.major
+    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{gcc_version}"
+    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{gcc_version}"
+    ENV["FC"] = Formula["gcc"].opt_bin/"gfortran"
+
     args = %w[
       -DHDF5_USE_GNU_DIRS:BOOL=ON
       -DHDF5_INSTALL_CMAKE_DIR=lib/cmake/hdf5
-      -DHDF5_ENABLE_PARALLEL:BOOL=ON
       -DALLOW_UNSUPPORTED:BOOL=ON
       -DHDF5_BUILD_FORTRAN:BOOL=ON
       -DHDF5_BUILD_CPP_LIB:BOOL=ON
       -DHDF5_ENABLE_SZIP_SUPPORT:BOOL=ON
+      -DHDF5_ENABLE_ZLIB_SUPPORT:BOOL=ON
     ]
 
     # https://github.com/HDFGroup/hdf5/issues/4310
@@ -59,13 +62,18 @@ class Hdf5Mpi < Formula
     # Avoid cpp shims in settings files
     inreplace_cxx_files = %w[
       build/CMakeFiles/h5c++
-      build/CMakeFiles/h5hlc++
     ]
     inreplace_cxx_files << "build/src/libhdf5.settings" if OS.linux?
     inreplace inreplace_cxx_files, Superenv.shims_path/ENV.cxx, ENV.cxx
 
+    inreplace "config/libh5cc.in", "$dir/@HDF5_INSTALL_LIB_DIR@/libhdf5.settings", "#{libexec}/libhdf5.settings"
+    inreplace "fortran/src/h5fc.in", "${libdir}/libhdf5.settings", "#{libexec}/libhdf5.settings"
+
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    mkdir libexec
+    mv lib/"libhdf5.settings", libexec/"libhdf5.settings"
   end
 
   test do
@@ -78,7 +86,7 @@ class Hdf5Mpi < Formula
         return 0;
       }
     C
-    system bin/"h5pcc", "test.c"
+    system bin/"h5cc", "test.c"
     assert_equal version.major_minor_patch.to_s, shell_output("./a.out").chomp
 
     (testpath/"test.f90").write <<~FORTRAN
@@ -108,7 +116,7 @@ class Hdf5Mpi < Formula
       write (*,"(I0,'.',I0,'.',I0)") major, minor, rel
       end
     FORTRAN
-    system bin/"h5pfc", "test.f90"
+    system bin/"h5fc", "test.f90"
     assert_equal version.major_minor_patch.to_s, shell_output("./a.out").chomp
 
     # Make sure that it was built with SZIP/libaec
