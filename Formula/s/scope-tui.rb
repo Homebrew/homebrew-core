@@ -8,7 +8,7 @@ class ScopeTui < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "sgram-tui")
+    system "cargo", "install", *std_cargo_args
     bin.install_symlink bin/"sgram-tui" => "scope-tui"
   end
 
