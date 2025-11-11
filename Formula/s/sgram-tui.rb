@@ -8,7 +8,8 @@ class SgramTui < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    # Build without optional microphone feature to keep Linux bottle deps minimal
+    system "cargo", "install", *std_cargo_args, "--no-default-features"
   end
 
   test do
