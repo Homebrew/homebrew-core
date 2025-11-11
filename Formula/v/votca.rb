@@ -4,7 +4,7 @@ class Votca < Formula
   url "https://github.com/votca/votca/archive/refs/tags/v2025.1.tar.gz"
   sha256 "85b487d2b2a31f26869be422c98f816b95c88a4ab112ea4650cccd4c2706bdbf"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "fded17617f5140a20b04b5cfc9281e6429380d175d4e055a3d6b4dcc52a85b57"
