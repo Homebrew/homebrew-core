@@ -5,6 +5,11 @@ class SgramTui < Formula
   sha256 "6bde58115351f2d328ec827352cef3faef610a8f94d671a52473565a41414f46"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   depends_on "rust" => :build
   on_linux do
     depends_on "alsa-lib"
