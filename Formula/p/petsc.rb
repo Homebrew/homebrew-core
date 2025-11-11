@@ -4,6 +4,7 @@ class Petsc < Formula
   url "https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-3.24.1.tar.gz"
   sha256 "d77f3fd5187a72ce5b68a056aa8fcccd37b6dc7a388991d1d8fa0bde32b0abc8"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://web.cels.anl.gov/projects/petsc/download/release-snapshots/"
