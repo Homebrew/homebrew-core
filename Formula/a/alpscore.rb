@@ -4,7 +4,7 @@ class Alpscore < Formula
   url "https://github.com/ALPSCore/ALPSCore/archive/refs/tags/v2.3.2.tar.gz"
   sha256 "bd9b5af0a33acc825ffedfaa0bf794a420ab2b9b50f6a4e634ecbde43ae9cc24"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c126dec161f1b5f224e3811bfa7725cffc28c07a7353117e732e73a5e98c545c"
