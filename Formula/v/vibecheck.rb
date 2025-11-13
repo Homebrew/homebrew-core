@@ -8,10 +8,22 @@ class Vibecheck < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/vibecheck"
+    # Build from ./cmd as suggested by Homebrew maintainer
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd"
   end
 
   test do
-    system "#{bin}/vibecheck", "--version"
+    # Basic functionality test — must NOT require network or API keys
+
+    # Create a dummy git repo
+    system "git", "init"
+    (testpath/"file.txt").write("hello")
+    system "git", "add", "file.txt"
+
+    # Run a safe command that works offline
+    output = shell_output("#{bin}/vibecheck models 2>&1")
+
+    # Assert that models help output is shown
+    assert_match "Available models", output
   end
 end
