@@ -84,6 +84,10 @@ class ManDb < Formula
       If you need to use these commands with their normal names, you
       can add a "bin" directory to your PATH from your bashrc like:
         PATH="#{opt_libexec}/bin:$PATH"
+
+      If you will use "gapropos" or "gwhatis" (which is especially likely
+      if you override PATH as described above), make sure to run "gmandb"
+      once as well as every time the set of available man pages has changed.
     EOS
   end
 
