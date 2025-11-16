@@ -65,6 +65,34 @@ class Openlist < Formula
     system "go", "build", *std_go_args(ldflags:)
   end
 
+  def post_install
+    (var/"openlist").mkpath
+    (var/"log/openlist").mkpath
+    (etc/"openlist").mkpath
+  end
+
+  service do
+    run [opt_bin/"openlist", "server",
+         "--data", var/"openlist",
+         "--config", etc/"openlist/config.json",
+         "--log-std"]
+
+    keep_alive true
+    process_type :background
+    working_dir var/"openlist"
+    log_path var/"log/openlist/openlist.log"
+    error_log_path var/"log/openlist/openlist.error.log"
+  end
+
+  def caveats
+    <<~EOS
+      When run from `brew services`, the server runs at:
+        http://localhost:5244
+      The user and the initial password is in:
+        #{var}/log/openlist/openlist.log
+    EOS
+  end
+
   test do
     assert_match "Usage:", shell_output("#{bin}/openlist help")
     assert_match(/Version: #{version}/, shell_output("#{bin}/openlist version"))
