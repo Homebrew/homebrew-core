@@ -9,8 +9,7 @@ class L2m < Formula
   depends_on "python@3.10"
 
   def install
-    python3 = "python3.10"
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
