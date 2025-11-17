@@ -1,10 +1,9 @@
 class Adios2 < Formula
   desc "Next generation of ADIOS developed in the Exascale Computing Program"
   homepage "https://adios2.readthedocs.io"
-  url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.10.2.tar.gz"
-  sha256 "14cf0bcd94772194bce0f2c0e74dba187965d1cffd12d45f801c32929158579e"
+  url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "0a2bd745e3f39745f07587e4a5f92d72f12fa0e2be305e7957bdceda03735dbf"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -32,6 +31,7 @@ class Adios2 < Formula
   depends_on "mpi4py"
   depends_on "numpy"
   depends_on "open-mpi"
+  depends_on "openssl@3"
   depends_on "pugixml"
   depends_on "python@3.14"
   depends_on "sqlite"
