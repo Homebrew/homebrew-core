@@ -1,8 +1,8 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
-  url "https://github.com/facebookincubator/fizz/releases/download/v2025.11.10.00/fizz-v2025.11.10.00.tar.gz"
-  sha256 "21ad7e064215f5f4e4ae9fbdf2cefe7cdde50db483eee996efd4efd00ccb0658"
+  url "https://github.com/facebookincubator/fizz/releases/download/v2025.11.17.00/fizz-v2025.11.17.00.tar.gz"
+  sha256 "ecf363068adce25e933cb94bc534e993815b4e53c9e288a98f41af60806377d4"
   license "BSD-3-Clause"
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
