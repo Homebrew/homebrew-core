@@ -34,6 +34,13 @@ class LastpassCli < Formula
     sha256 "a4c2a16fd47942a511c0ebbce08bee5ffdb0d6141f6c9b60ce397db9e207d8be"
   end
 
+  # Workaround for for API change in OpenSSL 3.5
+  # PR ref: https://github.com/lastpass/lastpass-cli/pull/716
+  patch do
+    url "https://github.com/lastpass/lastpass-cli/commit/95fff9accc5832264e31af3f54f49af461339693.patc>
+    sha256 "5d7559511b1814c6f9d8cccc02b7c5dbf8a4e6d2927a94cf76d090cc45a47dd2"
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
