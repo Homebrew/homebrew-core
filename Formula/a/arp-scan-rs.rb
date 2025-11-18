@@ -1,8 +1,8 @@
 class ArpScanRs < Formula
   desc "ARP scan tool written in Rust for fast local network scans"
   homepage "https://github.com/kongbytes/arp-scan-rs"
-  url "https://github.com/kongbytes/arp-scan-rs/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "9cd8ae882d47aef59f79ceedc797a9697b0f1b81916488a43a84b0a807b482fa"
+  url "https://github.com/kongbytes/arp-scan-rs/archive/refs/tags/v0.15.1.tar.gz"
+  sha256 "6d478b47bdf00c2618e414d87af496892c5027a5a3d4a438ab92c084c36fa5b6"
   license "AGPL-3.0-or-later"
   head "https://github.com/kongbytes/arp-scan-rs.git", branch: "master"
 
