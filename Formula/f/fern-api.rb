@@ -1,8 +1,8 @@
 class FernApi < Formula
   desc "Stripe-level SDKs and Docs for your API"
   homepage "https://buildwithfern.com/"
-  url "https://registry.npmjs.org/fern-api/-/fern-api-1.5.0.tgz"
-  sha256 "6c74ac698cc2fae70eda61095fd45f7aff6df835a15e77d4eeb7d7bcc33fbb6a"
+  url "https://registry.npmjs.org/fern-api/-/fern-api-1.7.0.tgz"
+  sha256 "bfda814d29b63d103cbbe4bec48b14aed4cde1ac3b8e45caa132b2b8fb0ff987"
   license "Apache-2.0"
 
   bottle do
@@ -13,7 +13,11 @@ class FernApi < Formula
 
   def install
     # Supress self update notifications
-    inreplace "cli.cjs", "await this.nudgeUpgradeIfAvailable()", "await 0"
+    inreplace "cli.cjs" do |s|
+      s.gsub! "await this.nudgeUpgradeIfAvailable()", "await 0"
+      s.gsub! 'resolvedPath.includes("/opt/homebrew/") ||', ""
+      s.gsub! "/usr/local/Cellar/", HOMEBREW_CELLAR
+    end
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
   end
