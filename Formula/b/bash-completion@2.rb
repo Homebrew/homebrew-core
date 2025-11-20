@@ -1,8 +1,8 @@
 class BashCompletionAT2 < Formula
   desc "Programmable completion for Bash 4.2+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.16.0/bash-completion-2.16.0.tar.xz"
-  sha256 "3369bd5e418a75fb990863925aed5b420398acebb320ec4c0306b3eae23f107a"
+  url "https://github.com/scop/bash-completion/releases/download/2.17.0/bash-completion-2.17.0.tar.xz"
+  sha256 "dd9d825e496435fb3beba3ae7bea9f77e821e894667d07431d1d4c8c570b9e58"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,17 +11,16 @@ class BashCompletionAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7696534939d76665695a0bc12c1bab0a9cd0729264b16585bc5bc44a0bae5cfe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7696534939d76665695a0bc12c1bab0a9cd0729264b16585bc5bc44a0bae5cfe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7696534939d76665695a0bc12c1bab0a9cd0729264b16585bc5bc44a0bae5cfe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eae0306c63a1d8dec18b5762d0d33689ec876f85c7e3fc30602103e2a03de498"
-    sha256 cellar: :any_skip_relocation, ventura:       "eae0306c63a1d8dec18b5762d0d33689ec876f85c7e3fc30602103e2a03de498"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7696534939d76665695a0bc12c1bab0a9cd0729264b16585bc5bc44a0bae5cfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7696534939d76665695a0bc12c1bab0a9cd0729264b16585bc5bc44a0bae5cfe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f958af6492d1c86a775cb5fedbbece68ea1853208a4b92fa169c527ca12d0cc2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
   end
 
   head do
-    url "https://github.com/scop/bash-completion.git", branch: "master"
+    url "https://github.com/scop/bash-completion.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

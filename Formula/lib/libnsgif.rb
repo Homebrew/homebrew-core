@@ -4,7 +4,7 @@ class Libnsgif < Formula
   url "https://download.netsurf-browser.org/libs/releases/libnsgif-1.0.0-src.tar.gz"
   sha256 "6014c842f61454d2f5a0f8243d7a8d7bde9b7da3ccfdca2d346c7c0b2c4c061b"
   license "MIT"
-  head "https://git.netsurf-browser.org/libnsgif.git", branch: "master"
+  head "git://git.netsurf-browser.org/libnsgif.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -12,6 +12,7 @@ class Libnsgif < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "24a59de1bad99d2d805e0054f54b09fdadd75c69f50aa3d105d34aaeee184d21"
     sha256 cellar: :any,                 arm64_sequoia:  "1b496d526be94479c22a33a721be3f7c5afe6ec2c0c62d2a9be03b04cce5cb19"
     sha256 cellar: :any,                 arm64_sonoma:   "fb3bd5d0ed63cb47edc86bded832614216985a5f020d4d3e9acf28c05a7d0d8b"
     sha256 cellar: :any,                 arm64_ventura:  "4ab139b0fdd222e35bcbfed812dcc51b330b3ba6349177cb5032b48c5b4d7af8"

@@ -20,16 +20,17 @@ class Mpack < Formula
   end
 
   deprecate! date: "2024-07-21", because: :repo_removed
+  disable! date: "2025-07-26", because: :repo_removed
 
   # Fix missing return value; clang refuses to compile otherwise
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1ad38a9c/mpack/uudecode.c.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/mpack/uudecode.c.patch"
     sha256 "52ad1592ee4b137cde6ddb3c26e3541fa0dcea55c53ae8b37546cd566c897a43"
   end
 
   # Fix build failure because of missing include statements on Linux.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6e7bc4dd7b971cabc3cc794236e62e732981102f/mpack/linux.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/mpack/linux.patch"
     sha256 "3123446e13b34a083cab8408e16fce0a4dba78c170887722f4cd4306798c54d0"
   end
 

@@ -1,8 +1,8 @@
 class PythonTkAT312 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.11/Python-3.12.11.tgz"
-  sha256 "7b8d59af8216044d2313de8120bfc2cc00a9bd2e542f15795e1d616c51faf3d6"
+  url "https://www.python.org/ftp/python/3.12.12/Python-3.12.12.tgz"
+  sha256 "487c908ddf4097a1b9ba859f25fe46d22ccaabfb335880faac305ac62bffb79b"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,12 @@ class PythonTkAT312 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "8b40ef8c878913ef3d4724878a54ce29691577ed2c7c7d0ca72bc36de9403316"
-    sha256 cellar: :any, arm64_sonoma:  "a9800e8176b374cc5237bf15f91d4ef0b6d6db76cd641f7ab18bdded0caf7905"
-    sha256 cellar: :any, arm64_ventura: "0daadc7788c7eb850e6947f23ed76e3f780c034d93195490f44573dfa8a90286"
-    sha256 cellar: :any, sonoma:        "758f8037f49d3f37e48f1d976e3048a94634e054039c4dc20bb55e3d82ca6be5"
-    sha256 cellar: :any, ventura:       "9fed59271386927bf56878a23f804480b9c65313d8f0cc12c75720677ebf5250"
-    sha256               arm64_linux:   "bde690b35592c3df93ce8b8d44dd9050a3556b49d8efbd20495807b8bfc9b2ff"
-    sha256               x86_64_linux:  "95197b9b2bac3893a70872f953485916d140a005cddcdb14447e1bbf8d60832f"
+    sha256 cellar: :any, arm64_tahoe:   "0bb29270b8431e329c47c5792052734d098c5417cd27384120517c45ab54be3d"
+    sha256 cellar: :any, arm64_sequoia: "91dda177cf121807c4946d97620390a9e79c7420989f72cdabdf8bc0633fc630"
+    sha256 cellar: :any, arm64_sonoma:  "63757c0e73baccb662009dc46f2fbc1c96b29e1767c2b0a65dfd45c3f14d8ed9"
+    sha256 cellar: :any, sonoma:        "633a835577f718b53bc04f6c73e34953f3c68a5fbcbe120a1b994a3bbd4b3072"
+    sha256               arm64_linux:   "f03ae64ee303bb60f73b73041185f0bfdae857eba3d27735cede970bc4f34164"
+    sha256               x86_64_linux:  "79e4b1ea5ac92d35c3152a75b9cce0ce4be5f25e103edf514311146230103b94"
   end
 
   depends_on "python@3.12"

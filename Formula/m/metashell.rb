@@ -5,8 +5,11 @@ class Metashell < Formula
   sha256 "028e37be072ec4e85d18ead234a208d07225cf335c0bb1c98d4d4c3e30c71f0e"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8300899bfccc7d1e79cde7767e71465014c207c48a8adcc5e0823d81e7c61c99"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9de8b8eddbb354a0ed45d39d24e06cee5f05b57a0810155817a7362f45df635a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "842e31ef53f8bd669b6e7344f028ab4de0255a77a593635b9720a451d2e2d47d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4533ad286ccc480236aebbfd1f16b0dd2db015b5c3ffd154c3747e2a25096bac"

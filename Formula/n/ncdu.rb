@@ -1,8 +1,8 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-2.8.2.tar.gz"
-  sha256 "022fa765d35a79797acdc80c831707df43c9a3ba60d1ae3e6ea4cc1b7a2c013d"
+  url "https://dev.yorhel.nl/download/ncdu-2.9.2.tar.gz"
+  sha256 "e91135281cb66569f2ca4c0bac277246991e7e52524c0ca8cba3de5c8e81cec9"
   license "MIT"
   head "https://g.blicky.net/ncdu.git", branch: "zig"
 
@@ -12,13 +12,12 @@ class Ncdu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8c6101ddddef74f72707d35042f89908d7e4809245aac6922f68ca9e802867ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "e2dc1b149d0902dd2a80bbe464dd76a03fc80f60eab9f9310e0ba7918e6ec945"
-    sha256 cellar: :any,                 arm64_ventura: "e38712f677f37a2c2e1f0c4b13232ddb4a9a8d9e865f18a506aece66a2f5dbbf"
-    sha256 cellar: :any,                 sonoma:        "61dcdfbcc8ec7b2363d0d3ed9243bbb6db3e0faa3c9d846ba0ee09702fd56b39"
-    sha256 cellar: :any,                 ventura:       "9e243cfcba2adc77d82a62444d13a200c71f435d203ccdd9241010e47457e58f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "010b5d4e07e41140c166a8066a26a6246f92c9229b6e4327a1a8ca29c99aa096"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3390c8fbb71866adbb6099023254feb4cf1112cf8bb6a59418fde4b3ce2dbdce"
+    sha256 cellar: :any,                 arm64_tahoe:   "9a08dd709b18d87d90b016b8685d56f2de8d537e437ab44cf4ed92203df7a245"
+    sha256 cellar: :any,                 arm64_sequoia: "d56b0ffa80c15fa5758a8b7b59525687a1a04ce043d540936b6db917c7c14c30"
+    sha256 cellar: :any,                 arm64_sonoma:  "b86c878b672bb5a7d8644e9908c4ed1ca3fd942095becec43ceff480340d2a2b"
+    sha256 cellar: :any,                 sonoma:        "768ace20bc54c22b86ddce63d51bd8488cb04816e28e330286a2685047d5484e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a2d143126f866ae7a7f0aeecc2d12282bde98542e1ece1203d821a8d499343b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "762c13f508d0699c363f0a3a0741a19cbd14d1ef8a86fdd1d70aeaaf2f7bd851"
   end
 
   depends_on "pkgconf" => :build

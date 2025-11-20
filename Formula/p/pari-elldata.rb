@@ -17,6 +17,8 @@ class PariElldata < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "5bb7d32ce0c2deef2a58ffecd2781fa23f718a90aff73ceb6e94a3169c71d006"

@@ -5,6 +5,8 @@ class ZshAsync < Formula
   sha256 "0f2778cb882b73471569b016bbfa6d9d75572bff40dc7f25ac50b3a8dc94ef47"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "d743c80fa4ea6850e397fc6a987f826dc7ed1503c038c5ef9e799fb0ce620b40"

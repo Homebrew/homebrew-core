@@ -6,6 +6,7 @@ class Ffsend < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "77cae62ecbbd3f434c1d50b40ac1f7fb281ea070d2afecf5751d2d1e7694735b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d60f43b2fdb056059608e05dd6e4e9f1fad57486180c3732a40ffaaa440116d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98551254d908b6fa9496bfd9281fb359c7fdc34b9d172db68d1fa633d8c67f07"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "398d00de4d062551f33c186bdb932c9ae62847f5e0a594663d4d09886ecbcc69"
@@ -20,6 +21,12 @@ class Ffsend < Formula
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "openssl@3"
+  end
+
+  # rust 1.87.0 patch, upstream pr ref, https://gitlab.com/timvisee/ffsend/-/merge_requests/44
+  patch do
+    url "https://gitlab.com/timvisee/ffsend/-/commit/29eb167d4367929a2546c20b3f2bbf890b63c631.diff"
+    sha256 "e5171b23ffd3cc0f4f1d47b29d110735c211ce96ba601a166a66537df28ed1c4"
   end
 
   def install

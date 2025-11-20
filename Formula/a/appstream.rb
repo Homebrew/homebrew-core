@@ -1,18 +1,18 @@
 class Appstream < Formula
   desc "Tools and libraries to work with AppStream metadata"
   homepage "https://www.freedesktop.org/wiki/Distributions/AppStream/"
-  url "https://github.com/ximion/appstream/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "dd33b1375ba4221ffee060e2778c478e8150d7b1108c6309148f5fb1ca6e90c0"
+  url "https://github.com/ximion/appstream/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "1615468b8d1e5edb9a9081f81841c8a22439c64bee5f02b008b3b8d5a5204c91"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "62af458e208bcd4469e9ecd149cbcc0ae6775fd3e42e61d3f75526e4340c8d3c"
-    sha256 arm64_sonoma:  "b802060c9d3ee181badb15af8c0167368f4639600d4a97a1b44a1cfd54061e12"
-    sha256 arm64_ventura: "d4ff9bd76af846d0f5bd81ac3520303b22f0702e207ab2b2bffcd1a713eaf84f"
-    sha256 sonoma:        "5ab8381af28d0b7872f445423ed5a42050f1a60df427e62c4836e9bf46131557"
-    sha256 ventura:       "d17ed0a5700fb7550edc54185e1735dac8cca1150ade8b7da78a005eac347818"
-    sha256 arm64_linux:   "c138a6b9a40af6fbfe764c0c76af622aa03853fd28aac2a42f1a3af06de64a49"
-    sha256 x86_64_linux:  "17ffe5258052484fdf85a3038b6df1ac21a2bf4f13eb3367dfe4480959182f88"
+    sha256 arm64_tahoe:   "8c4e52f27f3c8b071b8c541422bdbe35c48ffe882bc8461f74f90b1b4bf96e96"
+    sha256 arm64_sequoia: "88c2bcf17734e28cd498b89fcef5a2ca15199802dae52e3f03ede04ec5d1a51a"
+    sha256 arm64_sonoma:  "47d268044f3c045eb0e4d854c8b48ad1f447185922f2c5e89a2d59d95256f960"
+    sha256 sonoma:        "e69177a89e1596edd262b0b7aaa03e28b02e580ecd8f12b2441b0b599a5dea93"
+    sha256 arm64_linux:   "a46d487b2d1846bb39b3774e584fc9e0d531440ed26b56eae7da741ade9a2966"
+    sha256 x86_64_linux:  "a002f56187b439ddfe14a789540f40785e5ac53af8ea301cbf898b354ad8f57d"
   end
 
   depends_on "gobject-introspection" => :build
@@ -24,8 +24,8 @@ class Appstream < Formula
   depends_on "vala" => :build
 
   depends_on "glib"
+  depends_on "libfyaml"
   depends_on "libxmlb"
-  depends_on "libyaml"
   depends_on "zstd"
 
   uses_from_macos "libxslt" => :build # for xsltproc

@@ -11,7 +11,10 @@ class Svg2pdf < Formula
     regex(/href=.*?svg2pdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d9da1569adeb4b46ba5ffda2b7d4a70f99351d0e277ceb655d6cdbde8bd67325"
     sha256 cellar: :any,                 arm64_sequoia:  "47d73aad7aae2d18a27bb902aa155f2f0a716ae9da58468a177c324de3307cc6"
     sha256 cellar: :any,                 arm64_sonoma:   "5d2e70a72f9a8858e35dd8f3103931091f755b8f23de7163b2a684fc5d2d54da"
     sha256 cellar: :any,                 arm64_ventura:  "dd7230495881424c8a87dab9fe1e076df3cb0d714a93070ae8239314bcb5ca13"
@@ -22,6 +25,7 @@ class Svg2pdf < Formula
     sha256 cellar: :any,                 monterey:       "944236f1828f69922b87cd63b55f5cff0e20f3a565ceb977aaf0bad2f72374e6"
     sha256 cellar: :any,                 big_sur:        "b1275e6db5e5512c89394381f1e3e6649225e656df36412dc87e28cd3bd9130f"
     sha256 cellar: :any,                 catalina:       "806321a4363be84920038c530898354f98dd8e852ec14e963b7959b2a1ff28f4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "57a062a1e6b804c18c3361878b078da84d86d78ea93d92e9b62f6a8c2aee8366"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "da8f29a9fa362e43d754a326cf274898b7ee24dda8591b4169cfb8e31b6a51a4"
   end
 

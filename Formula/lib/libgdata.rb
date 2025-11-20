@@ -4,23 +4,25 @@ class Libgdata < Formula
   url "https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz"
   sha256 "dd8592eeb6512ad0a8cf5c8be8c72e76f74bfe6b23e4dd93f0756ee0716804c7"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sequoia:  "36b90319012266b453dbafde5737f7a9a0d0570494af7fd9f71c9ac836445d51"
-    sha256 cellar: :any, arm64_sonoma:   "11ea8fc6cbcecdbf469a94c4d0f11fef09947c51781ca98a103648983be3c643"
-    sha256 cellar: :any, arm64_ventura:  "5e030516ecc07a1b31b7db82b7eeda2d828f8a742f5daf9c1aced0dc33b4fb4f"
-    sha256 cellar: :any, arm64_monterey: "b262fab7a6607c82f01cb2c46098e6acc0cd0f8ee50f34d56789df69f5f03bc7"
-    sha256 cellar: :any, arm64_big_sur:  "b5285aafaa3e8096eee5ffebd4c144e01b0a61d9e7d510dbdfbbd7acde33a3d8"
-    sha256 cellar: :any, sonoma:         "32782ca2e84f3aa0d132613e8d3319ee00fe7a7275c957401e930d13256bbbdb"
-    sha256 cellar: :any, ventura:        "c99a9af5d3dc41104d3f334fae4b64a74f20bc76fc20120c0ae484f761209ef8"
-    sha256 cellar: :any, monterey:       "51f3dd89ac7e6c40a35c0c629ea385a558942d00eff37864925c038b0d185eab"
-    sha256 cellar: :any, big_sur:        "02e1ac992638692a58f8bb8313168c8e62117e6bab46ba447fc52b16b3f0127e"
-    sha256 cellar: :any, catalina:       "45066a1abdda5d00f7a6a41f6e1b1a3bc40e9faa2de3701372ac237ce776eb8a"
-    sha256               arm64_linux:    "799f6b4241c22aeda1828e781a56dedd5568a028f735ae5c4ef3909c91aa3f5f"
-    sha256               x86_64_linux:   "47559f0a3203d2274cf17141c8a8812b166d41b1a0522b00053d64e70c514085"
+    sha256 cellar: :any, arm64_tahoe:   "e14a620ed4e4745cdd03a4a29a8704eecfa725a8f1ea3807e8c2e2721573c165"
+    sha256 cellar: :any, arm64_sequoia: "5768f5f98b620b962d800ec3eeac032546b5be0be8c78df288cec2a5b9e21d68"
+    sha256 cellar: :any, arm64_sonoma:  "83575935d840f1863306d2114a51841316b7d6977130242e301f05ee9c9e4218"
+    sha256 cellar: :any, sonoma:        "c186586398a661778d1ca433e68262346b48b42c9424f5ce5c833ad7d595b5d2"
+    sha256               arm64_linux:   "39c78ebceb0f9711fc8aa0bbf9c08172cf294f31506172be9f6a124ce45f9ce1"
+    sha256               x86_64_linux:  "b2422d85703cd6292e19498ddd82be3efca9920d4e0a9e9d1bde5201ba9c0d02"
   end
+
+  # Last release on 2021-03-05. Currently has no maintainers[^1][^2], required
+  # old `libsoup@2` and was dropped from official GNOME back in 44.0 release[^3].
+  # [^1]: https://gitlab.gnome.org/GNOME/libgdata/-/merge_requests/49#note_2224724
+  # [^2]: https://gitlab.gnome.org/GNOME/libgdata/-/merge_requests/47#note_2030129
+  # [^3]: https://gitlab.gnome.org/GNOME/gnome-build-meta/-/merge_requests/1854
+  deprecate! date: "2025-09-05", because: :unmaintained
 
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build

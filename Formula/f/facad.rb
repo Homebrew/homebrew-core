@@ -1,18 +1,19 @@
 class Facad < Formula
   desc "Modern, colorful directory listing tool for the command-line"
   homepage "https://github.com/yellow-footed-honeyguide/facad"
-  url "https://github.com/yellow-footed-honeyguide/facad/archive/refs/tags/v2.20.13.tar.gz"
-  sha256 "381231de5429cc47fccdd163a34691b4478a33deea7146c78676d559d284439e"
+  url "https://github.com/yellow-footed-honeyguide/facad/archive/refs/tags/v2.20.16.tar.gz"
+  sha256 "4de8b7021efb0ec6f9bf71f0f70cb33e1cf52e945cc99e80760b80767dc380d7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "531b9fc1493250c2f12e7528cf444bf3e7751d27245337e3ffeddf1afa4c8b92"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51ae9755ae9ee5957dcdaa2da6a07f8224fbab9b4311d13ddd3d979bf571ae9e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f3b6c413bedc1b61a406fdc0c3efe28c29d91fdbcf320639dae4454d512be8e2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "35b192bfefc8f26e4c7763085c090380e561e9124b5d1e5a4a31966554828c5a"
-    sha256 cellar: :any_skip_relocation, ventura:       "c2bc9275cf97c25ad138cd1d45ef09ffa22dd7965fbb68557ae30885368b7d00"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f621e7fd54c732d10a5d27d3c8a20f719b8710ccd8a5f5360c6ef45acf427aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a37aec3747556f81333a13b7d860c22cfd31e8b05193b2414630dc8d0925649a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b2d62171e0a66f415fbdace7168e5f04f1e262074b3c5b340ea145e139d321df"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbb2b9b54e71b909a15edde995f0d338be9066e7e5f13692a9d020ca9aff694e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ebbb4be54e72be49c2780b3686195a73868fd2e53d43db912cba201b88eaa768"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ab0a95d9a26c50834dc5a836614d9c42377789880477a1c40e2632d325b3e44f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d6f315744dfd974eb77df2e2e5d8d79648dde77f21e70f39d26849661fe709bb"
+    sha256 cellar: :any_skip_relocation, ventura:       "aec4f6294fd7f106723203f8e26ffc3d12cf2eac6dcfd0d5a791fc353128871f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dcb9d87a0c649731817a61e9bd637595f44f3a2026fe88dc3bc0e4d286907ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "708616d9bd5c34b25e5f86c55088bb99efbe5ab13220215b82fd151f3eccf14f"
   end
 
   depends_on "meson" => :build

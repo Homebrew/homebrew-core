@@ -7,6 +7,7 @@ class CargoSpellcheck < Formula
   head "https://github.com/drahnr/cargo-spellcheck.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd89e47b7c68ffcb850bdb181127c956b8a3697e2a186fa534d471d6c420e64f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e4c34eabd5c01a01e81429472363789f826a4107fb087feb88f6350cc459e7c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "429f9b37061d3e2f7d69e85f8e2457642d32b621966ebd25b20717af067be0ed"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7be9cb9bf49c88cd65a94b13c136ec844ab8f7d00b57b7404d944199f12cde65"

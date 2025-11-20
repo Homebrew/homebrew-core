@@ -1,26 +1,18 @@
 class Duc < Formula
   desc "Suite of tools for inspecting disk usage"
   homepage "https://github.com/zevv/duc"
-  url "https://github.com/zevv/duc/releases/download/1.4.5/duc-1.4.5.tar.gz"
-  sha256 "c69512ca85b443e42ffbb4026eedd5492307af612047afb9c469df923b468bfd"
+  url "https://github.com/zevv/duc/releases/download/1.4.6/duc-1.4.6.tar.gz"
+  sha256 "e91592e367f3f8be671899660756b25e2c37f316c42ebd2a36dd684be3e2f25a"
   license "LGPL-3.0-only"
   head "https://github.com/zevv/duc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "36a33e4afc9997df0f15d7c8a9090054d213c243abd19ec2bb25cc7ddc157615"
-    sha256 cellar: :any,                 arm64_sonoma:   "df0c4ee04b4b588ebd6c627e769773354c8c990bd62dcb1d5a2cd4d7d8f7eaa8"
-    sha256 cellar: :any,                 arm64_ventura:  "f84fa8689d44e453cc7795e284c4bb33b5406f57e7e3e49dea18eed1e9853269"
-    sha256 cellar: :any,                 arm64_monterey: "672f0a2f6ce1dd2ce3eac59e247af247c254ffac22b962f0931e3c637aede1e7"
-    sha256 cellar: :any,                 arm64_big_sur:  "d70515b63c95de8ae52fb7e8ca11ef6fb6f98c1ab0661b4ce452fce2907cd35a"
-    sha256 cellar: :any,                 sonoma:         "83abc6de8f808854af5de8900a9e8dec941c428d9599c51e24d6f29b9ac54809"
-    sha256 cellar: :any,                 ventura:        "e6e560263c0fe5805daa0d4a7acde5480d3607807d63a1b626d17ad83b5ac0b7"
-    sha256 cellar: :any,                 monterey:       "36c158318b3407f306c82914ba1d63d9492c39644ae0ef1ad627ea20ef38351b"
-    sha256 cellar: :any,                 big_sur:        "4c95e3a0b2a6222344c157b9a12a26cb9ee78a447788f124a8eb8d9968368779"
-    sha256 cellar: :any,                 catalina:       "cc7f8ef4f7d6b1f310786032f0fab27aab42e17d57ee9393098f09e8b019cf50"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "a55a00e1179e4fb37bfff2495752b3c1e4aa13914ae932fd246f20bb1487270b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8068dbd6bfa637aa4718113cff03ce8f8b641e65a379f489827b8acd3411f0e8"
+    sha256 cellar: :any,                 arm64_tahoe:   "9bb01ec4d71dab368193198a600df30283f0e4ebb59bb92b5fee3640d2de14c7"
+    sha256 cellar: :any,                 arm64_sequoia: "41cc6c35c2c0291137556ddd2c07e7d690cdac67b5cd220c0935ee3a19a20aef"
+    sha256 cellar: :any,                 arm64_sonoma:  "b1e742ed404fbda890970be4142e17b7018f6007e63cd572c9dfe9afab2f4d8b"
+    sha256 cellar: :any,                 sonoma:        "f6ce54596642aa6f8dc27eb66d54f6dd2d6238dae6ecac8c225ee91b5b66bb2f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "88cc0ddde0081d9ca14f4d036f5f48b10ca1616543d7c1eed8b2ec5b47a4ad88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fc33d230b1c8a087e12c7a81c85e9723f58e2e90bba7cdc33f0876f845a9ca1"
   end
 
   depends_on "pkgconf" => :build

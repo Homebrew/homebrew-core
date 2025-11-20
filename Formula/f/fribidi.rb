@@ -6,6 +6,7 @@ class Fribidi < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4f6b90cece7f5eb2491a4938689366c84e5cba64e4a99009f20c92aaf341d186"
     sha256 cellar: :any,                 arm64_sequoia: "4904bb3375c1b1f2539cb657fbf17b0d93c050904febbba51e9dd690f3540e3b"
     sha256 cellar: :any,                 arm64_sonoma:  "0b03218a59bba62ca5a27b1a59d8c63f40478e3a957192121e1b2c593fcdb80c"
     sha256 cellar: :any,                 arm64_ventura: "334c412359217397f5e5c5ad082540ac3d5d494ef543d81c01f4e482b36b699b"

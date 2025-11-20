@@ -1,18 +1,18 @@
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
   homepage "https://liblouis.io"
-  url "https://github.com/liblouis/liblouis/releases/download/v3.34.0/liblouis-3.34.0.tar.gz"
-  sha256 "f0bf140a44f0a27d5fe9d59df79b02301f3c513b8f3eeb009d52ee4f59be0f8f"
+  url "https://github.com/liblouis/liblouis/releases/download/v3.35.0/liblouis-3.35.0.tar.gz"
+  sha256 "f56b21029fe7bea4ec97bdbcfa430e7e8759fccb30ea1f8e1be13c386f5b64c7"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 arm64_sequoia: "c8314c903ed2d21f4e233ad66a22781c31993768dda34e63ee3564aacb033fb4"
-    sha256 arm64_sonoma:  "d69585f6d5dd262ed68aeebd252d49111c058a811f11ebd85de0f09d23fe5c82"
-    sha256 arm64_ventura: "ac22eefa58b99225d467a1f98d53f1c0441659f0bba494876999bf35f206611f"
-    sha256 sonoma:        "95c9534295806a8d3bd1d293125836945f29df4d8b39405ab704c496cf38425c"
-    sha256 ventura:       "97187c91e88255175c59ac3727c4ab42f2aa1f947d67f76f2f85816db26fdc89"
-    sha256 arm64_linux:   "266d36fc10e4a92b37ae7b963a025adda1e30e13dcda98bff5943d22bfb1a7b0"
-    sha256 x86_64_linux:  "ae52aaf5548ea1787bef2c53825d01fa68853beec7482d00150a72145289f3d4"
+    rebuild 1
+    sha256 arm64_tahoe:   "838726d93e12c94befd95691077df4bc65b27c46612090d0d78f2ee3a7132b4e"
+    sha256 arm64_sequoia: "87fa87da2c962d2d9c42e03c417ca564b789070fddb04a06d7a0eef7c0679528"
+    sha256 arm64_sonoma:  "77126ddcfa16cf7996090c2c3b6ea0afa2c871421a010f242e14a3495ad2c218"
+    sha256 sonoma:        "ec16ba19c6888e32f3e14859de0528c5a158591d1aa79f12745131dc6e393993"
+    sha256 arm64_linux:   "b0bfd145455a787f748acf88755a1d9a72f6d30ee6b666dea77a7774d8274fdf"
+    sha256 x86_64_linux:  "a7858ece9a19c26000c6944a20d1c3fc0fb3f2166f71dee4aaddddb7fce6ebc4"
   end
 
   head do
@@ -25,12 +25,12 @@ class Liblouis < Formula
 
   depends_on "help2man" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "m4"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

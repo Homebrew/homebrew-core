@@ -17,25 +17,27 @@ class FbClient < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "ff32b0378ba41c1395804519b388c315d0abe780848adbd49ee764358047f81f"
-    sha256 cellar: :any,                 arm64_sonoma:  "e62bc0b15dc4557b1a68a5caacd45eb055110af29cdbb799f0577c712aa9696f"
-    sha256 cellar: :any,                 arm64_ventura: "a0ccd6e897f9815ac195bee9550634463b55375faddb81d4ecb48d880e955058"
-    sha256 cellar: :any,                 sonoma:        "fe1df6af7eee1f28991e794c5545b3d54d26a21b89f90b80a0d3434fd4e538d1"
-    sha256 cellar: :any,                 ventura:       "ec38a067c8f05eb8e1e1ffd6779ba60b893ddc811bb41ea30333cef3b6ea5c44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a95aba0e62e7e34d96cd40dd975a103f0a2d98379dcf2f6ee24fe7367bdadbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38fff3cbf77d6edd4773fbf6d57e1901a5032428248ffd6a258a2544a6762ebf"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "d8e28f243d35b05f844423d91864d16f6a762c9f504f275b844dd6b9a30e7cae"
+    sha256 cellar: :any,                 arm64_sequoia: "847de16c9a66787cd02c39cb7d3fe9d2b525d35c14c994b65897340c72c9ef9c"
+    sha256 cellar: :any,                 arm64_sonoma:  "979dc4765686977ab283f64a2cc5d9a2e11b29aa77429a1e10cff91d26d3710b"
+    sha256 cellar: :any,                 sonoma:        "8b4e5071281484647dc85aacd08e852e801300efc81a10020244a33682913c1b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "25a09e67f190d6b0fb898ff38b44fdae32c068f1710b240d1e2591cdd4c8c9d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "710a8cfa181a40cf624baf02e392d55a72420764bff738d2e400ad099dc9dbca"
   end
 
   depends_on "curl"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "spotbugs", because: "both install a `fb` binary"
 
+  pypi_packages package_name:   "",
+                extra_packages: ["pycurl", "pyxdg"]
+
   resource "pycurl" do
-    url "https://files.pythonhosted.org/packages/71/35/fe5088d914905391ef2995102cf5e1892cf32cab1fa6ef8130631c89ec01/pycurl-7.45.6.tar.gz"
-    sha256 "2b73e66b22719ea48ac08a93fc88e57ef36d46d03cb09d972063c9aa86bb74e6"
+    url "https://files.pythonhosted.org/packages/e3/3d/01255f1cde24401f54bb3727d0e5d3396b67fc04964f287d5d473155f176/pycurl-7.45.7.tar.gz"
+    sha256 "9d43013002eab2fd6d0dcc671cd1e9149e2fc1c56d5e796fad94d076d6cb69ef"
   end
 
   resource "pyxdg" do
@@ -44,7 +46,7 @@ class FbClient < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.13")
+    venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install resources
 
     rw_info = python_shebang_rewrite_info(libexec/"bin/python")

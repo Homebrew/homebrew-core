@@ -10,6 +10,8 @@ class Scalariform < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "57e890f720dfb6cb481d8ea3898b8d4706a33bfe02a6f71a8db118b7cb918e16"

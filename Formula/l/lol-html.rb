@@ -1,19 +1,18 @@
 class LolHtml < Formula
   desc "Low output latency streaming HTML parser/rewriter with CSS selector-based API"
   homepage "https://github.com/cloudflare/lol-html"
-  url "https://github.com/cloudflare/lol-html/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "0fe9df689654735f1f4e1e6dd31aecbdb0e52f52784d082c9471a357144202e8"
+  url "https://github.com/cloudflare/lol-html/archive/refs/tags/v2.7.0.tar.gz"
+  sha256 "f0e42a25eca75468fe03afc5c0d029030db7d334d0b2d34ccaab2f8896a91a22"
   license "BSD-3-Clause"
-  head "https://github.com/cloudflare/lol-html.git", branch: "master"
+  head "https://github.com/cloudflare/lol-html.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5147b4f58bf5dd2f379559e569cf021a572b853568d1bf8d59416fe869754662"
-    sha256 cellar: :any,                 arm64_sonoma:  "dc66ba33c71ca9ebf648f7382f44709f06620bedde3a55a614fca5296400bc8c"
-    sha256 cellar: :any,                 arm64_ventura: "a7be91540787540353ef9fe9ce687d777141e1d6fb6bb2603872ee933b726481"
-    sha256 cellar: :any,                 sonoma:        "71bc45af79edf3ef82ee1f98e781b9a4c578c35bdeaffdaa8c390a2f78a1fa96"
-    sha256 cellar: :any,                 ventura:       "47ecf2b443bbe11730c2600ba0a5d3f3827b6d060887b3d30a859b3f48830578"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "093b5c6fd7b095a387d8469ac58b90773e8fea08fa568c610b85c9ed6f3f87ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "915a8368d4c5a083aafa5d8745d2515fd331aa540b9683ba1afff952946f5bdb"
+    sha256 cellar: :any,                 arm64_tahoe:   "0e13614cf0562e9d98a0c143f68f0343620b9ac3c7689fbec35c5f6b0a3df2e1"
+    sha256 cellar: :any,                 arm64_sequoia: "068015ae279edfc20777c8fbaa51f7da78f4d93ef7e8804f56cedabbe54b29ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "378e1cd0e89342fbe1b2c7aaa5db7c15a8576b5280464c87a687abd7a04133b0"
+    sha256 cellar: :any,                 sonoma:        "45156f17c634db7f098a983319c1fb82d86971bda3f9f16666e5e9f526134bf7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "05ae42fa1269aeea29afc4ebaae03a0d415e3c287c8b84ef4f5a3c2ed223337f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e58b3d5fef40b48ef84f614c8c3d6b99d0368a8334734fc27f2356474b333d1f"
   end
 
   depends_on "cargo-c" => :build

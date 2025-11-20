@@ -5,6 +5,7 @@ class Kcat < Formula
       tag:      "1.7.0",
       revision: "f2236ae5d985b9f31631b076df24ca6c33542e61"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/edenhill/kcat.git", branch: "master"
 
   # Upstream sometimes creates a tag with a stable version format but does not
@@ -16,19 +17,14 @@ class Kcat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "57b88a17bd2e28ef99b15bfb5ae143537a1e8d080ee21d17f10b31331f6ee8ab"
-    sha256 cellar: :any,                 arm64_sonoma:   "35b9f6d34ab91b4b9ddb69cc07145e3ec1de687b846b3b3d9e670b04f823d2c2"
-    sha256 cellar: :any,                 arm64_ventura:  "91a40bc28ce360a9fa3d40f9a16917cc91e553f13b8cc6bcecbff98827c9d15d"
-    sha256 cellar: :any,                 arm64_monterey: "fd220a7e002772622e581f636e59c4a198ec883cbb813d2b31857d0bf24d089d"
-    sha256 cellar: :any,                 arm64_big_sur:  "f930080248bb0eff245599536bbc12465c6bf6e256acb283e6d2d5a5d047f11e"
-    sha256 cellar: :any,                 sonoma:         "a858a7a77b3bed33e236cd61207c56940ca0e98247b535be55558cd851c78fef"
-    sha256 cellar: :any,                 ventura:        "7f2f0da947ecd7fd93bea3a0b53d4e2f0e2d51e5bd9f2b93b870c20c22f88e26"
-    sha256 cellar: :any,                 monterey:       "5629c17a2d26e8e36c1e7aa8e54430e004e2d7ef080df3ce6ff6edee4a4eb0e4"
-    sha256 cellar: :any,                 big_sur:        "c6d947fa5cbdd948ab09082f1c961d21e5a6e565c36cb6ffffdc9712456cafad"
-    sha256 cellar: :any,                 catalina:       "7125450d67cedf6116bc7e2afb22be2b860a715dc1de6663e4e75936d7eb466e"
-    sha256 cellar: :any,                 mojave:         "f403c10fd0970ed617e43cbf6fa107cac70cba94633e04c47586a586505b7ec6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "79c4bf2db9103177c5ece5c518f0d4d868d7d9a78c1a302c76c6d3b17c7ea456"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "954186ec95e9963cafa13f2ec0ac95591adc1a6ab1b82df116468c973c1ba51f"
+    sha256 cellar: :any,                 arm64_tahoe:   "25860a3013a5c54e65ed107ead46eb16dd845230fa7606070c12201c616a5a75"
+    sha256 cellar: :any,                 arm64_sequoia: "f684d065bf86b82d9911cbbb86e555033f970923d02bcbadad8073f0601876ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "de9642d4f8c58420ffa965fcecd0f220b3f74ecab2944de3cf2aa92b07e698d5"
+    sha256 cellar: :any,                 arm64_ventura: "735e7d9bba57e51a819c6db9927425c33b4f90d20df1c5cb4688f661b73b92f8"
+    sha256 cellar: :any,                 sonoma:        "dcf579278d9f03b5c59ddb73bfd6348ba8385710bbe01b45ee90bad76d22c215"
+    sha256 cellar: :any,                 ventura:       "95536d78ad5b427449953b687b98e18f7cc4fd0b53fd9439849b19970cdba06b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6237b718df72d64eef1d024d565d718ed52c0120996ee8ea165c60796e6e9ca7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b2ab512dfbe8d359b5002d16066c2a6c2d5dca9f30e0f9e3caf2d49a9270c7c"
   end
 
   depends_on "avro-c"

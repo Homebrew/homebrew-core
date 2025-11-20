@@ -12,6 +12,7 @@ class Tfsec < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eb1908905eba53c4bc447ab6b45f55e8993f2baa1e5b0a6633185ce20087df9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8cf695583885541d5458402c40342efa2beebee6ad5cfce832c738bfc5b8a2c9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95f94624c56f21064b7621e9d01c9cc78a60186864119a7f738b62d9fb97727b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4c3fed3af871e78aa8129120ee048064e4f6bfc8a8d44a8aff8582a0e48732c9"

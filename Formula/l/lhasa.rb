@@ -1,23 +1,20 @@
 class Lhasa < Formula
   desc "LHA implementation to decompress .lzh and .lzs archives"
   homepage "https://fragglet.github.io/lhasa/"
-  url "https://github.com/fragglet/lhasa/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "b0ef13e6511044ecb50483b06e630eaa7867473ec563204fe0098c00beeca4f8"
+  url "https://github.com/fragglet/lhasa/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "1ae8d82d37fc12ec2c52c520b6528ec61268e243f33eca4446b440e182c66d91"
   license "ISC"
   head "https://github.com/fragglet/lhasa.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "7091b3e54583531d962d3d632496d8bb7d0fb5ee9904dda89504910ba9a1cdd4"
-    sha256 cellar: :any,                 arm64_sonoma:   "ba490379926bcfe5bbff0186c4a65a0a6b5c7da25bd4b7f02ed37691466b0aed"
-    sha256 cellar: :any,                 arm64_ventura:  "7e94d6c751e1ca42e17bee1949f2133cb5323691ff355881e7efeeb47e74cbcb"
-    sha256 cellar: :any,                 arm64_monterey: "73a6401a84fc6108220d4e621b974b233fd47e3f87a7ade8f4117322f0679939"
-    sha256 cellar: :any,                 arm64_big_sur:  "30047c8030fb9cf3c874b2c688df088b4b992ade61566a8df0eb55dceff9fce3"
-    sha256 cellar: :any,                 sonoma:         "7297a2924981f20648b56d4150485872c1230ffad2a84dec1ac4bcff8b589bea"
-    sha256 cellar: :any,                 ventura:        "ff83cb798608b1449fade603eeea29336d2e26c9a6c15cd7685416c2fbd43862"
-    sha256 cellar: :any,                 monterey:       "9263082424c274662632b1c8e1a1c321a6fca8ed859e0a137f795c3579b564e4"
-    sha256 cellar: :any,                 big_sur:        "ebb0a2f44f7d1a50d22a7599e52f859d42773a181c41eb1abe52ac6a261626e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "11128ff960405bd86482164ee889d2a3a4523ff6e923302550c74b4889b94d00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d2389e91a008a7fe1bf3cf80ea0398679d6fc783208261a60459b3851b65622"
+    sha256 cellar: :any,                 arm64_tahoe:   "c54634d428cfdd0fe31a8d993387e1d4d166e1081b82ab919354805a948ed432"
+    sha256 cellar: :any,                 arm64_sequoia: "d6af1ccf1e48330e1c9b9d7a63187e2a963196cc65b6995ff236ecaa9fd8470b"
+    sha256 cellar: :any,                 arm64_sonoma:  "d6da687747be968b1f452bb2c4f7df58dae56ac8c12bd9a7e22c800cbcd75ad6"
+    sha256 cellar: :any,                 arm64_ventura: "c4a2d8a1b69b741ccc11541fe34c22eaf1ed22497d139f8f82ccc1488922cf38"
+    sha256 cellar: :any,                 sonoma:        "8f514fe7d1d4d3621ceec8d41d130e0a362ceefd0be091e4cce36c01658d426e"
+    sha256 cellar: :any,                 ventura:       "b3cb1bf8712c3b58ad3bb0fbaea6f480969b16c1fcb803db5291f29bf9ea44e2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ad64de0374f0f74a9517c25f1641881a1e9fd24c538f500ae54445794831c2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdb0cf0122a0acc12b80c409bc0d5e6e5a023909948068eeb2f3753f2ef9008c"
   end
 
   depends_on "autoconf" => :build

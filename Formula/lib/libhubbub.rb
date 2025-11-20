@@ -4,7 +4,7 @@ class Libhubbub < Formula
   url "https://download.netsurf-browser.org/libs/releases/libhubbub-0.3.8-src.tar.gz"
   sha256 "8ac1e6f5f3d48c05141d59391719534290c59cd029efc249eb4fdbac102cd5a5"
   license "MIT"
-  head "https://git.netsurf-browser.org/libhubbub.git", branch: "master"
+  head "git://git.netsurf-browser.org/libhubbub.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -12,6 +12,7 @@ class Libhubbub < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ab526b580a4df9a91bf5c6fb81f8c6af820367dbb28347b47de2fc743d46fe45"
     sha256 cellar: :any,                 arm64_sequoia: "508f0ebd9f00da4d05a4d477c55c9cae35ecd8b2b80ae83871623ae11c67ef9b"
     sha256 cellar: :any,                 arm64_sonoma:  "e024f9c815850423b7eed9a0cb5c9d3f0a83e980f6a5aced31b006c9f43fd6f8"
     sha256 cellar: :any,                 arm64_ventura: "81e8aa3aae89f339efbf14d216270d1c57729e525b20c7d977dfa539f71012b0"

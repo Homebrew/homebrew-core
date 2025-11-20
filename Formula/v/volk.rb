@@ -8,24 +8,24 @@ class Volk < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1f910c4f27cfbd4419f857c369337c1fcce0068b05d01391fa1f6b5d9db00055"
-    sha256 cellar: :any,                 arm64_sonoma:  "7a2efd35a0db458e5afe369c40a303b561a34df77d1fae9c11378afc31d2fedf"
-    sha256 cellar: :any,                 arm64_ventura: "46b4a7e08f105a3348f4ac8007b8718c76715dbc35dd2f6da818031ffef214e8"
-    sha256 cellar: :any,                 sonoma:        "791c5ee148b98b0707ebe2fa57f66d6310be6ef0eeb6b16925edea23c9b92f2d"
-    sha256 cellar: :any,                 ventura:       "17265b6ad8a1b44a34f0ed8a9acb52abfdc6d3021adeb44b692022cc80376200"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "20ff379409a40837f19708efd3b69898f858a7b158726db713457bcba18c4ba8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a453a467d9e9fcd933395cb567e39e003e3ec7f294bd422757f209e7ba418eb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0101fc34bd0194f1b696b1a18febd7e4e53784c9fac00bbd238839cebd818c80"
+    sha256 cellar: :any,                 arm64_sequoia: "e11bbb09bdccdc73383832a358473a026e4e47df07403047173e0bc2a951ef19"
+    sha256 cellar: :any,                 arm64_sonoma:  "c8a7cb1121c51fa06ac8c1549c1f3e51cc16f1eda40ef1234a4e83f24d0bd27d"
+    sha256 cellar: :any,                 sonoma:        "71a9d3ea9e5aea62969977a769049643b60e8fcf60784dbb2baa7819072f8f8a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e7a7b3d137b539988f0393dd47a6a4f118066252d1f2b06da93edb7a0eb9014"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f02bd47c23ba777669675e79e099e91047a23924cdb4a4f850a0fca6c19250c9"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "cpu_features"
   depends_on "orc"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/5f/d9/8518279534ed7dace1795d5a47e49d5299dd0994eed1053996402a8902f9/mako-1.3.8.tar.gz"
-    sha256 "577b97e414580d3e088d47c2dbbe9594aa7a5146ed2875d4dfa9075af2dd3cc8"
+    url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
+    sha256 "99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28"
   end
 
   resource "markupsafe" do
@@ -34,7 +34,7 @@ class Volk < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

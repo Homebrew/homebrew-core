@@ -5,6 +5,8 @@ class Xbitmaps < Formula
   sha256 "ad6cad54887832a17d86c2ccfc5e52a1dfab090f8307b152c78b0e1529cd0f7a"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a2d50475647c9d98e3822fbbf383231d0757fcbfd429d6999ad263ff692dcfb2"

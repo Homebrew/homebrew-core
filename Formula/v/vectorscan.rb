@@ -1,22 +1,20 @@
 class Vectorscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://github.com/VectorCamp/vectorscan"
-  url "https://github.com/VectorCamp/vectorscan/archive/refs/tags/vectorscan/5.4.11.tar.gz"
-  sha256 "905f76ad1fa9e4ae0eb28232cac98afdb96c479666202c5a4c27871fb30a2711"
+  url "https://github.com/VectorCamp/vectorscan/archive/refs/tags/vectorscan/5.4.12.tar.gz"
+  sha256 "1ac4f3c038ac163973f107ac4423a6b246b181ffd97fdd371696b2517ec9b3ed"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/VectorCamp/vectorscan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "b360fb4b6e842de1f1aa4599528a0b2bb899f960b6f380fa3acdfaad54f4cec3"
-    sha256 cellar: :any,                 arm64_sonoma:   "f39f184ac1f5dbdb22087f8a6fe7ffaadcbb0fdea64d1ea872d2e4df90e28a0b"
-    sha256 cellar: :any,                 arm64_ventura:  "52148d0b76b052ffe68ddbf0c23b659fa97498f889e78b49c54db5f12ccd55c5"
-    sha256 cellar: :any,                 arm64_monterey: "bc41610e518516717336b23078e5b5b0b2880c5e1a7d6fa72a4d10f1ba8c105e"
-    sha256 cellar: :any,                 sonoma:         "19b569e181cf684a889a6be49f77794825e7605d811b4290be9877141133395f"
-    sha256 cellar: :any,                 ventura:        "68e0a9783052f829c597b7c45ed425b2e0b5a609cad7eb63a63847e66f9627ea"
-    sha256 cellar: :any,                 monterey:       "8e12bb9304fb04e3d8044835916b6d9ab5b5ce15f0183db96d8886a40961caad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "e0e99647d8cab29c89b342838b7105590f9439f1933bed206930d4ae31c0a207"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "731eccf9091173f46c7578649f8779e9b70ec340572128f69fb1799c9907897a"
+    sha256 cellar: :any,                 arm64_tahoe:   "2ccf33c9cfa23e8e02319a6ed2a40d116699c7c943439b44e88e6068f8696f79"
+    sha256 cellar: :any,                 arm64_sequoia: "7fedda4e165b82f826e9d5fc14d8be8cd2c55dcd26c08d474271b07c74b2ab9b"
+    sha256 cellar: :any,                 arm64_sonoma:  "3bcf577d4c91d01f7519cbb38e00bb3bae03328adf8798cc725576b9aa578f9d"
+    sha256 cellar: :any,                 arm64_ventura: "ed29f6c36f2949e388e2c3f721ecf46891ed855d5c58212e06f559e0908c5e52"
+    sha256 cellar: :any,                 sonoma:        "b628c16819474af7f2f092daaf2d4a3f0497ad9129925c9100a7cc1112077f9a"
+    sha256 cellar: :any,                 ventura:       "d20eebae83e57037cf31393d3e6fcea980bf6e6681d7e42bf03bf1858f4aeb4f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6235d9e69a6434f6be35351c33eb667b45e533fe26d8755253368e5a1ae7f512"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "764260a875c598d22c3abc692855aa7045fb5350e78add953320055f786f0154"
   end
 
   depends_on "boost" => :build
@@ -25,16 +23,12 @@ class Vectorscan < Formula
   depends_on "pkgconf" => :build
   depends_on "ragel" => :build
 
-  # fix SQLite requirement check; included in next release
-  patch do
-    url "https://github.com/VectorCamp/vectorscan/commit/d9ebb20010b3f90a7a5c7bf4a5edff2eb58f2a4f.patch?full_index=1"
-    sha256 "e61de5f0321e9020871912883dadcdc1f49cd423dab37de67b6c1e8d07115162"
-  end
-
   def install
     cmake_args = [
+      "-DCCACHE_FOUND=CCACHE_FOUND-NOTFOUND",
       "-DBUILD_STATIC_LIBS=ON",
       "-DBUILD_SHARED_LIBS=ON",
+      "-DFAT_RUNTIME=OFF",
     ]
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args

@@ -11,15 +11,16 @@ class Mftrace < Formula
     regex(/href=.*?mftrace[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "097fa4cc166f51d4033415a651817207d3a5734ef50237969b84f5a8fc6ddfb4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9415613e99216e1174b5e962761cef44084c8e9ef41208673b31e44d55879828"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e639eb620cac19e786da74b7a387f742f23837823bb2dee341e42a5b6df751d2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "69753e27a76317dfa0c872ac7a7a90e8c0849c39fae13a1cc677a1b1ded7c26f"
-    sha256 cellar: :any_skip_relocation, ventura:       "406e8d33e1825be811ad65d5b77d9f9538011238b3811b9cda2f40bdf50a3b80"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5e079fcd7a317dfd7018ce822dbaef57907cbe203c96230df05adfba693fbe8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "138d79020d6a8942911908b01c237b00dc0847d9d8e4a506818db60e54aef44c"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2d4dbf098949319339b846a75c34f03b67e6b9288be17881dc7a958e79d76000"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29733fe05cdd66d2cd8933ea426d6cfb64463151e1b3737e07308c77d8e3d05e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6ad6365585dc156c13d18d72590ba208b48291d43d023cd24d9dac509c4fb3b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bd534c47c1a7b6c0d8ede69c36d0334ea7ce6acb61b9e120cde5ce2a1ecb21e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "99a63f01ac23f29dc26b14cd63a5f51bb0cdc489d3a902e3d376ae4c64662d87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2f5a4759a519ac0eb0ca66dca1ce9d57d096dcd55855b00c803fa02f9921358"
   end
 
   head do
@@ -29,7 +30,7 @@ class Mftrace < Formula
 
   depends_on "fontforge"
   depends_on "potrace"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "t1utils"
 
   # Fixed in https://github.com/hanwen/mftrace/pull/14
@@ -39,7 +40,7 @@ class Mftrace < Formula
   end
 
   def install
-    ENV["PYTHON"] = which("python3.13")
+    ENV["PYTHON"] = which("python3.14")
     buildpath.install resource("manpage") if build.stable?
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args

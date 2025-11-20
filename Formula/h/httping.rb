@@ -14,6 +14,7 @@ class Httping < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "5895bed583e9faad9d7be382a6890f92ca1cd229729977729246a0b3b8603597"
     sha256 arm64_sequoia: "2edf3ec3576fcb84bcd40124d94c84e80fedba5975fa7c22aa30375e40ab48c6"
     sha256 arm64_sonoma:  "f51c8f88fcfdf499b9402d73c8e694395f1ee09af0a1d988774f02cdd7ae9fed"
     sha256 arm64_ventura: "cd0bd242c917ce8ce4699733fb6bd36cfccefd36bd8b0b7fba4822842601a351"

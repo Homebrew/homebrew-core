@@ -1,8 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.5.0.tar.gz"
-  sha256 "3b33ea113e0d1ddc9793874d5949cec2c7386f66e4abfb1cef9aec22846c3ce1"
+  url "https://cran.r-project.org/src/base/R-4/R-4.5.2.tar.gz"
+  sha256 "87a41ce9b50e096dd2c4282f48efea30c9916fcb7b167fa2bc988c9cf3cb6642"
   license "GPL-2.0-or-later"
   revision 1
 
@@ -12,13 +12,12 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0de6e135c11600d2d2c30ff1063f2c118189cef828ee9c70a2c2749f1eb82d89"
-    sha256 arm64_sonoma:  "4a1f7e24f55875da53aff9efca460e6c45b47fe590b9bfa580db30227b311ff9"
-    sha256 arm64_ventura: "fdf624f1fa9fa2b797c060c7b64a3030544dda61cf9609a199b9518672361f79"
-    sha256 sonoma:        "dc243c6b9a04996402859305aeb2cee79eb99f232c40a3394b41f0ed76d26ff9"
-    sha256 ventura:       "c5c3429d72db5e748b3dfcd62d74fdf6d6905badd022ac5e91876208f22f2f66"
-    sha256 arm64_linux:   "19fd51f9f938013a09b9a12aaacf490fdb880c273ce7116200033cb9c1ae545e"
-    sha256 x86_64_linux:  "d06cfe5a03a20a1d6a285981e8afe3a10d5781e59f360bb73939f7c54f10bb62"
+    sha256 arm64_tahoe:   "07e479b7f8297bc4149646b412a57dff589f55d500b2949505ef0e0c280869e5"
+    sha256 arm64_sequoia: "12f81758f59c0752462640f86030664aae22fe92f0c9ee484ed3134165571fb1"
+    sha256 arm64_sonoma:  "cffb5c40a7e38c485df712a74c27f50c9cc85f414fb392594941edf7eeaa3986"
+    sha256 sonoma:        "9ba7fd1de76c5c0f910c68ece11b18298100c01225cacc3a2095c3a4ae41e9a2"
+    sha256 arm64_linux:   "bb318a83d2bb9854ccabb52af2315138199c771a2a5cde91b40d8a79503d308e"
+    sha256 x86_64_linux:  "9cd4b3c692a957f501ebb0f89ceab1f2d05e3c416f992accedd5d95f49529a38"
   end
 
   depends_on "pkgconf" => :build
@@ -31,13 +30,13 @@ class R < Formula
   depends_on "openblas"
   depends_on "pcre2"
   depends_on "readline"
-  depends_on "tcl-tk@8"
+  depends_on "tcl-tk"
   depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   on_macos do
@@ -54,7 +53,7 @@ class R < Formula
   on_linux do
     depends_on "glib"
     depends_on "harfbuzz"
-    depends_on "icu4c@77"
+    depends_on "icu4c@78"
     depends_on "libice"
     depends_on "libsm"
     depends_on "libtirpc"
@@ -66,10 +65,6 @@ class R < Formula
   # needed to preserve executable permissions on files without shebangs
   skip_clean "lib/R/bin", "lib/R/doc"
 
-  # Fix build with clang 17
-  # https://github.com/wch/r-source/commit/489a6b8d330bb30da82329f1949f44a0f633f1e8
-  patch :DATA
-
   def install
     # `configure` doesn't like curl 8+, but convince it that everything is ok.
     # TODO: report this upstream.
@@ -78,8 +73,8 @@ class R < Formula
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
-      "--with-tcl-config=#{Formula["tcl-tk@8"].opt_lib}/tclConfig.sh",
-      "--with-tk-config=#{Formula["tcl-tk@8"].opt_lib}/tkConfig.sh",
+      "--with-tcl-config=#{Formula["tcl-tk"].opt_lib}/tclConfig.sh",
+      "--with-tk-config=#{Formula["tcl-tk"].opt_lib}/tkConfig.sh",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
       "--disable-java",
@@ -170,28 +165,3 @@ class R < Formula
                  shell_output("#{bin}/Rscript -e 'library(tcltk)' -e 'tclvalue(.Tcl(\"tk windowingsystem\"))'").chomp
   end
 end
-__END__
-diff -pur R-4.5.0/src/nmath/mlutils.c R-4.5.0-patched/src/nmath/mlutils.c
---- R-4.5.0/src/nmath/mlutils.c	2025-03-14 00:02:15
-+++ R-4.5.0-patched/src/nmath/mlutils.c	2025-05-24 12:16:15
-@@ -105,7 +105,20 @@ double R_pow_di(double x, int n)
-     return pow;
- }
- 
-+/* It is not clear why these are being defined in standalone nmath:
-+ * but that they are is stated in the R-admin manual.
-+ *
-+ * In R NA_AREAL is a specific NaN computed during initialization.
-+ */
-+#if defined(__clang__) && defined(NAN)
-+// C99 (optionally) has NAN, which is a float but will coerce to double.
-+double NA_REAL = NAN;
-+#else
-+// ML_NAN is defined as (0.0/0.0) in nmath.h
-+// Fails to compile in Intel ics 2025.0, Apple clang 17, LLVM clang 20
- double NA_REAL = ML_NAN;
-+#endif
-+
- double R_PosInf = ML_POSINF, R_NegInf = ML_NEGINF;
- 
- #include <stdio.h>

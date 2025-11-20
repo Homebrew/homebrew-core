@@ -1,19 +1,18 @@
 class Chdig < Formula
   desc "Dig into ClickHouse with TUI interface"
   homepage "https://github.com/azat/chdig"
-  url "https://github.com/azat/chdig/archive/refs/tags/v25.4.1.tar.gz"
-  sha256 "5956bccc99f5c86eef6095ee03dde53590dd03370b06cd04348074ea223f2297"
+  url "https://github.com/azat/chdig/archive/refs/tags/v25.11.1.tar.gz"
+  sha256 "3e84542afe61ef6bb0e7364fac0b08b8d652d1a81a4514ec1036056589c8d6aa"
   license "MIT"
   head "https://github.com/azat/chdig.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b983bd8086b13f4c9b8656678f01a517c9a1dea76ce4c90d6c0931eab195beb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8c0609d8c5284a2e7b717123e71036ec434fa4aa311c4cedf9fbec31b3d348e7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1b39d50f8782ae0b1c20a35254aac710c8705020189337fb98b859fca647582c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3ac80eca9b7d94b9d9d1a1570fcd1494f0ac96bc1ea25dc4e6979703ad67a7fb"
-    sha256 cellar: :any_skip_relocation, ventura:       "fc41f28455ef3bdd91b01f10994c1878917d8f4c8584e9442d4da8e83e4f18b9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d110d05f6b19f1d5db298a2b979e67f9df13e7b276254ce49fad2e18694c99f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3a9dc13cd1c5fa758858c77cd83d169d98b382a6254cca0facc75c5e3330251"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "39910eedc4660dafd48ba30d6d4a6ebb352b756a617535b3d056406c0a987df5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1080f54b7d4885e10a1ad941b704d40b67cf97e23db944960427e40017a4dbf2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "052bffd1ca78a0089b6523cf040476da25f0fecaafc07a5f99827d7f5a5972bd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4dce2741c885ced576be6bd8992e3a58b06f5f31191f07893e40e7ad65fd7861"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4423e02a9f19f9bbbcd830a62ea72c392181fb00acecbf347744e0096b93acc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae1564ceb97c3987ffeee7585eb864a8653c05fc8e8458f48e91947c8a7b741f"
   end
 
   depends_on "rust" => :build

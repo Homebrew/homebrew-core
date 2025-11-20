@@ -1,8 +1,8 @@
 class Asm6809 < Formula
   desc "Cross assembler targeting the Motorola 6809 and Hitachi 6309"
   homepage "https://www.6809.org.uk/asm6809/"
-  url "https://www.6809.org.uk/asm6809/dl/asm6809-2.16.tar.gz"
-  sha256 "6051624597d94d69a68a08e194cfe18cbdb12f829c80d92b84f641794b8b09bb"
+  url "https://www.6809.org.uk/asm6809/dl/asm6809-2.17.tar.gz"
+  sha256 "a6d36dd29cb3b26505c46595c1f0f1c4d7e66d3838f6347ce33ce27f4b35cffa"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,14 @@ class Asm6809 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53a922bce5c9ecde31b6f3a8e387f1db2d31649b8e0ddccdfc3d8825b5743eb7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6589664a9e6e8ca18926cc88dd3afa2fd0c493126351e78acde2a5d48be1307"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a0a0771b53895adaede7849139df909fab2ac61dc1ebdc5d3b0f805cdff43cd0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "59b89cdd10721a6e83b487022edeefc95433f089ed6778110a96a032b893d7a6"
-    sha256 cellar: :any_skip_relocation, ventura:       "53e5901547c33f9d32dfff01cbee8a14267320b40ad99dc01d206df3ccbdf0a8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d0ec076c8403a105d75e020c8bdc9118bd40320122c66c5e430a88fe9e2ea53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbf6e55fa95c5e75aa42a332602abde9188dbb7700ae2758b556f30884addb4e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc791edd9764748c796e4f6a90e3705326600445cdf4a2eeb3fc6fd61552b920"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7de504e84b26b8234defb68bf94da035a54d7c4ac541aaf4b467089c27bd8b85"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "995fe91f8964623a28d85e866b283f3d530638c2315dba2ca8e5a709a3be0889"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "045d5d4372030b74a9f65153a0a985d83f1dcf74d0b6ac16c067d0ccf4d29de4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c60151ade6cc3f159517932d60880ea5635ada30a038647001c0e3c3763a1267"
+    sha256 cellar: :any_skip_relocation, ventura:       "60f7bbebe4678620b524fea6071a467ce5a708504e25ce932819b06eb7356bdc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba890d3aebaaf8b4463b7dccf849c30fdc7be4028ac80f683421f4eca00fc3d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cffd8646a3965426d5c82a4a4b846714003e0e0fc297a879f55cc5d7e8ee2dc3"
   end
 
   head do

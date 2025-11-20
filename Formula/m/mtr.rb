@@ -1,8 +1,8 @@
 class Mtr < Formula
   desc "'traceroute' and 'ping' in a single tool"
   homepage "https://www.bitwizard.nl/mtr/"
-  url "https://github.com/traviscross/mtr/archive/refs/tags/v0.95.tar.gz"
-  sha256 "12490fb660ba5fb34df8c06a0f62b4f9cbd11a584fc3f6eceda0a99124e8596f"
+  url "https://github.com/traviscross/mtr/archive/refs/tags/v0.96.tar.gz"
+  sha256 "73e6aef3fb6c8b482acb5b5e2b8fa7794045c4f2420276f035ce76c5beae632d"
   # Main license is GPL-2.0-only but some compatibility code is under other licenses:
   # 1. portability/queue.h is BSD-3-Clause
   # 2. portability/error.* is LGPL-2.0-only (only used on macOS)
@@ -10,19 +10,17 @@ class Mtr < Formula
   license all_of: ["GPL-2.0-only", "BSD-3-Clause", "LGPL-2.0-only"]
   head "https://github.com/traviscross/mtr.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "de2a8c8ebe004fa34eb74e44a23eda5371a0b00d794c31541369afc9383dcb59"
-    sha256 cellar: :any,                 arm64_sonoma:   "d1d03f6a4f9a9e49321d656b787d4e53f1f6acad08384d68bb4ad8199bf1626e"
-    sha256 cellar: :any,                 arm64_ventura:  "83d9da1de6a03855e99e0db1f8060f196fda988b187493aaad8d15b039176644"
-    sha256 cellar: :any,                 arm64_monterey: "832e28a80e1b4340c19c4dc3511504672ec03ff5cb54d7294e932b7d9aa80085"
-    sha256 cellar: :any,                 arm64_big_sur:  "0e41037f1e0f662b87155307468c740594d2e16761e2b120a3086e0922c7bda5"
-    sha256 cellar: :any,                 sonoma:         "fad686ff163def04ca773130a81921c8498606f072ff7af37c62463e8aaf5412"
-    sha256 cellar: :any,                 ventura:        "bbff689ff843d38238f2379af5022b4bd0848234a9bc4e0a79fae8669510cc8b"
-    sha256 cellar: :any,                 monterey:       "8388e7af1b04e7749ffa93b3a9479df605cbe16d7a88c02625ecd229e36043f9"
-    sha256 cellar: :any,                 big_sur:        "bb07a178a739fc8c8a15fc7645efc7fe749b81663752bcd66cb1efcd47217371"
-    sha256 cellar: :any,                 catalina:       "7ee23cbae756e561d02a0ffe3b32476cd635b54f70240a937c43e7608c27766d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "dd12499c2fd410879561de9ffbc0a47393cb2b370d8889091b2b751678f32411"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b2707211f207742525047d68e4b3e870b524f093ea8ce8f76b8fb3999e6f8d5"
+    sha256 cellar: :any,                 arm64_tahoe:   "e895fc7ed39c99111d74a2ca15aeaee2ff99c4106af7517f60a6accc71560eec"
+    sha256 cellar: :any,                 arm64_sequoia: "a7bacefb19840814841941c74a3ac93d8e0e5355b09c471e3b76dec702315fc3"
+    sha256 cellar: :any,                 arm64_sonoma:  "ab39214cf72c697c0e436035efbf4e1b8b846ebec5f390e1ab39949740adb210"
+    sha256 cellar: :any,                 arm64_ventura: "160496478cf39459cfdb9a39b32408cddb62797a7f5c7b511b21d0f243daf2e6"
+    sha256 cellar: :any,                 sonoma:        "f89057c3a1fe1c6ed781ff12794f8313e1aa8b40c6fb8c921d30f4b16b4ec1fe"
+    sha256 cellar: :any,                 ventura:       "4dac9630dd7d0fd91fdf2ab472c515235f25969d6de0d6f0773bdd56989c2312"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "55386202173e44242ea3fc0cab0f6d3e0a82e958661470c6a554580631a25cc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e5bc25c0c9a1c56b8d0f5b4f1276f629a283e50f0fd901ecfe8eb7e2c76f43f"
   end
 
   depends_on "autoconf" => :build

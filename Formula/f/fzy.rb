@@ -1,29 +1,20 @@
 class Fzy < Formula
   desc "Fast, simple fuzzy text selector with an advanced scoring algorithm"
   homepage "https://github.com/jhawthorn/fzy"
-  url "https://github.com/jhawthorn/fzy/releases/download/1.0/fzy-1.0.tar.gz"
-  sha256 "80257fd74579e13438b05edf50dcdc8cf0cdb1870b4a2bc5967bd1fdbed1facf"
+  url "https://github.com/jhawthorn/fzy/archive/refs/tags/1.1.tar.gz"
+  sha256 "93d300d9c6c7063b2c6bda4e08a9704a029ec33f609718cd95443d1a890aff4e"
   license "MIT"
   head "https://github.com/jhawthorn/fzy.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8cbf2b486b0abed29cf5fb45fc5580fc74881ceacae68cd11e53bdbeabae52ea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "250fc5952135704c7a93c1066a13fbb27322358dedc115d7792da91cd56d12ed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa5003d2177cfab28c1a44199fc9aeea2351c2480b5ee4cdbfe03f3b855569b3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "594f670b4c7aead7e05fb1ee3b756d6373abe49c8a05c9422acee94a932ebfcb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "80cdff748840ffa3b7f85b79839b776ba8c24cd8d5e63d6dfa9c3e34cc97717a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b975d3ab1ed8ef32ed8d13eb088e21fe57ba8f1b79a3693e30d8139fca7ad438"
-    sha256 cellar: :any_skip_relocation, ventura:        "822711ed5bad961b13e20f748b816bc35957fc0e51dc9ac57b6eeac4a3ba4547"
-    sha256 cellar: :any_skip_relocation, monterey:       "f86b3980fedf4bd190cad2a289985b42fa664a022373de292c5441a1d2ea581b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "31d5e7d85d6ca41615eb96700184659116d35b4fba2c8809b31a3bdefb348fe4"
-    sha256 cellar: :any_skip_relocation, catalina:       "d517947fe59a7b4c577245cc7f1e7124aa65dfb95ae67175e1ebf3d3d14ac35e"
-    sha256 cellar: :any_skip_relocation, mojave:         "2f7d67a61ad3cf284ec15d95e2f5eedaf1cf0ecb63ea2a8994df9733160b3a2b"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "fb173da3b703940c9dd8c942ced0db3c068f544be59fb01ccfe835f566d13cef"
-    sha256 cellar: :any_skip_relocation, sierra:         "b478e2604e81faf0a2e7278afe2f811ff1739528f246fcf2556e05a81f1d3435"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "723aa3f59805ede46ae9a76f3fb043e6c1f5f1d9555cdac61da51f0a0897437c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "696df3c3d3296b1b03bcf0e75eb7d7bc73f004fd15fe7f7899aa10dca7d3e6f6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "995c482566e82fceff774a07f6d4f7e425a73417bfa1d6bc2d6d59b3db4be88b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b83d328d34cd94be151f2fef52644d42661b7da1f432973c1f2920fedda2d87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8e1ab18d6ccf34ab507143f0528223bcc8034c49c7584a7704d3ddb0cce20ce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "002ac1934f80f378487353a650abd8bd3db970846ff033e3bce9b852df7667e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "08ccd6d7441ce786fcfa95f7431d797a8c7c319fdbc77b68caf14303e80a1ae6"
+    sha256 cellar: :any_skip_relocation, ventura:       "0143418a513be50762b0d7783ac5dbd42cd86c1011b499df62873aa6fc7f12a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "62aece1b17591bfa75cffc0e55b3db3decd30c9773fad120f58639f71f7f03ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad34b2e3d520a22b34e253c0b73aaa164facb5728bee8fd811513551ccfb94d0"
   end
 
   def install

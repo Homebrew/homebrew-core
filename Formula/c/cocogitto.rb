@@ -1,18 +1,17 @@
 class Cocogitto < Formula
   desc "Conventional Commits toolbox"
   homepage "https://docs.cocogitto.io/"
-  url "https://github.com/cocogitto/cocogitto/archive/refs/tags/6.3.0.tar.gz"
-  sha256 "bf78a06ec20cd33c4f9bcddb427067de34d005fb6d4a41727239b7b1e8e916e0"
+  url "https://github.com/cocogitto/cocogitto/archive/refs/tags/6.5.0.tar.gz"
+  sha256 "b807f6201dcbebbd97e0e8e34d8f2f14885b1b1c529b465463fe7a4dc8209ff5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "653bfecc7e5bf0d31506f6b7e0e6a39d42a1786df4320071e4bae07dadf57f0b"
-    sha256 cellar: :any,                 arm64_sonoma:  "32504a5766eefb9b00ce51cb505f25c287c683bc244f29792113df3b8b7e2131"
-    sha256 cellar: :any,                 arm64_ventura: "0f133691154d002414e87fde8af45598f7e1bbb73db79cd0a36cdfadf7bc0978"
-    sha256 cellar: :any,                 sonoma:        "de432bba61a74787063511a9c4346b036572c7579748af9056c583d9b0f22a8e"
-    sha256 cellar: :any,                 ventura:       "3bc5fbfef19cf37d680111f4b16d9bc70f046ffcbd07f801d5ed09769724c8a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "abbe9fb10c06ade07ae9790a397ee02355f026fdcef62fa482733a5cd63dfac4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fa05ff9b1e802473de9ababb53942b8c3aeb6ea3d7ca9aefbdf5a80e53aeb61"
+    sha256 cellar: :any,                 arm64_tahoe:   "a704fbe771aa230e5f98656e922a01efe4312a6e33dbfb78bbb04ee87a06463c"
+    sha256 cellar: :any,                 arm64_sequoia: "36bbcd4bfb64967dca2190df496432a21ba77d3883b25200ca631ec94b3371a3"
+    sha256 cellar: :any,                 arm64_sonoma:  "c02747e437f09dfcb70359ad8e859c86e5fd4c01d41f1cd1ec0ae6ca6bdefd10"
+    sha256 cellar: :any,                 sonoma:        "b6563dc90f933912cabfcb22ea6260e97d6fe610c5ea679c0a0e98fed2d2fff4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c71d19c76a15b2cd48561419e940279ede41de5bf7236dcf99cf977db39a363e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "740669b61556b1b7213dd4037ad17e6e36bd5ea9f5b2130a6154ccc0f43066ce"
   end
 
   depends_on "pkgconf" => :build

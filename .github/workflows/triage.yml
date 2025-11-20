@@ -6,6 +6,7 @@ env:
   GH_REPO: ${{ github.repository }}
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
+  HOMEBREW_DISABLE_LOAD_FORMULA: 1
 
 defaults:
   run:
@@ -24,46 +25,94 @@ jobs:
     if: always() && github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
         with:
           name: event_payload
           path: ${{ github.event_path }}
 
-  workflows-label:
+  check-base-branch:
     permissions:
       contents: read
       issues: write
       pull-requests: write
-    if: always() && github.repository_owner == 'Homebrew'
+    if: always() && github.repository_owner == 'Homebrew' && github.actor != 'BrewTestBot'
     runs-on: ubuntu-latest
+    env:
+      PR: ${{ github.event.number }}
     steps:
-      - name: Check pull request changed files
-        id: files
+      - name: Check pull request base branch
+        id: base
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ github.event.number }}
         run: |
-          workflow_modified="$(
+          branch="$(
             gh api \
               --header 'Accept: application/vnd.github+json' \
               --header 'X-GitHub-Api-Version: 2022-11-28' \
-              "repos/$GITHUB_REPOSITORY/pulls/$PR/files" \
-              --jq 'any(.[].filename; startswith(".github/workflows"))'
+              "repos/$GITHUB_REPOSITORY/pulls/$PR" \
+              --jq '.base.ref'
           )"
-          # Fail closed.
-          echo "workflow_modified=${workflow_modified:-true}" >> "${GITHUB_OUTPUT}"
+          echo "branch=${branch}" >>"${GITHUB_OUTPUT}"
 
-      # Wait briefly in case of failure to make sure we don't end up
-      # hitting the same API error when trying `gh pr edit`.
-      - if: failure()
-        run: sleep 30
-
-      - name: Label PR
-        if: always() && fromJson(steps.files.outputs.workflow_modified)
+      - name: Change base branch to `main`
+        id: change
+        if: steps.base.outputs.branch == 'master'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ github.event.number }}
-        run: gh pr edit --add-label workflows "$PR" --repo "$GITHUB_REPOSITORY"
+        run: gh pr edit "${PR}" --base main --repo "${GITHUB_REPOSITORY}"
+
+      - name: Post comment
+        if: steps.base.outputs.branch == 'master'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BODY: |-
+            > [!TIP]
+            > This pull request targets the `master` branch. For future pull requests, please target the `main` branch instead.
+        run: gh pr comment "${PR}" --body "${BODY}" --repo "${GITHUB_REPOSITORY}"
+
+      - name: Post failure comment
+        if: failure() && steps.change.conclusion == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BODY: |-
+            > [!CAUTION]
+            > Failed to change base branch to `main`. Please edit your pull request manually to target the `main` branch instead of the `master` branch.
+        run: gh pr comment "${PR}" --body "${BODY}" --repo "${GITHUB_REPOSITORY}"
+
+  check-bottle-block:
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    if: always() && github.repository_owner == 'Homebrew' && github.actor != 'BrewTestBot'
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    env:
+      PR: ${{ github.event.number }}
+    steps:
+      - name: Set up Homebrew
+        id: setup-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+
+      - name: Check that bottle block is not modified
+        id: bottle-block
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: brew check-bottle-modification "${PR}"
+
+      - name: Post comment
+        if: failure() && steps.bottle-block.conclusion == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BODY: |-
+            > [!CAUTION]
+            > Please **do not** modify the bottle block. Bottle block modifications can cause CI to misbehave.
+            > @BrewTestBot will handle updating the bottle block before this PR is merged.
+        run: gh pr comment "${PR}" --body "${BODY}" --repo "${GITHUB_REPOSITORY}"
 
   triage:
     runs-on: ubuntu-latest
@@ -77,12 +126,12 @@ jobs:
         if: >
           github.actor != 'BrewTestBot' &&
           !contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits')
-        uses: Homebrew/actions/check-commit-format@master
+        uses: Homebrew/actions/check-commit-format@main
         with:
           token: ${{secrets.GITHUB_TOKEN}}
 
       - name: Label pull request
-        uses: Homebrew/actions/label-pull-requests@master
+        uses: Homebrew/actions/label-pull-requests@main
         if: always()
         with:
           token: ${{secrets.GITHUB_TOKEN}}
@@ -121,13 +170,13 @@ jobs:
               path: Formula/.+@.+
               except:
                 - Formula/b/bash-completion@2.rb
-                - Formula/i/icu4c@77.rb
+                - Formula/i/icu4c@78.rb
                 - Formula/lib/libxml++@5.rb
                 - Formula/o/openssl@3.rb
-                - Formula/p/postgresql@17.rb
-                - Formula/p/python@3.13.rb
-                - Formula/p/python-gdbm@3.13.rb
-                - Formula/p/python-tk@3.13.rb
+                - Formula/p/postgresql@18.rb
+                - Formula/p/python@3.14.rb
+                - Formula/p/python-gdbm@3.14.rb
+                - Formula/p/python-tk@3.14.rb
 
             - label: missing license
               path: Formula/.+
@@ -226,7 +275,6 @@ jobs:
               path: "Formula/.+/(\
                 agda|\
                 apache-pulsar|\
-                arangodb|\
                 aws-sdk-cpp|\
                 cbmc|\
                 cp2k|\
@@ -241,6 +289,8 @@ jobs:
                 gstreamer|\
                 haskell-language-server|\
                 libtensorflow|\
+                llvm@19|\
+                llvm|\
                 mame|\
                 metashell|\
                 mlkit|\
@@ -251,10 +301,9 @@ jobs:
                 openfast|\
                 openvino|\
                 pcl|\
-                percona-server|\
                 ponyc|\
                 pytorch|\
-                qt|\
+                qtwebengine|\
                 root|\
                 rtabmap|\
                 rust|\
@@ -275,8 +324,11 @@ jobs:
                 brotli|\
                 c-ares|\
                 cabal-install|\
+                cmake|\
+                cryptography|\
                 dav1d|\
                 freetype|\
+                frei0r|\
                 gcc|\
                 gettext|\
                 ghc|\
@@ -308,17 +360,18 @@ jobs:
                 numpy|\
                 openblas|\
                 openjpeg|\
+                openssl@3|\
                 p11-kit|\
                 pango|\
                 pcre2|\
-                python@3.13|\
+                python@3.14|\
                 rav1e|\
                 rust|\
                 sdl2|\
                 shared-mime-info|\
                 sqlite|\
                 suite-sparse|\
-                qt|\
+                qtbase|\
                 readline|\
                 unbound|\
                 xz|\
@@ -336,7 +389,19 @@ jobs:
               allow_any_match: true
 
             - label: CI-skip-recursive-dependents
-              path: Formula/.+/(ca-certificates|curl|gettext|openssl@3|sqlite|systemd).rb
+              path: "Formula/.+/(\
+                ca-certificates|\
+                certifi|\
+                cmake|\
+                curl|\
+                gettext|\
+                glib|\
+                harfbuzz|\
+                openssl@3|\
+                wayland-protocols|\
+                sqlite|\
+                systemd\
+                ).rb"
               keep_if_no_match: true
               allow_any_match: true
 
@@ -344,7 +409,8 @@ jobs:
               path: "Formula/.+/(\
                 dart-sdk|\
                 envoy|\
-                qt(@5)?|\
+                qt@5|\
+                qtwebengine|\
                 teleport|\
                 texlive\
                 ).rb"
@@ -358,12 +424,19 @@ jobs:
                 libcap|\
                 libva|\
                 libxml2|\
-                python@3.13|\
+                openssl@3|\
+                python@3.14|\
                 wayland-protocols|\
                 zlib|\
                 ).rb"
               keep_if_no_match: true
               allow_any_match: true
+
+            - label: CI-no-bottles
+              path: Formula/p/portable-.+
+              except:
+                - Formula/p/portable-ruby.rb
+              keep_if_no_match: true
 
             - label: bump-formula-pr
               pr_body_content: Created with `brew bump-formula-pr`
@@ -371,10 +444,45 @@ jobs:
             - label: pip-audit
               pr_body_content: Created by `brew-pip-audit`
 
-            - label: autobump
-              path: \.github/autobump\.txt
-              allow_any_match: true
-
             - label: alias
               path: Aliases/.+
               allow_any_match: true
+
+  # Handle this separately since the `workflows` label affects bottle cache usage
+  # and hardens us against cache poisoning attacks.
+  workflows-label:
+    needs: triage
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    if: always() && github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    env:
+      PR: ${{ github.event.number }}
+    steps:
+      - name: Check pull request changed files
+        id: files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          workflow_modified="$(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/$GITHUB_REPOSITORY/pulls/$PR/files" \
+              --jq 'any(.[].filename; startswith(".github/workflows"))'
+          )"
+          # Fail closed.
+          echo "workflow_modified=${workflow_modified:-true}" >> "${GITHUB_OUTPUT}"
+
+      # Wait briefly in case of failure to make sure we don't end up
+      # hitting the same API error when trying `gh pr edit`.
+      - if: failure()
+        run: sleep 30
+
+      - name: Label PR
+        if: always() && fromJson(steps.files.outputs.workflow_modified)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr edit --add-label workflows "$PR" --repo "$GITHUB_REPOSITORY"

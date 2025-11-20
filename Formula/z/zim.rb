@@ -6,44 +6,41 @@ class Zim < Formula
   url "https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/refs/tags/0.76.3.tar.gz"
   sha256 "cb97c48740c140fb851c0ac16a93db9f8df54fcf307bf9e2a948043df8fce479"
   license "GPL-2.0-or-later"
-  head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "master"
+  head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "250465206054db1296275f1bbc741d4e54c0dafa79745d9abc80468934529247"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4b5dfda95163282632e88bac3bb1036219b7441add7534048769bb2dc36e1e1f"
   end
 
   depends_on "pkgconf" => :build
+  depends_on "python-setuptools" => :build
   depends_on "adwaita-icon-theme"
   depends_on "graphviz"
   depends_on "gtk+3"
   depends_on "gtksourceview4"
   depends_on "pygobject3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages package_name:   "",
+                extra_packages: "pyxdg"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz"
     sha256 "3267bb3074e934df202af2ee0868575484108581e6f3cb006af1da35395e88b4"
   end
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
-    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
-  end
-
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
-    build_venv = virtualenv_create(buildpath/"venv", python3)
-    build_venv.pip_install resource("setuptools")
-    ENV.prepend_create_path "PYTHONPATH", build_venv.site_packages
-
     venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources.reject { |r| r.name == "setuptools" }
+    venv.pip_install resources
     venv.pip_install buildpath, build_isolation: false
+
     (bin/"zim").write_env_script libexec/"bin/zim",
-                                 XDG_DATA_DIRS: [HOMEBREW_PREFIX/"share", libexec/"share"].join(":")
+                                 XDG_DATA_DIRS: [opt_share, libexec/"share"].join(":")
     share.install (libexec/"share").children
     pkgshare.install "zim"
 
@@ -52,7 +49,7 @@ class Zim < Formula
       venv.site_packages/"zim/config/basedirs.py",
       venv.site_packages/"xdg/BaseDirectory.py",
       pkgshare/"zim/config/basedirs.py",
-    ], "/usr/local", HOMEBREW_PREFIX
+    ], "/usr/local/share", opt_share
   end
 
   test do

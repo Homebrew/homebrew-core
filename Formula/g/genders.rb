@@ -17,6 +17,7 @@ class Genders < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "eba68a608683a6b5b812d8aaa3a59b4836ec5bf50af50a4115fde697a790274e"
     sha256 cellar: :any,                 arm64_sequoia: "62f03cd7307b153442bf0354c80db74e9f17b6eb76fc0913e9f58d24d3eca939"
     sha256 cellar: :any,                 arm64_sonoma:  "378b3b15497a18109d4083be8b58c69926f5aba003335ad6ead80187bcba23fa"
     sha256 cellar: :any,                 arm64_ventura: "85ce393a73b4c8102f4337e4fdd14cbe801e003951b92452ae7cacd733c37b0f"
@@ -37,7 +38,7 @@ class Genders < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

@@ -18,6 +18,7 @@ class LittleCms2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ce5a0c917ab8273866eb04f88af435f8590fe461fe0b2c4b48c2859a4b668e7a"
     sha256 cellar: :any,                 arm64_sequoia: "3827b5a8583f0e92987bd0e7c721bda834157ad366d2cb66596559dd8654c9ac"
     sha256 cellar: :any,                 arm64_sonoma:  "aeb24e3f0d025808da8a3c0d9c4e42b0aa58a3dbc51813baf90940fcddf20be9"
     sha256 cellar: :any,                 arm64_ventura: "a4edffc61a638164f92c20dbb084eb00a82ce81cb2e58aa18ad5f1d73c843c5e"

@@ -1,26 +1,29 @@
 class QtLibiodbc < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.0/submodules/qtbase-everywhere-src-6.9.0.tar.xz"
-  sha256 "c1800c2ea835801af04a05d4a32321d79a93954ee3ae2172bbeacf13d1f0598c"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
+  sha256 "c5a1a2f660356ec081febfa782998ae5ddbc5925117e64f50e4be9cd45b8dc6e"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
-    formula "qt"
+    formula "qtbase"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "f9695d322f1580faa1ab097dcdf76133857556d6c2b1806b9ddc5376eef4bdcf"
-    sha256 cellar: :any,                 arm64_ventura: "1c60ac29bcfe47d79fd1c39179a50c05c651db88b3afd30610c4f5614cef684a"
-    sha256 cellar: :any,                 sonoma:        "6685078461574924b6e9283f9dc48aebf406181041c24ff094c3ad704deb7e81"
-    sha256 cellar: :any,                 ventura:       "6d986f8aacb5cece81b516f536f214feeb450354c60504ace05dfd245672735f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e3879e0b730c2b31071475cb674325d28cb417ffccee0c3e37468c36afd950a"
+    sha256 cellar: :any,                 arm64_tahoe:   "e58c533025f682ab28db1f89b4d387adde80ffd79c50cbec4e309d62519f216d"
+    sha256 cellar: :any,                 arm64_sequoia: "4ccdf342b8c7337adfee162e55019309d4881488d9ca82d8c09bfc8188e0a33c"
+    sha256 cellar: :any,                 arm64_sonoma:  "b82851f36abd77784695c2454222fd0acbe639e91175fa4d36c9400d9f8294a3"
+    sha256 cellar: :any,                 sonoma:        "48dc97a37314f751e4a622a4e61e01636951dcad7ea5a8acfab52395309477f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "82e925c9dde82537e90048962eee0539c83b16ffe22f91aa1057c0b18635e18c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4486a9c6a15694766d15887f3e6f888932fccea893b7977d4615aff95316d4e7"
   end
 
   depends_on "cmake" => [:build, :test]
 
   depends_on "libiodbc"
-  depends_on "qt"
+  depends_on "qtbase"
 
   conflicts_with "qt-unixodbc",
     because: "qt-unixodbc and qt-libiodbc install the same binaries"
@@ -36,6 +39,7 @@ class QtLibiodbc < Formula
       -DFEATURE_sql_sqlite=OFF
       -DQT_GENERATE_SBOM=OFF
     ]
+    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
 
     system "cmake", "-S", "src/plugins/sqldrivers", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -56,7 +60,7 @@ class QtLibiodbc < Formula
       target_link_libraries(test PRIVATE Qt6::Core Qt6::Sql)
     CMAKE
 
-    (testpath/"test.pro").write <<~EOS
+    (testpath/"test.pro").write <<~QMAKE
       QT      += core sql
       QT      -= gui
       TARGET   = test
@@ -64,7 +68,7 @@ class QtLibiodbc < Formula
       CONFIG  -= app_bundle
       TEMPLATE = app
       SOURCES += main.cpp
-    EOS
+    QMAKE
 
     (testpath/"main.cpp").write <<~CPP
       #include <QCoreApplication>

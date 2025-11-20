@@ -1,25 +1,20 @@
 class Bnfc < Formula
   desc "BNF Converter"
   homepage "https://github.com/BNFC/bnfc"
-  url "https://github.com/BNFC/bnfc/archive/refs/tags/v2.9.5.tar.gz"
-  sha256 "32a6293b95e10cf1192f348ec79f3c125b52a56350caa4f67087feb3642eef77"
+  url "https://github.com/BNFC/bnfc/archive/refs/tags/v2.9.6.1.tar.gz"
+  sha256 "da787f1a4cdb2476b7fbeb91e13ae831850c47261a14eaba0051aadbe75b1cc5"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/BNFC/bnfc.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8d9baadeda06fc25d982632ced8e240e3d92d27c3d1668f00334138cdaf527f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5cceadcfc8705ca28116c10045b955c99d9f6d85490fbd4d533691db314c143"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60af864f3a925d506214ea0caeb50df915dae976dfbb320f9adbb8801375c58b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70fbff20aeb4526eee3da488f081c17660bbf390d598190687020cb6a0ebba04"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f70febbdc989129871dae2ad9ac254c8a68e137921854a1e9728a301f4bba2f8"
-    sha256 cellar: :any_skip_relocation, ventura:        "d645135dfed8bd688b12de81f12c3496d69dc58b1c6c523b48752c44df64cebe"
-    sha256 cellar: :any_skip_relocation, monterey:       "efe525933e08206d108405241096da7f5e4b55c00c5cda02fae546b14e94d7cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9a0f394ee5a67102753f9ba868bfa1763195f44a71d1992980a1409c7da6063a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "428910364e4bb5f3fb7f79e578298b97d429b75793ed2dd3c91052209a130e2e"
+    sha256 cellar: :any,                 arm64_tahoe:   "f4527a1670a78475c265fc33d67b1c94ea25a589c476d1ac460dcfcfe42a20d3"
+    sha256 cellar: :any,                 arm64_sequoia: "c31434982bdab1d316d2d79f1d8099b3ac6f3594b5cb7f1c4e44dc8647915d24"
+    sha256 cellar: :any,                 arm64_sonoma:  "1ba668bdd79f0631df24fc241d90a491886e4126123d070570609e6e4d4b0af8"
+    sha256 cellar: :any,                 arm64_ventura: "16570619aab4070fa4d4517dc650d53fa619d95f3e14fe1f0b46914d9079c8cc"
+    sha256 cellar: :any,                 sonoma:        "f24d3c0ff480f926217d9fe826760c6ab59b8ec6100f6c3e9d329da3100b8386"
+    sha256 cellar: :any,                 ventura:       "7ac68aa426aaca6251a69e6ad730ec582d2d6ae127b2d80f68c1c3aedba6df71"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f79f089fe534748760af745ceebf7510828153f6f7e1bc898387480fed6aded1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b36466a041cf9cbbd8aadd038903c7f02a1a98873c61990ce4dd16615a9ebab"
   end
 
   depends_on "cabal-install" => [:build, :test]

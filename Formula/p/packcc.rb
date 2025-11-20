@@ -2,17 +2,20 @@ class Packcc < Formula
   desc "Parser generator for C"
   homepage "https://github.com/arithy/packcc"
   url "https://github.com/arithy/packcc/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "9f4d486ff34ff191cb01bd6ac41e707e93a90a581f997d45414422958af142f6"
+  sha256 "eeb123e2d328de60e0a4171649c7e4c78b25a08b60de35beffd14f3d8fdbdcc8"
   license "MIT"
   head "https://github.com/arithy/packcc.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "3d37ed91a62162fbb2cfb2d37e196177a3584e43c18bfb938be202052a8219b3"
-    sha256 arm64_sonoma:  "21241274aba27be73f8ff6390bb869d8156fa6d10600fef5b1700c14a4ced794"
-    sha256 arm64_ventura: "ec0467faea2cfa65c990ceb31fe1abfd7ed10ede453ba4544b8f445d241af1bb"
-    sha256 sonoma:        "30b0c8452bd024c265e2199bfbde85b7d87def62dbf6f7138ef4109feeff8286"
-    sha256 ventura:       "8798726082b26db0a5d03b25f0e4928d91f7f2f44ca2a8d735e6df20e7c95eb0"
-    sha256 x86_64_linux:  "9cff89541011aba3df7ed2ee6cc72c08fd3afce9ab9cecb82a57c1d812ab7609"
+    rebuild 1
+    sha256 arm64_tahoe:   "a985b781ba01f8200c457f8acf7e555c5a00d41e0c959dfb6cdd18ed77114b42"
+    sha256 arm64_sequoia: "7d5658437a0ceec144106d77f0bae460683421de720515cbad71e8538c4d7cbe"
+    sha256 arm64_sonoma:  "3011badb913ee3f4cb4482502e883c68a6b0a0d369c2a63a3a99ba170c946c4e"
+    sha256 arm64_ventura: "255f7aea2aa1751e6f4cefb5bdf94c39b8f467d13367b3e1f5a6ebb7bacb4106"
+    sha256 sonoma:        "d4536c19e74530b56251136175507807f63547cbc67cf77c93f6b4545569c046"
+    sha256 ventura:       "ff1768a9796d859f9ba44c04f5f7ed04692ea39d9ed62dbc8255713f8badb263"
+    sha256 arm64_linux:   "a8f0a5decaf1f6a96c01b770938182ff10da977292f249ffa6a67e94bc411eb4"
+    sha256 x86_64_linux:  "ace36e10dc14b5bfa32e9f13355c9b713723148ab1f34e7b9cb90c0782550e01"
   end
 
   def install

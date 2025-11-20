@@ -1,21 +1,22 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
-  url "https://github.com/upx/upx/releases/download/v4.2.4/upx-4.2.4-src.tar.xz"
-  sha256 "5ed6561607d27fb4ef346fc19f08a93696fa8fa127081e7a7114068306b8e1c4"
+  url "https://github.com/upx/upx/releases/download/v5.0.2/upx-5.0.2-src.tar.xz"
+  sha256 "209b219bbcfa58c249ffe6eba3c244e0910fa8be792b5521e4daf938167f05cc"
   license "GPL-2.0-or-later"
   head "https://github.com/upx/upx.git", branch: "devel"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "784eb4d2d244872be35b8a8bd82900ce5789740950620b1a1119141361230b72"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "228b152ff34d6dbd0b7e8aef959013f47b7401cb210fca682c991198cbe2e6c2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ae84e5f420df6e56821d79bcaf34297b279f73a1b7bbf05c0f6c854358f5b0c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "440dfc0b6936d53746398813a75c4f25d2dbe225692905e18f16d31484a263e5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0c9a802a2baa5dd6dbc36af16408984436a03fcac927ca62961e4c0e524a2258"
-    sha256 cellar: :any_skip_relocation, ventura:        "aff62cfdbe4bd2c8ddfa370517d6b2a985ff9854dfc7e2ca930cb3b23ca3f9a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "269bbeecc1ba01485fe0f3a591e1f156e2eef1b35bf72b06d9f7969d9213815f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "fb4bd2e0a3a11822bee4fd0cc883ac2bd36ddcc35dad53115d499f6a5ba19dbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68bbcadfda1328f3a1cd71707feb194434f0a79b8c4542f43cdab27fe2a2c1cc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a10f0dbe257ac5d72be40562532c272d3fe14aa4c49c0f3454ec23f0691806e8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "183ba13b8566966fb0f428fe17e887ffeea096c87e59c0be317b8552974f042d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fdcbfa167531022ea0a4fc110c9b96c95fed073027ae048b4357be3189dcaa8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "21354b0a85693c6c93d65b82ba60ea6d1cbfd13e5710fd8c9e262f5feded4d0f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3802c1dede88d78c6d6799e807c0f2cb2b92d8baa1fe09806128c77ea3a0c2d6"
+    sha256 cellar: :any_skip_relocation, ventura:       "921b8e0d57058148d566ad538cacfd3566a20b0f7d61eeb02f7c529f6859d0ba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a8479dbe20775134e426975ca1fcada5c4b0aafd4b9c31ff5b8cc45803d348e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "164093aeaaae9de464485858f091a3c5b7cba6a4f5e589fb12864c9ceb2cfa16"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +31,7 @@ class Upx < Formula
   end
 
   test do
-    system bin/"upx", "-1", "-o", "./hello", test_fixtures("elf/hello")
+    system bin/"upx", "-1", "-o", "./hello", test_fixtures("elf/c.elf")
     assert_path_exists testpath/"hello"
     system bin/"upx", "-d", "./hello"
   end

@@ -10,6 +10,8 @@ class OpenlibertyJakartaee9 < Formula
     regex(/openliberty[._-]jakartaee9[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "69434015835d5c9c2ca412ea3c6fbc6c96cc09f85a933581fe162b8d1f12a327"

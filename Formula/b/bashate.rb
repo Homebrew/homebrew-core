@@ -8,24 +8,19 @@ class Bashate < Formula
   license "Apache-2.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "007ce884bf1ba757929d119f792b3b414b4ce3d46b842c43e270941cf1fb7b3c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "007ce884bf1ba757929d119f792b3b414b4ce3d46b842c43e270941cf1fb7b3c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "007ce884bf1ba757929d119f792b3b414b4ce3d46b842c43e270941cf1fb7b3c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1903d84db5712fa94b88bd6adafe8efd3686665cb0dc17db3d5ed63a41bdd0f6"
-    sha256 cellar: :any_skip_relocation, ventura:       "1903d84db5712fa94b88bd6adafe8efd3686665cb0dc17db3d5ed63a41bdd0f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa99b757bdae56d1db08f94e6b9fe4056dda2d9800aa0354191bb1edfd79c58b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "007ce884bf1ba757929d119f792b3b414b4ce3d46b842c43e270941cf1fb7b3c"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "3599931c38b9118981d0e25270b4b625b998f7b88a37d9579115be3f1547beeb"
   end
 
-  depends_on "python@3.13"
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: "setuptools"
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/b2/35/80cf8f6a4f34017a7fe28242dc45161a1baa55c41563c354d8147e8358b2/pbr-6.1.0.tar.gz"
-    sha256 "788183e382e3d1d7707db08978239965e8b9e4e5ed42669bf4758186734d5f24"
+    url "https://files.pythonhosted.org/packages/ad/8d/23253ab92d4731eb34383a69b39568ca63a1685bec1e9946e91a32fc87ad/pbr-7.0.1.tar.gz"
+    sha256 "3ecbcb11d2b8551588ec816b3756b1eb4394186c3b689b17e04850dfc20f7e57"
   end
 
   def install
@@ -33,14 +28,13 @@ class Bashate < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/bashate --version")
+
     (testpath/"test.sh").write <<~SHELL
       #!/bin/bash
         echo "Testing Bashate"
     SHELL
-
     assert_match "E003 Indent not multiple of 4", shell_output("#{bin}/bashate #{testpath}/test.sh", 1)
     assert_empty shell_output("#{bin}/bashate -i E003 #{testpath}/test.sh")
-
-    assert_match version.to_s, shell_output("#{bin}/bashate --version")
   end
 end

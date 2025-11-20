@@ -1,8 +1,8 @@
 class Gismo < Formula
   desc "C++ library for isogeometric analysis (IGA)"
   homepage "https://gismo.github.io"
-  url "https://github.com/gismo/gismo/archive/refs/tags/v25.01.0.tar.gz"
-  sha256 "d1250b3d3a37c9d7d3f9cb63e4a36ae07b76aa47335847008be7516cc390c61e"
+  url "https://github.com/gismo/gismo/archive/refs/tags/v25.07.0.tar.gz"
+  sha256 "6d20f0b43ed80d3bf34fcabdac10a6bed6afbb314239dcbd0495a362a87aca9a"
   license "MPL-2.0"
   head "https://github.com/gismo/gismo.git", branch: "stable"
 
@@ -15,13 +15,14 @@ class Gismo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0d9ef9f132c2b82020b765e47616508bd9def1f8f86d4f7df80cd4634d14b71e"
-    sha256 cellar: :any,                 arm64_sonoma:  "73968e5e169f150fb150bb800a0f1890c9505e913cebe465cd5b91c191ab17ca"
-    sha256 cellar: :any,                 arm64_ventura: "3119c3a59c2b2a28875eb6e40eafd5889da5bd62f698c269dfe4b05f30eddf10"
-    sha256 cellar: :any,                 sonoma:        "992c1d9e553767311d57b918950ed5bf1a67847f4847ecd8130a783d36f7a745"
-    sha256 cellar: :any,                 ventura:       "8be99fca669151b6be0f2082abe7c8fa55f68a613fa63d76b04e257773abc1e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "58de1dc7a347fcdb0b09fc03d4fea99ba9bfa29cc38c94def18254630095a46d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79f6aebd7ab833f834c834c129b0aab808a62f9d3d66aa19281d4ed6db0277a2"
+    sha256 cellar: :any,                 arm64_tahoe:   "cf57d6021c5640658228e7e4730e8fc4db43487a1f41b41f82762a70a4ab85ed"
+    sha256 cellar: :any,                 arm64_sequoia: "f7b5ef891bbf14959a34beb2a22c25e6356af65846721437145ee3a91fdc9f07"
+    sha256 cellar: :any,                 arm64_sonoma:  "1e8087112ce74db21a93335c87785dc48cb4ea4892cc82f01a54e2a0a66b286a"
+    sha256 cellar: :any,                 arm64_ventura: "639c3f0f2779a419545c3e0d1fdbc56d792fb7f38be5bbc03bbf2032b5b658f1"
+    sha256 cellar: :any,                 sonoma:        "e6cddae3701154c7eb9d849f6f040ca92051b60a42043012ed2a7b9d56016780"
+    sha256 cellar: :any,                 ventura:       "9dd6d7d97c1abca6312a496c0a877f6257dfaf66d25c2f3e3f118043779c071b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6179384418da84074db83949a3def84a71f7a6ffa52003a792cbbdbf6fd5b9fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "820d285b212f7e9e7c758ce74f59b378331c7a5dc139e620c66cb69501e72b3e"
   end
 
   depends_on "cmake" => :build

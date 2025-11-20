@@ -11,11 +11,13 @@ class Qrcp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34ee2cedf3dbb46de85b7d6118830450f59a5aaeda93aea898a1d18331415d52"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "30cabeb3467581c02c9d1a4927d837fc5ac96b8dea21e9f1b92ce2ee14addecd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30cabeb3467581c02c9d1a4927d837fc5ac96b8dea21e9f1b92ce2ee14addecd"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "30cabeb3467581c02c9d1a4927d837fc5ac96b8dea21e9f1b92ce2ee14addecd"
     sha256 cellar: :any_skip_relocation, sonoma:        "2210e68f4eeae23cf63041718cdce05fedbd072ceb434f9f1f1761667091e862"
     sha256 cellar: :any_skip_relocation, ventura:       "2210e68f4eeae23cf63041718cdce05fedbd072ceb434f9f1f1761667091e862"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "796bdc0d75a55864879e3131ac332d3d99af5020bde0ccf0c7229da2aa7c0592"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cedce7a5fa2e8b0c5277bcce76038ca2f03a9eca77673d5636676717cd41134d"
   end
 

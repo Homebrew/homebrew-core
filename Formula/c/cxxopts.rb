@@ -7,26 +7,28 @@ class Cxxopts < Formula
   head "https://github.com/jarro2783/cxxopts.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "24dcb23b8d9c163a1db1ebdb1876bb1158e2116bd1f8e10bb779f5c3644cc222"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24dcb23b8d9c163a1db1ebdb1876bb1158e2116bd1f8e10bb779f5c3644cc222"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "24dcb23b8d9c163a1db1ebdb1876bb1158e2116bd1f8e10bb779f5c3644cc222"
-    sha256 cellar: :any_skip_relocation, sonoma:        "24dcb23b8d9c163a1db1ebdb1876bb1158e2116bd1f8e10bb779f5c3644cc222"
-    sha256 cellar: :any_skip_relocation, ventura:       "24dcb23b8d9c163a1db1ebdb1876bb1158e2116bd1f8e10bb779f5c3644cc222"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "26270aee8d41222b9753788ac2f05fff7b82f5cade93bc8c5001fb5aa790d602"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26270aee8d41222b9753788ac2f05fff7b82f5cade93bc8c5001fb5aa790d602"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5c90eb7984473c65039f6dce14c4d9df760f5545777d8901dd5725a87f72a43c"
   end
 
   depends_on "cmake" => :build
 
   def install
+    # set `CXXOPTS_CMAKE_DIR` and `CMAKE_INSTALL_LIBDIR_ARCHIND` to create an `:all` bottle.
     args = %w[
+      -DCMAKE_INSTALL_LIBDIR_ARCHIND=share
       -DCXXOPTS_BUILD_EXAMPLES=OFF
       -DCXXOPTS_BUILD_TESTS=OFF
+      -DCXXOPTS_CMAKE_DIR=share/cmake/cxxopts
     ]
 
+    # We don't need to run `cmake --build` because this is header-only.
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    return unless (lib/"pkgconfig").directory?
+
+    share.install lib/"pkgconfig"
   end
 
   test do

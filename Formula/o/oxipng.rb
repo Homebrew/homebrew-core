@@ -1,11 +1,12 @@
 class Oxipng < Formula
   desc "Multithreaded PNG optimizer written in Rust"
-  homepage "https://github.com/shssoichiro/oxipng"
-  url "https://github.com/shssoichiro/oxipng/archive/refs/tags/v9.1.5.tar.gz"
+  homepage "https://github.com/oxipng/oxipng"
+  url "https://github.com/oxipng/oxipng/archive/refs/tags/v9.1.5.tar.gz"
   sha256 "8f99d5c67efa2a7550023bf610b90e65d421375c9ed7f37097f83ae5c05f85bd"
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fed9aa78c4a1e95303dcdb8fb95fb4c36b3fa6134866c70bb53c192b047129e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6eed490e9f3c9a9668213862587fed4ec27f6aa1230a5556618bc7e3de86b9a9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "865784029579b8c2b4446dba962ef46379c015c554cf7f99bcdb20b94fb8b9a4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2c4e48bbdb999086c8a73ceaf4bc3d1fb88e61f044bdcb0b37e21277a952cd07"
@@ -19,7 +20,7 @@ class Oxipng < Formula
 
   def install
     # Upstream uses qemu to cross compile for Linux aarch64, which is not desirable in brew.
-    # https://github.com/shssoichiro/oxipng/commit/1f2e0f336a826bd578a49c1dd477fb38773dd6ce
+    # https://github.com/oxipng/oxipng/commit/1f2e0f336a826bd578a49c1dd477fb38773dd6ce
     #
     # cargo allows setting the variable to some other non-empty string, but not fully
     # unsetting it, so remove the assignment from the source file.

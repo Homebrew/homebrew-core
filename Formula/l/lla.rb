@@ -1,18 +1,17 @@
 class Lla < Formula
   desc "High-performance, extensible alternative to ls"
-  homepage "https://github.com/triyanox/lla"
-  url "https://github.com/triyanox/lla/archive/refs/tags/v0.3.11.tar.gz"
-  sha256 "dde64fa4acd90f4ae86ed485576cdfe42aab0de2cb674c88712e471968f8ae0a"
+  homepage "https://github.com/chaqchase/lla"
+  url "https://github.com/chaqchase/lla/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "34afc823a0bfda6379966cdbcaeaabda4ffc2e9f122c2a85f3b8ba9a77e53c22"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5e6086be36189064123934678e72b6f112ba16e0141d02df8e91b76823d1dd12"
-    sha256 cellar: :any,                 arm64_sonoma:  "da9e98371b47e3ce8d55fcac671e4cd39623708152929f1314c1c98f23445803"
-    sha256 cellar: :any,                 arm64_ventura: "632df0323c808438e232975387a9fd26f59d39b8f75f02fb8d227381da0dc5e4"
-    sha256 cellar: :any,                 sonoma:        "b8b01b6484412158f42dee86bc72c763525e487b38edcc6feb133c7d66c592ac"
-    sha256 cellar: :any,                 ventura:       "e4fcf542d5549c7c157374783fec280836cbc02e863c1cb6d92d81805c02793b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "205e741b2830b2d6ea538d36fb9041c430726b19a843634153d22bcb2ec8f4b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05c5b2b33af4772ed8ad30c783f2c25ef7dbe9729f3fb76bafab77d40768c51c"
+    sha256 cellar: :any,                 arm64_tahoe:   "3f130bebb333bf11899d53b6f6a79aa9d07a02665f7cfcf36c5657cd8e25ef0f"
+    sha256 cellar: :any,                 arm64_sequoia: "1ec7b484b2a76c7f10ecc07b65936bc86c6cb692c4a8073f4be284f6b8b914ec"
+    sha256 cellar: :any,                 arm64_sonoma:  "79f8c5c5290b55fbb1b85d24c8fa5aa1fb1092c95321d78b94eb8fae2cb1a622"
+    sha256 cellar: :any,                 sonoma:        "7a4409ef9e8ecc8a918754277dad9a56a7e70fc1831dceacb2dec5d8ab18a12a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e22b8c64d52926fd3b302b054ca709b242fc0024a7f0136f10cf60f226fd29d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46166d55d1a24cfbf378b89fd9b1cab1387dfc45d92117cee20e6d66943f094f"
   end
 
   depends_on "protobuf" => :build
@@ -44,10 +43,10 @@ class Lla < Formula
   test do
     test_config = testpath/".config/lla/config.toml"
 
-    system bin/"lla", "init"
+    system bin/"lla", "init", "--default"
 
     output = shell_output("#{bin}/lla config")
-    assert_match "Current configuration at \"#{test_config}\"", output
+    assert_match "Config file: #{test_config}", output
 
     system bin/"lla"
 

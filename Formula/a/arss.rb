@@ -8,6 +8,7 @@ class Arss < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "bfe57aa3bd356a8a7d3b616e96f854b484a92be45620cbf9ce3729a7ded493bb"
     sha256 cellar: :any,                 arm64_sequoia:  "02051c251dcf51557823a6ae6effb432c9c892a42a3ab19e80c9b8f0e61327ad"
     sha256 cellar: :any,                 arm64_sonoma:   "b0bf1ad20a051b16f65fbbe1ee4780b674ae2a12953291e51de2ca4fd1d478d8"
     sha256 cellar: :any,                 arm64_ventura:  "8daf9486dc32c8698fa1fb731ceb12b04d00019043a803803a71e7472a0781ee"
@@ -18,10 +19,6 @@ class Arss < Formula
     sha256 cellar: :any,                 monterey:       "22747b60848d59c6989707efb0373305af7376de07a4e8958426ddff11ff6bc5"
     sha256 cellar: :any,                 big_sur:        "153a648ed0bdec6e1f0abbdbefff2815b793bf79c4967c803cf55a512228dcfa"
     sha256 cellar: :any,                 catalina:       "d84220ffc41768520239228b13a8466493682fa30a670163041caa0b06f449a2"
-    sha256 cellar: :any,                 mojave:         "891cda5121a3ea035215f0113d5291fa9afd468e68cc3dc9238b203985fcfe96"
-    sha256 cellar: :any,                 high_sierra:    "b848efa3abde7c5fffd18289c1ab51a842cd93e0e97d6af32329acf869909d38"
-    sha256 cellar: :any,                 sierra:         "2311c31ae2e80905dfc41c8adb9639314664103352540b198f24c54e0c102550"
-    sha256 cellar: :any,                 el_capitan:     "5da45934b19d0cab02c809932fb8c5da3fd76d2f781bc9e2e7a98fa1825989eb"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "3e094f664eda5e0dabb7269b9a6129d97028bf76e10a6f0d3966479fee9cc79f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5c0a1ade41f7ff063620d37b071556cd71382e9728f160c24393809f89c0f80"
   end
@@ -30,6 +27,9 @@ class Arss < Formula
   depends_on "fftw"
 
   def install
+    # CMake Error in CMakeLists.txt: No cmake_minimum_required command is present.
+    inreplace "src/CMakeLists.txt", /\A/, "cmake_minimum_required(VERSION 3.10)\n"
+
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `LOGBASE'; CMakeFiles/arss.dir/arss.o:(.bss+0x18): first defined here
     # multiple definition of `pi'; CMakeFiles/arss.dir/arss.o:(.bss+0x20): first defined here

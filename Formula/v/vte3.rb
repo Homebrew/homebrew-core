@@ -1,18 +1,18 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.80/vte-0.80.2.tar.xz"
-  sha256 "b225bebd043633bd491f2ea171374d0f3f9de62dfec07653053bc08c4face46f"
+  url "https://download.gnome.org/sources/vte/0.82/vte-0.82.1.tar.xz"
+  sha256 "79376d70402d271e2d38424418e1aea72357934d272e321e3906b71706a78e3a"
   license "LGPL-2.0-or-later"
+  revision 3
 
   bottle do
-    sha256 arm64_sequoia: "2629c1cac521fdb3995c6e292e80db35479b671cb877c5337d74b4197d6f3700"
-    sha256 arm64_sonoma:  "2f7be8c74002023d081a6c4d7b1079b03a8d919efc928b297ec61489472f51e2"
-    sha256 arm64_ventura: "5ceb9bf62fecffd101a4f6aa665d08785bb8ef9b9a3680f62be1aaa1eef3d0e2"
-    sha256 sonoma:        "972200a3a2aa831163a491f815d10d83f344d59958280b5a02e4cf2ec2597400"
-    sha256 ventura:       "e598afc339649656538f52f2d84a552732aaaba072a1e8ea8f38aade6e7e0abd"
-    sha256 arm64_linux:   "43a2c1a1b574b31ae49506c315aef6a15e40c3fa9205540a4e2826ea8e0adec0"
-    sha256 x86_64_linux:  "1db3e2cf441b41b363ab2a590f52c6e64f06e41cbde55cc0ed4aff6bf8cc6277"
+    sha256 arm64_tahoe:   "d8983e03ea9d8cf5d68fac6bec32cabb2fbde77e887db3989bfa1639c461f737"
+    sha256 arm64_sequoia: "5f66184e9c541379655129927571152bca175293a673a51c7130781aa26b821f"
+    sha256 arm64_sonoma:  "a2c7216d7db5e218669efec6e39666edede7de11905956fed4d89b84b0823ce0"
+    sha256 sonoma:        "48f2c77f9138e51611c9cde9154f65c6ab1f42a2685cf013c006ff5069ec2bbf"
+    sha256 arm64_linux:   "a784f7056469f0d6b317ab7f15988151929fa1b3d20605d1eec61f1de1a9af9e"
+    sha256 x86_64_linux:  "a9d327e7291b660b083a604c878ebfdc54326414120e26f9e5625c87268453a6"
   end
 
   depends_on "fast_float" => :build
@@ -32,11 +32,11 @@ class Vte3 < Formula
   depends_on "graphene"
   depends_on "gtk+3"
   depends_on "gtk4"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "lz4"
-  depends_on macos: :mojave
   depends_on "pango"
   depends_on "pcre2"
+  depends_on "simdutf"
 
   uses_from_macos "python" => :build
 
@@ -53,21 +53,16 @@ class Vte3 < Formula
   end
 
   on_linux do
-    depends_on "linux-headers@5.15" => :build
     depends_on "systemd"
   end
 
+  # https://en.cppreference.com/w/cpp/compiler_support/23.html#cpp_lib_string_resize_and_overwrite_202110L
   fails_with :gcc do
-    version "9"
-    cause "Requires C++20"
+    version "11"
+    cause "Requires C++23 basic_string::resize_and_overwrite()"
   end
 
-  # submitted upstream as https://gitlab.gnome.org/tschoonj/vte/merge_requests/1
-  patch :DATA
-
   def install
-    ENV.llvm_clang if OS.mac? && MacOS.version <= :ventura
-
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "meson", "setup", "build", "-Dgir=true",
@@ -99,30 +94,3 @@ class Vte3 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index e2200a75..df98872f 100644
---- a/meson.build
-+++ b/meson.build
-@@ -78,6 +78,8 @@ lt_age = vte_minor_version * 100 + vte_micro_version - lt_revision
- lt_current = vte_major_version + lt_age
-
- libvte_gtk3_soversion = '@0@.@1@.@2@'.format(libvte_soversion, lt_current, lt_revision)
-+osx_version_current = lt_current + 1
-+libvte_gtk3_osxversions = [osx_version_current, '@0@.@1@.0'.format(osx_version_current, lt_revision)]
- libvte_gtk4_soversion = libvte_soversion.to_string()
-
- # i18n
-diff --git a/src/meson.build b/src/meson.build
-index 79d4a702..0495dea8 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -224,6 +224,7 @@ if get_option('gtk3')
-     vte_gtk3_api_name,
-     sources: libvte_gtk3_sources,
-     version: libvte_gtk3_soversion,
-+    darwin_versions: libvte_gtk3_osxversions,
-     include_directories: incs,
-     dependencies: libvte_gtk3_deps,
-     cpp_args: libvte_gtk3_cppflags,

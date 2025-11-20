@@ -13,8 +13,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-5.2/ocaml-5.2.1.tar.xz"
-  sha256 "06cda7a23d79c1d3b36b3aa7283a5ed58798ddd871f2c269712611dc69f573b2"
+  url "https://caml.inria.fr/pub/distrib/ocaml-5.4/ocaml-5.4.0.tar.xz"
+  sha256 "dfaa8a2e11c799bc1765d8bef44911406ee5f4803027190382a939f88c912266"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
@@ -23,25 +23,20 @@ class Ocaml < Formula
     regex(%r{href=.*?/releases/v?(\d+(?:\.\d+)+)/?["']}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "1cb7adeb65626b6c5b9963d956885356d97683f0f2a1d54d2c198a5edefbd44c"
-    sha256 cellar: :any, arm64_sonoma:  "92d197de2d3c53e0b59812f4633cea69ffe0283c1e4a58ee40aaf78a0d59280c"
-    sha256 cellar: :any, arm64_ventura: "bbc25adfbb86c127354d2d53d2981a4ad86daad08011b77ca32e82fd5efbe87f"
-    sha256 cellar: :any, sonoma:        "97ba2b31fa0ff21902f5cf1fb12ffe1460abd5a5501ccd6737cdf860b3cac073"
-    sha256 cellar: :any, ventura:       "2c59bbe9532886d0240b4d8e1c3cd084042e62d4eaadf86004dcdab7e2c47f0c"
-    sha256               arm64_linux:   "cb0092ebb8c80fbb2fc64101e0d6fb9f371498a2932b92284aee1ecfd2692317"
-    sha256               x86_64_linux:  "8bb80e167c8c295f6c078ab998b5f12d54c764bed796f0b576e951691c8de384"
+    sha256               arm64_tahoe:   "9e52a52b1b531cb999c24f7f7d524f840b4630a376c3888c5e91875d15cda6ce"
+    sha256               arm64_sequoia: "0e269db9117ff10e44a62f85521a46f85da8c1dca79915795776f3a0f26ab5a5"
+    sha256               arm64_sonoma:  "f67dbb07c32a737b605e9d35e65efcf05af7e6e1618faa586dad50769d5f9ba4"
+    sha256 cellar: :any, sonoma:        "688925c23de05f913dd9ec435ae71281254892b7109e1feba690aba1567b764e"
+    sha256               arm64_linux:   "475f722bfa5f1f4bf2eabe93829a425bf7ad167a624ad3705ca5ab62b5436477"
+    sha256               x86_64_linux:  "9be36dc8f324cb8ef5267c9d80343860105a6f0d8c3e04394bb3f0233b3b40f1"
   end
 
   # The ocaml compilers embed prefix information in weird ways that the default
   # brew detection doesn't find, and so needs to be explicitly blocked.
   pour_bottle? only_if: :default_prefix
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores

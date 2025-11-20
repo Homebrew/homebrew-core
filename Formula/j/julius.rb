@@ -8,6 +8,7 @@ class Julius < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d61bf2d5a72b3921d870e4099611148d9b33ab1873f2649f29d7adc12a4bed38"
     sha256 cellar: :any,                 arm64_sequoia:  "d0918ba6c8c4c755b0a7ad73e0efcc5e6a20924490acebf3ff0af45aef2dcfd1"
     sha256 cellar: :any,                 arm64_sonoma:   "3b9b28223b4853e92cc9be12a3e46ab876cdf7e48fe7fce4ce2c22459ce91db3"
     sha256 cellar: :any,                 arm64_ventura:  "345963770e4eaa6cd0a4308d657f4b0a45b00d30e23d5e7aba9143dee08f418b"
@@ -18,8 +19,6 @@ class Julius < Formula
     sha256 cellar: :any,                 monterey:       "73f943f1011686778fdae712733eb0987f97976c6f0ab26d9771c57eccf304c9"
     sha256 cellar: :any,                 big_sur:        "4b8251857584f844fe5469a0283a773428383053f8d80eaeff885b745578aa1d"
     sha256 cellar: :any,                 catalina:       "b06b9ca71df4cccff10e36a4a75a55f7d5bdb009f4dba9f940044da6ba0c258d"
-    sha256 cellar: :any,                 mojave:         "041d7a3185850375ef67148a74ab9513e9a4eb6de05deeb3595f3941c41010d6"
-    sha256 cellar: :any,                 high_sierra:    "d699dbf645c69f795421569e21c9d676e0db534a8d72fabfb721d5864e391549"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "47883d170fbc7ce73b8498ce37bb9e26ba3d57e5574f8ed03d11af3bc8ed81be"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "576576ac4069a3fd9e89e71ac2cefe9f3d1e666b9aa92915f248f8bffcf19de5"
   end

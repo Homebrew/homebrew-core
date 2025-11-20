@@ -1,31 +1,30 @@
 class Ecoji < Formula
   desc "Encodes (and decodes) data as emojis"
   homepage "https://github.com/keith-turner/ecoji"
-  url "https://github.com/keith-turner/ecoji/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "59c78ddaef057bbfb06ea8522dfc51ea8bce3e8f149a3231823a37f6de0b4ed2"
+  url "https://github.com/keith-turner/ecoji/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "2f5de343c4e1032b328efe6a3a61d9ba6aae5ef668f99f0d06a16a9dda22e52e"
   license "Apache-2.0"
   head "https://github.com/keith-turner/ecoji.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fdfbe5a6aafb24454e05f4847c9b942f2cfa1f68872fd0e29f0afa67fd325b65"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b250a66fa8d6343158e39d70d313eb2ceb2ca22bb22c9a00744bb8f72f90e95a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "23b8840deb6010c46dbef2a199375627fbe0d29d0fdd4fe0f7b3bb7998a66742"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "23b8840deb6010c46dbef2a199375627fbe0d29d0fdd4fe0f7b3bb7998a66742"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23b8840deb6010c46dbef2a199375627fbe0d29d0fdd4fe0f7b3bb7998a66742"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c296fb03b9cdf3b34b600f32e03918e05379430598c8d8d64d63d22baf0f4e8a"
-    sha256 cellar: :any_skip_relocation, ventura:        "262576c8572a6bf2b65b8fb0cb5091a2831616e84f586af9a88d72584f3b1c5c"
-    sha256 cellar: :any_skip_relocation, monterey:       "262576c8572a6bf2b65b8fb0cb5091a2831616e84f586af9a88d72584f3b1c5c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "262576c8572a6bf2b65b8fb0cb5091a2831616e84f586af9a88d72584f3b1c5c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8a2797643ced4e9f64b294ba6fcf9e9afaac65687e9e2117365941abdd0e6f6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8faad5be2a6c052f1489356052b81fab7bbfa597c7285f93842e99fe4f46f60"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b8e9af1bfa4c147c763dac9dab83e1e2c0cc60a0323dc8e64dd52bb4ca8fcb5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b8e9af1bfa4c147c763dac9dab83e1e2c0cc60a0323dc8e64dd52bb4ca8fcb5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b8e9af1bfa4c147c763dac9dab83e1e2c0cc60a0323dc8e64dd52bb4ca8fcb5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ed4661683e62fe770b6e6187c957cd4d6cd78ccee5695dfa51378d3a677d2f3e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "063fbca010a729a6d83b71100ed50e7a9da28bf91a1c5bfad0956a8b63aca023"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "319db5e1d71bdc821fc64e4eb6a5f40784963eb32a49e6a3e685bf4c1c482bd0"
   end
 
   depends_on "go" => :build
 
+  # Add missing go.sum file needed for module verification, upstream PR, https://github.com/keith-turner/ecoji/pull/39
+  patch do
+    url "https://github.com/keith-turner/ecoji/commit/ecc62c2cea558c776400b1da8161cef97848316c.patch?full_index=1"
+    sha256 "b66530592062f64a03858633d85029271cc83a2b41bb84d31ce31667abcca71e"
+  end
+
   def install
-    cd "cmd" do
+    cd "cmd/ecoji" do
       system "go", "build", *std_go_args(ldflags: "-s -w")
     end
   end

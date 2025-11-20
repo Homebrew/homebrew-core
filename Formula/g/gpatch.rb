@@ -1,12 +1,13 @@
 class Gpatch < Formula
   desc "Apply a diff file to an original"
   homepage "https://savannah.gnu.org/projects/patch/"
-  url "https://ftp.gnu.org/gnu/patch/patch-2.8.tar.xz"
-  mirror "https://ftpmirror.gnu.org/patch/patch-2.8.tar.xz"
+  url "https://ftpmirror.gnu.org/gnu/patch/patch-2.8.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/patch/patch-2.8.tar.xz"
   sha256 "f87cee69eec2b4fcbf60a396b030ad6aa3415f192aa5f7ee84cad5e11f7f5ae3"
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c79a8b5d256e2208b32446babb95be637d48bf1fa571bca1773c9c73414ca3ff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "01993d9f869309a9494840d4da0ed1997b4d21181679fd226bb9038a0e59f81e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "692a394eae0b5a7fd95bb25822e8750cd493f9afee1e5db272f6445c88ae3bef"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "78c60664e4eb56d03f582b2ca45a1f3861ae6a331bd9f7997ce587ac2415b440"

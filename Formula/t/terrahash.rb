@@ -7,6 +7,7 @@ class Terrahash < Formula
   head "https://github.com/ned1313/terrahash.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c4b9014227d119a55bc9f42a5b244a12b88f0b19f09fdd85e3514b42d61682eb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3bff28cc077e366d5dcef34c43192ea54defa55bce901fc53eaacfe329c194d5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2827a0447062c2ee47306aafa09964dcbf25713e403461e3cfb3ed62ec9b11ea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5309604e6a55ef456ba83b7bbe1c2ff8a24bd18b54703979737bf9500de7433"
@@ -14,6 +15,7 @@ class Terrahash < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "2d73a995a7cd3b4ab3beec53269ad53cffffc28e76fb7f9a88b4e065ec1771bd"
     sha256 cellar: :any_skip_relocation, ventura:        "4645c23fc4859d34d2d03e6e1ad252dd833cb00f3d16be8996468e8f1507184d"
     sha256 cellar: :any_skip_relocation, monterey:       "a41c2cebf76de380cabfa016a7403e93b46367daa53570645543153013af6648"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2d25b8e45a3885003a2ded44bcf917175d7a383659472c7d520e487cbcf8d1b1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c60a0bdc8f9cb977a7e4b7804e1d845f70af7e697b06c2e1eca856ac55f533f"
   end
 

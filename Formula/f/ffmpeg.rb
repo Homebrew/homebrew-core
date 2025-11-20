@@ -1,23 +1,12 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.xz"
+  sha256 "05ee0b03119b45c0bdb4df654b96802e909e0a752f72e4fe3794f487229e5a41"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 3
-
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
-
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
-    sha256 "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
-
-    # Backport support for recent svt-av1 (3.0.0)
-    patch do
-      url "https://github.com/FFmpeg/FFmpeg/commit/d1ed5c06e3edc5f2b5f3664c80121fa55b0baa95.patch?full_index=1"
-      sha256 "0eb23ab90c0e5904590731dd3b81c86a4127785bc2b367267d77723990fb94a2"
-    end
-  end
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -25,13 +14,12 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "b485f9ce15d42b861a8d5506524b57e1b190b3bc4122844ccf544210dad873fe"
-    sha256 arm64_sonoma:  "1cdd3c6f2621b3c4038bdf7b2508852fd2748e209fa0a6d95261f1c22a8a4b83"
-    sha256 arm64_ventura: "2c66c6ac49dff3c749c925dd4266a7a86ec31a57f3ab1c4065b9001ee5c26894"
-    sha256 sonoma:        "d8414d6c8415dc9971346ef49a766e7414a6ffdc8224763e45c9267a02634e94"
-    sha256 ventura:       "e2fb047561d92c6d9292a1b6b5f749e504235c6b181381a9a37fafc5743be427"
-    sha256 arm64_linux:   "a9b886129c5170f9a825d7eefcb4ad4bca1a6150119af52616d01b67f21f6a5b"
-    sha256 x86_64_linux:  "2179e27a841eaa46537426fb8aec531b5aa6dbcad6727e6247b1c98065102e6e"
+    sha256 arm64_tahoe:   "e5e3bd55aa5ec1547f29cb3fe34d07b5a7a24b6ba8c7b2f760d5534e8d204567"
+    sha256 arm64_sequoia: "98028379245aaa3c79deccfd65b5cd2a1bd231d2088eca8dae9de369e77e5e78"
+    sha256 arm64_sonoma:  "bb947aa2d01fb30f71d0c5d83a7e3528d69223479cccbb422bfd4dc78920c9b3"
+    sha256 sonoma:        "5389f262f03b7bf7f9d000653191a22d52ea8b061db4575d2fe914ba0141a766"
+    sha256 arm64_linux:   "995aed83fe3e7ea17f245a3e821f5106653a6c1294c362fa5d6fd9234f5e1d40"
+    sha256 x86_64_linux:  "1c4803a6f764f1bfa82f304c973cca3e45de68040ac23b7b4ed1a10661658d96"
   end
 
   depends_on "pkgconf" => :build
@@ -105,7 +93,7 @@ class Ffmpeg < Formula
 
   def install
     # The new linker leads to duplicate symbol issue https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/140
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.ld64_version.between?("1015.7", "1022.1")
 
     args = %W[
       --prefix=#{prefix}
@@ -174,9 +162,14 @@ class Ffmpeg < Formula
   end
 
   test do
-    # Create an example mp4 file
+    # Create a 5 second test MP4
     mp4out = testpath/"video.mp4"
-    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
-    assert_path_exists mp4out
+    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
+    assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
+
+    # Re-encode it in HEVC/Matroska
+    mkvout = testpath/"video.mkv"
+    system bin/"ffmpeg", "-i", mp4out, "-c:v", "hevc", mkvout
+    assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m, shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
   end
 end

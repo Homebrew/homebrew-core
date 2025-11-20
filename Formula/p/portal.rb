@@ -6,13 +6,17 @@ class Portal < Formula
   license "MIT"
   head "https://github.com/SpatiumPortae/portal.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1eb19a1a5286dff89e6c783dfb092baa8b5fc2e6a859c4fa19c748918b00299e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c0f1d260c58e98e4fd7899ef87280ffe8efcc67d77764203a9d54fe35e47ab4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c0f1d260c58e98e4fd7899ef87280ffe8efcc67d77764203a9d54fe35e47ab4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2c0f1d260c58e98e4fd7899ef87280ffe8efcc67d77764203a9d54fe35e47ab4"
     sha256 cellar: :any_skip_relocation, sonoma:        "b091e6d917f3c32d54ae00142dbecf84c98b74985626b43df1dc4ea4c4bcf54c"
     sha256 cellar: :any_skip_relocation, ventura:       "b091e6d917f3c32d54ae00142dbecf84c98b74985626b43df1dc4ea4c4bcf54c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7eaec7e69e6599f5618d67f3f1869d24ab28c7032f6817b0f9945cb9ca06d504"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4416bc3aa73043e6120fd97676142abae1de1f131454036ff9baecf61253068d"
   end
 

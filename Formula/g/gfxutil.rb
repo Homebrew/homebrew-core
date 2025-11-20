@@ -10,6 +10,7 @@ class Gfxutil < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "aaa2bcf67a5e5655cb62fcee4118904fba8f0f195c908c2d18576f3a7680d817"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "63bb7dcf0a63573ae3d930724c50172fdee932cebf3733d5862cd961fa2ff5c7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0bcf7f6998efc819378c5b42de7ef889877a8dfee552c50b19b2e936ba90730"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0346234f7ca528ca436186c2b4aa58a398756e6ac6ebaaa3329ba95b915835b2"

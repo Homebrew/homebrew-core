@@ -7,6 +7,7 @@ class ProtobufAT21 < Formula
   revision 1
 
   bottle do
+    sha256                               arm64_tahoe:   "65023d2a73ac89c385ff14782c38c1f629828d753d880f8e910a7ee19fc35e47"
     sha256                               arm64_sequoia: "9a941768e6f914b2c5a412728f3794a49a53b894b3cbe637809df93bc9b521e3"
     sha256                               arm64_sonoma:  "a906fb18cfff9e07a71c34d01c74676ea28290fa6c4cfa26f68e48449abf242a"
     sha256                               arm64_ventura: "f2997129a1170a2e472499cdfc829c03f8e8613826360837498fc42843f7bb94"
@@ -21,6 +22,7 @@ class ProtobufAT21 < Formula
   # Support for protoc 21.x (protobuf C++ 3.21.x) ended on 2024-03-31
   # Ref: https://protobuf.dev/support/version-support/#cpp
   deprecate! date: "2025-01-08", because: :versioned_formula
+  disable! date: "2026-01-08", because: :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "python@3.12" => [:build, :test]

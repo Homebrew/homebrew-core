@@ -2,22 +2,24 @@ class Earthly < Formula
   desc "Build automation tool for the container era"
   homepage "https://earthly.dev/"
   url "https://github.com/earthly/earthly.git",
-      tag:      "v0.8.15",
-      revision: "cb38f72663696d17d8393b1cc8bac66aed28faa2"
+      tag:      "v0.8.16",
+      revision: "c48905267920d5599e849e8e043f801c6baab94a"
   license "MPL-2.0"
   head "https://github.com/earthly/earthly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e048169778f8a017306c4f876cd4e36fb3e7bfe809a2e1fa5036545397d319a2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c80c3a761809ed97b83029dc4e4f39cc90cc99dad895db238599a378ffb139a7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c80c3a761809ed97b83029dc4e4f39cc90cc99dad895db238599a378ffb139a7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c80c3a761809ed97b83029dc4e4f39cc90cc99dad895db238599a378ffb139a7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "24570e41843f45493539397ef7a9cb9533d581418b1dc44908690fb032c716f4"
-    sha256 cellar: :any_skip_relocation, ventura:        "24570e41843f45493539397ef7a9cb9533d581418b1dc44908690fb032c716f4"
-    sha256 cellar: :any_skip_relocation, monterey:       "24570e41843f45493539397ef7a9cb9533d581418b1dc44908690fb032c716f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "234552a47eb585f95d90ddc17fe5e4954028429f6667c47cef6929d4f0dc9d20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3c89999c25f245dcd4e4e2b946ac4902c7cfe4b3c60a31edf19fe6f30453911"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "10fb027ed13b35dd1086731fcd7d2cb12576e3cc5ca4e39b9de0b90320108f7e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4c91d647c2b928deac976cdb3f939bcdf71b8d567de1bc80bc2177d4a91bc51"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4c91d647c2b928deac976cdb3f939bcdf71b8d567de1bc80bc2177d4a91bc51"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f4c91d647c2b928deac976cdb3f939bcdf71b8d567de1bc80bc2177d4a91bc51"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e546a6f2586355f34627aeeebed740d22545a0f55341f461297543f4d9435057"
+    sha256 cellar: :any_skip_relocation, ventura:       "e546a6f2586355f34627aeeebed740d22545a0f55341f461297543f4d9435057"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "995dfe4672c78d926733b365c7c6e81f382130eb6db014c855fb9b24eb2c6aa9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccb67c3da58fe3524320b08fb9ace8779479ff4afd09a77a2a2dd1ae40fee890"
   end
+
+  # https://github.com/earthly/earthly/commit/9e553bc2905da5fa4f39ad327b80fefed178f70a
+  deprecate! date: "2025-06-29", because: :unmaintained
 
   depends_on "go" => :build
 

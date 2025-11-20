@@ -1,10 +1,14 @@
 class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/refs/tags/v3.5.1.tar.gz"
-  sha256 "00de60eaefdba1aa289ed409a9cabe8d63f9f6d554018456ab7f78531b2c3629"
   license "BSD-3-Clause"
-  head "https://github.com/commercialhaskell/stack.git", branch: "master"
+
+  stable do
+    url "https://github.com/commercialhaskell/stack/archive/refs/tags/v3.7.1.tar.gz"
+    sha256 "e2ce0d053566634a426ba1916592dfcefe48bdebbfe6a0da07e23a79c0ed7759"
+
+    depends_on "ghc@9.8" => :build
+  end
 
   livecheck do
     url :stable
@@ -12,19 +16,23 @@ class HaskellStack < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb81522eb7a165d7f1dc9650b1cc2bedacfb43cca1a08a0c960e5519a90f37a6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b25f2852beeca1d67c7771142af9b81d404f9a1dae8985caf4641f6be33b0746"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "58ed8f3b45ce0d96ef92ce596ee4aa8c898c2a004d3fa94ac5ac7aad3da10d7b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5492d567c98c075d1312897d0afb4645f44d500814bce73785729f86f95099d7"
-    sha256 cellar: :any_skip_relocation, ventura:       "27831d3d54f8b3b7ab1e59da20dedc67c8da46e85bb2c7379df0f1333af47a15"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e6a57d5ccfc7082cde45e9b926a774c7f3d455d2c693fa0f758e881328d0d8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfbfa1acd47505570bbb0b1989c824af5bc0b280f2003bbb10df1f2e566cab4d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af23e3d97a6a29edecd7d64cebe979329a4a1acb873e30fa9f3bb47469deebca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3231702c5fcba9e516315148b1d002bd8a992b023a9c9d792e319e707c3fc49"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa271a60946b01b795002384e6de6aec40e0b7183bb52210be9ff385845f4f75"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0c53dca7b80ae751d1b41730be17e01a437cfca9a1118360f41566ed52434150"
+    sha256 cellar: :any_skip_relocation, sonoma:        "197800b9dd379f80b3d7e9bbe6a0a38a7099f986335e255593d594764915596a"
+    sha256 cellar: :any_skip_relocation, ventura:       "1dda2642149f8c66b3e682146eaf9a77c91eef6304ac7d50059842c68be1be76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0610976a50463a6df9351c0db91b583dd1032cddefa4670f5c86096149e1a1cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8342bcb2b1b190c7f4278e29b2e91301024dbe884da0d865b756dc5ddd9b8f6e"
+  end
+
+  head do
+    url "https://github.com/commercialhaskell/stack.git", branch: "master"
+
+    depends_on "ghc" => :build
   end
 
   depends_on "cabal-install" => :build
-  # https://github.com/commercialhaskell/stack/issues/6625#issuecomment-2228087359
-  # https://github.com/commercialhaskell/stack/blob/master/stack-ghc-9.10.1.yaml#L4-L5
-  depends_on "ghc@9.8" => :build # GHC 9.10+ blocked by Cabal 3.12+ API changes
 
   uses_from_macos "zlib"
 

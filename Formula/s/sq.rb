@@ -6,20 +6,22 @@ class Sq < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f881ab58b02e1df585ada412ca80396084379ac06466d7652f1b7dbbe9e62d95"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "009e32cfa7b1bdfed2642c8b75e677ccd5811f3be6abcf5335d73a48920e738c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e352f3207dda7031075cf6e4031a7274ba697139aaae5d51c3fb31b57515268"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e33bcf953cb6bbf0e7f89f7a77d127842aecb0a51da794ce70bfebcb1cd75d0a"
-    sha256 cellar: :any_skip_relocation, ventura:       "53b3b4140bc973c5165e5e14f0314691c24dc1f1e2be90e9f44b86d408426917"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "28c043142fcd8006a7f83674be8c19ae724188da40c169597033525c23c1d74e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17617b679286e017c0fc9fb0e487caf28d5692a1e86ae502c619611a0931b4eb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4e7e26f4d83f7829d91c329688d051d834e8a8af95b2c020d67793a5eb87e236"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f7d17fcc389a770e377f4c1decb25b033b40ed0f3054982f4fcb73ffaa32f32"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ab356e5d43c53e4afbd823d3ed7205b148273fc79ed08e36428bc8b42a50de9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d2d2280b04a8a8b9cdd5ed35dd5686301c9708e580001948012b68ca5377cba7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "66320e44d65e85d579904c7f4dd8823a8fe9ec18a59e7e24b38fae78565656ad"
+    sha256 cellar: :any_skip_relocation, ventura:       "5b7ab78293193479047eafccfce81247ea02d73905bff3ee35a637ac76f241c9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e5e69f47d93f1c7eabd2d38fae687102066278536e9f12dc130e437a7158294"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "436b94f41c3c115501602d3a4bacae43e6b0697dba66e4801527ad5d0b867b42"
   end
 
   depends_on "go" => :build
 
   uses_from_macos "sqlite" => :test
 
-  conflicts_with "squirrel", because: "both install `sq` binaries"
+  conflicts_with "squirrel-lang", because: "both install `sq` binaries"
 
   def install
     pkg = "github.com/neilotoole/sq/cli/buildinfo"

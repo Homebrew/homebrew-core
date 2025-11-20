@@ -1,8 +1,8 @@
 class Opensubdiv < Formula
   desc "Open-source subdivision surface library"
   homepage "https://graphics.pixar.com/opensubdiv/docs/intro.html"
-  url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/refs/tags/v3_6_0.tar.gz"
-  sha256 "bebfd61ab6657a4f4ff27845fb66a167d00395783bfbd253254d87447ed1d879"
+  url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/refs/tags/v3_7_0.tar.gz"
+  sha256 "f843eb49daf20264007d807cbc64516a1fed9cdb1149aaf84ff47691d97491f9"
   license "Apache-2.0"
 
   livecheck do
@@ -10,18 +10,15 @@ class Opensubdiv < Formula
     regex(/^v?(\d+(?:[._]\d+)+)$/i)
   end
 
+  no_autobump! because: :incompatible_version_format
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "82514e22222203cd7f1311d3e327cade6c43276a8824f86438fafe8bc14b8b33"
-    sha256 cellar: :any,                 arm64_sonoma:   "0eedbb0c9de3bac83f8a80d501d6dc419942e8f09c4eecc5a49ce5dbb2243d64"
-    sha256 cellar: :any,                 arm64_ventura:  "50e2cc8bbc3be3c7f3b507f4a65e75888c932ea97bee2a8478d8a71ff6f8726a"
-    sha256 cellar: :any,                 arm64_monterey: "7d1d66be2ebc32bcb9479e69f329bd228ae2542233792d19bb26c1163dd3ef4a"
-    sha256 cellar: :any,                 arm64_big_sur:  "1d94e5690cec6024c9bd13615a794ac68dc3a10119c80485df785515995125a7"
-    sha256 cellar: :any,                 sonoma:         "f0fd75bc49465fe550a484cc1f24adeb18916eafaac7e63df182a5d5c27f7b43"
-    sha256 cellar: :any,                 ventura:        "bc2da69a8b23d92d1e7101a48cc807064fd41a14cd6a8da1c940ae906106d048"
-    sha256 cellar: :any,                 monterey:       "4f62d8949eeac18135b8e8a4de554a46dea88476283633085330856c8e034a7f"
-    sha256 cellar: :any,                 big_sur:        "e895c57930e63805ce8493a73b83a3aaf92269fc5e9755234868a3aab2532cea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4e571546749c5a3bbd1b04aad99b75518e10d645e3829d2d392a5d3d16e0a183"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ce1c6ebb77690c1f20e601272430e50f0dbc21d7a8a8952a8f1b6ed0dffbd6c"
+    sha256 cellar: :any,                 arm64_tahoe:   "0008ddc2f7b700de6b4be9c40e34265cd286eb82e2c8f3dbd5644765c7ba7992"
+    sha256 cellar: :any,                 arm64_sequoia: "b4330e55e4bc62714863e6d69ad3865e466fa91dd0eff7fab13bddc683c3afae"
+    sha256 cellar: :any,                 arm64_sonoma:  "34a9b873da0935fc9cc0b68c4100c95bd1b23cc60b59672bb299ba2449b6f94f"
+    sha256 cellar: :any,                 sonoma:        "1d441722962464d68ef89db0062fca468ba4e61ecfbb11192054947202aaa268"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8a10d139e39100f49e3a599fa968a5e3914d93c9e6ac86ba365ea5fe2116ed1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "110adddf9314496f0f21654961e0a173e72bb02c3c18a50152ab7ceeef52b586"
   end
 
   depends_on "cmake" => :build

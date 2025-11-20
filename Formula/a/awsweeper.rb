@@ -9,6 +9,7 @@ class Awsweeper < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "57cca26932b44660312b377bca14d2f3fdde698d215c127f4be5740304cb61ca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f22735ca83b553b980c8c4c965b82c74661f63b05b42535f1cf182c6e80d6eb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b5010b86841f22dddef64df08c14003a9f8b67be8799a2fd2c25f123b4d87404"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6aaf2bf93c063a5ab9d409f70d77ad32d5c5b8d42f3b9d2b167e83817de89baa"
@@ -19,6 +20,7 @@ class Awsweeper < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "54bc928c085313ad7b2cd353bbf4b7e49df992527526348ee0eb01437f9ca87b"
     sha256 cellar: :any_skip_relocation, big_sur:        "1855fe15c7d95a0dddf4487692bf75d6dc234c3ecd25457dffaeab3a2312ece8"
     sha256 cellar: :any_skip_relocation, catalina:       "76710715dee67793f3715dc1a902b18f259b4ed4b42515fbf13b641339b1f899"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6509b1bdbe77f14394f17818f3956b0bde26493eb49f1ad0088f4873cec209d9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "81776b638e309f839a362f70ba7d0621c2ca9e80f6472f334c5472049cbc3374"
   end
 

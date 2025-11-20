@@ -9,6 +9,7 @@ class Dsocks < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "601324838005b2686e67ea99328ad71a5f59250b8c329bbc9a0861d1bbfe0dbe"
     sha256 cellar: :any,                 arm64_sequoia:  "9130e47d1bfae90594a9127a2aa63144b9101563558cf1fa704205c874bf23a5"
     sha256 cellar: :any,                 arm64_sonoma:   "07f6f3c0e0ca8250eccd463a6cc728bf5ba0400727232ccbfada5137087085b6"
     sha256 cellar: :any,                 arm64_ventura:  "5c950e6047a1c85b8107378594822cc7e563a87a7bce9547f3b21617362b8245"
@@ -19,10 +20,6 @@ class Dsocks < Formula
     sha256 cellar: :any,                 monterey:       "bb719116a3f8703f022416836e22808dd5ed1b7974d5a36e853764324d663d0e"
     sha256 cellar: :any,                 big_sur:        "56c7d9bf70295a5c41fc439d16c9c905b4eb40dcc2d6a4d27513efd5cc48979a"
     sha256 cellar: :any,                 catalina:       "d675be1f5c6a31c1fbb20dd8c521a638edca6ecfe13a6bb1f8db84b35a01178d"
-    sha256 cellar: :any,                 mojave:         "04977648b6805fb7e82c01064872c9a44356cc2b8499adde514aebe1687bfed8"
-    sha256 cellar: :any,                 high_sierra:    "c6f4212b4e925dc0d29b21f96ab244a8a6842ea44b72f3e48036e69d86ac4c93"
-    sha256 cellar: :any,                 sierra:         "896675fab1d6bf50e5ab9512041ab49fcf9af65198d93ec85c0f2c0d801df49d"
-    sha256 cellar: :any,                 el_capitan:     "9b764e48bfe348433382d030a4aa00eefe1afa63b6bcfaab2450101bb429020e"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "142addcc7f101ad923269f0b046f358c50e856423d0ba9adeab86f1f657af6e9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2e5fda6bf8552306949f8571bd51a080870219a6f43f73464a1e92326e6e7ff"
   end

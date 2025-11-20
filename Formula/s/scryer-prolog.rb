@@ -1,19 +1,18 @@
 class ScryerProlog < Formula
   desc "Modern ISO Prolog implementation written mostly in Rust"
   homepage "https://www.scryer.pl"
-  url "https://github.com/mthom/scryer-prolog/archive/refs/tags/v0.9.4.tar.gz"
-  sha256 "ccf533c5c34ee7efbf9c702dbffea21ba1c837144c3592a9e97c515abd4d6904"
+  url "https://github.com/mthom/scryer-prolog/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "353eca4eea539e0a0eedb1572736bfcc64c5fb6fd2da3b8737c513ad62f60f3b"
   license "BSD-3-Clause"
   head "https://github.com/mthom/scryer-prolog.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d9e835b97c19a21a9e951a9cb4f3e63b2df085d146a45e1a83fcd6f7c2e2e03"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a56ddd4c07ac2d2b7efaa3d425e8372164d177ae2051716004fe690c4581788"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a0384d324b743441527508b58a077149303dd2dd96a5503c369408f9719cc5cd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d3e024f19ee8e58837198cd389c3b7c480ba7c5e387d0857f4922661a79e7c18"
-    sha256 cellar: :any_skip_relocation, ventura:       "ca1a6421cda477896165eb0565e298dee3d6a8cbda834b96319d8ecfae1d3b93"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3568e4dbd9505bd8bb67952b815e18631d464d1608295e9d699b91669533fd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "440649067671da13802d98cdcd24d605c6eec246d55b3be4b8cb90c612ee7854"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d48c0a73df9bf67c54bc855ed865155ad79f41a4561591ed3f7359c3e9d2022d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da512766a1a27fe22eb01c1ae6a7c89dd934425d2388d1d482512689fedebd6e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b08c3101dbe3c77c75ab5025e9a4d2fc49c2ed1f17a9839d7357d6972db614db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff71107fc21ebf2fad8c3be28b9801f65fba480207d8300af56b8df3975f5c1e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e3d6f8f168ef2b0bdd2c27755d68f1d6a8133fe9740e52d4914c509fca6e5fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "549989dbd09c1d6885e73357b5f2ba49e762bcbd3eaa0d35110832b0719db02e"
   end
 
   depends_on "pkgconf" => :build

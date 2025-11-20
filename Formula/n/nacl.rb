@@ -14,6 +14,8 @@ class Nacl < Formula
     regex(%r{https?://[^\n]+?/nacl[._-]v?(\d+{6,8})\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, sonoma:       "2bc9b50523f178e04e9241b85554bf361f1c1e4fb70105be8b8897db0d8622ca"

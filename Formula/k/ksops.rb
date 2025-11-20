@@ -2,17 +2,23 @@ class Ksops < Formula
   desc "Flexible Kustomize Plugin for SOPS Encrypted Resources"
   homepage "https://github.com/viaduct-ai/kustomize-sops"
   url "https://github.com/viaduct-ai/kustomize-sops/archive/refs/tags/v4.4.0.tar.gz"
-  sha256 "d498284ee6a523fd4b87d284693b313fea289b4a374f2c0d1b5023f2b18bf77a"
+  sha256 "c3c6ce4503cab59a3ee345ba771cee01caccd99d1ee9f3668f58214cd5ef6742"
   license "Apache-2.0"
   head "https://github.com/viaduct-ai/kustomize-sops.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3aa747b7c1f4bcfabfd3942ff92a66ee859762d82a495509742df676e0682a48"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3aa747b7c1f4bcfabfd3942ff92a66ee859762d82a495509742df676e0682a48"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3aa747b7c1f4bcfabfd3942ff92a66ee859762d82a495509742df676e0682a48"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9665ddf3104edd404a8a6b8bdf7e4aa823327c976584a0ea0fe7ed9f8b33456"
-    sha256 cellar: :any_skip_relocation, ventura:       "c9665ddf3104edd404a8a6b8bdf7e4aa823327c976584a0ea0fe7ed9f8b33456"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03ac64e22aa36b5d1664fbf1748a08b76d3f984f00277c1ac329757cffaa475a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "364262faf875534b99ccc31bd7927081d4fe7cd621a76a56c301a6ab67f1a469"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "364262faf875534b99ccc31bd7927081d4fe7cd621a76a56c301a6ab67f1a469"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "364262faf875534b99ccc31bd7927081d4fe7cd621a76a56c301a6ab67f1a469"
+    sha256 cellar: :any_skip_relocation, sonoma:        "52792d1cb8bd04bc47e4879360db2941e1baf75858a7c60a70cb9763ebeecfea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b126ac5047ce953ed01692c3e66a8e81a43ee92ec39c604f9bf0a65a7d7f931"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6db3f9f9fc371dfa67d4fac397b1534af08e6b23ee6009e0eaa9269c101ffd96"
   end
 
   depends_on "go" => :build

@@ -3,23 +3,23 @@ class MysqlClientAT84 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.5.tar.gz"
-  sha256 "53639592a720a719fdfadf2c921b947eac86c06e333202e47667852a5781bd1a"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.7.tar.gz"
+  sha256 "c0bf33a94cdb908f149aea0797affb1b139262ccf0e0b9787a17246207542e69"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
     formula "mysql@8.4"
   end
 
+  no_autobump! because: :incompatible_version_format
+
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "64277d6ec414f92e516089a4e2c6ad176fdb6152a607676392995002149a1a17"
-    sha256 arm64_sonoma:  "43b670624ca50f578df25b7a8fa655bd31e283afa27083018f07d759cb43bfdf"
-    sha256 arm64_ventura: "630f42abd4c09710dcd37691ed213e84aac2f1ebd10c56023ba1098265694b36"
-    sha256 sonoma:        "2ff98ae96608ebb56f38ffbdccf9583902bf9bf75357d9ff4535814177f9b3c2"
-    sha256 ventura:       "4b163c87cd423182b1ddfd4da72e81ddc3361994d9edd824c9f942164332681b"
-    sha256 arm64_linux:   "8ba67332d9fb971c345746a9765de11e57b08df6b729c5119ab654df230a86e0"
-    sha256 x86_64_linux:  "3f1027c7649a348bc50137d817aa9d119808ab02408431063fc5d71dd58761e6"
+    sha256 arm64_tahoe:   "f1fce38da138e20340738cae889eedede5d13567b83fa2f33dc71244d976501a"
+    sha256 arm64_sequoia: "7bb69a79ff46691d2af3ac50b6facbe815b280fb55376fb5467d2dc261e7f5fb"
+    sha256 arm64_sonoma:  "2fe0ede4c906e97fa87fc931bb5a8c153664764d538848a8d49f98fb8ef77c9a"
+    sha256 sonoma:        "f0bc9e781b5befdcff2a0cc2ee205871c191718e466d4a7175dc2a58ab6ce019"
+    sha256 arm64_linux:   "9e95149876220da1200d660f02de6d4433ba3167e053ca6caef4f55abcaab299"
+    sha256 x86_64_linux:  "2310a36ed49b6a3bc9a52a3d6ee5eb0ad37f39db597c9551446d7a3fa9a9d9ea"
   end
 
   keg_only :versioned_formula
@@ -29,8 +29,6 @@ class MysqlClientAT84 < Formula
   depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "libfido2"
-  # GCC is not supported either, so exclude for El Capitan.
-  depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
   depends_on "openssl@3"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"

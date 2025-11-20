@@ -7,11 +7,13 @@ class WormholeWilliam < Formula
   head "https://github.com/psanford/wormhole-william.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34739b2a39653c214c26da30f0d05f88ac8dc70b21f2d35d9d9381fea1bb3f14"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "842582898b124a66cc3f7881433e1a156a9c92b843984b0e74b94d586600fb71"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "842582898b124a66cc3f7881433e1a156a9c92b843984b0e74b94d586600fb71"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "842582898b124a66cc3f7881433e1a156a9c92b843984b0e74b94d586600fb71"
     sha256 cellar: :any_skip_relocation, sonoma:        "1c3d2757a23dca9a5f86854b325569056e4627163474d405a6b4a3d68b2ac843"
     sha256 cellar: :any_skip_relocation, ventura:       "1c3d2757a23dca9a5f86854b325569056e4627163474d405a6b4a3d68b2ac843"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9fc6e936553af437919b8695ddd3e071e38756dea706aea3dc736e1328aac56"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "329792c9ade8805ae88177f9c1f47f4fc25d8781df4601a90c3cc17c7957b704"
   end
 

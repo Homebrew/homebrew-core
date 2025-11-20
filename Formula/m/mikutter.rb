@@ -4,14 +4,17 @@ class Mikutter < Formula
   url "https://mikutter.hachune.net/bin/mikutter-5.1.1.tar.gz"
   sha256 "ddff538aae249bd636604128bac1ccb526a4ed5c32f00b45d3c3c1dbcdb655de"
   license "MIT"
-  head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
+  head "git://mikutter.hachune.net/mikutter.git", branch: "master"
 
   livecheck do
     url "https://mikutter.hachune.net/download"
     regex(/href=.*?mikutter.?v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "04c04af48a9b14b6d319694424d251a9c78a74cd6d3800de1609e0a7c85b00fd"
     sha256 cellar: :any,                 arm64_sequoia: "ee481445aa3a12c60060f4f31d43d8d0378c8189e55c81c7400090b668f48abb"
     sha256 cellar: :any,                 arm64_sonoma:  "b66c8480c121a81c26ec2b37e653fbb324c68c362c18e398ddc40129c3f9c9a4"
     sha256 cellar: :any,                 arm64_ventura: "a4fc84de589aa90a7a78dc4c1d143bf4731f9ae7e251ac360bafffbdaa485db4"

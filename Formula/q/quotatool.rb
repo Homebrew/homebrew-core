@@ -7,6 +7,7 @@ class Quotatool < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "848359b8b48ae2e6d493cbdd7fbcc5a75445692e0d235acd937391bf01829973"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2c0f6b1df823e091ee76ad2ed173177e9c4375f8f8cd0523b5989d4767a8d48e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73fe8aa2a02124cafcf9abdac863eba005e9eb1ab81d8e135cd33f6eb2d40685"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5a43288144374c56357b8086915aaca5eba18e53f0940837d4cf298e70d07e9"

@@ -1,19 +1,10 @@
 class Theora < Formula
   desc "Open video compression format"
   homepage "https://www.theora.org/"
+  url "https://ftp.osuosl.org/pub/xiph/releases/theora/libtheora-1.2.0.tar.gz"
+  mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/theora/libtheora-1.2.0.tar.gz"
+  sha256 "279327339903b544c28a92aeada7d0dcfd0397b59c2f368cc698ac56f515906e"
   license "BSD-3-Clause"
-
-  stable do
-    url "https://ftp.osuosl.org/pub/xiph/releases/theora/libtheora-1.1.1.tar.bz2"
-    mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/theora/libtheora-1.1.1.tar.bz2"
-    sha256 "b6ae1ee2fa3d42ac489287d3ec34c5885730b1296f0801ae577a35193d3affbc"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-    end
-  end
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/theora/?C=M&O=D"
@@ -21,20 +12,14 @@ class Theora < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any,                 arm64_sequoia:  "19801e6ceb5c12db4621afff8746a3ef77581226559ec728c6c07a49659b23d3"
-    sha256 cellar: :any,                 arm64_sonoma:   "7f57dbcd0a12b47f7f886f9474d2ffa04df1ff62fc9c6a330c4f828386d94301"
-    sha256 cellar: :any,                 arm64_ventura:  "b4b1fe0a53ce538d88ca098fce885c20cca62175c2d2141ad96454e7163674a6"
-    sha256 cellar: :any,                 arm64_monterey: "56008e9450fcf3f712f34ec79407b8e738953d5fc50feaf72a6434dd28fc1101"
-    sha256 cellar: :any,                 arm64_big_sur:  "1e5271cb88e3dad8eb5f06460e7f3f2cec0129679c7f7fb4f84db1d09664b827"
-    sha256 cellar: :any,                 sonoma:         "53cce2c2f66137baf358f0a625a5095fa1eab222cda32ecbe8fe202153375cf8"
-    sha256 cellar: :any,                 ventura:        "cab83d4adc91a223bdc43ca9e26f3a15d37ffcda352be74de313ffe2c1160189"
-    sha256 cellar: :any,                 monterey:       "0bdb8acd2fafffff1e172c94aa6f67ce20ea67760d5296ac108ca1ec7e9e4c22"
-    sha256 cellar: :any,                 big_sur:        "7ba57255df2c2f4563767031c6b9ead9a93883217644e9e64b5523e26d7b1088"
-    sha256 cellar: :any,                 catalina:       "1fcbd50039f580bd85554af2d831c28f83613b5d26969f577f7fe87b3c55db67"
-    sha256 cellar: :any,                 mojave:         "6fdb09d75fc6e64b266a185e711c2964e803d8f10c0d40ccb8d572c536c24d3a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8235b8c9b7f4f086e49a8d9845002f10eef213f0d51d8b7b580d87edb19c7bc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ac10b8e87b29874cd0e6d61de22b1123cbc7757f0eae7e5c195dd8c1ab70ef8"
+    sha256 cellar: :any,                 arm64_tahoe:   "b611f6607b0d916bd49ec4b88113cd230d7c0199865b287e75b1ae769bae64b0"
+    sha256 cellar: :any,                 arm64_sequoia: "0474983a6d3f2982c2b34586f12c58d5363ed4e67e6642686d295a4c62533d6e"
+    sha256 cellar: :any,                 arm64_sonoma:  "878dc139277240e36ce8c46ed65d869f16fc3386d1f1f89206f897a1a96b199b"
+    sha256 cellar: :any,                 arm64_ventura: "38881010b87d59c0e6fc985c48dd607a3a78f18f58ae6a91ba17d0f80bb89a5b"
+    sha256 cellar: :any,                 sonoma:        "094215d640402c7f3730447fa4dcc8335cfbc92f759bb426335fc2ba08feaf1f"
+    sha256 cellar: :any,                 ventura:       "7b1efa69f2e6a7efbbd0bbe5b5127992816b2d680980ea4cf8c3d8050bca3cf3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "54226528eb3fc0bad9b016d49bec5b58ce076253a256dddb19e5c18829948c11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0ef196a720cc37055ba91062862548c6325398fefe3e94ea3b540f8db8eb4c7"
   end
 
   head do
@@ -44,13 +29,11 @@ class Theora < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libogg"
   depends_on "libvorbis"
 
   def install
-    cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     system "./autogen.sh" if build.head?
 
     args = %w[
@@ -58,7 +41,6 @@ class Theora < Formula
       --disable-vorbistest
       --disable-examples
     ]
-
     args << "--disable-asm" if build.head?
 
     system "./configure", *args, *std_configure_args

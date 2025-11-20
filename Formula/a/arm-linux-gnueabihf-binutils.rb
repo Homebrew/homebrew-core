@@ -1,9 +1,9 @@
 class ArmLinuxGnueabihfBinutils < Formula
   desc "FSF/GNU binutils for cross-compiling to arm-linux"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.44.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.44.tar.bz2"
-  sha256 "f66390a661faa117d00fab2e79cf2dc9d097b42cc296bf3f8677d1e7b452dc3a"
+  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
+  sha256 "860daddec9085cb4011279136fc8ad29eb533e9446d7524af7f517dd18f00224"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -13,13 +13,12 @@ class ArmLinuxGnueabihfBinutils < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "efa4af7fe2a1f1af0532a7eba01be51b606d532428364e57abefa1e0c5251b05"
-    sha256 arm64_sonoma:  "f8c07d9d101a620317cf2b25f6544a9faa9e59756645dd1a252dd4f3b404e492"
-    sha256 arm64_ventura: "85c571a268fffa11b63163d14d3531e226c30a012e9dfeaf05cd0f0702528617"
-    sha256 sonoma:        "a5122cdafdf344088a2a34974e209a9c87a54c99f17bee9ae84119b0a6e31a82"
-    sha256 ventura:       "b5d1a4cacf725353dd20a829c3f79a41803b1d680d58b7db77c3ae526a0ed7e0"
-    sha256 arm64_linux:   "4ae1d9653da02773fb59e33fea7fefc3071fcc35bae702b4c906ef8031d49362"
-    sha256 x86_64_linux:  "3af94c9946af90084949b00786c4273721977bc466bc69a24c515b4b18d15d50"
+    sha256 arm64_tahoe:   "5759b6b7666b3a04467b9bf8c62393a3d9ead647b2073a4f17699d889a6b0702"
+    sha256 arm64_sequoia: "bfc25771adb53a9cf8a731d01ee1b07b955c6682f942c9a9b0e3c8e65688a3f0"
+    sha256 arm64_sonoma:  "731ce8146c4968ff23eacc25e88a4313b753e8d5e61dca54f4260ab085fa436a"
+    sha256 sonoma:        "793f5765cdc8552d31c25ca65ae6726aa4ad63ec1eaccddc75f77169b4aa1cae"
+    sha256 arm64_linux:   "6577631a8d78290dd346a28b760d3e9347d7e8dd9a0bbc075ecf82a7cb5c06aa"
+    sha256 x86_64_linux:  "eab2d6ae6e004d16aec1fc282483606895e193c5888ac0e988c1504e1610bb58"
   end
 
   depends_on "pkgconf" => :build

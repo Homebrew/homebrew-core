@@ -1,28 +1,19 @@
 class Aide < Formula
   desc "File and directory integrity checker"
   homepage "https://aide.github.io/"
+  url "https://github.com/aide/aide/releases/download/v0.19.2/aide-0.19.2.tar.gz"
+  sha256 "23762b05f46111edeb3c8a05016c8731c01bdb8c1f91be48c156c31ab85e74c4"
   license "GPL-2.0-or-later"
 
-  stable do
-    url "https://github.com/aide/aide/releases/download/v0.19/aide-0.19.tar.gz"
-    sha256 "e7fba0214be01299d76359bff2975233ed241332e4cfcfff59cd1b6a89aba5e4"
-
-    # Fix to missing MAGIC Constants for linux, remove in next release
-    # Issue ref: https://github.com/aide/aide/issues/192
-    patch do
-      url "https://github.com/aide/aide/commit/3a218b2a3affe034bb51506fd0b770eab723ca95.patch?full_index=1"
-      sha256 "6136c77d4242664a9df9ae9daa62a96809aadb21875655b705b4f2ea1e6cead8"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "758e74004bbc5c324e8d762b0bdec6632d817125346c092126784efc5195a503"
-    sha256 cellar: :any,                 arm64_sonoma:  "996cfa72645cfd7cbf3e543e9dd2b562d33f6809f66f795e9d52f1747f49b27e"
-    sha256 cellar: :any,                 arm64_ventura: "2eabc4523a770502710a4cc759fa9b1f21dfef43616c38fa7f8076c2ae679963"
-    sha256 cellar: :any,                 sonoma:        "fd0f7276bedd9c50e33b07770656dc69cc9a408d0acf499b27c85d2ab42ad06a"
-    sha256 cellar: :any,                 ventura:       "b84e1f1c9b88e3fc1a9588ce0d59e11dc9af323b2c54454511ec8022ed2357ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2fb38a54ef59390ca2b5161a839983818eea34f11d50c4909b66eba395ee96f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "020f57203ee46e492a1a3a8e2fbc207757aba784dc14118ffb85f04c98d371ce"
+    sha256 cellar: :any,                 arm64_tahoe:   "a947c75c477cf411400106de11a991089a34c6078ddb353c17fe93425f546468"
+    sha256 cellar: :any,                 arm64_sequoia: "9e5b60be5b1430a10b7c986292bfec5197b6c7af149ee8c599cec7c65309d264"
+    sha256 cellar: :any,                 arm64_sonoma:  "7806be9d00e0f7692ed878edae17173fad9b008501c611b48d0abb0c05055274"
+    sha256 cellar: :any,                 arm64_ventura: "4ce4a584208aec836c39a954a59970511898e3cb67db66a0054be1a52f7137cf"
+    sha256 cellar: :any,                 sonoma:        "ca382368cb70c1d567c2b9d61394f3f27db967b4e86ce570fa4d06f1d66c2d3b"
+    sha256 cellar: :any,                 ventura:       "7a15c93adff7e9a842966ab65b253d3dbcc2e7a30f54d20971e55f54aaab29a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3da22175d632c8fbbfc6ba3b7ea851c15ebcb7628d31830f8923cf063acb861"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "886b88eb65a9e7affb0b9f504e45f72bbbbeaefeef112d77a0eb0fbc6c2d55db"
   end
 
   head do

@@ -6,6 +6,8 @@ class Veccore < Formula
   license "Apache-2.0"
   head "https://github.com/root-project/veccore.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "7cb81dd2bcb91896afae27ce9431387752ef9a6a443da7767a6bef6faa945a4b"
   end

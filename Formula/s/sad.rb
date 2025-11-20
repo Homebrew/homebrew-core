@@ -7,6 +7,7 @@ class Sad < Formula
   head "https://github.com/ms-jpq/sad.git", branch: "senpai"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6a86363c4e34a7ef28f442c18631477562f6b2e53b528dca842d89a61f72aafb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc792df17bca12c265808a20efcbf4444fddf598e1b0671938f624d60a02f930"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "013696e18b0fd86010f790c555f8aa37c1f7058990fa4a4b2ceff65d17daaadc"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "49df2026de6f61f870fc3c23d286214842af83b0bb92ea8e7f9a2e005e8b0d88"

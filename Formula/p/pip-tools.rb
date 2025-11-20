@@ -3,31 +3,30 @@ class PipTools < Formula
 
   desc "Locking and sync for Pip requirements files"
   homepage "https://pip-tools.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/1a/87/1ef453f10fb0772f43549686f924460cc0a2404b828b348f72c52cb2f5bf/pip-tools-7.4.1.tar.gz"
-  sha256 "864826f5073864450e24dbeeb85ce3920cdfb09848a3d69ebf537b521f14bcc9"
+  url "https://files.pythonhosted.org/packages/c4/79/d149fb40bc425ad9defcb8ff73c65088bbc36a84b1825e035397d1c40624/pip_tools-7.5.2.tar.gz"
+  sha256 "2d64d72da6a044da1110257d333960563d7a4743637e8617dd2610ae7b82d60f"
   license "BSD-3-Clause"
-  revision 2
+  head "https://github.com/jazzband/pip-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b67bd26a51b9375d00adc4fefb23245614d6fe552657127ff4fb122d82b07d6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b67bd26a51b9375d00adc4fefb23245614d6fe552657127ff4fb122d82b07d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b67bd26a51b9375d00adc4fefb23245614d6fe552657127ff4fb122d82b07d6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7ed28bd7faa82191f30794a7f8cdaca7a5de1a66276dba16d57df1bd72668c76"
-    sha256 cellar: :any_skip_relocation, ventura:       "7ed28bd7faa82191f30794a7f8cdaca7a5de1a66276dba16d57df1bd72668c76"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "94912844700a4572ab1860aa47d477a4511ce544a0a3112c872404c49a212ff5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94912844700a4572ab1860aa47d477a4511ce544a0a3112c872404c49a212ff5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf47e62934bd709f38814d509ec47f5cf8f2ac1503eb259f6bf9ab8195e8130a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf47e62934bd709f38814d509ec47f5cf8f2ac1503eb259f6bf9ab8195e8130a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf47e62934bd709f38814d509ec47f5cf8f2ac1503eb259f6bf9ab8195e8130a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ad4fd6304e08711ed565dcbf575161b614f1e127999d8011fb731d369ea9ab60"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad4fd6304e08711ed565dcbf575161b614f1e127999d8011fb731d369ea9ab60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad4fd6304e08711ed565dcbf575161b614f1e127999d8011fb731d369ea9ab60"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "build" do
-    url "https://files.pythonhosted.org/packages/7d/46/aeab111f8e06793e4f0e421fcad593d547fb8313b50990f31681ee2fb1ad/build-1.2.2.post1.tar.gz"
-    sha256 "b36993e92ca9375a219c99e606a122ff365a760a2d4bba0caa09bd5278b608b7"
+    url "https://files.pythonhosted.org/packages/25/1c/23e33405a7c9eac261dff640926b8b5adaed6a6eb3e1767d441ed611d0c0/build-1.3.0.tar.gz"
+    sha256 "698edd0ea270bde950f53aed21f3a0135672206f3911e0176261a31e0e07b397"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/cd/0f/62ca20172d4f87d93cf89665fbaedcd560ac48b465bd1d92bfc7ea6b0a41/click-8.2.0.tar.gz"
-    sha256 "f5452aeddd9988eefa20f90f05ab66f17fce1ee2a36907fd30b05bbb5953814d"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "packaging" do
@@ -41,8 +40,8 @@ class PipTools < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "wheel" do
@@ -54,7 +53,7 @@ class PipTools < Formula
     virtualenv_install_with_resources
 
     %w[pip-compile pip-sync].each do |script|
-      generate_completions_from_executable(bin/script, shells: [:fish, :zsh], shell_parameter_format: :click)
+      generate_completions_from_executable(bin/script, shell_parameter_format: :click)
     end
   end
 

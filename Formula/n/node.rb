@@ -1,8 +1,8 @@
 class Node < Formula
-  desc "Platform built on V8 to build network applications"
+  desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v24.1.0/node-v24.1.0.tar.xz"
-  sha256 "c8171b2aeccb28c8c5347f273a25adae172fb2a65bc8c975bc22ec58949d0eaf"
+  url "https://nodejs.org/dist/v25.2.1/node-v25.2.1.tar.xz"
+  sha256 "aa7c4ac1076dc299a8949b8d834263659b2408ec0e5bba484673a8ce0766c8b9"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -12,34 +12,34 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4ac10d9be9e56660b2d32fe4507dd1580e938a7574a3e554f5a7d3562ef07c32"
-    sha256 arm64_sonoma:  "ad210774381a24f6ac082d8b4f6ba7f65773dd4d5f55f67d0b678e8affe923df"
-    sha256 arm64_ventura: "406a1d8a31dcd3504de4d903932e696907bcfe10ba4ec9eab4e785fa6cd57732"
-    sha256 sonoma:        "3aef4a32088fdaac97492ba0ff4a7c9ebda01fb0823d5470b4818615bbbed09a"
-    sha256 ventura:       "c265b0bd932b266b363a749c9d3a22eeaab8fc8a6f28682e92279595137489fc"
-    sha256 arm64_linux:   "949c55c64694e57eb1f54b59c989b299644a4cb3eb0393a3302d5ad5fa44adba"
-    sha256 x86_64_linux:  "0fb5a847e017b00fb706ec09fc2cb9a07c0fdee05def0f9698ae516113dcb5f8"
+    sha256 arm64_tahoe:   "359995ea027401470c702c9233b61632006c387bf538565f7710a6b6bb93538a"
+    sha256 arm64_sequoia: "010c7cea8e8602a8c64ee208b29b82630e69d4d702827c94daca9ada591ab8cc"
+    sha256 arm64_sonoma:  "8e82e0174cdeb81904729d57fbd731491fcb24b7d9b6968b8a8ffaa4c82a9dff"
+    sha256 sonoma:        "a3b75a552868ff2b559157af9c7c05dcf23a5c302824e80df89c1bae3bcf607f"
+    sha256 arm64_linux:   "388670f6adca0bfea17ad489d0d977400e112ca19acfe9430ec0598ef0353412"
+    sha256 x86_64_linux:  "5fb5a85b7593d317b77c82de360a4c4e23709fc23a15fac6dfdcf24e3d192837"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libnghttp2"
+  depends_on "libnghttp3"
+  depends_on "libngtcp2"
   depends_on "libuv"
   depends_on "openssl@3"
+  depends_on "simdjson"
+  depends_on "sqlite" # Fails with macOS sqlite.
+  depends_on "uvwasi"
+  depends_on "zstd"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
-  end
-
-  on_linux do
-    # Avoid newer GCC which creates binary with higher GLIBCXX requiring runtime dependency
-    depends_on "gcc@12" => :build if DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
   end
 
   link_overwrite "bin/npm", "bin/npx"
@@ -60,18 +60,18 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.3.0.tgz"
-    sha256 "1c2dd63f96799ed4bf92b7806d8509302a0f8da68ca452aae27f24388bb41df4"
+    url "https://registry.npmjs.org/npm/-/npm-11.6.2.tgz"
+    sha256 "585f95094ee5cb2788ee11d90f2a518a7c9ef6e083fa141d0b63ca3383675a20"
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1699
-
-    # The new linker crashed during LTO due to high memory usage.
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
-
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3.13")
+    ENV["PYTHON"] = which("python3.14")
+
+    # Ensure Homebrew deps are used
+    %w[brotli icu-small nghttp2 ngtcp2 npm simdjson sqlite uvwasi zstd].each do |dep|
+      rm_r buildpath/"deps"/dep
+    end
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
@@ -79,25 +79,68 @@ class Node < Formula
       --prefix=#{prefix}
       --without-npm
       --with-intl=system-icu
-      --shared-libuv
-      --shared-nghttp2
-      --shared-openssl
-      --shared-zlib
       --shared-brotli
       --shared-cares
-      --shared-libuv-includes=#{Formula["libuv"].include}
-      --shared-libuv-libpath=#{Formula["libuv"].lib}
-      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
-      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
-      --shared-openssl-includes=#{Formula["openssl@3"].include}
-      --shared-openssl-libpath=#{Formula["openssl@3"].lib}
+      --shared-libuv
+      --shared-nghttp2
+      --shared-nghttp3
+      --shared-ngtcp2
+      --shared-openssl
+      --shared-simdjson
+      --shared-sqlite
+      --shared-uvwasi
+      --shared-zlib
+      --shared-zstd
       --shared-brotli-includes=#{Formula["brotli"].include}
       --shared-brotli-libpath=#{Formula["brotli"].lib}
       --shared-cares-includes=#{Formula["c-ares"].include}
       --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --shared-libuv-includes=#{Formula["libuv"].include}
+      --shared-libuv-libpath=#{Formula["libuv"].lib}
+      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
+      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
+      --shared-nghttp3-includes=#{Formula["libnghttp3"].include}
+      --shared-nghttp3-libpath=#{Formula["libnghttp3"].lib}
+      --shared-ngtcp2-includes=#{Formula["libngtcp2"].include}
+      --shared-ngtcp2-libpath=#{Formula["libngtcp2"].lib}
+      --shared-openssl-includes=#{Formula["openssl@3"].include}
+      --shared-openssl-libpath=#{Formula["openssl@3"].lib}
+      --shared-simdjson-includes=#{Formula["simdjson"].include}
+      --shared-simdjson-libpath=#{Formula["simdjson"].lib}
+      --shared-sqlite-includes=#{Formula["sqlite"].include}
+      --shared-sqlite-libpath=#{Formula["sqlite"].lib}
+      --shared-uvwasi-includes=#{Formula["uvwasi"].include}/uvwasi
+      --shared-uvwasi-libpath=#{Formula["uvwasi"].lib}
+      --shared-zstd-includes=#{Formula["zstd"].include}
+      --shared-zstd-libpath=#{Formula["zstd"].lib}
       --openssl-use-def-ca-store
     ]
     args << "--tag=head" if build.head?
+
+    # TODO: Try to devendor these libraries.
+    # - `--shared-ada` needs the `ada-url` formula, but requires C++20
+    # - `--shared-simdutf` seems to result in build failures.
+    # - `--shared-http-parser` and `--shared-uvwasi` are not available as dependencies in Homebrew.
+    ignored_shared_flags = %w[
+      ada
+      http-parser
+      simdutf
+    ].map { |library| "--shared-#{library}" }
+
+    configure_help = Utils.safe_popen_read("./configure", "--help")
+    shared_flag_regex = /\[(--shared-[^ \]]+)\]/
+    configure_help.scan(shared_flag_regex) do |matches|
+      matches.each do |flag|
+        next if args.include?(flag) || ignored_shared_flags.include?(flag)
+
+        message = "Unused `--shared-*` flag: #{flag}"
+        if build.head?
+          opoo message
+        else
+          odie message
+        end
+      end
+    end
 
     # Enabling LTO errors on Linux with:
     # terminate called after throwing an instance of 'std::out_of_range'
@@ -131,7 +174,9 @@ class Node < Formula
     ln_s libexec/"lib/node_modules/npm/bin/npm-cli.js", bin/"npm"
     ln_s libexec/"lib/node_modules/npm/bin/npx-cli.js", bin/"npx"
 
-    bash_completion.install bootstrap/"lib/utils/completion.sh" => "npm"
+    generate_completions_from_executable(bin/"npm", "completion",
+                                         shells:                 [:bash, :zsh],
+                                         shell_parameter_format: :none)
   end
 
   def post_install
@@ -164,9 +209,6 @@ class Node < Formula
   end
 
   test do
-    # Make sure Mojave does not have `CC=llvm_clang`.
-    ENV.clang if OS.mac?
-
     path = testpath/"test.js"
     path.write "console.log('hello');"
 
@@ -190,5 +232,67 @@ class Node < Formula
     assert_path_exists HOMEBREW_PREFIX/"bin/npx", "npx must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --yes cowsay hello")
+
+    # Test `uvwasi` is linked correctly
+    (testpath/"wasi-smoke-test.mjs").write <<~JAVASCRIPT
+      import { WASI } from 'node:wasi';
+
+      // Minimal WASM that:
+      //   - imports wasi proc_exit(i32)->()
+      //   - exports memory (required by Node's WASI binding)
+      //   - exports _start which calls proc_exit(42)
+      const wasmBytes = new Uint8Array([
+        // \0asm + version
+        0x00,0x61,0x73,0x6d, 0x01,0x00,0x00,0x00,
+
+        // Type section: 2 types: (i32)->() and ()->()
+        0x01,0x08, 0x02,
+          0x60,0x01,0x7f,0x00,
+          0x60,0x00,0x00,
+
+        // Import section: wasi_snapshot_preview1.proc_exit : func(type 0)
+        0x02,0x24, 0x01,
+          0x16, // module name len = 22
+            0x77,0x61,0x73,0x69,0x5f,0x73,0x6e,0x61,0x70,0x73,0x68,0x6f,0x74,0x5f,0x70,0x72,0x65,0x76,0x69,0x65,0x77,0x31,
+          0x09, // name len = 9
+            0x70,0x72,0x6f,0x63,0x5f,0x65,0x78,0x69,0x74,
+          0x00, // import kind = func
+          0x00, // type index 0
+
+        // Function section: 1 function (type index 1 = ()->())
+        0x03,0x02, 0x01, 0x01,
+
+        // Memory section: one memory with min=1 page; export later
+        0x05,0x03, 0x01, 0x00, 0x01,
+
+        // Export section: export "_start" (func 1) and "memory" (mem 0)
+        0x07,0x13, 0x02,
+          0x06, 0x5f,0x73,0x74,0x61,0x72,0x74, 0x00, 0x01,
+          0x06, 0x6d,0x65,0x6d,0x6f,0x72,0x79, 0x02, 0x00,
+
+        // Code section: body for func 1: i32.const 42; call 0; end
+        0x0a,0x08, 0x01,
+          0x06, 0x00, 0x41,0x2a, 0x10,0x00, 0x0b
+      ]);
+
+      const wasi = new WASI({
+        version: 'preview1',
+        returnOnExit: true
+      });
+
+      const { instance } = await WebAssembly.instantiate(wasmBytes, wasi.getImportObject());
+
+      // This should return 42 if uvwasi is correctly linked & wired.
+      const rc = wasi.start(instance);
+      if (rc === 42) {
+        console.log('PASS: uvwasi proc_exit(42) worked (exitCode=42)');
+        process.exit(0);
+      } else {
+        console.error('FAIL: unexpected return', rc);
+        process.exit(2);
+      }
+    JAVASCRIPT
+
+    system bin/"node", "wasi-smoke-test.mjs"
   end
 end

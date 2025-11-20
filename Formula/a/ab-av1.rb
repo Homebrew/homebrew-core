@@ -7,13 +7,15 @@ class AbAv1 < Formula
   head "https://github.com/alexheretic/ab-av1.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "04715c5f2216854981f06d8ebc2d9727e62a4d620a34a946a6e1220713b345b3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb775dec52ea9060ef46dd12fbf69bac19247e9e9f7c1d933a3e719a39e4eb5e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "68be40cbf888318be54384ff4f1d4d06a40f529f15359fa66bdba77aee67dcc8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3ed85f7c2c967b176cd214228871093fccbd06161bf7d5af54714e9205a96fa1"
-    sha256 cellar: :any_skip_relocation, ventura:       "ecc784749ec6db65e5486d0273a5a660d69cd5ed754b21e8f0f11b99b66016ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65bcdf53821d56750c86baa264642ad1d24be83d595042d7ca1a9a47260b4ac5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "933c580f775fd196beefa567b76746ba41131ee62678c32c6347c9ca03227bb0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "82ff422a8078b3f8a55e1f824df2a443549d85980c3d8cf5a395bdf2d6d2d631"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "054d32abb5e30883eba42437e7601f94b610c07fadfb3f843bb8a356cd4ff499"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93f75abbb34e3f11dc8b0102517d5a9769abf26e384ce0aa59904ecb5c78894f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8da4a26639bf8f8adca062321bbcae7452b0953801ddc89153bd06113452c921"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3cc6fffb9863658595610461339b5e5a07fe4f8b3531f7e058442213d803b286"
+    sha256 cellar: :any_skip_relocation, ventura:       "1c58bf1d5408deffa4bdf5f1adb0de0cbfec33429d926efd9f4838fad5dcdbcc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2aefe876ee0c4dadad0ab3307481d6f62e6d4f91a1d1ce93baa5b6a23329fbcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "070168c14a60daebc173c5f5ad49a8ecc1b0a81c38fef8c0ea601abf6ff60e2f"
   end
 
   depends_on "rust" => :build
@@ -21,7 +23,7 @@ class AbAv1 < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    generate_completions_from_executable(bin/"ab-av1", "print-completions", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"ab-av1", "print-completions")
   end
 
   test do

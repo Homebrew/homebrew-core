@@ -2,19 +2,20 @@ class Tilt < Formula
   desc "Define your dev environment as code. For microservice apps on Kubernetes"
   homepage "https://tilt.dev/"
   url "https://github.com/tilt-dev/tilt.git",
-      tag:      "v0.34.5",
-      revision: "0b2f9287b2900a854f0e474a10b2f8496a857ff7"
+      tag:      "v0.36.0",
+      revision: "dd573535e79b343967fc29503a2537df8de340f7"
   license "Apache-2.0"
   head "https://github.com/tilt-dev/tilt.git", branch: "master"
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "50700b10519453046b074ef94fe983543fa7e547acf2e40ecad9672ee80cda73"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d62e2b6a4797fb58944e00d063d31ad67e8d436c4830f7ef79ad3a4007b5418"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c48ba2a219909ebda580824da9126d69bb08a7a062e357cfb4906d63e5406454"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db39ef09e74e2ee75f164d3ff90a5c289f4e0c5419b9636f6dc97749f97b588e"
-    sha256 cellar: :any_skip_relocation, ventura:       "c294090151ebbad8ae1aeca12573f7b365a030c21c4291c6436e8e0f32cb8c71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ffb6524dac9087097f754d352c5bdc2cd02583dd1cdf73dfa3f4a8788c8845f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eed76e76a3368a0372321099a6f69530d764739e7ff524fa4ca56a1e1727e369"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8a7b209b3804917ca0ef40d5678ade7781870c426a066b9710791e35b9a007c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "561f455a090278933b4a1310686e90313239e080b11f8afb7459fb55d2e96192"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66f8b7668b9f3dee49649536807329e2b211e215bba1a2e4b1e561da2c7f2174"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6579a8a25b53bc31a56d5e5df83c00ea410a187f4a9d1fbfe444a0dd9ed30d7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "948c08fbdf77defcc7b89fd2653e1ebfe66279aa115d600a11362ecf42d3dd76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3703e7b58f462a3cb1417019d5a72a5ff0500dd543bf88c47650c25f32b451e"
   end
 
   depends_on "go" => :build

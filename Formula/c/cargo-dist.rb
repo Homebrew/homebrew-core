@@ -1,19 +1,18 @@
 class CargoDist < Formula
   desc "Tool for building final distributable artifacts and uploading them to an archive"
   homepage "https://opensource.axo.dev/cargo-dist/"
-  url "https://github.com/axodotdev/cargo-dist/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "ef9b7cd1eba124fce752d1bd8414bfa123e06074d370066cb2621992c67d0af4"
+  url "https://github.com/axodotdev/cargo-dist/archive/refs/tags/v0.30.2.tar.gz"
+  sha256 "8c04414848f64a81a663b4c9200d4d04dc25b950e62db04767c0c0379ca76ebb"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/axodotdev/cargo-dist.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dba42eaa1e5a3b845739624a819a46263e85a5bf7f85055380d1066a11f0c138"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc2d4878c888c7b3459858acde0c615c082e075e710fddd69fe9ef26ad1b147e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "968f7daeffb1d13273e3c787ee8168f288e336b4e76e7ac400e9c9ee4b7e3cf2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e73ea41b52d557c939429b8ce4a46cc485857ea79c3365ed25452d0efc61246"
-    sha256 cellar: :any_skip_relocation, ventura:       "2a539f976a6e3c321a4270276641e4dbba0897322f12a0cad104480e5a4697e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "511eebd1ea06491adf087514050e59eeb315465b5740df25ca0f1b24b3b73e5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec7152a262e3edfce50cd61d60fc7d3d2b7105b4ef82c9aab41970738c08114e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7911b2452d430d728e34f4b36ae28eab3a0d222811a6ef55dd19bf3da8398927"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e10f25f117ceb9bc34214fd167ce5056ef191aada22b3e0492966e426c1fe6a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7fa6f9c4bf28f10050274ccee18a1c42d68ce59db03f1338eb680269dcf70376"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b4adf978a277afc38c52283fb33ee13b1ff60bde34978267f6691d09d1caff46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "67c60c60c20c1ce83fd95843b87a0f58347c6fc117258e1f1642536d3b257429"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7fd1a2dbe58f01b42709e86ae23ae97f704c907d413584f1d5c414f76410797"
   end
 
   depends_on "rust" => :build

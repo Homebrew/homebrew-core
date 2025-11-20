@@ -1,19 +1,18 @@
 class Oxker < Formula
   desc "Terminal User Interface (TUI) to view & control docker containers"
   homepage "https://github.com/mrjackwills/oxker"
-  url "https://github.com/mrjackwills/oxker/archive/refs/tags/v0.10.3.tar.gz"
-  sha256 "6d27d6e9dfbe38270560751f932cd72659b73d4891117042aa21eba800f2ad9e"
+  url "https://github.com/mrjackwills/oxker/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "ef6813b4f5e471c217d68acbeed67de3567f6c40723c8cb0ba029c42be5779dc"
   license "MIT"
   head "https://github.com/mrjackwills/oxker.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e02a7a9d1545f4e9d227c5fbb1046f72611e43bc4480270f573cb87c0a625cbf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a5cf4e716332ded13596d787d5c23f73897c7a77fbe086b480e1e1307f6d702"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "198fa27793541fb09603c68c74b516c3c702495c1b4ae935a17d8e3b1ed521e6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a80cddf2f024cb60e2b5c3896671befa452d74541c330c80c2b5c5d35fbdf7a5"
-    sha256 cellar: :any_skip_relocation, ventura:       "8c6b2986ce0c4bd11e40722188c53f746f4309b5d6348823dcece4f8dc8ac396"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e4414e8f4e92b3d7c8f745957f3d193f2120bf2c68146afd55b2a67dc6da28aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc321af614e20ee574d398ddad12d4b50a5b75761464162aac094986ca7c4287"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9ba35d0ecce5b45249e6928e819a1bb0fde2ef98d91db206c43cfd78996c854f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e052db3aaa3fdaee1f65c35e92ed57db5cdf138424e9a54118e9891bf885184"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a5133c8dd798b90b47e6fde4f0404d760b37a734441499af1b33403fd53d4c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e4f8c3934c5860763464c028fd385ffa63e8607f13a8c3fbca4657bbdcc5bd4a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "09c4d3508a740824be8a6552713dd1c3121d53c42a15c1345f85adfd030f2cbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1678a89b3eb740b50ddf910eaf33191e287fda1b2d95ccb7fe0979b953d7d37e"
   end
 
   depends_on "rust" => :build
@@ -23,9 +22,9 @@ class Oxker < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output(bin/"oxker --version")
+    assert_match version.to_s, shell_output("#{bin}/oxker --version")
 
     assert_match "a value is required for '--host <HOST>' but none was supplied",
-      shell_output(bin/"oxker --host 2>&1", 2)
+      shell_output("#{bin}/oxker --host 2>&1", 2)
   end
 end

@@ -16,6 +16,7 @@ class GtkVnc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "dcf9fa16440c56204a952f4b7220d9de9df68ad1144e1b9bde077b395360b1b2"
     sha256 arm64_sequoia: "fcad7b12178c5357a8f917117a61c27b626a5adb7808a01eb87c2c68706734c5"
     sha256 arm64_sonoma:  "25240b02f2fb63bd13b44cc1e368a5fd67fc9e5cd607648de5382e3e6ddb531a"
     sha256 arm64_ventura: "69e94775e32d33f8163d56fd7c07e82dc420a20243a9a43ae1789e6fc85060b1"

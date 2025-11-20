@@ -1,19 +1,18 @@
 class Timg < Formula
   desc "Terminal image and video viewer"
   homepage "https://timg.sh/"
-  url "https://github.com/hzeller/timg/archive/refs/tags/v1.6.2.tar.gz"
-  sha256 "a5fb4443f55552d15a8b22b9ca4cb5874eb1a988d3b98fe31d61d19b2c7b9e56"
+  url "https://github.com/hzeller/timg/archive/refs/tags/v1.6.3.tar.gz"
+  sha256 "59c908867f18c81106385a43065c232e63236e120d5b2596b179ce56340d7b01"
   license "GPL-2.0-only"
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5c8350f7fe1ed4dc4442b36edf9bed57cc7f91d8ed216a23e5b70fd5e094ca6b"
-    sha256 cellar: :any,                 arm64_sonoma:  "68666166df0ec18cea0727596196fbde09525e366acbc96f280900dee189e1ab"
-    sha256 cellar: :any,                 arm64_ventura: "efa5d590ef38f66e6abc82b1d93d5b25b709d8a7ff300c339e82cb646c97cc42"
-    sha256 cellar: :any,                 sonoma:        "2b7b02c5c71ea66fd8343fd1d2bd3a48921f5f141ab3475f3504daa7b1aca7f5"
-    sha256 cellar: :any,                 ventura:       "6709b3b50e2e5b42fdc10979f0e54cbc8961f5cb4114689cdf2835738f4ebf72"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5382f40353ec7c2e43e38966dc4a859a5ef032f98a6858b76dd76e71cae8a1e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7b3b2f667e0ce20d21fba8ada97bc1d4c41a4d00171bdc67a4d7b56e062f6dd"
+    sha256 cellar: :any,                 arm64_tahoe:   "29d6beebc4277ef79f9d14c083fa370a7b929b03a769d676ac9b2bb87964ed68"
+    sha256 cellar: :any,                 arm64_sequoia: "0c8ee925cc198a9795f2ff70674a1ef3cbc8bee913c5d9372babe3ab74120b54"
+    sha256 cellar: :any,                 arm64_sonoma:  "1e322a578c3f81fd6cbfcb27dd55dd5f9504525668abc56590ef155d0eaa65ba"
+    sha256 cellar: :any,                 sonoma:        "2bdef3af0e1ae32d4e893d6f8d5984bb1568b9f36e3d91276dbf87d40d7abe3e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "318dbf7ec1b15f1e72f684b4d8b749ad81e777e3149d5f86a27956f46c79205f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83740c7f5cc8839d160a8c269e5c4a483e50c0869213a73dd82abecd0ab389bc"
   end
 
   depends_on "cmake" => :build

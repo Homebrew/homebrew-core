@@ -6,6 +6,7 @@ class Libxls < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e400590151f209f52ff66dbd8a11b76f1fb773128b1b6c05e26d93a661b9c011"
     sha256 cellar: :any,                 arm64_sequoia: "abaffb1c9027ca974c12ca4ded7a0b2be05f55cfb7b4ed371a3e14d382278073"
     sha256 cellar: :any,                 arm64_sonoma:  "d90a8a341886453222b61a6fc9015797f5b3b517620f7f4fa5ec217364bf1896"
     sha256 cellar: :any,                 arm64_ventura: "d265631b00cebb4c0afc5dce7e1aa31c332e50022b1b3718acdb10bc68639021"

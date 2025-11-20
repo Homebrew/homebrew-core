@@ -6,6 +6,8 @@ class KitchenCompletion < Formula
   license "MIT"
   head "https://github.com/MarkBorcherding/test-kitchen-bash-completion.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "2db54abff94a93a95e8cee31a46ad86210e556d2f2c25d1f7f3d8a8dd1853514"

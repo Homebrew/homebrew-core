@@ -10,6 +10,7 @@ class CartridgeCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "13ac19b7e55935af401fefa00a9fbc09839e7f39074eb1a4703d82fc60599f53"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c347030987d8638b17325dedf3ecd8a8271de8f1333aa086f7cfb0777c0ff8ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bec51f07e6312f149f7d4dfadbbb9475de7dba2cae02d65f3ad4c5cc07b4305b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a7b997d1e63a70c5c0105897c6d0299d7df81b3b90d2a4b8c80966950a86bb4"
@@ -17,6 +18,7 @@ class CartridgeCli < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "874bc7b926c982d443adb209a19969ad5032f2e35d1a910244dec1811f998409"
     sha256 cellar: :any_skip_relocation, ventura:        "a64cba32bee84f91839d527ce7abc3ec6a2d615ba82958940095e4358aafc771"
     sha256 cellar: :any_skip_relocation, monterey:       "7f4458bfa8b116866c305eac02b5fac4fcbd2b210a903ad2026003fa1782119b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3637454fe1c7db9dccdddebca64969bd78e4fff3f3ca69c773a2f409dec60974"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "81f45b6fa23e7590d4aa466946ce87f8b8fa9dec0fb3863f853d3131c8659c61"
   end
 

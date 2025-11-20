@@ -8,14 +8,12 @@ class Honcho < Formula
   license "MIT"
   head "https://github.com/nickstenning/honcho.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "9156231ae4d87e5ec1dadf38d3251849012f02358f8b7461eb165d770963ddb6"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "f2c152161d10711eb03427dc2934e0a2f0d330ab029dbdbe715cb77a492f8481"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

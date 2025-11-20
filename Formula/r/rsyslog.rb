@@ -1,8 +1,8 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2412.0.tar.gz"
-  sha256 "8cdfa5a077cba576bdd6b1841cc2848b774e663b2e44a39512bb820174174802"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2510.0.tar.gz"
+  sha256 "a70a9834186859539a6a4d1c7b3f68c23897e805829b764a45e92cb0cc95e66a"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
@@ -11,13 +11,13 @@ class Rsyslog < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a6bdd3c313df1e78f07ad1c17d10ad789fcf81fe36a086e20205f5a7e776e9f0"
-    sha256 arm64_sonoma:  "354d633feb5a36805573f10f8e1c3fcc5f608ffc5026212635047b346b3e197a"
-    sha256 arm64_ventura: "7ea98249ad0dc1e7a4597e7057f5c6876242a249309b9cc49324be1e7e3e4e59"
-    sha256 sonoma:        "634fdc7ce73d23b03242f48159487efb0b5c4fc260969ecc714efde9420ba2b1"
-    sha256 ventura:       "d062e44b88e5d1b02ffab7237dac1a70fef11e1a204137ffb4a4284123ceddd1"
-    sha256 arm64_linux:   "8bf6e7b74eb77f2caabf141e907132cd9dd3ea91a77c0a91ef10adda9e2baab7"
-    sha256 x86_64_linux:  "b0f6a768aa0755c58ca09703551430588f40df0273679bc4131bdda4bc508c73"
+    rebuild 1
+    sha256 arm64_tahoe:   "0b2e0bf5c8c9d2c08ce286f8d3ecafe9df9b289bca7e7af78341ab5d09ded214"
+    sha256 arm64_sequoia: "3f396b4ad295039d023feed5d79cb3f04c8c8228d93bf81b182faea1f9c5a27a"
+    sha256 arm64_sonoma:  "543a3fe12224e76dbebb2f8e3a20aea33bdb782966903de0acdb9f67be8f3069"
+    sha256 sonoma:        "164c28103f9a4a11fc69ed5b0c0bda884401da6dd9e71466db75716f7d29f2e5"
+    sha256 arm64_linux:   "3367a4af44d9307989ca72ad2ba30d2294b70abdcd6ca9b2e70bb7290d852371"
+    sha256 x86_64_linux:  "14c1f1b2fd17d541b8de9b8bf424760c8f7845410741eb075df5c65ed66a7197"
   end
 
   depends_on "pkgconf" => :build
@@ -43,13 +43,11 @@ class Rsyslog < Formula
       # minimal config file for receiving logs over UDP port 10514
       $ModLoad imudp
       $UDPServerRun 10514
-      *.* /usr/local/var/log/rsyslog-remote.log
+      *.* #{var}/log/rsyslog-remote.log
     EOS
     etc.install buildpath/"rsyslog.conf"
-  end
 
-  def post_install
-    mkdir_p var/"run"
+    (var/"run").mkpath
   end
 
   service do

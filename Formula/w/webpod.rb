@@ -5,6 +5,8 @@ class Webpod < Formula
   sha256 "99b123e8d9f49b06d2dd0b886b81d2c2c64e510ba50eac2ba229e60b36719a7e"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "ef076e7974529c853c352407873ff5cd53c23fccd374510778b508983995bd3a"

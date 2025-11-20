@@ -1,9 +1,9 @@
 class Libpng < Formula
   desc "Library for manipulating PNG images"
   homepage "http://www.libpng.org/pub/png/libpng.html"
-  url "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.48/libpng-1.6.48.tar.xz"
-  mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.48/libpng-1.6.48.tar.xz"
-  sha256 "46fd06ff37db1db64c0dc288d78a3f5efd23ad9ac41561193f983e20937ece03"
+  url "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.50/libpng-1.6.50.tar.xz"
+  mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.50/libpng-1.6.50.tar.xz"
+  sha256 "4df396518620a7aa3651443e87d1b2862e4e88cad135a8b93423e01706232307"
   license "libpng-2.0"
 
   livecheck do
@@ -12,13 +12,14 @@ class Libpng < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a6ca2508569d9237cbb46a2d3da13b9e2e8d9d042ca48b78463f34aa527cd7ce"
-    sha256 cellar: :any,                 arm64_sonoma:  "44fc8cfe04fcf2bf39fb2dc479f5b7170fb7a3db23e6fadc5d71ea3eff2ccfa2"
-    sha256 cellar: :any,                 arm64_ventura: "0c4e9222ea305c1b20edeb3bfe79cc99098291286a37a0da1f980cd5621d70ba"
-    sha256 cellar: :any,                 sonoma:        "0858ad8c30002d9277514223d78a7f52fb04d6f1263c00b66714a74fb9baaf8f"
-    sha256 cellar: :any,                 ventura:       "0bcf3cf2bcc9ca53834d5806c9dafc6bc0c2dbebc196b8722e50d6059e5fb92f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cdfd8c8ad7b7a8ed8257bc59ee4e05ce7adea9fb04991928efdc681f530b1ca1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e10fd6235517d48b80f5d7b30271b19264102ff7bfb1fd4bec293e41866db84d"
+    sha256 cellar: :any,                 arm64_tahoe:   "cace1a4f92a57c53cc8b82970970c52323f91ddbe4846dcdbe278919c415fdb2"
+    sha256 cellar: :any,                 arm64_sequoia: "0e84944536d6bf2c7cfd393a4576acf5c0ced03992d156685a7f83c7d2a60215"
+    sha256 cellar: :any,                 arm64_sonoma:  "caa7ba5098ae80b04910efc2770473a566245c2f1cf8c3d6b1d2b1bd5624eadb"
+    sha256 cellar: :any,                 arm64_ventura: "cdfd6a7ecad2bab898b901fbdc1afd85403544bd6ceecb0dbeef363ba21c09ec"
+    sha256 cellar: :any,                 sonoma:        "e75d186e750e25eaec263712695e32f90f1db116a7b1b6800e4f1d8b8fcd26f5"
+    sha256 cellar: :any,                 ventura:       "4ec5a2b7501d6a1a262a6cb085ce39bf59d1486df6dad67d0a8c232ca987e14b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdb4a903c664637380ada15baacdfb2c056caaa7c8a52993cd706d4d230f318b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2627ebf8ea1ead44fff53f5dbf7e6ce737626286ac6dac60d815c6cc8e83e3a0"
   end
 
   head do

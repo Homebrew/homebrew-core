@@ -4,18 +4,19 @@ class C10t < Formula
   url "https://github.com/udoprog/c10t/archive/refs/tags/1.7.tar.gz"
   sha256 "0e5779d517105bfdd14944c849a395e1a8670bedba5bdab281a0165c3eb077dc"
   license "BSD-3-Clause"
-  revision 11
+  revision 12
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b9cdeef70745ce25fb83a076585191b65f44a937075ed8f165e092c974550f96"
-    sha256 cellar: :any,                 arm64_sonoma:  "56bce6a79dc3ee8b07a0441e2b299dcb8ce0ba98d86e37af244519b8617914bc"
-    sha256 cellar: :any,                 arm64_ventura: "ba333295a388f76a8626f6c68548a02efa8262552aa9e88b4c66c6e1be556e67"
-    sha256 cellar: :any,                 sonoma:        "603ba928df95c77be7960e908145afb1a432174f953e366cacb584721b76158c"
-    sha256 cellar: :any,                 ventura:       "22ae09c19e427bfc4aa514a0de60dc3b6fb1013f6b862422539357e118b3f4e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de79ed48a54bef77ca5a116f2adce08f91af261900d11fc4a38250b014ed1cac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c4e4c6894ab5e4ab909a70fb123f6b788730806b1d388a59577ba8e2111e8e3"
+    sha256 cellar: :any,                 arm64_tahoe:   "fa2cc5158958a49d439e6306581adb0a4284d84d02fcd4fbb2c1520751800dcf"
+    sha256 cellar: :any,                 arm64_sequoia: "ca8927a16ee21b13da4ccf12f9cc600c01c4a692b35f09bb061c81f9dabe1650"
+    sha256 cellar: :any,                 arm64_sonoma:  "d785224c143b4df6cdf3ffc6e2a6cb5b8cb0cdfaf06ff6221a1d39b3ba71ad19"
+    sha256 cellar: :any,                 arm64_ventura: "c2056939dd01e763b8687f77646edba021fac9653ce866afa94144868934a04f"
+    sha256 cellar: :any,                 sonoma:        "e51497da78d4b2948f1d71a6ccf360d98bc6135465f059820f593f0091e2987e"
+    sha256 cellar: :any,                 ventura:       "aa46dea07945ea582d8046585db329c555ccca9136fe5ebf604f15e57746fd23"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b91294ec460d53d9509da20a9ca2df6675fc4a5f478d64a6762f9570911ff4f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd4e37bdf7a3cf012fb736e1b84539877c80ba65ccd2c812e26ee5df81ac95ba"
   end
 
   depends_on "cmake" => :build
@@ -46,8 +47,8 @@ class C10t < Formula
     sha256 "c7a37f866b42ff352bb58720ad6c672cde940e1b8ab79de4b6fa0be968b97b66"
   end
 
-  # Fix build with Boost 1.85.0.
-  # Issue ref: https://github.com/udoprog/c10t/issues/313
+  # Fix build with Boost 1.85.0, issue ref: https://github.com/udoprog/c10t/issues/313
+  # Fix build with Boost 1.89.0, issue ref: https://github.com/udoprog/c10t/issues/315
   patch :DATA
 
   def install
@@ -162,3 +163,16 @@ index 21b0883..b4afef6 100644
    pos_c(0), xPos(0), yPos(0), zPos(0)
  {
    nbt::Parser<player> parser(this);
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3f1531a..280cb2b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -23,7 +23,7 @@ find_package(ZLIB REQUIRED)
+ find_package(PNG REQUIRED)
+ find_package(FreeType REQUIRED)
+ find_package(Threads REQUIRED)
+-find_package(Boost COMPONENTS thread filesystem system REQUIRED)
++find_package(Boost COMPONENTS thread filesystem REQUIRED)
+ 
+ include_directories(${ZLIB_INCLUDE_DIR})
+ include_directories(${PNG_INCLUDE_DIR})

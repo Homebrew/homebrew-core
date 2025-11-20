@@ -7,6 +7,8 @@ class Mallet < Formula
   sha256 "874e682add31d638fb6b97c0ad485ff8fbc45e08c47305843139604b7dc15f62"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "2a79370bb96c6b93c4e5ccea01dfd09deeea7bcd7410c34ebfbd0584e24939e3"

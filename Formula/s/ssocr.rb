@@ -1,8 +1,8 @@
 class Ssocr < Formula
   desc "Seven Segment Optical Character Recognition"
   homepage "https://www.unix-ag.uni-kl.de/~auerswal/ssocr/"
-  url "https://www.unix-ag.uni-kl.de/~auerswal/ssocr/ssocr-2.25.0.tar.bz2"
-  sha256 "75caf81b4ddce2ecbd5142db3bb1c26178889e37010074b8ec4fe0b5009c676a"
+  url "https://www.unix-ag.uni-kl.de/~auerswal/ssocr/ssocr-2.25.1.tar.bz2"
+  sha256 "e7588bb9ec56b568362ca0b68c216b0af37b42bb3f63602ee21628aa731b84be"
   license "GPL-3.0-or-later"
   head "https://github.com/auerswal/ssocr.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Ssocr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fd18440ae84caaafcb2f5d788c6c23ae95c0240dfc9f6b5166f35eaca59d33b5"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ec94528ade23b5dae8efcd5d564d3bace361e8f2cb2187634f48f493954d9f0"
-    sha256 cellar: :any,                 arm64_ventura: "7769d47981f3e86469509853748242c33416ea8ba2e95447f6480ba358f8e13e"
-    sha256 cellar: :any,                 sonoma:        "c23687177f248921365de29f53ce885e3bdb2a62d72c1a3be95da8927f89d612"
-    sha256 cellar: :any,                 ventura:       "6f3f9eb54854f922fbd2aa3403fa6a9af7741ecd3ae259aefe9fb341d7b0b6c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "11ef4081db6d12e9ccc3683102223b2c4415712b0b54d1d66eb3083bcb3e2c4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72a782a7a689c2127b876983da317908aca53f0699f0eae1dd7f7d60985aeda0"
+    sha256 cellar: :any,                 arm64_tahoe:   "e0f42e28996a17b2e29066ce478aca92a85073aeb25ab328ff67df768c825dd4"
+    sha256 cellar: :any,                 arm64_sequoia: "1f276c84ac527ad48c93f5f7a9976d65b0a25e8a06f942966f9dde044d20a279"
+    sha256 cellar: :any,                 arm64_sonoma:  "ab621788f03af63c93a917b233bc96ac1059cab8f64d5befb01bd58efd05b597"
+    sha256 cellar: :any,                 sonoma:        "a839b147d3dfe88937947728b7bb457ae0eac4e43d1bbbafcbd90f7b3e43b6b2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c868a5ce5a5b44248c6c7868b504d0b0243ed1b9b39b4a0a4ba929bfe56f1aef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b91a1ea88a60fa5037e2533228a0c489fb40cf4ca1d55a67b4fd03bd8c7b580"
   end
 
   depends_on "pkgconf" => :build

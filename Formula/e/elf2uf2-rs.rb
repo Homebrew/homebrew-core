@@ -1,18 +1,17 @@
 class Elf2uf2Rs < Formula
   desc "Convert ELF files to UF2 for USB Flashing Bootloaders"
   homepage "https://github.com/JoNil/elf2uf2-rs"
-  url "https://github.com/JoNil/elf2uf2-rs/archive/refs/tags/2.1.1.tar.gz"
-  sha256 "c6845f696112193bbe6517ab0c9b9fc85dff1083911557212412e07c506ccd7c"
+  url "https://github.com/JoNil/elf2uf2-rs/archive/refs/tags/2.2.0.tar.gz"
+  sha256 "7fd821623343bf6af63543a008caf49c1b7ad9f7e6df24403ae9c7a6bf325b54"
   license "0BSD"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2502c3b12665d304fc3f016c68eef40119b4b529867d67cc26fb641e844b5de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4cd37371cbeb7dd6be732e6db993b226dea3dc7fbbd2c321e81665c68c6de036"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e0726aed0c347586d3a4eef4b49ce9ef93d2560f31ae686f48381babae5f508"
-    sha256 cellar: :any_skip_relocation, sonoma:        "592612fe9e209df4f432354b7cc471f83a41ab679a13ce2ab904dd1431ffd9ab"
-    sha256 cellar: :any_skip_relocation, ventura:       "5942db8bcb33f094ba359873643e78f39ec73e12e2b85fdc076a4abbb63ab08d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bee91ffd1bed1d4f42d0eb45e4c21539b1f8089710b08d007d00a1090bfb352d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85a5d2a22806dbd123281e4ab4d9f078ae31a81c29f0ad10ee199e4fc7375e5b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b6d36f51c622f0baf332930c8ae232cdf04395cfdae78fae45b8560ec51ab54"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b7ddb264f138b166b3f291dd3f98cb3beba2bff0a7823d36f45c2f4e98b80d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0a747e75dfe8250d1722d3781f57bdde73d5b7855150e3d4b344d94099d14a0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b88fb516410369897f97f16030f48eb276955bb32c9dbf446d532eca2add68a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e95dda0368015306a494e58f3bbd22717e23b592391b8b0dd0fcd30a0cd617c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f360ea5ae0f17d0a57012f80aa69c18a887d964211475e33414e32442d17616"
   end
 
   depends_on "rust" => :build
@@ -29,7 +28,7 @@ class Elf2uf2Rs < Formula
   end
 
   test do
-    system bin/"elf2uf2-rs", pkgshare/"examples"/"hello_usb.elf", "converted.uf2"
-    assert compare_file pkgshare/"examples"/"hello_usb.uf2", testpath/"converted.uf2"
+    system bin/"elf2uf2-rs", pkgshare/"examples/hello_usb.elf", "converted.uf2"
+    assert compare_file pkgshare/"examples/hello_usb.uf2", testpath/"converted.uf2"
   end
 end

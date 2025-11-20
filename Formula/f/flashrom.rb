@@ -1,10 +1,10 @@
 class Flashrom < Formula
   desc "Identify, read, write, verify, and erase flash chips"
   homepage "https://flashrom.org/"
-  url "https://download.flashrom.org/releases/flashrom-v1.5.1.tar.xz"
-  sha256 "1f934b076ed49eace203655ec249fc7861a6b8e87fe4aef732e47b6e485b6293"
+  url "https://download.flashrom.org/releases/flashrom-v1.6.0.tar.xz"
+  sha256 "8b9db3987df9b5fc81e70189d017905dd5f6be1e1410347f22687ab6d4c94423"
   license "GPL-2.0-or-later"
-  head "https://review.coreboot.org/flashrom.git", branch: "master"
+  head "https://review.coreboot.org/flashrom.git", branch: "main"
 
   livecheck do
     url "https://download.flashrom.org/releases/"
@@ -12,13 +12,14 @@ class Flashrom < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "ccb844bba9ff0f004d66daddc0b834fe4a91eace389ae3486cc99854795ce807"
-    sha256 cellar: :any, arm64_sonoma:  "2cada41d9ec587f23a4b6a8cdd4ff21a3c0b176c4da270c01b38a3cf4073a94c"
-    sha256 cellar: :any, arm64_ventura: "d3aa6a371dccd77654c46ad73ba10dc4bfabedebb5a920eb9fde56fd21d1b96f"
-    sha256 cellar: :any, sonoma:        "6dc12de3566c4f6078a22b979ce76e18100320bb004a9f463fffbe65ef72840b"
-    sha256 cellar: :any, ventura:       "f853dbc8d2957263f3a6c0875a51c8f5760deb2fede2c1f02edce9b6946ad04b"
-    sha256               arm64_linux:   "99930741fa83500c75daa0a4f5578a5365e3063e0151740a304c251376b9b6d3"
-    sha256               x86_64_linux:  "e7ca720f79b5b454b2ee3c4268352042d6ee6036b23f004cba7b3333565f1e14"
+    sha256 cellar: :any, arm64_tahoe:   "ba6fa0e79ba319eb07cbddf2b49ae6028abdf148a354e0d1bd4d94579cb35246"
+    sha256 cellar: :any, arm64_sequoia: "a3bedd4508ffed55ff21196ab2ccabdd22b284d48110b06f5d47b96eaee389c8"
+    sha256 cellar: :any, arm64_sonoma:  "5526490700374c47a8af1b4be7e4ed94f51caf920cf9ea3b797924078c40abbe"
+    sha256 cellar: :any, arm64_ventura: "d4d991c436d1802da0e353d4eebfd682409b9a45c89a71ee82dde1c73bb04933"
+    sha256 cellar: :any, sonoma:        "34252dd54bc96c0ce719d0b17a291c51503a66afd3b31637b86a4d385efe504a"
+    sha256 cellar: :any, ventura:       "e67286ae8d5dcada59554842a06aca7ec77494baaa5aaa1f4efd323cc6ec8eb9"
+    sha256               arm64_linux:   "7be69e32a990a59fa7c76ff7aa22412dc03ed834e0b16395632d167482a50a46"
+    sha256               x86_64_linux:  "aa9029390983c5f366e65614c3f7ac99602d4ff2e4db0b301e53440687db8cc7"
   end
 
   depends_on "meson" => :build

@@ -1,19 +1,34 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.39/newsboat-2.39.tar.xz"
-  sha256 "62551a7d574d7fb3af7a87f9dbd0795e4d9420ca7136abc2265b4b06663be503"
   license "MIT"
+  revision 1
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
+  stable do
+    url "https://newsboat.org/releases/2.40/newsboat-2.40.tar.xz"
+    sha256 "1e656636009ffad3aeb87f8d0e4c36d2e913eac155b5f3ec85d00e8287b477c2"
+
+    # Backport fix for Rust 1.89
+    patch do
+      url "https://github.com/newsboat/newsboat/commit/3a018bbf88fef74d1af24c79f5d640c6d753ab16.patch?full_index=1"
+      sha256 "af1f0969b14ae80439e4e14c5126425221eabae285ba15eeb1c63980cd905612"
+    end
+
+    # Backport fix for curl 8.16
+    patch do
+      url "https://github.com/newsboat/newsboat/commit/c80d4c30901514188502f6f858b78a0896d9603e.patch?full_index=1"
+      sha256 "92b86c657555c4b5c841e5a185c26f9b1532cd9423dc7fbbe12d3c433e2ccadb"
+    end
+  end
+
   bottle do
-    sha256 arm64_sequoia: "784097ba80326b979eb1911e3069703e74931f098b4b4b09e6860d55625436a9"
-    sha256 arm64_sonoma:  "cb4fb9c1e39faebed2936c9024596c5aae56a04d5383d114b2764fa231314e79"
-    sha256 arm64_ventura: "0f259c3cfdc92b561aba4dab533c737000591552ee2741f2e18dd8b575ca1df4"
-    sha256 sonoma:        "118530c4024a841179a291c9cb8cc510def37e0dadc51204423cc55d1d5ef12d"
-    sha256 ventura:       "64d63a00c216d589829b44c64d8cc1ff6c833d8fb0eff4bd8f699be39aca7998"
-    sha256 arm64_linux:   "c5fc2f3b3031c7959cd6aca3038143adc52f77525e92d9d2b043717f9985ac1a"
-    sha256 x86_64_linux:  "9594e4b2d0db3616517b295e687cc0832b149a68546dcdce2ab9309a622ea32d"
+    sha256 arm64_tahoe:   "77be3fdd5e78e568ab0f85f4e579ad557b504450cbd957c0943a5c7a42cdb566"
+    sha256 arm64_sequoia: "e21e148c22b1be21032db1cd876ff935df8131e9a732dd5b1092a8b2769268f7"
+    sha256 arm64_sonoma:  "c0e8453d573451fd06bfb8115249fff274efe7b6836bff59b7484c645e0dafc8"
+    sha256 sonoma:        "43b76b8fa54e2cc89ffeb1233755a9d2c344d8d58ac3a9fdaa1dda1f14e94aec"
+    sha256 arm64_linux:   "859ab5f98262ab39657b2976f98302ce0b40f2849d8399e93cdf24014bb45818"
+    sha256 x86_64_linux:  "2a66752a0919a45b762aa4b2198759f743370f60a3d7b66524037505fe49f037"
   end
 
   depends_on "asciidoctor" => :build
@@ -31,6 +46,15 @@ class Newsboat < Formula
 
   on_macos do
     depends_on "make" => :build
+  end
+
+  on_tahoe do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1700
+
+    fails_with :clang do
+      build 1700
+      cause "https://github.com/llvm/llvm-project/issues/142118"
+    end
   end
 
   # Newsboat have their own libstfl fork. Upstream libsftl is gone:
@@ -102,7 +126,7 @@ class Newsboat < Formula
   end
 
   test do
-    (testpath/"urls.txt").write "https://github.com/blog/subscribe"
+    (testpath/"urls.txt").write "https://github.blog/subscribe/"
     assert_match "Newsboat - Exported Feeds", shell_output("LC_ALL=C #{bin}/newsboat -e -u urls.txt")
   end
 end

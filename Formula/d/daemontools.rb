@@ -15,6 +15,7 @@ class Daemontools < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d2dc1ed742ae4b8ab911aef610c8315ea79b9dce79a4a9d21028f413352bd6c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1caba2a88c37b416bf48c950f376693b1412a06f54bc62c815a6e8679f30b41d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4079bdac80d383b3423b5daf190a2abc5583db2d5e33939ccd0e3c637ab57033"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "414c519a3f46d28c74e28d95f882b68dae09dcd9604b8f207c93539d4af34cd3"
@@ -32,13 +33,13 @@ class Daemontools < Formula
   # Fix build failure due to missing #include <errno.h> on Linux.
   # Patch submitted to author by email.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/212baeaf8232802cf3dfbfcc531efa5741325bfa/daemontools/errno.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/daemontools/errno.patch"
     sha256 "b7beb4cfe150b5cad1f50f4879d91cd8fc72e581940da4a716b99467d3a14937"
   end
 
   # Fix build failure due to missing headers for POSIX-related functions.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e52085ff249263bdf9a21229e0d806ea4e2b9e95/daemontools/posix-headers.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/daemontools/posix-headers.patch"
     sha256 "288afdf9b7ba4f05a791f714ddea22b0a18020f54face020e45311135f0c92c1"
   end
 

@@ -3,19 +3,18 @@ class Libjcat < Formula
 
   desc "Library for reading Jcat files"
   homepage "https://github.com/hughsie/libjcat"
-  url "https://github.com/hughsie/libjcat/releases/download/0.2.3/libjcat-0.2.3.tar.xz"
-  sha256 "f2f115aad8a8f16b8dde1ed55de7abacb91d0878539aa29b2b60854b499db639"
+  url "https://github.com/hughsie/libjcat/releases/download/0.2.5/libjcat-0.2.5.tar.xz"
+  sha256 "066e402168c51bffddcf325190e5901402b266fbda2a4eed772fd06a88b941bf"
   license "LGPL-2.1-or-later"
   head "https://github.com/hughsie/libjcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "f81dac6097133f01ba6dc2890ea638bc19157b5532262f651523c5daf3a36ade"
-    sha256 cellar: :any, arm64_sonoma:  "008c768443345295eb167faf45cdca4cca66450522e430c1b5754335488f5a30"
-    sha256 cellar: :any, arm64_ventura: "40b6538beb4dcfc8a8eacffe717dccd84595284b564c43c4da4828f7683d1dc4"
-    sha256 cellar: :any, sonoma:        "e531fcf0517371bd203e66ac885f2a89b5f0f1e184d02e2c4949a3a2d92a644f"
-    sha256 cellar: :any, ventura:       "927a664154de77bcedf12dbb4f9232851ef9cc811b3b80308f9ccaca88d1d5b4"
-    sha256               arm64_linux:   "88a16575b027306459c033e2d982e34f1c0d22fb2f368482ede91f36a930dd01"
-    sha256               x86_64_linux:  "1d5b42e6de499edbb2107b66428da6be5d1695e7dd61b4cb5bc937f597e9ada9"
+    sha256 cellar: :any, arm64_tahoe:   "0baedc0d4357dc676085ec9449b47d4c7bc06c814c18fe11f21f4572e553b8bc"
+    sha256 cellar: :any, arm64_sequoia: "c0ccdadfaf63911bef5e8a40e337c42363e9dfd3fed2c2eff503e22e21f18a66"
+    sha256 cellar: :any, arm64_sonoma:  "7d437090bddf553740535577b241e38a24c16bb9aaad53bcd001f2d0cfac28d3"
+    sha256 cellar: :any, sonoma:        "70104120fd7cb51fe52f6ed5adca2e7be13054365e3e50f9a477e9bdaa3a6131"
+    sha256               arm64_linux:   "590462d8ddf82053ddf556eb2e543148da9451602a2c390d95d32b635040cbb5"
+    sha256               x86_64_linux:  "43b49473aa79a0759f80a68e8f7a16385a9ea8d0af6a52ef49fbb108f3aac975"
   end
 
   depends_on "gi-docgen" => :build

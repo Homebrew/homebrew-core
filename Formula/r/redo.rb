@@ -8,12 +8,14 @@ class Redo < Formula
   license "Apache-2.0"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "1efbd77be03b0fe6a112cad4db0910ddb6eeb101f5999322589e8f9ed6ff9870"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "fb1815e2abd0a29b23eb4fe2111213fa1942ec1e48bb53d40601a5a06e7ccb26"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "goredo", because: "both install `redo` and `redo-*` binaries"
 
@@ -33,7 +35,7 @@ class Redo < Formula
   end
 
   def install
-    python3 = "python3.13"
+    python3 = "python3.14"
     # Prevent system Python 2 from being detected
     inreplace "redo/whichpython.do", " python python3 python2 python2.7;", " #{python3};"
 

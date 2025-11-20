@@ -1,25 +1,22 @@
 class Scdoc < Formula
   desc "Small man page generator"
   homepage "https://sr.ht/~sircmpwn/scdoc/"
-  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.3.tar.gz"
-  sha256 "4c5c6136540384e5455b250f768e7ca11b03fdba1a8efc2341ee0f1111e57612"
+  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.4.tar.gz"
+  sha256 "e1a9c2000f855123a1a50c8f897073e0ee95fc41787431efe3864c2f1c2e7092"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8800df45f7cd670d5638e4acd2fad0905fdae6f5216b71bd6d897fcda12c4cd7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6eeed5394fb071aa14153ebe3cb3eb2edb4458c1b25d91adf6a32116fe1eb16b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb0a27fea684b0a8caa7aa98c64df84c9db68c7003fffd827055449bbff373e5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3206d11b5d62c3cee98c1cb2f0da0e6674261f4dccd22f7e8f833685c6c53112"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4546aace4ad6725de9e7e788533896a8600cc99495de6c86cca71b8fc8038dda"
-    sha256 cellar: :any_skip_relocation, ventura:        "01fcd247b749191d4d6154498b0d324d856a8da745f3571b643ddebe18919bc6"
-    sha256 cellar: :any_skip_relocation, monterey:       "f5c4019c594ac3e10d08e1a7f44a560d16e661a33051e0bca823521937b2e691"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "998b1d189ac54d1f50be511cc66479fb7cecb219870200ce3d9f5a17db47b48b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e73b822f530807cec33251c40cf375923318cbb1b889f8f494afc33ae34cc932"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c1ba3c08a09b33b58197d9dfde53fda881d4d4444d3396a7e4b63ba1baded7aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e01b3bbc592393f2a8114835fe070861cfc0698ba04b8ca2267441bd3f4d5716"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e0388ac90662f8a9551b4fc945f133390e1822b7f288027e906c3937dd9fab9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2e981011c1be208d03d97447d9bfd3451d2fe8925d68a4853527c906481868b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d8bf46277a5da340b1556cb33cfc56e86564975ff9eccbec7aa3b295861eed3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f53e0feaf57b9e883533ce5d3ec38beeec40f1073b0fb465abaab100be8132d"
   end
 
   def install
     # scdoc sets by default LDFLAGS=-static which doesn't work on macos(x)
-    system "make", "LDFLAGS=", "PREFIX=#{prefix}"
+    system "make", "LDFLAGS=#{ENV.ldflags}", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
@@ -33,6 +30,6 @@ class Scdoc < Formula
       .ad l
       .\\" Begin generated content:
     EOF
-    assert_equal preamble, shell_output("#{bin}/scdoc </dev/null")
+    assert_equal preamble, pipe_output(bin/"scdoc", "")
   end
 end

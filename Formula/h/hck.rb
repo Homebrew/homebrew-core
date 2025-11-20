@@ -12,6 +12,7 @@ class Hck < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c111ab9ac2ae7d92cacbac9235d43631250eaeb92a9a47c6fe3bb7679db65fcb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "80c37f8d57ec62a4a1cad9def4ada5e68d8b9f3cba9f92cb3dd1b9c8d0335503"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a26a272867f32a7165106dfbbbfa78be9eb2897903325641bf32650ad68f0340"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "56e22305a058ad39a97212158329f8a55f6a1c9365dc370ff6bdbdc6b75c04be"

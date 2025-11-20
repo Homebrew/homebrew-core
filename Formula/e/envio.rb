@@ -4,16 +4,18 @@ class Envio < Formula
   url "https://github.com/envio-cli/envio/archive/refs/tags/v0.6.1.tar.gz"
   sha256 "24cd7c485226be7f7921a95ae4edaf3cb510c90a339c51e51423c3eb4deee6dc"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/envio-cli/envio.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f0d968440fe2fcddd6c39d2541817b3cd51267e520d06ecd2cb1e80f03ffd4a5"
-    sha256 cellar: :any,                 arm64_sonoma:  "1a0588163752bdb12f4b0d8e91646345b8c798006cf240328703d1e0a508ebce"
-    sha256 cellar: :any,                 arm64_ventura: "4f5305056a8165baf2b45d71b2a94f9800792923949c44a30c030d8b0072ef49"
-    sha256 cellar: :any,                 sonoma:        "6812bb1eca12a3c74c542d967d2930bbeb2a0a77ab4b0d3f04eba9df5196063c"
-    sha256 cellar: :any,                 ventura:       "777f696105129c6c3c49944c45854d9cc3f5f63cd2e5913d6692e2337c684f88"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c7c6e0a4e87038b3088fc5fca823ca57878ab6bb156c7367c4f046debbcb426"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61427474955a6e35804f605178403e2ac41bda326841faf024ba873b88824c0d"
+    sha256 cellar: :any,                 arm64_tahoe:   "871f4fba1afd7a74d4b1096eb8a223d4c60f1c4fe9ecb765b044a83b6cf6842c"
+    sha256 cellar: :any,                 arm64_sequoia: "454759fecf6e0d2ecde551706f07b9cd4ad8f11ab1ae681aca16d7d249c13cf0"
+    sha256 cellar: :any,                 arm64_sonoma:  "17205a327d38a19e5416b56a1d3b2f3bc88959a1cb83b66531c6361c0a2d578e"
+    sha256 cellar: :any,                 arm64_ventura: "fd2ac58208ea285ee0b5ae4099665ef24bf9b4a4ad496080da17609c5bfdb6fe"
+    sha256 cellar: :any,                 sonoma:        "917fcd18cd9de2da9f27bee0ef5a774f93c8b9721d1ae772ac662b391b59995a"
+    sha256 cellar: :any,                 ventura:       "a87c2879250f2444401ac9b9358b4da1fd5cfabb0440000e429338e359c5d9af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4fcdb5e0c07562ee87503600e5cae91ba7ad1f115f87131b1ad1c743e3de436"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21f6d742413ed743140d37ce169c763263fcd49f0873a82a5dba5b61c498bb7a"
   end
 
   depends_on "pkgconf" => :build

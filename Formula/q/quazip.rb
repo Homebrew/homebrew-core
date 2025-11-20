@@ -6,27 +6,30 @@ class Quazip < Formula
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "568975c79a7542774eba015531d200fba3ab5bea77c1c6497761d8168e09d2ad"
-    sha256 cellar: :any,                 arm64_ventura: "6ae800f41e9dd803ededcee7f81736cde1fe9aaabb52ffafd8423620dd8dd701"
-    sha256 cellar: :any,                 sonoma:        "2f12beb8f666e4e9d885a0c155e1cbab98fe2a7ee17130244e527d11f0a2a7fd"
-    sha256 cellar: :any,                 ventura:       "e4144bd17991b751d5d43307b07a480b9ba216c0882f555b8c40933a903ac29e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f5ee3084b058aad33e77d0f7e8d07af219f5ada4e3db0f7897d00660de19825"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f1fd2fadf19095977d5632337b0bbe73cefa515ef6b17c3d9de2fea32bfd1b24"
+    sha256 cellar: :any,                 arm64_sequoia: "185ebc43b7a1136a46c8af18b442f2f2f8b7196422072a1a6835bbd0a30875a2"
+    sha256 cellar: :any,                 arm64_sonoma:  "535fb4aab113e08ae887ee225e49583f347cd727a918a46b91c84b04c5c2c465"
+    sha256 cellar: :any,                 sonoma:        "ee6d72c263395d2bd8cb95341cca19f620b851196cbfdabfd0192f51d75748cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d457d617c5a876a3ad949e196936bbdf1d26cc9d34319418a53bfd9c0df1234"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ae3f76ea4c6aed76a42025c5475c4b1a030cccd04ea102a54b98efc7d1a3f57"
   end
 
   depends_on "cmake" => :build
   depends_on xcode: :build
-  depends_on "qt"
+  depends_on "qt5compat"
+  depends_on "qtbase"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     cd include do
-      include.install_symlink "QuaZip-Qt#{Formula["qt"].version.major}-#{version}/quazip" => "quazip"
+      include.install_symlink "QuaZip-Qt#{Formula["qtbase"].version.major}-#{version}/quazip" => "quazip"
     end
   end
 
@@ -52,7 +55,7 @@ class Quazip < Formula
       }
     CPP
 
-    system Formula["qt"].bin/"qmake", "test.pro"
+    system Formula["qtbase"].bin/"qmake", "test.pro"
     system "make"
     assert_path_exists testpath/"test", "test output file does not exist!"
     system "./test"

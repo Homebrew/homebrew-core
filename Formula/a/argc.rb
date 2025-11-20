@@ -1,18 +1,19 @@
 class Argc < Formula
   desc "Easily create and use cli based on bash script"
   homepage "https://github.com/sigoden/argc"
-  url "https://github.com/sigoden/argc/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "b073e531baad204abf432b53c4f94633c80a791337f141d2daba96fe58d81af8"
+  url "https://github.com/sigoden/argc/archive/refs/tags/v1.23.0.tar.gz"
+  sha256 "d3eb85faf26a69c582dcea6d0fc2025bcfeec1dd0b9b35384a67059c2833103c"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "406229470a3119b585dd79be1641eb76728a7798b1c2ac99c9665002ef8991ce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab377dc8d4d29efc0e8cc6b31b9dcc68d75eb8675b2874203655d29988f76726"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1cb6bcf3f4fc8e1605a0a0168540c1c479e74438fb7ce06042d03c95db13513"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1082016dc1b5cd67f53e9f0f8d229af480589ebee30cfaf39ed60356b4d9a53b"
-    sha256 cellar: :any_skip_relocation, ventura:       "3703333faaf342d97acfbbb967b2c200ef04596e067ed11073d7bdbc82084140"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7d3ef416c74007a1b825942b6e49506cbcd02f5d72fee60c1eab75e63b8c3b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca825947ca8c6727d761495478f176069057a41ce6a8cae4a3de3bb279fd73a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cd87f048d0c58c25a09af13aef7f6b61f922d312298bb71fd62b7a9ed922b88b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36a5733acc21f8146c6cb3d6dd23968d3d77d4ce3c501b391c50d6cf44556a19"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e17c17e8c931f998b2da7cd5d93365097716a332d1028786c28bf50ff815e4ad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "318fd0396e6396ec672e0b302630fccf146564948d1f1cd21bc340954fc33904"
+    sha256 cellar: :any_skip_relocation, sonoma:        "50fe3f4adf05485dd7491edf7557457ad160bff95db98d4eb428af060b6254e7"
+    sha256 cellar: :any_skip_relocation, ventura:       "46274957c0ee5d3974c6e4aa4a953d16bfb318638935cdd0dc130bf4b89843ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4195f0d5d08d008ad7a470641d8a8246e737ee42395e5915dcf78272db830b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf572063a6a97cf2f9a663c93133e5467b7b06f37c233d0623dc9f8079bc7bd2"
   end
 
   depends_on "rust" => :build

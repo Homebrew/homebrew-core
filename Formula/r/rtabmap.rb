@@ -1,18 +1,10 @@
 class Rtabmap < Formula
   desc "Visual and LiDAR SLAM library and standalone application"
   homepage "https://introlab.github.io/rtabmap"
+  url "https://github.com/introlab/rtabmap/archive/refs/tags/0.23.1.tar.gz"
+  sha256 "8f0463d0b46418921da0503d5f991c7d0b8308b4926a069d9fe4ec811113502f"
   license "BSD-3-Clause"
-  revision 10
   head "https://github.com/introlab/rtabmap.git", branch: "master"
-
-  stable do
-    url "https://github.com/introlab/rtabmap/archive/refs/tags/0.21.4.tar.gz"
-    sha256 "242f8da7c5d20f86a0399d6cfdd1a755e64e9117a9fa250ed591c12f38209157"
-
-    # Backport support for newer PCL
-    # Ref: https://github.com/introlab/rtabmap/commit/cbd3995b600fc2acc4cb57b81f132288a6c91188
-    patch :DATA
-  end
 
   # Upstream doesn't create releases for all tagged versions, so we use the
   # `GithubLatest` strategy.
@@ -21,12 +13,15 @@ class Rtabmap < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256                               arm64_sonoma:  "1d433bee617217b945cc97f14e98ef947b3966d804f884f047607fb51fb13852"
-    sha256                               arm64_ventura: "1e9747b0eb5689899563716f8956590a882545c2f0a9e73df82cd4148f1f198c"
-    sha256                               sonoma:        "99d65d4e03958e697247bf67bbce34cd78356c48e06c119883252ab0eabc9f6f"
-    sha256                               ventura:       "6d1567f28fac55c42410af8f0946efd7f5513a21c66bdce68a609f90918a47df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78f9cf656952b8ca809bd8f68b6903727b9957aedb88f592e680de09ddbbbf37"
+    sha256                               arm64_tahoe:   "81e20419d91aa49abe0110ed0b9a7fd6600fcdcc78eeb3c5b26441c5f9483f81"
+    sha256                               arm64_sequoia: "26b1ec353d09b5f07717114806494290158094b61d4d0ae64e517c16f49a98e2"
+    sha256                               arm64_sonoma:  "b58fb769e26ddefacbc4e397b90529d13f3d5a75e64f9c8d61e3ab4e1bc7a145"
+    sha256                               sonoma:        "081b61df3664b95ebb4ac54f306b12970f74f1c7c155a08fd14d530f29d9b1db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce39a0e12d31f3a8fa5fe63276634fd450f0e1dccc5ae14380596b7f6123dad0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e78e24f6acfe614db37a2a94611f11c7b3d0a8b74861bd00861040cbdbee1f1"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -36,7 +31,8 @@ class Rtabmap < Formula
   depends_on "opencv"
   depends_on "pcl"
   depends_on "pdal"
-  depends_on "qt"
+  depends_on "qtbase"
+  depends_on "qtsvg"
   depends_on "sqlite"
   depends_on "vtk"
 
@@ -47,6 +43,7 @@ class Rtabmap < Formula
     depends_on "flann"
     depends_on "freetype"
     depends_on "glew"
+    depends_on "libfreenect"
     depends_on "libomp"
     depends_on "libpcap"
     depends_on "libpng"
@@ -55,6 +52,9 @@ class Rtabmap < Formula
   end
 
   def install
+    # Use eigen's cmake configuration to support eigen 5.0.0
+    rm "cmake_modules/FindEigen3.cmake"
+
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -113,18 +113,3 @@ class Rtabmap < Formula
     assert_equal version.to_s, shell_output("./build/test").strip
   end
 end
-
-__END__
-diff --git a/corelib/src/CameraThread.cpp b/corelib/src/CameraThread.cpp
-index a18fc2c1..d1486b20 100644
---- a/corelib/src/CameraThread.cpp
-+++ b/corelib/src/CameraThread.cpp
-@@ -44,7 +44,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- #include <rtabmap/utilite/ULogger.h>
- #include <rtabmap/utilite/UStl.h>
- 
--#include <pcl/io/io.h>
-+#include <pcl/common/io.h>
- 
- namespace rtabmap
- {

@@ -1,10 +1,9 @@
 class MongoCxxDriver < Formula
   desc "C++ driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-cxx-driver"
-  url "https://github.com/mongodb/mongo-cxx-driver/releases/download/r4.0.0/mongo-cxx-driver-r4.0.0.tar.gz"
-  sha256 "d8a254bde203d0fe2df14243ef2c3bab7f12381dc9206d0c1b450f6ae02da7cf"
+  url "https://github.com/mongodb/mongo-cxx-driver/releases/download/r4.1.4/mongo-cxx-driver-r4.1.4.tar.gz"
+  sha256 "c6edd29b7518cc123ae11a926c07f3c968a683190a2fcf5c7082f7dd7c908077"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/mongodb/mongo-cxx-driver.git", branch: "master"
 
   livecheck do
@@ -13,18 +12,17 @@ class MongoCxxDriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "076899436db520e9cf26e596fb15e6b55bc91a241941a0e72ca50a03ced7f4e4"
-    sha256 cellar: :any,                 arm64_sonoma:  "8f0a2e351df8f50bde18a2cb1269f7809a61e7295bd427ee8306d4b2abd8135c"
-    sha256 cellar: :any,                 arm64_ventura: "9f485a724048cec2715471819a53c3ba859c54a6c123f582ee1c64fb773d2660"
-    sha256 cellar: :any,                 sonoma:        "7f9b6811d5a8dee9177503d3f7026ef05e51ca89d343ab2dc04dfd5e8c7e278c"
-    sha256 cellar: :any,                 ventura:       "0e00e45fe2dd1a90ee4ad14e9012f82aed82f5acd88450f2748b83e3b9f82150"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e01b0c332699922df9f0e959bbaf6e49af29800a4fcffcd51a2a54aed2929eae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae7613b42a1e10964b6df62cf8d337feccadda20b5ccb3c8fc34b6c8de1575d3"
+    sha256 cellar: :any,                 arm64_tahoe:   "f889faef629d572c7aaa3681d63e64c99069b1cbbaf48c931c4ae4723c4e621b"
+    sha256 cellar: :any,                 arm64_sequoia: "482dea590c6f2f3bcb8d3221738cd80898102a7f395de64eeac53fc7ccf4e6d5"
+    sha256 cellar: :any,                 arm64_sonoma:  "14326266c4231c1b740cb51a6d04fa59693560d6cd0ca62df9902b162170b0a4"
+    sha256 cellar: :any,                 sonoma:        "255735fbec7bfb69f57596333bbee4563b04551034ed3357d57021cc5fefb368"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "27362daa574fb6b2eceee044dc8854aca5881ed74503ed25ed9239b93056c02b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c09e9f0f6f29162b617c36265e8ba95f970d997a0f9510e8e914d77652cfa9b0"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
-  depends_on "mongo-c-driver@1"
+  depends_on "mongo-c-driver"
 
   def install
     # We want to avoid shims referencing in examples,
@@ -32,7 +30,7 @@ class MongoCxxDriver < Formula
     pkgshare.install "examples"
     (buildpath / "examples/CMakeLists.txt").write ""
 
-    mongo_c_prefix = Formula["mongo-c-driver@1"].opt_prefix
+    mongo_c_prefix = Formula["mongo-c-driver"].opt_prefix
     args = %W[
       -DBUILD_VERSION=#{version}
       -DLIBBSON_DIR=#{mongo_c_prefix}

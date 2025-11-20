@@ -4,17 +4,16 @@ class Mgis < Formula
   url "https://github.com/thelfer/MFrontGenericInterfaceSupport/archive/refs/tags/MFrontGenericInterfaceSupport-3.0.tar.gz"
   sha256 "dae915201fd20848b69745dabda1a334eb242d823af600825b8b010ddc597640"
   license any_of: ["LGPL-3.0-only", "CECILL-1.0"]
-  revision 1
+  revision 3
   head "https://github.com/thelfer/MFrontGenericInterfaceSupport.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "609ed0597809fb94917de333e84bc8e4576ca5578fc9cfd597683930c8271319"
-    sha256 cellar: :any,                 arm64_sonoma:  "f0840ea4a984ff1e339fe09aa34a15558e7006188307b15240d7c80d6061c9aa"
-    sha256 cellar: :any,                 arm64_ventura: "3cff91f04f779e56f1153c0321747fc33d2e836abaff7eaa16fce596872b7392"
-    sha256 cellar: :any,                 sonoma:        "5529533762511b3008c9bff15f41e9531901e783f245029b6257e7c17832325d"
-    sha256 cellar: :any,                 ventura:       "1732d4ba927e76eedc4ad01d9bc881df0502b5136a76a83854bc188a1770c917"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d0346eb3292a2c9b6502edbb0b7af1da1c89dd6f05f4499728095df471bc3a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b829e753ccdb888bd8a946a37f4a83d1090bfc033341fb3f9bdf29faad363609"
+    sha256 cellar: :any,                 arm64_tahoe:   "b9de255b0e7dd13ccacf98b07e48ccc8c47f241eb8c52dc45a650e352b39d3b4"
+    sha256 cellar: :any,                 arm64_sequoia: "8777e0f76749fbaf403a6f58f347228504437d570a73b954ea88db500ecc72d1"
+    sha256 cellar: :any,                 arm64_sonoma:  "01f29c48e1951f74a20584362183e48ea0a73717d20d73e63666a9166f852ea6"
+    sha256 cellar: :any,                 sonoma:        "ca86411b44375bc98f40281b50eda51f914b61bbf137b0c31f0015c85da73e9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78cc8af7564994ea4b4380dd99c6598505b6f22a528689bb36d63f126b71d069"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9f3936f304385534e0ab9d2a7dd5b98d10c7cd4e78c6fda2ad02d3a035b9c1b"
   end
 
   depends_on "cmake" => :build
@@ -22,10 +21,10 @@ class Mgis < Formula
   depends_on "boost-python3"
   depends_on "gcc" # for gfortran
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install

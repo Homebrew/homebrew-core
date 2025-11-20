@@ -1,8 +1,8 @@
 class DosboxStaging < Formula
   desc "Modernized DOSBox soft-fork"
   homepage "https://dosbox-staging.github.io/"
-  url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.82.1.tar.gz"
-  sha256 "9d943d6610b6773cb0b27ba24904c85459757fbbfa0f34c72e76082132f77568"
+  url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.82.2.tar.gz"
+  sha256 "387c97b373c3164ab5abbbc2b210bf94b5567057abe44ee1e8b4d4e725bd422c"
   license "GPL-2.0-or-later"
   head "https://github.com/dosbox-staging/dosbox-staging.git", branch: "main"
 
@@ -14,13 +14,14 @@ class DosboxStaging < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f1f4a11754e2436d48f1d40742cd8fcf904f07dfd53ac72f9547e95038483c91"
-    sha256 arm64_sonoma:  "1afe5ab249e2156bbf89ae26a4e3871d9cbe19fa4de181fba3cc7d4802608b90"
-    sha256 arm64_ventura: "98e19ac0908a405094467dac092283e5192fd345c4db7d93c3d359bb9c5a9f66"
-    sha256 sonoma:        "c6e67a8dd5578cf145a91d233f7dd1ddc2f123ecb2fb809984acfcee086897ab"
-    sha256 ventura:       "417312bc7fdff60bb2ce34a73ef03f3043df6270c67377bdbcab99807feafb78"
-    sha256 arm64_linux:   "a3dd6ea049201e66f43fc13cf224acba602504ae8121c691c0c6a218bb0befb1"
-    sha256 x86_64_linux:  "7f20a8e4df3043ab401343c7178be0431a3bf8f16d4928c6f33ffd4185a9b2d3"
+    sha256 arm64_tahoe:   "08e2afb5389649c1da8e0242ed58cb937b6f95231383aa78aee2eddbb478b6d0"
+    sha256 arm64_sequoia: "67bbc49e8ce9292918ec0fe1bd6155ddda3260ef7f840be35a562f2d51fbfdb9"
+    sha256 arm64_sonoma:  "7400c7d85ec825c4aa117fd41a3d0d91f630b4dd6f4eb66df9941a31796f9dd1"
+    sha256 arm64_ventura: "d0907c011b0cb842686fe223cddbb4267279c9b1a6e1d213f29c6ce353c045f4"
+    sha256 sonoma:        "2ad78b97010edb15688741a486ab570cbc21479e745a189aba2647e6e6c25492"
+    sha256 ventura:       "30d04f3c8adc6a210c39ff2d6ee4c6f70b8013f27415c12bac4e76acd0583d39"
+    sha256 arm64_linux:   "f6ef8be8b1eb88195f99f7fc76c24b902f56ea449a6a3aa223675854dde18518"
+    sha256 x86_64_linux:  "5886d49c71e462a00183ed14a7c8aa39b1381c2e199315de86ffae3d137db515"
   end
 
   depends_on "meson" => :build

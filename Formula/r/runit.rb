@@ -1,8 +1,8 @@
 class Runit < Formula
   desc "Collection of tools for managing UNIX services"
   homepage "https://smarden.org/runit/"
-  url "https://smarden.org/runit/runit-2.2.0.tar.gz"
-  sha256 "95ef4d2868b978c7179fe47901e5c578e11cf273d292bd6208bd3a7ccb029290"
+  url "https://smarden.org/runit/runit-2.3.0.tar.gz"
+  sha256 "190e11c1f8072b543bb6bd53850555c458d6e306d53df3fc1232d300c3e21b51"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Runit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c6d9fe18b8ab5e4f85de166d9300367cbdb8c4157ae7ba26d6f891376bb248d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e48a87a97472f98638753b03e3a9fd5aa6b622cbd59c114c1ab3b4b2dca4158f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a02febc253e32ca872f45183b70298c703b86a69d756850170b10454f921efcb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f820d9806a8247bd514c135b926100b205fa13aaded0f77ef73c22156ebd8309"
-    sha256 cellar: :any_skip_relocation, ventura:       "2fb88364202380b041df206331f369cd8b90cb7b38407e83195ab5c5cecb4d6f"
-    sha256                               arm64_linux:   "86e7afab38bcc1a78ed0652367ca988d2c3fa33fc3a2b9456d689ece9cd067da"
-    sha256                               x86_64_linux:  "84004a0ce4e354a57c901166bfd58276a281c22f56fccae2690b3c7c158f055d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "740a71a530fd2b232d9f748242f754f83b6539413e0d66a6f6c71a3ee05b7bcb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0cdcfc77c6aa021cefdb6b7912cf2ea2f4b7f3b983e6773d9b5db50ead2e6e7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8523d16c2e695d31be790e2da2a5be482ad8455f9212b5b2346671b6f7a7981"
+    sha256 cellar: :any_skip_relocation, sonoma:        "234f9ceca1568e80014aad5e5361c34b70dd90b327931978117fe7e85563cd3e"
+    sha256                               arm64_linux:   "85a69d7aa280e9052c20ae0b6b4e2614cb317ae5639d0cbe266766b622b2d693"
+    sha256                               x86_64_linux:  "f4761f4ef955b6c445a241e14f48d3180d8f65d10f2df79eeb7d62debd6ac524"
   end
 
   def install

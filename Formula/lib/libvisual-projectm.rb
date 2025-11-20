@@ -1,22 +1,17 @@
 class LibvisualProjectm < Formula
   desc "Visualization plug-in for projectM support from Libvisual"
   homepage "https://github.com/projectM-visualizer/frontend-libvisual-plug-in"
-  url "https://github.com/projectM-visualizer/frontend-libvisual-plug-in/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "eb8269c2a923546600d3f40ff90c011f03a215847215ee8bef44bfae305b4dd7"
+  url "https://github.com/projectM-visualizer/frontend-libvisual-plug-in/archive/refs/tags/v2.1.2.tar.gz"
+  sha256 "b83cd19bfaaa35254489bac3dec315ff305171e19cf19387644c3c5c56207208"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256                               arm64_sequoia:  "e1413357ae5900e2662f197184b631759a12af9015317566a99db4d70bdc6ffe"
-    sha256                               arm64_sonoma:   "b14e174621f4a80eaab94df8972bc26ec2a834a8d84bf66485deceb4b77e0a85"
-    sha256                               arm64_ventura:  "7e9ba6250e71e8005b0e00cc6f50f9991cf5158272a439788c0e4f024d9e8eb5"
-    sha256                               arm64_monterey: "2d7f170c6c1b1d8fcb45fe09e6a7e44c3662a6d56f78e48fbfe818e8881a39e9"
-    sha256                               arm64_big_sur:  "b9730a62abfc75a28d7794640a4430455764f03632ab68f830123ef493a66bcb"
-    sha256                               sonoma:         "b22ec30af45e2a51b4fab90edf68182d74bbd93194fb3b664b088980e7f38809"
-    sha256                               ventura:        "d1990c6f162f68c59d59443f0e97de4ca3150bc097d3e964354f74812fb7d76f"
-    sha256                               monterey:       "5f4a2bfcb6a2984b30ed79ba3234f11caa02423d0843a748c4b0400daed2dc0e"
-    sha256                               big_sur:        "f7a682871eb5ab4e001262bbeda434afe1f8520aa80254146e03963b4ddfd9e8"
-    sha256                               arm64_linux:    "5a716abc4e3a5db0cc94acc29e10ca98abdefc878c3ab5f1c27c6869ff5a84ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c3a37a24bcd329cb8da341dab08f396654c1ccf7f8e0c7e63adba1626997458"
+    sha256                               arm64_tahoe:   "859857caed5c2cd954dbcbc27024d76eab9c9b6d34444d3a941d00577a4cb723"
+    sha256                               arm64_sequoia: "2cf5ca8c0590b88e843a67b0b45c3e169403474dbe7789bf4e7653dc005022d7"
+    sha256                               arm64_sonoma:  "b20d989cfe6113ef1004dcffd1ad1fdedbbd33cf6b0d96e68ea3015ca4abf4d5"
+    sha256                               sonoma:        "cde4f874618e5510008df0e300a7f758ec438559ddc470d9046fd2864fa7110b"
+    sha256                               arm64_linux:   "c15daec0a30a65bdabed7f628999eaf83c8c4bb89da4609d05c297749832c510"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "690a7080b1b273f44e57a7d3b41908f2806e39add912dac5f9146009fbcc1032"
   end
 
   depends_on "cmake" => :build

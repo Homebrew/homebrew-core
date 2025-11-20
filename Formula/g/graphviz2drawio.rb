@@ -6,23 +6,24 @@ class Graphviz2drawio < Formula
   url "https://files.pythonhosted.org/packages/fb/e9/2ba4114579f8e708b6b5d671afe355c9b8cdd52b15a9d126ec188a2bcad6/graphviz2drawio-1.1.0.tar.gz"
   sha256 "8758b9eefbac5d8c03a0358c0158845235c9c3caa99887f0f6026cfecc2895f2"
   license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d4769c040786fa9ee30174d92bb67b3a953a2f2326246f8b27e654bee67d200b"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4c6965b0583bac104b5bd23840b5d54ad024cb9e1f85edda82054af89ab57da"
-    sha256 cellar: :any,                 arm64_ventura: "1a176afc58d98042fe8703e7a77394312c968a24ec8030e31818a806f9cc97c2"
-    sha256 cellar: :any,                 sonoma:        "2c5c640eb65fcf872c3b2040e66d4e50638d2d20b86875396b1be23077aa7057"
-    sha256 cellar: :any,                 ventura:       "c40142532b84851304ad59b84766b4925e235dc7be8c59101ac4ee510ba2a983"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "05eb5f23dc6efa81762509793f4592d02c8bdc07f1c0b8ea7b24c93ba1a8f782"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8de7b9131747446df4db4a90e800749c21e78e715fb2f0843a7fe847978b2c05"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "954e1640d40392d3125956c08981e7899624b6e24b114bfc704b8fc4a5e0191a"
+    sha256 cellar: :any,                 arm64_sequoia: "499ba9aeb4254b8717dfbbb9fd64517cba80755f448e013e18311d55b636f683"
+    sha256 cellar: :any,                 arm64_sonoma:  "bf32769540b693e9d425c30c065b88b30d3e1169d18c6270a7fd17e1ba6169d0"
+    sha256 cellar: :any,                 sonoma:        "50ffcd094a34c8ed5b05038c3bc068f0b14c01e7d2c82e28fc7f48bacf04bf9a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff8bbabc5e86b17bf857aaa590244513757a9888a65da4186a29e7b00d74b4c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "680c4fc4b3f8c9ee6fa2fcb74236d86a4bff8d69098bd68fa34d41c7bf9c5704"
   end
 
   depends_on "graphviz"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "puremagic" do
-    url "https://files.pythonhosted.org/packages/d6/de/c9dbb741a2e0e657147c6125699e4a2a3b9003840fed62528e17c87c0989/puremagic-1.29.tar.gz"
-    sha256 "67c115db3f63d43b13433860917b11e2b767e5eaec696a491be2fb544f224f7a"
+    url "https://files.pythonhosted.org/packages/dd/7f/9998706bc516bdd664ccf929a1da6c6e5ee06e48f723ce45aae7cf3ff36e/puremagic-1.30.tar.gz"
+    sha256 "f9ff7ac157d54e9cf3bff1addfd97233548e75e685282d84ae11e7ffee1614c9"
   end
 
   resource "pygraphviz" do
@@ -31,8 +32,8 @@ class Graphviz2drawio < Formula
   end
 
   resource "svg-path" do
-    url "https://files.pythonhosted.org/packages/33/a0/4983cdedf62c3a1dd42b698813312fc51dd159983333fce9ec4189cd83a9/svg.path-6.3.tar.gz"
-    sha256 "e937740a316a7fec86acd217ab6226e112f51328078524126bb7ea9dbe7b1ade"
+    url "https://files.pythonhosted.org/packages/66/b9/649abbe870842c185b12920e937e9b95d4c2b18de50af98d2c140df3e179/svg_path-7.0.tar.gz"
+    sha256 "9037486957cb1dcf4375ef42206499a47c111b8ffcbac6e3e55f9d079d875bb0"
   end
 
   def install

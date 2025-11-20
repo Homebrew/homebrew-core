@@ -6,6 +6,7 @@ class Zlog < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e71ea809671f98c7c971dd32bb10b6277631f2216ad5c47b3742449c07f0c2f0"
     sha256 cellar: :any,                 arm64_sequoia:  "048b4b3e71147569f94ac5a81fcaabe259d313f81bc0634617737fbb3c38e98e"
     sha256 cellar: :any,                 arm64_sonoma:   "37e945fe1dd889750af896e816c0790db9b18f3a534772cac3d2be22e720b637"
     sha256 cellar: :any,                 arm64_ventura:  "5553716576ac0457c4fb359f1f5a68304ee9801b7741a29d14d20ef7d2f45791"

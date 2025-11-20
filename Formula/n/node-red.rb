@@ -1,18 +1,17 @@
 class NodeRed < Formula
   desc "Low-code programming for event-driven applications"
   homepage "https://nodered.org/"
-  url "https://registry.npmjs.org/node-red/-/node-red-4.0.9.tgz"
-  sha256 "d8548204752c8ed7c1c5648e6fe2843342797ff5f0214647bdd1078366811cba"
+  url "https://registry.npmjs.org/node-red/-/node-red-4.1.1.tgz"
+  sha256 "bf4e7a0ae54720f6c58580a0743dc6d456fcf7366c18e99feae397f566964381"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ef1c67c28407a8a57ed82cbc8c1da9a0535dc4432be1db15b815fb4bd6920fc5"
-    sha256 cellar: :any,                 arm64_sonoma:  "ef1c67c28407a8a57ed82cbc8c1da9a0535dc4432be1db15b815fb4bd6920fc5"
-    sha256 cellar: :any,                 arm64_ventura: "ef1c67c28407a8a57ed82cbc8c1da9a0535dc4432be1db15b815fb4bd6920fc5"
-    sha256 cellar: :any,                 sonoma:        "d48c0d73840489fe500398d2a58cce5d112c62ccbd8ce1f294688a43562045fc"
-    sha256 cellar: :any,                 ventura:       "d48c0d73840489fe500398d2a58cce5d112c62ccbd8ce1f294688a43562045fc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0eebad2f551bf8639e8bb5eb9e52cc6cb97518d8902e06d712b80c517b1a4d46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94b147afe0b47f633a38f2055292a62dcfd78d7a31a4f336e7f84b29879d57f1"
+    sha256 cellar: :any,                 arm64_tahoe:   "5c53555e76240d5f6ed2f4a019f8eb2623b031ba2a5c581abf7adcf61fbe1b6a"
+    sha256 cellar: :any,                 arm64_sequoia: "4992118961e560fff7e22f1691b8be464c9b925bef0bd5e3157dd87105d66754"
+    sha256 cellar: :any,                 arm64_sonoma:  "4992118961e560fff7e22f1691b8be464c9b925bef0bd5e3157dd87105d66754"
+    sha256 cellar: :any,                 sonoma:        "02b19976489609ae42fc79c44983dc9fa790254ca862f535179e0d2e638bffff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ead68952ae0654956dd6d4868aa6ed5d8eacc4160b25292646fd8fcf3fa4372"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5df24655ae5a9cb4a02cd9659060dab5f7a668fb9e382161fc9a2a7ac715855f"
   end
 
   depends_on "node"

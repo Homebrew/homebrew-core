@@ -1,19 +1,10 @@
 class Squashfs < Formula
   desc "Compressed read-only file system for Linux"
   homepage "https://github.com/plougher/squashfs-tools"
+  url "https://github.com/plougher/squashfs-tools/archive/refs/tags/4.7.4.tar.gz"
+  sha256 "91c49f9a1ed972ad00688a38222119e2baf49ba74cf5fda05729a79d7d59d335"
   license "GPL-2.0-or-later"
   head "https://github.com/plougher/squashfs-tools.git", branch: "master"
-
-  stable do
-    url "https://github.com/plougher/squashfs-tools/archive/refs/tags/4.7.tar.gz"
-    sha256 "f1605ef720aa0b23939a49ef4491f6e734333ccc4bda4324d330da647e105328"
-
-    # add the missing pthread.h header, upstream pr ref, https://github.com/plougher/squashfs-tools/pull/312
-    patch do
-      url "https://github.com/plougher/squashfs-tools/commit/8b9288365fa0a0d80d8be82a3a6b42ea1c12629a.patch?full_index=1"
-      sha256 "cc3007de92a90c8caefb378b8405cde29c7acf570646d0bbc2bd0dcac1113a24"
-    end
-  end
 
   # Tags like `4.4-git.1` are not release versions and the regex omits these
   livecheck do
@@ -22,13 +13,12 @@ class Squashfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "17a8eef6f5e4f1651dffacbf86ab7431b1b2141cc6c607f2512f505c7396d048"
-    sha256 cellar: :any,                 arm64_sonoma:  "9072950634ac3014a50e01ec2654f20441f493ff701273e4266be1538f4b81f3"
-    sha256 cellar: :any,                 arm64_ventura: "879c9257a584c0ef27090c43d5139aba5536b4d5bd517561da8bcc51e8b9531e"
-    sha256 cellar: :any,                 sonoma:        "dfd8c515ff9a00d292d016a49f297128c0d9340776cf27083533ea5d2676701b"
-    sha256 cellar: :any,                 ventura:       "6ff29851e64d2d375bb08f6a48f2da29690d027109d7fb08a92999392d0a6eee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2de4bd709da9d0906ae7b919084c783abe591fa4234cbed0b7bc6bfb84f1116a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01e6538dea4e6e553d1e6f95ab8f7776fe578abfa56122207ee3a1b4f61a2e8b"
+    sha256 cellar: :any,                 arm64_tahoe:   "e2cee5166e1e9461ab5cecb429bdb1bc86f0a345b5fb4ae3b55a5dc8b81d1037"
+    sha256 cellar: :any,                 arm64_sequoia: "67c4ba832d3d8e03f6160d2d287d11825e13685b0a11a716564fb3f041dabf6d"
+    sha256 cellar: :any,                 arm64_sonoma:  "489b9cf9e5228bdd6b8176ff8b43e8cf3a1dd117bdda0d0bc6d64f52d32408ba"
+    sha256 cellar: :any,                 sonoma:        "ce60ff8f9345d6cdc7d5f26f4deabdb75d861138f6068d7952334e399161d24f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "315c19c678535e71df91af9f0cef727b7080bd9c75f8e5c86bd28fd8cbece29b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b070dd272ab724f2740ca86f476b2d3d44facdfa331523360b8614ded0772ce"
   end
 
   depends_on "gnu-sed" => :build

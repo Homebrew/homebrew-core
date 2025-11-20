@@ -1,8 +1,8 @@
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   homepage "https://lnav.org/"
-  url "https://github.com/tstack/lnav/releases/download/v0.12.4/lnav-0.12.4.tar.gz"
-  sha256 "e1e70c9e5a2fce21da80eec9b9c3adb09fd05e03986285098a9f2567c1eb4792"
+  url "https://github.com/tstack/lnav/releases/download/v0.13.2/lnav-0.13.2.tar.gz"
+  sha256 "2b40158e36aafce780075e05419924faf8dd99d1c0d4ae25a15b00bc944f4d60"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,29 +11,29 @@ class Lnav < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e4c9cb81635f0fc220f9bca74d6ad1d3942744bc1f2251bb7e6475441a5a242e"
-    sha256 cellar: :any,                 arm64_sonoma:  "c5d123bf1eaf7d5600fdea80e7bd01951e0bb6d18138c49345ccdf53f67c2c59"
-    sha256 cellar: :any,                 arm64_ventura: "886782b7082477516598d6b9c7bec174f1edbcd3cd475a32a5cd16e2106a6414"
-    sha256 cellar: :any,                 sonoma:        "d37b40a1558c099d62eb51a11a85d03662b2112019204ed584463dd6026d82ce"
-    sha256 cellar: :any,                 ventura:       "7ba09f2325ae17889ec1f4e5798bb34d2db92b31d2d99874e52543b1240192c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dece4fd9feb77c9de00fa499d7d943f234fb3ac46c0adc4beabcd64458f6087e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f808305b7e2f68c68823cc5623f399ef17e9daceaf258aa3fc36a175495db30"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "87192e0c02be36248bea532176d3c8e2103aeaa62c8f2cbe2fc9a567c8cf5547"
+    sha256 cellar: :any,                 arm64_sequoia: "ceb331a54097ec199b506bfd03646907396f1431abe1d69c88f0b8737fb81277"
+    sha256 cellar: :any,                 arm64_sonoma:  "dd19a8d070edd6c6f8eb89328e72ad8d4329e6f0fa074aa3ac65a98a3b0aaa6e"
+    sha256 cellar: :any,                 sonoma:        "6830377816ea9dd669946e6ecf1314c88c33cb140f0acac0a58baea584a18619"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "636ded0548e73e1793d84ab28701d4af38d0380a166fd6d674c76e94d6a6220b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dcb30b22cd92d66e5dea0190a0e5c3599f645b5832fe203539be80c26e4d767"
   end
 
   head do
     url "https://github.com/tstack/lnav.git", branch: "master"
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "re2c" => :build
   end
+
+  # TODO: Make autoconf and automake build deps on head only upon next release
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   depends_on "rust" => :build
   depends_on "libarchive"
   depends_on "libunistring"
-  depends_on "ncurses"
   depends_on "pcre2"
-  depends_on "readline"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -43,9 +43,7 @@ class Lnav < Formula
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
-                          "--with-readline=#{Formula["readline"].opt_prefix}",
                           "--with-libarchive=#{Formula["libarchive"].opt_prefix}",
-                          "--with-ncurses=#{Formula["ncurses"].opt_prefix}",
                           *std_configure_args
     system "make", "install", "V=1"
   end

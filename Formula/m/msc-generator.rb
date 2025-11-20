@@ -1,8 +1,8 @@
 class MscGenerator < Formula
   desc "Draws signalling charts from textual description"
   homepage "https://gitlab.com/msc-generator/msc-generator"
-  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.6.2/msc-generator-8.6.2.tar.gz"
-  sha256 "7d565cf5ff39e2ecb04d29daec0eaf674278f6d0a1cb507eed580fe8bc8a0893"
+  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.6.3/msc-generator-8.6.3.tar.gz"
+  sha256 "476115a4f4dc3f71fae43071c388db6323bf2298f9d3b6f5214557a570ceacf2"
   license "AGPL-3.0-or-later"
   revision 1
 
@@ -17,14 +17,15 @@ class MscGenerator < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia: "c1f15322760c6c6832f4391aa34e426e3107322cf0150b38ecb504e66c7f0229"
-    sha256 arm64_sonoma:  "0099d9bdd7c1cfce442bd16cbc462126e9ea9d8407d8c40538edfcde102f0c57"
-    sha256 arm64_ventura: "d825f247ee7805fb1a8bb12019c2414ddb0ccb08bd93a775945d0283084a4aae"
-    sha256 sonoma:        "f21ce8e7b8f247951fd1c3dcb46bc8e5ba8f1913da99a1254f93ad39fcf9f015"
-    sha256 ventura:       "602abed907a5dae536b0c0857dfd7b08c46783c5c0eb09897025075c1f122cfe"
-    sha256 arm64_linux:   "ea6647b991286227f59ef2ea715c4f92dced7a42a8cf53e8466614a3c3965448"
-    sha256 x86_64_linux:  "c60b5ba0e5437cee822f8cea5b1c6687711e87278a7ac2e09b36d02650286d95"
+    sha256 arm64_tahoe:   "f59601f0cbde128e5bf006d6e209896fece79956672e1b68530d7fd32a9fa7fd"
+    sha256 arm64_sequoia: "85bcc5cfd7b8b439e17e4d1b438f99dd79efabef69a5d7c919bd4d5bc3892636"
+    sha256 arm64_sonoma:  "1cdf8e111c43a0104afa5ef43307adad58eb9f67eab664e751b316d789115617"
+    sha256 sonoma:        "72a0c8f7c7f666b4ba4bb963be292959be2a8d7c77d58aee15d58c4d6a51c932"
+    sha256 arm64_linux:   "02f3c6b42be051258a634306df0100e10dabcfc8dd4113978f4629488d1b4340"
+    sha256 x86_64_linux:  "dbb32f6692261fcf51d8a8b07e4c45d93189ad0565251ae4f3783a9ae3d5aaaa"
   end
 
   depends_on "autoconf" => :build
@@ -59,11 +60,6 @@ class MscGenerator < Formula
   end
 
   def install
-    # Issue ref: https://gitlab.com/msc-generator/msc-generator/-/issues/96
-    odie "Check if workarounds for newer GraphViz can be removed!" if version > "8.6.2"
-    ENV.append_to_cflags "-DGRAPHVIZ_VER=#{Formula["graphviz"].version.major}00 -DTRUE=1"
-    inreplace "src/libgvgen/gvgraphs.cpp", "std::max((float)0, std::min((float)1,", "std::max(0.0, std::min(1.0,"
-
     args = %w[--disable-font-checks --disable-silent-rules]
     make = "make"
 

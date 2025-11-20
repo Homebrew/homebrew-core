@@ -6,7 +6,7 @@ class FfmpegAT28 < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 5
+  revision 7
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -16,13 +16,14 @@ class FfmpegAT28 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "6e22fbdd846396385c6c0ff1a2f38ab320c175d45ab384e4bc0509df7f07a053"
-    sha256 arm64_sonoma:  "f20d6994de950893888d0aa9f890c6ab8e180ecdf2c5ccd77cb9f6eb046eb908"
-    sha256 arm64_ventura: "96557e05c9aeffada773a6459850f35ada0d95ec463d47d8bb9947e45604c504"
-    sha256 sonoma:        "25a834ba449bd150ec5126e33a5b7340cc17f3de64a1d0f0b2de45ce7fe89c34"
-    sha256 ventura:       "5b56281f86bc0e0e1fda62f1dec663fb573f2e792f8a4e7a5456770ad996e346"
-    sha256 arm64_linux:   "53d2e877fd2dbeb34441b5c06dbb2ab1fdb9b6e19d17425d3339f1661a510c9e"
-    sha256 x86_64_linux:  "7c6d5a6848c63a8f92f60dcf93a19b7b5aa8d50662bf42d15139a75fc06d273a"
+    sha256 arm64_tahoe:   "7283cae85b5f5e67c2a651dc5f8b91128033c6b7328361adbb951e15e1f691b6"
+    sha256 arm64_sequoia: "66758ba4e8df1a54b6b14c165eaec57332e1de2afae5c2296bdfd1aa94d4b507"
+    sha256 arm64_sonoma:  "35060e5c989c22c0a9eef15ede9422aed7f98bb86a7acf2647f9a164fc79ac7e"
+    sha256 arm64_ventura: "48b23738acea1da8e3ae59ab7ad6e9f49e4a6baa06804723a8d0729c7fc0aac2"
+    sha256 sonoma:        "b5cfb6fa778c6ece95a45b4ca2318b35ea3fc8413c9e641e418f11a3dea6bef4"
+    sha256 ventura:       "d32a745adb90ee398b93e7b21034b0fb8685f80c5cb2056e9c0679ad6d51a8c4"
+    sha256 arm64_linux:   "acee2bb1614681484dccfd58d649a5bcdc774efc402b45d1bf108ee0183bb246"
+    sha256 x86_64_linux:  "f2ba2aa6fed3859f1a03433ba43af98e31c334c04b2f581e1fc71b39471bb5d3"
   end
 
   keg_only :versioned_formula
@@ -116,9 +117,14 @@ class FfmpegAT28 < Formula
   end
 
   test do
-    # Create an example mp4 file
+    # Create a 5 second test MP4
     mp4out = testpath/"video.mp4"
-    system bin/"ffmpeg", "-y", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
-    assert_path_exists mp4out
+    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
+    assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
+
+    # Re-encode it in WMV2/Matroska (HEVC support is still experimental)
+    mkvout = testpath/"video.mkv"
+    system bin/"ffmpeg", "-i", mp4out, "-c:v", "wmv2", mkvout
+    assert_match(/Duration: 00:00:05\.00,.*Video: wmv2/m, shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
   end
 end

@@ -4,16 +4,15 @@ class Alpscore < Formula
   url "https://github.com/ALPSCore/ALPSCore/archive/refs/tags/v2.3.2.tar.gz"
   sha256 "bd9b5af0a33acc825ffedfaa0bf794a420ab2b9b50f6a4e634ecbde43ae9cc24"
   license "GPL-2.0-only"
-  head "https://github.com/ALPSCore/ALPSCore.git", branch: "master"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d32af432da55d533b24bd30a60f8e2845ae2bfe97a3b00d5f53e0d58282eeafe"
-    sha256 cellar: :any,                 arm64_sonoma:  "d8e1ec2c2f445c059c8a6097f6900c4b3366b61f17bb4e985a047dfc71545cb5"
-    sha256 cellar: :any,                 arm64_ventura: "7c51b1fafed3d6683f0a7711239ae8dfb960a3f9242e98d04889397112a0bbed"
-    sha256 cellar: :any,                 sonoma:        "ded6b4a5102bf72ee89b709f48c7363e592435dbf8cab002ec173c7d392ccf47"
-    sha256 cellar: :any,                 ventura:       "5bb961582c752e10a6d731ccbd7d546c1c2d4193af2c0f5cc1254e193d4568b8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "99b0e57c0f9b7695869872b039c3d3723a86f4cf85a25eb44cbca47830a90d21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "992bb58ad888c4accb8a6758f3ec2b4b378af7523626efa5d6785de54c32bf3b"
+    sha256 cellar: :any,                 arm64_tahoe:   "c126dec161f1b5f224e3811bfa7725cffc28c07a7353117e732e73a5e98c545c"
+    sha256 cellar: :any,                 arm64_sequoia: "0f73bb0b70e164a8a4ea330153fb90a55704627dbce801fb2256dca62d068352"
+    sha256 cellar: :any,                 arm64_sonoma:  "d400c7a4d8877d42213b712c7ca565dd90810368bfe5f86b70557a8f8d0e2dd3"
+    sha256 cellar: :any,                 sonoma:        "4b977847e01b872501059cd69d19fd82a371b8a89c219967898a6ca48a39332d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ac7f13cd5680672509610183e0d0b9cfce2a443011b1b8eb7d597170eb26496"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39f48a1bbd7bb2136497962321d05351de1414aed5c6f37e178331cf5aa4d81e"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -21,6 +20,24 @@ class Alpscore < Formula
   depends_on "eigen"
   depends_on "hdf5"
   depends_on "open-mpi"
+
+  # Backport support for CMake 4
+  patch do
+    url "https://github.com/ALPSCore/ALPSCore/commit/155e4327a78c1fa9442a179868994c8715582720.patch?full_index=1"
+    sha256 "9cb67c3d457a99fc799a60e8fcae0af63b99ebb18b5279b449ce9c0c1445077a"
+  end
+
+  # Apply open PR to support Eigen 5.0.0
+  # PR ref: https://github.com/ALPSCore/ALPSCore/pull/651
+  # PR ref: https://github.com/ALPSCore/ALPSCore/pull/656
+  patch do
+    url "https://github.com/ALPSCore/ALPSCore/commit/b2e21ce65b323196f04490c362694f0c30f8cdde.patch?full_index=1"
+    sha256 "8f237373e7a945126e5a1b88d8707ea2d67a263369134d6302205646f35af4e5"
+  end
+  patch do
+    url "https://github.com/ALPSCore/ALPSCore/commit/98a707d2bef2520df1fccfaf132c94ca7c909bb6.patch?full_index=1"
+    sha256 "ad13d526ccbc7f7c90c1bf2895e7bc0143ad8630729d616d391e86d04ffaecd9"
+  end
 
   def install
     # Work around different behavior in CMake-built HDF5

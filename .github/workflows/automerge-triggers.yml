@@ -13,6 +13,11 @@ defaults:
   run:
     shell: bash -xeuo pipefail {0}
 
+env:
+  HOMEBREW_DISABLE_LOAD_FORMULA: 1
+
+permissions: {}
+
 jobs:
   check:
     if: >

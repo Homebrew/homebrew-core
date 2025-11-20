@@ -7,25 +7,35 @@ class Zopfli < Formula
   revision 1
   head "https://github.com/google/zopfli.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "87b9f0523e7d1233fcaec2d394122f9aab234bf00a026f4f9322b47b1ef8f8ae"
-    sha256 cellar: :any,                 arm64_sonoma:   "171ca3e9b77ac8ebac1b2c082c4938d845605d599e30c671003ca3b5f8f0f795"
-    sha256 cellar: :any,                 arm64_ventura:  "68ec999fc21b6ea2e0a44fe4a9cb23dc6fbfac6f51ee153b268fd33408f6d801"
-    sha256 cellar: :any,                 arm64_monterey: "31f0023436da6f38a1a1df31ca8b2fd82eaac4a7ce1bc2a2b7cf05a0c4ec2f05"
-    sha256 cellar: :any,                 arm64_big_sur:  "2f093e34188e4c0b3d7b2acdd913ecc302ba6dafe722f943e579bf70a09ef15a"
-    sha256 cellar: :any,                 sonoma:         "cee5a9b397978a707970ca5f9caaa4c5c461effcb3c4291ae74d2e40ac769dc2"
-    sha256 cellar: :any,                 ventura:        "ef2f18c71a1473972602aa28fc2e0c508c89336e42633423804877ab33dc6ccb"
-    sha256 cellar: :any,                 monterey:       "6f02f39b1b143725890fb1d1a33e6f587daf33ef473ff2991189e2fd1d1a5f85"
-    sha256 cellar: :any,                 big_sur:        "64f2102bff6163156d073e4554532c990c3a65669b7a52d2cec83a22d5b32d4c"
-    sha256 cellar: :any,                 catalina:       "288d48544556b28451e536b142dcc2235ea9dfe52dfe79d0b1d5f50db85c16dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3424c6b2263832ea51f0b089bc7b8d1bbdfe041006847803ec32a7cc348c67c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6994139461f1d64975551091d1254a906a8957c3ce08c0c2b6d8d5c995b66f05"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "60d92c2dba51adbc2b158013f76e713caf79039176b8fce561d71e64eeb1ab1f"
+    sha256 cellar: :any,                 arm64_sequoia: "05a753407e078eb62cc7763b8aadc6b5c239b961aa5208fa100ffcfacde1074d"
+    sha256 cellar: :any,                 arm64_sonoma:  "abce2f037e1d3678b11116c779de02206b14d49da1388953414bd5f187ff1245"
+    sha256 cellar: :any,                 sonoma:        "0f106e6ca21e768d2cee053ab91204dd59bdf02c2acfe94780d4f344dd32da9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73928042ea7ad2aeddbd734193759c045dd8320742be243256ccb12951daecdc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66ed41c03d5bf67bc664988336d1cde7e330f24cd4b376eeaf1361a330ec02dd"
   end
+
+  deprecate! date: "2025-11-13", because: :repo_archived
 
   depends_on "cmake" => :build
 
+  # Backport fix for CMake 4 compatibility
+  # PR ref: https://github.com/google/zopfli/pull/207
+  patch do
+    url "https://github.com/google/zopfli/commit/8ef44ffde0fd2bb2a658f75887e65b31c9e44985.patch?full_index=1"
+    sha256 "4a6f0b3dc53ea6de1af245231b821a94389e91eab5bd3056f5735c3de29b0402"
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -1,8 +1,8 @@
 class PopplerQt5 < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-25.06.0.tar.xz"
-  sha256 "8199532d38984fab46dbd0020ec9c40f20e928e33e9b4cc6043572603a821d83"
+  url "https://poppler.freedesktop.org/poppler-25.11.0.tar.xz"
+  sha256 "63f155142b77349e2bccaef148e754e7506ab1641e713b83af4f54a8f8b15369"
   license "GPL-2.0-only"
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
@@ -11,15 +11,17 @@ class PopplerQt5 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "abc46a084ffe74832cfd9ccac1f432bcb700829cee87c276f4d114c8637bf74f"
-    sha256 arm64_sonoma:  "31da5336eb89d5bcfa8e1910d767528b27de0815f8ab9ca4eb8abc58e842ced9"
-    sha256 arm64_ventura: "9bedddf7b8ea4c15b1fc8507e8d6eeb76a37d48d3fcc6904ba0df8cd634783ac"
-    sha256 sonoma:        "b9a9a99a25ee2e59457277b6525055c8659f00b5efd450c94078179ea8e48d84"
-    sha256 ventura:       "7af63cf583a66fdeff1f330556270a7a94007268909859737a4577b0156874a4"
-    sha256 x86_64_linux:  "4cec6e0411b1c33588bb94adf304f512d66e5783bc136ab9df6105a16c17d128"
+    sha256 arm64_tahoe:   "2789f339896cd67d3a7da30c29c82819334b330dd3f99fd9c2e4c88ebddccea2"
+    sha256 arm64_sequoia: "067f5572934d3aa14c03039d39c449a1ff0585868012241f89346cd09925638b"
+    sha256 arm64_sonoma:  "933d76ae2e33a7fe72cc9958d4e187c755911c7c840873e4483cfbfb9f6ea51b"
+    sha256 sonoma:        "98559e41febd2f3d269503db4144fd02b434c225bfcd8d754f95ed3f2eabe79b"
+    sha256 arm64_linux:   "9548170fd0ba88b8a44c9febbfd6c0cf85b3b232bc2164ded3182f82308daf48"
+    sha256 x86_64_linux:  "fb333837c0e528e25bd64c2df016eedb49f045db1d7ff76f710ebb7e70c02cfe"
   end
 
   keg_only "it conflicts with poppler"
+
+  deprecate! date: "2026-05-19", because: "is for end-of-life Qt 5"
 
   depends_on "cmake" => :build
   depends_on "gobject-introspection" => :build
@@ -31,6 +33,7 @@ class PopplerQt5 < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gpgme"
+  depends_on "gpgmepp"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"

@@ -1,18 +1,17 @@
 class Ncspot < Formula
   desc "Cross-platform ncurses Spotify client written in Rust"
   homepage "https://github.com/hrkfdn/ncspot"
-  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "11555a61be381afa6196b0603d12ea34ee0c6e1660d7c586d13927f3e5ba802c"
+  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "d60c04c027dddbc57cbd9bcb23ec4967b4ae7330a280a7a5f6b77c1ea2cf8c99"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "550dd0374f89b19ec42d30d166eead73d38681c7317fece9af40757b36ec413c"
-    sha256 cellar: :any,                 arm64_sonoma:  "fdc0d374b07983da672dabd0c0dd1a7fdfca47b69f4c346d53f408b16224058c"
-    sha256 cellar: :any,                 arm64_ventura: "30da4cb1e0c494bb35a115792ae58efed2e14075f6da9aa87db399d0445e1557"
-    sha256 cellar: :any,                 sonoma:        "b9cb4a5b28d90399618594b3f6cf0d7e3032f56962c42b8a1a8ddb0ec2e847fc"
-    sha256 cellar: :any,                 ventura:       "2ffab85ac8029a9406c7d3604f91b1ec56c27d377d09ab46cfb98fa7a1bdf614"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "beece05f5b43cf0f7df06edfd81a0ba07904ba1be052b4a7fbfb756f823096eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc62314bdc978974ec4f7f75a925189066309ad2ef83543efca8efc47ea5eb1f"
+    sha256 cellar: :any,                 arm64_tahoe:   "984223fd43a1f0ca585914151c89b1cd0ceb6bc58d11449c926f3b7fc575ca8c"
+    sha256 cellar: :any,                 arm64_sequoia: "c7884c9e55c87f00ac1a74a07debf5fcc96980d05f485a3bf689467b9f1b0c34"
+    sha256 cellar: :any,                 arm64_sonoma:  "5257c38aec7b81e4e06de13ac7b50663b4e8e93a59b5537537a8bb1a8726d24c"
+    sha256 cellar: :any,                 sonoma:        "a838779e650b777ac442c8931077b13263c298c956d4a0dcbf9ad4447d1b25eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0b530ee6c7d3d2f4d793fc9b77a79291275fa1032cf7d177a1446f53304b237"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0603acaaeeb0adb231213dc8ac507b9fdb7cb3ffabd93a746f2ce29a8e7258a3"
   end
 
   depends_on "pkgconf" => :build

@@ -1,19 +1,19 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://weechat.org/"
-  url "https://weechat.org/files/src/weechat-4.6.3.tar.xz"
-  sha256 "5c0b5efa969b873c4be582019b18523ee403e7430b8223825bcdb44a89f5815d"
+  url "https://weechat.org/files/src/weechat-4.7.1.tar.xz"
+  sha256 "e83fb71ca251c5dd74bd9c5a6bd3f85dc2eb8ecec0955f43c07f3e0911edb7d3"
   license "GPL-3.0-or-later"
-  head "https://github.com/weechat/weechat.git", branch: "master"
+  head "https://github.com/weechat/weechat.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "b333b588588d4d5d7f7c14be493a09f0c541639add4e69f180fb74e9cb029fad"
-    sha256 arm64_sonoma:  "34049148e5e982ce687c01fed23e89a6ae5eeccee8251f59e9fa3c787f42749c"
-    sha256 arm64_ventura: "650d7c6c78c2b7bb8310e5f8ef99e4e292bdc76e7a0059fa78b5c409f1c5f8d2"
-    sha256 sonoma:        "14b00b6ab38361c24c665060103b64c7d9ecd5a3c6e01342d5cbfccd31f8cb22"
-    sha256 ventura:       "1cac654fd2c809f30e6019a4b71b78592d587297c9e5e066dc34d8bafcaa6338"
-    sha256 arm64_linux:   "3a38a63283d50f8d0eefc5fbc7bd0c65d8c8be35f5e00d0de3ca7c76c6700acb"
-    sha256 x86_64_linux:  "39721b0a72bea7690cb0d0552ca338deb24f4336f64a0e3168a24cb19e340a45"
+    rebuild 2
+    sha256 arm64_tahoe:   "fe6fb4efbc0764836f935f9674f3862680b2bd12f6bace6ee4e30b3194f208c8"
+    sha256 arm64_sequoia: "18bca2597fe1656b6ce052100e48aa8d1407639d3929be7abf0c71660e0741a3"
+    sha256 arm64_sonoma:  "cba7ea407e89e6bb935dd5f10b07effc98a5e5ebff117e4ea04b8295c3b9bc3e"
+    sha256 sonoma:        "9cd8969995a1431bf6a5ca25a1e8650ba78d14fe166f65edc78b80a3a622df04"
+    sha256 arm64_linux:   "daf430902f3c7a1a46696f127fb36330b64cf628fdf40a049d1811607d12af31"
+    sha256 x86_64_linux:  "8e0eae0c7cddd2d0080d4e8606b03f326df81b323221721b2f149604dc0fe39b"
   end
 
   depends_on "asciidoctor" => :build
@@ -27,12 +27,12 @@ class Weechat < Formula
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "ruby"
+  depends_on "tcl-tk"
   depends_on "zstd"
 
   uses_from_macos "curl"
-  uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
 
   on_macos do
@@ -40,27 +40,19 @@ class Weechat < Formula
     depends_on "libgpg-error"
   end
 
-  def python3
-    which("python3.13")
-  end
-
   def install
-    pyver = Language::Python.major_minor_version python3
-    # Help pkgconf find python as we only provide `python3-embed` for aliased python formula
-    inreplace "cmake/FindPython.cmake", " python3-embed ", " python-#{pyver}-embed "
-
+    tcltk = Formula["tcl-tk"]
     args = %W[
       -DENABLE_MAN=ON
       -DENABLE_GUILE=OFF
       -DCA_FILE=#{Formula["gnutls"].pkgetc}/cert.pem
       -DENABLE_JAVASCRIPT=OFF
       -DENABLE_PHP=OFF
+      -DTCL_INCLUDE_PATH=#{tcltk.opt_include}/tcl-tk
+      -DTCL_LIBRARY=#{tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major_minor}")}
+      -DTK_INCLUDE_PATH=#{tcltk.opt_include}/tcl-tk
+      -DTK_LIBRARY=#{tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major}tk#{tcltk.version.major_minor}")}
     ]
-
-    if OS.linux?
-      args << "-DTCL_INCLUDE_PATH=#{Formula["tcl-tk"].opt_include}/tcl-tk"
-      args << "-DTK_INCLUDE_PATH=#{Formula["tcl-tk"].opt_include}/tcl-tk"
-    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

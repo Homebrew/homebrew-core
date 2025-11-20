@@ -1,18 +1,18 @@
 class Virtuoso < Formula
   desc "High-performance object-relational SQL database"
   homepage "https://virtuoso.openlinksw.com"
-  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.15/virtuoso-opensource-7.2.15.tar.gz"
-  sha256 "e0b6dbcf09b58f30a4205c41041daa4050e00af1474e3d5e3ab3fcce5b9be6db"
+  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.16.1/virtuoso-opensource-7.2.16.tar.gz"
+  version "7.2.16.1"
+  sha256 "0a70dc17f0e333d73307c9c46e8a7a82df70a410ddfe027a5bf7ba6c9204a928"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "348d6bee110dc480ee50e75b459caebce403b6eaf41e10c5ede5f5f75c3a4984"
-    sha256 cellar: :any,                 arm64_sonoma:  "f300dab174cc53b30883e3927d7cc740bae1b116b69812bafb13891f1ef11622"
-    sha256 cellar: :any,                 arm64_ventura: "25176e4f349710ae8638a0fab1260738b0e714b7745e98cbc9afab419a606832"
-    sha256 cellar: :any,                 sonoma:        "4e84d100192db0bb7696fdc6fd4df9e3aedeb5d36bbf879ee1c6fd245de7a14e"
-    sha256 cellar: :any,                 ventura:       "9988e7ced301bb8e37f9ce0774939e4c95ebd96be84fc8e14cab61dc4908c739"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09b2fb4441d2a1e13502113f3382eb3f8b4d6eae7a0a82d8cae3b785322462eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05367d620bd9173ccdbd871caba54b2bfc50aaabafaa2640d1771adbce9ff3dd"
+    sha256 cellar: :any,                 arm64_tahoe:   "2b7ac32764f0040dd1056417f422fb02e15f76bbc2cd674fb5f7537a1877b1cf"
+    sha256 cellar: :any,                 arm64_sequoia: "2d605053b6e21ce0601876ac33732170b904c04e5f8cb8c197968b35034ac74c"
+    sha256 cellar: :any,                 arm64_sonoma:  "f00770df5eb0747dbc02fd9f388acba7f510f9039de36bc1dad6925b6a08e637"
+    sha256 cellar: :any,                 sonoma:        "f0ba234fa8b8dc07f98676a6afdd9c18cd3c123dafdbc5c2dc029b386675131e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "013851e403ba961433f12a29be5cbed55368cd4adb7a5bedc27daf4e114d6037"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4215aa1feb1db4985d004bd6e0fea39de4010dff0ed0fa4c20e1be2153003a2c"
   end
 
   head do
@@ -25,7 +25,7 @@ class Virtuoso < Formula
 
   # If gawk isn't found, make fails deep into the process.
   depends_on "gawk" => :build
-  depends_on "openssl@3.0"
+  depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -43,11 +43,14 @@ class Virtuoso < Formula
 
   skip_clean :la
 
+  # Support openssl 3.6, upstream pr ref, https://github.com/openlink/virtuoso-opensource/pull/1364
+  patch :DATA
+
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--without-internal-zlib"
+    system "./configure", "--disable-silent-rules",
+                          "--without-internal-zlib",
+                          *std_configure_args
     system "make", "install"
   end
 
@@ -62,3 +65,20 @@ class Virtuoso < Formula
     system bin/"virtuoso-t", "+checkpoint-only"
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index 2953300..a4c8766 100755
+--- a/configure
++++ b/configure
+@@ -23182,8 +23182,8 @@ main (void)
+ 	/* LibreSSL defines OPENSSL_VERSION_NUMBER 0x20000000L but uses a compatible API to OpenSSL v1.0.x */
+ 	#elif OPENSSL_VERSION_NUMBER < 0x1020000fL
+ 	/* OpenSSL versions 0.9.8e - 1.1.1 are supported */
+-       #elif OPENSSL_VERSION_NUMBER < 0x30600000L
+-       /* OpenSSL versions 3.0.x - 3.5.x are supported */
++       #elif OPENSSL_VERSION_NUMBER < 0x30700000L
++       /* OpenSSL versions 3.0.x - 3.6.x are supported */
+ 	#else
+ 	#error OpenSSL version too new
+ 	#endif

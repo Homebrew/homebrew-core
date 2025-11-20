@@ -13,6 +13,7 @@ class Cpmtools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "efe04ea8503804dc1106da71858d617f5daffe04adb89a312aa32116396af00d"
     sha256 arm64_sequoia:  "e689ad1b8bec7b7fb8b2f39ddccca66072998a172b7ef8788eeb6e54d06c4395"
     sha256 arm64_sonoma:   "229e3ca8bb433a8ca06a17c2d7b433648e9705c56bdfdc8d8084440d8244a3e1"
     sha256 arm64_ventura:  "2fbd054f0433e92761ef5fa76de830ac7bfeeb08525eede726f9d3d969e165df"

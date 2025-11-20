@@ -1,17 +1,19 @@
 class Libbsc < Formula
   desc "High performance block-sorting data compression library"
   homepage "http://libbsc.com"
-  url "https://github.com/IlyaGrebnov/libbsc/archive/refs/tags/v3.3.9.tar.gz"
-  sha256 "d287535feaf18a05c3ffc9ccba3ee4eacd7604224b4648121d7388727160f107"
+  url "https://github.com/IlyaGrebnov/libbsc/archive/refs/tags/v3.3.12.tar.gz"
+  sha256 "3d8eee9351468bdd3fb3bc28dda0e24cfc0332997eb0210ea7bd548d77c3d194"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c7ed848197e074d4ffbf597c051dcc37399d2d589c6ada3a15f90fd049859470"
-    sha256 cellar: :any,                 arm64_sonoma:  "e9f13fa761075788e61ac51a14ab27649231f3355f7f7fe3d56d848c74714e96"
-    sha256 cellar: :any,                 arm64_ventura: "5d49a44a479d5de112bc9bd95c88ab7b14fcd9e86f099e5c335c912df1610a90"
-    sha256 cellar: :any,                 sonoma:        "d901c26e237fd703be8440ff7f5e3004309d876be6beeb6dec4360f33af8c399"
-    sha256 cellar: :any,                 ventura:       "b3aecda9cb9b4592b4b92191c99d14532127ad1af91874aa1c6963a1c010e4ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95b7b546d36cecdefc38a60d52c6360e704c60877584786623f2fc7e841909b8"
+    sha256 cellar: :any,                 arm64_tahoe:   "854969cf0bcec5a2b0f200300dcb083612cb1d88aee5b22e192acde3460fbb2b"
+    sha256 cellar: :any,                 arm64_sequoia: "b0413bddefb5d23873e1b3ef62f0faa6d54b6c47bc317108f3df4f4fa1ab9ce5"
+    sha256 cellar: :any,                 arm64_sonoma:  "97a4a2cfdc8a9c65d0cfc5002dc652aea7dad01daf8fa3a11bfa662b5240c6ba"
+    sha256 cellar: :any,                 arm64_ventura: "72cabda9eb1df38246c1a7e42f8a1b3c6aa3b8f27e1122aa039db04929b0a7de"
+    sha256 cellar: :any,                 sonoma:        "b0fb4bcf12cb54f6457c48d6c3ab4140b1f0196ed1deb018633f013cb02121cf"
+    sha256 cellar: :any,                 ventura:       "85ebfb7e3ba754f0139d8e003957899adb23840cc977e2096b8d06c4e0c41061"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "823338cedcf64c6f7de67238c9e71f5117011b009167301069674aeaadeb1253"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a40d01db777bfa872f61fa03440755c8a5c13cca0002942b68f5f0c55e3f4215"
   end
 
   depends_on "cmake" => :build

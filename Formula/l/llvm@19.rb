@@ -11,7 +11,10 @@ class LlvmAT19 < Formula
     regex(/^llvmorg[._-]v?(19(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4728c3c87412df15ef32fde6408dcc29c3450d92e5ae0b6e2b4f7bad46b3f4cc"
     sha256 cellar: :any,                 arm64_sequoia: "7b14323528280fe8da37c282cfe3b5b34a9a56f0730c3ce599d165f2c5353a8a"
     sha256 cellar: :any,                 arm64_sonoma:  "5fdcbc697b42d0559d5d5c76ae2f9a17e3a30014eab679b6b591336ce7072dea"
     sha256 cellar: :any,                 arm64_ventura: "db184348dbb58b9b9a466664a19747201a36574f9380dfa6158b0ed7cd5b1ca0"
@@ -32,7 +35,7 @@ class LlvmAT19 < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -98,7 +101,7 @@ class LlvmAT19 < Formula
     # Work around build failure (maybe from CMake 4 update) by using environment
     # variable for https://cmake.org/cmake/help/latest/variable/CMAKE_OSX_SYSROOT.html
     # TODO: Consider if this should be handled in superenv as impacts other formulae
-    ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path if OS.mac? && MacOS.sdk_root_needed?
+    ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path if OS.mac?
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -156,10 +159,8 @@ class LlvmAT19 < Formula
 
     if OS.mac?
       macos_sdk = MacOS.sdk_path_if_needed
-      if MacOS.version >= :catalina
-        args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
-        args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
-      end
+      args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
       libcxx_install_libdir = lib/"c++"
       libunwind_install_libdir = lib/"unwind"
@@ -288,12 +289,10 @@ class LlvmAT19 < Formula
     arches = Set.new([:arm64, :x86_64, :aarch64])
     arches << arch
 
-    sysroot = if macos_version.blank? || (MacOS.version > macos_version && MacOS::CLT.separate_header_package?)
+    sysroot = if macos_version.blank? || MacOS.version > macos_version
       "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX.sdk"
-    elsif macos_version >= "10.14"
-      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk"
     else
-      "/"
+      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk"
     end
 
     {

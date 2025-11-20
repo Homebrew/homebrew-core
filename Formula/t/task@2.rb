@@ -5,11 +5,6 @@ class TaskAT2 < Formula
   sha256 "b1d3a7f000cd0fd60640670064e0e001613c9e1cb2242b9b3a9066c78862cfec"
   license "MIT"
 
-  livecheck do
-    url :stable
-    regex(/^v?(2\.\d+\.\d+)$/i)
-  end
-
   bottle do
     sha256                               arm64_sequoia:  "f8c1a9cf2878e0f0167b9ec74d1ef1ffb393048efa96309e6c39295e1a83843e"
     sha256                               arm64_sonoma:   "82df1c51fe66c7f8981adea3530dcb68c461a994e4f63eb3010b9478bf66ee76"

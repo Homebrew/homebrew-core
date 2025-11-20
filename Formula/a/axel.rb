@@ -6,6 +6,7 @@ class Axel < Formula
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "1f8ad603fc44127acc3b97b453360043ffa0610d63248035509a8b9c70d93fdc"
     sha256 cellar: :any, arm64_sequoia:  "b916766161940b92547f4dfddcc72ff0a7138c773e935927e0c8ae3111076494"
     sha256 cellar: :any, arm64_sonoma:   "3304a247f8e410cf41737d083bb6611d74bb5991d7cec6d76b48d9ce2e944423"
     sha256 cellar: :any, arm64_ventura:  "0b24ce8df8e83157f4558afcb41083993d7b7aa5dbf02e06b01037a665a63ae5"

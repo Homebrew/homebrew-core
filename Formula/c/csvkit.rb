@@ -8,16 +8,16 @@ class Csvkit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38e538889d230e83686382e09b013d4f15792e1209c8191d38d8c1f497a22aca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb219535aa5e1bdbece458a3e7aac6b43a2f42cea46dea519c9897ebd315aa9a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "993b70d9af69862534b8f3fd6c1746d2eca303d35a671f7ca9af48317e5f9d30"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39e0b38a1826e4991f03acb2836452c783a57089d81609b666cc999c3faa0af4"
-    sha256 cellar: :any_skip_relocation, ventura:       "a656b465e6057aa27443398d98284b91c2975546014f3af373b29ead39c3d13c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0381b3f897796ddf740e114a0227d07d485a0adceae1b7293e969bba2f5b5a67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d1e5f5f59d037761c45c7960dd7834988295aed1150e74ee91b2042e672741c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "92d9573398de98581eb6b73ebe4d61dbe0870bb59cf6a34e5a29120698ed9658"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2dfc10d5827129c968d81d25e1455eab59eca545dc5c988d290f1fa63aa95a46"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a15bac677ba32f18d58d8634910a49a759f284f04ace89870705beb9c273dc9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "61e3d3d9ff3949dfe2a063f0b5de368664661751e46e48f8bae0225705fc7ff9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b6dad0194b2430c9e7b8e79712adf3f0f72c6bb1d68535e0bbb94d5eacc5a76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c03696c5dbecaff49514791c5dee48a877b9e8e0ae969eed310649a06c22c465"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "agate" do
     url "https://files.pythonhosted.org/packages/38/a5/3773a25b4b4867efbe69dd34f374020e1c66415ac96afc572ac7aa47d90c/agate-1.13.0.tar.gz"
@@ -52,11 +52,6 @@ class Csvkit < Formula
   resource "et-xmlfile" do
     url "https://files.pythonhosted.org/packages/d3/38/af70d7ab1ae9d4da450eeec1fa3918940a5fafb9055e934af8d6eb0c2313/et_xmlfile-2.0.0.tar.gz"
     sha256 "dab3f4764309081ce75662649be815c4c9081e88f0837825f90fd28317d4da54"
-  end
-
-  resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/2f/ff/df5fede753cc10f6a5be0931204ea30c35fa2f2ea7a35b25bdaf4fe40e46/greenlet-3.1.1.tar.gz"
-    sha256 "4ce3ac6cdb6adf7946475d7ef31777c26d94bccc377e070a7986bd2d5c515467"
   end
 
   resource "isodate" do
@@ -95,8 +90,8 @@ class Csvkit < Formula
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/e4/08/9a90962ea72acd532bda71249a626344d855c4032603924b1b547694b837/sqlalchemy-2.0.38.tar.gz"
-    sha256 "e5a4d82bdb4bf1ac1285a68eab02d253ab73355d9f0fe725a97e1e0fa689decb"
+    url "https://files.pythonhosted.org/packages/f0/f2/840d7b9496825333f532d2e3976b8eadbf52034178aac53630d09fe6e1ef/sqlalchemy-2.0.44.tar.gz"
+    sha256 "0ae7454e1ab1d780aee69fd2aae7d6b8670a581d8847f2d1e0f7ddfbf47e5a22"
   end
 
   resource "text-unidecode" do
@@ -105,13 +100,13 @@ class Csvkit < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "xlrd" do
-    url "https://files.pythonhosted.org/packages/a6/b3/19a2540d21dea5f908304375bd43f5ed7a4c28a370dc9122c565423e6b44/xlrd-2.0.1.tar.gz"
-    sha256 "f72f148f54442c6b056bf931dbc34f986fd0c3b0b6b5a58d013c9aef274d0c88"
+    url "https://files.pythonhosted.org/packages/07/5a/377161c2d3538d1990d7af382c79f3b2372e880b65de21b01b1a2b78691e/xlrd-2.0.2.tar.gz"
+    sha256 "08b5e25de58f21ce71dc7db3b3b8106c1fa776f3024c54e45b45b374e89234c9"
   end
 
   def install

@@ -17,6 +17,7 @@ class GuileGnutls < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "6bb5b450af554f8e7a4d620732e6bd6d5579be051adc9171f9b43b1e3ef7da9d"
     sha256 arm64_sequoia: "774fbd9464a92152b3506f67c9e5b2f7349575e2031293e50132017b7a3e98bb"
     sha256 arm64_sonoma:  "a50a21859c4523e1a26aa0e9b566d69b8351da2a31b8f01999b407551b2cc4d1"
     sha256 arm64_ventura: "54ab78a024a433b7617ce26f88fac53debc42320651d7d6729a6c52c044d2071"

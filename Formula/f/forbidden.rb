@@ -3,28 +3,30 @@ class Forbidden < Formula
 
   desc "Bypass 4xx HTTP response status codes and more"
   homepage "https://github.com/ivan-sincek/forbidden"
-  url "https://files.pythonhosted.org/packages/ed/80/eb80e899c8ac2357aa9b001600e64177a1a68c32b466becadf1eb0a09e01/forbidden-13.2.tar.gz"
-  sha256 "e560b121b1419393695505a4bf61ab82230a34bffc9b1779ca75a33ab3f62916"
+  url "https://files.pythonhosted.org/packages/9b/aa/98fc3ee28aac41cae341a197858ff6af5d79e40dcd45c8a6e37b1fdbfd19/forbidden-13.4.tar.gz"
+  sha256 "dc987150b71515810d7ae252895b3ca6e077a8d9b3cbb0d09dfc9797c933a14d"
   license "MIT"
   head "https://github.com/ivan-sincek/forbidden.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2245b94b8c99ed3559cc4adb14dd697f91470ed94a9deee99f747db03a25022e"
-    sha256 cellar: :any,                 arm64_sonoma:  "b477ba383c03cea30975ed2963b0fcd32b7a1ff7f667f1c6330560abf189857d"
-    sha256 cellar: :any,                 arm64_ventura: "18eb7d97360f621c07c4f49e408940a273be58e051212720fb93c57522d464eb"
-    sha256 cellar: :any,                 sonoma:        "65007aa53d56c3695b661ead36a7f80c7fa8265bee1e2535c0944887a2b1673d"
-    sha256 cellar: :any,                 ventura:       "288400dd51340b542c352fb9899300fea07a2a2a528e785274c4a79eebf3697e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "247ee447bea00d027b98995b8ceb448946dba48aeacfbc03eed32cc302b90002"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7b94130c1ae5812ca69f9492c9155eed553c1dfef6799066429acb99ff58ce3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6d2449bc7a6faee99f55d2703b6d67b68af176d7b3a80184983c88390c2170c8"
+    sha256 cellar: :any,                 arm64_sequoia: "31bb2abca0a0c10c975274cbf97c0bb58dcef5d28526d7e93bb20761633a93b7"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd1386367c865eba8d6828002194bb752f941aa6e6c94254792911d141baef46"
+    sha256 cellar: :any,                 sonoma:        "679d7392b7bc3c897cefc05c5cf37070cde5e7e03818866516da32b06aa377f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1c53b1bee230976572176da133591b286c5418a083879c7124db6a8aca65169"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "decf3ef82a1a3cf93995d6076e7c284cddbb95a39c95d1f4932597c17511aaec"
   end
 
-  depends_on "certifi"
-  depends_on "cffi"
-  depends_on "cryptography"
+  depends_on "certifi" => :no_linkage
+  depends_on "cffi" => :no_linkage
+  depends_on "cryptography" => :no_linkage
   depends_on "curl"
   depends_on "openssl@3"
-  depends_on "pycparser"
-  depends_on "python@3.13"
+  depends_on "pycparser" => :no_linkage
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: %w[certifi cffi cryptography pycparser]
 
   resource "about-time" do
     url "https://files.pythonhosted.org/packages/1c/3f/ccb16bdc53ebb81c1bf837c1ee4b5b0b69584fd2e4a802a2a79936691c0a/about-time-4.2.1.tar.gz"
@@ -32,18 +34,18 @@ class Forbidden < Formula
   end
 
   resource "alive-progress" do
-    url "https://files.pythonhosted.org/packages/28/66/c2c1e6674b3b7202ce529cf7d9971c93031e843b8e0c86a85f693e6185b8/alive-progress-3.2.0.tar.gz"
-    sha256 "ede29d046ff454fe56b941f686f89dd9389430c4a5b7658e445cb0b80e0e4deb"
+    url "https://files.pythonhosted.org/packages/9a/26/d43128764a6f8fe1668c4f87aba6b1fe52bea81d05a35c84a70d3c70b6f7/alive-progress-3.3.0.tar.gz"
+    sha256 "457dd2428b48dacd49854022a46448d236a48f1b7277874071c39395307e830c"
   end
 
   resource "bot-safe-agents" do
-    url "https://files.pythonhosted.org/packages/6a/06/a557cece31bdf2992db8099f3e0e3296e955cf681f0cab4a5dc89779c984/bot_safe_agents-1.0.tar.gz"
-    sha256 "8b2d9e435ec10a89563b10a6ca977bbf8fb43cf4eca7d8e412e2e69c8aff400c"
+    url "https://files.pythonhosted.org/packages/44/8e/fd72545a981a5133b51802852bdb6d5a313a330b61cec952b3455456b9fd/bot_safe_agents-1.1.tar.gz"
+    sha256 "ba3405bc92de1301fdd19b48e80ba7f26a8661ebbba2ab010e80e15267075ba6"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
+    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
   resource "colorama" do
@@ -51,19 +53,19 @@ class Forbidden < Formula
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
-  resource "grapheme" do
-    url "https://files.pythonhosted.org/packages/ce/e7/bbaab0d2a33e07c8278910c1d0d8d4f3781293dfbc70b5c38197159046bf/grapheme-0.6.0.tar.gz"
-    sha256 "44c2b9f21bbe77cfb05835fec230bd435954275267fea1858013b102f8603cca"
+  resource "graphemeu" do
+    url "https://files.pythonhosted.org/packages/76/20/d012f71e7d00e0d5bb25176b9a96c5313d0e30cf947153bfdfa78089f4bb/graphemeu-0.7.2.tar.gz"
+    sha256 "42bbe373d7c146160f286cd5f76b1a8ad29172d7333ce10705c5cc282462a4f8"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
-    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
+    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
+    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
   resource "pycurl" do
-    url "https://files.pythonhosted.org/packages/71/35/fe5088d914905391ef2995102cf5e1892cf32cab1fa6ef8130631c89ec01/pycurl-7.45.6.tar.gz"
-    sha256 "2b73e66b22719ea48ac08a93fc88e57ef36d46d03cb09d972063c9aa86bb74e6"
+    url "https://files.pythonhosted.org/packages/e3/3d/01255f1cde24401f54bb3727d0e5d3396b67fc04964f287d5d473155f176/pycurl-7.45.7.tar.gz"
+    sha256 "9d43013002eab2fd6d0dcc671cd1e9149e2fc1c56d5e796fad94d076d6cb69ef"
   end
 
   resource "pyjwt" do
@@ -72,13 +74,13 @@ class Forbidden < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/8e/5f/bd69653fbfb76cf8604468d3b4ec4c403197144c7bfe0e6a5fc9e02a07cb/regex-2024.11.6.tar.gz"
-    sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
+    url "https://files.pythonhosted.org/packages/49/d3/eaa0d28aba6ad1827ad1e716d9a93e1ba963ada61887498297d3da715133/regex-2025.9.18.tar.gz"
+    sha256 "c5ba23274c61c6fef447ba6a39333297d0c247f53059dba0bca415cac511edc4"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "tabulate" do
@@ -87,13 +89,13 @@ class Forbidden < Formula
   end
 
   resource "termcolor" do
-    url "https://files.pythonhosted.org/packages/37/72/88311445fd44c455c7d553e61f95412cf89054308a1aa2434ab835075fc5/termcolor-2.5.0.tar.gz"
-    sha256 "998d8d27da6d48442e8e1f016119076b690d962507531df4890fcd2db2ef8a6f"
+    url "https://files.pythonhosted.org/packages/ca/6c/3d75c196ac07ac8749600b60b03f4f6094d54e132c4d94ebac6ee0e0add0/termcolor-3.1.0.tar.gz"
+    sha256 "6a6dd7fbee581909eeec6a756cff1d7f7c376063b14e4a298dc4980309e55970"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install

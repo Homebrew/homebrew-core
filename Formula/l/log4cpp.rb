@@ -10,7 +10,10 @@ class Log4cpp < Formula
     regex(%r{url=.*?/log4cpp[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "19e811fa5a096aafb80373ba53df0e7592e5e9471447173429d1201c5d2a077c"
     sha256 cellar: :any,                 arm64_sequoia:  "f8421676fbd3fc123bca6932dfe2d92f2eafaa4757a1a3d287260ea2fdb72e75"
     sha256 cellar: :any,                 arm64_sonoma:   "9dd6710dd93d90ad62742ef724afe56aab75d6686a7b67ba450945c96b64638b"
     sha256 cellar: :any,                 arm64_ventura:  "f742bcb2025862fa184116e5c431aab3da949bad797a8d4f9192549c154277a2"
@@ -26,7 +29,7 @@ class Log4cpp < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

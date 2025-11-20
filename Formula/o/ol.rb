@@ -7,6 +7,7 @@ class Ol < Formula
   head "https://github.com/yuriy-chumak/ol.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "2a42c86b854dc6c419314c640401583715ae2c101e128bc99e2bda78939f6a37"
     sha256 arm64_sequoia: "5a9e307abff85e27d842ad8de7f9ce281a037386154a7c39a0e8a57b3d378504"
     sha256 arm64_sonoma:  "6758faddc2a7dbc71e03f881bccf6ee4f5534a75c0d19a2ec9cc875668219831"
     sha256 arm64_ventura: "6ccc4d40970b7514955cdb20db58682cb9dd0709ef467b4119f972869719c0f0"

@@ -1,0 +1,2203 @@
+From b836070133d86f2ee69d664d4087798cadaff0b5 Mon Sep 17 00:00:00 2001
+From: Rui Chen <rui@chenrui.dev>
+Date: Thu, 23 Jan 2025 01:40:11 -0500
+Subject: [PATCH] Revert "Convert stringstream::str() to stringstream::view()
+ where applicable." This reverts commit
+ https://github.com/stella-emu/stella/commit/a8a23f611211e6edaf117756f640e37bd8012778.
+
+Signed-off-by: Rui Chen <rui@chenrui.dev>
+---
+ src/cheat/CheatManager.cxx                    |  6 +--
+ src/common/EventHandlerSDL2.cxx               |  4 +-
+ src/common/FBBackendSDL2.cxx                  | 10 ++--
+ src/common/HighScoresManager.cxx              |  6 +--
+ src/common/JoyMap.cxx                         |  2 +-
+ src/common/KeyMap.cxx                         |  2 +-
+ src/common/MouseControl.cxx                   | 10 ++--
+ src/common/PJoystickHandler.cxx               | 30 ++++++------
+ src/common/PKeyboardHandler.cxx               |  2 +-
+ src/common/PNGLibrary.cxx                     | 12 ++---
+ src/common/PaletteHandler.cxx                 |  6 +--
+ src/common/RewindManager.cxx                  |  4 +-
+ src/common/SoundSDL2.cxx                      | 10 ++--
+ src/common/StaggeredLogger.cxx                |  2 +-
+ src/common/StateManager.cxx                   | 18 ++++----
+ src/common/Variant.hxx                        | 14 +++---
+ src/common/VideoModeHandler.cxx               |  2 +-
+ .../repository/CompositeKVRJsonAdapter.cxx    |  2 +-
+ src/common/tv_filters/NTSCFilter.cxx          |  8 ++--
+ src/debugger/CartDebug.cxx                    |  2 +-
+ src/debugger/Debugger.cxx                     | 10 ++--
+ src/debugger/DebuggerParser.cxx               | 38 +++++++--------
+ src/debugger/DiStella.cxx                     |  8 ++--
+ src/debugger/gui/AudioWidget.cxx              |  2 +-
+ src/debugger/gui/Cart3EPlusWidget.cxx         | 14 +++---
+ src/debugger/gui/CartARMWidget.cxx            |  2 +-
+ src/debugger/gui/CartBUSInfoWidget.cxx        |  2 +-
+ src/debugger/gui/CartCDFInfoWidget.cxx        |  2 +-
+ src/debugger/gui/CartDPCPlusWidget.cxx        |  2 +-
+ src/debugger/gui/CartDPCWidget.cxx            |  4 +-
+ src/debugger/gui/CartDebugWidget.cxx          |  2 +-
+ src/debugger/gui/CartE7Widget.cxx             |  2 +-
+ src/debugger/gui/CartEnhancedWidget.cxx       | 10 ++--
+ src/debugger/gui/CartRamWidget.cxx            |  2 +-
+ src/debugger/gui/CpuWidget.cxx                |  2 +-
+ src/debugger/gui/DelayQueueWidget.cxx         |  4 +-
+ src/debugger/gui/FlashWidget.cxx              |  2 +-
+ src/debugger/gui/NullControlWidget.hxx        |  4 +-
+ src/debugger/gui/RomWidget.cxx                |  8 ++--
+ src/debugger/gui/TiaOutputWidget.cxx          | 10 ++--
+ src/debugger/gui/TiaZoomWidget.cxx            |  4 +-
+ src/emucore/CartCreator.cxx                   |  4 +-
+ src/emucore/CartDetector.cxx                  |  2 +-
+ src/emucore/CartEnhanced.cxx                  |  4 +-
+ src/emucore/Console.cxx                       | 46 +++++++++----------
+ src/emucore/EventHandler.cxx                  |  8 ++--
+ src/emucore/FrameBuffer.cxx                   | 14 +++---
+ src/emucore/KidVid.cxx                        |  4 +-
+ src/emucore/M6502.cxx                         | 16 +++----
+ src/emucore/OSystem.cxx                       | 12 ++---
+ src/emucore/PlusROM.cxx                       |  6 +--
+ src/emucore/Settings.cxx                      |  2 +-
+ src/emucore/TIASurface.cxx                    |  6 +--
+ src/emucore/Thumbulator.cxx                   |  2 +-
+ src/gui/DeveloperDialog.cxx                   |  2 +-
+ src/gui/EditableWidget.cxx                    |  4 +-
+ src/gui/EventMappingWidget.cxx                |  2 +-
+ src/gui/GameInfoDialog.cxx                    |  8 ++--
+ src/gui/HighScoresDialog.cxx                  |  4 +-
+ src/gui/JoystickDialog.cxx                    |  2 +-
+ src/gui/LauncherDialog.cxx                    |  4 +-
+ src/gui/RomAuditDialog.cxx                    |  2 +-
+ src/gui/RomImageWidget.cxx                    |  4 +-
+ src/gui/VideoAudioDialog.cxx                  |  8 ++--
+ 64 files changed, 226 insertions(+), 226 deletions(-)
+
+diff --git a/src/cheat/CheatManager.cxx b/src/cheat/CheatManager.cxx
+index c36d9b8..a11cdef 100644
+--- a/src/cheat/CheatManager.cxx
++++ b/src/cheat/CheatManager.cxx
+@@ -298,7 +298,7 @@ void CheatManager::saveCheats(string_view md5sum)
+       cheats << ",";
+   }
+ 
+-  const bool changed = cheats.view() != myCurrentCheat;
++  const bool changed = cheats.str() != myCurrentCheat;
+ 
+   // Only update the list if absolutely necessary
+   if(changed)
+@@ -310,8 +310,8 @@ void CheatManager::saveCheats(string_view md5sum)
+       myCheatMap.erase(iter);
+ 
+     // Add new entry only if there are any cheats defined
+-    if(!cheats.view().empty())
+-      myCheatMap.emplace(md5sum, cheats.view());
++    if(!cheats.str().empty())
++      myCheatMap.emplace(md5sum, cheats.str());
+   }
+ 
+   // Update the dirty flag
+diff --git a/src/common/EventHandlerSDL2.cxx b/src/common/EventHandlerSDL2.cxx
+index 8c8a371..b56d5a1 100644
+--- a/src/common/EventHandlerSDL2.cxx
++++ b/src/common/EventHandlerSDL2.cxx
+@@ -33,7 +33,7 @@ EventHandlerSDL2::EventHandlerSDL2(OSystem& osystem)
+     myQwertz = int{'y'} == static_cast<int>
+       (SDL_GetKeyFromScancode(static_cast<SDL_Scancode>(KBDK_Z)));
+     buf << "Keyboard: " << (myQwertz ? "QWERTZ" : "QWERTY");
+-    Logger::debug(buf.view());
++    Logger::debug(buf.str());
+   }
+ #endif
+ 
+@@ -43,7 +43,7 @@ EventHandlerSDL2::EventHandlerSDL2(OSystem& osystem)
+     ostringstream buf;
+     buf << "ERROR: Couldn't initialize SDL joystick support: "
+         << SDL_GetError() << '\n';
+-    Logger::error(buf.view());
++    Logger::error(buf.str());
+   }
+   Logger::debug("EventHandlerSDL2::EventHandlerSDL2 SDL_INIT_JOYSTICK");
+ #endif
+diff --git a/src/common/FBBackendSDL2.cxx b/src/common/FBBackendSDL2.cxx
+index b9c3f39..efddd45 100644
+--- a/src/common/FBBackendSDL2.cxx
++++ b/src/common/FBBackendSDL2.cxx
+@@ -105,11 +105,11 @@ void FBBackendSDL2::queryHardware(vector<Common::Size>& fullscreenRes,
+       SDL_GetDisplayMode(i, m, &mode);
+       res << std::setw(4) << mode.w << "x" << std::setw(4) << mode.h;
+ 
+-      if(lastRes != res.view())
++      if(lastRes != res.str())
+       {
+-        Logger::debug(s.view());
++        Logger::debug(s.str());
+         s.str("");
+-        lastRes = res.view();
++        lastRes = res.str();
+         s << "  " << lastRes << ": ";
+       }
+       s << mode.refresh_rate << "Hz";
+@@ -118,7 +118,7 @@ void FBBackendSDL2::queryHardware(vector<Common::Size>& fullscreenRes,
+       else
+         s << "  ";
+     }
+-    Logger::debug(s.view());
++    Logger::debug(s.str());
+   }
+ 
+   // Now get the maximum windowed desktop resolution
+@@ -332,7 +332,7 @@ bool FBBackendSDL2::setVideoMode(const VideoModeHandler::Mode& mode,
+ 
+       msg << "Display refresh rate changed to "
+           << adaptedSdlMode.refresh_rate << " Hz " << "(" << adaptedSdlMode.w << "x" << adaptedSdlMode.h << ")";
+-      Logger::info(msg.view());
++      Logger::info(msg.str());
+ 
+       SDL_DisplayMode setSdlMode;
+       SDL_GetWindowDisplayMode(myWindow, &setSdlMode);
+diff --git a/src/common/HighScoresManager.cxx b/src/common/HighScoresManager.cxx
+index 1e645be..bdb1cdb 100644
+--- a/src/common/HighScoresManager.cxx
++++ b/src/common/HighScoresManager.cxx
+@@ -414,7 +414,7 @@ string HighScoresManager::md5Props() const
+ 
+   buf << specialAddress(jprops) << specialBCD(jprops) << specialZeroBased(jprops);
+ 
+-  return MD5::hash(buf.view());
++  return MD5::hash(buf.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -570,7 +570,7 @@ string HighScoresManager::hash(const ScoresData& data) const
+       << data.scores[r].date;
+   }
+ 
+-  return MD5::hash(buf.view());
++  return MD5::hash(buf.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -657,7 +657,7 @@ void HighScoresManager::loadHighScores(ScoresData& data)
+     clearHighScores(data);
+     buf << "Error: Invalid high scores data for variation " << data.variation << ".";
+   }
+-  myOSystem.frameBuffer().showTextMessage(buf.view());
++  myOSystem.frameBuffer().showTextMessage(buf.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/common/JoyMap.cxx b/src/common/JoyMap.cxx
+index cab6734..68ae59e 100644
+--- a/src/common/JoyMap.cxx
++++ b/src/common/JoyMap.cxx
+@@ -161,7 +161,7 @@ string JoyMap::getEventMappingDesc(int stick, Event::Type event,
+   {
+     if (_event == event && _mapping.mode == mode)
+     {
+-      if(!buf.view().empty())
++      if(!buf.str().empty())
+         buf << ", ";
+       buf << "C" << stick << getDesc(event, _mapping);
+     }
+diff --git a/src/common/KeyMap.cxx b/src/common/KeyMap.cxx
+index 460087e..556e482 100644
+--- a/src/common/KeyMap.cxx
++++ b/src/common/KeyMap.cxx
+@@ -195,7 +195,7 @@ string KeyMap::getEventMappingDesc(Event::Type event, EventMode mode) const
+   {
+     if (_event == event && _mapping.mode == mode)
+     {
+-      if(!buf.view().empty())
++      if(!buf.str().empty())
+         buf << ", ";
+       buf << getDesc(_mapping);
+     }
+diff --git a/src/common/MouseControl.cxx b/src/common/MouseControl.cxx
+index 5378014..89c3410 100644
+--- a/src/common/MouseControl.cxx
++++ b/src/common/MouseControl.cxx
+@@ -107,7 +107,7 @@ MouseControl::MouseControl(Console& console, string_view mode)
+     msg << ", Y-axis is ";
+     MControlToController(yaxis, ytype, yid);
+ 
+-    myModeList.emplace_back(xtype, xid, ytype, yid, msg.view());
++    myModeList.emplace_back(xtype, xid, ytype, yid, msg.str());
+   }
+ 
+   // Now consider the possible modes for the mouse based on the left
+@@ -174,7 +174,7 @@ void MouseControl::addLeftControllerModes(bool noswap)
+       msg << "Mouse is left " << myLeftController.name() << " controller";
+       const Controller::Type type = myLeftController.type();
+       const int id = noswap ? 0 : 1;
+-      myModeList.emplace_back(type, id, type, id, msg.view());
++      myModeList.emplace_back(type, id, type, id, msg.str());
+     }
+   }
+ }
+@@ -195,7 +195,7 @@ void MouseControl::addRightControllerModes(bool noswap)
+       msg << "Mouse is right " << myRightController.name() << " controller";
+       const Controller::Type type = myRightController.type();
+       const int id = noswap ? 1 : 0;
+-      myModeList.emplace_back(type, id, type, id, msg.view());
++      myModeList.emplace_back(type, id, type, id, msg.str());
+     }
+   }
+ }
+@@ -206,11 +206,11 @@ void MouseControl::addPaddleModes(int lport, int rport, int lname, int rname)
+   const Controller::Type type = Controller::Type::Paddles;
+   ostringstream msg;
+   msg << "Mouse is Paddle " << lname << " controller";
+-  const MouseMode mode0(type, lport, type, lport, msg.view());
++  const MouseMode mode0(type, lport, type, lport, msg.str());
+ 
+   msg.str("");
+   msg << "Mouse is Paddle " << rname << " controller";
+-  const MouseMode mode1(type, rport, type, rport, msg.view());
++  const MouseMode mode1(type, rport, type, rport, msg.str());
+ 
+   if(BSPF::equalsIgnoreCase(myProps.get(PropType::Controller_SwapPaddles), "NO"))
+   {
+diff --git a/src/common/PJoystickHandler.cxx b/src/common/PJoystickHandler.cxx
+index d21bdef..1b1d808 100644
+--- a/src/common/PJoystickHandler.cxx
++++ b/src/common/PJoystickHandler.cxx
+@@ -117,7 +117,7 @@ int PhysicalJoystickHandler::add(const PhysicalJoystickPtr& stick)
+     {
+       ostringstream name;
+       name << stick->name << " #" << count+1;
+-      stick->name = name.view();
++      stick->name = name.str();
+     }
+     stick->type = PhysicalJoystick::Type::REGULAR;
+   }
+@@ -175,7 +175,7 @@ void PhysicalJoystickHandler::addToDatabase(const PhysicalJoystickPtr& stick)
+   ostringstream buf;
+   buf << "Added joystick " << stick->ID << ":\n"
+     << "  " << stick->about() << '\n';
+-  Logger::info(buf.view());
++  Logger::info(buf.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -196,7 +196,7 @@ bool PhysicalJoystickHandler::remove(int id)
+       ostringstream buf;
+       buf << "Removed joystick " << mySticks[id]->ID << ":\n"
+           << "  " << mySticks[id]->about() << '\n';
+-      Logger::info(buf.view());
++      Logger::info(buf.str());
+ 
+       // Remove joystick, but remember mapping
+       it->second.mapping = stick->getMap();
+@@ -264,7 +264,7 @@ bool PhysicalJoystickHandler::mapStelladaptors(string_view saport, int ID)
+       ostringstream buf;
+       buf << "Erased joystick " << _stick->ID << ":\n"
+         << "  " << _stick->about() << '\n';
+-      Logger::info(buf.view());
++      Logger::info(buf.str());
+ 
+       _stick->name.erase(pos);
+       erased = true;
+@@ -808,7 +808,7 @@ string PhysicalJoystickHandler::getMappingDesc(Event::Type event, EventMode mode
+       //Joystick mapping / labeling
+       if(!_joyptr->joyMap.getEventMapping(event, evMode).empty())
+       {
+-        if(!buf.view().empty())
++        if(!buf.str().empty())
+           buf << ", ";
+         buf << _joyptr->joyMap.getEventMappingDesc(_id, event, evMode);
+       }
+@@ -1134,7 +1134,7 @@ void PhysicalJoystickHandler::changeDigitalDeadZone(int direction)
+   ss << std::round(Controller::digitalDeadZoneValue(deadZone) * 100.F / 32768) << "%";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Digital controller dead zone", ss.view(), deadZone,
++    "Digital controller dead zone", ss.str(), deadZone,
+     Controller::MIN_DIGITAL_DEADZONE, Controller::MAX_DIGITAL_DEADZONE);
+ }
+ 
+@@ -1152,7 +1152,7 @@ void PhysicalJoystickHandler::changeAnalogPaddleDeadZone(int direction)
+   ss << std::round(Controller::analogDeadZoneValue(deadZone) * 100.F / 32768) << "%";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Analog controller dead zone", ss.view(), deadZone,
++    "Analog controller dead zone", ss.str(), deadZone,
+     Controller::MIN_ANALOG_DEADZONE, Controller::MAX_ANALOG_DEADZONE);
+ }
+ 
+@@ -1170,7 +1170,7 @@ void PhysicalJoystickHandler::changeAnalogPaddleSensitivity(int direction)
+   ss << std::round(Paddles::analogSensitivityValue(sense) * 100.F) << "%";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Analog paddle sensitivity", ss.view(), sense,
++    "Analog paddle sensitivity", ss.str(), sense,
+     Paddles::MIN_ANALOG_SENSE, Paddles::MAX_ANALOG_SENSE);
+ }
+ 
+@@ -1191,7 +1191,7 @@ void PhysicalJoystickHandler::changeAnalogPaddleLinearity(int direction)
+     ss << "Off";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Analog paddle linearity", ss.view(), linear,
++    "Analog paddle linearity", ss.str(), linear,
+     Paddles::MIN_ANALOG_LINEARITY, Paddles::MAX_ANALOG_LINEARITY);
+ }
+ 
+@@ -1212,7 +1212,7 @@ void PhysicalJoystickHandler::changePaddleDejitterAveraging(int direction)
+     ss << "Off";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Analog paddle dejitter averaging", ss.view(), dejitter,
++    "Analog paddle dejitter averaging", ss.str(), dejitter,
+     Paddles::MIN_DEJITTER, Paddles::MAX_DEJITTER);
+ }
+ 
+@@ -1233,7 +1233,7 @@ void PhysicalJoystickHandler::changePaddleDejitterReaction(int direction)
+     ss << "Off";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Analog paddle dejitter reaction", ss.view(), dejitter,
++    "Analog paddle dejitter reaction", ss.str(), dejitter,
+     Paddles::MIN_DEJITTER, Paddles::MAX_DEJITTER);
+ }
+ 
+@@ -1254,7 +1254,7 @@ void PhysicalJoystickHandler::changeDigitalPaddleSensitivity(int direction)
+     ss << "Off";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Digital sensitivity", ss.view(), sense,
++    "Digital sensitivity", ss.str(), sense,
+     Paddles::MIN_DIGITAL_SENSE, Paddles::MAX_DIGITAL_SENSE);
+ }
+ 
+@@ -1272,7 +1272,7 @@ void PhysicalJoystickHandler::changeMousePaddleSensitivity(int direction)
+   ss << sense * 10 << "%";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Mouse paddle sensitivity", ss.view(), sense,
++    "Mouse paddle sensitivity", ss.str(), sense,
+     Controller::MIN_MOUSE_SENSE, Controller::MAX_MOUSE_SENSE);
+ }
+ 
+@@ -1290,7 +1290,7 @@ void PhysicalJoystickHandler::changeMouseTrackballSensitivity(int direction)
+   ss << sense * 10 << "%";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Mouse trackball sensitivity", ss.view(), sense,
++    "Mouse trackball sensitivity", ss.str(), sense,
+     PointingDevice::MIN_SENSE, PointingDevice::MAX_SENSE);
+ }
+ 
+@@ -1308,7 +1308,7 @@ void PhysicalJoystickHandler::changeDrivingSensitivity(int direction)
+   ss << sense * 10 << "%";
+ 
+   myOSystem.frameBuffer().showGaugeMessage(
+-    "Driving controller sensitivity", ss.view(), sense,
++    "Driving controller sensitivity", ss.str(), sense,
+     Driving::MIN_SENSE, Driving::MAX_SENSE);
+ }
+ 
+diff --git a/src/common/PKeyboardHandler.cxx b/src/common/PKeyboardHandler.cxx
+index a5c53b0..02b6b4f 100644
+--- a/src/common/PKeyboardHandler.cxx
++++ b/src/common/PKeyboardHandler.cxx
+@@ -613,7 +613,7 @@ void PhysicalKeyboardHandler::toggleModKeys(bool toggle)
+   ostringstream ss;
+   ss << "Modifier key combos ";
+   ss << (modCombo ? "enabled" : "disabled");
+-  myOSystem.frameBuffer().showTextMessage(ss.view());
++  myOSystem.frameBuffer().showTextMessage(ss.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/common/PNGLibrary.cxx b/src/common/PNGLibrary.cxx
+index e3b4b73..d611653 100644
+--- a/src/common/PNGLibrary.cxx
++++ b/src/common/PNGLibrary.cxx
+@@ -273,7 +273,7 @@ void PNGLibrary::toggleContinuousSnapshots(bool perFrame)
+       buf << "Enabling snapshots in " << interval << " second intervals";
+       interval *= static_cast<uInt32>(myOSystem.frameRate());
+     }
+-    myOSystem.frameBuffer().showTextMessage(buf.view());
++    myOSystem.frameBuffer().showTextMessage(buf.str());
+     setContinuousSnapInterval(interval);
+   }
+   else
+@@ -282,7 +282,7 @@ void PNGLibrary::toggleContinuousSnapshots(bool perFrame)
+     buf << "Disabling snapshots, generated "
+       << (mySnapCounter / mySnapInterval)
+       << " files";
+-    myOSystem.frameBuffer().showTextMessage(buf.view());
++    myOSystem.frameBuffer().showTextMessage(buf.str());
+     setContinuousSnapInterval(0);
+   }
+ }
+@@ -313,7 +313,7 @@ void PNGLibrary::takeSnapshot(uInt32 number)
+     ostringstream buf;
+     buf << sspath << "_" << std::hex << std::setw(8) << std::setfill('0')
+         << number << ".png";
+-    filename = buf.view();
++    filename = buf.str();
+   }
+   else if(!myOSystem.settings().getBool("sssingle"))
+   {
+@@ -328,11 +328,11 @@ void PNGLibrary::takeSnapshot(uInt32 number)
+       {
+         buf.str("");
+         buf << sspath << "_" << i << ".png";
+-        const FSNode next(buf.view());
++        const FSNode next(buf.str());
+         if(!next.exists())
+           break;
+       }
+-      filename = buf.view();
++      filename = buf.str();
+     }
+   }
+   else
+@@ -344,7 +344,7 @@ void PNGLibrary::takeSnapshot(uInt32 number)
+   VarList::push_back(metaData, "Title", "Snapshot");
+   version << "Stella " << STELLA_VERSION << " (Build " << STELLA_BUILD << ") ["
+           << BSPF::ARCH << "]";
+-  VarList::push_back(metaData, "Software", version.view());
++  VarList::push_back(metaData, "Software", version.str());
+   const string& name = (myOSystem.settings().getString("snapname") == "int")
+       ? myOSystem.console().properties().get(PropType::Cart_Name)
+       : myOSystem.romFile().getName();
+diff --git a/src/common/PaletteHandler.cxx b/src/common/PaletteHandler.cxx
+index 6e39ce5..6d021cf 100644
+--- a/src/common/PaletteHandler.cxx
++++ b/src/common/PaletteHandler.cxx
+@@ -112,7 +112,7 @@ void PaletteHandler::showAdjustableMessage()
+         myOSystem.console().timing() == ConsoleTiming::pal ? myPhasePAL : myPhaseNTSC;
+     buf << std::fixed << std::setprecision(1) << value << DEGREE;
+     myOSystem.frameBuffer().showGaugeMessage(
+-        "Palette phase shift", buf.view(), value,
++        "Palette phase shift", buf.str(), value,
+         (isNTSC ? DEF_NTSC_SHIFT : DEF_PAL_SHIFT) - MAX_PHASE_SHIFT,
+         (isNTSC ? DEF_NTSC_SHIFT : DEF_PAL_SHIFT) + MAX_PHASE_SHIFT);
+   }
+@@ -122,7 +122,7 @@ void PaletteHandler::showAdjustableMessage()
+ 
+     buf << std::fixed << std::setprecision(1) << value << DEGREE;
+     myOSystem.frameBuffer().showGaugeMessage(
+-      msg.view(), buf.view(), value, -MAX_RGB_SHIFT, +MAX_RGB_SHIFT);
++      msg.str(), buf.str(), value, -MAX_RGB_SHIFT, +MAX_RGB_SHIFT);
+   }
+   else
+   {
+@@ -131,7 +131,7 @@ void PaletteHandler::showAdjustableMessage()
+       : scaleTo100(*myAdjustables[myCurrentAdjustable].value);
+     buf << value << "%";
+     myOSystem.frameBuffer().showGaugeMessage(
+-      msg.view(), buf.view(), value);
++      msg.str(), buf.str(), value);
+   }
+ }
+ 
+diff --git a/src/common/RewindManager.cxx b/src/common/RewindManager.cxx
+index da5b456..6ba980b 100644
+--- a/src/common/RewindManager.cxx
++++ b/src/common/RewindManager.cxx
+@@ -239,7 +239,7 @@ string RewindManager::saveAllStates()
+       << myOSystem.console().properties().get(PropType::Cart_Name)
+       << ".sta";
+ 
+-    Serializer out(buf.view(), Serializer::Mode::ReadWriteTrunc);
++    Serializer out(buf.str(), Serializer::Mode::ReadWriteTrunc);
+     if (!out)
+       return "Can't save to all states file";
+ 
+@@ -296,7 +296,7 @@ string RewindManager::loadAllStates()
+       << ".sta";
+ 
+     // Make sure the file can be opened for reading
+-    const Serializer in(buf.view(), Serializer::Mode::ReadOnly);
++    const Serializer in(buf.str(), Serializer::Mode::ReadOnly);
+     if (!in)
+       return "Can't load from all states file";
+ 
+diff --git a/src/common/SoundSDL2.cxx b/src/common/SoundSDL2.cxx
+index 7f8edeb..1546963 100644
+--- a/src/common/SoundSDL2.cxx
++++ b/src/common/SoundSDL2.cxx
+@@ -48,7 +48,7 @@ SoundSDL2::SoundSDL2(OSystem& osystem, AudioSettings& audioSettings)
+ 
+     buf << "WARNING: Failed to initialize SDL audio system! \n"
+         << "         " << SDL_GetError() << '\n';
+-    Logger::error(buf.view());
++    Logger::error(buf.str());
+     return;
+   }
+ 
+@@ -83,7 +83,7 @@ void SoundSDL2::queryHardware(VariantList& devices)
+   // log the available audio devices
+   ostringstream s;
+   s << "Supported audio devices (" << numDevices << "):";
+-  Logger::debug(s.view());
++  Logger::debug(s.str());
+ 
+   VarList::push_back(devices, "Default", 0);
+   for(int i = 0; i < numDevices; ++i)
+@@ -91,7 +91,7 @@ void SoundSDL2::queryHardware(VariantList& devices)
+     ostringstream ss;
+ 
+     ss << "  " << i + 1 << ": " << SDL_GetAudioDeviceName(i, 0);
+-    Logger::debug(ss.view());
++    Logger::debug(ss.str());
+ 
+     VarList::push_back(devices, SDL_GetAudioDeviceName(i, 0), i + 1);
+   }
+@@ -128,7 +128,7 @@ bool SoundSDL2::openDevice()
+ 
+     buf << "WARNING: Couldn't open SDL audio device! \n"
+         << "         " << SDL_GetError() << '\n';
+-    Logger::error(buf.view());
++    Logger::error(buf.str());
+ 
+     return myIsInitializedFlag = false;
+   }
+@@ -253,7 +253,7 @@ void SoundSDL2::adjustVolume(int direction)
+   // Now show an onscreen message
+   ostringstream strval;
+   (percent) ? strval << percent << "%" : strval << "Off";
+-  myOSystem.frameBuffer().showGaugeMessage("Volume", strval.view(), percent);
++  myOSystem.frameBuffer().showGaugeMessage("Volume", strval.str(), percent);
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/common/StaggeredLogger.cxx b/src/common/StaggeredLogger.cxx
+index 0e007eb..770508a 100644
+--- a/src/common/StaggeredLogger.cxx
++++ b/src/common/StaggeredLogger.cxx
+@@ -84,7 +84,7 @@ void StaggeredLogger::logLine()
+       << millisecondsSinceIntervalStart << "  milliseconds"
+     << ")";
+ 
+-  Logger::log(ss.view(), myLevel);
++  Logger::log(ss.str(), myLevel);
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/common/StateManager.cxx b/src/common/StateManager.cxx
+index 599f6c5..e80b508 100644
+--- a/src/common/StateManager.cxx
++++ b/src/common/StateManager.cxx
+@@ -207,12 +207,12 @@ void StateManager::loadState(int slot)
+         << ".st" << slot;
+ 
+     // Make sure the file can be opened in read-only mode
+-    Serializer in(buf.view(), Serializer::Mode::ReadOnly);
++    Serializer in(buf.str(), Serializer::Mode::ReadOnly);
+     if(!in)
+     {
+       buf.str("");
+       buf << "Can't open/load from state file " << slot;
+-      myOSystem.frameBuffer().showTextMessage(buf.view());
++      myOSystem.frameBuffer().showTextMessage(buf.str());
+       return;
+     }
+ 
+@@ -236,7 +236,7 @@ void StateManager::loadState(int slot)
+       buf << "Invalid data in state " << slot << " file";
+     }
+ 
+-    myOSystem.frameBuffer().showTextMessage(buf.view());
++    myOSystem.frameBuffer().showTextMessage(buf.str());
+   }
+ }
+ 
+@@ -253,12 +253,12 @@ void StateManager::saveState(int slot)
+         << ".st" << slot;
+ 
+     // Make sure the file can be opened for writing
+-    Serializer out(buf.view(), Serializer::Mode::ReadWriteTrunc);
++    Serializer out(buf.str(), Serializer::Mode::ReadWriteTrunc);
+     if(!out)
+     {
+       buf.str("");
+       buf << "Can't open/save to state file " << slot;
+-      myOSystem.frameBuffer().showTextMessage(buf.view());
++      myOSystem.frameBuffer().showTextMessage(buf.str());
+       return;
+     }
+ 
+@@ -271,7 +271,7 @@ void StateManager::saveState(int slot)
+     catch(...)
+     {
+       buf << "Error saving state " << slot;
+-      myOSystem.frameBuffer().showTextMessage(buf.view());
++      myOSystem.frameBuffer().showTextMessage(buf.str());
+       return;
+     }
+ 
+@@ -289,7 +289,7 @@ void StateManager::saveState(int slot)
+     else
+       buf << "Error saving state " << slot;
+ 
+-    myOSystem.frameBuffer().showTextMessage(buf.view());
++    myOSystem.frameBuffer().showTextMessage(buf.str());
+   }
+ }
+ 
+@@ -304,7 +304,7 @@ void StateManager::changeState(int direction)
+     buf << "Changed to state slot " << myCurrentSlot;
+   else
+     buf << "State slot " << myCurrentSlot;
+-  myOSystem.frameBuffer().showTextMessage(buf.view());
++  myOSystem.frameBuffer().showTextMessage(buf.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -315,7 +315,7 @@ void StateManager::toggleAutoSlot()
+   // Print appropriate message
+   ostringstream buf;
+   buf << "Automatic slot change " << (autoSlot ? "enabled" : "disabled");
+-  myOSystem.frameBuffer().showTextMessage(buf.view());
++  myOSystem.frameBuffer().showTextMessage(buf.str());
+ 
+   myOSystem.settings().setValue("autoslot", autoSlot);
+ }
+diff --git a/src/common/Variant.hxx b/src/common/Variant.hxx
+index 9997629..48c5c88 100644
+--- a/src/common/Variant.hxx
++++ b/src/common/Variant.hxx
+@@ -49,13 +49,13 @@ class Variant
+     Variant(string_view s) : data{s} { }
+     Variant(const char* s) : data{s} { }
+ 
+-    Variant(Int32 i)  { buf().str(""); buf() << i; data = buf().view(); }
+-    Variant(uInt32 i) { buf().str(""); buf() << i; data = buf().view(); }
+-    Variant(float f)  { buf().str(""); buf() << f; data = buf().view(); }
+-    Variant(double d) { buf().str(""); buf() << d; data = buf().view(); }
+-    Variant(bool b)   { buf().str(""); buf() << b; data = buf().view(); }
+-    Variant(const Common::Size& s) { buf().str(""); buf() << s; data = buf().view(); }
+-    Variant(const Common::Point& s) { buf().str(""); buf() << s; data = buf().view(); }
++    Variant(Int32 i)  { buf().str(""); buf() << i; data = buf().str(); }
++    Variant(uInt32 i) { buf().str(""); buf() << i; data = buf().str(); }
++    Variant(float f)  { buf().str(""); buf() << f; data = buf().str(); }
++    Variant(double d) { buf().str(""); buf() << d; data = buf().str(); }
++    Variant(bool b)   { buf().str(""); buf() << b; data = buf().str(); }
++    Variant(const Common::Size& s) { buf().str(""); buf() << s; data = buf().str(); }
++    Variant(const Common::Point& s) { buf().str(""); buf() << s; data = buf().str(); }
+ 
+     // Conversion methods
+     const string& toString() const { return data; }
+diff --git a/src/common/VideoModeHandler.cxx b/src/common/VideoModeHandler.cxx
+index 2cd5202..1725889 100644
+--- a/src/common/VideoModeHandler.cxx
++++ b/src/common/VideoModeHandler.cxx
+@@ -54,7 +54,7 @@ const VideoModeHandler::Mode&
+       // Overscan is not applicable in this mode
+       myMode = Mode(myImage.w, myImage.h,
+                     Mode::Stretch::Fill, myFSIndex,
+-                    desc.view(), zoom, bezelInfo);
++                    desc.str(), zoom, bezelInfo);
+     }
+     else
+     {
+diff --git a/src/common/repository/CompositeKVRJsonAdapter.cxx b/src/common/repository/CompositeKVRJsonAdapter.cxx
+index 7ef54ec..a1691ae 100644
+--- a/src/common/repository/CompositeKVRJsonAdapter.cxx
++++ b/src/common/repository/CompositeKVRJsonAdapter.cxx
+@@ -41,7 +41,7 @@ namespace {
+ 
+           if (!KeyValueRepositoryJsonFile::save(out, values)) return false;
+ 
+-          return myKvr.save(myKey, out.view());
++          return myKvr.save(myKey, out.str());
+         }
+ 
+       private:
+diff --git a/src/common/tv_filters/NTSCFilter.cxx b/src/common/tv_filters/NTSCFilter.cxx
+index dc509ef..fe4fa71 100644
+--- a/src/common/tv_filters/NTSCFilter.cxx
++++ b/src/common/tv_filters/NTSCFilter.cxx
+@@ -90,8 +90,8 @@ void NTSCFilter::selectAdjustable(int direction,
+   msg << "Custom " << ourCustomAdjustables[myCurrentAdjustable].type;
+   val << value << "%";
+ 
+-  text = msg.view();
+-  valueText = val.view();
++  text = msg.str();
++  valueText = val.str();
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -121,8 +121,8 @@ void NTSCFilter::changeCurrentAdjustable(int direction,
+   msg << "Custom " << ourCustomAdjustables[myCurrentAdjustable].type;
+   val << newValue << "%";
+ 
+-  text = msg.view();
+-  valueText = val.view();
++  text = msg.str();
++  valueText = val.str();
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/debugger/CartDebug.cxx b/src/debugger/CartDebug.cxx
+index 33a9fa7..2077e48 100644
+--- a/src/debugger/CartDebug.cxx
++++ b/src/debugger/CartDebug.cxx
+@@ -1379,7 +1379,7 @@ string CartDebug::saveDisassembly(string path)
+   }
+ 
+   // And finally, output the disassembly
+-  out << buf.view();
++  out << buf.str();
+ 
+   if(path.empty())
+     path = myOSystem.userDir().getPath()
+diff --git a/src/debugger/Debugger.cxx b/src/debugger/Debugger.cxx
+index 3095e0a..a9704f4 100644
+--- a/src/debugger/Debugger.cxx
++++ b/src/debugger/Debugger.cxx
+@@ -125,7 +125,7 @@ bool Debugger::start(string_view message, int address, bool read,
+     buf << message;
+     if(address > -1)
+       buf << cartDebug().getLabel(address, read, 4);
+-    myDialog->message().setText(buf.view());
++    myDialog->message().setText(buf.str());
+     myDialog->message().setToolTip(toolTip);
+     return true;
+   }
+@@ -461,7 +461,7 @@ void Debugger::log(string_view triggerMsg)
+         msg << "B/";
+     }
+     msg << "Addr Code     Disasm";
+-    Logger::log(msg.view());
++    Logger::log(msg.str());
+     myFirstLog = false;
+   }
+ 
+@@ -515,7 +515,7 @@ void Debugger::log(string_view triggerMsg)
+       break;
+     }
+   }
+-  Logger::log(msg.view());
++  Logger::log(msg.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -628,7 +628,7 @@ void Debugger::nextScanline(int lines)
+   }
+   lockSystem();
+ 
+-  addState(buf.view());
++  addState(buf.str());
+   myOSystem.console().tia().flushLineCache();
+ }
+ 
+@@ -651,7 +651,7 @@ void Debugger::nextFrame(int frames)
+   }
+   lockSystem();
+ 
+-  addState(buf.view());
++  addState(buf.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/debugger/DebuggerParser.cxx b/src/debugger/DebuggerParser.cxx
+index 42ac0ea..b38cec2 100644
+--- a/src/debugger/DebuggerParser.cxx
++++ b/src/debugger/DebuggerParser.cxx
+@@ -597,7 +597,7 @@ void DebuggerParser::printTimer(uInt32 idx, bool showHeader)
+ 
+   if(!debugger.cartDebug().getLabel(buf, timer.from.addr, true))
+     buf << "    $" << setw(4) << Base::HEX4 << timer.from.addr;
+-  string labelFrom{buf.view()};
++  string labelFrom{buf.str()};
+   labelFrom = labelFrom.substr(0, (banked ? 12 : 15) - (timer.mirrors ? 1 : 0));
+   labelFrom += (timer.mirrors ? "+" : "");
+   labelFrom = (labelFrom + "              ").substr(0, banked ? 12 : 15);
+@@ -605,7 +605,7 @@ void DebuggerParser::printTimer(uInt32 idx, bool showHeader)
+   buf.str("");
+   if(!debugger.cartDebug().getLabel(buf, timer.to.addr, true))
+     buf << "    $" << setw(4) << Base::HEX4 << timer.to.addr;
+-  string labelTo{buf.view()};
++  string labelTo{buf.str()};
+   labelTo   = labelTo.substr(0, (banked ? 12 : 15) - (timer.mirrors ? 1 : 0));
+   labelTo += (timer.mirrors ? "+" : "");
+   labelTo   = (labelTo   + "              ").substr(0, banked ? 12 : 15);
+@@ -778,7 +778,7 @@ string DebuggerParser::saveScriptFile(string file)
+ 
+   const FSNode node(file);
+ 
+-  if(node.exists() || !out.view().empty())
++  if(node.exists() || !out.str().empty())
+   {
+     try
+     {
+@@ -1369,11 +1369,11 @@ void DebuggerParser::executeDump()
+       //        So we pass a copy of its contents, then re-create the
+       //        stream inside the lambda
+       //        Maybe this will change in a future version
+-      const string outStr{out.view()};
+-      const string resultStr{commandResult.view()};
++      const string outStr{out.str()};
++      const string resultStr{commandResult.str()};
+ 
+       DebuggerDialog* dlg = debugger.myDialog;
+-      BrowserDialog::show(dlg, "Save Dump as", path.view(),
++      BrowserDialog::show(dlg, "Save Dump as", path.str(),
+                           BrowserDialog::Mode::FileSave,
+                           [dlg, outStr, resultStr]
+                           (bool OK, const FSNode& node)
+@@ -1393,7 +1393,7 @@ void DebuggerParser::executeDump()
+       commandResult.str("_NO_PROMPT");
+     }
+     else
+-      saveDump(FSNode(path.view()), out, commandResult);
++      saveDump(FSNode(path.str()), out, commandResult);
+   }
+ }
+ 
+@@ -1416,7 +1416,7 @@ void DebuggerParser::executeExec()
+     ostringstream prefix;
+     prefix << std::hex << std::setw(8) << std::setfill('0')
+            << static_cast<uInt32>(TimerManager::getTicks()/1000);
+-    execPrefix = prefix.view();
++    execPrefix = prefix.str();
+   }
+ 
+   // make sure the commands are added to prompt history
+@@ -1666,7 +1666,7 @@ void DebuggerParser::executeListBreaks()
+     }
+   }
+   if(count)
+-    commandResult << "breaks:\n" << buf.view();
++    commandResult << "breaks:\n" << buf.str();
+ 
+   StringList conds = debugger.m6502().getCondBreakNames();
+ 
+@@ -1682,7 +1682,7 @@ void DebuggerParser::executeListBreaks()
+     }
+   }
+ 
+-  if(commandResult.view().empty())
++  if(commandResult.str().empty())
+     commandResult << "no breakpoints set";
+ }
+ 
+@@ -1724,7 +1724,7 @@ void DebuggerParser::executeListSaveStateIfs()
+     }
+   }
+ 
+-  if(commandResult.view().empty())
++  if(commandResult.str().empty())
+     commandResult << "no savestateifs defined";
+ }
+ 
+@@ -1837,7 +1837,7 @@ void DebuggerParser::executePc()
+ 
+   debugger.cpuDebug().setPC(args[0]);
+   msg << "Set PC @ " << Base::HEX4 << args[0];
+-  debugger.addState(msg.view());
++  debugger.addState(msg.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -1974,7 +1974,7 @@ void DebuggerParser::executeRunTo()
+ 
+   buf << "runTo searching through " << max_iterations << " disassembled instructions"
+     << progress.ELLIPSIS;
+-  progress.setMessage(buf.view());
++  progress.setMessage(buf.str());
+   progress.setRange(0, static_cast<int>(max_iterations), 5);
+   progress.open();
+ 
+@@ -2022,7 +2022,7 @@ void DebuggerParser::executeRunToPc()
+   ProgressDialog progress(debugger.baseDialog(), debugger.lfont());
+ 
+   buf << "        runTo PC running" << progress.ELLIPSIS << "        ";
+-  progress.setMessage(buf.view());
++  progress.setMessage(buf.str());
+   progress.setRange(0, 100000, 5);
+   progress.open();
+ 
+@@ -2045,7 +2045,7 @@ void DebuggerParser::executeRunToPc()
+       << "Set PC to $" << Base::HEX4 << args[0] << " in "
+       << dec << count << " instructions";
+     msg << "RunTo PC @ " << Base::HEX4 << args[0];
+-    debugger.addState(msg.view());
++    debugger.addState(msg.str());
+   }
+   else
+     commandResult
+@@ -2199,9 +2199,9 @@ void DebuggerParser::executeSaveSes()
+     if(argCount)
+       path << argStrings[0];
+     else
+-      path << debugger.myOSystem.userDir() << filename.view();
++      path << debugger.myOSystem.userDir() << filename.str();
+ 
+-    commandResult << debugger.prompt().saveBuffer(FSNode(path.view()));
++    commandResult << debugger.prompt().saveBuffer(FSNode(path.str()));
+   }
+ }
+ 
+@@ -2291,7 +2291,7 @@ void DebuggerParser::executeStepWhile()
+ 
+   buf << "stepWhile running through disassembled instructions"
+     << progress.ELLIPSIS;
+-  progress.setMessage(buf.view());
++  progress.setMessage(buf.str());
+   progress.setRange(0, 100000, 5);
+   progress.open();
+ 
+@@ -2542,7 +2542,7 @@ void DebuggerParser::executeTraps(bool read, bool write, string_view command,
+   if(hasCond)
+     conditionBuf << ")";
+ 
+-  const string condition{conditionBuf.view()};
++  const string condition{conditionBuf.str()};
+ 
+   const int res = YaccParser::parse(condition);
+   if(res == 0)
+diff --git a/src/debugger/DiStella.cxx b/src/debugger/DiStella.cxx
+index 993bdd5..05e83ea 100644
+--- a/src/debugger/DiStella.cxx
++++ b/src/debugger/DiStella.cxx
+@@ -83,7 +83,7 @@ DiStella::DiStella(const CartDebug& dbg, CartDebug::DisassemblyList& list,
+       if (CartDebug::addressType(k + myOffset) == CartDebug::AddrType::ROM) {
+         reservedLabel.str("");
+         reservedLabel << "L" << Base::HEX4 << (k + myOffset);
+-        myReserved.Label.emplace(k + myOffset, reservedLabel.view());
++        myReserved.Label.emplace(k + myOffset, reservedLabel.str());
+       }
+     }
+   }
+@@ -227,7 +227,7 @@ void DiStella::disasm(uInt32 distart, int pass)
+             nextLine << ".byte   $" << Base::HEX2 << static_cast<int>(opcode) << " ;";
+             nextLine << ourLookup[opcode].mnemonic;
+ 
+-            myDisasmBuf << nextLine.view() << "'" << ";"
++            myDisasmBuf << nextLine.str() << "'" << ";"
+               << std::dec << static_cast<int>(ourLookup[opcode].cycles) << "-"
+               << std::dec << static_cast<int>(ourLookup[nextOpcode].cycles) << " "
+               << "'= " << std::setw(3) << std::setfill(' ') << std::dec << cycles;
+@@ -608,7 +608,7 @@ void DiStella::disasm(uInt32 distart, int pass)
+       if(pass == 3) {
+         cycles += static_cast<int>(ourLookup[opcode].cycles);
+         // A complete line of disassembly (text, cycle count, and bytes)
+-        myDisasmBuf << nextLine.view() << "'"
++        myDisasmBuf << nextLine.str() << "'"
+           << ";" << std::dec << static_cast<int>(ourLookup[opcode].cycles)
+           << (addrMode == AddressingMode::RELATIVE ? (ad & 0xf00) != ((myPC + myOffset) & 0xf00) ? "/3!" : "/3 " : "   ");
+         if((opcode == 0x40 || opcode == 0x60 || opcode == 0x4c || opcode == 0x00 // code block end
+@@ -622,7 +622,7 @@ void DiStella::disasm(uInt32 distart, int pass)
+         else {
+           myDisasmBuf << "'     ";
+         }
+-        myDisasmBuf << "'" << nextLineBytes.view();
++        myDisasmBuf << "'" << nextLineBytes.str();
+ 
+         addEntry(Device::CODE);
+         if(opcode == 0x40 || opcode == 0x60 || opcode == 0x4c || opcode == 0x00) {
+diff --git a/src/debugger/gui/AudioWidget.cxx b/src/debugger/gui/AudioWidget.cxx
+index 3e2c279..e76b188 100644
+--- a/src/debugger/gui/AudioWidget.cxx
++++ b/src/debugger/gui/AudioWidget.cxx
+@@ -152,7 +152,7 @@ void AudioWidget::handleVolume()
+   stringstream s;
+ 
+   s << getEffectiveVolume() << "% (eff. volume)";
+-  myAudEffV->setLabel(s.view());
++  myAudEffV->setLabel(s.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/debugger/gui/Cart3EPlusWidget.cxx b/src/debugger/gui/Cart3EPlusWidget.cxx
+index e46ed21..d3b7d61 100644
+--- a/src/debugger/gui/Cart3EPlusWidget.cxx
++++ b/src/debugger/gui/Cart3EPlusWidget.cxx
+@@ -79,7 +79,7 @@ void Cartridge3EPlusWidget::bankSelect(int& ypos)
+ 
+     label << "Set segment " << seg << " as ";
+ 
+-    new StaticTextWidget(_boss, _font, xpos, ypos, label.view());
++    new StaticTextWidget(_boss, _font, xpos, ypos, label.str());
+     ypos += myLineHeight + VGAP * 2;
+ 
+     xpos += _font.getMaxCharWidth() * 2;
+@@ -120,7 +120,7 @@ void Cartridge3EPlusWidget::bankSelect(int& ypos)
+     label.str("");
+     label << "$" << Common::Base::HEX4 << addr1 << "-$"
+           << Common::Base::HEX4 << (addr1 + 0x1FF);
+-    auto* t = new StaticTextWidget(_boss, _font, xpos_s, ypos_s + 2, label.view());
++    auto* t = new StaticTextWidget(_boss, _font, xpos_s, ypos_s + 2, label.str());
+ 
+     const int xoffset = t->getRight() + _font.getMaxCharWidth();
+     const size_t bank_off = static_cast<size_t>(seg) * 2;
+@@ -131,7 +131,7 @@ void Cartridge3EPlusWidget::bankSelect(int& ypos)
+ 
+     label.str("");
+     label << "$" << Common::Base::HEX4 << addr2 << "-$" << Common::Base::HEX4 << (addr2 + 0x1FF);
+-    new StaticTextWidget(_boss, _font, xpos_s, ypos_s + 2, label.view());
++    new StaticTextWidget(_boss, _font, xpos_s, ypos_s + 2, label.str());
+ 
+     myBankState[bank_off + 1] = new EditTextWidget(_boss, _font,
+         xoffset, ypos_s, _w - xoffset - 10, myLineHeight, "");
+@@ -209,12 +209,12 @@ void Cartridge3EPlusWidget::updateUIState()
+ 
+       buf << "RAM @ $" << Common::Base::HEX4
+           << (ramBank << myCart3EP.myBankShift) << " (R)";
+-      myBankState[bank_off]->setText(buf.view());
++      myBankState[bank_off]->setText(buf.str());
+ 
+       buf.str("");
+       buf << "RAM @ $" << Common::Base::HEX4
+         << ((ramBank << myCart3EP.myBankShift) + myCart3EP.myBankSize) << " (W)";
+-      myBankState[bank_off + 1]->setText(buf.view());
++      myBankState[bank_off + 1]->setText(buf.str());
+ 
+       myBankWidgets[seg]->setSelectedIndex(ramBank);
+       myBankType[seg]->setSelected("RAM");
+@@ -223,12 +223,12 @@ void Cartridge3EPlusWidget::updateUIState()
+     {
+       buf << "ROM @ $" << Common::Base::HEX4
+         << ((bank << myCart3EP.myBankShift));
+-      myBankState[bank_off]->setText(buf.view());
++      myBankState[bank_off]->setText(buf.str());
+ 
+       buf.str("");
+       buf << "ROM @ $" << Common::Base::HEX4
+         << ((bank << myCart3EP.myBankShift) + myCart3EP.myBankSize);
+-      myBankState[bank_off + 1]->setText(buf.view());
++      myBankState[bank_off + 1]->setText(buf.str());
+ 
+       myBankWidgets[seg]->setSelectedIndex(bank);
+       myBankType[seg]->setSelected("ROM");
+diff --git a/src/debugger/gui/CartARMWidget.cxx b/src/debugger/gui/CartARMWidget.cxx
+index 3a35ae3..f0d9c15 100644
+--- a/src/debugger/gui/CartARMWidget.cxx
++++ b/src/debugger/gui/CartARMWidget.cxx
+@@ -242,7 +242,7 @@ void CartridgeARMWidget::handleChipType()
+       << (chipProps.flashBanks > 1 ? "s" : "") << ", "
+       << chipProps.MHz << " MHz, "
+       << chipProps.flashCycles - 1 << " wait states";
+-    myChipType->setToolTip(buf.view());
++    myChipType->setToolTip(buf.str());
+   }
+ }
+ 
+diff --git a/src/debugger/gui/CartBUSInfoWidget.cxx b/src/debugger/gui/CartBUSInfoWidget.cxx
+index d9426ef..fdb9609 100644
+--- a/src/debugger/gui/CartBUSInfoWidget.cxx
++++ b/src/debugger/gui/CartBUSInfoWidget.cxx
+@@ -57,7 +57,7 @@ CartridgeBUSInfoWidget::CartridgeBUSInfoWidget(
+   }
+ #endif
+ 
+-  addBaseInformation(size, "AtariAge", info.view());
++  addBaseInformation(size, "AtariAge", info.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/debugger/gui/CartCDFInfoWidget.cxx b/src/debugger/gui/CartCDFInfoWidget.cxx
+index 241aac0..9e7c279 100644
+--- a/src/debugger/gui/CartCDFInfoWidget.cxx
++++ b/src/debugger/gui/CartCDFInfoWidget.cxx
+@@ -53,7 +53,7 @@ CartridgeCDFInfoWidget::CartridgeCDFInfoWidget(
+   }
+ #endif
+ 
+-  addBaseInformation(cart.romSize(), "AtariAge", info.view());
++  addBaseInformation(cart.romSize(), "AtariAge", info.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/debugger/gui/CartDPCPlusWidget.cxx b/src/debugger/gui/CartDPCPlusWidget.cxx
+index 045405b..ce12a3d 100644
+--- a/src/debugger/gui/CartDPCPlusWidget.cxx
++++ b/src/debugger/gui/CartDPCPlusWidget.cxx
+@@ -50,7 +50,7 @@ CartridgeDPCPlusWidget::CartridgeDPCPlusWidget(
+ #endif
+ 
+   int xpos = 2,
+-      ypos = addBaseInformation(size, "Activision (Pitfall II)", info.view()) +
++      ypos = addBaseInformation(size, "Activision (Pitfall II)", info.str()) +
+               myLineHeight;
+ 
+   VariantList items;
+diff --git a/src/debugger/gui/CartDPCWidget.cxx b/src/debugger/gui/CartDPCWidget.cxx
+index f1544ae..3db9b1d 100644
+--- a/src/debugger/gui/CartDPCWidget.cxx
++++ b/src/debugger/gui/CartDPCWidget.cxx
+@@ -48,7 +48,7 @@ CartridgeDPCWidget::CartridgeDPCWidget(
+   }
+ 
+   int xpos = 2,
+-      ypos = addBaseInformation(size, "Activision (Pitfall II)", info.view()) +
++      ypos = addBaseInformation(size, "Activision (Pitfall II)", info.str()) +
+               myLineHeight;
+ 
+   VariantList items;
+@@ -57,7 +57,7 @@ CartridgeDPCWidget::CartridgeDPCWidget(
+     ostringstream buf;
+ 
+     buf << "#" << std::dec << bank << " ($" << Common::Base::HEX4 << (0xFFF8 + bank) << ")";
+-    VarList::push_back(items, buf.view());
++    VarList::push_back(items, buf.str());
+   }
+ 
+   myBank =
+diff --git a/src/debugger/gui/CartDebugWidget.cxx b/src/debugger/gui/CartDebugWidget.cxx
+index 85a1b47..b555c39 100644
+--- a/src/debugger/gui/CartDebugWidget.cxx
++++ b/src/debugger/gui/CartDebugWidget.cxx
+@@ -56,7 +56,7 @@ int CartDebugWidget::addBaseInformation(size_t bytes, string_view manufacturer,
+     buf << " / " << (bytes/1024) << "KB";
+ 
+   w = new EditTextWidget(_boss, _nfont, x+lwidth, y - 1,
+-                         fwidth, myLineHeight, buf.view());
++                         fwidth, myLineHeight, buf.str());
+   w->setEditable(false);
+   y += myLineHeight + 4;
+ 
+diff --git a/src/debugger/gui/CartE7Widget.cxx b/src/debugger/gui/CartE7Widget.cxx
+index ebd7112..8053497 100644
+--- a/src/debugger/gui/CartE7Widget.cxx
++++ b/src/debugger/gui/CartE7Widget.cxx
+@@ -66,7 +66,7 @@ void CartridgeE7Widget::initialize(GuiObject* boss,
+   const uInt32 size = cart.romBankCount() * CartridgeE7::BANK_SIZE;
+ 
+   constexpr int xpos = 2;
+-  int ypos = addBaseInformation(size, "M Network", info.view(), 15) + myLineHeight;
++  int ypos = addBaseInformation(size, "M Network", info.str(), 15) + myLineHeight;
+ 
+   VariantList items0, items1;
+   for(int i = 0; i < cart.romBankCount(); ++i)
+diff --git a/src/debugger/gui/CartEnhancedWidget.cxx b/src/debugger/gui/CartEnhancedWidget.cxx
+index 06ee13c..18ccf61 100644
+--- a/src/debugger/gui/CartEnhancedWidget.cxx
++++ b/src/debugger/gui/CartEnhancedWidget.cxx
+@@ -197,8 +197,8 @@ void CartridgeEnhancedWidget::bankList(uInt16 bankCount, int seg, VariantList& i
+ 
+     if(myCart.hotspot() != 0 && myHotspotDelta > 0)
+       buf << " " << hotspotStr(bank, seg);
+-    VarList::push_back(items, buf.view());
+-    width = std::max(width, _font.getStringWidth(buf.view()));
++    VarList::push_back(items, buf.str());
++    width = std::max(width, _font.getStringWidth(buf.str()));
+   }
+ }
+ 
+@@ -229,7 +229,7 @@ void CartridgeEnhancedWidget::bankSelect(int& ypos)
+         buf << "     "; // align with info
+ 
+       myBankWidgets[seg] = new PopUpWidget(_boss, _font, xpos, ypos - 2,
+-                                           pw, myLineHeight, items, buf.view(),
++                                           pw, myLineHeight, items, buf.str(),
+                                            0, kBankChanged);
+       myBankWidgets[seg]->setTarget(this);
+       myBankWidgets[seg]->setID(seg);
+@@ -338,14 +338,14 @@ void CartridgeEnhancedWidget::loadConfig()
+ 
+     for(auto i: arr)
+       buf << Common::Base::HEX2 << static_cast<int>(i) << " ";
+-    myPlusROMSendWidget->setText(buf.view(), arr != myOldState.send);
++    myPlusROMSendWidget->setText(buf.str(), arr != myOldState.send);
+ 
+     buf.str("");
+     arr = myCart.myPlusROM->getReceive();
+ 
+     for(auto i: arr)
+       buf << Common::Base::HEX2 << static_cast<int>(i) << " ";
+-    myPlusROMReceiveWidget->setText(buf.view(), arr != myOldState.receive);
++    myPlusROMReceiveWidget->setText(buf.str(), arr != myOldState.receive);
+   }
+   if(myBankWidgets != nullptr)
+   {
+diff --git a/src/debugger/gui/CartRamWidget.cxx b/src/debugger/gui/CartRamWidget.cxx
+index e685294..88cacf3 100644
+--- a/src/debugger/gui/CartRamWidget.cxx
++++ b/src/debugger/gui/CartRamWidget.cxx
+@@ -55,7 +55,7 @@ CartRamWidget::CartRamWidget(
+     buf << " / " << (ramsize/1024) << "KB";
+ 
+   etw = new EditTextWidget(boss, nfont, xpos+lwidth, ypos - 1,
+-                           fwidth, myLineHeight, buf.view());
++                           fwidth, myLineHeight, buf.str());
+   etw->setEditable(false);
+   ypos += myLineHeight + 4;
+ 
+diff --git a/src/debugger/gui/CpuWidget.cxx b/src/debugger/gui/CpuWidget.cxx
+index 5d57910..7ae8b89 100644
+--- a/src/debugger/gui/CpuWidget.cxx
++++ b/src/debugger/gui/CpuWidget.cxx
+@@ -203,7 +203,7 @@ void CpuWidget::handleCommand(CommandSender* sender, int cmd, int data, int id)
+           // event the rest of the debugger widgets
+           ostringstream command;
+           command << "pc #" << value;
+-          instance().debugger().run(command.view());
++          instance().debugger().run(command.str());
+           break;
+         }
+ 
+diff --git a/src/debugger/gui/DelayQueueWidget.cxx b/src/debugger/gui/DelayQueueWidget.cxx
+index ca5251c..73faaf4 100644
+--- a/src/debugger/gui/DelayQueueWidget.cxx
++++ b/src/debugger/gui/DelayQueueWidget.cxx
+@@ -86,10 +86,10 @@ void DelayQueueWidget::loadConfig() {
+         break;
+     }
+ 
+-    if(line != ss.view())
++    if(line != ss.str())
+     {
+       setDirty();
+-      line = ss.view();
++      line = ss.str();
+     }
+     delayQueueIterator->next();
+   }
+diff --git a/src/debugger/gui/FlashWidget.cxx b/src/debugger/gui/FlashWidget.cxx
+index 58e101b..1388b59 100644
+--- a/src/debugger/gui/FlashWidget.cxx
++++ b/src/debugger/gui/FlashWidget.cxx
+@@ -105,7 +105,7 @@ void FlashWidget::loadConfig()
+             label << "    ";
+           label << ": " << Common::Base::HEX4 << from << "-" << Common::Base::HEX4 << to;
+         }
+-        myPage[useCount]->setLabel(label.view());
++        myPage[useCount]->setLabel(label.str());
+ 
+         startPage = -1;
+         if(++useCount == MAX_PAGES)
+diff --git a/src/debugger/gui/NullControlWidget.hxx b/src/debugger/gui/NullControlWidget.hxx
+index 45ffd4a..51130e1 100644
+--- a/src/debugger/gui/NullControlWidget.hxx
++++ b/src/debugger/gui/NullControlWidget.hxx
+@@ -47,10 +47,10 @@ class NullControlWidget : public ControllerWidget
+       {
+         ostringstream buf;
+         buf << getHeader();
+-        const int lwidth = std::max(font.getStringWidth(buf.view()),
++        const int lwidth = std::max(font.getStringWidth(buf.str()),
+                                     font.getStringWidth("Controller input"));
+ 
+-        new StaticTextWidget(boss, font, x, y + 2, lwidth, fontHeight, buf.view());
++        new StaticTextWidget(boss, font, x, y + 2, lwidth, fontHeight, buf.str());
+         y += 2 + lineHeight * 2;
+         new StaticTextWidget(boss, font, x, y, lwidth,
+                              fontHeight, "Controller input", TextAlign::Center);
+diff --git a/src/debugger/gui/RomWidget.cxx b/src/debugger/gui/RomWidget.cxx
+index ee1d0bd..cdfac0f 100644
+--- a/src/debugger/gui/RomWidget.cxx
++++ b/src/debugger/gui/RomWidget.cxx
+@@ -181,7 +181,7 @@ void RomWidget::setPC(int disasm_line)
+   {
+     ostringstream command;
+     command << "pc #" << address;
+-    instance().debugger().run(command.view());
++    instance().debugger().run(command.str());
+   }
+ }
+ 
+@@ -194,7 +194,7 @@ void RomWidget::runtoPC(int disasm_line)
+   {
+     ostringstream command;
+     command << "runtopc #" << address;
+-    const string& msg = instance().debugger().run(command.view());
++    const string& msg = instance().debugger().run(command.str());
+     instance().frameBuffer().showTextMessage(msg);
+   }
+ }
+@@ -208,7 +208,7 @@ void RomWidget::setTimer(int disasm_line)
+   {
+     ostringstream command;
+     command << "timer #" << address << " " << instance().debugger().cartDebug().getBank(address);
+-    const string& msg = instance().debugger().run(command.view());
++    const string& msg = instance().debugger().run(command.str());
+     instance().frameBuffer().showTextMessage(msg);
+   }
+ }
+@@ -244,7 +244,7 @@ void RomWidget::patchROM(int disasm_line, string_view bytes,
+ 
+     Common::Base::setFormat(base);
+     command << "rom #" << address << " " << bytes;
+-    instance().debugger().run(command.view());
++    instance().debugger().run(command.str());
+ 
+     // Restore previous base
+     Common::Base::setFormat(oldbase);
+diff --git a/src/debugger/gui/TiaOutputWidget.cxx b/src/debugger/gui/TiaOutputWidget.cxx
+index 01f3222..2d6ef2b 100644
+--- a/src/debugger/gui/TiaOutputWidget.cxx
++++ b/src/debugger/gui/TiaOutputWidget.cxx
+@@ -97,12 +97,12 @@ void TiaOutputWidget::saveSnapshot(int execDepth, string_view execPrefix,
+         buf.str("");
+         suffix.str("");
+         suffix << "_" << i;
+-        buf << sspath.view() << suffix.view() << ".png";
+-        const FSNode next(buf.view());
++        buf << sspath.str() << suffix.str() << ".png";
++        const FSNode next(buf.str());
+         if(!next.exists())
+           break;
+       }
+-      sspath << suffix.view();
++      sspath << suffix.str();
+     }
+   }
+   sspath << ".png";
+@@ -166,7 +166,7 @@ void TiaOutputWidget::handleCommand(CommandSender* sender, int cmd, int data, in
+       if(lines > 0)
+       {
+         command << "scanLine #" << lines;
+-        const string message = instance().debugger().parser().run(command.view());
++        const string message = instance().debugger().parser().run(command.str());
+         instance().frameBuffer().showTextMessage(message);
+       }
+     }
+@@ -175,7 +175,7 @@ void TiaOutputWidget::handleCommand(CommandSender* sender, int cmd, int data, in
+       ostringstream command;
+       const int scanline = myClickY + startLine;
+       command << "breakIf _scan==#" << scanline;
+-      const string& message = instance().debugger().parser().run(command.view());
++      const string& message = instance().debugger().parser().run(command.str());
+       instance().frameBuffer().showTextMessage(message);
+     }
+     else if(rmb == "zoom")
+diff --git a/src/debugger/gui/TiaZoomWidget.cxx b/src/debugger/gui/TiaZoomWidget.cxx
+index 5ea8c15..38c2907 100644
+--- a/src/debugger/gui/TiaZoomWidget.cxx
++++ b/src/debugger/gui/TiaZoomWidget.cxx
+@@ -255,7 +255,7 @@ void TiaZoomWidget::handleCommand(CommandSender* sender, int cmd, int data, int
+       if(lines > 0)
+       {
+         command << "scanline #" << lines;
+-        const string& message = instance().debugger().parser().run(command.view());
++        const string& message = instance().debugger().parser().run(command.str());
+         instance().frameBuffer().showTextMessage(message);
+       }
+     }
+@@ -264,7 +264,7 @@ void TiaZoomWidget::handleCommand(CommandSender* sender, int cmd, int data, int
+       ostringstream command;
+       const int scanline = myClickY / myZoomLevel + myOffY + startLine;
+       command << "breakif _scan==#" << scanline;
+-      const string& message = instance().debugger().parser().run(command.view());
++      const string& message = instance().debugger().parser().run(command.str());
+       instance().frameBuffer().showTextMessage(message);
+     }
+     else
+diff --git a/src/emucore/CartCreator.cxx b/src/emucore/CartCreator.cxx
+index 508776f..a23030e 100644
+--- a/src/emucore/CartCreator.cxx
++++ b/src/emucore/CartCreator.cxx
+@@ -183,7 +183,7 @@ unique_ptr<Cartridge> CartCreator::create(const FSNode& file,
+     buf << " " << Bankswitch::typeToName(detectedType);
+   buf << ") ";
+ 
+-  cartridge->setAbout(buf.view(), Bankswitch::typeToName(type), id);
++  cartridge->setAbout(buf.str(), Bankswitch::typeToName(type), id);
+ 
+   return cartridge;
+ }
+@@ -211,7 +211,7 @@ CartCreator::createFromMultiCart(const ByteBuffer& image, size_t& size,
+   md5 = MD5::hash(slice, size);
+   ostringstream buf;
+   buf << " [G" << (i+1) << "]";
+-  id = buf.view();
++  id = buf.str();
+ 
+   // TODO: allow using ROM properties instead of autodetect only
+   if(size <= 2_KB)
+diff --git a/src/emucore/CartDetector.cxx b/src/emucore/CartDetector.cxx
+index cd298d8..34ffdea 100644
+--- a/src/emucore/CartDetector.cxx
++++ b/src/emucore/CartDetector.cxx
+@@ -264,7 +264,7 @@ Bankswitch::Type CartDetector::autodetectType(const ByteBuffer& image, size_t si
+ 
+   ostringstream ss;
+   ss << "Bankswitching type '" << Bankswitch::typeToDesc(type) << "' detected";
+-  Logger::debug(ss.view());
++  Logger::debug(ss.str());
+ 
+   return type;
+ }
+diff --git a/src/emucore/CartEnhanced.cxx b/src/emucore/CartEnhanced.cxx
+index 5c2e4e4..3fe071a 100644
+--- a/src/emucore/CartEnhanced.cxx
++++ b/src/emucore/CartEnhanced.cxx
+@@ -35,14 +35,14 @@ CartridgeEnhanced::CartridgeEnhanced(const ByteBuffer& image, size_t size,
+     ostringstream buf;
+     buf << "ROM larger than expected (" << size << " > " << bsSize
+         << "), truncating " << (size - bsSize) << " bytes\n";
+-    Logger::info(buf.view());
++    Logger::info(buf.str());
+   }
+   else if(size < bsSize)
+   {
+     ostringstream buf;
+     buf << "ROM smaller than expected (" << size << " < " << bsSize
+         << "), appending " << (bsSize - size) << " bytes\n";
+-    Logger::info(buf.view());
++    Logger::info(buf.str());
+   }
+ 
+   mySize = bsSize;
+diff --git a/src/emucore/Console.cxx b/src/emucore/Console.cxx
+index 55dbc9c..530183a 100644
+--- a/src/emucore/Console.cxx
++++ b/src/emucore/Console.cxx
+@@ -134,7 +134,7 @@ Console::Console(OSystem& osystem, unique_ptr<Cartridge>& cart,
+ #ifdef DEBUG_BUILD
+     ostringstream msg;
+     msg << "Phosphor effect automatically " << (enable ? "enabled" : "disabled");
+-    frameBuffer.showTextMessage(msg.view());
++    frameBuffer.showTextMessage(msg.str());
+ #endif
+   };
+   myTIA  = make_unique<TIA>(*this, [this]() { return timing(); }, myOSystem.settings(), callback);
+@@ -578,7 +578,7 @@ void Console::toggleInter(bool toggle)
+     ostringstream ss;
+ 
+     ss << "Interpolation " << (enabled ? "enabled" : "disabled");
+-    myOSystem.frameBuffer().showTextMessage(ss.view());
++    myOSystem.frameBuffer().showTextMessage(ss.str());
+   }
+   else
+     myOSystem.frameBuffer().showTextMessage(
+@@ -600,7 +600,7 @@ void Console::toggleTurbo()
+ 
+   ostringstream ss;
+   ss << "Turbo mode " << (!enabled ? "enabled" : "disabled");
+-  myOSystem.frameBuffer().showTextMessage(ss.view());
++  myOSystem.frameBuffer().showTextMessage(ss.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -625,7 +625,7 @@ void Console::changeSpeed(int direction)
+   ostringstream val;
+ 
+   val << formatSpeed(speed) << "%";
+-  myOSystem.frameBuffer().showGaugeMessage("Emulation speed", val.view(), speed, MIN_SPEED, MAX_SPEED);
++  myOSystem.frameBuffer().showGaugeMessage("Emulation speed", val.str(), speed, MIN_SPEED, MAX_SPEED);
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -648,7 +648,7 @@ void Console::togglePhosphor(bool toggle)
+ 
+   ostringstream msg;
+   msg << "Phosphor effect " << (enable ? "enabled" : "disabled");
+-  myOSystem.frameBuffer().showTextMessage(msg.view());
++  myOSystem.frameBuffer().showTextMessage(msg.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -691,7 +691,7 @@ void Console::cyclePhosphorMode(int direction)
+   }
+   ostringstream msg;
+   msg << "Phosphor mode " << MESSAGES[mode];
+-  myOSystem.frameBuffer().showTextMessage(msg.view());
++  myOSystem.frameBuffer().showTextMessage(msg.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -707,7 +707,7 @@ void Console::changePhosphor(int direction)
+ 
+   ostringstream val;
+   val << blend;
+-  myProperties.set(PropType::Display_PPBlend, val.view());
++  myProperties.set(PropType::Display_PPBlend, val.str());
+   if(blend)
+     val << "%";
+   else
+@@ -715,7 +715,7 @@ void Console::changePhosphor(int direction)
+     val.str("");
+     val << "Off";
+   }
+-  myOSystem.frameBuffer().showGaugeMessage("Phosphor blend", val.view(), blend);
++  myOSystem.frameBuffer().showGaugeMessage("Phosphor blend", val.str(), blend);
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -804,11 +804,11 @@ void Console::changeVerticalCenter(int direction)
+   ostringstream ss, val;
+   ss << vcenter;
+ 
+-  myProperties.set(PropType::Display_VCenter, ss.view());
++  myProperties.set(PropType::Display_VCenter, ss.str());
+   if (vcenter != myTIA->vcenter()) myTIA->setVcenter(vcenter);
+ 
+   val << (vcenter ? vcenter > 0 ? "+" : "" : " ") << vcenter << "px";
+-  myOSystem.frameBuffer().showGaugeMessage("V-Center", val.view(), vcenter,
++  myOSystem.frameBuffer().showGaugeMessage("V-Center", val.str(), vcenter,
+                                       myTIA->minVcenter(), myTIA->maxVcenter());
+ }
+ 
+@@ -838,7 +838,7 @@ void Console::changeVSizeAdjust(int direction)
+ 
+   val << (newAdjustVSize ? newAdjustVSize > 0 ? "+" : "" : " ")
+       << newAdjustVSize << "%";
+-  myOSystem.frameBuffer().showGaugeMessage("V-Size", val.view(), newAdjustVSize, -5, 5);
++  myOSystem.frameBuffer().showGaugeMessage("V-Size", val.str(), newAdjustVSize, -5, 5);
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -982,7 +982,7 @@ void Console::changeLeftController(int direction)
+ 
+   ostringstream msg;
+   msg << "Left controller " << Controller::getName(Controller::Type{type});
+-  myOSystem.frameBuffer().showTextMessage(msg.view());
++  myOSystem.frameBuffer().showTextMessage(msg.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -1000,7 +1000,7 @@ void Console::changeRightController(int direction)
+ 
+   ostringstream msg;
+   msg << "Right controller " << Controller::getName(Controller::Type{type});
+-  myOSystem.frameBuffer().showTextMessage(msg.view());
++  myOSystem.frameBuffer().showTextMessage(msg.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -1156,7 +1156,7 @@ void Console::toggleSwapPorts(bool toggle)
+ 
+   ostringstream msg;
+   msg << "Swap ports " << (swapped ? "enabled" : "disabled");
+-  myOSystem.frameBuffer().showTextMessage(msg.view());
++  myOSystem.frameBuffer().showTextMessage(msg.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -1174,7 +1174,7 @@ void Console::toggleSwapPaddles(bool toggle)
+ 
+   ostringstream msg;
+   msg << "Swap paddles " << (swapped ? "enabled" : "disabled");
+-  myOSystem.frameBuffer().showTextMessage(msg.view());
++  myOSystem.frameBuffer().showTextMessage(msg.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -1188,7 +1188,7 @@ void Console::changePaddleCenterX(int direction)
+ 
+   ostringstream val;
+   val << (center ? center > 0 ? "+" : "" : " ") << center * 5 << "px";
+-  myOSystem.frameBuffer().showGaugeMessage("Paddles x-center ", val.view(), center,
++  myOSystem.frameBuffer().showGaugeMessage("Paddles x-center ", val.str(), center,
+                                            Paddles::MIN_ANALOG_CENTER, Paddles::MAX_ANALOG_CENTER);
+ }
+ 
+@@ -1203,7 +1203,7 @@ void Console::changePaddleCenterY(int direction)
+ 
+   ostringstream val;
+   val << (center ? center > 0 ? "+" : "" : " ") << center * 5 << "px";
+-  myOSystem.frameBuffer().showGaugeMessage("Paddles y-center ", val.view(), center,
++  myOSystem.frameBuffer().showGaugeMessage("Paddles y-center ", val.str(), center,
+                                            Paddles::MIN_ANALOG_CENTER, Paddles::MAX_ANALOG_CENTER);
+ }
+ 
+@@ -1225,13 +1225,13 @@ void Console::changePaddleAxesRange(int direction)
+   control << mode;
+   if(range != 100)
+     control << " " << std::to_string(range);
+-  myProperties.set(PropType::Controller_MouseAxis, control.view());
++  myProperties.set(PropType::Controller_MouseAxis, control.str());
+ 
+   Paddles::setDigitalPaddleRange(range);
+ 
+   ostringstream val;
+   val << range << "%";
+-  myOSystem.frameBuffer().showGaugeMessage("Mouse axes range", val.view(), range);
++  myOSystem.frameBuffer().showGaugeMessage("Mouse axes range", val.str(), range);
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -1248,7 +1248,7 @@ void Console::toggleAutoFire(bool toggle)
+ 
+   ostringstream ss;
+   ss << "Autofire " << (enabled ? "enabled" : "disabled");
+-  myOSystem.frameBuffer().showTextMessage(ss.view());
++  myOSystem.frameBuffer().showTextMessage(ss.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -1275,7 +1275,7 @@ void Console::changeAutoFireRate(int direction)
+   else
+     val << "Off";
+ 
+-  myOSystem.frameBuffer().showGaugeMessage("Autofire rate", val.view(), rate, 0, isNTSC ? 30 : 25);
++  myOSystem.frameBuffer().showGaugeMessage("Autofire rate", val.str(), rate, 0, isNTSC ? 30 : 25);
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -1400,7 +1400,7 @@ void Console::changeJitterSense(int direction) const
+     myTIA->setJitterSensitivity(sensitivity);
+     myOSystem.settings().setValue(prefix + "tv.jitter_sense", sensitivity);
+     val << sensitivity;
+-    myOSystem.frameBuffer().showGaugeMessage("TV jitter sensitivity", val.view(), sensitivity,
++    myOSystem.frameBuffer().showGaugeMessage("TV jitter sensitivity", val.str(), sensitivity,
+       0, JitterEmulation::MAX_SENSITIVITY);
+   }
+   else
+@@ -1433,7 +1433,7 @@ void Console::changeJitterRecovery(int direction) const
+     myTIA->setJitterRecoveryFactor(recovery);
+     myOSystem.settings().setValue(prefix + "tv.jitter_recovery", recovery);
+     val << recovery;
+-    myOSystem.frameBuffer().showGaugeMessage("TV jitter roll", val.view(),
++    myOSystem.frameBuffer().showGaugeMessage("TV jitter roll", val.str(),
+       recovery, 0, JitterEmulation::MAX_RECOVERY);
+   }
+   else
+diff --git a/src/emucore/EventHandler.cxx b/src/emucore/EventHandler.cxx
+index 2a95510..0dc2870 100644
+--- a/src/emucore/EventHandler.cxx
++++ b/src/emucore/EventHandler.cxx
+@@ -205,7 +205,7 @@ void EventHandler::toggleAllow4JoyDirections(bool toggle)
+   ostringstream ss;
+   ss << "Allow all 4 joystick directions ";
+   ss << (joyAllow4 ? "enabled" : "disabled");
+-  myOSystem.frameBuffer().showTextMessage(ss.view());
++  myOSystem.frameBuffer().showTextMessage(ss.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -2330,7 +2330,7 @@ VariantList EventHandler::getComboList()
+     if(event < Event::Combo1 || event > Event::Combo16)
+     {
+       buf << i;
+-      VarList::push_back(l, EventHandler::ourEmulActionList[i].action, buf.view());
++      VarList::push_back(l, EventHandler::ourEmulActionList[i].action, buf.str());
+       buf.str("");
+     }
+   }
+@@ -2547,7 +2547,7 @@ void EventHandler::changeMouseControllerMode(int direction)
+ 
+   ostringstream ss;
+   ss << "Mouse controls " << MSG[i] << " devices";
+-  myOSystem.frameBuffer().showTextMessage(ss.view());
++  myOSystem.frameBuffer().showTextMessage(ss.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -2562,7 +2562,7 @@ void EventHandler::changeMouseCursor(int direction)
+   ss << "Mouse cursor visibilility: "
+     << ((cursor & 2) ? "+" : "-") << "UI, "
+     << ((cursor & 1) ? "+" : "-") << "Emulation";
+-  myOSystem.frameBuffer().showTextMessage(ss.view());
++  myOSystem.frameBuffer().showTextMessage(ss.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/emucore/FrameBuffer.cxx b/src/emucore/FrameBuffer.cxx
+index c5ffe4c..f6b80e3 100644
+--- a/src/emucore/FrameBuffer.cxx
++++ b/src/emucore/FrameBuffer.cxx
+@@ -721,7 +721,7 @@ void FrameBuffer::drawFrameStats(float framesPerSecond)
+     << "Hz => "
+     << info.DisplayFormat;
+ 
+-  myStatsMsg.surface->drawString(f, ss.view(), xPos, yPos,
++  myStatsMsg.surface->drawString(f, ss.str(), xPos, yPos,
+                                  myStatsMsg.w, color, TextAlign::Left, 0, true, kBGColor);
+ 
+   yPos += dy;
+@@ -736,7 +736,7 @@ void FrameBuffer::drawFrameStats(float framesPerSecond)
+         : myOSystem.settings().getFloat("speed"))
+     << "% speed";
+ 
+-  myStatsMsg.surface->drawString(f, ss.view(), xPos, yPos,
++  myStatsMsg.surface->drawString(f, ss.str(), xPos, yPos,
+       myStatsMsg.w, myStatsMsg.color, TextAlign::Left, 0, true, kBGColor);
+ 
+   yPos += dy;
+@@ -744,7 +744,7 @@ void FrameBuffer::drawFrameStats(float framesPerSecond)
+ 
+   ss << info.BankSwitch;
+   int xPosEnd =
+-    myStatsMsg.surface->drawString(f, ss.view(), xPos, yPos,
++    myStatsMsg.surface->drawString(f, ss.str(), xPos, yPos,
+                                    myStatsMsg.w, myStatsMsg.color, TextAlign::Left, 0, true, kBGColor);
+ 
+   if(myOSystem.settings().getBool("dev.settings"))
+@@ -760,7 +760,7 @@ void FrameBuffer::drawFrameStats(float framesPerSecond)
+       color = kDbgColorRed;
+       ss << "VSYNC!";
+     }
+-    myStatsMsg.surface->drawString(f, ss.view(), xPosEnd, yPos,
++    myStatsMsg.surface->drawString(f, ss.str(), xPosEnd, yPos,
+         myStatsMsg.w, color, TextAlign::Left, 0, true, kBGColor);
+   }
+ 
+@@ -1174,7 +1174,7 @@ void FrameBuffer::toggleFullscreen(bool toggle)
+           else
+             msg << "disabled";
+         }
+-        showTextMessage(msg.view());
++        showTextMessage(msg.str());
+       }
+       break;
+     }
+@@ -1207,7 +1207,7 @@ void FrameBuffer::toggleAdaptRefresh(bool toggle)
+     msg << (isAdaptRefresh ? "enabled" : "disabled");
+     msg << " (" << myBackend->refreshRate() << " Hz)";
+ 
+-    showTextMessage(msg.view());
++    showTextMessage(msg.str());
+   }
+ }
+ #endif
+@@ -1233,7 +1233,7 @@ void FrameBuffer::changeOverscan(int direction)
+       val << (overscan > 0 ? "+" : "" ) << overscan << "%";
+     else
+       val << "Off";
+-    myOSystem.frameBuffer().showGaugeMessage("Overscan", val.view(), overscan, 0, 10);
++    myOSystem.frameBuffer().showGaugeMessage("Overscan", val.str(), overscan, 0, 10);
+   }
+ }
+ 
+diff --git a/src/emucore/KidVid.cxx b/src/emucore/KidVid.cxx
+index 73ade24..680b70a 100644
+--- a/src/emucore/KidVid.cxx
++++ b/src/emucore/KidVid.cxx
+@@ -132,7 +132,7 @@ void KidVid::update()
+       ostringstream msg;
+       msg << "Game #" << gameNumber[myTape - 1] << " - \""
+         << gameName[gameNumber[myTape - 1] + (myGame == Game::Smurfs ? -1 : 2)] << "\"";
+-      myCallback(msg.view(), true);
++      myCallback(msg.str(), true);
+     }
+   }
+ 
+@@ -302,7 +302,7 @@ void KidVid::setNextSong()
+                               ourSongStart[temp], mySongLength);
+     ostringstream msg;
+     msg << "Read song #" << mySongPointer << " (" << fileName << ")";
+-    myCallback(msg.view(), false);
++    myCallback(msg.str(), false);
+ 
+   #ifdef DEBUG_BUILD
+     cerr << fileName << ": " << (ourSongPositions[mySongPointer] & 0x7f) << '\n';
+diff --git a/src/emucore/M6502.cxx b/src/emucore/M6502.cxx
+index 76dd032..d65d99a 100644
+--- a/src/emucore/M6502.cxx
++++ b/src/emucore/M6502.cxx
+@@ -133,7 +133,7 @@ inline uInt8 M6502::peek(uInt16 address, Device::AccessFlags flags)
+       stringstream msg;
+       msg << "RTrap" << (flags == DISASM_NONE ? "G[" : "[") << Common::Base::HEX2 << cond << "]"
+         << (myTrapCondNames[cond].empty() ? ": " : "If: {" + myTrapCondNames[cond] + "} ");
+-      myHitTrapInfo.message = msg.view();
++      myHitTrapInfo.message = msg.str();
+       myHitTrapInfo.address = address;
+     }
+   }
+@@ -168,7 +168,7 @@ inline void M6502::poke(uInt16 address, uInt8 value, Device::AccessFlags flags)
+       myJustHitWriteTrapFlag = true;
+       stringstream msg;
+       msg << "WTrap[" << Common::Base::HEX2 << cond << "]" << (myTrapCondNames[cond].empty() ? ":" : "If: {" + myTrapCondNames[cond] + "}");
+-      myHitTrapInfo.message = msg.view();
++      myHitTrapInfo.message = msg.str();
+       myHitTrapInfo.address = address;
+     }
+   }
+@@ -291,7 +291,7 @@ inline void M6502::_execute(uInt64 cycles, DispatchResult& result)
+ 
+                 msg << "BP: $" << Common::Base::HEX4 << PC << ", bank #"
+                     << std::dec << static_cast<int>(bank);
+-                result.setDebugger(currentCycles, msg.view(), "Breakpoint");
++                result.setDebugger(currentCycles, msg.str(), "Breakpoint");
+                 return;
+               }
+             }
+@@ -311,12 +311,12 @@ inline void M6502::_execute(uInt64 cycles, DispatchResult& result)
+           if(myLogBreaks)
+           {
+             msg << "CBP[" << Common::Base::HEX2 << cond << "]:";
+-            myDebugger->log(msg.view());
++            myDebugger->log(msg.str());
+           }
+           else
+           {
+             msg << "CBP[" << Common::Base::HEX2 << cond << "]: " << myCondBreakNames[cond];
+-            result.setDebugger(currentCycles, msg.view(), "Conditional breakpoint");
++            result.setDebugger(currentCycles, msg.str(), "Conditional breakpoint");
+             return;
+           }
+         }
+@@ -335,7 +335,7 @@ inline void M6502::_execute(uInt64 cycles, DispatchResult& result)
+       {
+         ostringstream msg;
+         msg << "conditional savestate [" << Common::Base::HEX2 << cond << "]";
+-        myDebugger->addState(msg.view());
++        myDebugger->addState(msg.str());
+       }
+ 
+       mySystem->cart().clearAllRAMAccesses();
+@@ -378,7 +378,7 @@ inline void M6502::_execute(uInt64 cycles, DispatchResult& result)
+           {
+             ostringstream msg;
+             msg << "RWP[@ $" << Common::Base::HEX4 << rwpAddr << "]: ";
+-            result.setDebugger(currentCycles, msg.view(), "Read from write port", oldPC);
++            result.setDebugger(currentCycles, msg.str(), "Read from write port", oldPC);
+             return;
+           }
+         }
+@@ -390,7 +390,7 @@ inline void M6502::_execute(uInt64 cycles, DispatchResult& result)
+           {
+             ostringstream msg;
+             msg << "WRP[@ $" << Common::Base::HEX4 << wrpAddr << "]: ";
+-            result.setDebugger(currentCycles, msg.view(), "Write to read port", oldPC);
++            result.setDebugger(currentCycles, msg.str(), "Write to read port", oldPC);
+             return;
+           }
+         }
+diff --git a/src/emucore/OSystem.cxx b/src/emucore/OSystem.cxx
+index 3166847..ec4f238 100644
+--- a/src/emucore/OSystem.cxx
++++ b/src/emucore/OSystem.cxx
+@@ -96,7 +96,7 @@ OSystem::OSystem()
+   ostringstream info;
+   info << "Build " << STELLA_BUILD << ", using " << MediaFactory::backendName()
+        << " [" << BSPF::ARCH << "]";
+-  myBuildInfo = info.view();
++  myBuildInfo = info.str();
+ 
+   mySettings = MediaFactory::createSettings();
+ 
+@@ -138,7 +138,7 @@ bool OSystem::initialize(const Settings::Options& options)
+       << myCheatFile.getShortPath() << "'\n"
+       << "Palette file:       '"
+       << myPaletteFile.getShortPath() << "'\n";
+-  Logger::info(buf.view());
++  Logger::info(buf.str());
+ 
+   // NOTE: The framebuffer MUST be created before any other object!!!
+   // Get relevant information about the video hardware
+@@ -470,7 +470,7 @@ string OSystem::createConsole(const FSNode& rom, string_view md5sum, bool newrom
+   catch(const runtime_error& e)
+   {
+     buf << "ERROR: " << e.what();
+-    Logger::error(buf.view());
++    Logger::error(buf.str());
+     return buf.str();
+   }
+ 
+@@ -517,7 +517,7 @@ string OSystem::createConsole(const FSNode& rom, string_view md5sum, bool newrom
+     if(propsFile.exists())
+       buf << "  PRO file: " << propsFile.getShortPath() << '\n';
+     buf << '\n' << getROMInfo(*myConsole);
+-    Logger::info(buf.view());
++    Logger::info(buf.str());
+ 
+     myFrameBuffer->setCursorState();
+ 
+@@ -539,14 +539,14 @@ string OSystem::createConsole(const FSNode& rom, string_view md5sum, bool newrom
+           << " - " << myConsole->cartridge().detectedType()
+           << (myConsole->cartridge().isPlusROM() ? " PlusROM " : "")
+           << " - " << myConsole->getFormatString();
+-        myFrameBuffer->showTextMessage(msg.view());
++        myFrameBuffer->showTextMessage(msg.str());
+       }
+       else if(!myLauncherUsed)
+       {
+         ostringstream msg;
+ 
+         msg << "Stella " << STELLA_VERSION;
+-        myFrameBuffer->showTextMessage(msg.view());
++        myFrameBuffer->showTextMessage(msg.str());
+       }
+     }
+ 
+diff --git a/src/emucore/PlusROM.cxx b/src/emucore/PlusROM.cxx
+index 6c2bf62..018dcae 100644
+--- a/src/emucore/PlusROM.cxx
++++ b/src/emucore/PlusROM.cxx
+@@ -117,7 +117,7 @@ class PlusROMRequest {
+           << myDestination.path
+           << ": failed";
+ 
+-        Logger::error(ss.view());
++        Logger::error(ss.str());
+ 
+         myState = State::failed;
+ 
+@@ -134,7 +134,7 @@ class PlusROMRequest {
+           << ": failed with HTTP status "
+           << response->status;
+ 
+-        Logger::error(ss.view());
++        Logger::error(ss.str());
+ 
+         myState = State::failed;
+ 
+@@ -145,7 +145,7 @@ class PlusROMRequest {
+         ostringstream ss;
+         ss << "PlusCart: request to " << myDestination.host << "/" << myDestination.path << ": invalid response";
+ 
+-        Logger::error(ss.view());
++        Logger::error(ss.str());
+ 
+         myState = State::failed;
+ 
+diff --git a/src/emucore/Settings.cxx b/src/emucore/Settings.cxx
+index 7be24c4..2cd052f 100644
+--- a/src/emucore/Settings.cxx
++++ b/src/emucore/Settings.cxx
+@@ -838,7 +838,7 @@ void Settings::usage()
+ //
+ //  if(NULL != GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+ //    height = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+-  cout << buf.view() << std::flush;
++  cout << buf.str() << std::flush;
+ #endif
+ 
+ #if defined(BSPF_UNIX) || defined(BSPF_MACOS)
+diff --git a/src/emucore/TIASurface.cxx b/src/emucore/TIASurface.cxx
+index 6782652..fcab48c 100644
+--- a/src/emucore/TIASurface.cxx
++++ b/src/emucore/TIASurface.cxx
+@@ -164,7 +164,7 @@ void TIASurface::setNTSC(NTSCFilter::Preset preset, bool show)
+   }
+   myOSystem.settings().setValue("tv.filter", static_cast<int>(preset));
+ 
+-  if(show) myFB.showTextMessage(buf.view());
++  if(show) myFB.showTextMessage(buf.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -247,7 +247,7 @@ void TIASurface::changeScanlineIntensity(int direction)
+     buf << intensity << "%";
+   else
+     buf << "Off";
+-  myFB.showGaugeMessage("Scanline intensity", buf.view(), intensity);
++  myFB.showGaugeMessage("Scanline intensity", buf.str(), intensity);
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@@ -299,7 +299,7 @@ void TIASurface::cycleScanlineMask(int direction)
+   ostringstream msg;
+ 
+   msg << "Scanline data '" << Names[i] << "'";
+-  myOSystem.frameBuffer().showTextMessage(msg.view());
++  myOSystem.frameBuffer().showTextMessage(msg.str());
+ }
+ 
+ // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+diff --git a/src/emucore/Thumbulator.cxx b/src/emucore/Thumbulator.cxx
+index 27a2217..73a3ecd 100644
+--- a/src/emucore/Thumbulator.cxx
++++ b/src/emucore/Thumbulator.cxx
+@@ -191,7 +191,7 @@ string Thumbulator::doRun(uInt32& cycles, bool irqDrivenAudio)
+ #endif
+ #if defined(THUMB_DISS) || defined(THUMB_DBUG)
+   dump_counters();
+-  cout << statusMsg.view() << '\n';
++  cout << statusMsg.str() << '\n';
+   return statusMsg.str();
+ #else
+   return "";
+diff --git a/src/gui/DeveloperDialog.cxx b/src/gui/DeveloperDialog.cxx
+index 0be0b78..219c272 100644
+--- a/src/gui/DeveloperDialog.cxx
++++ b/src/gui/DeveloperDialog.cxx
+@@ -364,7 +364,7 @@ void DeveloperDialog::addTiaTab(const GUI::Font& font)
+ 
+   ostringstream ss;
+   ss << "Delayed VDEL" << ELLIPSIS << " swap for";
+-  mySwapLabel = new StaticTextWidget(myTab, font, HBORDER + INDENT * 2, ypos + 1, ss.view());
++  mySwapLabel = new StaticTextWidget(myTab, font, HBORDER + INDENT * 2, ypos + 1, ss.str());
+   mySwapLabel->setToolTip("VDELed objects react one color clock slower to updates.");
+   wid.push_back(mySwapLabel);
+   ypos += lineHeight + VGAP * 1;
+diff --git a/src/gui/EditableWidget.cxx b/src/gui/EditableWidget.cxx
+index c857a49..ddce295 100644
+--- a/src/gui/EditableWidget.cxx
++++ b/src/gui/EditableWidget.cxx
+@@ -886,9 +886,9 @@ bool EditableWidget::pasteSelectedText()
+       lastOk = false;
+     }
+ 
+-  _editString.insert(_caretPos, buf.view());
++  _editString.insert(_caretPos, buf.str());
+   // position cursor at the end of pasted text
+-  setCaretPos(_caretPos + static_cast<int>(buf.view().length()));
++  setCaretPos(_caretPos + static_cast<int>(buf.str().length()));
+ 
+   if(selected || !pasted.empty())
+   {
+diff --git a/src/gui/EventMappingWidget.cxx b/src/gui/EventMappingWidget.cxx
+index 19c8608..c00dd53 100644
+--- a/src/gui/EventMappingWidget.cxx
++++ b/src/gui/EventMappingWidget.cxx
+@@ -205,7 +205,7 @@ void EventMappingWidget::startRemapping()
+       << EventHandler::actionAtIndex(myActionSelected, myEventGroup)
+       << "' event";
+   myKeyMapping->setTextColor(kTextColorEm);
+-  myKeyMapping->setText(buf.view());
++  myKeyMapping->setText(buf.str());
+ 
+   // Make sure that this widget receives all raw data, before any
+   // pre-processing occurs
+diff --git a/src/gui/GameInfoDialog.cxx b/src/gui/GameInfoDialog.cxx
+index 51e6c63..af81262 100644
+--- a/src/gui/GameInfoDialog.cxx
++++ b/src/gui/GameInfoDialog.cxx
+@@ -947,12 +947,12 @@ void GameInfoDialog::loadHighScoresProperties(const Properties& props)
+   ss.str("");
+   ss << hex << right // << setw(HSM::MAX_ADDR_CHARS) << setfill(' ')
+     << uppercase << info.varsAddr;
+-  myVarAddress->setText(ss.view());
++  myVarAddress->setText(ss.str());
+ 
+   ss.str("");
+   ss << hex << right // << setw(HSM::MAX_ADDR_CHARS) << setfill(' ')
+     << uppercase << info.specialAddr;
+-  mySpecialAddress->setText(ss.view());
++  mySpecialAddress->setText(ss.str());
+ 
+ 
+   for (uInt32 a = 0; a < HSM::MAX_SCORE_ADDR; ++a)
+@@ -963,7 +963,7 @@ void GameInfoDialog::loadHighScoresProperties(const Properties& props)
+       ss << hex << right // << setw(HSM::MAX_ADDR_CHARS) << setfill(' ')
+         << uppercase << info.scoreAddr[a];
+     }
+-    myScoreAddress[a]->setText(ss.view());
++    myScoreAddress[a]->setText(ss.str());
+   }
+   updateHighScoresWidgets();
+ }
+@@ -1489,7 +1489,7 @@ void GameInfoDialog::setAddressVal(const EditTextWidget* addressWidget, EditText
+     //  ss << hex;
+     ss << right // << setw(2) << setfill(' ')
+       << uppercase << static_cast<uInt16>(val);
+-    valWidget->setText(ss.view());
++    valWidget->setText(ss.str());
+   }
+   else
+     valWidget->setText("");
+diff --git a/src/gui/HighScoresDialog.cxx b/src/gui/HighScoresDialog.cxx
+index 2a6dd05..ad0457f 100644
+--- a/src/gui/HighScoresDialog.cxx
++++ b/src/gui/HighScoresDialog.cxx
+@@ -235,7 +235,7 @@ void HighScoresDialog::loadConfig()
+   {
+     ostringstream buf;
+     buf << std::setw(3) << std::setfill(' ') << i;
+-    VarList::push_back(items, buf.view(), i);
++    VarList::push_back(items, buf.str(), i);
+   }
+   myVariationPopup->addItems(items);
+ 
+@@ -404,7 +404,7 @@ void HighScoresDialog::updateWidgets(bool init)
+     if (myScores.scores[r].special > 0)
+       buf << std::setw(HSM::MAX_SPECIAL_DIGITS) << std::setfill(' ')
+       << myScores.scores[r].special;
+-    mySpecialWidgets[r]->setLabel(buf.view());
++    mySpecialWidgets[r]->setLabel(buf.str());
+ 
+     myNameWidgets[r]->setLabel(myScores.scores[r].name);
+     myDateWidgets[r]->setLabel(myScores.scores[r].date);
+diff --git a/src/gui/JoystickDialog.cxx b/src/gui/JoystickDialog.cxx
+index 18acdf6..6db8f22 100644
+--- a/src/gui/JoystickDialog.cxx
++++ b/src/gui/JoystickDialog.cxx
+@@ -140,7 +140,7 @@ void JoystickDialog::handleCommand(CommandSender* sender, int cmd, int data, int
+       {
+         ostringstream buf;
+         buf << "C" << myJoyIDs[data];
+-        myJoyText->setText(buf.view());
++        myJoyText->setText(buf.str());
+         myJoyPort->setSelected(myJoyPorts[data]);
+       }
+       else
+diff --git a/src/gui/LauncherDialog.cxx b/src/gui/LauncherDialog.cxx
+index 00d73be..52f1ef5 100644
+--- a/src/gui/LauncherDialog.cxx
++++ b/src/gui/LauncherDialog.cxx
+@@ -106,7 +106,7 @@ void LauncherDialog::addTitleWidget(int &ypos)
+   ver << " for RetroN 77";
+ #endif
+   new StaticTextWidget(this, _font, 1, ypos, _w - 2, fontHeight,
+-                       ver.view(), TextAlign::Center);
++                       ver.str(), TextAlign::Center);
+   ypos += fontHeight + VGAP;
+ }
+ 
+@@ -549,7 +549,7 @@ void LauncherDialog::updateUI()
+   ostringstream buf;
+   buf << (myList->getList().size() - (currentDir().hasParent() ? 1 : 0))
+     << (myShortCount ? " items" : " items found");
+-  myRomCount->setLabel(buf.view());
++  myRomCount->setLabel(buf.str());
+ 
+   loadRomInfo();
+ }
+diff --git a/src/gui/RomAuditDialog.cxx b/src/gui/RomAuditDialog.cxx
+index 6862a83..9b367a1 100644
+--- a/src/gui/RomAuditDialog.cxx
++++ b/src/gui/RomAuditDialog.cxx
+@@ -123,7 +123,7 @@ void RomAuditDialog::auditRoms()
+   // NOLINTEND
+ 
+   buf << "Auditing ROM files" << ELLIPSIS;
+-  progress.setMessage(buf.view());
++  progress.setMessage(buf.str());
+   progress.setRange(0, static_cast<int>(files.size()) - 1, 5);
+   progress.open();
+ 
+diff --git a/src/gui/RomImageWidget.cxx b/src/gui/RomImageWidget.cxx
+index d3f19ba..cfc63a5 100644
+--- a/src/gui/RomImageWidget.cxx
++++ b/src/gui/RomImageWidget.cxx
+@@ -574,13 +574,13 @@ void RomImageWidget::drawWidget(bool hilite)
+   ostringstream buf;
+   buf << myImageIdx + 1 << "/" << myImageList.size();
+   const int yText = _y + _h - _font.getFontHeight() * 10 / 8;
+-  const int wText = _font.getStringWidth(buf.view()) + 8;
++  const int wText = _font.getStringWidth(buf.str()) + 8;
+ 
+   s.fillRect(_x, yText, _w, _font.getFontHeight(), _bgcolor);
+   if(!myLabel.empty())
+     s.drawString(_font, myLabel, _x + 8, yText, _w - wText - 16 - _font.getMaxCharWidth() * 2, _textcolor);
+   if(!myImageList.empty())
+-    s.drawString(_font, buf.view(), _x + _w - wText, yText, wText, _textcolor);
++    s.drawString(_font, buf.str(), _x + _w - wText, yText, wText, _textcolor);
+ 
+   // Draw the navigation icons
+   myNavSurface->invalidate();
+diff --git a/src/gui/VideoAudioDialog.cxx b/src/gui/VideoAudioDialog.cxx
+index 32dc0de..511f4cf 100644
+--- a/src/gui/VideoAudioDialog.cxx
++++ b/src/gui/VideoAudioDialog.cxx
+@@ -1147,7 +1147,7 @@ void VideoAudioDialog::handleShiftChanged(SliderWidget* widget)
+ 
+   ss << std::setw(4) << std::fixed << std::setprecision(1)
+     << (0.1 * (widget->getValue())) << DEGREE;
+-  widget->setValueLabel(ss.view());
++  widget->setValueLabel(ss.str());
+   handlePaletteUpdate();
+ }
+ 
+@@ -1384,14 +1384,14 @@ void VideoAudioDialog::handleCommand(CommandSender* sender, int cmd,
+     {
+       std::ostringstream ss;  // NOLINT (ss is not a const)
+       ss << std::fixed << std::setprecision(1) << (0.5 * myHeadroomSlider->getValue()) << " frames";
+-      myHeadroomSlider->setValueLabel(ss.view());
++      myHeadroomSlider->setValueLabel(ss.str());
+       break;
+     }
+     case kBufferSizeChanged:
+     {
+       std::ostringstream ss;  // NOLINT (ss is not a const)
+       ss << std::fixed << std::setprecision(1) << (0.5 * myBufferSizeSlider->getValue()) << " frames";
+-      myBufferSizeSlider->setValueLabel(ss.view());
++      myBufferSizeSlider->setValueLabel(ss.str());
+       break;
+     }
+ 
+@@ -1445,7 +1445,7 @@ void VideoAudioDialog::colorPalette()
+       const int color = order[type][idx];
+ 
+       ss << Common::Base::HEX1 << std::uppercase << color;
+-      myColorLbl[idx]->setLabel(ss.view());
++      myColorLbl[idx]->setLabel(ss.str());
+       for(int lum = 0; lum < NUM_LUMA; ++lum)
+         myColor[idx][lum]->setColor(color * NUM_CHROMA + lum * 2); // skip grayscale colors
+     }
+-- 
+2.48.1
+

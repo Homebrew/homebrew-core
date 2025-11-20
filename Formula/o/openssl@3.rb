@@ -1,9 +1,9 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl-library.org"
-  url "https://github.com/openssl/openssl/releases/download/openssl-3.5.0/openssl-3.5.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/openssl-3.5.0.tar.gz"
-  sha256 "344d0a79f1a9b08029b0744e2cc401a43f9c90acd1044d09a530b4885a8e9fc0"
+  url "https://github.com/openssl/openssl/releases/download/openssl-3.6.0/openssl-3.6.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/openssl-3.6.0.tar.gz"
+  sha256 "b6a5f44b7eb69e3fa35dbf15524405b44837a481d43d81daddde3ff21fcbb8e9"
   license "Apache-2.0"
 
   livecheck do
@@ -12,35 +12,35 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7bbac0e84510570ec550deee1dce185569917378411263a9d1329ae395f52d70"
-    sha256 arm64_sonoma:  "3bb3709fe0c67077cb54af5436442e81288804647ba513b34413c5163b43f9b8"
-    sha256 arm64_ventura: "e74364d568abea9347f89f356bf437e3146deaf5c4cf31c72b4ab4521700df50"
-    sha256 sequoia:       "15431f4b9cf582e4b9b5d638057c8ed1db23fd166e425d66bcca0d36aa2ab585"
-    sha256 sonoma:        "0c5f237b38048abfe7fe045f709d334f235e3dfe39853f7877dd248f5c7670fe"
-    sha256 ventura:       "75baf6311dd7c014d765a11805b49b890af1be7d98c0f29c9870bf1ada112547"
-    sha256 arm64_linux:   "9e4199643ddb0220c637e8830a6c34fab3b9a9a06abb9f44da516b4f26cdd681"
-    sha256 x86_64_linux:  "178ae44b213319b0aa9e6d7b41772705099f50bd6b5de4ba1e6ae526e25af37a"
+    sha256 arm64_tahoe:   "932329036867164c28752b7b35f7808530b8cd79b72246bf122f36219a79d388"
+    sha256 arm64_sequoia: "9a8fa2ae1ef3424b116d7e6422d979e0290f4affdef072b1592e4535d2617d92"
+    sha256 arm64_sonoma:  "055bf163fbfd98f5de31c25b1e8cac41129d3cb21581843f7ab30aec0c35bdf7"
+    sha256 tahoe:         "422323a6751ed7c4c198d97362d8967e20379daa287db7e8311ae036b9842d62"
+    sha256 sequoia:       "a015d2e06290484b37547a57b60c6bc5bd45be0479e0c58529ffa4359a3f6225"
+    sha256 sonoma:        "cdf6125ff77ed7709a44a0ad95918801a3cfaadedbb66c781db7ccf9ab4fae58"
+    sha256 arm64_linux:   "257a655d8fcb65f1a7b2a0c4ae4cb7c8152454dacc806d7e24bc7457b299829a"
+    sha256 x86_64_linux:  "dae10cea048eae154365f18fc51154093f8ba378ace3fe138f89dda08bf09e4e"
   end
 
   depends_on "ca-certificates"
 
   on_linux do
     resource "Test::Harness" do
-      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.50.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.50.tar.gz"
-      sha256 "79b6acdc444f1924cd4c2e9ed868bdc6e09580021aca8ff078ede2ffef8a6f54"
+      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.52.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.52.tar.gz"
+      sha256 "8fe65cfc0261ed3c8a4395f0524286f5719669fe305f9b03b16cf3684d62cd70"
     end
 
     resource "Test::More" do
-      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302210.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302210.tar.gz"
-      sha256 "acb9ca8d582b8c0bbe53c6d9b3264f1cf66eaa7135f41f979747104183aea509"
+      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302214.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302214.tar.gz"
+      sha256 "6077ecc35f37b11b3b75df2d0ba1b9ca541f1dc24b2be8e15b6e91f78e2e03fc"
     end
 
     resource "ExtUtils::MakeMaker" do
-      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.74.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.74.tar.gz"
-      sha256 "8ad2be00713b49dcfd386286e0a64ff9297b771a485f2425fbc144794f5a3e8c"
+      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.76.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.76.tar.gz"
+      sha256 "30bcfd75fec4d512e9081c792f7cb590009d9de2fe285ffa8eec1be35a5ae7ca"
     end
   end
 
@@ -124,8 +124,7 @@ class OpensslAT3 < Formula
 
   def caveats
     <<~EOS
-      A CA file has been bootstrapped using certificates from the system
-      keychain. To add additional certificates, place .pem files in
+      To add additional certificates, place .pem files in
         #{openssldir}/certs
 
       and run

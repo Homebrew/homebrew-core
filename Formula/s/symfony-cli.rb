@@ -1,18 +1,17 @@
 class SymfonyCli < Formula
   desc "Build, run, and manage Symfony applications"
   homepage "https://github.com/symfony-cli/symfony-cli"
-  url "https://github.com/symfony-cli/symfony-cli/archive/refs/tags/v5.11.0.tar.gz"
-  sha256 "29996a4f7f2032fe1e3b1d8df734843f84ee7e2ac9db10e1e690ffc37df88713"
+  url "https://github.com/symfony-cli/symfony-cli/archive/refs/tags/v5.15.1.tar.gz"
+  sha256 "101ef843524db069d54a2b8653a4757c856c6f89e3a40f40c6be8ccd8176aef4"
   license "AGPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d47dc98f5d38c5284110ae1efa4ed7c1288d07f01606e858b500cf347f82601b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d912e1b871a1c1dda5ad88ff4d99d7dfaf4e8f49a14e90b570b4673edd1253b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "72ef3cbff4d00dddbef4cf615224d325cdd1e4e7e704ff348233bcfbfd1b0c9b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7d26574687c410530d91d9d9fae06e8a0330bb2ed4b37ba3e1f3473d8c547374"
-    sha256 cellar: :any_skip_relocation, ventura:       "a87a33ae5beaaf2113b0b4f94ec66328d0d562fe88c6f9ca40c7ad249e0dd87c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c3b7f8262d00c957e3d5d1493bcdb244843f17fcffc55bcaa1e6e528a8cc222"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50bc76389f0a430737b4ff99113c5ac556673a6bf55b9479d80e3085465b1b73"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60cf00e9f23e0f44edbe30a563846d6b603e4b4a82af4ef905c3a463ddd8d46f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c61a25fdf65182a60801ee2c7fc104f1a923056009e6c21f24988ca1c716f939"
+    sha256 cellar: :any_skip_relocation, sonoma:        "558004031692844577a3debc3a86d7ae49d108207a416825e39df7373f388438"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "830600159c55497adf0a72437b8cad7db021b484e7650e160baa54a223534678"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf1f6c321b821551b6f6c053742a2a690d88026da44953afbc92786711895832"
   end
 
   depends_on "go" => :build

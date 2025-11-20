@@ -1,19 +1,18 @@
 class LanguagetoolRust < Formula
   desc "LanguageTool API in Rust"
   homepage "https://docs.rs/languagetool-rust"
-  url "https://github.com/jeertmans/languagetool-rust/archive/refs/tags/v2.1.5.tar.gz"
-  sha256 "db1da3e821976c2e5e85c26037301dd43fe8baff6bff243c498f74f7c5e57d37"
+  url "https://github.com/jeertmans/languagetool-rust/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "d3ed057524712b9efc79fedee2b9e32d3abe2974778fe5e85ac164b17303d5b5"
   license "MIT"
   head "https://github.com/jeertmans/languagetool-rust.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "58375defa38ac43d3943c08967a4fab9ac2bec7ffd69d042f02296defb1abbe2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "088c12e33f0960eca09b131d46e8e821947d7d330efdef500f6bf31c1587e295"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "353bb7ad7e99b30e66312284a0ee1b8058479f3892da5a3ee336b80a9d58cf10"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b2dcfbb19328a045c4a6bebea59fa674bfcb6d4827938cd4d5ff2b0f6a63c095"
-    sha256 cellar: :any_skip_relocation, ventura:       "53961fe44f3a0564943b62dd179df6e2760bc33b7ecef8927cc6d6c20f44b8fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "020bb11bed660cc4710f5eeeda2c37becfd66ef9a69b3d8e8fb25d7750bd463f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c575d0c3dbfe53942702f762527241952714188e2952e05c3a7f08e0273da048"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fbe7ef6eb53513b1fabb5920481477442c61b2d42abd1de46b41ff68549eeb1c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed9cca4345c0e92e3d656e0b56059e56e116ebef82ba75eb447fa9c0dc0862e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a13d2b017fbc70ea842ad99ab13585d1463528bb647c47d543ac1a9a2df98137"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b2fc72b2f35e40586056c14924f82916e272ee31633fe2eaefa2a4cda57700c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a59748d2f44ee2c8154b650208ec639146ee81c0727963d8866ab7d4f841b3f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78d67fa2988592f6d8468448a0c5f8b26fa654f981e35efa9b1346092a4b07ce"
   end
 
   depends_on "pkgconf" => :build

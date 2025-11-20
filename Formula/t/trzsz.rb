@@ -6,30 +6,32 @@ class Trzsz < Formula
   url "https://files.pythonhosted.org/packages/22/1e/40a495c84a0dc625a4d97638c5cae308306718c493f480ee5ac64801947b/trzsz-1.1.5.tar.gz"
   sha256 "57be064b259d57326f75683704b8e93a56ce0d67d9b3b2b36ad4d53e98a28854"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "069b5e2e21ca4ee881b66892d88f678d5239cd0d17de98560b483bdc4e361e97"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34b1462777caa9dad8e2b457f0ac821c3fd74dff173f32f6d6dca728b4123cdf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "327fbdc12feae3e8d94c081d2918e5ac31bbe85d9d894106ef59b43ffec19cdd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cb036cbea4083fda7d9169854ba154c8aa7c09593cb46935c9a5d93190fe3af4"
-    sha256 cellar: :any_skip_relocation, ventura:       "d23b42eed99c1ff1ff1ef5ee4bb9a5e093d60f3680ac2e6bf834559b8cc8309c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9352e42e41666d7842af49aa3100bc328c44c384e3b4689c35e7391438c4a7b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fb0a8bab1c0def85b2e0d11e37d9e96d1c397485b5231fe9d3f952a6e5f9fe4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b57f72d47439cd304aa457bcd75e138d447b4819571c9a01fac3e8856b7d832a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8ce638b0601b5f449a00264cd0de40f0167fd485108d321c64eebc8ccb4c0bb7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c9385e793d458298fe55e9ce4f0d80c1ab0d78a28fa468d03a94ecc8dbb47b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c7551b00282c2c5e16a00d56bd961ab504f38a605d5d1e2a6012a7d10dc27492"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ffe42aec52133ecfdb2fbae429d43c8042789d80125e5e6890ab65362365e6ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a212e8abf46f7833d81f32028d3552df8ca793366e4743219ede67442c4d94f3"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "trzsz-go", because: "both install `trz`, `tsz` binaries"
 
+  pypi_packages extra_packages: "trzsz-iterm2"
+
   resource "iterm2" do
-    url "https://files.pythonhosted.org/packages/87/a6/7c6e0836e83d67eafd2e92dc5449fc2b3fc715bc8cdd4391cd3178aaa937/iterm2-2.8.tar.gz"
-    sha256 "90d3e86d6af5d955c319993c8352cf3e93c7a0c919ed8b2ad551a742b87e889b"
+    url "https://files.pythonhosted.org/packages/57/6b/98ce521178651fad694c7ed704c882e4ef0b10fecc0a687b4e859ef623c3/iterm2-2.10.tar.gz"
+    sha256 "8c0cf95ffca9f1bf7409883618deee66acd73c63929222e23435780dcc516869"
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/b1/a4/4579a61de526e19005ceeb93e478b61d77aa38c8a85ad958ff16a9906549/protobuf-5.28.2.tar.gz"
-    sha256 "59379674ff119717404f7454647913787034f03fe7049cbef1d74a97bb4593f0"
+    url "https://files.pythonhosted.org/packages/fa/a4/cc17347aa2897568beece2e674674359f911d6fe21b0b8d6268cd42727ac/protobuf-6.32.1.tar.gz"
+    sha256 "ee2469e4a021474ab9baafea6cd070e5bf27c7d29433504ddea1a4ee5850f68d"
   end
 
   resource "trzsz-iterm2" do
@@ -48,8 +50,8 @@ class Trzsz < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/e2/73/9223dbc7be3dcaf2a7bbf756c351ec8da04b1fa573edaf545b95f6b0c7fd/websockets-13.1.tar.gz"
-    sha256 "a3b3366087c1bc0a2795111edcadddb8b3b59509d5db5d7ea3fdd69f954a8878"
+    url "https://files.pythonhosted.org/packages/21/e6/26d09fab466b7ca9c7737474c52be4f76a40301b08362eb2dbc19dcc16c1/websockets-15.0.1.tar.gz"
+    sha256 "82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee"
   end
 
   def install

@@ -1,17 +1,18 @@
 class Statesmith < Formula
   desc "State machine code generation tool suitable for bare metal, embedded and more"
   homepage "https://github.com/StateSmith/StateSmith"
-  url "https://github.com/StateSmith/StateSmith/archive/refs/tags/cli-v0.18.2.tar.gz"
-  sha256 "f6823b7734b431bd567a59258549b3a77662d1b561dc33093ea503f904be25ce"
+  url "https://github.com/StateSmith/StateSmith/archive/refs/tags/cli-v0.19.0.tar.gz"
+  sha256 "62eb44d15a978c82f1ad8a54506f750b76c3dd30ebd1087384366a939a118749"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86f698f5d2d76c8eb1f778e499ea4e557a6279992bdb974311b1231853fef6de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7542a876bf8a924ce082cc0de8a1f7fe5e6b3c9660340a6cf7cd0d446371bdeb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eff01365f5cca9d476f49b3833ff71be77bbcd16e7b57795a3410f806af8be26"
-    sha256 cellar: :any_skip_relocation, ventura:       "e18105ffcabae10501200f28a10b641afca02bb924b75ea22d1e44faf2474cca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f0d47885851de435d1ec58e52e5c7493ab5fcc1158bc973ebdb9119c68f17aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43fb000e7287ae4ae3b6fe53a88024f7d81ec1d35955975fb7ce01997f241ca7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f9c19f657fbff70ad690d5b0910ab9b55559514f24f76661f078799f823f1a07"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d69698d4830609f132f6f2bf03c6e13edce217ba58635c41d3f52c895c5c47a7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "adfb4d4c32dda160755d4b1fe8f1e8d88398bd62e3de1242d4dcd78e6f89da27"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c1398645c8a9cbbeb2208b4e01c0dfb168ff730360db333d4036eb2f9940d744"
+    sha256 cellar: :any_skip_relocation, ventura:       "a346a06beaaafeaf662489a7a43be53d31b27c2c15912c7ed8fb9308eb0f363b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4232fb5b9e94609e742f695ff84d017cda14765b89448d87c4a8e62fbc04696"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a80deb05098101d193abbaa92c8113e7a7cb150dcbaecaccd58c4bc2f3836912"
   end
 
   depends_on "dotnet"

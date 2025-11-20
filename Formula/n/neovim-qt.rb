@@ -7,17 +7,20 @@ class NeovimQt < Formula
   head "https://github.com/equalsraf/neovim-qt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "dd8bbbc56a52276068547d4cb4e84cbdd1e9f05293800e7fc60aae9cd1c96bd0"
-    sha256 cellar: :any,                 arm64_ventura: "7ab5ee7ef90dc33466c2525ab9afb54cf697406025424e3cb6e8171fc1c61f7a"
-    sha256 cellar: :any,                 sonoma:        "a535fb79e82a33cce34998ce1b38b104539117b89549f09621978d87521e33e7"
-    sha256 cellar: :any,                 ventura:       "edbafb81758da42687579cac4f13b06b4658488bb6132b5fe20fb9012dfb9156"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22f2e5fc2cf3d1f0863688b460cca53ebca3a23e9fd79d0bb769c3bbb8d6e640"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "a4ebd18a46757494d4d8914121aea77a08843626580df268d728840f28083fa2"
+    sha256 cellar: :any,                 arm64_sequoia: "9203f57a83ccf4453f2c721f78102afbbbc4a21bf54d127cb6c90ce562389728"
+    sha256 cellar: :any,                 arm64_sonoma:  "b74cbaf47c8f1fb3d5f0f5560b14d9974915246b2723516c8eabd0d94ccb3a16"
+    sha256 cellar: :any,                 sonoma:        "ce37d682b255a3c6fbee35f0146eaf6a5022b44ba5e318b460e361fc260ebfe4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c47a0daa850d84c38744b4cad5018643b473bb94258802672ba8abdcdffa9443"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0622186421cd33e3edb8e64d74c630a4632b31c613eb2e88949f440415be0f45"
   end
 
   depends_on "cmake" => :build
   depends_on "msgpack"
   depends_on "neovim"
-  depends_on "qt"
+  depends_on "qtbase"
+  depends_on "qtsvg"
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DUSE_SYSTEM_MSGPACK=ON", "-DWITH_QT=Qt6", *std_cmake_args

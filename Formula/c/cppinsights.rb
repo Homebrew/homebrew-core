@@ -4,30 +4,40 @@ class Cppinsights < Formula
   url "https://github.com/andreasfertig/cppinsights/archive/refs/tags/v_20.1.tar.gz"
   sha256 "672ecc237bc0231510025c9662c0f4880feebb076af46d16840adfb16e8fc4e8"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a633e7409562a57dcb44c9d1dbc216b3aa44ad3cb2a9424ddd3c00380ed06570"
-    sha256 cellar: :any,                 arm64_sonoma:  "4fa5e74d7a8ded4618e8c6ddae47c77404891162e7b1fa38faad2cb9da5e1247"
-    sha256 cellar: :any,                 arm64_ventura: "c79eb403f5dcf43df867b2c2816c44527ee0bdea3c309161555a9f17a8d69762"
-    sha256 cellar: :any,                 sonoma:        "949ca974b680ae7f24ea630bf94c668f69a846047e965aee01a8cb76950e6ca9"
-    sha256 cellar: :any,                 ventura:       "1a8d128dffa08e8846e4d40c6272c094cbca13cf74b097690c3e2ad75762f76b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2fb8f4a46069faa95fd11d1572e5885b085a030db0d81441d674e5443b2ecba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68e8bd9b586a8a317b8eefbc6f6024a54f05ca22c47e7d016fa6100d18649abf"
+    sha256 cellar: :any,                 arm64_tahoe:   "d5c9c97206cb629ff2c8cf50b1887e49ef2e0e8609e26be97303e9b207059c4b"
+    sha256 cellar: :any,                 arm64_sequoia: "9dac7d041487c65d0a6fa2162d5dfd29f99e025df2bb0cdf967ef63c028f3308"
+    sha256 cellar: :any,                 arm64_sonoma:  "b43c96e5aab90cc4145b8e095421669c51e8a1c14e52f0cb0f153c500910cd16"
+    sha256 cellar: :any,                 arm64_ventura: "f251f47deb6a56d12b091c7f08d7677e1082466aca2ea495e4c35b486f17c73d"
+    sha256 cellar: :any,                 sonoma:        "d76e33b7686ef11f0b351c0a4ef632f5463d7fc38757558ed76a12b39d45b355"
+    sha256 cellar: :any,                 ventura:       "6f215532b131c95676f95194a0f93d1f450143b68953124ee8fe59cd5cc77c59"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e66e5256dd17aa4f719f90514fdf2f6be53b55c591e9f1355e64389a72005e03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "532cca65ef3d681fd80b71e4c0d7140bea31c37916d727357ceb0fdbe23a46cf"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@20"
 
-  fails_with :clang do
-    build 1500
-    cause "Requires Clang > 15.0"
-  end
+  # TODO: Restore compiler selection when using unversioned `llvm`
+  # fails_with :clang do
+  #   build 1500
+  #   cause "Requires Clang > 15.0"
+  # end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+    llvm = Formula["llvm@20"]
+
+    # TODO: Restore ENV.llvm_clang when using unversioned `llvm`
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+      ENV["CC"] = llvm.opt_bin/"clang"
+      ENV["CXX"] = llvm.opt_bin/"clang++"
+      inreplace "CMakeLists.txt", "add_definitions(-Werror)", ""
+    end
 
     args = %W[
-      -DINSIGHTS_LLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config
+      -DINSIGHTS_LLVM_CONFIG=#{llvm.opt_bin}/llvm-config
       -DINSIGHTS_USE_SYSTEM_INCLUDES=OFF
     ]
 

@@ -4,15 +4,15 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.15.13/sile-0.15.13.tar.zst"
   sha256 "5e97c19651aff710687b93292d5361cb411652094bcc8c62c811c19f7a81464b"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "791057d65933cb50c4d8ad27484f2b6d6d838e153de29fc8f95312e7e2785a53"
-    sha256 cellar: :any,                 arm64_sonoma:  "47955878faf528c2cb3c9bb91853a58c02e56e6dd00587d2e9d1dd5a3a31dbd7"
-    sha256 cellar: :any,                 arm64_ventura: "2947a239426f6aa1aa7db9e14340a18225473a00c1135f5ddead063d9448e202"
-    sha256 cellar: :any,                 sonoma:        "9d5cbae91ce3fb80c09381d1236fbbfdc302b62e9a21f179f0b6f3f12f96c680"
-    sha256 cellar: :any,                 ventura:       "e2322341d5537d844173bf3e002fc5a91c175e18e5f0519db2f91c28e3806850"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a169fa67dd41e38518571a68c655de8597e5c02fa7f2eea25d8b57876c6cfe29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58dcf197e11ada5600481377945cbd70f41cd3ed5e6ff737a355aa48b19f9215"
+    sha256 cellar: :any,                 arm64_tahoe:   "137fd80d6b6e8812d9b90cc8908c2e2c75affd9bdadd75f0d410558d712dbc73"
+    sha256 cellar: :any,                 arm64_sequoia: "d53c7a4d4bf67c91689dc483647470d9cd79db64b17fff852bb457879bfae0a4"
+    sha256 cellar: :any,                 arm64_sonoma:  "b751c2855f43928c0873190189d861ddb3bd7852377fc8896121d3b96150babd"
+    sha256 cellar: :any,                 sonoma:        "da2e73c35b48f82bcb01951b95c88b6e2495ddcf8d9394615538d731eb1f54db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "235e4e2d47371e96b17b7bc8886dc5dab2d8f0a410c2b9953705f6ef9f29fd87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bcc75f4518d9590e63400af67ed63dea2ecf7883edfc87f1be1a801fa2df03b"
   end
 
   head do
@@ -30,7 +30,7 @@ class Sile < Formula
 
   depends_on "fontconfig"
   depends_on "harfbuzz"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libpng"
   depends_on "luajit"
   depends_on "luarocks"

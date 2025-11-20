@@ -6,32 +6,29 @@ class Yewtube < Formula
   url "https://github.com/mps-youtube/yewtube/archive/refs/tags/v2.12.1.tar.gz"
   sha256 "012c1a8a185dd4ef81074631bca91e327ac4e634b36301a50ffbcd67838b847f"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 3
   head "https://github.com/mps-youtube/yewtube.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
-    sha256 cellar: :any_skip_relocation, ventura:       "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dfef9c8bed35a9cd280b2ee20f9c29b60ada0b95c536d7bdd6759bcc3c9e609"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dfef9c8bed35a9cd280b2ee20f9c29b60ada0b95c536d7bdd6759bcc3c9e609"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "64faa795f0284318e4f8b3a21f2af5cb756aa66c8b4323e408923793ffe8dab2"
   end
 
   depends_on "certifi"
   depends_on "ffmpeg"
   depends_on "mplayer"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: "certifi"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
-    sha256 "673c0c244e15788651a4ff38710fea9675823028a6f08a5eda409e0c9840a028"
+    url "https://files.pythonhosted.org/packages/f1/b4/636b3b65173d3ce9a38ef5f0522789614e590dab6a8d505340a4efe4c567/anyio-4.10.0.tar.gz"
+    sha256 "3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "h11" do
@@ -65,8 +62,8 @@ class Yewtube < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "sniffio" do
@@ -75,8 +72,8 @@ class Yewtube < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "youtube-search-python" do
@@ -85,12 +82,15 @@ class Yewtube < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/a2/11/333d16f88b1515d4c601e1dfbf1028e6798f0b2a8ff1dc5aaa7b797aa9e8/yt_dlp-2025.3.31.tar.gz"
-    sha256 "1bfe0e660d1a70a09e27b2d58f92e30b1e2e362cc487829f2f824346ae49fb91"
+    url "https://files.pythonhosted.org/packages/40/98/b077bebdc5c759a3f7af3ed3a2a5345ad1145c61963b476469b840ac84ce/yt_dlp-2025.8.22.tar.gz"
+    sha256 "d1846bbb7edbcd2a0d4a2d76c7a2124868de9ea3b3959a8cb8219e3f7cb5c335"
   end
 
   def install
     virtualenv_install_with_resources
+
+    # Build an `:all` bottle by adding a file only used in linux to macos
+    (libexec/"share/applications").install "yewtube.desktop" if OS.mac?
   end
 
   def caveats

@@ -1,25 +1,29 @@
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.114.7.tgz"
-  sha256 "c11119844956c8b61240d2d95dbaa225cf8af1516f98d404595c43cc71a777ee"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.119.8.tgz"
+  sha256 "7db72cfeebc7cb999dea4b064dbaaca1d79c8ec311c70f2e201737a8c230aaf5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f9b3ff3392a278f66ed5432d41b65b4a17c99e543976219731a730d9c7ca81b1"
-    sha256 cellar: :any,                 arm64_sonoma:  "b154822281d15f8841ac7a8476c3c60279c5da752cb2b40115845aec6ea88ebd"
-    sha256 cellar: :any,                 arm64_ventura: "499772fa0da9d631feec5467f35ac2e576d302a6265d85596dcd30f92154da34"
-    sha256                               sonoma:        "596224b923663f3ccd58b11890c7c24add51f092a78398f85ceccf35379547c0"
-    sha256                               ventura:       "cb2ff569e358f68496504ff97f715cd1472a28d1600c9fadb0558ec1ce9d3da4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37a1bdde70c187a512e5da1709f9670040c64c2af63ea8f6d79df64f49070807"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32f9409a1056ee00a5a00486edab9117a1d01d0b1d7c4f9c6e1a99667deea722"
+    sha256 cellar: :any,                 arm64_tahoe:   "67de3ef2ceb95e3e642c468f96f5a2fa43222ea3b307868a356622dc90962936"
+    sha256 cellar: :any,                 arm64_sequoia: "61fa9242e9303d156f9265311ff4dcb25f063615bfd153ca3e74e0c6141a9cda"
+    sha256 cellar: :any,                 arm64_sonoma:  "b7e2c0e9880533e073e14889ed676dc265f45472735e44f62f1ad768d4018c2c"
+    sha256 cellar: :any,                 sonoma:        "9d586c0561ebd51af133a59f88b5f31b329c6af2caa29e1d7863adb38f737763"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "693c8315b28c47b824f51b40c8389f07b44a7ded29dd037ac6f9c683cfbe3d81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23bc9433af15a126006ac4c3a490ae8c5cdcf40d54a12304ce5746c0b3cda949"
   end
 
-  depends_on "node"
+  depends_on "node@24"
 
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Remove incompatible pre-built binaries
+    node_modules = libexec/"lib/node_modules/promptfoo/node_modules"
+    ripgrep_vendor_dir = node_modules/"@anthropic-ai/claude-agent-sdk/vendor/ripgrep"
+    rm_r(ripgrep_vendor_dir)
   end
 
   test do

@@ -6,6 +6,8 @@ class PyenvVirtualenvwrapper < Formula
   license "MIT"
   head "https://github.com/pyenv/pyenv-virtualenvwrapper.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "0aeb3455529d63f4cd1ca55acb525e4f38e1fc7b8dca986302f475bc8596a650"

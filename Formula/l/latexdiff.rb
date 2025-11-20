@@ -6,15 +6,8 @@ class Latexdiff < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2733f594fcc18b912a6ed5085f365f2c18e441986ef76941df61692ae6104280"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd4029165843d24c4a920c3d66a9ae972b5b7be28b4a304d742d718e513be702"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd4029165843d24c4a920c3d66a9ae972b5b7be28b4a304d742d718e513be702"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd4029165843d24c4a920c3d66a9ae972b5b7be28b4a304d742d718e513be702"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a25ecc5e1e606ed064a253fe450afef53dd94d9a43a8c5113f8ee2e226af1a47"
-    sha256 cellar: :any_skip_relocation, ventura:        "a25ecc5e1e606ed064a253fe450afef53dd94d9a43a8c5113f8ee2e226af1a47"
-    sha256 cellar: :any_skip_relocation, monterey:       "a25ecc5e1e606ed064a253fe450afef53dd94d9a43a8c5113f8ee2e226af1a47"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "1a230eb09bffbf99ebf1b39acc145a728223d5c97a4ade526295743f02fa1a97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e878eba7d85094fc7b5622f3d7eef4e9ff0d9dc1c97e4babc0f474ac26520485"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1a230eb09bffbf99ebf1b39acc145a728223d5c97a4ade526295743f02fa1a97"
   end
 
   # osx default perl cause compilation error

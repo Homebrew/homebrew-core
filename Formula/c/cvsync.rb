@@ -14,6 +14,7 @@ class Cvsync < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:    "c43def4368772309b8643caeb7345217880da0440f8eb42c8602238e3a676d93"
     sha256 cellar: :any,                 arm64_sequoia:  "c5f77cf63c61c0042ebacea31bc3d2e7548afc08ec738fd6f0a8baf3180b4795"
     sha256 cellar: :any,                 arm64_sonoma:   "db4846fa5c20e6e946dd8b3398ca22de82c934b97018ddab899c0bed8a178d22"
     sha256 cellar: :any,                 arm64_ventura:  "86f6fe30422f903827d29782f74e2eff93e7a2f0a86b4775747c9077cde03564"

@@ -8,11 +8,14 @@ class Imgp < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1b0ee7ffcfa799ee0c2157c291db758e12bc1d7ad6a29fa7403fcbe3f7d29394"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1b830407f142350dedaa37c6eb4943fb97d59420c9f37ac79e2c0221ed4350e0"
   end
 
   depends_on "pillow"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: "pillow"
 
   def install
     rewrite_shebang detected_python_shebang, "imgp"

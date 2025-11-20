@@ -14,6 +14,7 @@ class Clipsafe < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0d6770ba30e28cfbf9d6df26db38b2eb322ce9a67edf75a168ab3dc725b13ec7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f89dd5bba339827c6fe702e1bb88c77ef5bd58e30b464129c7ff2e6b72d2120"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5ae9bff8d772fa615a3e159c320a243211726b81664e11def14db996a23d6e8"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "289ae273376bacbbf897381fef5c151aad366d4e1ccc1bcbf6699301b01674bf"

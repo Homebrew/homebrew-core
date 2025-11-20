@@ -7,16 +7,18 @@ class Gimmecert < Formula
   sha256 "eb00848fab5295903b4d5ef997c411fe063abc5b0f520a78ca2cd23f77e3fd99"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "ce6b72c7aa229c3fd7341fa4c132c47b341bc8a972e70b0db0a94e57304b50b5"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "131301a3467e90afb96224fdccf103949029d5f963f612f3bf5f512f81adbed0"
   end
 
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: %w[certifi cryptography]
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
@@ -28,7 +30,7 @@ class Gimmecert < Formula
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
-  # py3.13 build patch
+  # py3.14 build patch
   patch :DATA
 
   def install
@@ -36,10 +38,10 @@ class Gimmecert < Formula
   end
 
   test do
-    output1 = shell_output(bin/"gimmecert init")
+    output1 = shell_output("#{bin}/gimmecert init")
     assert_match "CA hierarchy initialised using 2048-bit RSA keys", output1
 
-    output2 = shell_output(bin/"gimmecert status")
+    output2 = shell_output("#{bin}/gimmecert status")
     assert_match "No server certificates have been issued", output2
 
     assert_path_exists testpath/".gimmecert/ca/level1.key.pem"
@@ -58,7 +60,7 @@ index 30621bf..8ac3b28 100755
  README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
  
 -python_requirements = ">=3.8,<3.13"
-+python_requirements = ">=3.8,<3.14"
++python_requirements = ">=3.8"
  
  install_requirements = [
      'cryptography>=42.0,<42.1',

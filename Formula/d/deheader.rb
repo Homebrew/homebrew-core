@@ -7,9 +7,11 @@ class Deheader < Formula
   sha256 "553fd064a0e46ff5a88efd121e68d7613c5ffa405d1e7f775ce03111eae30882"
   license "BSD-2-Clause"
 
+  # The homepage links to the `stable` tarball but it can take longer than the
+  # ten second livecheck timeout, so we check the Git tags as a workaround.
   livecheck do
-    url :homepage
-    regex(/href=.*?deheader[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   no_autobump! because: :requires_manual_review

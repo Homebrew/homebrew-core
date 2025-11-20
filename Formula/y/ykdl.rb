@@ -8,17 +8,16 @@ class Ykdl < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb541b86eded5d4bcc6262795c769d284a9e3c37f42f70121d43864f4066dc1d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14fc581b3aa8b20eea38a546892b72a858dc746e66ac805339e80b30eea0ae03"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "97ab80854fd7a7802859506993abdacf466114339a6717a7b0a1010542c3f407"
-    sha256 cellar: :any_skip_relocation, sonoma:        "724042f1d05d799c130ad4715877f1b30919f7c0b3e8571f3b9158ad12e1dac0"
-    sha256 cellar: :any_skip_relocation, ventura:       "2b8f5f155f13edb4eafb86168bf7e4b3d68ad5a5a68538892458e92233f226fc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a69f74467e2cf7ce089700c74580f702be503620dab68542b2df565c42b3f247"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb541b86eded5d4bcc6262795c769d284a9e3c37f42f70121d43864f4066dc1d"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dcfdd44c710a9891af4829313a096befb361c2708ede5fede7569a7b3f74c7c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "064f73209fcb6b73b9cc7fbb53b6b50af4a409c07f8ae1cf4ec03b625ecea5fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6e596fdb73331b055055570d42b4199feeb9591dc7ad6b2052abe1ac0141b828"
+    sha256 cellar: :any_skip_relocation, sonoma:        "064f73209fcb6b73b9cc7fbb53b6b50af4a409c07f8ae1cf4ec03b625ecea5fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "064f73209fcb6b73b9cc7fbb53b6b50af4a409c07f8ae1cf4ec03b625ecea5fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcfdd44c710a9891af4829313a096befb361c2708ede5fede7569a7b3f74c7c5"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "jsengine" do
     url "https://files.pythonhosted.org/packages/bc/0a/1321515de90de02f9c98ac12dfa9763ae93d658ed662261758dc5e902986/jsengine-1.0.7.post1.tar.gz"

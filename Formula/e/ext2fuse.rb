@@ -6,8 +6,6 @@ class Ext2fuse < Formula
   license "GPL-2.0-or-later"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, x86_64_linux: "fe9d3ea0a65c95de091aecb536ee498015bdc07b7c12e4367617cf9e78c76941"

@@ -6,8 +6,6 @@ class Antiword < Formula
   sha256 "8e2c000fcbc6d641b0e6ff95e13c846da3ff31097801e86702124a206888f5ac"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_sequoia:  "f3a917d197df7b1a9e21a9e604593783436adff1b8c6854a85ef417abc3ca21b"
     sha256 arm64_sonoma:   "393500bd0690bd7fdb9ed258a1ce7882f518db42ec14d380421f771467080bf6"
@@ -19,15 +17,12 @@ class Antiword < Formula
     sha256 monterey:       "2532dc5dd6a92569c650fd6bb490fae31c49d79234948c224f51df5910fbecc9"
     sha256 big_sur:        "d155e9094844588db872b6791fe727bb72fac4a72d9897bac768a813c1bf273a"
     sha256 catalina:       "7f62624bf238ba077370f6e8e223704b57eee461f2bbaddc47de8e4b5c5a4eda"
-    sha256 mojave:         "63b4aa9e31936c405039161b1ae728d76472bb9932a7b460e1fdd7a1276ee5ad"
-    sha256 high_sierra:    "cacd3e8a83231fd139a5b845f17fb99a34f728d10df2eb6289457037ee8c827f"
-    sha256 sierra:         "6456be83a3f867a0df1121b7c7b6c413d94d1e38bc920c9c5fda73851265fb2e"
-    sha256 el_capitan:     "ffc3b61781ffb2ae04537e34b28a19a4fe33683c534dd2d1504d2ec8d5ef4bef"
     sha256 arm64_linux:    "80b3df205c403d29dc8f09ddfd181a3418b2ad6b84f7f54029717d1326896a48"
     sha256 x86_64_linux:   "12935daff8ed3ffc2a68b8be542ea190bff6d7d2a2d46c854080d4023346d526"
   end
 
   deprecate! date: "2024-06-19", because: :repo_removed
+  disable! date: "2025-06-21", because: :repo_removed
 
   resource "testdoc.doc" do
     url "https://github.com/rsdoiel/antiword/raw/fe4b579067122a2d9d62647efb1ee7cfe3ca92bb/Docs/testdoc.doc"

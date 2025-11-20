@@ -12,6 +12,7 @@ class ArpScan < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "a4212527be3b73cd4a5481e13014f6612f027139d5c0851ff3afca4f1828b137"
     sha256 arm64_sequoia:  "14249f8af1f8fa4a87cec61eeed1b7d2e15bdbdf917736eeb0a0fb5ec2be5b81"
     sha256 arm64_sonoma:   "bb46467cee8e1d7b24a8e7716cbdfacd2b8697c031d26a07658b8618557ff773"
     sha256 arm64_ventura:  "190e487560ceb1e564444c501f9bd814b2401d034e792a9c44b3d5f9a65ba720"
@@ -27,6 +28,8 @@ class ArpScan < Formula
   depends_on "automake" => :build
 
   uses_from_macos "libpcap"
+
+  conflicts_with "arp-scan-rs", because: "both install `arp-scan` binaries"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"

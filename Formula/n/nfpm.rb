@@ -1,18 +1,18 @@
 class Nfpm < Formula
   desc "Simple deb and rpm packager"
   homepage "https://nfpm.goreleaser.com/"
-  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.43.0.tar.gz"
-  sha256 "5575a14fc6bd4ce555d3bdfc5453e65bcd62e592a5163aa65ef9f1434bdbb283"
+  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.43.4.tar.gz"
+  sha256 "7df017567b12364cfadefa78d59909ae0a3672f760c4c0a8ab5b15df40dfbd27"
   license "MIT"
-  head "https://github.com/goreleaser/nfpm.git", branch: "master"
+  head "https://github.com/goreleaser/nfpm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "330ede9afc1032c0f42e600c33d6c1a7f3a2f1558600ee8e560b8513c03d912a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "330ede9afc1032c0f42e600c33d6c1a7f3a2f1558600ee8e560b8513c03d912a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "330ede9afc1032c0f42e600c33d6c1a7f3a2f1558600ee8e560b8513c03d912a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b38534997ec8301872086c84b74445b1a5cec0960cd195b2d444b6b2b729443c"
-    sha256 cellar: :any_skip_relocation, ventura:       "b38534997ec8301872086c84b74445b1a5cec0960cd195b2d444b6b2b729443c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc22f1ba1f8307683c5075681b37ad011dd41ddfff2d04aee9e72d8ab8eb6c33"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f9b367b659ea41f27e5fcc41878fad3cfe7e73a6a4043569e8bb53fa7450a560"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9b367b659ea41f27e5fcc41878fad3cfe7e73a6a4043569e8bb53fa7450a560"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9b367b659ea41f27e5fcc41878fad3cfe7e73a6a4043569e8bb53fa7450a560"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e7141c98a56a8ce6bf246b57336229e8931bdcd3a27a1940f6b98e5659a0f9f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1526ec819aaf209da00da1d0099410308f3b786dfc10309898eed249e1838e56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a67d52167dd13f4a151ef400dc47198c11cede36d49680bae1757695baad600"
   end
 
   depends_on "go" => :build

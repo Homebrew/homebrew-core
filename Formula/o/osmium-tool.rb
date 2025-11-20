@@ -4,22 +4,25 @@ class OsmiumTool < Formula
   url "https://github.com/osmcode/osmium-tool/archive/refs/tags/v1.18.0.tar.gz"
   sha256 "5438f57043c9df05137ca4bd1b1e4a5fb1c9c8c49cb4bec43a5f1ef30ed68fb5"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0cab1102b6f99a0d5556f3f928b3ce66c47168a3af0a2c9f68515688b66cb725"
-    sha256 cellar: :any,                 arm64_sonoma:  "40315fb6f5f58d47790c6157cf87b558f77cb69c2b58b26bf1d614b059304a68"
-    sha256 cellar: :any,                 arm64_ventura: "0a22fe26b6c72c6e121016d76297cf9d27554bca154d89615bb7b6c810c4b396"
-    sha256 cellar: :any,                 sonoma:        "367ed9eedac294312bfd850de02a3b473756c5087a29bc9aa419cd866aad6667"
-    sha256 cellar: :any,                 ventura:       "34d3160c4d7488c5a7bde951b81de589cd93477d7d75ba69ba6209424fa7e2a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "68645a5288ae2d775939bdd3d860712854ad59d7595ce3bfd167a093f6f2e9be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4b896b74aeb6e8c6104bfec7cf7c29f6e0b79d97830c518e8a8331800695edf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "39ab8848b7d3cd170e244d6b41e8c7f367331f25f6cf3fa32f68d64679f9a001"
+    sha256 cellar: :any,                 arm64_sequoia: "b886fcf15d6f433f85d93af8b7b5e50d28ab7d65ebf0db6fa25988fad440c248"
+    sha256 cellar: :any,                 arm64_sonoma:  "5b609383ae13cdd88a464a02f49edd29eccc95dd1fa7cdb3f1f3eb217e80c259"
+    sha256 cellar: :any,                 arm64_ventura: "e91c59db15ddbd9abd1a82d3245e8673e405ee9bb4294a94802bd93785e13dd1"
+    sha256 cellar: :any,                 sonoma:        "834c9965363b4920ae4d7ff2b53dafd9a9707cd489a56e5fe0b9212c8407ec24"
+    sha256 cellar: :any,                 ventura:       "af40e84b8362633d1e8b37e74b89c61bddac06254ee548fed4d53d535f989043"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1d278d2df1034fbdb2e72a6fefa9e6cb7c2fe6e885040782d5179302f167b84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9866803a6ed76ff8ea79186e180b44fe9c81d3c8fbc904bbbffe5e32a90cab20"
   end
 
   depends_on "cmake" => :build
   depends_on "libosmium" => :build
   depends_on "nlohmann-json" => :build
   depends_on "pandoc" => :build
+  depends_on "protozero" => :build
   depends_on "boost"
   depends_on "lz4"
 
@@ -28,7 +31,7 @@ class OsmiumTool < Formula
   uses_from_macos "zlib"
 
   def install
-    protozero = Formula["libosmium"].opt_libexec/"include"
+    protozero = Formula["protozero"].opt_include
 
     system "cmake", "-S", ".", "-B", "build", "-DPROTOZERO_INCLUDE_DIR=#{protozero}", *std_cmake_args
     system "cmake", "--build", "build"

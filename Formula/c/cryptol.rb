@@ -7,19 +7,23 @@ class Cryptol < Formula
   head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "036f1699ef23e07d214b12ecd13e2a3f874e8546150628e03ab09d1cc4cdecfe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29d817b9266776e61b772285651066d2ac1d4c7184b7361abce9a383eeaa7bb6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9035c6aa3b4bbc1e9f9731f92db90843d1e74dbb59d99930c737cc8510dccf59"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f26c5cc0f8e1d29455ffdf7d0875a1014b8b08929c62cbf6979e54eb24d1f816"
-    sha256 cellar: :any_skip_relocation, ventura:       "9d37ae517d04c7def64d26f0451d8ac964c41e7d025dc204a01c68069920b386"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab55afae719399479d3b8f9ca9499f9fa7d26a5c8e5c985484d287d9234165b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d20522798fa5c6f11bc1bfab9506e4805bcc6b0eb675ccdc6e310c975809257"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0b483d4d43bc85f9116569c83cfe63447e2cba780e009303cadc55466e0f8713"
+    sha256 cellar: :any,                 arm64_sequoia: "f7b7abf27af0b5ca3f8b8d3fd5288e0ecb9c6afaaeb83bae498a598d4fc30bd8"
+    sha256 cellar: :any,                 arm64_sonoma:  "a03b8f86803c0144c2cbdcb7d632cb0a3386fd489ecf213bd6d3b673b034554a"
+    sha256 cellar: :any,                 arm64_ventura: "03e540dd50bd3460edb5ad7fb9f2177b4835b4f28be31b9c234bf81a270f6042"
+    sha256 cellar: :any,                 sonoma:        "e25c25b3fef0ea6a40a48f8c91b8c85e51d047b7ab0a241a673ef87e8e8dce8c"
+    sha256 cellar: :any,                 ventura:       "d2a976bb8d59a3420de74f51a86ea8334405959a719b17af0728320bae796518"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "553cf6f09cadf9872eb2c416530e93b543e10f0140f343754781e8dae33587a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "810c037408fef1a2d44064270af18b78d964fc198b06898944ee0d7121cf38e3"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build
+  depends_on "ghc" => :build
+  depends_on "gmp"
   depends_on "z3"
 
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

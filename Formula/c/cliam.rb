@@ -9,6 +9,7 @@ class Cliam < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bdbb9e4d7e3ab70487a38e936259d6930f3cfcf8595a0d386fe31fed365f326a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "97fc79aa1d589ee7a6deff3bee41579070570cb721217851da1a327c9a9a9efb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "437320520b17ed0562c0aaa5cb931385823cdb79396d80e1a00b38502f3ef1e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "692e06fb736fd26d5e37dbe2a17c29df8903ac8ebf268ad12540dc07b1cc86c4"
@@ -16,6 +17,7 @@ class Cliam < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "2a6d64eb832b3f1c9697a494a1e81a126ca99642242e5bbd9eb0b7d5f49801f4"
     sha256 cellar: :any_skip_relocation, ventura:        "5fd86d65d9168a5cf41321b8e972326c9a5d0f387cda0829aa20e95fa55bc016"
     sha256 cellar: :any_skip_relocation, monterey:       "2ffb08eafd8af22b575ec3380b2a17e61ea6bafce22d9335c951aba4e8d9e7b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4f73cfe2097f8574bed1d44bc8fd29cd66a95e122dbb8866d17724a1ff2a7aa1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "25ab86af9ed168ceecfafde29cbc74503b4c929ab102e94492c8e423145b55d6"
   end
 

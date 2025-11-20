@@ -1,20 +1,12 @@
 class Asciidoctor < Formula
   desc "Text processor and publishing toolchain for AsciiDoc"
   homepage "https://asciidoctor.org/"
-  url "https://github.com/asciidoctor/asciidoctor/archive/refs/tags/v2.0.23.tar.gz"
-  sha256 "72d271de1fccd3610e6f12bba29be1a3b6c8c813c5b2f3a12491ffc423090518"
+  url "https://github.com/asciidoctor/asciidoctor/archive/refs/tags/v2.0.26.tar.gz"
+  sha256 "25c22b934bc0ae2448f2d73d4b2eba0c59e0521cf5e893fb0b0ad54a461bf066"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0e22867759dbac0647abe6e8a89fbc85ff2abdfc8feca72b04a354e43ec82dd8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98d673578b71fc61fcfbae82914b8836d7cb8cf00943c453d1734412e76522ae"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b633e081e4ac8c4f30ac1166c7ab756307724c788209b7b7981e0ebc4d2cf54a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f1cd991e0e82b564540e53b37037c666e066ddeed28d32d7b178ee04ba59c41"
-    sha256 cellar: :any_skip_relocation, sonoma:         "522247415d5dca5d39056e6a6c2598c15f16d2e9a5c17cf6dd5bf807f9d971ae"
-    sha256 cellar: :any_skip_relocation, ventura:        "153aa583433922871932d0a9546f98f2ae71933e46dc0eaf120fb7c664c157d6"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa9fef3b8866426e0aac8f523dc488b90eee4d6ef6fefa9a49eac92c224dfb5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c9095c205167b06a773ec25415de933c6472e21c41bc98089d59fca197aaad83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3b2cc8dd6df0643b5fffbec0c01a69cc80a249b6ee62677169d51c3e1df7697"
+    sha256 cellar: :any_skip_relocation, all: "83482da376e6cbc52582198a08c0a04cd652f0560df93c5c496bed02053cc818"
   end
 
   # Some gems require >= ruby 2.7

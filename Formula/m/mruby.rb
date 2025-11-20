@@ -7,6 +7,7 @@ class Mruby < Formula
   head "https://github.com/mruby/mruby.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b02685c5cee6b7c01b11864e751fcfdc66112bdecd861e978b3aefc0e888270f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e76e20320c6a2d04d0af8785e59a94aa7e7d992a5db9a50ffbb34cb068a9b44"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d711085007c9d6fbc59688e73419eab05b717ebf53fdc1a42f870453d2e4b3d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cf53080c3b6edbf118092341d45846ae988fddcc6fc2cd7f24e779791e4fac2a"

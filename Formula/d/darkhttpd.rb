@@ -1,20 +1,19 @@
 class Darkhttpd < Formula
   desc "Small static webserver without CGI"
   homepage "https://unix4lyfe.org/darkhttpd/"
-  url "https://github.com/emikulic/darkhttpd/archive/refs/tags/v1.16.tar.gz"
-  sha256 "ab97ea3404654af765f78282aa09cfe4226cb007d2fcc59fe1a475ba0fef1981"
+  url "https://github.com/emikulic/darkhttpd/archive/refs/tags/v1.17.tar.gz"
+  sha256 "4fee9927e2d8bb0a302f0dd62f9ff1e075748fa9f5162c9481a7a58b41462b56"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8acef684427142565d90c96db616fa7bcf1a28bf0d4fca71aacea8fc8cab2996"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5e57b5d8505d7a4073aa5d3bc46d06482332241cc7e28bfa2ba6a1257100ceec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0754b61bb91a3ffc1ac81c6b9caa11d3f165025abc78ea02faf114c8680ed236"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3eba7b21645b53ce4129a5225d757046ed601d2ca937686aebd11b80bd381be"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cda44bc98470b2f53b0485af56ee360630c05ad1a8a1a05bca5c9ca0ea982e47"
-    sha256 cellar: :any_skip_relocation, ventura:        "9f424d6282015f95909fef901b9519f6c4d6ac8b42af1cd08cdd8b889b2b7ef5"
-    sha256 cellar: :any_skip_relocation, monterey:       "cd10faefba5c4988de8011263451f734e6e05a222839b6cb3218764643da4835"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b600432ced2e8b7addb47da3eb1846b175997d92836672303579e7b44416e46d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb8cd915b3d815dbae18a6a91f7f6027569d5d020101c19fde5d035d5d433a74"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d789a550bcdedb7039ec2eb15b5c6a57f93d8848fc471ab97caa8ce324fa04e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c69e08e8c2ebf5a9a688b1b8ef04023479a883c4cb59fb37f4d079e552bfcb3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "442e6a89ba63bf57480ce24b9f1b1328df91acfcd2232965ff60649a4f72cf28"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c91049fd08525931a2723036bc87b1bd4e43eac4f35faaef7fdb299be8e509d2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e7fb32f512690f230d1ef4febeace561eaa4dc0837b40cf5b59a71f0f91da6d6"
+    sha256 cellar: :any_skip_relocation, ventura:       "cba66b5df314cfe3df8307c5c35b5aaae430e9019038ee2392c58f2e3bcc3b47"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f98b866298dad9e43a231d2414160dec2b5782fc859edc12f766a49a3eaebb11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "576d06ada412f04a6d4d8bea220aeb09a85f108cfe4457a4002d0c849996b44c"
   end
 
   def install

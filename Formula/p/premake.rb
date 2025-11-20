@@ -13,6 +13,7 @@ class Premake < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2dc23c50c92584a54178a98a2dfe5a19feedd8ed3dfa036df57a7fe78a699849"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "17a38d85ea292defa6e0f96af719c574203fe799a2bfcf3434f35ec4f4dbae4d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5ca85506485fb7ba8ba9be1b0fde896f4e63487a7e2d144151c3820b0cf550a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1b3390965bb92d8be8b1e44fd5456d79e0bd016c7ce6bf5033a94d4be02f3773"
@@ -30,6 +31,13 @@ class Premake < Formula
     # Fix compile with newer Clang
     # upstream issue, https://github.com/premake/premake-core/issues/2092
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
+    # Fix to avoid fdopen() redefinition for vendored `zlib`
+    if OS.mac? && DevelopmentTools.clang_build_version >= 1700
+      inreplace "contrib/zlib/zutil.h",
+                "#        define fdopen(fd,mode) NULL /* No fdopen() */",
+                "#if !defined(__APPLE__)\n#  define fdopen(fd,mode) NULL /* No fdopen() */\n#endif"
+    end
 
     platform = OS.mac? ? "osx" : "linux"
     system "make", "-f", "Bootstrap.mak", platform

@@ -62,10 +62,12 @@ end
 class GlibcAT217 < Formula
   desc "GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
-  url "https://ftp.gnu.org/gnu/glibc/glibc-2.17.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/glibc/glibc-2.17.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/glibc/glibc-2.17.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/glibc/glibc-2.17.tar.gz"
   sha256 "a3b2086d5414e602b4b3d5a8792213feb3be664ffc1efe783a829818d3fca37a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1
@@ -92,7 +94,7 @@ class GlibcAT217 < Formula
   # Backport of:
   # https://sourceware.org/git/?p=glibc.git;a=commit;h=43d06ed218fc8be58987bdfd00e21e5720f0b862
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/41fdb9d5ec21fc8165cd4bee89bd23d0c90572ee/glibc/2.17-aarch64-dl-machine.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/glibc/2.17-aarch64-dl-machine.diff"
     sha256 "ece66819f9ef3a1b73081d0f5cda8c814b5204d25c07f8a7adb8209ee286c39d"
   end
 

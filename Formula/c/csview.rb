@@ -8,6 +8,7 @@ class Csview < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8737fd09dc38bfd517f18fbc77fdeefaa5e81be68c1cbf2f9229cf4496c63267"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "25e89b345b9a280bb3e1ed9131878aa372277f1b8ac5647938f4056fd8267a97"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e558ed523b25a07d5d6110f2686154c2f1b43ee5fe4e28cc63d1287f475292c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "726c20bdf56990f680feea91504782ff3ed966ff27a4d63ac2fd7d8e9244e70c"

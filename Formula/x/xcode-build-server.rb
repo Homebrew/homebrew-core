@@ -8,6 +8,8 @@ class XcodeBuildServer < Formula
   license "MIT"
   head "https://github.com/SolaWing/xcode-build-server.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "3ac127101dc6e3887a1d9baebf97452cf19b129c4ab75667c16719484fd38a37"
   end

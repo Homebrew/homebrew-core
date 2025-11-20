@@ -9,10 +9,11 @@ class SshAudit < Formula
   head "https://github.com/jtesta/ssh-audit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a2e7fb5fb4eb20ac00402d3920f4a37a624da249adf432d38ecc9f9158274872"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1ac5df2410976a103b41d73e25db9056a6b50c71a266a32047a6cefd253f04e6"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

@@ -7,6 +7,8 @@ class RbenvCtags < Formula
   revision 1
   head "https://github.com/tpope/rbenv-ctags.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "93ff69e4515aae2a296578472b395c3bc8721fc711327c6f2a9126111910700e"

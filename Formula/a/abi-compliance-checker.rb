@@ -6,14 +6,13 @@ class AbiComplianceChecker < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/lvc/abi-compliance-checker.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "06af34b7632a01e00b3d6d5ad826d4102e7a840e32b4a0a0bc2a58c3fc799cef"
   end
 
   deprecate! date: "2024-06-05", because: :unmaintained
+  disable! date: "2025-06-21", because: :unmaintained
 
   uses_from_macos "perl"
 

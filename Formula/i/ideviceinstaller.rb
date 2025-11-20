@@ -1,26 +1,18 @@
 class Ideviceinstaller < Formula
   desc "Tool for managing apps on iOS devices"
   homepage "https://libimobiledevice.org/"
-  url "https://github.com/libimobiledevice/ideviceinstaller/releases/download/1.1.1/ideviceinstaller-1.1.1.tar.bz2"
-  sha256 "deb883ec97f2f88115aab39f701b83c843e9f2b67fe02f5e00a9a7d6196c3063"
+  url "https://github.com/libimobiledevice/ideviceinstaller/releases/download/1.2.0/ideviceinstaller-1.2.0.tar.bz2"
+  sha256 "26115288e50d003bbb7d23c05441c54ea69b255974303bfd44fef6943e042f94"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/libimobiledevice/ideviceinstaller.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "42ce06edd2a59ca8e25f460c6d66689c04587f4779bf4ef4f965b5c7d01b89c4"
-    sha256 cellar: :any,                 arm64_sonoma:   "818061a6b3ede66696892086a119faa1df036d6d4a3242672fdb955db0d23e6c"
-    sha256 cellar: :any,                 arm64_ventura:  "dfaf6de5dc0578c882412ef904195d77a6aacf7f1b9b28855ba5d8610ce17ca1"
-    sha256 cellar: :any,                 arm64_monterey: "64803ee9f44f71a81476e4f609a96be3c33276da4eaa07f5f4c402e758fbd18c"
-    sha256 cellar: :any,                 arm64_big_sur:  "b76c11584f52a003b8b473a8b6e74a44244255b372d129a9dc0c89ae920a6c6b"
-    sha256 cellar: :any,                 sonoma:         "904a3bd25f933d636a094b0f16aaa8559fddac5c50f13e749b533c02f7717de6"
-    sha256 cellar: :any,                 ventura:        "cca7171c1e51ae86824029858e05c382a4f8088644aa0ac1d075c8d8a901b5ee"
-    sha256 cellar: :any,                 monterey:       "baade9b3f29b7de45b0ddfd66f911eadaba2b7d4a2fe6601e69f660757400ff7"
-    sha256 cellar: :any,                 big_sur:        "76b96ca732ae1bbba325139477cca6fe6f601cb62f0435232e497d619c56d828"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "0f75dd2a9a73912f8e655a54be16b59e92a99db898d95bd482dde4d2f434d6f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85e4dd1751770e3068d164a48202b714923ac6acb344934f67ee2c9b6bd5b375"
+    sha256 cellar: :any,                 arm64_tahoe:   "40252ee42c978cd9772f4722a842d6df4c740bdc75016bc12a43d048177cbd9e"
+    sha256 cellar: :any,                 arm64_sequoia: "86009ba2f98d2f62f1ecf06050ec1bae498563cc798ef8145523683ac0610a9b"
+    sha256 cellar: :any,                 arm64_sonoma:  "b0b1ee1e1e2b51f9f26bdc5734850a520caf8d492dd6ba1f3ad89d230a379142"
+    sha256 cellar: :any,                 sonoma:        "b499a23005d13e350b43f4e72fe58c2ce52656d998c8dc5f8477a7ab28a4d05d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb0bf7d7b34adb781f9228da0f456d54624f8c8bf3a7689931a391d6735fe69d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f9ad95e575560317e3e1dd048d120baab443565b20338c41f070bced2b4d25f"
   end
 
   depends_on "autoconf" => :build

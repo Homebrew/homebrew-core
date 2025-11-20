@@ -8,8 +8,6 @@ class Gitless < Formula
   license "MIT"
   revision 16
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia: "1c40014729e41a0a003e1ee46e5bb19a36f009c711b62ce4fb2e231f8734115a"
@@ -23,6 +21,7 @@ class Gitless < Formula
 
   # https://github.com/gitless-vcs/gitless/issues/248
   deprecate! date: "2024-07-17", because: :unmaintained
+  disable! date: "2025-07-17", because: :unmaintained
 
   depends_on "pkgconf" => :build
   depends_on "libgit2@1.7"

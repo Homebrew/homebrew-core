@@ -1,9 +1,10 @@
 class PythonAT310 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.18/Python-3.10.18.tgz"
-  sha256 "1b19ab802518eb36a851f5ddef571862c7a31ece533109a99df6d5af0a1ceb99"
+  url "https://www.python.org/ftp/python/3.10.19/Python-3.10.19.tgz"
+  sha256 "a078fb2d7a216071ebbe2e34b5f5355dd6b6e9b0cd1bacc4a41c63990c5a0eec"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,18 +12,21 @@ class PythonAT310 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f547a93c08bb544535e41f45dc74bf8ff916b79ca1c9c117f17207863508615a"
-    sha256 arm64_sonoma:  "60651e0f85aa0bd918e322452c5cff544fde09eaf34861caedbf8256c75caaea"
-    sha256 arm64_ventura: "1ad823ba8f193ab49a45ce5969cd5e29cfe3c6346919d9085f8f1b24467d14e2"
-    sha256 sonoma:        "bda9f2688968a4fa9f008fd0e4eddfdee7fc0ac806fb7801e94d4d196b16f353"
-    sha256 ventura:       "5e0136baf35143104ea828abb82cc9e92e68c14a8e91f103cb1e4c7df3cf811c"
-    sha256 arm64_linux:   "36a9bd5b217c038bee48f64080f8e7dd2004aac35b64eaf0df2e657352ea74f9"
-    sha256 x86_64_linux:  "0a8406b5b59085c1210784103e53fb13d21fdc52c55703c3200b68aa4d11b455"
+    sha256 arm64_tahoe:   "f147213c973175c225164fca912a33fb455342c0c93e0f70c53da7217f11137e"
+    sha256 arm64_sequoia: "ff18e23ca5efc90534a9234b1365ff180290e82a74f2aa6e8bd82220504737a2"
+    sha256 arm64_sonoma:  "32bda2aa0fa7c62e409e31e170d028f9b4834f5e414be9cd9c8fcf2920c24122"
+    sha256 sonoma:        "41d2532e5b733bfeb604e68013faeb925706d371acf5104e63493c9ec808ef35"
+    sha256 arm64_linux:   "423100f9ecf8fb21a9e79e9acfd9464aa3fe54034371592390eae90697674313"
+    sha256 x86_64_linux:  "31db8c1c6a4a7a3e16ca822f324cb078244aa57c139d4c2b5ea5cb9fc2ee01ce"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? only_if: :clt_installed
+
+  # https://devguide.python.org/versions/#versions
+  deprecate! date: "2026-10-15", because: :deprecated_upstream
+  # disable! date: "2027-10-15", because: :deprecated_upstream
 
   depends_on "pkgconf" => :build
   depends_on "gdbm"
@@ -34,7 +38,7 @@ class PythonAT310 < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
@@ -45,6 +49,9 @@ class PythonAT310 < Formula
     depends_on "libtirpc"
   end
 
+  pypi_packages package_name:   "",
+                extra_packages: %w[flit-core pip setuptools wheel]
+
   # Always update to latest release
   resource "flit-core" do
     url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
@@ -52,8 +59,8 @@ class PythonAT310 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/59/de/241caa0ca606f2ec5fe0c1f4261b0465df78d786a38da693864a116c37f4/pip-25.1.1.tar.gz"
-    sha256 "3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077"
+    url "https://files.pythonhosted.org/packages/fe/6e/74a3f0179a4a73a53d66ce57fdb4de0080a8baa1de0063de206d6167acc2/pip-25.3.tar.gz"
+    sha256 "8d0538dbbd7babbd207f261ed969c65de439f6bc9e5dbd3b3b9a77f25d95f343"
   end
 
   resource "setuptools" do
@@ -70,14 +77,14 @@ class PythonAT310 < Formula
   # Remove when a non-patching mechanism is added (https://bugs.python.org/issue43976).
   # We (ab)use osx_framework_library to exploit pip behaviour to allow --prefix to still work.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1618a5005d0b01d63b720321806820a03432f1a/python/3.10-sysconfig.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/python/3.10-sysconfig.diff"
     sha256 "51bc741a7f201bf7382067f5561a10968476c98d952e54a4f1931f17f1397ef8"
   end
 
   # Make bundled distutils look at preferred sysconfig scheme.
   # Remove with Python 3.12.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1618a5005d0b01d63b720321806820a03432f1a/python/3.10-distutils-scheme.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/python/3.10-distutils-scheme.diff"
     sha256 "d1a29b3c9ecf8aecd65e1e54efc42fb1422b2f5d05cba0c747178f4ef8a69683"
   end
 
@@ -292,6 +299,7 @@ class PythonAT310 < Formula
     rm lib_cellar.glob("ensurepip/_bundled/{setuptools,pip}-*.whl")
     %w[setuptools pip].each do |r|
       resource(r).stage do
+        system whl_build/"bin/pip3", "install", *common_pip_args, "."
         system whl_build/"bin/pip3", "wheel", *common_pip_args,
                                               "--wheel-dir=#{lib_cellar}/ensurepip/_bundled",
                                               "."
@@ -459,7 +467,7 @@ class PythonAT310 < Formula
       They will install into the site-package directory
         #{HOMEBREW_PREFIX}/lib/python#{version.major_minor}/site-packages
 
-      tkinter is no longer included with this formula, but it is available separately:
+      `idle#{version.major_minor}` requires tkinter, which is available separately:
         brew install python-tk@#{version.major_minor}
 
       If you do not need a specific version of Python, and always want Homebrew's `python3` in your PATH:

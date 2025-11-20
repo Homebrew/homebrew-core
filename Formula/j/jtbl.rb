@@ -8,17 +8,11 @@ class Jtbl < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d36c946d8efc31ba345e4b8933c3b460034df431373eb632837778ade53378ec"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d36c946d8efc31ba345e4b8933c3b460034df431373eb632837778ade53378ec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d36c946d8efc31ba345e4b8933c3b460034df431373eb632837778ade53378ec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6070ec308bdd9b1030b07c7dd4846bb5b09bd268879b21aeeb352453d1fe0f8f"
-    sha256 cellar: :any_skip_relocation, ventura:       "6070ec308bdd9b1030b07c7dd4846bb5b09bd268879b21aeeb352453d1fe0f8f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebc3fe830e2fe701963c723a4fdfb96e8a9acbedb5a1ec4588b66067466d7172"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d36c946d8efc31ba345e4b8933c3b460034df431373eb632837778ade53378ec"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "72309a9ade71950be9675e9b57c336177ffd5a84b058634d0b4bdcb6466b7e9a"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
@@ -28,6 +22,10 @@ class Jtbl < Formula
   def install
     virtualenv_install_with_resources
     man1.install "man/jtbl.1"
+
+    # Build an `:all` bottle
+    packages = libexec/Language::Python.site_packages("python3")
+    inreplace packages/"jtbl-#{version}.dist-info/METADATA", "/usr/local/Cellar", "#{HOMEBREW_PREFIX}/Cellar"
   end
 
   test do

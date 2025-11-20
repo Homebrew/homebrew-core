@@ -1,8 +1,8 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
-  url "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.45/pcre2-10.45.tar.bz2"
-  sha256 "21547f3516120c75597e5b30a992e27a592a31950b5140e7b8bfde3f192033c4"
+  url "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.47/pcre2-10.47.tar.bz2"
+  sha256 "47fe8c99461250d42f89e6e8fdaeba9da057855d06eb7fc08d9ca03fd08d7bc7"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Pcre2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f2abc87de6796a4e639f93d42c6d515cad90418fd7b701bcf322fb8e1443704e"
-    sha256 cellar: :any,                 arm64_sonoma:  "549a4a79676a6e2c58896cb46cf7d36a8c86f3696e61c43f07dca6660c32cd08"
-    sha256 cellar: :any,                 arm64_ventura: "a780535fb2f47a39bd16d28f966da1c99b868d7e15b2d18b75b509b6deb85e0d"
-    sha256 cellar: :any,                 sonoma:        "5b1916e8e569da37aabc596561eb93a6bdf7cff4d55d35a351576c071ce723cc"
-    sha256 cellar: :any,                 ventura:       "83722732df9490388e3fa729d06063fbd3fe7e245b0269c5b67f736ffa8c9ba5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5081c77793061bb49fd74ffdefee2b52cdf49df0d2f9799888d943a826dac75a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a5727c5e1b6d0aa922bc2d30ae6510dca32f1b738a7501bcdf18823c59e120e"
+    sha256 cellar: :any,                 arm64_tahoe:   "10bd8c1cf3784ab8a736f01b7f85d091276d69c5a8d48bd022b01209fb4eb870"
+    sha256 cellar: :any,                 arm64_sequoia: "603fb4c2e2d04c59cb75525a47758abbab20027f3f2296cc170fba64f9fb4b9a"
+    sha256 cellar: :any,                 arm64_sonoma:  "fb34b096f84b0de1dd502b2b35cd5de9a4d1dea85ff8cb032765f8bda1278ca2"
+    sha256 cellar: :any,                 tahoe:         "a9a5f8749a644762cc6ca09e4986cdaeecedc050d43b0de19562587cb98ea655"
+    sha256 cellar: :any,                 sonoma:        "20d5064b4a9454114faac74629efdd7fbac4cff541488f6cf035ceaeae45c51d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f975aedeebe47c169447cbd9d4bb27ebd883c79a9fbc96154f373f0e07361409"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a80460c1a317becfa0cff0659100dfe6aacf0f7679043580c1bb6377b8fce77"
   end
 
   head do

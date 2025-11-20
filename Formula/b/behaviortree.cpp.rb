@@ -1,18 +1,17 @@
 class BehaviortreeCpp < Formula
   desc "Behavior Trees Library in C++"
   homepage "https://www.behaviortree.dev/"
-  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.7.2.tar.gz"
-  sha256 "fa52bfd1f23a65ecf7da887b565213441a3628dab85179329d4731a6d273ebd5"
+  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.8.2.tar.gz"
+  sha256 "fe682bc2a3430378611d5d520970333fcd57874eb726fce59b5b274b947b0ba7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "287a827d7ee1eaf4183d1b96b731ac76818742a3fa3fd25c0bf730eff06fe2d1"
-    sha256 cellar: :any,                 arm64_sonoma:  "1e8bc3ce758fa6c41a04df7103cd9af35f6282f6bbd01cd21ccb360a1a07d678"
-    sha256 cellar: :any,                 arm64_ventura: "8130722b4e1f778150a591fe5683c42b35c02c728d3f6841902bc381a1f59ab5"
-    sha256 cellar: :any,                 sonoma:        "d13d59ee51d12603e80c1e92e0f439c1777dfdb72f48b2539d075d2dcf42a736"
-    sha256 cellar: :any,                 ventura:       "5d8380fa532c1116067e3df6dcfe453f4fd11f37d340bc4ff43d15ca9199b016"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f411456a62a19fb19c7b09be80e13b6938fd4a2970778b772dbe9b555878c141"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8acd7de66935419328ad2804bacdf2137041cefe500fd3dbd6200067542c260"
+    sha256 cellar: :any,                 arm64_tahoe:   "67342d96ba2d203b132223ce51ba81bd0fc1d498d53957ba5bded071c384da11"
+    sha256 cellar: :any,                 arm64_sequoia: "bae8f0836a5e497e927de88478139970d78595b03447c3eddd38ef7891bf9a8e"
+    sha256 cellar: :any,                 arm64_sonoma:  "0a0e9cef835e063ab997f313050f4bc9d5d66f1c795636fb3de7206bc673ae3d"
+    sha256 cellar: :any,                 sonoma:        "aa5867b56b1270c40d11616a038e26cc5a319f6199fbe810a65609af8dde2b3a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "163b27a6eba8374810b3d612608a323d8d9e30c4bb0277aba2825be0864717ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2dbdf83f6a1582a640313f179a6229bf1e22389e84f208ed513a8aef865ea99"
   end
 
   depends_on "cmake" => :build

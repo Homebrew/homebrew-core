@@ -8,14 +8,8 @@ class GitterCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59b7c17753a1b4e92a83ed41e22b7ff595cc2d2165d1fa95f0808109605f45c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59b7c17753a1b4e92a83ed41e22b7ff595cc2d2165d1fa95f0808109605f45c1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "59b7c17753a1b4e92a83ed41e22b7ff595cc2d2165d1fa95f0808109605f45c1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "74f47c77f30e1b1cba0cac9a53221463728ea01f5b7e17b4bccf58795f3b08df"
-    sha256 cellar: :any_skip_relocation, ventura:       "74f47c77f30e1b1cba0cac9a53221463728ea01f5b7e17b4bccf58795f3b08df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "042e9e513066ae7fbe936c1300bcd5ab6fcf7b51a19b2da93e64b3aaf5006ef5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59b7c17753a1b4e92a83ed41e22b7ff595cc2d2165d1fa95f0808109605f45c1"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "fc3d9fc87869b22fb03bd8a53405527174c3a9cc910332d8c906dfd79b34ded5"
   end
 
   depends_on "node"

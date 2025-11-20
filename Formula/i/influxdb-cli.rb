@@ -13,18 +13,19 @@ class InfluxdbCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d319d1a5eb3d7643f4b6b767e0eacf8f1af03eeab6586c6d062a8350d9f95acb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c3c36b35e1fe4d4f4712f72c5ddd12709846f32088f1bc7637e6b3ed24b2fbe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f07a68d82c3075c6bf62922c646998bb362c4ea26166f4ecd31738da4e2af9ba"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "91dc24269127d0a41b7faef7d93e61a6ffec9ecb50d0a0cab69465cd66d9c706"
-    sha256 cellar: :any_skip_relocation, sonoma:         "65b07fcaf938f712efb30d280dd18ce8a2652de4b9f89f913ccaad300da18d3f"
-    sha256 cellar: :any_skip_relocation, ventura:        "e098362c88be1c91f18927ab98efab0bbb3d73603a3383c1c6735b0c27b4bf95"
-    sha256 cellar: :any_skip_relocation, monterey:       "f073f4752f61154e3bed747c8e79fe778d51596d16e179506b52106f65225cc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a2f1bdca46755b062abdd18f7c3fefc5af42f14e709034c1f2db67e5ca7e896"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "46886e6a377ff4bb11ef2e90ce50730c08901f0abb801e5a402183b0c79ab700"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a1f6db5dfcf2d285e33ec200fcf44c48ee87ca51c3cafda2eefd94588b4eef4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a1f6db5dfcf2d285e33ec200fcf44c48ee87ca51c3cafda2eefd94588b4eef4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a1f6db5dfcf2d285e33ec200fcf44c48ee87ca51c3cafda2eefd94588b4eef4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "af4529363356a536ee7099771130580d6bde0dd377398b2a3997d82c55b2b330"
+    sha256 cellar: :any_skip_relocation, ventura:       "af4529363356a536ee7099771130580d6bde0dd377398b2a3997d82c55b2b330"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "38fe1c516a17a8d874e17e510ec59594d3acb60636c431c0b9b7411bc1e68ffa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db4024e85728111abfae88af4088b98d75c2f15bb873b12e9f546b4ce2110dde"
   end
 
   depends_on "go" => :build
-  depends_on "influxdb" => :test
+  depends_on "influxdb@2" => :test
 
   def install
     ldflags = %W[
@@ -43,12 +44,13 @@ class InfluxdbCli < Formula
   test do
     # Boot a test server.
     influxd_port = free_port
-    influxd = fork do
-      exec "influxd", "--bolt-path=#{testpath}/influxd.bolt",
-                      "--engine-path=#{testpath}/engine",
-                      "--http-bind-address=:#{influxd_port}",
-                      "--log-level=error"
-    end
+    influxd_args = %W[
+      --bolt-path=#{testpath}/influxd.bolt
+      --engine-path=#{testpath}/engine
+      --http-bind-address=:#{influxd_port}
+      --log-level=error
+    ]
+    influxd = spawn Formula["influxdb@2"].opt_bin/"influxd", *influxd_args
     sleep 30
 
     # Configure the CLI for the test env.

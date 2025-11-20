@@ -3,15 +3,15 @@ class LizardAnalyzer < Formula
 
   desc "Extensible Cyclomatic Complexity Analyzer"
   homepage "https://github.com/terryyin/lizard"
-  url "https://files.pythonhosted.org/packages/0b/c9/ef0a3a8df311938df2f15d3861073d3861bb2e32f43be85c3cf8f7f81ba8/lizard-1.17.31.tar.gz"
-  sha256 "af6b35d06bcc9718ff3db1ad7ce1f7645f2d8e07c2348e8873817f61d6592888"
+  url "https://files.pythonhosted.org/packages/1e/fc/3da7cf04de5de4a1416b8a4084679e95932684bae7d7ba1dcb0e68bbdde7/lizard-1.19.0.tar.gz"
+  sha256 "3e26336ac876bdd2491dbb4afa0d20fe615af11cb59784b8b0ca39b21559ed5c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "71e8492bedc9d9f86db8f0e678140f538c850ccef4818b68f1138d7e28155ec9"
+    sha256 cellar: :any_skip_relocation, all: "09c555ab1f94f45f8929bda24afd987f73706406c330a1f1676b86f6df791b6d"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "lizard", because: "both install `lizard` binaries"
 
@@ -21,8 +21,8 @@ class LizardAnalyzer < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
-    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   def install

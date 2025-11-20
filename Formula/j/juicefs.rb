@@ -1,8 +1,8 @@
 class Juicefs < Formula
   desc "Cloud-based, distributed POSIX file system built on top of Redis and S3"
   homepage "https://juicefs.com"
-  url "https://github.com/juicedata/juicefs/archive/refs/tags/v1.2.3.tar.gz"
-  sha256 "a29145a17deed9b753ad2a48e779bee1d5b17e39980317039bacb089d1c1c85c"
+  url "https://github.com/juicedata/juicefs/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "c2d098797bb9bc0bcb75ac1461cd1c06a8306dd3375a6d221f17c2eed091fee6"
   license "Apache-2.0"
   head "https://github.com/juicedata/juicefs.git", branch: "main"
 
@@ -12,13 +12,15 @@ class Juicefs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93d6b6b234746b745ed9875b75b33761e7c816d1aa2d623c71728c6b7bf27097"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a06e6e368690d5b35fbeb088abdb73211e192333fb34996c296a27c2ac10860e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8341307ec2aa713208726abbe0ed2cb3b85d80d185834592fb46e64b7286e2b6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f91870ae7f84be5ccbe478b60000e7067ef9c86ee8b39f8bc6566a7e01531dcf"
-    sha256 cellar: :any_skip_relocation, ventura:       "a605622dbbe72e1fba6c22f09ee1a88cd23e9de73edc2c7129fc4da9b80bb61c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "38d6bafea8444498f5b639a953c2c8b32087619915197275f9803c0516cce597"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb7e512f60b0e0d1cc328b7977ce081c3d02567db4bb1d9c98525417e7ae85ab"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "38575f6b8e1bc4a3d72976ad430504dc8a5f39787e22750e69d247d4874f8c90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a85d6e3e393c2a94d1daea94c848764aae4251441cdcfdb8b119b70231fc8f5b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aec5445b9982dc0262b0db8dc2969827092711e47a8afa825767b693388cbff7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "006ccb5b34cbf4435ebe004d1cc7d862f86b29456f615a9b6b74c101115ea80d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f47708561eee3ff825e19eaf696d29c47a29b5bfe2288f09d3a4ed2f48a57281"
+    sha256 cellar: :any_skip_relocation, ventura:       "41f32f57eab115f43d3c4bd31b7f051e3b2574f9d9dd07d8a8338eeae6b34a7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9752a4c492028c7b72fd115e6d8d9d710ce2ff44d85cd072b5f0de9197b85230"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43fc94fc1cb21d4382e90bddc14dedf71f80507dd767f5c9fe35f644be7128bb"
   end
 
   depends_on "go" => :build

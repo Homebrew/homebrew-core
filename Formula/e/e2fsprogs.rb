@@ -1,8 +1,8 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.47.2/e2fsprogs-1.47.2.tar.gz"
-  sha256 "6dcd67ff9d8b13274ba3f088e4318be4f5b71412cd863524423fc49d39a6371f"
+  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.47.3/e2fsprogs-1.47.3.tar.gz"
+  sha256 "2f5164e64dd7d91eadd1e0e8a77d92c06dd7837bb19f1d9189ce1939b363d2b4"
   license all_of: [
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # lib/ex2fs
@@ -18,13 +18,14 @@ class E2fsprogs < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a6ca9c2d59683ed1f7d97cb2fbf2abae9bcaf4cb3af2cc451c42fb25f2d0931b"
-    sha256 arm64_sonoma:  "75fda5c12d0363d8bd5fb2721bff367361369abdd16a7fd9dae612c5264fce45"
-    sha256 arm64_ventura: "70e8e92b42117b3161e431f6c9de55f754d7e358b4cd74a0a281807828a98004"
-    sha256 sonoma:        "129f5d0b2dc865c6c2d7a2959a71667236b10cbd8a8abbbc5424df73d788ee58"
-    sha256 ventura:       "aaa928d296c1b82a64b89183d5005d3c98bbbc51cb17aa1151b5850519c9b947"
-    sha256 arm64_linux:   "a9a234b1cf8d877076694954b306e91039e40e3c46c2e5394f67c29a6add1762"
-    sha256 x86_64_linux:  "42721911833f1c21f50d2ed01327f86b0470995cdcfc8d48dcc7af5c7b0cc8a6"
+    sha256 arm64_tahoe:   "cf282a67dba8d6df346d2cced1c23b024517299c13a7d8558121dd6730bc19c6"
+    sha256 arm64_sequoia: "0425f6b5ae2cfd69bce77df9368dae0b237abdf27f02de2eddfa799c84ff44f3"
+    sha256 arm64_sonoma:  "2104bdc9d9d3ca85605ec7a3a897ca4f810ceaef1e2c560def59b04b2dd18074"
+    sha256 arm64_ventura: "316a532eec3aa1ef23259fce5cbb692f2d04540b9eca3f54393c55e4d336a8e7"
+    sha256 sonoma:        "f56432934bf673ee57900c3be5f9da1dd7341d2f6465642b106729361e2c77da"
+    sha256 ventura:       "cf1bb22c088497db81c2ff02b71257ac5886e4c810c792302572768608987b12"
+    sha256 arm64_linux:   "dc14ab2441da84c2d2db5baea06deb6bc6dae44ae5f9818849f005664c58a6d0"
+    sha256 x86_64_linux:  "d66bd31538beae13ac1db1d4f53a81cf32ec32d0bcc9e17bc7b32d33420eedcb"
   end
 
   keg_only :shadowed_by_macos

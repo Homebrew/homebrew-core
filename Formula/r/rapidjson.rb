@@ -15,6 +15,8 @@ class Rapidjson < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "ba505c9a587b3c26539eae5dd732ae36bca53b67daf94579fee177d88094fa52"

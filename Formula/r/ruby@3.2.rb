@@ -1,9 +1,10 @@
 class RubyAT32 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.8.tar.gz"
-  sha256 "77acdd8cfbbe1f8e573b5e6536e03c5103df989dc05fa68c70f011833c356075"
+  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.9.tar.gz"
+  sha256 "abbad98db9aeb152773b0d35868e50003b8c467f3d06152577c4dfed9d88ed2a"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -11,14 +12,12 @@ class RubyAT32 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "d01195f2134268b27735407c3c8cde3a87aebcba999e442475ad089293e3c3cc"
-    sha256 arm64_sonoma:  "ff921fc48fb893b36e582546bc819ae32f1cd2b861f469388eaf4671171b8cbc"
-    sha256 arm64_ventura: "a8e8d74dbc45522aca326360f079b4e6408708e616871a50cbe6c6502533d86f"
-    sha256 sonoma:        "06806826dfd864187f6aee4b4de353cf7378b37758a4712ee9aad94ba2f4b17e"
-    sha256 ventura:       "1a6ab1f5e0a1c94f66ee2f3666f6b02c6f42e830ede9d50318f775da2cda92de"
-    sha256 arm64_linux:   "802e8b940abf118c51861ae6dbcbe0524203a8b5a3711dd2b6b74c33a60b0c46"
-    sha256 x86_64_linux:  "bc347d68a752c8ada0b28275624854dc910b2ff3da0be92dcb7d8275ea49bcd7"
+    sha256 arm64_tahoe:   "850eb4a323d765ee686a0ef2cba9a79a2ad4b581b3c22c5c9a263a38c019c68d"
+    sha256 arm64_sequoia: "c0333a8d58a19c18dd1dfd2fc4d794e0b56683a6263dbfb7b6e7d8c31ee8916e"
+    sha256 arm64_sonoma:  "a1c5d10b027435c318c39a0f35592f5b5329a68a0d928ba6081f3337ae39af74"
+    sha256 sonoma:        "12d8ff67cd5fd2dc4b1ca2b5a0fca0c85ff8ef287fa0cac6932e4a1ada24c999"
+    sha256 arm64_linux:   "d7399b88bbc194a82cc7d89c4aca3988b978c065ee6f5020e12fbce4bcaee37a"
+    sha256 x86_64_linux:  "a5990cbc9859fad46e2d5ed3d255bb306d67b6061460e89aa76a31cc11faf793"
   end
 
   keg_only :versioned_formula
@@ -41,13 +40,20 @@ class RubyAT32 < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.6.6.tgz"
-    sha256 "b4642fe16598fb93d40d6bcde9f69250debc0f13238cad410a7505c0cf740dad"
+    url "https://rubygems.org/rubygems/rubygems-3.7.1.tgz"
+    sha256 "750c8c771180d41ed2358344e5461edee83158c0a81b779969a1339961bc1163"
 
     livecheck do
       url "https://rubygems.org/pages/download"
       regex(/href=.*?rubygems[._-]v?(\d+(?:\.\d+)+)\.t/i)
     end
+  end
+
+  # Update the bundled openssl gem for compatibility with OpenSSL 3.6+
+  # Using 3.1.x series to match major/minor version of bundled gem
+  resource "openssl" do
+    url "https://github.com/ruby/openssl/archive/refs/tags/v3.1.2.tar.gz"
+    sha256 "0abb96cdeaef1c0a2bfc8e0a4557467d7f2e93cabdd00d0d387afb1d0e1569a9"
   end
 
   def api_version
@@ -59,6 +65,15 @@ class RubyAT32 < Formula
   end
 
   def install
+    openssl_gem_version = File.read("ext/openssl/openssl.gemspec")[/spec\.version\s*=\s*"(\d+(?:\.\d+)+)/, 1]
+    odie "Remove openssl resource!" if Version.new(openssl_gem_version) >= "3.1.2"
+    rm_r(%w[ext/openssl test/openssl])
+    resource("openssl").stage do
+      (buildpath/"ext").install "ext/openssl"
+      (buildpath/"ext/openssl").install "lib", "History.md", "openssl.gemspec"
+      (buildpath/"test").install "test/openssl"
+    end
+
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 

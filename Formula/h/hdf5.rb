@@ -17,6 +17,7 @@ class Hdf5 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7dd4b930e5542aafbd2393a5131de5ce20c4b2be182f9a5b6a36564a015b520c"
     sha256 cellar: :any,                 arm64_sequoia: "2338b44eb0a44fbb3261862de8310f98f749caef3ae9387687b961e7f3b97d0f"
     sha256 cellar: :any,                 arm64_sonoma:  "50b38bf19514ed01f14c9c2d94619945fcdc60c5deaf83ea1595916093f7977c"
     sha256 cellar: :any,                 arm64_ventura: "3bbb75b9bb29386801e650f2406ecde85ec9d73460b0b1bd2629d457a7ba1672"

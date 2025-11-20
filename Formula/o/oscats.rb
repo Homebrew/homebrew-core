@@ -6,7 +6,10 @@ class Oscats < Formula
   license "GPL-3.0-or-later"
   revision 7
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "35dc1e697fe94c6ceab3be777ef3aa53ec83df8451739125105a4fa5e24e5fd7"
     sha256 cellar: :any,                 arm64_sequoia:  "14bdf254ea5eb224c087cc3bdc7ba53b46d52b77e2c440f738871e747ad7e33a"
     sha256 cellar: :any,                 arm64_sonoma:   "ee65d5fb7e853cf11866ad5d82e42443a2c899089538f7563a3d63268af2855e"
     sha256 cellar: :any,                 arm64_ventura:  "dae032204b3f3d0d874482bec11e6ba4cc34cdf088929e5e432e75960800ddd2"
@@ -28,7 +31,7 @@ class Oscats < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 
@@ -36,7 +39,7 @@ class Oscats < Formula
   # Patch submitted to discussion group:
   # https://groups.google.com/g/oscats/c/WZ7gRjkxmIk.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/29a7d4c819af3ea8e48efb68bb98e6bd2a4b6196/oscats/linux.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/oscats/linux.patch"
     sha256 "95fcfa861ed75a9292a6dfbb246a62be3ad3bd9c63db43c3d283ba68069313af"
   end
 

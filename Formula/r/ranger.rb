@@ -3,22 +3,17 @@ class Ranger < Formula
 
   desc "File browser"
   homepage "https://ranger.github.io"
-  url "https://github.com/ranger/ranger/archive/refs/tags/v1.9.4.tar.gz"
-  sha256 "7ad75e0d1b29087335fbb1691b05a800f777f4ec9cba84faa19355075d7f0f89"
+  url "https://files.pythonhosted.org/packages/b6/57/c53a45928a3d6ac6a4b3d7a5d54af58a74592d4d405973d249268fc85157/ranger_fm-1.9.4.tar.gz"
+  sha256 "bee308b636137b9135111fc795a57cdbb95257f2670101042ac3d7747dec32c8"
   license "GPL-3.0-or-later"
   head "https://github.com/ranger/ranger.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97ec1aa9eb07127348df0acbbe74ee70530e3c42b2b34b318d275a5b939b108c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97ec1aa9eb07127348df0acbbe74ee70530e3c42b2b34b318d275a5b939b108c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "97ec1aa9eb07127348df0acbbe74ee70530e3c42b2b34b318d275a5b939b108c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9805b7b6198dac4993bf90919395a37d7e26dea6c1a059c87a82f30c56b915af"
-    sha256 cellar: :any_skip_relocation, ventura:       "9805b7b6198dac4993bf90919395a37d7e26dea6c1a059c87a82f30c56b915af"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "25694caeb635a9e43026ce07350d8d0bbaef2ffa959e910dde876f97e32959c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97ec1aa9eb07127348df0acbbe74ee70530e3c42b2b34b318d275a5b939b108c"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "cf9392090a9110d00d4c95026536ef2a5988dd9375db3139c20c23f1e79eb74f"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources
@@ -31,7 +26,7 @@ class Ranger < Formula
     (testpath/"test.py").write code
     assert_equal code, shell_output("#{bin}/rifle -w cat test.py")
 
-    ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.14"].opt_libexec/"bin"
     assert_equal "Hello World!\n", shell_output("#{bin}/rifle -p 2 test.py")
   end
 end

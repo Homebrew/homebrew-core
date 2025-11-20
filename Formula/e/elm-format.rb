@@ -2,46 +2,35 @@ class ElmFormat < Formula
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      tag:      "0.8.7",
-      revision: "b5cca4c26b473dab06e5d73b98148637e4770d45"
+      tag:      "0.8.8",
+      revision: "d07fddc8c0eef412dba07be4ab8768d6abcca796"
   license "BSD-3-Clause"
   head "https://github.com/avh4/elm-format.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "39551d3762854b22e3db540e1eb0187484cf50ce30233a70289ae0d6d29e1c27"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "25f339b466676ecaa1be5b3d5fa0d49a1ea6c4a8593be06837e85695a93bebff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81d3cdebad68b53ebe6d615e9362359a433c371804e38c9ac274a6657ab4a972"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d95da1452e810b7b381ae898269325caa6da8a3224de231479a515ad9e8aaf6f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "94f1a4809976df842ac5e63efcd66b564bf4cca7ff833c90a9218f3652956af2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c69440ab4cbdacc7518c70b98d9a60f111423c53674820e1afff2c174a80f5cc"
-    sha256 cellar: :any_skip_relocation, ventura:        "61520c04f08cbd3b0f0989718fb8b3df92ce41d2f1b2f68c1827bc4d0331e482"
-    sha256 cellar: :any_skip_relocation, monterey:       "65b60d85cf68821087e2d5005778d552c15d7183d763bcdb893da033ec21ac38"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a0f4b8bde75fc24c1e8a3ab6693581a210f9c8a8886de800835c5623261e4fc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6b1ec84983f60bd9a7834c03074931a6f7a1c78ac640a4c6b94cbc1a10bb968"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5056133df57fc96439054e34f04ec081bf08d317eefea981336c786a94dd8c2f"
+    sha256 cellar: :any,                 arm64_sequoia: "793a01a476060deff0126e922ff4e6bf3d7f6d4666ee2e2ffa76114036a7838d"
+    sha256 cellar: :any,                 arm64_sonoma:  "15e2ac52c016433bd4ca81958a352dc32d2ce8b309590001bf5cfeef87574941"
+    sha256 cellar: :any,                 arm64_ventura: "1f6526cc7adeb4fc019894188906cd9130f69a02912a73b1599394c16a777f9a"
+    sha256 cellar: :any,                 sonoma:        "6586c687d47970c27ec7a1d5ece3a71b0137ef72f3d6e13db501a9e2d3be5dd5"
+    sha256 cellar: :any,                 ventura:       "4895173ac11f28d140d23c7795ec46a17252862b99b8b17cb762a01e0c2f7e65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f9b5d8604a3e94980d6b41a8655abfedef71dd6c8407ab2f96a52c04446e64b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0077781afea83af1e8bd983239763b30fae56285f04f86e4a03a849cd87b8f43"
   end
-
-  # Has been using pre-built GHC due to needing specific patch version of GHC
-  deprecate! date: "2024-07-27", because: :does_not_build
 
   depends_on "cabal-install" => :build
-  depends_on "haskell-stack" => :build
+  depends_on "ghc" => :build
   depends_on "hpack" => :build
+  depends_on "gmp"
 
-  uses_from_macos "xz" => :build # for `haskell-stack` to unpack ghc
-
-  on_linux do
-    depends_on "gmp" # for `haskell-stack` to configure ghc
-  end
+  uses_from_macos "libffi"
 
   def install
-    # Currently, dependency constraints require an older `ghc` patch version than available
-    # in Homebrew. Try using Homebrew `ghc` on update. Optionally, consider adding `ghcup`
-    # as a lighter-weight alternative to `haskell-stack` for installing particular ghc version.
-    jobs = ENV.make_jobs
-    ENV.deparallelize { system "stack", "-j#{jobs}", "setup", "9.2.5", "--stack-root", buildpath/".stack" }
-    ENV.prepend_path "PATH", Dir[buildpath/".stack/programs/*/ghc-*/bin"].first
+    # Remove requirement on specific patch GHC
+    (buildpath/"cabal.project.freeze").truncate(0)
+    inreplace "cabal.project", /^with-compiler: .*$/, ""
+
     system "cabal", "v2-update"
 
     # Directly running `cabal v2-install` fails: Invalid file name in tar archive: "avh4-lib-0.0.0.1/../"

@@ -1,19 +1,18 @@
 class CBlosc2 < Formula
   desc "Fast, compressed, persistent binary data store library for C"
   homepage "https://www.blosc.org"
-  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.17.1.tar.gz"
-  sha256 "53c6ed1167683502f5db69d212106e782180548ca5495745eb580e796b7f7505"
+  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.21.3.tar.gz"
+  sha256 "4ac2e8b7413624662767b4348626f54ad621d6fbd315d0ba8be32a6ebaa21d41"
   license "BSD-3-Clause"
   head "https://github.com/Blosc/c-blosc2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "58beb2b79bb984d4e73c71b84614cfbba11e85c68575202d5b3a5cc81d8f5221"
-    sha256 cellar: :any,                 arm64_sonoma:  "b5f40feddf8a2f2e39825db956b8cf1974d884ffdde312b7e7afae86a69bcfa4"
-    sha256 cellar: :any,                 arm64_ventura: "5feb28dd5e0f6d0aa40d616b8658e3978bb5da8b4bf381d62b1b3c03f72f5e4d"
-    sha256 cellar: :any,                 sonoma:        "797bb0441a67fa5d52ba8cc46eee6f14a2b87acda45fd0e52f0cd2fa1cf7d68f"
-    sha256 cellar: :any,                 ventura:       "503723663a9800963f7a0b3521dd05014771d84945b79d9395a368d7e2762264"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23d52dea4d4b15f3daeee5f2f7099734e151700531831e2cd13e03200ceb0180"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d252ebf05d445af884824d32ab6c6622588c1c200bd3d3aa9285f9579bf5436"
+    sha256 cellar: :any,                 arm64_tahoe:   "0285d84023efb6e0407e5094bce81f03e2c2b73edf38e92b4aa2db279eb0b927"
+    sha256 cellar: :any,                 arm64_sequoia: "8804b8809228eafa8d06c4b3acfe77b108fa63ce6f4df82a4ac03fd86016e454"
+    sha256 cellar: :any,                 arm64_sonoma:  "c4061219864a47d710ac2d063cd7b25064949460bc7fdbdc46177626c2260a8c"
+    sha256 cellar: :any,                 sonoma:        "0219fcdd5a1fe61c51d8604ed233283410edd60f2196a901a7a1dea2e29d5101"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d431a804e2c29bd36335d6d7b3f77b90b33228e8e02b6abaaeb136ea67b282d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70e777acc2ab3502e45149d7d429866a617627b1b309b5883c38467d3319fe40"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +28,15 @@ class CBlosc2 < Formula
   def install
     ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1400
 
+    internal_complibs = buildpath.glob("internal-complibs/{lz4,zlib,zstd}-*")
+    odie "Failed to find vendored sources for removal!" if internal_complibs.count != 3
+    rm_r internal_complibs
+
     args = %w[
+      -DBUILD_TESTS=OFF
+      -DBUILD_FUZZERS=OFF
+      -DBUILD_BENCHMARKS=OFF
+      -DBUILD_EXAMPLES=OFF
       -DPREFER_EXTERNAL_LZ4=ON
       -DPREFER_EXTERNAL_ZLIB=ON
       -DPREFER_EXTERNAL_ZSTD=ON

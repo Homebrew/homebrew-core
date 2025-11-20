@@ -8,19 +8,22 @@ class Raven < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "ad40e6057f424f0191313b075aaa3fa70b8314c8407a35b36378730cfa40921c"
-    sha256 cellar: :any,                 arm64_sonoma:  "21a4807ad67f5eb40c57cf361d07f5c80a0f3e20a76ec24eb6cc591e0399764b"
-    sha256 cellar: :any,                 arm64_ventura: "e87feeaf89d0ec69e5bcd8e74192d96044ce04de4709eff119f6d78c8a73fae4"
-    sha256 cellar: :any,                 sonoma:        "42c2241ddee62dbf8aa4560bb76ef906fbdb9d5f1452bef9bf97bc72329206a9"
-    sha256 cellar: :any,                 ventura:       "b540f6776eead96815c3284d76817239a9220c4a1b3c8aa4f446b311b6dbb1e1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1cb023324db871cb45ca2ca25d744b9d32a2fdf4206ea875e00a00ed16b36147"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73b55d7ea7f06c758090bf97b18ee033450550dda37255753f83a31ebb8df288"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "d3e905633eb1f0d3d7e5fc048e8fe2fa6a5790243c0181db8e2c190705fe8a80"
+    sha256 cellar: :any,                 arm64_sequoia: "01217a819e571872f899fa5d9c6ceb79618c31e6a837936457c241a1ea555b2b"
+    sha256 cellar: :any,                 arm64_sonoma:  "7aa0a40d4446df2aad0c7d8db6e29701607ab32335e4a70101b77d9c1ea99ce2"
+    sha256 cellar: :any,                 sonoma:        "ce38a5aedcd289f909feea97abe3d5b0c7e1226832d7035561aafac30ba8b688"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b2a4dc459ba3a8920aabae6e35d660a72c5db180028a16234e9f9cada84be28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bfe3e68919eef6de9f572601c59174431425ba393bc5a9b7b8a84a59a757123"
   end
 
-  depends_on "certifi"
+  depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: "certifi"
+
+  # `pyyaml` is manually updated to support Python 3.14
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
@@ -93,8 +96,8 @@ class Raven < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "redis" do

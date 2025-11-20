@@ -3,19 +3,16 @@ class GitTools < Formula
 
   desc "Assorted git-related scripts and tools"
   homepage "https://github.com/MestreLion/git-tools"
-  url "https://github.com/MestreLion/git-tools/archive/refs/tags/v2022.12.tar.gz"
-  sha256 "b01e3b8de268ee07854e6cc66d78db6ed6cbc3e71dfeded8456138881bdf97f1"
+  url "https://github.com/MestreLion/git-tools/archive/refs/tags/v2025.08.tar.gz"
+  sha256 "65eb05f2959861d16e60d132b2175169e6e1aec840ab6e4bae556c6d08a199a7"
   license "GPL-3.0-or-later"
   head "https://github.com/MestreLion/git-tools.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "e366dc448c4d69062807a793bc8fdd6ae66a17a0a785b71a1f36f661eb7fbd35"
+    sha256 cellar: :any_skip_relocation, all: "ba1a42e203720e6a74dcdfefb2653be957015fbd115415686b119975f111bdb6"
   end
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   def install
     rewrite_shebang detected_python_shebang(use_python_from_path: true), "git-restore-mtime"

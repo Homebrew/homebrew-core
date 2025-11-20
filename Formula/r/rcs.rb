@@ -1,12 +1,13 @@
 class Rcs < Formula
   desc "GNU revision control system"
   homepage "https://www.gnu.org/software/rcs/"
-  url "https://ftp.gnu.org/gnu/rcs/rcs-5.10.1.tar.lz"
-  mirror "https://ftpmirror.gnu.org/rcs/rcs-5.10.1.tar.lz"
+  url "https://ftpmirror.gnu.org/gnu/rcs/rcs-5.10.1.tar.lz"
+  mirror "https://ftp.gnu.org/gnu/rcs/rcs-5.10.1.tar.lz"
   sha256 "43ddfe10724a8b85e2468f6403b6000737186f01e60e0bd62fde69d842234cc5"
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "300e27fe13d2279ed6fa2fd5d06fdf4369311b86818229df6285086e8a46cb52"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ec09df25d02575ef0506a90cc81def4001a17eb02fce6adf9933b6e359541282"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "538f4c9f1747041c737c8c57f49ca2becc2cca7cd0c31f88cf14142d5d00c873"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f9cf6ea9614d1286230615b81443f0941b32cd7768769378039df8463d71fbf"

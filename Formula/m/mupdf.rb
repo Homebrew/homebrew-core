@@ -1,10 +1,27 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.26.2-source.tar.gz"
-  sha256 "2a5e1fc84f67bc593ba1d4d9d49f8782e8b12241e2eec904a65a25e4322c72a9"
   license "AGPL-3.0-or-later"
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
+
+  stable do
+    url "https://mupdf.com/downloads/archive/mupdf-1.26.11-source.tar.gz"
+    sha256 "eee47fdb64de309124df21081d4a4da4ad0e917824ab2ed68fc8008f6b523979"
+
+    # libclang-20 patches
+    patch do
+      url "https://github.com/ArtifexSoftware/mupdf/commit/df0b5ee3bb9b12d8c57df55d7b41faf1b874a14d.patch?full_index=1"
+      sha256 "6968a8b80221b01cc30d46bf832ecbcba99d75de238c41315be318f2b02ac892"
+    end
+    patch do
+      url "https://github.com/ArtifexSoftware/mupdf/commit/559e45ac8c134712cd8eaee01536ea3841e3a449.patch?full_index=1"
+      sha256 "868c2955cbebcb99b5336c005cbe4a5867f8654cb9b008bd24ae67df84438968"
+    end
+    patch do
+      url "https://github.com/ArtifexSoftware/mupdf/commit/4bbf411898341d3ba30f521a6c137a788793cd45.patch?full_index=1"
+      sha256 "ac2b1c1b6c21626aaf009928262f7c31e407a886b192d276674ddb94672b1d38"
+    end
+  end
 
   livecheck do
     url "https://mupdf.com/releases"
@@ -12,13 +29,12 @@ class Mupdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "879257d658267c3c8b200c6d701f3704065c4a0890a65b2b22ba9f270a062be5"
-    sha256 cellar: :any,                 arm64_sonoma:  "8fec8af926c3845d9d2c15784881c3e341985c7ca8dfa237e94dd8ed2dcbc455"
-    sha256 cellar: :any,                 arm64_ventura: "749288749a40f519a170cdb9095dd201f1b5aca6fc640a55d9e26a954b8c81ca"
-    sha256 cellar: :any,                 sonoma:        "db53b6e59554f5a55525e58e6b2d02c291c99177e7ecd535b7ae093187999024"
-    sha256 cellar: :any,                 ventura:       "c1fc01667860132e6538026ede49163a0824c3e9ee59f9ffff5ca37db34fc914"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "081e49a87000b9502fedc6a4e66d8c4b80af9534ecd077a13ad14f3635108096"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f165f7f07a645c832b80211691b8e7a8c3c502528bbdba1f065e43aff60caf19"
+    sha256 cellar: :any,                 arm64_tahoe:   "cd5818bd421ebfd86bfa111d5178293da1928c36308acef9531936b66252d1f6"
+    sha256 cellar: :any,                 arm64_sequoia: "c7fd273f963ddab4ee314a2e5b2b817ebccab485afdfef919820d5a1a2a12e38"
+    sha256 cellar: :any,                 arm64_sonoma:  "ccc19870d0ab3108f2c856e4829c015fceb36d10509dbcf0f701a6a685409577"
+    sha256 cellar: :any,                 sonoma:        "644b8b7ef7246d445aab052059958058c7dfe6793538f5701f4b5ae6dd99cce4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f63c7626e9ab1b4511dc297e3ea0649f33ed5c2c0a23f28a35a5510b004ec55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08d5b6fcef7471800eeb4820cd5c66ad5506446f0b0fe7acf57f6b97c659c51c"
   end
 
   depends_on "llvm" => :build
@@ -34,7 +50,7 @@ class Mupdf < Formula
   depends_on "mujs"
   depends_on "openjpeg"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "tesseract"
 
   uses_from_macos "zlib"
@@ -58,7 +74,7 @@ class Mupdf < Formula
     (buildpath/"thirdparty").each_child { |path| rm_r(path) if keep.exclude? path.basename.to_s }
 
     # For python bindings needed by `pymupdf`: https://pymupdf.readthedocs.io/en/latest/packaging.html
-    site_packages = Language::Python.site_packages("python3.13")
+    site_packages = Language::Python.site_packages("python3.14")
     ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/site_packages
 
     args = %W[

@@ -11,19 +11,19 @@ class Subversion < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
   end
 
   bottle do
-    sha256 arm64_sequoia: "dfd28a5fbb1065e271418d833393b6506c38517b8e1035271291cf32c0fbb09d"
-    sha256 arm64_sonoma:  "868351aba4efe60c49f906c85d312d845796566347983b65dd99c8181f84a77f"
-    sha256 arm64_ventura: "21091b526648e54c2925f039e602bde901534dec8bdba8492b7d7ba249b7d664"
-    sha256 sonoma:        "ab78f975d20697547a90ece32b942d1cc6f293409e03f9697125475fcd8f3369"
-    sha256 ventura:       "1769f8d068953dc7565a6258e35c1a8d04473dcb76a3d47e3ad5c9016cf13968"
-    sha256 arm64_linux:   "b72fd0fe9d755c3af711869c33ed08674c0d8c93716156cbd68c345107aab22f"
-    sha256 x86_64_linux:  "ae18ae190c2e2331dfad6c352068449cf677587692a9580ba3b9f7afa6469545"
+    rebuild 1
+    sha256 arm64_tahoe:   "561255dbd2f7abe1c06e1adaf59a510d424bde594fb57825bf10ba6d3e2d070a"
+    sha256 arm64_sequoia: "4cf080615ff2b17d349bf9e411989b4fe66f2203979bcb2bea73a8294b975247"
+    sha256 arm64_sonoma:  "ca649b89082b15350c35ac1b8d0850644005d420a7315765bae17e7791d5d4a4"
+    sha256 sonoma:        "3930de60c90fa9fe627140fd3e8edc7aa7f1429c9484dbfa94da2944aeda84ca"
+    sha256 arm64_linux:   "db21e30a62ebb4e59115a9d9cab4742f907864d09cad278ffd1ff0139a06f3ff"
+    sha256 x86_64_linux:  "4a3d33cf7af4310e690f3d701db5e404d9970964608264fc91c5f93fea6ed7de"
   end
 
   head do
@@ -36,7 +36,7 @@ class Subversion < Formula
 
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
   depends_on "apr"
@@ -77,7 +77,7 @@ class Subversion < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

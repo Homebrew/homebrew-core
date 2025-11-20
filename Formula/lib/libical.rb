@@ -4,7 +4,7 @@ class Libical < Formula
   url "https://github.com/libical/libical/releases/download/v3.0.20/libical-3.0.20.tar.gz"
   sha256 "e73de92f5a6ce84c1b00306446b290a2b08cdf0a80988eca0a2c9d5c3510b4c2"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
-  revision 1
+  revision 3
 
   livecheck do
     url :stable
@@ -12,19 +12,18 @@ class Libical < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f9456c87474eaba72b8161d536585beead8a8be4de54b053b8876e1e5ee8c455"
-    sha256 cellar: :any,                 arm64_sonoma:  "78b1a1c587516767bd8d12e977fac2e5df784c46b93c61a9a3b503475aa1592e"
-    sha256 cellar: :any,                 arm64_ventura: "989541e8c1084836db8846d7fee606fa7c62c1d4e2087af88cdcd0b76911862b"
-    sha256 cellar: :any,                 sonoma:        "6c42ef3607c1a8d19f558b65bc237a9f9bf8a1a224b0f9ea92e1a25baa493b58"
-    sha256 cellar: :any,                 ventura:       "15a4f6945fd75f1bef1338746aca9445c9ad57899c6ceb3a23ae63b12592a20b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37201920b3eb04236602e79071bd3300397f251eb55751840567e4be26756d54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e37f1ea7e90528d641fdb663673c6b29d9aac026f1ae932c4ea2c510a4152fa"
+    sha256 cellar: :any,                 arm64_tahoe:   "9947b3e026805b69dd932ff37e8f5b038f33d55042783f01320805aa0eaf2525"
+    sha256 cellar: :any,                 arm64_sequoia: "8a95d52f3fae76f4252b74adafd4e82a2512a0c78c4a1cbe9b83ea215143e513"
+    sha256 cellar: :any,                 arm64_sonoma:  "5592f102e7a4da49d6de58655e2ea3b8998aaef51bf74c5f524a4694cc612f98"
+    sha256 cellar: :any,                 sonoma:        "8cc7a1bc62d20db855e43f0c2c42cccb9cc17e2c14fe4bc2779ce40e410df32d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3662c9b1e5cf9c1f2824266ef71cebcc93dde2cef195477c1238f968353516f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5cc9dc2fa2fe2deca5871429fc5f2023a9ca677f23d9680804652514a03edb2"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "glib"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   uses_from_macos "libxml2"
 

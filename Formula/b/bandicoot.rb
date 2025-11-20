@@ -1,23 +1,22 @@
 class Bandicoot < Formula
   desc "C++ library for GPU accelerated linear algebra"
   homepage "https://coot.sourceforge.io/"
-  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/2.1.1/bandicoot-code-2.1.1.tar.bz2"
-  sha256 "128a02062426fbb88aaf6a00af227ee9d40e083e4c78fa560498ff06ae381544"
+  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/3.0.1/bandicoot-code-3.0.1.tar.bz2"
+  sha256 "c3a1977d162d7f678df79c8305344e7c1768fdf5b5441f33f6b4a02d90b64300"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9eca2fb6a06c29cebd5fd25ddf5878ae34d88d5b923fa1fed5aed1a9e0773c98"
-    sha256 cellar: :any,                 arm64_sonoma:  "b55ec22827391201012634b5ae8e634c8e78cd254c15230b697ea3374cf46bb5"
-    sha256 cellar: :any,                 arm64_ventura: "9831c4eea08c9dc12470f68591f42f310998b6ee4ab5d362be142cb3e7514c7e"
-    sha256 cellar: :any,                 sonoma:        "2ab39c81ba1c29f3cbc6ece50efecba6235c8f6d1f8c888e2aad80f25e3890b7"
-    sha256 cellar: :any,                 ventura:       "b2c5cf47375d80f86139639924fa492acdcb7768f1e7f8b33b0f8cdce219834f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "757d99751200c72d5b79d7f90be7e0faed3a23501f62af28156c9c66512d94d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "252019c9e01386f84034a00808cd5c9cd7c03c24d26818b855ee1ad85452c10e"
+    sha256 cellar: :any,                 arm64_tahoe:   "c394ea05212c1ea41029110aa67a4a4318071abad3cee50e334a5d1d8252a06a"
+    sha256 cellar: :any,                 arm64_sequoia: "920375ad5ecdfa143d76a3cd35377d5c218b82fc8bdb963f20a635a618164070"
+    sha256 cellar: :any,                 arm64_sonoma:  "8fe8e9a54aedef6401ed1032f39af4fb825d8caee3e1168aec12b0684e97f523"
+    sha256 cellar: :any,                 sonoma:        "122f673684a564480a6710a2d8a3156f4bb61a0d1f966d12334dfd6f87b97746"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d6328ae4e2f7fbc9094c0261851e61b520e75e60896df25c855c7e0bb028dd7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f45369341b609c7405a0a1a3bea3783e502a4fa666db26a07a7e7f1b407cde0"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "clblas"
+  depends_on "clblast"
   depends_on "openblas"
 
   # Ensure CL components are present on Linux
@@ -28,7 +27,7 @@ class Bandicoot < Formula
   end
 
   def install
-    args = []
+    args = ["-DFIND_CUDA=false"]
     # Enable the detection of OpenBLAS on macOS. Avoid specifying detection for linux
     args += ["-DALLOW_OPENBLAS_MACOS=ON", "-DALLOW_BLAS_LAPACK_MACOS=ON"] if OS.mac?
 

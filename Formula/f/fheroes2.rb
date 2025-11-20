@@ -1,8 +1,8 @@
 class Fheroes2 < Formula
   desc "Recreation of the Heroes of Might and Magic II game engine"
   homepage "https://ihhub.github.io/fheroes2/"
-  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.8.tar.gz"
-  sha256 "a1a0fd0289f7a95a65ca15b967056ecfaec574621ad288f05fceb52d237e49d4"
+  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.12.tar.gz"
+  sha256 "229bd10582c4abb9c36882b25269faca1d3589e26ced2efd3633db6fabe46378"
   license "GPL-2.0-or-later"
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "b29a92f26f35c1d3880e2bf07435bb2f82e7dc656bd7acca8fe7eb85a39e911a"
-    sha256 arm64_sonoma:  "187e17424201f11d36340b2a208a111f5b9236e7759d8d734eb54331c2fff6e2"
-    sha256 arm64_ventura: "155202e48070efd586e3964d5cacf056b480b5eb0b55472ef0010d8d412c3145"
-    sha256 sonoma:        "0179f606e5b44ed88f78f6b9e6e5b2ba111a17f2d62b1c2b536836e0d690a9c6"
-    sha256 ventura:       "cb5cc69e38a24eed7d68a37c028f4c2970afd14b15d8045873b4cde69186db65"
-    sha256 arm64_linux:   "784f0d498721e9bd43acd351d7af1ef7afb5b169bac3d84ceaf52523cdaf429f"
-    sha256 x86_64_linux:  "751431fcce39dd40d9e259a6014351b898aef00b7731ea051ef2af584126b41a"
+    sha256 cellar: :any, arm64_tahoe:   "c85991d48aae38111f602bc25ca1b5d38120d571abe731ea17ee0c0ec66019ba"
+    sha256 cellar: :any, arm64_sequoia: "c9cdbf5eba3611147d9d4308511f3f6eb6c8797c4fbfb22c6dbfbae5928b7b0a"
+    sha256 cellar: :any, arm64_sonoma:  "5efc35da9d8fd4a67a2ee889edeccf570788a6187bc88977cab62132f2473e15"
+    sha256 cellar: :any, sonoma:        "4caf877ae36f77b2f5e79221ac8ba974689ff55bb0f1d271495801e2c9d2b4ed"
+    sha256               arm64_linux:   "51b0f0a331fc7009c52da4e9eaefeb317e17c867c30447a6d8d9d0f63ec704e9"
+    sha256               x86_64_linux:  "7797cb85c9543c80d869a77478269a87b17bc898961bda7492ecef809fe20deb"
   end
 
   depends_on "cmake" => :build
@@ -30,11 +29,10 @@ class Fheroes2 < Formula
 
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "dylibbundler" => :build
-  end
-
   def install
+    # Avoid running dylibbundler to prevent copying dylibs
+    inreplace "CMakeLists.txt", /^(\s*run_dylibbundler)\s+ALL$/, "\\1"
+
     args = std_cmake_args
     args << "-DMACOS_APP_BUNDLE=ON" if OS.mac?
     system "cmake", "-S", ".", "-B", "build", *args

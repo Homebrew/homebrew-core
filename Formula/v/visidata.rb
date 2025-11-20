@@ -3,26 +3,16 @@ class Visidata < Formula
 
   desc "Terminal spreadsheet multitool for discovering and arranging data"
   homepage "https://www.visidata.org/"
-  url "https://files.pythonhosted.org/packages/6c/41/b026336b7075a2c8461c1ba0dfffd456902f736722f4a016f21fee1e6d7c/visidata-3.1.1.tar.gz"
-  sha256 "8c4484158f0851e4887e595542bd65bdd991de9c20652b442b3fd9742ce8b031"
+  url "https://files.pythonhosted.org/packages/aa/c0/ab9f01fcacbfbacde960e143f7c168c4de3c4f7e450873f8fd96fa2fcfb3/visidata-3.3.tar.gz"
+  sha256 "a94f4e398477e038541849cf4df1d1f2efc399da544d77db189bdb7f2fc014c4"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
-    sha256 cellar: :any_skip_relocation, sonoma:        "386ca2b4afbaf1f0e79ee848379fd2d11b023134dcb58e2dd95d259e62b02706"
-    sha256 cellar: :any_skip_relocation, ventura:       "386ca2b4afbaf1f0e79ee848379fd2d11b023134dcb58e2dd95d259e62b02706"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9c7de494b7a6b175f136c3b3bfc99a7eeb57b5cedd8be75f87f8df1c44004db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8be7f319d1633fce26ef5706d96174cf42244bea0f88da6114f7e5cf0ac9c962"
   end
 
-  depends_on "python@3.13"
-
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/33/08/c1395a292bb23fd03bdf572a1357c5a733d3eecbab877641ceacab23db6e/importlib_metadata-8.6.1.tar.gz"
-    sha256 "310b41d755445d74569f993ccfc22838295d9fe005425094fad953d7f15c8580"
-  end
+  depends_on "python@3.14"
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
@@ -34,9 +24,9 @@ class Visidata < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/3f/50/bad581df71744867e9468ebd0bcd6505de3b275e06f202c2cb016e3ff56f/zipp-3.21.0.tar.gz"
-    sha256 "2c9958f6430a2040341a52eb608ed6dd93ef4392e02ffe219417c1b28b5dd1f4"
+  resource "standard-mailcap" do
+    url "https://files.pythonhosted.org/packages/53/e8/672bd621c146b89667a2bfaa58a1384db13cdd62bb7722ddb8d672bf7a75/standard_mailcap-3.13.0.tar.gz"
+    sha256 "19ed7955dbeaccb35e8bb05b2b5443ce55c1f932a8cbe7a5c13d42f9db4f499a"
   end
 
   def install

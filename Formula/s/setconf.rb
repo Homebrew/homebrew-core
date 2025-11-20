@@ -8,6 +8,8 @@ class Setconf < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/xyproto/setconf.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4595c95b544f85bef09766354418d146364657157ba5f7dc614487bf50f85535"
   end

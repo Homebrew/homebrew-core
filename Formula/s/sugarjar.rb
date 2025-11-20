@@ -5,13 +5,16 @@ class Sugarjar < Formula
   sha256 "7ae427d8dff1a293f063617365e76615ea7d238aaa7def260fd2b6f2cfa5e768"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd160e6f1f1274ca6ccd308d7a7b3561797957d2fdddaa97ed06d02b275b195d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd160e6f1f1274ca6ccd308d7a7b3561797957d2fdddaa97ed06d02b275b195d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd160e6f1f1274ca6ccd308d7a7b3561797957d2fdddaa97ed06d02b275b195d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1692b320ec4f62d0e176ac95bd437d706cb8e84720c5aa90a190cb36644e517f"
-    sha256 cellar: :any_skip_relocation, ventura:       "1692b320ec4f62d0e176ac95bd437d706cb8e84720c5aa90a190cb36644e517f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9738a3c6fb7a4096ecd215c6557f9bcf2ce2c8216f51066d6ba1a5e4e8a15c1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "485a7315667e784a8db3a41a9642116ed2dce02f972ca0527cc55795efcce237"
+    sha256 cellar: :any,                 arm64_sequoia: "41881bd68b9c27052bd27ebaa906c3d172a1ec42cdf46bcf1b69286a3310f18e"
+    sha256 cellar: :any,                 arm64_sonoma:  "d3da82b223693faff2895223140102ecf99654bba3e683abae401c2bf033fe2e"
+    sha256 cellar: :any,                 sonoma:        "e1f2c10b2ecbe8c15464eba1f50d2aab0af50c538d37b2c351e728974786b35e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb0a1c68127928091f69bf22b6887312e77a6c27d28bb2f49bbb3529708f8920"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d7624e865ac1fe2600a77b31edb040f26b2604063d899b9700b32f786faca46"
   end
 
   depends_on "gh"
@@ -20,10 +23,11 @@ class Sugarjar < Formula
   uses_from_macos "libffi"
 
   def install
+    ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"
     ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
+    ENV["BUNDLE_WITHOUT"] = "development test"
     ENV["GEM_HOME"] = libexec
 
-    system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
     system "gem", "build", "#{name}.gemspec"
     system "gem", "install", "#{name}-#{version}.gem"

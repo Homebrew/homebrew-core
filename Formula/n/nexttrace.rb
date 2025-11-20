@@ -1,8 +1,8 @@
 class Nexttrace < Formula
   desc "Open source visual route tracking CLI tool"
   homepage "https://www.nxtrace.org/"
-  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "acbc3a56cf3606314879986cf2a420a3dcb6c797c0611085fe13f514c12e4c91"
+  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "ab9f91320f16673dbf450ed3c1790eb4e4786934a1f5a0817eb82a582f09d1eb"
   license "GPL-3.0-only"
   head "https://github.com/nxtrace/NTrace-core.git", branch: "main"
 
@@ -14,12 +14,14 @@ class Nexttrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6c8eff199a60fb4fc9bd389cfdfe29142de509dd96fde45fa5fbd2abc20f9858"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c8eff199a60fb4fc9bd389cfdfe29142de509dd96fde45fa5fbd2abc20f9858"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6c8eff199a60fb4fc9bd389cfdfe29142de509dd96fde45fa5fbd2abc20f9858"
-    sha256 cellar: :any_skip_relocation, sonoma:        "82463700fd53766aaaad3d1fe2d0d2148c15e561e66e52c6138366dff6312a07"
-    sha256 cellar: :any_skip_relocation, ventura:       "82463700fd53766aaaad3d1fe2d0d2148c15e561e66e52c6138366dff6312a07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69ded2be31dff1a588b4a28ea40e45eb2a87fc64d01b09522168fe62fd2aa577"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "955b248f7fcd1ffa54b0a6e42afd32a50f2887221fea8bcb59c77c289e623315"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2c39329e18e617f4648808d9902bc5031ba3dd5f47381ccd9f0adb47a29285e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2c39329e18e617f4648808d9902bc5031ba3dd5f47381ccd9f0adb47a29285e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f2c39329e18e617f4648808d9902bc5031ba3dd5f47381ccd9f0adb47a29285e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4318b378fe0ac302f48bbe6d238cce3ae2883eea0e6e3bda5c8142dab338c466"
+    sha256 cellar: :any_skip_relocation, ventura:       "4318b378fe0ac302f48bbe6d238cce3ae2883eea0e6e3bda5c8142dab338c466"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b1fcfaa4e2235048fc9312281689b017ed5ff8ad95ee7009f4833b80b29a459"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2052e55da0989f32bd688d2fc5ca9975ec5e6ccc8ef9d7cc0e6da236d687d79b"
   end
 
   depends_on "go" => :build
@@ -28,7 +30,7 @@ class Nexttrace < Formula
     ldflags = %W[
       -s -w
       -X github.com/nxtrace/NTrace-core/config.Version=#{version}
-      -X github.com/nxtrace/NTrace-core/config.CommitID=brew
+      -X github.com/nxtrace/NTrace-core/config.CommitID=#{tap.user}
       -X github.com/nxtrace/NTrace-core/config.BuildDate=#{time.iso8601}
       -checklinkname=0
     ]
@@ -48,6 +50,7 @@ class Nexttrace < Formula
     return_status = OS.mac? ? 0 : 1
     output = shell_output("#{bin}/nexttrace --language en 1.1.1.1 2>&1", return_status)
     assert_match "[NextTrace API]", output
-    assert_match version.to_s, shell_output(bin/"nexttrace --version")
+
+    assert_match version.to_s, shell_output("#{bin}/nexttrace --version")
   end
 end

@@ -7,6 +7,8 @@ class RbenvChefdk < Formula
   revision 1
   head "https://github.com/docwhat/rbenv-chefdk.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "dcdf8e0ad350e940be7783e378bf8c146bda6e446a13109511a9d4ed705170c0"

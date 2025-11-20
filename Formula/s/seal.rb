@@ -7,6 +7,7 @@ class Seal < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7981b6b9066d8b486abb11f448350618516f5fa05328e712889a0a27789fb050"
     sha256 cellar: :any,                 arm64_sequoia: "d722e8423730c3ec9aee70ed7c8655f674d11214b3f223be032b1c1eaa75059e"
     sha256 cellar: :any,                 arm64_sonoma:  "ebfbfe9d6480f7f9d2ed977467595aec941ba25a97755507340710020adc4425"
     sha256 cellar: :any,                 arm64_ventura: "86478b9f5e642a9c5a151053a4f1eb6b85a760e7e9e627cc4bbc2fb9f4b25e58"
@@ -23,7 +24,7 @@ class Seal < Formula
   uses_from_macos "zlib"
 
   resource "hexl" do
-    url "https://github.com/intel/hexl/archive/refs/tags/v1.2.5.tar.gz"
+    url "https://github.com/IntelLabs/hexl/archive/refs/tags/v1.2.5.tar.gz"
     sha256 "3692e6e6183dbc49253e51e86c3e52e7affcac925f57db0949dbb4d34b558a9a"
   end
 
@@ -40,6 +41,7 @@ class Seal < Formula
           -DHEXL_BENCHMARK=OFF
           -DHEXL_TESTING=OFF
           -DHEXL_EXPORT=ON
+          -DCMAKE_POLICY_VERSION_MINIMUM=3.5
         ]
         system "cmake", "-S", ".", "-B", "build", *hexl_args, *std_cmake_args
         system "cmake", "--build", "build"
@@ -51,10 +53,11 @@ class Seal < Formula
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DSEAL_BUILD_DEPS=OFF
-      -DSEAL_USE_ALIGNED_ALLOC=#{(OS.mac? && MacOS.version > :mojave) ? "ON" : "OFF"}
+      -DSEAL_USE_ALIGNED_ALLOC=#{OS.mac? ? "ON" : "OFF"}
       -DSEAL_USE_INTEL_HEXL=#{Hardware::CPU.intel? ? "ON" : "OFF"}
       -DHEXL_DIR=#{lib}/cmake
       -DCMAKE_CXX_FLAGS=-I#{include}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

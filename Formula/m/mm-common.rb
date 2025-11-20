@@ -1,18 +1,20 @@
 class MmCommon < Formula
   desc "Build utilities for C++ interfaces of GTK+ and GNOME packages"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz"
-  sha256 "b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7"
+  url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.7.tar.xz"
+  sha256 "494abfce781418259b1e9d8888c73af4de4b6f3be36cc75d9baa8baa0f2a7a39"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "51e28647cb23b6c7259a8487adf36301731684c5d12bdccba36247ef0603312f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "6555a3ef530a9a88869752d8ed91867b30242d26d66b397906e46cda0e1eb8ef"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     system "meson", "setup", "build", *std_meson_args

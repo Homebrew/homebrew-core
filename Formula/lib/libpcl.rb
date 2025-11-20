@@ -10,6 +10,8 @@ class Libpcl < Formula
     regex(/href=.*?pcl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 sonoma:       "c2f937aca27092e775dc6c4262a318129560b1e079de3f077a307756ec31a417"
@@ -20,11 +22,17 @@ class Libpcl < Formula
 
   on_macos do
     depends_on arch: :x86_64
+
+    # Can be undeprecated if upstream decides to support arm64 macOS
+    # https://docs.brew.sh/Support-Tiers#future-macos-support
+    # TODO: Make linux-only when removing macOS support
+    deprecate! date: "2025-09-25", because: :unsupported
+    disable! date: "2026-09-25", because: :unsupported
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

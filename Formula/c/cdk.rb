@@ -1,8 +1,8 @@
 class Cdk < Formula
   desc "Curses development kit provides predefined curses widget for apps"
   homepage "https://invisible-island.net/cdk/"
-  url "https://invisible-mirror.net/archives/cdk/cdk-5.0-20250116.tgz"
-  sha256 "1500d41224d50b72728ccafe23c4ee096bc8535fd6fdb9e876da4cdeeddadc83"
+  url "https://invisible-mirror.net/archives/cdk/cdk-5.0-20251014.tgz"
+  sha256 "0ed46949c680a5f42e342cc48a2ce60bcfc2cc8b9eebb176877b5a91f829435c"
   license "BSD-4-Clause-UC"
 
   livecheck do
@@ -11,13 +11,12 @@ class Cdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "37c2fa00f2063a7ba61733a6ec514717782466e6b8a811cb036ddb727f149c3d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59549c5e8a296ffef736c269b98d386ddeb1c358740cd5b49b3bd50bd4543b69"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "628ee30b6aecd244ca816a1dd314b7dcf2b3e483a2a03395464b4c4b1aa19793"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c6a330d5624273363729084fb7cfe703f85c26c0f38d6fb882497f43cf59614f"
-    sha256 cellar: :any_skip_relocation, ventura:       "e60ad33c06a155538e2f1713150c303893b3f77d5b930c1e126a390fc77f73fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a020afff86107c179aeb9d6fb0d4eccc5e909243a53995c4ffb0a5fe037e9d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "317ee8c5ae7ba4069672d9b89b2c22ad07432b5e071133118405444d48b6f003"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "587f92b6b6ccac672d9779aa539cf6407f5c6663981a65526048728d590e94fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5d30b788e217dea97bcfbe00f8870aada4f82830a049b1c4438332d4defe9c3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "23214535daa04a6a731dde13d8b663639ccd32484a906a0fcfe90ab4a4935c05"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1061220f7666a70e7cd12c14259d5f682566f4639a9cb058e90fbc9ee03700e2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "86b9027c86caf2acea7f70048b810073b50f0160cac2d7205925d57bfd1a0376"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53cf8a5b7aeae3d90f495dfc46900335106846aee7543d41fdc23476b1ff35e3"
   end
 
   uses_from_macos "ncurses"

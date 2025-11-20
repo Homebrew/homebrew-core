@@ -10,8 +10,11 @@ class Libmodplug < Formula
     regex(%r{url=.*?/libmodplug[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:    "1143c79498400dd323ef1a5e5c5e6ee7b6e1d6efc8cb742c63fa46b8cf7505b9"
     sha256 cellar: :any,                 arm64_sequoia:  "586ee0ddb6205b40860132f0f8dfdb74fdef762fb32ec0e9f2d3147db7229c63"
     sha256 cellar: :any,                 arm64_sonoma:   "8e1f55e5d02306627f7aba2c819f4432c3d96ef049da3e51a0163827558c0003"
     sha256 cellar: :any,                 arm64_ventura:  "169759bd85dac1257b3abc1f9690893711c64db8d8341278ecf10c155c4e8652"
@@ -35,7 +38,7 @@ class Libmodplug < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

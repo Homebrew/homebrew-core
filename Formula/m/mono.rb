@@ -12,13 +12,13 @@ class Mono < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "41128a9161b2880c1ff0da606a970a610255f46426ea970ac505c7f7cc77c817"
-    sha256 arm64_sonoma:  "2207ce97c51add48bdb178771a7e6496da62c099a8a740c976772a4f69ff2cd4"
-    sha256 arm64_ventura: "a98870bf0b93c31318f1edbf9b441c24ecb805ef32e0c2e92654b457dd27346a"
-    sha256 sonoma:        "3a024c3814922097b3b8b08d9a80b7ce81100e1da46b137857507eb0565bd63e"
-    sha256 ventura:       "90b8a3c1bb6caea2325c4fc796890c8d0256a8ffc9058699fdc6917538f187c3"
-    sha256 arm64_linux:   "acbf40ca28dfb5b841e215db980aea60894545ce8104864b78b3e447467dc70e"
-    sha256 x86_64_linux:  "e444b5cd477167205ef6e5fcb7ecddf09781ea3edc2ce53ea0879511fcc2055b"
+    rebuild 1
+    sha256 arm64_tahoe:   "20022e3bf3f9e4b1bcad7a4f4903565049164a9c2691e6b2585af777c50ea7d6"
+    sha256 arm64_sequoia: "409206a1822a5d6cf3646c8f0f5b8fe94c7f41558d80383da49eb3346d2f6472"
+    sha256 arm64_sonoma:  "6ef5f47269cf14ad82b94fb8cef2a679ff2bb990a8f74b42e407b5af8beec387"
+    sha256 sonoma:        "d48e2373e32762b53a03da1ce174f40de2a88e0e0027e85484bd7123c2558e2d"
+    sha256 arm64_linux:   "44fbfa33608470d00c50a4e1a7b27dd4d4c38a030fb3b2a6b9a7c117cdd259e7"
+    sha256 x86_64_linux:  "f261ecc67558b51d217ca044e51699a739780bfeab4563502f34bbbf7be7fa62"
   end
 
   depends_on "autoconf" => :build
@@ -27,7 +27,7 @@ class Mono < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "unzip" => :build
   uses_from_macos "krb5"
@@ -53,7 +53,7 @@ class Mono < Formula
 
   conflicts_with "xsd", because: "both install `xsd` binaries"
   conflicts_with cask: "mono-mdk"
-  conflicts_with cask: "homebrew/cask-versions/mono-mdk-for-visual-studio"
+  conflicts_with cask: "mono-mdk-for-visual-studio"
   conflicts_with "chicken", because: "both install `csc`, `csi` binaries"
   conflicts_with "pedump", because: "both install `pedump` binaries"
 

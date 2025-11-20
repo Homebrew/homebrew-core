@@ -1,19 +1,18 @@
 class Zix < Formula
   desc "C99 portability and data structure library"
   homepage "https://gitlab.com/drobilla/zix"
-  url "https://gitlab.com/drobilla/zix/-/archive/v0.6.2/zix-v0.6.2.tar.gz"
-  sha256 "caa1435c870767e12f71454e8b17e878fa9b4bb35730b8f570934fb7cb74031c"
+  url "https://gitlab.com/drobilla/zix/-/archive/v0.8.0/zix-v0.8.0.tar.gz"
+  sha256 "51d70d63e970214db84e32d55377d84090c02145f5768265ab140d117f2b8e24"
   license "ISC"
   head "https://gitlab.com/drobilla/zix.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c6efcf45aaec03ed33102d16b0c877c274e1161fbd1e506ab031543aec03a8f2"
-    sha256 cellar: :any,                 arm64_sonoma:  "cfd378e7408c1888de5bd8212e1d0e89a59cb44de25d4c783e75d311bbbc8f3b"
-    sha256 cellar: :any,                 arm64_ventura: "b8c3832ec02675aab399184719cee2875f180499de50384dd22b49a725458e28"
-    sha256 cellar: :any,                 sonoma:        "36f4526e82d1f62246b84b8237752be4d9931cc2490704b8a99cd88fe47fd487"
-    sha256 cellar: :any,                 ventura:       "8150b763b4d195e8f6a891ec43780af77851c7c7abd516b856177570323452ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aeae53fce7afe265ce9ea5a32dfe62f64c937e534273f6cb6b6d199a490b47df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d635d3fd06b65cff8b6d49c9a78e33b214937b63c4a0c43b0df6ace47e2ecedd"
+    sha256 cellar: :any,                 arm64_tahoe:   "a2caa9a4a3c1d808886349f7e83a4faf142e9bd013b881047ecfcee1ce5b6338"
+    sha256 cellar: :any,                 arm64_sequoia: "c5af8595950f1294f8cec733c452c09742721ec154477103b3e4ad0270afa20e"
+    sha256 cellar: :any,                 arm64_sonoma:  "601886f43ccadbd571d61385ae8487f5bf40563cb1e2aec7b3925d0eb52ed6c6"
+    sha256 cellar: :any,                 sonoma:        "0d3ee7b239f61e53be24ca66fc61b1fa51e64709e855c705e4013c96c46b7e76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "abb43fca2d5a4418b636b99560f30e051b1d83f57c16b2a171b5d4e9590624fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94d2a4ebb9e9d5f9a1bd1d991ed5da942df3630636b45b5c31db7537bc811e1c"
   end
 
   depends_on "meson" => :build

@@ -1,8 +1,8 @@
 class Direwolf < Formula
   desc "Software \"soundcard\" AX.25 packet modem/TNC and APRS encoder/decoder"
   homepage "https://github.com/wb2osz/direwolf"
-  url "https://github.com/wb2osz/direwolf/archive/refs/tags/1.7.tar.gz"
-  sha256 "6301f6a43e5db9ef754765875592a58933f6b78585e9272afc850acf7c5914be"
+  url "https://github.com/wb2osz/direwolf/archive/refs/tags/1.8.1.tar.gz"
+  sha256 "89d5f7992ae1e74d8cf26ec6479dde74d1f480bde950043756e875a689d065d7"
   license all_of: [
     "GPL-2.0-or-later",
     "ISC", # external/misc/{strlcpy.c,strlcat.c} (Linux)
@@ -10,18 +10,13 @@ class Direwolf < Formula
   ]
   head "https://github.com/wb2osz/direwolf.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256                               arm64_sequoia:  "fb3b2a272641595f3ea481b05ac39409f75466cdf50fc9592b3cdddeca1b3d20"
-    sha256                               arm64_sonoma:   "f15cf78ea350bac7d0daf8663e54242eed663f577400de7630f8225c4e08e340"
-    sha256                               arm64_ventura:  "494d3a0854c7d919fa8446915bec34806b387c138fd23210c05ab3677c701faf"
-    sha256                               arm64_monterey: "1c437d0c62b29032faf6eb115caef44b62bc7ef7525d5a137c09eec5015a0f49"
-    sha256                               sonoma:         "5ad4a23ede0053b7c587b99514c48982378ad7f5e4ae4871e8b8eea6dccb6249"
-    sha256                               ventura:        "e3064f51ee693453adc1e25a4dc7e7f1617f51d070dc209c847a7459968de0dc"
-    sha256                               monterey:       "16947ff3e289c953ddb75acb44215ab7f74a5128a20464cfb7f6332b4438f25d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2dc92264176a4397db556c4add6b01609e6a0364a39359f4b9d04adee3b1ec97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b20722ff017ed04a511f79061ad26959cdb92e5c7dc1080dbc22cc05c07e374"
+    sha256                               arm64_tahoe:   "9008dc9817a0f1347080c4be96835c8fb3027fa6debf6bb0d18fdbab946e281c"
+    sha256                               arm64_sequoia: "5b1d6e6e848c4efa27f876d85f3054a9f07b246ecfff29a63ee909807cc5e897"
+    sha256                               arm64_sonoma:  "713aa3d8ba23eee64dc23350d532ec49cc3dfecea2817fa9b5285259b95901e0"
+    sha256                               sonoma:        "d36dc36d74edb5638a744bd3eb83026c2a938272632b58f871aaaff2014fbaf5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1f3591c8db7d3a803abdce7d524174796929a8db3f3d8e1a9319138651d2d15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52d4e83a054f979e47a3eb26ccd9560187f926ba6328c9924bf220971fa33282"
   end
 
   depends_on "cmake" => :build
@@ -29,6 +24,7 @@ class Direwolf < Formula
   depends_on "hamlib"
 
   on_macos do
+    depends_on "hidapi"
     depends_on "portaudio"
   end
 
@@ -38,9 +34,8 @@ class Direwolf < Formula
   end
 
   def install
-    inreplace "src/decode_aprs.c", "/opt/local/share", share
     inreplace "src/symbols.c", "/opt/local/share", share
-    inreplace "conf/CMakeLists.txt", " /etc/udev/rules.d", " #{lib}/udev/rules.d"
+    inreplace "conf/CMakeLists.txt", " /usr/lib/udev/rules.d", " #{lib}/udev/rules.d"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

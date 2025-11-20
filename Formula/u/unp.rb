@@ -10,6 +10,8 @@ class Unp < Formula
     regex(/href=.*?unp[._-]v?(\d+(?:\.\d+)+(?:~pre\d+)?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "f8e6eebe12a5258e2798298cf372b0fd8dd80085420656f9dc7b48206073a8a0"
   end

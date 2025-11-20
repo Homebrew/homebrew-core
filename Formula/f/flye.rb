@@ -9,19 +9,23 @@ class Flye < Formula
   head "https://github.com/mikolmogorov/Flye.git", branch: "flye"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6ff4135fbbe3045cf3bf6f1660be67fe941b86504248a8168a0d0f6b31480e2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "810af69fce87083de1a03681770ff518870625396b869d73f56940437682bc04"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "400b56515e72445dde5088a6dc0dc10be8c61c0aa5fc883183db65577d402726"
-    sha256 cellar: :any_skip_relocation, sonoma:        "818c62bbff5349d4bcda667e7bfb6daad48bf90cca67843cdd82ace15340ef1e"
-    sha256 cellar: :any_skip_relocation, ventura:       "ce68c98b8f26b98724c1e6ad2ccc660e96921af10dff8276e41c916aaf777d9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5455c6f8c306bc89512b1878b75b5140b98875e24a37f3154ad1a7ff66b49c0b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f529f85d3dcabc36f7c906181fc4c8498c994255074dbe968c1122cb7a7d3179"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96788c42c802e74ea9b06d82eb27e82cd977de0672eaffc42a07542565288bab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71a2628f455e185cc72891547274dde976a4d99f22abaff4c85ba3837ed1f7e8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "488225f78d85e2b0f09fbd105bbec666a105fa50dd5e551447da911c6afbf133"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3748cb44ef90f43ef8fe3816c2fd72f8aece54de93f6d46655f2887bfe848c67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbb14eb72f52d41f84831507889ec9f5273d641ac7a9183996a24ed56d1bcbe7"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "zlib"
 
   def install
+    # Workaround for arm64 Linux: https://github.com/mikolmogorov/Flye/pull/691
+    ENV["arm_neon"] = ENV["aarch64"] = "1" if OS.linux? && Hardware::CPU.arch == :arm64
+
     ENV.deparallelize
     virtualenv_install_with_resources
     pkgshare.install "flye/tests/data"

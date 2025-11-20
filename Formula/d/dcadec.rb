@@ -7,8 +7,6 @@ class Dcadec < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/foo86/dcadec.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3ae8134706fc28f0b3e951bd4dddbba4c3e13b58b61484e5988180fba679570f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a38744f8f827e1d1b9b8cec9c825699c2d2b3f5186a05d9dc72b44ad1c5f390"
@@ -20,18 +18,13 @@ class Dcadec < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "702e3f8b57be59604d5969be08fb64067763e5aac353154b233ad74a3f5a3276"
     sha256 cellar: :any_skip_relocation, big_sur:        "2679a012566efff2d1ad05021648975dc2960d2ff42720d53b001631311d4a51"
     sha256 cellar: :any_skip_relocation, catalina:       "0622b87f5b7f7c71346443f12d5e3d6eabd02aa63dce433c7248d405a9fbc036"
-    sha256 cellar: :any_skip_relocation, mojave:         "68b350a3ec6a1ab7384eac3341a03762e8233dec742c35f8dc2afc213b3db567"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "7f938bcd68b9078df3dc6e67d82e08beb55b10228a808d91543a6ed2d15a2002"
-    sha256 cellar: :any_skip_relocation, sierra:         "7a51fb1bfa07f08c45176df419087429e9ffce945cbcd28d71e403c456762c74"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "89ddc5e9a5cfd72e604bdff54ee1f09f9ad4ec281fc79c93201971bbd380ccdd"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "6218f10d2a60bde3becd795bf87e6a806219c7c88b5fcd426ce44cb95e8baef6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f727365cbd24d678682c06e73ff49a7fdf92b17a5a1c6b82068522e4d0e0b1f"
   end
 
   # Ref https://github.com/foo86/dcadec/commit/b93deed1a231dd6dd7e39b9fe7d2abe05aa00158
   deprecate! date: "2024-06-30", because: :deprecated_upstream
-
-  conflicts_with "libdca", because: "both install `dcadec` binaries"
+  disable! date: "2025-07-02", because: :deprecated_upstream
 
   def install
     system "make", "all"

@@ -1,18 +1,18 @@
 class GitSync < Formula
   desc "Clones a git repository and keeps it synchronized with the upstream"
   homepage "https://github.com/kubernetes/git-sync"
-  url "https://github.com/kubernetes/git-sync/archive/refs/tags/v4.4.1.tar.gz"
-  sha256 "823574c624d95dddc931fd6853ef123d460578aec85bb6c0deaa60aa096d268d"
+  url "https://github.com/kubernetes/git-sync/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "4f6ed2d3c4be008104f0fd8a05174b4a6652944d6ee050021b1ecab9b31d1c45"
   license "Apache-2.0"
   head "https://github.com/kubernetes/git-sync.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "72b49a898c83aef448141b406ae6e6dad7cb60bd136908cf0af81fccee8e19af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72b49a898c83aef448141b406ae6e6dad7cb60bd136908cf0af81fccee8e19af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "72b49a898c83aef448141b406ae6e6dad7cb60bd136908cf0af81fccee8e19af"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a41d75a5cd5c100074f06b743406fb49f8a4d4685e3ed2fc06e0de58e257c8be"
-    sha256 cellar: :any_skip_relocation, ventura:       "a41d75a5cd5c100074f06b743406fb49f8a4d4685e3ed2fc06e0de58e257c8be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a51a30d49f6db8d0b5bbdd8e8678188e9fa5765b54d35770db3d31d79a873c0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1bd643552fe6a64a201af7955452afc6fc6c72a95f631e179baf9ce40f51beb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1bd643552fe6a64a201af7955452afc6fc6c72a95f631e179baf9ce40f51beb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1bd643552fe6a64a201af7955452afc6fc6c72a95f631e179baf9ce40f51beb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "174a2da0660a78d23190fb51f217875b9a9396f51471794f67eaf97165019ac7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2817fd83194a339ab7fcad1f3aed0f2bbfd71b382e25ab9e24396bc9d2a27f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd57ac983a4b71fa0d354c18671dbd5fc13dea79db3ba3ea23ae35779dd13668"
   end
 
   depends_on "go" => :build

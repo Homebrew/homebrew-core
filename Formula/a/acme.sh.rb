@@ -6,6 +6,7 @@ class AcmeSh < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d00192c5ed57c194866906887b7407562b52c191d0db0df2462dfb31b46db3c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d00192c5ed57c194866906887b7407562b52c191d0db0df2462dfb31b46db3c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d00192c5ed57c194866906887b7407562b52c191d0db0df2462dfb31b46db3c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6d00192c5ed57c194866906887b7407562b52c191d0db0df2462dfb31b46db3c"

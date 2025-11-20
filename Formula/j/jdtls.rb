@@ -3,9 +3,9 @@ class Jdtls < Formula
 
   desc "Java language specific implementation of the Language Server Protocol"
   homepage "https://github.com/eclipse-jdtls/eclipse.jdt.ls"
-  url "https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.47.0/jdt-language-server-1.47.0-202505151856.tar.gz"
-  version "1.47.0"
-  sha256 "354242694936016cd48635967cb28cd4b0735779dafe963077139d2823ccda3a"
+  url "https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.53.0/jdt-language-server-1.53.0-202511192211.tar.gz"
+  version "1.53.0"
+  sha256 "3d68c0e0fbf08f852f72188934cc6803cc88bb07a1824dddf11392b7cf4bb3b1"
   license "EPL-2.0"
   version_scheme 1
 
@@ -17,11 +17,11 @@ class Jdtls < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d4cd25900bd8b3cffc9ea6cd2e84ca9f96b77db9f8bdc1d83504a76dfadfd05d"
+    sha256 cellar: :any_skip_relocation, all: "2e19be4ba2e63a3fabd0510934056ffb369fda68b3e3bf41c5ac72376e0ed5cd"
   end
 
   depends_on "openjdk"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     libexec.install buildpath.glob("*") - buildpath.glob("config*win*")

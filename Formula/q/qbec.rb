@@ -1,19 +1,18 @@
 class Qbec < Formula
   desc "Configure Kubernetes objects on multiple clusters using jsonnet"
   homepage "https://qbec.io"
-  url "https://github.com/splunk/qbec/archive/refs/tags/v0.16.3.tar.gz"
-  sha256 "1dfdd8f4db74ba3115c56704e99b26d072ad72aa14f84d5af8e1c419126bb122"
+  url "https://github.com/splunk/qbec/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "26dc4f5e4749e82c6f446a31b9eb47ac512178a39e45de237c937dd0b1b96d90"
   license "Apache-2.0"
   head "https://github.com/splunk/qbec.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87c759042432ed77117d61eff8a1f8e5cbe25e2672df0e2706896be8e78f483c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "290a9669a65e80fd5c4d7045c7a74b8f2d18eabf0083899f733a7ee3caf4675e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d943895d5ab80e6a17ea36217a092f79cd107f10c4e12aaf0462d9742e7d54f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "026af3dda4133c5fbc36e7c2ae7665dd4b701fb01f4f4619b64c37e88778ef8b"
-    sha256 cellar: :any_skip_relocation, ventura:       "02f0fcba10301230efdec142e29c9b3c09286e1ebf133d3a00cac08ce27aac62"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "92f342e9bdf53d997f34eba29e635263ba0741935b5110c4d1e7152d3227c6e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78a97847c98ce06a3a868af4e5bb008e16dd24d86a219c2ef6607637bdfbc7a0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9462e25ab6e0625df3e736d18b8c8185fe5ab3868c72007910bf93c2e06e1604"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8294a6942ed9967596d21d5a0b1d3716b73eb20b8b79268e8c54a5b7b95f42c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "922df35073317307b502e490cc9ba9d0ab8028a4b560c9adf95d8ae71f3aa078"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7c1f4f0add2624db4c34e31294df8b15e7bc5d588c3f0e4b1141795307641861"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1790ffe807e928176b6cd98746a40d7f4057b867ba15436e21bda292328c62cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96b2926505ccde48caaee06e933566ff6c35523af5875c38730baeb0fc771ced"
   end
 
   depends_on "go" => :build

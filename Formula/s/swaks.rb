@@ -10,6 +10,8 @@ class Swaks < Formula
     regex(/href=.*?swaks[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c306783b36231b83d1c0935e526206911e61c3e1d58a011ea97b9132113e9f06"

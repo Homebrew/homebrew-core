@@ -6,6 +6,8 @@ class TranslateShell < Formula
   license "Unlicense"
   head "https://github.com/soimort/translate-shell.git", branch: "develop"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "58078d2c0655645aa195c91dc972beb161c90a4085a58bced9d2a9d9830c7b92"

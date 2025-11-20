@@ -11,6 +11,7 @@ class Nylon < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "fc061e1bd83501bfd964f4d38d83a650157e2c4933843c8b0423fa70c6f97732"
     sha256 cellar: :any,                 arm64_sequoia:  "9d68b83a58d01d235ccc302690fddd22413603e42beae2b8b909eaca8caab83b"
     sha256 cellar: :any,                 arm64_sonoma:   "ab39d342239cf90b5fd6395e5deec9e5664312a8b76d481973f61d7604c1d39b"
     sha256 cellar: :any,                 arm64_ventura:  "be2cc327743e9011455a4f318ea045968c6eb10632ebe6452194342e3a9fbb39"
@@ -21,9 +22,6 @@ class Nylon < Formula
     sha256 cellar: :any,                 monterey:       "11ae6faf8f16faf3bc2be2f03981b4d1303897cfe86fb2108c05c4449cbafea6"
     sha256 cellar: :any,                 big_sur:        "dffadaeddcde173302400dfc71686048edf9944a3543ac578ce634d9f283870d"
     sha256 cellar: :any,                 catalina:       "6138b062f2a435928485795e2b3bdef81983a87137d4bf73029838f19c1210f5"
-    sha256 cellar: :any,                 mojave:         "cb2cbfbd8df94b8581a116807075daf9fadbe9b9c5cfa537ea30dfa76537dd5c"
-    sha256 cellar: :any,                 high_sierra:    "3df9b3197c8dc9a227221027047c8de77ddb6ad9ce2edd14544c2d6e4923b660"
-    sha256 cellar: :any,                 sierra:         "b7eeab5896aaaca9c73166e519d092a71f15a36e800a28742729f8cbc270e6d8"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "230eb92e635d14a73da14fb444d5ebf116484e95ec8c0b8d3d80e893afa0b56d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "20d711c147849e3de3f352052357765c5d55f82c005bde767c2ff3b95774c0d0"
   end

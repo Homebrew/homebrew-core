@@ -1,8 +1,8 @@
 class GambitScheme < Formula
   desc "Implementation of the Scheme Language"
   homepage "https://gambitscheme.org/"
-  url "https://github.com/gambit/gambit/archive/refs/tags/v4.9.5.tar.gz"
-  sha256 "758da7b4afe6411e9c4fed14b0cc5ada39b5f1393c1edd4d3dd9c9a06127c310"
+  url "https://github.com/gambit/gambit/archive/refs/tags/v4.9.7.tar.gz"
+  sha256 "0da7c9772a2186dab1fba6bf6c777afe7424f40beacadf1b117d5cc825fe2db3"
   license "Apache-2.0"
 
   livecheck do
@@ -13,17 +13,14 @@ class GambitScheme < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia:  "f36581ac5b8ee26960a4ee083f2014b3ca2396c8fc6acc47a0fb055cbb72e2fe"
-    sha256 arm64_sonoma:   "28fc26e8105d6d085c4071e48f33eeb47140079b6cb9cb926c40719f2d050088"
-    sha256 arm64_ventura:  "958094368433dfd957d53e1cfbaa8af1235b879b70ace4eea23bbb1196f1aa5f"
-    sha256 arm64_monterey: "12263d69bdfd8b2a13901ec6967ba60946e36db1e0fff53190a1e27a7ae25221"
-    sha256 arm64_big_sur:  "4b8892cf54da88e4b8edd58e31d46a6c56fad15b3f5a2dc646e94958db044ae5"
-    sha256 sonoma:         "5ec8948521d76d3db52467f13bc02b2d5abd9228ad6e626e9044a7d1dbb8a79f"
-    sha256 ventura:        "7f26f3c29562f4dc3c8033a18e53d47bf55c093dcafd622e8fd78cf4d8d61f28"
-    sha256 monterey:       "3ead39c88a5246f0f8ecbb1afa4e4dc218375c35aea624afea101c7b803321dc"
-    sha256 big_sur:        "1e335b312ef44ae5d0b3475ab771da5390943a33435883570cb124d11c9c02e7"
-    sha256 arm64_linux:    "f1c8fb97b8b51e7ed7610afedb5e0bde3d690b15a17ea147605f924797825b39"
-    sha256 x86_64_linux:   "5c4bb1bcc575d1079679114fec7776b3ac881ce67324a1a5b0bab2b6843f7ef6"
+    sha256 arm64_tahoe:   "67a5f5bde73e525d2c488db0630747dd973391c70dca31856706a9406f63e9d2"
+    sha256 arm64_sequoia: "d865948c300dca31a94bb7f6044abdf0c7b6b054c32fce1bbe20490d0956841c"
+    sha256 arm64_sonoma:  "a50e4b0a899069f7e67a8cf47346bfcb80636b82d8af8d7a8cac989a6f1906f9"
+    sha256 arm64_ventura: "2b0fabb679485de2ab986531dd750561969f8bad53397a60bf37804f389f7a09"
+    sha256 sonoma:        "8a424288530b11d1e79006f4958683db02cb9070646697394ed3f12cc025a94f"
+    sha256 ventura:       "731b5181b8d80d3a19ee3cb7a1d2f4a0eef9481940712a3926492462d8781262"
+    sha256 arm64_linux:   "ecc701336f5dcd9619ce82abfc1ebac667a79c80ba9e9af5de2361f97befc613"
+    sha256 x86_64_linux:  "32b5fa130a244ff8cc9dc13a27bfb30bd844ab21a3ec0f8f663f01a063d8351e"
   end
 
   depends_on "openssl@3"
@@ -33,6 +30,7 @@ class GambitScheme < Formula
   end
 
   conflicts_with "ghostscript", because: "both install `gsc` binary"
+  conflicts_with "gerbil-scheme", because: "both install `gsc` binary"
   conflicts_with "scheme48", because: "both install `scheme-r5rs` binaries"
 
   # Clang is slower both for compiling and for running output binaries

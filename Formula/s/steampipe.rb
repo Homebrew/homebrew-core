@@ -1,10 +1,10 @@
 class Steampipe < Formula
   desc "Use SQL to instantly query your cloud services"
   homepage "https://steampipe.io/"
-  url "https://github.com/turbot/steampipe/archive/refs/tags/v1.1.4.tar.gz"
-  sha256 "95c2b6518f9fa62b4082e300b3382b68d5bbe2444fa24cdfbce4c314626e0a62"
+  url "https://github.com/turbot/steampipe/archive/refs/tags/v2.3.2.tar.gz"
+  sha256 "abe43a3dd5400fbb23373314cad1bda2f6da0ae5132f261e5260f4dee4eb8970"
   license "AGPL-3.0-only"
-  head "https://github.com/turbot/steampipe.git", branch: "main"
+  head "https://github.com/turbot/steampipe.git", branch: "develop"
 
   livecheck do
     url :stable
@@ -12,30 +12,29 @@ class Steampipe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7be0e36b2609eeca63f3693b2018d049d01d5064c5f546fd71f392dba2e803e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71e66624b7e948e0387d9d82f530993865a63ba9228867c687bdf577a0b1e373"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "89644ef75a320109f3465087fd129daab7d24d4656d490ac6bc42b7ac8e89352"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dccb8e97ceb8fbddddfc831bb751e08a3c5450841aaccdd66357b4d103a3e329"
-    sha256 cellar: :any_skip_relocation, ventura:       "94cb4fa6cb55fced81217bda31fc27a720a527a2131c8d66fd05dd623e334f36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32c26f8f34c26b16dfc8f3b06adcf17f13d81d77158b6c2ea592b4bc2076e017"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3df71626e45a9be247a46fcb6ae0eda085df20184f09889b5ce0c250969e3c05"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e7f0406a063959185f8d823402f980ed9e962f39823832c4c588bb7adf410e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af5e58e6265202531f381e2c23ce830374a1b628a669fa9fe09ea590e1721125"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c2868353995fd291efcd8a25ab5f05ed25d4fa13c57d830d3a6ab2b803a9654a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf98250de7905bec91e2bc79f88a78232c2f961637b5a11d8dade102f78f2784"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93a8c39b13210dc906897a430f97ffec8310e40c1b277582813deb545718bade"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = "-s -w -X main.version=#{version} -X main.date=#{time.iso8601} -X main.commit=#{tap.user}"
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"steampipe", "completion")
   end
 
   test do
-    if OS.mac?
-      output = shell_output(bin/"steampipe service status 2>&1", 255)
-      assert_match "Error: could not create logs directory", output
-    else # Linux
-      output = shell_output(bin/"steampipe service status 2>&1")
-      assert_match "Steampipe service is not installed", output
-    end
-    assert_match "Steampipe v#{version}", shell_output(bin/"steampipe --version")
+    ENV["STEAMPIPE_INSTALL_DIR"] = testpath
+
+    output = shell_output("#{bin}/steampipe service status")
+    assert_match "Steampipe service is not installed", output
+
+    assert_match "Steampipe v#{version}", shell_output("#{bin}/steampipe --version")
   end
 end

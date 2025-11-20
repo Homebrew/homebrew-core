@@ -6,6 +6,8 @@ class ZshSyntaxHighlighting < Formula
   license "BSD-3-Clause"
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "3cfaa693dab68d9a576ad1ad0a018e12b250a057963263733f6fcc9b4c4ce8a6"

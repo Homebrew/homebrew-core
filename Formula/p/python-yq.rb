@@ -9,41 +9,40 @@ class PythonYq < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "fc51885dc4afeb945b9da323e5ab75751a5b861f20c0523a79360343cf4f57db"
-    sha256 cellar: :any,                 arm64_sonoma:  "8b33d265380df20b66a575e0b84592c86ba02422298dfb9a095fd46c407f913a"
-    sha256 cellar: :any,                 arm64_ventura: "b7cfa07975355ba6d17eb32c40d7fc6ca2814de0ce84707e242bbf0050758902"
-    sha256 cellar: :any,                 sonoma:        "148ae1e845bfbbc487ae9b2d152eaff0aca6650233a5c613fe06b1fddcf7ccf8"
-    sha256 cellar: :any,                 ventura:       "509f944e20ed31d27571ae35409f52a3af4d2856295882edc4435bc2cd0243a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5fd740b29833a5d142cb96772a21c8c4ee77384de3c3f781e1acc1e03b72727"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30bfa94a1f5bc51fffcfebb345afc1e4de7997833264112ce802774131b14278"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "78582756df6d73b461cb5d48153aa07693ba9966df4b870d2947c35ba65d96f3"
+    sha256 cellar: :any,                 arm64_sequoia: "6fcc7e5152176d214b6ed0e8c310f1635b2276704b1cad2d2ee58438abe83ba5"
+    sha256 cellar: :any,                 arm64_sonoma:  "18e8c8295b92643e711ffe3ca298dcb0157052a51e62550c24cac2aab67d1aee"
+    sha256 cellar: :any,                 sonoma:        "0f215ad7173ff1309208dd0526c061d50f5b6b7838853b704fb1c9923473bdf4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "524ae6c009837ecb5d6c6dab1d93038040d93dce3864c6de2fa477eb0f285806"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ece36385f46a4d31df2fd58129088085b20ca6a964dfb8b8b02b6ec90361e14c"
   end
 
   depends_on "jq"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "yq", because: "both install `yq` executables"
   conflicts_with "xq", because: "both install `xq` binaries"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/7f/03/581b1c29d88fffaa08abbced2e628c34dd92d32f1adaed7e42fc416938b0/argcomplete-3.5.2.tar.gz"
-    sha256 "23146ed7ac4403b70bd6026402468942ceba34a6732255b9edf5b7354f68a6bb"
+    url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
+    sha256 "d0519b1bc867f5f4f4713c41ad0aba73a4a5f007449716b16f385f2166dc6adf"
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/b1/09/a439bec5888f00a54b8b9f05fa94d7f901d6735ef4e55dcec9bc37b5d8fa/tomlkit-0.13.2.tar.gz"
-    sha256 "fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79"
+    url "https://files.pythonhosted.org/packages/cc/18/0bbf3884e9eaa38819ebe46a7bd25dcd56b67434402b66a58c4b8e552575/tomlkit-0.13.3.tar.gz"
+    sha256 "430cf247ee57df2b94ee3fbe588e71d362a941ebb545dec29b53961d61add2a1"
   end
 
   resource "xmltodict" do
-    url "https://files.pythonhosted.org/packages/98/f7/d29b8cdc9d8d075673be0f800013c1161e2fd4234546a140855a1bcc9eb4/xmltodict-0.14.1.tar.gz"
-    sha256 "338c8431e4fc554517651972d62f06958718f6262b04316917008e8fd677a6b0"
+    url "https://files.pythonhosted.org/packages/6a/aa/917ceeed4dbb80d2f04dbd0c784b7ee7bba8ae5a54837ef0e5e062cd3cfb/xmltodict-1.0.2.tar.gz"
+    sha256 "54306780b7c2175a3967cad1db92f218207e5bc1aba697d887807c0fb68b7649"
   end
 
   def install

@@ -7,7 +7,10 @@ class Libicns < Formula
   license any_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later"]
   revision 5
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "1392fb2947748ea7d1156f9d66e18f28614106d0e25f0977ee14502e57a1201f"
     sha256 cellar: :any,                 arm64_sequoia:  "4f513b025e1f28cadb969f9546d4b9c0b77021310a3b634c0f6edf2ddcbb8c93"
     sha256 cellar: :any,                 arm64_sonoma:   "2da2b5cfc0aa4e79abe85f5794115e41709297c1d6d813c04ebfc5776e974b39"
     sha256 cellar: :any,                 arm64_ventura:  "144537e569ff40707cbb02a4d5d14592bc001cc7eff0e21f102dfd6c36908689"
@@ -26,7 +29,7 @@ class Libicns < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

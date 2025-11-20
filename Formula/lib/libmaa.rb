@@ -12,6 +12,7 @@ class Libmaa < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "651f1943384f685d850d27769fb94b266046b62880c3112c15bf4d03ee3ad4c6"
     sha256 cellar: :any,                 arm64_sequoia:  "2b88aec983abd53f00f4fb93cae3234697551de075a45f36e8b4112d93f6dfcc"
     sha256 cellar: :any,                 arm64_sonoma:   "ffeb3a62fca07f8c095090d570b64165b442ab4e9debfab6475d7b6fdc2bdbe1"
     sha256 cellar: :any,                 arm64_ventura:  "90ab64584330817a8a5e11494945f1bcc67fac60733e4bea976d95a833341ce8"

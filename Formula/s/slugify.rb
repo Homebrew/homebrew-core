@@ -6,6 +6,8 @@ class Slugify < Formula
   license "MIT"
   head "https://github.com/benlinton/slugify.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "3b484ae7b5d87f4f148f8c9395960213ed62b4cd1b82567c7bcceede23259942"

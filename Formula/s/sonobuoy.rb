@@ -6,11 +6,13 @@ class Sonobuoy < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bddd68d3727f2d51968ee096e74b8b64f845a9d43b02e69eece7b285d1a21faa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c32da42e3e5b57b9ced6921ad5c275ac8ff076ce9dbabafb30ba0d57d520a251"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c32da42e3e5b57b9ced6921ad5c275ac8ff076ce9dbabafb30ba0d57d520a251"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c32da42e3e5b57b9ced6921ad5c275ac8ff076ce9dbabafb30ba0d57d520a251"
     sha256 cellar: :any_skip_relocation, sonoma:        "a63e81012251bc72c4dee7f3c82fcded580417bfb68774d772980e5489560902"
     sha256 cellar: :any_skip_relocation, ventura:       "a63e81012251bc72c4dee7f3c82fcded580417bfb68774d772980e5489560902"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98caa359df349d733f373ed5228ead0d7dfffe8defcb40254cdd8c219557f590"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "11b4dd588a290681b0a297cdbee378b83cfcccb2bb8cb4c40033531e30b38d76"
   end
 

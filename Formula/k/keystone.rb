@@ -6,8 +6,11 @@ class Keystone < Formula
   license "GPL-2.0-only"
   head "https://github.com/keystone-engine/keystone.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "db234233227f5659094d618cc75191413354559df733c63ed1aac7bcb9796dbf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ccd260480e31343df08f282b31c71ba54088029cccf2e210afd58ef404a64be"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "26489f253fff8ad2046ff3c2faf2f8a7d2601a2daddbe512944deb882a17402b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a1b296425709c379e4ba6e27054a06aafa876b1fea1f4a5e8d72ff131faf2e86"
@@ -18,14 +21,23 @@ class Keystone < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
 
   def python
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DPYTHON_EXECUTABLE=#{python}", *std_cmake_args
+    args = %W[
+      -DPYTHON_EXECUTABLE=#{python}
+    ]
+
+    # Workaround to build with CMake 4
+    inreplace %w[CMakeLists.txt llvm/CMakeLists.txt],
+              "cmake_policy(SET CMP0051 OLD)", ""
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

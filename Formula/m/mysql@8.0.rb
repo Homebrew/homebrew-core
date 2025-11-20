@@ -3,23 +3,25 @@ class MysqlAT80 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.42.tar.gz"
-  sha256 "c2aa67c618edfa1bc379107fe819ca8e94cba5d85f156d1053b8fedc88cc5f8f"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.44.tar.gz"
+  sha256 "a8cc09a35af63668c5235cf282aef789428c6f30c1d9a581b337c816ce8ce8bb"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 2
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.0.html?tpl=files&os=src&version=8.0"
     regex(/href=.*?mysql[._-](?:boost[._-])?v?(8\.0(?:\.\d+)*)\.t/i)
   end
 
+  no_autobump! because: :incompatible_version_format
+
   bottle do
-    sha256 arm64_sequoia: "374dcbdffa60dd5a7c01788235ea51faf12c11d8276ed79339c361ada06a77cd"
-    sha256 arm64_sonoma:  "e1450da39223da0f12db39461a164ed9522a087e47a08df96cfb3e55bda4a4b4"
-    sha256 arm64_ventura: "4e256b2b28f4b9225536419d453c8d38c5129f7a35f275946c022f4dca16f4e1"
-    sha256 sonoma:        "49d14b9e9f9e46b4b1e2dd4d02ecb4129ab28020b67da39500abd8b6a05358a5"
-    sha256 ventura:       "94381480fb745013b9d709cf1463630fb094e2878a5fd6e769690813a16a93b0"
-    sha256 arm64_linux:   "7ccb69ac582f17faee3a17a4ab366fd7ae372fd066801e172d47e181f4a52065"
-    sha256 x86_64_linux:  "93cea0c407ddc6acf6e794315aede77261f9c75bb58dfeb3083e59cadf0ef4f8"
+    sha256 arm64_tahoe:   "89c3894521c22f7f3ff67538451a2465f128a7fa103256ed58a99596b6e9fcf3"
+    sha256 arm64_sequoia: "da7fcc717f5261ad4030ee033c636e8d1bad0860782129d516142209266c85fd"
+    sha256 arm64_sonoma:  "3e4b3ffeab4f1fa601e3933271b2cc2bde866cd0b55eeb4c84ab4422568329b0"
+    sha256 sonoma:        "c3f7d266655d2572895a01cafe5837c6fa7715af1d3e45ffd22efa6224a6ea21"
+    sha256 arm64_linux:   "2c4ba532ad90081a3afceebe715a533a369135cd3c3a8c17809c00d077ec0d66"
+    sha256 x86_64_linux:  "a071d62e17d4ae5087f89f8954766f635854ba102d87282a1af56829e4529f9a"
   end
 
   keg_only :versioned_formula
@@ -28,12 +30,12 @@ class MysqlAT80 < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "protobuf@29"
+  depends_on "protobuf"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -100,7 +102,10 @@ class MysqlAT80 < Formula
     system "cmake", "--install", "build"
 
     cd prefix/"mysql-test" do
-      system "./mysql-test-run.pl", "status", "--vardir=#{buildpath}/mysql-test-vardir"
+      system "./mysql-test-run.pl", "check", "--vardir=#{buildpath}/mysql-test-vardir"
+    ensure
+      status_log_file = buildpath/"mysql-test-vardir/log/main.status/status.log"
+      logs.install status_log_file if status_log_file.exist?
     end
 
     # Remove the tests directory
@@ -127,6 +132,13 @@ class MysqlAT80 < Formula
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
 
+    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
+      opoo <<~EOS
+        A "#{my_cnf}" from another install may interfere with a Homebrew-built
+        server starting up correctly.
+      EOS
+    end
+
     # Don't initialize database, it clashes when testing other MySQL-like implementations.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
@@ -138,7 +150,7 @@ class MysqlAT80 < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       We've installed your MySQL database without a root password. To secure it run:
           mysql_secure_installation
 
@@ -147,14 +159,6 @@ class MysqlAT80 < Formula
       To connect run:
           mysql -u root
     EOS
-    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
-      s += <<~EOS
-
-        A "#{my_cnf}" from another install may interfere with a Homebrew-built
-        server starting up correctly.
-      EOS
-    end
-    s
   end
 
   service do

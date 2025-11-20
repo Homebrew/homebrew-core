@@ -11,7 +11,10 @@ class Smap < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fcac3c34ff7362e78d5674837d531780a9b3b0bd54b54b0172f5dd47ba523f9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "76fbb860e3293a917a8c0ea81e911cda57c0af6cb4e8cd89afb5c5063e45676f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "162d821d45208c377855150781facff0c083300805aff8b02303def6c0f107f8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd92aa17be58afaa0bc14baaabe80da512f7e636ed061be0bd7fb52600ce6d6b"
@@ -22,6 +25,7 @@ class Smap < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "86e023078f8974a87f8173e0f6c7698d864f1461b606726c8a04e6d6102cfdc3"
     sha256 cellar: :any_skip_relocation, big_sur:        "78f76525efa1961a7d73524596f9b1d1b6c561dd4878394db3ea256c396e4bf0"
     sha256 cellar: :any_skip_relocation, catalina:       "3105b203330cc0b6f54b8e7b000d82afb253bf6e924cdc6155874aeaa7394896"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f5e586b583ee24c689e583cc8cdc55f442f48e80e3a21d0a2fbc5ee09a2a0206"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dce4831163ced243814deed0371518cf969ebb55aedd74bdba4933dd30aef60b"
   end
 

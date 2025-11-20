@@ -1,16 +1,13 @@
 class BashPreexec < Formula
   desc "Preexec and precmd functions for Bash (like Zsh)"
   homepage "https://github.com/rcaloras/bash-preexec"
-  url "https://github.com/rcaloras/bash-preexec/archive/refs/tags/0.5.0.tar.gz"
-  sha256 "23c589cd1da209c0598f92fac8d81bb11632ba1b2e68ccaf4ad2c4f3204b877c"
+  url "https://github.com/rcaloras/bash-preexec/archive/refs/tags/0.6.0.tar.gz"
+  sha256 "1a987c0ef0e9cfa0391389327c5aef30166325b32666adde3daa9b809850cdd1"
   license "MIT"
   head "https://github.com/rcaloras/bash-preexec.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "be667c2452738ea09d539b67880bca9655a60c9d6e586e7088420e214b310382"
+    sha256 cellar: :any_skip_relocation, all: "d737f908e1981ebeeb2cc684951331f7dfb4ab8b0befc291c5da4b3f83fd7154"
   end
 
   def install

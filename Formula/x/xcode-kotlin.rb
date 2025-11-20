@@ -6,7 +6,10 @@ class XcodeKotlin < Formula
   license "Apache-2.0"
   head "https://github.com/touchlab/xcode-kotlin.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c8432e2d622a06bacb457053e063480f63879c3e73abf22fe40b3114291ad881"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d3b032937ee2f5e72a80cff85d9bb0b257178e6498b050f3f45919910c7bc77"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e21566ddcf5a53e5f3320fe660a0b6c67d70a6ed3e6fc5ca82b72087ed80d7db"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "693d8c42c635a9560ceb4ca9e6a9512123fbada905b3068deef8e38f4340a355"
@@ -26,7 +29,7 @@ class XcodeKotlin < Formula
   end
 
   test do
-    output = shell_output(bin/"xcode-kotlin info --only")
+    output = shell_output("#{bin}/xcode-kotlin info --only")
     assert_match(/Bundled plugin version:\s*#{version}/, output)
     assert_match(/Installed plugin version:\s*(?:(?:\d+)\.(?:\d+)\.(?:\d+)|none)/, output)
     assert_match(/Language spec installed:\s*(?:Yes|No)/, output)

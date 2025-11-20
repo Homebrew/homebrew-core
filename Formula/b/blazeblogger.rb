@@ -8,20 +8,14 @@ class Blazeblogger < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8dc5296ef25d1c5289d74505f6db5c963263054ae78624b237321844e7b3aa5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8dc5296ef25d1c5289d74505f6db5c963263054ae78624b237321844e7b3aa5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c8dc5296ef25d1c5289d74505f6db5c963263054ae78624b237321844e7b3aa5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "611443d1770dc0b3af0b0f4ca3af47fe7890ccfb72bf43512ded5c759cc9df08"
-    sha256 cellar: :any_skip_relocation, ventura:       "611443d1770dc0b3af0b0f4ca3af47fe7890ccfb72bf43512ded5c759cc9df08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8dc5296ef25d1c5289d74505f6db5c963263054ae78624b237321844e7b3aa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8dc5296ef25d1c5289d74505f6db5c963263054ae78624b237321844e7b3aa5"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "4f76e3eb4cb3ab302fdf746ec68a54f42422913c10916429788affadad93209c"
   end
 
   def install
     # https://code.google.com/p/blazeblogger/issues/detail?id=51
     ENV.deparallelize
-    system "make", "prefix=#{prefix}", "compdir=#{prefix}", "install"
+    system "make", "install", "prefix=#{prefix}", "compdir=#{prefix}"
   end
 
   test do

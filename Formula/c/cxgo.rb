@@ -7,11 +7,13 @@ class Cxgo < Formula
   head "https://github.com/gotranspile/cxgo.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b38c152f871497a6febc7e9628a1907f13eccd9a35c9212a009bc26f2a6d9371"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ebcf34c360a23231c3a1a78a54ad1904ba3cbd3e7f2938844247bf0324b02639"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ebcf34c360a23231c3a1a78a54ad1904ba3cbd3e7f2938844247bf0324b02639"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ebcf34c360a23231c3a1a78a54ad1904ba3cbd3e7f2938844247bf0324b02639"
     sha256 cellar: :any_skip_relocation, sonoma:        "ce0073283d4a255dd5ba29fc637074fa24d59266c50826512b2217c8591e7427"
     sha256 cellar: :any_skip_relocation, ventura:       "ce0073283d4a255dd5ba29fc637074fa24d59266c50826512b2217c8591e7427"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f849761eee11fc2b5b1a2b99d81685a384ccb0db1a558387aa9141f0c031845"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9cd5c2c79e9d44ec6bcb1dc71849d89e7c9f415b5f3abd4b757c31992bca295"
   end
 

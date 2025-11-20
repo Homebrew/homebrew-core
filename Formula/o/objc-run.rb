@@ -6,6 +6,8 @@ class ObjcRun < Formula
   license "MIT"
   head "https://github.com/iljaiwas/objc-run.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "50066d41f8749f1c5865836c1ce1e1a89b502357aebcbd1c8c088bd04b9abc79"

@@ -1,9 +1,9 @@
 class Kafka < Formula
   desc "Open-source distributed event streaming platform"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=kafka/4.0.0/kafka_2.13-4.0.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/4.0.0/kafka_2.13-4.0.0.tgz"
-  sha256 "7b852e938bc09de10cd96eca3755258c7d25fb89dbdd76305717607e1835e2aa"
+  url "https://www.apache.org/dyn/closer.lua?path=kafka/4.1.1/kafka_2.13-4.1.1.tgz"
+  mirror "https://archive.apache.org/dist/kafka/4.1.1/kafka_2.13-4.1.1.tgz"
+  sha256 "791e8ee6996982d8055829367a80391f94c1bca7329b2fbb658bfc211a77472e"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,12 @@ class Kafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73ba51ee035a8ffecc3b205a8272ac62c0529a4e52f48f114ad3e8404405b288"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73ba51ee035a8ffecc3b205a8272ac62c0529a4e52f48f114ad3e8404405b288"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "73ba51ee035a8ffecc3b205a8272ac62c0529a4e52f48f114ad3e8404405b288"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0a40fd21ee87eb2d0bf44f106f3a7d599ebc3a47e64892151b49f76f00897fb0"
-    sha256 cellar: :any_skip_relocation, ventura:       "0a40fd21ee87eb2d0bf44f106f3a7d599ebc3a47e64892151b49f76f00897fb0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "73ba51ee035a8ffecc3b205a8272ac62c0529a4e52f48f114ad3e8404405b288"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73ba51ee035a8ffecc3b205a8272ac62c0529a4e52f48f114ad3e8404405b288"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b3c96e8da00840d7b2619c171931b51cc5822c3d508c1e42465d64e6ffe554a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b3c96e8da00840d7b2619c171931b51cc5822c3d508c1e42465d64e6ffe554a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b3c96e8da00840d7b2619c171931b51cc5822c3d508c1e42465d64e6ffe554a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a155487cdc3cb51d7efdad3b4cdd76aa1580adff579a1c040f16130eaf05a74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b3c96e8da00840d7b2619c171931b51cc5822c3d508c1e42465d64e6ffe554a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b3c96e8da00840d7b2619c171931b51cc5822c3d508c1e42465d64e6ffe554a"
   end
 
   depends_on "openjdk"

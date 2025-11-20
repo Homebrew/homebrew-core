@@ -1,8 +1,8 @@
 class Pnetcdf < Formula
   desc "Parallel netCDF library for scientific data using the OpenMPI library"
   homepage "https://parallel-netcdf.github.io/index.html"
-  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.14.0.tar.gz"
-  sha256 "e5a7e87dcf7d526b97e8ffdce05df0d2845965787a7d21242fafa9656950e402"
+  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.14.1.tar.gz"
+  sha256 "6f0f7221006c211fce9ddd2c008796b8c69dd717b2ad1be0b4027fc328fd3220"
   license "NetCDF"
 
   livecheck do
@@ -11,12 +11,13 @@ class Pnetcdf < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "19b8144af18eadad7d9d794d37864fa81c62e6907b5a118b9b14a8b27e4d30b0"
-    sha256 arm64_sonoma:  "3385c56d53190c61d92bf85b9b3c7b92086c58b644bec5a8b66fdf4555a8ac66"
-    sha256 arm64_ventura: "360874963214b4e9b9338ee78448420a150b9cb00756ebb8d5df0b97ae359320"
-    sha256 sonoma:        "a46e740e91a836a35faf7ef12039280dcf14cd35a908dc6d6f65d30202436d8f"
-    sha256 ventura:       "1caabb8afcf508fc98e0afc9af8d1f449c9f61c49fc003b81c040ea75147fa4d"
-    sha256 x86_64_linux:  "a94a617103f87b61c162f9bd9eeff3887a5e44c507406c662034231cfd38441e"
+    rebuild 1
+    sha256 arm64_tahoe:   "bf7af9e280e7cd4ed65b1224c5162e438019e694acaddf3879fb762df70b9613"
+    sha256 arm64_sequoia: "ec1741e4908ba779f792995be4683b91815886f71a064e528e386ad4a0f6da25"
+    sha256 arm64_sonoma:  "574fb8c333ad1b5c41f411214c8aafc8c16bba0fdae87adab77e0f156c14bc3b"
+    sha256 sonoma:        "b81de914fd1a1240034c507f426aa28b0cf959abd106824cf39fd7e030a1481a"
+    sha256 arm64_linux:   "f14a3eb2fdc8bdf79d7958132945e8756f9b5af261961efc7d943266b20a87cf"
+    sha256 x86_64_linux:  "8a3e4533fbc8a1a5d1267dfe81cb3a1ab389ac4b0971de4eb6ade996bc2cc7a6"
   end
 
   depends_on "gcc"
@@ -24,21 +25,10 @@ class Pnetcdf < Formula
 
   uses_from_macos "m4" => :build
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
-    # Work around asm incompatibility with new linker (FB13194320)
-    # https://github.com/Parallel-NetCDF/PnetCDF/issues/139
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
-
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--enable-shared"
-
+    system "./configure", "--disable-silent-rules",
+                          "--enable-shared",
+                          *std_configure_args
     system "make", "install"
   end
 

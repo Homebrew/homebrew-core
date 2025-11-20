@@ -3,8 +3,8 @@ class CoreLightning < Formula
 
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v25.02.2/clightning-v25.02.2.zip"
-  sha256 "db0a7da35a5a58959fc48be6f410e7b0a5f718351729a3e4a41f3d7306fa3a3f"
+  url "https://github.com/ElementsProject/lightning/releases/download/v25.09.3/clightning-v25.09.3.zip"
+  sha256 "d051a08f1432ddc7b26d1132ea9ad302de935f89a5a930eafcf92f68830649ab"
   license "MIT"
   head "https://github.com/ElementsProject/lightning.git", branch: "master"
 
@@ -15,13 +15,12 @@ class CoreLightning < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "20a9b6d87a4da792e3c43225945ae9e63df5cb63efeedfea312a6a4e4c92faf5"
-    sha256 arm64_sonoma:  "c8fa3cf712430a36213b14801915b59d64d36f81151ba3dbcc0fc5b3526ec0fa"
-    sha256 arm64_ventura: "77eb48e7619b5ebc82519785ec875fab0a8d2ab22fadb61450cc090cfb54426a"
-    sha256 sonoma:        "4eec1e5cfe0aaa34d60da59f852b543efa3aab0c3176c3ee60ad63e2cf203d84"
-    sha256 ventura:       "5ddfcd6302056dbcd26425c726d540851083683bff64ccea2e35c9b2e90f0439"
-    sha256 arm64_linux:   "b5ef6d7c3ef3085b901b858fb9b54519a42c1e8e8bdb97ea497753c4bb7f293f"
-    sha256 x86_64_linux:  "edff9fb5abe60bf968ab4b737bda1b786a362799706c352fba5023114c2a3285"
+    sha256 arm64_tahoe:   "75ca48adeba263c619a9d5d65c40d2241029a091bdd8f0193a64096dd8092de2"
+    sha256 arm64_sequoia: "4bced7dfdb093e6a47b8acd1e348f7add7b202a3898fef45a5ef2bca2a9bb775"
+    sha256 arm64_sonoma:  "a5b4255ed27057b54b10c56d519318b43c45db090b76c9019812e8973a090716"
+    sha256 sonoma:        "1f58816b192df9206224ab9d09a8c7d755e80b35febc7d6dae5691c1e2c0ecfc"
+    sha256 arm64_linux:   "de4e72e16c6f9b3eae1fe41fc6c60ada3123497bdae46fe42dfe5e726595882b"
+    sha256 x86_64_linux:  "4a4d0ada5c687be92c131a196df65d0c5cc14adeabd03d657d57e827c4659fa2"
   end
 
   depends_on "autoconf" => :build
@@ -31,13 +30,13 @@ class CoreLightning < Formula
   depends_on "lowdown" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "rust" => :build
   depends_on "bitcoin"
   depends_on "libsodium"
 
   uses_from_macos "jq" => :build, since: :sequoia
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
@@ -45,19 +44,22 @@ class CoreLightning < Formula
     depends_on "gnu-sed" => :build
   end
 
+  pypi_packages package_name:   "",
+                extra_packages: ["mako", "setuptools"]
+
   resource "mako" do
     url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
     sha256 "99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   # Configure script overwrites `PKG_CONFIG_PATH` on macOS
@@ -70,13 +72,15 @@ class CoreLightning < Formula
   def install
     rm_r(["external/libsodium", "external/lowdown"])
 
-    venv = virtualenv_create(buildpath/"venv", "python3.13")
+    venv = virtualenv_create(buildpath/"venv", "python3.14")
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
     ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+
+    rm_r Dir["#{bin}/*.dSYM"]
   end
 
   test do

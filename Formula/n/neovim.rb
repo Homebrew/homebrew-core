@@ -6,44 +6,44 @@ class Neovim < Formula
   head "https://github.com/neovim/neovim.git", branch: "master"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/refs/tags/v0.11.2.tar.gz"
-    sha256 "324759a1bcd1a80b32a7eae1516ee761ec3e566d08284a24c4c7ca59079aabfa"
+    url "https://github.com/neovim/neovim/archive/refs/tags/v0.11.5.tar.gz"
+    sha256 "c63450dfb42bb0115cd5e959f81c77989e1c8fd020d5e3f1e6d897154ce8b771"
 
     # Keep resources updated according to:
-    # https://github.com/neovim/neovim/blob/v#{version}/cmake.deps/CMakeLists.txt
+    # https://github.com/neovim/neovim/blob/v#{version}/cmake.deps/deps.txt
 
     # TODO: Consider shipping these as separate formulae instead. See discussion at
     #       https://github.com/orgs/Homebrew/discussions/3611
     # NOTE: The `install` method assumes that the parser name follows the final `-`.
     #       Please name the resources accordingly.
     resource "tree-sitter-c" do
-      url "https://github.com/tree-sitter/tree-sitter-c/archive/refs/tags/v0.23.4.tar.gz"
-      sha256 "b66c5043e26d84e5f17a059af71b157bcf202221069ed220aa1696d7d1d28a7a"
+      url "https://github.com/tree-sitter/tree-sitter-c/archive/refs/tags/v0.24.1.tar.gz"
+      sha256 "25dd4bb3dec770769a407e0fc803f424ce02c494a56ce95fedc525316dcf9b48"
     end
 
     resource "tree-sitter-lua" do
-      url "https://github.com/tree-sitter-grammars/tree-sitter-lua/archive/refs/tags/v0.3.0.tar.gz"
-      sha256 "a34cc70abfd8d2d4b0fabf01403ea05f848e1a4bc37d8a4bfea7164657b35d31"
+      url "https://github.com/tree-sitter-grammars/tree-sitter-lua/archive/refs/tags/v0.4.0.tar.gz"
+      sha256 "b0977aced4a63bb75f26725787e047b8f5f4a092712c840ea7070765d4049559"
     end
 
     resource "tree-sitter-vim" do
-      url "https://github.com/tree-sitter-grammars/tree-sitter-vim/archive/refs/tags/v0.5.0.tar.gz"
-      sha256 "90019d12d2da0751c027124f27f5335babf069a050457adaed53693b5e9cf10a"
+      url "https://github.com/tree-sitter-grammars/tree-sitter-vim/archive/refs/tags/v0.7.0.tar.gz"
+      sha256 "44eabc31127c4feacda19f2a05a5788272128ff561ce01093a8b7a53aadcc7b2"
     end
 
     resource "tree-sitter-vimdoc" do
-      url "https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v3.0.1.tar.gz"
-      sha256 "76b65e5bee9ff78eb21256619b1995aac4d80f252c19e1c710a4839481ded09e"
+      url "https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v4.0.0.tar.gz"
+      sha256 "8096794c0f090b2d74b7bff94548ac1be3285b929ec74f839bd9b3ff4f4c6a0b"
     end
 
     resource "tree-sitter-query" do
-      url "https://github.com/nvim-treesitter/tree-sitter-query/archive/refs/tags/v0.5.1.tar.gz"
-      sha256 "fe8c712880a529d454347cd4c58336ac2db22243bae5055bdb5844fb3ea56192"
+      url "https://github.com/tree-sitter-grammars/tree-sitter-query/archive/refs/tags/v0.6.2.tar.gz"
+      sha256 "90682e128d048fbf2a2a17edca947db71e326fa0b3dba4136e041e096538b4eb"
     end
 
     resource "tree-sitter-markdown" do
-      url "https://github.com/tree-sitter-grammars/tree-sitter-markdown/archive/refs/tags/v0.4.1.tar.gz"
-      sha256 "e0fdb2dca1eb3063940122e1475c9c2b069062a638c95939e374c5427eddee9f"
+      url "https://github.com/tree-sitter-grammars/tree-sitter-markdown/archive/refs/tags/v0.5.0.tar.gz"
+      sha256 "14c2c948ccf0e9b606eec39b09286c59dddf28307849f71b7ce2b1d1ef06937e"
     end
   end
 
@@ -53,13 +53,12 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4daf9a69527c6243feaf66c3ce0d01f5fc6f6ff962988a561663ddb01a3c36cf"
-    sha256 arm64_sonoma:  "619883a9f10ea00f97840b378cc56019690662d1542c1cef0732b5c8f20e3a4d"
-    sha256 arm64_ventura: "09abebe3fa78456c1230ca07d105c02f36badf67621e7352697631b5d81d8b9f"
-    sha256 sonoma:        "5cc8afa4275ecb1be1cc9aa9f1ca9950ec446b96d585bcc8fa9a979980872a3c"
-    sha256 ventura:       "ac255cd6a40ec1a9a397c8e522c193fddea8b5bdf533dc64f42128830a13a247"
-    sha256 arm64_linux:   "8eb7d15a777726fea9a9863ef39dc6d93527fcdc9b648ee7b514e0f46d9166fd"
-    sha256 x86_64_linux:  "b80a6adba844e455f42b63df79eb965cf38934c99114c38c2ac9382a862e0c3b"
+    sha256 arm64_tahoe:   "41f09e8ed67664dab655bb181990c7f7fc9aca5a559390469138eb1956af00e9"
+    sha256 arm64_sequoia: "8cceee45e745aa161781b544977a8576d868e77ef506778c588d67cd47da2608"
+    sha256 arm64_sonoma:  "f0014976d5aa5cadd26434d5a4339a637f8b4fa37a1e6d1a736662528180a0e9"
+    sha256 sonoma:        "805931882993d986ebff0098f9c7a13088cbbeee6221a4498f45385951efad48"
+    sha256 arm64_linux:   "6d4a7736d5e033075b29f8b1e28432a04a2ee0e2437de98a15a32ed5f05f1ecd"
+    sha256 x86_64_linux:  "3b77d0557a0470516fa2fe1645e2671ac1d49472dbd4fa042b2c307b32cddc43"
   end
 
   depends_on "cmake" => :build

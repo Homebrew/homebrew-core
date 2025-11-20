@@ -5,6 +5,8 @@ class Skinny < Formula
   sha256 "2382ba97f799bfc772ee79b2c084c63a1278ddd89de8dacd4ba6433f41294812"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "fe3e73f7ce63036df9780b6681a13aa48da130e968bbd84843c12ac2b7940f25"

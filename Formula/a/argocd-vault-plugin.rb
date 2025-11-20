@@ -7,6 +7,7 @@ class ArgocdVaultPlugin < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6955e65b88cd94b91c5780fa18da4ee2804568242e0560e3c5143e92484269c2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "16c6f66c3a9728fb32b1098e4ac611c9e7f85d3da8fd59c464ec6662d8f472a7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e7dcbaa4f8fea11cbc2bff01602fe23caece755107e78213214a490423315938"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7dcbaa4f8fea11cbc2bff01602fe23caece755107e78213214a490423315938"

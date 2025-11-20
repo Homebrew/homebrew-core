@@ -12,6 +12,7 @@ class Libvncserver < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "80e5ade9dc3708e05dbc026946bf865042b7cd630846beec5bf73aa47d6c6b48"
     sha256 cellar: :any,                 arm64_sequoia: "8dc88d75ffe2cf292dd44b3207f9c9fae289066c9dc5f4a004c8e86671ca4d06"
     sha256 cellar: :any,                 arm64_sonoma:  "e295b31d29e37617212cf0d69dbdf3ee07ccfa30e2f2610b8d1704a7e0847656"
     sha256 cellar: :any,                 arm64_ventura: "6cd487a3c48729af0d6be975995826b830d81ebf7d32b9a64e6d50d6ba59245b"
@@ -28,12 +29,15 @@ class Libvncserver < Formula
   depends_on "openssl@3"
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}",
-                    "-DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib/shared_library("libjpeg")}",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
-                    "-DWITH_EXAMPLES=OFF",
-                    *std_cmake_args
+    args = %W[
+      -DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}
+      -DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib/shared_library("libjpeg")}
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DWITH_EXAMPLES=OFF
+    ]
+    # Workaround for CMake 4 compatibility
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "ctest", "--test-dir", "build", "--verbose"
     system "cmake", "--install", "build"

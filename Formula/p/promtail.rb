@@ -1,8 +1,8 @@
 class Promtail < Formula
   desc "Log agent for Loki"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/refs/tags/v3.5.1.tar.gz"
-  sha256 "d360561de7ac97d05a6fc1dc0ca73d93c11a86234783dfd9ae92033300caabd7"
+  url "https://github.com/grafana/loki/archive/refs/tags/v3.6.0.tar.gz"
+  sha256 "0be8473755ad90877f2e0b6ba807ff40d5ddd952dae653b967bff32dc58dd4e7"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -11,25 +11,18 @@ class Promtail < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d0ada994b52a5a36ed6f90688b8bd849b3ce4195de89854af7fe1ed02f3fafd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "039a7e66ac63eb311880b6b3e1af3bd71c6973a2f0f150caa488abfe975c30bf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c8e5de4a9b5a26e692270b5a932f767d84bae2044e5eabd67c5f356c1c44c62c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee0a2186fb805c559658a002f3f7ebce55cb27495c7bfe8d29066e72650a72f6"
-    sha256 cellar: :any_skip_relocation, ventura:       "9261c1880cd04c7710e656f44df23d131ed7a6c91da5f6ea519c5286a239ac2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bb6e67ff07eb14ff8791762a4e6fd07735eb3b4e57741bb8902ffa5eb1d8cf5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "82235af2ed72d9d79fdc4d7e7bdcb3ba03e55013cda7479fc49ef8816d096d2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4560f83b4759977b9426e22262d350769b2dfe1e4abd352a3d7ec9077ee1a2d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a1db5f84d678bd6b5a62fa761c8f4d8818aca03bb47ee99453f46c94780e099c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f00be3cf26f4cb7559416ba1568eb64e3d5650c1f0eebf6a6c3f96a8a9bf8318"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e569f54e2db68ad1917d9aa06afb29aa9e598cba0bfda54a16026e31374130d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad970972e1130884205419d15e749b7c757a0732693359257285f3e9c1a1a27f"
   end
 
   depends_on "go" => :build
 
   on_linux do
     depends_on "systemd"
-  end
-
-  # Fix to link: duplicated definition of symbol dlopen
-  # PR ref: https://github.com/grafana/loki/pull/17807
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f49c120b0918dd76de81af961a1041a29d080ff0/loki/loki-3.5.1-purego.patch"
-    sha256 "fbbbaea8e2069ef0a8fc721f592c48bb50f1224d7eff94afe87dfb184692a9b4"
   end
 
   def install

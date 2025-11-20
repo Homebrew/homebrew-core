@@ -1,18 +1,17 @@
 class Credo < Formula
   desc "Static code analysis tool for the Elixir"
   homepage "https://github.com/rrrene/credo"
-  url "https://github.com/rrrene/credo/archive/refs/tags/v1.7.12.tar.gz"
-  sha256 "afdfb4e52fa073b3279c75d70a084d3813ee6966a45d1534557275eb240fd031"
+  url "https://github.com/rrrene/credo/archive/refs/tags/v1.7.13.tar.gz"
+  sha256 "ca18ed9ac620e4b4a98e0f5a6de8f1d42392044c379ed1a0e78dfc8d527a4c8c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2202461e928dc327cd6c9091d101d01c6af69f0c36694715e8ad197c46bcfd06"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3559b14f3879fa808a3b9b4627ab651961ca458c834e610f62afec5e1d6fac3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ec792d16fc50575210d6c39dbd8d8050e5419301d812fa1737296cdbafc9f82"
-    sha256 cellar: :any_skip_relocation, sonoma:        "416fb36180b102c060e609abeb34b7f9f32d724f6441f50147349aed5b5c7d40"
-    sha256 cellar: :any_skip_relocation, ventura:       "359a109782523caf92cc762c48bed624a5158ae612c069f856c3cfc7856611a4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34443d33656e3b6e74346cf5ae840ed0daf51f0b896aab37e335debd488dd587"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "440e68f8e561da08116cbc9e2e961f21e459441d65d2ac2bea73c52deca4b5de"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "10d29c8c19d86bd860c27cb32695834f3bbacb358d6fcf5362813ef776834316"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a96ad392fd102d2744382c4210c84ee1b1f09d14ca7e5b711b674a333f98b0c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e199a5d1557a339b0948553811812506394f31f4d50aa2dd1f09ac294aafa496"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dee7856f05b7b654cf02f50d4297cb77cd6b1c2be655a0a529a2b1143c5ecd82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d2127b0a2b23a7507de9f7928feb17dd78ba9a3f82d66f7b8b03bb89d10f19e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0388d189d43aa6b20a7937caf2cfdab48eb5f12ae390d2e9a4d53493451100b9"
   end
 
   depends_on "elixir"

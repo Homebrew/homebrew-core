@@ -4,13 +4,14 @@ class Zile < Formula
   # Before bumping to a new version, check the NEWS file to make sure it is a
   # stable release: https://git.savannah.gnu.org/cgit/zile.git/plain/NEWS
   # For context, see: https://github.com/Homebrew/homebrew-core/issues/67379
-  url "https://ftp.gnu.org/gnu/zile/zile-2.6.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/zile/zile-2.6.4.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/zile/zile-2.6.4.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/zile/zile-2.6.4.tar.gz"
   sha256 "d5d44b85cb490643d0707e1a2186f3a32998c2f6eabaa9481479b65caeee57c0"
   license "GPL-3.0-or-later"
   version_scheme 1
 
   bottle do
+    sha256 arm64_tahoe:   "efce10489a93b24ac8a9312e993a57b981b38fc3decfc9f36e37ca7cfa49cff5"
     sha256 arm64_sequoia: "0d218900aa4e2a8504325c958be05c5e888d83b319dd7f69c4a47d6bd8ad4c2b"
     sha256 arm64_sonoma:  "64b800f85f1370a2a560b128b16b767dae780c8adfac7384ec8c493c1e998374"
     sha256 arm64_ventura: "93a981404b8329b697eaa73bc973bfcac3b941e22ce378c267d8dc4d8b413e7f"

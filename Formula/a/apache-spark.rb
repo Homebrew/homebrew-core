@@ -1,11 +1,12 @@
 class ApacheSpark < Formula
   desc "Engine for large-scale data processing"
   homepage "https://spark.apache.org/"
-  url "https://dlcdn.apache.org/spark/spark-4.0.0/spark-4.0.0-bin-hadoop3.tgz"
-  mirror "https://archive.apache.org/dist/spark/spark-4.0.0/spark-4.0.0-bin-hadoop3.tgz"
-  version "4.0.0"
-  sha256 "2ebac46b59be8b85b0aecc5a479d6de26672265fb7f6570bde2e72859fd87cc4"
+  url "https://dlcdn.apache.org/spark/spark-4.0.1/spark-4.0.1-bin-hadoop3.tgz"
+  mirror "https://archive.apache.org/dist/spark/spark-4.0.1/spark-4.0.1-bin-hadoop3.tgz"
+  version "4.0.1"
+  sha256 "bd5315fa89db737f005971835b94e093c3d2b8581d2411737d281627d6803cc3"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/spark.git", branch: "master"
 
   # The download page creates file links using JavaScript, so we identify
@@ -16,10 +17,10 @@ class ApacheSpark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "57dc64a028ae181115603613203c66f9bc249c87b547f83cd17cff03399b8509"
+    sha256 cellar: :any_skip_relocation, all: "6567eb49d5d7f9e6e63d272d674e3d2e96a9eac837a8fee7d11f8c824f443177"
   end
 
-  depends_on "openjdk@17"
+  depends_on "openjdk@21"
 
   def install
     # Rename beeline to distinguish it from hive's beeline
@@ -28,16 +29,22 @@ class ApacheSpark < Formula
     rm(Dir["bin/*.cmd"])
     libexec.install Dir["*"]
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Language::Java.overridable_java_home_env("17")[:JAVA_HOME])
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Language::Java.overridable_java_home_env("21")[:JAVA_HOME])
   end
 
   test do
     require "pty"
 
+    (testpath/"data.txt").write <<~EOS
+      Homebrew test
+      Homebrew Spark test
+      Spark test Homebrew
+    EOS
+
     output = ""
     PTY.spawn(bin/"spark-shell") do |r, w, pid|
       w.puts "sc.parallelize(1 to 1000).count()"
-      w.puts "jdk.incubator.foreign.FunctionDescriptor.TRIVIAL_ATTRIBUTE_NAME"
+      w.puts 'sc.textFile("data.txt").filter(line => line.contains("Spark")).first()'
       w.puts ":quit"
       begin
         r.each_line { |line| output += line }
@@ -55,6 +62,6 @@ class ApacheSpark < Formula
     end
 
     assert_match "Long = 1000", output
-    assert_match "String = abi/trivial", output
+    assert_match "String = Homebrew Spark test", output
   end
 end

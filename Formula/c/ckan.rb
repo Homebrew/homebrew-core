@@ -31,9 +31,9 @@ class Ckan < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output(bin/"ckan version")
+    assert_match version.to_s, shell_output("#{bin}/ckan version")
 
-    output = shell_output(bin/"ckan update", 1)
+    output = shell_output("#{bin}/ckan update", 1)
     assert_match "I don't know where a game instance is installed", output
   end
 end

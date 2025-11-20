@@ -1,19 +1,15 @@
 class Nb < Formula
   desc "Command-line and local web note-taking, bookmarking, and archiving"
   homepage "https://xwmx.github.io/nb"
-  url "https://github.com/xwmx/nb/archive/refs/tags/7.20.0.tar.gz"
-  sha256 "7d677e88ebeb64f9f94a78e0b08cc4d60146bdf2f591fcd6bf31f832eba55e08"
+  url "https://github.com/xwmx/nb/archive/refs/tags/7.23.2.tar.gz"
+  sha256 "4b24b19e11d280c3fa7c8a2a21dda366934d2b277d30a3d26c6de3ed01097877"
   license "AGPL-3.0-or-later"
   head "https://github.com/xwmx/nb.git", branch: "master"
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "caca87987f57de4883413dad8a52eade0bffa8207688e7ccc2a392801cf59a76"
-    sha256 cellar: :any_skip_relocation, ventura:       "caca87987f57de4883413dad8a52eade0bffa8207688e7ccc2a392801cf59a76"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1137153eb724d3518bc346355bab19bb0e4272223a9c47c92fd749bddb0730a"
+    sha256 cellar: :any_skip_relocation, all: "2d29662984b5774dc9dd5943f6d65bf087d76904b036e29802ada142950fb97f"
   end
 
   depends_on "bat"

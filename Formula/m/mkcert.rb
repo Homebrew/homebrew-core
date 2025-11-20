@@ -6,7 +6,10 @@ class Mkcert < Formula
   license "BSD-3-Clause"
   head "https://github.com/FiloSottile/mkcert.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9863f54426db9df99173be319b283ec3a08d5dbd320987259676d2ddbb05b9f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f8988b4b5f85474931db021d3b5968576f2be4b151c00d943441196f4186324f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1801aa7c1c50a3f7a11d44cdf9e37a57da7cb7471d0fb495b7df40843b47858e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af89337b73c8d4bb20c0cdfeeaccc17b620d8badf39edfb06a8fb191ec328c36"
@@ -17,6 +20,7 @@ class Mkcert < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "dedd5384a47f6e10702990d15787658cb33ae5c8f45a96869adcc4e0c730b810"
     sha256 cellar: :any_skip_relocation, big_sur:        "26dd205eb0e33469922e8fd3b1828e91b2dfa920c7ffc2cc6f48494fd1c23d07"
     sha256 cellar: :any_skip_relocation, catalina:       "19ed89b5ee9243e2d6880462ac1b0fcec4db64d4b6f2cefe423b248050b6ae15"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "231294ec75a53e64f54d300c71d8b28a4b7c89ba468d426dc751ef242e9876d6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f674faa8be61e225ae604b2ffe215927f6ecbc992aac75e769185862820d2881"
   end
 

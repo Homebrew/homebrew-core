@@ -1,22 +1,27 @@
 class Blis < Formula
   desc "BLAS-like Library Instantiation Software Framework"
   homepage "https://github.com/flame/blis"
-  url "https://github.com/flame/blis/archive/refs/tags/1.1.tar.gz"
-  sha256 "847c035809b8994c077ade737a4813601db96c4cf0d903d08ba6a9b8ee0fe03e"
+  url "https://github.com/flame/blis/archive/refs/tags/2.0.tar.gz"
+  sha256 "08bbebd77914a6d1a43874ae5ec2f54fe6a77cba745f2532df28361b0f1ad1b3"
   license "BSD-3-Clause"
   head "https://github.com/flame/blis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7b54027b039fa551a50e4fb6e99c79f732a5b34aff78092d733e22c823450ad9"
-    sha256 cellar: :any,                 arm64_sonoma:  "0709aa01695e7ce672d9d8a0780d28fa3465f2cba5b49f976bd3c96f498c1448"
-    sha256 cellar: :any,                 arm64_ventura: "9630f05d848259bc7ffc9df96102b9655a0cd3284057dd77a5e59256b81a32ec"
-    sha256 cellar: :any,                 sonoma:        "eb365f3d3d6fc8eb1df33f83f72b88ee33984438392b78bdc58e4657f7cec66b"
-    sha256 cellar: :any,                 ventura:       "996841f0627e6a5f43d4f272bb0698e7fecb9f958fe05915c85b0814a6be34ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9a2bf0a115a4af35026be884519a3b23e97535f5ffcedff0ae7a7a8582914b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db5d4aed1ccf53d93eb65d37dd22cda09f5049e7c5fe4bd2f7db556ccaa57ad3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ae5b40dcc1bb83dcc0742f24a1bfe0991bc3a349d34aa329a0b12f88b2b880fe"
+    sha256 cellar: :any,                 arm64_sequoia: "461fd80b3bd293dffab9b1a1ed90a35ef4c9b2f6f3546bc44fa06411681871dd"
+    sha256 cellar: :any,                 arm64_sonoma:  "91e2bd552c5f1df187fdee979635b0c87ce5ea700127ec2110ef16da2ea005dd"
+    sha256 cellar: :any,                 sonoma:        "a6f83d702d2ca94890919df8c80e998a874846677d9c6131358e10f5c03bdb35"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c654866bff3d54735f76b81eb0318d3d85727b3224c84c95f7e4a3db851593b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f201ae6efcebd05d84ae5360d95bffa2871344f6384a92be7019948429704776"
   end
 
   uses_from_macos "python" => :build
+
+  on_macos do
+    depends_on "libomp"
+    patch :DATA # patch to use libomp when CC=clang as common.mk is installed
+  end
 
   def install
     # https://github.com/flame/blis/blob/master/docs/ConfigurationHowTo.md
@@ -32,7 +37,7 @@ class Blis < Formula
       Hardware::CPU.arch
     end
 
-    system "./configure", "--prefix=#{prefix}", "--enable-cblas", config
+    system "./configure", "--prefix=#{prefix}", "--enable-cblas", "--enable-threading=openmp", config
     system "make"
     system "make", "install"
   end
@@ -63,3 +68,18 @@ class Blis < Formula
     system "./test"
   end
 end
+
+__END__
+--- a/common.mk
++++ b/common.mk
+@@ -989,8 +989,8 @@ ifeq ($(CC_VENDOR),clang)
+ #THREADING_MODEL := pthreads
+ #endif
+ ifneq ($(findstring openmp,$(THREADING_MODEL)),)
+-CTHREADFLAGS += -fopenmp
+-LDFLAGS      += -fopenmp
++CTHREADFLAGS += -I@@HOMEBREW_PREFIX@@/opt/libomp/include -Xpreprocessor -fopenmp
++LDFLAGS      += -L@@HOMEBREW_PREFIX@@/opt/libomp/lib -lomp
+ endif
+ ifneq ($(findstring pthreads,$(THREADING_MODEL)),)
+ CTHREADFLAGS += -pthread

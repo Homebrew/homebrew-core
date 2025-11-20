@@ -1,27 +1,21 @@
 class Microplane < Formula
   desc "CLI tool to make git changes across many repos"
   homepage "https://github.com/Clever/microplane"
-  url "https://github.com/Clever/microplane/archive/refs/tags/v0.0.36.tar.gz"
-  sha256 "efa78a7b3b385124e73e230d71667a6af45cd294cd901ea25d47031a97c7498c"
+  url "https://github.com/Clever/microplane/archive/refs/tags/v0.0.37.tar.gz"
+  sha256 "437f65748272de89b8a6990f0f9fca57addf6ff6f8e4de077869976d2ce36154"
   license "Apache-2.0"
   head "https://github.com/Clever/microplane.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d3f92ce6eb78de3a8789aeb12afe4c021c98c0c257bb46519a5a85fb725d02a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4d3f92ce6eb78de3a8789aeb12afe4c021c98c0c257bb46519a5a85fb725d02a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d3f92ce6eb78de3a8789aeb12afe4c021c98c0c257bb46519a5a85fb725d02a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "22a8fd778008830116ac7046f6bcaea8e19b647d4660768e337a59359db6f12c"
-    sha256 cellar: :any_skip_relocation, ventura:       "22a8fd778008830116ac7046f6bcaea8e19b647d4660768e337a59359db6f12c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd4a6e1e4dc1ab0adbeb7815c059ae06a93cad65ae9786756dc413fc74614cdb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "058584a18f49f4de2e888c746d0d8b1c1b37f426f5112f280b3e3d803f1aea1a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "058584a18f49f4de2e888c746d0d8b1c1b37f426f5112f280b3e3d803f1aea1a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "058584a18f49f4de2e888c746d0d8b1c1b37f426f5112f280b3e3d803f1aea1a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2ca2def0a17ca6c5e596c8472f627e8b9af429460dcea2be1ba1e9d2cbbba0d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5435b91897be54e019388f2901e08bd4fe7a2b89106b0c0c8190c4e4d9fc13ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9be326eae77275410bf28f9c682a3b34df3143d8e26123749d204aea973f4da2"
   end
 
   depends_on "go" => :build
-
-  # bump to go 1.23, upstream pr ref, https://github.com/Clever/microplane/pull/295
-  patch do
-    url "https://github.com/Clever/microplane/commit/3e2f1371e56af6d65fc62af5c306a7d6485321ad.patch?full_index=1"
-    sha256 "6ba123167defb192f0f97d6dc918be9a557014f8a0367f6be663232b930e3dd5"
-  end
 
   def install
     system "go", "build", *std_go_args(output: bin/"mp", ldflags: "-s -w -X main.version=#{version}")

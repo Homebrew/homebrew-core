@@ -1,19 +1,19 @@
 class Yyjson < Formula
   desc "High performance JSON library written in ANSI C"
   homepage "https://github.com/ibireme/yyjson"
-  url "https://github.com/ibireme/yyjson/archive/refs/tags/0.11.1.tar.gz"
-  sha256 "610a38a5e59192063f5f581ce0c3c1869971c458ea11b58dfe00d1c8269e255d"
+  url "https://github.com/ibireme/yyjson/archive/refs/tags/0.12.0.tar.gz"
+  sha256 "b16246f617b2a136c78d73e5e2647c6f1de1313e46678062985bdcf1f40bb75d"
   license "MIT"
   head "https://github.com/ibireme/yyjson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "be33f4c52f3a3ca9e3bec1672536ba743a3b1635d42179ab9173b945b9d4a6c4"
-    sha256 cellar: :any,                 arm64_sonoma:  "6ff845ea14ced22f1f3585c87f32dcbbfdcc43da79b047c2b7e03eb403edabb7"
-    sha256 cellar: :any,                 arm64_ventura: "a27c8654370e7639f4358137195d56e38bd8b99f32eaa9d3bbf530b449116b5c"
-    sha256 cellar: :any,                 sonoma:        "d0c7ae8b75e9aaca959798ab7e39093f7afcd76584bcc46edb8c74425af4c255"
-    sha256 cellar: :any,                 ventura:       "4f6b77f8784820f415fcc8ce870181dccae2a7c6b322d46e781d3ebdedda20e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "91527b3761383f2f462b56111bff0add9a29daa372db3a81a69ca6e2102874e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cc670a7221472e4bc8893a82e54b0d7c7a777486db590d1b068714b7e107570"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "bc385fef24ac80239af24728461f03f80ce8107954a4e11149db0c5fbb64acf9"
+    sha256 cellar: :any,                 arm64_sequoia: "ac03b7af3eeaad37ff9421f18f09c04e8718e9124bb254442fb783f1e72523ca"
+    sha256 cellar: :any,                 arm64_sonoma:  "0a16ceb0708e9ca44bb42c7d7dd5190984d5b83b7c7627148ecb607089e695e4"
+    sha256 cellar: :any,                 sonoma:        "474db0266ef4054ad4cfe009ecc297a36085383f27b64099f7f98f3eca54b1be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b4971f272e8ca83e029e7d4ce912261c2e236fea1978732029c770b4454d8fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72d054b4ff70582269754e969cd1a5cf5b670eac46f1bee785855643a8ec7f8d"
   end
 
   depends_on "cmake" => :build

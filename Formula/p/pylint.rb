@@ -3,34 +3,19 @@ class Pylint < Formula
 
   desc "It's not just a linter that annoys you!"
   homepage "https://github.com/pylint-dev/pylint"
-  url "https://files.pythonhosted.org/packages/1c/e4/83e487d3ddd64ab27749b66137b26dc0c5b5c161be680e6beffdc99070b3/pylint-3.3.7.tar.gz"
-  sha256 "2b11de8bde49f9c5059452e0c310c079c746a0a8eeaa789e5aa966ecc23e4559"
+  url "https://files.pythonhosted.org/packages/dd/9c/0500020a5446031220f487ca0c762713c6f3ddad7231b811aaf1d473f6aa/pylint-4.0.3.tar.gz"
+  sha256 "a427fe76e0e5355e9fb9b604fd106c419cafb395886ba7f3cebebb03f30e081d"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79a2fd54f5ec3e5e174319d1a93bd2c2fda90209a405694ef6a4a3540965ec5e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79a2fd54f5ec3e5e174319d1a93bd2c2fda90209a405694ef6a4a3540965ec5e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "79a2fd54f5ec3e5e174319d1a93bd2c2fda90209a405694ef6a4a3540965ec5e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "be7aadfecc2d88f2aaea4047fe52024444cb92943e3d73bee049a0d71e8f6bfa"
-    sha256 cellar: :any_skip_relocation, ventura:       "be7aadfecc2d88f2aaea4047fe52024444cb92943e3d73bee049a0d71e8f6bfa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "777c0a4c91cbe15b862df038ffdb7fb2ab415ad6fb691d6469794308b7eb63bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "777c0a4c91cbe15b862df038ffdb7fb2ab415ad6fb691d6469794308b7eb63bd"
+    sha256 cellar: :any_skip_relocation, all: "c322168907806af2fb6be67020b276271bdfc021594f11339c484dd9f9fa27e7"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "astroid" do
-    url "https://files.pythonhosted.org/packages/39/33/536530122a22a7504b159bccaf30a1f76aa19d23028bd8b5009eb9b2efea/astroid-3.3.9.tar.gz"
-    sha256 "622cc8e3048684aa42c820d9d218978021c3c3d174fb03a9f0d615921744f550"
-
-    # fix `setuptools.errors.InvalidConfigError: 'project.license-files' is defined already`
-    # commit ref, https://github.com/pylint-dev/astroid/commit/9faee90fdb66049162834a8bb066c6cb40a0e449
-    patch :DATA
-  end
-
-  resource "astroid" do
-    url "https://files.pythonhosted.org/packages/39/33/536530122a22a7504b159bccaf30a1f76aa19d23028bd8b5009eb9b2efea/astroid-3.3.9.tar.gz"
-    sha256 "622cc8e3048684aa42c820d9d218978021c3c3d174fb03a9f0d615921744f550"
+    url "https://files.pythonhosted.org/packages/b7/22/97df040e15d964e592d3a180598ace67e91b7c559d8298bdb3c949dc6e42/astroid-4.0.2.tar.gz"
+    sha256 "ac8fb7ca1c08eb9afec91ccc23edbd8ac73bb22cbdd7da1d488d9fb8d6579070"
   end
 
   resource "dill" do
@@ -39,8 +24,8 @@ class Pylint < Formula
   end
 
   resource "isort" do
-    url "https://files.pythonhosted.org/packages/b8/21/1e2a441f74a653a144224d7d21afe8f4169e6c7c20bb13aec3a2dc3815e0/isort-6.0.1.tar.gz"
-    sha256 "1cb5df28dfbc742e490c5e41bad6da41b805b0a8be7bc93cd0fb2a8a890ac450"
+    url "https://files.pythonhosted.org/packages/63/53/4f3c058e3bace40282876f9b553343376ee687f3c35a525dc79dbd450f88/isort-7.0.0.tar.gz"
+    sha256 "5513527951aadb3ac4292a41a16cbc50dd1642432f5e8c20057d414bdafb4187"
   end
 
   resource "mccabe" do
@@ -49,13 +34,13 @@ class Pylint < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
-    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
+    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
+    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/b1/09/a439bec5888f00a54b8b9f05fa94d7f901d6735ef4e55dcec9bc37b5d8fa/tomlkit-0.13.2.tar.gz"
-    sha256 "fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79"
+    url "https://files.pythonhosted.org/packages/cc/18/0bbf3884e9eaa38819ebe46a7bd25dcd56b67434402b66a58c4b8e552575/tomlkit-0.13.3.tar.gz"
+    sha256 "430cf247ee57df2b94ee3fbe588e71d362a941ebb545dec29b53961d61add2a1"
   end
 
   def install
@@ -70,36 +55,3 @@ class Pylint < Formula
     system bin/"pylint", "--exit-zero", "pylint_test.py"
   end
 end
-
-__END__
-diff --git a/pyproject.toml b/pyproject.toml
-index b0078e8..fcc3996 100644
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -4,15 +4,15 @@ build-backend = "setuptools.build_meta"
-
- [project]
- name        = "astroid"
--license     = {text = "LGPL-2.1-or-later"}
- description = "An abstract syntax tree for Python with inference support."
- readme      = "README.rst"
- keywords    = ["static code analysis", "python", "abstract syntax tree"]
-+license     = "LGPL-2.1-or-later"
-+license-files = [ "LICENSE", "CONTRIBUTORS.txt" ]
- classifiers = [
-     "Development Status :: 6 - Mature",
-     "Environment :: Console",
-     "Intended Audience :: Developers",
--    "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
-     "Operating System :: OS Independent",
-     "Programming Language :: Python",
-     "Programming Language :: Python :: 3",
-@@ -40,9 +40,6 @@ dynamic = ["version"]
- "Bug tracker"    = "https://github.com/pylint-dev/astroid/issues"
- "Discord server" = "https://discord.gg/Egy6P8AMB5"
-
--[tool.setuptools]
--license-files = ["LICENSE", "CONTRIBUTORS.txt"]  # Keep in sync with setup.cfg
--
- [tool.setuptools.package-dir]
- "" = "."

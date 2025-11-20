@@ -6,6 +6,8 @@ class Psgrep < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/jvz/psgrep.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "9e809775d826f04be40a2cea6237bddf7447458bd4933e474db09b836b02e69b"

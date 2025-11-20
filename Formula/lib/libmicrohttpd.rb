@@ -1,21 +1,20 @@
 class Libmicrohttpd < Formula
   desc "Light HTTP/1.1 server library"
   homepage "https://www.gnu.org/software/libmicrohttpd/"
-  url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-1.0.1.tar.gz"
-  sha256 "a89e09fc9b4de34dde19f4fcb4faaa1ce10299b9908db1132bbfa1de47882b94"
+  url "https://ftpmirror.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.2.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.2.tar.gz"
+  sha256 "df324fcd0834175dab07483133902d9774a605bfa298025f69883288fd20a8c7"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "b6b9e3f50d99182aab32438b580f83182cacfa2baa839268ddd83272b6aae0bf"
-    sha256 cellar: :any,                 arm64_sonoma:   "a78702c9353f012d0a5a90d5f2d547f3a9e86a8ce14958d73d195d207065e285"
-    sha256 cellar: :any,                 arm64_ventura:  "a99ea7af39d9da744e0cbbea017044f1c2c902776e391cafa567030ecdc11526"
-    sha256 cellar: :any,                 arm64_monterey: "c1be769ed563cebdb5d757aea93effa91d5ad0925dabcbad0adde31a82edbce0"
-    sha256 cellar: :any,                 sonoma:         "3fda597aeaf2624c37ac9786286acf2eefdb9e4178986da41cea3f6ee039f083"
-    sha256 cellar: :any,                 ventura:        "ef0dceb639806d7098eb56adc2b6dce9025686ba9a1873dae74288761fabafda"
-    sha256 cellar: :any,                 monterey:       "70acab5386e2689227706740afee9a6afe4ec50ec4267b9386d974177e97b423"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d37cc937fe542354d4907f103e6e3cb497e91f9bcc74ec3c26ed1493731adb04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a3501d408795303c34902781102f7665197d97b1c1f33ed1c4da2a87c42b8fd"
+    sha256 cellar: :any,                 arm64_tahoe:   "744bd620cfd4c01fdab40a0b91d689994d549ce6f31f54a785c968348f29e089"
+    sha256 cellar: :any,                 arm64_sequoia: "b7a29d626f13b7c07748d4100cf0c0f9703e1a719d8b1afc80854e7730cdf0ba"
+    sha256 cellar: :any,                 arm64_sonoma:  "aea54f52d2c8721371f8607573ca73c7a4416ac7403ea6bd9595e3a894e477a9"
+    sha256 cellar: :any,                 arm64_ventura: "5f8e0e18ec4d2e5e20035c158491e0f2ae8ba7df895d6c218694e21bb9830eeb"
+    sha256 cellar: :any,                 sonoma:        "156e4a7aff40fbe887ee8bb29c5a9d5461344f6691e892549a3ffb9e6bcf77bf"
+    sha256 cellar: :any,                 ventura:       "c9e8f4ed223f6be8e4e50749728eebf986e855dda1dccaf2727530cb200623f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6d3a71cbb43a0ab2f6bbe97a6355ac7a4524386a39051e90e78367da7914c06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4432eb01656c407982be598afc6c27aad4aeb5ad92d33db646d0ca38ad15518"
   end
 
   depends_on "gnutls"

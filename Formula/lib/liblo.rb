@@ -1,20 +1,17 @@
 class Liblo < Formula
   desc "Lightweight Open Sound Control implementation"
   homepage "https://liblo.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/liblo/liblo/0.32/liblo-0.32.tar.gz"
-  sha256 "5df05f2a0395fc5ac90f6b538b8c82bb21941406fd1a70a765c7336a47d70208"
+  url "https://downloads.sourceforge.net/project/liblo/liblo/0.34/liblo-0.34.tar.gz"
+  sha256 "69aa0cd365dba5ea7799b850a7da659ad303e6074bbd67f4ab84e4d6f5f6c3a4"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "8373256cd53294a3a06252d55c8cc93d6c6a6f8c3b235084cab456931e67e1b3"
-    sha256 cellar: :any,                 arm64_sonoma:   "c379d421a02f1afa3c6105e527dc71b5271450f2964f31b6f6117fd826c8f783"
-    sha256 cellar: :any,                 arm64_ventura:  "1395a951f82712482f5f90cd4a4803d88044154029cd3cd1d2fb2fbaf0f357c1"
-    sha256 cellar: :any,                 arm64_monterey: "e79362d970b3c7a741336f9e02e3d738f43169bc5fddd6972dfae327d4dfe8ee"
-    sha256 cellar: :any,                 sonoma:         "79de8fe2295a65736c7a7de5a2a24e6b62bc8745dd692a330c208e4b717b65e6"
-    sha256 cellar: :any,                 ventura:        "98ec4c770688b3f59d46c99eda7c052eee63ff6c8ab4b874bc56db2942dad96f"
-    sha256 cellar: :any,                 monterey:       "8f4e3f2fd6ce732d7d170f1db5193f9b53b233fcb08b876cc66114b252f465cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9a3ae0a7f62dc172def171ed8c833e44fa72b4ab6a798f9b3c897b5e402e8b59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62fbd9950f4178a2ec7eeb280aac525b10d483953417f750aca24b420089b157"
+    sha256 cellar: :any,                 arm64_tahoe:   "f08a0362c895fd58456663358085ba1641a39f0fc74d62136c07efeb4d25e299"
+    sha256 cellar: :any,                 arm64_sequoia: "a9e38a71645c64dc13e45f4fd3d9b7e12fed84c15cfed55d17e3e23d10138691"
+    sha256 cellar: :any,                 arm64_sonoma:  "49cd38572b94d428f60ec1f1587537ba71cdcccf9f2a11f496f0c9f611e7fafd"
+    sha256 cellar: :any,                 sonoma:        "e6e20a668824e9b917bc5b07dad6c338668c4e4ed561df20b630fceb24c0321e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10cedad46fbb3f57a057122e5d4fad858108996c40b1cec044d6d9fe9e096ddc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e119d8b42b66ba6da8115416827c9dfdbcaeea774b2b2d707c74fdce4e467da2"
   end
 
   head do
@@ -24,6 +21,8 @@ class Liblo < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  depends_on "doxygen" => :build
 
   def install
     if build.head?

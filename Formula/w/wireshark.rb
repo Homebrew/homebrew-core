@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Network analyzer and capture tool - without graphical user interface"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.4.7.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.4.7.tar.xz"
-  sha256 "5644143fed6363fa6c0cf58c2a6fe9ba0922efaea8f981c7228260bf46f1494b"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.6.1.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.1.tar.xz"
+  sha256 "5f43055db213e16aed6a064a8b4fdb56092106f18c19e8890482c058b0a1dd85"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
@@ -15,13 +15,12 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "a90636a15534b59d0939b89146de28d1eba40109a731da807f25b39ae03bc552"
-    sha256                               arm64_sonoma:  "c814bb70a14fec90d50d155a4f9190edfd4181be006f69c2558936fac9677ffe"
-    sha256                               arm64_ventura: "7736071cba2c6b9ad3134cbaf6425a5ede55af604d8d6acde4f29081a731d728"
-    sha256                               sonoma:        "3da3608e5d3955f507d96a25d00ae453dde740ce4c2a9a50d88718394ae57c5f"
-    sha256                               ventura:       "3a9ab3fdaee0c28fe61dabac5fe78d984a0fcc2068689fa3f3bfb56273c0ea8d"
-    sha256                               arm64_linux:   "07e37d96e46104cdeff06bb2b1f6c12a346455155b6464eceb9114cf0fcf8b77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c8a9269c41cea99a9a83eb356a0afe870b67d065039b6e4e182428975a00162"
+    sha256                               arm64_tahoe:   "8f73f7028fa45c2d11ffa260eec1c615d7e2740e9cf3732f02275ca1e3c8dfcb"
+    sha256                               arm64_sequoia: "e5a0162813428f6880a17cdf2bd1f8680c30500e17ff1b0fbe0b25e293874d40"
+    sha256                               arm64_sonoma:  "2fb18c5bd5a67892e4b4dc0933caa92544d44e75f097fb38b2bcdb6a71b5f48a"
+    sha256                               sonoma:        "2cb08e7ad5d5edf834b2096397c8173d0fec606c8d7e0b5b594ffc466f568f0e"
+    sha256                               arm64_linux:   "6f14763f130455e27f22a279fda16345a176b7d54f26a17c47fface7894e9ea8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0eb3105c3d0d5b0b20a180e0cdfdc0267cb3cba95105a1a99880757f7e1bfdd"
   end
 
   depends_on "cmake" => :build
@@ -35,8 +34,10 @@ class Wireshark < Formula
   depends_on "libsmi"
   depends_on "libssh"
   depends_on "lua"
+  depends_on "lz4"
   depends_on "pcre2"
   depends_on "speexdsp"
+  depends_on "zstd"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -50,10 +51,13 @@ class Wireshark < Formula
     depends_on "libgpg-error"
   end
 
-  conflicts_with cask: "wireshark"
+  conflicts_with cask: "wireshark-app"
 
   def install
+    plugindir = lib/"wireshark/plugins/#{version.major}-#{version.minor}"
     args = %W[
+      -DENABLE_BROTLI=OFF
+      -DENABLE_SNAPPY=OFF
       -DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}/lua
       -DLUA_LIBRARY=#{Formula["lua"].opt_lib/shared_library("liblua")}
       -DCARES_INCLUDE_DIR=#{Formula["c-ares"].opt_include}
@@ -63,7 +67,8 @@ class Wireshark < Formula
       -DBUILD_wireshark=OFF
       -DBUILD_logray=OFF
       -DENABLE_APPLICATION_BUNDLE=OFF
-      -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: libexec/"wireshark/extcap")}
+      -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,#{rpath(source: plugindir/"codecs")}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -77,7 +82,7 @@ class Wireshark < Formula
       This formula only installs the command-line utilities by default.
 
       Install Wireshark.app with Homebrew Cask:
-        brew install --cask wireshark
+        brew install wireshark-app
 
       If your list of available capture interfaces is empty
       (default macOS behavior), install ChmodBPF:

@@ -1,18 +1,17 @@
 class Lune < Formula
   desc "Standalone Luau script runtime"
   homepage "https://lune-org.github.io/docs"
-  url "https://github.com/lune-org/lune/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "e3473cd9cbb0a6233fb96f230c0cbe4d19a2ced4bf833393957fa529c2c24b00"
+  url "https://github.com/lune-org/lune/archive/refs/tags/v0.10.4.tar.gz"
+  sha256 "151b7b738b210920297b8afa560f440877662e02a48c64c28ce95baaefc96c95"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5b3d61c7ebbcb715bd7bf9a9632015a52fa09e0410d89975a84a7b89ac4678e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e72bdde48fa6b8ad6ffa7b6cf62689c2da86f25952d655e986d8ae8db80658d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a7b8dc47047ab805fc37366edd7a5f14fd193fd78390d6763bf763ce83e1841"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1d6a98a73cd6346d95c9fd8ceb6cad2c23699a5ce2de7098210241ae28af8695"
-    sha256 cellar: :any_skip_relocation, ventura:       "58e3d58db4d133fccba1fbd11c8d82c80bf4034a599de7c51529a60ac4e2bafc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "889879e810be625eb12d81b35185cb87c9fef6dd27074c004c8770f012c45fa1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02542d2394acfd0c723b91ad514bc9a97f20e77c3856bd057f8f28a4e6514452"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ecf1f37ac7dd78b1aabff316ac9b558ca85f692f4c5a6e2a7f814df1c0b0c9ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be6a59a97e35371fc0f7a65d189079bf412eab50f199ea2313433eb069760dd2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "305e3a1e29a8820812986cf37d5251bf7096a807134c231c61a0486570f49570"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d76f0677aa4a5a49c75b865635043345ce784a943d58ff8e6765c5f4290a0106"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ca4209df72a72a008f0f3d0adb7e36afd3633d2cd19f02d3cf26a6d29412b7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fe2d764d9a8461e9708528ae0f2899f68558a83eafb149211df8a78af61a0b7"
   end
 
   depends_on "cmake" => :build

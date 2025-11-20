@@ -1,8 +1,8 @@
 class Verapdf < Formula
   desc "Open-source industry-supported PDF/A validation"
   homepage "https://verapdf.org/home/"
-  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.28.1.tar.gz"
-  sha256 "5ed7463a0d19068932482c19b632c58c315a9019d430d63521db9b51928e98dc"
+  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.28.2.tar.gz"
+  sha256 "48225e1b75d1dc1b9c87b845668bca37f9628a5a0a0010a6a8b55c8b332c3462"
   license any_of: ["GPL-3.0-or-later", "MPL-2.0"]
   head "https://github.com/veraPDF/veraPDF-apps.git", branch: "integration"
 
@@ -12,14 +12,14 @@ class Verapdf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "24ca96475da31f494fdd0bd424c7b28766ed0b87892a139957f5138a3a8d906a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8dc146bce3bdaa86a20a2341bc8d30a55666c7c917ab62dc80112af1327848ab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e564f8727689aa8a37af740a1e751bacaa9b4620104dccc9952bc5df507fa13d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eda37a76a20996f537208286b4764c4760271ede453685471415f599891dfefa"
-    sha256 cellar: :any_skip_relocation, ventura:       "3981a1b0721d711a9c12798221943cd0a8b806e25e348cdb8bfe4bb66e9148e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d414f29e363d672734ffb8955fdc1fb7393ed91db970f2664bccee4c98fc450a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "883423aa080dc5a92ee5e7c1427f689e5dbb52456d076e9e06c1e3ee241af8cb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cd84926712c2b06d9aa5500a6577809256e1b3c5a7690dd6af807c6e8e68f01"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e4ab904561e91dc5a727f1aef5b92d6375b511453853da22e1a8bd8ff3f2a5c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe5e4c7241fb3f4cd5b0b7d3ff6da79dae60059da3e8374707c7ec99b07298f1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e4d47eba52e8321865e0a87cd8cdb849803af7dc6791c75a2d9c3b0636f56c54"
+    sha256 cellar: :any_skip_relocation, sonoma:        "320b07cb60d7dc030d16fef2c12417e2484d6fec0452e1a2d60455946531f9bd"
+    sha256 cellar: :any_skip_relocation, ventura:       "036f34f42ac11286ecae531cb5b5f9ccdbf4fa9392a190c33a94abf1a0ddf982"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "daf107c8fed2ce3613bdb98afe21304efa0d69566f96ac8d83e126fbf12f43dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "549f11f668ca6a791fb4ec44ef80774ba65eee9b218c9994e194bc3ab2a2f06b"
   end
 
   depends_on "maven" => :build

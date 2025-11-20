@@ -1,18 +1,19 @@
 class RustScript < Formula
   desc "Run Rust files and expressions as scripts without any setup or compilation step"
   homepage "https://rust-script.org"
-  url "https://github.com/fornwall/rust-script/archive/refs/tags/0.35.0.tar.gz"
-  sha256 "21061a471cdb25656952750d7436f12b57bac3c292485e9bc71a5352b290d5df"
+  url "https://github.com/fornwall/rust-script/archive/refs/tags/0.36.0.tar.gz"
+  sha256 "9b6d04ad4dd34838c1b55a8ec4b69e8d7f3008a67d85ef1c35b49502c359b6d8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84ccef7a3d517ba17b93f95b279529a318501e56e9d6e3c7c9c6122b10c63fac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "960a5c6f1f1dd0c988f547a6de1635c0512d6ee77f9efad1d906484cdd52c03a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2efbde3d56b2021d74f6c0772bf2a00dd8247daf238fe4b7007ecf460dd1f63c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "77723dfc277650d524677611bc1914271411690dc31b833cc787b2d78a867e7f"
-    sha256 cellar: :any_skip_relocation, ventura:       "ebf09f25a4d8584d832ded2b7a63ecfc6c23fc2e70d440c40ee32e7bc33883d6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c0f9c4fde1d78f136f71bdd2bb4a733bda3142863e48bdd6e765ff30ed74cbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c4765b6c1f979d3cdae339ed53036f782f3701f5caaaf2dee6e2c2a38bcede3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "48cb1216ddc8cd608e0c77e1c02c26bd97011c332f4eb7cc98c9d2249db73133"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "62c6d7194f24ae539710d71a0d704f59d0b269e72ee975b089387562846ca9d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f9f6e9c736740c28e4122afb9b7fb20bd5377ac23385961e15b40327f8442ee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "69adfb1fb154780d073e987287b51623cb7b00f6d0a15b9ce11814788c914685"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4ed6eadc0ae46bbc151c3a4ba63727c66b8d69f71b75639487891a97cfee9431"
+    sha256 cellar: :any_skip_relocation, ventura:       "dcffce4689635b8171651084f751de12468ec162853205dca598e86bc427f33f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9cd8b102839fff6efe6d8dfb8353de1f008edc51f0f7eca5907b4589c64b3140"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a621299898caf1365fe29b39303f41b4becbce8e6450db1a787b07e6de258307"
   end
 
   depends_on "rust"

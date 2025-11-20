@@ -15,6 +15,7 @@ class Openh264 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "66b45539594a83afa29294059d4b82cbfeb149549cf90f6034c4c786db39486f"
     sha256 cellar: :any,                 arm64_sequoia: "a515a7ef81ee79369a4e607c78d14e1c6d778b799d75bd53a45f78bfcd512f0a"
     sha256 cellar: :any,                 arm64_sonoma:  "ee76a655687d6e7ce9bc7f9734212e609be33f96c7cce20b9706ba206a5cac19"
     sha256 cellar: :any,                 arm64_ventura: "d5934c079e354517b1241ad91fcdfa8ffc2a3eeb023ab50288fd18141492d04f"

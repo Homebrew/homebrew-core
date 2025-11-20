@@ -4,7 +4,9 @@ class Shpotify < Formula
   url "https://github.com/hnarayanan/shpotify/archive/refs/tags/2.1.tar.gz"
   sha256 "b41d8798687be250d0306ac0c5a79420fa46619c5954286711a5d63c86a6c071"
   license "MIT"
-  head "https://github.com/hnarayanan/shpotify.git", branch: "master"
+  head "https://github.com/hnarayanan/shpotify.git", branch: "main"
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

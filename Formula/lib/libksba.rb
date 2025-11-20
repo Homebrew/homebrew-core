@@ -11,6 +11,7 @@ class Libksba < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c0837ea16c7dec40970bec524c94f5534f0f0a138a81b231006185bf0be7aaa1"
     sha256 cellar: :any,                 arm64_sequoia:  "4446cbe4b0a27393b01c2627edfad9cfebb8a55fae70750977ec786d4598e64a"
     sha256 cellar: :any,                 arm64_sonoma:   "0988bac20ad406ec6d0c8ba7f141b320d3752a8c73e20596b0a9dd004769b832"
     sha256 cellar: :any,                 arm64_ventura:  "5ec4bdc07e17b7a9a853035d6cce36d5f06a02d023b16c42da83eb7d81faeeb4"

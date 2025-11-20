@@ -6,6 +6,8 @@ class Wemux < Formula
   license "MIT"
   head "https://github.com/zolrath/wemux.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 4
     sha256 cellar: :any_skip_relocation, all: "41e9a8eaac236f236653d1867f1b5de10a03d5de49e1764628284742dc27bc24"

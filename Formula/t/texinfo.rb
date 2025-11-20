@@ -1,26 +1,27 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftp.gnu.org/gnu/texinfo/texinfo-7.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-7.2.tar.xz"
+  url "https://ftpmirror.gnu.org/gnu/texinfo/texinfo-7.2.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/texinfo/texinfo-7.2.tar.xz"
   sha256 "0329d7788fbef113fa82cb80889ca197a344ce0df7646fe000974c5d714363a6"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "abfc842bb08fd512dd878e2233ea6d0d3682685dd9d5a03a86c6c8d170ca104e"
-    sha256 arm64_sonoma:  "948d36004ea61e34f1b27d04d4b56c5b1e2cf7bc28861c89fa9cd7c3c87cbdb5"
-    sha256 arm64_ventura: "71ed6d2d1b181f10f9fabac5935ff3956d7b63f670e652465b601c2929a19cc2"
-    sha256 sequoia:       "bb81887583e785c41b1f6e9812f62f04a304f7d655dad3139d82077f2e61b64d"
-    sha256 sonoma:        "4bc4f8a0d5ed88dbee2565088997164573ca8c2e7f229030b2035ba8905172a2"
-    sha256 ventura:       "a8e566d23516d94e0f573b648122c74c317c7eea8d16acf55645e5347759c363"
-    sha256 arm64_linux:   "f749de410013d9fe866ac0dd634ed6e8d9f462f9979d341f2d9fa727bb1790ee"
-    sha256 x86_64_linux:  "46fdddc6b9297240790546b7f1405a7ea103a7c652c74c05cc1bef6b88f320f1"
+    rebuild 1
+    sha256 arm64_tahoe:   "860131f9432cb4fce12c4ffc6440e91373d40d9cf79db0e09498029c9055d97c"
+    sha256 arm64_sequoia: "a28e8dfcc909b1fcf3d7084cb85b2437c34f75c96f837f178b22cc7501c3c056"
+    sha256 arm64_sonoma:  "9ceddadff536aea2594d32c5a4f6c9f87d0d7d215c4e79b9d828356b6004e11c"
+    sha256 tahoe:         "4f43bf3f89a5ec53f3f1b567c37ac0e5ebcfe9fb3bb7a7a418fb2ebb9cfbe0e6"
+    sha256 sequoia:       "60d14960da05f3e0ac1edfae9e6ae9d086b06823fcf82219279d2d2980de8ebb"
+    sha256 sonoma:        "5def5754597c20c93f9d4cfad57f6590be2f966f4a138e4c6a67c937fd45a1ad"
+    sha256 arm64_linux:   "26bc9ccc084ae18c42003b4efdca2439a5c8a8986cdb839db0de8011c16c46e9"
+    sha256 x86_64_linux:  "8c1fcbbb14cf2b3f7279b740636a6402db90287ae6c8dff8c6467ce39f56fe37"
   end
 
   uses_from_macos "ncurses"
   uses_from_macos "perl"
 
-  on_system :linux, macos: :high_sierra_or_older do
+  on_linux do
     depends_on "gettext"
     depends_on "libunistring"
   end

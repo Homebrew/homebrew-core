@@ -6,15 +6,16 @@ class Pymol < Formula
   url "https://github.com/schrodinger/pymol-open-source/archive/refs/tags/v3.1.0.tar.gz"
   sha256 "54306d65060bd58ed8b3dab1a8af521aeb4fd417871f15f463ff05ccb4e121fe"
   license :cannot_represent
-  revision 1
+  revision 2
   head "https://github.com/schrodinger/pymol-open-source.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "13f683c319c06b8e30f2b961c56e16a079b364780de4d237a5b35c576ce7bcfb"
-    sha256 cellar: :any,                 arm64_ventura: "1fd72c9332cf93d45638faa9f2b39e8a1eb60694e6ef6c2466167ba3990fb935"
-    sha256 cellar: :any,                 sonoma:        "8af0422ae606f64c6f0736f19b50ad315513e36ab4d8cec860767b988ac70c4a"
-    sha256 cellar: :any,                 ventura:       "a6346a1171b662880f9f793835ce90420e32352b80e866a2a26a07dd2fc89879"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af7204c635fb07c2cd01164d36765a20e9e297060cd94fb67d9d71d0a0509ddd"
+    sha256 cellar: :any,                 arm64_tahoe:   "8f76f4858674072e0992eb5a2d004e2c088556c460ee98cadd828dc3c0c9b453"
+    sha256 cellar: :any,                 arm64_sequoia: "df129b99341114fdc3cbbcfbd469bb563e10af06dcb8fbfaa417dfec84c6b973"
+    sha256 cellar: :any,                 arm64_sonoma:  "e7ec9b524c7b30829ca8ed8e4e4195db5e687a0b2de3a5ea92cc569a4c092ff5"
+    sha256 cellar: :any,                 sonoma:        "808c4b989cb6240b0e3172d5279f8fce333231e33bbcf5c6f51f55c840632582"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c06f9389168a9a133cbe6dfc12a150fdd36a90e3268af20f1120f1e00703958"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "291e786a0fd830c0a55b2db5fa0ff7d08b27140938a990549ea75fc1974e758b"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +29,7 @@ class Pymol < Formula
   depends_on "netcdf"
   depends_on "numpy"
   depends_on "pyqt"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libxml2"
 
@@ -58,8 +59,14 @@ class Pymol < Formula
     sha256 "3a59e6d33857733d0a8ff0c968140b8728f8e27aaa51306160ae6ab13cea26d3"
   end
 
+  # Allow numpy 2+, remove on next release
+  patch do
+    url "https://github.com/schrodinger/pymol-open-source/commit/1b3aca8c053336fc5c7f72e79b4801f8fdd1af39.patch?full_index=1"
+    sha256 "639261ff5b4d9c930ead3179cbbf64bf1e8fa575678561a0287c11f5a6cfa4d6"
+  end
+
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install

@@ -2,23 +2,20 @@ class PipeRename < Formula
   desc "Rename your files using your favorite text editor"
   homepage "https://github.com/marcusbuffett/pipe-rename"
   url "https://github.com/marcusbuffett/pipe-rename/archive/refs/tags/1.6.5.tar.gz"
-  sha256 "41edf419ab3d7b3c16d2efe209b3ca3d3f7104a3365f61fe821a59caac31810b"
+  sha256 "bc3cc51e02578e0c56f252e65136dbeb635ffc8468c45b5c38df311cab611b09"
   license "MIT"
+  revision 1
   head "https://github.com/marcusbuffett/pipe-rename.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "79ceea8ede307d9f114d6d476bc2538a9fc2dbaba609c42821ef6206057e251a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a48ff406bcb8a5357d9c53071cba3f22c1cd76dd57677c1e5eae824688eb1857"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f2226ebc20e21cf3e60864f754b16858f9142e91c075dce3f40aca885a170ec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e416289ce81261b7049d6373b155523194d248e71d30578d4dde81dd2acabf39"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70261a45024958a3552434d796c921342e067237e27fc49fe6434b9fc4faa87d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "21eaac4bb7efc7c16d23d434a51940509892ecc6b7e15e09c93c1d03b4075fc4"
-    sha256 cellar: :any_skip_relocation, ventura:        "ea7df5f5f537f9b59746a41b5c54f9a84fb0fa41a7e1f120b110cdd591e65db0"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8c2ce2e9e90728f5e2901d0062ec2613b5f9e88b3c1d2dc3c42ebf45a2f4b55"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1147a22a59b737ff14028deb0c524307ff036a9953ad5f57a5568c277ce27ceb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f6cdca957d667f07c4a51217258857ef20342a8fe6857447972db65b82b58c68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd5c54a0bdf37c614971f1dc2b5326b5b391ca0c03a86d58b50970401ea7e444"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9fd3ea356570b8c33201ff8b6e4c226be7dc46b29d648ede51b9e4ad7c51ee94"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "05b5d7a3e3d2800214c3d6c019965abc4c79153e877f9646f0785b731403cd42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78ad5f875ea0698f555e7cd1ae0e9cbf3f2288df1a629aea13d73e88d8410868"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ead196d4a945b353937da16ba88d97705b9e63359a66a7d1413e84be958728c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "55b14b5cc02d4940996223565bffe107205f002b712b1851759121e32352478b"
+    sha256 cellar: :any_skip_relocation, ventura:       "e78cf189b9daf7abe12c7067ee35d9716e268abe6210014b85ced4aa201c605d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "76acb0c610a7ca3269b0330affdcfdee2f6549c0fd59883b00bca7bcc61f0393"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf3c6d9051347cca1f0a699b770f0acb148b5f079a75bec57e9f1b690360e935"
   end
 
   depends_on "rust" => :build

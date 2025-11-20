@@ -13,6 +13,7 @@ class Catgirl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "351867ae899c5212701dff3cbc5aaf3e64ae7f250343de7d10b411365e1ab87e"
     sha256 arm64_sequoia: "10113098841cbf331b3b7ecd70b8fcadc65ee0d863f9fd46671d28325e9e1066"
     sha256 arm64_sonoma:  "7a5ac77635d063e53136ba82f11f793ecabd86340ba3fffbce69463df086c316"
     sha256 arm64_ventura: "e6bb55c082d4b2ceb8328bb4a7723aa3d56168258cad31f0fbc9afad664cb2cb"
@@ -42,7 +43,7 @@ class Catgirl < Formula
   end
 
   test do
-    output = shell_output(bin/"catgirl 2>&1", 64)
+    output = shell_output("#{bin}/catgirl 2>&1", 64)
     assert_match "catgirl: host required", output
   end
 end

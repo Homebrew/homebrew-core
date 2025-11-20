@@ -11,6 +11,7 @@ class Slurm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b4f4153c52ba78d3ad62fa6ff84a348993f2b8a032a41c0dcf5565ddd013be08"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "776f1360da9dd1fa05c2095b37974a193b18eaedaf5a94792e2945242a9bd1f1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45e31ecee4bc3065e733dc130884346f4eabae06012ba29d75da76e5584e6481"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2e8b79fac19c1d029e8d8f2dc61b39d74abf242f509e0507c1761d0dbd8f0af"

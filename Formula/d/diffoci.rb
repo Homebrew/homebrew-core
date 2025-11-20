@@ -1,18 +1,20 @@
 class Diffoci < Formula
   desc "Diff for Docker and OCI container images"
   homepage "https://github.com/reproducible-containers/diffoci"
-  url "https://github.com/reproducible-containers/diffoci/archive/refs/tags/v0.1.6.tar.gz"
-  sha256 "650554edbc7118e6fb7008865281e5dba6bc6d82a417a1e0e0ea05c1561ee402"
+  url "https://github.com/reproducible-containers/diffoci/archive/refs/tags/v0.1.7.tar.gz"
+  sha256 "86ff1f7d0a91934790369184fa88b5402c5b7b0ec87358c915b2fb1e97bd5c0d"
   license "Apache-2.0"
   head "https://github.com/reproducible-containers/diffoci.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "272794b529802bbfca33f07801190a23adb3506727b2d92e06af1d1b3b65f714"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "272794b529802bbfca33f07801190a23adb3506727b2d92e06af1d1b3b65f714"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "272794b529802bbfca33f07801190a23adb3506727b2d92e06af1d1b3b65f714"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2d68d1a0c3ea3d9fe1fc230151f3d671c3215a54869ef1278b1a8706bb1857cd"
-    sha256 cellar: :any_skip_relocation, ventura:       "0b1dbe2f83d047a7f1833904eec6cdfcae6fb07e823f586cd9f7c3607162bb1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e49d15e23b675401ff366c143fb50f819646f3211614b254de78d7c35d506d1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "312997c7bb2b42aa19919b4800ffd077558236548791b8f798135de2e7924112"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94baef5d5a95a35f21622becbf6e538c1690c2266477ed37e240e4b4200e9253"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94baef5d5a95a35f21622becbf6e538c1690c2266477ed37e240e4b4200e9253"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "94baef5d5a95a35f21622becbf6e538c1690c2266477ed37e240e4b4200e9253"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ea0566a0a0f19b46e4cfd41f8ec6f86480c841e0295bc25ad90604c0846c352b"
+    sha256 cellar: :any_skip_relocation, ventura:       "b9e81c35c29ae56494fdfab84567ab17b9e0fd993de2e9c4d91a77fd63e0d3fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "445039f35a22af5204e8576d3c59e102067a80b53e1fa4a6b86585fce4f847ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2aad3bcf108466ce3eee0b7b541c09d591ccde343be82dfeff606af7d62dd2b"
   end
 
   depends_on "go" => :build

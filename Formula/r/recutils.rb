@@ -1,12 +1,15 @@
 class Recutils < Formula
   desc "Tools to work with human-editable, plain text data files"
   homepage "https://www.gnu.org/software/recutils/"
-  url "https://ftp.gnu.org/gnu/recutils/recutils-1.9.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/recutils/recutils-1.9.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/recutils/recutils-1.9.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/recutils/recutils-1.9.tar.gz"
   sha256 "6301592b0020c14b456757ef5d434d49f6027b8e5f3a499d13362f205c486e0e"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "1195eef57e411f91d204f23655150667170fdc64242f0503b7e376deb112768a"
     sha256 cellar: :any, arm64_sequoia:  "f1c4d50014f990bf82b005678e5e50d0437c4832db83e80094e0fcfbad824078"
     sha256 cellar: :any, arm64_sonoma:   "229e25a458f74f9b9e1229b08dd839a18f7e06cede1aaecc890b645f645c80e1"
     sha256 cellar: :any, arm64_ventura:  "6556b10f353cbae8cc5d69cc48cb0662eaf85060794e0d29ae25950dbe02749e"
@@ -27,7 +30,7 @@ class Recutils < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

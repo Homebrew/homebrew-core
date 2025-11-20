@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/8.2.1/bazel-8.2.1-dist.zip"
-  sha256 "b12b95cc02cc5ee19ff7a6a7f71f9496631f937c8e13a8f53ee0ff7b7700bc16"
+  url "https://github.com/bazelbuild/bazel/releases/download/8.4.2/bazel-8.4.2-dist.zip"
+  sha256 "416055473d60768a94ade34a63fb9789dc01473eaf22c39b153af259ba369766"
   license "Apache-2.0"
 
   livecheck do
@@ -11,25 +11,32 @@ class Bazel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8224a8feb8a996ee168e3ea0827a3c3b03f7548f073ac999c7492bec90083542"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cafc46ac731d4813486d8f2dcca404bd4c26b1a9dd1a7d5e3c969a91c9ec4cca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf0164c7b1827eddeae7a5836b7cef7c7190bf4effaaa8200b4c112376d8b7e3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "741ea67f934716218cccab3f2ef504afc224a7e9ddc8e71eb2b86dcdbbcd934b"
-    sha256 cellar: :any_skip_relocation, ventura:       "413a2f767535186f8111dcd0f99fe45a50d26b9ced44c448d2c37e67b9d3d007"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a59f868eeb3da45fa932b604f195ee68280a943355f62a22faf1a3f4c5d76c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50aaa13f1ad8ae797ba2eb663c5e1d0a92e3321973cedf1f1e62a56fcb0dd265"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a136922587e05a6d6d961a0a472519b980beabc0a21ce47bac3c1561342df8f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3f2d220d1a574753273fa4e6e15f3ca358d5150e5ae7ebebb84d47cacbfbceb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01889aeb02ead1bad98d2167ef5feb392dec4c4d7d9c18f8b678597915bc8595"
+    sha256 cellar: :any_skip_relocation, sonoma:        "19c3199c0fbd0a49f7fd6687536e3dbbe088c6b7d26856f477f9820c29dd8476"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "19e8a087faf77195f9652dca5108cf3ad765a12f9bcd2dd835e2772ad29bc096"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c4587ba5ee889c966f2cdf9f287016e72ffbacc922b9066be021015f5d79caf"
   end
 
-  depends_on "python@3.13" => :build
   depends_on "openjdk@21"
 
+  uses_from_macos "python" => :build
   uses_from_macos "unzip"
   uses_from_macos "zip"
 
   on_linux do
-    on_intel do
+    on_arm do
+      # Workaround for "/usr/bin/ld.gold: internal error in try_fix_erratum_843419_optimized"
+      # Issue ref: https://sourceware.org/bugzilla/show_bug.cgi?id=31182
+      depends_on "lld" => :build
+
       # We use a workaround to prevent modification of the `bazel-real` binary
       # but this means brew cannot rewrite paths for non-default prefix
+      pour_bottle? only_if: :default_prefix
+    end
+    on_intel do
       pour_bottle? only_if: :default_prefix
     end
   end
@@ -63,6 +70,12 @@ class Bazel < Formula
     if OS.linux? && build.bottle? && ENV["HOMEBREW_DYNAMIC_LINKER"]
       extra_bazel_args << "--linkopt=-Wl,--dynamic-linker=#{ENV["HOMEBREW_DYNAMIC_LINKER"]}"
     end
+
+    if OS.linux? && Hardware::CPU.arch == :arm64
+      extra_bazel_args << "--linkopt=-fuse-ld=lld"
+      extra_bazel_args << "--host_linkopt=-fuse-ld=lld"
+    end
+
     ENV["EXTRA_BAZEL_ARGS"] = extra_bazel_args.join(" ")
 
     (buildpath/"sources").install buildpath.children
@@ -126,7 +139,8 @@ class Bazel < Formula
       )
     STARLARK
 
-    system bin/"bazel", "build", "//:bazel-test"
+    # Explicitly disable repo contents cache
+    system bin/"bazel", "build", "//:bazel-test", "--repo_contents_cache="
     assert_equal "Hi!\n", shell_output("bazel-bin/bazel-test")
 
     # Verify that `bazel` invokes Bazel's wrapper script, which delegates to

@@ -6,6 +6,8 @@ class Willgit < Formula
   license "MIT"
   head "https://github.com/DanielVartanov/willgit.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "50393beba0d169140488b806a2b4635dbd02a81f93bddb654e367f040b57f570"

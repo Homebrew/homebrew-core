@@ -1,18 +1,17 @@
 class JxlOxide < Formula
   desc "JPEG XL decoder"
   homepage "https://github.com/tirr-c/jxl-oxide"
-  url "https://github.com/tirr-c/jxl-oxide/archive/refs/tags/0.12.2.tar.gz"
-  sha256 "0d2b812051b64ab443c444035e7ccf4a53e8d823608c1c6b9997c3e6c43f729c"
+  url "https://github.com/tirr-c/jxl-oxide/archive/refs/tags/0.12.5.tar.gz"
+  sha256 "ae4936ca71543da3a8880bd7edad9200dc99374560cce222d5c9a491c13dd119"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2ef5a846c6ce8e8e8819712bb097782e9670bdfd293aba5973524abf76b2c4e2"
-    sha256 cellar: :any,                 arm64_sonoma:  "cb4acba8480cab4a2a20b4347d687d6eb8980ce2ed69d50cc8f19adde2347327"
-    sha256 cellar: :any,                 arm64_ventura: "01886bc00349b81cc6c11d6e2ee8f3b0a1b1bdea0c023368d8c3bf88ab1cbdd0"
-    sha256 cellar: :any,                 sonoma:        "57ed9baf6520a635a01710a29b5e21bcd26a7fab8c62595deef5faa1c4c8e836"
-    sha256 cellar: :any,                 ventura:       "7320c637ed90444b0b060a962efcf0801f127cc859717f4d9d97b0a08bcfc8ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39164022d29a53a18003247a47cd45ff1d53d01cf1b8c15851a8fb655ca5efaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7d8cd9590f564c7766f13eb9e348be38cad7ad26cacb9f0fb8d56845008c429"
+    sha256 cellar: :any,                 arm64_tahoe:   "0a70deb73144f8230c8419e5956efc63c7f6d37a3a8335b91edae15a288f08c0"
+    sha256 cellar: :any,                 arm64_sequoia: "8f876968712d13cbd4f9d99a5b369eb4878f29bf04ba32eeb2b67c08bfd2a146"
+    sha256 cellar: :any,                 arm64_sonoma:  "5669fa61483ea49b2ce40065c268a6789c8ae58f6d5b51ee82d05e426c613a25"
+    sha256 cellar: :any,                 sonoma:        "4c04da909ff3a4bcae66bc39add9bf4ada194de1f69ac2d426673c7adcc868cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e61191f5aef0fa9c2c012460d7f8ab06fd80d91095df08fd2f5202070d1a0958"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2fa84c2b09c8b447c2ee868dccf242ac765e9b9a20a8ac6802bc720dcf7e76f"
   end
 
   depends_on "rust" => :build

@@ -1,19 +1,19 @@
 class LicenseEye < Formula
   desc "Tool to check and fix license headers and resolve dependency licenses"
   homepage "https://github.com/apache/skywalking-eyes"
-  url "https://www.apache.org/dyn/closer.lua?path=skywalking/eyes/0.7.0/skywalking-license-eye-0.7.0-src.tgz"
-  mirror "https://archive.apache.org/dist/skywalking/eyes/0.7.0/skywalking-license-eye-0.7.0-src.tgz"
-  sha256 "d4663ac8222aa9610abba48670c22bb1ab4fb893bd2f9592c2efd4b6c0225b50"
+  url "https://www.apache.org/dyn/closer.lua?path=skywalking/eyes/0.8.0/skywalking-license-eye-0.8.0-src.tgz"
+  mirror "https://archive.apache.org/dist/skywalking/eyes/0.8.0/skywalking-license-eye-0.8.0-src.tgz"
+  sha256 "cd642a1090ad526fa6517c795c9360916bbb15ed483b3ebc3199ddb9a9821a65"
   license "Apache-2.0"
   head "https://github.com/apache/skywalking-eyes.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "967c6117d179e994b401c6e503c477dec9b3b783a27cbcc30e69f44b7f91fbc2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "967c6117d179e994b401c6e503c477dec9b3b783a27cbcc30e69f44b7f91fbc2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "967c6117d179e994b401c6e503c477dec9b3b783a27cbcc30e69f44b7f91fbc2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b919d6615ed5fa1169c192a1142a853d643b93a954cd9491a199775e8127994"
-    sha256 cellar: :any_skip_relocation, ventura:       "1b919d6615ed5fa1169c192a1142a853d643b93a954cd9491a199775e8127994"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cdd6daeda967110aec797de72b28d868a1b8620755dfb1cdab2031a78817c8e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f129551508b02f5d729f793a9763c4026204face464a55b8150f3874613080b9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f129551508b02f5d729f793a9763c4026204face464a55b8150f3874613080b9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f129551508b02f5d729f793a9763c4026204face464a55b8150f3874613080b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "45966756d7bf9ae5bfe0fe6b21de96647fcfb91ef8a7131d86df8f049f047f50"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "12eb95762b7cca2f8051e874dd1e12cbcb4cff0fcc55eadf63141a0411e01cd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9e1a93e105a6f7d6e651eaa3f3087e25b4f83460ec406ad6f0d6daf994c3a23"
   end
 
   depends_on "go" => :build

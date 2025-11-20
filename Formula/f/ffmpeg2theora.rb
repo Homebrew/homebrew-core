@@ -4,21 +4,20 @@ class Ffmpeg2theora < Formula
   url "https://gitlab.xiph.org/xiph/ffmpeg2theora/-/archive/0.30/ffmpeg2theora-0.30.tar.gz"
   sha256 "9bc69b7c3430184e8e74d648e39bd8a35a8bb10e9e6d6d5750f334c4feaca8d6"
   license "GPL-2.0-or-later"
-  revision 11
+  revision 12
   head "https://gitlab.xiph.org/xiph/ffmpeg2theora.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "386bcf4220cfa4e2aa06f1a9fa920cbd028d321bf622f3b7c1010d63502ce584"
-    sha256 cellar: :any,                 arm64_sonoma:   "db8c87aecac7f8ee1585140a11fba27cbc9f570662c646403b3a1363c3ae65d4"
-    sha256 cellar: :any,                 arm64_ventura:  "ef0f30079f953e5f616f0033ceca1b46d7fa0152977890fa27da10b11de53998"
-    sha256 cellar: :any,                 arm64_monterey: "23e95a08aeabf87d68743c06cffd1d27d054cc9aa7805fe5ab1f6eab1b121fe8"
-    sha256 cellar: :any,                 sonoma:         "2033b5b0ee57ebcca4884fbe0bb3b18e91a13d0714f4854e3ebe0535345c6ce7"
-    sha256 cellar: :any,                 ventura:        "ce42df594f3605668d80f8bf4f9f8d40c2f2c9ce8bb295f213cbf9d313f54227"
-    sha256 cellar: :any,                 monterey:       "7d9478e2bb76d731a905685b690d4663975959ad8a07c45e60fe19acce323aab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "fc03ea311b635730af0df690293b9833526118b1565e35b08805e6338bb32b1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3965a87c59f7e76f5440130868ad518c5e770a786e5074bb3803cc88c627c024"
+    sha256 cellar: :any,                 arm64_tahoe:   "42c00e60ebc22a03002de781c194a5bb837e0528fa92c32f89dd65a60c375757"
+    sha256 cellar: :any,                 arm64_sequoia: "f80e6c1cf50dee0a7bc77cd75c58c10814972804cad86dc8c9167e03d6f1fa0b"
+    sha256 cellar: :any,                 arm64_sonoma:  "bb6bc8a440306ed6db8686afaed5733dc4044ca647343c81875c3e4089e9d218"
+    sha256 cellar: :any,                 arm64_ventura: "66a8239374c87df7e683e03192bb818a207b9f8cea5e7ebefe6d7e51d6e91d40"
+    sha256 cellar: :any,                 sonoma:        "c9af8b3a5b08e30151a56e2a58356d27ff7f37cf6418f622d0024d02ff7077ff"
+    sha256 cellar: :any,                 ventura:       "032d3f203c4ae3ef2da43b4e16702586a081f101ae719ac211698df4039c922c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f691b49ee844e7e946caf574c177c1e9389f9714aa18b3289d1b02337bace8b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af084dab0150730e9197bd8c8d3ba09eb0aef171742918f257aabead5b5a664e"
   end
 
   depends_on "pkgconf" => :build

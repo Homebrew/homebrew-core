@@ -7,6 +7,7 @@ class LsLint < Formula
   head "https://github.com/loeffel-io/ls-lint.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06365825df0600e2300aa56c33ab9f3631554110210f5bf4f38e6b28543de96a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "172e96e228cb48828fb773cdf48c36ecbf194ef62334733deddb4ec6bdb7ef4a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "172e96e228cb48828fb773cdf48c36ecbf194ef62334733deddb4ec6bdb7ef4a"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "172e96e228cb48828fb773cdf48c36ecbf194ef62334733deddb4ec6bdb7ef4a"

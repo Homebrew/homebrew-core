@@ -13,7 +13,7 @@ class Gist < Formula
     sha256 cellar: :any_skip_relocation, all: "8efc350b478d929ecf6de1f41afa0763fccf1efdeed3c16384deb5b4fb8bf66a"
   end
 
-  uses_from_macos "ruby", since: :high_sierra
+  uses_from_macos "ruby"
 
   def install
     system "rake", "install", "prefix=#{prefix}"

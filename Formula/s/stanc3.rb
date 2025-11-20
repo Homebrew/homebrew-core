@@ -2,38 +2,59 @@ class Stanc3 < Formula
   desc "Stan transpiler"
   homepage "https://github.com/stan-dev/stanc3"
   url "https://github.com/stan-dev/stanc3.git",
-      tag:      "v2.36.0",
-      revision: "0366507dd98f96bf6acd5d2753bd0910f2eb0ecb"
+      tag:      "v2.37.0",
+      revision: "31d2a6e3a7a84e97a3bd8cabc205c76a063fb91f"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a4e28729eb9e4790ba984d02f9752a9e3092c556892673e97d4324c67783cd1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ba590eb17a914c2ce3c93c775a2d8dc1c9dc58ddc4cfecc20a92686d96508d2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "16ccaddc885752a02296d260bbff43e1a618183c5feb29f54dc966d282f58a7b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d95e9716a7f9bfbed4a9161030ec37001051de2ddb7b18f4386b599b11692ca6"
-    sha256 cellar: :any_skip_relocation, ventura:       "d000fd196bc37829af7985f3cfd15a95cae50676acef2250d54cbe088cd207ba"
-    sha256                               arm64_linux:   "0c35526796f504d5ea421e2bd2ea9bbb1e5d5889d150563fab318f5fa6a1ff82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92fe8afc06fb2059c4ffd178c2a67eba0b305a60a566ebb80f4fbbce090504ca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a506ef69a644c723648740b9cf97b7c9f4c816cbba534afff9b6537d9ba8c418"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b75f859506655cb2629cee53326a56d2adf8990f5465b4b043d10a67723059f9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6429a0f13f93478838dc9524af1246a844e2e3922ead3c8b0fadd9abc66124d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "966e95130f8a0695eab22f16796d4383f5e5aafbc35811008c3c848acdb077a5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a4ee8620a6a19639f9e004d6e024464f8b95e86959d50c17165d027c1284f90"
+    sha256 cellar: :any_skip_relocation, ventura:       "3b5e9cda6c9f7701747cca00dcc29c2f209b92c530e5f82ff0404e29481940f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7762a898b7afcb8f32cdf7b3fdcc2c02d991765067ff0c2942711cb557e602d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb5ab07bb40e6941e98d579dfc196f1294f0ae3f55a45a092aed2182a40e0e0d"
   end
 
-  depends_on "ocaml" => :build
+  depends_on "ocaml@4" => :build # FIXME: pinned ppx_deriving.5.2.1 not compatible with OCaml >= 5.3
   depends_on "opam" => :build
 
   uses_from_macos "unzip" => :build
 
-  def install
-    Dir.mktmpdir("opamroot") do |opamroot|
-      ENV["OPAMROOT"] = opamroot
-      ENV["OPAMYES"] = "1"
-      ENV["OPAMVERBOSE"] = "1"
+  # Workaround for error due to `-mpopcnt` on arm64 macOS with Xcode 16.3+.
+  # TODO: Remove once base >= 0.17.3 or if fix is backported to 0.14 and released
+  on_sequoia :or_newer do
+    on_arm do
+      resource "base" do
+        url "https://github.com/janestreet/base/archive/refs/tags/v0.16.4.tar.gz"
+        sha256 "200c053b69c04dd5cdc5bcb3ae27d098a88a311fb48c28d6382abe76e2a588f5"
 
-      system "opam", "init", "--no-setup", "--disable-sandboxing"
-      system "bash", "-x", "scripts/install_build_deps.sh"
-      system "opam", "exec", "dune", "subst"
-      system "opam", "exec", "dune", "build", "@install"
-
-      bin.install "_build/default/src/stanc/stanc.exe" => "stanc"
+        patch do
+          url "https://github.com/janestreet/base/commit/68f18ed6a5e94dda1ed423c3435d1515259dcc7d.patch?full_index=1"
+          sha256 "054fc30c7e748b2ad8ba8e2b8eead1309b8d7229821b57478cb604d5da5b69c6"
+        end
+      end
     end
+  end
+
+  def install
+    ENV["OPAMROOT"] = buildpath/".opam"
+    ENV["OPAMYES"] = "1"
+    ENV["OPAMVERBOSE"] = "1"
+
+    system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
+    # Workaround for https://github.com/janestreet/base/issues/164
+    if OS.mac? && MacOS.version >= :sequoia
+      resource("base").stage do
+        system "opam", "install", ".", "--yes", "--no-depexts", "--working-dir"
+      end
+    end
+    system "bash", "-x", "scripts/install_build_deps.sh"
+    system "opam", "exec", "dune", "subst"
+    system "opam", "exec", "dune", "build", "@install"
+
+    bin.install "_build/default/src/stanc/stanc.exe" => "stanc"
   end
 
   test do

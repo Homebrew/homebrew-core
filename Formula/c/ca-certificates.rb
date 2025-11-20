@@ -1,8 +1,8 @@
 class CaCertificates < Formula
   desc "Mozilla CA certificate store"
   homepage "https://curl.se/docs/caextract.html"
-  url "https://curl.se/ca/cacert-2025-05-20.pem"
-  sha256 "ab3ee3651977a4178a702b0b828a4ee7b2bbb9127235b0ab740e2e15974bf5db"
+  url "https://curl.se/ca/cacert-2025-11-04.pem"
+  sha256 "8ac40bdd3d3e151a6b4078d2b2029796e8f843e3f86fbf2adbc4dd9f05e79def"
   license "MPL-2.0"
 
   livecheck do
@@ -11,7 +11,8 @@ class CaCertificates < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dda1100e7f994081a593d6a5e422451bfa20037e29667ed2b79f011ffc9288a7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c414336ff5220d77124debb496c8d86ffa1bbc5946309ee2d9d26645db300b96"
   end
 
   def install
@@ -29,106 +30,173 @@ class CaCertificates < Formula
   def macos_post_install
     ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
 
-    keychains = %w[
-      /Library/Keychains/System.keychain
-      /System/Library/Keychains/SystemRootCertificates.keychain
-    ]
+    keychains = {
+      "/Library/Keychains/System.keychain"                        => "ssl",
+      "/System/Library/Keychains/SystemRootCertificates.keychain" => "basic",
+    }
 
-    certs_list = Utils.safe_popen_read("/usr/bin/security", "find-certificate", "-a", "-p", *keychains)
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
+    trusted_certificates = []
+    keychains.each do |keychain, purpose|
+      certificates =
+        Utils.safe_popen_read("/usr/bin/security", "find-certificate", "-a", "-p", keychain)
+             .scan(
+               /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
+             )
 
-    # Check that the certificate has not expired
-    valid_certs = certs.select do |cert|
-      begin
-        Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                           "-checkend", "0",
-                                                           "-noout") do |openssl_io|
-          openssl_io.write(cert)
+      # Check that the certificate has not expired
+      certificates.select! do |certificate|
+        begin
+          Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
+                                                            "-checkend", "0",
+                                                            "-noout") do |openssl_io|
+            openssl_io.write(certificate)
+          end
+        rescue ErrorDuringExecution
+          # Expired likely.
+          next
         end
-      rescue ErrorDuringExecution
-        # Expired likely.
-        next
+
+        # Only include certificates that are designed to act as a SSL root.
+        purpose = Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
+                                                                    "-purpose",
+                                                                    "-noout") do |openssl_io|
+          openssl_io.write(certificate)
+        end
+        purpose.include?("SSL server CA : Yes")
       end
 
-      # Only include certs that have are designed to act as a SSL root.
-      purpose = Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                                   "-purpose",
-                                                                   "-noout") do |openssl_io|
-        openssl_io.write(cert)
-      end
-      purpose.include?("SSL server CA : Yes")
-    end
+      # Check that the certificate is trusted in keychain
+      trusted_certificates += begin
+        tmpfile = Tempfile.new
 
-    # Check that the certificate is trusted in keychain
-    trusted_certs = begin
-      tmpfile = Tempfile.new
+        verify_args = %W[
+          -l -L
+          -c #{tmpfile.path}
+          -p #{purpose}
+          -R offline
+        ]
 
-      verify_args = %W[
-        -l -L
-        -c #{tmpfile.path}
-        -p ssl
-      ]
-      on_high_sierra :or_newer do
-        verify_args << "-R" << "offline"
-      end
-
-      valid_certs.select do |cert|
-        tmpfile.rewind
-        tmpfile.write cert
-        tmpfile.truncate cert.size
-        tmpfile.flush
-        Utils.safe_popen_read("/usr/bin/security", "verify-cert", *verify_args)
-        true
-      rescue ErrorDuringExecution
-        # Invalid.
-        false
-      end
-    ensure
-      tmpfile&.close!
-    end
-
-    # Get SHA256 fingerprints for all trusted certs
-    fingerprints = trusted_certs.to_set do |cert|
-      Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                         "-fingerprint",
-                                                         "-sha256",
-                                                         "-noout") do |openssl_io|
-        openssl_io.write(cert)
+        certificates.select do |certificate|
+          tmpfile.rewind
+          tmpfile.write certificate
+          tmpfile.truncate certificate.size
+          tmpfile.flush
+          Utils.safe_popen_read("/usr/bin/security", "verify-cert", *verify_args)
+          true
+        rescue ErrorDuringExecution
+          # Invalid.
+          false
+        end
+      ensure
+        tmpfile&.close!
       end
     end
 
-    # Now process Mozilla certs we downloaded.
-    pem_certs_list = File.read(pkgshare/"cacert.pem")
-    pem_certs = pem_certs_list.scan(
+    # Get SHA256 fingerprints for all trusted certificates
+    fingerprints = trusted_certificates.to_set do |certificate|
+      get_certificate_fingerprint(certificate, "/usr/bin/openssl")
+    end
+
+    # Now process Mozilla certificates we downloaded.
+    # Read as raw bytes to avoid locale-dependent encoding errors
+    pem_certificates_list = (pkgshare/"cacert.pem").binread.force_encoding(Encoding::ASCII_8BIT)
+    pem_certificates = pem_certificates_list.scan(
       /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
 
     # Append anything new.
-    trusted_certs += pem_certs.select do |cert|
-      fingerprint = Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                                       "-fingerprint",
-                                                                       "-sha256",
-                                                                       "-noout") do |openssl_io|
-        openssl_io.write(cert)
-      end
+    trusted_certificates += pem_certificates.select do |certificate|
+      fingerprint = get_certificate_fingerprint(certificate, "/usr/bin/openssl")
       fingerprints.add?(fingerprint)
     end
 
     pkgetc.mkpath
-    (pkgetc/"cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
+    (pkgetc/"cert.pem").atomic_write(trusted_certificates.join("\n") << "\n")
+  end
+
+  def get_certificate_fingerprint(certificate, openssl_binary = "openssl")
+    Utils.safe_popen_write(openssl_binary, "x509", "-inform", "pem",
+                                                   "-fingerprint",
+                                                   "-sha256",
+                                                   "-noout") do |openssl_io|
+      openssl_io.write(certificate)
+    end
+  end
+
+  def load_certificates_from_file(file_path, trusted_certificates, fingerprints, certificate_type)
+    # Read as raw bytes to avoid locale-dependent encoding errors
+    certificates_list = file_path.binread.force_encoding(Encoding::ASCII_8BIT)
+    certificates = certificates_list.scan(
+      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
+    )
+    loaded_count = 0
+    certificates.each do |certificate|
+      fingerprint = get_certificate_fingerprint(certificate)
+      if fingerprints.add?(fingerprint)
+        trusted_certificates << certificate
+        loaded_count += 1
+      end
+    rescue ErrorDuringExecution
+      # Skip invalid certificate
+      next
+    end
+    puts "Loaded #{loaded_count} #{certificate_type} certificates" if loaded_count.positive?
   end
 
   def linux_post_install
-    rm(pkgetc/"cert.pem") if (pkgetc/"cert.pem").exist?
+    rm(pkgetc/"cert.pem", force: true)
     pkgetc.mkpath
-    cp pkgshare/"cacert.pem", pkgetc/"cert.pem"
+
+    system_ca_certificates = Pathname.new("/etc/ssl/certs/ca-certificates.crt")
+    return if !system_ca_certificates.exist? || !system_ca_certificates.readable?
+
+    # Integrate system certificates if OpenSSL is available
+    unless which("openssl")
+      opoo "Cannot find OpenSSL: skipping system certificates."
+      puts <<~EOS
+        To include custom system certificates run:
+          brew install openssl
+          brew postinstall ca-certificates
+      EOS
+      return
+    end
+
+    trusted_certificates = []
+    fingerprints = Set.new
+
+    # First, load system certificates from standard Linux location
+    load_certificates_from_file(system_ca_certificates, trusted_certificates, fingerprints, "system")
+
+    # Now process Mozilla certs and append only new ones
+    load_certificates_from_file(pkgshare/"cacert.pem", trusted_certificates, fingerprints, "Mozilla")
+
+    (pkgetc/"cert.pem").atomic_write(trusted_certificates.join("\n") << "\n")
+    ohai "CA certificates have been bootstrapped from the system CA store."
+  ensure
+    # Ensure a PEM file always exists, even if the method exits early or fails
+    cp pkgshare/"cacert.pem", pkgetc/"cert.pem" unless (pkgetc/"cert.pem").exist?
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        CA certificates have been bootstrapped using certificates from the system keychain.
+      EOS
+    end
+
+    on_linux do
+      <<~EOS
+        CA certificates have been bootstrapped from both the Mozilla CA store and the system CA store at
+
+          /etc/ssl/certs/ca-certificates.crt
+
+        if this path exists and is readable.
+      EOS
+    end
   end
 
   test do
     assert_path_exists pkgshare/"cacert.pem"
     assert_path_exists pkgetc/"cert.pem"
-    assert compare_file(pkgshare/"cacert.pem", pkgetc/"cert.pem") if OS.linux?
   end
 end

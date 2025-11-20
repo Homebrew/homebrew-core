@@ -27,9 +27,6 @@ class Terraform < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "tenv", because: "both install terraform binary"
-  conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
-
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end

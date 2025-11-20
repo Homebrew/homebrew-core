@@ -1,8 +1,8 @@
 class Qemu < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-10.0.2.tar.xz"
-  sha256 "ef786f2398cb5184600f69aef4d5d691efd44576a3cff4126d38d4c6fec87759"
+  url "https://download.qemu.org/qemu-10.1.2.tar.xz"
+  sha256 "9d75f331c1a5cb9b6eb8fd9f64f563ec2eab346c822cb97f8b35cd82d3f11479"
   license "GPL-2.0-only"
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
@@ -12,20 +12,19 @@ class Qemu < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "2fbb46507db3640256480542b89188c6c0ffbea79331ad74af6d1aece2a957c0"
-    sha256 arm64_sonoma:  "7bffbc3fca962f111f452e8b9f019c77f8611a1d77d09f90cbd69b1234b90619"
-    sha256 arm64_ventura: "9a4ab208884863423fe321d33411f0db53fd90a85c5e546a03485faf2732a3b4"
-    sha256 sonoma:        "19570a46c5d9ecfc29e7f55c5d5940a08dd7ccb270dc4e86124268827550dd31"
-    sha256 ventura:       "696f8a73d537069b1d4d808b4b02fd96d73ba9d66913201698610a082c671910"
-    sha256 arm64_linux:   "b74ed8c16cf4a9002f9727b7ef34a76fd1553786f0acb2eb22fb4a87a79b1acf"
-    sha256 x86_64_linux:  "b79fd2eae50f89ab74184a678291ffe671a7f0d66dfe9145eef615dab2d6e7e2"
+    sha256 arm64_tahoe:   "9c7205bd69dc8e90413a327ab2c0079ef64d4fb95efe392f7e328ba9177fc8aa"
+    sha256 arm64_sequoia: "32d5e80011b3bd1ac0ff786c08f65f7312c00b884c9b170728c39e525afa38e6"
+    sha256 arm64_sonoma:  "c2512a943a1ec662a392ae09c1dd50c38a15fc1990f4fbf4930a82fab447391b"
+    sha256 sonoma:        "fa78741a8a2b27f31431177fe19791748bd1a80931adbcf392f1a9de1cbccea0"
+    sha256 arm64_linux:   "e020ada579685964a50e51cac5dd45ec73caa7aeb9674b0018240f3672729558"
+    sha256 x86_64_linux:  "ca85512f2c9df0b32d73e327705f92eedae2c1d0b90999b7f7e22b5c70ae0d72"
   end
 
   depends_on "libtool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => :build # keep aligned with meson
+  depends_on "python@3.14" => :build # keep aligned with meson
   depends_on "spice-protocol" => :build
 
   depends_on "capstone"

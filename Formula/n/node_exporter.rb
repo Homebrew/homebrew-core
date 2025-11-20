@@ -1,8 +1,8 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "ac80b13ced462e88f243ad5e98c12bbcee2628bf552c0d19bb5ae125ce09730d"
+  url "https://github.com/prometheus/node_exporter/archive/refs/tags/v1.10.2.tar.gz"
+  sha256 "aeb88ad980fd87ee08b1b3e5c70977c32065115cc8152e3fc846e2d60b2a662f"
   license "Apache-2.0"
   head "https://github.com/prometheus/node_exporter.git", branch: "master"
 
@@ -12,12 +12,12 @@ class NodeExporter < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "565cd465b106577cc18e06dd38849171c6b2d21bbb52b77bde2acd62ba410507"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "92d7ecfaab3f175f5456d0139ee7dca60226d7fe709c64f3442b5f7c3430aa73"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1055c3e3d6071109e65dbe6035fa09d895235cacbe20e089a4c2e8f5053b05b0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "97088503f43c259232260ae0b5795c6cae1c1d304e3dcb9b3b648995c5a3a744"
-    sha256 cellar: :any_skip_relocation, ventura:       "0b9f53c0e755e2d7c01b325303647106c54f96a60a90f552b6c13c6bbbaa1a3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d866c49ec2dd77096b45308bb18d209f81545bdff34b3309f97d6b43ae42dc5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f221086f0c4d0faf31f467605f6ac41e9111836a1e2c0411c7452c30f45b378"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e314e1b9ea5776a9a985db9dcab4bdf28e184b57f14c8e40d7b71062bfce3e44"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37234e077521900645ffcec0585ad20637d8849fa7b2fc49c32fba8782f4c87a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db269f3eb33791698f3cc0ec9be4caa50e13de7586b863ad7b192c3bed04dc60"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dbf70540445b072f8d6ac83d0720e656dea7b8ccd97eb5c0ef5e4f109e97345e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba514952afa5b376f711f35be1ee2ba1b6532824771e762c0c59d5d83a6033ba"
   end
 
   depends_on "go" => :build

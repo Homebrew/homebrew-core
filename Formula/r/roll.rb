@@ -5,7 +5,10 @@ class Roll < Formula
   sha256 "399bd4958d92f82fb75ff308decb2d482c9a8db80234014f6d42f6513b144179"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e60f90ae43698201f51529d50768ba5cd57326e62953c81a91280c6e760f5829"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fb1ee4685b24f925ca41abe63c8e7703a9656b96088c4fba6b483cfcdeea9e76"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a4fb62e0cf82c19e312fa67b94af3ffecae251323a0a327fd7b99aec74a85e6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ffc7291577ef075aa3c1369419b6d92389b19ad6cd0d841bc613f3eae48c016"

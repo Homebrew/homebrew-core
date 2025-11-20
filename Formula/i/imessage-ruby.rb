@@ -9,6 +9,7 @@ class ImessageRuby < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e0ddafd03ceedaf46157074627f10b5bc2ae1095803c7da7ff4259f8972c2c7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "676022be294ea2d4654c968012a952dac36f61e573e44f3fd99b52f071767372"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b325f6945c083382956ed3f81d453e17151a0a09f4eff7d5f84c7208d1a1cd7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a05553e529ee3f7d2a212033b5353e1bae2534a7651e0b4ac4ac66c2301c6f96"

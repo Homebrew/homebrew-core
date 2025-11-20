@@ -26,8 +26,6 @@ class Zorba < Formula
 
   uses_from_macos "libxml2"
 
-  conflicts_with "xqilla", because: "both supply `xqc.h`"
-
   # Fixes for missing headers and namespaces from open PR in GitHub repo linked via homepage
   # PR ref: https://github.com/zorba-processor/zorba/pull/19
   patch do

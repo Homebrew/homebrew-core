@@ -6,19 +6,18 @@ class AdrViewer < Formula
   url "https://files.pythonhosted.org/packages/1b/72/0f787da38d0f9d69c06b31d8f412735ed4fad383edd7f7d2286f4fc7b5b0/adr_viewer-1.4.0.tar.gz"
   sha256 "9a2f02a9feb3a6d03d055dd8599b20d34126f8e755b4b4ee1a353ecbbd590cef"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1efd8ef88f39d6598004615184612871efc040d1d7b05aeb306a5732e0770bb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3cca20e479818c98d5fe2a005af51a1fdd742a7d914e6f44f5dffc32ee2f972e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c8b5d19a206d65635a9da6eacd09b232a7ef73c560049cc63a28e03f1f8b0b41"
-    sha256 cellar: :any_skip_relocation, sonoma:        "58674e3fb84c3e62f1aba6a501abd1c856b6807c8bcaf7df74eb4d04ef81f1e4"
-    sha256 cellar: :any_skip_relocation, ventura:       "880572d016d57566ee09ba653c09b78b0a668d423eba6661c788e09b65436c66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f97231985140d38128b767f86821bfb9a825def6170ed0cb901cd15b49a9361a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3f3e22f63e93ae52d53b8a07b3ccef467d8b213b5a55fb66118fa1681681525"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a3f6b7a95651b6fb125de9bf527bacacfaaedb388d7b04f70d4403b8035e2c8f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "58ab44ead9b88068a4cd4a4d5e7623b5769c6b614e888374ba863e9d0e0a5d06"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc342d015274358ca7077ce8552140d0f71fec60c06c9567c11086ddb76ff447"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7b31b8e4db34d9255f45a69b7a1bafeb8c847766cd13fb7a855c0aa23fa8c88b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "831b524d372bbe7f6a292e141f1d87b0516e1f3f067cf24309066926ec397fdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3043b26cd6a9c4f8dcf48da0045d79860b6697742b108eb49ef7695e3a1f94d"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/f0/3c/adaf39ce1fb4afdd21b611e3d530b183bb7759c9b673d60db0e347fd4439/beautifulsoup4-4.13.3.tar.gz"
@@ -68,11 +67,11 @@ class AdrViewer < Formula
   def install
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"adr-viewer", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"adr-viewer", shell_parameter_format: :click)
   end
 
   test do
-    adr_dir = testpath/"doc"/"adr"
+    adr_dir = testpath/"doc/adr"
     mkdir_p adr_dir
     (adr_dir/"0001-record.md").write <<~MARKDOWN
       # 1. Record architecture decisions

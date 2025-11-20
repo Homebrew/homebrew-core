@@ -9,17 +9,16 @@ class Thefuck < Formula
   head "https://github.com/nvbn/thefuck.git", branch: "master"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9b85cc4f5627d8e8df33c99af43c0a9871b07ffc2eb9d1ff9b6d03e1cfcce52"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b9bbe3ced4a99341cceb45f303392feb020df75b61c34be9cd9303d600c95bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "881e92e475fe094f95d2a8c29012383bb85366cb4dbcd5551557f8aef8702229"
-    sha256 cellar: :any_skip_relocation, sonoma:        "90e149f15d0eb582f0a1eee2318cc26ee5872696b9739f784262f2c674ac3c74"
-    sha256 cellar: :any_skip_relocation, ventura:       "a617ea4dee27842f3c8036b52a5f7e5c94ccd2a3bceb879daa310e53582e25a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d9e84aaaf57c182157cd816bae166c2cdecf3b85e9c281251f0132b6d331e56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db78af05631768ac7364dffaaf9782679d837b882d6dae9ae9dc8e020366b5cd"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8c8342968e5cb7addf06da5c3cb5216f5877d52e90e5a819f2146b999403aad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34112fed6a5db846c5960cd7d185eb164144366e6ecbfefc1680646bee3e3dee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44ab5752da80809b23b1fff941c13a7a6d93f7c10d15e7f891e5a7d114e5fdcc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "059e916f07ed54e66733375ff6ca6c0343dc168f60cf9e0085ebe0e2461bea84"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "520de6b7f2774d67b759b1ce0ac86a2af9cafe1884bd540fd19896e69e5dd2b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22117e74d1dda01753469bae6e149044017c175ca03564825a929400a1bc61f5"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -27,13 +26,13 @@ class Thefuck < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/66/0c/8d907af351aa16b42caae42f9d6aa37b900c67308052d10fdce809f8d952/decorator-5.1.1.tar.gz"
-    sha256 "637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"
+    url "https://files.pythonhosted.org/packages/43/fa/6d96a0978d19e17b68d634497769987b16c8f4cd0a7a05048bec693caa6b/decorator-5.2.1.tar.gz"
+    sha256 "65f266143752f734b0a7cc83c46f4618af75b8c5911b00ccb61d0ac9b6da0360"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
-    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
+    url "https://files.pythonhosted.org/packages/b3/31/4723d756b59344b643542936e37a31d1d3204bcdc42a7daa8ee9eb06fb50/psutil-7.1.0.tar.gz"
+    sha256 "655708b3c069387c8b77b072fc429a57d0e214221d01c0a772df7dfedcb3bcd2"
   end
 
   resource "pyte" do
@@ -42,13 +41,13 @@ class Thefuck < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
-    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
+    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
   # Drop distutils for 3.12: https://github.com/nvbn/thefuck/pull/1404

@@ -9,13 +9,13 @@ class Pympress < Formula
   head "https://github.com/Cimbali/pympress.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64f35865fbde010d4e3de039977eec6bc1bbe6dabb19fca1f9c3f9da709e1593"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad170caf12af4322d5b0f819cdf13616af3d389de0400f157ac7638cce10fcff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ec3fed16c5ce89078a32c6b63d2f1c14753463ccfc5ec2a15d2d04f133714fc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a2674da110b3e8914940e4433d6a2be31235f1ebd87e6511d5365e0fda822b8f"
-    sha256 cellar: :any_skip_relocation, ventura:       "4bddb67288e852dd28024c0f2d850f09f7c26c4becf42aa4701e0e4904579e7e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0bc4386fb18cdbfb144e8ffb7d532a55eacee02a76540260f5ccda0e7104e06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0bc4386fb18cdbfb144e8ffb7d532a55eacee02a76540260f5ccda0e7104e06"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a9ef0a8dddce6dc59d94b8306551292a7d729bac7cd65ee155525c1172f4522"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d45f3cf0538dbea0b86d894b29cad51a898474aa279aab3fbf5fd56a19951cf5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "502282c5a2e40f39bd9b13325cc4b51b7650416985ada770d3fe05fdc756f06b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "91a85242406ec115336bf6968550b383d7ccc175ce040690b90f1502b55a34d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2688fa0cd6b49f869cc7d6eab21815441c7d1c44e55e20fbef26f22fb75dd19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2688fa0cd6b49f869cc7d6eab21815441c7d1c44e55e20fbef26f22fb75dd19"
   end
 
   depends_on "gobject-introspection"
@@ -24,7 +24,7 @@ class Pympress < Formula
   depends_on "libyaml"
   depends_on "poppler"
   depends_on "pygobject3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "watchdog" do
     url "https://files.pythonhosted.org/packages/db/7d/7f3d619e951c88ed75c6037b246ddcf2d322812ee8ea189be89511721d54/watchdog-6.0.0.tar.gz"

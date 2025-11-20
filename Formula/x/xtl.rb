@@ -1,12 +1,12 @@
 class Xtl < Formula
   desc "X template library"
   homepage "https://github.com/xtensor-stack/xtl"
-  url "https://github.com/xtensor-stack/xtl/archive/refs/tags/0.8.0.tar.gz"
-  sha256 "ee38153b7dd0ec84cee3361f5488a4e7e6ddd26392612ac8821cbc76e740273a"
+  url "https://github.com/xtensor-stack/xtl/archive/refs/tags/0.8.1.tar.gz"
+  sha256 "e69a696068ccffd2b435539d583665981b6c6abed596a72832bffbe3e13e1f49"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "695d77e88b992605995b4d8b4f0c90e4e3857248c57310b2b2fdce23fa44a86b"
+    sha256 cellar: :any_skip_relocation, all: "7ac3927ae041762e37a0b008b1456a41f116e698c8f1e09e65926ff43d3c582e"
   end
 
   depends_on "cmake" => :build

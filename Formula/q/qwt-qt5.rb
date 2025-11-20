@@ -9,7 +9,10 @@ class QwtQt5 < Formula
     formula "qwt"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "50d8256a3eed2810739b8e3ef00d8290ec2b70c526578063864b73540e09b897"
     sha256 cellar: :any,                 arm64_sequoia:  "92b1dc9c4e182b760312b9b520cc45ae9a236566ec0183bc6eea6e92ab874651"
     sha256 cellar: :any,                 arm64_sonoma:   "894d743586ad9e9dcbbb45f9448c6f2fc945aae526f50b2d17e2162b82527402"
     sha256 cellar: :any,                 arm64_ventura:  "45d280f8c2f948576ed5648f386d99ca4dcefce046a47a07e16255f633a4e49d"
@@ -17,10 +20,13 @@ class QwtQt5 < Formula
     sha256 cellar: :any,                 sonoma:         "f99f4ba3c3aec0a92ee319b16bf8478258eecb4fedb0c635a9bbfdb605110adf"
     sha256 cellar: :any,                 ventura:        "2ee3ad50be50bb89db51bc72219f66fde4cb89638bf0f65b39116ca223b26fb3"
     sha256 cellar: :any,                 monterey:       "861ae528a6977db8f7588aa055849d5e45e4dbb36b596313ff76d33da4e56de5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7499edc1cd2721d47889cdd38e30ebefdeb7137090e25eebd1f310a5f6a91cfa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a367f75f804b12fd9f2bd9706a47a0f67cd9862035448063e81d9e8ae1c620e"
   end
 
   keg_only "it conflicts with qwt"
+
+  deprecate! date: "2026-05-19", because: "is for end-of-life Qt 5"
 
   depends_on "qt@5"
 

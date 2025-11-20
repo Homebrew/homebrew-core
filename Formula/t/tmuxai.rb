@@ -1,17 +1,17 @@
 class Tmuxai < Formula
   desc "AI-powered, non-intrusive terminal assistant"
   homepage "https://tmuxai.dev/"
-  url "https://github.com/alvinunreal/tmuxai/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "cd4e7eca5958b83e726a81d96ab0d5304fc57c6b336423fc6aeaa90ce43dff83"
+  url "https://github.com/alvinunreal/tmuxai/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "c8bea8401ee7466b3af1efc04d1ac85aa80ecd01dc3c6fa2268628455344d7d8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e27e7c9ba5c9919df1663bf381ac44cbcf47e68b6ee65572bc6e2b822d2d8ddb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e27e7c9ba5c9919df1663bf381ac44cbcf47e68b6ee65572bc6e2b822d2d8ddb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e27e7c9ba5c9919df1663bf381ac44cbcf47e68b6ee65572bc6e2b822d2d8ddb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "56b9618ed0f656423887a9f2bb7d20110034b81c93ce9b1696fe70548e45eb6c"
-    sha256 cellar: :any_skip_relocation, ventura:       "56b9618ed0f656423887a9f2bb7d20110034b81c93ce9b1696fe70548e45eb6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fccb2d9531d433deddf272d07882be82c3cc84f410f434399bcfcb46d05fb08d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2185b850a029c79568f034a304f77551c630f97039323665a0a65d8eb56ce2a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2185b850a029c79568f034a304f77551c630f97039323665a0a65d8eb56ce2a8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2185b850a029c79568f034a304f77551c630f97039323665a0a65d8eb56ce2a8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5c3129db83a86a62bb92c64d65260851f8d4268dbefe279dac6623ec727e3070"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "12fc511866d15d16690b25ec0552d0f52f65dd41cbabdc05009fb98b5a6667e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c4941d5128546a3f7e61e93b63e6219add1414cbba0f606480a4965bc803187"
   end
 
   depends_on "go" => :build

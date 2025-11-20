@@ -13,6 +13,7 @@ class Linkerd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "92f89d28c0b857ea8f76583f7ad385ac68156aa36e8a1a144f960779f0a85d4d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "38c1c491271ea2f1e76a50c01f919f24528b409311a6c5e0b5801b8d7b4df78e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4dd8a49fcb56e1eab62825fa310ffe6966d9aac27ebf4356b0f2be56ccb7d2ca"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecd3045e2d699c0bb1a16619ec5b045fae1d92293a3276c754354c3d201cc2aa"
@@ -28,7 +29,7 @@ class Linkerd < Formula
 
   # upstream PR to bump go to v1.22, https://github.com/linkerd/linkerd2/pull/12114
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8e0c96d6f54eb3e6b6a690b7800995f3a3a6bb9c/linkerd/stable-2.14.10.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/linkerd/stable-2.14.10.patch"
     sha256 "0d634f7ca5036e75435a10318f3e6a7d6a5c40ee0c21689a5f1814dbc5ba6911"
   end
 

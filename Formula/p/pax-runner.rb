@@ -11,13 +11,15 @@ class PaxRunner < Formula
     regex(%r{<version>v?(\d+(?:\.\d+)+)</version>}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f7195e6a142137e103125c0176376e562a2e0ba115d5e61ed15b0c2a00e92cf5"
   end
 
   def install
-    (bin+"pax-runner").write <<~EOS
+    (bin/"pax-runner").write <<~EOS
       #!/bin/sh
       exec java $JAVA_OPTS -cp  #{libexec}/bin/pax-runner-#{version}.jar org.ops4j.pax.runner.Run "$@"
     EOS

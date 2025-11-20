@@ -6,18 +6,19 @@ class Libavif < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "79ac7837d5f965f0df486a3551aa4efbc0472f9a8a4c89f4748f6c423044c51e"
-    sha256 cellar: :any,                 arm64_sonoma:  "3d278f7e6324456dcf4e25f596e6f3063078e3b77ec0a6f709aecc985f7ad7b2"
-    sha256 cellar: :any,                 arm64_ventura: "8c9b7da2440de5d6ef334c1ec5345436a7206d9594ff3c7e242b66bd3fbadafe"
-    sha256 cellar: :any,                 sonoma:        "7f0fbb053b843800ebf5edc64a14d5bfd4fc4c38f63e0c9c23aa1df0e5502d1f"
-    sha256 cellar: :any,                 ventura:       "e1b76ac7c6960e689f40202c9ef2519a557414ae4ac577b94ddf0ad217a9b7ee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "77dcc8b63ad0eaa65bc4c710b88734228cb0d4884722f60200d10998c4c394f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e238743363e2d2706f9cb5671d01bb89a8ce19832f95842b228f786ab156bd67"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "63b4d4e52ebf66e819f6fc0c518fb22ec478e407d5f8b50b130ac16dd64ea3e0"
+    sha256 cellar: :any,                 arm64_sequoia: "b054d452e2c1052cde33b729b2b683b92a69411024da1c0616eb7cd2272aa0ca"
+    sha256 cellar: :any,                 arm64_sonoma:  "c8706fb82b2af538a636ae67ccf7610422ff49f57e7e55a037320fd2aef8618d"
+    sha256 cellar: :any,                 sonoma:        "872e29f2f8d23d4e6835f0d255a32971ee7ff26e22030e3d104a4a53a3f5e010"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e13d2879a23634af1a5fbe4f16bd9cb5c40a6fdddfc370ab9c00e1c0e4848546"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae5d0f32ff6f2b1f5c2c5f886c710c14ea2e934945c63c7089eb6cfb5efc53a4"
   end
 
   depends_on "cmake" => :build
   depends_on "nasm" => :build
   depends_on "aom"
+  depends_on "dav1d"
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
@@ -28,6 +29,7 @@ class Libavif < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DAVIF_CODEC_AOM=SYSTEM
       -DAVIF_BUILD_APPS=ON
+      -DAVIF_CODEC_DAV1D=SYSTEM
       -DAVIF_BUILD_EXAMPLES=OFF
       -DAVIF_BUILD_TESTS=OFF
       -DAVIF_LIBYUV=OFF

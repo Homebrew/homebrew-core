@@ -9,23 +9,23 @@ class Mkdocs < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8949d2400c8ac7907722453a9dd3eda5fb2fa59d108780cf39ec08c0e6f85839"
-    sha256 cellar: :any,                 arm64_sonoma:  "18027883a996c60ba30c512355f1191f6511012d10f923a823054ec84433d676"
-    sha256 cellar: :any,                 arm64_ventura: "da17c04e73e0303c652227c3430ff796ad56d4413ecf83dd70d56e726a32c50f"
-    sha256 cellar: :any,                 sonoma:        "4ea1fe98fa94007b603783f49613bbb2a78f17e1eef3ed25d4ba8bc7df058093"
-    sha256 cellar: :any,                 ventura:       "a971cd332ce793ad02a26af1c969939159312cae8e8912cade00bd3ed8ff82d5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f5431f94afb48e3c3f075f972b4cbb6ce369a92025cc0c68bf8d56006f8f4aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef7464dc0f884425c657bd71d5f29700644c6c5ca4825a8bfdfe5daf5ca74481"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "01be89d0831a80d0923aae6b61e491c35c157d58799fc1322f08cbd49eddf4b7"
+    sha256 cellar: :any,                 arm64_sequoia: "fbbd85bbe0bc9e00b24a110d7c63694f7345b5521b4ca3f6315a88d1301ffb81"
+    sha256 cellar: :any,                 arm64_sonoma:  "6f3a4f3c5d027bdd1348f2223ef378d922749e6b013740f72be731e344618a95"
+    sha256 cellar: :any,                 sonoma:        "73ad3704aa4cdf2ac6773e0ec17d31866eaac7d39734b2bf37f1d78f879c8bcf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72100f5ccf0b634b67e10aa25f7bd35d1d51001b78c10ccb449aaadd642e6592"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2040d82febb29aed1488dc7dc1a8c5550287e8bb51f54546e26e322b46ea656e"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "mkdocs-material", because: "both install `mkdocs` binaries"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "ghp-import" do
@@ -39,13 +39,13 @@ class Mkdocs < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/54/28/3af612670f82f4c056911fbbbb42760255801b3068c48de792d354ff4472/markdown-3.7.tar.gz"
-    sha256 "2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2"
+    url "https://files.pythonhosted.org/packages/8d/37/02347f6d6d8279247a5837082ebc26fc0d5aaeaf75aa013fcbb433c777ab/markdown-3.9.tar.gz"
+    sha256 "d2900fe1782bd33bdbbd56859defef70c2e78fc46668f8eb9df3128138f2cb6a"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "mergedeep" do
@@ -59,8 +59,8 @@ class Mkdocs < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pathspec" do
@@ -69,8 +69,8 @@ class Mkdocs < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
+    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
   end
 
   resource "python-dateutil" do
@@ -79,13 +79,13 @@ class Mkdocs < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "pyyaml-env-tag" do
-    url "https://files.pythonhosted.org/packages/fb/8e/da1c6c58f751b70f8ceb1eb25bc25d524e8f14fe16edcce3f4e3ba08629c/pyyaml_env_tag-0.1.tar.gz"
-    sha256 "70092675bda14fdec33b31ba77e7543de9ddc88f2e5b99160396572d11525bdb"
+    url "https://files.pythonhosted.org/packages/eb/2e/79c822141bfd05a853236b504869ebc6b70159afc570e1d5a20641782eaa/pyyaml_env_tag-1.1.tar.gz"
+    sha256 "2eb38b75a2d21ee0475d6d97ec19c63287a7e140231e4214969d0eac923cd7ff"
   end
 
   resource "six" do
@@ -99,10 +99,9 @@ class Mkdocs < Formula
   end
 
   def install
-    ENV["PIP_USE_PEP517"] = "1"
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"mkdocs", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"mkdocs", shell_parameter_format: :click)
   end
 
   test do

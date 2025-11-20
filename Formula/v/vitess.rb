@@ -1,18 +1,17 @@
 class Vitess < Formula
   desc "Database clustering system for horizontal scaling of MySQL"
   homepage "https://vitess.io"
-  url "https://github.com/vitessio/vitess/archive/refs/tags/v22.0.0.tar.gz"
-  sha256 "578203a3235ee9a316856b9bfa46c7029563776e38b120a12694fac80d8c789e"
+  url "https://github.com/vitessio/vitess/archive/refs/tags/v23.0.0.tar.gz"
+  sha256 "4048df4344eeead97dbf6126e09b9ccb2c5d83258bda19028f641b9a9f4e0b07"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a16a6abc713f036b56ce408a60f7133fdbe607e15aafd5ea17e4a0a613c9dd3f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98eba4660c3560f37b844e64696150bd94340c78348934aed4a72d8cbec4aebf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "73ffb944b44b897c9dd208840f5d4f02dde196dcdd66b7db994ed8e41e097f28"
-    sha256 cellar: :any_skip_relocation, sonoma:        "769c69de6a43a87539b779a114e3cf7d2f8e1fbab5e0f5da280df4f645d94fb9"
-    sha256 cellar: :any_skip_relocation, ventura:       "0df7d6bfd7ce29c244988390eaa03bfd30eacc46fbd038d4192091fe115f6c00"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b44df86fd12e97c866c6f712e456c0ea4442053d3e572570b4b24feeac9b8a69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6284282fca8d95b967a7b8ee7abdb11693168261121ae6c71bb395c34823d417"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0527e0ec0169239cfce80fd83afc8dc7a3842dcf46b9bf6f04190a6a8b1a497"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef496ff7737cf572799801c4059d256b4ed1ac1ac01547afc638ff082e1c29d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c6d79d861b8078513bd8cc9726491dde8370e2ddf33a5f07510e4c21d987ad0d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5699f4f1344bc9a1d36dcefea6408bf2ffeecc6ba45d9d440764b0a7213b2064"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "79b06c3c77949112420f47ddc3224c75497e657d79f92b5c9efec1fdffdb5d20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61fc570d8c084fc88cfa3c4170aff428a5503edd6ac9f666a1735e88f675acbe"
   end
 
   depends_on "go" => :build
@@ -26,30 +25,36 @@ class Vitess < Formula
   end
 
   test do
-    ENV["ETCDCTL_API"] = "2"
+    ENV["ETCDCTL_API"] = "3"
     etcd_server = "localhost:#{free_port}"
+    peer_port = free_port
     cell = "testcell"
 
     fork do
-      exec Formula["etcd"].opt_bin/"etcd", "--enable-v2=true",
-                                           "--data-dir=#{testpath}/etcd",
-                                           "--listen-client-urls=http://#{etcd_server}",
-                                           "--advertise-client-urls=http://#{etcd_server}"
+      exec Formula["etcd"].opt_bin/"etcd",
+           "--name=vitess_test",
+           "--data-dir=#{testpath}/etcd",
+           "--listen-client-urls=http://#{etcd_server}",
+           "--advertise-client-urls=http://#{etcd_server}",
+           "--listen-peer-urls=http://localhost:#{peer_port}",
+           "--initial-advertise-peer-urls=http://localhost:#{peer_port}",
+           "--initial-cluster=vitess_test=http://localhost:#{peer_port}",
+           "--auto-compaction-retention=1"
     end
+
     sleep 3
 
-    fork do
-      exec Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
-                                    "mkdir", testpath/"global"
-    end
-    sleep 1
+    # Test etcd is responding before continuing
+    system Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}", "endpoint", "health"
 
-    fork do
-      exec Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
-                                    "mkdir", testpath/cell
-    end
-    sleep 1
+    # Create necessary directory structure using etcd v3 API
+    system Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
+           "put", "/vitess/global", ""
 
+    system Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
+           "put", "/vitess/#{cell}", ""
+
+    # Run vtctl with etcd2 implementation but using etcd v3 API
     fork do
       exec bin/"vtctl", "--topo_implementation", "etcd2",
                         "--topo_global_server_address", etcd_server,

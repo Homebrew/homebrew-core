@@ -10,6 +10,8 @@ class MavenShell < Formula
     regex(%r{<version>v?(\d+(?:\.\d+)+)</version>}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "8cf238b82fe150f113e5df470ec8f73d9d8cb58d940c716726a3442492a8fa16"

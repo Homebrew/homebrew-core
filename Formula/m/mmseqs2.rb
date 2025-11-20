@@ -1,21 +1,21 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/17-b804f.tar.gz"
-  version "17-b804f"
-  sha256 "300ebd14bf4e007b339037e5f73d8ff9c4e34f8495204c4a8c59c7672b689db2"
+  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/18-8cc5c.tar.gz"
+  version "18-8cc5c"
+  sha256 "3541b67322aee357fd9ca529750d36cb1426aa9bcd1efb2dc916e35219e1a41c"
   license "MIT"
   head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "d6e60b4dab916c2783b876db9af4351b6a2a8db35a4bcd566e14ad897b2cdd30"
-    sha256 cellar: :any,                 arm64_sonoma:  "48f4da646306654a7ba6e6a7a08f8a023a57468544f3e7586f55d1b10379e6bd"
-    sha256 cellar: :any,                 arm64_ventura: "5ff54b4b1996f420d1bc76d40ca69748a3e51ffb9da937abaf73488bfe2c13d2"
-    sha256 cellar: :any,                 sonoma:        "6f417d8a97a1fccbfedef502bbdf2fc35d1c1635f1f0343f85f230e2fac34654"
-    sha256 cellar: :any,                 ventura:       "411080f71627445783e1333574c5de1cbe9a41b3852fc5eeaa693efb8de1d4e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d996d17e951ff3ce554fff2f1eaf834220b35ac4991b566ef078ae90bad3b40f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fc3d695d1c1db71311cf2c0306d7affdc088ff445618970413c896b641a210c"
+    sha256 cellar: :any,                 arm64_tahoe:   "7b06159dad576a5e58ea3432b635167d4944540afe004fcb3f115b18a8850e30"
+    sha256 cellar: :any,                 arm64_sequoia: "2559af59e1218ea74307ceec6566773a99644344cf79f2694feb3087b47d7c52"
+    sha256 cellar: :any,                 arm64_sonoma:  "51c387d84616d349170b24f6d19a8013da1a38b26ce1470e288858ddfaaffee9"
+    sha256 cellar: :any,                 arm64_ventura: "3588b255d84d1990d827384f1d1f0580e289a07df361f2ebb3cbfc8f11ee00ae"
+    sha256 cellar: :any,                 sonoma:        "34bd808b80f87b6aefb521847f10507a27367686616a4de7f121249a9f087044"
+    sha256 cellar: :any,                 ventura:       "e077f4ccbbfd477edd045872df1e891a1038f7f2e2a52d3c72c390367ae8208c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3be48f38aa44ce99a5a96d6b67b6c54645c9e25a091aa32b8e289bc0037c3659"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd3f8a5bfe07ba3c31860971f628f04a5bec4c49606f732641b27aabccac3f4a"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -35,12 +35,11 @@ class Mmseqs2 < Formula
   # `git ls-remote https://github.com/soedinglab/MMseqs2.wiki.git HEAD`
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        revision: "b1ccffcaf6be0f857e37670a260311f2416b6794"
+        revision: "67ba9c6637b4b5121a73e5de034dd0c3414d2b81"
   end
 
   def install
     args = %W[
-      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DHAVE_TESTS=0
       -DHAVE_MPI=0
       -DVERSION_OVERRIDE=#{version}
@@ -59,12 +58,6 @@ class Mmseqs2 < Formula
     resource("documentation").stage { doc.install Dir["*"] }
     pkgshare.install "examples"
     bash_completion.install "util/bash-completion.sh" => "mmseqs.sh"
-  end
-
-  def caveats
-    on_intel do
-      "MMseqs2 requires at least SSE4.1 CPU instruction support." unless Hardware::CPU.sse4?
-    end
   end
 
   test do

@@ -1,18 +1,17 @@
 class GsettingsDesktopSchemas < Formula
   desc "GSettings schemas for desktop components"
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
-  url "https://download.gnome.org/sources/gsettings-desktop-schemas/48/gsettings-desktop-schemas-48.0.tar.xz"
-  sha256 "e68f155813bf18f865a8b2c8e9d473588b6ccadcafbb666ab788857c6c2d1bd3"
+  url "https://download.gnome.org/sources/gsettings-desktop-schemas/49/gsettings-desktop-schemas-49.1.tar.xz"
+  sha256 "777a7f83d5e5a8076b9bf809cb24101b1b1ba9c230235e3c3de8e13968ed0e63"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "28388575b4cdde9dbca9351e2589c4445e531fb7e4fa43905d96d3d89dd78d29"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28388575b4cdde9dbca9351e2589c4445e531fb7e4fa43905d96d3d89dd78d29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "28388575b4cdde9dbca9351e2589c4445e531fb7e4fa43905d96d3d89dd78d29"
-    sha256 cellar: :any_skip_relocation, sonoma:        "28388575b4cdde9dbca9351e2589c4445e531fb7e4fa43905d96d3d89dd78d29"
-    sha256 cellar: :any_skip_relocation, ventura:       "28388575b4cdde9dbca9351e2589c4445e531fb7e4fa43905d96d3d89dd78d29"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "961057773b8eaa48b7a348fc0ac5ce5d14f8caa7785dc64bfb162b35e93e3bf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "961057773b8eaa48b7a348fc0ac5ce5d14f8caa7785dc64bfb162b35e93e3bf3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e48c2263a6b10990898745fbed2b7ba91ec78053a53d4f3c8a6598b567adbf39"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e48c2263a6b10990898745fbed2b7ba91ec78053a53d4f3c8a6598b567adbf39"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e48c2263a6b10990898745fbed2b7ba91ec78053a53d4f3c8a6598b567adbf39"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e48c2263a6b10990898745fbed2b7ba91ec78053a53d4f3c8a6598b567adbf39"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "58faeed213ad74ce4c486cd1744443efa5d764d34e64aaa8dafc6a043f90186b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58faeed213ad74ce4c486cd1744443efa5d764d34e64aaa8dafc6a043f90186b"
   end
 
   depends_on "gettext" => :build

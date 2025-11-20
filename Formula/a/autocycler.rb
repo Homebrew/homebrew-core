@@ -1,21 +1,20 @@
 class Autocycler < Formula
   desc "Tool for generating consensus long-read assemblies for bacterial genomes"
   homepage "https://github.com/rrwick/Autocycler"
-  url "https://github.com/rrwick/Autocycler/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "028586ba433ddb6a21e4159c5e9075423c2ac4b0c60fbaa4744358cdfebf7d57"
+  url "https://github.com/rrwick/Autocycler/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "371e5815c7ed7b83c3b19d1282ce4b043bff0b23eb08a8dde4f5ff9ee73c31ee"
   license "GPL-3.0-or-later"
   head "https://github.com/rrwick/Autocycler.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "85ccc0eb7168ad90a9a199d5ce858b53967ee484cbf02ef6f67deca592a37835"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0969f41334ef0e8de7f958b7ab09143ec334c5a3edac84c211ad7abfd5fd3486"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "007926a3b46baa917a944c0d61964820bd8ab3779198f5c648f2a38bb5f211a8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2afedeb613f52e319f265b5ebfc2f1ff7d58b7edccd49e9943a1a1bd1d6e25c6"
-    sha256 cellar: :any_skip_relocation, ventura:       "fc87ea4795c07d2622573c26c4e0afff33ee7dfd3ee737b37cec90304cbf66bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f14428d82870689581a4be308fdbeb12a87155c2e4402f1e3da68aeeda764ec5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aeab2771d3d4f19e0db987892f0f07c31ec06482c4ff0be352915f76fa2c1be"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e3df9155d8e46b0cc1b89041613195338c789e53a7eead38d4e6661af9ad3e7f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa67f52f7764946aa612e550637cdbd5368d313ec06a5b7f3d6a14a1e7ee9528"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2e32d17ea27850c128bdcfb4589613939e373dd40fd9725e56bdc419f716cd3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b66dbe8d769d372409e6a40aa96c5d31862f8569d9ff7326617b70a700ec1cd0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "19e655f41ded88da7769ca24dc50e1e5d7428a3636e39e9f7ffa7fa579fa58a7"
+    sha256 cellar: :any_skip_relocation, ventura:       "619ee0a9c21f35454994d1e26e350421c17626cc1054d513dc38484ed398fc28"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e06ac8cde8770a38eeba9e5fe67c4dc64b221fb9365f9e3b978d257a732af90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7f005447e399ff2d23451a9c0946f24d0d67892b4bb23171864771e4de46dd0"
   end
 
   depends_on "rust" => :build

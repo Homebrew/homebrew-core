@@ -11,6 +11,7 @@ class MidnightCommander < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "a19238337f7eef1da99d690ae9f440956117ec6daa1235e7e08a05f0e9827451"
     sha256 arm64_sequoia: "c6914462166922365c2a56c49d4fc8bb3eb051d3022e67072e7fac0832e8121d"
     sha256 arm64_sonoma:  "5b4c29d7bff65c72443cc3ae9e004d0af04c38392819c432f1bded428324b549"
     sha256 arm64_ventura: "471749bae6d5735af1b5a8922700e74ef4f4f256b2e8b60ce5786a7148f51a7d"

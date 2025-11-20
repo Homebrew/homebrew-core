@@ -1,8 +1,8 @@
 class Coder < Formula
   desc "Tool for provisioning self-hosted development environments with Terraform"
   homepage "https://coder.com"
-  url "https://github.com/coder/coder/archive/refs/tags/v2.22.1.tar.gz"
-  sha256 "66fbeb2510d0df59fdd2dbbf47cf0ad3c270016d33003da74df85bfd539420fd"
+  url "https://github.com/coder/coder/archive/refs/tags/v2.27.6.tar.gz"
+  sha256 "16fb9caf8a04740f4262d774e027f11c32c936f524c178184b6c1704f4ca1460"
   license "AGPL-3.0-only"
   head "https://github.com/coder/coder.git", branch: "main"
 
@@ -15,22 +15,15 @@ class Coder < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06ab285bd406383f630ece42a6ecff0ce781f4feb6586cb2fafcdaf960acdd3b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "292d1676dc09f861c4088743d3a1f3c6cc2deacb8b9fa86fe0516c7e5a024361"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4e69f8a5099a29528b14b31d2113f613158d9f9b78b12870bb9b386b28a2a2d9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "34006d8b8b2b3c715828e7ca16d4c6236c2645b6a555475e5fcbc6ed14c58001"
-    sha256 cellar: :any_skip_relocation, ventura:       "6a1de13102403f283f323751318e5d5d1e065b4a561525e772e1ec288f67e240"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4065d6704febc4a19e0465a0dd33cc16e0f048121b11c358df0a0ab0a21e5c4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9793a9164265fb213f257226d0c5cd5bc5c401a966011c9603491b374b902682"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8a24e0571f999d230c0e55c7a280c116f8a2946f64bed97f2320774982c1c497"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e1003a0b02ebba9ca25bf2d9e18a3ff07e81eda4635135811701ab63ff6300c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "637ef228df53f1edb94c0b52378fee3a9d537063f9eacc5f5c091a7f58b90018"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bfeb0cb69ce3cbc05b576018f5506535ca2686ed93cdf42962aa8013b319501e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c3a72ead49313e4abe3d323b95167f22b1af921d9461ed752d9a333f79915d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10fa7944753e1c32182e5ba5b219af8c616ba177edea68a871cf6fc3f2935ae1"
   end
 
   depends_on "go" => :build
-
-  # purego build patch, upstream pr ref, https://github.com/coder/coder/pull/18021
-  patch do
-    url "https://github.com/coder/coder/commit/e3915cb199a05a21a6dd17b525068a6cb5949d65.patch?full_index=1"
-    sha256 "ec0f27618f69d867ecc04c8eae648eca188e4db5b1d27e1d6bcc1bde64383cdf"
-  end
 
   def install
     ldflags = %W[

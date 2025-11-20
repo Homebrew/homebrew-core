@@ -1,18 +1,17 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://git-cliff.org/"
-  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.9.1.tar.gz"
-  sha256 "dd5a707fba4549ab4ea5e9e95ea7ed302852eb1916b93a1a369019f005ad4cc4"
+  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.10.1.tar.gz"
+  sha256 "172888704ad429e238e61472e31704d4fdf5ff9c2c04479bb9452fb70d7a9278"
   license all_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "825cba9fde4d404bf9d7d6a0cf2be44e798b73eba18c9cde0a4a836b303642d8"
-    sha256 cellar: :any,                 arm64_sonoma:  "d518498eefaba737ec87a7f8795d1d36be7e59cea589dde5e75e6c80f4a063c5"
-    sha256 cellar: :any,                 arm64_ventura: "1b2c7e461523689e742421a75eb0b9f9925eec9514bbee9777fb98f6de027de3"
-    sha256 cellar: :any,                 sonoma:        "dc9dbb0924f75f4061546fd549d0161d33f49b7dad3d78c615c9a6516219ef2f"
-    sha256 cellar: :any,                 ventura:       "4a6aad6de7adde64aae0b0f7706e973f50d06364d1fa8eacb00dfecf14659ca6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba502e2c1481bed061284320831447bf5690cb4a1547c2ff1f65f51451cb1e82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f38c9b94e7efb7e59903201e8d15e5758bb488f4be9a4e0cc20627561123bb1b"
+    sha256 cellar: :any,                 arm64_tahoe:   "0a978b84549832e62979abce0b5377b3a64b2441e2ccae3facfea04133257c02"
+    sha256 cellar: :any,                 arm64_sequoia: "27fed8903d353b11137224ecee446ad9079cbc961b5af6985cd3dc3aa8f8d5cc"
+    sha256 cellar: :any,                 arm64_sonoma:  "f1f0402edae6f7dd97b0e4cc52e2c0cef8faaf6580a7264d45550017ed5ebc47"
+    sha256 cellar: :any,                 sonoma:        "456cd8d3c1b270b0212d5c8135d0166fa5659a6487865a3263b027a40b7d26c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "047289bef8f7f6eb7f7758abdbc637734a13f4ab3e804a6f87f24cadcd924343"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cffef67f47048fced6244c5c51525ada1b3a3634b7d40c082effccbb0dbf92d8"
   end
 
   depends_on "pkgconf" => :build
@@ -49,9 +48,7 @@ class GitCliff < Formula
     system "git", "add", "cliff.toml"
     system "git", "commit", "-m", "chore: initial commit"
 
-    assert_match <<~EOS, shell_output("git cliff")
-      All notable changes to this project will be documented in this file.
-
+    assert_equal <<~EOS, shell_output("git cliff")
       ## [unreleased]
 
       ### ⚙️ Miscellaneous Tasks

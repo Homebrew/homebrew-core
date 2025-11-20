@@ -10,14 +10,15 @@ class Texi2html < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f76e24ff2903b5bc781b51c1fa641893343610b6827eed40af85063af2def71"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f76e24ff2903b5bc781b51c1fa641893343610b6827eed40af85063af2def71"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0f76e24ff2903b5bc781b51c1fa641893343610b6827eed40af85063af2def71"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cfe992664d07c79edc0c906993d4dea923de1ee43c431861cbea911825404e57"
-    sha256 cellar: :any_skip_relocation, ventura:       "cfe992664d07c79edc0c906993d4dea923de1ee43c431861cbea911825404e57"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b6ba2c5edb099dcc8e2a36a2aeebb010cd55458c55e14ba84c856997bb651d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef3f56a762d93771772c74dc8469edc8caa802df76d9f17ea98e8db7a2ccfe35"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f76e24ff2903b5bc781b51c1fa641893343610b6827eed40af85063af2def71"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2abbe20da6fd14b3e73a4d7f08f366af564a2dc2e86b39de3291a9f7c3b9eec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2abbe20da6fd14b3e73a4d7f08f366af564a2dc2e86b39de3291a9f7c3b9eec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a2abbe20da6fd14b3e73a4d7f08f366af564a2dc2e86b39de3291a9f7c3b9eec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20ac4a12f76ccf5fe1ab324264c9b72f1b3d9cfedf981b7e743b636045e32f45"
+    sha256 cellar: :any_skip_relocation, ventura:       "20ac4a12f76ccf5fe1ab324264c9b72f1b3d9cfedf981b7e743b636045e32f45"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e07d313b8d6ff0b95101597fffdd363fe7a935154ed310c4ec4d47214339f6e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec47e69ea0775ca07947f7be4d5111ab308b2b472042b517e0bf0ea19b115d05"
   end
 
   on_macos do

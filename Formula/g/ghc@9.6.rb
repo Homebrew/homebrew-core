@@ -1,8 +1,8 @@
 class GhcAT96 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.6.6/ghc-9.6.6-src.tar.xz"
-  sha256 "008f7a04d89ad10baae6486c96645d7d726aaac7e1476199f6dd86c6bd9977ad"
+  url "https://downloads.haskell.org/~ghc/9.6.7/ghc-9.6.7-src.tar.xz"
+  sha256 "d053bf6ce1d588a75cfe8c9316269486e9d8fb89dcdf6fd92836fa2e3df61305"
   # We build bundled copies of libffi and GMP so GHC inherits the licenses
   license all_of: [
     "BSD-3-Clause",
@@ -11,30 +11,29 @@ class GhcAT96 < Formula
   ]
 
   livecheck do
-    url "https://www.haskell.org/ghc/download.html"
-    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(9\.6(?:\.\d+)+)\s*?</i)
+    url "https://www.haskell.org/ghc/"
+    regex(/href=.*?download_ghc_(9_6_\d+)\.html/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("_", ".") }
+    end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "8d2a22c93cc1fe70b9a7ecf62827821d30fff6d0e28c1d3bc0112c8734f96cbf"
-    sha256 cellar: :any,                 arm64_sonoma:   "892f3e1bc975073cd306ac0b0522befc7456eb2308d3de05a02d399a67ef9c7a"
-    sha256 cellar: :any,                 arm64_ventura:  "c4f29aff74b822d0bdb1564459168cf2cd57e0e9a1573acd8302fcff10e18609"
-    sha256 cellar: :any,                 arm64_monterey: "dd173cc86b8f680233343bba11ac738f9a210a4fcb4ac45590b36bf7941018f4"
-    sha256 cellar: :any,                 sonoma:         "9499925d23e2142feba32048df46024832e41e3b29d5c45ad0c31ea5d1859a8e"
-    sha256 cellar: :any,                 ventura:        "ac8fc3d208583198cdfe21939ab617c221894227ec969c447f955bfc58fa8708"
-    sha256 cellar: :any,                 monterey:       "ef74cf6cd94cb600ae549d4cc9572ee47ec816e7e7f4dc27aa6e3ce1e9517bcb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "384d705bd320ac0a02bd5a68a5b04c734b8eae30faf8b5ff22fe5cba44007e5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37e9edf08c38f365c93923036428244f9aa8fb094e44fdb2bf683172a6c81b8b"
+    sha256 cellar: :any,                 arm64_tahoe:   "dd60a4884f86dfbdaa5c449e491b881d6c2de4ceba80c3945fc153f5606e17b0"
+    sha256 cellar: :any,                 arm64_sequoia: "4dcf5e47d790fe743ca3b5c071619ca00630900c269e7bb279ac69b7cf705bb3"
+    sha256 cellar: :any,                 arm64_sonoma:  "846e69dce0f0c5163b0814e9bb3f0f2e0cd0d935095811f0d070e92564e6f2d2"
+    sha256 cellar: :any,                 arm64_ventura: "bb1449611c052107ec0a6c4a9e883d8e5c79ab0116d36dd40074e7b5c918a7b5"
+    sha256 cellar: :any,                 sonoma:        "9d2462a0b1d0b49b90c08c7274f0e55a3fa522e203133aceb3aa2bec264e7e23"
+    sha256 cellar: :any,                 ventura:       "d4f0c1e17358fd3026d406f26fbfb6a26ab3e6c33b76dcca6092965f9fab55f6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34873088d18d1e13e29d62aeb008fc9cafd657aa57c20be13d92a9d5988c958a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b1a0d894b2236f1cada48a5f48ff3c90b763189b575f2d06d949dd209f5dec5"
   end
 
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "m4" => :build
@@ -103,14 +102,6 @@ class GhcAT96 < Formula
     sha256 "f7e921f7096c97bd4e63ac488186a132eb0cc508d04f0c5a99e9ded51bf16b25"
   end
 
-  # Backport fix for building docs with sphinx-doc 7.
-  # TODO: Remove patch if fix is backported to 9.6.
-  # Ref: https://gitlab.haskell.org/ghc/ghc/-/merge_requests/10520
-  patch do
-    url "https://gitlab.haskell.org/ghc/ghc/-/commit/70526f5bd8886126f49833ef20604a2c6477780a.diff"
-    sha256 "54cdde1ca5d1b6fe3bbad8d0eac2b8c112ca1f346c4086d1e7361fa9510f1f44"
-  end
-
   def install
     # ENV.cc and ENV.cxx return specific compiler versions on Ubuntu, e.g.
     # gcc-11 and g++-11 on Ubuntu 22.04. Using such values effectively causes
@@ -122,7 +113,7 @@ class GhcAT96 < Formula
     ENV["CC"] = ENV["ac_cv_path_CC"] = OS.linux? ? "cc" : ENV.cc
     ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = which("python3.13")
+    ENV["PYTHON"] = which("python3.14")
 
     binary = buildpath/"binary"
     resource("binary").stage do

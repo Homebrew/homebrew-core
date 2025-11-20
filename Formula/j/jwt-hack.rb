@@ -1,22 +1,28 @@
 class JwtHack < Formula
   desc "JSON Web Token Hack Toolkit"
   homepage "https://github.com/hahwul/jwt-hack"
-  url "https://github.com/hahwul/jwt-hack/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "f2ee0308b694c86d3dbf49bc10c6301c210461a513d857b99f7b96091f736817"
+  url "https://github.com/hahwul/jwt-hack/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "c167f595e5552dfbf5bd3fd79e2f061b1ad9d99790ffd036351172997a6de678"
   license "MIT"
   head "https://github.com/hahwul/jwt-hack.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a873fbf22a7fdda5a65150c817257cefc89ccd562286ede59d01e4a970e74847"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccc825f3b87b0bfe0e309e217cac7f8a10c2d9a5e6bfb103c47818ace888eeef"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e8a8e363356cbe92fb51fe20f0a2421ad1bd68109152e6d249adfe274b42008"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5dbe60466f3be0d379c5a049637831e97dcdeebe0b88c4ef7dbbd5be57ef8492"
-    sha256 cellar: :any_skip_relocation, ventura:       "ee3e1ba9b675a289aa00161021d983c400a48a2295844a23be993044697afe59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e34b61261e53f5e829b005578523736b7849f33e5de0d3e6c0fbcbc3b9d8146"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a76d31e93d7bd5557503096ba4e09c2add33e4ce688b98fad157956d88c0264"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "72eecc220faac63e56979a32d8d3df3cfded9aac523544b7635883cbc78a6521"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac32fc1ebd660d5b804b4b3ae99f665b80b0ec8b875f59f9db79440e654b0d7b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07347f80da49f98a99b662cdbb1db730462c2a3ea52ac6bf7c0187a485711c75"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a6548493fef34eacab72613f6cb5a3b0ad457608c62fa6a3dbae05a3f6e48256"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e845b69463ad7556ffbf99293fcdc8c95f87966ff052a57566ee92562c01f9c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d66d4a020117bff143cb00a8cda7339a7a2e508b8c85dc0a503afa21108abda1"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "openssl@3" => :build
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

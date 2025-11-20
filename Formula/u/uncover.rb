@@ -1,18 +1,20 @@
 class Uncover < Formula
   desc "Tool to discover exposed hosts on the internet using multiple search engines"
   homepage "https://github.com/projectdiscovery/uncover"
-  url "https://github.com/projectdiscovery/uncover/archive/refs/tags/v1.0.10.tar.gz"
-  sha256 "289255ef356cadff97a8cf3726c851f6b62d3ee4ba31a9b0aedc2ea017f9bc52"
+  url "https://github.com/projectdiscovery/uncover/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "63858b248a5e5729d2887a080359335bbf435965bc8c75acb26b377ff5db98ce"
   license "MIT"
   head "https://github.com/projectdiscovery/uncover.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d03417b1d17d51e2d91369c9f0ab7e7a1499f0648f1dea1cc88f7a784c77a40b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c05b47cdc0686f5ad043080a7c26e910ab54e8240f494d0cd7ab247bb07fa363"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4f4ca83eb1da538ee2ed9b0cc93657dbf46eb2a2861b57857c445dd6a040ccc6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "201a8ba60d42fba4a063dc46107bf5ddb729ce55f4b0f888579f80a501a70f44"
-    sha256 cellar: :any_skip_relocation, ventura:       "19c65572a1babe94a2c54c25d4e14a5511971272558ca7c18cb1221426184dd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30c42150478545b48e3711a0f5f34ad0c620b9aa59987882c25b4d2f46ae10b5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "43dc0f9c9e7d15bc4017bdff2aadb8a32306c0548e65916ac1a0f4ee3f9d4e6c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e53b9641ef3ca32670c2beef2889926f5dc3c1a24a2459b80c9bda3383a4f280"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a544836a98e20fecf8aa7668c32794faf19c83ad2470479458e18b2e48e2873"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e642d0ab1505914cf21378ae8c161c7469ffbf4532432661a8675e6765d0b4a0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dfcfae2e612eb6f1ff71ef0b884b733b8df6ede3e153966c53bc94cf68f075fc"
+    sha256 cellar: :any_skip_relocation, ventura:       "409b4f658ad90217918b7313aca3d9872695102447893881f155c06b7328543e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6290343a4862c09a796e82f599d44cca0adf7e0fc0f4a7f7aaab2c69daf6bcae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "066f5b2749c79734de3ec2d3f913f03230c331866ee199cae9557e26cbcab221"
   end
 
   depends_on "go" => :build

@@ -1,19 +1,17 @@
 class Feroxbuster < Formula
   desc "Fast, simple, recursive content discovery tool written in Rust"
   homepage "https://epi052.github.io/feroxbuster"
-  url "https://github.com/epi052/feroxbuster/archive/refs/tags/v2.11.0.tar.gz"
-  sha256 "61aa0a5654584c015ff58df69091ec40919b38235b20862975a8ab0649467a83"
+  url "https://github.com/epi052/feroxbuster/archive/refs/tags/v2.13.0.tar.gz"
+  sha256 "41b3131870c07e3bb93f769444c1e59d3ec370a1c7195bf8bfa192ef179bcf01"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf7ba7b09be136c65b9610abeb3917e70c781f5ca3f14ae302713f5a0b0a743a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c37f755e0d771161924c22ba8db0da37f83f83034075a0ba9270a9e9f04debb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b746842e75d6cc9bdb53e1f1b2d8f48ffa91b1acdda8149f83ec680b60f35ecc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3cb614702fcc971ff1ab5815cf9a137dbef994485b0006b66e74e63755376486"
-    sha256 cellar: :any_skip_relocation, ventura:       "64a1648df0882c5a32d4b25dfefe5c61e0963c98996ec27a6916c540555436c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9182fdb77606f6edd070a4a4eb464d9a87e87caf1ffc362331e04240035a599"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be9cee6c81ad2baf75d4380012c5d4887c6f66a51a1f699e47208beb3e41f44f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "95e78aaa0ae74a6fe25a19776aa739616c74b67b23b84468dac101d2b4b44b80"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba73b57bdcef33fdaadaea5f6b79127cf5cd525a9665076da381e3f6d6466ff0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0aa8747e2c197f0111baf30ea0233bd8c93ed05e2c2de3ca000d5b49b17e8024"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3bf6438f6fc75f515ff88ffbb9e69a596b447734e999d79943d745a9506cbbad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "494023a21a90bd45c10b49b9f0d53a94e62bb826328bb8d07928df9f0939be77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97175185099c811858825eca8eff095dd3d8a890bfb73d1bd0dcc5ede1de0902"
   end
 
   depends_on "pkgconf" => :build

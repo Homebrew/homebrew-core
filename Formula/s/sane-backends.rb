@@ -4,6 +4,7 @@ class SaneBackends < Formula
   url "https://gitlab.com/-/project/429008/uploads/843c156420e211859e974f78f64c3ea3/sane-backends-1.4.0.tar.gz"
   sha256 "f99205c903dfe2fb8990f0c531232c9a00ec9c2c66ac7cb0ce50b4af9f407a72"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :head
@@ -13,13 +14,13 @@ class SaneBackends < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_sequoia: "0216c81f23f34c4ed8528ac75f3bb668b217619569b16ebfc9b38483c6ab4770"
-    sha256 arm64_sonoma:  "90ff1226986965d15ab21286260ee3323140be3fe91c299bffae18c215cc2b47"
-    sha256 arm64_ventura: "aa5d8003afa1bedfe0ce827f717afac8f8f372ebffd92d01661240eaf1fb2ce7"
-    sha256 sonoma:        "7e5c5a8c11e1ec6fb70648e1413e736b5d814fe8dc89fc92634a18c08df524b4"
-    sha256 ventura:       "f74beb185bd7120dd63fd6bc37e5bcad2465957dc6f22fb88565e5dababd62cd"
-    sha256 arm64_linux:   "c3852b66436ad775efb69b9909252d993f49fc03f6cb632b518c4d8d4f675531"
-    sha256 x86_64_linux:  "d9ef1834b9b578e87a81e1b2050eb939de23cc9febff41af035a2a2dbc0f1923"
+    rebuild 1
+    sha256 arm64_tahoe:   "0ed1250b6d610813518e0031b148e4a77a58d897a939ba61db37cb52dfbb0779"
+    sha256 arm64_sequoia: "1345b682f1777a55c899b01c8be7d1726cfac208f3c616b7b0878eeaf32b4d9d"
+    sha256 arm64_sonoma:  "90e80b8d37499be24f5ea283b634be85d66f1f3a94a74aec5c1c1968bcb2c53b"
+    sha256 sonoma:        "8964bb2ec4807bbfb462d88607a59c51b5ad3e57dc6e396971c90ada1aabc6a2"
+    sha256 arm64_linux:   "80f4598f610aabca7a0604e6cc6da5f49d466fc1f813728e354c4cd81704aad1"
+    sha256 x86_64_linux:  "a630cae3cf511a9e1d197d323d0a5f6dbb0d5bfea21cd0cb66aadd5937a92362"
   end
 
   head do
@@ -54,9 +55,7 @@ class SaneBackends < Formula
                           "--with-usb=yes",
                           *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
     # Some drivers require a lockfile
     (var/"lock/sane").mkpath
   end

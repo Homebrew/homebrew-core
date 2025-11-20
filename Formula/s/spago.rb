@@ -22,6 +22,7 @@ class Spago < Formula
   # due to `spago -> bower-json -> aeson-better-errors -> aeson<2.1 -> ghc-prim<0.9`.
   # Can be un-deprecated/restored if PureScript rewrite has a stable release.
   deprecate! date: "2024-08-15", because: "depends on GHC 9.2 to build"
+  disable! date: "2025-08-16", because: "depends on GHC 9.2 to build"
 
   depends_on "ghc@9.2" => :build
   depends_on "haskell-stack" => :build
@@ -68,8 +69,8 @@ class Spago < Formula
     system bin/"spago", "init"
     assert_path_exists testpath/"packages.dhall"
     assert_path_exists testpath/"spago.dhall"
-    assert_path_exists testpath/"src"/"Main.purs"
+    assert_path_exists testpath/"src/Main.purs"
     system bin/"spago", "build"
-    assert_path_exists testpath/"output"/"Main"/"index.js"
+    assert_path_exists testpath/"output/Main/index.js"
   end
 end

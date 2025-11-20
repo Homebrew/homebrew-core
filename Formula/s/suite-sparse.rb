@@ -1,8 +1,8 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "https://people.engr.tamu.edu/davis/suitesparse.html"
-  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v7.10.3.tar.gz"
-  sha256 "09e7bcc8e5de0a5b55d2ae9fd6378d5f4dc1b85a933593339a0872b24e2cc102"
+  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v7.12.1.tar.gz"
+  sha256 "794ae22f7e38e2ac9f5cbb673be9dd80cdaff2cdf858f5104e082694f743b0ba"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.1-or-later",
@@ -18,22 +18,18 @@ class SuiteSparse < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "17e3905105eccbe9cc090941b651eda66ee6a72f6eba341b730e69cf96337de1"
-    sha256                               arm64_sonoma:  "66689c5de3bf52ab8a7c01bc1018e775748325c29c889d71f3582a8194dfcc63"
-    sha256                               arm64_ventura: "b754dbf20365a1baf955844246308101f312ae5e8ad08cd90b4a146b0a17dc71"
-    sha256                               sonoma:        "4facf2d177821397d2b04f54cec3d4a0d14ce20963ae3b23cc82c342d511685e"
-    sha256                               ventura:       "c335cdbd49c6fceeb0d2438c7ff1637d94d06b63647d9222b35598257cf92d8e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a8dc094c74c995bf7cc887b6cc270c123be9fd501b6657779c8a975b9a138df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b484a7475a7c907b153f18a88c187aba0a946f4088ba635c18d207b93fc75fcc"
+    sha256                               arm64_tahoe:   "120c5a199e3771a98c8be0a3d621bf7a02e5a5b9f2b715d224e052f447f9b8c8"
+    sha256                               arm64_sequoia: "ab1ff1fdd044d98f97fc239b8aef0292e3a47457dcc54131b3d284b16fbb8dfd"
+    sha256                               arm64_sonoma:  "feba4ebc621cd24035a04e03a82498d56c37136f716df77c75351edd6f153b29"
+    sha256 cellar: :any,                 sonoma:        "f41fa3af6f8e9956bf55fc41522523a2146637593d70ce7d9497d45f2d24d0ae"
+    sha256                               arm64_linux:   "267c828851e333b9573c8b72823358bab9cafc5518a3aaedaad638a797bab89e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab36462e5c317a1636e0ad12873017d4cdf62476a69490130f8a977a69e33996"
   end
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "gmp"
-  depends_on "metis"
   depends_on "mpfr"
-
-  uses_from_macos "m4"
 
   on_macos do
     depends_on "libomp"
@@ -44,11 +40,13 @@ class SuiteSparse < Formula
   end
 
   def install
+    ENV["CC"] = "#{Formula["gcc"].opt_bin}/gcc-15"
+
     # Avoid references to Homebrew shims
     inreplace "GraphBLAS/cmake_modules/GraphBLAS_JIT_configure.cmake",
               "C_COMPILER_BINARY \"${CMAKE_C_COMPILER}\"", "C_COMPILER_BINARY \"#{ENV.cc}\""
 
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}",
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DCMAKE_C_COMPILER=#{ENV.cc}",
                                               *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

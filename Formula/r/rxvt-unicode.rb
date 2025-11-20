@@ -11,7 +11,10 @@ class RxvtUnicode < Formula
     regex(/href=.*?rxvt-unicode[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:   "a71bfc4668e4e340ed591757fec08351dcfd734c86ad295d17c08eea98729ba3"
     sha256 arm64_sequoia: "1d23f1a4c263ebe7df9a0ee2163d6a93c9d4df1cc4263687da4de3851441a4f3"
     sha256 arm64_sonoma:  "9a582a19640cd577067cd9aec10962f9f744853653b514899707d7f1b6264c42"
     sha256 arm64_ventura: "1365ab0e69449f484abd3d5e36015b9c0fd0ea56719b6c31c8aaee2b9224bc3f"
@@ -46,7 +49,7 @@ class RxvtUnicode < Formula
   # Patches 1 and 2 remove -arch flags for compiling perl support
   # Patch 3 fixes `make install` target on case-insensitive filesystems
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/rxvt-unicode/9.22.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/rxvt-unicode/9.22.patch"
     sha256 "a266a5776b67420eb24c707674f866cf80a6146aaef6d309721b6ab1edb8c9bb"
   end
 

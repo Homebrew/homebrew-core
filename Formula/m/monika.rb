@@ -4,19 +4,18 @@ class Monika < Formula
   url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.22.0.tgz"
   sha256 "2b2ed6ac3186d72a9f060efb62d183c4b156494b2c37de9808c108f54655b84c"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256                               arm64_sequoia: "f3e91a0c2e44a73268d2ad097f66b186d557e7c29bd6cc9bfbf5cdf6f83a51a4"
-    sha256                               arm64_sonoma:  "f2ae79c53a534008b89160ae1c8ae3fdda47aee6fc61218267468b19836a2369"
-    sha256                               arm64_ventura: "1a4b455c1dff23c63b60585ddfe58e19f9028fca8b7ebf5f48b63d2a83fca64b"
-    sha256                               sonoma:        "4ebb6355f4ed47cd9c1e85566eed9c2836b710bb5f79a6160ed7449d6217902b"
-    sha256                               ventura:       "ed6f5ea7a08fc1201b8e41b4172caf6bfaba98c1ddc7fce30c288516fe3e9f26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddaf84cdd4938c7a6884cad00e978282ba40458b44714405566a90bd9b412e41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e525f7478ff11969327f3a1a65e22bb296716c68a3ef064196029f816e19e4c"
+    sha256                               arm64_tahoe:   "7666c9d8ccb5caf33268ea57d5bc2bdfbf2ba02d535efcf8ea12cfcdf5f9c96d"
+    sha256                               arm64_sequoia: "2accf99bc8d99d1d99fd923906461946b1840fbdeecf7263c1155e41ecd4fc87"
+    sha256                               arm64_sonoma:  "23df655b1021663e0bc6184514c6f509ec1a492b5d8766f9d9b09b09375c9d35"
+    sha256                               sonoma:        "fd2f4b9bf912a309be3a54757296966146450636de52de8426f4ca376dbd9a2c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26485a9c9e463158a569f093f03eec4a3a2c614044ca23f736928f167e4184df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98229abf3b9246bf3478688d12018043004695ce89588260ddea3346b4f207fd"
   end
 
-  depends_on "node"
+  depends_on "node@24"
 
   on_linux do
     # Workaround for old `node-gyp` that needs distutils.

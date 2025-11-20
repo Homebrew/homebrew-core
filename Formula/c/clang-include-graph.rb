@@ -4,16 +4,20 @@ class ClangIncludeGraph < Formula
   url "https://github.com/bkryza/clang-include-graph/archive/refs/tags/0.2.0.tar.gz"
   sha256 "174bbf961a2426030102bcf444eb2ca4ac10c05cfd5b993fef24bf4d492c420c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/bkryza/clang-include-graph.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3480c320bbd4af88fc4d12d612c55f4b5f79a9cf4e2479dcc4d9d38ca483acc4"
-    sha256 cellar: :any,                 arm64_sonoma:  "2906d24fb1455310992f9003714951dcd9cf2a4f82bdad3bbe454e6e57807fd1"
-    sha256 cellar: :any,                 arm64_ventura: "7f7c3547adc92cfc57c56aa46b50a6cf87986a8be3abae841bdf90859aeb7f49"
-    sha256 cellar: :any,                 sonoma:        "86d64bd1b27888c88d760ed89e10c061a4b7438d5df5482aedbf249f8f2259f2"
-    sha256 cellar: :any,                 ventura:       "5078292a72af6763ea2f6e0cbca879024344a533f4490f19d69ea4b36214168f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "43c607758cca6ab5d1842cdf9bb39bc05ea422c2e73c1441f3029ca2e70bbf97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b0b5b89b771bd9d1007e5be39a77f527e7c34be2fa66dc86d1cf1b618487f02"
+    sha256 cellar: :any,                 arm64_tahoe:   "aad5df5768245a0b88ceff76506a765f0df23bd8155314672078c8c7f908c1c7"
+    sha256 cellar: :any,                 arm64_sequoia: "1dcf28b2cb5e85ce7e9e4df7b49116379b136a29080b2b24352abf9506d929ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "c5c859ea9dc8db2514453cebfaf4846f3acf6161ea8d61af7094e796cb89ae78"
+    sha256 cellar: :any,                 arm64_ventura: "3c49c334711fc607b50f515649c0b5f672115d96730277e470cbc257814080fa"
+    sha256 cellar: :any,                 sonoma:        "0208ffb84627e2640ae7ac5116404135521bc06dc9d26bd89c54ed93828d253d"
+    sha256 cellar: :any,                 ventura:       "2881cc324541f78701595a7da62ad81953008c4a94dd83731d07fa1051f62ca8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7c5ea386dc885ad6201ae8f87d5c147fa8734b210b4f762fed674583290f52e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2c12a4e136658553b94afc26a1e7b152f20613e414e79302d87a618ee40ac3e"
   end
 
   depends_on "cmake" => [:build, :test]

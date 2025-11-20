@@ -9,6 +9,7 @@ class Curlpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9a08aba8e10cfb6a543680b097a11d64a4422b7123058bcf8736e71ce334440b"
     sha256 cellar: :any,                 arm64_sequoia: "52b67581206f16051deeb149813b5353107b51044d7d43946426f5d299ef4343"
     sha256 cellar: :any,                 arm64_sonoma:  "ffb42c2d6ac1204ba4179cea16388cf29cac5fd50d6dd610fefaba45aa64fd3a"
     sha256 cellar: :any,                 arm64_ventura: "c9053e831abf0b1097eddc879ca50933409a7a1bd5cbcff29a2f7db8a2e4b327"
@@ -25,7 +26,7 @@ class Curlpp < Formula
   patch do
     # build patch for curl 8.10+
     on_linux do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0089ecdbd3df70aa0efc06801d82700bd24be023/curlpp/curl-8.10.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/curlpp/curl-8.10.patch"
       sha256 "77212f725bc4916432bff3cd6ecf009e6a24dcec31048a9311b02af8c9b7b338"
     end
   end

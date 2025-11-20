@@ -1,9 +1,9 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-7.7.1.tgz"
-  mirror "https://fossies.org/linux/www/varnish-7.7.1.tgz"
-  sha256 "4c06c5c99680a429b72934f9fd513963f7e1ba8553b33ca7ec12c85a5c2b751a"
+  url "https://varnish-cache.org/_downloads/varnish-8.0.0.tgz"
+  mirror "https://fossies.org/linux/www/varnish-8.0.0.tgz"
+  sha256 "633b8c4706591ceae241c8432ef84f7c5ef9787f4eea535babf5fc6c6111ad5b"
   license "BSD-2-Clause"
 
   livecheck do
@@ -12,13 +12,12 @@ class Varnish < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fb5cbe8656ede605c0237b5547fd8597cc28f6610f7c6a0055eb4c1abce170f8"
-    sha256 arm64_sonoma:  "ffb66142d7b11573ae3678aeabb73a3562f4d88d1ed685275ec6bd2a455c1a96"
-    sha256 arm64_ventura: "83d569419f98c2f552bf12e7976933c06951923659c0c5f7e78cabd15145f802"
-    sha256 sonoma:        "be72b7f7e58cb4978f546ee7fef88b54e524217a4626712872933103a52c70f4"
-    sha256 ventura:       "d098652ecc801d17d010faf7e18ce1767773bd41c2b8fd8562657279f9ba506f"
-    sha256 arm64_linux:   "87f26a2116f5a9345eb1bdd23bf3573d27daafdfb93f5a160d1a32fc8cbed8bc"
-    sha256 x86_64_linux:  "58c14e678d32e15e03fb6f88bf4cc886244dd7e8d47521e57a97bce1c3c68d9f"
+    sha256 arm64_tahoe:   "0a8d6152d4ad247cd6db1428e8e1623962e2e36e37845885b938149cb8ef9b75"
+    sha256 arm64_sequoia: "d2344af09a8923209d5574df6a82d7259e89c178d3eb9d3d171cd331b24e079f"
+    sha256 arm64_sonoma:  "9d45e69a4fe1ac7c0ac795ccabbd42ca112d505d89e6e9ae6f7ea285d5ca456a"
+    sha256 sonoma:        "9365b9f88df4e9f64ec4f3029314bcc02f9145e30162b338d33310c3a4922da0"
+    sha256 arm64_linux:   "96e866901ed4adc75cc7ffd649220ac99f4218659918dc362dfa110baff1182c"
+    sha256 x86_64_linux:  "f962e3926627d4613fc452eb9ed4d976e11449f98a660a937cb7e2953e75c16e"
   end
 
   depends_on "docutils" => :build
@@ -30,16 +29,6 @@ class Varnish < Formula
   uses_from_macos "python" => :build
   uses_from_macos "libedit"
   uses_from_macos "ncurses"
-
-  # macos compatibility patches, upstream pr ref, https://github.com/varnishcache/varnish-cache/pull/4339
-  patch do
-    url "https://github.com/varnishcache/varnish-cache/commit/3e679cd0aa093f7b1c426857d24a88d3db747f24.patch?full_index=1"
-    sha256 "677881ed5cd0eda2e1aa799ca54601b44a96675763233966c4d101b83ccdfd73"
-  end
-  patch do
-    url "https://github.com/varnishcache/varnish-cache/commit/acbb1056896f6cf4115cc2a6947c9dbd8003176e.patch?full_index=1"
-    sha256 "915c5b560aa473ed139016b40c9e6c8a0a4cce138dd1126a63e75b58d8345e73"
-  end
 
   def install
     system "./configure", "--localstatedir=#{var}", *std_configure_args
@@ -64,7 +53,7 @@ class Varnish < Formula
 
   service do
     run [opt_sbin/"varnishd", "-n", var/"varnish", "-f", etc/"varnish/default.vcl", "-s", "malloc,1G", "-T",
-         "127.0.0.1:2000", "-a", "0.0.0.0:8080", "-F"]
+         "127.0.0.1:2000", "-a", "127.0.0.1:8080", "-F"]
     keep_alive true
     working_dir HOMEBREW_PREFIX
     log_path var/"varnish/varnish.log"
@@ -87,7 +76,31 @@ class Varnish < Formula
       testpath/"b00086.vtc",
       testpath/"u00008.vtc",
     ]
-    tests = testpath.glob("[bmu]*.vtc") - timeout_tests
+
+    # test suites need libvmod_debug.so, see discussions in https://github.com/varnishcache/varnish-cache/issues/4393
+    debug_tests = [
+      testpath/"b00040.vtc",
+      testpath/"b00070.vtc",
+      testpath/"b00085.vtc",
+      testpath/"b00092.vtc",
+      testpath/"m00019.vtc",
+      testpath/"m00021.vtc",
+      testpath/"m00023.vtc",
+      testpath/"m00022.vtc",
+      testpath/"b00060.vtc",
+      testpath/"m00025.vtc",
+      testpath/"m00027.vtc",
+      testpath/"m00048.vtc",
+      testpath/"m00049.vtc",
+      testpath/"m00054.vtc",
+      testpath/"m00053.vtc",
+      testpath/"m00051.vtc",
+      testpath/"m00052.vtc",
+      testpath/"m00059.vtc",
+      testpath/"m00060.vtc",
+      testpath/"m00061.vtc",
+    ]
+    tests = testpath.glob("[bmu]*.vtc") - timeout_tests - debug_tests
     # -j: run the tests (using up to half the cores available)
     # -q: only report test failures
     # varnishtest will exit early if a test fails (use -k to continue and find all failures)

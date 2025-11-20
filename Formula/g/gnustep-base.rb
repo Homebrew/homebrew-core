@@ -4,7 +4,7 @@ class GnustepBase < Formula
   url "https://github.com/gnustep/libs-base/releases/download/base-1_31_1/gnustep-base-1.31.1.tar.gz"
   sha256 "e7546f1c978a7c75b676953a360194a61e921cb45a4804497b4f346a460545cd"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 3
 
   livecheck do
     url :stable
@@ -20,13 +20,12 @@ class GnustepBase < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "022cbc646ea0a05743c51cb7d804549b78d53bd2b9900113421ba9b37853e515"
-    sha256 cellar: :any,                 arm64_sonoma:  "c87551242fea4d1739d7c651a590113ef97ec2f25a7e5ed3067ef4d5d382d62b"
-    sha256 cellar: :any,                 arm64_ventura: "32af6ef0e1a74f765fb361e8012b32a0f8b0d47d8d0ccd3f37eb616992c554e0"
-    sha256 cellar: :any,                 sonoma:        "7ca4a56508b6eaa4fb8ba7d3f111795bf180588709537e3dda6657a86925b328"
-    sha256 cellar: :any,                 ventura:       "c396d40c48b47283351eff5a976ad62cb4d11a3456e9d96abd4364d2fd457c39"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d2863a3711b39dc8c010b1dd8888245a5969b3ac88b7649fd532f83da050ccd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6fa791efd053cb237f8194a380d86325b69ed5a65fcc7ba442265f89bcb9c5ad"
+    sha256 cellar: :any,                 arm64_tahoe:   "b4e784229fba45e3cf7e766550621836a32ca09fffa5f4bbb6de15a4a94b1c05"
+    sha256 cellar: :any,                 arm64_sequoia: "5ff4a3360ffad358e87d9c556f41ccfd5e6fe44dfda235056a2129cf83807417"
+    sha256 cellar: :any,                 arm64_sonoma:  "d57d4f9a586463bb70761168d02c4998603d85b0c8283811a09e1043817791aa"
+    sha256 cellar: :any,                 sonoma:        "9a4d52b364feff116b951a9791795be6c008e3b59fafe660025da9cb48e9595b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9ad9b2062112680e37f2e0c66d37e04babfa46ccfb8240ba9ce47c831c450d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb5b281a17b65f980415c499f9cccacde252a20b0be65a26a114bd7e4f500c06"
   end
 
   depends_on "gnustep-make" => :build
@@ -41,7 +40,7 @@ class GnustepBase < Formula
   uses_from_macos "zlib"
 
   on_system :linux, macos: :big_sur_or_older do
-    depends_on "icu4c@77"
+    depends_on "icu4c@78"
   end
 
   on_linux do

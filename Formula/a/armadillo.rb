@@ -1,8 +1,8 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-14.4.3.tar.xz"
-  sha256 "c3aadd59bdb0ea4339b056f29972f92ee19fdc52f68eb78d32d2e4caf4d80c3a"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-15.2.2.tar.xz"
+  sha256 "8ee01cd4da55bc07b7bc7d3cba702ac6e8137d384d7e7185f3f4ae1f0c79704f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Armadillo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2dd31251940a13aa0dca8554371d419eb58fdca38d640a43aab3d9c75056292e"
-    sha256 cellar: :any,                 arm64_sonoma:  "b33e5a584c6a505f0555bc26a9019c4421a0ebc7302d6153ce2b35b4abff3662"
-    sha256 cellar: :any,                 arm64_ventura: "208053115fbdff16629eb7fb4d583cee056d1426aaf03b382bc8344c88d36bcf"
-    sha256 cellar: :any,                 sonoma:        "d273a0f19ee3a0e5c6c9a38df26184c8182644a3634634d0e84bd8c960845871"
-    sha256 cellar: :any,                 ventura:       "4dc3ecd398634c3f679fc445982941d08e0460fac5e8d06bf4acea985763a301"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1fcd74a4441a1b6de511d4ccde22684c4d51aa1f7e17a8a5f4ef0faee41c6f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0545b7938bee28727261ee01fcc76a4e74fde81a5382c035851fa235a0bd484a"
+    sha256 cellar: :any,                 arm64_tahoe:   "64f7c7892781945c67692f516b8237125e1a8d822d72724284db8ffffa4ea22a"
+    sha256 cellar: :any,                 arm64_sequoia: "3729b4736e360f0bd0ae72b527d595e672e115b11cd282a6131bcc8ea0dd83e6"
+    sha256 cellar: :any,                 arm64_sonoma:  "3879558164ee91e4be6b368606e5e707d5636938528730a4bb1aefbf9b396112"
+    sha256 cellar: :any,                 sonoma:        "5c00cd51324b0cd1a420589a35772eb64a898236deb0ca9f230f08ecc0cf9ed1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb40d53e25df89fae52dac2d4513557d8ebf666ffc52264f87debb78334807a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b6d53719e54dab8ff72978b779894597e7f9a0e486f18fc733a247051d02c0c"
   end
 
   depends_on "cmake" => :build
@@ -40,7 +39,7 @@ class Armadillo < Formula
         std::cout << arma::arma_version::as_string() << std::endl;
       }
     CPP
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}", "-larmadillo", "-o", "test"
+    system ENV.cxx, "-std=c++14", "test.cpp", "-I#{include}", "-L#{lib}", "-larmadillo", "-o", "test"
     assert_equal version.to_s.to_i, shell_output("./test").to_i
   end
 end

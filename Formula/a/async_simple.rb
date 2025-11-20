@@ -1,21 +1,20 @@
 class AsyncSimple < Formula
   desc "Simple, light-weight and easy-to-use asynchronous components"
   homepage "https://github.com/alibaba/async_simple"
-  url "https://github.com/alibaba/async_simple/archive/refs/tags/v1.3.tar.gz"
-  sha256 "0ba0dc3397882611b538d04b8ee6668b1a04ce046128599205184c598b718743"
+  url "https://github.com/alibaba/async_simple/archive/refs/tags/1.4.tar.gz"
+  sha256 "6188f7a5f4211754fee758dfebf73759b74ce78c208719b5cc37d5ab4775d550"
   license "Apache-2.0"
   head "https://github.com/alibaba/async_simple.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "755cd0582500b20090528bb4192041eb7a57e2b1ba4fb87ecfe1082926c77415"
-    sha256 cellar: :any,                 arm64_sonoma:  "e89443db479ff1e8aabc39e482f1c4cb72b3214a485588c0d461a21342fa9197"
-    sha256 cellar: :any,                 arm64_ventura: "9563803b43de1611be1f4f38083535f9ea944907a4b07808e67400448096a52e"
-    sha256 cellar: :any,                 sonoma:        "3e19085474250b8f93b361127483b8fa68e509d0c1e4132976090279bf746429"
-    sha256 cellar: :any,                 ventura:       "4b9d30e6cc11876a60fe9180ae43ef4de77b21c3d49c789b2f5a6d73be8048be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0892f76a0d09c6b8651a4ad677516adbb942bf9b376a867f63b3a5d7c23d0d12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31cccc38ea016889db7f4a52700115a22d5eb7432e403c6939ef8bafb12bdd8e"
+    sha256 cellar: :any,                 arm64_tahoe:   "ea3f1e248db7c9bbaf801186303a6c6e633476b1fb0c0e6553642c46abc191ad"
+    sha256 cellar: :any,                 arm64_sequoia: "582aee9fb04f0106f59850ef5001c8fb830da5f16ecfc60e6ee0b37de2c10c15"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad0185e500e7a4873138ffb48dbf0a0ad9d6ac7298fb3418006b8ecd6df8ba34"
+    sha256 cellar: :any,                 arm64_ventura: "518f0229d7a19797fd5626fab507e608c7b25cc3bdfac3c05577d491c4923996"
+    sha256 cellar: :any,                 sonoma:        "96069ca4876ed9bc04149fe02cc2445f3434a1dd84ae4360e4e420950a6d8e8c"
+    sha256 cellar: :any,                 ventura:       "13c8d498f0ef0dd957353666f689f42bb9f94c262ab2997094699ec961362197"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3207af424eb85ff7a9d5c617b4c713262433024595a09d01e4d213328ae92bda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20cb19de4276e5664a529b84494d3109488ca7970bee8912d502066bb899d188"
   end
 
   depends_on "cmake" => :build

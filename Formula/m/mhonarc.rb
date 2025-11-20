@@ -6,6 +6,8 @@ class Mhonarc < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/sympa-community/mhonarc.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "c6d3c93cbdca1f8cfba7471ad031646541f79d166e2a560006c6f445d748fa33"
   end

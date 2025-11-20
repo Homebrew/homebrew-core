@@ -5,7 +5,10 @@ class Pstoedit < Formula
   sha256 "5588b432d2c6b2ad9828b44915ea5813ff9a3a3312a41fa0de4c38ddac9df72f"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:   "e773007c11d92ed03d522da9acddabe00010345187e10dcf2b8921bdcac62cb4"
     sha256 arm64_sequoia: "4577e541a3d69e7c9fdc3291b552e4cfb50a8a3603c080a3c2c2d1f9ea7e96a6"
     sha256 arm64_sonoma:  "b17eff3c581194a6bf0290507456b75edbbad20cde4c01793cc9754425e59712"
     sha256 arm64_ventura: "355cc44f552bd82c5cf39915449de0a4051eb2f9efba352323b87eb0403f15db"

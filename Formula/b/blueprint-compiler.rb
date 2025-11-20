@@ -1,20 +1,18 @@
 class BlueprintCompiler < Formula
+  include Language::Python::Shebang
+  include Language::Python::Virtualenv
+
   desc "Markup language and compiler for GTK 4 user interfaces"
   homepage "https://gnome.pages.gitlab.gnome.org/blueprint-compiler/"
-  url "https://gitlab.gnome.org/GNOME/blueprint-compiler.git",
-      tag:      "v0.16.0",
-      revision: "04ef0944db56ab01307a29aaa7303df6067cb3c0"
+  url "https://gitlab.gnome.org/GNOME/blueprint-compiler/-/archive/0.18.0/blueprint-compiler-0.18.0.tar.gz"
+  sha256 "51aa472ecd7bd4b32b8baa7ae6768b19810793d4a2a1aba39c5b31b0170cb258"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://gitlab.gnome.org/GNOME/blueprint-compiler.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "934e915f724789737e2aff49d9607966366342257941e1f44ee5d03c358d331a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "934e915f724789737e2aff49d9607966366342257941e1f44ee5d03c358d331a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "934e915f724789737e2aff49d9607966366342257941e1f44ee5d03c358d331a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6bea1eb3d4da51a7e9e8ee222b7c8dec211a3cbffc00932d1e26ffc6645d499e"
-    sha256 cellar: :any_skip_relocation, ventura:       "6bea1eb3d4da51a7e9e8ee222b7c8dec211a3cbffc00932d1e26ffc6645d499e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "43d7f2741a5fa0dd074c78f6eac27decea1c8105ed1f9c53892ca7f3d2e7c10e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd8299938011b24bc84df5f61ec14fea43ccd470ada9f70e92a14e195a138a8b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d935e3b6be2f9ca0baba92580a768de9e3bdc89f3d55e24113e39336456eb414"
   end
 
   depends_on "meson" => :build
@@ -22,11 +20,19 @@ class BlueprintCompiler < Formula
 
   depends_on "gtk4"
   depends_on "pygobject3"
+  depends_on "python@3.14"
 
   def install
-    system "meson", "setup", "build", *std_meson_args
+    python3 = "python3.14"
+    venv = virtualenv_create(libexec, python3)
+
+    system "meson", "setup", "build", "-Dpython.platlibdir=#{venv.site_packages}",
+                                      "-Dpython.purelibdir=#{venv.site_packages}",
+                                      *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
+
+    rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *bin.children
   end
 
   test do

@@ -6,14 +6,13 @@ class GitSsh < Formula
   license "GPL-2.0-only"
   head "https://github.com/lemarsu/git-ssh.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "1a478cad17df51fbe151f43ac6288cbfd5f61f79dfd049ea1da9e62d5f11a169"
   end
 
   deprecate! date: "2024-08-03", because: :unmaintained
+  disable! date: "2025-08-03", because: :unmaintained
 
   uses_from_macos "ruby"
 

@@ -11,6 +11,8 @@ class Ntfs3g < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "13c0f887f2cef53978d28dfcb8c1a3f69f8c70407bf2267ad6033eef0b5cfc2c"

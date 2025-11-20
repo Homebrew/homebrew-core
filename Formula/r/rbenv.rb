@@ -25,6 +25,7 @@ class Rbenv < Formula
                                            %Q(\\1"\\2-g#{git_revision}")
     end
 
+    # bash completion handled by rbenv-init
     zsh_completion.install "completions/_rbenv" => "_rbenv"
     prefix.install ["bin", "completions", "libexec", "rbenv.d"]
     man1.install "share/man/man1/rbenv.1"

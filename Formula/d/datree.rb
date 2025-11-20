@@ -6,8 +6,6 @@ class Datree < Formula
   license "Apache-2.0"
   head "https://github.com/datreeio/datree.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "035d6e28e854bc8d9eed9dca0248383b78e2630f639777546ca5eee4689cfb41"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "275cf0f3c28393d717867f2d22a04bf626d1b819bec4e49e90e8f93ebf32da9e"

@@ -1,14 +1,15 @@
 class GnuComplexity < Formula
   desc "Measures complexity of C source"
   homepage "https://www.gnu.org/software/complexity/"
-  url "https://ftp.gnu.org/gnu/complexity/complexity-1.13.tar.xz"
-  mirror "https://ftpmirror.gnu.org/complexity/complexity-1.13.tar.xz"
+  url "https://ftpmirror.gnu.org/gnu/complexity/complexity-1.13.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/complexity/complexity-1.13.tar.xz"
   sha256 "80a625a87ee7c17fed02fb39482a7946fc757f10d8a4ffddc5372b4c4b739e67"
   license "GPL-3.0-or-later"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "edf8e7fe3a3c8d707ff63dbd5d5ef0226653cd76bf7c6d5faf077f09f1fb2b31"
     sha256 cellar: :any,                 arm64_sequoia:  "cd060b26ae921fe515fb597c86e07eb82c0cad595d8eab8547cd421db5a249e3"
     sha256 cellar: :any,                 arm64_sonoma:   "8e32f6384e57c2e21cce940fc39b2be2257b0a200367a48f85aee626988a9863"
     sha256 cellar: :any,                 arm64_ventura:  "c61d3b1a378d7debac6a79e092b3828b68b455d0b555edcb02129b34945947b1"

@@ -10,6 +10,7 @@ class Gdrive < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8532793c6c061b16d47eba60f8def373002a6717c2499d49faa35f7ecb1beec5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "597b1a565f70001989177d007d646750cc7602948deddc79c84d84a5ad4e43d4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f46421761f47656b69c91d12f132a512c90a622f032e22979eaeaeb492158c80"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d43198708aa0d16925a7183cc028ea7356a42c2c6f25366dda2372e6310c227d"

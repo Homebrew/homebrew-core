@@ -11,6 +11,8 @@ class Xcinfo < Formula
     depends_on maximum_macos: [:sonoma, :build]
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3df6418afc61ae23e1f303b405cdf6c24dff3a0fed304e1a0a7ba9e59be44e84"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7f8d2172793446ab5a5a0e67c2257a6e7037223c9321e0f1db04dec6c84d16ac"

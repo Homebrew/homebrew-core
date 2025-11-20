@@ -1,21 +1,20 @@
 class Pkl < Formula
   desc "CLI for the Pkl programming language"
   homepage "https://pkl-lang.org"
-  url "https://github.com/apple/pkl/archive/refs/tags/0.28.2.tar.gz"
-  sha256 "b63a0c672a7b810daf4606d37dc18d37b012a0fc011df5c5c2c96d708227a18b"
+  url "https://github.com/apple/pkl/archive/refs/tags/0.30.0.tar.gz"
+  sha256 "f3788e253ca26a5d74ac2f933c0646fa3012af130be084079cc9dee9e283cc40"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9f7f1777064b70061f7b7b8bdd1c493b034397af8d1728641e69f963bb03465"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8c21a4185136ae375d83cc589fa1be4626513e4fa0c97da3184ebc335f0e5fa6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "70d649fdc593bd1d7ce6dee2edf6e62366e4579675d5e450bd6d17222ec0667f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "511cecba0df4e994d99575832ddc03a1c388a82f32bcb119cb094996416b2e90"
-    sha256 cellar: :any_skip_relocation, ventura:       "93c166e637de735ce561dece7bc33a32668edc667d15d5875173a62b476fa03e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed219ebb3e536eb5406298c4e3149cca22ba23fe41279877ebfcd55401331c3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e882f2790dc353736341ad0d08a6b006cf779bca81eb67ce3935f597c944e87c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6bff17f1d02b703c683b8b70fa9ebb21bb1eafca6a9b9e98993fd36bc34caf50"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "766d3e34c1cd773a9f2852c2028b0956717f74cef458f49684ac31ace3b07499"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3284e574abbb612d359236718204f960835353b90f56e0927a130de6d6e5de8f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "37b70356b715c322ff5ff6d3cfb045d1cd4e6593129815af3307ce994dc30825"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b749810825d3b91cb521751a61085fe7d5151f02abda1453cbcd60568f8320df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "462e0a5edf8dc2e6f5b5d6c4a905c5da2dc5c3eafb56bef59ec9e51a768a1408"
   end
 
-  depends_on "gradle" => :build
+  depends_on "gradle@8" => :build
   depends_on "openjdk@21" => :build
 
   uses_from_macos "zlib"
@@ -24,7 +23,7 @@ class Pkl < Formula
     ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
 
     arch = Hardware::CPU.arm? ? "aarch64" : "amd64"
-    job_name = "#{OS.mac? ? "mac" : "linux"}Executable#{arch.capitalize}"
+    job_name = "pkl-cli:#{OS.mac? ? "mac" : "linux"}Executable#{arch.capitalize}"
 
     args = %W[
       --no-daemon
@@ -34,6 +33,7 @@ class Pkl < Formula
 
     system "gradle", *args, job_name
     bin.install "pkl-cli/build/executable/pkl-#{OS.mac? ? "macos" : "linux"}-#{arch}" => "pkl"
+    generate_completions_from_executable(bin/"pkl", "shell-completion")
   end
 
   test do

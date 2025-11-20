@@ -1,14 +1,15 @@
 class Gsasl < Formula
   desc "SASL library command-line interface"
   homepage "https://www.gnu.org/software/gsasl/"
-  url "https://ftp.gnu.org/gnu/gsasl/gsasl-2.2.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gsasl/gsasl-2.2.2.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/gsasl/gsasl-2.2.2.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gsasl/gsasl-2.2.2.tar.gz"
   sha256 "41e8e442648eccaf6459d9ad93d4b18530b96c8eaf50e3f342532ef275eff3ba"
   license "GPL-3.0-or-later"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "1dd75fa56b2505c6edd733f8848a46dd624dba73d43df132deddc1a05c167d30"
     sha256 arm64_sequoia: "f7ec07e3b1add0e32af563452c3f8ebf2317b3acad6b6a48b029dd72491354ab"
     sha256 arm64_sonoma:  "be4ad77df9264e1dbcd61df831870348ef3f0f7033f59c201f60ca78b8f5b608"
     sha256 arm64_ventura: "9abcebd5e9da69094251b1d2de7434c3d97cc502bcf18406e5689bfb9ad166cc"

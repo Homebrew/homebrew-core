@@ -5,8 +5,6 @@ class Apidoc < Formula
   sha256 "45812a66432ec3d7dc97e557bab0a9f9a877f0616a95c2c49979b67ba8cfb0cf"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "77eead90a2e275963902897bb539d05529082eefc6da4862e006cce26e850fb6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e50dd2df96beabbbb2ae46b9066c60903b6c778798fa172aeece50e8a68d78b8"
@@ -22,6 +20,7 @@ class Apidoc < Formula
   end
 
   deprecate! date: "2024-07-16", because: :repo_archived
+  disable! date: "2025-07-17", because: :repo_archived
 
   depends_on "node"
 

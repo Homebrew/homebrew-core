@@ -1,9 +1,9 @@
 class X8664ElfGcc < Formula
   desc "GNU compiler collection for x86_64-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-  sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+  sha256 "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -11,13 +11,14 @@ class X8664ElfGcc < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a2ef38ca5207ee7eb12f815392169220a7a24fcf3848ea2fe1f592f315fbf188"
-    sha256 arm64_sonoma:  "e1773647d8ed32fb82e6f042ec94b88d162d83e3bdf3330de46264ad6f2bc227"
-    sha256 arm64_ventura: "462617b5d54609ef51342a4185bbb657f9fb95e88d7659fdad9a38e4799952c2"
-    sha256 sonoma:        "a3be452f8def32721bccd47aed6245510684fe9e0763a5e479900d98590151da"
-    sha256 ventura:       "22560f07c1909a4b9a6726c4f3cdaa1a1714f779ca06b71071919daecaff800e"
-    sha256 arm64_linux:   "664e2703de6f940cd66281726919d64eb2eb725c4437c0d4707dbcaf2318738d"
-    sha256 x86_64_linux:  "819c5510630041d67f2b8f1c3c31a6e18ca4b664d6a834cb7078ea934d9c12cf"
+    sha256 arm64_tahoe:   "079157c1db32ec1cb662610b44206fb3da875c7d29bebb5e3035a9169109aab1"
+    sha256 arm64_sequoia: "52a4380323261ec7529b819696d5599c327d1efc19f135c8b2749ce35e7e4cfa"
+    sha256 arm64_sonoma:  "9f2df1b8a4a476b5b1b513dc9622910a8e4de57122acd79551c443ec632f1440"
+    sha256 arm64_ventura: "82e44af6926993fe3a51ab305e1f82e0080e6f44db0d3cbbb861290711095bcd"
+    sha256 sonoma:        "ccb5d01c00355812264ba5942ce37c6bcb79a2ee3b5b8a5fe177f47516af070e"
+    sha256 ventura:       "cca64053df220e3966dd7c2695c77e65f5f5395fa5b889ffb8c5ac9933f065f5"
+    sha256 arm64_linux:   "443b7eef61d681d7b1231f7ebc3ecf85893a7da3a2047ef1dbda2fc909a11e5c"
+    sha256 x86_64_linux:  "f8d1ad01fc135fed522a178bf2fecb8efb47cdf080c4bf7d7e851c3deada1c80"
   end
 
   depends_on "gmp"

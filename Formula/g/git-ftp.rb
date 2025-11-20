@@ -5,7 +5,7 @@ class GitFtp < Formula
   sha256 "088b58d66c420e5eddc51327caec8dcbe8bddae557c308aa739231ed0490db01"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/git-ftp/git-ftp.git", branch: "develop"
+  head "https://github.com/git-ftp/git-ftp.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 

@@ -6,7 +6,10 @@ class Speedbump < Formula
   license "Apache-2.0"
   head "https://github.com/kffl/speedbump.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f991bd2a54623cf73881d495c86a2d7b4bba3c5af8fae3a74d85a1bec5bb41cc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a52604fc55f69494bce2c79dfe29d9b85ad5b8828242a10358aad3d5f82dd161"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6373e8ea1a8d06a0cd3f82bac417065b98e658a47d51a0f3316909a87ce3e041"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7359cd3407540f98642026e890d0e5ab47d0eb4b6134449b24c5c8829c48b5a0"
@@ -16,6 +19,7 @@ class Speedbump < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "3c9b18929d4d11b231b45f1f6bef8eef9dcf2564ce7baab83f688817577b481c"
     sha256 cellar: :any_skip_relocation, monterey:       "c6ec49903634a0db12e85374e71e1f11239726916218e1eae07950bd5a2484c3"
     sha256 cellar: :any_skip_relocation, big_sur:        "93ec6fcd2dd65b2203d786ae5ebe5301b421b041460e5f4e88fec54026ead594"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "ae045cae2fd336d9da73e4b33eebd244a35d804c61b2a08e8742ab2f0ead585e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "653ea4f77ffba07e1cd95c4d3805709c6c15f860641faf264a38d66bcc98ed78"
   end
 

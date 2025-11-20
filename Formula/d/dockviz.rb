@@ -7,6 +7,7 @@ class Dockviz < Formula
   head "https://github.com/justone/dockviz.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9c805f7312b7c483e83d459b1e6a724d3e2e4940c416444dfd8ee7a79a5ea049"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4a1770a99278e7fa43efce29515eefb0ae70d895590503b3ba4e13fbfcc27a3e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1081dedcb9f5e575615a345d55b389cb61f1f5208745fa387d6cba861a06b525"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0cbe120e8493fc17a646efd6bbeb83afa33a4139afe331dbbd2fdf8a4c78a4e"
@@ -17,6 +18,7 @@ class Dockviz < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "09de9aa1782b96c318d4e2965d565963880dce43fbc6dcca52a396c62f9a44d5"
     sha256 cellar: :any_skip_relocation, big_sur:        "55392d3b7f022460d56c241b9cc9a382b6b97273ccaf2d94549e6ffd0cbf9a2e"
     sha256 cellar: :any_skip_relocation, catalina:       "ed054cbc368e35e27139571d63d390f626ff081f7bcff4c4b9ec2a73c9d19814"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b4ef5dc4b07e8a8cea9572fa24d13234d5fa45f1f07f72b8296fbf857d1544eb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d00d55a57d1f8162f08e60ec07d7ac34e5ddc04e6865b09babf4072f4b52c513"
   end
 

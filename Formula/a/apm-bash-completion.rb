@@ -5,8 +5,6 @@ class ApmBashCompletion < Formula
   sha256 "1043a7f19eabe69316ea483830fb9f78d6c90853aaf4dd7ed60007af7f0d6e9d"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f86348dd9abdb4b7a8c6353f29374d7432375920a0281e806f14d50b8673bc1f"

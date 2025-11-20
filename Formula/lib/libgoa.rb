@@ -1,8 +1,8 @@
 class Libgoa < Formula
   desc "Single sign-on framework for GNOME - client library"
   homepage "https://gitlab.gnome.org/GNOME/gnome-online-accounts"
-  url "https://download.gnome.org/sources/gnome-online-accounts/3.54/gnome-online-accounts-3.54.3.tar.xz"
-  sha256 "bcf655dd1ddc22bc25793b6840da19f5cad7ba0b7227ff969ed9c252f036aac5"
+  url "https://download.gnome.org/sources/gnome-online-accounts/3.56/gnome-online-accounts-3.56.1.tar.xz"
+  sha256 "64459360a3531eb7edee2e03bd5ab77ec95f1051b569e11a479b4f94f405c53f"
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/gnome-online-accounts.git", branch: "master"
 
@@ -11,13 +11,12 @@ class Libgoa < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "9ca9cf4587bff6e446eeefadd705e5152e49499234c8f58a99760a98020385c5"
-    sha256 cellar: :any, arm64_sonoma:  "73f421ebfdc23e94522e4eac62997163b6e479264986da91b5c72cccc7922610"
-    sha256 cellar: :any, arm64_ventura: "4025191bc70c754532b46bbee8d536ac37b918298a227336f0142fc46104d079"
-    sha256 cellar: :any, sonoma:        "824057c9114490119016d04506b6319a88b431388b069b659299ffae92edfe36"
-    sha256 cellar: :any, ventura:       "5a9dc1bffcb1e3c1b0d88c4487cdcfd8b2d307d8dd251dc65b238e9f744238d3"
-    sha256               arm64_linux:   "d9717798a9181c2755f2fa4468a6ba31b421083945c7e3f7658b2503a97a3f0a"
-    sha256               x86_64_linux:  "e31c7ecac49a86c14dc26c03fc1ea2cd50fc36649ce9b7a6ce9517d7a20bd842"
+    sha256 cellar: :any, arm64_tahoe:   "e94df65f46b30b1379c289147bd98b8efeed244abb2379bbcb21fcaa30c645ef"
+    sha256 cellar: :any, arm64_sequoia: "5e2d811f4f8f34d49eb8bfa17c82337f236efae5d577d98daae17c2e544fc06d"
+    sha256 cellar: :any, arm64_sonoma:  "19af4eec07a37a0753618c1a52de46fdb418011ff1d067edd4fbd0c7e5ff1f92"
+    sha256 cellar: :any, sonoma:        "84ce992417b40cf9eeaceeb8a5abd9b320d60f35349a801f40300a5260ea705e"
+    sha256               arm64_linux:   "d770e920881dec18e95e94adcc75c34b16de940f59e28452c241b703b64f4808"
+    sha256               x86_64_linux:  "b0c2fdc955513cc026413e690dcacce49d9c4ba0aeff18da783a8a8b1d9baeac"
   end
 
   depends_on "dbus" => [:build, :test]

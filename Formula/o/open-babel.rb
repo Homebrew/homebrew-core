@@ -2,7 +2,7 @@ class OpenBabel < Formula
   desc "Chemical toolbox"
   homepage "https://github.com/openbabel/openbabel"
   license "GPL-2.0-only"
-  revision 2
+  revision 4
   head "https://github.com/openbabel/openbabel.git", branch: "master"
 
   stable do
@@ -16,15 +16,15 @@ class OpenBabel < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 4
-    sha256                               arm64_sequoia: "6e65ad2651937d58c9c4c023948ef066fb47d80c1add72a46478dc068a3b8889"
-    sha256                               arm64_sonoma:  "4dae715c5d682d7dbc2629f8942de25888cb0a17ecf7097d0e4b0b5293f6a599"
-    sha256                               arm64_ventura: "74af59afb37e1a715f5993d8f2003c2a4b9cfcd8c0d25706658318ca8e0bfe4b"
-    sha256                               sonoma:        "e5e91a303d0090db9fe25ea23850d11967f37f4bc97a242c98e3309d35323d58"
-    sha256                               ventura:       "0a1482bfbb03ce95e687277d86aa7c1bac4dd1b4f9daeeebb5e7197196877c8e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "742382d270de232c3470fb281db5d1c5f47e15e19912fab122dfb33459075b72"
-    sha256                               x86_64_linux:  "e9f6607712d55e1397a70b5e5242664ad606f8a0b990deb36161f3f11ddaa1af"
+    sha256                               arm64_tahoe:   "37da789f563a487a27f8c7fbb8ecce87ce6f192852ba0e1c97eae748b425199d"
+    sha256                               arm64_sequoia: "8a1f9f14d38fae8c7dd36a28b1d43c229978d8f3e652fd0bab0f2a4e6a4e4677"
+    sha256                               arm64_sonoma:  "0c6f3868747c69959966495b34b059d4793e5e4a50d7f4b0c8d3ef327c602f7d"
+    sha256                               sonoma:        "03a180d4412df1f0d6e3d0b6e865fcea2978d36a4d6bed6cd236d96ded931d0e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0aa8391693fb00503fdc467c0d3377b3c9fda78e02ca7d394883f67ec2ecb77a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52a63e3ffd5f4037277d25fbb3572dd6c527770a3d16fbaa7f7a9d0d4503b204"
   end
 
   depends_on "cmake" => :build
@@ -35,26 +35,42 @@ class OpenBabel < Formula
   depends_on "cairo"
   depends_on "eigen"
   depends_on "inchi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   conflicts_with "surelog", because: "both install `roundtrip` binaries"
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DINCHI_INCLUDE_DIR=#{Formula["inchi"].opt_include}/inchi",
-                    "-DOPENBABEL_USE_SYSTEM_INCHI=ON",
-                    "-DRUN_SWIG=ON",
-                    "-DPYTHON_BINDINGS=ON",
-                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
-                    "-DPYTHON_INSTDIR=#{prefix/Language::Python.site_packages(python3)}",
-                    *std_cmake_args
+    # Fix to error: ‘clock’ was not declared in this scope on Linux
+    inreplace "include/openbabel/obutil.h", "#include <math.h>", "#include <ctime>\n\\0"
+
+    args = %W[
+      -DINCHI_INCLUDE_DIR=#{Formula["inchi"].opt_include}/inchi
+      -DOPENBABEL_USE_SYSTEM_INCHI=ON
+      -DRUN_SWIG=ON
+      -DPYTHON_BINDINGS=ON
+      -DPYTHON_EXECUTABLE=#{which(python3)}
+      -DPYTHON_INSTDIR=#{prefix/Language::Python.site_packages(python3)}
+    ]
+
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    inreplace "CMakeLists.txt", "cmake_policy(SET CMP0042 OLD)",
+                                "cmake_policy(SET CMP0042 NEW)"
+
+    # Workaround to build with eigen 5.0.0
+    # Issue ref: https://github.com/openbabel/openbabel/issues/2839
+    args += %W[-DEIGEN3_FOUND=ON -DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3]
+    inreplace "CMakeLists.txt", "set (CMAKE_CXX_STANDARD 11)", "set (CMAKE_CXX_STANDARD 14)"
+    rm "cmake/modules/FindEigen3.cmake"
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

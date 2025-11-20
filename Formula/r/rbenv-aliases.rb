@@ -7,6 +7,8 @@ class RbenvAliases < Formula
   revision 1
   head "https://github.com/tpope/rbenv-aliases.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "1478142388cffd4c60833cdc2b6e7f3bcac3f6e8b15e095167718ceb0cd7c237"

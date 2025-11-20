@@ -10,6 +10,7 @@ class Eureka < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "44e6b8403bf0f6f632c90c7aa0198620add848f1a80bceecf189d54d49f7f53b"
     sha256 cellar: :any,                 arm64_sequoia:  "02998b7bb77a41e30a5053ec6530d04f4ce8224a05100a60604373b3cbe00857"
     sha256 cellar: :any,                 arm64_sonoma:   "9e959347056241a2828acf8b6c5a2dad1ef978a46b2a47563c0018b357463b2f"
     sha256 cellar: :any,                 arm64_ventura:  "f2270ec57c74b9bcef349049f9fc3818ddfd3c4c38884973ecfdf3926b66d172"

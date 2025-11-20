@@ -1,8 +1,8 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/refs/tags/v4.3.2.tar.gz"
-  sha256 "647d8775f170fb8b8954a76a59c4a23db50b5c1fdd9faf6b51e17737d8b402a5"
+  url "https://github.com/hairyhenderson/gomplate/archive/refs/tags/v4.3.3.tar.gz"
+  sha256 "d15c66230d72bdc13b0155f28d391c55cac45b7fdbe1ff4a73db8ee263471a3d"
   license "MIT"
   head "https://github.com/hairyhenderson/gomplate.git", branch: "main"
 
@@ -12,13 +12,14 @@ class Gomplate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3e19ece0a6fc1cecbe9d14e33b16a3fba59d9a4ad92411ac9339c09f0709768"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0324bded45407fa624d39d11477f16329d6c01009a7dbd7f99cefbf4ca87efa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b2479a131cad59973db3ef6d51f209a6b4b96f43c1994840d070df949092bf4b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e144c054bf5f1caf836126bf820b3e75ca94b3488e53d26503a3d5df902a0f9b"
-    sha256 cellar: :any_skip_relocation, ventura:       "ae604e6f7c34798b59fb6077b2f63b5cfb4a4ed7e18ebb27b81799abb6ac5615"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5ebbcf6abc0a970423a408c2708aaa90ac362cdc4acbeb4385cb8134a9ce7a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b400462b3830d910f6760e71238c51f33001685ff10e722cea6844e95da1dc59"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b58508f75f9246edc00686759e9f5e6742830fd426225438d7426f3b42bc7579"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a8700eac00d73546e47d3e0b0d0dd30de1dd196a74e34c0a155501cef6e180b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbe5d9228796ed7b924946237b59ecaf33082c9fe243e58db17d1a00d401f3e1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "592498b49bf2e7f61dbc0dfc7d1ba6fac6b36858f145eaf3a70802d11a423267"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3128c00339ee05d26a06b47da27f321a52413e37debb95ac25932b33d80128ae"
+    sha256 cellar: :any_skip_relocation, ventura:       "76525c040ca5b17f378711daf85d414221f794e4d4ca2c564ab3366fa2ab21f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "21242f12dca5069200cd7c671fc5c595785dfcf5f86443fccf9e17465aaf83ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90a09f23e144ae6acad537a85cf735435aa1e4fc46ef33703e965c55c0616c96"
   end
 
   depends_on "go" => :build

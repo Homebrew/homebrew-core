@@ -1,22 +1,21 @@
 class ProtocGenJs < Formula
   desc "Protocol buffers JavaScript generator plugin"
   homepage "https://github.com/protocolbuffers/protobuf-javascript"
-  url "https://github.com/protocolbuffers/protobuf-javascript/archive/refs/tags/v3.21.4.tar.gz"
-  sha256 "8cef92b4c803429af0c11c4090a76b6a931f82d21e0830760a17f9c6cb358150"
+  url "https://github.com/protocolbuffers/protobuf-javascript/archive/refs/tags/v4.0.1.tar.gz"
+  sha256 "123fac2e86109b24e80ccd356aa914e268bf5863ad1354d224d6ceaed6f5c45b"
   license "BSD-3-Clause"
-  revision 9
   head "https://github.com/protocolbuffers/protobuf-javascript.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e1d3eb4bac2263ba923f679559e88d7b4c12f678e17399438356941b18604643"
-    sha256 cellar: :any,                 arm64_sonoma:  "61cd3b85437197c9c3032340d1eb85ba1f94843487e60ce1b6338f61204c7f30"
-    sha256 cellar: :any,                 arm64_ventura: "04cd632b292fabc0152c3943e52cd82ed5e8e069d5ad4098177f9498d7e34988"
-    sha256 cellar: :any,                 sonoma:        "4e1ad32e594ae4a51b04667c0a136ef07a9db1e568fe9d6a303ae8308efcee55"
-    sha256 cellar: :any,                 ventura:       "101b027ec794658d1a0684c7da07966c1a62463216e02c6a13b959009da82e92"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b33b76262e0a6ea80580c7b069b844f3e6de051d1dd0ca0abea845dd95d859c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c81f134c3f3caa2d1e6a79ff11568332a896a1d102b5ff686b8f9f90601eb657"
+    sha256 cellar: :any,                 arm64_tahoe:   "a27b258bb10edab9b63fc5369ad1aa69c08dff92f0254ee362c3e13cfb56bab9"
+    sha256 cellar: :any,                 arm64_sequoia: "f9aaf39aaf4e44b46042ebc30d78323506989bd99bc6506c7724f3d27278a8d7"
+    sha256 cellar: :any,                 arm64_sonoma:  "28a81b5dddab5a76b27d6edb431e3233b045941c606ccc7602d458d2bd16ae8d"
+    sha256 cellar: :any,                 sonoma:        "b06d02871820eb5ab4d1abbacedee1b87315659c99e1a896435cd15dbee2e361"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8a1357bed9994ef94eccbb2cc514698945c9412da2250bd561b4e0b4e609226"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6823a5537a307f4327de399bbfdd70e2868434f7deef20e7765ab5b7b403487"
   end
 
+  depends_on "node" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
   depends_on "protobuf@29"
@@ -25,6 +24,7 @@ class ProtocGenJs < Formula
   # and Protobuf that get statically linked into binary. Check for any upstream changes at
   # https://github.com/protocolbuffers/protobuf-javascript/blob/main/generator/BUILD.bazel
   def install
+    system "node", "generate-version-header.js", "generator/version.h"
     protobuf_flags = Utils.safe_popen_read("pkgconf", "--cflags", "--libs", "protobuf").chomp.split.uniq
     system ENV.cxx, "-std=c++17", *Dir["generator/*.cc"], "-o", "protoc-gen-js", "-I.", *protobuf_flags, "-lprotoc"
     bin.install "protoc-gen-js"

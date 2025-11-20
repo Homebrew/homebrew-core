@@ -15,6 +15,7 @@ class BerkeleyDb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "8ab6e76001b5a945ed16eaa85a4a5676bd3a7f54365c2255c90565d73096ff0e"
     sha256 cellar: :any,                 arm64_sequoia:  "422be2c8877f981442a27bd80d7a4494de3a515b54b1d206e51c4e710f9d83eb"
     sha256 cellar: :any,                 arm64_sonoma:   "f8a6da9be201214ca17efa824a335060a6f1ff4d72cc579a5878ee06ac2d9b61"
     sha256 cellar: :any,                 arm64_ventura:  "67fed25d26cb987106b346ee4088959b71306db6a016cb6f58cca9da9350c36d"
@@ -34,7 +35,7 @@ class BerkeleyDb < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
     directory "dist"
   end

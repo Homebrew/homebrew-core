@@ -8,6 +8,8 @@ class Lorem < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/per9000/lorem.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "8b19f09aa8ff1a1e6e6dae8a356ac8ae90992a3435540b0fd71b7d39a7d3f360"

@@ -4,7 +4,7 @@ class BulkExtractor < Formula
   url "https://github.com/simsong/bulk_extractor/releases/download/v2.1.1/bulk_extractor-2.1.1.tar.gz"
   sha256 "0cd57c743581a66ea94d49edac2e89210c80a2a7cc90dd254d56940b3d41b7f7"
   license "MIT"
-  revision 1
+  revision 3
 
   livecheck do
     url :stable
@@ -12,15 +12,15 @@ class BulkExtractor < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "1193b1587c9351fb7c3339252cc5962de2b0c7488cb03a77d16483227deafb49"
-    sha256 cellar: :any,                 arm64_sonoma:   "d076c3c6ce906ef9136700601f34b51f720d3fc50d96ad04b578dcafa041c4d9"
-    sha256 cellar: :any,                 arm64_ventura:  "90bd56b74f11074cc420af7df33a15435cd46071eabaad0c7c081b7a225b83ae"
-    sha256 cellar: :any,                 arm64_monterey: "2bc48e662bd411bdaf258a34e214b00b6ee80f60904c8d846472610b798cbe67"
-    sha256 cellar: :any,                 sonoma:         "fa9d38135e6b10cdfeec2a55a259a936ba7fb8468ec91ab952edef37d46fdec2"
-    sha256 cellar: :any,                 ventura:        "e0d758881ed2de967484c0ab5ddf5bf815af8beed5c7cb52b5d434b1e762ee18"
-    sha256 cellar: :any,                 monterey:       "c68a03087991b70830a1d0fe79fdb7886767841335aebbee7060d8faf6e7f7ce"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "94609cf0c6e13e921c0a8237a992ba1ed6ea556a0e3a5db7ce6c306da807f092"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce9af040a2bc16c10f0752d4d78261753b076986d4b5a7ee420a8cca72b46cd1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28112f82cc9e0e627462d3a4b5d882ac36e00ca7367a9a367dc15b5d7dfc95c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a31d530c9667f15046ad54b617056fe121a9eec4f7b24749207b8b6e84f9083"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d670cf96b00bf5497c822bf2b7f0aef8c1b23cec45692a37bb2c61e3fedc0c0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a2707abfb8d0b3cf9744d495661c47a3ff3fc0bf16cbbc09311ccd462dc54c9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f3f3290fda284e7b8e04d5c64ee3a06b06048b37c1f7399a3374ac033c3d5f74"
+    sha256 cellar: :any_skip_relocation, ventura:       "f85d235e221af43b55ab85384aa5f4e3799d5cd73c8bf54e41cf1d0cae93464f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dd712b046cc8a9d3b6707582ab3a2d309b71c534617828cb8eca95e8a56905f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "624fbdcd4889624e1c1da350a4433335234d25bf861686bcf4736e5f4315ee0b"
   end
 
   head do
@@ -30,15 +30,22 @@ class BulkExtractor < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
-  depends_on "re2"
+  # Not actually used at runtime, but required at build-time
+  # due to a stray `RE2::` reference.
+  depends_on "re2" => :build
 
   uses_from_macos "flex" => :build
   uses_from_macos "expat"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "openssl@3" # uses CommonCrypto on macOS
+  end
+
   def install
+    # Avoid overlinkage with abseil and re2.
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac?
     system "./bootstrap.sh" if build.head?
     # Disable RAR to avoid problematic UnRAR license
     system "./configure", *std_configure_args, "--disable-rar", "--disable-silent-rules"

@@ -4,13 +4,37 @@ class VirtManager < Formula
 
   desc "App for managing virtual machines"
   homepage "https://virt-manager.org/"
-  url "https://releases.pagure.org/virt-manager/virt-manager-5.0.0.tar.xz"
-  sha256 "bc89ae46e0c997bd754ed62a419ca39c6aadec27e3d8b850cea5282f0083f84a"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
+  stable do
+    url "https://releases.pagure.org/virt-manager/virt-manager-5.1.0.tar.xz"
+    sha256 "ccfc44b6c1c0be8398beb687c675d9ea4ca1c721dfb67bd639209a7b0dec11b1"
+
+    # Backport support for etree rather than deprecated libxml2 python bindings
+    # Ref: https://github.com/virt-manager/virt-manager/pull/983
+    patch do
+      url "https://github.com/virt-manager/virt-manager/commit/d4988b02efb8bba91fd55614fbbff11b3a915d44.patch?full_index=1"
+      sha256 "fc1daaf8440b01600b0297384f5bdd1cda654aaee958ce3fcd27d79c6b2d9ffb"
+    end
+    patch do
+      url "https://github.com/virt-manager/virt-manager/commit/ff9fa95e52f890ccd8dce18567aa7cc30582ca4f.patch?full_index=1"
+      sha256 "5ae4ce21b65cf77fa9511bae70799bd3c1890ab15a31372491662a7dc186df4f"
+    end
+    patch do
+      url "https://github.com/virt-manager/virt-manager/commit/d0372e82c8b6fe6b5517d850a81847422c861446.patch?full_index=1"
+      sha256 "5084650b38527f8bac3f2ea803b81f1a49ecf51cb461c3ad7088ec9f90845dae"
+    end
+    patch do
+      url "https://github.com/virt-manager/virt-manager/commit/766bf2ecdc5ac6853b41a36412d09c1950c700bf.patch?full_index=1"
+      sha256 "24deb9287b86caaac7eaea7d5dff145c0686bbc32ccb6952a8a0d4b0c6d3adeb"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "83397ecb04b719a262ba0d0b06a0a7561598de290647b16fce11ed3e64a7fa9c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2d4c414f5d463facecd2891e7cd47eeba3d2a1ac28e0d6a8c6a8551cacd86fbd"
   end
 
   depends_on "docutils" => :build
@@ -19,25 +43,28 @@ class VirtManager < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "certifi"
+  depends_on "certifi" => :no_linkage
   depends_on "cpio"
   depends_on "gtk-vnc"
   depends_on "gtksourceview4"
   depends_on "libosinfo"
   depends_on "libvirt-glib"
-  depends_on "libvirt-python"
-  depends_on "libxml2" # can't use from macos, since we need python3 bindings
+  depends_on "libvirt-python" => :no_linkage
   depends_on :macos
   depends_on "osinfo-db"
-  depends_on "py3cairo"
-  depends_on "pygobject3"
-  depends_on "python@3.13"
+  depends_on "py3cairo" => :no_linkage
+  depends_on "pygobject3" => :no_linkage
+  depends_on "python@3.14"
   depends_on "spice-gtk"
   depends_on "vte3"
 
+  pypi_packages package_name:     "",
+                exclude_packages: "certifi",
+                extra_packages:   "requests"
+
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "idna" do
@@ -46,17 +73,17 @@ class VirtManager < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
-    python3 = "python3.13"
+    python3 = "python3.14"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
@@ -88,6 +115,7 @@ class VirtManager < Formula
       exec bin/"virt-manager", "-c", "test:///default", "--debug"
     end
     sleep 20
+    sleep 10 if OS.mac? && Hardware::CPU.intel?
 
     assert_match "conn=test:///default changed to state=Active", output.read
   ensure

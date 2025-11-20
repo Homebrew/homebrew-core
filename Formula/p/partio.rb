@@ -1,23 +1,22 @@
 class Partio < Formula
   desc "Particle library for 3D graphics"
   homepage "https://github.com/wdas/partio"
-  url "https://github.com/wdas/partio/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "128913266a88a0939aaa4bc951ae4d4da1c380408bcc0ea9e7f526556afeaad0"
+  url "https://github.com/wdas/partio/archive/refs/tags/v1.19.2.tar.gz"
+  sha256 "b59fbc8e64561368f0e2f94ae2f3f2083babfc32ff7ae97e833ab15df4588ade"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d590d5b336289ccc4cd9f862c647d95bbd69f338667fe20b7919b85aaa0be0cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "915f63605c761393c849667661d157e7dea78ad590877de5b5bac17e94c746a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b11218fc52dd89ebea09525a28d6c545598962faf5b9faf63607c357944fcc5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "95b4c5061132adf97267f3a52c0a35476124df0f40ad54c93d7e0c141605277f"
-    sha256 cellar: :any_skip_relocation, ventura:       "7300f161aaa679f5798b6a8bab305da1a22777b5a17e6a07ee7e4d2b750ba93e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5866cdd8c7d761d3cacdea80dc76cf177dc986e9b0b2e2518b2d325b2b556a76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5376a76f425c703390142d15aec36b56a8b14cd9ef133abca229838a377c238c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "771ec48251036ec659478ba8b03a2de0b54ead6cff8d36a6920da1f43e8f4ff2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5dcbd5bc580c7eb2e01783c5c1ea25133425064192e4769cd81708c4f34339f4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70e9c354c6cc6a88cb4cdf27ba401ef8b462f93c22db7e62eb8791bad8532fa3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb25df793e344f0df541ed08703703ceb5cdcc0c5a2052eba0689a842a088ae3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f776a69509e4f29643c21de169385952823e7edb84241b4e4d99bcb27d544604"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58407db08bb0d50611a1621f82bf0a2dbde8f3415fe0e6f979f6eb492a72d205"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "zlib"
 

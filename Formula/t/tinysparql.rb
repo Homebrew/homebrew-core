@@ -1,9 +1,10 @@
 class Tinysparql < Formula
   desc "Low-footprint RDF triple store with SPARQL 1.1 interface"
   homepage "https://tinysparql.org/"
-  url "https://download.gnome.org/sources/tinysparql/3.9/tinysparql-3.9.2.tar.xz"
-  sha256 "14ce039024135e181022bcce4b1aad2e00377dd9c7d812b98391ccfc756dad8e"
+  url "https://download.gnome.org/sources/tinysparql/3.10/tinysparql-3.10.1.tar.xz"
+  sha256 "5a7f3e789db6671a550ed6280ed4f60a60bea77368da92be68dc7d8d7e230265"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 2
   head "https://gitlab.gnome.org/GNOME/tinysparql.git", branch: "main"
 
   # TinySPARQL doesn't follow GNOME's "even-numbered minor is stable" version
@@ -15,8 +16,12 @@ class Tinysparql < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "ad70717895214c5cc08d5998cae06f2cd4f7701fff5f12aee9dbda5e094c11b2"
-    sha256 x86_64_linux: "c1ad67b48f79ec4f893d00e2232225a15f60d1ef7af281f7dbcb334c0797c79e"
+    sha256 arm64_tahoe:   "845cd93f5a701ab4297653c6ef23b242f5a2f4a820f8d61a26c06f2f4e570d5f"
+    sha256 arm64_sequoia: "12534910709b1fc55e9b24854f918b6313da54fa04d9fdd64d4064f2d5e14301"
+    sha256 arm64_sonoma:  "1346694737ed77c3df31cdd8311667510289a56237f0d0aa2383fce61cf32bce"
+    sha256 sonoma:        "b9b30ec6e30f93fabd4b834821daed5ef87d0f4c20cc9ce7b660f7899eab4581"
+    sha256 arm64_linux:   "fd75e5b220b81b87cdd19bf356eab55984992e3327b0dd885a818a9af332d654"
+    sha256 x86_64_linux:  "af5e3d9e4f303698993dde336842e0dd37afc08f701ae88ca86c51693265cc25"
   end
 
   depends_on "gettext" => :build
@@ -28,14 +33,16 @@ class Tinysparql < Formula
 
   depends_on "dbus"
   depends_on "glib"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "json-glib"
   depends_on "libsoup"
-  depends_on "libxml2"
-  depends_on :linux # macOS fatal error: 'gio/gdesktopappinfo.h' file not found
   depends_on "sqlite"
 
-  conflicts_with "tracker", because: "both install the same libraries"
+  uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     args = %w[

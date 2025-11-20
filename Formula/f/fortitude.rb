@@ -1,25 +1,26 @@
 class Fortitude < Formula
   desc "Fortran linter"
   homepage "https://fortitude.readthedocs.io/en/stable/"
-  url "https://github.com/PlasmaFAIR/fortitude/archive/refs/tags/v0.7.3.tar.gz"
-  sha256 "caf5148a20a433e8031fbb875465648ca7a918fd975dd704249e41d7a98bafe6"
+  url "https://github.com/PlasmaFAIR/fortitude/archive/refs/tags/v0.7.5.tar.gz"
+  sha256 "a481dddcee5a680bb67ecad745d6378daa1f4166a2e4a7421af1f6a4ef8006c1"
   license "MIT"
   head "https://github.com/PlasmaFAIR/fortitude.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed2b0286e104580fbf915dd75496887b73dfbc88655b8e2e5f0821f8cacaf22c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8483c2d3e04ac4b51a5b93bc240e2d705787c3124cb72a51ba3c06083728bbf4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fd5779fad276c55e617f17b25eb9f65f373065904f9ff6e1449d667c4a066c21"
-    sha256 cellar: :any_skip_relocation, sonoma:        "61ecad6849848b886b9f329ef9181698353451e449d0b1fb55eca8df12fae2fe"
-    sha256 cellar: :any_skip_relocation, ventura:       "c8d4eb7505ef1419e13bea9d8ba4545da5cf77623d592dccedb18783abb041c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "45f26b0cce1726051a7e9190bcab48c032aca7c26536e97f98751ca6cdf37221"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ef4e870c67cbba08a4e9a8a913521a2280f832adcb538e48937404d1b804a3e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "994bab0e0fd618a49eeeb95500e014fff83538cbe39e2844887964aeaa35bd5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a5261ab43b9f13b89ba6085b78fc782c71d903807e99e34b73b2d6269bb3a81"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9207d2491adac6654625b004bf7b2b6b2eb98445ce814d215352201fe6278d8a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8296b1ccbad4712c34b78085396fb16d89ac9d9ff075d0d53ae5c53dbae89226"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83ea9ee30e9892d3c7c2dd823037d2dbb820155918939ececb459f733c8e04f5"
+    sha256 cellar: :any_skip_relocation, ventura:       "ae72fa4a996c6fca4927fa051c4d4d34a946b7a72b4f994fe25ef5a652a077b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "360fcdd5b086ee8815b6e52b96b199fd115b67236ad8ecd47b103a84054216cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb1bafe5a28c4730f556282b779d5318ad2efcd04db555e6ba610e2ff2cf18c3"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "fortitude")
+    system "cargo", "install", *std_cargo_args(path: "crates/fortitude")
   end
 
   test do

@@ -1,8 +1,8 @@
 class PerconaServerAT80 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.40-31/source/tarball/percona-server-8.0.40-31.tar.gz"
-  sha256 "1318670d8e176c24df74019f748f5f233e2787f865dd3d41d61790ab5a772c4e"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.43-34/source/tarball/percona-server-8.0.43-34.tar.gz"
+  sha256 "4469b5e3873559f366eb632c7c231e01aa700c1b9c13cce869085dbe1ec9203e"
   license "BSD-3-Clause"
   revision 3
 
@@ -20,14 +20,15 @@ class PerconaServerAT80 < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia: "32768a4fd0fe75e7a288731d9a3a1789548cbc6091f95a55cd068ea589340e27"
-    sha256 arm64_sonoma:  "d209d4ad284ebc053169ab6f615ef487eaeedb76b17b8a71d77e8821dfe3bf75"
-    sha256 arm64_ventura: "0c920c59d823d73888e88abc3102626ab4574422f71a391428d2e18b198d5008"
-    sha256 sonoma:        "450c309327f0a71240e8b6c54bd561749a930d662343e002ddde4eadc982154d"
-    sha256 ventura:       "d289a66cdfd3de7ed9f87d98dda41ebeba1dc18ac8223604b92e122ccd37d8e0"
-    sha256 arm64_linux:   "558a1988053cb70145a837ca6b62fe99396a02f4191a2801c7c5ddde6da00bb4"
-    sha256 x86_64_linux:  "5614bdeb9028553c82137264547db91e208c016ad98c2796eb703c8f66959848"
+    sha256 arm64_tahoe:   "80a06fd34389260083c3a1dcdf3699e78a60a5bc4400fa7c3aa8942073b5cfe3"
+    sha256 arm64_sequoia: "ee1dab0d6b4b49a928bb804b7fff117ce3b8eeeb11fe1733a719201041c2ffc5"
+    sha256 arm64_sonoma:  "52f9735a24cc72270265d41e77a7ccbe7a0515bbca1f8487f6ee00a0bf19acf6"
+    sha256 sonoma:        "3792f0b23efbe3089029a3f364f6bf3314d328d8aafdfb5fe9512acf8b734798"
+    sha256 arm64_linux:   "ddcb1884192244b6294237e6a6e58d3c656f1ffc00bb1f0c88484594f685061b"
+    sha256 x86_64_linux:  "9454cce5b46509601a526fd9f8fc2feae16bcf1d832dd54d3eaceefd7b844964"
   end
 
   keg_only :versioned_formula
@@ -36,13 +37,13 @@ class PerconaServerAT80 < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
   depends_on "openssl@3"
-  depends_on "protobuf@29"
+  depends_on "protobuf"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -56,12 +57,6 @@ class PerconaServerAT80 < Formula
     depends_on "libtirpc"
   end
 
-  # https://github.com/percona/percona-server/blob/8.0/cmake/os/Darwin.cmake
-  fails_with :clang do
-    build 999
-    cause "Requires Apple Clang 10.0 or newer"
-  end
-
   # https://github.com/percona/percona-server/blob/Percona-Server-#{version}/cmake/boost.cmake
   resource "boost" do
     url "https://downloads.sourceforge.net/project/boost/boost/1.77.0/boost_1_77_0.tar.bz2"
@@ -73,14 +68,6 @@ class PerconaServerAT80 < Formula
     end
   end
 
-  # Patch out check for Homebrew `boost`.
-  # This should not be necessary when building inside `brew`.
-  # https://github.com/Homebrew/homebrew-test-bot/pull/820
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/030f7433e89376ffcff836bb68b3903ab90f9cdc/mysql/boost-check.patch"
-    sha256 "af27e4b82c84f958f91404a9661e999ccd1742f57853978d8baec2f993b51153"
-  end
-
   # Fix for system ssl add_library error
   # Issue ref: https://perconadev.atlassian.net/jira/software/c/projects/PS/issues/PS-9641
   patch do
@@ -88,12 +75,16 @@ class PerconaServerAT80 < Formula
     sha256 "d4afcdfb0dd8dcb7c0f7e380a88605b515874628107295ab5b892e8f1e019604"
   end
 
-  # Backport fix for CMake 4.0
+  # Apply MySQL commit to support Protobuf >= 30
   patch do
-    url "https://github.com/Percona-Lab/coredumper/commit/715fa9da1d7958e39d69e9b959c7a23fec8650ab.patch?full_index=1"
-    sha256 "632a6aff4091d9cbe010ed600eeb548ae7762ac7e822113f9c93e3fef9aafb4f"
-    directory "extra/coredumper"
+    url "https://github.com/mysql/mysql-server/commit/4c1fdd1fb34a9a80a062357a54afe134a92f8abc.patch?full_index=1"
+    sha256 "8943cf092d31f2ed788f9a86b11b27973ec310d53718f15f6d2dac618696e1a3"
   end
+
+  # Patch out check for Homebrew `boost`.
+  # This should not be necessary when building inside `brew`.
+  # https://github.com/Homebrew/homebrew-test-bot/pull/820
+  patch :DATA
 
   def datadir
     var/"mysql"
@@ -103,7 +94,9 @@ class PerconaServerAT80 < Formula
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
     # `lz4` is still needed due to xxhash.c used by mysqlgcs
-    keep = %w[coredumper duktape libkmip lz4 opensslpp rapidjson robin-hood-hashing unordered_dense]
+    # FIXME: Try to get rid of these other bundled libraries.
+    keep = %w[coredumper duktape libkmip lz4 opensslpp rapidjson robin-hood-hashing unordered_dense
+              xxhash libbacktrace]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
     (buildpath/"boost").install resource("boost")
 
@@ -166,7 +159,10 @@ class PerconaServerAT80 < Formula
       # For Linux, disable failing on warning: "Setting thread 31563 nice to 0 failed"
       # Docker containers lack CAP_SYS_NICE capability by default.
       test_args << "--nowarnings" if OS.linux?
-      system "./mysql-test-run.pl", "status", *test_args
+      system "./mysql-test-run.pl", "check", *test_args
+    ensure
+      status_log_file = buildpath/"mysql-test-vardir/log/main.status/status.log"
+      logs.install status_log_file if status_log_file.exist?
     end
 
     # Remove the tests directory
@@ -193,6 +189,14 @@ class PerconaServerAT80 < Formula
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
 
+    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
+      opoo <<~EOS
+
+        A "#{my_cnf}" from another install may interfere with a Homebrew-built
+        server starting up correctly.
+      EOS
+    end
+
     # Don't initialize database, it clashes when testing other MySQL-like implementations.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
@@ -204,7 +208,7 @@ class PerconaServerAT80 < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       We've installed your MySQL database without a root password. To secure it run:
           mysql_secure_installation
 
@@ -213,14 +217,6 @@ class PerconaServerAT80 < Formula
       To connect run:
           mysql -u root
     EOS
-    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
-      s += <<~EOS
-
-        A "#{my_cnf}" from another install may interfere with a Homebrew-built
-        server starting up correctly.
-      EOS
-    end
-    s
   end
 
   service do
@@ -264,3 +260,41 @@ class PerconaServerAT80 < Formula
     end
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 22fa212..ad5f90e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1927,31 +1927,6 @@ MYSQL_CHECK_RAPIDJSON()
+ MYSQL_CHECK_FIDO()
+ MYSQL_CHECK_FIDO_DLLS()
+ 
+-IF(APPLE)
+-  GET_FILENAME_COMPONENT(HOMEBREW_BASE ${HOMEBREW_HOME} DIRECTORY)
+-  IF(EXISTS ${HOMEBREW_BASE}/include/boost)
+-    FOREACH(SYSTEM_LIB ICU LIBEVENT LZ4 PROTOBUF ZSTD FIDO)
+-      IF(WITH_${SYSTEM_LIB} STREQUAL "system")
+-        MESSAGE(FATAL_ERROR
+-          "WITH_${SYSTEM_LIB}=system is not compatible with Homebrew boost\n"
+-          "MySQL depends on ${BOOST_PACKAGE_NAME} with a set of patches.\n"
+-          "Including headers from ${HOMEBREW_BASE}/include "
+-          "will break the build.\n"
+-          "Please use WITH_${SYSTEM_LIB}=bundled\n"
+-          "or do 'brew uninstall boost' or 'brew unlink boost'"
+-          )
+-      ENDIF()
+-    ENDFOREACH()
+-  ENDIF()
+-  # Ensure that we look in /usr/local/include or /opt/homebrew/include
+-  FOREACH(SYSTEM_LIB ICU LIBEVENT LZ4 PROTOBUF ZSTD FIDO)
+-    IF(WITH_${SYSTEM_LIB} STREQUAL "system")
+-      INCLUDE_DIRECTORIES(SYSTEM ${HOMEBREW_BASE}/include)
+-      BREAK()
+-    ENDIF()
+-  ENDFOREACH()
+-ENDIF()
+-
+ IF(WITH_AUTHENTICATION_FIDO OR WITH_AUTHENTICATION_CLIENT_PLUGINS)
+   IF(WITH_FIDO STREQUAL "system" AND
+     NOT WITH_SSL STREQUAL "system")

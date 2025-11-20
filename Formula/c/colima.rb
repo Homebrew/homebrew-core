@@ -2,8 +2,8 @@ class Colima < Formula
   desc "Container runtimes on MacOS (and Linux) with minimal setup"
   homepage "https://github.com/abiosoft/colima/blob/main/README.md"
   url "https://github.com/abiosoft/colima.git",
-      tag:      "v0.8.1",
-      revision: "96598cc5b64e5e9e1e64891642b91edc8ac49d16"
+      tag:      "v0.9.1",
+      revision: "0cbf719f5409ce04b9f0607b681c005d2ff7d94a"
   license "MIT"
   head "https://github.com/abiosoft/colima.git", branch: "main"
 
@@ -13,12 +13,12 @@ class Colima < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8601f3bf93ac2f20626a12f4d068cddec17a742b43baba7f51083457fd7b16f5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bc95ca149e76289730810f8a336afceef043a81b8831d4ab1d4747189e7973c3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c7be1109ae77f76148c8520fcdfc4b1b391d0ce6508e2d2befc1458c40259f6d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "50adcb716f3c2709df01409e6f6d337219935882fe07e95bd17410066dd5af59"
-    sha256 cellar: :any_skip_relocation, ventura:       "d92924d1e207780a5ae559f2949a9a5cdb6620ab6edefe9d659e92c51696b0cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b97ac7a0e415387837cb91ec365186722ab18ce5d3f1e9ef01819c07a3f9e90"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a7f242382c46be1f99eddc585491ea078110f1e6e9e07b7f1f12fd0dd2460bb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7625efabf5dfe6080f76b2af352aabe20a0722b9884d8f5b14bc4a9f5ab586eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bfd91649e2535ca35ea4f40beac828631a028e9e5e7a869df3ae7a124100e61b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fcd7375b90de4cf308fcb89f7a542fd947b43e4703eb4c268c7b75f7e0003524"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5314fdeb1945dd23572eb317918b1a11c62452bcbe23e0d7270a5a67abea38d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ba50c768eb2d2f6cccec94cf3d784aad48848dd9544ee7a25a7a1be269e22f8"
   end
 
   depends_on "go" => :build

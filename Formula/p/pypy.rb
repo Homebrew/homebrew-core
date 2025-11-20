@@ -1,8 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.19-src.tar.bz2"
-  sha256 "8703cdcb01f9f82966dd43b6a6018f140399db51ebb43c125c1f9a215e7bb003"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.20-src.tar.bz2"
+  sha256 "bf958498445f7bf78338723c8d86bd6711e8792461725d2481df77a9566a3e62"
   license "MIT"
   head "https://github.com/pypy/pypy.git", branch: "main"
 
@@ -12,13 +12,14 @@ class Pypy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "58bb108411e8647d3dd78869113ae11b982b243785136d876c9181a8e1d35132"
-    sha256 cellar: :any,                 arm64_sonoma:  "04f649d0679c90024d9c74bada227b201e119d427a30c0221ae1569e5cd78501"
-    sha256 cellar: :any,                 arm64_ventura: "bd4c3f56ba5df8881c381dde593ea05084fc2aed6aeaf023700f1e62d84666e1"
-    sha256 cellar: :any,                 sonoma:        "731e075bdfe1a731a2f95731def57dc4effc35a9eff413b9710874996d24cc38"
-    sha256 cellar: :any,                 ventura:       "1c0d7f23afe5b128b2be5c93af7c22dab16af4c76bd8fac5626050b5223e099c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e428e5396ea79feeedc99e1a753b6af06d7bed608bcf432633c550345158a603"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3eb0b648e17940b5e7c4bbb7f5c04ad0cee9bdfab7f7585a384dedd53c027329"
+    sha256 cellar: :any,                 arm64_tahoe:   "fe02ce959245ac0b015c388b1c86a542ae9d873a26c8c577cef72e55141747ed"
+    sha256 cellar: :any,                 arm64_sequoia: "46e4b322006b665c0e5d7f5d99dc14ed77456a815c52d3f61fc4bb31cb9ed4ee"
+    sha256 cellar: :any,                 arm64_sonoma:  "2eec3f57f8559d7f294bb0bba5f4ccc15481688e7bb08ae9ef55b4424eca489f"
+    sha256 cellar: :any,                 arm64_ventura: "3c743dd76590b1f95e0c13bc1448731cbeae3d5dcb3c6aa9c6ef98eb683873e9"
+    sha256 cellar: :any,                 sonoma:        "bb2157324648efdf4ac18d98f2222bda06a5cec3864997d5bc83df36784d003f"
+    sha256 cellar: :any,                 ventura:       "d734256266802ccafb1555fab97e36f15d48d68de1316efe217a1df638fb567a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "db99059aacdb6edfd8bb74e19ed4c495d3acdb5f561572156cf01a9b32164e5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4c768850fbb4013133edcf053c1d11d3250255f52c2dba0ef2f491e181b06dd"
   end
 
   depends_on "pkgconf" => :build
@@ -74,7 +75,10 @@ class Pypy < Formula
   # Build fixes:
   # - Disable Linux tcl-tk detection since the build script only searches system paths.
   #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/pypy/tcl-tk.diff"
+    sha256 "d17725c11842d83b5432312348715241b1b402173cd68166620c1b6bd8162fbd"
+  end
 
   def install
     # Work-around for build issue with Xcode 15.3
@@ -214,25 +218,3 @@ class Pypy < Formula
     system scripts_folder/"pip", "list"
   end
 end
-
-__END__
---- a/lib_pypy/_tkinter/tklib_build.py
-+++ b/lib_pypy/_tkinter/tklib_build.py
-@@ -17,7 +17,7 @@ elif sys.platform == 'win32':
-     incdirs = []
-     linklibs = ['tcl86t', 'tk86t']
-     libdirs = []
--elif sys.platform == 'darwin':
-+else:
-     # homebrew
-     homebrew = os.environ.get('HOMEBREW_PREFIX', '')
-     incdirs = ['/usr/local/opt/tcl-tk/include']
-@@ -26,7 +26,7 @@ elif sys.platform == 'darwin':
-     if homebrew:
-         incdirs.append(homebrew + '/include')
-         libdirs.append(homebrew + '/opt/tcl-tk/lib')
--else:
-+if False: # disable Linux system tcl-tk detection
-     # On some Linux distributions, the tcl and tk libraries are
-     # stored in /usr/include, so we must check this case also
-     libdirs = []

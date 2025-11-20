@@ -6,38 +6,40 @@ class Bazarr < Formula
   url "https://github.com/morpheus65535/bazarr/releases/download/v1.5.2/bazarr.zip"
   sha256 "63519d9855e5b84c947b18d72fa36dfa9341a040879d1079bfde2fabfe8ab30e"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/morpheus65535/bazarr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a970f6f5dc0730e20ca59176874c7ec1abe7a8433a897bd0e642eba8a951c00"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "203e8edb199ebd6050879d45b5dca2e37baa282b8e48dbcf6f3c1b8269ec05ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "12bf4455d2154c9fcc5f719a321bda609ee2610a5a897384230ba8918865e024"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e7bd2789e41974a78525fb2ed9e4f384b9c337977652375b22b9cc87b974f7ca"
-    sha256 cellar: :any_skip_relocation, ventura:       "2d822e4808509bc37dfc0ec0ef20dbd49bbc9d74eda582b31b1beeac80f2a9e1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b43a4b85eaa37c9e87a5d5ac1b0b4ff729aff6d4bd3c583958056c5fba741a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61178b07eb006f26c6a92ebad8daf2da402070d91d0dd54a54705dd592674d3b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "280d7f21274ef211e8cf910eb6b75543742bd2cb75277c3eaa29f852fcb8284a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3118dd4a74161ef8752c9e5ee55ac95d81504858e697b14e40b9030907ab01b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ff3c21d66b660bbe256035a7bb9c55e4688beb08799a1289f19758185d88761"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6c6ed4b1bfa50dd33fcdc32c2b354c4a97d9a8b54b661d0ca9aec099dbef64f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eaa66d3244da0df7374e603c8bbcbaf95fefbb10d7c617c5071ea187ae20278c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78cb9837b2adc294bfb7aa9fd66dfefb85d2b548d960d439debe2b9cd315db9b"
   end
 
   depends_on "node" => :build
   depends_on "ffmpeg"
-  depends_on "gcc"
   depends_on "numpy"
-  depends_on "pillow"
-  depends_on "python@3.12" # Python 3.13 issue (closed w/o fix): https://github.com/morpheus65535/bazarr/issues/2803
+  depends_on "pillow" => :no_linkage
+  depends_on "python@3.14"
   depends_on "unar"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
 
+  pypi_packages package_name:   "",
+                extra_packages: ["lxml", "setuptools", "webrtcvad-wheels"]
+
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/76/3d/14e82fc7c8fb1b7761f7e748fd47e2ec8276d137b6acfe5a4bb73853e08f/lxml-5.4.0.tar.gz"
-    sha256 "d12832e1dbea4be280b22fd0ea7c9b87f0d8fc51ba06e92dc62d52f804f78ebd"
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/95/32/0cc40fe41fd2adb80a2f388987f4f8db3c866c69e33e0b4c8b093fdf700e/setuptools-80.4.0.tar.gz"
-    sha256 "5a78f61820bc088c8e4add52932ae6b8cf423da2aff268c23f813cfbb13b4006"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "webrtcvad-wheels" do
@@ -46,7 +48,7 @@ class Bazarr < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install resources
 
     if build.head?
@@ -67,9 +69,9 @@ class Bazarr < Formula
     inreplace "bazarr.py", "def get_python_path():", "def get_python_path():\n    return sys.executable"
 
     libexec.install Dir["*"]
-    (bin/"bazarr").write_env_script venv.root/"bin/python", libexec/"bazarr.py",
+    (bin/"bazarr").write_env_script venv.root/"bin/python", "#{libexec}/bazarr.py",
       NO_UPDATE:  "1",
-      PATH:       "#{Formula["ffmpeg"].opt_bin}:#{HOMEBREW_PREFIX/"bin"}:$PATH",
+      PATH:       "#{Formula["ffmpeg"].opt_bin}:#{HOMEBREW_PREFIX}/bin:${PATH}",
       PYTHONPATH: venv.site_packages
 
     pkgvar = var/"bazarr"
@@ -80,18 +82,12 @@ class Bazarr < Formula
     cp Dir[libexec/"data/config/*"], pkgetc
 
     libexec.install_symlink pkgvar => "data"
-  end
 
-  def post_install
-    pkgvar = var/"bazarr"
-
-    config_file = pkgetc/"config.ini"
-    unless config_file.exist?
-      config_file.write <<~INI
-        [backup]
-        folder = #{pkgvar}/backup
-      INI
-    end
+    (buildpath/"config.ini").write <<~INI
+      [backup]
+      folder = #{pkgvar}/backup
+    INI
+    pkgetc.install "config.ini"
   end
 
   service do

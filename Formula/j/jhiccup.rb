@@ -21,7 +21,7 @@ class Jhiccup < Formula
     bin.install "jHiccup", "jHiccupLogProcessor"
 
     # Simple script to create and open a new plotter spreadsheet
-    (bin+"jHiccupPlotter").write <<~EOS
+    (bin/"jHiccupPlotter").write <<~EOS
       #!/bin/sh
       TMPFILE="/tmp/jHiccupPlotter.$$.xls"
       cp "#{prefix}/jHiccupPlotter.xls" $TMPFILE

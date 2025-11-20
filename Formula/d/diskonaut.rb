@@ -9,6 +9,7 @@ class Diskonaut < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "46ddaf75fd4b61414cb76fa4ac54aabb931aac13253e52e68888852468c14ede"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "519af087c51cd668213e975d31f7da4255f12c7be476a81ceb4bb448404c2286"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae7e9d12dc33dcb7424f760021b2e85168f349771f81e48fe8ef6dc747738d1c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c286351912c9d217e5c1d5cce7ee3222d3b55558f114cc59f50c98f56ff0d2b9"

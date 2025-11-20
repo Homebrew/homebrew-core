@@ -7,6 +7,7 @@ class Oranda < Formula
   head "https://github.com/axodotdev/oranda.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "e17f884c4cddb137cd57345777732a9e94a156c6273ac37ce16ad7a463d20901"
     sha256 cellar: :any,                 arm64_sequoia: "6355b74d463dc310169e38b54bd9faa4a957426aefcbb4457310208c4db98c81"
     sha256 cellar: :any,                 arm64_sonoma:  "d62d7a6ea26f3d47824cf8925c0b1ffe790f7bb22c989f4e2bdefaed2a044ea6"
     sha256 cellar: :any,                 arm64_ventura: "50de4218c89b00ec55016d6af55f0c1781888a7d516cf0b61d848f825a6651f8"

@@ -1,18 +1,20 @@
 class Tfmv < Formula
   desc "CLI to rename Terraform resources and generate moved blocks"
   homepage "https://github.com/suzuki-shunsuke/tfmv"
-  url "https://github.com/suzuki-shunsuke/tfmv/archive/refs/tags/v0.2.6.tar.gz"
-  sha256 "67bb684c723d2abdfd0ecfbce030503e05940103305ee131c6b4da64f86c84b9"
+  url "https://github.com/suzuki-shunsuke/tfmv/archive/refs/tags/v0.2.8.tar.gz"
+  sha256 "c2ae0d1c0bb5d0d7cdbb256f8a784753df5c2f9e1175e91449849efe5a7e668f"
   license "MIT"
   head "https://github.com/suzuki-shunsuke/tfmv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17ed9dfd157233dfd46b51ab27d61dfe27ac116f5a69c1c1c1cfdcf4188b5c79"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17ed9dfd157233dfd46b51ab27d61dfe27ac116f5a69c1c1c1cfdcf4188b5c79"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "17ed9dfd157233dfd46b51ab27d61dfe27ac116f5a69c1c1c1cfdcf4188b5c79"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8b9ce03dd144442551b098971829eef99e9baaf5248f4b2c5aa6a9bfa32199ff"
-    sha256 cellar: :any_skip_relocation, ventura:       "8b9ce03dd144442551b098971829eef99e9baaf5248f4b2c5aa6a9bfa32199ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37da63bcd510112e2ccfbdf666bb12b1f741ef1de37afda965510bfedac63b7f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "068e9b03ab71694280924d8badc57117372b569947727d31be1752343f40d524"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "04674f9a20ae847e01db7ff8f04cbf24daa3b41bed2ce646830804c2843493f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "04674f9a20ae847e01db7ff8f04cbf24daa3b41bed2ce646830804c2843493f5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "04674f9a20ae847e01db7ff8f04cbf24daa3b41bed2ce646830804c2843493f5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9cc0e643c4f038d1a84e0366ebeceb14d52dcdc7c68941a2da84257098bcfc4c"
+    sha256 cellar: :any_skip_relocation, ventura:       "9cc0e643c4f038d1a84e0366ebeceb14d52dcdc7c68941a2da84257098bcfc4c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60fdec9de2f834f8cf0eabd9dfc59cbe2258863efa75bd42928dd9fb17bd9a7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43eff6cba1a9ceb6e4896c71b7924740f0354ad148eb2379208e6d0a3418fb95"
   end
 
   depends_on "go" => :build

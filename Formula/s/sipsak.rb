@@ -5,8 +5,11 @@ class Sipsak < Formula
   sha256 "c6faa022cd8c002165875d4aac83b7a2b59194f0491802924117fc6ac980c778"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "37a5656c10f93d897736172dcbd077d323c3c6924f28cf88c8cfd70adbe4443f"
     sha256 cellar: :any,                 arm64_sequoia:  "fc163d012b766abeb36447d0077a3711ba87868aafaee12c1ddd4a68e8e650af"
     sha256 cellar: :any,                 arm64_sonoma:   "267cd68ed07f710be35f79c815be4d80af199a7409d97f3dab329cc23ce124f9"
     sha256 cellar: :any,                 arm64_ventura:  "fdf8e854dbe1034dbf7a71760e4246bc6550a322954888fd0673284eedfcbe55"

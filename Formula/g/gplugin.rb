@@ -15,13 +15,13 @@ class Gplugin < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "09e5e444bf267a554d99cbc4c49ae715f4394d394a89262198d5b9235adf0eb4"
-    sha256 arm64_sonoma:  "4bd6796d1074b0eed0f3e246359c0b2987da4bd4b1f9f3925276b0691a64c6b5"
-    sha256 arm64_ventura: "21e131faa33611a69519060d2433b4ca1d88f3901da4751eda61fcb79b0e2e8a"
-    sha256 sonoma:        "71372c15d4e29b7d3fced3398e787b2ecd7ef3195d4c6322188061d39b1c1989"
-    sha256 ventura:       "de97051eecd1d1afd97940320e6bc0211ea5925d6eaaa9566b5b8ef6e5a7d8ad"
-    sha256 arm64_linux:   "1ef59efaa287d5797c00b02c5cca61d55f369e21f9d1aca442927057f516813c"
-    sha256 x86_64_linux:  "c4c052010de643592350835459ec790cbb2938b29743169bc4f51bc42b430e62"
+    rebuild 1
+    sha256 arm64_tahoe:   "1467d4fde4bc7c78346be7deb8b19f52e9156a61e8ea10b1a4fa039655b91b5d"
+    sha256 arm64_sequoia: "8dff32d0e5254a4294dd37bebb9a0a0509dbf43c4c561e5a284658ea494f464a"
+    sha256 arm64_sonoma:  "b56fe145940fef1e132fba6fdc4ebf539e6c012f24db6750565bbee7d1612e91"
+    sha256 sonoma:        "953a1cb35fa6b589eb49ea1f4edb1215589dccf2300aaa1f2e03d8cd1a70106f"
+    sha256 arm64_linux:   "97dc4205707191b92658c1f032bd9ab0da11e22c2ca01595a21c09cac788f0b3"
+    sha256 x86_64_linux:  "73f8fcc1f1394eebe3ca2507eb7f23cdce65af4138c7007042ff4dcbd2257dfa"
   end
 
   depends_on "gobject-introspection" => :build
@@ -33,7 +33,7 @@ class Gplugin < Formula
   depends_on "glib"
   depends_on "gtk4"
   depends_on "pygobject3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_macos do
     depends_on "gettext"

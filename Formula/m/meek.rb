@@ -6,7 +6,10 @@ class Meek < Formula
   license "CC0-1.0"
   head "https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/meek.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6d41beffa2dbd3d1b66ba353e51e329fa491d6413dc526c0f9993d41f06adabb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c939314234b6926d31c68588a3b6c6f044daf7012ba72d567166402de563747e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b52834606bed45e6dbc45199d92ae73821cc1b85a1dac4ba03804eb950bdaac0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "adb45229efe44b56e9badf0b4955b76e735c46e2a814afe9601579acfa3f0c44"
@@ -17,6 +20,7 @@ class Meek < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ea7c31b3bd02bab4d3951a0ea38a8e9a8c707c981a07929e3e540a05bcd97405"
     sha256 cellar: :any_skip_relocation, big_sur:        "cdeb7f4ecb736d27d60786ef384b12fdfb6c6ec3f91ffc6e94e72b892e93829a"
     sha256 cellar: :any_skip_relocation, catalina:       "e7b9e140649a3c62b86417a271ac39c5d080b0e065934ddc47b7c71eb158cb09"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "99d61e15416a1a9784f37ef0fcf6d68895cbb6571f96998fe016d84b08bfe410"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5adc32589bfaf285e8cea09cd4730a21568aa2c76213cc7cbe15bbc96adf39e3"
   end
 

@@ -1,18 +1,17 @@
 class Scooter < Formula
   desc "Interactive find and replace in the terminal"
   homepage "https://github.com/thomasschafer/scooter"
-  url "https://github.com/thomasschafer/scooter/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "d01de7df6b47f56f9c436d20da683d799aa263213ec450c929c520a117cc29ef"
+  url "https://github.com/thomasschafer/scooter/archive/refs/tags/v0.8.3.tar.gz"
+  sha256 "ed5b120ad4bcaa67ba9d236229f1bd3ebafad92fb53e7bf259d22d5a11a4a46d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cbad6442326939adff9103b3c4ce7479e3756204bc5f54137dca5950b1af84ed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e587b51cf2da699855815cef4f79febeea839d6945dbbbec23bfc0fc571d311e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "89af3731ab10ce6bd11f92046c4a8a72b1e59a96fc04026c6cc1d9a880cd9177"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cac46ed0f8a91f81fa646a64674678090c50bc9dfd0419bc0c5972a172e20a86"
-    sha256 cellar: :any_skip_relocation, ventura:       "e54b805e730323437a03333c86476645f17da0d50624111c1dd4643161a4c08d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ffe698d514ce64600447a454bb00841bf88af07e258548952a6eb1247040aa2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c4cfc5932212b668eeda4271a6877ca9a88aee35549daa689b36b044cc23939"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7bb86164ea3cc6bca45467fc44c9c9f79e0ed85c8f3816f28e6c268ec7b5a0f4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "778ce89ea691a9ebf10d266f73b4c90cb26fe63be2aa12b1917163db52302df5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22a769a5bb4972ef09e3601675d69a38103a23de1958d9255669f246155a7edc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "303721d18416a380bc496e90ad8fbb810933000cd8d5cfe9f36cf8cc7e867059"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "94bd4b409c6dd2103abe8f0b1d435584f1297e15591eb7a98948be9449b23570"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a03e9315e2df7cbcdf7a8d5751504b19005111e2651027dd19e2c13e55bcc86"
   end
 
   depends_on "rust" => :build

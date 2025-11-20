@@ -15,15 +15,16 @@ class Libsigrokdecode < Formula
     regex(/href=.*?libsigrokdecode[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 3
-    sha256 arm64_sequoia: "a1731df4239983986370c4e136346205199c9d1999b4eeb0067c7fc567b02f7f"
-    sha256 arm64_sonoma:  "06ea701901cb284067dc6796141c3be85597eb1a6032653b99b9e9c78b9ae1f8"
-    sha256 arm64_ventura: "eb410224d2af9d9e6b3a40704afd84cd7a3f6df7598c79b470002a9f6ecdd3d1"
-    sha256 sonoma:        "f5e9ec9a38a4e83df28d62965b917dc0809f8c943111920af264847cd2513c28"
-    sha256 ventura:       "24e70691499a8ac340debfaead0053f63fd2e708b6e231929ee0644eecd17810"
-    sha256 arm64_linux:   "ea90517cecd0032963f9d6faca72b8665fc648c0b4df7e3c523cb3b3553c0479"
-    sha256 x86_64_linux:  "355ac16e0c4e7e8d896a78e556e079ee9269753e1ecb996dee863593d7f32db1"
+    rebuild 4
+    sha256 arm64_tahoe:   "23396e67a66de629ac081dc782c68f9fcd38617f0b6f9127f2f46dbd245f2d37"
+    sha256 arm64_sequoia: "d117a9548cd69c1e115b85c7ef62a277b69aa14af761de1748c3bf1811fdd5b1"
+    sha256 arm64_sonoma:  "4d85c0c5d5623c0e3714d75c4e4d4fdf00f4c31b760cc1ce43da3ba47ee06521"
+    sha256 sonoma:        "3d88591dccf61eaa1381eabf2b0dcff873d72238cf4268f9e2820a9ad4c2648d"
+    sha256 arm64_linux:   "d642fc4f3665d70301ea2195b43926e5bf9deefdee64dab83717b90476c68a6a"
+    sha256 x86_64_linux:  "4ff7dc34d6405ca194b26dc6cf68637aa81f8161786d7ceb4dd49d2abe1f7b5e"
   end
 
   depends_on "autoconf" => :build
@@ -34,16 +35,16 @@ class Libsigrokdecode < Formula
   depends_on "pkgconf" => [:build, :test]
 
   depends_on "glib"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_macos do
     depends_on "gettext"
   end
 
   def install
-    # While this doesn't appear much better than hardcoding `3.13`, this allows
+    # While this doesn't appear much better than hardcoding `3.xy`, this allows
     # `brew audit` to catch mismatches between this line and the dependencies.
-    python = "python3.13"
+    python = "python3.14"
     py_version = Language::Python.major_minor_version(python)
 
     # We should be able to remove this in libsigrokdecode >0.5.3, who will

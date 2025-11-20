@@ -10,6 +10,8 @@ class Libnfnetlink < Formula
     regex(/href=.*?libnfnetlink[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "29a3d3fc305c9252a22b3bce85447d2f895924c959185c00889cedc2d23fc78b"

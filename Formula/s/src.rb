@@ -5,9 +5,11 @@ class Src < Formula
   sha256 "5dc9302b161582149dbc191a0eeee43142b96386a542c870d56ac9fddb995d25"
   license "BSD-2-Clause"
 
+  # The homepage links to the `stable` tarball but it can take longer than the
+  # ten second livecheck timeout, so we check the Git tags as a workaround.
   livecheck do
-    url :homepage
-    regex(/href=.*?src[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -21,7 +23,7 @@ class Src < Formula
 
   depends_on "rcs"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" if build.head?

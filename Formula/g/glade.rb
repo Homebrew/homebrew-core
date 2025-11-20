@@ -4,20 +4,17 @@ class Glade < Formula
   url "https://download.gnome.org/sources/glade/3.40/glade-3.40.0.tar.xz"
   sha256 "31c9adaea849972ab9517b564e19ac19977ca97758b109edc3167008f53e3d9c"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia:  "e162366f083df623dd7cd1854a781cdf3d520bfde698588abc9296ab33fd8804"
-    sha256 arm64_sonoma:   "271ff90536f47461687153dc97dd25d5ba9ad4f22c1a087e303fc52f54646dda"
-    sha256 arm64_ventura:  "a9a7c003418e9867e2ae9d1da7c4230a812638d06b1ff6626454c952e4107e16"
-    sha256 arm64_monterey: "254b71a95a632595fc9314162cd89607fac7ee27890bf57155fc2882473258a2"
-    sha256 sonoma:         "00e5ab66baac9cb320fc6f95281d3a0d647fef6c8f461c0ba4ff1c45ecc56a58"
-    sha256 ventura:        "ce76321eef07573869f0f9d38048981c32780dc98e1e8cd40761dd62725c770d"
-    sha256 monterey:       "6564eb300ee2bf7ad5b8d587cd77f66bddf91087626bb9b07c0148776a1fe95a"
-    sha256 arm64_linux:    "b62ca594e2c8e5add5bbc8180897aa24816e9a528f306aff4fc3da13aad03ec0"
-    sha256 x86_64_linux:   "a68666c43b3c79b9532742a2351093d587fe0da66c369ba3e62ed35f223c4deb"
+    sha256 arm64_tahoe:   "6e30fc8505be745532d54c6ca937ed9112bad06b28a779e635b2a7bd39eec811"
+    sha256 arm64_sequoia: "5873f72c18a9e4ec5fb39e7463dec97632e1e529d676a36720f21cf9cb8ce890"
+    sha256 arm64_sonoma:  "d029fb2f0d9a5180e2d9d0a39e2dfbe384ea4ce8fb5d6baef129453f7a0e3ff2"
+    sha256 sonoma:        "14f49050a388f8e5c976c4f2650f2261d8436dc3a2946c025bfbb65b78cb29d4"
+    sha256 arm64_linux:   "2231d718915f58f039ff8f8b64c2e925a1f4c69da14e0e89065a319e3de970e8"
+    sha256 x86_64_linux:  "d74c163da2a0558dbbb9d167f3ecea4bbc9c653b4a1f6f3539dc99a92452e624"
   end
 
   depends_on "docbook-xsl" => :build

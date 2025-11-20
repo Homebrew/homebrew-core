@@ -1,35 +1,25 @@
 class Ncmdump < Formula
   desc "Convert Netease Cloud Music ncm files to mp3/flac files"
   homepage "https://github.com/taurusxin/ncmdump"
-  url "https://github.com/taurusxin/ncmdump/archive/refs/tags/1.5.0.tar.gz"
-  sha256 "f59e4e5296b939c88a45d37844545d2e9c4c2cd3bb4f1f1a53a8c4fb72d53a2d"
+  url "https://github.com/taurusxin/ncmdump/archive/refs/tags/1.5.1.tar.gz"
+  sha256 "35062836d5210718b12fd311535f4673f5db4de18bd8e987890d89fc0e0a7e6c"
   license "MIT"
   head "https://github.com/taurusxin/ncmdump.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9b8b18693e23e28c86536d252255072708216e857cd2e8e7102551dbbd07e4ea"
-    sha256 cellar: :any,                 arm64_sonoma:  "6cc0adacd3083f40ad30cf8ea914f508c23e1720d23020775d914011615dffc3"
-    sha256 cellar: :any,                 arm64_ventura: "50fe70048df8144284e69b364daa834e073dddae300321bfec326d076d7f4733"
-    sha256 cellar: :any,                 sonoma:        "6ce7bd73a815fe8a87ea4edf1df074ab29f5b57793888f7f45b8f08d5146617c"
-    sha256 cellar: :any,                 ventura:       "08a148b759c425f00c14dd9a47e488e81654e6cd8a3473488ca1d91529e07b6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "73fb1e271e16219093c407dabfafedf583fe4d1665ae2aa0d0886e883ac703ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77421b520db321edb6b48416603b3c3ffc1319d4c3937ca0bd067e344662caa5"
+    sha256 cellar: :any,                 arm64_tahoe:   "99795c0e507a0a64b449c2688217ce0de2831260055765dbe37f56669c1ff9c7"
+    sha256 cellar: :any,                 arm64_sequoia: "e29cbd06aef33319b016e7b1013c6e1d72432cd1de0382994bb486be26c0268a"
+    sha256 cellar: :any,                 arm64_sonoma:  "9a6f52ab49f6d4ff627357f662192b2fca298ce66a9e51381ef87af6412fcc16"
+    sha256 cellar: :any,                 sonoma:        "ea72a6147d57e098312ea81119a4dd08b12464241db780a2ebaa0e7876c20189"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f95e343c040760559382f6cb2b8f7bf9199cb14be12b0e72fda4538dd605c2dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c4e754f69b305837012bc328cef7db9834483cf849a2a12c3d6a8f1e122636b"
   end
 
   depends_on "cmake" => :build
   depends_on "taglib"
 
   def install
-    # Use Homebrew's taglib
-    # See discussion: https://github.com/taurusxin/ncmdump/discussions/49
-    inreplace "CMakeLists.txt", "add_subdirectory(taglib)\n", ""
-    inreplace buildpath/"src/ncmcrypt.cpp" do |s|
-      s.gsub! "#define TAGLIB_STATIC\n", ""
-      s.gsub! "#include \"taglib/tag.h\"", "#include <taglib/tag.h>"
-      s.gsub!(%r{#include "taglib/.*/(.*)\.h"}, '#include <taglib/\1.h>')
-    end
-
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_PREFIX_PATH=#{Formula["taglib"].opt_prefix}", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -1,9 +1,9 @@
 class Nauty < Formula
   desc "Automorphism groups of graphs and digraphs"
   homepage "https://pallini.di.uniroma1.it/"
-  url "https://pallini.di.uniroma1.it/nauty2_8_9.tar.gz"
-  mirror "https://users.cecs.anu.edu.au/~bdm/nauty/nauty2_8_9.tar.gz"
-  sha256 "c97ab42bf48796a86a598bce3e9269047ca2b32c14fc23e07208a244fe52c4ee"
+  url "https://pallini.di.uniroma1.it/nauty2_9_1.tar.gz"
+  mirror "https://users.cecs.anu.edu.au/~bdm/nauty/nauty2_9_1.tar.gz"
+  sha256 "488fa906d10a372c72d2364c5dee48e0f7307004fbe52c2bce50c52de8cd873e"
   license "Apache-2.0"
   version_scheme 1
 
@@ -15,22 +15,17 @@ class Nauty < Formula
     end
   end
 
-  bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "578e9a6a33dacc5574586019c8a22244879573c241e7a1be9ad7183cd4c91aa4"
-    sha256 cellar: :any,                 arm64_sonoma:   "022ba063976e84dd4e0712d6931a0958db497c4f2f4e561ec518172ff26d2eeb"
-    sha256 cellar: :any,                 arm64_ventura:  "fa1634a9e589d67b2df80daca50f4417d46a26f9c03fe0ac3a9acbe59dacfdd0"
-    sha256 cellar: :any,                 arm64_monterey: "3d521857063e06e2e1bbd12a7fc139b4402288ba388a37606c5df19c885942e5"
-    sha256 cellar: :any,                 sonoma:         "f44e77ba13875fdfd450ca378080aa6be8a7e48d6082623846b18a3f525d7d1a"
-    sha256 cellar: :any,                 ventura:        "4a288706331ed1966319cbe0aced25c694e426c587ed56167a2905cfbf2ba584"
-    sha256 cellar: :any,                 monterey:       "129084aaac09aac1e749cf4ed1eb0c716afc2c6c9d7689a877b96bdf12e5c837"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "844934bff50859c4bb0add9d80cc6e07cdf22c967fdea1a3950cfee0e33b35b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6858f23478175ad58d2aa59eaa599ab3610476043c9b8062e6ef4d897051d412"
-  end
+  no_autobump! because: :incompatible_version_format
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0229f84c659eb7766771f7848408a8d0ec6ab1ec57ef20a5089c5bdd4cb6fcf4"
+    sha256 cellar: :any,                 arm64_sequoia: "4ce3eabaf82030308d21ac50a163c29183d455aba6b7da228d9335c7c43b5bfb"
+    sha256 cellar: :any,                 arm64_sonoma:  "0c75c4d2cfdde9301aa3ff80a5dadcb6a8d139d4f0662a0346f4deaeccec0080"
+    sha256 cellar: :any,                 arm64_ventura: "d125557329adf1c240490964ac68dee20db2eefbdff051a0c9acb43d79e126ff"
+    sha256 cellar: :any,                 sonoma:        "db38df2f9e482d063d76c4a3241519091053719de472b6ab79da5365765d234b"
+    sha256 cellar: :any,                 ventura:       "514f26ddadf0b537f4533bedbd38e9b84b5b94d9910222a9fbe9128ea90525a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7ff699de0106eabc7a16274fd8bc303f96225599449801e40508395f35d22e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adcd153e3ad93026d397ea05b648b51dcc56cb950e443055cbbf9b1ac5f5805a"
   end
 
   def install

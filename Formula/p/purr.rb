@@ -6,6 +6,8 @@ class Purr < Formula
   license "Apache-2.0"
   head "https://github.com/google/purr.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "8b49680bea9c23c42497fb937f830479971b2c5aa6a7d1fb4ba14b7a83da6baf"

@@ -2,19 +2,18 @@ class GolangciLint < Formula
   desc "Fast linters runner for Go"
   homepage "https://golangci-lint.run/"
   url "https://github.com/golangci/golangci-lint.git",
-      tag:      "v2.1.6",
-      revision: "eabc2638a66daf5bb6c6fb052a32fa3ef7b6600d"
+      tag:      "v2.6.2",
+      revision: "dc16cf43c85d53f03e00a2f7b93a5e03a1435793"
   license "GPL-3.0-only"
-  head "https://github.com/golangci/golangci-lint.git", branch: "master"
+  head "https://github.com/golangci/golangci-lint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b80012d1179f11a0a79d0ec3fa9155db068ba75d638fce9fbb386c4e605cfbab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fcc6b4a7485deddbb1cbed2846b7cc4384dc7977c34706dbc8d7561b795f2254"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d7b4c863107265a25e9bf4f68344023038a30c18ac3168dab44941464f040de4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0f32dc08095420d13326009a0abdccd6c91bfdeb573c94dc83fddea51a66e17b"
-    sha256 cellar: :any_skip_relocation, ventura:       "63994547cab21c5da7206b9df1da16b2df75d78abd44a30db493aff1f5d51b98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7640a45b1e0c68a0096d97b45d60851f1e60be478e681f5b3bac20998ecbc63e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b90ac1736b55e6e911bf760b1bb1d3ca637c4c62aee270f34d3e95783cd7bbb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b7645ce02f117edac1b56f5751399aa259e5f8d887226bb5d1909e4de8f01ab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7a17644350a0970b68a42196a70f93a2fd2cd03d91e00427810da46c23dc0c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ecfab0d9209eacfe62fdda2a05c788ef62d9849fbc95a2ce169c787231677f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b9b8f25ba387bc6baf4dab3bdc40b052efe5bc287a1fb5fe0aa548e3f7f79e94"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9426133a3ff1838bff60abbe69fb1a43b0a4db2c9fc2ad25fcb1be0fa2952a9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fc40b76d911dc116fde2d4508ed6d7be4c9fa0223c6b8caf00cb636d8841375"
   end
 
   depends_on "go"

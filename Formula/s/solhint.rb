@@ -1,18 +1,12 @@
 class Solhint < Formula
   desc "Linter for Solidity code"
   homepage "https://protofire.github.io/solhint/"
-  url "https://registry.npmjs.org/solhint/-/solhint-5.1.0.tgz"
-  sha256 "a81a2bdbefa6f9b4918b5211a955ba37219db06474345dbfa2bb0a8fc47b43c0"
+  url "https://registry.npmjs.org/solhint/-/solhint-6.0.1.tgz"
+  sha256 "535cd2b4bfb07ce33e9b293ba74c5c05f96daab2e155ad327caf8f3c64ee59bf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1008a9f0bf0241dc5077bfb864f543f348e530bd15f92fe80f52a42442190c63"
-    sha256 cellar: :any_skip_relocation, ventura:       "1008a9f0bf0241dc5077bfb864f543f348e530bd15f92fe80f52a42442190c63"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
+    sha256 cellar: :any_skip_relocation, all: "3ed6a10d8cceb6a4ccbd5ab607670233a468f7c10830335ca4343e8cbf04437e"
   end
 
   depends_on "node"

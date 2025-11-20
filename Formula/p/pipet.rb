@@ -7,11 +7,13 @@ class Pipet < Formula
   head "https://github.com/bjesus/pipet.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "63abd2f8e1acdd4351fa4e9f87a98b41574785f4a841347110b6ab01b3037eb0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "560a89ed526f7be6a13af3eaaa88fa4bbd108a488a251d1f562a4ef7af9a5e38"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "560a89ed526f7be6a13af3eaaa88fa4bbd108a488a251d1f562a4ef7af9a5e38"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "560a89ed526f7be6a13af3eaaa88fa4bbd108a488a251d1f562a4ef7af9a5e38"
     sha256 cellar: :any_skip_relocation, sonoma:        "80d52f08edf8293bf7c71ae75dfff7e79df2575251bff9f6c9b5041a0168d8e6"
     sha256 cellar: :any_skip_relocation, ventura:       "80d52f08edf8293bf7c71ae75dfff7e79df2575251bff9f6c9b5041a0168d8e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "155b71857798f70e3829c1bbf5eb418530a7c97a6eb00c39d2685c41aaf0657f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "524fe9b1d57b91baafd8ebad6440a9745e6659fdf95ddf2c956226f649ebbc1f"
   end
 

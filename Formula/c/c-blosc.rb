@@ -6,6 +6,7 @@ class CBlosc < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "0e7738316917ed92787b41bf1c0a7445edf167d5928249342ab9caadb4fe08a6"
     sha256 cellar: :any,                 arm64_sequoia:  "2e382c2fc65f79ed2a7a71a30c625af2187aaca91132643af2087039a50736c6"
     sha256 cellar: :any,                 arm64_sonoma:   "7f9fa549976087279fb6135f6b068ef6a92eb7a76937b229e253dc0e7324a344"
     sha256 cellar: :any,                 arm64_ventura:  "deae8256b46bfb5973bcb30321c2e5e28a86e733ce074d3395d75f797d65126e"
@@ -18,6 +19,13 @@ class CBlosc < Formula
   end
 
   depends_on "cmake" => :build
+
+  # Update minimal cmake version
+  # Remove on next release.
+  patch do
+    url "https://github.com/Blosc/c-blosc/commit/051b9d2cb9437e375dead8574f66d80ebce47bee.patch?full_index=1"
+    sha256 "756460f653877c12575889f20640605ecc2e49ab72583fba62f59642098fcd63"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

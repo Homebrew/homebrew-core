@@ -12,6 +12,7 @@ class Oggz < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "603716b336363c7460ee420337b0de8c0577261236bb6f464b95442f634c103c"
     sha256 cellar: :any,                 arm64_sequoia: "662621ea7c3e2bba651d8a4d58de1b7e11fe77457919bec4a1a891344a9fa52b"
     sha256 cellar: :any,                 arm64_sonoma:  "b73a313c07c02a73751ff8837ff86eee990bb438c7391f3ef401ad7252a1b2fc"
     sha256 cellar: :any,                 arm64_ventura: "574236c1d041249054c6767741940b013cebc9771ca97108fbab98973d4b5898"
@@ -26,7 +27,7 @@ class Oggz < Formula
 
   # build patch to include `<inttypes.h>` to fix missing printf format macros
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c7dd59ab42edc3652529563bfb12ca9d1140c4af/liboggz/1.1.2-inttypes.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/liboggz/1.1.2-inttypes.patch"
     sha256 "0ec758ab05982dc302592f3b328a7b7c47e60672ef7da1133bcbebc4413a20a3"
   end
 

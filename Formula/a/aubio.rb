@@ -14,14 +14,13 @@ class Aubio < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "cdd72e2e045a52832a9050ce2695b6f922813854df1dd410c38c7ed8d0b94882"
-    sha256 arm64_sonoma:  "0b3b530218db7a25081e82bdf9c235d9bd57ec656a1d4c9a1abc028c907c2eb9"
-    sha256 arm64_ventura: "a05d35bae538b86c68e4712bb7b86212083fe5cac88189bbd3248ae7c189dbad"
-    sha256 sonoma:        "843089029aa243aa70475e2a268378c3d90c427fa6f0e8227ce01f90ce510543"
-    sha256 ventura:       "2cc8e8d50e223e7f42509148a31cb3684c64fd3941544d395229ecb2fffc83a6"
-    sha256 arm64_linux:   "c32187d4a3dcd0a28643973ec32b14971a328393f5568303adfbc0898435ae8d"
-    sha256 x86_64_linux:  "c4fd40654cf66d58978c3aea90360c621bfb758aaa8eb94adaa187f9cee4583a"
+    rebuild 2
+    sha256 arm64_tahoe:   "54adb27d46e507c9fa6dd57b9da19b11fc435dc706d1a79a2835e83137813a05"
+    sha256 arm64_sequoia: "c428580f0615808cafca003cc2596a913162586af33f5fd1235b274b413c3ed4"
+    sha256 arm64_sonoma:  "979cea612bed708e02710af48d438df7f48a28ed502fb714d023182c24caf43c"
+    sha256 sonoma:        "9200348f9f11f4149f91d7163e79f141f9bb7d2271a6af5398dc38ceadfd6ebd"
+    sha256 arm64_linux:   "d98aea68e9a3677405a41ff89820d6ee76b5fb6fa7f02d964846c7b674756d06"
+    sha256 x86_64_linux:  "be4fcc0b0a52320a3787a70cf2ba81bb1ba0e374921c7be49a96e0dc92d07feb"
   end
 
   depends_on "libtool" => :build
@@ -29,7 +28,7 @@ class Aubio < Formula
   depends_on "python-setuptools" => :build
   depends_on "libsndfile"
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   # Fix build with Python 3.12 using Fedora patch. Failure is due to old waf 2.0.14.
   # Remove on next release as HEAD has newer waf.
@@ -43,7 +42,7 @@ class Aubio < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

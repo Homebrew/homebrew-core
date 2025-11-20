@@ -8,6 +8,7 @@ class Lfe < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d5158c69b0a420798bd81ded50265abbc00cb0da90ad7f237c3e266312092304"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1aee8b425cbd76428a038e8d9d1a074c2e7c3f9c2944673fd9267c77e8d154fb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7c9d4f4a7d9ba6a61e9affb3d8ec94161ac3411c14da462879c348fa59859d0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e257ff304896fce1182b709f35b56112c28eba8e43ac6a149725b42917a9bab7"

@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-9.1.4.43177.tar.gz"
-  sha256 "96d5447320dd094d1c37d70a8631e321f966dc927179c8b01638c33baf502795"
+  url "https://dist.duck.sh/duck-src-9.2.4.43667.tar.gz"
+  sha256 "690e6248638f9fea903345de96e3c6b63754ba8f510ba74397ecd487a6a84637"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "8452b267b2b6dc5b7f897bdd936630b4c20c74c98514089c3e7d1ea5424ad4f3"
-    sha256 cellar: :any, arm64_sonoma:  "4b22313f07172072e458c058e7f1038d7a4d58593bc8e0ac126ab62f5a51c304"
-    sha256 cellar: :any, arm64_ventura: "139577fa21c0828e6f5b8881455282a0771289300ea91310ee10bef1d3d9f356"
-    sha256 cellar: :any, sonoma:        "f942a951a01b823e6247b178b0da78bdab9094113cc858ddff68c1986c91def9"
-    sha256 cellar: :any, ventura:       "9ba954249bc79a8afc1a55cc475fbafd13485f405007dc964fb033526bba9ee3"
-    sha256               arm64_linux:   "95f1978f010a3009a79b9b381e59531b536b43f836e3acb3a1cf7a785165d3c9"
-    sha256               x86_64_linux:  "d55145d694a6e3094243cdc1e4df1826b49cf5e1834fafbc4693f3a5432ce0a5"
+    sha256 cellar: :any,                 arm64_tahoe:   "1812459174a458a88e6b19e74c98e470d11ca66a3e8fe51b9ef940f27144c18a"
+    sha256 cellar: :any,                 arm64_sequoia: "90fd52cfbb685bb5236647ba95172aa0f4ae71b179e49517852f1b197ecfd954"
+    sha256 cellar: :any,                 arm64_sonoma:  "db28ad374157b347461e56beb371b6917644b636b0eb5bd043297349a35dd244"
+    sha256 cellar: :any,                 sonoma:        "7990688542beca48a2069f8535a94baffb2fc00b67161d36672a9cd6a2b902a8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8344a1a60e28940500f00371debeea7dcb1400aa507dea307df788fea9af2eef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c68e9347fa707f0fb54c437e40094a12a3d794af865c90ec5f95f3a244dadbe4"
   end
 
   depends_on "ant" => :build
@@ -182,7 +181,7 @@ class Duck < Formula
   end
 
   test do
-    system bin/"duck", "--download", "https://ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz", testpath/"test"
+    system bin/"duck", "--download", "https://ftpmirror.gnu.org/gnu/wget/wget-1.19.4.tar.gz", testpath/"test"
     assert_equal (testpath/"test").sha256, "93fb96b0f48a20ff5be0d9d9d3c4a986b469cb853131f9d5fe4cc9cecbc8b5b5"
   end
 end

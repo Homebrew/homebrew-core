@@ -7,13 +7,8 @@ class Dumb < Formula
   # https://src.fedoraproject.org/rpms/dumb/blob/rawhide/f/license-clarification.eml
   license :cannot_represent
 
-  livecheck do
-    skip "No longer developed or maintained"
-  end
-
-  no_autobump! because: :requires_manual_review
-
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d04fae5e3adcd02d608e3f3b8238a5702b0e74ab1c295128f3e65af4f494e3f4"
     sha256 cellar: :any,                 arm64_sequoia:  "7158a40eed75a578dd615fdf83840be91a4fd565b0ce5170c4e91d494e0a0a16"
     sha256 cellar: :any,                 arm64_sonoma:   "f9510e55b969457e77567594f6963a7a6470f86dac7f252ed3c01757314c44dd"
     sha256 cellar: :any,                 arm64_ventura:  "6ec724316f7ab409767fdb3b240bf6bd00c0753a66ea048b1a1527c19b659a6f"
@@ -28,6 +23,8 @@ class Dumb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "de4310947cbbc1807cf9c2bbdb9dcc42cc381de7153b3dc4f206718a1923fe40"
   end
 
+  deprecate! date: "2025-07-03", because: :repo_archived
+
   depends_on "cmake" => :build
   depends_on "argtable"
   depends_on "sdl2"
@@ -36,6 +33,7 @@ class Dumb < Formula
     args = std_cmake_args + %w[
       -DBUILD_ALLEGRO4=OFF
       -DBUILD_EXAMPLES=ON
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
     # Build shared library

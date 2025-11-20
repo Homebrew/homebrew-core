@@ -1,40 +1,26 @@
 class Pbc < Formula
   desc "Pairing-based cryptography"
   homepage "https://crypto.stanford.edu/pbc/"
+  url "https://crypto.stanford.edu/pbc/files/pbc-1.0.0.tar.gz"
+  sha256 "18275a367283077bafe35f443200499e3b19c4a3754953da2a1b2f0d6b5922dc"
   license "LGPL-3.0-only"
-
-  stable do
-    url "https://crypto.stanford.edu/pbc/files/pbc-0.5.14.tar.gz"
-    sha256 "772527404117587560080241cedaf441e5cac3269009cdde4c588a1dce4c23d2"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-    end
-  end
 
   livecheck do
     url "https://crypto.stanford.edu/pbc/download.html"
     regex(/href=.*?pbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "566ef59675030399f76d4f7c067ca04cecaa3ebb4d9102aa480dbe39c24ba487"
-    sha256 cellar: :any,                 arm64_sonoma:   "4e89883c3b22eccfdf0904017650418af4c2f50bc9ae41a535235ac1d235f27f"
-    sha256 cellar: :any,                 arm64_ventura:  "e22db03b394884a0f34163c74d87b6c33210aefd98cc751d2ab61108c667fdf0"
-    sha256 cellar: :any,                 arm64_monterey: "2397daa1cad88180149983c0f6557b6a48fa2124c24ac78a8d95dd0af9cac8a0"
-    sha256 cellar: :any,                 arm64_big_sur:  "ac722f3534f9cf0679f2c999353a524d822d4068d8f9877a5967fe6fbcef9f04"
-    sha256 cellar: :any,                 sonoma:         "3cdb93d8e2e6876981b58d28a7e4b67e299db718ab0a9ffef12d53164d2a7a9e"
-    sha256 cellar: :any,                 ventura:        "903a04400b010de2e1c4311881dfaa8cfc9f04ee40a83f369a19fd334e6b4446"
-    sha256 cellar: :any,                 monterey:       "dfe0e9676dd479513ec0cf524d6a225229de96aa058492a6319cdd914dd3509f"
-    sha256 cellar: :any,                 big_sur:        "c14c0514c725c35d0dffbc7dc410ddc5be033e061ffc66d9c039033b0ca1e6e4"
-    sha256 cellar: :any,                 catalina:       "83d464696ab79f463ec2dc930cbd9c3ecbdedde5c578e70a4994b2cd8fec1f6d"
-    sha256 cellar: :any,                 mojave:         "85855bfe6dfe9a4fc0b0359f74aa7ea587283c1c724a6c4aee77972ecfc1d390"
-    sha256 cellar: :any,                 high_sierra:    "adc712fd4cc68990b669922be5b8ab15e4d499176c09facb5b129c6d7c847262"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "85ffa4238451ccfe2c90072b100d48a53d352e6209613bdee067f2347d088d47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cefb9bc4223d88aa32583abbee1bf2af89e36760b8cabbe4af2e11819f993eb1"
+    sha256 cellar: :any,                 arm64_tahoe:   "c9aa4953390dd8fc51665f703e72ed82c6d643a75f975cce1339ddb280d212d2"
+    sha256 cellar: :any,                 arm64_sequoia: "540e6c2c25f64b9f01683b78101895359c1e317f0c040e1d6dcae389414faff7"
+    sha256 cellar: :any,                 arm64_sonoma:  "5c83b34f16294a88154eb2ca05a38730aafd3426dc5680ce92426e6377ee1f28"
+    sha256 cellar: :any,                 arm64_ventura: "b45ad43cbfe26bf2a5afd507c6f9dba996b7069635d04321466eec6805f64a64"
+    sha256 cellar: :any,                 sonoma:        "87458237aa1d5e59deff3fde34155d58eba87df565e7f6c924f81171a6a634be"
+    sha256 cellar: :any,                 ventura:       "339f7b3535980d063d87c42b9a22fc2b6ca882857347358f207bf6d9b8cd768e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2bae3b376382982b1575a9f8b67b1cc476bedca4029a88cdb42f3407c8710f80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77d9e6a22ef1c9a1253703a33e6c734aa3c223a031cf17cec702bc1f9c8d5834"
   end
 
   head do
@@ -51,6 +37,9 @@ class Pbc < Formula
   uses_from_macos "flex" => :build
 
   def install
+    # fix flex yywrap function detection issue
+    ENV["ac_cv_search_yywrap"] = "yes"
+
     system "./setup" if build.head?
     system "./configure", *std_configure_args
     system "make", "install"

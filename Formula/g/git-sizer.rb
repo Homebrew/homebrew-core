@@ -9,6 +9,7 @@ class GitSizer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2506ed03a733d925f2d0602928a17c905515ac73df711cdd25efc01fc58ccb34"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ccae14c242e55c103e138e715a48f7a1c7210ce2c749dc18635a60386ccace44"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7436b19c338834afaf2a042ce8cf4468a1bdafbe20175caefca0ef69fea2fbd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6d81ce3b3553755497bfc41658af2f441ed1084c03ea8a19812f665cec082ce"
@@ -19,6 +20,7 @@ class GitSizer < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "73f48a5d03c1e8b6a113a1d8509a35b4474bef00c26da7ec592f2c835e77d77a"
     sha256 cellar: :any_skip_relocation, big_sur:        "f52d03752efdb2a0a66e1edbaa87f11c66d953a5338ff84e5a8db8103d84ab46"
     sha256 cellar: :any_skip_relocation, catalina:       "f1af5d8fd18305bf7fc2111435185569d0d113c9437a89d705f9b8c016eb1339"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7eef3f85c59f90b48349b3cb3c9322929babd1605228c2f59ed37c4e86b2faef"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a866d2f5cacd29a14bee3055f3290500091674fb38703ca75eb4c34917cb8ce"
   end
 

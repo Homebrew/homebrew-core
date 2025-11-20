@@ -7,13 +7,12 @@ class Cram < Formula
   sha256 "7da7445af2ce15b90aad5ec4792f857cef5786d71f14377e9eb994d8b8337f2f"
   license "GPL-2.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "380d5fde8323ac893ae796f88c68426acda8933ef993101014a5ab839a8abcfd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3a0f3b04ef44d789fb07fe79107eb12c410dfc5794a730f3ab2825c890a76228"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

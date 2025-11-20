@@ -1,12 +1,13 @@
 class Libffcall < Formula
   desc "GNU Foreign Function Interface library"
   homepage "https://www.gnu.org/software/libffcall/"
-  url "https://ftp.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz"
   sha256 "7f422096b40498b1389093955825f141bb67ed6014249d884009463dc7846879"
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "fbe3ce6fb6c30092a721dbfcbcfbe662320e3cd25095ddbc486762494d53d4cb"
     sha256 cellar: :any,                 arm64_sequoia:  "e93c50e4766acad117fedb1330c4f90b07d0badda4f3d63aa9a19aa648ac4432"
     sha256 cellar: :any,                 arm64_sonoma:   "ec1b54aeab6d34a9ab35e7e376ed02847f08a29de71a3d4768fa96954327127c"
     sha256 cellar: :any,                 arm64_ventura:  "958171b0bcdc0974726cfff41c6de58c7e4f90017b4fb9d881b968e8d1612fdf"

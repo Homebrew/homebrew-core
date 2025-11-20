@@ -1,20 +1,22 @@
 class Cpi < Formula
   desc "Tiny c++ interpreter"
   homepage "https://treefrogframework.github.io/cpi/"
-  url "https://github.com/treefrogframework/cpi/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "fb62a1e620850dcb69a1e65d0ff22c309c0469c876c718db017d0f92bcd114e5"
+  url "https://github.com/treefrogframework/cpi/archive/refs/tags/v2.2.2.tar.gz"
+  sha256 "f1cf314377e3576b2fae021c82efc252f03cf17cd7b8186cc6937bb3b0ff71cb"
   license "MIT"
   head "https://github.com/treefrogframework/cpi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "83f1d3e84a6717be85bd5d5303ec9844674adb1815e8356f7689e9932916fb06"
-    sha256 cellar: :any,                 arm64_ventura: "3e6533a18019a9eafc3a3217135c0205deb8fb63e05bd910698cf824e34d031d"
-    sha256 cellar: :any,                 sonoma:        "c26b11acc67d50e9f14b8b510c899173bbb93dbb80aa49f5813e5548012fdbe0"
-    sha256 cellar: :any,                 ventura:       "f991fc7314d3db3a6e74d13b3e120adfc6cd40311db2afa1586b013353c7522c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b330b5e227b479dea3cca97bc0a9e85d1e7b7450adf781236ffa96f1350e0e7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ebc8bcf9165cc4f7d1fde637a79c4b871072c74b93358687311e97cd7e126cfd"
+    sha256 cellar: :any,                 arm64_sequoia: "6bea475fa5b517cf42faebb459b104fc8d868dfe5e03cf097e37eb7fb0512a0d"
+    sha256 cellar: :any,                 arm64_sonoma:  "391aa4186fc5c5c6f976bcf61bbd8ec7f311e352194b8595ad97da4db246a260"
+    sha256 cellar: :any,                 sonoma:        "80aa4416afead86fe0621e8c53874dbfd951ff6fc40e8a7641c26cd1a382ab31"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5748c1ce40a957f82c6e288901004c36c8b4aec5d8580828c561fd153e6388ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be937b51660f2d5f2664a132c73b928706be340356100c74b7ebb507c7ec436b"
   end
 
-  depends_on "qt"
+  depends_on "qtbase"
 
   uses_from_macos "llvm"
 

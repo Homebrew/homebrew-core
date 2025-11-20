@@ -10,7 +10,10 @@ class Sqliteodbc < Formula
     regex(/href=.*?sqliteodbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "80cc2b8469f6718e6228b4465bdec52fa66d37731c6e80db40f2bfad339ccc70"
     sha256 cellar: :any,                 arm64_sequoia:  "61de52252306e865b3c14e8ef775b1c4ccd22da7c7e5ea2b0f91c54c7877e08c"
     sha256 cellar: :any,                 arm64_sonoma:   "015eee63671fc01c778e6e663529ace8d63a7d71f2654be9b9556ccd9e29154f"
     sha256 cellar: :any,                 arm64_ventura:  "dd59b3db3e696d538dea72e84c5602c17f24fe119104a705a0662adee36547e0"
@@ -35,7 +38,7 @@ class Sqliteodbc < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

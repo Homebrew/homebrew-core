@@ -4,7 +4,7 @@ class Zeromq < Formula
   url "https://github.com/zeromq/libzmq/releases/download/v4.3.5/zeromq-4.3.5.tar.gz"
   sha256 "6653ef5910f17954861fe72332e68b03ca6e4d9c7160eb3a8de5a5a913bfab43"
   license "MPL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,15 +12,14 @@ class Zeromq < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "8898ce6776591ad282627fd7215f02ade8f5c5ec3d4dd457ce25aba12c3c1c18"
-    sha256 cellar: :any,                 arm64_sonoma:   "3bf8942ece99f0457125006cf729f24823e09a3f6bd2257e8be9873e5783a0a1"
-    sha256 cellar: :any,                 arm64_ventura:  "0f670cd22b752c640a01f1f3353f8cdf7a6bf31beefad511c17baf315ad848f4"
-    sha256 cellar: :any,                 arm64_monterey: "3a8bc264cb466f765f65f73b0db3c202899656efa11b2df37bd961a224589e20"
-    sha256 cellar: :any,                 sonoma:         "986910eab9519ca92f167b545cde5992124a963b56d1346f2f917368e9a7eb43"
-    sha256 cellar: :any,                 ventura:        "25344444cf8c0583f65b1f36fdf11edc40ce2fe637fa04e34fe28c730573dadc"
-    sha256 cellar: :any,                 monterey:       "c8c1cafdffdc020cf504bc59888d61a016df6cdfc12650d89a43a846edb77ef2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "1bec0b28dfb3b515f6095d00e4fdb0b4ec458e02b4fbecac8a53a0c18cf7ea01"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "904b3146ea9aab3b4fdb584c74be1fa762145d3435eef653becc38ce0600c1bc"
+    sha256 cellar: :any,                 arm64_tahoe:   "76e3d40941eb6d5d2ea5f94c017fd3503b68aee2aefc017291ab38b729fbcf08"
+    sha256 cellar: :any,                 arm64_sequoia: "03990812828803732fe5253d9940e1a769012068f9af165804d2dd30255aa3c4"
+    sha256 cellar: :any,                 arm64_sonoma:  "b8cce7aefa5cfeb55f94c81b7f707f1f7f7f7c24da3d91a4dab65fbf6a58cfcf"
+    sha256 cellar: :any,                 arm64_ventura: "c02ef7aff4dbf4bb16896ef097ff8aad9ed7fefbb6daf84f7ae244d4e0f5b1ce"
+    sha256 cellar: :any,                 sonoma:        "d605668191163ba70b7298653eab755dc07cf378244f0795c432cff918069008"
+    sha256 cellar: :any,                 ventura:       "486b7daf69d76ef858c14fb822ee84d870d6f0c2a012eeaf13690915ce0e370b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1839d81ada31e9622a60dbd0617c9d12709ad290d3b3d2c7d83690e6da756802"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f98a86b96ff8acd27fe0d06f651f376a392a5aa25fd61e084cd26718e241df30"
   end
 
   head do
@@ -38,19 +37,13 @@ class Zeromq < Formula
   depends_on "libsodium"
 
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    if OS.mac? && MacOS.version == :high_sierra
-      ENV.delete("HOMEBREW_SDKROOT")
-      ENV.delete("SDKROOT")
-    end
-
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     # Disable libunwind support due to pkg-config problem
     # https://github.com/Homebrew/homebrew-core/pull/35940#issuecomment-454177261
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--with-libsodium", *std_configure_args
+    system "./configure", "--with-libsodium", "--enable-drafts", *std_configure_args
     system "make"
     system "make", "install"
   end

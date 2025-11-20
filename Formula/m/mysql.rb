@@ -3,33 +3,36 @@ class Mysql < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/9.3/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.3/mysql-9.3.0.tar.gz"
-  sha256 "1a3ee236f1daac5ef897c6325c9b0e0aae486389be1b8001deb3ff77ce682d60"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.5/mysql-9.5.0.tar.gz"
+  mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_9.5.0.orig.tar.gz"
+  sha256 "ef3343981375865a2519f72b600e55f9c646e60e204a2964d3b7e8e748a110a5"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 2
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
     regex(/href=.*?mysql[._-](?:boost[._-])?v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :incompatible_version_format
+
   bottle do
-    sha256 arm64_sequoia: "a1c4bcbfc9cd29ebd827d898ee23fa671d38e53fe38ed941d4de9dc5f2925bab"
-    sha256 arm64_sonoma:  "a85846ee100275d3aff0e1fb367d236efe2f08b01486a4e17d95f44065a99777"
-    sha256 arm64_ventura: "bbd5331e6cad86f69fd249644870e12298fb7700941c4b442766d6b39ad2efcd"
-    sha256 sonoma:        "246637314ceb5efb5f4df6e8e9548523fd24bf99d2ab2249baf55c990323a083"
-    sha256 ventura:       "e3485cdac165beee6846f57b678938929e2339e80fa83f1f16f152130c1f46b1"
-    sha256 arm64_linux:   "6b3feff6a22a3dc3ebc0b52aa20be21de6c15c4508236e6c2c718c6630f235b0"
-    sha256 x86_64_linux:  "4f4f12f8b6e178121b92995ed4a3153dca966f6c304fc74765066761aa86a56e"
+    sha256 arm64_tahoe:   "ae901d075edcd8f857a50916cbcf502f67faf4d8c97beee5482c06c4e4eb4ffc"
+    sha256 arm64_sequoia: "39cb419abcedaf51d6aa224812800ef35f1c93ff669a407728aa231e869954bd"
+    sha256 arm64_sonoma:  "195316dfa0f29dff00d600ad2e04f84ff7a80c98905b5b722b4797ef7d539224"
+    sha256 sonoma:        "e616ab53df78acfa432e4bb39e4ba4d209c16caeb92133eb35d88f24a45d94fc"
+    sha256 arm64_linux:   "f43f6dcdebbd0c582a3aceb90a05560b05b7849de6908e19f8f584f8fa5c84fb"
+    sha256 x86_64_linux:  "f666b5b780009e06d0d5a2e1ac4e9ce40246bb3a99826a713a76467f8f654ed0"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "protobuf@29"
+  depends_on "protobuf"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -119,7 +122,10 @@ class Mysql < Formula
     system "cmake", "--install", "build"
 
     cd prefix/"mysql-test" do
-      system "./mysql-test-run.pl", "status", "--vardir=#{buildpath}/mysql-test-vardir"
+      system "./mysql-test-run.pl", "check", "--vardir=#{buildpath}/mysql-test-vardir"
+    ensure
+      status_log_file = buildpath/"mysql-test-vardir/log/main.status/status.log"
+      logs.install status_log_file if status_log_file.exist?
     end
 
     # Remove the tests directory
@@ -146,6 +152,13 @@ class Mysql < Formula
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
 
+    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
+      opoo <<~EOS
+        A "#{my_cnf}" from another install may interfere with a Homebrew-built
+        server starting up correctly.
+      EOS
+    end
+
     # Don't initialize database, it clashes when testing other MySQL-like implementations.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
@@ -157,7 +170,7 @@ class Mysql < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       Upgrading from MySQL <8.4 to MySQL >9.0 requires running MySQL 8.4 first:
        - brew services stop mysql
        - brew install mysql@8.4
@@ -173,14 +186,6 @@ class Mysql < Formula
       To connect run:
           mysql -u root
     EOS
-    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
-      s += <<~EOS
-
-        A "#{my_cnf}" from another install may interfere with a Homebrew-built
-        server starting up correctly.
-      EOS
-    end
-    s
   end
 
   service do

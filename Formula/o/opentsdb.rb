@@ -10,12 +10,22 @@ class Opentsdb < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, sonoma:       "1e94a2ce5cc95c944f5763df3442cc2fe71d12279f134b0a051549c6b4bd902a"
     sha256 cellar: :any_skip_relocation, ventura:      "022671a452bff9bacb3c84213f26adfb9d4fc50bdfbd28e2997262f6f5936607"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "e3cb78193f508228b2918205e3c4303febb1c2dd525e4a6f8d503866b41407f4"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "8c51dd6ebd008e6868a745d85dfe01374ef3b4e3ada22a54d4015d89e7973443"
   end
+
+  # Deprecated since:
+  # * No arm64 macOS support: https://docs.brew.sh/Support-Tiers#future-macos-support
+  # * CVE in stable release: https://nvd.nist.gov/vuln/detail/CVE-2023-36812
+  # * Still needs OpenJDK 8 to build
+  deprecate! date: "2025-09-25", because: :unmaintained
+  disable! date: "2026-09-25", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

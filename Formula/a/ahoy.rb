@@ -1,19 +1,20 @@
 class Ahoy < Formula
   desc "Creates self documenting CLI programs from commands in YAML files"
   homepage "https://github.com/ahoy-cli/ahoy/"
-  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "934456f62143eb6dd92507e0144abbc3e3c0aa8a23955f89704f366b5df260f9"
+  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "e57f908df16c29d5e1b5e814496d0f9eb9e11a871ed68e1fd93aa286c557c540"
   license "MIT"
   head "https://github.com/ahoy-cli/ahoy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c30c730a0e5e1e318913a11f22d2b0f93a2ec1805f3904c52880b8ca97f91e91"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c30c730a0e5e1e318913a11f22d2b0f93a2ec1805f3904c52880b8ca97f91e91"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c30c730a0e5e1e318913a11f22d2b0f93a2ec1805f3904c52880b8ca97f91e91"
-    sha256 cellar: :any_skip_relocation, sonoma:        "64e28243d18ab18c1e06bf60d62813ccfcdcacba549f43554b073cae907504ef"
-    sha256 cellar: :any_skip_relocation, ventura:       "64e28243d18ab18c1e06bf60d62813ccfcdcacba549f43554b073cae907504ef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "270832559acf6ca425aa07773609b8abd84f5e02bbf3fa8f7835a94076480eec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2235499bed48ad1d1f2b57fef7fd9f83367dee64c64e4c603dea1f3063fe8962"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1d4f45c4c570160683c363f45827d0e8632297f68794018f8686ca1e88f02ee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39cc43e109a7f06f80f5bbea045f5877292645bebdc4e8dda3dcc60699bef370"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39cc43e109a7f06f80f5bbea045f5877292645bebdc4e8dda3dcc60699bef370"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "39cc43e109a7f06f80f5bbea045f5877292645bebdc4e8dda3dcc60699bef370"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fde6ef7692a9bf8513258596831c349e349b49beea85ff7ba06c0046305e3156"
+    sha256 cellar: :any_skip_relocation, ventura:       "fde6ef7692a9bf8513258596831c349e349b49beea85ff7ba06c0046305e3156"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d628f6bd4c2687f8b9736b8b365e311472af4b81dfe798014816b436e08d8fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "689b92185a351f9b622340c9fc7c1234df8a33e6bea026075bb79f52e2de13c5"
   end
 
   depends_on "go" => :build

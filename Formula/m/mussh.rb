@@ -5,6 +5,8 @@ class Mussh < Formula
   sha256 "6ba883cfaacc3f54c2643e8790556ff7b17da73c9e0d4e18346a51791fedd267"
   license "GPL-1.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "2aef0306d0c39460009d42553effebd0aca77dd7c76489323e13f95ecd76b17e"

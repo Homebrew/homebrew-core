@@ -1,8 +1,8 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://github.com/xyproto/algernon"
-  url "https://github.com/xyproto/algernon/archive/refs/tags/v1.17.3.tar.gz"
-  sha256 "fa65d1f42719b23309259af4c5b02b1ae435771ea7ecb39c44ba27974d1431c6"
+  url "https://github.com/xyproto/algernon/archive/refs/tags/v1.17.5.tar.gz"
+  sha256 "5636b87961a456454ca646b1057d12eb59fed31785d12aefd1ff8d2cef2ee712"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git", branch: "main"
@@ -13,13 +13,12 @@ class Algernon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f45cc8bc25c0e58336d003756bb56fd64e7fd0ccd4632092c669f7c9dd84d425"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6fcc88380fdbe56754e03780462af0b6bed267bc208a6605464eeafaf25f1e8b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a2e43bb0117c0506fc5380ade27f49e0291c4d3321ebef4c180fd3ad267fa4c4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dafb99f1425261d43809009f66dc86eb5496d12255358f22ab62e131845e5877"
-    sha256 cellar: :any_skip_relocation, ventura:       "afe85eae1aa3f78180566e9d0764b3d3d362af421754494cc023015ebf894336"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "98d16ba48aea3c81bd73432a4f3732b66b1cd63f6df6c6d7c56a23fbc0610e9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30ab869540b7d63439b0bc438f3309b90eeaf9f80915089e5ba072083afa0301"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cd3d6332fb7db0a31e44041b94e26e3460f48a0d6c2e20046d69aa7b04fc6451"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b370e1dbb640a07953a4362fc853b327c9c211c3c0b03cda47c6d0196d0951f4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf9db802c62a5741d05964a3d82ff3795d9ab74f5a2d81500367a35931fa938f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "de64c1a719b13cf8b3f2dbc463943f02317f1d7d9688ea4ef075344eb35daed2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "45f4add8f549a5f172bd83bc32b5935d59529b09922146da090416349c16fdb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c40a6a85665817beafa31562044e36431d3a241e7070becbb9e280f08b6a9ec"
   end
 
   depends_on "go" => :build

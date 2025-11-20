@@ -1,8 +1,8 @@
 class Spot < Formula
   desc "Platform for LTL and ω-automata manipulation"
   homepage "https://spot.lre.epita.fr"
-  url "https://www.lrde.epita.fr/dload/spot/spot-2.13.1.tar.gz"
-  sha256 "b9d1de4abcd069f923e1a3263f58ccafcc54896aa818b455928ca2b1a4466dc9"
+  url "https://www.lrde.epita.fr/dload/spot/spot-2.14.3.tar.gz"
+  sha256 "a0cc89fa716c35a3d7f3272fdbb028841560e671b9958c053870292daf88dd21"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,19 +11,19 @@ class Spot < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d515aee932792bd7473a2b062a3d6aec2359a57478d79feac44b0ff991bf882b"
-    sha256 cellar: :any,                 arm64_sonoma:  "d62b1d2427fe1faa94d027dd06fc7953261edb275b3649f1399da3a3e036da13"
-    sha256 cellar: :any,                 arm64_ventura: "18cb2c3876c10b5d546390a4ddd297497491e10e11a09c7d37a7e8bfa8c995a0"
-    sha256 cellar: :any,                 sonoma:        "7dd821d2fda923457b8eb993367a94333cea891b9482f8ec6923da938eb9b677"
-    sha256 cellar: :any,                 ventura:       "3ec81346e00152d9635aa757e1ea13cd510f878e7fb6c3f11c2c402956d7a9ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5777648e4a06ef9c4cc634b38f6d3102f01bda9976ff214d1b51603bcb3afa1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99ad6dc363664791bfba111064393043c9e906494b64279ab5f4204fa145ac6c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5ebf9188289b7edc8558dd316e429a07723a4fa592872c1c5f3b4fb0c79e2c4a"
+    sha256 cellar: :any,                 arm64_sequoia: "89d678e29946e21be3799d22cb1a4b20b02a1d02d8be3f257b7d0ec4766a236f"
+    sha256 cellar: :any,                 arm64_sonoma:  "376c92cbec2cd6fedf96112acceb8c75b62d1b6a56438c5c7be10158c0dd408b"
+    sha256 cellar: :any,                 sonoma:        "ff17fef6f1a6f44da93594979fc2562b01fe8ce3aa8619b4b459931643b17f45"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dcd58f0db3d6df6688c4151e193f82d1df6833053bde2754c1e33647d682957"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "515225f54b9e59ed573016bf29650ce5cda88d0dfcc83be0a978e08b32edd374"
   end
 
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

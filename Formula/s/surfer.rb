@@ -2,19 +2,18 @@ class Surfer < Formula
   desc "Waveform viewer, supporting VCD, FST, or GHW format"
   homepage "https://surfer-project.org/"
   url "https://gitlab.com/surfer-project/surfer.git",
-      tag:      "v0.3.0",
-      revision: "1a6b34c44ea0e5089bd55d0bce1297aa1a02e6ef"
+      tag:      "v0.4.0",
+      revision: "9198cc497aec2249ff7459df03fed628c9996578"
   license "EUPL-1.2"
   head "https://gitlab.com/surfer-project/surfer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4457f78c27f1e938def02a5a0dcbbcc2e0a321c74f8537c04f509802c9f0b8ca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e97543d0f251a4f4b6af33d51eee1756034d89b5b56a1635950ab1e238aacad0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "03096cd206a1e35ce940edbfc933dec9223af66b13020995f74bc31e5de6e0b3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e8deccf748154f2694fb130a855db4489f1ead1a2a373c1f5fa4fb7440718c64"
-    sha256 cellar: :any_skip_relocation, ventura:       "c4153c7564eb8c1f70c138b984d50497d335b6f545b2bc1812b7020b558e575c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "03ebf3b987048837c04e1308da290bed70d14b3102bd8ff910e20dd71965f1bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85f894ea7612f3fbf2c10be6b238e4cfa42fcc694c4d0dbc4b847f6fe4010fcc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b543129fdd6f45a43b42a5597a086affe544550dec1ca3167cde03c686973c59"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30e3981f15646136c67b7c2ec24b6e1e2a0480bd3410ea13973ad6b270531930"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "080b09915a5e2dc6c5d3ccfec24a34f399c384abbe817d1b17b4fb57d10c634b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "536b3f9ea18ac279959209e320155220e9b7d31042802f51db3a44ca4dc28efc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91f223881e9a266cd4383e1f870cdd669b73df418b3573c2ab3e6cd44e92d145"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "748e1352790bd92384ab4e01570a4a47b7a98ff8f19079ff60702612c0479354"
   end
 
   depends_on "pkgconf" => :build

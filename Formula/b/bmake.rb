@@ -1,8 +1,8 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "https://www.crufty.net/help/sjg/bmake.html"
-  url "https://www.crufty.net/ftp/pub/sjg/bmake-20250528.tar.gz"
-  sha256 "0dc389a5e0298aa585353b60796d5d632de660dade58d00acd60ad722846c9a3"
+  url "https://www.crufty.net/ftp/pub/sjg/bmake-20251111.tar.gz"
+  sha256 "45a3f8515677ba8f3933d8213f4bb611a5c3c88380be2e46222fa44709506060"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Bmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a83f78f8861a49fd73773e1bf22b90e598811cfc1dda39aec433b48109acadfa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af14fc3b9f056b85ef7814fdd64c35c51a758f65c62b9778a4387297b2abd647"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "13464297ea400c6fa8da53ef4b78aa959a4b35b0b450526362eef16f30b511af"
-    sha256                               sonoma:        "9a7bcc0516479d7e60f7f32e3d5edb53880f5afb5f538ac1f5c48e16cbe74695"
-    sha256                               ventura:       "b25cdc426784aa7a332445ee5ed42caf0720836665264ff7376adb47d463904f"
-    sha256                               arm64_linux:   "64d479442313687c9fb57a95cb516ab574b25d92086ee0d99e6df919eaba049a"
-    sha256                               x86_64_linux:  "b45148179ad8690da3e52df18ca235ff7f494ea7f50c743451d73d0ef98967c9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d070080a4140d21e1c694e09b76fdd001e4a3eafdfe8d3baf16e1aa7507ee92"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a77d928e461ccdba42f1b154fb546b7218448ad6c4e1fc600e290adfdd3e05fa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad718142f1eaf42776e99ab60a0c68f948306482a8b429e6cf49c007ee077ac5"
+    sha256                               sonoma:        "62df628ad69f8e99aff0ee492cd15698ca13694b122e99e852d0b6c35f32f961"
+    sha256                               arm64_linux:   "685f5997646e8924f2023b6f2ecf00ed7ef5fb099a9ce78d7cf94201ed9fcad2"
+    sha256                               x86_64_linux:  "05ad36b4ab08784d9a3063c8dab2d705f8d36710a4a499ff87bdd05c7c3fe151"
   end
 
   uses_from_macos "bc" => :build

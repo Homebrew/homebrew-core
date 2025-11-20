@@ -10,7 +10,10 @@ class Log4shib < Formula
     regex(/href=.*?log4shib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "904dcc273d28ad65713782b2a01ee3a25997236147ac2281f3193148f5b22d16"
     sha256 cellar: :any,                 arm64_sequoia:  "8f3ca9cfd6b2cdc5d7487bcba05d48704e32a91a976addec41677d45525522a6"
     sha256 cellar: :any,                 arm64_sonoma:   "b4e8f90a884b5a2afc47ee2fb0a1d13a4731b4e03df4d3f5d432bf6b5ae41196"
     sha256 cellar: :any,                 arm64_ventura:  "c2bc8d9323dd44d769a0b9f139951bdd648467e8eb89d75dd47154751ef8e72d"
@@ -27,7 +30,7 @@ class Log4shib < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

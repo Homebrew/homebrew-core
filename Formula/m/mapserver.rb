@@ -1,10 +1,10 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-8.4.0.tar.gz"
-  sha256 "b0cb3612cd58458cca0808b117c16b9415b3231af39aefb90d668e8b8b188e2c"
+  url "https://download.osgeo.org/mapserver/mapserver-8.4.1.tar.gz"
+  sha256 "fe60bfdbab69437b5f97bb4ca41f2407e245c90edc2a727bf1d4428edb4a240f"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://mapserver.org/download.html"
@@ -12,13 +12,12 @@ class Mapserver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a4e500674e554d55bd55eaf1e02fc5b9e92acc8186249916b7a2580c69d0252f"
-    sha256 cellar: :any,                 arm64_sonoma:  "6660cb93a5203442144bf4ca85bfc3c21e6d7bf586375e3095af54d946002cc4"
-    sha256 cellar: :any,                 arm64_ventura: "f90d19bd7df3901cce2cd86c0f17c5ea72f864c07461e25e3999a4aef19a51b0"
-    sha256 cellar: :any,                 sonoma:        "92d448babff50b7594d87edbe7647422c2eee391385a7578d59a00f738639ebc"
-    sha256 cellar: :any,                 ventura:       "2a6c194a77dd8a90c1e891709d75c3126397525853f9bfb8310473a2bbe89807"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e54d30a20448f15b9c47aac2ce9e6e248e4831f13e9c3dada3ea5e063d7485b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bdcab5848d320edb7eb9d8dce253e900197f37d89be4246c65b9c786945247d"
+    sha256 cellar: :any,                 arm64_tahoe:   "f37883024eee9db38c8861defb0c618e830400ee738527bf95a31183f7e6d6d9"
+    sha256 cellar: :any,                 arm64_sequoia: "427fc8bd638c9eb0fa81fba883f02b7c503f876ecc63b2e90d313112eb83f703"
+    sha256 cellar: :any,                 arm64_sonoma:  "4b31ed952e3fdd4418d1a180ac6f89a659bf75e99f242e8cf6b8b84ccdc23114"
+    sha256 cellar: :any,                 sonoma:        "c11c8bb01516e066a0715f0cd7ae39cebd9725adbfd7317df5987217b44fa320"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4723bfe1da2ead2b6f5c8ac89848eab194e01988e735ea94b809b6aff394c45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8153e6505b354c2b397607378e73d34ba94639ad0011cf6ae03bf2f5a01c9c96"
   end
 
   depends_on "cmake" => :build
@@ -37,12 +36,12 @@ class Mapserver < Formula
   depends_on "pcre2"
   depends_on "proj"
   depends_on "protobuf-c"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "curl"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

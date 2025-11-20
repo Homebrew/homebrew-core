@@ -3,87 +3,87 @@ class OpenaiWhisper < Formula
 
   desc "General-purpose speech recognition model"
   homepage "https://github.com/openai/whisper"
-  url "https://files.pythonhosted.org/packages/f5/77/952ca71515f81919bd8a6a4a3f89a27b09e73880cebf90957eda8f2f8545/openai-whisper-20240930.tar.gz"
-  sha256 "b7178e9c1615576807a300024f4daa6353f7e1a815dac5e38c33f1ef055dd2d2"
+  url "https://files.pythonhosted.org/packages/35/8e/d36f8880bcf18ec026a55807d02fe4c7357da9f25aebd92f85178000c0dc/openai_whisper-20250625.tar.gz"
+  sha256 "37a91a3921809d9f44748ffc73c0a55c9f366c85a3ef5c2ae0cc09540432eb96"
   license "MIT"
   revision 1
   head "https://github.com/openai/whisper.git", branch: "main"
 
+  no_autobump! because: "`update-python-resources` cannot update resource blocks"
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fb20c184addee014fbd43a8035592e76c148b5ea8ce30e22fd5b1f17ca38b7aa"
-    sha256 cellar: :any,                 arm64_sonoma:  "2ff5f9e031d71cdc3b66795bfadb17c67f9ad75466e695ad601dde1a60dce069"
-    sha256 cellar: :any,                 arm64_ventura: "175aba1ee80e67f54dae13ef88f265a53cce12e0acf3c43353a780cf11979573"
-    sha256 cellar: :any,                 sonoma:        "60a4054c514839aade340a6f9e394c57f1f6d43e8f85bad84aa775c2aa5d49a3"
-    sha256 cellar: :any,                 ventura:       "3b78fc5f446614ae7367a8c8204da6f3af00501437381e40306c904ad1dcad88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1b019e05f4ec4d9a1cab322adc279ec2d89d07b32e0fa48b906902a3eaeb2c6"
+    sha256 cellar: :any,                 arm64_tahoe:   "7f2aca24bef213888b85b6a6836ccd0741b654f02a1033f724bcdca45b93ffc2"
+    sha256 cellar: :any,                 arm64_sequoia: "65535d05c8598cbd0ee9781228d27abac5f412b41eb47740303dda0cc23406b6"
+    sha256 cellar: :any,                 arm64_sonoma:  "9eefa0114835eb0beb294045f72a9dcde73589bc9f232a26d79f15cacb2ed009"
+    sha256 cellar: :any,                 sonoma:        "a022fc299bf43a63cd011699f68fb6739904f7c3f43e3ef05802a394669f85d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce2a701ecdbbd852ae2537ad1a72ebd74789e2b08436eb389b963f0b8d3000d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c7784c62adef0cd329ae435f3d5ad7d680b3d652037fcd3e376b3dd9f6fc579"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build # for tiktoken
   depends_on "certifi"
   depends_on "ffmpeg"
-  depends_on "llvm@16" # LLVM 17 PR: https://github.com/numba/llvmlite/pull/1042
+  depends_on "llvm@20"
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "pytorch"
 
+  pypi_packages exclude_packages: %w[certifi numpy torch]
+
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
+    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
-    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
+    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
+    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
   resource "llvmlite" do
-    # Fetch from Git hash for compatibility with the new version of `numba` below.
-    # Use git checkout to avoid .gitattributes causing checksum changes and unknown version info
-    url "https://github.com/numba/llvmlite.git",
-        revision: "ca123c3ae2a6f7db865661ae509862277ec5d692"
+    url "https://files.pythonhosted.org/packages/c1/39/be3a8255c8c40fcab6d54d147ae5bda00104e861b108c541f2b2ecb30c44/llvmlite-0.46.0b1.tar.gz"
+    sha256 "ea7208f342cc157e600093862ff87ab5d296680d7dfff0a01dc13668ecbc60d0"
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/51/78/65922308c4248e0eb08ebcbe67c95d48615cc6f27854b6f2e57143e9178f/more-itertools-10.5.0.tar.gz"
-    sha256 "5482bfef7849c25dc3c6dd53a6173ae4795da2a41a80faea6700d9f5846c5da6"
+    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
+    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
   end
 
   resource "numba" do
-    # Fetch from Git hash for numpy 2.1 and python 3.13 compatibility.
-    # Use git checkout to avoid .gitattributes causing checksum changes and unknown version info
-    url "https://github.com/numba/numba.git",
-        revision: "391511bcb0b97af8d311cd276a46030774bc30b7"
+    url "https://files.pythonhosted.org/packages/8b/ce/efb2667849b0abac22d1499bc855f67b97c3d23bb4f43c1d854ec2a0c716/numba-0.63.0b1.tar.gz"
+    sha256 "66b7a0052e2cfe8befa273e5af3eae75e102ac9c3da7d2ca361b7b72cf5051c8"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/f9/38/148df33b4dbca3bd069b963acab5e0fa1a9dbd6820f8c322d0dd6faeff96/regex-2024.9.11.tar.gz"
-    sha256 "6c188c307e8433bcb63dc1915022deb553b4203a70722fc542c363bf120a01fd"
+    url "https://files.pythonhosted.org/packages/f8/c8/1d2160d36b11fbe0a61acb7c3c81ab032d9ec8ad888ac9e0a61b85ab99dd/regex-2025.10.23.tar.gz"
+    sha256 "8cbaf8ceb88f96ae2356d01b9adf5e6306fa42fa6f7eab6b97794e37c959ac26"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "tiktoken" do
-    url "https://files.pythonhosted.org/packages/37/02/576ff3a6639e755c4f70997b2d315f56d6d71e0d046f4fb64cb81a3fb099/tiktoken-0.8.0.tar.gz"
-    sha256 "9ccbb2740f24542534369c5635cfd9b2b3c2490754a78ac8831d99f89f94eeb2"
+    url "https://files.pythonhosted.org/packages/7d/ab/4d017d0f76ec3171d469d80fc03dfbb4e48a4bcaddaa831b31d526f05edc/tiktoken-0.12.0.tar.gz"
+    sha256 "b18ba7ee2b093863978fcb14f74b3707cdc8d4d4d3836853ce7ec60772139931"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/58/83/6ba9844a41128c62e810fddddd72473201f3eacde02046066142a2d96cc5/tqdm-4.66.5.tar.gz"
-    sha256 "e1020aef2e5096702d8a025ac7d16b1577279c9d63f8375b63083e9a5f0fcbad"
+    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
+    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
-    ENV["LLVM_CONFIG"] = Formula["llvm@16"].opt_bin/"llvm-config"
-    inreplace "setup.py", "version=read_version()", "version='#{version}'"
+    ENV["LLVMLITE_SHARED"] = "1"
     venv = virtualenv_install_with_resources without: "numba"
 
     # We depend on pytorch, but that's a separate formula, so install a `.pth` file to link them.

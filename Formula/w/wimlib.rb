@@ -11,29 +11,26 @@ class Wimlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "dc46d8e6c9dd8a394459c8735c03e02dd0ff8e4f887e3849e87793553492a0c6"
-    sha256 cellar: :any,                 arm64_sonoma:   "8cbbeec3b621170d4577412d4c0a240e27a07a9471ffa6f28186ccb26c601592"
-    sha256 cellar: :any,                 arm64_ventura:  "295512a48ab0166b7e217a83b106bc7e7e01cbf3a6f343eaedfa97a899eb4d92"
-    sha256 cellar: :any,                 arm64_monterey: "9f8f4f22847e831915fccdeedfc885108dc2d6f6d80e276d4932484015bba54a"
-    sha256 cellar: :any,                 sonoma:         "9822e536911e162bb367cfd73ac94ff7ef30a9b0d604400d7702fb4bee072f0e"
-    sha256 cellar: :any,                 ventura:        "77a2f91a0c2ca081a2f50ff5f4b9f3ea4f9e79a3c19705f71309c8c60d08e5d8"
-    sha256 cellar: :any,                 monterey:       "0f92288eb4efd7316e705cf1a6d1729f8b6eee81beb7ea57daf15f968c0c53ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "deebf01fb975cccf1659fe05d5ba8e6791df197a393ab8a1dbbbcc3e9b30ce1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4710658e4473cd5744958616b25eb4c19bf61ffec09c42cd748ef4d0ce26c3b0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "0e65ded347adda5fda6167017ee666f76dea3257916600281531ba9913fa14fe"
+    sha256 cellar: :any,                 arm64_sequoia: "a5ea3961385c62f66efecd74eb8cb16533a12214b638b2dcc3bc552c3666a072"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd90cbc5afd8825d5693a3a15b6728392eadb8d17620fefec7418521b117a90d"
+    sha256 cellar: :any,                 sonoma:        "9fcea2765f909283a7eecf6386b2f01909ef01bfcc350bc598c7e5a4fd03faf8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c05433a61d83381856df0ca35cc8691136d48d9122a9423235e66acb2faab0f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87a79bfe8b23309c2d5de2cec6e353ff2da0b1010f609c2b0555151d2c531520"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
 
-  uses_from_macos "libxml2"
+  on_linux do
+    depends_on "libfuse"
+    depends_on "ntfs-3g"
+  end
 
   def install
-    # fuse requires librt, unavailable on OSX
-    args = %w[
-      --disable-silent-rules
-      --without-fuse
-      --without-ntfs-3g
-    ]
+    args = %w[--disable-silent-rules]
+    args += %w[--without-fuse --without-ntfs-3g] if OS.mac?
+
     system "./configure", *args, *std_configure_args
     system "make", "install"
   end

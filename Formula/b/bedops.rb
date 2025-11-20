@@ -6,6 +6,7 @@ class Bedops < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4ff22f322da3637f4386dc02c4ab65a66792ec39e12c5cef947318b9192d8f7d"
     sha256 cellar: :any,                 arm64_sequoia: "a4233322968c5020044fae4eebb8454b89f21f0a5d8e148a354d6e6ce34c29a1"
     sha256 cellar: :any,                 arm64_sonoma:  "20bb111818a6579c66d41e8f1197db5e2bfec0a552683c613a502f6c948bb545"
     sha256 cellar: :any,                 arm64_ventura: "d76e57a5614cc8aa3ca1f80c578a3f1927afdd38b0c6781f661decbed04d9b9b"
@@ -22,7 +23,7 @@ class Bedops < Formula
 
   # Apply Debian patch to allow using system/brew libraries
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1d12e712a16527def49be17286f95fd501d00285/bedops/2.4.42-debian.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/bedops/2.4.42-debian.patch"
     sha256 "7d88db7624500521988d5260ec290578db74e85ad4b0cf0e1552e548691c3a21"
   end
 

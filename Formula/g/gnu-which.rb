@@ -2,12 +2,13 @@ class GnuWhich < Formula
   desc "GNU implementation of which utility"
   # Previous homepage is dead. Have linked to the GNU Projects page for now.
   homepage "https://savannah.gnu.org/projects/which/"
-  url "https://ftp.gnu.org/gnu/which/which-2.23.tar.gz"
-  mirror "https://ftpmirror.gnu.org/which/which-2.23.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/which/which-2.23.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/which/which-2.23.tar.gz"
   sha256 "a2c558226fc4d9e4ce331bd2fd3c3f17f955115d2c00e447618a4ef9978a2a73"
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e90a6ecbd9fb9b0134ff618f44d6993edd632d8a7529d3ec51b03fb708722e94"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "91778a7be9cd94c5de2d8040fb7405541497dd97df1daa1cc562b5a7194e2688"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b59742c30bca0d70fd803414b20aba6af45ff3fe59941bcb68485074b7ca28b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "17a52b327ea1d2a30313c98f73105943f22c6307aa29ced85558440c679fbcc6"

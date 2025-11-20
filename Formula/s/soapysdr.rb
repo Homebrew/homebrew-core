@@ -14,23 +14,24 @@ class Soapysdr < Formula
     patch :DATA
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sequoia: "2cd1b0106c59df55ee3022f0e426718979343f8c0791a1cbf189a0230b582967"
-    sha256 cellar: :any,                 arm64_sonoma:  "037c6ec56ece7b022d890f8c42f9e8b7e012ec9a641901d4d73a961a8f7f069d"
-    sha256 cellar: :any,                 arm64_ventura: "d091d29209ae4319ddb8db5f2bc8c3f828953db36b619f2288df08c6cb2f2db1"
-    sha256 cellar: :any,                 sonoma:        "e90833db385d8e3ce0c8eb4f138834d1da1db6879ca46be2f5f52a4f68957e44"
-    sha256 cellar: :any,                 ventura:       "dbbc7e560136986fb5604d2c752890d5ee299725768fa61dc5ddd2bfd2e73be0"
-    sha256                               arm64_linux:   "20de753561fae444f356d230eff4d1d67dee481e6db1bed339dd419d710eaf64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1227202d6306ddbc0d33b3f94904cc51b6ebfd61802fd411fb51fdd306e2f4a"
+    rebuild 4
+    sha256                               arm64_tahoe:   "52ad613af98da0b017164de38b0029ec486d8c3b602735ac13dee37bd06b9ef1"
+    sha256                               arm64_sequoia: "b370df36657b7a9948cfe87614c270397370abaa1ae524aed812378c45a01a2c"
+    sha256                               arm64_sonoma:  "813a78fda8de094ad4fc55f3639ccb2613093c3417d63f1365fbbbde2143f878"
+    sha256 cellar: :any,                 sonoma:        "be69465ae0ab16f994a8fa2333a6af39dda156f57502dbdc3e1f0f4556c2f975"
+    sha256                               arm64_linux:   "fd95f81a9f8ae0308000a40b1a7bf0316b86aebeec1cf94283ccefbb0a48ec7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06d821fe8e03e9746d93d7667bbb9655d3c05ee8fa1f7764447b0c8ce36592fd"
   end
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
@@ -39,7 +40,13 @@ class Soapysdr < Formula
       -DSOAPY_SDR_ROOT=#{HOMEBREW_PREFIX}
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
-    args << "-DSOAPY_SDR_EXTVER=release" unless build.head?
+    args << "-DSOAPY_SDR_EXTVER=release" if build.stable?
+
+    # Workaround until next release to avoid backporting multiple commits
+    if build.stable?
+      args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+      odie "Remove `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`" if version > "0.8.1"
+    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

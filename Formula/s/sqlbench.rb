@@ -6,7 +6,10 @@ class Sqlbench < Formula
   license "MIT"
   head "https://github.com/felixge/sqlbench.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8c496486c81f8ef1e302ef65bdb290f2d6374e1b1840a7e970991a2ea76bd219"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bb5fc33b6e66c2132a7369001b56bced611e9f7b7f7d2488cf11c57f7f7c77ab"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ede04ad826d75e794b7fe73102638e05fa6d800fd9621d9060817afe5b1c398f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0598ce5d9b3c1aed37b1690a3e8357300b3ef8906ea2275fe1ee997375c09e98"
@@ -17,7 +20,7 @@ class Sqlbench < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "a59e25067b830b0062a0d3c7fa98da5c31ef16c0763303f5acf16238aead26a6"
     sha256 cellar: :any_skip_relocation, big_sur:        "9a74a774e1c5c5512b9230713af78f3694d38f237241817740c8f244febe8e09"
     sha256 cellar: :any_skip_relocation, catalina:       "a138dbb8bf3fa6293e51b49e91e35078c8c2d7dc399c70a61705f047b519a8f1"
-    sha256 cellar: :any_skip_relocation, mojave:         "382ff90c210126e6803b47d1b267761d592b1d9898f6804730beb26df80af917"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8865da934790a89133f570b9e8501d9648fbaeb33f49ec8a21867625f5b8da41"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0e961ada32e3e6588b0a328d3030f39e7bcc1457b63573608347e28cd5960cf"
   end
 

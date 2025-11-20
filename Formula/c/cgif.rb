@@ -6,6 +6,7 @@ class Cgif < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d29102987685f8ac154c88b240a697f35303fc8ea7dabeb718a91263e1844788"
     sha256 cellar: :any,                 arm64_sequoia: "302d61d9b591b20873769ea9edd032b629eeb3db0219db60ce1a859721c82c5e"
     sha256 cellar: :any,                 arm64_sonoma:  "29171ccc9b3ebc3e1b60a99d5400975fc4cd5c20f3a3775c287be888436bab6b"
     sha256 cellar: :any,                 arm64_ventura: "a7a100fb46e624b13b2a12e7258c34b3b58168be2e225dde9bd5e81cb32a1da9"

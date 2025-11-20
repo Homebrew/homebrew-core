@@ -6,8 +6,6 @@ class Gokart < Formula
   license "Apache-2.0"
   head "https://github.com/praetorian-inc/gokart.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "507a041c828e63ce0dc9aab9e1813c8d3d88953a36f0c7d78d6b26494e061feb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a79a35e7badd5894d6080b74b28f701b14d680a6480b78ab237ebb77083a559f"
@@ -23,6 +21,7 @@ class Gokart < Formula
   end
 
   deprecate! date: "2024-06-20", because: :repo_archived
+  disable! date: "2025-06-21", because: :repo_archived
 
   depends_on "go" => [:build, :test]
 

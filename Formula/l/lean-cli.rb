@@ -7,6 +7,7 @@ class LeanCli < Formula
   head "https://github.com/leancloud/lean-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3da295ce6ca687fd6d8d40979221d4f7560385ddd42e967c49f6b7b688d4cbc4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "da8e921555f9680a60ed796184600b597561f9e34342a2737307dabcfa1d8993"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9cc9aafc5e0974457ebcc7547750e85e25ebb50e5bb89340130e8b3d17fef9d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a358c0da0dd02839e235b9d2d4174be5bf5f9f397a0e2e8efddb4f958d95dbd"
@@ -16,6 +17,7 @@ class LeanCli < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "0eb771d51928d4ebdbdd14c689eabea88ec3bb726f4d63c86df37351cfe2b10b"
     sha256 cellar: :any_skip_relocation, monterey:       "0eb771d51928d4ebdbdd14c689eabea88ec3bb726f4d63c86df37351cfe2b10b"
     sha256 cellar: :any_skip_relocation, big_sur:        "0eb771d51928d4ebdbdd14c689eabea88ec3bb726f4d63c86df37351cfe2b10b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "968073f0bb1515b98e0809c8c79df2f76b9a5c68bc10e1d0add798efdebb04eb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8df5522cc644bc6a8fe47738c5a27f58acdb143d7015bd5f7088b6b6422359b"
   end
 

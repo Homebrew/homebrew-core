@@ -6,8 +6,6 @@ class ApacheArchiva < Formula
   sha256 "9d468f5cd3d7f6841e133e853fc24e73fb62397091f1bb3601b6f157a5eadf77"
   license all_of: ["Apache-2.0", "GPL-2.0-only"]
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0353821ce360af9daa593f637080c56b6e2cfbdd79430d90592577476aefd5be"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "608f320fba80feaae78ae4a9245939f3c115a06ad852b83a510332f816982fc3"

@@ -5,6 +5,8 @@ class RangeV3 < Formula
   sha256 "015adb2300a98edfceaf0725beec3337f542af4915cec4d0b89fa0886f4ba9cb"
   license "BSL-1.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "2fdd480cc63593645c0cc98d62a3607bd22600df59de39e7425bd3f89bd69c82"

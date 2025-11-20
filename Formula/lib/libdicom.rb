@@ -6,6 +6,7 @@ class Libdicom < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "edf1ef90081de45407247c6f2c62dfa5f25ec6e449c77fd817587e4e7947bdd5"
     sha256 cellar: :any,                 arm64_sequoia: "a0ebd3a3367d71d0334a7891bcfd592e2b3afb155ee06ef53147132dfcefd60e"
     sha256 cellar: :any,                 arm64_sonoma:  "f375601773df0c5094df266775394c93aa72f5b48fb05cf1fc05b5af5cc9c3af"
     sha256 cellar: :any,                 arm64_ventura: "878c5957cfd9c3a44b204f9917c2dcdde618abbab7038a7b60052d4c9a5ac504"

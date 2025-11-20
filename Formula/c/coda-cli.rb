@@ -7,8 +7,6 @@ class CodaCli < Formula
   sha256 "5ed407313a8d1fc6cc4d5b1acc14a80f7e6fad6146f2334de510e475955008b9"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "483e4c98217844164a568e721fa48ab165e16c6649b3320c2f7811850c1504cb"
@@ -16,6 +14,7 @@ class CodaCli < Formula
 
   # originally written in py2, and has not been updated since 2012-05-30
   deprecate! date: "2024-08-03", because: :unmaintained
+  disable! date: "2025-08-03", because: :unmaintained
 
   uses_from_macos "python"
 

@@ -1,8 +1,8 @@
 class BtrfsProgs < Formula
   desc "Userspace utilities to manage btrfs filesystems"
   homepage "https://btrfs.readthedocs.io/en/latest/"
-  url "https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.14.tar.xz"
-  sha256 "df5ab804fcb36e291c42ad8361f801ad1e10241b43bd304fe50ce3df9e7e3da1"
+  url "https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.17.1.tar.xz"
+  sha256 "a4be0a6ebb3c476427fb5d97b2cf027b0ccdb6b0c55ff16323320c1e8cb77658"
   license all_of: [
     "GPL-2.0-only",
     "LGPL-2.1-or-later", # libbtrfsutil
@@ -14,13 +14,13 @@ class BtrfsProgs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "ea074d46c9fd6b3b35240ed9e3ad45026a0eed804941a491bb9245d59b46dc4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d6ba4dc9e3f31fe8b913337314c86f491211e2a46c36169e6644df1a68c8843f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "05d2e00f162eb2ac2fda3ae8abee630cf6482ddd07b0bfaae8081c1aef02968a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3e0951e7c516ed5f041aa628700dd854edc3dafe9965b0799e7eeb18f9004a65"
   end
 
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "sphinx-doc" => :build
   depends_on "e2fsprogs"
   depends_on :linux
@@ -31,7 +31,7 @@ class BtrfsProgs < Formula
   depends_on "zstd"
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   # remove sphinx-rtd-theme extension for html docs

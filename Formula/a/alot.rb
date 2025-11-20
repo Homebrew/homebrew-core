@@ -3,34 +3,35 @@ class Alot < Formula
 
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
-  # TODO: check if we can remove `standard-mailcap` from pypi_formula_mappings.json
+  # TODO: check if we can remove `standard-mailcap` from `pypi_packages`
   # https://github.com/pazz/alot/issues/1632
   url "https://github.com/pazz/alot.git",
       tag:      "0.11",
       revision: "a8a108e2344656a13bca21211ccc0df2414cbef6"
   license "GPL-3.0-only"
-  revision 1
+  revision 3
   head "https://github.com/pazz/alot.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b0b23d34625ee35bdf19c6f5092d08aacd2e664df666c6fe4ddde34cde674a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ba913b1ac4fc69ef4228a90031f24237a6a831b0fa3a749c2f30b0216be481c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ae3093b552e4356af46b534412c2aaeac27921b04d7b79ba80d58d712dca1be3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b227c60e1cc403080fa8c14f5b97ab1634fd0e54f31f696fd61fbfa9b8ee84b7"
-    sha256 cellar: :any_skip_relocation, ventura:       "435c5020ea65a79b2d3f016cd82d2c63c65302dad9f3a946e2f1b82cde02852c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dbedea413b1240a740111e09751bd30f3accfa52951214658ba71fcfb105e849"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7e1d080cafcf5344a658d854bafd8f0b44483568a9f39301b23f5179048ab8d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "682d580669a0e7e68d83a60bf92d879e8c9260b14cc775a066f9460336186e05"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2073f6c4e5efd15df25adcfb47610e6e660459b4887eb65781758e25122fcce1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce121172682f2fa975d6bea984bc29140c5d15e2acb6711fb4e593e9cd64b861"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0182e95a1b54b00b0d23616ac1e22757ead4f31a7f6d29a71282cfe220ebc538"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5fe63c1ecf7ed1c13992b031363ce9fc57c9ed8b8f392a0f37f8b9260018e287"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b9196aa41058870ae15ec07ab9fc659d7c5317547ebc7664af48ba85f223508"
   end
 
   depends_on "sphinx-doc" => :build
   depends_on "swig" => :build
-  depends_on "gpgme"
-  depends_on "libmagic"
+  depends_on "gpgmepy" => :no_linkage
+  depends_on "libmagic" => :no_linkage
   depends_on "notmuch"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: "notmuch2",
+                extra_packages:   "standard-mailcap"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
@@ -38,8 +39,8 @@ class Alot < Formula
   end
 
   resource "automat" do
-    url "https://files.pythonhosted.org/packages/8d/2d/ede4ad7fc34ab4482389fa3369d304f2fa22e50770af706678f6a332fa82/automat-24.8.1.tar.gz"
-    sha256 "b34227cf63f6325b8ad2399ede780675083e439b20c323d376373d8ee6306d88"
+    url "https://files.pythonhosted.org/packages/e3/0f/d40bbe294bbf004d436a8bcbcfaadca8b5140d39ad0ad3d73d1a8ba15f14/automat-25.4.16.tar.gz"
+    sha256 "0017591a5477066e90d26b0e696ddc143baafd87b588cfac8100bc6be9634de0"
   end
 
   resource "configobj" do
@@ -78,8 +79,8 @@ class Alot < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4c/f4/aa8d364f0dc1f33b2718938648c31202e2db5cd6479a73f0a9ca5a88372d/setuptools-78.0.2.tar.gz"
-    sha256 "137525e6afb9022f019d6e884a319017f9bf879a0d8783985d32cbc8683cab93"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "six" do
@@ -93,18 +94,29 @@ class Alot < Formula
   end
 
   resource "twisted" do
-    url "https://files.pythonhosted.org/packages/77/1c/e07af0df31229250ab58a943077e4adbd5e227d9f2ac826920416b3e5fa2/twisted-24.11.0.tar.gz"
-    sha256 "695d0556d5ec579dcc464d2856b634880ed1319f45b10d19043f2b57eb0115b5"
+    url "https://files.pythonhosted.org/packages/13/0f/82716ed849bf7ea4984c21385597c949944f0f9b428b5710f79d0afc084d/twisted-25.5.0.tar.gz"
+    sha256 "1deb272358cb6be1e3e8fc6f9c8b36f78eb0fa7c2233d2dbe11ec6fee04ea316"
+
+    # Fix asyncio error with Python 3.14, remove in next release
+    # PR ref: https://github.com/twisted/twisted/pull/12508
+    patch do
+      url "https://github.com/twisted/twisted/commit/c8a4c700a71c283bd65faee69820f88ec97966cb.patch?full_index=1"
+      sha256 "04b849f18e6ef01e7ee2903dba13ffa8bcb04c6d9c182d25410605320d819bd2"
+    end
+    patch do
+      url "https://github.com/twisted/twisted/commit/69b81f9038eea5ef60c30a3460abb4cc26986f72.patch?full_index=1"
+      sha256 "f999fc976327e955fbe82348dfd8c336925bc1f87cfaf4bd4c95deeb0570116d"
+    end
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/98/21/ad23c9e961b2d36d57c63686a6f86768dd945d406323fb58c84f09478530/urwid-2.6.16.tar.gz"
-    sha256 "93ad239939e44c385e64aa00027878b9e5c486d59e855ec8ab5b1e1adcdb32a2"
+    url "https://files.pythonhosted.org/packages/bb/d3/09683323e2290732a39dc92ca5031d5e5ddda56f8d236f885a400535b29a/urwid-3.0.3.tar.gz"
+    sha256 "300804dd568cda5aa1c5b204227bd0cfe7a62cef2d00987c5eb2e4e64294ed9b"
   end
 
   resource "urwidtrees" do
@@ -113,13 +125,13 @@ class Alot < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
-    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
+    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
   resource "zope-interface" do
-    url "https://files.pythonhosted.org/packages/30/93/9210e7606be57a2dfc6277ac97dcc864fd8d39f142ca194fdc186d596fda/zope.interface-7.2.tar.gz"
-    sha256 "8b49f1a3d1ee4cdaf5b32d2e738362c7f5e40ac8b46dd7d1a65e82a4872728fe"
+    url "https://files.pythonhosted.org/packages/88/3a/7fcf02178b8fad0a51e67e32765cd039ae505d054d744d76b8c2bbcba5ba/zope_interface-8.0.1.tar.gz"
+    sha256 "eba5610d042c3704a48222f7f7c6ab5b243ed26f917e2bc69379456b115e02d1"
   end
 
   def install

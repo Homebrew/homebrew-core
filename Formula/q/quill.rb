@@ -1,17 +1,16 @@
 class Quill < Formula
   desc "C++17 Asynchronous Low Latency Logging Library"
   homepage "https://github.com/odygrd/quill"
-  url "https://github.com/odygrd/quill/archive/refs/tags/v9.0.3.tar.gz"
-  sha256 "209b9a3fed9b44f61a50acc34fdc9f5f22338c03644728466e2f4a4b83036476"
+  url "https://github.com/odygrd/quill/archive/refs/tags/v11.0.1.tar.gz"
+  sha256 "9fd092a0b33016ae08be3fbfa36a031432983f98320eee250bec3543d2309817"
   license "MIT"
   head "https://github.com/odygrd/quill.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "475fd1912eec8878c83947f5efe6dc6dc97ec410147adef5560c6c0166e0c1e2"
+    sha256 cellar: :any_skip_relocation, all: "a290be071313521b6c8b107aa6ff8b0aca64eb6df2eed69e87c9340f1246598a"
   end
 
   depends_on "cmake" => :build
-  depends_on macos: :catalina
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

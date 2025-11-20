@@ -1,18 +1,13 @@
 class Tmex < Formula
   desc "Minimalist tmux layout manager"
   homepage "https://github.com/evnp/tmex"
-  url "https://github.com/evnp/tmex/archive/refs/tags/v2.0.4.tar.gz"
-  sha256 "d1907435f607993b0dc2da90166ea6d2804b73f94cffdb52a7ca40e6bee63632"
+  url "https://github.com/evnp/tmex/archive/refs/tags/v2.0.6.tar.gz"
+  sha256 "83f16a8231c1c14105134c5e30d1294b41011de2e624e2a91f37d335b5a01712"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c6494934f2e31caf6457d71405d8f7fa13fcbed8489a20d1e66c2c910665ada"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c6494934f2e31caf6457d71405d8f7fa13fcbed8489a20d1e66c2c910665ada"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c6494934f2e31caf6457d71405d8f7fa13fcbed8489a20d1e66c2c910665ada"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1ffdcd4b358aa710a2bf465baf932722f1e1a4e0eccff83165cb52efcece2526"
-    sha256 cellar: :any_skip_relocation, ventura:       "1ffdcd4b358aa710a2bf465baf932722f1e1a4e0eccff83165cb52efcece2526"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ffdcd4b358aa710a2bf465baf932722f1e1a4e0eccff83165cb52efcece2526"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ffdcd4b358aa710a2bf465baf932722f1e1a4e0eccff83165cb52efcece2526"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7962a086b783ba9d0c735495c568e5a2299e8a33891772d70069dd68ea2d408f"
   end
 
   depends_on "tmux"
@@ -22,6 +17,12 @@ class Tmex < Formula
   def install
     bin.install "tmex"
     man1.install "man/tmex.1"
+
+    # Build an `:all` bottle
+    inreplace man1/"tmex.1" do |s|
+      s.gsub! "/opt/homebrew", HOMEBREW_PREFIX
+      s.gsub! prefix, opt_prefix, audit_result: false
+    end
   end
 
   test do

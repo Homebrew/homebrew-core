@@ -7,6 +7,7 @@ class Xq < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "130ed5ae491d4df66e01950178196471a2c0aee6ecf92cfe547f505e096928fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "acee76fdd23d919d0c9e3bee5ff519742be43f958833f8949972a48f222fb253"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acee76fdd23d919d0c9e3bee5ff519742be43f958833f8949972a48f222fb253"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "acee76fdd23d919d0c9e3bee5ff519742be43f958833f8949972a48f222fb253"
@@ -34,7 +35,7 @@ class Xq < Formula
   end
 
   test do
-    version_output = shell_output(bin/"xq --version 2>&1")
+    version_output = shell_output("#{bin}/xq --version 2>&1")
     assert_match "xq version #{version}", version_output
 
     run_output = pipe_output(bin/"xq", "<root></root>")

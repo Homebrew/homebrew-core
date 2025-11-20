@@ -4,21 +4,22 @@ class SpatialiteGui < Formula
   url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-2.1.0-beta1.tar.gz"
   sha256 "ba48d96df18cebc3ff23f69797207ae1582cce62f4596b69bae300ca3c23db33"
   license "GPL-3.0-or-later"
-  revision 10
+  revision 13
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/"
     regex(/href=.*?spatialite[._-]gui[._-]v?(\d+(?:\.\d+)+(?:[._-]\w+\d*)?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "30502014afdc300e446646426c552f717e6b061039acd2d89cdaa823f3d3db3e"
-    sha256 cellar: :any,                 arm64_sonoma:  "04e36b8d075f92617df76d1efabc5ac7a2222e79c78a6addbeff9080a49559d5"
-    sha256 cellar: :any,                 arm64_ventura: "8c591e7ae73e96ebf063357071c82640eae117ac114bf71b0ade35edb426d127"
-    sha256 cellar: :any,                 sonoma:        "1bb323bba375c2ef9b27d5d2ca15ab337b909e3d289be422b9ef034cf29438ec"
-    sha256 cellar: :any,                 ventura:       "fb9d6957302df3eec020646651f4584fca87b138b9f53a370d0360e35cdfb02d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "578c2016eafd653ba4cc028c6e5541895c9767ffdf8686ed8e8a55bbfa3d1110"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e9e1b4b42a76a2d1324cc6ed9f8fca77c953898b7338c2e1ecda9e5324ca97c"
+    sha256 cellar: :any,                 arm64_tahoe:   "a4b7fbc50b115548016a5cd4437a86b97620f0b5bb778e697c8f4aff7ef91a06"
+    sha256 cellar: :any,                 arm64_sequoia: "0478a3a71b216e6f74a596beb56d3fb3a0460daadafc3090a0779f38522f28ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "fbd21ec2235d230c3dd6feaa32ffa0fec4f75eac486bf1e9b7afbaf6402c20aa"
+    sha256 cellar: :any,                 sonoma:        "8fba83b40f1e121779745c21d151e8f4a88e9e45244856c4cdfee3bf1a173918"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "86a09cf730602dc22b2ae197c1c9a4f651643c663163e468785876cd2ef8173c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87acde87d2c6e11a658f8bc7c210eadeb28ce2aa885364c1f39cd37b473235b3"
   end
 
   depends_on "pkgconf" => :build
@@ -38,7 +39,7 @@ class SpatialiteGui < Formula
   depends_on "sqlite"
   depends_on "virtualpg"
   depends_on "webp"
-  depends_on "wxwidgets"
+  depends_on "wxwidgets@3.2"
   depends_on "xz"
   depends_on "zstd"
 
@@ -53,7 +54,9 @@ class SpatialiteGui < Formula
     ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
     ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
 
-    args = ["--with-wxconfig=#{Formula["wxwidgets"].opt_bin}/wx-config"]
+    wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula
+    wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
+    args = ["--with-wxconfig=#{wx_config}"]
     # Help old config scripts identify arm64 linux
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 

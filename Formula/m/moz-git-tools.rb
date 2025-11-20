@@ -12,6 +12,7 @@ class MozGitTools < Formula
   end
 
   deprecate! date: "2024-08-01", because: :repo_archived
+  disable! date: "2025-08-03", because: :repo_archived
 
   def install
     # Install all the executables, except git-root since that conflicts with git-extras

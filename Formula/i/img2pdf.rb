@@ -3,37 +3,36 @@ class Img2pdf < Formula
 
   desc "Convert images to PDF via direct JPEG inclusion"
   homepage "https://gitlab.mister-muffin.de/josch/img2pdf"
-  url "https://files.pythonhosted.org/packages/82/c3/023387e00682dc1b46bd719ec19c4c9206dc8eb182dfd02bc62c5b9320a2/img2pdf-0.6.1.tar.gz"
-  sha256 "306e279eb832bc159d7d6294b697a9fbd11b4be1f799b14b3b2174fb506af289"
+  url "https://files.pythonhosted.org/packages/8e/97/ca44c467131b93fda82d2a2f21b738c8bcf63b5259e3b8250e928b8dd52a/img2pdf-0.6.3.tar.gz"
+  sha256 "219518020f5bd242bdc46493941ea3f756f664c2e86f2454721e74353f58cd95"
   license "LGPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1079b3b50de55ff2cb1ddba4de0b6263eb02e19e4b8c71b789a6e06c5a6eb592"
-    sha256 cellar: :any,                 arm64_sonoma:  "3de734f6984a7b7e9642891724dabaa3f21d61627c82d06a5d43828eaaf2933e"
-    sha256 cellar: :any,                 arm64_ventura: "e43e023adc6d723aeba2a655fe2aa389ed431132cad290adf7a9fe40e361879c"
-    sha256 cellar: :any,                 sonoma:        "a23983ca26c2f1334d67ab269a3710623e3ccf836e05fe29709275a1bb69221b"
-    sha256 cellar: :any,                 ventura:       "baf5c53f44485b93ba85f1ca2da11ad6afb6537ccf810e768ca539e9d9e55fcb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5420086a7f5c69c6afdc715b30a04b2956e4bb62ebc50c32f3080e7057e8444a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4ef1ecb337f847a0348943032ef9432b5b5c012ae95c45fb6182fefa6e8dfa4"
+    sha256 cellar: :any,                 arm64_tahoe:   "49cb1ad33cd2a254b41237c2ce064bda97dc24f74cfae3b81710ddb7d85be1c9"
+    sha256 cellar: :any,                 arm64_sequoia: "b9fe1e781a5fae8818fdd093aba34df2ca8d39c05f44b88ba283f8fccc804d6f"
+    sha256 cellar: :any,                 arm64_sonoma:  "da1e80de87f316015f4df8a677889b8b3ddee005180e289da01088ec9b22aeaa"
+    sha256 cellar: :any,                 sonoma:        "9f7d81616da3c98aaf7ae9821b1790a321bcb6c5b1ddfa93ed35d1cff5f06748"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8dfa6ee752c5a807e635c0dae1d411f62f0b2be1a7ea63df6367936555eacfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fe8d3cf44d3c9199684b3f457b4aba7397f8c864d57ee60a0b09ac042717c60"
   end
 
-  depends_on "pillow"
-  depends_on "python@3.13"
+  depends_on "pillow" => :no_linkage
+  depends_on "python@3.14"
   depends_on "qpdf"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
 
+  pypi_packages exclude_packages: "pillow"
+
   resource "deprecated" do
-    url "https://files.pythonhosted.org/packages/98/97/06afe62762c9a8a86af0cfb7bfdab22a43ad17138b07af5b1a58442690a2/deprecated-1.2.18.tar.gz"
-    sha256 "422b6f6d859da6f2ef57857761bfb392480502a64c3028ca9bbe86085d72115d"
+    url "https://files.pythonhosted.org/packages/49/85/12f0a49a7c4ffb70572b6c2ef13c90c88fd190debda93b23f026b25f9634/deprecated-1.3.1.tar.gz"
+    sha256 "b1b50e0ff0c1fddaa5708a2c6b0a6588bb09b892825ab2b214ac9ea9d92a5223"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/76/3d/14e82fc7c8fb1b7761f7e748fd47e2ec8276d137b6acfe5a4bb73853e08f/lxml-5.4.0.tar.gz"
-    sha256 "d12832e1dbea4be280b22fd0ea7c9b87f0d8fc51ba06e92dc62d52f804f78ebd"
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
   end
 
   resource "packaging" do
@@ -42,13 +41,13 @@ class Img2pdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/9d/eb/4756ba366b5b243a1b5711e02993ea932d45d7e2d750bf01eb0029dc443e/pikepdf-9.7.0.tar.gz"
-    sha256 "ab54895a246768a2660cafe48052dbf5425c76f6f04e0f53b911df6cfd7e1c95"
+    url "https://files.pythonhosted.org/packages/d3/1c/c8c8c53d5f2b1e3e9c9a12ff3442aafd5b368ffb167b03c8328da608d72e/pikepdf-10.0.0.tar.gz"
+    sha256 "f1396843aae147328bf221b778725636a1cf33080a46a583b1d18fbb0ca2bcd3"
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/c3/fc/e91cc220803d7bc4db93fb02facd8461c37364151b8494762cc88b0fbcef/wrapt-1.17.2.tar.gz"
-    sha256 "41388e9d4d1522446fe79d3213196bd9e3b301a336965b9e27ca2788ebd122f3"
+    url "https://files.pythonhosted.org/packages/49/19/5e5bcd855d808892fe02d49219f97a50f64cd6d8313d75df3494ee97b1a3/wrapt-2.0.0.tar.gz"
+    sha256 "35a542cc7a962331d0279735c30995b024e852cf40481e384fd63caaa391cbb9"
   end
 
   def install

@@ -3,10 +3,10 @@ class Jove < Formula
   homepage "https://directory.fsf.org/wiki/Jove"
   url "https://github.com/jonmacs/jove/archive/refs/tags/4.17.5.5.tar.gz"
   sha256 "4261d7cab02816eb03f3f356a0a2869d7f6168fce53478ede8e5fdd06a9ecfb9"
-  # license ref, https://github.com/jonmacs/jove/blob/4_17/LICENSE
-  license :cannot_represent
+  license "jove"
 
   bottle do
+    sha256 arm64_tahoe:   "ee1248e197df0c81afc0548004d8ae314d911b63470761a839421d4b3a4b4ba5"
     sha256 arm64_sequoia: "718cb56f6abe1b157dc232e68f311473651619b07d09491ef7515f4879ef79fe"
     sha256 arm64_sonoma:  "2727f000de388acb8e1d2c1681af7d994e2b3f11b8d9820b485dddf061ec6853"
     sha256 arm64_ventura: "6e9cfd50901196b64ab92526a1be8591bfe9d1155b4bac1e40e9c4919b613119"

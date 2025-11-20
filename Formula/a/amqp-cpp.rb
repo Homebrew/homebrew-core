@@ -12,6 +12,7 @@ class AmqpCpp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f300647f32576320289d224bdf7f4500522765a6c2ed8f10711372547d24114b"
     sha256 cellar: :any,                 arm64_sequoia: "d42884b0048b3524ff2503b74e3606a415534df02f36b76daa738005f801c660"
     sha256 cellar: :any,                 arm64_sonoma:  "6088a49ef4492292f4643805af8808a6d3942a1f3b4e1fda5b29aefb08bc96c6"
     sha256 cellar: :any,                 arm64_ventura: "052fb79e01072ebee63a343fca762f19fb3d3586502e6049c0e8666db559663e"
@@ -24,12 +25,20 @@ class AmqpCpp < Formula
   depends_on "cmake" => :build
   depends_on "openssl@3"
 
+  # Backport fix for CMake 4
+  # PR ref: https://github.com/CopernicaMarketingSoftware/AMQP-CPP/pull/541
+  patch do
+    url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/commit/3a80a681ec258807c24f54214a3b6c7fc0dc28c0.patch?full_index=1"
+    sha256 "70337b274251cfe890ecf560109d7389e43ae44fb93b43f1279871aa9aa7f139"
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DAMQP-CPP_BUILD_SHARED=ON",
-                    "-DAMQP-CPP_LINUX_TCP=ON",
-                    "-DCMAKE_MACOSX_RPATH=1",
-                    *std_cmake_args
+    args = %w[
+      -DAMQP-CPP_BUILD_SHARED=ON
+      -DAMQP-CPP_LINUX_TCP=ON
+      -DCMAKE_MACOSX_RPATH=1
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -6,7 +6,10 @@ class Libfreefare < Formula
   license "LGPL-3.0-or-later"
   revision 4
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9db2e4002368c2b87fb707952d9272b740078176b456920a5d5181019617b2dd"
     sha256 cellar: :any,                 arm64_sequoia:  "2a601550aaba3113176cbb9c284f263faab1cacdadaa841ca48ffac4cc36ea70"
     sha256 cellar: :any,                 arm64_sonoma:   "be04856cd0edfb30a50104ea7fd3a5b7ce66c25921179415eddd8542b328d3a0"
     sha256 cellar: :any,                 arm64_ventura:  "6d9f13777430e1e406a80bb919603e2e1f823a84628ff9a6c27786e97077015b"
@@ -37,7 +40,7 @@ class Libfreefare < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

@@ -1,19 +1,18 @@
 class Prqlc < Formula
   desc "Simple, powerful, pipelined SQL replacement"
   homepage "https://prql-lang.org"
-  url "https://github.com/PRQL/prql/archive/refs/tags/0.13.4.tar.gz"
-  sha256 "1d214df7827659e9573afc339078e421e326953f7954ba0cba0b996e0d110531"
+  url "https://github.com/PRQL/prql/archive/refs/tags/0.13.7.tar.gz"
+  sha256 "7bd4b7c220b46af8ec8c20a2c014323f4d884d1dd7f3dcf33e1e9352bb894f70"
   license "Apache-2.0"
   head "https://github.com/prql/prql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b7e06cd44eb914925c510a1960a2dc4300256a8110e61a48c9376cc5db73f4d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c415be246789f5c4f0186faff43375c7426b6a76c99f524ee8e613381ff28a9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1bf53c05419ba357804e4e7860f7b890d175b81f6ee5c0ef480ca7a2e7bfdddc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9678c394ba845c4bac9f02060921cb912b7f273e983a5e29e222988445c75156"
-    sha256 cellar: :any_skip_relocation, ventura:       "ad5b425bcd4bca3cd7150d5f791b40e8101b080aa5ebb052a009be39355bb44d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "389518823c39646ad75a842c27e22bb599b4c6959d530f869cd2feb6e78945c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d3c89c64c998f4d9d48a827e8bbb099105aef8201029df041faaf0345fd043a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3e5ec7b5bc0da73f3ed4ee328d3ab07eb0286722220de0f57ff148c5dcfc6762"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9011765fd6827e852b2f8efaa55ba2ac55d7d9fdb419a155df7fc2bedfd34328"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "beaa9ca2134ca6bff10c228455a78302e6e2211364f018d8b35ffda94997a077"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5cb95346d70fdf08e78b242d3bea6135d19137f861ae1a8d370b606256ca0521"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7402fb2692cbde3fe5488faefd3196da6db92e3ee8ef2b560ee218e90b5778e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81182772334a0d09626cfa11b42c081392c4398d2b87792f5daf0264933aa788"
   end
 
   depends_on "rust" => :build

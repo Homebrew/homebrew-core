@@ -5,9 +5,12 @@ class Mfoc < Formula
   sha256 "2dfd8ffa4a8b357807680d190a91c8cf3db54b4211a781edc1108af401dbaad7"
   license "GPL-2.0-only"
   revision 2
-  head "https://github.com/nfc-tools/mfoc.git"
+  head "https://github.com/nfc-tools/mfoc.git", branch: "master"
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3bc4430e432a6be762cc41bde75929ad6fe8395ce5b851fee12e161c81c6bf21"
     sha256 cellar: :any,                 arm64_sequoia:  "3b89cfda6f79a47fad9df8891458eaf4923c2c6fdea0e17a75bd5f9c1fe7fdc3"
     sha256 cellar: :any,                 arm64_sonoma:   "1d07e71a99eb298fee125dca589933a08e3c4559932a30f4fa7cd162b4852ff9"
     sha256 cellar: :any,                 arm64_ventura:  "d49bb67cdb4749b3c1d5d8150ddfb77d1a48b4a5eafefb0a25f3c26ef1dbc9c2"

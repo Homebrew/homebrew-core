@@ -6,6 +6,7 @@ class Darcs < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f9ef3739cd7aef89964796218a15346faed915fbfcd207775c54809560b2bea6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "507dfc31c10438735098621aed6c75916d2b807bc7a72f957dbc0e808ff65916"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2772f85e77f266ccecd9f8c5dbabf09b965b789d92b1d7c202989317cb832e7e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "22caed7f5b40475b198b0474c056c477f8d6b6cbbb980b14a813829d362d9261"

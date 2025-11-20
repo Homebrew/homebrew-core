@@ -6,12 +6,20 @@ class Tcpflow < Formula
   license "GPL-3.0-only"
 
   livecheck do
-    url "https://corp.digitalcorpora.org/downloads/tcpflow/"
-    regex(/href=.*?tcpflow[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://digitalcorpora.s3.us-west-2.amazonaws.com/?list-type=2&delimiter=%2F&prefix=downloads%2Ftcpflow%2F"
+    regex(/tcpflow[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :xml do |xml, regex|
+      xml.get_elements("//Contents/Key").filter_map do |item|
+        item.text&.[](regex, 1)
+      end
+    end
   end
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:    "4af77114345b5c48affe1c4d540387572e4882253d948bedfeae203e9ab9a654"
     sha256 cellar: :any,                 arm64_sequoia:  "173cfbc01371f93960738b1c9d0a7fc46f4ee1ea3f3932710c7f7359e7b80c3a"
     sha256 cellar: :any,                 arm64_sonoma:   "b3a8fb517ef2d283b4e669ad14f65e9d6bd5c15eeeba306cc92b396adb9f0d2b"
     sha256 cellar: :any,                 arm64_ventura:  "1f2a7ca46614781861f8c1f9a9d6af8b13320bf9ff03f830fa199ad250a094a3"

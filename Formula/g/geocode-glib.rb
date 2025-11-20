@@ -9,6 +9,7 @@ class GeocodeGlib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "cb308eeeb5e4c4dd85bee423f170436edced9bbb7501419fa1f7634813bd120d"
     sha256 cellar: :any, arm64_sequoia:  "1afc937edacc9e447525801a51fb59580cbee67a30f995999cd8a9be08a39eff"
     sha256 cellar: :any, arm64_sonoma:   "8708a046c31e0b0695c6f3624f890ae37ae17ce0c6a41e9dce8c60da9b9069c0"
     sha256 cellar: :any, arm64_ventura:  "810645cd7021c31a2b79a367a46341a119235b6edd9762d520f2e4742d85a152"

@@ -2,19 +2,21 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      tag:      "0.59.1",
-      revision: "625792423014cc49b0a1e5a1a5c0d6b8b3de10f9"
+      tag:      "0.62.2",
+      revision: "da9d742874d88f6d5d0f7b315d1fcf12655f2311"
   license "MIT"
+  revision 1
   head "https://github.com/realm/SwiftLint.git", branch: "main"
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3f41f4287ee4a4a74a2f38628f30774e6857405c48f0e3832aaa630d13d4cb7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf36eacfa4a47f013495f2152ccdfb6dde871d17d618414e3cfc559ddf023ffc"
-    sha256 cellar: :any,                 arm64_ventura: "4ccd5a613a7dd6310e088e55b9cc315f455bd81f7d104ec8072ddd00dbe69bef"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8b0c46a09427e091de69f7b267efca4779ed47d43b894d87e903c09e89b7a47e"
-    sha256 cellar: :any,                 ventura:       "5c31fd0bf839aa606624fdd6238fa9a36fb4fea6f34b90da3a22c41856c2d136"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fed88471e745a4b402389f8005388ac603efaa0f4b8d5baa2dfd00fd7e575bd1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64bfd1f18fd38050c83d117ef116cdeb69b2100da650ed589173854d67790704"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cb2d6b1098854c845274b4dc22921af32bf76e1e925c07c3c436af749553dd0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2914e328400b90f66824f4be94d25fb7c814ad19135a465984d65d5334bd40d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "700a3adc43be2eaa8b547f0c58c5ca6fac4b9420df1d94ddfb5bd2f71703b147"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3df8ef1565ac4424b04aa96d6ea70d288c33f4a65151a36eb5b1060a23b1e69b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97119f1ea9d4d9136b62f255a20c36efef40773b942f5b8c84832638dc1d8358"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "618f29a2e8ee39339a32076172975616e090ab27889a9f1dcb2aeea07a598d8a"
   end
 
   depends_on macos: :ventura
@@ -25,10 +27,16 @@ class Swiftlint < Formula
   uses_from_macos "libxml2"
 
   def install
-    args = if OS.mac?
-      ["--disable-sandbox"]
+    if OS.mac?
+      args = ["--disable-sandbox"]
     else
-      ["--static-swift-stdlib"]
+      libxml2_lib = Formula["libxml2"].opt_lib
+      args = [
+        "--static-swift-stdlib",
+        "-Xlinker", "-L#{Formula["curl"].opt_lib}",
+        "-Xlinker", "-L#{libxml2_lib}"
+      ]
+      ENV.prepend_path "LD_LIBRARY_PATH", libxml2_lib
     end
     system "swift", "build", *args, "--configuration", "release", "--product", "swiftlint"
     bin.install ".build/release/swiftlint"

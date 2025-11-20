@@ -14,6 +14,7 @@ class Gtksourceviewmm3 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9b6d8f50cc16f92feecf432734adc4837246ba8f3fdb933b126393f6137dadc1"
     sha256 cellar: :any,                 arm64_sequoia:  "8de9f30c9a139c912211e4766370c1b2a3b4f78150a4342f6242f56581ebf3bb"
     sha256 cellar: :any,                 arm64_sonoma:   "dc3f50e8c5d192b4dc176878e95f4b7bf28d0a19e21c7c47b88f1c5905f64ebb"
     sha256 cellar: :any,                 arm64_ventura:  "fa886fba1a65986e976859a1c9714b8892695850e6c8325dc534532f31536f0a"

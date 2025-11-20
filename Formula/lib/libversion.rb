@@ -1,22 +1,19 @@
 class Libversion < Formula
   desc "Advanced version string comparison library"
   homepage "https://github.com/repology/libversion"
-  url "https://github.com/repology/libversion/archive/refs/tags/3.0.3.tar.gz"
-  sha256 "bb49d745a0c8e692007af6d928046d1ab6b9189f8dbba834cdf3c1d251c94a1d"
+  url "https://github.com/repology/libversion/archive/refs/tags/3.0.4.tar.gz"
+  sha256 "48c2a4a98b6f220dedd535979f1e9ab83f9bf869e06c0f5e7bb1be6d2e662fee"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "f392a811f7f8c33d3215c42acc3162b8e4eb969ef2035b9cd1848b565a4aaa3c"
-    sha256 cellar: :any,                 arm64_sonoma:   "71d067178dfa687afa51f634d5b95c5e8c7207de51ef57625bf4de2e64f7b7a8"
-    sha256 cellar: :any,                 arm64_ventura:  "678f93db1e9a2a5eea319f8e617ca98649f699c49753e53b463ad0c53c4ca6d2"
-    sha256 cellar: :any,                 arm64_monterey: "a1c1177a83175a7084eb350560728ec8d9b98985a7e0a17f9df29e2149da71d0"
-    sha256 cellar: :any,                 arm64_big_sur:  "f02d597938633f6b90e8096fb643e222f45d3d7091705b2292d2cd57eb975c9c"
-    sha256 cellar: :any,                 sonoma:         "04aa6caddb7a975f76e48ed1ec6b3b7caee628a08dd6f84ea9841daa7b36737f"
-    sha256 cellar: :any,                 ventura:        "55214b46e71ca86a53fced6ec189f5d5d88f1683534578816562c0ea59b23f65"
-    sha256 cellar: :any,                 monterey:       "f4f9d55d39e551756a77055b77108b65f2aea9bc2d8f3bb0eaa13b3f6023c142"
-    sha256 cellar: :any,                 big_sur:        "3b8a9af1caeeba055c351dd7b39fec1cc2adc3e7dd125c63bebcbc06c3cce9f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "376dd65501387cfc8c9b69e4e8d58e41e157020a061e62ddfab8583ca18843ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "244074a47f2d78925338b7e54defef0b35a250c50e4cd0ae4247c5c659a7c87f"
+    sha256 cellar: :any,                 arm64_tahoe:   "aa0840340937ed717b88fd8e3d56d4ab747ad9b1eacbcfdf9b29d26b5e7fab11"
+    sha256 cellar: :any,                 arm64_sequoia: "3b984810fe806bdb1ce1d8f965f9aff9771dfb5367412e964e730ad874f216f4"
+    sha256 cellar: :any,                 arm64_sonoma:  "0dc95a4d2de87071c6a8e34c3fdc63bafdd11884a64a2e1200bbbe7b91660635"
+    sha256 cellar: :any,                 sonoma:        "324dc710d1d88152a1ec19383fb20ca152e17c6dbe73ed699fd7dfdd9c604dd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "70b5f6a09c1252dbc3b1d18705d38d54321577596ca79c10c45154ab71527784"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1df6a367f5b16560ed8d822188d0a5ccfd2fc3dc59fa437104a821029ba10a1e"
   end
 
   depends_on "cmake" => :build

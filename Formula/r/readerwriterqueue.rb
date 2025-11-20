@@ -5,6 +5,8 @@ class Readerwriterqueue < Formula
   sha256 "532224ed052bcd5f4c6be0ed9bb2b8c88dfe7e26e3eb4dd9335303b059df6691"
   license all_of: ["BSD-2-Clause", "Zlib"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "907ae19ab677f362e0f4e54395b94da1703ef246bcc6083787fd4de3f0fb33a2"
   end

@@ -15,6 +15,7 @@ class Agedu < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "41f04708967fca0cee916a7361fc5aa4dd9c5bd3e639f1a1a9b83715d626e48d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d779cddebf2f281e0ac4ae36def487c0068283d2be92002709f23fd6f81d9d44"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1a1e5993b600a5ed4625628cd50e19cb46f8761e374d4d6b28be5d4f021c873"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "40c91107a019a0032e48dab8c7a03e9b9e30fb1b566940f09b59ed51055455b2"

@@ -1,9 +1,10 @@
 class Libetonyek < Formula
   desc "Interpret and import Apple Keynote presentations"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
-  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.12.tar.xz"
-  sha256 "b9fa82fbeb8cb7a701101060e4f3e1e4ef7c38f574b2859d3ecbe43604c21f83"
+  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.13.tar.xz"
+  sha256 "032b71cb597edd92a0b270b916188281bc35be55296b263f6817b29adbcb1709"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -11,13 +12,12 @@ class Libetonyek < Formula
   end
 
   bottle do
-    sha256               arm64_sequoia: "0eb492997db6e7df366f6be4b4c30778aed163f97279c114325d3c1caf551032"
-    sha256               arm64_sonoma:  "5b0326bceb378ae5864f2be1b20d835e8f033cef7e0a12fc08e21a9bc1010161"
-    sha256               arm64_ventura: "18b9e602c028f0c0c77b366ac2509f74bc2243f557b20c510952b389b512ca95"
-    sha256 cellar: :any, sonoma:        "5976299ba865549520b864036093f709d7fa18fd06fb46de1a8773ee0da058b5"
-    sha256 cellar: :any, ventura:       "b40d8148bec5f1360852a4e4a943e7d2e28b1ec95c747cc0d4516a438e8a1218"
-    sha256               arm64_linux:   "4a1dd9920ae1ce725bbca2fd65d867f5461e137173d33846616f1151c4e95fd5"
-    sha256               x86_64_linux:  "88cd3008e344d4ebf311a8035ef6b0108e9811046c43c4480831df4c169b66dc"
+    sha256               arm64_tahoe:   "1faea6adb1a62764129a5109c166335ddcb14b29773e72cf7662dd8ec37b2925"
+    sha256               arm64_sequoia: "e9a1d39588485bb16c2f55a0710bf1152a62e04c19e17aa7c1e8a09fb70ecf48"
+    sha256               arm64_sonoma:  "453067d70c2825964ea986934adb68642d4b7a979acbffd8446ecb07f55b5886"
+    sha256 cellar: :any, sonoma:        "63485b881e4d4de00b5fd986fdb4b5fcd3611e23bf3ff99069acc3f7aafbe361"
+    sha256               arm64_linux:   "63e082b7862f8e494b4df199d7ea43869332f4dc4ee91a8de6112707040b00ce"
+    sha256               x86_64_linux:  "52adea77c0e439e4c1186052e285dc1adcea5bf998bb1e4aaf3916728c4ebd68"
   end
 
   depends_on "boost" => :build
@@ -29,9 +29,17 @@ class Libetonyek < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  # Upstream bug report for release 0.6.8 download asset
+  # https://bitbucket.org/tagoh/liblangtag/issues/20/404-for-liblangtag-068tarbz2-asset
   resource "liblangtag" do
     url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.7.tar.bz2"
     sha256 "5ed6bcd4ae3f3c05c912e62f216cd1a44123846147f729a49fb5668da51e030e"
+  end
+
+  # Apply Fedora patch to fix build with mdds >= 3
+  patch :p0 do
+    url "https://src.fedoraproject.org/rpms/libetonyek/raw/65a93fb7f21fb0e668d78644ec6aa7843e5372f5/f/mdds3.patch"
+    sha256 "cd390fa4280b78fd0d1a7f587ab576d8ef0c4848036c8b0c821b576c6745db17"
   end
 
   def install

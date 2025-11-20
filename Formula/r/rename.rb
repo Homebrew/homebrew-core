@@ -6,6 +6,8 @@ class Rename < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/ap/rename.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "ef28d01adefde7f83ad97aeb21b4af98f66b5594ac7d69bb76f01b3f2ac80145"

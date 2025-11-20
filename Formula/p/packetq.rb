@@ -11,6 +11,7 @@ class Packetq < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "112e72c771291bec60d3d430e7172edaa92e1288468005e614391280823d9822"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "30d4e340a8cb4181ac18e1a0861114366072fd9e7285403dede913b6d43c46d3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c417535f739789d04d7738608d54fe38b4ef64031c4ff594f5e0405782ef7ba"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "55fcb7a4a4cea35b2508da5a7431dd3f62724a2e74d0e7f5e9fbbdf07d9266f6"

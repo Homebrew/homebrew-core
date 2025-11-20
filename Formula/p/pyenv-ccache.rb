@@ -6,6 +6,8 @@ class PyenvCcache < Formula
   license "MIT"
   head "https://github.com/pyenv/pyenv-ccache.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "9e3904fdb63362c45c9e2ccd1421a83a444125518b176c5b86c8a547eebd2b56"

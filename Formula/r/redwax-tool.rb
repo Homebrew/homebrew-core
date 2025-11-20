@@ -1,8 +1,8 @@
 class RedwaxTool < Formula
   desc "Universal certificate conversion tool"
   homepage "https://redwax.eu/rt/"
-  url "https://redwax.eu/dist/rt/redwax-tool-0.9.9.tar.bz2"
-  sha256 "f5f8149bba0e4af190235edb6e4664d1a96016324f8a2da5dd60637e03d45630"
+  url "https://redwax.eu/dist/rt/redwax-tool-1.0.0.tar.bz2"
+  sha256 "dd2d7e6ce1ee9b78bc3a2d076f4c1b282b61e9a3a20456566d3e62d32dc12d5e"
   license "Apache-2.0"
 
   livecheck do
@@ -11,14 +11,14 @@ class RedwaxTool < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "34eff8a283e59a1c44b65e59c11bfb6626e54e848b441441a5ab7bc16bbc1402"
-    sha256 arm64_sonoma:  "2ea52c78dc303b33b192473aaf3b3f2766acd168d2002ac5173030c0e4109838"
-    sha256 arm64_ventura: "6c1582c3ddf1c69440b407e9108080dedd6f290ed7ed7e1a0ad00c4b20e04262"
-    sha256 sonoma:        "a6ee226d0dd5d1344a5406c2d47f3a818586d1d30ead84b86648403b2a3acf81"
-    sha256 ventura:       "07b54891be06b8e8347481b0ac8c6667f895f8fde8a64ad042af1b75c89aede8"
-    sha256 arm64_linux:   "6830278ea2393b0c1459ee6f6ee2fba6d5e99d5f37582276a11346f6b39e1b1c"
-    sha256 x86_64_linux:  "04dfeac846d6e6714d15df10879fd6f76950a54cc52a69e952c556bd4f3230b3"
+    sha256 arm64_tahoe:   "df4ddf01024dfde7043791c8c816cee438fbd91d6ce6bd4c952e32932f139466"
+    sha256 arm64_sequoia: "18943e0545f824c95a02107eb5e2d3113921a4dec7f70e38b0a9c99360838b30"
+    sha256 arm64_sonoma:  "4f7ba708291d0a8d55dc60dafaccf9e25c30ed7f69460175937769edee510cbf"
+    sha256 arm64_ventura: "636f7fb81a83351e5663edd8a9f55bfcf6da9468e99c294ba718c1682183ffe0"
+    sha256 sonoma:        "aeace3d70b6856d3b41435e67e8841db8932ecc98f77dcef6171a8d414abe356"
+    sha256 ventura:       "a1b39030dca8dc36b515a668d391b9ca661e0308163fe722069714553ba5dc98"
+    sha256 arm64_linux:   "68957ca0352be57c3439fbd84d584a080729c17472e5193e8fd836c261d5a65e"
+    sha256 x86_64_linux:  "10ad5632233a8a26fa7561d2cc0d7059c2cfee757c20d8b934b761ce242fde9d"
   end
 
   depends_on "pkgconf" => :build
@@ -71,7 +71,7 @@ class RedwaxTool < Formula
 
     system "openssl", "req", "-x509", "-newkey", "rsa:4096", "-days", "1", "-nodes",
            "-keyout", "key.pem", "-out", "cert.pem", "-sha256",
-           "-subj", "/#{(x509_args.map { |key, value| "#{key}=#{value}" }).join("/")}"
+           "-subj", "/#{x509_args.map { |key, value| "#{key}=#{value}" }.join("/")}"
 
     args = %w[
       --pem-in key.pem
@@ -83,8 +83,8 @@ class RedwaxTool < Formula
     expected_outputs = [
       "pem-in: private key: OpenSSL RSA implementation",
       "pem-out: private key: OpenSSL RSA implementation",
-      "pem-in: intermediate: #{(x509_args.map { |key, value| "#{key}=#{value}" }).reverse.join(",")}",
-      "pem-out: intermediate: #{(x509_args.map { |key, value| "#{key}=#{value}" }).reverse.join(",")}",
+      "pem-in: intermediate: #{x509_args.map { |key, value| "#{key}=#{value}" }.reverse.join(",")}",
+      "pem-out: intermediate: #{x509_args.map { |key, value| "#{key}=#{value}" }.reverse.join(",")}",
     ]
 
     output = shell_output("#{bin}/redwax-tool #{args.join(" ")} 2>&1")

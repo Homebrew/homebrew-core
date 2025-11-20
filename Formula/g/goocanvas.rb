@@ -9,6 +9,7 @@ class Goocanvas < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:    "fb3b0618b234fb12e646ae2494b14e83ca2d5ee50c4d7891d4a2914b7a88763f"
     sha256                               arm64_sequoia:  "8bd21a150d98f2abed5d68ac690487f1d2311e509bc54087d8b577a294bd6711"
     sha256                               arm64_sonoma:   "e700e5fb6f0f6454c9cc42975dae876c53f62ec1e6f5db3acadfea35232b72c5"
     sha256                               arm64_ventura:  "337609cd9eec8d0ca6502b73524cb5f86bc07ce6527438266a61ed253de5dcea"
@@ -37,7 +38,7 @@ class Goocanvas < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

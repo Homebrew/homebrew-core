@@ -14,6 +14,8 @@ class Gtkmm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9dd2dd1231eb90fe70da1f8961d9bd08e3e4f471ecba0cab542e6e30afc3cdcb"
+    sha256 cellar: :any,                 arm64_sequoia:  "f41c412495a1c1d336076a5fc85f4499ae4c0cb2ef25b67ec8f2474cdca0f8a0"
     sha256 cellar: :any,                 arm64_sonoma:   "600f066eb0843c1af59bce66aa578afde52aa3a5754c42ed7b04445db839f837"
     sha256 cellar: :any,                 arm64_ventura:  "d664e40ad1a7d3e5dbb9dc05cb36d73f97e5bc4ab71747bf1b08c7d73abeae02"
     sha256 cellar: :any,                 arm64_monterey: "08400aebd2786edc67d2d6118dd98ea5e3e44ab3269f6fc49a651c7bc29589c3"

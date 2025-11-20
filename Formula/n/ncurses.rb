@@ -1,14 +1,17 @@
 class Ncurses < Formula
   desc "Text-based UI library"
   homepage "https://invisible-island.net/ncurses/announce.html"
-  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz"
   mirror "https://invisible-mirror.net/archives/ncurses/ncurses-6.5.tar.gz"
   mirror "ftp://ftp.invisible-island.net/ncurses/ncurses-6.5.tar.gz"
-  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.5.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz"
   sha256 "136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:    "cdf1f60b77e8f2f431f010c987a57452b95c1c6426e4ddf829f701f6e7ce5058"
     sha256 arm64_sequoia:  "4a529cb864994c26766c55ae8e506297523b36319e0f5f5af0faf8250a451f77"
     sha256 arm64_sonoma:   "ee5253473badfa0701deac8e9973a7358c761dd287f0d748f753130a7a6d2705"
     sha256 arm64_ventura:  "b79562983390463a00077616c6b3e460aa170bdca43f32839af802aac594aae0"
@@ -22,17 +25,8 @@ class Ncurses < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "pkgconf" => :build
-
-  on_linux do
-    depends_on "gpatch" => :build
-  end
-
   def install
-    # Workaround for
-    # macOS: mkdir: /usr/lib/pkgconfig:/opt/homebrew/Library/Homebrew/os/mac/pkgconfig/12: Operation not permitted
-    # Linux: configure: error: expected a pathname, not ""
-    (lib/"pkgconfig").mkpath
+    ENV.delete("TERMINFO")
 
     args = [
       "--prefix=#{prefix}",
@@ -47,6 +41,9 @@ class Ncurses < Formula
       "--without-ada",
     ]
     args << "--with-terminfo-dirs=#{share}/terminfo:/etc/terminfo:/lib/terminfo:/usr/share/terminfo" if OS.linux?
+
+    odie "`-std=gnu17` workaround should be removed!" if build.stable? && version > "6.5"
+    ENV.append_to_cflags "-std=gnu17" if OS.linux? && DevelopmentTools.gcc_version("gcc") >= 15
 
     system "./configure", *args
     system "make", "install"

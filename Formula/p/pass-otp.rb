@@ -5,6 +5,8 @@ class PassOtp < Formula
   sha256 "5720a649267a240a4f7ba5a6445193481070049c1d08ba38b00d20fc551c3a67"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "e79fd90d07ba181d43a57123d3dfa85abbf2abf93f58dcb431e64823fcc7a19a"

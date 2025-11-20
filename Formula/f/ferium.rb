@@ -9,6 +9,7 @@ class Ferium < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a58de2ac63160b743c382e37b8746d8dc1da9518e23fbf519156f56449dafa1a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6790e976ab796a3eba9bdaf990d338a1ba9fd4dd9af9b95be83971b3c0f08662"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be43fc9aea34e8c638cb352048c5d7b856f3af46d4d920e3717efb923ca1b41c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7d6f4734fa8edd8de7f1583b4a35e2460e8d73830a734ea0f53bd1a720f3e71a"

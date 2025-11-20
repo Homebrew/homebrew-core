@@ -1,8 +1,8 @@
 class Rlwrap < Formula
   desc "Readline wrapper: adds readline support to tools that lack it"
   homepage "https://github.com/hanslub42/rlwrap"
-  url "https://github.com/hanslub42/rlwrap/archive/refs/tags/v0.46.2.tar.gz"
-  sha256 "9abb0a0dc19e85794d9b8e72e480530563eb4ee1bf243e87c0e0dd05ea4a2f09"
+  url "https://github.com/hanslub42/rlwrap/archive/refs/tags/v0.48.tar.gz"
+  sha256 "b2721b1c0147aaafc98e6a31d875316ba032ad336bec7f2a8bc538f9e3c6db60"
   license "GPL-2.0-or-later"
   head "https://github.com/hanslub42/rlwrap.git", branch: "master"
 
@@ -12,22 +12,21 @@ class Rlwrap < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "906fd4f2ac755fb709b34489cfbbfaf5fca3ae746d264f5f3348105721c9a367"
-    sha256 arm64_sonoma:  "587dddf6ead7b200929b507550c2b1e1ad309f8fad2d979a15af7a572cab22c3"
-    sha256 arm64_ventura: "f447017ce6f993fffbb881bdeb5c82de9c3fd172f3732240ba3b13e0a1a47505"
-    sha256 sonoma:        "7e552c35f02259d75f68e98086d02374a2f5165eba4cc96ea15ec3e072a70ef5"
-    sha256 ventura:       "a9c4c978ab08e6cdafbf80ee9c1298c84ca24bb05587f80574ddc69992a15d19"
-    sha256 arm64_linux:   "1af86f576186eff68c58e5b598439bd7b13767dd359084eb87f12bdf4bd024a4"
-    sha256 x86_64_linux:  "172eba8bec2d2771dbaa277417b499c878fdc8dcd0c71957f89489d794f70832"
+    sha256 arm64_tahoe:   "4caef889ab3bee246054ca4857517e098960d4be9ff556c5c545d3f7170b2b1d"
+    sha256 arm64_sequoia: "2cb021c30b2503d34599d69ff0c9d1950c73018ab7736b53e1d3c77c932e191f"
+    sha256 arm64_sonoma:  "ad9622f1007c86f74f61f0b3eec75e28e564aeec60d3f7b858d2cd26d2c3106d"
+    sha256 sonoma:        "7c3435731fd7e0a80089fa9d72d83715c19e953dc3e8cfa61d539a0393ff0700"
+    sha256 arm64_linux:   "305d08434011dd7bebeb463ac8bfc314b78d38a8c81371a33210b2bd12b74580"
+    sha256 x86_64_linux:  "6c5a1f7a230f7987b1b78f5cea9c34afc36ec4bdaa7bca0bdb30fd321359d6a9"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libptytty"
   depends_on "readline"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
-
     system "./configure", *std_configure_args
     system "make", "install"
   end

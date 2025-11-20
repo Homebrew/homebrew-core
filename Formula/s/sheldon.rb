@@ -1,19 +1,20 @@
 class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://sheldon.cli.rs"
-  url "https://github.com/rossmacarthur/sheldon/archive/refs/tags/0.8.2.tar.gz"
-  sha256 "8b9306902849344bacb9525051c88b34487767086adc93936fdef98c8650cfc8"
+  url "https://github.com/rossmacarthur/sheldon/archive/refs/tags/0.8.5.tar.gz"
+  sha256 "a32e181667ec8bf235f0c50f2671d3c0d78fbdd7502a61e2f88c7deacb534b20"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f214f114e23f2a4777938fed3b864625dfbb3f9b30b142e6e05f8170b6cb0211"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c7a01151bab3c23c84b693b28c7b5996596520dc60d7f2356e9084c10fd6df5"
-    sha256 cellar: :any,                 arm64_ventura: "84b4fe77d708fcffffd68cd051868c67ef143b3144cbd813b29f9197cf24b2bf"
-    sha256 cellar: :any,                 sonoma:        "04d04507c5bc4e23dde5ac63cc6b96ce9bd723906d7bbd838f62cd5aa0746287"
-    sha256 cellar: :any,                 ventura:       "9fd9b14e2cbaa4bc025523a6cedaaedf4effa56a49030a977af3d05d16fbdcc0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "12cd2f0c98f949f57fea7345c648bfa96ce51984b08922275ce98fb4fbbce25d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a83fc220e45ca5e917c26541c8f929b8dfcc7684bd81ec2b412fec9d68a3da0"
+    sha256 cellar: :any,                 arm64_tahoe:   "4c847c1f57dab67c08f0b2bc28b2682ec8e82944693c08c9456a61faee416790"
+    sha256 cellar: :any,                 arm64_sequoia: "f414fb4134ef81cfa8b07da7a4071cd74cedfd6201f6c9ca39cefb77bba18c73"
+    sha256 cellar: :any,                 arm64_sonoma:  "7a2039f892bde698a45c4b4ddd4e4b01a68a800a78a25b6d264473114fb93953"
+    sha256 cellar: :any,                 arm64_ventura: "db70e3bf9291543f442ef03f071c5e7f3a321022f74315a7ae2947f1d474239c"
+    sha256 cellar: :any,                 sonoma:        "28e543aab665bd00bb249abdcc40b062f96a8305046136720772ec2d22afc55d"
+    sha256 cellar: :any,                 ventura:       "e90fbe293693000084e563baf7af705d5fe82398340d90a7cf5079cc2d5a3f66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2bb36c6d20e44524167470f658d6bf79dff452c6f2ca3470900d56c545f86724"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f589b7843646d3253cfc607b0169a416a0017125e5b602b5daa82dab7fc8796"
   end
 
   depends_on "pkgconf" => :build

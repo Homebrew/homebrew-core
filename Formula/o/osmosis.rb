@@ -10,6 +10,8 @@ class Osmosis < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "bbf0840fce8067bb973ff59a7e9d9774178ae11b9af976aa0842e80b90264b00"

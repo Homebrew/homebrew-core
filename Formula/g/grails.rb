@@ -1,54 +1,32 @@
 class Grails < Formula
   desc "Web application framework for the Groovy language"
-  homepage "https://grails.org"
-  url "https://github.com/grails/grails-core/releases/download/v6.2.3/grails-6.2.3.zip"
-  sha256 "b41e95efad66e2b93b4e26664f746a409ea70d43548e6c011e9695874a710b09"
+  homepage "https://grails.apache.org/"
+  url "https://github.com/apache/grails-core/releases/download/v7.0.2/apache-grails-7.0.2-bin.zip"
+  sha256 "53ba0e540c6926381208eb96c918ce313d4835efc7c479c4506d51358311161e"
   license "Apache-2.0"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-    strategy :github_releases
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6d99581afd8f11f9c5064cc312865fc0d6fe2ec04a20035c02f47add859c2ae8"
-    sha256 cellar: :any_skip_relocation, ventura:       "6d99581afd8f11f9c5064cc312865fc0d6fe2ec04a20035c02f47add859c2ae8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d496d2a0d69e0670260bf7b187668e2ac4ee292363a85eee8f1c5583674124d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3e2858977f849082460aa6a92b6ad8f702a55663df1c8a48dcbfdbe9c524560"
+    sha256 cellar: :any_skip_relocation, all: "b73295cd5bf90ed2eedf03753e9089c66e2372cca9b8576d0f9c826043fb22c3"
   end
 
-  depends_on "openjdk@17"
-
-  resource "cli" do
-    url "https://github.com/grails/grails-forge/releases/download/v6.2.3/grails-cli-6.2.3.zip"
-    sha256 "ef78a48238629a89d64996367d0424bc872978caf6c23c3cdae92b106e2b1731"
-
-    livecheck do
-      formula :parent
-    end
-  end
+  depends_on "openjdk@21"
 
   def java_version
-    "17"
+    "21"
   end
 
   def install
-    odie "cli resource needs to be updated" if version != resource("cli").version
+    # Remove Windows files
+    rm Dir["bin/*.bat"]
 
     libexec.install Dir["*"]
-
-    resource("cli").stage do
-      rm("bin/grails.bat")
-      (libexec/"lib").install Dir["lib/*.jar"]
-      bin.install "bin/grails"
-      bash_completion.install "bin/grails_completion" => "grails"
-    end
-
-    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env(java_version)
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", Language::Java.java_home_env(java_version)
   end
 
   def caveats
@@ -84,6 +62,7 @@ class Grails < Formula
       pid = spawn "./gradlew", "--no-daemon", "bootRun", "-Dgrails.server.port=#{port}"
       begin
         sleep 20
+        sleep 20 if OS.mac? && Hardware::CPU.intel?
         assert_equal "Hello Homebrew", shell_output("curl --silent http://localhost:#{port}/greeting/index")
       ensure
         Process.kill "TERM", pid

@@ -12,11 +12,6 @@ class PysideAT2 < Formula
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
   ]
 
-  livecheck do
-    url "https://download.qt.io/official_releases/QtForPython/pyside2/"
-    regex(%r{href=.*?PySide2[._-]v?(\d+(?:\.\d+)+)-src/}i)
-  end
-
   bottle do
     sha256                               arm64_sequoia: "49044784ca72cc2c0b6a2cbf1c531854d8cf6293b13fa60c8265835e52403d2a"
     sha256                               arm64_sonoma:  "20ba3bca0f3bfea74630e7caa6fcd82f5da40e4970f5073fe5091a6c08e48d8b"

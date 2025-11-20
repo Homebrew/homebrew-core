@@ -2,28 +2,27 @@ class Wasmedge < Formula
   desc "Lightweight, high-performance, and extensible WebAssembly runtime"
   homepage "https://WasmEdge.org/"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/WasmEdge/WasmEdge.git", branch: "master"
 
   stable do
-    url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-src.tar.gz"
-    sha256 "e5a944975fb949ecda73d6fe80a86507deb2d0a221b2274338807b63758350b4"
+    url "https://github.com/WasmEdge/WasmEdge/releases/download/0.15.0/WasmEdge-0.15.0-src.tar.gz"
+    sha256 "17915c4d047bc7a02aca862f4852101ec8d35baab7b659593687ab8c84b00938"
 
-    # Backport fix for LLVM 20
+    # Backport support for LLVM 21
     patch do
-      url "https://github.com/WasmEdge/WasmEdge/commit/b63e201d46452453ee7c2acf07967cd292d7e3da.patch?full_index=1"
-      sha256 "5c7f335ef8c126fc7791c289eb9c53527e1649388eb6e160e524c4d756122eb0"
+      url "https://github.com/WasmEdge/WasmEdge/commit/b11791e4312445e3fd2d6c56acc9c2e36e12ef34.patch?full_index=1"
+      sha256 "f9d3b39ca9871ca3d2c87f7e107651d36e9eedeccc79925879671ff552aec99b"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "67f798b7219084dfa14096a1c91974f1252b3aa90b774292a4b2b09c9d257da9"
-    sha256 cellar: :any,                 arm64_sonoma:  "e40488c2a5a64616f0abdad4e86056e67b417d46dd253deee1f9e8072a8b1be5"
-    sha256 cellar: :any,                 arm64_ventura: "0cf792cb183a9c9089f4ba8166565eb30d034fa8ec80e533a1121bc16151ff2e"
-    sha256 cellar: :any,                 sonoma:        "f6aef7a20301de5044988aed305a9514758f450919daa23b69d8d6eaf09038ff"
-    sha256 cellar: :any,                 ventura:       "1583bcaef8c69487b45ec5a4e5c0b77161e54a8f8e50cd30ab157d8c155b0520"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "549aa7b97ccf0598a95b28c22515de2eb75f27cd33bafb8d586ba929417becdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78bc000a274f42631d0fdedbfa43a93c06522a929bb15ee3008cb460310045ff"
+    sha256 cellar: :any,                 arm64_tahoe:   "7c6a8bc60386545e6a945f76fee81f095c33f57d1f2c75bca756a38158843a44"
+    sha256 cellar: :any,                 arm64_sequoia: "6f7b13da240b4605b6f33e0b969b6ac3b3ce26c9ee02b3bacc83a77ecd192c7b"
+    sha256 cellar: :any,                 arm64_sonoma:  "a20c30f91a0846db3de784348bcff62c807d56f74fdd492d2cda29bb53fc2412"
+    sha256 cellar: :any,                 sonoma:        "2b6c66b23637ef0815e63954ff032734e7b44cf35d682045e8e4207569e13ddc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "afd779ff4bd06efcca2d1b13a7321fb7f7148b580e7e5f8f201f39121c4926ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31b7e307f8938878a7db41931767ab52955739cc26315c3289de73eea692fcfc"
   end
 
   depends_on "cmake" => :build
@@ -32,14 +31,11 @@ class Wasmedge < Formula
   depends_on "llvm"
   depends_on "spdlog"
 
-  uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "zstd"
-  end
-
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Use CMAKE_BUILD_WITH_INSTALL_RPATH to keep versioned LLVM in RPATH on Linux
+    args = ["-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON"] if OS.linux?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

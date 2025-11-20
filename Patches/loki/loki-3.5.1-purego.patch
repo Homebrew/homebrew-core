@@ -1,0 +1,346 @@
+From 143dcad30588ac7c7bb63fe0a273ef0a2576e506 Mon Sep 17 00:00:00 2001
+From: Rui Chen <rui@chenrui.dev>
+Date: Fri, 23 May 2025 22:55:19 -0400
+Subject: [PATCH] fix
+
+Signed-off-by: Rui Chen <rui@chenrui.dev>
+---
+ go.mod                                        |  2 +-
+ go.sum                                        |  2 +
+ vendor/github.com/ebitengine/purego/dlfcn.go  |  8 +--
+ .../ebitengine/purego/dlfcn_darwin.go         |  5 --
+ .../purego/internal/fakecgo/go_libinit.go     |  3 +
+ .../purego/internal/fakecgo/symbols.go        | 60 ++++++++++++-------
+ vendor/modules.txt                            |  2 +-
+ 7 files changed, 51 insertions(+), 31 deletions(-)
+
+diff --git a/go.mod b/go.mod
+index 33fcfcd9..4dc5f192 100644
+--- a/go.mod
++++ b/go.mod
+@@ -180,7 +180,7 @@ require (
+ 	github.com/charmbracelet/x/term v0.2.1 // indirect
+ 	github.com/containerd/containerd/v2 v2.0.4 // indirect
+ 	github.com/dlclark/regexp2 v1.11.4 // indirect
+-	github.com/ebitengine/purego v0.8.2 // indirect
++	github.com/ebitengine/purego v0.8.4 // indirect
+ 	github.com/envoyproxy/go-control-plane/envoy v1.32.4 // indirect
+ 	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
+ 	github.com/fxamacker/cbor/v2 v2.7.0 // indirect
+diff --git a/go.sum b/go.sum
+index c60b9353..be172046 100644
+--- a/go.sum
++++ b/go.sum
+@@ -380,6 +380,8 @@ github.com/eapache/queue v1.1.0 h1:YOEu7KNc61ntiQlcEeUIoDTJ2o8mQznoNvUhiigpIqc=
+ github.com/eapache/queue v1.1.0/go.mod h1:6eCeP0CKFpHLu8blIFXhExK/dRa7WDZfr6jVFPTqq+I=
+ github.com/ebitengine/purego v0.8.2 h1:jPPGWs2sZ1UgOSgD2bClL0MJIqu58nOmIcBuXr62z1I=
+ github.com/ebitengine/purego v0.8.2/go.mod h1:iIjxzd6CiRiOG0UyXP+V1+jWqUXVjPKLAI0mRfJZTmQ=
++github.com/ebitengine/purego v0.8.4 h1:CF7LEKg5FFOsASUj0+QwaXf8Ht6TlFxg09+S9wz0omw=
++github.com/ebitengine/purego v0.8.4/go.mod h1:iIjxzd6CiRiOG0UyXP+V1+jWqUXVjPKLAI0mRfJZTmQ=
+ github.com/edsrzf/mmap-go v1.0.0/go.mod h1:YO35OhQPt3KJa3ryjFM5Bs14WD66h8eGKpfaBNrHW5M=
+ github.com/edsrzf/mmap-go v1.2.0 h1:hXLYlkbaPzt1SaQk+anYwKSRNhufIDCchSPkUD6dD84=
+ github.com/edsrzf/mmap-go v1.2.0/go.mod h1:19H/e8pUPLicwkyNgOykDXkJ9F0MHE+Z52B8EIth78Q=
+diff --git a/vendor/github.com/ebitengine/purego/dlfcn.go b/vendor/github.com/ebitengine/purego/dlfcn.go
+index f70a2458..cd1bf293 100644
+--- a/vendor/github.com/ebitengine/purego/dlfcn.go
++++ b/vendor/github.com/ebitengine/purego/dlfcn.go
+@@ -83,17 +83,17 @@ func loadSymbol(handle uintptr, name string) (uintptr, error) {
+ // appear to work if you link directly to the C function on darwin arm64.
+ 
+ //go:linkname dlopen dlopen
+-var dlopen uintptr
++var dlopen uint8
+ var dlopenABI0 = uintptr(unsafe.Pointer(&dlopen))
+ 
+ //go:linkname dlsym dlsym
+-var dlsym uintptr
++var dlsym uint8
+ var dlsymABI0 = uintptr(unsafe.Pointer(&dlsym))
+ 
+ //go:linkname dlclose dlclose
+-var dlclose uintptr
++var dlclose uint8
+ var dlcloseABI0 = uintptr(unsafe.Pointer(&dlclose))
+ 
+ //go:linkname dlerror dlerror
+-var dlerror uintptr
++var dlerror uint8
+ var dlerrorABI0 = uintptr(unsafe.Pointer(&dlerror))
+diff --git a/vendor/github.com/ebitengine/purego/dlfcn_darwin.go b/vendor/github.com/ebitengine/purego/dlfcn_darwin.go
+index 5f876278..27f56071 100644
+--- a/vendor/github.com/ebitengine/purego/dlfcn_darwin.go
++++ b/vendor/github.com/ebitengine/purego/dlfcn_darwin.go
+@@ -17,8 +17,3 @@ const (
+ //go:cgo_import_dynamic purego_dlsym dlsym "/usr/lib/libSystem.B.dylib"
+ //go:cgo_import_dynamic purego_dlerror dlerror "/usr/lib/libSystem.B.dylib"
+ //go:cgo_import_dynamic purego_dlclose dlclose "/usr/lib/libSystem.B.dylib"
+-
+-//go:cgo_import_dynamic purego_dlopen dlopen "/usr/lib/libSystem.B.dylib"
+-//go:cgo_import_dynamic purego_dlsym dlsym "/usr/lib/libSystem.B.dylib"
+-//go:cgo_import_dynamic purego_dlerror dlerror "/usr/lib/libSystem.B.dylib"
+-//go:cgo_import_dynamic purego_dlclose dlclose "/usr/lib/libSystem.B.dylib"
+diff --git a/vendor/github.com/ebitengine/purego/internal/fakecgo/go_libinit.go b/vendor/github.com/ebitengine/purego/internal/fakecgo/go_libinit.go
+index d229d842..e5a66f39 100644
+--- a/vendor/github.com/ebitengine/purego/internal/fakecgo/go_libinit.go
++++ b/vendor/github.com/ebitengine/purego/internal/fakecgo/go_libinit.go
+@@ -19,6 +19,7 @@ var (
+ )
+ 
+ //go:nosplit
++//go:norace
+ func x_cgo_notify_runtime_init_done() {
+ 	pthread_mutex_lock(&runtime_init_mu)
+ 	runtime_init_done = 1
+@@ -28,6 +29,8 @@ func x_cgo_notify_runtime_init_done() {
+ 
+ // Store the g into a thread-specific value associated with the pthread key pthread_g.
+ // And pthread_key_destructor will dropm when the thread is exiting.
++//
++//go:norace
+ func x_cgo_bindm(g unsafe.Pointer) {
+ 	// We assume this will always succeed, otherwise, there might be extra M leaking,
+ 	// when a C thread exits after a cgo call.
+diff --git a/vendor/github.com/ebitengine/purego/internal/fakecgo/symbols.go b/vendor/github.com/ebitengine/purego/internal/fakecgo/symbols.go
+index 7a3a1bbb..d5170240 100644
+--- a/vendor/github.com/ebitengine/purego/internal/fakecgo/symbols.go
++++ b/vendor/github.com/ebitengine/purego/internal/fakecgo/symbols.go
+@@ -19,6 +19,7 @@ func setg_trampoline(setg uintptr, G uintptr)
+ func call5(fn, a1, a2, a3, a4, a5 uintptr) uintptr
+ 
+ //go:nosplit
++//go:norace
+ func malloc(size uintptr) unsafe.Pointer {
+ 	ret := call5(mallocABI0, uintptr(size), 0, 0, 0, 0)
+ 	// this indirection is to avoid go vet complaining about possible misuse of unsafe.Pointer
+@@ -26,176 +27,195 @@ func malloc(size uintptr) unsafe.Pointer {
+ }
+ 
+ //go:nosplit
++//go:norace
+ func free(ptr unsafe.Pointer) {
+ 	call5(freeABI0, uintptr(ptr), 0, 0, 0, 0)
+ }
+ 
+ //go:nosplit
++//go:norace
+ func setenv(name *byte, value *byte, overwrite int32) int32 {
+ 	return int32(call5(setenvABI0, uintptr(unsafe.Pointer(name)), uintptr(unsafe.Pointer(value)), uintptr(overwrite), 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func unsetenv(name *byte) int32 {
+ 	return int32(call5(unsetenvABI0, uintptr(unsafe.Pointer(name)), 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func sigfillset(set *sigset_t) int32 {
+ 	return int32(call5(sigfillsetABI0, uintptr(unsafe.Pointer(set)), 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func nanosleep(ts *syscall.Timespec, rem *syscall.Timespec) int32 {
+ 	return int32(call5(nanosleepABI0, uintptr(unsafe.Pointer(ts)), uintptr(unsafe.Pointer(rem)), 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func abort() {
+ 	call5(abortABI0, 0, 0, 0, 0, 0)
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_attr_init(attr *pthread_attr_t) int32 {
+ 	return int32(call5(pthread_attr_initABI0, uintptr(unsafe.Pointer(attr)), 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_create(thread *pthread_t, attr *pthread_attr_t, start unsafe.Pointer, arg unsafe.Pointer) int32 {
+ 	return int32(call5(pthread_createABI0, uintptr(unsafe.Pointer(thread)), uintptr(unsafe.Pointer(attr)), uintptr(start), uintptr(arg), 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_detach(thread pthread_t) int32 {
+ 	return int32(call5(pthread_detachABI0, uintptr(thread), 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_sigmask(how sighow, ign *sigset_t, oset *sigset_t) int32 {
+ 	return int32(call5(pthread_sigmaskABI0, uintptr(how), uintptr(unsafe.Pointer(ign)), uintptr(unsafe.Pointer(oset)), 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_self() pthread_t {
+ 	return pthread_t(call5(pthread_selfABI0, 0, 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_get_stacksize_np(thread pthread_t) size_t {
+ 	return size_t(call5(pthread_get_stacksize_npABI0, uintptr(thread), 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_attr_getstacksize(attr *pthread_attr_t, stacksize *size_t) int32 {
+ 	return int32(call5(pthread_attr_getstacksizeABI0, uintptr(unsafe.Pointer(attr)), uintptr(unsafe.Pointer(stacksize)), 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_attr_setstacksize(attr *pthread_attr_t, size size_t) int32 {
+ 	return int32(call5(pthread_attr_setstacksizeABI0, uintptr(unsafe.Pointer(attr)), uintptr(size), 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_attr_destroy(attr *pthread_attr_t) int32 {
+ 	return int32(call5(pthread_attr_destroyABI0, uintptr(unsafe.Pointer(attr)), 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_mutex_lock(mutex *pthread_mutex_t) int32 {
+ 	return int32(call5(pthread_mutex_lockABI0, uintptr(unsafe.Pointer(mutex)), 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_mutex_unlock(mutex *pthread_mutex_t) int32 {
+ 	return int32(call5(pthread_mutex_unlockABI0, uintptr(unsafe.Pointer(mutex)), 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_cond_broadcast(cond *pthread_cond_t) int32 {
+ 	return int32(call5(pthread_cond_broadcastABI0, uintptr(unsafe.Pointer(cond)), 0, 0, 0, 0))
+ }
+ 
+ //go:nosplit
++//go:norace
+ func pthread_setspecific(key pthread_key_t, value unsafe.Pointer) int32 {
+ 	return int32(call5(pthread_setspecificABI0, uintptr(key), uintptr(value), 0, 0, 0))
+ }
+ 
+ //go:linkname _malloc _malloc
+-var _malloc uintptr
++var _malloc uint8
+ var mallocABI0 = uintptr(unsafe.Pointer(&_malloc))
+ 
+ //go:linkname _free _free
+-var _free uintptr
++var _free uint8
+ var freeABI0 = uintptr(unsafe.Pointer(&_free))
+ 
+ //go:linkname _setenv _setenv
+-var _setenv uintptr
++var _setenv uint8
+ var setenvABI0 = uintptr(unsafe.Pointer(&_setenv))
+ 
+ //go:linkname _unsetenv _unsetenv
+-var _unsetenv uintptr
++var _unsetenv uint8
+ var unsetenvABI0 = uintptr(unsafe.Pointer(&_unsetenv))
+ 
+ //go:linkname _sigfillset _sigfillset
+-var _sigfillset uintptr
++var _sigfillset uint8
+ var sigfillsetABI0 = uintptr(unsafe.Pointer(&_sigfillset))
+ 
+ //go:linkname _nanosleep _nanosleep
+-var _nanosleep uintptr
++var _nanosleep uint8
+ var nanosleepABI0 = uintptr(unsafe.Pointer(&_nanosleep))
+ 
+ //go:linkname _abort _abort
+-var _abort uintptr
++var _abort uint8
+ var abortABI0 = uintptr(unsafe.Pointer(&_abort))
+ 
+ //go:linkname _pthread_attr_init _pthread_attr_init
+-var _pthread_attr_init uintptr
++var _pthread_attr_init uint8
+ var pthread_attr_initABI0 = uintptr(unsafe.Pointer(&_pthread_attr_init))
+ 
+ //go:linkname _pthread_create _pthread_create
+-var _pthread_create uintptr
++var _pthread_create uint8
+ var pthread_createABI0 = uintptr(unsafe.Pointer(&_pthread_create))
+ 
+ //go:linkname _pthread_detach _pthread_detach
+-var _pthread_detach uintptr
++var _pthread_detach uint8
+ var pthread_detachABI0 = uintptr(unsafe.Pointer(&_pthread_detach))
+ 
+ //go:linkname _pthread_sigmask _pthread_sigmask
+-var _pthread_sigmask uintptr
++var _pthread_sigmask uint8
+ var pthread_sigmaskABI0 = uintptr(unsafe.Pointer(&_pthread_sigmask))
+ 
+ //go:linkname _pthread_self _pthread_self
+-var _pthread_self uintptr
++var _pthread_self uint8
+ var pthread_selfABI0 = uintptr(unsafe.Pointer(&_pthread_self))
+ 
+ //go:linkname _pthread_get_stacksize_np _pthread_get_stacksize_np
+-var _pthread_get_stacksize_np uintptr
++var _pthread_get_stacksize_np uint8
+ var pthread_get_stacksize_npABI0 = uintptr(unsafe.Pointer(&_pthread_get_stacksize_np))
+ 
+ //go:linkname _pthread_attr_getstacksize _pthread_attr_getstacksize
+-var _pthread_attr_getstacksize uintptr
++var _pthread_attr_getstacksize uint8
+ var pthread_attr_getstacksizeABI0 = uintptr(unsafe.Pointer(&_pthread_attr_getstacksize))
+ 
+ //go:linkname _pthread_attr_setstacksize _pthread_attr_setstacksize
+-var _pthread_attr_setstacksize uintptr
++var _pthread_attr_setstacksize uint8
+ var pthread_attr_setstacksizeABI0 = uintptr(unsafe.Pointer(&_pthread_attr_setstacksize))
+ 
+ //go:linkname _pthread_attr_destroy _pthread_attr_destroy
+-var _pthread_attr_destroy uintptr
++var _pthread_attr_destroy uint8
+ var pthread_attr_destroyABI0 = uintptr(unsafe.Pointer(&_pthread_attr_destroy))
+ 
+ //go:linkname _pthread_mutex_lock _pthread_mutex_lock
+-var _pthread_mutex_lock uintptr
++var _pthread_mutex_lock uint8
+ var pthread_mutex_lockABI0 = uintptr(unsafe.Pointer(&_pthread_mutex_lock))
+ 
+ //go:linkname _pthread_mutex_unlock _pthread_mutex_unlock
+-var _pthread_mutex_unlock uintptr
++var _pthread_mutex_unlock uint8
+ var pthread_mutex_unlockABI0 = uintptr(unsafe.Pointer(&_pthread_mutex_unlock))
+ 
+ //go:linkname _pthread_cond_broadcast _pthread_cond_broadcast
+-var _pthread_cond_broadcast uintptr
++var _pthread_cond_broadcast uint8
+ var pthread_cond_broadcastABI0 = uintptr(unsafe.Pointer(&_pthread_cond_broadcast))
+ 
+ //go:linkname _pthread_setspecific _pthread_setspecific
+-var _pthread_setspecific uintptr
++var _pthread_setspecific uint8
+ var pthread_setspecificABI0 = uintptr(unsafe.Pointer(&_pthread_setspecific))
+diff --git a/vendor/modules.txt b/vendor/modules.txt
+index 8314ac63..7522f26f 100644
+--- a/vendor/modules.txt
++++ b/vendor/modules.txt
+@@ -708,7 +708,7 @@ github.com/eapache/go-xerial-snappy
+ # github.com/eapache/queue v1.1.0
+ ## explicit
+ github.com/eapache/queue
+-# github.com/ebitengine/purego v0.8.2
++# github.com/ebitengine/purego v0.8.4
+ ## explicit; go 1.18
+ github.com/ebitengine/purego
+ github.com/ebitengine/purego/internal/cgo
+-- 
+2.49.0
+

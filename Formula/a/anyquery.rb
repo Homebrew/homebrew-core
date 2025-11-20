@@ -1,19 +1,18 @@
 class Anyquery < Formula
   desc "Query anything with SQL"
   homepage "https://anyquery.dev"
-  url "https://github.com/julien040/anyquery/archive/refs/tags/0.4.1.tar.gz"
-  sha256 "31b3fa6506aadabda9b53c977964d7548602a7311acacb6f407f09a78d6005ca"
+  url "https://github.com/julien040/anyquery/archive/refs/tags/0.4.4.tar.gz"
+  sha256 "f174106c27af67e2d378713666d90b713edc52950be677312e2c282db54b279c"
   license "AGPL-3.0-only"
   head "https://github.com/julien040/anyquery.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b363cd009398d2392c99117f66858a2e4c8a4500d45cfe3625ead058cb09bea9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c9394f9d0e66ed4b3ad67b3ca08a632c41233d4b4fa04131c38697c4be76214"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "44bbaf4e254068d5e88da2bfefff78fd29e45fa7311a51282bee8ab42ebaa03b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "627ac11a9ad4c6c243e4a6306ff5f53b6f1d37355c23a4fae3e7fcccf1ea3636"
-    sha256 cellar: :any_skip_relocation, ventura:       "83bccaa1b8a214c6e371bef27b982757f21d9c1bad4cf59bf010b80c74749ed8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1c6b705f45ce8dee3bd1a1c0dc01b22768a462e71ab3f4d8539471c8772715e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bc174f34b9a509d9876d2d4902b2f5ea3ca5643b29af184f73fdcb5bd280a9a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e606702ce9cb04a446b1180ec22c133b07e5c549f360590094aa91291310212"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48135a4e7ac901b87c0a115352e67bd6c5170ab2ceae5525e41593be478b878b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6408120e49f7f1126fda43abb4ff1a5446a5be557beefbc5d3954db985b555c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "09a95872694c7195c6dd197ac981f2799e2e20804b286ab9739d417e75bde95d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "59c435670a58f69be3447cabd2e479b95e4d008ac7f6635ef53069dc4848fef2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a72dd22e82c070ba3d3fce162b4af27ee37b0aa09d70418e8f02a821168a2a0"
   end
 
   depends_on "go" => :build

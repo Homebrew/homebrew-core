@@ -1,21 +1,18 @@
 class IamPolicyJsonToTerraform < Formula
   desc "Convert a JSON IAM Policy into terraform"
   homepage "https://github.com/flosell/iam-policy-json-to-terraform"
-  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/refs/tags/1.9.1.tar.gz"
-  sha256 "5943b0a352758d4a6e9d7d759fd10af24f42abe7012b862cf92048b6dc6e15fb"
+  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/refs/tags/1.9.2.tar.gz"
+  sha256 "63a1a8cc21785e70d830b8fc8289c36250d232c432446e39a25c0da2f2f27067"
   license "Apache-2.0"
   head "https://github.com/flosell/iam-policy-json-to-terraform.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "016bb0b29e4f5c61e1c7e0e0c99ba74757327a146ddf9906df1d628694e31ae2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "016bb0b29e4f5c61e1c7e0e0c99ba74757327a146ddf9906df1d628694e31ae2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "016bb0b29e4f5c61e1c7e0e0c99ba74757327a146ddf9906df1d628694e31ae2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "717be4d1e9c56ce0f37199dee4b9d7e2055f166cc47b56101e7f2f9d22c6d8a3"
-    sha256 cellar: :any_skip_relocation, ventura:       "717be4d1e9c56ce0f37199dee4b9d7e2055f166cc47b56101e7f2f9d22c6d8a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "92ee9be34d8a9dddfe40f1a969683233cd80495d87f3d91956292db8b13c8846"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f62890eb65845d86e84179b17762c573d9f77a1cafbe3bba430f73602f9b3ff"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ed193284c1d8208faae3abd91d94659eb6fb11ef1b7e22c34b8bcb7996331eb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ed193284c1d8208faae3abd91d94659eb6fb11ef1b7e22c34b8bcb7996331eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ed193284c1d8208faae3abd91d94659eb6fb11ef1b7e22c34b8bcb7996331eb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2ee1bf82c57af5d24d4afc9224ba88c3914e14c1c8c4b1436a15b71b48bcac64"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d821d3d49518f09297da65d562f1a4a9cfb9d8fc3aae30dcb616a7286e5d090"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83859d9fba82033801b53077bcf0728c45db5a2f43f9765977aa94ca57b620f3"
   end
 
   depends_on "go" => :build

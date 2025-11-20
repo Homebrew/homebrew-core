@@ -1,19 +1,18 @@
 class Hgrep < Formula
   desc "Grep with human-friendly search results"
   homepage "https://github.com/rhysd/hgrep"
-  url "https://github.com/rhysd/hgrep/archive/refs/tags/v0.3.8.tar.gz"
-  sha256 "a8c554bab136be4083429e97a41d70b8cabcdf113ac3a2ce6c801b5c8710d1d2"
+  url "https://github.com/rhysd/hgrep/archive/refs/tags/v0.3.9.tar.gz"
+  sha256 "c8246d7ff9a8b7cb11f18892f68d16fbd8b7237c37e9bc34c95aaab43be48222"
   license "MIT"
   head "https://github.com/rhysd/hgrep.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bdc73fc805440e15b720a25825a116fe80353b8b7169932f6fdd0b2d15259184"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d49c3f35512cd5f2c75ee590bd320c5a4d24785181319e00b63e08be3af99280"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9df4b9b5224a7972f504d5c34ba609ee631abb70a2ae1749753a4dd50216b3a7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a874051334cff79a342cfae5c56daebfd5d0f4c78e8d32ab0290e456b980eebb"
-    sha256 cellar: :any_skip_relocation, ventura:       "1f2b68a3c41557c21771eb8d59946310a58f2df48aa505c0e9e8f2b0e9e4f07e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "016725006c81ba59a24815bdc72a82bea7b912ad346d0770658bb8bc3399188e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "471b142b6b7286f5f3a0240fe951dc555cd29be2a5233a95af1fd08983673c18"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "088a0d7f835018567e208e121a2b412cc78aef8d2c4fd503a782a9d7a711ddc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69d123d00ea2f0b6a742894f6b5a8efb12ad5f30e00fa9f7b7ced4b9d405afa1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "61bad2fc8c424556dfb8ab4139d4c6c357886b6a704e9363d472b9ca3704dcbd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1e72adf5c47c3815553b9b0313cfdbfc0b4607ec4f989de915acac28c1834c89"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06e7984aa5cad71a77c73ac753bd82cb5904b23fcfdbda7cb464430488e9af78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c7cdca84a0d997620598c28f648b9306c0a651b63b29d0323d4af5525ef16e3"
   end
 
   depends_on "rust" => :build

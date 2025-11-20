@@ -1,8 +1,8 @@
 class Amfora < Formula
   desc "Fancy terminal browser for the Gemini protocol"
   homepage "https://github.com/makew0rld/amfora"
-  url "https://github.com/makew0rld/amfora/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "0bc9964ccefb3ea0d66944231492f66c3b0009ab0040e19cc115d0b4cd9b8078"
+  url "https://github.com/makew0rld/amfora/archive/refs/tags/v1.11.0.tar.gz"
+  sha256 "76ae120bdae9a1882acbb2b07a873a52e40265b3ef4c8291de0934c1e9b5982c"
   license all_of: [
     "GPL-3.0-only",
     any_of: ["GPL-3.0-only", "MIT"], # rr
@@ -12,14 +12,14 @@ class Amfora < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d5ca2d3a6e2ceff7b959b5dbcb46fce4ae8fc906ad17d6ae3c56dca81c52cf44"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5ec84d2286802f8cb76b710ced58fe9d19569a77e52f42390fac1d1ecc89b48"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97625ffb788e518429183d5c525d8229fa85c2f1bc266d4532505734a378bcba"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c656b1fe13604e4109727095549cf411fdad31957c2ffe7d134f41495fec011f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f65bdde1720c9119b9977cde1811d6af3b8cfc879d5189f6693bb87e998341e5"
-    sha256 cellar: :any_skip_relocation, ventura:        "714e7f2580f209650fa0a9f5002708dc84493bae28a4239156d3ff7108fe5fe3"
-    sha256 cellar: :any_skip_relocation, monterey:       "9f519ca531d13326ca451a7f8fca211522102223192f7f3427ba4d94ca29f34f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2bc8d37b87dd964a2a4c8fe0c9b79406d2adc593edf7a565473190e59929f97"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00e4da529415b5a5b02c68c987828c996e1b044e8de4bdd3bd91aff35d472396"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aea294662496a802b0b372ac96c71b78a6df62ff654855c243677b5d7d4e4803"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aea294662496a802b0b372ac96c71b78a6df62ff654855c243677b5d7d4e4803"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "aea294662496a802b0b372ac96c71b78a6df62ff654855c243677b5d7d4e4803"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f50a1331ec6c174d16aabe9908dbe16ca7b840bf44c7e76b384de67b5e5f2f67"
+    sha256 cellar: :any_skip_relocation, ventura:       "f50a1331ec6c174d16aabe9908dbe16ca7b840bf44c7e76b384de67b5e5f2f67"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d9218f579fb7be31312ea53a6d59a7f6f63ea4a01216c64ab68b49c2899b34f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ccab595f65a7e440660a2981719199eef7e5cc82025a89f0cfa2936892fa57b"
   end
 
   depends_on "go" => :build

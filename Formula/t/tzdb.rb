@@ -11,6 +11,7 @@ class Tzdb < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "c2735093cdf1e304a2ef21d70a0890ab65a029938c4c7b6a0859150897aa611e"
     sha256 arm64_sequoia: "395beebfd6ee0c176b652616c699bc61156e13434ce1825c150b423a51c89a88"
     sha256 arm64_sonoma:  "0038255105832e3ee626bb0df264b1319e7e78b9cad31a2abe63318d78ca492d"
     sha256 arm64_ventura: "e9ca9450eef87b08d7c13aaded06eec5c1d74e18669bef7410478c25f4d3c1ed"

@@ -1,19 +1,19 @@
 class Vsh < Formula
   desc "HashiCorp Vault interactive shell"
   homepage "https://github.com/fishi0x01/vsh"
-  url "https://github.com/fishi0x01/vsh/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "466e90137244b13c44befef8fc534f158c4ebe601bc20a66f0e8eabd9fbf9b27"
+  url "https://github.com/fishi0x01/vsh/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "cf9350c3adb5cd0df031f3f44e58f040300dd8e3ad798f6c1583dc6902f7935f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bfb05cd63316f9a7785b2f0bec45c313c0db18f2b1c3f862ae6a3794c10c068a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1eddab680208703797754eac3642e5a2a37ae1f38f1ccaa508b19c1708c911c2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "223c2d94808d93148a39f0c878979d2356368d0f027a81481f6ecc278f1b07e4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1d07760031eaf0abf803b3c6fe8b9efe8e0fa7bdb42787654a4ba8de46ac099"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cdec21235359d1c5b1d8994b8419faf2419be227d386c2e3f047747ac43da588"
-    sha256 cellar: :any_skip_relocation, ventura:        "b3fbdf3f8c844c4825a63389eb3d557919e2385c09bed4b7df28a0fda61e2179"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b7f2bbc2ed69620455f4f47ce1b4bee19ecf7786a740297aa978780633036b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c453531f19e7cdca825575fad38ae6c88c30adcca557becd656aa1e21e1a89a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4b7a734a15409fb61ec222ec5716e9f6969e02fb46b517fe61dda4e1df48f656"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f8b53244f2ef6156f7b8bc917c9ecd86baca799a2ea791415ce2f9b84e825e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f8b53244f2ef6156f7b8bc917c9ecd86baca799a2ea791415ce2f9b84e825e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f8b53244f2ef6156f7b8bc917c9ecd86baca799a2ea791415ce2f9b84e825e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d5909bc9d4463dce38dabfa0238cd0dae7a60c451d9ce83cdde4350aca6cc43c"
+    sha256 cellar: :any_skip_relocation, ventura:       "d5909bc9d4463dce38dabfa0238cd0dae7a60c451d9ce83cdde4350aca6cc43c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1840008cbb5e34dc3de6f5ad429ee45dc1ad00ba537d3999a65de0f623e3fe88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efcf0ec78b552d792483b5f77b6e6bd69bdb1dc02ab8221d2acf8a4662ed933b"
   end
 
   depends_on "go" => :build

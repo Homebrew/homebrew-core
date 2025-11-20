@@ -1,18 +1,17 @@
 class Colmap < Formula
   desc "Structure-from-Motion and Multi-View Stereo"
   homepage "https://colmap.github.io/"
-  url "https://github.com/colmap/colmap/archive/refs/tags/3.11.1.tar.gz"
-  sha256 "d2c20729ab5b1198e17725b720128f304f4cfae5c0a8c20d75c0e9c5bdee5860"
+  url "https://github.com/colmap/colmap/archive/refs/tags/3.13.0.tar.gz"
+  sha256 "98a8f8cf6358774be223239a9b034cc9d55bf66c43f54fc6ddea9128a1ee197a"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "a10d84ff5e6e26782f2043ea71657f741f6ad2a84870b15126d52dd75216fab8"
-    sha256 cellar: :any, arm64_sonoma:  "a3b2341aad18e5ee0e65a9ca38d497de5f2dae573525588e01026e609ff5929d"
-    sha256 cellar: :any, arm64_ventura: "7d88ee8e8f5fc8b369050c706df0a6c6179eeb7a56262fc17d8e5ea0f9e3d050"
-    sha256 cellar: :any, sonoma:        "9b56b2f3bdae3e126dff816fd6005b1142a7af895166666e626af58c93ef2497"
-    sha256 cellar: :any, ventura:       "40a9ed14c6bdbb969209c24500ab814e0614740492e8cc26d0e50b2355f26fb5"
-    sha256               x86_64_linux:  "ce9da6e8e8f4c41ef007ead45ed70122eeb4739f82bdeb36bfffcbfea922b5b9"
+    sha256 cellar: :any,                 arm64_tahoe:   "2bb0d7ab5ba3fe96e0b6e1c0c81ef9f2f5ed137db4820c1925d6841c1e3737af"
+    sha256 cellar: :any,                 arm64_sequoia: "0f7fe9af2233e8bf143eeab4aef89ff69a2b234cc898c8f2e70c8387b72b59ec"
+    sha256 cellar: :any,                 arm64_sonoma:  "080acb7ada884629974b56d60b3887ba694af02126c4559581eed3fbace229f5"
+    sha256 cellar: :any,                 sonoma:        "539ee7c51dda5fc6a8b3156b6791ba26a7ffbeee53d1cef646b0788c4f995c38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93275bad43506351576c3408ab36c20ef18ffc37f63e7c99958ae21c8f211c73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be708787b8b54ba370f8d99f23b000842dea7cc76b286f2be65e93ee6c3b85c3"
   end
 
   depends_on "cmake" => :build
@@ -20,6 +19,7 @@ class Colmap < Formula
   depends_on "ceres-solver"
   depends_on "cgal"
   depends_on "eigen"
+  depends_on "faiss"
   depends_on "flann"
   depends_on "freeimage"
   depends_on "gflags"
@@ -28,10 +28,12 @@ class Colmap < Formula
   depends_on "gmp"
   depends_on "lz4"
   depends_on "metis"
+  depends_on "openssl@3"
   depends_on "poselib"
-  depends_on "qt@5"
+  depends_on "qtbase"
   depends_on "suite-sparse"
 
+  uses_from_macos "curl"
   uses_from_macos "sqlite"
 
   on_macos do
@@ -45,11 +47,10 @@ class Colmap < Formula
   end
 
   def install
-    ENV.append_path "CMAKE_PREFIX_PATH", Formula["qt@5"].prefix
-
     args = %w[
       -DCUDA_ENABLED=OFF
       -DFETCH_POSELIB=OFF
+      -DFETCH_FAISS=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

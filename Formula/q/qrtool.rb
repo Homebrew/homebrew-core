@@ -1,8 +1,8 @@
 class Qrtool < Formula
   desc "Utility for encoding or decoding QR code"
   homepage "https://sorairolake.github.io/qrtool/book/index.html"
-  url "https://github.com/sorairolake/qrtool/archive/refs/tags/v0.11.8.tar.gz"
-  sha256 "873e9324720bc0d526ca233db31c952902294f72a3b5265bef8333605e31f75c"
+  url "https://github.com/sorairolake/qrtool/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "3271127e2be7ef3e51cd22648b5f6168e1da00d19cd4b35c1b752029be08d41a"
   license all_of: [
     "CC-BY-4.0",
     any_of: ["Apache-2.0", "MIT"],
@@ -10,13 +10,12 @@ class Qrtool < Formula
   head "https://github.com/sorairolake/qrtool.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08b0026d4a4cb631fabd4351b7b34c73d428018612a327ae779aa721e87fbb29"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84e50a973f4585383daf8beba9fda0abba46569411793fc9ee93de0d62bd6318"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0b7f4c46fd57d27652f71226670c8350049786933b0126bd3143e5a54f617fda"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7647d101c521fe0871327f9f649c081ba1ea27e46405700e7755384ce95109e1"
-    sha256 cellar: :any_skip_relocation, ventura:       "a21295fe7c80dc30731fa070318aba7ccf4e73569fa9b56c64e5663b2858b27b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1500f4cd68e7911d71c4398bdb33bcef404218641114d8c9869475cc22d462de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94e5bca91d85d01544e33d003422eb0cf6b20d9dae01405c88ed9dca13432fda"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae622c06212700aca23dc02eb547ad048d725ce0362abb75ed7f05c8006d62e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c96a940b830ad2e0ac5f8ff3170d8c94596c521a67383337a42c0a4e5567bc9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "249ed7ff901645e8a7c9b6ff7ff260e2bacb7f0056a738f498fe3f19123ebe01"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a2da0b6b354049c0d4a11e0ee10735e8ca8e352f2a0e1523a1303598c2e8a83d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d1ce21be8979eb1680030361a86a40353ff9c106231f9bb506c68d7d5e6c7cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66167709896dbc309226f03f81d8db56b29b259aad013c520b0569bbd38be7bb"
   end
 
   depends_on "asciidoctor" => :build
@@ -25,10 +24,10 @@ class Qrtool < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    generate_completions_from_executable(bin/"qrtool", "--generate-completion")
+    generate_completions_from_executable(bin/"qrtool", "completion", shells: [:bash, :zsh, :fish, :pwsh])
 
-    outdir = Dir["target/release/build/qrtool-*/out"].first
-    man1.install Dir["#{outdir}/*.1"]
+    system "asciidoctor", "-b", "manpage", "docs/man/man1/*.1.adoc"
+    man1.install Dir["docs/man/man1/*.1"]
   end
 
   test do

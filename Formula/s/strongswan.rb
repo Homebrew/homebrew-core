@@ -1,8 +1,8 @@
 class Strongswan < Formula
   desc "VPN based on IPsec"
   homepage "https://www.strongswan.org"
-  url "https://download.strongswan.org/strongswan-6.0.1.tar.bz2"
-  sha256 "212368cbc674fed31f3292210303fff06da8b90acad2d1387375ed855e6879c4"
+  url "https://download.strongswan.org/strongswan-6.0.3.tar.bz2"
+  sha256 "288f2111f5c9f6ec85fc08fa835bf39232f5c4044969bb4de7b4335163b1efa9"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Strongswan < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "1d400a27f9827ddc6cf1558f1745ec2de5b726b5846fc0ccb940ce1ae4816c46"
-    sha256 arm64_sonoma:  "a53259dbcb6295c222daf978857a3bbc5b9227d008c77a211f92ad7341ab72ca"
-    sha256 arm64_ventura: "fa99e2acc5b7dad59ba0c34729ac9962265b3a44471b76ea2ccb3449b091a6d0"
-    sha256 sonoma:        "324b1831262b1913c26de58b0062943a9d453fac4ed1b1ebc8448b47457e207f"
-    sha256 ventura:       "328816ca28f4d263fc8389a4384b481c86f46a2e1d43f152ba7a1ab6ca10b656"
-    sha256 arm64_linux:   "5933ebc1945502e575568a71fd8f230164aafad1228b0fc41e895c848a25113a"
-    sha256 x86_64_linux:  "5639fc4928b7bf717c6c4eb52db38c58205b332c9a3694f8197195555e24a165"
+    sha256 arm64_tahoe:   "c441d10a008ffd0d973f4845067c59d9222b219694e68668795540a9e30921dd"
+    sha256 arm64_sequoia: "be3628964984571bda1fb570304a7f2330967dfd03a3d72b71cff239f409f7cd"
+    sha256 arm64_sonoma:  "e9f428124bd397b8467a3801c1b3e7c10a6448994507504e3663e3846af15d83"
+    sha256 sonoma:        "8c0d56d754161ac24c4c28b8f426c557d387744c9c2d5c349116e901a7c15822"
+    sha256 arm64_linux:   "603db325f5b28d8f3d4c91ff1cde5ab552f16008a0396596817147904d17c6da"
+    sha256 x86_64_linux:  "21cf828aeb4fc58dc7d65f793a8af0f8d6376c0dbb185e9007d760026960d3b5"
   end
 
   head do
@@ -52,8 +51,10 @@ class Strongswan < Formula
       --enable-eap-identity
       --enable-eap-md5
       --enable-eap-mschapv2
+      --enable-eap-peap
       --enable-ikev1
       --enable-ikev2
+      --enable-kdf
       --enable-kernel-pfkey
       --enable-nonce
       --enable-openssl

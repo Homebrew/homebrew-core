@@ -6,13 +6,8 @@ class GulpCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "240302d96e2d2ded3a74ad80abc51db6c8539e32421a6026a081879c1387dc3c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "240302d96e2d2ded3a74ad80abc51db6c8539e32421a6026a081879c1387dc3c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "240302d96e2d2ded3a74ad80abc51db6c8539e32421a6026a081879c1387dc3c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "353b3d0218f3d9fd50d85868af51173ff261ced09ec71e73be07229331b0ce6c"
-    sha256 cellar: :any_skip_relocation, ventura:       "353b3d0218f3d9fd50d85868af51173ff261ced09ec71e73be07229331b0ce6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "240302d96e2d2ded3a74ad80abc51db6c8539e32421a6026a081879c1387dc3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "240302d96e2d2ded3a74ad80abc51db6c8539e32421a6026a081879c1387dc3c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "240302d96e2d2ded3a74ad80abc51db6c8539e32421a6026a081879c1387dc3c"
   end
 
   depends_on "node"

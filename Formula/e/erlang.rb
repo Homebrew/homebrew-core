@@ -3,8 +3,8 @@ class Erlang < Formula
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
   # Don't forget to update the documentation resource along with the url!
-  url "https://github.com/erlang/otp/releases/download/OTP-28.0/otp_src_28.0.tar.gz"
-  sha256 "71b5bf16e5b7b5d9fae98576c87aceac447964aaa3b4b457a5f60906839af92c"
+  url "https://github.com/erlang/otp/releases/download/OTP-28.1.1/otp_src_28.1.1.tar.gz"
+  sha256 "03e1b26e846b2cc1b49271656da6d5ecf4d5f4c2e34224d869a23c61a3d5660a"
   license "Apache-2.0"
 
   livecheck do
@@ -13,13 +13,13 @@ class Erlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6f34b91d8fd9ccb098e2a70566ea1a98a35694a583c3f2e6ab8730b3167e79d8"
-    sha256 cellar: :any,                 arm64_sonoma:  "ec00303a27d53bb1cf29e58d78f67235f4e58652182c7962209f6b6de8f3c675"
-    sha256 cellar: :any,                 arm64_ventura: "bfcaa62512a41f974b2187dec18bb0dbe9949af1bd96a4e0a7455a468e54a2ba"
-    sha256 cellar: :any,                 sonoma:        "1f9058a4c7c459b942137a8e6b4dae2cec23de453c41481b2199bb21b4cefc7a"
-    sha256 cellar: :any,                 ventura:       "9eb2fac132383f0b0c65e3a0cc163fa2e62d2516aa4ab3066e20fd1676242b1d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb0da9f8ed1232bfe0b7fb59de6500989209229aa205018812cd4dcd9adab869"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d48e161828a1063028c3a2e55b94086a509e2bb3aa0fa6a1185a25ed0e199a12"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "39d5f145b5aa4ae0487bf59f00b6abfa30c9ac6bdca24fce85d3d8b77eb06759"
+    sha256 cellar: :any,                 arm64_sequoia: "cc0b9a4dd139b9d4a2e8e6b7e9485ef2aa5ffc5c4394091213cd71e43e02887a"
+    sha256 cellar: :any,                 arm64_sonoma:  "b0d849bddd55b795a3c59f8ef4e09b1bf5489c2edd050cfd25708187dcca289f"
+    sha256 cellar: :any,                 sonoma:        "f91692ab9db3b0fbb1bef48577254f7bdaf3eca5309d4324280e723b35578a38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b714aa7736f2cbda9c2fa68d4b862f2c2c8db9c5b620a29eccabebf943f3db34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "562056102144b2c367fb5cf6e8cd04055b5fc0a74fd1f5708059ce3acaa79f8e"
   end
 
   head do
@@ -31,7 +31,7 @@ class Erlang < Formula
 
   depends_on "openssl@3"
   depends_on "unixodbc"
-  depends_on "wxwidgets" # for GUI apps like observer
+  depends_on "wxwidgets@3.2" # for GUI apps like observer
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ncurses"
@@ -42,9 +42,9 @@ class Erlang < Formula
   end
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-28.0/otp_doc_html_28.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_28.0.tar.gz"
-    sha256 "9eebbb8820f0a75d70d88758b32d3d9009828cf7d954f448a586639e74c5c65d"
+    url "https://github.com/erlang/otp/releases/download/OTP-28.1.1/otp_doc_html_28.1.1.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_28.1.1.tar.gz"
+    sha256 "d54bcc53b8ed0537d5595fca06beba5b3220b869aaeab41c1a40d9a21af892c7"
 
     livecheck do
       formula :parent
@@ -69,18 +69,24 @@ class Erlang < Formula
     # Do this if building from a checkout to generate configure
     system "./otp_build", "autoconf" unless File.exist? "configure"
 
+    wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula
+    wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
     args = %W[
       --enable-dynamic-ssl-lib
       --with-odbc=#{Formula["unixodbc"].opt_prefix}
       --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-javac
+      --with-wx-config=#{wx_config}
     ]
 
     if OS.mac?
       args << "--enable-darwin-64bit"
-      args << "--enable-kernel-poll" if MacOS.version > :el_capitan
+      args << "--enable-kernel-poll"
       args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
     end
+
+    # The definition of `WX_CC` does not use our configuration of `--with-wx-config`, unfortunately.
+    inreplace "lib/wx/configure", "WX_CC=`wx-config --cc`", "WX_CC=`#{wx_config} --cc`"
 
     system "./configure", *std_configure_args, *args
     system "make"

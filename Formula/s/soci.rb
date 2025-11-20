@@ -11,6 +11,7 @@ class Soci < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "d31676b530369e902ca7ef093254b8651d457d608d5fc3f043af44f399cfac1d"
     sha256 arm64_sequoia: "d743ca216502631c357219d8e9062147831f2f5de3d20e18e8707e0fda86b9fc"
     sha256 arm64_sonoma:  "b54a46e8519d45c7cdaf573d0744206603c4858aeaeeba7edfd982af15ae8eed"
     sha256 arm64_ventura: "2816ca114d5b253b1a2910275280335e342ceaa9b5fc37b029c7b3c794e7789a"

@@ -4,23 +4,24 @@ class Mcabber < Formula
   url "https://mcabber.com/files/mcabber-1.1.2.tar.bz2"
   sha256 "c4a1413be37434b6ba7d577d94afb362ce89e2dc5c6384b4fa55c3e7992a3160"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
     regex(/href=.*?mcabber[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia:  "22148b4dac302fc1e66326cd0a1790831aa8b2a1fe8911b41944125056d2cd20"
-    sha256 arm64_sonoma:   "4360dd97e2380a7f382a3b7c2ca1a0e75525b6611c72f28e65709cafe6b30bb1"
-    sha256 arm64_ventura:  "7815be33fdbe1617a9bd769ddcefb123668d13957690faf188608d569570242e"
-    sha256 arm64_monterey: "7e1900fb7c58c6a948cb2329a3e52f9dcdf7fe69afa5519cc7d8b096db950c31"
-    sha256 sonoma:         "5d40492fc3afb54bcce4b07f51feb4139af51e968ad0b70a876fd36a33e77df3"
-    sha256 ventura:        "0ba512ce535bed85a080c9117179e67e9e7f49243b02989a7b09456d0f50faa3"
-    sha256 monterey:       "498e9db79846d370de50a85ce3eef354bc27b6f6a6ea7ecd43008a65a3d7eef2"
-    sha256 arm64_linux:    "c60a7ff2bca6ab6ecf15c6d362a8910042f63d1bec9221a19b3146416cc1913f"
-    sha256 x86_64_linux:   "9dd90456ae959bdf7893656a4ab0177937fc9d25f618a753a54e5730095d18b8"
+    sha256 arm64_tahoe:   "5a3fd194c38f6e2cdde387ac0d822bb4d44735e3a5dee9e04bd847cff9febaf7"
+    sha256 arm64_sequoia: "ecad9a3ee398b3a8d3da0c3a6f70ce3bbd6d8b7f0e56982c534858deeb7f93f3"
+    sha256 arm64_sonoma:  "df43d005dea2bc2e1ad875453efff00618a535da2dc69041f65bda297aaff7e1"
+    sha256 arm64_ventura: "53fa4715f224ba5b3c89b8e3f4894055a45a99897ddde8534f3344ac654341c8"
+    sha256 sonoma:        "91739babcca8744a2b366cdfe13a3504bb55b38531301c5ed131a68aa761e7ae"
+    sha256 ventura:       "82b5dd6349e6e36c3cd053aaf4cac15c2e421a5c599011bf6fc80006f4a412ee"
+    sha256 arm64_linux:   "80babf982f8b324a1b5930c44faf244e4b342fb3e14fb0a4f8eed724b0578446"
+    sha256 x86_64_linux:  "fb62852c31174e4df62f12848a3a3cb942a7c0d86dd77f3ca0643d75ba088d97"
   end
 
   head do

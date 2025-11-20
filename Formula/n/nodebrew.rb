@@ -6,6 +6,8 @@ class Nodebrew < Formula
   license "MIT"
   head "https://github.com/hokaccha/nodebrew.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "bd835b02ed3b28570708b7c98d0ea7a761c53f561544496d07728c9adf3502e2"

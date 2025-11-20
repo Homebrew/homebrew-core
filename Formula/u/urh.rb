@@ -6,15 +6,18 @@ class Urh < Formula
   url "https://files.pythonhosted.org/packages/7b/af/be36ae7e9184410c2c6d406a1551d7096f394e238cc5f63cb4ddcfc5f2e5/urh-2.9.8.tar.gz"
   sha256 "864130b19553833827931f48f874045a39a6cee219a310a910bcd2ef02cf96b4"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/jopohl/urh.git", branch: "master"
 
+  no_autobump! because: "`update-python-resources` cannot determine dependencies"
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7aab6a172466029fbb7ed528a5edd624866de3c0d5c3c6db9566d5bd7bdd3dc2"
-    sha256 cellar: :any,                 arm64_sonoma:  "aa6362884ac8ca8a644f638728265e2bed585ac5525b43adcf55c891a2c94c37"
-    sha256 cellar: :any,                 arm64_ventura: "3458da9303a91f152666649e6afd3f796f0658152f547be7619927e2f1f6d99a"
-    sha256 cellar: :any,                 sonoma:        "ce3ba9b6b56f7cf06fa761c9c16669a0f9a96f6f22d8950533df042d3e581abc"
-    sha256 cellar: :any,                 ventura:       "46047fe3cc847a20a0d4337bbc5ad093d0447ddee1517f959391b091eb9e8994"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4f4790a0182353030f25e329a0647908722dda1dea6249b3544d64c3d790c30"
+    sha256 cellar: :any,                 arm64_tahoe:   "ac9e1a2e9eb4ef1d2a51dd85e54252794f1082f3de02ae077b86bcf7c9c6cc24"
+    sha256 cellar: :any,                 arm64_sequoia: "62ea259eba408187297df3dada6609c7e3c132dac3005165d0e641e52220caa0"
+    sha256 cellar: :any,                 arm64_sonoma:  "44fca98d4457a4a5798ccc36bc43d3d5bb163f5206d371d7348b20babc8c8aed"
+    sha256 cellar: :any,                 sonoma:        "859acfa8aa4edfa004eabc14350f08ab187986d9fb20f1ebb724daf421fcdc83"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d39c8f2f760344dff758d9ab2dff7334046172ff77d8687327dc949dd9e60898"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcb7995e05db0dfd4a416f43bc7cc57b6d31638b2b908e3f5d12ab849062a613"
   end
 
   depends_on "cmake" => :build # for numpy
@@ -23,7 +26,7 @@ class Urh < Formula
   depends_on "pkgconf" => :build
   depends_on "hackrf"
   depends_on "pyqt@5"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_linux do
     depends_on "patchelf" => :build # for numpy
@@ -51,7 +54,7 @@ class Urh < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.13")
+    venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install resources
     # Need to disable build isolation and install Setuptools since `urh` only
     # has a setup.py which assumes Cython and Setuptools are already installed

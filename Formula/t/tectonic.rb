@@ -2,7 +2,7 @@ class Tectonic < Formula
   desc "Modernized, complete, self-contained TeX/LaTeX engine"
   homepage "https://tectonic-typesetting.github.io/"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/tectonic-typesetting/tectonic.git", branch: "master"
 
   stable do
@@ -31,13 +31,12 @@ class Tectonic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ffc8602e1b2f1a67000d75005c1cbaae38bdd947e553c9f0b2691b808c37b485"
-    sha256 cellar: :any,                 arm64_sonoma:  "d285d2e6edecf5aa4eff882adfc33da8b77f42e5c38e830f71f4df3bfeaa51f2"
-    sha256 cellar: :any,                 arm64_ventura: "f32891c5831052e3bb42bc8fb0e16b03bd9c4d7589c352f5aaf44d75f025b23c"
-    sha256 cellar: :any,                 sonoma:        "fa701da13aceb845275ab33d2be416e8e920de049200aa24f3b59f0ece64e7df"
-    sha256 cellar: :any,                 ventura:       "56ce8b708073b61d53ad803ac2b7977023b3361db901051e314387d15f1ed766"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9503c0b5a4f9746927ca7d4773284b0880289a9197d4512034bd0b7516d313b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "729380f2cf1ff68094a032dc5c4dc21fcbfc70dba58bbf2c597b1b2d675fcbc3"
+    sha256 cellar: :any,                 arm64_tahoe:   "f56823a0baaed02168099c191567bb2deaf5714813e731d3c7182abc45571f96"
+    sha256 cellar: :any,                 arm64_sequoia: "054a9f7723f8b229fd2a46aa8ec42187f877108295e0194511cf1ba9b997c227"
+    sha256 cellar: :any,                 arm64_sonoma:  "46fb7cf69dd8e1527ae95e110671badf51503715d372a8d51f14fdd8fe118891"
+    sha256 cellar: :any,                 sonoma:        "3dcd2b5d5cc04cf574b86e96e0f2109f306ee73a41d32a2c307b1aeb75d00801"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3be3c6d8390901d6e7824be28657e88bd0d496d593f83413f12f6a6ede6353ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82aa476e71429b2346538251f37986741000f91e48142e312ba8cd103c4736b1"
   end
 
   depends_on "pkgconf" => :build
@@ -45,7 +44,7 @@ class Tectonic < Formula
   depends_on "freetype"
   depends_on "graphite2"
   depends_on "harfbuzz"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libpng"
   depends_on "openssl@3"
 
@@ -56,10 +55,11 @@ class Tectonic < Formula
   end
 
   def install
-    if OS.mac?
-      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s # needed for CLT-only builds
-      ENV.delete("HOMEBREW_SDKROOT") if MacOS.version == :high_sierra
-    end
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac? # needed for CLT-only builds
+
+    # Fix to error: implicit autoref creates a reference to the dereference of a raw pointer
+    # for rust 1.89+, remove with next release
+    inreplace "crates/engine_bibtex/src/xbuf.rs", "(*old).len()", "(&(*old)).len()" if build.stable?
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration

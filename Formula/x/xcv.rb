@@ -6,6 +6,8 @@ class Xcv < Formula
   license "ISC"
   head "https://github.com/busterc/xcv.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "d9e0dfc790cbc0a90240e2964f439260ea656a826d7688730bd9c304232e733d"

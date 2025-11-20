@@ -6,8 +6,6 @@ class Icu4cAT74 < Formula
   sha256 "68db082212a96d6f53e35d60f47d38b962e9f9d207a74cfac78029ae8ff5e08c"
   license "ICU"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "d9b0dc95a406d340373bf75d6d013cc53e8815d0c0b550e584b4006a7aba12f0"
     sha256 cellar: :any,                 arm64_sonoma:  "2216fec75032a12c4a442448ca23fed421eb94374e2e9994e6db0c51eae60ed2"

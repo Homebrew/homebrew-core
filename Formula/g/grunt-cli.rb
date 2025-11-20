@@ -8,16 +8,8 @@ class GruntCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6623c9c49be25c0d046324eae90919e3360542d69f9cf921b3cc47a44573c984"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2dd1c3cbca5634e0af5e6f0cdecde2700c3b28fef7995b59527cbc225cc133a7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2dd1c3cbca5634e0af5e6f0cdecde2700c3b28fef7995b59527cbc225cc133a7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2dd1c3cbca5634e0af5e6f0cdecde2700c3b28fef7995b59527cbc225cc133a7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "be6201a69eafbd7b9d93fa919cd410dc0c8e03eef63f686836690fdee13b9fe0"
-    sha256 cellar: :any_skip_relocation, ventura:        "be6201a69eafbd7b9d93fa919cd410dc0c8e03eef63f686836690fdee13b9fe0"
-    sha256 cellar: :any_skip_relocation, monterey:       "be6201a69eafbd7b9d93fa919cd410dc0c8e03eef63f686836690fdee13b9fe0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "7cfb7579ba83a114818c2ef065a534f5d237cbd21b3be57d73063e5763addaa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9383dff764eb6833c08ecf8ac67a869c40c5830ec27471577094357feabac56"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "0c39a24d633b89cf96aa864478ab95418b1003408d92ecfa446719ff4751df24"
   end
 
   depends_on "node"

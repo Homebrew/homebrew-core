@@ -1,19 +1,18 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://lima-vm.io/"
-  url "https://github.com/lima-vm/lima/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "82577e2223dc0ba06ea5aac539ab836e1724cdd0440d800e47c8b7d0f23d7de5"
+  url "https://github.com/lima-vm/lima/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "a3efa067676ca80e780671eade074a5ff8ea080b04563f3cfd07cfc9ca4cbf76"
   license "Apache-2.0"
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9cd1a319ae657c32218da384ab05a8de1af594b5b298687ab5f0082a4bae570f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef3da306aebcec4125f01376855bc422e629375914866217206f4b84cb05f17c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ae4f6f583bcfac4cd65d0a5a435f029fcad07c912001b34b69c4b86989f8a1a0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c45416f1811568ee8800d55440e281a223b06bdc43783eddf361d118213b4b4c"
-    sha256 cellar: :any_skip_relocation, ventura:       "f41f7371692a2d18cb3068fb49d63e00c26a24cd7d99458eab6678d972bccbdd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e81a7100ebccbd85fda8c6de1908cb8930cd5c51443532c167b90b4325f09af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f62f734e16c2d4bbe15acb813acffba55c25fa1e378d4c3763c7c184470fcd50"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1128164f9a1edd7ecd87ae08ce8439a0b608453bacaef5d97d96a4d1042eac46"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf8c7bef54456b35e3b6d995a42b134767bcc6a8df92a1f31750d076f32a7a9b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd2b44abdaaa79819b72ea9b03a0784a107218732d30e388d727358c957253a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "89d86649aee76af90e7e38ee4f35ce0473e2cf4dbfb10abb1bdeca6e553b8c63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c73facd7fa86fe00cf316dcbfce1cbced61e5362c998b2ef269107030be66b9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34eaf6247943ad51173b07375e1bd16a0c76b8c0971cf6a323c0e31cc5be3e32"
   end
 
   depends_on "go" => :build
@@ -34,6 +33,7 @@ class Lima < Formula
     end
 
     bin.install Dir["_output/bin/*"]
+    libexec.install Dir["_output/libexec/*"]
     share.install Dir["_output/share/*"]
 
     # Install shell completions

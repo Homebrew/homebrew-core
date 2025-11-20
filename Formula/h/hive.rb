@@ -1,21 +1,17 @@
 class Hive < Formula
   desc "Hadoop-based data summarization, query, and analysis"
   homepage "https://hive.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz"
-  sha256 "2bf988a1ed17437b1103e367939c25a13f64d36cf6d1c3bef8c3f319f0067619"
+  url "https://www.apache.org/dyn/closer.lua?path=hive/hive-4.1.0/apache-hive-4.1.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hive/hive-4.1.0/apache-hive-4.1.0-bin.tar.gz"
+  sha256 "9d160af85f0f44ea7e0ccaf0a8c876e36ac35abfd9f8c506504a11e6daaff9aa"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "967f1273e5e14b787fb79b46fc2a8affb1cb09db6c0a6c7691aeca05343e3a96"
+    sha256 cellar: :any_skip_relocation, all: "02d59498559e50e24ee6eee1e89cd108459de862499217510b51b34a61e1b41f"
   end
 
   depends_on "hadoop"
-
-  # hive requires Java 8.
-  # Java 11 support ticket: https://issues.apache.org/jira/browse/HIVE-22415
-  # Java 17 support ticket: https://issues.apache.org/jira/browse/HIVE-26473
-  depends_on "openjdk@8"
+  depends_on "openjdk@17"
 
   def install
     libexec.install %w[bin conf examples hcatalog lib scripts]
@@ -30,7 +26,7 @@ class Hive < Formula
       next if file.directory?
 
       (bin/file.basename).write_env_script file,
-        JAVA_HOME:   Formula["openjdk@8"].opt_prefix,
+        JAVA_HOME:   Formula["openjdk@17"].opt_prefix,
         HADOOP_HOME: "${HADOOP_HOME:-#{Formula["hadoop"].opt_libexec}}",
         HIVE_HOME:   libexec
     end

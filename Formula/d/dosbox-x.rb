@@ -1,8 +1,8 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2025.05.03.tar.gz"
-  sha256 "b29a2c9c38bfe1d1c1f2420d546b8c2456ae2ddce4c1f6b4d19f258841ce1581"
+  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2025.10.07.tar.gz"
+  sha256 "fed630dba74f1ad1552bc5ec94cb68f70737e67a7ca1768f6071b255426ce117"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
@@ -19,13 +19,12 @@ class DosboxX < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "6e250e527c94b3a1b9ea2893d64a6ee939178dcacdf42d1e9e158fc6b6fa8893"
-    sha256 arm64_sonoma:  "5d3a7fe6f5d0c7bc5df0a8ac74d375fd4496dbf6532a3df186e60cfd1903ffe5"
-    sha256 arm64_ventura: "8405eb97c9b5b2460c2f7b03c0548a9be7ff2f3b304b4c0d07719652d83f79ec"
-    sha256 sonoma:        "f557edc8c2354c5cb391faa9761566d496c19db26a79e05a5b627fb37ebf2ba0"
-    sha256 ventura:       "0c463405ea683834c40157a3dab895df130e8422ef2f2750338e50b55da0789e"
-    sha256 arm64_linux:   "2a3e03f8c61d44bb49c56381068e574dcdfb7d69736ae757ece8046642bb2420"
-    sha256 x86_64_linux:  "6501a5f6178f9319250785644006eeefeabfec0bbd52e6a6bdfaafc4482bc88b"
+    sha256                               arm64_tahoe:   "10b4217eeddf7dfbdadfd38c81b940d733407c708f075de792ba7e532dcbde76"
+    sha256                               arm64_sequoia: "6ded75e5aed788f6bc932e3e7998663215978f190bdeafd3bd7f86ad638258a9"
+    sha256                               arm64_sonoma:  "ec5107377e5e371ec30adeb6ee1e44f18a852b4e2ca4e36b4d2f0620c3d67cb8"
+    sha256                               sonoma:        "fec035c869127bb3f3cb3b666d1a1e30611b500a361213b832cc1d1b5295f192"
+    sha256                               arm64_linux:   "09b78fd526f6ddc14fde58ef82b96582bceddfc1d03a6cc12336592046ec7b7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a417ce0f945ac143020a27e6ac940f60f0f1c1c4d8fdeaa29f5d3eecdbbdd517"
   end
 
   depends_on "autoconf" => :build
@@ -36,7 +35,6 @@ class DosboxX < Formula
   depends_on "freetype"
   depends_on "libpng"
   depends_on "libslirp"
-  depends_on macos: :high_sierra # needs futimens
   depends_on "sdl2"
 
   uses_from_macos "ncurses"
@@ -48,7 +46,6 @@ class DosboxX < Formula
   end
 
   on_linux do
-    depends_on "linux-headers@5.15" => :build
     depends_on "alsa-lib"
     depends_on "libx11"
     depends_on "libxrandr"
@@ -67,7 +64,7 @@ class DosboxX < Formula
     ]
 
     system "./autogen.sh"
-    system "./configure", *args, *std_configure_args
+    system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make" # Needs to be called separately from `make install`.
     system "make", "install"
   end

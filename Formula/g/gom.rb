@@ -1,8 +1,8 @@
 class Gom < Formula
   desc "GObject wrapper around SQLite"
   homepage "https://wiki.gnome.org/Projects/Gom"
-  url "https://download.gnome.org/sources/gom/0.5/gom-0.5.3.tar.xz"
-  sha256 "069d0909fbdc6b4d27edf7a879366194e3ab508b03548bf5b89ff63546d20177"
+  url "https://download.gnome.org/sources/gom/0.5/gom-0.5.5.tar.xz"
+  sha256 "ad61f05af2317a7ab1771fcfa816989fbba3b18957d2e0b5dede9ef45f09b534"
   license "LGPL-2.1-or-later"
 
   # We use a common regex because gom doesn't use GNOME's "even-numbered
@@ -12,30 +12,29 @@ class Gom < Formula
     regex(/gom[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "653c39bbf08707dc8fc4204ce7b2317ff5304cf9050910df166292b34b68abdc"
-    sha256 cellar: :any, arm64_sonoma:  "5a91a0b28b4eb4621c687882d85be9d61fb9055affb380a9975ea884bbc56956"
-    sha256 cellar: :any, arm64_ventura: "ce76f0563174a6410e3352dab6eaaa91be8a88cce5daf7e6595397631d5da76d"
-    sha256 cellar: :any, sonoma:        "1018395f8e1ec4725a0bc5484871d0648f543bcf1c5c3bfd2587b0c00e9c9bc2"
-    sha256 cellar: :any, ventura:       "d6e41c8ef3f8f84204e1f368e7af8734b1243b75d069c6e7b3266f656d03fc15"
-    sha256               arm64_linux:   "7f79d6810958568ec1e2c7ad7d93b404c148ce0d4a41cf83647c263b1c5750f2"
-    sha256               x86_64_linux:  "0121f2c07b7e91f5b2fc56bc19d034e604540c927efe6e3fa2a28acfc707c66c"
+    sha256 cellar: :any, arm64_tahoe:   "52a58d24dad257ba7321f42acd30b67c6aac05a7efe5b9d3fb8b1b76657808e4"
+    sha256 cellar: :any, arm64_sequoia: "e9241ed6619c79c2cebe1b5508672aec223f464dbc7f1ab29e1e49151a1fe942"
+    sha256 cellar: :any, arm64_sonoma:  "772d157dfb130510e77b4499c4a6d31b77f3883e699b5c48576f53fc99019954"
+    sha256 cellar: :any, sonoma:        "d6c9b90b0ea895edc45d71215c52e078c01ec924843a9594d0252139bfe03ab9"
+    sha256               arm64_linux:   "2b147cf4c58a9dd1297191fa92a99b93e5245ba9102ea22c287d49f5ccf56b97"
+    sha256               x86_64_linux:  "469ff80ce89cc419eef6768b5672d25f8f3c557d269d02f0e2554f784da92a47"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
   depends_on "sqlite" # indirect dependency via glib
 
   def install
-    site_packages = prefix/Language::Python.site_packages("python3.13")
+    site_packages = prefix/Language::Python.site_packages("python3.14")
 
     system "meson", "setup", "build", "-Dpygobject-override-dir=#{site_packages}", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

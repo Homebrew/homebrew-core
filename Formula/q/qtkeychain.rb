@@ -6,15 +6,18 @@ class Qtkeychain < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "f216a5ed18ceca5e77ff086b75a0d02dec76f5cce3a6100c172b32e56088b690"
-    sha256 cellar: :any,                 arm64_ventura: "a9eb0ce450facf448a458fc661474fdf6e11a8205791ffac65d7ada84717ace8"
-    sha256 cellar: :any,                 sonoma:        "fa6264c1da4f266fb4ee57570009e9a5e44a15b0000cfd6bf99f3be6a721c6b3"
-    sha256 cellar: :any,                 ventura:       "63a82f1f3487ffe900540bb42b4baccdfee18d0f689110ab3b2b1b435d010084"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e41763b847c0e19b5fe15d7a61866bd06a0ea001765546462498e5941be9c99d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "4bac16d3d1b6ea7c7ef54da66872ca0b6eb106be5d8fe9a3b293bec8f28e5612"
+    sha256 cellar: :any,                 arm64_sequoia: "fe4522c0672e68076e5a6caabade89eb43f0842af5d10a2f6b9bffbf1c60918e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e25450053fa00c0c96a1a458b8a71eb6f01eb2dfff70ae9621106f863b2bbf5"
+    sha256 cellar: :any,                 sonoma:        "94c0e9f2d3d3723769cc8084e3bef5e15f0990844782743a2f6fc501a7fc640c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1802b46a69c8458733001a41570a683c32bbccb682dc8dd9440af5ba774fc84f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c8606b46a5628d4ac64761e1bd0e5ae118c18267cbae6b9cbd8f2c0e95a26a8"
   end
 
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "pkgconf" => :build
+  depends_on "qtbase"
 
   on_linux do
     depends_on "glib"
@@ -36,17 +39,17 @@ class Qtkeychain < Formula
         return 0;
       }
     CPP
-    flags = ["-I#{Formula["qt"].opt_include}"]
+    flags = ["-I#{Formula["qtbase"].opt_include}"]
     flags += if OS.mac?
       [
-        "-F#{Formula["qt"].opt_lib}",
+        "-F#{Formula["qtbase"].opt_lib}",
         "-framework", "QtCore"
       ]
     else
       [
         "-fPIC",
-        "-L#{Formula["qt"].opt_lib}", "-lQt6Core",
-        "-Wl,-rpath,#{Formula["qt"].opt_lib}",
+        "-L#{Formula["qtbase"].opt_lib}", "-lQt6Core",
+        "-Wl,-rpath,#{Formula["qtbase"].opt_lib}",
         "-Wl,-rpath,#{lib}"
       ]
     end

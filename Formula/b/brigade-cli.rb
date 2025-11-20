@@ -15,6 +15,7 @@ class BrigadeCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "93938d159d0b3a5255a4bba8897a6e964ca40463210957612ab294e7deebcf27"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "297bad8cabf257b37796f62ce59aad4819642e6953fbf75aeedd5841b9ea0da1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37470ccf6183c82d4fbdc502adce51bafd52c44af60547a2c54b494bdb270d66"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcb3e8a2f7518bd173d3a0c0427b11b817495408fb91adbd5a7ea0b1345e2f1e"

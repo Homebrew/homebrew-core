@@ -3,37 +3,38 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/0e/ba/cd25043ddaa6253cdbac234e00702eb6fcaec41c317284ed74f53fbde1b6/streamlink-7.3.0.tar.gz"
-  sha256 "1e20d624451f26156a38b9dae5bdfcc6640a8bdf27922370edec8abe237abb08"
+  url "https://files.pythonhosted.org/packages/4e/49/496c1dcd299bec19f5cc9b9e9b07c5baa7a774e4f960d3b18c6e821d60c9/streamlink-8.0.0.tar.gz"
+  sha256 "fb6252b87cb1d4d14dfc5bf1f4add1001e87016b150b7495e22e97aeae264655"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bceec769879be305a93d147035177e399c8703e4a7b41de06eb1d151e1a680cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "e6ba97af997b319305d7a8cae4e5f4cf68dffc660347e98e669d44ea23e9065a"
-    sha256 cellar: :any,                 arm64_ventura: "33b57190b12e969954493c9056978c140810f1b4af08bcfdf20ff4889ce9d8c1"
-    sha256 cellar: :any,                 sonoma:        "df4c8b93662b3465db6f9b82ad3fa29b2b3e523054362d4ea3a14343aa69e70c"
-    sha256 cellar: :any,                 ventura:       "0d47a67d092480202ad8bfe28aeec98b03213d2a76df49b46d5dcaeadf8129f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5062e42a027139a58e40588a246f7ec95e3ccecf5ae976fe04f8ce021eedf327"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2fcb9c5b7d2a2d636748dbe5d043f38103c844e9d5ab2e1320b33d7f26e851d"
+    sha256 cellar: :any,                 arm64_tahoe:   "b8721a44823b99226f716d3ab748ac29c24f090c4877fb47d8418fca87b92774"
+    sha256 cellar: :any,                 arm64_sequoia: "106b99f57153da388362fb8bb9ba5fcd4e14d8c5e504ee765642a80390a9d48c"
+    sha256 cellar: :any,                 arm64_sonoma:  "30c25094846d1fd940b523fad8b87eddda280c9b69866d67ad5e500338a51152"
+    sha256 cellar: :any,                 sonoma:        "132fad2a3ea5125c9bc67837cc4087ead77f5f4888a3f728916ae7ecb06bfc45"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "416da3ec443eb8bb590a22806d620626f6c77805bf187529f544f8d816501b08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d93c67a878aeeefc86db4dbc50840690e2fa331326ff53ee5aae25400728c50f"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "certifi"
+  depends_on "certifi" => :no_linkage
   depends_on "libxml2" # https://github.com/Homebrew/homebrew-core/issues/98468
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
 
+  pypi_packages exclude_packages: "certifi"
+
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
-    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
+    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
+    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
+    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
   resource "h11" do
@@ -42,8 +43,8 @@ class Streamlink < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
-    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
+    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
+    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
   resource "isodate" do
@@ -52,8 +53,8 @@ class Streamlink < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/76/3d/14e82fc7c8fb1b7761f7e748fd47e2ec8276d137b6acfe5a4bb73853e08f/lxml-5.4.0.tar.gz"
-    sha256 "d12832e1dbea4be280b22fd0ea7c9b87f0d8fc51ba06e92dc62d52f804f78ebd"
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
   end
 
   resource "outcome" do
@@ -67,8 +68,8 @@ class Streamlink < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/44/e6/099310419df5ada522ff34ffc2f1a48a11b37fc6a76f51a6854c182dbd3e/pycryptodome-3.22.0.tar.gz"
-    sha256 "fd7ab568b3ad7b77c908d7c3f7e167ec5a8f035c64ff74f10d47a4edd043d723"
+    url "https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz"
+    sha256 "447700a657182d60338bab09fdb27518f8856aecd80ae4c6bdddb67ff5da44ef"
   end
 
   resource "pysocks" do
@@ -77,8 +78,8 @@ class Streamlink < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "sniffio" do
@@ -92,8 +93,8 @@ class Streamlink < Formula
   end
 
   resource "trio" do
-    url "https://files.pythonhosted.org/packages/01/c1/68d582b4d3a1c1f8118e18042464bb12a7c1b75d64d75111b297687041e3/trio-0.30.0.tar.gz"
-    sha256 "0781c857c0c81f8f51e0089929a26b5bb63d57f927728a5586f7e36171f064df"
+    url "https://files.pythonhosted.org/packages/d8/ce/0041ddd9160aac0031bcf5ab786c7640d795c797e67c438e15cfedf815c8/trio-0.32.0.tar.gz"
+    sha256 "150f29ec923bcd51231e1d4c71c7006e65247d68759dd1c19af4ea815a25806b"
   end
 
   resource "trio-websocket" do
@@ -102,13 +103,13 @@ class Streamlink < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/e6/30/fba0d96b4b5fbf5948ed3f4681f7da2f9f64512e1d303f94b4cc174c24a5/websocket_client-1.8.0.tar.gz"
-    sha256 "3239df9f44da632f96012472805d40a23281a991027ce11d2f45a6f24ac4c3da"
+    url "https://files.pythonhosted.org/packages/2c/41/aa4bf9664e4cda14c3b39865b12251e8e7d239f4cd0e3cc1b6c2ccde25c1/websocket_client-1.9.0.tar.gz"
+    sha256 "9e813624b6eb619999a97dc7958469217c3176312b3a16a4bd1bc7e08a46ec98"
   end
 
   resource "wsproto" do
@@ -124,15 +125,9 @@ class Streamlink < Formula
     system bin/"streamlink", "https://player.vimeo.com/video/941078932", "240p", "-o", "video.mp4"
     assert_match "video.mp4: data", shell_output("file video.mp4")
 
-    url = OS.mac? ? "https://ok.ru/video/1643385658936" : "https://www.youtube.com/watch?v=pOtd1cbOP7k"
-    if OS.mac?
-      output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'")
-      assert_match "Available streams:", output
-      refute_match "error", output
-      refute_match "Could not find metadata", output
-    else
-      output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'", 1)
-      assert_match(/Could not get video info - LOGIN_REQUIRED|plugin does not support VOD content/, output)
-    end
+    output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug https://ok.ru/video/1643385658936")
+    assert_match "Available streams:", output
+    refute_match "error", output
+    refute_match "Could not find metadata", output
   end
 end

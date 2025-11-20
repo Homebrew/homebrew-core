@@ -11,7 +11,10 @@ class Nvi < Formula
     regex(/href=.*?nvi[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "aa9ca9f2bf556b19378cc59734101a3fd3ae96a4221589f4c39f0a2690c25e3e"
     sha256 cellar: :any,                 arm64_sequoia:  "4dadb4e9103dae1a849b5bd29bb0a4fb66a66ae99302541fca056fe4cd305770"
     sha256 cellar: :any,                 arm64_sonoma:   "c78ea8a45f937c0918dbbceeb33112139f86dd8c2d6c2aa12517289c3f88a7d9"
     sha256                               arm64_ventura:  "aa6ba856388d331dce1cec171db093a6846d349d3b0013bd08c3331d9d6f09f1"
@@ -37,17 +40,17 @@ class Nvi < Formula
   # Patches per MacPorts
   # The first corrects usage of BDB flags.
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8ef45e8b/nvi/patch-common__db.h"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/nvi/patch-common__db.h"
     sha256 "d6c67a129cec0108a0c90fd649d79de65099dc627b10967a1fad51656f519800"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8ef45e8b/nvi/patch-dist__port.h.in"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/nvi/patch-dist__port.h.in"
     sha256 "674adb27810da8f6342ffc912a54375af0ed7769bfa524dce01600165f78a63b"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8ef45e8b/nvi/patch-ex_script.c.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/nvi/patch-ex_script.c.diff"
     sha256 "742c4578319ddc07b0b86482b4f2b86125026f200749e07c6d2ac67976204728"
   end
 

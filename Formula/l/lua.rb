@@ -11,6 +11,7 @@ class Lua < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a4b98687e9e97e4f963a258390d968f775777332c3274dffe1f919f158dd7e2a"
     sha256 cellar: :any,                 arm64_sequoia: "9279ae3479091e3228c233f390e696ba3e7bbcaba8e9e15311cdc862fe7bbd12"
     sha256 cellar: :any,                 arm64_sonoma:  "e93d3935a8bc573858690650ac13f1aced0098a523bb7071dc359d556afd9100"
     sha256 cellar: :any,                 arm64_ventura: "0b3992a9aabd0ccb38e6edcac9188a67343992058e3b72921f81c2eb0c3ffc49"
@@ -30,14 +31,14 @@ class Lua < Formula
   # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
   patch do
     on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/11c8360432f471f74a9b2d76e012e3b36f30b871/lua/lua-dylib.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/lua/lua-dylib.patch"
       sha256 "a39e2ae1066f680e5c8bf1749fe09b0e33a0215c31972b133a73d43b00bf29dc"
     end
 
     # Add shared library for linux. Equivalent to the mac patch above.
     # Inspired from https://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
     on_linux do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0dcd11880c7d63eb395105a5cdddc1ca05b40f4a/lua/lua-so.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/lua/lua-so.patch"
       sha256 "522dc63a0c1d87bf127c992dfdf73a9267890fd01a5a17e2bcf06f7eb2782942"
     end
   end

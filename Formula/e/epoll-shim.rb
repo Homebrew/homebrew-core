@@ -6,6 +6,7 @@ class EpollShim < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "c7a688d329d70d090603693a115882bbaa044defdc738f4efc52b1b7b451484b"
     sha256 cellar: :any, arm64_sequoia:  "06103b1d0768dffc87680b337dab8116c467315b734dd58de23401d21debb415"
     sha256 cellar: :any, arm64_sonoma:   "19f7863e77782dbf4c31bee8751899351ffd97063d0708510c211f594e403792"
     sha256 cellar: :any, arm64_ventura:  "3d8b019c172b7cf7d34ac0646da46474bbd51bfd488cad3d246080bcd561f550"

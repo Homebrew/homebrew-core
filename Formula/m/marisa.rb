@@ -1,18 +1,19 @@
 class Marisa < Formula
   desc "Matching Algorithm with Recursively Implemented StorAge"
   homepage "https://github.com/s-yata/marisa-trie"
-  url "https://github.com/s-yata/marisa-trie/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "a3057d0c2da0a9a57f43eb8e07b73715bc5ff053467ee8349844d01da91b5efb"
+  url "https://github.com/s-yata/marisa-trie/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "986ed5e2967435e3a3932a8c95980993ae5a196111e377721f0849cad4e807f3"
   license any_of: ["BSD-2-Clause", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9b617849fc8bb7a8c9ed63b5ee71fab11ba94ba0f00e8b63db1e2bc573ae4862"
-    sha256 cellar: :any,                 arm64_sonoma:  "dc850a0aa5890573f4bb3805b44dd1595748ea7527aafc94d164f9a5a2ab8363"
-    sha256 cellar: :any,                 arm64_ventura: "cbe7c42f5ed3dc9ac48d00460b63f21abc11e705a78271ab97a9ad33f8518719"
-    sha256 cellar: :any,                 sonoma:        "d8cc02d1a54409724d92e360b3de75428f8e790121efcb06661f2451595f85f5"
-    sha256 cellar: :any,                 ventura:       "e4a170f02d2eba533082e3f0f8c6197046963a35c3a4bf5c5e11d508d9b256c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "673092e00b51563cfc9ecbceed7d8ade2636d31ea545e15d9404525f516e4f42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c72c3f928765d60e2ecb504f95f3ed2b2e8e2ae2454b1e31d9b4b5ce6e4e3cf"
+    sha256 cellar: :any,                 arm64_tahoe:   "f6975b75a559edc43c0638facb994e1cf76648e1fee7eefd5d28137a04790fbb"
+    sha256 cellar: :any,                 arm64_sequoia: "6c21f4fbe4ade8b27886f8b0ecad9abbdcf366609768725dccdc4abe0cd61cec"
+    sha256 cellar: :any,                 arm64_sonoma:  "5d76e8c461645adfa364dc4baba23329ec6b704887c61dcd58a3803c2e4ea644"
+    sha256 cellar: :any,                 arm64_ventura: "ff6a486605dcf49fbbe46cf3209099281767050d9e5e0a8d1183f0e82a331c33"
+    sha256 cellar: :any,                 sonoma:        "c874e717b5012f666806f8e694fea477e64a923962fea32b721162274570010b"
+    sha256 cellar: :any,                 ventura:       "9716999cd08310e683e4ad449ad760f1ba00d1f48f0baab33a0c938c7cd9e458"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "628a8b2d7534358ee7ca62275a44d99fd366f1d3ae16e43a683646d2e92bac3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "945704062b08f0b172336f276cef502bb5d399a57b2c0aad9ce79d56f9fd8c65"
   end
 
   depends_on "cmake" => :build

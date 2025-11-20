@@ -5,8 +5,6 @@ class IscDhcp < Formula
   sha256 "0ac416bb55997ca8632174fd10737fd61cdb8dba2752160a335775bc21dc73c7"
   license "MPL-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_sequoia:  "d2757d9ace5037a47edaa968d947b51afbfe271b79e5655700167ff8985d6031"
     sha256 arm64_sonoma:   "620dbe4f0f6b3905627c1d41c597f2436ead691362ba8ebc8d435efa3ed0284e"

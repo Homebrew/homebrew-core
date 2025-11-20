@@ -4,6 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.10.2.tar.gz"
   sha256 "14cf0bcd94772194bce0f2c0e74dba187965d1cffd12d45f801c32929158579e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -12,18 +13,18 @@ class Adios2 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "502983bb973c584e61ea4325857019308d37ed7876149ca8b692e462a7350e96"
-    sha256 arm64_sonoma:  "f85ec0a3210c79e1730d3f7f71c88de5f75fe6a4a9ca9449935ebd2e97145044"
-    sha256 arm64_ventura: "e75a203fbaa7987772e61ba24b66419ae5a5e1b69d8f29524d431330accb9caf"
-    sha256 sonoma:        "5caafa5a27988407eb69e25b2a1f03a61d584af7d152efbc90b2f197586a6f2e"
-    sha256 ventura:       "f22fdaa080f998c8ecd24b826c148ad60bc587a7acc3f0c49171e8d61ddcb7a3"
-    sha256 arm64_linux:   "411a036e81100ec289c17b95296b8665dddc42b41ba01660bdd1dab70ae1e723"
-    sha256 x86_64_linux:  "6eccf49dc0677c2e62f0a5fdc69872e35552137b6339ebccca057795480be4bf"
+    sha256 arm64_tahoe:   "fb192ffe0a0bc23c4cc56526c9a2b8346e53e5260874cc300bb0a065aeae7418"
+    sha256 arm64_sequoia: "61c5f21327298bf1f22d9ecbe76cf663de26fb497d6f627cca61f81757c434ba"
+    sha256 arm64_sonoma:  "125c9a9dd992a8fd49fd86481dba54839837a820b65cabc554661a3214c624ef"
+    sha256 sonoma:        "5ee13af0760b4bd1832c934036fda68e64ed02b6f0bbc16cab9b7b47205cb1e3"
+    sha256 arm64_linux:   "8d3519f6da5495d9fae6f5a090444aaaebbca838dabc5516d52adf12a4ee1109"
+    sha256 x86_64_linux:  "cbf4cd5b3bb96bb85cc986f7c74a53323c7b04fde0ab265c30e1dfca5f789b08"
   end
 
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
-  depends_on "c-blosc"
+  depends_on "pybind11" => :build
+  depends_on "c-blosc2"
   depends_on "gcc" # for gfortran
   depends_on "libfabric"
   depends_on "libpng"
@@ -32,8 +33,7 @@ class Adios2 < Formula
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "pugixml"
-  depends_on "pybind11"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sqlite"
   depends_on "yaml-cpp"
   depends_on "zeromq"
@@ -43,6 +43,8 @@ class Adios2 < Formula
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1400
+    depends_on "lz4"
+    depends_on "zstd"
   end
 
   # clang: error: unable to execute command: Segmentation fault: 11
@@ -51,11 +53,14 @@ class Adios2 < Formula
   fails_with :clang if DevelopmentTools.clang_build_version == 1400
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
     ENV.llvm_clang if DevelopmentTools.clang_build_version == 1400
+
+    # CMake FortranCInterface_VERIFY fails with LTO on Linux due to different GCC and GFortran versions
+    ENV.append "FFLAGS", "-fno-lto" if OS.linux?
 
     # fix `include/adios2/common/ADIOSConfig.h` file audit failure
     inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|
@@ -64,7 +69,7 @@ class Adios2 < Formula
     end
 
     args = %W[
-      -DADIOS2_USE_Blosc=ON
+      -DADIOS2_USE_Blosc2=ON
       -DADIOS2_USE_BZip2=ON
       -DADIOS2_USE_DataSpaces=OFF
       -DADIOS2_USE_Fortran=ON
@@ -99,7 +104,8 @@ class Adios2 < Formula
 
   test do
     adios2_config_flags = Utils.safe_popen_read(bin/"adios2-config", "--cxx").chomp.split
-    system "mpic++", pkgshare/"test/bpWriter.cpp", *adios2_config_flags
+    adios2_config_flags += %W[-L#{Formula["lz4"].opt_lib} -llz4]
+    system "mpic++", "-std=c++17", pkgshare/"test/bpWriter.cpp", *adios2_config_flags
     system "./a.out"
     assert_path_exists testpath/"myVector_cpp.bp"
 

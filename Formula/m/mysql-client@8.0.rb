@@ -3,22 +3,23 @@ class MysqlClientAT80 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.42.tar.gz"
-  sha256 "c2aa67c618edfa1bc379107fe819ca8e94cba5d85f156d1053b8fedc88cc5f8f"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.44.tar.gz"
+  sha256 "a8cc09a35af63668c5235cf282aef789428c6f30c1d9a581b337c816ce8ce8bb"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
     formula "mysql@8.0"
   end
 
+  no_autobump! because: :incompatible_version_format
+
   bottle do
-    sha256 arm64_sequoia: "59d43aed334afcda44273940a08e0a60d50228607fbd57965657f25578e3fd61"
-    sha256 arm64_sonoma:  "ced161166185b2f6c1dc0676b771a4d794eb5bcaa85393411993bb7b8c6a31de"
-    sha256 arm64_ventura: "b18647515429259f046aa0fb49e93929cbed48065d506e6260962b7e4ad87d5e"
-    sha256 sonoma:        "e282d68aadf1142ac6058970a904b323c8483e6a72eda42e987b7078218136d8"
-    sha256 ventura:       "cb190923a14eb844124f48aa292aeb696220f96231dd6be5cac916ea4cb5a7bb"
-    sha256 arm64_linux:   "cf5203c31e25fafe9f5b0663262fcd36abf05be669337ca10a0eedf4bc9deaf8"
-    sha256 x86_64_linux:  "3b94ce7a61aca93ad2c91e7f387231cb490a603e22cb9ed5869a7e7cde2abe25"
+    sha256 arm64_tahoe:   "1065b0a682a05461705bb1fd5d58fdf09d73d7c31f4c8aec2c6b5a45eb2bd4f0"
+    sha256 arm64_sequoia: "5320a6b0c5c6439ca6318e554d021b24922f0e544fb2b53d2a86095bf11ed741"
+    sha256 arm64_sonoma:  "5fce645ea15e4a39c028889fc83e8b57228273b9a209872d6f5dd10836d93896"
+    sha256 sonoma:        "92587c24f9e4e9c30ec415110409e2ae3941e969d4c29022aa9b2663ba4a8157"
+    sha256 arm64_linux:   "ebeb66a4fe8c60078b9765c4e052cd98c3b5054f3ef498f27328b7b092a50b1e"
+    sha256 x86_64_linux:  "47982089ccbe5051199874e4c3fb760ef3cce1dae7e852585bc1211c9bff4a8b"
   end
 
   keg_only :versioned_formula
@@ -28,8 +29,6 @@ class MysqlClientAT80 < Formula
   depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "libfido2"
-  # GCC is not supported either, so exclude for El Capitan.
-  depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
   depends_on "openssl@3"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
@@ -45,8 +44,6 @@ class MysqlClientAT80 < Formula
     args = %W[
       -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8mb4
-      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info

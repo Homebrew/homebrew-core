@@ -11,6 +11,7 @@ class KimApi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6f5066e030212361416ff286ce20bb6d45d0c87a5225cdabd4905b29e2abfd90"
     sha256 cellar: :any,                 arm64_sequoia: "c8214b21245469eccfe7693dacb9146bd28a71c0dbcf60f2655cc664e2ae65bc"
     sha256 cellar: :any,                 arm64_sonoma:  "19feb0d8847607b24f869cb2d82c7378d4196a7c7ae2224e6f33f5d54aa47e3d"
     sha256 cellar: :any,                 arm64_ventura: "67b165f2b4604391a1fefb0554bbe3a3260ef5ddd789479925f857ee7cb59893"

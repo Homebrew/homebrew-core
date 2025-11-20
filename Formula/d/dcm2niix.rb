@@ -13,6 +13,7 @@ class Dcm2niix < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "887894cb6a9d368dcb707572a92a3fedbc7f274b2f5b4308b1a6dffbb9e661ad"
     sha256                               arm64_sequoia: "cc953772d891f078f91fd15f340853dfba970634f20e22165987259f607b7155"
     sha256                               arm64_sonoma:  "ca821734148aff6d0baebd8c83c68f2fc20f26ac06e7b3351344fed94a8e4e39"
     sha256                               arm64_ventura: "260b608922b27a33915650bc66b36fd0aaa4415f139f09a5402877484cd60f1f"

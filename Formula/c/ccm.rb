@@ -9,20 +9,20 @@ class Ccm < Formula
   revision 5
   head "https://github.com/apache/cassandra-ccm.git", branch: "trunk"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "eb6c2ab38ac79ff2b3718e344517f07ebb2c9391227676a507d721337981b5cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "ef958862ebdc0d3203850a3055913742f0a784e339cbdede518f5582f9806185"
-    sha256 cellar: :any,                 arm64_ventura: "622faec5bb8d2c454beafd31cd567a9243cb45cf096213a50701dde2ba150c43"
-    sha256 cellar: :any,                 sonoma:        "ad8ca422f7aef4dbed4984eebea2f52aeac21d72a53a3491bc23911962efd642"
-    sha256 cellar: :any,                 ventura:       "fd3bd745bc0600e892c0372529149976a27d35ac624862764c8a5d9680107a67"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f31636caef911a604264f28bc73ab30f721778dfcc296300ddf3f191a5b252e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe165a475bb32e289f0042ddc39bb6253670c10a988430c00f313c0027ebfeab"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6fbe9512a270d798879c5cc6cb046decd6985c4536d491224f99497059e227c2"
+    sha256 cellar: :any,                 arm64_sequoia: "6432c47b854ccce393f4f2f66cfb65f850f42fba0c81b2cc4b95b42373585078"
+    sha256 cellar: :any,                 arm64_sonoma:  "b7a9a7372609b81930b20be11a6ba60eaeb54fdc5c341d4e579183fb95a05db2"
+    sha256 cellar: :any,                 sonoma:        "f600df26b5ec2b2faa832b8f51df49e1f35a6f413c27455227673a7174e07f26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eca12a71a357123c77e9a02335cc5397022bb8cd8740032803ad8df3aeff39ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1adba747d9849aec8a4b4f9277fac2429d7342ab6782f6385ee0bd641e4428fc"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages extra_packages: ["cassandra-driver", "setuptools"]
 
   resource "cassandra-driver" do
     url "https://files.pythonhosted.org/packages/b2/6f/d25121afaa2ea0741d05d2e9921a7ca9b4ce71634b16a8aaee21bd7af818/cassandra-driver-3.29.2.tar.gz"
@@ -30,8 +30,8 @@ class Ccm < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/cd/0f/62ca20172d4f87d93cf89665fbaedcd560ac48b465bd1d92bfc7ea6b0a41/click-8.2.0.tar.gz"
-    sha256 "f5452aeddd9988eefa20f90f05ab66f17fce1ee2a36907fd30b05bbb5953814d"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "geomet" do
@@ -40,13 +40,13 @@ class Ccm < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "six" do

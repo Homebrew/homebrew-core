@@ -6,6 +6,8 @@ class Roundup < Formula
   license "MIT"
   head "https://github.com/bmizerany/roundup.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "8e7150a458867eba0d53eae749b908b7bb9f8f2d8838471025e4570aee54e846"

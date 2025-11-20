@@ -53,9 +53,9 @@ env:
   ORG_FORK_MESSAGE: >-
     :no_entry: It looks like @BrewTestBot cannot push to your PR branch. Please open
     future pull requests from a non-organization fork to simplify the merge process.
-  BOTTLE_COMMIT_PUSH_MESSAGE: >-
-    Please **do not** push to this PR branch before the bottle commits have been pushed, as this results in a state that is difficult to recover from.
-    If you need to resolve a merge conflict, please use a merge commit. Do not force-push to this PR branch.
+  BOTTLE_COMMIT_PUSH_MESSAGE: |-
+    > [!CAUTION]
+    > Please **do not** push to this PR branch before the bottle commits have been pushed, as this results in a state that is difficult to recover from. If you need to resolve a merge conflict, please use a merge commit. Do not force-push to this PR branch.
 
 jobs:
   check:
@@ -104,6 +104,7 @@ jobs:
           )"
 
           pushable="$(jq .maintainer_can_modify <<< "$pr_data")"
+          base_branch="$(jq --raw-output .base.ref <<< "$pr_data")"
           branch="$(jq --raw-output .head.ref <<< "$pr_data")"
           remote="$(jq --raw-output .head.repo.clone_url <<< "$pr_data")"
           head_repo="$(jq --raw-output .head.repo.full_name <<< "$pr_data")"
@@ -116,6 +117,7 @@ jobs:
           automerge_enabled="$(jq --raw-output '.auto_merge != null' <<< "$pr_data")"
 
           if [[ -z "$pushable" ]] ||
+             [[ -z "$base_branch" ]] ||
              [[ -z "$branch" ]] ||
              [[ -z "$remote" ]] ||
              [[ -z "$head_repo" ]] ||
@@ -134,6 +136,12 @@ jobs:
           if [[ "$state" = "closed" ]]
           then
             echo "::error ::PR #$PR is closed!"
+            exit 1
+          fi
+
+          if [[ "$base_branch" = "master" ]]
+          then
+            echo "::error ::PR #$PR targets the \`master\` branch!"
             exit 1
           fi
 
@@ -172,10 +180,10 @@ jobs:
             requires_merge=false
           fi
 
-          if [[ "$branch" = "master" ]]
+          if [[ "$branch" = "main" ]]
           then
-            branch="$head_repo_owner/master"
-            remote_branch="master"
+            branch="$head_repo_owner/main"
+            remote_branch="main"
           else
             remote_branch="$branch"
           fi
@@ -228,7 +236,7 @@ jobs:
 
       - name: Post comment on failure
         if: ${{!success()}}
-        uses: Homebrew/actions/post-comment@master
+        uses: Homebrew/actions/post-comment@main
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -267,7 +275,7 @@ jobs:
       !fromJson(needs.check.outputs.replace)
     runs-on: ${{inputs.large_runner && 'homebrew-large-bottle-upload' || 'ubuntu-latest'}}
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
       volumes:
         - /mnt:/mnt
     permissions:
@@ -278,7 +286,7 @@ jobs:
       repository-projects: write # for `gh pr edit`
     steps:
       - name: Post comment once started
-        uses: Homebrew/actions/post-comment@master
+        uses: Homebrew/actions/post-comment@main
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -294,20 +302,19 @@ jobs:
 
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@master
+        uses: Homebrew/actions/git-user-config@main
         with:
           username: ${{ (github.actor != 'github-actions[bot]' && github.actor) || 'BrewTestBot' }}
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@master
+        uses: Homebrew/actions/setup-commit-signing@main
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -363,7 +370,7 @@ jobs:
             "$PR"
 
       - name: Generate build provenance
-        uses: actions/attest-build-provenance@db473fddc028af60658334401dc6fa3ffd8669fd # v2.3.0
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
         with:
           subject-path: '${{steps.pr-pull.outputs.bottle_path}}/*.tar.gz'
 
@@ -389,7 +396,7 @@ jobs:
           echo "head_sha=$(git -C "$REPO_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
-        uses: Homebrew/actions/git-try-push@master
+        uses: Homebrew/actions/git-try-push@main
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           directory: ${{steps.set-up-homebrew.outputs.repository-path}}
@@ -408,7 +415,7 @@ jobs:
 
       - name: Post comment on failure
         if: failure()
-        uses: Homebrew/actions/post-comment@master
+        uses: Homebrew/actions/post-comment@main
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -488,7 +495,7 @@ jobs:
           (steps.approve.conclusion == 'failure' ||
            steps.wait-until-in-sync.conclusion == 'failure' ||
            steps.automerge.conclusion == 'failure')
-        uses: Homebrew/actions/post-comment@master
+        uses: Homebrew/actions/post-comment@main
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}

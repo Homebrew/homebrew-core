@@ -2,15 +2,14 @@ class Coin3d < Formula
   desc "Open Inventor 2.1 API implementation (Coin)"
   homepage "https://coin3d.github.io/"
   license "BSD-3-Clause"
-  revision 2
 
   stable do
-    url "https://github.com/coin3d/coin/releases/download/v4.0.3/coin-4.0.3-src.tar.gz"
-    sha256 "66e3f381401f98d789154eb00b2996984da95bc401ee69cc77d2a72ed86dfda8"
+    url "https://github.com/coin3d/coin/releases/download/v4.0.6/coin-4.0.6-src.tar.gz"
+    sha256 "e04a600809593feb2acbec4282803d1673926ddfa1d9fcd402f35ec26fc52e7e"
 
     resource "soqt" do
-      url "https://github.com/coin3d/soqt/releases/download/v1.6.3/soqt-1.6.3-src.tar.gz"
-      sha256 "79342e89290783457c075fb6a60088aad4a48ea072ede06fdf01985075ef46bd"
+      url "https://github.com/coin3d/soqt/releases/download/v1.6.4/soqt-1.6.4-src.tar.gz"
+      sha256 "1387d702df5578fdbc16b9c0a12dd52a68c0478f5e112cb6a45c033f02ba4d24"
     end
   end
 
@@ -20,11 +19,12 @@ class Coin3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "7a755e0c179f8d762196729ea039512ffc0814e929cd1f19c1026d151041b30e"
-    sha256 cellar: :any,                 arm64_ventura: "8742ecfd7f6ccea840603cb18083525d2711acee00fd9e0a6bb163f25b4e9029"
-    sha256 cellar: :any,                 sonoma:        "38224963f262dd3b3a0ee96c8deb8c8bb092bfa9e01ea15465ad50fe0c3d36d0"
-    sha256 cellar: :any,                 ventura:       "ac4d1a600375e93f86891c3b45c9fb5a93d6fef296d867a0d4e9dddcfcb774ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e5a6317d138ef6f2b147179e4e1ac4f029543d499d276f47d94958148fa4b28"
+    sha256 cellar: :any,                 arm64_tahoe:   "40a953c5da778240ee206304efd942c4c6417e30520700ac37f54b17840d9559"
+    sha256 cellar: :any,                 arm64_sequoia: "f97cbf252a50387b2589db4f56bc474c45235095a017bcb1afd033e09c1f7c23"
+    sha256 cellar: :any,                 arm64_sonoma:  "a516f84b868ed0911b2d7ca6d3bbc29252501955a146147c8cad25f2914aced7"
+    sha256 cellar: :any,                 sonoma:        "758e7e7da2579c5462b5beff4370099d7d640d513c4ba2688b3a9d539b29270d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8857329b9b978a804adfa800124678ae573b981cd815f31a8017cf3d1c5fa6ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0f975512d3180a87c61ed8c5fb7b4a49c95065239a5379779261e98dd749f5d"
   end
 
   head do
@@ -38,7 +38,7 @@ class Coin3d < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "qt"
+  depends_on "qtbase"
 
   uses_from_macos "expat"
 

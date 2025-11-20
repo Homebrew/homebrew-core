@@ -7,6 +7,8 @@ class Mr < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "4013ab94225c8eafc1aa48b1b9b18220a7051eb8da0b98798b8dc99fd0266730"

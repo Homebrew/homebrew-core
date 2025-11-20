@@ -1,19 +1,18 @@
 class Cyme < Formula
   desc "List system USB buses and devices"
   homepage "https://github.com/tuna-f1sh/cyme"
-  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v2.2.2.tar.gz"
-  sha256 "1455b2ecd42f5da64e1d679d248599f09805c8c3f84fb2cb41aa76d638d4c462"
+  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v2.2.8.tar.gz"
+  sha256 "a4fc0d5e2434d9a98f1b37683d3c1fe60d8605e8ad99f0a4f95387830c81b930"
   license "GPL-3.0-or-later"
   head "https://github.com/tuna-f1sh/cyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bc38d54aa6e1fc97369a3f8a4e79f2b014297917803d1fbf1fa836eac27b09c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a64b2c62c0a54aabc567c4bc93b6d4a31ac6232e01153a04f88daf7d1b35665e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c26d16f014c01049cbe33f192da8e23b9b3493a2726a5612c190e8eb67822ebe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "757d15265962a1adbd5894af34646ade55cc7ce4732e89ecfaf394781b57da1b"
-    sha256 cellar: :any_skip_relocation, ventura:       "da5b11333322b2771528702f21a47c14b2bba3737ea750f43c1da0680494a424"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eddcf213a805c906f378cf930a82e9ffc957cac3313588d420164e15d780cfd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79681f45659a7100bc1aa4ef7af669e61b0c89450d10c2e931374ced734245e2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca3eaa3054e0ee730cf3225c50b9d526d6e1137346a1218ad6e8419ed2efd68f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "268b0fcc83a178de1481c56f2aa11fa5d9157dcdc32707b148f17117629519fb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd3c534fba3b91457f8b005eaab8f92662f14869f553690ce8431b8ec8fe37d5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e80c8df9df289d479ea3984a7b4a3c80b21dd4aaa4b8a02cdfa679ac3a701bbf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dbd99ea1feb4c065d13ca4f30bc9422b0652d2d028e63df4bb1a10b8638fc1e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee7316242d6f427fcf9f4558308ac946a0eb78c9a7df2282ed5055e3ef4f4e2f"
   end
 
   depends_on "rust" => :build

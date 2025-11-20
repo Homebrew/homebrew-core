@@ -53,13 +53,6 @@ class Ack < Formula
     end
   end
 
-  def post_install
-    # FIXME: keg relocation breaks the shebang, so we unbreak it here.
-    #        See https://github.com/Homebrew/brew/issues/20023
-    # We need `audit_result: false` because this replacement only needs to be done when poured from an `:all` bottle.
-    inreplace bin/"ack", "#!#{Formula["perl"].opt_bin}/perl", "#!/usr/bin/env perl", audit_result: false
-  end
-
   test do
     assert_equal "foo bar\n", pipe_output("#{bin}/ack --noenv --nocolor bar -", "foo\nfoo bar\nbaz", 0)
   end

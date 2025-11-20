@@ -4,19 +4,20 @@ class Homeworlds < Formula
   url "https://github.com/Quuxplusone/Homeworlds/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "3ffbad58943127850047ef144a572f6cc84fd1ec2d29dad1f118db75419bf600"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   version_scheme 1
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fc648ea7d7196a2067c452be9e0e4ba83500b687518bf6c120cccc9147e77201"
-    sha256 cellar: :any,                 arm64_sonoma:  "7f0bfeb7524e5ca6ec187759fac9ca02b2a4f24ece3cfe8506d9d325530d8ba6"
-    sha256 cellar: :any,                 arm64_ventura: "9b02997109618a53e50a2dd9dba793b98abe87ec60b2acd3efbf0ebc30ceeff1"
-    sha256 cellar: :any,                 sonoma:        "12a6e003b2201f391a32e4e7329d56606fc61677cfe7c30ddf3003dc5d5eed47"
-    sha256 cellar: :any,                 ventura:       "c1ef4ed10f9d30d5ac69572ce0ef0a9677924cecdcbdbdb3f520415675b983cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcd8d56b7c77a7a3817dac2aa1c006d8590d5e18fe67fefcdf47cb348c2b19f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3390b52f4c1be6153a244f3b396d54fec26315d710626c2fa9df90330e8199c"
+    sha256 cellar: :any,                 arm64_tahoe:   "f74bc37a6b17871ff8c413e2fb899cabdda55690e6983427290529793406d840"
+    sha256 cellar: :any,                 arm64_sequoia: "768658afe4a3f11e530bc1cd5110a439e5d5e58648d03d1b2c8ac2857888beaf"
+    sha256 cellar: :any,                 arm64_sonoma:  "9ce5c68b19b966fe5d40595ad13eaab04965fc642cfef3c1427bf2172d217c0b"
+    sha256 cellar: :any,                 arm64_ventura: "f144b8b232721d3066ea19ef5fdad02b9a84d34bbab0d18e5f5a640871cc5d91"
+    sha256 cellar: :any,                 sonoma:        "0f4b28079d38039fd32ce0d4aff4d0cbd96fb717f91247f55f5f1a26d9c323b9"
+    sha256 cellar: :any,                 ventura:       "0d72a5a3f12c4de35510a887f47b618e89f036a15421314d7c62cd641d79861b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba01b47b31f0771b43573cdf381345b0a775410dc0392583e70f344e9f9de523"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7469baca1596a7e92483d24f43b3ef0749d209e2832300a4de9dfe9fa3d86e7"
   end
 
   depends_on "wxwidgets"

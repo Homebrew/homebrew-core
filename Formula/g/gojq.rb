@@ -8,6 +8,7 @@ class Gojq < Formula
   head "https://github.com/itchyny/gojq.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c3cec086b2599e9b73b7780db32228365107907cc03644642bd5579eda14796"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "523520da9c06c9603c8d049432177e302140c217308b421dd9da85cb2a6eea74"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "523520da9c06c9603c8d049432177e302140c217308b421dd9da85cb2a6eea74"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "523520da9c06c9603c8d049432177e302140c217308b421dd9da85cb2a6eea74"

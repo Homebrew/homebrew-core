@@ -3,45 +3,34 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://github.com/openSUSE/osc/archive/refs/tags/1.16.0.tar.gz"
-  sha256 "42c7d41bbb6e365a65efcb557eee7cded0bb2abeaa30c94877ebc5bc784c1076"
+  url "https://files.pythonhosted.org/packages/0c/47/96d136f0e774e3d12f00d1a4b63e808d8b8c757bb0122db878c78b191ddd/osc-1.22.0.tar.gz"
+  sha256 "a88b3a4c87aca7c87bbfa4da9be5371f70c31222ae93eb6beae4c5598bb4db2a"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6549ef1d187b7c34e1cd688ad82fa78bd0c5cdba26b4506cda8ee7abdfe40954"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6549ef1d187b7c34e1cd688ad82fa78bd0c5cdba26b4506cda8ee7abdfe40954"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6549ef1d187b7c34e1cd688ad82fa78bd0c5cdba26b4506cda8ee7abdfe40954"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0543459f2abebc2e929b009ec039ec6a3ef97e2df0a0b410b123666eacb94c08"
-    sha256 cellar: :any_skip_relocation, ventura:       "0543459f2abebc2e929b009ec039ec6a3ef97e2df0a0b410b123666eacb94c08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6549ef1d187b7c34e1cd688ad82fa78bd0c5cdba26b4506cda8ee7abdfe40954"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6549ef1d187b7c34e1cd688ad82fa78bd0c5cdba26b4506cda8ee7abdfe40954"
+    sha256 cellar: :any_skip_relocation, all: "383f126d5b14ef272d8ac1d991da27debd2256039582a268f9faa01bb070d66d"
   end
 
-  depends_on "cryptography"
-  depends_on "python@3.13"
+  depends_on "cryptography" => :no_linkage
+  depends_on "python@3.14"
+  depends_on "rpm"
 
   uses_from_macos "curl"
   uses_from_macos "libffi"
 
-  resource "rpm" do
-    url "https://files.pythonhosted.org/packages/bd/ce/8db44d2b8fd6713a59e391d12b6816854b7bee8121ae7370c2d565de4265/rpm-0.4.0.tar.gz"
-    sha256 "79adbefa82318e2625d6e4fa16666cf88543498a1f2c10dc3879165d1dc3ecee"
-  end
+  pypi_packages package_name:     "",
+                extra_packages:   %w[ruamel-yaml urllib3],
+                exclude_packages: "cryptography"
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/ea/46/f44d8be06b85bc7c4d8c95d658be2b68f27711f279bf9dd0612a5e4794f5/ruamel.yaml-0.18.10.tar.gz"
-    sha256 "20c86ab29ac2153f80a428e1254a8adf686d3383df04490514ca3b79a362db58"
+    url "https://files.pythonhosted.org/packages/9f/c7/ee630b29e04a672ecfc9b63227c87fd7a37eb67c1bf30fe95376437f897c/ruamel.yaml-0.18.16.tar.gz"
+    sha256 "a6e587512f3c998b2225d68aa1f35111c29fad14aed561a26e73fab729ec5e5a"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
@@ -63,7 +52,7 @@ class Osc < Formula
     INI
 
     output = shell_output("#{bin}/osc status 2>&1", 1).chomp
-    assert_match "Directory '.' is not a working copy", output
+    assert_match "Directory '.' is not a Git SCM working copy", output
     assert_match "Please specify a command", shell_output("#{bin}/osc 2>&1", 2)
   end
 end

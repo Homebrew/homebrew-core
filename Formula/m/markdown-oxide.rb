@@ -1,18 +1,17 @@
 class MarkdownOxide < Formula
   desc "Personal Knowledge Management System for the LSP"
   homepage "https://oxide.md"
-  url "https://github.com/Feel-ix-343/markdown-oxide/archive/refs/tags/v0.25.2.tar.gz"
-  sha256 "1200d35118f61687273f63069efbdc2f29c818a52d1dbf50a560136e69dff594"
+  url "https://github.com/Feel-ix-343/markdown-oxide/archive/refs/tags/v0.25.10.tar.gz"
+  sha256 "67217dc2f460a21bf64493d2ebe860cb93563a62aa5eecc28c24cf38ee7100ed"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "715f5614ec10c1ce1dac7c73f66a15bbe2739150ab2f207b3da83aa476f76a09"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e16bab623da3d5c973504e86952343a401d05879a5346c111ce80d3f2a02d05"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a76f4a4ab6f1caa891f40390183e63ebc3362c17b8c413c04f41f0be34976441"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6d66fbac927b9c720be9c8cfcca53d22dc5a87d770d2ba711fd6e137fc26a674"
-    sha256 cellar: :any_skip_relocation, ventura:       "ae30cf5b91d871303ca4a2b3f1174128ab430b48500d97224044cc38c7761331"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b20c6c08225b82c5abdeae9f6359a8d75032a35a2d7b9201a56eedbf5f629fd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "292ab7e605afb6c007be6c084bc357571c85d9db563c8328653c7603fa09edaf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b2d94fc7f454689e3cccf6a3533195721ed31f2bdf44035a63fd76edab000510"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c62677e78b51bfc6eb2c93f22be1f3c712abf74226a19af6798baf509afc491"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32ff78a4cc7cc1e2712103147cd87bd17bcdbc2265a0135e67c89fe5f501b12f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3d5df3ccfd67daf16cf143ddbe3568c9662bfadaa1762fba43b192f7d4deafc2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65366cbd11a81ff7bcc17a0d0b7df2a969fececa77b6504404c3502ac1bfd02b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca06dfc9b71540e134322ed34ccf414b8d541555d0758201516d57cf30304627"
   end
 
   depends_on "rust" => :build

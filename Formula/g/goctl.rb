@@ -1,8 +1,8 @@
 class Goctl < Formula
   desc "Generates server-side and client-side code for web and RPC services"
   homepage "https://go-zero.dev"
-  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.8.3.tar.gz"
-  sha256 "23edac389dd2ece8b2134405d52f829ca9ec02d33c716219572942b47950815c"
+  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.9.2.tar.gz"
+  sha256 "457383a21822a3cab1ad78f6fdfb9435bf4dc00217b018ff1b66fa4b0715d6b6"
   license "MIT"
   head "https://github.com/zeromicro/go-zero.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Goctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bc7cfd7b3755f677a095d14dc40de0e6328eb250b19da1ae7ae2fd3c263e6a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83bfdaba05664339a9f50e93ad308f6d5e8751aee58044eed291beb4a252e432"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4ed2e8e7af8a7d4d865adf66b480b7c805c8582bbe8c829a00e3e97d19680cc3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "141b1b2e56162c98153452a5772d692fdf7508214949fd897b06fef56fc64f34"
-    sha256 cellar: :any_skip_relocation, ventura:       "35a29359853c6d94daaa2b94fae9ec7a2a32915bc331b6bc01b9d720cb45b5e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01d8a1e14789b57b34c19a4b5f4697590ae02d438c0c80d1616a058dd7d6f2e6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d3e4fcdc632397c89a8edd81ee22d9a11f38f1e76fbf08dd464739cf848e8201"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88141b5cc9fb90eb7b882a2fbe2792613b22b408ea6eda9ee93f9f8393db618f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3ee7ae77c4a461f69e6230a040737b6848d7dbce04cb387413edc66c498eb0c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "18e614a65e64ce7c6300a4eb782fa728979c3c458cdf93bfe5c5853e533306e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f66ee45312286459efc4da08ae5b147761296a7a666257fd1d66c2268001d29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85e55f9e8b01bb7698d70ee3ef544e1ce2db46779dc9190b7b6c08d24852da30"
   end
 
   depends_on "go" => :build

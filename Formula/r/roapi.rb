@@ -1,21 +1,32 @@
 class Roapi < Formula
   desc "Full-fledged APIs for static datasets without writing a single line of code"
   homepage "https://roapi.github.io/docs"
-  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-v0.12.4.tar.gz"
-  sha256 "93eaccd70b7b21d0d8f349d6ad594761b8c4ecba884c7106cfefa37d86e3649c"
+  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-v0.12.6.tar.gz"
+  sha256 "15b4f7c7b16b1fa87a487569d42e76355acbce9ecdaaa34bf1203326d77e7b57"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b120ba55e3cae8c3b3979b6a4d899dc07fe831cbd1d81ea5bcd06f455e14e10"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1eaf36297f5273f3465dd39b7441e2d4b17048116d2034e2644d642c06c70da3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f27bf73c7209c9f00134bbf49a26a20fef0ae6a2e4c2902519117e6c15b9ff9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f4f39cfc03ef9f4bfe2bd2c3ab2669039927f3febd15ad78bb9c5fd782cd978b"
-    sha256 cellar: :any_skip_relocation, ventura:       "a09c14307b47d74173190e59281ec75b837c7331a7682e9990ad0f5398930f4d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff9471f171c21d2db112488f7cd9656ab2ca1bcd6bb31c6c878cd18de3e8513b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83c065cae70543fd020625fda6651e1a2dc3ab1e622db72ebf978d23b986fb57"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6116ecb02c112d2f990024d034ba242894e9e4a023f6756f883e0ec58b3408e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3bf66401f133a7d2e9234280571eed8cf06b9f1b98802762b5995b456414077"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1d1d6423d420c65fe3f2b414fdd0c33a67226d5afae78c5ddebf6e4dea35931"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1f2e0e0df5b406870033b3284ad136e6566c4f1fefb32c8d7c36f75c42f3e931"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "528ea8f1d1cb5818ac4259bddd081f9e03069e78cb254f8f74c3de15f0720eb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8b39ad8324ea2d41fa80ff81a6c623453ab504752e02c915eed48d11b212616"
   end
 
   depends_on "rust" => :build
+
+  # Fix to error: hiding a lifetime that's elided elsewhere is confusing
+  # Should remove on next release
+  patch do
+    url "https://github.com/roapi/roapi/commit/f01f6b4d9e08638052afbde907316052bb241856.patch?full_index=1"
+    sha256 "ad02d21a2327d18b0d60b59a56c8d2019b76627be793ed3ab330be95a4e1b79b"
+  end
+  patch do
+    url "https://github.com/roapi/roapi/commit/162dbfe5ad1b6815691b33fc9cc096e37773d767.patch?full_index=1"
+    sha256 "00786352042683d2c7951d41a72fe69bd67f04bab1420016f758f0ddae8bb88b"
+  end
 
   def install
     # skip default features like snmalloc which errs on ubuntu 16.04

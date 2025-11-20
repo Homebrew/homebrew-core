@@ -1,18 +1,17 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
-  homepage "https://www.wsi.uni-tuebingen.de/lehrstuehle/algorithms-in-bioinformatics/software/diamond/"
-  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.1.12.tar.gz"
-  sha256 "0a11a09ee58f95a3b2e864d61957066faae8a37abaa120353c0faad5d0ff0778"
+  homepage "https://github.com/bbuchfink/diamond"
+  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.1.16.tar.gz"
+  sha256 "bdbe7264ea64c29745af83a011345f6fa4b9a5c98e89fbaaba3f04e088f821a8"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fff873950d646cf971fe6ca178c14cb98bb52be7c49492c68ddb41ddce68beb7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ada44d444c51756e35427d8786f758791f8e5feaa692f5d428fdaef829f8025c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d5ae80023e3367a9ffb850fbad6a3a02cdc41bf1c63b9d46dbb0dfc47373dbc3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8eda8e413a9e30a1685ad9aa6dc71145eb9af09a725131a5541f91df49548f54"
-    sha256 cellar: :any_skip_relocation, ventura:       "5d01a78af15bfd158aa2c779f6e654ff2423c038b44ded09fc14655be2bb0ec9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d28af69aea9ecc04dd5331448669f6e634b938439469b2f3f1e1f6c97958cf2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5476ecbbe5d8d39152e5094d131912a989c4245a723c3c8a7d0819488a132ae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bfddc0a39ea401d0ed0da7be65da52ac27aa05f71b93f6a2a4c70137f0519c06"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56008cf521601f21b1a2a286fcf8bf4da5f01caf713e442b8bd8b3c4c816f530"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c58b437b60f37bdecaeaff8e818b89234dd5e7e236c0d45578897299f57eab72"
+    sha256 cellar: :any_skip_relocation, sonoma:        "252e823a7bae4101629067123df9232a4a7e93b65a2f651ae9d0e7669114220f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a767c368f68b5b5277f59624362258185c138e8a95997f3fd76c7ff30698596"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebc481813d0e3096025456527c8e04171454acd89af707deebc364d17c9e15bd"
   end
 
   depends_on "cmake" => :build
@@ -20,6 +19,13 @@ class Diamond < Formula
   uses_from_macos "zlib"
 
   def install
+    # Fix to error: no member named 'uncaught_exception' in namespace 'std'; did you mean 'uncaught_exceptions'?
+    if DevelopmentTools.clang_build_version >= 1700
+      inreplace "src/util/log_stream.h",
+                "!std::uncaught_exception()",
+                "std::uncaught_exceptions() == 0"
+    end
+
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

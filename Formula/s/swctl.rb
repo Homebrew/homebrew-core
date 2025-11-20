@@ -17,11 +17,13 @@ class Swctl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5fa1d27d8a0f4f54259a1747dc4ce19075d0c91313a0d5d6218f3059ac9bc694"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "59d564281b8144703d6f13370a3f725a6db5b342e66906ed28b860931bf71d15"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59d564281b8144703d6f13370a3f725a6db5b342e66906ed28b860931bf71d15"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "59d564281b8144703d6f13370a3f725a6db5b342e66906ed28b860931bf71d15"
     sha256 cellar: :any_skip_relocation, sonoma:        "391feee4582cf497126e59ce27dd4041b311b1da788b5c38c64cc44811d93921"
     sha256 cellar: :any_skip_relocation, ventura:       "391feee4582cf497126e59ce27dd4041b311b1da788b5c38c64cc44811d93921"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0244a2e3e667dbcdebf3997f1c223d1422ea02166d0b80066c33334191325ae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "56bdee16710d22095c1fd118f8ac5a116b25ac3c7d541cad4b365eae4c665eaa"
   end
 

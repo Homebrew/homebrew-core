@@ -9,8 +9,6 @@ class Encfs < Formula
   revision 5
   head "https://github.com/vgough/encfs.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_linux:  "7d77f8ffc7974b777c3a753c7388209c3c6313a0867d9845a84bd7cdcfc2f94e"
     sha256 x86_64_linux: "526d5bef867b8dc2246146ce5936e25b9a53ff26721fb1d79cccb6d82a3d2b96"

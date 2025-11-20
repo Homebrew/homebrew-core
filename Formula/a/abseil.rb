@@ -1,44 +1,30 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20240722.1.tar.gz"
-  sha256 "40cee67604060a7c8794d931538cb55f4d444073e556980c88b6c49bb9b19bb7"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250814.1.tar.gz"
+  sha256 "1692f77d1739bacf3f94337188b78583cf09bab7e420d2dc6c5605a4f86785a1"
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sequoia: "7e5a0a8ef391c005cb154d461e76ee997ad0d3c0176f09757d85027c01a14392"
-    sha256                               arm64_sonoma:  "77fe46423b43ca37df6acc3867c4c1206b2afd28ff511aab7a3d70515ce70856"
-    sha256                               arm64_ventura: "bdcb35636c6cd1c570a15a15dedf77e2e671945d55e28fcba50e2c62bf67a410"
-    sha256 cellar: :any,                 sonoma:        "f59d69e8c777caaa48de0e78bd35d7437c3848be3c85952684075bfb6df10312"
-    sha256 cellar: :any,                 ventura:       "a534872a681524cd15c94713f9f2fa3ee48d71e585cdb1cb7b11c677607c62b8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "700f81a3eb4942d1f8e87feabb6cbb5655d07fcc86efea65e514cc9d2865eb47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ffaa8c163b9b3ee6de502d076c148e0f64395f4d30e3eccbb0bb4d6f3c44400"
+    sha256                               arm64_tahoe:   "a420c5f258edbae66fd2f5ac17320d46fd1e9e884f1cbb7cb23c9711e46d67f8"
+    sha256                               arm64_sequoia: "fc8915867a2ee9678dc1603c12d4b69e4c88fc5e5e4d71b44b1279e7a598bcc1"
+    sha256                               arm64_sonoma:  "327300ffe635b76ee159dafd5cdc48f5a6ff9757673673b75d8a86ed6ca08475"
+    sha256 cellar: :any,                 sonoma:        "15a4561cad35249b0f19cb876e874e4a8d892e287267985c24a47cb6835ec66d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd2d71f5e2f747eda4d887d3d841ae87f6d1e02d337ae635f54c1444daacc6bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f1d2a133d4f0273361ac12b4b9286ce855a53914dbdd2d85b095efe779f62a1"
   end
 
   depends_on "cmake" => [:build, :test]
-
-  on_macos do
-    depends_on "googletest" => :build # For test helpers
-  end
-
-  # Fix shell option group handling in pkgconfig files
-  # https://github.com/abseil/abseil-cpp/pull/1738
-  patch do
-    url "https://github.com/abseil/abseil-cpp/commit/9dfde0e30a2ce41077758e9c0bb3ff736d7c4e00.patch?full_index=1"
-    sha256 "94a9b4dc980794b3fba0a5e4ae88ef52261240da59a787e35b207102ba4ebfcd"
-  end
+  depends_on "googletest" => :build # For test helpers
 
   def install
     ENV.runtime_cpu_detection
 
-    # Install test helpers. Doing this on Linux requires rebuilding `googltest` with `-fPIC`.
-    extra_cmake_args = if OS.mac?
-      %w[ABSL_BUILD_TEST_HELPERS ABSL_USE_EXTERNAL_GOOGLETEST ABSL_FIND_GOOGLETEST].map do |arg|
-        "-D#{arg}=ON"
-      end
-    end.to_a
+    # Install test helpers.
+    extra_cmake_args = %w[ABSL_BUILD_TEST_HELPERS ABSL_USE_EXTERNAL_GOOGLETEST ABSL_FIND_GOOGLETEST].map do |arg|
+      "-D#{arg}=ON"
+    end
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",

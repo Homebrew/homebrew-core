@@ -20,14 +20,17 @@ class Zstd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b039c851ef22617804576274872c33727ebb3a0b5e0db2ab62e0d8a97ec9605a"
-    sha256 cellar: :any,                 arm64_sonoma:  "af7a39452f08144cb27f8f9c31feafd46beca7eb4dd3047c49925800e00c6e7a"
-    sha256 cellar: :any,                 arm64_ventura: "56faac95df2a57e866c23339db384c5b3fe7d58984314c1a0bba2823123e0972"
-    sha256 cellar: :any,                 sequoia:       "bcfccd14315dedf3291f77682702f80711fb8829bd14a53431d60204eb99ec32"
-    sha256 cellar: :any,                 sonoma:        "fa320bd56f0b839438336ae22fa6f404522e53f8297d72de04355f5483324499"
-    sha256 cellar: :any,                 ventura:       "a109e4645ddd9a1f091f082b525b5ef5032d3568c016c3ec657f63068c068cc4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c37f70b21f32017d893b751f9d3d1f7b10e7b742b35a1d7c7c1d357a35e14cb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4748929efb3666f0fd60451479cb306991c75fc6a84253e81828354185f4a23b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ddb0c145060bc2366ce5d58d95aa205bb15cb4c66948f20bb85e23fdb5eba7e9"
+    sha256 cellar: :any,                 arm64_sequoia: "55a4e0a4a92f5cf4885295214914de4aefad2389884085185e9ce87b4edae946"
+    sha256 cellar: :any,                 arm64_sonoma:  "60c34a6a3cadf1fc35026cde7598fbe7b59bd2e5996c4baf49640094b4ffeb37"
+    sha256 cellar: :any,                 arm64_ventura: "2332527b27c6661bf501980bd71a5b4fe1b417122bf8b37d9f082e47b377b7f9"
+    sha256 cellar: :any,                 tahoe:         "873feb2d747bb21708c0229bb977364d0794e65bccbf18e33934a424342e83a1"
+    sha256 cellar: :any,                 sequoia:       "342e64c01287a716615d14d4a71770fc5930871dc0a965fbdda6062f80dc1952"
+    sha256 cellar: :any,                 sonoma:        "77457805185cd2c70fe81245b9e2d1a3e178a1be55e032eb504391dbd4d4e9ab"
+    sha256 cellar: :any,                 ventura:       "c7b411aee72bc1e36d9a2647059433da62a0ca9a4cc7baeb44a2226e0a0de8b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2148094d7e41ccbe0ac29f351d6544093d45ff0aa41f0ff90f3e3b0c594d824a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecd3f9ef36c6f9b324a36c33727962c37be5d12fdbe330e9b863112f24c49e11"
   end
 
   depends_on "cmake" => :build
@@ -41,6 +44,7 @@ class Zstd < Formula
     # https://github.com/facebook/zstd/commit/db104f6e839cbef94df4df8268b5fecb58471274
     # Set it to `ON` to be explicit about the configuration.
     system "cmake", "-S", "build/cmake", "-B", "builddir",
+                    "-DBUILD_SHARED_LIBS=ON", # set CMake libzstd target to shared
                     "-DZSTD_PROGRAMS_LINK_SHARED=ON", # link `zstd` to `libzstd`
                     "-DZSTD_BUILD_CONTRIB=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",

@@ -12,6 +12,7 @@ class PamU2f < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9844179a60b558f985873acb95a1b19b5fe2f3f130d5a06a4e833259c010ecc2"
     sha256 cellar: :any,                 arm64_sequoia: "f2e4356b647818a3971dc3e4feb311dd547284426717d6d4235e838b0de316c5"
     sha256 cellar: :any,                 arm64_sonoma:  "0089a1832f65debf7c4aef93e31f24f1dde60c673f888c2e6f37937e76abd23b"
     sha256 cellar: :any,                 arm64_ventura: "dc7e13adf558fab082311b0fbb128332cafa81510059db8b23aa903ed005d76f"

@@ -9,6 +9,7 @@ class Gd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "db4a448757d199dc1a925c0d0b36a990c8126ab81cf6a634374cd7307d042fb0"
     sha256 cellar: :any,                 arm64_sequoia:  "c4e22a92d28f3b8a49c10e29cf04f5a9b4b4932691ec4326021bc149ac0dae4c"
     sha256 cellar: :any,                 arm64_sonoma:   "e278f6f79e6ac00c5f0f14bc8980197c89426eab2ba90d8fc1e82da777fb8378"
     sha256 cellar: :any,                 arm64_ventura:  "3f868f36cc47f91ea2a896c4b6ea62fab9b3ef94d7765f34234b277ee46788af"

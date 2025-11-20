@@ -14,19 +14,23 @@ class Ghcup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e247f6decbd4256535c586a0d6146ac65e53efacce5dc330e115be4c98dd513"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed53b589d43d4651f51d4c8cbf59910dc9dd1babeef7101ad54daf8f9e728ba5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9b74e79970c00cd845b676d54299df10b4cca34e44fab44d3d8d1e16b9ab263"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c5b4cd2f5dfa18fb80c96a0dfeb4c20c519e4a1cc4d25d35844c46dbdc323c59"
-    sha256 cellar: :any_skip_relocation, ventura:       "d7acf0c16461d16b43e2d3ac389d1a59e07c9342b21997c77d357397324f3de3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e3d38dd1fdefb2c67ed6ca6da1dad745b94cb9895cfa76bcf97a5e5fca459d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "864261ae983d405424f6177e75614dca8fd661be23aef0da4fda28b08767c20d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e6a0cc1037d609427bd3e2121d2dfb07328d31bebfb6b8b42c9b703a9882e70e"
+    sha256 cellar: :any,                 arm64_sequoia: "1761d3fd2610c48ab9d2a048eb8f8a25a1c7def62ae960812f17feec94c1444b"
+    sha256 cellar: :any,                 arm64_sonoma:  "c58916768b45402fe48af59be753186db8cd56e9f28ccfe9817ab9ffc98fbf48"
+    sha256 cellar: :any,                 arm64_ventura: "2cce48ab0a56115ea853ac0f383f59fc2d419a6c9e414b5af8aa02fabb505fbf"
+    sha256 cellar: :any,                 sonoma:        "6e4b55a318b5e9dca9cec9d036dd24d3768ecbc1b8da4fa2ddbf0948cefc6bf8"
+    sha256 cellar: :any,                 ventura:       "186dd4888ad499c08142075d6e5da272c28bd376fba7ef89a01ac5d27803e3b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "51afd964e6e0027e176f2a1b429d5e8d87b93a833be9b3382fd8435bbef1b905"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eaca952bf9b6b634b37333219d910b95761c323e386c709e7c2ab1779ad94160"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build
+  depends_on "ghc" => :build
+  depends_on "gmp"
 
   uses_from_macos "bzip2"
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

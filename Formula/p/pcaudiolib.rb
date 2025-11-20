@@ -6,6 +6,7 @@ class Pcaudiolib < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "797c5e0ec4adb982e3efbcb3ff386d0ad3bbe212e731ce88375002cc6d0cf72d"
     sha256 cellar: :any,                 arm64_sequoia: "9581956c3f6ac62ed80312bad32f93be3bda767e7fb6ce251c600971371bbdd8"
     sha256 cellar: :any,                 arm64_sonoma:  "bd84f4e1511c570a34e372cf8f4532e92e9eaea2089e0a93d387f191d5c36845"
     sha256 cellar: :any,                 arm64_ventura: "3d8b34973b1a08cf739c4b7ce2c6a5b80dbfb3856d5777c5f26d4b9011b62bff"

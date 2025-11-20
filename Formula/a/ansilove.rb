@@ -6,6 +6,7 @@ class Ansilove < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "aa355a28549b83c25a3a8253d2310839916f36fdb297bb0b9501b8de0d976f74"
     sha256 cellar: :any,                 arm64_sequoia: "a2ebd555bc91908d5e5a19c2e7836b8156ae1ec73bd89937037682663878ba70"
     sha256 cellar: :any,                 arm64_sonoma:  "9c1dd009271113b0c90e6d4e945eb2f7e8e1f2ff1bbe76447e27c04741fc674f"
     sha256 cellar: :any,                 arm64_ventura: "fcd7297a08e54c44a7db0e19cce085c65f8fbceea158f40aab9900f816b600fb"

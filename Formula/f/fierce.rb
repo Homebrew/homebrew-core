@@ -9,11 +9,11 @@ class Fierce < Formula
   head "https://github.com/mschwager/fierce.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "900c50c503a5df36bda885af70080e66f6eeb079d37bec9aff35e121f32309b1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "96b093b0e668c92c6bb46ff8603f42460146ae4cd195978e8cbd502e7ce183f5"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/ec/c5/14bcd63cb6d06092a004793399ec395405edf97c2301dfdc146dfbd5beed/dnspython-1.16.0.zip"
@@ -26,6 +26,6 @@ class Fierce < Formula
 
   test do
     assert_match "Found: accounts.google.com",
-      shell_output(bin/"fierce --domain google.com --subdomains accounts")
+      shell_output("#{bin}/fierce --domain google.com --subdomains accounts")
   end
 end

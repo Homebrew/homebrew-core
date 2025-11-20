@@ -4,9 +4,15 @@ class Libwapcaplet < Formula
   url "https://download.netsurf-browser.org/libs/releases/libwapcaplet-0.4.3-src.tar.gz"
   sha256 "9b2aa1dd6d6645f8e992b3697fdbd87f0c0e1da5721fa54ed29b484d13160c5c"
   license "MIT"
-  head "https://git.netsurf-browser.org/libwapcaplet.git", branch: "master"
+  head "git://git.netsurf-browser.org/libwapcaplet.git", branch: "master"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?libwapcaplet[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
+  end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "0fe941d8b4a3a5f43b00e57bb2d338c53fff1fa2df2070e28cc5bc3bdb4cee97"
     sha256 cellar: :any,                 arm64_sequoia:  "c751d28cd839b73ae650342148ec11c12f0c74a02c74228e5a455012a9753dec"
     sha256 cellar: :any,                 arm64_sonoma:   "5610a67ece4b5be886260e784b100c438ec7c083c7043a4684aabf8bda19feac"
     sha256 cellar: :any,                 arm64_ventura:  "8323a6bff5ca487dd247baf5cf9e0176073b6c6ced4ded461c0d121606cf54d1"

@@ -9,6 +9,7 @@ class Configen < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6065f7176f6749015d33a8b03a07fd9d4274686f797b8aadc81e2632669b242c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f4afca8fd4567771c799d14425f4085ddc23a1ca5f89e32890dba233919e3ae9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5af8473413de2042d5216b397e93a126cb21577eafbcab7bbe3657047c676de"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c460c8a01dbdd8cccb66749dea6543bb63430129ea4717ecc9a03e27b6674bd"
@@ -19,7 +20,6 @@ class Configen < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "3fde28a899b11fd837c3d30b27b26485a1e33f7bf951fe469d7fe8ea6ec41e0b"
     sha256 cellar: :any_skip_relocation, big_sur:        "78a7c0604f2a98b2f488b2bfefebff47e08342e69d5f47b7123f15f71bcb9653"
     sha256 cellar: :any_skip_relocation, catalina:       "9bdb2988618d5a1e9291a8579207d9dad1092f377d29d13af68cf6ef5afcb202"
-    sha256 cellar: :any_skip_relocation, mojave:         "befb8801be997ff110c9ca0b817fed82b4e233842f5afe05e7ae372a10c4007f"
   end
 
   depends_on xcode: ["10.2", :build]

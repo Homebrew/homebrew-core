@@ -3,22 +3,21 @@ class AnsibleCreator < Formula
 
   desc "CLI tool for scaffolding Ansible Content"
   homepage "https://ansible.readthedocs.io/projects/creator/"
-  url "https://files.pythonhosted.org/packages/d9/e3/923f5c8d6a26a13b2d6a3b640db1923708bd439c5fc368677d61e056e5e2/ansible_creator-25.5.0.tar.gz"
-  sha256 "cb050df5af0fa398a43464fcde8e761170e1cf12131c014dc4bc0c8f64f80632"
+  url "https://files.pythonhosted.org/packages/d5/c4/88b664f9973b9e15f4f4dfdf022f07d4d0ae676f2e9f320d141a5ef4c8ea/ansible_creator-25.11.0.tar.gz"
+  sha256 "1ba0662f3480ba80c81b2c0dc08168b705f559e0881a4497a4e6338e51193e1f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b162f69e2fdb6056d6f9652856803180c36b73c34cccea6c74fddb11a9e7fa37"
-    sha256 cellar: :any,                 arm64_sonoma:  "4c4fa1d5441525f20d452d04ea36d9a2fb46ede0cd6ef4c26e50593f832c44a2"
-    sha256 cellar: :any,                 arm64_ventura: "766f10319ac325ecf33edf60367525b0c01c476423768ce549662f401901eb6f"
-    sha256 cellar: :any,                 sonoma:        "82cf5239ec5c21e7550ea0eae1a5159cf50b7964dd846311015000222a7d998d"
-    sha256 cellar: :any,                 ventura:       "8e0e498ffe94323b50813f56759e1b9ccedfd23ed1138516e85167f82084cf3a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d47fd35978dfae6170d866d2dec5f09f1d4ff093556a58e31ab10083ea2f600"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5727121e30060f2629a27196e72505cff6a61910304bb8edf526c62f0d056a7a"
+    sha256 cellar: :any,                 arm64_tahoe:   "0835b7b437650e10b52783a59a1f13484eaa287557d90cd93c371ba548513dfe"
+    sha256 cellar: :any,                 arm64_sequoia: "8b20466653d2936afad70a59bbe45af290082c74500abe679c7e7e59cc4508bd"
+    sha256 cellar: :any,                 arm64_sonoma:  "e0d53fe7d062ebb6cdd4ce7b76c5f05943716c85f900957fa96d386deaeabbac"
+    sha256 cellar: :any,                 sonoma:        "ca9c6d029e88c82c88245155a31123697a1cbdb3cf15ec506190c1f2d0454cfe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "555344330fd45aab841128a2fcd1471936ba147d7c581339284ec11f9359cc14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9205e6d4a0e8b090081a7a5f9a660ac41da29f5710e3b35e6e9cfe2929b637d3"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "jinja2" do
     url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
@@ -26,13 +25,13 @@ class AnsibleCreator < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   def install

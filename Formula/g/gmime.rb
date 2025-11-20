@@ -4,17 +4,17 @@ class Gmime < Formula
   url "https://github.com/jstedfast/gmime/releases/download/3.2.15/gmime-3.2.15.tar.xz"
   sha256 "84cd2a481a27970ec39b5c95f72db026722904a2ccf3fdbd57b280cf2d02b5c4"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256                               arm64_sequoia:  "458bcb6ae4fd091fd35b48f9917ff52d2f38254a480164416b682049ae9d083b"
-    sha256                               arm64_sonoma:   "a509468f057fc0a2013788381d8884710ef74d5241b706891372a43a9aa402ba"
-    sha256                               arm64_ventura:  "ea7b8ca1f448ab1fa9486e3e55a12305f2df3b5a8c19b99587332d0412326cf3"
-    sha256                               arm64_monterey: "c7c87673c6db12e288f836fe8a7aad8312c3aba2d35dae680a155741a82f660c"
-    sha256                               sonoma:         "103a9dada388b0c0d1e00f5d43e89a69be9c811c5db9053410aab1349897288a"
-    sha256                               ventura:        "4e6bcbb52d75e42ecd622a6aa76f376c148421aa073b1a808e82392cdb3f3b75"
-    sha256                               monterey:       "2acb6d3050ee79911c9f1407c90b1f0870becf0f4540ad441dc4f5cab69e5fc6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "7c75bc8dc1096a6e9d433bd65ef5e5781202ab0f62b8bb3d886e7cf398545d23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d427feebdf23d147fb3b4bf6d0df1b35d08c20d71d5d2100ab3572c2edb982d6"
+    sha256                               arm64_tahoe:   "9079c8df9d0e01281591ad2028c853080b9397820bcf0226849837aa2da115ca"
+    sha256                               arm64_sequoia: "b88c637274929cbfe432be657a4f9d0ed2a6dcb8573e3289c4634f0719c243bd"
+    sha256                               arm64_sonoma:  "1a6299ff6b1f75b3d5cb80d74b2f3a10b844d67de2586cc862084f8c0a55ea49"
+    sha256                               arm64_ventura: "e62b5de106b270673a70e3cd743d197136947335d83bae2a832d77ed233841bb"
+    sha256                               sonoma:        "f9de52ad7b7be5e2731a2cee8b649fba7095ec305ebc01fb3a47c64f9b68cef5"
+    sha256                               ventura:       "d83c620fd9a041b6a8a3bcbed80886e9e95ea20ed5bb70ed4dd5010929fa2210"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "27ccd3cf2c9179d022f5d3c8320c56b0e195ba60003666514ecd3827bce3311c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ff3e999c50bbcc7691fac0ba15aa27b1b2d7f99a534032724d6dfc6f3f0fe35"
   end
 
   head do

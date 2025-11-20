@@ -4,8 +4,8 @@ class MoltenVk < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/KhronosGroup/MoltenVK/archive/refs/tags/v1.3.0.tar.gz"
-    sha256 "9476033d49ef02776ebab288fffae3e28fd627a3e29b7ae5975a1e1c785bf912"
+    url "https://github.com/KhronosGroup/MoltenVK/archive/refs/tags/v1.4.0.tar.gz"
+    sha256 "fc74aef926ee3cd473fe260a93819c09fdc939bff669271a587e9ebaa43d4306"
 
     # MoltenVK depends on very specific revisions of its dependencies.
     # For each resource the path to the file describing the expected
@@ -13,7 +13,7 @@ class MoltenVk < Formula
     resource "SPIRV-Cross" do
       # ExternalRevisions/SPIRV-Cross_repo_revision
       url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-          revision: "7918775748c5e2f5c40d9918ce68825035b5a1e1"
+          revision: "0a88b2d5c08708d45692b7096a0a84e7bfae366c"
     end
 
     resource "SPIRV-Headers" do
@@ -31,7 +31,7 @@ class MoltenVk < Formula
     resource "Vulkan-Headers" do
       # ExternalRevisions/Vulkan-Headers_repo_revision
       url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-          revision: "e2e53a724677f6eba8ff0ce1ccb64ee321785cbd"
+          revision: "088a00d81d1fc30ff77aacf31485871aebec7cb2"
     end
 
     resource "Vulkan-Tools" do
@@ -52,12 +52,15 @@ class MoltenVk < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "4994cc7e6e7f8af2fb2898fb4d8f806f55ff064d6249beca4ab2f208fd5de319"
-    sha256 cellar: :any, arm64_sonoma:  "c7b7d5d02a925546a6e0cc0c4187fe0b643731abbb32b590a4e60906f688046f"
-    sha256 cellar: :any, arm64_ventura: "cf825bb401b89d746b3fd1274a839e61e15aa4a8fa0c7f327db2b1d4e14fe334"
-    sha256 cellar: :any, sonoma:        "e208e8fe6f90aecc6a16bb3f883cb56f4da55d1b04daae6794f70ace0d835f57"
-    sha256 cellar: :any, ventura:       "b2e3d1f9dc95f2d45b3f25483bf75bc014950b61a830768615a130111bbaa6f5"
+    sha256 cellar: :any, arm64_tahoe:   "c582142652134e00fcddb2b15491492020469d0efc497873b017c45b2ba21a3b"
+    sha256 cellar: :any, arm64_sequoia: "9b8177214626a66d3f3d437263fdb5b90617ebabc58a72748eda09024c139c38"
+    sha256 cellar: :any, arm64_sonoma:  "fb9f58d36dc493741ba4c5dba69704d29f0dcba0732f2308402be1eabac4d706"
+    sha256 cellar: :any, arm64_ventura: "bad2cf52dea78a3561653620af14993927bb1b6873e308b5a9ff3fe8c1cd532b"
+    sha256 cellar: :any, sonoma:        "9a16c4a69f8cbb94bea95004f0c686a645df1c3c35ec5fbee23ae0edb9298078"
+    sha256 cellar: :any, ventura:       "998675bdd180f03a6acb2a8c908826452f912fde846c3442cf9b821ad004067a"
   end
 
   head do
@@ -90,11 +93,9 @@ class MoltenVk < Formula
 
   depends_on "cmake" => :build
   depends_on xcode: ["11.7", :build]
-  # Requires IOSurface/IOSurfaceRef.h.
-  depends_on macos: :sierra
   depends_on :macos # Linux does not have a Metal implementation. Not implied by the line above.
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   def install
     resources.each do |res|

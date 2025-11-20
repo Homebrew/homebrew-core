@@ -6,20 +6,19 @@ class Apkleaks < Formula
   url "https://files.pythonhosted.org/packages/1e/e6/203661abe151dbc59096de65d6f0cf392d1aad3acba32f4e9f3f389acad0/apkleaks-2.6.3.tar.gz"
   sha256 "e247b59acf4448f3c2e45449bc7564bc5b7a216ebfb166236baf602d625b1df5"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53409d176d6c3ea2efa1575ac9a466f74dd8a5a7426be952b02787780f4ff858"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7377ef49f14020db31a4e72f6592c98af1ed270a530eb26e9e9de9cac21b72b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1391422b4037f72e36b3b38901e0bc279e9c5770fc63cb00c674aff9dddc43a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8b9948be0cb74507608a58e1b99a5bc62bb745dc3b4b2d3a88a4785c670d708f"
-    sha256 cellar: :any_skip_relocation, ventura:       "2bc351029f9c9e53004fcf6cbdb2fc3a772c771dccc3052dd3a3dcedab122c59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "441aff0993a838898a4695386c48a20fbdf7024389739176017d17cdd3d236d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63fdbb67007a469a23eb740eb1bfbc39e84abc92e04d706b79cf40b19d95dc95"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "30f23d279478263f6ea0e37eee13fead1e2e1cce3bf150987305380f77b40940"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7ee44693cf42223aa4b50e7e30e33e5909b9f6c40ef7ccdbd05c12d08fa6bf5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be9d388e988d01fd51621e21f1067dbfb739e7a35bbda0fa8ecfedb5697d8848"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d1f50e61fc6fbe4267e9c6f3f3f425ff822892a64feb1af5f0e2cbff1e5d1fdb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f3014e026d33801dec32e80823fce26797317dd999f16ff6a46a1db2ba495fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af72799417a097e97f6994a393077722ff2f6e0a11dec8716e397b251aa31f94"
   end
 
   depends_on "jadx"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -30,13 +29,13 @@ class Apkleaks < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
   end
 
   resource "pyaxmlparser" do

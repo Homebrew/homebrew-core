@@ -1,8 +1,8 @@
 class Lighthouse < Formula
   desc "Rust Ethereum 2.0 Client"
   homepage "https://lighthouse.sigmaprime.io/"
-  url "https://github.com/sigp/lighthouse/archive/refs/tags/v7.0.1.tar.gz"
-  sha256 "e2432feb02d6dd86faec3831731a88993c428a87df1fa6a43efd576bdf01f259"
+  url "https://github.com/sigp/lighthouse/archive/refs/tags/v8.0.1.tar.gz"
+  sha256 "10c2d76c190eb0d4c3c394c7994d011b083df4f8954f3b4df57b01b8cfd931cf"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Lighthouse < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c8f0c2c51ee1961024d86aeb87859bad341c93e9dcee2956a30e672dfbe63a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5bbd70f9c3e66b211a32589278a51eb41539d872de75441939a2bf4a491963f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6f2fc91dfed84d69d34b28716c8656e180d2c46f35055db2ddcedaa2627e9ec2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ef23deee081e1be5d482a7e2f1d388c0dd85325a3391d840db2ce3e6229881e5"
-    sha256 cellar: :any_skip_relocation, ventura:       "0624c275b75ef888987ff09bd2ff8345b91acd5def5733d23248d369b2b07144"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f923651f0167d38fe57e981c636ce61c72712812a37833069999dd8f523f6552"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4839e94e9bd9bc8d636ff38c45853a6f4dbf2e6716376f25e59ea26c664b18f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15726f628f348765c8abdf4867585a51baef6035eb4ad03e2806d7d662cae46b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3f863a8e788ccedb8fdd6ea205e9310087314b9a13cd5f100b8e8185ff388e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f2e76d7b7344af5d41281ee19ce9e0f7b37423a3b9947745db4b8ddc479f4031"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba900cf12f49e6e312749562f8d2448569128cf337e3897f050ebbd7cec7ef73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6747580308dbdaa1263f906f35439e4d57fbd69edac97d18deed7d15cea6ec3"
   end
 
   depends_on "cmake" => :build

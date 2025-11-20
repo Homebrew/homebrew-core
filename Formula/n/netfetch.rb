@@ -12,11 +12,13 @@ class Netfetch < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "70e7ad4240c2e63c68c9d8090976aaf7be5268ef5c8eaba0ac9b78838e0c447d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f5ca9443c70310c77897987bdc5c8d285c8a86b718c4ef31fbbb7ad0f614f8f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f5ca9443c70310c77897987bdc5c8d285c8a86b718c4ef31fbbb7ad0f614f8f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5f5ca9443c70310c77897987bdc5c8d285c8a86b718c4ef31fbbb7ad0f614f8f"
     sha256 cellar: :any_skip_relocation, sonoma:        "66c0c77c648e2c97d1a785c7153dd7a3833cc225b42f6071934a2e3749f37b40"
     sha256 cellar: :any_skip_relocation, ventura:       "66c0c77c648e2c97d1a785c7153dd7a3833cc225b42f6071934a2e3749f37b40"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a173e3dfac9e058b76f212cf75c19b9f2bf6c6ec0826f25c06a45f622afd1d73"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5901ca1bca581682e2c206cfc1eef3fca07861f82fe05b2a6fb614fcebefd33d"
   end
 

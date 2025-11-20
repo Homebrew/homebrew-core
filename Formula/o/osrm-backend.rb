@@ -4,6 +4,7 @@ class OsrmBackend < Formula
   url "https://github.com/Project-OSRM/osrm-backend/archive/refs/tags/v6.0.0.tar.gz"
   sha256 "369192672c0041600740c623ce961ef856e618878b7d28ae5e80c9f6c2643031"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   livecheck do
@@ -11,23 +12,22 @@ class OsrmBackend < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d99d43985b7eb9874b9a854559a8dd7ba095653a0bc7991f540a9f691098f381"
-    sha256 cellar: :any,                 arm64_sonoma:  "1238dc214ee091861d48367a2c78b5458ccdfdd6737404fd8184f4dd815e6d34"
-    sha256 cellar: :any,                 arm64_ventura: "af0a8f5ceb7d82b9aece2b378d98d9d2aefbd830a9cfbaba79d5433160540528"
-    sha256 cellar: :any,                 sonoma:        "fb84337d531fe6c48eee4a7dd0abf33cc4ad0af6742abf9466880847e1470ba1"
-    sha256 cellar: :any,                 ventura:       "2eeecffa84cf777cb0e381b6e6e61ce41fc32ca7aa7b5a8c0244410d585c7c8d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9aa04dc44e906b36396551a0acc0482eaad60ebb811243bafa85f2c39d2903c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc54945839a76c5d681129b99814b936674ef7caf365a7d9d45919d79710f160"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "7afabcb88537796080ee1f3eaa0354df30da723ca2c4b5cf2b545787e5b594d4"
+    sha256 cellar: :any,                 arm64_sequoia: "45597fecad2445f084a62b520a822fa88c744094db2b0aa53dd514390d4f1bfe"
+    sha256 cellar: :any,                 arm64_sonoma:  "b33746bf0d976c08101d86da981f75ab8e22c4dfbf3d30b86b249c5a672cbe87"
+    sha256 cellar: :any,                 sonoma:        "9899cd1133de3c8640e37c2a8bf80de3cfdecc74a32d2d027662e1d1dd9fabc3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ed3aeb8b1782c42cb95cdfcdad5f2253edce21476eddf3b0cb63d02671de10c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bc254ac088ca9e5ca436288840bb8398b59db6a28172f084ecec72249df9135"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
 
   depends_on "boost"
-  depends_on "libstxxl"
-  depends_on "libxml2"
-  depends_on "libzip"
   depends_on "lua"
   depends_on "tbb"
 
@@ -35,31 +35,23 @@ class OsrmBackend < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gcc@12" if DevelopmentTools.gcc_version("gcc") < 12
+  conflicts_with "flatbuffers", because: "both install flatbuffers headers"
 
-    fails_with :gcc do
-      version "11"
-      cause <<~CAUSE
-        /usr/include/c++/11/type_traits:987:52: error: static assertion failed: template argument must be a complete class or an unbounded array
-          static_assert(std::__is_complete_or_unbounded(__type_identity<_Tp>{}),
-      CAUSE
-    end
+  fails_with :gcc do
+    version "11"
+    cause <<~CAUSE
+      /usr/include/c++/11/type_traits:987:52: error: static assertion failed: template argument must be a complete class or an unbounded array
+        static_assert(std::__is_complete_or_unbounded(__type_identity<_Tp>{}),
+    CAUSE
   end
 
-  conflicts_with "flatbuffers", because: "both install flatbuffers headers"
-  conflicts_with "mapnik", because: "both install Mapbox Variant headers"
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/Project-OSRM/osrm-backend/pull/7220
+  patch do
+    url "https://github.com/Project-OSRM/osrm-backend/commit/5cea5057eb766a19fbecb68e7392e42589ce1d46.patch?full_index=1"
+    sha256 "51f4f089e6e29264e905661e8cf78e4707af6e004de4a2fba22c914d1c399ff5"
+  end
 
   def install
-    # Work around build failure: duplicate symbol 'boost::phoenix::placeholders::uarg9'
-    # Issue ref: https://github.com/boostorg/phoenix/issues/111
-    ENV.append_to_cflags "-DBOOST_PHOENIX_STL_TUPLE_H_"
-    # Work around build failure on Linux:
-    # /tmp/osrm-backend-20221105-7617-1itecwd/osrm-backend-5.27.1/src/osrm/osrm.cpp:83:1:
-    # /usr/include/c++/11/ext/new_allocator.h:145:26: error: 'void operator delete(void*, std::size_t)'
-    # called on unallocated object 'result' [-Werror=free-nonheap-object]
-    ENV.append_to_cflags "-Wno-free-nonheap-object" if OS.linux?
-
     lua = Formula["lua"]
     luaversion = lua.version.major_minor
 

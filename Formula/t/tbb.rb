@@ -1,29 +1,28 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://uxlfoundation.github.io/oneTBB/"
-  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2022.1.0.tar.gz"
-  sha256 "ed067603ece0dc832d2881ba5c516625ac2522c665d95f767ef6304e34f961b5"
+  url "https://github.com/uxlfoundation/oneTBB/archive/refs/tags/v2022.3.0.tar.gz"
+  sha256 "01598a46c1162c27253a0de0236f520fd8ee8166e9ebb84a4243574f88e6e50a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3a7c5bc69ec18b7030205d3d34840503236bf11304416921333f1693afcd2fb5"
-    sha256 cellar: :any,                 arm64_sonoma:  "33633a5f41aa7b2055c93f81bddb2d9990373d6570070a417f4207df6ce8f90d"
-    sha256 cellar: :any,                 arm64_ventura: "d1af11b60a2384f5e639db112720e746328be29edc5352ea88af2a9a656a6375"
-    sha256 cellar: :any,                 sonoma:        "b06470b378757cbd5cbd2dac644fa76530cc3ce8b3d654ebe4e3421af2f11b31"
-    sha256 cellar: :any,                 ventura:       "ac4157a71051363b78bf8c4b2d74c6c2bef8d74bdba746cf65ca2d5d72014a6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "86f0fca0478acf266d4e872e8398411d19fd188a812e983bdfed98a4e32fbead"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15328519ddb636dbafd9d83cea34d44a8275847094c4627878c37315962cca15"
+    sha256 cellar: :any,                 arm64_tahoe:   "cc9fcdb5dd902f43174d0da933d9fd5cbefbc0a64782564b5b8193abc627ec0f"
+    sha256 cellar: :any,                 arm64_sequoia: "c15f3cd373ecc7ce5187734d1c93ff10dd22e83ba7b4e67010ec65052649bab6"
+    sha256 cellar: :any,                 arm64_sonoma:  "6c12a8bf6407d61c277c7f99638af11c5600ec21af20f43319f49c4bb2fb69b9"
+    sha256 cellar: :any,                 sonoma:        "8a759acc184a76c75165db15bd39903332e980221963da164b8a0356780acfcd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7cac87ad2e8f4fbf64aea23ea3ed64a54b8df675102b3013a09407ea0f43fb0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8e86274bf47f0546c742ffbd718b78c83703e3d6f8a2cd33ca7bd93c34b9291"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "swig" => :build
   depends_on "hwloc"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

@@ -1,26 +1,20 @@
 class Cflow < Formula
   desc "Generate call graphs from C code"
   homepage "https://www.gnu.org/software/cflow/"
-  url "https://ftp.gnu.org/gnu/cflow/cflow-1.7.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/cflow/cflow-1.7.tar.bz2"
-  sha256 "d01146caf9001e266133417c2a8258a64b5fc16fcb082a14f6528204d0c97086"
+  url "https://ftpmirror.gnu.org/gnu/cflow/cflow-1.8.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/cflow/cflow-1.8.tar.bz2"
+  sha256 "8321627b55b6c7877f6a43fcc6f9f846a94b1476a081a035465f7a78d3499ab8"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "751d7b1a86af9855a051cffe36b2569ce962146f5f56c09529ea4276140fa500"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f30589e4b49dc5e2bfa37e58a614977d6ac4f8afb11615e4e2a6ad3b9519705e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b089cc4f286019f77084983af011c3776db86c9abc400e6b9d3415667809bea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "775aa08b6d73ae6aa6eaeef7e1b187acc8b78daf87c7be6771914213d3907b4d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c243b38883f723c09ea4ebadc5cca19ede2f3210fd75379f4636fa7320fb0e0e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "87d787c9e87c647c9c6f87886fd6411ee5b6c38760309d3f66f53d9bf2e43679"
-    sha256 cellar: :any_skip_relocation, ventura:        "b684918ee8c5640d80e51cfce6f9b7c5dcf787f573350197a62ab877fbd92005"
-    sha256 cellar: :any_skip_relocation, monterey:       "3631370161b2fe088572eb63e1653c9d591184870cbf5e6ec31187f919082cd8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ca4cbcfa33c53ff166dced09c73683076a112b6053ae4667abf3f97fd0aaf1be"
-    sha256 cellar: :any_skip_relocation, catalina:       "aa461817268ac09391a88903ab13a8a13852c943a4d38dfe5342c202f1daf5d6"
-    sha256                               arm64_linux:    "41446ba1bebd0eeb2af0c59c4d65b81622049296e6b43bfcab0ee02ed26eb06f"
-    sha256                               x86_64_linux:   "62e41fe118da0de3ee5bbf3a85273d53aec1ada3b389f2e4b7876f4aa9f9ee0a"
+    sha256 arm64_tahoe:   "7677a8663bf8dbc2178670bc1db544f12fbb8c87d644c3863457e40ff6a6ea84"
+    sha256 arm64_sequoia: "6d482293b619d39dba15d8a1956ab25b4434ae53fe93ac269e9ffd2af7f33cdd"
+    sha256 arm64_sonoma:  "e2f7275d45e7808088c8912fb70dca9f5f1bc98e9375ef67fc9ecca3b5f6bba9"
+    sha256 arm64_ventura: "723f38543a7356fd374a9753005605a93d705b6c9723c8ef40ae31176b54e05d"
+    sha256 sonoma:        "8347d85dfa5f30c5e3697842e7130d6ef3b712eb250eb945d312a97040020581"
+    sha256 ventura:       "18555eed054a739c2bf0a562deebc509ab53c96964937b3cbc223d9a1617b2ee"
+    sha256 arm64_linux:   "dbcdfdec9d78e04d94d2ed339ead98ffd3d1c45ff101d5f06d546582bcbc19c0"
+    sha256 x86_64_linux:  "fc739d521aacfc482f787c8843057c122317b3a91434bafd55cf94f182ef4f93"
   end
 
   def install
@@ -29,6 +23,12 @@ class Cflow < Formula
                           "--disable-debug",
                           "--disable-dependency-tracking",
                           "--with-lispdir=#{elisp}"
+
+    # Replace C++11 attribute syntax with GCC-style attribute for Clang compatibility
+    if OS.mac? && DevelopmentTools.clang_build_version >= 1500
+      inreplace "config.h", /\[\[__maybe_unused__\]\]/, "__attribute__((__unused__))"
+    end
+
     system "make", "install"
   end
 

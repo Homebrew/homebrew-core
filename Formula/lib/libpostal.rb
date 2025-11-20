@@ -1,19 +1,20 @@
 class Libpostal < Formula
   desc "Library for parsing/normalizing street addresses around the world"
   homepage "https://github.com/openvenues/libpostal"
-  url "https://github.com/openvenues/libpostal/archive/refs/tags/v1.1.tar.gz"
-  sha256 "8cc473a05126895f183f2578ca234428d8b58ab6fadf550deaacd3bd0ae46032"
+  url "https://github.com/openvenues/libpostal/archive/refs/tags/v1.1.4.tar.gz"
+  sha256 "41ad2cd20261e6498f1843c8d21cd737470d17e975deb6ea2a5d1517880729d3"
   license "MIT"
   head "https://github.com/openvenues/libpostal.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia: "977117dd4cbadd9c7a54b1a98cbf8a4cf5d76435d3fb2a4bd7219777b7ddac8c"
-    sha256 arm64_sonoma:  "814ede166ebe7352cc9850527f29e9395eea6a2248a16ad450d0606216923e25"
-    sha256 arm64_ventura: "e6412f74a7d126a91f3c29337f73e3284329c95b1fba7924a653f3115918802c"
-    sha256 sonoma:        "077f8b1500c01ca5f5c6586b6570d33c0af2285b4d6e2811af431918b4b382c0"
-    sha256 ventura:       "4e553905102caddeb88a154bd251748381ca94ee63ce1b2f56cf80e65aabe327"
-    sha256 arm64_linux:   "aed0795c4d0a2894d8297bca8dd6b758aa4aecac1af139cb5491c9e9b75a98ea"
-    sha256 x86_64_linux:  "6f935c41597746bddc0c0e0fcc132f7e9ed9de317f8a49702f25cc01ce4fe844"
+    sha256 arm64_tahoe:   "cf3a9637bea332e8d28cde170dc85c7c5dbb4b5731886edd9f30bed504742e5b"
+    sha256 arm64_sequoia: "954b38f9b41bb3fe6702b91e2589baa8023b459162dc3bfa3a3dd6218bf33312"
+    sha256 arm64_sonoma:  "19638446df502bd5a2fa13bf21d89eca018e70965595940a03f89ca14b213609"
+    sha256 sonoma:        "3f4ee3c0636f7fc19ddc1fc60a2273912f64a539dc314df0488d2eab8f856308"
+    sha256 arm64_linux:   "32461394f17714bbf96a4a090b4e89240a2dd2a97637006ed0997d114d0831be"
+    sha256 x86_64_linux:  "79bf7b3b79c1e80a9d61a7ad19599b9d18440390bec4babbf85a17ad5219db34"
   end
 
   depends_on "autoconf" => :build
@@ -28,14 +29,29 @@ class Libpostal < Formula
   resource "libpostal_data" do
     url "https://github.com/openvenues/libpostal/releases/download/v1.0.0/libpostal_data.tar.gz"
     sha256 "d2ec50587bf3a7e46e18e5dcde32419134266f90774e3956f2c2f90d818ff9a1"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/openvenues/libpostal/refs/tags/v#{LATEST_VERSION}/versions/base_data"
+      regex(/^v?(\d+(?:\.\d+)+)$/i)
+    end
   end
   resource "parser" do
     url "https://github.com/openvenues/libpostal/releases/download/v1.0.0/parser.tar.gz"
     sha256 "7194e9b0095f71aecb861269f675e50703e73e352a0b9d41c60f8d8ef5a03624"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/openvenues/libpostal/refs/tags/v#{LATEST_VERSION}/versions/parser"
+      regex(/^v?(\d+(?:\.\d+)+)$/i)
+    end
   end
   resource "language_classifier" do
     url "https://github.com/openvenues/libpostal/releases/download/v1.0.0/language_classifier.tar.gz"
     sha256 "16a6ecb6d37e7e25d8fe514255666852ab9dbd4d9cc762f64cf1e15b4369a277"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/openvenues/libpostal/refs/tags/v#{LATEST_VERSION}/versions/language_classifier"
+      regex(/^v?(\d+(?:\.\d+)+)$/i)
+    end
   end
 
   def install

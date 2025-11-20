@@ -11,6 +11,7 @@ class Wiredtiger < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "63fefdf4715c6dd504e69d3f5ca1ca38d81f4bcb343007eab4f25f0d205f5f6a"
     sha256 cellar: :any,                 arm64_sequoia: "fe94103be40ac4d1f2030cf28f3bd93dda5f65f45196884e18e21dc48825a502"
     sha256 cellar: :any,                 arm64_sonoma:  "6f46b39b9ad85313b1cbcb81e9b86204a15a017b859bbbafac05094a994a5284"
     sha256 cellar: :any,                 arm64_ventura: "0333748feb3a4d7939b945a6e24dda5a73f7a9fcc7497e21b8af17ce6197e666"
@@ -20,7 +21,6 @@ class Wiredtiger < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "100e4051caa78dbd63c57f3e0a3be5f0272676e187c191d040068cbaf5c67aa4"
   end
 
-  depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "lz4"
@@ -35,6 +35,7 @@ class Wiredtiger < Formula
     ENV.runtime_cpu_detection
 
     args = %W[
+      -DCCACHE_FOUND=CCACHE_FOUND-NOTFOUND
       -DHAVE_BUILTIN_EXTENSION_SNAPPY=1
       -DHAVE_BUILTIN_EXTENSION_ZLIB=1
       -DCMAKE_INSTALL_RPATH=#{rpath}

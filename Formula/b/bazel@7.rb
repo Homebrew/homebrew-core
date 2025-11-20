@@ -1,8 +1,8 @@
 class BazelAT7 < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/7.6.1/bazel-7.6.1-dist.zip"
-  sha256 "c1106db93eb8a719a6e2e1e9327f41b003b6d7f7e9d04f206057990775a7760e"
+  url "https://github.com/bazelbuild/bazel/releases/download/7.7.1/bazel-7.7.1-dist.zip"
+  sha256 "6181b3570c2f657d989b1141fb0c1a08eb5f08106ca577dc7dc52e7d0238379a"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class BazelAT7 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7dae7266441ab2beedf3182e5f6a8d2a19ffa7ac14af31c0133abb11f36738f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "966ae2fc6bc711139718ce063e31c48c2b627b474d222a25568233ff07298929"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ff70d65599bbce115caa90cba8efbe7351b6e1341b69c2ae2c18f57059064f02"
-    sha256 cellar: :any_skip_relocation, sonoma:        "52a50ec6c4761251949a723da9b4146e341b2dabe323ebc64fd5f3924cf88936"
-    sha256 cellar: :any_skip_relocation, ventura:       "075b8150e956c31d49b5b5743677020b1406e71b7e5fd839de14b17582ab7ada"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe1c1785992432c380719918b12391ab48f006c67ce072dcf36f82f1e9e6d038"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54038042ac48134b90dc9b711b5e8dda20618817db58b900763547523ff28968"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9951a2c2d7fb46a35db66a6a9adbc96b4ca75d184f0fa78545979b3e203b26cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9951a2c2d7fb46a35db66a6a9adbc96b4ca75d184f0fa78545979b3e203b26cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d0f609c4a1e3092ab0a738f36ff02b0023f86fce0fabad542c375c6a9286bf3c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e304d2c45194de90324fb87be2cafb3a2bc4a32449676f2045114354c96b6d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53a676cca2f198259a54d153ccbca884b6ff31046fe6d39cad15a3df20cd1eac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "551daae69da44de6887ed21c29cfb5705c5dfd92be88fa47b9aeeb03adee474c"
   end
 
   keg_only :versioned_formula
@@ -25,18 +24,16 @@ class BazelAT7 < Formula
   # https://bazel.build/release#support-matrix
   deprecate! date: "2027-01-01", because: :unsupported
 
-  depends_on "python@3.13" => :build
   depends_on "openjdk@21"
 
+  uses_from_macos "python" => :build
   uses_from_macos "unzip"
   uses_from_macos "zip"
 
   on_linux do
-    on_intel do
-      # We use a workaround to prevent modification of the `bazel-real` binary
-      # but this means brew cannot rewrite paths for non-default prefix
-      pour_bottle? only_if: :default_prefix
-    end
+    # We use a workaround to prevent modification of the `bazel-real` binary
+    # but this means brew cannot rewrite paths for non-default prefix
+    pour_bottle? only_if: :default_prefix
   end
 
   def bazel_real
@@ -47,6 +44,8 @@ class BazelAT7 < Formula
     java_home_env = Language::Java.java_home_env("21")
 
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
+    # https://github.com/bazelbuild/bazel/issues/27401
+    ENV["BAZEL_DEV_VERSION_OVERRIDE"] = ENV["EMBED_LABEL"]
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
     # Force Bazel to use brew OpenJDK

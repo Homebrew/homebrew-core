@@ -6,6 +6,7 @@ class AmplAsl < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3e93cfc9570652c4c096b01942081b983ebafff86da8edbaf143992fe5c97338"
     sha256 cellar: :any,                 arm64_sequoia: "df57b49399130fbfff59616c73f30a0751241e422bc817013870c339bb213537"
     sha256 cellar: :any,                 arm64_sonoma:  "80dc283a53e12edbaa054669f376bc5fb6d54f90b4e94d9fa6b4119d46127531"
     sha256 cellar: :any,                 arm64_ventura: "d8e6c8531c3fe9794f920361660e8e574a989ffb2be3d9bd2a175c765fce5937"

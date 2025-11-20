@@ -4,17 +4,18 @@ class SimpleTiles < Formula
   url "https://github.com/propublica/simple-tiles/archive/refs/tags/v0.6.2.tar.gz"
   sha256 "343ae52a0b20ee091b14bc145b7c78fed13b7272acd827626283b70f178dfa34"
   license "MIT"
-  revision 6
+  revision 7
   head "https://github.com/propublica/simple-tiles.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d3aaa726bd349cc30a81762fd0a1b0601e4d9cf866023c29ff63a6e60226620c"
-    sha256 cellar: :any,                 arm64_sonoma:  "abe65b73e6079f2b796164a3290cff1570ce7a2eeb1c310ebab9ec2160ac97c6"
-    sha256 cellar: :any,                 arm64_ventura: "f49d942f1152dbe63628654fb6063e621b17397ec41c46b1741acd2caaacfd3c"
-    sha256 cellar: :any,                 sonoma:        "3b4ace3dfc2511c747a5dfe7a5ae9b214694d2908b3443c07284883b046df9e2"
-    sha256 cellar: :any,                 ventura:       "bec15845f74bb0ea00e16a708fc4eca25e133357693dd80b3f460b189d93fa0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b811346839863479eee8eb09a6537da5b7dfcc211cd2e532ffe82989e5111df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "403a1c58f940fa9bb9bf5d4acccf8b64c88b105c37295220bcd07bc89f3d5282"
+    sha256 cellar: :any,                 arm64_tahoe:   "c6422d3ddffa35605443bdf18158914654450f0ad0362673c6b136e1a116af4d"
+    sha256 cellar: :any,                 arm64_sequoia: "7751a5ff3fe02cb473d4accf7cd2e4f31813b6a35521b9357b0502c202c6a820"
+    sha256 cellar: :any,                 arm64_sonoma:  "daa34638b944a33d7abefd9d2e12787baf1a055ef331b08d9d29db038e840574"
+    sha256 cellar: :any,                 sonoma:        "a43ad30dc8509a71c44e09a8ed58416cd5f1c6b1f29e661223187564438eccd2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1149b833c6586359e97f93673888bf3dbd68f070d74a819cd028c44ad054d1fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cac3424f59872d80f8dcaadc2ab0522f3cfafd7c12a6698c573d71767b66077"
   end
 
   depends_on "pkgconf" => [:build, :test]

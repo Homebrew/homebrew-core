@@ -5,9 +5,11 @@ class Wumpus < Formula
   sha256 "aa059e163b4f516580b83931ae29fbd5796302e854da283b85cc7fc887677d7c"
   license "BSD-2-Clause"
 
+  # The homepage links to the `stable` tarball but it can take longer than the
+  # ten second livecheck timeout, so we check the Git tags as a workaround.
   livecheck do
-    url :homepage
-    regex(/href=.*?wumpus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -20,6 +22,15 @@ class Wumpus < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "1ceb6248fd61580bb9c99ab1833503cad88c84daf4816771cfdc96f087755fa0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "63f9a87dd8a82fc0bf2969cedfca5dd336e0e3575d6792bf3d8e19e6f3506332"
   end
+
+  head do
+    url "https://gitlab.com/esr/wumpus.git", branch: "master"
+    depends_on "asciidoctor" => :build
+  end
+
+  # checksum got changed and no response from upstream, https://gitlab.com/esr/wumpus/-/issues/2
+  deprecate! date: "2025-09-12", because: :does_not_build
+  disable! date: "2026-09-12", because: :does_not_build
 
   def install
     system "make"

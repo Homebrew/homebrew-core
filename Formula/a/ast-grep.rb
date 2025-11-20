@@ -1,19 +1,18 @@
 class AstGrep < Formula
   desc "Code searching, linting, rewriting"
   homepage "https://github.com/ast-grep/ast-grep"
-  url "https://github.com/ast-grep/ast-grep/archive/refs/tags/0.38.4.tar.gz"
-  sha256 "f1c6dc88f676fae236f38cde4f71d160c7161fdc2601ec861c90f16b1c83f1cc"
+  url "https://github.com/ast-grep/ast-grep/archive/refs/tags/0.40.0.tar.gz"
+  sha256 "575d9c71ade98d6fb883a444a8b490ea7d0faca5bd09228c9cb2250e7276fbb6"
   license "MIT"
   head "https://github.com/ast-grep/ast-grep.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7160b70212718414574c940ef92294a387ab62b2cea78dada7dc295607873e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f16e9a8d8e75f06753848672d1d8f4983979dec0b5e4aaa2d74cf3b7b849477c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "096e0c7f3d0ec6a52d5192992f9f1a2d7bf9ada98b7b9c384d9820f2df7884b3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7239cfc66be6d6fe759d6438e97a5e3adf3f5b7b40d46c918e69735c3c3ccc60"
-    sha256 cellar: :any_skip_relocation, ventura:       "96f14dc15fdcc765240b771947c27b42f62b7a8c12fc285b6306636a95c6757c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a60314aac187584b7345be0510c13a0cbe1bfa726f454cbd71e0e8ec78e347a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e91179f8e969e3212e2ba7493ce0e2471ef9439c315a5cb194626ef1e09c5d4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9057203ad4d72c7676a20d14ad1e4e9a44f040f34c41357da8b2049f2a0dd15"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8de64c42257dfdaaa67206d6ccefce6180bcd2d5aef33b9de153360c111d765a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dcdd07af963039f877b1303a89ccd751c481b0f3bd55290bcc00540e9a677cc9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "965facaa38fa294f22b7034b6147fbe59ab6aae36f5039f98d054836d86dcf41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fecd2f345cbf935c48039dcc8c083e90182e0241a07477aece6149ffd49d05d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68f853a02bb07956736d0ad7d4628603c10e64c2f1d816bbf0fceda34311c14b"
   end
 
   depends_on "rust" => :build

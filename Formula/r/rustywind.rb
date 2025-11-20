@@ -1,19 +1,20 @@
 class Rustywind < Formula
   desc "CLI for organizing Tailwind CSS classes"
   homepage "https://github.com/avencera/rustywind"
-  url "https://github.com/avencera/rustywind/archive/refs/tags/v0.24.0.tar.gz"
-  sha256 "90559cb75c9b28bfafd04a1e800b482e374eadcfc21a6be1ed369651d066ac4d"
+  url "https://github.com/avencera/rustywind/archive/refs/tags/v0.24.3.tar.gz"
+  sha256 "50706558f411722631db2449f5f05463703ebeffdea41f6e5f28f383992d06cb"
   license "Apache-2.0"
   head "https://github.com/avencera/rustywind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa6fc45b7eb5a94e38d0e14501733e4830ad1651d7fc1b4bb99540d4a79a06c4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be6c62e9eaf19501ad9da415b8188525c650dc1cdce403badb622b69abbf3953"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "440358b83270c570a29ac7ec98b95ea0f6a8635c0612644661d6d6c90efe4ae0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f6875be6f7d2da731a802a1cab0080ec1f4fbdc0d9c647830363702ca43769fc"
-    sha256 cellar: :any_skip_relocation, ventura:       "98ff021f7a53e32a4bf2eb01f6deface7b30d3bbbfc18848253a3e7e8039643d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b9daabcd8287bc970c38b2300894a05844ea64b5a403991e7472eb3c9002a25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaa846b03600f391088b6bcaeebb11b9e9bde7ce2eae48b84ce73a34295c5fa5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f6e9a477a66a134a75d813ce06471c85f5bbc114d56bd8a554a9ac13fe11544"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc0916337b8700bf4b9d26f8e9f8ddc03f1de5cdcfa532f412886aed8cf64303"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78e164d7166d1f303792912c049a135b139e07a3a3559b603d0244c99eeaa1cf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eb0bb9e45a527f1789dbc9181642955d60b2d2d48a930f318b7cf1e9bb1df47d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a7d1cce25f5053ab0f069c4cebf50f590eb4664be89545ffab5a9c72660240c6"
+    sha256 cellar: :any_skip_relocation, ventura:       "072bd55cac02cc31f978923b7d9c90a63b5a9d4ddd314dcbbaa495319825411c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7b5399f8ded336f4fa1756c9a0d17a26bb52ee8b5da16bc06fcabdcb2e8f838"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2421d6c93d562c17fd6f1704b3775b26e34e6b7f9aa98c21a20b138efdb63870"
   end
 
   depends_on "rust" => :build

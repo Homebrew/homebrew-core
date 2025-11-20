@@ -1,10 +1,20 @@
 class Gpa < Formula
   desc "Graphical user interface for the GnuPG"
   homepage "https://www.gnupg.org/related_software/gpa/"
-  url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.11.0.tar.bz2"
-  mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.11.0.orig.tar.bz2"
-  sha256 "26a8fa5bf70541cb741f0c71b7cfe291b1ea56eab68eeb07aa962cef5cdf33cc"
   license "GPL-3.0-or-later"
+  revision 1
+
+  stable do
+    url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.11.0.tar.bz2"
+    mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.11.0.orig.tar.bz2"
+    sha256 "26a8fa5bf70541cb741f0c71b7cfe291b1ea56eab68eeb07aa962cef5cdf33cc"
+
+    # Fix for `gpgme` >= 2.0.0 compatibility
+    patch do
+      url "https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gpa.git;a=patch;h=b6ba8bcc6db7765667cd6c49b7edc9a2073bc74f"
+      sha256 "3aab76d3d79cad0c756f9c73cc237b8632ae9e7f68d5f7715c3ca58e2c633bc5"
+    end
+  end
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpa/"
@@ -12,13 +22,14 @@ class Gpa < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "c0c60b01b9d98ed8aab7c7527587a47d3da59296f9bc1fd4fd42de59ca7ddbb8"
-    sha256 arm64_sonoma:  "df87078cf6cf9f08a8929ee7b17f8c02c59e861dc2b95dde4219ad1bb618ffa5"
-    sha256 arm64_ventura: "aef02be2a1ff1789b39b13a9aeb992f205dad05cc86bb5b49c56bfcb8c574602"
-    sha256 sonoma:        "3aebae31685d4eed01681ce32eb85166e4eabb1aa653b113295d9d22539b2f32"
-    sha256 ventura:       "ba20f9563e8f329507ebae4de2101385737dc2853134c35b555b1a150e17f101"
-    sha256 arm64_linux:   "9393bde60e35d9ed3b29536c4025744e2d4051c24287d0617b4aa861a5e8cc10"
-    sha256 x86_64_linux:  "07d492d6e76e1bfab56580d855828fc133ea535bb83ef7ffa07cbeb31ad8269c"
+    sha256 arm64_tahoe:   "dadbb049d9885447f60ee0cfcada2faf0da3251d49182f8879a0bba60df16f18"
+    sha256 arm64_sequoia: "69c538278add61a01e2a4cf2322c4fd36889105a1616c6a1121a42ef236046b8"
+    sha256 arm64_sonoma:  "6d33523eedf82d824372a0aa44d7f645fba618b5962b353a19852a3af16826e2"
+    sha256 arm64_ventura: "58999f0449db4ac31542005cfa3ba5b9be8f2e0c5387c1c6f5e45af0efa3bcd4"
+    sha256 sonoma:        "19b85e51fb483e11137526bc86ad6b679693e1e310fbfa14e72d5e69f04517ed"
+    sha256 ventura:       "03c2514f40f78da208b4b4f083f474a115b3014b3b4202d219502f445d058179"
+    sha256 arm64_linux:   "26b0ad5264410984e466e2687240c3a8df1a6f024708106dd80f2cb6c46aa966"
+    sha256 x86_64_linux:  "e2d2919e86ab3b341bb4552c4ff84e81a46912136ce4d55a28609780d066de03"
   end
 
   head do

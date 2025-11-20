@@ -2,9 +2,10 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.73.0",
-      revision: "95dd243c6d9a9104c6ca2344861c8e8d8ccf4d7b"
+      tag:      "v1.76.0",
+      revision: "f5ffb68d8a2fd603dff16287e90a4ac571e1fec6"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/grpc/grpc.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -19,13 +20,12 @@ class Grpc < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "02dbd7c0b6e30483d5c2ef9fe4809ac40235ad86a24271c490e8aa3031b18faa"
-    sha256                               arm64_sonoma:  "e00be39a03aea493d74fe853654a49112a7e4ae356dcda3dec9a72d7689f17fe"
-    sha256                               arm64_ventura: "6396b8eb2790b1ba0b11dd0281b0cae36fbea527becb4e6e2f285a73d93fac8d"
-    sha256 cellar: :any,                 sonoma:        "0ffb7a678ccb057e7e8bd3694791e437ec7b3549f4dc270daf6db4d9f41fab15"
-    sha256 cellar: :any,                 ventura:       "542944ebbe437fb1da919bb949d992e3e9d7dd1b5bfa5b924fe314b6a097758e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "47c41e9b252dcb6712df9d1f5d480f75683e15857e1dd826063f0ca3112dbc58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cc4170e279f352dfcc11a59939491e6f5e736efdb374b7d993deb67282b4e6c"
+    sha256 cellar: :any, arm64_tahoe:   "0a57bc2c620ae2cecbc931e3645058e28b3cadff1028eedec4f192d800df5ea1"
+    sha256 cellar: :any, arm64_sequoia: "9caa9e92eccbf18a968646545ca5a37181956f34cc94dda764faa409a1bd355c"
+    sha256 cellar: :any, arm64_sonoma:  "910c3c46542d51659d3cff5fbc335a0991e802a46315b91ae1991e44cabb4a57"
+    sha256 cellar: :any, sonoma:        "d79fbfbb7091b0c9ae48bc4d0070e6ffc507e1155caf1cfef8bfa8413106c304"
+    sha256               arm64_linux:   "f234d89f888ef87ed628b67b1d200eb08a3d100d288c66fafc42cfc0536bc5b6"
+    sha256               x86_64_linux:  "3cdbe3ec422664114affb771f33338709a52dfa77e3c1a93d996cc4acfcc5000"
   end
 
   depends_on "autoconf" => :build
@@ -73,6 +73,10 @@ class Grpc < Formula
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
 
+    # `grpc_cli` fails to build on Linux. In any case, it looks like it isn't meant to be be installed.
+    # TODO: consider dropping this on macOS too.
+    return unless OS.mac?
+
     # The following are installed manually, so need to use CMAKE_*_LINKER_FLAGS
     # TODO: `grpc_cli` is a huge pain to install. Consider removing it.
     linker_flags += %W[-rpath #{rpath} -rpath #{rpath(target: HOMEBREW_PREFIX/"lib")}]
@@ -107,6 +111,9 @@ class Grpc < Formula
     flags = shell_output("pkgconf --cflags --libs libcares protobuf re2 grpc++").chomp.split
     system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *flags, "-o", "test"
     system "./test"
+
+    # We don't build `grpc_cli` on Linux.
+    return unless OS.mac?
 
     output = shell_output("#{bin}/grpc_cli ls localhost:#{free_port} 2>&1", 1)
     assert_match "Received an error when querying services endpoint.", output

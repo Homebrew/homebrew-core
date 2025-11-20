@@ -1,8 +1,8 @@
 class Jq < Formula
   desc "Lightweight and flexible command-line JSON processor"
   homepage "https://jqlang.github.io/jq/"
-  url "https://github.com/jqlang/jq/releases/download/jq-1.8.0/jq-1.8.0.tar.gz"
-  sha256 "91811577f91d9a6195ff50c2bffec9b72c8429dc05ec3ea022fd95c06d2b319c"
+  url "https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-1.8.1.tar.gz"
+  sha256 "2be64e7129cecb11d5906290eba10af694fb9e3e7f9fc208a311dc33ca837eb0"
   license "MIT"
 
   livecheck do
@@ -10,16 +10,15 @@ class Jq < Formula
     regex(/^(?:jq[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5911dafda561f792305dbc34b1f2ca5265bede9d7e60c655d9390511b560df4e"
-    sha256 cellar: :any,                 arm64_sonoma:  "de8dbc03158683f974e8ef52f886abe1d6d6250dba92e2b0e5c7758eb1a5168c"
-    sha256 cellar: :any,                 arm64_ventura: "4a5c7fa291902388f6e869f6d656619be87a1af597b448e7280813075ed16c2e"
-    sha256 cellar: :any,                 sonoma:        "856817ef0376db702b90fb543180abbf519914f83b0c968f5e668b902cca3e28"
-    sha256 cellar: :any,                 ventura:       "b25424ffc93b27bce860c31eea8ab6174e6e68efa9ae12a1eb985eefdb08e46d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1762be8892ea341cf8062fcdb7587ca9366bfb16e645a5d076d6149ba95dfe4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "589b86f4e458ce4c6236e18e0a938474f61480cf7034418313c476410a2cc942"
+    sha256 cellar: :any,                 arm64_tahoe:   "90b0fe4ad51959380f16fe8d84c5be8ab525478c32f1f7034c72d99de2442c9b"
+    sha256 cellar: :any,                 arm64_sequoia: "d7bce557bb82addd6cf01b8bb758d373ee11cb6671e4d7b1dc2a2c89816bcc32"
+    sha256 cellar: :any,                 arm64_sonoma:  "147e512951120ec6f10a36a857c84f5f3300fd33b3d6bcce2f2162b10b0481aa"
+    sha256 cellar: :any,                 arm64_ventura: "efd141679d5a7a57797fc8866aa8f2200b08622b141877117f9b9204b27f6e87"
+    sha256 cellar: :any,                 sonoma:        "a1a5f487f1840d9a18abdecdf1c6c5a5385917725c6ba88f7f819ac5f4cfa801"
+    sha256 cellar: :any,                 ventura:       "1b5303b052e245affedf2e7b1c59caf4424b1e5b3d65de186424dc8dcf6b1ee7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "274b391020473ad15697b0eaf0dc7e44a57312e7eaa7642e1bc8426ca9c0a54d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82883e1f3b674759d0e3d0c37e6805c0f91e3886f3e40c7ebc57f1e0174dfbe7"
   end
 
   head do

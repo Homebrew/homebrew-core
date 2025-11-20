@@ -1,20 +1,19 @@
 class Libwebm < Formula
   desc "WebM container"
   homepage "https://www.webmproject.org/code/"
-  url "https://github.com/webmproject/libwebm/archive/refs/tags/libwebm-1.0.0.31.tar.gz"
-  sha256 "616cfdca1c869222dc60d5a49d112c1464040390e3876afca4d385347c6ce55e"
+  url "https://github.com/webmproject/libwebm/archive/refs/tags/libwebm-1.0.0.32.tar.gz"
+  sha256 "7fd5e085bda9f8031cf2ad2a1e52d9b7b29cba9c0b96ad2ce794ce89e4249eb8"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49e659cf7620ec30ffecd7654da70d28120cd409ae68d7a48a646d2e57bcba1b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bdcfe9ac4d4a025957c618aee58539cad66931b0d74e17f05b049337cbebe651"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "21a08a2111b19d647ae24038c95ebafe8bcfb2db68d512e3e84615b27bf85c34"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6233852ce953b18eb356b7af0f5433984d770cfa50a9bf067a67469e9a4aa489"
-    sha256 cellar: :any_skip_relocation, sonoma:         "25960105fc505deab8de42959a2586cf14ae0aafb8fe8bce4ffcb389b43badd5"
-    sha256 cellar: :any_skip_relocation, ventura:        "a6dedcb3fb10cf5363a2cd18f95c62fb8e35f4383f524d29f08541c9f9bcd26d"
-    sha256 cellar: :any_skip_relocation, monterey:       "1c9bce06869370b1e3222777fb5c29fe9f1f9f281f4a830e45b7f3e37441b64c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "fe3eadf731b1ff0e1fea5a69a77f88e9643f6c27ce60202f80c583494b607fef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ca54a3fe3b38d5c2ccb316ab18779dfa6c7fa5b4d9533be5be3cb5bb822e64f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4bd6613c74dd44b41084c070312f2eda8d419fe657f98b4f86d29d02626a92ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "325dddc229395db23b900a46264df1437b31af109a4fa3a8c488eee5dff1aa7a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7afc749ec4d49cd5853f62861df3cfdac04caebd77478def12e69f97b2a52b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3db90115b86d8d78e0630f7954167262a3caacf0ec71f1f8e8549d7a87dbecd1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ccf6f6d11126683575f1eb158e8b0fe562a3b12594970114746751f1418b4dc3"
+    sha256 cellar: :any_skip_relocation, ventura:       "2a1a22a88f4f5841edbfcd0147dca26f323e8d00f8c6e51b5ac163c6470e334d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e04dd0c252829a72f8f70f14c0a4f250a71e439770db4718198618e9016afbd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc19451f040265923fdc0413c0f78769872338ddda782625ff9a567c6c3be2f6"
   end
 
   depends_on "cmake" => :build

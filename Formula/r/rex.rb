@@ -1,18 +1,19 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.16.0.tar.gz"
-  sha256 "d6d9657d29527e15995c6de33d7bf1111da7860d420ac95385c1161daaea2479"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.16.1.tar.gz"
+  sha256 "b66ff756db8c8479ab99d2c9ec9827bf624b8bca2e96ef9ccf2395e279731662"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f00580cf78183073fc1f2377f7ab2aa231b6be9479b78a9d1c29a4aaa7c458a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f00580cf78183073fc1f2377f7ab2aa231b6be9479b78a9d1c29a4aaa7c458a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "14c493b9b4c153b1a4f33e1b624d29527ea7f9aa950a64f994a958d1138cd277"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1ec0b657ca4df29ba4c341308588731d66c7b028ea536da079c1fed4663fa45d"
-    sha256 cellar: :any_skip_relocation, ventura:       "dc84e4db07cd881c8757c6b13f96463a0beadd8dd0200f02ec31baab975310ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de2713e1304c25fa9969a881b6ee5f91a28c16383721ee2ad3700b60b94c8a36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b27583c8426ff3a5d7eb06d61a2bcfca88283b51e6d83fbca5d1ebae4e09f5f3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0c9642847deaa4d8bf040a6d54def45ce7aa3f658109a7eabc731fb073901cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0c9642847deaa4d8bf040a6d54def45ce7aa3f658109a7eabc731fb073901cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0c9642847deaa4d8bf040a6d54def45ce7aa3f658109a7eabc731fb073901cb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "903b511e474d98b27fd8324272b7925ee37afc311c1a18ebef0eb3abcd196029"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3088c8f5ad9aed2584b405494fdbb10928c7c833ce9da45444e2b1e105d4fde7"
+    sha256 cellar: :any_skip_relocation, ventura:       "ded62b5eeb9a01e7a2ea466a8e162d0c102bc5c1f13ef306694fe563f4d515ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb6348230177ed3b004e9f8ef6bd3cb79a208ae983ed1ba6efa79b9617f73329"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f05c3c843367e1ee2ea8d40c6797dc332b3a1ea5f739381a330a83c279e3eca"
   end
 
   uses_from_macos "expat"
@@ -47,8 +48,8 @@ class Rex < Formula
     end
 
     resource "Scalar::Util" do
-      url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.68.tar.gz"
-      sha256 "23317e4346fe8747f0167eccd1881d6369aa71023f014cd6f846988843295906"
+      url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.69.tar.gz"
+      sha256 "49108037dc31ba4953aa8be57c1c72f3e922dde1fa328f1eb39a329f1e6314fc"
     end
 
     resource "YAML" do
@@ -117,8 +118,8 @@ class Rex < Formula
     end
 
     resource "Module::Build::Tiny" do
-      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.051.tar.gz"
-      sha256 "74fdce35e8cd4d787bc2d4fc1d43a291b7bbced4e94dc5fc592bd81ca93a98e9"
+      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.052.tar.gz"
+      sha256 "bd10452c9f24d4b4fe594126e3ad231bab6cebf16acda40a4e8dc784907eb87f"
     end
 
     resource "HTTP::Daemon" do
@@ -152,8 +153,8 @@ class Rex < Formula
     end
 
     resource "LWP::UserAgent" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.77.tar.gz"
-      sha256 "94a907d6b3ea8d966ef43deffd4fa31f5500142b4c00489bfd403860a5f060e4"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.79.tar.gz"
+      sha256 "f2526e9a33ac96715cc47fbf5b4bec1a8c51720330b24e3974c2c5ae07a9c5e7"
     end
 
     resource "LWP::MediaTypes" do
@@ -192,8 +193,8 @@ class Rex < Formula
     end
 
     resource "URI" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.31.tar.gz"
-      sha256 "b9c4d58b2614b8611ae03a95a6d60ed996f4b311ef3cd5a937b92f1825ecc564"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.32.tar.gz"
+      sha256 "9632067d34e14e0dae2da94631c4f25a387fcc48d06fa29330e8b3c04c4e913d"
     end
 
     resource "WWW::RobotRules" do

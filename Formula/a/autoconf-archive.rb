@@ -1,13 +1,14 @@
 class AutoconfArchive < Formula
   desc "Collection of over 500 reusable autoconf macros"
   homepage "https://savannah.gnu.org/projects/autoconf-archive/"
-  url "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2024.10.16.tar.xz"
-  mirror "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2024.10.16.tar.xz"
+  url "https://ftpmirror.gnu.org/gnu/autoconf-archive/autoconf-archive-2024.10.16.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2024.10.16.tar.xz"
   sha256 "7bcd5d001916f3a50ed7436f4f700e3d2b1bade3ed803219c592d62502a57363"
   license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "75991b9174b35f768e55c113e3cca5f1b88939590ea865b4072426230fdef4ae"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7652c1e3d7ef6dc9cc8d6ef298f1bfe80d9888876052bedba5f5638b5e280945"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7652c1e3d7ef6dc9cc8d6ef298f1bfe80d9888876052bedba5f5638b5e280945"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7652c1e3d7ef6dc9cc8d6ef298f1bfe80d9888876052bedba5f5638b5e280945"

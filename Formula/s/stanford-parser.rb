@@ -10,6 +10,8 @@ class StanfordParser < Formula
     regex(/href=.*?stanford-parser[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "699a16febb7fd2e483deaa44dee2fafbbe29d00343efe37d31d01d3b0fa14fe1"

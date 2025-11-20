@@ -5,6 +5,7 @@ class Synfig < Formula
   url "https://github.com/synfig/synfig/releases/download/v1.5.3/synfig-1.5.3.tar.gz"
   sha256 "913c9cee6e5ad8fd6db3b3607c5b5ae0312f9ee6720c60619e3a97da98501ea8"
   license "GPL-3.0-or-later"
+  revision 4
   head "https://github.com/synfig/synfig.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,17 @@ class Synfig < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256                               arm64_sonoma:  "a34f714cd0675cdaf0770cf662de92fab119890831b8e806584594e07a36abbe"
-    sha256                               arm64_ventura: "6d5e945bb683d8a2a053950136bf5b6a45831a9239e8b513c334ef6be3ad3115"
-    sha256                               sonoma:        "d912728bb8c9e5c0f0b2b7c85a38aec545d342c217c518ed8d424ba05c7998f4"
-    sha256                               ventura:       "6949dc5c8e91eb8726237619c4e45272ac0a8fc99a0baa77260081bc46fdd772"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b865dde889776e10d50939b7243452c5ecd9981412a0101e6c82e40e2bd45c35"
+    sha256                               arm64_tahoe:   "2949d65a521165cb25962acc9d6e3090d6c07e2b64ab9406857a180646d8503c"
+    sha256                               arm64_sequoia: "4469396d620f5628369b249c7c1061acf8c3440efc9ed983524ef5984d8af706"
+    sha256                               arm64_sonoma:  "ef3a37a8ab7358f2ab0f9f57a8175e1a769d33c6828545f8ebf38e5dedb427b8"
+    sha256                               arm64_ventura: "68483a37438ba702052fa92732b2728b9be185f2568a1e67a32a8a19f407f63f"
+    sha256                               sonoma:        "c6fc59da6e3a82ea0b1ba17e8122d84b24ec9eab7fade3663925c557e40b6ac8"
+    sha256                               ventura:       "92e95f7a48ffe21f00ca3df61e3bbe048e7687420f173c6e0e52b82f5aefe66b"
+    sha256                               arm64_linux:   "7f81f123950068165ecf54cede5508aa8c5489001bac5c8676556b0acd027d15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0538580f2f6c5deb7a0b6cc1225db0403eb24df11182224ed8ab584a743263f"
   end
 
   depends_on "autoconf" => :build
@@ -63,6 +69,13 @@ class Synfig < Formula
 
   def install
     ENV.cxx11
+
+    # Workaround to fix error: a template argument list is expected after
+    # a name prefixed by the template keyword [-Wmissing-template-arg-list-after-template-kw]
+    # PR ref: https://github.com/synfig/synfig/pull/3559
+    if DevelopmentTools.clang_build_version >= 1700
+      ENV.append_to_cflags "-Wno-missing-template-arg-list-after-template-kw"
+    end
 
     # missing install-sh in the tarball, and re-generate configure script
     # upstream bug report, https://github.com/synfig/synfig/issues/3398

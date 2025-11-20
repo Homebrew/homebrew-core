@@ -9,6 +9,7 @@ class Enchive < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a0c663f95e9a509534933df146b2ca6792ce0388907cc07b8eaffb3025ed139f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e5167a67337419271ca6275a8ee178da5c3b417dd29721ed7c954c2cecaa8dfa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea632e41797ea8ac720c8e0ded7eafe6b580fecb092bbe0d25e0c2a805189a9d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4031f7e6516988ab5a83c2e1b9f88af552d71575772348383860a6015fe121b"

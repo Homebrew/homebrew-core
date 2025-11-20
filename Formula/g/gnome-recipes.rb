@@ -10,6 +10,7 @@ class GnomeRecipes < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "aa4f377580d2f261bf6997d22203eab2ab4a41dd25ac493c31c156712ffeebb8"
     sha256 arm64_sequoia: "3bdeeed9601b21231a0681c228ad2c69aeec741c8a03e254927a6563691b8ec3"
     sha256 arm64_sonoma:  "6747e4b6466b029d7752f666b49efd402420d1f849ba297d1826ead4c3afd357"
     sha256 arm64_ventura: "f6034dd729fdcb7445b1e41d873d4bf19fad4e8ecd756bef137981ae3337e15c"
@@ -46,7 +47,7 @@ class GnomeRecipes < Formula
   # Apply Debian patch to support newer libsoup and librest
   # PR ref: https://gitlab.gnome.org/GNOME/recipes/-/merge_requests/47
   patch do
-    url "https://sources.debian.org/data/main/g/gnome-recipes/2.0.4-3/debian/patches/Port-to-libsoup-3.0-and-librest-1.0.patch"
+    url "https://salsa.debian.org/gnome-team/gnome-recipes/-/raw/76a3e12b3a77e76bf0c2bf894481d6b0284dd5af/debian/patches/Port-to-libsoup-3.0-and-librest-1.0.patch"
     sha256 "15a06b277d3961d4a00e71eb37b12f4f63f42c99bc1c1a6c9d9f4ead879d4c32"
   end
 

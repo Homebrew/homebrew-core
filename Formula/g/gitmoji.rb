@@ -6,20 +6,23 @@ class Gitmoji < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b103f8ae76bd0bdc19d308f7f172644396759fd8a646e1afb85ec0682a4eb6e5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3caa7ff08fc6f9e6845699bd0390bef6d4529ec07a1e7fd1fc1bd9846ff1db6e"
   end
 
   depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
+
+    # Ensure we have uniform bottles.
     files = ["global-directory/index.d.ts", "npm-run-path/node_modules/path-key/index.d.ts",
              "path-key/index.d.ts", "xdg-basedir/index.d.ts", "xdg-basedir/index.js",
              "npm-run-path/index.d.ts", "global-directory/index.js", "@pnpm/npm-conf/lib/defaults.js"]
     files.each do |file|
-      inreplace libexec/"lib/node_modules/gitmoji-cli/node_modules/#{file}", "/usr/local", "@@HOMEBREW_PREFIX@@"
+      inreplace libexec/"lib/node_modules/gitmoji-cli/node_modules/#{file}", "/usr/local", HOMEBREW_PREFIX
     end
-    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do

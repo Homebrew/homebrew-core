@@ -2,11 +2,11 @@ class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
-  url "https://curl.se/download/curl-8.14.1.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_14_1/curl-8.14.1.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.14.1.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.14.1.tar.bz2"
-  sha256 "5760ed3c1a6aac68793fc502114f35c3e088e8cd5c084c2d044abdf646ee48fb"
+  url "https://curl.se/download/curl-8.17.0.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_17_0/curl-8.17.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.17.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.17.0.tar.bz2"
+  sha256 "230032528ce5f85594d4f3eace63364c4244ccc3c801b7f8db1982722f2761f4"
   license "curl"
 
   livecheck do
@@ -15,13 +15,13 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a208325a56e95796533140b94783a70603e8e78718249b7d3580da12da24ebaf"
-    sha256 cellar: :any,                 arm64_sonoma:  "9e23c9408e31d5e0aada20daa57dd13f012b5430410c78ee6d9dadfc81b2fb16"
-    sha256 cellar: :any,                 arm64_ventura: "3533a79f542d152fe7eac26c7cbeaeaf141eff9c85debc32db1681857cd2ca91"
-    sha256 cellar: :any,                 sonoma:        "cf79c9d7b13b861cea4359140ea82e97b2d1bbca1083d2dbe8b74b7fae4051d7"
-    sha256 cellar: :any,                 ventura:       "a09d7b8ad2616b22848e5dd0bb52bae7e7cab1517cd1245cb53af1b3e2a9eb7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81ab501f75ec3305e4b4c624c15d1b0042645dbbf0f73e5975032ca37284bd51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42ab4d16878ac6b3cee935dbe5e27c290b671566c4352c41bd9982dc5b7620be"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "5574d39eae4f09f73d98c8b6cad48d1ab29824308e9f5e4e23da447518d3ccec"
+    sha256 cellar: :any,                 arm64_sequoia: "765d7ff96b1c76fd50fce97c8c9b92f275f2e87f5906f8630a497ab444a9e19a"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c590f02d835727314c1f6609d20e9c130322d296ff734d514cf8bd91a3c1eb5"
+    sha256 cellar: :any,                 sonoma:        "c7aefbef958c34b8d798f04d9e40fe6e54240131f8c3936a7c0e48dbb19e580d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b205412aeb707cd25cd0e7b02b9d07d893650f6669b36b57ef3ae029bdbb0081"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8992fa6ca3983418673024a4c6488ece89dd1c0fe897ba528071c3840999abbb"
   end
 
   head do
@@ -37,6 +37,8 @@ class Curl < Formula
   depends_on "pkgconf" => [:build, :test]
   depends_on "brotli"
   depends_on "libnghttp2"
+  depends_on "libnghttp3"
+  depends_on "libngtcp2"
   depends_on "libssh2"
   depends_on "openssl@3"
   depends_on "rtmpdump"
@@ -44,7 +46,7 @@ class Curl < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "openldap"
-  uses_from_macos "zlib", since: :sierra
+  uses_from_macos "zlib"
 
   on_system :linux, macos: :monterey_or_older do
     depends_on "libidn2"
@@ -52,7 +54,7 @@ class Curl < Formula
 
   def install
     tag_name = "curl-#{version.to_s.tr(".", "_")}"
-    if build.stable? && stable.mirrors.grep(/github\.com/).first.exclude?(tag_name)
+    if build.stable? && stable.mirrors.grep(%r{\Ahttps?://(www\.)?github\.com/}).first.exclude?(tag_name)
       odie "Tag name #{tag_name} is not found in the GitHub mirror URL! " \
            "Please make sure the URL is correct."
     end
@@ -68,19 +70,23 @@ class Curl < Formula
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
-      --with-secure-transport
       --with-default-ssl-backend=openssl
       --with-librtmp
       --with-libssh2
+      --with-nghttp3
+      --with-ngtcp2
       --without-libpsl
       --with-zsh-functions-dir=#{zsh_completion}
       --with-fish-functions-dir=#{fish_completion}
     ]
 
-    args << if OS.mac?
-      "--with-gssapi"
+    args += if OS.mac?
+      %w[
+        --with-apple-sectrust
+        --with-gssapi
+      ]
     else
-      "--with-gssapi=#{Formula["krb5"].opt_prefix}"
+      ["--with-gssapi=#{Formula["krb5"].opt_prefix}"]
     end
 
     args += if OS.mac? && MacOS.version >= :ventura
@@ -108,9 +114,12 @@ class Curl < Formula
     system bin/"curl", "-L", stable.url, "-o", filename
     filename.verify_checksum stable.checksum
 
+    # Verify QUIC and HTTP3 support
+    system bin/"curl", "--verbose", "--http3-only", "--head", "https://cloudflare-quic.com"
+
     # Check dependencies linked correctly
     curl_features = shell_output("#{bin}/curl-config --features").split("\n")
-    %w[brotli GSS-API HTTP2 IDN libz SSL zstd].each do |feature|
+    %w[brotli GSS-API HTTP2 HTTP3 IDN libz SSL zstd].each do |feature|
       assert_includes curl_features, feature
     end
     curl_protocols = shell_output("#{bin}/curl-config --protocols").split("\n")

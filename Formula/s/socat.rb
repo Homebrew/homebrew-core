@@ -11,20 +11,21 @@ class Socat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2aaa10446c3d48a4abae274444c3ab9de518616dec42dde68146220d1cc58cf9"
-    sha256 cellar: :any,                 arm64_sonoma:  "137815efa3654ce88233eadb28d740d3fee351d89f2d65a31ae30d1fa32e77ed"
-    sha256 cellar: :any,                 arm64_ventura: "ed40e4fd40e2cf47cc732fbe1b188922e7b41d13df5917509fab2335f24f7398"
-    sha256 cellar: :any,                 sonoma:        "c418f4b948cc59f250fa1467eed47b1cf088d6a17ea8c94f6525348693af2339"
-    sha256 cellar: :any,                 ventura:       "5986bf1538a59cb4ee5d285f54d17f3ee893d993d174ee9ce2cedb2a2c567779"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "56e85c0167c53a685bb332c47a18e40fa0f6133783c70acc3db6a43189c8f98b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90337fcfe325651b99280dcb87e3e9bdfc4ad25dfaf7a9fbb7227fac4ff68cad"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f7e7d5260c272cbd1e7fa756d05a754fc4622d0e7186b10cd9f1844752c098e0"
+    sha256 cellar: :any,                 arm64_sequoia: "4d18220d65718e33cfb0df17d6355363e631a92743de11b62e8f35c031229a45"
+    sha256 cellar: :any,                 arm64_sonoma:  "590558b903c048f2b1470448332db9e614dfb957bc88792a2d6997cd6b25bbe3"
+    sha256 cellar: :any,                 sonoma:        "9a11d44ff176f147b77ad3cdbc61288572f59439b522424d498a7f189cf90fbd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b1267cd58832bc2baf9411126edd297f26ce63d87e6190e431e7908e7f6c08d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e5509b742cabf4d42fdb8af7777a32eb6ec2771e1af5b7087a34e7b5937c7f5"
   end
 
   depends_on "openssl@3"
-  depends_on "readline"
 
   def install
-    system "./configure", *std_configure_args, "--mandir=#{man}"
+    # NOTE: readline must be disabled as the license is incompatible with GPL-2.0-only,
+    # https://www.gnu.org/licenses/gpl-faq.html#AllCompatibility
+    system "./configure", "--disable-readline", *std_configure_args
     system "make", "install"
   end
 

@@ -1,23 +1,24 @@
 class LibreadlineJava < Formula
   desc "Port of GNU readline for Java"
   homepage "https://github.com/aclemons/java-readline"
-  url "https://github.com/aclemons/java-readline/releases/download/v0.8.3/libreadline-java-0.8.3-src.tar.gz"
-  sha256 "57d46274b9fd18bfc5fc8b3ab751e963386144629bcfd6c66b4fae04bbf8c89f"
+  url "https://github.com/aclemons/java-readline/releases/download/v0.8.4/libreadline-java-0.8.4-src.tar.gz"
+  sha256 "8767f1e5ba01c5bece9401871b318e9a28607d199a14def7a7bcb495059c2958"
   license "LGPL-2.1-or-later"
 
+  livecheck do
+    url :stable
+    regex(/^[vR]?_?(\d+(?:[._-]\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "69be2c1c7e2604d6c01ef986fd8f1107976d4e1cec7784eaf971d7e2e69cb301"
-    sha256 cellar: :any,                 arm64_sonoma:   "d4329ed0409bc232ed32b32af891e7eb7c1ec29945a58acdbb0f8ad2d0d7130d"
-    sha256 cellar: :any,                 arm64_ventura:  "30d029bd66f3e09eb495ba7fa8a7c537bb8d7c2fbf1fe92767918e74affb14db"
-    sha256 cellar: :any,                 arm64_monterey: "584fd1a58765d929a2671476e64994b1de6e85da1e031d47169992afc33384a5"
-    sha256 cellar: :any,                 arm64_big_sur:  "9b8326c92d05e2598c4ee4984eb1de90362e453a8a474aa3211ddb33ceb530ce"
-    sha256 cellar: :any,                 sonoma:         "ab65bd0333a0247cdfedc8d376a1289ed71157945693d0acd63e022acb8296ea"
-    sha256 cellar: :any,                 ventura:        "ec976263fbef9ca431281219e95201ca2e2aa290a03302a26e3320aeb6112a76"
-    sha256 cellar: :any,                 monterey:       "907febf2b1e8fd3455b7a01c04793fe3e65c07b7c35b4fe6031ad1a41535eaa3"
-    sha256 cellar: :any,                 big_sur:        "3c0dcc11857d99e993ca70ec7cad6f35560988e14bb94012dedae51cfb4e936a"
-    sha256 cellar: :any,                 catalina:       "7c7f86b3f0d9ba98b7e6162adb26777dd903a88ccf331428114428d3454f56d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f922f7893f5c4d14a77b945c532eb990259dad42d1f8b54ac873a6cb82764605"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5263653854ee8fe953985f740cf1f357ced552dac8fdd109906ba78d3190972"
+    sha256 cellar: :any,                 arm64_tahoe:   "c0be01dc30e16481895ced158022bde0abd47698532406fe694974695f028e17"
+    sha256 cellar: :any,                 arm64_sequoia: "52f86fbe9c1b82c3514d13d7a9c4e60cee6f3bf387290ae7ce0ebba3bc98a106"
+    sha256 cellar: :any,                 arm64_sonoma:  "d39da0a4d0597ea0994146549145565b00a23277a2d080fc94391afd0a98d502"
+    sha256 cellar: :any,                 arm64_ventura: "94452a56ce5ffe31e34c87c1778f4e761cbe498ab566344072578d699c8e46b5"
+    sha256 cellar: :any,                 sonoma:        "214bbffd99c95123e7b2fbb4758ae0d911a39d3ca0fc03d9c5fab6429109edc2"
+    sha256 cellar: :any,                 ventura:       "e8b5eef43662b6594f6bf0e4d0fb222da1ed6526eb5c11a0e4d1d97d54f9f184"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6bbf05f7d0a1176b8daf2dd9d01da8bf1708abe03c3c34506ce9b78f327cc341"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8ae93ee446d1a424cb6d17d8103d0a86fc0d964b0247852cc710872897349b8"
   end
 
   depends_on "openjdk"

@@ -6,16 +6,15 @@ class SolrAT811 < Formula
   sha256 "163fbdf246bbd78910bc36c3257ad50cdf31ccc3329a5ef885c23c9ef69e0ebe"
   license "Apache-2.0"
 
-  livecheck do
-    url "https://solr.apache.org/downloads.html"
-    regex(/href=.*?solr[._-]v?(8\.11(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "65d79494d324de0e00931020fc1e1624c7929566a4d66cee0b33052111f6e523"
   end
 
   keg_only :versioned_formula
+
+  # Solr 8 reached end of life (EOL) on 2024-10-25:
+  # https://solr.apache.org/news.html#solr-8-reaches-end-of-life
+  deprecate! date: "2025-11-07", because: :unsupported
 
   depends_on "openjdk"
 

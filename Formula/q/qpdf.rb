@@ -6,6 +6,7 @@ class Qpdf < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ab1f5d8c3971bf00c4d203782ca925f1bb7088d0a8f835f0fc64d76aeecbf8b7"
     sha256 cellar: :any,                 arm64_sequoia: "402fda223390d4fbe22d3c213a1b20a08e4472ecb9c88c3aedbd018071e5d533"
     sha256 cellar: :any,                 arm64_sonoma:  "f3225c6dc278a1a0284d44583ff89d46885b43fd7199f0713c7941e176c4d6e5"
     sha256 cellar: :any,                 arm64_ventura: "d19d7552a5e40c451d80f739dbbc8475d082701d98bb8d7e6b9d300393f8cadb"

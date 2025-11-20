@@ -8,6 +8,7 @@ class Libprelude < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:    "ee60f8520bdb4b83e136123a3233c36d1f621a866ddae7cae660b9584234ef8c"
     sha256 arm64_sequoia:  "85b094bb36c75510e7cae400478972591a03082b8164e7b183fd0b014fffcec2"
     sha256 arm64_sonoma:   "2ab78aeb01f7a0d2d369ccc3c91e8c14e0e4b192545a222272e7577ded59d56c"
     sha256 arm64_ventura:  "b036b329b9cd3385fdc29af3504dc3cfe66874dd48e3143816d2809b8be86517"
@@ -15,6 +16,7 @@ class Libprelude < Formula
     sha256 sonoma:         "f3a949405b38d7738f8d94dae6fb90b1561702192e666db623f2c8228d52a320"
     sha256 ventura:        "3a2c08553d695bea452ef9fba367c05eb6eac05a9225083a45c3dd8126c942c8"
     sha256 monterey:       "9cf654ae4238290e9cd8c16e34b41a48dbbfd0d4e1cff034cb69361849f7848e"
+    sha256 arm64_linux:    "df3abdca560324d595a18bb32eca2a47509f18fbb876c8c99228adb1c4c59562"
     sha256 x86_64_linux:   "52bd631b4ad679cd32f6f8c46d6e3471d800af3e32d4672009bb05733935766d"
   end
 
@@ -22,6 +24,7 @@ class Libprelude < Formula
   # shows libprelude has been dropped by Fedora, Gentoo and pkgsrc.
   # Last release on 2020-09-11
   deprecate! date: "2024-11-04", because: :unmaintained
+  disable! date: "2025-11-04", because: :unmaintained
 
   depends_on "pkgconf" => :build
   depends_on "python@3.12" => [:build, :test]
@@ -34,6 +37,16 @@ class Libprelude < Formula
   patch do
     url "https://sources.debian.org/data/main/libp/libprelude/5.2.0-5/debian/patches/025-Fix-PyIOBase_Type.patch"
     sha256 "cd03b3dc208c2a4168a0a85465d451c7aa521bf0b8446ff4777f2c969be386ba"
+  end
+
+  # Apply Debian patch to fix segmentation fault on arm64 linux
+  patch do
+    on_linux do
+      on_arm do
+        url "https://sources.debian.org/data/main/libp/libprelude/5.2.0-5/debian/patches/005-fix_pthread_atfork.patch"
+        sha256 "5d3e2961b9901fe2109516c422956f20685da780dfd550d7741f61f5e43f7d0c"
+      end
+    end
   end
 
   def python3
@@ -68,13 +81,13 @@ class Libprelude < Formula
   end
 
   test do
-    assert_equal prefix.to_s, shell_output(bin/"libprelude-config --prefix").chomp
-    assert_equal version.to_s, shell_output(bin/"libprelude-config --version").chomp
+    assert_equal prefix.to_s, shell_output("#{bin}/libprelude-config --prefix").chomp
+    assert_equal version.to_s, shell_output("#{bin}/libprelude-config --version").chomp
 
     (testpath/"test.c").write <<~C
       #include <libprelude/prelude.h>
 
-      int main(int argc, const char* argv[]) {
+      int main(int argc, char* argv[]) {
         int ret = prelude_init(&argc, argv);
         if ( ret < 0 ) {
           prelude_perror(ret, "unable to initialize the prelude library");

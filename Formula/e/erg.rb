@@ -1,8 +1,8 @@
 class Erg < Formula
   desc "Statically typed language that can deeply improve the Python ecosystem"
   homepage "https://github.com/erg-lang/erg"
-  url "https://github.com/erg-lang/erg/archive/refs/tags/v0.6.52.tar.gz"
-  sha256 "60044c36bbb796d3638fe24fec0a9df0780a3d61f00186596055234b4c244817"
+  url "https://github.com/erg-lang/erg/archive/refs/tags/v0.6.53.tar.gz"
+  sha256 "1e9c462f255b2438392267281d27fe576f4aeebbe8dd7233b618550709ae1db6"
   license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
@@ -11,13 +11,14 @@ class Erg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8448d1e6f78e147148cf8809e061ddcbe297a1a1c461e0667ff449694fa8af79"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "557a26e2730c3129a0c236e6ad8068f93182a848353889b28f3b317a4328f243"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8bdae809691c77e08cad98a10713170a695a58c3b1827f2773b46c8f96709111"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db6384b46f60f95902434422d68143ddc9018704128b96ea4a4fc6f06a5e26e1"
-    sha256 cellar: :any_skip_relocation, ventura:       "9ba66db42294bda2437903612532f7f5094f5d5026c3e46af00a3a913d71a225"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d0ef23bbb0ef0870d8d32f15af0bdd027e0e94667c13655287a18f979ffb211"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee5fea63eb5e1e1934902ec0044ac5654627279386c56a9e486cddaed9a98d9e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e023ac2edc96a64a6018908035a57dae257571215a9c07638c51163412f17fb6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ede4eb6b4dc1753b90e42e7f9c9e583e81f259eab1c6d651ab673706b79747eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6fed24912d1f97f7e03ea7ed031f337c363d053d28e45b8ef52f831649a2c930"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d2dc59c970e2f7c5749a07e1fe8305b01b6f84223d6d44e1fd3b8e01d05ebb7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "516605c356e210661c1ffa58b8820e302786a7abc3b3c54e320e428f80ef6661"
+    sha256 cellar: :any_skip_relocation, ventura:       "d13936f69d0c3af87bf510fc4fb6cb44068cdbf3ea9409f390674145b5347402"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebb138f3a99d1ca2d0ee80bbf068198cd920bdd75854f92436fed724fcf79df5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "788d1c686b0a1dbc909294bc26e6057dc95aaed023fc3058b9674c31a9cdd8bb"
   end
 
   depends_on "rust" => :build
@@ -29,7 +30,7 @@ class Erg < Formula
     ENV["HOME"] = buildpath # The build will write to HOME/.erg
     system "cargo", "install", "--features", *feature_args, *std_cargo_args(root: libexec)
     pkgshare.install buildpath.glob(".erg/*")
-    (bin/"erg").write_env_script(libexec/"bin"/"erg", ERG_PATH: pkgshare)
+    (bin/"erg").write_env_script(libexec/"bin/erg", ERG_PATH: pkgshare)
   end
 
   test do

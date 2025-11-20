@@ -8,16 +8,17 @@ class Jsbeautifier < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cfa936f6a98eda6de5121e7cd9ccf0513039230f59e0d2cabc159526f98e19ec"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "61e5e7670ad6ea25f829c70fbc441d2bb4602c993ea36cdf1dcc829b344e57df"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "js-beautify", because: "both install `js-beautify` binaries"
 
   resource "editorconfig" do
-    url "https://files.pythonhosted.org/packages/b4/29/785595a0d8b30ab8d2486559cfba1d46487b8dcbd99f74960b6b4cca92a4/editorconfig-0.17.0.tar.gz"
-    sha256 "8739052279699840065d3a9f5c125d7d5a98daeefe53b0e5274261d77cb49aa2"
+    url "https://files.pythonhosted.org/packages/88/3a/a61d9a1f319a186b05d14df17daea42fcddea63c213bcd61a929fb3a6796/editorconfig-0.17.1.tar.gz"
+    sha256 "23c08b00e8e08cc3adcddb825251c497478df1dada6aefeb01e626ad37303745"
   end
 
   resource "six" do

@@ -1,8 +1,8 @@
 class Gtkmm4 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/4.18/gtkmm-4.18.0.tar.xz"
-  sha256 "2ee31c15479fc4d8e958b03c8b5fbbc8e17bc122c2a2f544497b4e05619e33ec"
+  url "https://download.gnome.org/sources/gtkmm/4.20/gtkmm-4.20.0.tar.xz"
+  sha256 "daad9bf9b70f90975f91781fc7a656c923a91374261f576c883cd3aebd59c833"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,24 @@ class Gtkmm4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "45f72e4079b03119f5aa4d27bb7b2004dfd8e44a980fe550098a93c86248e959"
-    sha256 cellar: :any, arm64_sonoma:  "4577ada6c92b8eedda931d73c2820a65308c5863f2ff4d8eaf0fd96cee6f0a1f"
-    sha256 cellar: :any, arm64_ventura: "043d75d67b710a15990b48bc2e76cea7a45b3f3ca28a7f91242c710ea06a65c7"
-    sha256 cellar: :any, sonoma:        "0ee8fe1d4addd3c071228a3c148b24e1dd0e6b307face59ca9dfd00ceeff5a4d"
-    sha256 cellar: :any, ventura:       "af5a7c6f8fbbb6069fb4cc9bdbd11e78e072f43e5f391896924c01bf19c3ab50"
-    sha256               arm64_linux:   "b6d3373334c215ec185f7e17c90f1f50798d12c37934a6f7cabf54c619a4c484"
-    sha256               x86_64_linux:  "e6406579298ce93e310bcdea9fb9b7d9a201ccf3446f65d04259c7988f0d68c2"
+    sha256 cellar: :any, arm64_tahoe:   "75f595a7d74ebe4f7fb3d531be9ce70cc70e6b77194d0c6984907da14497d1fd"
+    sha256 cellar: :any, arm64_sequoia: "fac1c12fd0d8e2ae213e1ac9957a1bacbe662e466144769df805c966b0322f89"
+    sha256 cellar: :any, arm64_sonoma:  "af3d4f4127d457bdef6639c83ac0c850e41d236ffd3a33e4ac0f3aaa53672ab0"
+    sha256 cellar: :any, sonoma:        "54c7c7e6a00276d3b9f21c144b8a2c3cc359f5cd2c073b6c5b51b82d4d48bb46"
+    sha256               arm64_linux:   "0077f613e776d7d5e27c23082c73cd2405a27534b025708443cf4e69979c2e29"
+    sha256               x86_64_linux:  "3ea11d6e9eeb9634d885d182615693f80b81c890d650233dbb8f20e298f141e0"
+  end
+
+  head do
+    url "https://gitlab.gnome.org/GNOME/gtkmm.git", branch: "master"
+
+    depends_on "mm-common" => :build
+    uses_from_macos "m4" => :build
+    uses_from_macos "perl" => :build
+
+    on_linux do
+      depends_on "perl-xml-parser" => :build
+    end
   end
 
   depends_on "meson" => :build
@@ -35,7 +46,7 @@ class Gtkmm4 < Formula
   depends_on "pangomm"
 
   def install
-    system "meson", "setup", "build", *std_meson_args
+    system "meson", "setup", "build", "-Dbuild-documentation=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

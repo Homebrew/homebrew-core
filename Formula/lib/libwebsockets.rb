@@ -1,8 +1,8 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://github.com/warmcat/libwebsockets"
-  url "https://github.com/warmcat/libwebsockets/archive/refs/tags/v4.3.5.tar.gz"
-  sha256 "87f99ad32803ed325fceac5327aae1f5c1b417d54ee61ad36cffc8df5f5ab276"
+  url "https://github.com/warmcat/libwebsockets/archive/refs/tags/v4.4.1.tar.gz"
+  sha256 "472e6cfa77b6f80ff2cc176bc59f6cb2856df7e30e8f31afcbd1fc94ffd2f828"
   license "MIT"
   head "https://github.com/warmcat/libwebsockets.git", branch: "main"
 
@@ -12,13 +12,14 @@ class Libwebsockets < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "9e99f2685bfac3273ac873bedec5c4ce4514666bf717dc9318856810ab92f7d2"
-    sha256 arm64_sonoma:  "8ea3a281fe5caf527100e46eeda10d31ac366839d846785da3c5b365f8882e75"
-    sha256 arm64_ventura: "1fe9ee68992714b466b2cfe7dffe84f4e08fe10de909d44916b5155887f9e825"
-    sha256 sonoma:        "aa41d5252a17883dbb24bf7f88a1246ba5f928fd6373983923fc74aec5f34198"
-    sha256 ventura:       "7690e37818cd8b559f7fd44ef1380da6ade8830294899f2d02c513c446ac3f15"
-    sha256 arm64_linux:   "543d812d4c12757637936ae3180496ce33254d92bfa4577f12fac418736f84c0"
-    sha256 x86_64_linux:  "a5baeb55111964b22daeb1bcc9138d7835999ee92e836eaac24fb616859dc654"
+    sha256 arm64_tahoe:   "adbf1ec53f5f714f712585230bf75174e101dd37d5d686a45c0f7bf73b20ffba"
+    sha256 arm64_sequoia: "a965ebcaafd65f76997b7ba363fae823e4089d618f7f0e0719d84567e580f0cf"
+    sha256 arm64_sonoma:  "48c33f1b7e2127ef3588f2ed4c7f1e16e7c4686820e5f4d90b301fc704fe68cf"
+    sha256 arm64_ventura: "81b4a1cf2409e603b8e7ac69101aa5902d56e6b9aa61599ace0671a5449e5924"
+    sha256 sonoma:        "403c3c806530d591e624efe2c43d47d866691924c91ce504778e33cfb3e4d225"
+    sha256 ventura:       "1298fe6e7b79a02b4f46b5142d69c2a7bf5de7e1489684de289decdc6fea7c7e"
+    sha256 arm64_linux:   "02496926fb45830667526c76a081b91947c56fccbd653c434ec91f29b3ac0734"
+    sha256 x86_64_linux:  "1c9dcc51d83f208d195dea7723cace36d0365fbb686db4cce8863ebf3df7bb21"
   end
 
   depends_on "cmake" => :build

@@ -5,7 +5,6 @@ class Curlftpfs < Formula
   sha256 "4eb44739c7078ba0edde177bdd266c4cfb7c621075f47f64c85a06b12b3c6958"
   license "GPL-2.0-only"
   revision 1
-  head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", using: :cvs
 
   no_autobump! because: :requires_manual_review
 

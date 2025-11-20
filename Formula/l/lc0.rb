@@ -2,18 +2,19 @@ class Lc0 < Formula
   desc "Open source neural network based chess engine"
   homepage "https://lczero.org/"
   url "https://github.com/LeelaChessZero/lc0.git",
-      tag:      "v0.31.2",
-      revision: "8ba8aa426460bbeda452754ff7d6a9bb60bb0e54"
+      tag:      "v0.32.0",
+      revision: "b38ed00a25baed9554d2675ec376bd50dad18195"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f25d5b0e4a549bbc2e1dae7af722c5aec25016ce421b160f4619121b22286c19"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f528105e9e803ce4fc4e710d3a94b02b192b0d055ec105cd460ca9c5ecaea1f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2aeb4b6042e63d1caba7f44e7a753b54032fe2c3a5b9d30b1c49db4149adc0dd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "23318830a811ab5d1047779f6c3fe6bd9d1c2cc4e8ede7713c8027624b36a445"
-    sha256 cellar: :any_skip_relocation, ventura:       "fdf20fa39a246862aa429134e633763fa585b0a9b23865fa82bbbddd29a96596"
-    sha256                               arm64_linux:   "c4a48bea8d7085a67ff4bfea83e3536b0944bbf78f5deb997e7a37f51439797b"
-    sha256                               x86_64_linux:  "4f996c61da081b7421b72a5b1a7c47e0d69ccc0f626185c1016b3df45aca48a4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dfa2e003712c83cf24db14df3fb5ae45758e25d7307506679bd9c6003cb72c4f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08df3d2c0eb7d4571bf5bacaa436ac6e23b24979b9ff7349d72e352820f91b44"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f67750b0910b02325d26e853b86a254e83730bfb2e60bd703575b9e0a6f97c4f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "79d4a818b6d4a1a054d5892dc229458f0cae2b62b118e424e4558c29d7ae7d02"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2ea09794d327def86a09029fd374f12cd3b93cd90b0084a11ff06e8a3d9a8eb6"
+    sha256 cellar: :any_skip_relocation, ventura:       "97cb78d9acb0574558469120aaa61f7f5a073653e2c186c6aa281a5f3b56c505"
+    sha256                               arm64_linux:   "597af4ff6ee3a386b77f1384aa022219636d9108d8c27ff129d68ae3fda1d32a"
+    sha256                               x86_64_linux:  "48cd3dba808ce82f2eb76319df3f745c0543f30700dcdfc1fa0ee26225feee0c"
   end
 
   depends_on "cmake" => :build
@@ -37,6 +38,8 @@ class Lc0 < Formula
   end
 
   def install
+    ENV.append_to_cflags "-I#{Formula["eigen"].opt_include}/eigen3"
+
     args = ["-Dgtest=false", "-Dbindir=libexec"]
 
     if OS.mac?
@@ -57,9 +60,9 @@ class Lc0 < Formula
   end
 
   test do
-    assert_match "Creating backend [blas]",
+    assert_match "BLAS vendor:",
       shell_output("#{bin}/lc0 benchmark --backend=blas --nodes=1 --num-positions=1 2>&1")
-    assert_match "Creating backend [eigen]",
+    assert_match "Using Eigen",
       shell_output("#{bin}/lc0 benchmark --backend=eigen --nodes=1 --num-positions=1 2>&1")
   end
 end

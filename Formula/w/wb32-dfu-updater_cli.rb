@@ -6,7 +6,10 @@ class Wb32DfuUpdaterCli < Formula
   license "Apache-2.0"
   head "https://github.com/WestberryTech/wb32-dfu-updater.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "934c190218de4e881ed04b18bf537a15710600e07055dec9a0adbca436afab65"
     sha256 cellar: :any,                 arm64_sequoia:  "ac239ddaa16c7c73763bb0e7fccf0e832ba3dde536d90115ac65fb1ac58da4eb"
     sha256 cellar: :any,                 arm64_sonoma:   "d661a663c75316e1523b6fa0407cebda2ea86788a3fbf23ac6657af815d1c2b9"
     sha256 cellar: :any,                 arm64_ventura:  "87370e3838ab6edf46fd33ffe58ab53222dc519d6fcf849228461d994cf0c4f2"
@@ -24,6 +27,13 @@ class Wb32DfuUpdaterCli < Formula
   depends_on "cmake" => :build
   depends_on "libusb"
 
+  # Fix compatibility with cmake 4+
+  # PR ref: https://github.com/WestberryTech/wb32-dfu-updater/pull/17
+  patch do
+    url "https://github.com/WestberryTech/wb32-dfu-updater/commit/34725776e4b21be89e5d4eb0ea83346f26fc5d1f.patch?full_index=1"
+    sha256 "bfcc362f17c3063b90531e2795e7d33743dc754cce5dac2a93582994f9a88479"
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
@@ -31,6 +41,7 @@ class Wb32DfuUpdaterCli < Formula
   end
 
   test do
-    assert_match "No DFU capable USB device available\n", shell_output(bin/"wb32-dfu-updater_cli -U 111.bin 2>&1", 74)
+    assert_match "No DFU capable USB device available\n",
+                 shell_output("#{bin}/wb32-dfu-updater_cli -U 111.bin 2>&1", 74)
   end
 end

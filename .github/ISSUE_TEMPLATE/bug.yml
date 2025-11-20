@@ -8,7 +8,7 @@ body:
   - type: textarea
     attributes:
       render: shell
-      label: "`brew gist-logs <formula>` link OR `brew config` AND `brew doctor` output"
+      label: "`brew config` AND `brew doctor` output OR `brew gist-logs <formula>` link"
     validations:
       required: true
   - type: checkboxes
@@ -23,6 +23,8 @@ body:
         - label: I have resolved all warnings from `brew doctor` and that did not fix my problem.
           required: true
         - label: I searched for recent similar issues at https://github.com/Homebrew/homebrew-core/issues?q=is%3Aissue and found no duplicates.
+          required: true
+        - label: My issue is not about a failure to build a formula from source.
           required: true
   - type: textarea
     attributes:

@@ -1,26 +1,25 @@
 class Fedify < Formula
   desc "CLI toolchain for Fedify"
   homepage "https://fedify.dev/cli"
-  url "https://github.com/fedify-dev/fedify/archive/refs/tags/1.6.1.tar.gz"
-  sha256 "3c67d0d0129062a035adce56f71aaa127e926b62f7aff599c39b785d6c5e9ff8"
+  url "https://github.com/fedify-dev/fedify/archive/refs/tags/1.9.1.tar.gz"
+  sha256 "d71aabbc31eccd31024d8e276e3800f50d5d62f18cbe300e9833dd69d41b9843"
   license "MIT"
   head "https://github.com/fedify-dev/fedify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6cc14a1818340780edbe593eb2b2e0cabe62956ddfdda2d7ccce86b2629d1e0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25601c2018ab21d44845e603f9862400ce34aadf5782bc2514431409ca01bac9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd8a069200938cb6d6a9f1e5ed2ee76370788e6ce540674c8833647b2162b5aa"
-    sha256                               sonoma:        "2f79f975395de9276e4f6d790e8657397fd2defee1d80f613809394af75a73ca"
-    sha256                               ventura:       "bc970a07eb535ac96a70351c80d6d0efaa25c8408faa84ca0e44337aa78c689b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a15e1d148e20bedd27a713f041105a96dd2ccebc825cd682819c46b44b23d949"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0885ada1dad0381a9ea81771506f5a7a72e8a982ae6907f54667b07630c7f76"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "436721628ff6e6f098d19f5a206ca7f525f8eb33635ebb588d3ef4da7aa08432"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b37cf510642efad7c4a6db88ca5ead56e62c50c4f07e4f48bd4b6dc1e79e7205"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad43d84f43d7bc82b22eadc508b78f7f6700927be4660bd5dd7bd8de66b6f1b6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0bacc28872dfc5ebf1ea44092d6e2d66c23ed54fc1ed634ff08cfa54b297aa38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3901bc9f30063f10c97f2292a5e3b1ad961db3b01752ab3ab3e44035fa08fec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c1007945de843da467e73a70e5dcebe69c883b7a21dbf5a98f18e6bec19998c"
   end
 
   depends_on "deno" => :build
 
   def install
     system "deno", "task", "codegen"
-    system "deno", "compile", "--allow-all", "--output=#{bin/"fedify"}", "cli/mod.ts"
+    system "deno", "compile", "--allow-all", "--output=#{bin/"fedify"}", "packages/cli/src/mod.ts"
     generate_completions_from_executable(bin/"fedify", "completions")
   end
 

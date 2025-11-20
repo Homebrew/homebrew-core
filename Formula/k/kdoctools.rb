@@ -1,8 +1,8 @@
 class Kdoctools < Formula
   desc "Create documentation from DocBook"
-  homepage "https://api.kde.org/frameworks/kdoctools/html/index.html"
-  url "https://download.kde.org/stable/frameworks/6.14/kdoctools-6.14.0.tar.xz"
-  sha256 "acb9c761e8e10c30f2c32061f64096965459a0513250edf4432f40831a0f536e"
+  homepage "https://l10n.kde.org/docs/doc-primer/"
+  url "https://download.kde.org/stable/frameworks/6.20/kdoctools-6.20.0.tar.xz"
+  sha256 "f56536255ca74554a9c02d395fd78c8b4a0d2a1c7d003ce621b324e889f85c0f"
   license all_of: [
     "BSD-3-Clause",
     "GPL-2.0-or-later",
@@ -17,11 +17,12 @@ class Kdoctools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "8b4a91f87bf8f1c209c052c502b13cac6dc72d54473c86b05303114c8e0388bc"
-    sha256 cellar: :any,                 arm64_ventura: "67a86914bb79cdc6281b39c2773aada61c7f1265ef0148de75669c13920a1e8a"
-    sha256 cellar: :any,                 sonoma:        "3f8b2ced702ccee1bd044d7aa489dfa5b98d9eeda82c92c6bc649851496bc74c"
-    sha256 cellar: :any,                 ventura:       "56a3d3e6d77ec3a6a517d6a469f1ac136573a29153f8b7021e5c55d67b740526"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99af23b7ef2bcb011b0d31bb265cace00fd5603a4d602aee7dc6954fb74df70e"
+    sha256 cellar: :any,                 arm64_tahoe:   "8ab2a5a48295499338469764ce550531b7209d878e94fbc205f41cf5ca136685"
+    sha256 cellar: :any,                 arm64_sequoia: "90169c31346c273d853a0ab3803d7ee79382f4bb3f3a994f6d0a0958b7f9f350"
+    sha256 cellar: :any,                 arm64_sonoma:  "fbfa760964723e0cd9481c092050aeb339fd980a8570703f283c743625fc4fb7"
+    sha256 cellar: :any,                 sonoma:        "bbda8d09fc2191c8bc25684a5524f35b3519f545ad6511d7a1a4bff9137aa26b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc4bf9532fabd183337a5f1892e8ee5d1a5ddf8cc205de278fb8d0d9fe04ddff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36ddebffb73d33f086f51089be535b7fbf845a8e107fe6e55296955a4062fa12"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -29,9 +30,10 @@ class Kdoctools < Formula
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "gettext" => :build
   depends_on "ki18n" => :build
+  depends_on "qttools" => :build
   depends_on "docbook-xsl"
   depends_on "karchive"
-  depends_on "qt"
+  depends_on "qtbase"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -39,8 +41,8 @@ class Kdoctools < Formula
 
   resource "URI::Escape" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.27.tar.gz"
-      sha256 "11962d8a8a8496906e5d34774affc235a1c95c112d390c0b4171f3e91e9e2a97"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.34.tar.gz"
+      sha256 "de64c779a212ff1821896c5ca2bb69e74767d2674cee411e777deea7a22604a8"
     end
   end
 
@@ -63,11 +65,11 @@ class Kdoctools < Formula
   end
 
   test do
-    qt = Formula["qt"]
+    qt = Formula["qtbase"]
     qt_major = qt.version.major
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.5)
+      cmake_minimum_required(VERSION 4.0)
       include(FeatureSummary)
       find_package(ECM #{version} NO_MODULE)
       set_package_properties(ECM PROPERTIES TYPE REQUIRED)

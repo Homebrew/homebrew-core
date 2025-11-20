@@ -4,18 +4,20 @@ class BowerMail < Formula
   url "https://github.com/wangp/bower/archive/refs/tags/1.1.1.tar.gz"
   sha256 "4c041681332d355710aa2f2a935ea56fbb2ba8d614be81dee594c431a1d493d9"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/wangp/bower.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "317e78580fd4f956a1c6c525ce836dd8b8b6ff5af0864d0fb363402033a44438"
-    sha256 cellar: :any,                 arm64_sonoma:  "7fd3cc425ab9943f8242d8d0930911d44ac5b900d1dbba9fd62d870152e9dba2"
-    sha256 cellar: :any,                 arm64_ventura: "f5e51666cfa6098af4aadbeab01ec85237771a30aad6b8f2760cdabd862f93fd"
-    sha256 cellar: :any,                 sonoma:        "ba197e4a9cf81240974e8d87f5e8a0f7be362c938acb6fd1b5e6bd4aa517558a"
-    sha256 cellar: :any,                 ventura:       "23ff1bcc55c0e73f559a369162b07f78ffae940ad93a71200957bd7c8613e9c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7bf579db0cca3c52fbf2552b3fc06520ca64d8da5f3b322edc40ddd3cec7c93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecabaca1eccc9762c9a7fb2762120e567830e9362e304392add42c171dc9ae50"
+    sha256 cellar: :any,                 arm64_tahoe:   "6c529955bcdd18e610441bd154d41cdbb03e164ea51aee9be99db4d4fa388553"
+    sha256 cellar: :any,                 arm64_sequoia: "d47f47f021948b197519c8153299af29c6daf61303ec3271202a3db295d778fa"
+    sha256 cellar: :any,                 arm64_sonoma:  "1b29ffd00b810534072cfb133481e8f56982ae599c14b93b03fd41a6c01b4511"
+    sha256 cellar: :any,                 arm64_ventura: "09f3d4499761c4070ba39bcd3fe811087e8be0e87e393aea012ebef4375d5d9c"
+    sha256 cellar: :any,                 sonoma:        "5def685cc6179746680820800b1f8d9639c59624b12f2e2f50bbe976fc7171d8"
+    sha256 cellar: :any,                 ventura:       "7f687a08815bb53a12b385f88278e82f1e47adb7105d7d3fbe40dbe2fbb934e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e14703850f860c54de0e5e13c331e6e267bb001e90893d0079f31bc319ce90b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a66cb33b65d91e09351fbc8b01b884bee0f70737756666cbfd7f93057d746954"
   end
 
   depends_on "mercury" => :build
@@ -36,6 +38,6 @@ class BowerMail < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/bower --version")
 
-    assert_match "Error: could not locate database", shell_output(bin/"bower 2>&1", 1)
+    assert_match "Error: could not locate database", shell_output("#{bin}/bower 2>&1", 1)
   end
 end

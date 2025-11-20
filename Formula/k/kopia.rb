@@ -2,30 +2,27 @@ class Kopia < Formula
   desc "Fast and secure open-source backup"
   homepage "https://kopia.io"
   url "https://github.com/kopia/kopia.git",
-      tag:      "v0.20.1",
-      revision: "1ee24977ceb09c02329eaebac718ec5a950c5d83"
+      tag:      "v0.22.0",
+      revision: "1aaf433cdc121e499ffad2f278ef7b373c07c2f1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fef8724dc38183165b2d95d432d734a40b228d299615c5c2358ef6429b23f1d8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1d69afba3a1d9046cb623472825ed7931a392b95355dad08ed6bfe06cbfd8de"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "831b07fa446facb10c136d177f99879e5fd11a4d044cbf84c30549496ed59f3a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "30e627dfd7fd3f7a3ccd73a1242c9ea0cde4620a953c5dfb7cf8791b68a417f7"
-    sha256 cellar: :any_skip_relocation, ventura:       "3e37353a6c9a459b81755d2a45b5bab5e653e6e91c9891ff446fc10eec71619a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d281c76447834d789a567bc9c219b3971e071c5f8aab34646e118301b381abc5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "87876e5f9da88ea16acad18f9f58efa4ad64fd00b8f252dca5ae270f73f624b8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b8b8d86aa48cfbd2f77b49abbd09fad512ca881ec03e72946c53cd924aa84fc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf2cbc362aaa788f0b0a5418508cda662c59bda335c22eec38f5cd5baf4d2c0c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c64486f39db12e0efc7c7c1e5fcf1b23b58d9849af9d11744d95133547ce83a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a92b75974272f25f52c6097b8b60a4bedca28033123f306aba971dd992faa03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d06a75b93d2a339990b385ea54adbf34faa6d1a33630d2f354c918496f31dca"
   end
 
   depends_on "go" => :build
 
   def install
-    # removed github.com/kopia/kopia/repo.BuildGitHubRepo to disable
-    # update notifications
     ldflags = %W[
       -s -w
       -X github.com/kopia/kopia/repo.BuildInfo=#{Utils.git_head}
       -X github.com/kopia/kopia/repo.BuildVersion=#{version}
     ]
-
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"kopia", shells:                 [:bash, :zsh],
@@ -36,15 +33,12 @@ class Kopia < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/kopia --version")
+
     mkdir testpath/"repo"
     (testpath/"testdir/testfile").write("This is a test.")
 
     ENV["KOPIA_PASSWORD"] = "dummy"
-
-    output = shell_output("#{bin}/kopia --version").strip
-
-    # verify version output, note we're unable to verify the git hash in tests
-    assert_match(%r{#{version} build: .* from:}, output)
 
     system bin/"kopia", "repository", "create", "filesystem", "--path", testpath/"repo", "--no-persist-credentials"
     assert_path_exists testpath/"repo/kopia.repository.f"

@@ -1,19 +1,30 @@
 class Plog < Formula
   desc "Portable, simple and extensible C++ logging library"
   homepage "https://github.com/SergiusTheBest/plog"
-  url "https://github.com/SergiusTheBest/plog/archive/refs/tags/1.1.10.tar.gz"
-  sha256 "55a090fc2b46ab44d0dde562a91fe5fc15445a3caedfaedda89fe3925da4705a"
+  url "https://github.com/SergiusTheBest/plog/archive/refs/tags/1.1.11.tar.gz"
+  sha256 "d60b8b35f56c7c852b7f00f58cbe9c1c2e9e59566c5b200512d0cdbb6309a7c2"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "97760bb532e44bf5f1d01856ec41448c1ba1f092b5abacaa5338c9a27be6567a"
+    sha256 cellar: :any_skip_relocation, all: "1128d5665015871186eb36b6ad55699345e184c854f510884bce557207d532fc"
   end
 
   depends_on "cmake" => [:build, :test]
 
+  resource "freertos_kernel" do
+    on_linux do
+      url "https://github.com/FreeRTOS/FreeRTOS-Kernel/archive/refs/tags/V11.1.0.tar.gz"
+      sha256 "0e21928b3bcc4f9bcaf7333fb1c8c0299d97e2ec9e13e3faa2c5a7ac8a3bc573"
+    end
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = []
+    if OS.linux?
+      resource("freertos_kernel").stage buildpath/"freertos_kernel"
+      args << "-DFETCHCONTENT_SOURCE_DIR_FREERTOS_KERNEL=#{buildpath}/freertos_kernel"
+    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

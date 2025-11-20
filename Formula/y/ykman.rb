@@ -3,32 +3,34 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/d1/e2/7037a16f72d10939384744366f3797cc3052fc726a7bd001f9ed28bfe1c9/yubikey_manager-5.7.0.tar.gz"
-  sha256 "9a69212ac32ed82a78a287417d0cf476043388c28f84c356a8196f0f5c29a830"
+  url "https://files.pythonhosted.org/packages/b3/09/ba3ca95ed3c8adfb7f8288a33048a963dcc5741eb3e819a8451b65e36a59/yubikey_manager-5.8.0.tar.gz"
+  sha256 "3af0da65e1fdd46763c94ee74e2da55a4b6e7771da776c197f5f4b4581738560"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2db45fdd68c86836c0f2936835e11e5d1385a162d0dff027ce0b56a6630a730f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e101b01d362b695d1818a81c95c5d8fdcdd5170b6e490bc5e1bdfca23a817ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1de046d5180a223cff87dd1a67211404717d9ba6a864bcf1503009dfc37883f4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f454774ff7aeaba4ebd20bba5c37998600ad872e3d67db713f689b07b17103aa"
-    sha256 cellar: :any_skip_relocation, ventura:       "7febcee7110dd53648ec23859fa376832fb8d343178c74bc3d01c92d5e1e9c88"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "79d978ddcc94eb3c65b409f9be4c9b1122372dc412e9931a654ee7109cfd8801"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbcf19200208c02459ed0c763124dc7c986215b37cb45338c01026bbeddab301"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fbe7882af1ba4b5a251c58e775f405382e4d19e7ac86d6d1abdd39023f0948fc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14991f7289929523e9cceeaed383a0047cf94f728730a5e0b29313c72c5d990f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "002ba3444d9cc43ca195f51eb9f44ea4a9073923355887cbf3e1850e60e8d98a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "194c3b50e319727301c199ebc1652b6ad1085649c2e6abb26fa6d24fc922ed5f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a7fc0d787f903feac1306c4eb0de99f5e04a90360c445654cfd5299c70604d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5665d529fb05f130d4aae2e888e37dd23fa500579875c81c9de6d83fe91b9e0"
   end
 
+  depends_on "cmake" => :build # for more-itertools
   depends_on "swig" => :build
   depends_on "cryptography"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "pcsc-lite"
 
-  # pin pyscard to 2.0.8, upstream bug report, https://github.com/LudovicRousseau/pyscard/issues/169
+  pypi_packages exclude_packages: "cryptography",
+                extra_packages:   %w[jeepney secretstorage]
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "fido2" do
@@ -47,8 +49,8 @@ class Ykman < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/ab/23/9894b3df5d0a6eb44611c36aec777823fc2e07740dabbd0b810e19594013/jaraco_functools-4.1.0.tar.gz"
-    sha256 "70f7e0e2ae076498e212562325e805204fc092d7b4c17e0e86c959e249701a9d"
+    url "https://files.pythonhosted.org/packages/f7/ed/1aa2d585304ec07262e1a83a9889880701079dde796ac7b1d1826f40c63d/jaraco_functools-4.3.0.tar.gz"
+    sha256 "cfd13ad0dd2c47a3600b439ef72d8615d482cedcff1632930d6f28924d92f294"
   end
 
   resource "jeepney" do
@@ -62,18 +64,18 @@ class Ykman < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/ce/a0/834b0cebabbfc7e311f30b46c8188790a37f89fc8d756660346fe5abfd09/more_itertools-10.7.0.tar.gz"
-    sha256 "9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3"
+    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
+    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
   end
 
   resource "pyscard" do
-    url "https://files.pythonhosted.org/packages/24/17/a52a6ceb0a58afc1c8b9274bd9fff8ac971a7d5ee886bf31297768a88aa0/pyscard-2.2.2.tar.gz"
-    sha256 "c77481fb86f4a17bc441d7b36551c1d36a9d3a48c4bb30ab8118886e6f275081"
+    url "https://files.pythonhosted.org/packages/c1/d9/02085a08c61a8d7330a77d25884b0fb39b1057f14e5f1d660ea5368f0b80/pyscard-2.3.0.tar.gz"
+    sha256 "621928e217e3b1d3c791086bf0c9f307fc4ae004a9b1a430536acc1a6eb50003"
   end
 
   resource "secretstorage" do
-    url "https://files.pythonhosted.org/packages/53/a4/f48c9d79cb507ed1373477dbceaba7401fd8a23af63b837fa61f1dcd3691/SecretStorage-3.3.3.tar.gz"
-    sha256 "2403533ef369eca6d2ba81718576c5e0f564d5cca1b58f73a8b23e7d4eeebd77"
+    url "https://files.pythonhosted.org/packages/31/9f/11ef35cf1027c1339552ea7bfe6aaa74a8516d8b5caf6e7d338daf54fd80/secretstorage-3.4.0.tar.gz"
+    sha256 "c46e216d6815aff8a8a18706a2fbfd8d53fcbb0dce99301881687a1b0289ef7c"
   end
 
   def install
@@ -90,9 +92,7 @@ class Ykman < Formula
     end
 
     man1.install "man/ykman.1"
-
-    # Click doesn't support generating completions for Bash versions older than 4.4
-    generate_completions_from_executable(bin/"ykman", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"ykman", shell_parameter_format: :click)
   end
 
   test do

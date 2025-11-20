@@ -8,6 +8,7 @@ class Dpp < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "86cb5490c0ddbbe4e7a242cafd4e776a243873dd649ec1e077b23e91e6cab1bb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5f0fc9c62c460aba1532c7389e42c9bb85da0bcfa38607b76a361cb66c0d396"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49bf533852469130afaf24027a2d88f6825d35cd90515e041bdddccff3620640"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "443e5a65e5f70dc1c1af23f374c94cb1c6ff26836a4b23c9c6e4597502dbd060"

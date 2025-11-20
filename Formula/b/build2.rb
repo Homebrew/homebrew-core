@@ -13,6 +13,7 @@ class Build2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "04b1c4088629832bebbfd1b82b8132b14ac4d623585dc9a3d2e3147be53025e6"
     sha256 arm64_sequoia:  "70ffd3523f4b4d74bd22b1374963bbefc8308140252481c2fd97972360757619"
     sha256 arm64_sonoma:   "0e7160137ee4ed4148b5b7219224029a1120d0429425602711d3a175f743bcb2"
     sha256 arm64_ventura:  "8f144b91ef3c6cece42e79cfac3422f0c7c88291f0e5cd3cc8d93b7eaac09936"

@@ -19,7 +19,6 @@ class Launchdns < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7883b009f177ae1ede81bc9d27706e26fc8d8bde4cd3e1c45c5cd8f4021cbafd"
     sha256 cellar: :any_skip_relocation, big_sur:        "87785cae4d4966c318e8fb8424749261b16bb543576e1c45d5fa2bae7f4c3f0e"
     sha256 cellar: :any_skip_relocation, catalina:       "ebae3446c46a7a6662c3e9b95d61bbee372f1f277a07a4beea1eafc00d64570a"
-    sha256 cellar: :any_skip_relocation, mojave:         "38ad8be46847983774ec6b50896560517bb027b6fe5e5543395f168e489c9c27"
   end
 
   deprecate! date: "2024-03-07", because: :repo_archived

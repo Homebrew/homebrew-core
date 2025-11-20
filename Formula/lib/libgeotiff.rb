@@ -9,7 +9,7 @@ class Libgeotiff < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
   end
@@ -20,6 +20,7 @@ class Libgeotiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f4845032ded85e98d5076c95ca25441cd055d761c691a033f90e6fa5d3accfbc"
     sha256 cellar: :any,                 arm64_sequoia: "35a86c6a604a2d7f6d10bda3ba1fa47fa979896f3fc5ffcc2e9a06fa8047435c"
     sha256 cellar: :any,                 arm64_sonoma:  "9fc225c5ac0450cd685bab5f3834c52e9e321e8196886a500ee1be098263f388"
     sha256 cellar: :any,                 arm64_ventura: "7da423615ca23a18fd337ec4ca74e30d4c0674353b0c67ab90d4773036ab6028"

@@ -6,7 +6,10 @@ class Wzprof < Formula
   license "Apache-2.0"
   head "https://github.com/dispatchrun/wzprof.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1730b8de6730863c0725a3468613f2d9c5ad5165da36a44b134b1f30ccbe2012"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "09412fe4df2eeb2fa3e05a8da39a192f7bb5e38b98ef5c6924f93dd50b8c6abe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "75f3a9f0120d54457ee0a116bcfb52147831bb466ef1b7cba2db1bdda93401ab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5cd9073cd439d27d735796f4f88ca53e320d00767202195df23a151cd207f7e"
@@ -16,6 +19,7 @@ class Wzprof < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "38d8f01a22a239c240d6e00db065fc8036f5ae039501925ec0df0a0366983bba"
     sha256 cellar: :any_skip_relocation, monterey:       "38d8f01a22a239c240d6e00db065fc8036f5ae039501925ec0df0a0366983bba"
     sha256 cellar: :any_skip_relocation, big_sur:        "38d8f01a22a239c240d6e00db065fc8036f5ae039501925ec0df0a0366983bba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "1387c049a3862b7cf8daee964ed611fb4a6c4a77756b91d1e9d538447c6f70ec"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a163de238c1aa3233c725104f4a523cc26d6fd30c5c132d4e408415bdce3ac1d"
   end
 
@@ -39,8 +43,8 @@ class Wzprof < Formula
       func31 malloc(30): 0x11530
       end
     EOS
-    assert_equal expected, shell_output(bin/"wzprof -sample 1 #{testpath}/simple.wasm 2>&1")
+    assert_equal expected, shell_output("#{bin}/wzprof -sample 1 #{testpath}/simple.wasm 2>&1")
 
-    assert_match "wzprof version #{version}", shell_output(bin/"wzprof -version")
+    assert_match "wzprof version #{version}", shell_output("#{bin}/wzprof -version")
   end
 end

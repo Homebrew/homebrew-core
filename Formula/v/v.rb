@@ -16,6 +16,8 @@ class V < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "02186023120c9b712a9eb310bf10b090cee1e693c8e4f302880a414d8ea6f3e7"

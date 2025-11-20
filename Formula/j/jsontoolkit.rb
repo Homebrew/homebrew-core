@@ -5,8 +5,6 @@ class Jsontoolkit < Formula
   sha256 "00f82f02166beabec80522e2bbc7b839ee9b7ccb631411c42e6fab65186e80ba"
   license "AGPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "4bdb1c92bc5d58c6ecff06644af109f714e087e7005bfd86db5cb623610d0be3"
     sha256 cellar: :any,                 arm64_sonoma:   "db44ed711e76947fdcb106dbc0501306e04cb649e66c523ad68b79513b5b5128"

@@ -5,6 +5,7 @@ class Fwknop < Formula
   mirror "https://github.com/mrash/fwknop/releases/download/2.6.11/fwknop-2.6.11.tar.gz"
   sha256 "bcb4e0e2eb5fcece5083d506da8471f68e33fb6b17d9379c71427a95f9ca1ec8"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mrash/fwknop.git", branch: "master"
 
   livecheck do
@@ -15,15 +16,14 @@ class Fwknop < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia:  "dd24ee01f0b52367ccb00111e7e3b28586cbe9b355b9461ac38175fcdaaa0b31"
-    sha256 arm64_sonoma:   "3729d1321c0430837a4dfd26d0f504a4ef05d9798e37f12bf56149c0a88badc7"
-    sha256 arm64_ventura:  "f30bdfd167ff41974f6df99b6305a3718fc6a032f742c71a45a8883060c09836"
-    sha256 arm64_monterey: "ed89fd42fc0d208e93f3f2ea2d1441b0192cd5dbb23280029fd23bc4aa47200a"
-    sha256 sonoma:         "b493935cf740cb8c95680dac3f7e5373a393d2f8127e96c7061b6e0142e1a7b6"
-    sha256 ventura:        "7da542df5fadb3288b83899e0411c3fa2d19f55cce185c1721992b1d500f6bee"
-    sha256 monterey:       "c8231997765dc550d2e0f61f6f6ba0bcbb85b3c4f985d10579ab058b2e8993d6"
-    sha256 arm64_linux:    "87b387d6bcd6e2caddc67d2fb9945da6d08c1a7c3fda46e0b0702bc415ebf08c"
-    sha256 x86_64_linux:   "9e00519d9c3b6cb6c39eb4da55bbed6b0ba8767b7adf5e8f30fba8d3784070e6"
+    sha256 arm64_tahoe:   "7963f9f9f757720644a3df1cfaeb3307b43dfc3148ece268a48fca4ca47bf83b"
+    sha256 arm64_sequoia: "227c8c6bcd86942a72b26ab69e096cefd01941331e82ef5bf8c3942070081edf"
+    sha256 arm64_sonoma:  "bc2f4972f2b2b07f2958590c47149d83ba0b82dc568d8da044b83c5b31312caa"
+    sha256 arm64_ventura: "591c24145cf5caff0f7a02c20ef482bbd720df8f0224cbb3908a49f912edc0c8"
+    sha256 sonoma:        "dadbd89d12097cafb572e66e31295745cb7420ff940fd985932946a23859fb6d"
+    sha256 ventura:       "659d69cb42503ccb2d8fe7334985b3e20e50dcaa025c72005b7e08e548bc8994"
+    sha256 arm64_linux:   "403b551d5a2cf7b34feae53ac83a788de7af8d7d32982262d1bba500529ac6cc"
+    sha256 x86_64_linux:  "dc5ed49f5029429d1e0db9e575844e6517dd3339924d55c986df9a48485bfd95"
   end
 
   depends_on "gpgme"

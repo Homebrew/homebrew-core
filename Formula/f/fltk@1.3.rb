@@ -11,6 +11,7 @@ class FltkAT13 < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "e5bfa45b6f629465158e069725e1a45f2de382b40158fdb98576b7c65ea462b5"
     sha256 arm64_sequoia: "f5b728f548ac5ac54af3dc19be243326a413c0111eb087fd0872f9bd1f258598"
     sha256 arm64_sonoma:  "d2cbe3e12f0c773764c686a4ae985ac60d5e6c1cade32777ae90f193cf102145"
     sha256 arm64_ventura: "43791ddf08bb27b33df7b5f1e72f79e0d833c02c2160aae579bed6b19314a6eb"

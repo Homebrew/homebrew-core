@@ -1,18 +1,27 @@
 class Tt < Formula
   desc "Command-line utility to manage Tarantool applications"
   homepage "https://github.com/tarantool/tt"
-  url "https://github.com/tarantool/tt/releases/download/v2.9.1/tt-2.9.1-complete.tar.gz"
-  sha256 "c2db35772470cdfba8b2e1cba06391d848cfec3c50163e635be305aedd23c04a"
+  url "https://github.com/tarantool/tt/releases/download/v2.11.0/tt-2.11.0-complete.tar.gz"
+  sha256 "a9c1b05d547f622d329e791f710157ba8b889337a26ed2215ff862156bea9c4d"
   license "BSD-2-Clause"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6d04aa04e9bed0b14ad572a06872d32e48c2df523e38221943908806d0ef0140"
-    sha256 cellar: :any,                 arm64_sonoma:  "b7bfef5b73cf784b28eea0ff9e2cadc4e4d66f3caa8518d85362f01de5d2a596"
-    sha256 cellar: :any,                 arm64_ventura: "17e36ad39cc6eff36ba4417a514e33b899b9d2cfac9beadb6256d21a9a827793"
-    sha256                               sonoma:        "eb3ed8f61cc6b844e6728ad12a202768352d1be5b46a0e4be684d54e8d145724"
-    sha256                               ventura:       "5f3bf271f86d10e3082cfaa3208e919ff1d60bd14966b9fb497d13c7c3007ebf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "49e0d720c0028f079bbdd709b9b2737bc821e768fb5144952c308cd997f56d89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e685ed345c8e6fe62a1d357fdade38e242354eab0842ac0152723baaf74168c"
+    sha256 cellar: :any,                 arm64_tahoe:   "4c0e7f414a73d8a1f47ba8393f14ebb98b1ba7dafbd595c1913dca056b97bd3c"
+    sha256 cellar: :any,                 arm64_sequoia: "6ab63d8e56f2df245cbe854bb9eb3206196edd57f2c4682be19787939b70c5eb"
+    sha256 cellar: :any,                 arm64_sonoma:  "56a68cea046497844c9764d60fb95c9a853b94b221f0a1081519d3fb9e465ae1"
+    sha256 cellar: :any,                 arm64_ventura: "cc0823f89f35c41d56f9bbf9201be2393b09672de59f813f81105efdacdbc48b"
+    sha256 cellar: :any,                 sonoma:        "a203c9faf7c44b99380f428598f44aa9a57c8b5d87bec2d8736d4937b4ddcedb"
+    sha256 cellar: :any,                 ventura:       "47eeb659c3ae04d58acef7618b1144c8abd7958c7d8b5a955782224969320e90"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "448c01c6d3bf5a331c99e1b50a870b33abfb695295bb6567384543d5557d47df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "582f189afc1e1a27feeb14875f53b9732ed5a2edf5218513431d1b098f5bd34d"
   end
 
   depends_on "go" => :build
@@ -34,7 +43,7 @@ class Tt < Formula
     bin.install "tt"
     (etc/"tarantool").install "package/tt.yaml.default" => "tt.yaml"
 
-    generate_completions_from_executable(bin/"tt", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"tt", "completion")
   end
 
   test do

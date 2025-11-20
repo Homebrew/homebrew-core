@@ -1,26 +1,25 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/f3/db/8e12381333aea300890829a0a36bfa738cac95475d88982d538725143fd9/numpy-2.3.0.tar.gz"
-  sha256 "581f87f9e9e9db2cba2141400e160e9dd644ee248788d6f90636eeb8fd9260a6"
+  url "https://files.pythonhosted.org/packages/76/65/21b3bc86aac7b8f2862db1e808f1ea22b028e30a225a34a5ede9bf8678f2/numpy-2.3.5.tar.gz"
+  sha256 "784db1dcdab56bf0517743e746dfb0f885fc68d948aba86eeec2cba234bdf1c0"
   license "BSD-3-Clause"
   head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9f6f60e2be311759e7efaba77eaca8745b746b5d48d2b1472e80f053c35c8de6"
-    sha256 cellar: :any,                 arm64_sonoma:  "d0088dde5437fb81e49b2ebc04a561f738aad118737ef12e36fc1cb29715b7ac"
-    sha256 cellar: :any,                 arm64_ventura: "ee872d853a2bc5e877ba65abb53188b9eb36f59e4f3e57be560c94a0c4ad7bfc"
-    sha256 cellar: :any,                 sonoma:        "b846369ec2021b66df32f17ba7963dd445ef5d2246c551c9d1b7bf69492a08ea"
-    sha256 cellar: :any,                 ventura:       "9ab136f0b32d1630ff1378e0065a8cf67f19240dcca56d37e5ef8a40266a36ec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6303dd05bb3f6bc76e779c6968e09b42ac4ed62cc9ec107b493b23eba9bd1626"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6fc94014a1a4c0479e619865109834491b776edfdae48dd5caffd19038b06217"
+    sha256 cellar: :any,                 arm64_tahoe:   "4be91ded8c875daa819962be2c8770c14d7a2876a0d42f02bdfc5a5bd178575f"
+    sha256 cellar: :any,                 arm64_sequoia: "c4f891fa476bb517ab7b31041fcbae91ea1f536bc035eb7399c24ac8416adcd2"
+    sha256 cellar: :any,                 arm64_sonoma:  "b1409092478a9407ae1c7d35afac8a23daf131a7df99fd4ac37b1743e49b4053"
+    sha256 cellar: :any,                 sonoma:        "992093da4d18a2b357527edceed56b6254c7b87bcb8f0150c209aee76b50e0e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "821605d5a452d913ea5c7448b7cac419b6ef646d1fc40e9734ee5a4dcf6c3695"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7b684580412511fd70fcb68c12271e96a0d68660670832a6206d6480a5992e6"
   end
 
   depends_on "gcc" => :build # for gfortran
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "openblas"
 
   on_linux do

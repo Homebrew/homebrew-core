@@ -1,18 +1,19 @@
 class LibpahoMqtt < Formula
   desc "Eclipse Paho C client library for MQTT"
   homepage "https://eclipse-paho.github.io/paho.mqtt.c/MQTTClient/html/"
-  url "https://github.com/eclipse-paho/paho.mqtt.c/archive/refs/tags/v1.3.14.tar.gz"
-  sha256 "7af7d906e60a696a80f1b7c2bd7d6eb164aaad908ff4c40c3332ac2006d07346"
+  url "https://github.com/eclipse-paho/paho.mqtt.c/archive/refs/tags/v1.3.15.tar.gz"
+  sha256 "60ce2cfdc146fcb81c621cb8b45874d2eb1d4693105d048f60e31b8f3468be90"
   license "EPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d55229a93fe81c43dcde42d0e91a30560f59706fbcafaf498f89dd7fce239f90"
-    sha256 cellar: :any,                 arm64_sonoma:  "863dc484fc7e89fb897247383508a65671150dc19658c77a4d5ae845741ecdcd"
-    sha256 cellar: :any,                 arm64_ventura: "157eb3c732c87b9076c20ddf800a2a2f715411a1f740655efc12b62b00d17e33"
-    sha256 cellar: :any,                 sonoma:        "58a80e95499276f4aba24dbe00ea4db55488018d3d36a3a20b65f52b6df7e0e1"
-    sha256 cellar: :any,                 ventura:       "c21e0cee9e3dfe56df0fad42da8ec929b22bdccbc486ec234413b1af62642864"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec8c25b958082700fff41cbdd68dd824d443563e6836c9e9bde0adbdce4b2817"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "411c4aadc6df1cb439016386644145a4f2bd412282dda6b3ab4b52b111632f54"
+    sha256 cellar: :any,                 arm64_tahoe:   "301d603ff946f350a2f8848a4bb21b94c52bf15b635c04be9ab5c163aa9ab1fc"
+    sha256 cellar: :any,                 arm64_sequoia: "25f1526acb75aafdb1683ec76af1fd090f28dd20d768fac47a237750dffba2ff"
+    sha256 cellar: :any,                 arm64_sonoma:  "d6fa44e3412e34e1cc816c765f88bc8e67cdbd890d6333db3e086a1e2119e2ae"
+    sha256 cellar: :any,                 arm64_ventura: "647a8fa2a445366592e13dac591fe43b68e201258ab9a70bf363afabd09f6052"
+    sha256 cellar: :any,                 sonoma:        "1ddaf0f68b03cc24301019f417d22afffca599d021255b27214dfa790a07f925"
+    sha256 cellar: :any,                 ventura:       "a45411db7ed423d58d23a90dda2f152bef568d869dcfb80a1c5a6eac249f6d7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b3b51057342e302d15ac08dbe235e5c008c3a98f7d27c114d2c7eb326f2cb8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b2abc8010ccfff54bad2bf246217ae54dce4b22f486927ba4b5c4b8583bbe16"
   end
 
   depends_on "cmake" => :build

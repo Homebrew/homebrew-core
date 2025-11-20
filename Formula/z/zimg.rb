@@ -1,23 +1,20 @@
 class Zimg < Formula
   desc "Scaling, colorspace conversion, and dithering library"
   homepage "https://github.com/sekrit-twc/zimg"
-  url "https://github.com/sekrit-twc/zimg/archive/refs/tags/release-3.0.5.tar.gz"
-  sha256 "a9a0226bf85e0d83c41a8ebe4e3e690e1348682f6a2a7838f1b8cbff1b799bcf"
+  url "https://github.com/sekrit-twc/zimg/archive/refs/tags/release-3.0.6.tar.gz"
+  sha256 "be89390f13a5c9b2388ce0f44a5e89364a20c1c57ce46d382b1fcc3967057577"
   license "WTFPL"
   head "https://github.com/sekrit-twc/zimg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "16b38c35a093542456e5c026cb464df27ebe509eb857696cbfbb6146708e5cd1"
-    sha256 cellar: :any,                 arm64_sonoma:   "1a08f06a0a7fc2a23266a03e8afd63759f99f3a0041d1503fafc5ce9410df8dc"
-    sha256 cellar: :any,                 arm64_ventura:  "cc82dc203d39c81808f2afacf64b5b5048859de941fff9e8caea599b8db83a3f"
-    sha256 cellar: :any,                 arm64_monterey: "2bbd044c345af191083c75e1e67b48f31ded8bc4869e19de25d6bd19d3a214ed"
-    sha256 cellar: :any,                 arm64_big_sur:  "10507ec0d32970c00e04b4e76714ea452d22f315fdd116af5d56c3d81a7e1f39"
-    sha256 cellar: :any,                 sonoma:         "a52f302fda0d8447d6972db9649504ffafe1d06e5de4c23b1ca6315c4b6d17fd"
-    sha256 cellar: :any,                 ventura:        "31d345c4d6927d6a5f5e1d04b8d78a53db597309c24d301bd0963afcc0702c35"
-    sha256 cellar: :any,                 monterey:       "5a8049c1c8fa6e09f79dda6e18ec22909da4b4b567e7f52d4e6338f7ac6dfa64"
-    sha256 cellar: :any,                 big_sur:        "5cabd4f2485ba7bb49feecac4584afaa7f05e097cb3935d7e9ea8a06336b4bcf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "04bb46c6db6937d885699986d894f4ac44fea72827b9a51199e0b05e700cd8e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a33e194d2d9132c9c35d9cb9affc078e77e26a6c8c11fd5b015c6f28914c52fe"
+    sha256 cellar: :any,                 arm64_tahoe:   "2beb74e61904dd631d9dfc8e43ae710572041e93058d759b77c37b20c6a9a431"
+    sha256 cellar: :any,                 arm64_sequoia: "ee8314ce01c48102e3f977540d6095a444ceb8bce71f1868199c47cad4ce12e4"
+    sha256 cellar: :any,                 arm64_sonoma:  "57899a223aa26a32842ddf3a76c4b2c3a8473ddb3537fec7ee07db54812d0425"
+    sha256 cellar: :any,                 arm64_ventura: "95caade5b153801f19564ba0ea9fbf093b0881ee44a6c68c87b834ea9b3e341b"
+    sha256 cellar: :any,                 sonoma:        "354ba1f7b397e045e605cec5fc47abee64523b66b93e1cf7bab14e7aa92886f2"
+    sha256 cellar: :any,                 ventura:       "3dcc05ade0f1a0269b03a6d8725ba8e7bf94d2366727ac270fb84d40160ea1eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca819fe840f4ca92cf5fd514a1617215da500f76051a5c26f14c261329989e64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1586618acff0317dbdcc0e93f56a1a3cc8fc64ab9f59d1f4f4afbfaf4ba9581e"
   end
 
   depends_on "autoconf" => :build

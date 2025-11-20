@@ -11,13 +11,13 @@ class Clingo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "35d24c0f73cd44d4c42517ba3621df5d6a400ff7f4fd8306cc2f4622d40b008f"
-    sha256 cellar: :any,                 arm64_sonoma:  "e76e8773450698143ffdacc0bfc1d489caada722d4b2bd5714b66b4a5d0c59fe"
-    sha256 cellar: :any,                 arm64_ventura: "2db3b04fe55e9957addd3bbc2e7a211a9b1be4d114b3b5b04795f1a0576659ed"
-    sha256 cellar: :any,                 sonoma:        "ee580dd3486d3a83a0b71d5a3a9f0c3853862004079e3cb36e5c03226ff7f74a"
-    sha256 cellar: :any,                 ventura:       "acf4bec16f8de6c2f8c5d3c9139dc607a2d9ebfbb44da8777bfd4f84af449f9a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b945753340a64e78a96e4aa1f030e9f5734937c33111c948be3e25cac089d5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcb0aa794aab95ff9376eaf61ecd30a803bdde61cf061998881b734687bdaedf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f4a0ef85978edfdfb395006c8ce603575282b12859dc1d25fe2edf6e57d9879b"
+    sha256 cellar: :any,                 arm64_sequoia: "75b64a722804b1c96506cc085e207c8f3cb3e14b23b0836dbac7a2ee9170f64f"
+    sha256 cellar: :any,                 arm64_sonoma:  "71587c5bf9b5336b95d5c62170e2515978065f398f85dab7bbdb3831e38d007e"
+    sha256 cellar: :any,                 sonoma:        "062bf230ada4dbb858940bf7316dd2f9b217b6d92fb2cc8543ddf38633e97a8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "608cc630ce095d1f32ad28dd0105a54e69aecbb38340e33883dd8e6747713e02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c13546d050e4d818f0e7aba365840f6e1d825e1a1ac1de4e10249e8821305f9"
   end
 
   head do
@@ -30,7 +30,7 @@ class Clingo < Formula
   depends_on "doxygen" => :build
   depends_on "cffi"
   depends_on "lua"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   # This formula replaced the clasp & gringo formulae.
   # https://github.com/Homebrew/homebrew-core/pull/20281
@@ -41,7 +41,7 @@ class Clingo < Formula
   link_overwrite "bin/reify"
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install

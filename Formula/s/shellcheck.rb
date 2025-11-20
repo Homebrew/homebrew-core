@@ -1,30 +1,20 @@
 class Shellcheck < Formula
   desc "Static analysis and lint tool, for (ba)sh scripts"
   homepage "https://www.shellcheck.net/"
+  url "https://github.com/koalaman/shellcheck/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "8b07554f92e4fbfc33f1539a1f475f21c6503ceae8f806efcc518b1f529f7102"
   license "GPL-3.0-or-later"
   head "https://github.com/koalaman/shellcheck.git", branch: "master"
 
-  stable do
-    url "https://github.com/koalaman/shellcheck/archive/refs/tags/v0.10.0.tar.gz"
-    sha256 "149ef8f90c0ccb8a5a9e64d2b8cdd079ac29f7d2f5a263ba64087093e9135050"
-
-    # Backport upper bound increase for filepath, needed for GHC 9.12
-    patch do
-      url "https://github.com/koalaman/shellcheck/commit/0ee46a0f33ebafde128e2c93dd45f2757de4d4ec.patch?full_index=1"
-      sha256 "c73663bee3577068700b580140d468834cd42f88f7753f950f501e8781656ff5"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5045be1e530288251353848343322f5a423617d061830b7ea7465fe550787364"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef742b6992cfcdcd7289718ac64b27174e421d29ce3ad9b81e1856349059b117"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e60ee03edb09ac5bc852b8eb813849fa654400e21ffb4c746989678172f5a26"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5e8407806dbf757e71930ce2cb9b0d23bae286f0c058d9ff246d851dd7aa871"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b53cf1e5464406ee49743fc2db84850b6d34d3a2098cf729e629b23f9d6dd6e0"
-    sha256 cellar: :any_skip_relocation, ventura:        "15ba88c48a5ae3b08e085791e3c5e514d9d78ce88414c96bd21ed33f29fb4aca"
-    sha256 cellar: :any_skip_relocation, monterey:       "b3d14cb62e325d0f7221cd24a7fb4533936feae4ed4dce00e8983ec6e55123f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2e5ceec4e238594c795e31266086f0dd6d511d858ca21a4f9783f0e6b3dd7e2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d0867f144686a5caa025cb15ecac49286654b78e7b89979a54eedc9a0cc9b6b"
+    sha256 cellar: :any,                 arm64_tahoe:   "a8c12e69512ed369ded8a58cfb81c8d42eea53d8ac51119fe3f83e050e6a6f4d"
+    sha256 cellar: :any,                 arm64_sequoia: "8cba28650eef6739b81380743c58c323a8846c6ff1cf6fd730e434b945244e5c"
+    sha256 cellar: :any,                 arm64_sonoma:  "606603b04a41787ecbafc31c4e769e190719e9a24fdd3fc181e7f10ac92cbd17"
+    sha256 cellar: :any,                 arm64_ventura: "55dc4f40dd13d13d1075910cf0791344f3d9018d04d6fe5c1686710829354d10"
+    sha256 cellar: :any,                 sonoma:        "3608bc5b421ad7cd939f3a8e3268a3c8f6369948ed555afb9d269134a0bfabe6"
+    sha256 cellar: :any,                 ventura:       "31533a851f7dbc8a808a0787dccd80ce0a22e30c099b49e5d588ec555b3d0d93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b6289eca1e028a336e6090a7ab42efb47993c51194941c43fbe7d156f9f4270"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e84559495ee8f9719be30a9d8139a3016d2f448d31fc79ac4d135ab86a228404"
   end
 
   depends_on "cabal-install" => :build

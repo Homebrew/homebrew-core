@@ -13,6 +13,7 @@ class Bogofilter < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "52568286a8cb6ce65a146f26233362ec1df94e8d028d6c6d41dd889a31ab3e6c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9cdd5e3131e6b0880369ac2070e25880f55225b18eb6750bbcf997ffe7864555"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "99c59d02b18ed1ef58f8c21ebc774ed67be9c694fc0807702c7e675daaad74da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fea13db3d925728149dcfb2349e1b1d9d720f96805f0302ba60f6896005163b7"

@@ -9,6 +9,7 @@ class Flavours < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "efc1a63ebb981bccfce1b2653c2725489034a078dc51c99efe90daece4fcf77f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "391fe5d4aea3816013cb4826e96fbfb8cc5c2d2c9e3cf00c43abbdc733e114aa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1cd11ff2bc2a0b8eba4021394e80982f562b389609b0e532a78b5c115c9933a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "76fb0fc700fb8ca4b0782a6fe3c5929e41885d8fcedd8733801b15201efd37eb"

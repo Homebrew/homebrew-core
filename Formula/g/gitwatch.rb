@@ -1,16 +1,13 @@
 class Gitwatch < Formula
   desc "Watch a file or folder and automatically commit changes to a git repo easily"
   homepage "https://github.com/gitwatch/gitwatch"
-  url "https://github.com/gitwatch/gitwatch/archive/refs/tags/v0.2.tar.gz"
-  sha256 "38fd762d2fa0e18312b50f056d9fd888c3038dc2882516687247b541b6649b25"
+  url "https://github.com/gitwatch/gitwatch/archive/refs/tags/v0.4.tar.gz"
+  sha256 "113fbb0ee7634ccb321534d607df191ce87066137e058b58c0a4dfec696b43ef"
   license "GPL-3.0-or-later"
   head "https://github.com/gitwatch/gitwatch.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1e9e09c605119ebd8b800d20fd044357916da5e458c5624fa83cfeac13971b72"
+    sha256 cellar: :any_skip_relocation, all: "9af9425316b5d6fb3232bc120934eb03a9f6f93b6b07b613496cd9da2ef94d6b"
   end
 
   depends_on "coreutils"

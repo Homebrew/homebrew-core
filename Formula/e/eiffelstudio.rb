@@ -1,30 +1,30 @@
 class Eiffelstudio < Formula
   desc "Development environment for the Eiffel language"
   homepage "https://www.eiffel.com"
-  url "https://ftp.eiffel.com/pub/download/24.05/pp/PorterPackage_24.05_rev_107822.tar"
-  version "24.05.107822"
-  sha256 "ca3f2f428568eea7823a1a8bd0d66713b5cadb051cada956a0d3b85a0022621c"
+  url "https://ftp.eiffel.com/pub/download/25.02/pp/PorterPackage_25.02_rev_98732.tar"
+  version "25.02.98732"
+  sha256 "fd7a1ec2a09e87535f077bdef542fed1665f6790c46b837b44497aec5b65c6dd"
   license "GPL-2.0-only"
 
   livecheck do
     url "https://ftp.eiffel.com/pub/download/latest/pp/"
-    regex(/href=.*?PorterPackage[._-]std[._-]v?(\d+(?:[._-]\d+)+).t/i)
+    regex(/href=.*?PorterPackage[._-]v?(\d+(?:[._-]\d+|[._-]rev)+).t/i)
     strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| match[0].tr("_-", ".") }
+      page.scan(regex).map { |match| match[0].gsub("_rev_", ".") }
     end
   end
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "439bf0adf57faebf0897400e531338efeb4e91e7b9a4470ba94932d3025d3cbb"
-    sha256 cellar: :any,                 arm64_sonoma:  "b42e40979b8e31a2ed84a32b024811b5d50aa97bca7c96ab53300e6de45c7bbb"
-    sha256 cellar: :any,                 arm64_ventura: "1f31d3cd0b9dbfe91cfacda4bced48918f29a6d861f23fe764d3f4d9333ab4cb"
-    sha256 cellar: :any,                 sonoma:        "88bf14ac5fd6270aef08d59b7e74d2d2650a56f2022b07d884901c62db9d7fe1"
-    sha256 cellar: :any,                 ventura:       "0f1a0494b436a30d3cb01c7b982be6e3770200fc3e70badb0c9ab94fcd4e6368"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "319253cc55f63693b4d879ef4b37ef84a80af596d2fe7eb6b9ed6adcb5ddef7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d47f2c53bb4b1ac77df03ba2504fdd788d10973bce17d2e5be256184b99bbed"
+    sha256 cellar: :any,                 arm64_tahoe:   "f14da97c4684f2384c2d68dab556ea970b6191e8995634a31707e5a14bfb85a1"
+    sha256 cellar: :any,                 arm64_sequoia: "4030c9fa5e0a839aae6c9f9f8b04af32d7f45c2203453ee51b23388444a74d67"
+    sha256 cellar: :any,                 arm64_sonoma:  "ee29d34eabd019521717887b411c3a8edae4d29dbfd4c5d5cc20262df03dc6af"
+    sha256 cellar: :any,                 arm64_ventura: "fedc736ae91c56ad1ff16d5dd21a0950ba47ed1dc51df977e20759348aa0e924"
+    sha256 cellar: :any,                 sonoma:        "2b4450d781483aab1345f9453246ab778c820c208d910523c9918da5588aa0b7"
+    sha256 cellar: :any,                 ventura:       "c630a8e2c1aa1857bfc26e40611293c855fa568285b17a1254ba13c8dcf1b162"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "90856df61aa3521fa22d999c3298cbe52f144c705927fee102798a3e2af7f3f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00230c658b6733ffde14178ef47d9919dbaf4694ebae211d938423068282aefb"
   end
 
   depends_on "pkgconf" => :build

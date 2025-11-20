@@ -6,14 +6,15 @@ class Gprof2dot < Formula
   url "https://files.pythonhosted.org/packages/bb/fd/cad13fa1f7a463a607176432c4affa33ea162f02f58cc36de1d40d3e6b48/gprof2dot-2025.4.14.tar.gz"
   sha256 "35743e2d2ca027bf48fa7cba37021aaf4a27beeae1ae8e05a50b55f1f921a6ce"
   license "LGPL-3.0-or-later"
-  head "https://github.com/jrfonseca/gprof2dot.git", branch: "master"
+  head "https://github.com/jrfonseca/gprof2dot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "eacd9d62a4611085b9a19bec9fc9450992f2d67fbb3d22d8b2ca90ed1aebfa27"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b4fe6eb97205fb481b755d57628c8bcdbd35a8865910bec37ced4a858d460796"
   end
 
   depends_on "graphviz"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_linux do
     depends_on "libx11"

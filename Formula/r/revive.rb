@@ -2,18 +2,18 @@ class Revive < Formula
   desc "Fast, configurable, extensible, flexible, and beautiful linter for Go"
   homepage "https://revive.run"
   url "https://github.com/mgechev/revive.git",
-      tag:      "v1.10.0",
-      revision: "6becd540e4f864330381c0f2cd0cf05089aa8aa3"
+      tag:      "v1.13.0",
+      revision: "ac5f398440705ae79abf836674f46c24a2494949"
   license "MIT"
   head "https://github.com/mgechev/revive.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b87e2cf8bd14cbbf031657dfa3b999f9bb3abcd315837b29ddf4e0047eeb4eb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b87e2cf8bd14cbbf031657dfa3b999f9bb3abcd315837b29ddf4e0047eeb4eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b87e2cf8bd14cbbf031657dfa3b999f9bb3abcd315837b29ddf4e0047eeb4eb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "026da2b8efbd5bc1d56544af835be71c3228b6c2acf758ee60bd3c28b382640c"
-    sha256 cellar: :any_skip_relocation, ventura:       "026da2b8efbd5bc1d56544af835be71c3228b6c2acf758ee60bd3c28b382640c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d8d82c52605978c9e8a4142062f492891eaeec31c5fffa12a5ab97b95c8e323"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6c07d75d105c7294993c08c12277ee54a90a866d7b4c13993729a0341f4c5ee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6c07d75d105c7294993c08c12277ee54a90a866d7b4c13993729a0341f4c5ee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6c07d75d105c7294993c08c12277ee54a90a866d7b4c13993729a0341f4c5ee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b0c69c44367f6e1ed525cd22c4d15bac14494cf4a13b5d49685ecb94897d1a78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d1a318a9cb623e0657bd5e63560f7c83a6791e53ce0c7cba3741a8b63b249dde"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd368980de74dd01a1aaa3b18a598a29225efead9fa3ac0c4076337eec0f296e"
   end
 
   depends_on "go" => [:build, :test]
@@ -25,7 +25,7 @@ class Revive < Formula
       -X github.com/mgechev/revive/cli.date=#{time.iso8601}
       -X github.com/mgechev/revive/cli.builtBy=#{tap.user}
     ]
-    ldflags << "-X github.com/mgechev/revive/cli.version=#{version}" unless build.head?
+    ldflags << "-X github.com/mgechev/revive/cli.version=#{version}" if build.stable?
 
     system "go", "build", *std_go_args(ldflags:)
   end

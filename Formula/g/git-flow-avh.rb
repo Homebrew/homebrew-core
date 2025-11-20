@@ -13,8 +13,6 @@ class GitFlowAvh < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "83117a1c5f1d2fe98c1009a665ce42682e185c922c44c4a877dbe03b3bc2bd3c"
@@ -42,8 +40,6 @@ class GitFlowAvh < Formula
   disable! date: "2025-03-04", because: :repo_archived
 
   depends_on "gnu-getopt"
-
-  conflicts_with "git-flow", because: "both install `git-flow` binaries and completions"
 
   def install
     system "make", "prefix=#{libexec}", "install"

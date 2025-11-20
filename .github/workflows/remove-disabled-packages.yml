@@ -3,6 +3,7 @@ name: Remove disabled packages
 on:
   push:
     branches:
+      - main
       - master
     paths:
       - .github/workflows/remove-disabled-packages.yml
@@ -29,7 +30,7 @@ jobs:
     if: github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     env:
       REMOVAL_BRANCH: remove-disabled-packages
     permissions:
@@ -37,36 +38,35 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@master
+        uses: Homebrew/actions/git-user-config@main
         with:
           username: BrewTestBot
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@master
+        uses: Homebrew/actions/setup-commit-signing@main
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
       - name: Checkout removal branch
-        run: git checkout -b "$REMOVAL_BRANCH" origin/master
+        run: git checkout -b "$REMOVAL_BRANCH" origin/HEAD
         working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
 
       - name: Remove disabled packages
         id: remove_disabled
-        uses: Homebrew/actions/remove-disabled-packages@master
+        uses: Homebrew/actions/remove-disabled-packages@main
         env:
           HOMEBREW_EVAL_ALL: 1
 
       - name: Push commits
         if: fromJson(steps.remove_disabled.outputs.packages-removed)
-        uses: Homebrew/actions/git-try-push@master
+        uses: Homebrew/actions/git-try-push@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
@@ -77,14 +77,14 @@ jobs:
 
       - name: Create pull request
         if: fromJson(steps.remove_disabled.outputs.packages-removed)
-        uses: Homebrew/actions/create-pull-request@master
+        uses: Homebrew/actions/create-pull-request@main
         with:
-          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          base: master
-          head: ${{env.REMOVAL_BRANCH}}
+          token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
+          base: ${{ github.event.repository.default_branch }}
+          head: ${{ env.REMOVAL_BRANCH }}
           title: Remove disabled packages
           labels: CI-no-bottles
-          body: This pull request was created automatically by the [`remove-disabled-packages`](${{env.RUN_URL}}) workflow.
+          body: This pull request was created automatically by the [`remove-disabled-packages`](${{ env.RUN_URL }}) workflow.
 
   create-issue:
     permissions:
@@ -94,7 +94,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create issue on failure
-        uses: Homebrew/actions/create-or-update-issue@master
+        uses: Homebrew/actions/create-or-update-issue@main
         with:
           title: Disabled package removal failed
           body: Run failed at ${{ env.RUN_URL }}

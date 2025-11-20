@@ -5,8 +5,6 @@ class Heppdt2 < Formula
   sha256 "12a1b6ffdd626603fa3b4d70f44f6e95a36f8f3b6d4fd614bac14880467a2c2e"
   license "AFL-3.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a88323276e43919598c99db83cb8ad62864a6c3fa87045791ae7b65f5c8c1aeb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2114a3a999db405565067ff1590fec7434c1481f6ba57416d2a722baf19991e0"
@@ -18,7 +16,6 @@ class Heppdt2 < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d41f92b1fe64fe52327e3a3f80d04acdc449a9c9d40d9a75dba40700382f51a9"
     sha256 cellar: :any_skip_relocation, big_sur:        "ad2b96b10116b7be43a7fb93f0dd76346c904b9fc281983cbb954dd21674499e"
     sha256 cellar: :any_skip_relocation, catalina:       "5cefdebab8dadafb0c96b121eab2dc0abf0cf6b2f7ff5acdd4d67353c05c275b"
-    sha256 cellar: :any_skip_relocation, mojave:         "2c0ccad4374004249fc7431acaa358d0b04d096526e6447ec0c10cdc3b4759af"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a9fd6f6dc87942bb05ce6105a4038ce7c824c25636a0b110b33bdb9b25cb15a"
   end
 

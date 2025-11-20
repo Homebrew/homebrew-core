@@ -1,19 +1,18 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/refs/tags/0.38.1.tar.gz"
-  sha256 "ccd01b0c737e27bb7c10758fe68fc79c89f0ecf7bfa9c3616938871f0a026ebb"
+  url "https://github.com/sol/hpack/archive/refs/tags/0.38.3.tar.gz"
+  sha256 "08550020ec987490d540a8a5004699d4b59518a84813c2fd96f3000d86ee2c94"
   license "MIT"
   head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "506faf7c344fc1997660ffda25024706c2b54b1e214dbea969aebad5cf0dc111"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7acb9d1da41078cc9c8cbbc99d6d207a70dc84be8969b36289ba959dfceff13b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d0773c8ef24951ae47c9f8857787ddcb1cfe167e3a26f0947cce5fffa25b88ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fd8894d5c462ad64921917b06d6fb5218498c3449be09efc863f7ef403efb27e"
-    sha256 cellar: :any_skip_relocation, ventura:       "e523a9d85f322584f051fe7714f9c83ab58ff17a56deb9ae73526a22f47e7a52"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ecf79f06c6d22e1e71b63d44c89fec1ba2abff56b1e14d51af04e7ae734a6f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8c54054592cd045802666c94874a5637edc6745fa94cda90fc3af1b1d97770c"
+    sha256 cellar: :any,                 arm64_tahoe:   "4610e7c7e848f7750560fcd7067bb5ee7f05ed97d00a050348258e5cfa876804"
+    sha256 cellar: :any,                 arm64_sequoia: "603c42ec65506814584695a562db76dcfda87dfaecc8fabbe3a62ec38c26660b"
+    sha256 cellar: :any,                 arm64_sonoma:  "1febba455f551d9dc4799a0697f1a52993d9bb934ae3a7ef415f97188bccfbd5"
+    sha256 cellar: :any,                 sonoma:        "13d9e33f4146812e955c8b302ca12898f8f0e9a29c8ab4ffb7458e4c761dc4d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef2a230d313d0c05cc9e4bb7dd5ac7710c3fa681c215ffbf6d5d4788becc1599"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45214110f26cc914b5463e5b4ca150defdd83807e82c7e74343fb05c8f3be599"
   end
 
   depends_on "cabal-install" => :build

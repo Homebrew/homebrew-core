@@ -7,11 +7,13 @@ class Kool < Formula
   head "https://github.com/kool-dev/kool.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "01b7a34a423abc2c66330ecb5dac5cc25f00760a3168ff5debc97c3d1d1f2b3c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e48a8e7d166938e43d4a68faf9912a34952934db3d665c297da9bf44069332a9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e48a8e7d166938e43d4a68faf9912a34952934db3d665c297da9bf44069332a9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e48a8e7d166938e43d4a68faf9912a34952934db3d665c297da9bf44069332a9"
     sha256 cellar: :any_skip_relocation, sonoma:        "0f6186319cf2b73fb9a455254286ca785af62b79caf32ff17e731ef49bec2677"
     sha256 cellar: :any_skip_relocation, ventura:       "0f6186319cf2b73fb9a455254286ca785af62b79caf32ff17e731ef49bec2677"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca872ac11f786417d0c851ad83bf64457f910fd14e1913d669cf9a50a0525024"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c68552d6fe32c2512b177459c9b04982c2f5a21c8b49eab5198a9a23899eaa67"
   end
 

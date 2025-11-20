@@ -1,23 +1,26 @@
 class Czkawka < Formula
   desc "Duplicate file utility"
   homepage "https://github.com/qarmin/czkawka"
-  url "https://github.com/qarmin/czkawka/archive/refs/tags/9.0.0.tar.gz"
-  sha256 "2b2f419e1c733cad763eceb95eff28b1302e0926c247fdfd98e2f29f6f7866ee"
+  url "https://github.com/qarmin/czkawka/archive/refs/tags/10.0.0.tar.gz"
+  sha256 "66ff3c231abe2feaeb377f52bb188eb81686c162d7f3fd28ed5b7374f0046c48"
   license all_of: ["MIT", "CC-BY-4.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c28c1d127ad049a7ea6ca83b912d198125fd1ff907a6f695512a23698692c235"
-    sha256 cellar: :any,                 arm64_sonoma:  "af4ae38ba517763f591b5f2ab52b0b3fead5627d2ee80bda8db3db596e2760c4"
-    sha256 cellar: :any,                 arm64_ventura: "0e0b5690c9450849adf554fdd0bfb7604160ee8030a3522f038c48d286d86afa"
-    sha256 cellar: :any,                 sonoma:        "b962385e937d55de3c73bde9ff005a445060683d1eb1fe935cf4796d729c9baa"
-    sha256 cellar: :any,                 ventura:       "4845dcbc5835c39c85987bebc64eaa14f449b6a36a8d669e8f0799bab7c22cb1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "639ef911d5321e575feeb023000967a18e8cd968cdb7e03952e3ddf4bf90d15c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df85cb1e5414b32e3026bd639dab932af37063363e1eb9cf58a8b46d0408f8e7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9e864b494ab69223c4cc4c2c13a6fd0c18ee3901a57ee9849049246f8e4f7ea9"
+    sha256 cellar: :any,                 arm64_sequoia: "5a04f342abe94f8043873f428335a0c6a84250fb7286858c8e1a5fd8fb39c2e6"
+    sha256 cellar: :any,                 arm64_sonoma:  "cdc99a59f5fccc3c03a9d5c0c929a2488a3ff24244b1cba6e7d62ac3c9da204f"
+    sha256 cellar: :any,                 arm64_ventura: "45bbeb2050f67f8cc1934ab21318b957d65fde3855f0936c4c7a3a35c75aed5c"
+    sha256 cellar: :any,                 sonoma:        "6870706cdfd71b70bad879a332f4f23bd30cec361447cf71a2da7a4c230e97f5"
+    sha256 cellar: :any,                 ventura:       "fbd0d1f670f060de6b6ccd83c49d594fc0b65b7a9ba1d28e37065a1b9e7ded10"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe11fc2b2f976a53a49a791eabf16b1cfa43ca223d5b7073fc9608fc7ef5bd86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "193dceccee09d909d8be8dd0c328a6af8a522c282ebd53d21aad91cb936b74aa"
   end
 
   depends_on "rust" => :build
   depends_on "adwaita-icon-theme"
   depends_on "cairo"
+  depends_on "dav1d"
   depends_on "ffmpeg"
   depends_on "gdk-pixbuf"
   depends_on "glib"
@@ -37,8 +40,8 @@ class Czkawka < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "czkawka_cli")
-    system "cargo", "install", *std_cargo_args(path: "czkawka_gui")
+    system "cargo", "install", "--features", "heif,libraw,libavif", *std_cargo_args(path: "czkawka_cli")
+    system "cargo", "install", "--features", "heif,libraw,libavif", *std_cargo_args(path: "czkawka_gui")
   end
 
   def post_install
@@ -53,8 +56,8 @@ class Czkawka < Formula
   end
 
   test do
-    output = shell_output("#{bin}/czkawka_cli dup --directories #{testpath}")
-    assert_match "Not found any duplicates", output
+    system bin/"czkawka_cli", "dup", "--directories", testpath, "--file-to-save", "results.txt"
+    assert_match "Not found any duplicates", File.read("results.txt")
 
     assert_match version.to_s, shell_output("#{bin}/czkawka_cli --version")
   end

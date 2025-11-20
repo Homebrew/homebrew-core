@@ -6,6 +6,8 @@ class Rmate < Formula
   license "MIT"
   head "https://github.com/textmate/rmate.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "fb6dd771050399730a0a7592fe0a135705a294b10fd02263bd6cfcbc284cee2a"

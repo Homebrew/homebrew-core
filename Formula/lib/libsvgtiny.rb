@@ -11,6 +11,7 @@ class Libsvgtiny < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4961c5fbcd42eb1477536c3d18bbbbbe4aeb11e342a181b4838f850ec43fa809"
     sha256 cellar: :any,                 arm64_sequoia: "dfa1577c7203b4006481244f5029a3f91acfc6f6ad5f117f9ce909caf15c46f3"
     sha256 cellar: :any,                 arm64_sonoma:  "a3936e5961d3c93c990c67f63e592387eb143483f8cb8dba01253a8af012e2e0"
     sha256 cellar: :any,                 arm64_ventura: "acbb8ceb269100f33510ebc0f635431370f4529472757e3b49a4c9db84759908"

@@ -1,18 +1,17 @@
 class Lerna < Formula
   desc "Tool for managing JavaScript projects with multiple packages"
   homepage "https://lerna.js.org"
-  url "https://registry.npmjs.org/lerna/-/lerna-8.2.2.tgz"
-  sha256 "92412a5122008cfa811d53b1a12d5c35445800ad9537c0227ed17fc6336caa8a"
+  url "https://registry.npmjs.org/lerna/-/lerna-9.0.1.tgz"
+  sha256 "a74ac11fae962351a89489d96dd184f4063743c29371ee340d9eac7a4675606a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ea39248d03d000d57165e3879a00ae1dcb6fc8617210fa44d9e177358027a4bc"
-    sha256 cellar: :any,                 arm64_sonoma:  "ea39248d03d000d57165e3879a00ae1dcb6fc8617210fa44d9e177358027a4bc"
-    sha256 cellar: :any,                 arm64_ventura: "ea39248d03d000d57165e3879a00ae1dcb6fc8617210fa44d9e177358027a4bc"
-    sha256 cellar: :any,                 sonoma:        "eabd4097f10cbb4ac97c2716d1e9ef044f4b31873685d3b5f12fbd2c1aeaed9e"
-    sha256 cellar: :any,                 ventura:       "eabd4097f10cbb4ac97c2716d1e9ef044f4b31873685d3b5f12fbd2c1aeaed9e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "59c69e98e03fbc56a220bda1e14ab2a20ba27e80d8c85418a7eead84005b709c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4848224c3a5fe8df2069b2e329fb0f76793ba3e100c01361bfb092ccff0a2e29"
+    sha256 cellar: :any,                 arm64_tahoe:   "fc2409c6d182a81caaf8adc14d7aa2f20079a9a3a7e80c6cccec66fee197e5a8"
+    sha256 cellar: :any,                 arm64_sequoia: "24ff92417edd453c94196dd0d97a998a3f56593d6b9b00047414f7e689947857"
+    sha256 cellar: :any,                 arm64_sonoma:  "24ff92417edd453c94196dd0d97a998a3f56593d6b9b00047414f7e689947857"
+    sha256 cellar: :any,                 sonoma:        "4d78a944f3c9abcc90bc7225f26aa22862192a2abb664f79a485107e6024d0d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07c3ae846afd0c7edf8575e5e53a129e94590db236abc6902d9ac796d0db9c22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d137fdb7ed2be2ae3289197dd4d5913b02bed7ac42626524337538a26212510"
   end
 
   depends_on "node"

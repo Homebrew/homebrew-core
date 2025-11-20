@@ -2,9 +2,10 @@ class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
   # NOTE: Make sure to update RPATHs if any "@rpath-referenced libraries" show up in `brew linkage`
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2025_03_2.tar.gz"
-  sha256 "4db5d503c3e0040321c32a2dc60d60221dc73ee9e5902b8208f2a39057bbfb15"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2025_09_1.tar.gz"
+  sha256 "7fb3510b69af358009e2d0763c1d9665ac34f4c2cd3314cf5210ee3d5a33d501"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -16,20 +17,19 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "fc0084d88f8068bc87338a68421b0178d089cfc10e9d55ba0a58498c1807830c"
-    sha256                               arm64_sonoma:  "aff5c49f467699a77fa87cdd1b1ad3cf91a5d5b484e7afe7dc1d2df7f0f90f37"
-    sha256                               arm64_ventura: "59e482ee31900e49c08b716970ebeceaf78e72d678e3a681d2e936c639a3a552"
-    sha256 cellar: :any,                 sonoma:        "86ab0cbb0d2414b87ee993bffdd75ddaa8bfd197c568645bfc77d122de2cd33a"
-    sha256 cellar: :any,                 ventura:       "eec570d4cec882a75b3cbe9f7ae1c3346a4cf4cd64b8f314b9f187e01af92dd6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8c63f853cafee1a32449279e2ac6604a400f6786f4493e2f9167fe94a220933"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8283dbef87308e95d19c0721a67f42470475cf74b19ce4eb8c306197569bddc3"
+    sha256                               arm64_tahoe:   "196b3bd7410b0dc65624d6d525cc51ca48c69f961f48c4b5d07c2d4b39729a87"
+    sha256                               arm64_sequoia: "fd165ec6200aaa8f8f9989942188fc9f296c3f462e8bdfd47fa002413c17e6a8"
+    sha256                               arm64_sonoma:  "709b6b9976a723b632f865c3d8b9798b977de85ab6e311f9b72b237d137fde2b"
+    sha256 cellar: :any,                 sonoma:        "cf228316aef4978ed51a650420ace449ddddf11b9606924ab5b47b4492f1582d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "442e8e1ab3ca1fbc1b0bd206db18309dbc53f6143ce86ccb11d753dbb2fb9626"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4da31b2d2ad9545c3021cbf4803ed237b9e23ccbf07cd081df32429b34941fa9"
   end
 
   depends_on "catch2" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "cairo"
@@ -40,7 +40,7 @@ class Rdkit < Formula
   depends_on "maeparser"
   depends_on "numpy"
   depends_on "py3cairo"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "better_enums" do
     url "https://github.com/aantron/better-enums/archive/refs/tags/0.11.3.tar.gz"
@@ -48,7 +48,7 @@ class Rdkit < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def postgresqls
@@ -57,6 +57,7 @@ class Rdkit < Formula
   end
 
   def install
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
     (buildpath/"better_enums").install resource("better_enums")
 
     python_rpath = rpath(source: lib/Language::Python.site_packages(python3))
@@ -64,6 +65,7 @@ class Rdkit < Formula
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DCMAKE_MODULE_LINKER_FLAGS=#{python_rpaths.map { |path| "-Wl,-rpath,#{path}" }.join(" ")}
+      -DCMAKE_PREFIX_PATH='#{Formula["maeparser"].opt_lib};#{Formula["coordgen"].opt_lib}'
       -DCMAKE_REQUIRE_FIND_PACKAGE_coordgen=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_maeparser=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_Inchi=ON

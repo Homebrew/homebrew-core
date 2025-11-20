@@ -1,18 +1,18 @@
 class Pluto < Formula
   desc "CLI tool to help discover deprecated apiVersions in Kubernetes"
   homepage "https://fairwinds.com"
-  url "https://github.com/FairwindsOps/pluto/archive/refs/tags/v5.21.7.tar.gz"
-  sha256 "ae805581bc59438225a91c5d7a945deeda9d45662c82d17704fd460dc5b8b49a"
+  url "https://github.com/FairwindsOps/pluto/archive/refs/tags/v5.22.6.tar.gz"
+  sha256 "bfaff80908ac0d7de1c574ed9bb634cc592588b9abc66f48b3502e13e38b27ac"
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/pluto.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a14e783faf49fcfbc698477796695044c11b9e1c9f97c1a199c73f4a5b47eb3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a14e783faf49fcfbc698477796695044c11b9e1c9f97c1a199c73f4a5b47eb3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a14e783faf49fcfbc698477796695044c11b9e1c9f97c1a199c73f4a5b47eb3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "527bbd3c7f504f06e1fe627a9111dfe936f249c0fc8fba5b644b9f2f76176853"
-    sha256 cellar: :any_skip_relocation, ventura:       "527bbd3c7f504f06e1fe627a9111dfe936f249c0fc8fba5b644b9f2f76176853"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9d55ff469acda549be1d1d50d8156ac1925a632406bea21235a61a10a17bd6f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e835e0deb45fbeddbe5d788c1ed2b46f361a056a580b0cbb3ac0dbc0f6de4e3c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e835e0deb45fbeddbe5d788c1ed2b46f361a056a580b0cbb3ac0dbc0f6de4e3c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e835e0deb45fbeddbe5d788c1ed2b46f361a056a580b0cbb3ac0dbc0f6de4e3c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6df298500debcbd30d28ad8fc8b4811a0d51675585a18225089b7de73e10167a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d973b32e8f0540312bb5bb7d44c29725129705c38a36e342a9097f2ede3bee4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fe65dbafaa3c2b53f75735635d465790e94533ec1dffdba53be4e16a8699a25"
   end
 
   depends_on "go" => :build

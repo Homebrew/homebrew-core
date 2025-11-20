@@ -1,19 +1,20 @@
 class Taglib < Formula
   desc "Audio metadata library"
   homepage "https://taglib.org/"
-  url "https://taglib.github.io/releases/taglib-2.1.tar.gz"
-  sha256 "95b788b39eaebab41f7e6d1c1d05ceee01a5d1225e4b6d11ed8976e96ba90b0c"
+  url "https://taglib.github.io/releases/taglib-2.1.1.tar.gz"
+  sha256 "3716d31f7c83cbf17b67c8cf44dd82b2a2f17e6780472287a16823e70305ddba"
   license all_of: ["LGPL-2.1-only", "MPL-1.1"]
   head "https://github.com/taglib/taglib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "33bae1ce3df75ae42afe0a00e5ff89c13fe89c55a90492f83936871400bead26"
-    sha256 cellar: :any,                 arm64_sonoma:  "a8407786ef99bff2dacc49c41ee8597bf0e1b320770cf7e375cbcf3dd01edfa2"
-    sha256 cellar: :any,                 arm64_ventura: "5fa5bc0e5f1f0420951a109822212307d4c47eca65e13c80cd12130ef3db7582"
-    sha256 cellar: :any,                 sonoma:        "0bcb92f06b8a816e61db238c4866038e32d939d137ae5a9b2b6a89f6354dc060"
-    sha256 cellar: :any,                 ventura:       "dc45e7bdf7b98bbc8c82fc504d9f9fc439c0ee404c081f3a9d47db3a43440d0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "578bbf176f2ab333475f9bf2f1aba06cdc376416eab72610354959efe1255441"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90098d41daac6072c0daf0dc6a9a179811a0a7067809018845ef727a6611ca8f"
+    sha256 cellar: :any,                 arm64_tahoe:   "6f29ef2be3f8ab43a3956a21de1f80d0bb3951df2e16376f592e476a4fe07cf8"
+    sha256 cellar: :any,                 arm64_sequoia: "78cd3f2121fab66ac1f4b3f28a54c46d129375e8ece28f7eeb4cb68f2c89722a"
+    sha256 cellar: :any,                 arm64_sonoma:  "a8d56fabd553d9d4f5de8a78476f803ea5e6d7d7dc00861f767fbe54b161f50d"
+    sha256 cellar: :any,                 arm64_ventura: "3723f18ff63cd33ec1b6da0f7ab43c08be3994c6c70471a9a21025488b5956d1"
+    sha256 cellar: :any,                 sonoma:        "4a107bbeb7a9d53f3046d18a19a4161e5e549ab3cf67069d65d506bdc317132f"
+    sha256 cellar: :any,                 ventura:       "793d01948030616da5df4d999fba744e7639d5441aff12e83b1fec516042cc87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f60f5717e204f3b8e059ca019f928b8b95a46ad1c40fe96b5903b867874881a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04369b3a1ba6dcdfd99b354eb9c92106f7c507f1819b68b349d1798478c6cab1"
   end
 
   depends_on "cmake" => :build

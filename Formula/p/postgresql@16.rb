@@ -1,8 +1,8 @@
 class PostgresqlAT16 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v16.9/postgresql-16.9.tar.bz2"
-  sha256 "07c00fb824df0a0c295f249f44691b86e3266753b380c96f633c3311e10bd005"
+  url "https://ftp.postgresql.org/pub/source/v16.11/postgresql-16.11.tar.bz2"
+  sha256 "6deb08c23d03d77d8f8bd1c14049eeef64aef8968fd8891df2dfc0b42f178eac"
   license "PostgreSQL"
 
   livecheck do
@@ -11,13 +11,12 @@ class PostgresqlAT16 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "8e883e6e9e7231d49b90965f42ebc53981efb02e6ed7fdcbd1ebfdc2bfb5959a"
-    sha256 arm64_sonoma:  "1cb655cb347c5395da0b1b8de82e16dfd20f18f9833c1f9195b2f43a50f53908"
-    sha256 arm64_ventura: "6b979f6f6f69d679edead92cce444a040698dead47ce11042f032c4ed0f99bf5"
-    sha256 sonoma:        "93db108d959400a8f55a1161c0b0ca78face7370e4e44c374c9d1819f8335487"
-    sha256 ventura:       "4082217252ea7be1c2cb20851ce039e72a7c0a6835d7bdc5ad88650bdbc8b113"
-    sha256 arm64_linux:   "f5192ae99aa883cb0a1f5806af14ac45c0d10d3592c455c2e1e820244d02bcc7"
-    sha256 x86_64_linux:  "0f3b5ffbb0a01071af4e4e565de8125894c621d8087781cc63442f3fa3f7902e"
+    sha256 arm64_tahoe:   "45a77587d6a1b043135652f6e016c4f5acd47f2c1d43bc6668750048bb160542"
+    sha256 arm64_sequoia: "3a30b366f2a9c08df8b37addaebb20457320f74112e45f284f710f201261e000"
+    sha256 arm64_sonoma:  "208551c7ead5cf3f3fd083a9a03c7e9b640cc22f369cfd32deec92ca018c255f"
+    sha256 sonoma:        "959e4839458f26cf628846bc287552cab1d61163409ffa783511cc501902a20e"
+    sha256 arm64_linux:   "dbe27d036bc18547705755037cde2ce6e5a47a6cfeaf46dbddf230287e1f5806"
+    sha256 x86_64_linux:  "73f79b7c9ab845ee7714b8fd4efb9899afff4d5be88c3d46e97c3a410c06e6d4"
   end
 
   keg_only :versioned_formula
@@ -27,7 +26,7 @@ class PostgresqlAT16 < Formula
 
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
 
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
@@ -90,7 +89,7 @@ class PostgresqlAT16 < Formula
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
-    args << "PG_SYSROOT=#{MacOS.sdk_path}" if OS.mac? && MacOS.sdk_root_needed?
+    args << "PG_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
 
     system "./configure", *args, *std_configure_args(libdir: opt_lib)
 
@@ -117,7 +116,7 @@ class PostgresqlAT16 < Formula
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system bin/"initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
   def postgresql_datadir
@@ -135,13 +134,13 @@ class PostgresqlAT16 < Formula
   def caveats
     <<~EOS
       This formula has created a default database cluster with:
-        initdb --locale=C -E UTF-8 #{postgresql_datadir}
+        initdb --locale=en_US.UTF-8 -E UTF-8 #{postgresql_datadir}
     EOS
   end
 
   service do
     run [opt_bin/"postgres", "-D", f.postgresql_datadir]
-    environment_variables LC_ALL: "C"
+    environment_variables LC_ALL: "en_US.UTF-8"
     keep_alive true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
@@ -149,7 +148,7 @@ class PostgresqlAT16 < Formula
   end
 
   test do
-    system bin/"initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E UTF-8", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
     assert_equal opt_pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
     assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
     assert_equal (opt_lib/"postgresql").to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp

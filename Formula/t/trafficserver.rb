@@ -1,19 +1,20 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 and HTTP/2 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://downloads.apache.org/trafficserver/trafficserver-10.0.5.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.0.5.tar.bz2"
-  sha256 "79d4efc02a94b38cf75ad3bfc0652d84155b4cdd5cf2cdcdb53399aa6ab8e397"
+  url "https://downloads.apache.org/trafficserver/trafficserver-10.1.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.1.0.tar.bz2"
+  sha256 "bccc35bbfc80f215b0858a0a7e531ac990b13a9eb1e3e81a3b15eaa3fde0596e"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_sequoia: "8036860308c3d5a166f8e67334892d79dd185b759a88f0bda448dc55e4d152d9"
-    sha256 arm64_sonoma:  "e4b4b50ca4ccd123f27e6b140bc9db7faab0c793f71de15660336a1fc495ada2"
-    sha256 arm64_ventura: "947ce75f85a4f4e40da713ca19d9700ea6dff56340433f52dae608a81bb14c1a"
-    sha256 sonoma:        "5f8f1e5de63f3a656df0c660d47b5394942ea922e1a47397ab62aff7bcf34bb5"
-    sha256 ventura:       "f5d7187b184a23f594b870f252f494fcdad54ec0376244a174d608ac4eb68386"
-    sha256 arm64_linux:   "d5686131b0ae392e9b63efd83df2fb98e8214ccb4db7d8d2b2ec899c0708b7f7"
-    sha256 x86_64_linux:  "bba4bdd8d52ab6650c7957d16818fc22ad7db80032a6490635b9f2e4892efdc2"
+    sha256 arm64_tahoe:   "f1f228335aa43ef6fc7ff8e68c2777dc3ff42335cb0b9b71bc74deac28998ab3"
+    sha256 arm64_sequoia: "bd0435227b8259ad3ddb4f0e2554fa80313afc5534a216727907e93ed4449154"
+    sha256 arm64_sonoma:  "45d46d5d4940acc9f404ca0a096f8b2b35e4b6633ba7dc8d1ac7992775a2ff78"
+    sha256 arm64_ventura: "1cf5918b4f826a901f82779b9e260ad303ce9cef5fa9da4b87680681a5fa4b28"
+    sha256 sonoma:        "6f468481e98e0f32cd21782569d9cc7db867f5330c55afbb8f8220af749bab60"
+    sha256 ventura:       "49c8fba7b87b464e8fa5b22cf02f94c353cdca306b8860249e004e2b801a7216"
+    sha256 arm64_linux:   "445d11a0ce8676fe74a1df1be2fa6b1bf9544ab7e7bd69bdfa931acf62424f1c"
+    sha256 x86_64_linux:  "701d46ac0f4dfd5ed88a48e5f01bb55f675f9e275a4e692ba7a773e82e0d39f6"
   end
 
   depends_on "cmake" => :build

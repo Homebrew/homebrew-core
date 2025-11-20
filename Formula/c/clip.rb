@@ -2,7 +2,7 @@ class Clip < Formula
   desc "Create high-quality charts from the command-line"
   homepage "https://github.com/asmuth/clip"
   license "Apache-2.0"
-  revision 4
+  revision 5
   head "https://github.com/asmuth/clip.git", branch: "master"
 
   stable do
@@ -16,15 +16,12 @@ class Clip < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "4e2ca7b930f87658ba6450ad93a84b92b8d22c807f23eb8161c6c0cf3bd4fe88"
-    sha256 cellar: :any,                 arm64_sonoma:   "3113e6da1b2952a1fb192798702a682bb4a1b15528deef855728cb7747e73a6e"
-    sha256 cellar: :any,                 arm64_ventura:  "35c0b71a4027266682fc887c730d90da8ed7a70376e676f083ccb77080aa487a"
-    sha256 cellar: :any,                 arm64_monterey: "1eac839633823737b47b9908706b6e4fc71d868db0317505b5ced38c3bc18004"
-    sha256 cellar: :any,                 sonoma:         "704a966e9cde6a3d7ec3fb7f89001951ec21c6c17ea19c949d40525b5ee99993"
-    sha256 cellar: :any,                 ventura:        "b9d9581c495fd0de481bdd29e90c83a2d754728bae91cbce79d33b203f49f234"
-    sha256 cellar: :any,                 monterey:       "1727420363dd11f068d983246bc72c1984989a317d7469a559aca8362aa2b546"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "56e3709cdc2847f1fe4596de4a6f22d5ece7685eb0556016c84d33e978af7bc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ec83f22a9c5a10603172933fb1de5ae5f261e30891e0ecf4b800094eab60ce8"
+    sha256 cellar: :any,                 arm64_tahoe:   "db658e6fcb0e356d9c460e6a9d68a284b7cfc259410427072fe0a3e980a79c3b"
+    sha256 cellar: :any,                 arm64_sequoia: "39474a5890b2367e6ef4e94946bfd9298d939b124cca416f7c497a9594c767b0"
+    sha256 cellar: :any,                 arm64_sonoma:  "23bb3a919a00675c27a554bb7a23452d619cd19cd7cdb8259f73549500cce43d"
+    sha256 cellar: :any,                 sonoma:        "abf0e00a25e56c1791a9c02c00ce5aa0daacb4fb905e67710b6542d165a56e3d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8681f1d1300b0344c10090065c88c6bd20a3131963d9253084bc9178428c25f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11bab1e5129fadb9ee981a3fce1a5d5398e5ca11b7dee3a10dc325b8db8b80bf"
   end
 
   depends_on "cmake" => :build

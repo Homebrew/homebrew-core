@@ -11,6 +11,7 @@ class Fswatch < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "8172ca1617fd1842b1268e21c501568d754aa38c44814a60a146316b5683b07b"
     sha256 cellar: :any, arm64_sequoia: "9102bd9bbc2986d33198018ff5835f016adfeddf19663cb1a32f5e8b458c21ad"
     sha256 cellar: :any, arm64_sonoma:  "65b94418058631c8c8d3a3d3b7e3fa83afbd783eab51685fff7e890914fbb085"
     sha256 cellar: :any, arm64_ventura: "986e62e77df8976fb7fbfc3191884e8bb9099be083f3f9f24068d8fe71c841f9"

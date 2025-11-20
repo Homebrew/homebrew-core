@@ -8,14 +8,15 @@ class Mage < Formula
   head "https://github.com/magefile/mage.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b81db54414e8059c020d3f75144337f216536a73742263d0efe306fcdbd1e140"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b81db54414e8059c020d3f75144337f216536a73742263d0efe306fcdbd1e140"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b81db54414e8059c020d3f75144337f216536a73742263d0efe306fcdbd1e140"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9f3ab340917962784ac8e7dd0e54112f6d60f7546de91aeb8373ba29c80cec26"
-    sha256 cellar: :any_skip_relocation, ventura:       "9f3ab340917962784ac8e7dd0e54112f6d60f7546de91aeb8373ba29c80cec26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4f7a29602cc18739d9c7714860f36a3a6c1f12d2e8d6cd3b04b9a0f28ba25e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3721ad24ae36b353b46e1b3fc9b6bc6abf3bc328102da949fe50441e4eebfe5"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f47478f5ca2560f1d26a4419dca1894f19220204024bd322d607a7d4d3d301fc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d854917c87fca0539be1327468ea017de476cda7744fdd940591cd748fba1b37"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d854917c87fca0539be1327468ea017de476cda7744fdd940591cd748fba1b37"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d854917c87fca0539be1327468ea017de476cda7744fdd940591cd748fba1b37"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c8fea11b3b195466ee1a8977b4cf79e03076bf44ea18bb90f227025859fe639b"
+    sha256 cellar: :any_skip_relocation, ventura:       "c8fea11b3b195466ee1a8977b4cf79e03076bf44ea18bb90f227025859fe639b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e6b55c77f8da7119b98edf75d7ac96b38929f785a87d04bc045a7c3b50d9fe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e003ef001493785054e1e95b8746f6503a28e66a431028fcd751d070139637a"
   end
 
   depends_on "go"

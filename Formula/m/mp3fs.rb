@@ -6,6 +6,8 @@ class Mp3fs < Formula
   license "GPL-3.0-or-later"
   revision 5
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_linux:  "bf3512ee2e43d7727ef0bc31739bb4b8d4f1a124041aca64b6eac50a922dbeb2"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "db1aaedbc1b394893b7b3344b0861aeb573f22009c72559c3e2e7cf8037cc986"

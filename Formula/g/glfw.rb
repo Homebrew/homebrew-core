@@ -8,6 +8,7 @@ class Glfw < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "b6f994a80eff1c192e58bde265e72440f065899224dba202d1c2775baf6f46b9"
     sha256 cellar: :any,                 arm64_sequoia: "c81ce0e7ad94a9b1fc06e9e6bb1cb1c03338f093cc2b2d51bf5ee05f704d1dd5"
     sha256 cellar: :any,                 arm64_sonoma:  "e8b219d638bcba7ca5d518cad42cefa577de1a648b583fa59838354554ecf709"
     sha256 cellar: :any,                 arm64_ventura: "3d2030cdf6ab73f5de30be6fc0ce2ef0c4ea4b1757574b1afb4498c5bf50131f"

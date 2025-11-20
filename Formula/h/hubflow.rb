@@ -8,8 +8,6 @@ class Hubflow < Formula
   license "BSD-2-Clause"
   head "https://github.com/datasift/gitflow.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "2b459633314cbd53abafb6f330b5fa10799fc03cc191cd2357f538ab0c2acec8"

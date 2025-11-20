@@ -1,8 +1,8 @@
 class Spoofdpi < Formula
   desc "Simple and fast anti-censorship tool written in Go"
   homepage "https://github.com/xvzc/SpoofDPI"
-  url "https://github.com/xvzc/SpoofDPI/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "8350cacb0a5cc7b3c1d9aa7cbd2e519dfb61e7d59d49475de11387f8229a01c0"
+  url "https://github.com/xvzc/SpoofDPI/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "ce784f8d00ef139659df2388a37604bb50c4008c6c957e43f647c2837a9da9d1"
   license "Apache-2.0"
   head "https://github.com/xvzc/SpoofDPI.git", branch: "main"
 
@@ -15,19 +15,21 @@ class Spoofdpi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e6cb2bc9d9a3bff09bf9e2a32b174654ce7379fc141918f512fb6f32bc54d359"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e6cb2bc9d9a3bff09bf9e2a32b174654ce7379fc141918f512fb6f32bc54d359"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6cb2bc9d9a3bff09bf9e2a32b174654ce7379fc141918f512fb6f32bc54d359"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6cb2bc9d9a3bff09bf9e2a32b174654ce7379fc141918f512fb6f32bc54d359"
-    sha256 cellar: :any_skip_relocation, sonoma:         "28532b6f63c37431c6159c59707c6763f6788a3f8eded481a7ccf79f8b976683"
-    sha256 cellar: :any_skip_relocation, ventura:        "28532b6f63c37431c6159c59707c6763f6788a3f8eded481a7ccf79f8b976683"
-    sha256 cellar: :any_skip_relocation, monterey:       "28532b6f63c37431c6159c59707c6763f6788a3f8eded481a7ccf79f8b976683"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16de959e4dd509269fb41e71a1fd3948581c3844b2ae035506d478313b09d615"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8ae13195ad2bffe6749681fc37548908056f5c98388bf2a7a98f0e9043136e22"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "797ef3629d67660384a71ab7ec243b678cb67a30fa90b80972370f97fc6dfae6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "004b0d3999b515dd3db337bfd1dba0cc181db6434e1d2ac89ecfb110bf0fd401"
+    sha256 cellar: :any_skip_relocation, sonoma:        "be4a7a4399ba972c86baf1e1107895421dc193a1866655f472654301930981b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f08f46f89120b33e4c374410505961a5d3a27d0fc5e68d80049e566a25b91954"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8c9008a433a1a6e09f9b6e8b00fb1ff0edf1d3317cb6caeda333780bfe85311"
   end
 
   depends_on "go" => :build
 
+  uses_from_macos "libpcap"
+
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/spoofdpi"
   end
 
@@ -40,7 +42,7 @@ class Spoofdpi < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"spoofdpi", "-system-proxy=false", "-port", port.to_s
+    pid = spawn bin/"spoofdpi", "-system-proxy=false", "-listen-port", port.to_s
     begin
       sleep 3
       # "nothing" is an invalid option, but curl will process it

@@ -1,19 +1,18 @@
 class Tbls < Formula
   desc "CI-Friendly tool to document a database"
   homepage "https://github.com/k1LoW/tbls"
-  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.85.4.tar.gz"
-  sha256 "fe6c735fc46c990950f5a1bdca0c783e7b80129c7bfc3597b76e60c0025ab52e"
+  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.91.2.tar.gz"
+  sha256 "764010e6a2c8d8121170dc5617d7acbcb8cbcb37a5e2c403db475d84f2b11cf9"
   license "MIT"
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1215a6878cf0d72f6873a0201d60729db7c01fd6973c81c7bb5e102a0ce669d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0de4651a1d1e7d691c291248d99b4812160a1f4bdcf79a6efe6a91411c4f56ed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f8caeab63795e64ddbb08ffda840fda03ec601c49999e840a05f995538a62e1d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "10d29650e8d9a12327beed40828a06d7def8c88c00ccaba344d5815f7ae67b69"
-    sha256 cellar: :any_skip_relocation, ventura:       "1f82e9312e3e0b347e0415b432ec0ff2c576dfec636fc043ff441e94439db02b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4127055bd3a2f787ac84f23c456b9183666e154b3d2e1a3161a8467a4a33b472"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d60f25053ddcf37442862b2e65cce93ec4cc03d8d3538023b2f8cfb9dce8dd92"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e624a27800b30b06f69105962c69e9409c8afe18722047dc7d1d1799af7199ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41371010ea04aa78835b638d7776bdc258aa509554b6c6bab7b23b2e262b3a57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "009bc8d85e7546e89948422f374de195bc293cbb8ee868622f3325f63ba083a9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cf4d0c1e9ef4d922a4b395212e8d297a7fcd7ddefa1e611ceae9fe1c23419180"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34393a7b6edb9adbf4dbbc2cf1cdb0578cf2deb1bd3df5393ad6a55443fa2024"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bef0ac9c6ba7bd01666f59f16fb79394374445ddd8a0fc6853b96f6fef579de"
   end
 
   depends_on "go" => :build
@@ -31,7 +30,7 @@ class Tbls < Formula
   end
 
   test do
-    assert_match "unsupported driver", shell_output(bin/"tbls doc", 1)
-    assert_match version.to_s, shell_output(bin/"tbls version")
+    assert_match "unsupported driver", shell_output("#{bin}/tbls doc", 1)
+    assert_match version.to_s, shell_output("#{bin}/tbls version")
   end
 end

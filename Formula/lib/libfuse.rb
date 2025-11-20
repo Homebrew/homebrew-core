@@ -1,14 +1,14 @@
 class Libfuse < Formula
   desc "Reference implementation of the Linux FUSE interface"
   homepage "https://github.com/libfuse/libfuse"
-  url "https://github.com/libfuse/libfuse/releases/download/fuse-3.17.2/fuse-3.17.2.tar.gz"
-  sha256 "3d932431ad94e86179e5265cddde1d67aa3bb2fb09a5bd35c641f86f2b5ed06f"
+  url "https://github.com/libfuse/libfuse/releases/download/fuse-3.17.4/fuse-3.17.4.tar.gz"
+  sha256 "df9e40ae927b73dc702d0bce7925c0c618af47ad0b13204fbf2be66e54d8528b"
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
   head "https://github.com/libfuse/libfuse.git", branch: "master"
 
   bottle do
-    sha256 arm64_linux:  "447962f98f38e97d6235096dbc5cd7453345c893ea5cf3f9099fe8115dec707e"
-    sha256 x86_64_linux: "11f5d2472fd50b34f28e07e94ddf10b8bfca48e6b8725724e8260ebc0b0fbb1d"
+    sha256 arm64_linux:  "d4595d7cde217098aa6454f3eac5622b34aca41b5ffae34b9cf1a8c0561388c3"
+    sha256 x86_64_linux: "64bb30561c35913632896083af22beb2d3d2b7f8574d33c2c93b1086b21b8f8b"
   end
 
   depends_on "meson" => :build

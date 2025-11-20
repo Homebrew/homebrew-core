@@ -11,6 +11,7 @@ class Websocat < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a364bf89f3b9a3db00b322e8649792ee1d00af374dbb7f48f630acabefbd75a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "43528315c386262e6d11036b016fc7ddab24c362e1a38e036b31133c3bf194af"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e1c06621d0e8448803752f47c35f13a56a16e118de637aa6c19c20f1c954abe"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "eeecfce3377a6c4093b50d964f083b4b03dc39f13b933e2b57a38eed3d957066"
@@ -25,6 +26,12 @@ class Websocat < Formula
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "openssl@3"
+  end
+
+  # bump traitobject to build against rust 1.87
+  patch do
+    url "https://github.com/vi/websocat/commit/d4455623e777231d69b029d69d7a17c0de2bafe7.patch?full_index=1"
+    sha256 "505f8fa7311ef11c60f9e665aa1479fbdf4b666e9eae01db56567a3f25866c05"
   end
 
   def install

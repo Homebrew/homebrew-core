@@ -17,6 +17,7 @@ class Irrlicht < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "8113fe1762137fbcd055dc31d7002e413f730fa502cee505ba2ff91461e4f5d2"
     sha256 cellar: :any,                 arm64_sequoia:  "045c5bc182a699319caede3eda01d1e51487e2bb176ed6609af6f045a3674068"
     sha256 cellar: :any,                 arm64_sonoma:   "52d4ef47d187ba97e3d75832e69650fe4c042019e379b9937c27f6e4864e4927"
     sha256 cellar: :any,                 arm64_ventura:  "d50090b7519be5ae7851a96f142261e094e1ae2bf0da926d2ba4f7f8d334a462"
@@ -47,13 +48,13 @@ class Irrlicht < Formula
 
   # Use libraries from Homebrew or macOS
   patch do
-    url "https://github.com/Homebrew/formula-patches/raw/69ad57d16cdd4ecdf2dfa50e9ce751b082d78cf9/irrlicht/use-system-libs.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/d16313ce/Patches/irrlicht/use-system-libs.patch"
     sha256 "70d2534506e0e34279c3e9d8eff4b72052cb2e78a63d13ce0bc60999cbdb411b"
   end
 
   # Update Xcode project to use libraries from Homebrew and macOS
   patch do
-    url "https://github.com/Homebrew/formula-patches/raw/69ad57d16cdd4ecdf2dfa50e9ce751b082d78cf9/irrlicht/xcode.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/irrlicht/xcode.patch"
     sha256 "2cfcc34236469fcdb24b6a77489272dfa0a159c98f63513781245f3ef5c941c0"
   end
 
@@ -61,6 +62,10 @@ class Irrlicht < Formula
     %w[bzip2 jpeglib libpng zlib].each { |l| rm_r(buildpath/"source/Irrlicht"/l) }
 
     if OS.mac?
+      # Work around error with clang 17
+      inreplace "source/Irrlicht/MacOSX/CIrrDeviceMacOSX.mm",
+                "(NSOpenGLPixelFormatAttribute)nil", "(NSOpenGLPixelFormatAttribute)0"
+
       inreplace "source/Irrlicht/MacOSX/MacOSX.xcodeproj/project.pbxproj" do |s|
         s.gsub! "@LIBPNG_PREFIX@", Formula["libpng"].opt_prefix
         s.gsub! "@JPEG_PREFIX@", Formula["jpeg-turbo"].opt_prefix

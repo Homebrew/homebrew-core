@@ -3,30 +3,32 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/7e/f5/d3de05f350c9ea40998543b11f38798d54ce0f0f88a558e1c7ed31a3123e/conan-2.17.0.tar.gz"
-  sha256 "91bca3c5b4a9b361d2a9155cf7e678707fccd738cdeb601b5ca398478f99a824"
+  url "https://files.pythonhosted.org/packages/d1/f8/13de596472d74e70967b63bacb574bc620a60ba4b742e9e3162733bac97b/conan-2.22.2.tar.gz"
+  sha256 "8df71de27eca903a1a92b292ce32e4b79eee2407ac001e28cae1d1b49869f883"
   license "MIT"
-  head "https://github.com/conan-io/conan.git", branch: "develop"
+  head "https://github.com/conan-io/conan.git", branch: "develop2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e1b0fa8c9bee8313cd9ee67840744b723c234eb327671fe452bec1be69986e05"
-    sha256 cellar: :any,                 arm64_sonoma:  "1915543ab9f17ea861edf418bf274dc27288823df9094538ff563e534f14de33"
-    sha256 cellar: :any,                 arm64_ventura: "c89ece90f677623f4e1f248e1d1f15272c8cc6daca7d6d31c9d50f930104075d"
-    sha256 cellar: :any,                 sonoma:        "69155e59e3125458ec5fb88d7808338e98d8040bd47faa90611a573562cea889"
-    sha256 cellar: :any,                 ventura:       "19fe734790ea34993902c1e38f43b010533cf8b8628ecc288d8b7f66cf1f0aab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1cdd9daf73cebb6fbf165d3e293d37daadeb347d1d6c569d3b009e3ab89b3aaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b854410e42927ef663bf8976af1d53ce635966db7c6d9b434de318957774f118"
+    sha256 cellar: :any,                 arm64_tahoe:   "687df43b2c079d682615b19fe6c6a35bdf28d0d60741b3552d99080089f1033e"
+    sha256 cellar: :any,                 arm64_sequoia: "46fea34ab4652e476adee43a9e0f620cefaa3d09eb2b9a178220f783b0709c8d"
+    sha256 cellar: :any,                 arm64_sonoma:  "60b45d8f2d2571a8fd25a574884a45bc325c05d5dae0c3d8ded89458fefeedc7"
+    sha256 cellar: :any,                 sonoma:        "4ede4986a4b81681d028894ef058c2cf27ddd8c277fc14a538085969b72c2078"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00af43f6feeb3f4ae690d1a1d41c029291b4477b4489a90305dd715ee203be3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5626aad1d97023d9367f82ef46e271964442d372ab0e9c5490d4688ac332d56b"
   end
 
   depends_on "pkgconf" => :build
   depends_on "cmake" => :test
-  depends_on "certifi"
+  depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: "certifi",
+                extra_packages:   "distro"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
+    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
   resource "colorama" do
@@ -40,13 +42,13 @@ class Conan < Formula
   end
 
   resource "fasteners" do
-    url "https://files.pythonhosted.org/packages/5f/d4/e834d929be54bfadb1f3e3b931c38e956aaa3b235a46a3c764c26c774902/fasteners-0.19.tar.gz"
-    sha256 "b4f37c3ac52d8a445af3a66bce57b33b5e90b97c696b7b984f530cf8f0ded09c"
+    url "https://files.pythonhosted.org/packages/2d/18/7881a99ba5244bfc82f06017316ffe93217dbbbcfa52b887caa1d4f2a6d3/fasteners-0.20.tar.gz"
+    sha256 "55dce8792a41b56f727ba6e123fcaee77fd87e638a6863cec00007bfea84c8d8"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
-    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
+    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
+    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
   resource "jinja2" do
@@ -55,8 +57,8 @@ class Conan < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "patch-ng" do
@@ -70,13 +72,13 @@ class Conan < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "six" do
@@ -85,8 +87,8 @@ class Conan < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
-    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install

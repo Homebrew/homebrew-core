@@ -1,20 +1,17 @@
 class Docuum < Formula
   desc "Perform least recently used (LRU) eviction of Docker images"
   homepage "https://github.com/stepchowfun/docuum"
-  url "https://github.com/stepchowfun/docuum/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "26bf153c72185516db77ffabc00d75f0ae9d642792ccf204f843ceee94236756"
+  url "https://github.com/stepchowfun/docuum/archive/refs/tags/v0.25.1.tar.gz"
+  sha256 "3566064ff3bbb5f42a35fde10b7541def2a3cef4b12a7c6eecf2b84972c7459f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "adf63e1b78702983b47c7e4af2f12395b2d058983ebbaf22c2f508a90c375409"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "affa59dad018a494a5f1ebd4ae95e6923b5de38921385138f29874e8d3e52de9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c73857d61f8266046e879d12f4a527a8381c4e1320332cf9116ff25ba316820"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0cd97e7867b1fc163b34c9b74d34644c24899d3dfed2f330d09657359674ad3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8774fc1059a912cc7f102617177f0c756b98b4e9f1d4781c630d8ce425b24042"
-    sha256 cellar: :any_skip_relocation, ventura:        "18b42e43794e140650178212b3a20df43897e9766ee1b94f7faaa2ab6e4795f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec9aa82548bc0fee393165d179eb607f91e558d569bee74f1181b843c37d3f96"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "225f7a822dd9e4ad607ed9f23f384f2920fa10ef13bf2d586f56b484ba54693e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bc6a5414cae362c54b12ee5cdff8212bce7f84a6f7bc670271796fb44d1a7ff"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0305a71d7420d8ca112be910c40294febc7b70177cc48185519f0a09665df533"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82ce6edc531f9c8e706098c4a140fc46988ea0ed2be7e7e6a2ff3b3dc6f943d7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89c40c16cdc37eedfe19a6ee535e2e3421ea2b9ec7f1da2c36d76da078f7e6a9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d0cdd27109e1fb24ec21a43d574ca9edf0b03d9fbe49ef88fe8c6301a2fb442e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4039f604d0693b9120873ca99445be60916d30ae37b81d29f84275d0ea019632"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "013ea6c9394f78b005b7773d5814902245c20aff030da5c9687a152a0fbd1f99"
   end
 
   depends_on "rust" => :build

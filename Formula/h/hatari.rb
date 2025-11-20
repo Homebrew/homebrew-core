@@ -1,21 +1,20 @@
 class Hatari < Formula
   desc "Atari ST/STE/TT/Falcon emulator"
   homepage "https://www.hatari-emu.org/"
-  url "https://framagit.org/hatari/releases/-/raw/main/v2.5/hatari-2.5.0.tar.bz2"
-  sha256 "d76c22fc3de69fb1bb4af3e8ba500b7e40f5a2a45d07783f24cb7101e53c3457"
+  url "https://framagit.org/hatari/releases/-/raw/main/v2.6.1/hatari-2.6.1.tar.bz2"
+  sha256 "b7dc09ebffc1b77da6837d37b116bc5a9b2fd46affff1021124101e3f6e76bc5"
   license "GPL-2.0-or-later"
   head "https://framagit.org/hatari/hatari.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "fd62555b198d19de0d5afa2dcf6538030b015edbecbb67e7f71b6b0650b51e4e"
-    sha256 cellar: :any,                 arm64_sonoma:   "c621abae9b430a09f6389df198a246bab810281201b4d7e87fbaac311db06d22"
-    sha256 cellar: :any,                 arm64_ventura:  "cacb7a21109dc0377d2e24bcf8f183ea94c295fcae57688e9703de1e0ed6eceb"
-    sha256 cellar: :any,                 arm64_monterey: "26032585bf8048b0987200009f9532d1a0281051644511269cc4918d94680b78"
-    sha256 cellar: :any,                 sonoma:         "107fc887028fe359dc50681b60dca25b27bb498d333167874e021e4f8dc0f0b1"
-    sha256 cellar: :any,                 ventura:        "0fc52a934a1d10afabf313998aadb3257cf1043d5232057c9b42714f9417b59a"
-    sha256 cellar: :any,                 monterey:       "b3691b1718cea74b9fd1c859aaa7bae64732fb9d47ccc55ba8851628ee66e3c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "de32a18236e652b50c7653df4f9accaf247f24c36577c96bec0af61ce2c4a8ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3a872e656f3ca0cf1d3db8447e745c81b8ad652580f0481e571deded52351f3"
+    sha256 cellar: :any,                 arm64_tahoe:   "a4f44d0f0dbbeb91103358654e2245b4fb5247d5a2f8a55bd0f12c5f4adadb11"
+    sha256 cellar: :any,                 arm64_sequoia: "ac0f9543aa27fd9ffb4f8c851aadd6580f422fb229b8c31dc97b22b103fbf92c"
+    sha256 cellar: :any,                 arm64_sonoma:  "a307fd095b1b81bc0f4eed6fbd8a38d391376a829f0c4a8e4ecc1a10e31273ec"
+    sha256 cellar: :any,                 arm64_ventura: "ba4c9fa53fa9fdb33a414bc684c5d5e49ed824048ebba965333a4b2c608d1cbf"
+    sha256 cellar: :any,                 sonoma:        "66661487e216585adfb19d06e8ca0a672e94de6e73266176c59135e10cc4dda1"
+    sha256 cellar: :any,                 ventura:       "b22ddd5646e89645736295faf54208b1a8463b05420b99511d48dc3d68dc5833"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "422f6cd17e5bd06a050e5555f962ca1c4292dc91a77c9128e9ae0383804e1368"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7beccd3db794c33686a6a57b6f96eb764e698dcc10bb0c24af17e1aa97c666a"
   end
 
   depends_on "cmake" => :build
@@ -31,8 +30,13 @@ class Hatari < Formula
 
   # Download EmuTOS ROM image
   resource "emutos" do
-    url "https://downloads.sourceforge.net/project/emutos/emutos/1.3/emutos-1024k-1.3.zip"
-    sha256 "076d451f15ddf7b64530c14431142b026569b1e5d6becc1af37aa008db81333f"
+    url "https://downloads.sourceforge.net/project/emutos/emutos/1.4/emutos-1024k-1.4.zip"
+    sha256 "dc9fbef6455a24ee8955cccd565588c718ba675fd54bc5a749003ac4bbd7f7e1"
+
+    livecheck do
+      url "https://sourceforge.net/projects/emutos/rss?path=/emutos"
+      regex(%r{/emutos[._-]1024k[._-](\d+(?:\.\d+)+)\.z}i)
+    end
   end
 
   def install

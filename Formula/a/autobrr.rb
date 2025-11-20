@@ -1,18 +1,19 @@
 class Autobrr < Formula
   desc "Modern, easy to use download automation for torrents and usenet"
   homepage "https://autobrr.com/"
-  url "https://github.com/autobrr/autobrr/archive/refs/tags/v1.62.0.tar.gz"
-  sha256 "efecb61c01a9531154c2ce5ded664c869614f5c166692c469f64e845ccc1ffff"
+  url "https://github.com/autobrr/autobrr/archive/refs/tags/v1.69.0.tar.gz"
+  sha256 "3ff6814da9457355c63244fb72196934e2851a9c3df6f24081ca8a2b9bb93aa4"
   license "GPL-2.0-or-later"
   head "https://github.com/autobrr/autobrr.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac01e053dcc2b3e510940182d40cf63701549e594c40a5c7280531bf58521bd6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cbb807765b922c2c342d75650a923751627fe0b4cc9faef23efb92cdeaffe45c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5d12c71899afc1e6741938e29d98327d4138f5efb5f80ab805353a2a6aa93b22"
-    sha256 cellar: :any_skip_relocation, sonoma:        "830cb20e08cf00eb7699c11548d707edd005e498c75b1354e81a9d15e6b95800"
-    sha256 cellar: :any_skip_relocation, ventura:       "a1bd482f7859a4b0dec6f0ad880c2a591f564f19e3358de81b9d9043c4ab0ba1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09a0c1f580eceecf7bbc46ef173104e5a87cc2ca6a1e9550831853236ecd6068"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4370a9125c5d5ae0c54f4aaee26e1923bee84b1af969e9c332d237e306289040"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f73b7f33aedefd15756815aad1ee5b77e38ec835a89a208f580a90376ebc376"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "933ef7216b4c387035681dfebb472f37c54a364a65823bcc0e33f508a569bcfe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "513db99e23ed914b01f2b96f35bb7c5d011533266d5437e47962889560bfb9e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c92d72e29c96c17804f7c8bdb0297a3038ab1ddc3e419da8c7a093766f7c592"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ea8d8f39f07245228d6253a8f042a8f48779b99fcbce0487762412cd82f5fe5"
   end
 
   depends_on "go" => :build
@@ -27,9 +28,7 @@ class Autobrr < Formula
 
     system "go", "build", *std_go_args(output: bin/"autobrr", ldflags:), "./cmd/autobrr"
     system "go", "build", *std_go_args(output: bin/"autobrrctl", ldflags:), "./cmd/autobrrctl"
-  end
 
-  def post_install
     (var/"autobrr").mkpath
   end
 
@@ -52,12 +51,9 @@ class Autobrr < Formula
       sessionSecret = "secret-session-key"
     TOML
 
-    pid = fork do
-      exec bin/"autobrr", "--config", "#{testpath}/"
-    end
-    sleep 4
-
+    pid = spawn bin/"autobrr", "--config", "#{testpath}/"
     begin
+      sleep 4
       system "curl", "-s", "--fail", "http://127.0.0.1:#{port}/api/healthz/liveness"
     ensure
       Process.kill("TERM", pid)

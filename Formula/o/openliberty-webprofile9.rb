@@ -10,6 +10,8 @@ class OpenlibertyWebprofile9 < Formula
     regex(/openliberty[._-]webProfile9[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "02fa7826a84a6cd57bb5ca216b62c4e4e707ffaa545a7c877942d0a681f33e30"

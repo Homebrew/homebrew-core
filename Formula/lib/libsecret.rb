@@ -14,6 +14,7 @@ class Libsecret < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "ee55da32af1c04e94e871fc0bc012524bf46c64adf3012991a6c0e2fae089135"
     sha256 cellar: :any, arm64_sequoia: "79874cb427ebe11a1e139f777e566d34c8be68ca97a25020f128c8052d7b2f7b"
     sha256 cellar: :any, arm64_sonoma:  "cc698c5f2d961f9f09a8ba413bd5dc05f138714f2eabf2317f508cc5672ac0c1"
     sha256 cellar: :any, arm64_ventura: "27509297a2f39d82ec33dbd654c24927bcbcf05e117cc1f3fcd32b31038188a8"

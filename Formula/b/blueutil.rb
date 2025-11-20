@@ -1,17 +1,18 @@
 class Blueutil < Formula
   desc "Get/set bluetooth power and discoverable state"
   homepage "https://github.com/toy/blueutil"
-  url "https://github.com/toy/blueutil/archive/refs/tags/v2.12.0.tar.gz"
-  sha256 "944d5d1a3003a453e5c6eb05e860185763f4898c6e419a3858d981743f88afcd"
+  url "https://github.com/toy/blueutil/archive/refs/tags/v2.13.0.tar.gz"
+  sha256 "d6beba603ab6638f72d9966aed33343f35cac441fc48a81c04fd532c844f170d"
   license "MIT"
-  head "https://github.com/toy/blueutil.git", branch: "master"
+  head "https://github.com/toy/blueutil.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aed3c4cc18a795d9b00d44c727e304e95a30d779adf1a3f5516c5ef919d2222d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3194c8488aadf7c368c147dfd1123f6079ce1a355f749fc985661e14d9655d5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "df4282fa2f6747837f20f66be1d38f3347544f4a17a5322beceff985febe1a59"
-    sha256 cellar: :any_skip_relocation, sonoma:        "851da7f3bef7af931468e91562285943c756c851bf2692cd1df4d20e444f0e66"
-    sha256 cellar: :any_skip_relocation, ventura:       "cf1441c45a6e73cf3476a342a6c9e376d7a7024916269e69ee7c67500b5e36ed"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c31d3a14d7db9bebfd0bc6db63cc175189c6bb715891a6f5b0bd4618f06f06b7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d1d787bfda0fa2f1ed869851341fed5aec241e9910d49cf68d2fc45fb63b497"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cbfdc8b46cdde4d61bbf221aa5a434e9320d30df95e930f0365d38709eab349"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "23f8456a3b7b9cce7e3f34b60ffa75727b58d772e552af3e0f7aea4627524daa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2cff703f1c4f5826686dc1c948187a94b9130f9f367ec53fb765a193c953b602"
+    sha256 cellar: :any_skip_relocation, ventura:       "ca2cecb2e1d3c5138a89baff635c957a43f9bf019ad598d7b6c149f95f26a5cf"
   end
 
   depends_on xcode: :build

@@ -9,6 +9,7 @@ class Cloudpan189Go < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d292a2bd969d609f7f5f005b2f8e59a4a3807dfd6271d2e01d1b0d5807d1bae4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "793542588a08328d55060fc0faeb3808bde9656eee00e8df0b9ca98ad70ed9b0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c66a3ce0426a356d4b5c05fe95fc6213ed4c867048157ebbc862ca9196af857e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6870cbe4123a3eae721cc676130d2146794d9a3631268d48c579430a923173f"
@@ -18,6 +19,7 @@ class Cloudpan189Go < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "6ab13514be4a47d60c22436daad9bd2ca0612b61eff549630d8548cb24405424"
     sha256 cellar: :any_skip_relocation, monterey:       "6ab13514be4a47d60c22436daad9bd2ca0612b61eff549630d8548cb24405424"
     sha256 cellar: :any_skip_relocation, big_sur:        "6ab13514be4a47d60c22436daad9bd2ca0612b61eff549630d8548cb24405424"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "42247f05683ad756a121dfabe4afd9074ad416ea13d681670e686dfb1b4cb68f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "21c193bc56690eef410bdbbce6d6b774fcf658f16b114ea0222afee18591d361"
   end
 

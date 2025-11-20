@@ -1,19 +1,18 @@
 class Bkcrack < Formula
   desc "Crack legacy zip encryption with Biham and Kocher's known plaintext attack"
   homepage "https://github.com/kimci86/bkcrack"
-  url "https://github.com/kimci86/bkcrack/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "1ed073f9640baac4ba0156a00359e5a08e784cacd9f7de0bd07e2f49616c7a6a"
+  url "https://github.com/kimci86/bkcrack/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "bb6a6d0bb1ccbb3c39cf8b3113581b5514b127023bbe0e864992c57e79346053"
   license "Zlib"
   head "https://github.com/kimci86/bkcrack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1cf8f38ed5f045a6215830602e84b069661264da4cdb2cebafa03049aece3daa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8ccdd54ac621e9de415133a75eb11375ae5109c0b4bab3e093204a8b569042e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "555519835883a84e9db5ee8b3df8129a14c350fadc9e702aa7b5d468e2858747"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e34eec5c871650ccc49dbd2ef379247110072a02792480c177c1960a1de8250"
-    sha256 cellar: :any_skip_relocation, ventura:       "83907162b233475143ce2438896568a3ea217ffe51144657665324806eabcbe2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "30be411154c4b6f3768156272c3c9df5873d95fe83fce31467a6ef5b3a3dd24e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbbc5a49024a5f69aacff16c41914e828999ab73cda787682dde3443a504dbba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1e3072a7939eced9fa14731cd317886d42495018642b18fa1759efb759de3b9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bef4cdf4614b7dee8af98a480523946f4fcc226f513ce1f82878655c05bef0a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "caf161efd7323878ac616aacf0d95865f6f0089ac871f586de8af139c9192f1f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8123340e60ab3ec3f3876831311f1f5f915ac9e1e753cf45ac9a3a8947c89e62"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f6437c1bc9e24a70cff2fb2e75e44314f3b4cf17f82880fc1c342ed99f4bf19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b5b5e60a8ab8173b6ac1c6058a39f8cb118e2fc4c1b7de1b9bd896394d1b109"
   end
 
   depends_on "cmake" => :build

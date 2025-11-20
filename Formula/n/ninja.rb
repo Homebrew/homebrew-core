@@ -1,8 +1,8 @@
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
   homepage "https://ninja-build.org/"
-  url "https://github.com/ninja-build/ninja/archive/refs/tags/v1.12.1.tar.gz"
-  sha256 "821bdff48a3f683bc4bb3b6f0b5fe7b2d647cf65d52aeb63328c91a6c6df285a"
+  url "https://github.com/ninja-build/ninja/archive/refs/tags/v1.13.2.tar.gz"
+  sha256 "974d6b2f4eeefa25625d34da3cb36bdcebe7fbce40f4c16ac0835fd1c0cbae17"
   license "Apache-2.0"
   head "https://github.com/ninja-build/ninja.git", branch: "master"
 
@@ -12,17 +12,16 @@ class Ninja < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "977f9c2ad831aed827b3cf8ad38606f64b11b4c1c6a170ecc0a2bf8118911b63"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "474df4968035d4949cc7d955302036f3e665d3bc6dc37fd221598bb3e1aef31b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1c7814f2fc23794608edce7b86d8dfcf20fd810acbd5a66515f8731aeafd0585"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8cf692e5eabf45fee86530ee3313fa68a3942405587606e3ee39cadc781e3ff5"
-    sha256 cellar: :any_skip_relocation, ventura:       "e2fa65aa91a9ec6054bf01c693ca4c8a9c086270020c7c281d729dc3a5cef70e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e50a8c0ecd4e893f973b313e213fe3a8dd1ee883ac121ee5204f1f5fd818b03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99758937cfb53c0e214a4e752b50d38bf9e32e87ec31c7802b84953a802cbe6c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d311d593a271d255b4fd6337f8ef394f825b73aa77f7ebd51236ff850cf85033"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "700fe3bd75ca15b2778454947a215334a71997dcf92a3b644bfeb06f79c2508e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e137aa475dd45d513d0076971afb5f33314eb992ce27d868793ee5c54555cdcd"
+    sha256 cellar: :any_skip_relocation, tahoe:         "158b6f8679eca7ea16e76aecddd42465e2bdc44512c4d9fdab579b50fe3c7301"
+    sha256 cellar: :any_skip_relocation, sonoma:        "42222a304bd2a7d74e0af1479932821f4edb8855af4d0a89e2c0841e9a807b7c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb6ac675ebb7a42d4dc01de374378df60f83f076211d5d35c0880da3babf40bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b3072c3b1944cb010705840243e7590cb1105445dfdcaf90de543b3dc06b545"
   end
 
-  uses_from_macos "python" => [:build, :test], since: :catalina
+  uses_from_macos "python" => [:build, :test]
 
   def install
     system "python3", "configure.py", "--bootstrap", "--verbose", "--with-python=python3"
@@ -31,7 +30,6 @@ class Ninja < Formula
     bash_completion.install "misc/bash-completion" => "ninja"
     zsh_completion.install "misc/zsh-completion" => "_ninja"
     doc.install "doc/manual.asciidoc"
-    elisp.install "misc/ninja-mode.el"
     (share/"vim/vimfiles/syntax").install "misc/ninja.vim"
   end
 

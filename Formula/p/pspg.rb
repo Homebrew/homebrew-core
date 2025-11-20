@@ -1,19 +1,20 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/refs/tags/5.8.11.tar.gz"
-  sha256 "ae1122d7946c69ca17b3e2e672418957a1b3c6efa221eed62be7d5f7b5e3d0ea"
+  url "https://github.com/okbob/pspg/archive/refs/tags/5.8.12.tar.gz"
+  sha256 "9f74c236944bea79586a3a12ab9d36735bfa62a92a8d7953e8c1ff5c108277af"
   license "BSD-2-Clause"
   head "https://github.com/okbob/pspg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3143bad00e148c314f25e37badb7796c5890ba816b7654f624db05871e004214"
-    sha256 cellar: :any,                 arm64_sonoma:  "7e9871c7d9bf2c7a91da45a4c44fc22fd1e567422912c036c1485bb4691c933f"
-    sha256 cellar: :any,                 arm64_ventura: "d7916c67a1a411635211fc671b35c0d674079da1748df030be5d621ec372e1d0"
-    sha256 cellar: :any,                 sonoma:        "922d22058c09a756855f2cce188bfeb95c21898ceef753574d505ff8f7054249"
-    sha256 cellar: :any,                 ventura:       "ce2080def3035640960ed61538a3ce377f46b6767d74b49f03103889e14f57f5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d45dda1e0800fd8b68c12b46e6209c94c500f0d17c1e0c7ff3c83353150b22c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22ea92fa7dedbae7874668a64a298a9cd3a4cdaae71f818fc5fee4ebc22264b0"
+    sha256 cellar: :any,                 arm64_tahoe:   "7fe2a3cbd810de303eedd8f00a1924cebc6a355091ad2db3f3388bbe496a35e3"
+    sha256 cellar: :any,                 arm64_sequoia: "fbe4f496a3be5e9693ed3fb8f532c4be80249f5a1d027a4596cb99b068260251"
+    sha256 cellar: :any,                 arm64_sonoma:  "4f040dd530d13e63abd48b42ba1fcfce456521b6e614d29b6459affc5dfb3ef2"
+    sha256 cellar: :any,                 arm64_ventura: "74f4d329d3a79d1eff8c630da561f88c38c9b4a9063cded46984e8fb708e8ab0"
+    sha256 cellar: :any,                 sonoma:        "868c9354fdb876a4ae62698a16ccf3a78cc3ac1436e3c696cc97cff2371f564f"
+    sha256 cellar: :any,                 ventura:       "584924c89855547aa825967a064f74069fdf4362ba763751506d2be715745d43"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74d4498d4936a5f20fc9a3d0633fb5d16c51d7f2f32d3cedbb1f44f6a6784af0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9119d05dae43df503adc6629c39fe856604f469c7f4b1ecb300b12c6ffe815b"
   end
 
   depends_on "libpq"

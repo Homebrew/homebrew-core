@@ -9,23 +9,22 @@ class Bullet < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sequoia: "97aeccf39592bcf03e7dd07b5339ec03b11345137a8e0872288bb8deff702c6b"
-    sha256 cellar: :any,                 arm64_sonoma:  "367a1f5cdab325d50b7c6ef7b46782d578bb7c0f0dac9f233e2b1779c91feb4a"
-    sha256 cellar: :any,                 arm64_ventura: "c69182f86bc7b5a3407cbee2b2fae2ed2a4959b766d1fb22408d3acf30e1400c"
-    sha256 cellar: :any,                 sonoma:        "6e4a848bf66030dac19ff6dd0677df1ed6f9d46e55d3a6ed3ce14ba63a97404f"
-    sha256 cellar: :any,                 ventura:       "c039c3d01c76f8871b82a55ecc4ab41598e14fae12819f74f9544d2b80a1a904"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81e0edf216d5e0d24934cbb44c7becb7a3c1b7bef8d220496b7e4d5f0b754148"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a755ae748428c5dfff82e6a4d57b81fbb4759fd494837d07b4535c0e88f3a16"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_tahoe:   "87c1a6671e6825d2886bd6025091c80f3633033cb1f61bfb343512e7aacfd346"
+    sha256 cellar: :any,                 arm64_sequoia: "16117f81a0c3c9e22cbdc21ebf7926bb39d29ad29bde9d84fbfad0b3b3cb1d68"
+    sha256 cellar: :any,                 arm64_sonoma:  "290642f55b724eecb80aadd93a11a3faec1f6768db05412c4b6f21b5fc274cd3"
+    sha256 cellar: :any,                 sonoma:        "354ff9e050f7c14b6f25ee2aaa865a2949538da6fc017c5f0e688639fa46f9e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fba99fe645c8290925e3a0dc6bdb8059e799b045de00c67cc0e67563bbdc33e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c9c0d8ab57375f2ffedb24fdfb000e4d52c96d3e948a4c5ebd986ad32e7ed70"
   end
 
   depends_on "cmake" => :build
   depends_on "numpy" => [:build, :test]
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
@@ -39,6 +38,12 @@ class Bullet < Formula
       -DINSTALL_EXTRA_LIBS=ON
       -DBULLET2_MULTITHREADING=ON
     ] + std_cmake_args(find_framework: "FIRST")
+
+    # Workaround to build with CMake 4
+    common_args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+    # Temporary fix for https://github.com/bulletphysics/bullet3/issues/4733
+    common_args << "-D_CURRENT_OSX_VERSION=#{MacOS.full_version}" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build_double",
                     "-DBUILD_SHARED_LIBS=ON",

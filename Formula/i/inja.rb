@@ -1,16 +1,13 @@
 class Inja < Formula
   desc "Template engine for modern C++"
   homepage "https://pantor.github.io/inja/"
-  url "https://github.com/pantor/inja/archive/refs/tags/v3.4.0.tar.gz"
-  sha256 "7155f944553ca6064b26e88e6cae8b71f8be764832c9c7c6d5998e0d5fd60c55"
+  url "https://github.com/pantor/inja/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "a5f0266673c59028eab6ceeddd8b862c70abfeb32fb7a5387c16bf46f3269ab2"
   license "MIT"
-  head "https://github.com/pantor/inja.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/pantor/inja.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "78f7fb60abcd044a0fbd19d1723da834a8a754f4df1601de17a02b2010381666"
+    sha256 cellar: :any_skip_relocation, all: "231ca1e3911473b3cad187701813504adcb75628d382b7bb80f08f481728315f"
   end
 
   depends_on "cmake" => :build

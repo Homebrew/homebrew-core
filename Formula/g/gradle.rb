@@ -1,8 +1,8 @@
 class Gradle < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  url "https://services.gradle.org/distributions/gradle-8.14.2-all.zip"
-  sha256 "443c9c8ee2ac1ee0e11881a40f2376d79c66386264a44b24a9f8ca67e633375f"
+  url "https://services.gradle.org/distributions/gradle-9.2.1-all.zip"
+  sha256 "f86344275d1b194688dd330abf9f6f2344cd02872ffee035f2d1ea2fd60cf7f3"
   license "Apache-2.0"
 
   livecheck do
@@ -11,9 +11,10 @@ class Gradle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "11970c2e53f6ee9814c0c612b46ab4f586fb5fa4c1b6c9c9447e736ba82764ce"
+    sha256 cellar: :any_skip_relocation, all: "96f015268035f08ea3120ffea5bf6788b0c4c235baaffede99b7a819701906e2"
   end
 
+  depends_on "gradle-completion"
   # https://github.com/gradle/gradle/blob/master/platforms/documentation/docs/src/docs/userguide/releases/compatibility.adoc
   depends_on "openjdk"
 
@@ -22,10 +23,6 @@ class Gradle < Formula
     libexec.install %w[bin docs lib src]
     env = Language::Java.overridable_java_home_env
     (bin/"gradle").write_env_script libexec/"bin/gradle", env
-
-    # Ensure we have uniform bottles.
-    inreplace libexec/"src/jvm-services/org/gradle/jvm/toolchain/internal/LinuxInstallationSupplier.java",
-              "/usr/local", HOMEBREW_PREFIX
   end
 
   test do

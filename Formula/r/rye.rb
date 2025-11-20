@@ -1,5 +1,5 @@
 class Rye < Formula
-  desc "Package Management Solution for Python (consider the successor \"uv\" instead)"
+  desc "Package Management Solution for Python"
   homepage "https://rye.astral.sh/"
   url "https://github.com/astral-sh/rye/archive/refs/tags/0.44.0.tar.gz"
   sha256 "6ef86ccba82b59edfc4f6deba39be6394e7866fe2250596b96124c20327f0581"
@@ -14,14 +14,19 @@ class Rye < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84c1ce8ddff03d794c636fdd224c0ccf873a0a74b330d2eb3b56b7c481ccb9f5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b68d8c0f567cb5d26d3ae99cacb29c56cb7cc1ef4233c73c43d554681a20c740"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bc5259ed968232a6ee88fa9afeba7dd6429dc7eea4a3fafa3dc1eeda259c6a27"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b3a8e7efb4d1cb5070a3182778474e5e196f9f2e94edf30a8584de32bbe1f050"
-    sha256 cellar: :any_skip_relocation, ventura:       "e15f3bbaa74bc6ef7b7fe65e79af32a812567394c27f5074f675726e3f0da24a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae95a33be1b6eab2d8e8e17e95bdb14e6b23043bfb775094f76ce61964afc2a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c57f18a9a1dd66aca420ceb0bdd53d91915bfd9b93298b5cfa12411af9558a7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a36d38e6a1aadb4256e49e51c210fd551bcfbb42654c40f0968441f6c588934f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f26f53e090a3f1c42b880b7df2593f597e4294abe311fd1cd0ca1173cc49e5b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e502b9c99df1d69e7caef8e63e23aed06816b90557fa487d18f6610901b13944"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6b74baa377f0ba45f330e370166b5666e1420ec0d6c753b7a375c4fc2d8ef40"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5ac877425fa7885188dcda9743f46146bcd57d835a721f7958a8a46281357f7e"
+    sha256 cellar: :any_skip_relocation, ventura:       "31699f1f7848d15e13d80139514bcc479dca399d2dbf6129884b1e0f2a372047"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "800c9ebff0b4a200313646ad3b2db6909121a2ea8377e7d33254d09bcbddedb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b58b4ad1741833bb23f3d4411ea72a4e17ec013961dfa3ac152db8bd73fe1b30"
   end
+
+  # https://github.com/astral-sh/rye/commit/62ec9edbe471958a05a70418b19f3acd54f0484d
+  deprecate! date: "2025-08-18", because: :unmaintained, replacement_formula: "uv"
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build

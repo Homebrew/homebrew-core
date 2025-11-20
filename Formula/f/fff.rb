@@ -5,8 +5,6 @@ class Fff < Formula
   sha256 "45f6e1091986c892ea45e1ac82f2d7f5417cfb343dc569d2625b5980e6bcfb62"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a29ce06195d0e997c84daca50a89c6a22eb6ff81589974ea4e09601110989f25"

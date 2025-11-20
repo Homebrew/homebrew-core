@@ -12,6 +12,8 @@ class Scalastyle < Formula
     regex(/href=.*?scalastyle[._-]v?\d+(?:\.\d+)+-(\d+(?:\.\d+)+)-batch\.jar/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "1d29d487fbdb5211082bce9fd7b84028b56d4445ab0b0c9c7b8d3bb4d081cdf8"

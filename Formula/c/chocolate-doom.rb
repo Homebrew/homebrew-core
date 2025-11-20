@@ -1,8 +1,8 @@
 class ChocolateDoom < Formula
   desc "Accurate source port of Doom"
   homepage "https://www.chocolate-doom.org/"
-  url "https://github.com/chocolate-doom/chocolate-doom/archive/refs/tags/chocolate-doom-3.1.0.tar.gz"
-  sha256 "f2c64843dcec312032b180c3b2f34b4cb26c4dcdaa7375a1601a3b1df11ef84d"
+  url "https://github.com/chocolate-doom/chocolate-doom/archive/refs/tags/chocolate-doom-3.1.1.tar.gz"
+  sha256 "1edcc41254bdc194beb0d33e267fae306556c4d24110a1d3d3f865717f25da23"
   license "GPL-2.0-only"
   head "https://github.com/chocolate-doom/chocolate-doom.git", branch: "master"
 
@@ -11,18 +11,15 @@ class ChocolateDoom < Formula
     regex(/^chocolate-doom[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "4f000383f25ecf073d230153d43208298586091496c89fffe550b1ac3ceec679"
-    sha256 cellar: :any,                 arm64_sonoma:   "d48d6cab180c6b15c33208fb7147b3f60b8817d81d8cd3a02da366f84b04d9fe"
-    sha256 cellar: :any,                 arm64_ventura:  "307ee7d5f7aac248e236f8235c0de58d303693d9767f62d981dbb2de2b6dbab6"
-    sha256 cellar: :any,                 arm64_monterey: "3414e9cd11236891dfd66811b14a329b63b9ccf83f24f7564ddc589d170cf501"
-    sha256 cellar: :any,                 sonoma:         "d0685590e292ca4f4901e523e5a1a2e77031e05da7cc21fd88ff1251bb10e981"
-    sha256 cellar: :any,                 ventura:        "5722f18c1e6dfe86f4875ea77ca7c2e8cf70dc8e58ee8a4cfcdc6ad992c75b6f"
-    sha256 cellar: :any,                 monterey:       "b47085bdb5cba8a81af6889d21fb725baba8108711428e708cbce4fa10bacacb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4e33543d04e8b2f62c7d2b728797db416a1dae9ec69d60d9b8c7dc70079558ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d314bee173f047d52b928d7865e8d8fd10ef6635b34cc89a50259ab9766e2efc"
+    sha256 cellar: :any,                 arm64_tahoe:   "c2c512540ff8466c3ce24619831d65d9890388c6489c3cfa448e688a7ca0084e"
+    sha256 cellar: :any,                 arm64_sequoia: "bec38408dc088130d0e681ec1820f8f921ecf57bcbacf74732a619036451c5eb"
+    sha256 cellar: :any,                 arm64_sonoma:  "7cdb454c4ab4b9cf1efa96893ee583c91eefc069e6a0008380928e7697d715ba"
+    sha256 cellar: :any,                 arm64_ventura: "c72861921c9a3d836f81f7eb678bdf0c2e77a086734981ee14a3d53e8c41ba17"
+    sha256 cellar: :any,                 sonoma:        "c46dce1d3dd20058a9a8fa66f962e7854cb11e96ebe5ddec38cbf8da6ae695d2"
+    sha256 cellar: :any,                 ventura:       "bd4cf1f84d8871d1e9ab1aaa95032852d4d0e6e7abccd2f6c6c54b68e4f4c876"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "813f46eafb096fa5742e69f32953f9ca658e696930dadb24347cb560dd9d3c11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8abf7f8788b954ce7158be70e901dbd050139aa6f76975108dc2b8a2e6877a81"
   end
 
   depends_on "autoconf" => :build

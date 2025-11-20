@@ -1,18 +1,18 @@
 class Dstask < Formula
   desc "Git-powered personal task tracker"
   homepage "https://github.com/naggie/dstask"
-  url "https://github.com/naggie/dstask/archive/refs/tags/0.27.tar.gz"
-  sha256 "85da92eb50c3611e1054f5153dc0cf90fe1b8b12219c77d1aa86a61384c450a0"
+  url "https://github.com/naggie/dstask/archive/refs/tags/1.0.tar.gz"
+  sha256 "faec7a671331435ddf5be644404a62eef3b6fc0f895811b1f7c6b840e0bec234"
   license "MIT"
   head "https://github.com/naggie/dstask.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5ee01e4bed812038f3734de20cab6be5da1d4d17235489037fd0f5f7dac25a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5ee01e4bed812038f3734de20cab6be5da1d4d17235489037fd0f5f7dac25a9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c5ee01e4bed812038f3734de20cab6be5da1d4d17235489037fd0f5f7dac25a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6958dcb344570273f7eeaa408ee4b0ebbc4cc2d03fce10d8483b8c7e163085c2"
-    sha256 cellar: :any_skip_relocation, ventura:       "6958dcb344570273f7eeaa408ee4b0ebbc4cc2d03fce10d8483b8c7e163085c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9f1978c6d71f808ebef38ac0f046f2b28e437b0df2f10e375231e5d625a00bc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d379782fdfe58917c3d3310212d98e545f755b8b683ba8e95b351bcabd8af2ae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d379782fdfe58917c3d3310212d98e545f755b8b683ba8e95b351bcabd8af2ae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d379782fdfe58917c3d3310212d98e545f755b8b683ba8e95b351bcabd8af2ae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "94159ed9d40ad3a46383decca4b4c8bba53e403cb66b714a01e852e69d722ffe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1b50f896d950aa96139cb7a0daf9bf8d84257fb49e40e457d5727910a7eefe3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e79b38c96912b93fb54858df0b845cd5c6fbbda269e7da398218492081eb1b6f"
   end
 
   depends_on "go" => :build

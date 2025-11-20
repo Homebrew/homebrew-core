@@ -1,8 +1,8 @@
 class Scc < Formula
   desc "Fast and accurate code counter with complexity and COCOMO estimates"
   homepage "https://github.com/boyter/scc/"
-  url "https://github.com/boyter/scc/archive/refs/tags/v3.5.0.tar.gz"
-  sha256 "161f5d9bb359c6440114b7d2e0f98d588c02aa66fbe474d7660b244687fefb70"
+  url "https://github.com/boyter/scc/archive/refs/tags/v3.6.0.tar.gz"
+  sha256 "15e09f446ee44f3ebdb59f55933128256588d0343988692f1064b9bfb4f96dd7"
   license any_of: ["MIT", "Unlicense"]
 
   livecheck do
@@ -11,12 +11,12 @@ class Scc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc5d63f13bfd23c3d3bf87ca06bc7672b30ef4a7a1bae4de2da433c9237e10ca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc5d63f13bfd23c3d3bf87ca06bc7672b30ef4a7a1bae4de2da433c9237e10ca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc5d63f13bfd23c3d3bf87ca06bc7672b30ef4a7a1bae4de2da433c9237e10ca"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2a0cb9eb296f0cfbcf651530d8ab7140e71c75d839c79ce58617a0ca1f19eed3"
-    sha256 cellar: :any_skip_relocation, ventura:       "2a0cb9eb296f0cfbcf651530d8ab7140e71c75d839c79ce58617a0ca1f19eed3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2db851bce3a3f786f412d9cfbc7665d4ab8a80d778f5490700601187a81a0b4c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "38026b19d85ac58395d2f860175c87189b78cfadc9edad78056d73af87fb728c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38026b19d85ac58395d2f860175c87189b78cfadc9edad78056d73af87fb728c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38026b19d85ac58395d2f860175c87189b78cfadc9edad78056d73af87fb728c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "859f6d6025ca99da9ea268bb1e31a6391e565e689fbeafb0bbbbdbe3b91fd5e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff61384425a01701818b616f52dab8c565367e48d27dffb6c83b1b4a59e0d15a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa1c92076f15efbc15253b0934ad74c5f7dce9d83ea3e800bba55ac97f238764"
   end
 
   depends_on "go" => :build

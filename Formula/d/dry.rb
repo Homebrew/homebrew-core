@@ -7,11 +7,13 @@ class Dry < Formula
   head "https://github.com/moncho/dry.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1e6af1ea465a5651b74549561892f63d1116e4522354cb27572fe9e31f170c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "41faddce9db56bb2fb2d505456024e950efd748a4573d725f4e27fee9c4d2163"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41faddce9db56bb2fb2d505456024e950efd748a4573d725f4e27fee9c4d2163"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "41faddce9db56bb2fb2d505456024e950efd748a4573d725f4e27fee9c4d2163"
     sha256 cellar: :any_skip_relocation, sonoma:        "99c27ff03f7517fdc5cda2e0f4e73d5b3cbbdc211bfdab8ee83cd510bd7aff90"
     sha256 cellar: :any_skip_relocation, ventura:       "99c27ff03f7517fdc5cda2e0f4e73d5b3cbbdc211bfdab8ee83cd510bd7aff90"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "90203ead2bd5e5a9211fcd1086b41fb6cfd48396f5016341578703fb1b2ca1e9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3d2be362eac6193b8e570dfbabd9a826e92e3f1b58bc05687c46d3389cf81d0"
   end
 

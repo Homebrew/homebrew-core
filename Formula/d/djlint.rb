@@ -9,22 +9,21 @@ class Djlint < Formula
   head "https://github.com/djlint/djLint.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "ffffd50d9a981e616541d88a685b44ddd5fdb425873563681e3c0611775f48f7"
-    sha256 cellar: :any,                 arm64_sonoma:  "15f38fb5cc8c6d57101be9f42ddef52a9e8c82b23874dff59b2051c282656e11"
-    sha256 cellar: :any,                 arm64_ventura: "25d8dd0b2238eef47a3f7d9cde2ff99c5bac124bdae44855aba1ef11fd4f977b"
-    sha256 cellar: :any,                 sonoma:        "b6d24985a8a4d539ff7b2ce6f121eda24a96691ef42b5785714cd0394e9c7d9e"
-    sha256 cellar: :any,                 ventura:       "2f351016b97bf06731b52dfca66ae25fd7b2d8a95442bf70e0c011789dd63105"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ed4e4ed73c1cddad3648f66cd8c9e87bfc8aa9aefaccefb7528b4f200171f89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa3b3445307399671cdda0fb78276dc88e33823b28c4db26a27ded1f8ff9e4e9"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "e6fbe8ed33b18abe793b3823d3e3083f5dda9ae9f3a9810b56ea0cc7eb1a1f23"
+    sha256 cellar: :any,                 arm64_sequoia: "aebbbb58314eafe8c5562435a6c35486ee26d1b5dc322e63b9b9c890a9a5b923"
+    sha256 cellar: :any,                 arm64_sonoma:  "15447c3b978c0469538bcbff9ec6773d1ba938bd97af4193ce20be14d1e534af"
+    sha256 cellar: :any,                 sonoma:        "8170ce4af546527c8648c0bb50f2c97445ae013039291719983c6c1d2af76dd8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a09e6acccfa498e1cdd6fc1738930cccca64e73ab1f69e0e93d438f40ef872e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f98b311ebc255c06faadad504a390f7618a4b817305c7d1a8275281bfe84a833"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "colorama" do
@@ -33,23 +32,23 @@ class Djlint < Formula
   end
 
   resource "cssbeautifier" do
-    url "https://files.pythonhosted.org/packages/e5/66/9bfd2d69fb4479d38439076132a620972939f7949015563dce5e61d29a8b/cssbeautifier-1.15.1.tar.gz"
-    sha256 "9f7064362aedd559c55eeecf6b6bed65e05f33488dcbe39044f0403c26e1c006"
+    url "https://files.pythonhosted.org/packages/f7/01/fdf41c1e5f93d359681976ba10410a04b299d248e28ecce1d4e88588dde4/cssbeautifier-1.15.4.tar.gz"
+    sha256 "9bb08dc3f64c101a01677f128acf01905914cf406baf87434dcde05b74c0acf5"
   end
 
   resource "editorconfig" do
-    url "https://files.pythonhosted.org/packages/b4/29/785595a0d8b30ab8d2486559cfba1d46487b8dcbd99f74960b6b4cca92a4/editorconfig-0.17.0.tar.gz"
-    sha256 "8739052279699840065d3a9f5c125d7d5a98daeefe53b0e5274261d77cb49aa2"
+    url "https://files.pythonhosted.org/packages/88/3a/a61d9a1f319a186b05d14df17daea42fcddea63c213bcd61a929fb3a6796/editorconfig-0.17.1.tar.gz"
+    sha256 "23c08b00e8e08cc3adcddb825251c497478df1dada6aefeb01e626ad37303745"
   end
 
   resource "jsbeautifier" do
-    url "https://files.pythonhosted.org/packages/69/3e/dd37e1a7223247e3ef94714abf572415b89c4e121c4af48e9e4c392e2ca0/jsbeautifier-1.15.1.tar.gz"
-    sha256 "ebd733b560704c602d744eafc839db60a1ee9326e30a2a80c4adb8718adc1b24"
+    url "https://files.pythonhosted.org/packages/ea/98/d6cadf4d5a1c03b2136837a435682418c29fdeb66be137128544cecc5b7a/jsbeautifier-1.15.4.tar.gz"
+    sha256 "5bb18d9efb9331d825735fbc5360ee8f1aac5e52780042803943aa7f854f7592"
   end
 
   resource "json5" do
-    url "https://files.pythonhosted.org/packages/85/3d/bbe62f3d0c05a689c711cff57b2e3ac3d3e526380adb7c781989f075115c/json5-0.10.0.tar.gz"
-    sha256 "e66941c8f0a02026943c52c2eb34ebeb2a6f819a0be05920a6f5243cd30fd559"
+    url "https://files.pythonhosted.org/packages/12/ae/929aee9619e9eba9015207a9d2c1c54db18311da7eb4dcf6d41ad6f0eb67/json5-0.12.1.tar.gz"
+    sha256 "b2743e77b3242f8d03c143dd975a6ec7c52e2f2afe76ed934e53503dd4ad4990"
   end
 
   resource "pathspec" do
@@ -58,13 +57,13 @@ class Djlint < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/8e/5f/bd69653fbfb76cf8604468d3b4ec4c403197144c7bfe0e6a5fc9e02a07cb/regex-2024.11.6.tar.gz"
-    sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
+    url "https://files.pythonhosted.org/packages/49/d3/eaa0d28aba6ad1827ad1e716d9a93e1ba963ada61887498297d3da715133/regex-2025.9.18.tar.gz"
+    sha256 "c5ba23274c61c6fef447ba6a39333297d0c247f53059dba0bca415cac511edc4"
   end
 
   resource "six" do
@@ -80,7 +79,7 @@ class Djlint < Formula
   def install
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"djlint", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"djlint", shell_parameter_format: :click)
   end
 
   test do

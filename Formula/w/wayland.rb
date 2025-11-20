@@ -1,9 +1,10 @@
 class Wayland < Formula
   desc "Protocol for a compositor to talk to its clients"
   homepage "https://wayland.freedesktop.org"
-  url "https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.23.1/downloads/wayland-1.23.1.tar.xz"
-  sha256 "864fb2a8399e2d0ec39d56e9d9b753c093775beadc6022ce81f441929a81e5ed"
+  url "https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.24.0/downloads/wayland-1.24.0.tar.xz"
+  sha256 "82892487a01ad67b334eca83b54317a7c86a03a89cfadacfef5211f11a5d0536"
   license "MIT"
+  revision 1
 
   # Versions with a 90+ patch are unstable (e.g., 1.21.91 is an alpha release)
   # and this regex should only match the stable versions.
@@ -13,8 +14,8 @@ class Wayland < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "82fbcf11a962ee831af7822eb2dc00a7adbc8139b65d34ec7bad9c1641e29d88"
-    sha256 x86_64_linux: "fa8a51b1ec926a84aab9b92585613a17bb6c8bcd7e8c56941db5e4b3c3f62a25"
+    sha256 arm64_linux:  "0402aef28c24817e975daefaffff0ef5b308e6de8e467cdded83d70a8ed75c39"
+    sha256 x86_64_linux: "dee44b400011624d32fa05d48af97d2ea6856180bee9859aa9d6e2026094891c"
   end
 
   depends_on "meson" => :build

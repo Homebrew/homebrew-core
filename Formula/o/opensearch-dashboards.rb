@@ -1,9 +1,9 @@
 class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
-  homepage "https://opensearch.org/docs/dashboards/index/"
+  homepage "https://docs.opensearch.org/latest/dashboards/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "3.0.0",
-      revision: "c378e1f95a58498ad41c4c99f39e2072b2629085"
+      tag:      "3.2.0",
+      revision: "9d91d4639ea0e0cbb909ccfda66de3288d0f02d7"
   license "Apache-2.0"
 
   livecheck do
@@ -12,14 +12,17 @@ class OpensearchDashboards < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "876fbfe98451b347628282dec9ba9367d99882e57cb430f3b2a86cdf5ad33928"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "876fbfe98451b347628282dec9ba9367d99882e57cb430f3b2a86cdf5ad33928"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "876fbfe98451b347628282dec9ba9367d99882e57cb430f3b2a86cdf5ad33928"
-    sha256 cellar: :any_skip_relocation, sonoma:        "27e0f5bd26347b34a44324d9f035b60c5ada940e4f65ecd8cd39269d266fc5eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "27e0f5bd26347b34a44324d9f035b60c5ada940e4f65ecd8cd39269d266fc5eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "438ea67e9fad0910fa64b1063a167c1633395fa1d563aa829cd9ee2a549dc67b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd97261527b6b511eb78eb5f79e796d282c1acc182a6beeac6671436e871d26c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "727eecd85b6c3883e6e5844fe155b8d607a799f75c12ddc7276bad3d042d1e29"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06ef29ddb7b2fae29aea89491c495a359db9cda91ae82b4c5d3be1f5d77cedef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5659412cb97b6d9a6e9f9906c85b682bf33220cd017430589decc91eb8ed8e9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "910cdadddfa28a1491bc6ea9fcc4680b47c4cbe5faf9db83af7ccc54021c351e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1150e0e52620adffafa7e393afd2be5874b7ad2eca7fd328f20f831d245a65e4"
+    sha256 cellar: :any_skip_relocation, ventura:       "97d4d7f82fac9fc3f9af0c1e3e7410a3d2593ba51d77f0b9f0754c9afa2fbed8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe915d04e7505a67722abd8cf89156462a9f63c402c1b462ccb79fecd33e8db8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af36f450b282678a5c61e29a1c55c1a8b6fe9fc2657af56d5418d295d997b7d9"
   end
+
+  deprecate! date: "2025-10-28", because: "uses deprecated node@20"
 
   depends_on "yarn" => :build
   depends_on "opensearch" => :test

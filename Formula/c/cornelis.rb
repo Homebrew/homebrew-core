@@ -1,21 +1,20 @@
 class Cornelis < Formula
   desc "Neovim support for Agda"
   homepage "https://github.com/agda/cornelis"
-  url "https://github.com/agda/cornelis/archive/refs/tags/v2.7.1.tar.gz"
-  sha256 "b75d20ecf50b7a87108d9a9e343c863c2cf6fbf51323954827738ddc0081eff3"
+  url "https://github.com/agda/cornelis/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "41787428319dbde15b51ce427451d4a48f14d54a7c42902d004458e232ca3022"
   license "BSD-3-Clause"
   head "https://github.com/agda/cornelis.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5469975994b43e45788ff4b27058dc3284fa90f63be85001603abc5228dd76d3"
-    sha256 cellar: :any,                 arm64_sonoma:  "845f96549a6d6c2937bedf9fb4031107f57b6b101275566702185b1625cfb733"
-    sha256 cellar: :any,                 arm64_ventura: "410c0032ecb66fb98642251a207bfad302f466c1334f317f02d641a3e353f9c8"
-    sha256 cellar: :any,                 sonoma:        "568be9e2acb19617e368400204f1664ed5b2839e6c96bf6adad497dd602b9511"
-    sha256 cellar: :any,                 ventura:       "218969d2f9bd9584c280135fd53704646386bcac869f77ffad1586c458095547"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5323616822e8de7e0390a4f8ad65399e27810da6f12587cffabae1896663b712"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9f0f3d6779acf8d5586343012554985bf180d316cdf9e58874e0a0b02913ec3"
+    sha256 cellar: :any,                 arm64_tahoe:   "103d80490d25947c1dd3d7161b76f5b5a63845afc8c961a8d9664cc61a5d3f90"
+    sha256 cellar: :any,                 arm64_sequoia: "bf400828f83abba48acb6c2ec8e25ed1e96917c925f213ab6d39c4113a53409b"
+    sha256 cellar: :any,                 arm64_sonoma:  "d25401f92c4d9d180780f1230eb0ccf39b1b80974f12b9d248392e4a3aeea090"
+    sha256 cellar: :any,                 arm64_ventura: "6ec7c5adf4a3de1e3f1bb14c16b8331a5ddea0e53e89e6a4fdfb3a7d9ee1acba"
+    sha256 cellar: :any,                 sonoma:        "a8a253190ca8160a77009bd98428a911e7b1744347a5cb3064425b1a82bb3ac6"
+    sha256 cellar: :any,                 ventura:       "424458fd634c9cba6e292d05a251d1bee0ec1d7b877c833f41604f557d6f7b91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c535f472a6eee69b4e10dab39e5907adc21ee787b494863bc6f8b5bbcc83bb88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99250a940957d3ed12ff7037381f5b1a2599a479d2a4900327f01f0e42bc81f0"
   end
 
   depends_on "cabal-install" => :build

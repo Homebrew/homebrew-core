@@ -1,12 +1,23 @@
 class Rtl433 < Formula
   desc "Program to decode radio transmissions from devices"
   homepage "https://github.com/merbanan/rtl_433"
-  url "https://github.com/merbanan/rtl_433/archive/refs/tags/25.02.tar.gz"
-  sha256 "5a409ea10e6d3d7d4aa5ea91d2d6cc92ebb2d730eb229c7b37ade65458223432"
   license "GPL-2.0-or-later"
   head "https://github.com/merbanan/rtl_433.git", branch: "master"
 
+  stable do
+    url "https://github.com/merbanan/rtl_433/archive/refs/tags/25.02.tar.gz"
+    sha256 "5a409ea10e6d3d7d4aa5ea91d2d6cc92ebb2d730eb229c7b37ade65458223432"
+
+    # Fix build with CMake 4.0+.
+    # Remove with `stable` block on next release.
+    patch do
+      url "https://github.com/merbanan/rtl_433/commit/42ac641452aa56afa04f7bad5a55f790ee639852.patch?full_index=1"
+      sha256 "7e93f6021b80a8e21e637f1be1f7239ca608887b69685781a2e5afcf38bb342d"
+    end
+  end
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9393179910f0f9f4fef924aadd7862b5ed72850d44dff3c4867b6da289fdd333"
     sha256 cellar: :any,                 arm64_sequoia: "cadc9ac43692b5342a8d9fd305bf36598ce8e8f9cbcf088f3b87e7117f569f4c"
     sha256 cellar: :any,                 arm64_sonoma:  "6e8b6406520ac6b02a6d5292ed085c377edc6214dd817e27850a91d1216883b0"
     sha256 cellar: :any,                 arm64_ventura: "ed54be9e72784603e4e6b1b7b1ae679f15ab03cf1ee92efa7c36151b40b81274"

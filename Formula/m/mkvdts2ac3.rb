@@ -12,10 +12,12 @@ class Mkvdts2ac3 < Formula
     # patch with upstream fix for newer mkvtoolnix compatibility
     # https://github.com/JakeWharton/mkvdts2ac3/commit/f5008860e7ec2cbd950a0628c979f06387bf76d0
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/mkvdts2ac3/1.6.0.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/mkvdts2ac3/1.6.0.patch"
       sha256 "208393d170387092cb953b6cd32e8c0201ba73560e25ed4930e4e2af6f72e4d9"
     end
   end
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

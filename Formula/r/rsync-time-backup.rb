@@ -6,6 +6,8 @@ class RsyncTimeBackup < Formula
   license "MIT"
   head "https://github.com/laurent22/rsync-time-backup.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f5fc0d52255efff1f05d7820ae5c155fc59214934687e00e805911fea20ca6c6"

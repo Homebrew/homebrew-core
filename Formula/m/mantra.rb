@@ -1,20 +1,20 @@
 class Mantra < Formula
   desc "Tool to hunt down API key leaks in JS files and pages"
   homepage "https://amoloht.github.io"
-  url "https://github.com/MrEmpy/mantra/archive/refs/tags/v2.0.tar.gz"
-  sha256 "f6eecb667fea6978cc53e8ff0f18f86b6ea6e25a651af24d00c941bdfd0c8ab2"
+  url "https://github.com/brosck/mantra/archive/refs/tags/v3.1.tar.gz"
+  sha256 "379894f36ef04a6b4e57e77112070e23dcc75569d1df98a8f128fe24a8b5e0b1"
   license "GPL-3.0-only"
-  head "https://github.com/MrEmpy/mantra.git", branch: "main"
+  head "https://github.com/brosck/mantra.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7c1c351dc805308006e2e3d5d0f4da28603a711b3044dc76813c63b5d0794a0d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6a53d93d65ced3c59f29695d6480b91651e866b01a7858aa6f748389e02fd0e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a0d0e35be8c8c9bb772cbd486fa108fcf4454861c6a025ad0db15273dc57c73"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc5e2eca313a3583f9ce1453b229b46b01ede7d97a984c258fab50e195039814"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d4c9bb02500093b2a41ffce55b75a6fdfdd3b522366c4e4f6dada9d94cbc5b04"
-    sha256 cellar: :any_skip_relocation, ventura:        "0b5d253645f863d03554c0fe4ed3fb2d1bc8f1b8248289e7cff6d28c542464b9"
-    sha256 cellar: :any_skip_relocation, monterey:       "9bc954f6399c3ebc4cbe352c295c0a92a2bb3c649edf98fa965bbb2dc5297eac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a18404491b344866ef5a92dca510b02a79da2be1f87f6627d180da3e2bc3456"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "999c55a42a047937fb47e7f438f93041c3fcff6295ca273ef1fb812626fba325"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b327b97eb7cd1bed9e3cbbb8523501568762c1ab23b3b6f96a1004574d250ea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b327b97eb7cd1bed9e3cbbb8523501568762c1ab23b3b6f96a1004574d250ea"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b327b97eb7cd1bed9e3cbbb8523501568762c1ab23b3b6f96a1004574d250ea"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ad0307f0e619dcdeb51cf5ae48aa906e7cb1d97133beb064e506ebc47cf4aa0f"
+    sha256 cellar: :any_skip_relocation, ventura:       "ad0307f0e619dcdeb51cf5ae48aa906e7cb1d97133beb064e506ebc47cf4aa0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d80b6e994904283deff4964a708498d2123a11b703dd4b41ef419fe7dc884504"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c37cc06e99d712dc61fcc3b708660da350183a0e3bb83bf1273c2c822ca324a"
   end
 
   depends_on "go" => :build

@@ -1,19 +1,19 @@
 class Libtirpc < Formula
   desc "Port of Sun's Transport-Independent RPC library to Linux"
   homepage "https://sourceforge.net/projects/libtirpc/"
-  url "https://downloads.sourceforge.net/project/libtirpc/libtirpc/1.3.6/libtirpc-1.3.6.tar.bz2"
-  sha256 "bbd26a8f0df5690a62a47f6aa30f797f3ef8d02560d1bc449a83066b5a1d3508"
+  url "https://downloads.sourceforge.net/project/libtirpc/libtirpc/1.3.7/libtirpc-1.3.7.tar.bz2"
+  sha256 "b47d3ac19d3549e54a05d0019a6c400674da716123858cfdb6d3bdd70a66c702"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "c16ef4d7037e9f47895388ed87cabd6204ec34131e0093267f6526eed8f9ee6c"
-    sha256 cellar: :any,                 arm64_sonoma:  "8ee7ac3b3b1df398b032656eccd643b5acc54d7e02959f1615690ecde92116e1"
-    sha256 cellar: :any,                 arm64_ventura: "75b9446214bec564b88e7d765cffb241497d1ae41e349fd6f584de3d8cbc5c26"
-    sha256 cellar: :any,                 sonoma:        "72e659c72370584a373cc916acafe7a51db67a10ad7c8fbaa9fc311fc49ff790"
-    sha256 cellar: :any,                 ventura:       "7a87780cba64ee5fa5e65686d4bcc51236ccf4b33a11c8732d0ad59ad7b003c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "016bd1553348df8e15bc09280a00b40562da46aa875f9741292f129bd0666467"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93daf0554770cfcd883a74d9bcbb208702c23b8d90d0c1daa9b040be52b9657c"
+    sha256 cellar: :any,                 arm64_tahoe:   "2cf5d4f383c13b44931d5d608d807a0f3c7f2d00e93021267b40326ebc4669c7"
+    sha256 cellar: :any,                 arm64_sequoia: "8f7acea1ebea5151f3e7b1ca7a208d2d1a78493eab4ec9052ee8ba3dabbe0c3d"
+    sha256 cellar: :any,                 arm64_sonoma:  "ca87dd692fd613265773dd1b70d57b5cf4e0c2cda4f2f85bd6877e740e65b996"
+    sha256 cellar: :any,                 arm64_ventura: "08e618a8ff33a2f22dde28337c945047bb43780bd3384e908e60a4a08e20c5f3"
+    sha256 cellar: :any,                 sonoma:        "96fca5f15034ecaac893ebd5b9afd0c8504e76bdde0f985232a3a83add4aec7e"
+    sha256 cellar: :any,                 ventura:       "a2050dc9f4087267e119bb87b1568e9880115bc9b2148fd7aed0d210574c2a5c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6db16084804a4d201c2e3154bc09b707a6f7a3b216f2829e18d21ebf90fe783a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdf824eba64ba33fe3f47809be7c1e62e3795ff20f62b1329e5fad45071cd934"
   end
 
   depends_on "krb5"

@@ -17,17 +17,11 @@ class Flawfinder < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "030f54eb812b1a8db57bfabf283d62c211cc22c4690929288d3ff8e9cf17ad13"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "030f54eb812b1a8db57bfabf283d62c211cc22c4690929288d3ff8e9cf17ad13"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "030f54eb812b1a8db57bfabf283d62c211cc22c4690929288d3ff8e9cf17ad13"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3b696a9fc382e50b6306f43deb4b6a759d74acd32755573f7e0dc105794611e8"
-    sha256 cellar: :any_skip_relocation, ventura:       "3b696a9fc382e50b6306f43deb4b6a759d74acd32755573f7e0dc105794611e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dbfca57b72d0516b9fcb37ebfc9aeb8af8b7550a4aa4b5e8562ae126261b9aa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "030f54eb812b1a8db57bfabf283d62c211cc22c4690929288d3ff8e9cf17ad13"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "ef4160192048471cc1fdda78cbfbda11725e3a826118988878a286f08a71d9a0"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     rewrite_shebang detected_python_shebang, "flawfinder.py"

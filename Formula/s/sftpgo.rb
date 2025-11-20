@@ -1,23 +1,26 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://sftpgo.com/"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.6.6/sftpgo_v2.6.6_src_with_deps.tar.xz"
-  sha256 "02d36a540e79ee877585c145cbe294bd48b03db98d2b577273cad4c8b6cf482c"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.7.0/sftpgo_v2.7.0_src_with_deps.tar.xz"
+  sha256 "7d70361aa52857816d2c14ff8b306429476f0864a10d99d9139b6ef1a8aaa45e"
   license "AGPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia: "618de2bf3a3e61caeb84a818715060a7793e35dea8309b529c42715e10382778"
-    sha256 arm64_sonoma:  "cf13ba2d5b0ef2cf8cc20ef3c6e7ba8719fcca93e88b545924ac0976dbc0d9bb"
-    sha256 arm64_ventura: "f5b1195ebb945df9faa935aff174de9305be4e66deb7d015271255c23df2293c"
-    sha256 sonoma:        "b0e1b0c942ab7489cae8fd45b1f8586ecccf2c9f95e08d3c21b762690e4af66e"
-    sha256 ventura:       "b8be7324b8fc6d0ba8c3d833043f042cf0a161d4c31242686ef0915773aad7cd"
-    sha256 arm64_linux:   "03ccf1abb305691c6d1c169fceaa36057810a6e2888baac8977ccb1ebfb6a90e"
-    sha256 x86_64_linux:  "e1b0617a0ea156c8d4a002fbfdeb8d3b1fa448e8bb8167dd9c5f5f0934af1efc"
+    sha256 arm64_tahoe:   "a2c5a58f6786fa00d6088cf3aa6d4a18633f86b7c1af5111a7c720ea6982f741"
+    sha256 arm64_sequoia: "cfb4dfe0a2167c8a17d3639dc4075af9cab077201207bf4da95ae961b6d25205"
+    sha256 arm64_sonoma:  "c8a8b19dadf5f89d7ad6ad1a8fcdd21e2846dc3de1cfa5791c4872dd8b5019ba"
+    sha256 sonoma:        "2ad06c7ac8a561cc2a7db80ba4bc7854519e5dd29d06ca48b77e1dd288b9e1ff"
+    sha256 arm64_linux:   "a2055c3947c346d8dfa56a4908da3abfdb635b12883c0ebb7439c1fa9b09a215"
+    sha256 x86_64_linux:  "58b43409163f36ca08dfda3966147fb3b9adc9b0c2e5ca9e11bffb651a7f02ae"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     git_sha = (buildpath/"VERSION.txt").read.lines.second.strip
     ldflags = %W[
       -s -w

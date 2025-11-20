@@ -8,6 +8,7 @@ class Terrascan < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b40d6c29fb9eecb6f19626e2f1b9f65babf3be3388542f81ed459f153a49399"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "55eba53ea3122827a508c8e157c2454488eba175c7be3f8bf5b936de423b0139"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f60423de629cd20ce0ff69e89135366135b39210338c3888c2431b4c7426b9d0"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "592b8157f3ccc5c93b0639f8309a4a5a302ca89df28ac7d2d0952844db61966a"

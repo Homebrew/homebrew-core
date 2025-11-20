@@ -3,25 +3,26 @@ class Ggshield < Formula
 
   desc "Scanner for secrets and sensitive data in code"
   homepage "https://www.gitguardian.com"
-  url "https://files.pythonhosted.org/packages/da/85/9cf7b609e64c68edec72bad19e581354d9715d3dbf58a23a76b84a3ba0b4/ggshield-1.40.0.tar.gz"
-  sha256 "7ad3ac8ffef6b488a59363539e36e67e60fea58a221e41a08c871b63be956368"
+  url "https://files.pythonhosted.org/packages/56/66/483db468f88c8eb9f75f285b9713d68edcf97fdbc0443ae451bb7bcf7493/ggshield-1.45.0.tar.gz"
+  sha256 "8c4a75920f50e7e1f7d43d0a58e6c2036c4a2bf0cf28e18fde97642d55c893e9"
   license "MIT"
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "42b767918ef0f3a747a18abdc29fb3d3efd4edb0f4bbe458bc862dec8bd36194"
-    sha256 cellar: :any,                 arm64_sonoma:  "ebfcb92ac05b6ea2ebba53a088329f1340c1e236eba0868e00efa7cc3499868e"
-    sha256 cellar: :any,                 arm64_ventura: "2619c07d94de78d04d3eadddeab8d78144bc2b7f9d20a22c7c0fe61bf1d9ba71"
-    sha256 cellar: :any,                 sonoma:        "05682730edbe3355b3228670c562a18fabf22036b8998694e756f55023ce4099"
-    sha256 cellar: :any,                 ventura:       "edbbd4d6aa343549cd1826f6cab96b3dda9f95b11b1f9421fbca8a92ee639b08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c6f49189a823128099208e3c088fa2627fa95496e26ccf6a30fab15600c34b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47c364fffb807eee00d0ff989b0c449cfccb597b480ce81ee4f13eea26765a7e"
+    sha256 cellar: :any,                 arm64_tahoe:   "e640341f43c619b7439449b6f2df8191084e24920abeecd9760a4e2d19b0fbf4"
+    sha256 cellar: :any,                 arm64_sequoia: "61d370e0886bb699cf6685126c2a0d6d8162f28c04fdc601e15df8c04394c536"
+    sha256 cellar: :any,                 arm64_sonoma:  "b8386bb2ade8fbfbd65bcb9c3018df431cb01ebc5d7bf35ec90fc552e7bf0c53"
+    sha256 cellar: :any,                 sonoma:        "37028f52b5f0ec26d66026f38072f22aab33d66c7243920420df2c9abf1e564b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e40ed042be9d446541dca3d43a9a496bc9e9ce5f150a3d3313f1e2399ebe338"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3fb3be3f8ebfb092a8d376eccf69861e148de4e746fe36d2df8daf24bc601f6"
   end
 
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: %w[certifi cryptography]
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
@@ -39,8 +40,8 @@ class Ggshield < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
-    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
+    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
+    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
   resource "marshmallow" do
@@ -74,13 +75,13 @@ class Ggshield < Formula
   end
 
   resource "pygitguardian" do
-    url "https://files.pythonhosted.org/packages/24/55/d55df088734cbfc80bb48608b2fbe3840171396c249e0da8bf93229ebf49/pygitguardian-1.22.0.tar.gz"
-    sha256 "d3e7214e16f06f2ba7c5ca1bc809dc1e1e4dbc9199e09f1c1b2947174d8b043b"
+    url "https://files.pythonhosted.org/packages/d1/4d/b0adec91a5e76360f13a54595a35ea473e50c4a800ce65aab0d1804b6b11/pygitguardian-1.27.0.tar.gz"
+    sha256 "e8a75beefbd48ba96b307877d057176e260fbfaed125548f6cb2279efe671373"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
-    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   resource "pyjwt" do
@@ -94,13 +95,13 @@ class Ggshield < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "rich" do
@@ -114,8 +115,8 @@ class Ggshield < Formula
   end
 
   resource "truststore" do
-    url "https://files.pythonhosted.org/packages/0f/a7/b7a43228762966a13598a404f3dfb4803ea29a906f449d8b0e73ed0bcd30/truststore-0.10.1.tar.gz"
-    sha256 "eda021616b59021812e800fa0a071e51b266721bef3ce092db8a699e21c63539"
+    url "https://files.pythonhosted.org/packages/53/a3/1585216310e344e8102c22482f6060c7a6ea0322b63e026372e6dcefcfd6/truststore-0.10.4.tar.gz"
+    sha256 "9d91bd436463ad5e4ee4aba766628dd6cd7010cf3e2461756b3303710eebc301"
   end
 
   resource "typing-extensions" do
@@ -136,7 +137,7 @@ class Ggshield < Formula
   def install
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"ggshield", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"ggshield", shell_parameter_format: :click)
   end
 
   test do

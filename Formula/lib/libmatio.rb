@@ -1,18 +1,17 @@
 class Libmatio < Formula
   desc "C library for reading and writing MATLAB MAT files"
   homepage "https://matio.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.28/matio-1.5.28.tar.gz"
-  sha256 "9da698934a21569af058e6348564666f45029e6c2b0878ca0d8f9609bf77b8d8"
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.29/matio-1.5.29.tar.gz"
+  sha256 "d9e5f7a2f2c594eff15f550e34729b01991cdd5a028a558be8ce595b32233afb"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8548b3cb9b21fa982216451647db1a47b4c739312584234cd1985427b8d6b257"
-    sha256 cellar: :any,                 arm64_sonoma:  "80694bb2600a33e2628fd55db525539d5105d2fea1928cf161881b752d498d88"
-    sha256 cellar: :any,                 arm64_ventura: "54cce8262a21cca0d84f505bcc89393d9aa70df7cde6efc1e7732f563c8beee4"
-    sha256 cellar: :any,                 sonoma:        "8165133fb675edcc6db39d59e8c67bf3ea3b63bf22948d7acc638b3b9759a86b"
-    sha256 cellar: :any,                 ventura:       "00b4f5bdbec014ea1675de1c8f53b0d206f01bcfd31dbd61390e38ed6577648f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f3f374faf5812e89410fec72a988afe77fe15c0d655ab2d3463315d5c2932ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f29e5ed508bb8cf1acbe9e69829f7beb0971efb72fcc4cb3a5a9c1b9ad66c2c7"
+    sha256 cellar: :any,                 arm64_tahoe:   "ae99fcdca7044ba6a6bd70bcde020ce8d1cb40c928f29db562cba12660aca966"
+    sha256 cellar: :any,                 arm64_sequoia: "aa29ffa6b398dd0e5ad2fc176b795ec89d5563af21b332923674f86340ef00f6"
+    sha256 cellar: :any,                 arm64_sonoma:  "1977bb57f5fef8bcbb08be4a6d4c574a2e567b2d4fbcbc66b669b453c7092492"
+    sha256 cellar: :any,                 sonoma:        "5f2884e960b11e3243aed0262c3c1650141b340d657fe9bb2372164d5843e6de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ec7706a6608b716870e9cc6cb8a228ad4fb0e223d66a0bf36d8eb58b5d75df3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "083925243e719c5d0c4f27c94fcebd14fe3717a7e8e25971364554f0dd0c1af4"
   end
 
   depends_on "pkgconf" => :test

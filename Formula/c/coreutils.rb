@@ -1,23 +1,22 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils/"
-  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.7.tar.xz"
-  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.7.tar.xz"
-  sha256 "e8bb26ad0293f9b5a1fc43fb42ba970e312c66ce92c1b0b16713d7500db251bf"
+  url "https://ftpmirror.gnu.org/gnu/coreutils/coreutils-9.9.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-9.9.tar.xz"
+  sha256 "19bcb6ca867183c57d77155eae946c5eced88183143b45ca51ad7d26c628ca75"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "5d3e3c74de367a4d8ae6f22457732a8e5d39030c46f8f585b1780c0a916d0c8e"
-    sha256 arm64_sonoma:  "4092845c230a1b20213f3896125f12484cf72dcaca28e111544dbacb1110c8eb"
-    sha256 arm64_ventura: "84dc5707dd057de5ed4c6b79ae33c807dd00890cf470a64d3f200295974dec33"
-    sha256 sonoma:        "c7580a41bcd888acda07bd8b2c6c0c194a3763a27d36b1a48210a96f22ee773c"
-    sha256 ventura:       "838f1374519d8ddab94bfb910d57f802d6551baf4b97d6580e323d7d01f3180c"
-    sha256 arm64_linux:   "485b2b05cc5e1293ef2e7dc4b3471e916dddb170424d5a4a57483f2d829d0a60"
-    sha256 x86_64_linux:  "b4c41fd3102b03845f5ed8163a09dea3534db3773415524ddb5be10145aecb78"
+    sha256 arm64_tahoe:   "c1c98196cf47ba0693fcdfdc382baffe28f2898f566e93ef1b24b59ce30d1a8e"
+    sha256 arm64_sequoia: "8c9f197f43acda73bf08c352730f37e49b4059622cfa6a45e1d71a1e018a92fd"
+    sha256 arm64_sonoma:  "44051d68ba9de8afd8902900396d4726f447a08342f540c460f7472f18de1862"
+    sha256 sonoma:        "d23bd4e530c024f868213201dfac8d0135c3e20d561065e3e0a55886c8cbdbb9"
+    sha256 arm64_linux:   "8df4ae2018195ec710a08c196648f75a50728b9104acc6bdb00a5b81a2c1f93b"
+    sha256 x86_64_linux:  "7f625a7b2b2eac3151a8d762b2f0458f97669746f077bf758d68490d546b0dc4"
   end
 
   head do
-    url "https://git.savannah.gnu.org/git/coreutils.git"
+    url "https://git.savannah.gnu.org/git/coreutils.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -86,7 +85,7 @@ class Coreutils < Formula
     end
     # Symlink all man(1) pages into libexec/gnuman without the 'g' prefix
     coreutils_filenames(man1).each do |cmd|
-      (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
+      (libexec/"gnuman/man1").install_symlink man1/"g#{cmd}" => cmd
     end
     (libexec/"gnubin").install_symlink "../gnuman" => "man"
 

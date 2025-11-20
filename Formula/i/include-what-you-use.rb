@@ -1,9 +1,10 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.24.src.tar.gz"
-  sha256 "a23421ceff601d3ea215e8fa9292bfa8ca39eb1ac2098dbbedfc6cfe65541c10"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.25.src.tar.gz"
+  sha256 "be81f9d5498881462465060ddc28b587c01254255c706d397d1a494d69eb5efd"
   license "NCSA"
+  revision 1
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
@@ -16,13 +17,13 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "30ac8c04e8b22d83d3840790810ad8d4e8fc42f2feef42a24da884e9ad0a33e8"
-    sha256 arm64_sonoma:  "e25d02bca2115e3249049bcfe411560870fa816ffc1a07f5fe18d5c8875367f1"
-    sha256 arm64_ventura: "79ef55188a1c7328c7f717a96661403093a724e3fd5031b5799315ff7247232b"
-    sha256 sonoma:        "b84eea76382134fcb83e0de05b86c7984d1743ca128fdb9967bd09e81699bf4b"
-    sha256 ventura:       "2cff619261a5c37db862623ac06cc058d83f171ee8b1298d4812a1e1106cbdc6"
-    sha256 arm64_linux:   "c098fa5be99719ee60989eba3970d9c242ba789a1bae7b105e8ed4adac757f68"
-    sha256 x86_64_linux:  "4a76b914ec9e0b003450f409db649fe518e16bce7d5e175158de6d345abb409c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "febb29971c3e8ec198cc46aab490b9d5a1b1f9897618ab0c08d571fc7e405e24"
+    sha256 cellar: :any,                 arm64_sequoia: "213bdf2e2a8094c3f9e80f9453529e459075b00667aa3869488ca330633c8d7e"
+    sha256 cellar: :any,                 arm64_sonoma:  "ce1afe4cf2eda64076bcecc7ac53578564fded555d6786ab46b5b26fd8022679"
+    sha256 cellar: :any,                 sonoma:        "5525b7f43377fd15a36821b00c8fcda1cffa466315fc189881cd843e6a14ec54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c63e00abc6b27ee41877b9dab66a79f961be696bd0899649dc48c4e7ba02a9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33758f6714ab8c29596918913cd70a1f162406e4ea2c161ba5a55f932bf4d90c"
   end
 
   depends_on "cmake" => :build
@@ -35,33 +36,17 @@ class IncludeWhatYouUse < Formula
   end
 
   def install
-    # FIXME: CMake stripped out our `llvm` rpath; work around that.
+    resource_dir = Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp
+    resource_dir.sub! llvm.prefix.realpath, llvm.opt_prefix
+
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath(source: libexec/"bin", target: llvm.opt_lib)}
+      -DIWYU_RESOURCE_RELATIVE_TO=iwyu
+      -DIWYU_RESOURCE_DIR=#{Pathname(resource_dir).relative_path_from(bin)}
     ]
 
-    # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
-    # so install to libexec to ensure that the resource path, which is always
-    # computed relative to the location of the include-what-you-use executable
-    # and is not configurable, is also located under libexec.
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec), *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    bin.write_exec_script libexec.glob("bin/*")
-    man1.install_symlink libexec.glob("share/man/man1/*")
-
-    # include-what-you-use needs a copy of the clang and libc++ headers to be
-    # located in specific folders under its resource path. These may need to be
-    # updated when new major versions of llvm are released, i.e., by
-    # incrementing the version of include-what-you-use or the revision of this
-    # formula. This would be indicated by include-what-you-use failing to
-    # locate stddef.h and/or stdlib.h when running the test block below.
-    # https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
-    (libexec/"lib").mkpath
-    ln_sf (llvm.opt_lib/"clang").relative_path_from(libexec/"lib"), libexec/"lib"
-    (libexec/"include").mkpath
-    ln_sf (llvm.opt_include/"c++").relative_path_from(libexec/"include"), libexec/"include"
   end
 
   test do

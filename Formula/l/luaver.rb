@@ -6,6 +6,8 @@ class Luaver < Formula
   license "MIT"
   head "https://github.com/DhavalKapil/luaver.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "9bf33058878e1a0fcbec847bf8b5ec06912eda98647f05ab96e08e4c1197f93a"

@@ -4,9 +4,9 @@ class Wolfssl < Formula
   # Git checkout automatically enables extra hardening flags
   # Ref: https://github.com/wolfSSL/wolfssl/blob/master/m4/ax_harden_compiler_flags.m4#L71
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v5.8.0-stable",
-      revision: "b077c81eb635392e694ccedbab8b644297ec0285"
-  license "GPL-2.0-or-later"
+      tag:      "v5.8.2-stable",
+      revision: "decea12e223869c8f8f3ab5a53dc90b69f436eb2"
+  license "GPL-3.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
   livecheck do
@@ -16,13 +16,14 @@ class Wolfssl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "efc64785e620d8b1c5e208b99fe2a236b945cdbb777fe5af8284b43c08f48e84"
-    sha256 cellar: :any,                 arm64_sonoma:  "4ee88f3a4c99780161ac2c928ebd0d01dc87207eaa0604425a1f3b474fe1619e"
-    sha256 cellar: :any,                 arm64_ventura: "8e651bbeb00f69694557d26ad4e59c5c83c6f17ec614fc18f6355e33213c5d5f"
-    sha256 cellar: :any,                 sonoma:        "c4e4c1deb606b4eac0534ff557ea62e761a82b9cdc03b49d745155b5d3c206c6"
-    sha256 cellar: :any,                 ventura:       "436ff4612e6a9c04aee827ca18e267313826b9977916e2e8a3355c3fdc4e61ef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bac5f9b9f00adec84003757ac0c3cc39ea4afa512b889af0d6274d8a9774ba29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2eada4b8e21f9f2b033159dca61c0f0b00be104b8458c0cd6ccd4e270ee4e2e"
+    sha256 cellar: :any,                 arm64_tahoe:   "6bcacaa9f6c73e3cf3186dffe29276a66039f99c73d69d5df8225a0dbe3410ad"
+    sha256 cellar: :any,                 arm64_sequoia: "44c8763615d5c0b67f49b16e0d7789329e84fd573277a9dc0c56bc6068917ed8"
+    sha256 cellar: :any,                 arm64_sonoma:  "9e0676d21cb03b5fa391c1764ca008cd12f8190b217d94e7cf27f8ae68699210"
+    sha256 cellar: :any,                 arm64_ventura: "c9e58662829671584d8cfc2c047bcabacd30ef33cdef940c607adcafae651421"
+    sha256 cellar: :any,                 sonoma:        "45c38bf6c1fca774e0efe0c1789cd74a0a1259d0f199bf3c5f9bd78ba23147a1"
+    sha256 cellar: :any,                 ventura:       "b1b087f768878b139a39e161b202270b21a7175767a4e65434b62d5c068662da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9ede4cdae63c6acea1f3a02ac00e640b5cde98a40f466a975d86e0323d8d685"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f83fa4dbec5dab24d91a3e1113a3c6a582cf9cf82249bd4d712d1629389ec264"
   end
 
   depends_on "autoconf" => :build

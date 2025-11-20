@@ -6,28 +6,44 @@ class QtAT5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
   # NOTE: Use *.diff for GitLab/KDE patches to avoid their checksums changing.
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.16/single/qt-everywhere-opensource-src-5.15.16.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.16/single/qt-everywhere-opensource-src-5.15.16.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.16/single/qt-everywhere-opensource-src-5.15.16.tar.xz"
-  sha256 "efa99827027782974356aceff8a52bd3d2a8a93a54dd0db4cca41b5e35f1041c"
+  url "https://download.qt.io/archive/qt/5.15/5.15.17/single/qt-everywhere-opensource-src-5.15.17.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.17/single/qt-everywhere-opensource-src-5.15.17.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.17/single/qt-everywhere-opensource-src-5.15.17.tar.xz"
+  sha256 "85eb566333d6ba59be3a97c9445a6e52f2af1b52fc3c54b8a2e7f9ea040a7de4"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 2
+  revision 1
 
   livecheck do
-    url "https://download.qt.io/official_releases/qt/5.15/"
+    url "https://download.qt.io/archive/qt/5.15/"
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a661d1f9b62c9fff165ace3821f3befeb65620166b63d8795301f132cc9aeb50"
-    sha256 cellar: :any,                 arm64_sonoma:  "1902b5b126785f33ff1fdd612c458a0dd2cca205c925f4c04fc5ef4e6b7d5517"
-    sha256 cellar: :any,                 arm64_ventura: "61a83675a351069af55b9ab8cc62962fbf1e763cb5abb8ee2a63102de9c4d438"
-    sha256 cellar: :any,                 sonoma:        "d86069ffb50778801427abd0574ef955e2377d777d251b496bf38c732ebcf6c4"
-    sha256 cellar: :any,                 ventura:       "3a50379f30ae54952e5860dfb1a624e903db7b63a420af76a90aa0e0fdc3d3e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b1afcefd9c62dae5bf3aadf26d9a25e3ed9c8855bb8b979a1fe1cdb0484dd3c"
+    sha256 cellar: :any,                 arm64_tahoe:   "ccffe1390fd587e2e6b094e278b2fd765746eccd30f9e59c8ff17abe5a3348da"
+    sha256 cellar: :any,                 arm64_sequoia: "2c95f726f4ec9546aab4355a0cab1e3a68afdbd43c4200d40f730214d97db754"
+    sha256 cellar: :any,                 arm64_sonoma:  "8ae245b551b5e82988ad8188961fe75dc942e7a192a32f5917eb39f295a974b9"
+    sha256 cellar: :any,                 sonoma:        "0a5f4640f5b93ebb10661262899af5cf226c821f489f8a06bdc9425932b1f1ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3ec83bcc8404ba35d4a38c3aed8bb1f3235a3d9062d2945b613295d9208fa61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02bcdc299c2b64c2a097cf52396e92310a2f99c48ebb01233b8d24b6a8cd567e"
   end
 
   keg_only :versioned_formula
+
+  # Deprecating on expected date of Qt 5.15.19 open-source release which is
+  # planned for 1 year after the commercial release date of 2025-05-19[^1].
+  # Standard support officially ended on 2025-05-26 and Qt5 is now in EoS[^2].
+  # Any new CVEs found are no longer being fixed since commercial release.
+  # Also, we rely on Linux distro patches and they are planning removal too,
+  # e.g. Alpine[^3], Gentoo[^4] and Ubuntu[^5].
+  #
+  # [^1]: https://www.qt.io/blog/commercial-lts-qt-5.15.19-released
+  # [^2]: https://www.qt.io/blog/extended-security-maintenance-for-qt-5.15-begins-may-2025
+  # [^3]: https://gitlab.alpinelinux.org/alpine/aports/-/issues/17114
+  # [^4]: https://bugs.gentoo.org/948836
+  # [^5]: https://discourse.ubuntu.com/t/removing-qt-5-from-ubuntu-before-the-release-of-26-04-lts/49296
+  deprecate! date: "2026-05-19", because: :unsupported
 
   depends_on "ninja" => :build
   depends_on "node" => :build
@@ -39,7 +55,6 @@ class QtAT5 < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on macos: :sierra
   depends_on "md4c"
   depends_on "pcre2"
   depends_on "sqlite"
@@ -101,18 +116,47 @@ class QtAT5 < Formula
 
   resource "qtwebengine" do
     url "https://code.qt.io/qt/qtwebengine.git",
-        tag:      "v5.15.18-lts",
-        revision: "87ceb6a2ef5ee25d56f765dc533728c4ca4787e0"
+        tag:      "v5.15.19-lts",
+        revision: "a5d11cd6f8c487443c15c7e3a6cd8090b65cb313"
+
+    # Apply FreeBSD patches for newer LLVM/Clang
+    # Ref: https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=281431
+    on_sequoia :or_newer do
+      patch :p0 do
+        url "https://raw.githubusercontent.com/freebsd/freebsd-ports/0ddd6468fb3cb9ba390973520517cb1ca2cd690d/www/qt5-webengine/files/patch-libc%2B%2B19"
+        sha256 "45455e5b5cbeb2abf74733e550ed1c4fdc85a43de9f209dcbbe04ba6c93e1775"
+      end
+      patch :p0 do
+        url "https://raw.githubusercontent.com/freebsd/freebsd-ports/0ddd6468fb3cb9ba390973520517cb1ca2cd690d/www/qt5-webengine/files/patch-src_3rdparty_chromium_third__party_blink_renderer_platform_wtf_hash__table.h"
+        sha256 "d1738d95f24fe38b5b5bc86110f9dff9c2df98f229401e162e8f8fdfa8e9ac6e"
+      end
+      patch :p0 do
+        url "https://raw.githubusercontent.com/freebsd/freebsd-ports/0ddd6468fb3cb9ba390973520517cb1ca2cd690d/www/qt5-webengine/files/patch-src_3rdparty_chromium_third__party_perfetto_include_perfetto_tracing_internal_track__event__data__source.h"
+        sha256 "b75ffdf65ba35c63f208b34c908a5f0554683c7b9034f924cb2dc9b2d4f3f215"
+      end
+    end
 
     # Use Debian patches for ICU 75+, brew Ninja and Python 3.13
     patch do
-      url "https://deb.debian.org/debian/pool/main/q/qtwebengine-opensource-src/qtwebengine-opensource-src_5.15.18+dfsg-2.debian.tar.xz"
-      sha256 "2d2d671c26a94ec1ec9d5fb3cbe57b3ec0ed98a2e5cc7471c573b763d8e098e6"
+      url "https://deb.debian.org/debian/pool/main/q/qtwebengine-opensource-src/qtwebengine-opensource-src_5.15.19+dfsg2-1.debian.tar.xz"
+      sha256 "ef152684cfaf20640cf80466c3fec9a3c9595e5f1b09995847e6d231dc10d11e"
       apply "patches/build-with-c++17.patch",
             "patches/ninja-1.12.patch",
-            "patches/python3.12-imp.patch",
-            "patches/python3.12-six.patch",
             "patches/python3.13-pipes.patch"
+    end
+
+    # Backport fix for bundled libpng used on macOS
+    patch do
+      url "https://github.com/qt/qtwebengine-chromium/commit/eb486f33ed1109a78f2794c98aad624023ea26ea.patch?full_index=1"
+      sha256 "7377fd75bd63f789563aa229ff861a1b934fe9b6052ce86d5d01f1f3fff94d89"
+      directory "src/3rdparty"
+    end
+
+    # Backport fix for https://bugreports.qt.io/browse/QTBUG-138486
+    patch do
+      url "https://github.com/qt/qtwebengine-chromium/commit/1d29d95bf4732a2d6f46547aa2773c9e742ad52e.patch?full_index=1"
+      sha256 "0bc0855a104d695acc8e9dabd5aa122b292fbd123058c0b52e7c733bcbe2d801"
+      directory "src/3rdparty"
     end
   end
 
@@ -122,8 +166,8 @@ class QtAT5 < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "webencodings" do
@@ -148,39 +192,27 @@ class QtAT5 < Formula
     directory "qtlocation/src/3rdparty/mapbox-gl-native"
   end
 
-  # CVE-2023-51714
-  # Remove with Qt 5.15.17
+  # Fix build with Xcode 26 with backport from Qt6
+  # https://github.com/qt/qtbase/commit/cdb33c3d5621ce035ad6950c8e2268fe94b73de5
+  patch :DATA
+
+  # Apply patch from Gentoo bug tracker (https://bugs.gentoo.org/936486) to fix build
+  # on macOS. Not possible to upstream as the final Qt5 commercial release is done.
   patch do
-    url "https://download.qt.io/official_releases/qt/5.15/0001-CVE-2023-51714-qtbase-5.15.diff"
-    sha256 "2129058a5e24d98ee80a776c49a58c2671e06c338dffa7fc0154e82eef96c9d4"
-    directory "qtbase"
-  end
-  patch do
-    url "https://download.qt.io/official_releases/qt/5.15/0002-CVE-2023-51714-qtbase-5.15.diff"
-    sha256 "99d5d32527e767d6ab081ee090d92e0b11f27702619a4af8966b711db4f23e42"
-    directory "qtbase"
+    on_sequoia :or_newer do
+      url "https://bugs.gentoo.org/attachment.cgi?id=916782"
+      sha256 "6b655ba61128c04811e0426a1e25456914fc79c845469da6df10f2d3e29aa510"
+      directory "qtlocation"
+    end
   end
 
-  # CVE-2024-25580
-  # Remove with Qt 5.15.17
-  patch do
-    url "https://download.qt.io/official_releases/qt/5.15/CVE-2024-25580-qtbase-5.15.diff"
-    sha256 "7cc9bf74f696de8ec5386bb80ce7a2fed5aa3870ac0e2c7db4628621c5c1a731"
-    directory "qtbase"
-  end
-
-  # CVE-2024-36048
-  # Remove with Qt 5.15.17
-  patch do
-    url "https://download.qt.io/official_releases/qt/5.15/CVE-2024-36048-qtnetworkauth-5.15.diff"
-    sha256 "e5d385d636b5241b59ac16c4a75359e21e510506b26839a4e2033891245f33f9"
-    directory "qtnetworkauth"
-  end
+  # Below are CVE patches from https://download.qt.io/archive/qt/5.15/
+  # detailed at https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products
 
   # CVE-2024-39936
   # Remove with Qt 5.15.18
   patch do
-    url "https://download.qt.io/official_releases/qt/5.15/CVE-2024-39936-qtbase-5.15.patch"
+    url "https://download.qt.io/archive/qt/5.15/CVE-2024-39936-qtbase-5.15.patch"
     sha256 "2cc23afba9d7e48f8faf8664b4c0324a9ac31a4191da3f18bd0accac5c7704de"
     directory "qtbase"
   end
@@ -188,9 +220,33 @@ class QtAT5 < Formula
   # CVE-2025-23050
   # Remove with Qt 5.15.19
   patch do
-    url "https://download.qt.io/official_releases/qt/5.15/CVE-2025-23050-qtconnectivity-5.15.diff"
+    url "https://download.qt.io/archive/qt/5.15/CVE-2025-23050-qtconnectivity-5.15.diff"
     sha256 "76e303b6465babb6d0d275792f7f3c41e3df87a6a17992e8b7b8e47272682ce7"
     directory "qtconnectivity"
+  end
+
+  # CVE-2025-30348
+  # Remove with Qt 5.15.19
+  patch do
+    url "https://download.qt.io/archive/qt/5.15/CVE-2025-30348-qtbase-5.15.diff"
+    sha256 "fcd011754040d961fec1b48fe9828b2c8d501f2d9c30f0f475487a590de6d3c8"
+    directory "qtbase"
+  end
+
+  # CVE-2025-4211
+  # Remove with Qt 5.15.19
+  patch do
+    url "https://download.qt.io/archive/qt/5.15/CVE-2025-4211-qtbase-5.15.diff"
+    sha256 "7bc92fb0423f25195fcc59a851570a2f944cfeecbd843540f0e80f09b6b0e822"
+    directory "qtbase"
+  end
+
+  # CVE-2025-5455
+  # Remove with Qt 5.15.19
+  patch do
+    url "https://download.qt.io/archive/qt/5.15/CVE-2025-5455-qtbase-5.15.patch"
+    sha256 "967fe137ee358f60ac3338f658624ae2663ec77552c38bcbd94c6f2eff107506"
+    directory "qtbase"
   end
 
   def install
@@ -262,6 +318,9 @@ class QtAT5 < Formula
         -webengine-pulseaudio
         -webengine-webp
       ]
+
+      # Chromium in QtWebEngine needs hardware CRC32 support via `-march=armv8-a+crc`
+      ENV.runtime_cpu_detection if Hardware::CPU.arm?
 
       # Homebrew-specific workaround to ignore spurious linker warnings on Linux.
       inreplace "qtwebengine/src/3rdparty/chromium/build/config/compiler/BUILD.gn",
@@ -394,3 +453,26 @@ class QtAT5 < Formula
     system "./hello"
   end
 end
+
+__END__
+--- a/qtbase/mkspecs/common/mac.conf
++++ b/qtbase/mkspecs/common/mac.conf
+@@ -18,8 +18,7 @@ QMAKE_LIBDIR            =
+ 
+ # sdk.prf will prefix the proper SDK sysroot
+ QMAKE_INCDIR_OPENGL     = \
+-    /System/Library/Frameworks/OpenGL.framework/Headers \
+-    /System/Library/Frameworks/AGL.framework/Headers/
++    /System/Library/Frameworks/OpenGL.framework/Headers
+ 
+ QMAKE_FIX_RPATH         = install_name_tool -id
+ 
+@@ -30,7 +29,7 @@ QMAKE_LFLAGS_REL_RPATH  =
+ QMAKE_REL_RPATH_BASE    = @loader_path
+ 
+ QMAKE_LIBS_DYNLOAD      =
+-QMAKE_LIBS_OPENGL       = -framework OpenGL -framework AGL
++QMAKE_LIBS_OPENGL       = -framework OpenGL
+ QMAKE_LIBS_THREAD       =
+ 
+ QMAKE_INCDIR_WAYLAND    =

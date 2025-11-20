@@ -1,18 +1,20 @@
 class Xclogparser < Formula
   desc "Tool to parse the SLF serialization format used by Xcode"
   homepage "https://github.com/MobileNativeFoundation/XCLogParser"
-  url "https://github.com/MobileNativeFoundation/XCLogParser/archive/refs/tags/v0.2.41.tar.gz"
-  sha256 "03e0c257f202b50620b340f460504dfe3d5f6dfc725723618bf6ff98b167d9da"
+  url "https://github.com/MobileNativeFoundation/XCLogParser/archive/refs/tags/v0.2.42.tar.gz"
+  sha256 "38f02fc3359b557b4eddb1bd0c12e063858bad19f65171a50c61d7b393b9ec17"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0506dd7d0fd34cf648007ebaa19c22ee4a7950d621d0a81ecc0de1c4ab72e36f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f12a935ef504acb540d3e894cb29f4178b78e78cab47992801cc934edb22f82a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "325dca4b969addb194bc8be42bdfdda4b61cc6549d186f1372cd7e781e03db96"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3ecb9ea804d75559570439b988c2f75310052ac31362d5c39e0e58f66ed0b177"
-    sha256 cellar: :any_skip_relocation, ventura:       "ce099c27e0ee07214729ee9578472919bafc72056c80e5560293715fb45701ef"
-    sha256                               arm64_linux:   "5aa0b09e87329be677f7fa43e12e52e7bad79315697294d730dceeb8b06ce3c5"
-    sha256                               x86_64_linux:  "3a456db1fd20985ed03089f28e6256f7c0b4441cf70ad4d4c87f12cf021cc7db"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf0a53497d81f86bcc4e8d75452886563da61dcf6e6e93a678675f3d401bdce6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "622e5798fe8768788e485edcedfec11f6e0fd57e9afbb38e2704d115ff89286b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f12e89a162b46b953fe975af664deb83e59bb554a8b8661bc0390bc0870d778"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "64bddc1054c263b9a69055fd4f6979af194928fc8c2da52d6e5a26aa1d29ca88"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6449046ee960ec4033bb7ea5d021d25967c6a494bfa4d8fccd8e236c748ca0ec"
+    sha256 cellar: :any_skip_relocation, ventura:       "2912ff1525c5e8ecd29fc66c01ea0b0b792e8550b56089d014364351a1dbe3c7"
+    sha256                               arm64_linux:   "958f12eaebc195dce784e46c2518e9d71918476f20caefe2928c0b4b2ffaed09"
+    sha256                               x86_64_linux:  "1a636c81a4dccdf9f84f74eff4abda9baf5da3e3bbd660e961f39a9b1f932a45"
   end
 
   depends_on xcode: "13.0"
@@ -25,12 +27,6 @@ class Xclogparser < Formula
     patch :DATA
   end
 
-  # version patch, upstream pr ref, https://github.com/MobileNativeFoundation/XCLogParser/pull/223
-  patch do
-    url "https://github.com/MobileNativeFoundation/XCLogParser/commit/78b330a67b4e3c916f5ad0c68e61ba4bb163cc2a.patch?full_index=1"
-    sha256 "61269c6a851c7880d88dbdd76dd41dc02505521015c415ea35b99ceea2791837"
-  end
-
   def install
     args = if OS.mac?
       ["--disable-sandbox"]
@@ -39,6 +35,7 @@ class Xclogparser < Formula
     end
     system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/xclogparser"
+    generate_completions_from_executable(bin/"xclogparser", "--generate-completion-script")
   end
 
   test do

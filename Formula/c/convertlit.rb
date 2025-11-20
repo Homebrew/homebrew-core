@@ -17,6 +17,7 @@ class Convertlit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0cfe39c84460ec28081f4e2fa92771253085837c8986d9d3121c573eb1a6a072"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "af81e33973b458225160387d713ab4646496719b4c0a3ae064dccf92c7e3efbd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0df27834c193ce4b6f3d17a63c072818bd667f2d98b653f166c024d3bdafbdb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "723db1f95f54e5f9003305056b3e67c5d2e6eb424fb18cc4e366a2dbe53756d4"

@@ -6,6 +6,8 @@ class RbenvBundler < Formula
   license "Apache-2.0"
   head "https://github.com/carsomyr/rbenv-bundler.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "726653ee51529beb50ed43932c59c357198c1c61d252c644a88cc05b0fd1e0af"

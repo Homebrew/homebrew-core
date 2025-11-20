@@ -4,6 +4,7 @@ class Msitools < Formula
   url "https://download.gnome.org/sources/msitools/0.106/msitools-0.106.tar.xz"
   sha256 "1ed34279cf8080f14f1b8f10e649474125492a089912e7ca70e59dfa2e5a659b"
   license "LGPL-2.1-or-later"
+  revision 1
 
   # msitools doesn't seem to use the GNOME version scheme, so we have to
   # loosen the default `Gnome` strategy regex to match the latest version.
@@ -13,13 +14,12 @@ class Msitools < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "12fe70c934de768f9374ebeedaf658c477dbdb3ab0f0a96dd3baf66101c0083d"
-    sha256 arm64_sonoma:  "efa74fbc638ff57c0af2e6036eedbde4c5ba367b25099bcfb7983abe29891d0a"
-    sha256 arm64_ventura: "b44ed9f4798de3add43ba4b2d4eab8d19de501e6550f33bb14a70cd929ae4e7b"
-    sha256 sonoma:        "828f74c79ab546bff9163b165e186f9a071593ac7ef94b8980ae1295a64ec2eb"
-    sha256 ventura:       "9643bfd74e73e44cb051d236b2ad71ec2ffe7f45a7466ecb44758b6909c91cbd"
-    sha256 arm64_linux:   "dbe166925d6bcfe474984d3514b2145e151ea0e3953beb76410f76a052f29d62"
-    sha256 x86_64_linux:  "6361381386fa074d2bed5ced54c6ffac0902bd01add061c47b7a35b603c0757d"
+    sha256 arm64_tahoe:   "9184769d09209b3400d048bd93277ce6cdd0402cba3dfea7737522387162080a"
+    sha256 arm64_sequoia: "6c3299c0e9abfac5e3dc049380e2affab3504bbe00f397009165ceab06e96be5"
+    sha256 arm64_sonoma:  "82abccc8bfde0251209cb2aaa6f9de5d00a36d53a00ca49367408b306320d71e"
+    sha256 sonoma:        "26e11c16e3bc190016c67cd0f92e28e6602ee7ae4b27b1f50521a151220aff68"
+    sha256 arm64_linux:   "197a202f269b1c6afbefc10e748e3ef6ae8f33c85831d7baf0b2350ae3b808b8"
+    sha256 x86_64_linux:  "20b6f97f44977fe47f6f56d2a58bb7fb1575fdce52855c03e0dfdfa41575e500"
   end
 
   depends_on "bison" => :build

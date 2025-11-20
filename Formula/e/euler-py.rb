@@ -9,14 +9,12 @@ class EulerPy < Formula
   revision 3
   head "https://github.com/iKevinY/EulerPy.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, all: "f8eb151dc399181c54578565197ae582def2067d466150f7558c2f9746d886cd"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "6db4a36f8704a74ee7a62cbd6fb742b57b1586b592b0d5d53f6d24e34bb85be5"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
@@ -28,7 +26,7 @@ class EulerPy < Formula
     inreplace "requirements.txt", "click==4.0", "click"
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"euler", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"euler", shell_parameter_format: :click)
   end
 
   test do

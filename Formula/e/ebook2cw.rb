@@ -13,6 +13,7 @@ class Ebook2cw < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "cd48218169f8f598c5bbba765d4f632fd51eb0472e2416856008b0dd79c1c83f"
     sha256 arm64_sequoia:  "8ee60330873ad88bbe4346269b4ce0f1c1598382e98ebfae5a264d8af4474148"
     sha256 arm64_sonoma:   "db414d0d717be52093b787e79f866d82e2f91fbdf7290b89b194ce5da6a2116b"
     sha256 arm64_ventura:  "b489e82a61e8939850597bcfe3a9f550171ee9a60c192677e9d7882d7ab6d9da"

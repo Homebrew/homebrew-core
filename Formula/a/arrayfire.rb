@@ -1,27 +1,30 @@
 class Arrayfire < Formula
   desc "General purpose GPU library"
   homepage "https://arrayfire.com"
-  url "https://github.com/arrayfire/arrayfire/releases/download/v3.9.0/arrayfire-full-3.9.0.tar.bz2"
-  sha256 "8356c52bf3b5243e28297f4b56822191355216f002f3e301d83c9310a4b22348"
+  url "https://github.com/arrayfire/arrayfire/releases/download/v3.10.0/arrayfire-full-3.10.0.tar.bz2"
+  sha256 "74e14b92a3e5a3ed6b79b000c7625b6223400836ec2ba724c3b356282ea741b3"
   license "BSD-3-Clause"
-  revision 4
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "bdc90c11320a6266ef4de580089a04b8c4b2b3dab9ae984c910d631a8c1eea15"
-    sha256 cellar: :any, arm64_sonoma:  "149b7225e5e5c90272b2a85b530ebc8f70a3c05b8c55af6c14f352d03846400c"
-    sha256 cellar: :any, arm64_ventura: "22a13f617fea6ec5e17cd2caa9c95712c6721a594a5a7d80ba4740a35564aadc"
-    sha256 cellar: :any, sonoma:        "ef92a75a71d09d7f9912e91a39ec319fb5b34ab7361b4d0f4c85c874de3d7cf4"
-    sha256 cellar: :any, ventura:       "6a38a6cba73cf3e95c639d4763081c1bedf867a0e817982cefbbac4ae1e00465"
+    sha256 cellar: :any,                 arm64_tahoe:   "4e0a238ffb7367c46591ae7f903ed93adc6b8a0d61798026c6aaeffe951bd3fb"
+    sha256 cellar: :any,                 arm64_sequoia: "af37a413e1a83829845b1093fc3b5a8c7cf2bff49811872892062ac2daef3b39"
+    sha256 cellar: :any,                 arm64_sonoma:  "1725e37213a35bcf1487255c0de87462b481aaf4a2285bb2c45e5e33adf03d35"
+    sha256 cellar: :any,                 sonoma:        "41859b6fa2e3c5c994ebf5b40dd9987f28e48a0ce6bd0fbb2a364a37da10200a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9540a276a74efb6207a5736917eaee4712590ee9d82a507c184fbec2cad8463e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f47dd2593ffc1641f6f04703e0d516dff153cc1281f4cdc2e1cbe27aa3757f45"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "clblast"
   depends_on "fftw"
   depends_on "fmt"
-  depends_on "freeimage"
   depends_on "openblas"
   depends_on "spdlog"
+
+  uses_from_macos "llvm" => :build
 
   on_linux do
     depends_on "opencl-headers" => :build
@@ -29,11 +32,22 @@ class Arrayfire < Formula
     depends_on "pocl"
   end
 
+  fails_with :gcc do
+    cause <<~CAUSE
+      Building with GCC and CMake CXX_EXTENSIONS disabled causes OpenCL headers
+      to not expose cl_image_desc.mem_object which is needed by Boost.Compute.
+    CAUSE
+  end
+
   # fmt 11 compatibility
   # https://github.com/arrayfire/arrayfire/issues/3596
   patch :DATA
 
   def install
+    # FreeImage has multiple CVEs (https://github.com/arrayfire/arrayfire/issues/3547) and
+    # has been dropped by distros like Arch Linux (https://archlinux.org/todo/drop-freeimage/).
+    odie "FreeImage should not be a dependency!" if deps.map(&:name).include?("freeimage")
+
     # Fix for: `ArrayFire couldn't locate any backends.`
     rpaths = [
       rpath(source: lib, target: Formula["fftw"].opt_lib),
@@ -41,19 +55,14 @@ class Arrayfire < Formula
       rpath(source: lib, target: HOMEBREW_PREFIX/"lib"),
     ]
 
-    if OS.mac?
-      # Our compiler shims strip `-Werror`, which breaks upstream detection of linker features.
-      # https://github.com/arrayfire/arrayfire/blob/715e21fcd6e989793d01c5781908f221720e7d48/src/backend/opencl/CMakeLists.txt#L598
-      inreplace "src/backend/opencl/CMakeLists.txt", "if(group_flags)", "if(FALSE)"
-    else
-      # Work around missing include for climits header
-      # Issue ref: https://github.com/arrayfire/arrayfire/issues/3543
-      ENV.append "CXXFLAGS", "-include climits"
-    end
+    # Our compiler shims strip `-Werror`, which breaks upstream detection of linker features.
+    # https://github.com/arrayfire/arrayfire/blob/715e21fcd6e989793d01c5781908f221720e7d48/src/backend/opencl/CMakeLists.txt#L598
+    inreplace "src/backend/opencl/CMakeLists.txt", "if(group_flags)", "if(FALSE)" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DAF_BUILD_CUDA=OFF",
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
+                    "-DAF_WITH_EXTERNAL_PACKAGES_ONLY=ON",
                     "-DCMAKE_CXX_STANDARD=14",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     *std_cmake_args
@@ -64,6 +73,7 @@ class Arrayfire < Formula
   end
 
   test do
+    ENV.method(DevelopmentTools.default_compiler).call if OS.linux?
     cp pkgshare/"examples/helloworld/helloworld.cpp", testpath/"test.cpp"
     system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-laf", "-lafcpu", "-o", "test"
     # OpenCL does not work in CI.
@@ -120,15 +130,15 @@ index e7a2e08..5da74a9 100644
 -        if (ver.minor() == -1) show_minor = false;
 -        if (ver.patch() == -1) show_patch = false;
 -        if (show_major && !show_minor && !show_patch) {
-+        if (show_major && (ver.minor() == -1) && (ver.patch() == -1)) {
++        if (show_major && (!show_minor || ver.minor() == -1) && (!show_patch || ver.patch() == -1)) {
              return format_to(ctx.out(), "{}", ver.major());
          }
 -        if (show_major && show_minor && !show_patch) {
-+        if (show_major && (ver.minor() != -1) && (ver.patch() == -1)) {
++        if (show_major && (show_minor && ver.minor() != -1) && (!show_patch || ver.patch() == -1)) {
              return format_to(ctx.out(), "{}.{}", ver.major(), ver.minor());
          }
 -        if (show_major && show_minor && show_patch) {
-+        if (show_major && (ver.minor() != -1) && (ver.patch() != -1)) {
++        if (show_major && (show_minor && ver.minor() != -1) && (show_patch && ver.patch() != -1)) {
              return format_to(ctx.out(), "{}.{}.{}", ver.major(), ver.minor(),
                               ver.patch());
          }

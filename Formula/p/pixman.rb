@@ -1,8 +1,8 @@
 class Pixman < Formula
   desc "Low-level library for pixel manipulation"
   homepage "https://cairographics.org/"
-  url "https://cairographics.org/releases/pixman-0.46.0.tar.gz"
-  sha256 "02d9ff7b8458ef61731c3d355f854bbf461fd0a4d3563c51f1c1c7b00638050d"
+  url "https://cairographics.org/releases/pixman-0.46.4.tar.gz"
+  sha256 "d09c44ebc3bd5bee7021c79f922fe8fb2fb57f7320f55e97ff9914d2346a591c"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,15 @@ class Pixman < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6d08a20cf16a9f69e925000085b4062501df3c8838b25284a7a5733608fd944a"
-    sha256 cellar: :any,                 arm64_sonoma:  "bb33e3bd843674caaa950a8709d05642098e812eca15c31857a43433ed90ba25"
-    sha256 cellar: :any,                 arm64_ventura: "3d828f7c89d6c86df8e446f236491d601568b57b7a921c8638bc7b2a624c4d9d"
-    sha256 cellar: :any,                 sonoma:        "c2d900dfd371707c26fd4cb0cc39d1cacecfad46996c7221a7cc076f187d3d5f"
-    sha256 cellar: :any,                 ventura:       "ba2d352ce10d31e30df0f902a726e7b57937768844a75452f93cb7cc7b80649f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "41be5dc73da1641d3c1a717cf63080e5d905038afa6a0db9d672e5eb8a009595"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7db0ed1a87555ff2b1327d980ab335f6f1ee6c6008be640b16a3fe51b0b48ad2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2b011051909d7f9ad432a76d32c0490f796ad545f7acbd6445356024f0c712e5"
+    sha256 cellar: :any,                 arm64_sequoia: "86f5fc013d2b22bbe41c1c14661287bf8e8e4c3ac95cd05b08b886d24918fe34"
+    sha256 cellar: :any,                 arm64_sonoma:  "13dbd43835c979d6857f9b0e29a9eba81fadc0804f11cad392fb344f27a71f9b"
+    sha256 cellar: :any,                 arm64_ventura: "3cf671513baea31dfd16eb5ac688e23ed6c8209e0688ba96e2aa994e34c17676"
+    sha256 cellar: :any,                 sonoma:        "491c963c8c80dc12305465d1191e4f29670a0cbda311d741ef8d074660392abc"
+    sha256 cellar: :any,                 ventura:       "76ca1ceb7abe16fc7980e4b49284c64fc91868a98cb0bea14c3602685ba67281"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c16a1c1e8cfd9b07b36f2c53eac2e8ab8d6b26e9c2961ff060588b8a60b217d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acad642a52a0e39159ba340f1e676c63d014422bf1d90e218ba7397b5873a2d1"
   end
 
   depends_on "meson" => :build
@@ -25,7 +27,7 @@ class Pixman < Formula
   depends_on "pkgconf" => :test
 
   def install
-    system "meson", "setup", "build", *std_meson_args
+    system "meson", "setup", "build", "--default-library=both", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

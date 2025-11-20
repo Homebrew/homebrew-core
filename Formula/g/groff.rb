@@ -1,8 +1,8 @@
 class Groff < Formula
   desc "GNU troff text-formatting system"
   homepage "https://www.gnu.org/software/groff/"
-  url "https://ftp.gnu.org/gnu/groff/groff-1.23.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/groff/groff-1.23.0.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/groff/groff-1.23.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/groff/groff-1.23.0.tar.gz"
   sha256 "6b9757f592b7518b4902eb6af7e54570bdccba37a871fddb2d30ae3863511c13"
   license "GPL-3.0-or-later"
   revision 1
@@ -10,6 +10,7 @@ class Groff < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "7684d4604e213bf74894799b38f98153e743c504c493d7cedff5c25109d46854"
     sha256 arm64_sequoia:  "46fa52805546514d174798f2a8723a84827c13c2c7c106e246c9ff77b43eb4cf"
     sha256 arm64_sonoma:   "14b00074485891c952dbb2a72627569a39f9f5ad7f0d0dd96c82474dfbc93811"
     sha256 arm64_ventura:  "5a8b3ab0c971b1667066be5f6e16581f533ceb035a4990a906ad04bcc5386738"

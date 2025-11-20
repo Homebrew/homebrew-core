@@ -11,18 +11,18 @@ class Omniorb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e7abf96e7284d7abf7480684e14abf446fbe20776591a9d4eb64bfcfabf3cf25"
-    sha256 cellar: :any,                 arm64_sonoma:  "0062f041ee755a5499bcad12c6d304a5f84b77de5633d5fd9528b6a6035900e4"
-    sha256 cellar: :any,                 arm64_ventura: "06e5fcc950f5bd8934951855e1acbca7a18777d99ca2073218ee13e888b24cac"
-    sha256 cellar: :any,                 sonoma:        "93972edcb883ea5c63561cdda88284a7bd30ef24e83409a05c89fed5505c80fd"
-    sha256 cellar: :any,                 ventura:       "0cb78910e40ccc4833f93ead6794755d5883be7b1f0ae27ff7af40626d880dcb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "04357c618eb071ed217ed53de4207e1df04180a0bb25db3c0887d7b0f0ddb9f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26ff4fff24e440de45145c7d5db68cd860036563a2dbeb1a0606fc4af2c45bc6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d3e724bd8c66b8c85adde6ca4551f195147576384d7381e1fb23296a8d03c421"
+    sha256 cellar: :any,                 arm64_sequoia: "3de267638de92404fea8f73f7b093ffe1e1f24431c554638e6e452c7ac2adcee"
+    sha256 cellar: :any,                 arm64_sonoma:  "c1f622c04da99ede9d10731c823c7ba212a701d3e054fae614b16a36202d2849"
+    sha256 cellar: :any,                 sonoma:        "d2e8bc653769aef5203ef679b70e2b8cf6c571c11f668fe2b429c542d5144166"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64c28b492eb0b7d70e9f95f1d63861bc94c2bd202d2a159be67a57b40939a1fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b00950095cce6ed4ab5f7315da5f399e71eb8befa784afcd9e0876fc80f793d9"
   end
 
   depends_on "pkgconf" => :build
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "zstd"
 
   uses_from_macos "zlib"
@@ -43,7 +43,7 @@ class Omniorb < Formula
     build_arg = []
     build_arg << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
-    ENV["PYTHON"] = python3 = which("python3.13")
+    ENV["PYTHON"] = python3 = which("python3.14")
     xy = Language::Python.major_minor_version python3
     inreplace "configure",
               /am_cv_python_version=`.*`/,

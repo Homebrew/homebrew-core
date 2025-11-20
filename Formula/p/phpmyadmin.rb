@@ -1,8 +1,8 @@
 class Phpmyadmin < Formula
   desc "Web interface for MySQL and MariaDB"
   homepage "https://www.phpmyadmin.net"
-  url "https://files.phpmyadmin.net/phpMyAdmin/5.2.2/phpMyAdmin-5.2.2-all-languages.tar.gz"
-  sha256 "8551c8bf3b166f232d5cf64bac877472e9d0cb8f2fe1858fab24f975e7d765b6"
+  url "https://files.phpmyadmin.net/phpMyAdmin/5.2.3/phpMyAdmin-5.2.3-all-languages.tar.gz"
+  sha256 "12ba1c425fa4071abbd4e7668c9ebdeac0b0755a467a6d6d5026122bb47c102b"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -22,13 +22,12 @@ class Phpmyadmin < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93d7d0a1972beb0f25710049a6a9397be080440c3f8aec1c43b151607133f6f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93d7d0a1972beb0f25710049a6a9397be080440c3f8aec1c43b151607133f6f8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "93d7d0a1972beb0f25710049a6a9397be080440c3f8aec1c43b151607133f6f8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "82e7df63e44dff329d37ab987bdee2415dea8c4ac14fb636e80ab471860d958a"
-    sha256 cellar: :any_skip_relocation, ventura:       "82e7df63e44dff329d37ab987bdee2415dea8c4ac14fb636e80ab471860d958a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2dea00945d920af4a076e5034ac58a13bc88821298828068a4d35da29bc96ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2dea00945d920af4a076e5034ac58a13bc88821298828068a4d35da29bc96ef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bfd3b06a94a0a347fbd5867091eacb91f18b28580f28da8fbccd59fe53457a73"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bfd3b06a94a0a347fbd5867091eacb91f18b28580f28da8fbccd59fe53457a73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bfd3b06a94a0a347fbd5867091eacb91f18b28580f28da8fbccd59fe53457a73"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a26dd35fa9ff398d8c6f69f332764f845d81e7f9b149e04783847f4a4236964"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a26dd35fa9ff398d8c6f69f332764f845d81e7f9b149e04783847f4a4236964"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a26dd35fa9ff398d8c6f69f332764f845d81e7f9b149e04783847f4a4236964"
   end
 
   depends_on "php@8.3" => :test

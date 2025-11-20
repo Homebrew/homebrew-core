@@ -6,6 +6,7 @@ class Libice < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7c7fe005691e3b774bd67fd52e5a16bfe335a6a326a53ee47dc7027ccc26c911"
     sha256 cellar: :any,                 arm64_sequoia: "03325eb9b5e663073aedb7f13e975a91d5aa8edb943e71ba52d065128105651f"
     sha256 cellar: :any,                 arm64_sonoma:  "d62af819826bc4e9ee6a3dceef659d424090f9629db566a3a18eb0f580106888"
     sha256 cellar: :any,                 arm64_ventura: "7197a6fa7f40caa23c06e2a8276c199f1e35a0284050d7042711a278725045ed"

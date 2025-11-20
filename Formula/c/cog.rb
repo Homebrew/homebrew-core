@@ -1,27 +1,32 @@
 class Cog < Formula
   desc "Containers for machine learning"
   homepage "https://cog.run/"
-  url "https://github.com/replicate/cog/archive/refs/tags/v0.15.4.tar.gz"
-  sha256 "0eb6181e152f6c1bdb907b78d7425f2832251150eb541796203a989bf0eec17e"
+  url "https://github.com/replicate/cog/archive/refs/tags/v0.16.9.tar.gz"
+  sha256 "13e6788e155db078f1f67948741ce26d8144f8c0861d8fc418e7bd8b43697dff"
   license "Apache-2.0"
   head "https://github.com/replicate/cog.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "75cd4cd132fa24c4aa66d8339868160eb83ad47782cb4c9b28be439ca64ce54c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75cd4cd132fa24c4aa66d8339868160eb83ad47782cb4c9b28be439ca64ce54c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "75cd4cd132fa24c4aa66d8339868160eb83ad47782cb4c9b28be439ca64ce54c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88ed4d20307a342df42f330b50cea7fd3f9fc3b82ed6acc793434fcb8af2af67"
-    sha256 cellar: :any_skip_relocation, ventura:       "88ed4d20307a342df42f330b50cea7fd3f9fc3b82ed6acc793434fcb8af2af67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d86ee55185beba9fa93c7a13c26775596548e277a5532f055dc7d6edeb950590"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ceb44c693ad1be55ce40fbae109e0783608537193fc54edcb1ec74ac76f3590"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ceb44c693ad1be55ce40fbae109e0783608537193fc54edcb1ec74ac76f3590"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ceb44c693ad1be55ce40fbae109e0783608537193fc54edcb1ec74ac76f3590"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f64c417716866dc2639b9924fa4c312781206d2ff45a90b29d08218db93f0a0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcee96878607aacfbf2d9e60768bdce322acec77aed6d4a94fa3bdfb21bc8162"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08d62fc0173dcd91ef42030dea173323d3497fc78b407c84f50deadb25779c3f"
   end
 
   depends_on "go" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
 
   conflicts_with "cocogitto", because: "both install `cog` binaries"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

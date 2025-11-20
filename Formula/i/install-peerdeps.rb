@@ -18,6 +18,6 @@ class InstallPeerdeps < Formula
 
   test do
     system bin/"install-peerdeps", "eslint-config-airbnb@19.0.4"
-    assert_path_exists testpath/"node_modules"/"eslint" # eslint is a peerdep
+    assert_path_exists testpath/"node_modules/eslint" # eslint is a peerdep
   end
 end

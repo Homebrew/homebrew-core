@@ -1,18 +1,20 @@
 class Dyff < Formula
   desc "Diff tool for YAML files, and sometimes JSON"
   homepage "https://github.com/homeport/dyff"
-  url "https://github.com/homeport/dyff/archive/refs/tags/v1.10.1.tar.gz"
-  sha256 "8f20ba3580fbb45957211efdf5ac4fc60dd339a2f798db0ecf521c930fdb0be0"
+  url "https://github.com/homeport/dyff/archive/refs/tags/v1.10.2.tar.gz"
+  sha256 "36e103c1424e79135bb4ed54d6b66e6c3f057ff422a5838d3a80ffd4d9a3ef27"
   license "MIT"
   head "https://github.com/homeport/dyff.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d709739f34f69642ebbadc8aa382b0ef0a4914593dbf31722ad409a79007fd2b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d709739f34f69642ebbadc8aa382b0ef0a4914593dbf31722ad409a79007fd2b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d709739f34f69642ebbadc8aa382b0ef0a4914593dbf31722ad409a79007fd2b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "37093d31497ba88d80070b9aa1516f93f745d5b4e145a815bb93fdc3c161a5d3"
-    sha256 cellar: :any_skip_relocation, ventura:       "37093d31497ba88d80070b9aa1516f93f745d5b4e145a815bb93fdc3c161a5d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86b077cc452fadf472c80a323c7fb655b0ee104aba3f9fe5fd46951d4f9896ba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "363504d9c330819c74082c62e65c5e381e208e70d4533d187d7fb61cfa4a7a99"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18115a752f3777637541276711eebddf6ff22698170953f5adc27b8cd559d273"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18115a752f3777637541276711eebddf6ff22698170953f5adc27b8cd559d273"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "18115a752f3777637541276711eebddf6ff22698170953f5adc27b8cd559d273"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fcf0f8f25381db4e7e58e35a904718c89dcdafd2791a3f814b6ac81f64a750de"
+    sha256 cellar: :any_skip_relocation, ventura:       "fcf0f8f25381db4e7e58e35a904718c89dcdafd2791a3f814b6ac81f64a750de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c0576d974f783ca0198f772a4ac9e91f9426f5f9cdcbaf13596778792db0b48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "434f08df2e259dd43d676ad47773285915481510d7dc9724598fe6716145c75a"
   end
 
   depends_on "go" => :build

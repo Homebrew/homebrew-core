@@ -1,8 +1,8 @@
 class OpenjdkAT17 < Formula
   desc "Development kit for the Java programming language"
-  homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.15-ga.tar.gz"
-  sha256 "ae623441d95d0563690f85edad765a12fc89bbb89ed1877ec5cf677a5ae4fbd7"
+  homepage "https://openjdk.org/"
+  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.17-ga.tar.gz"
+  sha256 "e2d1d92a4a593d9a87054ea54f76fcb6119f782c57945506a2ec4adff6ddc123"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,13 +11,12 @@ class OpenjdkAT17 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "18263028ef126d4c4c24fe38950378da312cd399f0c30ec0728c60064bbb172a"
-    sha256 cellar: :any, arm64_sonoma:  "35988993a9c667c35b1f69c60e6a843ada498d2584eb408f791e8812300114e3"
-    sha256 cellar: :any, arm64_ventura: "c6f435fba43d3474fa6e6ee5551af7e573dc38b77e1bd4b3f719789c8d687552"
-    sha256 cellar: :any, sonoma:        "54797db5cd75643fb6089c5e9b9f7e67f85337688aa39598b056d8520b1a9559"
-    sha256 cellar: :any, ventura:       "39b359e24c430d3f92f1b71ba1f50d3638a242152116b7ba2c5bd3f9dd278c18"
-    sha256               arm64_linux:   "e175372ab81054272e82d0878b6dc181cccd6921ba7034d4ead6ba4e281484f0"
-    sha256               x86_64_linux:  "5067c93f3183b79b01ae789f71e9f454b517a70a30c8ffbd40ca48aa5572c706"
+    sha256 cellar: :any, arm64_tahoe:   "8973cb405d9de31e40a989d94c7ef14d5d2cb1fc9c08fe031fabdda0640b6846"
+    sha256 cellar: :any, arm64_sequoia: "8980db6e672373904a148f8ca10d5238d4096dbb0f081bd2b5aa48c37f370e3c"
+    sha256 cellar: :any, arm64_sonoma:  "b304c00f857f614149d3494003748ece6ce253a0bb045df2bb40f1c86d4c051d"
+    sha256 cellar: :any, sonoma:        "2896bdcf4e722984c3316a5461e137cb04088f95f0a421a3cfebdae5ff9e02f8"
+    sha256               arm64_linux:   "1de3f91ff7f57024649fd9a4459b0b63354c1fe0f61f08acb66d555a9c9c4ba4"
+    sha256               x86_64_linux:  "32129c40cb6e7ff0ffc8545b384b3714484b213588fc9c6003d49a03f45bf469"
   end
 
   keg_only :versioned_formula

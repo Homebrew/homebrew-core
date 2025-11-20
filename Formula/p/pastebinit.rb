@@ -1,36 +1,35 @@
 class Pastebinit < Formula
+  include Language::Python::Shebang
+
   desc "Send things to pastebin from the command-line"
-  homepage "https://launchpad.net/pastebinit"
-  url "https://launchpad.net/pastebinit/trunk/1.5/+download/pastebinit-1.5.tar.gz"
-  sha256 "0d931dddb3744ed38aa2d319dd2d8a2f38a391011ff99db68ce7c83ab8f5b62f"
+  homepage "https://github.com/pastebinit/pastebinit"
+  url "https://github.com/pastebinit/pastebinit/archive/refs/tags/1.7.1.tar.gz"
+  sha256 "8e91c2c0d02a41faaa40d9f585fe858893c3f0ef94836ee4ce14094cfc10b938"
   license "GPL-2.0-or-later"
-  revision 4
+  head "https://github.com/pastebinit/pastebinit.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, all: "01413047be89a3e516a5a8e4668488ae73c1b30e90d98ed6e4c47d43e4672a46"
+    sha256 cellar: :any_skip_relocation, all: "89be086efffd69157222144a6a0606ba775daaf156927cfde6aae9d2fadec2ae"
   end
 
   depends_on "docbook2x" => :build
-  depends_on "python@3.13"
+  depends_on "gettext" => :build # for msgfmt
 
-  # Remove for next release
-  patch do
-    url "https://github.com/lubuntu-team/pastebinit/commit/ab05aa431a6bf76b28586ad97c98069b8de5e46a.patch?full_index=1"
-    sha256 "1abd0ec274cf0952a371e6738fcd3ece67bb9a4dd52f997296cd107f035f5690"
-  end
+  uses_from_macos "python"
 
   def install
-    inreplace "pastebinit" do |s|
-      s.gsub! "/usr/bin/python3", which("python3.13")
-      s.gsub! "/usr/local/etc/pastebin.d", etc/"pastebin.d"
-    end
+    inreplace "pastebinit", "confdirs = []", "confdirs = ['#{pkgetc}/pastebin.d']"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "pastebinit"
+
+    bin.install "pastebinit", *buildpath.glob("utils/*{s,t}")
+    pkgetc.install "pastebin.d"
 
     system "docbook2man", "pastebinit.xml"
-    bin.install "pastebinit"
-    etc.install "pastebin.d"
     man1.install "PASTEBINIT.1" => "pastebinit.1"
-    libexec.install %w[po utils]
+    man1.install buildpath.glob("utils/*.1")
+
+    system "make", "-C", "po"
+    (share/"locale").install (buildpath/"po/mo").children
   end
 
   test do

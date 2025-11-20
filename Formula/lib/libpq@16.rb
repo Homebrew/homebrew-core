@@ -1,8 +1,8 @@
 class LibpqAT16 < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/16/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v16.9/postgresql-16.9.tar.bz2"
-  sha256 "07c00fb824df0a0c295f249f44691b86e3266753b380c96f633c3311e10bd005"
+  url "https://ftp.postgresql.org/pub/source/v16.11/postgresql-16.11.tar.bz2"
+  sha256 "6deb08c23d03d77d8f8bd1c14049eeef64aef8968fd8891df2dfc0b42f178eac"
   license "PostgreSQL"
 
   livecheck do
@@ -11,12 +11,12 @@ class LibpqAT16 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "67a3882334f2448796238f87a74a594218dbf8cf19ab4161d7de7b0ca6146415"
-    sha256 arm64_sonoma:  "25b4ea9f563b4d7098da7aec89f0891af7f4c60bd2fec6cc914b6791266c882d"
-    sha256 arm64_ventura: "af1e4227b8408aa7d62ecce5681d739ca5e967e244ea47638c92cfd2c4fb4320"
-    sha256 sonoma:        "234174030c3d3b291162f43c23b12515e0b16ce559b863c9933f7fd906c1cc11"
-    sha256 ventura:       "ff78291761e454338f6f567915cd3e491f7775c92e8b4f7c9ca0577038d0f73f"
-    sha256 x86_64_linux:  "c2dc9c741adb74eb78080bbd99630fccb056a3eb8e19220ba732b7a9829c8a46"
+    sha256 arm64_tahoe:   "5aba61107b2e0fb68e3b27d1ff01d71043dfd6a597c23fc3805ad9bcb6bada3b"
+    sha256 arm64_sequoia: "45e814b4d5b2b76f96a5f94f58f469c12f261141460d3fc9c9978940f352095a"
+    sha256 arm64_sonoma:  "e9748dc587ad502c3dff5cd860d14be0d1a5346c4998a6f618b5674a08f419a5"
+    sha256 sonoma:        "7d93e0d135f047984a534d634ad633460cdd8e18a1a66f671b4c1ada9c5819dc"
+    sha256 arm64_linux:   "39feabcf1d8eebcf611dedd660e532803c1576e0800c562cfe5a862942c596ed"
+    sha256 x86_64_linux:  "31a15ff8ec678916af70ccf060435935e746d9d28a208654b5268817cf6e9fc1"
   end
 
   keg_only :versioned_formula
@@ -25,7 +25,7 @@ class LibpqAT16 < Formula
   deprecate! date: "2028-11-09", because: :unmaintained, replacement_formula: "libpq"
 
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
@@ -38,6 +38,8 @@ class LibpqAT16 < Formula
   end
 
   def install
+    ENV.runtime_cpu_detection
+
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--with-gssapi",
@@ -61,7 +63,7 @@ class LibpqAT16 < Formula
   end
 
   test do
-    (testpath/"libpq.c").write <<~EOS
+    (testpath/"libpq.c").write <<~C
       #include <stdlib.h>
       #include <stdio.h>
       #include <libpq-fe.h>
@@ -84,7 +86,7 @@ class LibpqAT16 < Formula
 
           return 0;
         }
-    EOS
+    C
     system ENV.cc, "libpq.c", "-L#{lib}", "-I#{include}", "-lpq", "-o", "libpqtest"
     assert_equal "Connection to database attempted and failed", shell_output("./libpqtest")
   end

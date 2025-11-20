@@ -1,24 +1,25 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Mar2025/MonetDB-11.53.3.tar.xz"
-  sha256 "23e1f6a73ac721298f9b611f18930b8ceda34c6f497a4e458034b7131660c070"
+  url "https://www.monetdb.org/downloads/sources/Mar2025-SP3/MonetDB-11.53.15.tar.xz"
+  sha256 "edc8dd4103eb7526c92f7c19bc1e492fce66ac3b85ab5af313ea8930303e9dc3"
   license "MPL-2.0"
-  head "https://dev.monetdb.org/hg/MonetDB", using: :hg
+  head "https://www.monetdb.org/hg/MonetDB", using: :hg
 
   livecheck do
     url "https://www.monetdb.org/downloads/sources/archive/"
     regex(/href=.*?MonetDB[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia: "92579b5419866811ca88e4ee4d03dac2850756ca79de954dea65c9d859f1b8ee"
-    sha256 arm64_sonoma:  "76c21dace99d0c7183e29a23e22347b2bd58d5e0538cab00dd94681ffd68d9c1"
-    sha256 arm64_ventura: "ddd6364ddb2ee11232a1d4e166b3fa068a02738fc615378ff6e2b5540a6ec887"
-    sha256 sonoma:        "d6066e9bd909f4afa9a98f4230bcdf0c7d62a5aa702d2017877cb4de7fdf986f"
-    sha256 ventura:       "f347fb8324a90053e83520a520fcd91995cc8a426a54485d8a9f5140e642760a"
-    sha256 arm64_linux:   "493a56abb54f14e25905f9d73fa276af7ca8afd9953c5a236ba513b544b3518b"
-    sha256 x86_64_linux:  "9245ff70b7bbfee8da7c1607154aaa930b5d34a4dd89a9216c6f0842b3813d21"
+    sha256 arm64_tahoe:   "6c20f972c17ed486d21199f38b128edc387d6c5926e04a7ca65a71702b04a8fb"
+    sha256 arm64_sequoia: "2bc945873e1c4f49e13d0fe3ef48ce1a72366b2aa123acd49ea95ec5e7594b5a"
+    sha256 arm64_sonoma:  "9cf1f197a788d1a194f3c6fca58c0905f2ec005b6b7fefe8da003e3d86bc70cb"
+    sha256 sonoma:        "a98d3fa1141a944f21cd92c7bb3524cfd10b1ba4155bcdd973df4df0f411e6be"
+    sha256 arm64_linux:   "fdc79f75f8cb9c8dbea9645ad522d9c8b4ae4af2307e2f7e4880f39163a6332d"
+    sha256 x86_64_linux:  "dcb0bd7b450db7c388ddb3bb700f9209d2381114ec3643fb489279eae6bfb534"
   end
 
   depends_on "bison" => :build # macOS bison is too old

@@ -1,18 +1,12 @@
 class Cspell < Formula
   desc "Spell checker for code"
   homepage "https://cspell.org"
-  url "https://registry.npmjs.org/cspell/-/cspell-9.0.2.tgz"
-  sha256 "debf2d5398da7bd4f67316a052f9f9f1645d3261fed8b88417cf5d451efbbcc1"
+  url "https://registry.npmjs.org/cspell/-/cspell-9.3.2.tgz"
+  sha256 "c0d9d9e91a7cd4e8636b2e4a58b7f55f48743a7d530a7e257b7926facde6dddd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7569e790a0992b229a479822217fa8b7d410caefd0dd00357508b1d77ba85032"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7569e790a0992b229a479822217fa8b7d410caefd0dd00357508b1d77ba85032"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7569e790a0992b229a479822217fa8b7d410caefd0dd00357508b1d77ba85032"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8af48d108e33d112185817f57034dbb2f69e769b6cfaf935cbf90c3e8c70132c"
-    sha256 cellar: :any_skip_relocation, ventura:       "8af48d108e33d112185817f57034dbb2f69e769b6cfaf935cbf90c3e8c70132c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7569e790a0992b229a479822217fa8b7d410caefd0dd00357508b1d77ba85032"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7569e790a0992b229a479822217fa8b7d410caefd0dd00357508b1d77ba85032"
+    sha256 cellar: :any_skip_relocation, all: "37d1cfb9e439fc1d45439a30313fe73f6386399e53399a95906a374055ad8e57"
   end
 
   depends_on "node"

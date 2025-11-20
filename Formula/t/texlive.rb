@@ -8,7 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2025/texlive-20250308-source.tar.xz"
   sha256 "fffdb1a3d143c177a4398a2229a40d6a88f18098e5f6dcfd57648c9f2417490f"
   license :cannot_represent
-  revision 1
+  revision 2
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -33,14 +33,15 @@ class Texlive < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia: "dbb0b1a2a0b1d06263f2fe4e1b386cc2f682c4ab3a5d399b65cbfb3ce33ce4eb"
-    sha256 arm64_sonoma:  "e071d59282304b7664e026649c7b9d83df65202d5a558f0064cc58ee1415c03c"
-    sha256 arm64_ventura: "bf3f81f2101f658532f917b49cdb220c21e6b5465f27f0fcdefa4b361d0f119c"
-    sha256 sonoma:        "e0353127249a2ac7229787cdd7f2a555f115c9b2ff466f4e339557117c59a664"
-    sha256 ventura:       "b065a0aa04c54fdef596148f0fcae226fc38cd8bfca6632dd194bc04121ad0de"
-    sha256 arm64_linux:   "5124fbe9981c8e14b7b505701a62a75671eff00c910b0af49acbc2cd8d0e56e8"
-    sha256 x86_64_linux:  "6855a829bd2a7facbcaa400b2c3a5c342248abc606f479a538a03bbefdc6bacc"
+    sha256 arm64_tahoe:   "471f7e5214e3ab4c76acd78d2590fa138b7e1a2371e732501783a5fa7f864ee9"
+    sha256 arm64_sequoia: "55c883a3c91d1f4f78e296797b03b92e8014e2be22381e0fc56d1635c37006f2"
+    sha256 arm64_sonoma:  "7167dd978f68302473502f115d92cae0e5a90a3b3a384b58b2b5cfcf14b1dade"
+    sha256 sonoma:        "ea49145d420909cea69d40c39c1c163467755baa718f14943e3d28f91659e48c"
+    sha256 arm64_linux:   "55905476b8ff7ca098788bd7e52dd3385604703332c155caede4aed94eddb479"
+    sha256 x86_64_linux:  "5246ba8db60933f761a9a803359fe9a406f5287fc9c5304b9ecfd51c501d7b27"
   end
 
   depends_on "pkgconf" => :build
@@ -53,7 +54,7 @@ class Texlive < Formula
   depends_on "gmp"
   depends_on "graphite2"
   depends_on "harfbuzz"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libx11"
@@ -67,7 +68,7 @@ class Texlive < Formula
   depends_on "pixman"
   depends_on "potrace"
   depends_on "pstoedit"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "ncurses"
   uses_from_macos "ruby"
@@ -341,7 +342,7 @@ class Texlive < Formula
   end
 
   def install
-    python3 = "python3.13"
+    python3 = "python3.14"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resource("pygments")
 

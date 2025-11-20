@@ -3,24 +3,26 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://pyinstaller.org/"
-  url "https://files.pythonhosted.org/packages/7e/dc/4ec9284d14952d3a4902c29b0c86314cad8de35104b5c1d6e001b914c0f5/pyinstaller-6.14.0.tar.gz"
-  sha256 "cc55cdc21491722d74133e35ab363a88679b37ee2d76f9d80adcbc0ae862d630"
+  url "https://files.pythonhosted.org/packages/94/94/1f62e95e4a28b64cfbb5b922ef3046f968b47170d37a1e1a029f56ac9cb4/pyinstaller-6.16.0.tar.gz"
+  sha256 "53559fe1e041a234f2b4dcc3288ea8bdd57f7cad8a6644e422c27bb407f3edef"
   license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "40ddcdd453940a6f1077e5ec2dc19347fefcad6968e5e3539ea92ace800636ed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a15f1ac2162bab20c33a65d1c027a6605b9befc1ca2d453be760fa4a7cdc6c89"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "21bcdb8255e236dc7873e9fda9504f2df86c5e6383a5e93e74c5db4ca3ec3671"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2c3060dd927479cfe1ef8a220e48fa185bb5f053b64c3258bac6d2c260a3ec43"
-    sha256 cellar: :any_skip_relocation, ventura:       "a1720f76fc3aa2c31dd5d017d70fe1bd192d5ad9669c1792a5a6e75eacbe0abf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "213b08559967bae95ad7b92e9bfcdade5aef39805489b320cacf141c6dcea688"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef323eb36cf68a82a9d1e2ab496bada2dc500bdd47779edd144abe5afa6d466a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc10b01609a928c23f3b44059c7084c8ae2206e49514c4219d6a9500698cb0db"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "473e6c10eb021090c32fd031dce1473e9a0847523c2eb5c6a2cb7ff08a3000c5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8b1b597fcb354e4ffce092b91457adaff8a6775c52852b87dbf6639e7a4247c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "68894b05bf5b8ca0934d8300d3ed75f0fc93e5de0be425caf048d117faa16f49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1010bf24a461d198a984f668a6d4a5a663c5f5538130ec22edb336f6c87e21df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87db990b0f53f2b143d829272b420dc6c462c20d6451b495ecd443358a9567bf"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "zlib"
+
+  pypi_packages exclude_packages: "macholib"
 
   resource "altgraph" do
     url "https://files.pythonhosted.org/packages/de/a8/7145824cf0b9e3c28046520480f207df47e927df83aa9555fb47f8505922/altgraph-0.17.4.tar.gz"
@@ -38,8 +40,8 @@ class Pyinstaller < Formula
   end
 
   resource "pyinstaller-hooks-contrib" do
-    url "https://files.pythonhosted.org/packages/e3/94/dfc5c7903306211798f990e6794c2eb7b8685ac487b26979e9255790419c/pyinstaller_hooks_contrib-2025.4.tar.gz"
-    sha256 "5ce1afd1997b03e70f546207031cfdf2782030aabacc102190677059e2856446"
+    url "https://files.pythonhosted.org/packages/7d/83/be0f57c0b77b66c33c2283ebd4ea341022b5a743e97c5fb3bebab82b38b9/pyinstaller_hooks_contrib-2025.9.tar.gz"
+    sha256 "56e972bdaad4e9af767ed47d132362d162112260cbe488c9da7fee01f228a5a6"
   end
 
   resource "setuptools" do
@@ -49,7 +51,7 @@ class Pyinstaller < Formula
 
   def install
     cd "bootloader" do
-      system "python3.13", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
+      system "python3.14", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
     end
     virtualenv_install_with_resources
   end

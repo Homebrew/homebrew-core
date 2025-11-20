@@ -8,16 +8,14 @@ class Csvtomd < Formula
   license "MIT"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "db9a5f1d08b328f96733905f1b05215a8fe89ff95834ebc873a94d3197e16477"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "5ec7258739ce76c3ca9987d824d27efcd6897ba1f75e72fe59dc975f5e4b1246"
   end
 
   deprecate! date: "2025-01-10", because: :repo_archived
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   # ValueError: invalid mode: 'rU'
   patch :DATA

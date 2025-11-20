@@ -1,9 +1,10 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.7.5.tar.xz"
-  sha256 "80239cf9aa92599d9cbad4642dea5520b2ccfbc9c6f968886ea46179cb3cdf66"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.7.6.tar.xz"
+  sha256 "500ccd3a560300e547b8dc5aaff322f7c8e2e7d6f0d7ef5f36e59cb60504d674"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
+  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7c9948c0d651f2f405019d6520a7bdabd3ed904ecff54a92073acbc1ab014e12"
-    sha256 arm64_sonoma:  "3382cbd84482ce8d977890d16dc5fd139d84162211b01f33ecf641d7d865a257"
-    sha256 arm64_ventura: "5e7d78a4ab9ecbbaf643eb14ade1dfa991a2ffc149d6635a6cf515ed3376de13"
-    sha256 sonoma:        "99b6758c6c51f508e4b8600a6c6346c3f69f564d39147c70e9b9de417f92e757"
-    sha256 ventura:       "8a6308b7ae198d484897098798ec9e33689daa69ecd398400bfa46c48bad2845"
-    sha256 arm64_linux:   "7595f507c065b5d75db23481182422861f43dafdde405d6cba8c87dff9284518"
-    sha256 x86_64_linux:  "4fb9a214783e990eae3f0eac0160b441c13c7083545c78db400d49258cbcba44"
+    rebuild 1
+    sha256 arm64_tahoe:   "1f4e8c8b8887350ccdb7390086e1b7801b222156d134442f267a7b9aed78a51b"
+    sha256 arm64_sequoia: "a6b6768dc8c34d29219ffe92dac699ceaaa47c1dc081a881a0242aa90645b56f"
+    sha256 arm64_sonoma:  "44258b442a01bcc0864c182993e4c50f46fdf0f844e577194ed17262c3fe48c0"
+    sha256 sonoma:        "d7d2ef0fa2d4cd4505042fd6dcfb3a0f1e8ab09eed7c2ef3c324006e0d01ee65"
+    sha256 arm64_linux:   "702b118e0dccb1554cd4298139176a0a55771f58fdaa8205c9bc1adaed702d2e"
+    sha256 x86_64_linux:  "5faab59789f3df52ad937170ab984012ebbaf69c1edb68e82341a4d6e11b5285"
   end
 
   depends_on "meson" => :build
@@ -33,22 +34,21 @@ class KnotResolver < Formula
   depends_on "luajit"
   depends_on "protobuf-c"
 
+  uses_from_macos "libedit"
+
   on_linux do
     depends_on "libcap-ng"
-    depends_on "libedit"
     depends_on "systemd"
   end
 
   def install
-    args = ["--default-library=static"]
+    args = []
     args << "-Dsystemd_files=enabled" if OS.linux?
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
-  end
 
-  def post_install
     (var/"knot-resolver").mkpath
   end
 

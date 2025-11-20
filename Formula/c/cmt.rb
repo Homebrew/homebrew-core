@@ -7,8 +7,6 @@ class Cmt < Formula
   revision 1
   head "https://github.com/smallhadroncollider/cmt.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7c4312c62896766f5c5de69f30689cec1baea9b91154ed2f980e0d20265c66ae"
@@ -21,7 +19,6 @@ class Cmt < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "58badcf7f79e80d809dd05183a8dc16f0b368b055cd6ef3eae495c251888908d"
     sha256 cellar: :any_skip_relocation, big_sur:        "22ba275206a22888107bf70ec7a9e53a74f1dc5daf66349a979dadfc174d99ff"
     sha256 cellar: :any_skip_relocation, catalina:       "350dea5c83e8b86cdba45f71fafcd0b8cf98c1a2e229a6d7ac51d8c7b679c38e"
-    sha256 cellar: :any_skip_relocation, mojave:         "ee763541c32889f0840a7c143972ba194eeafdbbbfa38008a8dd2e851f2382b8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6a48e225aa97777da3fb586c4908417e8690d1b0346c7691122287b3848bddb"
   end
 

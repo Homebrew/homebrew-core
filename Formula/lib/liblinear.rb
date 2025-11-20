@@ -12,6 +12,7 @@ class Liblinear < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d4d7f915315284cf9989f3c45b3af04e408ad800fc1a77c920bb61cff10c77dd"
     sha256 cellar: :any,                 arm64_sequoia: "b557d3524f23633e3571f94c56acb5d26cf6b3e03133ced6ba3fb94fad9cfbed"
     sha256 cellar: :any,                 arm64_sonoma:  "cd7cb1bc31153ba544dae17865420917a5dec39c597ee760ed0c427f8bfb0a09"
     sha256 cellar: :any,                 arm64_ventura: "0e7ea4738b47faa2ddcb74f48fe653721e925b7e8599ce7818833e225b4014cf"
@@ -23,7 +24,7 @@ class Liblinear < Formula
 
   # Fix sonames
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bac35ae9140405dec00f1f700d2ecc27cf82526b/liblinear/patch-Makefile.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/liblinear/patch-Makefile.diff"
     sha256 "11a47747918f665d219b108fac073c626779555b5022903c9b240a4c29bbc2a0"
   end
 

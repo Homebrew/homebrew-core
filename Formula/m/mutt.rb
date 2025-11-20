@@ -10,27 +10,25 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.14.tar.gz"
-  sha256 "d162fb6d491e3af43d6f62f949b7e687bb0c7c2584da52c99a99354a25de14ef"
+  url "https://gitlab.com/muttmua/mutt/-/archive/mutt-2-2-15-rel/mutt-mutt-2-2-15-rel.tar.gz"
+  version "2.2.15"
+  sha256 "3c931dd65993d2e63a3dcd6bbf1fd88c033ae0f6e377c5d4f88b14fe9170817d"
   license "GPL-2.0-or-later"
 
   # Livecheck uses GitLab tags to determine current version.
   # They all have `-rel` suffix which needs to be omitted.
-  #
-  # BitBucket strategy doesn't work for some reason.
   livecheck do
     url "https://gitlab.com/muttmua/mutt.git"
     regex(/^mutt[._-]v?(\d+(?:-\d+)+)-rel$/i)
   end
 
   bottle do
-    sha256 arm64_sequoia: "e11bd2be69fee9b5c24190699cf2318559ca0cda04520ae1845a5512e0fcd843"
-    sha256 arm64_sonoma:  "b5ef0c774e2c1926a13345f73f2f6370aa28d54bd4dfff553f945fb7f9ab7858"
-    sha256 arm64_ventura: "da5fc14cf6e06faab09da46efbea32504378573518a19f58645809f80d2e7781"
-    sha256 sonoma:        "a2b125aa772f366ed34ee8da0d71565e88334f0dadc37c10513f358fc0c4d106"
-    sha256 ventura:       "a17770bc4c28b5f01f213145fc6f78967616b8dd4b4b95839935981d9f00b058"
-    sha256 arm64_linux:   "9ba607d24fa2463909af8d212233024e9c3c7fde6868bc8a2ea3c901d68d9e18"
-    sha256 x86_64_linux:  "17374083e28fb5d5bad686eb2c301a0f37bf49e46c8bcd30c5a04cc90c8c79ee"
+    sha256 arm64_tahoe:   "75669d6239c44d5f13c52565e1c4b19f36b2e552f3b853c9ac98813437a8e181"
+    sha256 arm64_sequoia: "4e9df72dad1e0e9629c46428b23aead3bed33732340a94df9b80d503035089b8"
+    sha256 arm64_sonoma:  "c760d241f11a8ecda970ac6710eae57fd21e0ee6fbf7d2403bb383a2507d30b4"
+    sha256 sonoma:        "d4252e6a4f29d2ed772b2e6cb35443050233172162a184d1b020ccbee53dfed3"
+    sha256 arm64_linux:   "256483eb0551b850f40b2c42f9c7e36846e521492b88ae15243a6b51cd9cb9a9"
+    sha256 x86_64_linux:  "250d93e09deab42ad9b07ab66db482f8f482b6f22e46518382e101148a6e706f"
   end
 
   head do

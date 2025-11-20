@@ -9,6 +9,7 @@ class Jot < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c2251981468647abc1ef8ea360bd2dac2ab585a4cbffb5563dc12afcb448fee8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "93a520809e6790b6d9c41fedf1ef0702112bad61affb1b23cf51c9d8ef030cc3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "beec04c6b8b43d679fc4bdfc9d079c2b4ae7fa6d07b526372f37fd56fa52b2b5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "763cda455c13e6b801488dbf52e57ddceddfbf5e24937f247545a44b37558460"

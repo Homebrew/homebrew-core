@@ -1,8 +1,8 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://github.com/mysql/mysql-connector-cpp"
-  url "https://cdn.mysql.com/Downloads/Connector-C++/mysql-connector-c++-9.3.0-src.tar.gz"
-  sha256 "268a6f7f4a6cb59f53dde59623be1559f913a29ec1de81bf0ffccbf780d1b416"
+  url "https://cdn.mysql.com/Downloads/Connector-C++/mysql-connector-c++-9.5.0-src.tar.gz"
+  sha256 "386006a7c2deeecfd4d198315a474a1981784f8310b40d5b442ed8dbf0412a11"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,13 +11,12 @@ class MysqlConnectorCxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b9fb2e53db8e66e690169f2f2de4b29ff2075256e9c6a3e6b6b5b726eed64987"
-    sha256 cellar: :any,                 arm64_sonoma:  "ce2e5744046cb1337129d204a5444dd35023a80052caf55da8c49fa7987984e4"
-    sha256 cellar: :any,                 arm64_ventura: "d85ecee591ca559101de9fd260f29577b22ece7f9764003b4f70aaaa221eda1f"
-    sha256 cellar: :any,                 sonoma:        "6b7582900baea050d27da4e7d11c664e6db4fa663b83d0f859b3bd38284aca68"
-    sha256 cellar: :any,                 ventura:       "3813e6d044a752fb35926e88eb4fcb15a7ef17ceb0255aa384f5e8f1ba576f7b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "695e5c79c45aff0ea0f2a7ad5f9d49a6bb8290bacef69e3588e36bf2f8baf4e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57bf19bc54526110f1e05873cf1286d9e90195abc44deb45c648a4de80f7c3a2"
+    sha256 cellar: :any,                 arm64_tahoe:   "3a78bf07f08472b0892d3b03114998331eb07e392068a6ac9da322e85bb2e40d"
+    sha256 cellar: :any,                 arm64_sequoia: "4e341ecfaaf3c2961a109671e9c722ff04d71a5378190ec56e9592cbd75dfbe6"
+    sha256 cellar: :any,                 arm64_sonoma:  "a892e2a9077670e75699f36d6b3e9733139addadd58576eb215865b4eed0fb4e"
+    sha256 cellar: :any,                 sonoma:        "2cfc7fc6f303d0a3a7faf6f1dcb940f2f29493735d8ad6097ba23e60d8a94a53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1192115c0ce239f289f0bbe1949fc6c8154537840afecf37292ea74534a5dde"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f14ca0f1b8de286e833098df920db40f47a5fb9cda0c6e866d9f8500b38fc02b"
   end
 
   depends_on "cmake" => :build

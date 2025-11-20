@@ -4,7 +4,7 @@ class Qscintilla2 < Formula
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.14.1/QScintilla_src-2.14.1.tar.gz"
   sha256 "dfe13c6acc9d85dfcba76ccc8061e71a223957a6c02f3c343b30a9d43a4cdd4d"
   license "GPL-3.0-only"
-  revision 4
+  revision 5
 
   # The downloads page also lists pre-release versions, which use the same file
   # name format as stable versions. The only difference is that files for
@@ -16,21 +16,24 @@ class Qscintilla2 < Formula
     regex(%r{href=.*?QScintilla/v?\d+(?:\.\d+)+/QScintilla(?:[._-](?:gpl|src))?[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "eef138891327e8f9a5577972ee0c442ca7f3cf64c768541271418c0e577fbfae"
-    sha256 cellar: :any,                 arm64_ventura: "19e9c2e210f487a2a54f800c56e0e7b06bfaddf9d5a68a6bc2b54782a4d0d902"
-    sha256 cellar: :any,                 sonoma:        "62385ab067cc1fef525c0732f0b29b5044a2af79557bc49606a288b182b59a87"
-    sha256 cellar: :any,                 ventura:       "8a875755a790c4d437e29e2f93d8257bc3feeb0e7e56d0ebc2227f532eec7608"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d578937c4531c8cf6af62e88838e12e2431f46b042737da78841414a5c2fa92"
+    sha256 cellar: :any,                 arm64_tahoe:   "a4ce4700e5e688b9b0b60890459a3793fc53e8cbaf27884f9ba88e94fa719515"
+    sha256 cellar: :any,                 arm64_sequoia: "27499e5e9430c801ac7265f06845ccc56d6669f1626fab44a16f1b7aec80d61b"
+    sha256 cellar: :any,                 arm64_sonoma:  "02d7ea7c1097a24289133b376012cc1592b395c6dd6bae358491de18a2c89d0d"
+    sha256 cellar: :any,                 sonoma:        "d31a27c30e7b08f0635bb310d7f585de74a99d41f31705cb3ab3bf6b9f921cdb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72fdcaf8876a39d1d6f68eb1cc46377fb444d4850fdec6e86e7658a16579bff5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "388eef42d4cde7ec7ebd053bea92d3fae910ba2aff0167644b0b14bc3428e28f"
   end
 
+  depends_on "pyqt" => [:build, :test]
   depends_on "pyqt-builder" => :build
-  depends_on "pyqt"
-  depends_on "python@3.13"
-  depends_on "qt"
+  depends_on "python@3.14" => [:build, :test]
+  depends_on "qtbase"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
@@ -41,7 +44,7 @@ class Qscintilla2 < Formula
     end
 
     pyqt = Formula["pyqt"]
-    qt = Formula["qt"]
+    qt = Formula["qtbase"]
     site_packages = Language::Python.site_packages(python3)
 
     cd "src" do
@@ -74,7 +77,6 @@ class Qscintilla2 < Formula
 
       args = %W[
         --target-dir #{prefix/site_packages}
-
         --qsci-features-dir #{share}/qt/mkspecs/features
         --qsci-include-dir #{include}
         --qsci-library-dir #{lib}
@@ -84,7 +86,39 @@ class Qscintilla2 < Formula
     end
   end
 
+  def caveats
+    "You will need to `brew install pyqt` to use the Python bindings."
+  end
+
   test do
+    (testpath/"test.pro").write <<~QMAKE
+      CONFIG += qscintilla2 sdk_no_version_check
+      CONFIG -= app_bundle
+      SOURCES = test.cpp
+    QMAKE
+
+    (testpath/"test.cpp").write <<~CPP
+      #include <iostream>
+      #include <QApplication>
+      #include <Qsci/qsciscintilla.h>
+
+      int main(int argc, char *argv[]) {
+        QApplication app(argc, argv);
+        QsciScintilla test;
+        test.setText("homebrew");
+        std::cout << test.text().toStdString();
+        return 0;
+      }
+    CPP
+
+    ENV.delete "CPATH" if OS.mac?
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    system Formula["qtbase"].bin/"qmake"
+    system "make"
+    assert_equal "homebrew", shell_output("./test")
+
     pyqt = Formula["pyqt"]
     (testpath/"test.py").write <<~PYTHON
       import PyQt#{pyqt.version.major}.Qsci

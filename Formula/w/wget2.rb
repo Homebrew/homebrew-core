@@ -1,9 +1,10 @@
 class Wget2 < Formula
   desc "Successor of GNU Wget, a file and recursive website downloader"
   homepage "https://gitlab.com/gnuwget/wget2"
-  url "https://ftp.gnu.org/gnu/wget/wget2-2.2.0.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/wget/wget2-2.2.0.tar.gz"
   sha256 "2b3b9c85b7fb26d33ca5f41f1f8daca71838d869a19b406063aa5c655294d357"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,14 @@ class Wget2 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "477e456159a939aa933ea526619577425aa08eefa1c4dd13b90b83f2701c905e"
-    sha256 arm64_sonoma:  "5288526cde424fc1e81ae4add33585d7a70539a0e7dd0f3da0a0b38fd4cee47d"
-    sha256 arm64_ventura: "bc2c0f6366d82d759f2171f14fac1101e545e138f0008f30166b381d410c98ad"
-    sha256 sonoma:        "e1cac6e4fe46311120be862c3aebe2ee0d452f5da01df5bc6cebeec8fb540af0"
-    sha256 ventura:       "6f1f601644a2a7a7acdb1f4d0d7de04e26430f58c80ac9752506b200e3600fba"
-    sha256 arm64_linux:   "d845a7c0972eda3799babc84d0a3bfbba8d593fd6bbc9ddea8f4d003e497f5cb"
-    sha256 x86_64_linux:  "6a577c25a6df35a432534aef3a9f59e040792b1ce92055a952b1ba9e43aca1c7"
+    sha256 arm64_tahoe:   "02f865ef13cd93291ae12b59dac0eb9c883c9078430e63ba1176bc82b27c911b"
+    sha256 arm64_sequoia: "b863537174ece79da6195e2ac5707cd31488d58088bdccb573e189aa75153bff"
+    sha256 arm64_sonoma:  "99190ec35480c9addfc7d84e5a026eceb272213914048503ec9c21c5385990cf"
+    sha256 arm64_ventura: "c707efb734c4e2338ec805111837642cf423a7aab4439f4743bdcb9bccfd46e7"
+    sha256 sonoma:        "fb4276bbc11f84ce2d2b98daf426fd4a1b1aa5ffd10973f3f07d868429059ab3"
+    sha256 ventura:       "b0ef99e0d7383df8316c5284d7ff38d02415f6cae006aad83ffe21e078262069"
+    sha256 arm64_linux:   "7c20c1db23e50bdc5fdb67333ea80ed932235f79b2a82c28afe92e621a5667d2"
+    sha256 x86_64_linux:  "a6580c39554f67d8db6d5817945792dc48c0c9e648d39043aa9bb4fc314e171c"
   end
 
   depends_on "doxygen" => :build

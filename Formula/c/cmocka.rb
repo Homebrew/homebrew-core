@@ -1,25 +1,22 @@
 class Cmocka < Formula
   desc "Unit testing framework for C"
   homepage "https://cmocka.org/"
-  url "https://cmocka.org/files/1.1/cmocka-1.1.7.tar.xz"
-  sha256 "810570eb0b8d64804331f82b29ff47c790ce9cd6b163e98d47a4807047ecad82"
+  url "https://cmocka.org/files/1.1/cmocka-1.1.8.tar.xz"
+  sha256 "58435b558766d7f4c729ba163bdf3aec38bed3bc766dab684e3526ed0aa7c780"
   license "Apache-2.0"
   head "https://git.cryptomilk.org/projects/cmocka.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "f59c0f3dcb57570a55bc13e96ac8d5b7710dd61289c9b75d1bf038d0866648ed"
-    sha256 cellar: :any,                 arm64_sonoma:   "9fe186aa7c700963f6f86149365ef35b0791545ba2e831149d553f08fb830306"
-    sha256 cellar: :any,                 arm64_ventura:  "59ce3786b76ea0bad5cf63974c4c341a967f562f6beeebac2714b9a6cdb8ee69"
-    sha256 cellar: :any,                 arm64_monterey: "655c370c95261b0a2497884db61e2d93e016b3ac12c895bd177c4937fe8382b9"
-    sha256 cellar: :any,                 arm64_big_sur:  "f834bde77c929e72148871eb2ebb902b6f746fc5c80581027ac3e2c8eba4e695"
-    sha256 cellar: :any,                 sonoma:         "bcdc681ebb540775ab065058b124df1d9c9549642cf25da0439e80abe3e17027"
-    sha256 cellar: :any,                 ventura:        "1af6df21cc146d414b8c6b03b995cb99e18ee020efcf34c6be4f2724684797ad"
-    sha256 cellar: :any,                 monterey:       "b5120aab3d6d5daf7a4166c0bd95b622d057bdc519ce9d8792ac3174effcec26"
-    sha256 cellar: :any,                 big_sur:        "4bdc48b2707b15f13d671f193de414f70a905e4a6e62e7f3ad823c0e01ec9f13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "de5b9bb0f9c9aa825c52953ca9c36ff81ab88a05b5cd0dcbe1a1ada6cfeadb07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3ac6a9be93cbd9ff420c38ff86c3c5559fe2ab584423f8bddd04c77f7235ab3"
+    sha256 cellar: :any,                 arm64_tahoe:   "fd067cb88fba94b330304b9f20529a3188486cfd9404e670562f8193c9016ab7"
+    sha256 cellar: :any,                 arm64_sequoia: "9c21cefd986895363495212fe84bb3d5709aebb98626758c2b740b823105034c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c43364a4f0f426476007f0afce352c2648465f3e728f6ecf6a9005afc743bf14"
+    sha256 cellar: :any,                 arm64_ventura: "4a6cc1b109d9339b23d43814ce6fe2ee9aa91d1e4870833a1912d9ce27d00760"
+    sha256 cellar: :any,                 sonoma:        "cf789d33088219b798f05cef3b6a1409d71631a4a407e290b3c306adde8aad23"
+    sha256 cellar: :any,                 ventura:       "75ebb525e7d69931007433bb05779454d23fe4a85bc848c6885a8200333fa3b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6256a27596e358ee8cd3a9be47564820e92f096853bede4ef3000c1381e435ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5315f47810674b24ac96c441e67ae317c34ca4656520de3292ed810d5d1a8d2"
   end
 
   depends_on "cmake" => :build

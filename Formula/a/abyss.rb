@@ -4,19 +4,20 @@ class Abyss < Formula
   url "https://github.com/bcgsc/abyss/releases/download/2.3.10/abyss-2.3.10.tar.gz"
   sha256 "bbe42e00d1ebb53ec6afaad07779baaaee994aa5c65b9a38cf4ad2011bb93c65"
   license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c4c97608ca2bb86304b77b4fddd3abee125f25971ba51495e95e6658b1ad5d1a"
-    sha256 cellar: :any,                 arm64_sonoma:  "f4bdcdb91f2004e514df06e02f91d6341cb8d3f3ce32a9acf3958d37f1983f80"
-    sha256 cellar: :any,                 arm64_ventura: "22819d8dfedb879c1f0742ec3f07e9090d99385b533bfc54158beddbe1eefadc"
-    sha256 cellar: :any,                 sonoma:        "6bd97e0afea52bf21f3c0f01d10b2643c22c4aed6bf3e36cece3545d6ad6e9d1"
-    sha256 cellar: :any,                 ventura:       "d81fe789736077b682ba6cbc7c62d89333ee560a7c2c02a0b3e936810e3cac1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbd181f4720f2c4e8f15d120f49bb2016a72e1eb7017dd8e046be245c424384a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cb253b94acc90a0619ef05ba23a178f9a28e8ee0395ffea66abbeb13500726f"
+    sha256 cellar: :any,                 arm64_tahoe:   "274f0f758f4cc8852779e2a55f8900ea34ccf7dd0e784396752f03c7e6c56767"
+    sha256 cellar: :any,                 arm64_sequoia: "156d580ae0392d7045dd60c744d4a1a32206a950c86588cb25aa600dedd0e8ae"
+    sha256 cellar: :any,                 arm64_sonoma:  "61982df06da982cf2f7edca391a61f935cb3c1542d165f1ed69f60a33b4a6031"
+    sha256 cellar: :any,                 sonoma:        "cd3d743d197a92d98b4cd43a45615de53d5cc403a36ac9e41cdf6e47ce7aee44"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "57e42e8b368589c943fa3bd23e3c8f8a5af03b307530c445309dc45a72e2d2d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7b36e68d3d7b88d89656707fd50185e8649d31bac5359575f160dc875c1d28f"
   end
 
   head do
@@ -28,40 +29,30 @@ class Abyss < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "cmake" => :build # For btllib
   depends_on "google-sparsehash" => :build
-  depends_on "meson" => :build # For btllib
-  depends_on "ninja" => :build # For btllib
-  depends_on "python@3.13" => :build # For btllib
-  depends_on "gcc"
+  depends_on "btllib"
   depends_on "open-mpi"
 
   uses_from_macos "sqlite"
 
-  fails_with :clang # no OpenMP support
-
-  resource "btllib" do
-    url "https://github.com/bcgsc/btllib/releases/download/v1.7.3/btllib-1.7.3.tar.gz"
-    sha256 "31e7124e1cda9eea6f27b654258a7f8d3dea83c828f0b2e8e847faf1c5296aa3"
+  on_macos do
+    depends_on "libomp"
   end
 
   def install
-    python3 = "python3.13"
+    # Help link to libomp on macOS
+    ENV["ac_cv_prog_cxx_openmp"] = "-Xpreprocessor -fopenmp -lomp" if OS.mac?
 
-    (buildpath/"btllib").install resource("btllib")
-    cd "btllib" do
-      inreplace "compile", '"python3-config"', "\"#{python3}-config\""
-      system "./compile"
-    end
-
+    args = %W[
+      --disable-silent-rules
+      --enable-maxk=128
+      --with-boost=#{Formula["boost"].include}
+      --with-btllib=#{Formula["btllib"].prefix}
+      --with-mpi=#{Formula["open-mpi"].prefix}
+      --with-sparsehash=#{Formula["google-sparsehash"].prefix}
+    ]
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-silent-rules",
-                          "--enable-maxk=128",
-                          "--with-boost=#{Formula["boost"].include}",
-                          "--with-btllib=#{buildpath}/btllib/install",
-                          "--with-mpi=#{Formula["open-mpi"].prefix}",
-                          "--with-sparsehash=#{Formula["google-sparsehash"].prefix}",
-                          *std_configure_args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

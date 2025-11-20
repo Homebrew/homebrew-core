@@ -1,8 +1,8 @@
 class EcflowUi < Formula
   desc "User interface for client/server workflow package"
   homepage "https://confluence.ecmwf.int/display/ECFLOW"
-  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.14.0-Source.tar.gz"
-  sha256 "ce80f12a0295d44c185b638763142ed26be06ee72c18a66f785182802e1ee7fd"
+  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.15.1-Source.tar.gz"
+  sha256 "e46293c32545c0182a1989ba5dbe667d32042f592d5bb20d0117c37f08ae2403"
   license "Apache-2.0"
 
   livecheck do
@@ -11,19 +11,30 @@ class EcflowUi < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:  "2b34cf1eb40b63c8f1ddb33075869b15e150d1aee5926cf421841c3b5efe72c2"
-    sha256                               arm64_ventura: "337987a7e7b64b63a43c4a545a246ffa4cdd452a7d792ae98fb7f25c0973a17d"
-    sha256                               sonoma:        "7e463b5f55dea51d8d4c377949fe74b35c42f3739ccc69aa1fdd192cf2ecea2b"
-    sha256                               ventura:       "29ad4d4553da00e28b3cf446427d889834ec6f99c7c44b6eb7eb26523e317eac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c36561a9690c2cd519c998df2bdce6416a329b41e63edbe7133d2bf0bee6e6e4"
+    sha256 arm64_tahoe:   "0c667833267b1b54372d7c0e5f8a2e35051ef943d9758adccdfce74c0ab78a4d"
+    sha256 arm64_sequoia: "e3f29f83faa4eb7c787d58e3418bfd9c39bed8f736d191e8e19deb36861343ab"
+    sha256 arm64_sonoma:  "b3c30e1018158297381c5c9e87b28b60161bde0927a407887a3ec1244f7e8d73"
+    sha256 sonoma:        "872ebdd0b116632682f2b2b16d8f9cb85ca0d56984c000a6ff8a847184e24221"
+    sha256 arm64_linux:   "63da6cd05bba56dae90331c10f5b75f2a6fae18994359b64a9f13f7305c745ec"
+    sha256 x86_64_linux:  "d707e69a3f202787d69239a44af7e0ad355325501e20a706de06748f02b59c21"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "openssl@3"
-  depends_on "qt"
+  depends_on "qt5compat"
+  depends_on "qtbase"
+  depends_on "qtcharts"
+  depends_on "qtsvg"
 
   uses_from_macos "libxcrypt"
+  uses_from_macos "zlib"
+
+  # Replace boost::asio::deadline_timer since it was removed in Boost 1.89.0
+  patch do
+    url "https://raw.githubusercontent.com/ecmwf/ecflow/57ef9c0a48d6651a9cf5ceedf4e73b555eed23bf/releng/brew/patches/5.15.0.patch"
+    sha256 "87c53a3cc96a36a00589ff0ea3bc44b62e56dd4539fda81155d72b5cf84db2a3"
+  end
 
   def install
     args = %w[

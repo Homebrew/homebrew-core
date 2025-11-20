@@ -1,9 +1,10 @@
 class PythonAT311 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.13/Python-3.11.13.tgz"
-  sha256 "0f1a22f4dfd34595a29cf69ee7ea73b9eff8b1cc89d7ab29b3ab0ec04179dad8"
+  url "https://www.python.org/ftp/python/3.11.14/Python-3.11.14.tgz"
+  sha256 "563d2a1b2a5ba5d5409b5ecd05a0e1bf9b028cf3e6a6f0c87a5dc8dc3f2d9182"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,13 +12,12 @@ class PythonAT311 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "cab6abf1dbc00b087ce38dc55c52e7fc97253b7d01f353893929464432f9922a"
-    sha256 arm64_sonoma:  "bb985068d2b5ad75fd24f77d5664cbedc467abd9f67700c9dccf508474146ab5"
-    sha256 arm64_ventura: "f41eae837fee5d0f4890d52e46363d864357a02ebd98e4a93e4b4738f635567c"
-    sha256 sonoma:        "5f86828705a6b8f21a97aa9951a3455e348a2aec753a5ce4b82c9285c6735913"
-    sha256 ventura:       "9a65b7b2e9bc2f0f04b55350a5e9d35d05255effed0cb2b2ef8dfe0b6d5150e5"
-    sha256 arm64_linux:   "01af3c5cb4a5821b6c9bc4255412c0f6f5c90d1cf893f978b6c9f48c2bb85b69"
-    sha256 x86_64_linux:  "3b109e8447f963ca6b547715972325ee5b4a577ef5bb55410829fc2ef380399c"
+    sha256 arm64_tahoe:   "9e609dc553e4f962751863590c8d4276ff88352aa70879ffe7c657bf4f7f1239"
+    sha256 arm64_sequoia: "1f45f5ef42e5cce4e37f001b7e9848c02805a920ca2a6413042eeb212d14dfb8"
+    sha256 arm64_sonoma:  "ecae0169191ecabda2b38bcf5c6e234feadd5e03eae3bb0fcb88617165379849"
+    sha256 sonoma:        "e2034328e1932ba64a5217ac76610ca7159c5df0eda00edde04a464a7d2c90da"
+    sha256 arm64_linux:   "9de68eb6c23d6cc4e5a9975a1e47e79ae7fc6675dd7061ea4b1c9f1a9bce113f"
+    sha256 x86_64_linux:  "425d7ca6959c161cdfdda95e6151e5e1f33e727aa8f1b301f95107598f51d289"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -33,7 +33,7 @@ class PythonAT311 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
@@ -45,6 +45,9 @@ class PythonAT311 < Formula
     depends_on "libtirpc"
   end
 
+  pypi_packages package_name:   "",
+                extra_packages: %w[flit-core pip setuptools wheel]
+
   # Always update to latest release
   resource "flit-core" do
     url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
@@ -52,8 +55,8 @@ class PythonAT311 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/59/de/241caa0ca606f2ec5fe0c1f4261b0465df78d786a38da693864a116c37f4/pip-25.1.1.tar.gz"
-    sha256 "3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077"
+    url "https://files.pythonhosted.org/packages/fe/6e/74a3f0179a4a73a53d66ce57fdb4de0080a8baa1de0063de206d6167acc2/pip-25.3.tar.gz"
+    sha256 "8d0538dbbd7babbd207f261ed969c65de439f6bc9e5dbd3b3b9a77f25d95f343"
   end
 
   resource "setuptools" do
@@ -70,14 +73,14 @@ class PythonAT311 < Formula
   # Remove when a non-patching mechanism is added (https://bugs.python.org/issue43976).
   # We (ab)use osx_framework_library to exploit pip behaviour to allow --prefix to still work.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6d2fba8de3159182025237d373a6f4f78b8bd203/python/3.11-sysconfig.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/python/3.11-sysconfig.diff"
     sha256 "8bfe417c815da4ca2c0a2457ce7ef81bc9dae310e20e4fb36235901ea4be1658"
   end
 
   # Make bundled distutils look at preferred sysconfig scheme.
   # Remove with Python 3.12.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1618a5005d0b01d63b720321806820a03432f1a/python/3.10-distutils-scheme.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/python/3.10-distutils-scheme.diff"
     sha256 "d1a29b3c9ecf8aecd65e1e54efc42fb1422b2f5d05cba0c747178f4ef8a69683"
   end
 
@@ -294,6 +297,7 @@ class PythonAT311 < Formula
     rm lib_cellar.glob("ensurepip/_bundled/{setuptools,pip}-*.whl")
     %w[setuptools pip].each do |r|
       resource(r).stage do
+        system whl_build/"bin/pip3", "install", *common_pip_args, "."
         system whl_build/"bin/pip3", "wheel", *common_pip_args,
                                               "--wheel-dir=#{lib_cellar}/ensurepip/_bundled",
                                               "."
@@ -462,7 +466,7 @@ class PythonAT311 < Formula
       They will install into the site-package directory
         #{HOMEBREW_PREFIX}/lib/python#{version.major_minor}/site-packages
 
-      tkinter is no longer included with this formula, but it is available separately:
+      `idle#{version.major_minor}` requires tkinter, which is available separately:
         brew install python-tk@#{version.major_minor}
 
       gdbm (`dbm.gnu`) is no longer included in this formula, but it is available separately:

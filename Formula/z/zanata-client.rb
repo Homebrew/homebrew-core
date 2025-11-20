@@ -11,12 +11,24 @@ class ZanataClient < Formula
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "4e9a444168ef8759f044a71501e69d0d5f5d8e22dd29038bc8f784751341aa8d"
   end
 
+  # Deprecated since:
+  # * No arm64 macOS support: https://docs.brew.sh/Support-Tiers#future-macos-support
+  # * Still needs OpenJDK 8
+  deprecate! date: "2025-09-25", because: :unmaintained
+  disable! date: "2026-09-25", because: :unmaintained
+
   depends_on "openjdk@8" # https://github.com/Homebrew/homebrew-core/issues/33480
+
+  on_macos do
+    depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
+  end
 
   def install
     libexec.install Dir["*"]

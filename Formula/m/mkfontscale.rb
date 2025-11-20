@@ -6,6 +6,7 @@ class Mkfontscale < Formula
   license "X11"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "86447a62f6dfa5be3641fcc3153d8b7aa09f9660d330a06f3454d347980b4055"
     sha256 cellar: :any,                 arm64_sequoia:  "cb7cfc5fe147173c5117c3269dda15cdcacf19be6a992b9a9339ca3a91fc7495"
     sha256 cellar: :any,                 arm64_sonoma:   "6795c9f6167e00f72f72aa22ebf557a440ba85e9c4242ffba2a774dad5c8b859"
     sha256 cellar: :any,                 arm64_ventura:  "c88d40044de4b6556a64c1d679cfa377d32f0af07c7d6b344b91046910db8371"

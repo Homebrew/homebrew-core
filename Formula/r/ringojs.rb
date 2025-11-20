@@ -10,6 +10,8 @@ class Ringojs < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "3ab47d6d66c7528f9cc7b67be71d428bdab468c46724952615112e03cc50a544"

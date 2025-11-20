@@ -4,6 +4,7 @@ class Libdap < Formula
   url "https://www.opendap.org/pub/source/libdap-3.21.1.tar.gz"
   sha256 "1f6c084bdbf2686121f9b2f5e767275c1e37d9ccf67c8faabc762389f95a0c38"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://www.opendap.org/pub/source/"
@@ -11,13 +12,12 @@ class Libdap < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "1f8e9cd58ca9ef263b5a028262a32a1b06b8903cb2e7166446d25d60f7bbb5bd"
-    sha256 arm64_sonoma:  "d8886f6fbec0a65ec3ed25dfd1bd13c7ac2f2a71c1b7674bd1b4897508477f8c"
-    sha256 arm64_ventura: "3cef6f6506acf42d24cf9d0bf55b8b194ce5938d5d2d6d7e82a155c86e031a8a"
-    sha256 sonoma:        "aecc5c17befb043a3cbf6939b0011190d4b4ebd8ecfe42748c67a0b35fc7e920"
-    sha256 ventura:       "4b9be029b474845cfd29aedbf47548189fed0c2b977687c8778f5180b895a1b4"
-    sha256 arm64_linux:   "bd0b6ca36a3f872a08c4401e9f1b24dbde3c08e2b97514d6175f7779815344ea"
-    sha256 x86_64_linux:  "c0bbde3c7deb1480fe9d54028a7ce000692e28784c7e3b926d8c8234ff79c742"
+    sha256 arm64_tahoe:   "d959fe3f680cc759bc8e6b5fc9ce3df87a0ba407fd8c121c7c0007b18a7391ed"
+    sha256 arm64_sequoia: "d4b73f03f75990e67798f996eed66c02b42066d37c43c6970ed1345838ea6e3c"
+    sha256 arm64_sonoma:  "c56bc527efd1a40a897de31f6f41876b6a4ca45ca6f642c2c1cfad52b92db9e2"
+    sha256 sonoma:        "7bf3eb33efc70d4ef302c32eb64031d193004aee353d7d14c66afc69185eb90f"
+    sha256 arm64_linux:   "b28520612f2942489d5fa1eb14051528d444558c63e3d04b4c14b028193577a3"
+    sha256 x86_64_linux:  "037920375d831bc140fd1bb65563045b7105abdcf57f6d3882b2e0680df18140"
   end
 
   head do
@@ -39,6 +39,11 @@ class Libdap < Formula
   on_linux do
     depends_on "libtirpc"
     depends_on "util-linux"
+
+    on_arm do
+      # FIXME: illegal instruction in test_simple_3_error_1 with Ubuntu GCC
+      depends_on "gcc@12" => :build
+    end
   end
 
   def install

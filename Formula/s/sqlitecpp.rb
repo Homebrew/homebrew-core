@@ -6,6 +6,7 @@ class Sqlitecpp < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "38a875f10418420ffb6575efe36900bbb6b538b7cdc04d5b9627f3cee23f9a4a"
     sha256 cellar: :any, arm64_sequoia: "616fb66c49424941f10f030687dee31c3e8b695a9189ac305815fcaac6c0d4b3"
     sha256 cellar: :any, arm64_sonoma:  "076151d30d6963eddd94d888291aa48dcd85014fe88617589a14327a047b25d0"
     sha256 cellar: :any, arm64_ventura: "7057a2bc42ad8e9589b026321820b80b74484e81a132fc0a5735a3a859d2e279"

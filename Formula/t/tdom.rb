@@ -5,7 +5,10 @@ class Tdom < Formula
   sha256 "ce22e3f42da9f89718688bf413b82fbf079b40252ba4dd7f2a0e752232bb67e8"
   license "MPL-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "fbf84ebf5d244be2bc9ed3c6fe9a996c8bef2377f9a2b058d8b915f30ff75141"
     sha256 cellar: :any,                 arm64_sequoia: "f98f56e8f8be62637a79a2a50e0e25c4560336a00d0aa3b33350f2b8021d9337"
     sha256 cellar: :any,                 arm64_sonoma:  "05e1ab5a96379f4cf427299ef7fc13cc7295201d099ebd729b4caca07ea29147"
     sha256 cellar: :any,                 arm64_ventura: "14999e9dad6567460b4947213240636d8d6a392b9e8dad78b015ec319ba8a228"

@@ -9,10 +9,11 @@ class Vit < Formula
   head "https://github.com/vit-project/vit.git", branch: "2.x"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3c0acf8ed36f00c0a7d6364ddaea072438edf56726342e457c6a1c2c58811f4f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e690473bf1990d4aa5181c8e9e4a7656b3d6c83dbc1572c79f84b039655095a5"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "task"
 
   resource "tasklib" do
@@ -20,19 +21,14 @@ class Vit < Formula
     sha256 "5ccd731b52636dd10457a8b8d858cb0d026ffaab1e3e751baf791bf803e37d7b"
   end
 
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
-  end
-
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/98/21/ad23c9e961b2d36d57c63686a6f86768dd945d406323fb58c84f09478530/urwid-2.6.16.tar.gz"
-    sha256 "93ad239939e44c385e64aa00027878b9e5c486d59e855ec8ab5b1e1adcdb32a2"
+    url "https://files.pythonhosted.org/packages/bb/d3/09683323e2290732a39dc92ca5031d5e5ddda56f8d236f885a400535b29a/urwid-3.0.3.tar.gz"
+    sha256 "300804dd568cda5aa1c5b204227bd0cfe7a62cef2d00987c5eb2e4e64294ed9b"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
-    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
+    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
   def install
@@ -47,6 +43,7 @@ class Vit < Formula
     require "pty"
     PTY.spawn(bin/"vit") do |_stdout, _stdin, pid|
       sleep 3
+      sleep 10 if OS.mac? && Hardware::CPU.intel?
       Process.kill "TERM", pid
     end
     assert_path_exists testpath/".task"

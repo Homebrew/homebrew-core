@@ -1,19 +1,18 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/refs/tags/v10.2.1.tar.gz"
-  sha256 "d1ddfd3551e649f7e2d180d5a6a006d90cfde56dcfe1e548c58d95b7f1c87049"
+  url "https://github.com/facebook/rocksdb/archive/refs/tags/v10.7.5.tar.gz"
+  sha256 "a9948bf5f00dd1e656fc40c4b0bf39001c3773ad22c56959bdb1c940d10e3d8d"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
   head "https://github.com/facebook/rocksdb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "074e5716d66bf92a47427fa9122783753547675413ada2616a5a8ade73a85472"
-    sha256 cellar: :any,                 arm64_sonoma:  "fce848218a5d5bd4b188065c61e5960310a5081706a93b1c582051c2efdc6b4b"
-    sha256 cellar: :any,                 arm64_ventura: "32e402bfd89f43f7160fdf195ae8987086214a502d7af223f45b309de4319572"
-    sha256 cellar: :any,                 sonoma:        "cffdfb44c20a2fb9a84e13c322f4024c27627c9fc57a334b8b68958d44c4d3af"
-    sha256 cellar: :any,                 ventura:       "e58199c8dba8c8dd3f5ecd0411c499ecfb0d6afd4fa0805a2cfd8d6d7762c9e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e1b243bf695a7e811f2f21be48e7b4504c2a3f05b7691d27e657c199416b78e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7758f14b95397f11d5170dfefe17823bbdb2c46d9926d2f19b3270ff7a8d637c"
+    sha256 cellar: :any,                 arm64_tahoe:   "7b22eda881c19c8eaa3e229835d51c30be442bdf403f7cb146b33ecd5c3ca53f"
+    sha256 cellar: :any,                 arm64_sequoia: "ae9b516676748f4b768cd4a7f09f9748de871865695916de9c5af8b46a0d705f"
+    sha256 cellar: :any,                 arm64_sonoma:  "142b675212b5d44025de16af223bc7a79cd0a1ac11b0ca0c66788945acdab7e6"
+    sha256 cellar: :any,                 sonoma:        "1b31b2a0387fab54e10646110b41c9a199fef18ba7cff970c1e02aa0eb7a6632"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5bce6eab3b2493e18a825212ba64afaee1109da8a0639b303d89bb931cead046"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04c1758a0c5dbac41877099de5eeb85164e338f74687b935cff3f8078d4423dc"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +23,13 @@ class Rocksdb < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # Fix to error ld: library 'atomic' not found
+  # PR ref: https://github.com/facebook/rocksdb/pull/14048
+  patch do
+    url "https://github.com/facebook/rocksdb/commit/1d18c4ed0177f184f228a7cdfb78eb85d0dab540.patch?full_index=1"
+    sha256 "7c76c3aaf970cd38129f42b6b76da3f37c59048507681c6953211d233e8cbdff"
+  end
 
   def install
     args = %W[
@@ -73,7 +79,7 @@ class Rocksdb < Formula
       extra_args << "-lstdc++"
     end
     system ENV.cxx, "test.cpp", "-o", "db_test", "-v",
-                                "-std=c++17",
+                                "-std=c++20",
                                 *extra_args,
                                 "-lz", "-lbz2",
                                 "-L#{lib}", "-lrocksdb",
@@ -82,7 +88,7 @@ class Rocksdb < Formula
                                 "-L#{Formula["zstd"].opt_lib}", "-lzstd"
     system "./db_test"
 
-    assert_match "sst_dump --file=", shell_output("#{bin}/rocksdb_sst_dump --help 2>&1")
+    assert_match "sst_dump <db_dirs_OR_sst_files...>", shell_output("#{bin}/rocksdb_sst_dump --help 2>&1")
     assert_match "rocksdb_sanity_test <path>", shell_output("#{bin}/rocksdb_sanity_test --help 2>&1", 1)
     assert_match "rocksdb_stress [OPTIONS]...", shell_output("#{bin}/rocksdb_stress --help 2>&1", 1)
     assert_match "rocksdb_write_stress [OPTIONS]...", shell_output("#{bin}/rocksdb_write_stress --help 2>&1", 1)

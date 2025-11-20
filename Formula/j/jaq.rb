@@ -1,8 +1,8 @@
 class Jaq < Formula
   desc "JQ clone focussed on correctness, speed, and simplicity"
   homepage "https://github.com/01mf02/jaq"
-  url "https://github.com/01mf02/jaq/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "eee6a4d608c31c12c82644f1cdb69cfed55bb079806ec939e4de486bb252c631"
+  url "https://github.com/01mf02/jaq/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "80fae7c5bbbc244580ca77d3e5a4fc6e9c3ea08a5526d562e3c5300edd44fe8b"
   license "MIT"
   head "https://github.com/01mf02/jaq.git", branch: "main"
 
@@ -12,14 +12,14 @@ class Jaq < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a5fb67c8d1014124d11de2509cdd4193ff9bd3b40b034878fb9244c671884cbe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c879bede80cf5b1368482ee0659d59478cfe7a48d05fe958db960d5e01bb12d5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ede9e60aedafe42af2686ca6a0de41e620aa793bddb0134762e2d2f731d00fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2ce17f8a15fa650fc1d9f2409b863a3d0a7946dd4c919dd6ece16cf384de48eb"
-    sha256 cellar: :any_skip_relocation, ventura:       "0e29a1adffb625f5187d09689a5ad00408051df7ed6505f0803814c1899549de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "16ce9eeae10703d67e1ff25ae18e5fcee03b5d76712a37c89fd98a24663354df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de05dc546a03d574196873f8b4483f401607e1d5e6549d5636779d75dd94ee22"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4fe530857538d1935dda5d031197c37ce565bca559f5a026bcf796d1349f11b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "163be33daf1542ca414e656156ae824ff0e6418a82e6f2fab3f6889f4655ab49"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2174c4c293ac06376aaef7a275978ec88a927c663267e15c0ddfc568bd715c41"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a76b473a3413366cff6f42fc9f1e9d8a6586ad7550e3f5b3096e57f679711530"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4588e666fb9a9743daec059325fcdbbc0be6646c4682f1923b84b7ce95b77f9c"
+    sha256 cellar: :any_skip_relocation, ventura:       "35ff688ca952fa27a513340de10483c1715d1a58044b054e1273fb9975c60ca4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93442db0bdf314b8f7b5a490f024c52da3cc12806ad3da07d0bba1e704c1a121"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "563f44eed6ac531021e83c87c879b046086be350f622615c30b1c9814c471dff"
   end
 
   depends_on "rust" => :build

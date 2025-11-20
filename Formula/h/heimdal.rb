@@ -1,9 +1,14 @@
 class Heimdal < Formula
   desc "Free Kerberos 5 implementation"
-  homepage "https://www.h5l.org"
+  homepage "https://github.com/heimdal/heimdal"
   url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.8.0/heimdal-7.8.0.tar.gz"
   sha256 "fd87a207846fa650fd377219adc4b8a8193e55904d8a752c2c3715b4155d8d38"
-  license "BSD-3-Clause"
+  license all_of: [
+    "BSD-3-Clause",
+    "BSD-2-Clause",    # lib/gssapi/mech/
+    "HPND-export2-US", # kdc/announce.c
+    :public_domain,    # lib/hcrypto/libtommath/
+  ]
   revision 1
 
   livecheck do
@@ -16,6 +21,7 @@ class Heimdal < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "29074459e366da0cdddc4c84ec345a15c2b148b75ec542bb4e8167e0b447e997"
     sha256 arm64_sequoia:  "fb6f2aaa1bd42cc3a1f66b2734eb142b5d7720d7ee3f4fc4988cdbcacb94b572"
     sha256 arm64_sonoma:   "33521852182643bef11ec36f2b8a135fb1726156216b8aa7ade41f7d0f54896a"
     sha256 arm64_ventura:  "2dfde5f498579296c4b696ee625832f25a8c199be4101a84513f2ea32bd20b96"
@@ -27,47 +33,47 @@ class Heimdal < Formula
     sha256 x86_64_linux:   "50b84d04c9adf4ea658519cdc158a68aa264300bdaf290675010529d6d72e6ac"
   end
 
-  keg_only "conflicts with Kerberos"
+  keg_only "it conflicts with Kerberos"
 
-  depends_on "bison" => :build
   depends_on "pkgconf" => :build
-
   depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL incompatibility
-  depends_on "flex"
   depends_on "lmdb"
   depends_on "openldap"
   depends_on "openssl@3"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
   uses_from_macos "python" => :build
   uses_from_macos "libxcrypt"
+  uses_from_macos "ncurses"
 
   resource "JSON" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz"
-    sha256 "df8b5143d9a7de99c47b55f1a170bd1f69f711935c186a6dc0ab56dd05758e35"
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz"
+      sha256 "df8b5143d9a7de99c47b55f1a170bd1f69f711935c186a6dc0ab56dd05758e35"
+    end
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", buildpath/"perl5/lib/perl5"
+    if OS.linux?
+      ENV.prepend_create_path "PERL5LIB", buildpath/"perl5/lib/perl5"
 
-    resource("JSON").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/perl5"
-      system "make"
-      system "make", "install"
+      resource("JSON").stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/perl5"
+        system "make"
+        system "make", "install"
+      end
     end
-
-    ENV.append "LDFLAGS", "-L#{Formula["berkeley-db@5"].opt_lib}"
-    ENV.append "LDFLAGS", "-L#{Formula["lmdb"].opt_lib}"
-    ENV.append "CFLAGS", "-I#{Formula["lmdb"].opt_include}"
 
     args = %W[
       --without-x
-      --enable-static=no
       --enable-pthread-support
       --disable-afs-support
       --disable-ndbm-db
       --disable-heimdal-documentation
       --disable-silent-rules
+      --disable-static
       --with-openldap=#{Formula["openldap"].opt_prefix}
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-hcrypto-default-backend=ossl

@@ -4,9 +4,10 @@ class Rustup < Formula
   url "https://github.com/rust-lang/rustup/archive/refs/tags/1.28.2.tar.gz"
   sha256 "5987dcb828068a4a5e29ba99ab26f2983ac0c6e2e4dc3e5b3a3c0fafb69abbc0"
   license any_of: ["Apache-2.0", "MIT"]
-  head "https://github.com/rust-lang/rustup.git", branch: "master"
+  head "https://github.com/rust-lang/rustup.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "64f4ef0c6a93f3f1261e7a83e5e1de535af07109777de50e699d7bc76c5e8e7c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0dc5a8b36e61ac52cd3c1f2cd8d47fbd31a53ff398b7c1db7b74aa964328e10"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71920ea5fdebe6673e965ec021c7dc11c5f60f55cb21a308972ea9d339b23109"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bbd23bbce4c67a64fa453e13e033c282b38e2cc3c6d69de9bebc09463ce31617"

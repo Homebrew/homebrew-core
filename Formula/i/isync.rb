@@ -6,13 +6,13 @@ class Isync < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "679faf8c8def86ce0224c4f1edbff742549d5a7f7ec1389f30c5b9d050844fce"
-    sha256 cellar: :any,                 arm64_sonoma:  "4e4510861b03a2ccec9b01b0136ddb6ed903db1d53e8691ebf7606f225d5eb40"
-    sha256 cellar: :any,                 arm64_ventura: "130456630d195bea122ac91aded7cfa8b4375bb954325f4b0806b73322125978"
-    sha256 cellar: :any,                 sonoma:        "51ee82083ce5aae9883f444fe52aaa26c43d0856e587ee7755b2a4d132dfabe9"
-    sha256 cellar: :any,                 ventura:       "cc88915ef3a70a61e83952548559a3d6879561063b0826566851e0c1b3ae0a5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a485ffab93aec68e2643810d101ededa1de3ce47f1fba32b69a525f72ba52691"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b7f6e94602fe5a7812e8c8731ddb620827c950199116ecd10b22f24040cf6d0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "51ac23702b00a76b69d7b7a5a2a49e12a1dfdec10d39eba583456af95a1e5b24"
+    sha256 cellar: :any,                 arm64_sequoia: "87e89cf7ba0e8017e911fac5e775caf4f87a13c4446feef4036b68682d297318"
+    sha256 cellar: :any,                 arm64_sonoma:  "351efb217c463419e3b6f6955416904a75391b3b6a48d78694c2cdba516679fc"
+    sha256 cellar: :any,                 sonoma:        "374da5a258a54405bcfc02798557deb06477dac7b5d3377ffbea83d23bbfa869"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de3bcb74523494f0e6f3c56e0042c166f5fed1566fb3b9890aa9d5c2837655a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b212a214d32232c91c5bb140d8ee04af558b87864e7514737cadd4cf8b9f93c7"
   end
 
   head do
@@ -24,6 +24,7 @@ class Isync < Formula
   depends_on "berkeley-db@5"
   depends_on "openssl@3"
 
+  uses_from_macos "cyrus-sasl"
   uses_from_macos "zlib"
 
   def install

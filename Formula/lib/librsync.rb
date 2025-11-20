@@ -5,7 +5,10 @@ class Librsync < Formula
   sha256 "a0dedf9fff66d8e29e7c25d23c1f42beda2089fb4eac1b36e6acd8a29edfbd1f"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ac21e04cfd6723188b3894b674f618c9bfbeafc6c980c69edc49b1529d0f6d39"
     sha256 cellar: :any,                 arm64_sequoia:  "d9636c7490adcc95354151caa325f5a88d79eae4579427afe070624cf0704ce8"
     sha256 cellar: :any,                 arm64_sonoma:   "1a4dd37b91633fb0ca4ff0298be03a5877762a2a25dc50f97da96b50de64cdb6"
     sha256 cellar: :any,                 arm64_ventura:  "ecf222fd327da97f55371c9c790dd373a4ff7c5db9ad8d3d94a18235c77cd7dd"

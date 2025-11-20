@@ -2,14 +2,14 @@ class GccAT11 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   # TODO: Remove maximum_macos if Xcode 16 support is added to https://github.com/iains/gcc-11-branch
-  url "https://ftp.gnu.org/gnu/gcc/gcc-11.5.0/gcc-11.5.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-11.5.0/gcc-11.5.0.tar.xz"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-11.5.0/gcc-11.5.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-11.5.0/gcc-11.5.0.tar.xz"
   sha256 "a6e21868ead545cf87f0c01f84276e4b5281d672098591c1c896241f09363478"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
+  # https://gcc.gnu.org/gcc-11/
   livecheck do
-    url :stable
-    regex(%r{href=["']?gcc[._-]v?(11(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+    skip "No longer developed or maintained"
   end
 
   no_autobump! because: :requires_manual_review
@@ -42,13 +42,10 @@ class GccAT11 < Formula
     depends_on "binutils"
   end
 
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
-
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-11-branch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5c9419923ddb3e5302ddd277bc524f4d4b0f8722/gcc/gcc-11.5.0.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gcc/gcc-11.5.0.diff"
     sha256 "213b332bd09452e0cf081f874f32d028911fa871875f85b200b55c5b588ce193"
   end
 

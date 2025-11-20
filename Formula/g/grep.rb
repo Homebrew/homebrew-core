@@ -1,12 +1,13 @@
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
-  url "https://ftp.gnu.org/gnu/grep/grep-3.12.tar.xz"
-  mirror "https://ftpmirror.gnu.org/grep/grep-3.12.tar.xz"
+  url "https://ftpmirror.gnu.org/gnu/grep/grep-3.12.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/grep/grep-3.12.tar.xz"
   sha256 "2649b27c0e90e632eadcd757be06c6e9a4f48d941de51e7c0f83ff76408a07b9"
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f1455dc9ac997c60bfe18c1f147c1fc9f72e7c5096ff59a2c41cd97f0ca99936"
     sha256 cellar: :any,                 arm64_sequoia: "cb3715e0ab1d3d667c577b6823d444ade6ea5ca2f6bf82a30daf072bdb8f0f3a"
     sha256 cellar: :any,                 arm64_sonoma:  "195169d334c119c284407191a0a3b55b008d16ba59c4046391b7f5c4b747b2ed"
     sha256 cellar: :any,                 arm64_ventura: "3bca0cd49cefeac06e5656a349069e8435fd07e3f3c97f04c1351d48bbc44e4d"

@@ -1,12 +1,12 @@
 class GitSplitDiffs < Formula
   desc "Syntax highlighted side-by-side diffs in your terminal"
   homepage "https://github.com/banga/git-split-diffs"
-  url "https://registry.npmjs.org/git-split-diffs/-/git-split-diffs-2.2.0.tgz"
-  sha256 "13d6691e49a21b24d6cff14bbe992b18a5bb92eb8d96aa76a35ec2edb79a9d84"
+  url "https://registry.npmjs.org/git-split-diffs/-/git-split-diffs-2.3.0.tgz"
+  sha256 "6391f1a1fb8b5a3b5d6b31008a9ba1627a0c6903e857eba24b734c81d3351edc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "74fbd732352861601eab8397dcf20ce566e08f07ab2ceafc388df2fb842e54fb"
+    sha256 cellar: :any_skip_relocation, all: "2103d2b959bb461d8752cef4f0bd669bf22825c1c90ce375c9c84edaa4631c85"
   end
 
   depends_on "node"

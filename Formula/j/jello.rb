@@ -7,17 +7,16 @@ class Jello < Formula
   sha256 "eee1d43f2d9bb3b3b8c857b713e56191badb9a03a2274defaad1e727fad35521"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6aee2f309a909d8f46313936879821ecd4dfbef13d3a1c75732fee794eb941b4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "851ca4782d37f715f8e522040d2aa8c9e7fbc948da3f42f43e653778432eb291"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
-    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   def install

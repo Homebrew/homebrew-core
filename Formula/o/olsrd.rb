@@ -4,25 +4,24 @@ class Olsrd < Formula
   url "https://github.com/OLSR/olsrd/archive/refs/tags/v0.9.8.tar.gz"
   sha256 "ee9e524224e5d5304dcf61f1dc5485c569da09d382934ff85b233be3e24821a3"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "874cb9fc08951755b92d6f4310d46d3204bf67785ae95d96d07ef754f22fbb83"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6c4e30770465a800d9d40fbf7098db2cbcffb15c511fdff67f9e6efda615122"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5855775631424ec0e2b51d6f3a08a83e595865c4f3090c24756d77a36f2d088b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "595f6879e8ea37977d87ce63927c7e731dde41717b070cec7faa8426e1c43109"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46f59369b499e8dd35c9ae619ce0b893e0324778500a08007ece6c1329d19cdd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e3a78a11535c74218df2662750962b39aab888ecd39e5c57571befaf0a608b5d"
-    sha256 cellar: :any_skip_relocation, ventura:        "b8950dc67c22e934018c5898834001cfa8345f2828acee9fea14ce7b7131dc4f"
-    sha256 cellar: :any_skip_relocation, monterey:       "a995c9cac2e2cb70a3235322c39fb259e634c932b45f0a64499c347003a03489"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5e94afd5a8ed394b3fae056b10af1575c6a4383500978c7afe0b1ee375c8b4bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d8073b7d08955c4be42a261b9445bb61780e5e4650c9f8aca128eae05287b873"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2acf80ab45800922a52d9df98d466e657ff8b7d2dedb05cd9cd1c18f09457388"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a12891626977104dbb673e6a4f810b7c5d8a91279cbdd793c1e663d566feca02"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0aeb303759d085dad7b581e75104d268df5b320c64abe9030b55a10ab6cfbd6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b708682b004bbec11078438431bcfe45287081bfad38dc5642e3b66b8917d6b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5d0390ab383fd753be5a69c7cf979639928716aecbd30cf7125d226c9aec00cf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b455eae0e98b02d306ac032239b28c361031d79ba60d05739da0cad83c01a60e"
+    sha256 cellar: :any_skip_relocation, ventura:       "abaac5b8b0b1a3a783e76b8d2e68acb4d51c3c6a4086e5bd78d94f598ea28460"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b20249ebcbba2d3ca74f80ec36e6f412cf0bc7e14d80faff72f3e032b7e07f45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33113cc2b9ddad06caa174c9fc98e49b3aa4bbb01ede5b82945d7d9c597be727"
   end
 
   uses_from_macos "bison" => :build

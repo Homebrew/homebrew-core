@@ -1,19 +1,23 @@
 class Tbox < Formula
   desc "Glib-like multi-platform C library"
-  homepage "https://docs.tboox.org/"
-  url "https://github.com/tboox/tbox/archive/refs/tags/v1.7.6.tar.gz"
-  sha256 "2622de5473b8f2e94b800b86ff6ef4a535bc138c61c940c3ab84737bb94a126a"
+  homepage "https://github.com/tboox/tbox"
+  url "https://github.com/tboox/tbox/archive/refs/tags/v1.7.7.tar.gz"
+  sha256 "ae387dcf1952aca572516bdce4a47d04e9b411f5bf7add281247af7c874f3c3f"
   license "Apache-2.0"
   head "https://github.com/tboox/tbox.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7947e45eec0391b3732ef28f7ef9fb0649eccee820613ed780cce5c80101a27"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6916f2df0cd8419ce91cabc711cdd273d2dde6efbc6ed3b9ca9e71c7d0eae20f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dcdc2a92ff3cb0f2c8e4a05285f959fda6398b1862f5ec53114428dd13582560"
-    sha256 cellar: :any_skip_relocation, sonoma:        "70c1474ce62ec18b5a1b74e11a4ba24a4297231a6a142122880fcf30a331610e"
-    sha256 cellar: :any_skip_relocation, ventura:       "c88d154bbacefc84abe1e820ef715776da57469d8fd4016c25ef3c71ec17a129"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "06c79b38e83a3d7de103970975a89c6cc457180876338027035a55e2b599b598"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42f219b5aba807212ce3b30463312c73d287031ce5f064e5f0b5f2006752cd2e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0157e36f3c03a6cdaf4e17b60320650aed9d99398404ca6d894c714f0b44631"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e4af286a06c7866122031814f6a626582ab9547e98e475ab98eaf6ea86189f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71ed8833a338308bf58f3be6ee12841e046a381cae5850a54c5ea8b863f8c28d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9711d7ffe9e3d9aff25a4fe4fcd8c00561abafce8165dbd12a74278c3eafa82a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3efecca9ec4ddd248669af677d411d92f4492614f21c3369f6b34bf4ecb7b446"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9ac90346db19743ecd7dc455f60b18c8dda35bb4d3be669811112be1b515f31"
   end
 
   depends_on "xmake" => :build

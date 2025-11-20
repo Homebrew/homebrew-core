@@ -7,6 +7,8 @@ class RbenvDefaultGems < Formula
   revision 1
   head "https://github.com/rbenv/rbenv-default-gems.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "ec2121dbae6293c76ef8493c2a22b95f44e2ba23442525daba4757bd9cc3b535"

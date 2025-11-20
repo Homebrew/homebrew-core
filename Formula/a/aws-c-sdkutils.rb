@@ -6,6 +6,7 @@ class AwsCSdkutils < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d0f34c54b3e8be0bbff43be46378156e8b5177f90091499dbd51c27969e1de2a"
     sha256 cellar: :any,                 arm64_sequoia: "507738d55485b9455c59f6bff4a7280445483dce69963ac052190135bc53bccf"
     sha256 cellar: :any,                 arm64_sonoma:  "a5583794b7a383d70c8a3814609660b0a886482b10e520c7bbfa403b4d7a6c98"
     sha256 cellar: :any,                 arm64_ventura: "24a84103b826055429f427388ab4c3591724cc5acc68ff9fb1118f9ee81935ce"

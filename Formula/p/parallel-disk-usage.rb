@@ -1,19 +1,20 @@
 class ParallelDiskUsage < Formula
   desc "Highly parallelized, blazing fast directory tree analyzer"
   homepage "https://github.com/KSXGitHub/parallel-disk-usage"
-  url "https://github.com/KSXGitHub/parallel-disk-usage/archive/refs/tags/0.11.0.tar.gz"
-  sha256 "a11e19906981c46d5cc694cfc2908163e88d84cd9f4f8b2d516487e5f150d588"
+  url "https://github.com/KSXGitHub/parallel-disk-usage/archive/refs/tags/0.21.1.tar.gz"
+  sha256 "738344d89d0e7208ae501f1a96babfa5bfddac13a925c0a6a7332d759a3e643b"
   license "Apache-2.0"
   head "https://github.com/KSXGitHub/parallel-disk-usage.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "54a80c6cab3c8a5865b1b518f193f63d49dd6d7990d45d725407faa3afb55927"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30b5f5b49a939dd902b34b6d13be2aa49d632ca8fce5b5754ba397d358699ad1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "813b20404ed758b4e2fceecc75ef706871696c98930ad185f182fd14c96bc20b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ab569a47c73fcfa96edf0bcb3015caee836d7630ed0b064533c9e258382fc0ec"
-    sha256 cellar: :any_skip_relocation, ventura:       "27d6b6a2502e8c45bb315b12864ce6fe7a8d9c07ef2bccffc7dd1f4547fc72a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbbbe4c829a923733c3c721b7699b0b61be65954fbca5454df55a7c683a11e4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f233a9ade03a7211653eca2b211b91538a9c54a5f4ebfab3b0865c9b4eb168d4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "087a9b44fb17f904a0e64a630d18731f378938a06c1d4e1db97c313ba2df0208"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff8961cca5f1555d8e00546b937331b5195d1cdddd15146067534f444a630e11"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52f6a3b9fb2cd8271f2bb0d62b08a0f997172591b2776147d6af15ee1bea2086"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "34c0d90115cfb290f25cdecc1daab6cb57295d54891383ab404cac4fc61a9ccb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9fa92ee454fc377cdd4e9b62c575a7662476f65c7cb931ef228b3881510e4950"
+    sha256 cellar: :any_skip_relocation, ventura:       "9171d44725889e7c12744474a8a751fca879ca1f110ab00482007f6e983694e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "678ffd25de3bec4c4ecc1a0b6cbed1abaf106f45e4c51f0bdb1f5a13ba01c7c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7813849ca8a1207d5cea8be2fa5d8ec038ccab966a81efc39ec19c4a24cebdd"
   end
 
   depends_on "rust" => :build

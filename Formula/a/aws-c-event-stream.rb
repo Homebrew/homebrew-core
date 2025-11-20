@@ -1,18 +1,19 @@
 class AwsCEventStream < Formula
   desc "C99 implementation of the vnd.amazon.eventstream content-type"
   homepage "https://github.com/awslabs/aws-c-event-stream"
-  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.5.4.tar.gz"
-  sha256 "cef8b78e362836d15514110fb43a0a0c7a86b0a210d5fe25fd248a82027a7272"
+  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.5.7.tar.gz"
+  sha256 "5d92abed2ed89cc1efaba3963e888d9df527296f1dbfe21c569f84ea731aa3c2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7bb1c234fc76207143274392938efa1c7912b82db36c2d7bd3e1ff31c2b21a97"
-    sha256 cellar: :any,                 arm64_sonoma:  "22adf47866d7f196b5296469044723b94223a3c536590517605930a8c76461ec"
-    sha256 cellar: :any,                 arm64_ventura: "fea45020a2341c46d9671671bc59bc788c4301615d5365e44cde87fca734f0f6"
-    sha256 cellar: :any,                 sonoma:        "50ab76b1c74f6639a8af58478426de6e91201d1f0a32a81d3d20b63c6da44de1"
-    sha256 cellar: :any,                 ventura:       "7cb1403ff68bd39da60c9051539cb3b9f88447baf5e199e6805bcdb8ec2a2ea2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2903ade590868a253d877b9c85684fa1a128d263141a3360833ea67692bf3d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4bd0d80ba4c490b1e0548caad95670e5c6937e5056b8945e11c2f58bde41d36"
+    sha256 cellar: :any,                 arm64_tahoe:   "cfc0a548bc6e46ce2ba3ab96cb7dda74471c6f02b9b2ca227835f495fe50fd4c"
+    sha256 cellar: :any,                 arm64_sequoia: "66c081da6840b3767f64e9f948b243da2f660cc97fa87a1157dfdc4e48ac336b"
+    sha256 cellar: :any,                 arm64_sonoma:  "772b25abbdf8a8006bf546e67e7205d52b707d55ac126409fc1e9e51c0e93003"
+    sha256 cellar: :any,                 arm64_ventura: "e6c236efcd0e084f1231dfb6af750d89e2c889253f5abfd594f3c8f533ac4aaa"
+    sha256 cellar: :any,                 sonoma:        "22583145d951b5e8cc709240c5e2a4226b4471618238e4583a6fa1eb69b041aa"
+    sha256 cellar: :any,                 ventura:       "4971b2d3d25d37e3f0caa323270a48daabdd2319eed62178633f73a5edc55815"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d03e1bd24c78f48f81057982faaba90343170ff0bfe9d21dfbaf86365df3f3f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7aed2c28c221b53dc3007abb63a213679d8cb778cd7f4503552761f87a49d80"
   end
 
   depends_on "cmake" => :build

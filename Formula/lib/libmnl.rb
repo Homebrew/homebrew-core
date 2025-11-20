@@ -10,6 +10,8 @@ class Libmnl < Formula
     regex(/href=.*?libmnl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "a2f88b9fc807bcdbc77da6579b9937d9c993a637187f1b98c85b82ef6d2f5c98"

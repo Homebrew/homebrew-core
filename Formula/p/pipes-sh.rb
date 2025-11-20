@@ -11,6 +11,8 @@ class PipesSh < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "339995e9ef29b4952bf61b4fe406d71c4c6ad5fc96e3e8f291d98150c6789cb8"

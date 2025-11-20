@@ -3,11 +3,12 @@ class X265 < Formula
   homepage "https://bitbucket.org/multicoreware/x265_git"
   url "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz"
   sha256 "a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29"
-  license "GPL-2.0-only"
+  license "GPL-2.0-or-later"
   head "https://bitbucket.org/multicoreware/x265_git.git", branch: "master"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cb6b299c4a9e8f90422a1fe2b531ded532133f94ba45590abe73c5a27231072a"
     sha256 cellar: :any,                 arm64_sequoia: "a2270c67fc2ea5a74824435cd72a9ad1441f9052d8490ab3e56ab5781bd7ad3c"
     sha256 cellar: :any,                 arm64_sonoma:  "c8d3df545085b8f60e7c00a147ccbd90f4f9cb46a3cd275e2474d8e71648207a"
     sha256 cellar: :any,                 arm64_ventura: "aa56445287b9782addb79abe348821ecd198170b17ffb6cc74735d7ed60b9bac"

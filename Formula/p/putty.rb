@@ -1,12 +1,13 @@
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
-  homepage "https://www.chiark.greenend.org.uk/~sgtatham/putty/"
+  homepage "https://putty.software/"
   url "https://the.earth.li/~sgtatham/putty/0.83/putty-0.83.tar.gz"
   sha256 "718777c13d63d0dff91fe03162bc2a05b4dfc8b0827634cd60b51cefdff631c6"
   license "MIT"
   head "https://git.tartarus.org/simon/putty.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4435fad45783e698f8e87ac2a9c4a99aa0341cbe7b5a3f4f200cb8e8daa6852f"
     sha256 cellar: :any,                 arm64_sequoia: "d1f1bb98a018698957ee04e663858ef5c0ccbcb2467d611043b0e71c3f2d62f0"
     sha256 cellar: :any,                 arm64_sonoma:  "188ad54b237bb00dfcea34a591d99fb6b6cbeb2595300b2e010c029c282194d6"
     sha256 cellar: :any,                 arm64_ventura: "3e07713c84bc44c06f74d946194006f3f3b3e231ab2a16bd7d55bdd6663eb80b"

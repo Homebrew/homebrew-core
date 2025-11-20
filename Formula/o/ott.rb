@@ -12,6 +12,7 @@ class Ott < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f26fa61413c7091e27399e1d844a24ac94b69f00805eb6b3f6d9fcd416d90839"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d045d9324681cbb59888db4b0f47cde465b9777faa3ead91b4dafc748698a55a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e64b4f53bc4b32c5c2300ca5e6b4ddc9f336cfc10e9b40561c00433758fd9a6b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "da33fd1e6bfc151dbc8f8f1ed08e086715900c038b29537624944a36e1fb3b52"
@@ -27,17 +28,19 @@ class Ott < Formula
   depends_on "pkgconf" => :build
 
   def install
-    opamroot = buildpath/".opam"
-    ENV["OPAMROOT"] = opamroot
+    ENV["OPAMROOT"] = opamroot = buildpath/".opam"
     ENV["OPAMYES"] = "1"
 
-    system "opam", "init", "--no-setup", "--disable-sandboxing"
-    system "opam", "exec", "--", "opam", "install", ".", "--deps-only", "-y", "--no-depexts"
+    # Work around https://github.com/ocaml/ocamlfind/issues/107 when `coq` is installed in build environment
+    ENV.prepend_path "OCAMLPATH", opamroot/"ocaml-system/lib" if Formula["coq"].any_version_installed?
+
+    system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
+    system "opam", "install", ".", "--deps-only", "--yes", "--no-depexts"
     system "opam", "exec", "--", "make", "world"
 
     bin.install "bin/ott"
     pkgshare.install "examples"
-    (pkgshare/"emacs/site-lisp/ott").install "emacs/ott-mode.el"
+    elisp.install "emacs/ott-mode.el"
   end
 
   test do

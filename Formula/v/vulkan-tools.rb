@@ -1,30 +1,28 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.317.tar.gz"
-  sha256 "4586309ab5b2a9584fde62fd85b0ef5bb98b4cdbca9cb1ba3a2b4978dc2f355c"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/vulkan-sdk-1.4.328.1.tar.gz"
+  sha256 "617e91b396ac771869d62cd131f05dcc0b82d038744dab7f575bcf213852f8bf"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^vulkan-sdk[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256               arm64_sequoia: "56fc9017afb1452eae53c442861305f56c57f4edc915be0f80590ab1d739a367"
-    sha256               arm64_sonoma:  "458a01a7a8fd55615a3e5886d856260dc545a3e8868f44adf7be99f511303a3c"
-    sha256               arm64_ventura: "339586379f9a30a2a1661b9dbdfb86516e225a01168aed86305aba48aeb7c7df"
-    sha256 cellar: :any, sonoma:        "74618af119106a3729bceae66b008ba016a75a949e8d1a6c6f2e278b54ba555a"
-    sha256 cellar: :any, ventura:       "f344f402b2d09bee73abc519ffac8f96696bd5fc06a81a028004097865884fc0"
-    sha256               arm64_linux:   "2fa24d6f63a47ab57ee494091c2848efc65c450bd5b10d6a245c62d34d6c19df"
-    sha256               x86_64_linux:  "9b3942f10dcae0e6cbe4a008c82d5e8e6f7a1dab59844b35fcda50bbfb216780"
+    sha256                               arm64_tahoe:   "e079b74dc2567dd9caf79a1f89330785766bee451674c4e48caac0fd3b77882b"
+    sha256                               arm64_sequoia: "921563dd293ce0efcfae733634ad8fef0730d502689cfe204852b5e67e81920a"
+    sha256                               arm64_sonoma:  "246ce100577c4fe6d65ea969488b5011557cbadcfec3562cd2b22eca40d6fb98"
+    sha256 cellar: :any,                 sonoma:        "df9cf294d5a387539ca41254529dcfc1eb24019ea48a5c443ed2e858e29e6066"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e4db1b7ae9f312bcaca4151c1809f104d33072513c2576f3342a142184f5919"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34f980af2c3cb0c031f3ad5b256f2f31b5e159d8a78b69f3d80d76e46b068caf"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => :build
-  depends_on "vulkan-volk" => :build
+  depends_on xcode: :build # for ibtool
   depends_on "glslang"
   depends_on "vulkan-headers"
   depends_on "vulkan-loader"
@@ -57,7 +55,6 @@ class VulkanTools < Formula
       "-DBUILD_ICD=ON",
       "-DBUILD_CUBE=ON",
       "-DBUILD_VULKANINFO=ON",
-      "-DTOOLS_CODEGEN=ON", # custom codegen
       "-DINSTALL_ICD=OFF", # we will manually place it in a nonconflicting location
       "-DGLSLANG_INSTALL_DIR=#{Formula["glslang"].opt_prefix}",
       "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].opt_prefix}",

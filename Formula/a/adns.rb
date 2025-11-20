@@ -12,6 +12,7 @@ class Adns < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "13b27a569da82d1c3dccfbd733715ca0e4b850462ee7cd74561b3753945848be"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c3d3ebb294a2b86724d9484f996261c4e76472c8519618662300d4023d75a6b4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a18386d620c3bdb3136f4800b3f972d545ddd63753363d4425d3d4e819c4474"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "72889b372cd9dbba605289c703e885a518d2f4d34aed5f1103bd2af0b3d471aa"

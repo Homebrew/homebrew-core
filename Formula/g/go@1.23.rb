@@ -1,35 +1,27 @@
 class GoAT123 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.23.10.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.23.10.src.tar.gz"
-  sha256 "800a7ae1bff179a227b653a2f644517c800443b8b4abf3273af5e1cb7113de59"
+  url "https://go.dev/dl/go1.23.12.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.23.12.src.tar.gz"
+  sha256 "e1cce9379a24e895714a412c7ddd157d2614d9edbe83a84449b6e1840b4f1226"
   license "BSD-3-Clause"
 
-  livecheck do
-    url "https://go.dev/dl/?mode=json"
-    regex(/^go[._-]?v?(1\.23(?:\.\d+)*)[._-]src\.t.+$/i)
-    strategy :json do |json, regex|
-      json.map do |release|
-        next if release["stable"] != true
-        next if release["files"].none? { |file| file["filename"].match?(regex) }
-
-        release["version"][/(\d+(?:\.\d+)+)/, 1]
-      end
-    end
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ea733b8992ef75e11e70133d5b29d21024ae1eb9de0f1de62537c98ad49fef7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ea733b8992ef75e11e70133d5b29d21024ae1eb9de0f1de62537c98ad49fef7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1ea733b8992ef75e11e70133d5b29d21024ae1eb9de0f1de62537c98ad49fef7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "11dbfe0a1f11d431e0fbe96da497382aae33b4dccc9245266b403608cc298970"
-    sha256 cellar: :any_skip_relocation, ventura:       "11dbfe0a1f11d431e0fbe96da497382aae33b4dccc9245266b403608cc298970"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "239bb0e2c34de2c54fc206cded4a2ce578d867df731af3026d764222ecc43fa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93a5e598fd23a409d39c7c91ee24b109f5c76611b074e7e941cfe58b50e0d030"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "645e0a126fdc94ae63d6ccf5c8bfbda011eff7d512ac4fe04bf39edafa4b941e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7402b2b0c649679d3fdaa22d6b0f44a5fb18fb1ca2f52d27b0d791e530542764"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7402b2b0c649679d3fdaa22d6b0f44a5fb18fb1ca2f52d27b0d791e530542764"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7402b2b0c649679d3fdaa22d6b0f44a5fb18fb1ca2f52d27b0d791e530542764"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8ac67f6811b895edc648ded2acd6afdc0c27c67e4282d7587844149efda71381"
+    sha256 cellar: :any_skip_relocation, ventura:       "8ac67f6811b895edc648ded2acd6afdc0c27c67e4282d7587844149efda71381"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8be9fd5cf349d51a94d755c984778da07bd5810e9055f7be5e69cf168270bca2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bfd890b2b3959f0a192d0308f018c4d97447652aede2fc860d418afc47e4bcc"
   end
 
   keg_only :versioned_formula
+
+  # EOL with Go 1.25 release (2025-08-12)
+  # Ref: https://go.dev/doc/devel/release#policy
+  deprecate! date: "2025-08-12", because: :unsupported
 
   depends_on "go" => :build
 

@@ -1,18 +1,18 @@
 class Nx < Formula
   desc "Smart, Fast and Extensible Build System"
   homepage "https://nx.dev"
-  url "https://registry.npmjs.org/nx/-/nx-21.1.3.tgz"
-  sha256 "8032b17664045a4fb3a3faad0201b02f08918656f0e7ed892605b5893e10dfc3"
+  url "https://registry.npmjs.org/nx/-/nx-22.1.0.tgz"
+  sha256 "1978e10f9ae6437145d1ec8a92b3ee029a59e4085779d06503d16e7c9444dc99"
   license "MIT"
+  version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a9de6b9effd88b368216735d056b0d54f2b0e833797ef087d43feaa1636595ea"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9de6b9effd88b368216735d056b0d54f2b0e833797ef087d43feaa1636595ea"
-    sha256 cellar: :any,                 arm64_ventura: "a9de6b9effd88b368216735d056b0d54f2b0e833797ef087d43feaa1636595ea"
-    sha256 cellar: :any,                 sonoma:        "12db68c72af60e7c8517aa41a251e6dfc082dc4a54e01ebd9a0a9a9b885d963b"
-    sha256 cellar: :any,                 ventura:       "12db68c72af60e7c8517aa41a251e6dfc082dc4a54e01ebd9a0a9a9b885d963b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e6d4cfb967affcdd97e8db23f7a45ea307f2c2c6cca3c95e50b5deb85d5b449"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "165f255e6d05e1ecdabf4052806411fff11d1bc66044c920d8903a93353e6ded"
+    sha256 cellar: :any,                 arm64_tahoe:   "ab08ff021c75c718629697a62034bd9bfb338a2e5c7bd680d81ed6ec10055aa6"
+    sha256 cellar: :any,                 arm64_sequoia: "9b836247494b6742f5eaed1db3209f15c6ef37767d8e10da465ee077eb202234"
+    sha256 cellar: :any,                 arm64_sonoma:  "9b836247494b6742f5eaed1db3209f15c6ef37767d8e10da465ee077eb202234"
+    sha256 cellar: :any,                 sonoma:        "067ac6acd6e70b74f4ea0f45730c15d824d939ecc7dd3e87657ad5eec40829da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9c41f3099b3e5c0d5a67252b2202c7d50eb597802981fb046b15d529cd6a841"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bf4dc8803adbddff003300155b916e09122876da73066cfc45151587524b5e0"
   end
 
   depends_on "node"

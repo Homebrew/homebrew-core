@@ -1,19 +1,20 @@
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://coin-or.github.io/Ipopt/"
-  url "https://github.com/coin-or/Ipopt/archive/refs/tags/releases/3.14.17.tar.gz"
-  sha256 "17ab8e9a6059ab11172c184e5947e7a7dda9fed0764764779c27e5b8e46f3d75"
+  url "https://github.com/coin-or/Ipopt/archive/refs/tags/releases/3.14.19.tar.gz"
+  sha256 "b3eb84a23812b53a3325bcd2c599de2b0f5df45a18ed251f9e3c1cd893136287"
   license "EPL-2.0"
   head "https://github.com/coin-or/Ipopt.git", branch: "stable/3.14"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "28f86d6ab4e46e32df53b0d84ea2bc8da41fe2493d8659f9f113e221587292e7"
-    sha256 cellar: :any,                 arm64_sonoma:  "e0da5c979f401e853212ee3318729532f8bcb29b289dc13027aeb91a10f1ccfe"
-    sha256 cellar: :any,                 arm64_ventura: "0430a197a189b0173c8a291595f5603a5732a465219113ae7600da3e704ecf78"
-    sha256 cellar: :any,                 sonoma:        "945bcc0d98610c8f333c8d67bbe38efe6f784fd072ea1912ae62767d3090b4b8"
-    sha256 cellar: :any,                 ventura:       "59158e254001660ae93cf61f6afb569cc5742617e590e9c8ce337c597d4caa28"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d20ad4dc92919fa54f2e701092701a525d410538cc736a6c4ac43aff7c46d211"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0cba5cbe25680d7bf7d4dbfdbcc7c730981aefef2104d8b4de2846d566094f33"
+    sha256 cellar: :any,                 arm64_tahoe:   "94e96fc9b70faed386353442a5dbd7eb65cbca7d2eedb0d114d81781c3346702"
+    sha256 cellar: :any,                 arm64_sequoia: "847ce7b7dcfa69ea27a65ea01ac98cbe63d211d93b3075d44c75074824ac6c0c"
+    sha256 cellar: :any,                 arm64_sonoma:  "1f471be987f9e4a2b010f555ae5b9b06c5177feb05932e83814355534695f8ef"
+    sha256 cellar: :any,                 arm64_ventura: "ba168fca35523f7b6b75b04704fb22df58cc0ca2009a61e0de09647867ad7239"
+    sha256 cellar: :any,                 sonoma:        "df6a8e87d831c760a26ea98ca037c2c6d4bb37d7520ce62e68e2aa1aa53b616e"
+    sha256 cellar: :any,                 ventura:       "c5f584f91a6ae167306fae8f28574657d304643460e58a44d7edf3793c1dd960"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "51378444ce9b3c3dc91f94b3744f8a287a41ad62f0c12b51e728d94a1eaf2c00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "546246a14d77bcd0401489732f9d8a43ce62b74aaede0bc88ac502f79d3c6f3c"
   end
 
   depends_on "openjdk" => :build
@@ -31,7 +32,7 @@ class Ipopt < Formula
     patch do
       # MUMPS does not provide a Makefile.inc customized for macOS.
       on_macos do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/ab96a8b8e510a8a022808a9be77174179ac79e85/ipopt/mumps-makefile-inc-generic-seq.patch"
+        url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/ipopt/mumps-makefile-inc-generic-seq.patch"
         sha256 "0c570ee41299073ec2232ad089d8ee10a2010e6dfc9edc28f66912dae6999d75"
       end
 
@@ -40,16 +41,6 @@ class Ipopt < Formula
         sha256 "13125be766a22aec395166bf015973f5e4d82cd3329c87895646f0aefda9e78e"
       end
     end
-  end
-
-  resource "test" do
-    url "https://github.com/coin-or/Ipopt/archive/refs/tags/releases/3.14.17.tar.gz"
-    sha256 "17ab8e9a6059ab11172c184e5947e7a7dda9fed0764764779c27e5b8e46f3d75"
-  end
-
-  resource "miniampl" do
-    url "https://github.com/dpo/miniampl/archive/refs/tags/v1.0.tar.gz"
-    sha256 "b836dbf1208426f4bd93d6d79d632c6f5619054279ac33453825e036a915c675"
   end
 
   def install
@@ -93,6 +84,16 @@ class Ipopt < Formula
   end
 
   test do
+    resource "test" do
+      url "https://github.com/coin-or/Ipopt/archive/refs/tags/releases/3.14.19.tar.gz"
+      sha256 "b3eb84a23812b53a3325bcd2c599de2b0f5df45a18ed251f9e3c1cd893136287"
+    end
+
+    resource "miniampl" do
+      url "https://github.com/dpo/miniampl/archive/refs/tags/v1.0.tar.gz"
+      sha256 "b836dbf1208426f4bd93d6d79d632c6f5619054279ac33453825e036a915c675"
+    end
+
     testpath.install resource("test")
     pkgconf_flags = shell_output("pkgconf --cflags --libs ipopt").chomp.split
     system ENV.cxx, "examples/hs071_cpp/hs071_main.cpp", "examples/hs071_cpp/hs071_nlp.cpp", *pkgconf_flags

@@ -1,19 +1,22 @@
 class Octobuild < Formula
   desc "Compiler cache for Unreal Engine"
   homepage "https://github.com/octobuild/octobuild"
-  url "https://github.com/octobuild/octobuild/archive/refs/tags/1.7.2.tar.gz"
-  sha256 "8917f689546d590442a0720f09b4a30485b4ca660a63427cd2851d7e977ae794"
+  url "https://github.com/octobuild/octobuild/archive/refs/tags/1.8.1.tar.gz"
+  sha256 "5638c8759899bfc7a5658d44d8cfcf091f0afc001fdcaa5d305a03f6aa668475"
   license "MIT"
-  head "https://github.com/octobuild/octobuild.git", branch: "master"
+  head "https://github.com/octobuild/octobuild.git", branch: "main"
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dcf28ddedd6966f418a0261937675783fdc28b05b039110ad12c303c5461dcf7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb47d1bfe2700c29530168a58e6a891886e3b9c2f3a116995f9166424bae6efc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8195cf1ddc828a99454636f95333cc9fd697af4bb3403d5ebdf7ff1e79227f02"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fd15daa3735cc44f80697b2804d13c980dcade0849ba1551e518ddee28e2cacf"
-    sha256 cellar: :any_skip_relocation, ventura:       "f636e240f0593534d816805fa35d40dd1a189d234c5ca19c99be3b45ddd09c8e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7eaa98da0a1213bc41b5452d2816d5a8a98a5bdf2c474b0e22f986dc59f15e50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3362d910f2f9b447046d75f7feb044b679c35bcb1991597b1e0320fc24f9a695"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae3196c00596806784136909afae180ce3556bc53770ca95c8266324c285f1a3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "476cd1bbe57d73e981ac7d93033892ce3a70e507dd4538bbcb3da11d615997f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84c845b11b998c5eba0e275305a19b9c7db52ffefac17b07f8de5253c52bd92b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9de6ad46ac2f152cde3007ab589650442cc5ce9da7d74399c888534bab8dd7bf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58d75af4d61aa6ade3e137c414c4b355949e63835c731db228f939b0e3e20c7c"
+    sha256 cellar: :any_skip_relocation, ventura:       "fb996f3b6c85217689dbc99bf94cb1646effb6bc203b5eacf864f862d20046b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32cd6cd48bb96e40477d91f1b0519c30ddf8b26654c0620060a107e931cd999a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "252412dd4df54aa83cfe00168e09b16c2404a1269ce0ae86da3cbdff8d88fbab"
   end
 
   depends_on "pkgconf" => :build

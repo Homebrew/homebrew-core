@@ -14,8 +14,11 @@ class Wrk < Formula
   revision 1
   head "https://github.com/wg/wrk.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "006efeee8686cc28a2c7a52afc6e1d21593ff274a6c5a206cc7aec60a756a097"
     sha256 cellar: :any,                 arm64_sequoia:  "4c5610d7241ae72132fbeeebfea6b912c4f1c7d71a9cb55f523c07bef1d53ee5"
     sha256 cellar: :any,                 arm64_sonoma:   "89a17214695f28852b9be47589b1f8788b7209201c163b2bf39b608c1ba2bacd"
     sha256 cellar: :any,                 arm64_ventura:  "f1838e262aaea9a48cd54b0e33c25e39131a9732d5e9b9748498ef37cf468699"
@@ -32,8 +35,6 @@ class Wrk < Formula
   depends_on "luajit"
   depends_on "openssl@3"
 
-  conflicts_with "wrk-trello", because: "both install `wrk` binaries"
-
   def install
     ENV.deparallelize
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
@@ -42,7 +43,7 @@ class Wrk < Formula
       WITH_LUAJIT=#{Formula["luajit"].opt_prefix}
       WITH_OPENSSL=#{Formula["openssl@3"].opt_prefix}
     ]
-    args << "VER=#{version}" unless build.head?
+    args << "VER=#{version}" if build.stable?
     system "make", *args
     bin.install "wrk"
   end

@@ -4,16 +4,18 @@ class Govulncheck < Formula
   url "https://github.com/golang/vuln/archive/refs/tags/v1.1.4.tar.gz"
   sha256 "da1a7f3224cf874325814dd198eaa42897143fc871226a04944583cb121a15c9"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/golang/vuln.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab516a4d8e06b264e4056cc7b2559a6283d3b22837bd1f6fb0aa793ab26f86c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab516a4d8e06b264e4056cc7b2559a6283d3b22837bd1f6fb0aa793ab26f86c6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ab516a4d8e06b264e4056cc7b2559a6283d3b22837bd1f6fb0aa793ab26f86c6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "543b6dac71b6b63135bd0ceefb1486ab3fdc7c105963403f933352acc08fb885"
-    sha256 cellar: :any_skip_relocation, ventura:       "543b6dac71b6b63135bd0ceefb1486ab3fdc7c105963403f933352acc08fb885"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8a7b7d79a6746784346ee9aaf519587f724a363cea87200c4c0b10ad04d316c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4a863eea82be9c89d65b9daa9af314066d5260b2f25c578d55fbfc6b35c2371"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30a8808b70ce289bc91e9ac05745cc71d2b24c97bc73a017824c90f90c2a823c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30a8808b70ce289bc91e9ac05745cc71d2b24c97bc73a017824c90f90c2a823c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "30a8808b70ce289bc91e9ac05745cc71d2b24c97bc73a017824c90f90c2a823c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e4b7ce4852325b7ccd5c6955eddbfa87fd9bf97a8be3a16f353ed1d7afa99cac"
+    sha256 cellar: :any_skip_relocation, ventura:       "90ad669d02c9fd04df0fcf5b3a3a7d8f87ffe7a501b68d9cd8af07ea6cca82db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d866244854306e8b5dce984104a7b15a66ea549caad270054175db3328fbaca2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f72776dc2ee6aeda090982a183b43182ca390c7b5f16a8867b52da01b86d33eb"
   end
 
   depends_on "go" => [:build, :test]

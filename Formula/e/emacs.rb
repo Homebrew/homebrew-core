@@ -1,19 +1,19 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftp.gnu.org/gnu/emacs/emacs-30.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/emacs/emacs-30.1.tar.xz"
-  sha256 "6ccac1ae76e6af93c6de1df175e8eb406767c23da3dd2a16aa67e3124a6f138f"
+  url "https://ftpmirror.gnu.org/gnu/emacs/emacs-30.2.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/emacs/emacs-30.2.tar.xz"
+  sha256 "b3f36f18a6dd2715713370166257de2fae01f9d38cfe878ced9b1e6ded5befd9"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "d81d161a42f5d89476996520475596f392b3c932a66585cf89d3cc488a613d51"
-    sha256 arm64_sonoma:  "b54fd2e5cd611295793cdb90d8db00b38c1e82814ccc5c3855f8fcbc492be5c9"
-    sha256 arm64_ventura: "02f3e7aa4614510f085fa4da15573d90c14cbe2d28ee0f0e746bd36e762152c9"
-    sha256 sonoma:        "0198d3055784fdbb38537cac2123a7436bb53fda399318c39c61d1fdcbc792b8"
-    sha256 ventura:       "b49c4ce047726c7115c429ce7fecebaf31e056e94539b7b0333753f38b969778"
-    sha256 arm64_linux:   "38e54b44ff7d38601ee05e206069da88b27266ad658dffb03d408f88122c45d5"
-    sha256 x86_64_linux:  "2641fb80871ba22563f3fa31d2d41aedaf07a1275203214477db2cdc66bebdd0"
+    sha256 arm64_tahoe:   "03f5efc7f8ff8fa0b71b053e6fa55e88d44e0bf0c6724dc3879199868b3f3e70"
+    sha256 arm64_sequoia: "990ed4802368bd1544e97e5f49dd7030eea973710413aa5d5d1bfd6dff13b366"
+    sha256 arm64_sonoma:  "9f12f322c48ac1f8c4a9ff1add047e3a24773d3de15bc66f69174e9824f893d2"
+    sha256 sonoma:        "c27f7734c94b3481f639187966911d77c68592339939f78c602dae5dadc324f5"
+    sha256 arm64_linux:   "7278c6181bdce9e673f5cabf7f0fc872939d8e425daba127968c7addceff1747"
+    sha256 x86_64_linux:  "9f1ae5ddfefba5f689ffed4928c04509afcdd454c8abde62e5050b0d854a0023"
   end
 
   head do
@@ -37,15 +37,11 @@ class Emacs < Formula
     depends_on "jpeg-turbo"
   end
 
-  conflicts_with cask: "emacs"
-  conflicts_with cask: "emacs@nightly"
+  conflicts_with cask: "emacs-app"
+  conflicts_with cask: "emacs-app@nightly"
+  conflicts_with cask: "emacs-app@pretest"
 
   def install
-    # Mojave uses the Catalina SDK which causes issues like
-    # https://github.com/Homebrew/homebrew-core/issues/46393
-    # https://github.com/Homebrew/homebrew-core/pull/70421
-    ENV["ac_cv_func_aligned_alloc"] = "no" if OS.mac? && MacOS.version == :mojave
-
     args = %W[
       --disable-acl
       --disable-silent-rules

@@ -1,30 +1,29 @@
 class Otf2 < Formula
   desc "Open Trace Format 2 file handling library"
-  homepage "https://www.vi-hps.org/projects/score-p/"
+  homepage "https://www.vi-hps.org/projects/score-p/overview/overview.html"
   url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-3.1.1/otf2-3.1.1.tar.gz"
   sha256 "5a4e013a51ac4ed794fe35c55b700cd720346fda7f33ec84c76b86a5fb880a6e"
   license "BSD-3-Clause"
 
   livecheck do
-    url :homepage
+    url "https://www.vi-hps.org/projects/score-p/download/download.html"
     regex(/href=.*?otf2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_sequoia: "bf03e30a4b748814623d920cf6ca4ba61462ae684a44771f989c05ba2b0934d2"
-    sha256 arm64_sonoma:  "b4dff2dd5254e62c3cd810ac1c16867b18a81234d6a093ab75133d4079fe647b"
-    sha256 arm64_ventura: "638de457bf40ab80944527bfd56ca70b2235b38e2a4af71f6cde66f12d2389b4"
-    sha256 sonoma:        "4987fe04a326f4736ec4eeaa3d332bf8daf4b0e3683fd5349cb001161a602eb9"
-    sha256 ventura:       "d6190ba13bb60f56336225dfabce7506d0cc08e70acf92ae114c93782171d279"
-    sha256 arm64_linux:   "5681d5b715c4940a4abb1b0dfb8572ac775ed99f05d04fb63fa9e32203aab63d"
-    sha256 x86_64_linux:  "9b35e4c7047c6fbe7ff749e16f4f900710005fa459230f0db3281bb433b8f149"
+    rebuild 1
+    sha256 arm64_tahoe:   "0699ada7968a7a8bac23d0a2e120d325e36f8a0aeb5637b91fb71acacfdc05ff"
+    sha256 arm64_sequoia: "a62f6852a4714aee63e80f10cfdd27b008c4ff5984d8a3e859baeacbc08dc42f"
+    sha256 arm64_sonoma:  "3472c030be39bc7430179ae6d1028d4ac3539e9229dee0d86a4f95077ef898f4"
+    sha256 sonoma:        "a1d4ee581094663d2042211869b0ad1009d7213a3df6b51d7152d2a855a4aeef"
+    sha256 arm64_linux:   "a92b2db2f4624d69504d3cc37d88e25553ccd507e2b2b4abc1e248e1147a2523"
+    sha256 x86_64_linux:  "966abf2c53bb4dd7f566b972e2b1c7defb27e37bdd0b5771b6acec6fc8752fe4"
   end
 
   depends_on "python-setuptools" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
@@ -33,18 +32,18 @@ class Otf2 < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     directory "build-frontend"
   end
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     directory "build-backend"
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

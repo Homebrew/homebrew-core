@@ -11,6 +11,8 @@ class TodoTxt < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "aa11eb960775585bbb243b4206daeabb25c7d776e24d57726bb7ad359fd6d290"
   end

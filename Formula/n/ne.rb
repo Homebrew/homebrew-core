@@ -7,6 +7,7 @@ class Ne < Formula
   head "https://github.com/vigna/ne.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "8d3fb098e03124349321ca8162f9b615f1d6ae439be8f5687a6cf791a3960dd6"
     sha256 arm64_sequoia: "0c706c6b164b969590e18e216749428499344301311d38019f7e6e68165d3467"
     sha256 arm64_sonoma:  "507d64103eaa17b9b593406d7727a8f94919e7b14a06ed35d9f6c85a8138b47e"
     sha256 arm64_ventura: "c59bbbd54eab62c73c3f51c15022fbd5c68b35bb8f917030ed8006cb990486d3"

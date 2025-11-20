@@ -6,6 +6,8 @@ class Scalaenv < Formula
   license "MIT"
   head "https://github.com/scalaenv/scalaenv.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "9587d95fe717240f70b2d0b7b1b90e17084bb635196e38e6bfc35be17a7cc7e3"

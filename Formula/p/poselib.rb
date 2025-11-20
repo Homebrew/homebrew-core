@@ -1,18 +1,19 @@
 class Poselib < Formula
   desc "Minimal solvers for calibrated camera pose estimation"
   homepage "https://github.com/PoseLib/PoseLib/"
-  url "https://github.com/PoseLib/PoseLib/archive/refs/tags/v2.0.4.tar.gz"
-  sha256 "caa0c1c9b882f6e36b5ced6f781406ed97d4c1f0f61aa31345ebe54633d67c16"
+  url "https://github.com/PoseLib/PoseLib/archive/refs/tags/v2.0.5.tar.gz"
+  sha256 "a9493e6725c58e6ae541fe416c0a6179185a60006880ff3ddf32737a43695668"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "62ba1d9d73288e53a7fa31462a0aeef5eb5d32305d77c5207bf626d0c8d52711"
-    sha256 cellar: :any,                 arm64_sonoma:  "0c58c6ca1d520956f808e52273fdd32ea132021906e629325272272dacb90c7b"
-    sha256 cellar: :any,                 arm64_ventura: "7b6e8c4abb3b2e00c8dfa0aa600599c9d930724e09d1dcf45339c903121fa8f1"
-    sha256 cellar: :any,                 sonoma:        "e520e1731c729e1ee2dc91a3d6e3d5773bc6f5414098b6b0d61aa7984a3d7467"
-    sha256 cellar: :any,                 ventura:       "3e3d39c0763a6efacdc2f9154851ee80174ac64ad3aa0518fa9e35871e42cb53"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39566056afc9dc3a3f6aa15adbe8fa603b1f2650a3903c76f94c053e8ec8f0bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "598ee718057f572aebb473a515f4201391808f59563811eaa8809a5dcc7bbacf"
+    sha256 cellar: :any,                 arm64_tahoe:   "dd83a55d57f61c2c99e5711cf0bd80e792d686a82f3e326945eaf42675340589"
+    sha256 cellar: :any,                 arm64_sequoia: "72e32c33fce8115a8e061c70f2d96f67daa47d5fd44ad211ab367ac472d85540"
+    sha256 cellar: :any,                 arm64_sonoma:  "31a44969e52bc29df45aa648e264be5689b0e4c129c6b77a95ef7b205b90d719"
+    sha256 cellar: :any,                 arm64_ventura: "0af8973a43aa261e9becdf5c1595e1682e8b6d153ec754e66df76056db6efdf8"
+    sha256 cellar: :any,                 sonoma:        "7dedd4a54068190cb6a94a1f3974e26ecdaa860f49c3a98d4b2c17464eece401"
+    sha256 cellar: :any,                 ventura:       "693a649c3146d200f474af3905394f4b0287a0b0b00b715462ad3ad5715f8db9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4dbeb31076c8ad21201c7d6c2b9c4044663e5dc4a07ffec881a855fcfd1256e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "590b3174a491f0e1349a974c3b73f0fddbe3a66e887da4e882854ab65c843f61"
   end
 
   depends_on "cmake" => :build

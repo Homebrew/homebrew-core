@@ -4,6 +4,7 @@ class Pianobar < Formula
   url "https://6xq.net/pianobar/pianobar-2024.12.21.tar.bz2"
   sha256 "16f4dd2d64da38690946a9670e59bc72a789cf6a323f792e159bb3a39cf4a7f5"
   license "MIT"
+  revision 1
   head "https://github.com/PromyLOPh/pianobar.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,14 @@ class Pianobar < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "40becb06f83fe8900cc315c4e17a6f9d2aa0e6c0f64ebfa92c9d4375f0f37822"
-    sha256 cellar: :any,                 arm64_sonoma:  "60fbc938432af84fcbd2d65af5a8c7f84a73971953026904e40a72f36ca9916d"
-    sha256 cellar: :any,                 arm64_ventura: "b10ac8d07a77bb918559f52fd2b940e1fbb67114821bcc0787f00998343ef32a"
-    sha256 cellar: :any,                 sonoma:        "54ece37889c899e13f6a450eaed826b55a02212677e6335f30733bb11dc3ba84"
-    sha256 cellar: :any,                 ventura:       "075e6a4aa76b0c0652c66017f8fddb9642b6d4ed5e04686594ff02ea0e2f2426"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d61b74b4790759e60e56c38a0524059925c73c3659c4c9290133d6569add8b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adcd810b2c11957d38dd073181a1742e0d579a60b61c78228ac21fb2fc9f101b"
+    sha256 cellar: :any,                 arm64_tahoe:   "384c9d511862df579e9edd7e91367408b01841ec5926c239c04680e4f3dad505"
+    sha256 cellar: :any,                 arm64_sequoia: "7d91f1b3141a04ae0dad7baf5cf04ed4f3c79e0bb716fd4fc6e7961441fa2d15"
+    sha256 cellar: :any,                 arm64_sonoma:  "133aa95d8f02358517e87d5afbb0e3a13463be0b03a543cc84181fa4ce90402a"
+    sha256 cellar: :any,                 arm64_ventura: "a8036ec711387dd1e58b765777538d1bf5dde7d16e2c0aec05d80032a8f8ade1"
+    sha256 cellar: :any,                 sonoma:        "e9fce5e9ddfe9a904f139db4ebcd03b78700bbeafbc9abe4e7c40a6c7290039a"
+    sha256 cellar: :any,                 ventura:       "8cc83ae82d7f51480f62258273093c9e51c0cf1cd0911c8bc72f32276602c013"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e44848c2f000bfe6e4974e4bfdd1384fe4acbe2e02e260897cc840980be51c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cba151913c6d32be73748df86c72b88eb28769c718d6d7c8f3378aa175145d9"
   end
 
   depends_on "pkgconf" => :build

@@ -6,19 +6,14 @@ class Grantlee < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/steveire/grantlee.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "7821ba762af4dd4005b8c82ef9f2d3cbb9b03ad5ad67823ef92c9c6e8b249d48"
-    sha256 arm64_ventura:  "cd51401e55656ade5d8842df92957a6af33ea3d3da309c418d0dd3b9c360e85d"
-    sha256 arm64_monterey: "c48770f2d0dd9d96cff5f935f24da74cbba4bc03711803d86ca43a40bdb74d74"
-    sha256 arm64_big_sur:  "deb426bef80bf69b2ef4a52b9aeed26283400f6d7f6ebe6d495ae43c2ba647d3"
-    sha256 sonoma:         "2d20f5ad54f10d012824ec81eb04b032f0be388e088741fc4e64eb382232142e"
-    sha256 ventura:        "afe7f2fb56c25ea01712c69806e5e6c91bfbc495604f254ff10443ceafe46334"
-    sha256 monterey:       "ac395abc45412eca0aa6e5292127b6655f45ff4785d8d69457bc9f124f87f222"
-    sha256 big_sur:        "cb83e418903303323e40af6f902331b1365ecb31382fc7f7407753a1533d0a0b"
-    sha256 x86_64_linux:   "9fa1fc4626d293531c6a3823ed4124b114a5f823a58753731cdc4fd3c008271b"
+    rebuild 2
+    sha256 arm64_tahoe:   "7501770536b91128b4cfc7bd84164137107e4c8b75832724519c59e09066221f"
+    sha256 arm64_sequoia: "ff5f356d9d99d20848a315efc7e30a9046ab6534cd55a12ae8db0ba3ff86a1b1"
+    sha256 arm64_sonoma:  "2a8a17b9478212757c2f73b9dc46f0db605dc8716088f5bbe11ba4eaa60efb98"
+    sha256 sonoma:        "236c5ab7ebfa19ffc87cdeaf8105236760ad4ba5360ac4262512db9c66278d32"
+    sha256 arm64_linux:   "059193ce399d602b74074c138f48b3853e633d7d105af82dadc986958c6cd811"
+    sha256 x86_64_linux:  "74b014396908eb267076c314c1da3e6fc3780447b16a4b7d0bdabf0f5da7fc50"
   end
 
   # From https://steveire.wordpress.com/2022/11/11/grantlee-version-5-3-1-now-available/
@@ -31,7 +26,8 @@ class Grantlee < Formula
   depends_on "doxygen" => :build
   depends_on "graphviz" => :build
 
-  depends_on "qt"
+  depends_on "qtbase"
+  depends_on "qtdeclarative"
 
   patch do
     url "https://github.com/steveire/grantlee/commit/1efeb1cb61947e69b8c99ddbfc5b75cd27013a87.patch?full_index=1"

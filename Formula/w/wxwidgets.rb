@@ -1,8 +1,8 @@
 class Wxwidgets < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.8/wxWidgets-3.2.8.tar.bz2"
-  sha256 "c74784904109d7229e6894c85cfa068f1106a4a07c144afd78af41f373ee0fe6"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.3.1/wxWidgets-3.3.1.tar.bz2"
+  sha256 "f936c8d694f9c49a367a376f99c751467150a4ed7cbf8f4723ef19b2d2d9998d"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
   head "https://github.com/wxWidgets/wxWidgets.git", branch: "master"
 
@@ -12,13 +12,15 @@ class Wxwidgets < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5e0aa82886721db8bc109785272271aecbc86b2e44185bacb6c947fd19f6fcc2"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8e1a68822e6a854138ed7d17be706a07df64e4a38900b98a6e88a36f785c500"
-    sha256 cellar: :any,                 arm64_ventura: "5d9b32b6973e71173101c6b45d1a350f724442088681b5721caa613318805876"
-    sha256 cellar: :any,                 sonoma:        "981feac70f9e659e8e45d1b7de4030fcab77ecda3dab2c0d43033e116d24122c"
-    sha256 cellar: :any,                 ventura:       "ef48295f3fdc268a6e1ed3daef93017646105dff9bb962f67b567d66830c451c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "19d1970a8f32864712fa40f2932e943a097ac9752b04f78fdf912a86b3d6bb11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40a393ed11e8f3dee0153c52441eec44b185c197a2c2175a7d592105aa0df5b9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2e0e49d77a50fae093ba05fbb33dd7e7f85904e41d19d183a0d1d0536259a781"
+    sha256 cellar: :any,                 arm64_sequoia: "68e7b48517034aee17f6dd2a01e0bc187eb8bb3134eef1a8e21d1aa1588dccc7"
+    sha256 cellar: :any,                 arm64_sonoma:  "5c0ef73e591ab78fd499d70c1c3d2c9c7075235e1d0b58cbdebdce1d9d9e07a3"
+    sha256 cellar: :any,                 arm64_ventura: "cbe903ce43449aab311c9bf986bcffb088ce140b92e9d48aaa27029e25710089"
+    sha256 cellar: :any,                 sonoma:        "2ccc3efe4545d4427d9d05babebec32412b373922b32a4449c7ac1016ea8fbd2"
+    sha256 cellar: :any,                 ventura:       "a75c5640475ea3d3de76bd1a6c94f500bd563424db049572b77b46923a01d14c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbbcc4091bd5549e44971ccd98d3c7b9c331e2b902fb3f4ed63d8045f62a1b73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21d22b573549d66b83d46cc784fcdc3bb092098c0ce12b6c5a5a32700c1beb01"
   end
 
   depends_on "pkgconf" => :build
@@ -26,6 +28,7 @@ class Wxwidgets < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "pcre2"
+  depends_on "webp"
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
@@ -49,8 +52,11 @@ class Wxwidgets < Formula
 
   def install
     # Remove all bundled libraries excluding `nanosvg` which isn't available as formula
-    %w[catch pcre].each { |l| rm_r(buildpath/"3rdparty"/l) }
+    %w[catch pcre libwebp].each { |l| rm_r(buildpath/"3rdparty"/l) }
     %w[expat jpeg png tiff zlib].each { |l| rm_r(buildpath/"src"/l) }
+
+    # Work around removal of AGL in Tahoe
+    inreplace "configure", "-framework AGL", ""
 
     args = [
       "--enable-clipboard",
@@ -59,14 +65,13 @@ class Wxwidgets < Formula
       "--enable-display",
       "--enable-dnd",
       "--enable-graphics_ctx",
-      "--enable-std_string",
       "--enable-svg",
-      "--enable-unicode",
       "--enable-webviewwebkit",
       "--with-expat",
       "--with-libjpeg",
       "--with-libpng",
       "--with-libtiff",
+      "--with-libwebp",
       "--with-opengl",
       "--with-zlib",
       "--disable-tests",
@@ -80,10 +85,6 @@ class Wxwidgets < Formula
       args << "--with-macosx-version-min=#{MacOS.version}"
       args << "--with-osx_cocoa"
       args << "--with-libiconv"
-
-      # Work around deprecated Carbon API, see
-      # https://github.com/wxWidgets/wxWidgets/issues/24724
-      inreplace "src/osx/carbon/dcscreen.cpp", "#if !wxOSX_USE_IPHONE", "#if 0" if MacOS.version >= :sequoia
     end
 
     system "./configure", *args, *std_configure_args

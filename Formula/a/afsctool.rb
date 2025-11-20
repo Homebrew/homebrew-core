@@ -4,12 +4,13 @@ class Afsctool < Formula
   url "https://github.com/RJVB/afsctool/archive/refs/tags/v1.7.3.tar.gz"
   sha256 "5776ff5aaf05c513bead107536d9e98e6037019a0de8a1435cc9da89ea8d49b8"
   license all_of: ["GPL-3.0-only", "BSL-1.0"]
-  head "https://github.com/RJVB/afsctool.git"
+  head "https://github.com/RJVB/afsctool.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "551e9f8910b53ce228f1f710e100c54266cbed7ffa3a087ecec516c71bba5dbb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9eab0e700160a5bf2d1f62f8e67a017280e10315030cb09134933ee782974a95"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a1596705cff076205b68f6fa301394e2feb6bdfc071543679db46aa38eec7aae"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6528c95eb0a3b0b57a72eeb847ceab4e4887cbcbaf46a019f9e47d875b6deb9b"
@@ -31,7 +32,9 @@ class Afsctool < Formula
 
   def install
     (buildpath/"src/private/lzfse").install resource("lzfse")
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     bin.install "build/afsctool", "build/zfsctool"
   end

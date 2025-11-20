@@ -1,28 +1,28 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.21.tar.gz"
-  sha256 "047fce790d69c234dde1d23ad9e1f0cf868ac51b2ad9a76560d01e80f2f1c452"
+  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.22.tar.gz"
+  sha256 "67481fc520ff927bf61aea0bf2d660feb73e24cc329335bebb064f8f12115dcb"
   license all_of: [
     "BSD-4-Clause", # AFFLIB 2.0a14 and before
     :public_domain, # contributions after 2.0a14
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "415198525cd476abc0821e74c603ed01181276a3dd535ab18040cbe069195581"
-    sha256 cellar: :any,                 arm64_sonoma:  "5f03dcc0b3c684a789bf81d700e7ddfe0a14093915c2872634424b55652a1389"
-    sha256 cellar: :any,                 arm64_ventura: "6e8bbe1340c8f6b0c0b4e171ce27e0bb58fc7dd4c582dd55ca22cc78f5738599"
-    sha256 cellar: :any,                 sonoma:        "dd9226742b7b0c22ec05712fe074202a59af8d6734062ae86080843c8bfa71d1"
-    sha256 cellar: :any,                 ventura:       "79daeac53f022c937b8f637b1be92b5b710b9aad7d2072225bacd85516229df9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "11e7390f80f0cec23e526eebc6347ec8632dd5c1e0fd7e209c0db7cc330e8acb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fad4c5a290b821683ac96da984b2dd64a3c7b09277e58d8a6cf571825069d8c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "db3b39ef1335b3f8a8285a7aa4fdecd8f7dc720719f1a4900aeae3b32a80414f"
+    sha256 cellar: :any,                 arm64_sequoia: "efdb247c3914a7f915a611100161c86380bba976856078094f2b80acfa7d9c12"
+    sha256 cellar: :any,                 arm64_sonoma:  "488454a73b94dd3e858bd582ff0aa72ceae15fceb51f54192b96f142ff7af4ce"
+    sha256 cellar: :any,                 sonoma:        "9638dd07d37bfc2ecce341bf7360e7a0681e529e89f991d580b31c2e67abfbf0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df198c6d6c4ca05dca7821410d5ee80ad7618b3d50988c1ad62603a8b9c604ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85e81fadf3c44eae7e1354f6239ec86e6c9ee341382f9a1b6ccd17c5ea095daa"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
+  depends_on "python@3.14" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
   depends_on "openssl@3"
   depends_on "readline"
 
@@ -31,7 +31,7 @@ class Afflib < Formula
   uses_from_macos "zlib"
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install

@@ -1,19 +1,18 @@
 class Kanata < Formula
   desc "Cross-platform software keyboard remapper for Linux, macOS and Windows"
   homepage "https://github.com/jtroo/kanata"
-  url "https://github.com/jtroo/kanata/archive/refs/tags/v1.8.1.tar.gz"
-  sha256 "77ca650559fd9b5af283404c9582ffe89182ee9d4ff4154e7e2e483e68eeff8d"
+  url "https://github.com/jtroo/kanata/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "6c2d0bec8390cd0d7807aeb2550d0888434cd71d3e8c89a2765c18dd53b946ac"
   license "LGPL-3.0-only"
   head "https://github.com/jtroo/kanata.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df97ed1a656d62fcba8d9bdc9d5a8904c8dfbbd82b630723b296ce564868151f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0b74a5893bc0f6bff10502462dac37f9842b47f0bd77cb22cb8148dcefccd07"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ca911a4ad48e270eb8d68f37f02bd447ddca389fcc8dc6138b795408abd3c9d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0adac8827b4cf033a98aa81e6470a235ba54479e93f075db66ba3c4c0497747d"
-    sha256 cellar: :any_skip_relocation, ventura:       "77ea8034460b27ba5eaa3589cf32af346699dab214334d801d90707fa612c96b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3a2eb12be9dbf1cb2e431f9ae84554863b6c136fbe48a593dfd1f6e42928201"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "924dbdd95380eae94d5e732fa3f0686b1b07c4c34d60f8838b7caab820f706a2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a495b3b430c223e6748f4c50f99b078edb0a891ad04bc2d629c1e6c99b8a711d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0ef945f36a18a2234f509d9265814f6c55199b7e836cd9dbf0ad1886244da20"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6dc337b70fb78e29e208d23743cc85f5285bde45da6c5501965376a3aa7bc663"
+    sha256 cellar: :any_skip_relocation, sonoma:        "abeb5cc6a3198a9c7aeb845a777d869e3c33f65074107017276765402cf33330"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c07864e325d8ca5fe93260c0bf702ed748d578418443a2b477fd0efa0b44b72c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4319ad42e1463a87c8e2599a26a6f3be145384da95ed078f1039963e3d3d9b3"
   end
 
   depends_on "rust" => :build

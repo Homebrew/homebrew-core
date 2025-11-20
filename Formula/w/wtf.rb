@@ -10,6 +10,8 @@ class Wtf < Formula
     regex(%r{url=.*?/wtf[._-]v?(\d{6,8})\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "bc34952388539647f56ffd984f795b2fdea730d0ba466a6bd6ec9aedea6a74cf"
@@ -19,8 +21,8 @@ class Wtf < Formula
     inreplace %w[wtf wtf.6], "/usr/share", share
     bin.install "wtf"
     man6.install "wtf.6"
-    (share+"misc").install %w[acronyms acronyms.comp]
-    (share+"misc").install "acronyms-o.real" => "acronyms-o"
+    (share/"misc").install %w[acronyms acronyms.comp]
+    (share/"misc").install "acronyms-o.real" => "acronyms-o"
   end
 
   test do

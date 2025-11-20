@@ -10,6 +10,8 @@ class Umlet < Formula
     regex(/href=.*?umlet-standalone[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "81e9e4e1e8f71f11e7ddc0468109c03b5fc37353620c24c34fca14eace0b1373"

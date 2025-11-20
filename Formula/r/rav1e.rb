@@ -1,8 +1,8 @@
 class Rav1e < Formula
   desc "Fastest and safest AV1 video encoder"
   homepage "https://github.com/xiph/rav1e"
-  url "https://github.com/xiph/rav1e/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "2580bb4b4efae50e0a228e8ba80db1f73805a0e6f6a8c22bee066c90afb35ba0"
+  url "https://github.com/xiph/rav1e/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "06d1523955fb6ed9cf9992eace772121067cca7e8926988a1ee16492febbe01e"
   license "BSD-2-Clause"
   head "https://github.com/xiph/rav1e.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Rav1e < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "418639465dc358883b2855811433ec6a74f5ae7ff45ef20701afcccda4a2b1a9"
-    sha256 cellar: :any,                 arm64_sonoma:  "e8e6cc2235e8c4cd8e53a20c8a53314b8de22551d876b730eccb0531d788aa07"
-    sha256 cellar: :any,                 arm64_ventura: "770faad426e3056b3527b135165cc81862b8cbe598e9c50606455e974dacfc6f"
-    sha256 cellar: :any,                 sonoma:        "13a955da9cea55b1350ad3e1ba8c59eb4b10c781881228d243b8fa443156e10c"
-    sha256 cellar: :any,                 ventura:       "26c11b1ebf71c587585925538e0138f5cf33405e96ffaf66506d695374c17f7b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65e9eeace72c7630aad3bb366cd6fd58a1a73af7d94109915249a1ba02a4e2a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04d05384401af34ea7317d5ee4b195421f6e28372dd616733a1b48d7e002335e"
+    sha256 cellar: :any,                 arm64_tahoe:   "66ef57034787b9e1328abec79bb85ca9fd65c5f4a2bb800be9b5a58ecab849a5"
+    sha256 cellar: :any,                 arm64_sequoia: "61118a13d9f434197f16808350136c7aafc898526937e3ce2917566e77c2672b"
+    sha256 cellar: :any,                 arm64_sonoma:  "d7f57daaf463e8a261e3f2eee9190c2580b3f29c2ab4ea1b6fbab085bc6c167c"
+    sha256 cellar: :any,                 arm64_ventura: "9b2e4642fa874e1963150309940c638affaac512d2b02594f27b320d89244465"
+    sha256 cellar: :any,                 sonoma:        "9257e1d8cfbeceb7c20c8605281fb69781e6897b7e226a7b93d60c0ea57ad508"
+    sha256 cellar: :any,                 ventura:       "5903af836d3c0b3101af86df8463a51616f9a891a9b382838249408f9e7eea3d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3876806872747aa7ef41b4091ea601992793169ab3c6eb74fd4b1af05c4b46ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1ba1d0927e415f2b24fda342ac7f3ef25f99a060e6c68bd929d147da8ea6a92"
   end
 
   depends_on "cargo-c" => :build

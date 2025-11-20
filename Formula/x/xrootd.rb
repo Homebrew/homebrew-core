@@ -1,25 +1,24 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://github.com/xrootd/xrootd/releases/download/v5.8.3/xrootd-5.8.3.tar.gz"
-  mirror "https://xrootd.slac.stanford.edu/download/v5.8.3/xrootd-5.8.3.tar.gz"
-  sha256 "8d7ac76eff83540c595a290c56e9cb493d582a93af743e7ef4b4160289c25ff3"
+  url "https://github.com/xrootd/xrootd/releases/download/v5.9.1/xrootd-5.9.1.tar.gz"
+  mirror "https://xrootd.slac.stanford.edu/download/v5.9.1/xrootd-5.9.1.tar.gz"
+  sha256 "39946509a50e790ab3fcc77ba0f4c9b66abef221262756aa8bb2494f00a0e321"
   license "LGPL-3.0-or-later"
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1e609819ccacfb7b1eab2f3fea963877af14bfac8a3c46750489a4ce5bb15cb5"
-    sha256 cellar: :any,                 arm64_sonoma:  "81efb994b910e12272c225a07e9afda73c9203a65dcd442fd9c26f37373894c9"
-    sha256 cellar: :any,                 arm64_ventura: "4e8cd477de5860c3fc84a70f191da29c2a1382a241c4cc8b68c3a1f5835b7f06"
-    sha256 cellar: :any,                 sonoma:        "ec67c78d80365531fb875d7f1b278b8ed7bddc0ff38a87b1757897408792198c"
-    sha256 cellar: :any,                 ventura:       "32402d094970dad5850059d637a17f1dbd37823a9954edd6385cda2a5cd5d86a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d905bba9b5fc3b2bb748dbe60504a7dec164f617aebd07f63baf020eb16bb883"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85e7863245df827fc0d879a95c0e43a809a8aff9bcfb85e0ed26812ca6e099a6"
+    sha256 cellar: :any,                 arm64_tahoe:   "e17e1a006be3149a52d22d04b63778ccfb9ac702b391c22d40149ed8e0741610"
+    sha256 cellar: :any,                 arm64_sequoia: "2bcaa3a0e5f21d166a513bd4512fdb3428d93020b983e989330bbdfb719196c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "20372f4511f80bc1c3e6d9c3b65776756290179f6bd56bd5237a2009b28d98b3"
+    sha256 cellar: :any,                 sonoma:        "ba884b887699f4dc3767b1bc976cb602c56a777c8e2702078f44a067f59f970b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bee9840dfb63fdd91812e336caa3c9f71a6dc5c4d556827b2b0ff99f2572257"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e3fd497674e6051cb16c26ac7f9b34200d817bdc382a2332b8d4f75975eab77"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "davix"
   depends_on "krb5"
   depends_on "openssl@3"
@@ -35,7 +34,7 @@ class Xrootd < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

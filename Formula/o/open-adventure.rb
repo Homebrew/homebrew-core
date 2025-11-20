@@ -8,37 +8,38 @@ class OpenAdventure < Formula
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/open-adventure.git", branch: "master"
 
+  # The homepage links to the `stable` tarball but it can take longer than the
+  # ten second livecheck timeout, so we check the Git tags as a workaround.
   livecheck do
-    url :homepage
-    regex(/href=.*?advent[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6eec5f4234610108d0981675069e9cb399629b5583375e8a3646cf40106ce84e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b79ead7a8777908582bbae02d996718401ad1e8ac590bc67acb9f47e90f6bdf0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "37eb08a624d5b0bed4316bdf8cbd41a32d61a47aa1049d6f14102b26cd3a7f8b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "29b1fc41c2bafbc1d51339ff08dfb7368014c747ed611230760e41007885dca3"
-    sha256 cellar: :any_skip_relocation, ventura:       "48635b97a030dc943aa46c63ffc9d2577364d2c9b228361b3dc699db76d68976"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f83e115dd977b51f17c67a75324e40803f45791dec3539e8a8e6115098047b62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdd8abc0993bac8839ef252f7e567b40760072687fb0fd982967c599c19e758b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a5cd8f69998d91913b55151dd6d546ad6ae558913b5691a446313bb7c479abd4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a87d0c7a7e99a6170f9e899c298109ad6443bd4b1fefe8efbbcf68c245c5878"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb42895c9ea5740634c62e6c16f1680cd1f640b0c0a00cab5a6d3be53e92b039"
+    sha256 cellar: :any_skip_relocation, sonoma:        "703624eecbc0d021d1ea47e49738a074fb7f0f973d5b1b013c7532dd8da2ec75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11986ede6b55b722c796c6e80f3eed1ac1fa3d4757b3dbc7a04a1df37f509e08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0aa4f90ca96e69a747ffa5e90d2f8388248c077f0c5f9154322f8df690bf048"
   end
 
   depends_on "asciidoc" => :build
   depends_on "libyaml" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
 
   uses_from_macos "libxml2" => :build
   uses_from_macos "libedit"
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   def install
-    venv = virtualenv_create(buildpath, "python3.13")
+    venv = virtualenv_create(buildpath, "python3.14")
     venv.pip_install resources
     system venv.root/"bin/python", "./make_dungeon.py"
     system "make"

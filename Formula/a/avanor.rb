@@ -8,6 +8,7 @@ class Avanor < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "f4e7392f6932b4478f15b384de5435734302d9758907fac70bb02d70e8307ea6"
     sha256 arm64_sequoia:  "88abecffbb226843739fc147a93b4ba8d7feeb105f4ae7f3580ceb719c16ce8f"
     sha256 arm64_sonoma:   "f230abf456ef3e8f748a444f6c4909ae3d94553e6fc7dee79a871d1b7639e9a7"
     sha256 arm64_ventura:  "ccc57d4f9e6be0a45d01a7498cd8f4503810d6f754847ca561e0404f705ad5b7"
@@ -18,10 +19,6 @@ class Avanor < Formula
     sha256 monterey:       "31f93f42adc5936fa370279095f656b270e0ffb3fe79f3fa163cab67d6fa3bb7"
     sha256 big_sur:        "fe8fbd3aed29fc9c50753000036d9c13b5e8732f687d71b061d954e83517d403"
     sha256 catalina:       "ecaf9be2ed4f7fac2f5cff16be121214bbbfd44477a5f3f5287ce26da94fed3e"
-    sha256 mojave:         "ca4aef9b5bceb8f3dddd89f58846f4d9cfbddf2f108a7e8e39d262e92ea9bac4"
-    sha256 high_sierra:    "d99615cac684c32894df532e78452b2542ba857ce69fa58d39e54bcc2fe4ca4a"
-    sha256 sierra:         "848e96ed26b258042b77a3c2139398b8e6f62722719263c082fb4c6655ffd4bc"
-    sha256 el_capitan:     "a66b436a645cafa77a5bd79d22f314ff2b9331526f5efeaf79d38346647cad66"
     sha256 arm64_linux:    "39d71fa50daeab0033fb05cbc656d28654effd5c1d650b8e4cbb339ef96004ec"
     sha256 x86_64_linux:   "99ac78a20ffc5cccb1a0b5617c9977501a41edb8823663ee4656d177fad7ed09"
   end

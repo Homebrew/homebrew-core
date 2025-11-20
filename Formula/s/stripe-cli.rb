@@ -1,18 +1,17 @@
 class StripeCli < Formula
   desc "Command-line tool for Stripe"
   homepage "https://docs.stripe.com/stripe-cli"
-  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.27.0.tar.gz"
-  sha256 "217f1462003fb7dd6e8ca14507211301ef128107ded2fb03cc19cdf608a9fec4"
+  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.32.0.tar.gz"
+  sha256 "36a5da61eaae0d09281ea60b479a6ef7f682a4e906697a4794c8317acb9fed79"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7da1b9fa0419c5e31d804191ac6ab9a6147e4a9e5e0baebdc905ef031fedb02f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0f7ced54283e77628ba5db93ae35e37aa6f71c3ece339f147c74b7fe4350170"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "26a1d8cbabe334c407ddbb61386004dc3d445c3009ae800d2b9d436abdba0319"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8fc7c85bbb01ab2276896cc208ea7cb29615147b47bae10f5cbfdfb1f55adb1c"
-    sha256 cellar: :any_skip_relocation, ventura:       "2586abf0092dd9080ff993e4ef7a837aaa8620f260228d7490d778d1bbfa736d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8996ac34581849c34f7d86c5332e550e0185e789c5826e5da3d16603adfb442"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54e05811de441326503f42f3f29f724f894fb975bc5e9c56f3dfbd487aedb14f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0331f3d9d1295d581a12e89a39fa6b36cff7d957e7926e5594550b717b8ce909"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "77f5e566dce1d5da52a61948ec740808e2e748a1cb3611ad7f090d374887377c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e3bb04a737a8eae992c25563e6d5f91afa637df0788a6733b941e9d6e2a2afa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5991c54383f9dd34bc6c8bc6e7b262dfeb258e9cc812c1af1f55292a34e51774"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5b6ab55602cfa833631685cf4194ee769f2beeae99298534f753a1027b7f1d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5a41e496707dd79d979338ef437357c4a2c70e843d1716c1982dc6f59040d61"
   end
 
   depends_on "go" => :build

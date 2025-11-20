@@ -8,6 +8,7 @@ class Hunspell < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "d2821926f2ded88b146f72f281ad7144485140429a432a21bf187eb90558d57f"
     sha256 cellar: :any,                 arm64_sequoia:  "98c354c4b2d30399b17d20622cddfbbbc27a2a33fbde6c53a9445375ab4d6c61"
     sha256 cellar: :any,                 arm64_sonoma:   "7c5fef61ba38c643c6e29cdb3e835875011411edf1f421a7f0329e1723c6e397"
     sha256 cellar: :any,                 arm64_ventura:  "97e8e1bbf7cbad6fa97efd96711e0ff25d46cd98bd19c75dab4d1160c00b591d"

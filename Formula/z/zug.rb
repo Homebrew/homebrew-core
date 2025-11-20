@@ -5,6 +5,8 @@ class Zug < Formula
   sha256 "1b9c8f962e40baa6f0c6af35f957444850063d550078a3ebd0227727b8ef193c"
   license "BSL-1.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "33a7f1d34c98cd5ee378621ce802982e1e74416ace1e10eb9c2c7d48efc8cb17"

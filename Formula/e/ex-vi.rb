@@ -14,6 +14,7 @@ class ExVi < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "c058c623956ae2057e5bb4a820c91b5f0bf3febf4f128f0f7a6e65a2d5699646"
     sha256 arm64_sequoia:  "6de1a4ee29d49c4230c0d9d044bfee06fdcf5d676c665ae422cf66a25727c398"
     sha256 arm64_sonoma:   "69b42aa6f4240ec7564308971cebb89d784b234787e541d9944abb188be9e76a"
     sha256 arm64_ventura:  "eabacdbaaa34c071ef481026c5594fbd4a40b562b1b26c334d32af0bd007bb96"

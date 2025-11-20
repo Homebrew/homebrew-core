@@ -6,7 +6,10 @@ class Xkcd < Formula
       revision: "5e68ef5b2e7e6806dd57586e9b7ed4f97f64dba0"
   license "AGPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "12b749bea35ff4bdf2e22379ecbaf6fe1932dbed2ad24593fec9991690eb1802"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "78fd0f7eb254f594cc5600317b385bcfa759d68b118d6be7ff71385ef1816bb2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "781fa4a629feafbf0ff10ee3c99a956ee59464ae909018b5d619946e48a23fcb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "395611b46f90c37e740d47e696f641cb2e4e9fbcd36404f29cc70e7d71fdc5dc"
@@ -17,6 +20,7 @@ class Xkcd < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "9010a3bec1ae4b24be2bc9c6b2b335456b8f7817a56823a1d69782d4c93dbb9c"
     sha256 cellar: :any_skip_relocation, big_sur:        "c70df4015231c9955bc1d67d3a55a0d70f8486a2444051feaf5997db19893f4f"
     sha256 cellar: :any_skip_relocation, catalina:       "7ce9eb7408f0d114c84be128b66b5654a32552b8489b8159d4e3cfe3c60178da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4add881c8653e7f3ac3b9282cbd7a334ee3e90c68c71081a4fe4f6d9d76466ee"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7748cc8d6d3651b22cd1960ccf30ca9b52314540fdbe5655888dfeee6c33bc0b"
   end
 

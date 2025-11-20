@@ -15,6 +15,7 @@ class Asciiquarium < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "c8d27e98633a1e5c8824aee48999c9d5ba0fa06da02b268772fcf8e7b6a9e492"
     sha256 cellar: :any,                 arm64_sequoia:  "080079f96aa210857f68ea0e376ce057dca85875e94df0a2da695559d37d08e9"
     sha256 cellar: :any,                 arm64_sonoma:   "059912db660f5e55c48c425c6c227f9122d02055e13bdaf1633ce39e0a4f575e"
     sha256 cellar: :any,                 arm64_ventura:  "6f9aa92e662714c05c5abebf715071a583eafdc0f639a1d0230a66043d28d088"

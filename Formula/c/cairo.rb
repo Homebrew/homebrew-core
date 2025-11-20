@@ -12,13 +12,15 @@ class Cairo < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "6b2d148a34a670430a459c374376ebed890b61eb7573e8aa952a4b909f443cee"
-    sha256 cellar: :any, arm64_sonoma:  "1fd50d14699ddc03d348baeda1e3a2c98bce8fa74b248481559c3afa17b7784b"
-    sha256 cellar: :any, arm64_ventura: "8ea2169c9cc4391f1a06be0b97413d11e5db2c845c65627ea122407b463c6b16"
-    sha256 cellar: :any, sonoma:        "76a88eab178ee0ada4fa05270834be6808e0f6480f68002d9f21bc41ee2e1cb6"
-    sha256 cellar: :any, ventura:       "44424dbd81d5e1c591c60243921fb0aea4a3bfd919d24883cd86e74d82d3bfcd"
-    sha256               arm64_linux:   "af87041f90f6c3a453baa6752055b67c0f9b6419f4f3f55c8639bd131417a44d"
-    sha256               x86_64_linux:  "ad2f527ee5910160b725637d97e64bea8cbfebebf6ffa8720a49c2de73763a48"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "0a59b15b0790cfdd761af1c0fcb82264fd3fbd9a75202bd2e194fc98999c12ec"
+    sha256 cellar: :any, arm64_sequoia: "c3c657a2dd0fac3e84d3c5d4e8327313f0ef217f26da2f73fbc50765fc9e9502"
+    sha256 cellar: :any, arm64_sonoma:  "af9f8ed4d44e37149a44f1a6cfdca8bacb7034690dcaa39619485171b15cbc26"
+    sha256 cellar: :any, arm64_ventura: "36d4e7c07a598f0aaf9190b4cd5203daa9ca613af73b152c5c6db12ccd235869"
+    sha256 cellar: :any, sonoma:        "a29a888d7f2cdf008c4e0525a72e3f5ad68c7917b830dad7c3d66f6e050fa4a2"
+    sha256 cellar: :any, ventura:       "4ce538d943ce70f5f9c7f10c3655e1385ef65172d2e26add2fc721901b170dfd"
+    sha256               arm64_linux:   "707c35672e01d67c2f6de3a7db40c9f6bf305d50ba71e58d4004896263743c89"
+    sha256               x86_64_linux:  "829f25c2b757e94571913ec6857d454c26d0bc729a154f067ad33ac985c47a00"
   end
 
   depends_on "meson" => :build
@@ -44,6 +46,7 @@ class Cairo < Formula
 
   def install
     args = %w[
+      --default-library=both
       -Dfontconfig=enabled
       -Dfreetype=enabled
       -Dpng=enabled

@@ -6,6 +6,8 @@ class Sbtenv < Formula
   license "MIT"
   head "https://github.com/sbtenv/sbtenv.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "6e5520ead3c64eb3f68e1bbc7e54ee271aaf36b1bc2b442b9514269df90a7047"

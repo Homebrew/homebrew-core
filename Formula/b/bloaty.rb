@@ -2,7 +2,7 @@ class Bloaty < Formula
   desc "Size profiler for binaries"
   homepage "https://github.com/google/bloaty"
   license "Apache-2.0"
-  revision 36
+  revision 43
   head "https://github.com/google/bloaty.git", branch: "main"
 
   stable do
@@ -12,7 +12,7 @@ class Bloaty < Formula
     # Support system Abseil. Needed for Protobuf 22+.
     # Backport of: https://github.com/google/bloaty/pull/347
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/86c6fb2837e5b96e073e1ee5a51172131d2612d9/bloaty/system-abseil.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/bloaty/system-abseil.patch"
       sha256 "d200e08c96985539795e13d69673ba48deadfb61a262bdf49a226863c65525a7"
     end
   end
@@ -20,13 +20,12 @@ class Bloaty < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dd24996db87e0756384539d8c2598aa55d0349c12b5b6147fd247dee1be37af5"
-    sha256 cellar: :any,                 arm64_sonoma:  "d53ee453c66dac7c2224878716db04dd061042d6db76d8677805500adb2ac1a3"
-    sha256 cellar: :any,                 arm64_ventura: "a5cafe2334eacd9edbbf40e50b70f7edeaa8d9353f1c265ce191093d2a0436f4"
-    sha256 cellar: :any,                 sonoma:        "3e7feff675fb3fb19547ca13cbd574e75858f2beff4cc0dae5cf0c34c9077d22"
-    sha256 cellar: :any,                 ventura:       "133138d221950a08502d2fe07503dac2e4e91bfc57ffa189a77caf09e7410a80"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd894c5366b869c0f04cd0c7b070179cf7ba2df99be977a03f0a740c75b8ee8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f41cb1f19e27ec162ed15777401528db2e4b3806f4d941ef099506b5066407df"
+    sha256 cellar: :any, arm64_tahoe:   "41a9df112be72d46c6f52f4ec5d146fb3ae14ca4315ed288f8ccf901796ec1a1"
+    sha256 cellar: :any, arm64_sequoia: "097a74fd6b9fbb8723c04b00e9b0408f3b8f38e2c010978a9ccb68aebca8a9db"
+    sha256 cellar: :any, arm64_sonoma:  "a6f8b6b048c77cad2975dfd03d3a20938233b2d59bdeeac39d5e8e74d9f4178d"
+    sha256 cellar: :any, sonoma:        "e1a3cba8dc751672420cc6baf732621796d7019fc5de85e741e7b59ef493c52f"
+    sha256               arm64_linux:   "381dfcef722c1d17d66d97e88d01d36b84097761c3d4af070a71bed83bfa74ae"
+    sha256               x86_64_linux:  "d94ceb81ca9937546fafb8f11195431c989fad5517978458321d1cc9bd58238c"
   end
 
   depends_on "cmake" => :build

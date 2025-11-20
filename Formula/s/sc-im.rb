@@ -4,16 +4,16 @@ class ScIm < Formula
   url "https://github.com/andmarti1424/sc-im/archive/refs/tags/v0.8.5.tar.gz"
   sha256 "49adb76fc55bc3e6ea8ee414f41428db4aef947e247718d9210be8d14a6524bd"
   license "BSD-4-Clause"
+  revision 2
   head "https://github.com/andmarti1424/sc-im.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "df975f182b5eab09c2d5a49e1b9c8fd56c0d44032b4ce251175b13cb15ca87dd"
-    sha256 arm64_sonoma:  "4c7b41b070f198f566a737bde07f2e6d09d1e72df6e5365dc7985e1bf5b046ab"
-    sha256 arm64_ventura: "66ed9adb30742165f893a2e5adeeb1edfecf18ed6e4c4ea4c32f948f7fd57efe"
-    sha256 sonoma:        "f06d0a80eada71abafe7fab5f64916adf4253a1517b3e4d0ae529a3ff25d7bf5"
-    sha256 ventura:       "dc9e91bbfe54d8969e72175182e3271d9ed85b22e5e5c8416be4bfad433d5696"
-    sha256 arm64_linux:   "d777c8ccd3dd2bba6fdfb33d13b3e2b038ff76f016b38e83510cd4bec61017e9"
-    sha256 x86_64_linux:  "c1f78593e30404a3f0201071e03d15bfc1efde780701e34c213fb6a40ac97b1c"
+    sha256 arm64_tahoe:   "fd88cedb27cd801e711d35807af662f104721c5fa16d30b399e59dd61bd66de0"
+    sha256 arm64_sequoia: "032e862f9c27aa081114f1f5b6a21a513b8cb5115429252cfd0d8c267d2aa1a1"
+    sha256 arm64_sonoma:  "a51e08e00306ed506a077c1464ac90454f494527f420875e461c0e356755b337"
+    sha256 sonoma:        "efa2f872a700ac2d422a629b810c22d1c9c3301e9484f40971e7c2895888ba19"
+    sha256 arm64_linux:   "e3c47188b55f959ac49a672a44f6e06f1547d3e5e1079fd5d59f435cd37e526a"
+    sha256 x86_64_linux:  "0cb247af5c2b64289a23670a2d40e85d590c75d556b7d8a1b2f9ead65039365a"
   end
 
   depends_on "pkgconf" => :build

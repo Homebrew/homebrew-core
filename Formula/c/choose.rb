@@ -9,8 +9,6 @@ class Choose < Formula
   revision 4
   head "https://github.com/geier/choose.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4cd084aeff66d38306336992370937b0f8473abd64f70c8561145df065581ac"
@@ -26,9 +24,6 @@ class Choose < Formula
   disable! date: "2025-05-19", because: :unmaintained
 
   depends_on "python@3.13"
-
-  conflicts_with "choose-gui", because: "both install a `choose` binary"
-  conflicts_with "choose-rust", because: "both install a `choose` binary"
 
   resource "urwid" do
     url "https://files.pythonhosted.org/packages/5f/cf/2f01d2231e7fb52bd8190954b6165c89baa17e713c690bdb2dfea1dcd25d/urwid-2.2.2.tar.gz"

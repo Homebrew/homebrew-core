@@ -5,8 +5,6 @@ class Hdf5AT110 < Formula
   sha256 "0afc77da5c46217709475bbefbca91c0cb6f1ea628ccd8c36196cf6c5a4de304"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "b582f925e723b300ee8401f89307fdc2cb336b7ea691b61f8396890446645ceb"
     sha256 cellar: :any,                 arm64_sonoma:   "b85adcde660662f9ed6f4c9740e1c97a8ec2a1b4be7ff3185142801ce7083a5c"
@@ -24,6 +22,7 @@ class Hdf5AT110 < Formula
   # 1.10.11 is the last release for 1.10.x
   # https://github.com/HDFGroup/hdf5#release-schedule
   deprecate! date: "2024-07-24", because: :unsupported
+  disable! date: "2025-07-24", because: :unsupported
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

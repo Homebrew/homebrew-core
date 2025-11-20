@@ -1,19 +1,20 @@
 class Hebcal < Formula
   desc "Perpetual Jewish calendar for the command-line"
   homepage "https://github.com/hebcal/hebcal"
-  url "https://github.com/hebcal/hebcal/archive/refs/tags/v5.9.2.tar.gz"
-  sha256 "f0bef60b67baf01e82300b72d84d8f0c08414d7c292bc4cd494cc8b1e735015d"
+  url "https://github.com/hebcal/hebcal/archive/refs/tags/v5.9.4.tar.gz"
+  sha256 "65ed5a00a80e17acbcb5ab1541dded0170ee5188e3cc34848b69a94d14ec12ef"
   license "GPL-2.0-or-later"
   head "https://github.com/hebcal/hebcal.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "33f08f3851f5558ff08affec6c4b17a3fba114922780cdc0b8438d12b7d7144d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33f08f3851f5558ff08affec6c4b17a3fba114922780cdc0b8438d12b7d7144d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "33f08f3851f5558ff08affec6c4b17a3fba114922780cdc0b8438d12b7d7144d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7cf8b55b257ad32f8e8459aa9aeb6672954ed250f58afaba3bde11992874703e"
-    sha256 cellar: :any_skip_relocation, ventura:       "7cf8b55b257ad32f8e8459aa9aeb6672954ed250f58afaba3bde11992874703e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "73d2dc30b20db718f0531772e0b8008988912fff4af86a0d59dbff5d510a54e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f158801704a8750cbe7ba564aac630e9239d7ccb9f99f65d7bf95cff9d01d4af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8a92ca04c74a873532776fff1f32d6c21ffb033a149e2e5b2488683f61c886b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "068663f85deb551bc6a8b41b3457c6169c295c91b32fe2f34ffe32afc15ff41d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "068663f85deb551bc6a8b41b3457c6169c295c91b32fe2f34ffe32afc15ff41d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "068663f85deb551bc6a8b41b3457c6169c295c91b32fe2f34ffe32afc15ff41d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ab9ccd575666fc2ef58692d5ffcd6cd23827001e7ff1618dda6127a1c480e4ec"
+    sha256 cellar: :any_skip_relocation, ventura:       "ab9ccd575666fc2ef58692d5ffcd6cd23827001e7ff1618dda6127a1c480e4ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4811b7059d3d72fd96e9edfb2e4d50e2752a7d764ec7b19e15f3ae5aa7f2fffb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7bbefb0d13d57a312daa618d2c485351e365e779025e236a4893c4616a02365"
   end
 
   depends_on "go" => :build

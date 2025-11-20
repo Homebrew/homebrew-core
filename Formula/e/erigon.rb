@@ -1,12 +1,10 @@
 class Erigon < Formula
   desc "Implementation of Ethereum (execution client), on the efficiency frontier"
-  homepage "https://github.com/ledgerwatch/erigon"
-  url "https://github.com/ledgerwatch/erigon/archive/refs/tags/v2.55.1.tar.gz"
+  homepage "https://github.com/erigontech/erigon"
+  url "https://github.com/erigontech/erigon/archive/refs/tags/v2.55.1.tar.gz"
   sha256 "2e340bb5504f565bb9fe8c4d246dea50bd54bfcf6a91e9196aeb4fbda722ae9e"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
-  head "https://github.com/ledgerwatch/erigon.git", branch: "devel"
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/erigontech/erigon.git", branch: "devel"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "450e82a964c4c0f8091ae2ffab8cfc741e77d44c1752ee6f2eaa660044c16975"
@@ -20,7 +18,7 @@ class Erigon < Formula
   end
 
   # Upstream includes pre-built libsilkworm_capi inside silkworm-go and recommends copying to installation:
-  # https://github.com/ledgerwatch/erigon?tab=readme-ov-file#how-to-run-erigon-as-a-separate-user-eg-as-a-systemd-daemon
+  # https://github.com/erigontech/erigon?tab=readme-ov-file#how-to-run-erigon-as-a-separate-user-eg-as-a-systemd-daemon
   # Trying to build library from source only works with `conan` which would use their pre-built libraries.
   deprecate! date: "2024-02-29", because: "needs a pre-built copy of libsilkworm_capi"
   disable! date: "2025-03-04", because: "needs a pre-built copy of libsilkworm_capi"
@@ -28,10 +26,8 @@ class Erigon < Formula
   depends_on "gcc" => :build
   depends_on "go" => :build
 
-  conflicts_with "ethereum", because: "both install `evm` binaries"
-
   def install
-    unless build.head?
+    if build.stable?
       ENV["GIT_COMMIT"] = "unknown"
       ENV["GIT_BRANCH"] = "release"
       ENV["GIT_TAG"] = "v#{version}"

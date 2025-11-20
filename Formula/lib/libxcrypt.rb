@@ -1,8 +1,8 @@
 class Libxcrypt < Formula
   desc "Extended crypt library for descrypt, md5crypt, bcrypt, and others"
   homepage "https://github.com/besser82/libxcrypt"
-  url "https://github.com/besser82/libxcrypt/releases/download/v4.4.38/libxcrypt-4.4.38.tar.xz"
-  sha256 "80304b9c306ea799327f01d9a7549bdb28317789182631f1b54f4511b4206dd6"
+  url "https://github.com/besser82/libxcrypt/releases/download/v4.5.2/libxcrypt-4.5.2.tar.xz"
+  sha256 "71513a31c01a428bccd5367a32fd95f115d6dac50fb5b60c779d5c7942aec071"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Libxcrypt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a064d22be7cf3136359f8bc7ddfe69d3d1da83cecba23679e8be3d5c3a6715fa"
-    sha256 cellar: :any,                 arm64_sonoma:  "70ff0492ab9b04005ac3a10be7b840926e79c8e1005795a245e10a2845741897"
-    sha256 cellar: :any,                 arm64_ventura: "b44196ecde239115a28ed7470d21bd679cca173739c24a863ce393df04faffd2"
-    sha256 cellar: :any,                 sonoma:        "1eb38a921fe68f9bf101f6ead351a71335a143ff842d1c294a771e1eecfcae88"
-    sha256 cellar: :any,                 ventura:       "7876b0bfad028648259367023f14a2fb6c9b13db5e489bf6b002818fe36ec9f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc5e89a07cd3d52af14132f1323096d2b0e9519dd71b1b52e192697817547500"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1835a4d7d45333637814fbd4d0184d6ebdb81b2e7e4a09e2d803202a497cf8a"
+    sha256 cellar: :any,                 arm64_tahoe:   "45b16874ed374eda84779a795aa32640f86759dd480f470567949b7639a8e3ee"
+    sha256 cellar: :any,                 arm64_sequoia: "04b6d0459d587d4137b8fdc9d7a711bf5df1405afae64997d4d8f6016df50e20"
+    sha256 cellar: :any,                 arm64_sonoma:  "6f459775883ffb7e1cd95dfeef36d3f490f20e3dcaa79055d318c46991d31f5f"
+    sha256 cellar: :any,                 sonoma:        "909d2e42bae6c62c05e5c52f6f45aa3da6a4c668c6a88f90a0cc6ebb6794f212"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "591376dcb066e3abf120b46895aabe9409aadf8f9577bd2672e52524f05a1952"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9319e1e70e1e3e476e421956baaeebc0d7be9c3030897844a3c348fe4dd116a5"
   end
 
   keg_only :provided_by_macos

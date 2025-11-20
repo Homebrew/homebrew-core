@@ -1,28 +1,29 @@
 class PostgresqlHll < Formula
   desc "PostgreSQL extension adding HyperLogLog data structures as a native data type"
   homepage "https://github.com/citusdata/postgresql-hll"
-  url "https://github.com/citusdata/postgresql-hll/archive/refs/tags/v2.18.tar.gz"
-  sha256 "e2f55a6f4c4ab95ee4f1b4a2b73280258c5136b161fe9d059559556079694f0e"
+  url "https://github.com/citusdata/postgresql-hll/archive/refs/tags/v2.19.tar.gz"
+  sha256 "d63d56522145f2d737e0d056c9cfdfe3e8b61008c12ca4c45bde7d9b942f9c46"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27480a860a6ad43655bbc46261a3802ea26252038b3c0ada7900d7727654248d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c452476e1fa061eff0b1e1ed08ded91385d0ea266b47173ecac203e009ddcc4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7eff2df8ade96abbf8b6ea92b187994a875ef21491f57628b67b3e17524a896b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ef85b1da74c48d8c1338dd3ba819f728d3c10ff0e2eb9df0144b684741bdcd55"
-    sha256 cellar: :any_skip_relocation, ventura:       "f02c71f284135ed072743b270584d958183d8951c85faa42472dc0c602748b5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "01e309e288fe1c16b2b47e4ec6ea57bc17da8d41bda3f49bbd869ef6aa62fd16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87c9b558987de3f251c0339c3427bf6e0c8172b887a697048b13b7cb0710e4de"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "17db595caa269ee31d2b540fa9e441019ffac25b4062690824f5f726dcaa992d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e235a1f63bb5da5ac21e425ca4e051bf99a24eb6986e62eb8823e3dc010763e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69c8dad6e719c444fd0fea42b7def97b3503aa12875eca051f8488ada44d22c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "214e7844d487ea202d54ebf8ae65677d980b8e371b26d29f067eb5f069a2a6d6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c34d132dd0e9543d3c14e707bf16fc28c36a41c51f81ff9bf8f8f0b6f9ce51c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5e546957897b0dcb512910e16d9a5667e10f2bb1bc8d672eae77a21d49ee289"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
+  depends_on "postgresql@18" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
+    odie "Too many postgresql dependencies!" if postgresqls.count > 2
+
     postgresqls.each do |postgresql|
       ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
       system "make"

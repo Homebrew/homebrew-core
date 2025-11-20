@@ -1,8 +1,8 @@
 class GccAT10 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-10.5.0/gcc-10.5.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.5.0/gcc-10.5.0.tar.xz"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-10.5.0/gcc-10.5.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-10.5.0/gcc-10.5.0.tar.xz"
   sha256 "25109543fdf46f397c347b5d8b7a2c7e5694a5a51cce4b9c6e1ea8a71ca307c1"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
@@ -10,8 +10,6 @@ class GccAT10 < Formula
   livecheck do
     skip "No longer developed or maintained"
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256                               ventura:      "1155f38da440c96a9df1442152c3149755dfd369815cf8b967e9bbf2a4874489"
@@ -35,6 +33,10 @@ class GccAT10 < Formula
 
   on_macos do
     depends_on arch: :x86_64
+    # Align dates to remove Intel macOS support with brew
+    # https://docs.brew.sh/Support-Tiers#future-macos-support
+    deprecate! date: "2025-09-18", because: :unsupported
+    disable! date: "2026-09-18", because: :unsupported
   end
 
   on_linux do
@@ -44,9 +46,6 @@ class GccAT10 < Formula
       depends_on "zstd"
     end
   end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   def version_suffix
     version.major.to_s
@@ -89,7 +88,7 @@ class GccAT10 < Formula
       args << "--with-system-zlib"
 
       # Xcode 10 dropped 32-bit support
-      args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+      args << "--disable-multilib"
 
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed

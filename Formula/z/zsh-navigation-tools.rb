@@ -5,6 +5,8 @@ class ZshNavigationTools < Formula
   sha256 "ee832b81ce678a247b998675111c66aa1873d72aa33c2593a65626296ca685fc"
   license any_of: ["GPL-3.0-only", "MIT"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "7f766c2aecf317bed6dcbbe7e5c2f93dd96789e59831fc19195993fa68258978"

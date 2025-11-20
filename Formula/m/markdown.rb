@@ -10,6 +10,8 @@ class Markdown < Formula
     regex(/href=.*?Markdown[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "ba5a95424267c48417d20a1ca2a253366c9741d7d2dcbe71fd7715c1babd1b8a"

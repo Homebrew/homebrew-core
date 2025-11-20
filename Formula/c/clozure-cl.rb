@@ -20,7 +20,14 @@ class ClozureCl < Formula
 
   # https://github.com/Clozure/ccl/issues/11
   depends_on arch: :x86_64
-  depends_on macos: :catalina # The GNU assembler frontend which ships macOS 10.14 is incompatible with clozure-ccl: https://github.com/Clozure/ccl/issues/271
+
+  on_macos do
+    # Can be undeprecated if upstream decides to support arm64 macOS
+    # https://docs.brew.sh/Support-Tiers#future-macos-support
+    # TODO: Make linux-only when removing macOS support
+    deprecate! date: "2025-09-25", because: :unsupported
+    disable! date: "2026-09-25", because: :unsupported
+  end
 
   on_linux do
     depends_on "m4"

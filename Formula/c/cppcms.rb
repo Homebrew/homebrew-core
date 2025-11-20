@@ -16,20 +16,19 @@ class Cppcms < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "15a16c5b5f573a43871ff8c74cc01c314fb0e4972d4c70ca7f168c662bf20ef5"
-    sha256 cellar: :any,                 arm64_sonoma:  "40b9a78d35c4a82ca461589a699a578b9af04a2db0bd04e996585bd4caab6b00"
-    sha256 cellar: :any,                 arm64_ventura: "fd4431e3606205326aec8f484f3244201795ac5d23343489bcbebcee30dab312"
-    sha256 cellar: :any,                 sonoma:        "fa701ccf8fdb79cdef8b0a690ef5f77f167d63568349aefaca9ede863a3b16f1"
-    sha256 cellar: :any,                 ventura:       "adc2a352809a202ca39cfa42ca5674512311d7e58a13bb1a4db8e844bfb7b310"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e32e87d6fd92a34b980782479476ec19d5c7e153cc81f5c002d0ce578f9ac35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1882da73e8db41b00a7fa01095d3d59314814cbaeb351e8cb7ca6611d44c02c2"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "c67928d45ecdf779f5cbde1a74527f1f474063e8038fc6103222f6066c058ff8"
+    sha256 cellar: :any,                 arm64_sequoia: "b274decb22153c7de85e5fa491fe54493186b6b6258de506695aa6e725a3a1b5"
+    sha256 cellar: :any,                 arm64_sonoma:  "c81184c372aced3829c5dc2df3c748b19afe1522ca7b25195559ed4de6777ba0"
+    sha256 cellar: :any,                 sonoma:        "5afdc34fc8074dc1589f9d84f34fd7db0374c83fe57ddf69b8898898b8d524f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a621276dcd5bf2942c3cbf70f4ccb2033603598b9cd0b69a04302f93a173c274"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf5e4745de3da3bc5794c0d8d36e434288d41627aca22209d837bf526dc81b9e"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
   depends_on "pcre"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "zlib"
 
@@ -47,7 +46,10 @@ class Cppcms < Formula
       s.gsub! "md5(header_define)", "md5(header_define.encode('utf-8'))"
     end
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -4,19 +4,18 @@ class GobjectIntrospection < Formula
 
   desc "Generate introspection data for GObject libraries"
   homepage "https://gi.readthedocs.io/en/latest/"
-  url "https://download.gnome.org/sources/gobject-introspection/1.84/gobject-introspection-1.84.0.tar.xz"
-  sha256 "945b57da7ec262e5c266b89e091d14be800cc424277d82a02872b7d794a84779"
+  url "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
+  sha256 "920d1a3fcedeadc32acff95c2e203b319039dd4b4a08dd1a2dfd283d19c0b9ae"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
-  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "280f6dd881d72f75e3ca7748d4b352af4018e53b51e8e2f84950de1d55ab5895"
-    sha256 arm64_sonoma:  "bce44ddc571cddb32fb04775bcf97f405e8631b27eb87ffb4eb3c95494340d21"
-    sha256 arm64_ventura: "01197151515f3b361144ef07dbafa2feb0287b2cfd49f2c55d73576da15cedab"
-    sha256 sonoma:        "47ef78ac2d9c8c1fe96971d9170a136db44464ea1c59221ad1734a03e97f42b7"
-    sha256 ventura:       "3a845579c9e1eeb8d9b278f7077c46cfa3b03d25b746231fffb27d3d39df293c"
-    sha256 arm64_linux:   "8845a26bfb3119867b8aa7c40115c555dc0c80d5e88114d8d9c1e947118f7b65"
-    sha256 x86_64_linux:  "030059cda8e7ffc3f90dfecef428999df1dce8d2d34b193063795dc807e5a6a5"
+    rebuild 1
+    sha256 arm64_tahoe:   "e84d9ab63955e7da2a20bcd8d8ad72cfaa00ed17a076430c278ac6ae0a72c94c"
+    sha256 arm64_sequoia: "5832e82a10514f44c72d380eb1e72da0e28394c0eba5b213312f9b90264c7de2"
+    sha256 arm64_sonoma:  "7bef3926c3fe7638286a63496e85a30c7e7ca8a9b2db6cc396a92ecde44ca2d6"
+    sha256 sonoma:        "981538c4d1b3c77f14bb71f3d195b9956cb3eb7d1d97a5f701152d08ddcfaad0"
+    sha256 arm64_linux:   "628866b4608a6ed08ec3619ca7aafb4307717960537ecf5c3166731b35a9b56d"
+    sha256 x86_64_linux:  "bf0ddf795ddfc70040e50d67d17c22e5e052f02e29fdfbf36832c439c11fa469"
   end
 
   depends_on "bison" => :build
@@ -25,11 +24,14 @@ class GobjectIntrospection < Formula
   depends_on "cairo"
   depends_on "glib"
   depends_on "pkgconf"
-  # Ships a `_giscanner.cpython-312-darwin.so`, so needs a specific version.
-  depends_on "python@3.13"
+  # Ships a `_giscanner.cpython-314-darwin.so`, so needs a specific version.
+  depends_on "python@3.14"
 
   uses_from_macos "flex" => :build
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
+
+  pypi_packages package_name:   "",
+                extra_packages: %w[mako markdown setuptools]
 
   resource "mako" do
     url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
@@ -37,8 +39,8 @@ class GobjectIntrospection < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/2f/15/222b423b0b88689c266d9eac4e61396fe2cc53464459d6a37618ac863b24/markdown-3.8.tar.gz"
-    sha256 "7df81e63f0df5c4b24b7d156eb81e4690595239b7d70937d0409f1b0de319c6f"
+    url "https://files.pythonhosted.org/packages/8d/37/02347f6d6d8279247a5837082ebc26fc0d5aaeaf75aa013fcbb433c777ab/markdown-3.9.tar.gz"
+    sha256 "d2900fe1782bd33bdbbd56859defef70c2e78fc46668f8eb9df3128138f2cb6a"
   end
 
   resource "markupsafe" do
@@ -47,8 +49,8 @@ class GobjectIntrospection < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   # Fix library search path on non-/usr/local installs (e.g. Apple Silicon)
@@ -57,7 +59,7 @@ class GobjectIntrospection < Formula
   patch :DATA
 
   def install
-    venv = virtualenv_create(libexec, "python3.13")
+    venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
 

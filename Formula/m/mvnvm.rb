@@ -13,7 +13,7 @@ class Mvnvm < Formula
 
   depends_on "openjdk"
 
-  conflicts_with "maven", because: "also installs a 'mvn' executable"
+  conflicts_with "maven", because: "both install `mvn` executables"
 
   def install
     bin.install "mvn"

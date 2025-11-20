@@ -9,6 +9,7 @@ class Atasm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8350e6c0e2bbb8035e95f13ad05a77bf44aa99e6d93c3ceae54c0b3265bd4a29"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f9402a817b9438f3ba44ecf8ef38e70dcfe070a43251f9d62fe0785212b2d0e9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c4910e7d916c52776028f38d6b61858f7d0a4bc85bb46571f08bdcfbc6418df"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "727eea7c68b8de0a001e3b0937c429af8797af568433be534d74ada42a1925eb"
@@ -19,7 +20,6 @@ class Atasm < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "16ea6c4cd36ace328c78bbe3daeaad7e22ea30c5e013b07584eb00e9931ef67e"
     sha256 cellar: :any_skip_relocation, big_sur:        "8d7eba0c0fa5194201d4fac69466c807bf01d3676424a1501d3bc35cec2e43c1"
     sha256 cellar: :any_skip_relocation, catalina:       "d89f9e6ccd622ec72be4e8c3e5c01fa1b70abc1cf79b8cd5379ff986aae6d616"
-    sha256 cellar: :any_skip_relocation, mojave:         "0f123b8ac337d96f5f528bdcd31fdd44b1cde57227c5f3451b83a15918b5cc79"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "ec6ae8edd7437983d866c3e8a1c90699912e8064c9678040e06f3bf93065584f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d348c1f0f46cb7d43078b336c4b08751966d9763f4ce3470aa082f94a1ed90e1"
   end

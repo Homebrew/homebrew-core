@@ -4,28 +4,21 @@ class Dynet < Formula
   url "https://github.com/clab/dynet/archive/refs/tags/2.1.2.tar.gz"
   sha256 "014505dc3da2001db54f4b8f3a7a6e7a1bb9f33a18b6081b2a4044e082dab9c8"
   license "Apache-2.0"
+  revision 1
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "13425cf394c191250670db43c3090541143f76d156e06a11f2cba7294333926e"
-    sha256 cellar: :any,                 arm64_sonoma:   "f64ed80ea96d473dd96800bdd9928eaa1b4fbe56cef809daf8d5241d3fb936e7"
-    sha256 cellar: :any,                 arm64_ventura:  "326d11401b0db3d2294c46c7f3835cf497954f61fd14f8b6508461ef7ec6d8cf"
-    sha256 cellar: :any,                 arm64_monterey: "5344a9cc883ddbea6def01dc950bed7aca9fe06ba67d52d10349ef46af17879b"
-    sha256 cellar: :any,                 arm64_big_sur:  "812e42a82c70b8c049582c897d8d6d645c7892cb29fe742bc4c857f6d915cb44"
-    sha256 cellar: :any,                 sonoma:         "98c5c6da074e6b0e7eed5c60d8365945bb78b5e752e13f13ac345c08d2cb3acc"
-    sha256 cellar: :any,                 ventura:        "88af1a5787e4b2d6919b16a94c72041009f72f2e0c58b03e11410206aa7b3eab"
-    sha256 cellar: :any,                 monterey:       "ad0cf700f000d6b03ad08ec1074508eb01f442019f6e1c59fe7a83325bb84add"
-    sha256 cellar: :any,                 big_sur:        "8bd7104e80fd7166539f40cf30f4c67ac643f096920582ec6702f81b06ff6910"
-    sha256 cellar: :any,                 catalina:       "d699aaf34e601dca84a10d735a822954de02b2139757699da77df2632d9ae95c"
-    sha256 cellar: :any,                 mojave:         "edc5ba7539f3c224b091ae08b2f23ae667f6851ebbc10515e410fbe2efb2aec4"
-    sha256 cellar: :any,                 high_sierra:    "a8b5c58b84c07911937f5b2c633e38e884f860ac97fc45881bfa817f6045c467"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b34f9dd2d85fa95eb0d7894a2c3e8ae7758c8c2e0caeb10e69fef515d6249398"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6b8b9842ad483b362f47b1a5562e4cf839c26be13dd4fc525ed456f1dae230c"
+    sha256 cellar: :any,                 arm64_tahoe:   "c9b3ca5eca8723487de3b6a864ade40fd1f9fb041a4c8cd45bd39356da50c576"
+    sha256 cellar: :any,                 arm64_sequoia: "5ee2e5895fb8f27869a3f6449e4ab88b63f4b8c9b716e4e4cf5aa3fec9a6e5c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "575b4161502613978a741cbb612833a9071f31a2a159095e74620686505ad72c"
+    sha256 cellar: :any,                 sonoma:        "743082c372e91418ca92666f7e8185e041f76d014f32cdd97c4b2caf2882f08c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34f4abdf14637d8a9fdc3b85c37061a38001bfff9ab87714b21cc1c5845dc4fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e49f33563dedf584dbf05c93b537775ddc36bdd62bb0d9d7c7325e4a2c73a4d6"
   end
 
   depends_on "cmake" => :build
-  depends_on "eigen"
+  depends_on "eigen@3" # cannot use Eigen >= 5 due to EIGEN_EMPTY_STRUCT_CTOR removal
 
   on_linux do
     on_arm do
@@ -40,7 +33,7 @@ class Dynet < Formula
   def install
     args = %W[
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
-      -DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3
+      -DEIGEN3_INCLUDE_DIR=#{Formula["eigen@3"].opt_include}/eigen3
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

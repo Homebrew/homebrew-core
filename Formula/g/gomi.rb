@@ -1,18 +1,20 @@
 class Gomi < Formula
   desc "Functions like rm but with the ability to restore files"
   homepage "https://gomi.dev"
-  url "https://github.com/babarot/gomi/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "9cdf4ec51e6629573bcec7779e1b30e0bafbbe10d499cc2e7bbae46a6b3d3621"
+  url "https://github.com/babarot/gomi/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "fd42c42f148a82ac9dc5b16c53dd8e2431397630d6a0ae788c2541e297326784"
   license "MIT"
   head "https://github.com/babarot/gomi.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59e166d3365b2f193c300d421760676d8837c2401470bb8e71982e94dc5086b0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59e166d3365b2f193c300d421760676d8837c2401470bb8e71982e94dc5086b0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "59e166d3365b2f193c300d421760676d8837c2401470bb8e71982e94dc5086b0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0b3fbf987e5e742a2b755d5c630d7a8405f9c4e231d1d86da28a5e879fdf19cb"
-    sha256 cellar: :any_skip_relocation, ventura:       "0b3fbf987e5e742a2b755d5c630d7a8405f9c4e231d1d86da28a5e879fdf19cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b70b33f949cd0384d6b53b469c340e642d7ce90317d130659026d7513be02df3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f65ce65608b32def7274c0e37cdfd4173c767bfe48875cbea862dfa79edae182"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ebe115f655c00e6755d3e0eae1208fe80ba957b51a291574b109268dd8d6bcb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ebe115f655c00e6755d3e0eae1208fe80ba957b51a291574b109268dd8d6bcb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ebe115f655c00e6755d3e0eae1208fe80ba957b51a291574b109268dd8d6bcb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "706809943057038c5131a01c1593c401cacab6dfc2b1da6f77ba73d6c1f73b46"
+    sha256 cellar: :any_skip_relocation, ventura:       "706809943057038c5131a01c1593c401cacab6dfc2b1da6f77ba73d6c1f73b46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0306496b5a2c2f4e81d612a65680edab94d86a9712824c5be04e464e5d86d64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1336b3d3bcb61d81006c1e8a491d3b83ca6b871d0323597a20187204160ad83b"
   end
 
   depends_on "go" => :build

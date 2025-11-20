@@ -6,13 +6,8 @@ class Fnt < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7643970e5f382eee3b375961250697f97f3699b4d6372629ec8aeda86826ddde"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7643970e5f382eee3b375961250697f97f3699b4d6372629ec8aeda86826ddde"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7643970e5f382eee3b375961250697f97f3699b4d6372629ec8aeda86826ddde"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8285538de10d36c7c20adf1275759cfbba3d3dc44c7852e9d69938a3c9b74562"
-    sha256 cellar: :any_skip_relocation, ventura:       "8285538de10d36c7c20adf1275759cfbba3d3dc44c7852e9d69938a3c9b74562"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7643970e5f382eee3b375961250697f97f3699b4d6372629ec8aeda86826ddde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7643970e5f382eee3b375961250697f97f3699b4d6372629ec8aeda86826ddde"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7643970e5f382eee3b375961250697f97f3699b4d6372629ec8aeda86826ddde"
   end
 
   depends_on "chafa"

@@ -13,15 +13,16 @@ class I2cTools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "dd2a87e8ac0da6a882e8e0c117b93ea8e8932629703e372b39f6f92bf93387b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d20107422ff757ff511d2a8099bb04f96cba86e4a0a81081efe7a7c49d02b118"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "8f6ac4fca0fb5e2bb8dd2cc1891c75021b6af50de8e3e66cef13131a67e4bfee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5adf339cef451fb12532d73760ad36036d22367f32ef951fbfaecf882d2b642e"
   end
 
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on :linux
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

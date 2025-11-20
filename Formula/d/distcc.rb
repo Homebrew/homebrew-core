@@ -6,37 +6,29 @@ class Distcc < Formula
   url "https://github.com/distcc/distcc/releases/download/v3.4/distcc-3.4.tar.gz"
   sha256 "2b99edda9dad9dbf283933a02eace6de7423fe5650daa4a728c950e5cd37bd7d"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/distcc/distcc.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 3
-    sha256 arm64_sequoia: "49f0073a59339ec44150cdafd79c3d4ca807780e5e55df49a7030c179025c636"
-    sha256 arm64_sonoma:  "00dcf6bcfda58dbb694516e1f21e5208604894977260101bf2ffc05c57544c44"
-    sha256 arm64_ventura: "f37c9ba4f2a613091c706b096d14cb4a44ccd38f6254fea5a50614ba55eb228f"
-    sha256 sonoma:        "2eb1710b55e4cc45819f6a3bdd47f67e287e3ff6bd823015130c35a06b84da3f"
-    sha256 ventura:       "72982228dea2fe8ccbcdd364ecc672c90c6c67ecab38732c7350032cb376c4c6"
-    sha256 arm64_linux:   "86215de5512754860d1ae2124359bdf3bb31c022ef5fa4352f08440aac373477"
-    sha256 x86_64_linux:  "b9b24030b5cdd52aa1abdf03c3d85ce35a327a4c3bffd928e466d05e6b118f8b"
+    rebuild 1
+    sha256 arm64_tahoe:   "09fcd33f368d1daff6716752ee32cf50cbb62f7acb0200a0a07bd676d65cd3f2"
+    sha256 arm64_sequoia: "232f2d8db68393c3f700e16d29d914e19aa565f2e8a6d2e0e3846c8b317fd931"
+    sha256 arm64_sonoma:  "a25d35cebbe97e9bb683c53994a2956e256d4f7dfb1bd024e1a412826ee7c1d1"
+    sha256 sonoma:        "ab7cc55d6cfae2c77316093229ae3668f7e34d2d80713e4eec5f2c41f69983d2"
+    sha256 arm64_linux:   "42071ee608cbbcfcc761fe4a9b18ed90499115dab3108c03ff72a27825a2beef"
+    sha256 x86_64_linux:  "d04aa534933e21b7e469f009c76e5bde6e50ecadecbab3d6de4f134db8f7eef2"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "libiberty" do
-    url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20210106.orig.tar.xz"
-    sha256 "9df153d69914c0f5a9145e0abbb248e72feebab6777c712a30f1c3b8c19047d4"
+    url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20250315.orig.tar.xz"
+    sha256 "5b510b5e0918dcb00a748900103365a00411855f202089ff81dc5ef99d8beeaa"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d6/4f/b10f707e14ef7de524fe1f8988a294fb262a29c9b5b12275c7e188864aed/setuptools-69.5.1.tar.gz"
-    sha256 "6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   # Python 3.10+ compatibility
@@ -52,7 +44,7 @@ class Distcc < Formula
   end
 
   def install
-    ENV["PYTHON"] = python3 = which("python3.13")
+    ENV["PYTHON"] = python3 = which("python3.14")
     site_packages = prefix/Language::Python.site_packages(python3)
 
     build_venv = virtualenv_create(buildpath/"venv", python3)

@@ -12,19 +12,18 @@ class Unzip < Formula
     regex(%r{url=.*?(?:%20)?v?(\d+(?:\.\d+)+)/unzip\d+\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5bd1f2a27a5353a3ce249bdd414b0976a91129be2afd8fe3c0a796b316f4ed2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09f467768e0ed9226eebc40f40fd5628c7f9cfa5f314b483751bbf0bf4d05bab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f7f6a03fa3ada4a305f5c9b4016b4e8bbe11d66f559273849d8cacd26524e26"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1df3fd1e9b3f5fd816f793355797818113e43378c81e6a0a6a8d1b3e52c0dd36"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6cdeb65d1d235eb609cb7ae5b5df19f0c9b20d572661bb3501658f1d5b2d5ef"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4d0a7fbb4f53486b0a9f25f00d0903f52eea8778fdbb0e497fb4ce5ba49c7510"
-    sha256 cellar: :any_skip_relocation, ventura:        "5f332be4c6b05a05a90835e7bef6c93b6b57edcd0cba1571bcdedddb27300fb9"
-    sha256 cellar: :any_skip_relocation, monterey:       "86fbf9a289406fbe3fff052c0818431d757b6123e5776418c3e13370ee2d4af9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94f235026d1d96ebb52961dcfb6880701d11efdc9cd9869987f8e4712714f9a5"
-    sha256 cellar: :any_skip_relocation, catalina:       "b6cb709857bee04881acb626d24ddb1dcccf50b4508c16a9599625667b4b7617"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "11112a2c74f3a7faa6561406d9206412d7754b753fe680acee32a1d96df300b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "baf15e19852a0f9756e3302fa6f3866eaeccc06730c9907bffc19f32861d64bf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "be1cb055cbcf3e1420ea25a48ab6da010c2e70efff5ffe7e4e91dac7231c4ae2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe1f7ac37950ec13dde20b2ab1eb86eb45f066a305df1fa6c8349d6de0e14dec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7bb9045e4d39a6409b1eaa113ccd21337374726d74a9b4b2344ea6a87f13543"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "28765484286482079acb25eebf967819544b1a86daf3b92f6c19d282296e3915"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ecb59929e280df14e71d9f163de7aa1613f005fb4d44dd40fc1a811ea5d61132"
+    sha256 cellar: :any_skip_relocation, ventura:       "76363f884cbb100c668adea01a3d72a8efadc23e5bee125182ad030d6fd3685f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c82849237d428857a01410f203b89819f02e7ab28651400d6ebefe46f3feca4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e3fe87c9f438d2012de977edf649608574a8c3265797fb693923bdca9227a7d"
   end
 
   keg_only :provided_by_macos
@@ -81,16 +80,22 @@ class Unzip < Formula
       -DUTF8_MAYBE_NATIVE
       -DNO_WORKING_ISPRINT
     ]
+    cflags = ENV.cflags.to_s.split
+    cflags << "-DNO_LCHMOD" unless OS.mac?
     args = %W[
       CC=#{ENV.cc}
+      CFLAGS=#{cflags.join(" ")}
       LOC=#{loc_macros.join(" ")}
       D_USE_BZ2=-DUSE_BZIP2
       L_BZ2=-lbz2
-      macosx
     ]
-    args << "LFLAGS1=-liconv" if OS.mac?
+    if OS.mac?
+      args << "LFLAGS1=-liconv" << "macosx"
+    else
+      args << "unzips"
+    end
     system "make", "-f", "unix/Makefile", *args
-    system "make", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
+    system "make", "-f", "unix/Makefile", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
   end
 
   test do

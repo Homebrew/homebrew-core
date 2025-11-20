@@ -2,18 +2,18 @@ class Tygo < Formula
   desc "Generate Typescript types from Golang source code"
   homepage "https://github.com/gzuidhof/tygo"
   url "https://github.com/gzuidhof/tygo.git",
-      tag:      "v0.2.18",
-      revision: "5974386bfc9a5d403e6d61de9c67e8762c01f590"
+      tag:      "v0.2.20",
+      revision: "4032e1a9dc75ebb46d968e52c0e0ab7e625be21c"
   license "MIT"
   head "https://github.com/gzuidhof/tygo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08e314c0945c7d47759b02934f9a1a3d3321de212bd62d4fae71c48a1effbd75"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08e314c0945c7d47759b02934f9a1a3d3321de212bd62d4fae71c48a1effbd75"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "08e314c0945c7d47759b02934f9a1a3d3321de212bd62d4fae71c48a1effbd75"
-    sha256 cellar: :any_skip_relocation, sonoma:        "58078f2a3fd657c1c18af1e15b6d8431de201df2cdffd66566f5d43e5897c7c0"
-    sha256 cellar: :any_skip_relocation, ventura:       "58078f2a3fd657c1c18af1e15b6d8431de201df2cdffd66566f5d43e5897c7c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f75998b51e4061e7b4d2c366b58b77e6914105cd2d3afbbaabbb06147646e0b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fbcd92f40af9744e9ba51a72afe6c7448bd0a15d00eef56d0ef97f507010fb39"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbcd92f40af9744e9ba51a72afe6c7448bd0a15d00eef56d0ef97f507010fb39"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbcd92f40af9744e9ba51a72afe6c7448bd0a15d00eef56d0ef97f507010fb39"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6e91bb6c67113a05cd56699bb359cf80e2f3dff41f1e0f769efd9405ae4e4696"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3eb4c0e606b6f12f78c5d49b714e5057f2c1a004e6ba3be9e990bf0b06549025"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2acd601d4550badb0044bab8673684879d9a4706fa1a0ac8ad18b54f9c692103"
   end
 
   depends_on "go" => [:build, :test]

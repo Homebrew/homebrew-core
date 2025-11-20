@@ -11,6 +11,7 @@ class Libexif < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "ef49b4bf108c622d0a0f18d5911230f489e1d93f5dcda597949125cad02d7389"
     sha256 arm64_sequoia: "db630e3ebf4c47a7c96f14e8edf29eaf88d89fbe2b0fb6737e1babdc39c230da"
     sha256 arm64_sonoma:  "a70285c25d276538094060000acea0828c0f0f287c5bea731b780f3a6d8357aa"
     sha256 arm64_ventura: "44869b2f698103429ec8a0f46613fa6acf144a1e5b237addadb1902cc482e8fd"

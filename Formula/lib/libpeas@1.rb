@@ -6,15 +6,16 @@ class LibpeasAT1 < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "a7a811d4a2fe22ee7f65b6e5c72d77a9d4bbd9bbc2f1f2b799484695671447fa"
-    sha256 arm64_sonoma:  "ca08be169114c264356fc1556108c1bb42c326990bbd2bd3e68eb03b751c50db"
-    sha256 arm64_ventura: "706a31d9b99a1092ac5a93f71f3faeb1f23c6e4a6e9976a8e5c57e37dc6a5a4a"
-    sha256 sonoma:        "e3668a9bfe2c95576190265ba214ed90c928d5e7965f6bf75fe68fbfdd21d953"
-    sha256 ventura:       "46fe7102d129d7c31095ffcfe391317576295b2b4d43f44c0cd7c31e37616392"
-    sha256 arm64_linux:   "14fb239a9356dca2cdec0c5468272ea40b66047ae82a6d00fa104a5f8a0332ab"
-    sha256 x86_64_linux:  "64df87ebec61741b04d81e290758550ea317811584c413b29510396fe4cd19b5"
+    rebuild 2
+    sha256 arm64_tahoe:   "6ae295b72edb4f0aab90390ee118cd2864f9ef7cb57b3f318341663c0eaad4d6"
+    sha256 arm64_sequoia: "0d7a24fa0a9dc00416ac677f708addc5ea6354063c27b8435dee4744367fbcb2"
+    sha256 arm64_sonoma:  "d3c58402100eae7994d0a510a8ef9ac00201d3c8077356034b351ab61454a126"
+    sha256 sonoma:        "c7fcf4479a9de9332df0b79885f77439b8bc9d855fb897309ee0de01b4890d3e"
+    sha256 arm64_linux:   "983fb2f22bcc97d2c814e53251b0fd2027898eeae80ce22a1d04527e507f6459"
+    sha256 x86_64_linux:  "bbc312a0e2b0510a2cf0a7fec5ff551f8b845958ad7bcbac1a59c85a5933cefd"
   end
 
   depends_on "meson" => :build
@@ -26,19 +27,19 @@ class LibpeasAT1 < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_macos do
     depends_on "gettext"
   end
 
   def install
-    pyver = Language::Python.major_minor_version "python3.13"
+    pyver = Language::Python.major_minor_version "python3.14"
     # Help pkg-config find python as we only provide `python3-embed` for aliased python formula
     inreplace "meson.build", "'python3-embed'", "'python-#{pyver}-embed'"
 
-    # ensure Meson uses homebrew python@3.13
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["python@3.13"].opt_lib/"pkgconfig"
+    # ensure Meson uses homebrew python@3.14
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["python@3.14"].opt_lib/"pkgconfig"
 
     args = %w[
       -Dpython3=true

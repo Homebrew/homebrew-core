@@ -3,12 +3,11 @@ class Ettercap < Formula
   homepage "https://ettercap.github.io/ettercap/"
   license "GPL-2.0-or-later"
   revision 2
+  head "https://github.com/Ettercap/ettercap.git", branch: "master"
 
   stable do
     url "https://github.com/Ettercap/ettercap/archive/refs/tags/v0.8.3.1.tar.gz"
     sha256 "d0c3ef88dfc284b61d3d5b64d946c1160fd04276b448519c1ae4438a9cdffaf3"
-
-    depends_on "pcre"
 
     # Part of libmaxminddb backport that cannot be added via patch.
     # Remove in the next release along with corresponding install
@@ -26,30 +25,28 @@ class Ettercap < Formula
 
     # Backport libmaxminddb support. Remove in the next release.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1857153707716e38c40ebb5dc641a30a471e2962/ettercap/libmaxminddb-backport.diff"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/ettercap/libmaxminddb-backport.diff"
       sha256 "b7869963df256af7cfae0f9e936e6dac4ec51a8b38dcfef6ea909e81e3ab8d0e"
+    end
+
+    # Apply Debian's upstreamed patch for pcre2 support. Remove in the next release.
+    # https://github.com/Ettercap/ettercap/commit/b1686d46792aecc10662e4a8ec221c9727661878
+    patch do
+      url "https://sources.debian.org/data/main/e/ettercap/1%3A0.8.3.1-15/debian/patches/1170.patch"
+      sha256 "a3c426d36f84487bbdb5d02b831df295af33373fcb59ee81254cee6807a50a4c"
     end
   end
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "4c2d77df3c85c46b78d941966c625306f0d2054bb3029e14826636a8550b7785"
-    sha256 arm64_sonoma:   "314023a2a65ca174dd90a8e777a0ce694ee24619e419e893a8f3d8a82b004935"
-    sha256 arm64_ventura:  "59f3ecc8f33ff3a865e2b608b8969f8d31e77c8aa82218707cecf21ce466bf60"
-    sha256 arm64_monterey: "ad36dab4532384d39be0e58ce0752b499bfae8cce41c317d6748479707e416d1"
-    sha256 sonoma:         "197cbb987473cb58c67447cd85f104762640df66e2e24f8ab6366539dc3fa087"
-    sha256 ventura:        "385d806561cfbb2513e6b0bb3b487312eaba6e5bdbcfffb36f6004a53f1348e8"
-    sha256 monterey:       "e09c5c23e3f73b224dd8d6be74ca8b80bf24989eaaa786b102d82f2979fda47e"
-    sha256 arm64_linux:    "b82aa41d486d4ee548e666a325bd8a2c7e1e3bfdb40c4431b151628d0995d412"
-    sha256 x86_64_linux:   "ed90068515d35787a0e19066936f3689eea7a1e7ed85ab1119ab60a71c7881d6"
-  end
-
-  head do
-    url "https://github.com/Ettercap/ettercap.git", branch: "master"
-
-    depends_on "pcre2"
+    rebuild 2
+    sha256 arm64_tahoe:   "2244ce8f708f9889ff92f8861bbae03a92aac0a2cf7457bc0b334301f4bff2bd"
+    sha256 arm64_sequoia: "6d98587a5e98e2db83bf85117ea496c15f114fab7d702459811591af756f3c7c"
+    sha256 arm64_sonoma:  "a72d69fae20cd902444c9aed9ac7c2b34861319ffc2847b0ea2d23723bb8c181"
+    sha256 sonoma:        "9c04bde58b1776e853b1b9092899d28d90270907cd644d889db1fc00f32f18d3"
+    sha256 arm64_linux:   "8f7f88b2aa5083456ebaa7694d2ddafb83c46d0d8fad766e2ea4e583e3e0ffa0"
+    sha256 x86_64_linux:  "e825ecc7c84a08331974048d31b39125c15c8d8d44d002744be0686a000a3b4a"
   end
 
   depends_on "cmake" => :build
@@ -58,14 +55,14 @@ class Ettercap < Formula
   depends_on "gtk+3"
   depends_on "libmaxminddb"
   depends_on "libnet"
-  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "ncurses"
   depends_on "openssl@3"
+  depends_on "pcre2"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
   uses_from_macos "libpcap"
-  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   on_macos do
@@ -89,7 +86,7 @@ class Ettercap < Formula
 
     args = %W[
       -DBUNDLED_LIBS=OFF
-      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: lib/"ettercap")}
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DENABLE_CURSES=ON
       -DENABLE_GTK=ON

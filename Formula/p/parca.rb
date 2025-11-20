@@ -1,29 +1,25 @@
 class Parca < Formula
   desc "Continuous profiling for analysis of CPU and memory usage"
   homepage "https://www.parca.dev/"
-  url "https://github.com/parca-dev/parca/archive/refs/tags/v0.23.1.tar.gz"
-  sha256 "fb5f0c1778e257cc1dd48e883ce0904535b0be25816b02dc61bc5b054eb822a5"
+  url "https://github.com/parca-dev/parca/archive/refs/tags/v0.24.2.tar.gz"
+  sha256 "5f8485d622bfb052a893beec796083d9238595c501eff20508928ac44712881d"
   license "Apache-2.0"
   head "https://github.com/parca-dev/parca.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "803754a46d4237e5be3309e230dd8a180cb367c7efe9b1d42a9b0a2d494fd5d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d411a908e2c433b447a9a8c6bd55999c48da4bc3b556dc97a7b38015077dae5d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d411a908e2c433b447a9a8c6bd55999c48da4bc3b556dc97a7b38015077dae5d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad7cd30f86b9f6dfa1a1f953830b8cf013b0963fa884087b1062b9c26baed0e6"
-    sha256 cellar: :any_skip_relocation, ventura:       "ad7cd30f86b9f6dfa1a1f953830b8cf013b0963fa884087b1062b9c26baed0e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d0a6297c3de266f603d6682c3f672ef2bd295876d64f7bfbedaf35399229707"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b3d6c3b49e0d76dfb28ab6478cc79546fd02987d1f8dc3c1425c8b221d37df8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8dfb07487e2874a72ca29a1eb3ed85e1a7981c560c91119b303e4be05f554a0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "05f27047351b0582c6f5fb772250541eea7aefe83c356c338ceabf5368ac36f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "16ada657b4d2f78fc3315be1739a7d6ac5172c6c5c56be65c53af0014d086397"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1fac35e98d19d1922d942b2801dd6e33872a2162a2a9845eb45b4649359896c"
+    sha256 cellar: :any_skip_relocation, ventura:       "0e0dc6dde558aa5baa521c5182d92dbe359afbaf407db05b16811bb7b52e2bbe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1acb66f37865f541f85b61efd4d934a4bfb385c130f93c996be9bdfcdf7c08d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "243125d3d4e13b662a1439f2d9f0a0a482788bc6890645f6a2a24f3076a578f9"
   end
 
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "pnpm" => :build
-
-  # remove unused `@ts-expect-error` directive, upstream pr ref, https://github.com/parca-dev/parca/pull/5518
-  patch do
-    url "https://github.com/parca-dev/parca/commit/a99156d7a5c8f6a1a42f1f83f7af864cbc11fef8.patch?full_index=1"
-    sha256 "01d5f31de779146e333a55f4371f20f39a554d2b9f8e2fe78b9ba747650d14c6"
-  end
 
   def install
     system "pnpm", "--dir", "ui", "install"

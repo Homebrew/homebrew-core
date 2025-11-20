@@ -1,20 +1,18 @@
 class Mmdbinspect < Formula
   desc "Look up records for one or more IPs/networks in one or more .mmdb databases"
   homepage "https://github.com/maxmind/mmdbinspect"
-  url "https://github.com/maxmind/mmdbinspect/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "7031c9df103b78f6cc1e441dec7bff80743bae79935bf0694a8d9c1f2d0d6cab"
+  url "https://github.com/maxmind/mmdbinspect/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "589cf517b61b3837ae59a5b4875db30974dfcaee6c533ee91768286967ade8e8"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/maxmind/mmdbinspect.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2867196560667fcee30a9b9fb30f38651ffd7e7ac1ab6f352d32d3a9521997a4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dd2ecd32e2d64c6d4b35cfbdf57eeb8cf2c4f79385da300fa791b9e6cac0c449"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "258a073b818c60576f4042913ee4053c632deae2ca47435ed930ebd5057ba945"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08aa384d6799f3e05954f79ed0f1c92a0bbb96f0fc731aff03978f8a5e687d61"
-    sha256 cellar: :any_skip_relocation, sonoma:         "138f33a523623a3dafb7a96da79b98987f58abd46ac50bb8b87469bd9d81a289"
-    sha256 cellar: :any_skip_relocation, ventura:        "5a8fd7d5ea482aee83bd485cd07782368efaa034643b8829e8a965906a6c233f"
-    sha256 cellar: :any_skip_relocation, monterey:       "16793974693aa4a49b65689bd728af00fd109c1b6c6476c27c9ad7d4ce591eba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec2a1905e63afdb38e62d24f3f4841e81ddf75f09ec102becab9415b10a81a23"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "32ea559ea3db8ed663b41e20b5d3db3c3982fd92acfcec7235de26b3be73bb9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32ea559ea3db8ed663b41e20b5d3db3c3982fd92acfcec7235de26b3be73bb9e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32ea559ea3db8ed663b41e20b5d3db3c3982fd92acfcec7235de26b3be73bb9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e5d866271963d5a0a7152f47a41e8b1da2046e2f7e395287d65c3f1cb2cf78f4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "657f79c53a27815dbbc4ef247beae40307111f4d814d9751e1f3e02aec247bfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "807a8b443eb151b0c5e9fa87b7cff7af1df3f8255d5b3ab8d067ac7e422f50df"
   end
 
   depends_on "go" => :build

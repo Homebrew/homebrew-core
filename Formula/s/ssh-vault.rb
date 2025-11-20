@@ -1,19 +1,20 @@
 class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
-  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.1.0.tar.gz"
-  sha256 "3bde1ad4d1f8f0eb7ade501e4b12a89e83b6508675d46286462af1eccbda646c"
+  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.1.5.tar.gz"
+  sha256 "73d73ec173400dafb290a237bb75a18e555b4216ee01be22a54c09ff2a51bebe"
   license "BSD-3-Clause"
   head "https://github.com/ssh-vault/ssh-vault.git", branch: "main"
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c27ff2adc2e2a950011fb85982e3475dd00f95696354090bd0d498448a65aa76"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b55c4f946385ceff1df3a4f742f53a895d1582faff4b3ed155b2c8947a2d5e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd1ab07e07ca2ab36d424d8840d7926aecf18d4b223d5289adf982c219c60112"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f21314b53412c0c49618b3384a885eeed3e58784e797d067f12d89dffb57241f"
-    sha256 cellar: :any_skip_relocation, ventura:       "cee7b74f65d8e5d79dac9fc296a4fadfd02939790a94208c167f3aec805d0f30"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d73c8e8b90a8ffdb58c8eb42810e8c1db67330ed559bee688f9a5fdf0c1946ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e813a71072ece7cdca7723f9fe65f7d79709de88ee0240f9fdfe8febac4929a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80994e7d1ba41dbc10dd534a2c61afd68c347197a152455cf555bd3749d9a95b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1137e33677aebcbbe055176525f13a9c8b983a9acb46bcce45e2fc168635f42a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4154aa3dbfb51931115fc74b3447e35d2f1ce0b3989faa99cc0023cf7796d73a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "acc48c61601ead126bd7702aed108dfbdb4d6f4d405d9c818b9858677a5327fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a96e902a861e47277f298df4e4cf5ee63d31cac6d3265a5eda1e5f78a6302185"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb2b50f4ba9fd803b89ac50688d2643a00646c42f474bef76bb287e7549dd3cb"
   end
 
   depends_on "pkgconf" => :build

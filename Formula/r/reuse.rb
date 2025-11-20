@@ -3,52 +3,47 @@ class Reuse < Formula
 
   desc "Tool for copyright and license recommendations"
   homepage "https://reuse.software"
-  url "https://files.pythonhosted.org/packages/08/43/35421efe0e69823787b331362e11cc16bb697cd6f19cbed284d421615f14/reuse-5.0.2.tar.gz"
-  sha256 "878016ae5dd29c10bad4606d6676c12a268c12aa9fcfea66403598e16eed085c"
+  url "https://files.pythonhosted.org/packages/05/35/298d9410b3635107ce586725cdfbca4c219c08d77a3511551f5e479a78db/reuse-6.2.0.tar.gz"
+  sha256 "4feae057a2334c9a513e6933cdb9be819d8b822f3b5b435a36138bd218897d23"
   license all_of: [
     "GPL-3.0-or-later",
     "CC-BY-SA-4.0",
     "CC0-1.0",
     "Apache-2.0",
   ]
-  revision 1
   head "https://github.com/fsfe/reuse-tool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "551212af17250b9915380deb399938ef83c9c65421f21f93cebace81a8052473"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e79cdd016638b994ff1ed958af013f6508befc4a4156ead5cf05a31c686d386"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4a8559c7cde92a42085453e1709d560edb273cbba7727d0a4510e319aa5c4063"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fc3f9f7652314304f811bbfa6417e2167ebaa7c08efca445042db46fc202b7d4"
-    sha256 cellar: :any_skip_relocation, ventura:       "75b6702ee1a9bb535a10b425370d71f36d1a32668f06c56fb030c6431c54d1f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b822cf1d2915d1e29304008123e5a97049101f2604f0711c5cd92e7f86cb50a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38c32a28aaa81ffefd92812911a5ed2bcc41004e2166537aea798303804149c7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b0c54095d67e082855143d97b642e9912f59182e89d082f6a69cd649afca0d82"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9648e3d0ae7497eb247f4a461602f1f7f6a876bc18f724eea8d314cc0fc75e1b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "327e52d1a950d585a5cd0a3def3ddc7f8f5ef87857bc681ac9777dddcc8c260e"
+    sha256 cellar: :any_skip_relocation, tahoe:         "38fdf43c2bb803c2a4ebadada4e3af205d2119f3e17e0c68ff0fbd998586ddc4"
+    sha256 cellar: :any_skip_relocation, sequoia:       "27707a68325827425ec1cdd5f1d48bec63f7a84d2d5f66252b962b72c87b1824"
+    sha256 cellar: :any_skip_relocation, sonoma:        "389a80a6fbc3cfc0c2b610a125af1752cf3e9daf6b4a398c6f46a57b5d03c95c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1eb816b024f2264daffcf5e2cd000c5087ebc15254fa4016538d7a563c9d8d94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e41b6ec378751332431d99ae9947c34451c4b82768d7105710f0acce38c0602"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
-  end
-
-  resource "binaryornot" do
-    url "https://files.pythonhosted.org/packages/a7/fe/7ebfec74d49f97fc55cd38240c7a7d08134002b1e14be8c3897c0dd5e49b/binaryornot-0.4.4.tar.gz"
-    sha256 "359501dfc9d40632edc9fac890e19542db1a287bbcfa58175b66658392018061"
+    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
+    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
   end
 
   resource "boolean-py" do
-    url "https://files.pythonhosted.org/packages/a2/d9/b6e56a303d221fc0bdff2c775e4eef7fedd58194aa5a96fa89fb71634cc9/boolean.py-4.0.tar.gz"
-    sha256 "17b9a181630e43dde1851d42bef546d616d5d9b4480357514597e78b203d06e4"
+    url "https://files.pythonhosted.org/packages/c4/cf/85379f13b76f3a69bca86b60237978af17d6aa0bc5998978c3b8cf05abb2/boolean_py-5.0.tar.gz"
+    sha256 "60cbc4bad079753721d32649545505362c754e121570ada4658b852a3a318d95"
   end
 
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
-    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
+  resource "charset-normalizer" do
+    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
+    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "jinja2" do
@@ -57,29 +52,38 @@ class Reuse < Formula
   end
 
   resource "license-expression" do
-    url "https://files.pythonhosted.org/packages/74/6f/8709031ea6e0573e6075d24ea34507b0eb32f83f10e1420f2e34606bf0da/license_expression-30.4.1.tar.gz"
-    sha256 "9f02105f9e0fcecba6a85dfbbed7d94ea1c3a70cf23ddbfb5adf3438a6f6fce0"
+    url "https://files.pythonhosted.org/packages/40/71/d89bb0e71b1415453980fd32315f2a037aad9f7f70f695c7cec7035feb13/license_expression-30.4.4.tar.gz"
+    sha256 "73448f0aacd8d0808895bdc4b2c8e01a8d67646e4188f887375398c761f340fd"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "python-debian" do
-    url "https://files.pythonhosted.org/packages/ce/8d/2ebc549adf1f623d4044b108b30ff5cdac5756b0384cd9dddac63fe53eae/python-debian-0.1.49.tar.gz"
-    sha256 "8cf677a30dbcb4be7a99536c17e11308a827a4d22028dc59a67f6c6dd3f0f58c"
+    url "https://files.pythonhosted.org/packages/bf/4b/3c4cf635311b6203f17c2d693dc15e898969983dd3f729bee3c428aa60d4/python-debian-1.0.1.tar.gz"
+    sha256 "3ada9b83a3d671b58081782c0969cffa0102f6ce433fbbc7cf21275b8b5cc771"
+  end
+
+  resource "python-magic" do
+    url "https://files.pythonhosted.org/packages/da/db/0b3e28ac047452d079d375ec6798bf76a036a08182dbb39ed38116a49130/python-magic-0.4.27.tar.gz"
+    sha256 "c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b"
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/b1/09/a439bec5888f00a54b8b9f05fa94d7f901d6735ef4e55dcec9bc37b5d8fa/tomlkit-0.13.2.tar.gz"
-    sha256 "fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79"
+    url "https://files.pythonhosted.org/packages/cc/18/0bbf3884e9eaa38819ebe46a7bd25dcd56b67434402b66a58c4b8e552575/tomlkit-0.13.3.tar.gz"
+    sha256 "430cf247ee57df2b94ee3fbe588e71d362a941ebb545dec29b53961d61add2a1"
   end
 
   def install
+    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
+    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
+
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"reuse", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"reuse", shell_parameter_format: :click)
   end
 
   test do

@@ -7,6 +7,7 @@ class Gowall < Formula
   head "https://github.com/Achno/gowall.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1ec11e01767a4c46928c76c1fdd08957a0e43d452b421b4438ec91ad49c9993"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "34dc908f5f3d79cbec77054867e82ef3df922edd34d5911f4682962b8554ac28"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39ec1eb39a2b1c802bd77fe3cd726749e958387affdc9aafc1df9d3632a15c08"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "05ac7c037fe03766da5ddbd174b7269cd15a3776e8ea24a59a4867a136e79be0"

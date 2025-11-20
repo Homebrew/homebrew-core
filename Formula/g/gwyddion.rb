@@ -1,22 +1,23 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
-  homepage "http://gwyddion.net/"
-  url "https://downloads.sourceforge.net/project/gwyddion/gwyddion/2.68/gwyddion-2.68.tar.xz"
-  sha256 "725c3f71738362b10b1e2cf76d391684cf2f15a71a2b34ef1caddabd6d5a9bfa"
+  homepage "https://gwyddion.net/"
+  url "https://downloads.sourceforge.net/project/gwyddion/gwyddion/2.69/gwyddion-2.69.tar.xz"
+  sha256 "597eb6b51ee575a07f350cc0573bc74d005a3490d9832ad136a369e70d30efa6"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
-    url "http://gwyddion.net/download.php"
-    regex(/stable version Gwyddion v?(\d+(?:\.\d+)+):/i)
+    url "https://gwyddion.net/download.php"
+    regex(/stable\s+version\s+Gwyddion\s+v?(\d+(?:\.\d+)+)[:<\s]/im)
   end
 
   bottle do
-    sha256 arm64_sonoma:  "b43e730eff6442bc243f8ac823d66f9662ddb19d3b45ba2fd4839539633ceec1"
-    sha256 arm64_ventura: "102134d0cc82e99b16f10beca65fbff50cf90fc20e8dfb9109947f38397c6e27"
-    sha256 sonoma:        "2a46d8ac980a10cff9a5dd4e6ad6676732f36f3683e3f15527e73cbd2fbc00fe"
-    sha256 ventura:       "98f80d6914545e03d705f8b36386f25c40c24b28790c68b3cd960f57736777e0"
-    sha256 arm64_linux:   "50c3c92bfa90b717cd0363f1848160dd2f09460cf7c9bc2bac377dc773c976cc"
-    sha256 x86_64_linux:  "ddb58bb61054c7d019aa1db4b8da4378829026a723bcd40d3181382e2809f562"
+    sha256 arm64_tahoe:   "176d61f7d6e3b0ddd007cad44c7d197c2f67cdd4d0bbc36b743ebbbcb585f721"
+    sha256 arm64_sequoia: "ea2b00bae6b56f8815f46d8d433e88b0713e1edf3a3e0b9ba4cd579b731351a0"
+    sha256 arm64_sonoma:  "6b456d84c768c7878ec6ca5b26d980e0959661ec5470fb41883f7864b5d8b739"
+    sha256 sonoma:        "41fa3671e4dca128efbffba0d0dcaca79c68f1d6f13b7d5449a21ea039a784b1"
+    sha256 arm64_linux:   "9fccd8372bc3dd8306783ec7474cbebaa83fea152fcd444778fa6f3bb8c34e83"
+    sha256 x86_64_linux:  "4572185617765888be6da573667d3f704b7494966d5923de5a740d1602aa0cfd"
   end
 
   depends_on "pkgconf" => [:build, :test]
@@ -47,6 +48,9 @@ class Gwyddion < Formula
     depends_on "harfbuzz"
   end
 
+  # Fix Autoconf ≥2.72 compatibility by explicitly declaring gettext version.
+  patch :DATA
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
     system "./configure", "--disable-desktop-file-update",
@@ -74,3 +78,17 @@ class Gwyddion < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/configure.ac b/configure.ac
+index b1f75d4..8a0895c 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -883,6 +883,7 @@ AC_CHECK_FUNCS([sincos log2 exp2 lgamma tgamma j0 j1 y0 y1 log1p expm1 memrchr m
+ #############################################################################
+ # I18n
+ GETTEXT_PACKAGE=$PACKAGE_TARNAME
++AM_GNU_GETTEXT_VERSION([0.19])
+ AM_GNU_GETTEXT([external])
+ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[Gettext package name])
+ AC_SUBST(GETTEXT_PACKAGE)

@@ -11,21 +11,24 @@ class Zurl < Formula
     "curl", # src/verifyhost.cpp
     "MIT", # src/qzmq/
   ]
+  revision 1
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:  "caac867d6cd84464d1432597b7f87521ad5d971e12aded4455068d0e227c7d6b"
-    sha256 cellar: :any,                 arm64_ventura: "db24a1c2b45dacb21bc6d983c7cc243e3a4c66e405e92ea1e1b755c920adf647"
-    sha256 cellar: :any,                 sonoma:        "3c269fb6fafc531fb6738e3e5b8f21085526b3278068bddd1f606342f5d14bb2"
-    sha256 cellar: :any,                 ventura:       "e97837c8f2141e8ff0dfe985fca0b6924a894b9a0fcc023a4808491eb67b3503"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e03115779822a91ea2c4547dae103f6538beeab596a56251aad671519c1becd8"
+    sha256 cellar: :any,                 arm64_tahoe:   "eb2c86141ca65e087181c6d802dad72bb3d0b3ecd75286663077b29ef5ee8ed6"
+    sha256 cellar: :any,                 arm64_sequoia: "6b0d185ef6601a9a7feb2712ac0b7d4242e8e35e4572cb8aca3c88109461f1fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "b75dbe6b4c8eb60c671c68c1adeb4bf0fd4ec011051c34bae3342ee49bb3a1a3"
+    sha256 cellar: :any,                 sonoma:        "318fd22b894af157b9a54a874d13c805b1474d97a43cd50e0e39f15262472b40"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "591a82d1ae225eeab0cd35808e860c1b69b9cf84d13ef87962aa4f0b24c0ddfc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd9298662889e90ecfc5078599cfeab0862621e9839b92af94a93b32b5db4430"
   end
 
   depends_on "pkgconf" => :build
   depends_on "cmake" => :test # for scikit_build_core
   depends_on "cython" => :test # use brew cython as building it in test can cause time out
-  depends_on "python@3.13" => :test
-  depends_on "qt"
+  depends_on "python@3.14" => :test
+  depends_on "qtbase"
   depends_on "zeromq"
 
   uses_from_macos "curl"
@@ -35,7 +38,7 @@ class Zurl < Formula
   end
 
   def install
-    args = ["--qtselect=#{Formula["qt"].version.major}"]
+    args = ["--qtselect=#{Formula["qtbase"].version.major}"]
     args << "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}" if OS.mac?
 
     system "./configure", "--prefix=#{prefix}", *args
@@ -45,8 +48,8 @@ class Zurl < Formula
 
   test do
     resource "packaging" do
-      url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-      sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+      url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+      sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
     end
 
     resource "pathspec" do
@@ -55,8 +58,8 @@ class Zurl < Formula
     end
 
     resource "pyzmq" do
-      url "https://files.pythonhosted.org/packages/fd/05/bed626b9f7bb2322cdbbf7b4bd8f54b1b617b0d2ab2d3547d6e39428a48e/pyzmq-26.2.0.tar.gz"
-      sha256 "070672c258581c8e4f640b5159297580a9974b026043bd4ab0470be9ed324f1f"
+      url "https://files.pythonhosted.org/packages/04/0b/3c9baedbdf613ecaa7aa07027780b8867f57b6293b6ee50de316c9f3222b/pyzmq-27.1.0.tar.gz"
+      sha256 "ac0765e3d44455adb6ddbf4417dcce460fc40a05978c08efdf2948072f6db540"
     end
 
     resource "scikit-build-core" do
@@ -65,11 +68,11 @@ class Zurl < Formula
     end
 
     resource "setuptools" do
-      url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-      sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
+      url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+      sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
     end
 
-    python3 = "python3.13"
+    python3 = "python3.14"
 
     conffile = testpath/"zurl.conf"
     ipcfile = testpath/"zurl-req"

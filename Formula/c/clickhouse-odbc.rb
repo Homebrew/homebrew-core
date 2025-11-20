@@ -16,6 +16,7 @@ class ClickhouseOdbc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c71ebb157e02d5764dbc6761479d4b5df17140fb166f2a9f41a62b297c950f54"
     sha256 cellar: :any,                 arm64_sequoia: "823b627489c0eb6132863b4801bbb35d72d0a0a94e6a05e1db727626d6610a97"
     sha256 cellar: :any,                 arm64_sonoma:  "e3319686c6b8b190cac07657b005815d52b5e9ae2cdce502dc0547b2beec2d33"
     sha256 cellar: :any,                 arm64_ventura: "fd57a1b662562034e4438ef7a3f504a13b9bb41fd1fdf0fba65881457c3dbad9"
@@ -44,7 +45,7 @@ class ClickhouseOdbc < Formula
 
   # build patch for utf8proc, no needed for newer version, as folly got removed per https://github.com/ClickHouse/clickhouse-odbc/pull/456
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c76519fcbfa664cd37a8901deb76403b1af1bec1/clickhouse-odbc/1.2.1.20220905-Utf8Proc.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/clickhouse-odbc/1.2.1.20220905-Utf8Proc.patch"
     sha256 "29f3aeaa05609d53b942903868cb52ddcfcb3b35d32e8075d152cd2ca0ff5242"
   end
 

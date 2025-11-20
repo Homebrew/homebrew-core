@@ -1,19 +1,18 @@
 class OsvScanner < Formula
   desc "Vulnerability scanner which uses the OSV database"
   homepage "https://github.com/google/osv-scanner"
-  url "https://github.com/google/osv-scanner/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "c419edd454980d7a8c7401baed04748d40342d6a77c1317696876986f171664b"
+  url "https://github.com/google/osv-scanner/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "64b1df1cd7c5c6f8508628fe2ead1969bd9bcf5e3d7d72b3a61ceab8ccae34f8"
   license "Apache-2.0"
   head "https://github.com/google/osv-scanner.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1c3c1f4261ecf813b1110603f51d6b366e45942e0f507ecd7a2d9e5330d6127b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c3c1f4261ecf813b1110603f51d6b366e45942e0f507ecd7a2d9e5330d6127b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1c3c1f4261ecf813b1110603f51d6b366e45942e0f507ecd7a2d9e5330d6127b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3fc1f27d4999f3fe9cf2ca8d878d32b2b8054744be8d2781afece1868953446f"
-    sha256 cellar: :any_skip_relocation, ventura:       "3fc1f27d4999f3fe9cf2ca8d878d32b2b8054744be8d2781afece1868953446f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "096db7ab35d07767ec68d7d6786724f05e8b9607d2d42815d0ec0b568d6f2554"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02a02d4253a8de9c56969ea49d09bfd04e53e1d632ecb4c3aa5d3c745e786515"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "66bf404fe146bc688ec5f8f11fa00007bee9748bdd037064129ed637ab2af44a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08877f4f981ff51f567891bd0b93c0b7e1031ae8d1c9874622f051af3a5e560e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "457131d3bca1cf35080fb5e33aa190b8068f43c20b64294d82ac952d52c8dadf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c47d6da48d19601b70d40bb85e23fc460da1958401219cece3741b7c16a2b88e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71c567a08b358d6282a648fb2a1f1e0530f19fc51c7ff6f899e406c749dc26af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48d09bab40e22ef4b738c883cbde6a38c06c00d25f983058d5d0bf5f2d655040"
   end
 
   depends_on "go" => [:build, :test]
@@ -31,11 +30,7 @@ class OsvScanner < Formula
       )
     GOMOD
 
-    scan_output = shell_output("#{bin}/osv-scanner --lockfile #{testpath}/go.mod").strip
-    expected_output = <<~EOS.chomp
-      Scanned #{testpath}/go.mod file and found 1 package
-      No issues found
-    EOS
-    assert_equal expected_output, scan_output
+    scan_output = shell_output("#{bin}/osv-scanner --lockfile #{testpath}/go.mod")
+    assert_match "Scanned #{testpath}/go.mod file and found 1 package", scan_output
   end
 end

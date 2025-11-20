@@ -14,6 +14,7 @@ class ApacheBrooklynCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "40f8748f92e5bf30f1451b1590f1bcfa7d2cb4001b3b464a3cba2536207dabfb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "503ba57fecdd845c589d3d989e55389df542bf408d74c6b6bdaaaaa3b9fa9d7a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5d4f837f66feb0e8ffd454caabde1262774b0146b9a41bc7b0e6c8db2f12d35"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3c1f6d82e0bded1a9caed523d74fc56bde05a5a11dade96496475ff43064f7e"
@@ -21,6 +22,7 @@ class ApacheBrooklynCli < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "4c95c57b459108b4ea53b4ad26ac0fa1f5f63bb7d48f4af8cf213f052e35235b"
     sha256 cellar: :any_skip_relocation, ventura:        "93b0fa4d3664559fd801cd65d4834352cffb39b5328ae8ee8b983aa379926add"
     sha256 cellar: :any_skip_relocation, monterey:       "0478989b79dde26f28cb82612e4991cc7f9e0255ea4d5db7991177083b77f036"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2ad44e932f78810e55add04db3a881b3ed6f0f90b9869ec404f37c17e690331a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7c85e245c2a3ba2ed68c1e2a64d9b6bbb7e1b0dbd5f1a4f3d941d0e0f19a25e"
   end
 

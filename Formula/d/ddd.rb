@@ -1,8 +1,8 @@
 class Ddd < Formula
   desc "Graphical front-end for command-line debuggers"
   homepage "https://www.gnu.org/software/ddd/"
-  url "https://ftp.gnu.org/gnu/ddd/ddd-3.4.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/ddd/ddd-3.4.1.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/ddd/ddd-3.4.1.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/ddd/ddd-3.4.1.tar.gz"
   sha256 "b87517a6c3f9611566347e283a2cf931fa369919b553536a2235e63402f4ee89"
   license all_of: [
     "GPL-3.0-or-later",
@@ -15,6 +15,7 @@ class Ddd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "25083bd2eeac8896b1406a713d5ca294cacb800fee16e0368e434e6715b72644"
     sha256 arm64_sequoia:  "3c31137211b8185a0b8e3ceffce6474c803cf8790348211ad0690162697a1613"
     sha256 arm64_sonoma:   "73e84236c870313e5a43e936998545961609c5f43104e6b57cd693a03dc52a5d"
     sha256 arm64_ventura:  "d287abe1d656058174b03b2e1215e7eee7d996fad1e041fd8d14e573b3e0716f"

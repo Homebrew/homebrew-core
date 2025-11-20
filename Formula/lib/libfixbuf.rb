@@ -1,8 +1,8 @@
 class Libfixbuf < Formula
   desc "Implements the IPFIX Protocol as a C library"
   homepage "https://tools.netsa.cert.org/fixbuf/"
-  url "https://tools.netsa.cert.org/releases/libfixbuf-2.5.1.tar.gz"
-  sha256 "e75a463855a3d8a6060860f6490e79dee3305e650bbb60111c4dae8e52cbdae7"
+  url "https://tools.netsa.cert.org/releases/libfixbuf-2.5.3.tar.gz"
+  sha256 "a87a7527634571cbe5fcf092b5dec9f6d6f93be6b776f16bca2d2412d42e6ac2"
   license "LGPL-3.0-only"
 
   # NOTE: This should be updated to check the main `/fixbuf/download.html`
@@ -13,13 +13,12 @@ class Libfixbuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "eb0844f675d129e9c133bc28bbd5d9b1915b429f5f761094d3ff2db7563df0d6"
-    sha256 cellar: :any,                 arm64_sonoma:  "4966c36322bf9c69e915c226185d00499bd66e0499d42700c8079bbe4e9517a1"
-    sha256 cellar: :any,                 arm64_ventura: "6f143991654646e12feff3b8cd2f951e1ce21ce42c48b2093f5fb676d22b165e"
-    sha256 cellar: :any,                 sonoma:        "d68ce40ce5149760d24d0fb26511ec462d4491b9766dbfcd35afdde6bf365932"
-    sha256 cellar: :any,                 ventura:       "dce1cab17bef5b90dad6064628703f5c6d35ec630b2158b8d2dc5f8a347adbe4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34bf31cf7ae49ee6cdc4d4fa074d35d68a567cdfa9d89fc7fe958e15eeeca51a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2f2ea84ed0a6cfafd82cca320ae2626d9240b10265318eb26300b5e88ca6df3"
+    sha256 cellar: :any,                 arm64_tahoe:   "c2efd2fc55aaf6c1fa9f549bbc766bd882001e24ecc1fd49c67898e0b5f08299"
+    sha256 cellar: :any,                 arm64_sequoia: "38d9ee575ec8e7fd9be0c845d50ef7356eaf6e2a6e52f8767dfd8ba316dadf24"
+    sha256 cellar: :any,                 arm64_sonoma:  "90ad12f18cdf5917337d390fc2f1c827630c3a176faa41db46180d43eb99986c"
+    sha256 cellar: :any,                 sonoma:        "2cf5c4aebe2039cde223b64d20448d9d6342e34986e3134b7b2337d4afcefb85"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "513ccaf4b9d4e98fd1dbc9126634dd32d14ca1733d8299dbc83f9c75857aca0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a602fe11207dfa0d9bccf12fadd8db0430fbbff1c0a9e29e43f8a49ef3ab276c"
   end
 
   depends_on "pkgconf" => [:build, :test]

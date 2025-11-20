@@ -1,21 +1,20 @@
 class Libssh < Formula
   desc "C library SSHv1/SSHv2 client and server protocols"
   homepage "https://www.libssh.org/"
-  url "https://www.libssh.org/files/0.11/libssh-0.11.1.tar.xz"
-  sha256 "14b7dcc72e91e08151c58b981a7b570ab2663f630e7d2837645d5a9c612c1b79"
+  url "https://www.libssh.org/files/0.11/libssh-0.11.3.tar.xz"
+  sha256 "7d8a1361bb094ec3f511964e78a5a4dba689b5986e112afabe4f4d0d6c6125c3"
   license "LGPL-2.1-or-later"
   head "https://git.libssh.org/projects/libssh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "ef7a07e8b469c92123e7b81ee8356820e1e6866d8e05b278cdd544d1c7d4bf97"
-    sha256 cellar: :any,                 arm64_sonoma:   "0a6184ee3bcd7d1ef5deb30a1534d04a90ba4f6070eddd5a05fe75b9acc20ea1"
-    sha256 cellar: :any,                 arm64_ventura:  "9de46491d931e959172d96481de25cae970c55d2b5212a8fae8224208940c42d"
-    sha256 cellar: :any,                 arm64_monterey: "a9f3409bf9da4337393b2594157adf571c6c3fd5d421de079fb1bcf544a1a16d"
-    sha256 cellar: :any,                 sonoma:         "371ed72cfece039f5abec57b2c2f4a0c2782a0df85a9eab622df75ebcd28c63e"
-    sha256 cellar: :any,                 ventura:        "09014e85c296ec5452ea0958b8169b5d0eee8534b6f4b7f1bdc6055dfb35607f"
-    sha256 cellar: :any,                 monterey:       "8efb6ef891e6c9d2e9f7f1086d91663bcc54a4e6dec3a4c212f993ffc4a0abca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3fffddb8d6a9c20bc983e6bc892cbeb196cdcf426458608688024a3951b3145f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b711f58f15aad1d605cbecba2cc82d3375fdc422b9938c890f5a57c35918ed3"
+    sha256 cellar: :any,                 arm64_tahoe:   "e91e604beda45807e4e95bcc49aa19370e7060d27589e03ef76b4669965bcf79"
+    sha256 cellar: :any,                 arm64_sequoia: "ed8b3a5fc472d34a7dcc545125ad1b46018cb6a285f0493c983ed0057137dc1c"
+    sha256 cellar: :any,                 arm64_sonoma:  "e138277845774eced73507b57d2e88ce083563e5c4422547ca3ee40828f4fbcd"
+    sha256 cellar: :any,                 arm64_ventura: "d964e62f422c90ce3993d41adc3f101196c24e3330c6e03e5c5a06bb42dfbd85"
+    sha256 cellar: :any,                 sonoma:        "ab10e4e2fcd6ce97b7d7c7dfbaea0067fdd104d2a48fca3c879bfcf3cf43a60f"
+    sha256 cellar: :any,                 ventura:       "4fec93f5cc2f344a18f91ec3ac76a9db6243acc3a4188772a9d7c2df579e5e95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a1d91932020c21898b7bd78cf3175e86af36f83bac9bb7ca936a41a7cac0285"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ea38523d0d8393df13be75c57f251ef7af84777edb9a643d302fedad89d39df"
   end
 
   depends_on "cmake" => :build

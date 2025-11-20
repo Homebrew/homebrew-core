@@ -6,19 +6,16 @@ class LaunchSocketServer < Formula
   license "MIT"
   head "https://github.com/mistydemeo/launch_socket_server.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4dc5f49b22d19b1a6d79d1697b52883dfb9ef8f39d2777a49c6aed182b9ef0be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ce6af2c7124bc91494a306292073b296f109482869a4c01870ef97e81d5d62d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f097f91e97343b78e0208793705506ccec3ea9deddb38d9a15d11c11103888cf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "055953e5098f4c8e2c823d58e123eb3a905174c9619791b3fa54de1d671b193d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b95b2bbe04b54feb6b103b5ead74f984160ff920a8914619004b40c1402bceb7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0fd45ecadc044db17343dcbd89327fd2324512e7055f9b30e26f40dc4c513bc2"
-    sha256 cellar: :any_skip_relocation, ventura:        "1201c5615810d1e37d6c6c2c26ccadf8ffd9a346905cbf064ea637aab8f04629"
-    sha256 cellar: :any_skip_relocation, monterey:       "165fd5a279db8b88e586ca82f2c1017946a7675c8f0c158921d9cb48d152e13b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0d490a674d736272ea67f2289d5eb715b5aa48acf5e289a6a8e8327cd4cbc4a4"
-    sha256 cellar: :any_skip_relocation, catalina:       "ff86499103ad1d9d33cdc039e24f065aa08405bda980c9e242c46ed157bc33ff"
-    sha256 cellar: :any_skip_relocation, mojave:         "823d84eddeb72fdabeccdc189bc19269485bfeb23d0a57824cdbf95c92a6ccb8"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "ef58f2afc33d6454282d1e1b92e4d16269885464707ae58079c29514f4cadc60"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24960fd5bd4f03830d135a4cc6150ec49b516ce8c3bdaf16b240669310565536"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6974a57e3a6bd5f01dc3b62d4a4592afb791af68f230b7ea5e60a46cffc0d395"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "92a59f265b9a67885cd73be07b4fa591b0ff76e382ac7c2db5099e02d2212bfe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7d09862a50bec1441d8d5cf4eabb2318942fab969ebddb67b9f3739e784e5a13"
+    sha256 cellar: :any_skip_relocation, sonoma:        "570f75f0fa24b34b03a278f1dc9f46f554c651b966204943fb3b5f25f412ee81"
+    sha256 cellar: :any_skip_relocation, ventura:       "38b8161c24c87504fe237154e1b287d1493f9a16f41bced1f942ebb5ce9b6d06"
   end
 
   depends_on "go" => :build
@@ -37,7 +34,7 @@ class LaunchSocketServer < Formula
     require_root true
     error_log_path var/"log/launch_socket_server.log"
     log_path var/"log/launch_socket_server.log"
-    sockets "tcp://0.0.0.0:80"
+    sockets "tcp://127.0.0.1:80"
   end
 
   test do

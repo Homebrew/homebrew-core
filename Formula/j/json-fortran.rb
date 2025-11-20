@@ -1,19 +1,20 @@
 class JsonFortran < Formula
   desc "Fortran 2008 JSON API"
   homepage "https://github.com/jacobwilliams/json-fortran"
-  url "https://github.com/jacobwilliams/json-fortran/archive/refs/tags/9.0.3.tar.gz"
-  sha256 "ea6e02ab4873d43e2059d51d8392422d6f746a7a9ea0fb18ab28a3beb4fef13c"
+  url "https://github.com/jacobwilliams/json-fortran/archive/refs/tags/9.0.5.tar.gz"
+  sha256 "8ec27366be7f861cd14b277fd997be1ebee2a7e776a0b904b6f2425f0a274984"
   license "BSD-3-Clause"
   head "https://github.com/jacobwilliams/json-fortran.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "431800da5e3125fabc45e0694e5f038427c5730e7819c8172979aa30208f03ee"
-    sha256 cellar: :any,                 arm64_sonoma:  "fda27b3d2119ec2f4b33851c3ea7df66ee9d40ee60db229f9f8131eb33bc0fa9"
-    sha256 cellar: :any,                 arm64_ventura: "a5f19471c0343e161e383982b38652b099e3a1bd6c334b305f8965d4e87cc582"
-    sha256 cellar: :any,                 sonoma:        "d8a62d6d7cd520d8d614d097ddb33611a7d234874733a93ee7f5c143fe7f3c09"
-    sha256 cellar: :any,                 ventura:       "414fd1579e8b0a005d62dc650f733b96459003989144813942154091b506a41a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "909feb913cf7a36c8ab7c4c10243e5f5a8500c57ba6ccf519fad0f8dc1561391"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b0f3c60aa5ce457a0bd8775db131a05d97ea280219cb5012408cf4bb2703250"
+    sha256 cellar: :any,                 arm64_tahoe:   "db7983b84f338dc340b2a5d048a594a6485163111e06f142821c4f58ca935fb0"
+    sha256 cellar: :any,                 arm64_sequoia: "95e2b55cd22d58db1a7d4e06031e8406b0996c2355eedf82252fef0da426288c"
+    sha256 cellar: :any,                 arm64_sonoma:  "034c9f09b82cc5059bd8eda6e5cc8b2fd4b8f85d3ceed9dd395af278ffcfb911"
+    sha256 cellar: :any,                 arm64_ventura: "263f2ab82b9e7cb1f096bc3b7070d2661b9f5f9e468e95ac2e2ee3d8f7996c80"
+    sha256 cellar: :any,                 sonoma:        "d73925b181a63ef1a688338ca3bd21d186a5e95e63d03ccd680204dd392dde97"
+    sha256 cellar: :any,                 ventura:       "493827bdff025af9d3498910670cab02973956c5aac4401cbc272dc645b69411"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab9ebab961b0d954edb45c536145f3377ef28dc9adddc85d9dcc7af3b4da7293"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0086a54d347650b20241c3fa86c46e6a66e594cce78ce1641fd086dd57323785"
   end
 
   depends_on "cmake" => :build
@@ -49,6 +50,7 @@ class JsonFortran < Formula
       if (json%failed()) error stop 'error'
       end program example
     FORTRAN
+    ENV.prepend_path "PATH", Formula["binutils"].opt_bin if OS.linux?
     system "gfortran", "-o", "test", "json_test.f90", "-I#{include}",
                        "-L#{lib}", "-ljsonfortran"
     system "./test"

@@ -1,8 +1,8 @@
 class Ki18n < Formula
   desc "KDE Gettext-based UI text internationalization"
-  homepage "https://api.kde.org/frameworks/ki18n/html/index.html"
-  url "https://download.kde.org/stable/frameworks/6.14/ki18n-6.14.0.tar.xz"
-  sha256 "2a5135412caf0a07eba4eeb60867ac6929df1c83c145ae757a6a1230f842e669"
+  homepage "https://api.kde.org/ki18n-index.html"
+  url "https://download.kde.org/stable/frameworks/6.20/ki18n-6.20.0.tar.xz"
+  sha256 "f29c805137af9cee6abab424b380fea964a59b089f90fb909601d9fc78df5f73"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.0-or-later",
@@ -16,22 +16,25 @@ class Ki18n < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "813a3949fbec80841d7cdc7c13cf389843827da1de60ad2f41ad1d3090967403"
-    sha256 arm64_ventura: "30ab036fee1e082ef2a20a60f62b1cc556bbb50777fc0094767a74ab5bad50d2"
-    sha256 sonoma:        "00a85043356ed0e53aaa97b53201afe7a1e2930d4c135a03f0a340f021affee1"
-    sha256 ventura:       "97f1d16b5670dd1cf927ad43f8100ca94352c18809a2d3a8150b6b99deb1a9fa"
-    sha256 x86_64_linux:  "481f2625a6848c04d8bd956f54d0d9ff15530e11df285c0480382367718ae105"
+    sha256 arm64_tahoe:   "ac17d6aaf3169519cb601f01704f012a2e83b93cd99db2e93b5fc6874069f5e6"
+    sha256 arm64_sequoia: "227a5eed50f583ea8b3927560683a44964568853844a268f7364a376055e87a2"
+    sha256 arm64_sonoma:  "3396cb512adfef2e3d21bca6194dbd276bbe0c686b0e2c1032c074fe113cbef5"
+    sha256 sonoma:        "6631b8113e854fe218e5d3b84a765f4169daae99a2a843042ac04fed08ba094b"
+    sha256 arm64_linux:   "d8b865cca7628a0d0a0f62825395fb229dcfb574ce45639fc9d01e3481886125"
+    sha256 x86_64_linux:  "9541782e8ae0de8de2273b6fbee858dedf7b2fe7d955fb798266a82ac94468b7"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "pkgconf" => :build
+  depends_on "qttools" => :build
   depends_on "gettext"
   depends_on "iso-codes"
-  depends_on "qt"
+  depends_on "qtbase"
+  depends_on "qtdeclarative"
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   def install
     args = %W[
@@ -49,11 +52,11 @@ class Ki18n < Formula
   end
 
   test do
-    qt = Formula["qt"]
+    qt = Formula["qtbase"]
     qt_major = qt.version.major
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.5)
+      cmake_minimum_required(VERSION 4.0)
       include(FeatureSummary)
       find_package(ECM #{version} NO_MODULE)
       set_package_properties(ECM PROPERTIES TYPE REQUIRED)

@@ -2,19 +2,20 @@ class Periscope < Formula
   desc "Organize and de-duplicate your files without losing data"
   homepage "https://github.com/anishathalye/periscope"
   url "https://github.com/anishathalye/periscope.git",
-      tag:      "v1.0.0",
-      revision: "3d398cb7c9d8e41690c54371861d1b0a0119c485"
+      tag:      "v1.0.1",
+      revision: "a279bfd38e6ff8f4730e52fc670d8e24b98eda7a"
   license "GPL-3.0-only"
   head "https://github.com/anishathalye/periscope.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9640cda5271196d7ae0b4ec8fd4aac56378bf70a89529dcae21995c9bb53ab36"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2c4e1a39fe80211258e6269f9ad212d261519b223e89f1f0f93f84c64f18d00"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d3a14af2b8bbc5def8dc556de099ddb30f2c4f129743ddfde14226af0f2397a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9a2d6787de19316613a10a7c2e1cc921047575b031ac6363e2dadf9425e91ca5"
-    sha256 cellar: :any_skip_relocation, ventura:       "2eef76919c4d079f13b3f67dc36c45e24b64daced55875b33d3537fdaee34c9c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37af0b84717118647d205579a7afda747ba18dd3be41d9506c9c046e5d00799f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "730c36044c98b82acf32c59bb4137e3b572970e0b8bd0d05198f8bd24d79ac83"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5765ada2bc369b8ec6146bd7ce9e93d1e30d8bb97069d940dc17ef4fb1b2ffa0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d6d94c3ed7b19367c483d2e757040f66eeb55c7109d5b852ef95a4b2dceac4a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "151bac7b4998a735eb059417d814e796f26edb35a795d89542fb5f4ac35d5cd2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "461ffa9b2eda689da1a8f6d35cfb1d348a44a438a9051551d594c02781235d60"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e793cccc4729c4b1a7dc3621ec0f16f266bf3c148e3a4e0035b4bae2de7a0c5c"
+    sha256 cellar: :any_skip_relocation, ventura:       "62beda5a28e320d04f9bb95613918fd7b55a6d59687b3db1ecb9844b4bb51889"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a853559bf9a3baac07b99b216416b69ecc445e3045b7147a2fae07c335d9db18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee3133ef30216e3c0d0c07d53af60848f4fd1d1815746dae655eafa8c39d4bce"
   end
 
   depends_on "go" => :build

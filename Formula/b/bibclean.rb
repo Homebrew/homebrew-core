@@ -13,6 +13,7 @@ class Bibclean < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "879cc1d92309684de3e1d3aac3f3ceae0751b013e52bee638c67c18fd63dbf92"
     sha256 arm64_sequoia:  "13c1d6444ba0a4dd09e6840c29240a230d4d5bab8946912b275fc53fca9558bc"
     sha256 arm64_sonoma:   "9ec0d9aaf5fa2f6f48a1fd7d221a8f76d0af01d2adc36be38ad81a9660750fbe"
     sha256 arm64_ventura:  "d3fe9381c582b76b086b44099f31247d59ce061cd28332df637410c9249ea801"

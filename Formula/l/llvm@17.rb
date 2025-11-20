@@ -11,11 +11,15 @@ class LlvmAT17 < Formula
     regex(/^llvmorg[._-]v?(17(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9ba308319c3f4200eeaf9d30cd2bc5f40f3b2cdeeffbd08024c4e0fe346d9022"
     sha256 cellar: :any,                 arm64_sequoia:  "4cf50ede64cdc9cf05227501e8b0893a4feb0b86843fcd77b12a5cff1e539522"
     sha256 cellar: :any,                 arm64_sonoma:   "a86a41bd356df1fdbd8eef983fff672937a39cad37b00ef37ca94365fc636e1d"
     sha256 cellar: :any,                 arm64_ventura:  "d39b580c5e17bb4f103937122a64f81f7961bbd5b25f9467226c04ff557a45c6"
     sha256 cellar: :any,                 arm64_monterey: "0915b164989e297186d51766ba11451d6066a2a85a52629acc296d75cbb25159"
+    sha256 cellar: :any,                 tahoe:          "89f1155284f657d26de9149d9ca3df1bea170d977ec72f8eee3a0fa84cb99280"
     sha256 cellar: :any,                 sequoia:        "baf5cd93bcb8db112c6742d520660d61c206693e1597cbdf4fc11204d6746809"
     sha256 cellar: :any,                 sonoma:         "d98f672996f75861190b139397b1623af1f41b624d2a9515a22505592aeed2fa"
     sha256 cellar: :any,                 ventura:        "e46fd200b88e080bf18cdddbb140b1052a168b8c91debc895f0ce66d1db7c4aa"
@@ -36,7 +40,7 @@ class LlvmAT17 < Formula
   depends_on "zstd"
 
   uses_from_macos "libedit"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -49,7 +53,7 @@ class LlvmAT17 < Formula
   # Fix arm64 misoptimisation in some cases.
   # https://github.com/Homebrew/homebrew-core/issues/158957
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/23704400c86976aaa4f421f56928484a270ac79c/llvm/17.x-arm64-opt.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/llvm/17.x-arm64-opt.patch"
     sha256 "0e312207fd9474bd26f4a283ee23d94b334d3ec8732086d30bce95f7c8dc2201"
   end
 
@@ -123,10 +127,8 @@ class LlvmAT17 < Formula
 
     if OS.mac?
       macos_sdk = MacOS.sdk_path_if_needed
-      if MacOS.version >= :catalina
-        args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
-        args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
-      end
+      args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"

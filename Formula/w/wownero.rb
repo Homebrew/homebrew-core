@@ -48,8 +48,6 @@ class Wownero < Formula
   depends_on "unbound"
   depends_on "zeromq"
 
-  conflicts_with "monero", because: "both install a wallet2_api.h header"
-
   def install
     ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
 

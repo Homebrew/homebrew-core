@@ -7,6 +7,7 @@ class TerraformInventory < Formula
   head "https://github.com/adammck/terraform-inventory.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bcdc79974fa55bb1087fe38999c01b1136c56f0b733706bf9b87fb937e81aa9d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8779884bc89245540e8bca1eae1ff1205e9dcfb406b2b306a5488cdc161547bf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45e0a0a0852cc89534be9dc22760628b624e1e085d25b6a30bcd6ec1f25fb9d6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "49d755bc67a9ac995c186a4143723379d87ef43ea76018706302aad4ac135efe"
@@ -17,7 +18,6 @@ class TerraformInventory < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "7444adf6b3ea13567454c7ef34feebc5d5fddedeaefe5be07382544ebf67d79b"
     sha256 cellar: :any_skip_relocation, big_sur:        "ab56b7c132afc5508e5e10cfa21b784aa2f84fa8a23d9985b7b45eb04c8bdae1"
     sha256 cellar: :any_skip_relocation, catalina:       "ab56b7c132afc5508e5e10cfa21b784aa2f84fa8a23d9985b7b45eb04c8bdae1"
-    sha256 cellar: :any_skip_relocation, mojave:         "ab56b7c132afc5508e5e10cfa21b784aa2f84fa8a23d9985b7b45eb04c8bdae1"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "81cac3290ff42bd1c1759d9596b08e9647533f202dfabf5b9ad91e44a6f696bc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "853cf36916d4bb9834f0f6b491e347a109a2930d350a1a31b8e7b8233720c20b"
   end

@@ -12,6 +12,7 @@ class Aftman < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e2b825b23c892fdf2a0067b011ccbfd4157006d27a5d5c115499331c0345c7a9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57feb860410d508174e62f9f07d467da9ca62c88b35005ea5ebcbed2ed87a71f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "79678c381bbec86c92bee17e53dd01f34355e0dcda445f5a90a1d287c4825c11"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f52a939e6d2cefc3d5e936a08ef2450b8bb0ad909af7f71adc0c1ec7bb1cfc8"
@@ -22,6 +23,8 @@ class Aftman < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d9457a79cb80b1423563f8d54ffcf84e2b765189b526f029437841c2f2abe335"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e8943e04ce29ca295996d3acacb141d87504a59374aa2da2e7e15a453bbe5a9"
   end
+
+  deprecate! date: "2025-07-19", because: :repo_archived
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build

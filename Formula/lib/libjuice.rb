@@ -1,18 +1,17 @@
 class Libjuice < Formula
   desc "UDP Interactive Connectivity Establishment (ICE) library"
   homepage "https://github.com/paullouisageneau/libjuice"
-  url "https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "90a13ed7049b97af4dcb494e5a82ebbffc41d29f917d17f0aa1b0b651034ae4c"
+  url "https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "a510c7df90d82731d1d5e32e32205d3370ec2e62d6230ffe7b19b0f3c1acabf2"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6bd090a24a94428cab57fb034e1455e0619c65d5a0a97985f90368b843be5598"
-    sha256 cellar: :any,                 arm64_sonoma:  "e7d063977b60306b38c406e11535fcfbdcb27dfb61e1bb3e9867ab98c98a4ee0"
-    sha256 cellar: :any,                 arm64_ventura: "efd9bbb6690c378921d744548057133dfe173fadddc71f68a989aa0df623c5f9"
-    sha256 cellar: :any,                 sonoma:        "99406c20337f6c8e4047378c776ab4746215fe62cc1c88f39ff05a8122f1acf4"
-    sha256 cellar: :any,                 ventura:       "19a281b7db9b022432d1b17d162de31527dcf4add8a24590f3b8e958bd4a4b6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f408f03e6fb479d4a327f71c585fd6aaea1ae52b5217b8c4b42cb2e27014d0c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eea94f4f7ffe75d7dfe4fc8fabf02996f92a2db2cb2debd5d32d60a23ad6d32e"
+    sha256 cellar: :any,                 arm64_tahoe:   "f162c7efec28783d18424f4296e36b45e7667b5c43e24e0d97c25e19a778be47"
+    sha256 cellar: :any,                 arm64_sequoia: "2d4865498294cda53d0067ddeb046f6b13633361bdf2d52a6e0e8905caf093ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "a6fa24cb3a899d13b5c0afd778f5cc4c6ffc9fcb990fb0cdd517ac77326ede86"
+    sha256 cellar: :any,                 sonoma:        "06ea06b5c2ab9114d52e10a3337ec7bde5effd4e4c6474e959f99e8ec22e4d34"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4684874fd3b1e6e7129fbd01e7182fb60f10fe04ed6f022027d7ce09578fed4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b22030b7b092dc674ef23d92693d528acd4595c93cdfad83828f935380cad72b"
   end
 
   depends_on "cmake" => :build

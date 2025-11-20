@@ -7,14 +7,13 @@ class Whalebrew < Formula
   head "https://github.com/whalebrew/whalebrew.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "301d2f38ace71c39fa8acff98d09b240b469a64c71e0a2105f0632ca2795b950"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b20f0a59b4ddca952293210217096767bbf3641eeaf8a20d783479ec2d23029"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b9a806bb5c88d5074e037c34d4f1070b24a3c709a6c12997c256a68c12eaf44"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3afe9d7ab8ff22f8e394da65c9f58bc4b495dd758a19c27a6d0b5961f017885"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e73f77883a8b321bcebdf5829211ae1d62c89633d760ec77cdfee6010665b681"
-    sha256 cellar: :any_skip_relocation, ventura:        "0cf1db6078f81c0139448aa53137190bb3396da6b1645632b04031e102d141e3"
-    sha256 cellar: :any_skip_relocation, monterey:       "ed592d731941336ccb5c3200f54e4557af185839a883dbe38f3882eb8e7f34b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afe4b4c69e9b76da440101b3fc26cf623bf391ba23d1e5d64394f770a7776b86"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b125f806242ba20dc7c14b14a23467cf59e022911036674f33a540aad35af8b3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b125f806242ba20dc7c14b14a23467cf59e022911036674f33a540aad35af8b3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b125f806242ba20dc7c14b14a23467cf59e022911036674f33a540aad35af8b3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "132b42892e11feae8f7498c190024daf51ea29f7dcb9480b8a67e2fe6989db94"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "812e1faaafe66a26fd5c72c52659f11f46968a588d7afef73d133a6b79964dea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85863cd113b47cc45953fcb9eb928710e08eae63290ed8a09678cdfa8c89a23f"
   end
 
   depends_on "go" => :build
@@ -27,6 +26,7 @@ class Whalebrew < Formula
   end
 
   def install
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = %W[
       -s -w
       -X github.com/whalebrew/whalebrew/version.Version=#{version}+homebrew
@@ -40,6 +40,6 @@ class Whalebrew < Formula
     assert_match "whalebrew/whalesay", shell_output("#{bin}/whalebrew search whalesay")
 
     output = shell_output("#{bin}/whalebrew install whalebrew/whalesay -y 2>&1", 255)
-    assert_match(/connect to the Docker daemon|operation not permitted/, output)
+    assert_match(/failed to connect to the docker API|permission denied/, output)
   end
 end

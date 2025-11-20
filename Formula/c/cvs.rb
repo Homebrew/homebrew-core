@@ -6,19 +6,20 @@
 class Cvs < Formula
   desc "Version control system"
   homepage "https://www.nongnu.org/cvs/"
-  url "https://ftp.gnu.org/non-gnu/cvs/source/feature/1.12.13/cvs-1.12.13.tar.bz2"
+  url "https://ftpmirror.gnu.org/non-gnu/cvs/source/feature/1.12.13/cvs-1.12.13.tar.bz2"
   sha256 "78853613b9a6873a30e1cc2417f738c330e75f887afdaf7b3d0800cb19ca515e"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
   revision 4
 
   livecheck do
-    url "https://ftp.gnu.org/non-gnu/cvs/source/feature/"
+    url "https://ftpmirror.gnu.org/non-gnu/cvs/source/feature/"
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/}i)
   end
 
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9db42bbcbdc91ec57b9c1039d1e44c4497322339705b60c38573d07beb644b3d"
     sha256 cellar: :any,                 arm64_sequoia:  "395bcc270613244fc0be159a5cc843cff6696397961958634363d4b1a2241454"
     sha256 cellar: :any,                 arm64_sonoma:   "e561f130192a57e7fe98eab345f97fd548bdabb62e78a9131a91c3c87f0a4429"
     sha256 cellar: :any,                 arm64_ventura:  "b04bc5783e3ce63a89075a9f824c2f3257ddb6974f22827315bd2848a0d96a05"
@@ -72,7 +73,7 @@ class Cvs < Formula
     # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
     # Patches the upstream-provided gnulib on all platforms as is recommended
     on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/24118ec737c7d008420d4683a07129ed80a759eb/cvs/vasnprintf-high-sierra-fix.diff"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/cvs/vasnprintf-high-sierra-fix.diff"
       sha256 "affa485332f66bb182963680f90552937bf1455b855388f7c06ef6a3a25286e2"
     end
     # Fixes error: %n in writable segment detected on Linux

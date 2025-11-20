@@ -1,18 +1,17 @@
 class Gensio < Formula
   desc "Stream I/O Library"
   homepage "https://github.com/cminyard/gensio"
-  url "https://github.com/cminyard/gensio/releases/download/v2.8.15/gensio-2.8.15.tar.gz"
-  sha256 "1cfa7d6ef19b8d98808b1f4bce225454781299f885815c22ab59d85585f54ee3"
+  url "https://github.com/cminyard/gensio/releases/download/v3.0.1/gensio-3.0.1.tar.gz"
+  sha256 "06e02f45003d163ca2d94137ba920ea9b683b75f63321ab7dc21f742246a123a"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only", "Apache-2.0"]
 
   bottle do
-    sha256 arm64_sequoia: "55f26f4519d626685977d8698f239dd144b28d5dff6f2bd08182335f6026af4d"
-    sha256 arm64_sonoma:  "a26e4a132a4f4099ce49f56c17b7c24f0e509a9e944ef54634151b10c02657dc"
-    sha256 arm64_ventura: "e2a24dac5ea15c6235327c5028e8ed34e59e09c64e35830e1f7f4b699c3e5987"
-    sha256 sonoma:        "74eced1fc82f3d172aee5eef3194d8e5e401f160fd1554c85c3352f6bf305ecf"
-    sha256 ventura:       "f76906e1351966419ed1617b3cba3fa43ab37f1b9dd4d4dc2547f15604336325"
-    sha256 arm64_linux:   "7849c953dc4d197d70ecc835d47b25e7de0f0cd51a2b02b163570ab79fbe0dcd"
-    sha256 x86_64_linux:  "f0654ac13d972321059009c5d0b971b3c7a7206239bc6db5045125e0a04b283e"
+    sha256 arm64_tahoe:   "fd79c10fc9b60585f18b0bc8bbeeff260995b47c3ea71084945eadeb54ef847b"
+    sha256 arm64_sequoia: "d9a21ff517cd927f96817fd5e27847016f8c14114f4bae6f7501f478a2c2edb3"
+    sha256 arm64_sonoma:  "09523c5739cd4b126d26e514f212efc29cdb82a20e9800cb9d4f7fffed23c966"
+    sha256 sonoma:        "008b0c3ba4492bc34a36c9babde6a4416e8dc0e8f8ceb05728529ff84d424e73"
+    sha256 arm64_linux:   "d1ed1a3fbe94e26dbeb2eb276812c9019a45822accad660b0208760f6d185d5b"
+    sha256 x86_64_linux:  "97528052ad99d3b85b73ec1fea8e52003e153bdd0995e70785b6be7d6cc2a1d7"
   end
 
   depends_on "go" => :build
@@ -21,9 +20,8 @@ class Gensio < Formula
 
   depends_on "glib"
   depends_on "openssl@3"
-  depends_on "python@3.13"
-
-  uses_from_macos "tcl-tk"
+  depends_on "python@3.14"
+  depends_on "tcl-tk"
 
   on_macos do
     depends_on "gettext"
@@ -38,17 +36,21 @@ class Gensio < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
+    tcltk = Formula["tcl-tk"]
     args = %W[
       --disable-silent-rules
       --with-python=#{which(python3)}
       --with-pythoninstall=#{lib}/gensio-python
+      --with-tclcflags=-I#{tcltk.opt_include}/tcl-tk
+      --with-tcllibs=-ltcl#{tcltk.version.major_minor}
       --sysconfdir=#{etc}
     ]
-    args << "--with-tclcflags=-I#{HOMEBREW_PREFIX}/include/tcl-tk" if OS.linux?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

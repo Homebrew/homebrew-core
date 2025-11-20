@@ -10,6 +10,7 @@ class Innotop < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b44c7861957b9ff6ce395e4232c5d21944d6493e972e5d5dc2f205de0acc644d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "954079748cf6e9ff2ed6cf2f1c32596c923dcc1b91e5731eda1b99c58644d239"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "954079748cf6e9ff2ed6cf2f1c32596c923dcc1b91e5731eda1b99c58644d239"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1d857ac77497c1ee6be53254808fb73c50f6906270d7c9d0480a69181375233f"

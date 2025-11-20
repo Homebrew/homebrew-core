@@ -1,8 +1,8 @@
 class Kcgi < Formula
   desc "Minimal CGI and FastCGI library for C/C++"
   homepage "https://kristaps.bsd.lv/kcgi/"
-  url "https://kristaps.bsd.lv/kcgi/snapshots/kcgi-0.13.4.tgz"
-  sha256 "cc5f75ea75e42ed4f67e9ef831c0387717cedbc65c2261a828bee7956e46a259"
+  url "https://kristaps.bsd.lv/kcgi/snapshots/kcgi-1.0.1.tgz"
+  sha256 "bc1cc29bca48eace5df4ba0f1aa1dfc2fe7ac773f750d4af84d80c52cece3c45"
   license "ISC"
 
   livecheck do
@@ -11,13 +11,12 @@ class Kcgi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1ede6da1f7d9ea340cc19bf6a539948dd87a0aa20bb179e4c669a7fa94a6bd99"
-    sha256 cellar: :any,                 arm64_sonoma:  "9da91cadc2de7c8b9736dd73a28f2e9f39f5d7fb25acae212efdb5d6e52a25ef"
-    sha256 cellar: :any,                 arm64_ventura: "0314195b4c86b877610fd9035b7906122316bddd3cfaa2982395797a4bb75912"
-    sha256 cellar: :any,                 sonoma:        "4bd93297c59a4102abb6ddb1ef0e1d53de162e7c71aeb53e8da29824d3a1dbbe"
-    sha256 cellar: :any,                 ventura:       "ea274424cd3b9f8b69bb7e7a78c89aeda17728716a4b4576b73bdfb8253f5ad1"
-    sha256                               arm64_linux:   "a4c08753b73661aee4fd7422ddc709a14bcdf9268a7e1243a20d70a8dafc2fdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be1d317a28397ff207c48149f3b9d4241bbf44b88f6f712091dfcb5b1f6963a2"
+    sha256 cellar: :any, arm64_tahoe:   "995d131805a53b35e355853a6cf3a7290267c591b50684c426ca2c14f78dbd05"
+    sha256 cellar: :any, arm64_sequoia: "529d2e0848102f7cb852069560a5d361c93b16411325dea133642e2614b31d88"
+    sha256 cellar: :any, arm64_sonoma:  "ee60acbe9c53f523840df57c559f14c78a58f585bb35f566de920d78e58cf60f"
+    sha256 cellar: :any, sonoma:        "a420823399526dbc9384934a5347f75514f174e0000887619bd39075aac45fda"
+    sha256               arm64_linux:   "edf49575195a7febbeb3a5e97151e2851d0554bf1f17a812cc9a962923712c35"
+    sha256               x86_64_linux:  "18361510b90235c6579f72229c26b2eb9895910a80b63e075046c16f4a1b29f5"
   end
 
   depends_on "bmake" => :build

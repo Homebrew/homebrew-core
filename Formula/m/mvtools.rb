@@ -7,6 +7,7 @@ class Mvtools < Formula
   head "https://github.com/dubhater/vapoursynth-mvtools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3c0e17fdf774da0b5e0d8ae822a9401523ded7288cd98bcab79c5bb074867d95"
     sha256 cellar: :any,                 arm64_sequoia:  "f3e493940d6f162c23cb1ffbd90f6592c4d8fb163810ea717a7b57d9a4152bfa"
     sha256 cellar: :any,                 arm64_sonoma:   "92edb441ffb705b90a8fe0fd12fa1fb27896b5edfb2df3427ebdcd7b496f182c"
     sha256 cellar: :any,                 arm64_ventura:  "0b437191d2e0b8880f53e2f7650028085c5bc48e0c73eb9cd9c7bd1eddd92e19"

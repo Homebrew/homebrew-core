@@ -4,26 +4,26 @@ class Tccutil < Formula
 
   desc "Utility to modify the macOS Accessibility Database (TCC.db)"
   homepage "https://github.com/jacobsalmela/tccutil"
-  url "https://github.com/jacobsalmela/tccutil/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "2f5b27f689cfb7d4799cae7ea9a22a5b016f877130b6ac91d7bf2437fa908787"
+  url "https://github.com/jacobsalmela/tccutil/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "37c0d87bf95ab750806c4807003b44f0dc9574ef08ff480ffbb982caa9d8c7c7"
   license "GPL-2.0-or-later"
   head "https://github.com/jacobsalmela/tccutil.git", branch: "main"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "014d61434aefe7283670caf2fa046c141eb8c49f9c867e5e6bc9c1677da475e0"
+    sha256 cellar: :any_skip_relocation, all: "973aa0820d9a988f0b53b060af19dabd769782101c73c073ca218ee75ef98457"
   end
 
   depends_on :macos
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install

@@ -10,6 +10,7 @@ class GitTracker < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ad44db1639c5fd8aca9a1722f8d3e2dec30b2c0b83d8ea3991f846943347ec38"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "baa816781cb9119b5c9b2b3e6e3bece9ef82758d1998d250db108751fa2b482a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "04a52cb307fbbf99950c64d3c6716473ff8fa8ad45fe06a33af04777bd4b7047"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c25f12523b2b8de0affa72363cd84c3cc3c8947bfea4765fa47382a1b5185b39"

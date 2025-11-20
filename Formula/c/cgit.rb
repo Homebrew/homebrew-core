@@ -14,6 +14,7 @@ class Cgit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "28b1bf891e59492271011fffcc6d9796cce12af986e68d6fe5eca10caaaeea83"
     sha256 arm64_sequoia:  "451caf4e50e0fb28a7bcdc287bfef5c75770e81b82fd21157868131ee0a5bff3"
     sha256 arm64_sonoma:   "6405d9f29445c303d1a5c89d9f15a512940414aba9194a5e421eca6d5ef60e8d"
     sha256 arm64_ventura:  "8435a3e97f7d97b0a81af4d65387edba8da214f8d348cac06a0200dfd861ca83"
@@ -48,7 +49,7 @@ class Cgit < Formula
   # cgit 1.2.2+ needs memrchr, for which macOS provides no implementation
   # https://lists.zx2c4.com/pipermail/cgit/2020-August/004510.html
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5decb544ec505d0868ef79f03707fafb0e85e47c/cgit/memrchr-impl.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/cgit/memrchr-impl.patch"
     sha256 "3ab5044db3001b411b58309d70f00b0dee54df991ebc66da9406711ed4007f0f"
   end
 

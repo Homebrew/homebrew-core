@@ -9,10 +9,11 @@ class Kin < Formula
   head "https://github.com/Serchinastico/Kin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0c894495b31a506a8c1b6a3340733708be4fd0f86825b788e421156ad604984e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a8a5be63c8cd244537431fb248dafd7d566aca1ab83dfd7d65e7ce6c62b76675"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "antlr4-python3-runtime" do
     url "https://files.pythonhosted.org/packages/b6/00/7f1cab9b44518ca225a03f4493ac9294aab5935a7a28486ba91a20ea29cf/antlr4-python3-runtime-4.13.1.tar.gz"
@@ -41,7 +42,6 @@ class Kin < Formula
         rootObject = 49FBBF861C10C2A200A1A4BB;
       }
     EOS
-    output = shell_output("#{bin}/kin Good.xcodeproj/project.pbxproj")
-    assert_match output, "CORRECT\n"
+    assert_match "CORRECT\n", shell_output("#{bin}/kin Good.xcodeproj/project.pbxproj")
   end
 end

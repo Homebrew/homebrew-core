@@ -8,6 +8,7 @@ class Imagesnap < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0bec4d39310a3a55933d61936845ca15c7b0ce5973f5801ca1377ffc17b87a07"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d0088adcce46dada16585280738cedb609b10178e4c192ad9d9b92f92c90b45c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae1001e52ea2fdb7dd9531be39fda237c343b0013f2b7855e9ee1656ae0466b3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5673f34fe68a24f689695bfe5c01faedd9040c7947204bff0a69c533bffcd14"

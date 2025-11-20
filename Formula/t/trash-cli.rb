@@ -9,28 +9,31 @@ class TrashCli < Formula
   head "https://github.com/andreafrancia/trash-cli.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3005369e1cfe7938d6c97d39614c2dd45bb87b06d2e7fb07e1616a201d8128b0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ccc13a1742713858b3b63cc8feb9840596b901d2ffe5dc1fd9757ed2584d1ce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c4ea7729d8301971fd3970a2c72b8ab6d4a08df8b82a79d9146ff95e2880db7e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d81d30387db79999d4ce0eb0b656d97ac782c6de9531f6cd052b83311a145c02"
-    sha256 cellar: :any_skip_relocation, ventura:       "31f699dac8d5ded90260901e92ccd1fd21c4319732b0efc258385bcd3c004411"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0aa53d7fd0525290529f1de305a1e5c701e8c9948874526fb281e201bd36f6ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4712d02377f336fb88f4de3ebc3c03dbfcf1a17d8e3d8aac297570a2938f5dd5"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "096c7187b9376eb817001e3ed11ea683e43d81c25c493c9f1036dc3bea281823"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5cefc22f1ecb8432383170c378630a1b2ab97fbdcd63006cddf43eedd70b41f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce16cef08f1698139e1e509ff3c42621cdad38fe96634593c0ecc7a10458d218"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a0cc43661442da45b0e393fc69c9a92adf86dec427dcea7b64bc39bfee6ded85"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f6ad80444c0db11ae7faf5bfa3e119eb09603242938e35ef89fe3e3b080a09d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88aba05ddc72fd1c30e4aa6e69351cd59e4aaf11d043d2eeafa013f0c574c9ba"
   end
 
   keg_only :shadowed_by_macos
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  conflicts_with "macos-trash", because: "both install a `trash` binary"
+  conflicts_with "osx-trash", because: "both install a `trash` binary"
+  conflicts_with "trash", because: "both install a `trash` binary"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
-    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
+    url "https://files.pythonhosted.org/packages/b3/31/4723d756b59344b643542936e37a31d1d3204bcdc42a7daa8ee9eb06fb50/psutil-7.1.0.tar.gz"
+    sha256 "655708b3c069387c8b77b072fc429a57d0e214221d01c0a772df7dfedcb3bcd2"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   def install

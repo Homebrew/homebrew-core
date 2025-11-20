@@ -7,6 +7,7 @@ class Kdoctor < Formula
   head "https://github.com/Kotlin/kdoctor.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2920f1f61486ab85236383e1ea160b405a2132ec97b54d690bedc0737459fc54"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e41df6918eb2c57cc4b16ef1687fb7c1aac3907e93613c166921d00993432ffa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae7b5e68925f38cb7ba4dbe3503da29bffa7b863afb2062cc1bd08b3ed119627"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bb2c0149a4c88f6e80b7431d5a2bb8a4552a36524127976091655a678cccdd4"
@@ -16,16 +17,17 @@ class Kdoctor < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e2ad6b016b9f6ca3904aa6a08c2b98f873836f7b55dfe22706b6657e2a480002"
   end
 
-  depends_on "gradle" => :build
-  depends_on "openjdk" => :build
+  # Issue ref: https://youtrack.jetbrains.com/issue/KMT-1702/kdoctor-build-with-gradle-v9
+  depends_on "gradle@8" => :build
+  depends_on "openjdk@21" => :build
   depends_on xcode: ["12.5", :build]
   depends_on :macos
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
     mac_suffix = Hardware::CPU.intel? ? "X64" : Hardware::CPU.arch.to_s.capitalize
     build_task = "linkReleaseExecutableMacos#{mac_suffix}"
-    system "gradle", "clean", build_task
+    system "gradle", "clean", build_task, "--no-daemon"
     bin.install "kdoctor/build/bin/macos#{mac_suffix}/releaseExecutable/kdoctor.kexe" => "kdoctor"
   end
 

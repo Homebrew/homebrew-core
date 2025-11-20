@@ -6,17 +6,14 @@ class BotanAT2 < Formula
   license "BSD-2-Clause"
   head "https://github.com/randombit/botan.git", branch: "release-2"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "1104641a2c34fa2c1212ad9002fc1a2089a75be4c9fb66ad655a1680c8428ad0"
-    sha256 arm64_sonoma:  "c65820f897ce8748cc5b74e9537a7bcbc4842f161f36557f5b6858b409b32c63"
-    sha256 arm64_ventura: "31a49478cd103522bee1b3e216145c3ba149f93e586a824b9d1b4ed4a2a196ae"
-    sha256 sonoma:        "2bb57c57173cd293cc738dda60c02bcd2d7ddffad9f6e5d0b170245c03feaeff"
-    sha256 ventura:       "51ecbd410373905c81df9ab8cf43b39076c77d255bd00e797a09c0a8243422bd"
-    sha256 arm64_linux:   "7a3bb2490765aa9f96884caf3d476001baa5d2ad8cf2fb400db87e6e6e8d413a"
-    sha256 x86_64_linux:  "9fd91b5d569739ca97a8130d374d0d289a1d5f6a4b7e9cea90014ec714b52181"
+    rebuild 2
+    sha256 arm64_tahoe:   "dd852d6fe3cc65e68fe497d5582c7f3dbaa4c2afced2acea3a9b0f412042bd82"
+    sha256 arm64_sequoia: "3b52c4abedf724426066b343384e553b586d7a3d69e437a85839ad1adde27868"
+    sha256 arm64_sonoma:  "dc8d1646e46dab1be1f4f53b46f2e111b92610998ec700579c702abe3bee9baf"
+    sha256 sonoma:        "534d9389e8a96ed9c171e1c457c931f70783c94515ff502c6fd876c369666f09"
+    sha256 arm64_linux:   "faf67b146845389405939b4803884a521fd4210e441b078fea28cdeca78e78ac"
+    sha256 x86_64_linux:  "a4d30c4277c84df5b6a0e51b82e049df3bbe90204151143bf68bf214f44cbd86"
   end
 
   keg_only :versioned_formula
@@ -26,14 +23,14 @@ class BotanAT2 < Formula
   deprecate! date: "2024-12-31", because: :unsupported
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install

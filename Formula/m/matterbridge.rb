@@ -7,6 +7,7 @@ class Matterbridge < Formula
   head "https://github.com/42wim/matterbridge.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5a41074e2c3eba976b8142b0f764732da7d5551396085b7b40ac5d62b5f1fd0d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6eec437022ff310f92909ef2f5e8b600f4e5cc2991fd7284fbed52d1d96a8ec0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bb186836451a870eeec2e4954cce09eb426da52534f2e9d1acd105de1fa07ea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "db4bd660db3e42897f23bffa81d3a241a2e41b56d035e649bf0ec6001dee5916"
@@ -16,6 +17,7 @@ class Matterbridge < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "88c693006135c6475e9c3a0fea5aae515ffb0fc4f85bb1c77c256d997cba6f21"
     sha256 cellar: :any_skip_relocation, monterey:       "8ff7a6b8c44f153fca6cfc57e9219eebb211fb38df9ad764248fa0b4f12cf83b"
     sha256 cellar: :any_skip_relocation, big_sur:        "9c2550e9e8a6ff8c2b9611ccfb46fcbfa5da753f6b79349f002a8c8823d5f960"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e4aee8a1f75042ffafe421f8a228217ecf68b54c01499ea75db77495316b81e0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b90de5cbda5865e1150bdc823dd02bf4eaaa9358fc85de873e983b576ff5f34"
   end
 

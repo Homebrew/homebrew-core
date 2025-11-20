@@ -1,18 +1,17 @@
 class Sylph < Formula
   desc "Ultrafast taxonomic profiling and genome querying for metagenomic samples"
   homepage "https://github.com/bluenote-1577/sylph"
-  url "https://github.com/bluenote-1577/sylph/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "9dceb4e2302ece3ca225218dfb8367c88a88c98d1eb4e8eac82a202195584099"
+  url "https://github.com/bluenote-1577/sylph/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "c11fbe5720500c43e7102a359dd9ec59b09b93a15a8ce6f6a3bb917430c3059e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2954424cd08c4d8072a175ebc40f37ecf77b0d06e951260f25b05b34567f4c5f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95c93babdea5665924b5cb74d60f02a7d42bdbfd12cb9dfbb8eda92c33c8dbe0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "76d50d6ad5c25502e1d71a0a181cc620904ae158527033a9161a9da8c4565ba0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5070cc49e003cb41107c381f915f10edeabb2dbf96fe44fec23801d0e5646104"
-    sha256 cellar: :any_skip_relocation, ventura:       "eae42b22d269a0b84c5f5563f287c27162ec28a7cd0f5bc64e9f5d02d447de4a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "46bf1127605e65216e0a72b8002756a99d5c92b29b90561c41e9428ff48127dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60c3f96393a71348348ca80657d9cb13de8acd19744b8744f138a8d42c774b7d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "65a5db917f22490e7ccfe1c708fbea9ef4e12d58e9e204f1be4cba864dfa5a9d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90e6499a3be2395901efaecb8b29f8afed13d73f43c15d2f85206975d971c98c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a96d1d8693721ee1e787c42758e4e50c30a8d63d3104e8a50709edf1ecc22ed5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6558b4a6efc0fffea34185b1efd5930b6465b0020467815e923f436d5813b9cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "49a547053071374c6de1152c674611eaacf7ba5ca3b51eba8e0e286d20d207a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d5ab406da26adf6e3b73144a1bdce61fba7aeb84082691510fdb3254782d0d2"
   end
 
   depends_on "cmake" => :build

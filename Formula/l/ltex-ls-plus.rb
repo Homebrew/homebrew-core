@@ -1,23 +1,22 @@
 class LtexLsPlus < Formula
   desc "LTeX+ Language Server: maintained fork of LTeX Language Server"
   homepage "https://ltex-plus.github.io/ltex-plus/"
-  url "https://github.com/ltex-plus/ltex-ls-plus/archive/refs/tags/18.5.1.tar.gz"
-  sha256 "dbfc83d7e82f5d1f4be9d266248728e11628bd307858adfec20c5dbfda031f90"
+  url "https://github.com/ltex-plus/ltex-ls-plus/archive/refs/tags/18.6.1.tar.gz"
+  sha256 "16fa8c88cea5f579fba4a33c7c89b15a1ed45b9b14dd32a07aee740b3d5506c9"
   license "MPL-2.0"
   head "https://github.com/ltex-plus/ltex-ls-plus.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "506aba208fad07d55de203b9f5a8d4c587c6a24f1cec7c8ed200b60e2c8fb142"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dab59816c40ffc74f2a2f90d051924fbe27bbdcdcfd938fe00b4ce9ddcc5d600"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "af2a52c0a38ddeb1c39900a1cc97d196398adf1a66658483df86b0a296ac2771"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b43aad065cf4a263cab53ac7d8efaf5c4cca648e9e2e724729aa051fdffe7afd"
-    sha256 cellar: :any_skip_relocation, ventura:       "3a31edc7885eca0427172411de04e77c7d81609e04ab8e01f49941059ce89fa3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e07514acee82176329bbcb45c652a2c781b3e40becf1fa3724795819b3384fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54de365156f8b7fa5138195e66affa4c46e71482fa345e6a3f33efd8646ed268"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "508714100a8d794567e14fff608194c917fb851f169c9f991614355d8bc4c1a0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25070d0467ec59ff5727af4d5d7347c1af725db987f47a5f1a5932859d07be09"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "239e53f81417a897cb4a0774345b6e5d61c085e10625e832e3d1c3110458fab3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "995edfc505a74faf0e1fe251a6ecb9676015782ea1583271685f0ddde97813db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1d7996682c4bacd509072aa90c701146c78bc233eb3dc38626012aab37b79f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8890571e3370fc5be4577e4a523a6a5a31314e755282f411f7f2f3247c2a50d0"
   end
 
   depends_on "maven" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "openjdk"
 
   def install
@@ -25,11 +24,11 @@ class LtexLsPlus < Formula
     # Reported upstream at https://github.com/valentjn/ltex-ls/issues/244.
     inreplace "pom.xml", "<arg>-Werror</arg>", ""
 
-    ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.14"].opt_libexec/"bin"
     ENV["JAVA_HOME"] = Language::Java.java_home
     ENV["TMPDIR"] = buildpath
 
-    system "python3.13", "-u", "tools/createCompletionLists.py"
+    system "python3.14", "-u", "tools/createCompletionLists.py"
 
     system "mvn", "-B", "-e", "-DskipTests", "package"
 

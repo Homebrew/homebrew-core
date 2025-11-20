@@ -8,6 +8,8 @@ class Pidcat < Formula
   license "Apache-2.0"
   head "https://github.com/JakeWharton/pidcat.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "c340b62825f294103c9e4866ca70e7cc13b85fd6adafcee7d9661bfad1743949"

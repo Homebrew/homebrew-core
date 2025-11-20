@@ -3,22 +3,21 @@ class Sip < Formula
 
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://python-sip.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/25/fb/67c5ebb38defec74da7a3e2e0fa994809d152e3d4097f260bc7862a7af30/sip-6.12.0.tar.gz"
-  sha256 "083ced94f85315493231119a63970b2ba42b1d38b38e730a70e02a99191a89c6"
+  url "https://files.pythonhosted.org/packages/a7/8a/869417bc2ea45a29bc6ed4ee82757e472f0c7490cf5b7ddb82b70806bce4/sip-6.14.0.tar.gz"
+  sha256 "20c086aba387707b34cf47fd96d1a978d01e2b95807e86f8aaa960081f163b28"
   license "BSD-2-Clause"
   head "https://github.com/Python-SIP/sip.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f298136ca0d625d7cd5e6ca41bdd887262f9cd7ab56b4cbf11019b04a7082ce3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f298136ca0d625d7cd5e6ca41bdd887262f9cd7ab56b4cbf11019b04a7082ce3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f298136ca0d625d7cd5e6ca41bdd887262f9cd7ab56b4cbf11019b04a7082ce3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "489a7d9dc8b1f0439675f6dc550d7da9eee040d304fcaf960ff371825ec05d79"
-    sha256 cellar: :any_skip_relocation, ventura:       "489a7d9dc8b1f0439675f6dc550d7da9eee040d304fcaf960ff371825ec05d79"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a44c1a2f3ea1b3976bedb2df9edea3b0be8ba1356de0ada90b746bc087cd0be7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a44c1a2f3ea1b3976bedb2df9edea3b0be8ba1356de0ada90b746bc087cd0be7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6cf7a8de2a902dcb28039b9a9759bb255dc48a5b312d63aba075c7214e69d189"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6cf7a8de2a902dcb28039b9a9759bb255dc48a5b312d63aba075c7214e69d189"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cf7a8de2a902dcb28039b9a9759bb255dc48a5b312d63aba075c7214e69d189"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c2b704a9f45b1daad2ed8c3a0cc2e7c87e05707916dd9f635643d6c99c005809"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2b704a9f45b1daad2ed8c3a0cc2e7c87e05707916dd9f635643d6c99c005809"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2b704a9f45b1daad2ed8c3a0cc2e7c87e05707916dd9f635643d6c99c005809"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
@@ -31,7 +30,7 @@ class Sip < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

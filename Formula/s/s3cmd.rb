@@ -10,18 +10,17 @@ class S3cmd < Formula
   head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b14b322ca3b3b43c0f0ef051dee2908cf1c16482d4e7ba74a1865860c8956edd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b14b322ca3b3b43c0f0ef051dee2908cf1c16482d4e7ba74a1865860c8956edd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b14b322ca3b3b43c0f0ef051dee2908cf1c16482d4e7ba74a1865860c8956edd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "95771bafe9227af6ab7289809d0e989403d0a41f538db66afd963048fbc7a18a"
-    sha256 cellar: :any_skip_relocation, ventura:       "95771bafe9227af6ab7289809d0e989403d0a41f538db66afd963048fbc7a18a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9423264039751971eb13ebd7df19bbe138a14280e71f633cc0a396285e1dcd1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ff809e6935a4f1e5973d1e6d60ee4f04d9aecc4151f3a734df55d4ea3609b90"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6aeb3a68ea12a0f0a2f8027d4f91d99e6552fa148533c440133a1d1f48c45028"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6aeb3a68ea12a0f0a2f8027d4f91d99e6552fa148533c440133a1d1f48c45028"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6aeb3a68ea12a0f0a2f8027d4f91d99e6552fa148533c440133a1d1f48c45028"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e75a71a49e2e70e1fa9028dc92bae05d58d14d808f5dbd23b7c46ed439002992"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c56660a7bd7d5cb3d0dba4eed501a788dc3931f4693e03517bf5755e9aa53a8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c56660a7bd7d5cb3d0dba4eed501a788dc3931f4693e03517bf5755e9aa53a8c"
   end
 
-  depends_on "libmagic" # for python-magic
-  depends_on "python@3.13"
+  depends_on "libmagic" => :no_linkage # for python-magic
+  depends_on "python@3.14"
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
@@ -34,8 +33,8 @@ class S3cmd < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   def install

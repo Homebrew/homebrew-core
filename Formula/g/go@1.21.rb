@@ -7,8 +7,6 @@ class GoAT121 < Formula
   license "BSD-3-Clause"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_sequoia: "0653847518101d80daf1da2b2e14a2c6fd76c5821c6692ab8b0a492bfdb1761d"
     sha256 arm64_sonoma:  "67a54a23b293d32ac840196dd114014e6d4b816861aa5a8422a0b1d1850fe7f9"
@@ -23,6 +21,7 @@ class GoAT121 < Formula
   # EOL with Go 1.23 release (2024-08-13)
   # Ref: https://go.dev/doc/devel/release#policy
   deprecate! date: "2024-08-16", because: :unsupported
+  disable! date: "2025-08-16", because: :unsupported
 
   depends_on "go" => :build
 

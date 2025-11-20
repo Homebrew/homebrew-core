@@ -5,6 +5,8 @@ class VtableDumper < Formula
   sha256 "6993781b6a00936fc5f76dc0db4c410acb46b6d6e9836ddbe2e3c525c6dd1fd2"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "e6eb8224c4c4acb7c276d913a9e83c650c8c12e574e164846430253b4e53a17f"

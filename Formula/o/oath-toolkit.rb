@@ -1,10 +1,11 @@
 class OathToolkit < Formula
   desc "Tools for one-time password authentication systems"
   homepage "https://www.nongnu.org/oath-toolkit/"
-  url "https://download-mirror.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.12.tar.gz"
-  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.12.tar.gz"
-  sha256 "cafdf739b1ec4b276441c6aedae6411434bbd870071f66154b909cc6e2d9e8ba"
+  url "https://download-mirror.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.13.tar.gz"
+  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.13.tar.gz"
+  sha256 "5b5d82e9a4455206d24fcbd7ee58bf4c79398a2e67997d80bd45ae927586b18b"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/oath-toolkit/"
@@ -12,17 +13,16 @@ class OathToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "48cff9d9c17d7a8955db7df8ed9df1b542b1860f45a85ac321534faf1ba9f48b"
-    sha256 cellar: :any, arm64_sonoma:  "24dcc5b994f410171e1eaf2f45b032ddec6dd2a41daba5228ca5b247327a5d32"
-    sha256 cellar: :any, arm64_ventura: "68298fee2815c22a314f1b121b2ac624cbc3b160831c80a4727f625ac4e98450"
-    sha256               sonoma:        "8238e0cbb73ddbeaf854e2d72ebc780a6770960011c4170e33693c33e5d87272"
-    sha256               ventura:       "9720311caa80a8b5ca3968337a05e788c051738ac3626c4e879e72f860728963"
-    sha256               arm64_linux:   "90be7b01eca8aed744b3db5c82a49be6f2e3cfeb666c8f7c9436855c2044d928"
-    sha256               x86_64_linux:  "c161af7b8bd8f281efc7d65c226d812283125c0d7cd3b9ce272c123a7ae5749a"
+    sha256 cellar: :any, arm64_tahoe:   "49c74a2b634c5656da1dbc1e8f611619d41c9d14e40178c09e0d00896bab242e"
+    sha256 cellar: :any, arm64_sequoia: "883602908ae3413d7f7a8c9fb563e2c0a43733b94a2f7e29c34e297774d6f981"
+    sha256 cellar: :any, arm64_sonoma:  "1326ac22546cde2d3f61daeec243129c369a085d760231214ac796b350295c86"
+    sha256               sonoma:        "67b72f23e1f876bba4b98b4f69fdbb2034caec6ce11dde9ad42f52f97bb773f6"
+    sha256               arm64_linux:   "f66209c876693a77907889efe837c136174c768d958e4b7946bc98324e2eb1de"
+    sha256               x86_64_linux:  "1e825b733079a0d317fe81b037b64c4e049a0bb18bfb5b60d25b4d66b46af55e"
   end
 
   head do
-    url "https://gitlab.com/oath-toolkit/oath-toolkit.git", branch: "master"
+    url "https://gitlab.com/oath-toolkit/oath-toolkit.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

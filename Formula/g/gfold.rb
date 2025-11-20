@@ -1,8 +1,8 @@
 class Gfold < Formula
   desc "Help keep track of your Git repositories, written in Rust"
   homepage "https://github.com/nickgerace/gfold"
-  url "https://github.com/nickgerace/gfold/archive/refs/tags/2025.4.0.tar.gz"
-  sha256 "47e397843bdc03cdc6711e56dd51f8b81e598d02adbd0ce3df0c7979c5d89758"
+  url "https://github.com/nickgerace/gfold/archive/refs/tags/2025.9.0.tar.gz"
+  sha256 "6c4148872a59afb26c1c6b35357e20f71846ef01c6871e3b3f029bd62de6ad33"
   license "Apache-2.0"
   head "https://github.com/nickgerace/gfold.git", branch: "main"
 
@@ -12,13 +12,14 @@ class Gfold < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d591efa7fcb9846f9d0727ff45facdd64a9203881a8c975eb19c1aed42c898e7"
-    sha256 cellar: :any,                 arm64_sonoma:  "cfc15cc0221780afbabf5d41bc8dd882f217a13355f501ee2627a634fd9fe7be"
-    sha256 cellar: :any,                 arm64_ventura: "ccd245e5b090c845eec586d0b8bf6a82442eece9a099d4f433611546d47bd438"
-    sha256 cellar: :any,                 sonoma:        "ddacceb6c48dda9ebe01226f479f9993f5eed9e280eef8f06e4c643d91c261e4"
-    sha256 cellar: :any,                 ventura:       "ee2c81b52a3f262a1147738f3a662c6004bd8d948cdd903ae073f001fa4c9a7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d37925a0f0594f354b06c220a1404179aa509798313bd4b6da43aacda8b6d18d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d01109465ba0f2c78c1d92449c93c3aa03af423e9fd17704922c0c3699cd352c"
+    sha256 cellar: :any,                 arm64_tahoe:   "edb92b276fe6bee0afef62db2bb2305a54b9378017f9a2f432e02daf9a76ffa5"
+    sha256 cellar: :any,                 arm64_sequoia: "f4031f3fefd8321d75fb018bee1e0f29eedacf367a2e9fef3b765e06f28d24a9"
+    sha256 cellar: :any,                 arm64_sonoma:  "68142e20bdc61829c8c077354b9095fcefa3ffc50a5bffce38c70a101d9ba3f3"
+    sha256 cellar: :any,                 arm64_ventura: "b0da70d0850b51b5247724228907cc8d5a33a0ada55836f02bb8f784ab022f06"
+    sha256 cellar: :any,                 sonoma:        "d6e4849bc035da07477b8f3fe9a3b2f933115a32af11068913bfbb48a63019e1"
+    sha256 cellar: :any,                 ventura:       "f4e511851f69ced100c4fbbd04d14a904934d7a5dda10ba014f71bdb944ed8eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9dee65d0868f34b2398f9146b6345b85ba7e3c72359b7453ea8b37104270577"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea333ab8e12a20296c855b8bcd5844fc728f299263140f4b81e29f9a7cbf7457"
   end
 
   depends_on "pkgconf" => :build
@@ -30,6 +31,8 @@ class Gfold < Formula
   conflicts_with "coreutils", because: "both install `gfold` binaries"
 
   def install
+    rm ".cargo/config.toml" # avoid using mold linker on Linux
+
     ENV["LIBGIT2_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args

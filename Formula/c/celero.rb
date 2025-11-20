@@ -1,24 +1,19 @@
 class Celero < Formula
   desc "C++ Benchmark Authoring Library/Framework"
   homepage "https://github.com/DigitalInBlue/Celero"
-  url "https://github.com/DigitalInBlue/Celero/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "d59df84696e0dd58022d2c42837362c06eba6d1e29bac61f7b3143bc73d779e5"
+  url "https://github.com/DigitalInBlue/Celero/archive/refs/tags/v2.9.1.tar.gz"
+  sha256 "c857d1fa7b20943bcec78ae043686cf77c9447d72537d8d2ba142531bfdc8fad"
   license "Apache-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "8df764c6550e49e740ac10d19e1dcfa18708fac66695b00ffeb724eaf2d798d4"
-    sha256 cellar: :any,                 arm64_sonoma:   "a623447721e67bc374800d2c048c9c65fdba7fe06a21ea497a5adba2905157ff"
-    sha256 cellar: :any,                 arm64_ventura:  "6c5aa0d8b749c0ae1a99501d00026676de190997457820798992145237268783"
-    sha256 cellar: :any,                 arm64_monterey: "f3c479a0f6ab3d2d366bae855864122e04cf21627b000a395fbb68fb1f44366c"
-    sha256 cellar: :any,                 arm64_big_sur:  "d6566ee0ac67ff7c0970df553b971fc626c02e70ad106dc2d44e88905562af4f"
-    sha256 cellar: :any,                 sonoma:         "dffd38a438568728d366fe4b5ddc943c6023c247742f146c3afc7d492b94153b"
-    sha256 cellar: :any,                 ventura:        "42ef19078dce4acd6d50aa076308fff7910e06355c0a8eea600e1832fd86a87d"
-    sha256 cellar: :any,                 monterey:       "6011c0b09373fb45f77460bb8b3019f4124748f53007dae89421e0c801d9b6b1"
-    sha256 cellar: :any,                 big_sur:        "5092b4825085f08851008b0f776942ad17629900a485e825778a97599b5793c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4ae2832039586621fe1078a485472891b063590d0dab431c85f1eb3ec4b37b85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d360871cfd166555c2d16b0841b4669c0755532da2970bab216f7f9524596a5"
+    sha256 cellar: :any,                 arm64_tahoe:   "e8ca29a93a9121f3b3753d3489bce47b34c9466131283e79eb7056bbad5d898a"
+    sha256 cellar: :any,                 arm64_sequoia: "32c259b5e2ceb2ea4ff8ef5a327c8d133bbb5aff95c64636c1adcedab2ed5936"
+    sha256 cellar: :any,                 arm64_sonoma:  "acde51368a04ee57318cf5624248db326858806a426505feaa15b17964235406"
+    sha256 cellar: :any,                 arm64_ventura: "c4d45dd58e34abae054e11fb16505fed2c1401c367ac79c0e055f19d6afa50f5"
+    sha256 cellar: :any,                 sonoma:        "0fcf1555bd7ec8845edcb9365b0b4c8dd72a0559dd6b4b6875be2a624a951971"
+    sha256 cellar: :any,                 ventura:       "a231fb0188c070c3f56194cdca30804bd02d4a7cbd573470fcb58a0de9286dd2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "89551d7946653975b6474506e1169006a32dd276ff6d36caf0c2c601cb39430f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06957574cf0c8ea5e37d6a2c6fa4b67398faab55dfead8964f439de11ca0c3a2"
   end
 
   depends_on "cmake" => :build

@@ -1,17 +1,20 @@
 class Metabase < Formula
   desc "Business intelligence report server"
   homepage "https://www.metabase.com/"
-  url "https://downloads.metabase.com/v0.55.1/metabase.jar"
-  sha256 "8a1d52b569ab91378b14ca83b0a926794fb18aaf5634ce1f4266266ed943a7ab"
+  url "https://downloads.metabase.com/v0.57.3/metabase.jar"
+  sha256 "ebf4637a6fcdd9e75460566916ea8b7a11f59357ab5a0b2850f8b4bfc183a359"
   license "AGPL-3.0-only"
 
+  # The first-party download page only provides an unversioned link to the
+  # latest OSS jar file. We check the "latest" GitHub release, as the release
+  # body text contains a versioned link to the OSS jar file.
   livecheck do
-    url "https://www.metabase.com/start/oss/jar.html"
-    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/metabase\.jar}i)
+    url :head
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6578d7f1284e3227dd27d5db1612ec661880f9ecdaa47bdab792982059bcd2dd"
+    sha256 cellar: :any_skip_relocation, all: "1dfcb56c15b976b390202dc25b073042578ad15fc8a5c67117144d4a1642665a"
   end
 
   head do

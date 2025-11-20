@@ -1,8 +1,8 @@
 class Lcm < Formula
   desc "Libraries and tools for message passing and data marshalling"
   homepage "https://lcm-proj.github.io/"
-  url "https://github.com/lcm-proj/lcm/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "40ba0b7fb7c9ad06d05e06b4787d743cf11be30eb4f1a03abf4a92641c5b1203"
+  url "https://github.com/lcm-proj/lcm/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "d443261619080f1c0693237b2019436988e1b2b2ba5fc09a49bf23769e1796de"
   license "LGPL-2.1-or-later"
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Lcm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2244b5fa7c8e7c9fad69837d8c87e21b6b934bdb35d730cd29388add2258c388"
-    sha256 cellar: :any,                 arm64_sonoma:  "ae864e359da145328a10f94d4c231a86f4b199d9727d43c15699bdb2024a56a1"
-    sha256 cellar: :any,                 arm64_ventura: "1cd041a8337c350c38de47ce7c2ac015a1819b2a1efb090f6563f42a729fa7fb"
-    sha256 cellar: :any,                 sonoma:        "c442066258d99654dfcc78ba143cb04d5fc74ef1306a14be1d70baafba7ba6bb"
-    sha256 cellar: :any,                 ventura:       "b07445d9724d1e720b4fb24983df5adbbab9fff80cc0621f97aa1429485e8dbb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a79f1fdc4e500d5b9d21c79802b3d17a9d1c5150ba0a4c11e1fb2b6c7553485"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2140c559088413340306e19ad843419a48fa5e5747269a25ed975c2945b4340"
+    sha256 cellar: :any,                 arm64_tahoe:   "a0820b5805c1dc9787283af4bd977504bc3431fa6e7685a21e1778478b231bf8"
+    sha256 cellar: :any,                 arm64_sequoia: "350e2c304a9436ef574780ade663d065799462371d33fda7d130c364f1c65e90"
+    sha256 cellar: :any,                 arm64_sonoma:  "8189eb0848a56d7387dd4b722d068caa11b830495db510be29b559e481e58e2b"
+    sha256 cellar: :any,                 sonoma:        "6a23eae035e3467c83d90580e1dd30eb88272a504ef60016d49fe805340de6a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7cf043230b6efeca9f96c6bfc076905ccb20227408bd5a88490b7dc9ebf9eb23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f2d9a79b688298ec1f01703856bf0a70e2cbf74793aea29b754b546a698df6c"
   end
 
   depends_on "cmake" => :build
@@ -26,16 +25,20 @@ class Lcm < Formula
   depends_on "glib"
   depends_on "lua"
   depends_on "openjdk"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
     # Adding RPATH in #{lib}/lua/X.Y/lcm.so and some #{bin}/*.
+    lua_lib = lib/"lua"/Formula["lua"].version.major_minor
+    lcm_site_packages = prefix/Language::Python.site_packages("python3")/"lcm"
+    rpaths = [rpath, rpath(source: lua_lib), rpath(source: lcm_site_packages)]
+
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{lib}
+      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
       -DLCM_ENABLE_EXAMPLES=OFF
       -DLCM_ENABLE_TESTS=OFF
       -DLCM_JAVA_TARGET_VERSION=8

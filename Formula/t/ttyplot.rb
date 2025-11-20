@@ -11,6 +11,7 @@ class Ttyplot < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "816129fa92f1f7570a96c8ef72b50739cdf8b61aa1e82757b39ef9c7167743b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "91f2f451e768d21221e8ac31f5d6cfcac856315052a16bd213c5410166de3eb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5b767fb22376073b1cba6e278d070248b8c8dd5823559360b36386218eed7f7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "39a3bd658a12d3eb8be9baa5ab23b4bc85c2cfacb96fd05aac64b8dfae705702"

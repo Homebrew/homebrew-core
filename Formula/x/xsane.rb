@@ -1,18 +1,34 @@
 class Xsane < Formula
   desc "Graphical scanning frontend"
   homepage "https://gitlab.com/sane-project/frontend/xsane"
-  url "https://ftp.osuosl.org/pub/blfs/conglomeration/xsane/xsane-0.999.tar.gz"
-  mirror "https://fossies.org/linux/misc/xsane-0.999.tar.gz"
-  sha256 "5782d23e67dc961c81eef13a87b17eb0144cae3d1ffc5cf7e0322da751482b4b"
   license "GPL-2.0-or-later"
   revision 7
+
+  stable do
+    # TODO: Switch to `gtk+3` on next release
+    url "https://ftp.osuosl.org/pub/blfs/conglomeration/xsane/xsane-0.999.tar.gz"
+    mirror "https://fossies.org/linux/misc/xsane-0.999.tar.gz"
+    sha256 "5782d23e67dc961c81eef13a87b17eb0144cae3d1ffc5cf7e0322da751482b4b"
+
+    depends_on "gtk+"
+
+    # Backport support for libpng 1.5+
+    patch do
+      url "https://gitlab.com/sane-project/frontend/xsane/-/commit/c2b5b530347af80cb192b30a4bd6039e7714a4fb.diff"
+      sha256 "9a94caf7fee69e047eca8d947c4f275473a2fa6d1ee2f0fb116bc2efdd9ea7e8"
+    end
+  end
 
   livecheck do
     url "https://ftp.osuosl.org/pub/blfs/conglomeration/xsane/"
     regex(/href=.*?xsane[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:    "4dca3c238d407fc9c1a7f0f1b7c270f0cffefc2f7955a4af932193b8313e0164"
+    sha256 arm64_sequoia:  "e1bc40a49753404b609fce74f94ae755ef6ed1c6ca575703ecd167ff2c26d8b2"
     sha256 arm64_sonoma:   "5532780b9dd6f8768a38d4fa9a845df83367ef96d0514ac41a7f3d337b4a20b5"
     sha256 arm64_ventura:  "937f1a294ababd5e2c7815c599a185b83e67bb07ef6f86da4773bfcfcead1876"
     sha256 arm64_monterey: "c7fc7231fcb5d959fc393a50388e7fa2bd152d6dde8dd0b2cb5530e2b9aa29c0"
@@ -23,9 +39,16 @@ class Xsane < Formula
     sha256 x86_64_linux:   "38f48e2fb08a821089e4419e0b0a6d6994a9e3d1faa009e3319107a4b393af03"
   end
 
+  head do
+    url "https://gitlab.com/sane-project/frontend/xsane.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gtk+3"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "glib"
-  depends_on "gtk+" # GTK3 issue: https://gitlab.com/sane-project/frontend/xsane/-/issues/34
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
@@ -42,15 +65,18 @@ class Xsane < Formula
     depends_on "pango"
   end
 
-  # Needed to compile against libpng 1.5, Project appears to be dead.
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e1a592d/xsane/patch-src__xsane-save.c-libpng15-compat.diff"
-    sha256 "404b963b30081bfc64020179be7b1a85668f6f16e608c741369e39114af46e27"
-  end
-
   def install
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
+    if build.head?
+      # Work around https://gitlab.com/sane-project/frontend/xsane/-/issues/74
+      inreplace "src/Makefile.am", "$(GIMP_LIBS)", "\\0 $(ZLIB_LIBS)"
+
+      system "autoreconf", "--force", "--install", "--verbose"
+    elsif version > "0.999"
+      odie "Remove `-Wno-implicit-function-declaration` workaround"
+    elsif DevelopmentTools.clang_build_version >= 1200
+      # Fix compile with newer Clang
+      ENV.append_to_cflags "-Wno-implicit-function-declaration"
+    end
 
     system "./configure", *std_configure_args
     system "make", "install"

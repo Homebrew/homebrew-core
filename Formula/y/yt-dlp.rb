@@ -3,18 +3,17 @@ class YtDlp < Formula
 
   desc "Feature-rich command-line audio/video downloader"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/09/93/695cef32796dc7e76597e68a267a34a1b4e29bef8e12da445fa7c0ad1e55/yt_dlp-2025.5.22.tar.gz"
-  sha256 "ea73854c5dabc124f29a35a8fae9bc5d422ef3231bebeea2bdfa82ac191a9c29"
+  url "https://files.pythonhosted.org/packages/cf/41/53ad8c6e74d6627bd598dfbb8ad7c19d5405e438210ad0bbaf1b288387e7/yt_dlp-2025.11.12.tar.gz"
+  sha256 "5f0795a6b8fc57a5c23332d67d6c6acf819a0b46b91a6324bae29414fa97f052"
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "358a6ea172a67e1b98be8017e6551008a55929f8cfa38d7ce465db72574dbf58"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19a1466a3d34a6817ed53e22d1f62cbfc0b914ff8466e46e13cba485c4b082b7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "80bdb11bbae907bb3886ccc432db4c1722034068968ec0ee08015272ac7dc1a2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9e1a428d100ab0a0ea1d6bba79eaed3260da62bf53411a647ce98aeff527c513"
-    sha256 cellar: :any_skip_relocation, ventura:       "0a79d11c8abf77a09ec6e1aab56e71e820eb915be92ee5de4c851b0a9c3586a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4a055cc90e890edafb3f6b39c458706504c4bf92facfa0851d79432621becd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d16d3a59e960273ec253a4962c89848e27dab5f74035400c41b0d80bf56e955"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "38e4f33ad8d8f2a94311ece2901fd6f9140182dad929bb57e8a345b336467154"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91c66377885848731e30b169bc697791763ba9aed5648ff30e510cd0dd80ff9a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "87182550173fca042e23bcf8e9156a820a8b188dbbbb77d9309659f3eeb9aa3b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e1b54d1333aa346252a0971595b8a2bafcc1ad798fdf13014eab8f3f7645be5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3240e8648ef472abc327fa029e3a18ef7a9dae9755593112b3ccc9f0ae158cdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7dea7c72e5fc4a473c5af2065a24bcaf604b424017c218bbaff635f25872ab7"
   end
 
   head do
@@ -28,21 +27,25 @@ class YtDlp < Formula
   end
 
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "deno"
+  depends_on "python@3.14"
+
+  pypi_packages package_name:     "yt-dlp[default]",
+                exclude_packages: "certifi"
 
   resource "brotli" do
-    url "https://files.pythonhosted.org/packages/2f/c2/f9e977608bdf958650638c3f1e28f85a1b075f075ebbe77db8555463787b/Brotli-1.1.0.tar.gz"
-    sha256 "81de08ac11bcb85841e440c13611c00b67d3bf82698314928d0b676362546724"
+    url "https://files.pythonhosted.org/packages/f7/16/c92ca344d646e71a43b8bb353f0a6490d7f6e06210f8554c8f874e454285/brotli-1.2.0.tar.gz"
+    sha256 "e310f77e41941c13340a95976fe66a8a95b01e783d430eeaf7a2f87e0a57dd0a"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
+    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
-    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
+    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
+    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
   resource "mutagen" do
@@ -56,13 +59,13 @@ class YtDlp < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "websockets" do
@@ -70,10 +73,14 @@ class YtDlp < Formula
     sha256 "82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee"
   end
 
+  resource "yt-dlp-ejs" do
+    url "https://files.pythonhosted.org/packages/fe/02/58b16dee54ad7f9f8c4b5b490960478dbbd31a27da4be2c876d8c09ac8e3/yt_dlp_ejs-0.3.1.tar.gz"
+    sha256 "7f2119eb02864800f651fa33825ddfe13d152a1f730fa103d9864f091df24227"
+  end
+
   def install
     system "gmake", "lazy-extractors", "pypi-files" if build.head?
     virtualenv_install_with_resources
-    man1.install_symlink libexec/"share/man/man1/yt-dlp.1"
     bash_completion.install libexec/"share/bash-completion/completions/yt-dlp"
     zsh_completion.install libexec/"share/zsh/site-functions/_yt-dlp"
     fish_completion.install libexec/"share/fish/vendor_completions.d/yt-dlp.fish"
@@ -82,10 +89,6 @@ class YtDlp < Formula
   test do
     system bin/"yt-dlp", "https://raw.githubusercontent.com/Homebrew/brew/refs/heads/master/Library/Homebrew/test/support/fixtures/test.gif"
 
-    # YouTube tests fail bot detection
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    system bin/"yt-dlp", "--simulate", "https://www.youtube.com/watch?v=pOtd1cbOP7k"
-    system bin/"yt-dlp", "--simulate", "--yes-playlist", "https://www.youtube.com/watch?v=pOtd1cbOP7k&list=PLMsZ739TZDoLj9u_nob8jBKSC-mZb0Nhj"
+    system bin/"yt-dlp", "--simulate", "https://x.com/X/status/1922008207133671652"
   end
 end

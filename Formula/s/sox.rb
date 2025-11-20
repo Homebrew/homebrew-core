@@ -6,7 +6,10 @@ class Sox < Formula
   license all_of: ["LGPL-2.0-only", "GPL-2.0-only"]
   revision 6
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "efd1927beadef2b84a6a9840549240134d77eff31208e118f37463f8042874ae"
     sha256 cellar: :any,                 arm64_sequoia: "dd3179a8e7d8399ef404e8e19e199d7cb2d43bc7472cc6e5932777dd204ea20f"
     sha256 cellar: :any,                 arm64_sonoma:  "ec5c73d125f2ac73ddde98d2264a298611f2dd819a873e115178f083216064bd"
     sha256 cellar: :any,                 arm64_ventura: "719011d445046c330686ae5fef7df2561b14c9f966025263bb948b176b528552"
@@ -32,9 +35,11 @@ class Sox < Formula
     depends_on "alsa-lib"
   end
 
+  conflicts_with "sox_ng", because: "both install `play`, `rec`, `sox`, `soxi` binaries"
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

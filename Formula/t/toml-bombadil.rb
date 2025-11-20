@@ -6,14 +6,18 @@ class TomlBombadil < Formula
   license "MIT"
   head "https://github.com/oknozor/toml-bombadil.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1162919902e899ebeb320fd04132856443deb257f47a073be4bc916dfff322c7"
-    sha256 cellar: :any,                 arm64_sonoma:  "5142e942e2bcf7d79a0935e77e1f1dca2c812a60311ef4b429e60b0606e7042a"
-    sha256 cellar: :any,                 arm64_ventura: "b4e073f82e21d3a73f1ca641524f1cd5b10891dba22e4db989aa1909cafa2477"
-    sha256 cellar: :any,                 sonoma:        "a26d4a4ac5a06a3ebaf3ccf6e6c54f1c8d37faed1fb33f43a2ee89c448aa4df5"
-    sha256 cellar: :any,                 ventura:       "e1b81c25d689463b534a94f6d6d3a0ccf9987eed52b874e8c4a8f80891b5fa71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "afbfb3763e73ccf60daddd2d636827817ef09d072f4de66a5bae6bb54362cd36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63847b627610a6981f8afe87c9de344b1cad2ac95a6fdfaff3af7b8071235d7a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2d56dd5101d3de48bc6ec47ede5a788021cd815ddaa0f3a9f39fd26f23b35ac4"
+    sha256 cellar: :any,                 arm64_sequoia: "905ddd0270646b44ff488fb84dfb605629359c4d3621f6ad4539b8965116dbef"
+    sha256 cellar: :any,                 arm64_sonoma:  "ce0dcbfe365b603d63838d1a13159dafe420206f4195c40cd9c2f6664a366760"
+    sha256 cellar: :any,                 arm64_ventura: "5a7c807337580c8c0938e10b17baca04e0cca1730d3575a1de0ebe562c3732fe"
+    sha256 cellar: :any,                 sonoma:        "a74977ffa395f041b92f6ef4e989d3cd8319cb1884bf82975b2bb889b30fe23e"
+    sha256 cellar: :any,                 ventura:       "9f03631a0c28507a788635f902f3387bfbbf7a8c533e834b78c680b685dc7e54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b86e0ee0f27cb207b98bad86ef088454bb5950f3f5d18d751d24c8ef18adae8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2085ccd09aaa6ea756deb9d198231ffa1d83777c329f081ef3a1c62300ae1b4c"
   end
 
   depends_on "pkgconf" => :build
@@ -23,6 +27,8 @@ class TomlBombadil < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"bombadil", "generate-completions")
   end
 
   test do

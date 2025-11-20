@@ -9,6 +9,7 @@ class Ioping < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "89b62c484eb018e00e48c62aa6913d204e5a21d52b24b28906032c13ec278e87"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "52741ce205f6edd2660c7848d815fbf708aeecf69439a47984dedd602c0aa783"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f3bda1094884d84cd06efdfdbe955f9926c5e9f265abfcb5ae1169ca03ac73e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "251ce565377d1b3f09d3293c46459b9950b8345ae8e66c2af8e069541880548c"

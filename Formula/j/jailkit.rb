@@ -11,23 +11,20 @@ class Jailkit < Formula
     regex(/href=.*?jailkit[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 3
-    sha256 arm64_sequoia: "076d8ccde7798b91dd5d4180fc2d2debb7ef02e2db89cd365c6deebf6bc6efdf"
-    sha256 arm64_sonoma:  "025053b284193b9d1c95198481f1590ff9215c899c37ef815af7112adf48be5d"
-    sha256 arm64_ventura: "0d93bf91fbfa2c9b28872305a2fffdedb7ea4a92c9e0322804f4ec876e77f65c"
-    sha256 sonoma:        "a06284e555f1de8ca3efe295422941c5707a6584ee0290db9c81bf65b73f16ed"
-    sha256 ventura:       "7f29c2242dee1509abeef79da62ae9a5f34b74185042157895ef13184aa9c7c4"
-    sha256 arm64_linux:   "7608787263a84503149fc6dffa46ba57ddd1a2b72856d40035b3eab5611aa507"
-    sha256 x86_64_linux:  "d8f26d192338a7f45ef9a376c983cc97d873249106c78807cacd7964c7007b8e"
+    rebuild 4
+    sha256 arm64_tahoe:   "3beb6a1ce60e6650160ff71cf64d77920834134018551376cad01365291f6be2"
+    sha256 arm64_sequoia: "83cd968856bbc4f8933c1372b74975169265c4162f1e9b40460037773f1be37b"
+    sha256 arm64_sonoma:  "9d33fd677c79d6066cf6734adb4526becfa36b5cc57f34769ab03de88178833d"
+    sha256 sonoma:        "692ef1ca0ffbe0e2295d789686a23accefe9cdd29a475118be97c06bdd8697bc"
+    sha256 arm64_linux:   "57de95e3030b4885a69a541fddeea9caf1b08eb25ae58549e482ccc245c565e7"
+    sha256 x86_64_linux:  "48db655b0b901abb3a6caaedbc6609a3a36fea0601676f23bf3894ddb800626c"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
-    ENV["PYTHONINTERPRETER"] = which("python3.13")
+    ENV["PYTHONINTERPRETER"] = which("python3.14")
 
     system "./configure", *std_configure_args
     system "make", "install"

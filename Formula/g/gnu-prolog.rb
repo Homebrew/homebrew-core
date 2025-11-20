@@ -13,6 +13,7 @@ class GnuProlog < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "47608f61774ab4abb61279ebad504f55aec87807f65c9399f63aeec15fae16d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "311488f7874b46d9e06c9499df180ab4008260935fbe5f6335eb4cb37d303f84"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce33996a42c4d43c19084bd12fa5e6121d9b1650db96f6dd36bd1c54d85e47a1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6add739b57462f42eb0dc12a1691bd83ef0075a95fa0aebe822e8c432a66aa72"
@@ -23,7 +24,6 @@ class GnuProlog < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "5e2d325ed9824cdf9283341f009ac01655616d8d61fe9c4b08b21f190a445611"
     sha256 cellar: :any_skip_relocation, big_sur:        "d0a8099131295fb00e49b1921a544e5cf0564593f52a35cccdae8fe239785c2c"
     sha256 cellar: :any_skip_relocation, catalina:       "7d5b67ea483e7b80e2a2d1ff30874d53afe0d5f416ef6d7e4480beaa3be6153a"
-    sha256 cellar: :any_skip_relocation, mojave:         "b89f575f9b32a43180b7ad527e2ac9f71b9de4440285cccb1a326752a12ef7c3"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "5e968562dea6ec8f17d9d0b8f9ab48fc65179477d8e4a762371226c097c4341c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdf61462c5418578e9d629fa743b527b462e6f767fbb64af23db63115a8d39c4"
   end

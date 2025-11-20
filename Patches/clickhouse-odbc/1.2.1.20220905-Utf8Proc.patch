@@ -1,0 +1,101 @@
+From 4973265f5fd18b661dc468bf429c298b8190ceef Mon Sep 17 00:00:00 2001
+From: Rui Chen <rui@chenrui.dev>
+Date: Sun, 1 Dec 2024 21:49:57 -0500
+Subject: [PATCH] wip
+
+Signed-off-by: Rui Chen <rui@chenrui.dev>
+---
+ CMakeLists.txt                   |  1 +
+ cmake/Modules/FindUtf8Proc.cmake | 68 ++++++++++++++++++++++++++++++++
+ 2 files changed, 69 insertions(+)
+ create mode 100644 cmake/Modules/FindUtf8Proc.cmake
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e999a6a..06d4dff 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -137,6 +137,7 @@ if (CH_ODBC_ENABLE_SSL)
+ endif ()
+ 
+ if (NOT CH_ODBC_PREFER_BUNDLED_POCO)
++    find_package(Utf8Proc REQUIRED)
+     find_package (Poco COMPONENTS Foundation Net NetSSL)
+ endif ()
+ 
+diff --git a/cmake/Modules/FindUtf8Proc.cmake b/cmake/Modules/FindUtf8Proc.cmake
+new file mode 100644
+index 0000000..6959031
+--- /dev/null
++++ b/cmake/Modules/FindUtf8Proc.cmake
+@@ -0,0 +1,68 @@
++#.rst:
++# FindUtf8Proc
++# --------
++#
++# Find utf8proc
++#
++# Find the UTF-8 processing library
++#
++# ::
++#
++#   This module defines the following variables:
++#      UTF8PROC_FOUND       - True if UTF8PROC_INCLUDE_DIR & UTF8PROC_LIBRARY are found
++#      UTF8PROC_LIBRARIES   - Set when UTF8PROC_LIBRARY is found
++#      UTF8PROC_INCLUDE_DIRS - Set when UTF8PROC_INCLUDE_DIR is found
++#
++#
++#
++# ::
++#
++#      UTF8PROC_INCLUDE_DIR - where to find utf8proc.h
++#      UTF8PROC_LIBRARY     - the utf8proc library
++
++#=============================================================================
++# This module is adapted from FindALSA.cmake. Below are the original license
++# header.
++#=============================================================================
++# Copyright 2009-2011 Kitware, Inc.
++# Copyright 2009-2011 Philip Lowman <philip@yhbt.com>
++#
++# Distributed under the OSI-approved BSD License (the "License");
++# see accompanying file Copyright.txt for details.
++#
++# This software is distributed WITHOUT ANY WARRANTY; without even the
++# implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
++# See the License for more information.
++#=============================================================================
++
++find_path(
++    UTF8PROC_INCLUDE_DIR NAMES utf8proc.h DOC "The utf8proc include directory"
++)
++
++find_library(
++    UTF8PROC_LIBRARY NAMES utf8proc DOC "The utf8proc library"
++)
++
++# handle the QUIETLY and REQUIRED arguments and set UTF8PROC_FOUND to TRUE if
++# all listed variables are TRUE
++include(FindPackageHandleStandardArgs)
++FIND_PACKAGE_HANDLE_STANDARD_ARGS(
++    Utf8Proc
++    FOUND_VAR Utf8Proc_FOUND
++    REQUIRED_VARS UTF8PROC_LIBRARY UTF8PROC_INCLUDE_DIR
++)
++
++if(Utf8Proc_FOUND)
++  set( UTF8PROC_LIBRARIES ${UTF8PROC_LIBRARY} )
++  set( UTF8PROC_INCLUDE_DIRS ${UTF8PROC_INCLUDE_DIR} )
++endif()
++
++if(Utf8Proc_FOUND AND NOT TARGET Utf8Proc::Utf8Proc)
++  add_library(Utf8Proc::Utf8Proc UNKNOWN IMPORTED)
++  set_target_properties(Utf8Proc::Utf8Proc PROPERTIES
++	  IMPORTED_LOCATION "${UTF8PROC_LIBRARY}"
++	  INTERFACE_INCLUDE_DIRECTORIES "${UTF8PROC_INCLUDE_DIR}"
++  )
++endif()
++
++mark_as_advanced(UTF8PROC_INCLUDE_DIR UTF8PROC_LIBRARY)
+-- 
+2.47.1
+

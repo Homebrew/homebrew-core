@@ -10,6 +10,8 @@ class SpiceProtocol < Formula
     regex(/href=.*?spice-protocol[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "b2fc7486dfc635ac1e89eb2f38d7eebeddf5f51d3fcd5e8f52c35c6ecd70ebea"
   end

@@ -3,21 +3,15 @@ class Scons < Formula
 
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "https://www.scons.org/"
-  url "https://files.pythonhosted.org/packages/c8/c1/30176c76c1ef723fab62e5cdb15d3c972427a146cb6f868748613d7b25af/scons-4.9.1.tar.gz"
-  sha256 "bacac880ba2e86d6a156c116e2f8f2bfa82b257046f3ac2666c85c53c615c338"
+  url "https://files.pythonhosted.org/packages/7d/c9/2f430bb39e4eccba32ce8008df4a3206df651276422204e177a09e12b30b/scons-4.10.1.tar.gz"
+  sha256 "99c0e94a42a2c1182fa6859b0be697953db07ba936ecc9817ae0d218ced20b15"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6da09c0f0c4cec9bad1951ce49c3b37c51b3596639fa4c90b60745bcc81b8c55"
-    sha256 cellar: :any_skip_relocation, ventura:       "6da09c0f0c4cec9bad1951ce49c3b37c51b3596639fa4c90b60745bcc81b8c55"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0a81c5d96f6ac781416672b44e49febc790de4cf60a239485efb95b3d6cadce"
+    sha256 cellar: :any_skip_relocation, all: "5c30327f9252a9255cb6056b3b03c19b90020af2cc27839dc1c95e815b7502c3"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

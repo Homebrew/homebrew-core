@@ -4,15 +4,17 @@ class GpgTui < Formula
   url "https://github.com/orhun/gpg-tui/archive/refs/tags/v0.11.1.tar.gz"
   sha256 "ecc232b42ff07888eb12a43daf5a956791a21efc85f6e71fbed9b9769ec50b50"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b8b285a56c068c4613ddf7febc02f54f3f93e5b981e767d9e780e46c222da68f"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ad65ce292ab237367a5e9c1243fc8e1c661ceca8866dcc1097e7fb343391483"
-    sha256 cellar: :any,                 arm64_ventura: "27e2c82100509242bbae369f1e07446a39d4601b16bdfa81d64bf84f65fc4ccb"
-    sha256 cellar: :any,                 sonoma:        "d7cd4bf0315b5286844fa5a79de6c1e6b03ff8d678c107dab39bc13d7917ddd0"
-    sha256 cellar: :any,                 ventura:       "ce5156604deb713f9ef54ec0a1bd517a32b7adcfe38b9128ce9ba20a9ef746ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "859083fd3369401fd250a7219b0dcd2aeae9d73737e25f540d9b3a79e93bc31f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3674a2853d140537e9f8859d4efc566f55a4f1c0d3a67caf1fee55c807fa2ea"
+    sha256 cellar: :any,                 arm64_tahoe:   "abbd155171e756035475b2d056af6a211670e7771f0c5b4aa602c74c479ecc73"
+    sha256 cellar: :any,                 arm64_sequoia: "465e6299e30e75bbae4b8532311daeaed79c693a4108c0af84bc2e6854d8dd59"
+    sha256 cellar: :any,                 arm64_sonoma:  "db699046d18a6d2b9ad48f7119ffdafcdddb4c298793e2d625164279b336fe0f"
+    sha256 cellar: :any,                 arm64_ventura: "c0bda54defeb5ebc244a1b9088e507ff48dee169d32d9ad08a80c4e4cde6d904"
+    sha256 cellar: :any,                 sonoma:        "da34e2326c5339717bda310f989e70d696858a31852ff892101e56d6d9781144"
+    sha256 cellar: :any,                 ventura:       "8868cd44a2ff7f56d30c75bfba3f3d1f03c56b5faded21f69f86f93bffd1b331"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b12d1cddc16374cfbb0be45749aace3e1c1e6f623b300e593b99b97d827fbbf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c846cd2826dff13817d7dac553ebc7adbd9d992f852ee9c2c4b3540fc8f017eb"
   end
 
   depends_on "pkgconf" => :build

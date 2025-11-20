@@ -1,17 +1,16 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.70.tar.gz"
-  sha256 "dc0c685bf4367f980dcb937484ee3e2ebc1d3daf9e7ae415f6d9b9e1abf18c4d"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.89.tar.gz"
+  sha256 "8056ea0271d8dcc4ebed3ffac99c240be2c5450e4e17de44344899194a19cf8a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4185521545149911f449aaba3e42499f67f45437c0258d4d7ceba65845748715"
-    sha256 cellar: :any,                 arm64_sonoma:  "3aff96c25aeb74f72eb5cf1eb20cc43af1efc836a61df5000a2dd93402f24378"
-    sha256 cellar: :any,                 arm64_ventura: "f8f937fc80e33086a9978b8b0efa9eb3c56df84117f2529c657da99c87af8228"
-    sha256 cellar: :any,                 ventura:       "a364561b66e0afb2f859cdfaf50a52228ada0551da13ad57a1826a7c98e89a21"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ce287aee262734917c8846fcfe8834df6d7be8a351cec1690564290f3600a85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05ef85c31c928765ada98df75144c0c5ce4f79b4c6f3d63e99bafc0eeb838eaf"
+    sha256 cellar: :any,                 arm64_tahoe:   "18f7dc8c6566bea1be1db020ee38add1c3ebcce1be184369b4e34c72f428dad3"
+    sha256 cellar: :any,                 arm64_sequoia: "fdd2bb19d20b4ca68a50e409b05d30c27334c17363e93d2782ca5a65675d81f4"
+    sha256 cellar: :any,                 arm64_sonoma:  "811d9cbcccf41e1a21ccb522d4a71b8a4a045c629162fef40b91f27a7a209b30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8aebe98ed758cf2ce3787f032e66f60bc1f0f4d8fb9eb30ef316f3e14e2c919c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18f6c274edde2c80d8c3dc3a7973855bc2e1a71054a1bee0204490efc3ce567a"
   end
 
   depends_on "valkey" => :test
@@ -24,6 +23,9 @@ class Garnet < Formula
   end
 
   def install
+    # Ignore dotnet version specification and use homebrew one
+    rm "global.json"
+
     if OS.linux?
       cd "libs/storage/Tsavorite/cc" do
         # Fix to cmake version 4 compatibility
@@ -51,6 +53,9 @@ class Garnet < Formula
 
     # Replace universal binaries with their native slices.
     deuniversalize_machos
+
+    # Remove non-native library
+    rm libexec/"liblua54.so" if OS.linux? && Hardware::CPU.arm?
   end
 
   test do

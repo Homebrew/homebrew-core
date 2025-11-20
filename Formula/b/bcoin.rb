@@ -8,6 +8,7 @@ class Bcoin < Formula
 
   bottle do
     rebuild 3
+    sha256                               arm64_tahoe:    "22cb74e6bd2ddf842240be2209f1412af7423eb335056fdc7a58616d2a9dd4aa"
     sha256                               arm64_sequoia:  "bcd872395d69686c004555e77f78998ca1a01e4d1a0f0d4f6315e5cc0a112be2"
     sha256                               arm64_sonoma:   "c357454a7b33d7fe78ddad3a974eeb031642d8f82a49ad633c036d9a26657dcd"
     sha256                               arm64_ventura:  "95e36e42caef34098e5802e9e8ede2cfa9b11c348eef528087ead3a1846647f9"

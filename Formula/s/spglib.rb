@@ -6,6 +6,7 @@ class Spglib < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d1f0145c7fce622faa3b2663a0e5f3dc807d71d5d325a0284959a89db1512ed1"
     sha256 cellar: :any,                 arm64_sequoia: "1f70bfc567f1349913975ebe3a2173dfb68dd234dab1a6fd199f62b494a75919"
     sha256 cellar: :any,                 arm64_sonoma:  "f4b1b449ad705a09d66de2d0b3868f7ed6d4cec38aea989e4639529e3bbf4f46"
     sha256 cellar: :any,                 arm64_ventura: "ab9d0638a60bc897b4d3ce4f2f37e451df8470f15af4eb7e638253673b636622"
@@ -16,7 +17,6 @@ class Spglib < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "gcc" # for gfortran
 
   def install
     # TODO: Fortran packaging is disabled for now because packaging does not pick it up properly
@@ -26,12 +26,14 @@ class Spglib < Formula
       -DSPGLIB_WITH_TESTS=OFF
     ]
     system "cmake", "-S", ".", "-B", "build_shared",
-                   *common_args, "-DSPGLIB_SHARED_LIBS=ON", *std_cmake_args
+                    "-DSPGLIB_SHARED_LIBS=ON",
+                    *common_args, *std_cmake_args
     system "cmake", "--build", "build_shared"
     system "cmake", "--install", "build_shared"
 
     system "cmake", "-S", ".", "-B", "build_static",
-                  *common_args, "-DSPGLIB_SHARED_LIBS=OFF", *std_cmake_args
+                    "-DSPGLIB_SHARED_LIBS=OFF",
+                    *common_args, *std_cmake_args
     system "cmake", "--build", "build_static"
     system "cmake", "--install", "build_static"
   end
@@ -47,7 +49,7 @@ class Spglib < Formula
     C
 
     (testpath / "CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.6)
+      cmake_minimum_required(VERSION 3.10)
       project(test_spglib LANGUAGES C)
       find_package(Spglib CONFIG REQUIRED COMPONENTS shared)
       add_executable(test_c test.c)
@@ -59,8 +61,8 @@ class Spglib < Formula
 
     (testpath / "CMakeLists.txt").delete
     (testpath / "CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.6)
-      project(test_spglib LANGUAGES C Fortran)
+      cmake_minimum_required(VERSION 3.10)
+      project(test_spglib LANGUAGES C)
       find_package(Spglib CONFIG REQUIRED COMPONENTS static)
       add_executable(test_c test.c)
       target_link_libraries(test_c PRIVATE Spglib::symspg)

@@ -6,6 +6,8 @@ class WpCliCompletion < Formula
   license "MIT"
   head "https://github.com/wp-cli/wp-cli.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "157dc6d8f92431bf3084c0ce8b8f78149299ad308b17ca23df5235622213565c"
   end

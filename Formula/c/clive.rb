@@ -1,18 +1,18 @@
 class Clive < Formula
   desc "Automates terminal operations"
   homepage "https://github.com/koki-develop/clive"
-  url "https://github.com/koki-develop/clive/archive/refs/tags/v0.12.11.tar.gz"
-  sha256 "c406ff8c8a959f5de0730ecfd393c432587f824b86cc91979ee54e4e96b44ac0"
+  url "https://github.com/koki-develop/clive/archive/refs/tags/v0.12.13.tar.gz"
+  sha256 "0cad5cb387d02120c9ffdca84e8fe2d1a94abc3212ae14ecb39c403dfa43f06b"
   license "MIT"
   head "https://github.com/koki-develop/clive.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5daeabe93c5968be4e4be53e2d1b87b7cacc87c7ac25b9a8be3643a665b85272"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5daeabe93c5968be4e4be53e2d1b87b7cacc87c7ac25b9a8be3643a665b85272"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5daeabe93c5968be4e4be53e2d1b87b7cacc87c7ac25b9a8be3643a665b85272"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cd4f7a5f56aee0212ed974c4ad9441b8f800f57ef73864729dcd2641744f9de7"
-    sha256 cellar: :any_skip_relocation, ventura:       "cd4f7a5f56aee0212ed974c4ad9441b8f800f57ef73864729dcd2641744f9de7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88dfd175a7bb323ef3e1df32ab69035480bc0ffc1a34790b662141b17d9a0a34"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8453e96034ffae1201417b2f0fc748fcc923ece46ade09b2ec7a8673e1e8196"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8453e96034ffae1201417b2f0fc748fcc923ece46ade09b2ec7a8673e1e8196"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8453e96034ffae1201417b2f0fc748fcc923ece46ade09b2ec7a8673e1e8196"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b11df80e6486a90008055d418d3286a8e29d3f59da8450d31edf542f1a25b488"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab130a9b1fb5e5ac176a03eb9c4fee933f467c231647daa18ea779fcb5ceaede"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1dab03d63f2c6b8910a0eeda77fa78d40bc02929ab6650efe5294ec79ed8f07d"
   end
 
   depends_on "go" => :build

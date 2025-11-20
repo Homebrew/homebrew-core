@@ -13,6 +13,7 @@ class Libssh2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ec865686b712ca3eeee298124d08aacce8d6b67e37ba6e1bd8499fbce13a5ad3"
     sha256 cellar: :any,                 arm64_sequoia: "4fd55e8973a9454001ac289972767ca8927f3639aa44715aa1e9ba81c3712245"
     sha256 cellar: :any,                 arm64_sonoma:  "2e6ffae575cf6e8335026f209f24c8a12250afa093e7a49577ee95c3bb781554"
     sha256 cellar: :any,                 arm64_ventura: "f1a9194b318669ded3d72a045c1cc30b4ce53dcb23a0b5953910f6dcd341522b"

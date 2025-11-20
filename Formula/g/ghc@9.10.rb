@@ -1,8 +1,8 @@
 class GhcAT910 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.10.1/ghc-9.10.1-src.tar.xz"
-  sha256 "bf386a302d4ee054791ffd51748900f15d71760fd199157922d120cc1f89e2f7"
+  url "https://downloads.haskell.org/~ghc/9.10.3/ghc-9.10.3-src.tar.xz"
+  sha256 "d266864b9e0b7b741abe8c9d6a790d7c01c21cf43a1419839119255878ebc59a"
   # We build bundled copies of libffi and GMP so GHC inherits the licenses
   license all_of: [
     "BSD-3-Clause",
@@ -11,27 +11,27 @@ class GhcAT910 < Formula
   ]
 
   livecheck do
-    url "https://www.haskell.org/ghc/download.html"
-    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(9\.10(?:\.\d+)+)\s*?</i)
+    url "https://www.haskell.org/ghc/"
+    regex(/href=.*?download[_-]ghc[_-]v?(9[._]10[._]\d+)\.html/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("_", ".") }
+    end
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ec9bf60301efe6176480908497e6bbcf760c8933cb6e7e5f37ebb974511503ad"
-    sha256 cellar: :any,                 arm64_sonoma:  "6adabdb9471ae60464844e605ea1b125072093c3545bbb6be58c97e068e4b179"
-    sha256 cellar: :any,                 arm64_ventura: "7873d62ffe85f56f79253dd01207e5d2ff9d517327908d24df0cddf0507a894d"
-    sha256 cellar: :any,                 sonoma:        "468cb6b1d315ee7666776732ff81810ef758fafab73cb9e4625f2eae4eec6b53"
-    sha256 cellar: :any,                 ventura:       "bdb6eb7758ff9cbe21ddd04b686adde591cccf4cc783f61f6dbd748d1d717d51"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "594c60e3a2ad54c4b992c26e122f13b6ebe454583bb9cda468fc3896263feb51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7094724850adb80577444deb76d26cd865c71f45d6afaae2f92cb9809cf7fd76"
+    sha256 cellar: :any,                 arm64_tahoe:   "621760fc88433b9cf482d926a5cea4072a2d0d26a1435be93e7d85c7bde4f249"
+    sha256 cellar: :any,                 arm64_sequoia: "4ab20c497dd1c26e87b27787b5f392652619f72f34c1e313b60045cf8490fb86"
+    sha256 cellar: :any,                 arm64_sonoma:  "8595c17b3500b2bcee8be823f5d4a0d3755f42a5637f09ba524402c2d1cd9dc5"
+    sha256 cellar: :any,                 sonoma:        "752ae798ad44cd76405249c4896bc310e5a112538f310fc9cb6ac6f46d020651"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd31b6bba8fb817cc6e5e0db93d34fb293d9430c6e0f65101faa233f8b586437"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a28f1ff09c3587557c479a14e015ae4e8a7a1f9154cdc64691e1c0d4f9a77e1e"
   end
 
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "sphinx-doc" => :build
   depends_on "xz" => :build
 
@@ -94,12 +94,6 @@ class GhcAT910 < Formula
     end
   end
 
-  # Backport fix to avoid unnecessary `alex` dependency
-  patch do
-    url "https://gitlab.haskell.org/ghc/ghc/-/commit/aba2c9d4728262cd9a2d711eded9050ac131c6c1.diff"
-    sha256 "152cd2711a7e103bbf0526dc62e51b437e6c60e26149f2cd50ccafaa057316ce"
-  end
-
   def install
     # ENV.cc and ENV.cxx return specific compiler versions on Ubuntu, e.g.
     # gcc-11 and g++-11 on Ubuntu 22.04. Using such values effectively causes
@@ -111,7 +105,12 @@ class GhcAT910 < Formula
     ENV["CC"] = ENV["ac_cv_path_CC"] = OS.linux? ? "cc" : ENV.cc
     ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = ENV["MergeObjsCmd"] = "ld"
-    ENV["PYTHON"] = which("python3.13")
+    ENV["PYTHON"] = which("python3.14")
+
+    # Workaround for https://gitlab.haskell.org/ghc/ghc/-/issues/26166
+    if DevelopmentTools.ld64_version == "1221.4"
+      inreplace "rts/rts.cabal", /("-Wl,-undefined,dynamic_lookup)"/, "\\1,-ld_classic\""
+    end
 
     binary = buildpath/"binary"
     resource("binary").stage do

@@ -1,9 +1,9 @@
 class Gpsd < Formula
   desc "Global Positioning System (GPS) daemon"
   homepage "https://gpsd.gitlab.io/gpsd/"
-  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz"
-  sha256 "7e5e53e5ab157dce560a2f22e20322ef1136d3ebde99162def833a3306de01e5"
+  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz"
+  sha256 "45c0d4779324bd59a47cfcb7ac57180d2dbdf418603d398a079392dabf1f740c"
   license "BSD-2-Clause"
   head "https://gitlab.com/gpsd/gpsd.git", branch: "master"
 
@@ -15,16 +15,14 @@ class Gpsd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "9a3bb3d5594e1b63686b3d40b42f1d8dedf396b03c952a6a758d74d374c08452"
-    sha256 cellar: :any,                 arm64_sonoma:   "938cf9f4d6bd4ad1ab1ef1f553921dbc6db46810fff2715f25ad8c0aae4a1258"
-    sha256 cellar: :any,                 arm64_ventura:  "12a924778ab1fcc13aff5d84ac712db09bc964f85fc57b7677f1566c5e870008"
-    sha256 cellar: :any,                 arm64_monterey: "7ce33dccf34d5beab1ebd4a98dfd1b3bb284be93a43e367e5bb446258da36144"
-    sha256 cellar: :any,                 sonoma:         "db21b97f74091e71a97e6e0aa09352bc651c6dd95245d408b9ab11c1b4354a07"
-    sha256 cellar: :any,                 ventura:        "2b7ae1f6de349089583d3a426f4240eca86cb98d478ed11a1156f8835664f4d1"
-    sha256 cellar: :any,                 monterey:       "583ff8896e5f9f211c5487dc35cb54b1ccecb16b1b3d466c5ba8112ff90ea0fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "fb850dbc722b6e0dbdd8340ec74918b905ae3122da9ff2037754e79f3970671d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06b4c52b968483ec4a90e103696af37e423555b2c3808ce726feb0a1855f87b8"
+    sha256 cellar: :any,                 arm64_tahoe:   "c5997ed5f203725d794c2e5c64151244707cd8944de3656a756457e193673c5f"
+    sha256 cellar: :any,                 arm64_sequoia: "54e49549e87a088ae8fded07a143dbf8cdd016d9b0b7adbba6ac2b56b8bd9827"
+    sha256 cellar: :any,                 arm64_sonoma:  "b167722509389681bbbc08adda95eeddfaa7ea6be024ab60fc2d719212a01c88"
+    sha256 cellar: :any,                 arm64_ventura: "5fd0ddadcb70eecd5489f8edc43cffeb22bf7c66d8fe1427d86fbec7e3e61bb9"
+    sha256 cellar: :any,                 sonoma:        "6b28340a45b296b6d53262302f16f049c1e89d05d63a27c73c7f7f57800fbd86"
+    sha256 cellar: :any,                 ventura:       "579f7f0ede210c94a98e5f3c2316ed24ef39b03eb990606dab320e0fc453852e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f1e1dc7c86b2b007721d43fff1861914f20532f7f1731c1388655128504fc4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bae4fededf6c737937b9fd73e7ecde613a6c7ffcdafaa36b879eab89397ce64c"
   end
 
   depends_on "asciidoctor" => :build
@@ -32,13 +30,14 @@ class Gpsd < Formula
 
   uses_from_macos "ncurses"
 
-  # Replace setuptools in SConscript for python 3.12+
-  patch do
-    url "https://gitlab.com/gpsd/gpsd/-/commit/9157b1282d392b2cc220bafa44b656d6dac311df.diff"
-    sha256 "b2961524c4cd59858eb204fb04a8119a8554560a693093f1a37662d6f15326f9"
-  end
-
   def install
+    if OS.linux?
+      ncurses = Formula["ncurses"]
+
+      ENV.append "CFLAGS", "-I#{ncurses.opt_include}"
+      ENV.append "LDFLAGS", "-L#{ncurses.opt_lib} -Wl,-rpath,#{ncurses.opt_lib}"
+    end
+
     system "scons", "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
     system "scons", "install"
   end

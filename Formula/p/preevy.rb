@@ -1,17 +1,19 @@
 class Preevy < Formula
   desc "Quickly deploy preview environments to the cloud"
   homepage "https://preevy.dev/"
-  url "https://registry.npmjs.org/preevy/-/preevy-0.0.66.tgz"
-  sha256 "aae290aabc6046dc7770d853888dd9a7c13e57f3aa68397e249c2af608fd0460"
+  url "https://registry.npmjs.org/preevy/-/preevy-0.0.67.tgz"
+  sha256 "7f07237d5d5112250b7ee8a3f2ee1af3df1ef2f6cfa984040aef2e2a884b30e7"
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_sequoia: "78974bbfc835ed42c5462e63bfa4436d0733864f4639c60b57beafd21367d27e"
-    sha256                               arm64_sonoma:  "8160125c713db37824ba46f37b579ff95ad82b5a69f5f3d3a1ea877220831370"
-    sha256                               arm64_ventura: "6e43c51cf5c2c7f9f97e3baa256e450f1d339b5057652eeb1e189ac835aaa6c3"
-    sha256                               sonoma:        "da3d04b932348cbd77ee2aeef6f3cb4b580a25c2f9acde5a205eccbc95c61d06"
-    sha256                               ventura:       "6e449e896eb19609d9353ea31ede1e084e173a81c5ecb8c8f949d23875112e89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45268a366541af205d7f0f6ea20684ede2ce74689e446fbf91a79192191ab825"
+    sha256                               arm64_tahoe:   "0ecfe50451d749ef862d67a719df6877d1bc707ae3a4254fabd37635ac0581a7"
+    sha256                               arm64_sequoia: "13f0d0eb46761af3cfad9914316e60ff0a57b9c66de29c6ff5a36c075a126c5e"
+    sha256                               arm64_sonoma:  "2a80857e600f0e08aae2cdaa68220e3ce26a5e9f5d282cb5368d934944ed8355"
+    sha256                               arm64_ventura: "b3d2111934d904a21e073113ffb2a53da7d8784907cf06bd92a64d24be3e6399"
+    sha256                               sonoma:        "a511ef38d0a334bb9eb9ab49781d75974a33d08074870a153339087e9e950428"
+    sha256                               ventura:       "92c7b3fe2e0fb816a63b6b0c2feb8446be062eec443dbb6a5416b4b9937f056a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e99bec653db6fb724499c73557bfde947aad0f58d6e1b0698ec173803efa175"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a58855d54fa97236e0fad7088c96a745ac2ef33b6f3a9caf03bd6cfd08ebaa1"
   end
 
   depends_on "node"

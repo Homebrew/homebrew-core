@@ -10,12 +10,13 @@ class Liblqr < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c28916c964572477462f09ac74d07c2d633a21e36fae33ff5f63d6902a726613"
     sha256 cellar: :any,                 arm64_sequoia:  "0adf2f9c0c8b464c301df3595f6dab6a86944b1227c7934a2cfdaedce985bc69"
     sha256 cellar: :any,                 arm64_sonoma:   "9ad43c688c7604dc0d12d25a55e5dba657312e6f702c5c7779a529e7b0788c3b"
     sha256 cellar: :any,                 arm64_ventura:  "c93518552d7c18f49dd1fb7e15e23bc36fcd6e43c7a28c82493f552ff4cf4d1a"

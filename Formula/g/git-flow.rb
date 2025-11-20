@@ -41,8 +41,6 @@ class GitFlow < Formula
     end
   end
 
-  conflicts_with "git-flow-avh", because: "both install `git-flow` binaries and completions"
-
   def install
     (buildpath/"shFlags").install resource("shFlags")
 

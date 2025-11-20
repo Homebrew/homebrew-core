@@ -1,19 +1,19 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/refs/tags/v1.15.3.tar.gz"
-  sha256 "15a04e69c222eb6c01094b5c7ff8a249b36bb22788d72519646fb85feb267e67"
+  url "https://github.com/gabime/spdlog/archive/refs/tags/v1.16.0.tar.gz"
+  sha256 "8741753e488a78dd0d0024c980e1fb5b5c85888447e309d9cb9d949bdb52aa3e"
   license "MIT"
+  revision 1
   head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b885d77ddec4626dd6f31bc9a94fae28b4bd3ac4e5e91c36624891d262d6d3de"
-    sha256 cellar: :any,                 arm64_sonoma:  "222a1f363fe1b82e9e830c7a42f98d73c7b9673e7256502cdc66093193e2fee3"
-    sha256 cellar: :any,                 arm64_ventura: "78d3b81c70195115a7d762b9b39efaef6d45652488654a1104c237138a5f3898"
-    sha256 cellar: :any,                 sonoma:        "6407f99157debc92ed12594a56cc98b9513e6d3617c5bf0ccad7127c8e0340a1"
-    sha256 cellar: :any,                 ventura:       "f62555b2fb8dcc64a581c3f2efca87e50b49aecbc62d3492b4fb910c97442cb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "774a3ccba115e20c6b0c594bb4c6b554de3c65f1454666d86a4aa0028d8591ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "334f9f05e98a52ecea6bbdbaebbfb597936d4169c935018eff7cd2f1789dcebd"
+    sha256 cellar: :any,                 arm64_tahoe:   "48f60f6f26b8fcbaeba93f5e7f6ce09f4e2caabe401493e8704178e7cf900dd6"
+    sha256 cellar: :any,                 arm64_sequoia: "4189a5a09f6df33310f087fc2f05b6efda61ce83bfa65d8f32c61b9eee3a27d7"
+    sha256 cellar: :any,                 arm64_sonoma:  "722a5865c0eb6229a053dac16b1b656d571153362217f31ae927360a379a3220"
+    sha256 cellar: :any,                 sonoma:        "bafe8b9c234a4c3794fd802f534e775ca5974315e7e0f0f65815300800d1ebe9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5fd0c9e79d3a2a6d1209fb05980640198f755689fd03fea8fb05b4eb00ff1938"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bc677e2642c10f480a0a1506a8737a27c72dc23ae45e806d5408156192ad411"
   end
 
   depends_on "cmake" => :build

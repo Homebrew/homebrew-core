@@ -26,19 +26,21 @@ class Rpm < Formula
     regex(/href=.*?rpm[._-]v?(\d+\.\d+(?:\.(?:\d|[1-8]\d+)(?:\.\d+)*))\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia: "b68a3e9add758b36a2547372709f655d29948680c2403d8819a46445a9211a50"
-    sha256 arm64_sonoma:  "7319baf421ef56e8cdf5e937f0624a5ff14521d0d045d27446611faede12a0f8"
-    sha256 arm64_ventura: "5070355f11041aedf2f1559a4b04af7e87c596576e80c54db3e2674b6d40bd69"
-    sha256 sonoma:        "bc5c3289f2afaf8d6c12b1f530284be837ad9ab1c7376b1da93feb4b8588f2b1"
-    sha256 ventura:       "b47ab72d2f0b6d82eb7cc20e3b69655e92367ea9b5700834330bd76eb2c7eddb"
-    sha256 arm64_linux:   "25fc73da026efc9660a4373b10837df0c99f773ad000ddda3a3d07dcab1a459a"
-    sha256 x86_64_linux:  "529d59e759920b457292f5a378ccb796bf6d98587e6bb1d2b51ac2a17f1bb678"
+    rebuild 1
+    sha256 arm64_tahoe:   "817cfbba4fe88dd1ca4446d936bb6c4cae68f70af1895e72b2d9af20186fc6ea"
+    sha256 arm64_sequoia: "2ceece493065a153759bd8a81b001e1ae817b0315bd322aaf0190cd84b063910"
+    sha256 arm64_sonoma:  "4bf279262ec127bb86a4b685f6a7e8ea3b854d865c71a173d2b3e4a1401db64b"
+    sha256 sonoma:        "11d285a8bf603a8d7ae76af2d102c6c34ecf272cc5378335a3b6e5684605560d"
+    sha256 arm64_linux:   "eda731a1351179e9a65f885cdf588db00f9e417b670328366bce636c13143916"
+    sha256 x86_64_linux:  "70eaf4ff4ead4d9aa599087e5be5998ab22827cfef4f54d1ed5e682b61f7c05b"
   end
 
   depends_on "cmake" => :build
   depends_on "gettext" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "rust" => :build # for rpm-sequoia
 
   depends_on "gmp"
@@ -85,7 +87,7 @@ class Rpm < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
@@ -187,7 +189,7 @@ class Rpm < Formula
     assert_path_exists testpath/"rpmbuild/SRPMS/test-1.0-1.src.rpm"
     assert_path_exists testpath/"rpmbuild/RPMS/noarch/test-1.0-1.noarch.rpm"
 
-    info = shell_output(bin/"rpm --query --package -i #{testpath}/rpmbuild/RPMS/noarch/test-1.0-1.noarch.rpm")
+    info = shell_output("#{bin}/rpm --query --package -i #{testpath}/rpmbuild/RPMS/noarch/test-1.0-1.noarch.rpm")
     assert_match "Name        : test", info
     assert_match "Version     : 1.0", info
     assert_match "Release     : 1", info
@@ -197,7 +199,7 @@ class Rpm < Formula
     assert_match "Source RPM  : test-1.0-1.src.rpm", info
     assert_match "Trivial test package", info
 
-    files = shell_output(bin/"rpm --query --list --package #{testpath}/rpmbuild/RPMS/noarch/test-1.0-1.noarch.rpm")
+    files = shell_output("#{bin}/rpm --query --list --package #{testpath}/rpmbuild/RPMS/noarch/test-1.0-1.noarch.rpm")
     assert_match (HOMEBREW_PREFIX/"share/doc/test").to_s, files
 
     system python3, "-c", "import rpm"

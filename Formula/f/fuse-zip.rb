@@ -4,7 +4,7 @@ class FuseZip < Formula
   url "https://bitbucket.org/agalanin/fuse-zip/downloads/fuse-zip-0.7.2.tar.gz"
   sha256 "3dd0be005677442f1fd9769a02dfc0b4fcdd39eb167e5697db2f14f4fee58915"
   license "GPL-3.0-or-later"
-  head "https://bitbucket.org/agalanin/fuse-zip", using: :hg
+  head "https://bitbucket.org/agalanin/fuse-zip.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 

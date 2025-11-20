@@ -1,18 +1,19 @@
 class Monocle < Formula
   desc "See through all BGP data with a monocle"
   homepage "https://github.com/bgpkit/monocle"
-  url "https://github.com/bgpkit/monocle/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "571f53116c345f1f8279a07e1aaaee3850ceb0fc01ba9c5cef3f393fbefa4a6c"
+  url "https://github.com/bgpkit/monocle/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "a6cb0153689d71fabc17496c6fc2b8b7b04a9f5d8e1b4988ef526b314859bb71"
   license "MIT"
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90179dc8e760a4a85ad5e03a25f8512295fc528a0f2eed38cc756a8c8a6edc61"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62f25e9b9ac204329a2d3452c1e98de2f64e63f6ae3d40e0d1c896d61c679e1a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3e631476b096bdd088521de3c2ae615874cc20c82a890216a79a82896951e078"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a7d4adb1ef908b164dac34ec908485d2af8c2928eb49b6fede7ccedc1b357471"
-    sha256 cellar: :any_skip_relocation, ventura:       "b3675f8eb3b4217d5289474d6d420d1fd78598a00d339a3813e826d27d416d5a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "429f56dfb8e38b70ddeeded089aa85d2b1cde684c350d369493526d672d7305c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75afdf472f8f6e0978c755ee28f683f52f2025645fe14165ca189b43caacd0f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "29f57b4fbb605e1e89ea42b86bd1bd3121929a4e271e034dafae2624cd402c20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8c18d8560e23ae9bb1dc0181214fd3a7b3a212a836eb9853cf871e7d2b89770"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "672b29b66b6d83e66a4be46a68ca8185c620a2e9fa97e6c9d99decd4d1d95e75"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7c3deb6309a9e76a96559ee68424a49442ee559458c44c233b82970ea59e2322"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "844e84e570a3192f8a4dde918c017167b3a20301af4da51dc38bd1f7ab7182f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ee4e642337f3ec7ee7999c3dc2960d541bd813e2f793036adbe26886ec4e373"
   end
 
   depends_on "rust" => :build

@@ -1,17 +1,19 @@
 class Periphery < Formula
   desc "Identify unused code in Swift projects"
   homepage "https://github.com/peripheryapp/periphery"
-  url "https://github.com/peripheryapp/periphery/archive/refs/tags/3.1.0.tar.gz"
-  sha256 "14ff391e6438301e0640da82160dd55da981b773967ce3930a2366a301142fd1"
+  url "https://github.com/peripheryapp/periphery/archive/refs/tags/3.2.0.tar.gz"
+  sha256 "84041cf27e1f7b1f9981651f0d7c78b317388040f1f31cf131dabb744a5f922c"
   license "MIT"
+  revision 1
   head "https://github.com/peripheryapp/periphery.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90ad3d39f0c214a787731e6efde1dc501ae5afe9fc552495261b02e93fe0ff1f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e41cb8cb73325e37d7db58465aa8a55f243766037b520ffdb7cec208a48a101"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c03608455e65262df0c604ddd83cdc93524df9a4005fe6eb0c80172685e1367a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed618fe7a6c9d2fe5ecd0d9916d93c11da6fad57382b9207a3c298442d333db2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c976edd4df2f4218896580dc677e3547f1bad2b12e992e42af3297a23960b0ec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aaef4e2bf75a0d13e848bc4ba24715201ee84ef9011e9336babfdf15469d93b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "24bef6d4f8a9d60c9869b28a4591dfb0934de4b7a9242976a03162612867d0af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b378ac137b7b38794fc86f3ecb774251fc75912c3a3c77b5da2d58eb3e85a818"
+    sha256 cellar: :any_skip_relocation, sonoma:        "276521211fb06f701b5f75892af380a558abc2448f319fc1ddacba8f7b117b55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7555deab2f6238fd87867b28c8b823031c74eda9c1376c805aeee2c0c3c6928b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f158a2c187e10d04a853be4ad50c6ca0db0e89249d1b7b2fc6b9aa6855c1405"
   end
 
   depends_on xcode: ["16.0", :build]
@@ -24,10 +26,11 @@ class Periphery < Formula
     args = if OS.mac?
       ["--disable-sandbox"]
     else
-      ["--static-swift-stdlib"]
+      ["--static-swift-stdlib", "-Xswiftc", "-use-ld=ld"]
     end
     system "swift", "build", *args, "--configuration", "release", "--product", "periphery"
     bin.install ".build/release/periphery"
+    generate_completions_from_executable(bin/"periphery", "--generate-completion-script")
   end
 
   test do

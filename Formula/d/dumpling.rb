@@ -1,8 +1,8 @@
 class Dumpling < Formula
   desc "Creating SQL dump from a MySQL-compatible database"
   homepage "https://github.com/pingcap/tidb"
-  url "https://github.com/pingcap/tidb/archive/refs/tags/v8.5.2.tar.gz"
-  sha256 "bfabe08b914aad6a172ba32ad03ea6794d4f556c1d32e38d67feffc6a05bf4f4"
+  url "https://github.com/pingcap/tidb/archive/refs/tags/v8.5.3.tar.gz"
+  sha256 "432da5f829c36ae1500a9e5c704d20e456c76ea7fb9278e461b74af15e15af2f"
   license "Apache-2.0"
   head "https://github.com/pingcap/tidb.git", branch: "master"
 
@@ -12,12 +12,14 @@ class Dumpling < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d8ab27a5aaeed5e78a2fa8189192a6589ebc022523a59a6485ae2e6ecd01b2a4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b95ca8a6a7c0ffb5b7de5dfd8e09a1d3d1c80e5ce57aee0af11e7ed6df734167"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c5432c2dc0af75762b71093139319ecc8c93a6eaa4d4b4b78353d63f845f59aa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5655d700bd9b7f128cf5116319a88a5ccd8c4a623d6da6540c19799cadb03d39"
-    sha256 cellar: :any_skip_relocation, ventura:       "f1ab77315b49553f8d8701d8f48ca2df07855cabc9bb9f9e7eaa11217c250a3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f55d1695723f526b079f6bd61840e64a46024352a636321fb2d37c425b62205"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f2ea11dd867898817834b0068ad0d8fb1008dfb50920f5c3f145d0d649f66476"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36ffd9dd78ff7a73d98d7bd81fc4986219134cbff0650aa5738d17a24592c8f4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "313f002fd020feb0719aefae618b611937057e24fd7f19c6db8639a183b1fd6e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f8de2afed51ec376b1cb3ef1ffc78db2cf181a4ed35d954fe9a9a948e1ec85a4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0f9eb8c810a245c45ee47206633b86bc25cf63df545bfa3814c1971638cfa7e1"
+    sha256 cellar: :any_skip_relocation, ventura:       "7eafce1c31d976e377c95c39915394ed36be6dde597ab192063a678b2950ae45"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c152c978a041b14ee4cf46fc5d4fab3ed111faf10d79858d997c0666a93f1e56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "792eb379763c2c4fdffe2f7983a9ddf80921128fda04cb183daf2b9967c84ad1"
   end
 
   depends_on "go" => :build
@@ -28,7 +30,7 @@ class Dumpling < Formula
       -s -w
       -X #{project}/cli.ReleaseVersion=#{version}
       -X #{project}/cli.BuildTimestamp=#{time.iso8601}
-      -X #{project}/cli.GitHash=brew
+      -X #{project}/cli.GitHash=#{tap.user}
       -X #{project}/cli.GitBranch=#{version}
       -X #{project}/cli.GoVersion=go#{Formula["go"].version}
     ]
@@ -40,6 +42,6 @@ class Dumpling < Formula
     output = shell_output("#{bin}/dumpling --database db 2>&1", 1)
     assert_match "create dumper failed", output
 
-    assert_match "Release version: #{version}", shell_output("#{bin}/dumpling --version 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/dumpling --version 2>&1")
   end
 end

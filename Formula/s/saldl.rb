@@ -6,8 +6,11 @@ class Saldl < Formula
   license "AGPL-3.0-or-later"
   head "https://github.com/saldl/saldl.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "09d9a038aebe18f9b9b14b96303429a56caddda7425949c0cd5b6feb14de20c4"
     sha256 cellar: :any,                 arm64_sequoia:  "f6ca14c2df72bbec447ff0fbcbfe0b1b76070808210ec18c6822fc0579bb9053"
     sha256 cellar: :any,                 arm64_sonoma:   "b5473268647d0fb55defbd170569644c7545fedc20487531717db503ec43e2ab"
     sha256 cellar: :any,                 arm64_ventura:  "45ec76ad15d5c9c04d96bb467fa4d06605afa85675c7f4979f15e8c10d2231e9"
@@ -47,7 +50,7 @@ class Saldl < Formula
     args = ["--prefix=#{prefix}"]
 
     # head uses git describe to acquire a version
-    args << "--saldl-version=v#{version}" unless build.head?
+    args << "--saldl-version=v#{version}" if build.stable?
 
     buildpath.install resource("waf")
     system "python3", "./waf", "configure", *args

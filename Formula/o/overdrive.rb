@@ -10,8 +10,7 @@ class Overdrive < Formula
     sha256 cellar: :any_skip_relocation, all: "2ea3e686b4157fced49eab3f6bbf5b467140e7d07f130a810902a5bf940aca0e"
   end
 
-  uses_from_macos "curl"
-  uses_from_macos "libxml2"
+  uses_from_macos "libxml2" # for xmllint
 
   on_linux do
     depends_on "openssl@3" # for openssl (non keg-only)

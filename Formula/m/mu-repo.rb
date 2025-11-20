@@ -8,11 +8,11 @@ class MuRepo < Formula
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "c1a12185e6ce3889731ba486e3fe58b862edcb5123e3877166b361aa7f3132ca"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "99a341e92b7abdf36d1088357f8d8abc070151734e2c3b45dec1327c1bf81afe"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "mu", because: "both install `mu` binaries"
 

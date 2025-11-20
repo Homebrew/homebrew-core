@@ -11,8 +11,6 @@ class ImapUw < Formula
   license "Apache-2.0"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "1c6588d448256165bc075365c4261d53de52575e394b9661c7837e6cce5450f8"
@@ -30,6 +28,7 @@ class ImapUw < Formula
   end
 
   deprecate! date: "2024-07-03", because: :unmaintained
+  disable! date: "2025-07-07", because: :unmaintained
 
   depends_on "openssl@3"
 
@@ -38,8 +37,6 @@ class ImapUw < Formula
   on_linux do
     depends_on "linux-pam"
   end
-
-  conflicts_with "alpine", because: "both install `mailutil` binaries"
 
   # Two patches below are from Debian, to fix OpenSSL 3 compatibility
   # https://salsa.debian.org/holmgren/uw-imap/tree/master/debian/patches
@@ -93,8 +90,8 @@ class ImapUw < Formula
     #   as such. Pulling from within the src dir achieves the desired result.
     doc.install Dir["docs/*"]
     lib.install "c-client/c-client.a" => "libc-client.a"
-    (include + "imap").install "c-client/osdep.h", "c-client/linkage.h"
-    (include + "imap").install Dir["src/c-client/*.h", "src/osdep/unix/*.h"]
+    (include/"imap").install "c-client/osdep.h", "c-client/linkage.h"
+    (include/"imap").install Dir["src/c-client/*.h", "src/osdep/unix/*.h"]
   end
 
   test do

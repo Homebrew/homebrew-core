@@ -10,41 +10,41 @@ class NeovimRemote < Formula
   head "https://github.com/mhinz/neovim-remote.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9edaf9f4d2feb2e6e4f18dc167944ff8823c9c4068c6e07017d8921ca160b28a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9b76e1afa8be0eec8c8fd7197460b4477faaf325cd2fc18c0339ee725b06a8a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "949b8dd9dc1b6fcaa86472561cec958b13a0c204be09e5634341601db3fe5f98"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f1d9cff133d630041fe8d16efd19643523f4dfbb248840c9b4f932ca01902d07"
-    sha256 cellar: :any_skip_relocation, ventura:       "95452863449dda54f90ae2dd8a3c01732634b8a974ced293149747b7551813d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a8c3e1a56addbd31b292339933393e6e354b7e02f7cd9c3a4c05a3f58e7a014"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a7e179568b81994be74447f225712ad2efeef31045af99657a6671f6a98a963"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "39fb97daec07a2e2afaa777ab9e7decb4de2f2c6aba92368eb34f5559f01ca61"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c016ce47264192f694be56ef9a9da7b4507447a4ec2fea4ffa3c68778975f911"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a7f0c2abb2a19edc3f2c809974abdf609035da5473593f8f34e6b6a1a12befc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bdadf165dd2f228dc45df5cd7708ff0b76659762d1f6bc429de1c621298e27c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2ae1769694653c05cde760892623a734d5793d8c86facd3e1cd45b50e64cb2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07600909a154a7328424524eb6656bac2933a8fb4a588aef301c6ee24a04c1f7"
   end
 
   depends_on "neovim"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/34/c1/a82edae11d46c0d83481aacaa1e578fea21d94a1ef400afd734d47ad95ad/greenlet-3.2.2.tar.gz"
-    sha256 "ad053d34421a2debba45aa3cc39acf454acbcd025b3fc1a9f8a0dee237abd485"
+    url "https://files.pythonhosted.org/packages/03/b8/704d753a5a45507a7aab61f18db9509302ed3d0a27ac7e0359ec2905b1a6/greenlet-3.2.4.tar.gz"
+    sha256 "0dca0d95ff849f9a364385f36ab49f50065d76964944638be9691e1832e9f86d"
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/cb/d0/7555686ae7ff5731205df1012ede15dd9d927f6227ea151e901c7406af4f/msgpack-1.1.0.tar.gz"
-    sha256 "dd432ccc2c72b914e4cb77afce64aab761c1137cc698be3984eee260bcb2896e"
+    url "https://files.pythonhosted.org/packages/4d/f2/bfb55a6236ed8725a96b0aa3acbd0ec17588e6a2c3b62a93eb513ed8783f/msgpack-1.1.2.tar.gz"
+    sha256 "3b60763c1373dd60f398488069bcdc703cd08a711477b5d480eecc9f9626f47e"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/2a/80/336820c1ad9286a4ded7e845b2eccfcb27851ab8ac6abece774a6ff4d3de/psutil-7.0.0.tar.gz"
-    sha256 "7be9c3eba38beccb6495ea33afd982a44074b78f28c434a1f51cc07fd315c456"
+    url "https://files.pythonhosted.org/packages/b3/31/4723d756b59344b643542936e37a31d1d3204bcdc42a7daa8ee9eb06fb50/psutil-7.1.0.tar.gz"
+    sha256 "655708b3c069387c8b77b072fc429a57d0e214221d01c0a772df7dfedcb3bcd2"
   end
 
   resource "pynvim" do
-    url "https://files.pythonhosted.org/packages/09/84/c77ec45e084907e128710e08f5d7926723d7a67ccbebf27089309118807d/pynvim-0.5.2.tar.gz"
-    sha256 "734a2432db8683519f58572617528ecb4a2f321bc7b27f034b3f9b2322c15615"
+    url "https://files.pythonhosted.org/packages/04/d7/c4412e6219661fd8689cdd9553988f8ea38c151067d70c49436977688aa9/pynvim-0.6.0.tar.gz"
+    sha256 "0ffcb879322d08f9e9061e1123dd58ba3a5ccfbd4999bb1157bac525822aa590"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   def install
@@ -54,21 +54,19 @@ class NeovimRemote < Formula
   test do
     socket = testpath/"nvimsocket"
     file = testpath/"test.txt"
-    ENV["NVIM_LISTEN_ADDRESS"] = socket
 
     nvim = spawn(
-      { "NVIM_LISTEN_ADDRESS" => socket },
-      Formula["neovim"].opt_bin/"nvim", "--headless", "-i", "NONE", "-u", "NONE", file,
+      Formula["neovim"].opt_bin/"nvim", "--headless", "-i", "NONE", "-u", "NONE", "--listen", socket, file,
       [:out, :err] => "/dev/null"
     )
-    sleep 5
+    sleep 1 until socket.exist? && socket.socket?
 
     str = "Hello from neovim-remote!"
-    system bin/"nvr", "--remote-send", "i#{str}<esc>:write<cr>"
+    system bin/"nvr", "--servername", socket, "--remote-send", "i#{str}<ESC>:write<CR>"
     assert_equal str, file.read.chomp
     assert_equal Process.kill(0, nvim), 1
 
-    system bin/"nvr", "--remote-send", ":quit<cr>"
+    system bin/"nvr", "--servername", socket, "--remote-send", ":quit<CR>"
 
     # Test will be terminated by the timeout
     # if `:quit` was not sent correctly

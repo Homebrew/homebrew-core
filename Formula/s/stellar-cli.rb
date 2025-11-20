@@ -1,19 +1,18 @@
 class StellarCli < Formula
   desc "Stellar command-line tool for interacting with the Stellar network"
   homepage "https://developers.stellar.org"
-  url "https://github.com/stellar/stellar-cli/archive/refs/tags/v22.8.1.tar.gz"
-  sha256 "0c92d8afcf3f888b09610b744cf1b28c4578aecdc1c32d2a397286d9a72bc2d5"
+  url "https://github.com/stellar/stellar-cli/archive/refs/tags/v23.2.1.tar.gz"
+  sha256 "2ae722e4433cd86f239c5f0fc437013f4649ed3a825e89139b83b050f1b58e04"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "501610d1a9b3eecde77e439ff1d5445182b5a7167b688ab2d35ec98c1f79081e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "050a2e478db547437238318742d6dda25265c08e03be8a3acb8b9b4a0dbfa2bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e5b2439f176e56123c335ecf6419593adb1ec0e7d42e801af579595bfb3d9103"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3db6c61043d74f24fd6bfc092fe9dc3897a31532230e8c9a67a38dec673700ab"
-    sha256 cellar: :any_skip_relocation, ventura:       "070680b7cdac82e3644907f00fd8a91a0fbefa99f7ac57278ad3c279e3baf896"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c2edc0de9592016af29f6b1d09ed6e535c6d1922ee19dd53004000ef9c34558"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "495ff1bc15baa7f050775ae0f97d0c3993aac08ad3cc2ae98ec7660bd52a520e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1143efdcb0f10605727bd885070ae4cd85360aa805dc6d26566eb9db667b5a7a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef50a511c974b7451c65221a49e26eb2478cf640c5c3fe05d321a1ee36e800fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a5cd3c5bef6d54037334f4f92cffafb1ff3cf209043d61272c2dba31a081e63"
+    sha256 cellar: :any_skip_relocation, sonoma:        "91d222d8f70f81e47ad3565a67734ea1b8091cf8e3d55d53691b056713b47314"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75f30c218ee21b5b7d4d79a092fd425e39bc080176372ed7f55efbdc02e04246"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6cc00dc2a0d4b8857de2488d0428dd281c5120b261d3a7771bb95c5ddf28748"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +25,7 @@ class StellarCli < Formula
   end
 
   def install
-    system "cargo", "install", "--bin=stellar", "--features=opt", *std_cargo_args(path: "cmd/stellar-cli")
+    system "cargo", "install", "--bin=stellar", *std_cargo_args(path: "cmd/stellar-cli")
   end
 
   test do

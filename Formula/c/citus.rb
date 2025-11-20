@@ -1,8 +1,8 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
-  url "https://github.com/citusdata/citus/archive/refs/tags/v13.1.0.tar.gz"
-  sha256 "2383287bea45dfce54cde9ffc98f3e27bb7cde4deb3f096f9c7a12d1819f5113"
+  url "https://github.com/citusdata/citus/archive/refs/tags/v13.2.0.tar.gz"
+  sha256 "82cc117bb1000da9eeea1499ee9a8f2706feccc19e2c5ca623274793d98a217a"
   license "AGPL-3.0-only"
   head "https://github.com/citusdata/citus.git", branch: "main"
 
@@ -15,13 +15,12 @@ class Citus < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8c988a2119282e61fbf4e03a3941e924a8bc4082489c57d75a90333fd8cd4da0"
-    sha256 cellar: :any,                 arm64_sonoma:  "0dbb0ab2b0813fb92d808337c653d8b384d832b24d3f5f37ab67f9b19cf46d20"
-    sha256 cellar: :any,                 arm64_ventura: "f0ae78c43c959b67705ee5b84642a93e521e5d03e612f7486838dcfc4e2c8696"
-    sha256 cellar: :any,                 sonoma:        "9634120c90c62ba5cb60f14b35202846a2f74de81a337fd18aea5bc6b3987dba"
-    sha256 cellar: :any,                 ventura:       "b2e437f3451c31e0f2e35c2299e8366392fa906cfc6ac1d700198ef7bffab45b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "26c688fd7bf247840977ed194d72ee71094ff4a8a5d0bfc0dca6bb13cbde62cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e0a57a5ba1a3a10d2c49bec152040f606c0d9f697a92f954e9570604476e983"
+    sha256 cellar: :any,                 arm64_tahoe:   "9fd8554e2257129eb8807145d02fb5c484fa8f181e6af43f9d329f6b3c4d49c9"
+    sha256 cellar: :any,                 arm64_sequoia: "eca6c59df04f920a84489a9954e6e7631027682dabe7da50caf89b92d259a03c"
+    sha256 cellar: :any,                 arm64_sonoma:  "4f0f2c768e2eaa1bcd6bc81bc9cd85a98129e95c0b1787abb8c4492d62d5d2e4"
+    sha256 cellar: :any,                 sonoma:        "5db290f355866693b94d675f6413c51a61b3d318b69123037732881428ce3502"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6480fc45619139069d2b2e95defb953ff6d1eabffb60647c7d5ae48849f218a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c084d5b9768d67e534439f61967698aa7a673509ed55b486a0da2d464b711c0a"
   end
 
   depends_on "lz4"

@@ -3,21 +3,21 @@ class AdbEnhanced < Formula
 
   desc "Swiss-army knife for Android testing and development"
   homepage "https://ashishb.net/tech/introducing-adb-enhanced-a-swiss-army-knife-for-android-development/"
-  url "https://files.pythonhosted.org/packages/c4/a5/9066bb8c0dd47025aafbb3388b87f68df02f2cf64a83933feee0b3c7c259/adb_enhanced-2.6.0.tar.gz"
-  sha256 "ead467df4e0e4fc964007c62b0b55801a5f158793bd551ec4b25154801fc3f5a"
+  url "https://files.pythonhosted.org/packages/b6/c9/11f95027ba0bf13938abe329809154e6342181380d3530f26018325b79e7/adb_enhanced-2.7.1.tar.gz"
+  sha256 "2f09d6edc663fd7fe34b9cb65232e5b85238c7c53bd8284b826fe62fbb039ae1"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5acfb19069d8d153e2e299d880d17c94ebedf2aeddda6a11447978a615eb8a3f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be8f29d3429a042f03692f57e5ba81d29274bb90d3b4dc5a5f4ba23a595d1e76"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b6d507e23a98bcf245172a6141eb5af9865f56ec5961c0b592f160c7267bea0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7ac54642e1b66b5237cb6092b4e354407a5a2c8e58cc9a7fb9ecfdcc68e80f94"
-    sha256 cellar: :any_skip_relocation, ventura:       "f1c7d11dbaa3543c3265673c5e5920e61bcfe71d284419d2a60d39ebafd79c30"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8fc53e7dcbc88fd7cfb3bfe50e5313ede172aeee9bde7f8408204f3f7aae6db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3a552e117835c2e8d9935f73c7fae1ad107bd298598ccf5d4f0a7bbc939270b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "79e4ba0ad8eff1c52d4f630af4039231824eae00171c113072768f53e7f60482"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8deefa2050df50026ff63acc7cd8d3e6addb5bf9ac067b71b830ceac04eff624"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "646209bc549d1c4fde9b65f8559be8de43251297ebd904449cd4db47a849e353"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7038c821594759b71f5333f03752e7178700970629b04d97b0af8f039b4db89a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53ece69f192371adbcd68db594082cca95b8a65945e45c5ef242924924a9fcc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a12e4cc653134bef9073855829d87e9931d927325e413b0340a5a3d44ef4d96"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"

@@ -1,18 +1,20 @@
 class Tfsort < Formula
   desc "CLI to sort Terraform variables and outputs"
   homepage "https://github.com/AlexNabokikh/tfsort"
-  url "https://github.com/AlexNabokikh/tfsort/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "efbbb75b44d0a48e0871d6955c11d7210207b3d752c99d34c48468e4c2c8fe76"
+  url "https://github.com/AlexNabokikh/tfsort/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "6f72bb06b57573ee63fec715cd4493ed90d0af0dfeea7478abfde04745d39157"
   license "Apache-2.0"
   head "https://github.com/AlexNabokikh/tfsort.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9737612cc507fec8f0d4bb798459c93baa49bad0033efb14b8b3c35b4f8a40a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9737612cc507fec8f0d4bb798459c93baa49bad0033efb14b8b3c35b4f8a40a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f9737612cc507fec8f0d4bb798459c93baa49bad0033efb14b8b3c35b4f8a40a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "70f710aca494baee390f28361c16e5950e7312be1fe0a6a9240a4023541edbd5"
-    sha256 cellar: :any_skip_relocation, ventura:       "70f710aca494baee390f28361c16e5950e7312be1fe0a6a9240a4023541edbd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bf69d5c5b2eea64283a955cb12409fa20bb42123933f4da61da2658915969f8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a909ead38b4e912cdb01422b2de69df0c1e4ec6dca044df587e54ecda98bdfe4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fb6cc984f31e20e1d481f5170ba5d0afa80a5eb42c070e3e1e58a0b3c427726"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fb6cc984f31e20e1d481f5170ba5d0afa80a5eb42c070e3e1e58a0b3c427726"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3fb6cc984f31e20e1d481f5170ba5d0afa80a5eb42c070e3e1e58a0b3c427726"
+    sha256 cellar: :any_skip_relocation, sonoma:        "997f3dbd8f733cb8ac4885f5c1e847167aab98aa2026e2bff412538b5feea54d"
+    sha256 cellar: :any_skip_relocation, ventura:       "997f3dbd8f733cb8ac4885f5c1e847167aab98aa2026e2bff412538b5feea54d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "87487fc1f259042ccd78e6cf15983308a5f9dd856193fcb59a73f838e9e768ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3424821cc7dd576fa0a9814cf0da0b292b5f754ef8e63485af5f85b7e15233f2"
   end
 
   depends_on "go" => :build

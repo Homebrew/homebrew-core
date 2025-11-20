@@ -3,26 +3,28 @@ class Eralchemy < Formula
 
   desc "Simple entity relation (ER) diagrams generation"
   homepage "https://github.com/eralchemy/eralchemy"
-  url "https://files.pythonhosted.org/packages/19/05/5f69930e83a02360d9ed16660bdd58d9d501bffabd43d7dbbe8c14269143/eralchemy-1.5.0.tar.gz"
-  sha256 "fa66a3cd324abd27ad8e65908d7af48d8198c0c185aeb22189cf40516de25941"
+  url "https://files.pythonhosted.org/packages/0e/c0/9c28acf903566a02de43f8fc6c572b8195ab0fa854016825e5690c77b57a/eralchemy-1.6.0.tar.gz"
+  sha256 "8f82d329ec0cd9c04469adf36b8889b5ea2583e7e53c0fd2e784e176e1e27c7a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "92ec126756fb9a9a3b483d2a5c7ea2487e07c16ca357f5d386f1c206a761c2b3"
-    sha256 cellar: :any,                 arm64_sonoma:  "6fbb9351b85cbb0f7a3b3416201820a4f39dffb0f7d07e9585c185c48fd16673"
-    sha256 cellar: :any,                 arm64_ventura: "30f822ebe671d6ca630435f0a5a91bf561edaa26fa650c69047991ba19b56257"
-    sha256 cellar: :any,                 sonoma:        "ef8c1526f85a9c1ffbf2b4ad0fc02e8979fb149873761feba5dd3b0232e9bc8b"
-    sha256 cellar: :any,                 ventura:       "1991afedef5dc1bfcb529e2c6c38c47734f83a5b6585bb5424eb7a3f994fa879"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bceb9011707597662091f77a43f3e192b53ed5490c971b77126ef0b0ad94ea8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed03f3df61c850f93cbb16b1f06c25cd586c92164594e49803bc69565cc2e432"
+    sha256 cellar: :any,                 arm64_tahoe:   "49a346cfaa425cda1007f4fc5cccca83546f2297770cb007d63d9f3b0f84e2e6"
+    sha256 cellar: :any,                 arm64_sequoia: "1ee8ae85a57cbceefb97b74b20b7471e107569152e7bb44708e9a44398a7ddb0"
+    sha256 cellar: :any,                 arm64_sonoma:  "7d5f1101a875838e742fb2649d37be7e22705606ee1b3256117cd8e82a000d5b"
+    sha256 cellar: :any,                 sonoma:        "d8d2db3e30495966876ddd5e78cd9105333ce3d89f88b71515a87eca3997b051"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c79fa38699df65ebad7ff99554d7775d9fe5b91a4a5c94e0ceccce3a2663d2d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17c170fcb2656f9089d5142b82ca21c6b9b2793cadd458505714b65803b237c9"
   end
 
   depends_on "pkgconf" => :build
   depends_on "graphviz"
   depends_on "libpq"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages package_name: "eralchemy[pygraphviz]"
 
   resource "pygraphviz" do
     url "https://files.pythonhosted.org/packages/66/ca/823d5c74a73d6b8b08e1f5aea12468ef334f0732c65cbb18df2a7f285c87/pygraphviz-1.14.tar.gz"
@@ -30,13 +32,13 @@ class Eralchemy < Formula
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/36/48/4f190a83525f5cefefa44f6adc9e6386c4de5218d686c27eda92eb1f5424/sqlalchemy-2.0.35.tar.gz"
-    sha256 "e11d7ea4d24f0a262bccf9a7cd6284c976c5369dac21db237cff59586045ab9f"
+    url "https://files.pythonhosted.org/packages/f0/f2/840d7b9496825333f532d2e3976b8eadbf52034178aac53630d09fe6e1ef/sqlalchemy-2.0.44.tar.gz"
+    sha256 "0ae7454e1ab1d780aee69fd2aae7d6b8670a581d8847f2d1e0f7ddfbf47e5a22"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   def install
@@ -45,7 +47,7 @@ class Eralchemy < Formula
 
   test do
     resource "er_example" do
-      url "https://raw.githubusercontent.com/Alexis-benoist/eralchemy/v1.1.0/example/newsmeme.er"
+      url "https://raw.githubusercontent.com/Alexis-benoist/eralchemy/refs/tags/v1.1.0/example/newsmeme.er"
       sha256 "5c475bacd91a63490e1cbbd1741dc70a3435e98161b5b9458d195ee97f40a3fa"
     end
 

@@ -11,6 +11,7 @@ class Fig2dev < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "0320c377a1d3575a7ffd6b6128c7247785823470dfff770c2718951e7ceea539"
     sha256 arm64_sequoia: "aebdf1e7cf34ee70d57542077cd5074ae289f18239713ddd49a57d9ff563a516"
     sha256 arm64_sonoma:  "937a6e007c92c11c9ec3bf965241e18d1e190a83c3542dbe901925350e972207"
     sha256 arm64_ventura: "a97284bb9afc2196c9cc4299be7d98950ea6a22b6c59fe0917ce03ebc8cf4a8e"

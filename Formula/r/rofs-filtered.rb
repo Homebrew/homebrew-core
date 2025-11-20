@@ -5,6 +5,8 @@ class RofsFiltered < Formula
   sha256 "d66066dfd0274a2fb7b71dd929445377dd23100b9fa43e3888dbe3fc7e8228e8"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_linux:  "01d57c6c071aacd6dc92a36f807b1e718f6178b8078f1d871d59941a7228670c"

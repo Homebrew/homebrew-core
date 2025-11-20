@@ -15,6 +15,7 @@ class Globjects < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a7f1bf646d61bcbf6af39af096376d92c2f44b3f869251768efc78c20c3c2584"
     sha256 cellar: :any,                 arm64_sequoia:  "51e3056d71789e3db8e17d7fc966a530ecb1120c0e91bec0edc3c5b6b524db1d"
     sha256 cellar: :any,                 arm64_sonoma:   "85b4f1d5eb729806747d7590376b8a4803615e12b1020f857ed953bc26e90438"
     sha256 cellar: :any,                 arm64_ventura:  "8ff9f80163b64a4737dc2d0e0e28002d55194091d5c2d9cdb361cf02661778d4"

@@ -1,11 +1,11 @@
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://juju.is/"
-  url "https://launchpad.net/juju/3.6/3.6.6/+download/juju-core_3.6.6.tar.gz"
-  sha256 "f84dc452c7344e50a6880abeb63001bd767c1230e853dcf736915282997a7405"
+  url "https://launchpad.net/juju/3.6/3.6.8/+download/juju-core_3.6.8.tar.gz"
+  sha256 "c11bb17d5bde7823a63e6354c785274c42008cfaf0e6abeb203b7ec89c83f890"
   license "AGPL-3.0-only"
   version_scheme 1
-  head "https://github.com/juju/juju.git", branch: "develop"
+  head "https://github.com/juju/juju.git", branch: "main"
 
   # We check the Launchpad download page for Juju because the latest version
   # listed on the main project page isn't always a stable version.
@@ -16,13 +16,14 @@ class Juju < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32166aff48993ce088c9cdd3119fde4c0ab9042ee06bfd64c8d28ed6e0af03f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00d3ae4adf537dcc6fa4baeeaa78c93c3cbc9b6a1f752c202c4a7a174696944c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c4fd546d6d9b6c42a890083b86f2c40ccf594015ef306918d9e6a02a21428a9f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "77e4b97b0bc2027a77e5aa9fb6cb9b069f5022954c5e420a7c34239bf70ece9c"
-    sha256 cellar: :any_skip_relocation, ventura:       "ee878c126eb93e4e4a5a5f27531e1b7b77ed93ae9205273673ee27255dd2d9ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "218a12cd5f3c0f0d99596d41fe95fe267bfb002149574457e718de3008f48ecc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e418d11d6f6dcd3e299366f54b3cf5e6f7ef6f2aab06bb041d78032f044e418b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b98c9f297f29e76112887dfd4eb4d978f409d89ca46dbcd4b7e1802bb92f098f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b567efd235b7b08295be11f2da98ccd539d962e15bba629203eb91f55f461f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1ee9eca10d09c293f9886689d122b152e953210218f305b40814ab6a15a9aed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b536102f62cc526b92e4c056d8e31310ec0dced2885c9f2a8652aa07210c53ff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d6409d90d7b3278931e81518243f72d669fcf30f0a2f41f555e0473e841da5bc"
+    sha256 cellar: :any_skip_relocation, ventura:       "516fcf50b842a869b5f616654618d47c5c7414ddad5aeae5edfbd46511470283"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "efcfb8010c34b2f3ab61b39a9ad193f3dc1f560a7da11ada08694c8b942d920a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0eae5af767a79d6aff0d4b76caafe13f87ea95375df93403d96ea611fc42a805"
   end
 
   depends_on "go" => :build

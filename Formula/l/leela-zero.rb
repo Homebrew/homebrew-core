@@ -6,16 +6,19 @@ class LeelaZero < Formula
       tag:      "v0.17",
       revision: "3f297889563bcbec671982c655996ccff63fa253"
   license "GPL-3.0-or-later"
-  revision 10
+  revision 11
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "89c9cd32fe6c7a9c5239fd79cb4478b59c3fab520ef41b6eac2420c549d485c2"
-    sha256 cellar: :any,                 arm64_sonoma:  "d53fa2be94dea4d05c53dec8fe788b9d0592ba2fe9a1859f469a3561514b0503"
-    sha256 cellar: :any,                 arm64_ventura: "6be25e10e1be034a3b7aef791fba5d45e1b288c818035b997a9d26f0742ef463"
-    sha256 cellar: :any,                 sonoma:        "0a10d9190312af4f6f6469d57163a463cd99f52fc16100f6c145a107001e1a5e"
-    sha256 cellar: :any,                 ventura:       "da90734e4217838d1e9ccb08df23b9d841eea2f5daf3107e17a45a1af8e4db8f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75cf01a629f8eeecf1e21f43b6ed281aad1ab5bd434fbd25e762c2ee1ff6e47b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e5ee03297c6c74f7bc78ed0ce6f77a798720c27e099f2949b855db92dac4086"
+    sha256 cellar: :any,                 arm64_tahoe:   "3089b9d144a84df5920e65998326238e54cb4132f0c8d1dd8274e80584d5d885"
+    sha256 cellar: :any,                 arm64_sequoia: "8690dd5ea173e1d7bd6b91e07476f54242f598505e838e2d38fa64c90fd3058e"
+    sha256 cellar: :any,                 arm64_sonoma:  "47aff2a14496f8e1f08fdad8f9318a1e1b6b4a56e57f8cd117740df41340d8cc"
+    sha256 cellar: :any,                 arm64_ventura: "1647c60bb30f22c26e0ab0f3ec99d296a1a7e8bd48c4c676bfd7f469dc9c4df2"
+    sha256 cellar: :any,                 sonoma:        "f6e5f5636798be24caa619d0c84d38d23c3f905e6edbb8baec7cf34dbd45dc69"
+    sha256 cellar: :any,                 ventura:       "74df4fbf6d10992225a619107f28b3c583f5ba00a0f773e9609294d522c78e37"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2d2119742e144d26f3408deaa148a07fe926dcb7e3c735f08b6a9c7c9b1023a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb7e114a1e812141f2c633f914403e1694a962a14188d98e66757a7e48f126d2"
   end
 
   depends_on "cmake" => :build

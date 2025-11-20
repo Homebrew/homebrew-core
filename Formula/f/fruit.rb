@@ -8,6 +8,7 @@ class Fruit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "4bda90128aa536a15d5e5cff13df7542d5070289c6c16674915b3470ab6046b9"
     sha256 cellar: :any,                 arm64_sequoia:  "ecf666939daa1621d37416639a69c85c8b75c73ee09cfdfdad8613296097c2cd"
     sha256 cellar: :any,                 arm64_sonoma:   "4431afb2b1e7cd70c1b91fd33c656b7a51207ce63f7c21c078549da987cb6e3d"
     sha256 cellar: :any,                 arm64_ventura:  "f9b3bb2a148bbb31068abfb84093dfd3f56fab05b8ed1badd8fda26bab828d80"
@@ -22,6 +23,13 @@ class Fruit < Formula
   end
 
   depends_on "cmake" => :build
+
+  # Update cmake_minimum_required for compatibility with CMake
+  # Remove on next release.
+  patch do
+    url "https://github.com/google/fruit/commit/b731fdb6426b07bd6674d2d9a057ad13c8e247e7.patch?full_index=1"
+    sha256 "dacdf25c966dba2df55526c3c77a036ef48ac1f8fc7a53b17c0e87492963d0f7"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "_build", "-DFRUIT_USES_BOOST=False", *std_cmake_args

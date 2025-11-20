@@ -1,8 +1,8 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.19.0.tar.gz"
-  sha256 "a979c9a8c7a1a540bb48a1e90bb7ad294560bddc16ca977bc8475fb14f20155d"
+  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.20.1.tar.gz"
+  sha256 "0df965111429d5fcef832a4ff23b452a1ec8f683d51ed31ce9b10902c0a18a9c"
   license "MIT"
   head "https://github.com/orf/gping.git", branch: "master"
 
@@ -18,13 +18,14 @@ class Gping < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39f6fb5ff80ebed71185f01e1228f50390ed76c40451fc7696bd6b426c81d177"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9ce0bca1083744caba3de2d937aa00a1106913c93ebc2a16a1e40bc9006c329"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ecea45940ab8f0659edb8f61e5e9bb239bc9ce71b8275baecaf18c8b27ae2a29"
-    sha256 cellar: :any_skip_relocation, sonoma:        "94b2db03885d870c498358c65469c840a66884a479107a33b900b38f828764e7"
-    sha256 cellar: :any_skip_relocation, ventura:       "1137be7cc36b8384767d923bcc4a2977c7fb77ecf96a777ff036aa35a8482c17"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8eaa12da9c1ece23237b879bfaf09a927e8d8788024e425a333f0a0485c4db15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d5c6309c3ccd67422b6a4611db1b4d3319c366db24047adc4f3a6ebdaee5081"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ea7c7e96a88df4ee9e8cf12a47849a778eabdd015c2c56e0ac1b46dba8b329f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4b724bca246855e7c11aa972489d8a99fff3b1775ee68832ce55b645d219210"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9e5e2357d554380b42514cc043dfca7e24dbd00eed6c49640aa984a5dd8d551"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3825f08e0158e83a76fc27c7103364db82d748010c72f1afb1d607f8aa79fa8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "88b15ad904d11c0353fb62c62a0e8aef8cbe054275324d281fcb1c36d2ca4882"
+    sha256 cellar: :any_skip_relocation, ventura:       "f042f035aa83f1ac2a29ef5e3f7437fba693a50fb14c939e6b4fc08a9e100f86"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a071b10dbf714a17277fc3d007876025e8eeb7ccd8233871cec335845c2b15e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "773e0bb37bb0a63656ad1ff05f8f135054b5bb935440b58936f22726392aef09"
   end
 
   depends_on "pkgconf" => :build

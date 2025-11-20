@@ -8,12 +8,13 @@ class Fobis < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1b1f66d81ce0cdbbe8e74af5922384040aec477f8e9fdbf76bfae4672bd17f0e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "0ac6f39a110d8a9e66df175dcab8d272bb32f9ca2d968a5b9c73e2be5827ea95"
   end
 
   depends_on "gcc" # for gfortran
   depends_on "graphviz"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "configparser" do
     url "https://files.pythonhosted.org/packages/8b/ac/ea19242153b5e8be412a726a70e82c7b5c1537c83f61b20995b2eda3dcd7/configparser-7.2.0.tar.gz"

@@ -1,17 +1,16 @@
 class Cake < Formula
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/archive/refs/tags/v5.0.0.tar.gz"
-  sha256 "0c77a4a8626b1f6aa886e542026f33e2645bda7177e66c6ca1f60a6cf80b9bf0"
+  url "https://github.com/cake-build/cake/archive/refs/tags/v5.1.0.tar.gz"
+  sha256 "32e93073526d1c65d298d573a33b23d908484bb37fdd68b66bc36a9dde7921fb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78c022a53d5c794a02cb245365a20e68101ff498636aa9d9b0d5791df21e6946"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39611171d03f29228d6c0f1402647d20a7ada16eff8a8c9fcd25c57d8ce5b7b1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "37df34c69614dea7ac08ea390a065de5765df3117ab8b7bf4d76135d9ec3ab3e"
-    sha256 cellar: :any_skip_relocation, ventura:       "9d076394489c1d9004fb0749b3723dde1fd951a1cb4f7f81672e83c82680fd02"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c28f268ba6ef8a1f944a6f722b47cf0b210b7c46dba41ecff0e85b83ce55f5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9790da9b120af327c140e99edb3d8bd88fe07016045863938915193f376494b2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac7e950f55d377f780683ba9a1123a7b009aa8ae938ba97195747b7d24ae1fb4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59c34254b7a1f561b3b67f465dea3505abf761a989dde7fb4d37780b0f3e9544"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccfac27859b9dbedd76d793cd62795d05e2c9a38ae039b604a502744f9245798"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f80802dc899b201d304a2b137878fafc03c4315b0d0f326689b206f057b54d1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7eadcc16ddfb3c38cab715f1d0fbc9b280dfa21a82995dffd5a4f144b8e5759e"
   end
 
   depends_on "dotnet"
@@ -19,6 +18,9 @@ class Cake < Formula
   conflicts_with "coffeescript", because: "both install `cake` binaries"
 
   def install
+    # Ignore dotnet version specification and use homebrew one
+    rm "global.json"
+
     dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release

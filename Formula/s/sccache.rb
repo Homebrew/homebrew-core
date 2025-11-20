@@ -1,8 +1,8 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "2c9f82c43ce6a1b1d9b34f029ce6862bedc2f01deff45cde5dffc079deeba801"
+  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "309edaf43f44088e55e99ce14eb9cfdee8f85acad290171ebfd29eb9e368def3"
   license "Apache-2.0"
   head "https://github.com/mozilla/sccache.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Sccache < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76044f2cbf1b86123d1ade30aea038d3d336e6c3163c0e9aa3c3b9dae6f2bf33"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d7899f07009ac8943df04166f75d6f66d7a527ae94dc22d85ed754f293850dbf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1095ee95cd648fe084d020f7924ecff7939aef844fd27386130d6136cef69049"
-    sha256 cellar: :any_skip_relocation, sonoma:        "21582a47c1d845b38d1b86062dde48a1dd422eec2d4021a37e5c943f0ef587e7"
-    sha256 cellar: :any_skip_relocation, ventura:       "859ecb045382d2b2078ad25b63d975bfa949b10bf476cdd81586435a3d3e5d92"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "43569e48d75f62d92dc6d3500ac738390da87f0e03d9bacd8b2e44a6bc2d373f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b53ed3e9f8745cbfa1e5a6b018225f7e30326af3fecd6701887acc580f1254c6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c05828146c2b4d0b5e97851faf0528392ad38db1370678be4ee782d212a373d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a56fad33d0363b873422aa48afcd1d206b59d5888b96638fd3aa6fc9f3cf126"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "04737c5e48e81a0e164aebd0aa7af6749b63bb8ef23fadf01fd2bc2462f3b877"
+    sha256 cellar: :any_skip_relocation, sonoma:        "42ab23741213e6031678d7622e72e623d5503d1d5c75ed02cce0761115b44a03"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0f8b613f29c5a27438dd40967f50992ad9d99b3a422bd50d6020ff12dc76812"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddb5ab9d593a391fab2ef0df44db64eafa22836c17cbc9a38c64aafeb6d679bc"
   end
 
   depends_on "pkgconf" => :build

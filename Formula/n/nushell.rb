@@ -1,8 +1,8 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/refs/tags/0.104.1.tar.gz"
-  sha256 "3dafca8bf892f5a2afaac1122a88a7eb7f22a0b62ef901f550173a11d5cbdf6e"
+  url "https://github.com/nushell/nushell/archive/refs/tags/0.108.0.tar.gz"
+  sha256 "5995c211411ad1d5dd7da904b9db238a543958675b9e45f5e84fbdf217499eee"
   license "MIT"
   head "https://github.com/nushell/nushell.git", branch: "main"
 
@@ -13,13 +13,13 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9191e5e3539b7799579f9e1fa7f163345cbf52703b9ca8ee4fd189085b179708"
-    sha256 cellar: :any,                 arm64_sonoma:  "add921e6f8a870f6c8c6dc01f38a2f327628ef24788dfd0a73bfb45207eac1ed"
-    sha256 cellar: :any,                 arm64_ventura: "d8300f09403ad05baba83f8ca575fbfee3c388408d1c0d3d7aa86be515b9ddb4"
-    sha256 cellar: :any,                 sonoma:        "11d69ebbd1f21e5f616c56328632c2ed00b99c1d7520838a105fccfcd675bcb5"
-    sha256 cellar: :any,                 ventura:       "69a0d37792883f4178104518fb71c18fc3aa6d5131440373485fa41f2446472a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3cfcf307e7c7b556051c2fca9773d5ca75287b5e6d04745a9848a2fb119054d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc0c51dbd89369c39ee85864c6733e19bd604eabf77a171fa211d131d1e4e1ce"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e0957b13e909b83d8561dab7b96c53a311cd48b1a93fbf472d2229ca6867cf80"
+    sha256 cellar: :any,                 arm64_sequoia: "adb6f262df5a3f7a8e5ef6b0ae654ce1f0fecc264cb03d345a00b4c4660a1700"
+    sha256 cellar: :any,                 arm64_sonoma:  "74f04d4051bc32f7148db3252d9fab2e59f1c46999dae2402249a24887b8d5fb"
+    sha256 cellar: :any,                 sonoma:        "3eff4f5855ca571e33ae14d808f4555cbfb568a41032728c7d8a7e26d344fd43"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b381e2cdceeb123eced1cd230b0135ee2806604c59037466e39dec7721fc06a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1b108eaab5085b5e152fe3d89ec41b898bc76c29194c63f203b4ae1c6cfc6f4"
   end
 
   depends_on "pkgconf" => :build
@@ -36,6 +36,8 @@ class Nushell < Formula
   end
 
   def install
+    ENV["NU_VENDOR_AUTOLOAD_DIR"] = HOMEBREW_PREFIX/"share/nushell/vendor/autoload"
+
     system "cargo", "install", *std_cargo_args
 
     buildpath.glob("crates/nu_plugin_*").each do |plugindir|

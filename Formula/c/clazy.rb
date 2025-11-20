@@ -1,9 +1,10 @@
 class Clazy < Formula
   desc "Qt oriented static code analyzer"
   homepage "https://www.kdab.com/"
-  url "https://download.kde.org/stable/clazy/1.14/src/clazy-1.14.tar.xz"
-  sha256 "993f786dac668c29c4f357cb95c8a6ddca555ebbb94854efb9b570f683ad4d43"
+  url "https://download.kde.org/stable/clazy/1.15/src/clazy-1.15.tar.xz"
+  sha256 "43189460b366ea3126242878c36ee8a403e37ec4baef7e61ccfa124b1414e7a9"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://invent.kde.org/sdk/clazy.git", branch: "master"
 
   livecheck do
@@ -12,22 +13,23 @@ class Clazy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f77da44dd6c29e34637aa0d1ffe5bd4c208a769191592e7e883e2640788b4276"
-    sha256 cellar: :any,                 arm64_sonoma:  "d0f0990494babab458cbc91cee206598fbe98e303761c49e43a8924fe9f4fff0"
-    sha256 cellar: :any,                 arm64_ventura: "9cbecaf7b22a02e178294518a281bfbf87be09a2de877144a6b273759f4e32ca"
-    sha256 cellar: :any,                 sonoma:        "2a822345e7ca596102229fe92e6352e1595749ad1ac3a5822f647b18b70d027c"
-    sha256 cellar: :any,                 ventura:       "8dd499299e6a778461782447004253825cea74c4702858946ae986c1ff120ffa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c73a9e02fd2c35ad10d89ca686830fef3e25af2b0aa2d0fdde508eb69217454e"
+    sha256 cellar: :any,                 arm64_tahoe:   "da50e82eb5510ebef091dd80296b72730a94d477bfa864ee87e8856f804c8e45"
+    sha256 cellar: :any,                 arm64_sequoia: "92b3ccdbef548d7966861ace46c31f90af6e8c0c641f68f1a0768fa817c5f862"
+    sha256 cellar: :any,                 arm64_sonoma:  "33da10d4e320a5730af1514d6e00ac84bc8d354b8a6d69a4e2578aa9524b7473"
+    sha256 cellar: :any,                 arm64_ventura: "f6af64aef4696d355d87c6def7d18b3cc7cd6d36a5a2932bccecc3d893371d99"
+    sha256 cellar: :any,                 sonoma:        "cf75552ce773a8e7b822c4b2f7c6bbbaef2b1977ed6715c022de3769fb0ff906"
+    sha256 cellar: :any,                 ventura:       "5152cbc2134bfcb219b9e0c95ec62500910cd775248a8168db30fe09057b8ddc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5864e4e777baf1d2c91a147981eded0fd897b199af58de11bfbfd7857afa31d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ec42d9e2bb8e000491b657536396520554521bc03cf1d6f41638af98b007e20"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "qt" => :test
-  depends_on "coreutils"
-  depends_on "llvm@19" # LLVM 20 issue: https://invent.kde.org/sdk/clazy/-/issues/27
+  depends_on "qtbase" => :test
+  depends_on "llvm"
 
-  uses_from_macos "libxml2"
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+  on_macos do
+    depends_on "coreutils" # for greadlink
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCLAZY_LINK_CLANG_DYLIB=ON", *std_cmake_args
@@ -49,13 +51,8 @@ class Clazy < Formula
       set(CMAKE_AUTOUIC ON)
 
       find_package(Qt6 COMPONENTS Core REQUIRED)
-
-      add_executable(test
-          test.cpp
-      )
-
-      target_link_libraries(test PRIVATE Qt6::Core
-      )
+      add_executable(test test.cpp)
+      target_link_libraries(test PRIVATE Qt6::Core)
     CMAKE
 
     (testpath/"test.cpp").write <<~CPP

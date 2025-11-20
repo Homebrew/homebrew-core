@@ -1,8 +1,8 @@
 class GitGui < Formula
   desc "Tcl/Tk UI for the git revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.49.0.tar.xz"
-  sha256 "618190cf590b7e9f6c11f91f23b1d267cd98c3ab33b850416d8758f8b5a85628"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.52.0.tar.xz"
+  sha256 "3cd8fee86f69a949cb610fee8cd9264e6873d07fa58411f6060b3d62729ed7c5"
   license "GPL-2.0-only"
   head "https://github.com/git/git.git", branch: "master"
 
@@ -10,13 +10,11 @@ class GitGui < Formula
     formula "git"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b23434b9e20e8d7d5ecd4fc68f398606c2077575ef7718ce6470fa5d4bbce1c2"
+    sha256 cellar: :any_skip_relocation, all: "dc55d1b4e677ded136efff4b94892333b2396748d79c33a365ad9000c04cd93b"
   end
 
-  depends_on "tcl-tk@8"
+  depends_on "tcl-tk"
 
   def install
     # build verbosely
@@ -26,7 +24,7 @@ class GitGui < Formula
     # the git makefiles don't install a .app for git-gui
     # We also tell git to use the homebrew-installed wish binary from tcl-tk.
     # See https://github.com/Homebrew/homebrew-core/issues/36390
-    tcl_bin = Formula["tcl-tk@8"].opt_bin
+    tcl_bin = Formula["tcl-tk"].opt_bin
     args = %W[
       TKFRAMEWORK=/dev/null
       prefix=#{prefix}

@@ -1,19 +1,17 @@
 class Snapcast < Formula
   desc "Synchronous multiroom audio player"
   homepage "https://github.com/badaix/snapcast"
-  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.31.0.tar.gz"
-  sha256 "d38d576f85bfa936412413b6860875ba3b462a8e67405f3984a0485778f2fdac"
+  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "a2918ea4d1f9b2df9c4247fd71bd452ea03a5d20ac44f60a736df90488858944"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "503bcd02e9c1cee66a0fe1c31b4fb92c456e0403dbeff251ab37a89d097800ba"
-    sha256 cellar: :any,                 arm64_sonoma:  "5148be65fd513313ab9eae89eada1ab878e311c5bf7bae260adc8d9742005213"
-    sha256 cellar: :any,                 arm64_ventura: "0dbfc1421b25651a69006ac4f2dc5995c79ad832f582b57877b53deed618b47e"
-    sha256 cellar: :any,                 sonoma:        "e7a695a5486603ca20361ee1ea25680f77cbfefe31b073b2f881c1f4dd7e7302"
-    sha256 cellar: :any,                 ventura:       "7c12245e729a102ec2b284ce3cc5ff11532269effd442175acc8890c440a1b7f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f75f295d76b5e75bdebb3131c00c38d134d74ec6268951a27e14fcfb7d1486ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5f9f7d0a5ee35ffa91c5d4e115ce9ba9a16d4cd3511ce01bc882f37b1f3f1f2"
+    sha256 cellar: :any,                 arm64_tahoe:   "645caa8ed11fc578ac65e91f85fafdba5b0d39f1f127e8232e94e94c1924fb48"
+    sha256 cellar: :any,                 arm64_sequoia: "98bd7f18a7fe9d9e3ca15b574a5fbd7035df6ae35432772da37ee0da7e8fcd86"
+    sha256 cellar: :any,                 arm64_sonoma:  "bf2d72adf4a6869b4e13a7cca9b3768c865ae03a097297c78a092319a75c7972"
+    sha256 cellar: :any,                 sonoma:        "a365b2cd656103c268e2c88b742e5ba3a311d313b28213b10e86cc7c1346ab6f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc0c0174d7aeed8002be34138d445a2cebdbcc48e9898cc39857fc698b3b0b82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ac5b3447b3d7e1fd765fda683dde042994960aaaf190bf9a9dd5eb593f5304c"
   end
 
   depends_on "boost" => :build
@@ -53,7 +51,7 @@ class Snapcast < Formula
       client_pid = spawn bin/"snapclient", [:out, :err] => output_log.to_s
       sleep 10
       if OS.mac?
-        assert_match("Connected to", output_log.read)
+        assert_match version.to_s, output_log.read
       else
         # Needs Avahi (which also needs D-Bus system bus) which requires root
         assert_match "BrowseAvahi - Failed to create client", output_log.read

@@ -1,8 +1,8 @@
 class Kcptun < Formula
   desc "Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/refs/tags/v20250427.tar.gz"
-  sha256 "345f3df927d9496e1266699e4ab8bea1b559b3874ebea1e240b4cfd3578d2561"
+  url "https://github.com/xtaci/kcptun/archive/refs/tags/v20251118.tar.gz"
+  sha256 "e40bd29ef439e66e0722768d37361c9083aeed3bb81324677b536bf0fc1ce6b8"
   license "MIT"
   head "https://github.com/xtaci/kcptun.git", branch: "master"
 
@@ -16,12 +16,12 @@ class Kcptun < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "919ab411c452e95d7038a9b85fc8543e4371c6ba4302702c8411efd01b4b8ba0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "919ab411c452e95d7038a9b85fc8543e4371c6ba4302702c8411efd01b4b8ba0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "919ab411c452e95d7038a9b85fc8543e4371c6ba4302702c8411efd01b4b8ba0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a6c2f08ebfb334fcd1574b9cf4a0bf006faabb2b62cb06e2fdb05b33adb892d0"
-    sha256 cellar: :any_skip_relocation, ventura:       "a6c2f08ebfb334fcd1574b9cf4a0bf006faabb2b62cb06e2fdb05b33adb892d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afb4443a3e692c4426a07556a051c32473cf3d539624103b7c0acacf1fc87565"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "616c58f2545be78ac9b58ca214deca9aa84ee66dfada94849c55445c6b84f6f3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "616c58f2545be78ac9b58ca214deca9aa84ee66dfada94849c55445c6b84f6f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "616c58f2545be78ac9b58ca214deca9aa84ee66dfada94849c55445c6b84f6f3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d6f83a8abd509e068f08eda2236fb4b8e654441ac2bab0aece2b7631300e06c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "422e570b5033ee9d638ee3ec86686df2f4b2b6ac22404452234c47ea341be5ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9863b8fe60c0f60478e4784433deaa5789fb000ac37edd111740bfc71c716f93"
   end
 
   depends_on "go" => :build

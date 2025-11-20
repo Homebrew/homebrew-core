@@ -1,13 +1,12 @@
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
   homepage "https://xtensor.readthedocs.io/en/latest/"
-  url "https://github.com/xtensor-stack/xtensor/archive/refs/tags/0.26.0.tar.gz"
-  sha256 "f5f42267d850f781d71097b50567a480a82cd6875a5ec3e6238555e0ef987dc6"
+  url "https://github.com/xtensor-stack/xtensor/archive/refs/tags/0.27.1.tar.gz"
+  sha256 "117c192ae3b7c37c0156dedaa88038e0599a6b264666c3c6c2553154b500fe23"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "23748f41560d55a42246189b6d61d66fd35ef922ae55e9379f493d46abbd868d"
+    sha256 cellar: :any_skip_relocation, all: "32d293bf0e95a4ffff6423ace30f560f26da6092bf29a08186b7c70ac3a5b7e6"
   end
 
   depends_on "cmake" => :build
@@ -42,7 +41,7 @@ class Xtensor < Formula
       }
     CPP
 
-    system ENV.cxx, "-std=c++17", "test.cc", "-o", "test", "-I#{include}"
+    system ENV.cxx, "-std=c++20", "test.cc", "-o", "test", "-I#{include}"
     assert_equal "323", shell_output("./test").chomp
   end
 end

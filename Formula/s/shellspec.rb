@@ -6,6 +6,8 @@ class Shellspec < Formula
   license "MIT"
   head "https://github.com/shellspec/shellspec.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c39e6acfcb13b4e82fdaf4e2a2788c5b43eacd7be9d2f98d5d786d0e741befad"

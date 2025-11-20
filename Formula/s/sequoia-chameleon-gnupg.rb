@@ -5,7 +5,10 @@ class SequoiaChameleonGnupg < Formula
   sha256 "8e204784c83b2f17cdd591bd9e2e3df01f9f68527bb5c97aa181c8bec5c6f857"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "28f73d4c9fe42708b00a6cc31b1944d40ef9ab28f19f555262580ffd02c7af8c"
     sha256 cellar: :any,                 arm64_sequoia: "5b91310a0e9767914f4e236560e5ca9e010e5251386ee843a36bddd67d44b8fa"
     sha256 cellar: :any,                 arm64_sonoma:  "27b24b86636d9645d07a03f3b317208a030ebf65c4c1d5720ce71b4b6da329ce"
     sha256 cellar: :any,                 arm64_ventura: "63e79260f1665bd08b3c837dc89484e652494dd77d91ebdecc523bc48ce6e3f1"

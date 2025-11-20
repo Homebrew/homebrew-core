@@ -1,8 +1,8 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-16.3.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.3.tar.xz"
+  url "https://ftpmirror.gnu.org/gnu/gdb/gdb-16.3.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gdb/gdb-16.3.tar.xz"
   sha256 "bcfcd095528a987917acf9fff3f1672181694926cc18d609c99d0042c00224c5"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
@@ -10,23 +10,25 @@ class Gdb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "9e5f18aa75cef9f236a7f07d4e444d54a8cccf3ff7e119f9923db8bef62d1252"
-    sha256 arm64_sonoma:  "06baf22991ec402640b1d6d886e3218d208abd368e8ba50c2116b17923f633ae"
-    sha256 arm64_ventura: "b0d0fc6a961b484803767ee5a1ba108de2a61e06522236536c7e600ea1d541cc"
-    sha256 sonoma:        "1f09c138f3bdeaf1066dc83fe96e6c6a9bdab4e1a73553048606708c84fc5d70"
-    sha256 ventura:       "1f477ff41885a15a223c3c17931e4f8cd530262f3c7286969028af78dfa8e8bf"
-    sha256 arm64_linux:   "bdc566b8b01f046ce432ed7445f7a9ff929f155bf48643288362b78340239bb3"
-    sha256 x86_64_linux:  "5dce623e116162d2edb8668a5f5b5085dea0b0dbce8b245985de933ed0079097"
+    rebuild 2
+    sha256 arm64_tahoe:   "c01c0cda52e1fad41a91d5e96b0d43788c4f9f5db0dc3d0f9386c923113375c2"
+    sha256 arm64_sequoia: "be70c28445f84563eafda28b5316c518da06deabac8ac80fd76f63763a678e58"
+    sha256 arm64_sonoma:  "a7532089d35e9dec8375a94400506166aa0bb7b12015c3a8b526769d8856d3a8"
+    sha256 sonoma:        "3d316b5a6e0728c4d7dbd18a20301d1a02b759ce1be6558e531a145ad0ca67cd"
+    sha256 arm64_linux:   "86b682d7d9f0fd560c4e4222eed1a20374ba6157dcc674500e710b4a9085707b"
+    sha256 x86_64_linux:  "502f91d43e75b72251631e85d9dca834edd13f71676df785f3856004ba45a731"
   end
 
   depends_on "pkgconf" => :build
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.13"
+  depends_on "ncurses" # https://github.com/Homebrew/homebrew-core/issues/224294
+  depends_on "python@3.14"
+  depends_on "readline"
   depends_on "xz" # required for lzma support
+  depends_on "zstd"
 
   uses_from_macos "expat", since: :sequoia # minimum macOS due to python
-  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   # Workaround for https://github.com/Homebrew/brew/issues/19315
@@ -44,14 +46,6 @@ class Gdb < Formula
     depends_on "guile"
   end
 
-  fails_with :clang do
-    build 800
-    cause <<~EOS
-      probe.c:63:28: error: default initialization of an object of const type
-      'const any_static_probe_ops' without a user-provided default constructor
-    EOS
-  end
-
   def install
     # Fix `error: use of undeclared identifier 'command_style'`
     inreplace "gdb/darwin-nat.c", "#include \"cli/cli-cmds.h\"",
@@ -59,10 +53,16 @@ class Gdb < Formula
 
     args = %W[
       --enable-targets=all
-      --with-lzma
-      --with-python=#{which("python3.13")}
       --disable-binutils
+      --disable-nls
+      --enable-tui
+      --with-curses
+      --with-expat
+      --with-lzma
+      --with-python=#{which("python3.14")}
+      --with-system-readline
       --with-system-zlib
+      --with-zstd
     ]
 
     # Fix: Apple Silicon build, this is only way to build native GDB

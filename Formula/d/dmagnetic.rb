@@ -13,6 +13,7 @@ class Dmagnetic < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "1d303cc3cb631d54618e5c0d4f0f84590d3396dd85ae4826f065f6a5ebd7a7e6"
     sha256 arm64_sequoia:  "9f840a9ccf56d119e074527daa5b430d0670bd1425a44efa2882459e279ba40c"
     sha256 arm64_sonoma:   "4a2cb2a7d9d5334b230ec1f3e475239b3b780aa686d3ccacc8a1d5a014332ca0"
     sha256 arm64_ventura:  "53df75a05a62e3cf42f523b646e8e98bc24f918c86461417f7c58460ad7bb5fe"

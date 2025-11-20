@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/refs/tags/v3.25.0.tar.gz"
-  sha256 "9222fb2d0b93ba1bf4cf7edcee7dfac6518fc622d606204724d8ed7de43fb5dd"
+  url "https://github.com/ooni/probe-cli/archive/refs/tags/v3.28.0.tar.gz"
+  sha256 "62d9b51d0a9798b4c1b15641ab31d661b687dedd959945272c9bf6b7112476ab"
   license "GPL-3.0-or-later"
   head "https://github.com/ooni/probe-cli.git", branch: "master"
 
@@ -12,19 +12,20 @@ class Ooniprobe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f0712a91bde69b39e58c852018aa946b59553651d4e1fb34941a71993061b43"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2c22444bad6411e2a1ba3c9641b62f6c52dc9c7ea9e11be14f69ed5069138b5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6886c7bd5714d7538b1b498ef9836387b73c7809c84071a7c14cad22564a530d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "73124bf2ae34df1fb14d8437d0afd0de84b5f0c40fb6a0685d82beb183fea83f"
-    sha256 cellar: :any_skip_relocation, ventura:       "38f19827d1dd5fcbc271af1292ad920cc5d326158aab620c7eb3a9d77278182d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ffa28943b2b4596d531eb77d1d382ae3a8aae98a7fb094d860d87fa220df6f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "238e11d37af2c226c2ed7f6f6dcda09c5b05600492d3f3524ed1671149b8d9b8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b8930c4e63a084ed287411b3a93826983fa5be2548ee3ad4b94cae178e7988ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20bfa2594793942bc840c0a63bd2ced1b2bdc0df678bda149dd1a5fff22231a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae0ad499ac54e83a2198814bc42d79455905a525c372846db37c02769bc85eb9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f5b3ff799d514c9eb26eba7840c570041e125205cf93d5e9d7199c04aecc07e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75405d487440a281a8e9bd17a42ca0f95f1100c3633b4187dd33187a95d5a676"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b310df82bff79b20ae770073631a5e5e3eec9ad97044bd1e42160a8e02c60cc"
   end
 
   depends_on "go" => :build
   depends_on "tor"
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/ooniprobe"
     (var/"ooniprobe").mkpath
   end

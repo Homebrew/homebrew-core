@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://knot-dns.nic.cz/release/knot-3.4.7.tar.xz"
-  sha256 "dd346ca6f3afabcdc5e9ba09dd667b010590bb66a42f4541021fb9d6f073dacc"
+  url "https://knot-dns.nic.cz/release/knot-3.5.1.tar.xz"
+  sha256 "a614d5226ceed4b4cdd4a3badbb0297ea0f987f65948e4eb828119a3b5ac0a4b"
   license all_of: ["GPL-3.0-or-later", "0BSD", "BSD-3-Clause", "LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -11,13 +11,13 @@ class Knot < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "1fb8278e561ed7d9a99f4ba23c25a88b537dd237e9db452e4b62717c48130841"
-    sha256 arm64_sonoma:  "5234cf8758edf2892799102953dd273394716cc5be1a9841012b269da540d8cb"
-    sha256 arm64_ventura: "a7744ed3ae7ac074e555e500273763bcf8243535b211ee9e2d6bb70dd70ca044"
-    sha256 sonoma:        "bb04dda43aa53b3dbda4ef5aa899c81cccceb6dcaf2cf927a3f4b74a7d24ddc2"
-    sha256 ventura:       "553cdc9c373828a8fb90b87d6f73723f294dc3a0a5021d18eebdccc7b4396750"
-    sha256 arm64_linux:   "9e9a49395d66917fda7c89d86d2df83def6d3d91c4f3a733af2dcf144e6dd806"
-    sha256 x86_64_linux:  "c1f15009c4df1619d610ae555a92c0e1cec16bb65f03183bc7fc25e849127e79"
+    rebuild 1
+    sha256 arm64_tahoe:   "48189c230c8daec50e9f0e26149c8cd287b123addf1f92c3309d69cded55c228"
+    sha256 arm64_sequoia: "6a127e356c516f8e8489b2cd237755d40e28e2390c43c0cb7a6c8760c7cb9de7"
+    sha256 arm64_sonoma:  "7d487d361adb39bdd001bb53c2ce33a0110a77af11a46c9fea8fce2a7e25a347"
+    sha256 sonoma:        "1a7ca4fa31801db716a56d1d8e4fff9810e2e015f29b2f9e0b32510757e746f6"
+    sha256 arm64_linux:   "22ca1ccacf08df43cbd1a786d5c3d66f442992de7c7843972b5847c313cea5bc"
+    sha256 x86_64_linux:  "e4a2792f9885f297ca5af9c4f8d280b7078fa1eac8998400ae4153b99ad6199f"
   end
 
   head do
@@ -59,17 +59,14 @@ class Knot < Formula
 
     (buildpath/"knot.conf").write(knot_conf)
     etc.install "knot.conf"
-  end
-
-  def post_install
     (var/"knot").mkpath
   end
 
   def knot_conf
-    <<~EOS
+    <<~YAML
       server:
         rundir: "#{var}/knot"
-        listen: [ "0.0.0.0@53", "::@53" ]
+        listen: [ "127.0.0.1@53", "::@53" ]
 
       log:
         - target: "stderr"
@@ -81,7 +78,7 @@ class Knot < Formula
       template:
         - id: "default"
           storage: "#{var}/knot"
-    EOS
+    YAML
   end
 
   service do

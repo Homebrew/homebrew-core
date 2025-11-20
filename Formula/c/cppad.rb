@@ -13,6 +13,7 @@ class Cppad < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "77cd98371fd178e41517c2cc91dcddd126557de19b9d4c4799924c715c0c47ee"
     sha256 cellar: :any,                 arm64_sequoia: "6f65c18d0662a88d692f107f438a055b1f2668d5ec7416e563b88b482db789f8"
     sha256 cellar: :any,                 arm64_sonoma:  "617a8aad764f2c8c33d8e3a252cffaed40eeda79e2248bd7590b254c3053f242"
     sha256 cellar: :any,                 arm64_ventura: "4b210a927c2c5f55f16ebf358b83ad441d7931b616ee3c72525513db2aff1ba1"

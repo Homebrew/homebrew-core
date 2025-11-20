@@ -4,6 +4,7 @@ class Ledit < Formula
   url "https://github.com/chetmurthy/ledit/archive/refs/tags/ledit-2-07.tar.gz"
   sha256 "0252dc8d3eb40ba20b6792f9d23b3a736b1b982b674a90efb913795f02225877"
   license "BSD-3-Clause"
+  revision 2
 
   livecheck do
     url :stable
@@ -14,13 +15,12 @@ class Ledit < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "a1c09fdb10ac873836f1f3370f77f8d87f9db7adb3ff0118ac0ba97b96cdb15e"
-    sha256                               arm64_sonoma:  "6659da41bcf927019dbd40f4e9c201e964ad63fae3dd19a1425313f3b51672ad"
-    sha256                               arm64_ventura: "62f4ceec2f8e79b0be37a14ffa16ae6741722cb0bb0868d5aac2d12988b5c6bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "59699dfa06f09eb79a2fd6b500757c7384b27d73cc44f2e5d05c30bc122cb9d5"
-    sha256 cellar: :any_skip_relocation, ventura:       "6db3815932944204f44ab9e31bd34a678c8fc81d92c3b86e5518fc1bc8cffbcd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd2c6e9eb1c5672a81399729bdaa9700876b024c24fd74bc982424790d9d2c01"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd2c6e9eb1c5672a81399729bdaa9700876b024c24fd74bc982424790d9d2c01"
+    sha256                               arm64_tahoe:   "0fe88c4c03d6f9d38e2b230ecf971637752d04a927d710cfc8e62e8f9b0dd899"
+    sha256                               arm64_sequoia: "710dc116b1f5858005b3b135313ecd8c156ae196d0e3107877f31ef226ef11d9"
+    sha256                               arm64_sonoma:  "7f8f6e093464dc08dd0d0066ddd1c1297ca5028ed1a00d24d0781615323572a9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6443e3f4a7374c9fbb06bc37c792739d9abdc6762ad7607eac74c8ea28f3c158"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed4115e5c24dd1325cb8c5106f59b4aaa6a719a9e719a5ce0437a273b752ca3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed4115e5c24dd1325cb8c5106f59b4aaa6a719a9e719a5ce0437a273b752ca3c"
   end
 
   depends_on "ocaml-findlib" => :build

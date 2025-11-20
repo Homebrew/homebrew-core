@@ -16,14 +16,12 @@ class GitImerge < Formula
     patch :DATA
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, all: "f889e12d851617cfc36b7af9f0994b42ca348d9bbd3b0ca6848b79d1bc51f55a"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "45eec1f8fc1d680a3148b4d2b6d1e2a87fa6c792be7a8793b9e35d5b82d057f3"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

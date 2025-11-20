@@ -1,20 +1,18 @@
 class Svlint < Formula
   desc "SystemVerilog linter"
   homepage "https://github.com/dalance/svlint"
-  url "https://github.com/dalance/svlint/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "ed07d77dd72fe49c086df407ed74e321d210eb19dc0dc353ebcf23414116ccfd"
+  url "https://github.com/dalance/svlint/archive/refs/tags/v0.9.5.tar.gz"
+  sha256 "1ffa212d571eabf57fb2b32c648760a0aff301dff8282a5a2b8e653d4657d3fe"
   license "MIT"
   head "https://github.com/dalance/svlint.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c82113e0273481d396f4d0b09bcb50abe5034c9397c9b4779e235df99dba9cb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d4983f8a4e157a8cddd6e4e3aef2ad28dc6b1a0048134e1e8894f6a8259ceae"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e92e737e77aa193fa30e67f5c443fec1329ec01ced2ec0cf74ded12c8037f614"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a54509a5ccbaa642caf7f72f8d24aa93191b4ee8d7eb5eb42f5c9c5c302a552e"
-    sha256 cellar: :any_skip_relocation, ventura:       "fcc94fcfab52c8b6fca8bc7473bc59f14748ee9a97679b344a9d2d724456d063"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca55ec7b42ee2253f5aab55532d2cda99607209ed4f14a436968f38efeaa48b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbe93914caa4cc7c788375ba72a0dc2d1a1bccde48f0100a1f39b2fc70ae8827"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0c7f5d699c98ce1810f10f1341ddb6be404ef7bbb78f1691e54b1b30ca7ab11d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f304dfea7f9fa13a5ad184799901d98b97fb3d63e0fcb29f47b493c472c8ab2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45535bbe0f59b90e30295c90ab9501417562413e8142fc5db1c04c79945e318c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60542d776cd14eacbda668e5071821fd3afb3f46307c58fad1b3fb5e174bed0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb5f9fe1851248d81df1f8a116a6091cf818265bd85d80978f7a3a99f3fbe623"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6335fa6a65a382040f5c71d8a377c97f65a0637771d955282303bbda39da9ea8"
   end
 
   depends_on "rust" => :build

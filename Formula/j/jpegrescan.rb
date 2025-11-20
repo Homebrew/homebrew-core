@@ -7,8 +7,6 @@ class Jpegrescan < Formula
   revision 1
   head "https://github.com/kud/jpegrescan.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2bdbe245fbd20be8c2d34f4ce46408effedd4e7c99d516fbbd78e2321284219c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aaf688d3c8d50fc17fbe0f5a8ca91c700785478bc47e063535216822b9ec8593"

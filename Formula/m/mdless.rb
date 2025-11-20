@@ -1,18 +1,19 @@
 class Mdless < Formula
   desc "Provides a formatted and highlighted view of Markdown files in Terminal"
   homepage "https://github.com/ttscoff/mdless"
-  url "https://github.com/ttscoff/mdless/archive/refs/tags/2.1.58.tar.gz"
-  sha256 "c82a52a2ff76c2a7e184268ae961bae398fa97012d46ab8dad092f21e2fa8752"
+  url "https://github.com/ttscoff/mdless/archive/refs/tags/2.1.62.tar.gz"
+  sha256 "1819b0b082b6cea95be542e39828b3ced344334bcfe62a318df71386518d07a6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c3170bec5e29e4aa9037952afd01517d85fc9ec217d80e109bcd4bc1bd9f4692"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c26f3603c1b1d8d5951631240ea826f2256d7e9d7d03f3373c81c458c3f9546"
-    sha256 cellar: :any,                 arm64_ventura: "5f69d4e24aa3c4899df7800a264427150a0effb5e4cbd62bca9b4cacd58dfade"
-    sha256 cellar: :any,                 sonoma:        "b64d98c5631d8f3bf59e308861d63f955d8737521131704e475269b237ccdc28"
-    sha256 cellar: :any,                 ventura:       "08ba0765eb24fd5a0219e415a5fc794f30a7efa901e2a88f9808481ac199ea8f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4dac47d6094557b5e505b99b40321e9b4c5572503bc1ba9b76e6b930ea56c340"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5422bb32ab7aaaf248af272af66f297e91c9c81bac139a47f69dd201a48dc10a"
+    sha256 cellar: :any,                 arm64_tahoe:   "b7fdbd007a51aceeccf6ec8d24e419d4fa6fa89f9884fe6aef6e7b2ad6f8ea17"
+    sha256 cellar: :any,                 arm64_sequoia: "2f685489abc329323095d92133a0dcd31441d10307f0474bbb4413b53d2274b7"
+    sha256 cellar: :any,                 arm64_sonoma:  "0592587133ab75b44b46fbf957856c047ba3e1ee2109c1b26053c87d6f64ff29"
+    sha256 cellar: :any,                 arm64_ventura: "fa86f8095663d1c7d4a8f925133a5ef316fd37dc9137c7a1de6095fe9ebc0a1d"
+    sha256 cellar: :any,                 sonoma:        "8f1f01fbd37167238a0ea1619d6adf3ba541a2284a9922939d74364bec043da0"
+    sha256 cellar: :any,                 ventura:       "5664722266afd9637e16601f148ed0b02a4bb8340d5c6a70a1ca1e004b558d34"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dd44adf15bc57b0f13d299b49282f0cf9aa3ca90c58e14db93598d3fb7243af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "851c4c16ebee885c363fd057e77d06e88dbea21ff49bf59a573d29b47ec1a0bf"
   end
 
   # Requires Ruby >= 2.7

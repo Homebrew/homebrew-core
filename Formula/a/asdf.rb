@@ -12,6 +12,7 @@ class Asdf < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b22b8e329c938b0b7c464de089c396e48c8712c8ea34df5130dc6f1652883616"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae721d20a3a3f9402d2bad6201a001379adcc3300c01a4548fbb5067daeee338"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae721d20a3a3f9402d2bad6201a001379adcc3300c01a4548fbb5067daeee338"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ae721d20a3a3f9402d2bad6201a001379adcc3300c01a4548fbb5067daeee338"

@@ -1,18 +1,17 @@
 class Basti < Formula
   desc "Securely connect to RDS, Elasticache, and other AWS resources in VPCs"
   homepage "https://github.com/basti-app/basti"
-  url "https://registry.npmjs.org/basti/-/basti-1.7.1.tgz"
-  sha256 "a3105943b1ca2efd2f756f2e381725a3668ea30fe2edb3d2436d8c2fb2df81a5"
+  url "https://registry.npmjs.org/basti/-/basti-1.7.2.tgz"
+  sha256 "92937b3bf012ea34a0435b21dce634ecff724c9a1580ecf0a3850f1365ce5e7e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0549ae3e2472e1e53c820caf50872ed6d3f124c05ccfbd7a8a98386406ecbbe8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0549ae3e2472e1e53c820caf50872ed6d3f124c05ccfbd7a8a98386406ecbbe8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0549ae3e2472e1e53c820caf50872ed6d3f124c05ccfbd7a8a98386406ecbbe8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2da4b1374a33cfb194b65260ca559b7a93f75b21a081d0643764597351b6b2cc"
-    sha256 cellar: :any_skip_relocation, ventura:       "2da4b1374a33cfb194b65260ca559b7a93f75b21a081d0643764597351b6b2cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0e04e4ab6509d397dff2273c18f8fb28d71fa5e60a5f1c27fabfb7a1d2fc7e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d31d3a8cf98a28daf71345f66b0730740f606b5397af215bcde8d3e9bc57a25"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c93ea7546c6c4ed6f890169f332f28810658e4b68d864f965f2e77214e7b445b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c93ea7546c6c4ed6f890169f332f28810658e4b68d864f965f2e77214e7b445b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c93ea7546c6c4ed6f890169f332f28810658e4b68d864f965f2e77214e7b445b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5a5cc4bd8ada263464e590c898b0dd980e35b8d53fa68a5fce9fde2897e5d6ce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04d05f5fab473c324a8e001be4b880ba1c129e0e3b15e766c71179787352b784"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebb576e2bda22c4bf10be9e06b9f2d5ba2ddd906cb53580ca2113865f6b6539f"
   end
 
   depends_on "node"

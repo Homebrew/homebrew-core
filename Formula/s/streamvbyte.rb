@@ -1,12 +1,13 @@
 class Streamvbyte < Formula
   desc "Fast integer compression in C"
-  homepage "https://github.com/lemire/streamvbyte"
-  url "https://github.com/lemire/streamvbyte/archive/refs/tags/v2.0.0.tar.gz"
+  homepage "https://github.com/fast-pack/streamvbyte"
+  url "https://github.com/fast-pack/streamvbyte/archive/refs/tags/v2.0.0.tar.gz"
   sha256 "51ca1c3b02648ea4b965d65b0e586891981f2e8184b056520e38ad70bcc43dd8"
   license "Apache-2.0"
-  head "https://github.com/lemire/streamvbyte.git", branch: "master"
+  head "https://github.com/fast-pack/streamvbyte.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a5b3c81835da9ae317838f2d8ad1a088c99fbdb465eccd4d338c6dade886c7cd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "955cfd051b2957a90b5dcd3206023547acbc96298938bd489f7413eb2bc1721a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51d9a35f2a353d5ceb107471e0467e5689a3050715513cae8cdf2cca75c30e47"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "08b01a057acf0496f9e2afe325fcc1b051c812258a1026441a9b6705da57f2ba"
@@ -19,7 +20,8 @@ class Streamvbyte < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    odie "Remove `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`" if build.stable? && version > "2.0.0"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "examples/example.c"

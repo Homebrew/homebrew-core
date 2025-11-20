@@ -1,19 +1,19 @@
 class Deadfinder < Formula
   desc "Finds broken links"
   homepage "https://rubygems.org/gems/deadfinder"
-  url "https://github.com/hahwul/deadfinder/archive/refs/tags/1.7.1.tar.gz"
-  sha256 "fa9f8843b3c793a21b8c3c4c9623f15691c7ef94b8ce9d174d4b8cac7c13b8bd"
+  url "https://github.com/hahwul/deadfinder/archive/refs/tags/1.9.1.tar.gz"
+  sha256 "60942329779ba01d92532bdd3a937bfd04686693b911e6193692daee9634b4e6"
   license "MIT"
+  revision 1
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "13018df0825a8907536fd51b444abffff1a403cb75a66541784068e344380294"
-    sha256 cellar: :any,                 arm64_sonoma:  "9aa9af3b905a49df8df5198a2c33af78c40d4dbe27172603ddf1cd6e13a968a0"
-    sha256 cellar: :any,                 arm64_ventura: "ee48dded63f24b5db5eeb0b4e987f25873bb02a153b03421f799a0156431ca8f"
-    sha256 cellar: :any,                 sonoma:        "52e2c68ca58d7333c8a18dc1b98c6559d0b473df83f719b6a433ca47110888ba"
-    sha256 cellar: :any,                 ventura:       "218b0148f9ae522dd3ce3690921aafc420563ddb99681b32c231f2a0e63a2835"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2b9b260c9b5e8c7e0618087c8e232513b46af93a5ffb9162a7b8e5a3097280a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0f03ee2a1dd8fc7872d43948f024a6096fa5957e02d4f29655f9e3a0adc3289"
+    sha256 cellar: :any,                 arm64_tahoe:   "1196ba7f69fa9a76f88885d99e4d5fa64075abbe0f6c89a4c2bb52989197d564"
+    sha256 cellar: :any,                 arm64_sequoia: "0785938ab4601e4c8371a92312db832f87987c81222eb739c54d943ecd7c8deb"
+    sha256 cellar: :any,                 arm64_sonoma:  "55e3dfeaebcc4fcef7a89bccdfea2b6f7992b9a42efd534bd6f2e76a463493c0"
+    sha256 cellar: :any,                 sonoma:        "defe5253cc1e6191ffe124ac210238638d4045a0d2d3c3d091871107ad571daa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b94db3d53d160760d22898af2ba63d16585acf50382f38de0b98bd36ab58f45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e7ca7f45309f8d124e6da42cabcdf6358fd4cc149d95f03aa88a712d83654a7"
   end
 
   depends_on "pkgconf" => :build
@@ -22,14 +22,15 @@ class Deadfinder < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "xz"
   uses_from_macos "zlib"
 
   def install
+    ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"
+    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
+    ENV["BUNDLE_WITHOUT"] = "development test"
     ENV["GEM_HOME"] = libexec
     ENV["NOKOGIRI_USE_SYSTEM_LIBRARIES"] = "1"
 
-    system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
     system "gem", "build", "#{name}.gemspec"
     system "gem", "install", "#{name}-#{version}.gem"
@@ -42,8 +43,8 @@ class Deadfinder < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output(bin/"deadfinder version")
+    assert_match version.to_s, shell_output("#{bin}/deadfinder version")
 
-    assert_match "Task completed", shell_output(bin/"deadfinder url https://brew.sh")
+    assert_match "Task completed", shell_output("#{bin}/deadfinder url https://brew.sh")
   end
 end

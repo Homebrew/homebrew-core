@@ -1,19 +1,18 @@
 class Codesnap < Formula
   desc "Generates code snapshots in various formats"
   homepage "https://github.com/codesnap-rs/codesnap"
-  url "https://github.com/codesnap-rs/codesnap/archive/refs/tags/v0.12.9.tar.gz"
-  sha256 "365d64b0a752396b55d400c08e287c1b09556a8eaca4242cab55d17da8a7af48"
+  url "https://github.com/codesnap-rs/codesnap/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "e1636f08781fdb6e380428bd54f458f59b7764702271a7f2f407ad4432753c33"
   license "MIT"
   head "https://github.com/codesnap-rs/codesnap.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b652969b9ad9931a999c2b3b78ac75371349949d491e8cd758838746b77c5cf7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad11570c9eeddf4afcd9e67003988bedbe32a1505c21b7e1b11bc6d89ed0fb1c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c02757f660660e4dc81828cd43c7821a037ab52bc9fa76853bd65bf97200390f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e581a5cebd9c81d98e0a278e60ebc72d2dd715fb26d503684466d7475e2937ee"
-    sha256 cellar: :any_skip_relocation, ventura:       "8b2b06bd64aa3c300a1d59430e9f5900279644eb7332120b38601605c8c8aec2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a40df7b26e9e5ac668cf0305c804cc532136db044476ef7f6a365cc7def4b541"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fad19ec118338d34b169bc4c3796fe50628792ae62979d57f1cd5d3a0fe0864"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b09e81e2e477b4766f7131c2c7cce96c0c4f324ed6b536b8c7f620be8925ed8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9984bfb2152fb6cb6d32f5dadcbf192786fe6e6da6a5d1daabebeaab13df014"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d45c584ac455a83be1b596f9a8e063bcbb5300d7ff75d43641737b423b41d376"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5a408a988e5588a6105fe3fda0fc271aaebc86c84f97fbacf8a743f1787b5925"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bd2da94e62d3648e54e1cb6428f6842e500e46c7a04bcb83c7c1147aaee92d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82461844e1d7743af3f1ed81053a3478c68161d031b6de6cf6715d0340b50579"
   end
 
   depends_on "pkgconf" => :build

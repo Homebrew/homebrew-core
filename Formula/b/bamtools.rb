@@ -7,6 +7,7 @@ class Bamtools < Formula
   head "https://github.com/pezmaster31/bamtools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "de2b4d556e28fa243f1ffed7caa5a587d02a6ea23bfd11e9b977d6c4808c57d2"
     sha256 cellar: :any,                 arm64_sequoia: "3373086bf64dc373555ebe29e0d83b7717e9753c2568f6e28aa1bda00f03c8cc"
     sha256 cellar: :any,                 arm64_sonoma:  "1bb2f639770d64612d2a90faf8409396a4ca9c8d07ac57c49ea34605110cb8e9"
     sha256 cellar: :any,                 arm64_ventura: "f3ba5ba2ba5277012456cfbcfb26c4dbd7a1a5c7d5eb59034ff0ec3d10b08409"

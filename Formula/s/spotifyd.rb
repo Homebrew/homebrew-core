@@ -1,19 +1,10 @@
 class Spotifyd < Formula
   desc "Spotify daemon"
   homepage "https://spotifyd.rs/"
+  url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "e1dc21f806b205739e508bd567698657a47ca17eecb0f91d9320af5e74b8418a"
   license "GPL-3.0-only"
   head "https://github.com/Spotifyd/spotifyd.git", branch: "master"
-
-  stable do
-    url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.3.5.tar.gz"
-    sha256 "59103f7097aa4e2ed960f1cc307ac8f4bdb2f0067aad664af32344aa8a972df7"
-
-    # rust 1.80 build patch, upstream pr ref, https://github.com/Spotifyd/spotifyd/pull/1297
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7cb21d6370a1eae320f06a4f9150111db0bbf952/spotifyd/rust-1.80.patch"
-      sha256 "0bfc8c4805cc99c249d1411aff29a0d9107c3ce69f1fabbdc3ab41701ca4f2f6"
-    end
-  end
 
   livecheck do
     url :stable
@@ -21,16 +12,12 @@ class Spotifyd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "dd6598774377cc653a1e34568c6afff11509e3fac350dc0084532ad1eaad97ec"
-    sha256 cellar: :any,                 arm64_sonoma:   "a2305bcd95c814f04cf6bef9d9c01a2cd1b6ab1c3f0c9e2dc1cb6ee85f468556"
-    sha256 cellar: :any,                 arm64_ventura:  "3237a0154b6fddbf87eaea3b4460c8a992b72217899637d479a31f2bcd7ba53e"
-    sha256 cellar: :any,                 arm64_monterey: "25689c32e31f1b2990ffb54fe34ba61856951b8c81d09bea1a4cc4d02d8c6fd9"
-    sha256 cellar: :any,                 sonoma:         "7f9e21a27e9b6af17a131d62c23758ba6e7649c9a8ef38bd51b63d7e76dbcbff"
-    sha256 cellar: :any,                 ventura:        "af948d2987f9c1f31f7217981ab42a62356b51c6793dc4091005795a917845fb"
-    sha256 cellar: :any,                 monterey:       "00d7a5bfb6a4b4cb59e52b6d154e7268b576ed255df3ac199eceed6e7f84ff26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "09f476e955bcf684bc49ff03e92a67d8b49b59ce54f5a38869dd54af83292492"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4baab23fe6181c526b89960d0fb9db63bafea067a4ac9c6f5ac6af658267eea9"
+    sha256 cellar: :any,                 arm64_tahoe:   "a7a814a9c313572487129d39e54731bc17a195e4b682ae581602448272abcdd5"
+    sha256 cellar: :any,                 arm64_sequoia: "dec0ea296e4ef77db7afcc84910deea38ef162f5cadbf2d7fc2d9986a4ca5458"
+    sha256 cellar: :any,                 arm64_sonoma:  "d9d891fefbd148e3960824fc7924ed89b20d73e150adfdbc36265df529c487a2"
+    sha256 cellar: :any,                 sonoma:        "a4a0e77cd126c0eb50988c3e3c2820e963cdf9b8fe0e7fe055fb21811a01ff6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbfca354719211a24866dd87ac33a343191cfa0a13ff8ba8a604a288a2df891c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa79e425ff77b2ea640dff5d8eeeddb772bb42a39397ed111fecc59479027d25"
   end
 
   depends_on "pkgconf" => :build
@@ -42,7 +29,7 @@ class Spotifyd < Formula
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed if OS.mac?
 
     system "cargo", "install", "--no-default-features",
-                               "--features", "dbus_keyring,portaudio_backend",
+                               "--features", "portaudio_backend",
                                *std_cargo_args
   end
 
@@ -52,8 +39,13 @@ class Spotifyd < Formula
   end
 
   test do
-    cmd = "#{bin}/spotifyd --username homebrew_fake_user_for_testing \
-      --password homebrew --no-daemon --backend portaudio"
-    assert_match "Bad credentials", shell_output(cmd)
+    args = ["--no-daemon", "--verbose"]
+    Open3.popen2e(bin/"spotifyd", *args) do |_, stdout_and_stderr, wait_thread|
+      sleep 5
+      Process.kill "TERM", wait_thread.pid
+      output = stdout_and_stderr.read
+      assert_match "Starting zeroconf server to advertise on local network", output
+      refute_match "ERROR", output
+    end
   end
 end

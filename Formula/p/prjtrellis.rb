@@ -4,27 +4,32 @@ class Prjtrellis < Formula
   url "https://github.com/YosysHQ/prjtrellis/archive/refs/tags/1.4.tar.gz"
   sha256 "46fe9d98676953e0cccf1d6332755d217a0861e420f1a12dabfda74d81ccc147"
   license all_of: ["ISC", "MIT"]
-  revision 5
+  revision 7
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9b1dba8073f95e4e62578867fa4413c96546ed01af8a9368dd71f226e242f824"
-    sha256 cellar: :any,                 arm64_sonoma:  "c88a90c50cf9b1118812077911e320ada13ad47ca5e26bb9b71cea451cc83935"
-    sha256 cellar: :any,                 arm64_ventura: "528c6c2f526e1a8a9a6374a27740ec190b09e2cd8d55166d7adb8954e5f481e5"
-    sha256 cellar: :any,                 sonoma:        "17166123d4960d5612ddd664fb46a4728162fae98327f379b2940ea05dd5cf61"
-    sha256 cellar: :any,                 ventura:       "66fe4759bb1294f951a36d578ed68cba116539ddbd4bb71cf73c0f5bc2eca105"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2244c986587aae3a6d6feb0b89d8e2650999ebad9cd3b6f77fe138b1f0b326e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a091d4126aff828ab290e08cf68316f68a7952fb192482a993ab4484dc21a5b"
+    sha256 cellar: :any,                 arm64_tahoe:   "a6b7ec5be496ea0d129abfd976de357fe0c84ce34d95f7b21640b1ad8308fae8"
+    sha256 cellar: :any,                 arm64_sequoia: "945c15148287fb63e62ca3773572f2cb6abcc13c6eb82c06356c0ced7b075496"
+    sha256 cellar: :any,                 arm64_sonoma:  "55776f6d948b1c99b15b6f84c75296f5324a0fda317f2c2c0946718ca4621257"
+    sha256 cellar: :any,                 sonoma:        "81c233a5b2325a8c60c88a5dc097e65f7e901f253c9d8fb4884ed1303f6b4707"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7234b8ff08a258b6cd47965db615ae6a923a1880f4a7660dd6bd550518906a29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e56f2ed4c1a258ae7024c507e51d74093bc89f3f456a62affdd70b92fbe275fe"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "boost-python3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "prjtrellis-db" do
     url "https://github.com/YosysHQ/prjtrellis/releases/download/1.4/prjtrellis-db-1.4.zip"
     sha256 "4f8a8a5344f85c628fb3ba3862476058c80bcb8ffb3604c5cca84fede11ff9f0"
   end
+
+  # Workaround to build with Boost 1.89.0 until fixed upstream
+  # Issue ref: https://github.com/YosysHQ/prjtrellis/issues/251
+  patch :DATA
 
   def install
     (buildpath/"database").install resource("prjtrellis-db")
@@ -37,7 +42,7 @@ class Prjtrellis < Formula
 
   test do
     resource "homeebrew-ecp-config" do
-      url "https://kmf2.trabucayre.com/blink.config"
+      url "https://www.trabucayre.com/blink.config"
       sha256 "394d71ba416517cceee5135b853dd1e94f99b07d5e9a809760618fa820d32619"
     end
 
@@ -56,3 +61,18 @@ class Prjtrellis < Formula
     assert_path_exists testpath/"ram.hex"
   end
 end
+
+__END__
+diff --git a/libtrellis/CMakeLists.txt b/libtrellis/CMakeLists.txt
+index b4f02c7..02242d2 100644
+--- a/libtrellis/CMakeLists.txt
++++ b/libtrellis/CMakeLists.txt
+@@ -46,7 +46,7 @@ if (WASI)
+     endif()
+ endif()
+ 
+-set(boost_libs filesystem program_options system)
++set(boost_libs filesystem program_options)
+ if (Threads_FOUND)
+     list(APPEND boost_libs thread)
+ else()

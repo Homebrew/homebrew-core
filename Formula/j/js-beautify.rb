@@ -6,13 +6,8 @@ class JsBeautify < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c7e52487e23c2cd2674a6cc83610b8509209489fc632b86f69f936bc596aafd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c7e52487e23c2cd2674a6cc83610b8509209489fc632b86f69f936bc596aafd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c7e52487e23c2cd2674a6cc83610b8509209489fc632b86f69f936bc596aafd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "21cbc33bb8e2b885663dfcc5bd5219dd571ea648ac5ad4b29833b45951824c78"
-    sha256 cellar: :any_skip_relocation, ventura:       "21cbc33bb8e2b885663dfcc5bd5219dd571ea648ac5ad4b29833b45951824c78"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c7e52487e23c2cd2674a6cc83610b8509209489fc632b86f69f936bc596aafd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c7e52487e23c2cd2674a6cc83610b8509209489fc632b86f69f936bc596aafd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4226569ea54d12e2b8bfb9ed3b84917ec00f31a5081e3790591e1c2854807f00"
   end
 
   depends_on "node"

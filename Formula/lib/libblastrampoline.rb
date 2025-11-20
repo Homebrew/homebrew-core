@@ -1,8 +1,8 @@
 class Libblastrampoline < Formula
   desc "Using PLT trampolines to provide a BLAS and LAPACK demuxing library"
   homepage "https://github.com/JuliaLinearAlgebra/libblastrampoline"
-  url "https://github.com/JuliaLinearAlgebra/libblastrampoline/archive/refs/tags/v5.12.0.tar.gz"
-  sha256 "12f9d186bc844a21dfa2a6ea1f38a039227554330c43230d72f721c330cf6018"
+  url "https://github.com/JuliaLinearAlgebra/libblastrampoline/archive/refs/tags/v5.15.0.tar.gz"
+  sha256 "69e0be57ebf037c1997c35edf03565614cd3c6863a695d01348a21bf1f482e74"
   license all_of: [
     "MIT",
     "BSD-2-Clause-Views", # include/common/f77blas.h
@@ -10,23 +10,15 @@ class Libblastrampoline < Formula
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a41f25d661d33658eec04d2a320c20e885db2ad5bcdbcb30ef62e7c41d534ceb"
-    sha256 cellar: :any,                 arm64_sonoma:  "e3816dc15789f1b23444a81fa39e2f143de139244c42df036df1bdf713df4ca3"
-    sha256 cellar: :any,                 arm64_ventura: "1cdd282eb257880f3b04ae12ac6715bc4407bf49b14dc4ae4a190755840f4de9"
-    sha256 cellar: :any,                 sonoma:        "b8eb22f07216cfc835aad8f48ac29fdb19ed2dfb162f5c2559f56bbe15c46ce3"
-    sha256 cellar: :any,                 ventura:       "ee9c185e49e8f405ba2335f661593d3838130b6a20415143a7984f0d0af21f1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5bd84148c9d508220b588ef6eaf80e82dbf1ede283221de412b1c9fac52824b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8df6fd7523f579b6110937096f0b9d21d430fffc0924cdc1f742364c94d88a84"
+    sha256 cellar: :any,                 arm64_tahoe:   "438c7cc5a4b1c5272a7daccb970d49d1e85336e12c0c04861e0ed41fd81f9628"
+    sha256 cellar: :any,                 arm64_sequoia: "16a9fc5256cb99de39f67c06400489615b3545c15c20c20618e0e35de21f544b"
+    sha256 cellar: :any,                 arm64_sonoma:  "6b26660fb5231a8e624e159ee93dce94bba7ddeacfc4393498e7cdce2b49190d"
+    sha256 cellar: :any,                 sonoma:        "ef556a70b35c24ddfbac6c3ff5bb5d7dc9ee0d655724f8747d99de4b75b1cb58"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e030ff06d4bcdc58f44883a75949da9087a9eb031bd395a0c176686a3f07efd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b5587f9b1d19d6bcd93cc3520ef040288b9ee5ef8558f6efae1da054aae0eb8"
   end
 
-  depends_on "openblas" => :test
-
-  # Apply commit from open PR to fix build with Xcode 16+ / LLVM 17+
-  # PR ref: https://github.com/JuliaLinearAlgebra/libblastrampoline/pull/148
-  patch do
-    url "https://github.com/JuliaLinearAlgebra/libblastrampoline/commit/c7e71924f47f4d016afe7ef994e30b46080ac918.patch?full_index=1"
-    sha256 "320360db93fe46e52ee21e8b817752ec3b1717b64a0f33b45617bcc6dfa206ae"
-  end
+  depends_on "openblas64" => :test
 
   def install
     system "make", "-C", "src", "install", "prefix=#{prefix}"
@@ -58,10 +50,12 @@ class Libblastrampoline < Formula
     system ENV.cc, "dgemm_test.c", "-I#{include}", "-L#{lib}", "-lblastrampoline", "-o", "dgemm_test"
     system ENV.cc, "api_test.c", "-I#{include}", "-L#{lib}", "-lblastrampoline", "-o", "api_test"
 
-    test_libs = [shared_library("libopenblas")]
+    test_libs = [shared_library("libopenblas64_")]
     if OS.mac?
       test_libs << "/System/Library/Frameworks/Accelerate.framework/Accelerate"
-      ENV["DYLD_LIBRARY_PATH"] = Formula["openblas"].opt_lib.to_s
+      ENV["DYLD_LIBRARY_PATH"] = Formula["openblas64"].opt_lib.to_s
+    else
+      ENV["LD_LIBRARY_PATH"] = Formula["openblas64"].opt_lib.to_s
     end
 
     test_libs.each do |test_lib|

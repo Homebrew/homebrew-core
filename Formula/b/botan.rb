@@ -1,8 +1,8 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-3.8.1.tar.xz"
-  sha256 "b039681d4b861a2f5853746d8ba806f553e23869ed72d89edbfa3c3dbfa17e68"
+  url "https://botan.randombit.net/releases/Botan-3.10.0.tar.xz"
+  sha256 "fde194236f6d5434f136ea0a0627f6cc9d26af8b96e9f1e1c7d8c82cd90f4f24"
   license "BSD-2-Clause"
   head "https://github.com/randombit/botan.git", branch: "master"
 
@@ -12,19 +12,17 @@ class Botan < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "a967bbee75aacedb40abbea69a039efeb6d3747f60f78d7df3c990389f4bb4ee"
-    sha256 arm64_sonoma:  "363aac39d5a069ded0ffad86a0d924fdeba5da34b541c47de8a91a2b8ff37a55"
-    sha256 arm64_ventura: "d8bcc4c1e2fe8db29e38d6fc6420b03b9addba885332dcf37ecbde13dd1dad00"
-    sha256 sonoma:        "fb26ebacd465ecc8efe8978a8b0a7a7b2b1fa9b19f5838c71e1c0b02488610f8"
-    sha256 ventura:       "54669a30e929a073ae91d196a9a0929b9a4b77a05da4e026fb97f58da9ece15b"
-    sha256 arm64_linux:   "13c3d6c959ea7e723868b616eddbbafe0d9d705d015e975e7e53f2dca18bc50b"
-    sha256 x86_64_linux:  "3fb558f2f23a738424a0b1593e1541bf02ff454be11a1ceafadc05f30215a772"
+    sha256 arm64_tahoe:   "caa17b3e22c246e36df507be44434ac7371e5301191d15d91742312358da9163"
+    sha256 arm64_sequoia: "48c59b05de2d484662de39f1bf8f0fe7d129060a55a01bbeaaad26b28ea9abae"
+    sha256 arm64_sonoma:  "271bdde1e30dd9eb25b2b1686a678a3cf54146dc23918717fb6aa9b059e79dd3"
+    sha256 sonoma:        "d402b6fdc08d1d6559e4265cbcb334d03683687fe97d70614da4046f79e4e63c"
+    sha256 arm64_linux:   "343cecee5bf20718147ac5ca563034ebe2e311cd9e8f40c1094ed90e37e90794"
+    sha256 x86_64_linux:  "ccaba762b00a0ed569fad4dfd5312b63110c00e6fbe7b97af13accf64c77ab8b"
   end
 
   depends_on "pkgconf" => :build
   depends_on "ca-certificates"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -40,7 +38,7 @@ class Botan < Formula
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
@@ -68,8 +66,9 @@ class Botan < Formula
   end
 
   test do
-    (testpath/"test.txt").write "Homebrew"
-    (testpath/"testout.txt").write shell_output("#{bin}/botan base64_enc test.txt")
-    assert_match "Homebrew", shell_output("#{bin}/botan base64_dec testout.txt")
+    text = "Homebrew"
+    base64_enc = pipe_output("#{bin}/botan base64_enc -", text)
+    refute_empty base64_enc
+    assert_equal text, pipe_output("#{bin}/botan base64_dec -", base64_enc).chomp
   end
 end

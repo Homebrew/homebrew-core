@@ -5,6 +5,8 @@ class MarkdownToc < Formula
   sha256 "4a5bf3efafb21217889ab240caacd795a1101bfbe07cd8abb228cc44937acd9c"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "2817812b6a1d6a1e613ad337524dbd04afcc3ee306c8ddecab56c6835468d11c"

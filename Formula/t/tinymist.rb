@@ -1,8 +1,8 @@
 class Tinymist < Formula
-  desc "Language server for Typst"
+  desc "Services for Typst"
   homepage "https://myriad-dreamin.github.io/tinymist/"
-  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.13.12.tar.gz"
-  sha256 "f7cb81e9aac04a5aafeb8f19161204174d9072935b93df9202f1583bed826c51"
+  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "0a5dbd53e9bc3334b153f996d9fdafb52bed76fa59b27e759e9f9721dd490c1f"
   license "Apache-2.0"
   head "https://github.com/Myriad-Dreamin/tinymist.git", branch: "main"
 
@@ -15,22 +15,23 @@ class Tinymist < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "335525bcc8838724822e6298b806edae38f6cda0ab301b97e485a8807188a33a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f30f0cdf15bf36c72045673f3f77b3a151a54b02b38d10e05585ff9d0d24a3a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "22e6537840e41597fa49e7b4f356d70ed4c5bba8bc70582dc8e1651a1142634a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cbd27529d898b7c0bc9eeeded47eebbe4dbe7657874df1796b5f21006e4c6e0b"
-    sha256 cellar: :any_skip_relocation, ventura:       "8ca7479fdb608921995a6ee4915e2d5aeaa788e0c489074bda89e98974a20b19"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4791bd7361982b67e0a8eb2b369510fce7838fa29254bb35a0781b53565f2d95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43f78aa50ad6ab929e1d005cd288907916d40e8df3a932bc627db21fc5d960aa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0630506a5c76d938509170054914e1f1b6bb65412b3f7c4e41cec0cbff6dc87f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1604e50f99a084dbf5ff291928436ace931c9899a32b0b492bfba3246addc5e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5cdd0e6c91906a67400d7d9fdf56ce7c09e1000f30f7fcb20e228ec0731cf7fe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "199c7771a980edcb37fd65fa9c6acfe484d1bbe36a5652b98f96d448f54c2195"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ffa2f1283a361b638a0e6633dabfe9a0c3b3f74ba388618b709d512f6491135"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f693ec1fe9141211f2ee5ba1960b3d84fe40c047e7430bcaa3cabd759da9d25a"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "crates/tinymist")
+    system "cargo", "install", *std_cargo_args(path: "crates/tinymist-cli")
   end
 
   test do
+    system bin/"tinymist", "probe"
+
     json = <<~JSON
       {
         "jsonrpc": "2.0",
@@ -44,7 +45,7 @@ class Tinymist < Formula
     JSON
 
     input = "Content-Length: #{json.size}\r\n\r\n#{json}"
-    output = IO.popen(bin/"tinymist", "w+") do |pipe|
+    output = IO.popen([bin/"tinymist", "lsp"], "w+") do |pipe|
       pipe.write(input)
       sleep 1
       pipe.close_write

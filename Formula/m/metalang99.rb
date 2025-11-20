@@ -6,6 +6,8 @@ class Metalang99 < Formula
   license "MIT"
   head "https://github.com/Hirrolot/metalang99.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "72f34a9d242be857c7fbb45ddc50c1c6f0ca5a034d831ee1909d25f2037d600c"
   end

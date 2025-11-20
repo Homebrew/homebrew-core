@@ -1,22 +1,21 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/1.6/gssdp-1.6.3.tar.xz"
-  sha256 "2fedb5afdb22cf14d5498a39a773ca89788a250fcf70118783df821e1f3f3446"
+  url "https://download.gnome.org/sources/gssdp/1.6/gssdp-1.6.4.tar.xz"
+  sha256 "ff97fdfb7f561d3e6813b4f6a2145259e7c2eff43cc0e63f3fd031d0b6266032"
   license "LGPL-2.1-or-later"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "97111b046784bdbc49f2216a33602e3a5081c79371e4c25388f99f82a7c9cff5"
-    sha256 cellar: :any, arm64_sonoma:   "1883e3ff3aabb0e94c3655d0730c9ef57197e179882fce345968718d9d706b05"
-    sha256 cellar: :any, arm64_ventura:  "6780845ffd82b7162e83933d15c02a40f14173c46c42aaa3048c78a368741173"
-    sha256 cellar: :any, arm64_monterey: "90ce94882c16fabbcae645e03ac1f1e4653e05e71ff79847d4849ede89ec13d4"
-    sha256 cellar: :any, sonoma:         "6d12bf3d48221158ae35d8f121ecf5a6ab1a255ce7cd8db2c212c99da44d4f17"
-    sha256 cellar: :any, ventura:        "e26411028be8edf072f647c9c8dd4fb7929c2aea8aa46940d70c36bb26f71d21"
-    sha256 cellar: :any, monterey:       "dc149d84e33f123c18e0a11858b16672f802bdef637d6f27322e310a23d7f237"
-    sha256               arm64_linux:    "64ce3b6210ac63feee5c6f88f773afa9f2c1b7bd7ce4b2e819affa74a61c2bc0"
-    sha256               x86_64_linux:   "1fdb4562ada9ffb0252f97fe765ce023d2530ff2528e4237cace63a29f75688a"
+    sha256 cellar: :any, arm64_tahoe:   "757813a4572ec251ec2b0b5d08fac402448d7eb07e798f4ddae34beafb4dd786"
+    sha256 cellar: :any, arm64_sequoia: "ebe88f533fe10a5c8bcd40124a1eba3be1fb2d7b1f519b8d52c8e5d72de9a252"
+    sha256 cellar: :any, arm64_sonoma:  "583257d286536b6fbb04901b527beeb0782578c667e13cf9fa943bb59bde6a36"
+    sha256 cellar: :any, arm64_ventura: "259745694e0f5e9ec0cf3590c2e2e7cfb5ef85a606be7b5399a0e5af5cbaff47"
+    sha256 cellar: :any, sonoma:        "bc05bf33af411e1488903ff6cd774eef71232b4ac8da91bbcab9089ccbef0c16"
+    sha256 cellar: :any, ventura:       "e2a98e88c932592c7dc25135c1d142159531c5c247621eae87d01ddaefe9b1e4"
+    sha256               arm64_linux:   "30d8f9d8c169ad2f144275e2d20a6594aed7532e8050f236dd0ccf208e6a1392"
+    sha256               x86_64_linux:  "912c3889c750253f08a991711db1d2cf6cfa44e99933d733c7441d42665251c3"
   end
 
   depends_on "gobject-introspection" => :build

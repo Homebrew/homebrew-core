@@ -1,16 +1,17 @@
 class Mockolo < Formula
   desc "Efficient Mock Generator for Swift"
   homepage "https://github.com/uber/mockolo"
-  url "https://github.com/uber/mockolo/archive/refs/tags/2.4.0.tar.gz"
-  sha256 "58174327732b53f9e6bb0c8c355270ae2df7be739f006680fd8eeb53599b6766"
+  url "https://github.com/uber/mockolo/archive/refs/tags/2.5.0.tar.gz"
+  sha256 "af4f52f1c3146dea492997d6a5f99ab1c9bbc7687497a0149e63445a5c8d07d8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b74e8f8747277f43a811197fe8ce144b06b4580a541689dcaf3ce784301b9fdc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab85a94f0caf1fa8d1116376af36f713ecd3c1d18ee29a576aa121329ac9252c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3bc1c046167b769698f2629375ec0ece777f759e19bcda17f8a708de58eeabc7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "afd124d827ae8b9a17e7eadeb2a8360758fbf7809e669e5991cd6d3af3c521fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "668e2e869b2bfce47c71e3c7b4f66f3b61810b7365a5e13e582645cab44d4dc6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2dbea87c99d506a39e39c6fdde0c470c569c0c9f5325ac134e0b9f3a4af03da4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fcc6979486acd7c105de4f5c2eaaa957d74633e78d25dccbff3d1062f0fb3174"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4614d2ea52e355d5d23288e3f18593632b67e49d1841527aeda36612cecbc9f1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "61a649c2863b7dcfe60f0faf6cebc89317db67dda45c9af4c16469235a925724"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0817392cbfb4d36ae20a446647ccc0902dec06b8ea4096c4d25e325dcb9b23a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76f2c928075ed61841c83d25a40e01e6b68b4ad71529eeed447f7c4ce5ffc1a6"
   end
 
   depends_on xcode: ["15.3", :build]
@@ -25,6 +26,7 @@ class Mockolo < Formula
     end
     system "swift", "build", *args, "-c", "release", "--product", "mockolo"
     bin.install ".build/release/mockolo"
+    generate_completions_from_executable(bin/"mockolo", "--generate-completion-script")
   end
 
   test do

@@ -11,17 +11,17 @@ class AnsibleCmdb < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1273a6462f8b5745a2b1c297020a609de08c88703908deea3d3276a9af8e5a51"
-    sha256 cellar: :any,                 arm64_sonoma:  "1fe8dcbaadd7a83a63b6d2e9e7c33baf6eebcc7e6653f9a57ba7837759858a0c"
-    sha256 cellar: :any,                 arm64_ventura: "6f14fe8987e3919f7352c24eb57c59129a453047c0e759a1e265289c52f74092"
-    sha256 cellar: :any,                 sonoma:        "ebccc3b4a0ce69d9ac06c7dd8fcb922b0513031e6531010b4e80e01b3a94d942"
-    sha256 cellar: :any,                 ventura:       "3e171c3d264163e93fe3ad96ce5113d49f560d8c596f1dd6460c8a950b626240"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "166c728e271581dadf1c2764ab910b85b44ebffe41c3822b5748311184242beb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a142934b4b440e622a1e6958818e4588103c5a4511ac97fff5cb639a75323444"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b6be47954b66a7ecc04bfff866f4417a531171c2bfa3dcf1ac7c17ed5bac7e5c"
+    sha256 cellar: :any,                 arm64_sequoia: "2164c629351884de60aaa7fa684d2384ee24e81c23f5515064becc5728cb7597"
+    sha256 cellar: :any,                 arm64_sonoma:  "f169a1b45de20cb12c7b2c8399fbc32e5d565a808d4a11b919d9595e02ef7175"
+    sha256 cellar: :any,                 sonoma:        "5a4011e6d5933f8e6fa6f6933fd0a222d15ad535bcdf4f4849a89ca5b8200fcc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e02eca8dd4bf47a7cb861cd1c6ee75f735a46696b1e7e665cd1eb5f2e8f9cda0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c82c4713092df1c5856967eb0d0d4072622d531083501e3995dfa27f10f2fbdb"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "jsonxs" do
     url "https://files.pythonhosted.org/packages/65/62/67257a84338fde1b89fce8b28164364bf2ad6a5a4459a6a890cf497cf721/jsonxs-0.6.tar.gz"

@@ -3,23 +3,25 @@ class MysqlAT84 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.5.tar.gz"
-  sha256 "53639592a720a719fdfadf2c921b947eac86c06e333202e47667852a5781bd1a"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.7.tar.gz"
+  sha256 "c0bf33a94cdb908f149aea0797affb1b139262ccf0e0b9787a17246207542e69"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 2
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.4.html?tpl=files&os=src&version=8.4"
     regex(/href=.*?mysql[._-](?:boost[._-])?v?(8\.4(?:\.\d+)*)\.t/i)
   end
 
+  no_autobump! because: :incompatible_version_format
+
   bottle do
-    sha256 arm64_sequoia: "c87d556622e48fbd47e0be9a7c5de2c9fb5824358c2dd2c897fe4ea2e604878e"
-    sha256 arm64_sonoma:  "a050552d7300ac04971d466c4d04d747a7ff15dbe15a41ab21d9f6bb0d4b92b0"
-    sha256 arm64_ventura: "8d64b363c45a52693e7b53a9c95a94f9878462c2bd5e3d8505a8ae10759d560e"
-    sha256 sonoma:        "13ef76f34992f0d2c4fc474eced6910b417c242f6568a8dd3a66d08edf56dc04"
-    sha256 ventura:       "6dfd8121bb7fcef0b6381cafddaa2db986e0cd852b68149a22241f562b6c4015"
-    sha256 arm64_linux:   "284529229c8646bee5bb018659f1d796ed309a4115edd212347b18abba80906c"
-    sha256 x86_64_linux:  "0f0eae4f5736c9b2e12e3209c59089c7d7545048c6b513dbfe6ecfc1cc169922"
+    sha256 arm64_tahoe:   "7563211df92e3e75113b15a48b5badeba2d0f37b41db59639e69e0ef85329041"
+    sha256 arm64_sequoia: "ccda879c2b0e6c573770a85202168cce1a5ae0835ed5ffe5a56925acffa7ed08"
+    sha256 arm64_sonoma:  "9a20a85e617bb471b8ee58e8b87fb1aeac27333a9110ab8a440eaea4949f602e"
+    sha256 sonoma:        "386b10801b1f3d2a9321952674ed6400e0ea701c1cc41717abde8d5f85edf9a3"
+    sha256 arm64_linux:   "9a4a4d03971a2e147b85bf96fb87e01a6b1fab92625c9b445712382774eff857"
+    sha256 x86_64_linux:  "d2b9dd5fe8cf8f4d072bbdb8cb8e4bb76e481c2afd4d9b338e4dc92ff2790327"
   end
 
   keg_only :versioned_formula
@@ -28,10 +30,10 @@ class MysqlAT84 < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "protobuf@29"
+  depends_on "protobuf"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -119,7 +121,10 @@ class MysqlAT84 < Formula
     system "cmake", "--install", "build"
 
     cd prefix/"mysql-test" do
-      system "./mysql-test-run.pl", "status", "--vardir=#{buildpath}/mysql-test-vardir"
+      system "./mysql-test-run.pl", "check", "--vardir=#{buildpath}/mysql-test-vardir"
+    ensure
+      status_log_file = buildpath/"mysql-test-vardir/log/main.status/status.log"
+      logs.install status_log_file if status_log_file.exist?
     end
 
     # Remove the tests directory
@@ -146,6 +151,13 @@ class MysqlAT84 < Formula
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
 
+    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
+      opoo <<~EOS
+        A "#{my_cnf}" from another install may interfere with a Homebrew-built
+        server starting up correctly.
+      EOS
+    end
+
     # Don't initialize database, it clashes when testing other MySQL-like implementations.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
@@ -157,7 +169,7 @@ class MysqlAT84 < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       We've installed your MySQL database without a root password. To secure it run:
           mysql_secure_installation
 
@@ -166,14 +178,6 @@ class MysqlAT84 < Formula
       To connect run:
           mysql -u root
     EOS
-    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
-      s += <<~EOS
-
-        A "#{my_cnf}" from another install may interfere with a Homebrew-built
-        server starting up correctly.
-      EOS
-    end
-    s
   end
 
   service do

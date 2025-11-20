@@ -1,18 +1,19 @@
 class Nanobind < Formula
   desc "Tiny and efficient C++/Python bindings"
   homepage "https://github.com/wjakob/nanobind"
-  url "https://github.com/wjakob/nanobind/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "6c8c6bf0435b9d8da9312801686affcf34b6dbba142db60feec8d8e220830499"
+  url "https://github.com/wjakob/nanobind/archive/refs/tags/v2.9.2.tar.gz"
+  sha256 "8ce3667dce3e64fc06bfb9b778b6f48731482362fb89a43da156632266cd5a90"
   license "BSD-3-Clause"
   head "https://github.com/wjakob/nanobind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "27262487a8a0bb8435e7652f543f2058057b1c7f5d3d71f36fd3c2cf1f34bcba"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "aea1ec0524fce6cb6899de31e2af7e52c62dee38f24a1e36c053a1f83181f474"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "python@3.13" => [:build, :test]
-  depends_on "robin-map" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
+  depends_on "robin-map" => :no_linkage
 
   def install
     system "cmake", "-S", ".", "-B", "build",
@@ -33,7 +34,7 @@ class Nanobind < Formula
   end
 
   test do
-    python = "python3.13"
+    python = "python3.14"
 
     (testpath/"my_ext.cpp").write <<~CPP
       #include <nanobind/nanobind.h>
@@ -52,7 +53,7 @@ class Nanobind < Formula
       cmake_minimum_required(VERSION 3.27)
       project(test_nanobind)
 
-      find_package(Python #{python_version} COMPONENTS Interpreter Development.Module REQUIRED)
+      find_package(Python #{python_version} EXACT COMPONENTS Interpreter Development.Module REQUIRED)
 
       if(FIND_NANOBIND_USING_PYTHON)
         execute_process(

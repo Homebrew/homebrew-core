@@ -1,18 +1,20 @@
 class Aliae < Formula
   desc "Cross shell and platform alias management"
   homepage "https://aliae.dev"
-  url "https://github.com/jandedobbeleer/aliae/archive/refs/tags/v0.26.5.tar.gz"
-  sha256 "fae24264ba59214a657f0e4022e527ecd9459e66eb7bf3fdab1484a2fef78276"
+  url "https://github.com/jandedobbeleer/aliae/archive/refs/tags/v0.26.6.tar.gz"
+  sha256 "905602b3dd56b6caf099970132edf7e3366b3ef0d98a71b277e23c00990e979d"
   license "MIT"
   head "https://github.com/jandedobbeleer/aliae.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "893962f0bc61841a44fb822e3c73b61579b7547f99d5ddd957ac65cad761bb85"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd2ea50e4ed2466e2b5a85376f6b03f664d76ba31fd4f7860a3e253ebc5147a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5dea9ce9501d131f2400499794562a1c35499557c72ce3710aa28f6a6edff30c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b057fb7d3f910025e0297ac4029248611d90eb68dae4991f2eadbd5941415b2"
-    sha256 cellar: :any_skip_relocation, ventura:       "aa29d6f7f2c54751786bbf7881f5f97d44408f85e55c069c3ea0e43e5850497f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f1b7a1febbe233213e950e1e3766786170543e8ce9f0a6c509af2bd61aeffb2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "23027e091dc14b23943ce0c49bbdd033aa88b284c31873db383174af492b1f0a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b92e61c0150e736a343ea89b719b2daa761b380e283a07ed186800c96566243"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67767bffeda6f91745690be6ad4f36de9095ed20338e4fd51f07b13c1380b053"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5c2e3fbd5cbacc683410564241b3af976f0dd7cce4927a01c44bae2617a5085a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "80f94a1ed79e0501da37ec491c68eeac725df677a1e4277a6f22a0a9f189798b"
+    sha256 cellar: :any_skip_relocation, ventura:       "c2147bc050d3bc14bd1d48a1bd2b9625143179da77c9666260e0dac634c2d1ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73937fe03334e20ce13283b3cca4f9494fa0ff1065238424584e39b553bf3393"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4322cff6d3ca1b321177b9f03422de1259caa1f173cd52c099e6e7afa1d696c1"
   end
 
   depends_on "go" => :build

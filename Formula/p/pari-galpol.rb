@@ -17,6 +17,8 @@ class PariGalpol < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "e025e273d014cf89f901fd09c2fc60bf7d1e48650f930d6072bc33330e5ced97"

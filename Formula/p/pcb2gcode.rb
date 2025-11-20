@@ -4,16 +4,20 @@ class Pcb2gcode < Formula
   url "https://github.com/pcb2gcode/pcb2gcode/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "96f1b1b4fd58e86f152b691202a15593815949dc9250fab9ab02f2346f5c2c52"
   license "GPL-3.0-or-later"
-  revision 9
+  revision 10
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "b0c34ab4eeed7f51c74bda44421ef4a5b56b4c5916498de6253b6bf581a39664"
-    sha256 cellar: :any,                 arm64_ventura: "8fa1390aa15ea9ef167594ca339f0f3687aa1dcce8f91b0eee0cf779a5a1f70f"
-    sha256 cellar: :any,                 sonoma:        "635a5ed1cdbbfe328708eee192e6702403a538065f40eab9db06d77d13a85849"
-    sha256 cellar: :any,                 ventura:       "376e08e44994e602079a27d5253f9b5104486d4396d564a365b26dca7cd92faf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "32fa3e537d38d72f38ce03f848d8c181fb4fd656f805b3b22fc128a5af658622"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb3d914b7ec389c946a1f7e22b3ca190895798e029b1438276d9acc59cc917d7"
+    sha256 cellar: :any,                 arm64_tahoe:   "1c7bb5342f773b41b6b485728e03aac465b7af391595656ca98a534092417cca"
+    sha256 cellar: :any,                 arm64_sequoia: "ff258b7d916b2586d2c1275f340e583352c050ce6e11f5fe88769fa1afa9eb18"
+    sha256 cellar: :any,                 arm64_sonoma:  "f34119207d88d392cd9bc22d9e2f8a60b75dac989cfd4eacd3f65c54b6796752"
+    sha256 cellar: :any,                 arm64_ventura: "b01464e9d453255290840876db3899984cceff1a5c6c5046bd6bdae5d79d563e"
+    sha256 cellar: :any,                 sonoma:        "0cd3f0c8556a36e6bfb7238ecb698108c85c97396e4a6b1966752868c6d3cbe0"
+    sha256 cellar: :any,                 ventura:       "1bee47236c3414536c8c77badab1057fb363eb35cb76cde433aea647a0bf53f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06977900652f188f45575688519d4fb379b8d1c01d778e7f5676d79afbac604b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f0101b39171e4e96a6f5db51c8316b78251cd5c78867819d376c8845c5e0ada"
   end
 
   depends_on "autoconf" => :build

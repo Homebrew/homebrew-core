@@ -1,24 +1,18 @@
 class Cascadia < Formula
   desc "Go cascadia package command-line CSS selector"
   homepage "https://github.com/suntong/cascadia"
-  url "https://github.com/suntong/cascadia/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "1ee285d683aa3956dbeb28cd9ee2c60f0ab3a5da8e66a98ca3fb718d3214b775"
+  url "https://github.com/suntong/cascadia/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "674d32db061fdab3329cda23263f0ff2a8551b64d49b4829cff54912bd8befd1"
   license "MIT"
   head "https://github.com/suntong/cascadia.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "00fe59bee9982cea9cb64dbcddf32a802c6eda7b57d368413bca58ad720ebf46"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c632f95d33e3db0a0ec037480cc5763b0d9d157588f0bbd921b886c42ed6c47"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "506f6721049179118bea0514854909832198d552c52bb122f1648c17b91ab7dc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "506f6721049179118bea0514854909832198d552c52bb122f1648c17b91ab7dc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "506f6721049179118bea0514854909832198d552c52bb122f1648c17b91ab7dc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "808dc91548c40f330a18db98b194dcd18d21462323040ec3342826279a50c137"
-    sha256 cellar: :any_skip_relocation, ventura:        "bd7802721fdc17cfa6a5c99688899786c5d850679c83a3fa9cbbdb91a490ae53"
-    sha256 cellar: :any_skip_relocation, monterey:       "bd7802721fdc17cfa6a5c99688899786c5d850679c83a3fa9cbbdb91a490ae53"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bd7802721fdc17cfa6a5c99688899786c5d850679c83a3fa9cbbdb91a490ae53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "526b3788f4ac0884adfd8b6603bb0e8fe5719d77cca281ad5846b45f3c729106"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2d9da8a8796edfe3ae5b6d9c71d48bc856588bc9152cf6fec79f3eac3f53b636"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d9da8a8796edfe3ae5b6d9c71d48bc856588bc9152cf6fec79f3eac3f53b636"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d9da8a8796edfe3ae5b6d9c71d48bc856588bc9152cf6fec79f3eac3f53b636"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1e86283adf0af56ae887df6c55967a7b03a62544b8f1b914e4b1d7d1b5ef57a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11f89dc57dc214953fd42f1651546cabf331f4fa5d06c5e5ff91b62f7e5ad998"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a08db3834543b4f96b07377a34ca4203e5e7c1b6dbe73674017aded43b91e6b1"
   end
 
   depends_on "go" => :build

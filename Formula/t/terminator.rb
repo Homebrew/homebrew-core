@@ -8,17 +8,17 @@ class Terminator < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a88c0ac27c2d76bbee8e2fa332e77c53169767e6612a1a10183ffde3ca8d3a5c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "723e802e3f3f79400d8d5564719425af34680a00fd5746778755ba4614ee4bc5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e8ef4ddcb4294e55a9c0e28434ea5da8ff2ec3871d4ff9a01010425c1f28aa26"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cbf4b1433eaadee83312ad705ed311db2ab626b71f4751efa6a6c17383b39712"
-    sha256 cellar: :any_skip_relocation, ventura:       "23c152d460198f9fa45f5f2c3e25a7ceb03eb6126c7527cba78a0f6632153de1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e7181f5ee199d5ab726987d98198938b4af7f960fa77fcd850a62967389b132"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7453996d0c7658caae13ae6dbe0ec99c8d7944f7b5c7b154f21359c4c9a8fc7e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cbda9e2f530787bf8fd70762ca08efb46d62c2797d85d89e496341278a96e615"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "447a6bc238316f05ae3d03ce0d958aa11ab7dc5a9afb855fd5b9e63a21cc4001"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c394010de722af4f788075577f32fdfce3dcfbca6e1d8b4ccdd677a55491fd0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f0a19f86cbd0e0823969bb007b6ab6898e6a41c453baecc97360afe450d2a2de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d283e891e6a1d4f90cb6ebf1a5c5230b4be167fa80228956654ae83c74eb07f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05acec1e4469598de53102f0009da36200afe641e3a75d20071843a71c6373ab"
   end
 
-  depends_on "pygobject3"
-  depends_on "python@3.13"
+  depends_on "pygobject3" => :no_linkage
+  depends_on "python@3.14"
   depends_on "vte3"
 
   on_linux do
@@ -31,13 +31,13 @@ class Terminator < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/2a/80/336820c1ad9286a4ded7e845b2eccfcb27851ab8ac6abece774a6ff4d3de/psutil-7.0.0.tar.gz"
-    sha256 "7be9c3eba38beccb6495ea33afd982a44074b78f28c434a1f51cc07fd315c456"
+    url "https://files.pythonhosted.org/packages/b3/31/4723d756b59344b643542936e37a31d1d3204bcdc42a7daa8ee9eb06fb50/psutil-7.1.0.tar.gz"
+    sha256 "655708b3c069387c8b77b072fc429a57d0e214221d01c0a772df7dfedcb3bcd2"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/8d/d2/ec1acaaff45caed5c2dedb33b67055ba9d4e96b091094df90762e60135fe/setuptools-80.8.0.tar.gz"
-    sha256 "49f7af965996f26d43c8ae34539c8d99c5042fbff34302ea151eaa9c207cd257"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "six" do

@@ -4,7 +4,7 @@ class Autoenv < Formula
   url "https://github.com/hyperupcall/autoenv/archive/refs/tags/v0.4.0.tar.gz"
   sha256 "baf91afe2e93b071dbf3da0c9ad294c1858efd9c8de4b0845f7fb2f31520b252"
   license "MIT"
-  head "https://github.com/hyperupcall/autoenv.git", branch: "master"
+  head "https://github.com/hyperupcall/autoenv.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "7d291627ba82fc28ef378728ea6969eb3cebed1e8b2c17b9655cf05745102362"

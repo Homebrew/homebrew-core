@@ -7,6 +7,7 @@ class AwsEsProxy < Formula
   head "https://github.com/abutaha/aws-es-proxy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ae88a4d6f9708c3dfdebe1473f65c6b1063b79e526f99fd7cb0cfef999dbf431"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c0415a87ec2804d034902df0cd3ada2a5085706236e2b73f68c45dbf99fdd1e6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b120ad6ea167aba79f5bf38cb52a67efc6611adcb8fbae3b75207e1a04f9ea64"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2b1415650725652e3282217d2c09464410645b225f954101259df3827b4a135"
@@ -16,6 +17,7 @@ class AwsEsProxy < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "ca006b5fff25e619563f739d83881a461d0c763c9501d144b355da1940075468"
     sha256 cellar: :any_skip_relocation, monterey:       "ca006b5fff25e619563f739d83881a461d0c763c9501d144b355da1940075468"
     sha256 cellar: :any_skip_relocation, big_sur:        "ca006b5fff25e619563f739d83881a461d0c763c9501d144b355da1940075468"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "17fb4900682979bce53761826f3a8e1f9bd091fa851f19cfb5aa8d034e0adb52"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "11d0bf2df2385efb683589d960858d194c89ba11db563faebc76d6405f07c078"
   end
 

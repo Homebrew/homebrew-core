@@ -4,6 +4,7 @@ class Aravis < Formula
   url "https://github.com/AravisProject/aravis/releases/download/0.8.35/aravis-0.8.35.tar.xz"
   sha256 "8089af991fc3a2644ab04b2ddf82623cd663d80c7ebbdefa93ddbc17ea702ddb"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,12 @@ class Aravis < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "5dacbb067602cd6942321a0e548cdff50b237162f12819baf9f2ee34040aa3eb"
-    sha256 arm64_sonoma:  "82e9c7e422b14826f80abac1b17a271ead738e5abf4fe862799d68aad848e803"
-    sha256 arm64_ventura: "27e3c92eb7b96f192bf0e4d73a358088ada319fb8a10dab041e678d43b8472d9"
-    sha256 sonoma:        "e0eca377a1cf2abfa292ca80b36627376e0bd2f28237876ce5f07cbb97428947"
-    sha256 ventura:       "f08e8cc521c459783db474b8cd887947018393f33cc7eafbe9a00ac908b70b5c"
-    sha256 arm64_linux:   "086dca0e9de5c8780bf98bf202808565b73ec26419f02b5a99fc2c67040329e1"
-    sha256 x86_64_linux:  "50d18122eca4c3b85d4eb4f5fa4fb31d129ade755a4ef3bfde377cc64710814d"
+    sha256 arm64_tahoe:   "7fe8be556a8f02a85766e1a148332a4e3678a43ef0cd7c06c868586c3c8b9c07"
+    sha256 arm64_sequoia: "b6b5d59f63c6bfed5c8f866727a7ccac618f5b92f72f473907131a959edc23a8"
+    sha256 arm64_sonoma:  "4084af3b77b0bbc55f57af732268f933564cbff334c57c0c998b1ccf7118e320"
+    sha256 sonoma:        "94645a9618b5671491ffa808933288e6d834284b3f045013037c9bc2cb0bff6b"
+    sha256 arm64_linux:   "e90055c1c55ea0595360ffbb6e3f8c03ed2db4486f435ecee2775b26ebb29d19"
+    sha256 x86_64_linux:  "86e3711d972075a1494aa2f8e86b1c9a71c85045a43cf4459fd84d02b00e66e5"
   end
 
   depends_on "gettext" => :build

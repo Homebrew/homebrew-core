@@ -11,7 +11,10 @@ class Obfs4proxy < Formula
     regex(/^obfs4proxy[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "35257564f9b79df7a9cd7d25113bf9671291049494537c7293e26db0c8d6b630"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d5b38ec72de48413c006b6e39d6e246c1b9823a79b72b24213c9a656eb6d5d79"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "893f2029d6885b023e37ba1f1d1b39d09c13d870ba361fd0dacf4fbf9ed6ac30"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4794482e9011498f424c15acb994d2f2b50ec6278e41167c6541efe69badb3f9"
@@ -22,6 +25,7 @@ class Obfs4proxy < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "54d52bb6d65f47e8076c15a38f07e5b3e0f9545944ea627960ce2037913723b1"
     sha256 cellar: :any_skip_relocation, big_sur:        "b2015fe28393b6794fc18d8090732ce733d14c9b331fd0f8f123eeb87760bbc8"
     sha256 cellar: :any_skip_relocation, catalina:       "dcafd8b0d2cbcd4f22ccea0761a532220d40af53c95164173d7ce3c25331ecd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "ba8d12c85895fb64bf36a1d73b1baa173ef54569575f6f2b37e8ec9a58db9fa8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae4f95197e4ffd99a2a8e43f674eea3087cd43bbbe4a5ea38a396c32e3a97bb1"
   end
 

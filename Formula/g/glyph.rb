@@ -4,19 +4,25 @@ class Glyph < Formula
   url "https://github.com/seatedro/glyph/archive/refs/tags/v1.0.11.tar.gz"
   sha256 "7de7936a13b92b18240134bef64c006ab73988850a8776a1b276e22b73377f15"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dace7314cab8589f003791387c994758716a5137382f202e20335bf5bcb11625"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8d041bb811a2719ca2de1c38d41aac3fd39e4831b4f8544a3b8cc875a90fd06"
-    sha256 cellar: :any,                 arm64_ventura: "8816e608f78ee4e9e7142ba908d51fd4672e38575940954b607c6451c9a79a07"
-    sha256 cellar: :any,                 sonoma:        "75c836a7c114fb377a59cace95a6d462e73cda26d7cd52bb6f9347ccfbf99015"
-    sha256 cellar: :any,                 ventura:       "e29b0dfed93f6057a007755edf3a3c9d22e9734553e7f907554f70d0edbf9cea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "01f031d39433012bab0f5adaac4acc726c2e12bdd3241ac5b6a50741894a82c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af846010a44e3d33585ae616c40710644fe6ef842861a9120029a4a970b6a533"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "fcddc6c86d264cdd659ebbfedc657e38928226f4d5aa4bf287093e063c545c0f"
+    sha256 cellar: :any,                 arm64_sequoia: "d08bfccc02c09b9799d646e37993f36e8c3361db5f07847ddb46a051460bd9d6"
+    sha256 cellar: :any,                 arm64_sonoma:  "1023ab2fe863ebe3d7363f38721ea896612dbf08366ae02d10c9eeaa080974de"
+    sha256 cellar: :any,                 arm64_ventura: "e31e144ff58e79196da8eded25d0e0b926e8c9aa13f7da01986d9c92200d3e1a"
+    sha256 cellar: :any,                 sonoma:        "595e69055e97fcc3f70b3f6f4cfa5debf4bc5656c4848432a5a018b8f980c90a"
+    sha256 cellar: :any,                 ventura:       "45efa20e2e08853b1dce7d98fd30833d617f21da61bbb9d20630a1540c147b38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee2ef8a524e652aa28de614334a435e07092b963451557b327a2921ac41239b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca9382a91b01f87a5d3cf815c5ad87345fb2ac18e4fd698d224f194ea420b9ee"
   end
 
+  # Aligned to `zig@0.14` formula. Can be removed if upstream updates to newer Zig.
+  deprecate! date: "2026-02-19", because: "does not build with Zig >= 0.15"
+
   depends_on "pkgconf" => :build
-  depends_on "zig" => :build
+  depends_on "zig@0.14" => :build # https://github.com/seatedro/glyph/issues/32
   depends_on "ffmpeg"
 
   def install

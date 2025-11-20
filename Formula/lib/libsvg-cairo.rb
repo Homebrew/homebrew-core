@@ -11,7 +11,10 @@ class LibsvgCairo < Formula
     regex(/href=.*?libsvg-cairo[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "081812b09f3aa7da3467f583323424b3cec95d2f371b0745f6e3569857c31d5d"
     sha256 cellar: :any,                 arm64_sequoia:  "fb922d8f987fcfbf1a37e34cb527ce24345328d188e2fc453a5c70de848dbd41"
     sha256 cellar: :any,                 arm64_sonoma:   "2c255fb61d16b9fd5aee60ed29a000d3eb27028b7e7641d7dd4d1cc11928de1a"
     sha256 cellar: :any,                 arm64_ventura:  "528ec2ea8ffedaff6d5eac18dbb22a8edfc0f41eb8b8fa7bf85068c3bcabb745"
@@ -22,6 +25,7 @@ class LibsvgCairo < Formula
     sha256 cellar: :any,                 monterey:       "2d381b736e28fc35193fd120bd265f6cc73e3805d945982db709f2a517015cd2"
     sha256 cellar: :any,                 big_sur:        "a2d1eeb52e59366b77b50d16ec49aa0dc65d03315bde893248d982dca7d8b06f"
     sha256 cellar: :any,                 catalina:       "d7e3121dc97fdd10cc498e78c60721777a9c17d686d07de769c157d1bf9ed7e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "ed1d458eca9ab9055f4f373151ea86682a2f6cb8d8bfed507afc8d3f0dc7f8f1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7459ca5ab6d29337f341de7af38ce53bbc007974bfd57e5be4d9b4ad66ba69a"
   end
 

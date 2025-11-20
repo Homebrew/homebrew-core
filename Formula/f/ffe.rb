@@ -15,6 +15,7 @@ class Ffe < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83fd52f2c29e71aa022e6be65813c2da6385204d65bd9f74e7568a5e6222068a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2434c37d7cd7a87491c114df6bda210f02931bea75a31f9dd5291124d3da0f11"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22ac6a47505e5c5daea19a9e916141a3882896d1218815d8fb5d43fd90f75181"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a7b77078513e21ac6d077c228a3fc51dc31dcdbb707e9807764b7438e6630146"

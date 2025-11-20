@@ -6,6 +6,8 @@ class Rfcstrip < Formula
   # License is similar to TCL license but omits the government use clause
   license :cannot_represent
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "19d81dc32428b71ea0c78047c6036eba4381ab7e6305051f3790d2dfc34ce2be"

@@ -16,7 +16,10 @@ class OcamlAT4 < Formula
     regex(%r{href=.*?/releases/v?(4(?:\.\d+)+)/?["']}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:    "2d6e6250634c72884d12c4fdfcf4f585442a6c0403ed2cdae8511870226e23c1"
     sha256 arm64_sequoia:  "76e0588c99b9497463259b330659ce2f53d1c0763f89639c5f42e5503117bac5"
     sha256 arm64_sonoma:   "6abe32932e41a40ff75c1d429fc01ea3492f7a0c3281707c5ae472fba7c5db15"
     sha256 arm64_ventura:  "e63d8b519711cb181b4528efa61771cc1f0075d469fd84a7878b6efb849b6efa"
@@ -36,7 +39,7 @@ class OcamlAT4 < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

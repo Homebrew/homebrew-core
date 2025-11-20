@@ -8,13 +8,15 @@ class Gossip < Formula
   head "https://github.com/mikedilger/gossip.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "094397fd6b7fc10ccb5abfa09aacb87bc1bf9785e5931428e1147bbac8053a5c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22707c47f4bc31392a931bf3b3eff6edd2e56dba3a038c4dbbce58e85db35843"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e16ee0487520298ce54b97437576af2fea08c177c436126734109125f74b00a6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bba898419ef93f501fef1bc643215d94f7b0fc2d335798cdb14ac222f300698d"
-    sha256 cellar: :any_skip_relocation, ventura:       "3b547d284bcaf51552faa323dc36f67a1b0e70a7ba8fe925f557794adb67f233"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf6f593ed8a27f441c52b38ad115ed7dd7e683c249dedad561f727ec871d2bd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96696a0e96b1d6726003ed559c0a659df7925d310dcd3af9fc2623f5b48b3ba2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f92aa10431368840267d013fff2476487a70badc319682d5bd649cf00681917d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69f4c2c908a9e8fc06bc60fc13cf8a99cdc2e53c250e55135061746f1e6f1ac7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52c0547db044f74634ca84ebf9ced852f23a91950d8d50fbc00faf3b5f04daba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0659e6181bcb7a871769af31433121f5a10e0a600b1ba37bcde69aba85c894d7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3bc84869c2e363b24b75f51e8bd0953c8b065dfadc6be87d942f4f2003ee6065"
+    sha256 cellar: :any_skip_relocation, ventura:       "5e2f6d09d8d9907e6073d4a57420df775c38c856ea80576fb5beb799b874d4a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aee8f60a43435d9dea1b85a1335d45ccb0d6667d9b0480e4342afe5ce89b9aba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfb28f95a965f5ef4ffc6be6870a87dbc90d7ed00a9bd511df04ab45bf9f56dd"
   end
 
   depends_on "rust" => :build
@@ -25,7 +27,7 @@ class Gossip < Formula
   end
 
   def install
-    ENV["RUSTFLAGS"] = "--cfg tokio_unstable"
+    ENV.append_to_rustflags "--cfg tokio_unstable"
     system "cargo", "install", *std_cargo_args(path: "gossip-bin"), "--features", "lang-cjk"
   end
 

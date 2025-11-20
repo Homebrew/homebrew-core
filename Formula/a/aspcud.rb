@@ -8,6 +8,7 @@ class Aspcud < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "38a5c5010a8e9f38e95233d7b20dcdb75b76c33e1cb3f80410dc01b277ddc17e"
     sha256 arm64_sequoia:  "429008eb29edff4d08e840bd0eb373ea061c357d01ebab4e416f9d4681b95b0a"
     sha256 arm64_sonoma:   "f9754209fbab844fa1dc333dd669715fb973838a82f87c44580f9198a56b94ea"
     sha256 arm64_ventura:  "559e837a693b869dd122da250d57f222501b1f352bf57258eb4305530f8d30a0"
@@ -31,6 +32,7 @@ class Aspcud < Formula
     args = %W[
       -DASPCUD_GRINGO_PATH=#{Formula["clingo"].opt_bin}/gringo
       -DASPCUD_CLASP_PATH=#{Formula["clingo"].opt_bin}/clasp
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

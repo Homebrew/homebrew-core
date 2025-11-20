@@ -1,12 +1,13 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.21.tar.gz"
-  sha256 "7ad5e84caeb8d2bb6ed0c04614b2a7042def961af82d87f688ba33db857b899d"
+  url "https://mosquitto.org/files/source/mosquitto-2.0.22.tar.gz"
+  sha256 "2f752589ef7db40260b633fbdb536e9a04b446a315138d64a7ff3c14e2de6b68"
   # # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is pretty the same as BSD-3-Clause,
   # see discussions in https://github.com/spdx/license-list-XML/issues/1149
   license any_of: ["EPL-1.0", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -14,13 +15,13 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2f7f1f3f4762d867f5becdfc8c4a9b3a937794cbc9ea617b62304db97990b034"
-    sha256 cellar: :any,                 arm64_sonoma:  "d86b058b1dc26c63f613552aa05a509708ac71296e98df8cb9a56884712685e4"
-    sha256 cellar: :any,                 arm64_ventura: "8454c87786ea6c22427a93837a9245f5e11e361e9cf0bbf0dc65b4e606c9df92"
-    sha256 cellar: :any,                 sonoma:        "6f3c1be1652b15e940304f6354f8d9dfaee1df2d773d58e6cc9dfb8246d4574d"
-    sha256 cellar: :any,                 ventura:       "b48c0a1ca034fc2c958686125ac443db99b66149b0bf50b1fc0ce56d2577661a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c3ed1d516bd691d832028634921690f4b1a64c7ec9a15ab00ccb771d6845a75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b8eccb6a949e8194b38e90d7d35c94a7df188058ab656bc9e0d961c5e119978"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8467e8dcbd98798e7d7e9ad55d59a0fd4cc55fff200c6ed05bf37f85988e8aab"
+    sha256 cellar: :any,                 arm64_sequoia: "e527efed4ff5fc3451a6c2e06a8104a2963818e19e309102f3180e61788cca14"
+    sha256 cellar: :any,                 arm64_sonoma:  "799c04a8715717c7ffb8afa05a0d9f883dcb10b7974a007867fd16490225375e"
+    sha256 cellar: :any,                 sonoma:        "551d0141173d6a4871fdf3992d2d06b21f8e538a51c525518ae26ea1decc7c11"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "379189844ea932eec2348770028c5fa7d45a9879723bc01556ef775c050f9393"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eba022e0965b028e4da39194e492c9ca03a99a1e49ae9ccce08547133dc634c8"
   end
 
   depends_on "cmake" => :build
@@ -45,9 +46,7 @@ class Mosquitto < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-  end
 
-  def post_install
     (var/"mosquitto").mkpath
   end
 
@@ -66,7 +65,7 @@ class Mosquitto < Formula
   end
 
   test do
-    assert_match "Usage: mosquitto ", shell_output("#{sbin}/mosquitto -h", 3)
+    assert_match "Usage: mosquitto ", shell_output("#{sbin}/mosquitto -h")
     assert_match "Dynamic Security module", shell_output("#{bin}/mosquitto_ctrl dynsec help")
     system bin/"mosquitto_passwd", "-c", "-b", testpath/"mosquitto.pass", "foo", "bar"
     assert_match(/^foo:/, (testpath/"mosquitto.pass").read)

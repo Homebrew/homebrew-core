@@ -1,8 +1,8 @@
 class Pkcs11Helper < Formula
   desc "Library to simplify the interaction with PKCS#11"
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
-  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.30.0/pkcs11-helper-1.30.0.tar.bz2"
-  sha256 "4c5815ba910cabf26df08d449ca2909daf4538c9899aa7f7fadc61229d3488a9"
+  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.31.0/pkcs11-helper-1.31.0.tar.bz2"
+  sha256 "46f0067bccd7be2c28f88b8bca775172b9e52fb6fc1280b44ca8bb831433fef9"
   license any_of: ["BSD-3-Clause", "GPL-2.0-or-later"]
   head "https://github.com/OpenSC/pkcs11-helper.git", branch: "master"
 
@@ -13,15 +13,12 @@ class Pkcs11Helper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "02b61fe7186023ea090b8fab072d980451ef4edc5e860c247c2ccba6c422de2b"
-    sha256 cellar: :any,                 arm64_sonoma:   "d5877e3655d952f137610ab0168b4e996dec23dfc16b1ac4db5ab0cdb46eb525"
-    sha256 cellar: :any,                 arm64_ventura:  "720ab7371a01c2ffe4884736240afb22b32c04162a2f5bdf658658556ed7ff74"
-    sha256 cellar: :any,                 arm64_monterey: "341be8334102c4305e939ec2b171724076afeb36182cbecc585b84a79de9eb04"
-    sha256 cellar: :any,                 sonoma:         "6e3be91e06ad419132aec259d8d7d2700e8672f2011493da0b8635409523fc0e"
-    sha256 cellar: :any,                 ventura:        "322d2589c5b33c6ee5ed63b379661701b3bafb3ffb468dc862b33476765448e8"
-    sha256 cellar: :any,                 monterey:       "c809e4cf49d88ce528e2469be931667f121cbe243e04bf549da28bbe20c05ac3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4b3b99c82949368e2f0d2f44ba07e37f59ea6b9dc48596c7cab2259d27234dee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ce66c1a7dcf6725cf1b4f480e734cd4b7ff2f74835b4464c2bf182ce9640d1b"
+    sha256 cellar: :any,                 arm64_tahoe:   "dacc089490af7c5a5083427ddb8d3bbe72750c0895e9740a3b0c083366bec05d"
+    sha256 cellar: :any,                 arm64_sequoia: "14af0cd935c0098c251da028a785ec055fbf1390e49efa7599d64e389bc3317b"
+    sha256 cellar: :any,                 arm64_sonoma:  "c971afeedc5f788b1297d152f30a617c0ee94bd0dc07d667ece07f48938436ef"
+    sha256 cellar: :any,                 sonoma:        "db89780cd8b197eb8e562f190d5cad113acc337c7689b8103f32c25fd70a3551"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4d683661a6a1c128adbdf1eabd49cbbedb2b3e7f3ed2c42883eed6889e9f326"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5567cc0f1a107804f649db18cf383f9fc0fac5927c4aa22d44c8d4b4d5a3edfa"
   end
 
   depends_on "autoconf" => :build

@@ -1,8 +1,8 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  url "https://ziglang.org/download/0.14.1/zig-0.14.1.tar.xz"
-  sha256 "237f8abcc8c3fd68c70c66cdbf63dce4fb5ad4a2e6225ac925e3d5b4c388f203"
+  url "https://ziglang.org/download/0.15.2/zig-0.15.2.tar.xz"
+  sha256 "d9b30c7aa983fcff5eed2084d54ae83eaafe7ff3a84d8fb754d854165a6e521c"
   license "MIT"
 
   livecheck do
@@ -11,18 +11,17 @@ class Zig < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3fffc57a94634f42df4156f3d1c4c2377e3c84772c5b49b95c0fecdc54dea092"
-    sha256 cellar: :any,                 arm64_sonoma:  "4ef618c7685f323025c86403c58e3bae87c7ad47871f709eb935de8798581c6f"
-    sha256 cellar: :any,                 arm64_ventura: "8edc35ba83083e73684c765e06e996a13ee59233c49e091c6495c9c604e29ef6"
-    sha256 cellar: :any,                 sonoma:        "d72ea1ebdae41308ce7145ebe3319736509d25b600683309ec890ac0edfff6ef"
-    sha256 cellar: :any,                 ventura:       "324fbfd949a1648b6abda1ac560d53dc707aedb613570260281581e804564a69"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ff8fc4310dff376fb6c02827f01dce82e0468223ea56996c026795aeba85ec1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "422b4295434e2c8b052379581e8fbcad8b650591e58cdf17fa3df4f7721b1663"
+    sha256 cellar: :any,                 arm64_tahoe:   "dd70b8ff8c60139a550cf147c62385db650f0a78f6a0886d64e5d3a23300fedf"
+    sha256 cellar: :any,                 arm64_sequoia: "57cef8bf8e91f4883be988370fbe8e48c301ded0e578907d73ace9c325f17448"
+    sha256 cellar: :any,                 arm64_sonoma:  "1f4b7e532d85d0b552fbc7c6434e2dc3da4322630823989ee07665b11f1a3fa9"
+    sha256 cellar: :any,                 sonoma:        "a6214bdefd13c3f08072d2104480c977925ecb4160b3528b097761d8a2f0fe10"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd03697749a4dbeec55258d7fd5170b2dd73ca29b1510a001a021d5469287197"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87d7f340a2db08d1274e7d7915252db7880705426fc0b592147cde1f0009935e"
   end
 
   depends_on "cmake" => :build
-  depends_on "lld@19"
-  depends_on "llvm@19"
+  depends_on "lld@20"
+  depends_on "llvm@20"
   depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
 
   # NOTE: `z3` should be macOS-only dependency whenever we need to re-add
@@ -30,11 +29,15 @@ class Zig < Formula
     depends_on "zstd"
   end
 
+  conflicts_with "anyzig", because: "both install `zig` binaries"
+
   # https://github.com/Homebrew/homebrew-core/issues/209483
   skip_clean "lib/zig/libc/darwin/libSystem.tbd"
 
   # Fix linkage with libc++.
-  # https://github.com/ziglang/zig/pull/23264
+  #   https://github.com/ziglang/zig/pull/23264
+  # Fix max_rss
+  #   https://github.com/Homebrew/homebrew-core/issues/252365
   patch :DATA
 
   def install
@@ -74,8 +77,7 @@ class Zig < Formula
     (testpath/"hello.zig").write <<~ZIG
       const std = @import("std");
       pub fn main() !void {
-          const stdout = std.io.getStdOut().writer();
-          try stdout.print("Hello, world!", .{});
+          try std.fs.File.stdout().writeAll("Hello, world!");
       }
     ZIG
     system bin/"zig", "build-exe", "hello.zig"
@@ -150,10 +152,25 @@ index 15762f0ae881..ea729f408f74 100644
 +                if (static or !std.zig.system.darwin.isSdkInstalled(b.allocator)) {
 +                    mod.link_libcpp = true;
 +                } else {
-+                    const sdk = std.zig.system.darwin.getSdk(b.allocator, b.graph.host.result) orelse return error.SdkDetectFailed;
++                    const sdk = std.zig.system.darwin.getSdk(b.allocator, &b.graph.host.result) orelse return error.SdkDetectFailed;
 +                    const @"libc++" = b.pathJoin(&.{ sdk, "usr/lib/libc++.tbd" });
 +                    exe.root_module.addObjectFile(.{ .cwd_relative = @"libc++" });
 +                }
              },
              .windows => {
                  if (target.abi != .msvc) mod.link_libcpp = true;
+
+--------------------------------------------------------------------------------
+diff --git a/build.zig b/build.zig
+index 9e672a4ca7..77959757f7 100644
+--- a/build.zig
++++ b/build.zig
+@@ -738,7 +738,7 @@ fn addCompilerMod(b: *std.Build, options: AddCompilerModOptions) *std.Build.Modu
+ fn addCompilerStep(b: *std.Build, options: AddCompilerModOptions) *std.Build.Step.Compile {
+     const exe = b.addExecutable(.{
+         .name = "zig",
+-        .max_rss = 7_800_000_000,
++        .max_rss = 6_900_000_000,
+         .root_module = addCompilerMod(b, options),
+     });
+     exe.stack_size = stack_size;

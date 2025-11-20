@@ -1,19 +1,20 @@
 class Cmctl < Formula
   desc "Command-line tool to manage cert-manager"
   homepage "https://cert-manager.io"
-  url "https://github.com/cert-manager/cmctl/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "b4c6c88c798f9e8b8b06c6fbeb64fc11eb946b08828a994a44b7e630ffbdaa7b"
+  url "https://github.com/cert-manager/cmctl/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "087b556ab87a9f9d976be4bf72ed5593f080426e7d3cc59ad73130e5bedd0ab5"
   license "Apache-2.0"
   head "https://github.com/cert-manager/cmctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d55363e9112d7eb0669d0afd9bebaed6aaa4531e332201f8fff5bf007bd21e71"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e399616de9badc5575d22baaf20d5c5452c1a3427ba0e5526b6265907e3e58cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea9f09d98bf6dd0d66609a131b1011266ba2d24c23124d311ef51482502b111b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2408e81e4faafa8b520ae42a11df5fb348b1bdd539819f269ab7d166e6e36d2a"
-    sha256 cellar: :any_skip_relocation, ventura:       "2a462c18fc1abe0da3d2095387eb10bf42aafddda80d80c4a1a19bdde52eb8bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "61a962f1faf16288d67bdb0c09ae8597bc813a020537cdd1f6c6d3cdd1003006"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ca89dccfcce132bdbe4d4ddf38f76bc1175e9c9897e4bcd43abd5abb1ae3a18"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5f306641bb0149945609ccd1a619f0ca5b50e62972a12ab437ccd98ad30b3069"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "debfac1b07f3c1c7eeb262887f5210c5114f5465e7dbeb34ffc6c9c817e05a55"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b828e8243bf67ab2d609c418e33a68a3536ff29ef2c6ccb57660b7095b1ff1b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "485d5fc7e498e8bf39e1a98362fb3cd6cd30eb4ba5706d0efbcd90d93a2823d3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2b2c32bef8d8e14d354c229dcabfc4f7ee1d602dda5bc1963f254f421a5ab4f7"
+    sha256 cellar: :any_skip_relocation, ventura:       "ecf8e20f865dcca9caebc3064684f900127de414a294d15318a7bc1285a8123e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0010011f34104b4b842af43700519b3bf42400108e75923615d7da890ef098a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbefa5718ace5b54307ea7c5a94049235106980b3b1c16680ab008a6bb91882a"
   end
 
   depends_on "go" => :build

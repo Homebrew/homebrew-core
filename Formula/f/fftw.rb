@@ -14,13 +14,15 @@ class Fftw < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9a89853940caaca128e46545d3999540ea0723767c8ef8245db8f2419a1b2565"
-    sha256 cellar: :any,                 arm64_sonoma:  "a1105be9ac0dd78978175a1b07b8ef429bf3d3c9074ad39a128fe5f01b910feb"
-    sha256 cellar: :any,                 arm64_ventura: "32a67cfa0e6452c6a8cba5ab8f0cf337ef1f3cb1f55125443332b930c7a307d7"
-    sha256 cellar: :any,                 sonoma:        "8b8af4f154be3b186932fd0050840760227958399093cee5241455194faf7505"
-    sha256 cellar: :any,                 ventura:       "70d0f25e977df25d22f29010ccfb0c4be49438f0b35f525acff56fa7f29c15dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd7685235ce26f62a06f3b227658415d0ec0899885a05e1e4bd827262907b2bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d30800e3ad1513ceb764c62303bb2011a04256a0080b13f9e7803cfc1a4fa43"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "fd117eeb3d95627adacba7ac0acf898f85d0fb1abbcc9b2d3a4dd60e40de0d11"
+    sha256 cellar: :any,                 arm64_sequoia: "f6a6799b0982ed9e7941d8e98061fd286a5062971d9b8d24ea5dbf31b16e01fe"
+    sha256 cellar: :any,                 arm64_sonoma:  "e10f62334e9400d2206f97f27341f40a6a00313b3ba0841273719a378da72e92"
+    sha256 cellar: :any,                 arm64_ventura: "7a199712be0d1f3f939bd6b87713bce221a971a478490be5f0b9ab7957fcdcf7"
+    sha256 cellar: :any,                 sonoma:        "9da96486f698487496f226fac865a83be03898621e336030c9af62ff2330eff5"
+    sha256 cellar: :any,                 ventura:       "51f48b1e29b2fdea49be26e90a65644ed6983839d565b0b071a9ac12f1cc2d6a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "05293e1ec5bbf794d245cb750566afe30bab65fbcae78b6201b109832a19691b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5508eb65401d0b5df3c9e8ebe3e8474a4d5b91e10e03132e4f5032008926fdcf"
   end
 
   depends_on "open-mpi"

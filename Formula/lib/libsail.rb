@@ -1,31 +1,31 @@
 class Libsail < Formula
   desc "Missing small and fast image decoding library for humans (not for machines)"
   homepage "https://github.com/HappySeaFox/sail"
-  url "https://github.com/HappySeaFox/sail/archive/refs/tags/v0.9.8.tar.gz"
-  sha256 "ba2160f0825171ab3c41cbc5bb0834bf56439d2986e5aae5f586d5e2009dd9cd"
+  url "https://github.com/HappySeaFox/sail/archive/refs/tags/v0.9.10.tar.gz"
+  sha256 "dc0d6fa87cb4fa8b514f450a3fb13cee6e3e60f03250f683564fabbec0f722e3"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "a041f04044e8d2688d22ada98c499b56bf7f7b88923be150179f276dcca8a8e4"
-    sha256 arm64_sonoma:  "a26d7f5969d4c111616c5ea768117e5aff27dcb2cac4e03ca90f37ab536444d5"
-    sha256 arm64_ventura: "621cdbbba8f478c344b7972d816ee708fe2e8e76b8167761e4a86b288b691c29"
-    sha256 sonoma:        "aa473ee2d889913139dca352e019d8c2db8b266996c4bc65dc0c6d5e5294ec1c"
-    sha256 ventura:       "4268a9d811d1d9381d6374b22141d85e09308fd5f319a50c22abb71286af20c0"
-    sha256 arm64_linux:   "7fe21e8907150426012d1c18d08e95d83f514cd37adaf4e616b61dd678439056"
-    sha256 x86_64_linux:  "0cf7e10d5a2f95984c62d12bea8cbbe921e28ffa669abc04fe8136267e61e199"
+    sha256 arm64_tahoe:   "c9a4dcaa46627b37f96ae961f8f95cf0d514c8b9f17995b8874d2f379599dbca"
+    sha256 arm64_sequoia: "57d6c75884cc6282503cfe65936fae18737629bb30075a7a221c396de11d2abb"
+    sha256 arm64_sonoma:  "6738e43c69a947c727210ea7bff0cb8062f19928c4e6df5c559b6f4764b7f3d3"
+    sha256 sonoma:        "324bd9bef7096e3b947135f7a32d28d6d704a1ee535ccadafbaa1e4e15ce8068"
+    sha256 arm64_linux:   "1799f08f82fa95ad2a952af049242709b02ce0a6a86a16955d8c09a6ef459090"
+    sha256 x86_64_linux:  "85531cc035d66de09aa924c0579e47c589fd971bda60af0b7113daf1d6362a3b"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "brotli"
   depends_on "giflib"
-  depends_on "highway"
-  depends_on "jasper"
   depends_on "jpeg-turbo"
   depends_on "jpeg-xl"
   depends_on "libavif"
+  depends_on "libheif"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "openexr"
+  depends_on "openjpeg"
   depends_on "resvg"
   depends_on "webp"
 

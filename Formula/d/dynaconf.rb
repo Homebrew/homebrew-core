@@ -3,15 +3,15 @@ class Dynaconf < Formula
 
   desc "Configuration Management for Python"
   homepage "https://www.dynaconf.com/"
-  url "https://files.pythonhosted.org/packages/62/eb/e9d1249ff56b11e63fd8c7d0fcc1f94704e21693c16862bf0ebfb07bd61a/dynaconf-3.2.11.tar.gz"
-  sha256 "4cfc6a730c533bf1a1d0bf266ae202133a22236bb3227d23eff4b8542d4034a5"
+  url "https://files.pythonhosted.org/packages/cd/bd/7a6f84b68268fe1d12e709faec7d293e0c37c9c03bacaf363de41e7e7568/dynaconf-3.2.12.tar.gz"
+  sha256 "29cea583b007d890e6031fa89c0ac489b631c73dbee83bcd5e6f97602c26354e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a603acc6b39b5cfa1f02584927ce2071ef3a04d63f5853497ad93c77aa395116"
+    sha256 cellar: :any_skip_relocation, all: "9680ab2704f9234471f5868430593e7883a33e1f218b8c1764339071938c6401"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

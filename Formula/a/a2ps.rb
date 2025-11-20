@@ -1,21 +1,20 @@
 class A2ps < Formula
   desc "Any-to-PostScript filter"
   homepage "https://www.gnu.org/software/a2ps/"
-  url "https://ftp.gnu.org/gnu/a2ps/a2ps-4.15.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/a2ps/a2ps-4.15.6.tar.gz"
-  sha256 "87ff9d801cb11969181d5b8cf8b65e65e5b24bb0c76a1b825e8098f2906fbdf4"
+  url "https://ftpmirror.gnu.org/gnu/a2ps/a2ps-4.15.7.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/a2ps/a2ps-4.15.7.tar.gz"
+  sha256 "715f38670afd950b4ca71c01f468feefad265ca52d3f112934c63c0a8bfbb8af"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia:  "7effcbad404640b62723336fc0d1024f04f3cf98e4e40d595243512422897f4f"
-    sha256 arm64_sonoma:   "65b376bbaea1ccebe7b46ed808d280c966c0e24fb22f6e92e86dd6eb9d769b75"
-    sha256 arm64_ventura:  "3e182ba99072bc793eaa3e93761288026df7fec9520a39f3f51f1436fe7f5230"
-    sha256 arm64_monterey: "1e6ab666ea444efe10b8892b9923264b8dc0d5961674b3a0937a9cd94397542b"
-    sha256 sonoma:         "010728f54b885a9c8697a81b3602427ccabb10da153d0d74a25526a8144a0e1c"
-    sha256 ventura:        "4b2439ff98f5db6e8c4e3894ba0ab09a4e38e7404a7db950b42de46afeddc62a"
-    sha256 monterey:       "361d7e19f0811037af034bb5a7e582c0cea350cc5a9754f0d05e0094faadf5bb"
-    sha256 arm64_linux:    "67d56e9aed857b4f5d4110820aa4ba50d0d5c6378157ee3a791a5a3a1781947c"
-    sha256 x86_64_linux:   "6df41a07d6bd52713e700a83a2994c5955b305ee068b73c50e4786cbb8213dae"
+    sha256 arm64_tahoe:   "a0e1ed8df721dc8c255fb987d04120fc02f76fae2396b111c744008b9f71950c"
+    sha256 arm64_sequoia: "09f88b61e36045188ddb1b1ba8e402b9f3debee1770cc4ca91355eeccb5f4a38"
+    sha256 arm64_sonoma:  "fa5fee22382064275c78eb9c2c34149f1079d8dd55cff9109db2b9515aff5976"
+    sha256 arm64_ventura: "1c84d09586d6a1dcd21cc0a5bc73879dbf075ea88f8e5d490e6bcef9add4d91d"
+    sha256 sonoma:        "8d6400425422f554d9e668c3625f706989cf0ae89f36fdb57283c826febb4643"
+    sha256 ventura:       "4fad7a2f054888fb432c24d9c78f86b17ebe40fc85ca6154f045195ccc2943fa"
+    sha256 arm64_linux:   "df084253ef723569fb05845b1660a50a4f37f5cdc7018e8439a7b77277093081"
+    sha256 x86_64_linux:  "7333d9a579dcf60c26f56c8505d8181e6d53494a659777586f067f38eb529119"
   end
 
   depends_on "pkgconf" => :build

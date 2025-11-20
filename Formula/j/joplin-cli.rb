@@ -1,23 +1,20 @@
 class JoplinCli < Formula
   desc "Note taking and to-do application with synchronization capabilities"
   homepage "https://joplinapp.org/"
-  url "https://registry.npmjs.org/joplin/-/joplin-3.3.1.tgz"
-  sha256 "b0cc8590966d01eaa5a5d60bdec870ed51c342c80b1ebcbfb33eef222a1c4b01"
+  url "https://registry.npmjs.org/joplin/-/joplin-3.5.1.tgz"
+  sha256 "28182c1e0a2cf8ea05af62a3b7bf732a32d4872afb35346356bcd42bae25b3ab"
   license "MIT"
 
   bottle do
-    sha256                               arm64_sequoia: "76470d9d9c29307d8b35f53a13a7754fc6575d78386de65caaa91ab3ca9f3527"
-    sha256                               arm64_sonoma:  "6f3c853e5d2f9be1bd6f0266fbb64be2c7018cbca3d3577adbd75c1f95ee538a"
-    sha256                               arm64_ventura: "36d5c93be1e4e9db96eb44ea46e3d20ddc68540474e3233e57581cf35fa7b9ff"
-    sha256                               sonoma:        "f18ca7fe37ccf6a4744fa00541bf8fabb95fffcc5907eb9f8403cb9d8ae91d70"
-    sha256                               ventura:       "44a51b383c515b2634a21c66ac5c96d45a39832db7bb55aade89b822b44a6f39"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9fa082d02615325e6393d5d1d559c1f6243fb165240a7f7a396c23a4b235a5db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9738157fd59266c3a6622d6444de5446d3c5fdbfb1c1ef0ec983e57b3478659"
+    sha256                               arm64_tahoe:   "4c814f93dde7c7aec94b51f2747700986fb2792215c8ab6d7689f99456df414f"
+    sha256                               arm64_sequoia: "0972a4c594197e043f10ad8b603141523e1baac35fc75ba654a9f9a0d6137c51"
+    sha256                               arm64_sonoma:  "cd72755f17716d535812daf624f3fb650f459352568f39fb0a86ab92305548bf"
+    sha256                               sonoma:        "da78de3b3d94131a52bbba1379b2eeeb4cc25fed188afa97e78e105fab24b65d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a90ee5357fc60e44d44175c9b88a32ce05acd0e6e0afda3301d79a0049a23588"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7410c5b61863a8f7547ab4b979bdebcff44a658512bdb7681f1c70a8268b912e"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "python-setuptools" => :build # for node-gyp
-  depends_on "python@3.13" => :build
   depends_on "glib"
   depends_on "node"
   depends_on "sqlite"
@@ -29,6 +26,9 @@ class JoplinCli < Formula
   end
 
   on_linux do
+    # Workaround for old `node-gyp` that needs distutils.
+    # TODO: Remove when `node-gyp` is v10+
+    depends_on "python-setuptools" => :build
     depends_on "libsecret"
   end
 

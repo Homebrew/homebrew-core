@@ -8,6 +8,7 @@ class Dopewars < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "e8059b057bea2eb7a0c33542aebc0be5dfb26ba9f681594af77f6584accd328f"
     sha256 arm64_sequoia:  "5e19478fc233eac61d8c45e6b671f1853c0b4f95777a4a2d99ad1ed6eac6d38a"
     sha256 arm64_sonoma:   "8cb9bfd69260ceae6ce8a5062fcba8ee7aa4edcb7191dc048c0d03ca13a783aa"
     sha256 arm64_ventura:  "f6c44772360736b7f1aabbee2da0371fcef2435309a4a632d870e53af1e0729b"

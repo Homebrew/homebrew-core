@@ -1,23 +1,21 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/3.0.0.tar.gz"
-  sha256 "5701c0a0e801a27cb1fb6521c17138c43a0933e364fa2cfb5a62cfcdcb4e1270"
+  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/3.3.2.tar.gz"
+  sha256 "d1506c8d56abc6af535bb242f5285e1e342486ce236e932205bcd291a1f21de3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02c7d73c1f51d079efc702aeabc45e840dfbd6f9c3e3a5d5d39845b7e084f9b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08a110cc034a792732c5612adfa6879b8d0cd360d0abb538f4987be274bdf829"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ff98574221a06111ee8663c5a55f9de0661b3275f85c93fea08cc4b93a21abb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9ac2af223ccdc1bc9df151bd53e56415c3ea5a3dd664e9ff6efd32734df83974"
-    sha256 cellar: :any_skip_relocation, ventura:       "7316664aaad936f205d760e5e3292b3f567723d05acd4eaf7cf3c7818333a60b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2af72cc2f707be2ca3ea709fbf1e597a923e4daa7a3e5610178bb697bb022eb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7f8b518e5898e1af368400a5053ee50e2df258bc05de53dfcc8549ffffab46f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "20ef25ccefb28402b6dff6bf7870b0bdae01fac39cbc15de393f24ef9526afe2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61851a2c8a50f8c11cad32ff6c6cceb4b65493b6d76652b23fc75c1535432f5f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f246e77962c9f20b746b7d3663a9669af9a7719d1869cb0ce37a1fe7bf08aa54"
+    sha256 cellar: :any_skip_relocation, sonoma:        "813fca3a3ef8a3bd196e353b75ed370313039e9f4b2c6d62e4776441fca8ba3e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d6047c9ceeafa561e17d2ad9a9d39db0b5ffec48f0122ece38cb7df307a8153"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed7e7901f72f5821603109a45f4a5a8973b4354969cad5f4519fe050860db517"
   end
 
-  depends_on "gradle" => :build
-  # Can be updated after https://github.com/opensearch-project/OpenSearch/pull/18085 is released.
-  depends_on "openjdk@21"
+  depends_on "gradle@8" => :build
+  depends_on "openjdk"
 
   def install
     platform = OS.kernel_name.downcase
@@ -59,8 +57,7 @@ class Opensearch < Formula
                 libexec/"bin/opensearch-keystore",
                 libexec/"bin/opensearch-plugin",
                 libexec/"bin/opensearch-shard"
-    # Can be updated after https://github.com/opensearch-project/OpenSearch/pull/18085 is released.
-    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk@21"].opt_prefix)
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
   end
 
   def post_install

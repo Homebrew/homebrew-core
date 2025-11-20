@@ -1,22 +1,28 @@
 class Martin < Formula
   desc "Blazing fast tile server, tile generation, and mbtiles tooling"
   homepage "https://martin.maplibre.org"
-  url "https://github.com/maplibre/martin/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "61b495e96d6d75e9d65057c9b4c95ed78fcdab6dfa2b73424cbc930431e99e6c"
+  url "https://github.com/maplibre/martin/archive/refs/tags/martin-v1.0.0.tar.gz"
+  sha256 "9cf1b84a11299be808ae8c304dcffe371aa5de482df97e674c5b1d1d004c97f5"
   license any_of: ["Apache-2.0", "MIT"]
 
+  livecheck do
+    url :stable
+    regex(/^martin[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b4a75b9f8a45f4b7dfa4707a90e96bce585678e9d5c656296378daa2c458983"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90c8c7d65788f0ea4de8296dd12f77c9d77fa9bb46430203fe81af9e8a25d4bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "376af7adc40beb95536d5f81c0388990e648589ed8a7e73ea18a07d5e9087640"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b6af305d19b8e5f42a5a8027ba21d439d03b896a7cdc077d77ea02973164a0ca"
-    sha256 cellar: :any_skip_relocation, ventura:       "cd2e07c18243e83f2b9a4fd69bd97668dc1622ebe9036a443672c7ef867d845e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bc878acf47abfd4707863bf25f95e8664ba5630fca1a031be96a5fedb5ad0a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "096ed4f427aae8c109edc465abd166c17cb5ed29d941cafb13a627c95900837f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7bc9b5b9e61440ad27e1c571f0014619256bfe87744f2da0524f767b4ea39ecc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60d070d7990ebc4fea0f27a55629eb0d163dc5e4f68b975aa43c617a655131e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd922c0356afd498c0aa941bcd662e88ffbb154146fdaad5fff0f9808cfbc3a8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a81c2387ff62d07a943103be1f2b038cf1bd1b1c7b1817ae413aef3d8ef3f472"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32ff79a11dbdde412dbfa5023f919e411a8ee88ebf877ecaf19f88e97ec19a3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76284966a16a8ed51fcef00fe567ba074302c7ee619bddf8e44d88cc262179bb"
   end
 
   depends_on "node" => :build
   depends_on "rust" => :build
+
+  uses_from_macos "sqlite" => :test
 
   def install
     system "cargo", "install", *std_cargo_args(path: "martin")
@@ -25,7 +31,10 @@ class Martin < Formula
   end
 
   test do
-    mbtiles = pkgshare/"mbtiles/world_cities.mbtiles"
+    sqlfile = pkgshare/"mbtiles/world_cities.sql"
+    system "sqlite3 world_cities.mbtiles < #{sqlfile}"
+    mbtiles = testpath/"world_cities.mbtiles"
+
     port = free_port
     fork do
       exec bin/"martin", mbtiles, "-l", "127.0.0.1:#{port}"

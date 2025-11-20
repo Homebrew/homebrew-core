@@ -1,8 +1,8 @@
 class Dar < Formula
   desc "Backup directory tree and files"
   homepage "http://dar.linux.free.fr/doc/index.html"
-  url "https://downloads.sourceforge.net/project/dar/dar/2.7.18/dar-2.7.18.tar.gz"
-  sha256 "6131b7d6d79a093bfcb320abbb90df941df8e9bc73f89ae6410bccdeffa5eb46"
+  url "https://downloads.sourceforge.net/project/dar/dar/2.8.1/dar-2.8.1.tar.gz"
+  sha256 "217843cfb55ca99ccb38349f4778efd24de461aeee6f3d70ceacd1d9a4f492a4"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,27 +11,34 @@ class Dar < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "c6ed9371b7e5203385c32c792ed7828803aa2d3f924fdcae627c556408ea550a"
-    sha256 arm64_sonoma:  "fb6c4236f27c2716a3ebb589ec52b6808dcbfe175d58556962fa1d949cf70d05"
-    sha256 arm64_ventura: "187b84cbfc58815808a327357f55713dfe6d049bb6f169eb642db5bbff06e328"
-    sha256 sonoma:        "3e4a651e548e018c9f0f4761759e5f9f955c4aca925777fdb02df201e4db3d80"
-    sha256 ventura:       "69e51d3e93a69a3e5b37e5a84fd503ecca2293868adc15a5a54506541474cf07"
-    sha256 arm64_linux:   "3ebb2f92ba45ba9e6b75ff28ab2011a2839c5bff0a5cbc1de5a161d504e3b952"
-    sha256 x86_64_linux:  "bce142259c9f933d7dcd507a79f2d4e327841fe4e022a4537fbfb6b7533f5a47"
+    rebuild 1
+    sha256 arm64_tahoe:   "b858726b4a26f73aba47940eafea0a9116eff95a26bb0d1ced19793891502f99"
+    sha256 arm64_sequoia: "b925104d7c81d541438f334cdad20b5514863fa0db3a288d4d3c0b37b728dc5e"
+    sha256 arm64_sonoma:  "add2d890eb0e67aab3a81456b7fd7be79e09bc00de14a1c3fd8141a87c30beef"
+    sha256 sonoma:        "d89f5be741fa7cb143121b9fd7cd49a027ebd68b37cc6783d9932bf2441eb8c6"
+    sha256 arm64_linux:   "eb342aa21f80b119717d7b715cb122591c27858e00e727d0cb7f443e7a6c1ab1"
+    sha256 x86_64_linux:  "39d25cf2c020a5a44ace257fc9ccc60d6d9ef57f46e5d623dafb4f2a006c99d9"
   end
 
   depends_on "argon2"
   depends_on "libgcrypt"
+  depends_on "libgpg-error"
+  depends_on "lz4"
   depends_on "lzo"
-
+  depends_on "xz"
+  depends_on "zstd"
+  uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-build-html",
                           "--disable-dar-static",
                           "--disable-dependency-tracking",
-                          "--disable-libxz-linking",
                           "--enable-mode=64"
     system "make", "install"
   end

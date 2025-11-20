@@ -6,7 +6,10 @@ class Xplanet < Formula
   license "GPL-2.0-or-later"
   revision 6
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256                               arm64_tahoe:    "7496e485b462de4b286f4128d145dfc58aaba93237aafc36ec1c0138a740be46"
     sha256                               arm64_sequoia:  "1c5fb1f5235c56e1aa7f84415b49428ed1c92532b47697800982f01dcfb4d842"
     sha256                               arm64_sonoma:   "1092db3b7841f3a9e16d41baa7b4370ab212ec0523275e2b96cad8f2235873e7"
     sha256                               arm64_ventura:  "aa69c74fc48645353401ccfeb35f7bf0527b696f34523754e2c81077459bbc64"
@@ -36,14 +39,14 @@ class Xplanet < Formula
   # patches bug in 1.3.1 with flag -num_times=2 (1.3.2 will contain fix, when released)
   # https://sourceforge.net/p/xplanet/code/208/tree/trunk/src/libdisplay/DisplayOutput.cpp?diff=5056482efd48f8457fc7910a:207
   patch :p2 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f952f1d/xplanet/xplanet-1.3.1-ntimes.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/xplanet/xplanet-1.3.1-ntimes.patch"
     sha256 "3f95ba8d5886703afffdd61ac2a0cd147f8d659650e291979f26130d81b18433"
   end
 
   # Fix compilation with giflib 5
   # https://xplanet.sourceforge.net/FUDforum2/index.php?t=msg&th=592
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6b8519a9391b96477c38e1b1c865892f7bf093ca/xplanet/xplanet-1.3.1-giflib5.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/xplanet/xplanet-1.3.1-giflib5.patch"
     sha256 "0a88a9c984462659da37db58d003da18a4c21c0f4cd8c5c52f5da2b118576d6e"
   end
 
@@ -54,6 +57,9 @@ class Xplanet < Formula
     url "https://raw.githubusercontent.com/archlinux/svntogit-community/040965e32860345ca2d744239b6e257da33460a2/trunk/xplanet-c%2B%2B11.patch"
     sha256 "e651c7081c43ea48090186580b5a2a5d5039ab3ffbf34f7dd970037a16081454"
   end
+
+  # Backport https://sourceforge.net/p/xplanet/code/222/
+  patch :p0, :DATA
 
   def install
     # Workaround for ancient config files not recognizing aarch64 macos.
@@ -92,3 +98,91 @@ class Xplanet < Formula
                           "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
   end
 end
+
+__END__
+--- src/readConfig.cpp	(revision 221)
++++ src/readConfig.cpp	(revision 222)
+@@ -46,10 +46,10 @@
+         {
+         case ARC_COLOR:
+         {
+-            int r, g, b;
+-            if (sscanf(returnString, "%d,%d,%d", &r, &g, &b) == 3)
++            unsigned char r, g, b;
++            if (sscanf(returnString, "%hhu,%hhu,%hhu", &r, &g, &b) == 3)
+             {
+-                unsigned char color[3] = { r & 0xff, g & 0xff, b & 0xff };
++                unsigned char color[3] = { r, g, b };
+                 currentProperties->ArcColor(color);
+             }
+             else
+@@ -176,10 +176,10 @@
+         break;
+         case COLOR:
+         {
+-            int r, g, b;
+-            if (sscanf(returnString, "%d,%d,%d", &r, &g, &b) == 3)
++            unsigned char r, g, b;
++            if (sscanf(returnString, "%hhu,%hhu,%hhu", &r, &g, &b) == 3)
+             {
+-                unsigned char color[3] = { r & 0xff, g & 0xff, b & 0xff };
++                unsigned char color[3] = { r, g, b };
+                 currentProperties->Color(color);
+             }
+             else
+@@ -241,10 +241,10 @@
+         break;
+         case GRID_COLOR:
+         {
+-            int r, g, b;
+-            if (sscanf(returnString, "%d,%d,%d", &r, &g, &b) == 3)
++            unsigned char r, g, b;
++            if (sscanf(returnString, "%hhu,%hhu,%hhu", &r, &g, &b) == 3)
+             {
+-                unsigned char color[3] = { r & 0xff, g & 0xff, b & 0xff };
++                unsigned char color[3] = { r, g, b };
+                 currentProperties->GridColor(color);
+             }
+             else
+@@ -293,10 +293,10 @@
+         break;
+         case MARKER_COLOR:
+         {
+-            int r, g, b;
+-            if (sscanf(returnString, "%d,%d,%d", &r, &g, &b) == 3)
++            unsigned char r, g, b;
++            if (sscanf(returnString, "%hhu,%hhu,%hhu", &r, &g, &b) == 3)
+             {
+-                unsigned char color[3] = { r & 0xff, g & 0xff, b & 0xff };
++                unsigned char color[3] = { r, g, b };
+                 currentProperties->MarkerColor(color);
+             }
+             else
+@@ -400,10 +400,10 @@
+         break;
+         case ORBIT_COLOR:
+         {
+-            int r, g, b;
+-            if (sscanf(returnString, "%d,%d,%d", &r, &g, &b) == 3)
++            unsigned char r, g, b;
++            if (sscanf(returnString, "%hhu,%hhu,%hhu", &r, &g, &b) == 3)
+             {
+-                unsigned char color[3] = { r & 0xff, g & 0xff, b & 0xff };
++                unsigned char color[3] = { r, g, b };
+                 currentProperties->OrbitColor(color);
+             }
+             else
+@@ -470,10 +470,10 @@
+             break;
+         case TEXT_COLOR:
+         {
+-            int r, g, b;
+-            if (sscanf(returnString, "%d,%d,%d", &r, &g, &b) == 3)
++            unsigned char r, g, b;
++            if (sscanf(returnString, "%hhu,%hhu,%hhu", &r, &g, &b) == 3)
+             {
+-                unsigned char color[3] = { r & 0xff, g & 0xff, b & 0xff };
++                unsigned char color[3] = { r, g, b };
+                 currentProperties->TextColor(color);
+             }
+             else

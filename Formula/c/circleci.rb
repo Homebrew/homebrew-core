@@ -1,20 +1,20 @@
 class Circleci < Formula
   desc "Enables you to reproduce the CircleCI environment locally"
-  homepage "https://circleci.com/docs/2.0/local-cli/"
+  homepage "https://circleci.com/docs/guides/toolkit/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      tag:      "v0.1.32367",
-      revision: "16777db75e7658684c7beedccfe0028aab9206b6"
+      tag:      "v0.1.33721",
+      revision: "340a1059a410fdb62f5815de25ae6f1de69a6674"
   license "MIT"
   head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a530caf6cba45160560a0c65b62aed98f9692fe5497b985983ccf7fdcc4bf29"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a530caf6cba45160560a0c65b62aed98f9692fe5497b985983ccf7fdcc4bf29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6a530caf6cba45160560a0c65b62aed98f9692fe5497b985983ccf7fdcc4bf29"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a492127bcec28ea03b9101cb2f894f066f95dcc291a125b3b55ffc6e9f460686"
-    sha256 cellar: :any_skip_relocation, ventura:       "a492127bcec28ea03b9101cb2f894f066f95dcc291a125b3b55ffc6e9f460686"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2930ea50b61a985b357585e52b1b6f02f9e76ed919c36dacf4d987ef80b01e01"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e88a554607702f2bd8103ea801aa6687a0b4373fd8f2101225449e235669ca9a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9e3b071e0cc782350b1c34c86e56c33915defcc092be849e3ddc92bf63758ecf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a16f04844cfe2a3636499fbbde84e679d43600e22757174d7081692eaaeddb3d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c70d6ae02fcd3bb2c6a386bebc5d43f522db72463a836bd47eac054c48c29ca1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9ed09466744e8e2879f171ba46344fb5ce7fd6803cb999a62ab688159c46965"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e7beeb5f3b1e7bb9c281cbe926db4627e48cbbe46cbf846c45074169af1034e"
   end
 
   depends_on "go" => :build

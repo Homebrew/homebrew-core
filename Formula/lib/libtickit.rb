@@ -11,6 +11,7 @@ class Libtickit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4218e9b484e59347d3bfb008a4e5c8c5e57ca4210a71ca946f84d97f44fd7bc9"
     sha256 cellar: :any,                 arm64_sequoia: "51f8cb2afcb7f3ddf657cf19f3443d137d446f4cb507a5e9832321a978aaa65a"
     sha256 cellar: :any,                 arm64_sonoma:  "6ec0c3165a73423aa8e34fe65319418fb116768b7b71115341a1bcc4a5c6ffe3"
     sha256 cellar: :any,                 arm64_ventura: "c105a349bb5d28ea65b1ae84f6f1f8490cf6476ed5060b1b630ec95b9dcfa7ab"

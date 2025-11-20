@@ -8,14 +8,12 @@ class GitRevise < Formula
   license "MIT"
   head "https://github.com/mystor/git-revise.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, all: "60d72785f3a41be712e088e432f33aaf774461f8ba07e46bcb95af9cdcbdf358"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "0b06f748fef88b876546518daf22793e085197982bade5ebe8717552923c8903"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

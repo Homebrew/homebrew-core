@@ -13,24 +13,19 @@ class Jags < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "9ec17a748448aef193d0e71ca36c578a4b2b587d2a020d88331d38c07ea0f557"
-    sha256 cellar: :any,                 arm64_sonoma:   "576bfc31090a7cc7bbae18111b04dd83bea17682c2262d287614727f72410e63"
-    sha256 cellar: :any,                 arm64_ventura:  "c8ba96c00fb39ab7f4c3089238a555e27ce43f6ab60e9b6999584280340ecb21"
-    sha256 cellar: :any,                 arm64_monterey: "3f1eacf3e53bf3189c9d196eb6de1d65a05f7e57f9b25d6d160941fe57325825"
-    sha256 cellar: :any,                 arm64_big_sur:  "3c606af0d9e40ccd6b0760ded88dc5900c5a8c8c9c5dd0b1a4854a53a804865c"
-    sha256 cellar: :any,                 sonoma:         "4a4faf34b75030cefcc11cf429718f3615c49ffebf4c0b77acbbb0edf478dc96"
-    sha256 cellar: :any,                 ventura:        "d40f5a21bf78129d3b7f2971599820cd314abc833845cbf26873ca46898354c3"
-    sha256 cellar: :any,                 monterey:       "d839d57ae5b36275eef12c902e66b29321085f025795f2c074e5d65eda01f984"
-    sha256 cellar: :any,                 big_sur:        "0cd7d7d301775a3efdaa8dc7aa1c10100b7aba983a22a1b08a68a76f8aa0b434"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "32a23e1ae56951dfc6202a6c02642cb8d12bba5c831573848cb07ebec7dd091a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3f035c69478626479915a42deb8a4e329e3eebef4db5ab7f44e7c23dad34958"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "cac7a756275255627578b03f0e89c7df5955b516b9b57b0475aaaf30ca5fe932"
+    sha256 cellar: :any,                 arm64_sequoia: "de0d1c33eb2f62ec580fb8b76727ba538bfe1f01a802240e3a96c6b7e31e1282"
+    sha256 cellar: :any,                 arm64_sonoma:  "a175a6e45539cfd77e34b8404ec1f0000bad131c5fd74f1317c80a9bbfd4396b"
+    sha256 cellar: :any,                 arm64_ventura: "809d732b7d3e75338f66314de253d729c80b599d720b3a8ed963552378a949f3"
+    sha256 cellar: :any,                 sonoma:        "6018f7174407683c3970770a7ece8fafb940d393ec7361426477cc390e857fcb"
+    sha256 cellar: :any,                 ventura:       "16f424522f064867861a0cdd680d2709fe7a8dacf9765876feb831e9c3731be7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f26c887dcbe69d7cec1ab2623118c55ae76ab9ab6e4526925d06835d63a19fb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb7357faec7f40014256713e322f796e39c5600cfe872753b2fc15b9f3dfefd2"
   end
 
-  depends_on "gcc" # for gfortran
-
-  on_linux do
-    depends_on "openblas"
-  end
+  depends_on "gcc" => :build # for gfortran
+  depends_on "openblas"
 
   def install
     system "./configure", *std_configure_args

@@ -11,6 +11,7 @@ class Efl < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "acf90be6429afc82b654e0ae3a9ce93fb59ccfaa1defff2818ee8bf7d4ec8c4b"
     sha256 arm64_sequoia: "08c3174445bc5f78a9c46cfdf4d73b59a1c75978f6a6a203076a418b77241f77"
     sha256 arm64_sonoma:  "e49c3a736f6e9ecda80831e0939fe3f9249f3f99299ac5533e13e9cd871163a5"
     sha256 arm64_ventura: "1ba80183f196e5a7270c7aeb0278eded8f11e0a06c3c1379f10bb2b78e7aa05b"
@@ -59,6 +60,16 @@ class Efl < Formula
 
   on_linux do
     depends_on "mesa"
+  end
+
+  # Fix conflicting bool definition.
+  patch do
+    url "https://git.enlightenment.org/enlightenment/efl/commit/0fcaf460c4a33eb54a51b9d8cb38321603019529.patch"
+    sha256 "45492dcea5141814763ed17ac22b068aa74bb165e40afa0fc6cef72af5632335"
+  end
+  patch do
+    url "https://git.enlightenment.org/enlightenment/efl/commit/628c40cce2de0a18818b40615d3351b0c9e9b889.patch"
+    sha256 "13823eb598c2dd81c0a3f143a5b043d0163e8d3b843e397ec4666302943b56d9"
   end
 
   # Remove LuaJIT 2.0 linker args -pagezero_size and -image_base

@@ -1,8 +1,8 @@
 class Yices2 < Formula
   desc "Yices SMT Solver"
   homepage "https://yices.csl.sri.com/"
-  url "https://github.com/SRI-CSL/yices2/archive/refs/tags/Yices-2.6.5.tar.gz"
-  sha256 "46a93225c1e14ee105e573bb5aae69c8d75b5c65d71e4491fac98203cb0182f3"
+  url "https://github.com/SRI-CSL/yices2/archive/refs/tags/yices-2.7.0.tar.gz"
+  sha256 "584db72abf6643927b2c3ba98ff793f602216b452b8ff2f34a8851d35904804a"
   license "GPL-3.0-only"
   head "https://github.com/SRI-CSL/yices2.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Yices2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7aa9455d40cdd55ef92337c0216bbd59eb9a79436112ba5048371762c2ef6447"
-    sha256 cellar: :any,                 arm64_sonoma:  "0ebe8f48d46ba45ce6f51e16731dc13419c44274b68909ed9635dcb13b6387cc"
-    sha256 cellar: :any,                 arm64_ventura: "e9f1e7539230db974013b318edcb79b903d4481f535412a15a011e8db1e848a7"
-    sha256 cellar: :any,                 sonoma:        "df4295c2f41d0c4615eddc34ec1a6027ac42f1878ef5a480073b9173e6694966"
-    sha256 cellar: :any,                 ventura:       "e6ef02af7980cac20b6421c387b7273c96526b00979764eed016201d08ae2f4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab2b4ae5de11f2261d60972181d48b4174c90a9a0c1eaaba39a7ede75d16d4b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e262428f6fe4f84fb209b35479ed9210fa975ec908120e77dcea8f797fc6752"
+    sha256 cellar: :any,                 arm64_tahoe:   "2df989805c717cb45574f0bf1d84eabdec50cf4d5748a9f1f8bdbf0cde5c9fa2"
+    sha256 cellar: :any,                 arm64_sequoia: "d94ae8d40c3a882393d36e3f868f9dde59c24beb2202b483063a5185075139ee"
+    sha256 cellar: :any,                 arm64_sonoma:  "c250094bd74818ddb24ea16c6ebe228f2b096e2cfad0823e81c15968cd8bb915"
+    sha256 cellar: :any,                 arm64_ventura: "acb1d683ad88ff73884a8763b4be8a6a8ef2191e1e0c9bb4f1148ad567b6fe9f"
+    sha256 cellar: :any,                 sonoma:        "a96677d6a211fad706027741156659a27248c92cfdc551af54320447b60c6541"
+    sha256 cellar: :any,                 ventura:       "43e43decf3e87e3f9d0dea527de3716dfe4bebeae53f284770febd4e999a5d1b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c7c20fd75460a7097c96078649acb02fce6c2d0a51612e87c2f2471840358c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2509483f7fa18241b1a4005a408ec700e5c4e5c567e0e63d6f7f1f783b179bbc"
   end
 
   depends_on "autoconf" => :build
@@ -47,6 +48,7 @@ class Yices2 < Formula
       ;; Print the model
       (get-model)
     EOF
-    assert_match "sat\n(= x 2)\n(= y (- 1))\n", shell_output("#{bin}/yices-smt2 #{testpath}/lra.smt2")
+    output = shell_output("#{bin}/yices-smt2 #{testpath}/lra.smt2")
+    assert_match "sat\n((define-fun x () Real 2.0)\n (define-fun y () Real (- 1.0)))\n", output
   end
 end

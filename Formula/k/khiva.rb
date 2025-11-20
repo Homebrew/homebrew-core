@@ -22,6 +22,7 @@ class Khiva < Formula
   # https://github.com/arrayfire/arrayfire/commit/be7f2d93de3796050e56037cc0c340a2ef34e813
   # Last release on 2020-04-29 and last commit on 2020-05-20.
   deprecate! date: "2024-09-27", because: :does_not_build
+  disable! date: "2025-09-27", because: :does_not_build
 
   depends_on "boost" => :build
   depends_on "cmake" => :build

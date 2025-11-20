@@ -37,9 +37,9 @@ class Keptn < Formula
     system bin/"keptn", "set", "config", "AutomaticVersionCheck", "false"
     system bin/"keptn", "set", "config", "kubeContextCheck", "false"
 
-    assert_match "Keptn CLI version: #{version}", shell_output(bin/"keptn version 2>&1")
+    assert_match "Keptn CLI version: #{version}", shell_output("#{bin}/keptn version 2>&1")
 
-    output = shell_output(bin/"keptn status 2>&1", 1)
+    output = shell_output("#{bin}/keptn status 2>&1", 1)
     if OS.mac?
       assert_match "Error: credentials not found in native keychain", output
     else

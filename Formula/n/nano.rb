@@ -1,8 +1,8 @@
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
-  url "https://www.nano-editor.org/dist/v8/nano-8.4.tar.xz"
-  sha256 "5ad29222bbd55624d87ea677928b3106a743114d6c6f9b41f36c97be2a8e628d"
+  url "https://www.nano-editor.org/dist/v8/nano-8.7.tar.xz"
+  sha256 "afd287aa672c48b8e1a93fdb6c6588453d527510d966822b687f2835f0d986e9"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Nano < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d2f5ea1b33cec52869da9ca76f2965254dc1b85fcf496d5754353ccadafc4bbd"
-    sha256 arm64_sonoma:  "f17394e1f1723dea883838a5ffe80ca4d2936d90aec0ae978e1b170b99153286"
-    sha256 arm64_ventura: "ccc99590f0bb5322c290c25da9df6ee50afeabcc7b46a0c5307ab46826363232"
-    sha256 sonoma:        "8b32bd52654b34f36b0467c708682bc36e9ab88f136fc03c0ad420c757295b77"
-    sha256 ventura:       "861c213bcbcfda215fd4e12957b8f06f2bb18e6b5f5f75e0b3e86e4f9dff9e67"
-    sha256 arm64_linux:   "8eb34575f7aa47e1076a9c9225bd9997171f4a6db9961c5064bdcf7c993653f8"
-    sha256 x86_64_linux:  "3fcf803e2e1e8b8b732f97bc45d1df1ce043f1a5cc3023194195dc53ac415627"
+    sha256 arm64_tahoe:   "6b63139c74cde388ab6d8ba9cc69e3f7032e0ede0c1b28b1dfaffe2b13ca5938"
+    sha256 arm64_sequoia: "ba45e6d2e5017ce3b2ced758f30a3f24245a35a9ea263e8b2f998af20a1c9760"
+    sha256 arm64_sonoma:  "7fe07dc926617c8ec07a21eb8866db22e2bf7843b2de16350e91bcf1d76e9e70"
+    sha256 sonoma:        "43ac3c3067fc0e34653685a9fdff9b4eb2a2009169c9492a69aeaca3bd14c821"
+    sha256 arm64_linux:   "8e79ce32c8a55823dc6929db1fd42469540e85cab59bb16caf2945c0aa1c3c9d"
+    sha256 x86_64_linux:  "d931e71ce0ccf7538366f47b3459e938bc3a5c9a1de5a75fa24106749d1a7f95"
   end
 
   depends_on "pkgconf" => :build
@@ -42,5 +41,23 @@ class Nano < Formula
 
   test do
     system bin/"nano", "--version"
+
+    # Skip test on Intel macOS due to CI failures
+    return if OS.mac? && Hardware::CPU.intel?
+
+    PTY.spawn(bin/"nano", "test.txt") do |r, w, _pid|
+      sleep 1
+      w.write "test data"
+      sleep 1
+      w.write "\u0018" # Ctrl+X
+      sleep 1
+      w.write "y"      # Confirm save
+      sleep 1
+      w.write "\r"     # Enter to confirm filename
+      sleep 1
+      OS.mac? && r.read
+    end
+
+    assert_match "test data", (testpath/"test.txt").read
   end
 end

@@ -41,7 +41,7 @@ jobs:
       actions: read
     steps:
       - name: Upload metadata
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
         with:
           name: event_payload
           path: ${{ github.event_path }}
@@ -251,20 +251,19 @@ jobs:
       fromJson(needs.status-check.outputs.complete) &&
       fromJson(needs.status-check.outputs.mergeable)
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     permissions:
       contents: read
       pull-requests: read
       actions: write # to dispatch publish workflow
     steps:
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
         with:
           core: false
           cask: false
-          test-bot: false
 
-      - run: brew pr-publish "$PR"
+      - run: brew pr-publish --branch=main "$PR"
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ needs.status-check.outputs.pull-number }}

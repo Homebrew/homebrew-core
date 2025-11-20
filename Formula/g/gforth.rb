@@ -1,7 +1,7 @@
 class Gforth < Formula
   desc "Implementation of the ANS Forth language"
   homepage "https://www.gnu.org/software/gforth/"
-  url "https://ftp.gnu.org/gnu/gforth/gforth-0.7.3.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/gforth/gforth-0.7.3.tar.gz"
   sha256 "2f62f2233bf022c23d01c920b1556aa13eab168e3236b13352ac5e9f18542bb0"
   license "GPL-3.0-or-later"
   revision 3
@@ -10,6 +10,7 @@ class Gforth < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:    "ede972e5e6570b4811d3967dd77c8780142c5bc97884a392c523b4b91b913148"
     sha256 arm64_sequoia:  "d883e4eb6b087d2168148fcef85b3d792c38f748a0b18b7a303151d9247df073"
     sha256 arm64_sonoma:   "d630a48eba921bafb2c5ee8c6c92372c82eddca1c09b957fa6ed0546614f2d4a"
     sha256 arm64_ventura:  "5338b68e5c73e09b9bb05abe64d434d4a68df62a5ee07b45e6852ddb33d14ae9"

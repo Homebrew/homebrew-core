@@ -72,6 +72,14 @@ module.exports = async ({github, context, core}, formulae_detect, dependent_test
     const test_bot_formulae_args = ["--only-formulae", "--junit", "--only-json-tab", "--skip-dependents"]
     const test_bot_dependents_args = ["--only-formulae-dependents", "--junit"]
 
+    if (label_names.includes(`CI-test-bot-no-concurrent-downloads`)) {
+      console.log(`CI-test-bot-no-concurrent-downloads label found. Not passing --concurrent-downloads to brew test-bot.`)
+    } else {
+      console.log(`No CI-test-bot-no-concurrent-downloads label found. Passing --concurrent-downloads to brew test-bot.`)
+      test_bot_formulae_args.push('--concurrent-downloads')
+      test_bot_dependents_args.push('--concurrent-downloads')
+    }
+
     if (label_names.includes(`CI-test-bot-fail-fast${deps_suffix}`)) {
       console.log(`CI-test-bot-fail-fast${deps_suffix} label found. Passing --fail-fast to brew test-bot.`)
       test_bot_formulae_args.push('--fail-fast')

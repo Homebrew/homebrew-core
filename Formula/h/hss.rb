@@ -1,25 +1,17 @@
 class Hss < Formula
   desc "Interactive parallel SSH client"
   homepage "https://github.com/six-ddc/hss"
-  url "https://github.com/six-ddc/hss/archive/refs/tags/1.9.tar.gz"
-  sha256 "d7846ee657fe6a600c7d6f8e91f17ffa238efcaeb6f79856caa9fdedd96e3bca"
+  url "https://github.com/six-ddc/hss/archive/refs/tags/1.10.tar.gz"
+  sha256 "570585d660e64ba29e574f68bae5f2e38905d9a5f6ce0e9e36d82c5342fddf2b"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "c616d7afe8f651f286bb4ae77580bcf33427f770c3d9769f8968bc94ba54d7ef"
-    sha256 cellar: :any,                 arm64_sonoma:   "2aff0aef887b145023e4a61c093bf041696c8e4d34f38a0cba28cef8ecbd76af"
-    sha256 cellar: :any,                 arm64_ventura:  "8a236cdb837ab620def9e04659cef476c55b046888dbc0c89047aca8e9fff865"
-    sha256 cellar: :any,                 arm64_monterey: "b22fe721a066962a1673c52f8c1152b46c451cd4cfa3672158faefb24533fe5b"
-    sha256 cellar: :any,                 arm64_big_sur:  "510fa3605e4d856cde1df1fd6af76db46b00b382738004931a6a59cfe78d1a4c"
-    sha256 cellar: :any,                 sonoma:         "f5525633894624bbe6e098593a2297d52c66385e07c602ef6d1f4152a4519fc4"
-    sha256 cellar: :any,                 ventura:        "30aee10929522aa5f226d171caf6c072fcc1ca552400262acd5c11c9992c9d07"
-    sha256 cellar: :any,                 monterey:       "148418af9ede974ce97929a4d2203427b67d8cefd49001e8f70eaae68742b8dd"
-    sha256 cellar: :any,                 big_sur:        "3b2888677612b095f03226c3a9cd1dbb788233dc909519021f38a4fcbed09a49"
-    sha256 cellar: :any,                 catalina:       "64bb0e7f8de22316b5cabf7c805e4ce2948a7e44d4490e51bc3012c40acd59e9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9a5cfe145c4a72af92124dbb88438dfadba9a451fe5c5adf56804ccab9aa274c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afddb5bd47b5545caddb3f178c318eae3074c07a417c194163316981067924a4"
+    sha256 cellar: :any,                 arm64_tahoe:   "2bb2eb21cf15af087ab7ed8e764cc90fbdd452f1ea0e81c71d79a20cf099cc83"
+    sha256 cellar: :any,                 arm64_sequoia: "ab1d14ee93ade63ab4f7ee790cfc4ef658871bc7be566039b0f99bda7830fb06"
+    sha256 cellar: :any,                 arm64_sonoma:  "3606b82b29cd0c9de3db42b5089f1c8744a009fa229534100142a3091fd50f3e"
+    sha256 cellar: :any,                 sonoma:        "04fe2ff9d6beae3e4f5b1774710410a31b301ff0617424c21798b784109f425b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98dd1270d4dae19983c37c4f415236e7a8ba168b5c6c2885552bc4c7639ded5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85d4b12a7f8b94e6394e8252d2b81230d96f1dd554bdf0d7669552ed93c52184"
   end
 
   depends_on "readline"

@@ -6,6 +6,8 @@ class SpacemanDiff < Formula
   license "MIT"
   head "https://github.com/holman/spaceman-diff.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "36d9e7a82debbc9f11c998ed776c67172a8ee7dfc08ced8c840dc430c906fba1"

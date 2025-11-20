@@ -8,21 +8,25 @@ class HopenpgpTools < Formula
   head "https://salsa.debian.org/clint/hOpenPGP.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41b5917c6be661736f37f098bff90219a3c4f5cd87b396abf57389d219c1ccb4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ea0bdb57778391700816112db32d245f0bb3ec0d8baeecca58764d3bfc9f54b"
-    sha256 cellar: :any,                 arm64_ventura: "b83d81cff76f58a88f73c353b6807a82bb6186419bc525f7e90aaddea2e0c272"
-    sha256 cellar: :any_skip_relocation, sonoma:        "81a7de6f22c94c9e6511f74ac6caab00902a992db025cc63503746ff7ddebe95"
-    sha256 cellar: :any,                 ventura:       "8d3b9bf6403e965b552105bf02b1dd620325f5c37174d3c3959899eae71fe055"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b60d684c2fee4c0a2bf97fbc083340f7830183f7372edadb6e7a0fd9042843e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e51c27ef595c911cb7a2f208b6a5c5426e767240f3651e072b5af7bd6213156"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "47af189fdfbcc2b7ab692127e4352f6eb5bdc5573f64918b6ac7abb13215079e"
+    sha256 cellar: :any,                 arm64_sequoia: "0abaf700294d6bcc8ec68b211e3705115ffc75d7de6ca66003c327f65fead083"
+    sha256 cellar: :any,                 arm64_sonoma:  "cc66eb8cd7c9041526829cf42d7165911a5133efba6a15bba72c4ed62842a695"
+    sha256 cellar: :any,                 arm64_ventura: "168109c37c5ddce6e572cb5eee589a63a1e8e3cc7aad18f2f4723614bfc2b13f"
+    sha256 cellar: :any,                 sonoma:        "b6f9cc17771af94ce8162032631085e983baccf90e6b5d49b3726da81e7713fd"
+    sha256 cellar: :any,                 ventura:       "e3097679dde5250ab36974a7ec5adc805dbbb7bf7baee726455616287dd8af3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50fd1b8792416bb2dbce9353490738993b00a89e30a064b8f39dc08e6ab940c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c20f007e3cebed6ad6dc14cbaf3db6f1fe05dc0a98cb6a491e6174a531594a2a"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build
+  depends_on "ghc" => :build
   depends_on "pkgconf" => :build
   depends_on "gnupg" => :test
+  depends_on "gmp"
   depends_on "nettle"
 
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   # TODO: Remove resource once new release ixset-typed release is available
@@ -35,6 +39,8 @@ class HopenpgpTools < Formula
       url "https://github.com/well-typed/ixset-typed/commit/460901368dcb452d352a17bcd4b8f60200a6fa71.patch?full_index=1"
       sha256 "e284534df9ff14f49dad95a6745137c36c7a6335e896201c577d709794882e4c"
     end
+    # Backport https://github.com/well-typed/ixset-typed/commit/1ee029539a77b0c7d854660707c9daa957d6fb11
+    patch :DATA
   end
 
   def install
@@ -74,3 +80,18 @@ class HopenpgpTools < Formula
     end
   end
 end
+
+__END__
+diff --git a/ixset-typed.cabal b/ixset-typed.cabal
+index 888d8a7..e42b86b 100644
+--- a/ixset-typed.cabal
++++ b/ixset-typed.cabal
+@@ -38,7 +38,7 @@ library
+                      deepseq          >= 1.3 && < 2,
+                      safecopy         >= 0.8 && < 0.11,
+                      syb              >= 0.4 && < 1,
+-                     template-haskell >= 2.8 && < 2.23
++                     template-haskell >= 2.8 && < 2.24
+ 
+   hs-source-dirs:    src
+   exposed-modules:

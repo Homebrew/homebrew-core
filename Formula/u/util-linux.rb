@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.40/util-linux-2.40.4.tar.xz"
-  sha256 "5c1daf733b04e9859afdc3bd87cc481180ee0f88b5c0946b16fdec931975fb79"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.2.tar.xz"
+  sha256 "6062a1d89b571a61932e6fc0211f36060c4183568b81ee866cf363bce9f6583e"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -24,17 +24,21 @@ class UtilLinux < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f52b125dc397f644d8c39eaf445f0dba977daaf0c2c36a1cc8f8d5fda7fdc983"
-    sha256 arm64_sonoma:  "a4a808c4f0d83572be37bb87f47c3caf0196e7dc6efda2292eb433f43a95cbde"
-    sha256 arm64_ventura: "5813684b14b36ef9eb21ae44778509a3b5317177d36424e5684f93e6d38dd2ed"
-    sha256 sonoma:        "4e510ac6858c30bf51f48704554f479afa65651e9d70cecead695be3b27bab31"
-    sha256 ventura:       "a3ffdf52748b08c8ac4a59685dad9d61c6bb97eec580b101e5e573412184ca41"
-    sha256 arm64_linux:   "cedcefe892fdab71ae5330dae10d830b74f924758abff56320b2867f1c7a877c"
-    sha256 x86_64_linux:  "5472eb4abe7ce0d30ff3548dda8da1edab2adc47b10acac6fc5f467171519616"
+    sha256 arm64_tahoe:   "040b136047c445817906cd47d3a5f631e0a4dff4d4157e2aa7a737538db852f1"
+    sha256 arm64_sequoia: "36a1fd226b4a6b70250535118ffaa3365abb70c5d7241fe1ef9caa4d289b994c"
+    sha256 arm64_sonoma:  "a0da9dac552c00c8b27ed475d30bf3ae4c792ccefea72340ddca02c39bc8d99e"
+    sha256 sonoma:        "27500fdc87061175f627971705e9e024c4d92007e3ec963e6cd1c92ff8aab7b4"
+    sha256 arm64_linux:   "f3e6d3197f597780d22fe50674fb3567408775e9ddf13274dbfd8f8b287bf2cc"
+    sha256 x86_64_linux:  "b3d0437207ab023cd13567d4b9ca2de87c09ce4a2b86b29996d0df97039217d9"
   end
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext" => :build
+  depends_on "gtk-doc" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
 
   uses_from_macos "libxcrypt"
@@ -55,14 +59,18 @@ class UtilLinux < Formula
     conflicts_with "rename", because: "both install `rename` binaries"
   end
 
-  # uuid_time function compatibility fix on macos
-  # upstream patch PR, https://github.com/util-linux/util-linux/pull/3013
+  # bits: only build when cpu_set_t is available. Needed for `--disable-bits`.
+  # Remove when included in a stable release; when doing so, also remove
+  # `autoconf`, `automake`, `gettext`, `gtk-doc`, and `libtool` build deps and
+  # the `autoreconf` call in the `install` method.
   patch do
-    url "https://github.com/util-linux/util-linux/commit/9445f477cfcfb3615ffde8f93b1b98c809ee4eca.patch?full_index=1"
-    sha256 "7a7fe4d32806e59f90ca0eb33a9b4eb306e59c9c148493cd6a57f0dea3eafc64"
+    url "https://github.com/util-linux/util-linux/commit/45f943a4b36f59814cf5a735e4975f2252afac26.patch?full_index=1"
+    sha256 "b372a7578ff397787f37e1aa1c03c8299c9b3e3f7ab8620c4af68c93ab2103b5"
   end
 
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
+
     args = %W[--disable-silent-rules --disable-asciidoc --with-bashcompletiondir=#{bash_completion}]
 
     if OS.mac?
@@ -70,6 +78,7 @@ class UtilLinux < Formula
       # https://github.com/util-linux/util-linux/issues/2389
       ENV.append_to_cflags "-D_XOPEN_SOURCE_EXTENDED" if MacOS.version <= :ventura
 
+      args << "--disable-bits" # does not build on macOS
       args << "--disable-ipcs" # does not build on macOS
       args << "--disable-ipcrm" # does not build on macOS
       args << "--disable-wall" # already comes with macOS
@@ -90,7 +99,10 @@ class UtilLinux < Formula
     end
 
     system "./configure", *args, *std_configure_args
-    system "make", "install"
+
+    install_args = []
+    install_args << "LDFLAGS=-lm" if OS.linux?
+    system "make", "install", *install_args
   end
 
   def caveats

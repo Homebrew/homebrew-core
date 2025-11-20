@@ -8,23 +8,23 @@ class Diceware < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d9d1288469164e84e042091daf65cb61637113d7e343dc8fc6c3ac95a75c4a1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d9d1288469164e84e042091daf65cb61637113d7e343dc8fc6c3ac95a75c4a1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d9d1288469164e84e042091daf65cb61637113d7e343dc8fc6c3ac95a75c4a1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fddd1640d30f4248092cf4a711f6902f31241e3e0db20a3ac962c8bb34a8fe30"
-    sha256 cellar: :any_skip_relocation, ventura:       "fddd1640d30f4248092cf4a711f6902f31241e3e0db20a3ac962c8bb34a8fe30"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bbb8ae111a8a2534c4df6422a6c00802b43bc5744d6c9177d97b6cda883b0a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d9d1288469164e84e042091daf65cb61637113d7e343dc8fc6c3ac95a75c4a1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "3fecb6390567f06e893d664105063c32aa80a8bb3b2f4cdc1944b8850b5c9749"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources
     man1.install "diceware.1"
+
+    # Build an :all bottle
+    file = venv.site_packages.glob("diceware/wordlist.py")
+    inreplace file, "/usr/local/share/#{name}", HOMEBREW_PREFIX/"share/#{name}"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/diceware --version")
     assert_match(/(\w+)(-(\w+)){5}/, shell_output("#{bin}/diceware -d-"))
   end
 end

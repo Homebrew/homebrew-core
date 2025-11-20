@@ -7,6 +7,7 @@ class Melody < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f63d6fddea834cd2fd42b11576a634d9b9b22b43029483b522bec09ee4d672c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "02ae5a9796e29ff3f0f88a96e957b5c2495a12f27d513eef8ffbf07f07cca8c6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d329bc93d86774235dcd465aab7713a214809943998f6b13f4410a72ed44f427"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f6f38b37a164b96b64c1dfbf510ce9c3bfdf714aa78ed019f21ec1f1fae8e6a8"

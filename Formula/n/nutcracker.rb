@@ -7,7 +7,10 @@ class Nutcracker < Formula
   revision 1
   head "https://github.com/twitter/twemproxy.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "abf045b842b325b9beae4b4081057f70d458359c2fae9b4792a4130d74120943"
     sha256 cellar: :any,                 arm64_sequoia:  "9858288de204b1ebddc2500149b07ad6cc6c08f92f37936d0055b5f4820bbb03"
     sha256 cellar: :any,                 arm64_sonoma:   "878651e4b64cf8af3146bee562a15dcd18bb880a65ede75b61c7232c982db60e"
     sha256 cellar: :any,                 arm64_ventura:  "72e440a578846be30b99237a05ac9251ad0859aa19fb4603e73671c61add0e66"
@@ -18,7 +21,6 @@ class Nutcracker < Formula
     sha256 cellar: :any,                 monterey:       "0682fca355c4930be73a43fca315d8eb36a709413f60ebae19f58289eafe1916"
     sha256 cellar: :any,                 big_sur:        "a8a718227faa82141b08684c12654a04dee9ffc91df8157100fb5b51eb6fe8ba"
     sha256 cellar: :any,                 catalina:       "95055ec8487419f854e34be6212369081eaa574ebaa36dabb01b2047f2e31240"
-    sha256 cellar: :any,                 mojave:         "eabbabd68f1627872a910374a15186b3c57c7ef7ebfa99a8d1a32bc15edf2f8a"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "9ac5ec0b8889f2bb83510eaacb9eb54b0247b236690469fb4511670d1aa73cd9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d6d4dcbb634abf13629537e4eaa0ee3a9fe87693492c3668c4effe4550a2cd8"
   end
@@ -31,7 +33,7 @@ class Nutcracker < Formula
   # Use Homebrew libyaml instead of the vendored one.
   # Adapted from Debian's equivalent patch.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0e1ac7ef20e83159554b6522380b1c4b48ce4f2f/nutcracker/use-system-libyaml.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/nutcracker/use-system-libyaml.patch"
     sha256 "9105f2bd784f291da5c3f3fb4f6876e62ab7a6f78256f81f5574d593924e424c"
   end
 

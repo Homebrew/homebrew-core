@@ -1,19 +1,20 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://dlcdn.apache.org/httpd/httpd-2.4.63.tar.bz2"
-  mirror "https://downloads.apache.org/httpd/httpd-2.4.63.tar.bz2"
-  sha256 "88fc236ab99b2864b248de7d49a008ec2afd7551e64dce8b95f58f32f94c46ab"
+  url "https://dlcdn.apache.org/httpd/httpd-2.4.65.tar.bz2"
+  mirror "https://downloads.apache.org/httpd/httpd-2.4.65.tar.bz2"
+  sha256 "58b8be97d9940ec17f7656c0c6b9f41b618aac468b894b534148e3296c53b8b3"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "9ca7b90378d07613eb7f25d3f254e3c988392b6aa03724e2a391fc3900200b94"
-    sha256 arm64_sonoma:  "3cac4f194862dc3e6f0676a10307810a2b623603fd8d2e7b82e867a4dccc01ab"
-    sha256 arm64_ventura: "cfc960b54bf8dbdc87fc91de6cbad9a9e8c1775d69659ee206d6bbdd0d9d8cea"
-    sha256 sonoma:        "e0854ef063e66912912753c71fd85f4e92cc59930ed824974ca2b9709ddcaaaf"
-    sha256 ventura:       "d873c7c33a633d07739c0cef9551074dc53d5480a16e82c302f0ec0e9c01359b"
-    sha256 arm64_linux:   "0d503fbd29ac1ba3f7b4ceed16358437ffabdebfae412386073dcf9986593468"
-    sha256 x86_64_linux:  "82136824ca8efeb096ba9236bf103b87d91d52e2c2de3081775fcbc9e7df55eb"
+    rebuild 1
+    sha256 arm64_tahoe:   "6c1e678fc64a7be25d19e7e907c43d156abc2d3b0b26988d4d8dfc3951b60091"
+    sha256 arm64_sequoia: "2d93960ea5559bbe3e28b0e17f392a0ecedcda6e5fa1942a0cbec66995d7d72e"
+    sha256 arm64_sonoma:  "ba2ab3317d9c73b42bd3b9bf06167e5ffc75a8148fbf4d5cc6985d353a8c2d5f"
+    sha256 sonoma:        "38deefb2d3474adf708f195f2685d9de033e454c5629c158dfe88cde3b9ca44b"
+    sha256 arm64_linux:   "8bc54783c18c61100a1603b3a745a747fee5b5f9323a2315ee2d1ef30313c2a3"
+    sha256 x86_64_linux:  "554b0bb3a1d8aa0bb67cf7d75b7f6ac86460b8c47fdfedb83e7e9310d5277710"
   end
 
   depends_on "apr"
@@ -49,8 +50,8 @@ class Httpd < Formula
     end
 
     if OS.mac?
-      libxml2 = "#{MacOS.sdk_path_if_needed}/usr"
-      zlib = "#{MacOS.sdk_path_if_needed}/usr"
+      libxml2 = "#{MacOS.sdk_for_formula(self).path}/usr"
+      zlib = "#{MacOS.sdk_for_formula(self).path}/usr"
     else
       libxml2 = Formula["libxml2"].opt_prefix
       zlib = Formula["zlib"].opt_prefix
@@ -120,9 +121,7 @@ class Httpd < Formula
       s.gsub! "${prefix}/lib/httpd/modules", HOMEBREW_PREFIX/"lib/httpd/modules"
       s.gsub! Superenv.shims_path, HOMEBREW_PREFIX/"bin"
     end
-  end
 
-  def post_install
     (var/"cache/httpd").mkpath
     (var/"www").mkpath
   end

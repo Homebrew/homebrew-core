@@ -1,8 +1,8 @@
 class PostgresqlAT17 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v17.5/postgresql-17.5.tar.bz2"
-  sha256 "fcb7ab38e23b264d1902cb25e6adafb4525a6ebcbd015434aeef9eda80f528d8"
+  url "https://ftp.postgresql.org/pub/source/v17.7/postgresql-17.7.tar.bz2"
+  sha256 "ef9e343302eccd33112f1b2f0247be493cb5768313adeb558b02de8797a2e9b5"
   license "PostgreSQL"
 
   livecheck do
@@ -11,13 +11,12 @@ class PostgresqlAT17 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "2c9bea8ba80e55662401b8fdb3895162395c552980bf06b0ccad2262f6188b01"
-    sha256 arm64_sonoma:  "1a820991a1607aa5fd67806a0349aaabed4dd4fb38c6cc5b95bbb4d76fe7ca83"
-    sha256 arm64_ventura: "e43f4917861c6e80d4bb440405ceb51c1a2a59e00cb43a2f3518cebec298efa1"
-    sha256 sonoma:        "767044a8d803b861e1c7c58a652f063916b275b5f48ca2f7391ee11c79384488"
-    sha256 ventura:       "7548c817fbb5b4d7867b5df02b393e07d2565e2b97b83a0f67024be475de8112"
-    sha256 arm64_linux:   "6dbe6c54d311e8d0c69a838ce7ffdad494369efe754ef257a591264cbc01eff0"
-    sha256 x86_64_linux:  "6b2b1227c7b121dbdc93d15f9c716502c605f64247867e266844bcdad5f5ee6b"
+    sha256 arm64_tahoe:   "fe0e1c07ec222d8462c9d3781df02c891ace6a30a972493213713ac4463d6b1f"
+    sha256 arm64_sequoia: "dc25244bf06569a8886bb2d0dd4d361f6ca6ffc4040208a4a2f67d29c1393447"
+    sha256 arm64_sonoma:  "64e75b4b51670974d1a4ca75f1f67ced14c4a8d65be998f95db93d40be40f51a"
+    sha256 sonoma:        "ecd08b49055c62ff3682d21e0f24f60873ec79f90d66a8658cb9f6264c35eafc"
+    sha256 arm64_linux:   "913ef72e2702e11d50a0ccf444f24eb2c81fbbc58855275230130908e6f767c3"
+    sha256 x86_64_linux:  "187bb9fbc2edb394d7de6ecc33c746fead3d1503368dedda4ad3c5571ee6b73e"
   end
 
   keg_only :versioned_formula
@@ -29,7 +28,7 @@ class PostgresqlAT17 < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
@@ -98,7 +97,7 @@ class PostgresqlAT17 < Formula
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
-    args << "PG_SYSROOT=#{MacOS.sdk_path}" if OS.mac? && MacOS.sdk_root_needed?
+    args << "PG_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
 
     system "./configure", *args, *std_configure_args(libdir: HOMEBREW_PREFIX/"lib/#{name}")
     system "make"
@@ -144,7 +143,7 @@ class PostgresqlAT17 < Formula
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system bin/"initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
   def postgresql_datadir
@@ -162,7 +161,7 @@ class PostgresqlAT17 < Formula
   def caveats
     <<~EOS
       This formula has created a default database cluster with:
-        initdb --locale=C -E UTF-8 #{postgresql_datadir}
+        initdb --locale=en_US.UTF-8 -E UTF-8 #{postgresql_datadir}
 
       When uninstalling, some dead symlinks are left behind so you may want to run:
         brew cleanup --prune-prefix
@@ -171,7 +170,7 @@ class PostgresqlAT17 < Formula
 
   service do
     run [opt_bin/"postgres", "-D", f.postgresql_datadir]
-    environment_variables LC_ALL: "C"
+    environment_variables LC_ALL: "en_US.UTF-8"
     keep_alive true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
@@ -179,7 +178,7 @@ class PostgresqlAT17 < Formula
   end
 
   test do
-    system bin/"initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
+    system bin/"initdb", "--locale=en_US.UTF-8", "-E UTF-8", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
     [bin/"pg_config", HOMEBREW_PREFIX/"bin/pg_config-#{version.major}"].each do |pg_config|
       assert_equal "#{HOMEBREW_PREFIX}/share/#{name}", shell_output("#{pg_config} --sharedir").chomp
       assert_equal "#{HOMEBREW_PREFIX}/lib/#{name}", shell_output("#{pg_config} --libdir").chomp

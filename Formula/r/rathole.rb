@@ -1,12 +1,15 @@
 class Rathole < Formula
   desc "Reverse proxy for NAT traversal"
-  homepage "https://github.com/rapiz1/rathole"
-  url "https://github.com/rapiz1/rathole/archive/refs/tags/v0.5.0.tar.gz"
+  homepage "https://github.com/rathole-org/rathole"
+  url "https://github.com/rathole-org/rathole/archive/refs/tags/v0.5.0.tar.gz"
   sha256 "c8698dc507c4c2f7e0032be24cac42dd6656ac1c52269875d17957001aa2de41"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3629eb8ca9900924fa60ca4732cb944f93362ac86259944539ca10beeffb867d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d668cd71d085b210e33c711837fc58c97fcfebf3417f0c3c7d722df711d45ae9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bcb8141198492a1cafa8833e4b5b1f872a292b0b4a583de7f71aeeb6f3376b86"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9dff11d616e36a7e3fb42bf83f8a0ba908382562fd5ab26abd4ab08a99f6c0b"
@@ -25,9 +28,9 @@ class Rathole < Formula
     depends_on "openssl@3"
   end
 
-  # rust 1.80 build patch, upstream bug report, https://github.com/rapiz1/rathole/issues/380
+  # rust 1.80 build patch, upstream bug report, https://github.com/rathole-org/rathole/issues/380
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bd353c6adb3601f32de0fa87f3acd34a98da6ec1/rathole/rust-1.80.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/rathole/rust-1.80.patch"
     sha256 "deca6178df16517f752c309f6290678cbddb24cd3839057f746d0817405965f9"
   end
 

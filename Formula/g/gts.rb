@@ -9,6 +9,7 @@ class Gts < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "1a940ea785d016728373922b4b02ed3d40f3abf4da34cc29c671446eada28d59"
     sha256 cellar: :any,                 arm64_sequoia:  "b93bb9f091fbf2d25c99437f8ef0dc0e40f680fe445b968cf952d2d067417ebb"
     sha256 cellar: :any,                 arm64_sonoma:   "45ce1fc7fc4da58e808c6d11bd19a17c35bed97719b63e2572b22ff6bd417aac"
     sha256 cellar: :any,                 arm64_ventura:  "de8259a24624223ddab38d0e1482ec9f055ddfacc353fb0290d127919e509cf1"

@@ -1,8 +1,8 @@
 class DjlServing < Formula
   desc "This module contains an universal model serving implementation"
   homepage "https://github.com/deepjavalibrary/djl-serving"
-  url "https://publish.djl.ai/djl-serving/serving-0.33.0.tar"
-  sha256 "48326bdeacba973ac54d8f07e22b6be0a0edafe2e1377d7031665d5efe726691"
+  url "https://publish.djl.ai/djl-serving/serving-0.35.0.tar"
+  sha256 "cc7acc6ef07cd251147a4654e2deaecd1c5709e4fde350aefab98a38b33e28ab"
   license "Apache-2.0"
 
   # `djl-serving` versions aren't considered released until a corresponding
@@ -13,7 +13,7 @@ class DjlServing < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9d0f31ed27572681ddd8cc68ecb6396fd1697ad89cd56bec21fa22f8f3017a38"
+    sha256 cellar: :any_skip_relocation, all: "bf16a1f4374d2d10f8e36dea25d4f733f173c95364eaa4c0ba06980a9955c5af"
   end
 
   depends_on "openjdk"
@@ -23,13 +23,14 @@ class DjlServing < Formula
     rm_r(Dir["bin/*.bat"])
     mv "bin/serving", "bin/djl-serving"
     libexec.install Dir["*"]
-    env = { MODEL_SERVER_HOME: "${MODEL_SERVER_HOME:-#{var}}" }
+    env = { MODEL_SERVER_HOME: "${MODEL_SERVER_HOME:-#{var}/djl-serving}" }
     env.merge!(Language::Java.overridable_java_home_env)
     (bin/"djl-serving").write_env_script "#{libexec}/bin/djl-serving", env
   end
 
   service do
     run [opt_bin/"djl-serving", "run"]
+    working_dir var/"djl-serving"
     keep_alive true
   end
 

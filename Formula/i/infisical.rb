@@ -1,35 +1,28 @@
 class Infisical < Formula
   desc "CLI for Infisical"
   homepage "https://infisical.com/docs/cli/overview"
-  url "https://github.com/Infisical/infisical/archive/refs/tags/infisical-cli/v0.41.82.tar.gz"
-  sha256 "ff53a31339fdb01044a31b0abb62649935c40762c4ac07cbc5807900b2bf8811"
+  url "https://github.com/Infisical/cli/archive/refs/tags/v0.43.27.tar.gz"
+  sha256 "14833406adebfd9eec569bfb6315ac008f09d72e279d226b7bce0c8abfe6d18d"
   license "MIT"
-  head "https://github.com/Infisical/infisical.git", branch: "main"
-
-  livecheck do
-    url :stable
-    regex(%r{^infisical-cli/v?(\d+(?:\.\d+)+)$}i)
-  end
+  head "https://github.com/Infisical/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9451a5db2b868bb4b4c140a5ab8daebd419f2253353942642f27a9da447514bb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9451a5db2b868bb4b4c140a5ab8daebd419f2253353942642f27a9da447514bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9451a5db2b868bb4b4c140a5ab8daebd419f2253353942642f27a9da447514bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1a18fa3ff6304f76223b3e9b94d7fd7d376aeef53cefac93ef6407fbe6f8078b"
-    sha256 cellar: :any_skip_relocation, ventura:       "1a18fa3ff6304f76223b3e9b94d7fd7d376aeef53cefac93ef6407fbe6f8078b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6ce26ae13edcd0c8e3fb3047af3e99aeac5cd6879a0c8e6b1ebc5dfdf8de4bd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7cbe68ad04b0b90b0f1ab2a936dad69125063ad17025ff231ff6181bd77e39b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7cbe68ad04b0b90b0f1ab2a936dad69125063ad17025ff231ff6181bd77e39b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7cbe68ad04b0b90b0f1ab2a936dad69125063ad17025ff231ff6181bd77e39b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9bd5cbbb8f786be8b88face19be6570d2c1bdd2c1ababaaef019e9d011f2ca7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e46fcbd15d7974080e434ae1404fbad7acb93d8a704e91b50ad407fb89981e12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c75c83acc01281fd7749eb6e60fe766e4340e149871cded2093365508723dca3"
   end
 
   depends_on "go" => :build
 
   def install
-    cd "cli" do
-      ldflags = %W[
-        -s -w
-        -X github.com/Infisical/infisical-merge/packages/util.CLI_VERSION=#{version}
-      ]
-      system "go", "build", *std_go_args(ldflags:)
-    end
+    ldflags = %W[
+      -s -w
+      -X github.com/Infisical/infisical-merge/packages/util.CLI_VERSION=#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

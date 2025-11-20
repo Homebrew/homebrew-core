@@ -11,9 +11,9 @@ class LibcapNg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "981ae5326e20f2844c171f30110902780b64b3860c8f96e4e631434434a230bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9213f1b147c170ebc3b4cb8e900562183885668dd745d0888d985d9fd0cfdbe3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "d83b347391dd5f031ef8fe8d5762f5aeb678b27e4d18da173c8705813e068c12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a17a6bf3d9aa3735db67bde8d609883a0d945ae3fb296d4e4f990e957e0eceb6"
   end
 
   head do
@@ -26,12 +26,12 @@ class LibcapNg < Formula
   end
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "swig" => :build
   depends_on :linux
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

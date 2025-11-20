@@ -4,6 +4,7 @@ class Vapoursynth < Formula
   url "https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R72.tar.gz"
   sha256 "650f77feebfd08842b521273f59e0c88f7ba9d7cb5f151d89b79b8dfdd4ce633"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,12 @@ class Vapoursynth < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f7c657252db9a2a5f6d4adcaadbf37c7a9979745fee6633c275e62d8388fe5db"
-    sha256 cellar: :any,                 arm64_sonoma:  "6418245eb21b047ef3243906fc8b8920daec576e27617ae3e260f5aaa3935549"
-    sha256 cellar: :any,                 arm64_ventura: "667bf1b35450d14761f1405975065166584e71430afbfc0056f38707ae9fe7e4"
-    sha256 cellar: :any,                 sonoma:        "9c83c302ce30772f27755efe89c1281951f8a13a93b16e80c3d23af65e3c4fe7"
-    sha256 cellar: :any,                 ventura:       "6f5549f7761bc12a30a9da999373a7b0b683475781324f4c7e947ac2d6d30102"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "21d9be54130292ed7ffd0e1551da3f1cf0279d9c077c492f959e9bcadba23ac4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d30b9474d07672ee99fdb6502d3b51d9ee18081350e943e5d784af61180f850"
+    sha256 cellar: :any,                 arm64_tahoe:   "6e25798f5037641754cc810363dfb6c171ad60db37149c15d581de01bd85d975"
+    sha256 cellar: :any,                 arm64_sequoia: "1be3b17dd888bd35931e513d9501c1ae3d13ca8df129360400e9a37e28c19122"
+    sha256 cellar: :any,                 arm64_sonoma:  "b019ea2a813d43818d534d047a82ca353915ffa336517f822212fb7802c700b6"
+    sha256 cellar: :any,                 sonoma:        "363c3069fd1c227f6940de2bd5bece455ee1ddb9578ea2fc82cf3d2036aba8f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ee99112759f86db2f64bc4a6966731dd60a863450af3c3f71f0c26c6aef3348"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f6ecf50c9407e1740250ac54fa75bceaf6e936432c265140776703b585cd78f"
   end
 
   depends_on "autoconf" => :build
@@ -27,7 +27,7 @@ class Vapoursynth < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "zimg"
 
   # std::to_chars requires at least MACOSX_DEPLOYMENT_TARGET=13.3
@@ -73,7 +73,7 @@ class Vapoursynth < Formula
   end
 
   test do
-    system Formula["python@3.13"].opt_bin/"python3.13", "-c", "import vapoursynth"
+    system Formula["python@3.14"].opt_bin/"python3.14", "-c", "import vapoursynth"
     system bin/"vspipe", "--version"
   end
 end

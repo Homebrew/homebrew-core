@@ -8,19 +8,19 @@ class Beanquery < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ad89c13a41f3bdc16fa426ba7eebb808e4da0a45ffe551ea6783c7f7843117e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "374503a428b9d2045e122d01d6a3117270cea9381c8eb71dfa0843d19b7328f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ed4a1c6dbf258526c55a81d1d727336cd8d0e6230926a74e84d6f6a3dd66e162"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fb197601ec1c54d9812177b46f8ed7bae8cf0f5ed90a231fe5078f2e5f2aa536"
-    sha256 cellar: :any_skip_relocation, ventura:       "ae876669e91355b0f653c58c4c4770bdf84f4781737896b2c6b311a1f6ec04ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce5374e8a539cadaf0109a8640b886c1b4a0a25c2c8b8d225ed16eadf51540e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3852ca60b6b08b51a8cc60f9e35c3139183c4d8531d22e3f9977026edbcb0c99"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c7bb8cb26caaf57d39d5de56dbb43c338af325b866018ad3f5b7f58fee470839"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f37c3deaee2b019a12ca31efacb072b4338c9772fcaf0da585b361d37be81d22"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ff682ffc3b90f6397ef978057db4a63d4629cf1e4e01200ad848a6eccf32695"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7e612ab070eb3db9a1a363c39d7a836e3ea7a465270738ac31ddceae70d92517"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd9d89c48614beec712adb1d8e77983fb9cc5e962beb4e0a0424b2833c94b614"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b4b4f40ee6c97f10bf46b1d9b2d6da0ca2bf0566986144cda7f47e4cbac177a9"
   end
 
   depends_on "bison" => :build # for beancount
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "flex" => :build # for beancount
 

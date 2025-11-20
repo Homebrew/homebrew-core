@@ -11,6 +11,7 @@ class Freeimage < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:    "fa674c2ad7837eb68ddb56844a0da4ad71955c148a12311c0456463ca8e1b225"
     sha256 cellar: :any,                 arm64_sequoia:  "0c56e5950270ba19800a0b51d0fb516689c82921c2651c30c9fc17934bfb2fdc"
     sha256 cellar: :any,                 arm64_sonoma:   "be291ccddc2e3618d53dc2f06aced0f31eca4a0f72d19ba2f872f57a4dd748f1"
     sha256 cellar: :any,                 arm64_ventura:  "acdcf908bcc7bf5ce7fe7acf6c7d3de9787872c47687e25951411c07d86d7146"
@@ -21,17 +22,17 @@ class Freeimage < Formula
     sha256 cellar: :any,                 monterey:       "8118801a64a4b47e2572b45935da12209fffea56393586a53186594f05071f58"
     sha256 cellar: :any,                 big_sur:        "948feca0476789f7061b3a0502aaa7820366a309ebad1abd73ff6b7a0c242402"
     sha256 cellar: :any,                 catalina:       "fabc22f3effecdb629ea6585e005aa09b9d3c3cf73fa0e3021370550e6f8832e"
-    sha256 cellar: :any,                 mojave:         "f9b3f364e75ce8f0d61be663ef022d88a9b401d2d675599949ff9b19fbf39bc0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "c63703fb750ad104b942bb31929c633f44050220f084b579183e23a0e07161c6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6c63d08f4adf2395f983ad5f8a51f36ac1e749de9fe6428d056859b199ac6e6"
   end
 
   patch do
     on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4dcf528/freeimage/3.17.0.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/freeimage/3.17.0.patch"
       sha256 "8ef390fece4d2166d58e739df76b5e7996c879efbff777a8a94bcd1dd9a313e2"
     end
     on_linux do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/696e313c1f89925a8d04f00282d3b6c204a64f48/freeimage/3.17.0-linux.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/freeimage/3.17.0-linux.patch"
       sha256 "537a4045d31a3ce1c3bab2736d17b979543758cf2081e97fff4d72786f1830dc"
     end
   end
@@ -42,11 +43,21 @@ class Freeimage < Formula
     # https://sourceforge.net/p/freeimage/discussion/36111/thread/cc4cd71c6e/
     ENV["CFLAGS"] = "-O3 -fPIC -fexceptions -fvisibility=hidden -DPNG_ARM_NEON_OPT=0" if Hardware::CPU.arm?
 
+    if OS.mac? && DevelopmentTools.clang_build_version >= 1700
+      # Fix to fatal error: 'fp.h' file not found
+      inreplace "Source/LibPNG/pngpriv.h", "<fp.h>", "<math.h>"
+      # Fix to avoid fdopen() redefinition for vendored `zlib`
+      inreplace "Source/ZLib/zutil.h",
+                "#        define fdopen(fd,mode) NULL /* No fdopen() */",
+                "#if !defined(__APPLE__)\n#  define fdopen(fd,mode) NULL /* No fdopen() */\n#endif"
+    end
+
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     # Fix build error on Linux: ImathVec.h:771:37: error: ISO C++17 does not allow dynamic exception specifications
-    ENV["CXXFLAGS"] = "-std=c++98" if OS.linux?
+    ENV.append "CXX", "-std=c++98" if OS.linux?
+
     system "make", "-f", "Makefile.gnu"
     system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
     system "make", "-f", "Makefile.fip"

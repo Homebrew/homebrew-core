@@ -1,19 +1,18 @@
 class Ferron < Formula
   desc "Fast, memory-safe web server written in Rust"
   homepage "https://www.ferronweb.org/"
-  url "https://github.com/ferronweb/ferron/archive/refs/tags/1.3.1.tar.gz"
-  sha256 "bee7a5989e557d366aec1e2dc005e269026a2f46a097e321a721a99e70570412"
+  url "https://github.com/ferronweb/ferron/archive/refs/tags/2.0.1.tar.gz"
+  sha256 "775ac9ff063fe0e03630f97419de1b08619084adef7b19055fa53a645ce0ac45"
   license "MIT"
-  head "https://github.com/ferronweb/ferron.git", branch: "develop"
+  head "https://github.com/ferronweb/ferron.git", branch: "develop-2.x"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b98b68a0735f52c6425ef1e005c537980c74c7444d0fbb58d8239c2fc88c3c23"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "92734901edf8f4af39d57b6216dacf95fe7c37928fa91cc45ee529d66b460145"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8657f0c6555b343769c7ff422daf8ec84e748fb0409d764778b763cb274367cf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2467335cfe7aa1d10e8649225e63f20a96f1d1d21949f356ca39755dd5a9d261"
-    sha256 cellar: :any_skip_relocation, ventura:       "21783fa27909b3445f8cf5e52fa77e51ccbdf18734138bbd4dd1e46fbbdd789f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ea696a97bc86e90a64519b9add26715f551cb9b60fa1da821954b2575cbbb8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74a2b18ef89d83e7fbbec0c1ec49920b22559563b1c40260990fda44e6a7d3c3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2e40bb65ccdd2557ca88addc53747e6371503bf5d43464f3b96cc8046afc218"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7d815f6a0a478c212f3f5536545969582b30158599b837d62c938d30aeeac15"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbe7b76617eef1c574805259c3d2e8f5b3a7106040ab18616697410ad85e7766"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f4f3776d9c6174d6e8c5cf52d7e73f49886b894283755747214342d93ba17254"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a55d1f9eb3c67f040f2a7d8949e1bec8fde776d7ccc7c59ed1a4910a8087063e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f42126c7af0182f954d31e50c0411348c66865614c4ba5699fbf60c7c9ea2098"
   end
 
   depends_on "rust" => :build
@@ -27,18 +26,107 @@ class Ferron < Formula
 
     (testpath/"ferron.yaml").write "global: {\"port\":#{port}}"
     expected_output = <<~HTML.chomp
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>404 Not Found</title>
-      </head>
-      <body>
-          <h1>404 Not Found</h1>
-          <p>The requested resource wasn't found. Double-check the URL if entered manually.</p>
-      </body>
-      </html>
+      <!doctype html>
+             <html lang="en">
+                 <head>
+                     <meta charset="UTF-8" />
+                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                     <title>404 Not Found</title>
+                     <style>html,
+      body {
+          margin: 0;
+          padding: 0;
+          font-family:
+              system-ui,
+              -apple-system,
+              BlinkMacSystemFont,
+              "Segoe UI",
+              Roboto,
+              Oxygen,
+              Ubuntu,
+              Cantarell,
+              "Open Sans",
+              "Helvetica Neue",
+              sans-serif;
+          background-color: #ffffff;
+          color: #0f172a;
+      }
+
+      body {
+          padding: 1em;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+      }
+
+      header {
+          text-align: center;
+      }
+
+      h1 {
+          font-size: 2.5em;
+      }
+
+      a {
+          color: #f47825;
+      }
+
+      @media screen and (max-width: 512px) {
+          h1 {
+              font-size: 2em;
+          }
+      }
+
+      @media screen and (prefers-color-scheme: dark) {
+          html,
+          body {
+              background-color: #14181f;
+              color: #f2f2f2;
+          }
+      }
+      </style>
+      <style>html {
+          height: 100%;
+      }
+
+      body {
+          display: table;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+      }
+
+      .error-container {
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+      }
+
+      .error-code {
+          display: block;
+          font-size: 4em;
+      }
+
+      .error-message {
+          display: block;
+      }
+      </style>
+                 </head>
+                 <body>
+                     <main class="error-container">
+            <h1>
+                <span class="error-code">404</span>
+                <span class="error-message">Not Found</span>
+            </h1>
+            <p class="error-description">The requested resource wasn't found. Double-check the URL if entered manually.</p>
+        </main>
+                 </body>
+             </html>
     HTML
 
     begin

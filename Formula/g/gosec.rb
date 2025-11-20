@@ -1,18 +1,18 @@
 class Gosec < Formula
   desc "Golang security checker"
   homepage "https://securego.io/"
-  url "https://github.com/securego/gosec/archive/refs/tags/v2.22.4.tar.gz"
-  sha256 "042214e06f4a3ae7f0486ecb3f885cc24d44efece165ab7f7f96f6bcf3b2eff8"
+  url "https://github.com/securego/gosec/archive/refs/tags/v2.22.10.tar.gz"
+  sha256 "43f285d6bf40b1df9d72fc3e24658910ddd01cfe8bf03286980a129009e93af1"
   license "Apache-2.0"
   head "https://github.com/securego/gosec.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da158987cfb96c51a3a6d417fdd5357f663d6166ead330e4bf479086076db925"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da158987cfb96c51a3a6d417fdd5357f663d6166ead330e4bf479086076db925"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "da158987cfb96c51a3a6d417fdd5357f663d6166ead330e4bf479086076db925"
-    sha256 cellar: :any_skip_relocation, sonoma:        "225f37120160af2ba727c827044c5c2a09531bb37c52b112fe1093e356831637"
-    sha256 cellar: :any_skip_relocation, ventura:       "225f37120160af2ba727c827044c5c2a09531bb37c52b112fe1093e356831637"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bd30d4d1b574d5553f458dd940dd1ff2bef2f4486638af5b2d3fd1850be4e1f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52362f5d5a3ab833a26a002f1b84d2c356545ee9f299f3b6f5492c508e4db06c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52362f5d5a3ab833a26a002f1b84d2c356545ee9f299f3b6f5492c508e4db06c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52362f5d5a3ab833a26a002f1b84d2c356545ee9f299f3b6f5492c508e4db06c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9a9b6cfe98c207938f2ebba69bcac7bb8af3bae9f5905ca403d0339dcb3d8f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba5f25c5893bcd4d140a98e5733e30677aa90cdc71fc5f368aec130551d56df1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef71d94640abaa605c83e978a0b4e282bc2fcaa3b4ff47957efb59a0496c6b44"
   end
 
   depends_on "go"

@@ -1,21 +1,18 @@
 class Pacparser < Formula
   desc "Library to parse proxy auto-config (PAC) files"
   homepage "https://github.com/manugarg/pacparser"
-  url "https://github.com/manugarg/pacparser/archive/refs/tags/v1.4.5.tar.gz"
-  sha256 "fac205f41d000e245519244dc3e730e649a0ac1c61b5f2d1d0660056e1680b2d"
+  url "https://github.com/manugarg/pacparser/archive/refs/tags/v1.4.6.tar.gz"
+  sha256 "7c5f4317f59c74a969acf700a6cc8ca838fa437f1ae58bce06422e880cbc9253"
   license "LGPL-3.0-or-later"
-  head "https://github.com/manugarg/pacparser.git", branch: "master"
+  head "https://github.com/manugarg/pacparser.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "270415ce44db451091e58c371dae0db097c42b98970153c67e55a7d63eef399d"
-    sha256 cellar: :any,                 arm64_sonoma:   "22d47d663a8dee08bffab1c78bb4ed863317da5c9fa5bd8a937fe87784d8996e"
-    sha256 cellar: :any,                 arm64_ventura:  "2eb88d3fbf6f69a38d7e9f95d8781d3471ad1b3cc89cfbfb7bbe4b08f9150a91"
-    sha256 cellar: :any,                 arm64_monterey: "10f108fb57f52d0774b9f02981e5bdb2c0c569c9bd1b5fa789a7f8d4383d1e26"
-    sha256 cellar: :any,                 sonoma:         "4d184243ed935d24e10744195addf345d21822ab299309636345ef1a8c5f14ae"
-    sha256 cellar: :any,                 ventura:        "67d627d395f5c153f5025fe552c70931e6ab55f0dd2e7171414de5d43497e20d"
-    sha256 cellar: :any,                 monterey:       "541bd6827519339d49f1521f5733fd9854961aec2fd48b157f70f99953e144a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "48d7f1676aa913adcc2892321ed98f34648bb6113d9085fa89186875271d7b60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea64d408d99ac2dfd8426d17e8afd6e39ed561ab0b17b62baf9fe6d871e87982"
+    sha256 cellar: :any,                 arm64_tahoe:   "c6688419225a78bf7acc656ef81d32061fce24878a307aa5c6bc0480925e78ce"
+    sha256 cellar: :any,                 arm64_sequoia: "948d76de5ebe7475ea560f44a3235ea945b2e9f89ba83b9bd92439a8811e23f7"
+    sha256 cellar: :any,                 arm64_sonoma:  "bb2c49a302896015e70cf1256014965854b2d3b85637a536c515ec08d100c63e"
+    sha256 cellar: :any,                 sonoma:        "7a243e5b8fa79036b76d28e917f2a5328900bd3e750d9e27e022f57a3ed0be95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1a331f84be7b5bb4a3c65640e62d27b1b3a5c1ba06c4f18bb7df6ef1a086d42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a26b8849f3eba4554d1e87a5546709a9582ca965a946074c2859819cea56ea6"
   end
 
   def install

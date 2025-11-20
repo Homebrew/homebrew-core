@@ -5,7 +5,10 @@ class Mtm < Formula
   sha256 "2ae05466ef44efa7ddb4bce58efc425617583d9196b72e80ec1090bd77df598c"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "fc17d2a6d42dc599cc4a707a445b1bf0201039191f86829c9ed6ef4c9ae7d9ea"
     sha256 cellar: :any,                 arm64_sequoia:  "7568a6130dc642b184063d2b470d2855e0cbc040e80c0f9409aeee9361c80b1b"
     sha256 cellar: :any,                 arm64_sonoma:   "5f63cd8a1cfeab4ed5e0b5b88f63482f88508ea4ee6d3c2c9c16b6fc1cbd8fab"
     sha256 cellar: :any,                 arm64_ventura:  "5e316854c5b156cbc12a6e70b274763c03f7a666ee8288d32bcf6f1d11fff3fb"

@@ -8,15 +8,15 @@ class RstLint < Formula
   license "Unlicense"
 
   bottle do
-    rebuild 8
-    sha256 cellar: :any_skip_relocation, all: "33af15142db56039486e955b7a684f745bb02857f97b0aca3d5095a4b389d35b"
+    rebuild 9
+    sha256 cellar: :any_skip_relocation, all: "305cb3643973922a58e38ebde0325f8fc16f21ccd96da238f973ee3f9f12ad87"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/ae/ed/aefcc8cd0ba62a0560c3c18c33925362d46c6075480bfa4df87b28e169a9/docutils-0.21.2.tar.gz"
-    sha256 "3a6b18732edf182daa3cd12775bbb338cf5691468f91eeeb109deff6ebfa986f"
+    url "https://files.pythonhosted.org/packages/4a/c0/89fe6215b443b919cb98a5002e107cb5026854ed1ccb6b5833e0768419d1/docutils-0.22.2.tar.gz"
+    sha256 "9fdb771707c8784c8f2728b67cb2c691305933d68137ef95a75db5f4dfbc213d"
   end
 
   def install

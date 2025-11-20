@@ -38,6 +38,7 @@ class Tart < Formula
     system "swift", "build", "--disable-sandbox", "-c", "release"
     system "/usr/bin/codesign", "-f", "-s", "-", "--entitlement", "Resources/tart.entitlements", ".build/release/tart"
     bin.install ".build/release/tart"
+    generate_completions_from_executable(bin/"tart", "--generate-completion-script")
   end
 
   test do

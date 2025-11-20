@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v257.5.tar.gz"
-  sha256 "4d65f9482608cf9f7823df42a6d7796f0e0dfcfb94301df75effff86d40da33e"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v258.2.tar.gz"
+  sha256 "05208e76bf1f9b369b1a8159e6631ef67c82f2d27c21e931962026a79bf4ba64"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -30,8 +30,8 @@ class Systemd < Formula
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 arm64_linux:  "6f8f6f3017a35c59abfb80c6fb609d2ba1a2ebad8c851ca0b5526f27945e1203"
-    sha256 x86_64_linux: "c7609af448f6ac3e55428f908769e4cec7382c0ad306674c7346cd46e3608ed3"
+    sha256 arm64_linux:  "8feb10fe5c75c6130a8c9de2fc80bf9d8c184e80948ffa1ccc789eb67fd9f95b"
+    sha256 x86_64_linux: "270d023f4236283db71d1175ea26b0e2c5712c2ff11ad5a98b508238a09b4755"
   end
 
   keg_only "it will shadow system systemd if linked"
@@ -40,13 +40,13 @@ class Systemd < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "gperf" => :build
-  depends_on "icu4c@77" => :build # FIXME: brew should add to PKG_CONFIG_PATH as dependency of libxml2
+  depends_on "icu4c@78" => :build # FIXME: brew should add to PKG_CONFIG_PATH as dependency of libxml2
   depends_on "libxml2" => :build
   depends_on "libxslt" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "glib"
   depends_on "libcap"
   depends_on "libxcrypt"
@@ -57,23 +57,26 @@ class Systemd < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  pypi_packages package_name:   "",
+                extra_packages: %w[jinja2 lxml]
+
   resource "jinja2" do
     url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
     sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/ef/f6/c15ca8e5646e937c148e147244817672cf920b56ac0bf2cc1512ae674be8/lxml-5.3.1.tar.gz"
-    sha256 "106b7b5d2977b339f1e97efe2778e2ab20e99994cbb0ec5e55771ed0795920c8"
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3.13")
+    venv = virtualenv_create(buildpath/"venv", "python3.14")
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/systemd"
@@ -111,6 +114,6 @@ class Systemd < Formula
   end
 
   test do
-    assert_match "temporary: /tmp", shell_output(bin/"systemd-path")
+    assert_match %r{temporary: (/var)?/tmp}, shell_output(bin/"systemd-path")
   end
 end

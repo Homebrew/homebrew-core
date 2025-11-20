@@ -5,13 +5,6 @@ class PnpmAT8 < Formula
   sha256 "daa27a0b541bc635323ff96c2ded995467ff9fe6d69ff67021558aa9ad9dcc36"
   license "MIT"
 
-  livecheck do
-    url "https://registry.npmjs.org/pnpm/latest-8"
-    strategy :json do |json|
-      json["version"]
-    end
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "d27023c0a4cd4905688132e77e2729c06816516b1e35d9c73fcc4f70aedb05bf"

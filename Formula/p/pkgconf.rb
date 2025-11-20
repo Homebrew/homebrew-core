@@ -1,9 +1,10 @@
 class Pkgconf < Formula
   desc "Package compiler and linker metadata toolkit"
   homepage "https://github.com/pkgconf/pkgconf"
-  url "https://distfiles.ariadne.space/pkgconf/pkgconf-2.4.3.tar.xz"
-  mirror "http://distfiles.ariadne.space/pkgconf/pkgconf-2.4.3.tar.xz"
-  sha256 "51203d99ed573fa7344bf07ca626f10c7cc094e0846ac4aa0023bd0c83c25a41"
+  url "https://distfiles.ariadne.space/pkgconf/pkgconf-2.5.1.tar.xz"
+  mirror "https://fossies.org/linux/misc/pkgconf-2.5.1.tar.xz"
+  mirror "http://fresh-center.net/linux/misc/pkgconf-2.5.1.tar.xz"
+  sha256 "cd05c9589b9f86ecf044c10a2269822bc9eb001eced2582cfffd658b0a50c243"
   license "ISC"
 
   livecheck do
@@ -12,15 +13,16 @@ class Pkgconf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "3feba2e952500e4ab9261ac59a19e07c310d1147e31496f62b591e4b21b68683"
-    sha256 arm64_sonoma:  "24e921aaf87bc253adf250761cb4bf717d14dec995d2f6302cf966f30f28fe59"
-    sha256 arm64_ventura: "2df66bd11baf8300451fb850f365c93e0a9cc47677887d1d0f2f575c148e4b52"
-    sha256 sequoia:       "60803149fa486b8da14591ce5c016e37c9388c1ded2a88d9167a84926cc74957"
-    sha256 sonoma:        "9f5e12ea8ab25db6afc5c09543d6840d72f6556b894d167ac79007e8f187feb0"
-    sha256 ventura:       "3d7bbea2ca2d4d611c55dcd2d890628b2c4f45451fef6e39755f30acf1c4aeea"
-    sha256 arm64_linux:   "6d8ad2faadd3f05fabbc70b12cf2cda9a4543fe7cb6d62bf6288db842461c57d"
-    sha256 x86_64_linux:  "9177b7f842d88798bfd86929360ac3a412d3d7e0133f0e9b0dca0d5306c46dc1"
+    sha256 arm64_tahoe:   "84f26aae5e27d846e00a9fb741dfe3b02a14cb2f81ca4a4246617379cda99fc0"
+    sha256 arm64_sequoia: "6fabdc3d0a656e2d505aec4e39b2f8e354601ee141469554fa71eabc3386e18f"
+    sha256 arm64_sonoma:  "bc7f9963756598248220da128a5f06ea0e6685aa7cd965a5ce357fcfaad2cdec"
+    sha256 arm64_ventura: "8d53ac0deb003f8866315c4c27a1aa4767467c9fa13c912f52cb29e37fbe7916"
+    sha256 tahoe:         "ab1a7c8edaffa3a27400174deb4845140bdd56942d9ab2a7bccdf30f7ef74d91"
+    sha256 sequoia:       "a074f871aa476dec1101c13b4fcfbb9354a8b35bcb6e056f8411463913632071"
+    sha256 sonoma:        "439e8e638986c4423f430719f28cd7c62e8d9a1b87ac658c069fd5da939784f8"
+    sha256 ventura:       "e38acbfd930c9588f4d1eabe061b956948aaff32cccb30c457430779c1e4f7f5"
+    sha256 arm64_linux:   "abdf9fbefab1d7b7219a619fb5bd44b58c00a71146a43cb24b71700c2ead369e"
+    sha256 x86_64_linux:  "9df0ce4d9ebae822b763a9c18565d1596a40b2a2e5849c743e768a99f554f24b"
   end
 
   head do

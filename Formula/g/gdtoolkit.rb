@@ -3,25 +3,23 @@ class Gdtoolkit < Formula
 
   desc "Independent set of GDScript tools - parser, linter, formatter, and more"
   homepage "https://github.com/Scony/godot-gdscript-toolkit"
-  url "https://files.pythonhosted.org/packages/5e/71/0563b7f812c4db67ead1d47cf6710c3e9c6e1a7d505321240efc7638c08b/gdtoolkit-4.3.3.tar.gz"
-  sha256 "f17089c3e33d0053ab229a637a9faabc0fb8ebb07412fe719ed00b2e66adc343"
+  url "https://files.pythonhosted.org/packages/de/39/041c1705dba6450c67e23be0c70d0fcff035e7d240b6695fc59efd8dafb6/gdtoolkit-4.5.0.tar.gz"
+  sha256 "1ab17fb5400d86e4ae66d9c94992f4e3a9b6c27d618d4094782e66101efb3e9a"
   license "MIT"
-  revision 1
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/Scony/godot-gdscript-toolkit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bf4f396f05200cb9b9acc892694f4bf4e5969420d21c1efa6d0509c5707854d2"
-    sha256 cellar: :any,                 arm64_sonoma:  "3d1ca6707157c01f628e1f335750a29ddb1638d15b7b1b846b9e32ae02a6916b"
-    sha256 cellar: :any,                 arm64_ventura: "795711b2b6e7820c18ae710f4b15a20cc34593eb9ef04b0c2570c266bd8a2bf1"
-    sha256 cellar: :any,                 sonoma:        "a484303d9f447dd76f825d29b8056b3b58aa2794b054766940f885aa89e31335"
-    sha256 cellar: :any,                 ventura:       "02d84ca798c5039e5df3fe1fbe727eedd818b03d43f071c24fbdf1a2d0180b45"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e3417a05bc2349a9bbc260903e166c0be0c4c813a876808fa2e97bf31bec09a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1864a31849824628ae0898d5fba730754bab84b4de707d33b11a8bec6a72ab10"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "d6c17d46835130db35d368974625d777f12231fa0dba2a766c22f1637b63b05c"
+    sha256 cellar: :any,                 arm64_sequoia: "cc4514d0b4691e116e3937bb807d598909bd3050fb7e33730afd12cb52cb0365"
+    sha256 cellar: :any,                 arm64_sonoma:  "a6fdce0e5997466eca53cc5fa06dd2533249f6f4ccc67cc33467f9cdd4654a65"
+    sha256 cellar: :any,                 sonoma:        "f51de9f2ab4879db48646fcd0548d26bdf87bdf8cacd2047d5ac15126b93c3dd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "308fb3375acf24412ed4126d15503cf8ad8fe181ee68ff9bb37a012171344959"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8affd1ec7249d34797488715e52464e5c3e5ee743ea93298129c77e4ac8f7f30"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -44,8 +42,8 @@ class Gdtoolkit < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "radon" do
@@ -54,13 +52,13 @@ class Gdtoolkit < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/8e/5f/bd69653fbfb76cf8604468d3b4ec4c403197144c7bfe0e6a5fc9e02a07cb/regex-2024.11.6.tar.gz"
-    sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
+    url "https://files.pythonhosted.org/packages/49/d3/eaa0d28aba6ad1827ad1e716d9a93e1ba963ada61887498297d3da715133/regex-2025.9.18.tar.gz"
+    sha256 "c5ba23274c61c6fef447ba6a39333297d0c247f53059dba0bca415cac511edc4"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "six" do
@@ -69,7 +67,7 @@ class Gdtoolkit < Formula
   end
 
   def install
-    virtualenv_install_with_resources start_with: "setuptools"
+    virtualenv_install_with_resources
   end
 
   test do

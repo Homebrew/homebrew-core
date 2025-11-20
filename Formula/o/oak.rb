@@ -6,7 +6,10 @@ class Oak < Formula
   license "MIT"
   head "https://github.com/thesephist/oak.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "815a55a839e22f2903fa5dcd1b0b0c7add13323dba55b9b6cf25e3bf6b89644d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b4add3db56fe8171421dc3fd528ee7d39b54936c03d75b89a42a24c8d8a3a151"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fb8d9531ce0034422a0233fb27c1e77c94910d91f544e18407b8420f67f7f3e3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e49abb41ea0758574abb99e97cfae07adeedb324060114815b4c0ead6cbbc674"
@@ -17,6 +20,7 @@ class Oak < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "538fdce9778c8c182d6c369356f02c0d8cd0ba120168eaa204d9ea5d6e423fe6"
     sha256 cellar: :any_skip_relocation, big_sur:        "50e687e3532068bd0948b8760e0bdcf136a6f357600ab1abc5c2089f0d372436"
     sha256 cellar: :any_skip_relocation, catalina:       "c206c1cb5f34b507830290b8e273cf65d2c76f08ce5f014a17fd8653a63cce0e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "50a204d94668d846405a53b9c16d42edea86f7448c8961139b3450702c382028"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c902712d736c06e8f065b2046ad172b66c7ae075a2ccdd3c19c859616577fe50"
   end
 

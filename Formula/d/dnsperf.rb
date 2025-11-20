@@ -11,6 +11,7 @@ class Dnsperf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c12ce321fce2e77c1a9081a50cf8887e47f4474e51d69475e7364b253caf4eb1"
     sha256 cellar: :any,                 arm64_sequoia:  "105e91000e93fa837ba43661cac925cbfab0bfdc679fa7e9920c590c0f0269f3"
     sha256 cellar: :any,                 arm64_sonoma:   "1f56f85a5973c690c2d511f197d2af107391cb2d73fc165a10b2bc604095b7b6"
     sha256 cellar: :any,                 arm64_ventura:  "0c6940568620597ca23ab89c37dbd3cafa038e4491020c020a491ef852b07bee"

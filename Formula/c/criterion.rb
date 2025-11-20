@@ -1,22 +1,18 @@
 class Criterion < Formula
   desc "Cross-platform C and C++ unit testing framework for the 21st century"
   homepage "https://github.com/Snaipe/Criterion"
-  url "https://github.com/Snaipe/Criterion/releases/download/v2.4.2/criterion-2.4.2.tar.xz"
-  sha256 "e3c52fae0e90887aeefa1d45066b1fde64b82517d7750db7a0af9226ca6571c0"
+  url "https://github.com/Snaipe/Criterion/releases/download/v2.4.3/criterion-2.4.3.tar.xz"
+  sha256 "8ec64e482a70b3bfc1836ace0988b3316e6c3cfeac883fb5a674dcea5083ea16"
   license "MIT"
-  revision 2
   head "https://github.com/Snaipe/Criterion.git", branch: "bleeding"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "87e4b6050b97f8c93ffa634a013392a08dd9ca6ccde834ab0b38ef960bdbbb3c"
-    sha256 cellar: :any, arm64_sonoma:  "cd2f6e03ef7b2bf9e3ba7e6620fc3f7971a98bba90ada27302ac84e1e0019ac4"
-    sha256 cellar: :any, arm64_ventura: "c6f8a68eba64dd89f2a9748e37b7739919ef51f24c065495c1804b682bf507b5"
-    sha256 cellar: :any, sonoma:        "85c669acf3f38a5a905425ece8bc92f8a845c9af1dcf569a4d9c18da99a4e507"
-    sha256 cellar: :any, ventura:       "b43ee024021a2a0ae8ad6c1a246790b0990544cbe288d16bd6a21af517afab97"
-    sha256               arm64_linux:   "eb14834df1db070905a92dce10ae4cc7602ad77a1ea6b47f4c2936c556ef0136"
-    sha256               x86_64_linux:  "c0801143d8501a7af0e73b559b3af2d4877edf4cf2a9f5adb1f622915738f9e4"
+    sha256 cellar: :any, arm64_tahoe:   "a9672d4007899f8d5441fafd3738863c93829abce3bc43031981c82b5c11f17c"
+    sha256 cellar: :any, arm64_sequoia: "5d8ff893cb861d388519fd9fb8e01c4afab12bbce21842bc6292970fad1369f6"
+    sha256 cellar: :any, arm64_sonoma:  "3f4b8ccceaf763235dc669387c0ee13af6cf4ef58b0f06403ba2fc54b172e796"
+    sha256 cellar: :any, sonoma:        "262cc7f448b90131c51d7bf5bbc82d49707551f73fbfa53d7a0d917e077c80f3"
+    sha256               arm64_linux:   "554c2d54bc12923dfe181c740f6a82af803485926fded8afa8daf3508239a341"
+    sha256               x86_64_linux:  "6c9a32199fe0c88d3bfd6b9f4d40f17e573147152190cebb00fb72e58f287c16"
   end
 
   depends_on "cmake" => :build

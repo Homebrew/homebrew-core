@@ -1,20 +1,17 @@
 class Intermodal < Formula
   desc "Command-line utility for BitTorrent torrent file creation, verification, etc."
   homepage "https://imdl.io"
-  url "https://github.com/casey/intermodal/archive/refs/tags/v0.1.14.tar.gz"
-  sha256 "4b42fc39246a637e8011a520639019d33beffb337ed4e45110260eb67ecec9cb"
+  url "https://github.com/casey/intermodal/archive/refs/tags/v0.1.15.tar.gz"
+  sha256 "a01fde996f2e506c7e90a6015a6e130cb4757d21e98063c38672bdccf2e99d9c"
   license "CC0-1.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "852b6c8f3270eac4536874bcd3569c7b356f196095395587b827c19694bc8850"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8a4fd8dbae699ee5489ee270a44217875c278e8dafd4b0d2ab59c0a53c233d7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f97365296218ba43ceae80cc225a3ede3974b0060dc6e22b0e9c7bb10fc10ce5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d67ee890e7374157bff784bc6a756b0a38156c90bf45dfbeed40860a060b82bf"
-    sha256 cellar: :any_skip_relocation, ventura:       "729f1a952834a171ae49923079e207ff23dca4df44975f22057cb3c7df555c7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ebd7eddf899a9fd8880bda08f54e4b46da5fcddbc60677a07fe43bd9a407bf6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "302d5f8fcf0869b8dd99ad396a04ca70d4f4a07cdc500de72cd01dec07fccba1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2be891c2b96611a332b05e919ae9bd4d94bc353f649fc907954a49a649d3eb1d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "840aa130a61ca1f89c05b615b20aa43ec80df2229406895455b4521796dd6f48"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c711d051f9fdfcf2b6e910d3101f0e25811532c0caa0a964f204f144b1cc996e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9e113d9474e825dc7e86a67360e1f713a515aef547c52008c6ede62611576aac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c308e078efd80e3ef65cf6db4d62a87272d2897d960b4c41a10fd9350edd05a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b50de11de888eb84d65e2ff265bd6a16effc63be4ef067cf71bb3cbb6cda22a4"
   end
 
   depends_on "help2man" => :build
@@ -28,7 +25,7 @@ class Intermodal < Formula
   def install
     system "cargo", "install", *std_cargo_args
     system "cargo", "run", "--package", "gen", "--", "--bin", bin/"imdl", "man"
-    generate_completions_from_executable(bin/"imdl", "completions", shells: [:fish, :zsh, :bash])
+    generate_completions_from_executable(bin/"imdl", "completions")
 
     man1.install Dir["target/gen/man/*.1"]
   end

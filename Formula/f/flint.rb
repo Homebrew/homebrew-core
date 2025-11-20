@@ -1,8 +1,8 @@
 class Flint < Formula
   desc "C library for number theory"
   homepage "https://flintlib.org/"
-  url "https://github.com/flintlib/flint/releases/download/v3.2.2/flint-3.2.2.tar.gz"
-  sha256 "577d7729e4c2e79ca1e894ad2ce34bc73516a92f623d42562694817f888a17eb"
+  url "https://github.com/flintlib/flint/releases/download/v3.3.1/flint-3.3.1.tar.gz"
+  sha256 "64d70e513076cfa971e0410b58c1da5d35112913e9a56b44e2c681b459d3eafb"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -12,13 +12,14 @@ class Flint < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4343db1e506cf7681b89d9fcc9230816cd4d7bf2de0d785d6d7391bb74b5ef80"
-    sha256 cellar: :any,                 arm64_sonoma:  "18ddb9646c0378d703abe8421ff1de28fc818843274976d1c54e23b938d35945"
-    sha256 cellar: :any,                 arm64_ventura: "8f6311ab790eb9d0de362a7fa648cef527f0f70b415cfb03874cddb4f5cc3f45"
-    sha256 cellar: :any,                 sonoma:        "f78a8b4f5b0ff5fc9161239acf9d103b07dc2ab59a59cac8f0c25576892f9a42"
-    sha256 cellar: :any,                 ventura:       "d25eb9965d322ab870062cc56e89fc13681ade1e36c6f611788bf8d90d32b2fa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "daa13f6bf91f9ae87934c0e2b2ceec695793919fe14201f063850b09b9446768"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d247954807d7b273e126f655b68a5c1146f2888ad7e99b7b2df214f3a5ea0534"
+    sha256 cellar: :any,                 arm64_tahoe:   "3b1d6ad92344a39607f31944de07b9d87f4a14967a2d74946ec7e5a0007a7b17"
+    sha256 cellar: :any,                 arm64_sequoia: "0c8d15e07812156084dc351ec75c591cb62cb3bc0d3e1346a5615155c2e5568f"
+    sha256 cellar: :any,                 arm64_sonoma:  "80ef75040da0d978d53f888ed1011c2d6278d8e821571572f6f8ee145d226eca"
+    sha256 cellar: :any,                 arm64_ventura: "a81860f596d94ddb5d9731cc251537c2386bb1b9471088e7afecf05f06f013ac"
+    sha256 cellar: :any,                 sonoma:        "a929163ba8b7fc9e6bcb183dfa81afb4647eaeaae801f59ab7a201bda542995e"
+    sha256 cellar: :any,                 ventura:       "510bae88de0f0c6c96d562a0989fe3ad73b85676a2b1970a9563b11d59ce214a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c83a16e962df0ed027021820c452b2283fda7df7d009e0c6763ddba8c46ce5e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b54f682a717039279cb49e7fbfc82ff462861de03668146458afd18438b769f6"
   end
 
   head do

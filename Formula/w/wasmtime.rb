@@ -2,8 +2,8 @@ class Wasmtime < Formula
   desc "Standalone JIT-style runtime for WebAssembly, using Cranelift"
   homepage "https://wasmtime.dev/"
   url "https://github.com/bytecodealliance/wasmtime.git",
-      tag:      "v33.0.0",
-      revision: "4ce8232ab9ac86bcb299ed670593ed26f69e63df"
+      tag:      "v39.0.0",
+      revision: "56b81c98a2b4bfea4e7b1d6ac8f2e4196dc83fc1"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/bytecodealliance/wasmtime.git", branch: "main"
 
@@ -16,13 +16,12 @@ class Wasmtime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "488214a476c016a4cf1555dc8916f6e21579830152933faae07e59d861e4c8ea"
-    sha256 cellar: :any,                 arm64_sonoma:  "6a7a2f79af75aa9004c48ee5145a46bfbd58ea220e2bff40b2cb403dfd1c685b"
-    sha256 cellar: :any,                 arm64_ventura: "e2cba6084d4eaf266c6ce82694ce30037f1787d5fdff1419036a90242db08801"
-    sha256 cellar: :any,                 sonoma:        "605d4d3edd7cd3591c623aee875714c7f784a39d1739fb94f5655875b1760a16"
-    sha256 cellar: :any,                 ventura:       "bb253afccc96150139fb9ca8e3730c40a44295652be8484b8cfff8c2c369fe48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb3ada633cf4d97068e00a147e6798d75892d0fdd93337d5594b13ba119c5df8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a42211142ffdc44c4c018153a8ec0ebcfd434d2ef70520c9ec4112459ea0fdf7"
+    sha256 cellar: :any,                 arm64_tahoe:   "71ff177474eeb1b248554f46cdfba056ff5906e42c2a1cc4371e9bf482215eff"
+    sha256 cellar: :any,                 arm64_sequoia: "aeb04e5b01e07dde4f249d5218bea8cfbb2487db0ae4e00e475914c277e12e80"
+    sha256 cellar: :any,                 arm64_sonoma:  "bdb2d845c0f7fe45001f43e625023e369989708969968d78e511a1c68bae960a"
+    sha256 cellar: :any,                 sonoma:        "07c8d2e365990950283b3ca201fed7c829e07530429446960a6585f15c868c8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "42edfe16fa761a9408000d6c94628b874786e1d1b0ea846ac3c3970170b59aae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71f60ebd80b23d74d6bea80691cea78aad00418349ace975029b7ca3d986251f"
   end
 
   depends_on "cmake" => :build

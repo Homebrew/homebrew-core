@@ -1,25 +1,24 @@
 class Quasi88 < Formula
   desc "PC-8801 emulator"
   homepage "https://www.eonet.ne.jp/~showtime/quasi88/"
-  url "https://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.7.1.tgz"
-  sha256 "a9e7097e26cee6605ca3a467f6167b624dca4d11e3d99fd5c9886894b42cc05e"
+  url "https://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.7.3.zip"
+  sha256 "ea8b7095917a841a5f38ce817654ee823ae1e7b0ad7c8629348d584b29667350"
   license "BSD-3-Clause"
 
   livecheck do
     url "https://www.eonet.ne.jp/~showtime/quasi88/download.html"
-    regex(/href=.*?quasi88[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?quasi88[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "0eac8fdd1ee628be1f2f760272599513d3251ec2f0781d98da27fff0f5ab9917"
-    sha256 cellar: :any,                 arm64_sonoma:   "5f6e0024ba90b4ea8d6db6615f01245ebb26ad6e914d5cd5720751b5b5d22399"
-    sha256 cellar: :any,                 arm64_ventura:  "c5a10d08e47dfd4e46bb9248aa8ebdb6b85ceaaf26223d2190d01d28167c27d3"
-    sha256 cellar: :any,                 arm64_monterey: "52ae75a5b84dab5523b36ea0b827d783a79f419a605cc059fd453ea3e74562a3"
-    sha256 cellar: :any,                 sonoma:         "42b152e68b2c5b4773be2fa8e54380f3059d3864fa82e6591e6ef7c72e0fa920"
-    sha256 cellar: :any,                 ventura:        "b5ccd2b099ca8067fdf747d4a97380f58a11d069ddd725e7c7174c0dceb2a88a"
-    sha256 cellar: :any,                 monterey:       "58db5d7edd11c2a23a92a679d954bd1e4b0be0db0fd52d0ef2adb0425f1d5668"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "1eb324460bb466483fdd6bcf7d2c9b3f7c3f1b3458f14b14c85c9ae0ebc05468"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bece28e3cc116e801cbcb9da47c2e3768d0a0e15b24d05bdb2ff0f51e06496b"
+    sha256 cellar: :any,                 arm64_tahoe:   "842ac1ca7dff5eab4167dbc2c254c9d10906925b88ce89358d8d60d845915acb"
+    sha256 cellar: :any,                 arm64_sequoia: "20231bb2bc8ee681fd26333fec50a8d641abb9decc2a9aeedded11adce5fa046"
+    sha256 cellar: :any,                 arm64_sonoma:  "c7039f1e39858b42023516c859a375d478dea926b76f274b624dfd9130a9598f"
+    sha256 cellar: :any,                 arm64_ventura: "c88abc6fbf41106452bf7b3fb13c6e3626c8367382d2918d14f1041bc2e1a0b6"
+    sha256 cellar: :any,                 sonoma:        "72f63671f466c20d84d1c148f2682283526d1ca2a4ea65dbcdf16d53fb476def"
+    sha256 cellar: :any,                 ventura:       "d73202052e48e221a118f9f010f1c284cf83caa4c5a95c1fa7e3c393b6e4a993"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "89265c3d0c0abaed57404054d2b2ebbb65d9eee0f79c9041428ef07c019d3f13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f397f98e66812a49e708963bd8cccc62c07179828358bbebac9073fef06ecd6"
   end
 
   depends_on "sdl2"

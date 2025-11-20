@@ -8,8 +8,6 @@ class JujuWait < Formula
   license "GPL-3.0-only"
   revision 3
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 6
     sha256 cellar: :any,                 arm64_sequoia: "7d8a37c0c1be688c222abe9d980a5368887f18f7436de14e82f526fe4e023d66"
@@ -29,6 +27,8 @@ class JujuWait < Formula
   depends_on "juju"
   depends_on "libyaml"
   depends_on "python@3.13"
+
+  pypi_packages extra_packages: "setuptools"
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"

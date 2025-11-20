@@ -1,17 +1,19 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
   homepage "https://github.com/containers/skopeo"
-  url "https://github.com/containers/skopeo/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "043e9f568440accf1aafca122a25c4d21441f16de49475192ec4abeef7430358"
+  url "https://github.com/containers/skopeo/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "0c19fe51b2cd8d1bd5e38c03b97421e318fc08153bdf5ef2f816a29889eacdef"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_sequoia: "b92bf9e74a3f729b3ee4022b1b26f4ce9b459d8c1919a438b45ddf61ccee08f9"
-    sha256 arm64_sonoma:  "e4d4585fec2cd666321ed3a3c4ac086a454589614280391bbc5ab52eb0331cba"
-    sha256 arm64_ventura: "7e2b25e6d2f2a2649eae99ed1e9313e55b0ec8b4a386189844dab63e8f27c496"
-    sha256 sonoma:        "56921c1ded643f7a11ffb8b1ade837cf89d5f95ff695343a275186c31cc48733"
-    sha256 ventura:       "bea60e3be5267fcf0aad619f9bb5d833e6eb25374b4b2a3e5aa3453911b04e55"
-    sha256 x86_64_linux:  "46546e227bc13941c5a6a980ba444703cf1df6efffc989636e39677b33874fe1"
+    sha256 arm64_tahoe:   "0d0b4def1c9647842f565b8b63a71f68a4f82d650764008bbcd48994d26f2cf7"
+    sha256 arm64_sequoia: "48fb54d9dfc643afa30a0b494a948c6a03333aa9364003db282d9135abb914a0"
+    sha256 arm64_sonoma:  "8d2640e13bfb86252023095c04acd31a4b1ec06a3b07d5e3a61046c5c0669bcf"
+    sha256 arm64_ventura: "aafd89323832b5b4f121a455f0c87e7e805e72ba85d1fa62edb3e7918ef883d1"
+    sha256 sonoma:        "9be5e84aaea3ebfa9231ab1b5d9d0ed6eacdcaec9260d8c989484a1ee75ea5de"
+    sha256 ventura:       "445eb2037a597f3d28d217d66509e5b4f5cd62b10de08226b0952b5c0296e5c6"
+    sha256 arm64_linux:   "7dd90c80fe4078016c0d0add52a9874fac2c22dfa62ab08219ae9268aed6e09e"
+    sha256 x86_64_linux:  "592cb52b502eb29da5ef94dce2afc60e804435129f2115a9b77301ca48622032"
   end
 
   depends_on "go" => :build
@@ -53,7 +55,7 @@ class Skopeo < Formula
   end
 
   test do
-    cmd = "#{bin}/skopeo --override-os linux inspect docker://busybox"
+    cmd = "#{bin}/skopeo --override-os linux inspect --no-creds docker://busybox"
     output = shell_output(cmd)
     assert_match "docker.io/library/busybox", output
 

@@ -1,18 +1,18 @@
 class Conftest < Formula
   desc "Test your configuration files using Open Policy Agent"
   homepage "https://www.conftest.dev/"
-  url "https://github.com/open-policy-agent/conftest/archive/refs/tags/v0.61.1.tar.gz"
-  sha256 "9f17da54e2be10a5b181f18f68349a08c4a4e3e37fdf6474436642f56a6d85e8"
+  url "https://github.com/open-policy-agent/conftest/archive/refs/tags/v0.64.0.tar.gz"
+  sha256 "9fda76a9f7d151f3ac8ccddd713e059490f291efaff6351d1b806ab0f4a5dc10"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/conftest.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8b03382894da082165886e5bf4f4f1e6ded9fc68bde4f6048e05d69f6e32e8f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a37b25ee1fbe0b3cbe6ee28109143647229ce58e0860f13614ab292b9008f6a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "78efeda48178e09491a4b4efcd6aa39b590816127ff6e49647353503ffb8a6a3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0585ee763e4db8593b9efbbe8f94b220a61f75941e5221bca8001e132e31b19e"
-    sha256 cellar: :any_skip_relocation, ventura:       "955b2aa37b9f940bfc33ffeca06487f70b6afd0c835911d4aef10ee78c973e63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7f499a4acd18ff3496a9d161a428ee987de11bccda61d7f79e564b00953ade8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f44596df1e003203222ca1d7212be8055886460fc778f6c251cdcb5e8e58cc01"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b868665b2d32b034192a92c771a2158d642e80175d0bd76f682afa9bba568a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8ff0abc1ffa553dbb14c532c34bf6e8e436751503462753fa41d3b5233a9f89"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f87e7dd6db323c8ed90d58c91cefc46d5348fc9329461947e1b120849dcface"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7779f1e5150ec2e2e251cc4a7af99539b44293967b56f38f426104f89a15178e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3635ae5a1bdeb354522877b2af27218f6a3e4a57fff77844b1aeb8e085ab6937"
   end
 
   depends_on "go" => :build

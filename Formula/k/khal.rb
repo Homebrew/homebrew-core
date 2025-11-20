@@ -9,16 +9,11 @@ class Khal < Formula
   head "https://github.com/pimutils/khal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d78b0935110727286c3a7cbb62f0bda1ebaa0c8290b8f14ac4494a8f2427bfb8"
-    sha256 cellar: :any_skip_relocation, ventura:       "d78b0935110727286c3a7cbb62f0bda1ebaa0c8290b8f14ac4494a8f2427bfb8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18cf8d3d72969bf1da0e4cb64248f66a0438b0ebacf7e4254bd987191639cfee"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "ffdf9aa98656fe74ade4279799cf568470772c7972326faeadc51ec4b6047f48"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
@@ -86,10 +81,12 @@ class Khal < Formula
   end
 
   def install
+    # Unpin python for 3.14: https://github.com/pimutils/khal/pull/1417
+    inreplace "pyproject.toml", 'requires-python = ">=3.9,<3.14"', 'requires-python = ">=3.9"'
     virtualenv_install_with_resources
 
     %w[khal ikhal].each do |cmd|
-      generate_completions_from_executable(bin/cmd, shells: [:fish, :zsh], shell_parameter_format: :click)
+      generate_completions_from_executable(bin/cmd, shell_parameter_format: :click)
     end
   end
 

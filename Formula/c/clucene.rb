@@ -6,8 +6,6 @@ class Clucene < Formula
   license any_of: ["Apache-2.0", "LGPL-2.1-only"]
   head "https://git.code.sf.net/p/clucene/code.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "a72d28c7e47cae2af5817ed8f2765308aa0b4eac7eafb7fa46451cd8cb6eb039"
@@ -28,12 +26,12 @@ class Clucene < Formula
   # Portability fixes for 10.9+
   # Upstream ticket: https://sourceforge.net/p/clucene/bugs/219/
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/clucene/patch-src-shared-CLucene-LuceneThreads.h.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/clucene/patch-src-shared-CLucene-LuceneThreads.h.diff"
     sha256 "42cb23fa6bd66ca8ea1d83a57a650f71e0ad3d827f5d74837b70f7f72b03b490"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/clucene/patch-src-shared-CLucene-config-repl_tchar.h.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/clucene/patch-src-shared-CLucene-config-repl_tchar.h.diff"
     sha256 "b7dc735f431df409aac63dcfda9737726999eed4fdae494e9cbc1d3309e196ad"
   end
 

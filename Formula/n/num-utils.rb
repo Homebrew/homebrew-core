@@ -11,6 +11,8 @@ class NumUtils < Formula
     regex(/href=.*?num-utils[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "9d5185fbab175569c61a97393d00d32ed091c41c2ea6fc16b2d80e1d77b81106"

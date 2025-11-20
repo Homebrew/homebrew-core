@@ -5,7 +5,10 @@ class Libdc1394 < Formula
   sha256 "537ceb78dd3cef271a183f4a176191d1cecf85f025520e6bd3758b0e19e6609f"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f3474880ec69351e7c1622f61bebf702bc288c2a896673e40e5f862948de0422"
     sha256 cellar: :any,                 arm64_sequoia:  "78ede809109f1cdc74263480e2088879534546d1a2ef2e85abe793d9bb053546"
     sha256 cellar: :any,                 arm64_sonoma:   "36f71e3ace8c9a94a732f397eda9e2c703c8ea45f02cd9ce3a87ca5b9d961770"
     sha256 cellar: :any,                 arm64_ventura:  "38a5b54a9c968f7cf4ad345b6c679cf752c3634492158dfbe120c6f5e086cefd"
@@ -23,13 +26,13 @@ class Libdc1394 < Formula
 
   # fix issue due to bug in OSX Firewire stack
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b8275aa07f/libdc1394/capture.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libdc1394/capture.patch"
     sha256 "6e3675b7fb1711c5d7634a76d723ff25e2f7ae73cd1fbf3c4e49ba8e5dcf6c39"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

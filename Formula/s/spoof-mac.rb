@@ -10,11 +10,11 @@ class SpoofMac < Formula
   head "https://github.com/feross/SpoofMAC.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "48c3a037c2b55a1f7849998fbdfa575f4e04726c284eb2190e72e0dcd93b0305"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "5e718f8027feceaf1fa8499fafc6e5638107ef2ed128b41d4c7467d3a824b65c"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_linux do
     depends_on "net-tools"

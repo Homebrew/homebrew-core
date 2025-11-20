@@ -13,6 +13,7 @@ class Dynomite < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256                               arm64_tahoe:    "ec342954369e6726e60c027f71e8e1fb3e6fcc8fba63255ba73149a02fa50043"
     sha256                               arm64_sequoia:  "e1eb2ecffe6ef0e08d0cc80b5f5ca44a337e2c4d79dde61be3ad2002d2e31fd3"
     sha256                               arm64_sonoma:   "1c273876dda80923311eed315f5c69de5e692fe4a666e7e937954895dd9f57c0"
     sha256 cellar: :any,                 arm64_ventura:  "757afdc3438ad136afef540fee6a07e42a51b3c1bbde3a25fb13bd19e5807d33"

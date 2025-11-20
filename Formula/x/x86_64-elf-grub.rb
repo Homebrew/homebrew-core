@@ -1,12 +1,15 @@
 class X8664ElfGrub < Formula
   desc "GNU GRUB bootloader for x86_64-elf"
   homepage "https://savannah.gnu.org/projects/grub"
-  url "https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz"
+  url "https://ftpmirror.gnu.org/gnu/grub/grub-2.12.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/gnu/grub/grub-2.12.tar.xz"
   sha256 "f3c97391f7c4eaa677a78e090c7e97e6dc47b16f655f04683ebd37bef7fe0faa"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:   "a3bfac9b34a745e29d7ee88e5e148d6a4327b5b3b742db5be069adb39bcc1032"
     sha256 arm64_sequoia: "9e7f8e4ae40110b6b2ef9610497ecc11612f2c28c399ac3addf7587ddcb88284"
     sha256 arm64_sonoma:  "66784aa8aecb9d70cab2eefb31b6f21cd0a2e29b3325c958abed5288c257b2e0"
     sha256 arm64_ventura: "d5e9b928e26082ce63928c69575178c6deb912d36100ce95580b211c788b7f31"
@@ -33,7 +36,7 @@ class X8664ElfGrub < Formula
   uses_from_macos "python" => :build
 
   resource "unifont" do
-    url "https://ftp.gnu.org/gnu/unifont/unifont-16.0.02/unifont-16.0.02.pcf.gz", using: :nounzip
+    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-16.0.02/unifont-16.0.02.pcf.gz", using: :nounzip
     mirror "https://mirrors.ocf.berkeley.edu/gnu/unifont/unifont-16.0.02/unifont-16.0.02.pcf.gz"
     version "16.0.02"
     sha256 "02a3fe11994d3cdaf1d4bd5d2b6b609735e6823e01764ae83b704e02ec2f640d"

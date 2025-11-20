@@ -20,6 +20,7 @@ class Jxrlib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c4b636123bafc19b44451cfc90eecbf7ab7488527508c40a102594517d60c889"
     sha256 cellar: :any,                 arm64_sequoia:  "e7aae93b96e812a888ab0a4da737a40fef17bb389a7e3bcc5106ff81c33a7841"
     sha256 cellar: :any,                 arm64_sonoma:   "437e4ba50db36d58d3c043f6a3a1e34939f0e80f1318160d9d142da27f222e47"
     sha256 cellar: :any,                 arm64_ventura:  "a81a86a6bc199eac66b8c9ae3b40a942c2acd8986b2c901e165f2ebb99e466f1"
@@ -41,7 +42,12 @@ class Jxrlib < Formula
 
   def install
     inreplace "CMakeLists.txt", "@VERSION@", version.to_s
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

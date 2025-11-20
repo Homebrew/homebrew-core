@@ -9,6 +9,7 @@ class EnterTex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "588c9b0d779340bf1199948718c8f6af5fe3c23c9801d34755c19d24bac6b7cf"
     sha256 arm64_sequoia: "77272cae991848eb62ccd74429963ed19fc0ec0cabd32ee6775e05894523e061"
     sha256 arm64_sonoma:  "cf804f346bb3fcecc2e03767b05a1b9a4121039ddfeed3e08aa914cee53a0b57"
     sha256 arm64_ventura: "85ad277e1f16e7f37cda75d95b6c296b00422be3488e800dd4b7fc02b71c9f31"

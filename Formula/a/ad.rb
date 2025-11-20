@@ -7,6 +7,7 @@ class Ad < Formula
   head "https://github.com/sminez/ad.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "54265079d292ffdf2718c837a8479f03851b66909b09981170fb440c17a04baf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4874d80cf8ec7d9a713ac0403e759fb024deea5a0aa9b0baaf77bb75da6dc379"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed349050f01a8877ff816ab5a680f2bdfdce30c022a78f7b2a68ec2a87f4665d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1b292412f05f615a3d450d6a45359307330b4b492f822b19c888bab607a191d3"

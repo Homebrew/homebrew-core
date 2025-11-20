@@ -1,18 +1,17 @@
 class Dav1d < Formula
   desc "AV1 decoder targeted to be small and fast"
   homepage "https://code.videolan.org/videolan/dav1d"
-  url "https://code.videolan.org/videolan/dav1d/-/archive/1.5.1/dav1d-1.5.1.tar.bz2"
-  sha256 "4eddffd108f098e307b93c9da57b6125224dc5877b1b3d157b31be6ae8f1f093"
+  url "https://code.videolan.org/videolan/dav1d/-/archive/1.5.2/dav1d-1.5.2.tar.bz2"
+  sha256 "c748a3214cf02a6d23bc179a0e8caea9d6ece1e46314ef21f5508ca6b5de6262"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2cfb486c742fb8c46159b99a193f3c1ae221e7d460df6a01a0daf1bb33de0bb8"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c9d516532c87c8a065e4d98750a3a2d187c1f89f4ddb569315a61055e7ada5d"
-    sha256 cellar: :any,                 arm64_ventura: "554aac9fa65b6d94e721c59a4974182d1d77e5be4ebc31f1408ec1e3fe460ae2"
-    sha256 cellar: :any,                 sonoma:        "0eab150c56858a839a017d529f909abbd7c83092a8815d21e51787e060e79b4f"
-    sha256 cellar: :any,                 ventura:       "d92bf92c696541ec5e5455329f4deb851098ee60203067992b5b28e40e375446"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "15ef0f5a59a18f57a8af1f2b50d5fda7c85ccb47e9d7b8040a6315d73d7f90f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a75a20ce3d5e586d5778c2a0a324175833352e2cc66ce2eff796dfec55fc867e"
+    sha256 cellar: :any,                 arm64_tahoe:   "51d9f8e8087862533fde9901158fb784bed69ecdd74b4aea75879ec068a7fa94"
+    sha256 cellar: :any,                 arm64_sequoia: "606c3c39ebbc55f12524f3688148441fc1c699f2e0f15afad248eed30b95c73b"
+    sha256 cellar: :any,                 arm64_sonoma:  "04256162edd9c60143369b2e12434ab380818a1f4fc5ad6aeb9c1d9699567b4a"
+    sha256 cellar: :any,                 sonoma:        "186f73868478cc6a624c80ef01b0d65f3526b606f4f63e0ef1b6a7f93894b2a8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2f4a237c9208f3666398ccec5288d71a5c7bc3e18b9f5b273cf5c520771c2c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a234b082021158b85cc97bd0587acf1bd3b4e2712fcc31c66c21364bb426a4be"
   end
 
   depends_on "meson" => :build

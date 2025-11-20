@@ -1,18 +1,17 @@
 class Newsraft < Formula
   desc "Terminal feed reader"
   homepage "https://codeberg.org/newsraft/newsraft"
-  url "https://codeberg.org/newsraft/newsraft/archive/newsraft-0.31.tar.gz"
-  sha256 "de0d96664d9a276dbe58cf4b44a6861bc18b6fd4c0f41a97450c5b3509904ae8"
+  url "https://codeberg.org/newsraft/newsraft/archive/newsraft-0.34.tar.gz"
+  sha256 "8d55441ddfc2e7d49ad3ff36c384ad4c1533de97d92a9fcaf3f6753b49b37c7c"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3b5961c074fd15057a182e9791170306fa5e355628d16d4968d1eee952f4fd7c"
-    sha256 cellar: :any,                 arm64_sonoma:  "6bfdb119e1307570cb966b0a348184ede846257494ef8ae67808299a6d03ab07"
-    sha256 cellar: :any,                 arm64_ventura: "5695232966011416ad0432d69dc8220fe3b21de19d528fb887ace2f87202cf2b"
-    sha256 cellar: :any,                 sonoma:        "fdd6937d7522236a3383d36f4658c74da25643d437859238f12c25f2083d0dad"
-    sha256 cellar: :any,                 ventura:       "d977b03d537630583310e9951000a4992e8241eca720c39d60ea53d2c4cf8ecf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "424898f09a5cd5b1a77950c1ba3059bed8e0200d2e78ab33d5517decd2117f84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e982e7d9982e75c46874e9790d826ab16e29b5af4328b6640f939ed26c2b56e4"
+    sha256 cellar: :any,                 arm64_tahoe:   "0503f56ec8df91c2409370bbd1e4bb6a4fe1bb7b548f7c6a5027131c4e1fd069"
+    sha256 cellar: :any,                 arm64_sequoia: "9c5b76e287744cb22b88c329d7d4efd68c003318e15ccaa4769d46b249c7f89d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e64d69519df37f57f796f6ae387ee3b5e8a0d79bc87d48bb42a3ff3e6a0965c3"
+    sha256 cellar: :any,                 sonoma:        "fc236bce58fb28f56e1f764323bdbdde38da104f9c4aee981ce5733b785b5eee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b43f6a0257ee551eee06a888208a2294e5febc7ccd4b80110f91f9b8c2788b2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34f94f14616c1fe0f6d7ae4c5ba9dda5f13af30acd2e550646c82ade823731f1"
   end
 
   depends_on "scdoc" => :build

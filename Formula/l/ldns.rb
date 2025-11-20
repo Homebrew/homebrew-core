@@ -4,6 +4,7 @@ class Ldns < Formula
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.4.tar.gz"
   sha256 "838b907594baaff1cd767e95466a7745998ae64bc74be038dccc62e2de2e4247"
   license "BSD-3-Clause"
+  revision 1
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
@@ -13,19 +14,17 @@ class Ldns < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "2707eaadad1873f87ee5f9daf71f7710aee3be3ca4116768c2f1514f59704d65"
-    sha256 cellar: :any,                 arm64_sonoma:  "3006f0623486121db7991757fa52fc933f285aa0d98439ffe75a053dc4c7dcc7"
-    sha256 cellar: :any,                 arm64_ventura: "eb53602f7be7e1ba9d42c2a1dcb3f70e926a85007d1338dceebb43b81f65598c"
-    sha256 cellar: :any,                 sonoma:        "40cbf3faab35cbab0f7b832df080aa47f972131042eb0be3ec5fc6ac44d5f4ab"
-    sha256 cellar: :any,                 ventura:       "2d2f7f630d32e895bf745396161bdfbb24b6cca7d0bf9e9528f461376c19ddfc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e068612edda67b9d8024855a41b7133e4af0003173e741f80e2f45abdaaab7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0677ecaba9460fa437cc99fe78a048ec2acceb109f9ccc6e414bcb5ded94cdac"
+    sha256 cellar: :any,                 arm64_tahoe:   "2002e705ab0503ef65d8f9f1f810bf7a3973790ebbc20154c74c547ecf4e3fad"
+    sha256 cellar: :any,                 arm64_sequoia: "cafc56249b3b8f7f226b2890df163b76b692b8a541a12d2ee37aebbd7b2b48d1"
+    sha256 cellar: :any,                 arm64_sonoma:  "cc39729a2c4ba4a2a171539338ad298b8bf6a2a8a48a42a0515f71ed1f47ae72"
+    sha256 cellar: :any,                 sonoma:        "babaa19154f91c1256b486dca3ba2e3fe390adc73bad62ce68353110bd695acf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d01ef4425bae969379c2466ecfc3bca21436cc69b7e21298342d098b82a6dd3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55a6aff98a9036107f56b657a605fa5b3b73cdfd673b86fe0daf69f063ff5787"
   end
 
   depends_on "swig" => :build
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "drill", because: "both install a `drill` binary"
 
@@ -36,7 +35,7 @@ class Ldns < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

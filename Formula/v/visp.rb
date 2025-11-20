@@ -4,19 +4,22 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.6.0.tar.gz"
   sha256 "eec93f56b89fd7c0d472b019e01c3fe03a09eda47f3903c38dc53a27cbfae532"
   license "GPL-2.0-or-later"
-  revision 14
+  revision 19
 
   livecheck do
     url "https://visp.inria.fr/download/"
     regex(/href=.*?visp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "aeeb52ede1480fea6884423f6d00f96dc66bef176ae9f48e6cb14284767a4dc3"
-    sha256 cellar: :any,                 arm64_ventura: "f0c9bb028e286ec5781bfb3905d6b42cfcc0f16f3eb2327c4e3cd05fdd314ac5"
-    sha256 cellar: :any,                 sonoma:        "21dbc0cce5d30d7fc180f7c14b7da89d676707c08e490c724c3beed36d5fd98b"
-    sha256 cellar: :any,                 ventura:       "ec0ec868a6802ded32fab187ffe18f1bedc78d7a182f950a3feddedad7639052"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "897659319f02e161dc3522c72e1dd445a021f3a2743ea4e2eb4381382e0e282c"
+    sha256 cellar: :any,                 arm64_tahoe:   "7efeb3c73ba6c90938f8df5cc15ad7e996cdaace2c7694056989536607b89e65"
+    sha256 cellar: :any,                 arm64_sequoia: "def3fe5709f81618936e77b2323f0accb57724ce33346dfefff79356ca663973"
+    sha256 cellar: :any,                 arm64_sonoma:  "a428e82264b87d1065860037c8e0d3a91b60c0d023314e8f3518bef3f2f39a27"
+    sha256 cellar: :any,                 sonoma:        "5b28a9211a9171ae48bb9e4ed235ca0e84e046ead0b5519fa9c64b34b4192ed7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b00e634ae5fa2b84cc6300c3bc89d6602e2dfa8cddcd7fc79158d4d86402ab36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "227d11044d1fd82fddc407d2c63c8f4a121c33cbe81609442ab50ab2f6b2c7ae"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -27,6 +30,7 @@ class Visp < Formula
   depends_on "jpeg-turbo"
   depends_on "libdc1394"
   depends_on "libpng"
+  depends_on "lz4"
   depends_on "openblas"
   depends_on "opencv"
   depends_on "pcl"
@@ -43,7 +47,7 @@ class Visp < Formula
     depends_on "libomp"
     depends_on "libpcap"
     depends_on "qhull"
-    depends_on "qt"
+    depends_on "qtbase"
   end
 
   on_linux do
@@ -103,6 +107,7 @@ class Visp < Formula
                          "-DDC1394_LIBRARY=#{Formula["libdc1394"].opt_lib/shared_library("libdc1394")}",
                          "-DUSE_EIGEN3=ON",
                          "-DEigen3_DIR=#{Formula["eigen"].opt_share}/eigen3/cmake",
+                         "-DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3",
                          "-DUSE_GSL=ON",
                          "-DGSL_INCLUDE_DIR=#{Formula["gsl"].opt_include}",
                          "-DGSL_cblas_LIBRARY=#{Formula["gsl"].opt_lib/shared_library("libgslcblas")}",

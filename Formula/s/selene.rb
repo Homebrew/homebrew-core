@@ -1,19 +1,20 @@
 class Selene < Formula
   desc "Blazing-fast modern Lua linter"
   homepage "https://kampfkarren.github.io/selene"
-  url "https://github.com/Kampfkarren/selene/archive/refs/tags/0.28.0.tar.gz"
-  sha256 "c51acf52e7c3136cd0b67b9a39a4a447c8f0257371b2b2acc7e77587260a377b"
+  url "https://github.com/Kampfkarren/selene/archive/refs/tags/0.29.0.tar.gz"
+  sha256 "9882007e7b2d16023cd2c69d64d72afbee65dce7c3ab44a1527f5318667ed2a1"
   license "MPL-2.0"
   head "https://github.com/Kampfkarren/selene.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8160e3e3b1589956eb8c952c94dbdb6e9417972007bd3740026dc5caf0eb195"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e2f4d3b17a7b036592845a4586d4d82e491574c374cb1c4f23fed3ff78589a3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6c76305c6d5730c2e20096085a8af6d6b436415600c2d12e4b25363ee0b6474"
-    sha256 cellar: :any_skip_relocation, sonoma:        "512897fa1880a3afab978ee53662c2bc06f1118e9fa8c684d28db5bfbd6e9162"
-    sha256 cellar: :any_skip_relocation, ventura:       "98d5b6b93545d9d50608f6cc832ad8af6a9a35dfca94804b8c15b67fc6ce87c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95bd12bda47d2fcb53978952250d17e8413fee634ed0142bf51a27833ee03ba4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc9d1abd031c82dcc47fdd530daaf4ca6555da8b7faf4e8bedfe3f45473ec05c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1de3f2619b86314cd483dc5c61f38109721f5dad2ae982f8348875a1ce1369a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48baf71e9c514a0a2d66cf02d5ec9eaab7e95e294f118f6dbf9f56c7cbece091"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14fbcf98dcb3ad687d2cadefc30044dca0fbee5ce948d3d7540e2a20264d6383"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e0966eaf9bcfeccbbb73139300b199d593d47c46e6780d2c52258361cd49adb5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7534a8fd3e38bc06b66066215b1614b4f7ab2955fa60a481cc9e74a2c984df1f"
+    sha256 cellar: :any_skip_relocation, ventura:       "fd710434b95e8a7e81dd173454b5dffcda8d47d704f7f65d1562cbff8ede84f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8d7ef905a27b634762d82a45ff2bb070dca969729650d306d4431b3a0ebe2d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0593ac6106f4b65f587c97faef649524f83b14e2d336ce624e5f086d8e14b886"
   end
 
   depends_on "pkgconf" => :build

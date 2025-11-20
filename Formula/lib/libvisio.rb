@@ -1,8 +1,8 @@
 class Libvisio < Formula
   desc "Interpret and import Visio diagrams"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libvisio"
-  url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.8.tar.xz"
-  sha256 "b4098ffbf4dcb9e71213fa0acddbd928f27bed30db2d80234813b15d53d0405b"
+  url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.10.tar.xz"
+  sha256 "9e9eff75112d4d92d92262ad7fc2599c21e26f8fc5ba54900efdc83c0501e472"
   license "MPL-2.0"
   revision 2
 
@@ -12,18 +12,17 @@ class Libvisio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b1d82aaa71ed70e5c67c507843c5e0ad1e7ed0baa1ddb0d65c92f382d2f209b8"
-    sha256 cellar: :any,                 arm64_sonoma:  "548d6e3a65308733f84b62d945aa751a23498898250d2d9d10fc58d6af475d85"
-    sha256 cellar: :any,                 arm64_ventura: "4cc867e8cbb1c6db5fceb6c50ccd440c90b7bccc9a71b4d251c4815ba69cc6c5"
-    sha256 cellar: :any,                 sonoma:        "59b2d3c7b44168b3778795e95f730e361ad392107ff4de14a2ef4356234a2bc8"
-    sha256 cellar: :any,                 ventura:       "cd2c9346d09b98e85f7bcee3da6571d6391b7456fc5feb61ba212ce9b8a7c68a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab24a12cdf48c1b40d932fffa7f37b0dff96177c343a77865c1a9dfc6620fc1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc9f80d9caf8b35a27876747278ec7dc4247de6ff8f06c96cec900a5a09167c0"
+    sha256 cellar: :any,                 arm64_tahoe:   "e241eb77c998c706f44a477749306d05bbc0b8217679cba715b97ede9f9ec2b6"
+    sha256 cellar: :any,                 arm64_sequoia: "9cdbc5cb4a38eb26f6d184e381df163a62eba6f29611c4f7e7be3bd2b0658ec7"
+    sha256 cellar: :any,                 arm64_sonoma:  "e392fa4282309aa0d095e2a736a1f4e390d74d072edbe27e8b2451779fcdc750"
+    sha256 cellar: :any,                 sonoma:        "26419e2bf884b48b7d94dfdf19de9bbc8f118c89585f1d83818b90e46742c867"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f05a917fed1e4685878ed8b3821a5ba5cfc481ce5f4dca4ec6195bb985e4b6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69d9ebc9fa47e7fb49aa8d379935dee191957a24dbabb7b40d23ec0c0bd76159"
   end
 
   depends_on "boost" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "librevenge"
 
   uses_from_macos "gperf" => :build

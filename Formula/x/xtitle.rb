@@ -10,6 +10,8 @@ class Xtitle < Formula
     regex(/href=.*?xtitle[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "62511b7ce2a8440cd64bdf6fb05a1015920d610f254f95d01fb020c1c58c819e"

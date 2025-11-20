@@ -1,20 +1,19 @@
 class JsonrpcGlib < Formula
   desc "GNOME library to communicate with JSON-RPC based peers"
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
-  url "https://download.gnome.org/sources/jsonrpc-glib/3.44/jsonrpc-glib-3.44.1.tar.xz"
-  sha256 "1361d17e9c805646afe5102e59baf8ca450238600fcabd01586c654b78bb30df"
+  url "https://download.gnome.org/sources/jsonrpc-glib/3.44/jsonrpc-glib-3.44.2.tar.xz"
+  sha256 "965496b6e1314f3468b482a5d80340dc3b0340a5402d7783cad24154aee77396"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "86e923e83351dc15ea3f8e42f004b43b42ccb4948e77d5765130f30c119c667a"
-    sha256 cellar: :any, arm64_sonoma:   "2f74a9be30520cf2db1b7bb27ec12561b14d77dad8673fde2b3ca360d7c60388"
-    sha256 cellar: :any, arm64_ventura:  "c4a222df659e62204a4d37afe1e07a380b2e1418cc2a99b9a445d3a5a3a77238"
-    sha256 cellar: :any, arm64_monterey: "a820e5106b6a5683afa616cc68aa1dd09a94fa48a47c154ebb8fc3b3c6ae5284"
-    sha256 cellar: :any, sonoma:         "001dd9f46c106194cdb65ab86ca327af3639d88d7e569339d972f0989204c5b8"
-    sha256 cellar: :any, ventura:        "327ea36ff03c446861852f77250db9c4aaffd6c63bb0538d2af0a274d7f2e300"
-    sha256 cellar: :any, monterey:       "d6b2438a15f0a4c0dfb464bbc5cfa277deadad086bab02da55d453d6eb1f8c5b"
-    sha256               arm64_linux:    "76f3560d772429e907e88673aa54186b036f790723638d9b1703141d4eff37d6"
-    sha256               x86_64_linux:   "a4403578f986fa53a5f8c41444aeb7ba65f34e2e5685ab58c0424457c2f2eddd"
+    sha256 cellar: :any, arm64_tahoe:   "4cf100ab4d9f7d4bae7d7c1d2d0b3aba3e3cc6eb5dfa424e3556fe59ecf59a76"
+    sha256 cellar: :any, arm64_sequoia: "7f8a6357e46f77559da420058dbe1b16c64713984cfe20e382958d6f4adadba6"
+    sha256 cellar: :any, arm64_sonoma:  "78577af98c115dca0b45b1043be95e744667f6752d3118558855797287023ff5"
+    sha256 cellar: :any, arm64_ventura: "83622b0cf9c7770f9a75b884360930c60f7feed45436e7c8c93e8a2d352e60b1"
+    sha256 cellar: :any, sonoma:        "5cb416c215c9ef0cbfa8016c2b3efb37e700665c66ef542d1c5ad20e6bd2aa0a"
+    sha256 cellar: :any, ventura:       "d4912dbad1101dbc693b6527036882352656aa302eb44980c704c130690d8e5e"
+    sha256               arm64_linux:   "51c4cad81b4331c702366726a8473ca4eab2d8e67d6efb0c06802df66f59f4ef"
+    sha256               x86_64_linux:  "2e416c81917d0ef9bd855800e61975500b2ace8ca7d224067359a138180d6eb6"
   end
 
   depends_on "gobject-introspection" => :build

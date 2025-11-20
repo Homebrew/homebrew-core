@@ -1,9 +1,10 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://github.com/dolthub/dolt"
-  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.54.2.tar.gz"
-  sha256 "112dd7ce67d052ad731c67d31e8e8ac6614fc491cda5993cb52d9478d1133ced"
+  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.78.1.tar.gz"
+  sha256 "e4b8b138873a02def654bb374ca11ec63de8d6e8ccfb0286d0aaaaa62c9a7356"
   license "Apache-2.0"
+  version_scheme 1
   head "https://github.com/dolthub/dolt.git", branch: "main"
 
   livecheck do
@@ -12,25 +13,23 @@ class Dolt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "762b24748aed60cb7f0191e8d9fd6d2c4a9dc6c24727b88f85cf7638cb426648"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4eebda6c665b821340b2475233d7946b9acce2a1934896abf88de5a44b86419d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8473000ece5e62b0f3cce7ffc71a9fba9be746e669255a01f17682123813857c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b3c6454ae3a047d6fe7839b4acdce744f5c15b067e19b7bc04216f15cea20091"
-    sha256 cellar: :any_skip_relocation, ventura:       "0d307d4ca85f8c3b2ee34b4b8289463636f7e62e5b3f621494abcc1332efb078"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10ce7e686bebcfee180737f568fdae2036522c08bc031874af0592b736c604b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e90bf00c70b4848da3660c3957cc7da8cc41f4125e3fdffff8f668a1814de203"
+    sha256 cellar: :any,                 arm64_tahoe:   "60eff6247ef4f355b72869fb1b6e0b8888861864f743820031c9500f81cdcea7"
+    sha256 cellar: :any,                 arm64_sequoia: "62af7675b98066efe608f5b97834c70371355f10b6ed4f4b70a9fc3a07c927f7"
+    sha256 cellar: :any,                 arm64_sonoma:  "594046f47ddc10c3d4c083affbd7d1f651b7feeb644548863bed2d58e5d6f2d1"
+    sha256 cellar: :any,                 sonoma:        "2139fc1cd05599f2f15d99d544e6494f891256551e0b37277deac1ab9e8ebc5b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "94cdfb867685fc769e38b3e5727a039694a1080fcd8dfcc79210297351abb643"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6f804a4ce30def8d8f62faf2df2a97d617be7719e0e0d6a635f8e30e7cb49e4"
   end
 
   depends_on "go" => :build
+  depends_on "icu4c@78"
 
   def install
-    chdir "go" do
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/dolt"
-    end
-  end
+    ENV["CGO_ENABLED"] = "1"
 
-  def post_install
-    (var/"log").mkpath unless (var/"log").exist?
+    system "go", "build", "-C", "go", *std_go_args(ldflags: "-s -w"), "./cmd/dolt"
+
+    (var/"log").mkpath
     (var/"dolt").mkpath
   end
 

@@ -1,8 +1,8 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.52.0.tar.gz"
-  sha256 "2d6b045105cca36fb4a9ea9fa8834bab70f99a71dcb6f7a1aea11184ac1f66f8"
+  url "https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.56.0.tar.gz"
+  sha256 "8785a17f52549640d1bacab66bec3156b9208c46390bb597002eeb3734085a00"
   license "MIT"
   head "https://github.com/jesseduffield/lazygit.git", branch: "master"
 
@@ -12,17 +12,18 @@ class Lazygit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f753dc483e5bcc8a65b14db075aa660598c5710bb058c5ad435f6cc0ab9f0a3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f753dc483e5bcc8a65b14db075aa660598c5710bb058c5ad435f6cc0ab9f0a3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f753dc483e5bcc8a65b14db075aa660598c5710bb058c5ad435f6cc0ab9f0a3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e6710caabb7d8545d399d263f1bf57d987cd937718bc36553e5707029516f5da"
-    sha256 cellar: :any_skip_relocation, ventura:       "e6710caabb7d8545d399d263f1bf57d987cd937718bc36553e5707029516f5da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a481b03b3c0853648114f28e39abf4cee7265da3e45f537f4ced5d28e9ec8dbe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "374c4b232f286a7794908d3a61693a5ad0d64264933b84782fab67ab806687ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "374c4b232f286a7794908d3a61693a5ad0d64264933b84782fab67ab806687ba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "374c4b232f286a7794908d3a61693a5ad0d64264933b84782fab67ab806687ba"
+    sha256 cellar: :any_skip_relocation, sonoma:        "441c3d24d932db223e150d71975aa2021118da78824729eb25036e85aa9e9e8e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d481d650e96a3c5cb52b01af8dbb61161c2d3fb7b9cdc8f4db735f1fd3042f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a093f64764c10c8208f33b2cd88f745dd4c1cf6d97e70f4249bbcc8eb5d24ba3"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = "-s -w -X main.version=#{version} -X main.buildSource=#{tap.user}"
     system "go", "build", "-mod=vendor", *std_go_args(ldflags:)
   end

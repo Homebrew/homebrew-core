@@ -1,9 +1,9 @@
 class X8664LinuxGnuBinutils < Formula
   desc "GNU Binutils for x86_64-linux-gnu cross development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.44.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.44.tar.bz2"
-  sha256 "f66390a661faa117d00fab2e79cf2dc9d097b42cc296bf3f8677d1e7b452dc3a"
+  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
+  sha256 "860daddec9085cb4011279136fc8ad29eb533e9446d7524af7f517dd18f00224"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class X8664LinuxGnuBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "2f25854d0670553fd5b5306d53e544929d3ae89595e5b04b3784e29fb6a0facd"
-    sha256 arm64_sonoma:  "607de283c72bd6b0d7141fed0282051e244768fc907093ac5f6d4d951588dbde"
-    sha256 arm64_ventura: "3e90b1013bef3131b597fe612ea8ed2ab7617ddcb0c89dfaa632a1f9c0fecfcf"
-    sha256 sonoma:        "0332609f6a0bb2aba6f6eccb6fbddb1afbb5c3242e9cef35358a36f0b4d370e2"
-    sha256 ventura:       "675425789a28b7c3dee6165a593e22ada9bc39aad1b3f301df3cd28ab02c11d3"
-    sha256 arm64_linux:   "647cb36d34c7ab5fa8df2d5d81b5ff999986d934ed7459c6186ba60572ddec12"
-    sha256 x86_64_linux:  "7f98564cb604be445bf6d819ef1baea435e7f3d30e7db1fca6205cbe6cdb8b3a"
+    sha256 arm64_tahoe:   "6eeeaf18ed0b9b7de6b4434860c4e3fde345d644ba355576376001c5df2dc7c9"
+    sha256 arm64_sequoia: "56d4c8cab30bbdadb17e1bbb9161967e6fdf0e8d93f259a470fde21852cd3332"
+    sha256 arm64_sonoma:  "3baa77d451f0a0ad0dec60030f24a298728169fed6baa842a305758f24487f80"
+    sha256 sonoma:        "7a2a3b16806b738f6bcfc8a6ad04e160e7c7bc6b10ef4fff7c34fa775a3e9702"
+    sha256 arm64_linux:   "77ea2c44e471fcda177c214b51f9bc3d6faec4ea48eebf8e075e9dd7563ef203"
+    sha256 x86_64_linux:  "1f5bc4d066a4613ea870a44754c887a8d471df143fe357fc9099678ae9746e48"
   end
 
   depends_on "pkgconf" => :build
@@ -26,6 +25,7 @@ class X8664LinuxGnuBinutils < Formula
   depends_on macos: :ventura
   depends_on "zstd"
 
+  uses_from_macos "llvm" => :test
   uses_from_macos "zlib"
 
   on_system :linux, macos: :ventura_or_newer do
@@ -33,7 +33,9 @@ class X8664LinuxGnuBinutils < Formula
   end
 
   on_linux do
-    keg_only "it conflicts with `binutils`"
+    on_intel do
+      keg_only "it conflicts with `binutils`"
+    end
   end
 
   def install
@@ -69,7 +71,6 @@ class X8664LinuxGnuBinutils < Formula
     end
 
     assert_match "f()", shell_output("#{bin}/x86_64-linux-gnu-c++filt _Z1fv")
-    return if OS.linux?
 
     (testpath/"sysroot").install resource("homebrew-sysroot")
     (testpath/"hello.c").write <<~C
@@ -77,13 +78,16 @@ class X8664LinuxGnuBinutils < Formula
       int main() { printf("hello!\\n"); }
     C
 
-    ENV.remove_macosxsdk
+    ENV.clang
+    ENV.remove_macosxsdk if OS.mac?
     system ENV.cc, "-v", "--target=x86_64-pc-linux-gnu", "--sysroot=#{testpath}/sysroot", "-c", "hello.c"
     assert_match "main", shell_output("#{bin}/x86_64-linux-gnu-nm hello.o")
 
     system ENV.cc, "-v", "--target=x86_64-pc-linux-gnu", "--sysroot=#{testpath}/sysroot",
                    "-fuse-ld=#{bin}/x86_64-linux-gnu-ld", "hello.o", "-o", "hello"
-    assert_match "ELF", shell_output("file ./hello")
+    file_output = shell_output("file ./hello")
+    assert_match "ELF", file_output
+    assert_match "x86-64", file_output
     assert_match "libc.so", shell_output("#{bin}/x86_64-linux-gnu-readelf -d ./hello")
     system bin/"x86_64-linux-gnu-strip", "./hello"
   end

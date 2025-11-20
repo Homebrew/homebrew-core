@@ -1,18 +1,19 @@
 class SteamguardCli < Formula
   desc "CLI for steamguard"
   homepage "https://github.com/dyc3/steamguard-cli"
-  url "https://github.com/dyc3/steamguard-cli/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "668e9548643ea6c4f3bf77e7472dafd54386563c6d8589dbb4f72d0f0d1e88f0"
+  url "https://github.com/dyc3/steamguard-cli/archive/refs/tags/v0.17.1.tar.gz"
+  sha256 "dc02e2a40c5bfc8f28195c99a9575ef10c1fe67f3075d402091e81f53440626d"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "855a2e48950e5057d91ededdd00f5e74e08e7930774e23b87136b1826135c6cb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84e905a24e271a35a4f4586e98cc38170337f95a25f718b60fbb17d0bc58a35a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0acf0f73cbb7bd2f2818e002fd5b1d0d86546763acc12850ffd28b82ecde0055"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6ad918ca8a8564f06e32a4bf5d512e57b71ee5a98379e70409e11b13f1dfaae3"
-    sha256 cellar: :any_skip_relocation, ventura:       "3a82a4159fb2a3008736f08ac53690854e129759c3cc5602dcae721445c925f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "068720f5cc23421cc1d40c5c195c67e3aafedc1ee41b956e6fddd7de1d3ed38e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b77f1ef0e642fac743166d97d27108f9dc9173c56f2210f28a725c441229296"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "81a075cea4c7595936f22b9454c239a1c915657653242032faa8cdd5afaa1712"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1adfdef80cdbf5fb66f54c66d02fe223d80377fca70da7de5485e8021e43c8c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49e799bf9b06cc6316798ab1f1c2102f8d1ef32f327e10afcad9a0b59f940c7c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "392352450743b4b7defe304c7601448bbae63dc81cdbdd614ab40c29b3fb2732"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f4b364956ebc494e435ab63d2a16885f71d35fa7d99f6a94a299598e24a73c3a"
+    sha256 cellar: :any_skip_relocation, ventura:       "1f92c1c691f2f3dad3f3cb596dbc281878c021c9b905aa1d20c10a4e2f0d3c5e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "29f056815ab5b0055bb09e8b813d2799e3e3a90e0dd0720764ebe65797155d78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aab0d522a9b69debbfc758612a4649a00e221567065b311b745bc7f9342d9d50"
   end
 
   depends_on "rust" => :build

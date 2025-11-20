@@ -41,13 +41,13 @@ jobs:
       pull-requests: read
       actions: read
     steps:
-      - uses: Homebrew/actions/find-related-workflow-run-id@master
+      - uses: Homebrew/actions/find-related-workflow-run-id@main
         with:
           run-id: ${{ github.event.workflow_run.id }}
           workflow-name: Triage tasks
 
       - name: Download `event_payload` artifact
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
           name: event_payload
           github-token: ${{ github.token }}
@@ -65,9 +65,10 @@ jobs:
           publishable=true
           while IFS='' read -r label
           do
-            if [[ "$label" = "automerge-skip" ]] ||
-               [[ "$label" = "pre-release" ]] ||
-               [[ "$label" = "CI-published-bottle-commits" ]]
+            if [[ "$label" = "CI-published-bottle-commits" ]] ||
+               [[ "$label" = "automerge-skip" ]] ||
+               [[ "$label" = "maintainer feedback" ]] ||
+               [[ "$label" = "pre-release" ]]
             then
               publishable=false
               break
@@ -180,20 +181,19 @@ jobs:
       fromJson(needs.status-check.outputs.complete) &&
       fromJson(needs.status-check.outputs.mergeable)
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     permissions:
       contents: read
       pull-requests: read
       actions: write # to dispatch publish workflow
     steps:
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
         with:
           core: false
           cask: false
-          test-bot: false
 
-      - run: brew pr-publish "$PR"
+      - run: brew pr-publish --branch=main "$PR"
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ needs.status-check.outputs.pull-number }}

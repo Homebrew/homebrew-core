@@ -5,7 +5,10 @@ class Xinput < Formula
   sha256 "ad04d00d656884d133110eeddc34e9c69e626ebebbbab04dc95791c2907057c8"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "c8e2d341b5603fdbf07d9ec892b235a61f69ab54e0b6911969064766a6b1976a"
     sha256 cellar: :any,                 arm64_sequoia:  "c70d8603d13e94505f514890678cef419551a0ac6688356fdd28e6ecaad1fffd"
     sha256 cellar: :any,                 arm64_sonoma:   "2f027d634882891977ee75bdd55f1cd68a7498cf32b036cbd551c8e9a42f4d81"
     sha256 cellar: :any,                 arm64_ventura:  "751c32f1673020bda208c9885345be27da828cc2028e90e76e6ccc26f7d30d39"

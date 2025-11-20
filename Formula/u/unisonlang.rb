@@ -5,12 +5,12 @@ class Unisonlang < Formula
 
   stable do
     url "https://github.com/unisonweb/unison.git",
-        tag:      "release/0.5.41",
-        revision: "b3a897b08561b767e16b1752a852b84ddf461c70"
+        tag:      "release/1.0.0",
+        revision: "177d0635420f2dd9d0ba425d65eea5911253d5bb"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.41.tar.gz"
-      sha256 "f7643f1c060bbe8c6f132144be810596212506b292d2777d5ee7f403195c12d0"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/1.0.0.tar.gz"
+      sha256 "8e7fbe261f84ae8d4ccbb144d5fe71bf7b48dbdf05219d9db10541f5b995e1cf"
 
       livecheck do
         formula :parent
@@ -24,12 +24,13 @@ class Unisonlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7288f618107ef7219c83b37000e1ecd77a4a0c53ea9754d034dfbc371524bc68"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22b5df5387fbd61df1462e9a60353ca6ff55009de7e24ff999e3f0699a3c4382"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9beb031cb32d0d6d530c6026538a66d34b0112d4e7d2de27304d040b265fdaed"
-    sha256 cellar: :any_skip_relocation, sonoma:        "feabda3b06c49dc2d20b8cea08511fa917afc2a92d2ed0f0a558b74b4687c2ae"
-    sha256 cellar: :any_skip_relocation, ventura:       "c21471a4e53803f59f43c69a8b523ad503e2e376ff39ca495e536c8eb0fbe46c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c6b1fcca23a8705cbcac4c89d3f67fa5e35ff13430e8a292b618b982ee7ccbf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9179cd2c0ba7095f663eff4a84b25fbf5de4b666f1cb1e9883e3855f912ed12e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2feef1cba04dc14215329a4ad00b6740d80b844b0e95dc9de5ee15b3f855d44"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8342d34324f23fc5aa7efdebdbd290477556bdf53b8519b84db4e1a16b8a1081"
+    sha256 cellar: :any_skip_relocation, sonoma:        "17316555c3db96877ba22227bbd297a71236f3cd055994396cf28a61dc6fc9e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dc4717d95f34f414bcdb0014986d9b8c783686c71c6f79b4bda1318adb68a13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9198636b6feec6c5c5c668bd715304672989d8354b48fea3e38a91ccde0eda0"
   end
 
   head do
@@ -41,6 +42,7 @@ class Unisonlang < Formula
   end
 
   depends_on "elm" => :build
+  depends_on "elm-format" => :build
   depends_on "ghc@9.6" => :build
   depends_on "haskell-stack" => :build
   depends_on "node" => :build
@@ -48,10 +50,6 @@ class Unisonlang < Formula
   uses_from_macos "python" => :build
   uses_from_macos "xz" => :build
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "ncurses"
-  end
 
   def install
     odie "local-ui resource needs to be updated" if build.stable? && version != resource("local-ui").version
@@ -61,11 +59,16 @@ class Unisonlang < Formula
 
     # Build and install the web interface
     resource("local-ui").stage do
+      ENV["npm_config_ignore_scripts"] = "elm,elm-format"
+
       system "npm", "install", *std_npm_args(prefix: false)
-      # Replace pre-built x86_64 elm binary
-      elm = Pathname("node_modules/elm/bin/elm")
-      elm.unlink
-      elm.parent.install_symlink Formula["elm"].opt_bin/"elm"
+      # Install missing peer dependencies
+      system "npm", "install", *std_npm_args(prefix: false), "favicons"
+
+      # Wire the real binaries into node_modules
+      ln_sf Formula["elm"].opt_bin/"elm", "node_modules/elm/bin/elm"
+      ln_sf Formula["elm-format"].opt_bin/"elm-format", "node_modules/elm-format/bin/elm-format"
+
       # HACK: Flaky command occasionally stalls build indefinitely so we force fail
       # if that occurs. Problem seems to happening while running `elm-json install`.
       # Issue ref: https://github.com/zwilias/elm-json/issues/50

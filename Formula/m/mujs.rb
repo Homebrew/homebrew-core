@@ -1,8 +1,8 @@
 class Mujs < Formula
   desc "Embeddable Javascript interpreter"
   homepage "https://www.mujs.com/"
-  url "https://mujs.com/downloads/mujs-1.3.6.tar.gz"
-  sha256 "7cf3a5e622cff41903efff0334518fc94af063256752c38ba4618a5191e44f18"
+  url "https://mujs.com/downloads/mujs-1.3.8.tar.gz"
+  sha256 "506d34882f2620a2fdeb6db63dbb7a8ffd98f417689d8f3c84f2feac275e39a9"
   license "ISC"
   head "https://github.com/ccxvii/mujs.git", branch: "master"
 
@@ -12,19 +12,24 @@ class Mujs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "839b3fa73f32ef2b53a2e52af833fa2257786dd32bf6094f19dba18d4d47f274"
-    sha256 cellar: :any,                 arm64_sonoma:  "84220bdaa3fc8a2e33185fb4e1b0426cf37a31f83bcfdeed90a2fb37e50780c1"
-    sha256 cellar: :any,                 arm64_ventura: "0765c40d6deb118da5f0f8edd014bd4de89d889bee4fed10a7b7c64c23affcee"
-    sha256 cellar: :any,                 sonoma:        "8a354ea3d674b092ead9ed37be5d584c2ef8470ebbbad298c00af7fb7fbc0f8e"
-    sha256 cellar: :any,                 ventura:       "20a7ee4f3d183a7fcae93ecedfd9562485b3462a6cc013e74e0cc66a5ad34ace"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e7bab595f2280b58d8c3193370ed5d9f12e864b60ec18aec64c70e0122ad6c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16f8f85b13a69a0962fab110a0215ebd002220ab84878bd164cd3dd7171cf9db"
+    sha256 cellar: :any,                 arm64_tahoe:   "483f0c294f3e9ba954dbb610e69109cc594dafe50b6737a8e6e2417f649771f2"
+    sha256 cellar: :any,                 arm64_sequoia: "19d0fb4208c23b02a92f38bdc7b6c645fc292ac71740abe19c525a6d26bdde8f"
+    sha256 cellar: :any,                 arm64_sonoma:  "7640010c83e19665d80f35908dd7a5ecd1778a5d9e9e9de4ea2a8c1fe7364ef4"
+    sha256 cellar: :any,                 sonoma:        "e909e607b4e27f8328a1e2e589afda4d6b95b9b0e359f8d1734485e0e561c203"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3b5ec6930bb76ffa5f0471c3bc5df3c3a090c1c0cdc442bd8add8f8b02df7c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5c42b004f13aaccfd81ad264a9f80401e2f39f454f0f01080c936bf1d7e89af"
   end
 
   depends_on "pkgconf" => :test
 
   on_linux do
     depends_on "readline"
+  end
+
+  # update build for `utfdata.h`, upstream pr ref, https://github.com/ccxvii/mujs/pull/203
+  patch do
+    url "https://github.com/ccxvii/mujs/commit/e21c6bfdce374e19800f2455f45828a90fce39da.patch?full_index=1"
+    sha256 "e10de8b9c3a62ffe121b61fe60b67ba8faa68eaace9a3b17a13f46a2cc795a11"
   end
 
   def install

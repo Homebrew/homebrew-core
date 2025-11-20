@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "https://ibex-team.github.io/ibex-lib/"
-  url "https://github.com/ibex-team/ibex-lib/archive/refs/tags/ibex-2.9.0.tar.gz"
-  sha256 "8d16ac2dfbc6de0353a12b7008d1d566bda52178f247d8461be02063972311a6"
+  url "https://github.com/ibex-team/ibex-lib/archive/refs/tags/ibex-2.9.1.tar.gz"
+  sha256 "b3cd09c3be137fd2ff0f2570c3bcbdfcd9ea62fcf04d45d058db3b0dbb1d8872"
   license "LGPL-3.0-only"
   head "https://github.com/ibex-team/ibex-lib.git", branch: "master"
 
@@ -14,12 +14,13 @@ class Ibex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "81f2219bb5ace8fd196334c02cc5be36d3c708a21b778138cc89f49d48c5f11e"
-    sha256 cellar: :any,                 arm64_sonoma:  "c1aa3a31657f99acd38c81e90595f4bd9b34710ef22482a22cd4a44e9f1c1cf4"
-    sha256 cellar: :any,                 arm64_ventura: "e7337ed741f758908a333c04e29aecf4c6a36888cc99682766e1c34b2ab61719"
-    sha256 cellar: :any,                 sonoma:        "b38534dba34ff9bddf80c2e0c3ee09c3312e5e92cd28f6590af0cd6cd363d341"
-    sha256 cellar: :any,                 ventura:       "8f57286a04f31143a67d3cd7d58c70fda908f5a2dbcc00a7589821f1f29ff1c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e660a514b4bc69bcb13000715af40d392fa65b5daac014401d46a1482370f661"
+    sha256 cellar: :any,                 arm64_tahoe:   "f45581909cb2bb4d10fecb82ad0ab195da12a874e2d44e047c1f908cb73aa55d"
+    sha256 cellar: :any,                 arm64_sequoia: "dca481e12df41f7d861b7ae1b0a88716e9cac0a46600b51dea4b7a0a1d37034d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e41ce1bb4c8e114058faa116a55aba86b39561a7a2d476d754e3313c1d2eca0f"
+    sha256 cellar: :any,                 arm64_ventura: "320e1ba86d12bb05b290160e0a383fb235ead88eaec42db08b64e36ea7497902"
+    sha256 cellar: :any,                 sonoma:        "62d00c18c11a57cc8acd5afd714f29d321d6c26ec9ee887a63300eb8ef7b4c17"
+    sha256 cellar: :any,                 ventura:       "a8b5ba456ba0a05f5d098fd09d4098d9699fe055b3d468739e02c2b5a31e69d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1afc6f3b07d53b149f15451f30b96897b167b157b5f20cec59f56c185bd2d72a"
   end
 
   depends_on "bison" => :build

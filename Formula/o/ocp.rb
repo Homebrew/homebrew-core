@@ -13,6 +13,7 @@ class Ocp < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "4f8cd8eaae6ce1f2faaa7fb5e7cebd035adad38c3157b15909f2a05d26f3b118"
     sha256 arm64_sequoia: "91d33fe0137ccd8a79cb3419fcb61925135333944dcf031546efc859e28ed89c"
     sha256 arm64_sonoma:  "7d079e34e69bc73e5cb3bdcbb998c1fc647f1c7bb6e22a39715e3530170cad1a"
     sha256 arm64_ventura: "4423dcac99faa9af574011771a2ef04b3e45d573ed6e0c836c5ddf28fdaf13e2"
@@ -52,7 +53,7 @@ class Ocp < Formula
 
   # pin to 15.0.6 to use precompiled fonts
   resource "unifont" do
-    url "https://ftp.gnu.org/gnu/unifont/unifont-15.0.06/unifont-15.0.06.tar.gz"
+    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-15.0.06/unifont-15.0.06.tar.gz"
     sha256 "36668eb1326d22e1466b94b3929beeafd10b9838bf3d41f4e5e3b52406ae69f1"
   end
 

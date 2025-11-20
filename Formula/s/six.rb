@@ -9,6 +9,8 @@ class Six < Formula
     sha256 cellar: :any_skip_relocation, all: "c7985c480809b773f5c7b28d3eac082ad3bcc69c04e2ac100810901b0a6e410b"
   end
 
+  disable! date: "2025-10-16", because: "does not meet homebrew/core's requirements for Python library formulae"
+
   depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
 

@@ -8,18 +8,14 @@ class Nyx < Formula
   license "GPL-3.0-only"
   revision 3
 
+  no_autobump! because: "`update-python-resources` cannot update resource blocks"
+
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d7b2a2b86698a16d079eaa5f30e5f21fa0dcef3f356f2532fc3eae3bc8353ef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d7b2a2b86698a16d079eaa5f30e5f21fa0dcef3f356f2532fc3eae3bc8353ef"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5d7b2a2b86698a16d079eaa5f30e5f21fa0dcef3f356f2532fc3eae3bc8353ef"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c01145218094ee9fe66681f2fef001e7f5f12f15f83506626da97b03de4b7d96"
-    sha256 cellar: :any_skip_relocation, ventura:       "c01145218094ee9fe66681f2fef001e7f5f12f15f83506626da97b03de4b7d96"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e66bd75e96eb2c49a0a6ff381205b7d9639dabda79d2aaa512a4baa7028b224"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d7b2a2b86698a16d079eaa5f30e5f21fa0dcef3f356f2532fc3eae3bc8353ef"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "900a2690900306640aeaaa863c7caddc2e217f690356e3ccada2ff531d7a78fa"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "stem" do
     url "https://files.pythonhosted.org/packages/b2/66/c5515de764bffae1347e671819711268da5c02bfab8406223526822fe5f6/stem-1.8.1.tar.gz"

@@ -1,8 +1,8 @@
 class Highs < Formula
   desc "Linear optimization software"
   homepage "https://www.maths.ed.ac.uk/hall/HiGHS/"
-  url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.11.0.tar.gz"
-  sha256 "2b44b074cf41439325ce4d0bbdac2d51379f56faf17ba15320a410d3c1f07275"
+  url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "cd0daddaca57e66b55524588d715dc62dcee06b5ab9ad186412dc23bc71ae342"
   license "MIT"
 
   # Upstream appears to use GitHub releases to indicate that a version is
@@ -14,13 +14,12 @@ class Highs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8bc68b7f758c88dd3138326cbfb49ae166fbf321ce5ddaf7bbd69dc823ed8345"
-    sha256 cellar: :any,                 arm64_sonoma:  "593e0fdaec4b5ff13d97e530a410787ed9d7995b13a284fda7f1bc3ee5a616f4"
-    sha256 cellar: :any,                 arm64_ventura: "9129e1d9e165e903c1a0b7a591a16fedf7ec5980d1fbbce1541439362918c73c"
-    sha256 cellar: :any,                 sonoma:        "a318a213d55bd42994189176bb363c38d3ff4ddb57ce5ed59401d1542d6c787e"
-    sha256 cellar: :any,                 ventura:       "f03d69b1aba09520d6b6b51415c0ce35d47012fb5acf21552d468a61bd1578b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5170b7eee06a3ba3e6e55e97fc7ffdcf937422747c6231a1a21ad37f3b422f4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a438aef2249268159f2a1c90b67b63fd203cd06713eb84ddaa31dfb2ee3166a"
+    sha256 cellar: :any,                 arm64_tahoe:   "3bbe500a50da0b931796c0bc0f20568c6ab7854a3848c8ec457bf55a0185b87a"
+    sha256 cellar: :any,                 arm64_sequoia: "5660d2ecd3aaa09887bcc6dc7ac20f289006679c364c1edd56224fbf61d493df"
+    sha256 cellar: :any,                 arm64_sonoma:  "2c586667407bb8298f20777dfc044098f0471d4b093455acf65b36f083321a58"
+    sha256 cellar: :any,                 sonoma:        "be40fae84781ebf8108c4647b125f8e5d2a874a8b2cac776e02f1261e28e90b2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "948550cc36b0b0e3799f20fe509bb9aa8fd3b65bc14861cbbc7d18e5ab29f450"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d28b51bf3b9155f286d5c6451f13f8b875f1a14d02b8e118b667efb16fa673a1"
   end
 
   depends_on "cmake" => :build

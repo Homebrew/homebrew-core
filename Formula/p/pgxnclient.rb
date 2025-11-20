@@ -7,28 +7,29 @@ class Pgxnclient < Formula
   sha256 "b0343e044b8d0044ff4be585ecce0147b1007db7ae8b12743bf222758a4ec7d9"
   license "BSD-3-Clause"
   revision 2
+  head "https://github.com/pgxn/pgxnclient.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "f1b1f557db76ca77277fc59e96c5432107680f75068454279508736f0ccb4116"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "34e47292dc284c01c684578dca761037d87b54c15d33de6d2be31e3f015a0001"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   def install
     venv = virtualenv_install_with_resources
     inreplace venv.site_packages/name/"__init__.py",
-              "/usr/local/libexec/pgxnclient", HOMEBREW_PREFIX/"libexec/#{name}"
+              "/usr/local/libexec/pgxnclient", venv.site_packages/name/"libexec"
   end
 
   test do
     assert_match "pgxn", shell_output("#{bin}/pgxnclient mirror")
     assert_match version.to_s, shell_output("#{bin}/pgxnclient --version")
-    assert_match "#{HOMEBREW_PREFIX}/libexec/#{name}", shell_output("#{bin}/pgxn help --libexec")
+    assert_match "site-packages/#{name}/libexec", shell_output("#{bin}/pgxn help --libexec")
   end
 end

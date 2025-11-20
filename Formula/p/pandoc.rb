@@ -1,25 +1,26 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://github.com/jgm/pandoc/archive/refs/tags/3.7.0.2.tar.gz"
-  sha256 "a098c1dc8051844e3992f8396c6c947dccbc57b6ca3df2f2c47b9f7fa9f11246"
+  url "https://github.com/jgm/pandoc/archive/refs/tags/3.8.2.1.tar.gz"
+  sha256 "e3948e106026edbcef4e4d63f92554c814c779fa14696e635fb98e1279d4c175"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/pandoc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1a49a901b2ced92b8a50547723d4f7452772b8a1b2da9bce66639e129afda0e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b60bd93b5547842d7d0a0c7cd370190d886f8668202d193d41fbd647c7e231b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "574b5c9ff56741b0618351e730cf57c77769df09c2773f4e078edcf040b59119"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4ed6bbed48caac1f712c44ffd320688294573ee0a9c0b37bb69c7f7a2d5799c5"
-    sha256 cellar: :any_skip_relocation, ventura:       "ae245cd313803946f6944125ad75eb46436b4165ad287ef35efbcec5e5e22c33"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a67e9016e774478bb11e236cfb3e471598bbe327c184749767408b9e5ea31ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95c14392f3a2a9ed82b48f2fed4f34044899148c8bd35e04dd684b700ecff99f"
+    sha256 cellar: :any,                 arm64_tahoe:   "243bf261875489e301064243e5ff66b7ee2314b46ad6713140d28fa775642064"
+    sha256 cellar: :any,                 arm64_sequoia: "24eeaee65d0243cb8e2cc8af6b817cdfedf8e66dd62355a7e92d2222dee0bda5"
+    sha256 cellar: :any,                 arm64_sonoma:  "6482bedf0add4caac5261ed1b398f9a7070bd16ff554a83f7b7ff6c27e6b14e2"
+    sha256 cellar: :any,                 sonoma:        "3ef2c73fbabea2395ed9fd51c986774486e669fb611d520515b004e5c0c7ae3d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "402524fe0a947a6023b3088cd41c04f7265844d21d8e0caaef245da2189375ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ee2f465219c7d84eb055b7a582b7d0da88d9ce5869987e0c44a5f3c1457bbf3"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build
+  depends_on "ghc" => :build
+  depends_on "gmp"
 
   uses_from_macos "unzip" => :build # for cabal install
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   def install

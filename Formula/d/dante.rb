@@ -11,6 +11,7 @@ class Dante < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "0e07933bcf9bcb90be5f3f0ff41bf6784fe6e3ad0c9f9eac9453513766c163ec"
     sha256 cellar: :any,                 arm64_sequoia: "641448e8ab837bdf0b8a87a78e06af469dad0f91f571af7a60a011613493a8df"
     sha256 cellar: :any,                 arm64_sonoma:  "182ff68f6b022decb171a5fb8b6d0493bc5aa10da185047874467d053c3ac600"
     sha256 cellar: :any,                 arm64_ventura: "1323b5c036625451c134161ec41b96efeb9bb6b0f10109fac0eb8680d3e87b0e"
@@ -24,7 +25,7 @@ class Dante < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

@@ -9,6 +9,7 @@ class Atomicparsley < Formula
   head "https://github.com/wez/atomicparsley.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "eb06745bb021400165dff5d9c34273fcbe02a430686c6075df36d1828c09261f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8a224c8a6e91bac8c95b78e70797b63f260e0958cb724e2884868b7720739f93"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f08cfa8a20add56a8a17d2356dccdfd59065dc969e6d3fc1ede0978d46185f9d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "05d19096d14878111b050374bbdafcc19cb453c068cd24106766edb5e6889d6f"

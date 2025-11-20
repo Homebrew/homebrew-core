@@ -1,18 +1,20 @@
 class Tfprovidercheck < Formula
   desc "CLI to prevent malicious Terraform Providers from being executed"
   homepage "https://github.com/suzuki-shunsuke/tfprovidercheck"
-  url "https://github.com/suzuki-shunsuke/tfprovidercheck/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "999816d11c9b30a01af4725a118e2e974f6927875fe0d1045ae6e0ab49e95284"
+  url "https://github.com/suzuki-shunsuke/tfprovidercheck/archive/refs/tags/v1.0.6.tar.gz"
+  sha256 "35b7038242c67864fc969c84e0614e155e8cc4be955226c440b2bba26f3ab116"
   license "MIT"
   head "https://github.com/suzuki-shunsuke/tfprovidercheck.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "677d19930251eac409e75565e6325a56fc7e31014329b3719434de20212c085f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "677d19930251eac409e75565e6325a56fc7e31014329b3719434de20212c085f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "677d19930251eac409e75565e6325a56fc7e31014329b3719434de20212c085f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0f6036c235d4088cbaac59cb2165bad5d2496a0d63ae31586c4396a59f073513"
-    sha256 cellar: :any_skip_relocation, ventura:       "0f6036c235d4088cbaac59cb2165bad5d2496a0d63ae31586c4396a59f073513"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f889a0a70843517244b54a61a5de472e7d47313f7aee0fbc9b460d8994a34b5c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7bd39984bfc74a74c2398c3e26c4bd067eda608951b44c584d085da72d3bb8dd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5999fe7f5aa3878e386922f3ae60620217e21281a9eb206d43ea4accd48950f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5999fe7f5aa3878e386922f3ae60620217e21281a9eb206d43ea4accd48950f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5999fe7f5aa3878e386922f3ae60620217e21281a9eb206d43ea4accd48950f8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ad3c0f23e2e60f0b0415a78664d1c937eda185ecaf2bb1c32b5422ac81d5e24e"
+    sha256 cellar: :any_skip_relocation, ventura:       "ad3c0f23e2e60f0b0415a78664d1c937eda185ecaf2bb1c32b5422ac81d5e24e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2564548cfaddf04848f2f34174a0451843a87be03e12cdb2f5c410efba03f297"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea1b43a81af9d43ce3fd5e9aff2f6d642678a533fd867da44c4be37e55d3a7a2"
   end
 
   depends_on "go" => :build

@@ -4,19 +4,18 @@ class ColladaDom < Formula
   url "https://github.com/rdiankov/collada-dom/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d"
   license "MIT"
-  revision 12
+  revision 14
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f8fe9c458f7b484d0cd0cf9621f9b84d6e63937a1d7bfeb705e801e026cab1e6"
-    sha256 cellar: :any,                 arm64_sonoma:  "1a93d3a82bb601f66d34629015f53ab87e3193b61c364a5da75d83c7a0060685"
-    sha256 cellar: :any,                 arm64_ventura: "f76da451276e9251727ddfbe40b9dade4db304847a9c1cffd635d1089aa8f0bb"
-    sha256 cellar: :any,                 sonoma:        "e9aba40820c17f45f7498b445f45d25698fc5fa2c324745404e55590189c9ab7"
-    sha256 cellar: :any,                 ventura:       "25a584b502fb59ab0493eaaa7da669464d18481a8d5cd001c86c7ba0ba493ba7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7785299a5c30c771300721863afb15b7e8a42a1990f80bbfef5a0816393e7737"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b72d91084f267637a321260f8bce9f79085ac8c6fd0c16d57c748ba483614a0d"
+    sha256 cellar: :any,                 arm64_tahoe:   "262ff6d093cd5cf4c93d6771dc5652189d1d0545c1ed5fb9ed7a0924d2394e6c"
+    sha256 cellar: :any,                 arm64_sequoia: "13413012e59dd5274b56bcbedff590d2940e6f2929fe75e210d59e1ce79b1e4d"
+    sha256 cellar: :any,                 arm64_sonoma:  "2e667eedc409a0c7d7fc905667fee3e9b99d3784993096cf9f8295b9a5a31c8b"
+    sha256 cellar: :any,                 sonoma:        "1594a0565e3052099419571b88bd2cbceb229163ac33bf6d2a2c6025c3eab57d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a41950947d7ce752b2d9fb00fc3a0d035a57efdca87ce2ca471e2092797fdc9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "199d63bc915ff1606d3a61710ed010a564f6ed5235be4e2928651d9b610c1ac9"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +26,7 @@ class ColladaDom < Formula
 
   uses_from_macos "libxml2"
 
-  # Fix build failure with `boost` 1.85.0.
+  # Fix build failure with `boost` 1.85.0 and 1.89.0.
   # Issue ref: https://github.com/rdiankov/collada-dom/issues/42
   patch :DATA
 
@@ -105,3 +104,16 @@ index da2a344..2550000 100644
 
      const std::string& randomSegment = cdom::getRandomFileName();
      std::string tmpDir = dir + cdom::getFileSeparator() + randomSegment + cdom::getFileSeparator();
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 20635b2..adcc250 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -159,7 +159,7 @@ endif()
+ if( NOT $ENV{BOOST_LIBRARYDIR} STREQUAL "" )
+   set(Boost_LIBRARY_DIRS $ENV{BOOST_LIBRARYDIR})
+ endif()
+-find_package(Boost COMPONENTS filesystem system REQUIRED)
++find_package(Boost COMPONENTS filesystem REQUIRED)
+ 
+ message(STATUS "found boost version: ${Boost_VERSION}")
+ 

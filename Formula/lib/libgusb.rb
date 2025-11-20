@@ -18,14 +18,13 @@ class Libgusb < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia: "b5315217b63018e0935afaa911b71f26fb0dbd990a9496c97adb7a9a4837b1a0"
-    sha256 arm64_sonoma:  "00eb752982e5b27777af8dfa4d83eb2396acf9d4612c89fd8a8c56e6e00d8ae5"
-    sha256 arm64_ventura: "9753de67392b95353dd90f9e745d4343bb79fcec324884048fcf283e7034939c"
-    sha256 sonoma:        "f4e98d60eed3f9d811415d82027560f3ca55945e17b78fafc961c56ee690915f"
-    sha256 ventura:       "45c340c32f582a777d7a24667d7378e0b95d1043e32095cdb9356c8895fca893"
-    sha256 arm64_linux:   "ffc70db16c18b845ad99a159902c8eb20397d38f38ff7d2f2f7842623923fa6f"
-    sha256 x86_64_linux:  "ff05a0fdc15a300ceb4218458751283a54f691b12be3a627e98fdce3b218b7bd"
+    rebuild 3
+    sha256 arm64_tahoe:   "b72850ea01c8cd29ea25f54a76a4bc4fc30f04fef9a8c2deb858a767f32aed60"
+    sha256 arm64_sequoia: "10c0f65e769b39908359972bacb28a546dba331e8ace790ccc1a0673fc936889"
+    sha256 arm64_sonoma:  "d5152328e9ccc7008d88d58dfaa1e9d82e18d538f999341d266e7c30c8a13e1f"
+    sha256 sonoma:        "f48eb8f462d0554baec1356735687801ab24af570a1de7d35d252147a0ebd67d"
+    sha256 arm64_linux:   "de8939012f87fd944217bd85fdbdf9edacdb7505cfe6fac9cf2e6da70e41a257"
+    sha256 x86_64_linux:  "8acc7113d4d8e45b58c64078881669fed44358d7d3d03fc9fc6852a66d5dca78"
   end
 
   depends_on "gobject-introspection" => :build
@@ -38,7 +37,7 @@ class Libgusb < Formula
   depends_on "glib"
   depends_on "json-glib"
   depends_on "libusb"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "usb.ids"
 
   def install

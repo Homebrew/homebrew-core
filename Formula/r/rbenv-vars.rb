@@ -7,6 +7,8 @@ class RbenvVars < Formula
   revision 1
   head "https://github.com/rbenv/rbenv-vars.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "571e19044f1c058d68271c7a8296cccee968ba6e1e0bca75fe8b5167f5888b96"

@@ -13,6 +13,7 @@ class Idsgrep < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "38089cc00edfbfcda646205285bb2e4274ff12c2d3373225e16509c12bdcc304"
     sha256 cellar: :any,                 arm64_sequoia: "9195c89da2a586ec7c5d86d4b7da682d4d358ff39581755414f6040dce4db197"
     sha256 cellar: :any,                 arm64_sonoma:  "cd0cd350e0b1880c10cdb41eb85aa6a2f72829b08bffb5ef4c507ae9b75359e4"
     sha256 cellar: :any,                 arm64_ventura: "a674cfac9231215819fb5c3d6dc777f4b4ed316d2b1ef85bf959e5eb199d4414"

@@ -1,9 +1,10 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://github.com/malaterre/GDCM/archive/refs/tags/v3.0.24.tar.gz"
-  sha256 "d88519a094797c645ca34797a24a14efc10965829c4c3352c8ef33782a556336"
+  url "https://github.com/malaterre/GDCM/archive/refs/tags/v3.2.2.tar.gz"
+  sha256 "133078bfff4fe850a1faaea44b0a907ba93579fd16f34c956f4d665b24b590e5"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,20 +12,18 @@ class Gdcm < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia: "29f4afca40589ee225e365d19784cefaea6a645bb74c8846fc380b4ab6182020"
-    sha256 arm64_sonoma:  "fde25b20f1705d89a85dec3c6e159877d6725b90ca38574083a3ba6beac9c0b3"
-    sha256 arm64_ventura: "5de66afd7a971ab36ee2a088d9cad724e664a9c54f86de0487097d4100603537"
-    sha256 sonoma:        "709bd1ed5c21684c70b26bc5eb01557c1651be434a17a7d29bec098c3c4d695b"
-    sha256 ventura:       "23c61e5a51e3c5d5b0abb2a9df18b06c4a5eda9e14c05850643bca44a9bdbae1"
-    sha256 arm64_linux:   "fd227edb28e56e51c23bf3bbc1d00ab4986e0c0b34ce8927baeb35b74e3741d9"
-    sha256 x86_64_linux:  "8bc43d0b2244b3218545c1aa4fba961b365c514d85bb3a158087e4fbe421350d"
+    sha256 arm64_tahoe:   "0d44c545f9856a7d3a7f7c429519b7f2c69256adebe5b7ebfe825fa1a5664464"
+    sha256 arm64_sequoia: "b23e7c111b6193d7c869673e1ec47fc2206c18b38ab23877b681c6b4b53bc170"
+    sha256 arm64_sonoma:  "916c6dd70313845e8f15e1da7d9639228f9dec169f3026dbcbc927b13537e87d"
+    sha256 sonoma:        "fc6d88995fff90ebeb9d7b1732cba84994f90cfa7aff655d6e23100c581a5403"
+    sha256 arm64_linux:   "645ead455a8cbc207407d8fd3c94e2c2fcc46872ea1b483f6d4ddac8c57bf60b"
+    sha256 x86_64_linux:  "85ad6080d6eff0f377068cf01d53e64d14fe395a6ac9ce4271a2bb7748ed503b"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
+  depends_on "python@3.14" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
   depends_on "swig" => :build
   depends_on "charls"
   depends_on "json-c"
@@ -36,12 +35,12 @@ class Gdcm < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "python@3.13"
+    depends_on "python@3.14"
     depends_on "util-linux" # for libuuid
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
@@ -97,7 +96,7 @@ class Gdcm < Formula
       }
     CPP
 
-    system ENV.cxx, "-std=c++11", "test.cxx", "-o", "test", "-I#{include}/gdcm-3.0", "-L#{lib}", "-lgdcmDSED"
+    system ENV.cxx, "-std=c++11", "test.cxx", "-o", "test", "-I#{include}/gdcm-#{version.major_minor}", "-L#{lib}", "-lgdcmDSED"
     system "./test"
 
     system python3, "-c", "import gdcm"

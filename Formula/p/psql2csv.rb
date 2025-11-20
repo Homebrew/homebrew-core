@@ -6,6 +6,8 @@ class Psql2csv < Formula
   license "MIT"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "2bd408af21ea8fd340ab8a95d11c4a0b0d0c106a2aa9b87cdd9d8f4c09390290"

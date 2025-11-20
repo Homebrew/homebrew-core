@@ -6,6 +6,7 @@ class Bold < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ed79f743395beae0a5c50b97e5915036fc150a64876e09f93a4c23ec22290e11"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "166e358558a1248b63764912648a742d9852058095fa8291e6ba5104f1f47145"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "153a08515b6fa639c3245055e773893ee95b9653c87bec5b822734090585afe2"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5d93e1830b77efb82fa671a2b52a50403292ce2cf991bc9abf2c04a22b57e324"
@@ -13,7 +14,7 @@ class Bold < Formula
     sha256 cellar: :any_skip_relocation, ventura:       "c9f50e5f314cfaeb955778838e303f508167ac884b48846ff1c31c786dcd5644"
   end
 
-  depends_on "zig" => :build
+  depends_on "zig@0.14" => :build
   depends_on :macos # does not build on linux
 
   def install
@@ -32,13 +33,13 @@ class Bold < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<~EOS
+    (testpath/"hello.c").write <<~C
       #include <stdio.h>
       int main() {
-        printf("Hello from Bold\\n");
+        printf("Hello from Bold");
         return 0;
       }
-    EOS
+    C
 
     system ENV.cc, "-c", "hello.c", "-o", "hello.o"
     arch = Hardware::CPU.arm? ? "arm64" : "x86_64"
@@ -47,6 +48,6 @@ class Bold < Formula
     system bin/"bold", "hello.o", "-arch", arch, "-macos_version_min", macos_min,
                         "-syslibroot", MacOS.sdk_path, "-lSystem", "-o", "test"
 
-    assert_equal "Hello from Bold\n", shell_output("./test")
+    assert_equal "Hello from Bold", shell_output("./test")
   end
 end

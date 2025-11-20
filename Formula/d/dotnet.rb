@@ -7,12 +7,14 @@ class Dotnet < Formula
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.5.tar.gz"
-    sha256 "0ff026271b8e21db503284b5cfae8e0546f009d18581497ba754084729dc74c3"
+    version "9.0.8"
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.109.tar.gz"
+    sha256 "42fdfe3733884a3f6ceb3b428ff346ccb92f95010c447e27f3b164f70145730c"
 
     resource "release.json" do
-      url "https://github.com/dotnet/dotnet/releases/download/v9.0.5/release.json"
-      sha256 "36900c37e54d780ade35f2eaeaa9bf2dc1e7789b5d82c6c11a63d0da2853f813"
+      version "9.0.8"
+      url "https://github.com/dotnet/dotnet/releases/download/v9.0.109/release.json"
+      sha256 "328388103bf81072b638984d05b9dff5b6520a366d6448abbc7b985539deb8f4"
 
       livecheck do
         formula :parent
@@ -26,12 +28,13 @@ class Dotnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9a9c0fea3897f713604263ce3d25755cdc1cc34e9728ce384b1674a23adaf081"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6be60a96abea6c0c5262c1ee7ef44396cf96837c434beb2f1d7ae0643cffaad"
-    sha256 cellar: :any,                 arm64_ventura: "73b20278e33fb2c051e60b19b9aaf216c6edfb6e9b4b615f8a65ee53edff7d00"
-    sha256 cellar: :any,                 ventura:       "e8e49e3b7d72dbd6adf719f368d0a38bb78a3e29e0368b828339657f765c2fa5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bc91b3b6e5934256b7c52e0e4028442cc0c263786408f7c10cab58ecdc96942"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "238d53cd94923a17447e797249358c06e6e5f8b4574a51bd87fb3c7734c7c39b"
+    sha256 cellar: :any,                 arm64_tahoe:   "343566caa1011741a13303014ceee74a91d807de9cd77f0438324939f9ff65bb"
+    sha256 cellar: :any,                 arm64_sequoia: "0f23879804542b8e66c8521b87af973069165fc9379749083a25537aae9f94b1"
+    sha256 cellar: :any,                 arm64_sonoma:  "5fbde0a48d63af42c31612f0384e009d879ee9af741d22fc5422d5df4b41d6b5"
+    sha256 cellar: :any,                 arm64_ventura: "15e04bd0623d3981d7f19ccd7211e408113359382bd924ecf2df77c818d3c994"
+    sha256 cellar: :any,                 ventura:       "cf89f9ff2627bbc1c5deb19df544de345e7b59f0b2f701dac30742795d0ddbe0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1c0d7633d3c96929f02dc32132377889ee6585b9b9b6e115312434af40ca24f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22511e3d0ff36ec596f3cfdd8cfee282a67b4226f2916b94ebf162bc83c0f9c9"
   end
 
   depends_on "cmake" => :build
@@ -41,7 +44,7 @@ class Dotnet < Formula
   depends_on "icu4c@77"
   depends_on "openssl@3"
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
@@ -54,10 +57,10 @@ class Dotnet < Formula
     depends_on "lttng-ust"
   end
 
-  conflicts_with cask: "dotnet"
+  conflicts_with cask: "dotnet-runtime"
+  conflicts_with cask: "dotnet-runtime@preview"
   conflicts_with cask: "dotnet-sdk"
   conflicts_with cask: "dotnet-sdk@preview"
-  conflicts_with cask: "dotnet@preview"
 
   def install
     if OS.mac?

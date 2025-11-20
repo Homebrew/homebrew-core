@@ -1,20 +1,17 @@
 class Scs < Formula
   desc "Conic optimization via operator splitting"
   homepage "https://web.stanford.edu/~boyd/papers/scs.html"
-  url "https://github.com/cvxgrp/scs/archive/refs/tags/3.2.7.tar.gz"
-  sha256 "bc8211cfd213f3117676ceb7842f4ed8a3bc7ed9625c4238cc7d83f666e22cc9"
+  url "https://github.com/cvxgrp/scs/archive/refs/tags/3.2.9.tar.gz"
+  sha256 "f3d9095fb01fd634d12ccbe6f79ed2acbb7101ad57b723157d44a49cbe187669"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "6c51a4ad4ca92b9a9dc0484ea9c4f9b6322ce88e6ad236881a2b14dbf0423e7b"
-    sha256 cellar: :any,                 arm64_sonoma:   "01c9ae089993b4415924308e126012b86327100bdaa9146c0aee08a9865a8c42"
-    sha256 cellar: :any,                 arm64_ventura:  "d598a72de7867bfa376e0ebff3dd2c3bbb0f6e027e1c7cdc7450655e5d0e3fd9"
-    sha256 cellar: :any,                 arm64_monterey: "ede06b46c1681c4fd1b78a73609c93b2447d715a9c10a2dad288a13fd251c2b6"
-    sha256 cellar: :any,                 sonoma:         "61eca2394f08be31933544ad01b9dc62d2ed9f8a7a1eb4aae413b0ecbc1e038d"
-    sha256 cellar: :any,                 ventura:        "305266e59644b836bfc848d6feafc1b5889d67eb751e662bf1a2be8a2b4e55cb"
-    sha256 cellar: :any,                 monterey:       "102c6c90dd8a1ef3b66cbcf326e71226f06a2853791448747a636896a9662dd5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b52b621aa59fa13789329aba8c51102188a148e9b15165d2d9698b9d9e3423b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4351ced8c3f4b299d6e7f91d599f545cffc321f49c306ba45727b61e244ae42"
+    sha256 cellar: :any,                 arm64_tahoe:   "c13642cfe0453436d0f43eb39566f75e4f04c5849d4b973e317f7899a1672fc7"
+    sha256 cellar: :any,                 arm64_sequoia: "461fe0b74cc5dd41fd8a031ac729c6237314ede47f6d428496ef6074cc6e6bab"
+    sha256 cellar: :any,                 arm64_sonoma:  "d2314d0694a4d2229a6db429a356a6440905b57c103614ee9727ec40a16a4c5a"
+    sha256 cellar: :any,                 sonoma:        "4f24992de230bab0d597b13150db3b449efeaf277a2c0de28f3b02b9a2c2a45b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "915268f6799f763232f4e5ec19fc7fe515d01e3d6b1be601999a88592c575c5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4f323c865ab69e6d5235aeecf07387a9db01849082f82caeb1abb624eec1557"
   end
 
   on_linux do

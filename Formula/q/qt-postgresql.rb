@@ -1,26 +1,29 @@
 class QtPostgresql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.0/submodules/qtbase-everywhere-src-6.9.0.tar.xz"
-  sha256 "c1800c2ea835801af04a05d4a32321d79a93954ee3ae2172bbeacf13d1f0598c"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.3/submodules/qtbase-everywhere-src-6.9.3.tar.xz"
+  sha256 "c5a1a2f660356ec081febfa782998ae5ddbc5925117e64f50e4be9cd45b8dc6e"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
-    formula "qt"
+    formula "qtbase"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "b2b5248e5f9872d540b3864ea2eef265e9b1e46709734334cec94d32b7bbb77e"
-    sha256 cellar: :any,                 arm64_ventura: "cfd40bd2d36b50323ff75e579ab892f6c5fc14fba69726ef96a186c995b33f47"
-    sha256 cellar: :any,                 sonoma:        "a211562ac2bd5de69cd99b5fc37b0470bf2e80af53f2b97cbc9765dd89644a8c"
-    sha256 cellar: :any,                 ventura:       "39a4ac6b6e25edc41b4f25ff9b3d3ee967207214bf99c8e2f05a7be2205d8579"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbba9de50eea8ea4c4c8e944e6ea4781b08b7f1fed97adbd4162a6223bca4d00"
+    sha256 cellar: :any,                 arm64_tahoe:   "5c96761b2e7ea442c538ef760ad7893a313187c8574360091b250799b39aca53"
+    sha256 cellar: :any,                 arm64_sequoia: "b6fdcec3879066e1cc49c1ad127113fcbd4d9c1a92e5b3fa03417beb4fced52f"
+    sha256 cellar: :any,                 arm64_sonoma:  "d5c958fcd10ccc5a9ee939c0acb41a3146ea9d84778a8f359799bd5e70585a4e"
+    sha256 cellar: :any,                 sonoma:        "0d8111f52bcae4f7c652732e24b1a70c189d4e3599969eee8462390ff4cf0e70"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "639e79e14909e6882777096b570d81fad50462c8969a988e9744d0ad6bae097c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1470a5add576b606c151e82fcaa04318a58245e46d9104f9a3bb9d0504543f8"
   end
 
   depends_on "cmake" => [:build, :test]
 
   depends_on "libpq"
-  depends_on "qt"
+  depends_on "qtbase"
 
   def install
     args = %W[
@@ -33,6 +36,7 @@ class QtPostgresql < Formula
       -DFEATURE_sql_sqlite=OFF
       -DQT_GENERATE_SBOM=OFF
     ]
+    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
 
     system "cmake", "-S", "src/plugins/sqldrivers", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -49,21 +53,19 @@ class QtPostgresql < Formula
       set(CMAKE_AUTORCC ON)
       set(CMAKE_AUTOUIC ON)
       find_package(Qt6 COMPONENTS Core Sql REQUIRED)
-      add_executable(test
-          main.cpp
-      )
+      add_executable(test main.cpp)
       target_link_libraries(test PRIVATE Qt6::Core Qt6::Sql)
     CMAKE
 
-    (testpath/"test.pro").write <<~EOS
-      QT       += core sql
-      QT       -= gui
-      TARGET = test
-      CONFIG   += console debug
-      CONFIG   -= app_bundle
+    (testpath/"test.pro").write <<~QMAKE
+      QT      += core sql
+      QT      -= gui
+      TARGET   = test
+      CONFIG  += console debug
+      CONFIG  -= app_bundle
       TEMPLATE = app
       SOURCES += main.cpp
-    EOS
+    QMAKE
 
     (testpath/"main.cpp").write <<~CPP
       #include <QCoreApplication>
@@ -79,6 +81,7 @@ class QtPostgresql < Formula
       }
     CPP
 
+    ENV["LC_ALL"] = "en_US.UTF-8"
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_BUILD_TYPE=Debug"
     system "cmake", "--build", "build"
     system "./build/test"

@@ -1,18 +1,17 @@
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
-  url "https://github.com/svenstaro/miniserve/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "48351a8165bd51f3c855695af1c25032b502f873c80f52f98a538174951cbb9f"
+  url "https://github.com/svenstaro/miniserve/archive/refs/tags/v0.32.0.tar.gz"
+  sha256 "30cfabd398f0c17c2eff3fdab115b5681e21fb048f363955a064249d14cd5869"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0737d1957f73bbd2eab87296da1781bc7bd4de476715fce743abf4dbf0bf4333"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ee123de7e3a28158c1f54c80212f2805b5456054c7eac394e37e2d5b5dcba4f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e775b2fc727210da8bf295ecbc0dd02b013af0e0bb4a90e0dd540391074cdc3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c8b4efb102194aa5934ff2a666b2dc602a676a4ae895e4099202974b4b464e06"
-    sha256 cellar: :any_skip_relocation, ventura:       "b1535654a5a0e5c5907340965c8dcd3e2bbc3430afbbe794a70df7a1e98920c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6762e154da3ffc86f85cc9d67a1bb9a2b666696e6f1490bf9ebec53dca88ca9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3abba9ddbbe7f139aa9cccbbd15d1eb3067e3e3881c437b9fea20274934a58d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47389c1126d93797e519efeadf07ee02e99fec1f3e91fa630fc924b50f97838d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4957a759bdc9818ba2e7685a2a1dd20c1ec41a49b9a6ad774a042ac3af0b86fb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d054d066b3e55f3f424b80e6db9ce046eabcbd2e098eb4994a5f61e0e5f1d50"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f812a2db501181c9221226c469e13702648bfc64953a43344f0a35fbefca48d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "833b51ec8582ca42e9094f07f1710a081576a7828f8f4b2f52b5acf5b55d6c95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4aabd6fa273c766767936ccfffb2d58a043905bea4950844184fb46eb350a8e3"
   end
 
   depends_on "rust" => :build

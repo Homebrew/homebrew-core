@@ -2,8 +2,8 @@ class Objconv < Formula
   desc "Object file converter"
   homepage "https://www.agner.org/optimize/#objconv"
   url "https://www.agner.org/optimize/objconv.zip"
-  version "2023-03-29"
-  sha256 "0c5ca8fbc7ef1c4afe3cc7cc9018711a5885afacbe8bcebc48028d1ec90ccc7c"
+  version "2025-10-30"
+  sha256 "301149c271ffaf7b11a14d7aff637ecd580f8591bb8992b8e399af7ed4779bf9"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -17,18 +17,15 @@ class Objconv < Formula
     end
   end
 
+  no_autobump! because: :incompatible_version_format
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2b4714a356e16792f3980afc77dc4be1dc71f422b1f018581add5627a7029938"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e8ce3fb8918b114d7db84a03abb75f67cdc66f19278aad8cde5b22e11db7522"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "85414b31d4d8ea9a57997b842eb53f709b5c72783c3bd5c7481b4b5004d72d99"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "203bc4a3d83551c9ad541a48616c8471affbe9560d16b36b302ae94d2b939f78"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5b8bc140a605c3aba686d7ba7a28a50ca68b7a8b67cd78bda3e2c95f5c227f4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a507a2d6fa3e3459f77ca6803b0b126de5e3ab51303dae842925928a3f7dd32d"
-    sha256 cellar: :any_skip_relocation, ventura:        "17dd03b46e6b029335e573035c4ab7fb60bb17ce8a64d83109a711df0ed8124d"
-    sha256 cellar: :any_skip_relocation, monterey:       "362a2f558092bd6268378d3248d477a10aa8dd771d54d7f1e8f12f2bd91b9952"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2853283d56d4f091e9931fa84f10652f0a9e3df302471bfc523a317b7cd3c02c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b4006dcb1682c6f8c22ba8956c307e6124def71c1aa47b227b2232de81426f91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0377932fae0f1e90636136f000858e53e8ca96e2a00c1554a5a217766b9cb7b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5273156ed17314c65abfd7ca9a76776fada0abb44c07fc94a6b0702976085600"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53b630adc4d0dcc0034547ca31047d72a38fb519b9d4e21ac6a54733722280cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "791d4922ed48bd70ecf5b8e15e030f7ee2683d71135dedd1b107eb7319767c56"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f13137ee96946b13e9f5dca16bcf2b6bb51db34970908d6cdca9541cef9f2dc5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8754722ecaa55b9e9c7361bc7ee2927a11d5c2825a81f75b034201bc7b8fc87f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33faeb686f6b82f43adaf81920fac9fbae62239c531a6676c857f64050303046"
   end
 
   uses_from_macos "unzip" => :build

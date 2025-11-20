@@ -8,14 +8,15 @@ class Autopep8 < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "39c0c9c5772b9e788f36085b19638b0259fbf528267f56694e0b92a367941c16"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5f1bd9503359c8e67f6cefd931a53b5749aea1415fcfb1ed26ed3cda9b761702"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "pycodestyle" do
-    url "https://files.pythonhosted.org/packages/43/aa/210b2c9aedd8c1cbeea31a50e42050ad56187754b34eb214c46709445801/pycodestyle-2.12.1.tar.gz"
-    sha256 "6838eae08bbce4f6accd5d5572075c63626a15ee3e6f842df996bf62f6d73521"
+    url "https://files.pythonhosted.org/packages/11/e0/abfd2a0d2efe47670df87f3e3a0e2edda42f055053c85361f19c0e2c1ca8/pycodestyle-2.14.0.tar.gz"
+    sha256 "c4b5b517d278089ff9d0abdec919cd97262a3367449ea1c8b49b91529167b783"
   end
 
   def install

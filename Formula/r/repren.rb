@@ -8,10 +8,11 @@ class Repren < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5a82077e5896eea071dea3a44430d1061df24d3d2b0b8cb72b3a6f46ab4846d8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ec965ab02e6040b8fb71cf135d1d66547a96c9b28fbcdd8263ae01d589d7b60f"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

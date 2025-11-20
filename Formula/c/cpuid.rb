@@ -1,19 +1,20 @@
 class Cpuid < Formula
   desc "CPU feature identification for Go"
   homepage "https://github.com/klauspost/cpuid"
-  url "https://github.com/klauspost/cpuid/archive/refs/tags/v2.2.10.tar.gz"
-  sha256 "6064676aebe4848dff0aee73fe73efd0ecbf6f521faff94d266ce88283cf568b"
+  url "https://github.com/klauspost/cpuid/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "467c058227b86d527bff7e2e1504748f99ca27cb69f3908189ceb18b1df8428a"
   license "MIT"
   head "https://github.com/klauspost/cpuid.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "407aa5d6b2f38800ef7c9163a0b36458accb97585c79216200fbafd66a734c0c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "407aa5d6b2f38800ef7c9163a0b36458accb97585c79216200fbafd66a734c0c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "407aa5d6b2f38800ef7c9163a0b36458accb97585c79216200fbafd66a734c0c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ecfa112b44890d4e7f642b877c481cb42f97bbde314fc3f129a2c013dd897e60"
-    sha256 cellar: :any_skip_relocation, ventura:       "ecfa112b44890d4e7f642b877c481cb42f97bbde314fc3f129a2c013dd897e60"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "08f1cbad37f37822d1bb0ce32758b0ca0b6649fc89ba0328a658a446b2e8acba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ce13ee61313acec4f188de11c6707403489972057906b950aaf19bf5af8c6f6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8db225f084a6723c03356505200ac635cb94bb3ce0204900eb62137ce559eaaa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b65f000226c41729001db3a206845dafeaf87d39f5ec12465ee02797718399f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b65f000226c41729001db3a206845dafeaf87d39f5ec12465ee02797718399f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8b65f000226c41729001db3a206845dafeaf87d39f5ec12465ee02797718399f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3fb55a4d8942c9131a331f392d2b56e4e1515163850a5afcb8e1a17ec100aa61"
+    sha256 cellar: :any_skip_relocation, ventura:       "3fb55a4d8942c9131a331f392d2b56e4e1515163850a5afcb8e1a17ec100aa61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "555f1ed20e4de1ce5bdc1ea1d5ed9cf01c1bb64f968cf1c1125200d988869acc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de235784ecef52744cafc99dd9b01aae03ff3763514153d8305ecd4d9b2b0c39"
   end
 
   depends_on "go" => :build

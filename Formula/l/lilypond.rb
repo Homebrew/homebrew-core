@@ -19,15 +19,16 @@ class Lilypond < Formula
     regex(/href=.*?lilypond[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "186ccba4e185bdb0160e66bc68c4e70594d77b9d18a863718886667817b0f8b0"
-    sha256 arm64_sonoma:  "80da0e56c2e27506e4a82b7cfcdfe9ca5e819ce2a52bc9c1cbdcc597557862db"
-    sha256 arm64_ventura: "38a76fb76615646d4b43b6578d368fac8daee24834dc049ea0f50ffaeca73b33"
-    sha256 sonoma:        "b31020b0176335c832d55556e5709b45b54ac04b2c0d04129d16a6a25ef8e6e7"
-    sha256 ventura:       "a4112ff2f62a0b79a6de8ba3c34db2167d0076949ac617eeb81f9335dd461607"
-    sha256 arm64_linux:   "23b8fdf9318178b066af933b4a82a96438d6a0096d368dd213544e13b9f67e50"
-    sha256 x86_64_linux:  "d3bd2174c750e48ee24e19959f3587eaeaca0e155ba8d8dc973e3d43511d89d5"
+    rebuild 2
+    sha256 arm64_tahoe:   "08e195be137c3be99594e3277083e3a87a1ddb795770df30a2c87054b5a8994f"
+    sha256 arm64_sequoia: "5013c14b99b247ed68522f21c35bd688e32b6b6a14d4db0a37224bc47d25da58"
+    sha256 arm64_sonoma:  "0641f300ee72f3f31a31b868fb7093e5eb5bb98479fd89a4de493f5076b2a6a0"
+    sha256 sonoma:        "793294ac152b0b61343a9d38852246c995d12a6c12e445e2f928bb961b36cb1f"
+    sha256 arm64_linux:   "5924a471b8630d1dee04084de229ba6423e1b7ceb4609cbe609592a8a07ddb93"
+    sha256 x86_64_linux:  "295fc0a3f0be89287c2856b2d7fbcc639a444f5d694ebe47e4af952c75b6029b"
   end
 
   head do
@@ -52,7 +53,7 @@ class Lilypond < Formula
   depends_on "glib"
   depends_on "guile"
   depends_on "pango"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build

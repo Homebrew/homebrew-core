@@ -4,6 +4,7 @@ class Geeqie < Formula
   url "https://github.com/BestImageViewer/geeqie/releases/download/v2.6.1/geeqie-2.6.1.tar.xz"
   sha256 "164b768b8a387edf654112428adb8fd88c265c76b7bc84a490158e6923da3a55"
   license "GPL-2.0-or-later"
+  revision 2
 
   livecheck do
     url :stable
@@ -11,20 +12,19 @@ class Geeqie < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "57187ed489c519d3bf2c18748c34aa8f2779d0520a1dc91e10e1345d9db4b78a"
-    sha256 cellar: :any, arm64_sonoma:  "836a53db58ed0e5116998776114e13295eaaecf5d433ce7f161265fa38fe291f"
-    sha256 cellar: :any, arm64_ventura: "8ca00e0ee46ef42feb7dd5e12d482c399db5ec187449ee2030929f32e2e2923d"
-    sha256 cellar: :any, sonoma:        "b197558b1aef973b8ffdec496d148966ae4337856085fd32419ad4daa2e36b62"
-    sha256 cellar: :any, ventura:       "d5242f92b22587a0dfdef40843792903e35b919e07ab99bdbcba4f8a9bfb21ec"
-    sha256               arm64_linux:   "657987d0ad5967374c8be7337ce7d5b6dde73f1f1c9e883ba388e4073927c2e6"
-    sha256               x86_64_linux:  "9c95ebba3f4d8bc4ca91db9e258ce52ca193a0f3d10c134cd93c52f2df28b0a1"
+    sha256 cellar: :any, arm64_tahoe:   "55a6b7120bf8721d50aefcc67a1c633d37aea9f201bdfcd6df1c8f4013975b80"
+    sha256 cellar: :any, arm64_sequoia: "464386cab0126fe009eb1c3a2051427e908e58ad5a015d1136e75532fc6ce5e5"
+    sha256 cellar: :any, arm64_sonoma:  "d7337eaf58aa7cf6d0d4d60f8534adf9e44cbdd94a17b8844c1768fa9b19e9b9"
+    sha256 cellar: :any, arm64_ventura: "c785fadc1ff45a4692c71809e44b6acd498b9e300767674387084ddcf5e78392"
+    sha256 cellar: :any, sonoma:        "4439f2066a4b1c49732f5b23794df73c3c7dcf1c4bd81bc2447b6d83bc8c169a"
+    sha256 cellar: :any, ventura:       "8eb1815e1a8a38c5165e0860260aca1d87286d19c9183f63a30033db779faeff"
+    sha256               arm64_linux:   "2baa715efecae3bb2953d2bc7e96af74e0b46de0a4e98a4cd61effa32564810f"
+    sha256               x86_64_linux:  "31e1b18a469c3aae60e598d03aedebd348d25dc5a4e15844ab8a6871150e9cbb"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pandoc" => :build # for README.html
   depends_on "pkgconf" => :build
-  depends_on "yelp-tools" => :build # for help files
 
   depends_on "adwaita-icon-theme"
   depends_on "at-spi2-core"
@@ -65,7 +65,8 @@ class Geeqie < Formula
   end
 
   def install
-    system "meson", "setup", "build", "-Dlua=disabled", *std_meson_args
+    args = %w[-Dlua=disabled -Dyelp-build=disabled]
+    system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

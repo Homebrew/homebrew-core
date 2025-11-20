@@ -13,6 +13,7 @@ class Zenith < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2774e00fb53ed4446adc9916a1ffc4a2fd639e862b73fca0b4efde11651b14e9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "27a11d6590b2e48b771af993c0b39a3bdfcbc629f97837fb633a199203d1a013"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a756e7ce1451f19ff41f5d41207cb6d7638b081399c365ef5d9ffd0c8beb3794"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b52ba65cef2bd5122e967f6115e83aaf94c7f0016f1005c45614bbf790184ecc"

@@ -1,28 +1,22 @@
 class Libcbor < Formula
   desc "CBOR protocol implementation for C and others"
   homepage "https://github.com/PJK/libcbor"
-  url "https://github.com/PJK/libcbor/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "5368add109db559f546d7ed10f440f39a273b073daa8da4abffc83815069fa7f"
+  url "https://github.com/PJK/libcbor/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "95a7f0dd333fd1dce3e4f92691ca8be38227b27887599b21cd3c4f6d6a7abb10"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a4b607654d91133a0a38fcc6106bfe3504e82101f6a3ebcba6ca81109645ffd0"
-    sha256 cellar: :any,                 arm64_sonoma:  "4702c138e675003b441360be3cb2933d759f54988e592f9646cf3fac08b24780"
-    sha256 cellar: :any,                 arm64_ventura: "8e069118ed51f891cab2278d3c9e43d4a0b4a64a166bf5936b71c82d426a9b00"
-    sha256 cellar: :any,                 sonoma:        "21328c3ce137192785b4c98e5fdc8d4e1ec5ec3055012dc1a8c0b3ba47c76f00"
-    sha256 cellar: :any,                 ventura:       "c0ae5159e74053c98a47f273cf6765351e75c6218f08ad93ef3f491f6ac46a73"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c927b338e13e1ed044b7832773076fb068dc602f535f87f47cb6343852262d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db399e91ac8ece593925568d7c87be22096e2a2ce0a7b1dcc8fef67aea4166d4"
+    sha256 cellar: :any,                 arm64_tahoe:   "f5c20790e57a940c90412368e2b013905e348111d24c3c1094b216d78aa5e79e"
+    sha256 cellar: :any,                 arm64_sequoia: "84fbaeb706c5bade3a0ec2aa6be556b7545e85a5460be62cb3103d023c0ad07c"
+    sha256 cellar: :any,                 arm64_sonoma:  "279cb56460419e5db108f86468657903311097eaec5936d628d8e52e0f619ef9"
+    sha256 cellar: :any,                 arm64_ventura: "5347e4152dffb63f01f26460af587f182e55278fc515ab91490309412e319fd1"
+    sha256 cellar: :any,                 sonoma:        "46da1181ecfad81747ba251a7bb0c386d2e96138c91b4b2317224e4e2d8f33a7"
+    sha256 cellar: :any,                 ventura:       "2024a6093106cb35a6b490c0ddb2d93aef72a604ee0763c55f4a7fe86373019c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b3d54923878f373a76b6d36c4ecd15923fea36bb794485d7121e901110ac830"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18293a2b5aa8a0212b281cd516ab49a9b50238e2a0d32d287757800aea89d0bc"
   end
 
   depends_on "cmake" => :build
-
-  # Fix to cmake 4 compatibility
-  # PR ref: https://github.com/PJK/libcbor/pull/355
-  patch do
-    url "https://github.com/PJK/libcbor/commit/1183292d4695300785b272532c1e02d68840e4b8.patch?full_index=1"
-    sha256 "54c1984fa401a4bf85e9d9cfd1500bfd1f3106cf39e1f72cfdf762dd30643098"
-  end
 
   def install
     args = %w[

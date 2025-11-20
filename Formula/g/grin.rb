@@ -7,6 +7,7 @@ class Grin < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "336c371ec1eb63c7adba0085bc83a842cf0ce2364b671b4916f3fd66ef26d293"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "00c9a59db44f28be5b8881f1fdeaaee14c4a9bbb88f64af340432063937d5144"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "016c32b7f78ce489e3b614ebca55c8423d128596eb69d179c5a548c77e8eabdb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7f1070ecae9f77da9eeddd752741253aeb35ff8ce9873adff32c0ea5ccc38373"

@@ -3,18 +3,18 @@ class Gupnp < Formula
 
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.8.tar.xz"
-  sha256 "70a003cebd68577293fb3e6af49ff902203bf8768b2fc5d651ddc1f0fa1e11e9"
+  url "https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.9.tar.xz"
+  sha256 "2edb6ee3613558e62f538735368aee27151b7e09d4e2e2c51606833da801869b"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "0d73be784e10b682d081fa15b4779f54cf372468c0ae538d9d1468a135ca460b"
-    sha256 cellar: :any, arm64_sonoma:  "c2e208114785c8a6891e62c0372c90a44879f1f03551cf7ea0948acf39aca197"
-    sha256 cellar: :any, arm64_ventura: "daf4ba3e00e3c0931a340c6dd4259840deeb0ca477d3f055a48ed517ddf14a25"
-    sha256 cellar: :any, sonoma:        "666d7700b2ad4fb6ef4811186eb2b82fce1029e990bb7fecfec1f680c72eb08e"
-    sha256 cellar: :any, ventura:       "d73e698c784354e7dcefedda8057a17d3fe4d5274ffc0ce96cce07b441639a12"
-    sha256               arm64_linux:   "5c354c24487b881facf052d72ca33238ed108d8e599ed53f57d5e3c75005c046"
-    sha256               x86_64_linux:  "6f3b4dbadddd74af18147095bf99055d590bfe0ffce1eca0a4cce2aaf261abb1"
+    sha256 cellar: :any, arm64_tahoe:   "aab39250b6637df75928cd584b22ac892b3bc88ade13c441c196462147c1e93e"
+    sha256 cellar: :any, arm64_sequoia: "87e030e2cd95bdd576452417203084d6bc5be6ac69ad7d39192468203aee28e9"
+    sha256 cellar: :any, arm64_sonoma:  "8c21ee0403e3e7ac240896b75abab35d089984f0652bdb85b67b3c4b02585f52"
+    sha256 cellar: :any, sonoma:        "20d86cbc848ba2e6cf7eda321d5c88e8ea40193657440d65da84bf34444b7805"
+    sha256               arm64_linux:   "c1d473934e2af40455da184401559fd4a280f7f9ccf41c0ed1f62aa4a7849528"
+    sha256               x86_64_linux:  "ad0e453a04da1f3183e56f79bb793215ce8703bc11f34671aaa28b8b4b4ac5e8"
   end
 
   depends_on "docbook-xsl" => :build
@@ -28,7 +28,7 @@ class Gupnp < Formula
   depends_on "gssdp"
   depends_on "libsoup"
   depends_on "libxml2"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"

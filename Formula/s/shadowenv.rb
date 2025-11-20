@@ -1,8 +1,8 @@
 class Shadowenv < Formula
   desc "Reversible directory-local environment variable manipulations"
   homepage "https://shopify.github.io/shadowenv/"
-  url "https://github.com/Shopify/shadowenv/archive/refs/tags/3.3.1.tar.gz"
-  sha256 "726c2a655749213cd7f0efe9dca199f65c11b58774c5550ea4834d5b2334b27c"
+  url "https://github.com/Shopify/shadowenv/archive/refs/tags/3.4.0.tar.gz"
+  sha256 "86313a5022a8e897ceb52a51479fa7a921e44cd520cf04d111ba711684791e44"
   license "MIT"
 
   # There can be a notable gap between when a version is tagged and a
@@ -14,13 +14,14 @@ class Shadowenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dcea2f7cf59a7931a0d01f2418741839db84fe32c63e245b58e8dc7a2cacde4c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "201b6122ba97b02c416c6e0eaad546c1cf02ce7603b4f2926e8bac164ca55613"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3410ab00b6cc4e35cf3ec29c63bd94076c277453f773bc2a0ed3231c4a624779"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f0f2ffb340fb507e7bea9cfab10bf5906a2cd3d0277436927cafab628e009d76"
-    sha256 cellar: :any_skip_relocation, ventura:       "f8ee16f106a7088f298cde2a4f8086f18487ed55cdfebbab97a695b15b81f641"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "153277ad82d51bfa7ae899b1bb8798b863fc421c9c0a7fcfaf0db1bd3662d9ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49b2be347183407b5a356c147defe9b8eaf418d735380865e1e1e4250e0b083d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ce2a7c3bad03bb0798f59c7782b7fa6fe6c38f5d991dfb9d907f773a69c961a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d2aeaff45d8dd8a42113407ce00768bd7925e0214cdac6562c1a1f1e5af1616"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c96fa5cb66fc2db8280097794a11ef34351bba72ad5284b552493879ff6356aa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ae5065cfb3bb80e396751f4f0903ab6fbea194f2d0eee8dcd1a557bd52b7faec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "19445eb6965c036e799b4e1a0e399cd91068ea9a3a85855f7c35ab219f4a3f15"
+    sha256 cellar: :any_skip_relocation, ventura:       "bfa5569c762df9706807c63795c6e6910beb8cbf84dd08df97755355346ee6ce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "52b23d1a232c2a1cf69554ea10cb6081430df4d13b7e28b64dd99ba0d306cb49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec2f689ad3587af4989c921782c112a7f222816d4b6e258c4f72232c0479b54a"
   end
 
   depends_on "rust" => :build

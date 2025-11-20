@@ -1,19 +1,23 @@
 class Neosync < Formula
   desc "CLI for interfacing with Neosync"
   homepage "https://www.neosync.dev/"
-  url "https://github.com/nucleuscloud/neosync/archive/refs/tags/v0.5.40.tar.gz"
-  sha256 "3c6ed6363e7822c22e584f611516f9117d194822cc0bd30352a786dfbd96bc4e"
+  url "https://github.com/nucleuscloud/neosync/archive/refs/tags/v0.5.41.tar.gz"
+  sha256 "f11966321826d40d28b087b1daa81519e600759b9813b0e686ec49397a466a21"
   license "MIT"
   head "https://github.com/nucleuscloud/neosync.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eab17fcb4cfb26602f49bbc2eee778c73530074431a51f57c9b8216077466413"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eab17fcb4cfb26602f49bbc2eee778c73530074431a51f57c9b8216077466413"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eab17fcb4cfb26602f49bbc2eee778c73530074431a51f57c9b8216077466413"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1286f126db3ae795dc91a3014ee33bdc3382f44a53bd23acf35e5a62b7374b0e"
-    sha256 cellar: :any_skip_relocation, ventura:       "1286f126db3ae795dc91a3014ee33bdc3382f44a53bd23acf35e5a62b7374b0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04642ea1d2c503ac77e68975c1d430fe336595af2a792222f70ddf4234bd1be8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7dff0d67b524213408aba298d75f80fea1eafaf7756313dba20b8079d41b0f2b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d955843c57eaa847b43b5aefcce7d239677049fcd650059f7b056df93b4ee67"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d955843c57eaa847b43b5aefcce7d239677049fcd650059f7b056df93b4ee67"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d955843c57eaa847b43b5aefcce7d239677049fcd650059f7b056df93b4ee67"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14bcd6d91cb2fd66bc410cc059692c1a25db636a2e778fbdff31ef10f7b5b018"
+    sha256 cellar: :any_skip_relocation, ventura:       "14bcd6d91cb2fd66bc410cc059692c1a25db636a2e778fbdff31ef10f7b5b018"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "66642ba75fc6ba5df446549755498c22a0bdbb17ae84a7579cb580858b39d35a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9fe641cfecd902842f7dc37e292bc6eef5d6d545dc60bf266a59fc970de2976"
   end
+
+  deprecate! date: "2025-10-02", because: :repo_archived
 
   depends_on "go" => :build
 

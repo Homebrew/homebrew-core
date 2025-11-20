@@ -1,18 +1,18 @@
 class Doggo < Formula
   desc "Command-line DNS Client for Humans"
   homepage "https://doggo.mrkaran.dev/"
-  url "https://github.com/mr-karan/doggo/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "92a34f5510a48ab657a980c39edf907c17e96e88a476187d5b57a8cef3becd5b"
+  url "https://github.com/mr-karan/doggo/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "bb66deafb34547c4e2735908ba5c42c6a0c5f30fb2b62dc5f9ff7a11fbe15d3e"
   license "GPL-3.0-or-later"
   head "https://github.com/mr-karan/doggo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "659e186849f180769977ef2af67b9880c454b72d32853222ab69f396e51094f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "659e186849f180769977ef2af67b9880c454b72d32853222ab69f396e51094f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "659e186849f180769977ef2af67b9880c454b72d32853222ab69f396e51094f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e2bf2f469a3d501455d0c5db6005dd1f78a5a3916e31253361db0effd0d4cedf"
-    sha256 cellar: :any_skip_relocation, ventura:       "e2bf2f469a3d501455d0c5db6005dd1f78a5a3916e31253361db0effd0d4cedf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6ef549e7c62a7cd3f1cf41dd03e7f99bf26e256f950ddc1b6c08d2a488debd5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "55cd5cb1fd855a26931c937a8c1e4ee14a8522f5ebf66bc01631baa57d03427e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "55cd5cb1fd855a26931c937a8c1e4ee14a8522f5ebf66bc01631baa57d03427e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55cd5cb1fd855a26931c937a8c1e4ee14a8522f5ebf66bc01631baa57d03427e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "72406c85b8aeaef6359ba85e4c991559c95864989db88a797b4301695ff1536f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb95a59da2fcfe9d6806672b78f1c2fa4470453818a40fd65fc1958016537dd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "268a18dafb27a97dbbf9986ae512c496a2b63e3db3a93b766a9f8d2d56c89a13"
   end
 
   depends_on "go" => :build

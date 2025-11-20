@@ -11,8 +11,6 @@ class FabricCompletion < Formula
     skip "No version information available to check"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "3d2a6d8ccfa6f87727fb8d7530c7a4fb20fda11dd0a580740bb7a4179b0e54c0"

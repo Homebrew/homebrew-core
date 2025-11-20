@@ -1,8 +1,8 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.22/htslib-1.22.tar.bz2"
-  sha256 "6250c1df297db477516e60ac8df45ed75a652d1f25b0f37f12f5b17269eafde9"
+  url "https://github.com/samtools/htslib/releases/download/1.22.1/htslib-1.22.1.tar.bz2"
+  sha256 "3dfa6eeb71db719907fe3ef7c72cb2ec9965b20b58036547c858c89b58c342f7"
   license "MIT"
 
   livecheck do
@@ -10,16 +10,15 @@ class Htslib < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3f2f3384d807cf96d55f5d9ee31b073b289fb4c64ba9a11f8fb3242d8dc1858e"
-    sha256 cellar: :any,                 arm64_sonoma:  "3c77b5d9fd49d47b2b564b8ee27fc49e9edd26823acd90f9404e20a9e2475fe8"
-    sha256 cellar: :any,                 arm64_ventura: "75e8ee504a3eab812f7d89466eae548555326d402cb88fdb5ba055795b903926"
-    sha256 cellar: :any,                 sonoma:        "e01127e06e3b038b2b369282b0eea80e150ddd9af5ad19425acdbe41656df073"
-    sha256 cellar: :any,                 ventura:       "11d618732f21f25791476ded2decbde94109ec1a40eb790f49936f825b07f4d6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9fc3eb865aaa8f8c3d586cb7dcc70b46178a5e16e6a5a68d6b1af8f7ada4974e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b91e2b3ea97ac6210260a78519720b6b560cd8c4f86761d75ec72d8fbe312f55"
+    sha256 cellar: :any,                 arm64_tahoe:   "300123c14ad2d7f7321292cf62df9dfb4d3e4cf03e3039eb25df7e12526ee0ab"
+    sha256 cellar: :any,                 arm64_sequoia: "e76c369587ba4b585874efdaecd258eff6da7ac4aedb381f11037bbd7c7fa3e7"
+    sha256 cellar: :any,                 arm64_sonoma:  "7daa278e05e29c59cda2dad052798784c853cc99fec3b33f7e37b729c8c072d5"
+    sha256 cellar: :any,                 arm64_ventura: "007f00ae9c3a15bd7d6f818961af1c37d0fc2c24aab6f8d1d5398af474f0f1c8"
+    sha256 cellar: :any,                 sonoma:        "450ff2011a21d8624602c0d0c55846889f8758bdb64dd729ae65bc53b376bbdb"
+    sha256 cellar: :any,                 ventura:       "e94f546fd5ef891fbfec87da41293b3a328c62cf6a302a361362eba0cdd0cea2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00fa7e712cec3f4c66fe0d90405a4fcca972706b4925ed32a0b4fb02171a7f9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdb6f258420f2e2a2f5dc7624e216186387c79358727a1734b39b0876edfc72f"
   end
 
   depends_on "libdeflate"

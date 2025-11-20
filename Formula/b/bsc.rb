@@ -2,21 +2,18 @@ class Bsc < Formula
   desc "Bluespec Compiler (BSC)"
   homepage "https://github.com/B-Lang-org/bsc"
   url "https://github.com/B-Lang-org/bsc.git",
-    tag:      "2025.01.1",
-    revision: "65e3a87a17f6b9cf38cbb7b6ad7a4473f025c098"
+      tag:      "2025.07",
+      revision: "282e82e95da4b8cdedc3af3431a45cc1c630c291"
   license "BSD-3-Clause"
   head "https://github.com/B-Lang-org/bsc.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "023b416fedba9f986345a7b06763995b843fedf2fc45d0428d0f6410fedb8b12"
-    sha256 cellar: :any,                 arm64_sonoma:  "bb8dea8de8ae93ed8c76cbb488ea19645acc76e8aebc3560063024fa381c026a"
-    sha256 cellar: :any,                 arm64_ventura: "5fa279ba7f86d9b0fff2ab75b8d8890b852764e67baeebbcd0125b8c7239825a"
-    sha256 cellar: :any,                 sonoma:        "c8959d3244856dc6562bea2cd1f06ff782195bde78363b1a8dd104176ec6c5f9"
-    sha256 cellar: :any,                 ventura:       "9b975bff3f3232bd26626bc308ccba6d24d433575c88c0b72af4a17059ce4d36"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de1d37f49533298da63ccbbff21907afbc8952df0ef6ef5d5553a2b720939ae1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14fba2d067b4da9b16420abf741db79db7eb696f9ff25f629dd205af07409a93"
+    sha256 cellar: :any,                 arm64_tahoe:   "271fac6bcb893b9ac9ed0816572967482485674525370bac1aec27e5fafdcec8"
+    sha256 cellar: :any,                 arm64_sequoia: "73ca733dc6506343d400fb4b3615473893bb7c14b840f4bc2a87dee1fea1b6dc"
+    sha256 cellar: :any,                 arm64_sonoma:  "a76320a8ef7ff83fdcfee1f8ab422f1907f17e38849ce7b7adf5093941ddeef1"
+    sha256 cellar: :any,                 sonoma:        "99bea46008c809f6f605a517da2c24faf78ae7ce0ebfa015758e7d6c1a5d7744"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71d9a63e7c159e1ac85cff67a5e90f1711785d74ebc9250f470f361dd728648c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43b681c317a2919923ab0fcd8aea8fb74d2e5237fc4fa55cd2adef18cd8710dd"
   end
 
   depends_on "autoconf" => :build
@@ -27,7 +24,7 @@ class Bsc < Formula
   depends_on "pkgconf" => :build
   depends_on "gmp"
   depends_on "icarus-verilog"
-  depends_on "tcl-tk@8"
+  depends_on "tcl-tk"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -35,6 +32,10 @@ class Bsc < Formula
   uses_from_macos "perl"
 
   conflicts_with "libbsc", because: "both install `bsc` binaries"
+
+  # Workaround to use brew `tcl-tk` until upstream adds support
+  # https://github.com/B-Lang-org/bsc/issues/504#issuecomment-1286287406
+  patch :DATA
 
   def install
     system "cabal", "v2-update"
@@ -122,3 +123,34 @@ class Bsc < Formula
     assert_equal expected_output, shell_output("./mkFibOne.bexe")
   end
 end
+
+__END__
+--- a/platform.sh
++++ b/platform.sh
+@@ -78,7 +78,7 @@ fi
+ ## =========================
+ ## Find the TCL shell command
+ 
+-if [ ${OSTYPE} = "Darwin" ] ; then
++if [ ${OSTYPE} = "SKIP" ] ; then
+     # Have Makefile avoid Homebrew's install of tcl on Mac
+     TCLSH=/usr/bin/tclsh
+ else
+@@ -106,7 +106,7 @@ TCL_ALT_SUFFIX=$(echo ${TCL_SUFFIX} | sed 's/\.//')
+ 
+ if [ "$1" = "tclinc" ] ; then
+     # Avoid Homebrew's install of Tcl on Mac
+-    if [ ${OSTYPE} = "Darwin" ] ; then
++    if [ ${OSTYPE} = "SKIP" ] ; then
+ 	# no flags needed
+ 	exit 0
+     fi
+@@ -146,7 +146,7 @@ fi
+ 
+ if [ "$1" = "tcllibs" ] ; then
+     # Avoid Homebrew's install of Tcl on Mac
+-    if [ ${OSTYPE} = "Darwin" ] ; then
++    if [ ${OSTYPE} = "SKIP" ] ; then
+ 	echo -ltcl${TCL_SUFFIX}
+ 	exit 0
+     fi

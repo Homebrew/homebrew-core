@@ -4,16 +4,15 @@ class Pagmo < Formula
   url "https://github.com/esa/pagmo2/archive/refs/tags/v2.19.1.tar.gz"
   sha256 "ecc180e669fa6bbece959429ac7d92439e89e1fd1c523aa72b11b6c82e414a1d"
   license any_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later"]
-  revision 4
+  revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "de89536a11df055792e5438ec658c6cd16c55315b84c6c424b49e3982a9dbd44"
-    sha256 cellar: :any,                 arm64_sonoma:  "b3ebceb0271d0a389f1ae4078941e8269c9efbec372e5305a172102de4b74f8f"
-    sha256 cellar: :any,                 arm64_ventura: "1154611438e8b1316c7f3f8ce0951deab54322bf5537b59494eec4106f8a7e48"
-    sha256 cellar: :any,                 sonoma:        "5f3bef1e0ed24dfbbde890a7b5b2474b585a1cdbd412c559d6a54043ed378c76"
-    sha256 cellar: :any,                 ventura:       "d4f0b7cbda497ce7f766efd08984bd52534a2ceddb7e070c91213bfba60a0567"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3a36065e0fc45e3705fac89c77412947deb37532f777538d8aa98bb71d8abd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c3b4f42b1a460e73058cf7e82ce44fccd069ba476755ba37c0c07ff78787d34"
+    sha256 cellar: :any,                 arm64_tahoe:   "967ca7afd0f94fe22053b2cf187c97a14c853e160668700db06e8a64f76a704e"
+    sha256 cellar: :any,                 arm64_sequoia: "9d5ab6ee707031ed11dd9291c579b778e03ed5357a159fa2fa5c9b572c8fe49f"
+    sha256 cellar: :any,                 arm64_sonoma:  "4ec05c1307d3e5375802ddf095106412287eea4024037c4179960564284104f4"
+    sha256 cellar: :any,                 sonoma:        "9c6488dd49f684f62e4035943dc9a370a08eed979d71a5139061700570135ff3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe0c1de3105984b315801418a3f104de528645485da9ca587777efe7b6da1820"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bf66c10d87861392ebe1158c0f58ed438190310415b2f2093f53571c00eeaa7"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +20,16 @@ class Pagmo < Formula
   depends_on "eigen"
   depends_on "nlopt"
   depends_on "tbb"
+
+  # Backport support for eigen 5.0.0
+  patch do
+    url "https://github.com/esa/pagmo2/commit/bdd8559d7663536c3a5f56b013f07da11a35c9b8.patch?full_index=1"
+    sha256 "f8679d6ca0d4bd5d9b44382da35ddc6f80404d389813ce05f050d00f5ce3706c"
+  end
+  patch do
+    url "https://github.com/esa/pagmo2/commit/d0e70403179769c326f2694673473e1d3ef0bec7.patch?full_index=1"
+    sha256 "6dcf5ac2cbd8e9b0de20845a51ef5d8eeb0ffd0472f32bcc833ce3f314718f0b"
+  end
 
   def install
     args = %w[

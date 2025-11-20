@@ -1,19 +1,18 @@
 class Skani < Formula
   desc "Fast, robust ANI and aligned fraction for (metagenomic) genomes and contigs"
   homepage "https://github.com/bluenote-1577/skani"
-  url "https://github.com/bluenote-1577/skani/archive/refs/tags/v0.2.2.tar.gz"
-  sha256 "e047d52b9f753625eff480fe90f1abb68f82cc6892d9d1910b18bfcedbfc0b9d"
+  url "https://github.com/bluenote-1577/skani/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "494b64ec764be1ad485cd5d4f8c97180ff61377863d990532f6fa9541ab1b6f4"
   license "MIT"
   head "https://github.com/bluenote-1577/skani.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9cb6481c4334cccd0a6e3726ef1accc7f03f916949d6c04cbf57bb281f1ddf3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ed2e71f080f76d0b993299eabf00956d8026d3b71ceae1b5f24f57c099bb20e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b482265be8c35b99d56e95aeefb841282973b4f4064a994ca347ee0560367bc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2c95bf7f3b7011ff70ce9368fceabae4f0506d65791ec5270dde9e166ee8759a"
-    sha256 cellar: :any_skip_relocation, ventura:       "c51ceb4edd8b3120325ccf9e998f41bebd599584ae29c3ae80c61d65830d9dc4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "80877ef0197b99f8cbb072f944f8c0d252ee4f63a6fcf50726f8cf118eef9b28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4174c57cd1ef4f16398f92d8dd944bcbb5f42c262fda36a092fa09e59b43e510"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3546fc60dc5365b882e38900e4d073a448d0807017a361850b2431e14d4fa2ad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e82c68ed88fa2a1f79205d801e065f75d7e1be579110f643a233036910561db3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aac2ae00d83aa56517fce2357e1ed32acb4d479f13ae10680e004a8414ba091a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e916617176a333e48a633f62711fd64981759db8c7ab90130ce879f925126c7e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b45a01a56e17d9956fa8dcf3759eb38cc64ca85a5e8d653301b4e05452dd4a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "920c90c25b0714d398f7840d2004ca2ef26f7071f7d47a72e88784fe949bc207"
   end
 
   depends_on "rust" => :build

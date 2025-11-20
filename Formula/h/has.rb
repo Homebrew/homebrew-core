@@ -1,16 +1,13 @@
 class Has < Formula
   desc "Checks presence of various command-line tools and their versions on the path"
   homepage "https://github.com/kdabir/has"
-  url "https://github.com/kdabir/has/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "d45be15f234556cdbaffa46edae417b214858a4bd427a44a2a94aaa893da7d99"
+  url "https://github.com/kdabir/has/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "965629d00b9c41fab2a9c37b551e3d860df986d86cdebd9b845178db8f1c998e"
   license "MIT"
   head "https://github.com/kdabir/has.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "dd0eec9c703fb35356c4931881f3c5106a4fdee227e39c2c2844fecf025509e8"
+    sha256 cellar: :any_skip_relocation, all: "b408a2ce6764bf5af24c0cea31ae7cec23f953bcd686b652d4550e28d080de16"
   end
 
   def install

@@ -5,19 +5,18 @@ class Sourcedocs < Formula
   sha256 "07547c929071124264ec9cc601331f21dc67a104ffc76fbc1801c1ecb4c35bbf"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4914567b0171f3dfcab46315e33232e5c925077268af59ce0ff5955c948dcb6e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5461899a0c97729c247703f45eb98a0cf26fc9939ce50eb6fa9543e9f70c6c62"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbe4a3e5c3485101486be0639b81cc4799c2dd7e0edf5f528d32a3c0ca6122fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8757a91d73d96999da362afbc5a5c42c7be949f562cf5569b2bf24853af6ef9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1254fb0f47a037f929e579b4a68dd375b0e587d9adb3e876865b6de031d39f46"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9378990038e4d444ca11820d4e41eee737522dc75b7818d7577f4a612ab18bf1"
-    sha256 cellar: :any_skip_relocation, ventura:        "5cf36d5bfe2a9a2770454f21169e5e9c8a5a6b50525ec0a9418c88180706d40c"
-    sha256 cellar: :any_skip_relocation, monterey:       "974904c0b5b4d0d54fe8392c84fe06b3aa23e47fb76f95579f09e5fc94704d2d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "292dbf6713d17716e685ac74c0e9fdbe07038b95bca36f234a94bfe2fffe5aab"
-    sha256 cellar: :any_skip_relocation, catalina:       "56cad5d1e01271614fd93c5ec93b4b7fc7cabb64bef767581bc5ad179ee20a63"
-    sha256                               arm64_linux:    "a5ede432a4cc147f30658c33f26b704e039b102f0c10d6e522296818dbb2bfdd"
-    sha256                               x86_64_linux:   "ebd23518f4371e70e885900d73fdf0ea71a4d30a0695a1dff8fa4d762abfa5e1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4ece7ed5a98c8df2e5e4589c10559f8ed042a413da225b2ca7eb051fe0da7ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "469c4069a84bcc4e8ed58db567eeca9bb8d13311b0c3b5d289bd61a9d1a09aba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7cb1a6469f057e769fd3ea2e22e2a288b16d42a7b44a3688e1f0787288e6fa2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "54139f452dcce5a6bb3d42f6483a1ddab9a97705b1b07d89f70333e9a0a770dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "55d0026d803e708bd167e4817a0f278f0bc0b393103711c0fdc1db59f2ce5063"
+    sha256 cellar: :any_skip_relocation, ventura:       "4b08ada0cacbbfde31cdf88bfc10aba963442a03363844c888c39d9cd6d8862c"
+    sha256                               arm64_linux:   "7698fc8b57805896688c2e9058fb25e4aa7f6189f4252e8d253a02662e98321b"
+    sha256                               x86_64_linux:  "2c97cd8daa81d7c7e546e71cdfdf17db555dee5260d434287266f20edb3a25a6"
   end
 
   depends_on xcode: ["12.0", :build, :test]
@@ -54,6 +53,7 @@ class Sourcedocs < Formula
 
     system "swift", "build", *args
     bin.install ".build/release/sourcedocs"
+    generate_completions_from_executable(bin/"sourcedocs", "--generate-completion-script")
   end
 
   test do

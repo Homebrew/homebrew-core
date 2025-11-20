@@ -6,6 +6,8 @@ class PyenvPipMigrate < Formula
   license "MIT"
   head "https://github.com/pyenv/pyenv-pip-migrate.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "22d0416340223bd3821c6f57f00515c5dff2d92772f0613dcd81ee13730fab6f"

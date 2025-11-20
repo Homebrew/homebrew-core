@@ -1,18 +1,17 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.6.tar.gz"
-  sha256 "325975345522decc9089635bb19b61c30942254a34b570925049fb56672d400d"
+  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.8.tar.gz"
+  sha256 "73bfbd80c0f54bffd8ebdfeb579ba8bd0ba4be9fdad06ed0f8dc99d3911f4774"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1a90ec96d74925779b5cc9ed1e9e4075ad9b6c2f9e6cfd82584070713e4b7bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39cf574d3cb563c13d7f2b8316233841d2a1a2d6b966a1bd426aaacb2c508ee8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fb65f2789b5acccd57238887df0b7697ce19f972e8a3110a91968e1645cf7064"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a4ea244762719cbbc605f752526c072a4366b386eb8bc42d7c6cc5be81345ed7"
-    sha256 cellar: :any_skip_relocation, ventura:       "838b11bfba83732ed849baa9b12881f3853498a91ecf3231f19a9a08b1ec1a14"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e3416d3b3b736cb8bb936334b05847ad440279f786a325c17aad5f9ec4c02b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e5f730df10ffae88ebe4e5289c91bb19f9d85d34b32857f0cbc0a29d4f480c6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a52dfe8b3c4d58b217875c74573d3c15abe5b43c9b1e317f12242d377eefeddf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61e8bcda5da3db706ab96d1341838df44ae62c525d4c077449c77e4dceb7309d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4fc9e0aa19f1bbc6d1bba2ca2d1d02d557f2f84c000b400ae2ddd160820b7772"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4968c1767c3952c1f1683e8425647f8e017c776c58bddde39b1f853cdd7131f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6f332d347e376a3850344410ee04367ef5eba241cc642daa016a1aa545a4d9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "217c786dc4fb72e883df140018317ac746447c4830b3aa6678556470395106ff"
   end
 
   depends_on "pkgconf" => :build

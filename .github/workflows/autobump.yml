@@ -3,6 +3,7 @@ name: Bump formulae on schedule or request
 on:
   push:
     branches:
+      - main
       - master
     paths:
       - .github/workflows/autobump.yml
@@ -27,25 +28,24 @@ jobs:
     if: github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     env:
       GNUPGHOME: /tmp/gnupghome
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
         with:
           core: true
           cask: false
-          test-bot: false
 
       - name: Configure Git user
-        uses: Homebrew/actions/git-user-config@master
+        uses: Homebrew/actions/git-user-config@main
         with:
           username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'BrewTestBot' }}
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@master
+        uses: Homebrew/actions/setup-commit-signing@main
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -59,7 +59,7 @@ jobs:
         run: |
           BREW_BUMP=(brew bump --no-fork --open-pr --formulae --bump-synced)
           if [[ -n "${FORMULAE-}" ]]; then
-            xargs "${BREW_BUMP[@]}" <<<"${FORMULAE}"
+            xargs -t "${BREW_BUMP[@]}" <<<"${FORMULAE}"
           else
             "${BREW_BUMP[@]}" --auto --tap=Homebrew/core
           fi

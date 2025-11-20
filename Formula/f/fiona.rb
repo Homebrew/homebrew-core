@@ -6,37 +6,38 @@ class Fiona < Formula
   url "https://files.pythonhosted.org/packages/51/e0/71b63839cc609e1d62cea2fc9774aa605ece7ea78af823ff7a8f1c560e72/fiona-1.10.1.tar.gz"
   sha256 "b00ae357669460c6491caba29c2022ff0acfcbde86a95361ea8ff5cd14a86b68"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "72cb09fe015aa6d5dbcc6a9dd639c641db2920f8e335a0a3acbd694ad255e83f"
-    sha256 cellar: :any,                 arm64_sonoma:  "7732fc049ef4ba6b47e790f9f14e621807fcb70f8f58f663e2d44513ca33380c"
-    sha256 cellar: :any,                 arm64_ventura: "765b472e5789020dc487ae96df3b55b111abb0ba4430e0e4e0f1f8fbc8a1c536"
-    sha256 cellar: :any,                 sonoma:        "3b0640448524a574978757a4c7c72bc7b361306f775ef946e35f8219e59154ce"
-    sha256 cellar: :any,                 ventura:       "6f4b27a8ce35aee27d824efba12de4d0114815c303e27bd9e4577c78bef725e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb6e42631c5db0154636fde816272135bf6e50e95fe4016c6c8e7c54c0b56ee0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccb14cd8a348d6362e922e69e72785bc775726c9929da360dcca9919cc839c5e"
+    sha256 cellar: :any,                 arm64_tahoe:   "737fe2990ad3620035fe100b135cffcebd8a07042400d8903522872d8e8c6a0a"
+    sha256 cellar: :any,                 arm64_sequoia: "b2817a27b3b1c78a6b3b8664e2313474eb8dcda3cab5b35c7eaf24dcd3a1b1a6"
+    sha256 cellar: :any,                 arm64_sonoma:  "156d2f6b9c5ceffb63a965f26133fd1674230dce1f5247bbc18390fad809b0f1"
+    sha256 cellar: :any,                 sonoma:        "ef072bbb9b4b623fdd62f6c8d5878c1d2f8aac0c8d224c6ac4ed980560e87eb1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "073942e11dddaf13092ea2982af7340095598246e2769805cded7b2311dab49c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "208cafb4ce351b0a85243f58e590964a4fe1805355de7d897ca3dfed7a71121c"
   end
 
-  depends_on "certifi"
+  depends_on "certifi" => :no_linkage
   depends_on "gdal"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   conflicts_with "fio", because: "both install `fio` binaries"
 
+  pypi_packages exclude_packages: "certifi"
+
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
-    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
+    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
+    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   resource "click-plugins" do
-    url "https://files.pythonhosted.org/packages/5f/1d/45434f64ed749540af821fd7e42b8e4d23ac04b1eda7c26613288d6cd8a8/click-plugins-1.1.1.tar.gz"
-    sha256 "46ab999744a9d831159c3411bb0c79346d94a444df9a3a3742e9ed63645f264b"
+    url "https://files.pythonhosted.org/packages/c3/a4/34847b59150da33690a36da3681d6bbc2ec14ee9a846bc30a6746e5984e4/click_plugins-1.1.1.2.tar.gz"
+    sha256 "d7af3984a99d243c131aa1a828331e7630f4a88a9741fd05c927b204bcf92261"
   end
 
   resource "cligj" do
@@ -47,7 +48,7 @@ class Fiona < Formula
   def install
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"fio", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"fio", shell_parameter_format: :click)
   end
 
   test do

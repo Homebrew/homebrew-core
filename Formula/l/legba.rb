@@ -1,19 +1,18 @@
 class Legba < Formula
   desc "Multiprotocol credentials bruteforcer/password sprayer and enumerator"
   homepage "https://github.com/evilsocket/legba"
-  url "https://github.com/evilsocket/legba/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "9755ec21539ec31dfc6c314dde1416c9b2bc79199f5aceb937e84bafc445b208"
+  url "https://github.com/evilsocket/legba/archive/refs/tags/1.2.0.tar.gz"
+  sha256 "d618c59060b76fcff26c066c1a2385c85f8c808bc07e2a1f30c777255de2a400"
   license "AGPL-3.0-only"
   head "https://github.com/evilsocket/legba.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0bb1be7ca5dfde3d92f8edf755edbd2cea4129c60730055612f4cd863a637252"
-    sha256 cellar: :any,                 arm64_sonoma:  "21bbb2235762909ae76b3ac1222b183c5f2f05a8ae07b779001fd90e683b3d73"
-    sha256 cellar: :any,                 arm64_ventura: "2667efc81b47fa5e6d8c157207f6c6a9f192066766b0aab1f6a4aed02b18e02a"
-    sha256 cellar: :any,                 sonoma:        "6fae915b3b92936d1b9eb6a6ed584f7c0b64a86e032e33f0ffe4aa7ac9dce696"
-    sha256 cellar: :any,                 ventura:       "5039e6dc3df7510c9a1fdbd3fa5d4badfcbf32da1a285e7d0bdf9650e8d03124"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "406ceb16704065ba75035184bb193ed451550edc9fac885d345f652ec3b51184"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca0f43ae1e6737997497dedf44a3de25a00de76f1a90a159f90acfaa2e890035"
+    sha256 cellar: :any,                 arm64_tahoe:   "4a5d7a59154b77080657cdd17b8c4cb989e34a060ad7f80d0c25f8fc6d6c3e68"
+    sha256 cellar: :any,                 arm64_sequoia: "1064dc688e6184befd3497ae9b802897bf52d0cc21b02306914f6e0e488add3e"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e34ddfe276dfc008ced3815ade9654aa119627123a7b3ecc23666552890d55b"
+    sha256 cellar: :any,                 sonoma:        "746c3ebe76412e059eee1843143b06d30a700c60fd85dde0c3726ec3e623a1fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ffe88a7ebad40b7381aa07238ffb91b74f4051653a8dba5e58f1a8650a1869db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2908972ed980846dfb43acd200e11e8a438273776ff8d20a5fc51141f787b031"
   end
 
   depends_on "cmake" => :build
@@ -22,9 +21,9 @@ class Legba < Formula
   depends_on "openssl@3"
   depends_on "samba"
 
+  uses_from_macos "llvm" => :build # for libclang
+
   def install
-    # Support cmake 4, remove after https://github.com/evilsocket/legba/pull/72
-    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"

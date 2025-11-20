@@ -12,15 +12,8 @@ class GitSubrepo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5d033f268e63aa92c1561995bbaad9708c08239a21c8f243583f5a804134a659"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8122f64f75d8a8560dcee7f34d83d9c994c10a51fcd93a4f543d52d002a9933c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8122f64f75d8a8560dcee7f34d83d9c994c10a51fcd93a4f543d52d002a9933c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8122f64f75d8a8560dcee7f34d83d9c994c10a51fcd93a4f543d52d002a9933c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d112ed09a9a2de61146ec0e937f95024948b3059bb9abe974da0d7596ddb86fd"
-    sha256 cellar: :any_skip_relocation, ventura:        "d112ed09a9a2de61146ec0e937f95024948b3059bb9abe974da0d7596ddb86fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "1fdf81e178b50812b6aa615a8621e307a3df93f79cbbfbcb3cd2584a51a32084"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2b36a28dabe54ae8570223cf276739f8692c3ca72b28e96fcd2f74a819a46736"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8122f64f75d8a8560dcee7f34d83d9c994c10a51fcd93a4f543d52d002a9933c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2b36a28dabe54ae8570223cf276739f8692c3ca72b28e96fcd2f74a819a46736"
   end
 
   depends_on "bash"

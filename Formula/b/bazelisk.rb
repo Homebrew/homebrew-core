@@ -1,18 +1,20 @@
 class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
-  url "https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.26.0.tar.gz"
-  sha256 "d55ea90acb6da4cacdfad0eeecf55e58da9d3fd4b88d58502ddd34e48bb28f70"
+  url "https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.27.0.tar.gz"
+  sha256 "d4abfac1a39876ec1e6c6fa04ec0b62cc4bef174f11d19848bc80dc15ee05261"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/bazelisk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f621485fb73f8d1d0be774a8b42cd341f375f7809a4eaa596f94d273b5addd05"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f621485fb73f8d1d0be774a8b42cd341f375f7809a4eaa596f94d273b5addd05"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f621485fb73f8d1d0be774a8b42cd341f375f7809a4eaa596f94d273b5addd05"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ceedc4d98977cbf4171f09365f98efb665766b83806c86988138172ee6adea45"
-    sha256 cellar: :any_skip_relocation, ventura:       "ceedc4d98977cbf4171f09365f98efb665766b83806c86988138172ee6adea45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "720bcd0f66df7982dcd2408e298a2f1f49302a511e69150b3ff77b560d5368ec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e92a349b08740b3610079e799d5f80870a912790bff674a2da456859d38697a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "793f2de5437dab04d53985229024b5ebd8f53c08932df8777da135c71356d745"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "793f2de5437dab04d53985229024b5ebd8f53c08932df8777da135c71356d745"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "793f2de5437dab04d53985229024b5ebd8f53c08932df8777da135c71356d745"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c0aa4a5126a4ada7dc36f18f01ddad84e448c275cde3d75423586ced6c5343e"
+    sha256 cellar: :any_skip_relocation, ventura:       "1c0aa4a5126a4ada7dc36f18f01ddad84e448c275cde3d75423586ced6c5343e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26fb1ee2c4bf8f45e51e3a53d8503c2c60c50139b9d9a333e11fa0ed4904ffb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3030c623242031fd6262a4eaea9919f3f7941376b2cdc192f88c21fa48b11d5"
   end
 
   depends_on "go" => :build
@@ -24,13 +26,8 @@ class Bazelisk < Formula
     sha256 "4094dc84add2f23823bc341186adf6b8487fbd5d4164bd52d98891c41511eba4"
   end
 
-  # bump go to 1.23.0, upstream pr ref, https://github.com/bazelbuild/bazelisk/pull/680
-  patch do
-    url "https://github.com/bazelbuild/bazelisk/commit/160cdf5e1387a74e7f31f988f4ebe20c617e85fc.patch?full_index=1"
-    sha256 "0a83579d9f108727bdbbb073dfab000b5c817659fd044812cb3651bc6ec58c42"
-  end
-
   def install
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/bazelbuild/bazelisk/core.BazeliskVersion=#{version}")
 
     bin.install_symlink "bazelisk" => "bazel"
@@ -41,16 +38,13 @@ class Bazelisk < Formula
   end
 
   test do
-    ENV["USE_BAZEL_VERSION"] = Formula["bazel"].version
+    ENV["USE_BAZEL_VERSION"] = system_version = Formula["bazel"].version
     output = shell_output("#{bin}/bazelisk version")
     assert_match "Bazelisk version: #{version}", output
-    assert_match "Build label: #{Formula["bazel"].version}", output
+    assert_match "Build label: #{system_version}", output
 
-    # This is an older than current version, so that we can test that bazelisk
-    # will target an explicit version we specify. This version shouldn't need to
-    # be bumped.
-    bazel_version = Hardware::CPU.arm? ? "7.1.0" : "7.0.0"
-    ENV["USE_BAZEL_VERSION"] = bazel_version
-    assert_match "Build label: #{bazel_version}", shell_output("#{bin}/bazelisk version")
+    # Test an older version that bazelisk will fetch
+    ENV["USE_BAZEL_VERSION"] = fetched_version = "7.6.1"
+    assert_match "Build label: #{fetched_version}", shell_output("#{bin}/bazelisk version")
   end
 end

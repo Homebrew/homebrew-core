@@ -1,19 +1,20 @@
 class Lcov < Formula
   desc "Graphical front-end for GCC's coverage testing tool (gcov)"
   homepage "https://github.com/linux-test-project/lcov"
-  url "https://github.com/linux-test-project/lcov/releases/download/v2.3.1/lcov-2.3.1.tar.gz"
-  sha256 "b3017679472d5fcca727254493d0eb44253c564c2c8384f86965ba9c90116704"
+  url "https://github.com/linux-test-project/lcov/releases/download/v2.3.2/lcov-2.3.2.tar.gz"
+  sha256 "6fed6cf48757d5083202be3356dfa6d64afa12d96d691745fad7e4c9ebe90bfa"
   license "GPL-2.0-or-later"
   head "https://github.com/linux-test-project/lcov.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fcedc02edaf2f1741c7dba360cc56e57804bf0c004c42e4d6c52978cccdeb741"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e6384fc41ccaeec619e775f181d0ca1563b392a47a9f757ab823d612ed3f449b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1e6dc5a8c51db813d1c8384b244b889dba77bcace71887d3a59058fea5de0f39"
-    sha256 cellar: :any_skip_relocation, sonoma:        "09faa3e1fbcd6f505f10ef0b3c26ad1560dfb277f376083f9098fe4d058742af"
-    sha256 cellar: :any_skip_relocation, ventura:       "50ac9094176effcd564bbbe34000a9b96f60d6b55666dbe0350fdc26f3c094f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5927d4b4e3665b83bfcec3f33325d96fc4987ce7dd35ba830c1d5e9970a4001b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b5a406c9e0e4dffd1a92e34b1c2aee555dcdcafeff8c2ccbdcdab88897399b1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8564ea598af485b1cbf28b7ddeed641f6eefe838e4bdae0a266d6595070b8241"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4498b08e44efa8648daf15f0cf0b19790243ca95b2958c319e1d5d5cea472b9a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2830097b2e32ed6836147688e10d9655905ce720145b8b3bc36708cd0d7eefcb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a1434db23ab5fd0a229137fdef631311f201470ca04b42c546590ec572221117"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2aefa08cb92d2a5b0435e63613c2bb5974aee5c66c5c13226705369cccb98afb"
+    sha256 cellar: :any_skip_relocation, ventura:       "d8efeaa69d83f287c1576f2dced7a0ef9064676f967026c43fba97ea7376a18b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fda628e98a0f0b0ae575073a9c1c4320dd6bf3c77574c0fed002c7e831d18574"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bb1f24ba2f1590f3ac1335fed49ec403fc23212dee7a513738c63e6efba95c3"
   end
 
   uses_from_macos "perl"

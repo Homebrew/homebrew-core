@@ -1,28 +1,26 @@
 class Html2text < Formula
   desc "Advanced HTML-to-text converter"
-  homepage "https://github.com/grobian/html2text"
-  url "https://github.com/grobian/html2text/releases/download/v2.2.3/html2text-2.2.3.tar.gz"
-  sha256 "859133528b3fd893562e41d84bc1ebc1f9166dd281d0fa8e17e7dd26337f5752"
+  homepage "https://gitlab.com/grobian/html2text"
+  url "https://gitlab.com/-/project/48313341/uploads/8526650dd42218b3493ce7ca0a3eeb1e/html2text-2.4.0.tar.gz"
+  sha256 "9d0a7174cacbb3f050b60facd8cba6e138944ec5020b16d1cee70cf91a59f132"
   license "GPL-2.0-or-later"
-  head "https://github.com/grobian/html2text.git", branch: "master"
+  head "https://gitlab.com/grobian/html2text.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0586df2ecd8a66280ec53b0ae852f22867471b66a60fbd4cb8054a1a2c98b536"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "03b77ee2ee4c1a68b990f2d386ddf70ff2f072da841441f2d4ae0aecf3e95f26"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df6b508a10d46399eaf5f9040974e1b91b1a9efb51d8bf1be3bdb04ca114b567"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f9ee670f7db4188a57c3c7dd563ef3bf45cb36dc90688d9d1f67ee28efc09ccb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc46b8e76c5aed13521d92cf83e521142115ad206e6e6b7cba03b153ace328ec"
-    sha256 cellar: :any_skip_relocation, sonoma:         "558e4e7ad1247c5f25210a29fd458b82f5dcda8c36ca9e81db5385d9a21107b1"
-    sha256 cellar: :any_skip_relocation, ventura:        "d5aaf31694d77a7b58638596ed3d0aa9bac50b148b60e416dd9cd41306fb2b86"
-    sha256 cellar: :any_skip_relocation, monterey:       "f8a93138c8595992de8d0e9421147b1995d1f4344cf7f94b47f004c76ffe46e9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b4d67a9b09786e6f9e1141dd88a614493b94c65d47e87e6cecb9a65bcf8b353b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "ce82baf3b669ad59fb52c489c9aedae804b8463233a3c123a82b2b3ab3bb2ea6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8fa522f9b7031aff66bb0bdabef05c4def2d153a7c6ff5f4136341b06822c5f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9e719fed3a98611bfe8ca70a7b301f6f1a304a56e4f2d4b4dbfecab8ee0bd29a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb724b272c288e009206280fe3371215d25cc67421a131b9dca6e7eafd01b28d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4f030f29d12689fa0eaf0325f31497b468440aba2105ba7e07e70d758925dec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "455f23776916aae17d03e1eb7037fc8c513ca3649839248f00bd0110b41d9d65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a4a2f5b2a38d767681fdba41f5e8e2e5b8aa761cacde154c4b025af77be193f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "023827730941513938e30fbcd440c0ee215b76abb7a2ac194cb4a56b26dec816"
   end
 
   def install
+    # libiconv is not linked properly without this
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
+
     ENV.cxx11
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"

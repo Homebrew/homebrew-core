@@ -2,17 +2,18 @@ class Xcdiff < Formula
   desc "Tool to diff xcodeproj files"
   homepage "https://github.com/bloomberg/xcdiff"
   url "https://github.com/bloomberg/xcdiff.git",
-      tag:      "0.13.0",
-      revision: "99301ee4578224f0660a1312abc465c5a37176c5"
+      tag:      "0.14.0",
+      revision: "c2b9cab9f85fe1f1e96ce51d3678f565d3aa8c96"
   license "Apache-2.0"
   head "https://github.com/bloomberg/xcdiff.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd62e3b0b02971f946bea613e95a4ceeb8ab41ede5383518148c542b5908ef04"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "350423748bd984e66f473e60a4545125870b8589807b8d82b01745e0a45cad50"
-    sha256 cellar: :any,                 arm64_ventura: "2ba598baf440f1a76a105f07489776c4e81a1a1803d49c396209e88599e20410"
-    sha256 cellar: :any_skip_relocation, sonoma:        "23083c0664be219b75633a64827762ea19a078b11d76558336df3c82928312e3"
-    sha256 cellar: :any,                 ventura:       "fa904d1ebca63b4ba8e032e8406279535f91bc0f6e62a94edec04ce1f4123950"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "45974f7dfe74e248ed515fdb45601a02b49dfc321fd1efe77d7776bc2e8116b7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8706d53ae848bb3c00fce56616e28bfb919c1ac9ae168801bf534730514bfd0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0940788f0145652c0abd75ff03e072da9e4bab46db07582e507c0d40f4616bca"
+    sha256 cellar: :any,                 arm64_ventura: "0b0365e447f7d64621488112f3d880b54a7847a895ceb5fe021b67e6a4502a45"
+    sha256 cellar: :any_skip_relocation, sonoma:        "26fb6391a35202291acd4f0efa394b943934863bda1f1fdb948c570b3fd017ab"
+    sha256 cellar: :any,                 ventura:       "9e9bb668faa2c46294c7bc18b2287adc1e1a48adf81a8c41cad869d6ca023949"
   end
 
   depends_on :macos
@@ -24,6 +25,7 @@ class Xcdiff < Formula
     system "make", "update_hash"
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
     bin.install ".build/release/xcdiff"
+    generate_completions_from_executable(bin/"xcdiff", "--generate-completion-script")
   end
 
   test do

@@ -6,6 +6,8 @@ class Timedog < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/nlfiedler/timedog.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a0e45f17640f67392a0681305ed9ea138fde831f355a79ef857d05e1fd7e0b9e"

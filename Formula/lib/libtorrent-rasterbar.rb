@@ -4,7 +4,7 @@ class LibtorrentRasterbar < Formula
   url "https://github.com/arvidn/libtorrent/releases/download/v2.0.11/libtorrent-rasterbar-2.0.11.tar.gz"
   sha256 "f0db58580f4f29ade6cc40fa4ba80e2c9a70c90265cd77332d3cdec37ecf1e6d"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
   head "https://github.com/arvidn/libtorrent.git", branch: "RC_2_0"
 
   livecheck do
@@ -13,13 +13,12 @@ class LibtorrentRasterbar < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5a9c70f259f11ba3f9f2fc25c2c33d74e8d12fd1ac3a8e70304f0cd9c8040050"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9b2ca32ab12c5ed9a32648a9a401e1a26817105ed230d316453a939358af039"
-    sha256 cellar: :any,                 arm64_ventura: "2e3102b5a138e1b6ba5f30f9575f5f66a7f02d4c3df67c71c533dc7b7627be31"
-    sha256 cellar: :any,                 sonoma:        "e78bb84c2382e17ffb242f67df0a359ea5282d12bd97e451034b8a32467a559f"
-    sha256 cellar: :any,                 ventura:       "1c3af891fb78a3d5340f819a14692e2eab6e91cdc75dced3f291fa4592c3c9a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "819d9bc5e7ff5c393317e975a2db40264a67093913bc3332f4b67ab1914718f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79d40134bb9381e74e9e8d3bda73778535bdb4f816ae7e87c0e9df53409ae6c6"
+    sha256 cellar: :any,                 arm64_tahoe:   "f692d49dcb233d376a1000efa5bc05ad6f32ba62524234b83e8ad02503f91a5c"
+    sha256 cellar: :any,                 arm64_sequoia: "881f37561f4db105dd4f473a8b70bcdafb79a5ef22d682d016f781be379702ff"
+    sha256 cellar: :any,                 arm64_sonoma:  "2be44ee8233fc816fb9fb6f3adb5d9814b65c777428bc2f275f6753c45f6b53f"
+    sha256 cellar: :any,                 sonoma:        "2f0f3c4502ee5ef4e45bd2d1ba32400cba06a6ee33a9547994e0889d34398bf9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2ca014535509265c7d546afdbc1865aa628de9a5b9d79fc4ca16832101ef448"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3a43959bb1adf82af9394834006043c3f47e7a4f0cb81beb74b354f04a80bca"
   end
 
   depends_on "cmake" => :build
@@ -27,9 +26,9 @@ class LibtorrentRasterbar < Formula
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
-  conflicts_with "libtorrent-rakshasa", because: "they both use the same libname"
+  conflicts_with "libtorrent-rakshasa", because: "both use the same libname"
 
   def install
     args = %W[
@@ -53,7 +52,6 @@ class LibtorrentRasterbar < Formula
       "-I#{include}",
       "-L#{lib}",
       "-lpthread",
-      "-lboost_system",
       "-ltorrent-rasterbar",
     ]
 
@@ -71,6 +69,6 @@ class LibtorrentRasterbar < Formula
     system "./test", test_fixtures("test.mp3"), "-o", "test.torrent"
     assert_path_exists testpath/"test.torrent"
 
-    system "python3.13", "-c", "import libtorrent"
+    system "python3.14", "-c", "import libtorrent"
   end
 end

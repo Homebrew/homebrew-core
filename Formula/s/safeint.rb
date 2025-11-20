@@ -15,6 +15,8 @@ class Safeint < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "ffba215daf83f5a8a3beffae5f56f6e58288ff1f7c9f35d52edf19db5e935663"

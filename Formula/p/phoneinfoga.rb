@@ -7,22 +7,29 @@ class Phoneinfoga < Formula
   head "https://github.com/sundowndev/phoneinfoga.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7753aee0c8aa77f686eff25f3c74b9f53d620dee4f7be890afc31bddb631c95d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d56737c84d3cbb5cf5e4545e77d5b5f2ddc9c589305b68bc929187381dfa0bff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f08a417535abb3f01a6515580727b1f903ab3da8b4245f9c9cc4653fba8ec124"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7d428e6d911e94cca96ba259e884d3019e699aa5d7579d84da3770e23f1bccd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9069391e52de3863ee44302bde11312aff29cdc199e0a3c0db158a149ce5b423"
-    sha256 cellar: :any_skip_relocation, ventura:        "9c8cac2d134f82943c99c898e346093a11f3ab6f318532733b9c72340fec41a4"
-    sha256 cellar: :any_skip_relocation, monterey:       "cca610f2c321e702af581ee8f2dc0e8253428d6882700c4a54a6bd81697a6ebc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f916109ebc6121eed5ebc4c013f3d7bb0b5f132fc6748e6ebc8611969a942d6c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7e2e971ea2d91fd0d388784c7435045a2d80ab6d5d91edf3fb79cfa9b65dd22"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c667724c0478647ef04487e67759737ea73957e56f04d58b8aa9eec133532bd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b50f640dc6a718a33bf69cd1320d9c437acbfb46693dbadcc1577797ef3864ae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "52c7d81cc5346eebc4f752970bbccaa955d553baa8ea2f2b5aef454b99c173c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb9ec8e8a527a8191d00e2a6a09c6fc80f0475b6bad877331f661cf8067aa44c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d764f83d254017ec95bf389ffe2e15bdcb7f711eb641bcaf119a6938478d40d"
   end
 
   depends_on "go" => :build
   depends_on "yarn" => :build
   depends_on "node"
 
+  # Bump `node-gyp` to v10+ to avoid requiring distutils
+  # https://github.com/sundowndev/phoneinfoga/pull/1512
+  patch do
+    url "https://github.com/sundowndev/phoneinfoga/commit/6a5b3cc849f989fe390170a127e22d990ba5c122.patch?full_index=1"
+    sha256 "07ec8c3255c2183f6f42286ae498625cd51041c27a7c44130151a772d31bfcd6"
+  end
+
   def install
     cd "web/client" do
+      ENV["npm_config_build_from_source"] = "true"
       system "yarn", "install", "--immutable"
       system "yarn", "build"
     end
@@ -30,14 +37,14 @@ class Phoneinfoga < Formula
     ldflags = %W[
       -s -w
       -X github.com/sundowndev/phoneinfoga/v2/build.Version=v#{version}
-      -X github.com/sundowndev/phoneinfoga/v2/build.Commit=brew
+      -X github.com/sundowndev/phoneinfoga/v2/build.Commit=#{tap.user}
     ]
-
     system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
-    assert_match "PhoneInfoga v#{version}-brew", shell_output("#{bin}/phoneinfoga version")
+    assert_match version.to_s, shell_output("#{bin}/phoneinfoga version")
+
     system bin/"phoneinfoga", "scanners"
     assert_match "given phone number is not valid", shell_output("#{bin}/phoneinfoga scan -n foobar 2>&1", 1)
   end

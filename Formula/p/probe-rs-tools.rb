@@ -1,8 +1,8 @@
 class ProbeRsTools < Formula
   desc "Collection of on chip debugging tools to communicate with microchips"
   homepage "https://probe.rs"
-  url "https://github.com/probe-rs/probe-rs/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "bf90e22c2bf9a843f47e71e0701b3d95975cf6c1eaa525981d25b07e40276f24"
+  url "https://github.com/probe-rs/probe-rs/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "73cd494f6864d4a74709a9c8adc251105c27d039f91a8b05a01c1ac10a07aab9"
   license "Apache-2.0"
   head "https://github.com/probe-rs/probe-rs.git", branch: "master"
 
@@ -12,13 +12,12 @@ class ProbeRsTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9acc3f6e7fe7ff3989385dc78281474fce0cd3133ff2253205a3ef46fa34b60a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5caa4f823e60a9214ad1f07ad1da313a33deb4bfa345ba8a3d5b2391fa69ad6f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0496d931400d84b418f786a074a351c827ae4a07d3ba517758b61c3d51594463"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0791a7fbe77d43bc7963b75f2d9a7da24b1cf070f950bb73d6cb63a3fc5b3760"
-    sha256 cellar: :any_skip_relocation, ventura:       "a2cef2bca4a5b56cc782152cc42020e6a95ae9f6f5a740d30b4be9990bd4f2fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "89b956de17bc87f74c2f21947852d6fabfae7a5c06a5267061f45eedc8a4cdfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85650b16bc9d268e3b54f633447f0508700a81e605bcd32b2a60279bb4aee199"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ed154405d1f3cc91ac0862ece1042adf2ff9ec2843e4eb1986a43d9eb8cbdda5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "92e6587c44bb9b278ec45baaabff1457240a57459224965650116bf77e120b4d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "616034c2f4580a2b58122eb91a434593954e183e9ac2e28e0a985d6979884a84"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ce830609bc40f7a91855727da68d99950ae387af8d41d1444d9f65b6009111ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e859833bbef36d7d80a7fba1578f07fa4c56cfdc05cc5b197bb6a8d5ee636807"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bd9ef243131eebce3701347fb267d5506bcc03e2cbcd8482f9fd2a9e405ff3a"
   end
 
   depends_on "cmake" => :build

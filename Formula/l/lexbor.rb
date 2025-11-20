@@ -1,18 +1,17 @@
 class Lexbor < Formula
   desc "Fast embeddable web browser engine written in C with no dependencies"
   homepage "https://lexbor.com/"
-  url "https://github.com/lexbor/lexbor/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "8949744d425743828891de6d80327ccb64b5146f71ff6c992644e6234e63930e"
+  url "https://github.com/lexbor/lexbor/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "e9bb1aa8027ab92f11d5e8e6e7dc9b7bd632248c11a288eec95ade97bb7951a3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "49a5de0e67837102472154ebdb9ce26676d570eadf6a2180ebe9cacc32bb0526"
-    sha256 cellar: :any,                 arm64_sonoma:  "b76a6858424ef6ac2dd368d3ef7dcac3203c5767aff21e0a3b12eeb6b10c264a"
-    sha256 cellar: :any,                 arm64_ventura: "18858851e6b62f275a59fd82917f88895783e7efc81ab44bd3dc8bf0e99ced57"
-    sha256 cellar: :any,                 sonoma:        "5cfa710c1d1eeb449f5572a62145485b4f4f15f2bb13b481d8c8970b8a7b33de"
-    sha256 cellar: :any,                 ventura:       "20518f3481290a5b5e6ea9caa2e5e41ba64b2bb3c4d75ee797cd0061c8b1ac6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a061a2d6bf59442960ee085412491903f0090062bc8145b2496537033764ea6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a6f152a6789ce2fb0139d1c576976c987aee305f5d8e902fc87c939a7fe9b4a"
+    sha256 cellar: :any,                 arm64_tahoe:   "2ee57c229e8b66be3cac8720e2a29b48faa079b6d6361fc9b8fe8010f81f76c9"
+    sha256 cellar: :any,                 arm64_sequoia: "67d84841e20b9ef5d849efe266199243fc0b3cb30c3df3fd7fb02d2e64da1b74"
+    sha256 cellar: :any,                 arm64_sonoma:  "2ee12217b12ecc341a022deaacc5051d89bb645dc21792b71a1a88415cee1ad5"
+    sha256 cellar: :any,                 sonoma:        "1038e977c87d3f6de9bb00c2690eb394ddf19c1038d4f482d6dd9284b4be8f1a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81a7542be3ca8d0bdef3bdfc2e7807a2f73c4beee682fb37c1631c125edfa613"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa076c7d9dfeb465173bb66340b467e46524e95d607bbc645d8e5919449fc283"
   end
 
   depends_on "cmake" => :build

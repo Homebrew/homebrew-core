@@ -1,18 +1,26 @@
 class GitWho < Formula
   desc "Git blame for file trees"
   homepage "https://github.com/sinclairtarget/git-who"
-  url "https://github.com/sinclairtarget/git-who/archive/refs/tags/v1.1.tar.gz"
-  sha256 "b88efe18a39987006df113e097a0e96493955237613997b56c940ff591473ea2"
+  url "https://github.com/sinclairtarget/git-who/archive/refs/tags/v1.2.tar.gz"
+  sha256 "06c341ecbc81a518664b8facb49891fb94689da37c83978ee21a02916c0dbed3"
   license "MIT"
   head "https://github.com/sinclairtarget/git-who.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1a53fb17a9a37e67ca3f9e59b2816c53ca34204c0779ed84a94aa27e1f5e10d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1a53fb17a9a37e67ca3f9e59b2816c53ca34204c0779ed84a94aa27e1f5e10d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1a53fb17a9a37e67ca3f9e59b2816c53ca34204c0779ed84a94aa27e1f5e10d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "738e5938dbf462fcf3d297d72a77ca47252fcfacc7202296fc78bc0987875364"
-    sha256 cellar: :any_skip_relocation, ventura:       "738e5938dbf462fcf3d297d72a77ca47252fcfacc7202296fc78bc0987875364"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d740e976ce6a927fafe9f33d361079510d3388307e61d85273f2d048932e321"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0abdd4cfd053b1f82f56a5fd94c2a33edb5539aa2224293d6476d920ef691093"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2cc6b40cc76044eaa90effece5d9dcdefc2240db4fdb73ef89ad56bae49664e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2cc6b40cc76044eaa90effece5d9dcdefc2240db4fdb73ef89ad56bae49664e6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2cc6b40cc76044eaa90effece5d9dcdefc2240db4fdb73ef89ad56bae49664e6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f4259af8170e7a3b9586b623fa38cc198e1404e02c23f9d5fe57da2efc8e695"
+    sha256 cellar: :any_skip_relocation, ventura:       "3f4259af8170e7a3b9586b623fa38cc198e1404e02c23f9d5fe57da2efc8e695"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e6de8d87eac553be27eb87b97dd562e56be6653edc1b15f0580b7317a7e12ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8811cf655c04955970a6b77d3b004b9bfb91cb27c0aec9799ad0d2de2e1be21"
   end
 
   depends_on "go" => :build

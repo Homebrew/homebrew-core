@@ -13,17 +13,16 @@ class SpiceGtk < Formula
     regex(/href=.*?spice-gtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "9b710c6b06c09f3b4c64937c7499df490e00294ab41e330657dd7025f0040abf"
-    sha256 arm64_sonoma:   "9882ec3f69fc197c1ac475ad3422950df499d9b80a7c9bc624817d95506a0fe2"
-    sha256 arm64_ventura:  "42600de9d33cc9d1c2e32eccf80cfa14f771457c3c39080d97ff3b611899dff8"
-    sha256 arm64_monterey: "82ab9fac4205428b48ea403708e85e19a9a42fd6c64a114a949e773e94367bf2"
-    sha256 sonoma:         "5899efc0635b8e80ed5d8500bbfb654aaaf241a457d7a817d51c066f991d73ed"
-    sha256 ventura:        "25c6fdcf7449f65c449d4ef7379d80b607c6d6aabc2a5823b4bd0241394e73cf"
-    sha256 monterey:       "a553e9a2c8c13b84545376374a8a1418c35bb9aa10baeeb6c536c09c106b7a5b"
-    sha256 arm64_linux:    "0c23d1d447cdcb8881dcccdd7e5ebdd2d2fd58b8bf8aa486568dfa2c1e835ef3"
-    sha256 x86_64_linux:   "7ffdfb8565e07edaa4aaaed8ec4926679bfbe5242b32343e9c97dfe6ff02f69a"
+    rebuild 2
+    sha256 arm64_tahoe:   "71bee35673de1e8a8025679ea029a208ffc091a5a288a452ee290b6c919cf14b"
+    sha256 arm64_sequoia: "2dd197fba5cb101927055736fe8cf58d926b9a6935b874993c73d5795dff464e"
+    sha256 arm64_sonoma:  "3b95e14628762b0ef7967d239741aaabfcc9a22a32d14979af37969531703bc7"
+    sha256 sonoma:        "8eb8bfcf89f624432c2fe2255d2d15524c97381ffdcc21e4ab580f609bca9ed3"
+    sha256 arm64_linux:   "6dad0e797da0b6177b2186408a79fd20c9b5fa48836be158553d0324de554e45"
+    sha256 x86_64_linux:  "ae75bbd8abc31001852903eb5d0e79afcf5a61255d6fabd13db7dfe7387341cc"
   end
 
   depends_on "gobject-introspection" => :build
@@ -32,7 +31,7 @@ class SpiceGtk < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "vala" => :build
 
   depends_on "at-spi2-core"
@@ -70,13 +69,13 @@ class SpiceGtk < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/46/3a/31fd28064d016a2182584d579e033ec95b809d8e220e74c4af6f0f2e8842/pyparsing-3.1.2.tar.gz"
-    sha256 "a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"
+    url "https://files.pythonhosted.org/packages/bb/22/f1129e69d94ffff626bdb5c835506b3a5b4f3d070f17ea295e12c2c6f60f/pyparsing-3.2.3.tar.gz"
+    sha256 "b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   # Backport fix for "ld: unknown file type in '.../spice-gtk-0.42/src/spice-glib-sym-file'"
@@ -89,7 +88,7 @@ class SpiceGtk < Formula
   patch :DATA
 
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3.13")
+    venv = virtualenv_create(buildpath/"venv", "python3.14")
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
 
@@ -108,7 +107,7 @@ class SpiceGtk < Formula
     CPP
     ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["icu4c"].lib}/pkgconfig"
     system ENV.cc, "test.cpp",
-                   *shell_output("pkgconf --cflags --libs spice-client-gtk-3.0 ").chomp.split,
+                   *shell_output("pkgconf --cflags --libs spice-client-gtk-3.0").chomp.split,
                    "-o", "test"
     system "./test"
   end

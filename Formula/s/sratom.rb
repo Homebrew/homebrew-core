@@ -1,8 +1,8 @@
 class Sratom < Formula
   desc "Library for serializing LV2 atoms to/from RDF"
   homepage "https://drobilla.net/software/sratom.html"
-  url "https://download.drobilla.net/sratom-0.6.18.tar.xz"
-  sha256 "4c6a6d9e0b4d6c01cc06a8849910feceb92e666cb38779c614dd2404a9931e92"
+  url "https://download.drobilla.net/sratom-0.6.20.tar.xz"
+  sha256 "3826e9186cabc43ca5e359fcc3d8238060232f5f8a2090be5dc9ab390e5b6477"
   license "ISC"
 
   livecheck do
@@ -11,13 +11,12 @@ class Sratom < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "06905bb6f394ffed730cf2b4e18f80d0bf8829ab1b68bbab7ef98f77e330eaee"
-    sha256 cellar: :any, arm64_sonoma:  "dc753964055fb9efd570db02e1b9489d0b5454f543e4ca1c1ee5d89eb0ce0af3"
-    sha256 cellar: :any, arm64_ventura: "a16df9f144f66a5f40bcfa25e3b4474b55bbe5d076f00e9a4da01d49588af268"
-    sha256 cellar: :any, sonoma:        "d534631148d36ab131d17128cbbf3cbf54b0d101f97eaf377ce5d92332f58cf2"
-    sha256 cellar: :any, ventura:       "2628c0564c30338296d91bb61b737fc3c7c8d38ccc25f7bad06d4b94d51a3021"
-    sha256               arm64_linux:   "9408b999aa14b1be28373764701877a1936724d00999725f83dbe629f00e2ca0"
-    sha256               x86_64_linux:  "cb03a03254d0fe571376523b49d7363ed984ee238240c67f3e4c627b47f75c43"
+    sha256 cellar: :any, arm64_tahoe:   "d9e520c708784f95cf4e96d31fc1ff029eaef5e6c8a9b8cfe9fd956e169a483e"
+    sha256 cellar: :any, arm64_sequoia: "8f6d3fdb8894a7a626964ce4b3a8861ffbbb6e80886dd1c62998534eb575997d"
+    sha256 cellar: :any, arm64_sonoma:  "ae1ba306b125b0771afeafd7bf27499e5c473233b53a81f7cba94f221b96e8cc"
+    sha256 cellar: :any, sonoma:        "9fea71d288192844ba2ec677a08e5502c19251e16ccf6c85c81f672b408ddf38"
+    sha256               arm64_linux:   "445375ef4112a1357d7cc9a8e72a98780572c554c49676810e36940f547c57bf"
+    sha256               x86_64_linux:  "da7731af732857f9c095f8e56b7f1dc1c9d01b8cf62c59b0111aee21fc0cb839"
   end
 
   depends_on "meson" => :build

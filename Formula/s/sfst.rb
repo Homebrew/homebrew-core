@@ -3,14 +3,17 @@ class Sfst < Formula
   homepage "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/"
   url "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/data/SFST-1.4.7g.zip"
   sha256 "5f3ab2d8190dc931813b5ba3cf94c72013cce7bf03e16d7fb2eda86bd99ce944"
-  license "GPL-2.0-only"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
     regex(%r{href=.*?data/SFST[._-]v?(\d+(?:\.\d+)+[a-z]*)\.[tz]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7913420b0fd31f8a5a18276ea10f09781ad69727558f05ab053bd2a83ac1d11c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cb6e8457e5e8fabb6149537221ed7e08cbba522464b29b41fe26c59b730ed34c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd33725d7517fc287408916639bafd47f925e58e979464ac214f6eb66d9a927d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "106a7c45224fb209f3f3edffe1a31e82076469489a757ee2dd5cda9c3a8923c7"

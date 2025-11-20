@@ -7,20 +7,17 @@ class Archey4 < Formula
   sha256 "1cf158ab799fa8a5d15deab0a48df306d2788c81de44d0242c3ab1dfa84865ac"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67a20d46c2fe1dbb51cb872d3d4ebb5342aabfda48a7cfbe915c17ad948969e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51d8ab649cfb4d5dfeb23231753d9262cfa033f2c1643f0a219564a3f9832d5c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2744766739856ebe780fc7388965edc612d51923c3c765033cf87ace0b0b12e4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4154cfde5e161ec534f03d72f49537da940a41ef4009fce5172f07acc3ee88b5"
-    sha256 cellar: :any_skip_relocation, ventura:       "cd489ed03f68abd8a88be37ea82d00cc426d3d5feabaf0b68eeda977b7da3d88"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9477e1961d10803b128e9685f28fb196d08d2bcebff10b558d6ebda403e25d25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "970c7db826029c191477ba09e3a7b3288e80aee797ababba472b22d9b3a483ac"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b51742b76a0d2c6fa1f889d22c4c1346ff2a1c696adff0e27936ef1b113ee84"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f89f2d74d626422931410d34c7d8b5399ea0751098945065b0225c45751df928"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "892ee32d2fee5bb6c81d0ce7f9d09856eea40d5a1cc47ef3e11d7ff9f534e6d0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "72a8d23ac8b71a3d221173b763cbc0b24741585707134ba3b5a1da295014c721"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2903334f800483b711c76502cde2a16ed6a44c8d2ce4ddeae17a9299a230dad6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcf85f57e5437fd832700cf479064e7c1d5ee3582abfe235d9b42c51ffb92f70"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "distro" do
     url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"

@@ -13,17 +13,17 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "b503cbfc78c8ccc52b5c61c393f934178b6b23fc24706e69ef36eb54da28f6d6"
-    sha256 cellar: :any, arm64_sonoma:  "912b97d4711728c84b253e021fa6b8e44e71f85275da05b1e25c9345ab490771"
-    sha256 cellar: :any, arm64_ventura: "312052a0e90409e8ff3e6fe381939fd89a88b0aa4668929c8bf3b69f946b0eb8"
-    sha256 cellar: :any, sonoma:        "f0b7d6be7d368640b55db2eb9c66d2eebca3866e82c806761a98b4b3ce148582"
-    sha256 cellar: :any, ventura:       "59abe6398e16ea1b55a555594da6ef56499953648f7ad30740ff78f8cb7d25fa"
-    sha256               arm64_linux:   "9f74deb3dd6da246645a5ab19d3464c1346d3c61a68d7f13e016ad178184214e"
-    sha256               x86_64_linux:  "5fa5d82e89cd5a41834ad0fad26871fda52d043424f2860ca86008e0f342995c"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "e18323988f4b9cfbe9bb913ed9c71ae2136810154aa92b79aae4988e49577d31"
+    sha256 cellar: :any, arm64_sequoia: "522fce8ee008386a1431ef14b1a6c9f71f9469b18c2ccd273bb415d687943430"
+    sha256 cellar: :any, arm64_sonoma:  "2ef59704360415707ecd49a707e5981972b77a1701d97316ec039d1c6c6fbc4a"
+    sha256 cellar: :any, sonoma:        "d18984954ac374a9a479df3972636b8371c31f15650afd7efd2427025447838d"
+    sha256               arm64_linux:   "9f7f65846e6a8cc116f56a0d3dc8bb223abc1f101724cec7bf733df930ec44cb"
+    sha256               x86_64_linux:  "1ead5cf6b9ce64e9366c7d5379fc9049ef3836609df6d11fbd9e6b38d136d3e9"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "gmp"
 
   uses_from_macos "zlib"
@@ -55,7 +55,7 @@ class Cryptominisat < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

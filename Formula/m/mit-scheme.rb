@@ -1,19 +1,22 @@
 class MitScheme < Formula
   desc "MIT/GNU Scheme development tools and runtime library"
   homepage "https://www.gnu.org/software/mit-scheme/"
-  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-svm1-64le.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-svm1-64le.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-svm1-64le.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-svm1-64le.tar.gz"
   sha256 "2c5b5bf1f44c7c2458da79c0943e082ae37f1752c7d9d1ce0a61f7afcbf04304"
   license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
-    url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/?C=M&O=D"
+    url "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/?C=M&O=D"
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
     strategy :page_match
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:    "6091fa88278d223d1f892c9f9383dbf81833e007c34f6eed625720d9e9c7457d"
     sha256 arm64_sequoia:  "5b2f5cddeb07d989aeb50ed587357c3da57bc2cfbe13dd5e3cc29b754ec6dfc9"
     sha256 arm64_sonoma:   "da2acf2666e321393c150917e783456c04942de61a2b4db2eebfaeaac094168b"
     sha256 arm64_ventura:  "23923b9cbbf60f33e46325ec788edaf149b1d43b62ddd69beff33528b14453c3"
@@ -44,21 +47,12 @@ class MitScheme < Formula
       compiler/etc/disload.scm
       edwin/techinfo.scm
       edwin/unix.scm
+      microcode/configure
     ].each do |f|
       inreplace f, "/usr/local", prefix
     end
 
-    inreplace "microcode/configure" do |s|
-      s.gsub! "/usr/local", prefix
-
-      # Fixes "configure: error: No MacOSX SDK for version: 10.10"
-      # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
-      s.gsub!(/SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}") if OS.mac?
-    end
-
-    inreplace "edwin/compile.sh" do |s|
-      s.gsub! "mit-scheme", bin/"mit-scheme"
-    end
+    inreplace "edwin/compile.sh", "mit-scheme", bin/"mit-scheme"
 
     ENV.prepend_path "PATH", buildpath/"staging/bin"
 

@@ -10,6 +10,7 @@ class ActivemqCpp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a0f11adf35cbc7f7295a0d056b8255af8d54bab66c242fa31704f54070aaa1a7"
     sha256 cellar: :any,                 arm64_sequoia:  "9662d2f91d16d3077aabec66a532efde437d18987dd1a7be434e3c118a5e1eb9"
     sha256 cellar: :any,                 arm64_sonoma:   "9c0b1a20e016293fcd540c357d6d879c82446c00720b447ae4e1ee1d1eb546ad"
     sha256 cellar: :any,                 arm64_ventura:  "9b637874d78138b4debd3b45d1bbd54d79babf16bfdfbf9acc340103208262bd"
@@ -30,7 +31,7 @@ class ActivemqCpp < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

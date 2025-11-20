@@ -1,8 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.23.0.tar.gz"
-  sha256 "959bd5f3875316d7b3f67ee237a56de5565f5b35fc9b5fc3cea6cfe735a03bb8"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.24.1.tar.gz"
+  sha256 "7f2b1633e239409619ae0527f67878b0f33ae0ec0ee5a3a51c042c359ba1eeab"
   license "BSD-3-Clause"
   head "https://github.com/NLnetLabs/unbound.git", branch: "master"
 
@@ -15,13 +15,12 @@ class Unbound < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "33f3d8956a29f2c065fe890a4ef55970022945ede4721d6d530d9cc4e45e7c86"
-    sha256 arm64_sonoma:  "b37bbbb0447036088b938705a283bd0f570eaf8562238d9162edb327a941c5fd"
-    sha256 arm64_ventura: "aa011b012f3a23a634bc354cb84a50cb239fcc7d2f4afc4a7454cc9c9072df0c"
-    sha256 sonoma:        "56d85f9df58335d35be4e2b1aadc67ecb12a0b813da18840deb575e5c4f68cb8"
-    sha256 ventura:       "420064bdae0bfbef806f53700dc73a884d0b207b3a1e0c8582c5026cc9bfac5a"
-    sha256 arm64_linux:   "871c62df5926f27997b08b60fa23eddae72aac7ceff90167d417ef937f821819"
-    sha256 x86_64_linux:  "39a3c566109924b4ae52fe0972c7794f03dcbcb0015feee396a9fe082701ace9"
+    sha256 arm64_tahoe:   "a4fead66dfb4bc13b6cb4bc86d8d1ccc575a4be81f302d8c6a727f0eda79a296"
+    sha256 arm64_sequoia: "14cd3f7445095878f8cad653a17930a72f693212558d1275dc435466f116a781"
+    sha256 arm64_sonoma:  "ace4f490254fc339d4c4bd5df16a849e0dc8ac5f5b0378e18c29eb97ef4f867f"
+    sha256 sonoma:        "824d9ac0ed639af4e1bdd70f1dbf69cacbf5eaab1f88d6da3dd6170807d2b876"
+    sha256 arm64_linux:   "06d817c11cb6c3c88fee2a9b2a647f566d8ec711dc87fe139c34dd7c16727707"
+    sha256 x86_64_linux:  "86a8bd5b188b8b0c8687f97491a25e52eb45d45d5e91ca979b2ce586b0c0f9e1"
   end
 
   depends_on "libevent"
@@ -31,6 +30,7 @@ class Unbound < Formula
   uses_from_macos "expat"
 
   def install
+    expat_prefix = OS.mac? ? "#{MacOS.sdk_for_formula(self).path}/usr" : Formula["expat"].opt_prefix
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
@@ -38,12 +38,11 @@ class Unbound < Formula
       --enable-tfo-client
       --enable-tfo-server
       --with-libevent=#{Formula["libevent"].opt_prefix}
+      --with-libexpat=#{expat_prefix}
       --with-libnghttp2=#{Formula["libnghttp2"].opt_prefix}
       --with-ssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
-    args << "--with-libexpat=#{MacOS.sdk_path}/usr" if OS.mac? && MacOS.sdk_path_if_needed
-    args << "--with-libexpat=#{Formula["expat"].opt_prefix}" if OS.linux?
     system "./configure", *args
 
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'

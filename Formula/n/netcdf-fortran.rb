@@ -6,6 +6,7 @@ class NetcdfFortran < Formula
   license "NetCDF"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "7201bd78c6bdf89900c295717ec925c1a29e98d86c568efe09fab3cab906ad96"
     sha256 cellar: :any,                 arm64_sequoia: "d91c6c35e16156f4542f17de1103e15b8471aa0fca99e94bb3762e9644e383e6"
     sha256 cellar: :any,                 arm64_sonoma:  "5473275962edf3112c6075204d6cdf55dbd90e5677fb96d23a191683620fbf77"
     sha256 cellar: :any,                 arm64_ventura: "46de0b263944a9043587d3786893444f54dbb156f7ee8d9e8db7bce515c6079b"

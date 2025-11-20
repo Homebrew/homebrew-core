@@ -6,13 +6,17 @@ class Libformfactor < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fb97d04d8d908e6c984e441f0a24356b1ce5693041245d48cdf06ef77e7ce28a"
-    sha256 cellar: :any,                 arm64_sonoma:  "06e3adc03557c8b8111e7c23406cfcbac96b2a8037aa35d1e5f5c7525bf44bab"
-    sha256 cellar: :any,                 arm64_ventura: "20e9a3db52b38f4e8645bd4a3af04e05b1ffd06115e038bf66f7ae8cfb23d6be"
-    sha256 cellar: :any,                 sonoma:        "c6b8de734ab738d9d954932e1c717c530435806fe98ebe7b51914ba70751ab99"
-    sha256 cellar: :any,                 ventura:       "f77a4e09e46d58072891abb9a8a24ffb3b699b7468f0c51052f1b1e6c218ec52"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb7155f05e1a721fd97a1136e91a7c136d98e92f3ab363f02e8f12c627727766"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60f902e487db84a1d1dd8a8c2e29c4ffcecd6a635d3c2404515ecefe7f1402c5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3203be1b64215626742226e0cf2711c99798d8a8f898235dcb7b653306acd5fc"
+    sha256 cellar: :any,                 arm64_sequoia: "bec52e88151038c736cac82a2715adac4f5dd1c8a2a57a6845ee98391c730406"
+    sha256 cellar: :any,                 arm64_sonoma:  "2e8443d960fbc50875813f5906f8193c17c6a04b81b2ea53d10a72f5c9c7ba60"
+    sha256 cellar: :any,                 arm64_ventura: "cbd1accc07443366fd295ba1b20ba5f70dc26ee1d649f21617a35f215b1fae24"
+    sha256 cellar: :any,                 tahoe:         "f7ecb95122cbdc6b9c398418241ba77166fd77a86baa7e2c6c2a1287ecb3fc8b"
+    sha256 cellar: :any,                 sequoia:       "8b8e8eeab3099b87c2e5034ba25ed829d1bf20dad5f6a68ec5b4c18e4eca9699"
+    sha256 cellar: :any,                 sonoma:        "9ab41b2ed309b86ecb8d90d18b47a73c9be3e4779879ff7ccc22babe7f6312c1"
+    sha256 cellar: :any,                 ventura:       "7b1c98c43cf7f6cec9553db573d2bb77c8dcc7c5b14f178cc2bbb41b0038b2a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "54c8721ccd5e957cec42bd4d02da01c1e4a69045728761789c7696b9b094c46c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39f95d0067c89d6cb77ec92350dc88f9f67731337b1ceaacac2e9288f05668d8"
   end
 
   depends_on "cmake" => :build
@@ -71,7 +75,7 @@ class Libformfactor < Formula
       }
     CPP
 
-    system ENV.cxx, "-std=c++17", "fftest.cpp", "-I#{include}", "-L#{lib}", "-lformfactor", "-o", "fftest"
+    system ENV.cxx, "-std=c++20", "fftest.cpp", "-I#{include}", "-L#{lib}", "-lformfactor", "-o", "fftest"
     system "./fftest"
   end
 end

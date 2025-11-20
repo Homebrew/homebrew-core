@@ -10,6 +10,7 @@ class Netris < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9a995775e35da0c6d44ebab95bc19340273c50fa742670b5f1178b848fda29b8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "45fd383811db400a50896723b5c7f9e05015d19208c678d14e52e68031dd6887"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "311ecb7d3b6ba50544169823f78960a2da39290fed321d2f0328fd0b4da72359"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d1b2e0308a1ac7d02f0d76d91c805c32241191fc396d2a95e22b9456370e8af"
@@ -20,10 +21,6 @@ class Netris < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "1cd2c848c2e5da61c99c8c2930c77f21e58aeb91fdf97c678392bdb34ca252ba"
     sha256 cellar: :any_skip_relocation, big_sur:        "9f7c51618024abd332dafe7c9075896fdfefbd80819a4b0c42bf493637947bd2"
     sha256 cellar: :any_skip_relocation, catalina:       "41fc6feceffbce79c1bdac8c198d318b8a91c2e8ae099f068a8a21bf9344e038"
-    sha256 cellar: :any_skip_relocation, mojave:         "25697a4b18177f5e976dd5510b68cac949a589a7c9abe2e2d148b930db0d1f89"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "2ba4eea757cc21504d1da74796a29fcd23264b5d735c0c6debe1083614c2d57a"
-    sha256 cellar: :any_skip_relocation, sierra:         "4ac49c49b3d000fcb5c9161f4b217231e9bee9faf29d5e4e7fc9f5d8e10772ec"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "0e793cab922cded47c3eccbf4e9ba8840a71f24830d7e01da8e2262d08d61c56"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "10152777ead84d310f8d140c904b68a69f94c1504b03e4dc0be441dc4b3f9e84"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7209cea9b9b79f4bc89a1aafdf2ac00af1b76aefcc9fb3f0e90f5d2dc3873232"
   end

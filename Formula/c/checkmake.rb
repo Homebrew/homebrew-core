@@ -1,12 +1,13 @@
 class Checkmake < Formula
   desc "Linter/analyzer for Makefiles"
-  homepage "https://github.com/mrtazz/checkmake"
-  url "https://github.com/mrtazz/checkmake/archive/refs/tags/0.2.2.tar.gz"
+  homepage "https://github.com/checkmake/checkmake"
+  url "https://github.com/checkmake/checkmake/archive/refs/tags/0.2.2.tar.gz"
   sha256 "4e5914f1ee3e5f384d605406f30799bf556a06b9785d5b0e555fd88b43daf19c"
   license "MIT"
-  head "https://github.com/mrtazz/checkmake.git", branch: "main"
+  head "https://github.com/checkmake/checkmake.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e7fd519185b64fed252c60bd351ec0d1829dec01f8ba15573b0484c3446722e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c64480b72e17320c970baf104cb6c69a2c9aa54365dd66c2a0a97a9ac0a2581d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7140ec560527466720bbd18e7337f47243ce479bac151a7dea0a84f70a8fd9da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d48a73b85de9be214bafa9ab4cf9712cf1934f898d3fc7b3b6160507a788e3b7"

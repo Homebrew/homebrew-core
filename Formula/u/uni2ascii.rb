@@ -11,6 +11,7 @@ class Uni2ascii < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "31181b902fd25b915422c12eb90c0ecfe2a642d52568d9fb0324f3813e8af7a5"
     sha256 cellar: :any,                 arm64_sequoia:  "df56e8714e5ed1d14033b28e4315bc472b5166613a5b25730f6d379f5c661c69"
     sha256 cellar: :any,                 arm64_sonoma:   "d3a472d2c31cfa9dc963c26fe7f15d7a3f782a937d7026c4ad59bbd986729af5"
     sha256 cellar: :any,                 arm64_ventura:  "2e92a28331236f4d0a7a3f14a2be9acfe64f4fcc61394a8e0eba9211c1a4415d"
@@ -28,7 +29,7 @@ class Uni2ascii < Formula
 
   # notified upstream about this patch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bb92449ad6b3878b4d6f472237152df28080df86/uni2ascii/uni2ascii-4.20.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/uni2ascii/uni2ascii-4.20.patch"
     sha256 "250a529eda136d0edf9e63b92a6fe95f4ef5dfad3f94e6fd8d877138ada857f8"
   end
 

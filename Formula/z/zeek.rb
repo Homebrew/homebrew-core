@@ -1,8 +1,8 @@
 class Zeek < Formula
   desc "Network security monitor"
   homepage "https://zeek.org/"
-  url "https://github.com/zeek/zeek/releases/download/v7.2.1/zeek-7.2.1.tar.gz"
-  sha256 "9dbab6e531aafc7b9b4df032b31b951d4df8c69dc0909a7cc811c1db4165502d"
+  url "https://github.com/zeek/zeek/releases/download/v8.0.4/zeek-8.0.4.tar.gz"
+  sha256 "b11aa1391e240c6ab49838de949bb8ea44635ee8fb8350db4e100c31e83b6a24"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Zeek < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d85c899cfb82397bfc0d0a1062236eb9f89fb0c4eeb92ded5802075d0b5b0d9b"
-    sha256 arm64_sonoma:  "8e317980b6728b45e31017e6773b950aca6a36c0c97436da9102303afc603e4c"
-    sha256 arm64_ventura: "8f7faf31cbe74dc1b1da6bbedd88346410f91d1893a30f77c75bbca580e98882"
-    sha256 sonoma:        "0da4a6958a2ef671788752134fc548e640d86185fb3b7805f4d2e98672b553aa"
-    sha256 ventura:       "b382e76061b33a4dc6f34891793377e4b615dceabb06f8c02e163ddf193b1bb8"
-    sha256 arm64_linux:   "96ffdf8de675436a684d3c74e03430cf70a3c00902fa855693498a377985d0c1"
-    sha256 x86_64_linux:  "35fd41a4861a8d49a2c41be8ce132f3e32a334235c740daf5c8c4adb1aad72c6"
+    sha256 arm64_tahoe:   "0bbeb62db74a75e0c2dd456460e33e279b11cd41707349603f1d9d608d0c948b"
+    sha256 arm64_sequoia: "6d735456debc4c4a91853bab6d18c106c13ef3b2e52215407c1a54e9f25ea21a"
+    sha256 arm64_sonoma:  "6ad759bf68d254bf13b1e75be6b3b363e2de8bdaaf0c24318ac029b163554eaa"
+    sha256 sonoma:        "3f882e2d562e267544e91a79b5079dec0d5dd02d36885fb1a0559047abb79b1f"
+    sha256 arm64_linux:   "7163af5c9dd3212beed54fb2e3eb239a7dfca0c704660b3785a1033d102cb820"
+    sha256 x86_64_linux:  "ec21903838f5493b2758a3d9ab31898b5e3b6c1c16483b28b66e6679ae43df5f"
   end
 
   depends_on "bison" => :build
@@ -27,9 +26,9 @@ class Zeek < Formula
   depends_on "swig" => :build
   depends_on "c-ares"
   depends_on "libmaxminddb"
-  depends_on macos: :mojave
   depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+  depends_on "zeromq"
 
   uses_from_macos "krb5"
   uses_from_macos "libpcap"
@@ -47,27 +46,6 @@ class Zeek < Formula
     # Avoid references to the Homebrew shims directory
     inreplace "auxil/spicy/hilti/toolchain/src/config.cc.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
-    # Benchmarks are not installed, but building them on Linux breaks in the
-    # bundled google-benchmark dependency. Exclude the benchmark targets and
-    # their library dependencies.
-    #
-    # TODO: Revisit this for the next release including
-    # https://github.com/zeek/spicy/pull/2068. With that patch we should be
-    # able to disable test and benchmark binaries with a CMake flag.
-    inreplace "auxil/spicy/hilti/runtime/CMakeLists.txt",
-      "add_executable(hilti-rt-fiber-benchmark src/benchmarks/fiber.cc)",
-      "add_executable(hilti-rt-fiber-benchmark EXCLUDE_FROM_ALL src/benchmarks/fiber.cc)"
-    inreplace "auxil/spicy/spicy/runtime/tests/benchmarks/CMakeLists.txt",
-      "add_executable(spicy-rt-parsing-benchmark parsing.cc ${_generated_sources})",
-      "add_executable(spicy-rt-parsing-benchmark EXCLUDE_FROM_ALL parsing.cc ${_generated_sources})"
-    inreplace "auxil/spicy/3rdparty/justrx/src/tests/CMakeLists.txt",
-      "add_executable(bench benchmark.cc)",
-      "add_executable(bench EXCLUDE_FROM_ALL benchmark.cc)"
-    (buildpath/"auxil/spicy/3rdparty/CMakeLists.txt").append_lines <<~CMAKE
-      set_target_properties(benchmark PROPERTIES EXCLUDE_FROM_ALL ON)
-      set_target_properties(benchmark_main PROPERTIES EXCLUDE_FROM_ALL ON)
-    CMAKE
-
     system "cmake", "-S", ".", "-B", "build",
                     "-DBROKER_DISABLE_TESTS=on",
                     "-DINSTALL_AUX_TOOLS=on",
@@ -77,7 +55,7 @@ class Zeek < Formula
                     "-DCARES_LIBRARIES=#{Formula["c-ares"].opt_lib/shared_library("libcares")}",
                     "-DLibMMDB_LIBRARY=#{Formula["libmaxminddb"].opt_lib/shared_library("libmaxminddb")}",
                     "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
-                    "-DPYTHON_EXECUTABLE=#{which("python3.13")}",
+                    "-DPYTHON_EXECUTABLE=#{which("python3.14")}",
                     "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                     "-DZEEK_LOCAL_STATE_DIR=#{var}",
                     *std_cmake_args

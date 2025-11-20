@@ -16,6 +16,7 @@ class HelmDocs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6469d4abf186a72f762ed839038ccbcb5b0a9ae1ba3d2e184b448129dc29ca38"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "91c39e8d994bccf86a38142464dad370c4f90efd76f0708a44ad179a8616c192"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "83ae9a4b26f989027ccdb15b93bdf17cab1d501f1fe593f1c803399406b6be4a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf56a0615e759c2723e4c01c05655e9c830f652cbaa0a6b97f72ede69a8d53a5"
@@ -23,6 +24,7 @@ class HelmDocs < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "75d1650efc32f8b5539301435719ddd40d32ca7e619e497f0baa5ba374ee6b7f"
     sha256 cellar: :any_skip_relocation, ventura:        "1f25d968c9cd5ae22a5e2cc08f5ff15361fc990b9a3aa618dfb9c3180109b2f8"
     sha256 cellar: :any_skip_relocation, monterey:       "8967c19d3cea006bd846275c7be9e97e289dd7fff3763e763c50ec20c410ce73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "426ed8f120588091d3e45a7f22f4b4ffb3b43f3cdf4c71f5b5b64aead9ad40ae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "78df0661852c388c2245a14aeeaf3442206a33ac08b1b7b74f233c72ec5d0cc5"
   end
 

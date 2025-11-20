@@ -6,8 +6,11 @@ class Qjson < Formula
   license "LGPL-2.1-only"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "0e477768711d2b9e0aca6455293f497e860e54455b2eb4fbf7fbfec1ad3754ba"
     sha256 cellar: :any,                 arm64_sequoia:  "d2d3a43592241e2217ea2508fa0ac418058d95d774f5d9fac89cbfe6ec031af0"
     sha256 cellar: :any,                 arm64_sonoma:   "c38d82d6a5e21a82d588066f62825febd4710d2826349ac5bddbe517f22d60a3"
     sha256 cellar: :any,                 arm64_ventura:  "7b927cd12810ef0c8bca41a65c906af9021ef100fcfd1a4686e81607c213fc7e"
@@ -18,14 +21,22 @@ class Qjson < Formula
     sha256 cellar: :any,                 monterey:       "49c80dc061c008fb20ebc722596d17845973ee735236be19b8b26cb5293cd043"
     sha256 cellar: :any,                 big_sur:        "282f4fa0cccf91b2f993e6742c295e57016a5a25dc89acd1d5c0f19fdf661734"
     sha256 cellar: :any,                 catalina:       "23138020da1a1d5fc965e242d40ee73838cd233498c1f6aa06fa0146aa895b94"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "beab44351c3cb609985653759a33e712015c6a8689fdaeb70306f90c9225b63d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b64e82e4791c3dc66f6304add6ac44a993b82a9d88d02704af280daa080f5d64"
   end
 
+  # Can undeprecate if new release with Qt 6 support is available.
+  deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5"
+
   depends_on "cmake" => :build
-  depends_on "qt@5"
+  depends_on "qt@5" # Qt6 issue: https://github.com/flavio/qjson/issues/122
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    inreplace "CMakeLists.txt", "cmake_policy(SET CMP0020 OLD)", ""
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

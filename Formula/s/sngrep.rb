@@ -1,37 +1,42 @@
 class Sngrep < Formula
   desc "Command-line tool for displaying SIP calls message flows"
   homepage "https://github.com/irontec/sngrep"
-  url "https://github.com/irontec/sngrep/archive/refs/tags/v1.8.2.tar.gz"
-  sha256 "1cd05bddd531b353e3069c5243e7076b60a3ee907dbbc3c9c2834676ed8c4bac"
+  url "https://github.com/irontec/sngrep/releases/download/v1.8.3/sngrep-1.8.3.tar.gz"
+  sha256 "794224f4cd08978a6115a767e9945f756fdf7cbc7c1a34eabca293e0293b21b8"
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "0bfc56c0e4f1b9ffdea333a9fe372928b81b6bc0b931e3629b1c822bb062272f"
-    sha256 cellar: :any,                 arm64_sonoma:   "af78fe4604a4b205135a31f113a35907d121d08bd7352f5747f82afbfbf7b964"
-    sha256 cellar: :any,                 arm64_ventura:  "024eb3f86b15664e9cdae3dec40226b91432a2abe44bd3e6c72fbcff0f9c6167"
-    sha256 cellar: :any,                 arm64_monterey: "2ce85bce10e93345e1991e4d23d92f46df955cf90c20bf47a0abe4eea4d9c0f7"
-    sha256                               sonoma:         "57d93a31a23337e083f75ff3df8c40731fbd68d857678599184027f9240947c0"
-    sha256                               ventura:        "9fdeee12cf3751750380301d66b61d0862e568b3f789e9bc21bd676b0495168f"
-    sha256                               monterey:       "230ba56b3c53cd525f4dbed3495ec75c63cba1306c5d4cc5356573e22a2cf464"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "638308e2f58d25eecb2023dfb5e4c44bf344b664f428cd6af59b5a117b5a2827"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6c9d43d767e6ae8f902fc0e74c4dff3ca255e94178cc0aa108e1241b797ea67"
+    sha256 cellar: :any,                 arm64_tahoe:   "061db6e59e8b46db369feba26f33ad4d50082baf87580affeff0bdfbcb42f566"
+    sha256 cellar: :any,                 arm64_sequoia: "7cff7081ff7899992673f68269bfafa11e62a143b39c9de3ad9731136ae72123"
+    sha256 cellar: :any,                 arm64_sonoma:  "d128fa1a31902c76abfb557e18552670b54087cec17a9a32d7599ba93ad251f8"
+    sha256                               sonoma:        "dd3ceac2f13d770f905b245f456f553fc6d0aa3335cb1513f28efa21068fff91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5a86128da8d87abf69575b2dbd298c2e2a75e3ccbe88b14624df356e723bbe6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ab8d1e61cb58f5ab80ee2e230da31057941225c29cf867d176ca70ef3123da2"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "pkgconf" => :build
+
+  depends_on "ncurses"
   depends_on "openssl@3"
 
   uses_from_macos "libpcap"
-  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "libgcrypt"
+  end
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw" if OS.linux?
 
     system "./bootstrap.sh"
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--with-openssl"
+    system "./configure", "--disable-silent-rules",
+                          "--with-openssl",
+                          *std_configure_args
     system "make", "install"
   end
 

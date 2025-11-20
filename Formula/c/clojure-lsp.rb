@@ -1,9 +1,9 @@
 class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
-  url "https://github.com/clojure-lsp/clojure-lsp/releases/download/2025.06.06-19.04.49/clojure-lsp-standalone.jar"
-  version "2025.06.06-19.04.49"
-  sha256 "3220b0aa582f03dbbae05b3892426d6b7e20b6c6a9c9e95b5346deffd50126c9"
+  url "https://github.com/clojure-lsp/clojure-lsp/releases/download/2025.08.25-14.21.46/clojure-lsp-standalone.jar"
+  version "2025.08.25-14.21.46"
+  sha256 "27cf511e0c4b24749141f6d22d3d0c857ee40ccb191168caf11186232c7a7629"
   license "MIT"
   version_scheme 1
   head "https://github.com/clojure-lsp/clojure-lsp.git", branch: "master"
@@ -13,10 +13,8 @@ class ClojureLsp < Formula
     regex(/^v?(\d{4}(?:[.-]\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bb3cb3102608aa2d35dddb86d1bc0abfb2e6eeae3b99af10dd7878a75bc81b03"
+    sha256 cellar: :any_skip_relocation, all: "f85f25bcac2090ac9f7ac050341e4b34af1a1432d9e4b8d5c53df2a71a012bc8"
   end
 
   depends_on "openjdk"

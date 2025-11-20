@@ -1,8 +1,8 @@
 class Allure < Formula
   desc "Flexible lightweight test report tool"
   homepage "https://github.com/allure-framework/allure2"
-  url "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.34.0/allure-commandline-2.34.0.zip"
-  sha256 "b0554db20cc0472cba2474733560a89805bfaa29c81f65b66763af2ecf80436c"
+  url "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.35.1/allure-commandline-2.35.1.zip"
+  sha256 "3cb17dd207291fe120c99a0e59919a45de656debc416c2ab3a4a2e1aa997aa54"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class Allure < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5a1d8d7db1fcd72d2efb93abb3c38a2537f8c7f3ac5badfe62d65923c4aae04f"
+    sha256 cellar: :any_skip_relocation, all: "56ccc39be1a1cee6569877d0cb6eddbe01f9871a187732ba4b646c6a239461d8"
   end
 
   depends_on "openjdk"

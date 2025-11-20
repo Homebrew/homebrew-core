@@ -14,6 +14,7 @@ class Atari800 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "e87acc86cd6e9fa170e8e29bf5c92e649b4af7de49faab2f25f4a573f655e380"
     sha256 cellar: :any,                 arm64_sequoia:  "82df74e82551f83d67d3a7fcba873d4bd62a0084bc96371fbcc16e760a80aac4"
     sha256 cellar: :any,                 arm64_sonoma:   "800ce7fc88004e578e5b69d573b4a3701245de0174fbd4a4494d37ad79c0f3d0"
     sha256 cellar: :any,                 arm64_ventura:  "07b1d045d2e043b5ffa9af66fa8680309ced19869b882783caa535a3895c85c5"

@@ -1,28 +1,27 @@
 class Nsync < Formula
   desc "C library that exports various synchronization primitives"
   homepage "https://github.com/google/nsync"
-  url "https://github.com/google/nsync/archive/refs/tags/1.29.2.tar.gz"
-  sha256 "1d63e967973733d2c97e841e3c05fac4d3fa299f01d14c86f2695594c7a4a2ec"
+  url "https://github.com/google/nsync/archive/refs/tags/1.30.0.tar.gz"
+  sha256 "883a0b3f8ffc1950670425df3453c127c1a3f6ed997719ca1bbe7f474235b6cc"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5646e78dfc90e6ea7a9575f5b51ccb91e142838e61170087a5ea89dd7076d1fd"
-    sha256 cellar: :any,                 arm64_sonoma:  "fdcf50215956176ee21750ef95dea641a5464aa2c474e024d63c8032ddc99da1"
-    sha256 cellar: :any,                 arm64_ventura: "163b4942545d21ed0042db6343b07b7ceb810010cd513a77d2f2d8060ace3b9a"
-    sha256 cellar: :any,                 sonoma:        "03ffb1919593d89b4ce5e8bd58b540ebce76dedbfea579f06dfd3a1578af6120"
-    sha256 cellar: :any,                 ventura:       "d8573c05ff6039c4074be9a4bb3119200ce4904e8f55b3747b50c2d9c08cb10f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7685d7883604fa8746a3e28034b2ac85632a807d575f0ae5e32173b0c96bc93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "371b938f9cc2b55990b934c679a18967d749bf7a82783dce7ac49585fedb0379"
+    sha256 cellar: :any,                 arm64_tahoe:   "34b5f37ee36a14b1e76e5052c2f593544e39d45acd8d7d7e0d90600226072802"
+    sha256 cellar: :any,                 arm64_sequoia: "33fec4c6c42fbb8b09c8d3d0243f3730add7887e902d5bdb1608ed733843a75e"
+    sha256 cellar: :any,                 arm64_sonoma:  "b347b136ba54882d203e7d0989e94347b9fb738feaa6c0059fa9bec7070fde0c"
+    sha256 cellar: :any,                 sonoma:        "78b2f4271d03da7e849c0446837d338aceb66903a53bd9e89d8aeb559dda6f0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f3bd67fa9e140561b815dcf454a09ee5950ca419fb5b5a49752558dc904be8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70bf2bc57ecea6d5c4acc02275f360a67fc86ea714c2a76ebbbff1509453ef6f"
   end
 
   depends_on "cmake" => :build
 
-  # PR ref: https://github.com/google/nsync/pull/24
-  patch :DATA
-
   def install
-    system "cmake", "-S", ".", "-B", "_build", "-DBUILD_SHARED_LIBS=ON", "-DNSYNC_ENABLE_TESTS=OFF", *std_cmake_args
+    args = %w[
+      -DBUILD_SHARED_LIBS=ON
+      -DNSYNC_ENABLE_TESTS=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "_build", *args, *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
   end
@@ -45,17 +44,3 @@ class Nsync < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index fcc3f41..9dbe677 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -125,7 +125,6 @@ elseif ("${CMAKE_SYSTEM_NAME}X" STREQUAL "DarwinX")
- 		${NSYNC_OS_CPP_SRC}
- 		"platform/c++11/src/nsync_semaphore_mutex.cc"
- 		"platform/posix/src/clock_gettime.c"
--		"platform/posix/src/nsync_semaphore_mutex.c"
- 	)
- elseif ("${CMAKE_SYSTEM_NAME}X" STREQUAL "LinuxX")
- 	set (NSYNC_POSIX ON)

@@ -1,19 +1,18 @@
 class Kew < Formula
   desc "Command-line music player"
   homepage "https://github.com/ravachol/kew"
-  url "https://github.com/ravachol/kew/archive/refs/tags/v3.3.3.tar.gz"
-  sha256 "114edb5eead345a5311cdfecda15bf935c1c30ae1f78f97f1a5c3518e829b690"
+  url "https://github.com/ravachol/kew/archive/refs/tags/v3.6.4.tar.gz"
+  sha256 "0f8db62bda7cf41ede9c41a5132d78537d96f90ef9e06fc5072a509a9f3b30bd"
   license "GPL-2.0-only"
   head "https://github.com/ravachol/kew.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1eb528a5d86c0d323893475db6e338fec41d0a2a96524c07723ef57a083e3917"
-    sha256 cellar: :any,                 arm64_sonoma:  "5e23b0779f4099e22b06e7e03e3179d34f3bff188f24af9748cfe2947520715b"
-    sha256 cellar: :any,                 arm64_ventura: "82230366bf3f8b7df82d7ba21e24f7f87b7762ea3d12b27a2ce1f68ccaccca11"
-    sha256 cellar: :any,                 sonoma:        "a35814d5ab11476f9b463846d3d7cd910926c149adc4b3a94e9825e0ed8961b7"
-    sha256 cellar: :any,                 ventura:       "6a00129fb4c1a12ae1464b4132b6d98d231d0dc12d618dc767f162edbce64409"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c680304658cf72393014732165a32826fcedf5b91cf97abb28b0a57a63c0114b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb22fcd28b51df5c37d6d842e86ab0659a360ea65b3a9f55022a0331c037dca9"
+    sha256 arm64_tahoe:   "328327f6c560c6a291b1fafa0cb7449c9c92c3dce3265a97e22f4ad74977e25b"
+    sha256 arm64_sequoia: "9f461abff3e0a3da44d457397c3be044f006a427a98c954e3aca2adbaceb1119"
+    sha256 arm64_sonoma:  "599974a7d64a8828a9ef5306198321172ced4d7548f47ffb672993c69e5c5de5"
+    sha256 sonoma:        "d9febe83271d5b66de98636a86aeca31e78bc7863541898725c8a090029e00d1"
+    sha256 arm64_linux:   "4e6e0c92cea8b2a77faa5cb64202023fdc441fc52af05adda96dc53da9e819c4"
+    sha256 x86_64_linux:  "4ee9d87daee8e52d63e109b9f15a4ebf600222d5f10773efa9fe2857111d7fb9"
   end
 
   depends_on "pkgconf" => :build

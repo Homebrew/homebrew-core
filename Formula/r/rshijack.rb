@@ -6,6 +6,7 @@ class Rshijack < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ba456228f8c73b28433e29409a5949bb8e154794a30abf0058d4fb0db4febc6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ca2a8d042e51c65e54aab501b5c669008cda7783bed088b3ae59732a8aed823"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d85aa98cf1be3462acd931d1cb235f07adf3bafb9cc2d887c0abbba93a0401fe"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0a30c41da9c8e60505b84d5eb97c0db143d5a5d9c8cf1366bc10911505622fa1"

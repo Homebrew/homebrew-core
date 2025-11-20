@@ -1,30 +1,28 @@
 class PodmanTui < Formula
   desc "Podman Terminal User Interface"
   homepage "https://github.com/containers/podman-tui"
-  url "https://github.com/containers/podman-tui/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "a241119e1099711f889bae6fa7061130869317b711a96e3e9df2fed45e6fc979"
+  url "https://github.com/containers/podman-tui/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "7a0e89d71a18527f01be061c8d449823770cff768b6d716cef96b979f3672de7"
   license "Apache-2.0"
+  head "https://github.com/containers/podman-tui.git", branch: "main"
+
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "210be70775f4d78334aa2798764dd2d47a59ec886406ce737d4892f4258993d2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a38c44d5b83478e0f36d795843c922f21d33390d973405fe82f04302fb3de570"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b6204a1ab8aa41506b560d4de20abd793d25cc642a7b77d5747cd24598ad2174"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3e0f2ae0fd182edad757b4922abc4f732cc56086e3d9a079150fd34d9142bcc3"
-    sha256 cellar: :any_skip_relocation, ventura:       "38f29eabae4be7105afb7c7abdaa63b94373e0458e5e785562876fc686cc6670"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab17a059a2c9818545a7167234bfe652194ba456be8b5213c8344cfe63959eef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d09c93ca1436cb15afb4eb687ae2fe99c25b5db821bf21ba697a44bdf015c1f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "159fe3cbe81cb90352a7cdd6e9fecda9ffbe0d4ed70b8238d23b28a3a577cad3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae8d3b12b6d240b955412b516b7481d078f0df567ee1bf2505b6f5d7fa0fee2f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ce978d60030735023a0ea7b7c60654264d8a78766ec62f04cebb5fce418be85"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0c3901ccd6a710f3a1ba420543192de39ef4ed1682e3259a6612b4cdc382f031"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb3be056e3171386c8d9c3819f52b91e44c318d2af71e9689dd744a16f1fd134"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04453e9ee308df6601ac642852498519989e8213cac4dcf1699fd9495d2e7c3f"
   end
 
   depends_on "go" => :build
 
   def install
-    if OS.mac?
-      system "make", "binary-darwin"
-      bin.install "bin/darwin/podman-tui" => "podman-tui"
-    else
-      system "make", "binary"
-      bin.install "bin/podman-tui" => "podman-tui"
-    end
+    ENV["CGO_ENABLED"] = "0"
+    tags = "exclude_graphdriver_btrfs containers_image_openpgp remote"
+    system "go", "build", *std_go_args(ldflags: "-s -w", tags:)
   end
 
   test do

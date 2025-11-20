@@ -1,18 +1,19 @@
 class Pie < Formula
   desc "PHP Installer for Extensions"
   homepage "https://github.com/php/pie"
-  url "https://github.com/php/pie/releases/download/0.12.0/pie.phar"
-  sha256 "6dc2e231640eac61d722d3752e4cc983490d7f24885eea1bbac24be58e042df9"
+  url "https://github.com/php/pie/releases/download/1.2.1/pie.phar"
+  sha256 "b3a30c3e70f6b590505f76e27f1163b328b3523f369200a8f769ca1005ac42f7"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "924e81ed22bf6031807fff34bb58ae2d6f85b105dcd5d9f2c2d0c285009f0582"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "924e81ed22bf6031807fff34bb58ae2d6f85b105dcd5d9f2c2d0c285009f0582"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "924e81ed22bf6031807fff34bb58ae2d6f85b105dcd5d9f2c2d0c285009f0582"
-    sha256 cellar: :any_skip_relocation, sonoma:        "967cf150edcd369fb961412df340fbbcccff93a8b3495d094aee5688c3d73a30"
-    sha256 cellar: :any_skip_relocation, ventura:       "967cf150edcd369fb961412df340fbbcccff93a8b3495d094aee5688c3d73a30"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34b866e5613091e039a57b839a5a92a7e96f8acc9985e8941fd8ead85021ea61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34b866e5613091e039a57b839a5a92a7e96f8acc9985e8941fd8ead85021ea61"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f92f04f969d77f970faa6c6463a70dbb758778d159feaa3b9606d1a17a9026ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f92f04f969d77f970faa6c6463a70dbb758778d159feaa3b9606d1a17a9026ca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f92f04f969d77f970faa6c6463a70dbb758778d159feaa3b9606d1a17a9026ca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f92f04f969d77f970faa6c6463a70dbb758778d159feaa3b9606d1a17a9026ca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e0952c74ab24eb0054f500fb169c1acf61d17ec87dec3ee6e9ce00a2f4ab5224"
+    sha256 cellar: :any_skip_relocation, ventura:       "e0952c74ab24eb0054f500fb169c1acf61d17ec87dec3ee6e9ce00a2f4ab5224"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0952c74ab24eb0054f500fb169c1acf61d17ec87dec3ee6e9ce00a2f4ab5224"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0952c74ab24eb0054f500fb169c1acf61d17ec87dec3ee6e9ce00a2f4ab5224"
   end
 
   depends_on "php"

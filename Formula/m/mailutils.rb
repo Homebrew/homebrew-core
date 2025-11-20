@@ -1,21 +1,23 @@
 class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "https://mailutils.org/"
-  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.19.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.19.tar.gz"
-  sha256 "aeb6d5fca9179da0402cf6adef36026f656d6ae6de4e7142c6b0a035161fd7dd"
+  url "https://ftpmirror.gnu.org/gnu/mailutils/mailutils-3.20.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/mailutils/mailutils-3.20.tar.gz"
+  sha256 "d10ee65ba391d6463952d8a81551f8a6e667538ee8587b3c801137e657087d4c"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_sequoia: "d790720aa6cb28ca860975492e83556a861c5ad47d4992096c09dc4583f44191"
-    sha256 arm64_sonoma:  "02507fd28f0de0b0a4ede1239678aa3814611eb46b74e30f8c90c1db97c2629a"
-    sha256 arm64_ventura: "fe58a7bd2bdb2ef56d042c1c80958c866883921354116018346712406a528bae"
-    sha256 sonoma:        "fc9e4ba51f56ceafd83ea5717d64c5743eba692ec06d4f80362c908a3e7a2f5f"
-    sha256 ventura:       "e7cf415dcd40794880d95390f3add8fec9525d205cc74ecd40ffc1fc812eb778"
-    sha256 arm64_linux:   "c7dba705daf92061c4e674ddbcd8a84e0a500db7d1f5e3e52b2b7e2a05501388"
-    sha256 x86_64_linux:  "8cf1753255aa8749c4669d1abdec367627998243decd6f8c72500068efb326c6"
+    rebuild 1
+    sha256 arm64_tahoe:   "3ae52cae191219da35d841df60f919cd66d7a5cdabcfed6e8de2f20555926038"
+    sha256 arm64_sequoia: "8d9b031ee3adcf94f41e0c4dda3f1877f334e357295ac65f80d61ca54ec8f220"
+    sha256 arm64_sonoma:  "ec1f00fa1a4169d4ad5a5eff18532916d7e6606edd13f2ab1515a3573c04d510"
+    sha256 sonoma:        "c8955a3e02a5ed11425f4ba397ab0ecdcb223c8097da184e3c6adffe2e43284a"
+    sha256 arm64_linux:   "28649f27d729c35f82b1aa948c8c3bf228396b81336147a992565eb62ee44ec3"
+    sha256 x86_64_linux:  "53a84459cde0d2bb37a9e97a0bef949666d2b4ab940eb8474467a185a83c8c43"
   end
 
+  depends_on "gdbm"
   depends_on "gnutls"
   depends_on "gsasl"
   depends_on "libtool"
@@ -36,9 +38,9 @@ class Mailutils < Formula
     end
 
     system "./configure", "--disable-mh",
+                          "--disable-python",
                           "--disable-silent-rules",
                           "--without-fribidi",
-                          "--without-gdbm",
                           "--without-guile",
                           "--without-tokyocabinet",
                           *std_configure_args

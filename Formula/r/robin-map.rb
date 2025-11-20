@@ -1,12 +1,12 @@
 class RobinMap < Formula
   desc "C++ implementation of a fast hash map and hash set"
   homepage "https://github.com/Tessil/robin-map"
-  url "https://github.com/Tessil/robin-map/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "7930dbf9634acfc02686d87f615c0f4f33135948130b8922331c16d90a03250c"
+  url "https://github.com/Tessil/robin-map/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "0e3f53a377fdcdc5f9fed7a4c0d4f99e82bbb64175233bd13427fef9a771f4a1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dee759da00096cb14d4f6d2777261224091f9a811d94c6a56323ffee76b7c066"
+    sha256 cellar: :any_skip_relocation, all: "672e92ee26dbed640ed6617e5c386f91753e9b9b7a3856fe16aa7f3798435df0"
   end
 
   depends_on "cmake" => [:build, :test]

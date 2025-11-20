@@ -15,14 +15,18 @@ class Rubyfmt < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96c578513b4ad8026f8c6202855fbbb50d8f22a1f06fa24672e6d4537bebe3cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd1e916ff9236b322ef2fe242e95ff19b0ba244b7798b637c60458e0f9e72311"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "deb61a20206f73f26f5333e4691e3436648a6d5f63b20b5f8c13ff5813dc7853"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0abd972a5129624c5d8b8410a1fbc14ca32e6cf747948f15bc51a1976fc0b04d"
-    sha256 cellar: :any_skip_relocation, ventura:       "f102e74c060458edffe138f457118d18ba73198c77bdb01969fb19d9e8f648b9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4839872a36a77a8cf8b14e9c28ec240524417855d86f715325c33c400971b1ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b05509047cd3d31b41d81781cf1db098939b0a6a52848fc861f3b2a71a180d38"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "add7264b0c1f0f824a4cacb9207a09fd1b64af9fb800f9ac3caafa0a34ee4568"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ea996577f2010a2fcc3a4244398c2cdc8988de9efedeed1646f358798b33ab4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20e428828937e70b6c4e9dc9d742ecc1a8f331dc65369488c1fd576cb6abfe1e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d5ba71656cdf87c3c1b5a2f9664f2deb21f59a949173a9a639340617a8bc8707"
+    sha256 cellar: :any_skip_relocation, sonoma:        "57a01d03aee9e206fc51d64079ab95b0974f6b0e39dc5a464e58f975a45bea0c"
+    sha256 cellar: :any_skip_relocation, ventura:       "b831dd07102b2eabadfaf38c84cfe0d24a5ed7d6c7ca3b58702eb7dfe5f7dd5e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d5ab407a571c5ce85baf2a784dde2b0a523614d749df8aed8c0d4b03af472b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7268052db591d14ad85711a47d0ce9b9578a0c9a0d353e63b870231d358478e"
   end
 
   depends_on "autoconf" => :build
@@ -38,7 +42,7 @@ class Rubyfmt < Formula
   def install
     # Work around build failure with recent Rust
     # Issue ref: https://github.com/fables-tales/rubyfmt/issues/467
-    ENV["RUSTFLAGS"] = "--allow dead_code"
+    ENV.append_to_rustflags "--allow dead_code"
 
     system "cargo", "install", *std_cargo_args
     bin.install "target/release/rubyfmt-main" => "rubyfmt"

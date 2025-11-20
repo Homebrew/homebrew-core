@@ -8,16 +8,16 @@ class Rpl < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f3a92c152aa85e38ecfa5e723ac3976e7c922bad0a11541fe4fffdfbaaac227"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "027eb212bc7e4016600eec213bf22696297124dad33d0c1ac476c6b833677dc8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "161eab6b8c8144193155d77567883c9ffc7421a2047217c51cfb4766e20ad3fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6c8fbc594de8ca5db2fed2073a9b20fa736c2a5a413ccb5037d4ad544e078350"
-    sha256 cellar: :any_skip_relocation, ventura:       "52b0ecfa8e85d9075f871a7de4a4e86c51f31cc8cbc0458ceeea1e3552b5ebec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "61dd2a865b8b0922685c91436bea042c9b5d52a51b1e301ff6c5c1bc7ba2eed4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07d8974cf495884f8d2a663b0e15b9864f05733d0b6e1333567703ff05cbca2c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f30ceeb460bc67d3594e702e9de5c42ba913a5388515b754d6225542e6d18fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db734192128a7e60d98bf9d06faa0086d0abfa483201e93db0e877c20566b91f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f80cd4cfbaebbd99d7d4f99c4484d88335707ed458253fde37653e1928cf904"
+    sha256 cellar: :any_skip_relocation, sonoma:        "47fab5f6519ffeea8846065f66842a6b13b2e825c2542f93065ea0e3aa42bb8e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a50d816a8cbc804290630c63e1a7a4fae2fdfc702ff3424db8d6dd1ce8a875ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0bb1e34afdd4f02172a30480efb626a835b70e988fe37b020aa4312d0453f02"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "chainstream" do
     url "https://files.pythonhosted.org/packages/a5/cc/93357fd1f53c61fdc6111a6d9ea2cc565b2c1be9227c15bb036a0db0396b/chainstream-1.0.2.tar.gz"
@@ -30,8 +30,8 @@ class Rpl < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/8e/5f/bd69653fbfb76cf8604468d3b4ec4c403197144c7bfe0e6a5fc9e02a07cb/regex-2024.11.6.tar.gz"
-    sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
+    url "https://files.pythonhosted.org/packages/49/d3/eaa0d28aba6ad1827ad1e716d9a93e1ba963ada61887498297d3da715133/regex-2025.9.18.tar.gz"
+    sha256 "c5ba23274c61c6fef447ba6a39333297d0c247f53059dba0bca415cac511edc4"
   end
 
   def install

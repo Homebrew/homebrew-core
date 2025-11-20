@@ -9,16 +9,8 @@ class HttpServer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bb1d84d1666919ec7a065dbb8d7a33a6b66ec0d853566efb9fbef8257202c827"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
-    sha256 cellar: :any_skip_relocation, ventura:        "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
-    sha256 cellar: :any_skip_relocation, monterey:       "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "aef704031b11e99b66edc4bd3807d1ea4b4c365582ae6d5d6b669303e2368332"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9f714a6e9f2aae98529f5cf3c01587a9c3ff867ad8aa8446453a62688ff4bb4"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "255fa4f7d541f2485fc11af34b8d240785fd6b364d7e98eae44800da7dcf87d1"
   end
 
   depends_on "node"
@@ -33,10 +25,9 @@ class HttpServer < Formula
   test do
     port = free_port
 
-    pid = fork do
-      exec bin/"http-server", "-p#{port}"
-    end
-    sleep 3
+    pid = spawn bin/"http-server", "-p#{port}"
+    sleep 10
+    sleep 10 if OS.mac? && Hardware::CPU.intel?
     output = shell_output("curl -sI http://localhost:#{port}")
     assert_match "200 OK", output
   ensure

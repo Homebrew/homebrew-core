@@ -1,40 +1,28 @@
 class OrocosKdl < Formula
   desc "Orocos Kinematics and Dynamics C++ library"
   homepage "https://orocos.org/"
-  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "5acb90acd82b10971717aca6c17874390762ecdaa3a8e4db04984ea1d4a2af9b"
+  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/refs/tags/1.5.3.tar.gz"
+  sha256 "3895eed1b51a6803c79e7ac4acd6a2243d621b887ac26a1a6b82a86a1131c3b6"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "56fb6d1bb7796ec39b73f9a1cd8da6f9f946549e90517b526139761bfbd2f820"
-    sha256 cellar: :any,                 arm64_sonoma:   "1f64cef75b8d38a0f735e2e173b8fbfe1eaec26519bfee0f05ee5be52e0fd26e"
-    sha256 cellar: :any,                 arm64_ventura:  "819c0a9c91a7572f68752d59feb7af82a9b91426d8cd7c14f1614a353f0e7a6e"
-    sha256 cellar: :any,                 arm64_monterey: "5b68c4676de398ade876c5c31510527a2b77be2c4b5cb992f5a8beb208d89d52"
-    sha256 cellar: :any,                 arm64_big_sur:  "75fc67af57edc2045d8932d1e3cea5b07ac3dfb4c9bbf9632def9c44e769635a"
-    sha256 cellar: :any,                 sonoma:         "b73b649ea45a3e8c44dff9cbbc7577e0c5e4e1d9ca2753e85b6df42eb38b4829"
-    sha256 cellar: :any,                 ventura:        "b06f4e556b6818d26b38fa070cc9aa704459ce3fe4525f3d530ace039d0338a1"
-    sha256 cellar: :any,                 monterey:       "0f49e657e15966fbd854e659a570141eb3f86028074eba50f90a3d0f66cf5d5e"
-    sha256 cellar: :any,                 big_sur:        "e7a5a2769dcbf1645d7f2daaf2d3814d4ee80497683ff18fd12196732f0135f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "866593697a60ffc5e5150e69f0048ddd5829a23d799c662eecc53d378fb3fa99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4992170c0dd7c7076a2bcbcc760518d2c815b2f918e7b1abcabf21c712f1c544"
+    sha256 cellar: :any,                 arm64_tahoe:   "f426120fbf55e9662b30801031021f06f97de8dceb6fa2b191767868e858f411"
+    sha256 cellar: :any,                 arm64_sequoia: "731dac44439182078ff405304de91785dd85c8c63ccdb9ace10b6c6892755b9a"
+    sha256 cellar: :any,                 arm64_sonoma:  "1e89c7a3075cb09bc42a48dac3e0615c3fb247610e47a1fed9b4ba16452523a7"
+    sha256 cellar: :any,                 tahoe:         "b3452bee349dfa41da18a7c9f3df3343561702441e13befe4f879bc4359c679e"
+    sha256 cellar: :any,                 sequoia:       "7c12c1c4509464c389d04d0a273e40d09e44da3df366ba5e889dc0051fa9823f"
+    sha256 cellar: :any,                 sonoma:        "c422791098d548a20a16a386b03514b3efddd1e4646804932559a98023ffd9f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0d188d3d5f65a19ecdd37d5a39d194177d341b70f755d7b8fb1459a59723fcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b9fe98f805b5c9c3944a6288a5a3abdc262ee58755d259fbeb11f04571e30dc"
   end
 
   depends_on "cmake" => :build
   depends_on "eigen"
 
-  # $(brew --prefix orocos-kdl)/share/orocos_kdl/cmake/OrocosKDLTargets.cmake does not export the includes
-  # orocos-kdl v1.5.1 was released in September 2021: https://github.com/orocos/orocos_kinematics_dynamics/commit/db25b7e480e068df068232064f2443b8d52a83c7
-  # Issue was solved in October 2021: https://github.com/orocos/orocos_kinematics_dynamics/commit/ef39a4fd5cfb1400b2e6e034b1a99b8ad91192cf
-  # No new release since then, so we should provide a hotfix.
-  # Can be removed with next release.
-  patch do
-    url "https://github.com/orocos/orocos_kinematics_dynamics/commit/ef39a4fd5cfb1400b2e6e034b1a99b8ad91192cf.patch?full_index=1"
-    sha256 "b2ac2ff5d5d3285e7dfb4fbfc81364b1abc808cdd7d22415e446bfbdca189edd"
-  end
-
   def install
     system "cmake", "-S", "orocos_kdl", "-B", "build",
+                    "-DCMAKE_CXX_STANDARD=14",
                     "-DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3",
                     *std_cmake_args
     system "cmake", "--build", "build"
@@ -54,7 +42,7 @@ class OrocosKdl < Formula
       }
     CPP
 
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lorocos-kdl",
+    system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}", "-L#{lib}", "-lorocos-kdl",
                     "-o", "test"
     system "./test"
   end

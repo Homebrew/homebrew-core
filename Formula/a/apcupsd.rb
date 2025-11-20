@@ -14,6 +14,7 @@ class Apcupsd < Formula
 
   bottle do
     rebuild 4
+    sha256 arm64_tahoe:    "b3ee569355dc3304f2efdf334b2b130088427c6cb9001213c73837ec7ef26160"
     sha256 arm64_sequoia:  "42e5ae7b28e6a629784dc2fde07477671a8348544e1472de2fd27ddf88a55dc5"
     sha256 arm64_sonoma:   "5a906ee35f2ec26d466dab2060b61af39dd43297e9580f804fba78f7f1e1bb33"
     sha256 arm64_ventura:  "d09fad7812d162e402914ee0fdf8e5bd91593dfc1a5050258eb6ba2296ef767d"
@@ -24,7 +25,6 @@ class Apcupsd < Formula
     sha256 monterey:       "e1b0cba1a14c977d8a7faad52c9d72080b745f7b3a49557a5cebe8171bcbc9a1"
     sha256 big_sur:        "1c425f1d6db43a760e4d068ae8ef193c3ca32a3157564989ba1a6aa2ce44a2c7"
     sha256 catalina:       "7636fe8d43fde7368817c64dc8f689526f48d2a958532e3fdd3f05db3deb4c5e"
-    sha256 mojave:         "7c87a398311314a0f789cabb5956932962800297e2ba4890f07ac60c13cc3f68"
     sha256 arm64_linux:    "2e4b840420d4e7b2712118ca0e9d789e0d6c1f44f54ea6bb49eca03b5548aef5"
     sha256 x86_64_linux:   "d393e850548713a383f89d2375fdbd895eae93c063c97b7e16cd767c881d983e"
   end
@@ -90,8 +90,7 @@ class Apcupsd < Formula
           sudo chown -R root:wheel /System/Library/Extensions/ApcupsdDummy.kext
           sudo touch /System/Library/Extensions/
 
-          Note: On OS X El Capitan and above, the kernel extension currently
-          does not work as expected.
+          Note: The kernel extension currently does not work as expected.
 
           You will have to unplug and plug the USB cable back in after each
           reboot in order for #{name} to be able to connect to the UPS.

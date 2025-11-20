@@ -1,25 +1,22 @@
 class I686ElfBinutils < Formula
   desc "GNU Binutils for i686-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.44.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.44.tar.bz2"
-  sha256 "f66390a661faa117d00fab2e79cf2dc9d097b42cc296bf3f8677d1e7b452dc3a"
+  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.45.1.tar.bz2"
+  sha256 "860daddec9085cb4011279136fc8ad29eb533e9446d7524af7f517dd18f00224"
   license "GPL-3.0-or-later"
 
   livecheck do
     formula "binutils"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_sequoia: "b0a006a8cb8b4b032c38c07349f0287d0cfb719ca75845cccb13415908b4938c"
-    sha256 arm64_sonoma:  "9afba9508ee359df64f8f4aa6b8281a9b10955e3931466018f055191b3fdc955"
-    sha256 arm64_ventura: "23dc4080e2539e76c030d156545e70b8e4884d382c960edc8f2d5380d4a96a14"
-    sha256 sonoma:        "3396bc05cca54e0beed9815a264d62409606b9c769b735961d6b6cf8f09f73bc"
-    sha256 ventura:       "c8aa9c42376c639a42c169b739428ce2686bf580c387830b13972ee33ee4742c"
-    sha256 arm64_linux:   "cda3cb982ee056cbc462a2da05b83a3cc3bd9f27989e56b569778badfb273b31"
-    sha256 x86_64_linux:  "958ff43e0bc720c34882ec39f853810e651989dfed66fc2af63c88361a96ab74"
+    sha256 arm64_tahoe:   "dbf3911e6559a1921813037bfb643eca2ee21db1108c6ce1e599bc29208dbd6d"
+    sha256 arm64_sequoia: "623c017a8c86ad5f893575a368261e6df814a79c3a7b8c1af6814dc857261c91"
+    sha256 arm64_sonoma:  "6360b0f6259e3dab4862bdbc8fd6d6420ee6de1277e8674b7055548b43f2a19d"
+    sha256 sonoma:        "e1a8ced292868c76b13dd0ee5421861a4a27f030d0812136d207e39d81c02536"
+    sha256 arm64_linux:   "a6090f1a3af2ed3c8d1c089ef087ef1bf968b66ae232232858deac3168374da4"
+    sha256 x86_64_linux:  "36e8f15db48ce2fe341317b88f1dbc864140f81419aa4eb3d13097db21bd1a9d"
   end
 
   depends_on "pkgconf" => :build

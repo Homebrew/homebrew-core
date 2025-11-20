@@ -1,0 +1,38 @@
+http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/net-analyzer/fragroute/files/1.2-libevent.patch
+--- fragroute.c.orig	2002-04-08 00:55:20.000000000 +0200
++++ fragroute.c	2010-02-03 21:23:21.451754240 +0100
+@@ -36,10 +36,6 @@
+ 
+ static struct fr_ctx 	 ctx;
+ 
+-/* XXX - these should be in event.h */
+-extern int		(*event_sigcb)(void);
+-extern int		 event_gotsig;
+-
+ static void
+ usage(void)
+ {
+@@ -140,7 +136,6 @@
+ fragroute_signal(DWORD sig)
+ {
+ 	warnx("exiting at user request");
+-	event_gotsig++;
+ 	return (TRUE);
+ }
+ #else
+@@ -148,7 +143,6 @@
+ fragroute_signal(int sig)
+ {
+ 	warnx("exiting on signal %d", sig);
+-	event_gotsig++;
+ }
+ #endif
+ 
+@@ -178,7 +172,6 @@
+ 	pkt_init(128);
+ 	
+ 	event_init();
+-	event_sigcb = fragroute_close;
+ 	
+ 	if ((ctx.arp = arp_open()) == NULL ||
+ 	    (ctx.intf = intf_open()) == NULL ||

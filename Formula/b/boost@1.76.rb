@@ -6,8 +6,6 @@ class BoostAT176 < Formula
   license "BSL-1.0"
   revision 6
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "5fa1820397b30bc594fc77f937a99af346f8e41340d532a13f59e31c7076f0ea"
     sha256 cellar: :any,                 arm64_sonoma:  "bf2654e857a043032de6fe7fc6c8388a52ee86338dbbfdedc28617bac22f2df4"

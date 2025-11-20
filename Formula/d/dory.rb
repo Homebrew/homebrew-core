@@ -9,6 +9,7 @@ class Dory < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9c554cd1ff4108aa4262eb12aa832ecd12632c0781352e211d67a3ba3c28b630"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e75ebd666b1c2b3d1ff21d0cdc9d8f820935e41e32c12533a544ccc4563f44db"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "445dc72e8fd5886e5378277044e12edabcdd9136857bbc7b259ef76a5d4941cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "801315212e458f3a16eba1e62acbe37a7ddec7fe6542b1546a0b01e4d33d8f27"
@@ -38,7 +39,7 @@ class Dory < Formula
     system bin/"dory", "config-file"
     assert_path_exists testpath/".dory.yml", "Dory could not generate config file"
 
-    version = shell_output(bin/"dory version")
+    version = shell_output("#{bin}/dory version")
     assert_match version.to_s, version, "Unexpected output of version"
   end
 end

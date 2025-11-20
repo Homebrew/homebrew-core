@@ -1,8 +1,8 @@
 class Doltgres < Formula
   desc "Dolt for Postgres"
   homepage "https://github.com/dolthub/doltgresql"
-  url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.50.1.tar.gz"
-  sha256 "6be207f152003ffa989daa53c2a34f924e46a706ee574c9148092b4a4f7664aa"
+  url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.53.4.tar.gz"
+  sha256 "c3fa41db9c7ee03af5d995e6a334b935ef8d25379352db68b452910ebbdd1466"
   license "Apache-2.0"
   head "https://github.com/dolthub/doltgresql.git", branch: "main"
 
@@ -15,19 +15,21 @@ class Doltgres < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c25436e0c3620249290d8d697d9ee593592fc215d0ed27e8372587e520cfa74b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a0a3d0684540201ce3d3bf8965a3c86bb8192d283f353dfdb75bad155a75f07"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "83d4a2ead1ae05cbd2966b549653c9bf8c06b93fe70db7f14164b3de10d745c8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ac5cbbcff64db390fdc38b488ebdb6248a744276a3cbc0e8e91d7e51b7c1ef78"
-    sha256 cellar: :any_skip_relocation, ventura:       "7eabd05c9974e336b0163d4c3d205cea9953dd398786168afdfc324631630bc6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75c6d7e214dafc389b0b9225a4056a82e9814d4f7eef991e68c6bd2e4027e7f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29e8c6d2c1f81a9f18c9380fffecb6b88cb0a23045696d2abd1904e53784f399"
+    sha256 cellar: :any,                 arm64_tahoe:   "03f727c247f615aa14c2791696229708f3a57be5c8f0da80f71cecdd8f26008c"
+    sha256 cellar: :any,                 arm64_sequoia: "12a6d4d3b2147471f5c14939d9329647555e136bc026b104eca950d56852fb85"
+    sha256 cellar: :any,                 arm64_sonoma:  "6473b0bf39a18a758c147a86cc548fe285457b93445379c631976eb576fed1dd"
+    sha256 cellar: :any,                 sonoma:        "06b465a975ceca62392a63ec7e7d93ebdb1f8e323f2d998465c8c0559a2da65d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c7daa917ee1cbd2ba14909ecc9d2043f897eb6102179be0d67659bb90657542"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c37af0bcda70ff706bfbc79523cff4c1bec48327e746bbaac1e86f6ee888ed3"
   end
 
   depends_on "go" => :build
   depends_on "libpq" => :test
+  depends_on "icu4c@78"
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     system "./postgres/parser/build.sh"
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/doltgres"
   end

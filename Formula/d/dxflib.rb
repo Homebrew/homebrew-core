@@ -13,6 +13,8 @@ class Dxflib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "3bbe74f4cb179ff9cd5df3e09b664f29033deb63211128b73bab5cf18c6b71a1"
+    sha256 cellar: :any,                 arm64_sequoia:  "a4ba8424bf3cd50726d26445fa590fb069d6dff461324400938a3be82e98ef0c"
     sha256 cellar: :any,                 arm64_sonoma:   "b82a6721fde448b539b34656cbde8cdd0699373ca2ce134f7d7424d8cdd29c66"
     sha256 cellar: :any,                 arm64_ventura:  "6807f88414e5cf6c874dd7eebd579298ecc0e99babb950a9a454cc9a55541071"
     sha256 cellar: :any,                 arm64_monterey: "7394d8e91ad3daefb69baae95372e86243fa69252aaaff0671aae88c5385b8be"
@@ -22,10 +24,11 @@ class Dxflib < Formula
     sha256 cellar: :any,                 monterey:       "47ebef21d6211ac7b080a8f1ed23dfb154febdf8dfd1a157b14e3c5dccea2812"
     sha256 cellar: :any,                 big_sur:        "86c60b0cc3b353b3652d6bb819c41fcec1cebc6c2f1f7ae435696bbae757a16f"
     sha256 cellar: :any,                 catalina:       "8bfd7c24979cf19191ff911bae9173666f84cf3b5995f3e16672041a9720220f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5c3d6128db7bb1a09a4e280074706cece0535a47ec8db471d4e7ad941dc7e2f1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e71a7e5920a5c7d7029edcf188bebf88aea640021d459ba1e2c0fa7266970c3a"
   end
 
-  depends_on "qt" => :build
+  depends_on "qtbase" => :build
 
   # Sample DXF file made available under GNU LGPL license.
   # See https://people.math.sc.edu/Burkardt/data/dxf/dxf.html.

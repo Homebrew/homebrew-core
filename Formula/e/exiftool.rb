@@ -3,9 +3,9 @@ class Exiftool < Formula
   homepage "https://exiftool.org"
   # Ensure release is tagged production before submitting.
   # https://exiftool.org/history.html
-  url "https://exiftool.org/Image-ExifTool-13.30.tar.gz"
-  mirror "https://cpan.metacpan.org/authors/id/E/EX/EXIFTOOL/Image-ExifTool-13.30.tar.gz"
-  sha256 "885afd06c4efcc60d1df703cc88ba7ddc3bb6fed854cfbaa9e6cd72adfbe8da9"
+  url "https://exiftool.org/Image-ExifTool-13.36.tar.gz"
+  mirror "https://cpan.metacpan.org/authors/id/E/EX/EXIFTOOL/Image-ExifTool-13.36.tar.gz"
+  sha256 "328a4a365db7d1051322897138a0665c405107e53f829d8d50ccf43b328e8c28"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   livecheck do
@@ -14,13 +14,14 @@ class Exiftool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70a143caa51de256d24593c73827e88ef2a11273a9193bf8f8f92d0975b748b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2393c32c588b880d4958673b5039a9fe41999220ba97db8c47bb0453587a7852"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b04c6d4670c42616e68ec0792dbb870eb2818bc140bf8177c13bded37572b9ea"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1db3793c461c2e091dec75ac92daaff5583129a7ccd23c066502a6ad366ece2d"
-    sha256 cellar: :any_skip_relocation, ventura:       "e176bf7544e0681be10f199c80eba26b5f7576a9c2fc425c785b2eb42648f69f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "706140522b5e03579fd189f8c2b771e46286de3d388c214a188d0ea478bab831"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9062b3428cc3c0ab5eec26846c515af95a3327b51db3c5bd03fda8104f78e5c6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c91e6565e988d158e0fc0946d90026c6d5b1f409aa70613716b50d03cddec04e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8ceb5e8de2603911a3a026807e930491a1dc5aa154d298ea23c9cb39b19cd7d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b5bbcd6686da4153fdb9bb365e6d0999f070b85714b9635731ee4f92aed98e5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "57036f7b4908ab460767afd54434e22015acfc026f79a45f62bf3e3d3995edb7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3c6a73572f184e0f45d4a1fba96180c995f7c7771988c5dc077b47d3bde2f836"
+    sha256 cellar: :any_skip_relocation, ventura:       "12a497ae4a72ef6cd78a4459fdf36610f37cb489462471afb79d58c5e3553518"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d2b1d90b88c5adb12b04021032d411c08c57ab5821637f108694a5a6acda098"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc381085733c7579a04f6020ead6781e1ee255bb323815a4c6b70d2947358225"
   end
 
   depends_on "cmake" => :build
@@ -48,8 +49,8 @@ class Exiftool < Formula
   end
 
   resource "Path::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.148.tar.gz"
-    sha256 "818aed754b74f399e42c238bea738e20a52af89a6e3feb58bec9d0130eea4746"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.150.tar.gz"
+    sha256 "ff20713d1a14d257af9c78209001f40dc177e4b9d1496115cbd8726d577946c7"
   end
 
   resource "Alien::Build" do
@@ -58,8 +59,8 @@ class Exiftool < Formula
   end
 
   resource "Mozilla::CA" do
-    url "https://cpan.metacpan.org/authors/id/L/LW/LWP/Mozilla-CA-20250202.tar.gz"
-    sha256 "32d43ce8cb3b201813898f0c4c593a08df350c1e47484e043fc8adebbda60dbf"
+    url "https://cpan.metacpan.org/authors/id/L/LW/LWP/Mozilla-CA-20250602.tar.gz"
+    sha256 "adeac0752440b2da094e8036bab6c857e22172457658868f5ac364f0c7b35481"
   end
 
   resource "Sort::Versions" do

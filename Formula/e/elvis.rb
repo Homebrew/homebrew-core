@@ -1,19 +1,25 @@
 class Elvis < Formula
   desc "Erlang Style Reviewer"
   homepage "https://github.com/inaka/elvis"
-  url "https://github.com/inaka/elvis/archive/refs/tags/4.0.0.tar.gz"
-  sha256 "002b4ee354b398e62cd29edc3f8ecdadef8d3cfe963bd0047e9512335e307f43"
+  url "https://github.com/inaka/elvis/archive/refs/tags/4.1.1.tar.gz"
+  sha256 "82a42102734285d0e39a8b55bc2195752f44347b6f2ef0962834e49579d067c8"
   license "Apache-2.0"
   head "https://github.com/inaka/elvis.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "869ab7edf1230befdc9f7dc7cfd3c5b9374dcc95950301d52f194b941685aafd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2591e0e85e7fc9b629bc1ff228c87d978e048b1b9bc2de01cce733ae3ca9e0e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c45f857aad49e4a6566251d7fc18cbaf98574111f5bf77d13e28307b1cac606c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "73bcdae25b799793a1087f545caa5074e432361dd97b69604ebdaaf56742da31"
-    sha256 cellar: :any_skip_relocation, ventura:       "f82822d583ea81ce907916f7ac5d67c6d6787c160406bf097a56675f53779416"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b39aa4ed566bc02c07f350ff9d0a54ab040003ced3318b06d0a52f17ac27f0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "640e7e5f6211bb72b71e5acb3c2bc4b34dc96c5e1e11c739955ce82f097bee24"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa95f536000cc0546c7237ac4dd7a4aadbe7b8da1f73e753b1f6a6159e6d1001"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bbbf2d22dc2579b2bf23653ca33921cf3c09c761553b48a20772e05467f00b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ce6e257ad7d6a96ab10bbade74ab0874c8051c4458ea5d25aae43ba31f372e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c35cb9a8771747e803826cf85e85d3520c0ab93268ce550b7f7af7e01edc21ff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7fca57a53ad55377d3cb7f0bed1403ae719bcda8a822415c6b72b37cfb2e9fe9"
+    sha256 cellar: :any_skip_relocation, ventura:       "e2b984f3450afb0226886466f6cbc5ee200b40c1013f40f14dada7e4d9d0d05c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f6a6b39e87fb2ca468ff0af6689e405b0bef520cc2e2a64d1b078596ef8a9cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85e5b379a541035dc3814efdabb279e71ca90a522c2fe0e5bfd79b09e6a82ddd"
   end
 
   depends_on "rebar3" => :build

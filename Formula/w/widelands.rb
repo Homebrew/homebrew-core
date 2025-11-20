@@ -4,7 +4,7 @@ class Widelands < Formula
   url "https://github.com/widelands/widelands/archive/refs/tags/v1.2.1.tar.gz"
   sha256 "799bfd32048ef20118c48e21f3fc843ae0451c42bb8bf2eabcb9b26bf6fe54b4"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   version_scheme 1
 
   livecheck do
@@ -13,13 +13,12 @@ class Widelands < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4579bc3c41f00266fe1e3a50b4f23febf356ffe7e658becd1340a9c9fb9c2b9f"
-    sha256 arm64_sonoma:  "d795ec6cfe18efe730a1ee729d28ce329f03905c5e476fa56d01545bbc324d86"
-    sha256 arm64_ventura: "cc89f8628d9dbc446a7a5d4f65269eb2e720c4b0f69a922fc05f62532f8a2e04"
-    sha256 sonoma:        "f6572c7feb4e4713414d27692883553a637aadf95ed03958f27a10bf5d0625fd"
-    sha256 ventura:       "181a93b0acd13093356cf0d919a013dbe4ffc00019f8f3e6ae1772d5c5a24749"
-    sha256 arm64_linux:   "6dc0a351fdca77d0ad76a78519f0582a2d452dabef0d20569daa98a420101585"
-    sha256 x86_64_linux:  "f2d1782fc0592643d470a43c5f269bc3172e5faa05f9f83bf97e609cb6ef8e57"
+    sha256 arm64_tahoe:   "2e93a441e258d920fffae7b0a0a009965eb49c4e775d65e50591af211786376a"
+    sha256 arm64_sequoia: "52ea992bb1eefb72d352bb73ae3de85042a5489d9b5330fd319ecec53e8a8f0f"
+    sha256 arm64_sonoma:  "1bcf79335668fad8e45389a492587b718f87d240fac8300ca6974f6b3ec07fa2"
+    sha256 sonoma:        "78aec7c4d000504fea9fe879aa4cec3d6661cd051537f90eacc9fe9957cf6bfc"
+    sha256 arm64_linux:   "abb750a955e4afcc7c7820c822920c79f90db4328cbcfaacd152a236ba85de39"
+    sha256 x86_64_linux:  "efca73a2fd0fbb0ec46951eccf835bad7ffd0b47d3f3dee959d1229b069b46ea"
   end
 
   depends_on "asio" => :build
@@ -29,7 +28,7 @@ class Widelands < Formula
   depends_on "pkgconf" => :build
 
   depends_on "glew"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libpng"
   depends_on "lua"
   depends_on "minizip"
@@ -49,6 +48,12 @@ class Widelands < Formula
     depends_on "mesa"
   end
 
+  # Backport fix for newer asio
+  patch do
+    url "https://github.com/widelands/widelands/commit/c0b44ccc04df35a9a23ca9be3e05f5d3a5428f6f.patch?full_index=1"
+    sha256 "8db8447ab83e10031e0903cc0accec962f30f5b9fa31a8ce68db788efa7756b4"
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DWL_INSTALL_BASEDIR=#{pkgshare}",
@@ -57,7 +62,7 @@ class Widelands < Formula
                     "-DOPTION_BUILD_CODECHECK=OFF",
                     "-DOPTION_BUILD_TESTS=OFF",
                     "-DOPTION_BUILD_WEBSITE_TOOLS=OFF",
-                    "-DPYTHON_EXECUTABLE=#{which("python3") || which("python")}",
+                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

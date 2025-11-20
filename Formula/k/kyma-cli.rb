@@ -1,8 +1,8 @@
 class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
-  url "https://github.com/kyma-project/cli/archive/refs/tags/3.0.0.tar.gz"
-  sha256 "b92eb18d96d4a47e581dde9fca3fc084c5d52af342a8dc6eb682a09b3e5b12ef"
+  url "https://github.com/kyma-project/cli/archive/refs/tags/3.2.0.tar.gz"
+  sha256 "9f58ca3c898e450aee12211cc47ee9bc1223e3fc1591dc9b467e1406b28dc639"
   license "Apache-2.0"
   head "https://github.com/kyma-project/cli.git", branch: "main"
 
@@ -15,12 +15,12 @@ class KymaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4014dd109281c286199191b2b2fc55413c4693db0580a192c02cfc4a94b96594"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4014dd109281c286199191b2b2fc55413c4693db0580a192c02cfc4a94b96594"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4014dd109281c286199191b2b2fc55413c4693db0580a192c02cfc4a94b96594"
-    sha256 cellar: :any_skip_relocation, sonoma:        "06ffb6fe90d8c3bc33e677490a6296f83aae63ac35a6656d5f2bd94ebb279a7a"
-    sha256 cellar: :any_skip_relocation, ventura:       "06ffb6fe90d8c3bc33e677490a6296f83aae63ac35a6656d5f2bd94ebb279a7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45737ddf5c24904e45ed8059c0fd608b43e8b58669c3a755053a2f4195c7f150"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f209e2271622adf9239a1fc7648d2ef0562f03e4c278bf602422860801bb16c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5714006d511f9702519770c3a34c1f981983dc352cba5eb777d38c528205a730"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7cae4cee86f16af89e8b4f5d7b4f35bfc94f58da7e4a29839cd399649bb2fb09"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dead6a1dcae6de0d7e730afbca1d3dfd45c9e3567d6902d495ce04498dad1adc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "291fb973bca696f80ebedb1325499d8255125dea3872b8da0cbcdb7c92c4aa2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac83d0fc00d3e3477eb8c977ae06edbd3e9e1cbae36e2478b409de5fa53ffd06"
   end
 
   depends_on "go" => :build
@@ -37,9 +37,9 @@ class KymaCli < Formula
   end
 
   test do
-    assert_match "failed to create cluster connection",
-      shell_output("#{bin}/kyma alpha kubeconfig generate --token test-token --skip-extensions 2>&1", 1)
-
     assert_match "Kyma-CLI Version: #{version}", shell_output("#{bin}/kyma version")
+
+    output = shell_output("#{bin}/kyma alpha kubeconfig generate --token test-token --skip-extensions 2>&1", 1)
+    assert_match "try setting KUBERNETES_MASTER environment variable", output
   end
 end

@@ -9,17 +9,17 @@ class Yamllint < Formula
   head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4241606602e0cab66eeec59f791c2a65fc6f46d9d83b903418c16892facba5be"
-    sha256 cellar: :any,                 arm64_sonoma:  "f98d6db2e13c8ba481acd4d15df4bb6a2a861a7af3e3bb64facfa45863d5424c"
-    sha256 cellar: :any,                 arm64_ventura: "306d5cdfa177ef0e748beacbafb5aa19883978f18ef6fdf937a7f21aed35c8fc"
-    sha256 cellar: :any,                 sonoma:        "f140abc3afa4e130c96fb66db179374b0c196ce62159e97aaf8321450f8a69cf"
-    sha256 cellar: :any,                 ventura:       "0abcd51823ae770c1f1e02ae64c36eaa593d5b3b9a4b634c112e731161821b55"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bbb3caa7cb9e282692efaede364d93f2c725402252dd7f87c28baca3f7848c9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce938787e6e7d11348544aad521f22cc82b22f332b6842e92003dd75d662e7c8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "b47462e8eab9f22ab1768d1d86018e1df02aa972b8c67163b2b34e4c6959d671"
+    sha256 cellar: :any,                 arm64_sequoia: "ea04f0dafe4271e07c7f44863b9a964c87710137cf0fed479e2e3101403a1365"
+    sha256 cellar: :any,                 arm64_sonoma:  "9220591106b4eeb94899f1f5c071fa0ac30e609e0b2907b19a60db12d4cdfa0f"
+    sha256 cellar: :any,                 sonoma:        "ba48a03d10464d37ca4e116a9e50f4479967b8683b324cf3951817a31f2587df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea18bdce2239ed653fae04f914e43dd3eb5da910f49a32277a62dc3b1652df8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56e2093dc7b6b03151e46cb5060eb234bae9e182a35a8742b0bcdd41f3f9f8b4"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "pathspec" do
     url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
@@ -27,8 +27,8 @@ class Yamllint < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   def install

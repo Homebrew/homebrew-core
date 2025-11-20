@@ -15,11 +15,13 @@ class Feishu2md < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b8a048647d96c65e3452e1a264864e97e3da5ce5349065d54ad04e9ec3e7d38b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4c812d090212b6e7eabb66e2d279ce5efc65c8da48b08f8c7681d5a4c4f8f99"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b4c812d090212b6e7eabb66e2d279ce5efc65c8da48b08f8c7681d5a4c4f8f99"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b4c812d090212b6e7eabb66e2d279ce5efc65c8da48b08f8c7681d5a4c4f8f99"
     sha256 cellar: :any_skip_relocation, sonoma:        "3c35747c3979260aecda237aa32d26a43af9c2c1000829cda553b258e69aebd7"
     sha256 cellar: :any_skip_relocation, ventura:       "3c35747c3979260aecda237aa32d26a43af9c2c1000829cda553b258e69aebd7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "696c81363f606835062736840a812fa15156df117727e71b3e449af64f53c373"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0251b8e957eb435d263ad80c9ea9b0e879959c9bb234bbb9169bbfc4937ef065"
   end
 

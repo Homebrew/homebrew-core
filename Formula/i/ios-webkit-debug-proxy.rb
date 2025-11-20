@@ -1,21 +1,20 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "6b7781294cc84d383c7e7ecd05af08ca8d9b2af7a49ba648178ae4d84837c52b"
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/refs/tags/v1.9.2.tar.gz"
+  sha256 "768f101612bf5d2507957f10a8e34e98675ea8fe3c63b8ed78772f8abd103fbf"
   license "BSD-3-Clause"
   head "https://github.com/google/ios-webkit-debug-proxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "b8ca23a0fe897b848f8fbe19273bf1e78793f7b0f9ec2ff9399173f4d8af7f1a"
-    sha256 cellar: :any,                 arm64_sonoma:   "e94dd8359b362248a2add9bb60bdd7eaf096290b5fada5d73b8c8cfa86ea79da"
-    sha256 cellar: :any,                 arm64_ventura:  "c74be0abfd3c227042b2be63c13207a9e6b72c228ab9c027d1f8c0ecd89f6abe"
-    sha256 cellar: :any,                 arm64_monterey: "34da6aa20a69ca6f79afff001898af9994b697331815b44ae572a05c25dda7e4"
-    sha256 cellar: :any,                 sonoma:         "f62dc78d90d3d02d3d0ea7f4d4d3d82b13affcdc403955113ec0d73d56c74fc3"
-    sha256 cellar: :any,                 ventura:        "22cb1b17edbddfc17bf64112a60d32fd659dfadce8cf1521018b994f89194f0d"
-    sha256 cellar: :any,                 monterey:       "a2ec7d1750d1c8d4370679e255f75957f6365bb55259b21967216ea5549ee88f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "5838f6c52b74b403ec6ec7bc002bbda9336cfb033144fa2a48aa87d644fc2c74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44137a86b9210566d60a3b8b8e09f5cca01340f2db9441c6a29375df8e8e6db9"
+    sha256 cellar: :any,                 arm64_tahoe:   "c79d6aaae9beba337352d712a586104f7a3077e5d4ea9cbcd50c1603495b409f"
+    sha256 cellar: :any,                 arm64_sequoia: "878606bc7a7c42583c379a8f9713820531dc4e5eeeacc477289f9d7590cca6b7"
+    sha256 cellar: :any,                 arm64_sonoma:  "2fad8ed6dc4a59daeb709bd10f69f7bdf8eb50b7d8e1d5e233172422b25adfad"
+    sha256 cellar: :any,                 arm64_ventura: "c1e3ef891cfe774490f533c4149121064d4ad643e248940ba7735c95a80874ad"
+    sha256 cellar: :any,                 sonoma:        "7c8b1b853f68361cecff8b2381ef54476e0e739f9834d71dccf42e8732708c16"
+    sha256 cellar: :any,                 ventura:       "31f5c733af39160d923f3f8a7ddbe239cf912c0c38df56677411fe81014c2565"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c83e58d00a3cb9b705be17b8263be3d196fd60e7f59de50c1d6ff2a243bee8f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50df7f8e566369e2053f177d72b37e768ca3c047afcfc27965313b4aa13651d2"
   end
 
   depends_on "autoconf" => :build

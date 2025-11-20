@@ -1,19 +1,20 @@
 class Marcli < Formula
   desc "Parse MARC (ISO 2709) files"
   homepage "https://github.com/hectorcorrea/marcli"
-  url "https://github.com/hectorcorrea/marcli/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "673f3237baa843db13f671c5a2e3986aa272566a38835bdd042377327ff9d9cb"
+  url "https://github.com/hectorcorrea/marcli/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "944c7c389d384a9515799bb688cb9ced80344709758a42c714f726957785a1c4"
   license "MIT"
   head "https://github.com/hectorcorrea/marcli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "094b57f3f543ddd6cfdbe59ae3471ff70b5c1558290d0af936274d47c02e7a01"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "094b57f3f543ddd6cfdbe59ae3471ff70b5c1558290d0af936274d47c02e7a01"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "094b57f3f543ddd6cfdbe59ae3471ff70b5c1558290d0af936274d47c02e7a01"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a7d0a23c4c74f8067d2019c713baecf5d1217c10b308dc5fb95b7005aa9d2228"
-    sha256 cellar: :any_skip_relocation, ventura:       "a7d0a23c4c74f8067d2019c713baecf5d1217c10b308dc5fb95b7005aa9d2228"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "55d7013246601fa973521af7319642cd92b6a0b1bf911867fe9e215f19999159"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9ff92374dc575521c6033af290af42f3cb52cf092035c740f79bd5afa43c966"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f76947a31b32725929e5172ca3456da7061128f7c9acd0c2de54c3b344bf7fb4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2152b85bd6b2a00ebe84d354e0b09066a463a4442d3478529513021b63769216"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2152b85bd6b2a00ebe84d354e0b09066a463a4442d3478529513021b63769216"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2152b85bd6b2a00ebe84d354e0b09066a463a4442d3478529513021b63769216"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fba05203356da269bfb3f6b89e0fda85562698c63860bfb036f7e1335c0e0dd2"
+    sha256 cellar: :any_skip_relocation, ventura:       "fba05203356da269bfb3f6b89e0fda85562698c63860bfb036f7e1335c0e0dd2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "43204fe80171a0721bddc9ddd40d75d2936fa9accd5e0f3eed1f3d1b2e2c989c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8569415a2de99dcf9476b4bf9b9d8e0d5c738b17c386e017a74f4b53887f2a1"
   end
 
   depends_on "go" => :build
@@ -29,7 +30,7 @@ class Marcli < Formula
     end
 
     resource("testdata").stage do
-      assert_equal "=650  \\0$aCoal$xAnalysis.\r\n=650  \\0$aCoal$xSampling.\r\n\r\n",
+      assert_equal "=650  \\0$aCoal$xAnalysis.\n=650  \\0$aCoal$xSampling.\n\n",
       shell_output("#{bin}/marcli -file test_1a.mrc -fields 650")
     end
   end

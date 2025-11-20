@@ -7,6 +7,7 @@ class Flann < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f72b2d340b2fc8b30e677ad96ea304d300d5237080ecda763bf8c4599ab815e8"
     sha256 cellar: :any,                 arm64_sequoia: "47250c09074574e097f6a58846c183e51d0e36df9409b2d11ed5aee36691b78d"
     sha256 cellar: :any,                 arm64_sonoma:  "a90114e86c64bd05b7804ee9cdd0aa1b7032c4e7604b37bf760b1e2a7ac7b85a"
     sha256 cellar: :any,                 arm64_ventura: "fb161bd13f745de377d0c7da4959a538859a05f1327a4cd1dcc715f753e166e9"
@@ -22,10 +23,14 @@ class Flann < Formula
   depends_on "lz4"
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_PYTHON_BINDINGS:BOOL=OFF",
-                    "-DBUILD_MATLAB_BINDINGS:BOOL=OFF",
-                    *std_cmake_args
+    args = %W[
+      -DBUILD_PYTHON_BINDINGS=OFF
+      -DBUILD_MATLAB_BINDINGS=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

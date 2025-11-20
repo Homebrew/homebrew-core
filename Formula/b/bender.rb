@@ -1,19 +1,18 @@
 class Bender < Formula
   desc "Dependency management tool for hardware projects"
   homepage "https://github.com/pulp-platform/bender"
-  url "https://github.com/pulp-platform/bender/archive/refs/tags/v0.28.2.tar.gz"
-  sha256 "1de599efd238f3238e9bed09005547e63b82c4d98affcd63c565ab650bebc9ad"
+  url "https://github.com/pulp-platform/bender/archive/refs/tags/v0.29.0.tar.gz"
+  sha256 "7a7680406c3119848c5c3c2da54d5eca9639f1ec36d47784375f7464a0289b01"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/pulp-platform/bender.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0025f80ceab8991afc8be4e8beb1987fde448db3ff24c614063a73552cb38d36"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a620fe1ab9b5780e8c40141af6565232f050679f16437cd38a3792a4e63809bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b8aa18cb5cc4618a4a902a66344a7a5e6db58420892a74cef95db97b62eb896"
-    sha256 cellar: :any_skip_relocation, sonoma:        "278268ed63d2c0c7becc6062fb2d85af2e5f906ce83999ee064c37c7a6b6553b"
-    sha256 cellar: :any_skip_relocation, ventura:       "47002f217ee6c2ab0b3443193cbc376eba93da8d8871a7b8ca616f8f04cdf2cb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "716652ec6f1abd66d61826ecfb6032a1a1bf385928a1011934f71acea34dd09c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbf6968800c089378274ab4ac70a4f709b2b7fa688d601cbcfc17538d01e9fbe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3116e68b434ff1bfa87ee929f14f48dd2ca93b7749062b591f46fe85270fae88"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9a313fef3a45db1d878000524631bc030771bacf78a529d6fe4fc4b6ea76bdb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "56239024f29f59f1c2ef5780afa85e94d70c43848be281a1cd06c04d1f1e4e53"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb5a0737dcd45698e6256fd73e9631e570c9540f890452a138f500aed0dc3112"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9082a9440c0006d9180c1917a6c4d3ddf3b0bf7891a633ee5b46a8fbc83d23e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d3f14d34128562b18fc6b3407c1453e15dc7246c0e054bb8a4e17815b1008b6"
   end
 
   depends_on "rust" => :build

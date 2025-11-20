@@ -2,19 +2,18 @@ class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v3.18.2",
-      revision: "04cad4610054e5d546aa5c5d9c1b1d5cf68ec1f8"
+      tag:      "v4.0.0",
+      revision: "99cd1964357c793351be481d55abbe21c6b2f4ec"
   license "Apache-2.0"
   head "https://github.com/helm/helm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2839421ff115477637eb88afa346ba7108229013954aaed80d4a259bd28d7462"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7eb5a917a4862aad9c9b3a0773c1479ff58f315e1da7eb0821a8ab93cbc2ef45"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "26bafae2cc635414d9d73dbfb040099969280cd33147c888e3f5eb04ace75deb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bcfdbfdb41d69f2dfac93b026e635b517826ed020aceae7ba46a98d608ddc6f2"
-    sha256 cellar: :any_skip_relocation, ventura:       "dc2f2bf6003837227abec1d7cfdc02fe2609c241561650f1928e4a4059a52e98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3987965b39c4e72f945704466af8003675e61995e5fdaceea7589000541e0f34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd3527cb26cf230591eba0e088038c9ec922e904f604899863fe3d17de08570b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "801f5e2e1471427aee9e2c6fe3618759de1caf4178838c68d5b0bdb9fea521e9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69d24be9e621254805bce9fd3100e17b88bbcd7ff6637a323f92d99bf3ff5128"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bfc9786b9e32abd0130b67a8d0ea496b9aad516f260b5d23caaa5a32e0706a30"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6a20b815d0952f0df2b9b5d22728016e14d9ff8105656201d621bc224ad13f6c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "96687c6d0c645d5bcaac695a616cbf44d4d9e6da394cc8161ee0323fadf75acd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fee5b941c9bb1954b503ab2531eb35851f03e12a765c1f20fae199633610e111"
   end
 
   depends_on "go" => :build

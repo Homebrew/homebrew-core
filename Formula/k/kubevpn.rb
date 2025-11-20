@@ -1,19 +1,18 @@
 class Kubevpn < Formula
   desc "Offers a Cloud-Native Dev Environment that connects to your K8s cluster network"
   homepage "https://www.kubevpn.dev"
-  url "https://github.com/kubenetworks/kubevpn/archive/refs/tags/v2.7.15.tar.gz"
-  sha256 "c1a10d8ad8ba4b63195f3b7896532d7e1e135b4423a1450baf39c3356dba566c"
+  url "https://github.com/kubenetworks/kubevpn/archive/refs/tags/v2.9.10.tar.gz"
+  sha256 "ad67f67fc8611ccbf217d836f06aa90d36ccb4d0cb9d2b05b4033607cf9069ef"
   license "MIT"
   head "https://github.com/kubenetworks/kubevpn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a9cc9430fd4ea59b37e01589db89784b143cb88a90f20252df437ada33f3e5b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "673a8a8d15b585f169fb732230695cbe1a8b2528c2e60c58eeb6f0324a1759ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4bea43dc8025a548f618a380705ee76cfde0a095a14caf61159c79a04f879694"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4d6e972682b6b9f882701560c9ff95601304acff6c7b1848355bb6df65c8c1f7"
-    sha256 cellar: :any_skip_relocation, ventura:       "a07006c193c072c8452ea2efabf9f0da78bfcbf93079c10308efd0e241128d23"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "48f5cbe847baa4330ebfe73608ea3366d34c36a849d76b3b86bc9a994f4434eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdb6997374e8b782abb61a36e4c109912fa098319d1771cc3ba162f3b48812a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1994b5fb35a180c419b61b2b23aa20304130a23124630ff49a57181de293f46f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "700c847cb7e019a8d8155907b76337ce98c517c732bebdfe70ba4a9c6dcaf6e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "810731db180e6f19a5d94afafd62f57f86ac2613e54d55395c351546e7ca7bac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "890734bf0c142a978da058c990500a226534edb8866c3de7ecfd1e4530511d64"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f48eeaef1426dd1fcad16d8be13295458ae390ade34c224eb664effef860fa5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e5a1b163225410468af6078a3da8bc387d8f7b0d37c5a168bf5c3ccbfb96e83"
   end
 
   depends_on "go" => :build
@@ -26,7 +25,7 @@ class Kubevpn < Formula
       -s -w
       -X #{project}/pkg/config.Image=ghcr.io/kubenetworks/kubevpn:v#{version}
       -X #{project}/pkg/config.Version=v#{version}
-      -X #{project}/pkg/config.GitCommit=brew
+      -X #{project}/pkg/config.GitCommit=#{tap.user}
       -X #{project}/cmd/kubevpn/cmds.BuildTime=#{time.iso8601}
       -X #{project}/cmd/kubevpn/cmds.Branch=master
       -X #{project}/cmd/kubevpn/cmds.OsArch=#{goos}/#{goarch}
@@ -37,7 +36,7 @@ class Kubevpn < Formula
   end
 
   test do
-    assert_match "Version: v#{version}", shell_output("#{bin}/kubevpn version")
+    assert_match version.to_s, shell_output("#{bin}/kubevpn version")
     assert_path_exists testpath/".kubevpn/config.yaml"
     assert_path_exists testpath/".kubevpn/daemon"
   end

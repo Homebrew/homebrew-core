@@ -5,7 +5,10 @@ class Vcprompt < Formula
   sha256 "3db5ebad2e333d43b464b665c8d43b35156b0f144052f10c340a5c5007a6874d"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "c88613793fa29e4eef8e6871f9974a4486fc0129194e7ceafe26d257a253d06c"
     sha256 cellar: :any,                 arm64_sequoia: "647b480e6f4b4168c0c89405dfa6351f9a0ae16065be2a90c9822ae958cc789f"
     sha256 cellar: :any,                 arm64_sonoma:  "aea4d0a7c13f68e976cfb12ffb42b2ad3d7cbacb46ba0716039d72a8027401e4"
     sha256 cellar: :any,                 arm64_ventura: "a83a4e89e903a4d9c4ec2110d37bac60d699247a24efd4f880787243b090a1ef"

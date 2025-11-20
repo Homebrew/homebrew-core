@@ -6,6 +6,7 @@ class Smake < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "935c37ae0dc9258ccd97c8cf55851d91dd4c0ac1399fd138f61edec5dabf4306"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b2c9095c632a8c91be31c300a3a21234bc06c0cfec1772d9ca0af21a4230c69c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54d5687fe82a141e445b3e6bf8404dda343c41e57b0c67bc3292241b5af28d1a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1f63df56d0dd8903164a3fa57dbf30b9d71904ddf051ef907e616e8b535da79"

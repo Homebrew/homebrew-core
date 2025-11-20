@@ -1,11 +1,10 @@
 class Pinentry < Formula
   desc "Passphrase entry dialog utilizing the Assuan protocol"
   homepage "https://www.gnupg.org/related_software/pinentry/"
-  url "https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.3.1.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/pinentry/pinentry-1.3.1.tar.bz2"
-  sha256 "bc72ee27c7239007ab1896c3c2fae53b076e2c9bd2483dc2769a16902bce8c04"
+  url "https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.3.2.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/pinentry/pinentry-1.3.2.tar.bz2"
+  sha256 "8e986ed88561b4da6e9efe0c54fa4ca8923035c99264df0b0464497c5fb94e9e"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/pinentry/"
@@ -13,15 +12,14 @@ class Pinentry < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "1d5fc3eb19d7e41caa4a8b61530e7040d0f3fbffb812ca24e116d6b247a0dadc"
-    sha256 cellar: :any,                 arm64_sonoma:   "d657fb607715d8f374bb50e79be0a1bb129bf1f0cfb0f706dc0688d10058ee89"
-    sha256 cellar: :any,                 arm64_ventura:  "5dc139b14332cfb907a8179e28d36a501266686699ce387f48452b060a21ebb3"
-    sha256 cellar: :any,                 arm64_monterey: "829c5388c7fc1c40eaeba29199ae97ebd727bc2df2f143f1a6818f07b79dff12"
-    sha256 cellar: :any,                 sonoma:         "6eb6f95ae8513f179cb658043457e39dbed3b95bbf1a7bb8aece3158d2fd4299"
-    sha256 cellar: :any,                 ventura:        "1a750d73932b1c874887b38e186ad2017a36f230f3306983575bfa8b35c25e0d"
-    sha256 cellar: :any,                 monterey:       "4bed735f12804f39955128939408210a31a8d0fd0b7d61f309779daa66053692"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "ccf9f241e021929831e1da0c43206b87f99d1886d46e77ea8294f671ceb06c4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3e303a0b8099dedac66bbc95a0fdc3cfda679e594e60972d99eb3025c6f79fb"
+    sha256 cellar: :any,                 arm64_tahoe:   "8db428e52232580a5acf1da5a370c39c425e5320a28e967ae091f1c82596b50a"
+    sha256 cellar: :any,                 arm64_sequoia: "f6dfd4bfdda001ddfddbed01c6ad7e06408ff022788a7718d35e443ebcb31274"
+    sha256 cellar: :any,                 arm64_sonoma:  "45317e1d4023306c38e0118f48f75fbdc09df2b22ca0428f747ad4844413bd2c"
+    sha256 cellar: :any,                 arm64_ventura: "114df538a9d7172db7eb15b1c1380617fe8e7f3da735d1941dd3fef520aeaeec"
+    sha256 cellar: :any,                 sonoma:        "d0efed8b2727ae08821905faaae114946dc6ca476acc9e64f05b9d54923ec965"
+    sha256 cellar: :any,                 ventura:       "d5febb0ffec00281abc40d54ebf90929861452ea2a9dee1394a54f9ccb96dc3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5b34aeb57f37731401747e632485c6e5d8d6b60f1e025323558d7b0b3dac96e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92da639e8c37468025b9464abc36f6b15d13a2a096c25c0c860450745c7d696d"
   end
 
   depends_on "pkgconf" => :build

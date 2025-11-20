@@ -1,18 +1,17 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://mongoose.ws/"
-  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.18.tar.gz"
-  sha256 "8b661e8aceb00528fc21993afe218b1da0f0154575a61b63ce0791ad8b66b112"
+  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.20.tar.gz"
+  sha256 "e971804cd22fbbaef03600fb6100023446e29386dedfd6cb2b3f06652544b7ba"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c9b6257a6f94c7de3aacf1d0910fb64040e936276e857a3e39f07719877f9f00"
-    sha256 cellar: :any,                 arm64_sonoma:  "404c20eea42f1a4f82a71b24fbd6f86dc852f165c3b05888c61157c65c641fec"
-    sha256 cellar: :any,                 arm64_ventura: "a8ba96bd0932872b97b66f17f3b2b5adcdf5c37cce8f38547207707df910181c"
-    sha256 cellar: :any,                 sonoma:        "aab6085231ab726182a67b541750d8004cfe7907bed8cd645284e417be7f143d"
-    sha256 cellar: :any,                 ventura:       "5e340bb65e242915f274093e833ebfabf4db89c678ea2eff3d663f677ce7dcea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb1f43f42d51a855ec0b3de2893f72dac92f3bc1a9985907bf2353f7f8cfe3a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b7e641817714cb791b70ed13d943e33a17247a975ea054949b66266c55fd463"
+    sha256 cellar: :any,                 arm64_tahoe:   "811150b16e4dd4a6747e92e83f63340ca31c4e6d042fb307cb145820a64c9bf5"
+    sha256 cellar: :any,                 arm64_sequoia: "6720fbe30dd982529ea75bd51dcf74ac79803027762693a6b7f78324e6942c29"
+    sha256 cellar: :any,                 arm64_sonoma:  "5cdd7fface33823823328e34a7a4dd53d03c1511b7eae935f4e3d15833dbc8b5"
+    sha256 cellar: :any,                 sonoma:        "4bd98a3a8c27be0e5c86ee34eb0d65f7aac3621f3b08e3dd9d95d7f5d633481c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f6296e92ee63ca83a980a0f4b122703a0dac0bc9638ce2c7ca8aaa86d0a548c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e02ac4d9a40bd8cdda354dcc2939dceee56eb604efb65cc5510d0df9c359cf1"
   end
 
   depends_on "openssl@3"

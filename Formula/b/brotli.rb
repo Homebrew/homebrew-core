@@ -1,10 +1,10 @@
 class Brotli < Formula
   desc "Generic-purpose lossless compression algorithm by Google"
   homepage "https://github.com/google/brotli"
-  url "https://github.com/google/brotli/archive/refs/tags/v1.1.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/brotli-1.1.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/brotli-1.1.0.tar.gz"
-  sha256 "e720a6ca29428b803f4ad165371771f5398faba397edf6778837a18599ea13ff"
+  url "https://github.com/google/brotli/archive/refs/tags/v1.2.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/brotli-1.2.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/brotli-1.2.0.tar.gz"
+  sha256 "816c96e8e8f193b40151dad7e8ff37b1221d019dbcb9c35cd3fadbfe6477dfec"
   license "MIT"
   head "https://github.com/google/brotli.git", branch: "master"
 
@@ -14,20 +14,18 @@ class Brotli < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "64750425b7578860d8b6a75fdb187408667f7d6523169e8dc29528bbc15309f0"
-    sha256 cellar: :any,                 arm64_sonoma:  "e75e7d3e86aba0f1a48f59bab9d819dbdd52c22259fb893ff1e796ca4dc9be75"
-    sha256 cellar: :any,                 arm64_ventura: "531d7745ef045b6fe35a32f852d377a9bed6ea8a2c26828d8e18ce8388c1346e"
-    sha256 cellar: :any,                 sonoma:        "8934e84777d1c6f63d6e4c07213731c9af1b7a66d5f0a6b3ef0bb6d56bb63a86"
-    sha256 cellar: :any,                 ventura:       "59cbd7977b1e037c70d43e339dec2a8631d1360ceb4aa1f4a7780e2c4fef3540"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72028690302ef20e9dcf10cd6405a8d8b736688ebd4ad7203078ee57be0f92fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1502cc6efe4e7b2835b1a8cb34536acee19d3c48ea3a440b57d88e5cab2ca81"
+    sha256 cellar: :any,                 arm64_tahoe:   "71ffd30ccd74a9f28cfb210c21fcdc1aa5fec79e23ad2264b6dbceb73437601f"
+    sha256 cellar: :any,                 arm64_sequoia: "b8e388c96be5a63a46e0335c390fecb20dda7adb1368a2ba0209b38cae17c708"
+    sha256 cellar: :any,                 arm64_sonoma:  "46b1cc7ef8ba325e56f7363de1068a84449dac940187dd2290a75e7008b3b4e1"
+    sha256 cellar: :any,                 sonoma:        "c9d272f3ac33b730d548da14ca323e8b4e0185273a6c85b0f12a4bbcd9f684af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "485e0a6a74702cbe57819b32177bfb81e0195a71f52a16bab84b03529a672cf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d97618daaa84b66bc783888297f1765eb6f60e6a78e9b7c2ba0406889c159c05"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build", "--verbose"
     system "ctest", "--test-dir", "build", "--verbose"
     system "cmake", "--install", "build"

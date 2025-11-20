@@ -1,8 +1,8 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.12.0.tar.gz"
-  sha256 "3d4c8acddf9b975e77da68cbf748d5baf483d0b6e9d703a844882db25dd61cdf"
+  url "https://luarocks.org/releases/luarocks-3.12.2.tar.gz"
+  sha256 "b0e0c85205841ddd7be485f53d6125766d18a81d226588d2366931e9a1484492"
   license "MIT"
   head "https://github.com/luarocks/luarocks.git", branch: "master"
 
@@ -12,7 +12,7 @@ class Luarocks < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "78cf2c9f0b7d5235102f6bccfa9c2aa43857cff0b7a6f5d50225c45677b4cd98"
+    sha256 cellar: :any_skip_relocation, all: "7bc6365426b00c812417e7449477dd2ac13fd5fae072dfe7be78d5449225b195"
   end
 
   depends_on "luajit" => :test

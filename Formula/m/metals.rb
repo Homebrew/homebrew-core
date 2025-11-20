@@ -1,8 +1,8 @@
 class Metals < Formula
   desc "Scala language server"
   homepage "https://github.com/scalameta/metals"
-  url "https://github.com/scalameta/metals/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "dd46cccb9ca716e5814f4d75fed8e054da907be5c332403552f492d447faa40c"
+  url "https://github.com/scalameta/metals/archive/refs/tags/v1.6.3.tar.gz"
+  sha256 "5e6147091340ebfac1037a30af225d7684b1022e49f52a55268444b51fa12a4c"
   license "Apache-2.0"
 
   # Some version tags don't become a release, so it's necessary to check the
@@ -13,13 +13,12 @@ class Metals < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c00e9f28c10edccfe1fc505d060b4f3d35b8848331308d4a2a4d3a91ed2cb10"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3e473634629b8c93496d9c9112ce78103907adcd7a04ca0f1e02844ffaf2020"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ea45c3d40c637347ad7dba7e97268127bfe7e8edb438f564b9d3f8062bb055e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f5a5eead1a84d975055510e899b31fa8e165aa3911a00579262dfe0b9da33bf5"
-    sha256 cellar: :any_skip_relocation, ventura:       "329928b4de7ec712f1fdaafcfe65001d1204ca84024c121bbabdcbb19d659ef6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0be5303ea2086fcaa7f2d8c0cd8af9802725e6f2a60782f1d4341a6fe92e7341"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a61b7cfc5d3c502a3a2bbdad979a68e52495ddc6ba512ef96ef3f13904725491"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8629460eb8e87dac5e495b1b04f1bc11d080ace5b01de68da14ebac59b66f968"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b76dacfe107ba418b52414efe52a5d33519d675c26ae717ce771ab914908171e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4458fcba1a74cd770139e05b3fedc2816a36e749572e7911e0ba1025953e5f31"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ef3df00b0d625c6e1aeb3d6daa6bff9fdb35d353a7405e8a70ad2f1ebd40b6ba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f8ff6636a39800500564f07cc16a68147b2a8505f2093f89c88346fdc8489ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "942eb69772978c373cf56ddf1d826729a51bb75a8318011ad7a054666e6ce557"
   end
 
   depends_on "sbt" => :build
@@ -34,7 +33,7 @@ class Metals < Formula
     # Following Arch AUR to get the dependencies.
     dep_pattern = /^.+?Attributed\((.+?\.jar)\).*$/
     sbt_deps_output = Utils.safe_popen_read("sbt 'show metals/dependencyClasspath' 2>/dev/null")
-    deps_jars = sbt_deps_output.lines.grep(dep_pattern) { |it| it.strip.gsub(dep_pattern, '\1') }
+    deps_jars = sbt_deps_output.lines.grep(dep_pattern) { |line| line.strip.gsub(dep_pattern, '\1') }
     deps_jars.each do |jar|
       (libexec/"lib").install jar
     end

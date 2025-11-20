@@ -8,6 +8,7 @@ class Ddcctl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0377e06b8510577260ae7a490fd2dc63ca9477a43384559cc454409ac9c89dbd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b0badc9ed3ff51d2791d383be14e194131ad46573340e4c6bd2723207c624482"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6572e1da056641ec5b483f2b5a77eb188753ccb3c9001936733c8c6ceb9ae8b4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "44ff8d31bf1287d9bf29c3f47b6fdc3034c3fe3eb801619cf2ca948ef69bcebf"

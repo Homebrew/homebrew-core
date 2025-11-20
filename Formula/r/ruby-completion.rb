@@ -7,6 +7,8 @@ class RubyCompletion < Formula
   version_scheme 1
   head "https://github.com/mernen/completion-ruby.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "d42c9cca43af3e04b6f0f6afc91b09543147e9e0af69495cafc8f0d1f60dcc14"
   end

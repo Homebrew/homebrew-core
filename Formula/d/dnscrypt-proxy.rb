@@ -1,8 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.info"
-  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/refs/tags/2.1.12.tar.gz"
-  sha256 "95fe29ed03dad0cdd34d47316ecb15c25f7ef5fab21d9ec52cbfc4743bcf5198"
+  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/refs/tags/2.1.14.tar.gz"
+  sha256 "495c4f494d40068e5e3ddcb8748d91b90e99f2516060e3b59520b9f3d6148a9e"
   license "ISC"
   head "https://github.com/DNSCrypt/dnscrypt-proxy.git", branch: "master"
 
@@ -12,12 +12,14 @@ class DnscryptProxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38a991fd79def4d2ee222219c359c4fc1c17d40a285a770acffabf3699421e22"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38a991fd79def4d2ee222219c359c4fc1c17d40a285a770acffabf3699421e22"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "38a991fd79def4d2ee222219c359c4fc1c17d40a285a770acffabf3699421e22"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3964f11eafa485a11c0d7b7643977a2e9f301ef23cea1f16d09e04f251332223"
-    sha256 cellar: :any_skip_relocation, ventura:       "3964f11eafa485a11c0d7b7643977a2e9f301ef23cea1f16d09e04f251332223"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bacbce7fc6809f62c43f35e400c771803a10ad1cbe95369939b8c0ce4cc097d3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f777ca5ee453c1a5f540bd82e96e44aee0ac723a6e0ba27d259bb36ad66e2e2b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e68f4297462c1d9d0c5a6078d876641084bd0961916d2276bda880d96d94e45"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e68f4297462c1d9d0c5a6078d876641084bd0961916d2276bda880d96d94e45"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4e68f4297462c1d9d0c5a6078d876641084bd0961916d2276bda880d96d94e45"
+    sha256 cellar: :any_skip_relocation, sonoma:        "061e8693a4aa2def40b855840df9fe0f57616e4a31f8cb7ca2e945154ef5033c"
+    sha256 cellar: :any_skip_relocation, ventura:       "061e8693a4aa2def40b855840df9fe0f57616e4a31f8cb7ca2e945154ef5033c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab1f408921de8d4100a9fe9bc7cf38074c5e5c4b32d7599e6c4d03781918e15b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba761961d8e3f2905c54f0fd0ee8367ae19a77b09dd9701d787d58854972f0ee"
   end
 
   depends_on "go" => :build

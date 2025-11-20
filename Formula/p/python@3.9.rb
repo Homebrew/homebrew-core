@@ -1,8 +1,8 @@
 class PythonAT39 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.9.23/Python-3.9.23.tar.xz"
-  sha256 "61a42919e13d539f7673cf11d1c404380e28e540510860b9d242196e165709c9"
+  url "https://www.python.org/ftp/python/3.9.24/Python-3.9.24.tar.xz"
+  sha256 "668391afabd5083faafa4543753d190f82f33ce6ba22d6e9ac728b43644b278a"
   license "Python-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "e088eaa87ecbf35c8c87ffd1e6e864b20509ec1597c4f5f98360fe500d2292e5"
-    sha256 arm64_sonoma:  "c742522959cf677a09ba96071c9c036caaa1e8a9e08b0dba9b8b07babde351f2"
-    sha256 arm64_ventura: "ca973824df91389a033f153a3e2bd5f0e818c42fe4df3b0576e427f3d1d11e84"
-    sha256 sonoma:        "844b1b98b64bb3a0317d8da05ca3674a98b522a361790090332da15372ca195e"
-    sha256 ventura:       "ca3dfb7151380a909adc83c10f0ddcfb8c1c09f9aac93c1b87e91b3a2ab6fa5e"
-    sha256 arm64_linux:   "05fb5b5497827bc1db68ca2e895c0820900c64d174a7ad60b01123d5cea33944"
-    sha256 x86_64_linux:  "4ab2946adbebc2a587565156aa5c2e12b6f850a1e76bed19e5aeac82b358047c"
+    sha256 arm64_tahoe:   "c1740ccd90c69b9c8c767055f18c149c33430231d1b239b76cc295d13522919f"
+    sha256 arm64_sequoia: "f31c21e07521fbb34130f893b83885f2f60229fab8c584d52309f5fc5ab18b84"
+    sha256 arm64_sonoma:  "2fea1247267c392bf9a9a9d7ad7836209852383342b4fb5aefcdbddc2674d3c3"
+    sha256 sonoma:        "536846c88914b36d35009dffa5e8cb28f39d56a5eddc41051fedb406e4a2cb07"
+    sha256 arm64_linux:   "38c4acd925d5fbe917fa10386aadf6f3b6228e34331fa5d388d0610d214c63ea"
+    sha256 x86_64_linux:  "88fbeab5c8a0c9401d47b7150eca96f401f99b92f014756951ca22bd3602c21e"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -26,6 +25,7 @@ class PythonAT39 < Formula
 
   # https://devguide.python.org/versions/#versions
   deprecate! date: "2025-10-15", because: :deprecated_upstream
+  disable! date: "2026-10-15", because: :deprecated_upstream
 
   depends_on "pkgconf" => :build
   depends_on "gdbm"
@@ -37,7 +37,7 @@ class PythonAT39 < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
@@ -48,6 +48,9 @@ class PythonAT39 < Formula
     depends_on "libtirpc"
   end
 
+  pypi_packages package_name:   "",
+                extra_packages: %w[flit-core pip setuptools wheel]
+
   # Always update to latest release
   resource "flit-core" do
     url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
@@ -55,8 +58,8 @@ class PythonAT39 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/59/de/241caa0ca606f2ec5fe0c1f4261b0465df78d786a38da693864a116c37f4/pip-25.1.1.tar.gz"
-    sha256 "3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077"
+    url "https://files.pythonhosted.org/packages/20/16/650289cd3f43d5a2fadfd98c68bd1e1e7f2550a1a5326768cddfbcedb2c5/pip-25.2.tar.gz"
+    sha256 "578283f006390f85bb6282dffb876454593d637f5d1be494b5202ce4877e71f2"
   end
 
   resource "setuptools" do
@@ -473,7 +476,7 @@ class PythonAT39 < Formula
       They will install into the site-package directory
         #{HOMEBREW_PREFIX}/lib/python#{version.major_minor}/site-packages
 
-      tkinter is no longer included with this formula, but it is available separately:
+      `idle#{version.major_minor}` requires tkinter, which is available separately:
         brew install python-tk@#{version.major_minor}
 
       If you do not need a specific version of Python, and always want Homebrew's `python3` in your PATH:

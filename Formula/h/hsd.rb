@@ -1,8 +1,8 @@
 class Hsd < Formula
   desc "Handshake Daemon & Full Node"
   homepage "https://handshake.org"
-  url "https://github.com/handshake-org/hsd/archive/refs/tags/v7.0.1.tar.gz"
-  sha256 "b00b4250ccb56e42a0075263564bdc9a41b536d903b20af6cb2e87ca9a0e99a6"
+  url "https://github.com/handshake-org/hsd/archive/refs/tags/v8.0.0.tar.gz"
+  sha256 "1de0ebbbac6ca35d62353227176c7377203a82efbc27fdf08ad23dedb481ee28"
   license "MIT"
 
   livecheck do
@@ -11,17 +11,23 @@ class Hsd < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "a64c6370b1e09f25dfef73cc662a4781b72b977bf4a27a55ac346701fc71d9e1"
-    sha256                               arm64_sonoma:  "93ece0122203241029f6aedb4817ee7f8a751fa9f7307c3b4bac5209eb096b15"
-    sha256                               arm64_ventura: "23eb2c7aa7efe1c0719de0cd083cbff53c2fc09ade911da47e66d5d75b5427fb"
-    sha256                               sonoma:        "01cd2eeaf3eb101e8d2f19cf7385168654053a875ca3ef071293918af1c52962"
-    sha256                               ventura:       "7df4707762756df9e7f918c4fd4003f1fb45d492f11ae75a3d619e9984a14e45"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "671cdaf56b2fc2d5f9431b5a9b9bc80ffb9eeedd503e6257da2c5efde884b70a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "168fe038545e6dd92c6efaefc90aa7c8ffd6aa072e3be6c7a990f898a38c5b99"
+    rebuild 1
+    sha256                               arm64_tahoe:   "4842c436a2fefe7cd84e55e6db8764303cb94a462e3b7ca199e214b03beace46"
+    sha256                               arm64_sequoia: "aa30dbad82098c555396fa5810915298e1da37226e8a7291269272038f0980f0"
+    sha256                               arm64_sonoma:  "0ebb374eee2f64b48aadd1fb92d3a1ca0e17632fbff7916529477a3c4df68951"
+    sha256                               arm64_ventura: "1243bab93e49d99e7e67fd7b90682eced4c2a5b935db8843e3d5c135fa2e5a18"
+    sha256                               sonoma:        "4a0c34993fdc4c414a615f886f70804b6ff558301f4aff909b89a9b92e9c3387"
+    sha256                               ventura:       "2a1b7c8824f911c7573de14d183862aa5baeed27922ede4b565fd1ae0236716d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "44d682a12a7ae54d07cfd6ff865d923548b8febb035ef8d202302376ce9ba1c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f95e25d794cf25887927e9311a3d7558f175520361028c5296d2ee4be0cabdf"
   end
 
   depends_on "node"
   depends_on "unbound"
+
+  on_sonoma :or_older do
+    depends_on "gmp"
+  end
 
   def install
     system "npm", "install", *std_npm_args

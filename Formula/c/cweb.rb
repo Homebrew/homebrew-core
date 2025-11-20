@@ -1,8 +1,8 @@
 class Cweb < Formula
   desc "Literate documentation system for C, C++, and Java"
   homepage "https://cs.stanford.edu/~knuth/cweb.html"
-  url "https://github.com/ascherer/cweb/archive/refs/tags/cweb-4.12.1.tar.gz"
-  sha256 "c6e08d726b1b587187a70d45cf49dd990dfe70053059064fea0999e3f4fa976f"
+  url "https://github.com/ascherer/cweb/archive/refs/tags/cweb-4.12.2.tar.gz"
+  sha256 "519ac1c03610eea18956ed62d2996dc5a629f0c3af91f38cf4621d5deab749fd"
   # See discussions in this thread, https://github.com/ascherer/cweb/issues/29
   license :cannot_represent
 
@@ -12,13 +12,14 @@ class Cweb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f7dc4b0a260556f278058526ff6259dd28522b1f00454d9e1790a8aaff41b7f2"
-    sha256 arm64_sonoma:  "a50c45f276cc546df324a406ddd8a2d89edb8a676c7b7e8bca29ee4dbb3e5d84"
-    sha256 arm64_ventura: "d9ac7cb438103378e55375f9ac40e1032dd0195d3a5e4a66549ec8856390d034"
-    sha256 sonoma:        "75d0b7f16f41c5cf906aa45c0ffbb6c86415efd715604d2ac8ac9cda4c8507cb"
-    sha256 ventura:       "e97d62ac332b3ae7ed53bf20c6e05605fb0409f1e8621a88821a6482322bd62b"
-    sha256 arm64_linux:   "face2e86737f60a8e64490aef1eb49281c56c89aa969873dbed6df624ea9b507"
-    sha256 x86_64_linux:  "7a59e26b5b3569d2459442cab528f68b0a83f66db2daf4592d65cffa04298ad2"
+    sha256 arm64_tahoe:   "c4403e23d80b3754ac094fd08d07b191d100d6bfdf8f3f9dbbb9ee7dbebfa984"
+    sha256 arm64_sequoia: "d3d86635f9c5d0fd3990b130c780fd9b2a91d21222ec7668dbb47db1aedd82d6"
+    sha256 arm64_sonoma:  "8446ab44aec9607410a76075d9df7c63248a47dd1b5ff4d7eb16450dc48a1e0c"
+    sha256 arm64_ventura: "54586e839f7763712907f8552ec891853658ea488122d6683927afb9c64adf97"
+    sha256 sonoma:        "1fa6f4ec70dd19e629766b8878d44fb2fc8cf31bfbcd5dd47099855902bb45c1"
+    sha256 ventura:       "7f10cc21dc5400577161bee0ba422d268045fd28217e8d6c7f53da392b47211f"
+    sha256 arm64_linux:   "be157573864df0fa318a5fd47f27989ab95b0d50ecdee9f545afa6b5b7b63989"
+    sha256 x86_64_linux:  "b62b4d08b2391b41b90db3eabd9cec94c6bc3317aefa6b3659d9bbb61f6239b6"
   end
 
   conflicts_with "texlive", because: "both install `cweb` binaries"

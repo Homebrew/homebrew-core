@@ -10,6 +10,7 @@ class AprUtil < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "c1b6ca1239679046b74a5ea73032f87a83cbc9c503455a0cf3bc12a54777a03d"
     sha256 arm64_sequoia:  "6d3282873dffcfed602c5cfb7eb5ddad4b7115aaa954e191dfd4b733a58ef43e"
     sha256 arm64_sonoma:   "e21a775a4cd6e721ad4f09cd7ed0355b5a1181ca8ad6834911a045c8f076eb01"
     sha256 arm64_ventura:  "cb73075171b2079d2b8e8028f42766dffa5db08882261c3f5aff59d8eb9638a9"

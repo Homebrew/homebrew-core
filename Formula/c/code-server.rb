@@ -1,22 +1,21 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.100.3.tgz"
-  sha256 "a85138ac3a382a9ba1df652a751901ec598fed24f673b8a8653de7be8335bfaa"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.106.2.tgz"
+  sha256 "229822c9b6952faf1dae454ad13573ddbae190d73eeecca3f417a4774e8c8b50"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "09e14227ff4b741288f6ced6167c23155a2e6f1e80ad3ed08a0d8f9a37dc6ac8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1696b9c600b76e5be899517c44c5b32e02cd44383af2c8e088a4f07bc5625fe0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ca625738f45d0495b2ebe5d33943d8edced735f7e84d06806c9a3868ec2414f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d2fe2692846bcf26211c9a1fc079026c86a295758c18bda519519d67ada3677d"
-    sha256 cellar: :any_skip_relocation, ventura:       "f52a6d36e616752505a3861e7486fb65e1ffb20c60165970f75ac1642d4594e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccc372a687625ce6406fd8a0aa6b96298919bd90c885e2aaff31b73a6fb2943c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8dacb160e8191384e2d106139f990fc3d3b701244e5cb86ca7a550dfca78d26"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a7d37405f4f545794aa26762ddd55d82753f413ffd8b16970d87db40d70b154a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f17e3c4edef4d80217522b0deca5b4f2d6aabd452e5afef2535ab17b606ea269"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e50bff17a9df4ac62d8ea5a75f5445a62c87aba5a490545fe169a18dc7effb36"
+    sha256 cellar: :any_skip_relocation, sonoma:        "37884831aa2c16cb72467e6d49b1690ed9841560031f18992b4bc52db055a2a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d63f21c379470c3bed9eeaef89ecf9af6501a017b77e31830b439d7bc8775142"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c75edaa0709c938ddfd327736dc6a7f422fe810978268a44ac41e1df3dc8d7d"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "node@20"
+  depends_on "node@22"
   uses_from_macos "python" => :build
 
   on_linux do

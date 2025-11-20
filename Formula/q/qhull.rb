@@ -14,8 +14,11 @@ class Qhull < Formula
     regex(/href=.*?qhull[._-][^"' >]+?[._-]src[^>]*?\.t[^>]+?>[^<]*Qhull v?(\d+(?:\.\d+)*)/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "e63077686c1ef66ea9f65e7e10d842aa788bdf21b6011dd3c0b2ccd35195ddb7"
     sha256 cellar: :any,                 arm64_sequoia:  "03294d7f8db8437cdf8d4d679ae41808a195b733907bf638671f99089592dc17"
     sha256 cellar: :any,                 arm64_sonoma:   "f2d64f8e284b65fd97bb19b8add86502b3b88c71e9338723aa38ac5a34361f91"
     sha256 cellar: :any,                 arm64_ventura:  "33bd3b7b6225c502fa1a21501cdd2ce72f92ab942bc9b5092f3c9172a2312f22"
@@ -32,13 +35,17 @@ class Qhull < Formula
   depends_on "cmake" => :build
 
   def install
+    # Workaround for CMake 4.0+
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+    odie "Remove cmake workaround" if build.stable? && version > "2020.2"
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
-    input = shell_output(bin/"rbox c D2")
+    input = shell_output("#{bin}/rbox c D2")
     output = pipe_output("#{bin}/qconvex s n 2>&1", input, 0)
     assert_match "Number of facets: 4", output
   end

@@ -6,11 +6,6 @@ class KubernetesCliAT130 < Formula
       revision: "50af91c466658b6a33d123fae8a487db1630971c"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/^v?(1\.30(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "449a3876eac5b7508ae83162e78df0cc0ab7c7e849a8637beb5fa0a21b547e60"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5b7b3e0df3acf0fb2e27f40369396f0e9b3f848dec675bfaa9af47330271992"
@@ -24,7 +19,7 @@ class KubernetesCliAT130 < Formula
   keg_only :versioned_formula
 
   # https://kubernetes.io/releases/patch-releases/#1-30
-  disable! date: "2025-06-28", because: :deprecated_upstream
+  disable! date: "2025-07-15", because: :deprecated_upstream
 
   depends_on "bash" => :build
   depends_on "go" => :build

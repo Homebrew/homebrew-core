@@ -1,0 +1,30 @@
+--- proctools/fmt.orig.c	2003-12-06 02:13:20.000000000 -0800
++++ proctools/fmt.c	2008-06-01 22:35:32.000000000 -0700
+@@ -7,7 +7,10 @@
+ #include <sys/sysctl.h>
+ #include <sys/user.h>
+ 
++#if defined(USE_KVM)
+ #include <kvm.h>
++#endif
++
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+@@ -27,6 +30,7 @@
+ 	return ((cp = strrchr(arg0, '/')) != NULL ? cp + 1 : arg0);
+ }
+ 
++#if defined(USE_KVM)
+ void
+ fmt_argv(kd, ki)
+ 	kvm_t *kd;
+@@ -51,6 +55,7 @@
+ 		fmt_putc(')', &left);
+ 	}
+ }
++#endif
+ 
+ void
+ fmt_puts(s, leftp)
+

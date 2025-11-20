@@ -1,14 +1,13 @@
 class Cask < Formula
   desc "Emacs dependency management"
   homepage "https://cask.readthedocs.io/"
-  url "https://github.com/cask/cask/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "5db17efe3a91d36f457e70f097cba5ed5de505971894bf2ec839c38d8c2dd120"
+  url "https://github.com/cask/cask/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "755e71b7291678787afd497e34724004459add3e438d367e83891080f6d545a3"
   license "GPL-3.0-or-later"
   head "https://github.com/cask/cask.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "ca4c6e166929ce3044439e96d9730b41f205e1f751216443094da00def0c8959"
+    sha256 cellar: :any_skip_relocation, all: "57e45b5a8f5624932427a20879ead2c11b3d007b2b2bfbf751995219c4b1e7fe"
   end
 
   depends_on "coreutils"

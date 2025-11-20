@@ -6,7 +6,7 @@ class ConanAT1 < Formula
   url "https://files.pythonhosted.org/packages/ee/e8/0893952ee0c0f78100a7da72aeb81f68925933ecbb730bfd664e7a4c6f1f/conan-1.66.0.tar.gz"
   sha256 "04d2ad0f6ec6f055d95fa0a157b55fdea9328ae67f51b11e7d26e9d9d2f76ab9"
   license "MIT"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://github.com/conan-io/conan.git"
@@ -14,16 +14,23 @@ class ConanAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b550d63c8a731b03e9ded55a90cdb8a6c0dee1e84bc6f82df11f4318975e8dfb"
-    sha256 cellar: :any,                 arm64_sonoma:  "744d332a12938a5e6a7b2e9ec0163adcac70aaeb48b05e298c2d7d40396e515f"
-    sha256 cellar: :any,                 arm64_ventura: "c0e3bebe2b64cfafa39b897f3f858773496cde17c122e50fae5771a4403bb178"
-    sha256 cellar: :any,                 sonoma:        "54186e3faa06a1c8525e5c12d37450f1a4798c730990c0d48ae3996bc8279c92"
-    sha256 cellar: :any,                 ventura:       "1bb4a1ab47745f261a55d36abf00dacaae56b66eee6d452eda85df73c23c9974"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c3f6a9c11a9d08c7390e3a1ecedc2163bc431fae386ef403330d7ee3e339416"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d19d6f99603230aad74317f750f7902f88b88c679cd9455fba8734aac3eeaff2"
+    sha256 cellar: :any,                 arm64_tahoe:   "347415104db865374e09109080fa117d919130b502de713bc9062501e4ff8564"
+    sha256 cellar: :any,                 arm64_sequoia: "7dcfb73f071f82c9a5a5a2c081b54030c8c7aa87f11293897d499400972a9b78"
+    sha256 cellar: :any,                 arm64_sonoma:  "22c8bfd4738a91ec58429ca930af4d1cdcb2c2e13f4b3759e1c0fa576502f392"
+    sha256 cellar: :any,                 arm64_ventura: "e1d35af5f0d27ff9afbc35cf1c81373919968f71928bd78c6ec249d165b7f3ad"
+    sha256 cellar: :any,                 sonoma:        "583dee8e43b2560874eea8d5d9b55ad6c557b802763d457a9682e03234d669f6"
+    sha256 cellar: :any,                 ventura:       "8660e16c3f77b91771d8f5568b8fa7adf05c6867dfb097e322c51f95a087e0cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6adb3426b67add70f591333351e37feed8d4afed2d8c85b1872c4b980f8a483b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e88aafef9632abd643dd8e617093529b01fddffcf6a8e57f867f59d07f684930"
   end
 
   keg_only :versioned_formula
+
+  # Upstream comments mention 1.x is no longer supported:
+  # https://github.com/conan-io/conan/pull/17938#issuecomment-3051751396
+  # https://github.com/conan-io/conan/issues/18874#issuecomment-3249873665
+  deprecate! date: "2025-10-27", because: :unsupported
+  disable! date: "2026-10-27", because: :unsupported
 
   depends_on "pkgconf" => :build
   depends_on "cmake" => :test
@@ -31,14 +38,17 @@ class ConanAT1 < Formula
   depends_on "libyaml"
   depends_on "python@3.12" # https://github.com/conan-io/conan/issues/17220#issuecomment-2437381133
 
+  pypi_packages exclude_packages: "certifi",
+                extra_packages:   "distro"
+
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/fd/04/1c09ab851a52fe6bc063fd0df758504edede5cc741bd2e807bf434a09215/bottle-0.12.25.tar.gz"
     sha256 "e1a9c94970ae6d710b3fb4526294dfeb86f2cb4a81eff3a4b98dc40fb0e5e021"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "colorama" do
@@ -107,8 +117,8 @@ class ConanAT1 < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "six" do
@@ -124,6 +134,12 @@ class ConanAT1 < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/e4/e8/6ff5e6bc22095cfc59b6ea711b687e2b7ed4bdb373f7eeec370a97d7392f/urllib3-1.26.20.tar.gz"
     sha256 "40c2dc0c681e47eb8f90e7e27bf6ff7df2e677421fd46756da1161c39ca70d32"
+  end
+
+  # patch to add apple clang 17, upstream pr ref, https://github.com/conan-io/conan/pull/18445
+  patch do
+    url "https://github.com/conan-io/conan/commit/21089afd5d260c4d2d688ca8a44fb406d1dd1a75.patch?full_index=1"
+    sha256 "ede46dfde4ab3b96299854ff6f6adde4267a8e8939799f3f79a694aae696129a"
   end
 
   def install

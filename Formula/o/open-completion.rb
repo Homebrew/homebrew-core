@@ -6,6 +6,8 @@ class OpenCompletion < Formula
   license "MIT"
   head "https://github.com/moshen/open-bash-completion.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "446d03e5ddceca4179f58fb2378d39f0cc1559f2b876ad53291c59ae1f43d548"

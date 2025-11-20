@@ -6,11 +6,13 @@ class S3scanner < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0510af529926557aa5c049cf576240df2a44f0d48b2d978cbd4dbe8bd3ed84f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e8d161cfdd4356026c4625343354a2c58c59cc07542cb5b29b7117acffd19b3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e8d161cfdd4356026c4625343354a2c58c59cc07542cb5b29b7117acffd19b3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2e8d161cfdd4356026c4625343354a2c58c59cc07542cb5b29b7117acffd19b3"
     sha256 cellar: :any_skip_relocation, sonoma:        "aa0fdf4a17911994cb55fb32bb65a3f1eff54436f860fc87e4acd6207c06e048"
     sha256 cellar: :any_skip_relocation, ventura:       "aa0fdf4a17911994cb55fb32bb65a3f1eff54436f860fc87e4acd6207c06e048"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ae7c856c4e60dd64627acb45500048bb41fe1f4f49bc3a563969f794af7f062"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e76a8131cd2e58061e5bcfdfd351034b0222016877e349f58431b8b2d3400fb"
   end
 

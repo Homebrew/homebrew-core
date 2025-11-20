@@ -5,8 +5,6 @@ class CargoDeps < Formula
   sha256 "958e78d8463edf62018d7d5e6f1c5866d59084a4f224c3be01f6eca8a2d3df47"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0822ff6250873cd04ec984afff6d6ca66363496d268d8902dc406f29bdafb403"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6817f6aba18ea54427289043559801aabc573370c80aed691e9ae78893046348"

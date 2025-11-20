@@ -1,9 +1,9 @@
 class Basex < Formula
   desc "Light-weight XML database and XPath/XQuery processor"
   homepage "https://basex.org"
-  url "https://files.basex.org/releases/11.9/BaseX119.zip"
-  version "11.9"
-  sha256 "e796d92ffa20343e3f5fccac3140baec2f0056fdde0564e6de229fc91edb3d53"
+  url "https://files.basex.org/releases/12.0/BaseX120.zip"
+  version "12.0"
+  sha256 "ffd4de680a768dc906efb17cf89dda4a99285d6c93157bd7c67c578299f9f197"
   license "BSD-3-Clause"
 
   livecheck do
@@ -14,7 +14,7 @@ class Basex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0682571302879f8041fa70fda9e44cbdc6d785bedc1f1d69a8a6da5c3884a2c8"
+    sha256 cellar: :any_skip_relocation, all: "05607e52e85895c35964198defc61f665b99d0174f74c28dc9d00b25a6ad4de7"
   end
 
   depends_on "openjdk"

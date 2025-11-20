@@ -1,18 +1,21 @@
 class Urx < Formula
   desc "Extracts URLs from OSINT Archives for Security Insights"
   homepage "https://github.com/hahwul/urx"
-  url "https://github.com/hahwul/urx/archive/refs/tags/0.6.1.tar.gz"
-  sha256 "5e501198e6d910b39d0800266c32a22a17845e6b6324dbc16c5725525b8aec9a"
+  url "https://github.com/hahwul/urx/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "616da098ff8f044007b55642f9fbc52c8310f667ebfa64a43bbba9ee64725aa2"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "949b36c006a4c88b7561392129ae672695b18605211d622b2cebe72f74630d35"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e36f20d458d20ad6113bf1fe16fb01a33fdba4c791c6317e6a23ceaa574f468e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "27eea88716e221fb2c1f93d2da038c16e97f4032080177b6ef0af6e4c616a212"
-    sha256 cellar: :any_skip_relocation, sonoma:        "35fa3a01318a11855f673c291ac310f22abe82197997c6255fcffc8ece2525cd"
-    sha256 cellar: :any_skip_relocation, ventura:       "365946aec8f9e136bea0b9a2460dc3959d83f9beaefa7389082c7d62d587f26b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "308c80edc3649d2aff17a156e17c5c829ccfd21d5c7a277f22fb17eb34e50511"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2082d00257f7be453a2c14b3557dea56305c86e10e4daac629adff8798138a08"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d6dd267008bc40803a7a9e2c3f163e2a1cdaa8d513c767eeb009ea8bb0912c10"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "939f467d16a57621fe8f15ac7411e030844ee2bdd128860e2723afa0dacc2826"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d26ba3ce1d6a804045d6d39d432d0e89b29a037ee2988583179ed9845ee4b2e7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2813f0283278d238361b12a6fd4fd77d8b308a67784c5770cccbf9d51ca324c2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e3c32155a5d8952863cdeacbae2f398c3aadad2a2159d1c42f5a93d7bda92b2d"
+    sha256 cellar: :any_skip_relocation, ventura:       "8e2879cd695d6823be6766cd01cfa04649f72ff02b278b2137ad9d82e887b9f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d68187c02cd476dc6f538d1f0392f2ef75ed679f92adf647da269f6cc4ececd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c720ff72528d8ca45f5db518f29461c36cbbeee59a1944f3d5f89465080e9150"
   end
 
   depends_on "pkgconf" => :build

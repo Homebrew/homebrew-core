@@ -6,7 +6,10 @@ class Uhubctl < Formula
   license "GPL-2.0-only"
   head "https://github.com/mvp/uhubctl.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3d264b405111b616523248b1de4a0998b9c73f0c670a00e20358dcaeeed033cc"
     sha256 cellar: :any,                 arm64_sequoia: "45506e121cd1c2bdf1077b0086f6dae8adcf1b24c48c32882d2c06eee848b87a"
     sha256 cellar: :any,                 arm64_sonoma:  "28e0b5ad40356523caf8b0e489af4f5a18cfcebafb21f323800068a3cb591f18"
     sha256 cellar: :any,                 arm64_ventura: "9aa4d8a4629679ba2346d33a5afa11d0b90a27c32f75de3eaf6c67859c35a2b5"
@@ -26,10 +29,10 @@ class Uhubctl < Formula
 
   test do
     # test uhubctl -v:
-    assert_match version.to_s, shell_output(bin/"uhubctl -v")
+    assert_match version.to_s, shell_output("#{bin}/uhubctl -v")
 
     # test for non-existent USB device:
-    actual = shell_output(bin/"uhubctl -l 100-1.2.3.4.5 -a 0 -p 1 2>&1", 1)
+    actual = shell_output("#{bin}/uhubctl -l 100-1.2.3.4.5 -a 0 -p 1 2>&1", 1)
     expected = /No compatible devices detected/
     assert_match expected, actual
   end

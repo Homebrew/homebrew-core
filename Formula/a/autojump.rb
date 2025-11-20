@@ -7,17 +7,15 @@ class Autojump < Formula
   revision 3
   head "https://github.com/wting/autojump.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "b172a04f1d109b558ed126cc14250e41e804adecbdcf9f1ef68941825613b283"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "2a5206b6e787350ca32d8e9adbf7b336dc794ff95b54a1da6ba968db261892b3"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
-    python_bin = Formula["python@3.13"].opt_libexec/"bin"
+    python_bin = Formula["python@3.14"].opt_libexec/"bin"
     system python_bin/"python", "install.py", "-d", prefix, "-z", zsh_completion
 
     # ensure uniform bottles

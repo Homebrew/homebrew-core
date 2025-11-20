@@ -8,6 +8,7 @@ class Dipc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b6cfce35595b22d154392487111416ee930389f21d5b83875bbde40fd2ff927a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "182b6056ad68e867829727c6112022f45c207fe32312193a5ed3c7c69c4a1a6a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e38cd4ab7323ef745a39bb70fd7bb62ff158aaefa17ad9195ece908f6de633c4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "de128a4b41bfbed37c27968b07a8561d280a0f389d5a6a3326df09d7bb1e120c"

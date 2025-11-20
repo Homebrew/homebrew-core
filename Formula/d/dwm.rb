@@ -1,10 +1,10 @@
 class Dwm < Formula
   desc "Dynamic window manager"
   homepage "https://dwm.suckless.org/"
-  url "https://dl.suckless.org/dwm/dwm-6.5.tar.gz"
-  sha256 "21d79ebfa9f2fb93141836c2666cb81f4784c69d64e7f1b2352f9b970ba09729"
+  url "https://dl.suckless.org/dwm/dwm-6.6.tar.gz"
+  sha256 "7cfc2c6d9386c07c49e2c906f209c18ba3364ce0b4872eae39f56efdb7fc00a3"
   license "MIT"
-  head "https://git.suckless.org/dwm", using: :git, branch: "master"
+  head "https://git.suckless.org/dwm/", using: :git, branch: "master"
 
   livecheck do
     url "https://dl.suckless.org/dwm/"
@@ -12,14 +12,14 @@ class Dwm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "1aea6c7c3cc131887b7d471659137384ac7e415dd9fbe7d15e3d8ae9c6dbe180"
-    sha256 cellar: :any,                 arm64_sonoma:  "922787e07a3be0599f223d64f413f62ca8b7bb2a6d6fefec4565a7357c359564"
-    sha256 cellar: :any,                 arm64_ventura: "b7971ddb4bf6f52bfc8a844ff6ea0681a0c9d6645cea923b0851e94771068785"
-    sha256 cellar: :any,                 sonoma:        "ddc7a7f3fbae58d7c4e8924ef3f53cff4906ac384f91a039bca5bdf097eb60d8"
-    sha256 cellar: :any,                 ventura:       "bb5ad3a4079c76769e85ebda55ad12a1260e946be09c5b611bdbfdff3146fdf1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a957940e9c5bbaf9b6ff415122794094c5384d24265b13772d1886dc46be1144"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "107dc6ce40aaa02fca9690bd3a7ac7804664cbfc49776b76354beccc8ba6da10"
+    sha256 cellar: :any,                 arm64_tahoe:   "f54870201f722572b9dd08b71200bc041635209fdec7ec1ed35bf75d71cffe02"
+    sha256 cellar: :any,                 arm64_sequoia: "6eeb362a8c4a091e32a4e9bbad14b3475f89360df494e35dfb028c0dcebe8624"
+    sha256 cellar: :any,                 arm64_sonoma:  "94d791de879fd2634abb78108dc9cac02821a49eeb9051ac6650ecbf9e0d03e1"
+    sha256 cellar: :any,                 arm64_ventura: "106704c41bfc3aa0de266096aab0afafca663735607f60618d8469ad0be950e2"
+    sha256 cellar: :any,                 sonoma:        "41e6a95715296f82e4c90aedc01e24edd56422016c19add4a2c2f089b5980ca0"
+    sha256 cellar: :any,                 ventura:       "1a8627175db294d799fe38c162aff94588530842ead319c02bb33f20a25b5b7b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c899def601035f7642aa2309b8b0206610d36875c18b52eb9db85ad27e0395c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5b93278a8d7083fe2d9bf319d6ecac058e36c7477483697454a348a485c70b2"
   end
 
   depends_on "dmenu"

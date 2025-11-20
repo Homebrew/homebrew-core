@@ -4,16 +4,15 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.8.tar.gz"
   sha256 "d16901b00963f395241c818d02ad2751f14e33fd32ed3cb3011641ab680e0d01"
   license "GPL-2.0-only"
-  revision 6
+  revision 18
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "37747a0c870b2d45176af6691f465706c183029ff935ed553dccad26d5b5928d"
-    sha256 cellar: :any,                 arm64_sonoma:  "101c5df984cbbe9c23402a0602621a6ec675abadb124a359eb3becdc5fc5bbbb"
-    sha256 cellar: :any,                 arm64_ventura: "ee792d7c1934c1f8852fe4530823ffcf173de4ba653576cd6e70171981597484"
-    sha256 cellar: :any,                 sonoma:        "c606cec9b8c22ba18ba313063412b845d1beab25730be7de4b889eddbc601c28"
-    sha256 cellar: :any,                 ventura:       "ec55603dae665d2e264f7cf77138537a939f11e34f32640a1707f69b822a1400"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae5f0b9c65e75400022c60e28af22e173e1d469adb17f70d44cc3399d9732991"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3687963d946f1e6b0d8d0b5dc3c5ca6c2a269f2b0623c4b3c7e4e5d30d7d690c"
+    sha256 cellar: :any, arm64_tahoe:   "d195bdcd05c4c55fd7adadb3ffbce89789856b4b6c6c62fbc3b8566e1e3662cc"
+    sha256 cellar: :any, arm64_sequoia: "c81f35bdef40ef34f49d629c29a545403405dd93426f009d93be4653d4d68162"
+    sha256 cellar: :any, arm64_sonoma:  "35f8addf434dcbee51807110df1bdbf14ec3fb5fd994f3c10843c888158827ba"
+    sha256 cellar: :any, sonoma:        "5475191d9d6ee068fe8c37603204777679e74e6cd8b5da01aeb6c26ade3a4021"
+    sha256               arm64_linux:   "6544c292cfbf06d257d337fba219a4099607c43c99d2eab15bc8fcd5603da9ae"
+    sha256               x86_64_linux:  "ed250b668b0026baeb600fb6d9cc4833d4d6b7ac80152b6ecb2c5b9c9d996491"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +23,7 @@ class Fastnetmon < Formula
   depends_on "hiredis"
   depends_on "log4cpp"
   depends_on macos: :big_sur # We need C++ 20 available for build which is available from Big Sur
-  depends_on "mongo-c-driver@1"
+  depends_on "mongo-c-driver"
   depends_on "openssl@3"
   depends_on "protobuf"
 
@@ -48,11 +47,33 @@ class Fastnetmon < Formula
     sha256 "cb2dd41177c73ed3ef4ee3a372d8f99b6471f695041dc1c05299ea03a572a202"
   end
 
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/pavel-odintsov/fastnetmon/pull/1038
+  patch do
+    url "https://github.com/pavel-odintsov/fastnetmon/commit/4a526e90d5b493265ca2e7ffcbcdbb6ed10f064b.patch?full_index=1"
+    sha256 "d879800c448a08cbe312ca5c83edfaacffadb0a74f57707240a31316275abc6d"
+  end
+
+  # Backport support for mongo-c-driver 2
+  patch do
+    url "https://github.com/pavel-odintsov/fastnetmon/commit/187ef0c9d0fd7f86f24c70b5233635eecc5943cf.patch?full_index=1"
+    sha256 "30517a7eb3a07ad1aa324a6f6a31adc8d1ff936fb7ef1d0459efd1190432da65"
+  end
+  patch do
+    url "https://github.com/pavel-odintsov/fastnetmon/commit/1ef41391c7d816e9d6105271b847c68593cb4a1c.patch?full_index=1"
+    sha256 "e0e74b52906c3fb91ea0627a3d72d95ae6f2008ac14f969e609a754321015218"
+  end
+  patch do
+    url "https://github.com/pavel-odintsov/fastnetmon/commit/943d8707cea1622aa20837a232a429277acdd0a7.patch?full_index=1"
+    sha256 "5312098a590d95adf30acfee38a777de0f80d3efc7a07ea1fe68fd7eb03247a7"
+  end
+
   def install
     system "cmake", "-S", "src", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=20",
                     "-DLINK_WITH_ABSL=ON",
                     "-DSET_ABSOLUTE_INSTALL_PATH=OFF",
+                    "-DBSON_DEFAULT_IMPORTED_LIBRARY_TYPE=SHARED",
+                    "-DMONGOC_DEFAULT_IMPORTED_LIBRARY_TYPE=SHARED",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

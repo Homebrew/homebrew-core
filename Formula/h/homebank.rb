@@ -2,9 +2,9 @@ class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
   # A mirror is used as primary URL because the official one is unstable.
-  url "https://deb.debian.org/debian/pool/main/h/homebank/homebank_5.9.1.orig.tar.gz"
-  mirror "http://homebank.free.fr/public/sources/homebank-5.9.1.tar.gz"
-  sha256 "b350edc3a6e321414e6c26f8550e2b2c130dc1fb459669556b61ffd7e8f2e380"
+  url "https://deb.debian.org/debian/pool/main/h/homebank/homebank_5.9.5.orig.tar.gz"
+  mirror "http://homebank.free.fr/public/sources/homebank-5.9.5.tar.gz"
+  sha256 "ff6c8b0f6da411133e29b848e91f48fdb88de40ad02cba20a8840930a3e7ed43"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -13,13 +13,12 @@ class Homebank < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f480117e66c0726771d2057717be191d6363aaac1662a44c96a1321adfc42245"
-    sha256 arm64_sonoma:  "3296c6aef169caad4a9571221e179d863202601b510cad117b4f2a8bf9ec2b49"
-    sha256 arm64_ventura: "dfd4abf5802080526267066a1458a639a2c886f09912b1277eed8426ab750775"
-    sha256 sonoma:        "fcc9c8a9b25feefde5ab29aaf3b85aa0191e4d960e8aa14ac9b0097a7217a85c"
-    sha256 ventura:       "a987bc5a60eb4727d7c577b5f430a3d672e9cb73e807203c9938ebc669d2a5ec"
-    sha256 arm64_linux:   "8dde2f054578494611d0e62925dd526d91af1b7612655825ee176f9564bf9b2f"
-    sha256 x86_64_linux:  "4c261858c579c29f436888ebf5cc22c2d19f82a579a3ab982a61546ceec0c311"
+    sha256 arm64_tahoe:   "9f89d7fb7213ee3b39a0dd6e271d5c67aba04d04296f384814b10a146d25cff6"
+    sha256 arm64_sequoia: "6fad90e911e7b4f35abebd7618081ce7379d0470c6be1fdde9f7a9c9e82712ed"
+    sha256 arm64_sonoma:  "215d825b353afddbb69fcb61a13e04d89ea2d258bdfc15090de362f4188f6dd7"
+    sha256 sonoma:        "1cfb79ab1182f869c33e09d85b85868f1038d3e5e5283e21e2c38e1a5da15b9d"
+    sha256 arm64_linux:   "6c48c62f28a07472024fdf43035f404dbaeb5871241d85a84ddbe1b772fe730c"
+    sha256 x86_64_linux:  "4fafbfca53d6c6c09c736a1260e8ad9c4dbc5267000f31eccf8d7dffd922e462"
   end
 
   depends_on "intltool" => :build
@@ -49,10 +48,6 @@ class Homebank < Formula
     depends_on "perl-xml-parser" => :build
   end
 
-  # Fix to error: expected expression
-  # upstream bug report, https://bugs.launchpad.net/homebank/+bug/2111663
-  patch :DATA
-
   def install
     system "./configure", "--with-ofx", *std_configure_args
     chmod 0755, "./install-sh"
@@ -64,26 +59,3 @@ class Homebank < Formula
     system bin/"homebank", "--help"
   end
 end
-
-__END__
-diff --git a/src/ui-assign.c b/src/ui-assign.c
-index bf6984c..766f728 100644
---- a/src/ui-assign.c
-+++ b/src/ui-assign.c
-@@ -147,13 +147,15 @@ gint retval = 0;
- 			break;
- 
- 		case LST_DEFASG_SORT_TAGS:
--		gchar *t1, *t2;
-+			{
-+			gchar *t1, *t2;
- 
- 			t1 = tags_tostring(item1->tags);
- 			t2 = tags_tostring(item2->tags);
- 			retval = hb_string_utf8_compare(t1, t2);
- 			g_free(t2);
- 			g_free(t1);
-+			}
- 			break;
- 
- 		case LST_DEFASG_SORT_NOTES:

@@ -3,8 +3,8 @@ class Katago < Formula
   homepage "https://github.com/lightvector/KataGo"
   # Occasionally check upstream docs in case recommended model/network is changed.
   # Ref: https://github.com/lightvector/KataGo?tab=readme-ov-file#other-questions
-  url "https://github.com/lightvector/KataGo/archive/refs/tags/v1.16.2.tar.gz"
-  sha256 "1f8234413aeb01f45a1c03652d07160e571b9112735e5478f8b6e072e9009bb7"
+  url "https://github.com/lightvector/KataGo/archive/refs/tags/v1.16.4.tar.gz"
+  sha256 "51b1a9b48053b0de910f44abf2cc95160de7b6d43bb22300e0b80ea0b3ed0ca8"
   license all_of: [
     "MIT",
     "CC0-1.0", # g170 resources
@@ -16,18 +16,16 @@ class Katago < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "46507964a2e3a03974f3eb75293c11646b4cda6102a65afd87e97adc55fd2173"
-    sha256 cellar: :any,                 arm64_sonoma:  "3142c70bfc9359d33c95180d764175ff33901f6a15eb742b10cdd48aa54994e8"
-    sha256 cellar: :any,                 arm64_ventura: "f74deaf28ea89664ef4a93ee876b7d1354a18ba05d42263ba9caeaf1a63fd7a4"
-    sha256 cellar: :any,                 sonoma:        "8e7f2fb2d0ebbb61cad0784aab893c9ee1da60a887518502f641d7c191985292"
-    sha256 cellar: :any,                 ventura:       "207fd5d9c4b0d90ebe9f468f18211b91d690e4a8ad1aa72101c2c9ec3c2ffbc5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23b16da526d08426a9110990305da062799a79219cbe91244381fd4ed571f68f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "559f97780089d7862bb2a514a6e3e82c5841df38530e81f2fdc07ecde25b0845"
+    sha256 cellar: :any,                 arm64_tahoe:   "7c13e987178ad35bd6e56312a3f472697b8d993488975eb41fa8db7c1e392970"
+    sha256 cellar: :any,                 arm64_sequoia: "65eea9eb2209570606294c979ddf33d329b1898e5f5764ef3585a0b88a7ea9d9"
+    sha256 cellar: :any,                 arm64_sonoma:  "1ec6ab9dc1aa73c2956b42f19be09ffa2df410c5fb5876e635d2e89e2d63203d"
+    sha256 cellar: :any,                 sonoma:        "2de2a50d110cb15175dd881d703ef7ea97549ff93c1aefc4b90a8eb53141170f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0215b8f515978ffba7ef2d5c984baef1ddf9c73b591129e5072c7b91ccc45230"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "520727c652970dbe2e280c4b93cf3d617e8357a7d330b49ceb428719fb79f626"
   end
 
   depends_on "cmake" => :build
   depends_on "libzip"
-  depends_on macos: :mojave
 
   uses_from_macos "zlib"
 

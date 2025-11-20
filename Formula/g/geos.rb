@@ -1,8 +1,8 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://libgeos.org/"
-  url "https://download.osgeo.org/geos/geos-3.13.1.tar.bz2"
-  sha256 "df2c50503295f325e7c8d7b783aca8ba4773919cde984193850cf9e361dfd28c"
+  url "https://download.osgeo.org/geos/geos-3.14.1.tar.bz2"
+  sha256 "3c20919cda9a505db07b5216baa980bacdaa0702da715b43f176fb07eff7e716"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Geos < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4c1bdb695d5c0d734290088aa092a22f4ecf7174a293e4da4ccbd4c19a014f2a"
-    sha256 cellar: :any,                 arm64_sonoma:  "ae1a6948d30b7be5f3909f4d6752662ff8745b2a25ec704c1b96426fc364c38a"
-    sha256 cellar: :any,                 arm64_ventura: "b56905e01d61fb9cd149eca33c990c35d4a6f5106ef0e9d34fb731f18cc645b6"
-    sha256 cellar: :any,                 sonoma:        "dbfd96af015a537d72465c3c46f70d72c5a77cfe9a4ddcfb96fecef3eab960d5"
-    sha256 cellar: :any,                 ventura:       "feb9f28d5e90f3e164d58fff553591106e89fe4fa74371e1cfef4752d116f687"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "212d46a130ce7af2363009ff0f89e2ce1860a9d21976f0aa46450f2ea3041329"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20cd2195994f77e923c36842647afb444da7f37bce779197e10a2bdd2983db7a"
+    sha256 cellar: :any,                 arm64_tahoe:   "14dd1aa5cc405dfeae08d1d91447a88324b7695161ae5dab0e8857f7ca483f48"
+    sha256 cellar: :any,                 arm64_sequoia: "d505907854d0d1bf2e7b5759a3e1af38cea682c5ed083a2201cd5e6bc472f4ef"
+    sha256 cellar: :any,                 arm64_sonoma:  "b27c740de141794db4f06ef3f1c07c0d91749eaf101fa68af35e4076eb01fee8"
+    sha256 cellar: :any,                 sonoma:        "931850437a3095cfc4ea651c31ec15c26d3abc5d595690a1dc5550db88e73fe0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72195e62b8abb9efc31d422cfddf24caf0b99d3a394e3ece252114e14b0dc8d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09b8dd1db22e06a341963a5c2c0e6dc4d83153ac7d80afc117fbbaa548569d17"
   end
 
   depends_on "cmake" => :build

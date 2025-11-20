@@ -1,18 +1,18 @@
 class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
-  url "https://github.com/hashicorp/consul-template/archive/refs/tags/v0.41.0.tar.gz"
-  sha256 "8cf922fa04fd26b035e00ffbb300101e11aeb54edbfc0364f7dd4270370f18cf"
+  url "https://github.com/hashicorp/consul-template/archive/refs/tags/v0.41.3.tar.gz"
+  sha256 "d2a5d9dea3f34be634bc733be0ba1d8448cd341c93392efc187d36e97dd7c2f2"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/consul-template.git", branch: "master"
+  head "https://github.com/hashicorp/consul-template.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0155355643cf7b119fe853f46489d4e45c31b546e999450077733285d7e9497"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0155355643cf7b119fe853f46489d4e45c31b546e999450077733285d7e9497"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f0155355643cf7b119fe853f46489d4e45c31b546e999450077733285d7e9497"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c1e86525b036074d8ec4dac6e073c53a41ec4b4c098d1e1c539bb413bed9182d"
-    sha256 cellar: :any_skip_relocation, ventura:       "c1e86525b036074d8ec4dac6e073c53a41ec4b4c098d1e1c539bb413bed9182d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e759cac1a4cd4b8d8981adc9cb4174c5bafaeecd9b90c9be0b48a86ea2c95d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1889950f795aee8a149340d2dcf723352b3507e4d53fd3df648bd8e100122288"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1889950f795aee8a149340d2dcf723352b3507e4d53fd3df648bd8e100122288"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1889950f795aee8a149340d2dcf723352b3507e4d53fd3df648bd8e100122288"
+    sha256 cellar: :any_skip_relocation, sonoma:        "75156483736f9da5b276b57c049de6b4df3dea713cab494ec5a9f718555cd78d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "843d9021bdc182bd9c404ec0be971997fd911b3d2efc767ab84427b84e8ab8ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "138cdf61a6ec80fc904a2288e863cdf4bc226c9c055651fa29488d47f4404d33"
   end
 
   depends_on "go" => :build

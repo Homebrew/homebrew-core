@@ -6,6 +6,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.39.tar.xz"
   sha256 "b88bb02a76c46bad8d313fd2bb4f8e39298b51f66fcbeb304d9f80c3eef704e3"
   license "GPL-3.0-or-later"
+  revision 2
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -13,14 +14,15 @@ class Notmuch < Formula
     regex(/href=.*?notmuch[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d82ad567f35dc86cfe9c3238f211849ec7ebd6a64d39728d1be7979885c19a2d"
-    sha256 cellar: :any,                 arm64_sonoma:  "ff9e440133a39ffb3a01054b5762e0d5ed7ed14b7aa66db9dc3d586540fc0918"
-    sha256 cellar: :any,                 arm64_ventura: "e384a4f762886b8d5e59f6e752574085d2af177c370caab601668eda1725549f"
-    sha256 cellar: :any,                 sonoma:        "f2234ee4ad5abe3603aafdd2a79f838c409b5385b4e57cfc9e9e4a794d87d4bc"
-    sha256 cellar: :any,                 ventura:       "66dc7a1087e43c91d4a4173a1e8f1f84ec30c9ce852be303440d5f8fc735179d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ba411d8183c7e59331dc5bb6df073d8b2b2cbf17ca94c5d61a382a9a2400816"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66b8788cc35e7be17f259b58f807332e5a18bf444578a33e54b3e4f9162f058f"
+    sha256 cellar: :any,                 arm64_tahoe:   "7ce6d2376e4f4c259353d1e171048c85bf531f17ed15cca6548b98bc00d6c7be"
+    sha256 cellar: :any,                 arm64_sequoia: "fd95898d652007c95dbf52a842ce3c5d085abd1dbe871e1bd760bb955a669c5c"
+    sha256 cellar: :any,                 arm64_sonoma:  "37224d35b365b81c30a7eea3d35285feb7544a15b388aeb8c724f493713b3abd"
+    sha256 cellar: :any,                 sonoma:        "7140d21693d5e91d6115cdd29a103e1c607b2346394b0a65a60755244bddb900"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "22b62f435648548fdd06dfc317f0c0df25490373b7aafb1a98daba2b4f7149c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6911d5d204d2568fc22d8b8e7535fee3479a1dbada68a1f4b5fd92eddc442b3"
   end
 
   depends_on "doxygen" => :build
@@ -32,19 +34,19 @@ class Notmuch < Formula
   depends_on "cffi"
   depends_on "glib"
   depends_on "gmime"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sfsexp"
   depends_on "talloc"
   depends_on "xapian"
 
-  uses_from_macos "zlib", since: :sierra
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

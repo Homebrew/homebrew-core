@@ -1,19 +1,18 @@
 class Chiko < Formula
   desc "Ultimate Beauty gRPC Client for your Terminal"
   homepage "https://github.com/felangga/chiko"
-  url "https://github.com/felangga/chiko/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "054151d8c8c05ff2ccf0283328221b8143ea17146ef4dde4d63d7f1d31b11748"
+  url "https://github.com/felangga/chiko/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "b43b03caf132c0a4455176ee913829fae81fb55d4826848512b391944a36192a"
   license "MIT"
   head "https://github.com/felangga/chiko.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2229abf255f4cf1d7edceeb7cbb7716cec4b20481961a1763d89396400df9fa9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2229abf255f4cf1d7edceeb7cbb7716cec4b20481961a1763d89396400df9fa9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2229abf255f4cf1d7edceeb7cbb7716cec4b20481961a1763d89396400df9fa9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6f4b24bea33c35b4030520703ed9342b359e88f33812f405104ec7013ed8bce4"
-    sha256 cellar: :any_skip_relocation, ventura:       "6f4b24bea33c35b4030520703ed9342b359e88f33812f405104ec7013ed8bce4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "40b295024b26e9f4d4542a88f7ef38f99c7620f1e4efd0ba734d962ff19bf8b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d6db73f2ae1ae61da75af4e9678b15709a6bafa752f46655e7bf7d4702d4e02"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d6ec5af4743aea0cead12147f1a4ec3250f673665ec83ff41e248c44e65b5d9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d6ec5af4743aea0cead12147f1a4ec3250f673665ec83ff41e248c44e65b5d9e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6ec5af4743aea0cead12147f1a4ec3250f673665ec83ff41e248c44e65b5d9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5bc264aa5d22ec43adc42bc5d4d8c67a3e3f6369e81d0029ebe0467e3805fc36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f67b687559e8d246e9c1f33654ebc0e53b9d0d04bbf3c40c538c01c337fd1279"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b832793daa47297015be5e2b70a64c44c9affb91a168045896905f747bb0b1d"
   end
 
   depends_on "go" => :build

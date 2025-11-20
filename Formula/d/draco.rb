@@ -6,21 +6,26 @@ class Draco < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "19a11fa538c294619e4fa59d43b660a82b4dc7132280839c5cd9e646265cd837"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1f4fe7b05ef229486843e184c0697489dbb3e989d1445000639a203ab46f6930"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3af268ae6b1611e6110f380caebb21c017909d63aa9d1fb06432410159038763"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "52eb3ca3d3ec7aa77a70d4b985096409ed2a4c17d27718426a43bf1c9427435b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "814aaa444d53214093d915e256f8a7ccc6677c59503e1ce706774ce567614976"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2b2177c30a62da96b47b4e0f433f279af482477561508e6637fa800e8b90add"
-    sha256 cellar: :any_skip_relocation, monterey:       "e16ac56c7b5906c79b9c501ce9b17169a621156911613ccbb5f257809764b11d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "48d72a987891a5e9606a4103f3d5b32676e72054736db1a066b45773b19703fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f36b1685009883d27bf08cd3d554ecb16c05fe25b127cedc9980f20d6897f654"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2af623d3d7f4f28c7b7c31aad72fbfad20d05cbaa503062854933036c7322ac0"
+    sha256 cellar: :any,                 arm64_sequoia: "444b7b20ea990dba3261cfd1fbbb76145321b9d473c90a2801190c4a85cef41c"
+    sha256 cellar: :any,                 arm64_sonoma:  "0f361d8c3b0368784f533988d4a44519ef3e82a9ab3a69b2bd98f24282446b66"
+    sha256 cellar: :any,                 arm64_ventura: "89bca42ebd075b8d25de0e653a298257e29cd2436405dea7f9f4401bae8a7e95"
+    sha256 cellar: :any,                 sonoma:        "7039e3c7e342942f71608d377ea316096701efba166a39c66ff601546bf32f2b"
+    sha256 cellar: :any,                 ventura:       "aa05dd53ed7392292a81fc26c93ccc8b1aa99318ce673f817fe9c4204c0820c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5629a81008066774b44c411651acc7f1d1159709dc75c4b64fcf6724bb4c5b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08e5979a2f8db41ee122ecdddb83285038ca417aac3a9c5ef85e1d92656c8c45"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

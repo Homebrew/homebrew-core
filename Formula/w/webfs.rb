@@ -11,8 +11,11 @@ class Webfs < Formula
     regex(/href=.*?webfs[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:    "f24eb50960a9e004fa3c769dcf977fc0582134669c439405884ceaad2b7ec18f"
     sha256 arm64_sequoia:  "3291625be9eb1abecfaf361089d2cfcd6ae76f8123cd08280b2e8d41d176686c"
     sha256 arm64_sonoma:   "ef56fd774bdf47267b3247e82de6c75e875afdb0e1afab06169c16434dca2cc6"
     sha256 arm64_ventura:  "49156fc8ba3a476cf63f719f17e679ad66b96f1494ccf387ce7c0c6007150a56"
@@ -31,7 +34,7 @@ class Webfs < Formula
   depends_on "openssl@3"
 
   patch :p0 do
-    url "https://github.com/Homebrew/formula-patches/raw/0518a6d1ed821aebf0de4de78e39b57d6e60e296/webfs/patch-ls.c"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/webfs/patch-ls.c"
     sha256 "8ddb6cb1a15f0020bbb14ef54a8ae5c6748a109564fa461219901e7e34826170"
   end
 

@@ -27,7 +27,7 @@ class Osm < Formula
   depends_on "helm" => :build
 
   def install
-    ENV["VERSION"] = "v"+version unless build.head?
+    ENV["VERSION"] = "v"+version if build.stable?
     ENV["BUILD_DATE"] = time.strftime("%Y-%m-%d-%H:%M")
     system "make", "build-osm"
     bin.install "bin/osm"

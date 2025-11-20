@@ -5,6 +5,8 @@ class Spark < Formula
   sha256 "a81c1bc538ce8e011f62264fe6f33d28042ff431b510a6359040dc77403ebab6"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "538b171dbbf8740d4bd1ead547ed1928f3fc03d6846fd9ab1cc4a6c37707d09c"

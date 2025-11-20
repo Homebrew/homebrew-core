@@ -1,10 +1,15 @@
 class NetsurfBuildsystem < Formula
   desc "Makefiles shared by NetSurf projects"
-  homepage "https://source.netsurf-browser.org/buildsystem.git"
+  homepage "https://www.netsurf-browser.org/"
   url "https://download.netsurf-browser.org/libs/releases/buildsystem-1.10.tar.gz"
   sha256 "3d3e39d569e44677c4b179129bde614c65798e2b3e6253160239d1fd6eae4d79"
   license "MIT"
-  head "https://git.netsurf-browser.org/buildsystem.git", branch: "master"
+  head "git://git.netsurf-browser.org/buildsystem.git", branch: "master"
+
+  livecheck do
+    url "https://download.netsurf-browser.org/libs/releases/"
+    regex(/href=.*?buildsystem[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 1

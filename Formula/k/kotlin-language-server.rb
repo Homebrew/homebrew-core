@@ -6,6 +6,7 @@ class KotlinLanguageServer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "82192bd12da883553702631b7bc43af82148f6812cee104f5cc2f1c89058da7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a8f715a1cb3d08aba2c7691f832a7d7f080a456b31b7ad27c319e82eaa7b276"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1bb973d9967acd621079bc932a5ad6bf2971020a9b2c75f4f4c2ba56d3d51157"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "70751b17fc9cb655dfff1b5d05c18bdc2ee8de66a41fbc5e9d4882cc0b13b3f5"

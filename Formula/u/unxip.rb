@@ -1,17 +1,18 @@
 class Unxip < Formula
   desc "Fast Xcode unarchiver"
   homepage "https://github.com/saagarjha/unxip"
-  url "https://github.com/saagarjha/unxip/archive/refs/tags/v3.1.tar.gz"
-  sha256 "d76cabf3c0c057d87fd910ab0de5d9a1108b037f7e7406802f40885d80d49295"
+  url "https://github.com/saagarjha/unxip/archive/refs/tags/v3.2.tar.gz"
+  sha256 "6ce48aa06d1fe06352f2937912cb43c7cd93c0a8066222af35d29d6d08130788"
   license "LGPL-3.0-only"
   head "https://github.com/saagarjha/unxip.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "abf884e88603357d56ed83f95f8d1bc6f366e3542578d823beb6414c97240d58"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b25d509ece5113ddc99bb39e0ce031b578be3a6d146ecce3105e208da6f214c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e7f685faaad5e16412bce583d9420617136a7b3b04d2b399b6c25492afcddd54"
-    sha256                               arm64_linux:   "2307c9e9f92bd26c481d2754d2026470a8c9197af2ac0fba2b2da1081366a713"
-    sha256                               x86_64_linux:  "e8ce3607ab1d6aeb51833fc2862c38e28068d172d00b865a89cd2d305ebf69a3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca5e191670cf44169a204b22a239e8c10e9142baf0995959bf557831b5665a90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1fa72679808308ce14aee5bf55c8d8c9080de2514705afcd8b5405ffdbfd71b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db9c5c1721975700b4b3bd8b55bb651a9fac41f8723dbad495495a5924905f34"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5ca746820d1e0bfdaacd3c9b051b62239cef1c765bb1b8434461aa07d8749454"
+    sha256                               arm64_linux:   "a5dab6693c7660439be128a6bf2abcbd81bacad55360c439daa4a8833f4c4315"
+    sha256                               x86_64_linux:  "a0f1eaa4fd6f16d6a20b9cc5707bf569748878e60e76e849d41fddd3115b8797"
   end
 
   depends_on macos: :sonoma

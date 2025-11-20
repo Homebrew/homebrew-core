@@ -1,8 +1,8 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.15.0.tar.gz"
-  sha256 "16aa2c02ff34a902a38bddc29f6f720deb1fb6c6987c45ccb782430300f5ccc5"
+  url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.15.4.tar.gz"
+  sha256 "dae526252cb0585c8c863292ebec84cace4901a014b190a73f14087dd08d252b"
   license "MIT"
   head "https://github.com/Z3Prover/z3.git", branch: "master"
 
@@ -13,30 +13,21 @@ class Z3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f3e3fbb6153448fc9fe3befc53a0170ad45369f07209b400d90305ce0d645a5b"
-    sha256 cellar: :any,                 arm64_sonoma:  "3163b8e0e65799a4e7a96e7d7ceb4a959386d77fdba320dd7bb0f381c19c1b3c"
-    sha256 cellar: :any,                 arm64_ventura: "221c41e0d66f5a2baeb60146f40875e2d6ca496d062b06c76d3924a4d15748f9"
-    sha256 cellar: :any,                 sonoma:        "f9274cd0950dd9c9314d19fb3cbc8baf7a4802ca3c4ef882bdb74df0c9fd2333"
-    sha256 cellar: :any,                 ventura:       "c151a05ca6866e2e83fc1b7d00bed224c5116f6d68ba645b1c3f1101b8c7fac7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37cbe0ad948d47bce9e6d6c4856c4f5d9cf36e871ae2d55f236388e7496094e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "216b1f2393ca8c38e413daf5a5db5e572b7f769d3c4d2ce7963a8c9f559ac03f"
+    sha256 cellar: :any,                 arm64_tahoe:   "9f57f90f63a0995a9b56b6f4c94a1c29bd8fd9a474e09f78cba7f64aaf25708c"
+    sha256 cellar: :any,                 arm64_sequoia: "df9a167ac9c51be88180cbe464e09c46315c6145e775ca8da76de4d4e261354c"
+    sha256 cellar: :any,                 arm64_sonoma:  "734ca95d3bcb87f5c62e27294ea3485698ac160a8bc0cb6eafa68ca73f792ce0"
+    sha256 cellar: :any,                 sonoma:        "daa3779a2ee08f218dd714c80ce78e9451b81340c65efee8a1f44f16dee8aa07"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "02148c88d3b6adc67f7cb43fc1eb3f8a1a7317838a567e7de95c60cffc4fd208"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aecd2a8e5cc6512f5ad5cc3ba78602236642ac02d4471fc9635383976012236d"
   end
 
   depends_on "cmake" => :build
   # Has Python bindings but are supplementary to the main library
   # which does not need Python.
-  depends_on "python@3.13" => [:build, :test]
-
-  fails_with :clang do
-    build 1000
-    cause <<~EOS
-      Z3 uses modern C++17 features, which is not supported by Apple's clang until
-      later macOS (10.14).
-    EOS
-  end
+  depends_on "python@3.14" => [:build, :test]
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install

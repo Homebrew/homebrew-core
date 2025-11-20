@@ -1,8 +1,8 @@
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://xff.cz/megatools/"
-  url "https://xff.cz/megatools/builds/megatools-1.11.4.20250411.tar.gz"
-  sha256 "f404ea598c9c5a67a966a007421945dc212460d673fa66bea44544fd82f8e7c9"
+  url "https://xff.cz/megatools/builds/megatools-1.11.5.20250706.tar.gz"
+  sha256 "51f78a03748a64b1066ce28a2ca75d98dbef5f00fe9789dc894827f9a913b362"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,13 +11,14 @@ class Megatools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "dedf753291d155903aea83187d4623a4d89e5b446221fe3876ff0b2adb4b97ee"
-    sha256 cellar: :any, arm64_sonoma:  "f51bf27cb6af48490aefd72b8270266c297535abf1eeec4bf5312138931ae174"
-    sha256 cellar: :any, arm64_ventura: "0edb1ed78ce72f15c4298581d29d9bc916cbdd39ea4584fb7cf232cf97b87dfc"
-    sha256 cellar: :any, sonoma:        "74ed6b7c70b424092c8d0c88df0c74b56c8a413950f2d42e96b4399cdb581aa8"
-    sha256 cellar: :any, ventura:       "bdcf5c5258307e845a9adabc6f46ebdf008c5cb9249df6e342029d32779c554f"
-    sha256               arm64_linux:   "be8366823801f4988a542a3b663238c182f3e5ce724f53e88a68c2da914bdf60"
-    sha256               x86_64_linux:  "0227d05b62821cba64ad74219460d7a58f3e44a8f6e0320ac335252a6deabf5c"
+    sha256 cellar: :any, arm64_tahoe:   "7217cae7f353389333d5f34a1dfbf0d5327372d0a869641a6f38a305a0e2fa42"
+    sha256 cellar: :any, arm64_sequoia: "cbdaf47635fdec1fc36736de8b84d3a96d9eb83da463f0db512d138464009e2f"
+    sha256 cellar: :any, arm64_sonoma:  "b6f04ece0c4f9db9b77383d8bbf83497f83108f64c94db171a7841c7311c7cf0"
+    sha256 cellar: :any, arm64_ventura: "ece0dd5f77f6c087e65c8ea1a78a770a1d1fbeb4fda0f0271cc89b107fce63f7"
+    sha256 cellar: :any, sonoma:        "c95b1c27bf14bccfb31ea2ea00540910a81b00861176b2facc32ae1d392628ca"
+    sha256 cellar: :any, ventura:       "134758d6274b2aba59587c780f34b60b7ad7efa36e54c9ddb5a558f3e8ad43a7"
+    sha256               arm64_linux:   "3cf9bf34c4d780c22dcd0aed0d34d5d9f3ee3f1df79fd96c2db62f07f2054147"
+    sha256               x86_64_linux:  "bb702e9c4d883d99115f1003bac6dc09f0717ee64c9b52ca50b5e91a36d4cbe0"
   end
 
   depends_on "meson" => :build

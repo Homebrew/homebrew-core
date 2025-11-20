@@ -12,27 +12,27 @@ class Moc < Formula
     # 01 to 05 below are backported from patches provided 26 Apr 2018 by
     # upstream's John Fitzgerald
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/01-codec-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/01-codec-2.5.2.patch"
       sha256 "c6144dbbd85e3b775e3f03e83b0f90457450926583d4511fe32b7d655fdaf4eb"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/02-codecpar-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/02-codecpar-2.5.2.patch"
       sha256 "5ee71f762500e68a6ccce84fb9b9a4876e89e7d234a851552290b42c4a35e930"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/03-defines-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/03-defines-2.5.2.patch"
       sha256 "2ecfb9afbbfef9bd6f235bf1693d3e94943cf1402c4350f3681195e1fbb3d661"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/04-lockmgr-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/04-lockmgr-2.5.2.patch"
       sha256 "9ccfad2f98abb6f974fe6dc4c95d0dc9a754a490c3a87d3bd81082fc5e5f42dc"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/05-audio4-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/05-audio4-2.5.2.patch"
       sha256 "9a75ac8479ed895d07725ac9b7d86ceb6c8a1a15ee942c35eb5365f4c3cc7075"
     end
   end
@@ -42,7 +42,10 @@ class Moc < Formula
     regex(/href=.*?moc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:   "bac52905e18eff309f2c6ba4077a3008f1ca2f449055406f511767d881b3545a"
     sha256 arm64_sequoia: "0c9fa6831440aa41b25064c9f2d93e9827f0d4f1ea0f2e1184def14041366d1b"
     sha256 arm64_sonoma:  "f9698a87a21e1695cfc81523056a86d2a08b3ecb013b978c46b0584a2cff566e"
     sha256 arm64_ventura: "5494731a8b584382705cf06e159d10c42fd869150ab605cf4a096b2112e61d65"
@@ -83,9 +86,12 @@ class Moc < Formula
   def install
     # macOS iconv implementation is slightly broken since Sonoma.
     # upstream bug report: https://savannah.gnu.org/bugs/index.php?66541
-    ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version == :sequoia
+    ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version >= :sequoia
+
+    ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
 
     # Not needed for > 2.5.2
+    odie "Remove `autoreconf` and dependencies!" if build.stable? && version > "2.5.2"
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"

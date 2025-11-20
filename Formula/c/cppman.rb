@@ -6,18 +6,18 @@ class Cppman < Formula
   url "https://files.pythonhosted.org/packages/f7/ec/3965a47a4bfb8426037061ab429320cc306c229827db1c213eda52fe4a4d/cppman-0.5.9.tar.gz"
   sha256 "15a4e40ab025b4dcec5a73a50df26b7ddaef7c148fcb197940fff2484f9e9903"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7edded6fb04088da0b36108353bc082e82481dd5d6ba603e4313f926c63a8c8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef7dc14b3e716c606d544ca2602786015dadcae34900798e5848df1b5481eb4b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8850c52d49794b7386b0465fa3be10e8b48d2fbd6dd0ab5243f1e22172b7790"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b53e16784003384fae92a99dea19f97ae79844da5c8f420db45e990534f6ac18"
-    sha256 cellar: :any_skip_relocation, ventura:       "ff6009f665c229db982f2bd5d6241536da69fc60840ef600b7f27483769d050e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "61499f34933d6bf8a3d5bab8ccb0d3366d3ea4e002af09e20b363706bc9ebb98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bdb4b1df81dcbf31ee521271f510c565492921d31ce2d3d1070e1a708f53715"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50314626915da53a6878e6a05c01067c3c4d64b941c592ecabbbd95c789cf03a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c386f4f384c296b6a6e195616140c666621aacfe96c2068b73eb3cd193484c1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a1301d0c64dd255e0aeac8403427e5e5d74ef14f01abf5fb5df053eb7827ec69"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2b96b5fce1d42442cc9e5b4be0619b20ae9058208fea0f127005889027ef1830"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc5c51475e9fe77e973501eccfc000278e5c5bdabbd0c2540cfbdaf4a3cf6706"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fab5024b43e4396249eded3c316f9655a4542dfea971fdb26da6810f361618fd"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -39,6 +39,12 @@ class Cppman < Formula
   resource "html5lib" do
     url "https://files.pythonhosted.org/packages/ac/b6/b55c3f49042f1df3dcd422b7f224f939892ee94f22abcf503a9b7339eaf2/html5lib-1.1.tar.gz"
     sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
+
+    # Avoid ast.Str removed in 3.14+: https://github.com/html5lib/html5lib-python/pull/583
+    patch do
+      url "https://github.com/html5lib/html5lib-python/commit/379f9476c2a5ee370cd7ec856ee9092cace88499.patch?full_index=1"
+      sha256 "97ae2474704eedf72dc5d5c46ad86e2144c10022ea950cb1c42a9ad894705014"
+    end
   end
 
   resource "lxml" do

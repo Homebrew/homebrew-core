@@ -1,8 +1,8 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/current/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v17.5/postgresql-17.5.tar.bz2"
-  sha256 "fcb7ab38e23b264d1902cb25e6adafb4525a6ebcbd015434aeef9eda80f528d8"
+  url "https://ftp.postgresql.org/pub/source/v18.1/postgresql-18.1.tar.bz2"
+  sha256 "ff86675c336c46e98ac991ebb306d1b67621ece1d06787beaade312c2c915d54"
   license "PostgreSQL"
 
   livecheck do
@@ -11,21 +11,20 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "c6765fe0928bbf4748d3b3dde8526ecf2f72b3cc5228de9148bfea3d39867ed8"
-    sha256 arm64_sonoma:  "6be0459aa835312193f0c5016c476d631586ec0272eaa9b8c18545b6146b3a71"
-    sha256 arm64_ventura: "f0062e5202103dbc0cd2e7d9cf1fd759d62611931eb904e6024bad003e8ff6f7"
-    sha256 sonoma:        "50d492965b1860f1e7d648fdc77d2768ac4d995e659968a7e872a66370d6213d"
-    sha256 ventura:       "a8bee90dd7dbc4876f42d19ac69716738b381a356230dc45ed5a923a1434e79b"
-    sha256 arm64_linux:   "82ab721a86a42257f2e2152afdc6b080a07b0e93393c580dbd01a2352a2d8309"
-    sha256 x86_64_linux:  "0c73376d125c4d80714135ebbd2deb1aa56bb4938f5420ecf4fb592beba55295"
+    sha256 arm64_tahoe:   "45aa1668f5f0ded58652306525b008cab1cd78d64b39f77975b4314724146495"
+    sha256 arm64_sequoia: "28ad8ca6f9b262c718b4fd4486c45211cb8847f6a07031fdadee26978ed6f713"
+    sha256 arm64_sonoma:  "1e1bbad6817851a75ec790a18779b2580ab200013530683c339e271e67726478"
+    sha256 sonoma:        "5190c06e00bc0ce9ca965568925c8f235d149ff6d3b526b9e7f278e148da6e9c"
+    sha256 arm64_linux:   "f5164f475e135797456916bdcfa24b2a47cec6cde87d7900b9b59ab58cebc381"
+    sha256 x86_64_linux:  "b3f9b5ce82be0a12937af75b4bccc0500319fea0e0d06281119d6572ae8f9557"
   end
 
-  keg_only "conflicts with postgres formula"
+  keg_only "it conflicts with PostgreSQL"
 
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"

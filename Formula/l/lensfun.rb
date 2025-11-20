@@ -21,29 +21,30 @@ class Lensfun < Formula
     regex(/^v?(\d+\.\d+(?:\.(?:\d|[1-8]\d+)(?:\.\d+)*)?)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 4
-    sha256 arm64_sequoia: "19e6455ae24f5deb3f96089c18cf11b77f4fc3d03ca77761e2985d33aeea3e63"
-    sha256 arm64_sonoma:  "06508767287b05cd51b631ea7b6c4d01b3176ba7cbe14412b79df9f3c47dd252"
-    sha256 arm64_ventura: "e54fe0c3f77d0a79a0d9b6850807db5ce3ce136790d4947bda4420e2c4f0596a"
-    sha256 sonoma:        "33b45fe0015b3aa498efbd6d83557352f1646750e6fa137e611d10c56329c14f"
-    sha256 ventura:       "79f780f2be84affa0ec87493db70a520cfd2e675c7c3ecc4f001c16f66bef454"
-    sha256 arm64_linux:   "59a7a77209ba18eb6b81d5965159eb16ff10b83ed6ac49e2afce1118a4b1f2ab"
-    sha256 x86_64_linux:  "c668142f49f3abd0b1dcbfd48d6dbe43ea7faaf69ff2462cb5bbfafba1f060c4"
+    rebuild 5
+    sha256 arm64_tahoe:   "c04d1179c9ddb6a6c56495d942509d502478de5654631709c5d1cba41fb1d1df"
+    sha256 arm64_sequoia: "b9d366691c96aa2e9cc86df636e8fa62e4016712a97b865bf976c86f3c3a8be9"
+    sha256 arm64_sonoma:  "e339238c789ba00a0742a0878b534d646d447e9581ad6556317fe52e33462b72"
+    sha256 sonoma:        "3cc01d582abd35c7071dc57e600d076c9e7db789793dde489e751f383279140d"
+    sha256 arm64_linux:   "8431034a807c782f9b8da3ce8b3c0d482e61ae4557d596cac35b31ddbf2f9c0d"
+    sha256 x86_64_linux:  "85581789aef7eea988ee657559321b555bce95b962a6298156fd6d1ac2453cf1"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_macos do
     depends_on "gettext"
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

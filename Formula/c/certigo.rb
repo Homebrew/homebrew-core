@@ -1,8 +1,8 @@
 class Certigo < Formula
   desc "Utility to examine and validate certificates in a variety of formats"
   homepage "https://github.com/square/certigo"
-  url "https://github.com/square/certigo/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "a6ce89964ca2fbe7d45d2e2019b06a21984f133c4f1f110eee12a67dd60c4145"
+  url "https://github.com/square/certigo/archive/refs/tags/v1.17.1.tar.gz"
+  sha256 "4ac183d25d89246519cce0c7d3ed3e3be261ac72f4ed3b15b9e0690c91778ed4"
   license "Apache-2.0"
   head "https://github.com/square/certigo.git", branch: "master"
 
@@ -12,17 +12,14 @@ class Certigo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bedd60c233d5c81a9a6b79cd90d02570948d21d65e81bfbf356a0d49d4767467"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b5b86dcb9c261113bc75c507822f26c1774ee29a16886471ffc72121218ff20"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7030162d50a9cc7a151ef7e5bb30c6ec6de9717c5ed71c56fc207548334142a0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a663a86882876335dfd364332494270957a0b6778975aa0f9e8ba2fd83f8aa52"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c632fa6622d2cd6f5899c3f1682f6646803e9d33efb56b4bc39417d09b55a72"
-    sha256 cellar: :any_skip_relocation, sonoma:         "99c723ecb99e039fbf7c3146e5c19a9271a405c76f2b8d7d00868e1dc0d79677"
-    sha256 cellar: :any_skip_relocation, ventura:        "30402885e7dd0a6a968f324ad7da21682b494977c18f8d0ee8ae10fe3b8c471d"
-    sha256 cellar: :any_skip_relocation, monterey:       "f923b26c0f5b4115434a770994e0c791d192a482121840bf82323ae14b1627d5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a69ecd639ae8ae13f627bfb182a1fc29467b6ca58b917863d5d01d09731f98ff"
-    sha256 cellar: :any_skip_relocation, catalina:       "e3f412c147bc0a3b42167d3b0c349b4d6bd175bb4a89fe4603cb68400630c471"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10522c5a7fcd8524a1a0ce6755c2ffba1a6e76e63249f77d24326400c9ddc243"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8ac461d690d136c9732b38b3aed77b6ee45044facc3bff02c8c1ab10c9da38d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "178bf6b7f2d571b80251d754e9d1103940ece8b33cb89660973bbae84d0e376c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e8007c62003b39a369bb73c7768c22d92b66ff8615ea03218db7cd7b513ee25"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "90657fc29a0515bac14c9386da4f44941322a733c99d39553cb70679246e561a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "af2deb051e563fb696a4d9eabbb2b048264d0039502f3b06497d374031205e9a"
+    sha256 cellar: :any_skip_relocation, ventura:       "0d9f5fa9aa9d3f134bb7fc49847e3527f5d3cdc256b8a6aefe6f004e183e6693"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4386ccf3e4676d87da7bf027d5eadc56eb40bf7fe9bfd000643b442a14235b9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6cd101ccf0fc12278a68a8c7de6fb9d0f24b7230bc9a4b81a5f5e642cc8f245"
   end
 
   depends_on "go" => :build

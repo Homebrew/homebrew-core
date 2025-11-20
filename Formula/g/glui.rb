@@ -9,19 +9,18 @@ class Glui < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "304a5d0296be83a23e90e4e2364c63f85ce4c2bcb6548cdc9b58a0cc03fe77dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88a3c782310cf2ba070f8bef4991da04770a86df4c48d0a6d47f71065116fcac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1ca3761236e58be6553617d9ac8dc0eb3a22e753beab0b3d11d1fbbdba98eeb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4446bb9bfbe249e1c9b306e5286e0e9279b189def2f1b1c97cb7cbce0a243d86"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67cba51fd8f00de16bfc0f14db93a31f543681eb558a452a790e0d400a8bbcd4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dcdef63dc7078e4a9ec4934dbe84c950f8f2a7e786e48787492f6f17d23ce4ab"
-    sha256 cellar: :any_skip_relocation, ventura:        "6db07713f38f5fb245d84657f023cdee2a60b0b17fec9f4443c86297e653dfb4"
-    sha256 cellar: :any_skip_relocation, monterey:       "1ae9d5b6a49f0a0b82ed3763ba118e7614a690dda330d1db0124293257bc3711"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1884496c319d53faf60c40a4dfe83d0198af2d4a13d377e06c0187624392f74"
-    sha256 cellar: :any_skip_relocation, catalina:       "aeea8d3b8f76471bfdcf0f10bb51afc0d721452cbd8fa4613135685d7bbb00ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "81191fb99d33694da5fc359deb0ba64ab27be242459d931df7771415cf886de6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a89d82496e644e5501928803452b47ff2399c9386757b6013e9a58868255bf90"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "291a1781d586b21b5ff3260f10e82cf9604a364ff5396b5eba33a28e6fce90cb"
+    sha256 cellar: :any,                 arm64_sequoia: "8571bc2053756921d417d2ffbd49259fcc18f9068f3647cbfeaf4c310cf1f23d"
+    sha256 cellar: :any,                 arm64_sonoma:  "b3127c49849ab12bb7ef689a8bf6191012175b219249166fef57f9dc540ef3e3"
+    sha256 cellar: :any,                 arm64_ventura: "61a624ac60981cb7dbbbf7c4049bb3d0b19285c732d9178219932641c9fa0799"
+    sha256 cellar: :any,                 sonoma:        "723eecbda46e12ba8d1c0c65c4d582bc86b8240e893656695d1392ac4dc10e40"
+    sha256 cellar: :any,                 ventura:       "dd8fd33cb3acc7d02eb0506368fde6bab453eed79ea0d5e8de13ad23dd0874c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c229cda6f60b66c2f598d50dbf71a9dda1099d731c16f5d70ac7704c0c19f112"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b399324e278b5f0ec7d1dece5994eb01384929dfbb85893743b97c929467a743"
   end
+
+  depends_on "cmake" => :build
 
   on_linux do
     depends_on "freeglut"
@@ -35,11 +34,25 @@ class Glui < Formula
     sha256 "b1afada854f920692ab7cb6b6292034f3488936c4332e3e996798ee494a3fdd7"
   end
 
+  # Backport fix for CMake build linking on macOS
+  patch do
+    url "https://github.com/libglui/glui/commit/eaca63aea72ed4db055514dfec2abc71a106aa70.patch?full_index=1"
+    sha256 "81cd6400037f9082ffd2926a01458c40c0d81c71cb7786cb667909ef64b1541b"
+  end
+
+  # Backport support for CMake install
+  patch do
+    url "https://github.com/libglui/glui/commit/4299e8fa43bb1e67370be36cad4b21115ab88af9.patch?full_index=1"
+    sha256 "9070d9a3f44ffd3787762125fb194d92e24a9bc0b5e27bc5571ac09718199404"
+  end
+
   def install
-    system "make", "setup"
-    system "make", "lib/libglui.a"
-    lib.install "lib/libglui.a"
-    include.install "include/GL"
+    # Find framework first to avoid linking to XQuartz libraries if installed
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    *std_cmake_args(find_framework: "FIRST")
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -48,6 +61,7 @@ class Glui < Formula
         #include <cassert>
         #include <GL/glui.h>
         int main() {
+          glutDisplayFunc([](){});
           GLUI *glui = GLUI_Master.create_glui("GLUI");
           assert(glui != nullptr);
           return 0;
@@ -55,6 +69,11 @@ class Glui < Formula
       CPP
       system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
         "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
+
+      # Tahoe running is headless for now, maybe remove this later
+      # ("GLUT Fatal Error: redisplay needed for window 1, but no display callback")
+      return if MacOS.version == :tahoe && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
       system "./a.out"
     else
       (testpath/"test.cpp").write <<~CPP
@@ -63,6 +82,7 @@ class Glui < Formula
         #include <GL/glut.h>
         int main(int argc, char **argv) {
           glutInit(&argc, argv);
+          glutDisplayFunc([](){});
           GLUI *glui = GLUI_Master.create_glui("GLUI");
           assert(glui != nullptr);
           return 0;

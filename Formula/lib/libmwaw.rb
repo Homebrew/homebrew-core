@@ -5,7 +5,10 @@ class Libmwaw < Formula
   sha256 "a1a39ffcea3ff2a7a7aae0c23877ddf4918b554bf82b0de5d7ce8e7f61ea8e32"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "37653004fafb534955ec3a74d532fd08fc67ddf6f0541de29d2b0122c453d99e"
     sha256 cellar: :any,                 arm64_sequoia:  "e1a2a5f288071c5a5c899ed113f87a841ec434bce245a98750a1ee1b0b2c0b64"
     sha256 cellar: :any,                 arm64_sonoma:   "952e2d7978c0a53b42c6c3bcef9faf03e878069664710baed01bbf696527f329"
     sha256 cellar: :any,                 arm64_ventura:  "14c3ef9b89eabb6d8f579cd6b4fc6b10aff80157395e25f5f4032c365e35814c"

@@ -1,18 +1,19 @@
 class Libcec < Formula
   desc "Control devices with TV remote control and HDMI cabling"
   homepage "https://libcec.pulse-eight.com/"
-  url "https://github.com/Pulse-Eight/libcec/archive/refs/tags/libcec-7.0.0.tar.gz"
-  sha256 "7f9e57ae9fad37649adb6749b8f1310a71ccf3e92ae8b2d1cc9e8ae2d1da83f8"
+  url "https://github.com/Pulse-Eight/libcec/archive/refs/tags/libcec-7.1.1.tar.gz"
+  sha256 "7f7da95a4c1e7160d42ca37a3ac80cf6f389b317e14816949e0fa5e2edf4cc64"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6c3e6496b7aa4fc0b2ccb840c23b2881ce4f0d1a4419854c1e21e6e316a98b7f"
-    sha256 cellar: :any,                 arm64_sonoma:  "de4f26ed875eb592e3fc420963d62ffe939f38745951eacdb431517d3c297eed"
-    sha256 cellar: :any,                 arm64_ventura: "a3f634f61d5a27f31057a3e5deec39973d7bbdda09a8cefeeb903bf155411587"
-    sha256 cellar: :any,                 sonoma:        "559cbd188d933dad82b923434da5cbdcbc8f59972f157d04b518e968a05a62dc"
-    sha256 cellar: :any,                 ventura:       "a942eaf1c28a2ac335203421541da6347dc4f5bd5da1ce5015241d79dc845d73"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8dc79b71ae7d6917a919038ee0aa6a75adf4f97a6ea49dd389ee54efc53d5e9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "916e33306e1006b5a8c5337c8ed5341c445598bb5eb90de65137ff1bbc0a1225"
+    sha256 cellar: :any,                 arm64_tahoe:   "7a2f85ce7242058e838d66f633131d1fdd3d19dd7fddf1a84f6678db006999e1"
+    sha256 cellar: :any,                 arm64_sequoia: "efd0e7facb572876d72798c1b07df84e55ba4af2597645342784e667c9750f50"
+    sha256 cellar: :any,                 arm64_sonoma:  "d886ddba0e875d545547820c13cf9b22d5c676253512008c8527aaf95454d3df"
+    sha256 cellar: :any,                 arm64_ventura: "be082ac4c53c7d700acb7b5f91e9bb965652c9056e76549d3e067fc734c5794f"
+    sha256 cellar: :any,                 sonoma:        "0b819287c07576627c5029b3c57d295ef60fd8e8d8f25d6876b8362c7a03c2db"
+    sha256 cellar: :any,                 ventura:       "0995d3ba61e560dd6627fc093301c6f99ae1488b75bc49c182c659ef1dd5091c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "680f4262c03b5a10e88bee7ba827762f84e38d943d68a8d0ca61485738f97128"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1e8795e972cddb728bd93304f2a97ded54988e0a5a253d13a6a2a683d0e2c2f"
   end
 
   depends_on "cmake" => :build
@@ -22,6 +23,11 @@ class Libcec < Formula
   resource "p8-platform" do
     url "https://github.com/Pulse-Eight/platform/archive/refs/tags/p8-platform-2.1.0.1.tar.gz"
     sha256 "064f8d2c358895c7e0bea9ae956f8d46f3f057772cb97f2743a11d478a0f68a0"
+
+    livecheck do
+      url "https://github.com/Pulse-Eight/platform.git"
+      regex(/^p8-platform[._-]v?(\d+(?:\.\d+)+)$/i)
+    end
   end
 
   def install
@@ -37,6 +43,10 @@ class Libcec < Formula
     end
 
     resource("p8-platform").stage do
+      # upstream commit, https://github.com/Pulse-Eight/platform/commit/d7faed1c696b1a6a67f114a63a0f4c085f0f9195
+      ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+      odie "remove CMAKE_POLICY_VERSION_MINIMUM env" if resource("p8-platform").version > "2.1.0.1"
+
       system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *cmake_args
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
@@ -48,6 +58,6 @@ class Libcec < Formula
   end
 
   test do
-    assert_match "libCEC version: #{version}", shell_output("#{bin}/cec-client --info")
+    assert_match "libCEC version: #{version}", shell_output("#{bin}/cec-client --list-devices")
   end
 end

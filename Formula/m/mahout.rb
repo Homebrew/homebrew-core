@@ -20,6 +20,7 @@ class Mahout < Formula
   # see https://github.com/Homebrew/homebrew-core/pull/158322
   # https://github.com/Homebrew/homebrew-core/pull/138608
   deprecate! date: "2024-08-03", because: "does not build with 14.1"
+  disable! date: "2025-08-03", because: "does not build with 14.1"
 
   depends_on "hadoop"
   depends_on "openjdk@11"

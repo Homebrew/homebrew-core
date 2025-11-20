@@ -1,9 +1,9 @@
 class I686ElfGcc < Formula
   desc "GNU compiler collection for i686-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-  sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+  sha256 "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -11,13 +11,14 @@ class I686ElfGcc < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "8e2c4ad88cbeb24b8de4bd588b2295594282738e750a12257b741d62b9554d15"
-    sha256 arm64_sonoma:  "d76a7ca2b5c17dfd8371073bd9403eebbf767778cd29b3b12add0906f1c292c7"
-    sha256 arm64_ventura: "4c06228afceb027d0ce4b34256c6ec0d5cd7dfe7daeec3ed9294cfc30530bd1a"
-    sha256 sonoma:        "1172380d92d25c59e015a58d537e7034ba29bfaf6fe8144100744074829a0ff4"
-    sha256 ventura:       "8a8386bf395ef25bea60ec676e54579ffa3a7f36e9c5559e3f4be9840ad9ff7e"
-    sha256 arm64_linux:   "7dea4d76dd9a20c6f789b0b942843995bbc12cf73f55345e54c3ebd2b986e043"
-    sha256 x86_64_linux:  "311f32728f01c2ee43cc703ed6a12be6b930a0df5f434f4ffeda5bf9e8f2aedc"
+    sha256 arm64_tahoe:   "9b1973c78b379a53dcef17ccb6bfde0eedfe4804642f49809566d41672a78a80"
+    sha256 arm64_sequoia: "9ebc28afe2308055d5c3734a6a1312e2976f12566058a818731152fe796c895b"
+    sha256 arm64_sonoma:  "a7471aa25a2e17e5e793346e7113b9c56ea5af1afde81cb776e352c11ed84b6a"
+    sha256 arm64_ventura: "84dc4edbe13331ffd0044ee60070d4a5e9a6cc02a119fe3afd80cb5f34b70cbc"
+    sha256 sonoma:        "20a35b16e55805bcfecce53cf2e65bf396496fe59b76e3ec9149c8c1ec2bcb00"
+    sha256 ventura:       "343996e94ffed850bb21ff7674a54109af7ed51b9ea93fc7855049f30f9d6735"
+    sha256 arm64_linux:   "79dfcd591eee5344728dc16b19642b353dd129449e7f9e5eca6f7f202fdcf77a"
+    sha256 x86_64_linux:  "60dac0fa2b727b1eef993102653635ddf28e6aa183e6aca96de94f9d2b0068f8"
   end
 
   depends_on "gmp"

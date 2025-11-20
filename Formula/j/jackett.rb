@@ -1,27 +1,26 @@
 class Jackett < Formula
   desc "API Support for your favorite torrent trackers"
   homepage "https://github.com/Jackett/Jackett"
-  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.22.1999.tar.gz"
-  sha256 "9e4451fd6c1af1787a1e2ec251ece0503e92bfb26bf76afa9920da755344a79a"
+  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.24.336.tar.gz"
+  sha256 "e33556386fd02967b997179894011eb66286bd60abbd8e371f27393251ffd4d9"
   license "GPL-2.0-only"
   head "https://github.com/Jackett/Jackett.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7f23e7272fee0ebf945400674dd7a2e0eb07f989bed2ca240737870f0af8f31d"
-    sha256 cellar: :any,                 arm64_sonoma:  "abd774580522ecfd8f9db3b68992837076fa1b42b6233773a07c8c81ed6ba680"
-    sha256 cellar: :any,                 arm64_ventura: "55948e7a071e20be058ce5f75a4effe47a2f335a03f97aa4a2c0b878fe7d06d1"
-    sha256 cellar: :any,                 ventura:       "aacc66e229f6f56717e78e1d50d1848e070f2cd29b019e16a2b663e9d0dabbca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cdb1576a9a1e308a76850814d12f8a96c18089379337611682bf49936070572"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6df18a6d706dd08bcb60d6784ef65f349c8c87090a538331d2d61181e0e77519"
+    sha256 cellar: :any,                 arm64_tahoe:   "6bc0aae46f987ed003867f862ee7ac2d12fa7517d29cb29793613660ef2a41e9"
+    sha256 cellar: :any,                 arm64_sequoia: "9a40ecaab65c108708916077e2030afb5d3e5af4a8b65827dfa8ad7efde7b982"
+    sha256 cellar: :any,                 arm64_sonoma:  "42ce3f13576a1863dfdea8d0b8d38478dfb3df89857414a89916349064f6ff35"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60c1ed0c9960cf7fd3708fa88e91260166049cb87bffc267567d9b48fbed55ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e51e939b37232a18c55f7871329bc0bb75332ff6d6be65e0f8a3e8f088cbcfa"
   end
 
-  depends_on "dotnet@8"
+  depends_on "dotnet"
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
 
-    dotnet = Formula["dotnet@8"]
+    dotnet = Formula["dotnet"]
 
     args = %W[
       --configuration Release

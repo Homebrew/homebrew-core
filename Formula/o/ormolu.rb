@@ -1,19 +1,18 @@
 class Ormolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://github.com/tweag/ormolu"
-  url "https://github.com/tweag/ormolu/archive/refs/tags/0.8.0.0.tar.gz"
-  sha256 "e3948bfa80984b70cf0b701b15d206c9010862ea29d44a9a3ebd417646854948"
+  url "https://github.com/tweag/ormolu/archive/refs/tags/0.8.0.2.tar.gz"
+  sha256 "40d79a0e2ca0cdb8924d11de4cfdafa253ef82b91baf0b47388d61d749defb98"
   license "BSD-3-Clause"
   head "https://github.com/tweag/ormolu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6cee9b02ace0ce65f8a84cc635178647a8007b1daea9c652573e57399d43e80e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae68f6fd985883a51bb7f6cfaa98e9a6c44eb247a78e19088e80a2701ed6861d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "84da61972b5d54b7d2a461c0b9a408ca0fdf2856abb1eacd777cd4b7bef69626"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ace0cda866c90b4427927a38936d65db91ac1422b62a451b92a31e70a1b34eba"
-    sha256 cellar: :any_skip_relocation, ventura:       "c5d8fb13f9d1a8be511e9fd39c62237c0adb65ebc8f7fb373fe8d7d15eab45eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "870089f99132b6a942b3a35cbf7db091df5487feb0812baabd09a626d1b6260d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24cdc78d741ef47efd1f3b5ffcd480d538b43f427e7cc381ed09c453118fc01f"
+    sha256 cellar: :any,                 arm64_tahoe:   "455d08345efdd35bd58fbc526d4fbeaa8591537350e526728340bf5df683e29e"
+    sha256 cellar: :any,                 arm64_sequoia: "1217747b904943cb0fe3c5c8925fd1c384df538b1f578defc9d9dbb3458a5a54"
+    sha256 cellar: :any,                 arm64_sonoma:  "2ea9791458ca9d85d257a6e6048772303b102ede366a7c58b8cc2d4908ac68c7"
+    sha256 cellar: :any,                 sonoma:        "6be2df16ae9c2f99a69a414352b65edf125df8864ca4e0dfba63adde85c5698c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "312a416de29164e83c1fd85910ecf0d3568f27e4f9bdee3b7bde2b0ec103d7bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e633c8de861af86457fb1af18577f7cdadca5fa8ca247e66803d38966c50350e"
   end
 
   depends_on "cabal-install" => :build

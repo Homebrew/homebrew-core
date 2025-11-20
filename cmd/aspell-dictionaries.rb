@@ -18,8 +18,8 @@ module Homebrew
 
       sig { override.void }
       def run
-        dictionary_url = "https://ftp.gnu.org/gnu/aspell/dict"
-        dictionary_mirror = "https://ftpmirror.gnu.org/aspell/dict"
+        dictionary_url = "https://ftpmirror.gnu.org/gnu/aspell/dict"
+        dictionary_mirror = "https://ftp.gnu.org/gnu/aspell/dict"
         languages = {}
 
         index_output = Utils::Curl.curl_output("#{dictionary_url}/0index.html").stdout

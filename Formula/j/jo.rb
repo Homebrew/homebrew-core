@@ -9,6 +9,7 @@ class Jo < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4aab533e9fa8e5cdca40d4275cae1c956d9de52e30bfa02ac30092562a7f40d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "92ff2f6f6fb52d6ceb30e458a3a402eb49094671947f028a2abe78dc822ffd58"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd76f20d3d909585dd3341f1776e8fd9869c4c52d06f67e7d8583a0e230846e4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f76a57de3814c4a9b5fb87fb9e63e6d20cca457a94467783033b27d293229bc7"

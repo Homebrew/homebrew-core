@@ -9,6 +9,7 @@ class CargoDocset < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "760e1422ff6844a8f4133e095dd22f59d046ba01b0eb9f880548b7af7a02ffe2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5c4351f68e1d7fb4997246d0a1ff54e85b3aae4524bcb0cdc0bac379a88ecf54"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5d3967143668a150164b116c2f82996ed07bf150f8c2418d913fce73c0414cb4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a026716e38bb7746b1118556a35fd319beb8e46d9a07d02c886808cbf77bf31"

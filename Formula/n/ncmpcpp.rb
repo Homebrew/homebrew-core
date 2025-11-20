@@ -5,17 +5,16 @@ class Ncmpcpp < Formula
   url "https://github.com/ncmpcpp/ncmpcpp/archive/refs/tags/0.10.1.tar.gz"
   sha256 "ddc89da86595d272282ae8726cc7913867b9517eec6e765e66e6da860b58e2f9"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 6
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "85bce87b0b6063cdbf8be5b857c8a2d411a645d11f37f12d66dc99431bf7b034"
-    sha256 cellar: :any,                 arm64_sonoma:  "ac040b1f822500333c9193ebab20bd7910598c23a8e6aaada597ade970137a91"
-    sha256 cellar: :any,                 arm64_ventura: "317dbae909e32339ebf1134a8ae55bf0f609d04c5050a183cd644fcf2c301c10"
-    sha256 cellar: :any,                 sonoma:        "f6d94110dc3839f47f1011b489eb4aaf82d7afa2e8bd55484baeae6d178c41c3"
-    sha256 cellar: :any,                 ventura:       "0651a6f3101ce2af14a7e4af064bc6a765244966db3fe9afa6da2adf0fcc8c4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "08416eed22effd6c038ac64dfa1a7955df0ed74633fc8bb105b64207c22047c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fad7efcda3ef45c061a14d4b0517d8b4eed7ba186085e7abc6ad559167bc4873"
+    sha256 cellar: :any,                 arm64_tahoe:   "70f05ba4a05170c09bfb85fea422e84de641760e75a93b065341c4f169c61e58"
+    sha256 cellar: :any,                 arm64_sequoia: "bcd9d9e4217c1f8436e4de984f3c178e18650016016050c1b7467cefd6ea8d30"
+    sha256 cellar: :any,                 arm64_sonoma:  "239511ecd7495ecd5d2ee6fb77881da7fc61e71566e3e8def37b2da735eab7f8"
+    sha256 cellar: :any,                 sonoma:        "4e76ad05153e67059365a51c9a665fa07dd4bc083e172f22553794c10f5aea95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a85365b4dbb871e9e1fde6ca97e5bdcfc27e311d4d5ddfc539cf7b2dab117247"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c4640b8469447b4fff88888dd2e6ed186141aa73b915a48904ef0ce68318ede"
   end
 
   depends_on "autoconf" => :build
@@ -24,13 +23,21 @@ class Ncmpcpp < Formula
   depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "fftw"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libmpdclient"
   depends_on "ncurses"
   depends_on "readline"
   depends_on "taglib"
 
   uses_from_macos "curl"
+
+  # Apply open PR to fix build with Boost 1.89.0.
+  # PR ref: https://github.com/ncmpcpp/ncmpcpp/pull/636
+  # Issue ref: https://github.com/ncmpcpp/ncmpcpp/issues/633
+  patch do
+    url "https://github.com/ncmpcpp/ncmpcpp/commit/f67d350aa9beb2abdd12c429e97ae919e5b3102c.patch?full_index=1"
+    sha256 "7fa67adf722fec69793f9aa53398195294402bb09519e7bd99b388b7f99a5e59"
+  end
 
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?

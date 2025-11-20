@@ -3,24 +3,23 @@ class Uhdm < Formula
 
   desc "Universal Hardware Data Model, modeling of the SystemVerilog Object Model"
   homepage "https://github.com/chipsalliance/UHDM"
-  url "https://github.com/chipsalliance/UHDM/archive/refs/tags/v1.84.tar.gz"
-  sha256 "bb2acbdd294dd05660c78ba34704440032935b8bc77cae352c853533b5a7c583"
+  url "https://github.com/chipsalliance/UHDM/archive/refs/tags/v1.86.tar.gz"
+  sha256 "179203b166be5d1be12b901c69c6a569ebebf4fe47bc674b1268bd9319216fce"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/chipsalliance/UHDM.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "670acc688d73fba8ac6565fca378f022b5d1f6f37699df288ee5e9dc38b8b656"
-    sha256 cellar: :any,                 arm64_sonoma:  "255be8c70c052277b40458bbb152fd969c46ccf12ab9108e6f1dfad702d1ce37"
-    sha256 cellar: :any,                 arm64_ventura: "4b261cec78b1348d493ea3147509161746b1198fde4c6a5251fa346b0e3d13b5"
-    sha256 cellar: :any,                 sonoma:        "73ea9f87f818f189e140a0871d93a130f038d5c082465209c025ee4eb65517b6"
-    sha256 cellar: :any,                 ventura:       "5cbdabfcb3ea0e53e3b1682f544c1aff82613b71ce89d047fc393638ffd3a5d5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9f3fc34c3cf05f8674c551793cdf1492f151f93496016eb7a2e6ee8fe76726d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84b61a7b60b854c05302fcac7cf6a6fecdf54682a879f062ff31fc4bbdbad012"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "2ce89e087ced115f5a6c356b4efac1674d259f8b028a7a16997e5f9a8d903ad4"
+    sha256 cellar: :any,                 arm64_sequoia: "5214272d0282ba0b866470e0d532329b357d486f6e95d55865d38d95c9f2e2af"
+    sha256 cellar: :any,                 arm64_sonoma:  "e30934ee0658182c51c03eac208da0fab592caf97f3da7f0346140e670805cdc"
+    sha256 cellar: :any,                 sonoma:        "334106194c86016e35a7fddd5d5e02dc79a50debaece31d276e68e7ccfa807ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a076b91886ec218426897ed533ead40aae0e0d11a40d24c4ae54e3eb0388b494"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "228db393232f4c6523c75317591765327ae1754e16634e8fdf5fec8837c6239a"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "pkgconf" => :test
   depends_on "capnp"
 
@@ -30,28 +29,29 @@ class Uhdm < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
     venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
 
-    system "cmake", "-S", ".", "-B", "build_shared",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DUHDM_BUILD_TESTS=OFF",
-                    "-DUHDM_USE_HOST_GTEST=ON",
-                    "-DUHDM_USE_HOST_CAPNP=ON",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DPython3_EXECUTABLE=#{buildpath}/venv/bin/python",
-                    *std_cmake_args
-    system "cmake", "--build", "build_shared"
-    system "cmake", "--install", "build_shared"
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DUHDM_BUILD_TESTS=OFF
+      -DUHDM_USE_HOST_GTEST=ON
+      -DUHDM_USE_HOST_CAPNP=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DPython3_EXECUTABLE=#{buildpath}/venv/bin/python
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

@@ -1,38 +1,41 @@
 class Zsync < Formula
   desc "File transfer program"
-  # `zsync.moria.org.uk` is no longer accessible, use internet archive urls instead
-  homepage "https://web.archive.org/web/20241223233525/http://zsync.moria.org.uk/"
-  url "https://web.archive.org/web/20241223233525/http://zsync.moria.org.uk/download/zsync-0.6.2.tar.bz2"
-  sha256 "0b9d53433387aa4f04634a6c63a5efa8203070f2298af72a705f9be3dda65af2"
+  homepage "https://zsync.moria.org.uk/"
+  url "https://zsync.moria.org.uk/download/zsync-0.6.3.tar.bz2"
+  sha256 "293b6191821641d3ed6248206f8f9df0bf46e6ee2cf8b4dd97cfd1d5909edb9a"
   license all_of: [
     "Artistic-2.0",
     "Zlib", # zlib/
     :public_domain, # librcksum/md4.c, libzsync/sha1.c, zlib/inflate.c
   ]
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "242e3632a7cacc43f4b909c69bea7ae3c850921189867c6f6980523fea4f0364"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eae952647fec12661f80edba535420196912e3fce0c3e3272e8584993a53df39"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c26ab39f23b57f14fcb5407541cc6785209d09c4408d516069d8fe8694f5e01"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d9c561ebe0167e590847ed7993ff01e098eed20ba1ab158ffc3fc6a1295d220"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ee85fb722fa125e4323e14732d4de448f3751e9445e2ec6933fce0ee38d5a90"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bfc06781074730ece1a3b314758c91d798ea5cdfea550515df3d4588e58e8524"
-    sha256 cellar: :any_skip_relocation, ventura:        "aa55a9ccdc3c06c605580b6820afd107819cf970a59f96beed53e7988f73e8fc"
-    sha256 cellar: :any_skip_relocation, monterey:       "257f153c9f34b33cfcbcb08aeaab17a7bdf5c5a0538edf96c1a9a6f8074dd212"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1be9e390c02555dbce349a76e0beb63231bc327f4326580b18679ff0307db446"
-    sha256 cellar: :any_skip_relocation, catalina:       "333d4b2be5c1b6621bf7e7ac87199da1c5ec24a3cdb408c97ed733b6fafb89a1"
-    sha256 cellar: :any_skip_relocation, mojave:         "9fa9f958c45a87c1a4e9b2ccdc95e732bb8ab248843ec3f0554e5b412d7f1ae5"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b766bfc58f753376213e234d8e0e4238af1be39f77f239370583464040758fd6"
-    sha256 cellar: :any_skip_relocation, sierra:         "8d6e7eade289c62689e752151021e7bccac7900a5e7217e8885f2c38aec42c2c"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "9bbe0e102ca6a2b7ca57af6b2b29984f7da59ce97d15ce550bbbb206f1ad1815"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "5f5cceeb3fb7c8ee118d8a79621144a9e39a3d4f9c804f5c2181f6c193966c44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1961843c2195ae143b2f2ece7e26f91aa4c5a0acc67721441c221b5ae3404150"
+  livecheck do
+    url "https://zsync.moria.org.uk/downloads"
+    regex(/href=.*?zsync[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  # `zsync.moria.org.uk` is no longer accessible
-  deprecate! date: "2025-01-12", because: :repo_removed
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d4a20e196767857208a02278c4b0d5bf3378ae40402d1a67e948bf58cff27d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39991c4aa022ce2fe1b3d62b30e2c7e130be4e4e98bf6dca844f28ec8afdfe8d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "800299bfc82b2ce9970159a2d0efcbe445c74024a357aa4a3c2f8a74c4ed871b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8fcb43f6827e4c2339a9ec5f365c05372c9d17ca91e9fef076f84b784efcd65"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db75f0fa2e8fd02c11b06fb4a75ac536da7aa768f35df369137bf72d87490c36"
+    sha256 cellar: :any_skip_relocation, ventura:       "54804831f99313425941c41263b6b9e875db47ca171dee2a24d370e335e8fcfc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b1d6196e007d24f8416604d28391ed198a28f30fe72b98fc8d3623b4952b01c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61c5c7c1ea629dd5b29e60e554bd87b30528abe65e58730a8034c680c4eeb476"
+  end
+
+  head do
+    url "https://github.com/cph6/zsync.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
 
   def install
+    if head?
+      cd "c"
+      system "autoreconf", "--force", "--install", "--verbose"
+    end
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 

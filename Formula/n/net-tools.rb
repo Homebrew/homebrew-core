@@ -5,6 +5,8 @@ class NetTools < Formula
   sha256 "b262435a5241e89bfa51c3cabd5133753952f7a7b7b93f32e08cb9d96f580d69"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_linux:  "a7d523b6843e87fd1b0791952b634c66f5918b78b97e4b851d9d2b3a413e9886"

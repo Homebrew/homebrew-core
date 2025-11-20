@@ -1,8 +1,8 @@
 class Bwfmetaedit < Formula
   desc "Tool for embedding, validating, and exporting BWF file metadata"
   homepage "https://mediaarea.net/BWFMetaEdit"
-  url "https://mediaarea.net/download/binary/bwfmetaedit/25.04/BWFMetaEdit_CLI_25.04_GNU_FromSource.tar.xz"
-  sha256 "4e7f4606bc83829a9ac1742c10d0e5d730da2189cfcb8cab9b739211e094ce75"
+  url "https://mediaarea.net/download/binary/bwfmetaedit/25.04.1/BWFMetaEdit_CLI_25.04.1_GNU_FromSource.tar.xz"
+  sha256 "9a8830c32e561b2bac0467413de5d75d3853b7afdbbc8b830cbe6b4eb075c1b5"
   license "0BSD"
 
   livecheck do
@@ -11,13 +11,14 @@ class Bwfmetaedit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ada25a119a8c8c7e44971889d228b77bc2f09062eb5dcdc6671dbb8cd0ee5a8c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1d559f8aa1a0134eb6be9263845ca2ce2e0e1b5be84d8eb99a3bb684a74b4be"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b46ff3c597d15626a9b43b0e7ee92426e9cb4e9c68422f98d6ad7f8e8f35e071"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d39509378a55eb0278668436faaac2274a9d702488180300c8ed17880335f362"
-    sha256 cellar: :any_skip_relocation, ventura:       "f7e1e0fe0fd5c8982325e0208d55b0cb2f68235d4ed4cf01c47ecb93b138dfad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8abba81e78de3d8dc5512552bec11d7d5fead6598266f7f8a4f9a3469343999b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66f8c9ff2de246093fd6829c4a80d56ad06e6d3e5ef5381949b50f1248fd36d7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4a576b9c54a6a0326ec348b601c0e658ce35e4c0d7d0781553d12d4ada6d1e8a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d85b31fff2a4763c289f8152dcceb7e37ed12a9049c9c373e569dab3ccf787cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71765c38e82677ee12feadb978f5ef2cbeebdb02804341066ddc22dd06ca7238"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b18ba9f78bd452fb382de7852b066c28bc34049aa5a7158478dadfa6fae469f1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c0093ca11665ba05239cd1f85a9d6e1a1cf41ea0e0bc8c685de456c53d713939"
+    sha256 cellar: :any_skip_relocation, ventura:       "efe96dc3b69b7704fd8cd1f0722913c27fac7c6a92c2fecd4c5c8c9a3d243006"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "738627e85ae70d8e6fdd20fe07959c2406270b19bab59c2cec493830245941ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ab0427146edc6638cd7bdc09f485ca1108e3fd89230407db72c1d27005bacf8"
   end
 
   def install

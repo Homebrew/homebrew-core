@@ -1,8 +1,8 @@
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
-  url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.6.2.tar.gz"
-  sha256 "116c9ed475efd0265329c90273053a1fa6a18ee68d5c54ed46797cd0e001f648"
+  url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.6.3.tar.gz"
+  sha256 "46688668b2ace67d8161a320256252d98698bc7d9788cc6727269d5720299f2c"
   license all_of: ["HPND", "ISC"] # ISC is only for src/utils/strlcpy.c
 
   livecheck do
@@ -11,13 +11,13 @@ class PgpoolIi < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0254ea49d14ca0a41eb2d78822c0c936fd6839511a042c4032506343bdf5f2fe"
-    sha256 arm64_sonoma:  "708a947e7580582b32a71d7d4b111b7ae4586e36819e4eac34a8d454cfd403f3"
-    sha256 arm64_ventura: "49b6903c9318613a6ba36dfd0c1294c65b0c5be34a8bd961fcca6d21d29938de"
-    sha256 sonoma:        "2c7cb7f2cf0b8d2574801a485154bbd655b8390f9cffc1d391ea08e7ad5378c4"
-    sha256 ventura:       "4b9e23c9f9adb9815fffd2191487edf8c94fbb9ba54c24d62d8b164e7e228b8b"
-    sha256 arm64_linux:   "7f0e13d03850e2b3e9fa2bd4d0205f5473748b71e40b875fd75026673400cbb7"
-    sha256 x86_64_linux:  "d0573eea96263ecdbf8a92a8a55369ed0ceec72207eb98da83deb72cdd4a8544"
+    rebuild 1
+    sha256               arm64_tahoe:   "a06a7dced7cb84105dbf2eb72ffb44e9fbab82609a800ba8f7aa157e9e96c713"
+    sha256               arm64_sequoia: "6287616f0bfad76a637ee26b2e9adc3f98648a30596bcc2fbc750128a311836e"
+    sha256               arm64_sonoma:  "118e68699416b5cd58ead4a47b0e1f22d89cc0983cf19a4f63b0fdad991f6fea"
+    sha256 cellar: :any, sonoma:        "9961d0426b00e5271709020b6e4a54c3ccd16cd20f8869043477ce27314a9984"
+    sha256               arm64_linux:   "ce6b27d65ebe473cff8285ce3e85eba0c16c6b2a087a9e0a7adf190530350ba2"
+    sha256               x86_64_linux:  "da527e1c84411626b9532e3fbdf708436efa229527081e864d3be70d08c8437a"
   end
 
   depends_on "libmemcached"
@@ -27,7 +27,7 @@ class PgpoolIi < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
@@ -45,9 +45,7 @@ class PgpoolIi < Formula
       s.gsub! "#memqcache_max_num_cache = 1000000", "memqcache_max_num_cache = 1000"
     end
     etc.install etc/"pgpool.conf.sample" => "pgpool.conf"
-  end
 
-  def post_install
     (var/"log").mkpath
     (var/"pgpool-ii").mkpath
   end

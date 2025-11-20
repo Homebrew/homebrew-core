@@ -8,6 +8,7 @@ class Beanstalkd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3822e7705185398f263482d69e922ffee29ccc195eb491bcc765a020ac6728ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "74b984c41b74f63386b6125681be1f37529341179a754f0556ed9d2d621b9088"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c0cd544f3007bc3fc55d863ddacab823698188bd12e8a5b15e71aa81d071f50"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "128bb476a00fb682cbc27ce9859d44efdb752221458b8bc33dd358313f1dd54e"

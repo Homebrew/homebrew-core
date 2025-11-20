@@ -6,6 +6,8 @@ class ZshSystemClipboard < Formula
   license "GPL-3.0-only"
   head "https://github.com/kutsan/zsh-system-clipboard.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "0020905311350f9aa13a1a35b0632667fe6d4e3bcbbb69110add37eb2ce83b16"
   end

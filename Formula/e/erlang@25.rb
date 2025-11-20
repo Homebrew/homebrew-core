@@ -5,6 +5,7 @@ class ErlangAT25 < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-25.3.2.21/otp_src_25.3.2.21.tar.gz"
   sha256 "99296fcd97a2053c5fcde7dc0ded2ba261a3baf1491c745fca71bd9804d51443"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +13,13 @@ class ErlangAT25 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "65fde55b66db90156d6709104d43a2b599c79fba2c9f3cfd39baedefeb3e3d3d"
-    sha256 cellar: :any,                 arm64_sonoma:  "e120e61ccdbd483edfef22a3829794350da15a96dd71389d5478a33ac496a7ca"
-    sha256 cellar: :any,                 arm64_ventura: "12280e821f8d50701ed2ce4bf23011fd5199d7ce716a7da6a97384573c019976"
-    sha256 cellar: :any,                 sonoma:        "ec11109a563a4d97aa616bf896297de7cb2973ea2e02979b44eaa4d5f2949863"
-    sha256 cellar: :any,                 ventura:       "458d3a1961ba7dfa73cd953deb1ec4726e4926b85d94f5536322bb2be9fb54cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf9cbe47cc7192af68089444a4b92203355ef1f0b963ea3568a9acdca8a77813"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c8d50b3f4b3cf6413965b73065c4b512cf2b8461e0a6752501854f6518d8a09"
+    sha256 cellar: :any,                 arm64_sequoia: "33f70df37d2196f26aeac6cfbb090d8d9aee8007ab809e72aad4d41755ce5474"
+    sha256 cellar: :any,                 arm64_sonoma:  "586d85e4927c178beecf49b78dcd9f27ab1624a0d7220195df1c0eaba6ca84ee"
+    sha256 cellar: :any,                 arm64_ventura: "f96554ee4d044b5ed8e24de4b842013884e6c0ecc6f6989b83318d1780eb9578"
+    sha256 cellar: :any,                 sonoma:        "3dc4acb51bb1c44d77972dcf7d6fb6d06e780e897da2f01f33b60450818af277"
+    sha256 cellar: :any,                 ventura:       "5497f5c8323560b7102c5f07e1e2dd197d9aeca4c3897e5d9a373ed09d523025"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32b3de963e79192d67a7b20cde3f9293b235e4e53755263fb48bbf65cef7ed1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45e3365abc498935ba904303f9a1e81e4354e251d04080984250e8d814835bf2"
   end
 
   keg_only :versioned_formula
@@ -29,7 +30,7 @@ class ErlangAT25 < Formula
 
   depends_on "openssl@3"
   depends_on "unixodbc"
-  depends_on "wxwidgets" # for GUI apps like observer
+  depends_on "wxwidgets@3.2" # for GUI apps like observer
 
   uses_from_macos "libxslt" => :build # for xsltproc
   uses_from_macos "ncurses"
@@ -58,6 +59,8 @@ class ErlangAT25 < Formula
     # Do this if building from a checkout to generate configure
     system "./otp_build", "autoconf" unless File.exist? "configure"
 
+    wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula
+    wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
     args = %W[
       --disable-debug
       --disable-silent-rules
@@ -71,13 +74,17 @@ class ErlangAT25 < Formula
       --with-odbc=#{Formula["unixodbc"].opt_prefix}
       --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-javac
+      --with-wx-config=#{wx_config}
     ]
 
     if OS.mac?
       args << "--enable-darwin-64bit"
-      args << "--enable-kernel-poll" if MacOS.version > :el_capitan
+      args << "--enable-kernel-poll"
       args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
     end
+
+    # The definition of `WX_CC` does not use our configuration of `--with-wx-config`, unfortunately.
+    inreplace "lib/wx/configure", "WX_CC=`wx-config --cc`", "WX_CC=`#{wx_config} --cc`"
 
     system "./configure", *args
     system "make"

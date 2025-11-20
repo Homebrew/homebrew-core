@@ -4,12 +4,14 @@ class Picotool < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://github.com/raspberrypi/picotool/archive/refs/tags/2.1.1.tar.gz"
-    sha256 "19200c6dc4be5acd6fb53de3d7f35c826af596c18879d56f214b795300100260"
+    url "https://github.com/raspberrypi/picotool/archive/refs/tags/2.2.0.tar.gz"
+    sha256 "aab3d82fb1e576d97156ddcb962ae7cf290518a5f20d9002ac27e628dc657620"
 
     resource "pico-sdk" do
-      url "https://github.com/raspberrypi/pico-sdk/archive/refs/tags/2.1.1.tar.gz"
-      sha256 "179c5531e75ac7f82d0679e70b6e8881f871738dc0ef17baf3b4ff4679291c41"
+      # Use git checkout to allow fetching mbedtls submodule
+      url "https://github.com/raspberrypi/pico-sdk.git",
+          tag:      "2.2.0",
+          revision: "a1438dff1d38bd9c65dbd693f0e5db4b9ae91779"
 
       livecheck do
         formula :parent
@@ -18,13 +20,14 @@ class Picotool < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "8e51e1b6845de5e0b23a077e14d62833a1a278dd152af0c3dfef5e61cc2256b5"
-    sha256 arm64_sonoma:  "cd8546607360520cf90fb05023ddedf4314f5091a405b26a14258671de27d43f"
-    sha256 arm64_ventura: "d4f3ee5104586f5333b44791ddab8cb73335674e9c34bba6087ac2b5173977bb"
-    sha256 sonoma:        "5a30e1353a4d3ab7d2dfc5ceb9e129e24d5909fd2a78e49a15f440c47d99b832"
-    sha256 ventura:       "968e9358bedbeb778f48ceea8aac90f86be7166073f560273a4a1175a17a1f74"
-    sha256 arm64_linux:   "238fcbc4f902a9f507d68e3f8a4988ae59b04e7cff40ab729d6eddc57d6f9643"
-    sha256 x86_64_linux:  "e1eedbfbeb6bbd81d3e6bdf3e3c086ef33689ea341967e00b1cdeef528f77ce8"
+    sha256 arm64_tahoe:   "b12cf07252361b521281cf7602d0ab010555d02abac576e1ce3be340df4d66c7"
+    sha256 arm64_sequoia: "49cb6c6d41e91089a09df5bf092d83d658f5db22490e391134e9c9ead450f0f8"
+    sha256 arm64_sonoma:  "2159fc13efa5a87797d8d6d0ded1647cef3c78cbf41c83fbb18294e48f81b0cb"
+    sha256 arm64_ventura: "7025bf2422beece703941ecd4cafd63f2f7ec104a91197970e9a2be19f0f9bf1"
+    sha256 sonoma:        "08e87accab4171dd4d3fbd0fc2d68ba6b4212281f39664c0d6e833f2b76acdc7"
+    sha256 ventura:       "74c24dc9a56d7e5f3302c665452a5a0151be7554b4442eb2ba49910513ebbfc8"
+    sha256 arm64_linux:   "d0019fa8d364fc028d890587caca5944c3f49eaa559f3e4076fefe2b347e9fbd"
+    sha256 x86_64_linux:  "3a7872893bf73e1fa954822415d7f3dbb72d16a83899635fe091d0adb1454994"
   end
 
   head do

@@ -6,7 +6,7 @@ class FfmpegAT4 < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 5
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -14,13 +14,12 @@ class FfmpegAT4 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a4296862a66e08202decb85c2e426163c838407283521c768e8ad5306aa0bdbb"
-    sha256 arm64_sonoma:  "71172ba10cfe7a20915cb5c473bf5e550c3e49a232c87a0adf0dda0b51bbe961"
-    sha256 arm64_ventura: "59e67106e7879163577611992de4c77754a32930852b506af5df0da8b600add3"
-    sha256 sonoma:        "b2b65123d994bd3fc8ef8278d299e3994788c2193ad2763ba8c05709a890527b"
-    sha256 ventura:       "2df77db20fe2e315d4f45e2bde713cacbb461966c31795aa760cf67083b567f8"
-    sha256 arm64_linux:   "95b2761828fe103ec08b9d775082894d94ae2af89fa0639718f66c1cdd48ffc3"
-    sha256 x86_64_linux:  "bb3e70583a64d3b34beb3174cb03844be08080eba19c4185715ca95294e0eda8"
+    sha256 arm64_tahoe:   "62b624d1f908dd1c369490c5b1f3fa05c1bab9732d87a3e106ca9eb7b8e2a089"
+    sha256 arm64_sequoia: "50acb5e522484934cd58b1e1d7ec0162d37a0afdfbb7490aa4d29461a4e31567"
+    sha256 arm64_sonoma:  "e4857e98013c47c2cbe46f9ed5ab803059f0d2ccecdb87d166a58a9b995d31e4"
+    sha256 sonoma:        "39c5e940ad811a6d5fb699a9a190cb1e4f3480a3389db27b96015242131a485c"
+    sha256 arm64_linux:   "2a2e8407f5b8f0dc860b58c525cc0de32515667fca57340b388ffa453da5ac4e"
+    sha256 x86_64_linux:  "3dc52b66b91a676d8fb12e40c0f598ad9271bcc5c11f2e646ff1ed24ba9b2125"
   end
 
   keg_only :versioned_formula
@@ -134,7 +133,7 @@ class FfmpegAT4 < Formula
 
     # The new linker leads to duplicate symbol issue
     # https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/140
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.ld64_version.between?("1015.7", "1022.1")
 
     system "./configure", *args
     system "make", "install"
@@ -147,9 +146,14 @@ class FfmpegAT4 < Formula
   end
 
   test do
-    # Create an example mp4 file
+    # Create a 5 second test MP4
     mp4out = testpath/"video.mp4"
-    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
-    assert_path_exists mp4out
+    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
+    assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
+
+    # Re-encode it in HEVC/Matroska
+    mkvout = testpath/"video.mkv"
+    system bin/"ffmpeg", "-i", mp4out, "-c:v", "hevc", mkvout
+    assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m, shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
   end
 end

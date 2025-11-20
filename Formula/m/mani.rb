@@ -1,18 +1,18 @@
 class Mani < Formula
   desc "CLI tool to help you manage repositories"
   homepage "https://manicli.com"
-  url "https://github.com/alajmo/mani/archive/refs/tags/v0.31.0.tar.gz"
-  sha256 "dd44bd7f409c5b2a755beca45229cbc9be02712be55c099bd6a01f6cc3441df2"
+  url "https://github.com/alajmo/mani/archive/refs/tags/v0.31.1.tar.gz"
+  sha256 "1a437d05f6c82ad27c8d57c7af9c3c3aabcb450d7996ff4a7a8060a7ed7ed001"
   license "MIT"
   head "https://github.com/alajmo/mani.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2df96b3f4f0206dbf5571b270269341d3d0c62e3c29826b682107501551a007f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2df96b3f4f0206dbf5571b270269341d3d0c62e3c29826b682107501551a007f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2df96b3f4f0206dbf5571b270269341d3d0c62e3c29826b682107501551a007f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "26dd3a03b1e5519eaa222b13a63617d03e89dbc771cd8c2ae50906e5bac2b38d"
-    sha256 cellar: :any_skip_relocation, ventura:       "26dd3a03b1e5519eaa222b13a63617d03e89dbc771cd8c2ae50906e5bac2b38d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64dfe83672401b0bf18860dd973a212f6c352517ca47f2955eae2a32ffceb636"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6309e73f757837509e6794c5194c5fef0a09e8bc868d740202c1f8dcc04e606f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6309e73f757837509e6794c5194c5fef0a09e8bc868d740202c1f8dcc04e606f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6309e73f757837509e6794c5194c5fef0a09e8bc868d740202c1f8dcc04e606f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cd19a923cf7d2743e7102b003d0e35fd8d9f97411d9f8f7a8a6604038dd76c83"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4928a33a3c2bfdb7ac81528e105f8b741e9d35539fe30007e4d1a46baeb3b223"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0ccc2876c1c95538c304fd9fd487842ef9b616f462c3e7dd788fa2c751a3f75"
   end
 
   depends_on "go" => :build

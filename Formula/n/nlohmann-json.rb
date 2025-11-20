@@ -6,6 +6,8 @@ class NlohmannJson < Formula
   license "MIT"
   head "https://github.com/nlohmann/json.git", branch: "develop"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "df65065eb8504f15f8802b7c681df015a592a68336db7fe290eeeda59fa1e440"

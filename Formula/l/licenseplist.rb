@@ -6,11 +6,13 @@ class Licenseplist < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "455aa974e950c7e0f19ea4ae8dc0666a01b663b07eea474fcb515cc20e3cad99"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ccc055b2f25c05d5f8f0c236530382463e98ea751b1136958ba8460d7fa7aa7"
-    sha256 cellar: :any,                 arm64_ventura: "d5bb44b8bacf9ef76ab5b2f97ba75586d76c5096c60617547ea76c664ec6e6b4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88ad0ab2826148ae09d5157e172c44585d974eed16be9c9829bd2453b2dee227"
-    sha256 cellar: :any,                 ventura:       "b2ff6995c345cbcc2eee53878b7740b910c88a3551504f4560ebd9c8c64e8d74"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a3d29de5e06caab7668af33fb9b3317de75946a3954a7a9193c0ad8c3714fad4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e54f055c3e29a8aff0f85e950ab1c020a754f0aef9d0cc611dd2ce5805043e68"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0b3dcfa0ba7517e413f75da4cc7599fb5e5dd537d6b97441d1c588bd87cfbeb"
+    sha256 cellar: :any,                 arm64_ventura: "8c21ddfdff8381555f285a561c3f510c7ab4fbeda13888fb9f33b0f10846d85a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "703046bd779a84a179d2d9f8b5a47008aa59b589cf541e3c80f43ebd4cdd55ce"
+    sha256 cellar: :any,                 ventura:       "dd3dc64ce46e592dfd9c3ad0b223366ab6556865a5ff2ea3d5392f93a030466e"
   end
 
   depends_on :macos
@@ -20,6 +22,7 @@ class Licenseplist < Formula
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
     bin.install ".build/release/license-plist"
+    generate_completions_from_executable(bin/"license-plist", "--generate-completion-script")
   end
 
   test do

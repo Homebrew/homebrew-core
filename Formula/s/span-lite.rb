@@ -6,6 +6,8 @@ class SpanLite < Formula
   license "BSL-1.0"
   head "https://github.com/martinmoene/span-lite.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "389279742b198d8b61719e3ade77c246d03e44e0b7635a77b5fc6f569162199f"
   end

@@ -1,18 +1,20 @@
 class GoBlueprint < Formula
   desc "CLI to streamline Go project setup with standardized structure"
   homepage "https://docs.go-blueprint.dev/"
-  url "https://github.com/Melkeydev/go-blueprint/archive/refs/tags/v0.10.10.tar.gz"
-  sha256 "6377012d2899867b5a32f67b810d19cb44b6eb14a3caa8214cb969f69209a51b"
+  url "https://github.com/Melkeydev/go-blueprint/archive/refs/tags/v0.10.11.tar.gz"
+  sha256 "4c5a8d75738fe73266b6e9d051829d7810c3787d52ab4c939c19ca92c9493004"
   license "MIT"
   head "https://github.com/Melkeydev/go-blueprint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42ef8aece20d3def2f7ec0d148e88534506f6bb6c5cbc978177c6e319fede4b0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "42ef8aece20d3def2f7ec0d148e88534506f6bb6c5cbc978177c6e319fede4b0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "42ef8aece20d3def2f7ec0d148e88534506f6bb6c5cbc978177c6e319fede4b0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "375fd221422fd06152efbc07380e945a9e124db3ed9709e114b3bc02df735dce"
-    sha256 cellar: :any_skip_relocation, ventura:       "375fd221422fd06152efbc07380e945a9e124db3ed9709e114b3bc02df735dce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3fbd7863ca7550a48048006c569452d9a16fa8eb2653fefd969545662af74cc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "518ba176f2365fcba2c62d4f7953a95e576248b7254c69f88a02a61754396c7c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f9ef29a931115b5b44f61bf4cc1582fa48fde680e05f0111634c216e65abd66"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f9ef29a931115b5b44f61bf4cc1582fa48fde680e05f0111634c216e65abd66"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0f9ef29a931115b5b44f61bf4cc1582fa48fde680e05f0111634c216e65abd66"
+    sha256 cellar: :any_skip_relocation, sonoma:        "98b590e460f2a77c655783bf7d3a12d2228ea8e8a47a0b70cd03ad1b110f8e10"
+    sha256 cellar: :any_skip_relocation, ventura:       "98b590e460f2a77c655783bf7d3a12d2228ea8e8a47a0b70cd03ad1b110f8e10"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "67d5c270678754708d5eec5561d7b24dc4ed928c638a60548e72ea28466dbd98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0bb3805c4152579c6b594374b5aee19b00271b0caf8b2465fe5cded05de73a8"
   end
 
   depends_on "go"

@@ -6,6 +6,8 @@ class Matlab2tikz < Formula
   license "BSD-2-Clause"
   head "https://github.com/matlab2tikz/matlab2tikz.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f76f11ee806e2256f088b5dd34b534e94e8bfd48f495152bb623d7519dc2b893"

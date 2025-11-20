@@ -25,28 +25,25 @@ class Clisp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "a01927a4f8f0c88f8aca8aa3ca0d52745d17bd352239651719042e414f5c8f90"
-    sha256 cellar: :any, arm64_sonoma:   "e94752975afb5181821d2eff44c22247d224fabf1961ada3e0091cca6352d067"
-    sha256 cellar: :any, arm64_ventura:  "2be9e60ec5595599b60733d43ade1ea29007214d3c05837d58cffc43bfb6e412"
-    sha256 cellar: :any, arm64_monterey: "bfad1c6c3b4787711bc126ed360647a6ad6458dd24ff4cd9e3be5252b897ed82"
-    sha256 cellar: :any, arm64_big_sur:  "8108810c5af0ce990d9052ca96f6aa75af1f59589a103e21a86f8b1f2e801956"
-    sha256 cellar: :any, sonoma:         "00920ed9b13c34a10e199cbea5703ed30e1e2bf2aa9047fc07b4bc406f98050c"
-    sha256 cellar: :any, ventura:        "16c062ce5c0d6ff467fe082d36bc22a0455972c19a34e37520eb0134f77b24ec"
-    sha256 cellar: :any, monterey:       "b2fc7c67341df7f9766f66054445e342bd61acc22c7260bac3589266ba78f8a3"
-    sha256 cellar: :any, big_sur:        "4b81399840c98918cda6447d86852ffcb96294f228cb26f6c289f22d90df5a7a"
-    sha256 cellar: :any, catalina:       "de714225b132ed2cdf971fd31befd890f336a3a917a5fd56832d6989b6c28a58"
-    sha256               arm64_linux:    "2198c38ef80827473a8ee4ae64ea538a142b99fb70caa5f00ec6685535f7d4c6"
-    sha256               x86_64_linux:   "c62c710ca923611df8d28202e49b0ca27eba36a4d0736a01e482b453d53769e1"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "7c6012970cf0b4c270ea9144deb1aa018a820f333dd0a23c98116a6da81cdccd"
+    sha256 cellar: :any, arm64_sequoia: "ddfc9a191f0afb4b3763164759e47df9e6eabec853dd60a1575a83d040309003"
+    sha256 cellar: :any, arm64_sonoma:  "82b6891a410f0c7c212fed6e18527102ad9180d0003ccf3e24bb8d8071d37353"
+    sha256 cellar: :any, sonoma:        "a4225bd790a152ba74e307d69ff945b69aa0c04fc43b1c98b67298085300c129"
+    sha256               arm64_linux:   "21dbffbe262f2cd831a5b80be895bb1747d5e58091f28d5067be710cab22d832"
+    sha256               x86_64_linux:  "ac69bd943aac71e7e7d782747b3e3369923e13cb8de3990c3afe6adf90e42ba2"
   end
 
+  depends_on "libffcall"
   depends_on "libsigsegv"
   depends_on "readline"
   uses_from_macos "libxcrypt"
+  uses_from_macos "ncurses"
 
   def install
-    system "./configure", *std_configure_args,
-                          "--with-readline=yes",
-                          "--elispdir=#{elisp}"
+    system "./configure", "--with-readline=yes",
+                          "--elispdir=#{elisp}",
+                          *std_configure_args
 
     cd "src" do
       system "make"
@@ -58,7 +55,7 @@ class Clisp < Formula
     (testpath/"main.lisp").write <<~LISP
       (format t "Hello, World!")
     LISP
-    assert_equal "Hello, World!", shell_output(bin/"clisp main.lisp").chomp
+    assert_equal "Hello, World!", shell_output("#{bin}/clisp main.lisp").chomp
   end
 end
 

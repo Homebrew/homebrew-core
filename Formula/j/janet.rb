@@ -1,19 +1,18 @@
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
-  url "https://github.com/janet-lang/janet/archive/refs/tags/v1.38.0.tar.gz"
-  sha256 "84dbf7db9c09677618549fb4be23631fd64f527af21051db02753241a2f6f752"
+  url "https://github.com/janet-lang/janet/archive/refs/tags/v1.40.1.tar.gz"
+  sha256 "e7fdcb7ccc83a3be6181f7d7d71f0ea027a000e0eefe9bba3b8373c05eb5764a"
   license "MIT"
   head "https://github.com/janet-lang/janet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3d5aceab74176cbe27ffae5a7fa4f9485c2694989188fcd5f7c4a83ff2a4495d"
-    sha256 cellar: :any,                 arm64_sonoma:  "2afce57bcb9348d81aa482af206fbfa1d6b1985f028be51fef0d5e6f6ccc42e3"
-    sha256 cellar: :any,                 arm64_ventura: "ccdaeff23165fc3b9fc964a18a010dd0804a91cc615c25be653f0f59f401886c"
-    sha256 cellar: :any,                 sonoma:        "02fb4e9f90e09f7ba732c33f5db175650f074f42a2d144d2ec140ac4594d0972"
-    sha256 cellar: :any,                 ventura:       "db28b206bd0846582f5d299e02879624716b1ba5d87ebdc3819b1dd202c3ad6d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3c3fe2618d5ca8b0458ecb473531c16f9deb97a8bd4de18228507f97252fae1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "029c616c9c076e8fcc8a8a144df67dc5427dbad79903329a5accaadf26bc487a"
+    sha256 cellar: :any,                 arm64_tahoe:   "2fa3160c82a4a677ce269164b910709b28116157ea3857e49e3efb7c41bcf60a"
+    sha256 cellar: :any,                 arm64_sequoia: "93b8a690c9042fe369088c02cc0913eff00ba88da180bfb108b209780a805418"
+    sha256 cellar: :any,                 arm64_sonoma:  "120186d5f3c6411f0adcb97a793881a4e8d972a8b13af824e263ef087aac4df9"
+    sha256 cellar: :any,                 sonoma:        "1fa642c765900c1cd7b2b0510ca0166a39f7a0e2d3ec8aa3aa6e9b562586a330"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65fc5b396bcf8cb0ef6adccc2bf37f3d1ced6efed55af1b8860c79bae5aee543"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74e59dd4b45474ce5dd2b8a7666c8bc2ddee03323fbc772da0bcf3300de4d4bf"
   end
 
   resource "jpm" do

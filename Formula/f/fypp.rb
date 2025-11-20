@@ -8,18 +8,16 @@ class Fypp < Formula
   license "BSD-2-Clause"
   head "https://github.com/aradi/fypp.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, all: "c8c4c383f5fa91ab12d838277ef39f7b8e11807e3e328379fb52b46c9a5b73f4"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "3de4ca648895c9fdec45f2a052785fb54b9b5db303574558d9ba5eb8d2f7940f"
   end
 
   depends_on "gcc" => :test
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

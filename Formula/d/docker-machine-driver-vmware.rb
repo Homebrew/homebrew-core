@@ -11,6 +11,7 @@ class DockerMachineDriverVmware < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "01fa7c87d4ba3e58db8cbc31e7b7f89d0a46d500d3e8d88431cd90f31e501ee8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3010bd538c1539f9c59681820e3c316c709c25af6f27a1832afa982cfc026646"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "81805da1dba151839c89b920d7c8690adfc56d57b37dd6c83a599b2d29d2d292"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "780fd9e178b5d74e3e0d8e9682460c01d22f53bf291bff09270ef600b758c4ac"
@@ -21,6 +22,7 @@ class DockerMachineDriverVmware < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ffa978d59f3f647229527029ab3a3a88fdd3bed7d7000214969acf218fc1d084"
     sha256 cellar: :any_skip_relocation, big_sur:        "a4cc3a076070538c9bacec55e70ed2fd454f860c5c3c9a5f3f1986abb8c7be88"
     sha256 cellar: :any_skip_relocation, catalina:       "29427b8c6e0c23160406ffbd642c5838cf6e2d2e73de30c688630ae60f57f47d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5c76b201cac7373f70ffcd396af6f46fb90c49f5a103e9d6e44ddf50ada228e0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2699119a539f3b9b7c86f900d5510d5b4cdb952ebdc60b7f5c12bf80f5d4932"
   end
 

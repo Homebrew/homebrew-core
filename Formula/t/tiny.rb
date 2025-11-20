@@ -7,6 +7,7 @@ class Tiny < Formula
   head "https://github.com/osa1/tiny.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f39273bea2d44c1f991cb568d3bb3caeec238629895d7332f93cc3fd8cb8a8c2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b6362dac49c5a0b79b04dc91ded217ab137a122398a14dce062179667802278e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "670eea450b4070a2eb2984d25773a284faf38671fbb333ad4d131cecaf23be18"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "56f21368dff225e7fae151b96ded515ab2c858c6a4cbd8bb5f124c6964937d98"

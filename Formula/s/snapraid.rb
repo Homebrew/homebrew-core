@@ -1,18 +1,17 @@
 class Snapraid < Formula
   desc "Backup program for disk arrays"
   homepage "https://www.snapraid.it/"
-  url "https://github.com/amadvance/snapraid/releases/download/v12.4/snapraid-12.4.tar.gz"
-  sha256 "bc15ad9c42ddf9bd70033562a10e9b9fec43afed54c48fe22da4b6835657ec1b"
+  url "https://github.com/amadvance/snapraid/releases/download/v13.0/snapraid-13.0.tar.gz"
+  sha256 "0282a9eec3301cd608dc45d9182b6d207f9fd4d25828c9deb329a015c77cb4e2"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be651a06a787a34c2a61ec630533c9f797466f39e08263b20001f9847716410f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3584f9baf7c68d40594c5cd6e55f2673673c89e9cee864761189841ae1618d0b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4fdcfb27a1c6b992091984301b37490227c5d76e4c29b0c185f013b056589ae8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3db986583cb40047356a50b2f930e584cfecb08acbbf1fece8eefa126613dcd9"
-    sha256 cellar: :any_skip_relocation, ventura:       "525798bd506d2e33f10e5732f919aca3886106df15d02b42338600ad717a4756"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e06bbc388fc22c7502f614c6489c5f6ec7e626000054dcb870cbd4b9be557467"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e1a40ce144a059183f2fa5e2e070bd27e41340d4329feae564eb2aefefe5cd3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "19b050454ae04096be0285ebe515c2cc97ed39d46404e03d128d37b28726b471"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a38aa13933093f4bf281a8e0ad7079cd5b7ffaa85cdb55b9b70b456dc7d1fd36"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85b8ca325f1d873b8ebc0bf1c06b170ae3ae106ec677906d96ed77adf9499359"
+    sha256 cellar: :any_skip_relocation, sonoma:        "955f3d5943b70e6798a18f339a9fae20c5a8404c67ed7447dd2f796623149fe0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a63c13b9c5ac924ef2f87bb2e7f44cc1e05810b3e58dd2b338039c7614ecf1a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4277c65597f58d2f996bd106b71249dd1c7ed7e39b990e2f9cb887d39993b8cf"
   end
 
   head do

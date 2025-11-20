@@ -1,18 +1,19 @@
 class Libheif < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "https://www.libde265.org/"
-  url "https://github.com/strukturag/libheif/releases/download/v1.19.8/libheif-1.19.8.tar.gz"
-  sha256 "6c4a5b08e6eae66d199977468859dea3b5e059081db8928f7c7c16e53836c906"
+  url "https://github.com/strukturag/libheif/releases/download/v1.20.2/libheif-1.20.2.tar.gz"
+  sha256 "68ac9084243004e0ef3633f184eeae85d615fe7e4444373a0a21cebccae9d12a"
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0771e767a82c4817c544678e4afa4c52c9003457684031d5458cc48faaf5b3e6"
-    sha256 cellar: :any,                 arm64_sonoma:  "3fd45b31c2c6e1fc66e6b17745bd9d72626f292ee10cc934ff3dd605672ff567"
-    sha256 cellar: :any,                 arm64_ventura: "8c09d6ca38fb9b6c25ded953c1d5b3f71afa66cb2c71313e5714ca82022f8a71"
-    sha256 cellar: :any,                 sonoma:        "34f944065cf6900138ba98a3726a6608d7086fa5146bd9864a7b27f0d13b72ce"
-    sha256 cellar: :any,                 ventura:       "bec7e48c76af4bb07c4b58898232a2f964829190bcfd12ca36028ab81b641508"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "adfc024f5001a4f14c6d731044e524682e97d8a5c583aa779c46caec15794652"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ab65fcd74b045636c1797e2c7dece8d6a83ada31cce9d3b3adc9adf6cd7a152"
+    sha256 cellar: :any,                 arm64_tahoe:   "299665cc7243e7382b0cf61392a846ade50eb2ff4ab5710e5212562a468cf918"
+    sha256 cellar: :any,                 arm64_sequoia: "f3269404f33c86607273d0d84744067500483cba20ace6c1274b3ef8c09cfab4"
+    sha256 cellar: :any,                 arm64_sonoma:  "e80e07cb6785637373ef0037b825ecf35b2e2e3cd78a8e73fea329d15eee5a3c"
+    sha256 cellar: :any,                 arm64_ventura: "0d37be85f1da630c1dd0069c003b1bdff3e0796592ac88e7f9927b22ee08a0ff"
+    sha256 cellar: :any,                 sonoma:        "ab9e7d6176e786ab51695fd2b9194261e15fcd040c0a1827fd2dd0bf1e491810"
+    sha256 cellar: :any,                 ventura:       "d130bffc9ecb61cb142ee99fe36936f1786f356e5496fc9a9b1f40363937dd52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d9de659e7bebc56b68b7bde30f6f7c754aab8a381d396a24421bf1cf6d3e031"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55d51d8cfeb3c116e8fafc2d43f81de1cb9bf18d627fe0c379b4a94907876e11"
   end
 
   depends_on "cmake" => :build

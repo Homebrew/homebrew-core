@@ -7,6 +7,7 @@ class StarlarkRust < Formula
   head "https://github.com/facebook/starlark-rust.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d25035b0a2ca0a499dc940cd416dba460eb7b3d22871b17a67553c9d67fb0817"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9c7d216f76e62d7afb443c1149081a879e2e640809951608bb306f6b7e3c75b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2be2257f4dc600df454dacfbcea964d0b03fd3b90cc8d9a92dba570f0cbbffb7"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "18151d79509ac6e9c1d7741945ebae060bd7ab048cc28eaf2f3b31de2259e430"

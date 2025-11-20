@@ -7,22 +7,22 @@ class Mailcatcher < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "42f5b6813789c297bfb3f2cf9867cb89c387124336f78f0b2db31a9490ff8e39"
-    sha256 cellar: :any,                 arm64_sonoma:  "98688362105e37e7b5642971887ec454fa5953c013c499b7401ec75f1705f6d3"
-    sha256 cellar: :any,                 arm64_ventura: "d8947cfeb3b8e095f9e9df810fe9eccb62e1da2e73889fac2e1b60794056655d"
-    sha256 cellar: :any,                 sonoma:        "65c435eea0ed3421e911b11a64f8cc73c53070b1ae015dbc2523abe62bc1c06c"
-    sha256 cellar: :any,                 ventura:       "aab17598a1e1836e38c145aaae6777516b92b0163b4deece91839d2c790280b2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c166212f22ec358d05746d6ca05518198425233c862a414a5fc34319a226b03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "391be8e92219c2ecdb1a9990be909b52d5d45ca818a82ae02953f291aec5649c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "10e444bbb623e60b18116178d5c67e58f2275f554e224ef97e4bd9fb6a22a539"
+    sha256 cellar: :any,                 arm64_sequoia: "51c31689b66432aea7f403ee5fe6e24fde501f23e86c221923aa190d724a08dd"
+    sha256 cellar: :any,                 arm64_sonoma:  "b78acc873482722d52b051257f358a7a1d45324dea1d08bf9ba085c100cefbd9"
+    sha256 cellar: :any,                 sonoma:        "49381f5b04c4cc45a3b155aab55eff722091ab419f14d317ed122698a77dccb6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "431bcfabfab145fdb3c7949666c9c8105fa41a707cb80905cc62f4ee9de1e529"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d16fab9b30aef4fc6514e6e0c0a76f5dbd002a012c3244b20415ea7bf13765d"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "libedit"
   depends_on "libyaml"
   depends_on "openssl@3"
   depends_on "ruby"
 
   uses_from_macos "xz" => :build
+  uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
@@ -148,10 +148,6 @@ class Mailcatcher < Formula
   end
 
   def install
-    if OS.mac? && MacOS.version >= :mojave && MacOS::CLT.installed?
-      ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
-    end
-
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
       r.fetch

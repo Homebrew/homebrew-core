@@ -1,8 +1,8 @@
 class Xorriso < Formula
   desc "ISO9660+RR manipulation tool"
   homepage "https://www.gnu.org/software/xorriso/"
-  url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.6.pl02.tar.gz"
-  mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.6.pl02.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/xorriso/xorriso-1.5.6.pl02.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.6.pl02.tar.gz"
   version "1.5.6.pl02"
   sha256 "786f9f5df9865cc5b0c1fecee3d2c0f5e04cab8c9a859bd1c9c7ccd4964fdae1"
   license "GPL-2.0-or-later"
@@ -12,7 +12,10 @@ class Xorriso < Formula
     regex(/href=.*?xorriso[._-]v?(\d+(?:\.\d+)+(?:\.pl\d+)?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec2aac72e501138766c226d4983498f05536f216da04286b8457aec12f20bf7a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ce9aa17c62698d61ba30175e05e730cdbfb45c00f414728e344912d8f533e50"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c0d17d1c03669586c4d7f5e10c915ff46e0448b65838ad8f4b4b9cda589f0b9"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cb072e208fba6a3d7e100b173dabba79aad125900499366ae5c876223d51589e"

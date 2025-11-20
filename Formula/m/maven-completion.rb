@@ -6,6 +6,8 @@ class MavenCompletion < Formula
   license "Apache-2.0"
   head "https://github.com/juven/maven-bash-completion.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "ac7e72e1637a50e24735e49aafdcaab5e1a71ceeff85a1836489f6d12a2de263"

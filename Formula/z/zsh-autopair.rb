@@ -5,6 +5,8 @@ class ZshAutopair < Formula
   sha256 "4b6f4d20d89ea08fd239089ad4133cff5ebdb71f07f589d5e41d0814d4cf4165"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c9208ef9b9a923475ace7d3c397458eded12a4d8bb3961276d4196cc10329a0d"

@@ -1,18 +1,18 @@
 class Kor < Formula
   desc "CLI tool to discover unused Kubernetes resources"
   homepage "https://github.com/yonahd/kor"
-  url "https://github.com/yonahd/kor/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "d6c123fbaa0f1ad32e75cb0f33b493672845a4373b3fd116c369a9bcdcdf5940"
+  url "https://github.com/yonahd/kor/archive/refs/tags/v0.6.6.tar.gz"
+  sha256 "c635a981f05ba3f1c21395348e858f6e4354455ae019b023e84fe408a29c2294"
   license "MIT"
   head "https://github.com/yonahd/kor.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9059c95c7a0fe71096bcd717a097be83d2cef975bf57c2fcd3d66fdfdebf7d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "356db7a3454ae138d2055130f995eb4518716c8419e79aa0676d49f0ce4b1beb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "90b853401b7021051d2c9ea707a02bc5bd2954236b5168e62027464dfb93b171"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7c115047ad5faed758af251530e8686ff325ea28fae879dab427497489e0c452"
-    sha256 cellar: :any_skip_relocation, ventura:       "5bcb1866d0bc23e5db1c8173b1c55c0c66566dd72d1000378c4474f8696ac531"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17832fb24098cd7448a0c72c2c7dce7dc17e20c5028a791cdbb9e3eee53bab5c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "36fa1bc7b373051fcf0b45601ce5ca8f05d3851bf37b977f2c935c863601c2e6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af23bf965170c800f41a54113de23bbb4103a3862e2b998e614dbe30f3548f35"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ea9df23a16f3ad23dc4c7f2f9c5c7b8734e3f64a3966922ed25b808c86935c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2916efa9776111e48ca0b17e907474dc7eaa6134647910252d8368598802a045"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5ff651494040f6ff0d8d9e36f6fa17b29c63eda0271087d2c64a122aec45b1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91ffc1b4d3457f14e6ef1ad02ad3c91211651f40ac865534f44cdf3c4e6c40bd"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,7 @@ class Kor < Formula
     ldflags = "-s -w -X github.com/yonahd/kor/pkg/utils.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
-    generate_completions_from_executable(bin/"kor", "completion")
+    generate_completions_from_executable(bin/"kor", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do

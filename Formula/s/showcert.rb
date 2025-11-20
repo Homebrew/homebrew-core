@@ -3,24 +3,26 @@ class Showcert < Formula
 
   desc "X.509 TLS certificate reader and creator"
   homepage "https://github.com/yaroslaff/showcert"
-  url "https://files.pythonhosted.org/packages/73/3b/c12cf95dee088c8edfa5ae6ccff5866f2e8e179b5c7bb482282a3da967a7/showcert-0.3.3.tar.gz"
-  sha256 "bad2e4dacccc3cc448989249b433fd8e7072a31a53b07d0ea052fea8082bf483"
+  url "https://files.pythonhosted.org/packages/e9/81/2273fed814ab3e5426fb24aff3e853496aa51bf6ba27f950978df7698951/showcert-0.4.10.tar.gz"
+  sha256 "49ef9ff10a35bc6f538a56f529791d80a4f0b2e44e89ad6c0bb5b3adffd503bd"
   license "MIT"
   head "https://github.com/yaroslaff/showcert.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d61e6c0796b64151868481aa13a1b4842df867a3c48df2ae7a25b77355bc7afa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d61e6c0796b64151868481aa13a1b4842df867a3c48df2ae7a25b77355bc7afa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d61e6c0796b64151868481aa13a1b4842df867a3c48df2ae7a25b77355bc7afa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d679947d8db84b21361a246b5cc297cb12d6be781b10a6fdd2b240dd576a7689"
-    sha256 cellar: :any_skip_relocation, ventura:       "d679947d8db84b21361a246b5cc297cb12d6be781b10a6fdd2b240dd576a7689"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d74b7b5d28fc85eab96106abcd9b4c163bda93abec72f2a6d0a3b6c0714015a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d61e6c0796b64151868481aa13a1b4842df867a3c48df2ae7a25b77355bc7afa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "65b03e75bf770f01712f6ce27c26f37cb4ac2679cd22f498e308936add899909"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65b03e75bf770f01712f6ce27c26f37cb4ac2679cd22f498e308936add899909"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65b03e75bf770f01712f6ce27c26f37cb4ac2679cd22f498e308936add899909"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b5e0f0c00be820f80ca026bbed9f7821431c28b04a8b67779ccc88dae661f5d7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "66053312dcfa79bd90aa039b81635436471c33da48cdc8de1a33957722fd295d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66053312dcfa79bd90aa039b81635436471c33da48cdc8de1a33957722fd295d"
   end
 
-  depends_on "certifi"
-  depends_on "cryptography"
-  depends_on "python@3.13"
+  depends_on "certifi" => :no_linkage
+  depends_on "cryptography" => :no_linkage
+  depends_on "libmagic" => :no_linkage
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: %w[certifi cryptography]
 
   resource "pem" do
     url "https://files.pythonhosted.org/packages/05/86/16c0b6789816f8d53f2f208b5a090c9197da8a6dae4d490554bb1bedbb09/pem-23.1.0.tar.gz"
@@ -28,8 +30,13 @@ class Showcert < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/9f/26/e25b4a374b4639e0c235527bbe31c0524f26eda701d79456a7e1877f4cc5/pyopenssl-25.0.0.tar.gz"
-    sha256 "cd2cef799efa3936bb08e8ccb9433a575722b9dd986023f1cabc4ae64e9dac16"
+    url "https://files.pythonhosted.org/packages/80/be/97b83a464498a79103036bc74d1038df4a7ef0e402cfaf4d5e113fb14759/pyopenssl-25.3.0.tar.gz"
+    sha256 "c981cb0a3fd84e8602d7afc209522773b94c1c2446a3c710a75b06fe1beae329"
+  end
+
+  resource "python-magic" do
+    url "https://files.pythonhosted.org/packages/da/db/0b3e28ac047452d079d375ec6798bf76a036a08182dbb39ed38116a49130/python-magic-0.4.27.tar.gz"
+    sha256 "c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b"
   end
 
   def install

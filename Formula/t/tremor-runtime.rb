@@ -18,6 +18,7 @@ class TremorRuntime < Formula
   end
 
   deprecate! date: "2024-09-23", because: :does_not_build
+  disable! date: "2025-09-23", because: :does_not_build
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
@@ -63,7 +64,7 @@ class TremorRuntime < Formula
 
     system "cargo", "install", *std_cargo_args(path: "tremor-cli")
 
-    generate_completions_from_executable(bin/"tremor", "completions", base_name: "tremor")
+    generate_completions_from_executable(bin/"tremor", "completions")
 
     # main binary
     bin.install "target/release/tremor"

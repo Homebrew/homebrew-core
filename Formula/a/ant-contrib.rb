@@ -20,7 +20,7 @@ class AntContrib < Formula
   depends_on "ant"
 
   def install
-    (share+"ant").install "ant-contrib-1.0b3.jar"
+    (share/"ant").install "ant-contrib-1.0b3.jar"
     share.install "docs"
   end
 

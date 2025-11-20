@@ -2,18 +2,22 @@ class Libmsquic < Formula
   desc "Cross-platform, C implementation of the IETF QUIC protocol"
   homepage "https://github.com/microsoft/msquic"
   url "https://github.com/microsoft/msquic.git",
-      tag:      "v2.4.11",
-      revision: "18b58030a1aee72d94d705d5738cfb87650b063a"
+      tag:      "v2.5.5",
+      revision: "a69c9e9ef0612c1dcc1913d5643d3d9b3ac31cf2"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "89bbdc9b1db3f643d9f223538b09cbf0b4bb1133c662630e65430db4692a94ae"
-    sha256 cellar: :any,                 arm64_sonoma:  "8325d65147aec0bda760fff3877c7a5906317d15f49f21c644e8fd994ce749ee"
-    sha256 cellar: :any,                 arm64_ventura: "1fcbd01c40f6eec8d01052e3635e61af732e8fae1f53ad4e1b1125ea119819e3"
-    sha256 cellar: :any,                 sonoma:        "3eac3ea81c90f349167dcacfdfc2f98447f700c297f8060d5f4f7f302aaf6147"
-    sha256 cellar: :any,                 ventura:       "f4a98a03a312f0cb685d111690cd7687bfc15250d22d768e642b69528b11d4c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c01a5f417fe2d51b8f21803595b2091745d2eeb0f5ab0653ecc9c836ef17ffa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d79cb6eaecbe706a86c2a93feb7f45841395d5a2ee2ab7101f5570e77c2482a"
+    sha256 cellar: :any,                 arm64_tahoe:   "d014246773632be60106169cb770a5371093823d76b7fbe66313ffe20e217ed7"
+    sha256 cellar: :any,                 arm64_sequoia: "5877f19242d6b222b572c42ae3de35f897076bf5241cce56bc8d3ec6222e16d9"
+    sha256 cellar: :any,                 arm64_sonoma:  "a75cd5a258c4dcb81086b67423b0bb415f8b9b2027018ed1f7a1d84b60703d21"
+    sha256 cellar: :any,                 sonoma:        "e36a8c8fdc6ec83b9b486ef7c28a3ff32d70f064d6eeea08fa0596a9506f15fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75be0f906ce58a4f63f6af8bc663774edfa6f8538f5285efcb8998bf2213156f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4d7e618fb38df8627514a4d4201f4275b38c9a9d777ebdafe4b64f445d92185"
   end
 
   depends_on "cmake" => :build
@@ -21,11 +25,9 @@ class Libmsquic < Formula
 
   def install
     args = %w[
-      -DQUIC_TLS=openssl3
       -DQUIC_USE_SYSTEM_LIBCRYPTO=true
       -DQUIC_BUILD_PERF=OFF
       -DQUIC_BUILD_TOOLS=OFF
-      -DQUIC_BUILD_TESTS=OFF
       -DHOMEBREW_ALLOW_FETCHCONTENT=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS

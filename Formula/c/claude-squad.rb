@@ -1,18 +1,20 @@
 class ClaudeSquad < Formula
   desc "Manage multiple AI agents like Claude Code, Aider and Codex in your terminal"
   homepage "https://smtg-ai.github.io/claude-squad/"
-  url "https://github.com/smtg-ai/claude-squad/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "ab5646523447aab20aeff50fd43cc884267c2885e6ab88646097d1f6dfd2c138"
+  url "https://github.com/smtg-ai/claude-squad/archive/refs/tags/v1.0.13.tar.gz"
+  sha256 "f621646464912f19196e1bf9da928fb3230854917d0cdfa112db4229f9e18053"
   license "AGPL-3.0-only"
   head "https://github.com/smtg-ai/claude-squad.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48e8807b7069cc2d76610fa465202fdfdf31b40bc339358fbed88d4fcff39a7e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48e8807b7069cc2d76610fa465202fdfdf31b40bc339358fbed88d4fcff39a7e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "48e8807b7069cc2d76610fa465202fdfdf31b40bc339358fbed88d4fcff39a7e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "76bc17370d29c5687287a72cbfa4a90e2999cd5f8ddda9ae42e84718b646660d"
-    sha256 cellar: :any_skip_relocation, ventura:       "76bc17370d29c5687287a72cbfa4a90e2999cd5f8ddda9ae42e84718b646660d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb5a9e2bc179d5d6927bb90363c375d8409534098ad2342586015e9ce2155b5d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e0b1bb8aa53f96586525577631be36fc7b2a9b04eb812cda3bbfdb1c706e6d7c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1cfac1e30a04b1c13f84169a26471b35e1dfa316235c3a20078304cfa840f9ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1cfac1e30a04b1c13f84169a26471b35e1dfa316235c3a20078304cfa840f9ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1cfac1e30a04b1c13f84169a26471b35e1dfa316235c3a20078304cfa840f9ed"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc839785050b1cda8d2a5994c87b6424e9cbb6bf7e44956e781a6e3f27f45501"
+    sha256 cellar: :any_skip_relocation, ventura:       "cc839785050b1cda8d2a5994c87b6424e9cbb6bf7e44956e781a6e3f27f45501"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df6a88d6bbda2a5bae08218ba787e5c274c0541f5589c613925ec9a65b87f25a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccdf7ad9252d0b8921928319a70fc9afcb63a1cc1a2b90f6e0255eda0e0b336b"
   end
 
   depends_on "go" => :build

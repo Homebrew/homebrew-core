@@ -1,8 +1,8 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/wartremover/wartremover"
-  url "https://github.com/wartremover/wartremover/archive/refs/tags/v3.3.3.tar.gz"
-  sha256 "c067f5b30f49c91a639622dc7f10fb8f5bf8e988a665a185f27ea143beb303d7"
+  url "https://github.com/wartremover/wartremover/archive/refs/tags/v3.4.1.tar.gz"
+  sha256 "196ae02ea2717e56f848ad055996373d7b402c3cf930f24f449073964a4abdd4"
   license "Apache-2.0"
   head "https://github.com/wartremover/wartremover.git", branch: "master"
 
@@ -12,14 +12,21 @@ class Wartremover < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "acec7256e71f6503a1de7b7c340eaf0e461dfd4c0037fbc8c1e42b45f74916b1"
+    sha256 cellar: :any_skip_relocation, all: "f926d544a948151379125fe3ff4b4da1536d4cf337b3d9c2884f61fbc4284374"
   end
 
   depends_on "sbt" => :build
   depends_on "openjdk"
 
+  # Fix to error: Deduplicate found
+  # PR ref: https://github.com/wartremover/wartremover/pull/1418
+  patch do
+    url "https://github.com/wartremover/wartremover/commit/8dd18c1c3999dbabded920709a8c7c07e2e3b8c1.patch?full_index=1"
+    sha256 "cee269e254b64deef154ba13d58f68a2cabbfec41c6e659676afc21e25ca714a"
+  end
+
   def install
-    system "sbt", "-sbt-jar", Formula["sbt"].opt_libexec/"bin/sbt-launch.jar", "core/assembly"
+    system "sbt", "assembly"
     libexec.install "wartremover-assembly.jar"
     bin.write_jar_script libexec/"wartremover-assembly.jar", "wartremover"
   end

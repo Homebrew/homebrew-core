@@ -1,19 +1,18 @@
 class Activemq < Formula
   desc "Apache ActiveMQ: powerful open source messaging server"
   homepage "https://activemq.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=activemq/6.1.6/apache-activemq-6.1.6-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/activemq/6.1.6/apache-activemq-6.1.6-bin.tar.gz"
-  sha256 "32ac692da486d7e82819586dd3c5661bbbb5d6d42599832a494797058608f0a4"
+  url "https://www.apache.org/dyn/closer.lua?path=activemq/6.2.0/apache-activemq-6.2.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/activemq/6.2.0/apache-activemq-6.2.0-bin.tar.gz"
+  sha256 "277bbfa792d140f809bd02a6e3fd53819554b857ad5a522d716a14a67f63c698"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e821df7e834c39b56b15ed0cb9f98bfc472720fdad3cdbbe20f80f966964707"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c21bd6e87749ad70246e46c12e8773feeeacf4ea119a55ebcc6e098f887adf3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2aea4834f9c0175822102d8e8c4029f3af0345a536f66e67234e3e997077fd32"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a1d7e1b0ecb2f26c6eed93b479b18d20e4a9471d200ccdad309770577431cff"
-    sha256 cellar: :any_skip_relocation, ventura:       "806867bc7cbff9079f42e885d8765b4869ed257ea9f066d857c2303c4b910430"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b95a03e459a9190375bd22a7806fac2372aa1c7893a61c38cb6acb91e8bf3c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec9ab276b52229846bc56192b0fd45ad573e57738818b880c3a9149eedfd306c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f10b5c1e36110628b26befb976ec49221f48215d52cc39e6d08b74f1f758c01"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce298d6c514d6b0963d2946371ae6ba4960dd883df5854e16166b6baeabdbe1d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93c9b86a40ff627cd509924050a46a9f83d7bc850c0fe74b7fb3a5623275e0ef"
+    sha256 cellar: :any_skip_relocation, sonoma:        "03df5911d4c8b283181117455e626b8a40d3d6a6e46a48d35d38daedef620150"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e488b4bd5f2fbe72dcaf32716336f3342abfa87c8d0a680c6e71492af2a8db97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6216f905a46feb4554eb7d8b9b5d8dcda32f2050eab7e418b34a7a4efd4caa6"
   end
 
   depends_on "java-service-wrapper"

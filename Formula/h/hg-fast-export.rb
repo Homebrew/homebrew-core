@@ -6,29 +6,23 @@ class HgFastExport < Formula
   url "https://github.com/frej/fast-export/archive/refs/tags/v250330.tar.gz"
   sha256 "1c4785f1e9e63e0ada87e0be5a7236d6889eea98975800671e3c3805b54bf801"
   license "GPL-2.0-or-later"
+  revision 1
+  head "https://github.com/frej/fast-export.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b1030f2a360f970ad4d58c661adb4793be8e4abcf4f602e0d0e217a601542e0b"
+    sha256 cellar: :any_skip_relocation, all: "a5bb15dd75663590054cdcdd88d472155e5cea8f520ddd1ecd234b957bb733d5"
   end
 
   depends_on "mercurial"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
-    # The Python executable is tested from PATH
-    # Prepend ours Python to the executable candidate list (python2 python python3)
-    # See https://github.com/Homebrew/homebrew-core/pull/90709#issuecomment-988548657
-    %w[hg-fast-export.sh hg-reset.sh].each do |f|
-      inreplace f, "for python_cmd in ",
-                   "for python_cmd in '#{which("python3.13")}' "
-    end
+    python3 = which("python3.14")
+    libexec.install "plugins", "pluginloader"
+    bin.install buildpath.glob("hg*.{sh,py}")
 
-    libexec.install Dir["*"]
-
-    %w[hg-fast-export.py hg-fast-export.sh hg-reset.py hg-reset.sh hg2git.py].each do |f|
-      rewrite_shebang detected_python_shebang, libexec/f
-      bin.install_symlink libexec/f
-    end
+    rewrite_shebang detected_python_shebang, *bin.children
+    bin.env_script_all_files libexec/"bin", PYTHON: python3, PYTHONPATH: libexec
   end
 
   test do

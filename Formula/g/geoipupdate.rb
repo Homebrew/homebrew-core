@@ -1,18 +1,19 @@
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
-  url "https://github.com/maxmind/geoipupdate/archive/refs/tags/v7.1.0.tar.gz"
-  sha256 "8b4c1c0032793513d86e4f1a68f771212f8ac54c8a1fe97a6132eb8f2bd45c53"
+  url "https://github.com/maxmind/geoipupdate/archive/refs/tags/v7.1.1.tar.gz"
+  sha256 "f21b26d9be7281a0c90f9009ed150acb97e68e02be8a3e975315a7956de6965a"
   license "Apache-2.0"
   head "https://github.com/maxmind/geoipupdate.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "879138f872eb4fbb96895268287121d7c27966d259b40d890ec1218e918399f2"
-    sha256 arm64_sonoma:  "fcb0c24006056d5dc86f6b65236c54d03f9439b2d51f4a8fa65e728a3d4f1654"
-    sha256 arm64_ventura: "5be3417165d85f2df25aba622f6fd5f8807c4f57784bdda24553de2c0580e26d"
-    sha256 sonoma:        "fe83e7f30b79b4408a11e5afa9334e4840431ee6baea5327f52ead9750023338"
-    sha256 ventura:       "aa0968b8b867dc8897d0bebb1f3d1e5718df65afcab1f717d334fc9bff570d1c"
-    sha256 x86_64_linux:  "af703e88801ea8b831adee390b374262313aef27cdafd2ad3488fb8b60ac360c"
+    rebuild 1
+    sha256                               arm64_tahoe:   "210cbe3b702c115c0aa1aab4a33e45c7b7fc1e4c08007affa29d8de72ff711e3"
+    sha256                               arm64_sequoia: "78d7f7498bb083170faefe612992b4f5e2032ec9a45be6575f9be4e48a75b4dc"
+    sha256                               arm64_sonoma:  "7557755567a801e49fadaebea3d4af2d44f8ed51cf6dca8e01ae9f9234a0cb35"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d1ad0b7b8205a1769a41701bb81937f63b50da6aacb7a7347473dc9b5cbc466b"
+    sha256                               arm64_linux:   "31ad80bc48bc56966de8174803ad404156bacc0c2d3ce8c68ff1e6db89e576a9"
+    sha256                               x86_64_linux:  "6adfb1d2c719053d5d9be82450b2253d3f97ca563f850ec4ae8d280d4aedf095"
   end
 
   depends_on "go" => :build
@@ -28,9 +29,6 @@ class Geoipupdate < Formula
     etc.install  "build/GeoIP.conf"
     man1.install "build/geoipupdate.1"
     man5.install "build/GeoIP.conf.5"
-  end
-
-  def post_install
     (var/"GeoIP").mkpath
   end
 

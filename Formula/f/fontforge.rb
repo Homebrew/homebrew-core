@@ -1,21 +1,19 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20230101/fontforge-20230101.tar.xz"
-  sha256 "ca82ec4c060c4dda70ace5478a41b5e7b95eb035fe1c4cf85c48f996d35c60f8"
+  url "https://github.com/fontforge/fontforge/releases/download/20251009/fontforge-20251009.tar.xz"
+  sha256 "69046500185a5581b58139dfad30c0b3d8128f00ebbfddc31f2fcf877e329e52"
   license "GPL-3.0-or-later"
   revision 1
   head "https://github.com/fontforge/fontforge.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 arm64_sequoia: "f3efe932a2d7e72caf599601b82ee40144cb2ea3a1bef0afd5698b20ab11ff94"
-    sha256 arm64_sonoma:  "0d843c5837f6634f8f3c2c2c2862f427f651d24670383e1a470a3e933e6065b4"
-    sha256 arm64_ventura: "a6c3b3307443666523cc29b8bec912c6b1f933fe96580f061478b257ad0a992f"
-    sha256 sonoma:        "174995c9c06977e05958d535f7065c443ecbd9b1a64f97c232f83296852866b9"
-    sha256 ventura:       "ca33c447dc43b3f8d73bd42eb933b1fe1882794898cf387e4f22714d20ee6420"
-    sha256 arm64_linux:   "4963da0c5611725c86b213cffd04f992fb778fa376ed5e0f58cd9144f7a55310"
-    sha256 x86_64_linux:  "91cc737d5d5ff50542c7737cfe8f8f693d64a103b07839d7047a21cb9149e1ee"
+    sha256 arm64_tahoe:   "9842a2fb9af32ffb0b9f42eee17632315a97851b78c7f8200d174604470137e7"
+    sha256 arm64_sequoia: "84ec0be09f626a8742659e590293b827e59dce3b17db7df66f7edcfebd04af36"
+    sha256 arm64_sonoma:  "c3709d57ce02996b5a78de23cbdcb3d23bcd1c905d51b36ffa8df0c5c89cd545"
+    sha256 sonoma:        "d69b2a27564efd612d118c3d21af11ed90884a0b6ab39d4a1f4aaad0ec2c2aef"
+    sha256 arm64_linux:   "4f5dda211c788f14f2e496718afc1e4a76652a3f09a7542b5c5970ac9b8e90b5"
+    sha256 x86_64_linux:  "c7670ee26c9d7fc053de2c9b0c17d84e801abf7c06e7d1f354cf4eb2204a0a09"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +33,7 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "readline"
   depends_on "woff2"
 
@@ -47,15 +45,8 @@ class Fontforge < Formula
     depends_on "gettext"
   end
 
-  # build patch for po translation files
-  # upstream bug report, https://github.com/fontforge/fontforge/issues/5251
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9403988/fontforge/20230101.patch"
-    sha256 "e784c4c0fcf28e5e6c5b099d7540f53436d1be2969898ebacd25654d315c0072"
-  end
-
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

@@ -15,6 +15,7 @@ class Pgtune < Formula
 
   # pgtune is for postgresql 8.x and 9.x, and is no longer maintained.
   deprecate! date: "2024-08-03", because: :unmaintained
+  disable! date: "2025-08-03", because: :unmaintained
 
   def install
     # By default, pgtune searches for settings in the directory

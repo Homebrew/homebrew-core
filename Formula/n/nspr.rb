@@ -1,8 +1,8 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://hg.mozilla.org/projects/nspr"
-  url "https://archive.mozilla.org/pub/nspr/releases/v4.36/src/nspr-4.36.tar.gz"
-  sha256 "55dec317f1401cd2e5dba844d340b930ab7547f818179a4002bce62e6f1c6895"
+  url "https://archive.mozilla.org/pub/nspr/releases/v4.38.2/src/nspr-4.38.2.tar.gz"
+  sha256 "e4092faeab77bdc9b32db1113e4215948ee768e26c4666db3b5a60b35f2c9105"
   license "MPL-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Nspr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "74fa5a145de56d105daeb2686e5e998a926602260b87d8bcd3d8331ae89fc313"
-    sha256 cellar: :any,                 arm64_sonoma:  "7fd364727614ff8e1b09ffeafc42c616515fcc8c4c2bdcfa4df4ba216a6a2e5e"
-    sha256 cellar: :any,                 arm64_ventura: "8dfb7cfb064a45c9b0d271ceebb4763c18870bc315a24edf2dfccc0cd2317356"
-    sha256 cellar: :any,                 sonoma:        "4872910fad9fa87badb31ca4e531e859524c0e70fbdecdf7cb4a5b0486a062e2"
-    sha256 cellar: :any,                 ventura:       "4c66879d6672278c32c08a858337dd3d430e216140afa53ffc88d85f3c47f3e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a9fbf463d239e77fb99cbb51f5eb3b918ad7d0afe1992a6f25e9c06fe439935"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf40b06a4583043f75d1d4b47a27d097b412c938ba316c84749db59af7ded134"
+    sha256 cellar: :any,                 arm64_tahoe:   "3805d2575867676338bd8bdb1bb4780482a14282b6a175826937404ebd1cb4dd"
+    sha256 cellar: :any,                 arm64_sequoia: "ceefc5a539beb299e3c9a57c9d7f53610bb81cba02902ed387cd5a37982ac046"
+    sha256 cellar: :any,                 arm64_sonoma:  "b2cd63bc9b605523db2d1bf60c0f5f6f0d5531983ba7fcc2d3063060ebe25cbd"
+    sha256 cellar: :any,                 sonoma:        "4eeb9ea3c9f202f2d35205f36bc3c36db4484ed3805ea1b1887e6c6b1f6c3c3d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "94d286afeb03039c370534bbe9efeb43ed42c72853541d059f0abf7624a6ae34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c6caf9854b18196ecd60afa83011882654e93b5244524962bb1389f68981231"
   end
 
   def install

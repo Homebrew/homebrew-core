@@ -9,6 +9,7 @@ class Flatcc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a34e8f0ebb3c59e0c2e18ce60fe470625395990400c9a6c35dc1051219b1c48d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0b4fe2b90d0bdb57b6c3a2e1ef0a339b7ce4b37e68815505cfac6b05cbd698d9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6297c6550a16691459f67ee05d11fc87be05a24e23e8b4a1c084e0d04c61c03"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "972eddaa32d08f0f53c2091e03c44022597883f7d8f9a5aea361d3f91959d795"
@@ -26,13 +27,15 @@ class Flatcc < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-G", "Unix Makefiles", buildpath, *std_cmake_args
-    system "make"
-
-    bin.install "bin/flatcc"
-    lib.install "lib/libflatcc.a"
-    lib.install "lib/libflatccrt.a"
-    include.install Dir["include/*"]
+    args = %W[
+      -DFLATCC_INSTALL=ON
+      -DFLATCC_INSTALL_LIB=#{lib}
+    ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

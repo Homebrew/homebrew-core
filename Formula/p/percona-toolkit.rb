@@ -1,10 +1,10 @@
 class PerconaToolkit < Formula
   desc "Command-line tools for MySQL, MariaDB and system tasks"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.7.0/source/tarball/percona-toolkit-3.7.0.tar.gz"
-  sha256 "e79f53c3227ac31c858fad061d8a000162cb5ecf8b446b90b574adde9e9ab455"
+  url "https://downloads.percona.com/downloads/percona-toolkit/3.7.0-2/source/tarball/percona-toolkit-3.7.0.tar.gz"
+  sha256 "192c899dcfa26eca1b9e8692b7b687d143154902b6089afb03c14ea1b93e432d"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
-  head "lp:percona-toolkit", using: :bzr
+  head "https://github.com/percona/percona-toolkit.git", branch: "3.x"
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -14,13 +14,15 @@ class PerconaToolkit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a37d5376a12782664896830ae588d515b1bbde0d4452156c9319e6b391a453ea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a37d5376a12782664896830ae588d515b1bbde0d4452156c9319e6b391a453ea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5986cbc073b8a2f0cf7b6b53b1a2a7e1029e2f498d0471dd46189067884f8f1a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f3cbec25f4fa8beb974b310c074a90e6ef1eb58bcef0c1274f59217931983a93"
-    sha256 cellar: :any_skip_relocation, ventura:       "51e79707676df290463b16f92541773bd254a0b1014dac67b4c238db6cbfb6e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40e8a0ed87eaa24b89d1b6c7c47bd3298281b8fa1ea653bd80761112cbf165d1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "098ce6dae0da3d02a7ca65217ca96cd604afcd089ac11fa64dc25135d7ef01e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35bbdc1161bee62d4bf0304704413393c330468eb8ce88c9bd70692b1f588c75"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35bbdc1161bee62d4bf0304704413393c330468eb8ce88c9bd70692b1f588c75"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "15a499710d1aacc752986af8f2cc842a7652564a4938a5bc6b48e602cd8e4d59"
+    sha256 cellar: :any_skip_relocation, sonoma:        "32586dd3bdacb64ecb568d550750a7f140542f4715c5dfb5c84898f719420040"
+    sha256 cellar: :any_skip_relocation, ventura:       "5ee9f37aca9455631f1d4301bf141574ad8bf99601a6b5b52198fcfe31f5cb7f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6afb3a5188e3d60f607bdfe3ce49161b600d856ed0f3f6f4406f3776bf4da1fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b43428c0da2027f1a735030216ad956da2ea4395fc7d5039b6cb90b3b443463a"
   end
 
   depends_on "go" => :build

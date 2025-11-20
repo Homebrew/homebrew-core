@@ -6,9 +6,10 @@ class Rethinkdb < Formula
   url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.4.tgz"
   sha256 "5091237602b62830db2cb3daaca6ab34632323741e6710c2f0de4d84f442711f"
   license "Apache-2.0"
-  head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
+  head "https://github.com/rethinkdb/rethinkdb.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f4ea31512e65f35f70f6a33c617507bd806de6bd446c20bf7a32d5b69eff2aa0"
     sha256 cellar: :any,                 arm64_sequoia:  "08cd5f3a221e9ade6d2e9ccad0cb73f10094855e2f362dbebb274c7dba1fbc3c"
     sha256 cellar: :any,                 arm64_sonoma:   "12c05ba1583bb06660d8630fab1a5d3335bc43fddd5827c2b34ff01660dfbbd2"
     sha256 cellar: :any,                 arm64_ventura:  "799cd7b1efe7da9dd0933b42e5bebd71dbd354be745ae898cdb1f3f5504885e8"
@@ -41,8 +42,7 @@ class Rethinkdb < Formula
 
   def install
     ENV.cxx11
-    # Can use system Python 2 for older macOS. See https://rethinkdb.com/docs/build
-    ENV["PYTHON"] = which("python3") if !OS.mac? || MacOS.version >= :catalina
+    ENV["PYTHON"] = which("python3")
 
     args = %W[
       --prefix=#{prefix}

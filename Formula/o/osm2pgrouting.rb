@@ -1,34 +1,41 @@
 class Osm2pgrouting < Formula
   desc "Import OSM data into pgRouting database"
   homepage "https://pgrouting.org/docs/tools/osm2pgrouting.html"
-  url "https://github.com/pgRouting/osm2pgrouting/archive/refs/tags/v2.3.8.tar.gz"
-  sha256 "e3a58bcacf0c8811e0dcf3cf3791a4a7cc5ea2a901276133eacf227b30fd8355"
+  url "https://github.com/pgRouting/osm2pgrouting/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "3d3042aa0dd30930d27801c9833ebfbe16eba0ab0e5d6277636ce17b157f2a0f"
   license "GPL-2.0-or-later"
-  revision 16
-  head "https://github.com/pgRouting/osm2pgrouting.git", branch: "main"
+  head "https://github.com/pgRouting/osm2pgrouting.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8d5da6cbb1019f6896dcd1c2ec6b5b85364f5ab8e1eaf03faa363a9ac741f708"
-    sha256 cellar: :any,                 arm64_sonoma:  "07719354b8de8ec105fb5fff9b6f5555af88d5fa25b2c740669beb753d4d879d"
-    sha256 cellar: :any,                 arm64_ventura: "5c8c6568d0a0a8b8e2e702fbaeef2423d56e6da413a39aab02d6247da9c8bce3"
-    sha256 cellar: :any,                 sonoma:        "e062d6e09ecbd479fbd21d8abfa972dcb0fffb463ad2f80e0cddbc844304ac6b"
-    sha256 cellar: :any,                 ventura:       "db7de5922d67e005b7f007b8a00448e668dcf292766858c8415e52f5301592a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac2b94e89037e79c0faa8acbf0d4f702f03d55905be7a0edf452c2eebf6b9408"
+    sha256 cellar: :any,                 arm64_tahoe:   "a1e6d63741efd9433243a34fe6eeabac94c997be7bfee53cddc38bdef146ecfd"
+    sha256 cellar: :any,                 arm64_sequoia: "79c6fed661046213cde072cb868cf54d4b5957d3df71e06510f3e4510488956b"
+    sha256 cellar: :any,                 arm64_sonoma:  "343380fd98246518862587e7d1ee1c9ff2e9a5cf45dfd5f75f603cf6d3086073"
+    sha256 cellar: :any,                 sonoma:        "58cc66aa2903ebc7a582e0aee137d8451d265de54d4bce92a7e0176dac015ba7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd934d5d273ee9a827099f0d9fee6ab760319fc66f0fcd16500b442dcabbf5bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ceb7cff82516b6511dd821ffb18aeb0b4c4e58a32f4fbef41ebbc59e02c4b66"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "expat"
   depends_on "libpq"
   depends_on "libpqxx"
   depends_on "pgrouting"
   depends_on "postgis"
 
-  # Fix build failure due to missing include
-  # src/osm_elements/osm_tag.cpp:34:18: error: 'transform' is not a member of 'std'
-  patch :DATA
+  uses_from_macos "expat"
+
+  # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
+  # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
+  # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
+  def remove_brew_expat
+    env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
+    ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+    ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
+  end
 
   def install
+    remove_brew_expat if OS.mac? && MacOS.version < :sequoia
+
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -38,17 +45,3 @@ class Osm2pgrouting < Formula
     system bin/"osm2pgrouting", "--help"
   end
 end
-
-__END__
-diff --git a/src/osm_elements/osm_tag.cpp b/src/osm_elements/osm_tag.cpp
-index 6f122ec..b41d6ff 100644
---- a/src/osm_elements/osm_tag.cpp
-+++ b/src/osm_elements/osm_tag.cpp
-@@ -20,6 +20,7 @@
-
-
- #include "osm_elements/osm_tag.h"
-+#include <algorithm>
- #include <string>
-
- namespace osm2pgr {

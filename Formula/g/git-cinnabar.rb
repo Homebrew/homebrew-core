@@ -2,19 +2,20 @@ class GitCinnabar < Formula
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
   url "https://github.com/glandium/git-cinnabar.git",
-      tag:      "0.7.2",
-      revision: "1975d040654a4f015456eef6869e40d32761d083"
+      tag:      "0.7.3",
+      revision: "b8fb36adbac08be229148c570a852817e1463f55"
   license "GPL-2.0-only"
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52a241ac1a64424dd93ba9794a5319f1bedcf64fc3c028e3e89ee7d6cea60e9a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c95e69fb7a618b4bed2e50649d27db679169fed3eccb16676c7edf17ba4ffda7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "675934ba581d5911c174970e37886d46791d36baa49f4e73251ca42673a73b91"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c5f148aa44537226a43200dc72ab9493e7adce2170d0d972191a5f5d3228d253"
-    sha256 cellar: :any_skip_relocation, ventura:       "c85802f34296425e635bf069f74f4eba5bd960aca294df2b0cfc329ab051e842"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f24f9a2e493c0f4cc251f681b993072df26e04ebb9174eed029f2b8877c3e6d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ed2073510084eff7527436e382ca7b833384b145e0c786b3fe8d002ae0a5402"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "689f393be873a7f8f9fffabb6d618c2ba679170b4b530c89ea368b0d4f1ee89a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43b6e288419e42b47c3f0bc828b7ef796449ee1a72b9fcdaeee2590127961412"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d119195270f57502840d02d39cbf1ef2ba9ee740a491b7101f4671247dcaa059"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0ecb128974292deefef42fcbc3f06ba1ab302b9b27d2ecb946ba99654ca02aae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "49d5975a0a6808a2eafdc29949ae201b82ea8a393e7693b1cb1fdc4594b7a65a"
+    sha256 cellar: :any_skip_relocation, ventura:       "937d2f850837db54a7d2733487261b8d281a597bc6c3678af2616b840f1cf245"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f18878c7fff0d249aac25069057029d1511c6538d5578a9dcac0dba1255491d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "444b8ff4ecfaf21926dedb792e1096172d3ec3d112e32aea11278b62be4d0860"
   end
 
   depends_on "rust" => :build

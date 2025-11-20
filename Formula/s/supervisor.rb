@@ -3,28 +3,17 @@ class Supervisor < Formula
 
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://files.pythonhosted.org/packages/ce/37/517989b05849dd6eaa76c148f24517544704895830a50289cbbf53c7efb9/supervisor-4.2.5.tar.gz"
-  sha256 "34761bae1a23c58192281a5115fb07fbf22c9b0133c08166beffc70fed3ebc12"
+  url "https://files.pythonhosted.org/packages/a9/b5/37e7a3706de436a8a2d75334711dad1afb4ddffab09f25e31d89e467542f/supervisor-4.3.0.tar.gz"
+  sha256 "4a2bf149adf42997e1bb44b70c43b613275ec9852c3edacca86a9166b27e945e"
   license "BSD-3-Clause-Modification"
-  revision 2
-  head "https://github.com/Supervisor/supervisor.git", branch: "master"
+  head "https://github.com/Supervisor/supervisor.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9dcc3c481ca0d17cd2aab91c2e158b4963d61e2927187a808233ce3bd7b314b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9dcc3c481ca0d17cd2aab91c2e158b4963d61e2927187a808233ce3bd7b314b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c9dcc3c481ca0d17cd2aab91c2e158b4963d61e2927187a808233ce3bd7b314b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "31421ef12c8a51e19c55f95207f952c493cfe0b4004fff4ab4cf1141e03adb79"
-    sha256 cellar: :any_skip_relocation, ventura:       "31421ef12c8a51e19c55f95207f952c493cfe0b4004fff4ab4cf1141e03adb79"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1edc0c343cff8df9ba55439d5404cccb3a8d7d0696e0e3eaad130c137e3c43ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1edc0c343cff8df9ba55439d5404cccb3a8d7d0696e0e3eaad130c137e3c43ec"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3ad1418d9387810ffedc4e281eb309045371119ca80cf1fbac67141079aa66c9"
   end
 
-  depends_on "python@3.13"
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/8d/d2/ec1acaaff45caed5c2dedb33b67055ba9d4e96b091094df90762e60135fe/setuptools-80.8.0.tar.gz"
-    sha256 "49f7af965996f26d43c8ae34539c8d99c5042fbff34302ea151eaa9c207cd257"
-  end
+  depends_on "python@3.14"
 
   def install
     inreplace buildpath/"supervisor/skel/sample.conf" do |s|

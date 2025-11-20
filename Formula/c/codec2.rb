@@ -20,6 +20,7 @@ class Codec2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "efb5e3717cb204bc90d294e0353ed8e610795cd64950a17755eb74add01fcc95"
     sha256 cellar: :any,                 arm64_sequoia:  "c440a292877b0280780fead2695c9693ab407f28189cccf7ffe3f23e9957e2d0"
     sha256 cellar: :any,                 arm64_sonoma:   "ffb282985d9999fa657f2b7975abb94b565728ccb48e35dd91b731f5836bc9fe"
     sha256 cellar: :any,                 arm64_ventura:  "011a69e95c4b665d2d1581d2c357d5cb0eb68c69ff5b6923035d5aeaab50d495"

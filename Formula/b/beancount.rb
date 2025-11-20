@@ -3,38 +3,38 @@ class Beancount < Formula
 
   desc "Double-entry accounting tool that works on plain text files"
   homepage "https://beancount.github.io/"
-  url "https://files.pythonhosted.org/packages/93/a6/973010277d08f95ba3c6f4685010fe00c6858a136ed357c7e797a0ccbc04/beancount-3.1.0.tar.gz"
-  sha256 "1e70aba21fae648bc069452999d62c94c91edd7567f41697395c951be791ee0b"
+  url "https://files.pythonhosted.org/packages/57/e3/951015ad2e72917611e1a45c5fe9a33b4e2e202923d91455a9727aff441b/beancount-3.2.0.tar.gz"
+  sha256 "9f374bdcbae63328d8a0cf6d539490f81caa647f2d1cc92c9fa6117a9eb092ca"
   license "GPL-2.0-only"
   head "https://github.com/beancount/beancount.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8dc1fcd7f2317ea72784d7fbf2f76c54e2db0326d7526f22a1b9a9c291efc222"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a4c201840e45d79de983afd1068d188f3bc8d55d6d45f7cb2bb3434920f1e77"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea4e49c721b56ee17b5c3cb7adbf37427f73beb5feb9dba8b96319f2c15e6a00"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c87741dafbf02e62986b0fa4b485542bb2f1e8cbc2d8f967475e94d46058c6a9"
-    sha256 cellar: :any_skip_relocation, ventura:       "0417cdbffbbb58e14ed1f6496f390da38ffddf7f43483206ae61ceb97dff809b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b9d0b7dd0cbb81adba41b95cf6f87bd7810d5236d087c884c2398fdfffefba3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f61124a05787d02519432086cbbbafef2b979e40747d7e9801559d81b0b1003f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3045ff72fe59dd3077e08f18d541b91421d5fdb08d1b0bbaf154418840685dae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7cbfdba20bcae6f4bd7c5c526a32a3369b037bad2491cc35e20a8e04a1881c5e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b41451840d2ed0b79e7d7e32799e776001e9a0355525f584ef18f9231a64474"
+    sha256 cellar: :any_skip_relocation, sonoma:        "96a14578b71603bb20ebf8f08e4a11fc8dcfde165d0e7ae9ace5c29cd80a36f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e84599c4925de97bd2feb7e75162a9fe8e332bdb0e9b8d79954f73947dc40bca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23f5e096016de0cfda9bbab51edfec9b71b4b888a135572ee61fd3d46245e287"
   end
 
   depends_on "bison" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   uses_from_macos "flex" => :build
-  uses_from_macos "libxml2", since: :ventura
-  uses_from_macos "libxslt"
 
   on_linux do
     depends_on "patchelf" => :build
   end
 
+  pypi_packages exclude_packages: "certifi"
+
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "python-dateutil" do
@@ -43,8 +43,8 @@ class Beancount < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/8e/5f/bd69653fbfb76cf8604468d3b4ec4c403197144c7bfe0e6a5fc9e02a07cb/regex-2024.11.6.tar.gz"
-    sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
+    url "https://files.pythonhosted.org/packages/b2/5a/4c63457fbcaf19d138d72b2e9b39405954f98c0349b31c601bfcb151582c/regex-2025.9.1.tar.gz"
+    sha256 "88ac07b38d20b54d79e704e38aa3bd2c0f8027432164226bdee201a1c0c9c9ff"
   end
 
   resource "six" do
@@ -56,7 +56,7 @@ class Beancount < Formula
     virtualenv_install_with_resources
 
     bin.glob("bean-*") do |executable|
-      generate_completions_from_executable(executable, shells: [:fish, :zsh], shell_parameter_format: :click)
+      generate_completions_from_executable(executable, shell_parameter_format: :click)
     end
   end
 

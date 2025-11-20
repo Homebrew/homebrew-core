@@ -16,6 +16,8 @@ class Speedread < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "84a404d8c1cbdb6d69501b347a9e50f87a34cce2136ebb12f97d4ab9b117443a"

@@ -4,16 +4,17 @@ class Ivtools < Formula
   url "https://github.com/vectaport/ivtools/archive/refs/tags/ivtools-2.1.1.tar.gz"
   sha256 "4fa680b9d0fd2af610e9012258e150249d9a8abbc3b1f65eb17d01c959142cfc"
   license "MIT"
-  revision 2
+  revision 4
 
   bottle do
-    sha256 arm64_sequoia: "8e490b72b8f0d4ab14b666c5a0a5c1e7fb0a1ef009f16e68a287cdbe6baabc5e"
-    sha256 arm64_sonoma:  "089d3a1a83e7ab861c372e8624d4f5c1cf30170395c880527f5e40452f9c3332"
-    sha256 arm64_ventura: "f0e1133904428f8b10565f5429aee3e97dd525c25be3dc79c6d93b8fbff1bc4a"
-    sha256 sonoma:        "ca9aeb46127c39266456e76adf83ab9ebea763512189525c0c87b1495d605055"
-    sha256 ventura:       "5634c8c5cc630b4320e6b087451878491050fb0e03d620870caa1688a31ae3ac"
-    sha256 arm64_linux:   "25d8f1dfb90b4a732d8c01f8320ed8a4e3ed4548bd4d73fa730cf9eb7d1a42c7"
-    sha256 x86_64_linux:  "cfa432a860ad12324624892ce24da9b83092bba19212e7e435c40cac8b1f65eb"
+    sha256 arm64_tahoe:   "0944ef622cdc4c71bad4d0aadfa3e0d515ac6bbcf9f72f545b114aad46ce740d"
+    sha256 arm64_sequoia: "0d12a4d66b7366597a9ac6527476bbfbdbba40fc820f37b54a7f3f9470861dd6"
+    sha256 arm64_sonoma:  "77c268d9d86a3ad6b4ad9d9cd80ba39be99d0d4a1546cf1edf1edc00e2060d6a"
+    sha256 arm64_ventura: "1e39133890e0082eba7f12737eafaaecd374116e697c74b76d54f07851b79b07"
+    sha256 sonoma:        "5cce5d74ed1e1661384a984cbc3df691439d0195f420d94f8bd313353c2d181a"
+    sha256 ventura:       "b28138ebb85c9f03919359b1a41f7f74cf0c74bf3693e838d06241ded5e32f92"
+    sha256 arm64_linux:   "50507b3dbed7d6f7c155e2260e0a1c102b8f1a56f8d8a4469d8b6689ca2e28a9"
+    sha256 x86_64_linux:  "54499bc5818657bb24d86df3388ed9ea7569925f2aaf573f03909a0082e6b678"
   end
 
   depends_on "ace"

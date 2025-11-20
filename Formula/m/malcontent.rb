@@ -1,19 +1,18 @@
 class Malcontent < Formula
   desc "Supply Chain Attack Detection, via context differential analysis and YARA"
   homepage "https://github.com/chainguard-dev/malcontent"
-  url "https://github.com/chainguard-dev/malcontent/archive/refs/tags/v1.12.1.tar.gz"
-  sha256 "9f30bb13d11f7ddbb52323b09ba8d4f7a525138134ab5106b5112ea1b35a385c"
+  url "https://github.com/chainguard-dev/malcontent/archive/refs/tags/v1.17.4.tar.gz"
+  sha256 "60d4a194a6c20f0a315463d3948daeb215203c2b6f1e562344a79f9fa7ce5a52"
   license "Apache-2.0"
   head "https://github.com/chainguard-dev/malcontent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cb46596f8229930075ee1b584cb8f56160e0d0d5d35debe561a100d4157f5850"
-    sha256 cellar: :any,                 arm64_sonoma:  "1eca259e9f8de6b1be362f47349a0c842c6da2f73f751e12b64b35aaab177041"
-    sha256 cellar: :any,                 arm64_ventura: "df4c5d2442087d5ca9549c6e3464449204122fa85240ce0a17bb125b01bdedc6"
-    sha256 cellar: :any,                 sonoma:        "955b7e75046a2bf2b2edd866e9c73fac2f8ad5c81971db433e0c1766665d26f1"
-    sha256 cellar: :any,                 ventura:       "c3a4eededf8f5c5af4f7d06bd584dc238896487972a80a1a616f4734fc057c5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ac30a7f87aedee4e1f73de2ccb5e1547d39a130046f0149396f02f8e9c621e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d6263f3463c66e1db1f88828c9cdbb652a5be7b95eecc1d62cabbad33b63e46"
+    sha256 cellar: :any,                 arm64_tahoe:   "29e5849946d03457a1579db6608128df36b27257c7b3cb1e8f080b26ad590ce6"
+    sha256 cellar: :any,                 arm64_sequoia: "5479fab0bf392678e3eddf2a9ff825f3dc853a7dde0d4a2d8597cc8a67d9d7ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "ac6abb1073cb351b7ddebd283e7b93dfdee7d429478cf7c6eecab63a0e51d498"
+    sha256 cellar: :any,                 sonoma:        "3f3a64a0c07cbeae4184a0290dda2d9d656e43b37365a0b2c014185f4012537d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b235400393b08470e7336c6e89d8eed9d8f73783f14e53fff5019584511074e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2136e7bfbad9ccf76795d4cc654d38962238b9e9ae116d6e0a7ebe3e77e0f3f0"
   end
 
   depends_on "go" => :build
@@ -21,6 +20,8 @@ class Malcontent < Formula
   depends_on "yara-x"
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.BuildVersion=#{version}", output: bin/"mal"), "./cmd/mal"
   end
 

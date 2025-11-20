@@ -5,6 +5,8 @@ class Mdt < Formula
   sha256 "542998a034c93ca52e72708c1d3779e597f778faf2ee70d8cf11873185332d31"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "8d78fb5808e2fcae85e5e07e39c1c3b9aabe54d2acf8888d98330f7b45eec989"

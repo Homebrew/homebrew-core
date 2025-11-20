@@ -9,6 +9,7 @@ class Flac123 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "f7767128158cc744c62fda8c0c6e9c22dd2732e5e04e15b47b79d6bdef89c4a1"
     sha256 cellar: :any,                 arm64_sequoia: "f1d6d3f1269accb9be1c482d9cfa9179a29423fe0dcc9ab8823132e4de9d861f"
     sha256 cellar: :any,                 arm64_sonoma:  "5f3eec5bb05991c31ad6d90767ba8a83ca4892bd0a07b14db323d4886c4a2d0c"
     sha256 cellar: :any,                 arm64_ventura: "81c798f14de5a0de0d9337f9c01416060d2a3cd8252a8a804dfdd15f0783ff69"

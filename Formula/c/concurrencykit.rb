@@ -16,6 +16,7 @@ class Concurrencykit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "78b475639766ea82bbc20c59535a1c87c7da041f39734ba5055f7bb91c1a3822"
     sha256 cellar: :any,                 arm64_sequoia:  "64b9e71ccc8a487ee176d5aa42ba6a9506ea3b76982e567cfe666306b5613656"
     sha256 cellar: :any,                 arm64_sonoma:   "61349da656422bd19044368a9dd6a07e9e6a45e77e301baff35e8af1a8331087"
     sha256 cellar: :any,                 arm64_ventura:  "0a0a6868102744de167a27d8ce774ac1542b268713588998879cc782ce7d0f50"

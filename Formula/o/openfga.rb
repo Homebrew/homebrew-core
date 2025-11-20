@@ -1,18 +1,18 @@
 class Openfga < Formula
   desc "High performance and flexible authorization/permission engine"
   homepage "https://openfga.dev/"
-  url "https://github.com/openfga/openfga/archive/refs/tags/v1.8.13.tar.gz"
-  sha256 "5120ed422020a639cb34ce34ccef3731c5ccd543f7c2554d5d81e09ec26cc38e"
+  url "https://github.com/openfga/openfga/archive/refs/tags/v1.11.0.tar.gz"
+  sha256 "2a4f47a3b19f9f6767f4bbaaa6edb68596c41e649dc7bff8c687f33fd1909c33"
   license "Apache-2.0"
   head "https://github.com/openfga/openfga.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34d9128afe1d498354682caaaf906d6346146cc25c4ff9e72c9cacb3406a506f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a4e7435f39fbeefbf7b824810e0533465b58a9513f5cc0d9a140c58cb6b4456"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ce7b84c64a691edc3f93ced3c5aceabeb63d75164f58542aa219df0a0b98898"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ea391b0e4e3584c8dc29c6633e27e4b158473b472f3017c8c82ed4822bd8d0ff"
-    sha256 cellar: :any_skip_relocation, ventura:       "6344ebfa581b0fc379071f2e1d7199552e82c6abe96dfaa155aaab6576a7507e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa23287d30be7b64e73603d3666d035eaf7dad6c5e5560083855258036cd7475"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b038b4b8dabffa915c538d5edbd0f79630542f57b0d9602b02f51d23279fb736"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23e36cda9ca4e1ff33c8ab851de5e7f11e83f35e9f905a4a8dc223e7d2aa6f41"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2e0850e01623633298ba3912e8054139056ae4bec0f4ead5e37c8304f885936"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7b9d682d86b97e9563585bd896b713f3294cfa3ecdc720388b74068858247d0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff9420afe25583211c736f5a5c7a76a25c4dcd9d3080835e79c8a0e88982f522"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6b7792287bb3fcd4d8b42e91ee4b1e08b42b4a65ee06b29489654fd2056926b"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,7 @@ class Openfga < Formula
     ldflags = %W[
       -s -w
       -X github.com/openfga/openfga/internal/build.Version=#{version}
-      -X github.com/openfga/openfga/internal/build.Commit=brew
+      -X github.com/openfga/openfga/internal/build.Commit=#{tap.user}
       -X github.com/openfga/openfga/internal/build.Date=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/openfga"
@@ -30,6 +30,8 @@ class Openfga < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/openfga version 2>&1")
+
     port = free_port
     pid = fork do
       exec bin/"openfga", "run", "--playground-port", port.to_s
@@ -38,7 +40,7 @@ class Openfga < Formula
     output = shell_output("curl -s http://localhost:#{port}/playground")
     assert_match "title=\"Embedded Playground\"", output
 
-    assert_match version.to_s, shell_output(bin/"openfga version 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/openfga version 2>&1")
   ensure
     Process.kill("SIGTERM", pid)
     Process.wait(pid)

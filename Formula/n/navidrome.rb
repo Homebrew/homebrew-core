@@ -1,18 +1,18 @@
 class Navidrome < Formula
   desc "Modern Music Server and Streamer compatible with Subsonic/Airsonic"
   homepage "https://www.navidrome.org"
-  url "https://github.com/navidrome/navidrome/archive/refs/tags/v0.56.1.tar.gz"
-  sha256 "da93448b008f8611f1e1c203285361b5c05ab429253495341cc0bf08a5c93359"
+  url "https://github.com/navidrome/navidrome/archive/refs/tags/v0.58.5.tar.gz"
+  sha256 "24feffb3565a6f62ce04bd51e789352a8e4a3fe830459da4a42ba726a439b559"
   license "GPL-3.0-only"
   head "https://github.com/navidrome/navidrome.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a49cfc990ed805cc895926dc7df7af36efce32780175cb1a985d798f1628fda5"
-    sha256 cellar: :any,                 arm64_sonoma:  "578d900a5b1840e3937cf5ccd627c0506f680447ae1307aabb8f7eef64a8ea83"
-    sha256 cellar: :any,                 arm64_ventura: "9aadc7226d8169dc50d7af0787722ce02da99e047479b4b783153d9565f170ae"
-    sha256 cellar: :any,                 sonoma:        "7f8d51c76c9fa2d13c1ecef6ffb79964c95a10279b10ade491d5ec9e8864a575"
-    sha256 cellar: :any,                 ventura:       "aa9ccbf12f07cafe33e80a16808a5c4322dd81fbc8679b373f7be995b45daee9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b09c5ffa61f4ea39614d47fae32dc525946404ac5e3b483f87c4c0345d688e0f"
+    sha256 cellar: :any,                 arm64_tahoe:   "3e45a1f971f52e025dda9eb74d9d101ce480ad3d10510cf6db1c725a8461b10a"
+    sha256 cellar: :any,                 arm64_sequoia: "61fb90b15e074dad6036038124fda87eb103d5a6a6b6795da534dd63c26d9c33"
+    sha256 cellar: :any,                 arm64_sonoma:  "0af3782e018b4020507aab3faa1151667510a87766f795117c6d3d075597ddc2"
+    sha256 cellar: :any,                 sonoma:        "891250f528e322b981cab65dac52016eebedf4014306d1395e9ca2e99593213e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8d8b086608ecbd8d1d18acb0c5148b336be9e52097936b2b2bbd2495310b039"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a2e778b1f294c6817a1cd7db17a0d2ff34c979fd5135e84bbd908a29c106ef4"
   end
 
   depends_on "go" => :build
@@ -22,6 +22,13 @@ class Navidrome < Formula
   depends_on "taglib"
 
   def install
+    # Workaround to avoid patchelf corruption when cgo is required
+    if OS.linux? && Hardware::CPU.arch == :arm64
+      ENV["CGO_ENABLED"] = "1"
+      ENV["GO_EXTLINK_ENABLED"] = "1"
+      ENV.append "GOFLAGS", "-buildmode=pie"
+    end
+
     ldflags = %W[
       -s -w
       -X github.com/navidrome/navidrome/consts.gitTag=v#{version}

@@ -6,6 +6,8 @@ class Rainbarf < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/creaktive/rainbarf.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "4787b85e42e62b921b5729449bc86ba7ac7accdb165bf20a8f2a43e190dd2173"

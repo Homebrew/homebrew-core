@@ -14,7 +14,10 @@ class Rtmpdump < Formula
     regex(/href=.*?rtmpdump[._-]v?(\d+(?:[.+]\d+)+)[^"' >]*?\.orig\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "5b227da74ef1d3c1338e803ac514d9576cb5892680460d24f35074d6243d0038"
     sha256 cellar: :any,                 arm64_sequoia:  "4d88c286ea074e6dc9612679d33f1e25910dce5cd4c4a3f9f2dcdec8ad950516"
     sha256 cellar: :any,                 arm64_sonoma:   "fc5748b95d47c39bb4d633090cc0a7b5fe90bda5ef163fa5b8809272c9bf4618"
     sha256 cellar: :any,                 arm64_ventura:  "1dec5a57d0173f54cb1f38efb6bfbd0bc416bdb298289ebaac1dce3a41bdd6fb"
@@ -35,9 +38,9 @@ class Rtmpdump < Formula
   conflicts_with "flvstreamer", because: "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
 
   # Patch for OpenSSL 1.1 compatibility
-  # Taken from https://github.com/JudgeZarbi/RTMPDump-OpenSSL-1.1
+  # Taken from https://github.com/DJ-Huntress/RTMPDump-OpenSSL-1.1
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/rtmpdump/openssl-1.1.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/rtmpdump/openssl-1.1.diff"
     sha256 "3c9167e642faa9a72c1789e7e0fb1ff66adb11d721da4bd92e648cb206c4a2bd"
   end
 

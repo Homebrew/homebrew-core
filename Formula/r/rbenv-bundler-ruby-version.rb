@@ -7,6 +7,8 @@ class RbenvBundlerRubyVersion < Formula
   revision 1
   head "https://github.com/aripollak/rbenv-bundler-ruby-version.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a8b7118dff025b078c5ad1206cc616e5bf436faf1516dbaad4c38a18e31bb0b6"

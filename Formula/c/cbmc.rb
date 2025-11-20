@@ -2,20 +2,19 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-6.6.0",
-      revision: "3c915ebe35448a20555c1ef55d51540b52c5c34a"
+      tag:      "cbmc-6.8.0",
+      revision: "cdee49cb1a32c6d6703cebf6ae67161977264ad4"
   license "BSD-4-Clause"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "619e622f250caa0d40ca68371a7d7316275b705a823f43e3cabc89863bf8e34b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81fd93129dad62a45ee0816001956f822358ca8b80af50ef8265c78563e953d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "990dbaefff6e71286ed2409705c511aa0dbc2ba51aebbd064ca7720140014d8e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "69fb5b4876132ce6980a2801faf5d5b6e7a32071ea539feedb9840179856053c"
-    sha256 cellar: :any_skip_relocation, ventura:       "b27e1306aa88d98c38077a6457fa5debaaaeaa0de0747b93a3fa24d3173e5a0d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "26d417c3c3b654e02ccbe0a272b45c48f4195befaa37367b64b16c7a743e7907"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea0a38ee6db636d7f1867eb0b26f2a475b936767c63d425311698d837cda9369"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ab18612102175e15adcc972b4dffe29aba91ef743c9a0921179d351f93289fdd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b3a6ab8492da8f724b04326adaac8d2b48310cd616ebb4cab2d416f2d767a1d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08181f275b21c4f4f7fba64887be74838059178b589c461a2bac2b1a406e9bf5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9121b3cf4e5167aa5f4db82dc79bd81564119e1395a94511626d1c93241f914c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4630714a17550f6e8fd957b7a1bf31ed2d976205688ae627e8bc70006aa50a50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3cd7b5b7afd46887bf16333ad49bacd85f4e07d4eb9406577b3afdf22250e67"
   end
 
   depends_on "cmake" => :build

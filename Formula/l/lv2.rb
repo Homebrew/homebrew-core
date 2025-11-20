@@ -11,6 +11,8 @@ class Lv2 < Formula
     regex(/href=.*?lv2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "25dce655720f7e01dee8e5b7db09049d887a4a0633ffac40a5333eec39283ce8"

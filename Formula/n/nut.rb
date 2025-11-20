@@ -1,8 +1,8 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "https://networkupstools.org/"
-  url "https://github.com/networkupstools/nut/releases/download/v2.8.2/nut-2.8.2.tar.gz"
-  sha256 "e4b4b0cbe7dd39ba9097be7f7d787bb2fffbe35df64dff53b5fe393d659c597d"
+  url "https://github.com/networkupstools/nut/releases/download/v2.8.4/nut-2.8.4.tar.gz"
+  sha256 "0130ba82ea79f04ba4f34c5249a85943977efd984ed7df6aec1a518d5a3594f8"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Nut < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "dbfab84f13ae9c17fe130e2230f7dc957bbd1c01e6cb281fdd03d5cc3e82fc6a"
-    sha256 arm64_sonoma:   "43c9c0fc601204d370924ebdfe1a51a68ceec7be66b9cbde21fa748ca705c05f"
-    sha256 arm64_ventura:  "5c56ac1e0389d0991c2c94ed36e3cabb5dbedd8b695fa4a9747add1b3eca5c8f"
-    sha256 arm64_monterey: "1858aeb052a2b605a7d2ba9f231db1f0d997b9ddeb2da4cabae29520978e57b1"
-    sha256 sonoma:         "98df930592937b8cc3c9ed6137c4e3fc6e920d4b3b0122dbb5cd4ceb0c557f0e"
-    sha256 ventura:        "80b5f09bfb88e4a7ffa611a3b698385fa4c14a3474ae2f3d270a593276dcf106"
-    sha256 monterey:       "17722e1bb6e5e707dc81da194caa13848b035ebf81673261e716d188ef9693c2"
-    sha256 arm64_linux:    "38bfb42d6bfb9cf0d158dcdbdf63e61f42240d391702d9d82365c7ad02b4af09"
-    sha256 x86_64_linux:   "61047b843accc5c9a8b9de7fb525759445b7e30c07f0a682e06eb32724e96ce1"
+    rebuild 1
+    sha256 arm64_tahoe:   "7a95f6f8b57362fe1a44db874c3e153df30cc6d6d7a1a12b1a8e4c67cda1a7e0"
+    sha256 arm64_sequoia: "3b1657b49d343f9be32b00c0a3058ce1c67723cf9b342462f7004cc0d15d5649"
+    sha256 arm64_sonoma:  "dc00713e9a21615addbb2b1d97a3769947c584cabab38f9325b83a7b4317f375"
+    sha256 sonoma:        "4865b9977f2d21a810a111e7d3d72f210f8081be30b19c1fe91be9dd8dc89303"
+    sha256 arm64_linux:   "ad0050eafb34fdd77245bbc97e046c37f83c01e42e300c63e897adbd97ed9e05"
+    sha256 x86_64_linux:  "2667c1b9ef3f1e6b2e3717f2241fd9b64a8cf0987274d49af7a4bc04d6804b9e"
   end
 
   head do
@@ -79,9 +77,7 @@ class Nut < Formula
 
     system "./configure", *args
     system "make", "install"
-  end
 
-  def post_install
     (var/"state/ups").mkpath
     (var/"run").mkpath
   end

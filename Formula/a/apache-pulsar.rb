@@ -1,20 +1,20 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.0.5/apache-pulsar-4.0.5-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-4.0.5/apache-pulsar-4.0.5-src.tar.gz"
-  sha256 "1b4b1c955c30e6402e779d09848fd7efba48336ba7dc0bf9776ef755eec1cfd0"
+  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.1.2/apache-pulsar-4.1.2-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-4.1.2/apache-pulsar-4.1.2-src.tar.gz"
+  sha256 "2b12b98ca35761ad471c3bafdc6647aeff0ad4b128f9d05595483db3dc08798e"
   license "Apache-2.0"
   head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0f18b0a39760074fd3cd0a7e731c826610779350bbb5fe3a4022f850743fb17"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "841cf2109308a08bf87f6fbbd6946519b85ec3ec5ab53f75fd0c8ba75a8d6853"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "15bfc2dbb4ffe61e77d576a061706031a3d88007c68ac2083ed9aa994ed8a499"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d48880acbe1ca81c5ffaeba96f35d57730c1f6ac9b04d20153bb730f7d679255"
-    sha256 cellar: :any_skip_relocation, ventura:       "042894c86387c2b63719b0e3c100eb6e30b7de1a5a8b49727eaf8a268a04de1c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa85c0facf3f784fa18d6d061f7864e9e609b4b114425afa778285a96c0d60a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf35ef58325b09242ee722a6b77897c92b3a76c4ae7b6279bb93f37581c27858"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a899366ae866075bb7002f9465b4a2e72ffb9f72d567d69a7515a1e8936decac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56151dde7654fc4c14ec156cf31cef7987011a87fb6ab8e2b84cf9b1b07cd48c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1421aec25cab53a61b4675198415318d2f04e53bbce3fd0d732a8b6e782a9e4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4ab4690ef10a1ea141b4a59c900e9d281d2b63e89e144074379ad3d06b762650"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0dde5f9467f0445424c4cb726111dd5ded6ecd82405660153e96a1b2ede9bee6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9ba5fea8eddd2bc4fb0a1019bd59cb08ab7718f3ac88d4a51a3ab913aa3608a"
   end
 
   depends_on "maven" => :build
@@ -22,6 +22,11 @@ class ApachePulsar < Formula
   depends_on "openjdk@21"
 
   def install
+    # Pin gRPC Java version to that of protoc-gen-grpc-java
+    inreplace "pom.xml",
+              %r{<grpc.version>\d+(?:\.\d+)+</grpc.version>},
+              "<grpc.version>#{Formula["protoc-gen-grpc-java"].version}</grpc.version>"
+
     # Avoid using pre-built `protoc-gen-grpc-java`
     grpc_java_files = ["pulsar-client/pom.xml", "pulsar-functions/proto/pom.xml"]
     plugin_artifact = "io.grpc:protoc-gen-grpc-java:${protoc-gen-grpc-java.version}:exe:${os.detected.classifier}"
@@ -49,9 +54,7 @@ class ApachePulsar < Formula
 
       (bin/path.basename).write_env_script path, java_home_env
     end
-  end
 
-  def post_install
     (var/"log/pulsar").mkpath
   end
 

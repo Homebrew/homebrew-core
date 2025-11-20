@@ -9,6 +9,7 @@ class Comby < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "e1ce03e0fb0b0363900de5e46b8be9a46cefe3cf343ea7da2a3e8627a83c6975"
     sha256 cellar: :any, arm64_sequoia:  "02e4b812a3a7196017189b30aba83d058f72fbe37107c554c517538eeb153fee"
     sha256 cellar: :any, arm64_sonoma:   "6547d31a4235741700836ce54b0fdf64bbc0ca2ac42e31ce003c1d86bef079f0"
     sha256 cellar: :any, arm64_ventura:  "0c2cc4ae48e83842879b731399da84e9eb6891bf2c62a10087250db18c257a38"
@@ -34,16 +35,41 @@ class Comby < Formula
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
+  # Workaround for error due to `-mpopcnt` on arm64 macOS with Xcode 16.3+.
+  # TODO: Remove once base >= 0.17.3 or if fix is backported to 0.14 and released
+  on_sequoia :or_newer do
+    on_arm do
+      resource "base" do
+        url "https://github.com/janestreet/base/archive/refs/tags/v0.14.3.tar.gz"
+        sha256 "e34dc0dd052a386c84f5f67e71a90720dff76e0edd01f431604404bee86ebe5a"
+      end
+
+      # Getting fixed file from 0.17.3 as commit doesn't cleanly apply
+      # https://github.com/janestreet/base/commit/68f18ed6a5e94dda1ed423c3435d1515259dcc7d
+      resource "discover.ml" do
+        url "https://raw.githubusercontent.com/janestreet/base/refs/tags/v0.17.3/src/discover/discover.ml"
+        sha256 "07654aaab7e891ccae019d008155aaf2a48cfd64b5dc402c0779554d6e59967a"
+      end
+    end
+  end
+
   def install
     ENV.deparallelize
     opamroot = buildpath/".opam"
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
 
-    system "opam", "init", "--no-setup", "--disable-sandboxing"
+    system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
     # Workaround for https://github.com/comby-tools/comby/issues/381
-    system "opam", "exec", "--", "opam", "pin", "add", "tar-unix", "2.6.0"
-    system "opam", "exec", "--", "opam", "install", ".", "--deps-only", "-y", "--no-depexts"
+    system "opam", "pin", "add", "tar-unix", "2.6.0"
+    # Workaround for https://github.com/janestreet/base/issues/164
+    if OS.mac? && MacOS.version >= :sequoia
+      resource("base").stage do
+        resource("discover.ml").stage("src/discover")
+        system "opam", "install", ".", "--yes", "--no-depexts", "--working-dir"
+      end
+    end
+    system "opam", "install", ".", "--deps-only", "--yes", "--no-depexts"
 
     ENV.prepend_path "LIBRARY_PATH", opamroot/"default/lib/hack_parallel" # for -lhp
     system "opam", "exec", "--", "make", "release"

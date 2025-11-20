@@ -5,6 +5,8 @@ class TesseractLang < Formula
   sha256 "d0e3bb6f3b4e75748680524a1d116f2bfb145618f8ceed55b279d15098a530f9"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "ff6da65c5137edfec72e7826768d1d8f3fb311c45eb8c0ba21cfff191a7ed56c"

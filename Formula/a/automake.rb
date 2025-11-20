@@ -1,20 +1,22 @@
 class Automake < Formula
   desc "Tool for generating GNU Standards-compliant Makefiles"
   homepage "https://www.gnu.org/software/automake/"
-  url "https://ftp.gnu.org/gnu/automake/automake-1.18.tar.xz"
-  mirror "https://ftpmirror.gnu.org/automake/automake-1.18.tar.xz"
-  sha256 "5bdccca96b007a7e344c24204b9b9ac12ecd17f5971931a9063bdee4887f4aaf"
+  url "https://ftpmirror.gnu.org/gnu/automake/automake-1.18.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/automake/automake-1.18.1.tar.xz"
+  sha256 "168aa363278351b89af56684448f525a5bce5079d0b6842bd910fdd3f1646887"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf9250abf354e8df5599dff2ee55ca457910868623ce1687c0573580fb810eb9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf9250abf354e8df5599dff2ee55ca457910868623ce1687c0573580fb810eb9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf9250abf354e8df5599dff2ee55ca457910868623ce1687c0573580fb810eb9"
-    sha256 cellar: :any_skip_relocation, sequoia:       "228f799a70023d702f770919a1d3d13a79291c48b72247b6722c7fa3682a81a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "228f799a70023d702f770919a1d3d13a79291c48b72247b6722c7fa3682a81a9"
-    sha256 cellar: :any_skip_relocation, ventura:       "228f799a70023d702f770919a1d3d13a79291c48b72247b6722c7fa3682a81a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "16c798f7c786e7be9c7e1b8f6daa56680c1b301a36bc13815e492553fedaf700"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16c798f7c786e7be9c7e1b8f6daa56680c1b301a36bc13815e492553fedaf700"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7298e979d484b938f42b96dfd4b270353e64f61ab0f31e0718799b29dc1570fc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c00a332610983c37659eee42e4a93341a3051892481362d223a40f5435b7555"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c00a332610983c37659eee42e4a93341a3051892481362d223a40f5435b7555"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c00a332610983c37659eee42e4a93341a3051892481362d223a40f5435b7555"
+    sha256 cellar: :any_skip_relocation, tahoe:         "78ea48a55a4f8b088e5e83a5284e29307981cc6c265487e026824baad283c3b9"
+    sha256 cellar: :any_skip_relocation, sequoia:       "bddfb6ebd600671dbeb0c3e665a98bc971c97834f9b5fdfc15c17f6e3cd44de8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bddfb6ebd600671dbeb0c3e665a98bc971c97834f9b5fdfc15c17f6e3cd44de8"
+    sha256 cellar: :any_skip_relocation, ventura:       "bddfb6ebd600671dbeb0c3e665a98bc971c97834f9b5fdfc15c17f6e3cd44de8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5bc18b0f438a2b7776c8a2cec9f9c5a4189a46dd35b79046249ad9d3abd4da1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5bc18b0f438a2b7776c8a2cec9f9c5a4189a46dd35b79046249ad9d3abd4da1"
   end
 
   depends_on "autoconf"

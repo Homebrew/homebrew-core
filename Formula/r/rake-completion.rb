@@ -10,6 +10,8 @@ class RakeCompletion < Formula
     formula "ruby-completion"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "5004cd20889962fc9ce3a921f56e27cb5a28e0f88fde57ae1428e28e0dbf89bb"
   end

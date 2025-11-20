@@ -7,8 +7,8 @@ class XdgNinja < Formula
   head "https://github.com/b3nj5m1n/xdg-ninja.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "5d767e8e08cd29ca7a383288a46aa3ece6f66eefe8cdabeb103a3f882ededfb9"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "1fe099d79ef105b5a0272c820ccc1c774807c554c3e5e3bf180205afa50703ec"
   end
 
   depends_on "glow"
@@ -17,7 +17,10 @@ class XdgNinja < Formula
   def install
     pkgshare.install "programs/"
     pkgshare.install "xdg-ninja.sh" => "xdg-ninja"
-    (bin/"xdg-ninja").write_env_script(pkgshare/"xdg-ninja", XN_PROGRAMS_DIR: pkgshare/"programs")
+    (bin/"xdg-ninja").write_env_script(
+      pkgshare/"xdg-ninja",
+      XN_PROGRAMS_DIR: "${XN_PROGRAMS_DIR:-#{pkgshare}/programs}",
+    )
     man1.install "man/xdg-ninja.1"
   end
 

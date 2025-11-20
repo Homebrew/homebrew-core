@@ -1,21 +1,24 @@
 class Tabiew < Formula
   desc "TUI to view and query tabular files (CSV,TSV, Parquet, etc.)"
   homepage "https://github.com/shshemi/tabiew"
-  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.9.4.tar.gz"
-  sha256 "4b466e72a17e9dc9d8cf59a92398eba1fde361932bc644c2c1badc937fba0e44"
+  url "https://github.com/shshemi/tabiew/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "da3b74987f318471aa9701a80deb69837be82df9c9308f4380abfb26df2abf79"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef11e7b97169d0843d91ea84cb2508720d5e14ea4244a273d1c8da823bd5b316"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6086e407d6e3e6f7fb00972c1e2b03d4b5c83e5eff56ca851d45f4c213bc981b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dbc553069a5738242f2d8d592b758d8219f7a01fe6b9680845015884930d6389"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eceae1ef2d389972a3ef414b3bc0dc8f565e7bb93aa8c91d7e953ac0718525ea"
-    sha256 cellar: :any_skip_relocation, ventura:       "afd72e67da0dcf5fd93fc5260ef97fd7d4301269c7c0d54cff82767d3bcc1b38"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67ac5f2c7b85568c6c5ef28a79079e159c926c89908460ded52d7e007f932b29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd5507813514018a791c355965e06f1b0f2fe79abec74158bfc3eab5d3591562"
+    sha256 cellar: :any,                 arm64_tahoe:   "6bd1b2dbb9ac3e7ad069e1125f9e17368f2e85a6f887772037d6a53bedb47d23"
+    sha256 cellar: :any,                 arm64_sequoia: "e1c27e0718dd472be14f51e58d56bd08854c5f97923be23fe9a77de930305231"
+    sha256 cellar: :any,                 arm64_sonoma:  "0fb4cd270519ff8c1b470aaa18f23f64c9b0c4c38698001345d7e32dfcd24205"
+    sha256 cellar: :any,                 arm64_ventura: "06556b8ff92c18611451060c5ca6ba3441b90bf31a53b61ca9ce4705b52a359c"
+    sha256 cellar: :any,                 sonoma:        "ca433890032f62f4e49995a401d8460a55a1202b70a7b709283b0cea273b850b"
+    sha256 cellar: :any,                 ventura:       "b4a4baa0102dd4abc3cf871f10152d2585913e85f4c71b6bb3f161a2f9150965"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f71cf83e2cf034bdc1215039c5888ce591a69daf0508d08cc47bda3075244615"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6533aa32a5da1e32d851244d7661063147a020a70c2b76771f3e3c7616be9453"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "openssl@3"
 
   conflicts_with "watcher", because: "both install `tw` binaries"
 

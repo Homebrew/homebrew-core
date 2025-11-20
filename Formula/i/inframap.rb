@@ -1,8 +1,8 @@
 class Inframap < Formula
   desc "Read your tfstate or HCL to generate a graph"
   homepage "https://github.com/cycloidio/inframap"
-  url "https://github.com/cycloidio/inframap/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "1dd1080245198eb53451502b40994a90e97eb283dc61b0d77d620f0ee6c1d23b"
+  url "https://github.com/cycloidio/inframap/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "f0e3d2a5f51339549802f8ad1650850ddfe81650ceb72ac9ea86fdd95ab2bfb8"
   license "MIT"
   head "https://github.com/cycloidio/inframap.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Inframap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "045720e46c73c4a8f8398d48d0a66207e62195d8797c7f69a8ac1ab1a3bf7412"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "045720e46c73c4a8f8398d48d0a66207e62195d8797c7f69a8ac1ab1a3bf7412"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "045720e46c73c4a8f8398d48d0a66207e62195d8797c7f69a8ac1ab1a3bf7412"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa596b7fd67f707f8a838582b00f65c4a195c1051654a2f72c4e78d0f0d968a0"
-    sha256 cellar: :any_skip_relocation, ventura:       "aa596b7fd67f707f8a838582b00f65c4a195c1051654a2f72c4e78d0f0d968a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6621e3619bcb502a7e99fbf8043fac869cf1d03b6fffb09945bf759d721093b7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fead9853b4b1b9f4bca0b20656c6c5ff98555a0590e04beb1120ab95b4752635"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18e6aacb8e602b2c4fd488a1071209c1711ba388fda1f19797665915b6e84c36"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18e6aacb8e602b2c4fd488a1071209c1711ba388fda1f19797665915b6e84c36"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "18e6aacb8e602b2c4fd488a1071209c1711ba388fda1f19797665915b6e84c36"
+    sha256 cellar: :any_skip_relocation, sonoma:        "95af43179d426a7a6dd382dea950559c3bc479bc00cf7b9bf4865a854a44b57d"
+    sha256 cellar: :any_skip_relocation, ventura:       "95af43179d426a7a6dd382dea950559c3bc479bc00cf7b9bf4865a854a44b57d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "803d93620c47d794eb3b6336c1c0059725a941382b8c546c3f00ceb02ecdb3ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf01e9146e3abf82239ed0e2f498916a5eb8ff863099e70c840393adf8423dbf"
   end
 
   depends_on "go" => :build

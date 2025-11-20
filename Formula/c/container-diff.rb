@@ -6,8 +6,6 @@ class ContainerDiff < Formula
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/container-diff.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c2898b404cdcdb47d75ad4069400f5d2d3d05ae2f75a94992c85ba0cb413a050"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70cfaa088dfd3e673531d526e3ee2d5944c9053d072e02bad34c54a4bfc52fad"

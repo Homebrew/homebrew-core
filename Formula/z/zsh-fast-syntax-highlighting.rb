@@ -1,26 +1,23 @@
 class ZshFastSyntaxHighlighting < Formula
   desc "Feature-rich syntax highlighting for Zsh"
   homepage "https://github.com/zdharma-continuum/fast-syntax-highlighting"
-  url "https://github.com/zdharma-continuum/fast-syntax-highlighting/archive/refs/tags/v1.55.tar.gz"
-  sha256 "d06cea9c047ce46ad09ffd01a8489a849fc65b8b6310bd08f8bcec9d6f81a898"
+  url "https://github.com/zdharma-continuum/fast-syntax-highlighting/archive/refs/tags/v1.56.tar.gz"
+  sha256 "9e5045510ef86beae658b5fcf58e7b6c76f5b63788498b956d54bc1038faa806"
   license "BSD-3-Clause"
   head "https://github.com/zdharma-continuum/fast-syntax-highlighting.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b63cd29b30d65b5f15e12a53ecf2b8f78b8eae1e0a32ac5761d88933cb00ad8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b63cd29b30d65b5f15e12a53ecf2b8f78b8eae1e0a32ac5761d88933cb00ad8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b63cd29b30d65b5f15e12a53ecf2b8f78b8eae1e0a32ac5761d88933cb00ad8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5b0435113e89b05900636a678cb33a9e0d44382a005da60cc072ec944a613d2e"
-    sha256 cellar: :any_skip_relocation, ventura:       "5b0435113e89b05900636a678cb33a9e0d44382a005da60cc072ec944a613d2e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b63cd29b30d65b5f15e12a53ecf2b8f78b8eae1e0a32ac5761d88933cb00ad8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b63cd29b30d65b5f15e12a53ecf2b8f78b8eae1e0a32ac5761d88933cb00ad8"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "548b80e35f30d83768a48dee91e0f3e39ef7a3b1af70d65560fd15a75a5218ba"
   end
 
   uses_from_macos "zsh" => [:build, :test]
 
   def install
-    pkgshare.install Dir["*"]
+    # build an `:all` bottle.
+    inreplace %w[fast-highlight fast-theme test/parse.zsh test/to-parse.zsh],
+              "/usr/local", HOMEBREW_PREFIX
+    pkgshare.install Dir["*", ".fast-*"]
   end
 
   def caveats

@@ -6,6 +6,8 @@ class Zplug < Formula
   license "MIT"
   head "https://github.com/zplug/zplug.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c99ea3312515bf7de844cbe43af641afebe319549ff5c8c719ccebff79810999"

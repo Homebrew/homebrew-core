@@ -1,18 +1,17 @@
 class Ludusavi < Formula
   desc "Backup tool for PC game saves"
   homepage "https://github.com/mtkennerly/ludusavi"
-  url "https://github.com/mtkennerly/ludusavi/archive/refs/tags/v0.29.1.tar.gz"
-  sha256 "6f1ea88f2483a1179d6797239fc4a57339e8c870add807ceacaa50a239031f0c"
+  url "https://github.com/mtkennerly/ludusavi/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "3e819da8d6c6b2e673fb0dab2c64524d448e45b66b009ced7cb2a324f201dc6a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7c3a1659aea16888d65dd44b04a5736feaa9a9694b2da1fdf374f184c8a505b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a6d6e9fc1a8e8ad4623a7c1de10c853154e9cf27c1e29c9c15db9976f8dc821"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "08182afdde260dca52f78cc5963030cb3e592c0b8aa98c10a2f2a5fec90d4bec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "41c247766a740b47f75a8c179d46bde5b7cbfd24994207dfe1210e9eb4efda0b"
-    sha256 cellar: :any_skip_relocation, ventura:       "a2f42cfcafa79a56216f8054d18c27264ddfd898876e050c3defa888d83579b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27ce8f9c00d42db1ad10a5dbfbf3e690b908e42dae62bc98972d80ae1c1739a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "173211d56a87aad433661256fe23e6fef6e7c8460320714f2f4702415062d6b9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0b377fc4de6c6d5f16869df5d9140f17e3be45dbd874f7fce533ff78110b397"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8be439e8462a16a1c5e0adbead1aa0b370a80eefdf39f3e2d64902333d3beb1c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "99ea928a9b4a09c2e241871c9e0c458bf1ba88b9831c67b6b5245177120b400e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f5f68fc35bb6a9804164fa8fa415ab1346b00cbc56cc95034f8bede219d19f3f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "281c910e1a042d4e0650c6c197186eab3c15655502fd3b1e3a8fe262c2f209d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa58d518c71e8ed09384962aadad26697ce4f866ceea47971941cf446ab9223d"
   end
 
   depends_on "pkgconf" => :build

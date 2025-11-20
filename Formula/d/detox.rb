@@ -1,20 +1,19 @@
 class Detox < Formula
   desc "Utility to replace problematic characters in filenames"
   homepage "https://detox.sourceforge.net/"
-  url "https://github.com/dharple/detox/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "46e646855cfeae5aa51d00c834f7eeeb5967188aaa17f8882a14f98343d82924"
+  url "https://github.com/dharple/detox/archive/refs/tags/v3.0.1.tar.gz"
+  sha256 "15dc32ca5856a3edc2fff237c8cbcb29979a25292aac738a272181d2152699ea"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_sequoia:  "481ed92a26b1e26953107580c9a6baa6e4c3c3fd6d773395125de4038a83e46e"
-    sha256 arm64_sonoma:   "8faa1e95922d876ff01d233893f0cb83d07bcf2e916c231d15e94765d16efa21"
-    sha256 arm64_ventura:  "79122f4f58434d19c69c182bc1709630b052dd7141e6810691b1f1e91175083f"
-    sha256 arm64_monterey: "b105a28c660493298adf8cac087529dbafe41196b4f97b5e7d28a8543236b208"
-    sha256 sonoma:         "cb3ba28c5bd713d4b8cbc3bd908270ff645481fa62b0d7d8c83e55c4e9ee984e"
-    sha256 ventura:        "4e6159694a04362b11cec132dcacb70b1d84567c688614f7f887e8b7a1f43293"
-    sha256 monterey:       "e39e5f5112ebedf0e3b44aab8d8af72c966698e9f4230797df96fffe24c82686"
-    sha256 arm64_linux:    "b699688a6b8ba32c1b024d43a922014a10bef9fc957b833f9cdf17471211f7a0"
-    sha256 x86_64_linux:   "cb4ab816445009b488e415ec13b576903e89a89e367bcf31313896b589163448"
+    sha256 arm64_tahoe:   "1f4a2308f134605e6af719dcad7dfcdd2f6ecc048b4c69f65c1b27c6af0a6ffa"
+    sha256 arm64_sequoia: "ce9b57a452b95589a2aec98663da824fb08d5336b90e4b0d49929a620cbc1f3b"
+    sha256 arm64_sonoma:  "7f8d15ffabb295011c2d6e4e1681196d26b88dc31841787d2fd08a061afe4f47"
+    sha256 arm64_ventura: "e38cc831cb81dff39a77a3355a4f91c7fc8e9e896400b0931b4997620a068234"
+    sha256 sonoma:        "bfbb8acca19b7f2214f490a072f9bf8157f01cd160d6339aaf6e0935b8cfe519"
+    sha256 ventura:       "a7d62b75598031b522a02dbe8c93368751e5cfde317e16ca86305dd2bc506471"
+    sha256 arm64_linux:   "5cf76b955859cefac2d10cda631e81c26b519e202f70be163f0c73e52bdac572"
+    sha256 x86_64_linux:  "648e5e31695aa59ab1f7bff5524363e84a513c0f07d65050487dd6366002178c"
   end
 
   depends_on "autoconf" => :build

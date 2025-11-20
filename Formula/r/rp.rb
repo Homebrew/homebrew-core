@@ -1,19 +1,18 @@
 class Rp < Formula
   desc "Tool to find ROP sequences in PE/Elf/Mach-O x86/x64 binaries"
   homepage "https://github.com/0vercl0k/rp"
-  url "https://github.com/0vercl0k/rp/archive/refs/tags/v2.1.4.tar.gz"
-  sha256 "668cbdc4ff02b8774f75680f43fdd38f924359e2a99ddd8291beae9606e09f02"
+  url "https://github.com/0vercl0k/rp/archive/refs/tags/v2.1.5.tar.gz"
+  sha256 "045b0d4a7d955e281e35b2f52fa8f23e4abad55256c3732d22469af8112f5f63"
   license "MIT"
   head "https://github.com/0vercl0k/rp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f0b383f4a76f056c51858a85e93297e26d82356069c3ac1926f6dbe762d186a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76c538f779acc275b3c613a2a47d4436f54a5f706d81522ae7c8d8ee8bc0cbca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "74c3b3a0eb50b7a6b6c9df3e23568220a98a66becfa38e799e322b3daeb164ec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f8b1b3226e4adf09046fe02a7378147600ac45dcae81864900f27b17c17b39f1"
-    sha256 cellar: :any_skip_relocation, ventura:       "c58342298a6cadb2e7589487fdac98b3af13176be08c4bd390c084759569e29a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "452819270a64c7f92bba7b1ca9fdf8b970171ff11f1424d4e9d177e1f0377e53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cbf2ef84363fd1baf5ac98c0484106526da8a14a687580c56c1961d8d277b35"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e6e7d0e301739ea8b86bf88427a9795ae43af3acb7828e979872cece18961092"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4b0079ef8a1dd420686a4e7f4b9842c32993ef42112604bedbb34064715f739"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "313292a48d7096f7ff4f15e48a8849aba3e33c3ce468fcf2994c68114e1cb69b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f1398c2e1b74b7e0f2902d9bcdec0197469d9e6bcb1f32aff45562cce3f7b4a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f36ceb5d5cb7b6f944bbb4be0d4e74012ee0d36a8cb0a13cd5f4bdc1e8e41750"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fc42c86ae8f60d97ae8a3eae5c738d4c49cde9ee31d2bf705d68def1d62adbd"
   end
 
   depends_on "cmake" => :build

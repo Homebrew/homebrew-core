@@ -1,25 +1,21 @@
 class LpSolve < Formula
   desc "Mixed integer linear programming solver"
-  homepage "https://sourceforge.net/projects/lpsolve/"
-  url "https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.11_source.tar.gz"
-  sha256 "6d4abff5cc6aaa933ae8e6c17a226df0fc0b671c438f69715d41d09fe81f902f"
+  homepage "https://lp-solve.github.io/"
+  url "https://github.com/lp-solve/lp_solve/releases/download/5.5.2.14/lp_solve_5.5.2.14_source.tar.gz"
+  sha256 "a4bbdc881128bdbe920a38e134c9add5db47f9aa814a0a018ba940b0f3c278c3"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "749a0bf9100c0d7ae567f6c119bec2320764c8a898300ffb352c0810e8c1886c"
-    sha256 cellar: :any,                 arm64_sonoma:   "4612a045dc9d01f8edcc1d9a81c3696e665e2ff3f990de158e6e34fff0644241"
-    sha256 cellar: :any,                 arm64_ventura:  "94b01c00f2c0fab83fef56cf4e1cfe30e400db29e33007cfcf0fa95a5737df2e"
-    sha256 cellar: :any,                 arm64_monterey: "e496fe2ab54f35a44e66c68c54124260554b23194f38880fa934ff20d5a17b2b"
-    sha256 cellar: :any,                 arm64_big_sur:  "064364e4edd599066792e63f44649f9986d3b3ef10e83b91c68d756aaac2f543"
-    sha256 cellar: :any,                 sonoma:         "3a9afe5491f9c2f45637cec9f3b8de48defe38bb55ad57714a8bdf8c25a41a8e"
-    sha256 cellar: :any,                 ventura:        "d25c84ab6d67b5d6e223179202b5a07fe41825ab550205739d20173b948d6ca3"
-    sha256 cellar: :any,                 monterey:       "4f875e5986e06b7b231f9f9ceb797becd8ddd04acc040097c82284efba44cbff"
-    sha256 cellar: :any,                 big_sur:        "04e8e54a2c3c58d7430337dc2b0f9ca6c2db2d144bb98a6b91312cd63faf834d"
-    sha256 cellar: :any,                 catalina:       "ac4e07a9e144e2ef6ed34e340a9d9eb769ae7184723df790a8b78ef32d46e753"
-    sha256 cellar: :any,                 mojave:         "4abc54efe795496f3114edcdaaf3b90e55632bbe92c5816b5372b9743366e62f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "85d77ec6b61b0d962b0ba1d4f7baa264b9ced5ab0f78a208472055c12acd1a53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "866347d7fd1625067ac3643d61249354dbe64c38fc9028f0e0a576968437460a"
+    sha256 cellar: :any,                 arm64_tahoe:   "9b381a714eaa25ce7d9a31b7150e6198580f8dec50e2959447303ba44513f86d"
+    sha256 cellar: :any,                 arm64_sequoia: "c691e3169ffcf1b21b222b4b753515d0b9f6db5b52fee6be1e33c9f503cc8a7e"
+    sha256 cellar: :any,                 arm64_sonoma:  "db3b377573fdbe36eb96425b13543af4a78680e4f5c78458248a7c30267d67a9"
+    sha256 cellar: :any,                 arm64_ventura: "29a989c9e582ee823f481626da3c6034292747c4460305bf6f652a7c83c53001"
+    sha256 cellar: :any,                 sonoma:        "e90df62cda38675941ee970bf8d8b097dd6f7bd9db7cdb121d3e8043729f2267"
+    sha256 cellar: :any,                 ventura:       "25709d6fd6b005147261b08da92b465e72c947ced634acc4243b96529779ec9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3c72e665dc3028438b1c3edacd247a7697471283a38c239219fcecf59d9d7c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "118aa8d10143b14d6bbb0479a21702c256a9d891d22e0d937430eaee09478b65"
   end
 
   def install
@@ -28,13 +24,6 @@ class LpSolve < Formula
       "osx64"
     else
       "ux64"
-    end
-
-    # Workaround for newer Clang
-    if DevelopmentTools.clang_build_version >= 1403
-      inreplace %W[lpsolve55/ccc#{target} lp_solve/ccc#{target}],
-                /^c=cc$/,
-                'c="cc -Wno-implicit-int"'
     end
 
     cd "lpsolve55" do

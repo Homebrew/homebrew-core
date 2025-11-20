@@ -1,10 +1,9 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/refs/tags/2.17.1.tar.gz"
-  sha256 "bfd681868248ec03855ca7c2aea7bcb1f39b8b18860d76aec805a92a967b966c"
+  url "https://github.com/danmar/cppcheck/archive/refs/tags/2.18.0.tar.gz"
+  sha256 "dc74e300ac59f2ef9f9c05c21d48ae4c8dd1ce17f08914dd30c738ff482e748f"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
@@ -16,31 +15,32 @@ class Cppcheck < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "3102544868411c345f7bb673595f0226163fe9e6d220ff4715c7af038751a9b7"
-    sha256 arm64_sonoma:  "77ac696a0ef87246ca35816c0dfb0c094bdee504bb987d1ba1658414743a6fa6"
-    sha256 arm64_ventura: "023da7be5d3eb3d13f4609eeb23601bd95b7a261dcb2cd545c7aa7a0d25494e3"
-    sha256 sonoma:        "8d5db1a37f58fa1313ff48bd119d3bd7fbf9b1604f6a2d51c0e167581b548f81"
-    sha256 ventura:       "28b99b71be9372234be2e688217a65675bb7270f9c851c48e6dd825ec4d9b29a"
-    sha256 arm64_linux:   "40e4409e2397ae1d69d2c4643cb57887ee81bb96cea754f04439dcc8d8975390"
-    sha256 x86_64_linux:  "3ce75b931157c6e05a6d3e016fefd6d5c3357e2c3975440dac2b916b118c8c90"
+    rebuild 1
+    sha256 arm64_tahoe:   "a53316e5dda8adbc073f148dba329587526ba3e54157fc7f3a787bf6564d70a8"
+    sha256 arm64_sequoia: "21609bea72c672a96df641fb801021593d132ba01c644b8afdf7a7abab513807"
+    sha256 arm64_sonoma:  "4434fdc861417f4ed8a30be05626e6a882520aa7c86861a44774f7a247976d45"
+    sha256 sonoma:        "b2f0389b3f98b42c7f3dc33c3b7b0899d85789df0d30ca7c6815e5ab77ce1d93"
+    sha256 arm64_linux:   "7ade4ca187c1cf2ff5fc385a0da4306bc437d313bf1a9d2cf8b1ebac74aaf2b6"
+    sha256 x86_64_linux:  "944a5e6a09e9ef9fd3988e2f878e07e43092ffde06b4e14a1b64bbdf601cd79b"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "pcre"
   depends_on "tinyxml2"
 
-  uses_from_macos "libxml2"
+  uses_from_macos "libxml2" => :build
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   def install
+    ENV.deparallelize
+
     args = %W[
       -DHAVE_RULES=ON
       -DUSE_BUNDLED_TINYXML2=OFF
-      -DENABLE_OSS_FUZZ=OFF
       -DPYTHON_EXECUTABLE=#{python3}
       -DFILESDIR=#{pkgshare}
     ]

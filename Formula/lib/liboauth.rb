@@ -8,7 +8,10 @@ class Liboauth < Formula
   license "MIT"
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a510309b244c20d084bcac6d01a80b888c0bb2e89ee67e8c7be5fdd4cdf28f84"
     sha256 cellar: :any,                 arm64_sequoia:  "4eff11a4e53ab448c41469596fadeac63b03386c90c1f091372fc003f497562a"
     sha256 cellar: :any,                 arm64_sonoma:   "6f8593691c180a940c09d3cdb22c5f69fb4ac7dfb8877581b5cc13a02b6088a1"
     sha256 cellar: :any,                 arm64_ventura:  "a39ee9626caffc0652551afceb3de434b14f497d0e6f86888edfb987f0e46bfb"
@@ -32,7 +35,7 @@ class Liboauth < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

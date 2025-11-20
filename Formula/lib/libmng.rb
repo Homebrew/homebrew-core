@@ -6,8 +6,11 @@ class Libmng < Formula
   license "Zlib"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "ac704e4cbe5c85dfd745778fe9b4167fbfb76b0479bf93095d3442d400b2bf7d"
     sha256 cellar: :any,                 arm64_sequoia:  "b689a6894b260bf093409615d0057769421cda51c8f4a7b59f06d692c6000104"
     sha256 cellar: :any,                 arm64_sonoma:   "6d30bcfb0460246fd86bd7f59dcf8b52b1e1fb3533ff8ff252a7cb23091ed9a9"
     sha256 cellar: :any,                 arm64_ventura:  "746b8bbf3aa5373c6545ce90fca5e84af114ecfce0f2b0e35fd7ec4c9853b15a"
@@ -33,7 +36,7 @@ class Libmng < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

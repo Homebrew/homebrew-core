@@ -1,11 +1,12 @@
 class Curlie < Formula
   desc "Power of curl, ease of use of httpie"
-  homepage "https://github.com/rs/curlie"
+  homepage "https://rs.github.io/curlie/"
   url "https://github.com/rs/curlie/archive/refs/tags/v1.8.2.tar.gz"
   sha256 "846ca3c5f2cca60c15eaef24949cf49607f09bdd68cbe9d81a2a026e434fa715"
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e6a403c17aeeb561d9109f7219acbfb130d19516330eb7c91981d2cd8f5aa4a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "63443e27253ec013a3bb25c18a4c1f0da439ce63cf484e5dd18fdc5e56be082f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63443e27253ec013a3bb25c18a4c1f0da439ce63cf484e5dd18fdc5e56be082f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "63443e27253ec013a3bb25c18a4c1f0da439ce63cf484e5dd18fdc5e56be082f"

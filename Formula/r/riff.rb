@@ -1,20 +1,19 @@
 class Riff < Formula
   desc "Diff filter highlighting which line parts have changed"
   homepage "https://github.com/walles/riff"
-  url "https://github.com/walles/riff/archive/refs/tags/3.3.10.tar.gz"
-  sha256 "6db6ac7525f00c4a4cb45351b9a229e253b3e9053ab365d6f881c0144159f8da"
+  url "https://github.com/walles/riff/archive/refs/tags/3.6.1.tar.gz"
+  sha256 "d360058f0e51d162235307498485f92dc57518877f5646f00521b97e92957bbe"
   license "MIT"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "01d7e85273ba9610f58c2bd4b09dae43d26d14ca4fd05c70cb000333b772480c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c87613d940e55ad55840b4d4d0d5aa2ac0814e3842bbbf1e2cb4e73213def7c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5da675d8d39eaaa590b65cc317ad1f0896d1742176d2e8873631984cdd4d6f6f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6f06cfea66f3c4770f0994d157e4073af88f43e6756b96fecd281aef18a0c236"
-    sha256 cellar: :any_skip_relocation, ventura:       "1ab76808760298b841530fcb9c94419ac7d39d2ac8ab665f2abf61d2f04fa2ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d8f3764b60da68f69d536114a5cbf23423e55837f9669d00ff17da67e826ca1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4f227abf749a35a088e4b416159a682b5eddc5e156d2e49b46892a6aa394ef5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "08f487befc18a19c17342e9981152de7c15d73014a99b2a3f414f071521b7b91"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "99bff9a830876f3566bd2bc054b96cd6938d521235327f1f12723d103d5ab436"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c73c8cd55833b760109d8e421b653ac8c05fc841b5f9f07bfe3e845df985de8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "439db215e250db18856f7efe62bc33dea7be3e1f5bbf9be1bc377e799f5d6d5d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5920fc8b61db3bf10d058e65ec057d7838ef2b7cea135a0b7b857992bf40e1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51692f8697578dc0a6d169cdf0389103cf215289f71d46854bac396d465dd8f2"
   end
 
   depends_on "rust" => :build

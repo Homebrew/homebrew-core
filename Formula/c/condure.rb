@@ -6,19 +6,15 @@ class Condure < Formula
   url "https://github.com/fanout/condure/archive/refs/tags/1.10.1.tar.gz"
   sha256 "eb2df8e1a80d9fe4f66c41d2e9fbcd1205d8239ccd9b6cd914de5567356b7c70"
   license "Apache-2.0"
-
-  no_autobump! because: :requires_manual_review
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "5dbd83cd3a803509a0cc5b3d0cdc7d3dbe09cc47ea085d2576e35852aa13f40e"
-    sha256 cellar: :any,                 arm64_sonoma:   "b61e13bb29181ff457ce6a5b1b9156d370a31fabfd61767f94dfbef580469c7a"
-    sha256 cellar: :any,                 arm64_ventura:  "a3d123a19dc1da1b031ae987ea84a517e3d1d6940206dce616e40a1122c3ac57"
-    sha256 cellar: :any,                 arm64_monterey: "4fd31572d6268c0d6bcc5993b23f50a7f75306316ddc3ed0cfe6dd7ed439d325"
-    sha256 cellar: :any,                 sonoma:         "75aa7ff3919f0791a751778e0993d8244dbad023c92bee2a7c03cf2b18fb4751"
-    sha256 cellar: :any,                 ventura:        "d5b7fd6e1d9572b673a1e4e2b5662c050009f439c9dcaddf69ed07346b49d231"
-    sha256 cellar: :any,                 monterey:       "f44417d181f8cc64156a2d25910ff6ced2829011b6b7e52c36abe8fea9392392"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "fa34dc178dd11de4c03e5a72351aa73b8f82e2ea07d295b41e3403e3a50e2436"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00527a59f46952f13cb4a1af03af0dcf3d894dd1582828bcb3152ab5b070ac93"
+    sha256 cellar: :any,                 arm64_tahoe:   "2a4528aa522e4ddbe348f49b19bf850d4ed951fe83b1f79e7255c31bb306072d"
+    sha256 cellar: :any,                 arm64_sequoia: "92dcf182f721ba12441208f5bc9e30db1e4c7b9554fdf5171fe437908b0084aa"
+    sha256 cellar: :any,                 arm64_sonoma:  "46afbd4ff699d9ce78a3d21d84ca4bdd00352224c8c52e886151507a1ec42b39"
+    sha256 cellar: :any,                 sonoma:        "a4e7bb7e82ba9a4b56b5576fa2436afbdc08a249498eac340b79aac364186f79"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "301e1520aa5aa53f17e491deea87faba6995fefa5e02d781c8b4540fe3a1dab5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c6e2d3e37b6cbbb3d4b6ca8a593e6760110bd181d4e0821f3041e90fc9c9859"
   end
 
   # https://github.com/fanout/condure/commit/d70f63b6ed4b60e85fcbf4284a0eab964c94df38
@@ -29,7 +25,7 @@ class Condure < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "cython" => :test # use brew cython as building it in test can cause time out
-  depends_on "python@3.13" => :test
+  depends_on "python@3.14" => :test
   depends_on "openssl@3"
   depends_on "zeromq"
 
@@ -67,7 +63,7 @@ class Condure < Formula
     ipcfile = testpath/"client"
     runfile = testpath/"test.py"
 
-    python3 = "python3.13"
+    python3 = "python3.14"
     ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages(python3)
     venv = virtualenv_create(testpath/"vendor", python3)
     venv.pip_install resources.reject { |r| r.name == "pyzmq" }

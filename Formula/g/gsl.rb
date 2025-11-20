@@ -1,12 +1,13 @@
 class Gsl < Formula
   desc "Numerical library for C and C++"
   homepage "https://www.gnu.org/software/gsl/"
-  url "https://ftp.gnu.org/gnu/gsl/gsl-2.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gsl/gsl-2.8.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/gsl/gsl-2.8.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gsl/gsl-2.8.tar.gz"
   sha256 "6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190"
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "6568c445eea85c3fb013ecaefe945edbc528d265c811dc6decc8341f3c0fcffc"
     sha256 cellar: :any,                 arm64_sequoia:  "52e3fe781b19bd2d88986005309b2d81a2af60d17a8b3dbc3d5cad4ae2c78858"
     sha256 cellar: :any,                 arm64_sonoma:   "b5cd011cc1f8ac606487224628d21247cbe290b4a035f844ab016088c82bbdf7"
     sha256 cellar: :any,                 arm64_ventura:  "5a197c4ee1e19b629de8203c0e365c7df8293c0d83cdadb38282baa2cceb926b"

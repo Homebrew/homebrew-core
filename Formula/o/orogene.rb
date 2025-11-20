@@ -6,8 +6,11 @@ class Orogene < Formula
   license "Apache-2.0"
   head "https://github.com/orogene/orogene.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d1b71b12add1cf3f8217e5d857e056c54a004638ad178be9f71ed0e7d55a0e7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "68164cd2ef24f2cc58c5562c7c81cb72bc9139ef96975f459f1bd6ce05c3e73a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f7a9c9b9ca6a84e14304d3d5e1f5fcb8d44d7546c0fe635c14e3bbd468175421"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1279bf1b9a1d443e8e4e5173be1e015438c0c3c0fdaa263879209fbd9fb8758b"

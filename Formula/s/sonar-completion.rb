@@ -6,6 +6,8 @@ class SonarCompletion < Formula
   license "Apache-2.0"
   head "https://github.com/a1dutch/sonarqube-bash-completion.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "26ce38d7913a1a421b3ea7dc99d32b9f3bab8e2bf95c50a1e2fbfca0419dd376"

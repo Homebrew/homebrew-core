@@ -8,24 +8,26 @@ class Acronym < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c7cb3115315d3bc254dada1a5030e33a37ede3a80bdbe082b6097c2eec20ee0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e164772ca27412e1e6faba57caa009673a9768cac8c88f8950c28c3f54fa3d36"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9922d0d98b7d6c4cbf7ff733ef09ccdc1595d5ab090a3aa5e7d9b9efd55d619"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5c4b6fa56893b22d19f3189c316b6e736bb5aed554d4e7472fd16577535fc4db"
-    sha256 cellar: :any_skip_relocation, ventura:       "fd5b9c42b331781383f581337714397641a7460d0feb9551f43140270cbc4131"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df388cebc69a5ca13936bb25528ce1616a88bdf68bdc16bb9656173fe8c5c3c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c82f232fd2694e72f0deccba03d1dcd152115df7f306f5e2043f8c104c0b37f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28f9d722ad4f7ca4cac9b84faf09f19536bebc7e4fe17887cc1666eac6281f47"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f0bf7427caeeb3f33476658bd69bbfebd547df49c90db6a328ebabbbf7b7a78"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "527bcd0322a0b731e280b2f75905a19bccd0e14490123f6f3b57709105eb993d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0a745d5f44b5fb3d34c850e7d391a19c1e938631cf381b10c5374ae8b29524d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bfabc3eda08a2f8f3c38ccba43b2cc1d34be7cd0ac0880485f5dcc8c6944ee5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6056bea3ce25ae1105f1de1129a5ca5bbaf133ee2151fd94c841a81062a6fdb5"
   end
 
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_linux do
     depends_on "patchelf" => :build
   end
+
+  pypi_packages exclude_packages: "numpy"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
@@ -82,6 +84,6 @@ class Acronym < Formula
   end
 
   test do
-    assert_match "THERMOS", shell_output("#{bin}/acronym 'The missing package manager for macOS (or Linux)'")
+    assert_match "TEMPORAL", shell_output("#{bin}/acronym 'The missing package manager for macOS (or Linux)'")
   end
 end

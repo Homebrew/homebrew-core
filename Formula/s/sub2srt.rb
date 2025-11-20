@@ -6,6 +6,8 @@ class Sub2srt < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/robelix/sub2srt.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "ea67deb8ff20129ec22608ac25dfa2928c935552cd1d8f480c54e2247f04b9fc"

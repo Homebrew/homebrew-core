@@ -13,6 +13,7 @@ class Cubelib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "57795d60a4a4a37d27de29d8acd7470440e41227ea33692fc211b5526b7d91c0"
     sha256 arm64_sequoia: "066378b05ed9eb15c6bbf9202e641a932e72e5c4e24ed5071a8df8b95f36fbe3"
     sha256 arm64_sonoma:  "0e1252ac62492b97973bbd9194104d68094c7b0c2fe66238a009e7883b027ad1"
     sha256 arm64_ventura: "6db4378728b7fef0376f751dff698b109b1690cbbd8847ca2ed9d4dc5708c2c2"
@@ -27,7 +28,7 @@ class Cubelib < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     directory "build-frontend"
   end

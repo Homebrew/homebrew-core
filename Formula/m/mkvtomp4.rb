@@ -10,18 +10,14 @@ class Mkvtomp4 < Formula
   head "https://github.com/gavinbeatty/mkvtomp4.git", branch: "main"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19c4993069753ad76887c0d42e472ab10e86c1888747713f0368d31130997a9c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "19c4993069753ad76887c0d42e472ab10e86c1888747713f0368d31130997a9c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "19c4993069753ad76887c0d42e472ab10e86c1888747713f0368d31130997a9c"
-    sha256 cellar: :any_skip_relocation, ventura:       "19c4993069753ad76887c0d42e472ab10e86c1888747713f0368d31130997a9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47a445773cf25560a4dc6e1413e3a4180d4358419d05466c03616f91e9dbd443"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "98cced752f99a3ba028fbdf8d52ef1dc156b9f06d03b5b99f1db8ac601cb7657"
   end
 
   depends_on "ffmpeg"
   depends_on "gpac"
   depends_on "mkvtoolnix"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

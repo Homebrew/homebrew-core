@@ -1,9 +1,9 @@
 class GnuChess < Formula
   desc "Chess-playing program"
   homepage "https://www.gnu.org/software/chess/"
-  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.11.tar.gz"
-  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.11.tar.gz"
-  sha256 "d81140eea5c69d14b0cfb63816d4b4c9e18fba51f5267de5b1539f468939e9bd"
+  url "https://ftpmirror.gnu.org/gnu/chess/gnuchess-6.3.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/chess/gnuchess-6.3.0.tar.gz"
+  sha256 "0b37bec2098c2ad695b7443e5d7944dc6dc8284f8d01fcc30bdb94dd033ca23a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,13 +12,14 @@ class GnuChess < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "42cd71a3f878830a2f20357cafb8c187286449b61554ee40a39e912eb875191a"
-    sha256 arm64_sonoma:  "bc42a14400312b8a5a4bdd3b911c597205168f82cf5434250e96ed26cb94e157"
-    sha256 arm64_ventura: "e0b50d39c42948e951377dba087745bc9800a742f5c0661cd962f9ef5c0ca795"
-    sha256 sonoma:        "7feace56b47c9af020b6ebd88accc58e9a60acafb704fda5f8f3e34c5a5bc33e"
-    sha256 ventura:       "77ced1bf8ab64d6c3e30aece47587d1bed8dbd123e742356f495d1411b0ef58a"
-    sha256 arm64_linux:   "6b2bdd2733793500bafa854af6c7d64cf7ffd2db1f0b833ae758da19af958b60"
-    sha256 x86_64_linux:  "1872f4bfa7445271a190bc1a7392c440e31874f09bb71428d9a8b061a0ad73e1"
+    sha256 arm64_tahoe:   "df22ed67f466752c4e166eff301bb7632a3ea16af817b41a00078d2a1ea0cc78"
+    sha256 arm64_sequoia: "73f1c20678a4342e457f1c56ba5e08163a559f81355b3fc58b7fb972760436f6"
+    sha256 arm64_sonoma:  "6d90980d6d03d4531f6c5e647a8e10fd0322684f3d2ef58c87af5f7d9aff98dd"
+    sha256 arm64_ventura: "550f52039857be7104c04436da80454c85ea7c08792e5b42a0623413b220953f"
+    sha256 sonoma:        "d803b6892e888d463f2af6004ebc4b40a2735d5d24b90710cf41030d40f46e9a"
+    sha256 ventura:       "46b344c0ae3e5b3507678f9d5a1814927a349487a28095f4b23fa854eaa76571"
+    sha256 arm64_linux:   "5b309d410c55a15466f49fdc14dd4284589554f2494ab582fd26eb76fc5d1162"
+    sha256 x86_64_linux:  "514caae489b6d6093b791d055c0dbd571863413c1927ebd0c82a4aebfd7c7553"
   end
 
   head do
@@ -32,11 +33,11 @@ class GnuChess < Formula
   depends_on "readline"
 
   resource "book" do
-    url "https://ftp.gnu.org/gnu/chess/book_1.02.pgn.gz"
+    url "https://ftpmirror.gnu.org/gnu/chess/book_1.02.pgn.gz"
     sha256 "deac77edb061a59249a19deb03da349cae051e52527a6cb5af808d9398d32d44"
 
     livecheck do
-      url "https://ftp.gnu.org/gnu/chess/"
+      url "https://ftpmirror.gnu.org/gnu/chess/"
       regex(/href=.*?book[._-]v?(\d+(?:\.\d+)+\.pgn)/i)
     end
   end
@@ -67,6 +68,6 @@ class GnuChess < Formula
   end
 
   test do
-    assert_equal "GNU Chess #{version}", shell_output("#{bin}/gnuchess --version").chomp
+    assert_match "GNU Chess #{version}", shell_output("#{bin}/gnuchess --version")
   end
 end

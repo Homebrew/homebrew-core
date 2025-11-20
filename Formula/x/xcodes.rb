@@ -1,17 +1,19 @@
 class Xcodes < Formula
   desc "Best command-line tool to install and switch between multiple versions of Xcode"
   homepage "https://github.com/XcodesOrg/xcodes"
-  url "https://github.com/XcodesOrg/xcodes/archive/refs/tags/1.6.0.tar.gz"
-  sha256 "415c104c1aca42e68b4c6ede64e543d79a60d5a6fa99095f2aad179a74045047"
+  url "https://github.com/XcodesOrg/xcodes/archive/refs/tags/1.6.2.tar.gz"
+  sha256 "0c38a39ecd527d15c3343da9b9bc57c9f0d5217f4c9d36fc3879c3ae423b1295"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0bfcfc461c00b753ca481a0a3e1d7997c5eb940389de08895ee673c1a0e2612"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1913afb72f753a182a4d3d66f08b61f0abf2de924b93e3ad42f20bcf95260fa5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "07d06a3446dba98e8b62bf31da5bee4b49a7f3d5215baf269ef78f4334ce222b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86ff1161c99af9f9fad6d8d38bd2a8cea1a53a8764cc4368770e83bf136ba22d"
-    sha256 cellar: :any_skip_relocation, ventura:       "7c00b27bce8dd91695740061ec9d5d4cd54faec6d7d7e18016723e2619fabaff"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dfc27a53e26ae6745593dbf7acb43f6165ddf918cfa1a2bac73666f974c7ba3c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f0d1d4136c44d6bce3a29a6161d91282397175b811d8346486ff281267106f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2cb68620e49151d770433566d23d52a2605a0b9783d0f957c9fa3deda6825cdf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "79aea527da63cec15cc7e775b1a380f446ac096b425915e281f8dee6ba60ac74"
+    sha256 cellar: :any_skip_relocation, sonoma:        "147e32b89cab5d9e267170902e4a858b00fd45f0cb8b2f2b43ae98a5c3e3a1ae"
+    sha256 cellar: :any_skip_relocation, ventura:       "c374aa5034bb5d66ec537b6096318472a9f49f584e4a727647c44962fb504183"
   end
 
   depends_on xcode: ["13.3", :build]

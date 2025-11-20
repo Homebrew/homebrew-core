@@ -5,6 +5,8 @@ class WriteGood < Formula
   sha256 "f54db3db8db0076fd1c05411c7f3923f055176632c51dc4046ab216e51130221"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "ce08c97d8a8666ed1721ab835d166e1ff865e2ee2ab23c58018021baf89cf360"

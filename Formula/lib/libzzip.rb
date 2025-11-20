@@ -6,6 +6,7 @@ class Libzzip < Formula
   license any_of: ["LGPL-2.0-or-later", "MPL-1.1"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "a28095574cbba9c6d2edc7d5fccc78c9791a6f01f29a9292be6e19efe3a3f06f"
     sha256 cellar: :any,                 arm64_sequoia: "905b79b5f4c5e3af637334bf139c99ecbbc435b22cf4639be857c6357b86b32b"
     sha256 cellar: :any,                 arm64_sonoma:  "c29b7219f2335726ba15136a17a7d9936cdb94c0433e1d6d04f3c51ac2beaac4"
     sha256 cellar: :any,                 arm64_ventura: "21bac7dfa6d21512e6241c99669f3a18725ff0f6b1b5090a9986716a9194de7f"

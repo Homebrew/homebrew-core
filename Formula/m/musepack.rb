@@ -16,8 +16,11 @@ class Musepack < Formula
     regex(/href=.*?musepack(?:[._-]src)?[._-](r\d+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "545fb3f5f74e2fc5acbbbfbad61b0dfb6c261cd7dbd26f998c1931c939086bd0"
     sha256 cellar: :any,                 arm64_sequoia:  "d84a9ad759b25d445781d6e1e5af5247431427e00e90bfb0b1014d9c2e6e4bab"
     sha256 cellar: :any,                 arm64_sonoma:   "6b1cd3fb3a8b8beb5603ce39e237cd7fb04e71e8e46ac9d63b0904067e57e676"
     sha256 cellar: :any,                 arm64_ventura:  "72634f1bab6447c671827b1586e2161487273e4737b0cc7e47100a8d1f33cc4e"
@@ -28,8 +31,6 @@ class Musepack < Formula
     sha256 cellar: :any,                 monterey:       "9f74dcc9567656a42082125ce4d758c3318a452dbd940b6db39b72c4981768da"
     sha256 cellar: :any,                 big_sur:        "e9221e9612e1c0134554fbf380639cd995a5970ad34702bea371633f121ffb3e"
     sha256 cellar: :any,                 catalina:       "847cacb946b6289a5fbfbfe4e1a38f1ec5b7f1e32d6c12145aaf1044317e4ce0"
-    sha256 cellar: :any,                 mojave:         "5efee306aff13a0c0b8f98371e3cbe3eab6b73b0e92bdd59237d7db608a17708"
-    sha256 cellar: :any,                 high_sierra:    "e1b6641d11a5338d395de8f5573464beddb81dc3dce16998e53361b43502844b"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "0e70b9117f455bbd6f17bd6d2467c18f55067b51933a71b15b07b713c30687ac"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0d6143e42529aa943d6bd1ecebf0e1d0c85576eaab847692c9588a37a0ce1f7"
   end
@@ -40,15 +41,15 @@ class Musepack < Formula
 
   # Backport upstream fixes from SVN for `-fno-common` and installing shared library
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/743dc747e291fd5b1c6ebedfef2778f1f7cde77d/musepack/r479.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/musepack/r479.patch"
     sha256 "efef0421e3bb25c065c5e77d6c2e4bcdcc89fbcb03c7a7cfd7565ee5478fc8ba"
   end
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/743dc747e291fd5b1c6ebedfef2778f1f7cde77d/musepack/r482.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/musepack/r482.patch"
     sha256 "b147cc7effe9230401a0a865fdea1805be8eb26a24059bb36e39da1012e8da4b"
   end
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/743dc747e291fd5b1c6ebedfef2778f1f7cde77d/musepack/r491.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/musepack/r491.patch"
     sha256 "9003ff9c3e939dc880cc1ab1a46626eb9cf67a27b2610e7bac0945256bbb5cab"
   end
 

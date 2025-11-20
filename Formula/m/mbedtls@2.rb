@@ -4,9 +4,9 @@ class MbedtlsAT2 < Formula
   url "https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/mbedtls-2.28.10.tar.gz"
   sha256 "c785ddf2ad66976ab429c36dffd4a021491e40f04fe493cfc39d6ed9153bc246"
   license "Apache-2.0"
-  head "https://github.com/Mbed-TLS/mbedtls.git", branch: "mbedtls-2.28"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5464397f0b136439069dd2c763b20192d423cd5c1c2f0771b031656a660e75a8"
     sha256 cellar: :any,                 arm64_sequoia: "1ac6bd9c970e98200758af383b9e8295387bd7b4c247dcdcb16cb05521b39607"
     sha256 cellar: :any,                 arm64_sonoma:  "194e03a15d26c9c866962875b2d1e5ccedab9e10f7ad9d60e01a155c88fdc2b6"
     sha256 cellar: :any,                 arm64_ventura: "353399bc51df1d729cdcf045ad7da4f268acbc4f562eb9ae9fb18e12658ee9a1"
@@ -33,11 +33,16 @@ class MbedtlsAT2 < Formula
       s.gsub! "//#define MBEDTLS_THREADING_C", "#define MBEDTLS_THREADING_C"
     end
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
-                    "-DPython3_EXECUTABLE=#{which("python3.12")}",
-                    *std_cmake_args
+    args = %W[
+      -DUSE_SHARED_MBEDTLS_LIBRARY=On
+      -DPython3_EXECUTABLE=#{which("python3.12")}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    # Workaround for CMake 4 compatibility
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
+
     # We run CTest because this is a crypto library. Running tests in parallel causes failures.
     # https://github.com/Mbed-TLS/mbedtls/issues/4980
     with_env(CC: DevelopmentTools.locate(DevelopmentTools.default_compiler)) do

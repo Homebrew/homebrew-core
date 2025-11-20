@@ -7,6 +7,7 @@ class TwitchCli < Formula
   head "https://github.com/twitchdev/twitch-cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "138964474a40f751a228aaf34807b3040c906fa223af73c80bf948a1f41fc4d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "46c2326b2b21618cdbc86c7469e863301a71a1e9ab5b5f3313c5e204cb62e099"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd89ac2c534af562c2213b52eaa12a181c145d099d86f45ef80e5af0926a8ed3"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5f9c5a15fb1412f96d2db036f72bf1c72dc36643d8f067ff6ed7937d132f7153"

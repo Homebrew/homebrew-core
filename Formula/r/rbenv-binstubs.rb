@@ -7,6 +7,8 @@ class RbenvBinstubs < Formula
   revision 1
   head "https://github.com/Purple-Devs/rbenv-binstubs.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "cf92d2a4a872f49ddf33d4e4132ab0d1de390bf0c027a0f0e27925110bb01fe5"

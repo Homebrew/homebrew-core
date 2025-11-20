@@ -1,9 +1,9 @@
 class Riscv64ElfGcc < Formula
   desc "GNU compiler collection for riscv64-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
-  sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+  sha256 "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -11,13 +11,14 @@ class Riscv64ElfGcc < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "faa3952d432ab4c0325ed6e4669d7a011fad1cf7456ad6fe601b529f4a9ac7ef"
-    sha256 arm64_sonoma:  "b5f6ffd04e5be4cd62bec37fa2d24a7e7e3e3a9b41eda9d110db859b0c2bafe1"
-    sha256 arm64_ventura: "307f3d4dc7a9463a65c413347bfcaa0c27bb54adc719607ff9e0877fbfe8aad2"
-    sha256 sonoma:        "1936a59631f8b412803bf7638e7618059bff6cd497a897fe688c64c883542579"
-    sha256 ventura:       "2d2bb31be008b9d808ec00d9ef7fec9012a433d6e52c5edac0e0de5501f999ce"
-    sha256 arm64_linux:   "42d83c9e9e34493d095782edaa22aa9e88270a02bf085952d4dd2f79990304a2"
-    sha256 x86_64_linux:  "fdf58cac64006b3e62bb182b82fb440c9b623311928818375c50f326f188fe76"
+    sha256 arm64_tahoe:   "6cba35afe40fc91c061f682552d6d54555cdc0b2542355378e0386eb45e9bfdb"
+    sha256 arm64_sequoia: "ceca8ec306dc54b68c0074b74aad473b2057f94cc4cfcbc27dabba604e0a4955"
+    sha256 arm64_sonoma:  "5a8fc8f663db03cd1ab061339fd16f32b684aabe0ec579176e074a6824d74167"
+    sha256 arm64_ventura: "f4a69d072e2a835e9dd00d6eca8a555107f0f8145d282d2614d2d633b6de972f"
+    sha256 sonoma:        "2cf316a08babf8a9d47de5a189077ede89c7cf0f44c0af5e5541f5bd6ff4213c"
+    sha256 ventura:       "c733c2ddcd91e90353d7387dd01f2e4cf8b793212befd1c39bbd9ef5862d3873"
+    sha256 arm64_linux:   "3cc5509b449398991d5668270aa1b87558739984c5c2cdef5787cd2742448b8b"
+    sha256 x86_64_linux:  "6df2988c8f83337254c05e04754c7720d39720d6440afec158a82b5bd161f6ac"
   end
 
   depends_on "gmp"

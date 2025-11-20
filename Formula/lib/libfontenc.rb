@@ -6,6 +6,7 @@ class Libfontenc < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "badff62bd95618002e7da104527ef4d9f6cd09c7fc285ffb5fc2d519b0e2e7ac"
     sha256 cellar: :any,                 arm64_sequoia:  "5e4228d360d809601a62a880d67db005d4a9d3a92ddfbf47e6c6d0154f258bcd"
     sha256 cellar: :any,                 arm64_sonoma:   "67887ebe92518e43424e8b468b310fde9ab42d9791d387d59519cdbfb4a2f43c"
     sha256 cellar: :any,                 arm64_ventura:  "15cec1b1e8ca8856aa59de28068cd187831281b1376597d7bb87c5f79b80e10c"

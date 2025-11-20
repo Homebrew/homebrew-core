@@ -1,8 +1,8 @@
 class Tgui < Formula
   desc "GUI library for use with sfml"
   homepage "https://tgui.eu"
-  url "https://github.com/texus/TGUI/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "7dcdb67353e9822fe7e79328ffe1ef3ca28e3a495c91f0536c8aeb250c8c0c4b"
+  url "https://github.com/texus/TGUI/archive/refs/tags/v1.11.0.tar.gz"
+  sha256 "096e1183137a9e3e8f2f3d2fc65ff6355e938ffa7383dce0e51e06885abe7e61"
   license "Zlib"
 
   livecheck do
@@ -11,13 +11,12 @@ class Tgui < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9de6a742a67b9060fe72d9fce6bbb5a0c7b9b36bb3b758d81b8654e9b632f96f"
-    sha256 cellar: :any,                 arm64_sonoma:  "c59815ec11d8d68a337c19ec94ef57f31a26bb1abf3383cc32c5f4e30cb34a31"
-    sha256 cellar: :any,                 arm64_ventura: "6140cd223e0cdc575fe6753846f3f9373802bff1d1bc8316b27d732e11d735ec"
-    sha256 cellar: :any,                 sonoma:        "42b27869e89eda046f0af2c9a47b8df667dc76cfa1bf945c09cc598836f17442"
-    sha256 cellar: :any,                 ventura:       "4574c8f7dcb63e4b8635100ec2e92b2738b48bf586675aed1f381c7a3bd53c1c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "77683c26c5a9f470456e5a2ce74f360255d4cf4af3f996ca2afc6564d1a092dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "834a0f6457dd8a66bd060b50c419da0d765fc292fab6679d250a14a404ffd894"
+    sha256 cellar: :any,                 arm64_tahoe:   "86614489998a70a5dc860c8364a5507e5cd042d99b84e788cecfdbd378de9bac"
+    sha256 cellar: :any,                 arm64_sequoia: "6bd9dca615dd65cd0f668566bcd5aca4806d1bc4e9c2be96104f724523452047"
+    sha256 cellar: :any,                 arm64_sonoma:  "d835948113282163393ba26748b51ca96d3335387b06ed984a9641950ac1d2db"
+    sha256 cellar: :any,                 sonoma:        "07c98ea2048d0ba71e18e9036d9bd5e098de1320d0699105b2ad047c31d5e9f6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9ebe73db411a2707b600090dd1d2e0886dc5108d26c04c89117309fa7c6ee56a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c8ddfdbefda92eab2364d8eff35f12eb1973c0cd758c29e6bb8dfa1df357eff"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Runitor < Formula
   desc "Command runner with healthchecks.io integration"
   homepage "https://github.com/bdd/runitor"
-  url "https://github.com/bdd/runitor/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "7c245db0bbd211a62e8adab1d78ce59ab8cb02147c95d3713508a75cc0f09099"
+  url "https://github.com/bdd/runitor/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "192665c623bc96ed77f122510510c017197e1673ab92bb84546d652afe4416c0"
   license "0BSD"
   head "https://github.com/bdd/runitor.git", branch: "main"
 
@@ -12,12 +12,14 @@ class Runitor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae097b06f663c5c098e966e5737cdda3a938960d6bb91362cec21f1ccce2e661"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae097b06f663c5c098e966e5737cdda3a938960d6bb91362cec21f1ccce2e661"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ae097b06f663c5c098e966e5737cdda3a938960d6bb91362cec21f1ccce2e661"
-    sha256 cellar: :any_skip_relocation, sonoma:        "51ea31e203f0f305ea29997a2549ea4f45ee5f212e2ec54c299fadbbc0643420"
-    sha256 cellar: :any_skip_relocation, ventura:       "51ea31e203f0f305ea29997a2549ea4f45ee5f212e2ec54c299fadbbc0643420"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e0b3720e73ce9e0ead9c92612d8fe7c7437b19996046b5975ac96c545db338e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16b11e9362646966797e2658e3cb248bf62a4fb18993bd77cb221ceca82a7770"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5126ca445a8d5515158165a2de556eba26e2371ea5bcf18d4c6b6cd382781f1c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5126ca445a8d5515158165a2de556eba26e2371ea5bcf18d4c6b6cd382781f1c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5126ca445a8d5515158165a2de556eba26e2371ea5bcf18d4c6b6cd382781f1c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0effd12000e9ee680cabca8c05a25dc33df6dd0816d6c5337f22eb7e4b2c4e89"
+    sha256 cellar: :any_skip_relocation, ventura:       "0effd12000e9ee680cabca8c05a25dc33df6dd0816d6c5337f22eb7e4b2c4e89"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07e21132d3392dee21baf84f985077d200e6c68004a44f342a94ec9c15bff883"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "385c34c59826cd643af53842d7517eab4a8315aa21705a7e7ce58cba0782eaf1"
   end
 
   depends_on "go" => :build

@@ -1,18 +1,19 @@
 class Rain < Formula
   desc "Command-line tool for working with AWS CloudFormation"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.23.0.tar.gz"
-  sha256 "820724a0cde1066345982b81b42921af86906966d0e51151ed24a6e3c1f08740"
+  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.23.1.tar.gz"
+  sha256 "37fb974ee0eb36ceb80f38f13141883f3779a81c79562d0ad15afcd74753485e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af2faec2d53bf7ad618047052040f01755d42feff97c7277b13f2618d2ddbc91"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e92b3a6cc6c34bb7a3110090be658ca87af74d6c34c0d7a9f706b2196875a55"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "68f9a3eebbb7f1e978c7f9fec953c0c714d92a29f4fc479c945a66a17ac2081b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "30e684ea5984aff5347de23c2a70922093bb75aadbe798bf09ea085f2c58b7ec"
-    sha256 cellar: :any_skip_relocation, ventura:       "66d4bcfaf9dca2fe737fabd9b83b6d211ea79eed8b3fb3fcfb47c54cbbd6fb86"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ef15f4820cb1fa32edddb2872d68a49a1de00d668294acde54110eeabef2a77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bc081450e52b65ca0bbfd0fbbdec86755d6faf568e0926bfba406633824fffd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "318d3ec5f4f665d44bf4ed51609f17054dff1e8bea1b82a3080c2c777b7a9d2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd4c31e085d0107c25909db36c2c4df1bbfc21bcb3260d7478dc1324ac0995ae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15d05e072d423d6df23fadc7237e8607f17e749884ec656640571366f25dfdd0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1eedd4c33fdf1bffc2f1b3c8106a157174bfe7eb5bb3d5a8b32d837cededfaa1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a9953614985f14bf21b2b3b4ab88d179cda5da27e5e36a2d85a9a0115eb7c27f"
+    sha256 cellar: :any_skip_relocation, ventura:       "3cf376704499c3459de1d7e4f47713fe3006c0907f1bed480e1f0045dd6b2f06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32eebc8816cb5e77606f4ea200b634850bfd59c74e910feb91678b4f957f30b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9cd406c6cb1bfe9e46c928b7db5a478af2c510883145028d004d938ed4c1cd8"
   end
 
   depends_on "go" => :build

@@ -5,20 +5,20 @@ class Po4a < Formula
 
   desc "Documentation translation maintenance tool"
   homepage "https://po4a.org"
-  url "https://github.com/mquinson/po4a/archive/refs/tags/v0.73.tar.gz"
-  sha256 "ad5edc38bf004807843622fddbf67bd5ac604fc16e14c2bfefa7b07718ad21f3"
+  url "https://github.com/mquinson/po4a/archive/refs/tags/v0.74.tar.gz"
+  sha256 "6e390eb7707501a86f2e648d78fddb0d211d1e8699aa1ee201176e9f966a798b"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/mquinson/po4a.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "afb479bc9624626a1f950a4f201fda2d5e959b59f414b0d87b6a6e8cc2baaae4"
-    sha256 cellar: :any,                 arm64_sonoma:  "2d74dc1e677bfaf935771544981f7f44ffdd3b5f661e0df07748e5c71849420a"
-    sha256 cellar: :any,                 arm64_ventura: "7a4016850542e5ab42173906e8ed86d13fe971b7161103ca49abb787fbdad05c"
-    sha256 cellar: :any,                 sonoma:        "aea5106a47029e857b9c5ec0ac0a87e87b4cf7843717251df7b41a0461b84a34"
-    sha256 cellar: :any,                 ventura:       "b0c068aac3d53b27fde2125a35bc474b019e5fc3cee5102d1c2b0b3a32a708e9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3a29385695c13c92d30a21e04f0b2c8c10e01bb3f22ddc55535e7498349b4da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c667b5f9d44d0d116b73b0524d100d362aa202a414c69ee6ce06f68ae9ae0f70"
+    sha256 cellar: :any,                 arm64_tahoe:   "7624436108971c111880fd35bc7766707a6bd3e0065371004417b1b2cd3de75f"
+    sha256 cellar: :any,                 arm64_sequoia: "bdccf6b6345463afc6e11516c74d5c585ac9fe6f98011cfcd4e8c2ce930eb44e"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c49b77a9b3e77a508fc1d6bad432d289ed433d7926209f3325488a21b4aa054"
+    sha256 cellar: :any,                 arm64_ventura: "067ad1ef4e3830635e59a12e6884632f11a9140c9af5538381ede46815c33ae5"
+    sha256 cellar: :any,                 sonoma:        "650b1513dcb4670a7a55a8b686cd2d8e09d23eb7f0ae1ed71d1f34c56272cfc9"
+    sha256 cellar: :any,                 ventura:       "22a57781a1083f9e41507a45b80de0b63ce207e8a6ce52a0c166084d87922c93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "873a75f430ad21edd023fbb9dc858fc75df48092bc77e19ece740ce766006f8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56d33a2d3cfe1d88e5af7367056285675c41681ccb10cc9bf696200b9ade107a"
   end
 
   depends_on "docbook-xsl" => :build
@@ -63,8 +63,8 @@ class Po4a < Formula
   end
 
   resource "YAML::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/YAML-Tiny-1.74.tar.gz"
-    sha256 "7b38ca9f5d3ce24230a6b8bdc1f47f5b2db348e7f7f9666c26f5955636e33d6c"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/YAML-Tiny-1.76.tar.gz"
+    sha256 "a8d584394cf069bf8f17cba3dd5099003b097fce316c31fb094f1b1c171c08a3"
   end
 
   resource "ExtUtils::CChecker" do
@@ -72,14 +72,24 @@ class Po4a < Formula
     sha256 "8b87d145337dec1ee754d30871d0b105c180ad4c92c7dc0c7fadd76cec8c57d3"
   end
 
+  resource "Class::Inspector" do
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Class-Inspector-1.32.tar.gz"
+    sha256 "cefadc8b5338e43e570bc43f583e7c98d535c17b196bcf9084bb41d561cc0535"
+  end
+
+  resource "File::ShareDir" do
+    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.118.tar.gz"
+    sha256 "3bb2a20ba35df958dc0a4f2306fc05d903d8b8c4de3c8beefce17739d281c958"
+  end
+
   resource "XS::Parse::Keyword::Builder" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.42.tar.gz"
-    sha256 "7e498879e7813c9a7ecf4296c74774a32e40131e3a64efcc63c8010c0eb11382"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.48.tar.gz"
+    sha256 "857a070ba465ab5b89d4d8d36d92358edd66e5e7b4a91584611d85125ac9a9c7"
   end
 
   resource "Syntax::Keyword::Try" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Syntax-Keyword-Try-0.29.tar.gz"
-    sha256 "cc320719d3608daa9514743a43dac2be99cb8ccd989b1fefa285290cb1d59d8f"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Syntax-Keyword-Try-0.30.tar.gz"
+    sha256 "f068f0b9c71fff8fef6d8a9e9ed6951cb7a52b976322bd955181cc5e7b17e692"
   end
 
   def install

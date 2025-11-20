@@ -1,8 +1,8 @@
 class MongoCDriverAT1 < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/1.30.4.tar.gz"
-  sha256 "03e484ff8b382ad0ddf03fbf70e88a82292d753ac2fbf37bac67c2860117b0a9"
+  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/1.30.6.tar.gz"
+  sha256 "49904f5757fc6fd3671e554b93602907505a34c80365f4dceda3b5da481f0770"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class MongoCDriverAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "11ec4903de5e8816f1e3670644995240062bf6fb7f55a17c76a571b9b0576f51"
-    sha256 cellar: :any,                 arm64_sonoma:  "679d591289a2da855fb9091c41518207af700dd1ea888be468707960c228f705"
-    sha256 cellar: :any,                 arm64_ventura: "de9c0bd3f75edf2fea59d2cccf791980ea7c0fa0cf6dfa1aa6254584e9740595"
-    sha256 cellar: :any,                 sonoma:        "aec28e36191558d3509704146f72ea9d3f25b61f1c555cda35ed8a670cb0ea6c"
-    sha256 cellar: :any,                 ventura:       "2c05d4458319c3e7dede70c30043219e10a28219f6f0c544c98930cb81594c8d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "50c902b7643871073f781dd801c0f99bac8f9d966ead902cd3f594131f6b562c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9009dc4549e27ad5c5db699f435ed379354c5da6aa3ca69a0b1ea144002b97c"
+    sha256 cellar: :any,                 arm64_tahoe:   "f8d80b35837d53c74e36c55ceabef1d2181aa578e84f9d09cc06af4fecf75f9a"
+    sha256 cellar: :any,                 arm64_sequoia: "ec209b833df2081a7b827b57439b553f48eec456ce5caddd3044af98a09052ec"
+    sha256 cellar: :any,                 arm64_sonoma:  "976ae65d3b2ef97381678f5435e34327ce646ae5ba99cbb9791d0198b6e79cb6"
+    sha256 cellar: :any,                 sonoma:        "2ae6577ddcf763700531ccc717c14178b11d2ff0131a5d62a144cd0cc5defbe6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4ca65a252f47d29c0f18e8d0f9047c33d44e1e7d18594039700b2c8af841686"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc2847d983bf25ed028d429787b778216f3dd64da70b4e0d3e748797c9c44282"
   end
 
   keg_only :versioned_formula

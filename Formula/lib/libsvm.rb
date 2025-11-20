@@ -12,6 +12,7 @@ class Libsvm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6546714deddbd0e4a709d6987ffaaf66342b9bfa032f2ebb3ac8138ee1b9be07"
     sha256 cellar: :any,                 arm64_sequoia: "07c47f5b7781dd3fffb83c47d6ea6568e7979e1222eb214c7a85d1323841a91a"
     sha256 cellar: :any,                 arm64_sonoma:  "491c601bed6a963a50717df1a90b1a0c9a73f73b19f64778239a1668edb96440"
     sha256 cellar: :any,                 arm64_ventura: "4025272abab33c159ef9ce0133a1716d3936d2b10a0f26c630a68e19547c4bb5"
@@ -22,24 +23,18 @@ class Libsvm < Formula
   end
 
   def install
-    ENV.append_to_cflags "-fPIC" if OS.linux?
-    system "make", "CFLAGS=#{ENV.cflags}"
+    libsvm_soversion = nil
+    inreplace "Makefile" do |s|
+      s.gsub! "libsvm.so.$(SHVER)", "libsvm.$(SHVER).dylib" if OS.mac?
+      libsvm_soversion = s.get_make_var("SHVER")
+    end
+
+    system "make"
     system "make", "lib"
     bin.install "svm-scale", "svm-train", "svm-predict"
     include.install "svm.h"
-
-    libsvm_files = buildpath.glob("libsvm.so.*")
-    odie "Expected exactly one `libsvm`!" if libsvm_files.count != 1
-
-    libsvm = libsvm_files.first
-    libsvm_soversion = libsvm.to_s[/(?<=\.)\d+(?:\.\d+)*$/]
-    lib.install libsvm => shared_library("libsvm", libsvm_soversion)
+    lib.install shared_library("libsvm", libsvm_soversion)
     lib.install_symlink shared_library("libsvm", libsvm_soversion) => shared_library("libsvm")
-    return unless OS.mac?
-
-    libsvm = shared_library("libsvm", libsvm_soversion)
-    MachO::Tools.change_dylib_id lib/libsvm, (opt_lib/libsvm).to_s
-    MachO.codesign!(lib/libsvm)
   end
 
   test do

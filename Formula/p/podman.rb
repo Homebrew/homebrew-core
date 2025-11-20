@@ -1,8 +1,8 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/containers/podman/archive/refs/tags/v5.5.1.tar.gz"
-  sha256 "00d02f85ad27a46e77456fef1be81865a43147544ed2487e6c4c8decd0e3748f"
+  url "https://github.com/containers/podman/archive/refs/tags/v5.7.0.tar.gz"
+  sha256 "86972a63aaa8a292fff7ee3f18b7445d2e937e83e0c3f3b3904d48065714f07f"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
@@ -17,12 +17,12 @@ class Podman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "115239bfbda90cccd67139e8a5791476e5a8ffa5db8f25d4ba56d6973671cc09"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "23523719b10e300baa455be362c8a47424f970715852c1413ea229c44bc374d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ebdde6e2342da97ec8d2c62f2b048bc07a16ff5cbc7d0d99d3ee43d8f2a74217"
-    sha256 cellar: :any_skip_relocation, sonoma:        "15a296188af06c17d3a940407b5ada34ec6fa2e1c68b6c8493817c433b4cb4cb"
-    sha256 cellar: :any_skip_relocation, ventura:       "7e4b1994d16195da4d169dbaa94e7a5b65d35547332c7e4adba6ada06cc762ea"
-    sha256                               x86_64_linux:  "836de35a08f680948e6454cf3463171f2ce00c9cd732806531aecb2561c4db49"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ac07683f2825357474b9c0232e7e366adf76692261c4842bae1c65514e5cc839"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2662fd5e6b6574443fc03b65aeb6ac4409b37f629750e9d9616947c4191858b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8cfae73734e3a7c23b3df23f7c79bd7348912d9dda4860e41270b4aee3483c08"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5a6e349bea10cca4dc40b8474e5d09ec89b5a6082510fc35134a5e398884fe7a"
+    sha256                               arm64_linux:   "3716057943686fb7ff0007096063bc869bb9e218eda9081f5a65d21a75be99f7"
+    sha256                               x86_64_linux:  "3ab888dd740b9a0b14b468162381afd4411ff1c492e47445ac226c72f0c72d59"
   end
 
   depends_on "go" => :build
@@ -48,6 +48,7 @@ class Podman < Formula
     depends_on "libseccomp"
     depends_on "passt"
     depends_on "slirp4netns"
+    depends_on "sqlite"
     depends_on "systemd"
   end
 
@@ -57,8 +58,8 @@ class Podman < Formula
   # More context: https://github.com/Homebrew/homebrew-core/pull/205303
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.6.tar.gz"
-      sha256 "eb08309d452823ca7e309da2f58c031bb42bb1b1f2f0bf09ca98b299e326b215"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.7.tar.gz"
+      sha256 "ef9765d24bc3339014dd4a8f2e2224f039823278c249fb9bd1416ba8bbab590b"
     end
   end
 
@@ -78,15 +79,15 @@ class Podman < Formula
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.15.2.tar.gz"
-      sha256 "84325e03aa0a2818aef9fb57b62cda8e9472584744d91ce5e5b191098f9e6d6a"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.16.1.tar.gz"
+      sha256 "e655fcd882fe891bcc8328ddcfff3745831c8b1013ae59f012d37ce87175b0b3"
     end
   end
 
   resource "aardvark-dns" do
     on_linux do
-      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.15.0.tar.gz"
-      sha256 "4ecc3996eeb8c579fbfe50901a2d73662441730ca4101e88983751a96b9fc010"
+      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.16.0.tar.gz"
+      sha256 "6c84a3371087d6af95407b0d3de26cdc1e720ae8cd983a9bdaec8883e2216959"
     end
   end
 
@@ -132,6 +133,13 @@ class Podman < Formula
       ENV["PREFIX"] = prefix
       ENV["HELPER_BINARIES_DIR"] = opt_libexec/"podman"
       ENV["BUILD_ORIGIN"] = "brew"
+
+      # Workaround to avoid patchelf corruption when cgo is required
+      if Hardware::CPU.arch == :arm64
+        ENV["CGO_ENABLED"] = "1"
+        ENV["GO_EXTLINK_ENABLED"] = "1"
+        ENV.append "GOFLAGS", "-buildmode=pie -trimpath"
+      end
 
       system "make"
       system "make", "install", "install.completions"

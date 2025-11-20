@@ -7,27 +7,25 @@ class Fades < Formula
   revision 2
   head "https://github.com/PyAr/fades.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8ae23ce3e986aa461efc9dfbb017e62daf3d47bab6650455c64efa609c9a6561"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ae23ce3e986aa461efc9dfbb017e62daf3d47bab6650455c64efa609c9a6561"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8ae23ce3e986aa461efc9dfbb017e62daf3d47bab6650455c64efa609c9a6561"
-    sha256 cellar: :any_skip_relocation, sonoma:        "21e8405e8b50121bf4d6d0a464265411208e394d764d3982e50a74caddb32176"
-    sha256 cellar: :any_skip_relocation, ventura:       "21e8405e8b50121bf4d6d0a464265411208e394d764d3982e50a74caddb32176"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c86e1370b14aac85b9df22c4d8ec002ebb01c24ee432d9a38efe625c6ae0c96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c86e1370b14aac85b9df22c4d8ec002ebb01c24ee432d9a38efe625c6ae0c96"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a4ba1f34d9b0ea8d6e49e5ed4e459640eb0889c2ea8bd37fed8def5eb0be8b63"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a4ba1f34d9b0ea8d6e49e5ed4e459640eb0889c2ea8bd37fed8def5eb0be8b63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a4ba1f34d9b0ea8d6e49e5ed4e459640eb0889c2ea8bd37fed8def5eb0be8b63"
+    sha256 cellar: :any_skip_relocation, sonoma:        "55dbc5b431725a5be9f9da921bb903db6ace6f7945db3d007956d94797c1f68e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "333d94af5b6c4482a7778980ffa4b0f5b7b9e0ea45b6f304067a249b17ed2bc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "333d94af5b6c4482a7778980ffa4b0f5b7b9e0ea45b6f304067a249b17ed2bc2"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   def install

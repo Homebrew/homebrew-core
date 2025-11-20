@@ -1,18 +1,19 @@
 class Mago < Formula
   desc "Toolchain for PHP to help developers write better code"
   homepage "https://github.com/carthage-software/mago"
-  url "https://github.com/carthage-software/mago/archive/refs/tags/0.24.1.tar.gz"
-  sha256 "ce5143261e8a798a7195f19f1ffca1c5019537bd78f47e6058e9d4ac4805bb44"
+  url "https://github.com/carthage-software/mago/archive/refs/tags/0.26.1.tar.gz"
+  sha256 "385956d63bfc8169f5dcc2eced316c2997e9b41962918bd86bb345b43eca5868"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed5df72129bfed252ad953f82b5acd977864d9ac59ee45476ddc7b66397da32e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0a2fba553cf9bd00b9a8005a28a647f48eeed1d51de1c0c6dcbf57a927e448c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "42b8625fd2fc6f375685bf06f1bd7b50ab218d59c15ff65de2572d4ced19ab5f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "46a3c9cea92874189808550db28e37eff96f9e85b1989af15a09974e0018fa23"
-    sha256 cellar: :any_skip_relocation, ventura:       "ea2ecb8549261ca0ad6cef6e163ac3b3aa22f84900363dc884cb7edcb887d6e4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a04c0ef556b6c7623f95fb4ae13254ee40a2d4aebaceaa7a7cd78be27c0a920"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0bfc613a538913c42e196a29931556b6895b53bf683f1265741ff64345f1754"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "480ea8872261668e930a327831d47db27f49dca28eb4ba567156d07780db1a65"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63a3abbb529f9680e9ba6a042e14150007c09b085c19c97eb8606e9f4a0bbee2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f87c201197e099ac2c4dc7d4a5cb7f31e5727f91713b7ef1225ac5573f47813"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea2f1c78ca8a1f5406ba43a00e502277c34ec7b760c0fa3fa86ae15e44e1ca3e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3da339c7ee7074e6631010c6d54c7f24e3091801db29e28ed7ddd70660b55ee9"
+    sha256 cellar: :any_skip_relocation, ventura:       "2f78b84bf97b078a71ef3f9c60cb3ed2165294873fd6de9c2ca9b78a2f786616"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "abad642179450c74b209e4d6c519d1b6703e0892968623c95a72d1c65fbb61d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ac86894e4d9cde9e39836c5a10532a6f595cbd67c766c5f03ad07a22a114504"
   end
 
   depends_on "pkgconf" => :build

@@ -1,18 +1,17 @@
 class Libint < Formula
   desc "Library for computing electron repulsion integrals efficiently"
   homepage "https://github.com/evaleev/libint"
-  url "https://github.com/evaleev/libint/archive/refs/tags/v2.11.1.tar.gz"
-  sha256 "58ab0f893d94cbed3ab35a6c26ec5e4d8541c59889407a6d30c50b8ea415bdf3"
+  url "https://github.com/evaleev/libint/archive/refs/tags/v2.11.2.tar.gz"
+  sha256 "f2fba90579d95f535a93decdae98028ef3a982e6570e1547a0916186f51e86f2"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8ba0d94d0c2d08ae7f060c780b17138ccc9768a4085d70a9ebc07092bca0dbaf"
-    sha256 cellar: :any,                 arm64_sonoma:  "b4ed148dadc7cbef2fdba90c530aaa81fbbbc10b458a01548ed837667941f1d7"
-    sha256 cellar: :any,                 arm64_ventura: "321b83111abb704f45530c5e2431543b202cef7b79f149d8a18d9d92ffbc95c7"
-    sha256 cellar: :any,                 sonoma:        "496e3e04c6113298f83adb651e18899fcebb7272fa90bfcd263e84549435989e"
-    sha256 cellar: :any,                 ventura:       "4ca95b782163ae0ae71b84f74c2a828b6e9717909ae8ab3e85c7f948bd7dfca4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "660f1718e9e4490c778a99ac2f2a2ffe1e7ea97b911ecec248ddceb43ab44941"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45e54a1351ab5f13cc1a3cc83d8ba7fbeb8812c753f44cc5c0fda0e57e7f5ba0"
+    sha256 cellar: :any,                 arm64_tahoe:   "7af4dab8242ce8ddd3a69bb78b8ddac45e42533c1ca6214993d4ef1c43fa3e2e"
+    sha256 cellar: :any,                 arm64_sequoia: "7a4d7f01be48bc37f6127a9ba3986a48e38a7a770f2e10d5f740e644d725a6a4"
+    sha256 cellar: :any,                 arm64_sonoma:  "62a17714752ac307164d3dfb29be32578f548ecd2d88938eac582f42bb5f3595"
+    sha256 cellar: :any,                 sonoma:        "e62dfac42c0bceeafa6041d4117d2ac249f381739c7d486b0fa2e7a85fe69374"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a24d4b1a267ace8365de2f8b7f98b200e86403f02f289833cf42429dbdcee262"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2814f8cd9ed88148a055020bb9ecc75a804a7aa184f9ca6423052fc4ba43435c"
   end
 
   depends_on "autoconf" => :build
@@ -34,7 +33,7 @@ class Libint < Formula
   end
 
   test do
-    system ENV.cxx, "-std=c++11", pkgshare/"hartree-fock.cc", "-o", "hartree-fock",
+    system ENV.cxx, "-std=c++14", pkgshare/"hartree-fock.cc", "-o", "hartree-fock",
                     "-I#{Formula["eigen"].opt_include}/eigen3",
                     *shell_output("pkgconf --cflags --libs libint2").chomp.split
     system "./hartree-fock", pkgshare/"h2o.xyz"

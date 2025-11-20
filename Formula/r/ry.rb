@@ -6,6 +6,8 @@ class Ry < Formula
   license "MIT"
   head "https://github.com/jneen/ry.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "8b92938f20452bf4ad49ef46d0788aac93d5b7f5846cfd3fbaa387da67a2e56e"

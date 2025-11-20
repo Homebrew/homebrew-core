@@ -1,16 +1,17 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v5.5.2/libqalculate-5.5.2.tar.gz"
-  sha256 "fc14d4527dccfc9189684b9fcd64d78aa67ae5383012c66e1596b2531f5daef1"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v5.8.2/libqalculate-5.8.2.tar.gz"
+  sha256 "7136f3c929e88e7cea0fa66427bc541dcc99c7ecbe0d67cb256bfc922d2127d1"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256                               arm64_sonoma:  "3eda9b1f7607de60bf38b405285ead9593f2c94eba85fa8b7fdb90919899c771"
-    sha256                               arm64_ventura: "880ef6188d9cea8c037ba39330c5bbf2e5fb784d69da9de1251f4c25810e308e"
-    sha256                               sonoma:        "cffd7934a442261cbec625311eeee167e3d5eb6d474a1d7ffa8b2cb48d73fe17"
-    sha256                               ventura:       "3ae202875fa805ce960397b3998dd82f53de64901638232cb47c2d11891f09d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9276262afdc1f8f61d964d9527c27073f55c84f6696b3ee764a583eb27df8b81"
+    sha256                               arm64_tahoe:   "1c3c07e45a5cc4356460e349d95a24a9885362632eb86e3350e84b5ff41d23be"
+    sha256                               arm64_sequoia: "4adaa1aa5f781ab3f93d8b173d29bf4c421d01b1e5efc234e0ef7f96143e1e69"
+    sha256                               arm64_sonoma:  "2c8c0739423f4f353d45d8bdb3944c8841c9a90768d4b785141ce2872fe00ed4"
+    sha256                               sonoma:        "4b8b489a6a0d098a672ba249e249bc028ea10a5952ad524105ef0ca6db7634ff"
+    sha256                               arm64_linux:   "0b32e0ed93c35dac8315df698dee3dbae7f7385e492fda89002d2e78b2cadae5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ca690b64e729f24000d1867699e2945b3155606f3e995fb3b8e4f8fa296d3ac"
   end
 
   depends_on "gettext" => :build

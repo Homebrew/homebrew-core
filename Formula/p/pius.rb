@@ -7,15 +7,15 @@ class Pius < Formula
   sha256 "3454ade5540687caf6d8b271dd18eb773a57ab4f5503fc71b4769cc3c5f2b572"
   license "GPL-2.0-only"
   revision 3
-  head "https://github.com/jaymzh/pius.git", branch: "master"
+  head "https://github.com/jaymzh/pius.git", branch: "main"
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "3f3e1fff9df0dffb6684ab3c51f31f7d45fa3ae4be39e97f6695d5f4164494a2"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "4140e7427663db5e6c5d33d1b1589afe1d257b135c2874c15ac3d6b9aee3d743"
   end
 
   depends_on "gnupg"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     # Replace hardcoded gpg path (WONTFIX)

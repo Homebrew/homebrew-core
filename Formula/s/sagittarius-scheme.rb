@@ -1,20 +1,19 @@
 class SagittariusScheme < Formula
   desc "Free Scheme implementation supporting R6RS and R7RS"
-  homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
-  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.12.tar.gz"
-  sha256 "c3a690902effbca3bc7b1bc3a6c4ac2f22d7ae6e0548a87c5d818982c784208d"
+  homepage "https://github.com/ktakashi/sagittarius-scheme"
+  url "https://github.com/ktakashi/sagittarius-scheme/releases/download/v0.9.13/sagittarius-0.9.13.tar.gz"
+  sha256 "8cf812190c43738a9d6021e677c928a80c05cad1a03047c1868c865ccfd65773"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e376a30fdc05b7ca8951ab2e40faf83187dd63022ecd6a6530097b3a65e10ae9"
-    sha256 cellar: :any,                 arm64_sonoma:   "7c07c019c9d52cd1d90fa68930ab2e430dfa58105a44a834b6c3a919cee1436a"
-    sha256 cellar: :any,                 arm64_ventura:  "397c59a96c5bc10879d42a480c3df89e829d4ff17649edf43e186b1ab10d3e80"
-    sha256 cellar: :any,                 arm64_monterey: "3e7bbd920bb306791edfebd38a67635d77e1c7cd28de1b01399b72a8a7edab01"
-    sha256 cellar: :any,                 sonoma:         "62ba73625484cf31ad62454ec7a22a2cbf54af63f691ba9c189f40946d25f4e1"
-    sha256 cellar: :any,                 ventura:        "4d4dd3362acca07325ecafd6cca5322df228a1f17d07405552a0406aead1612f"
-    sha256 cellar: :any,                 monterey:       "fa85cf9521b177a44be8122f0749aa6f00cf1ed73294f7b164a68c95a47d930b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9d6aab93d98662a4d9cfb3b0ef95601821444fa1726902b62cff2a2a4749d236"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a45f44a21b16794aff703c0dc82af965f70c3009ce3159165cd6f7d04302d40"
+    sha256 cellar: :any,                 arm64_tahoe:   "f2233759c744b4306a29c889f1353eb79d3ef63eb28ca67b04b5236adb4b108b"
+    sha256 cellar: :any,                 arm64_sequoia: "1a2a574e1ab887938910ae732c2361f97dd66a8781c0844f1272b48ad5c75ded"
+    sha256 cellar: :any,                 arm64_sonoma:  "b126aaf308f762b129314b25859c99a8c9cfd3fc8ba0bb66e136da369e98003e"
+    sha256 cellar: :any,                 arm64_ventura: "20f8fcc41f81fd346abc1a3e1aab0965e9ee575566acc9f61878188c3006b2a2"
+    sha256 cellar: :any,                 sonoma:        "70e046b1c40141507915325710175d48ce28c80eb6ed7ab0cdb478c0962d78b0"
+    sha256 cellar: :any,                 ventura:       "a6b58821c02c1f395ca5002a0c8c55c6cb531de4682a6166ef4c2963dfe8212a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a90dbb17deb8e950e169ff7c53b64e6258bcd890051946d61afe06d5f78edce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f0455c78b4d9b9df71d6863aa5bdbff00c3869878b3b0a80f1fcd76509b020d"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +22,7 @@ class SagittariusScheme < Formula
   depends_on "openssl@3"
   depends_on "unixodbc"
 
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   def install

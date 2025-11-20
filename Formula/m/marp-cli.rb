@@ -1,18 +1,19 @@
 class MarpCli < Formula
   desc "Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images"
   homepage "https://github.com/marp-team/marp-cli"
-  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-4.1.2.tgz"
-  sha256 "6f7e20e66b12906be9e4ed7225621ccbd0bf02690b03716647103e64dadb1b84"
+  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-4.2.3.tgz"
+  sha256 "e5851716df96b0d5fbe3216e38b1f0ce8f7c6ea0bd1c00e712e77d9da56a2bc8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "da62b75e00504397c018a751576c1b783e7f6ba3929d0e9611fd53888614fcf3"
-    sha256 cellar: :any,                 arm64_sonoma:  "da62b75e00504397c018a751576c1b783e7f6ba3929d0e9611fd53888614fcf3"
-    sha256 cellar: :any,                 arm64_ventura: "da62b75e00504397c018a751576c1b783e7f6ba3929d0e9611fd53888614fcf3"
-    sha256 cellar: :any,                 sonoma:        "c6155d61543ee99565db5b1ad20bb9124e38389d5306303c8ba7425f75de869c"
-    sha256 cellar: :any,                 ventura:       "c6155d61543ee99565db5b1ad20bb9124e38389d5306303c8ba7425f75de869c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "87c5fb7463b29b211d2af1e0a5e4e691e90868403b16475d2531f354a1724259"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c48d21a663d8d84bbb1be5da79a56a45148e22fdc67674fdee91bcc99de9ab3e"
+    sha256 cellar: :any,                 arm64_tahoe:   "7af2e65036c931e145ac5239ceb623be4c743d0304fb30845d4299bdcce010af"
+    sha256 cellar: :any,                 arm64_sequoia: "afe20fa2d2bc1e72cab303a06aa1764a261b3f277af69754c2fbb364e8c0f682"
+    sha256 cellar: :any,                 arm64_sonoma:  "afe20fa2d2bc1e72cab303a06aa1764a261b3f277af69754c2fbb364e8c0f682"
+    sha256 cellar: :any,                 arm64_ventura: "afe20fa2d2bc1e72cab303a06aa1764a261b3f277af69754c2fbb364e8c0f682"
+    sha256 cellar: :any,                 sonoma:        "97c290b4a650c3b421a60e2fce7dd52e9afbc302032e0b01ad232f9c42f3c3da"
+    sha256 cellar: :any,                 ventura:       "97c290b4a650c3b421a60e2fce7dd52e9afbc302032e0b01ad232f9c42f3c3da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "db42f2fae93fcc70faab4be230c1c1a8dcdf1d625bcafa6e9db9c3adda32c06f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c18593d51a84e812d5bdba8784633a0a80f2e7cac84db0f915a7b7804fdcae7d"
   end
 
   depends_on "node"
@@ -25,7 +26,7 @@ class MarpCli < Formula
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     node_modules = libexec/"lib/node_modules/@marp-team/marp-cli/node_modules"
-    node_modules.glob("{bare-fs,bare-os}/prebuilds/*")
+    node_modules.glob("{bare-fs,bare-os,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 

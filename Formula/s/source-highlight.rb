@@ -1,8 +1,8 @@
 class SourceHighlight < Formula
   desc "Source-code syntax highlighter"
   homepage "https://www.gnu.org/software/src-highlite/"
-  url "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.9.tar.gz"
-  mirror "https://ftpmirror.gnu.org/src-highlite/source-highlight-3.1.9.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/src-highlite/source-highlight-3.1.9.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.9.tar.gz"
   sha256 "3a7fd28378cb5416f8de2c9e77196ec915145d44e30ff4e0ee8beb3fe6211c91"
   license "GPL-3.0-or-later"
   revision 6
@@ -12,7 +12,10 @@ class SourceHighlight < Formula
     regex(/href=.*?source-highlight[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:   "e05f56b94a75e09f12a5653c3b48a960a72efba4f4c449e8f00967208f271e93"
     sha256 arm64_sequoia: "8cc450abef52155d24d50527365267af448fa9ebc15d8843e779fb46f0be96a9"
     sha256 arm64_sonoma:  "e44e2d57c3193035e2e2a81bb5b1a4a58e9d390679679e200ed8226967d20b81"
     sha256 arm64_ventura: "7dcd24af23b31fc601b91e87309186ec0bbfdd6de9df721f25c6d3bf1589ba99"
@@ -26,7 +29,7 @@ class SourceHighlight < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

@@ -1,19 +1,18 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/archive/refs/tags/v2025.05.26.00.tar.gz"
-  sha256 "885bbe527fc03ea87b642556468ec6050188b81794f7699ce87ddcb68c9b5d0c"
+  url "https://github.com/facebook/wangle/archive/refs/tags/v2025.11.10.00.tar.gz"
+  sha256 "7cc9bd32619fcb14cc9ac4ced71401f85130514c812c5d6b3b904dc720c4e9a1"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6148f3efe2303ce0a874971d161e86c965449ee4569978924454db3e3179182a"
-    sha256 cellar: :any,                 arm64_sonoma:  "b378cbea9e3da34c7219be7fface926d9e88d4cb0073693be5969664fa0b12f8"
-    sha256 cellar: :any,                 arm64_ventura: "efb355dfb89e079be2e2eab0eaae6e7020998c3d4f981141027f22ac6aa03111"
-    sha256 cellar: :any,                 sonoma:        "5473e48625d55e8d7fec271841d9a36c076bbd0db460e3fbbcecb9885f78bc41"
-    sha256 cellar: :any,                 ventura:       "53cdd14116d340234942fa64c906ba544d71dc09e8d96a806f8f79b415b674d5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6caa5d0eb2d6e7c15289cd9f3a82dbe763a4db287d3fa119e054be541eefc115"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62ad876c3eca55e9fb3d30e8271721f6a2b1cadf7f00ed8769884073adfbe715"
+    sha256 cellar: :any,                 arm64_tahoe:   "d8efd75dd8c1867d35f1b3fd354dc3cb0d62814fd8e6ea7322f5a076d0f5dc3f"
+    sha256 cellar: :any,                 arm64_sequoia: "9a50c964111c1e2f3da6b69f33b16424a5ee7c3bee36f9931d16c2e1bdd19d99"
+    sha256 cellar: :any,                 arm64_sonoma:  "199b6b409337386d01ae07f9889fd3bb3ec72c3bed5b216bcc629dac23f9b1d1"
+    sha256 cellar: :any,                 sonoma:        "9b925268754978972d7a6398ea2687eeb719613bc534e9f2f04081d6b9b99547"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78b9422c4e964834a0b216bf981db7123382344a15613df86d4f9389fcd72c38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f1da306f04754f1193a236976532c8ac4ed8ff19210c2a87546d5b243d28479"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -47,18 +46,12 @@ class Wangle < Formula
   end
 
   test do
-    # libsodium has no CMake file but fizz runs `find_dependency(Sodium)` so fetch a copy from mvfst
-    resource "FindSodium.cmake" do
-      url "https://raw.githubusercontent.com/facebook/mvfst/v2024.09.02.00/cmake/FindSodium.cmake"
-      sha256 "39710ab4525cf7538a66163232dd828af121672da820e1c4809ee704011f4224"
-    end
-    (testpath/"cmake").install resource("FindSodium.cmake")
-
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.5)
       project(Echo LANGUAGES CXX)
       set(CMAKE_CXX_STANDARD 17)
 
+      list(APPEND CMAKE_MODULE_PATH "#{Formula["fizz"].opt_libexec}/cmake")
       find_package(gflags REQUIRED)
       find_package(folly CONFIG REQUIRED)
       find_package(fizz CONFIG REQUIRED)

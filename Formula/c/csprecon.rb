@@ -1,18 +1,18 @@
 class Csprecon < Formula
   desc "Discover new target domains using Content Security Policy"
   homepage "https://github.com/edoardottt/csprecon"
-  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "69200ae4bc99ba41c5a884af6491373cf9cfc5cd66590804c6254460951da968"
+  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.4.3.tar.gz"
+  sha256 "d86f960f21d029a5ac6e6b4087f1b1dcc7ad7632007d8646b8185d3e39fbc7d6"
   license "MIT"
   head "https://github.com/edoardottt/csprecon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d107562498b42b0e1b90be7b20e5cce58e36e722aabaeed906478642b8f344b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d107562498b42b0e1b90be7b20e5cce58e36e722aabaeed906478642b8f344b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d107562498b42b0e1b90be7b20e5cce58e36e722aabaeed906478642b8f344b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "02fe59829e752d8f022020ef1e4cd105da7c791e8f58c1588e55d0fda1ccf02c"
-    sha256 cellar: :any_skip_relocation, ventura:       "02fe59829e752d8f022020ef1e4cd105da7c791e8f58c1588e55d0fda1ccf02c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c58fc8a2225d8fb674e45f69015becdbdee1d4af13050b1837b1f26c6dbade70"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f621fc56cd9c69ff6203214c6936e73109a4c86ac723d964739879ee7c014e3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f621fc56cd9c69ff6203214c6936e73109a4c86ac723d964739879ee7c014e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f621fc56cd9c69ff6203214c6936e73109a4c86ac723d964739879ee7c014e3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c57841b2a41ce3cd03545bfd6ab3b1ffdd5fb887c6eb1e6b1a0ef68598d9db35"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78623ece065d4f95d47da3454d2434bce1033e32043227a8335c14c5c79dcf68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be01fa962035939cc3a2f94335fc4f227fe06080725cb025a85c6234c2b2bef1"
   end
 
   depends_on "go" => :build

@@ -2,8 +2,8 @@ class OryHydra < Formula
   desc "OpenID Certified OAuth 2.0 Server and OpenID Connect Provider"
   homepage "https://www.ory.sh/hydra/"
   url "https://github.com/ory/hydra.git",
-      tag:      "v2.3.0",
-      revision: "ee8c339ddada3a42529c0416897abc32bad03bbb"
+      tag:      "v25.4.0",
+      revision: "de9baaa9bc1b1865710d4e07e4bd0c4aca599447"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,12 @@ class OryHydra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c0a3f85167b48e6ea4b107c737e7e90fdbd4cfafe3a7d8b4be67facdb5af4c3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07b89367b51ed83fa91e6d1de162a7f1b0d16c596b47f6b52006e9054b81ee9a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b442320d9096b40cd35481016f883df160319e6b6060cf4ef6ec76820e957ea9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c8d55ca5dce7f630a4b23042ced6f1c35b1c187c55bdddb7ee05cff0a162826"
-    sha256 cellar: :any_skip_relocation, ventura:       "6c4d52394e2726bf4c408dc69776d09a497c7456631a666b5115963a99a88803"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "30944f8f85d029dfa84ded9ee820ca4bc9d7d9f865a0a0276a49b0ee2152df42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd7d10f4c7466d31197d3e5a2cf5196fe564f28f84236477b939a84fd7bd7bcb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "274aabae4b98765b98ce3f76009442d38da0bc5ddd0f7c742525b45f61f68026"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "71b0f3ecf4c9d762e28c0181e6b2cac901027e7dafb7a3839bbab9898012838a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f11da4d0cde25e0b87efb35b4073da9071ca00699421572d04ebbc868a5969fb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f69f9f90d69047df0462ff793e2685e1e04ff1135a7efb3b44da1b6ef68b3472"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ca48ceb1eaff823a4b9e9f8ad04f94f161407f3e8c83dc9aab5e232c2aec688"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50dd566a516cde0ed8a8cbcc8a0771a61331c5ef275a2573e2275098330260bf"
   end
 
   depends_on "go" => :build
@@ -26,6 +25,8 @@ class OryHydra < Formula
   conflicts_with "hydra", because: "both install `hydra` binaries"
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
       -s -w
       -X github.com/ory/hydra/v2/driver/config.Version=v#{version}
@@ -36,7 +37,7 @@ class OryHydra < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output(bin/"hydra version")
+    assert_match version.to_s, shell_output("#{bin}/hydra version")
 
     admin_port = free_port
     (testpath/"config.yaml").write <<~YAML

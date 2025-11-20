@@ -5,8 +5,11 @@ class Lgeneral < Formula
   sha256 "0a26b495716cdcab63b49a294ba31649bc0abe74ce0df48276e52f4a6f323a95"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:   "3259351b8e0e10fde802360e3f99bb7123cbebdc65ef42405feb2244044e6085"
     sha256 arm64_sequoia: "0b33e1f556a20a71c72b472bbfa2fdd9461253d584cb97e47a9eb8173c376ea5"
     sha256 arm64_sonoma:  "0c3cbf2cd89161d1af99f75d4d33091f7732cc458861977f4a91eb96af230154"
     sha256 arm64_ventura: "f256bf5c22611e15d3322bc501e1d877a4b2f8c1a471fe298399a255fc44490b"

@@ -1,14 +1,15 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/refs/tags/v2.14.2.tar.gz"
+  url "https://github.com/mislav/hub/archive/refs/tags/v2.14.2.tar.gz"
   sha256 "e19e0fdfd1c69c401e1c24dd2d4ecf3fd9044aa4bd3f8d6fd942ed1b2b2ad21a"
   license "MIT"
-  head "https://github.com/github/hub.git", branch: "master"
+  head "https://github.com/mislav/hub.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "262eee2bbe1a89928ff5df203894ea17f4a1a3e4741e9ff2ef0f0bc5d48a0cd4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "90a1cf13fdd2a83b764953421cdf3ef3fa115d82d893f0b4fec100539c97773f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7df6f6e443e8e00fa18c8bd5e88fa666fe0a40659832e478a0d2345233ca374d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1b4d7c179ca172a5d00781021defae38a452408eab7077e26ad4f317cfad9e6"
@@ -19,8 +20,7 @@ class Hub < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d4c647211cc8a8e9aa9bedfaa4cb079a3a5fafea3f8378c7eaf5c50e2503cd0e"
     sha256 cellar: :any_skip_relocation, big_sur:        "7c480f3de5f449a741f88718194c129d597f0fe0db8b2130c1ccf4daa9a8dfca"
     sha256 cellar: :any_skip_relocation, catalina:       "fdf05855839a9d7ec6e7bee6796e3cb5fc473500cffc002366cf98c09a805b69"
-    sha256 cellar: :any_skip_relocation, mojave:         "bcbae9c683d76f3395665467ba0f0c00c60c12c84022f72faba4b8981724b563"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "8800cda4532784bf764ea6116a06c81d8d90bb3d36d8ecf295e64f9dd647c4ad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d46ee6b0e23f3b74b8f51d6651995bc8ebf8bfaeebcd407a1201723b17c8c681"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "213636e856404251ffd7897357ab91cc9519d3852e4b28cbb43575988d9bbc1b"
   end
 

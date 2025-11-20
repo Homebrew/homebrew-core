@@ -1,8 +1,8 @@
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
   homepage "https://www.libjpeg-turbo.org/"
-  url "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.1.0/libjpeg-turbo-3.1.0.tar.gz"
-  sha256 "9564c72b1dfd1d6fe6274c5f95a8d989b59854575d4bbee44ade7bc17aa9bc93"
+  url "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.1.2/libjpeg-turbo-3.1.2.tar.gz"
+  sha256 "8f0012234b464ce50890c490f18194f913a7b1f4e6a03d6644179fa0f867d0cf"
   license all_of: [
     "IJG", # libjpeg API library and programs
     "Zlib", # libjpeg-turbo SIMD source code
@@ -16,13 +16,14 @@ class JpegTurbo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c43b108ab9895d7aa1f649d9d3b10da482657eb1216d060577142b805cfe490c"
-    sha256 cellar: :any,                 arm64_sonoma:  "03d179652a6d36ece4f02bbbc091ff6e3bb1d9454ba4e7a160c8d2fbab83b7d6"
-    sha256 cellar: :any,                 arm64_ventura: "a9b6c86773453e3973ce817c15357acd3d16c6d839dd2b4b27b8ecd46efd5ac9"
-    sha256 cellar: :any,                 sonoma:        "71334a8545e4e669f06c88c11e9b0adddce19a797f088dcc3db5d6513d0861bb"
-    sha256 cellar: :any,                 ventura:       "9bd429d9b147fb9f042b70e907c50f5287572282c1f29bb243082c7a13e24ff4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0583a5c8c9f128982bebc437fc1e3f9dbab4b62c6f4ef0479b71f3cb04615cba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87e49b8d9e91e96ab8a404ab29746f5705c204001ff745d2aa2c93e55b2798d8"
+    sha256 cellar: :any,                 arm64_tahoe:   "6256a7912f1779ffa22ad0a810bd2e87010aaf1ff16d8940a874240d47181f0d"
+    sha256 cellar: :any,                 arm64_sequoia: "59f90f6a9c2dc28abc3b425c7116e30dc4c13986538c6fcf614fa1b2aee8e7d4"
+    sha256 cellar: :any,                 arm64_sonoma:  "1c5e9b9ef5e17f4f0fc2106af7542a88504514732093a8b61a36719c57e4c9a7"
+    sha256 cellar: :any,                 arm64_ventura: "eb4dfded7634a24975783260114ea16343d61628a0cc6ab3f570a34652322ef9"
+    sha256 cellar: :any,                 sonoma:        "90085add5a101d6955ca901a3b42461886d5b2430f705ac93406f87bba332be1"
+    sha256 cellar: :any,                 ventura:       "b803551f9cbecfe086529fef00074ab62379eba3d4cdbdcf91cd2aa72e440463"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6df4b965f4213f3bb467e67234e17a936e7bbc94a3dd3978bbd30da88063988"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "975be8b75336be29123f54241bd2d8a69f8cdf90c211bac3b3f2fe71efd3dac4"
   end
 
   depends_on "cmake" => :build

@@ -6,8 +6,6 @@ class CouchdbLucene < Formula
   license "Apache-2.0"
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e51dc09d265658f719623e8e19ae3500b9e798fddb6baacbfe17f31d5ed41dfd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f739d9de763e66d5ccfbfb3d14034352e0d9e0c4e37799aca78487b395f029a2"
@@ -19,7 +17,6 @@ class CouchdbLucene < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "0bdd89c21b0a7f779e79afe8b44f816aa84a47680f78888d3ef9ca60d9bc59d6"
     sha256 cellar: :any_skip_relocation, big_sur:        "8c75a95f3c1909e99602f51ed4c55fc2eb495910d8772b9b693347c633141715"
     sha256 cellar: :any_skip_relocation, catalina:       "5888b91cbf5c0fe4744ee9f1cf0ca204f9dd89e125a06fc928375b1d2770ae87"
-    sha256 cellar: :any_skip_relocation, mojave:         "d7e8191c66bc938d7c8e15c10c13612be41ef601f5f6ab78b9ef5275c04bf89d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d08b00d0ef852160eb6f5fef96f8cc9387b2fa4c29a792cfe9a13ccdf2d690b"
   end
 

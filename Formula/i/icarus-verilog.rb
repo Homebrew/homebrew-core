@@ -16,6 +16,7 @@ class IcarusVerilog < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "6362213da330c37911b9456faf6424e41edaa8b84af9021f804ec85ce7242bba"
     sha256 arm64_sequoia:  "71feafd9b968350f08ca504f95b7d0be4e048799c47c145e2d7757ce0d179a5c"
     sha256 arm64_sonoma:   "16e03356975ad058efbf99a12cb1ed1a6c078aea5d7b5bb6a0035442afb0f335"
     sha256 arm64_ventura:  "0c963a73d69e2c0ad3c6813dd9d03ac4b5a880052bf9ecb28a8918adc9384b4e"

@@ -1,10 +1,20 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-25.04.0.tar.gz"
-  sha256 "ec0b3005c3663f1bb86b0cc5028c2ba121e1563e3d5b671afcb9774895f4191b"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
+
+  stable do
+    url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-25.04.0.tar.gz"
+    sha256 "ec0b3005c3663f1bb86b0cc5028c2ba121e1563e3d5b671afcb9774895f4191b"
+
+    # Backport fix for wxWidgets 3.3
+    patch do
+      url "https://github.com/wxMaxima-developers/wxmaxima/commit/0449b7e42809db16df87c3fbe95c37a756c04587.patch?full_index=1"
+      sha256 "9784a43c08ec0b57c6ba710943a0665bbcdfc16bd4ab59fb4dc7c26586291c34"
+    end
+  end
 
   livecheck do
     url :stable
@@ -12,11 +22,15 @@ class Wxmaxima < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "651e94d18f6e8d0607f2a9c2704e27a5f8706154136b9e84291f4c56a38b5b4a"
-    sha256 arm64_ventura: "2cb41dd7ab37788045aabd96c2bc7872c4e018d17d8ad7fffc8e1324948c3583"
-    sha256 sonoma:        "f37079c11ec5d8e79ef364cb0938fe45f7ef0982e41edb30c60101c24f8a78e6"
-    sha256 ventura:       "46fe42c449be5e2b2be2f4b8309ccff0eb60583e49078b46da4130ce70838f31"
-    sha256 x86_64_linux:  "22bc6ecaa698b1408fa9f659d44b4d7eabe1ef9cd2da11c4c8621a132a8a95c0"
+    rebuild 1
+    sha256 arm64_tahoe:   "cc11b4097517d7f5703e8f68fce4584e1e0bc54608d734c8d1d0375635dad68c"
+    sha256 arm64_sequoia: "ec8ca3fae6f7edc7593eb84c6c4216f9ae2dd4a3c014dbb7553acd78e3302e3d"
+    sha256 arm64_sonoma:  "7d82d9ec873119248214f833fb7029eac8875aa57c5701a57370b44f76e3cd58"
+    sha256 arm64_ventura: "d557599c3b3eefd79b147758ca60611e9b6d57e57c1e41c004140e418d2205d4"
+    sha256 sonoma:        "24fa662cd77d0dd9f745942e8c1b74467b3711e03f13b9dae6f087687abaec69"
+    sha256 ventura:       "b66e7b2778a0b7588bebac86db1f4b3aaa7726b40f5acb606fc36a5e096b2ffe"
+    sha256 arm64_linux:   "4bb515d654a2f26fc2b3ca0f8482970c48d475ab3329e262504ca6a24e2a51d0"
+    sha256 x86_64_linux:  "e321b5e9522666e570bcdbec80ab1573bdc874933adbdcc4ce324393dae553ee"
   end
 
   depends_on "cmake" => :build
@@ -75,7 +89,7 @@ class Wxmaxima < Formula
     # Error: Unable to initialize GTK+, is DISPLAY set properly
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    assert_equal "wxMaxima #{version}", shell_output(bin/"wxmaxima --version 2>&1").chomp
+    assert_equal "wxMaxima #{version}", shell_output("#{bin}/wxmaxima --version 2>&1").chomp
     assert_match "extra Maxima arguments", shell_output("#{bin}/wxmaxima --help 2>&1", 1)
   end
 end

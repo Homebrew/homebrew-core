@@ -1,31 +1,24 @@
 class Gphoto2 < Formula
   desc "Command-line interface to libgphoto2"
   homepage "http://www.gphoto.org/"
-  url "https://downloads.sourceforge.net/project/gphoto/gphoto/2.5.28/gphoto2-2.5.28.tar.bz2"
-  sha256 "2a648dcdf12da19e208255df4ebed3e7d2a02f905be4165f2443c984cf887375"
+  url "https://downloads.sourceforge.net/project/gphoto/gphoto/2.5.32/gphoto2-2.5.32.tar.bz2"
+  sha256 "4e379a0f12f72b49ee5ee2283ffd806b5d12d099939d75197a3f4bbc7f27a1a1"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
     regex(%r{url=.*?/gphoto2[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_sequoia:  "5ae6c7be0e9948d7fd7d0f473a4fcb0f62d37d8961c5e9ff33f42095fbc17463"
-    sha256 arm64_sonoma:   "2c504b69c81e8ffa8b85422f2e253f728670335465411812dbdac5264cb721ec"
-    sha256 arm64_ventura:  "0a2a57995067c69118a232642dfb89cd3e3040706f768e1102160ba07d5ee000"
-    sha256 arm64_monterey: "f539f391b11d94317e0c1b693b0f8ed0abfa1a702111c2a8807ae17be5890e38"
-    sha256 arm64_big_sur:  "2c28a56b1840d21ca1044b9aa3a39b66ecda08dbb1ca3f6b762eb31450bce5cc"
-    sha256 sonoma:         "ea0300af4dd51c1e78745813485882efddf583a99d7b4ceee29a3362c6df15bd"
-    sha256 ventura:        "377d87c61e278de33dba27cf90c847de972a5b838f50fbb1dabf37255dc6729e"
-    sha256 monterey:       "5ed1d4e739a9714fd521dab770b3f0158aa0f0e7ddeee83df73cbf29d7e00ff2"
-    sha256 big_sur:        "ea0442d95d2eb20d04a01a70193130523501a977f8b6c90a151f4d79f27da454"
-    sha256 catalina:       "50f8ac20116d922be552822446f438296df99e104509ccc3f9785576d7c01016"
-    sha256 arm64_linux:    "4e8228a62a33c494c943392deac6fc626d2f3484521549ce63fd5baff87519e6"
-    sha256 x86_64_linux:   "52adb4dfc3a7c3b062ff23a25adf8ddcaaead4cef2df8e1e355067fb124f4873"
+    sha256 arm64_tahoe:   "4964d268b7a6e5fe54ace7bf390f1986757b9c1d1f3444e324e8f6f6e026f919"
+    sha256 arm64_sequoia: "189e99f72f8ec50a706151bf4b3ded54ace4ca3bc0fe2fa11898d68f2bc87e9d"
+    sha256 arm64_sonoma:  "11188417b4d967bca29dba9e5e14801e44b110b4c55659407825f550e6dcedb6"
+    sha256 arm64_ventura: "01525ca78cb62c595c565025b28bcd4fd07792ff01c91292a08c35d918b4100e"
+    sha256 sonoma:        "69b5f9a17b27bf5ec53c0dcd61c2c8aea8bffe3017afb6e510f634d2c12e60d3"
+    sha256 ventura:       "aff2e028f6ab3cc76f521ae161f729541eaf68e44d987ce1948967f3b792a4aa"
+    sha256 arm64_linux:   "c74def980e8a6375630735e1069673b09ee7c2366455c6a1b6b25abe7be1a168"
+    sha256 x86_64_linux:  "6e7c517d9fca1d5befe7bbfa1012f495da43e64df141249bdae00884ce5a5475"
   end
 
   depends_on "pkgconf" => :build
@@ -40,10 +33,6 @@ class Gphoto2 < Formula
     depends_on "gettext"
   end
 
-  # fix incompatible pointer type issue
-  # upstream patch PR ref, https://github.com/gphoto/gphoto2/pull/569
-  patch :DATA
-
   def install
     system "./configure", *std_configure_args
     system "make", "install"
@@ -53,26 +42,3 @@ class Gphoto2 < Formula
     assert_match version.to_s, shell_output("#{bin}/gphoto2 -v")
   end
 end
-
-__END__
-diff --git a/gphoto2/main.c b/gphoto2/main.c
-index 2bf5964..cd84467 100644
---- a/gphoto2/main.c
-+++ b/gphoto2/main.c
-@@ -1215,14 +1215,14 @@ start_timeout_func (Camera *camera, unsigned int timeout,
- 
- 	pthread_create (&tid, NULL, thread_func, td);
- 
--	return (tid);
-+	return (unsigned int)tid;
- }
- 
- static void
- stop_timeout_func (Camera __unused__ *camera, unsigned int id,
- 		   void __unused__ *data)
- {
--	pthread_t tid = id;
-+	pthread_t tid = (pthread_t)id;
- 
- 	pthread_cancel (tid);
- 	pthread_join (tid, NULL);

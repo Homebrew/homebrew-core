@@ -11,6 +11,7 @@ class Patchelf < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3eca59098dfb9987773befef12384065102f4d6e6ab03fc4e3543d9c45d81b80"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "00f60cc5a6eda135bd0184aa3e4980da9017132553c2ab685b03842f4c196ea2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "25689776796afacaf452e8e74dd3805bf9ff129c00f3cc886c0857db9802c9db"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "37888c994e481e2b6a3a212c689195e2ca6dbeb681779845bbeda5a52262c1b5"

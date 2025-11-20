@@ -17,6 +17,7 @@ class Cwb3 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "7a3579de1550f7bd94b6b892045f4ed90f563a2b957e65bc62d60dd143d8bc76"
     sha256 cellar: :any,                 arm64_sequoia:  "c5b9638ab57fd314a6ca3d6af0fe467535a2d3a2d10f567c5c479bda9f3ac36b"
     sha256 cellar: :any,                 arm64_sonoma:   "6e7f9c944d5b1222ea9b1001a4ed77c80ee60fd97418b1326e201def09c26ce9"
     sha256 cellar: :any,                 arm64_ventura:  "933ced8d74d9a2be889a4c0b65f19df7730c3ef071fd15e5b143183a929c0ce1"

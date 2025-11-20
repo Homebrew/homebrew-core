@@ -6,7 +6,7 @@ class Cahute < Formula
   url "https://ftp.cahuteproject.org/releases/cahute-0.6.tar.gz"
   sha256 "2fb0a8f0b14d75fb0d8a6fa07f3feda9b4cfaad11115340285e2c9414565059c"
   license "CECILL-2.1"
-  head "https://gitlab.com/cahuteproject/cahute.git", branch: "develop"
+  head "https://gitlab.com/cahute/cahute.git", branch: "develop"
 
   livecheck do
     url "https://ftp.cahuteproject.org/releases/"
@@ -14,6 +14,7 @@ class Cahute < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "cb42203525d8516537043a35201cf297d36c0ad965da1ea890b13f75c25bb2b3"
     sha256 cellar: :any,                 arm64_sequoia: "a9f182ecca26940644fc57a55482d3cea23db23a9b7bc04d631d79ceaa4009c8"
     sha256 cellar: :any,                 arm64_sonoma:  "5538bcc49d7187f12c367f25303f72880ef2ec69aca596dc4c6d50cd315fefa2"
     sha256 cellar: :any,                 arm64_ventura: "7fcf7b11c26bf1cee45ea46082d741952de45c82f3532f2849468495351ee161"
@@ -25,9 +26,12 @@ class Cahute < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "libusb"
   depends_on "sdl2"
+
+  pypi_packages package_name:   "",
+                extra_packages: "toml"
 
   resource "toml" do
     url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
@@ -35,7 +39,7 @@ class Cahute < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

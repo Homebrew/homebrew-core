@@ -6,13 +6,8 @@ class SqlLint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc63ba9d01196aa966e93b34c8e644c0c6c3471f6c4c3b91e5166e358352945e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc63ba9d01196aa966e93b34c8e644c0c6c3471f6c4c3b91e5166e358352945e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc63ba9d01196aa966e93b34c8e644c0c6c3471f6c4c3b91e5166e358352945e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e49729434ac8f859b1d58793b6042ff6bc9de62f8db6ee8d11759d614ac4ba1"
-    sha256 cellar: :any_skip_relocation, ventura:       "2e49729434ac8f859b1d58793b6042ff6bc9de62f8db6ee8d11759d614ac4ba1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc63ba9d01196aa966e93b34c8e644c0c6c3471f6c4c3b91e5166e358352945e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc63ba9d01196aa966e93b34c8e644c0c6c3471f6c4c3b91e5166e358352945e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5003c2e4717f5ae3f32a0bc1656a9fdec5a130cb54cec5dceeef497367a277b6"
   end
 
   depends_on "node"

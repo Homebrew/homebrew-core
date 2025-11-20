@@ -26,18 +26,18 @@ class Polynote < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "9b2efac6f87a4b3c29b2d12a93fffa42f2198d8836ef438ef1e56e40332601f2"
-    sha256 cellar: :any, arm64_sonoma:  "70cfaab129c7d151d28295af6ed37ce251b2a37b619cde49ec20b5325309226b"
-    sha256 cellar: :any, arm64_ventura: "b7d8fe06b593b1b8ee381b6b28d64a6202db69ddb988ac46fef84886bfac5725"
-    sha256 cellar: :any, sonoma:        "07716c02135db664f847fbb3c85676582729d19218ab3bbef44a0f6903debf52"
-    sha256 cellar: :any, ventura:       "3364fdd8e9136617db7a9a647e2175ff16e215cc18bfd85a67c007ce581cd2d3"
-    sha256               arm64_linux:   "ee7e85ff4e412dbad97ac25b161252099eb1a90c82863e4e4f1a87f9622cf5d8"
-    sha256               x86_64_linux:  "a62217d545dcbb8a7944defde2cade6f1dc802478f10749a688f370e19d0dc4e"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "83a7b0af49ba4ab4ad4da51b15ffe2e9609cda61d2027f566d97d87461557974"
+    sha256 cellar: :any, arm64_sequoia: "4747bf5c546668f894b6fe33984237f7dd1bd6bb90220df4923797f670b014ee"
+    sha256 cellar: :any, arm64_sonoma:  "1ee1662e8ef70df9244d5d4bff9df24ab2ac50c06871f1ee77902a4453f41dc3"
+    sha256 cellar: :any, sonoma:        "987e62d3b5ccf2d0bf0b3d7055628478d3b8fcd4d7ad889c13c8fa9aff6ded02"
+    sha256               arm64_linux:   "426f9eafe5932f3b4e48f8dcab47ea25b0af7c7683fb3f7c814d27439dd2bd09"
+    sha256               x86_64_linux:  "6815b22885a9e13f6d381db68b8bddc4249786d2f33bacd98ef95df6a9bcb8ca"
   end
 
   depends_on "numpy" # used by `jep` for Java primitive arrays
   depends_on "openjdk"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "jep" do
     url "https://files.pythonhosted.org/packages/0e/92/994ae1013446f26103e9ff71676f4c96a7a6c0a9d6baa8f12805884f7b5e/jep-4.2.2.tar.gz"
@@ -45,7 +45,7 @@ class Polynote < Formula
   end
 
   def install
-    python3 = "python3.13"
+    python3 = "python3.14"
 
     with_env(JAVA_HOME: Language::Java.java_home) do
       resource("jep").stage do

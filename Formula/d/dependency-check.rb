@@ -1,13 +1,13 @@
 class DependencyCheck < Formula
   desc "OWASP dependency-check"
   homepage "https://owasp.org/www-project-dependency-check/"
-  url "https://github.com/dependency-check/DependencyCheck/releases/download/v12.1.2/dependency-check-12.1.2-release.zip"
-  sha256 "404b7110a745ac0dd91eb3bcec7917a753487cad4b1da1717b91b327cf7a3454"
+  url "https://github.com/dependency-check/DependencyCheck/releases/download/v12.1.9/dependency-check-12.1.9-release.zip"
+  sha256 "ea7ae841ae9005d5d6e957994dec996fd9787279ead355c582a226c67ff6aa37"
   license "Apache-2.0"
   head "https://github.com/dependency-check/DependencyCheck.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cdade93613029b1b5d7b4206f9cdc3563f8fb81062d1180dcf12317ee0cf7e77"
+    sha256 cellar: :any_skip_relocation, all: "41be77d4d9af8cd3466b175fa514710e789bfeadcd72c53b27c243d4dc0539b3"
   end
 
   depends_on "openjdk"
@@ -35,7 +35,7 @@ class DependencyCheck < Formula
     # wait a random amount of time as multiple tests are being on different OS
     # the sleep 1 seconds to 30 seconds assists with the NVD Rate Limiting issues
     sleep(rand(1..30))
-    output = shell_output("#{bin}/dependency-check --version").strip
+    output = shell_output("#{bin}/dependency-check --version")
     assert_match "Dependency-Check Core version #{version}", output
 
     (testpath/"temp-props.properties").write <<~EOS
@@ -47,7 +47,8 @@ class DependencyCheck < Formula
     system bin/"dependency-check", "-P", "temp-props.properties", "-f", "XML",
               "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath,
               "--nvdDatafeed", "https://dependency-check.github.io/DependencyCheck/hb_nvd/",
-              "--disableKnownExploited"
+              "--disableKnownExploited",
+              "--disableOssIndex" # disable oss index due to username/password requirement
     assert_path_exists testpath/"dependency-check-report.xml"
   end
 end

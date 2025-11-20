@@ -1,24 +1,32 @@
 class Boa < Formula
   desc "Embeddable and experimental Javascript engine written in Rust"
   homepage "https://github.com/boa-dev/boa"
-  url "https://github.com/boa-dev/boa/archive/refs/tags/v0.20.tar.gz"
-  sha256 "10cc1e8c8f62b6fb0b22ec2ddc7031715f99bd8bed6168b14c93a89cb8dab597"
+  url "https://github.com/boa-dev/boa/archive/refs/tags/v0.21.tar.gz"
+  sha256 "aa6eb743cd6037e6b5efa6ba01ee8c5695b1406d141697ddd4578b047e8028bf"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/boa-dev/boa.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c6511d59e732eb4093f55266cb82177c9561d461cdf6db8a300f6993c8f87e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "065f0361e0ab41501e92db94e1cf043c5871ab29fbff039aed67255455a874d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "08fb899017323c8854209da3d3b9190337803ef635a8b6a7d960f17141ccda6b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a2f8fba394237d297214d94a2f78a2da249cf19b481a7dcf0b41cde97b9ea2e6"
-    sha256 cellar: :any_skip_relocation, ventura:       "e55c1d32124a5dc83dad035ec5d3e6631b10b3d9cf41a6a92c949fc47e3d29c4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f78e3b85b68cf071b0ead92403cbbc1be6e54b8a2247ffcff31494834f76b39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28ed6dc310185ff69da5a53d22b4c557b63dfa736557687ec11cc6591089b774"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c487656c5ebb79333fa4f8a81afe8066f62059212dd0606c61fcefac52e9c064"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dae69096a640038b85e37d5532310514e46949c111b49f26eb9772d7fe3f0a14"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbe6e48aa63dea3f82e8caace4a5564958986b62a3df0b48f6bbf8ae5fe09275"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ecff53c4ecf56567e1593a80abca460b61015f8a4fc93ebd26edfb6015d00584"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "733119d87455c4f1738bef0a532fe7869a9107548da834420c0b198a5fa08ad9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43062e155e024fee561efaf8951a02533d3f338acd229df0a4fa9b23f9c9b82d"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "openssl@3"
+  end
+
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
 

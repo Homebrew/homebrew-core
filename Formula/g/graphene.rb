@@ -8,6 +8,7 @@ class Graphene < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:    "b6625af7453d52f016d1218f609bc2044066b81331b90a1536522441b7919816"
     sha256 cellar: :any, arm64_sequoia:  "11188e7d35c1a2c58483be14dc3ab2699d1829b8a1f4819abb00cdf566e6ce2f"
     sha256 cellar: :any, arm64_sonoma:   "06b8b2bb6dced02c4ce32a827cc279b301fde81352f64880eef15153d88f071a"
     sha256 cellar: :any, arm64_ventura:  "49970a5217fa4aaa048e4181172a9170b171531d58a31cfb4ced72a68eda386c"

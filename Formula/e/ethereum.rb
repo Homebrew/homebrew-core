@@ -1,8 +1,8 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://geth.ethereum.org/"
-  url "https://github.com/ethereum/go-ethereum/archive/refs/tags/v1.15.11.tar.gz"
-  sha256 "d9f584c7d77e170320c1b374cc4528dc5987f5a88d2ea79f700a254597788e1b"
+  url "https://github.com/ethereum/go-ethereum/archive/refs/tags/v1.16.7.tar.gz"
+  sha256 "e0fded2ce7def3dc8c7e4e2f14086e14175775ec76d2f440ff6003b6dcaed939"
   license "LGPL-3.0-or-later"
   head "https://github.com/ethereum/go-ethereum.git", branch: "master"
 
@@ -12,18 +12,15 @@ class Ethereum < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13ac7750eb8346e6c4979b4167abe4b88e4c6615f67784c9594c13ec44dcc421"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "332ebe65732fcde8fa528bef05e6bc8603d0c7748bfb1a09c906e59a0d84d4e2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d6b751bc5445f3b5f5717a6f9a684c28fa64d1da0ed97b57d6cc8b84fe71029"
-    sha256 cellar: :any_skip_relocation, sonoma:        "442c454605620bc2b2b0469618356c247787feb47e534eb59406f7d8e438d186"
-    sha256 cellar: :any_skip_relocation, ventura:       "ae80fbe50d9762746ba10b098a6aa844373143b34fd433ed36c906e31800c744"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d9bc8814e9b4a56f80993de21355daa836c009470e7b2b136056bdac47328b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b351bcb871830ce22904c2ab1e964d777b01404bfcc25ef3136bf5f6f26dd16e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6656fdc6f2325460a1a0c3ce5d1eb987321c06e08a198aca48c34c2d8312558c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f05aca21332289c5b01f37975a9be523b9a1bf14cb1b5f95aa380cea38886967"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d489163f6ae2fe66ab998ab67c218e8a8ee6f20a1a6e31f0134a94af42b18d7f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fe8435bee8f660b6c844db6f2c5b1fac3ebd68a5670b20b047d9e26d81f5fc42"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71390b52c7d4fa3121b4023c6cc81020f3209b94bafba38f056dafba7b34cf37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45c9efe5d0eb58d03f9a83bd88c4bfbf998b3265c27627348548831948bf422f"
   end
 
   depends_on "go" => :build
-
-  conflicts_with "erigon", because: "both install `evm` binaries"
 
   def install
     # Force superenv to use -O0 to fix "cgo-dwarf-inference:2:8: error:
@@ -31,8 +28,17 @@ class Ethereum < Formula
     # See discussion in https://github.com/Homebrew/brew/issues/14763.
     ENV.O0 if OS.linux?
 
-    system "make", "all"
-    bin.install buildpath.glob("build/bin/*")
+    ldflags = %W[
+      -s -w
+      -X github.com/ethereum/go-ethereum/internal/build/env.GitCommitFlag=#{tap.user}
+      -X github.com/ethereum/go-ethereum/internal/build/env.GitTagFlag=v#{version}
+      -X github.com/ethereum/go-ethereum/internal/build/env.BuildnumFlag=#{tap.user}
+    ]
+    (buildpath/"cmd").each_child(false) do |cmd|
+      next if %w[keeper utils].include? cmd.basename.to_s
+
+      system "go", "build", *std_go_args(ldflags:, output: bin/cmd), "./cmd/#{cmd}"
+    end
   end
 
   test do

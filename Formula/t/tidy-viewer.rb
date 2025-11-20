@@ -1,8 +1,8 @@
 class TidyViewer < Formula
   desc "CLI csv pretty printer"
   homepage "https://github.com/alexhallam/tv"
-  url "https://github.com/alexhallam/tv/archive/refs/tags/1.5.2.tar.gz"
-  sha256 "3f950c1d05cc7fd5806a49a3f10a9437290e2b24ddf8402ec04d54c63d1a60d5"
+  url "https://github.com/alexhallam/tv/archive/refs/tags/1.8.93.tar.gz"
+  sha256 "e99811843fe3e28d22c82f6c8ad757bf5065c622fbbb2d7e4011ab346dca6f1d"
   license "Unlicense"
 
   # Some tagged versions using a stable version format are marked as
@@ -13,17 +13,14 @@ class TidyViewer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "73a068ea1c90da7c42f7eb61e16429607c620c7519987417ba192aece9254d37"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a88cb1c9ee8fbcc0fbe1245b414bc396e331e1ee2722eca091b60ac204988a48"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a19cf14db14c07f2ade52a99614d994acaac312c05c3143c60a6a5345f3a2896"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "42a42abecc4680536319b6bbbfba8ace4fd18d725e6a1c3bd1edc669a8877b64"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a17bbc8e7d2b76d5e4495ad8ee47176fb075a1353821a3be5a712c8213aff57"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6641bc5ab6124cea8e7591a4c1b9cd750fa99628f49324d374612bd0d1814399"
-    sha256 cellar: :any_skip_relocation, ventura:        "d3ba5ca8471a577a7c54ce300de86d77887e3ee366022588a58f5f89ef9d98c5"
-    sha256 cellar: :any_skip_relocation, monterey:       "9e7ce7d415590691f06bad36b0d5270fb1bbad9ddfc046fc1f4f8c0473b0a593"
-    sha256 cellar: :any_skip_relocation, big_sur:        "99d8e002b427e3a2a160faeda4e526115538431244faf52dd4bf041118347630"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3e44fa91c0257cd46a249043bdf0594b447c8905d76e2d0646a538352f770e58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3058a55881b1a5874f31e848f613cee6f97f3891ff4091539323b4c189115fa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7673c3682c0550e667dbf4a64e46262bfa5952a8f6d2cda5de6016f2abce527e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59e5edc1187a4fddb10592384f491b0199410c3d0cd9876a50e31e1cfed74139"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63a15fd1cf49c717544e9c4d67d225032c96e335487e91f61a280220ae277214"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9234b7369f9fb91d430b4f109108129349e9c577ecee6225c3919cba256f08d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7063ec566328d464dbf16495cb34b804cae5bd69a3022fe707e68f8a3b3a94c0"
+    sha256 cellar: :any_skip_relocation, ventura:       "cc554f92a73722ed202bca0a40da4998726c4909acfcd1833fa86b3df146adf6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3e4c1abf58e2202e189964db71b04df20fc4f42b1d9c4ba26499057328165da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe2877bb0b8093eb42716de3339a76afe78a6f2f83bc98540e6f8aecbda4af73"
   end
 
   depends_on "rust" => :build
@@ -31,7 +28,7 @@ class TidyViewer < Formula
   conflicts_with "television", because: "both install `tv` binaries"
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "tidy-viewer-cli")
     bin.install_symlink "tidy-viewer" => "tv"
   end
 

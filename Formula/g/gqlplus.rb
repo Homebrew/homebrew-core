@@ -9,26 +9,23 @@ class Gqlplus < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "655578c016ff8dadbc3acec3696e90fb7fbab95af8a0f749ec4d2384ab977221"
-    sha256 cellar: :any,                 arm64_sonoma:   "c4534648d55a23ab49c6fd1e3a4c3c66ee928c7b4ab4cb1c10b9e132134a81f7"
-    sha256 cellar: :any,                 arm64_ventura:  "a0306aa2fa07da51f02dec57525850ec4fe73e37d044fc34cb0b722cb83d1310"
-    sha256 cellar: :any,                 arm64_monterey: "ced72667294e921a6625eff47bdb23df67595692f8f5b4d1ed253eefc4b708ac"
-    sha256 cellar: :any,                 arm64_big_sur:  "e93b52a5967e87f0ccc282ad897c4d64b42e0bcf4e41f7ece17186f1fd36bcd6"
-    sha256 cellar: :any,                 sonoma:         "6708979566b6935a78ff20a3467a1f9444a20b890c554ae1d07050187db6703b"
-    sha256 cellar: :any,                 ventura:        "7d53a459847266fa2e56d0c5a2ccaa5101106988b5d95448a987b4e8cff6ecc3"
-    sha256 cellar: :any,                 monterey:       "9af9ffcfb971028cd45c552c13624d26aa5abd0a34df1bba31504070879b474b"
-    sha256 cellar: :any,                 big_sur:        "6b4b7972c9c29e749bb0546aa83f756e967aca10793ff70de9bb1711536d929a"
-    sha256 cellar: :any,                 catalina:       "2ffb1031a83fe666dc574d17d72b08781dd08e48f1dba88c5c67550472f819df"
-    sha256 cellar: :any,                 mojave:         "014190ba5c0c8e5bc88b0d434f6a05d4c26ab0b6e40b96d6fa00f37f02ee078a"
-    sha256 cellar: :any,                 high_sierra:    "324544d5383507812e0cc14a6e085697661944588ee1fe56477c67e2bc1c009d"
-    sha256 cellar: :any,                 sierra:         "9ad645ec60442256a86ad9bcd081b7adffd4d6ad4cdb47f10814020b53f3200d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4b26b4000ed49f77901a6474d680fe87cd0f1f96b04ee136448de4c1159c7e76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0953b6a9b940124d8922f196387f0f9553d2a36824e41633da5643a0668619f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "9397a0096269caa5527b82304329ef4504f54978ed22d11dc37195f257fba161"
+    sha256 cellar: :any,                 arm64_sequoia: "5719e733e973195be06cd616f58b137b773c9758400a1bc1a8ca97fd45461c78"
+    sha256 cellar: :any,                 arm64_sonoma:  "1b6af37611ccc2c88e7674688cd36b31c251da4b5e4dd6fdae887e9e3e7bab01"
+    sha256 cellar: :any,                 sonoma:        "845e61f2f7c6de88b4f41039a7ef18a3797cef7efba2149f3657394736783519"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "05210d4c4ac4aed362c7785a7e469a08e4681d481f74a841ff07c58243e73538"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5272f5d4491a19cc28a458707683d33fd98888511fa831d9fa0099d7434b79f"
   end
 
-  depends_on "readline"
+  # readline's license is incompatible with GPL-2.0-only.
+  # We also cannot use macOS libedit as it lacks _history_list
+  depends_on "libedit"
 
   def install
+    ENV.append_to_cflags "-I#{Formula["libedit"].opt_libexec}/include"
+    ENV.append "LDFLAGS", "-L#{Formula["libedit"].opt_libexec}/lib"
+
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 

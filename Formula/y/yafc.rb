@@ -6,7 +6,10 @@ class Yafc < Formula
   license "GPL-2.0-or-later"
   revision 5
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f97a84b632e61a767359e627ebefeb33eaa48dc3a3acc7fcb971fd18ae313228"
     sha256 cellar: :any,                 arm64_sequoia:  "2f0f7381029703774be13824194784dc2e84478fbb5680abd7d856366de3db57"
     sha256 cellar: :any,                 arm64_sonoma:   "f2c0733bdc6d9842bc5dd1400fa1e9a4a2d5af3f0ca8578caf32bca5b46ae2ec"
     sha256 cellar: :any,                 arm64_ventura:  "79f180267773ebe99148b9e55e1fce873dfe7b1b8aa14050191a5cab8ad93145"
@@ -40,10 +43,10 @@ class Yafc < Formula
   end
 
   test do
+    ftp_url = "ftp://ftp.mirrorservice.org/sites/ftp.gnu.org/gnu/gcc/gcc-10.2.0/"
     download_file = testpath/"gcc-10.2.0.tar.xz.sig"
     expected_checksum = Checksum.new("8e271266e0e3312bb1c384c48b01374e9c97305df781599760944e0a093fad38")
-    output = pipe_output("#{bin}/yafc -W #{testpath} -a ftp://ftp.gnu.org/gnu/gcc/gcc-10.2.0/",
-                         "get #{download_file.basename}", 0)
+    output = pipe_output("#{bin}/yafc -W #{testpath} -a #{ftp_url}", "get #{download_file.basename}", 0)
     assert_match version.to_s, output
     download_file.verify_checksum expected_checksum
   end

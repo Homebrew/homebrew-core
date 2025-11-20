@@ -1,18 +1,38 @@
 class Perbase < Formula
   desc "Fast and correct perbase BAM/CRAM analysis"
   homepage "https://github.com/sstadick/perbase"
-  url "https://github.com/sstadick/perbase/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "c4e1a7409d6bb3b0b252fa5efa7781b806897bd2c6cddef62b9abf9c0d7b8a40"
   license "MIT"
   head "https://github.com/sstadick/perbase.git", branch: "master"
 
+  stable do
+    url "https://github.com/sstadick/perbase/archive/refs/tags/v1.1.0.tar.gz"
+    sha256 "6b9e030ce0692631482ef074a7d6c37519d6400be21d2f7533ba44a0ec5dc237"
+
+    uses_from_macos "xz" => :build
+    uses_from_macos "curl"
+    uses_from_macos "zlib"
+
+    # Resource to avoid building bundled curl, xz and zlib-ng
+    # Issue ref: https://github.com/rust-bio/hts-sys/issues/23
+    resource "hts-sys" do
+      url "https://static.crates.io/crates/hts-sys/hts-sys-2.1.1.crate"
+      sha256 "deebfb779c734d542e7f14c298597914b9b5425e4089aef482eacb5cab941915"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/sstadick/perbase/refs/tags/v#{LATEST_VERSION}/Cargo.lock"
+        regex(/name = "hts-sys"\nversion = "(\d+(?:\.\d+)+)"/i)
+      end
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e10cf0a82a532a75ceefcbbbd3f57966848dfc051b17adb69ef89331cc3caad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36518d86e409d3fa652505da67ce0496dbdaf0d77e3a71ec554e29513d0b66fc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e3175e41b1eb99a08d1da49411c2b823d4761832f50d90c590f6e7c9b6b486d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3c0ee0199bc40ac70d07d35c029dede0cb84748592b10cfa2c1c0a8f3af91ad7"
-    sha256 cellar: :any_skip_relocation, ventura:       "491387c47a53f4c3e838874a33c206d40c08317aa419988f44dac62e15fa30b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a110b4abaaede69fb54db905c39ba0f274fde0bf422e1f99e18bb285cb26279"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eafb09895b546f68c784f9db1d04eccae19498a7dccf1a038e61f3383a32a34e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6381d9e4d8d9c0bf641a3c0584c8a6bce0915afe9eaf27a373a835222fbc0174"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80c024e6e5ef7a68dc49aff72115ed37123c19d145ec9b629b84fda0a3dd64b5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aca50eabad6b23d04cc9cf0cfb499dd80ceba95407039e389ec5c2bbca9c70c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48658dda19de513ad974dc716dc990aede00119881703453d584692f29d31c34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "070c89be5fd7eab9c163694a9f705fa7891dbe59168bd1f33327627c94e2f52f"
   end
 
   depends_on "cmake" => :build
@@ -20,12 +40,34 @@ class Perbase < Formula
   depends_on "rust" => :build
   depends_on "bamtools" => :test
 
+  uses_from_macos "bzip2"
+
   on_linux do
     depends_on "openssl@3" # need to build `openssl-sys`
   end
 
   def install
-    system "cargo", "install", *std_cargo_args
+    if build.stable?
+      # TODO: remove this check when bump-formula-pr can automatically update resources
+      hts_sys_version = File.read("Cargo.lock")[/name = "hts-sys"\nversion = "(\d+(?:\.\d+)+)"/i, 1]
+      odie "Resource `hts-sys` version needs to be updated!" if resource("hts-sys").version != hts_sys_version
+
+      # Workaround to disable building bundled zlib-ng in "gzp -> flate2"
+      inreplace "Cargo.toml",
+                /^(gzp = )("[\d.]+")$/,
+                '\1{ version = \2, default-features = false, features = ["deflate_zlib", "libdeflate"] }'
+
+      # Workaround to disable building bundled curl, xz and zlib-ng in "rust-htslib -> hts-sys"
+      resource("hts-sys").stage(buildpath/"hts-sys")
+      inreplace "hts-sys/Cargo.toml" do |s|
+        s.gsub!(/^features = \[\s*"static-curl",\s*"static-ssl",/, "features = [")
+        s.gsub!(/^features = \[\s*"static"\s*\]$/, "")
+        s.gsub!(/^features = \[\s*"zlib-ng",\s*"static",\s*\]$/, "")
+      end
+      args = %w[--config patch.crates-io.hts-sys.path="hts-sys"]
+    end
+
+    system "cargo", "install", *args, *std_cargo_args
     pkgshare.install "test"
   end
 

@@ -1,23 +1,24 @@
 class Geni < Formula
   desc "Standalone database migration tool"
   homepage "https://github.com/emilpriver/geni"
-  url "https://github.com/emilpriver/geni/archive/refs/tags/v1.1.6.tar.gz"
-  sha256 "b157ff3c57b4c36e2f48f57da1b6dba60bf2f9770061e068e4302bc555df3b3c"
+  url "https://github.com/emilpriver/geni/archive/refs/tags/v1.1.8.tar.gz"
+  sha256 "e83d2db6ded980c52de2899a8e7e222e8c16543e3bd29758a7c50676804f2217"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b0c065f87c3ce64671c0f36eedd80e13d56a21c45c61ef755839dc96293531f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74820471f17b8a327cc05a8ac0c957444813ccf1be99b20d7b79a19e897851b0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bc895d5c2c04c5a6ba40767556167c4ebbb1a73a5defb296097ba6cd7c855f32"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c277e5900dfdda32af10c5dd0a2b45422edb08bd1c8c1d6c4eb5cfef0f61200b"
-    sha256 cellar: :any_skip_relocation, ventura:       "7cf01e1ac2484893fe9a0db0b384fdddbd264fe3119863aba9a97f441615fb12"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e1d9d66d8c475c4070f96d8e2dfac2fd2f9876e698464599027f618a65733c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "902e107b2f2308354e3d97ffe130dcc5489cafee6c538f465bcc20a0677f8a76"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4a0be3655dcabe47521bfb62a5d54786b0b7868b1e695fa066a10469d113898"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8ff878e30e3f94acbacfe6dbe371b22b56ab8e3c853f050cde85d15b347ff5c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36ba5e637e39fb5a34e2c51c2c2132e68377c433cdb02d9c536aa86e9c44985a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "457bed36a15844e8d0ceb1e96090b0b3bf8d66c82c21a2c13b2a16e49a0d0378"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c9861180de0e873cc4d7e1345a3c14d86e3afb3bd285a6d01eb90afa2e3e489"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39f249e8eaf44e74847042c646acaaf8f9fff7d027150f8353149668cdf98582"
   end
 
   depends_on "rust" => :build
 
   def install
+    # Workaround to build `aegis v0.9.3` for arm64 linux without -march `sha3`
+    ENV.append_to_cflags "-march=native" if OS.linux? && Hardware::CPU.arm?
     system "cargo", "install", *std_cargo_args
   end
 

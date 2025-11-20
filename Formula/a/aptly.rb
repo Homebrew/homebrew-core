@@ -1,8 +1,8 @@
 class Aptly < Formula
   desc "Swiss army knife for Debian repository management"
   homepage "https://www.aptly.info/"
-  url "https://github.com/aptly-dev/aptly/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "0488bc0717a1becda77fe1094a5eb4972ef1b6cd335f4108ddbbf89c6f917410"
+  url "https://github.com/aptly-dev/aptly/archive/refs/tags/v1.6.2.tar.gz"
+  sha256 "cadfabda2a59f397adfe6f9ce3c9ddc6fe4c6052f0e03a300ba1f22d7cf0e09a"
   license "MIT"
   head "https://github.com/aptly-dev/aptly.git", branch: "master"
 
@@ -12,12 +12,14 @@ class Aptly < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "135fdf1a0b34d87659f430d7be2f552062cd15982bba236d1741bee4ba5a4675"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "135fdf1a0b34d87659f430d7be2f552062cd15982bba236d1741bee4ba5a4675"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "135fdf1a0b34d87659f430d7be2f552062cd15982bba236d1741bee4ba5a4675"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f762cd5fa3143bcf4cb16bb8495b5a007d88335b117eaa537676bb23ee41d3fe"
-    sha256 cellar: :any_skip_relocation, ventura:       "f762cd5fa3143bcf4cb16bb8495b5a007d88335b117eaa537676bb23ee41d3fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bcf9a9430011265aaa5b98175f8dc1c3cf2d73e3034f719d175567bcf549126"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ba67fa93b8c34004f46f52be6bb9db588833f14e195c7225184a6a8bc3ad14e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5eed18d1e90c95d9f9d27c1bb4071b5918df5102d674ed4377f5ed48bb19963c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5eed18d1e90c95d9f9d27c1bb4071b5918df5102d674ed4377f5ed48bb19963c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5eed18d1e90c95d9f9d27c1bb4071b5918df5102d674ed4377f5ed48bb19963c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "13d85438f90917d1e5e0ec47d983373305e5cdf6880c8eca78d95dff2c6c6e29"
+    sha256 cellar: :any_skip_relocation, ventura:       "13d85438f90917d1e5e0ec47d983373305e5cdf6880c8eca78d95dff2c6c6e29"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "816f00ebfe70c1dfeba581f6b8b3e046b727b7cd1c0aa49e2213814e4b22d505"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff56ef982a5265758be69344b4d222bebb20bc969382bffc6110604a627e3f2d"
   end
 
   depends_on "go" => :build

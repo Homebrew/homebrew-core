@@ -8,8 +8,6 @@ class AnsibleAT8 < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f004f489b86deb0493906cbb400768209c66dbbfec8e29e5dacc249ce5263324"
     sha256 cellar: :any,                 arm64_sonoma:  "4949d0db36fff1aef4e69a9ca49ad6179e9fc980876901066c4af141466d401a"
@@ -36,6 +34,11 @@ class AnsibleAT8 < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
+
+  pypi_packages extra_packages: %w[apache-libcloud boto3 dnspython docker
+                                   junos-eznc jxmlease kerberos ntc-templates openshift
+                                   passlib pexpect proxmoxer pysphere3 python-consul
+                                   python-neutronclient pywinrm requests-credssp shade zabbix-api]
 
   resource "ansible-core" do
     url "https://files.pythonhosted.org/packages/a1/fc/e81a2e2a6e4247444fe632c8ffaff5c1bcc3adf85ae87d08158724f419fd/ansible_core-2.15.12.tar.gz"

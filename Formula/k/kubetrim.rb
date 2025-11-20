@@ -6,12 +6,19 @@ class Kubetrim < Formula
   license "MIT"
   head "https://github.com/alexellis/kubetrim.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6deadec532cc2aa53922e706aed6f60d1ae72a75b34db8a8a658026f4178d7f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "acbcdd0bef57b7bebf823e4a8188e92008bd28ff5bddad717c6d730e4931a30e"
     sha256 cellar: :any_skip_relocation, sonoma:        "c713518860291419d0aeaad5f01749956988e7ad1f633f99f5fc016048cd8bd5"
     sha256 cellar: :any_skip_relocation, ventura:       "c713518860291419d0aeaad5f01749956988e7ad1f633f99f5fc016048cd8bd5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28e5239111d8a8f3731fed5f0a05a8f0499563e272e2e166d3a7f4362f421feb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6e37b854d49f12f623eaa6ab5f2415d096b9fe0c6e319e7b62212d34e627332"
   end
 

@@ -1,18 +1,20 @@
 class GLs < Formula
   desc "Powerful and cross-platform ls"
   homepage "https://g.equationzhao.space"
-  url "https://github.com/Equationzhao/g/archive/refs/tags/v0.30.0.tar.gz"
-  sha256 "73e4e10c5dcf43bd81d42a83383381d97dcf670c0bea43b9416d01d38d882f56"
+  url "https://github.com/Equationzhao/g/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "122ca7ebf32ab2aada05cd513d44b55082d9bcfa9b890ee0ff60fdebfea06d0c"
   license "MIT"
   head "https://github.com/Equationzhao/g.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83fa173d73d17b242bc399e7086d4f2ebff552260aa848ea0a4be9fff646db7d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc6f9f4cdfc077f396a62b909794f6c10b5eb9ba10de1070e9e4369e587645c9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bab9bfb7fd1a139dd48d247e395606887dd2f416cbee9e3fe03ded72289abb69"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9baa235cea5dc56311eb013505af0afd6b24d060eef4a6a551e951b89763558e"
-    sha256 cellar: :any_skip_relocation, ventura:       "f68871f3f5094736b91ea6b62c9771da05b57c4be6f2792c3d2066add2900e79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fea068620a47dedaf81c15dce9710bc3e3a3f6218313d40a64df3b87df5e276"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d62e75fef5133acb354d578e93f981f47c4dafb61c496be3597d2c87302950e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb3191fbc85fbd24fb30ccba9d6ffb3e6d77dd990a4a4cab6e2221c661ef8fcb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cf59fb8cf8298b9a6b0f6ec56f0d3bdb68347901761848140409cf487debb9b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fc5f4556c356118abc88b66ed21a4ad35565328d422464fc20cac30b29f434b5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7b203477a74e2996df047e202b4f8827d68c98d1db639a6bc9ff33fac6938d6a"
+    sha256 cellar: :any_skip_relocation, ventura:       "81225e99df84abf8e659e76c2b48eb4e46f4ce841d1809c66db0b828a9050a0c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dad7f157a9be7a8c16b23b585f24ded385df6d308e3e63ab233f7b965abeae9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8fbf36aa3e158d614b9a5dfbfcc8598bcbd7b2f79e516a1bec447281a790495"
   end
 
   depends_on "go" => :build

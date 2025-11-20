@@ -12,6 +12,7 @@ class Multitail < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "cef92b70338d321e70d11dd71dd6103e53abd26f6eb585a199ac0d2a43e02857"
     sha256 cellar: :any,                 arm64_sequoia:  "a4fcadf206a7ac84b0d56153bd1d0a9f24c01f39d466dc16edc2ef51a69e0d11"
     sha256 cellar: :any,                 arm64_sonoma:   "be06268413fcf23e7b7c95362f24d8e0b0bf01b4b956068172e48ba622caac1f"
     sha256 cellar: :any,                 arm64_ventura:  "d764f52508358c4d881e6aa8e0a374c96c9cbd27d292f20cce17e7ac55f5b846"

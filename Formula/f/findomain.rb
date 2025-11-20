@@ -1,20 +1,19 @@
 class Findomain < Formula
   desc "Cross-platform subdomain enumerator"
   homepage "https://github.com/Findomain/Findomain"
-  url "https://github.com/Findomain/Findomain/archive/refs/tags/9.0.4.tar.gz"
-  sha256 "98c142e2e6ed67726bdea7a1726a54fb6773a8d1ccaa262e008804432af29190"
+  url "https://github.com/Findomain/Findomain/archive/refs/tags/10.0.1.tar.gz"
+  sha256 "2562943c29a9b3ce1b76685d9e7de1ad5109f80a35c6941e7853b31fb92641fa"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b9799caf0cac3e7984fc8af25bf4e0294ccb4191cef85c94c14c16b70210abb4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6d3c09f2e4ea8d9035512853daa278ef1233fb3fdd735c41579420e60d1e60f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c0056cf6bdfcc01ceb24ba8a99d4e7ae192a0bb57b4366d568f6374f6c26398"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "069d0907873ab9492cf514ea7ed4b657057270996397c09feef6fabc11ffa4da"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ddd807330c175ac1b6040315a9c0a14edca29de2a88043aa51d1ed8a020ef39e"
-    sha256 cellar: :any_skip_relocation, ventura:        "d17e25ff822169a4592c5e3662b23c949d76c101809c5b39e25354a9bb924ea9"
-    sha256 cellar: :any_skip_relocation, monterey:       "18b73d207b2c502c71ae66d382c4ff63bdd337702ffb4d09b63fba640d627181"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "63c3d33502c912d2267f0e4624ade35c0e59a35fc20a677604712bb45c4d4894"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6c56c142e8b88f2141eb8082fa974ac8b642fcdee05fd6f65b39237ae22e9aa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2902d22ca4f66ec6f1549cc6a391cc9b11eec6c00256a443b1298e8c22190b9d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "37c97dddda6da60c11c406b3e89b858ba97a82fd70bab6ec965b19ab5ba1f40f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e134ae5781d721d8f18a661fbfc6449e4a64f424d7cfa2b739eecd5c9a15d9c7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6720db936685348595235d6645e8fa2a785673d76655252f2b8a02808e3622dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dcb0ada61e17bafa0698afe7fd63d3a00d3f3eca2611bf1e31f48624f315f798"
+    sha256 cellar: :any_skip_relocation, ventura:       "621fa5b8468b1bcd55a6e7300653cbd8eb120e697374a3f3e00aeb5c414fae3d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1b59bf4dc0ed116bf7c1ec94a706f0e48ba2c7523eff3abd77d421d5a54f0ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d66e42b9aab95ae691640efaeb89d232491d144010b208285fb73b986a0c4a6a"
   end
 
   depends_on "pkgconf" => :build

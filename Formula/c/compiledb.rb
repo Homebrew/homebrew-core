@@ -9,10 +9,11 @@ class Compiledb < Formula
   head "https://github.com/nickdiego/compiledb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e1ba5487728c29b4d7c4c01a7d359a6d7b6879986bb58d9d1798b98a233fbde7"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "be28658b5cf0b082588b3ab1e46a5f76327e79efb90c417ded660671559de3ff"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "bashlex" do
     url "https://files.pythonhosted.org/packages/76/60/aae0bb54f9af5e0128ba90eb83d8d0d506ee8f0475c4fdda3deeda20b1d2/bashlex-0.18.tar.gz"
@@ -20,14 +21,14 @@ class Compiledb < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
+    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
   end
 
   def install
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"compiledb", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"compiledb", shell_parameter_format: :click)
   end
 
   test do

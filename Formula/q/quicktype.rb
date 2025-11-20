@@ -6,13 +6,8 @@ class Quicktype < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c804cee1f8c4c54167df12bb1cd6eee3c23cad34bc3b452c7c0fc399b55fa6b5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c804cee1f8c4c54167df12bb1cd6eee3c23cad34bc3b452c7c0fc399b55fa6b5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c804cee1f8c4c54167df12bb1cd6eee3c23cad34bc3b452c7c0fc399b55fa6b5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85cf7a232e3aff58c70b8cbd76d73f2e9fdfb6831264c9bcead6c20289c01ccf"
-    sha256 cellar: :any_skip_relocation, ventura:       "85cf7a232e3aff58c70b8cbd76d73f2e9fdfb6831264c9bcead6c20289c01ccf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c804cee1f8c4c54167df12bb1cd6eee3c23cad34bc3b452c7c0fc399b55fa6b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c804cee1f8c4c54167df12bb1cd6eee3c23cad34bc3b452c7c0fc399b55fa6b5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1f596c091f22130c5e3365124d67bdbbc0076d062d65e1fdb8e2f7e4a905f17b"
   end
 
   depends_on "node"

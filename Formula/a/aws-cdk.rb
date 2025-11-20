@@ -1,12 +1,12 @@
 class AwsCdk < Formula
   desc "AWS Cloud Development Kit - framework for defining AWS infra as code"
   homepage "https://github.com/aws/aws-cdk"
-  url "https://registry.npmjs.org/aws-cdk/-/aws-cdk-2.1018.0.tgz"
-  sha256 "2a042ed15a41f0007fbe259378e3aa45efc217038f4aa8d72e15b076a10e9995"
+  url "https://registry.npmjs.org/aws-cdk/-/aws-cdk-2.1033.0.tgz"
+  sha256 "95f1274d21d858d95582d0a3ceaeab98713be462eabe653de1c6617fc9d3c49e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e6162852ca8ca7c57672b1535ab9f51e4bf04ecb905f1381885a7a8ea494f402"
+    sha256 cellar: :any_skip_relocation, all: "9a642e782f7183be5b32b6a8950cb00bfaabb5a97a318d95bff9eb4c14918977"
   end
 
   depends_on "node"
@@ -14,6 +14,9 @@ class AwsCdk < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Remove empty `node_modules` directory on macOS
+    rmdir libexec/"lib/node_modules/aws-cdk/node_modules" if OS.mac?
   end
 
   test do

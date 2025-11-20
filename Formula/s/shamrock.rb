@@ -1,34 +1,36 @@
 class Shamrock < Formula
   desc "Astrophysical hydrodynamics using SYCL"
   homepage "https://github.com/Shamrock-code/Shamrock"
-  url "https://github.com/Shamrock-code/Shamrock/releases/download/v2025.05.0/shamrock-2025.05.0.tar"
-  sha256 "59d5652467fd9453a65ae7b48e0c9b7d4162edc8df92e09d08dcc5275407a897"
+  url "https://github.com/Shamrock-code/Shamrock/releases/download/v2025.10.0/shamrock-2025.10.0.tar"
+  sha256 "72683352d862d7b3d39568151a17ea78633bd4976a40eacb77098d3ef0ca3c55"
   license "CECILL-2.1"
+  revision 1
   head "https://github.com/Shamrock-code/Shamrock.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "996d6ea9bc4daa22a38d922a145a48acd22cc66672fdc2f0fe783ee09a6d6a9f"
-    sha256 arm64_sonoma:  "b938862a15a7506af458f490c308167db0acea6c78d5c7ca2453e0d5bc394803"
-    sha256 arm64_ventura: "dd30c19495510479bb8685688d763ba45d5d91fb10b4942627d1c0af6a1ed3c9"
-    sha256 sonoma:        "6a7e28451a49e6cbb113288938dd702d2fba632014733ad731ea73c2daa153d8"
-    sha256 ventura:       "f1fb942740b2635114c912785f46a4490da6cb35675ce58c2f9025748e99e7cc"
-    sha256 arm64_linux:   "c45b56cd6956bcf249ba0e6ef106793c0ea0d9d8fe9cf3b947212cd1fbf295ea"
-    sha256 x86_64_linux:  "90c5da30d8aae853303c544c5852bd14e024a7fbe4d18f6441edfc89b4b7fd54"
+    sha256 arm64_tahoe:   "c47e9d92ac0748df6ae1b1a02ff190e4072323a79f0e5022ab970bf0a4c6f53a"
+    sha256 arm64_sequoia: "0d83267cf6f83a883dd2a84dbb2be953422b482819843022f7ebe5ac52e7d98a"
+    sha256 arm64_sonoma:  "013209e7ce2da835b1b16b345a521934e2075cda301a58a6e840c84a261575f6"
+    sha256 sonoma:        "14e05876ef09736b68bf2ce5fb39efb449f63b7b503d83cd2c0b584e28329fba"
+    sha256 arm64_linux:   "da7db3322a2330f9382b5a6bd28419b78fc2fd2c95f850ceed64a021452a124e"
+    sha256 x86_64_linux:  "070d9694a2e302b0c4fc882cb8ab2bd473cb380c49ce74b5805cb3dcb83cbc80"
   end
 
   depends_on "cmake" => :build
+  depends_on "fmt" => :build
+  depends_on "nlohmann-json" => :build
+  depends_on "pybind11" => :build
   depends_on "adaptivecpp"
   depends_on "boost"
-  depends_on "fmt"
   depends_on "open-mpi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_macos do
     depends_on "libomp"
   end
 
   def python
-    which("python3.13")
+    which("python3.14")
   end
 
   def site_packages(python)
@@ -36,13 +38,21 @@ class Shamrock < Formula
   end
 
   def install
+    rm_r(%w[
+      external/fmt
+      external/nlohmann_json
+      external/pybind11
+    ])
+
     args = %W[
       -DSHAMROCK_ENABLE_BACKEND=SYCL
       -DPYTHON_EXECUTABLE=#{python}
       -DSYCL_IMPLEMENTATION=ACPPDirect
       -DCMAKE_CXX_COMPILER=acpp
       -DACPP_PATH=#{Formula["adaptivecpp"].opt_prefix}
-      -DUSE_SYSTEM_FMTLIB=Yes
+      -DSHAMROCK_EXTERNAL_FMTLIB=ON
+      -DSHAMROCK_EXTERNAL_JSON=ON
+      -DSHAMROCK_EXTERNAL_PYBIND11=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -69,6 +79,6 @@ class Shamrock < Formula
       shamrock.sys.init('0:0')
       shamrock.sys.close()
     PY
-    system "python3.13", testpath/"test.py"
+    system python, testpath/"test.py"
   end
 end

@@ -1,8 +1,8 @@
 class Libmpdclient < Formula
   desc "Library for MPD in the C, C++, and Objective-C languages"
   homepage "https://www.musicpd.org/libs/libmpdclient/"
-  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.22.tar.xz"
-  sha256 "eac15b82b5ba5ed0648af580221eb74657394f7fe768e966d9e9ebb27435429f"
+  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.23.tar.xz"
+  sha256 "4a1b6c7f783d8cac3d3b8e4cbe9ad021c45491e383de3b893ea4eedefbc71607"
   license "BSD-3-Clause"
   head "https://github.com/MusicPlayerDaemon/libmpdclient.git", branch: "master"
 
@@ -12,15 +12,14 @@ class Libmpdclient < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "16973541660ff3601f6ea87f1553bac63e63cef2cce49a83d078293b0c66d56f"
-    sha256 cellar: :any,                 arm64_sonoma:   "3920adaed9ddbc3361b4f47aa15bd3f3fca316238b22b52ba22df4402f1482f9"
-    sha256 cellar: :any,                 arm64_ventura:  "23c5829dd8a2703925dbb711266cc62892d436bdc05fa2cbbf1dc280fd3e73f5"
-    sha256 cellar: :any,                 arm64_monterey: "076cb8bf82d2ff6a0ed354a09a649526d02fe7c43bab9febb3ec1ad20b6a5281"
-    sha256 cellar: :any,                 sonoma:         "f659f9cc27081184571adaec90ab1ec3e58c6e2f3007ef2df205f4a0d58603c5"
-    sha256 cellar: :any,                 ventura:        "a6888a6f14f59dcfbcd73cf9c9ee915d68480fa03bc8c296896ea03e3214bb53"
-    sha256 cellar: :any,                 monterey:       "d634d83c7d8e29e6d68ee52000160d86bbd83dec4b59084844dd838e77ae9139"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "701d45480ae1fd5bcbe909509ec75f7ee642ec514c4f5ed3498b5def651f615b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3e56f369d58e7d23eafe3d6d8dcfa0f5eca8daa9c732582f4938ff99abad183"
+    sha256 cellar: :any,                 arm64_tahoe:   "eb83530442bed149962b84dbd9deb7d901c4efbbf54f19ab337e0f63ace4fd76"
+    sha256 cellar: :any,                 arm64_sequoia: "a6bef70ce4043cd9f2a40eaff30f25530c73f71d769c73520525a2ef095ddcba"
+    sha256 cellar: :any,                 arm64_sonoma:  "13230392618659e0d0d68fcc5c64e6081f9c070a8296665504b2dba5aa6f4fa5"
+    sha256 cellar: :any,                 arm64_ventura: "f4b4d3a292270d0be8264da107fb15ec1a4b4682cdc7bb7fb204bd353ec73d46"
+    sha256 cellar: :any,                 sonoma:        "ae3542c31e96deb857b7d474afb329de63a6455fd7f8bc67287534f35dfbc9b7"
+    sha256 cellar: :any,                 ventura:       "03ea3a304da416bfb27443d80812bf200675e60e52e81957a583cf4edf906ce5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "046a756590f8161c1d171822637eff72c372d875562de487ffc8a67a4b1e7893"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adbd2b3430628a32ba6a2caf6bcd0237816f58505e88581df0719029df25ce0f"
   end
 
   depends_on "meson" => :build

@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/docs/reference/kubectl/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.33.1",
-      revision: "8adc0f041b8e7ad1d30e29cc59c6ae7a15e19828"
+      tag:      "v1.34.2",
+      revision: "8cc511e399b929453cd98ae65b419c3cc227ec79"
   license "Apache-2.0"
   head "https://github.com/kubernetes/kubernetes.git", branch: "master"
 
@@ -13,13 +13,12 @@ class KubernetesCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dfe3b28b44ac119c76b7d68396eea2dc5715208317ba8d70024a292908a66795"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee2df9d9511bdc5b3a7e38e6427d0aab88ad999501d727032828dfbe751e0ef8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4446ef3c48d701b20eaf392eee1a83c815f394bbee6168d8b481e0805bda603"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fee0b134359e6e6f7cab5aace688b3eed584b771ded17ee2da6ea7c8f0a44c0c"
-    sha256 cellar: :any_skip_relocation, ventura:       "6099cff31f345023541bef208efdf936fa8888f2666ba39c3ba197dd5f75517f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8003784d44c5a4db1360535383ee2b91f1924ec14dedf8d6ce29cd59dd0823b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f253773fdd67c1a68f07b59f0a924b5b88d3b091f22a6f9c7f377261688f3b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16b18cf1c3f6fbdd0280f6c5b8a8965d87319bf264acc8b558dfedbc0e461075"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9cda0c88d17cdf67feefc4c8b8c88cda54aa33fd1aa24090793f6399cf911f7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "155a2be571099535d8ad7ee1c13fe0e3c70c1f8f74ee3a2377416c5fcc3d6133"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d0a2baa863c86f1fc01eb920e0162aeb14adce8f6880dbc370adc1255e2d235d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c213467542d65aceb845dce082b74da53746f73030e0a645015c8e8e5bc02767"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06dc8e558132b328952f20f2fabb53e4a85f0079348d1d019c0a9f928eaad1be"
   end
 
   depends_on "bash" => :build

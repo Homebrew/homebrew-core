@@ -1,20 +1,20 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code"
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/refs/tags/2.2.7.tar.gz"
-  sha256 "e543ba8c3f05d9c8ce6b9dc0460d2084893f345d4f5984aabe31a40849a5c0e0"
+  url "https://github.com/krzysztofzablocki/Sourcery/archive/refs/tags/2.3.0.tar.gz"
+  sha256 "097aa2628cfbba2f8c2d412c57f7179c96082ab034fc6b2a2e905a0d344269e6"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/krzysztofzablocki/Sourcery.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "492ed39e90b1fa57dfd06fe1232473e57d9b5b7f110453d04387db5a76f19192"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4cef0fe60955af53805a58f3da3d80e6b0849835a8892d7cd31e885ff98afc3f"
-    sha256 cellar: :any,                 arm64_ventura: "7bad173e863423cf66b082d6f1f9e7f34a73fe121aabb3ca29a81be10ed7e707"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8d82c40e46e20b5e60908144e8d58e440798c802a545a2b3d3fbd2db70b87b74"
-    sha256 cellar: :any,                 ventura:       "e621c3cc046ef8c5336b796ad72c36ee2d608b518b5bc746f78d04170c46d2aa"
-    sha256                               arm64_linux:   "5bafe848b77836b034a0c8f0c3c411267feac36e5ee758f184ce7c38197d446d"
-    sha256                               x86_64_linux:  "f0818110b2abe047e9055f761a77c7321f69e5e6563187213461bea738fa46fd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d8338cca5f963c8d7d45267a13aca1f01ef594783da95a96d96ca0dd84ecdb8a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a12451e3bc1920d070923c9a9472d2202dc04d41f0bace58928eb6445ae6a79"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57c585fe096b6dff6c82cb975f5bc654d162759c0d3b4c74d56a5b2c669ee008"
+    sha256 cellar: :any_skip_relocation, sonoma:        "786e56e3881666c1ea880ead6b070fd6cf4b300634c3dbdf2a1f43e7e16bdbc2"
+    sha256                               arm64_linux:   "db8d5bc1475a737448111a97790c2a4ed72b0144048fd5b5c28ed6b533fa5616"
+    sha256                               x86_64_linux:  "017c7fc58e6665e6cd19bf0fc37af3dd77c2bc93d991d329b69814ff6b4f20f9"
   end
 
   depends_on xcode: "14.3"
@@ -29,8 +29,9 @@ class Sourcery < Formula
 
   def install
     # Build script is unfortunately not customisable.
-    # We want static stdlib on Linux as the stdlib is not ABI stable there.
-    inreplace "Rakefile", "--disable-sandbox", "--static-swift-stdlib" if OS.linux?
+    # We want static stdlib on Linux as the stdlib is not ABI stable there
+    # and use our ld shim to help find Homebrew libraries
+    inreplace "Rakefile", "--disable-sandbox", "--static-swift-stdlib -Xswiftc -use-ld=ld" if OS.linux?
 
     system "rake", "build"
     bin.install "cli/bin/sourcery"

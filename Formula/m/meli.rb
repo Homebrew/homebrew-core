@@ -11,6 +11,7 @@ class Meli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4df6b386819ad120f3a769b825ed9ce061ba27075a75b103039f3f7eede3bccb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ae5ed00801662f9da4b1a479344585e6d0480cee748dcacdb883b7ea2bb66e6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dac2ad7eb3a1e48bda3441a6c9e0c2f63bf2c0d1ea126e88fb75de3d56d31eca"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "393461b613aac77018e34a3fa8f61a5fabb3e8d8cc9d3c05e2ab8e6a5d98e8fc"

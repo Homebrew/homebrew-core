@@ -6,22 +6,18 @@ class Yapf < Formula
   url "https://files.pythonhosted.org/packages/23/97/b6f296d1e9cc1ec25c7604178b48532fa5901f721bcf1b8d8148b13e5588/yapf-0.43.0.tar.gz"
   sha256 "00d3aa24bfedff9420b2e0d5d9f5ab6d9d4268e72afbf59bb3fa542781d5218e"
   license "Apache-2.0"
+  head "https://github.com/google/yapf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf15857b390cc7e51ca27c742c839b71035382d701e298354fcf521318da61b8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf15857b390cc7e51ca27c742c839b71035382d701e298354fcf521318da61b8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf15857b390cc7e51ca27c742c839b71035382d701e298354fcf521318da61b8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b02bec0b509d12c45e027c20377d2cc927156f932a156cb08e75cf3d0a16b0c"
-    sha256 cellar: :any_skip_relocation, ventura:       "6b02bec0b509d12c45e027c20377d2cc927156f932a156cb08e75cf3d0a16b0c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "24a8928518e665fbbdc956986ec490c577990c536de1c0b233590557e0f0cb32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4bdbca92626b2c3c57566193c8fd2f66ff8ecc670d8ee8e9e495be42f33cf37"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "55fb914de2771f27f304ac0b8fcdd5da19472f19ab59f9eacd8431e8dbaa4ec7"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
+    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
   end
 
   def install

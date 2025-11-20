@@ -9,15 +9,8 @@ class Bork < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "148ee08c6e94140e1469ad74f46f8991ec6b843508011de9c73bd6a80200e089"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5706b3111e2ee682f2386893cf26773bd71e49cc636ef3e84b137b6108dac5db"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5706b3111e2ee682f2386893cf26773bd71e49cc636ef3e84b137b6108dac5db"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5706b3111e2ee682f2386893cf26773bd71e49cc636ef3e84b137b6108dac5db"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e015811e97fecd12d69160b30f0feaf725770162d333f4364f2e62bd0f5a55d1"
-    sha256 cellar: :any_skip_relocation, ventura:        "e015811e97fecd12d69160b30f0feaf725770162d333f4364f2e62bd0f5a55d1"
-    sha256 cellar: :any_skip_relocation, monterey:       "e015811e97fecd12d69160b30f0feaf725770162d333f4364f2e62bd0f5a55d1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3e94ffed31a6f82901865acc743d741b2bfabd153f6f8717acc3a323249ac753"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5706b3111e2ee682f2386893cf26773bd71e49cc636ef3e84b137b6108dac5db"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "16ffe8fc8e92fb6b7a8563cf610e9ebef39bb4123b8c092087aba936df7ed44b"
   end
 
   def install
@@ -26,6 +19,8 @@ class Bork < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/bork version")
+
     expected_output = "checking: directory #{testpath}/foo\r" \
                       "missing: directory #{testpath}/foo           \n" \
                       "verifying install: directory #{testpath}/foo\n" \

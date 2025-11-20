@@ -1,13 +1,12 @@
 class TlExpected < Formula
   desc "C++11/14/17 std::expected with functional-style extensions"
   homepage "https://tl.tartanllama.xyz/en/latest/"
-  url "https://github.com/TartanLlama/expected/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "1db357f46dd2b24447156aaf970c4c40a793ef12a8a9c2ad9e096d9801368df6"
+  url "https://github.com/TartanLlama/expected/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "9a04f4f472fbb5c30bf60402f1ca626c4a76987f867978d0b8a35d7ab3fb8fe7"
   license "CC0-1.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "ddbe48577c50c3cde2fae8ec584ce33a9c58d9dbb43ea4854a53ee51b75d2c41"
+    sha256 cellar: :any_skip_relocation, all: "c0a6195be54cf7f219a4a6f4d9f4fd5955b00f24a786f21d28a48a0d7bd3b98b"
   end
 
   depends_on "cmake" => :build

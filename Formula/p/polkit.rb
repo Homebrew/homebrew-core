@@ -6,6 +6,7 @@ class Polkit < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "47b85fe0aa9c25cad44dde9da642d59fd8f1732aa082df5c6cf7b469c3b35e39"
     sha256 arm64_sequoia: "e77b3e8f31c45b34937b1f89ca6f18cad5f6aa814c81058342f0c3cc3f32d09d"
     sha256 arm64_sonoma:  "8f04ff2a66b7a0e8ca8b4901c729a9843b864fedc3e6f4ffc078db9b1ebcb87c"
     sha256 arm64_ventura: "ce6a75f52c04e97238e06d43eb9bdbd03120f6c9f136428c5f8020949cbb19f6"

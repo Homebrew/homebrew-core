@@ -9,16 +9,17 @@ class Gecode < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sonoma:  "1ac6be371a0a82f7edd1a5468d8d5931b1a3cd1afb86550496017516a62299e9"
-    sha256 cellar: :any,                 arm64_ventura: "b088d88dd7342d07bfa214dd0f955b1f846ce91c6d6eb479249ad21b99c244f7"
-    sha256 cellar: :any,                 sonoma:        "10702edcc3d8e3b168846bf2d3126937c369b191dd6b859adc477af3540a2b9d"
-    sha256 cellar: :any,                 ventura:       "d7a6aa6f04979ef458d086d8fa543a5130209d122e37542c9f3494912f94cbcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad8b1f55cda826d0c844f5a243c6af5d0ca16fa8e5b6af0bed593f1821939c16"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_tahoe:   "4bf3ed46450a9a436678fcf7bc2083d7ba8c9b4847e3846fa66b50423c4e273d"
+    sha256 cellar: :any,                 arm64_sequoia: "fcd5d80e9d1d6fada71c424647c5be7ed126831b83d57deece2b836fa44dfe58"
+    sha256 cellar: :any,                 arm64_sonoma:  "b7653b544c06145b4a39d83311a0583849d4d4cf2873b81c341cddd135bed39f"
+    sha256 cellar: :any,                 sonoma:        "313e206a83f8a8459519f23e0c1d6e96978791ec62b162118aa7f036204615e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0762e8669a3b0aff790ec8673ca1fc8dda25b741368d289c3c3cc5c2d559c0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "829f38b21be0258bcc84402afb8b7cefa9272a8a59e36f94aee33b7d8ace7ac4"
   end
 
   depends_on "pkgconf" => :test
-  depends_on "qt"
+  depends_on "qtbase"
 
   # Backport support for Qt6 from release/6.3.0 branch
   patch do
@@ -31,7 +32,7 @@ class Gecode < Formula
     #
     # [^1]: https://github.com/Gecode/gecode/commit/19b9ec3b938f52f5ef5feef15c6be417b5b27e36
     inreplace "configure", "if test ${ac_gecode_qt_major} -eq 5;", "if test ${ac_gecode_qt_major} -ge 5;"
-    ENV["MOC"] = Formula["qt"].opt_pkgshare/"libexec/moc"
+    ENV["MOC"] = Formula["qtbase"].opt_share/"qt/libexec/moc"
     ENV.append "CXXFLAGS", "-std=c++17"
 
     args = %W[

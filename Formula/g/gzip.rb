@@ -1,12 +1,13 @@
 class Gzip < Formula
   desc "Popular GNU data compression program"
   homepage "https://www.gnu.org/software/gzip/"
-  url "https://ftp.gnu.org/gnu/gzip/gzip-1.14.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gzip/gzip-1.14.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/gzip/gzip-1.14.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gzip/gzip-1.14.tar.gz"
   sha256 "613d6ea44f1248d7370c7ccdeee0dd0017a09e6c39de894b3c6f03f981191c6b"
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0806e22497cecc96b52a14fbec21c29df976b5ae40f365a55508c23c2958222f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c82c69f648546f3d0e962e9012a2cb258b454b098ae880880dc88418dc544a41"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "595f0a87dd1fe49c90e97911e72335a00cf096adbf84dfb17745dbf351ab9d3b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d55108d43ddf0f8123694f06882e223023cf4346f9b9640d6c33b657d19260bf"

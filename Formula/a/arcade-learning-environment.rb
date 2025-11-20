@@ -3,31 +3,34 @@ class ArcadeLearningEnvironment < Formula
 
   desc "Platform for AI research"
   homepage "https://github.com/Farama-Foundation/Arcade-Learning-Environment"
-  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.11.1.tar.gz"
-  sha256 "2b878ae1b7febb498c7ab5351791c6d9838dc214b4825eec0df1b53b58b6aaa3"
+  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.11.2.tar.gz"
+  sha256 "d6ac9406690bb3533b37a99253bdfc59bc27779c5e1b6855c763d0b367bcbf96"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "8d87d2e4b11ba564c543865131922e5c1dff39a4e435b6131de0457dd22cae2c"
-    sha256 cellar: :any,                 arm64_ventura: "95950e96cce466d33d976383da6074fbe79edc88e1b4510c80eb3477821e7907"
-    sha256 cellar: :any,                 sonoma:        "b44653d20e65755dee7012979796e55627f91364cb7c64354498ffdf1829eb0d"
-    sha256 cellar: :any,                 ventura:       "29c3bd51a8760f8b9aca78895128398104a088fec43d5af6c12a08e66716eaa7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d152b9cf2c6106dfc85851479e7218cee002053d30b36a5c528e14ecba8ffd73"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8f064101937b69531d91019cbe7707ede64b32c80ca1a5c25c654d1659331484"
+    sha256 cellar: :any,                 arm64_sequoia: "da30b51a9970f4021b5b868cdae341c1b935e686eaefeb8b736d745db77afa2f"
+    sha256 cellar: :any,                 arm64_sonoma:  "6812d9341ff79682a410b8e9049595a686f89bdbb60772b6b3b3707c945ec852"
+    sha256 cellar: :any,                 sonoma:        "77504f7bbe80fcd02974ee91650ce2abf27289a4abf1f4de18c111ea72c7d550"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "adbb8756e9d7682016e87d35a9a7fd9f5bb4eb9125f7b5a68e96166b3f04ec86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a62c769d2dd61d395d321f74dfbafc5f1b8c38c2df4434ef21d45f0a53e7528"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pybind11" => :build
-  depends_on "python-packaging" => :build
-  depends_on "python-setuptools" => :build
-  depends_on macos: :catalina # requires std::filesystem
   depends_on "numpy"
   depends_on "opencv"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sdl2"
 
   uses_from_macos "zlib"
+
+  pypi_packages exclude_packages: "numpy",
+                extra_packages:   "gymnasium"
 
   # See https://github.com/Farama-Foundation/Arcade-Learning-Environment/blob/master/scripts/download_unpack_roms.sh
   resource "roms" do
@@ -35,20 +38,31 @@ class ArcadeLearningEnvironment < Formula
     sha256 "02ca777c16476a72fa36680a2ba78f24c3ac31b2155033549a5f37a0653117de"
   end
 
+  resource "cloudpickle" do
+    url "https://files.pythonhosted.org/packages/52/39/069100b84d7418bc358d81669d5748efb14b9cceacd2f9c75f550424132f/cloudpickle-3.1.1.tar.gz"
+    sha256 "b216fa8ae4019d5482a8ac3c95d8f6346115d8835911fd4aefd1a445e4242c64"
+  end
+
+  resource "farama-notifications" do
+    url "https://files.pythonhosted.org/packages/2e/2c/8384832b7a6b1fd6ba95bbdcae26e7137bb3eedc955c42fd5cdcc086cfbf/Farama-Notifications-0.0.4.tar.gz"
+    sha256 "13fceff2d14314cf80703c8266462ebf3733c7d165336eee998fc58e545efd18"
+  end
+
   resource "gymnasium" do
-    url "https://files.pythonhosted.org/packages/90/69/70cd29e9fc4953d013b15981ee71d4c9ef4d8b2183e6ef2fe89756746dce/gymnasium-1.1.1.tar.gz"
-    sha256 "8bd9ea9bdef32c950a444ff36afc785e1d81051ec32d30435058953c20d2456d"
+    url "https://files.pythonhosted.org/packages/b3/de/b923d09654df8f8ee29a3cc7ec7829ac057efd0d969cc3da0c8a7b219d59/gymnasium-1.2.1.tar.gz"
+    sha256 "4e6480273528523a90b3db99befb6111b13f15fa0866de88c4b675770495b66c"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
-    resource("gymnasium").stage do
-      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
-    end
-
     system "cmake", "-S", ".", "-B", "build",
                     "-DSDL_SUPPORT=ON",
                     "-DSDL_DYNLOAD=ON",
@@ -75,11 +89,16 @@ class ArcadeLearningEnvironment < Formula
       # Remove XLA support for now
       s.gsub! "-DBUILD_VECTOR_XLA_LIB=ON", ""
     end
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    # We build without XLA and jax has no sdists
+    inreplace "pyproject.toml", '"jax >= 0.4.31', "#"
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources.select { |r| r.url.start_with?("https://files.pythonhosted.org/") }
+    venv.pip_install_and_link Pathname.pwd
+    (prefix/Language::Python.site_packages(python3)/"homebrew-ale.pth").write venv.site_packages
 
     # Replace vendored `libSDL2` with a symlink to our own.
     libsdl2 = Formula["sdl2"].opt_lib/shared_library("libSDL2")
-    vendored_libsdl2_dir = prefix/Language::Python.site_packages(python3)/"ale_py"
+    vendored_libsdl2_dir = venv.site_packages/"ale_py"
     (vendored_libsdl2_dir/shared_library("libSDL2")).unlink
 
     # Use `ln_s` to avoid referencing a Cellar path.

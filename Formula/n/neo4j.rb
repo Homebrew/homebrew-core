@@ -1,8 +1,8 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php?name=neo4j-community-2025.05.0-unix.tar.gz"
-  sha256 "561f985e6355e98cf6f2b4f106599bfceb27a5adeffdc0856c71a2c5bb008f68"
+  url "https://neo4j.com/artifact.php?name=neo4j-community-2025.10.1-unix.tar.gz"
+  sha256 "69ade165e3347a132dea6664fce7fda86f391a7aefb1ab00f21ce940ea692f09"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,7 +12,7 @@ class Neo4j < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "13b2e6e54ec4ec8ed1413e1edf5a5546e9cee812228b44cf0a24c70668b4b6d7"
+    sha256 cellar: :any_skip_relocation, all: "a11c9d414840b8cd9799addad0c6b79861a6667781fbddb7f5271b8f3ff994fe"
   end
 
   depends_on "cypher-shell"
@@ -30,8 +30,6 @@ class Neo4j < Formula
     libexec.install Dir["*"]
 
     bash_completion.install (libexec/"bin/completion").children
-    # Ensure uniform bottles by replacing comments that reference `/usr/local`.
-    inreplace bash_completion.children, "/usr/local", HOMEBREW_PREFIX
     rm_r libexec/"bin/completion"
 
     # Symlink binaries
@@ -55,7 +53,7 @@ class Neo4j < Formula
   service do
     run [opt_bin/"neo4j", "console"]
     keep_alive false
-    working_dir var
+    working_dir var/"neo4j"
     log_path var/"log/neo4j.log"
     error_log_path var/"log/neo4j.log"
   end

@@ -9,10 +9,11 @@ class CmakeLanguageServer < Formula
   head "https://github.com/regen100/cmake-language-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "196609d5f168161292e11fb6799acd9b4c907e1a81a9c476848e981aae23e4a4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4067002616d19dd610a111948026e3ef733dbffb44c86238cf882fe3b2b26359"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
@@ -35,21 +36,30 @@ class CmakeLanguageServer < Formula
   end
 
   def install
+    # Unpin python for 3.14: https://github.com/regen100/cmake-language-server/pull/104
+    inreplace "pyproject.toml", 'requires-python = ">=3.8.0,<3.14"', 'requires-python = ">=3.8.0"'
     virtualenv_install_with_resources
   end
 
   test do
-    input =
-      "Content-Length: 152\r\n" \
-      "\r\n" \
-      "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"" \
-      "processId\":88075,\"rootUri\":null,\"capabilities\":{},\"trace\":\"ver" \
-      "bose\",\"workspaceFolders\":null}}\r\n"
-
-    output = pipe_output(bin/"cmake-language-server", input)
-
-    assert_match(/^Content-Length: \d+/i, output)
-
     assert_match version.to_s, shell_output("#{bin}/cmake-language-server --version")
+
+    json = <<~JSON
+      {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "initialize",
+        "params": {
+          "processId": 88075,
+          "rootUri": null,
+          "capabilities": {},
+          "trace": "verbose",
+          "workspaceFolders": null
+        }
+      }
+    JSON
+    input = "Content-Length: #{json.size}\r\n\r\n#{json}"
+    output = pipe_output(bin/"cmake-language-server", input)
+    assert_match(/^Content-Length: \d+/i, output)
   end
 end

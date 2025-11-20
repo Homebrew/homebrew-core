@@ -10,6 +10,7 @@ class Linklint < Formula
   end
 
   deprecate! date: "2024-08-03", because: :repo_removed
+  disable! date: "2025-08-03", because: :repo_removed
 
   def install
     mv "READ_ME.txt", "README"

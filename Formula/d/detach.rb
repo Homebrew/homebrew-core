@@ -13,6 +13,7 @@ class Detach < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "26af0691540557a38f48cea373f6a0a9085bf2ba7a71bfcb7aa67e844ce3f466"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f7d0f80127112fcf6691ce7b4b90aa1fc5ee9ddee51d755b1a895f47419f2455"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5ad00a2d77cb8c391aea1df731916286b2a9758b6948397e4943f10baec5269"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "43dbfbe7fe5ea211f28aff3bd251dad03ddb486ff8230bc35084b0c8111a0058"
@@ -23,8 +24,6 @@ class Detach < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "469c22339c28e7497bead225e1597d5ae4ccadd2589e355be65041bd2c2ac5c9"
     sha256 cellar: :any_skip_relocation, big_sur:        "9db6ee661710f178b17fc1096596ee74b07b257e233da7fb45cb9280cbeb24a1"
     sha256 cellar: :any_skip_relocation, catalina:       "dbd06a1dcb4592035dff0b4df0cc3259c2dbb444acdb1553ab2a2d4edf3fff57"
-    sha256 cellar: :any_skip_relocation, mojave:         "4aa3f65488ee7fb05d156d92f5f76a29d2cebe2034b226665e219978e228f1db"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "3367f32cb05a37e05e9ab18e4e1f2664137f7d03073fc2d9ec4aba0d62a6f431"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "8fba912efb0e2473b0c089087b8a7239fbf21952e15fa541b41d8542f2277d96"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "38838383187537acd5cd6c52ea5d375055201ad74494107a5150ac684374028d"
   end

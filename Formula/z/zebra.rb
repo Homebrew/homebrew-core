@@ -1,10 +1,10 @@
 class Zebra < Formula
   desc "Information management system"
   homepage "https://www.indexdata.com/resources/software/zebra/"
-  url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.7.tar.gz"
-  sha256 "b465ffeb060f507316e6cfc20ebd46022472076d0d4e96ef7dab63e798066420"
+  url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.8.tar.gz"
+  sha256 "879e402b91912e9074275753f24408ed2ac06b3b7c30b2a2d5a70718c869a542"
   license "GPL-2.0-or-later"
-  revision 5
+  revision 2
 
   livecheck do
     url "https://ftp.indexdata.com/pub/zebra/"
@@ -12,16 +12,15 @@ class Zebra < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ebc4c8b98b8d0092a14b28a1fc1a3624d25efc739fac4c8c37a24b9cf748dff7"
-    sha256 arm64_sonoma:  "c90a4df5cdf059fbc304eb29694295d15aff3c9e938c9f3043b21c0611e231f2"
-    sha256 arm64_ventura: "ba641b0bb5af1aeed71f7c74bdd2d23260bc56d5417a16b3c0d2a89545d33122"
-    sha256 sonoma:        "89ec7a8767b4ec0897e424efc895c0044a7ec3b974842d5cbc3dc803106db4b5"
-    sha256 ventura:       "a7c5848a84b7e0596504c0b234da47f7dfe9580c3bda227256b35698026207b5"
-    sha256 arm64_linux:   "5334731b4f819cb37340c235ae68d1e1e5deecb367d16c9be82b7f0131fd7839"
-    sha256 x86_64_linux:  "f327f534822726a13ab7d912a3873f915f71c24c701f54675b42077d24212d48"
+    sha256 arm64_tahoe:   "c8326002478598c438eba6b7e37ae7ed537a0d12cfc9ee10fbf36317ff7f5da7"
+    sha256 arm64_sequoia: "140dbff9b966af509fc339127a9b635e7efc6b59f71dd3c62ef7466a07587e88"
+    sha256 arm64_sonoma:  "4d725a25f3125ce873ddc2f1fcd05f300b1324b3cd2631ea03d5e099d82bcb9d"
+    sha256 sonoma:        "e39e9f5ce8d00f6c75c3ac59fcfadefe7b3954f4445d3a65c3532d3740a27bed"
+    sha256 arm64_linux:   "389bfe2f986b21676bf4b44335ad8623577d62df89b730bee514e368b5d832da"
+    sha256 x86_64_linux:  "4184eb6e9b8a971a34f021d82cb9e1927143459152780f5ec85184716c568c7b"
   end
 
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "yaz"
 
   uses_from_macos "bzip2"

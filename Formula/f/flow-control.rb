@@ -3,37 +3,41 @@ class FlowControl < Formula
   homepage "https://flow-control.dev/"
   # version is used to build by `git describe --always --tags`
   url "https://github.com/neurocyte/flow.git",
-      tag:      "v0.3.3",
-      revision: "fb5cd46d0b1fd277d6de3ded0a9d1d99bd73d643"
+      tag:      "v0.6.0",
+      revision: "98855a73e4b5f01b282d3a735ca205934a226627"
   license "MIT"
   head "https://github.com/neurocyte/flow.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_sequoia: "6ed1b2aaf297e50e5782d85c71a6fd23bd8705043e79281e194d68520661e11f"
-    sha256 arm64_sonoma:  "2ddcea938d0eb9f7aa4560991d7a4d2f3fe89e322d4cac67ed5b70f7e04e73f8"
-    sha256 arm64_ventura: "8920bb92cd7af18d0083540e6f82fe331e66ca3fa22f1c7da0bddd7dfe1333dd"
-    sha256 sonoma:        "3dbbd4c191c10a804a204e128c8a2d5b68a929eada6350ca925cf4ded0fc8e1e"
-    sha256 ventura:       "8d451e9e64769726bf5a84998c97d9af902b0f01db2f41223ef22a36f8cfcf0b"
-    sha256 x86_64_linux:  "020d09612e1d13fe77f68f55bf14f6b47e3a26cbbdbe7af42228f3e4e602af78"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5e85dd432761339ceb1c88cf8a77b6efdb779cd2639e8fd09467dd12b5a17a3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c9cedc55d75b3065e8af56ee5899c47ce9015b29da37bb2f003f24ab23f6926"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ecc03f7623d90add75cec14f758fc7ab4888e6506287c43c45055c60740eaa68"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60b5deb512575bc57991fd4cd70daa826e24bb700468794971bb84bcbf137ff8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "54787298d0520e4c3e1fcd99eb9feaf4d9bbaaf20400ede6de120c6c687bf4fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa06ccddd48bdcc21b70455bc3b3e41ed4543ad1645dedddedd8f3cea38f0483"
   end
 
-  depends_on "zig"
+  depends_on "zig" => :build
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
     cpu = case Hardware.oldest_cpu
     when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
+    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
     else Hardware.oldest_cpu
     end
 
+    # Do not use `std_zig_args` or `--release=` flag here
+    # as after using it all targets are installed into directories with
+    # names like `<os>-<arch>-release` instead of `bin`
     args = %W[
       --prefix #{prefix}
       -Doptimize=ReleaseFast
+      --summary all
     ]
     args << "-Dcpu=#{cpu}" if build.bottle?
+    args << "-fno-rosetta" if OS.mac? && Hardware::CPU.intel?
 
     system "zig", "build", *args
   end

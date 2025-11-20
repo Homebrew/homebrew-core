@@ -6,8 +6,6 @@ class AzureStorageCpp < Formula
   license "Apache-2.0"
   revision 11
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f00202a3cc5f45662cb1bf801b41b41da1e6723ab96ae9a34d25cce65d62ff4e"
     sha256 cellar: :any,                 arm64_sonoma:  "66384afbbbaaf12285b727f25b3f6c21637183de034a0cf48c1d3c282f90cb67"

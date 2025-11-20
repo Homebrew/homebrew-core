@@ -2,18 +2,20 @@ class KeepSorted < Formula
   desc "Language-agnostic formatter that sorts selected lines"
   homepage "https://github.com/google/keep-sorted"
   url "https://github.com/google/keep-sorted.git",
-      tag:      "v0.6.1",
-      revision: "3f9cf7d52cc6832a6752433472925981f89d516f"
+      tag:      "v0.7.1",
+      revision: "c71803fd297b5736f3bfab1cfd84424ca52e961a"
   license "Apache-2.0"
   head "https://github.com/google/keep-sorted.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d466d5e894f29a85aba011c84521034b3617336ff4197b8212b70f31b4c8344"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d466d5e894f29a85aba011c84521034b3617336ff4197b8212b70f31b4c8344"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d466d5e894f29a85aba011c84521034b3617336ff4197b8212b70f31b4c8344"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8813fb328d8ad157bdbdba961434a978838da64c12fdbffb85b9f620a322c7d9"
-    sha256 cellar: :any_skip_relocation, ventura:       "8813fb328d8ad157bdbdba961434a978838da64c12fdbffb85b9f620a322c7d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9c2b478a8886f9dd91f3b696ceb74843317e782cd5f6793d9658d6f2373efbb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c83d795e7fabff68f6667cdb6d52d4dece8d68d39ed18769f3526853a12b88f2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ef6b1fa86aa500fb3c582e3b233ff8db11c930f14ecc688100278717f8fe93b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ef6b1fa86aa500fb3c582e3b233ff8db11c930f14ecc688100278717f8fe93b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ef6b1fa86aa500fb3c582e3b233ff8db11c930f14ecc688100278717f8fe93b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3bc8e596dc3996b5876eb66a9f238f63d7fcbac4b957f6e31ef68ef4863264a6"
+    sha256 cellar: :any_skip_relocation, ventura:       "3bc8e596dc3996b5876eb66a9f238f63d7fcbac4b957f6e31ef68ef4863264a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1dbc70735188f2f75638db1114da4d9426eb2cd2daad450f69fe1401345d8ff5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e89740e08e8b84defbdc44674ae60df767fb0dc1cc3ba9e63037caa2c40e018"
   end
 
   depends_on "go" => :build

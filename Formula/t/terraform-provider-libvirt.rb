@@ -1,17 +1,17 @@
 class TerraformProviderLibvirt < Formula
   desc "Terraform provisioning with Linux KVM using libvirt"
   homepage "https://github.com/dmacvicar/terraform-provider-libvirt"
-  url "https://github.com/dmacvicar/terraform-provider-libvirt/archive/refs/tags/v0.8.3.tar.gz"
-  sha256 "9d04ca75d7cb3db511ea251369890d1bdf2a6b7d77c4d4ce5d3cb0d2c0214252"
+  url "https://github.com/dmacvicar/terraform-provider-libvirt/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "15b929d2eb4e64ae4bb26939789ca40e753c3b2847eee7992fcb4dd3b5df83e4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4965933e5ec39c5f04ae18a08828df9e0dbbda8f7d80d1278c4951493fe9d15"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b4965933e5ec39c5f04ae18a08828df9e0dbbda8f7d80d1278c4951493fe9d15"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b4965933e5ec39c5f04ae18a08828df9e0dbbda8f7d80d1278c4951493fe9d15"
-    sha256 cellar: :any_skip_relocation, sonoma:        "15e9fab3f999c737143ad9c66ff18fb3861f17035636179d3ffe752fbb120933"
-    sha256 cellar: :any_skip_relocation, ventura:       "15e9fab3f999c737143ad9c66ff18fb3861f17035636179d3ffe752fbb120933"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42969edbf2abbbba627cf3bd855e749aba8a2cbf570e5da9fa1a45a912444374"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93d3deb14e53e36982a0e742ba130b45db6bee2cd56275065653bf815a60edba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93d3deb14e53e36982a0e742ba130b45db6bee2cd56275065653bf815a60edba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93d3deb14e53e36982a0e742ba130b45db6bee2cd56275065653bf815a60edba"
+    sha256 cellar: :any_skip_relocation, sonoma:        "540a2810e36e21b0678e9fe2f073e52eac134468295ec570246e065983a8fefe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4923bd412008553c38bdfdd9cdcde24969e10708e1fe2a17d1836a758e58057"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7c92b04207dbec3e02233dbd6b54187d90fb61c77b66557c277754f038b0a34"
   end
 
   depends_on "go" => :build

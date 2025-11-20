@@ -1,19 +1,19 @@
 class Neovide < Formula
   desc "No Nonsense Neovim Client in Rust"
   homepage "https://neovide.dev/"
-  url "https://github.com/neovide/neovide/archive/refs/tags/0.15.0.tar.gz"
-  sha256 "89900673314f4dba66a1716197aca3b51f01365d9f8351563c3dc5604b3e48ab"
+  url "https://github.com/neovide/neovide/archive/refs/tags/0.15.2.tar.gz"
+  sha256 "a8179c461d41277b41692edcae64af6d1c80454aafff608af0268c5abca95b5c"
   license "MIT"
+  revision 1
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "beadfba290080cf999c7cec2415e8e2000b6d3d2cd8d43be6acd235a97c57482"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6db047e1f2a6180d2bdf1341448f9f64c5414371fa5c33c664258d23bd803b11"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "71903190f94bd7018ecf017d70bc02e1dabdf795391cb2921831437ca58f3876"
-    sha256 cellar: :any_skip_relocation, sonoma:        "20f05f6186c0cb44b9f67c0968117cc157a081cbc8aefb24bfb6ec19c99ce63b"
-    sha256 cellar: :any_skip_relocation, ventura:       "f89ba563de5b80e997b90c80e8efe1d03d4813de13ef0b70af325ac1392afc51"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "441334ea72a94f2eb7fa628194f9730e15c38778001568b9afc00eab460ed7af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2473d65387128d4bb25a636fee7200ef68cbf875cb0ba135cb54f7fe25a2cdae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cd1ae192871c857c1bc7cfdc86dd0ed8d37e2bf468399297dfd2848f4897acd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7431a80ee963a89341748415cb400ca9c3b12b4c075e1c132a1249baf3cabade"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9eb5a431e1f6433db53cf329ac0644741ee173328c47d6420f98771bb91c4215"
+    sha256 cellar: :any_skip_relocation, sonoma:        "97c3ca622612e86cd722364c4f1f369a46be1a0bf0ec37fc871e4e1a73488ba5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "51f55132c2a8e2bd4a8147297727c1e9c10ce293822616fad48282b826067ffe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0ca27a7dc416660e96bc0830c909bbf25d83fa3ec5cf14516ee3d39afe89ac4"
   end
 
   depends_on "ninja" => :build
@@ -21,7 +21,7 @@ class Neovide < Formula
   depends_on "neovim"
 
   uses_from_macos "llvm" => :build
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   on_macos do
     depends_on "cargo-bundle" => :build
@@ -32,7 +32,7 @@ class Neovide < Formula
     depends_on "fontconfig"
     depends_on "freetype"
     depends_on "harfbuzz"
-    depends_on "icu4c@77"
+    depends_on "icu4c@78"
     depends_on "jpeg-turbo"
     depends_on "libpng"
     # `libxcursor` is loaded when using X11 (DISPLAY) instead of Wayland (WAYLAND_DISPLAY).
@@ -68,23 +68,32 @@ class Neovide < Formula
     # https://github.com/burtonageo/cargo-bundle/issues/118
     with_env(TERM: "xterm") { system "cargo", "bundle", "--release" }
     prefix.install "target/release/bundle/osx/Neovide.app"
+    rm bin/"neovide" # Remove the original binary first
     bin.write_exec_script prefix/"Neovide.app/Contents/MacOS/neovide"
   end
 
+  def nvim_connected_clients_count(socket)
+    Utils.safe_popen_read(
+      "nvim", "--headless",
+              "--server", socket,
+              "--remote-expr", 'luaeval("vim.tbl_count(vim.api.nvim_list_chans()) - 1")'
+    ).chomp.to_i
+  end
+
   test do
-    test_server = "localhost:#{free_port}"
-    nvim_cmd = ["nvim", "--headless", "--listen", test_server]
+    socket = testpath/"nvim.sock"
+    nvim_cmd = ["nvim", "--headless", "-i", "NONE", "-u", "NONE", "--listen", socket]
     ohai nvim_cmd.join(" ")
     nvim_pid = spawn(*nvim_cmd)
 
-    sleep 10
+    sleep 1 until socket.exist? && socket.socket?
 
-    neovide_cmd = [bin/"neovide", "--no-fork", "--remote-tcp=#{test_server}"]
+    neovide_cmd = [bin/"neovide", "--no-fork", "--server=#{socket}"]
     ohai neovide_cmd.join(" ")
     neovide_pid = spawn(*neovide_cmd)
 
-    sleep 10
-    system "nvim", "--server", test_server, "--remote-send", ":q<CR>"
+    sleep 1 until nvim_connected_clients_count(socket).positive?
+    system "nvim", "--server", socket, "--remote-send", ":q<CR>"
 
     Process.wait nvim_pid
     Process.wait neovide_pid

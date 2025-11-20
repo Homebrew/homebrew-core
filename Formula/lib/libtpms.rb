@@ -1,18 +1,19 @@
 class Libtpms < Formula
   desc "Library for software emulation of a Trusted Platform Module"
   homepage "https://github.com/stefanberger/libtpms"
-  url "https://github.com/stefanberger/libtpms/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "6da9a527b3afa7b1470acd4cd17157b8646c31a2c7ff3ba2dfc50c81ba413426"
+  url "https://github.com/stefanberger/libtpms/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "ebc24f3191d90f6cf0b4d4200cd876db4bd224b3c565708bbea0a82ee275e0fb"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6f5a66d3f83cc1c539568a90675c0da2a65674af5b68f32e2c04763745bd7e5d"
-    sha256 cellar: :any,                 arm64_sonoma:  "08a0433d4293dbee5e39420e62dcb598e56ca38a664645ae92674bbd1aed38aa"
-    sha256 cellar: :any,                 arm64_ventura: "2b7d2684a14c0303fc1b83a6222671cc71c7b1e3122128ee0e2f7ecb78f5192b"
-    sha256 cellar: :any,                 sonoma:        "aa207e4c785c6c68b1d9262b5c1093c42fc291b65013ad863beb346a302d9a67"
-    sha256 cellar: :any,                 ventura:       "38fb8b2db3308dc8d9ab4d63d49a00ce7516104a1f08d6ff7fff0c6d1f04ea24"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7777b9db275770b7a458765e3a3b28c1b82204e6a44831e519d1ddf2712ca3ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb295d9cfe3986180f5c5c4e320b2dc5fb368fa2f5ca68fa13696755ddac37dd"
+    sha256 cellar: :any,                 arm64_tahoe:   "1415455064a8814adc7ba082a5288b70166d818b52bcc4b6313f0cb07cca510a"
+    sha256 cellar: :any,                 arm64_sequoia: "15359aca8b873a6965f40e824368108637c9f8cf48b28fba6323f9752071023c"
+    sha256 cellar: :any,                 arm64_sonoma:  "42a7c3f06554cb88deeff3b7b79ab082ed8eff5180ce06a0612a6f2b1191de95"
+    sha256 cellar: :any,                 arm64_ventura: "19e27301de4d0e3be8f6e64d365fcea16829ddf004c4c2634fc8464e3a29ad11"
+    sha256 cellar: :any,                 sonoma:        "8d898dc691972d2dc4a536f2f90608723593b2cccec3878c81a29f7524dac0e1"
+    sha256 cellar: :any,                 ventura:       "74c6e183ed2cbbb2d453c422560cd77ea56a92f0f3fd82650ebb3e56633341fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06262b5d69c7ee3a6f2083b6d36afd63e9b4c051f53a8f842d9f5c377fb3b180"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea4a8d8b452a7bb8f7a8fb9d50db91e964e3d9c656ba14475ed94a480bd2a12f"
   end
 
   depends_on "autoconf" => :build

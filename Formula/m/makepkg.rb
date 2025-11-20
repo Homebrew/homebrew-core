@@ -2,21 +2,18 @@ class Makepkg < Formula
   desc "Compile and build packages suitable for installation with pacman"
   homepage "https://wiki.archlinux.org/index.php/makepkg"
   url "https://gitlab.archlinux.org/pacman/pacman.git",
-      tag:      "v7.0.0",
-      revision: "138cbae58448b7fde90335526add3029875784ee"
+      tag:      "v7.1.0",
+      revision: "5683f8477a0afcc6b331766175a83445b2dcfe89"
   license "GPL-2.0-or-later"
   head "https://gitlab.archlinux.org/pacman/pacman.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia:  "dd4038eb9b4f8d3928e251be3159e1af208a92f54b404412ac6b7a68f7fe03a7"
-    sha256 arm64_sonoma:   "61faf5587194320721c0360027347b28d97c3ce0b157ff78504b9fbf8af28ccf"
-    sha256 arm64_ventura:  "da4a03fa1256800c68b4d97faa71a8defd17e99afc9401c0c9882baf1db79dcb"
-    sha256 arm64_monterey: "c6354bff149380a83c87fb59b6730fedb015407362e243be8e98736d14df50c4"
-    sha256 sonoma:         "45597fa37e62ddd69aee401a4a9d34dc5ec1afdb367da9a1ed25035346462ed9"
-    sha256 ventura:        "10997d0ff1dd13d24378863f421d1554c46502ebe5859f178df7055dc85f0ffe"
-    sha256 monterey:       "b9b8be7872828bbb3da1488513d1a60a3b870f9880e2c929576da152e8cd230b"
-    sha256 arm64_linux:    "57074a70ac1e5c270e4056174ce541e1e99f258a0a9f31f955ae3efdc8be84f8"
-    sha256 x86_64_linux:   "77d749e913352e3d8b15a627f5368a267700fc25771476efe9749d9b5b5472a2"
+    sha256               arm64_tahoe:   "437af5d09741dd52b5c010e56ad27ce2f44b9f04d6dad061d45086a5c99602d8"
+    sha256               arm64_sequoia: "62fd3d7eec4486efe93fd2a8bdf99615efeaf778bb74e42682fb0b27115d348c"
+    sha256               arm64_sonoma:  "a28ff22bdfcddb04c3d986464c29e69322faa7cb87f97838ec99eb71c8b9da7d"
+    sha256 cellar: :any, sonoma:        "0b4e76c60d7475c0a11de8bc5aab08be1c88fcc234f5191d0cc159c76b954e15"
+    sha256               arm64_linux:   "0efea1e4d153388446b13bcb72b22bbb54eea0edecba47e55884e3d452d4e716"
+    sha256               x86_64_linux:  "997a27e40a380fa9cdc29efabc88cdf021b18c51b81ffe4fcfa4889ba8fea785"
   end
 
   depends_on "meson" => :build

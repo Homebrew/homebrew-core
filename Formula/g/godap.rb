@@ -1,18 +1,18 @@
 class Godap < Formula
   desc "Complete TUI (terminal user interface) for LDAP"
   homepage "https://github.com/Macmod/godap"
-  url "https://github.com/Macmod/godap/archive/refs/tags/v2.10.5.tar.gz"
-  sha256 "94e7e973362c60539aca38399467c0e3f1e004063e846f83a0bd3d3616303f0c"
+  url "https://github.com/Macmod/godap/archive/refs/tags/v2.10.7.tar.gz"
+  sha256 "5ca0c9b0220f9b30f42ffeddeee9fdf5e63feda55d3ed9d3f6dfdfd30da15f6d"
   license "MIT"
   head "https://github.com/Macmod/godap.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1f21d3e7fad07512b9f5697c251311a00dde15fe365d179017a81d698914d3a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1f21d3e7fad07512b9f5697c251311a00dde15fe365d179017a81d698914d3a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e1f21d3e7fad07512b9f5697c251311a00dde15fe365d179017a81d698914d3a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0b7e35888e9d5f1e5586f8d6c1101dec44a28bbfd4f1964674c443997bbf0dea"
-    sha256 cellar: :any_skip_relocation, ventura:       "0b7e35888e9d5f1e5586f8d6c1101dec44a28bbfd4f1964674c443997bbf0dea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3806997b15103355d597475de81055385692105ded8bcc4dd4a424dedfbc905"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "629dbba49bf9b7ba239e1d7e723203959d3b574dfc7604ac557d9ffd8a1f98c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "629dbba49bf9b7ba239e1d7e723203959d3b574dfc7604ac557d9ffd8a1f98c3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "629dbba49bf9b7ba239e1d7e723203959d3b574dfc7604ac557d9ffd8a1f98c3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fbbb3f3992ac2a0313db8b747053f8cfd831188c4c808edadfa4db44acfb685b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10e278e9ae9e08d8c3200b18fc2b3635d3ac958019d16c67086c2bd155b5679d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf3b6c99b1bfd2b8264b8d297fd0dc689760d886f63a796055f66ff873f9f809"
   end
 
   depends_on "go" => :build

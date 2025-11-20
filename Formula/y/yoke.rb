@@ -3,19 +3,18 @@ class Yoke < Formula
   homepage "https://yokecd.github.io/docs/"
   # We use a git checkout since the build relies on tags for the version
   url "https://github.com/yokecd/yoke.git",
-      tag:      "v0.14.0",
-      revision: "0ee887fe1f5a2f4f7fbede225d547641b90fa1ec"
+      tag:      "v0.17.4",
+      revision: "fb2572474e38abca1cbda6a63cd90b2c2b5c3d06"
   license "MIT"
   head "https://github.com/yokecd/yoke.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2073afab58a8e5d429c5845684cd3e5a5aa9f895d64fb99bb668f991ad531025"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f15a1ce4ca47398598e4420f2443061742ca34a45693ce2fe451a7a578fcf03"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8ce9d485fba2038c3e51fed2d95bce1641781476a94083190eec3afa11fe48bf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ec5e8a05b747d92b206ee892a4c41a0508cfd4ccfd66516593cfef8edf7815be"
-    sha256 cellar: :any_skip_relocation, ventura:       "d33e14723ec00b72510389a1e8f9818c30ac4565cb59e31d3352b1edb221b68e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2b03669db6c51c861493657e4dfde39a090a4831d115be97415dc91f4f1e335"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2837a949e615a1279dbae1e26bd878929ea8af60ea34b863c34494bd2240249f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1cb40ad46f0cc29ff7f5ce0d995d4e21f9bad3c44a46bab5b46ca89d4bdd2557"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e538dc498244c5f48d9a58bfe13740d4ed9f9cc4dbcd319c517a38c2b9ef681"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8a84ffe36d78ab67694ecf0e7412d93bc4806707b24e3e58736eb5be1829498"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a562978a08427740d95b3b79b77fff1390051db4fea80f7996831a100a76215d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b99b65e5f3fdb9794ff094654ebb197a4657806d6cf88de0199368efdb3a4bc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d15a30e12e82b59f897f192dfc36fbcd0a6713822ec061773374ca3f46a6a9db"
   end
 
   depends_on "go" => :build

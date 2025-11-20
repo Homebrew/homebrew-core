@@ -1,10 +1,10 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v4.0.2/cmake-4.0.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/cmake-4.0.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.0.2.tar.gz"
-  sha256 "1c3a82c8ca7cf12e0b17178f9d0c32f7ac773bd5651a98fcfd80fbf4977f8d48"
+  url "https://github.com/Kitware/CMake/releases/download/v4.1.3/cmake-4.1.3.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-4.1.3.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.1.3.tar.gz"
+  sha256 "765879a53d178bf1e1509768de4c9a672dabaa20047a9f3809571558e783be88"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
@@ -16,17 +16,15 @@ class Cmake < Formula
     regex(/href=.*?cmake[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7bd4605b03b0dbf10d547e2ffa34166acd8e77f8f76dac0485d5376715829130"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0fd627884d0c2819a5c1c100ca7352247c40ca0bd811237139fb50606d78db23"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f4182d37a97d4c4979c9ad22ab7036faa4d965210b9285c0a20144be02578ee6"
-    sha256 cellar: :any_skip_relocation, sequoia:       "91841ca89f8807fe911dfc60d8d72775119dfbe0c105fe4f4793fc59ec281954"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a5999889dd5a97f189fd7ff78b9036cf60c10dc72905c7384f743722d214c460"
-    sha256 cellar: :any_skip_relocation, ventura:       "5b5d12bb69a5bae6ea3ea7ddf0c7356db688959337cdb52f7bb66dc7ca2a1807"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9248442ee82a1b3fac2e9b067b0bbe618e400c90947663e706d0d1a1a122133f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23429f1cc5f10a318bc8ad42eeb32396b09e0a4f56f28535eb06b606bbde987c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "be88879cef605cbc4b53955fd9167055b6721f7f94bdbf63e9ea2d3edc11579c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80f0dc305f5b84ef2bdae0093e46ca24a5cece5a3e4bf61654cb21267e84519f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fba92747c9fdce7c81dc4b09b3ced37bbd8b63f8a1e4ea3a42349753351066c"
+    sha256 cellar: :any_skip_relocation, tahoe:         "989e147553c9acdecd1e5699c8a6d9c54a1acfccbaeb78cc76d4d37320aaf5b9"
+    sha256 cellar: :any_skip_relocation, sequoia:       "8f7087d8fee4cfbee883f3a8936f986dea3e9d2c9135b76108e687abaf998184"
+    sha256 cellar: :any_skip_relocation, sonoma:        "79da94b613b19e062a9a878d1da518d26e9274bdcdd061300746cbbea2a92e2b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e8421d3607795cebe8774c2b0a36f4909dab690e45380187fa7733867e8e874"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b096f5e6a601a7f3972fef34e123ff76c308f87de623f037a3f982f8a5e7298a"
   end
 
   uses_from_macos "ncurses"
@@ -35,7 +33,7 @@ class Cmake < Formula
     depends_on "openssl@3"
   end
 
-  conflicts_with cask: "cmake"
+  conflicts_with cask: "cmake-app"
 
   # The completions were removed because of problems with system bash
 
@@ -44,9 +42,6 @@ class Cmake < Formula
   # For the GUI application please instead use `brew install --cask cmake`.
 
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :high_sierra
-
     args = %W[
       --prefix=#{prefix}
       --no-system-libs

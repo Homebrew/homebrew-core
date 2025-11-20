@@ -1,19 +1,18 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/jj-vcs/jj"
-  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.30.0.tar.gz"
-  sha256 "86f8df1e4e76c6a4bcdb728fa74876bacf931641157d16f6e93ebeb5bac0151c"
+  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.35.0.tar.gz"
+  sha256 "cbaca700490de894018566e84c0de462afcf2d2aa8333c70f94dea823c5661f2"
   license "Apache-2.0"
   head "https://github.com/jj-vcs/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "833b9681b5f65fd35fa365fd0638d047bbb25e776163499b7f43f65ed238e44c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67ea879212c9ec6115a610c438a40854baf7d2f3a7a433d0816dd97b9437e739"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b60adff4aa38dda9c9f05880d9fa13c8e906193eaa283c032be1e3e4081e2489"
-    sha256 cellar: :any_skip_relocation, sonoma:        "20557d44e25fcd36dd5a66399aa0e36b54b77b7fde91548cedeba36dd2263887"
-    sha256 cellar: :any_skip_relocation, ventura:       "b6fed70088fe219ed523d9e877310c7951b554a87e2f528ca8b218eb993ba3ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8b0eaa58ce0ebb2a5f9b59db8e931f36a210f0e4cd8dc48e8c7cc1382941d95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35ef27032c768550d2613536adf6d449054844d98402fb1a628fccf530b0580c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24b634ebef83e454e4dbf89743dcb5dce3fa4e1f602834f8edce53710e5c44ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23bb875c1b655aa69dabd7e7a123d1aa96e7c7c05fa7da692f939ee3152caada"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "306acfcdc1c521b67f41385bce2224975473e7a746e4faf2e216e4ce496f450d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3a91ab91b274f2539e4f175a1a5ec5cc9efe122f420d1aad560c34828aa5abe7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c473db9da0eed0afcc33f1054a71f597c5e098bd6a83f391ed133dad1a61b4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af1a2755f4d0f6912d61a13ade5c14ee1fcc33ba420ff78f992c7ff5377140f4"
   end
 
   depends_on "rust" => :build
@@ -26,8 +25,6 @@ class Jj < Formula
   end
 
   test do
-    require "utils/linkage"
-
     touch testpath/"README.md"
     system bin/"jj", "git", "init"
     system bin/"jj", "describe", "-m", "initial commit"

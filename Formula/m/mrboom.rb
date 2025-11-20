@@ -6,6 +6,7 @@ class Mrboom < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "0f75bf0a9e0a7ab7d6a6cdf4b4cc8cbcb4e1a10999900f82819dae07e211cd40"
     sha256 cellar: :any,                 arm64_sequoia:  "de4b659b5cc4e5c3bf4b4aaae71ef0dd18f2796c749d05e46bf888b20a678a54"
     sha256 cellar: :any,                 arm64_sonoma:   "0accb2a0bc974051659e56bcd38d59fbd97d5deee7187341ccfe4c7d97e4a93b"
     sha256 cellar: :any,                 arm64_ventura:  "ee172fbf933602cd8e7000325bdd568c788e6f5a9025dbebe78a44877c5599c4"

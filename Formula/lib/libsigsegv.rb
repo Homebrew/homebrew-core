@@ -1,12 +1,13 @@
 class Libsigsegv < Formula
   desc "Library for handling page faults in user mode"
   homepage "https://www.gnu.org/software/libsigsegv/"
-  url "https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.15.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libsigsegv/libsigsegv-2.15.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/libsigsegv/libsigsegv-2.15.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.15.tar.gz"
   sha256 "036855660225cb3817a190fc00e6764ce7836051bacb48d35e26444b8c1729d9"
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3255ddf74cd30522472c3eb1d068211b8d1e4ffdc337c02795052d872b206e35"
     sha256 cellar: :any,                 arm64_sequoia: "109f995641898a6ada63b7f070483a589a4f5a243a34ef44630ae25afa8191f9"
     sha256 cellar: :any,                 arm64_sonoma:  "3fab0c06f901ea4957e99d6e39992d8569278d426413546576d7bd5c843dcee0"
     sha256 cellar: :any,                 arm64_ventura: "1b56220b905ce813aae9891e7007cda1c147070662ee2f30b6cd99b14c996431"
@@ -17,7 +18,7 @@ class Libsigsegv < Formula
   end
 
   head do
-    url "https://git.savannah.gnu.org/git/libsigsegv.git"
+    url "https://git.savannah.gnu.org/git/libsigsegv.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

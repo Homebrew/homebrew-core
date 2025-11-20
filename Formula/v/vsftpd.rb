@@ -11,8 +11,11 @@ class Vsftpd < Formula
     regex(/href=.*?vsftpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
+    sha256 arm64_tahoe:   "01dbfae43456eddf9dda1082d584faffbc1375610626a5b2c6229ae3fdbd13f2"
     sha256 arm64_sequoia: "d878a9c0483cf81228a5301cf5768e613271d731fbf2affa778a475bcea57a09"
     sha256 arm64_sonoma:  "7547e5fa4936a51a84b4e016545b8088199e1f92fc7299f8619b6b3f5b7ba5bf"
     sha256 arm64_ventura: "7e015b54e1995a19395d9802116f3f7d0895818260c1aeddd793ca2b2da806aa"
@@ -32,7 +35,7 @@ class Vsftpd < Formula
   # Patch to remove UTMPX dependency, locate macOS's PAM library, and
   # remove incompatible LDFLAGS. (reported to developer via email)
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5fbea7b01a521f840f51be6ffec29f612a37eed3/vsftpd/3.0.3.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/vsftpd/3.0.3.patch"
     sha256 "c158fac428e06e16219e332c3897c3f730586e55d0ef3a670ed3c716e3de5371"
   end
 
@@ -40,7 +43,7 @@ class Vsftpd < Formula
   # Monterey does not support this syscall. (reported to developer via
   # GitHub)
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e4dd5d67152bb2541c5e38e8bb834ed5b165fcaa/vsftpd/3.0.5.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/vsftpd/3.0.5.patch"
     sha256 "95afc3bc00dd6cc37a2c64b19b1e7e30951ec022f839dbab1773b7716966b9cf"
   end
 

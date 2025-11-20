@@ -3,10 +3,9 @@ class Simgrid < Formula
 
   desc "Studies behavior of large-scale distributed systems"
   homepage "https://simgrid.org/"
-  url "https://gitlab.inria.fr/simgrid/simgrid/-/archive/v4.0/simgrid-v4.0.tar.bz2"
-  sha256 "37387a6b4ab230e37fb062d03af3d6bdb9cd0c76b2c3407ae1a344facc814a8f"
+  url "https://gitlab.inria.fr/simgrid/simgrid/-/archive/v4.1/simgrid-v4.1.tar.bz2"
+  sha256 "a3d02f52cfb9c2e341c380cd8e3b43da4b4885161d8e96f4b033e0d3cc8af611"
   license "LGPL-2.1-only"
-  revision 1
 
   livecheck do
     url :homepage
@@ -14,13 +13,12 @@ class Simgrid < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7729746a85f9411766323b3e08f526ac0b2a320dc1b43f2f1a047affd33b1834"
-    sha256 arm64_sonoma:  "e774550064c55be057b8a02be6c97fb4755bcc96ed518f48e86a2a06f110de6a"
-    sha256 arm64_ventura: "c1106a2364c23a426f092e8dba68de4ed5c49ffa9f79221098d6daf5131f167d"
-    sha256 sonoma:        "6113c9ce3f7b955d6fb7768a0fdd6550787547bd18cf625bdb70515229193b0a"
-    sha256 ventura:       "fd493ba61db4d913bed0de8db44da341e6744ae78f20d3458c2d27094971940a"
-    sha256 arm64_linux:   "759f64a8dbd6286b41e49af154aba2c9f4acd1b9ebff34dfddcf34e022b2356f"
-    sha256 x86_64_linux:  "ae6cc2a41a6adf416328e3208b6f15f41ff4f3b50e8cf5cd282abe4336604305"
+    sha256 arm64_tahoe:   "4e4d5a3c7fdafbf729d17e570c724caf9da036391e6b925f522cc8ad37fbc215"
+    sha256 arm64_sequoia: "70e003f6ee0cf6ed4cfabe4c867da443341e89397facaeb1d1e205c561468d39"
+    sha256 arm64_sonoma:  "624bcdbdd0eec8bd8bfd85fbbfa6058cb11bb603f270fd11cdf2e598b14eefe0"
+    sha256 sonoma:        "f3a0990e1cc2fa926fae7a60754397016fea655a8d9b26d229c3c9fb77ed852a"
+    sha256 arm64_linux:   "83edbb1eeb0ca794146fdefc40058ad4e0b2cc8b2808a83e2bc4c7622da84ca0"
+    sha256 x86_64_linux:  "8825d67df69d244ec9b6edd6fb415207b5dc0fe2b5355365ae02e48efeb98ba2"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +26,7 @@ class Simgrid < Formula
   depends_on "boost"
   depends_on "graphviz"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
 
   def install
     # Avoid superenv shim references

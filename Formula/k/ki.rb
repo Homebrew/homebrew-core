@@ -7,25 +7,27 @@ class Ki < Formula
   head "https://github.com/Kotlin/kotlin-interactive-shell.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4f17d3db413634dc6b07e462760db4358c8ec02012342c3048c52728ab71888"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08da91f35d7ce64edc948fda63ef969592e9e299c2fe713559b300cb95d73f57"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "34f86ba275df07618724236322138b5b53027a6c4b772e178660460be2362cf1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39be21332141ebf86fd1b73ba0d6bfe8f8dec07caf5ddc8e8d9734f513681c5d"
-    sha256 cellar: :any_skip_relocation, ventura:       "f44890a5523df5d74707bdedead4d8c617cbddea01322d541371235b878c402d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6cc92adaeb7461ca30e6ae9a0fc64724d8ea9ed6a31717d2a7f7919c3dc9981f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6c23ecade167e9a2e175a6b34693c45fbbd2b7b4b9565554aa34ddcf1988d74"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "26acde25faed2e7f5f8758b91265387d3aafdcaba302ea74b67c87b390ff345a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9f8535c44f8e69f9295957a28022182ca753a5a59eef6a1b0b9351c09cecc6b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18939db349bc95a0caa3a38cdc577cdaf3e72ac19222847d0abc84026cfaac0f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "da784f7cb6571cf655f53473e34d2056781727a9bd31d05eb809faa9a31461ff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "01b42754a3d9e0548aed51278026c7375b8dccdcd5b0ee9c84f9211363be3e79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fef66e2012700f86ed7c3bf130320fdc58d1362a0b681fe88862af169a8d42e"
   end
 
+  # not compatible with kotlin 2.0+, https://github.com/Kotlin/kotlin-interactive-shell/issues/131
+  deprecate! date: "2025-10-26", because: :unmaintained
+
   depends_on "maven" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home
+    ENV["JAVA_HOME"] = Language::Java.java_home("21")
 
     system "mvn", "-DskipTests", "package"
     libexec.install "lib/ki-shell.jar"
-    bin.write_jar_script libexec/"ki-shell.jar", "ki"
+    bin.write_jar_script libexec/"ki-shell.jar", "ki", java_version: "21"
   end
 
   test do

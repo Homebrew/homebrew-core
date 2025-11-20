@@ -4,23 +4,22 @@ class Openconnect < Formula
   url "https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz"
   sha256 "a2bedce3aa4dfe75e36e407e48e8e8bc91d46def5335ac9564fbf91bd4b2413e"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url "https://www.infradead.org/openconnect/download.html"
     regex(/href=.*?openconnect[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia:  "76a21b129bbc6a7dbcd67f88f4b2e2a0ca6cb3d5188b7ba763ef669013b58b7c"
-    sha256 arm64_sonoma:   "a6594e9c2ba4bfa4f235839a9f504f354e82722ae1a2f6e7f3d9a17727ece429"
-    sha256 arm64_ventura:  "c1f6c601ae384e7ccb83c875c762ab73134dac41ce77a8cfc0fd41d166dda58a"
-    sha256 arm64_monterey: "63304d1ce4715c73c59abd0777fc34f1f77e413c4ce4d1933d78b629abb7d95e"
-    sha256 sonoma:         "330f76952b9e047eaab8fbc0e55378e600367504cded0c4c2879630559a0f6eb"
-    sha256 ventura:        "c6b26f039f0ad3f5ce853111ebb62556885c48fba36cd63f48353f8dd8a12287"
-    sha256 monterey:       "236d104feadaa7f99b8c10fef77adf469fa7499ffd55de499db04da7fd47a710"
-    sha256 arm64_linux:    "a02ae24c78dd35967c78c1212f92e47867615fca7275aa37c9f0aad836014bf3"
-    sha256 x86_64_linux:   "35d66b532fb2760b5265d32eca18f98fb8a938edcef09498fe6126e81c9fd085"
+    sha256 arm64_tahoe:   "bacd0a4fde84646627d45b4b821956d89442cd67e3645d6b6acb78957f96e01f"
+    sha256 arm64_sequoia: "8cf6e196c261898329d0bcf1ef0a0f6ea239c12f0884377e240262655464d85b"
+    sha256 arm64_sonoma:  "1612de7a532555d862636d428aaee7bb2042ed62adade421425f93fb64f5ffdf"
+    sha256 sonoma:        "8ddfafaffa683afac65283d1cb7386916d6dd81cf1bd35f04e51572ca5e2ce37"
+    sha256 arm64_linux:   "2525fee7be139490f52d7426415ac2bc8fcc916737bdddbeb464295314167429"
+    sha256 x86_64_linux:  "8a12c919696a92c83d8da6ac36c3965e70ad500810db4322e0abd72ab7bd9a4f"
   end
 
   head do
@@ -78,20 +77,19 @@ class Openconnect < Formula
     system "make", "install"
   end
 
-  def caveats
-    s = <<~EOS
-      A `vpnc-script` has been installed at #{etc}/vpnc/vpnc-script.
-    EOS
-
-    s += if (etc/"vpnc/vpnc-script.default").exist?
-      <<~EOS
-
-        To avoid destroying any local changes you have made, a newer version of this script has
+  def post_install
+    if (etc/"vpnc/vpnc-script.default").exist?
+      opoo <<~EOS
+        To avoid destroying any local changes you have made, a newer version of `vpnc-script` has
         been installed as `vpnc-script.default`.
       EOS
-    end.to_s
+    end
+  end
 
-    s
+  def caveats
+    <<~EOS
+      A `vpnc-script` has been installed at #{etc}/vpnc/vpnc-script.
+    EOS
   end
 
   test do

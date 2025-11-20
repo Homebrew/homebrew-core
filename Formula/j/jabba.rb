@@ -8,15 +8,15 @@ class Jabba < Formula
   head "https://github.com/Jabba-Team/jabba.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ca270e89401f037f27bbba15909d74e3bd2caaaaec257a68720fec024b53e3fc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7ca771e6e62bfe218b66cca1345f0fadf74231d6b5b0264816582102ade7ec4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3e0407cf46ffb79d431e20da70d23080391585438fef6681415d4bde01f8094"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "12f33d23591f130fcd82fb08d02ef355cc359819e9f690a8412b4c46486feadf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "beb282b92dc05fdbc6547d8abb9c1adcb4af6baf23182faa40272090b6fd1d29"
-    sha256 cellar: :any_skip_relocation, ventura:        "030068b5dbb9d739d9020d94f038bdfa0263fc7b96d6c1986a93322d9ff6972d"
-    sha256 cellar: :any_skip_relocation, monterey:       "bdd8ffb05d7136a668b135865e4ec2e3a3d76d04fd89352113ad94664c7de909"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3245fe15e6e1f23e23ac3a4dcd94634399e0c0ed5898550a3784c11f2c0fcee8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c3d858b92c8729670829b405334bcdec1a46e375133996510e0a318afa5f9dc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "946d898c5d8ceb5268dc1d203b639b73a4fd16d3a92f70f336db2f69b779e18c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed963ce1acd1ea436f05349d5093ed85a72d76cf034e690ae0430fa9084e8314"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "451bfa6f56c2c4f10da5bf96d5fb884adafdd6af95fc6644f77009bac128b76f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fadf80b7fb688e556dd76eda7ef195f0e3621357226f95ba2bedb26db647c041"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3c05ea18167c83b1582d6a342ad3004ca772c0773e44504cd7edaa693c31a43a"
+    sha256 cellar: :any_skip_relocation, ventura:       "2ea99aef72e1eab77ca3b0b8ba357b789f9957b7975a4fc1080c40290326f0e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "100f60eb6c134605692c706ccb22de23398028c4cb8d5219fa675c96c40ba9b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4d4d436fde9d35a6955805b447061a877867995fba0d992c1302067bd61edf7"
   end
 
   depends_on "go" => :build
@@ -30,14 +30,17 @@ class Jabba < Formula
   def caveats
     <<~EOS
       Add the following line to your ~/.bashrc or ~/.zshrc file:
-        [ -s "#{opt_pkgshare}/jabba.sh" ] && . "#{opt_pkgshare}/jabba.sh"
+        [ -s "#{opt_prefix}/jabba.sh" ] && . "#{opt_prefix}/jabba.sh"
 
       If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
-        [ -s "#{opt_pkgshare}/jabba.fish" ]; and source "#{opt_pkgshare}/jabba.fish"
+        [ -s "#{opt_prefix}/jabba.fish" ]; and source "#{opt_prefix}/jabba.fish"
     EOS
   end
 
   test do
+    assert_path_exists opt_prefix/"jabba.sh", "Caveat is outdated!"
+    assert_path_exists opt_prefix/"jabba.fish", "Caveat is outdated!"
+
     ENV["JABBA_HOME"] = testpath/"jabba_home"
     jdk_version = "zulu@17"
     system bin/"jabba", "install", jdk_version

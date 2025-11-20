@@ -1,19 +1,18 @@
 class Slumber < Formula
   desc "Terminal-based HTTP/REST client"
   homepage "https://slumber.lucaspickering.me/"
-  url "https://github.com/LucasPickering/slumber/archive/refs/tags/v3.1.3.tar.gz"
-  sha256 "bfe9ae09d8220bc4aa19f2525585afc17c64ced069c1dc670c32c2ae817078cc"
+  url "https://github.com/LucasPickering/slumber/archive/refs/tags/v4.2.0.tar.gz"
+  sha256 "358935e0b4d1a1d2f9b019fdbbee7826309abacb95c6ded3c2122c1a1a85251f"
   license "MIT"
   head "https://github.com/LucasPickering/slumber.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb9e7d2fb6f72272ee0dd27fcbb5601e878b6daa1c564c7dc4a315fc3dc70146"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2bc67b9511473c9217ebe903a8fd86c5f604706af606cbe94c6bd8477dfd4304"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "661379a5e733966a9e43c28cfe9800174f0eb053c3cb2a928fad1ccf8d8df444"
-    sha256 cellar: :any_skip_relocation, sonoma:        "13c275e1499104eb2e86924a2b26bb6e9241fc57575aeb03ae2ad7d6a5610138"
-    sha256 cellar: :any_skip_relocation, ventura:       "cd9e336a19ab470981179d0117baaa2d12e6f98cca1613d31b544ab6ef361488"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3502913ff76389d530d9bc3e4311629a38c2b4dd2e07c1c7f2e0fb77f07ba978"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2b52044c6b55a0021305c41800d11c4251e55a16afb3895b6f28af8892ef2f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bbf5661cdabe0b0cc21e3268cf2a692c39f174c0d5417cbc907fc5f90c5b8bc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "74adeb3d1cc9c6fb4aea356978f322e9d96c427a3608eba030d034b0472a9d30"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ffb2bfaf815dc6d70ce50d1f5dd4da7e98b62231d3bc68e4273297ef655baf7b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b86d2d14143d3a86d8e2ad83defbbea1e846849c82ad6c0777d337fe06bd00e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f731b9eb0bb16593a8433c36e6ae8e93095877b7f697e5e6b190c734758c1d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5105fa5b187eeae8ca93ab0a3c2f12a49bc1887b2190fcecef63f3f642b22c9d"
   end
 
   depends_on "rust" => :build
@@ -27,18 +26,11 @@ class Slumber < Formula
 
     system bin/"slumber", "new"
     assert_match <<~YAML, (testpath/"slumber.yml").read
-      # For basic usage info, see:
-      # https://slumber.lucaspickering.me/book/getting_started.html
-      # For all collection options, see:
-      # https://slumber.lucaspickering.me/book/api/request_collection/index.html
-
-      # Profiles are groups of data you can easily switch between. A common usage is
-      # to define profiles for various environments of a REST service
       profiles:
         example:
           name: Example Profile
           data:
-            host: https://httpbin.org
+            host: https://my-host
     YAML
   end
 end

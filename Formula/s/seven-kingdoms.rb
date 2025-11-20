@@ -1,8 +1,8 @@
 class SevenKingdoms < Formula
   desc "Real-time strategy game developed by Trevor Chan of Enlight Software"
   homepage "https://7kfans.com"
-  url "https://downloads.sourceforge.net/project/skfans/7KAA%202.15.6/7kaa-2.15.6.tar.gz"
-  sha256 "2c79b98dc04d79e87df7f78bcb69c1668ce72b22df0384f84b87bc550a654095"
+  url "https://downloads.sourceforge.net/project/skfans/7KAA%202.15.7/7kaa-2.15.7.tar.gz"
+  sha256 "2a9833ffe5fa7558857d4f8ba39cad1dccefadb01d298350ed8f954c75b6a6ae"
   license "GPL-2.0-only"
 
   livecheck do
@@ -12,13 +12,12 @@ class SevenKingdoms < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_sequoia: "b2d889d8c50a32132e8a843b6e11fb74f2201d8b8a5518b0e05494c425c3d38b"
-    sha256 arm64_sonoma:  "e041776b87a11f71a2b25a732df463a85965a7a9730a6fdc86ead47b88269250"
-    sha256 arm64_ventura: "5cfe334ad3d1727e92bc7c5cd43da8bd89f64b33212ee903bd3bb88946ae6b6b"
-    sha256 sonoma:        "190571e9d1291c690b91c25523469fb56448e458d9271b5927b5f6298a3901be"
-    sha256 ventura:       "0e4c24744884c459603a2fef964656acd72f417d20eb66582c58ad2c73b87cd7"
-    sha256 arm64_linux:   "fb3a76000690803f166042bc610804309c8cef5873a8e45005c4c84a529343c9"
-    sha256 x86_64_linux:  "2309306fa67efdf1de1e05fd01bb50448f9f1ca9b6688ed9ede4cd826fca877f"
+    sha256 arm64_tahoe:   "ff7bdbd3a2e4e637a6f90dd9d95051baece154f4abb30ddbb88e4a4a8b84cb24"
+    sha256 arm64_sequoia: "8e23d82f2fa267b2489c5be9f53f9423de28209db8c691a8e55ec97bba8e4879"
+    sha256 arm64_sonoma:  "5f12722cd8c266303787d1d39e58de4703b009c17b082589aaf15414e5a163a4"
+    sha256 sonoma:        "cd1588f31d2e72b42fb11b76f1ed6b10dc0340fe0021c3e26359fbd22c66e3d2"
+    sha256 arm64_linux:   "5ec481c6ff98179854ef137c1593f24225766e8670b50af3a2922cb9af683be5"
+    sha256 x86_64_linux:  "0219b6986caccfd218784b94b28717301b9c3a1bb278093b12d8934f843c881a"
   end
 
   depends_on "pkgconf" => :build

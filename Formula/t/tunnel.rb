@@ -7,6 +7,7 @@ class Tunnel < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e55c3ef84669231471ef0111b6f0d59b989a40a780def3d30badda873bb5374c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "847dc0c5ba0c3db3aa8f83cb4af3632bda3fa9bebd5a6a751c0d93a747575f7e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7ff186e3d2a8616aa808392dc79c60676e30ccd766e8841aa2d7f6e23efa84ea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8bd84b399a3ff97b60c445f54dcc918c98fd1804bfb4fd4ffbf0c2583fa6327d"
@@ -17,6 +18,7 @@ class Tunnel < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "b63c0576e0a46d3177fcb0574dc63bc252885ab52840f3454eb3660f31fcb744"
     sha256 cellar: :any_skip_relocation, big_sur:        "cb4ebc8c76b4866aeaa4da672e81e7027ffad1f4d78a7867aa1b17511827b3bd"
     sha256 cellar: :any_skip_relocation, catalina:       "8119646cdda9c9578230f230b8b9156159d9adecbf30b1c8d6fed8ddbdce54bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4718f19cf9adc078564221a450b1b8229d1aecfb0e7b6e1cd05c26eaf9a9d30d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a079e012dffd514c536355269716695a150db0dc30cd3ea2c27aee789615805"
   end
 
@@ -30,6 +32,6 @@ class Tunnel < Formula
   end
 
   test do
-    assert_match "you need an api key", shell_output(bin/"tunnel 8080", 1)
+    assert_match "you need an api key", shell_output("#{bin}/tunnel 8080", 1)
   end
 end

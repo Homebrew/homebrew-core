@@ -8,10 +8,11 @@ class Cpplint < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e806fee8faa6d3aa1ea85acfe05ddb6b436f60ec95754190bc2b5ad893140218"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "439258003bfc9b3bc95292234c4e295da040ba5057bd3dcac53204824e3b0caa"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

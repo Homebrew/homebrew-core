@@ -14,6 +14,7 @@ class CfrDecompiler < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b9f2ede10e95cb821c217666b2d683599416db1dfc2322f6f906e3206f35495d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4c353a0377fae2693e2c537b0e688bc99e883e0d918451061307cebf05789c16"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f63cb5e80ccaf8885580a6b7fddd4afa691bd875a8f6bee8ee059a385b7b4e32"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba4ca41c352f4dd210c5c399a898ab7f6ab79cc7487ff6f8339b8467d030a998"

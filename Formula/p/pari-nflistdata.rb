@@ -16,6 +16,8 @@ class PariNflistdata < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "52f37e4b207b7497e4c44d4bc8af0cd6126fa91e12cd4381dbd367eaac5daad5"

@@ -1,30 +1,22 @@
 class Idris2 < Formula
   desc "Pure functional programming language with dependent types"
   homepage "https://www.idris-lang.org/"
-  url "https://github.com/idris-lang/Idris2/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "7a8612a1cd9f1f737893247260c6942bf93f193375d4b3df0148f7abf74d6e14"
+  url "https://github.com/idris-lang/Idris2/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "7b85226098c5dee96a0a77c892932d2e9fab8e5a5c2d08a0525520e1f4405551"
   license "BSD-3-Clause"
-  revision 4
   head "https://github.com/idris-lang/Idris2.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "f2e9a79eac9603493e64a21505f127cc98d64e418b5fbfd82ed02a9144b7dcb5"
-    sha256 cellar: :any, arm64_sonoma:  "5b85059f83fe007bbf8de891999e16da762694cdec97ba66ad304f65c9a6e149"
-    sha256 cellar: :any, arm64_ventura: "0a53ba9dcbb69069d2dcfa18c41a92507f950b7cba74e805f10be724e10cafcd"
-    sha256 cellar: :any, sonoma:        "dbc307d2c2f47d019a8cc3a172434e05187bc1bc62f342d0c8b598b72a07e5ee"
-    sha256 cellar: :any, ventura:       "f6eec5a8db64201ed600264c4ab6348fcbe70c9901d8c7f2337ad18530c3450e"
-    sha256               arm64_linux:   "a0b776d5066bf8834d1ce1afc5b84ec6c514b7ad7c5cbe253875f320a514d6de"
-    sha256               x86_64_linux:  "1bd3781f33f5138c4e88482b003c084ac56294258bc0115ee999d54a01290c99"
+    sha256 cellar: :any, arm64_tahoe:   "768acb8421fcfde56de83b7f36637ab31189a939bab606cb6084b04a2e63ec3e"
+    sha256 cellar: :any, arm64_sequoia: "05546943e537df2312e319a916b217a3e0683c353cb1dce499692c5250220201"
+    sha256 cellar: :any, arm64_sonoma:  "e31df26bcafb55dc49d8e547543981045a7f86d4bd9d8132bdf5eeb538147f52"
+    sha256 cellar: :any, sonoma:        "9239b97ee3e0176d9d016f4dc1e194f0e25251bf403aa37776bac289092dcda3"
+    sha256               arm64_linux:   "d26d06c4c596187bf494e48afe507e9d036db5d5ba7d7de91c159fb661619dc5"
+    sha256               x86_64_linux:  "69e8edc3851beb8bfbd130453a8cb49831e443d7f16702c063cfae3ef032ddc3"
   end
 
   depends_on "gmp" => :build
   depends_on "chezscheme"
-
-  on_high_sierra :or_older do
-    depends_on "zsh" => :build
-  end
 
   def install
     scheme = Formula["chezscheme"].opt_bin/"chez"

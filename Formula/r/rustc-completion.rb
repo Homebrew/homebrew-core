@@ -15,6 +15,8 @@ class RustcCompletion < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "25c56cce81d2dbed3850ae8bcfc984a605ce5e734bacb82aefece825e896b9db"

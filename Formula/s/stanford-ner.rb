@@ -10,6 +10,8 @@ class StanfordNer < Formula
     regex(/href=.*?stanford-ner[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "caf1491537a74417f2d4070335d5c281ce60387d984726f77458b329b0fbe9c8"

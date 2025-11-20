@@ -1,8 +1,8 @@
 class TclTkAT8 < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl-lang.org"
-  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.16/tcl8.6.16-src.tar.gz"
-  sha256 "91cb8fa61771c63c262efb553059b7c7ad6757afa5857af6265e4b0bdc2a14a5"
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.17/tcl8.6.17-src.tar.gz"
+  sha256 "a3903371efcce8a405c5c245d029e9f6850258a60fa3761c4d58995610949b31"
   license "TCL"
 
   livecheck do
@@ -11,13 +11,14 @@ class TclTkAT8 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f2bc0545e0e48b4029c35281527224d2dd12deead360a6a982c77e82986c9bfd"
-    sha256 arm64_sonoma:  "f3f32a9ace4e639678829daae9c7d8ced421144db16d944438ff5a2285d99e7f"
-    sha256 arm64_ventura: "72de6c290a2095906aea8dc034af2b81f88c5efc162adf642c90486c74ef0ab5"
-    sha256 sonoma:        "2d568cf0322e7bd4151c7bc1fd714c017a8c037fb238ea0d2f9aed7ac8cb22dd"
-    sha256 ventura:       "5cd357c52827c17fc0c648f7134f4cf0bb11f3621a65f2b2a58f2ddd86db2c62"
-    sha256 arm64_linux:   "c7af04cbdb5930ea4c7cfdc132f007f1d50e321f11e755226ce72cda01e0cb71"
-    sha256 x86_64_linux:  "1208ceb8fe4df5fde9596567c11a8f2e956dacec3af26f6148eee9f6a93d7294"
+    sha256 arm64_tahoe:   "dcb91a0ce161a5de4411a331fbdc0443e010f16e867a26e093583ca0c6b1ebbb"
+    sha256 arm64_sequoia: "fd1ae557ac59471bc1a6b141a78273fe7b1e2154186c27ef599b508affb8c69f"
+    sha256 arm64_sonoma:  "46cb139db73eab4d113778559f21c7e8c5c3914dbf6524962bd88bf15d3915ae"
+    sha256 arm64_ventura: "e2f813b5b23dda76c8d961f118a4a77360e72caaab03255c71070dc0649078dc"
+    sha256 sonoma:        "65215a409050220c17bd917ec3738a6b97bd9328848bc289c2b370f25f1c7ee8"
+    sha256 ventura:       "44a8171122f23f667cffea136a25077b952948565eeaa6859809ed70ae128762"
+    sha256 arm64_linux:   "7ec5ecf3c4291c7b56b15aea1ebfb3812de07893579e4135d454ff2443e2d39a"
+    sha256 x86_64_linux:  "86181bc79ec5677dbcf649598e7cecb3760172ec1419caa330ace6f71e29e30f"
   end
 
   keg_only :versioned_formula
@@ -49,8 +50,8 @@ class TclTkAT8 < Formula
   end
 
   resource "tk" do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.16/tk8.6.16-src.tar.gz"
-    sha256 "be9f94d3575d4b3099d84bc3c10de8994df2d7aa405208173c709cc404a7e5fe"
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.17/tk8.6.17-src.tar.gz"
+    sha256 "e4982df6f969c08bf9dd858a6891059b4a3f50dc6c87c10abadbbe2fc4838946"
 
     livecheck do
       formula :parent

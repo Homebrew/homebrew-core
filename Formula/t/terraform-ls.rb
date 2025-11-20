@@ -1,8 +1,8 @@
 class TerraformLs < Formula
   desc "Terraform Language Server"
   homepage "https://github.com/hashicorp/terraform-ls"
-  url "https://github.com/hashicorp/terraform-ls/archive/refs/tags/v0.36.4.tar.gz"
-  sha256 "c52a38fe5e4a5e16660e24a23d090b85e37a543efa0aaa6cb82238c0bc22e144"
+  url "https://github.com/hashicorp/terraform-ls/archive/refs/tags/v0.38.2.tar.gz"
+  sha256 "7f309f0eb1ef42386c9bc29d0050d2607c456cb08ad1fa5966b04790c4779a11"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform-ls.git", branch: "main"
 
@@ -12,12 +12,12 @@ class TerraformLs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ffde394a1ef4f2ce01db0a2accb3e1655688f071ecb04944d32749e4817ee5c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ffde394a1ef4f2ce01db0a2accb3e1655688f071ecb04944d32749e4817ee5c1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ffde394a1ef4f2ce01db0a2accb3e1655688f071ecb04944d32749e4817ee5c1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "94612fd0823787c84621378278a1b5d1c353eda810b9aaad08794a4031076b46"
-    sha256 cellar: :any_skip_relocation, ventura:       "94612fd0823787c84621378278a1b5d1c353eda810b9aaad08794a4031076b46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cded371eab11241e1e47160461535c2809893a0d56b905aeb3a5e91dab248a82"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e22dc5c03073df6d2cfb6327ddc9132130fcc31753621ffdb5c7d4fa87aa78d7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e22dc5c03073df6d2cfb6327ddc9132130fcc31753621ffdb5c7d4fa87aa78d7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e22dc5c03073df6d2cfb6327ddc9132130fcc31753621ffdb5c7d4fa87aa78d7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5aa0bd88c9a2579fa25b2ab37a9f8c063619308153406bf52d24ad4c57553b57"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "008feee1598ebbcc0450e7ffea44bc8843bcaaf757ec2c6e80a70e1e40912026"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a52adac219fbde5f56abe43322ad66a0379387fc6aa663e512b6d1c5c03d3c4d"
   end
 
   depends_on "go" => :build

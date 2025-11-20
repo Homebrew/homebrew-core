@@ -4,11 +4,10 @@ class CargoWatch < Formula
   url "https://github.com/watchexec/cargo-watch/archive/refs/tags/v8.5.3.tar.gz"
   sha256 "1884674d19492727d762da91b9aebc05d29bdb34cdb1903cde36d81edbcc6514"
   license "CC0-1.0"
-  head "https://github.com/watchexec/cargo-watch.git", branch: "main"
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/watchexec/cargo-watch.git", branch: "8.x"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2498b5772d684e6b6021a83c7e4f5c390b089fb0e206a8fc000d2bb670736b6c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e89525ad4d4dcff0e84930435fafab04934a7ed2cf2701e5747a9d953c9e9b3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d767cc28d20886e772e0ba5ea5b32be862b609d79ddaf8f8dd7dfde4e1cbb8a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d4f823712d892ad4cea59e3a9efb158f2aa03966df7f0ac970b9c5656476e9f3"

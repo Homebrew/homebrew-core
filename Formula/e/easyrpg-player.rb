@@ -4,6 +4,7 @@ class EasyrpgPlayer < Formula
   url "https://easyrpg.org/downloads/player/0.8.1.1/easyrpg-player-0.8.1.1.tar.xz"
   sha256 "52ab46efdc5253a5ef08d3eee49c84d5c5cbb770929f28a08681fe01e5279bb2"
   license "GPL-3.0-or-later"
+  revision 2
 
   livecheck do
     url "https://easyrpg.org/player/downloads/"
@@ -11,13 +12,12 @@ class EasyrpgPlayer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "92db38c733393d101b7f408ab5ceffef2b4ed4d738cc736d0cb63b6188b4566f"
-    sha256 cellar: :any,                 arm64_sonoma:  "3e856d3375dc9bc24ea8d1daba95b5d70425aa9624bf952de217e80f56b7304a"
-    sha256 cellar: :any,                 arm64_ventura: "46a23bf672d452cd6c3a4473703f55cb50f39dbbefc8124e4f55226a1327de5d"
-    sha256 cellar: :any,                 sonoma:        "0d18f1c5eff68ac87fc93e05b86d45b99c48476e6264cf0adb5c0aef0bc38d0b"
-    sha256 cellar: :any,                 ventura:       "aff66edf7ec8d8349ed07c31617ab0034da3449ff153cf50cf24b0e40b505a6d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7faaaf67aac67ae3549a3bfd5c80fc43f2c516fbfb962f5094779b81f2736a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2316bb07a7853aa8b92ab96391530ffc09b6c1c5ab91a7db99ac5a5154a2d3af"
+    sha256 cellar: :any,                 arm64_tahoe:   "010c14b95eb5e8fe48becc6514332b5aa893c70253f3343eb485447d4e29944b"
+    sha256 cellar: :any,                 arm64_sequoia: "147cff0fae0012e7b6b9c7067ab1e51696a0c16c67666bedd09013c2a32bad78"
+    sha256 cellar: :any,                 arm64_sonoma:  "ed0af9ae907e58d82ae9318ebed9ed031718089b0936762e95689f84df763abd"
+    sha256 cellar: :any,                 sonoma:        "66310aa05ec8ee09e282e1dd042e5e860b9f55369b557bb7850d5abd07c06fb6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2d5f939dea1d2c04a49f0adcb0cd7e906039db2094793a21100821cf316014b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf66f728208ecc9253c29ddc21b0cb6b6afe569d81ff2e85f73dd3c6a1f473c1"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +26,7 @@ class EasyrpgPlayer < Formula
   depends_on "fmt"
   depends_on "freetype"
   depends_on "harfbuzz"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "liblcf"
   depends_on "libpng"
   depends_on "libsndfile"

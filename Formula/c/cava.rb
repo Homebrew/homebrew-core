@@ -1,19 +1,20 @@
 class Cava < Formula
   desc "Console-based Audio Visualizer for ALSA"
   homepage "https://github.com/karlstav/cava"
-  url "https://github.com/karlstav/cava/archive/refs/tags/0.10.4.tar.gz"
-  sha256 "5a2efedf2d809d70770f49349f28a5c056f1ba9b3f5476e78744291a468e206a"
+  url "https://github.com/karlstav/cava/archive/refs/tags/0.10.6.tar.gz"
+  sha256 "b1ce6653659a138cbaebf0ef2643a1569525559c597162e90bf9304ac8781398"
   license "MIT"
   head "https://github.com/karlstav/cava.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "fc71ed1ee831644035fdce90d1a95ec22e6b628cf8272fe021a96c541915a5a3"
-    sha256 cellar: :any, arm64_sonoma:  "5dbaed52f9b4450cda2ee03f98538d49f9d8a071a637a4ec583a1f112d86e404"
-    sha256 cellar: :any, arm64_ventura: "9a28fd6da1772968860f7e90e7f4de6d3f733e9f8131d4cc35ea0d089207b681"
-    sha256 cellar: :any, sonoma:        "4195486bcc4c14f0c9dfa0f229ef4a2f17a577132b50e402af480df0263ed5bd"
-    sha256 cellar: :any, ventura:       "fc4e24b6e06d3c7b6839fe7c9ddf089cb874e2cf3b2b69ae98fa21ca21c9cf2e"
-    sha256               arm64_linux:   "a47b2f16fb7660eea601173a303838c4b7d56f317f152afef4369fa9b5d96c84"
-    sha256               x86_64_linux:  "e85e6e26804aff07eb2d748904dd810a1427d2cbd3e328e912356fcace9102e1"
+    sha256 cellar: :any, arm64_tahoe:   "c421542c3581b9cae41580a3887629139b91349b35ee9b0895e8d1227b4b50d7"
+    sha256 cellar: :any, arm64_sequoia: "334969b0165063868eae0939daf699d41dba964e7ae8a23e38b8a13509cfda64"
+    sha256 cellar: :any, arm64_sonoma:  "07df7109a204021ff71a40549cce4b501068202042013afdeecd76377e5d79ed"
+    sha256 cellar: :any, arm64_ventura: "1f1500c5185be5012d79139a50d6a57381bcf64caa321c2cc3b290af89bae4fd"
+    sha256 cellar: :any, sonoma:        "45f2092f455d81b05679d70223017d74e263299fd0a1e3c1dd43cd2d32f6088f"
+    sha256 cellar: :any, ventura:       "0fce634640d2113ada60209af6796d063a43f4d5b4a8b3d9956b811b311ff4ff"
+    sha256               arm64_linux:   "31f97961aee0b8d17b33a20c5c7f9866038efa26cad0fceb56d023355c1f162d"
+    sha256               x86_64_linux:  "f008fbafb2cd10604b212ba163ccb1cb168f3f1927ad65d50f4dabe36e7aa562"
   end
 
   depends_on "autoconf" => :build

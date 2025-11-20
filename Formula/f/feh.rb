@@ -1,8 +1,8 @@
 class Feh < Formula
   desc "X11 image viewer"
   homepage "https://feh.finalrewind.org/"
-  url "https://feh.finalrewind.org/feh-3.10.3.tar.bz2"
-  sha256 "5426e2799770217af1e01c2e8c182d9ca8687d84613321d8ab4a66fe4041e9c8"
+  url "https://feh.finalrewind.org/feh-3.11.2.tar.bz2"
+  sha256 "020f8bce84c709333dcc6ec5fff36313782e0b50662754947c6585d922a7a7b2"
   license "MIT-feh"
 
   livecheck do
@@ -11,15 +11,14 @@ class Feh < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "03b543a2d8877b5113e8e539ead4ac474cc752e73552eaa61112c7b76b426614"
-    sha256 arm64_sonoma:   "d03c242ca267dcb850ea99487d1aaebd074f8ec55b6243e2873cd37b408ba599"
-    sha256 arm64_ventura:  "a4633eff1f55706325a815ab32490c90c8292d47a823ff524e1cc75f246a7ed3"
-    sha256 arm64_monterey: "6d34e4281efec9c7b96452d199427705cee39583ebd2b4327c90287266296ba2"
-    sha256 sonoma:         "e654d6e73ff32e16743333fd0525b18697a95b326900caa552840a675cb8ff51"
-    sha256 ventura:        "8596aca255c4f0c59e074c29379f67bea2ae0bf60fb3c291f3daadca8c2dcfa9"
-    sha256 monterey:       "9f9352b3c8f466864d188f4ae685c49f0e134a5f8806b696e89fbcd8770ebd45"
-    sha256 arm64_linux:    "0f19c5be08d421f494051052625070f56de23fdca9e5376ec5db13787f7c93f9"
-    sha256 x86_64_linux:   "ed7a6b2ac64f87b5a2fe8e77eeb4f4f787da91801f76ca5fbc4c27d251152329"
+    sha256 arm64_tahoe:   "ea2431b081ae0c1666b22c1978ae47d6c695fcae7c394d05a5f905830bef1052"
+    sha256 arm64_sequoia: "8dae097b398a9333074c385533575743aec0b7e9769c6e11dcd339b8cfa936d0"
+    sha256 arm64_sonoma:  "07849cd9a91b886ac818842e6a4f232f677536020849e70530c0571402a1df30"
+    sha256 arm64_ventura: "d80fe37d32f46343483838ecde0b761abd6e392dcfc7ad65bebfeac907d06da6"
+    sha256 sonoma:        "84875581a10cbd2c8842da604814f679d695d46e608d103b059544419e2e9bc2"
+    sha256 ventura:       "952fe54cc54051f92b79a6831a23a3ca7305b6a1274131a702c213476edd1d8d"
+    sha256 arm64_linux:   "23ff23d2b8b954cb4ba6312a11be3e1eeb08aa344424b5bb1012a4ac3bd947ee"
+    sha256 x86_64_linux:  "fcd31189b116cf590d8e006fabd80fee8c32639d1b3b69f8865bbf6ae2728dda"
   end
 
   depends_on "imlib2"

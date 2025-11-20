@@ -2,23 +2,24 @@ class Librime < Formula
   desc "Rime Input Method Engine"
   homepage "https://rime.im"
   url "https://github.com/rime/librime.git",
-      tag:      "1.13.1",
-      revision: "1c23358157934bd6e6d6981f0c0164f05393b497"
+      tag:      "1.14.0",
+      revision: "e053fb29e4a7c584d93c81e2e314bc1c9efca0a6"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cf413846de5257ed69c635bda821c97ad3a36ced35142c3f6fafd60900870b6b"
-    sha256 cellar: :any,                 arm64_sonoma:  "a0f8ec80406b78209f9796a65364590f81620323b8068af4ad6a1af37e390656"
-    sha256 cellar: :any,                 arm64_ventura: "88ab106ef147e60b6f4d8220d0662891819da6209f0d1e9e02360f7095345669"
-    sha256 cellar: :any,                 sonoma:        "945951fb791064e11b3889224ecb58c92f7eddd103034d444263dfe3a74a698a"
-    sha256 cellar: :any,                 ventura:       "74a5240d68f3b45727523df8c4f469f95aa6aab40ef8f39dbdd201bf1f5b8614"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa93377e6691b4d4d6a323beda9f27381d5b7f805a0a21287a4d42fccbd1a9bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa8f6a3c5c42fbf14423d398f68eb17dc40cc43615e815c763ee97b31bb9c828"
+    sha256 cellar: :any,                 arm64_tahoe:   "f30fc8c4a91b6d4cd7c03d7be232e34f518ab856dd2d1723a939ff3a4d3a09da"
+    sha256 cellar: :any,                 arm64_sequoia: "1adf609bd7d7fbdefdc4c61f22286353bc58e3ccaa37f017d4a95d9fdcb682c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "14d9f57764a6b5a0d53c7f3873be7662b7c165f573094860fb40623cd0691857"
+    sha256 cellar: :any,                 arm64_ventura: "6e45c1b22aaa6aceb263b1193c2da3f8abaaf1d7ef1a024616f12baf052e02dd"
+    sha256 cellar: :any,                 sonoma:        "d29dc1c67f9718755b41cd7c6468635b8c84e9c1139be79b5da2210bf95cf7e6"
+    sha256 cellar: :any,                 ventura:       "fb36ab6bfc5025f2094a4c79635ab3e1c3c79b377382dd1c0253eed5c67467c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "593b69d2cd6eb87d1ce411007bfd7cd8b28e28c4e04c3d0e19c657becd9ec2be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1fbfebca1dd86132c8420fc30d41c44728371a473c6ae4e608d82cf7a7d27cd"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "icu4c@77" => :build
+  depends_on "icu4c@78" => :build
   depends_on "pkgconf" => :build
 
   depends_on "capnp"
@@ -32,7 +33,7 @@ class Librime < Formula
 
   resource "lua" do
     url "https://github.com/hchunhui/librime-lua.git",
-        revision: "e3912a4b3ac2c202d89face3fef3d41eb1d7fcd6"
+        revision: "68f9c364a2d25a04c7d4794981d7c796b05ab627"
   end
 
   resource "octagram" do

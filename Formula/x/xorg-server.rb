@@ -1,19 +1,17 @@
 class XorgServer < Formula
   desc "X Window System display server"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.16.tar.xz"
-  sha256 "b14a116d2d805debc5b5b2aac505a279e69b217dae2fae2dfcb62400471a9970"
+  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.20.tar.xz"
+  sha256 "7695bc61824b3a81b6bad2f78b05400ca015003de402d1b322117105b702e937"
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "e9ff9b62d898703ddca09e82b036a67351e6aa14c1f08ebe4bf2772fadbd7055"
-    sha256 arm64_sonoma:  "36fe7319a1317e7ea64b09a794a0c86d14f2066e887733dda516f23cdd05f773"
-    sha256 arm64_ventura: "725bff18ee85feaa9c758250a57fa14253cd087ab2e25805024a2758fc1c71cf"
-    sha256 sonoma:        "07f8f3a4e8e88b19c022a54f3e5512a95ca5984529ed435a0831284867e5b581"
-    sha256 ventura:       "a593137347c22716ea4098ecda532c2f9d8082c51d128de11059a78645a8e8cb"
-    sha256 arm64_linux:   "dd9f4e8d0a87b0390cf5c76ab45fec1e543cf6f7d3132dbc9cfab558cd9110e4"
-    sha256 x86_64_linux:  "ba290274fa63ac05cfb29e29e31944fe9e9f118ef5ef69b08e1b369c28f1add3"
+    sha256 arm64_tahoe:   "edcc8f7f93c9c7b94ce3b60df6a876a360b2b9a47c930a06a1c04333485f7920"
+    sha256 arm64_sequoia: "2ccb44fb003a0fb78d1cf76cedb487b257c02bef41e7e2971123b94263a3b35e"
+    sha256 arm64_sonoma:  "4564943dd94458bfaa7600510b739d05a317b716fb0b3fae36e1645d4596d719"
+    sha256 sonoma:        "dcd00cf2a3d45b9694155b31cab6b4546677e872ea2bdfa36b0dfd4647451e4b"
+    sha256 arm64_linux:   "fc2d46cd50faac24dcc2469f612e33f70f3811f903de31405e4f2389201484b3"
+    sha256 x86_64_linux:  "787b07cc6724a0f34855566d8fdb2b63dd77ec9520469536c818af9a98406fb2"
   end
 
   depends_on "font-util"   => :build
@@ -131,13 +129,14 @@ class XorgServer < Formula
     xcb = Formula["libxcb"]
     system ENV.cc, "./test.c", "-o", "test", "-I#{xcb.include}", "-L#{xcb.lib}", "-lxcb"
 
-    fork do
-      exec bin/"Xvfb", ":1"
+    xvfb_pid = spawn bin/"Xvfb", ":1"
+    with_env(DISPLAY: ":1") do
+      sleep 10
+      sleep 30 if OS.mac? && Hardware::CPU.intel?
+      system "./test"
+      system bin/"xvfb-run", "./test" if OS.linux?
+    ensure
+      Process.kill("TERM", xvfb_pid)
     end
-    ENV["DISPLAY"] = ":1"
-    sleep 10
-    system "./test"
-
-    system bin/"xvfb-run", "./test" if OS.linux?
   end
 end

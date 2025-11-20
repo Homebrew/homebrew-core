@@ -4,13 +4,13 @@ class Gstreamer < Formula
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.26.2/gstreamer-1.26.2.tar.bz2"
-    sha256 "f0eff99e404d4b2dd4b0ee21a3e156fe2cf44ce619c801140417c1b6b33ad88d"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.26.8/gstreamer-1.26.8.tar.bz2"
+    sha256 "e65c4bb46e813dfd7bdb0e03a989db9beb994feeb8e5060fcabdcb0d7107af55"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.26.2/gst-plugins-rs-gstreamer-1.26.2.tar.bz2"
-      sha256 "90e5d06332d567ebc8eb3851380d04144c94132345633f65359aea8dbcb9d5dc"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.26.8/gst-plugins-rs-gstreamer-1.26.8.tar.bz2"
+      sha256 "d51c8601483e664dce74998ba74e3885f96459862abc3124700bb24367bcf822"
 
       livecheck do
         formula :parent
@@ -24,13 +24,12 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "4725d81f057d92f0419e0620cb91ff720724f25d1394a7b4c83953a36cb7c6c4"
-    sha256 arm64_sonoma:  "13ed02e6b0f3dfc35b220b240de367a1a455613d358f4f6d5fc8f03c7adf687e"
-    sha256 arm64_ventura: "2860d106a00a9892ca2a2b4b0a255b3301227a0bcb164a719349f279759d7c2e"
-    sha256 sonoma:        "94e44959d4a1ea612cbbf6d68f8179f6e40fa8a9a98a42cc0361516fe584203b"
-    sha256 ventura:       "f7a85d389c84b8f104d00f3c82ae36f885d3659e561833d7e82541f416c4ccec"
-    sha256 arm64_linux:   "399c4b5ef7a4c2d4210a5c1eddc91b2536498808593f28429940e6adaf0bf47d"
-    sha256 x86_64_linux:  "de9e80affa2bfc3432ebcf668bd3c9a34575943be75c71cea33ebd0a47d2b9dc"
+    sha256 arm64_tahoe:   "7bcc2a04eb2366c990eae866f0b4465655fcf3303199b83e094e773baf70de92"
+    sha256 arm64_sequoia: "7b58bf5616e95f847b51a5f3b61d4be360b3a3f5abfee7353278e7ccd2486ab9"
+    sha256 arm64_sonoma:  "02d0829c7550efac098c55e88c5d8226acd73556d312e12ac790e16032edc4ac"
+    sha256 sonoma:        "451b6d2d7fe233035cbe51fd4c332bdbdce943794316d273f3c3e837f0ea8abc"
+    sha256 arm64_linux:   "960d6cfa21841b46b9621b11016bb3ed39bf295a279f153dc8d21a0aadb6ccd4"
+    sha256 x86_64_linux:  "f4d018e8e6e39b9e260cd013e501808a9d7b26a0a7db85dd913d7c66ee727123"
   end
 
   head do
@@ -71,6 +70,7 @@ class Gstreamer < Formula
   depends_on "libnice"
   depends_on "libogg"
   depends_on "libpng"
+  depends_on "librsvg"
   depends_on "libshout"
   depends_on "libsndfile"
   depends_on "libsodium"
@@ -95,7 +95,7 @@ class Gstreamer < Formula
   depends_on "orc"
   depends_on "pango"
   depends_on "pygobject3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "rtmpdump"
   depends_on "speex"
   depends_on "srt"
@@ -123,6 +123,8 @@ class Gstreamer < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "fontconfig"
+    depends_on "freetype"
     depends_on "libdrm"
     depends_on "libva"
     depends_on "libxdamage"
@@ -133,13 +135,13 @@ class Gstreamer < Formula
   end
 
   def python3
-    which("python3.13")
+    which("python3.14")
   end
 
   # These paths used to live in various `gst-*` formulae.
   link_overwrite "bin/gst-*", "lib/ligst*", "lib/libges*", "lib/girepository-1.0/Gst*-1.0.typelib"
   link_overwrite "lib/girepository-1.0/GES-1.0.typelib", "lib/gst-validate-launcher/*", "lib/gstreamer-1.0/*"
-  link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.13/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
+  link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.14/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
   link_overwrite "share/gir-1.0/Gst*.gir", "share/gir-1.0/GES-1.0.gir", "share/gstreamer-1.0/*"
   link_overwrite "share/locale/*/LC_MESSAGES/gst-*.mo", "share/man/man1/g*"
 
@@ -200,9 +202,6 @@ class Gstreamer < Formula
       -Dgst-plugins-rs:sodium-source=system
     ]
 
-    # The apple media plug-in uses API that was added in Mojave
-    args << "-Dgst-plugins-bad:applemedia=disabled" if OS.mac? && MacOS.version <= :high_sierra
-
     # Ban trying to chown to root.
     # https://bugzilla.gnome.org/show_bug.cgi?id=750367
     args << "-Dgstreamer:ptp-helper-permissions=none"
@@ -214,21 +213,7 @@ class Gstreamer < Formula
     # https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/issues/279
     plugin_dir = lib/"gstreamer-1.0"
     rpath_args = [loader_path, rpath(source: plugin_dir)].map { |path| "-rpath,#{path}" }
-    ENV.append "RUSTFLAGS", "--codegen link-args=-Wl,#{rpath_args.join(",")}"
-
-    # On Linux, adjust processing of RUSTFLAGS to avoid using shlex, which may mangle our
-    # RPATH-related flags, due to the presence of `$` in $ORIGIN.
-    if OS.linux?
-      wrapper_files = %w[
-        subprojects/gst-plugins-rs/cargo_wrapper.py
-        subprojects/gst-devtools/dots-viewer/cargo_wrapper.py
-      ]
-      inreplace wrapper_files do |s|
-        s.gsub!(/shlex\.split\(env\.get\(("RUSTFLAGS"|'RUSTFLAGS'), (""|'')\)\)/,
-                "' '.split(env.get(\"RUSTFLAGS\", \"\"))")
-        s.gsub! "shlex_join(rust_flags)", "' '.join(rust_flags)"
-      end
-    end
+    ENV.append_to_rustflags "--codegen link-args=-Wl,#{rpath_args.join(",")}"
 
     # Make sure the `openssl-sys` crate uses our OpenSSL.
     ENV["OPENSSL_NO_VENDOR"] = "1"

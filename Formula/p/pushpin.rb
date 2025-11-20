@@ -1,19 +1,19 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://github.com/fastly/pushpin/releases/download/v1.40.1/pushpin-1.40.1.tar.bz2"
-  sha256 "64b6486160ecffdac9d6452463e980433800858cc0877c40736985bf67634044"
+  url "https://github.com/fastly/pushpin/releases/download/v1.41.0/pushpin-1.41.0.tar.bz2"
+  sha256 "1ceef0b8da5229a066906797e47795905f1fe8fb1477edc9d5799720df9943ef"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/fastly/pushpin.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:  "b21a3a9a5ebc10ca3f753bde79a40e21b47f12e5c5dff5323f519195efdaa449"
-    sha256 cellar: :any,                 arm64_ventura: "93ed50774f9359a82d2758c28a9feb42c967a4699247b1fbbd4ee38f3f0838a4"
-    sha256 cellar: :any,                 sonoma:        "445efcf66fc080457df5cd035952d9d9e480bb88913b620a64339dc4a5fc19a4"
-    sha256 cellar: :any,                 ventura:       "5cb0cb08f8b383f1f49ddc488d91282971937f045b1590583bfe8e8cd780d7de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f1d6d7bd7fca315386205d982a48853efa8a1cbe3e04695c63950f0a0d31782"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "9cb6d39776602c4d4169a89d281ae69733646412b8fbbba9b9a99344ba7b31a4"
+    sha256 cellar: :any,                 arm64_sequoia: "10d962ce0bcb230d74ed1749762f3979abedf90c08bc54bfa26962c29eb8e6db"
+    sha256 cellar: :any,                 arm64_sonoma:  "343772a7d9955e016e3a7081bc1dabe70915a77702bf460f8f611f7452410294"
+    sha256 cellar: :any,                 sonoma:        "0be6e6bb46c5d8b38368b3d2719bff619c3c68ceca932e79b3961c3825b635a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9fe7194d3f79941769c3b67d92ddae001ed7a5eb4bbcf50dd976729ab3c964fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b598f60bcaf636f79032f8e3d91544a495109746f7d02c7fde223e5befc4768"
   end
 
   depends_on "boost" => :build
@@ -21,8 +21,8 @@ class Pushpin < Formula
   depends_on "rust" => :build
 
   depends_on "openssl@3"
-  depends_on "python@3.13"
-  depends_on "qt"
+  depends_on "python@3.14"
+  depends_on "qtbase"
   depends_on "zeromq"
   depends_on "zurl"
 
@@ -111,7 +111,7 @@ class Pushpin < Formula
     sleep 5
 
     begin
-      system Formula["python@3.13"].opt_bin/"python3.13", runfile
+      system Formula["python@3.14"].opt_bin/"python3.14", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

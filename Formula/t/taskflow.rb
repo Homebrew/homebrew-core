@@ -6,6 +6,8 @@ class Taskflow < Formula
   license "MIT"
   head "https://github.com/taskflow/taskflow.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "19f3e408df4d63fc9360f3a8606b266c64788765291fd5ee92cba91c6d6f4c29"
   end

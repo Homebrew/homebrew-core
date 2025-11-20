@@ -11,25 +11,27 @@ class Libbtbb < Formula
   head "https://github.com/greatscottgadgets/libbtbb.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sequoia: "64901cfb8edd8d6ccbb685335ef735d0de585d4e2d82b246a9e720fde31a60cb"
-    sha256 cellar: :any,                 arm64_sonoma:  "e726852f1f39301c67986c7b6dbfb0c182b8c5fb409c59a0c0cae4f3871ce0bb"
-    sha256 cellar: :any,                 arm64_ventura: "cf6b1a34c31a753e2ff677dad8b5668c05a3c7f857ab4d961e8ed5218b83313c"
-    sha256 cellar: :any,                 sonoma:        "9328d6ce06defac48d51045a420021f25b7ce7165c766d702c14611ae8c2fc92"
-    sha256 cellar: :any,                 ventura:       "f82f1bcc5ad54c8fc3c86295050bcab0f570b99904f1582464b6c0131d10cc5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "85e0a063f6196f8022335ecb838bfc169e2116533ced2ac80b510bb032694507"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb29f005dbfc0f47754c839a37d3812f1c872409e7918426c5e1ed9bf345d744"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_tahoe:   "2546c5a279da682e9537ff11918430009f3eb3b66e431f596ce4d3b89eff1135"
+    sha256 cellar: :any,                 arm64_sequoia: "7f4e5da4ab2a65a1380e90c86d34eb04ae0d741723e34abf8177ccefe4ea3a2e"
+    sha256 cellar: :any,                 arm64_sonoma:  "5d3482171f8d473bb80e5b0f912c55e80f94d02603ead6867c82ebdbe5679422"
+    sha256 cellar: :any,                 sonoma:        "b4149cbb04f90319f1e6208e8e2c8b3f84dfd4dc606f5e986e4a049ff364c64a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba2809209ffb2b0b04283d986308aedb24aa22ba33c0912991a7d28386181b15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "744108237f21bb9b38a34b0487a6c151d759d3a343244e916e11d83ceb180511"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DENABLE_PYTHON=OFF", *std_cmake_args
+    args = %w[-DENABLE_PYTHON=OFF]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    system "python3.13", "-m", "pip", "install", *std_pip_args(build_isolation: true), "./python/pcaptools"
+    system "python3.14", "-m", "pip", "install", *std_pip_args(build_isolation: true), "./python/pcaptools"
     bin.install "python/pcaptools/btaptap"
     rewrite_shebang detected_python_shebang, bin/"btaptap"
   end

@@ -1,8 +1,8 @@
 class Kawa < Formula
   desc "Programming language for Java (implementation of Scheme)"
   homepage "https://www.gnu.org/software/kawa/"
-  url "https://ftp.gnu.org/gnu/kawa/kawa-3.1.1.zip"
-  mirror "https://ftpmirror.gnu.org/kawa/kawa-3.1.1.zip"
+  url "https://ftpmirror.gnu.org/gnu/kawa/kawa-3.1.1.zip"
+  mirror "https://ftp.gnu.org/gnu/kawa/kawa-3.1.1.zip"
   sha256 "dab1f41da968191fc68be856f133e3d02ce65d2dbd577a27e0490f18ca00fa22"
   license "MIT"
   revision 1
@@ -11,6 +11,8 @@ class Kawa < Formula
     url :stable
     regex(/href=.*?kawa[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

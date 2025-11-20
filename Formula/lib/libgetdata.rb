@@ -7,6 +7,7 @@ class Libgetdata < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a450a273af416db57d3a6938efa03365dfdfb09ccb792e95061c4a661647661c"
     sha256 cellar: :any,                 arm64_sequoia:  "3b5f4791ca06a1e3186d30960db969d333d46cc3a81439b72695a0580f495ec3"
     sha256 cellar: :any,                 arm64_sonoma:   "b27b52a5f22dee5ee8c81f983b8a1f828b93b9d137c68abe5ada2f05df3d9bbf"
     sha256 cellar: :any,                 arm64_ventura:  "917a20050ad2954e99688f9fd7306a5b6dd9da6f41d38085535620de42fdebc4"
@@ -28,7 +29,7 @@ class Libgetdata < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

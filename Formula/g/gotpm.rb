@@ -1,18 +1,18 @@
 class Gotpm < Formula
   desc "CLI for using TPM 2.0"
   homepage "https://github.com/google/go-tpm-tools"
-  url "https://github.com/google/go-tpm-tools/archive/refs/tags/v0.4.5.tar.gz"
-  sha256 "f5cf18c21b985d81a6c96c027723e755c70004f4b6d14b9223b38183ad6f68f5"
+  url "https://github.com/google/go-tpm-tools/archive/refs/tags/v0.4.7.tar.gz"
+  sha256 "c2e95054ed9aee5a304dc31e9b25f2a945d52764352eec399b007e8214e10a0c"
   license "Apache-2.0"
   head "https://github.com/google/go-tpm-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f377258aa46e54eebae48c3ff7d7cac5a9105b1009a55b95702fbb616788bfe9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f377258aa46e54eebae48c3ff7d7cac5a9105b1009a55b95702fbb616788bfe9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f377258aa46e54eebae48c3ff7d7cac5a9105b1009a55b95702fbb616788bfe9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "507a381691ce87d722acf27cc06882ad5b2df0a79b0fde6f208c0563f4252f74"
-    sha256 cellar: :any_skip_relocation, ventura:       "08265b9d272df524116378165237a3618ff97e45109095f44a49faec84d48738"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e259dee95de5a7f385d8bc2769cbc0611ecee1d311068ff1cd3ff8fbfb2b3bc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1fd031098d332d234bd90c2e6027f9c8b95b691f0075ef2acd14b2ad46e2206e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1fd031098d332d234bd90c2e6027f9c8b95b691f0075ef2acd14b2ad46e2206e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1fd031098d332d234bd90c2e6027f9c8b95b691f0075ef2acd14b2ad46e2206e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "113486d4f7246d7f8f7b7f0508dca32e0692ca5dca7824a995eb187b1d63b113"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ef6c7e200d40f3db0796b752e6220b7d130931a39984e62d63d07fd7e3ce1f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb7f33899d93564d0a57ad249e106a406edcff238c1f673b06c38f6d43a33474"
   end
 
   depends_on "go" => :build

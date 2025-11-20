@@ -11,6 +11,7 @@ class Pod2man < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "29bf28b46917bfa959a3e04e2285491b9da82a78540341141c45cef662db5897"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0937a01be86e0dd18adaca7675da973dfbfa8c9d5dbca3e0a2eacad020aa8ef7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b40bf5470087e943cc5a965f9788962d4dd44c831d08e95105a50bc5c325123c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c0a9a958c8614e6452f8e1d893f0a277011ca50b8160929b307139c911511b14"
@@ -22,7 +23,7 @@ class Pod2man < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "269cdc0db938df147bab44127e86b05cf46074741bd9d8644b08f88a00e62f97"
   end
 
-  keg_only "perl ships with pod2man"
+  keg_only "it conflicts with the pod2man that ships with Perl"
 
   resource "Pod::Simple" do
     url "https://cpan.metacpan.org/authors/id/K/KH/KHW/Pod-Simple-3.45.tar.gz"

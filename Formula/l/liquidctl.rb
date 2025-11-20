@@ -10,24 +10,26 @@ class Liquidctl < Formula
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "031c352493e155ec0be429608e741d4b2c50c73b9ba15fb7d93eaeda7432b829"
-    sha256 cellar: :any,                 arm64_sonoma:  "31d6591b0ba39715a5a3afef0e58ae6a60e3212d515943a35fac490e1128230e"
-    sha256 cellar: :any,                 arm64_ventura: "4aa2c4495ada92c158da4daaae46588e14b645fef7ae4e1b658745eda578cb98"
-    sha256 cellar: :any,                 sonoma:        "31864579d80e9dcdedbe0fcbdfefc54f347c6a3473e1d3a51033b633e258791e"
-    sha256 cellar: :any,                 ventura:       "f38b71b9c2df29a00a33a2dfb564f8cf4cc6ca3bcdc602f0a9012f98020afc6f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2475bdf117aabe04f0302310e18f6272aeb3e88fad4286f0c0545625cf1e70c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4af41e0d1c855dfedc050a8f5f36632b8b56dbd03286ce783206c1768ddec9db"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "63b4ac7a552c00a37b4b626b3163a3e7c275dba5ad63f3f707b744c6901a5632"
+    sha256 cellar: :any,                 arm64_sequoia: "1a5ccb7a04dfda0fe3c79d6f34486b9fb4c69e96663b1fcac7679aae7d7974ac"
+    sha256 cellar: :any,                 arm64_sonoma:  "39589c229c94d548a9b8fba0fe087994a2f2590a7b35401e24fbddd3b53e95b1"
+    sha256 cellar: :any,                 sonoma:        "32805c65afba7042eee53fdd22452ac8f598f285189cfd2df1f188d2257fc6a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c69e12cbe513510bff71ed2a8c2f0ec958c0d9ea4d4189ead137eed35361621d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf919448f0f83ef3ce22aa46b4b3d667fe82317311d00bf9c5d4057c5bfd8e84"
   end
 
   depends_on "pkgconf" => :build
   depends_on "hidapi"
   depends_on "libusb"
-  depends_on "pillow"
-  depends_on "python@3.13"
+  depends_on "pillow" => :no_linkage
+  depends_on "python@3.14"
 
   on_linux do
     depends_on "i2c-tools"
   end
+
+  pypi_packages exclude_packages: "pillow"
 
   resource "colorlog" do
     url "https://files.pythonhosted.org/packages/d3/7a/359f4d5df2353f26172b3cc39ea32daa39af8de522205f512f458923e677/colorlog-6.9.0.tar.gz"
@@ -55,8 +57,8 @@ class Liquidctl < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "smbus" do

@@ -11,17 +11,17 @@ class Ktoblzcheck < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "5a8d33b186a024af57d092e2a1a735990c777c7f9397dc1ab7cc1ea14778cd71"
-    sha256 arm64_sonoma:  "6f9b62cc433f2e6d18852a8407283b79f7aefe00d184a52f047cf0906d2c9dec"
-    sha256 arm64_ventura: "e392cf050e70dc54fd602ae4d0426d8c133f9574b3495232221e8a2240cf1a56"
-    sha256 sonoma:        "b9d92a56ddc7869feeb3bc4848042151fc3a5934f34afe36738a5028a66da72f"
-    sha256 ventura:       "e8c9e32b1935cf61723d5a201c299296fdfa93b80d5a13253f1fb6b8f36f0cb0"
-    sha256 arm64_linux:   "b2d9e0aa942f499fd60057cbd18ab766f6e45719a60430ab3e6d64e8a58d36b4"
-    sha256 x86_64_linux:  "4a5d95498e32bdcc940bdcea30d17521e9e7f84cc6fefef3e993d0548eb6f846"
+    rebuild 1
+    sha256 arm64_tahoe:   "fd3b80a2358a2209b506a196e10769ebeed04e5c1f209cd3477ab441e8df9a81"
+    sha256 arm64_sequoia: "043fa8fbe400df633dd3beacdf4ed6337ac85827283046f7bd53da22ba1295a7"
+    sha256 arm64_sonoma:  "2d85d263b39c318a8d57c14387b548e94b23d98a65632bf3f325f53bcb55e20d"
+    sha256 sonoma:        "0b845c7b179e99f6f35fc241922c77a4aefd4adeee544f429ce78c7d79704b48"
+    sha256 arm64_linux:   "0ba4ead313ea8f1e5c8d56782ab6a359147328c46ac46ce2f41ae9ccd3f07cd0"
+    sha256 x86_64_linux:  "5b7681ef9f5b3de8ccb35f9215651650adfe73ba07b69eac0642ad6ba29aa876"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sqlite"
 
   uses_from_macos "curl"
@@ -43,7 +43,7 @@ class Ktoblzcheck < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

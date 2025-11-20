@@ -1,9 +1,9 @@
 class GccAT14 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-  sha256 "a7b39bc69cbf9e25826c5a60ab26477001f7c08d85cec04bc0e29cabed6f3cc9"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-14.3.0/gcc-14.3.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-14.3.0/gcc-14.3.0.tar.xz"
+  sha256 "e0dc77297625631ac8e50fa92fffefe899a4eb702592da5c32ef04e2293aca3a"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -14,14 +14,15 @@ class GccAT14 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256                               arm64_sequoia: "e4363ac186b44cad98495db0de0ec3f8499edd5b2424b18251509332083f3a53"
-    sha256                               arm64_sonoma:  "0df99599c52345da1c6eb01ff48f06685a9ff5c7e4f1fa09b03656651e41a283"
-    sha256                               arm64_ventura: "664a2b57edd2570f79a43b869ee00026dd64d46c134e11b70da73b130d731069"
-    sha256                               sequoia:       "f9e2941425d2804e99073ebc51a21ebd327b4a358c0fea46ffe891258d442467"
-    sha256                               sonoma:        "ab3cfda4f5afc397e759b0b3a01effbcec592fbe4f9ca84914115881e24bf80f"
-    sha256                               ventura:       "435930e24810bdbdbdf97d03399c0b8e8b3cc001e9adf8609105d207fe857896"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c42d728f21fb32ff8cbb55dfe8c9c593ffde4b64d4653ffaf93ae4fa61426ccd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a96193c62812d2e768a1525197d634da787f09adca3f9001f4f4e180496646c"
+    rebuild 2
+    sha256                               arm64_tahoe:   "6a6f4479e5f7f14995756fc8c1845c299680ea0c5788c534a9f625d48b757687"
+    sha256                               arm64_sequoia: "12a5bfe365a9bc4d26752a0169517ecbb3bcc168b98dfc2c1b7f034e5878dea9"
+    sha256                               arm64_sonoma:  "36963df72a5f78d963aa6e2704d0d676880fbdade137f6b8887bbb7a9e6cac42"
+    sha256                               tahoe:         "1f349e397413a3ea759324791f048254d1a7a557543b07525694665bc4e84554"
+    sha256                               sequoia:       "d94a51af9d807077bfda895e34a09eeaefc71ecc1386a28e6497dd4457589bfb"
+    sha256                               sonoma:        "07fbaa38d4dc9f30456e6c09a2fdedd590dcf5829b1849a5b2c57fb13e0d65c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97fd978bc8307b20e06e35fcc5151d5ca9dc93c0c6043d56098a92c6b0b354f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14982763e0d0e18a57595baff2fa3c0df6fc5b16ae204df02cb7095038ea111c"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -47,23 +48,12 @@ class GccAT14 < Formula
     depends_on "binutils"
   end
 
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
-
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
   patch do
     on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f30c309442a60cfb926e780eae5d70571f8ab2cb/gcc/gcc-14.2.0-r2.diff"
-      sha256 "6c0a4708f35ccf2275e6401197a491e3ad77f9f0f9ef5761860768fa6da14d3d"
-    end
-  end
-
-  # Fix for macOS 15.4 SDK issue https://gcc.gnu.org/bugzilla/show_bug.cgi?id=119590
-  patch do
-    on_macos do
-      url "https://github.com/iains/gcc-14-branch/commit/efb88ebe0a6886f816c0d037df33df6556544ad6.patch?full_index=1"
-      sha256 "4077af416eaf40a968e4b9d382aeb6470c2b79f09a52da2dd6aa91ace7af5c87"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gcc/gcc-14.3.0.diff"
+      sha256 "b8611362ae43a5644ab908d6e4d9bfc90346a914c3ba851197086d54148b1289"
     end
   end
 
@@ -114,9 +104,6 @@ class GccAT14 < Formula
       # "Updated load commands do not fit in the header"
       make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
     else
-      # Fix cc1: error while loading shared libraries: libisl.so.15
-      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
-
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
@@ -128,10 +115,8 @@ class GccAT14 < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      make_args = %W[
-        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
-        BOOT_LDFLAGS=-L#{Formula["zlib"].opt_lib}
-      ]
+      ENV.append_path "CPATH", Formula["zlib"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
     end
 
     mkdir "build" do

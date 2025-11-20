@@ -5,20 +5,22 @@ class Qcli < Formula
       tag:      "v1.4",
       revision: "982619270ff49987328343909ea2179d1af52004"
   license "GPL-3.0-or-later"
-  head "https://github.com/bavc/qctools.git", branch: "master"
+  head "https://github.com/bavc/qctools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "01381abc80e93b31c44d6f50a65f6e4feebb5d82380b4331b9b1fe58f37b9aaa"
-    sha256 cellar: :any,                 arm64_ventura: "5f7e15ca1e3057ef5d2d2c7acc65528922efe573a12affe00f7be4ed37309fba"
-    sha256 cellar: :any,                 sonoma:        "d92539860c22d368cc5a208b3c04053f5d6f047d25647b3f0dbc8a4c8a55c70c"
-    sha256 cellar: :any,                 ventura:       "9fb489755752aa7decd8ec2f38dded60cdb7dcbde86377153d8b6953e511ac6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f87bd6039d932ef08d8b6b42d4adc44f497e54eb4ba9b153a44e439646b30209"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:  "cf444e12eb4d646d9b80a325aec6df56361d9dd39ce2e80d90906f0916117dde"
+    sha256 cellar: :any,                 arm64_sonoma: "fb63a2f6ab9e1bb330fc899b52228665b941e42a9201958f9d0594df19a384ad"
+    sha256 cellar: :any,                 sonoma:       "dbac2e76a60e184f4fec01ff89c988bc5e6c6908ca3f675569749a6ba77d4ae5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "7d480d344f4e4241e95030eef80d7d38440d9079f68d3c35f6707b8dd4a29372"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bb6419243bf6240de5d24047020a8ef6eebef3f43c8adc5c00fbecbf19f3bf2c"
   end
 
   depends_on "pkgconf" => :build
+  depends_on "qtmultimedia" => :build
+  depends_on "qwt" => :build
   depends_on "ffmpeg@6" # Issue ref: https://github.com/bavc/qctools/issues/552
-  depends_on "qt"
-  depends_on "qwt"
+  depends_on "qtbase"
 
   uses_from_macos "zlib"
 

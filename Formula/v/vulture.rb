@@ -9,10 +9,11 @@ class Vulture < Formula
   head "https://github.com/jendrikseipp/vulture.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "70586ff6f8ff32b5c31dc40a5381bd2f3bef2364209a99b00587c2667272c301"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "98d42d8c72dd9ae09720b3bd04a9ba102157f120717d14ea706a965199ad4bf5"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources

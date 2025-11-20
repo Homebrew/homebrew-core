@@ -6,8 +6,11 @@ class Libmemcached < Formula
   license "BSD-3-Clause"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:    "60a5db19afb5f8ea31dd1917cdf6e962cd54efe7fd012ab0e0c6c44497a6e2ad"
     sha256 cellar: :any,                 arm64_sequoia:  "2f6eb0738eb824d203e31cd7243942c7d14d07599ece42c8ddd895077a6bdde1"
     sha256 cellar: :any,                 arm64_sonoma:   "652c9f9862e367e62acc5d2b1ddc20d798e6f15c51bccbc69e642acd4df1be0a"
     sha256 cellar: :any,                 arm64_ventura:  "0511d48bcc88a6860030c5c6bec5d36818068b43f11d67561f1519ce0dbf6b73"
@@ -26,13 +29,13 @@ class Libmemcached < Formula
 
   # https://bugs.launchpad.net/libmemcached/+bug/1245562
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/60f3532/libmemcached/1.0.18.patch"
-    sha256 "592f10fac729bd2a2b79df26086185d6e08f8667cb40153407c08d4478db89fb"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libmemcached/1.0.18.patch"
+    sha256 "afc8fe6ceb43e732484c632b08f69a79c4c88f71e50129fc2e2b2a9af1a33597"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
   end
 

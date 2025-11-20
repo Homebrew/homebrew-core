@@ -1,8 +1,8 @@
 class Dnscontrol < Formula
   desc "Synchronize your DNS to multiple providers from a simple DSL"
   homepage "https://dnscontrol.org/"
-  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.21.0.tar.gz"
-  sha256 "fb28227d0b94e0fa645989ea811dde9ec1ba272fb8ed5b1011788a710ffde3a8"
+  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.27.1.tar.gz"
+  sha256 "42d4202658f7173b15110ce3201efbf25efdf2910cd75ee60a57a4435c8eb8e6"
   license "MIT"
   version_scheme 1
   head "https://github.com/StackExchange/dnscontrol.git", branch: "main"
@@ -16,18 +16,22 @@ class Dnscontrol < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b248ea6ddf555db3af61cc6b61888c134ef58168b26fd82e0c9c4dcd656b993"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b248ea6ddf555db3af61cc6b61888c134ef58168b26fd82e0c9c4dcd656b993"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b248ea6ddf555db3af61cc6b61888c134ef58168b26fd82e0c9c4dcd656b993"
-    sha256 cellar: :any_skip_relocation, sonoma:        "725f7978eeb373a6acf8c9d15a094f0eb388358c94c71103ead212914863bf55"
-    sha256 cellar: :any_skip_relocation, ventura:       "725f7978eeb373a6acf8c9d15a094f0eb388358c94c71103ead212914863bf55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0608c072b8e3f107309cd59649fec32e864c0d32d5ef5b1373079c5cdce3b16c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9378c6f3ae45e2a304fd869b89010c1125aeb95de56e9f7d72d5168943a74150"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9378c6f3ae45e2a304fd869b89010c1125aeb95de56e9f7d72d5168943a74150"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9378c6f3ae45e2a304fd869b89010c1125aeb95de56e9f7d72d5168943a74150"
+    sha256 cellar: :any_skip_relocation, sonoma:        "00546857abf7da2a4ae59168cb26d6fea0706c121c820806f0392821a2df9cf0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a1621ef5ee58f26bbfb953ee18d880c3e4270eedec6629c36f569d76ded7550"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62a806b499bda9c11dd83682101d334e66756b179f58fb1b929bd4aae6724cb7"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    ldflags = %W[
+      -s -w
+      -X github.com/StackExchange/dnscontrol/v4/pkg/version.version=#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     generate_completions_from_executable(bin/"dnscontrol", "shell-completion", shells: [:bash, :zsh])
   end

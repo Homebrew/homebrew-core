@@ -1,18 +1,18 @@
 class Decompose < Formula
   desc "Reverse-engineering tool for docker environments"
   homepage "https://github.com/s0rg/decompose"
-  url "https://github.com/s0rg/decompose/archive/refs/tags/v1.11.3.tar.gz"
-  sha256 "802a1d155df0bea896483da4162ae555d7e1e1d5e293ec8201508914314eb36b"
+  url "https://github.com/s0rg/decompose/archive/refs/tags/v1.11.5.tar.gz"
+  sha256 "1f2575d792bc5e04c57090534b871a9fac8b1f02a444beee76bf67a298f19090"
   license "MIT"
   head "https://github.com/s0rg/decompose.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a6ac95d556532dcdb8ccb6bee22c93941e70d472d6fe2e2a04aee692e69fd12"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a6ac95d556532dcdb8ccb6bee22c93941e70d472d6fe2e2a04aee692e69fd12"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a6ac95d556532dcdb8ccb6bee22c93941e70d472d6fe2e2a04aee692e69fd12"
-    sha256 cellar: :any_skip_relocation, sonoma:        "04959a2108da5a70a89780f02cc5691c39aa163d69921507743c56407b0353ac"
-    sha256 cellar: :any_skip_relocation, ventura:       "04959a2108da5a70a89780f02cc5691c39aa163d69921507743c56407b0353ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1de0150f4dcf6163ee980363062881828b21085f5a44f38a1a14fad124a986d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e424bcddda5b1200be42ce59fcba05e78308a31d6d48ad6b9799672a9e3b6cc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e424bcddda5b1200be42ce59fcba05e78308a31d6d48ad6b9799672a9e3b6cc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e424bcddda5b1200be42ce59fcba05e78308a31d6d48ad6b9799672a9e3b6cc2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ef475c1f47feea38981477e905c87127065416859e8db2b8445a00f062bb738"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bf094ca260f9a4782ccc4cb19de95defff7c9706df99e8f9d4ae76efb8dcd4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a277b280703412ce4157ede52547d5095ed81a683567a4418756bfc82da3ad4"
   end
 
   depends_on "go" => :build

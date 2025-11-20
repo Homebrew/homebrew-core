@@ -1,16 +1,16 @@
 class Libcpuid < Formula
   desc "Small C library for x86 CPU detection and feature extraction"
   homepage "https://github.com/anrieff/libcpuid"
-  url "https://github.com/anrieff/libcpuid/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "a5fe37d79bda121cbdf385ae3f6fa621da6a3102aa609400a718a4b8b82ed8aa"
+  url "https://github.com/anrieff/libcpuid/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "81f2f40da5d66b8220476e116cb40bca4e6a62c0d22bdeeb8e3856cf14607007"
   license "BSD-2-Clause"
   head "https://github.com/anrieff/libcpuid.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "a96631f0f039e5fbdac221e14ee15515a85e07cb0244e8bb975f97661fbf7c95"
-    sha256 cellar: :any,                 ventura:      "aeed3eaa6c57348a2e14f9889c933e08623b446a84090a2c91a9d78f6a700d9c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "cbfd10fe0ec68c63934be68907409b761eeabadfdbc36903e9eb85fcfdaf2b15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "abd065dd786dcd3f4c4343f418e810502bdebf0674b0f01a05f58c06d98fd4e1"
+    sha256 cellar: :any,                 sonoma:       "c1e23b9deee10397bca4e32933b1ba265ca04a9649d31a934b17ec561fa9b114"
+    sha256 cellar: :any,                 ventura:      "08670c2e18ce4fb2fb021260ec3f5a32fbfc82842777cc52938dbf4914d14f17"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "dad70f4216aead591c3a9571f601adb46d251a21139beddce44c85a94a799cb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a8bedd7a2bb826cc95ae79026e65ba549cf476e6ce95fa3761e29e80cf6db710"
   end
 
   depends_on "autoconf" => :build
@@ -19,6 +19,12 @@ class Libcpuid < Formula
 
   on_macos do
     depends_on arch: :x86_64
+
+    # Can be undeprecated if upstream decides to support arm64 macOS
+    # https://docs.brew.sh/Support-Tiers#future-macos-support
+    # TODO: Make linux-only when removing macOS support
+    deprecate! date: "2025-09-25", because: :unsupported
+    disable! date: "2026-09-25", because: :unsupported
   end
 
   def install

@@ -7,8 +7,6 @@ class ArpSk < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "6fd6f88cc3ac21f19654e0c515e9cc473dcb6731a1e89eb83f26727b1aef6ee8"
     sha256 cellar: :any,                 arm64_sonoma:   "f4fe431e1423df2852ee7e36f9898c694bd5e95558c21afec86858858acd6403"
@@ -20,8 +18,6 @@ class ArpSk < Formula
     sha256 cellar: :any,                 monterey:       "43b6e66bf25c5be9893862c174e4a1aaaf3928f38bc68c25d0177026d3923a4f"
     sha256 cellar: :any,                 big_sur:        "206b69b4456fabe2614dbf5c5ab2886530d2b238f18adb28545a9758fc9a4561"
     sha256 cellar: :any,                 catalina:       "bc28c6d58a3838fac59ab625ab26a917b3b0282ac54a8f37a95034efd0740007"
-    sha256 cellar: :any,                 mojave:         "cbe02395698a24f9f835b7cba4128a308a15beefda6ad7e79cfd38d73823cdc2"
-    sha256 cellar: :any,                 high_sierra:    "67666cd80446c78b49deac3b8f2589ccbd140f32b739b662556a6dc7bda7b453"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a6745104a8b8035108f38a3f35ae90527790a02641cca54c29e99c962c74f16"
   end
 

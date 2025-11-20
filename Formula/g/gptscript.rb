@@ -1,18 +1,18 @@
 class Gptscript < Formula
   desc "Develop LLM Apps in Natural Language"
   homepage "https://docs.gptscript.ai/"
-  url "https://github.com/gptscript-ai/gptscript/archive/refs/tags/v0.9.5.tar.gz"
-  sha256 "48cc2e6ec6425c030e9d10a81135a5e20ab15ec8eee0a49d35a83eda06c5cc92"
+  url "https://github.com/gptscript-ai/gptscript/archive/refs/tags/v0.9.7.tar.gz"
+  sha256 "d5c5d6d5acde988bc47a6566b2cc5b87e3fea2fa9112cd6ce3b6534405646a20"
   license "Apache-2.0"
   head "https://github.com/gptscript-ai/gptscript.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ca84273cc3c87fe0ae551ac4cd981b60400e4a8205c6748484ccd3944c3bad9"
-    sha256 cellar: :any_skip_relocation, ventura:       "0ca84273cc3c87fe0ae551ac4cd981b60400e4a8205c6748484ccd3944c3bad9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf7dcf27cef7f521453a62a5db71d452ceb23236d17679e4ae1682914df6a50d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9c07b26c14d5743725320bc0278e538ec58f6be02f43cddcf8ade03bff290fcf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c07b26c14d5743725320bc0278e538ec58f6be02f43cddcf8ade03bff290fcf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c07b26c14d5743725320bc0278e538ec58f6be02f43cddcf8ade03bff290fcf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "579c7c3e34bef2d478e764e2aaf5d63b4c6e5bbbbc15798a0582a5f0dace897a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1cb2cff551ce0f291592f83cb3dbf28d52c6e041a75ab585f8ed648e27e2d65b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "549dac1f76d4938b6bde125cfd16157eca990725c5a00441215cdf36b9d70394"
   end
 
   depends_on "go" => :build
@@ -30,9 +30,9 @@ class Gptscript < Formula
 
   test do
     ENV["OPENAI_API_KEY"] = "test"
-    assert_match version.to_s, shell_output(bin/"gptscript -v")
+    assert_match version.to_s, shell_output("#{bin}/gptscript -v")
 
-    output = shell_output(bin/"gptscript #{pkgshare}/examples/bob.gpt 2>&1", 1)
+    output = shell_output("#{bin}/gptscript #{pkgshare}/examples/bob.gpt 2>&1", 1)
     assert_match "Incorrect API key provided", output
   end
 end

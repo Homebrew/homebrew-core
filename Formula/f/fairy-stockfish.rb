@@ -14,6 +14,7 @@ class FairyStockfish < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ee205839b2f569fc11c0b2d09502a866be0cda2195f04a73cbc9329f2642ac9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "36c6b1790bc144c874f7a1f737814c391380c47439b304c5c8e0ef368e773bc6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cbf99586202d3f28f7bfdf09830f620631030ae85276caf38d2b0d3246b22f9c"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8d1e77f421472a96ed0281cf542c4c8d6edd58c181ddce745fc1901659e68593"

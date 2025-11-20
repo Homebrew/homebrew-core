@@ -1,19 +1,18 @@
 class Cpr < Formula
   desc "C++ Requests, a spiritual port of Python Requests"
   homepage "https://docs.libcpr.org/"
-  url "https://github.com/libcpr/cpr/archive/refs/tags/1.11.2.tar.gz"
-  sha256 "3795a3581109a9ba5e48fbb50f9efe3399a3ede22f2ab606b71059a615cd6084"
+  url "https://github.com/libcpr/cpr/archive/refs/tags/1.13.0.tar.gz"
+  sha256 "c55d805300c224f099cad74ad9c68799f23d005d09ba2df76ead975a3e50e09d"
   license "MIT"
   head "https://github.com/libcpr/cpr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "71b2c9813a08b665d0a5b8b24868396208e09e7bf76cd45c2076d37b99cb6cdc"
-    sha256 cellar: :any,                 arm64_sonoma:  "f6a28ce2ce192505511c292fa90858d22d8e42f64ff95c8975cfadc256dcb592"
-    sha256 cellar: :any,                 arm64_ventura: "3271fe9f057e55db84d65544aff6b517a8da692ed1c32cf82de0ee7652218fda"
-    sha256 cellar: :any,                 sonoma:        "cdaa14c8143c2a06e71b5de2c4f11b997e154924421a099a04dc1170262731fe"
-    sha256 cellar: :any,                 ventura:       "12d3ddfced34a20c53564923df2382be1ddd69b605c2d2840781f91ddb6f228c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "929fb7a7d06f35f49c3d30fdc749633bb22d4f7bbb4f83a38b20a066acf884e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a456aa6d23a7639a658cd46e80479bce9889e4a708a0f4e90ed1ed41d2ab63cd"
+    sha256 cellar: :any,                 arm64_tahoe:   "30d36b034765bd5897024fe87ab08313712f96a3ee614adeb7808658c019cb82"
+    sha256 cellar: :any,                 arm64_sequoia: "a0d977e6bf0d2a2e35c506c31f8cbfa90387fe0765e946ac30d410ae366476c2"
+    sha256 cellar: :any,                 arm64_sonoma:  "d2fc529fbe5e39b2060cf13886d149c88ae29bc98b706350e00473a58de4423e"
+    sha256 cellar: :any,                 sonoma:        "0fd70be274ed66c4114b8eede879846420608e08b05b1662a9bad597190ada1e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81474a9d4caa550e2217a5746bcf48e3fbc15dd9700147701a87a1eb6bd82f21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27722b9d1d98990fef20dc2063493b42f67d6aca2e265b8c67dbd82f157067c8"
   end
 
   depends_on "cmake" => :build

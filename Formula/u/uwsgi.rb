@@ -1,25 +1,25 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/6f/f0/d794e9c7359f488b158e88c9e718c5600efdb74a0daf77331e5ffb6c87c4/uwsgi-2.0.30.tar.gz"
-  sha256 "c12aa652124f062ac216077da59f6d247bd7ef938234445881552e58afb1eb5f"
+  url "https://files.pythonhosted.org/packages/9f/49/2f57640e889ba509fd1fae10cccec1b58972a07c2724486efba94c5ea448/uwsgi-2.0.31.tar.gz"
+  sha256 "e8f8b350ccc106ff93a65247b9136f529c14bf96b936ac5b264c6ff9d0c76257"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "b2386757296c38cd05ba889d19d2bc6d29c07ba6124657f1d905965fc3da1e1a"
-    sha256 arm64_sonoma:  "45c740b6194c9740b2d88e40a67ebf5d6019869e13faf2b40d6cf747a87808d3"
-    sha256 arm64_ventura: "dd78e316d8d60fc40c16425d7bd57788725052921e79bd1291a81c81f1c3b00d"
-    sha256 sonoma:        "8c1aff88354475b992347f8449ef581753a402dce09b4318d6c6ef1c378d4e65"
-    sha256 ventura:       "0de8c5fcee50137e7e2346567afb07ec1fa9b995bd3392604f1e3e812393824e"
-    sha256 arm64_linux:   "472b257c4aa0a1ff3d7e915bda3196681cc459de6964b19d9670cf26ee3516e1"
-    sha256 x86_64_linux:  "3c27e5bd84f5135985cce5e2c13f8a7845074bab10040fccf09caa9d0bc0e4d9"
+    sha256 arm64_tahoe:   "1fc60318a8e146c85b97c74f2b916fdcd36b6c9e6ef53abdf60aaf2da036079a"
+    sha256 arm64_sequoia: "e4ee6cd1ef6982e2ae908e7c94e2e002cbe563d9c551137774e60ec2f60c7de0"
+    sha256 arm64_sonoma:  "99dcb876e4ad456c4c3c5b7478e8f314ecccd76ee63a0a41e64a1b8028a83045"
+    sha256 sonoma:        "1bc359b2b6728fa327849e00db075ec329cdbd30cdecb5b816f444d08f1ddebe"
+    sha256 arm64_linux:   "2fd2c191474376a1e3c4e8801e6ce94a4d822e1957cadcecaf28c1423ece1595"
+    sha256 x86_64_linux:  "c957b519375caeb04077569e71ad8e6e10c51e0323e7f2fd6ea6a368fcdbed16"
   end
 
   depends_on "pkgconf" => :build
   depends_on "openssl@3"
   depends_on "pcre2"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sqlite"
   depends_on "yajl"
 
@@ -34,7 +34,7 @@ class Uwsgi < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

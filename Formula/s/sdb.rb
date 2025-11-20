@@ -1,19 +1,18 @@
 class Sdb < Formula
   desc "Ondisk/memory hashtable based on CDB"
   homepage "https://www.radare.org/"
-  url "https://github.com/radareorg/sdb/archive/refs/tags/2.1.0.tar.gz"
-  sha256 "877f1540f8890ee32ddfe5a03c3455d7d9bf344bc55a6ac42bdcc7ba241e8ab9"
+  url "https://github.com/radareorg/sdb/archive/refs/tags/2.2.2.tar.gz"
+  sha256 "037468ce2cce7fa4669b00ca703fb18160a55e5440ff47fc91cb7fc10365a51d"
   license "MIT"
   head "https://github.com/radareorg/sdb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fe7fce5a05792a0d970268a111172ff4a92abd948f98499b7b48304e7c17fba0"
-    sha256 cellar: :any,                 arm64_sonoma:  "460a6293a18f7925c2794221c34781a085e279e7d73b1ed54b531e35771456f4"
-    sha256 cellar: :any,                 arm64_ventura: "a32fdde7aebe6d674e9427d2de15766a28f30c741b96e14dd2c3b0cc241ce8cb"
-    sha256 cellar: :any,                 sonoma:        "6c66504eaf55a72603ed5b724b06927f1aac64a9a5b3bd1e80205c8ae8a20c38"
-    sha256 cellar: :any,                 ventura:       "85295727af6d4942c6a2c1f9611d5c22437da0d9a72155b4803a68e3d49433ec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "733389a09b477680c399818f04dace96ab23fdfeade9296e3f4f8a96eabf4d48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "224892c60361f6e6bfecca83ae56e73648bd7f3a439880e9403e2b3dbbc3750d"
+    sha256 cellar: :any,                 arm64_tahoe:   "64f7e7abb878ff78dd5486b1484ae7165a4ffc1ce7e153e6116fac2e5f8fa423"
+    sha256 cellar: :any,                 arm64_sequoia: "54546b0a148be3d339fbedaaf3c8ae110bfd94a86a6f2158c3c2f72954f3049d"
+    sha256 cellar: :any,                 arm64_sonoma:  "834045201d92752ba056ca6c55cea88896b6d45d2ec409c35f6e71aee79b71e7"
+    sha256 cellar: :any,                 sonoma:        "39cb1f11d23c5db8d794977f6f82fadb9ae75af52c9030bf2d310a522a605c58"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1dc3a8bcb3123026f8cd8799338c0a16dee44141ddca854bbb92eb0e5bc35d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cacb8a67381565f6ab2ae3e05f5f463982e4f91c3a0ed64d25e5cfa2cfb6ae98"
   end
 
   depends_on "meson" => :build

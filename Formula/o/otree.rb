@@ -1,19 +1,18 @@
 class Otree < Formula
   desc "Command-line tool to view objects (JSON/YAML/TOML) in TUI tree widget"
   homepage "https://github.com/fioncat/otree"
-  url "https://github.com/fioncat/otree/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "d1bfb69c22b667a3102a33e879175cb2a883456123fafdb5cf2fdbbf23fbab10"
+  url "https://github.com/fioncat/otree/archive/refs/tags/v0.6.3.tar.gz"
+  sha256 "047fa4a4575d703a1bf76625b49c9291c22b8877347b4ec722a365b4aca51f8b"
   license "MIT"
   head "https://github.com/fioncat/otree.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "544a1df36ab809149ba5fc0199e3c7ce1cd74469c1a09c1cc2f9f89284b3d1d0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62e01f50768e8ae21aaa986aa54870f40a204c31b94fd78fab775ea02772dd61"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ce7feef0ba1ae948b2806f2b9bf4a8146b6955e8f6ab8553906448e4dd9992f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2da3b1f383e3a5276ca3ffc7d887603e211c285dac9113856a1bdb8733f4c07d"
-    sha256 cellar: :any_skip_relocation, ventura:       "9aea34c04e62986699148a24fc25a6145a83197546c490b885814979c31e09d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "944bc56d293c7dcac2a0431939d5c7b57daeaf85cc7d870bffca32938702cf82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3eb2a28a8e2fd9baa127a64e26093a345a629acf84f97e978a55f11cc7053505"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "15a3a2481c8406b3855a25e599d4ff1cabb0ce09678b1496dc639074b4dc6173"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0ec8e2b2e46cbe5efec838d376d031d9cf468ccda7bf8781e0c192ff35f1097"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3268b1b389c7a9a84ff664ace84c0f7ebef76785407673528284cf9c1c999f03"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ca28e3db61400e5d3f839889c48c0e6768a5591caa7d5d2069094e8e8f41d5a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "255b84ba472af971f8b710a4aac10a0a96e888e2ecfbb93d1220443c6b345a99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa9719427f79d474632adeb96725e1c3572cc58f34ee1497b943c5a9f68dbd60"
   end
 
   depends_on "rust" => :build

@@ -1,8 +1,8 @@
 class Typst < Formula
   desc "Markup-based typesetting system"
   homepage "https://typst.app/"
-  url "https://github.com/typst/typst/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "2ffd8443668bc0adb59e9893f7904fd9f64dce8799a1930569f56a91305e8b71"
+  url "https://github.com/typst/typst/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "39df9db43c792b0ab71cde97bdc03d4763fff7d3525b67d549ffc8bfc99b6395"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/typst/typst.git", branch: "main"
@@ -13,13 +13,12 @@ class Typst < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c187e0b7e86411fb7925307d34c2e63429103cee0da30bac01479d1abb7b0160"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "808d9896ed7680fbb788182c8de04914229f1fe36b4e8d48a826ce7f9a78d471"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9d7fded4d1f467a78524ec9aeb9cb81ed08f5c0da380f0e81f91b7dc28772ac1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a4af1021420e590f933035c3f996e70ec27131c0d12e7404d3abc7a0f68320b6"
-    sha256 cellar: :any_skip_relocation, ventura:       "39ce285d7af6080b660db41590acf877b3be5f51327e4e4914b7c324a65e5be0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "24d7ad7e8d31a809d124f49cd4d07c84c9b8e8b68f8b006d8092edd7b3e371b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c411beb9f7379cbec800b101ded8249d3f02ea469a5a312b328c81806f7924db"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3eacec25746075f53980844a1e38958a0a3f8343a37dc6af416895ecc1bcac7f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da7726e20b43313f179ef947b797477dad8465e5d1b24817a290a0cdcde2c611"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cbf24d69a7de5884455c84e0f691e3d1d8bcbfc9c0880ce1e0cd9ed4e559770a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "110b0df6556bc0413ba05499c4e56d78ddc7e7887bb7b65a4eaa5acce8b4fa9b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "befee91fab89142a1dd0a56f737c1270b506e12f99857caa233834e16cf4526f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "500554a3e43e98514734acffb5c7aaaf881dbc9f9f76e51ef09dceecfca5a060"
   end
 
   depends_on "pkgconf" => :build
@@ -34,10 +33,8 @@ class Typst < Formula
     ENV["GEN_ARTIFACTS"] = "artifacts"
     system "cargo", "install", *std_cargo_args(path: "crates/typst-cli")
 
-    man1.install Dir["crates/typst-cli/artifacts/*.1"]
-    bash_completion.install "crates/typst-cli/artifacts/typst.bash" => "typst"
-    fish_completion.install "crates/typst-cli/artifacts/typst.fish"
-    zsh_completion.install "crates/typst-cli/artifacts/_typst"
+    man1.install buildpath.glob("crates/typst-cli/artifacts/*.1")
+    generate_completions_from_executable(bin/"typst", "completions")
   end
 
   test do

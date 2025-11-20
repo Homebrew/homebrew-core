@@ -1,19 +1,18 @@
 class RipgrepAll < Formula
   desc "Wrapper around ripgrep that adds multiple rich file types"
   homepage "https://github.com/phiresky/ripgrep-all"
-  url "https://github.com/phiresky/ripgrep-all/archive/refs/tags/v0.10.9.tar.gz"
-  sha256 "a5b3150940dcddd35a26e9de398f11a563d0466a335e5450ceb7ff369e9fef45"
+  url "https://github.com/phiresky/ripgrep-all/archive/refs/tags/v0.10.10.tar.gz"
+  sha256 "17fadc7b73a51608d57f82b4a11f3edc0da87716cc4b302103eed9d4b9010fe5"
   license "AGPL-3.0-or-later"
   head "https://github.com/phiresky/ripgrep-all.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a1935b715dabb6d04c7650f07092ed20883a28d3230c82a189eaf4be8e6ca46"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b5ecb4c9267c51f42fb2917f6531bdfeb178ad790e7ef2674b968a40d2944a1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "30359e9de5c05c815de5df2ac83cc35fbaad2ecbdbe7494f59cc58f204e098c5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a5d4ca5f5398c6f3bfb53a77bb71aeed0545e50da5bca533f22786d350404fed"
-    sha256 cellar: :any_skip_relocation, ventura:       "5071868007570a23d9fdd76e6a48f27cce497b5180d49d9ba3f0ff926d39ac71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dcecce222556591cdb97455f0cc481591db30b115aa9d8725e971ce598b50b81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33d24a8354f0cf5c79af8490ed2436537437f20c321c4f1b88e1b6c6f30430d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6a9273f9063c28cf81ea8cc7c5149e587a68ee73ebe6a11ca8d5899ad97b05a3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "098963fe5e660560264fa2bdf55a4e0689ecd0ef15f24a0a7819946e5f150619"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d4358ce8b6f6c9904c3db18e3a20a8a02b222b74ba3ced112fbb303f34700119"
+    sha256 cellar: :any_skip_relocation, sonoma:        "492ea96a51e34f1ecdba5c5da4c587324eb0c7e5959d4e493a663b528b5b885c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "039158fe4635df5c4b1596be7d62d4e0177a8c3caa09bd1ba5a9715c1e3dab75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "640b5394853bac77a1805e11518ab09d1623a8ff9dcacd161eabbacc4c46cd85"
   end
 
   depends_on "rust" => :build

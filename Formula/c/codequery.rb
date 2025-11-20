@@ -1,24 +1,24 @@
 class Codequery < Formula
   desc "Code-understanding, code-browsing or code-search tool"
   homepage "https://ruben2020.github.io/codequery/"
-  url "https://github.com/ruben2020/codequery/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "b0776adeae2963f197e3b9a57eb7ca405542da5f6413e06063e8d68f8246baa8"
+  url "https://github.com/ruben2020/codequery/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "40781a7499adddddcb9b7ab2d1d840453aed08f91f5ebc7c339c2f13f63a9403"
   license "MPL-2.0"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4e4fb0e6e4d1171bff615afc316580b9fa839da228349d9ceae861da9f184004"
-    sha256 cellar: :any,                 arm64_ventura:  "7f2b375faf1d458989b42e8b03a4aa57599f54038e941752f50e18925ae4c43b"
-    sha256 cellar: :any,                 arm64_monterey: "3f13a8eb9bfbd76b95c2a9f93759b9667574df9fd949e9332d268b3e3f699406"
-    sha256 cellar: :any,                 sonoma:         "7d4ab5fa8902cc12ce5c8f72f808b8dab4399b3caa281ed04bc286ae0689e4fc"
-    sha256 cellar: :any,                 ventura:        "9b959ddfdcb5bbfcf3ab2a09f07ef279e76db150230c8c8a5ef7a8ab7ad00c8c"
-    sha256 cellar: :any,                 monterey:       "00a3a640de5c64f871865d155bba13485269d2d1c2ec4a68a13367ef789e6d90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02ad5e72b9b38a66604f6e1be788b94309e844276297037e402cfed743e25b80"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ec9b55288deede50bb5a39e76846aa3a0c7179be2a1ceb1f682b6de5291abdc3"
+    sha256 cellar: :any,                 arm64_sequoia: "683318cd26452dda4e8b6f103fcf5c0bacb6d886da49b3492e87dc8bab7ef35e"
+    sha256 cellar: :any,                 arm64_sonoma:  "1078139feee794760c6e6c42f33c49d308d4f308098e9913636d8054fe1da150"
+    sha256 cellar: :any,                 sonoma:        "57c3b03bff1a8f7a3311aff6a89c0fb2c530f2f361857af15a9b158ced25476b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9ef3ff7ab094e9ed1e668874c8dd629a2bceee86fc78f7ad08a90ab72491170"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18b9c0955396a9cd0b50d7b05d4e4b7edc97f8a7a32e693c64f5cfe7f16bbd1b"
   end
 
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "qttools" => :build
+  depends_on "qt5compat"
+  depends_on "qtbase"
   depends_on "sqlite"
 
   def install

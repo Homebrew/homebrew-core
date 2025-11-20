@@ -10,13 +10,15 @@ class CreateApi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3704ccee2566fbffef69ba830037391340cf4211d7ba722735175c8d97de27c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "630e2912f2280aeb27c2646cb6af920de7d9c2c5a8c01029bd6d9bfc61ccf823"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6f1b7204022524efbcc0d5488ace23dad6b074736da5938f5f2044c65466dabf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cedcc24ae6221316aed18f3231693938d012c99f64af00b4cd53df7c3661c69d"
-    sha256 cellar: :any_skip_relocation, ventura:       "576f78622c10ac452aba62246126c3ccfbb8ad3a684672563ce6d4a1b900a97e"
-    sha256                               arm64_linux:   "c76b87eb0e141e9c261f6bc2c00294a03589280162d3cba551828f2e1e324566"
-    sha256                               x86_64_linux:  "ab24ce8e1aa462a2745d77fd302a183f1f0ceb2d5e820da750f8c1f0667e38d1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "669393e0173057f300559c44055716228c89dbf1dd91a0d898eef408c98ec184"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad0253916ad9e261c6f172f26a86114522ff41915bc71e8d4db3c85692b4ff55"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d13191abe5e4a79f12ddb325118fb1d5ad2abeae2269e7a3e6b404d9913584bd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8d56775719688b44d0b8425c3662879424a79a337db732cb052006cbc9db988a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0a285919042a7d87a437dd6baf16cd3cdeb19b957bd655c2f88ffbbca59d3d5c"
+    sha256 cellar: :any_skip_relocation, ventura:       "b6fc15cf43f820ec337a72ebbf119e8837f3bd801d7d06f0125b9aaec2997dfb"
+    sha256                               arm64_linux:   "2abf5d3b403a7046f7ae8d806181047a7820356c4c8c6fc70bd5b55ddbd2263c"
+    sha256                               x86_64_linux:  "958733d65c7aff3b75b64ac6f5a547961d6bc0fa0242e078dddc5686e4a05ded"
   end
 
   depends_on xcode: "13.0"
@@ -32,6 +34,7 @@ class CreateApi < Formula
     system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/create-api"
     pkgshare.install "Tests/Support/Specs/cookpad.json" => "test-spec.json"
+    generate_completions_from_executable(bin/"create-api", "--generate-completion-script")
   end
 
   test do

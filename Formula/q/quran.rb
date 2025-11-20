@@ -6,7 +6,10 @@ class Quran < Formula
       revision: "c0e271a69a2e817bf75c8ad79a1fc93aa1b868c9"
   license "AGPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b24abef229a42a67114aa6c1153955c0a494ad3348c320dc58358ca63082f103"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "20b7b1031a5da9f17bd4916cc3d4eeb78242fbdd08e71485febe5861afd9ba78"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "042b57a9c4db3996221e8295c01bd101c6b443e1c7259010358511df7f96fdb8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d5293e470499a0038308e0f00b6a935fe3d88218b764a7ea7bd3ed7a3d34547"
@@ -17,6 +20,7 @@ class Quran < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "1bc0099dede2f1cd7b27882858a763e8ed97c7ded46c8384cc20793f87fb1218"
     sha256 cellar: :any_skip_relocation, big_sur:        "0c585b46974099934335f6b8f3da950be3392f7f799d6153a68c5787d685c005"
     sha256 cellar: :any_skip_relocation, catalina:       "600167279eccfa40badfb475003949dca659d2545e9e65e1ea08ab57645d036b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "80f68e6c0762664536967f559c8543c726e14ecb1bbf87f5fedc3cf84b8c8caf"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "93cc2a0059d0e6faf82b0723bebe80e77fb4056895ad6a6488be408c9123cb02"
   end
 
@@ -27,7 +31,9 @@ class Quran < Formula
   end
 
   test do
-    op = shell_output("#{bin}/quran 1:1").strip
-    assert_equal "In the Name of Allah—the Most Compassionate, Most Merciful.", op
+    assert_match "Saheeh International", shell_output("#{bin}/quran ls-translations")
+
+    op = shell_output("#{bin}/quran -trans 20 1:1").strip
+    assert_equal "In the name of Allāh, the Entirely Merciful, the Especially Merciful.", op
   end
 end

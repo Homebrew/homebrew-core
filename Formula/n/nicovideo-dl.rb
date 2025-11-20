@@ -9,15 +9,13 @@ class NicovideoDl < Formula
   license "MIT"
   revision 3
 
-  livecheck do
-    url "https://osdn.net/projects/nicovideo-dl/releases/"
-    regex(%r{value=.*?/rel/nicovideo-dl/v?(\d+(?:\.\d+)+)["']}i)
-  end
-
   bottle do
     rebuild 4
     sha256 cellar: :any_skip_relocation, all: "3ed938a610ab72d8bd9d90764672eb2ed5d9930e0803929c05b3e34d4c1a815d"
   end
+
+  deprecate! date: "2025-10-23", because: :repo_removed
+  disable! date: "2026-10-23", because: :repo_removed
 
   uses_from_macos "python"
 

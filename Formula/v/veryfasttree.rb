@@ -11,6 +11,7 @@ class Veryfasttree < Formula
   head "https://github.com/citiususc/veryfasttree.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "8cbf9aa1a695d9430f2277fe1d40da68c4aaa1eae6e5b7b1c6f0cae29577192c"
     sha256 cellar: :any,                 arm64_sequoia: "e377c3426836e11514282dfcd1fc2699fc6c25f721eaae8cf4f2bdf9ea41d0b1"
     sha256 cellar: :any,                 arm64_sonoma:  "bbbb02a03c029e97e52372649ba3ed63176cfd17567eb6a58ae05307bc63db3c"
     sha256 cellar: :any,                 arm64_ventura: "d78b15098c68bd0567765551e2cd6139df15b5e17426768b716ff8a8b9183a80"

@@ -19,6 +19,7 @@ class Libolm < Formula
 
   # Upstream project marked as deprecated https://gitlab.matrix.org/matrix-org/olm/-/commit/6d4b5b07887821a95b144091c8497d09d377f985
   deprecate! date: "2024-08-01", because: :deprecated_upstream
+  disable! date: "2025-08-03", because: :deprecated_upstream
 
   depends_on "cmake" => :build
 

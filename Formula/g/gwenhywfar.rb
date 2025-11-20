@@ -1,8 +1,8 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "https://www.aquamaniac.de/rdm/projects/gwenhywfar"
-  url "https://www.aquamaniac.de/rdm/attachments/download/529/gwenhywfar-5.12.0.tar.gz"
-  sha256 "0ad5f1447703211f1610053a94bce1e82abceda2222a2ecc9cf45b148395d626"
+  url "https://www.aquamaniac.de/rdm/attachments/download/550/gwenhywfar-5.13.0.tar.gz"
+  sha256 "26513d4b032eb8108ff2b6bf234b7d60c710fd16059fb80077acd79c250824b9"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -10,15 +10,16 @@ class Gwenhywfar < Formula
     regex(/href=.*?gwenhywfar[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_sequoia: "36e7bb5dd979060e85491ba7abad1220aeb8b69b00340cf6c162edf7bb9ab63d"
-    sha256 arm64_sonoma:  "1dd92fec7f8e3ab7426077ca39df0ee64c989378a71bd8a0926d85f08d349495"
-    sha256 arm64_ventura: "f1ef551aa010c77293d9fa52fcc29390c8c5455846fb4fbf367132b8e6062ae7"
-    sha256 sonoma:        "32c516bddf6b6850809f4019467e0ef959e5c999f382886e21e23b7f89db4902"
-    sha256 ventura:       "1778cd3befe21f89fb6b0368871a0b8e4348e4ba9510f19b049fd80172caec9e"
-    sha256 x86_64_linux:  "8a62c76819f61280a29d8961655ff5c396cda6e957e6e733521004014ac7aa6e"
+    rebuild 1
+    sha256 arm64_tahoe:   "c3e07fc19de3769a5c500e47668ba0058fcddd089eeb61f44896f6b604878c55"
+    sha256 arm64_sequoia: "ba0c84fbc7a140e08122a3bbb9eafae52335e981574fb24c26338b7b19ff209b"
+    sha256 arm64_sonoma:  "7d63c7b8d76c26181c107652e26d8f929a4be9e0a3548817b71db1eff91eaa3d"
+    sha256 sonoma:        "2275654e73a02e0a503047b68d2149404592a54030de67a8d41819e0c81e4a8b"
+    sha256 arm64_linux:   "881326cdb1e1d7e134323ab959118e783247261f123cdce9d8975b240a4a35c5"
+    sha256 x86_64_linux:  "547e2e560c7c77100cb28d5d7562b50fe287a4d28cb604d4bbe620fc7512e289"
   end
 
   depends_on "gettext" => :build
@@ -28,19 +29,13 @@ class Gwenhywfar < Formula
   depends_on "libgpg-error"
   depends_on "openssl@3"
   depends_on "pkgconf" # gwenhywfar-config needs pkg-config for execution
-  depends_on "qt@5"
+  depends_on "qtbase"
 
   on_macos do
     depends_on "gettext"
   end
 
   conflicts_with "go-size-analyzer", because: "both install `gsa` binaries"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   # Fix endianness handling for macos builds, emailed upstream about this patch
   patch :DATA
@@ -52,8 +47,12 @@ class Gwenhywfar < Formula
       ENV.append_to_cflags "-Wno-int-conversion -Wno-incompatible-function-pointer-types"
     end
 
+    # Workaround for Qt6 until next release which should have fix.
+    # https://www.aquamaniac.de/rdm/projects/gwenhywfar/repository/revisions/49e4fb81dc41efd966115ff8a610a84495b330e4
+    ln_s buildpath/"gui/qt5", buildpath/"gui/qt6"
+
     inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
-    guis = ["cpp", "qt5"]
+    guis = ["cpp", "qt6"]
     guis << "cocoa" if OS.mac?
     system "./configure", "--disable-silent-rules",
                           "--with-guis=#{guis.join(" ")}",
@@ -81,24 +80,21 @@ class Gwenhywfar < Formula
       cmake_minimum_required(VERSION 3.29)
       project(test_gwen)
 
-      find_package(Qt5 REQUIRED Core Widgets)
+      find_package(Qt6 REQUIRED Core Widgets)
       find_package(gwenhywfar REQUIRED)
       find_package(gwengui-cpp REQUIRED)
-      find_package(gwengui-qt5 REQUIRED)
+      find_package(gwengui-qt6 REQUIRED)
 
       add_executable(${PROJECT_NAME} test.c)
 
       target_link_libraries(${PROJECT_NAME} PUBLIC
                       gwenhywfar::core
                       gwenhywfar::gui-cpp
-                      gwenhywfar::gui-qt5
+                      gwenhywfar::gui-qt6
       )
     CMAKE
 
-    args = std_cmake_args
-    args << "-DQt5_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5"}"
-
-    system "cmake", testpath.to_s, *args
+    system "cmake", testpath.to_s, *std_cmake_args
     system "make"
   end
 end

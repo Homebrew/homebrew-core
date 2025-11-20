@@ -1,8 +1,8 @@
 class OpenjdkAT21 < Formula
   desc "Development kit for the Java programming language"
-  homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk21u/archive/refs/tags/jdk-21.0.7-ga.tar.gz"
-  sha256 "d8637e7d6fece0757b7fada49d32d0b3334a15a110445acef8cfea64b4672ca2"
+  homepage "https://openjdk.org/"
+  url "https://github.com/openjdk/jdk21u/archive/refs/tags/jdk-21.0.9-ga.tar.gz"
+  sha256 "4ffe05ff839192b01ed53ccd69835f7b5508bee7ca0d5703ac210897065e7ff0"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,13 +11,12 @@ class OpenjdkAT21 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "2277d1c2928cda2ae3374c9645645cc238cb376887cf091b6681c03a3d12984d"
-    sha256 cellar: :any, arm64_sonoma:  "7e35222a56e6605bd8cadd8751a13f619bb1944449b783f65063b64f46873274"
-    sha256 cellar: :any, arm64_ventura: "6811ad429eaf03ffc51e426b41eb66a1e04a39d70bb4b410ba017da21c031d3a"
-    sha256 cellar: :any, sonoma:        "e8071b04932df52f030b2608bc123f68b58567d100f3fb68fc8587eb71801c04"
-    sha256 cellar: :any, ventura:       "84a43a2c301ddb9723f9160e19fa9cbcf34dca5189254bdbe46b80356da7acb0"
-    sha256               arm64_linux:   "e9b684cf1117aa18f29d92179b5fab21a07f965d82022de76089acd423491840"
-    sha256               x86_64_linux:  "e83a003d88721a27a35db5459470dce43cb5cfb28f5bcdef3feb98cffa4580bc"
+    sha256 cellar: :any, arm64_tahoe:   "53694ee6766df66967355a00fc893355a6c3d7814d8aece0eefbb24719508cfa"
+    sha256 cellar: :any, arm64_sequoia: "6da1aa9d6eb871aaca17449374b3872bc67a18d3705944ffb3dc3ab838b50fc5"
+    sha256 cellar: :any, arm64_sonoma:  "fc1236d1bb65ea00e8058f04a40a6a969293b0369e7bab43217b20b3dcdddab9"
+    sha256 cellar: :any, sonoma:        "df11c8f9cecc07030b2780ebedd99b3998c6505a6561c48c193717fb68be5dba"
+    sha256               arm64_linux:   "9e0ea8de81c50ebccb01562453b6d29627a99b14c03ff7eb670f1ce6530e01dd"
+    sha256               x86_64_linux:  "9268eb6345ceb06807abce68e306a3312d9eef4116d016821feb8004700422c3"
   end
 
   keg_only :versioned_formula
@@ -31,7 +30,6 @@ class OpenjdkAT21 < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "little-cms2"
-  depends_on macos: :catalina
 
   uses_from_macos "cups"
   uses_from_macos "unzip"

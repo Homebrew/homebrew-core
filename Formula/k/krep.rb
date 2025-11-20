@@ -1,21 +1,23 @@
 class Krep < Formula
   desc "High-Performance String Search Utility"
   homepage "https://github.com/davidesantangelo/krep"
-  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "eea570981c9c24ade2c9bdebfd3ff144a5d4d30ba940e1bcf2f0e3355421886f"
+  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "76b0a9224b1e31aff49637c103b68e0d45d6b46456069e67e57b876a5c1ade59"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "abeeaebb1a7106686f09dd6cd76eb69c7aa572d89658810236476531ec284e06"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e830eb2e2ed1a1886ecf0f296f06b72649624973c86f36b3f50736802463e124"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a6cf7e9459a67144232b853108c03b92b07668b9640c8da92f45fd3f377f4eca"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a2010747f0a200256ae54812a2043cfb7162e53158e4d63b74ed0c58e5e34612"
-    sha256 cellar: :any_skip_relocation, ventura:       "fb742f1f5789a0ca58e285aebc035b3d4c8c7864e5be9b8104f2909f27938de3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccc749c33a0d9108badfbd1c08ed20bfe09d4cfbebb1bf1addc40ac357209ecb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d952331a6b919b3fb98d9ff2071038d83de71d2242fe39a1672133fc6b726360"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1979e322c19d736aa92e199a733c7945f38a588d87485c1890c056f18fda0520"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20211475afcc2c002ddd059295999f8b9167a4c99096a64af9c8a2921389372e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9d9aa18cc347296fc88bf5567dac2dff8e13b3a5caa641c43ed053308d4a57cf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0f00ce366b9dbed2fdfca1d5848ea4864f02769445fc3f04bf3a54be8e3e8986"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1bcc71c870fb68e62b4d2cf86d361901833358c2f2471ef2b58c5e9330f1087e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a8014f2fc90a1e7ed93eefafd11a5153f5f25b17bdadbfdaaa7452796df6d14"
   end
 
   def install
+    # Version mismatch, remove in next release
+    inreplace "krep.c", 'VERSION "1.2"', 'VERSION "1.3"'
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 

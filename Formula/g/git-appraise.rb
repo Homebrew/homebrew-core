@@ -15,6 +15,7 @@ class GitAppraise < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d005b8ba84092cf355c62cca07583b63626cc49ac5ea5833c06d80c8a1c023e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57018642d15c7cb5e4a6d1b897e3f1c369c1e81e22eb8dbdef0c6f6fdd8909d4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47ed51bc965177d94d4d1ef000fa1b62d25e923f1ad569fff3298c42bfebf3da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "987bab897e08380d91b10c6fdd7202c7a8e067d1417fb9887196b6cb5cdde19c"
@@ -25,6 +26,7 @@ class GitAppraise < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ad050720c5681456f47cef2988332445afe205a3c952f00fce6f12f831eb16de"
     sha256 cellar: :any_skip_relocation, big_sur:        "cf48e84b761a284f1479fc5d3073ad19ed895d4718119cb175ca953246d98468"
     sha256 cellar: :any_skip_relocation, catalina:       "c09bd9a262807d81e959f60445ab6e60ec75907ea448306644efbb9eb9d62b39"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "bb8623ee674ac49073c4ed1cbb2fae7d8903f6d9f7285b61e3688edcee74bda1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c1748a7102d5350cf74a90a05706b2a8d6fc6fcc90cce7e823856c183ad4e46"
   end
 

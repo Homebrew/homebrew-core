@@ -4,8 +4,8 @@ class Dpkg < Formula
   # Please use a mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.22.20.tar.xz"
-  sha256 "f21bd89cca601500a7ecc446160be72413d822fe09b4ea155c9593b46321d5e4"
+  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.22.21.tar.xz"
+  sha256 "57e6cc8408d8ebe08ef22f72149c2bf6b0f2ad62eea13db88e0b23bfd73303db"
   license "GPL-2.0-only"
 
   livecheck do
@@ -14,13 +14,13 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "bc5debe436178edb7a8636d0935a29a1755c71ad5c7819e3ab770e8d824afb1b"
-    sha256 arm64_sonoma:  "1be699ff66507af05dc486caf17faa92d68bdec7ee9a6e6f280a0c357a88b232"
-    sha256 arm64_ventura: "f180dc42158c88fa91c3774f5af98cc06fa584668e93990f20983aa2a33b9964"
-    sha256 sonoma:        "c0583c5674099510cf17d231d0ed236478e74fb3c1ad18c55136826cc74b2dab"
-    sha256 ventura:       "5edcbe44fbffcc8513fba1a6e98799a703a7efb218945b6dd0a2f6c7db520e72"
-    sha256 arm64_linux:   "26875de796ee79176282480a18c42b3970b8a63daca6762ac3f67a7d604391b4"
-    sha256 x86_64_linux:  "a9844ffb09ca79944ba8ce69cf383d347fd7af2b671d740b313eb4c0fff6a61c"
+    rebuild 1
+    sha256 arm64_tahoe:   "0e99a92adaa6eb1eafc3821e772966a70f4acc8d92ce629b9e6b9dcc8d6de3af"
+    sha256 arm64_sequoia: "67d085ad617f4f326f9d7f91e0cc3df0488c4fdd4e5dd45b280d0cf9288f76fd"
+    sha256 arm64_sonoma:  "a51bfd22dc552c71b8700a1855354a386d58d29cd6f029d1cacadb4263b2e8f8"
+    sha256 sonoma:        "17abddf7185113bab1cad4596d673d2f66500eb8536c059209d4c830f5e93e99"
+    sha256 arm64_linux:   "16b9549696eaf8523eaa2cc3fb5fe7a028a51b11f1346f1f19b9a4cf49039b20"
+    sha256 x86_64_linux:  "431a1a1042a427fa950ff1d17f996efb1792e9fafb6d120729d91b6f02f5f495"
   end
 
   depends_on "pkgconf" => :build
@@ -36,7 +36,7 @@ class Dpkg < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    keg_only "not linked to prevent conflicts with system dpkg"
+    keg_only "it conflicts with system dpkg"
   end
 
   patch :DATA
@@ -82,11 +82,8 @@ class Dpkg < Formula
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
 
     (buildpath/"dummy").write "Vendor: dummy\n"
-    (etc/"dpkg/origins").install "dummy"
-    (etc/"dpkg/origins").install_symlink "dummy" => "default"
-  end
-
-  def post_install
+    (pkgetc/"origins").install "dummy"
+    (pkgetc/"origins").install_symlink "dummy" => "default"
     (var/"lib/dpkg").mkpath
     (var/"log").mkpath
   end

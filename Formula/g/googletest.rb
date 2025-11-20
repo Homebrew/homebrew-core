@@ -7,20 +7,24 @@ class Googletest < Formula
   head "https://github.com/google/googletest.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec7368aaeb0d09dcab75a230f7b5a7db6f85dd1270fa7425c3cbb92fea187375"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e657620864762a65a2a2417e0f15bf6f32c6c7a1ed01e48e108e5f972a74d77"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e0935d01dd27b107fbc52b2932007d5379abef84cba41e1ff9b4c7dd5ae896b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e262a6fed7e35a951a30f61363f802d2a95533a038989c23caa25c1c62cc265b"
-    sha256 cellar: :any_skip_relocation, ventura:       "98b453d726dfc77def1c06896ff974c00b3a6ad26c943204bf8c10de66c9751d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b3a3bf959e4676e3193ae6a2f94b1fad5105cb9af1302f8556c749fed76d638"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3209555def5bd0c5ffaf61cd972fa0c13963932460fcbb7772b85fb92dd5e09"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a37e854f5861f02de03ad664562e70ba2b1bc87d4ea189ae67fff654124ee0b5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1aae318584d44e0b917d091fe609a9fc6f0036b3afcb7334708ae9d2a9b84de"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "251748848e8ba7dbc7c79401ddaea335303d24c17044b5e94eee08db0977fe93"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dcdfeca18aa3608ea45f6a2e41f0cb009441a61716a7598730de4da7a7cd5563"
+    sha256 cellar: :any_skip_relocation, sonoma:        "34d2c867c3210fc18dbe7929b51180d994f52353d3cb0a9127faa418ccc27b22"
+    sha256 cellar: :any_skip_relocation, ventura:       "07d838f55cea57ab4f8cdc160818ed3d0cfa3b5a44f3a7753dba4615d2d8f218"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e9d2bbc937219b6d7ce0e9c9be6c70e4a8c667eff5f02e6900200562d78bed1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71854dc8c3b2a13a96c490fa30b2076673023370d445cba2820095be3ef95ed4"
   end
 
   depends_on "cmake" => :build
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-      "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
+                    "-DCMAKE_CXX_STANDARD=17",
+                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

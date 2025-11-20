@@ -6,6 +6,7 @@ class Fplll < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256                               arm64_tahoe:   "695205a1c567c9f190fa106bba08341983123bf5581b4ca39d6f4c57b536e2a6"
     sha256                               arm64_sequoia: "a25629aa8d961b12af85b7c04935f1133c8a18dee209ff4a593692e11543dc3b"
     sha256                               arm64_sonoma:  "b9bd6d1a49c4cc589234f87a12a08a24f5c4e43a5cd8a300467ef1dedfb2f05f"
     sha256                               arm64_ventura: "1d79f55394b4e2d055ca691e5618b63b84b6d0db58195222acecd5390c27eb93"

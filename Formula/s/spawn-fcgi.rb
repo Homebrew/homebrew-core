@@ -12,6 +12,7 @@ class SpawnFcgi < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5bbb07b33b933e1e9ebd6f2599c7aa1be3baae04fd639e8ec9cc52ba266bd20"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b540af48ba02659346767032b75465695a1fb5b3dafcab07cd36d030853dd2ef"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e8c306a84a1948d46f1b1ebbd1b687c7af8ca096858d1094669b3458ecb916f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0049c20c4199fa06b3a1c4e6afcdf2a304dca80ecaf1cfbaed01a0c44caaf607"

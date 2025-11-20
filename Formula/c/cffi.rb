@@ -1,26 +1,29 @@
 class Cffi < Formula
   desc "C Foreign Function Interface for Python"
   homepage "https://cffi.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
-  sha256 "1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824"
+  url "https://files.pythonhosted.org/packages/eb/56/b1ba7935a17738ae8453301356628e8147c79dbb825bcbc73dc7401f9846/cffi-2.0.0.tar.gz"
+  sha256 "44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529"
   license "MIT"
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "908333c6c31b4da4876ccb707cdf2b1ec52aee3d83fc3c4a1b8b52f148883512"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7818f620936fb017c68eb02c8985dfecd297349b97e67550d4915cef440dd2fe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b143786bb8ede8b8ad7230b6be8c004f276dacccbd4647a3f169099a536fd3a6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8e1c24e4e78f041f98e0394a6a07ef560ea84d980f0f3c3dd3ea7fb6c3f91aa4"
-    sha256 cellar: :any_skip_relocation, ventura:       "7c8eea38ba0103ddbb0243d0ed9f74a79875f1f0dfe9d8421f3e2f45dca69da5"
-    sha256                               arm64_linux:   "8001ef146f7ab75ab198ec20c59f6383ecf439feb687c76b8ee5f3279a00c30f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a49b146e624fa887497252f89c76d8e7cfcdc4d9a4ec444a5b8db856324198cf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "04b0f56120f37b235dc1a8063149e279bad1cc9132727b25158393db8c930c2c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0c87ffc33c6042cf8c12508099ccbed120d6b76ecef0e0745d728960d48e13b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d588e61a2f80a3c6609fe497c391fc01dc24e2af1fcae3a520a353af32bc827"
+    sha256 cellar: :any_skip_relocation, tahoe:         "1252a16612b1585b96a870ac5c1d0af6beb31c1cfa76449e6599f87b5ec81698"
+    sha256 cellar: :any_skip_relocation, sequoia:       "050dfb668072267e2bb9e2eb03a02b31f6d15ecbce1c823ab0af521da3f05223"
+    sha256 cellar: :any_skip_relocation, sonoma:        "76c34aa7a07dff752819c015de41f2ba14d42441cc07cd7e4a4be7fd8baa8083"
+    sha256                               arm64_linux:   "cb50ba60bbd5cb6b2da0637c3f3090d07d3a68665076c5f553c65bfb061b1734"
+    sha256                               x86_64_linux:  "bad3335bd82f947b8283832392a0c37035e500e5732dd63b0f9878dcaf05d639"
   end
 
-  depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.14" => [:build, :test]
   depends_on "pycparser"
 
   uses_from_macos "libffi"
+
+  pypi_packages exclude_packages: "pycparser"
 
   def pythons
     deps.map(&:to_formula)

@@ -7,6 +7,7 @@ class LibimobiledeviceGlue < Formula
   head "https://github.com/libimobiledevice/libimobiledevice-glue.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "befcdfa53f96584ae27e06bb7fbb39f27bcdbdd6a0b8d9b8c32b90d8af5dc9f9"
     sha256 cellar: :any,                 arm64_sequoia: "2e0718fa644afc01576aa96df4448e9a13476681b4287973ab3fda5d79e0a52a"
     sha256 cellar: :any,                 arm64_sonoma:  "8839511835adac2934787a8a575c3dd6e02186d60db24ddb9c9aeed8a8069883"
     sha256 cellar: :any,                 arm64_ventura: "279cb7a80efc21378015aac5cc440e9fc51b922464adfcd00d08a6e3a5802785"

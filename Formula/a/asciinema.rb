@@ -1,35 +1,40 @@
 class Asciinema < Formula
-  include Language::Python::Virtualenv
-
   desc "Record and share terminal sessions"
   homepage "https://asciinema.org"
-  url "https://files.pythonhosted.org/packages/f1/19/45b405438e90ad5b9618f3df62e9b3edaa2b115b530e60bd4b363465c704/asciinema-2.4.0.tar.gz"
-  sha256 "828e04c36ba622a7b8f8f912c8f0c1329538b6c7ed1c0d1b131bbbfe3a221707"
+  url "https://github.com/asciinema/asciinema/archive/refs/tags/v3.0.1.tar.gz"
+  sha256 "612ecb265ccb316f07c9825bacd7301fd21f03a72b516edd370b0d3aa1adf2bb"
   license "GPL-3.0-only"
   head "https://github.com/asciinema/asciinema.git", branch: "develop"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f5ecbcebc62f27a2078b240921060282cef4507a007db5aabfc850c36aea51a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f5ecbcebc62f27a2078b240921060282cef4507a007db5aabfc850c36aea51a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0f5ecbcebc62f27a2078b240921060282cef4507a007db5aabfc850c36aea51a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c106a9e92ab1af2710d651a1453d8abc70d1a677507e2d28c0b11a277da3180"
-    sha256 cellar: :any_skip_relocation, ventura:       "1c106a9e92ab1af2710d651a1453d8abc70d1a677507e2d28c0b11a277da3180"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee91d0aae8818e3fe011ebd01134f75f180eee8e3332a49d2aef719295e85a9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f5ecbcebc62f27a2078b240921060282cef4507a007db5aabfc850c36aea51a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9411ff190cabfa8ca9a85555362dd5311a3da03061aba49bd42e86dac6cd5222"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "77f52a807a21b826e63ec4eeec391d0d1acbe9ac0d2041e70d71868b1d1900c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a1e2fd482ea5c1437fd0b087bfa931b1e165be9a4932e313eed3964d0f928c7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e5ce98155a854b9c7d3d95f156f66a8eed5eb2868c4020283da8e023ad81e7f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "37ea2aec4888cd4a0e05e1ef398dc6d805dace1b88567663b4ad290cdf046f1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72947fa454d14cb38785b507462c56724a4c97ca218d5ebafdb3825c52321912"
   end
 
-  depends_on "python@3.13"
+  depends_on "rust" => :build
 
   def install
-    virtualenv_install_with_resources
+    ENV["ASCIINEMA_GEN_DIR"] = "."
+
+    system "cargo", "install", *std_cargo_args
+
+    man1.install Dir["man/**/*.1"]
+
+    bash_completion.install "completion/asciinema.bash" => "asciinema"
+    fish_completion.install "completion/asciinema.fish"
+    zsh_completion.install "completion/_asciinema"
+    pwsh_completion.install "completion/_asciinema.ps1" => "asciinema"
+    (share/"elvish/lib").install "completion/asciinema.elv"
   end
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV["ASCIINEMA_SERVER_URL"] = "https://example.com"
     output = shell_output("#{bin}/asciinema auth 2>&1")
-    assert_match "Open the following URL in a web browser to link your install ID", output
+    assert_match "Open the following URL in a web browser to authenticate this CLI", output
   end
 end

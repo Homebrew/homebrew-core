@@ -1,12 +1,13 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "https://ftp.gnu.org/gnu/units/units-2.24.tar.gz"
-  mirror "https://ftpmirror.gnu.org/units/units-2.24.tar.gz"
+  url "https://ftpmirror.gnu.org/gnu/units/units-2.24.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/units/units-2.24.tar.gz"
   sha256 "1e502c4edfacf20b29284716c72e5ddb51a495a2365d7b03e7960494c4a0c902"
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_tahoe:   "c55812a03fc96b5e043390bddf43d20282abed8ae16b3e33134f3525e5336818"
     sha256 arm64_sequoia: "3e72fb9e4acdec731e168551f9bbfa788ebe467cc0d3f28129a1431560c3aa9d"
     sha256 arm64_sonoma:  "6ac2aacbfcfb4ea86d625442d2fc37dbfe22ab1746f52176b69c1103ce1e5bf4"
     sha256 arm64_ventura: "1d94bdf2d4593f992e8ed62654ded6c99152af1200163e1268b4b815f91bc461"

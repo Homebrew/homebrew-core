@@ -4,6 +4,7 @@ class Yaz < Formula
   url "https://ftp.indexdata.com/pub/yaz/yaz-5.35.1.tar.gz"
   sha256 "db030d6d66880398a44215e26132630ee94f5e462d838809e43f97e6399c1353"
   license "BSD-3-Clause"
+  revision 2
 
   # The latest version text is currently omitted from the homepage for this
   # software, so we have to check the related directory listing page.
@@ -13,13 +14,12 @@ class Yaz < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "24497a672f546f23ee52b7ff9b83863795545bd58a0c1561f3f634dcf220da7f"
-    sha256 cellar: :any,                 arm64_sonoma:  "e37f1921f43470a9a19b506b89f16e8f9b75a9965b8787dd5cf0e4ac28108555"
-    sha256 cellar: :any,                 arm64_ventura: "3ea0e0e6977e0a3bf1808e954386310246bdbc908051d9b653687cdd0b64e13b"
-    sha256 cellar: :any,                 sonoma:        "88022627e10356d887045d2d1be55bde3d09065ece5cbaec875047c748c7598c"
-    sha256 cellar: :any,                 ventura:       "280d60697fd3cb7fd04fdfb3ee24bd4df75e1de94408db54042d66786a7736a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "403a708cb2e5a97a3702dea76a7b43ef8b23a1974aa6d6eebd8aaf3a07c37dad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b26f737c242d969fa3a4c151fe73e72949af1e049a9f0fefae57533e2db44fe6"
+    sha256 cellar: :any,                 arm64_tahoe:   "73a47b82e3c73803671866c251283e4ed9952f3f436eef749bf9e1f21b29b229"
+    sha256 cellar: :any,                 arm64_sequoia: "eae087ee9e852385c94699e9a0ba55f762cdd42b0fee1216036f31d991732f65"
+    sha256 cellar: :any,                 arm64_sonoma:  "9a3d0c899ed8111307adda8cd58612900560508421cf3811f225cdb545c0ad86"
+    sha256                               sonoma:        "68aadbbe4c8b599ae82785b47e9de7a77e5dfed42fd04279feadf1b0199c11d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a56ee687d9c52f3ffe6cb4caab43e1a1d2e4f082b7c2a48eec6b33bb40a55240"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da30acbcadad740ef3de76a8f890b38d5667331248597abe72085a343adb010a"
   end
 
   head do
@@ -36,7 +36,7 @@ class Yaz < Formula
 
   depends_on "pkgconf" => :build
   depends_on "gnutls"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
 
   uses_from_macos "libxml2"

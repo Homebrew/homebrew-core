@@ -5,8 +5,6 @@ class Hyperscan < Formula
   sha256 "32b0f24b3113bbc46b6bfaa05cf7cf45840b6b59333d078cc1f624e4c40b2b99"
   license "BSD-3-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 sonoma:       "2019ecd836e8e16a4b4a1e2605297900ee9d5e6ca8fce4c2cee056ea8c00934d"
     sha256 cellar: :any,                 ventura:      "a5866b950b8b18122c144b6b6ff2ca64705861d59917a1762bef1faff1cc7b8a"

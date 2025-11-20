@@ -4,15 +4,17 @@ class Inchi < Formula
   url "https://github.com/IUPAC-InChI/InChI/releases/download/v1.07.3/INCHI-1-SRC.zip"
   sha256 "b42d828b5d645bd60bc43df7e0516215808d92e5a46c28e12b1f4f75dfaae333"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f8c679765ab69cc6aae5b2fa81f6bbeea4c903826060410d0b36f4794211f005"
-    sha256 cellar: :any,                 arm64_sonoma:  "b7fc7a880952735827136cd6ef79d7d624b5543faaa6bc2223f4ebbf63c3f111"
-    sha256 cellar: :any,                 arm64_ventura: "21ecf31cb3a08690a8f126b4de6b1c6763555e1d976951c36fad7adbf8e30a6f"
-    sha256 cellar: :any,                 sonoma:        "3db52eb01148b9f7bd51984b0f3a74bd094df492135d7aee961a593df7c052a8"
-    sha256 cellar: :any,                 ventura:       "2cdfe8cc8a2577264d50d5b3f577d12fd2f75781bcfc7e020e0579b1383a20c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f11430d8f96d6a69e1f8604bc297108ea4e7871c4209b0a02cf7c0da382f07a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4154598d70aa3ff9644319a6f181b3044748779833d3d1d7544005ce1162268"
+    sha256 cellar: :any,                 arm64_tahoe:   "c2ab3b6c1fc1a9753168ee404157c0773dc268416f8ef52f90ff19a799edb168"
+    sha256 cellar: :any,                 arm64_sequoia: "e2bb4775d1cf80b33c796a64d26cee00204db264397f07257069b2dd50a503c4"
+    sha256 cellar: :any,                 arm64_sonoma:  "ec8c1fd3849b6e0a443dbb825a1bda423a4d57fb31988c5225fd369dafe2555b"
+    sha256 cellar: :any,                 arm64_ventura: "17dfc12c8c97191dc5e622a7bf38098d2c7198ba763cf75945ceca662da1c5b1"
+    sha256 cellar: :any,                 sonoma:        "9f3d129b9d5e9a0b40789665a003470e5d876a75d4f23a7a8959ce51fcfcbf6e"
+    sha256 cellar: :any,                 ventura:       "8b825f53d14319b5bafa6e9d556033da1bd531d6a7410d83e6640a609d89b44e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c830915f64f9b964f200923ea06d4aa3ca7906a6f2b56da01650356c0dc9efbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16142b1bb7018bd3641a4ed78dc992d489661f65797e1c77c24ddaa0014042b8"
   end
 
   # These used to be part of open-babel
@@ -32,12 +34,14 @@ class Inchi < Formula
     lib.install_symlink libinchi => shared_library("libinchi", version.major.to_s)
     lib.install_symlink shared_library("libinchi", version.major.to_s) => shared_library("libinchi")
 
-    # Install the same headers as Debian[^1] and Fedora[^2]. Some are needed by `open-babel`[^3].
+    # Install the same headers as Debian[^1] and Fedora[^2]. Some are needed by `open-babel`[^3]
+    # and `rdkit`[^4].
     #
     # [^1]: https://packages.debian.org/sid/amd64/libinchi-dev/filelist
     # [^2]: https://packages.fedoraproject.org/pkgs/inchi/inchi-devel/fedora-rawhide.html#files
     # [^3]: https://github.com/openbabel/openbabel/blob/master/cmake/modules/FindInchi.cmake
-    (include/"inchi").install %w[ichisize.h inchi_api.h ixa.h].map { |header| "INCHI_BASE/src/#{header}" }
+    # [^4]: https://github.com/rdkit/rdkit/blob/master/External/INCHI-API/inchi.cpp
+    (include/"inchi").install %w[bcf_s.h ichisize.h inchi_api.h ixa.h].map { |header| "INCHI_BASE/src/#{header}" }
   end
 
   test do

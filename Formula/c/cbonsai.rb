@@ -1,24 +1,19 @@
 class Cbonsai < Formula
   desc "Console Bonsai is a bonsai tree generator, written in C using ncurses"
   homepage "https://gitlab.com/jallbrit/cbonsai"
-  url "https://gitlab.com/jallbrit/cbonsai/-/archive/v1.3.1/cbonsai-v1.3.1.tar.gz"
-  sha256 "62aa7e0eaf3098b7a6a2787146bd2531437df6ad0e604b0f9176128797efd8f9"
+  url "https://gitlab.com/jallbrit/cbonsai/-/archive/v1.4.2/cbonsai-v1.4.2.tar.gz"
+  sha256 "75cf844940e5ef825a74f2d5b1551fe81883551b600fecd00748c6aa325f5ab0"
   license "GPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "b7f0d998d2d9d8c57df4af660020fad67ca426ad8ede10842301f0cdf4ced6e2"
-    sha256 cellar: :any,                 arm64_sonoma:   "d751d0aff3de34a8d5f64a063a16d632fcf4aeb3decd78eccc89e50de7363057"
-    sha256 cellar: :any,                 arm64_ventura:  "5606c2d1882991d15e4e0e6457b258d2580caff4af08ff15f9019a9375d9d0af"
-    sha256 cellar: :any,                 arm64_monterey: "29f707c8334b23505e9f1963f9bc408038357402602df228ef1697a2e02ef16e"
-    sha256 cellar: :any,                 arm64_big_sur:  "fa7453507eea38ba79fcfa206508a405db0d5f3d38498e90e7bd63200d16c7b8"
-    sha256 cellar: :any,                 sonoma:         "f54742a3e343c6989e25f3ca484b24a798654b514e64505a1d2fb4e1fca3af5d"
-    sha256 cellar: :any,                 ventura:        "7d51969cb0c181d86ddb3fccb770efdfcf2f438e1a2cefc758fcc2dc166219c0"
-    sha256 cellar: :any,                 monterey:       "559b47b52fd88c4755a176832ad90b86499807aa91fb23919b0b529734dd8a39"
-    sha256 cellar: :any,                 big_sur:        "f09aa06b6ea26cd7053de48b25c11a2a517d05fc7f40b61a024164868f42bedd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f88dc991a65cfc6b31775e38ad0e4043443e4bce345ac6691e3fa116d9bc5dc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adab516beb445c4f2f03666bef052c660e3484c1f9e252d27c0741f91b2f40fb"
+    sha256 cellar: :any,                 arm64_tahoe:   "37e1bd7792b0722a35a28ac8e248d711f23ece8fc43fcfacfddcd8fa72db9f94"
+    sha256 cellar: :any,                 arm64_sequoia: "869d5f9329619e9bc7fafd702f44e2f3725cde753cc0c4b8653599b70153d0c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "71feed554a3774e5ded7a663fc43519ef0a9c633805495464326a0d078feed8c"
+    sha256 cellar: :any,                 arm64_ventura: "75af3e2e01e01d53c62a195d5f9f43d30f799a8126c342e668201dddcea5022b"
+    sha256 cellar: :any,                 sonoma:        "2ec9072aa232ecf1242b783d7db8b61023532e28e1a11789dc9f49fdd185bc9d"
+    sha256 cellar: :any,                 ventura:       "c9ce84ec6ca012fb023bd5648e585660ca47aaa525686aba6c2404ff22580a91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5607d8b16bcd0d2f736cef0014baeef29eeec6fed5ffa98bbf017728d0d62a92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b8bee402d858d1ade576595f3e0727f3f65bfab1b9a500c7de7a08fe861c935"
   end
 
   depends_on "pkgconf" => :build

@@ -3,18 +3,17 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.84/glib-2.84.2.tar.xz"
-  sha256 "88e960dd937057407d61fcb3b45a860704b25923c37ae2478b85f2ecb5a4021f"
+  url "https://download.gnome.org/sources/glib/2.86/glib-2.86.2.tar.xz"
+  sha256 "8a724e970855357ea8101e27727202392a0ffd5410a98336aed54ec59113e611"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "4c797e5a42c6e0cb3eb846e15634662d4cc29f10e47609353bbad80c51fec38d"
-    sha256 arm64_sonoma:  "fdd4ba3170e88633247a549e762975ac8bbc5a96b83c00ec5344589f7b23f4d3"
-    sha256 arm64_ventura: "19c865731de411165c2483c724aa24eaac93148c53586e2319fb17b261e894a3"
-    sha256 sonoma:        "a6dd1ee84d6b53274e54f71967d4399d70abde7b6d58724c1169311f1db1de72"
-    sha256 ventura:       "fdea4e18b6a38635abe211f39ca8b8af2d22208ca81d070ae284f72f37ed4d8d"
-    sha256 arm64_linux:   "2db2d2450692ed5cbd6d0f0229689e693f5fbdc06a3afd28bb70e63a50177325"
-    sha256 x86_64_linux:  "112d241effbde9f06aa8310fce62a4a874022312a7359b803ea29ecc04d58c17"
+    sha256 arm64_tahoe:   "e41b5c6254335596b3fce735d2f497926187ea1846e10fa164ea05c6591b7f59"
+    sha256 arm64_sequoia: "346b96a8971a428c3dc4d1ed8b34b4cbe86c3c66bd3263d946c40ee566881543"
+    sha256 arm64_sonoma:  "59d6aecf2b25b2b603f651cc1c58f7254bd6a7af281071e000c70bda9a57484a"
+    sha256 sonoma:        "f7bd10ce03e77b3bbb4c4663ae4a6138f85ed83a0fc28b21e4a665518bb325ae"
+    sha256 arm64_linux:   "8f1e8b227dafcd8a29db4b56123b1386e6280be0b77f097c611d4d362d349098"
+    sha256 x86_64_linux:  "9264f62ce88528d47252e1956f20f589a5d427331fcfa6f6884951c367e678fa"
   end
 
   depends_on "bison" => :build # for gobject-introspection
@@ -23,11 +22,11 @@ class Glib < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build # for gobject-introspection
-  depends_on "python@3.13" => :build
+  depends_on "python@3.14" => :build
   depends_on "pcre2"
 
   uses_from_macos "flex" => :build # for gobject-introspection
-  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libffi"
   uses_from_macos "python"
   uses_from_macos "zlib"
 
@@ -50,8 +49,8 @@ class Glib < Formula
                  "share/gir-1.0/GObject-2.0.gir", "share/gir-1.0/Gio-2.0.gir"
 
   resource "gobject-introspection" do
-    url "https://download.gnome.org/sources/gobject-introspection/1.84/gobject-introspection-1.84.0.tar.xz"
-    sha256 "945b57da7ec262e5c266b89e091d14be800cc424277d82a02872b7d794a84779"
+    url "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
+    sha256 "920d1a3fcedeadc32acff95c2e203b319039dd4b4a08dd1a2dfd283d19c0b9ae"
 
     livecheck do
       formula "gobject-introspection"
@@ -60,7 +59,7 @@ class Glib < Formula
 
   # replace several hardcoded paths with homebrew counterparts
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b46d8deae6983110b4e39bb2971bcbd10bb59716/glib/hardcoded-paths.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/glib/hardcoded-paths.diff"
     sha256 "d846efd0bf62918350da94f850db33b0f8727fece9bfaf8164566e3094e80c97"
   end
 
@@ -128,14 +127,6 @@ class Glib < Formula
       s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
               "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext.opt_include}"
     end
-    return if MacOS.version >= :catalina
-
-    # `pkg-config --print-requires-private gobject-2.0` includes libffi,
-    # but that package is keg-only so it needs to look for the pkgconfig file
-    # in libffi's opt path.
-    inreplace lib/"pkgconfig/gobject-2.0.pc",
-              "Requires.private: libffi",
-              "Requires.private: #{Formula["libffi"].opt_lib}/pkgconfig/libffi.pc"
   end
 
   def post_install

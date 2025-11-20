@@ -2,7 +2,7 @@ class Lwtools < Formula
   desc "Cross-development tools for Motorola 6809 and Hitachi 6309"
   homepage "http://www.lwtools.ca/"
   url "http://www.lwtools.ca/releases/lwtools/lwtools-4.24.tar.gz"
-  sha256 "e18c01841be3b149b79df38a67b59c51247ec40df0740b972eb724a3a3c72869"
+  sha256 "b38a2baad15c017bb7cd8144218e7af61abccf21fd25f7b1a35e6529acd7b3dd"
   license "GPL-3.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class Lwtools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2c535cbdfccc0f0d70af61a64eaed21800db4c8874ad4749d4a5de66fffc0cc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df2d82ee525776c58d4ce6a558472296880e4e188705913b14f30df5f7d9fc3d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a095d8215eff8b61b2695ec8bbc9abe05f0eec83760a84ca89a5fafcc9f46ab5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2ccfad0b580bd6f209e0b7a30c9dcd79f97af82736eff0fd746da510e567aa14"
-    sha256 cellar: :any_skip_relocation, ventura:       "5e82da67fdba591dd1f30154d20cf56af219a6c8b28ad061f508c795c8b9f33e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0928f64aa46c2c2ef89c78918d2c0c6512a76156109fdaa49dbd2cf0ebd7b249"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ae555d8339dd78feb3172793c8d69442c77297217b867a4e87fd6c40260f79c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f904db8779abd74708ebadd543361ae5f9ffee9a764cfe8ce3ff0e5db32d1f2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf4cd6f23617d013f4089741a4ff693a2d0c22b92b0d978a3a7c2b715382a0ce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "433acd7c0e10e9a77f57dc2a96db7c0b90e0714c1537206d98dadf36bbcf7869"
+    sha256 cellar: :any_skip_relocation, sonoma:        "13ff219d341591d4612e649fff1f87e4978d91ca440f096d7189a9382abacfc2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8140c9ed5b53b94b1abe2a57951fc16e57d01a962a554c9b3e69fbf4c4cc882"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "209fcd523569b4579aca0fffe15766ec01190f2e7e0426af08107ccf7971e166"
   end
 
   def install

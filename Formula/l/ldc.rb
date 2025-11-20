@@ -4,6 +4,7 @@ class Ldc < Formula
   url "https://github.com/ldc-developers/ldc/releases/download/v1.41.0/ldc-1.41.0-src.tar.gz"
   sha256 "af52818b60706106fb8bca2024685c54eddce929edccae718ad9fbcf689f222f"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
   livecheck do
@@ -12,20 +13,21 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "71eaf4988c4727f2dda04492103efc561bb359cf3d7ca22e52ff0e01d02b6319"
-    sha256                               arm64_sonoma:  "c13946c2e48005a9f5deb5cc3e3eabcc11633daa60b7a7b4979c35135ce7e5d8"
-    sha256                               arm64_ventura: "fccd9454e99a0d2ed2e7838bfd6d57aeebf847690f9a74402773591d0beb7a6c"
-    sha256                               sonoma:        "7d48159d658ca207b094c1003818293242f226d4ed31b5842b794044853bfc3d"
-    sha256                               ventura:       "1cbf7df96ab1dfae56fec5519871054c4f00e62cdaf1c11098ca1e3f798b4dca"
-    sha256                               arm64_linux:   "923a3738d66e989492a7a22f197326045a18eb8cd05517636ec5fdbd17bba55f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e5c0852d274465d94e3d70ba0d8d8e190334bc38098cfd3ff9ae9eca55ba112"
+    sha256                               arm64_tahoe:   "96c0f02aeb8b0fce7754eb723fdaa3d6cc09e12b5f58bccc242ae5b8c10eaa30"
+    sha256                               arm64_sequoia: "f0c2dbbdcae4b980065505ff72a20a0a29dae7dfe8afdeb7a94711d8e6dd46fc"
+    sha256                               arm64_sonoma:  "547c3c670bf11396c3efdb637133fdfcc75b392b6ea0b191060e4fbfac44cd36"
+    sha256                               arm64_ventura: "741d5a458d0b7eba1166852d930a2f5ed2b0c6d473693b715ac8cafc412b6805"
+    sha256                               sonoma:        "b289f81361bd6543932310bd415a083b8591ba9cf63c5d2a7b8fa601cb17d678"
+    sha256                               ventura:       "a7b1ee1863969e05c904f83ae66a796b19b10ac3518e0c7522735876bf6cf80e"
+    sha256                               arm64_linux:   "c9538d69c75aeb7b4c4f79272159b8cb441d9758a8d1f08e7e91ba65f10dc838"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6cfe190526020bdb7f2d6d6e2f1b633f330317d747262e71b5a493eef733d43"
   end
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkgconf" => :build
-  depends_on "lld" => :test
-  depends_on "llvm"
+  depends_on "lld@20" => :test
+  depends_on "llvm@20"
   depends_on "zstd"
 
   uses_from_macos "libxml2" => :build

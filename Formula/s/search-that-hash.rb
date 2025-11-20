@@ -2,26 +2,22 @@ class SearchThatHash < Formula
   include Language::Python::Virtualenv
 
   desc "Searches Hash APIs to crack your hash quickly"
-  homepage "https://github.com/HashPals/Search-That-Hash"
+  homepage "https://github.com/bee-san/Search-That-Hash"
   url "https://files.pythonhosted.org/packages/5e/b9/a304a92ba77a9e18b3023b66634e71cded5285cef7e3b56d3c1874e9d84e/search-that-hash-0.2.8.tar.gz"
   sha256 "384498abbb9a611aa173b20d06b135e013674670fecc01b34d456bfe536e0bca"
   license "GPL-3.0-or-later"
-  revision 9
-  head "https://github.com/HashPals/Search-That-Hash.git", branch: "main"
+  revision 11
+  head "https://github.com/bee-san/Search-That-Hash.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b3e204dce24083c6713bca5a0dde2d0f0e627f787758e6b8e01803891c54b7b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5b3e204dce24083c6713bca5a0dde2d0f0e627f787758e6b8e01803891c54b7b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5b3e204dce24083c6713bca5a0dde2d0f0e627f787758e6b8e01803891c54b7b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9af91650d9b60953e3f937017b8ed2384827bee26fe9800c13bca2bc6ea4124"
-    sha256 cellar: :any_skip_relocation, ventura:       "c9af91650d9b60953e3f937017b8ed2384827bee26fe9800c13bca2bc6ea4124"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "573f281f23fe17f75d9a6411b8f66dd64491a598ff1060a7b1f71dc1f461f64b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b3e204dce24083c6713bca5a0dde2d0f0e627f787758e6b8e01803891c54b7b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "aad5c9a231d56217b7408cab6b9001e76fd87c4911fd33160197792a33650d26"
   end
 
-  depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "certifi" => :no_linkage
+  depends_on "python@3.14"
+
+  pypi_packages exclude_packages: "certifi"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -29,8 +25,8 @@ class SearchThatHash < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "click" do
@@ -79,18 +75,18 @@ class SearchThatHash < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/8c/d5/e5aeee5387091148a19e1145f63606619cb5f20b83fccb63efae6474e7b2/pyparsing-3.2.0.tar.gz"
-    sha256 "cbf74e27246d595d9a74b186b810f6fbb86726dbf3b9532efb343f6d7294fe9c"
+    url "https://files.pythonhosted.org/packages/f2/a5/181488fc2b9d093e3972d2a472855aae8a03f000592dbfce716a512b3359/pyparsing-3.2.5.tar.gz"
+    sha256 "2df8d5b7b2802ef88e8d016a2eb9c7aeaa923529cd251ed0fe4608275d4105b6"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "requests-toolbelt" do
@@ -114,13 +110,13 @@ class SearchThatHash < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
     # Switch build-system to poetry-core to avoid rust dependency on Linux.
-    # Remove when merged/released: https://github.com/HashPals/Search-That-Hash/pull/184
+    # Remove when merged/released: https://github.com/bee-san/Search-That-Hash/pull/184
     inreplace "pyproject.toml", 'requires = ["poetry>=0.12"]', 'requires = ["poetry-core>=1.0"]'
     inreplace "pyproject.toml", 'build-backend = "poetry.masonry.api"', 'build-backend = "poetry.core.masonry.api"'
 

@@ -1,8 +1,8 @@
 class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
-  url "https://github.com/cxong/cdogs-sdl/archive/refs/tags/2.3.0.tar.gz"
-  sha256 "6ea66e058503a5c160dbeccc25072061c87e190ced6876ae5b63a3e4d1ed0044"
+  url "https://github.com/cxong/cdogs-sdl/archive/refs/tags/2.3.2.tar.gz"
+  sha256 "e2f56262629b175d4a387f6491696edc0a5b9420c9be8e9aa12b60feaa4fefa1"
   license "GPL-2.0-or-later"
   head "https://github.com/cxong/cdogs-sdl.git", branch: "master"
 
@@ -12,19 +12,19 @@ class CdogsSdl < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "08a30a5c543e87a3124a15c907b73060fe443820bbd6565569f49fb33541639d"
-    sha256 arm64_sonoma:  "c5a53c5b4fb1d8872f8df040958878bf133c7ef335111e31782c353a0b846c07"
-    sha256 arm64_ventura: "9d525e0b2132b29d012dd04fa065bf67a0424dba356c112e80370cc65e4fa446"
-    sha256 sonoma:        "f49ea1edd7342d5645cf54b49c0a07f4116df52c86d357c966d304615f4afc90"
-    sha256 ventura:       "1a60efaeb8e6680ff86ba951abf2ff25078a0e4fc6c6dcada978f547b85694e3"
-    sha256 arm64_linux:   "bf9707f098bb504f6ce1bb5d0b597e6325a68229a5e9fc8de9e6fe634f9d44eb"
-    sha256 x86_64_linux:  "6eed5b0c3979d10ba041c7755640461247e63979d6287fde09554dd712ec151e"
+    rebuild 1
+    sha256 arm64_tahoe:   "493a195761b03422dbb086028bdb68d23ce467a4f531e300030b3d3ae6feafd2"
+    sha256 arm64_sequoia: "4e24f31b8ee89a741c871ea1bf432a051a0dbbc5c44c3445f8d924f7a6c98e96"
+    sha256 arm64_sonoma:  "5ccba356364ef62cbe33de604239191571d00368b296efbcf5443bd344c88f08"
+    sha256 sonoma:        "83fb9b4b19b256cf9410d96234f13e086290f460bb94aaf8877dd16436e465cb"
+    sha256 arm64_linux:   "ff74f2369565cd06639a6b9ffe97af60510dd98ce4b1110c5e584244b48bc1e7"
+    sha256 x86_64_linux:  "0aff885c980dc56d382465c2b9dfbca48e4694bd49298867407159afc8fc2f26"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"

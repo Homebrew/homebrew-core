@@ -3,19 +3,19 @@ class Watchman < Formula
 
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2025.05.26.00.tar.gz"
-  sha256 "18efd17d976abcede44ffeee79159f626ed2d3df35d9c660555935e80afed7d5"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2025.11.10.00.tar.gz"
+  sha256 "b40fcd0daa648baa704baf3b0aa4e998ba3b2ff4f109f9b89ec0afe48f6aa06b"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a826ec377130ecae1219e271e33227a4524ea50900110ff46b319199f5aaf9aa"
-    sha256 cellar: :any,                 arm64_sonoma:  "da6893bb3ddf974e756e470ce7089a130f74db5dc214a5ff632bf7eab3cbb58d"
-    sha256 cellar: :any,                 arm64_ventura: "4039e68c9456d3bf490f8d39fe19b402bbcdca55df310937e5c727af6b48b028"
-    sha256 cellar: :any,                 sonoma:        "09e910192a58ec457d8c5dd805a2bf47d54e5ea73f1b79cf4e96a6feea443f05"
-    sha256 cellar: :any,                 ventura:       "b163d82c9239cae1e9ebc74aefb1f168aaf119e7ddff6e92972bd77f4ad8d773"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2fb1dff4a78144080c4b2af718598640414cf9dbdf4b07d7f3e9914aea0315d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "232aedb6336858387df09d40c28fe21f1942154aebe7c88b5341de7649a298ad"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "d1a32fd302da19e696868842e7957e011ceb985dd7c9dc10949a6f28f43b7ca9"
+    sha256 cellar: :any,                 arm64_sequoia: "6b8b7452fac915f02d5653de01b5ad1fd9c19a915c6be462162b0cd70b5af239"
+    sha256 cellar: :any,                 arm64_sonoma:  "c42c94f789130a286eeba06d16357132279b64918ddfd1157f8dd4f755ee875e"
+    sha256 cellar: :any,                 sonoma:        "dea8efd977f4ae03620c16716020c964938ed09bc0a26c23e5f111e66a2d6276"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5674efea8603c96b7fc453de55b919f1ca5c5f498cf8335b7eb590e9b850e16e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86f2d12f7736d67dae5ca2d1a0acfb1a01c6f93fba476f9dc7ce7a1b5aff883b"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +35,7 @@ class Watchman < Formula
   depends_on "libevent"
   depends_on "openssl@3"
   depends_on "pcre2"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_linux do
     depends_on "boost"
@@ -48,14 +48,13 @@ class Watchman < Formula
     #       RPATHs configured, so will need to be installed and relocated manually
     #       if they are built as shared libraries. They're not used by any other
     #       formulae, so let's link them statically instead. This is done by default.
-    #
-    # Use the upstream default for WATCHMAN_STATE_DIR by unsetting it.
     args = %W[
       -DENABLE_EDEN_SUPPORT=ON
-      -DPython3_EXECUTABLE=#{which("python3.13")}
+      -DPython3_EXECUTABLE=#{which("python3.14")}
       -DWATCHMAN_VERSION_OVERRIDE=#{version}
       -DWATCHMAN_BUILDINFO_OVERRIDE=#{tap&.user || "Homebrew"}
-      -DWATCHMAN_STATE_DIR=
+      -DWATCHMAN_USE_XDG_STATE_HOME=ON
+      -DCMAKE_CXX_STANDARD=20
     ]
     # Avoid overlinking with libsodium and mvfst
     args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?

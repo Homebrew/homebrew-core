@@ -13,6 +13,7 @@ class Dynamips < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "aad0f86002ca962368935cb17bd171e427569af71ba29399d6b7f079b23a0be4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4bc0583f71947ce92c88e24ad659542886af0698ef9601e6432ddb3c925c208e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3db4b7a6d2140635eae5d91a96810fbbef58144dcad5f7ed77743f930df696d3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "106e42f80c14fe08866951b8e1d5032f98fe3d8a57c497856d09aa0657a7120b"
@@ -46,6 +47,10 @@ class Dynamips < Formula
     else
       "-DLIBELF_INCLUDE_DIRS=#{Formula["elfutils"].opt_include}"
     end
+
+    # Workaround to build with CMake 4
+    cmake_args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    odie "Remove CMake workaround!" if version > "0.2.23"
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"

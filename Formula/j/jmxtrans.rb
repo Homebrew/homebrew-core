@@ -6,20 +6,18 @@ class Jmxtrans < Formula
   license "MIT"
   version_scheme 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, sonoma:       "f55c75730632187661589592bc60ce5846195fa7b90bea0d6f680bb0d1e3b37f"
     sha256 cellar: :any_skip_relocation, ventura:      "bfb7084ad1740683f32109d720b9b0e19b0c33ce75c67cb41b4e943f9a2c6454"
     sha256 cellar: :any_skip_relocation, monterey:     "2014fcd1c2a53a9f3a396c039f3ad1b530548dabf8e55f8648819b8581c1e0a2"
     sha256 cellar: :any_skip_relocation, big_sur:      "f83bb65c93c0149c4af9b3277d2ec1eee6fd0e94f2a27af0de47c18d3932e9fb"
     sha256 cellar: :any_skip_relocation, catalina:     "f8e5ac84ca621fbb2c0b0c9715899c8e7b2e86f198330b49c7ba7e3d993ec24c"
-    sha256 cellar: :any_skip_relocation, mojave:       "8dd69723155a4f2580b7327ca2babc8389cc9678f21dc1934ce3b73e7c67c89b"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "33004f7a6ece9cc9b0c6a0fa1640bf3176237a860012a2df0b2c71ce0a722396"
   end
 
   # no new commits since March 31 2021, lots of bug reports in https://github.com/jmxtrans/jmxtrans/issues
   deprecate! date: "2024-07-26", because: :unmaintained
+  disable! date: "2025-07-26", because: :unmaintained
 
   depends_on "maven" => :build
   depends_on arch: :x86_64 # openjdk@8 is not supported on ARM

@@ -1,56 +1,36 @@
 class MathComp < Formula
   desc "Mathematical Components for the Coq proof assistant"
   homepage "https://math-comp.github.io/math-comp/"
-  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-1.19.0.tar.gz"
-  sha256 "786db902d904347f2108ffceae15ba29037ff8e63a6c58b87928f08671456394"
+  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-2.5.0.tar.gz"
+  sha256 "3db2f4b1b7f9f5a12d3d0c4ba4e325a26a77712074200319660c0e67e25679f1"
   license "CECILL-B"
-  revision 6
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "37fb1f8770ce323d60e7849b3309f8accaf18b2983133717d75690791f15fe09"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40ed5c77b4b2121aa239a976b013efb9e0e589f0105ad50f44c304cc7388d422"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "315f3de4e2a6edea5d1207fc0220459059fdad6e7c4ce3fd68f84cb023c0c83e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3b4c7071557fe00030e6af03c50ef3b2088971c9321a856460f9d3381463cca8"
-    sha256 cellar: :any_skip_relocation, ventura:       "95303c41552038239d8a4836bbbf1dd5c2529b4c705eb74f0c636ae225b222f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8efe5c163d39035ce18892f5385020a9ea37d72f99a539fc7374ed8e7eeeedcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9d62a49ccc03fce4f95434502d11351864301b8dfa8a68bedf21d71a2d65fa7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d6ebdb3f0c5511e6e660fc529beafc659f4a178dfbe09daafa9a659ce9aaa2e9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f13c9a57821e1e7a78ff873c1591590bdc09e42f70507e54752c510c13896c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7d28a5e6399ea7380f2ba29d4bd476c1d1883e3e8ee84c3d5e5e9b34a603df1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8d41cc37c0ff9e7cc72c1dde6a453d0797fee10e14ad10a6e5efb40794c71b96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "222e8ece658e5273ced1047748b2c0c8942d45c70fdc40c1343fda9dc2728ea3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31ebbf2e8853abc7215f2535a0a7dff34246b2cb44d59488a47fdb07e02e9383"
   end
 
   depends_on "ocaml" => :build
   depends_on "ocaml-findlib" => :build
-  depends_on "coq"
+  depends_on "hierarchy-builder"
+  depends_on "rocq"
+  depends_on "rocq-elpi"
 
   def install
-    # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
-    if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
-      ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
-    end
+    ENV["OCAMLFIND_CONF"] = Formula["rocq-elpi"].libexec/"lib/findlib.conf"
+    (buildpath/"Makefile.coq.local").append_lines "COQLIB=#{lib}/ocaml/coq\n"
 
-    coqlib = "#{lib}/coq/"
-
-    (buildpath/"mathcomp/Makefile.coq.local").write <<~EOS
-      COQLIB=#{coqlib}
-    EOS
-
-    cd "mathcomp" do
-      system "make", "Makefile.coq"
-      system "make", "-f", "Makefile.coq", "MAKEFLAGS=#{ENV["MAKEFLAGS"]}"
-      system "make", "install", "MAKEFLAGS=#{ENV["MAKEFLAGS"]}"
-
-      elisp.install "ssreflect/pg-ssr.el"
-    end
-
-    doc.install Dir["docs/*"]
+    system "make"
+    system "make", "install"
   end
 
   test do
-    # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
-    if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
-      ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
-    end
-
-    (testpath/"testing.v").write <<~EOS
+    (testpath/"testing.v").write <<~ROCQ
       From mathcomp Require Import ssreflect seq.
 
       Parameter T: Type.
@@ -58,10 +38,9 @@ class MathComp < Formula
       Proof. by elim : s1 =>//= x s1 ->. Qed.
 
       Check test.
-    EOS
+    ROCQ
 
-    coqc = Formula["coq"].opt_bin/"coqc"
-    cmd = "#{coqc} -R #{lib}/coq/user-contrib/mathcomp mathcomp testing.v"
-    assert_match(/\Atest\s+: forall/, shell_output(cmd))
+    ENV["OCAMLFIND_CONF"] = Formula["rocq-elpi"].libexec/"lib/findlib.conf"
+    assert_match(/\Atest\s+: forall/, shell_output("#{Formula["rocq"].bin}/rocq compile testing.v"))
   end
 end

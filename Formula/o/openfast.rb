@@ -2,23 +2,23 @@ class Openfast < Formula
   desc "NREL-supported OpenFAST whole-turbine simulation code"
   homepage "https://openfast.readthedocs.io"
   url "https://github.com/openfast/openfast.git",
-      tag:      "v4.0.4",
-      revision: "d28a823169e75029d73362b07a2942d0a454f03b"
+      tag:      "v4.1.2",
+      revision: "02847314dfdc4069d70b8b493e37b12b810a11e2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2e89b7a85921381093c8ebb7c03d3453287725e32bf548a78c4d96687e13984d"
-    sha256 cellar: :any,                 arm64_sonoma:  "aae62eb732843dccd695d0228166fb77bd7f39350464ebec9b1dadf83116434c"
-    sha256 cellar: :any,                 arm64_ventura: "a651f9197f973c8b9846d3e5d4d8415d4f846dd074b44d4c9cc6aee38027c2d5"
-    sha256 cellar: :any,                 sonoma:        "baaeffca5e7d33ecea19f76071bd3679845c3626dda3d3fef36506609b13569c"
-    sha256 cellar: :any,                 ventura:       "56d53252d63b0ef61aa6465401500bc692c2ea3bc90324f10d72f5370bb8dd63"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4660629844154eb7e200d48e84b842108d3649096881db26348b0472a7d66cdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d8a1b246f53b43a2e7db5d6fd5c3ec12209be17374cdc5b310e1129e43843c6"
+    sha256 cellar: :any,                 arm64_tahoe:   "269867eb0f403bd5a9e1b0a1ff758efcdbf760f68b300497e95f4f632373a881"
+    sha256 cellar: :any,                 arm64_sequoia: "c733b48310104215380a08d3c0f844e6cca70f0230664d41cdaaf4bc86b1b494"
+    sha256 cellar: :any,                 arm64_sonoma:  "e2474a6e66bc1b37e7efb973fed3bf973d0f557c03ed52ac32611d955e438d38"
+    sha256 cellar: :any,                 arm64_ventura: "b794c4d1a1f5ff49e853dd71174f65b6aa82c75fbb8edfd6835e6a6c4dab2121"
+    sha256 cellar: :any,                 sonoma:        "7738d20b370ca541b264b61773cfe55374c8115d78a39cd0f3cc549cf200306f"
+    sha256 cellar: :any,                 ventura:       "571ca344e75c0163a44c068b2de3a09de60258635c87e3eb301cf416358f6c1c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e840402ec6568794ab7de2b26104e3732dd4754608d3b73cea5ab652648292a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d796ae9dbdec7d8fe0795940f8e851745be3e661adc700a67eae3a01d8fc1c18"
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
-  depends_on "netcdf"
+  depends_on "gcc" # for gfortran
   depends_on "openblas"
 
   def install

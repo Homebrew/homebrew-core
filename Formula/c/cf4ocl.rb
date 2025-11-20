@@ -6,8 +6,6 @@ class Cf4ocl < Formula
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later"]
   revision 2
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "1a609601f5b9aa94b1ae423edc608e7145c727f27a83107288eeef900a3dc4aa"

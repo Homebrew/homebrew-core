@@ -4,6 +4,7 @@ class Byobu < Formula
   url "https://github.com/dustinkirkland/byobu/archive/refs/tags/6.13.tar.gz"
   sha256 "9690c629588e8f95d16b2461950d39934faaf8005dd2a283886d4e3bd6c86df6"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,7 +12,7 @@ class Byobu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cf3d8aef3bbd52b3dadb87d50cfb8962d46c1bef4381b9260e65b0783c2618fd"
+    sha256 cellar: :any_skip_relocation, all: "0b80059c6d18a7c12043587da070143235a585325503f1c2b2f04cc15a2a1829"
   end
 
   depends_on "autoconf" => :build

@@ -7,6 +7,7 @@ class Fdupes < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "ddc93ce12edb258a3c40cf832cec446cb77483028cfb8c57f3d06c35f5069ce2"
     sha256 cellar: :any,                 arm64_sequoia: "b54e8a104cb80b26e7f00a6dc9cf338184c1649f4f0b21184d80a14c929e4cd7"
     sha256 cellar: :any,                 arm64_sonoma:  "119d17b7629a8a93cd3a8df4705dace6ff5aa48aa579335c39388ceb429876ab"
     sha256 cellar: :any,                 arm64_ventura: "1aacfa4639b04ac0818c34e93f90ea27d4088b1ea565754f0df2d1d288be3b2d"

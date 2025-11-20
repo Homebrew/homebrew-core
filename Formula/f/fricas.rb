@@ -1,21 +1,35 @@
 class Fricas < Formula
   desc "Advanced computer algebra system"
   homepage "https://fricas.github.io"
-  url "https://github.com/fricas/fricas/archive/refs/tags/1.3.12.tar.gz"
-  sha256 "f201cf62e3c971e8bafbc64349210fbdc8887fd1af07f09bdcb0190ed5880a90"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/fricas/fricas.git", branch: "master"
+
+  stable do
+    url "https://github.com/fricas/fricas/archive/refs/tags/1.3.12.tar.gz"
+    sha256 "f201cf62e3c971e8bafbc64349210fbdc8887fd1af07f09bdcb0190ed5880a90"
+
+    # Build fricas as a SBCL core file instead of standalone executable.
+    # Avoid patchelf issue on Linux and codesign issue on macOS.
+    patch do
+      url "https://github.com/fricas/fricas/commit/4d7624b86b1f4bfff799724f878cf3933459507d.patch?full_index=1"
+      sha256 "dbfbd13da8ca3eabe73c58b716dde91e8a81975ce9cafc626bd96ae6ab893409"
+    end
+    patch do
+      url "https://github.com/fricas/fricas/commit/03e4e83288ea46bb97f23c05816a9521f14734b7.patch?full_index=1"
+      sha256 "3b9dca32f6e7502fea08fb1a139d2929c89fe7f908ef73879456cbdd1f4f0421"
+    end
+  end
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7fbe73c52677676edec374061a9889381f7b8dd79d231cd5db743e8b47b83be4"
-    sha256 cellar: :any,                 arm64_sonoma:  "f80b27d9b594c6161a4b882f13cdb0c62f883d42760bb62d8563791d3ce3660b"
-    sha256 cellar: :any,                 arm64_ventura: "e78686fad2f37772d9d575453720622bd63af29ecc888a369672b14f2ca3e1d7"
-    sha256 cellar: :any,                 sonoma:        "716ba2734fc10c1a9540e8b868bfa6ff05c0ff8fa07fc04582808e2c12efb999"
-    sha256 cellar: :any,                 ventura:       "a3737a559b67fb9d5887f00208bf6c56b0e444d8f88be2d627db873c6971fde9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "22865967ea74382926e358484cef468d9eda01c3b251ee98ac8bdcb0095f47db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f35e32107cab4e45364c7f07245b562c6a425283ec655a22214a2c6f8302e8a2"
+    sha256 cellar: :any,                 arm64_tahoe:   "e9a297b78558b91737c3c3d03d12437405551fac907e9652eab4d415ac6fa961"
+    sha256 cellar: :any,                 arm64_sequoia: "36c8ae50dbb6ebca8fcb7bc76692470997f05428af2969ae2e5ed1aeb4a52adc"
+    sha256 cellar: :any,                 arm64_sonoma:  "89c1c4e80411f7d0eafc487926f589ca3a0d874f88dad2133fa5676af9542a1e"
+    sha256 cellar: :any,                 sonoma:        "43e36b8ff4477029525d7051560309056e8f101873306dacdb9ac8c4ce26475e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "57900b6decf4be69df0dfb499be874dfae4b250465f1d0e59dc25468738884af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f303fc5d5793d86993b3c8355a436b821a5791ec5be5476202c3faae5959fbd"
   end
 
   depends_on "gmp"
@@ -32,6 +46,7 @@ class Fricas < Formula
   def install
     args = [
       "--with-lisp=sbcl",
+      "--enable-lisp-core",
       "--enable-gmp",
     ]
 
@@ -43,10 +58,7 @@ class Fricas < Formula
   end
 
   test do
-    # Fails in Linux CI with "Can't find sbcl.core"
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     assert_match %r{ \(/ \(pi\) 2\)\n},
-      pipe_output(bin/"fricas -nosman", "integrate(sqrt(1-x^2),x=-1..1)::InputForm")
+      pipe_output("#{bin}/fricas -nosman", "integrate(sqrt(1-x^2),x=-1..1)::InputForm")
   end
 end

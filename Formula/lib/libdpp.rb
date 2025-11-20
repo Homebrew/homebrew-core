@@ -1,18 +1,19 @@
 class Libdpp < Formula
   desc "C++ Discord API Bot Library"
   homepage "https://github.com/brainboxdotcc/DPP"
-  url "https://github.com/brainboxdotcc/DPP/releases/download/v10.1.2/DPP-10.1.2.tar.gz"
-  sha256 "587ef044775e6bdd560ec17afc302c1048ebb3454455116d7241431fbb16a823"
+  url "https://github.com/brainboxdotcc/DPP/archive/refs/tags/v10.1.3.tar.gz"
+  sha256 "a32d94dcd6b23430afff82918234e4e28e0616bd2ddf743c5ab2f1778c5a600b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bd5ca9c17dac9e5569aa51cf3dce3c6f4a3796c131474c6e99732d9c4834ce08"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8ea3bc7e0797ef5c9b7d9d4c5cb2bb3772d79eb8b6ce807d3ee02d0be9cfeeb"
-    sha256 cellar: :any,                 arm64_ventura: "f622d491be1b229606a29223fccb0f1a118ea0593b7074afc23e92ccfa806f9b"
-    sha256 cellar: :any,                 sonoma:        "920148455d24bf5e5e9f74855ae96aaf513f63516b253a6351844014265034d7"
-    sha256 cellar: :any,                 ventura:       "2da37488f353e467fc7004b609e06afe24d039fea1e48e1f9c31e54aa3bba5ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8e511ba2aa3be34220a05f641bf48aece828c0ac8d7b518b27083b1b713639b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "505666b971cc6cb3928342b78b0290f5f046374385ff69a16e3e228314300cb3"
+    sha256 cellar: :any,                 arm64_tahoe:   "60f30087bbd2163b424e7cd0c5121179449e4a4da026a1b17dafcc59abb1be36"
+    sha256 cellar: :any,                 arm64_sequoia: "ddc7973cf1ac5476c7fa54a2114a44b96822ccc8014217d4fc5eaf0d12753752"
+    sha256 cellar: :any,                 arm64_sonoma:  "716410144df8562e95571a6e1312bee9f4a22d9859ebf3b9a6feb62681917ca2"
+    sha256 cellar: :any,                 arm64_ventura: "930866492ac48f28e53f750da08afb3f60fe135b344e78f7aec20ebb47248065"
+    sha256 cellar: :any,                 sonoma:        "d8bffea263432cb8387895e869d453cb1a2766275a92937392e2f774bb2207de"
+    sha256 cellar: :any,                 ventura:       "e802c41a7832725d8dc8a308deb9369d7c3191fdd099e8a7898ab65af2cec11a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "619c395f2ee566b0993475a995f522262b21b2121d25bd3478a9f09510a02533"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbd8551af03bb02344fe511a9757df305d2997e90a1d5cbb4e3b516c4dbd7fae"
   end
 
   depends_on "cmake" => :build

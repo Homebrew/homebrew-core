@@ -6,7 +6,10 @@ class Openmotif < Formula
   license "LGPL-2.1-or-later"
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
+    sha256 arm64_tahoe:    "371bb9f35979b5035726d70d03b8e5fee6cf8993b95f5328a77c8423f934c1b7"
     sha256 arm64_sequoia:  "a8bc176639f8fb38b41aab636e20c407232203d408d07098042a68e3f4ed610f"
     sha256 arm64_sonoma:   "088de6041cdf83f4d5ab19861a340937bb78e13d455d1c5819926a8a77842488"
     sha256 arm64_ventura:  "1019a2b092f310c8ee4d777401dd907b59e07f0c7b6ea18735a50932e2f42c1a"
@@ -37,7 +40,7 @@ class Openmotif < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 

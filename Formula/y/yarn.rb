@@ -16,6 +16,7 @@ class Yarn < Formula
 
   depends_on "node" => :test
 
+  conflicts_with "corepack", because: "both install `yarn` and `yarnpkg` binaries"
   conflicts_with "hadoop", because: "both install `yarn` binaries"
 
   def install

@@ -3,18 +3,16 @@ class EyeD3 < Formula
 
   desc "Work with ID3 metadata in .mp3 files"
   homepage "https://eyed3.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/3f/db/cabe446d633d24b367445bca5f5a36ab7e1dcb4622095eae3b5c37b9888a/eyed3-0.9.8.tar.gz"
-  sha256 "a296ef47d8d5a5b5d7b518c113e650c7db6e47633b31a9ca81453cd48faf9803"
+  url "https://files.pythonhosted.org/packages/ee/aa/5873b98fa5f570724a65757987c155dea68d27f0acae17da1b1ffc8cd0d2/eyed3-0.9.9.tar.gz"
+  sha256 "a8affaae19384aca66f6efef3babd705042a76e546f08e886f5f28691ac62a3b"
   license "GPL-3.0-or-later"
   head "https://github.com/nicfit/eyeD3.git", branch: "0.9.x"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4ac971a65a624577f3d7ec97d49542d39400860e967a8823b78a94afd764f33b"
+    sha256 cellar: :any_skip_relocation, all: "c6bbc59b8cca30423c14cd273ec694b3025e2c3aa2b6425966301121fb791889"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "deprecation" do
     url "https://files.pythonhosted.org/packages/5a/d3/8ae2869247df154b64c1884d7346d412fed0c49df84db635aab2d1c40e62/deprecation-2.1.0.tar.gz"

@@ -1,20 +1,20 @@
 class CqlProxy < Formula
   desc "DataStax cql-proxy enables Cassandra apps to use Astra DB without code changes"
   homepage "https://github.com/datastax/cql-proxy"
-  url "https://github.com/datastax/cql-proxy/archive/refs/tags/v0.1.6.tar.gz"
-  sha256 "f781abd69142551bc90e98bf986e82c191a39a9e1c45370d12a073268bc79c86"
+  url "https://github.com/datastax/cql-proxy/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "9c08158674244b297c3019f0c755e84742d8824f380f185e035419a2de539d77"
   license "Apache-2.0"
   head "https://github.com/datastax/cql-proxy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4956cf9eb3aac88e7b3706870559e78ad8d7bf2f84470b858813ec6f3f2d674e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2dc499bc83523870318cb45457c8dbf5463b38613e8ba898eb40f3cfb26ed15e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1341c402de442c3c8dc05e77ba655c372c14bdca32b36b3078be628fc62ee25"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c03fd5277a1fefba5da878800cf8c0d5efb8913a34850a60e840150f3a8c5508"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2e6e2bb6fb905db404f8912cc49e55a8d3dda016513e4eb683c89903161c8ddf"
-    sha256 cellar: :any_skip_relocation, ventura:        "ea58fa6d3a9d6987cb1b67f88ee2f14bcd83d8502b9d848e2cba7528fb0b8637"
-    sha256 cellar: :any_skip_relocation, monterey:       "6dc0f64f5ddd99e41653adda5e140c47aeb03c5a612a3f656f52e30209144a73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf5794b3521badaf76342cd4bcc83df09d26e3e77e7a2c9e1942ce3fcfb817ca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03f84d5e2eb848b641075a1e2b2298a8a7755cc06a4cad38abcb57d9d64dbe6d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bb3a1b8bf92e37379d4765635babee8424e20556d77448c7ddf8527879ca08e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9bb3a1b8bf92e37379d4765635babee8424e20556d77448c7ddf8527879ca08e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9bb3a1b8bf92e37379d4765635babee8424e20556d77448c7ddf8527879ca08e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3dbc0fb6ba197d0580cad3327f8d6f10a4a3425fc9aa93a96043e45932a969a7"
+    sha256 cellar: :any_skip_relocation, ventura:       "3dbc0fb6ba197d0580cad3327f8d6f10a4a3425fc9aa93a96043e45932a969a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c66d460a5288fdc86c5316e917e2041da66e9a240cd7496706dfff88ac9d4f57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5329be03e21ee3e5a58454aca78a6a08034b955efce86e2e2d14caff0e101b3"
   end
 
   depends_on "go" => :build

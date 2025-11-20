@@ -13,6 +13,7 @@ class ArxLibertatis < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "53d4828b343a70fd7a3801c3c245a15ca140f3426db4ee57a2968397dc6450e8"
     sha256 arm64_sequoia:  "e60d7ed4b0a7ff3b132efb97907d8203a0e501f292866d17ab9b2773376b44cd"
     sha256 arm64_sonoma:   "2c520ea9e3ce0eb1066cd47fd192e73bda08a3e27b39b1efa6b5dcef7614dedf"
     sha256 arm64_ventura:  "1db7612e1dbbe5d1515b7578a2c20a3b62dd4f65c37257237d10bf7e48723448"

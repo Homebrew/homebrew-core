@@ -16,6 +16,7 @@ class Aalib < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a4aec0f6a61caa07dcdfd47a8579ba4f506b1047cc0b822fe0321e123e638764"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "404c97537d65ca0b75c389e7d439dcefb9b56f34d3b98017669eda0d0501add7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a4890d380658f2e1ebef37698c874b8711acfe9c0685313d8c93dbe2e9e08bbf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bbe40492b5ff2d6bde6effd36a8fa0b179786032c1da624d0f6bd15e71cd044"
@@ -26,7 +27,6 @@ class Aalib < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ac7c8f7dafcb3eedf34abdd258d0cab1f9e58a3048da6307ded8ae029d162a2b"
     sha256 cellar: :any_skip_relocation, big_sur:        "fb1df93a418c2ae4b7c358d19b58afc0ad73d9d1e6f22b92aa5d5f086cb48a70"
     sha256 cellar: :any_skip_relocation, catalina:       "d83c1b827ca16ae5450356db32fe1b27e910a27bbe2b074a9b4c22fe310bc5b7"
-    sha256 cellar: :any_skip_relocation, mojave:         "46feeea3fc331a6982fa1960645e1851d3f395f36fbd99cbf92a7406030d9511"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "6205456db777cfa9097a0285ef6fdc29876b21df831295a0c9f2837ce236fdda"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ba926f8aadec9e5c30880ae6e6497d44f9045d1ca1f680baf28e67309bd8ecd"
   end
@@ -35,7 +35,7 @@ class Aalib < Formula
   # Fix underquoted definition of AM_PATH_AALIB in aalib.m4
   # Fix implicit function declarations
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4cd6785/aalib/1.4rc5.patch"
+    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/aalib/1.4rc5.patch"
     sha256 "9843e109d580e7112291871248140b8657108faac6d90ce5caf66cd25e8d0d1e"
   end
 
