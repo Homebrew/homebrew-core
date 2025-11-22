@@ -1,18 +1,18 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/refs/tags/0.38.3.tar.gz"
-  sha256 "08550020ec987490d540a8a5004699d4b59518a84813c2fd96f3000d86ee2c94"
+  url "https://github.com/sol/hpack/archive/refs/tags/0.39.0.tar.gz"
+  sha256 "b35458a9455089254edd2ff39a4daeece67eb6ae2bd64eee4dbcb56e04b746e2"
   license "MIT"
   head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4610e7c7e848f7750560fcd7067bb5ee7f05ed97d00a050348258e5cfa876804"
-    sha256 cellar: :any,                 arm64_sequoia: "603c42ec65506814584695a562db76dcfda87dfaecc8fabbe3a62ec38c26660b"
-    sha256 cellar: :any,                 arm64_sonoma:  "1febba455f551d9dc4799a0697f1a52993d9bb934ae3a7ef415f97188bccfbd5"
-    sha256 cellar: :any,                 sonoma:        "13d9e33f4146812e955c8b302ca12898f8f0e9a29c8ab4ffb7458e4c761dc4d5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef2a230d313d0c05cc9e4bb7dd5ac7710c3fa681c215ffbf6d5d4788becc1599"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45214110f26cc914b5463e5b4ca150defdd83807e82c7e74343fb05c8f3be599"
+    sha256 cellar: :any,                 arm64_tahoe:   "9bc78835cfdce33ad2080c9cb18985ac6a291c0234b2794dc3676e793dbe7601"
+    sha256 cellar: :any,                 arm64_sequoia: "49309f5cd7a10b04b4f0bca4f57b94b7ba7139c83ffe559eb3019c72976a272f"
+    sha256 cellar: :any,                 arm64_sonoma:  "3d8f9fdfdc5f7f0ce856a5e55f1338ab6111fcf8188159264194fb538016a4d0"
+    sha256 cellar: :any,                 sonoma:        "c95260f5ca17a322f2eade6698aab11fc403bf1b0fc4632db143f64097efe680"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3e1adb3cb429417979068847305794d065f53d98ecb43f491e92b9ec3196be1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abbc5cff6006b00b7184213e562d25d542db81183f4e26b6ef9942a60ed377a3"
   end
 
   depends_on "cabal-install" => :build

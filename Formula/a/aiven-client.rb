@@ -3,14 +3,13 @@ class AivenClient < Formula
 
   desc "Official command-line client for Aiven"
   homepage "https://aiven.io/docs/tools/cli"
-  url "https://files.pythonhosted.org/packages/8e/ff/bcc66a90be0be8cc5d8faefd4531c629375076993cb216e3da060a16320f/aiven_client-4.10.0.tar.gz"
-  sha256 "3981cb9996957f8e57c467c62a3344b4eb342b94baac4602d28cf6e78f4a1c2b"
+  url "https://files.pythonhosted.org/packages/35/6b/6a7eccb8c7c9713972d32d6c7de3bf26b96685bda6b338260588e137f73b/aiven_client-4.11.0.tar.gz"
+  sha256 "8edc77d6c44c7deb9d0c35a192c56482cdf0978407c9590ee907383b0f63cd16"
   license "Apache-2.0"
   head "https://github.com/aiven/aiven-client.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "0e25a56090195714eed5ef08eeac3051aafb09edab8c8448f7692d0f1ae5c3ac"
+    sha256 cellar: :any_skip_relocation, all: "82a9eda88a09d4957ee8c01eccd8b2ff3f1b3ceebf192f08ad907f359efda483"
   end
 
   depends_on "certifi"
@@ -19,13 +18,13 @@ class AivenClient < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
-    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
+    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
+    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
-    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
+    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
+    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
   resource "requests" do

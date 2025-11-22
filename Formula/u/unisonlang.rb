@@ -24,12 +24,13 @@ class Unisonlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a3bec3dee914213c4c1bf65db1b45763090eb973d5206511db9dbc824f5a7904"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fcbeb107ebc64e1e5dad4538c1caf97fccbb3d4ce0706ddd5a5d401394153c74"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2ea9a344257f401e24904fabcd44b09072b5f6c553ce1c8eb49488f0ad65a29"
-    sha256 cellar: :any_skip_relocation, sonoma:        "27c34820d33707ffe1c7b91a43d9503a63a15f0d33e00b906c652787f3da5feb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c6bb333689eb301534d9650a8adcfb8d93c9b8dc62c7ed275d6e5e388ca6d58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66137726856464aa0c5cff7e6a4c147312cba1950d832528ea8d315a86824a95"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9179cd2c0ba7095f663eff4a84b25fbf5de4b666f1cb1e9883e3855f912ed12e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2feef1cba04dc14215329a4ad00b6740d80b844b0e95dc9de5ee15b3f855d44"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8342d34324f23fc5aa7efdebdbd290477556bdf53b8519b84db4e1a16b8a1081"
+    sha256 cellar: :any_skip_relocation, sonoma:        "17316555c3db96877ba22227bbd297a71236f3cd055994396cf28a61dc6fc9e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dc4717d95f34f414bcdb0014986d9b8c783686c71c6f79b4bda1318adb68a13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9198636b6feec6c5c5c668bd715304672989d8354b48fea3e38a91ccde0eda0"
   end
 
   head do
@@ -44,9 +45,7 @@ class Unisonlang < Formula
   depends_on "elm-format" => :build
   depends_on "ghc@9.6" => :build
   depends_on "haskell-stack" => :build
-  # FIXME: `html-webpack-plugin` for `local-ui` fails to build on node 25+
-  # https://github.com/jantimon/html-webpack-plugin/pull/1880
-  depends_on "node@24" => :build
+  depends_on "node" => :build
 
   uses_from_macos "python" => :build
   uses_from_macos "xz" => :build

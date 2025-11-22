@@ -3,15 +3,14 @@ class Ratarmount < Formula
 
   desc "Mount and efficiently access archives as filesystems"
   homepage "https://github.com/mxmlnkn/ratarmount"
-  url "https://files.pythonhosted.org/packages/e0/5c/ffddb34553d65cb9bf1a0baa59bb61fcf3beebab0e0a944347a501b2e258/ratarmount-1.2.0.tar.gz"
-  sha256 "acca4e5803c75f50f94d4c75ead5f44aa4c4661c9e77d50eb25d1876e6f4dec9"
+  url "https://files.pythonhosted.org/packages/f6/2f/ce04f40f3cc82bb3ffbc97bffe3b7a2abe83a382c81fe2452ad54792acdf/ratarmount-1.2.1.tar.gz"
+  sha256 "28be2f1b9477ba4d0d8d75ddbc2468fc906970d36f4940bd932d1a51818e06a0"
   license "MIT"
-  revision 1
   head "https://github.com/mxmlnkn/ratarmount.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "d6b70f6e94c7285caf3826c0fd2716046b6a6c69faceb9f1d7d668ffefb3fd1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "490787576bfcff017d6374a50dd2656a8f247bf5b9924b5e59237d9981c53ba0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "a15624a458e6f7ceac2e37a87c97af346da5464730878bb1275fbd1f892dea22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7593eec7a1178860126729643e997704a66bf03fd0e58b1aeea4e7afd0e4ecc4"
   end
 
   depends_on "libffi"
@@ -108,8 +107,8 @@ class Ratarmount < Formula
   end
 
   resource "ratarmountcore" do
-    url "https://files.pythonhosted.org/packages/3d/41/7a01b717d2500594c207183347aad668e77b71b56a91c8bc8df277db745c/ratarmountcore-0.10.1.tar.gz"
-    sha256 "8eac900be94c30d3720d2e7a532113d3121036e7879575320183131354c59dcc"
+    url "https://files.pythonhosted.org/packages/f8/15/b9c2a47a4adba9b7bef8a057896a8e96db1d286ae538bd1d9d2fd147febd/ratarmountcore-0.10.2.tar.gz"
+    sha256 "35e2935e1e135140d1bb8d82061c1527fb168ba5653d0218c06f3ec106711e6c"
   end
 
   resource "texttable" do

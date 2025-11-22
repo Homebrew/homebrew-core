@@ -3,19 +3,18 @@ class Bandit < Formula
 
   desc "Security-oriented static analyser for Python code"
   homepage "https://github.com/PyCQA/bandit"
-  url "https://files.pythonhosted.org/packages/fb/b5/7eb834e213d6f73aace21938e5e90425c92e5f42abafaf8a6d5d21beed51/bandit-1.8.6.tar.gz"
-  sha256 "dbfe9c25fc6961c2078593de55fd19f2559f9e45b99f1272341f5b95dea4e56b"
+  url "https://files.pythonhosted.org/packages/80/d5/82fc87a82ad9536215c1b5693bbb675439f6f2d0c2fca74b2df2cb9db925/bandit-1.9.1.tar.gz"
+  sha256 "6dbafd1a51e276e065404f06980d624bad142344daeac3b085121fcfd117b7cf"
   license "Apache-2.0"
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "ef5c4732e7adcac576f695ebeec098d8868cd5d948b79090d0a1ba481b0b9b74"
-    sha256 cellar: :any,                 arm64_sequoia: "24af38a92df7381746b2621706fc28181c505cb50305c82a1bb28e5a643fa279"
-    sha256 cellar: :any,                 arm64_sonoma:  "ef0d63ce2a5a05d7ea9c675eff0ad7fbc0547f21ff5e2cafb52cc75bd2a570f4"
-    sha256 cellar: :any,                 sonoma:        "c3f8a60a0aee4d8c6da4e4f7e0a62b48d9acb8a8851a51c3da769a8a2be33d59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "167da002a52b508e69a7516adffb1600504961adee462771322fac8d844df95d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d8f41c6895a95989db6e060a25c3340eea577b5224c004e099fe5cb37576b9b"
+    sha256 cellar: :any,                 arm64_tahoe:   "c54af73093c8c6c90b74a7ff649aa03eb4de14b31332d30e9f6b6d39c609fa18"
+    sha256 cellar: :any,                 arm64_sequoia: "cf967393c8c7ad77f6042e4a87cc5ab5c4b4c2b3f66924574ee99313be4540a1"
+    sha256 cellar: :any,                 arm64_sonoma:  "95ce385b241dd2f3d16faab16599fad920da3ab00a97e44fe48a9445d6356b0f"
+    sha256 cellar: :any,                 sonoma:        "aae16b9217c71aef0cf30a70bbc937b73292e87e51f475a5a57a2a739c5fc1cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f6f2eec51d161479b9d8a4e6df6f3706e96283e0ee7bd2c2982360dc5ad5bdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "606d60fca48562a779add254bf0e1e8b1177d7e1a0b271644b142b778047851d"
   end
 
   depends_on "libyaml"

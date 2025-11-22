@@ -44,7 +44,7 @@ class Openlist < Formula
     resource("i18n").stage buildpath/"i18n"
 
     resource("frontend").stage do
-      cp_r buildpath/"i18n", Pathname.pwd/"src"/"lang"
+      cp_r buildpath/"i18n", Pathname.pwd/"src/lang"
 
       system "pnpm", "install"
       system "pnpm", "build"

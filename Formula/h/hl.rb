@@ -1,18 +1,18 @@
 class Hl < Formula
   desc "Fast and powerful log viewer and processor"
   homepage "https://github.com/pamburus/hl"
-  url "https://github.com/pamburus/hl/archive/refs/tags/v0.32.2.tar.gz"
-  sha256 "40a22a18af4d22cf416313050d93d9629446f22a52692b465f460eb30f386e1b"
+  url "https://github.com/pamburus/hl/archive/refs/tags/v0.32.3.tar.gz"
+  sha256 "9adf7e31a194c2527a810a3c25a010461c2a0ca55823fc79cca6b4f2a707b2a1"
   license "MIT"
   head "https://github.com/pamburus/hl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "08f653f4b3d9aa4c6b1942462699a618392931637b7620ebcac8e69649ac98ee"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6de8dcfd3475f162985bdc542da2557bb8a52005d258c799dc1d8dd7e485ed5a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12b6b258aeeced70db6dcaac204124d2ffdc3b214f21b9ceb1cba997cf8fbc22"
-    sha256 cellar: :any_skip_relocation, sonoma:        "31e0be0579508e05b09a18e0f114fb145134775035d5795d657df44e9348dcb5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "04170a2b573cca919d29aa2ed2c94a16ac0182bc1f283ee106a3d96f0cee6361"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b72a64100af2ae4619e5580bcfe8d49b7a497ed7740226467a42784931f9c58f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a2da0c3071273b57c20ee99f20b2489dc81798a2406e0a2cc8dda771ac785a79"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba4f9d61a2315d447dd8e09935e978d0cbac3a16f9c00adf6ef3e31da5d17b77"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "effc03a95fa897b83c81748a29d825db3cedb471d2e8713746ddb3ebe02cc8d5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "22aa0447ef492fa8f2222aeb0cf63e800de7d3d2be44074d409bdd3d453635f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ea602d85a27ca2d6a17c119310638da3ee53143aadbc354b25fa00070ebfcdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a53c031314d9d2626ce2492ca0a1d00e1f476b6c4b51cdc11488b50e9fd835ca"
   end
 
   depends_on "rust" => :build

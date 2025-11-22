@@ -3,23 +3,21 @@ class Otterdog < Formula
 
   desc "Manage GitHub organizations at scale using an infrastructure as code approach"
   homepage "https://otterdog.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/68/d8/4c1827aa29bc22f4a8f4cb4a755f4505c7e84fc54a6a67e3a5bbd4dc0389/otterdog-1.1.0.tar.gz"
-  sha256 "b1dc49d7cd0b4f077aa84d924299412539960cb848efbfbe69d9689adebc4832"
+  url "https://files.pythonhosted.org/packages/0d/1c/c1017834ec7263f13e6f13ac02a39f93a8f7fdc69753941578ac4e58ff2e/otterdog-1.1.1.tar.gz"
+  sha256 "37b0b2a6ebdc5b4641bf78278be79a597dc75c866dade8a2ea9250ce769ca8da"
   license "EPL-2.0"
-  revision 1
   head "https://github.com/eclipse-csi/otterdog.git", branch: "main"
 
   # https://github.com/microsoft/playwright-python/issues/2579
   no_autobump! because: "'playwright' resource lacks PyPI sdist"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "ffbd3ab3898d3116487bcd2314c50e0b72452ef77f02a3839939fbee7b92f722"
-    sha256 cellar: :any,                 arm64_sequoia: "82f61ed0e6214212cb5d9e983173856ea394ac1c567eff10dea9b3aa73eed4c3"
-    sha256 cellar: :any,                 arm64_sonoma:  "58011e10291cc66fa270befd806a19f2838f3c29c2143ee77c9453fe85b4a220"
-    sha256 cellar: :any,                 sonoma:        "8601a0617d176cb598f34f8c1499c8432c84c2f13b95469a33c1d097e9f060d4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23bed5c77f54ec8bff54a3f450b632830e31abd2e06f9099ce6fe4825a8b4ca8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a865d08f4c470c45294b949971654dfedfbc1ecad62c6b483ff9d7d910267fc0"
+    sha256 cellar: :any,                 arm64_tahoe:   "4aba3e28b39d7fde99a57176a8c28d986d3a6a64ecc6776646fbaec1b3104c72"
+    sha256 cellar: :any,                 arm64_sequoia: "825b6d19e70d50b5862018eb2c6631a8f180ca8771d5c73eac525d0a3da5a8c3"
+    sha256 cellar: :any,                 arm64_sonoma:  "745ed226445bc4b20f2b399fded7797dc8b7d9e859a6e4a2635dd5f31a126d62"
+    sha256 cellar: :any,                 sonoma:        "c187e9f343b418e1e5514998ed2c81813f02975bc6bcd369af420019126b7e5d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a52553a00e76e52fc6370be02a26a6a2ebf6b2e63828cc510c8f68605fff8c68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a80307e3d2d57f090480b5ca339f0ac0575181a05823d375443511abb88e4045"
   end
 
   depends_on "rust" => :build # for rjsonnet
@@ -34,8 +32,8 @@ class Otterdog < Formula
   # No sdist on PyPI, so we use the GitHub tarball
   # Ref: https://github.com/microsoft/playwright-python/issues/2579
   resource "playwright" do
-    url "https://github.com/microsoft/playwright-python/archive/refs/tags/v1.55.0.tar.gz"
-    sha256 "adda41b4a6c02f414d535b7a0e03bc5f4c4f77fb3d4ef3028f8b609ca71f3613"
+    url "https://github.com/microsoft/playwright-python/archive/refs/tags/v1.56.0.tar.gz"
+    sha256 "906f858568c32ddd6a6fbaef8fad182eb10ed2c972abf508c2a3f45945fa3768"
   end
 
   resource "aiofiles" do
@@ -104,8 +102,8 @@ class Otterdog < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "frozenlist" do
@@ -204,8 +202,8 @@ class Otterdog < Formula
   end
 
   resource "pynacl" do
-    url "https://files.pythonhosted.org/packages/06/c6/a3124dee667a423f2c637cfd262a54d67d8ccf3e160f3c50f622a85b7723/pynacl-1.6.0.tar.gz"
-    sha256 "cb36deafe6e2bce3b286e5d1f3e1c246e0ccdb8808ddb4550bb2792f2df298f2"
+    url "https://files.pythonhosted.org/packages/b2/46/aeca065d227e2265125aea590c9c47fbf5786128c9400ee0eb7c88931f06/pynacl-1.6.1.tar.gz"
+    sha256 "8d361dac0309f2b6ad33b349a56cd163c98430d409fa503b10b70b3ad66eaa1d"
   end
 
   resource "referencing" do

@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/refs/tags/v12.2.1.tar.gz"
-  sha256 "05a78e6d5e7fcc880bf64b64c39edb1f2d0bc0fe0a0e1996dffc65cfba095e05"
+  url "https://github.com/grafana/grafana/archive/refs/tags/v12.3.0.tar.gz"
+  sha256 "15c5d9368f570a0328a14ebfa062b1d269238f251fda22a49da3540a8162ff76"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -12,12 +12,13 @@ class Grafana < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6e98ada72f7292c7dae327e0ec4c70358ba68a5c91b1ba634aa6459ea6aca8fc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c167e4757be9bff4b65a4a9de7006a36526be180b30d1d00c343972cb424fe8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb01c93f4619df1b6d2df4b3d3e915812a83454fbdb1e0d91a7350c3a6be4202"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3a2071814847bcb92e753e7bd62a4bae73ea0d78b3f3623fc8143ed7f16d169f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fccb4e54ccd0cc9e1f6c4004aaf9a9cadb824e5f4dc65426805602907783eb37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a501fc40d131158546b733bd62822e2abc37d36f58e9889cd40b337d819951de"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f34c8c08f4feb111f9311810041a98215a6decf2a34c4688c5bbb7abe46cf7d4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d3b7b21758680d78a6797a46104cbc16b4d714b5f3582ffcd2b7955d50137e42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd4a8b6e4ea28e111811c57f1f199d92bc2c1c2b953fc2e5bb94a5925d4e26d0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "135f5263e4ccda5a1dbb6320d7f5621c6beac13dba50b88c292624c264993fae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e10df8c45c1323ccf8620fd622919947e4bea9b724e7ea0d67cd8f94267cb8f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1979dd80b26df967352752430f40752e5e1bef9cc5fcc43a2163c1ee1f94ae39"
   end
 
   depends_on "go" => :build
@@ -54,9 +55,7 @@ class Grafana < Formula
     pkgetc.install "conf/sample.ini" => "grafana.ini"
     pkgetc.install "conf/grafana.ini.example"
     pkgshare.install "conf", "public", "tools"
-  end
 
-  def post_install
     (var/"log/grafana").mkpath
     (var/"lib/grafana/plugins").mkpath
   end

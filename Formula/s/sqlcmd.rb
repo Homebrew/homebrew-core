@@ -1,8 +1,8 @@
 class Sqlcmd < Formula
   desc "Microsoft SQL Server command-line interface"
   homepage "https://github.com/microsoft/go-sqlcmd"
-  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v1.8.2.tar.gz"
-  sha256 "ee600e4a147fd1e3c5e6cea834f14465fbccbd96f6b32bd3b4c9e104e094b9b2"
+  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "c11ff96b6c31314f258a7a58e52e525c525452865591a581c98a37f6c0a7df60"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,12 @@ class Sqlcmd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "162dda8233d7acbe1363b842287173b62080403c35d32ee33f253c06099e5970"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "45e392b83c68e7c458be9191b188528a44e0355490d202a0b4eff439265d3447"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45e392b83c68e7c458be9191b188528a44e0355490d202a0b4eff439265d3447"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "45e392b83c68e7c458be9191b188528a44e0355490d202a0b4eff439265d3447"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4a58834b43e3a4664d9bdf1a1769423a77baf80cf291a1eb4f03e34e873a10f7"
-    sha256 cellar: :any_skip_relocation, ventura:       "4a58834b43e3a4664d9bdf1a1769423a77baf80cf291a1eb4f03e34e873a10f7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "def54d99dd25245cdc78f18cb0ed03a2061d7f62929e61b4c28c9bb36f5d641a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ef548bfb7826d3a14f44d314943c4e25df4b16b57897906f4a12e7690194a31"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a34ea026882eb3c78f605dcb1fd496f8daa29da0bba42a54f7f3aafdb68a9cc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a34ea026882eb3c78f605dcb1fd496f8daa29da0bba42a54f7f3aafdb68a9cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a34ea026882eb3c78f605dcb1fd496f8daa29da0bba42a54f7f3aafdb68a9cc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5f65631314958538547f8caf001c295154ab99b8b31a61c1ac1846094b07d57f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "043ffd7a779436b3008bde8ffac5f3d5cebfe966dbcc336438262547a0ca5c41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "129f6709d9f3a1cb601282a5e132470da24cc3341c54bfe918bdd10cad6ade4e"
   end
 
   depends_on "go" => :build

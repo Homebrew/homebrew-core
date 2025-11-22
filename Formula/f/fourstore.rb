@@ -6,16 +6,13 @@ class Fourstore < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:    "a88d1aa112c32edda907bc4f6d4f2ab77e8aba2b8f90c10773cfb5819395654c"
-    sha256 arm64_sequoia:  "92dd5f3276bc5832ebbb1611ea44d122938a630c5030587e103bc3f8e53cbb5e"
-    sha256 arm64_sonoma:   "bae32c0d87c821c1f2bc596ec4c40a3cf0f9de0c9e664e1f3a69f3cfc2b37127"
-    sha256 arm64_ventura:  "905ddab5e6fd155e2feb625631c5a6361b1375733d73bd133489812622db1a3d"
-    sha256 arm64_monterey: "654280dc9f6aa7d50013a146db3bd7f77c1f3ca288718d5dea2f6dc9e75670cc"
-    sha256 sonoma:         "2814fa83d67d9ea064801194bb973aba7af059c593af3a6d1392a578b45283ef"
-    sha256 ventura:        "b4ee510fc81c7a204a28aff547cae9dfd48902137cf189d262d7c249abda656c"
-    sha256 monterey:       "172b0d12bcbd2d1109280aa3f9366bdcb8fdee66e0fa9b25e2108b657f179b6f"
-    sha256 arm64_linux:    "60fc8b5d5caa74ad49b561e5b66e94a51341cc96fc3b31803bc836948d298cc0"
-    sha256 x86_64_linux:   "5bef880ded18c7328064abc7bda9914dd0b4a6294b9719b041bc2eefc151c84e"
+    rebuild 1
+    sha256 arm64_tahoe:   "c5baea4e48a6bdc63c9b24b606eadd3b02a9659605011306941b044f37d3c6c1"
+    sha256 arm64_sequoia: "5c9987aad4c2ab997ef0c9f359ea11ed1a39d61ab536b16661e006a28b55e8f9"
+    sha256 arm64_sonoma:  "0aab4c5aa2a0f8c0d4f759604d159196fdc8ccc52ccdaa65f8fd65322ad2cbc7"
+    sha256 sonoma:        "463dc6fd4f9af1fdcd701090c40bb3b3eb5db90465cf6574c91be35448b0a6ac"
+    sha256 arm64_linux:   "a5163f5dd78472121fb698688d5b9c2ca43988320d34479a9ffc765a9b7213cd"
+    sha256 x86_64_linux:  "d98981cc3228b17fb2ad4364a186756c88d9f8499c60d4bad3ea6d5a3c86513a"
   end
 
   depends_on "autoconf" => :build
@@ -49,13 +46,11 @@ class Fourstore < Formula
     (buildpath/".version").write version.to_s
 
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-storage-path=#{var}/fourstore",
-                          "--sysconfdir=#{etc}/fourstore"
+    system "./configure", "--with-storage-path=#{var}/fourstore",
+                          "--sysconfdir=#{pkgetc}",
+                          *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
     (var/"fourstore").mkpath
   end
 

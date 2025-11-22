@@ -31,7 +31,7 @@ class FlipLink < Formula
     system "rustup", "default", "stable"
     system "rustup", "target", "add", "thumbv7em-none-eabi"
 
-    cp_r pkgshare/"examples"/"test-flip-link-app", testpath
+    cp_r pkgshare/"examples/test-flip-link-app", testpath
 
     cd "test-flip-link-app" do
       system "cargo", "build"

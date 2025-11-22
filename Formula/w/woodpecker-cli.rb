@@ -1,18 +1,18 @@
 class WoodpeckerCli < Formula
   desc "CLI client for the Woodpecker Continuous Integration server"
   homepage "https://woodpecker-ci.org/"
-  url "https://github.com/woodpecker-ci/woodpecker/archive/refs/tags/v3.11.0.tar.gz"
-  sha256 "0e7edcae7da55be976d138ed34675be69198d24ee337b9d0588f4c0ec495c63d"
+  url "https://github.com/woodpecker-ci/woodpecker/archive/refs/tags/v3.12.0.tar.gz"
+  sha256 "a6fa0a53f10b5a404124ee89ed1f8723744763858aee62060458a502bedaf313"
   license "Apache-2.0"
   head "https://github.com/woodpecker-ci/woodpecker.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfadd32b5b7d7400d85eec147ab57127cdd6055baebe48eb4a4103565c5a3873"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfadd32b5b7d7400d85eec147ab57127cdd6055baebe48eb4a4103565c5a3873"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cfadd32b5b7d7400d85eec147ab57127cdd6055baebe48eb4a4103565c5a3873"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c54c6887778be066c8fc50d45c869af71fac80f24a11e66530f7356ef77c6889"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "002c4c521c6f6efbac906113a27aa45f7c2fa785b5b9baa8372b7678e5cddc51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f68cb2f8584a01657c26dfb49b58149e2a93c3c263d33bf51ca8b0afce3da509"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f4546057eb9f50c5ad221c7090d988854e7fc39d1308f123b22f17f48da0b83e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4546057eb9f50c5ad221c7090d988854e7fc39d1308f123b22f17f48da0b83e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4546057eb9f50c5ad221c7090d988854e7fc39d1308f123b22f17f48da0b83e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fab44f0ee90524ca08787418881e993157efa527b9a50e395dfe38ff06ad4f7e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e821e66d34899ed80e3d00008c3969bba647afb23e43b74709000277cd10f0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ed603dcff573bdd7763edc323458af067effc8a5f6619bd5bc1e20dbd3ab06f"
   end
 
   depends_on "go" => :build

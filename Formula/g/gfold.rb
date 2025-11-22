@@ -48,17 +48,13 @@ class Gfold < Formula
     end
 
     assert_match "\e[0m\e[32mclean\e[0m (master)", shell_output("#{bin}/gfold #{testpath} 2>&1")
+    assert_match "gfold #{version}", shell_output("#{bin}/gfold --version")
 
     # libgit2 linkage test to avoid using vendored one
     # https://github.com/Homebrew/homebrew-core/pull/125393#issuecomment-1465250076
-    linkage_with_libgit2 = (bin/"gfold").dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
-    end
-
-    assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
-
-    assert_match "gfold #{version}", shell_output("#{bin}/gfold --version")
+    require "utils/linkage"
+    library = Formula["libgit2"].opt_lib/shared_library("libgit2")
+    assert Utils.binary_linked_to_library?(bin/"gfold", library),
+           "No linkage with #{library.basename}! Cargo is likely using a vendored version."
   end
 end

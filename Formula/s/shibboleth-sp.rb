@@ -14,14 +14,13 @@ class ShibbolethSp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:   "57a346ae8c1835ec19245b711131bb8878b1b49b5c09030646f07103c91058ca"
-    sha256 arm64_sequoia: "0569ff4651fd7d6700c65c25790574f19066174c768959ae2064aea20ad5a99b"
-    sha256 arm64_sonoma:  "0a46e994d409ba22543dc7bc7736238bcce908efc32d987ce0c043ceced97a70"
-    sha256 arm64_ventura: "e5d6b7a4b089ab17ec32cd0808c1d5f0c7de2190df46a0a02bb00c1561d1cfca"
-    sha256 sonoma:        "3266a747920724d2be0e306610ebfc6348cab7d02331702d398dc6fa671c7dfc"
-    sha256 ventura:       "05d2cc8a93f269863e7dee8ce5806dd840b8d8ba6bf0619cb425b8635a1a6dc3"
-    sha256 arm64_linux:   "8543a12970a4d9909660f736f4a4a4fe10b0b26ead2c011d32aa39614fa068d2"
-    sha256 x86_64_linux:  "5d6bdcc1ac27a3cadcc7e5b0d38d8718ec1e20ee599f2eb2c373af7d24b34d7e"
+    rebuild 1
+    sha256 arm64_tahoe:   "105caae3db423a4ae2ef4d3deb4f25557e39a2b7469094129222bf6e26025cc1"
+    sha256 arm64_sequoia: "7be03c283bd03ff2963f41bb949c9a2434b56fab73ef26864e5ed54169b6a833"
+    sha256 arm64_sonoma:  "e37293eaab76478845e28a24c16e77ae9e4eb218c7e2d0aeeff93038a87182f1"
+    sha256 sonoma:        "2ccea3f29a012722cef174cbadda353cbea92967145d05a2b79e0c8ae90036c9"
+    sha256 arm64_linux:   "50f2e227a17c72075fbde051cc9c493d2de9761afdbe701cfaf59e1aed393648"
+    sha256 x86_64_linux:  "0a312b12f0b6a2dcc7955f7778f8afcab6ceef8fdaf14bb1f904fb2066e56dbc"
   end
 
   depends_on "pkgconf" => :build
@@ -56,10 +55,8 @@ class ShibbolethSp < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
-    (var/"run/shibboleth/").mkpath
+    (var/"run/shibboleth").mkpath
     (var/"cache/shibboleth").mkpath
   end
 

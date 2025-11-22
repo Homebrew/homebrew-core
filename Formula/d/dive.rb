@@ -7,14 +7,13 @@ class Dive < Formula
   head "https://github.com/wagoodman/dive.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9885943d3b5cd54be344bf9b7518bd49c0eaf07c572cdbaafdcdb90e311d3592"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f09a27e21a4b76122d74e9a776219ab7377efaf30dff7d8d7e3016aac375d14a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f09a27e21a4b76122d74e9a776219ab7377efaf30dff7d8d7e3016aac375d14a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f09a27e21a4b76122d74e9a776219ab7377efaf30dff7d8d7e3016aac375d14a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "676549efe805835ddb82aed795bd168b5ea9bb07ffbdb6500965c59474e035ca"
-    sha256 cellar: :any_skip_relocation, ventura:       "676549efe805835ddb82aed795bd168b5ea9bb07ffbdb6500965c59474e035ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b6280705de2eb1d70dca85d5d9a8db09f09e7abbff80525dce8c00b5a5a8959"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0eea0c4d2dc63bfa43c121fc136bd18ba3b1fed57f5e3aedae0ca2c57b35097"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00d8433629c5c4443ecb454b41ccb295755621da4712dd763c4d13186f0293e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00d8433629c5c4443ecb454b41ccb295755621da4712dd763c4d13186f0293e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00d8433629c5c4443ecb454b41ccb295755621da4712dd763c4d13186f0293e1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bbf06fc96c2713b5343c153833eb12bb3d78a783e6c20142e43762bed913565a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "395a3a4bb1339f9f99a30fd319a3996d51b68b68e651351d89ee41039f5d3557"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e56c8da50f1a7d70cf0baebf4ca0776269c7aef34928fab7206b6691d245ea3"
   end
 
   depends_on "go" => :build
@@ -22,6 +21,8 @@ class Dive < Formula
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+
+    generate_completions_from_executable(bin/"dive", "completion")
   end
 
   test do

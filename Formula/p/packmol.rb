@@ -1,8 +1,8 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/m3g/packmol/archive/refs/tags/v21.1.1.tar.gz"
-  sha256 "4bad785e6e1b91d8b80934eeebf91013e940c577693bbecd7ec56eb563f5d97f"
+  url "https://github.com/m3g/packmol/archive/refs/tags/v21.1.3.tar.gz"
+  sha256 "21a22e4e3f183e2c594c2e1d85cd7c16a95a8c609b36fc28d653f6c2c2d54c0c"
   license "MIT"
   head "https://github.com/m3g/packmol.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Packmol < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a5b3df00f0d2a4f4bedf45af4907f90fb2b847fa5888e204604568f6a7895361"
-    sha256 cellar: :any,                 arm64_sequoia: "48e8f1d8e37b3fc6a44c9a5c9c4b7976bb47166fa85f14e3771cc29a349f4f36"
-    sha256 cellar: :any,                 arm64_sonoma:  "c737487817e8681c2effc46a2243f2098a22c7f3928c8ccc4603ce9a43bc98ec"
-    sha256 cellar: :any,                 sonoma:        "e29361da29e7d240c2d12d6857197950fe861865a2f3ac03f2abdd28cd56a75a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ed3e203477a3f7e97beb8f84fc260b742d5879d6fb68e12ae571c087bf372aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a489ad1696ded2ee9b2bb5bba5de5a54a243d972f630e9f6a8a942cf7a99afc8"
+    sha256 cellar: :any,                 arm64_tahoe:   "d169d53193bd7fd8181af3630d492371b56730dccbc8e5b5c014161730764ad8"
+    sha256 cellar: :any,                 arm64_sequoia: "9fbbd997cc256bb7df7585e93a76a1448405c9643f0a000cc16f345099b9a950"
+    sha256 cellar: :any,                 arm64_sonoma:  "6382ae01ce6928b436068f63d7b1bf9ea175e0ec9fff82a01ec782f3e9a308a2"
+    sha256 cellar: :any,                 sonoma:        "10575dd06b032986ccf433958a4fcc71f3738d105e4fc21c06a0ce31713dd999"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a19ab339cb0c10331695c705c5767a4988efc7627dbf31bde63f7c79bc5caa11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "daa7ffd494a2c57b28fede763370cc164d3a4f7a801c838ca0e24ebc8090f12c"
   end
 
   depends_on "cmake" => :build

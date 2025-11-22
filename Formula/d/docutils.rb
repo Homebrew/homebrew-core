@@ -38,7 +38,7 @@ class Docutils < Formula
     EOS
 
     mkdir_p testpath/"docs"
-    touch testpath/"docs"/"header0.txt"
+    touch testpath/"docs/header0.txt"
     system bin/"rst2man", testpath/"README.txt"
   end
 end

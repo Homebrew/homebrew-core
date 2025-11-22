@@ -9,19 +9,13 @@ class Nuvie < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "6c30661325add7687133e29bcc6737e776aba83671d7ac74fd8bb6763f3c9fc3"
-    sha256 cellar: :any,                 arm64_sequoia:  "902a34d91fc246cecdc69226062a69cba191bcf6992503f15c4f88ddad3026d6"
-    sha256 cellar: :any,                 arm64_sonoma:   "5411b122bd14475a5b65b01528146f985b3af26d4e6b82c6d34c49197e1dfc0e"
-    sha256 cellar: :any,                 arm64_ventura:  "93db83cb47b7c6f93b2d6adeb1d6fcf12f72920dd32185983a6d24fe0f63002e"
-    sha256 cellar: :any,                 arm64_monterey: "987e483a02d53595c23a2174ba7603e2cbd03f0351ef8d1ba2cf210c73aa5540"
-    sha256 cellar: :any,                 arm64_big_sur:  "ae3f93506890f1ab1f1ddcb1395eeb42988ec5afb7896bc08a6b9786f48f6b6f"
-    sha256 cellar: :any,                 sonoma:         "5fea8b534413a8533130b7a01dc182a6e92bcb7012e37aef645b5625aa4c4740"
-    sha256 cellar: :any,                 ventura:        "12738cb1cb602f6fe23b4180e137e25f55fc2db9b950e7c666d4d057fb08b6c6"
-    sha256 cellar: :any,                 monterey:       "d88f929686eb725ccb1702103cf814e40047ce6bfaa0cee764a601c2d84724ad"
-    sha256 cellar: :any,                 big_sur:        "8c0568e88b4192a2d6ff1511d560214efb1e1c914116c78ce1350fa9b872c09d"
-    sha256 cellar: :any,                 catalina:       "252ecb752212720f38209762e1ae067cc25e77e9c5c4939ce01040c4e86fae5c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "091eec095a34ae54b3fdff107228ee6f2a13d1f2ba64a0844ffc498bab1e01b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f177e380622df80bbc34340afde5d533df0d29f6a9a671fe416f57d1222643a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "fa2594d6ea248c288f64937010118a7b84c70264c24dae72c5e6059930c9a35d"
+    sha256 cellar: :any,                 arm64_sequoia: "75819c942c2151264b9586aff141b43f0c52032fbaf8c0701cb0543dbb293edb"
+    sha256 cellar: :any,                 arm64_sonoma:  "139b517e55da813691b4421a2c93bb3189596cd861de948332563717aca30403"
+    sha256 cellar: :any,                 sonoma:        "951b540e1014c1606cd98a4d0fd48ada753a1fb81704fbb24d87521444eb8132"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c25afc497b351fc27250785b4140257a175ee68d538130cebed19703b6c33f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef7d6d14dcdf5c273ec268154ab409f33a14d494a087f25ee51289ea0c5a6de6"
   end
 
   head do
@@ -62,9 +56,6 @@ class Nuvie < Formula
     system "make"
     bin.install "nuvie"
     pkgshare.install "data"
-  end
-
-  def post_install
     (var/"nuvie/game").mkpath
   end
 

@@ -52,13 +52,13 @@ class Libsigrok < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256                               arm64_tahoe:   "03697dd6796dbddcb4602fda39063dece9e3bf49f78b34ae7eafad696074434e"
-    sha256                               arm64_sequoia: "f87ecb91e13c521fcdbb1a3fb7bcccdaf0e1756b08108181dc31bf41fc78c00c"
-    sha256                               arm64_sonoma:  "9653da1e1ac058c2f4e2a4d0eaa2219aeab0518e517873a92a0bffb8ae7de274"
-    sha256                               sonoma:        "55774dcb178d0e94dbc0724393dfcc32fd72fb18f4aa8716b1570becd3371287"
-    sha256                               arm64_linux:   "2217949eee6fb0bbdb020a98b6df00bfdf6e9f486f738f62332a39f681be1d2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e3c6925a66722db026365cc0a8ee44e92f658384f12b3ec66bf4b4976eebacc"
+    rebuild 3
+    sha256                               arm64_tahoe:   "95e9aaa190e987c353cccf6cc717b084bce946bc42e2c397a6f24700722a95be"
+    sha256                               arm64_sequoia: "0e9aab53e0280c9ff3cada529ff9c7622a50dae6385c637a7132f3c1f2f2eb05"
+    sha256                               arm64_sonoma:  "f4c1faa440cb7aa12ced874cc4f4a563ef0c6d623f8a28ab89c02f2085559666"
+    sha256                               sonoma:        "12e7c974907dedfa1a41dcda2a40eafe7d2d1d36be8939c511e325055177ff9d"
+    sha256                               arm64_linux:   "4dfc8b182043414637c2869745bc581bc755f11a7d5d511c66f657720637d212"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fabcd646d9c33cfb0fe618a29ef8c0f6427304d7f69a525c1685dbcdfa10060"
   end
 
   head do
@@ -92,7 +92,7 @@ class Libsigrok < Formula
   depends_on "nettle"
   depends_on "numpy"
   depends_on "pygobject3"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   on_macos do
     depends_on "gettext"
@@ -104,8 +104,11 @@ class Libsigrok < Formula
     sha256 "c876fd075549e7783a6d5bfc8d99a695cfc583ddbcea0217d8e3f9351d1723af"
   end
 
+  # Fix for swig 4.4 changing the return type of %init
+  patch :DATA
+
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
@@ -191,3 +194,18 @@ class Libsigrok < Formula
     PYTHON
   end
 end
+
+__END__
+diff --git a/bindings/python/sigrok/core/classes.i b/bindings/python/sigrok/core/classes.i
+index a00efff..5fe45eb 100644
+--- a/bindings/python/sigrok/core/classes.i
++++ b/bindings/python/sigrok/core/classes.i
+@@ -85,7 +85,7 @@ typedef guint pyg_flags_type;
+     if (!GLib) {
+         fprintf(stderr, "Import of gi.repository.GLib failed.\n");
+ #if PY_VERSION_HEX >= 0x03000000
+-        return nullptr;
++        return 0;
+ #else
+         return;
+ #endif

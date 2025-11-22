@@ -3,27 +3,26 @@ class Yamale < Formula
 
   desc "Schema and validator for YAML"
   homepage "https://github.com/23andMe/Yamale"
-  url "https://files.pythonhosted.org/packages/37/27/da3742a358015f3c2a069ccdaf7e5766ac358e8200319f640755db3128ae/yamale-6.0.0.tar.gz"
-  sha256 "60be681f35e4939320b89de0d6f187ee0e5479ae7f7286b7f17f0859ddee4a66"
+  url "https://files.pythonhosted.org/packages/da/64/9e5de0e829920b848dcf5fe3ff64936d83cc7471babd264588b08bca97e0/yamale-6.1.0.tar.gz"
+  sha256 "fd435aa7b830c73e89a9ef548c0ace2d3d8dc3e5e180e6b57ff70b31495672fd"
   license "MIT"
   head "https://github.com/23andMe/Yamale.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "f9d30005e80962e774c7e09dadc03714a7d1dc9739a0b03dd4db55c868a00038"
-    sha256 cellar: :any,                 arm64_sequoia: "381732e435c618369a90c067a4849f93a050deb6b2560859dd8a505aa7328a56"
-    sha256 cellar: :any,                 arm64_sonoma:  "41f6168a4aad718a78cb334ead86b3ddf1ac580743405b2a6c95a7f031b052f7"
-    sha256 cellar: :any,                 sonoma:        "badfaa6f0181fe03e824dc5e58e8175595ea994e6ac10cad8758ecf4d263b8ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "338157f7ebe70a91901b5ee3b813108d07d95f29eec95abfaf8b1fb0bff903c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8701f790dc3291171d806a101ff4dbeca5d359905921efd3de7a39012faf449c"
+    sha256 cellar: :any,                 arm64_tahoe:   "d49d4d42166eb67fa258a430f4613fa9a1a74ab48a5839900a2b0459f8401635"
+    sha256 cellar: :any,                 arm64_sequoia: "07e32a73e8b5ee15ef397cc29984d3fe2662a1d598409c868811bdcb939cd09d"
+    sha256 cellar: :any,                 arm64_sonoma:  "477bb88ad9e1dc07e77657718fd205a646c2a64b670b51ee14161090f7775dd4"
+    sha256 cellar: :any,                 sonoma:        "50e2564584208d180dc83c80200f3bac4813f1d4e9c80124de6beb9667155a4b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb5b04b9d77edb9bb5f85dc39742c4dbb4cb616957b97bc6c6b59ec5b95ff26a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09591168c37d57139676c401f7eff3b9d80bfec138919f1ccb5c76b0f18ce0be"
   end
 
   depends_on "libyaml"
   depends_on "python@3.14"
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   def install

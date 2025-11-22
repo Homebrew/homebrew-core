@@ -1,17 +1,17 @@
 class Bandicoot < Formula
   desc "C++ library for GPU accelerated linear algebra"
   homepage "https://coot.sourceforge.io/"
-  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/3.0.0/bandicoot-code-3.0.0.tar.bz2"
-  sha256 "55fd4f11c09fced2793b999a60ac32e160b53c136e6c3cb38b8170b13e7e24e0"
+  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/3.0.1/bandicoot-code-3.0.1.tar.bz2"
+  sha256 "c3a1977d162d7f678df79c8305344e7c1768fdf5b5441f33f6b4a02d90b64300"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "538e15d13bdbf45d86740c87e9222d30da7b4cee2d80970d95295c7559271e57"
-    sha256 cellar: :any,                 arm64_sequoia: "b58c4701b973f9e4cfcc0493616f5598647467ed55d5467032d242c87f6369fa"
-    sha256 cellar: :any,                 arm64_sonoma:  "9d576025975585b8f0ccef90b287f8d15f36ff1d94bf36b48b6d81f9b41a4e43"
-    sha256 cellar: :any,                 sonoma:        "6bd8aa505b25bb92341eb6ae90f09483c92ee99c0beee796a5a61dae9023cfa9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "80d995378cfa2c82cd105482159d93644da390fe1fe8eaf5d961949a073a6e19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9347b0e9cfb94e3879bb4064a3db7a15dda73605fa00001f35691eb89b7797a"
+    sha256 cellar: :any,                 arm64_tahoe:   "c394ea05212c1ea41029110aa67a4a4318071abad3cee50e334a5d1d8252a06a"
+    sha256 cellar: :any,                 arm64_sequoia: "920375ad5ecdfa143d76a3cd35377d5c218b82fc8bdb963f20a635a618164070"
+    sha256 cellar: :any,                 arm64_sonoma:  "8fe8e9a54aedef6401ed1032f39af4fb825d8caee3e1168aec12b0684e97f523"
+    sha256 cellar: :any,                 sonoma:        "122f673684a564480a6710a2d8a3156f4bb61a0d1f966d12334dfd6f87b97746"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d6328ae4e2f7fbc9094c0261851e61b520e75e60896df25c855c7e0bb028dd7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f45369341b609c7405a0a1a3bea3783e502a4fa666db26a07a7e7f1b407cde0"
   end
 
   depends_on "cmake" => :build
@@ -24,13 +24,6 @@ class Bandicoot < Formula
     depends_on "opencl-headers" => [:build, :test]
     depends_on "opencl-icd-loader"
     depends_on "pocl"
-  end
-
-  # Avoid including `cl_half.h`` on macOS
-  # PR ref: https://gitlab.com/bandicoot-lib/bandicoot-code/-/merge_requests/182
-  patch do
-    url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/commit/2c44303b510605f3210bfcb8d5e539408cb92c53.diff"
-    sha256 "9c6fccd6bba9bd05c729ff4705f5a224ce633d2ba78dd19c5894187b05e45dc4"
   end
 
   def install

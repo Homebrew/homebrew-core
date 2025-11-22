@@ -4,6 +4,7 @@ class Gauche < Formula
   url "https://github.com/shirok/Gauche/releases/download/release0_9_15/Gauche-0.9.15.tgz"
   sha256 "3643e27bc7c8822cfd6fb2892db185f658e8e364938bc2ccfcedb239e35af783"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -16,20 +17,16 @@ class Gauche < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:    "c2b91990aef4ea260f3fa9b7b6a39ea20e77b85244fe3840c3dbe4abdc353923"
-    sha256 arm64_sequoia:  "34e7cab7687a3fad3c7a4e24cc869f71db411c4b9b83ca93daab9b3f205ae828"
-    sha256 arm64_sonoma:   "090ea0130482168c2f2c8ba1bce87c9b3e2c6cb5066dd89d311848a8d5b9a742"
-    sha256 arm64_ventura:  "1a6606f8577358fea7eae8a2de08c7f5d994796e7554578e57e17cc03cc350e2"
-    sha256 arm64_monterey: "2b960106887fc6c0bb983e472fed0f740ed5f7f0ff6fd81fb8072645f247bfa0"
-    sha256 sonoma:         "723aa7870618f0a7591472266d84817873b8f6956c3d68200bfa95b2cd62547d"
-    sha256 ventura:        "2fb60084dd73329026216d0ee1177d4a62ff5bbb6e2466ed6a6fc53816513edc"
-    sha256 monterey:       "2b079d1c270ec9ea36caed1f2762a88120f61326f2b81a67128aef54304d9295"
-    sha256 arm64_linux:    "94f40a53316e570db2ded529c5cf1be6f4cfed7de7c2bb51085cd29604db80f6"
-    sha256 x86_64_linux:   "bdff2646649040e73891540a312c8280bfed6a5427a8a5748b57fee8560c1c63"
+    sha256 arm64_tahoe:   "3938d61ea6df0e0839af39a7f2c11fe15eb5b626ffcf6d83c9a9c1b861c17ab3"
+    sha256 arm64_sequoia: "a2389dca53067a6108ce35ef85c2a998f94ecf2263fe7229fd32af2080876f5b"
+    sha256 arm64_sonoma:  "1bca898ca8fc5a742e12d291fd8a4419337813bddeb49d43e4733a7af176d23c"
+    sha256 sonoma:        "0578f389e9f10c66cf413a59663baf0c64c4ae33430adbbcaf66878d06aa4d3a"
+    sha256 arm64_linux:   "74235050e6be7d472ae7f41135aae668cc04287df76a7be484ffb1385c457082"
+    sha256 x86_64_linux:  "8b7778c8b95093b9f06adc50af12f89ff7b5125b45fd94bac0e7639dcf3fce30"
   end
 
   depends_on "ca-certificates"
-  depends_on "mbedtls"
+  depends_on "mbedtls@3"
 
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"

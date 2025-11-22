@@ -1,10 +1,9 @@
 class Rnp < Formula
   desc "High performance C++ OpenPGP library used by Mozilla Thunderbird"
   homepage "https://github.com/rnpgp/rnp"
-  url "https://github.com/rnpgp/rnp/releases/download/v0.18.0/rnp-v0.18.0.tar.gz"
-  sha256 "a90e3ac5b185a149665147f9284c0201a78431e81924883899244522fd3f9240"
+  url "https://github.com/rnpgp/rnp/releases/download/v0.18.1/rnp-v0.18.1.tar.gz"
+  sha256 "423c8e32e1e591462f759adf8441b1c44bca96d9f5daff13b82e81a79f18ecfd"
   license all_of: ["MIT", "BSD-2-Clause", "BSD-3-Clause"]
-  revision 2
   head "https://github.com/rnpgp/rnp.git", branch: "main"
 
   livecheck do
@@ -13,12 +12,12 @@ class Rnp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1bd7e9485c9b0ea2aa7c6d787eddae43b1fa99d11d8e5626f9199457eac31d49"
-    sha256 cellar: :any,                 arm64_sequoia: "747467a9855d3235028bac5b0ad50e5ad82526d33a3c51eec2d1c274da06e636"
-    sha256 cellar: :any,                 arm64_sonoma:  "ac081ab0a5b46a25feab56660944e1a39467e620f74e7e66409b43a1777a6848"
-    sha256 cellar: :any,                 sonoma:        "959d0d675313ea0d9a67e0f0d0b7885e90b41494ecd4f87a0d261e1977f8091c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83e9ca9151e174cd4efecebfdddf29215895a3af79ebfecb1acb9be2d43d94c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74cd62eb2b625bd930518c0bdc7b9b8fce3101dd7ac96580441408382ae1576e"
+    sha256 cellar: :any,                 arm64_tahoe:   "8f190c867fe3cd8c3d0b84f20952bfb285a53cda7cdf6336b0c6ad31869a12b2"
+    sha256 cellar: :any,                 arm64_sequoia: "d68ff5a9c1adccacd1c5cebe16c82d480241731a7de389155dcb5ca19ee4868b"
+    sha256 cellar: :any,                 arm64_sonoma:  "e9091cef22ec6032cfe05f5e3001ee59e940f4c86da85785fe822feb1c81b86c"
+    sha256 cellar: :any,                 sonoma:        "9e01532ff416c56e67487de414d1aa63a40fff591a4b08bdc91da43edb9103fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e69e17ff598efdd28cf3880559fd999cef9ff702c655fae14c52c93c1f9020f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e48671491ac5bae9fb7971d448eb04399b8a46314ca87aa8ce2ec958dc54434c"
   end
   depends_on "cmake" => :build
   depends_on "botan"

@@ -7,14 +7,13 @@ class Vnstat < Formula
   head "https://github.com/vergoh/vnstat.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "e1a8d49bd1309534dce38382dd0976eb5049d28fd209d8142d1353ba580ee360"
-    sha256 arm64_sequoia: "01d7585fcf02e3595ca5c701ae5756ca1b9b4e4ee2ef4fb2e76ea07dea677160"
-    sha256 arm64_sonoma:  "cefa8fe3c1f63ad65685d6e812b79176faab950dd28fa1fbc8955d56ad4f2910"
-    sha256 arm64_ventura: "224ef1e8f2893b154ecd52d8999fb9f3f4ce57f4b565ac7881ac9250d5287505"
-    sha256 sonoma:        "d0bb412ae03b8ddd2b071926ca8cd5b92420c9fa435546a2fa7f0570a2d7c6aa"
-    sha256 ventura:       "d719d32162aa76bdfa057cb4ef089a864bafb31855d4355ba1e8e5e1cf3a9db9"
-    sha256 arm64_linux:   "a2f1ff3f507091717d9c0b8b2d407a806d7435aa28e9b163203a72616b6a0c84"
-    sha256 x86_64_linux:  "cb0052ce9d13c668838ca8dcd339f852ab9508fc41b1359ac712baf7322b29b0"
+    rebuild 1
+    sha256 arm64_tahoe:   "af145bbd1da554febe818a33724a04fd13316d589279f3e7c7dd44178556f1ae"
+    sha256 arm64_sequoia: "22d6d6ad688b31df0baaa7ba2fb89124c36656c59a3a1d3362fd71aea74a2d26"
+    sha256 arm64_sonoma:  "00d035664c11d7302dc5e4cf16e09539e0f598bb3ab309036452b3dca029c0be"
+    sha256 sonoma:        "edeb08c785444734a8d1c2952fb88959b058406792628f3b99e10f744f207057"
+    sha256 arm64_linux:   "c390b99feadced13f30746c1f6caa889592001edb5a001cde6a40bed344728e7"
+    sha256 x86_64_linux:  "41fb94bbbdbb6533741c6cd5b0cdf6e1713ce55b499ef80950cf31a94a25015e"
   end
 
   depends_on "gd"
@@ -32,16 +31,13 @@ class Vnstat < Formula
       s.gsub! "\"eth0\"", "\"en0\"", audit_result: false if OS.mac?
     end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
+    system "./configure", "--disable-silent-rules",
+                          "--localstatedir=#{var}",
                           "--sbindir=#{bin}",
-                          "--localstatedir=#{var}"
+                          "--sysconfdir=#{etc}",
+                          *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
     (var/"db/vnstat").mkpath
     (var/"log/vnstat").mkpath
     (var/"run/vnstat").mkpath

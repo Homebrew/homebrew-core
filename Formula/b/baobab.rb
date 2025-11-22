@@ -1,19 +1,17 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://apps.gnome.org/Baobab/"
-  url "https://download.gnome.org/sources/baobab/49/baobab-49.0.tar.xz"
-  sha256 "195c0182dc4d7f694dd0b4ee36e72e0f4ab757825fc238233409eec2df483fae"
+  url "https://download.gnome.org/sources/baobab/49/baobab-49.1.tar.xz"
+  sha256 "6243c92002be7e91f5decd249612face2a4a12d3742afd88b086a94b875dffe0"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "0febae35c1f687555a62c18786f78761b8f40e7287b9b6bf0168530a3ec5f8c0"
-    sha256 arm64_sequoia: "b5af8085b2a36d02d8587f1b90116eb9b2d5ad3a2982ee33b9d91576be52d27f"
-    sha256 arm64_sonoma:  "8b2d77a4774f245504c6a7a7a8d321b802ad66a1cfd7c33845f2ae6412e0e3cb"
-    sha256 arm64_ventura: "f697e53a272f314f50ddb0afe4d4fe03d7fa49ee10daa1111128a8e1809979f4"
-    sha256 sonoma:        "f2ef838e9a6796ed2871257c533ff2a12add44a97cb81ad3aef99980d2c563f9"
-    sha256 ventura:       "41a620af55c2d4e008486e7bb63c26dc589c20ad67f0589aba52b115300b85b0"
-    sha256 arm64_linux:   "42a76e3bb4163c7e6f35936ee60520b04b2de06eca9658e000073821a1026abe"
-    sha256 x86_64_linux:  "d88be91ce42ac7d800449d863d94e32f97ad3ce469b5a9a401d10e37b3b1a114"
+    sha256 arm64_tahoe:   "5e0fb8ca33c5d696ff06d46ab07ed00f2663af78c74048472db73af6a67f6ea4"
+    sha256 arm64_sequoia: "0239323f900c17acde7297174a4faa6cf5a33df95a3fadddf2c52a651a945bea"
+    sha256 arm64_sonoma:  "ce249f598346bd47e1e347486c3db96eff3f368c34c11414a78f46d722d75cbb"
+    sha256 sonoma:        "7f0aaa55b302393935ecbcd74e598c935b66e9858ede29b607babd10cbfe8776"
+    sha256 arm64_linux:   "481887eb26edcb3dba13eca6482f5e26bbffadb12c577e592f4131b602e44f07"
+    sha256 x86_64_linux:  "0d503eafc3495343c4582450ba83ad9579d990162d6da4522c30ee29c56366f7"
   end
 
   depends_on "desktop-file-utils" => :build

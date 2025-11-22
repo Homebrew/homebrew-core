@@ -2,6 +2,7 @@
   "abseil",
   "aom",
   "aws-checksums",
+  "aws-sam-cli",
   "awscli",
   "bitcoin",
   "blis",

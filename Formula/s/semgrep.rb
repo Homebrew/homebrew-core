@@ -5,8 +5,8 @@ class Semgrep < Formula
   homepage "https://semgrep.dev"
   # pull from git tag to get submodules
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.143.0",
-      revision: "f1f9f320cbb275003abbaf3bb4ae466fee490ee4"
+      tag:      "v1.144.0",
+      revision: "02b6615cf116f610eccd5a4371728b284408760f"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -16,12 +16,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5df5eaef20833279d0cee74187edf14a6b3c5feb28e8f8725b835554fbb64aad"
-    sha256 cellar: :any, arm64_sequoia: "73b301603ef857980207b955ba73887a4e39651b32e18558811fcfce9893517d"
-    sha256 cellar: :any, arm64_sonoma:  "30adee043f16673126c87044805bbb3f3063f37ff9721bc478c6062964762e49"
-    sha256 cellar: :any, sonoma:        "bd0b6fae07110a743aa6b8030b76f302aa5b315f7363183776cc837f2619573f"
-    sha256               arm64_linux:   "af9ec72d32da6385beb8056909ea55eb862a66dbdb4a9667bc71be2b28c0e862"
-    sha256               x86_64_linux:  "37507e807f335fe3d61c6c6951ad94ca9c214626c38f40c9327e84a4e823bda0"
+    sha256 cellar: :any, arm64_tahoe:   "e11428746cec9abb42eac52de6c99398ad98a635a6e8bae5c2472cd8b09669ab"
+    sha256 cellar: :any, arm64_sequoia: "ecf3fb7791b36ff8c605efda6f5d39a23bf60f0a04949ce6e9be11ad0d7fe503"
+    sha256 cellar: :any, arm64_sonoma:  "b9a45bcce0febe76ed5994084e64dea72b41fce5f0ae03c40737a9964e1703d0"
+    sha256 cellar: :any, sonoma:        "e9f2afecaf927cd44ba709773238b2433766a8184dd4df46e5e55e9c994c08e7"
+    sha256               arm64_linux:   "29d46189a3a44803d2a5c4581e375783f4ad8f804097e420aa9cafbad18dc532"
+    sha256               x86_64_linux:  "1c3992829353de44ce288c6117bc3fd3135a24cae6737814974f58f03ad220b0"
   end
 
   depends_on "autoconf" => :build
@@ -227,8 +227,8 @@ class Semgrep < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/19/ff/64a6c8f420818bb873713988ca5492cba3a7946be57e027ac63495157d97/protobuf-6.33.0.tar.gz"
-    sha256 "140303d5c8d2037730c548f8c7b93b20bb1dc301be280c378b82b8894589c954"
+    url "https://files.pythonhosted.org/packages/0a/03/a1440979a3f74f16cab3b75b0da1a1a7f922d56a8ddea96092391998edc0/protobuf-6.33.1.tar.gz"
+    sha256 "97f65757e8d09870de6fd973aeddb92f85435607235d20b2dfed93405d00c85b"
   end
 
   resource "pydantic-settings" do

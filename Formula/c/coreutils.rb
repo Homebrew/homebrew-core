@@ -85,7 +85,7 @@ class Coreutils < Formula
     end
     # Symlink all man(1) pages into libexec/gnuman without the 'g' prefix
     coreutils_filenames(man1).each do |cmd|
-      (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
+      (libexec/"gnuman/man1").install_symlink man1/"g#{cmd}" => cmd
     end
     (libexec/"gnubin").install_symlink "../gnuman" => "man"
 

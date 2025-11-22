@@ -121,7 +121,9 @@ class Zig < Formula
     return unless OS.mac?
 
     # See https://github.com/Homebrew/homebrew-core/pull/211129
-    assert_includes (bin/"zig").dynamically_linked_libraries, "/usr/lib/libc++.1.dylib"
+    require "utils/linkage"
+    library = "/usr/lib/libc++.1.dylib"
+    assert Utils.binary_linked_to_library?(bin/"zig", library), "No linkage with #{library}!"
   end
 end
 

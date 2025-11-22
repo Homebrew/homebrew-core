@@ -3,8 +3,8 @@ class Grokj2k < Formula
   homepage "https://github.com/GrokImageCompression/grok"
   # pull from git tag to get submodules
   url "https://github.com/GrokImageCompression/grok.git",
-      tag:      "v20.0.0",
-      revision: "5770f12eac84820debe2afa65638dc9d587a4f9e"
+      tag:      "v20.0.2",
+      revision: "26b5d6bd3f94fb8d1f0d765000236808ace57c5b"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
@@ -14,12 +14,12 @@ class Grokj2k < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5e3f2f0a6f64ab8409195d20817bcca36440c9fd5f1736b3f4ebc5607f428325"
-    sha256 cellar: :any,                 arm64_sequoia: "3ca104603fc218db1f5c8c7dd2921a65de97432b6cdc946f1a502a7e322a1440"
-    sha256 cellar: :any,                 arm64_sonoma:  "0ececc2a91cb03cfd8ca9c72c1bf7c6757cdfe80cc7cc919df6da9b99743a114"
-    sha256 cellar: :any,                 sonoma:        "e21bb0dfd2cbe9a56fc92f40dbf44398474eb4c18fd6ec21b728bf614598530e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b9caf1a7568dd9833350fa9f8c3994146b89db252d51ff7f0dcb969258a42da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "801e37ee5f357e217db83144cfed3e51fb6dca2c8f0d408cf71a849b52be589f"
+    sha256 cellar: :any,                 arm64_tahoe:   "f2d55faac087557d5cbf15892ec1a6ae434dc7434bcfbfe9e58b3e77d9788d8f"
+    sha256 cellar: :any,                 arm64_sequoia: "4e9af8763b06bf774be284d37b71e17ad80c6f8bdc813256cec0c2100b18e5b8"
+    sha256 cellar: :any,                 arm64_sonoma:  "cb19a825bc3d0c95a96843182293f1dee4a3f4157ebceea9f66d861ca32525e6"
+    sha256 cellar: :any,                 sonoma:        "63f9a9d2e1f0f212b03a9bf1d0bd3ac20a252ce6659f11ee5b9010772407d346"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "475731a0724f2f3f5fc2b6c4b8e463b8289f81aa7243aee81a5e2048e8fbf4ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a23f8d8761cf5f51f8e12687eeb982553aa22426d05d1f323e9e39f20f8bf9a"
   end
 
   depends_on "cmake" => :build

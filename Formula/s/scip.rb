@@ -6,8 +6,8 @@ class Scip < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://scipopt.org/scipdata.js"
-    regex(/["']name["']:\s*?["']scip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://github.com/scipopt/scip"
+    strategy :github_latest
   end
 
   bottle do

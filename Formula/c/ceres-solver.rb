@@ -2,7 +2,7 @@ class CeresSolver < Formula
   desc "C++ library for large-scale optimization"
   homepage "http://ceres-solver.org/"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
   head "https://ceres-solver.googlesource.com/ceres-solver.git", branch: "master"
 
   stable do
@@ -25,12 +25,12 @@ class CeresSolver < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "81b100c1ef3f92810a9b4f2b9a602b7a1e6b6d7e11a88a677a2886f53fcaccb6"
-    sha256 cellar: :any,                 arm64_sequoia: "dae580fccf96c376fc90bca15973a3375dd56dfe6a3760a19041ec52fc6c621e"
-    sha256 cellar: :any,                 arm64_sonoma:  "66b7cfa4fabfc643db7d86944657198286a8665f2c00302071091680b6fa03b3"
-    sha256 cellar: :any,                 sonoma:        "d997d14192319044b9a573c2d550779dd24c90c574f2c285ca5d705de509f648"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3dc978b76da56deeec522b9c78fee5348c3d34849704c218cef09c63604aea85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e9385fbe9eeb9f92b0a190ad029bbf9aa916d05c8784afcce5f86b307848ac8"
+    sha256 cellar: :any,                 arm64_tahoe:   "865a1864fc098a0ebf7fa9196fcaadc128958f99e8384a561c2bf891e3e79825"
+    sha256 cellar: :any,                 arm64_sequoia: "fd2298b88c7a2768659c3eae0d2bde1564cbcde86c891da755423348ef8b7a37"
+    sha256 cellar: :any,                 arm64_sonoma:  "8dba3dce89dc51b75c7d66288b55013f15879ecfe7f3c35979a01bba70d4141c"
+    sha256 cellar: :any,                 sonoma:        "786cd672cdea0e48a4c3a5d283ce5b2b43ce3a51ec1d81277240ba6a7844f5ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9bcf0becf19aac938338ac4e5b8f1bda65d000649cb6f81f97586fc6561ceca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a3e7b00bd5b5ea04d0e9418d42ba4b42c1be212dfc91f3d574db90c44aa6922"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -56,7 +56,7 @@ class CeresSolver < Formula
   test do
     cp pkgshare/"examples/helloworld.cc", testpath
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.5)
+      cmake_minimum_required(VERSION 3.10)
       project(helloworld)
       find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
       add_executable(helloworld helloworld.cc)

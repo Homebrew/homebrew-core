@@ -1,16 +1,16 @@
 class TechnitiumLibrary < Formula
   desc "Library for technitium .net based applications"
   homepage "https://technitium.com"
-  url "https://github.com/TechnitiumSoftware/TechnitiumLibrary/archive/refs/tags/dns-server-v14.0.1.tar.gz"
-  sha256 "b35f9eea1b984f3484566f2236f99bb37a7963adb92266d50cc3248e3f75624c"
+  url "https://github.com/TechnitiumSoftware/TechnitiumLibrary/archive/refs/tags/dns-server-v14.2.0.tar.gz"
+  sha256 "a87df80bccedb78af89c5fae022288475c1ade7723ae5c8cc9a43b545371db07"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "be407b55a44283bd47b88a31a6fbc639d58ccf84ca47c2bcedc0584b26ef1060"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "274f474608e7884c7197032ee1788304736f521779ca4806dc8294dfd5243348"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be843b0a8b7b881059d27d98db4d872c4ada675014ea3e699e8b99419f1a87c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d412f6988935ebe02cf59e2f31c060f09d0f4498211e00abeea9eb4ae70cd3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0363178b469cb544315d5e4bf8466eb17775194405dde39d6ecd55c1f4531b2b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "481cd1c6882f4e7faab4ea30bfe6d9c4572d029a3082bafed7eb2e1f26244179"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b5fd36d027ad733344843614d31194e126807f9966433f3c5498fea185bbdb4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "294a3d23e359c562077075409fa93e7cdb70ee5db34fb3e11eb1cc5e9c0071cc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c7f7b355ecb321f1ad455ccaaf0962b8f19573d78f96ff12459a98d284d9fac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d679b1115d042f8c202f47fd6a0dfa97fb2decae3e57ceca0a5a53b56e01ffd2"
   end
 
   depends_on "dotnet"

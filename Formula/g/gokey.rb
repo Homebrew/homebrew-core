@@ -1,21 +1,18 @@
 class Gokey < Formula
   desc "Simple vaultless password manager in Go"
   homepage "https://github.com/cloudflare/gokey"
-  url "https://github.com/cloudflare/gokey/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "eb7e03f2bfec07d386d62eab6a7a7fc137cb5c962f7a2c6aa525268dc8701c0a"
+  url "https://github.com/cloudflare/gokey/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "ddf693b10012b44c20b6780e239028b9617590a6912f47d8d59470b560c83249"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/gokey.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "57604ced9e9d0eed0d8a4f0e48fc02bb3b20ae5bd4cc085b6b97303553524bac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c48361701ef4bb0cb240cac294c443a25c0bbf0c052491374ece690251004c50"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c48361701ef4bb0cb240cac294c443a25c0bbf0c052491374ece690251004c50"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c48361701ef4bb0cb240cac294c443a25c0bbf0c052491374ece690251004c50"
-    sha256 cellar: :any_skip_relocation, sonoma:        "60a0379dcee805100101fc743bca36ac50142bb12b7b33aad7b904f47d47691e"
-    sha256 cellar: :any_skip_relocation, ventura:       "60a0379dcee805100101fc743bca36ac50142bb12b7b33aad7b904f47d47691e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9cb8bc2998d205691492e1000361cafa3f87adcfecc4518f98c73c5a2b801066"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b858ad23afe1d56612a5e2a586f1d24b5b87acadc282d104e44ff7a2959d425"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "81186a07e4187a1051296ae90494b6f4cb291083ff08076902033454ab018608"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "81186a07e4187a1051296ae90494b6f4cb291083ff08076902033454ab018608"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81186a07e4187a1051296ae90494b6f4cb291083ff08076902033454ab018608"
+    sha256 cellar: :any_skip_relocation, sonoma:        "759c0ca21f9300b638995e96c41218aa4c03284a61acca87c3fb84f1e5da1e06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0b3f59fe04d5c7c0696e1605a56fa4ddd99d3e563dfec934d087538a6851156"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5159a7d0e167e26ba1ce8b29cebc9e48e019627c99326e394df8b08e66d958d"
   end
 
   depends_on "go" => :build

@@ -15,7 +15,6 @@ class Xcresultparser < Formula
 
   depends_on xcode: ["15.0", :build]
   depends_on :macos
-  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"

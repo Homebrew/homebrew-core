@@ -1,8 +1,8 @@
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
   homepage "https://ninja-build.org/"
-  url "https://github.com/ninja-build/ninja/archive/refs/tags/v1.13.1.tar.gz"
-  sha256 "f0055ad0369bf2e372955ba55128d000cfcc21777057806015b45e4accbebf23"
+  url "https://github.com/ninja-build/ninja/archive/refs/tags/v1.13.2.tar.gz"
+  sha256 "974d6b2f4eeefa25625d34da3cb36bdcebe7fbce40f4c16ac0835fd1c0cbae17"
   license "Apache-2.0"
   head "https://github.com/ninja-build/ninja.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Ninja < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e9552fbeedb8ebb75ae07bb4ebd822eb8ce6c189a2903cd2b8309b3b857d2f8d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "873e06703ff0d22140b1683b6272b65a57a3e87b506b7904ad82b6018df6db06"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8958969cfa17f656280e7bb08bdcc71d657b3208a786c012041f53bb455d96ab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8001e8a0a4ff7ca04fe84d366a02f981a4916f794f43ce5594dedbb4f5fc297f"
-    sha256 cellar: :any_skip_relocation, tahoe:         "5e931101e625be42f7805fec78adae7cf845e13a1b0c557ad75ec2af65c61ac5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ca928abda16bab3735437ec593eebf85947f3b8aba1b90ee024cce0d9ee9428d"
-    sha256 cellar: :any_skip_relocation, ventura:       "3f7c0ce43b98aa2f1c6a30cf14043abb4a739c5675a46a662d158fe65b7a8ade"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9861ae88dd629add0d88046028c24240d48d57f5ee31c1b0922996221176250"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13cca961d30a825d800c714dfc04932d916b08127ac866c37fc99a7072e22003"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d311d593a271d255b4fd6337f8ef394f825b73aa77f7ebd51236ff850cf85033"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "700fe3bd75ca15b2778454947a215334a71997dcf92a3b644bfeb06f79c2508e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e137aa475dd45d513d0076971afb5f33314eb992ce27d868793ee5c54555cdcd"
+    sha256 cellar: :any_skip_relocation, tahoe:         "158b6f8679eca7ea16e76aecddd42465e2bdc44512c4d9fdab579b50fe3c7301"
+    sha256 cellar: :any_skip_relocation, sonoma:        "42222a304bd2a7d74e0af1479932821f4edb8855af4d0a89e2c0841e9a807b7c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb6ac675ebb7a42d4dc01de374378df60f83f076211d5d35c0880da3babf40bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b3072c3b1944cb010705840243e7590cb1105445dfdcaf90de543b3dc06b545"
   end
 
   uses_from_macos "python" => [:build, :test]

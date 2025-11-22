@@ -8,19 +8,20 @@ class Molecule < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "696240463635bc5b968243ebd2e71b42ee11c3f5aefb88d8426e4ea9e85342da"
-    sha256 cellar: :any,                 arm64_sequoia: "fc5de0e3ae7fef837b36df41c649cc13dbd00a0cb591e8041341a135451d3abd"
-    sha256 cellar: :any,                 arm64_sonoma:  "8a03d5017e0e1abd95b5ea4956eddc283f030d94f9af2cfdeba310d8ad3a18a4"
-    sha256 cellar: :any,                 sonoma:        "0b30eca96f81ee2514878393c1a350bff3007cc4294dd0cbd89e4e56a428d467"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c2886e049eee0c98993e3142ad9838e1da0c00bcebfd5ca86c1cca202ade2a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "990a120b934393943143c80d2d55a162fac37345ab3894163d026e0cf789f681"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "3496cb6d30037033158224f1f7cf92d484650dc0f9cc0e829f3abfd7c6e28856"
+    sha256 cellar: :any,                 arm64_sequoia: "844e30ba078a1a5b262fbd303d0842320c5df77f6255586acfe176f4d13fc96d"
+    sha256 cellar: :any,                 arm64_sonoma:  "1f67fa4e8ae2626bf6a56598a4ea44edb80d5f338dfe5c29efed52d7d248147c"
+    sha256 cellar: :any,                 sonoma:        "c11b6605a432abde1d674d278a84180bca6beccdf27424a1a75c358d91a58e51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d09508ef53bf9a23450241bd2a41353e03613d8bc38bc2d9fe6addfe1867942c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41cc0c6451573682ebf14062e6347883dadaf2fbd0523214a2be556da0a1f107"
   end
 
   depends_on "ansible"
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "rpds-py" => :no_linkage
 
   uses_from_macos "libffi"
@@ -75,11 +76,6 @@ class Molecule < Formula
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/43/fa/6d96a0978d19e17b68d634497769987b16c8f4cd0a7a05048bec693caa6b/decorator-5.2.1.tar.gz"
     sha256 "65f266143752f734b0a7cc83c46f4618af75b8c5911b00ccb61d0ac9b6da0360"
-  end
-
-  resource "distro" do
-    url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"
-    sha256 "2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"
   end
 
   resource "docker" do
@@ -257,11 +253,6 @@ class Molecule < Formula
     sha256 "e7bdbfdb5497da4c07dfd35530e1a902659db6ff241e39d9953cad06ebd0ae75"
   end
 
-  resource "selinux" do
-    url "https://files.pythonhosted.org/packages/25/07/51acd62e1e15e1172d46f7e32faf138725b147f8c08dbf2d512159d7a310/selinux-0.3.0.tar.gz"
-    sha256 "2a88b337ac46ad0f06f557b2806c3df62421972f766673dd8bf26732fb75a9ea"
-  end
-
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
     sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
@@ -293,7 +284,7 @@ class Molecule < Formula
   end
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install

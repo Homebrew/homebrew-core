@@ -28,7 +28,7 @@ class Elf2uf2Rs < Formula
   end
 
   test do
-    system bin/"elf2uf2-rs", pkgshare/"examples"/"hello_usb.elf", "converted.uf2"
-    assert compare_file pkgshare/"examples"/"hello_usb.uf2", testpath/"converted.uf2"
+    system bin/"elf2uf2-rs", pkgshare/"examples/hello_usb.elf", "converted.uf2"
+    assert compare_file pkgshare/"examples/hello_usb.uf2", testpath/"converted.uf2"
   end
 end

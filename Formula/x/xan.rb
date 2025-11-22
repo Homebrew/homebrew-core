@@ -1,18 +1,18 @@
 class Xan < Formula
   desc "CSV CLI magician written in Rust"
   homepage "https://github.com/medialab/xan"
-  url "https://github.com/medialab/xan/archive/refs/tags/0.53.0.tar.gz"
-  sha256 "0b7bdea4cf18ea6dcaeaffb64fa2b7f7dca07760af3c89ac6955c338e94ad49b"
+  url "https://github.com/medialab/xan/archive/refs/tags/0.54.0.tar.gz"
+  sha256 "15b024631f72f789bfe22694a8a1a09a6411a6ce31bac0fc35f2e4db0d4d6362"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/medialab/xan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2bf89650138614d38e0962c8858103b4f225f2895ffb06f759f32ab152e3088b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba8a4c76aff40b59fd45a74ddb33d2373456f9c071908cab372a2a40d3d75539"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9c1612a8feb580475fb7f088c56bbb7fb1c2151512d75ee6cffa9e87afa1de7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2dd49107ec25e6ad035d24953803fa04fc86f319bd6cdcca6ef7347e8efbef22"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6670d3d2023ca665a6d2f1ab1dbb36b9f71550e10ec50e0198e311e895c1a1ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e36a5d2b7440de015286d933a34ef350b50191e3357ac3b6bbbf23e383c4b51"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "513daa6e7bf00e1e96fce1da9228c49a2bf1297842ea4339476d20710ed4cfad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d23048eb02828316e546014b6813f03e5a8081f3cc18886a15c02aaee8c2c7e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aeccbd0fd93c04931f86ef09096d1c718cd59c8aac6133d114929b67865bbdfa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "62382ac51ba047f92374f1ba38cb13421ce19788da6b24cfcee49c645a76734a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "744ce8485e11cf9f0023189770916743a8b268660c9e5b3df44e2385d34429f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39c477d0e65629a7d5fef233607ae7fc216c5272b1e686724f783052031cbdbe"
   end
 
   depends_on "rust" => :build

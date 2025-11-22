@@ -1,13 +1,13 @@
 class Tgenv < Formula
   desc "Terragrunt version manager inspired by tfenv"
   homepage "https://github.com/tgenv/tgenv"
-  url "https://github.com/tgenv/tgenv/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "241b18ee59bd993256c9dc0847e23824c9ebf42b4d121db11fbdff9ddb6432b2"
+  url "https://github.com/tgenv/tgenv/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "cccf0d5714cf1156aaa9f451d98601afa3e7bb0b104eda61013a9a8849bee2fb"
   license "MIT"
   head "https://github.com/tgenv/tgenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b51fcece0e2a8b77f96f8460b123aedb1ab6cd9497b5da570e00639258324ece"
+    sha256 cellar: :any_skip_relocation, all: "41d63971b87c2f8003c821f8cfc00eaf264acef2560a75c7e0dc631da4a726a6"
   end
 
   uses_from_macos "unzip"

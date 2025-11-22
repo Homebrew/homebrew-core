@@ -6,7 +6,7 @@ class Haxe < Formula
       tag:      "4.3.7",
       revision: "e0b355c6be312c1b17382603f018cf52522ec651"
   license all_of: ["GPL-2.0-or-later", "MIT"]
-  revision 1
+  revision 2
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   livecheck do
@@ -15,18 +15,18 @@ class Haxe < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "10f2be52a22ae138d51ff32f1149f961deb3b5db78841ee8ae8a8bea69891eb0"
-    sha256 cellar: :any, arm64_sequoia: "2743448f3874a8ede755959b55aa380bc0a943b49acf917be7b9dad04b536f3c"
-    sha256 cellar: :any, arm64_sonoma:  "6fcc4da27a9f97238ce553ac764df40cd5afcde364282ebcc253ad34ee9f0f33"
-    sha256 cellar: :any, sonoma:        "042ee8b6afb033d6a7e79f02dbab3231f94908b135579553171906b4f954aacf"
-    sha256               arm64_linux:   "25d45366d303ec6fbfec16fa250f39fff1ca07bd6fcedbef6776eaee82b5ce03"
-    sha256               x86_64_linux:  "95536545ad4802b7f048dccdc900f3b0aba6fd750a14191fde04948f40516923"
+    sha256 cellar: :any, arm64_tahoe:   "c4f56c37d8b1f2508636ab8d35d53ded1377ac689e2661d047da81513df63cd8"
+    sha256 cellar: :any, arm64_sequoia: "a35d7d94ebaefc02520f426635808c894685a501cc62f45623f9c19d580a4d3d"
+    sha256 cellar: :any, arm64_sonoma:  "8a968b4ceb5172135d8e308eaa422afd3d3f0b883a30fe92e016f47cc3792781"
+    sha256 cellar: :any, sonoma:        "a2c7966de13c1763ac18df3094062346b7e2c683311f997d6b6f7ca5156fcb5e"
+    sha256               arm64_linux:   "e30e40f489afe3ae9ae3472a2061123e82833cf045001602481e5a8c148f6886"
+    sha256               x86_64_linux:  "5d17640c42c56a2dde34932163f643b0f574152bc97b9f36b074308d99bbae3d"
   end
 
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkgconf" => :build
-  depends_on "mbedtls"
+  depends_on "mbedtls@3"
   depends_on "neko"
   depends_on "pcre2"
 

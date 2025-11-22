@@ -13,36 +13,26 @@ class Backupninja < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8d1b80fa729900bd76aef820cc86234a063da66ab9ec44dc9e5350535092953a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9200901794d73bd35ef083d40452e6c1b740c43634c97d5df84b1771a66d61ca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dcf6a2f362c138eeda64773965a94b261c63dc8850cd15bd3063f0ad840614d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ce80b2e23b07df75d4d11651c7c819c27ab5673189114aa72da8f28f96e2732"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ce80b2e23b07df75d4d11651c7c819c27ab5673189114aa72da8f28f96e2732"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ce80b2e23b07df75d4d11651c7c819c27ab5673189114aa72da8f28f96e2732"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17d638fdf1e6c0b4463f8b7dac5ce5a455a4c170e20e5bb41f9a4541dc47ca27"
-    sha256 cellar: :any_skip_relocation, ventura:        "36e98005281874b8a396b799357be9631e3a698e433fbe26ff4812711ae487a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "36e98005281874b8a396b799357be9631e3a698e433fbe26ff4812711ae487a5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "36e98005281874b8a396b799357be9631e3a698e433fbe26ff4812711ae487a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "3c9a28b99674fac9469b9e253ad405aa02f0a7e3b5a2a6a3060ef9bc03fda6ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00f801dcd347b92d24d6f2dca281b464e6c627d62003dacf6d74a9595c2c4a0d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9df3e07340b1c7c046d9d83009c271cb27105940e6be345a50013abcd04357b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9df3e07340b1c7c046d9d83009c271cb27105940e6be345a50013abcd04357b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9df3e07340b1c7c046d9d83009c271cb27105940e6be345a50013abcd04357b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cbf31b7459787f092bd97a26c0a34998dd62552a9ffd074bae6e6701c1bc040e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1b2ff8288fc767429a63559e1c4a59bee787610a32ed320cd34d57492885f65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1b2ff8288fc767429a63559e1c4a59bee787610a32ed320cd34d57492885f65"
   end
 
   depends_on "bash"
   depends_on "dialog"
   depends_on "gawk"
 
-  skip_clean "etc/backup.d"
-
   def install
-    system "./configure", *std_configure_args,
+    system "./configure", "BASH=#{Formula["bash"].opt_bin}/bash",
                           "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
-                          "BASH=#{Formula["bash"].opt_bin}/bash"
+                          *std_configure_args
     system "make", "install", "SED=sed"
-  end
-
-  def post_install
     (var/"log").mkpath
   end
 

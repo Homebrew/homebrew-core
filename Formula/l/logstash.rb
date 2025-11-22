@@ -13,12 +13,13 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "626320982d7ff72eff8caf96a3b0f2e6cb87e7aeeb35aad81de6e61828792603"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1c65617e0b2582a1345f298713c59bfa1a82c400935cc1d08ebb7db6ef709f5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a1b4722e7047db032bf5af36bec4ee8ad2043342a292854957e0d16beacbd16b"
-    sha256 cellar: :any,                 sonoma:        "698cff45398693c4c18562ad48415a190bd324099fc5765cc018a6d7d755c30c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67c4ccb7aa95c42d274f75b0aca4cc1e00858fd2dce85cfa2775a214397eb0a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be292cd3ca89e04bb014b541788c9e4baf6efb4c24a2607492c831eae0a8344b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e741cea1a23f1d5177d24e187c10eab004f701c6f20c8ffe6afb55e662d548ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3de252a783789caa9834bad5ceb3af368b93e116e1264386f2582c7ea68e0b88"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b1c8de3ad7bd4d1c68bdb2d9a5530aa7cc80917c379d8aec6975cd71d169b5b"
+    sha256 cellar: :any,                 sonoma:        "0bfb00f40fdbf9209059ae8249fd8ccc0f6a1c8c50bf25a39a87cb1be5c5715d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf7b548fab4e813da7bd16271e6e272d17dce4aee717b7a514d06a7654796ea4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "623bc5c012f41b4610f945a4a31104d5adb77801cdca2a3f0255969c30c4deab"
   end
 
   depends_on "openjdk@21"
@@ -61,8 +62,9 @@ class Logstash < Formula
     libexec.install Dir["*"]
 
     # Move config files into etc
-    (etc/"logstash").install Dir[libexec/"config/*"]
+    pkgetc.install Dir[libexec/"config/*"]
     rm_r(libexec/"config")
+    libexec.install_symlink pkgetc => "config"
 
     bin.install libexec/"bin/logstash", libexec/"bin/logstash-plugin"
     bin.env_script_all_files libexec/"bin", LS_JAVA_HOME: "${LS_JAVA_HOME:-#{Language::Java.java_home("21")}}"
@@ -77,14 +79,8 @@ class Logstash < Formula
     rm_r libexec/"vendor/jruby/lib/ruby/stdlib/libfixposix/binary/arm64-darwin" if OS.mac? && Hardware::CPU.arm?
   end
 
-  def post_install
-    ln_s etc/"logstash", libexec/"config" unless (libexec/"config").exist?
-  end
-
   def caveats
-    <<~EOS
-      Configuration files are located in #{etc}/logstash/
-    EOS
+    "Configuration files are located in #{pkgetc}/"
   end
 
   service do

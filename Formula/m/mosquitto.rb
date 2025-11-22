@@ -15,14 +15,13 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "abff8ebca977a7a2112d3b3da4591a51278f6d9d87a4357166b3795a2bbf6c72"
-    sha256 cellar: :any,                 arm64_sequoia: "b104d46d1e87f19a87dde8f703a88f96cfd8a7b14f5c890cc80f1d4e87d00d5e"
-    sha256 cellar: :any,                 arm64_sonoma:  "a698100e3f6c3ad8c4d12be8d53172fa945cdf90e07e98a8f17e3312c18a8a60"
-    sha256 cellar: :any,                 arm64_ventura: "713166fcd44dc4ab41c7ee26c7568657d1ed85f70a561bcb29db93a21c5aaa2d"
-    sha256 cellar: :any,                 sonoma:        "d1d3912c6cce5c515067a154b4b624215b596657ae004d774035fe589915b775"
-    sha256 cellar: :any,                 ventura:       "773f0dbebde7df42a048ce1a5d14dec13773f633bbd660b89d66e78325501ca7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3cf5fd9fdbcd233b9cf42df8604833d65d84b6173e27a997abdf64fe9ca883d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51e2773ad764574334ea17d44e074dcb4106d9549d6efe7eca8ea600fdefab4e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "8467e8dcbd98798e7d7e9ad55d59a0fd4cc55fff200c6ed05bf37f85988e8aab"
+    sha256 cellar: :any,                 arm64_sequoia: "e527efed4ff5fc3451a6c2e06a8104a2963818e19e309102f3180e61788cca14"
+    sha256 cellar: :any,                 arm64_sonoma:  "799c04a8715717c7ffb8afa05a0d9f883dcb10b7974a007867fd16490225375e"
+    sha256 cellar: :any,                 sonoma:        "551d0141173d6a4871fdf3992d2d06b21f8e538a51c525518ae26ea1decc7c11"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "379189844ea932eec2348770028c5fa7d45a9879723bc01556ef775c050f9393"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eba022e0965b028e4da39194e492c9ca03a99a1e49ae9ccce08547133dc634c8"
   end
 
   depends_on "cmake" => :build
@@ -47,9 +46,7 @@ class Mosquitto < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-  end
 
-  def post_install
     (var/"mosquitto").mkpath
   end
 

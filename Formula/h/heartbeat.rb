@@ -8,12 +8,13 @@ class Heartbeat < Formula
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "691062acaebd0350e02a4b24b4df925da417f413e2552d52e46cc05b22f7e908"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f0a369ef27c33f58f5cab8af89964cc7109da605006ac272558c69fbb8b31c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c9a54bc39c1fb82a405ee5d8b7393db613038328e1040a18a529fff18f24962"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0a6fc18e1a40cbd8229f3a88e0f1f2420d9e80f43a6bb7076f188005beb15001"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad2fcf1944709dcbd402d1d3a7ac814d7d5034b7a6b25a205f31427eec71ea0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88f49078155812eb5b8cff7467cb877d8ccc74c515cd2820c02d09f65e63d6f9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4dc6dc27bc879e301635b03a7570ce3f4df8d0f59999b1b233f7e8f826344008"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f51584a09c52ee0c5f81ccc38a4b026090d781a91002c65bdfdaad36024b606"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a8803d9013fa4c1b28915afbda7edcc09b3a4385e1ab4dbd51f18f84879bb89"
+    sha256 cellar: :any_skip_relocation, sonoma:        "955e03b898f3e60dc2e567cc9c361891c68f337679814198f7effb6a5af35a07"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2d30c6fbb264d8c67a218a2f03ddf0ec2b2c97276d8d1896ca3835ea2b83f88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4915b5b07d6269ffa8a0ecb12f3663b563c8517f13b32b7081d4763ee26f2c0"
   end
 
   depends_on "go" => :build
@@ -50,9 +51,6 @@ class Heartbeat < Formula
 
     chmod 0555, bin/"heartbeat" # generate_completions_from_executable fails otherwise
     generate_completions_from_executable(bin/"heartbeat", "completion", shells: [:bash, :zsh])
-  end
-
-  def post_install
     (var/"lib/heartbeat").mkpath
     (var/"log/heartbeat").mkpath
   end

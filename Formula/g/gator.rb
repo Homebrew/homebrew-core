@@ -1,20 +1,18 @@
 class Gator < Formula
   desc "CLI Utility for Open Policy Agent Gatekeeper"
   homepage "https://open-policy-agent.github.io/gatekeeper/"
-  url "https://github.com/open-policy-agent/gatekeeper/archive/refs/tags/v3.20.1.tar.gz"
-  sha256 "54d001f117e852e4cf10ca6ada5231b35f8d3847cf643f257e11dbb964deb7a1"
+  url "https://github.com/open-policy-agent/gatekeeper/archive/refs/tags/v3.21.0.tar.gz"
+  sha256 "b93d70151801eec39574fff408c1ea592061673123e5cb869a7f97d0056fb30e"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/gatekeeper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e7634b75abb5e22019cf51208bf13646178ff255633a99a709c6635ebb8d570"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "577adf4ed63e73e2ed3e29ba20124c5baf074316187707912d1a431642d601f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51dc85d8bf02c23e3850bc828d52e53ae047f4a0676e271740d5c7b14ab20fd8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c2d8262321b5a8e5f22a5a1f307451f181e56f618391b0f4be1ec5d829b0dfb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4473a79a17494403011ceb62a4e6acfc9db90d085ffcca02028875207366cb6d"
-    sha256 cellar: :any_skip_relocation, ventura:       "72f863e2b1fb8df14b4bd832acc29ce0605fd68dffc7463eb1307ce62533761e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5b53f7101610952c3a6b496925c9602a7166ec61c0a7255b566e99e3833415b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04ee65ba50a6b42a5158d9a5080728d3c6ba394e3a8dae9712baf39adc07eba0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b24e0539f519252f6635172cfa3784da34be9607838fbd8c0f37a47c117121d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e2351a4d0d4163f7840df4e7d0fd9463dbb6fcee5559910535d7493406dfdb5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85521ed59f263bb188e2efd5f28cf4ad12ade4e810d476c307e25e9f436536af"
+    sha256 cellar: :any_skip_relocation, sonoma:        "706da3cd2d1fde49ea2951ef22c710f5432c33c408da2ffde1eccdb6a662f614"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "320923754a985e6fd15bdca53c8e34d2cd0312bc771e1ea6f4660df9545bf8ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3e24ced059fcc38ccd8f9c4d55486005a43de840a8f945f4f990ff8f9f7d792"
   end
 
   depends_on "go" => :build

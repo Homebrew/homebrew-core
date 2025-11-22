@@ -1,10 +1,9 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/2.3.3.tar.gz"
-  sha256 "4f1aaf3aa5098037c3fc1571feaa2d8f256829baafd6d5b4556624791e5c0217"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/2.4.0.tar.gz"
+  sha256 "a49646eadb913d5c761e316dfcb9f277278c5fd99fc2851d06e4bcf00f1c1412"
   license "BSD-3-Clause"
-  revision 3
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   livecheck do
@@ -15,12 +14,12 @@ class Micromamba < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1a394062b5187c7fd2e1f888df36b57fe77b6c4715e38d5b091a3c43dc26cdec"
-    sha256 cellar: :any,                 arm64_sequoia: "49e9e3d4f5cd4684e199946469954e2aa94abb8a7e58f912311c8a6b3e27a534"
-    sha256 cellar: :any,                 arm64_sonoma:  "61976cfad1d74e89dfcda26e47e269b5ad8909e477765793f73a836f33edf169"
-    sha256 cellar: :any,                 sonoma:        "bbbfc9843b431b862d4227265fc292f50d23a8ca4e275400e125b61b3c6bf819"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "66370e659f889039a5b78c93dae4d4e5735792eb3cdf0554f02e369982b102ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b1b90f7e8082b837629e4d6adc58552bc6a30667545d3ffdd7d0d61cad7ad99"
+    sha256 cellar: :any,                 arm64_tahoe:   "ea114ed7a87ea39d8a7ec4581e9b87dc47d50af31098190fcba45aa81efcb60a"
+    sha256 cellar: :any,                 arm64_sequoia: "b7d7ae6a51ba2299e18a779e9e0e9fd7b0dd5a4f07eef5a5dd378cefd848266b"
+    sha256 cellar: :any,                 arm64_sonoma:  "b944f17c24c151c158bcf0f5d41b5d8b3edda3e58c06c0eca9e5b8f481f0e46b"
+    sha256 cellar: :any,                 sonoma:        "ddfc17d46b2ccf804717631e41ca9b00943c57fd05081cb7c4d2b3a572105109"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "684ca0889ab766be4d4cf0312590868e2c276edffdb8ef612a25cffbab2ff6fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a14e61df1f7ddfaa170bf0e5b165a9f4f63c55348d7c16bc68126c009d4430d"
   end
 
   depends_on "cli11" => :build

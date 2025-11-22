@@ -8,14 +8,16 @@ class Cabin < Formula
   head "https://github.com/cabinpkg/cabin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0e97d0864c66bf62ea7b014024bf7585c0069bd397ab840fc97725b4b4729f9e"
-    sha256 cellar: :any,                 arm64_sequoia: "c1dcf1c02d972158e65e66c8bc62c2d01509f5b42f45603d7394cff059fc5e1d"
-    sha256 cellar: :any,                 arm64_sonoma:  "e9dcb2901837d96250d350e5c230b7a88c1bef5abd332936386f98cced784991"
-    sha256 cellar: :any,                 sonoma:        "ef94594fcddda52162028ea8a91fcba55cf171219d3eb993464bd286363afebf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "233a2a68624ff57281778ea8496adc10d341fd0dd9e0b02ea72ec5b2da356c6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d80d56f13208f944f50bdec29141ca1133a857f78952f9c9eb43a0c36e2e1d7d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "63997b784c8c2f0debe6e8b2e109ebc069de502f1aca39beaa5e3f235bd6a4dd"
+    sha256 cellar: :any,                 arm64_sequoia: "9eb8f6169c50ea40094404df8ae7a6e06b4bed08521ed4670afe88236b10f5b3"
+    sha256 cellar: :any,                 arm64_sonoma:  "a4b9eb7c190cba254c3da8a093bfc96c7d104984dbce71a81d6269c7d9efafee"
+    sha256 cellar: :any,                 sonoma:        "0e0d7cb664e228d889350901e1b0b6c0e65f2a7b02172bcbc4bc8b74e23f63e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bddf4b75ab7f5806cc37c8c8e57c072aa883ed7cb074c6e84b67273ef2d17e6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe70c20668f91cfb4fa803fa476fb5b77bfbc3c8cec91e7f370410e57735be4e"
   end
 
+  depends_on "mitama-cpp-result" => :build
   depends_on "nlohmann-json" => :build
   depends_on "pkgconf" => :build
   depends_on "toml11" => :build
@@ -53,8 +55,9 @@ class Cabin < Formula
   end
 
   def install
-    # Avoid cloning `toml11` at build-time.
+    # Avoid cloning `toml11` and `mitama-cpp-result` at build-time.
     (buildpath/"build/DEPS/toml11").install_symlink Formula["toml11"].opt_include
+    (buildpath/"build/DEPS/mitama-cpp-result").install_symlink Formula["mitama-cpp-result"].opt_include
     system "make", "BUILD=release", "PREFIX=#{prefix}", "install"
   end
 

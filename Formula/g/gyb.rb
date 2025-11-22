@@ -19,13 +19,13 @@ class Gyb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1f595adced69550da90a019f2a117e8ffae8a47c5f3d5398eb31dcdc9c45d42"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "873053be69dccb542bd8c83c03512bec83c2c55420af233be664b23f5db9d6d8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79afaeebece5e6dd759c5560cd10da4ebcc56a6d8d9a1a9170dea8ee104c6291"
-    sha256 cellar: :any_skip_relocation, sonoma:        "97ce22f9fe2e16aa679c07f80ea43a436d0c81c33e63b8d4875a3d84a21b4475"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eeb22e684ce5be2e56c71c885249f07852b7c9e87813cef5de0280138654fbc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8379148e2a6abdd200e785cc3ac653c4df222b18743ec9eeafc00ac0ae91a737"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9cce016a539a683c057b8629de4141347c68e17020b32bf208a51a227c62765f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79284b61261f22098a5464fd12ddf47eaf775e4249fb17ef84b9db3af0fcc63b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41a173a2d05c2dcab747540fd493bbb968d9713c73e3952c64a93fba4cf8184d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e5ca4b2f0565c78f16374dfe92d6896899391d7d9a73727a06d14b5890202955"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cadd244873a95f56800351ea23dafc2d8df312b7a0741d343c0dac26a2973ba9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7435f2202b6595ceef4b1fd0cef794caf5daaa0331c43ce81b1950ccd363891"
   end
 
   depends_on "certifi"
@@ -154,16 +154,11 @@ class Gyb < Formula
     rewrite_shebang rw_info, "gyb.py"
     bin.install "gyb.py" => "gyb"
     venv.site_packages.install buildpath.glob("*.py")
-  end
-
-  def post_install
     pkgetc.mkpath
   end
 
   def caveats
-    <<~EOS
-      Default config_folder: #{pkgetc}
-    EOS
+    "Default config_folder: #{pkgetc}"
   end
 
   test do

@@ -7,12 +7,13 @@ class GoLibrespot < Formula
   head "https://github.com/devgianlu/go-librespot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b1c36daf56b4568ac60f49179e849d19af6133bc6f614c47b00c321d52c23fa3"
-    sha256 cellar: :any,                 arm64_sequoia: "706f7232e2a179394b70947954ee7d7e8b3e3c3cae347e1cbaa4003729cab93e"
-    sha256 cellar: :any,                 arm64_sonoma:  "24800e1241744e3550220c3021b4ca25f2a9a812f412c0ce95e332ab6a13e4e0"
-    sha256 cellar: :any,                 sonoma:        "b90c39075777aab2208f9220c2ffe17c0c3292517205bef03b161f2733e6e144"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "479d7d2bff706615a91aed328b8c89cc09ad9707f09c9a354b71964b480bb4b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70a57c7754117a6af50a3f566fc78673407a462ae288280ccdd8ce9ee8b23a56"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "6ccc1504feb8444c3f5fa35cb3450d215df320ac61d0e0eaae3924fe609d39e7"
+    sha256 cellar: :any,                 arm64_sequoia: "7522de12096d1f92d7022691b675eecdee2f81c08d72bb0831b4820936661bab"
+    sha256 cellar: :any,                 arm64_sonoma:  "9bcc9a05dd595deefc1e55639b209b4a1864cb2dd4ae96b4341ecde48f3f9b5a"
+    sha256 cellar: :any,                 sonoma:        "a0fc0d01b62ea707cc3621b7a3c80feaa7485b4744c9786469e56196d026c9ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab88c6fb7784631066a4cc8f481a11590b674e0c39899b09a12ad337b145bc9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eaeb4f15c87eb76fe3b886bae1b7051dc74f41e2149b8a0a8e2ae281cd98e214"
   end
 
   depends_on "go" => :build
@@ -35,6 +36,7 @@ class GoLibrespot < Formula
     ldflags << "-X github.com/devgianlu/go-librespot.commit=#{Utils.git_short_head(length: 8)}" if build.head?
 
     system "go", "build", *std_go_args(output: bin/"go-librespot", ldflags: ldflags), "./cmd/daemon"
+    (var/"log").mkpath
 
     # On macOS, create a minimal config that selects the correct backend.
     return unless OS.mac?
@@ -45,10 +47,6 @@ class GoLibrespot < Formula
       audio_backend: audio-toolbox
     YAML
     pkgetc.install "config.yml"
-  end
-
-  def post_install
-    (var/"log").mkpath
   end
 
   service do

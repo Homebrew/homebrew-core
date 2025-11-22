@@ -1,8 +1,8 @@
 class Cadical < Formula
   desc "Clean and efficient state-of-the-art SAT solver"
   homepage "https://fmv.jku.at/cadical/"
-  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-2.1.3.tar.gz"
-  sha256 "abfe890aa4ccda7b8449c7ad41acb113cfb8e7e8fbf5e49369075f9b00d70465"
+  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-2.2.0.tar.gz"
+  sha256 "46694892c2d2ebc7a77cd33edb35c71c8bf92a5aae600f04fbb977b1c7824083"
   license "MIT"
 
   livecheck do
@@ -11,20 +11,19 @@ class Cadical < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a0d83d4018bf1f43edf23a93b1d91f67d4a2b4c164c7c757ac1c973333e5918"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13599f5a5a95eca75c9cdac49ff39ed271834ec54068742d456b5a16db68d04e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e48caf86797f6b6d72afecdd0271e0d5665af282801e2fa556d3f86066a7fa76"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4ad047a3437ab8c0c944c44c7cfa977704781bf69b176658a21324d4abf0a19e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c7d6caa39c55c9c21a1e4224d2bb754bbc31a617ae795f63a68986db92f83d2b"
-    sha256 cellar: :any_skip_relocation, ventura:       "f8b6bc085363d6e92db05d37cd4794a646ab858e8feb8f53d52845a3c1cee21c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bd60910c6fe37fbbfe153494ef5d20d139c4afdcd242f356d7999243434c328"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ccda8639207be39bbcf10f84c36c520c433379be429100d86e6dca26a21ac09"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34e909425f8e322ccc5641c1ed4883e1254ef777cb3362ade5061c27e5b1624d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86f5bf2db885bd6ee1a06b486b5f2b964f645135a89adf6385b7785d427ddc14"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c923082672f958a4836b36bed59ef3c6a826dd4c09ef2f503ec5717a9c054349"
+    sha256 cellar: :any_skip_relocation, sonoma:        "17552d341daf99a12db7c05c56e3791e984daf72dfe77c0ea0824f3381e5ca32"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e1ebec3d75bfea835010d91acb424a62b40c537eac3d976ba56b9d07a112614"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "396845e37e35efafe3320509a57f309d03b4702fe7068c62ec536020b35d30fe"
   end
 
   def install
-    ENV.append_to_cflags "-fPIC" if OS.linux?
+    args = []
+    args << "-fPIC" if OS.linux?
 
-    system "./configure"
+    system "./configure", *args
     chdir "build" do
       system "make"
       bin.install "cadical"

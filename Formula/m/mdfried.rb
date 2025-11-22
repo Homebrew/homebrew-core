@@ -1,18 +1,18 @@
 class Mdfried < Formula
   desc "Terminal markdown viewer"
   homepage "https://github.com/benjajaja/mdfried"
-  url "https://github.com/benjajaja/mdfried/archive/refs/tags/v0.14.5.tar.gz"
-  sha256 "66984768bea0e61d5e907f29606c02b7f322ad9a723aca52e19ee5a54f4bbfc2"
+  url "https://github.com/benjajaja/mdfried/archive/refs/tags/v0.14.6.tar.gz"
+  sha256 "cfabc77bff69b440cbc8909771f724c6c240e9b0f9787cb7c948d2d333fd8cf1"
   license "GPL-3.0-or-later"
   head "https://github.com/benjajaja/mdfried.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "77e0d8c5d9b1cd7e4787fa449edc73f779aa7f560f34434e0e2e969cc10285b5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6de7c07e4555f99361b6a19549d779fa359870c04dc5f52320ecfdbecfe50293"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e5504c335c6125f472e3c35f983ce54fd92b988b81c0d6c70a85f836ae66ed0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2feef37cf2e8a18db148751628431580ae473694d74e1108ee1f2d1436138fdd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "da14f135382e2fb934384e8000769c5a5e072dc7b66b61a1562903c3e4a2fdaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8b20c33a91ad495cc8913ed078db8b939220bfdb9d8b9484abc0e9acd20be7e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2bac36d78f44fda65666e9e8d3286be3677c48bc277a996bad4a06a4a1ee46ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "850f4ef4f8b058644e2da2e8a2a71b32618e089aceffe368b6563e3dc3dbfdb2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c061cdd90833f334a1fe732154199ed6d2465d57dd48a0dc2b7c97831e6251e4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e64b5ed143cee813c8b7f31a52283437d0939855973c3a6f03a075960113b34b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5b182a97bed382add9048d092abcda09af62f38f52b00af9776a314e4b4b71a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba4328a89e4a82e7f1fcda56dbb8039ccb56b5c834f02aba0d31ba7e164a8121"
   end
 
   depends_on "rust" => :build

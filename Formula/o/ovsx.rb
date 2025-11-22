@@ -1,17 +1,17 @@
 class Ovsx < Formula
   desc "Command-line interface for Eclipse Open VSX"
   homepage "https://www.npmjs.com/package/ovsx"
-  url "https://registry.npmjs.org/ovsx/-/ovsx-0.10.6.tgz"
-  sha256 "d50e7b083f235346c0b9b2a3a7c4985bf4f3f2ddd87d528e07a28859aed1045d"
+  url "https://registry.npmjs.org/ovsx/-/ovsx-0.10.7.tgz"
+  sha256 "74f82371e0d0ba3ce7ceb3a49e6e06dc8323d8ebc05a6764cd1fffbbcf09ccb8"
   license "EPL-2.0"
 
   bottle do
-    sha256                               arm64_tahoe:   "d9a7b92f30e129532d003c31b98ba86efc31ee0f2d5eb2fc4a6dfccd829d2b42"
-    sha256                               arm64_sequoia: "21fda98823a6dc025e0a0e747d7035bdbdfb2bac339a33fdd92cc9faf3e53ab2"
-    sha256                               arm64_sonoma:  "f962ec113990e460707a443e6918f1a7f64d33b69eade644673875fb1376ffca"
-    sha256                               sonoma:        "e1652231f028b1c9c91c8143f6f3c6cd560b680391d2ef38dc5b2d98b789b640"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4013676dbca2fec57fa5cba652a53aa375532afe4b07f9ae106db75a2a9bd3c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9092529f7724d6169b014570bff62ab784ef2c66a819ff8da62fd227059b2e5c"
+    sha256                               arm64_tahoe:   "e427e4992a6dbf269c4eaf1de8a95ab3c3fc9ad39fee183a116fd0a59e80be7b"
+    sha256                               arm64_sequoia: "8617f49925a1b7aff82ad37897e4e63760fd9e2b91657d323c466ce875d94a11"
+    sha256                               arm64_sonoma:  "5fac4075d52c22062da7978fdcf25153f95795cd49f062f1e34d75a260a392fc"
+    sha256                               sonoma:        "c33eafc72cfcb5b0b3c89e6e4e8e911fe48feff5122fd8c87e6fa0052a14283c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "21650d33785b07df120de9841f42af6104c6d606b0e3c407a5871ac83d4d4324"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e025efef6eb7b2f51f9d01695b00cea6bbbf1c1d3643ac71f072def4330c856"
   end
 
   depends_on "node"

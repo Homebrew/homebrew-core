@@ -5,6 +5,7 @@ class Blast < Formula
   version "2.17.0"
   sha256 "502057a88e9990e34e62758be21ea474cc0ad68d6a63a2e37b2372af1e5ea147"
   license :public_domain
+  revision 1
 
   livecheck do
     url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/VERSION"
@@ -12,16 +13,16 @@ class Blast < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0eecc5bf5fb52ae2ff1d7e9b8f3fedbb2a86e1035134dd225712fc384f40ce22"
-    sha256 arm64_sequoia: "43b03b4a7d9f076440ef147018ea8a3f42ad7de5ba7da730f4f615679a1d5444"
-    sha256 arm64_sonoma:  "5284fffd2eb9362ab6fd8b9c3e25e0eee0917df9cdcc82c348a902c9416c6f21"
-    sha256 sonoma:        "ea0aa56daf9e728df8b45665414913decad4154430be7168ac37b9dd4996e595"
-    sha256 arm64_linux:   "d5f36159d91bcf5198cf065b3816abd71257159d8be467df16776f94b98707cc"
-    sha256 x86_64_linux:  "70d6e2f88cfa5cdbdd85b3edda9a5ee1bc7637554428cad194c12c2c60d583f1"
+    sha256 arm64_tahoe:   "4700bd0ebfdf363a0e307f8656826bc8f4643400738f0fb3c3ddaf4fcc912a17"
+    sha256 arm64_sequoia: "b4aff3c97ccd466c20d2aabc43ec9fd315b10b8f99d02ea81baa2b145524740d"
+    sha256 arm64_sonoma:  "f03bb62ca8ede3be78fc946c28fba03acea414632dae14de29ba4bc400cdd217"
+    sha256 sonoma:        "8688084ae1bdb3c7beaeb415c2da42703e208265964bf9efb5bf03627792d8fe"
+    sha256 arm64_linux:   "3af4336ac05e7fce279f047283bcc876a712f7139c7e1d0279c635a2adaa535b"
+    sha256 x86_64_linux:  "0443138a85b9cd22f0006a6819ef26ba5633b389d857751b3d58c35111bba0e7"
   end
 
   depends_on "lmdb"
-  depends_on "mbedtls"
+  depends_on "mbedtls@3"
   depends_on "pcre2"
 
   uses_from_macos "cpio" => :build
@@ -60,7 +61,7 @@ class Blast < Formula
       args = %W[
         --prefix=#{prefix}
         --with-bin-release
-        --with-mbedtls=#{Formula["mbedtls"].opt_prefix}
+        --with-mbedtls=#{Formula["mbedtls@3"].opt_prefix}
         --with-mt
         --with-pcre2=#{Formula["pcre2"].opt_prefix}
         --without-strip

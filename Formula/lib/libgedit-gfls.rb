@@ -1,20 +1,18 @@
 class LibgeditGfls < Formula
   desc "Gedit Technology - File loading and saving"
   homepage "https://gitlab.gnome.org/World/gedit/libgedit-gfls"
-  url "https://gitlab.gnome.org/World/gedit/libgedit-gfls/-/archive/0.3.0/libgedit-gfls-0.3.0.tar.bz2"
-  sha256 "a53c847a2dc16f35a9295b2176bde4dbaa91bd1410af8546992fd65236bccf95"
+  url "https://gitlab.gnome.org/World/gedit/libgedit-gfls/-/archive/0.3.1/libgedit-gfls-0.3.1.tar.bz2"
+  sha256 "fef85c08abff129199ba59444825d602c3aad8346cba48677a58a6421daad46d"
   license "LGPL-3.0-or-later"
   head "https://gitlab.gnome.org/World/gedit/libgedit-gfls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "dbbd82372aecadf83381200bab5696d3b7a65312a9e24d62819b6ead460900e2"
-    sha256 cellar: :any, arm64_sequoia: "4d224b0d0ecad55f58e7faad216c4456bc8a034b31f120714d94bed236360dc2"
-    sha256 cellar: :any, arm64_sonoma:  "217681e399331b45c9a8e12a7eeb02e520dcab102e634163292907005cb83b16"
-    sha256 cellar: :any, arm64_ventura: "910ff5cc9d9f6bf34bc028886291f5b865830872e538115c3610d5a62a15b570"
-    sha256 cellar: :any, sonoma:        "db720dd55a7f2c887fef60c79036d93d65d439c7f8e159f339ccb3c2ef66ba32"
-    sha256 cellar: :any, ventura:       "4eb809e0498a4a2844c2afa2d2255cdb5d7827b9d1925d7d561540b58bbcc248"
-    sha256               arm64_linux:   "4414cd365718587e2ba528a90fa5615678b4f8e5f6e7b881be663dac820a45ae"
-    sha256               x86_64_linux:  "56b8e1b605aa397988beb3cb33cc9d394a83413468c7e68d22e78daab6d174fd"
+    sha256 cellar: :any, arm64_tahoe:   "094a4573c2d02e1abf7802c22e526f1088750c23fc446bb22d8c1f59a2ee2d44"
+    sha256 cellar: :any, arm64_sequoia: "8db07fb4c7b54d03cbff3825099e2aac1fac8bd05e2f6c2394ee04fdb2917d94"
+    sha256 cellar: :any, arm64_sonoma:  "7a5b3641096059b45f2493f03a020dc5892c71ccc608f7aaffd38f8ba40cc5fe"
+    sha256 cellar: :any, sonoma:        "2a74de4486d4c26f60e821abc4fd08c1ae61597785298fdf5bd8f5a3b8c37f6c"
+    sha256               arm64_linux:   "1a9b830716ce11ade5e9970175836b0244c6798bbcc0d237b3ba643ea1c183a5"
+    sha256               x86_64_linux:  "6621aa963f78c982fa874bbfd0262b5ff26bcf5b06236d545520b6b121fcb64c"
   end
 
   depends_on "gobject-introspection" => :build

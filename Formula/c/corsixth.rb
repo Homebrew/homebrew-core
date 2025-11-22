@@ -98,10 +98,10 @@ class Corsixth < Formula
 
   test do
     if OS.mac?
+      require "utils/linkage"
       lua = Formula["lua"]
-
       app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
-      assert_includes app.dynamically_linked_libraries, "#{lua.opt_lib}/liblua.dylib"
+      assert Utils.binary_linked_to_library?(app, lua.opt_lib/"liblua.dylib"), "No linkage with lua!"
     end
 
     PTY.spawn(bin/"CorsixTH") do |r, _w, pid|

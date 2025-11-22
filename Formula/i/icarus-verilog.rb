@@ -8,9 +8,8 @@ class IcarusVerilog < Formula
   head "https://github.com/steveicarus/iverilog.git", branch: "master"
 
   livecheck do
-    url :stable
+    url :head
     regex(/v?(\d+(?:[._]\d+)+)/i)
-    strategy :github_latest
   end
 
   no_autobump! because: :requires_manual_review

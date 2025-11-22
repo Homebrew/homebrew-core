@@ -13,9 +13,8 @@ class Fmdiff < Formula
     sha256 cellar: :any_skip_relocation, all: "a2f4d1e3f09bde0fd9d7e7e146bf4f0709f94b67150a54991ff10959f85fa22a"
   end
 
-  # Needs FileMerge.app, which is part of Xcode.
   depends_on :macos
-  depends_on :xcode
+  depends_on :xcode # Needs FileMerge.app, which is part of Xcode.
 
   def install
     system "make"
@@ -26,14 +25,14 @@ class Fmdiff < Formula
     ENV.prepend_path "PATH", testpath
 
     # dummy filemerge script
-    (testpath/"filemerge").write <<~EOS
+    (testpath/"filemerge").write <<~SHELL
       #!/bin/sh
       echo "it works"
-    EOS
+    SHELL
 
     chmod 0744, testpath/"filemerge"
     touch "test"
 
-    assert_match(/it works/, shell_output("#{bin}/fmdiff test test"))
+    assert_match "it works", shell_output("#{bin}/fmdiff test test")
   end
 end

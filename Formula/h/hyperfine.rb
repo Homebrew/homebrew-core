@@ -1,21 +1,18 @@
 class Hyperfine < Formula
   desc "Command-line benchmarking tool"
   homepage "https://github.com/sharkdp/hyperfine"
-  url "https://github.com/sharkdp/hyperfine/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "d1c782a54b9ebcdc1dedf8356a25ee11e11099a664a7d9413fdd3742138fa140"
+  url "https://github.com/sharkdp/hyperfine/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "f90c3b096af568438be7da52336784635a962c9822f10f98e5ad11ae8c7f5c64"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/sharkdp/hyperfine.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "819fe8b11a3470f8eb95b8920292696c43df5e3439fed3d28ab1c1bb8ea2fa3b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "acf0ce7620aa8b6c3e1f1b755d8fb1a89445b4293935c3d5a96ea3f8f193ec22"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76a4b9596447f7c86d96de9bd7d9312eceee745509f9bea470bc32fafe0b97b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1113b8769a5054fd790e5de5cd95089ef500bcce78694f6263be6f25d521f0c7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4b79040d510fe182211e539164cfa633858ec983b9ae33d62a8f028a18d01a0e"
-    sha256 cellar: :any_skip_relocation, ventura:       "f738c61291419374ec425df822cef3486cc86504d42d7a995301b13485303b60"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "44571f44266cd6388c86a22fceb6b947d39fe4abebaad9094cc10c163ddea8c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c758dccd2d2f5fbd7f6a2ae6971534ac1cb0c6f0f6e83ff21741798326c98b52"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a79829da44dc03e12ea4977b6bfa122cea8487e741c24a7fbcc7ce6a4788db3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0c8ce81f2d2e32e5d600c474c433cd67af71c7f95c4c9de0622369557d4667b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "491753d73c724655595030aac15f675f3fe0240af8be73c673251b37a7a90017"
+    sha256 cellar: :any_skip_relocation, sonoma:        "35f05803354dc8621b9bdf918d50aef83eca450b90babc5b9899ca151177c39a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc0b9a0eb7628a130fb45cd3a5abc08321daa6f48eb175e26f784ef44fa9a18f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6cdec4cc985c9fdef714051f2c921b8d5158c444be11e73af825054589d0ddc"
   end
 
   depends_on "rust" => :build

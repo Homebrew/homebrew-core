@@ -1,18 +1,18 @@
 class Openjph < Formula
   desc "Open-source implementation of JPEG2000 Part-15 (or JPH or HTJ2K)"
   homepage "https://github.com/aous72/OpenJPH"
-  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.25.2.tar.gz"
-  sha256 "ae5f09562cb811cb2fb881c5eb74583e18db941848cfa3c35787e2580f3defc6"
+  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.25.3.tar.gz"
+  sha256 "815b0d345daf3bbad72f3930d4f6c831643dcb2b734d8bb44d871d68db12f4d2"
   license "BSD-2-Clause"
   head "https://github.com/aous72/OpenJPH.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ed6b535c8d5c3a6e6d8f5b1b4088ca6ddb3f1f1cdf9bdb429e51efb12251114b"
-    sha256 cellar: :any,                 arm64_sequoia: "0779ae68deaad2081ef9dbf83cc97ce23add21de02e01780425a177c25f087f4"
-    sha256 cellar: :any,                 arm64_sonoma:  "6858c50a76c2730dc0a1d8f9f4dd8ad2cc30d9c4362f1b065c15861af5927b0d"
-    sha256 cellar: :any,                 sonoma:        "826c73c73859736ebe0c7610335f9fa8c0b76dda5ba4d0678adef9dbb080538f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9367c8459284cff73b76339c0519997c2d18e6338e90126e82b8295a03699666"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7f62a0585f56a412b4849e1756894ca989f7147868d611d1d9f3dbbd2140040"
+    sha256 cellar: :any,                 arm64_tahoe:   "33e0afc346e8508a88a28d9397ce999f8bd261dbb68dab01fe756d55f9b9e98b"
+    sha256 cellar: :any,                 arm64_sequoia: "dfd1a9d3d03f41d8119ce1a9ed58229b1be6e8312690cb488d462e6d41befa3f"
+    sha256 cellar: :any,                 arm64_sonoma:  "accdc668da032e466e863792ff037fcf08640bf6a69878600c818379151b0f8a"
+    sha256 cellar: :any,                 sonoma:        "1db573c45c6865463cf266be0654c4917e76d3f0193bb0ae799ae8fb1e6ce901"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dc537ac808c7d5a2d5285b8a709dc0f87516146e63a4f68db659eda37b3a130d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f35aac4781c1316f2c2e56b14b3e72ac34b932c7ef5859ef33fd46d46614ed95"
   end
 
   depends_on "cmake" => :build

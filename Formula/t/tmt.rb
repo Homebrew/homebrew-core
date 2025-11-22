@@ -3,18 +3,17 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/9d/44/2a49f9c723d47c34b1eaf14de79b3dd40ee0000609645b47b56f58d30e0d/tmt-1.61.0.tar.gz"
-  sha256 "c3f5a7b2c427684633a73767222c4151d16ad47d4a8ed527ecf69227b00254eb"
+  url "https://files.pythonhosted.org/packages/d8/33/24042082f226dd18274e51997b2241b3dc2afbbe348ed0cafd5030a9be65/tmt-1.62.1.tar.gz"
+  sha256 "d588ed74e26e4379e7fb0ce8b163489ddf5af8de7b7d643bb77616af0b93146e"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e8ddd35cf0e617f0d4cfa54869a6367929e202c87e9d32169f136f049f66bcf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7bdc5c4d58a9eb04e1ff20a7d12e7e6dc1db73724337bd25e2a67e167e79f7d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13dcde709d6dcb4bb773fd54a32d85369bbae36ca161237249fa3061b01cbe0b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c4d3da5c02b325532be07129c1786d6e847cfb53ca517e3a7a56a0e0eb12df33"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb47fcb86e8deaa1130dfa4bf5d9c8b2d8811424b20a1c1038b39f73f91bea8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0596cd4fe55a1ebfc8a466be94ffaf535328c0174c025eecdf89d237c5b6990f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "69f84f850a8075726504632ffe5d26e9eb4b5db69cbf70c8a9cc345b8f4db16b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e0ee44305e3cd42274ea12bb3a587dc9f05c6f57c1c85e808360d4c486e2c07"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9498aec774e9ed9c498ade5f77c46d5d8cf2e3543628c5a95f9ca61a8de6697"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86f5cd756fcfda1eb33c8fb4fe59536db8a8dc0f96483f817763c6aa9993aba4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91f3046e4995d5aeb6ef42fc850882fad4c4a62e29640d1855533dd74b2c5713"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f586069b67f85dd6d82394fb31e713b43bca67a7487d4aa9db7db6ea88d963b3"
   end
 
   depends_on "beakerlib"
@@ -36,8 +35,8 @@ class Tmt < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "docutils" do
@@ -96,8 +95,8 @@ class Tmt < Formula
   end
 
   resource "pint" do
-    url "https://files.pythonhosted.org/packages/07/ff/7d56452e73dd7cb93ee9ddc3532e9fa31abfd25a582c68bf71868b3e7ae9/pint-0.25.1.tar.gz"
-    sha256 "34e6f89bfbfca94f29bde65c9ea42c1c56e05426692c655a3ee6f3ca2a92d252"
+    url "https://files.pythonhosted.org/packages/5f/74/bc3f671997158aef171194c3c4041e549946f4784b8690baa0626a0a164b/pint-0.25.2.tar.gz"
+    sha256 "85a45d1da8fe9c9f7477fed8aef59ad2b939af3d6611507e1a9cbdacdcd3450a"
   end
 
   resource "platformdirs" do

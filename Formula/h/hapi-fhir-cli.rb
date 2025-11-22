@@ -1,8 +1,8 @@
 class HapiFhirCli < Formula
   desc "Command-line interface for the HAPI FHIR library"
   homepage "https://hapifhir.io/"
-  url "https://github.com/hapifhir/hapi-fhir/releases/download/v8.4.0/hapi-fhir-8.4.0-cli.zip"
-  sha256 "12a162f8b3b580a0dfd6201508fc5d750de80e290df17ae1fd4a953830035894"
+  url "https://github.com/hapifhir/hapi-fhir/releases/download/v8.6.0/hapi-fhir-8.6.0-cli.zip"
+  sha256 "e2ffc429ef72e4f52921b68086de1ce318b85b64786cc099de28b371627ce046"
   license "Apache-2.0"
 
   # The "latest" release on GitHub is sometimes for an older major/minor, so we
@@ -16,7 +16,7 @@ class HapiFhirCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e9295a4733ee51ed0d1bd66973ee391e15f6cc12b004364d6dcb9bb051902320"
+    sha256 cellar: :any_skip_relocation, all: "640ce90d0095853724ba32a6189df85031746cdc5c5fd6a3d484da66a2c506b8"
   end
 
   depends_on "openjdk"

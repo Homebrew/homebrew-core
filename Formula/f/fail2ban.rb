@@ -13,13 +13,13 @@ class Fail2ban < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a7ed27b54f7c5788e563843694f65c7dd205ad05079fd01a37e162f987ece3e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a7ed27b54f7c5788e563843694f65c7dd205ad05079fd01a37e162f987ece3e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a7ed27b54f7c5788e563843694f65c7dd205ad05079fd01a37e162f987ece3e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cc25e9721b7898055def82c018165028cb21cfed3f2173d9b973bf9014b64908"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "71e926af73e9908433cc1d21315ff2dbe262fb0456fbd3fac6f13c01a55019e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71e926af73e9908433cc1d21315ff2dbe262fb0456fbd3fac6f13c01a55019e7"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "677ea8041843e75cde2773a39155890cc3612fb584411d85316538caf4193168"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "677ea8041843e75cde2773a39155890cc3612fb584411d85316538caf4193168"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "677ea8041843e75cde2773a39155890cc3612fb584411d85316538caf4193168"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cf820863820ce92f23210ed7a2a390ab1cbe86f67db6f68c911e1d11670dad3e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5684265cee6688d49e34a7bc00c529bad87825df415a613b300cf91735e6e53c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5684265cee6688d49e34a7bc00c529bad87825df415a613b300cf91735e6e53c"
   end
 
   depends_on "sphinx-doc" => :build
@@ -72,6 +72,8 @@ class Fail2ban < Formula
 
     # Install into `bash-completion@2` path as not compatible with `bash-completion`
     (share/"bash-completion/completions").install "files/bash-completion" => "fail2ban"
+
+    (var/"run/fail2ban").mkpath
   end
 
   def inreplace_etc_var(targets, audit_result: true)
@@ -81,17 +83,12 @@ class Fail2ban < Formula
     end
   end
 
-  def post_install
-    (etc/"fail2ban").mkpath
-    (var/"run/fail2ban").mkpath
-  end
-
   def caveats
     <<~EOS
       You must enable any jails by editing:
-        #{etc}/fail2ban/jail.conf
+        #{pkgetc}/jail.conf
 
-      Other configuration files are in #{etc}/fail2ban. See more instructions at
+      Other configuration files are in #{pkgetc}. See more instructions at
       https://github.com/fail2ban/fail2ban/wiki/Proper-fail2ban-configuration.
     EOS
   end

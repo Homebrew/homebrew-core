@@ -7,29 +7,25 @@ class Fuseki < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0aa04767b6bdcb434dd3addd18ccfa99c0e196ce28289b4ad940b8436d1df0b1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5980a1cc4e9216d2f8e352bd28d8e4dcb7610446485073e655f043a100fb1bfd"
   end
 
   depends_on "openjdk"
 
   def install
-    rm "fuseki-server.bat"
+    fuseki_env = Language::Java.java_home_env.merge(
+      FUSEKI_BASE: var/"fuseki",
+      FUSEKI_HOME: libexec,
+      FUSEKI_LOGS: var/"log/fuseki",
+      FUSEKI_RUN:  var/"run/fuseki",
+    )
 
-    %w[fuseki-server fuseki-backup fuseki].each do |exe|
-      libexec.install exe
-      (bin/exe).write_env_script(libexec/exe,
-                                 JAVA_HOME:   Formula["openjdk"].opt_prefix,
-                                 FUSEKI_BASE: var/"fuseki",
-                                 FUSEKI_HOME: libexec,
-                                 FUSEKI_LOGS: var/"log/fuseki",
-                                 FUSEKI_RUN:  var/"run/fuseki")
-      (libexec/exe).chmod 0755
-    end
-
+    bin.install %w[fuseki-server fuseki-backup fuseki]
+    bin.env_script_all_files(libexec, fuseki_env)
+    chmod 0755, libexec.children
     libexec.install "fuseki-server.jar"
-  end
 
-  def post_install
     # Create a location for dataset and log files,
     # in case we're being used in LaunchAgent mode
     (var/"fuseki").mkpath

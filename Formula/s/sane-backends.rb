@@ -14,12 +14,13 @@ class SaneBackends < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "f81a22b9525395d64cef165c6de06f74881552907238f7e0f1934d058faeb594"
-    sha256 arm64_sequoia: "29dfa6f1c69f3008ed6f80def50a7478434540ae9d34a98f9ea2c9fc22976a04"
-    sha256 arm64_sonoma:  "ba88016ee3c9ded4f68cce2ab6c532df4eabe9d22abec61795c5ec6613d3531b"
-    sha256 sonoma:        "0ba7b3beaa7aed07689e9e76298e8eb9a4687d5697a89c94c21f0ad334f83ed9"
-    sha256 arm64_linux:   "08fd943978f5f13dd3460508f5b8a48bea19025a4d4703b7389b0f1eabbc46af"
-    sha256 x86_64_linux:  "ab6d2dea1f471d4c28bf4cc4843938337e701c55204b50c7304e5918feaf1116"
+    rebuild 1
+    sha256 arm64_tahoe:   "0ed1250b6d610813518e0031b148e4a77a58d897a939ba61db37cb52dfbb0779"
+    sha256 arm64_sequoia: "1345b682f1777a55c899b01c8be7d1726cfac208f3c616b7b0878eeaf32b4d9d"
+    sha256 arm64_sonoma:  "90e80b8d37499be24f5ea283b634be85d66f1f3a94a74aec5c1c1968bcb2c53b"
+    sha256 sonoma:        "8964bb2ec4807bbfb462d88607a59c51b5ad3e57dc6e396971c90ada1aabc6a2"
+    sha256 arm64_linux:   "80f4598f610aabca7a0604e6cc6da5f49d466fc1f813728e354c4cd81704aad1"
+    sha256 x86_64_linux:  "a630cae3cf511a9e1d197d323d0a5f6dbb0d5bfea21cd0cb66aadd5937a92362"
   end
 
   head do
@@ -54,9 +55,7 @@ class SaneBackends < Formula
                           "--with-usb=yes",
                           *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
     # Some drivers require a lockfile
     (var/"lock/sane").mkpath
   end

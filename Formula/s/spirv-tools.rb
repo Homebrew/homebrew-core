@@ -44,7 +44,7 @@ class SpirvTools < Formula
   end
 
   test do
-    cp libexec/"examples"/"main.cpp", "test.cpp"
+    cp libexec/"examples/main.cpp", "test.cpp"
 
     args = if OS.mac?
       ["-lc++"]

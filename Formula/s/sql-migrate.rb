@@ -1,25 +1,25 @@
 class SqlMigrate < Formula
   desc "SQL schema migration tool for Go"
   homepage "https://github.com/rubenv/sql-migrate"
-  url "https://github.com/rubenv/sql-migrate/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "692eabfc9d92f1c128381e5c637caa2f3777d16566104af67ad814db54ffddba"
+  url "https://github.com/rubenv/sql-migrate/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "461b813600b570acff9cf031dc6eaf996c5b52482ccc9a95380bab0a597c3517"
   license "MIT"
   head "https://github.com/rubenv/sql-migrate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "070d30eb5531f020af84987bbe55e5cbc3ff1c1ef4866244dd51ff927a4ca2e3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5ff914e6568f81993bc2a6e53f0b775235d23726b34d40106fca5f04633ad1e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a4b42f987fcf69593ea7a791317f1db869b830b0f1ef5ba548904ace4cff7ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f06914985b294e74c9e6400646f1c333e9a3f367956d24fe2c64d177c61981ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b3aa4ee541144bef58833310233f640ccd26ac0354ebc9db12ac5fb561683b85"
-    sha256 cellar: :any_skip_relocation, ventura:       "e3e5031ddeec22e1503488166941965ef948f5f995b7eea0a20aebb6532a8080"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "69670d3bfdc371986d396651fa787facbbe2f89c7618aabd061e6ebd4fb4e2d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71ca31cf42b91bca6b1a920588e2cefbeb3b939f4a34c3791894ee3781affd0d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e74775985c88da05f258b8a93603927850ab35ac4dbe29869dcf87ad8ea4596a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9a082f9c87c7caa43621a6a14ff0412b8b47739d0086eef1ead42b1af1e2a4c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd96ae7a83541628091b5ff0d276faae363cfe9e767154e824d1605e4a6596d2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "56a606763e249c6d1dfc2992c46582ea35ce05059bd487058bb3d1ac10e8b8cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cde3f70a007cc9957640ced5366a1140d4f3e7d03754d81b527de6d9935b4594"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8de0556c176c7b4c83cca6d516ebd9567e4af916b05e0a9c578343b23b6c66e0"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X Main.Version=#{version}"), "./sql-migrate"
   end
 

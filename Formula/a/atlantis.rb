@@ -12,12 +12,13 @@ class Atlantis < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe010b81a7d215a39c8da8965e36bd5646876ac8c0592a62903dd960493b0d31"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe010b81a7d215a39c8da8965e36bd5646876ac8c0592a62903dd960493b0d31"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe010b81a7d215a39c8da8965e36bd5646876ac8c0592a62903dd960493b0d31"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c3b4cefbb276a35d9af41b48e985cbb545390177bff2a2e172d1c886aaa87e46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8a879d8a6c592336bffb18d3b4ec934364991304539d0cdc5625ff0c6e3f5ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8999bf9b82bb9b60111d48c941cd41bc21997a0e8dda714671cfc846e2248c6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "77be434530a8aac10a1978a717592387098e4600bc496e1dfefff3d0e0ea428c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "77be434530a8aac10a1978a717592387098e4600bc496e1dfefff3d0e0ea428c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "77be434530a8aac10a1978a717592387098e4600bc496e1dfefff3d0e0ea428c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "207d9283db36f7d4a119ad67ff3ca9c7dd6096d6f115a8a96b5c1f86ae565acd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3a5f1a5c8051138beb0bf4c6958a00f62676ef6f5de276c01ae9cff87301312"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f3319b3cc7ca45fb2c2c82641394d0ed8814ff6870a0bb25d1b3cb49a90d27a"
   end
 
   depends_on "go" => :build
@@ -32,6 +33,8 @@ class Atlantis < Formula
       -X main.date=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"atlantis", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do

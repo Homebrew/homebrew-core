@@ -17,14 +17,13 @@ class Nexus < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "07773732d1f3f0bad1b9fc87001426ab1ada985415b4696df44b938dc93d764f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8a3fd80c8008fd25205fb318ee06ae801a7d74d969b1d6f06bf5e7c2fb62b4c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41d2feb6e85f4df82192cf62afdb21e93bf5ea79b8fc163f9d297d4a440f8c39"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "939834966728216f77cd05f37e7be1d40e803615792cbc94510880e22be58514"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b368f0bd961164f00b33c38de70810cf24091f457dcfaf96bcbf41ac10102df9"
-    sha256 cellar: :any_skip_relocation, ventura:       "1317def65ab1ab74b617e15c16918e3d1eed2bd974007049d942d96ced029a7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8bd720dbef91a776d339d8a3dfd14a4f960a01a40f9388a5503c1c285da8f8be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5dae4e536f76bf9badb1b6989d8d2a671009767a8324f16b81748471d6fdf2a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cbdb021da2cc6066138e09589e806d1a07ca47626d99c9f4a3ae2f6fb0c778e7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c64a1a99d2afc641dde2157e425fe1a1480af05863156d042425e2eb46de3d82"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "502879f5c9432a298e842d0b81f38f1f8bb7fadbb6b07f21acac20c5645a0e9d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b9a7a7083af570c7bc74eb35ecf4685fe113f1bcace468f15e49bac4b51d2593"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d76c559159d879f391d5b7811adebcfab467c93f0f2c43e7a6eef9a50d742d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebbcd5d02c9ace245c37de557a8e814aa5242fd5eefaba4cb1d94c12014e3006"
   end
 
   depends_on "maven" => :build
@@ -64,12 +63,10 @@ class Nexus < Formula
     libexec.install Dir["#{assembly}/*"]
     chmod "+x", Dir["#{libexec}/bin/*"]
     (bin/"nexus").write_env_script libexec/"bin/nexus", java_env
-  end
 
-  def post_install
-    (var/"log/nexus").mkpath unless (var/"log/nexus").exist?
-    (var/"nexus").mkpath unless (var/"nexus").exist?
-    pkgetc.mkpath unless pkgetc.exist?
+    (var/"log/nexus").mkpath
+    (var/"nexus").mkpath
+    pkgetc.mkpath
   end
 
   service do

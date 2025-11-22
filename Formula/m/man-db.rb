@@ -59,11 +59,11 @@ class ManDb < Formula
     end
     (libexec/"sbin").install_symlink sbin/"gaccessdb" => "accessdb"
     %w[apropos lexgrog man manconv manpath whatis zsoelim].each do |cmd|
-      (libexec/"man"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
+      (libexec/"man/man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
     end
-    (libexec/"man"/"man5").install_symlink man5/"gmanpath.5" => "manpath.5"
+    (libexec/"man/man5").install_symlink man5/"gmanpath.5" => "manpath.5"
     %w[accessdb catman mandb].each do |cmd|
-      (libexec/"man"/"man8").install_symlink man8/"g#{cmd}.8" => "#{cmd}.8"
+      (libexec/"man/man8").install_symlink man8/"g#{cmd}.8" => "#{cmd}.8"
     end
 
     # Symlink non-conflicting binaries and man pages

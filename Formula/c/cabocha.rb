@@ -7,7 +7,10 @@ class Cabocha < Formula
   sha256 "9db896d7f9d83fc3ae34908b788ae514ae19531eb89052e25f061232f6165992"
   license any_of: ["BSD-3-Clause", "LGPL-2.1-or-later"]
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :homepage
+    regex(%r{>\d{4}/\d{2}/\d{2}\s+(\d+(?:\.\d+)+)<}i)
+  end
 
   bottle do
     rebuild 1

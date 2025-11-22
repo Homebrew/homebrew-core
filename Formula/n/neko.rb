@@ -5,26 +5,25 @@ class Neko < Formula
   version "2.4.1"
   sha256 "702282028190dffa2078b00cca515b8e2ba889186a221df2226d2b6deb3ffaca"
   license "MIT"
+  revision 1
   head "https://github.com/HaxeFoundation/neko.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:   "1a44e81e1776c7f06a63ee3cac0697c93ad4b1f5f1dfbe58789013c702d14f8a"
-    sha256 arm64_sequoia: "6089dd1e4fe69503a105375a9533dbe582794eee99d6cae8ac2743b849439d57"
-    sha256 arm64_sonoma:  "dd942c346ec9687a7e998c82280ea88c01c56ec7aa9629f3fefedd7e927bd40a"
-    sha256 arm64_ventura: "073b6bcbcaf97dec3f1ebdd4c628ce6afc2f222ae2813387f8148e4aa1400451"
-    sha256 sonoma:        "5e961a790c898530c2218cada8c03741028d46b617b7c1b895d2256389cb85da"
-    sha256 ventura:       "6b860ebf76d071afb52369220c3021c935a54e9bcfedf877ebdc01395af3bbc0"
-    sha256 arm64_linux:   "bd2ecd42df25c5a31a83069b25acf108c005c8c861771c4c33390633829e0d06"
-    sha256 x86_64_linux:  "6aab8930e6a10748212eec532bf2ce096d036934908fa2f66be055165c1802fe"
+    sha256 arm64_tahoe:   "db9c53fdb4451846f55a6f6ea2e55e63a7c0082e53f76f3b8f5de867941c13a2"
+    sha256 arm64_sequoia: "afa51940db454f45a94290ba51504b6474dff0e8092c146515467b22b872ca84"
+    sha256 arm64_sonoma:  "2129d1b4dd39b1324c8ef30dacad869d9f3ae99713cf93cb69b80fd2133ba4ba"
+    sha256 sonoma:        "b8237d39231cd951d8a3fe202e9deab64b488afa90e8efcf652c4b8004aeefdb"
+    sha256 arm64_linux:   "34f29f334c16a1991d9b85bf4e1133b0fdc40668252b6a61670c55a1796d296b"
+    sha256 x86_64_linux:  "d07d44819e109acb2959ae8bc38dd77102da555a846795a27b064b3fbe6c90bc"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "bdw-gc"
   depends_on "mariadb-connector-c"
-  depends_on "mbedtls"
+  depends_on "mbedtls@3"
   depends_on "pcre2"
 
   uses_from_macos "apr"

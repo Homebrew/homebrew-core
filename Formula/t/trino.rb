@@ -13,14 +13,13 @@ class Trino < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ad827af910e6a5db71563892c1a9a407730605e266c500734ea4444a584d24f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9caf9aa709b5d188d268df9aafc60487021b6e8b30c27b4f93a5172a47df134d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9caf9aa709b5d188d268df9aafc60487021b6e8b30c27b4f93a5172a47df134d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9caf9aa709b5d188d268df9aafc60487021b6e8b30c27b4f93a5172a47df134d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1f78192a519c995d1c42f31229b277281a5072e347bef52164e5032eadb1726f"
-    sha256 cellar: :any_skip_relocation, ventura:       "1f78192a519c995d1c42f31229b277281a5072e347bef52164e5032eadb1726f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fac2e33c3fd34fb992cb5007183e77ee93c723fc8d3d1f057095f67e8bb10505"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98801d4ca23627319d3a02e7328760df5e9d1ea688c80c259f3fe654c5918360"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec736f795ac95764efc7be9505aed6c0aec627582e36c5b8e72142b2bacba08d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec736f795ac95764efc7be9505aed6c0aec627582e36c5b8e72142b2bacba08d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec736f795ac95764efc7be9505aed6c0aec627582e36c5b8e72142b2bacba08d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5c80298e351182358e20a726d986b05f0f814b5cefc63bd1fea48191d4e7d7a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ed73d00bd5967d64423e902cf1c4a95a98465f989f0b18e132449c1f596157c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "650f9396b6330b486eff57179aa12fb0db0c43051ee6dda4b48cb58fbe964ee1"
   end
 
   depends_on "go" => :build
@@ -118,9 +117,7 @@ class Trino < Formula
       # https://bugs.openjdk.org/browse/CODETOOLS-7903447
       -Djol.skipHotspotSAAttach=true
     CONFIG
-  end
 
-  def post_install
     (var/"trino/data").mkpath
   end
 

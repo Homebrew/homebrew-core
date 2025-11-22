@@ -163,7 +163,7 @@ class Ford < Formula
       filling in space now. This will be the last sentence.
     MARKDOWN
     mkdir testpath/"src" do
-      (testpath/"src"/"ford_test_program.f90").write <<~FORTRAN
+      (testpath/"src/ford_test_program.f90").write <<~FORTRAN
         program ford_test_program
           !! Simple Fortran program to demonstrate the usage of FORD and to test its installation
           use iso_fortran_env, only: output_unit, real64
@@ -192,6 +192,6 @@ class Ford < Formula
       FORTRAN
     end
     system bin/"ford", testpath/"test-project.md"
-    assert_path_exists testpath/"doc"/"index.html"
+    assert_path_exists testpath/"doc/index.html"
   end
 end

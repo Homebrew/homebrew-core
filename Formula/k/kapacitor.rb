@@ -13,12 +13,13 @@ class Kapacitor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5c787f9658dfd91fd91dae3c1867902059cc5b6d1958ad6e132ba638a9019a71"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ecf28f57adf15825e969749d95ac1ffffa8a6d51d22033c659cf9ee190dc444"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c6154a7bff94a8b87fb32af60a488b1fe0f861e6eef4ea441a95cb12c7aa350c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c6c8157a96f9ac9ee0a99c01c9c3f5b01b8472a24eec0f5253983ca7ee08a2d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "afa05cac22e52c82e90815c57c537850bf11ed6eaa4626b4326da6a2d887772e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec22e1f5f4c7cda335e36dbb619373ae06144da2971d56b4424aba3034f828ce"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "822a0e79d5d35e2c2cbeee27867b3831b30f0a6aabbf26fce0d2b726dd30f7ee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2fb71d3960b390c6f5aeec1a14ee060fad56f9302b2706b450d2ba231adbc958"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f36a3067683e96713810c7b3dcd060007f21f1c044601ce63a2420b767765de4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dddb6ae35acea0ecfbe5c1818d55341d4f35fb1124077bfecf4af227a7c00bce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fa7d1e8798aa0a5ff6b1c21290c2e22a17f5b6c632c14df2449085f484d9d2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da8b6f5b885d9a75d92011c0b51648a43d5bc2496032f66855e97a89821f6f26"
   end
 
   depends_on "go" => :build
@@ -70,9 +71,6 @@ class Kapacitor < Formula
     end
 
     etc.install "etc/kapacitor/kapacitor.conf"
-  end
-
-  def post_install
     (var/"kapacitor/replay").mkpath
     (var/"kapacitor/tasks").mkpath
   end

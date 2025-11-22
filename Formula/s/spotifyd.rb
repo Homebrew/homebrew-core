@@ -1,8 +1,8 @@
 class Spotifyd < Formula
   desc "Spotify daemon"
   homepage "https://spotifyd.rs/"
-  url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "fdbf93c51232d85a0ef29813a02f3c23aacf733444eacf898729593e8837bcfc"
+  url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "e1dc21f806b205739e508bd567698657a47ca17eecb0f91d9320af5e74b8418a"
   license "GPL-3.0-only"
   head "https://github.com/Spotifyd/spotifyd.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Spotifyd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6fc17017e144c8fb2b05c87ca3114b23b80873d87388b7c43794c6a6f3f719fe"
-    sha256 cellar: :any,                 arm64_sequoia: "a20d1e237ffc6f0fbe07af9641538c6059dff78030d3cdb537de1cc3a98c9abb"
-    sha256 cellar: :any,                 arm64_sonoma:  "be5c9b8b6af3ef7eb0df00b4a1f0a46ba1016765eb97c32acf6f4881a9b1f72b"
-    sha256 cellar: :any,                 arm64_ventura: "73e2515bec6b526ba93e57f45f90f856e3e32995748d7a31cfdda5b7046df583"
-    sha256 cellar: :any,                 sonoma:        "853d77550839adae8fc9eb82bb0ec83e0fe423236b07a55fa7bca1d7e21de49a"
-    sha256 cellar: :any,                 ventura:       "a4d68c08d9ab1e2206ccfe702f4074f70da3fbf5f0c52c69dd5e97595d91e7ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5286bb74874e724b27e03a9d23a618d644ed799bf10d930b2ed5a0298f4ad9ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e667512a473240c05c0dc7f66bcde0258f511324a7b9fc07864089ab6ce3d399"
+    sha256 cellar: :any,                 arm64_tahoe:   "a7a814a9c313572487129d39e54731bc17a195e4b682ae581602448272abcdd5"
+    sha256 cellar: :any,                 arm64_sequoia: "dec0ea296e4ef77db7afcc84910deea38ef162f5cadbf2d7fc2d9986a4ca5458"
+    sha256 cellar: :any,                 arm64_sonoma:  "d9d891fefbd148e3960824fc7924ed89b20d73e150adfdbc36265df529c487a2"
+    sha256 cellar: :any,                 sonoma:        "a4a0e77cd126c0eb50988c3e3c2820e963cdf9b8fe0e7fe055fb21811a01ff6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbfca354719211a24866dd87ac33a343191cfa0a13ff8ba8a604a288a2df891c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa79e425ff77b2ea640dff5d8eeeddb772bb42a39397ed111fecc59479027d25"
   end
 
   depends_on "pkgconf" => :build

@@ -19,19 +19,13 @@ class AircrackNg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256                               arm64_tahoe:    "23f7bfece711bbf3e9dbb3555d3f00eba3e8d6670ca88cb5cf5b611f6b4fac9f"
-    sha256                               arm64_sequoia:  "52dbe4ce295e97351a0ec2dfbb986abf37b2665a1775aa580fb70b45e806cbe2"
-    sha256                               arm64_sonoma:   "fe96a817b4755ca8a498ad1cd45666a04238d3ed1a7bd3ce97f27f0fd68ae2ef"
-    sha256                               arm64_ventura:  "d3d59c186fb570afbf6c925fece858ae01ed7d0a7290e3cccbd45a1ae3789881"
-    sha256                               arm64_monterey: "ae0d6fe850335049e70c0eed7486182be424fe7e9f1f449687ab2a4248e0816a"
-    sha256                               arm64_big_sur:  "146f8023328aff76b469874b408e00a2bb142e05753badd291be1e0370a21502"
-    sha256                               sonoma:         "857116e74cf96666577ff3bcc36a18ce3a4b629e3fba09c96224efe47f7195ae"
-    sha256                               ventura:        "f418df11db6bc8af148f4f889715009da8e7084fb2777c3831f38cd5a90a3c4a"
-    sha256                               monterey:       "32bab474db5a9602788ffd7d32f4bd25199732705cc4856b7335c96d6675a961"
-    sha256                               big_sur:        "c7b4666859d336a5219c53d5b9310547495438e460d38c7f1b3175c274245b55"
-    sha256                               catalina:       "09115822ebac9a6d9903635faa0a393dc1bcaaaf2fcbb344a5dee123fe1f02f1"
-    sha256                               arm64_linux:    "8a789a3419bcd0c237abc1f7e10743d97eac240bdd6d49ec1ed9656e0b42f64a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72556b434c07c994c66ac4f37b9946884357af00a7543d6e961808ca78a6818c"
+    rebuild 1
+    sha256                               arm64_tahoe:   "bd47fe70e67083f0734ca6a354153b77747cdba142667a57331d3b7858ba7644"
+    sha256                               arm64_sequoia: "281776f2660cd82671618dde4826445942dbebcb52ae0a36acaa1fe78ee55661"
+    sha256                               arm64_sonoma:  "d264d1232090cbd350f4080c57b8541e4c3b7fc9a397b217bf689a0de023fe91"
+    sha256                               sonoma:        "56b22a9406e0ec31495f70f2a693e69c0a9f9466912f5a1947bf85477f7b5f0f"
+    sha256                               arm64_linux:   "80d591bf71824b4effad6d1d3804e74b6e7fdc1228dafe4ce153c623b8529796"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "681e9f90551413b40165d371137ee3271866a761e31d467872dc582dfbe8821e"
   end
 
   depends_on "autoconf" => :build
@@ -56,16 +50,11 @@ class AircrackNg < Formula
                            *std_configure_args
     system "make", "install"
     inreplace sbin/"airodump-ng-oui-update", "/usr/local", HOMEBREW_PREFIX
-  end
-
-  def post_install
     pkgetc.mkpath
   end
 
   def caveats
-    <<~EOS
-      Run `airodump-ng-oui-update` install or update the Airodump-ng OUI file.
-    EOS
+    "Run `airodump-ng-oui-update` install or update the Airodump-ng OUI file."
   end
 
   test do

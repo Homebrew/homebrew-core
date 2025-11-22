@@ -50,12 +50,9 @@ class GitAbsorb < Formula
     system "git", "add", "test"
     system "git", "absorb"
 
-    linkage_with_libgit2 = (bin/"git-absorb").dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
-    end
-
-    assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
+    require "utils/linkage"
+    library = Formula["libgit2"].opt_lib/shared_library("libgit2")
+    assert Utils.binary_linked_to_library?(bin/"git-absorb", library),
+           "No linkage with #{library.basename}! Cargo is likely using a vendored version."
   end
 end

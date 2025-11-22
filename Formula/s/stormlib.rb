@@ -1,20 +1,18 @@
 class Stormlib < Formula
   desc "Library for handling Blizzard MPQ archives"
   homepage "http://www.zezula.net/en/mpq/stormlib.html"
-  url "https://github.com/ladislav-zezula/StormLib/archive/refs/tags/v9.30.tar.gz"
-  sha256 "a709a6b034d206404f5297d85e474371203ff5483639955195d99b737bbf7dfe"
+  url "https://github.com/ladislav-zezula/StormLib/archive/refs/tags/v9.31.tar.gz"
+  sha256 "c8d77e626cc907c8f2d00bb5c48f9d6c70344848d49cab4468f6234afaf815c1"
   license "MIT"
   head "https://github.com/ladislav-zezula/StormLib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "55a00376dd07d9b9f252c70f9ade35fe2a786951fe35316a0a27c05035f7b2bf"
-    sha256 cellar: :any,                 arm64_sequoia: "8b6795782ad6b2795e25bdc5a551043daaa07350632a4832bb6cc1405f4fedf2"
-    sha256 cellar: :any,                 arm64_sonoma:  "bb576754765e94f0857c3c2185433e40049c6e27defe7ad2527a72d4c4371db2"
-    sha256 cellar: :any,                 arm64_ventura: "b7f557770e52c0f9174dcc39378f37e271039449a9c0440ca1e1ad29bcbdef0f"
-    sha256 cellar: :any,                 sonoma:        "18bae47580410061160fd52e508b6fc253ef4a07b8ec47049d29a3ec03706615"
-    sha256 cellar: :any,                 ventura:       "7aa4237edb1220fb6bd6176e6d7783b003089d991adb5e321c231871db752088"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3893cc39b6b522946b66c160f243d917c951a26f6f65f2b8a883c1648d653b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61ecc0f8d4f072d3009874a20c7cc3419e8e7857a3be60865908880a9f949825"
+    sha256 cellar: :any,                 arm64_tahoe:   "63610ef760e7c3bed0a6611a7801294dc6763ecd43d76f698f1c8ccd1a9f24f7"
+    sha256 cellar: :any,                 arm64_sequoia: "36f84767d28782b692fad1e3be42f65527e78fd6015172aadf924f41823b587d"
+    sha256 cellar: :any,                 arm64_sonoma:  "0178c3c24eaf5bfbd7b636b12f33d8d2260fc6050d083639eea7ba08cab97467"
+    sha256 cellar: :any,                 sonoma:        "e54dfc0899f388dd5680b107b0cb87af0ecb58070f6aaa207969799469371e80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d7459f3505756339ba31dab393c5bb3d828ea94b3461b2b891605e3d10b792d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a65a1853f0206e4b5515783f36e845f2d61b9f97c31251cd61fa78fb1e0bd30b"
   end
 
   depends_on "cmake" => :build

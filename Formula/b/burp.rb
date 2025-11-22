@@ -22,18 +22,13 @@ class Burp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:    "3de56f0f4305377c2cd47b9b5b43a8c43e19bfe77031512edae33fc70aa02895"
-    sha256 arm64_sequoia:  "2e9356b11a8e46c3be3414b7a2f88dc01974d49a9b18372f5e92e5654d59144b"
-    sha256 arm64_sonoma:   "839b8941718ab30883533b6cdaf415cb0b6aa085a2dfc53a5439c3cdd6c8e563"
-    sha256 arm64_ventura:  "e1360b199ce42bba04f10443f26954d9c3dafe03b7565b571382f6baaad21bd2"
-    sha256 arm64_monterey: "c69b19653c7d88ecb561c6116e50208b79834dc5e547396630b2c9fe6a873153"
-    sha256 arm64_big_sur:  "91a2441ee60e0cbacc3e6707be43725a65fc161e24e66cbf67dbd1255aea1ff1"
-    sha256 sonoma:         "074e7ecd4259269a27e59b057a9dc502438caf0d52d4e951db492ba2d05ca668"
-    sha256 ventura:        "9a7d37e6cbe57a298cd83d7ab19960895329906bcf828113a98e159ac5baf8d0"
-    sha256 monterey:       "a1aeb87a73af8ecf56631e3a3ac97732cc391afbe4d3651e05b390f0777f91de"
-    sha256 big_sur:        "bde32d67b881d607349d196ecd79aac7cc92256e3ce94731bf27f90eb99ace53"
-    sha256 arm64_linux:    "2cf103f7f0a674d270df1ae3ffcb7b8aec575b6c4b4a86f06a16f77b2f4b1ca9"
-    sha256 x86_64_linux:   "3e0b7b18c51c5e0bd4160c6c9feba24bae0a4a3b1dad8c91e5c9f5f77736a113"
+    rebuild 1
+    sha256 arm64_tahoe:   "a7109191d7db855c62b068e2228f1ad797b593d8004c71716c556e456c7fc45e"
+    sha256 arm64_sequoia: "b2a36bd6d3f368a0118e11ccd0aec2124d23550f3f9ea8c920fb708d6784de10"
+    sha256 arm64_sonoma:  "cc00de279b33f8bf62da8ba1ebdb2296386386f9657e5b6e970eb1077c8afca2"
+    sha256 sonoma:        "227276128efc3606042ac5dfbbbceffc6721b8938433d5537b3f10239d42f091"
+    sha256 arm64_linux:   "42dc8a91df37f4c58af048d4e637af41d4a08bbc999280875daf52a3a08e1a46"
+    sha256 x86_64_linux:  "010eeef54c260dddc609509ad79bf0a30aa2ea18d4e7206c3d7e93cdeea269be"
   end
 
   head do
@@ -68,25 +63,21 @@ class Burp < Formula
     ENV.prepend "CPPFLAGS", "-I#{buildpath}/uthash/include"
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}/burp",
+    system "./configure", "--sysconfdir=#{pkgetc}",
                           "--sbindir=#{bin}",
-                          "--localstatedir=#{var}"
-
+                          "--localstatedir=#{var}",
+                          *std_configure_args
     system "make", "install-all"
-  end
 
-  def post_install
     (var/"run").mkpath
     (var/"spool/burp").mkpath
   end
 
   def caveats
-    <<~EOS
+    <<~CAVEATS
       Before installing the launchd entry you should configure your burp client in
-        #{etc}/burp/burp.conf
-    EOS
+        #{pkgetc}/burp.conf
+    CAVEATS
   end
 
   service do

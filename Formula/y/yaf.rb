@@ -1,8 +1,8 @@
 class Yaf < Formula
   desc "Yet another flowmeter: processes packet data from pcap(3)"
   homepage "https://tools.netsa.cert.org/yaf/"
-  url "https://tools.netsa.cert.org/releases/yaf-2.17.2.tar.gz"
-  sha256 "e40f343b58fdf878e5983307f81f45953e77eec229855021b8e4658936012537"
+  url "https://tools.netsa.cert.org/releases/yaf-2.18.1.tar.gz"
+  sha256 "eebab530828deed9628c0d25e3ef663ec36a5dd992603f50fdf5824e19a30dea"
   license "GPL-2.0-only"
 
   # NOTE: This should be updated to check the main `/yaf/download.html`
@@ -13,12 +13,12 @@ class Yaf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2369538a7a48770175aa01e27663584c777f72f0c9bdd5c9439eeece21cfc6ef"
-    sha256 cellar: :any,                 arm64_sequoia: "9aae4348f07a1dc3ec9b404fb8c23e22d1a879175c1e90d8cf98ce6c37220e27"
-    sha256 cellar: :any,                 arm64_sonoma:  "deb0663a9658250d1cb65fb3e234571441d5f57df31e7c2af3c9993a43388f7c"
-    sha256 cellar: :any,                 sonoma:        "ffd8611568408d7f1cd1ff3879dc7385d1b792a83a86f112a8c2f374b30ce80c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "47736eb26d5a8b3d036b28efcefa3aeabc8f3a8fc856436cdbd85b5af2a4965b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9016679a4bd98e886d30504389f8dbf2a23a1f521558d3a6c2d153814217b7a8"
+    sha256 cellar: :any,                 arm64_tahoe:   "f2f5971533f3b725ed2f537a9004607869a73a1141afb9cbad853a39abe77240"
+    sha256 cellar: :any,                 arm64_sequoia: "0b109a6ef2591b62c7df1cafb0c845b44449d0e20cc3cecf895ceb696c8c1745"
+    sha256 cellar: :any,                 arm64_sonoma:  "282f3cba6b7f1564c39dbcd27162e476bfc82f0d567597f40e4a92d6eeb2def4"
+    sha256 cellar: :any,                 sonoma:        "c95234ba360895c2239b7e8a85d544585972f44629d531f22409c21746f293e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "23f7c28c6c571e3cc9058850532f2541a514ea34cb30183839d64e194303dabf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d2e85a66482d0ef51a4932ef9b4fdc263474943054bff79e03de90e8abae04b"
   end
 
   depends_on "pkgconf" => :build

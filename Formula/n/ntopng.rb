@@ -1,26 +1,25 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
-  url "https://github.com/ntop/ntopng/archive/refs/tags/6.4.tar.gz"
-  sha256 "3eaff9f13566e349cada66d41191824a80288ea19ff4427a49a682386348931d"
+  url "https://github.com/ntop/ntopng/archive/refs/tags/6.6.tar.gz"
+  sha256 "2e97fbd26c2f9ac526214e2a2e22ecb218e38f5e99a688c25ae6cedbbc3a892c"
   license "GPL-3.0-only"
   head "https://github.com/ntop/ntopng.git", branch: "dev"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_tahoe:   "923d0cf57bfd6c48d12465ce81b821249850791702162a9d10a6f6ea73ed79f6"
-    sha256 arm64_sequoia: "1b62120513879ce4cb6ba349d4ac92223089a6c77e6d6719df29250f61954a7b"
-    sha256 arm64_sonoma:  "40dffa8af2e27119e1ee18f2808f3578f71a437968fb8178e78c80bdb2dac34c"
-    sha256 arm64_ventura: "0fb6b854e3a12b0023d73b05c5f8241bd345d0811fa67e62606e5306ee2646be"
-    sha256 sonoma:        "0f136bffdd96b2f2265f6215872b75b532ed4119035f54e6929fc61ede54983d"
-    sha256 ventura:       "eebfd0cc2d9bf8fcd50ad648370c995967c73a820eb7077c4b335d6567bbc20f"
-    sha256 arm64_linux:   "8c3a45211d5d3e9fca45b73ae7d94d5c4929b1a11825d26fcae495dbb5d97bbd"
-    sha256 x86_64_linux:  "4b68256ead71268544621f9d21828f0fade161f54f6ba3dc3803d28f20bda3fc"
+    sha256 arm64_tahoe:   "228fe15cfa6146f9c51b05d0ae6b7545c6a5f2b5239d989858b40550121b0e20"
+    sha256 arm64_sequoia: "95bd7ecf2920b30bdd7967c334820dd8efa0f4e077488f6110e0ff72c1b6bb21"
+    sha256 arm64_sonoma:  "559da0d0cfc7f0e1e0068bda0fa3688e5862eb2af13ed074f938d1b4c3c27abd"
+    sha256 sonoma:        "1e2ae802d297666a7af70c177fd1aabdfc1e2ee5ce36d2454a2426c2275a1ce6"
+    sha256 arm64_linux:   "47de4bd1eb4ed5f348330aedb1cef65517b5fa3edcf5afead0ddc75640368580"
+    sha256 x86_64_linux:  "566aba2570620468609f295bfe3ac606aff9710f34e7f5283b9e6d6fc7c9ef1a"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "valkey" => :test
@@ -49,23 +48,16 @@ class Ntopng < Formula
     depends_on "libcap"
   end
 
-  # Add `--with-dynamic-ndpi` configure flag
-  # Remove in the next release
-  patch do
-    url "https://github.com/ntop/ntopng/commit/a195be91f7685fcc627e9ec88031bcfa00993750.patch?full_index=1"
-    sha256 "208b9332eed6f6edb5b756e794de3ee7161601e8208b813d2555a006cf6bef40"
-  end
-
-  # Fix compilation error when using `--with-synamic-ndpi` flag
-  # https://github.com/ntop/ntopng/pull/9252
-  patch do
-    url "https://github.com/ntop/ntopng/commit/0fc226046696bb6cc2d95319e97fad6cb3ab49e1.patch?full_index=1"
-    sha256 "807d9c58ee375cb3ecf6cdad96a00408262e2af10a6d9e7545936fd3cc528509"
+  resource "clickhouse-cpp" do
+    url "https://github.com/ClickHouse/clickhouse-cpp/archive/refs/tags/v2.6.0.tar.gz"
+    sha256 "f694395ab49e7c2380297710761a40718278cefd86f4f692d3f8ce4293e1335f"
   end
 
   def install
     # Remove bundled libraries
     rm_r Dir["third-party/{json-c,rrdtool}*"]
+
+    resource("clickhouse-cpp").stage buildpath/"third-party/clickhouse-cpp"
 
     args = %W[
       --with-dynamic-ndpi

@@ -11,16 +11,13 @@ class TkeySshAgent < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "0812ed782ed16ff61d9d05b4d8694d88f7933d292de9c4b76fe854478f214e15"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "92e34132b71fc3c562a8353058c5deaf720fc80f243dccd3eb5dac62a95c2d65"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "858a66ab63cfde2b070de13ee0d7e440a13d3215c3fb8f97714fa28b5c20b4d5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c191dcb7265469492b7bdc6f9acd2acdee23149d96c5e91d74bd7a01c90a8d02"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b84ded0ad2a15580436087607efaf173b28356d4ce46ace2862947d4cb41b05"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d3f4b8eeaf67e42b56043d539607a54f5a28eb6ecea69c3d62744ac027c8865d"
-    sha256 cellar: :any_skip_relocation, ventura:        "80ff5be57d0784f94c05403897524d25f26779a0474eb5699833134f575fa7d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "464090fb25f2826ce0495ebd2d17c39276726044e3d6bc87ea22ceac9d7db469"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "008ad6f1db8ea8650a084cd5d75312202ae93222ad7835eb5b33d893dbd8ec29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e001c74cb92e401e908892f2baedade9fc815124f6ca28b45db0c06c3599172"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "07136724f75aaf2969204ecbda818cd0b66308a2d088d21984f254313d2a8804"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b6dc23d84a7f3a3b443b8adda359831d6d41105616bd06587dde36482a5ff51"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad3c70f056b623588b70a516f7e09a9571c98a885b6e373b5191f03ae134a19c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4cfb085857fead5f33b038fc74a07ee555af9f96cf445247c10fe663426e0cd2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "72b5bcdb56861eee3ea3c512141a041d171c14c6977195351fa5041b5d6dac57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3dc65ac11001c1f6f963a3e9526f18565053e0a1fe674526a06cfac1beaa127"
   end
 
   depends_on "go" => :build
@@ -37,9 +34,7 @@ class TkeySshAgent < Formula
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/tkey-ssh-agent"
     man1.install "system/tkey-ssh-agent.1"
-  end
 
-  def post_install
     (var/"run").mkpath
     (var/"log").mkpath
   end

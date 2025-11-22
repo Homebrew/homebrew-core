@@ -74,7 +74,7 @@ class Inetutils < Formula
       cmd = path.basename.to_s.sub(/^g/, "")
       no_conflict << cmd unless OS.mac?
       (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
-      (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
+      (libexec/"gnuman/man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
     end
     (libexec/"gnubin").install_symlink "../gnuman" => "man"
 

@@ -7,25 +7,19 @@ class Nsq < Formula
   head "https://github.com/nsqio/nsq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d50a1c5f27cc5ea79197980f99ac801a1d01cf55d19d493620584b43629cdcae"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b7075d5ab5ff5090f350c30db2215f62ae04e8ae77754178546817297f58c91e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "996305c886d786e601f5252e6a0d95845bb2160bf9f2a5c5fb27bf801f302d01"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "708b357c95856ee8d0598beb7db172ebdef492f6754cb7cbdd09db30772d6d46"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b7c87bebb10695f7411a2662c959cac3a4da39febcc2fd6b10b7600ca2325520"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0ec31e900f313d0c2b7a7a71a12e6264f43346cb53ce66bea885386dc3d301b9"
-    sha256 cellar: :any_skip_relocation, ventura:        "1c7e5d999245a576a73ff684c2540c8c2dd0f4dd7e6f0e1d045f97b9099dde0b"
-    sha256 cellar: :any_skip_relocation, monterey:       "1d2ae14197604c4964dd5341720da2ec45cf31437eb7d3db811b6ca84e578174"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8afc82c4ac396662ef4530ace7005950a1c2b27b4b1f7747bb9db4c24744a074"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5635d83fc8df021e37cbe8058e509361bc5323ef663f713fdc82d84f1844e597"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5a22f058697307ea3179db86098d939c2a0bab28729af92fc2237fa9ec46b843"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "164a08f1fe7e3007fddbb6f4111ed19863d08888501a00a7b0328234801636f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1248437269d3aa06758ad5e02fb3fd13bf6ab46f7296b39c80bf9cf02cb1cf6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "353cac603cccbd9e62920f680f8328b17cc02baa391a3665b03345bc90edb1e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c88ffbec2368aae0d432ebb3cb2b7dbe08b654bbc0d86f842a0034b9afa9a74e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5066cbc44a03c78e4604cd45f34ba5eefadc51e876f61a7af5814ccc095096d"
   end
 
   depends_on "go" => :build
 
   def install
     system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
-  end
-
-  def post_install
     (var/"log").mkpath
     (var/"nsq").mkpath
   end

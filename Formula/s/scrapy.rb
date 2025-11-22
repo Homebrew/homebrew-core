@@ -3,19 +3,18 @@ class Scrapy < Formula
 
   desc "Web crawling & scraping framework"
   homepage "https://scrapy.org"
-  url "https://files.pythonhosted.org/packages/be/6c/bab0c01c5c50842548f0b5e936dfd2520a1ce84c171472c2cfe4d0599841/scrapy-2.13.3.tar.gz"
-  sha256 "bf17588c10e46a9d70c49a05380b749e3c7fba58204a367a5747ce6da2bd204d"
+  url "https://files.pythonhosted.org/packages/08/ef/827db21986672723741ef1c384f4e5a09b0a552936ae638b6426e71d3a6e/scrapy-2.13.4.tar.gz"
+  sha256 "e09bce40c56b56f9f86b0d078a0e5cdd08283c83076170ce7a8eec7189ac2493"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/scrapy/scrapy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22918f761de546e520afdffaf04bb85862b1fa14745094aad8991de8fa5843fd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "886df6f16aff7025f1b777c1df434a00b5d74b766056311bd4aa46bf2cc9cbdc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf94b47369519fd0e92de17cded3c1071e4983c9936d640159f0ac5a01018b52"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8fdb863224c198c9265b4d804298821533c26a5e573aa789b8f73f4836483a3a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f948adef64de2d5aa60bcad39a44421af73b83f1504d3a4303d885df90e899a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07744bd55fdd6ad08ec858b5125837558b90ef103a30da079950f975279b6444"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a134d804685aea4546d725d947e251cc3b4f6b0ae7c17cee36a0eb1b4e514b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a43e161ce844d00d822539974bec9c260398ff1cb28c144b031c49f8bea1838a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "603c4e0d916b3f97d3018d9c2c378df2824cb76432366eab0af1b8a832b1874d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7cc21d1b123b2ae46289871b9273c67ae3cac2572695bb9de2ab4eba4235a32e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97393edcddcf67c95b32cf2804d02a9f16309d4e294b087179d87eb643423e64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbc4d3ea619b7e49e2bd367f58713e444c0382452f8c79ec63c6693f1352cea5"
   end
 
   depends_on "certifi" => :no_linkage
@@ -38,8 +37,8 @@ class Scrapy < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
-    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
+    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
+    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
   end
 
   resource "constantly" do
@@ -68,8 +67,8 @@ class Scrapy < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
-    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
+    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
+    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
   end
 
   resource "incremental" do
@@ -143,8 +142,8 @@ class Scrapy < Formula
   end
 
   resource "requests-file" do
-    url "https://files.pythonhosted.org/packages/72/97/bf44e6c6bd8ddbb99943baf7ba8b1a8485bcd2fe0e55e5708d7fee4ff1ae/requests_file-2.1.0.tar.gz"
-    sha256 "0f549a3f3b0699415ac04d167e9cb39bccfb730cb832b4d20be3d9867356e658"
+    url "https://files.pythonhosted.org/packages/3c/f8/5dc70102e4d337063452c82e1f0d95e39abfe67aa222ed8a5ddeb9df8de8/requests_file-3.0.1.tar.gz"
+    sha256 "f14243d7796c588f3521bd423c5dea2ee4cc730e54a3cac9574d78aca1272576"
   end
 
   resource "service-identity" do
@@ -194,8 +193,8 @@ class Scrapy < Formula
   end
 
   resource "zope-interface" do
-    url "https://files.pythonhosted.org/packages/88/3a/7fcf02178b8fad0a51e67e32765cd039ae505d054d744d76b8c2bbcba5ba/zope_interface-8.0.1.tar.gz"
-    sha256 "eba5610d042c3704a48222f7f7c6ab5b243ed26f917e2bc69379456b115e02d1"
+    url "https://files.pythonhosted.org/packages/71/c9/5ec8679a04d37c797d343f650c51ad67d178f0001c363e44b6ac5f97a9da/zope_interface-8.1.1.tar.gz"
+    sha256 "51b10e6e8e238d719636a401f44f1e366146912407b58453936b781a19be19ec"
   end
 
   def install

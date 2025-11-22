@@ -51,7 +51,7 @@ class UutilsCoreutils < Formula
 
     # Symlink all man(1) pages into libexec/uuman without the 'u' prefix
     coreutils_filenames(man1).each do |cmd|
-      (libexec/"uuman"/"man1").install_symlink man1/"u#{cmd}" => cmd
+      (libexec/"uuman/man1").install_symlink man1/"u#{cmd}" => cmd
     end
 
     (libexec/"uubin").install_symlink "../uuman" => "man"

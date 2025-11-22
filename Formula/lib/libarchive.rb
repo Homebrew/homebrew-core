@@ -1,8 +1,8 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
-  url "https://www.libarchive.org/downloads/libarchive-3.8.2.tar.xz"
-  sha256 "db0dee91561cbd957689036a3a71281efefd131d35d1d98ebbc32720e4da58e2"
+  url "https://www.libarchive.org/downloads/libarchive-3.8.3.tar.xz"
+  sha256 "90e21f2b89f19391ce7b90f6e48ed9fde5394d23ad30ae256fb8236b38b99788"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libarchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0a3a9a4c056ddcdb96946e7c773fb5b771c40ed36096008fbb3e5ed19b8b66b6"
-    sha256 cellar: :any,                 arm64_sequoia: "c70fe23fc30fec7110789f54417155f8c0c6d033668e6b1edbd25543ff31d27d"
-    sha256 cellar: :any,                 arm64_sonoma:  "e3b83193c61506fd9a5553bc89727d9a715e46f0ccb7d31952f35c5237cb09b5"
-    sha256 cellar: :any,                 sonoma:        "93a051b1fc9b0bb44b2cec5f4af61659b51c349bb24b95dfeacf9a3c4a1850b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10f151984f3b6b7b59774659e930900da4170ee604269231d842eee083d435cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5d4dda2d93270fb1855a90351014b20327a9e203f6c967b1a66031593fdfc6d"
+    sha256 cellar: :any,                 arm64_tahoe:   "7eac9a41323f6ac4bde2959448f10e6e4aa4a0b547938d03e257abf782af968b"
+    sha256 cellar: :any,                 arm64_sequoia: "3b492145ba1e03fa263627db4916dbbd4b406c6d90b33f9023189eeefbb617fd"
+    sha256 cellar: :any,                 arm64_sonoma:  "bdacff0621b63baa58dc81e8c626ace68c669811df320c68fae86631cb61243d"
+    sha256 cellar: :any,                 sonoma:        "a4082af1aa8f88e4c37adadc2b66f3cbd61c732889f2eac6dda6c7ab97475a32"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e534ffaf59d2b264343f42d46d17548433453d041ab23807680d2a7580a40a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "233d4885a1804084c427a1ae27bd571774a1fa4b6f97ea4fa7cf1c26f2badd7d"
   end
 
   keg_only :provided_by_macos

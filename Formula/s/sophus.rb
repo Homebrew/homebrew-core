@@ -4,12 +4,12 @@ class Sophus < Formula
   url "https://github.com/strasdat/Sophus/archive/refs/tags/1.24.6.tar.gz"
   sha256 "3f3098bdac2c74d42a921dbfb0e5e4b23601739e35a1c1236c2807c399da960c"
   license "MIT"
-  revision 1
+  revision 2
   version_scheme 1
   head "https://github.com/strasdat/Sophus.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "61f605f047032f7eadba09b95b8b76005c827b15fff2f484db5dd5322cc4499a"
+    sha256 cellar: :any_skip_relocation, all: "fece7681865de760678d27236420c150d92b2a4ffb0ae376228e7d793ec07d6a"
   end
 
   depends_on "cmake" => [:build, :test]

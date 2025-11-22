@@ -2,7 +2,7 @@ class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.io/"
   license "LGPL-2.1-or-later"
-  revision 3
+  revision 4
   head "https://github.com/gpac/gpac.git", branch: "master"
 
   stable do
@@ -34,14 +34,12 @@ class Gpac < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9e3659249481b56c6883fd1993e79ce88e85c8a08329a71580ce2ce69ce3b437"
-    sha256 cellar: :any,                 arm64_sequoia: "b9b61b5ded414fce0a8bbbfe5efbeda61850ee4b290434219cf19fa37a63e62d"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d2892fa8734ef855cb4842ee12277274c33baf87c9907502035710a5861da7d"
-    sha256 cellar: :any,                 arm64_ventura: "0c29e2b0a060418c8b623966a8ec35cda733751f1b213f02b904e4019dec0984"
-    sha256 cellar: :any,                 sonoma:        "439b91fa87daf0ef6ad20bf63cf08dec6a74bce93d5d317071cb9cf98274df88"
-    sha256 cellar: :any,                 ventura:       "b3ea9b0f42b2d61cf077af1b25da0a941c108fc7e6e8fa3a9545b4979bf09c04"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2608fc757973eff99eae701c609104f3ab8228589a8a2668ed894d0386411213"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f9b9596715f58f1162e2ff159d9f771f51ea175c45accbebdf3151d0c6a3321"
+    sha256 cellar: :any,                 arm64_tahoe:   "bbdf9e8ba90e9b978db456626bbfe892ceeb0b48f8931b4f45759be06e91a4e9"
+    sha256 cellar: :any,                 arm64_sequoia: "c2901d56f864a0a2b9ae3913626bac8c2f234e13e23e7ccf8e5906c6e4635473"
+    sha256 cellar: :any,                 arm64_sonoma:  "82883dfbdcc0eb50c377c76149a112105e7a9d42e1d234812597a523d6880108"
+    sha256                               sonoma:        "b515a5123f256d810a2b53f3110ffd4adf1ced2005d4a961c4995135207093c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d5dce0bd91c203ce9fb938b4de0909b6ee8d7b54ccb635506816638836c7d60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c71f8c9e35e72185a39aaf05d12126203e10f7dce1be02e7e7134f8e3b8ec9a2"
   end
 
   depends_on "pkgconf" => :build

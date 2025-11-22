@@ -1,8 +1,8 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://github.com/dolthub/dolt"
-  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.76.7.tar.gz"
-  sha256 "8f06b28fca32f991b449f90d402e016c96f9f42b8eb71663134f7a2ca69be46e"
+  url "https://github.com/dolthub/dolt/archive/refs/tags/v1.78.2.tar.gz"
+  sha256 "05e0dee48a637a7490632c4d8d9708e5450cc7bfe398dc5991eb7dbb36305643"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/dolthub/dolt.git", branch: "main"
@@ -13,12 +13,12 @@ class Dolt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1151939870192676efee5e7e65641d2c2a538aad2144f88b6c8fe492f8f13f79"
-    sha256 cellar: :any,                 arm64_sequoia: "f7934bc6c8a3e59aad26648ab7527d47fb07ac9c31b3889db975f88d4c7fb94c"
-    sha256 cellar: :any,                 arm64_sonoma:  "eb89ba67d95a93ef8cea4f21178a0acacd5a194416204447a85d388a168ef83c"
-    sha256 cellar: :any,                 sonoma:        "b4866be5a59a08a71a45daa8bfecc967c82339d4bf62e08b8bd19f32a13b1e7f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5d91cdec8a3dc00e74047d21c567b6c762e92af212ad81f54f0e218edd6c966"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9640befdbd414704468d43abba02e53e9b3108cb7f39d39aeed25ddbae2c93fd"
+    sha256 cellar: :any,                 arm64_tahoe:   "571e1c76ecc65249fbe46919618eac41df8c3f4a5a80a62dea20c626306e1854"
+    sha256 cellar: :any,                 arm64_sequoia: "46da0276feaa9ba5bbce8385cf445dec87a5400f24f8df2419fbaf6a7f25064e"
+    sha256 cellar: :any,                 arm64_sonoma:  "22f6490616c6bb84dd57a77c805feb5037a7fb6b7002a4b01f026f456a6cc508"
+    sha256 cellar: :any,                 sonoma:        "0fb62f2ddb0426e5af1f056786a4a8e441505820527c944a3e37158921336bbc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a2a73b8af8fd02b2262e17ce6986b7789bad15d9ea95f6c6e595e758283c347"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b0fc91bc71bc75ca8218c730da7609cdeae2e0d4772b39ff45a0dc41e1d3e4b"
   end
 
   depends_on "go" => :build
@@ -27,13 +27,9 @@ class Dolt < Formula
   def install
     ENV["CGO_ENABLED"] = "1"
 
-    chdir "go" do
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/dolt"
-    end
-  end
+    system "go", "build", "-C", "go", *std_go_args(ldflags: "-s -w"), "./cmd/dolt"
 
-  def post_install
-    (var/"log").mkpath unless (var/"log").exist?
+    (var/"log").mkpath
     (var/"dolt").mkpath
   end
 

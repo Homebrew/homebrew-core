@@ -6,16 +6,13 @@ class Tinyproxy < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:    "5837c70bdd0d954054e2fa463d5d5a8031afb33dc40dc84543f59bb04f5f77c6"
-    sha256 arm64_sequoia:  "2556f6c1aa3073beccdf952d8baf20c880300ef2d5067fe2588c43b7b58be0a2"
-    sha256 arm64_sonoma:   "54a2231b4ad6b362db15d5709eb7ae1f171584e64725546b4ef5d5c384ca6b4c"
-    sha256 arm64_ventura:  "38dd9771beb51039ef32c6f96e110726598387867c3bb22215298310e735aaeb"
-    sha256 arm64_monterey: "77833ca6e2e9f3926d7f7a69c63aec9bb83da5241ba8ce6ed8c8ed1eaf2d1a6a"
-    sha256 sonoma:         "e7f5a728df755d3fcb83b2639e924354c7bc479152bf766b819660b3caf1c302"
-    sha256 ventura:        "11689d10c680a3c1e7b5fe372fe7ed44507e3e6415ab4dbf2b093a04f433bc2b"
-    sha256 monterey:       "c581f25dbd95d8248cd632a11993c35ea42798ede63e2f27a59aa2bb875ff778"
-    sha256 arm64_linux:    "7ed36d11605e92c9fae9fa3b6d0869e2e18744c47664a6b3d8b6c6669ad91ee5"
-    sha256 x86_64_linux:   "f63df2e51f811d5d80b7a2ce3f3e4bd0f170186061e937a39f1d06b787db793d"
+    rebuild 1
+    sha256 arm64_tahoe:   "01f10b26d4d6e3bcf831ca8b921981b9f873d81b6556e2b52b4784ec4805a54d"
+    sha256 arm64_sequoia: "21a3f6222d7da183ec58cd51fd48d1513cae15311374c4e1cc63f564c0105707"
+    sha256 arm64_sonoma:  "7dabc693da904911eae0f046229a16841a0655751c15e57ddb56bd05cbc6ddc0"
+    sha256 sonoma:        "be4b5eec4472a4d922473d1c267397ac88d8114edc0fa761ec243aea70a9d56b"
+    sha256 arm64_linux:   "5d3ed227aff8eb302a9fd053c1939e1bb968fef0e5aeb36204ec59b01749eb0a"
+    sha256 x86_64_linux:  "dd37a722840d2d5e0366cba9377cd3d70abee9480845bb5200c7bb089f0a5e58"
   end
 
   depends_on "asciidoc" => :build
@@ -25,10 +22,7 @@ class Tinyproxy < Formula
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
       --localstatedir=#{var}
       --sysconfdir=#{etc}
       --disable-regexcheck
@@ -37,11 +31,9 @@ class Tinyproxy < Formula
       --enable-transparent
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
     (var/"log/tinyproxy").mkpath
     (var/"run/tinyproxy").mkpath
   end

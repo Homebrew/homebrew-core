@@ -2,6 +2,7 @@ class Tinc < Formula
   desc "Virtual Private Network (VPN) tool"
   homepage "https://www.tinc-vpn.org/"
   url "https://tinc-vpn.org/packages/tinc-1.0.36.tar.gz"
+  mirror "http://tinc-vpn.org/packages/tinc-1.0.36.tar.gz"
   sha256 "40f73bb3facc480effe0e771442a706ff0488edea7a5f2505d4ccb2aa8163108"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
@@ -13,20 +14,13 @@ class Tinc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:    "bdab833e860c75048151b91a12eb976954b197ab0fb099390c53582a18f8b64b"
-    sha256 cellar: :any,                 arm64_sequoia:  "d452247fec1d29690250c77dafdeb7cac2c945ddef7f11e19fa728563cf4f720"
-    sha256 cellar: :any,                 arm64_sonoma:   "ab60d88c2bb9f1d867bc7fad3ff18086c3bb907502cc1f9af3c61eab5c633771"
-    sha256 cellar: :any,                 arm64_ventura:  "9f2467372c458402453d111b49be9ebdfb5d7e53f1a3a33d32bf2c43e9cd6b1b"
-    sha256 cellar: :any,                 arm64_monterey: "4fb0f6f2276a92f60c5aad1674c137850d6e0a6ac77adc8ce575aa4288a8b942"
-    sha256 cellar: :any,                 arm64_big_sur:  "88d77dd06ee97bf7c1cc0e330876c992d7d460cc55e8e62ebb5c03a0f4ebb0e2"
-    sha256 cellar: :any,                 sonoma:         "dfbaa4b890c987e2daeb4a38a4a82d8008ad23e38b135768909c9eeda980c2ff"
-    sha256 cellar: :any,                 ventura:        "3f2730126370c8ded288e13b4756426213aef4082039f8a7b64776214ce70db6"
-    sha256 cellar: :any,                 monterey:       "58d69be546dceda9a4d413770531633c132cf46a5901553f3d0367cd0bae282f"
-    sha256 cellar: :any,                 big_sur:        "094208fa2043d75696fa60b47a4d26f32e67fbffcce78cc37429a6eac641ddb8"
-    sha256 cellar: :any,                 catalina:       "878a5d0ded29f6b9ad6a18e040508e7597551d4b359c39f9ecaaa7fc6cb91b12"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "66115eb9b72b5609f201efb79752275a5d166d530e538689d3770ad51e8a33e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1cf23e958fe70fd7662d67e87ab9adfd4d838550b104216ec70363391ec7595"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "9387ad8982b1f4471517f5edee95e4f6aa272a47ebfa86adbad67c7c019d3a85"
+    sha256 cellar: :any,                 arm64_sequoia: "aa59254216d5b699c9656872ddf6cd268d0ca8370e340116e56ec192c4c26f40"
+    sha256 cellar: :any,                 arm64_sonoma:  "bdcb1f7311ec710a0b372b7c28793f6ab29a4be5346775c0f4751f54e1913053"
+    sha256 cellar: :any,                 sonoma:        "645b7d301ba9e5d979deb444801639e5933e2b8ad67d1db0cca420dadc0fdf07"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "efec5d1ef53cede8a0d1acf38ac128c7be0f13d47eee5bde73e9c2c4f6c2736f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00197b538b9a810f768fb915e71bf1bd0bdf8f5ef24c2abcacb053259d1681ba"
   end
 
   depends_on "lzo"
@@ -38,12 +32,11 @@ class Tinc < Formula
   patch :DATA
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
+    system "./configure", "--sysconfdir=#{etc}",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
     (var/"run/tinc").mkpath
   end
 

@@ -38,11 +38,11 @@ class Autorestic < Formula
     config["version"] = 2
 
     (testpath/".autorestic.yml").write config.to_yaml
-    (testpath/"repo"/"test.txt").write("This is a testfile")
+    (testpath/"repo/test.txt").write("This is a testfile")
 
     system bin/"autorestic", "check"
     system bin/"autorestic", "backup", "-a"
     system bin/"autorestic", "restore", "-l", "foo", "--to", "restore"
-    assert compare_file testpath/"repo"/"test.txt", testpath/"restore"/testpath/"repo"/"test.txt"
+    assert compare_file testpath/"repo/test.txt", testpath/"restore"/testpath/"repo/test.txt"
   end
 end

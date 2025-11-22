@@ -8,12 +8,13 @@ class Httpd < Formula
   revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "4bda26a478ddb999b3233bbf9de29192548d3132e34bd6fbbbcb570087b70de4"
-    sha256 arm64_sequoia: "a58826352b90299d2c44cae5714cf4169ed6e3ef8ef5e5218627977ebf764694"
-    sha256 arm64_sonoma:  "79706262a6a24d26cac3281afcad19f44c8cbc7ac974068c441de764d7c60608"
-    sha256 sonoma:        "6f82dd959d147fe74ffd9ab38e50db3c8c5122893dfaa2a7d91ffc763acdaeb8"
-    sha256 arm64_linux:   "28bb3ef476810921d1bab7461757cd122661846b8fa2f37f2f876bcaab6459a0"
-    sha256 x86_64_linux:  "1f5217e3039ee4f88f01dd0b0e73af85b7556d9a569d9c0e780292c6a1b45188"
+    rebuild 1
+    sha256 arm64_tahoe:   "6c1e678fc64a7be25d19e7e907c43d156abc2d3b0b26988d4d8dfc3951b60091"
+    sha256 arm64_sequoia: "2d93960ea5559bbe3e28b0e17f392a0ecedcda6e5fa1942a0cbec66995d7d72e"
+    sha256 arm64_sonoma:  "ba2ab3317d9c73b42bd3b9bf06167e5ffc75a8148fbf4d5cc6985d353a8c2d5f"
+    sha256 sonoma:        "38deefb2d3474adf708f195f2685d9de033e454c5629c158dfe88cde3b9ca44b"
+    sha256 arm64_linux:   "8bc54783c18c61100a1603b3a745a747fee5b5f9323a2315ee2d1ef30313c2a3"
+    sha256 x86_64_linux:  "554b0bb3a1d8aa0bb67cf7d75b7f6ac86460b8c47fdfedb83e7e9310d5277710"
   end
 
   depends_on "apr"
@@ -49,8 +50,8 @@ class Httpd < Formula
     end
 
     if OS.mac?
-      libxml2 = "#{MacOS.sdk_path_if_needed}/usr"
-      zlib = "#{MacOS.sdk_path_if_needed}/usr"
+      libxml2 = "#{MacOS.sdk_for_formula(self).path}/usr"
+      zlib = "#{MacOS.sdk_for_formula(self).path}/usr"
     else
       libxml2 = Formula["libxml2"].opt_prefix
       zlib = Formula["zlib"].opt_prefix
@@ -120,9 +121,7 @@ class Httpd < Formula
       s.gsub! "${prefix}/lib/httpd/modules", HOMEBREW_PREFIX/"lib/httpd/modules"
       s.gsub! Superenv.shims_path, HOMEBREW_PREFIX/"bin"
     end
-  end
 
-  def post_install
     (var/"cache/httpd").mkpath
     (var/"www").mkpath
   end

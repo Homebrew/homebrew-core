@@ -30,7 +30,7 @@ class Erg < Formula
     ENV["HOME"] = buildpath # The build will write to HOME/.erg
     system "cargo", "install", "--features", *feature_args, *std_cargo_args(root: libexec)
     pkgshare.install buildpath.glob(".erg/*")
-    (bin/"erg").write_env_script(libexec/"bin"/"erg", ERG_PATH: pkgshare)
+    (bin/"erg").write_env_script(libexec/"bin/erg", ERG_PATH: pkgshare)
   end
 
   test do

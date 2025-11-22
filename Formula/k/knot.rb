@@ -11,12 +11,13 @@ class Knot < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "754c177fa00507be276c3c8a4a523be6c2cb2b4917858e956bbb5fa15d6397ee"
-    sha256 arm64_sequoia: "77406ce2d8d3e3e58682f548c4a747cfb873b1adb22786ecdd7401e403f37955"
-    sha256 arm64_sonoma:  "939581fc5bdbd18727d418a3e4580a72380cd82f8f680bacea754af8f7abc336"
-    sha256 sonoma:        "c6c8aafd161bc55ad55d65736881dff80136a849d1ecc9bc0d1b9f10c3e17ebe"
-    sha256 arm64_linux:   "d548a2a65780e4f2953edeba099879d34a668744f29102350b6e634fa3d33961"
-    sha256 x86_64_linux:  "76046f61780fbd01684761c01d281e7d7803e0efe75dcf9c97aaa907fe5d5ad0"
+    rebuild 1
+    sha256 arm64_tahoe:   "48189c230c8daec50e9f0e26149c8cd287b123addf1f92c3309d69cded55c228"
+    sha256 arm64_sequoia: "6a127e356c516f8e8489b2cd237755d40e28e2390c43c0cb7a6c8760c7cb9de7"
+    sha256 arm64_sonoma:  "7d487d361adb39bdd001bb53c2ce33a0110a77af11a46c9fea8fce2a7e25a347"
+    sha256 sonoma:        "1a7ca4fa31801db716a56d1d8e4fff9810e2e015f29b2f9e0b32510757e746f6"
+    sha256 arm64_linux:   "22ca1ccacf08df43cbd1a786d5c3d66f442992de7c7843972b5847c313cea5bc"
+    sha256 x86_64_linux:  "e4a2792f9885f297ca5af9c4f8d280b7078fa1eac8998400ae4153b99ad6199f"
   end
 
   head do
@@ -58,14 +59,11 @@ class Knot < Formula
 
     (buildpath/"knot.conf").write(knot_conf)
     etc.install "knot.conf"
-  end
-
-  def post_install
     (var/"knot").mkpath
   end
 
   def knot_conf
-    <<~EOS
+    <<~YAML
       server:
         rundir: "#{var}/knot"
         listen: [ "127.0.0.1@53", "::@53" ]
@@ -80,7 +78,7 @@ class Knot < Formula
       template:
         - id: "default"
           storage: "#{var}/knot"
-    EOS
+    YAML
   end
 
   service do

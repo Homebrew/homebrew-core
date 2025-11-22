@@ -1,10 +1,9 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://simdutf.github.io/simdutf/"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v7.5.0.tar.gz"
-  sha256 "3cad2f554912ecd77222272e5d1a7c1e5e33b4011bee823269cdc9095d2fdce2"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v7.7.0.tar.gz"
+  sha256 "0180de81a1dd48a87b8c0442ffa81734f3db91a7350914107a449935124e3c6f"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,12 @@ class Simdutf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b224b133d0d629c2611c002cd0bcf0735e1fa4d02a22839af5c4a7d69475b9a0"
-    sha256 cellar: :any,                 arm64_sequoia: "971f75ee152296b21635959d5a02abbb87360b17243ccc76f4009f895e242330"
-    sha256 cellar: :any,                 arm64_sonoma:  "a545a48786969c82a8260597f666b37f10f2f32adc171308305f5e76495e54a8"
-    sha256 cellar: :any,                 sonoma:        "f719a9f1cef84e77da7718cb9a929b7fba6fc46ca31c6d5fce24246ee5a3f7b2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f8a96dc0a76595dcae3be8a7b4316ff0d223d7b4aa5bd2eac7d0968831cfa4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6754936171667e06337dd064750908124f8ac52e3e7c116187daaf39732e1a95"
+    sha256 cellar: :any,                 arm64_tahoe:   "c1229aff57b00935c1e2b9ecb2d2425641a9c87cd69813f3ccb75e678b41cb98"
+    sha256 cellar: :any,                 arm64_sequoia: "b198a452c36e80338a944741123847d1de3d30411137033e99b403463c3b03b1"
+    sha256 cellar: :any,                 arm64_sonoma:  "6aa473eb7cab89664384be4fed9fceb26f08de6184415e576c79083da80aaac5"
+    sha256 cellar: :any,                 sonoma:        "a23a094529b8200dbaad8a34ad41c41af4b39d40743b36c085fead985ddfc1ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb559a2817b6bf057a8a3fc07a7a9d09ee22e4bcceb13091709b75cb4225df5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e07b1f7a85285b2a7a7b9da642f1e70d794efc8c32de7d087e5f853ac326a74"
   end
 
   depends_on "cmake" => :build

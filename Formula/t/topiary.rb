@@ -1,17 +1,17 @@
 class Topiary < Formula
   desc "Uniform formatter for simple languages, as part of the Tree-sitter ecosystem"
   homepage "https://topiary.tweag.io/"
-  url "https://github.com/tweag/topiary/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "88f90418b9a87f8b80d914f8cae00b173b5db9961ac9bcda4c063d6ed4b76aa8"
+  url "https://github.com/tweag/topiary/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "3d7495caf3c0ae234bd6def6f33193e026564f7818d5909641be119de811f18e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d63d024bc5ddd00ac02004434c7c107bb4fe37310994facaa64f4a6f458df37d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30a66cb9ec015233b5f91e1380b0bd1b97fe5f90b95c3bfb8cd5233a84c99aa4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dcdd629e1ebcdbd523edcadc4f9623a27c3bb19bc973a96595bfbf3ab9e2e270"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3f6944a75a4096bf266677510d6edf76c88709df1f49299f916261ddf23d2816"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "761c4d8c2d993d393abdf4ae4da47f6a05423c6ffe3cff9e8e0385e1210be545"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "108b8746d36ae57e0c9f29cd5d4114ab4f1a0694cac7da7223cfa8d18e49ca10"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "742d685c177c33f9e988af56f8020bb3a5211b32658b39b59967980d0ff31157"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bef83cd5146326b685d2861fdf2fd861cc3a2ecf24268a1719dd390cdc2f6244"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "631e969c4616794c2290b7e9e3101ea4758e8a05cbac5ae55353bb0b6e02b1ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "af3643373a6fb7345ebeb252b5069f5a003be648dadc3c28f6e3c9546500218e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7eff8fe68c8265471bf89472f256d1ae9188afd1bbaf8d40cd3c9b01b406446c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72ede2255612729fe5e97f1757a36ec715c305f214af4097bcdc5517caffed29"
   end
 
   depends_on "rust" => :build

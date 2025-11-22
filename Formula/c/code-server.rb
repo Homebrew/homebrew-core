@@ -1,17 +1,17 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.105.1.tgz"
-  sha256 "4a716e1f6294eecde5ffdbfa2af146df91991ce53115d4d3e8e86d101b2101c9"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.106.2.tgz"
+  sha256 "229822c9b6952faf1dae454ad13573ddbae190d73eeecca3f417a4774e8c8b50"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e94eb55d2deb5c2076abe720bbd5149e4828db1ff294bdb72bd2dc473c19ec14"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93d9c0755bdc8d848c0bbf0c395283f58e1d87cb1e23b75735fc1f516c452d19"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8ee927ed6da8dfdd3a198ec68e753dc1a84fda1981bf57d55a6f6f225813c39"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2a80402618b04f77cbc21372b45a97f1d75f0eaf7678c6247246c381627f544e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3224ec50593d8b165dba3df4f78edb2e0c9346e61b7f9f805f01ea18ef075cee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b94ac571bb34fcefda67d9b2fc18b929341667927dba4ea063bc5d10016a33d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a7d37405f4f545794aa26762ddd55d82753f413ffd8b16970d87db40d70b154a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f17e3c4edef4d80217522b0deca5b4f2d6aabd452e5afef2535ab17b606ea269"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e50bff17a9df4ac62d8ea5a75f5445a62c87aba5a490545fe169a18dc7effb36"
+    sha256 cellar: :any_skip_relocation, sonoma:        "37884831aa2c16cb72467e6d49b1690ed9841560031f18992b4bc52db055a2a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d63f21c379470c3bed9eeaef89ecf9af6501a017b77e31830b439d7bc8775142"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c75edaa0709c938ddfd327736dc6a7f422fe810978268a44ac41e1df3dc8d7d"
   end
 
   depends_on "pkgconf" => :build

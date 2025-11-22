@@ -5,6 +5,14 @@ class Libdecor < Formula
   sha256 "b17cf420e8dcb526bf82da5d36f8443a91fad0777083fa4ec5c1df8ee877416f"
   license "MIT"
 
+  livecheck do
+    url "https://gitlab.freedesktop.org/api/v4/projects/18349/releases"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :json do |json, regex|
+      json.filter_map { |item| item["tag_name"]&.[](regex, 1) }
+    end
+  end
+
   bottle do
     sha256 arm64_linux:  "0ce1db47f5f6e33e2eb9e56441bfd76e0743d3d73fe36ec03fc70706546e1c0b"
     sha256 x86_64_linux: "01ed6ba19998c4ec2aa7093b943d75a8c491616c0a3638779c7297e4da276ea1"

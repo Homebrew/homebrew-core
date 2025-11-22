@@ -1,18 +1,18 @@
 class Webdav < Formula
   desc "Simple and standalone WebDAV server"
   homepage "https://github.com/hacdias/webdav"
-  url "https://github.com/hacdias/webdav/archive/refs/tags/v5.9.0.tar.gz"
-  sha256 "a52ef8bf27f15074d645c4040152fc46e497bc44a03361e19fbd84f813a36f4b"
+  url "https://github.com/hacdias/webdav/archive/refs/tags/v5.10.0.tar.gz"
+  sha256 "e9ffdae7ba81bf7fd95d64c5a5862754d2ab63319f675356bb94562b6e57f8d3"
   license "MIT"
   head "https://github.com/hacdias/webdav.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d0e6e2ef1a49261ff77b6d642ac14d8d47eaf320cc5a933ab5c8177cdba45ff"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d0e6e2ef1a49261ff77b6d642ac14d8d47eaf320cc5a933ab5c8177cdba45ff"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d0e6e2ef1a49261ff77b6d642ac14d8d47eaf320cc5a933ab5c8177cdba45ff"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dbbd4ab99bf8fe2b66a6e9bfde11c877e61a3c988b01df2c391d03e8fd3b6895"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "20d35f0667489c7b9592ecc1532d6df640357d03f2dda6f53320c35a2d1b03c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfb40930cdfd8de966e9a865539a4f7a7a35d989a7d7dad810e6969408bf4451"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9741fca62b9779243b8a2fd6ec5fe5c6116c90aa636cfae5c6406205fc1d73f3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9741fca62b9779243b8a2fd6ec5fe5c6116c90aa636cfae5c6406205fc1d73f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9741fca62b9779243b8a2fd6ec5fe5c6116c90aa636cfae5c6406205fc1d73f3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6a910a61025da599f3a3947b13fb8ddc8c1efebfedc45e81bf280cf007be1272"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "290d0dbd6c27ebff9282cc6091dffb4dc0b4c407735953e1dd6f6e6bada7ee4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b47885ed1fc0bb5d20b4c0d71679e0aae6d596473ffc386aca8958919a476f5"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Bluez < Formula
   desc "Bluetooth protocol stack for Linux"
   homepage "https://www.bluez.org"
-  url "https://mirrors.edge.kernel.org/pub/linux/bluetooth/bluez-5.84.tar.xz"
-  sha256 "5ba73d030f7b00087d67800b0e321601aec0f892827c72e5a2c8390d8c886b11"
+  url "https://mirrors.edge.kernel.org/pub/linux/bluetooth/bluez-5.85.tar.xz"
+  sha256 "ad028e49254bc4551a13f08fe7904c63d02ba650d77be8ae15bb3b0a0ad94a6f"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,8 +11,8 @@ class Bluez < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "bc9e9023a937c52768515eaf8eb88f77c3a0e984c69c22a783f6d9944ef4e8cd"
-    sha256 x86_64_linux: "76938a4b48d514a8c4e500c67d22a92c2fdb52ec8bed79815f63dacb94208e81"
+    sha256 arm64_linux:  "3cbc716a9ba391cc0b6fae51ca287c3d271bcf3678a5565b3275c52db0c1cd09"
+    sha256 x86_64_linux: "167d70648e27acdec6714f30f7f2cff380ffd2edf150c15a4c8a7d2a14b96345"
   end
 
   head do

@@ -13,14 +13,13 @@ class ShairportSync < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4acb51abb40b8bb8bdc9d0b73c9aa010965617fa30ec60e760d4a0c91bfbe318"
-    sha256 arm64_sequoia: "7545247fdb0c6f1d073bb20d3bc89304637ee0d57cee66e725e1ee32549dd1ae"
-    sha256 arm64_sonoma:  "21a738ff972c71852726ef8073116fb6e77db042d92a4846b9aee123af0f5ff8"
-    sha256 arm64_ventura: "1cb4522df509d78bc574c27a8d668b6bf639dcb0e6a68d015b8e93205c1c0ac3"
-    sha256 sonoma:        "a61879e3ed9398bd9683ad8851d54db9c49a0bdf701cf5b58b6bc79f101ed553"
-    sha256 ventura:       "eea7570e9fcc832b79f410bb906dac1fadb920deca94edb3d81f74544e48acb4"
-    sha256 arm64_linux:   "69d9c8f3540f793214bbc3e9bbf61b39b5b4caa3bcd7c5c17a958ab7eb599164"
-    sha256 x86_64_linux:  "5098428e618dec3360e3cb5ede3eaec09611ff3cc27596fc9a9fc2a737917bf5"
+    rebuild 1
+    sha256 arm64_tahoe:   "447c5c992c4ad4ff74c204130ac70dc7342d2a63afd2c7d0e04f70e3ffb67ea2"
+    sha256 arm64_sequoia: "d0b40af6d6416eddfe8705ee6940d60c5393bd3059420b25efc4e2111fd840e8"
+    sha256 arm64_sonoma:  "af03fcf8f24c90998351820f7ccc379467ff06fd38c2989a0fecd3274113d062"
+    sha256 sonoma:        "00b4a040ab219ef15622f06046be96254b5033beebdf73d97a1f051c7029e66c"
+    sha256 arm64_linux:   "6476dfec263694efd858ea866f95b5ad2e95c53624e80666014a9875c279e1ce"
+    sha256 x86_64_linux:  "0ad387fee8205804b6325c8ef73d8c67d7f77cda6f75129f31f708c93e9c4c5b"
   end
 
   depends_on "autoconf" => :build
@@ -46,7 +45,7 @@ class ShairportSync < Formula
       --with-soxr
       --with-metadata
       --with-piddir=#{var}/run
-      --sysconfdir=#{etc}/shairport-sync
+      --sysconfdir=#{pkgetc}
     ]
     if OS.mac?
       args << "--with-dns_sd" # Enable bonjour
@@ -54,9 +53,7 @@ class ShairportSync < Formula
     end
     system "./configure", *args, *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
     (var/"run").mkpath
   end
 

@@ -1,20 +1,18 @@
 class Seqkit < Formula
   desc "Cross-platform and ultrafast toolkit for FASTA/Q file manipulation in Golang"
   homepage "https://bioinf.shenwei.me/seqkit"
-  url "https://github.com/shenwei356/seqkit/archive/refs/tags/v2.10.1.tar.gz"
-  sha256 "e3897f9ccd9503d10c1a8d67d9790ee3e4c91da369e14b716ea7c4e8adba55ee"
+  url "https://github.com/shenwei356/seqkit/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "2cdb4a71179e7ff9b53cda172300f162cea492e79354eeaf7669cc7758c54f04"
   license "MIT"
   head "https://github.com/shenwei356/seqkit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "75b5b76e09b39ecebe4e91a8b4e4bdae84fabd95675effa184148047212118ac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8cfb637b8f41b6c5bce9c7c91308d8ad1288a71cdfda62e0e134741ced3cc5c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8cfb637b8f41b6c5bce9c7c91308d8ad1288a71cdfda62e0e134741ced3cc5c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e8cfb637b8f41b6c5bce9c7c91308d8ad1288a71cdfda62e0e134741ced3cc5c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0f22207684037c12254d0be88a2a1f0d0a372fe2d8bd9d8c1e66509e150d5dc3"
-    sha256 cellar: :any_skip_relocation, ventura:       "0f22207684037c12254d0be88a2a1f0d0a372fe2d8bd9d8c1e66509e150d5dc3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "695c1189897529b219fd3c4370a0f638264f771c31caab7fd4080b9a34f593d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffc8a498f2d0bc0e44a36cc1f791d4b9ae542347e3eeeb77d222c775f6045644"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da2b5fedfbee393966f4f7753a2e4ed871412c1e2416c1976a982bfcb4829b83"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da2b5fedfbee393966f4f7753a2e4ed871412c1e2416c1976a982bfcb4829b83"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da2b5fedfbee393966f4f7753a2e4ed871412c1e2416c1976a982bfcb4829b83"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e194242b616d9d914ff8794d4024bbf5e54689cf3274b3cef915a28803395688"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "38a4e7c44251cf145f8929d1c2e94443bde7fd809ef3e91f212e5f97faf00fd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4683c2a72e1c21f513913c757a5990d25dcd4e797eee569a0e0395aa59efe3f8"
   end
 
   depends_on "go" => :build

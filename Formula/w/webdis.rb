@@ -6,14 +6,13 @@ class Webdis < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "db31ae23c2925f9c3a8ecfccb92a8d9f02b5f3bf2fcdaaf44bfe60f895c2ca5a"
-    sha256 cellar: :any,                 arm64_sequoia: "c95a32da381c41544226dc1fd87657235858a07f03ff55e593749eb0f8ab57b0"
-    sha256 cellar: :any,                 arm64_sonoma:  "0a6778e26839e3df4ebdb775d33b9d6298dedadf96ef4f086b7e64b58ae14908"
-    sha256 cellar: :any,                 arm64_ventura: "2831f7de16d9180de3842c6ecf9ae9a544c43b98d6d0a907a5328e140512f825"
-    sha256 cellar: :any,                 sonoma:        "5aff42161b96307719332e86c69d1040a81dc9379d241a3e98f5b96fb70f1191"
-    sha256 cellar: :any,                 ventura:       "02d02d3df326ee2c8862901d5cd044879f790fc297b9e0781d957e2218b0848f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b8ef81d4472b731a184ada0e2ce7536a2a41fd732cb4f84b925629d067b4380"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66888ace6f4c47250c02fbd671f06c0269779d5f2fae00ce9e6a2cb02ee72937"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "62087345de921d60b2299cd9ee575187ccff7e30a253c241c22903297175276f"
+    sha256 cellar: :any,                 arm64_sequoia: "6defb9b07385ddcec869ea600b6a018005b18c0b0b561409c1f3e430708c60a5"
+    sha256 cellar: :any,                 arm64_sonoma:  "8f829fe011b08d4e0f6d7f211d0d0842e8ad088488a683fe7125bff05f1658ba"
+    sha256 cellar: :any,                 sonoma:        "1ac5b717e0b555322d262561bbf1f7a23cb586be72967b9ef91496582018bdc1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4c8683d5df1e10cfc4ae2d87a2b0fa315167d38410c4c06fe46435c47c02d64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdf61ea9001c741118e9629972014cab7b200c0ca8433e718906707a0715fed5"
   end
 
   depends_on "libevent"
@@ -28,9 +27,6 @@ class Webdis < Formula
     end
 
     etc.install "webdis.json", "webdis.prod.json"
-  end
-
-  def post_install
     (var/"log").mkpath
   end
 

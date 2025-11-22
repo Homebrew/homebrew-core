@@ -1,20 +1,20 @@
 class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
-  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.1.4.tar.gz"
-  sha256 "abd4f3154654b7c65606bd6212ad27297619e54abe8431098d3c24cb92c9215f"
+  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.1.5.tar.gz"
+  sha256 "73d73ec173400dafb290a237bb75a18e555b4216ee01be22a54c09ff2a51bebe"
   license "BSD-3-Clause"
   head "https://github.com/ssh-vault/ssh-vault.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b42eb1ead32eb7e21e57faa267385544f2f375706fb913cbc785b0ca71a2446"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0671fdb44f5c4657e98ac92811f7eb7722e7250c03c231d3a03cfd781e6e290"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d2c1b6ba072c5c607aa9af60386185bc5a5cdd832ae44920017930e5b1ce828"
-    sha256 cellar: :any_skip_relocation, sonoma:        "852e7fa058f17cf5cd136c0b4ef13abcc949fbe6c76a664418b7c8a93ed95753"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95e66f499b5411e6485d465a0da6ad491bcd85afe942864b06b823a42de4f8f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcce5a4a5243f86b111f9cbd76dff2007ac4ca5aaad06c69117c47ee1edb9515"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80994e7d1ba41dbc10dd534a2c61afd68c347197a152455cf555bd3749d9a95b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1137e33677aebcbbe055176525f13a9c8b983a9acb46bcce45e2fc168635f42a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4154aa3dbfb51931115fc74b3447e35d2f1ce0b3989faa99cc0023cf7796d73a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "acc48c61601ead126bd7702aed108dfbdb4d6f4d405d9c818b9858677a5327fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a96e902a861e47277f298df4e4cf5ee63d31cac6d3265a5eda1e5f78a6302185"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb2b50f4ba9fd803b89ac50688d2643a00646c42f474bef76bb287e7549dd3cb"
   end
 
   depends_on "pkgconf" => :build

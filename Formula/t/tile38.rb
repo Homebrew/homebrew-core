@@ -8,19 +8,16 @@ class Tile38 < Formula
   head "https://github.com/tidwall/tile38.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c9990718f67497f27822a55596c07bf0c4ee56309e32716133d15b6f8278d25"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ee88a236bf68b49cdfb2543dc88eb95fae293be156b07de8060dbebe107053b7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "03f270ec38f4b69a51bf8b77db658937c01b805c289589b6dc7e23ed68c2e609"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1f0498da1366d75037f12a3f4e2405c496d062930f0b57ef4b2afb230d1f0ddf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c166d5307e57710adfbb4ee57c42eac71e5f6771b60b02b154ff7fdc563a8568"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c89546c235af2ab22636fd440fde5344e121d36f458ece74a0589601006c8dc0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "38d712a280230b6b1538b048ac3ef9e5c864d494a7d60f199f05709b402352d7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0eded5b6ac9b6aa2526075c77c7734b3cd6bf5045db47ef6a2d50e1b7d8d2c1c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38a35ae950df7ae0b72324f02e1ce2409e4f972af0ce6aa358f4741c76c0e814"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e652ede6b01113108a682c4c67fc55ee2363bd57c589423de1e924e040f0ea95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "96c0bc67fcec2a39503dbc67ae7f9822caf2959a0aaeccf7641a5e5e30776150"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cfcf855c247c549a077c6ca7187078618e739c8c0404c81a996cf19e0e428d0"
   end
 
   depends_on "go" => :build
-
-  def datadir
-    var/"tile38/data"
-  end
 
   def install
     ldflags = %W[
@@ -31,17 +28,9 @@ class Tile38 < Formula
 
     system "go", "build", *std_go_args(ldflags:, output: bin/"tile38-server"), "./cmd/tile38-server"
     system "go", "build", *std_go_args(ldflags:, output: bin/"tile38-cli"), "./cmd/tile38-cli"
-  end
 
-  def post_install
     # Make sure the data directory exists
-    datadir.mkpath
-  end
-
-  def caveats
-    <<~EOS
-      To connect: tile38-cli
-    EOS
+    (var/"tile38/data").mkpath
   end
 
   service do
@@ -54,9 +43,7 @@ class Tile38 < Formula
 
   test do
     port = free_port
-    pid = fork do
-      exec bin/"tile38-server", "-q", "-p", port.to_s
-    end
+    pid = spawn bin/"tile38-server", "-q", "-p", port.to_s
     sleep 2
     # remove `$408` in the first line output
     json_output = shell_output("#{bin}/tile38-cli -p #{port} server")

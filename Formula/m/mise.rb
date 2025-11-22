@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2025.11.5.tar.gz"
-  sha256 "3afc9f12571a60d66423e7e58549d226f9fd3b8dbcee1b90b416645808c2a23d"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2025.11.7.tar.gz"
+  sha256 "16df31d697a54eca7a7d7572835fdcbadb390f240705d829327d38783b236650"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Mise < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af641bd2f08a609e952514bdf183722674fa1a39b88e244b46e76f4ede9384ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "724e28197b0828ada993fd0aab90d414bfd2dbef7de9aae7bb871c3502c2ddff"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d365add0097b0b95fe1fa9fbcde101ed948270b47dc8164ed5d8a3767510702"
-    sha256 cellar: :any_skip_relocation, sonoma:        "33e444efddcb0bf1206613548f7ff44f188bb8ada8bd12e5552cf4ebea880120"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "76ce26acd73133ada9ea2001a7679a7a18908b087c15f9915f555ee076570a6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0e1182ac75728fc8c997a828f1b041cdfe321612b773825258ea2645b1335e1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1c714c0b9808234aec49789ed56b163c69b75ce37404cea6065d9c745c26a7a1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48bbb05ddf09762e5941473a58aaf48a8a368518e303b7b64852ebd84ea5e240"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de4f8dd3471f8cd327c36da99647c9bdbec2a50a8ff16633537f1c39aee93b8a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "99cbee6edf6de8ef14d57625d6caed91a30dcfe6adbeb00d5a3997c61e5d9ae1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26b1f8a6ed757f2c731ca913476697e466f27ccacf099f24ff06363c52a2a43c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a185ef8d2c20368fb1be4da2e19d008fc54eae50e1b9bc2af244601d973d87d6"
   end
 
   depends_on "cmake" => :build
@@ -42,7 +42,7 @@ class Mise < Formula
     man1.install "man/man1/mise.1"
     lib.mkpath
     touch lib/".disable-self-update"
-    (share/"fish"/"vendor_conf.d"/"mise-activate.fish").write <<~FISH
+    (share/"fish/vendor_conf.d/mise-activate.fish").write <<~FISH
       if [ "$MISE_FISH_AUTO_ACTIVATE" != "0" ]
         #{opt_bin}/mise activate fish | source
       end

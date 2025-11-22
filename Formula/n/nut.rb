@@ -11,14 +11,13 @@ class Nut < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5f1c6d0f04e58c0bbc75e52ec57a65f214140863afacd465f16d98e18bbde5fc"
-    sha256 arm64_sequoia: "c6fcd38ac13bedb5bd201fa7967f5988b7d0319e22b1c666769f02bebb13e0d7"
-    sha256 arm64_sonoma:  "1642b5fca3794df03bf4ccffae50c8db6c2b58bfb0e226142e888501921e7829"
-    sha256 arm64_ventura: "6157ac5ed158623264729d8c8dcbed1e8e01b6c3b98116e4a5f030ad077f47e9"
-    sha256 sonoma:        "3f9a548610bd191ea3b910d64621f80b9ef467dfb0c00e3fd5133d3c53c6d7c8"
-    sha256 ventura:       "3f056e5ad5607bf0fda058af7753df1780d3044bd2348eb967de9927abc9245c"
-    sha256 arm64_linux:   "a494737e49d1ba83ad68616290582803f92d7ea44af2fb6106a69ca72a9174ba"
-    sha256 x86_64_linux:  "a4b8b536a16c3c00940dec9e28f7181af84ec01332cb98b7934e925227321fa9"
+    rebuild 1
+    sha256 arm64_tahoe:   "7a95f6f8b57362fe1a44db874c3e153df30cc6d6d7a1a12b1a8e4c67cda1a7e0"
+    sha256 arm64_sequoia: "3b1657b49d343f9be32b00c0a3058ce1c67723cf9b342462f7004cc0d15d5649"
+    sha256 arm64_sonoma:  "dc00713e9a21615addbb2b1d97a3769947c584cabab38f9325b83a7b4317f375"
+    sha256 sonoma:        "4865b9977f2d21a810a111e7d3d72f210f8081be30b19c1fe91be9dd8dc89303"
+    sha256 arm64_linux:   "ad0050eafb34fdd77245bbc97e046c37f83c01e42e300c63e897adbd97ed9e05"
+    sha256 x86_64_linux:  "2667c1b9ef3f1e6b2e3717f2241fd9b64a8cf0987274d49af7a4bc04d6804b9e"
   end
 
   head do
@@ -78,9 +77,7 @@ class Nut < Formula
 
     system "./configure", *args
     system "make", "install"
-  end
 
-  def post_install
     (var/"state/ups").mkpath
     (var/"run").mkpath
   end

@@ -8,12 +8,13 @@ class Hbase < Formula
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 arm64_tahoe:   "219ab512a65bf93e0382277525bc3a0f45ce4c4c01745879f8ce3f1e3b376a7e"
-    sha256 arm64_sequoia: "5e65ef1f337344ec48f0cb58e9b3e994eeea84e4ca8227427d6d26674ca68369"
-    sha256 arm64_sonoma:  "f9510c211fff2deaca90aed07a5da3e10ea7469d1fbd807f10f3b8120e322574"
-    sha256 sonoma:        "c245e860773ccb2c2e084d4052ccfa94931065003174496722d153a778c7bb0b"
-    sha256 arm64_linux:   "7748359839f27c8de7570888eb4bcc700b471154625a7c87f6cba32e098d2bc4"
-    sha256 x86_64_linux:  "3280cf484885360eb9e1baaac70674c81ad1d9194fc261565cbe38364ae1da34"
+    rebuild 1
+    sha256 arm64_tahoe:   "65045300f54b57ee162251465c51580d32ff03d31f02ac60554919672f770d14"
+    sha256 arm64_sequoia: "9a0ffe45b7478045b48c80f86d955351b37db39ae17715f57ba322d95a9f844b"
+    sha256 arm64_sonoma:  "9f8675ca9d26afbc1b3c4c5c636224d63e7f80aa6e6ec0c2bd227a420d5d3ead"
+    sha256 sonoma:        "dac9cc595749907be623745468ac7a3d541e458ff8320d66d7435c2d5d97976a"
+    sha256 arm64_linux:   "901723f520445cfcd248a70bb9ed5e2936e6130320cf85253c1c730f6f84b668"
+    sha256 x86_64_linux:  "414d6d6b72366b325683087855608f4d31fb3005a1e4ed42e149785022bd6382"
   end
 
   depends_on "ant" => :build
@@ -130,9 +131,7 @@ class Hbase < Formula
             <value>#{loopback}</value>
           </property>
       XML
-  end
 
-  def post_install
     (var/"log/hbase").mkpath
     (var/"run/hbase").mkpath
   end

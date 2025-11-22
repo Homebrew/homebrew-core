@@ -1,18 +1,18 @@
 class Versitygw < Formula
   desc "Versity S3 Gateway"
   homepage "https://www.versity.com/products/versitygw/"
-  url "https://github.com/versity/versitygw/archive/refs/tags/v1.0.18.tar.gz"
-  sha256 "d4271f8b98d6f1d722a1ddc405777889013b9111afee60b5f00887cee861fe95"
+  url "https://github.com/versity/versitygw/archive/refs/tags/v1.0.19.tar.gz"
+  sha256 "831f0ba33f0aa08c1cffe6e70f6092e0038824b9aa694db8a446492758505616"
   license "Apache-2.0"
   head "https://github.com/versity/versitygw.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8ed3757d781784cba1cc2d468f821a9d6e2e0d44f236fa1578d7141c460eb49b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f3af83211ed29a6e80e527f4ff862c69ceb40b34850af1d00289949550f9189"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f98492e184a6715bbae1cff23908bfb942d2effe2539e63ee320f0df31f94040"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8bdc6dbed3e465e7ac7cca06fce1da77fa9b42f7436a18fe76b06cf6475af0b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fde8a090ef2f04c36cefc3e1c71ca9bb0f71fa8414c2270826f0663652511c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a0c2ffe3642acd703a6dafc99515b90afae8b8c6243ef0dd0bc527e81f7cab8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b0361f1f8be319e198b0ee10c4c904387087a1175ef6c9bb75fa62d04e61ee7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f7640d823b30d5bcfc1e00ab3bcc20628eb4cef1f201427d94af376f7341ac5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8f4a2fe6da46c905f64d2c622fa6bf1ee6087889b2350c6988c948264d63b1b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7335b98b31803fa21d830128a0f732f874c602f7e940e39abcf64718c35435a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28b654c0136e8f8d5901d0d5a655cf9dfd77f4469751b0579b5144609c456b8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f656103c4f5ad4cd8f53280da6202715dbe5e07241cd2491b52aa03aa6e50102"
   end
 
   depends_on "go" => :build

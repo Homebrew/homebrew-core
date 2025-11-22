@@ -1,19 +1,20 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.1.0/apache-pulsar-4.1.0-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-4.1.0/apache-pulsar-4.1.0-src.tar.gz"
-  sha256 "6edb381a41adafcc6117c029caadcf606fd88e427796bef7b188f233aee7362a"
+  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.1.2/apache-pulsar-4.1.2-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-4.1.2/apache-pulsar-4.1.2-src.tar.gz"
+  sha256 "2b12b98ca35761ad471c3bafdc6647aeff0ad4b128f9d05595483db3dc08798e"
   license "Apache-2.0"
   head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "257f518d60e0fa2957cfc360d64c538de4351b649e6a11eb7c33bb460f31564a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "432701f412d644f92f65a7788b7c9cd9284df2df66ff8f4f56d4cd17fbe7190f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6372ff073ab7f90bd1278dc7be7e76c49a1588dcc52ffb7a4bdaba3d0ba0836e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "46d89b7aae5c4f0aae195d122680033f37a25915d91e8bbff1418b33e0554e1e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1a3d4318f390f2e1c3d7b53fc1aa274acb2bf65f400ce56536fe6cc0d4b974d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "140fab15d195c19bcd8a363e8f9ec3c010142cda0e43ea3979999c69321155cd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a899366ae866075bb7002f9465b4a2e72ffb9f72d567d69a7515a1e8936decac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56151dde7654fc4c14ec156cf31cef7987011a87fb6ab8e2b84cf9b1b07cd48c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1421aec25cab53a61b4675198415318d2f04e53bbce3fd0d732a8b6e782a9e4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4ab4690ef10a1ea141b4a59c900e9d281d2b63e89e144074379ad3d06b762650"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0dde5f9467f0445424c4cb726111dd5ded6ecd82405660153e96a1b2ede9bee6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9ba5fea8eddd2bc4fb0a1019bd59cb08ab7718f3ac88d4a51a3ab913aa3608a"
   end
 
   depends_on "maven" => :build
@@ -53,9 +54,7 @@ class ApachePulsar < Formula
 
       (bin/path.basename).write_env_script path, java_home_env
     end
-  end
 
-  def post_install
     (var/"log/pulsar").mkpath
   end
 

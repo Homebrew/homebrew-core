@@ -7,14 +7,13 @@ class Geoipupdate < Formula
   head "https://github.com/maxmind/geoipupdate.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "e38f048483e769918fb26f47c2ea6a482938728adf9fcab1524468ec421bbaae"
-    sha256 arm64_sequoia: "a1fce4eecb43e422c6059f26c6c9d2bb9719da01c204e575c3abd5fb840a3ebf"
-    sha256 arm64_sonoma:  "17e2d973de456a8d6dd3f0c605a7980d87b3b4e0388345fa2f6420286cf40ac1"
-    sha256 arm64_ventura: "500173a96598a74be77f30c05428abdee5961e15230f2d0a6970ee12fcc0fbed"
-    sha256 sonoma:        "1b64e26cb80d3234c7c5457a439f0ca92a5768e67e12651bd0156d70a76d3c52"
-    sha256 ventura:       "e19a2bedba79459c9f65316bac05d8947073862c05398e950f49b3e4cbfcaf94"
-    sha256 arm64_linux:   "09b00f986b324f88131dc3921c4a0a2475448bb4ae51c9024fc28d564fb4343d"
-    sha256 x86_64_linux:  "e36b9d057548f0750a86f44d0a4940819506f0972e417677d830d62cb5970781"
+    rebuild 1
+    sha256                               arm64_tahoe:   "210cbe3b702c115c0aa1aab4a33e45c7b7fc1e4c08007affa29d8de72ff711e3"
+    sha256                               arm64_sequoia: "78d7f7498bb083170faefe612992b4f5e2032ec9a45be6575f9be4e48a75b4dc"
+    sha256                               arm64_sonoma:  "7557755567a801e49fadaebea3d4af2d44f8ed51cf6dca8e01ae9f9234a0cb35"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d1ad0b7b8205a1769a41701bb81937f63b50da6aacb7a7347473dc9b5cbc466b"
+    sha256                               arm64_linux:   "31ad80bc48bc56966de8174803ad404156bacc0c2d3ce8c68ff1e6db89e576a9"
+    sha256                               x86_64_linux:  "6adfb1d2c719053d5d9be82450b2253d3f97ca563f850ec4ae8d280d4aedf095"
   end
 
   depends_on "go" => :build
@@ -30,9 +29,6 @@ class Geoipupdate < Formula
     etc.install  "build/GeoIP.conf"
     man1.install "build/geoipupdate.1"
     man5.install "build/GeoIP.conf.5"
-  end
-
-  def post_install
     (var/"GeoIP").mkpath
   end
 

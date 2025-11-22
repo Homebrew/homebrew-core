@@ -21,6 +21,7 @@ class AnsibleAT9 < Formula
 
   # https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-community-package-release-cycle
   deprecate! date: "2024-11-30", because: :unmaintained
+  disable! date: "2025-11-30", because: :unmaintained
 
   # `pkgconf` and `rust` are for bcrypt
   depends_on "pkgconf" => :build

@@ -1,17 +1,17 @@
 class AwsCCal < Formula
   desc "AWS Crypto Abstraction Layer"
   homepage "https://github.com/awslabs/aws-c-cal"
-  url "https://github.com/awslabs/aws-c-cal/archive/refs/tags/v0.9.10.tar.gz"
-  sha256 "a41b389e942fadd599a6a0f692b75480d663f1e702c0301177f00f365e0c9b94"
+  url "https://github.com/awslabs/aws-c-cal/archive/refs/tags/v0.9.11.tar.gz"
+  sha256 "319720ca46f2d23c3b5e44f4b48a1d468c49983bd0970d09cf0ddee4f4450d39"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "211b8f7468ed07aaddc8dd0d4902588dadf8a77da92cd12e09227f234139ee08"
-    sha256 cellar: :any,                 arm64_sequoia: "cf1743072185bd1a94f9f73831575dd6a02bdd69e962a7ded01c374ab387e8c6"
-    sha256 cellar: :any,                 arm64_sonoma:  "91b92be0a63370405e6dc81baeeb3b9abcbba1135c285ec29c733733752dd05e"
-    sha256 cellar: :any,                 sonoma:        "eed948f81ff8a185e8ac635af4b24f75cfe10a341a749017ce3cc7b3cbc564a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "11854657fa2a94c57e4611058b85dd6265a67e19826f2525188e5dd629a561a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dee5ce2ee6d63a643548c8c7fa8885defbdcb539c1bf53595376b88acdf304be"
+    sha256 cellar: :any,                 arm64_tahoe:   "149fc01ff4430a0a1324a2dd041081f099224f4fd7f0aedd2d14864fad990132"
+    sha256 cellar: :any,                 arm64_sequoia: "1432869128055b0d45cd6e69e492d874443f1a672c8ba3a836a35e6dde924f4b"
+    sha256 cellar: :any,                 arm64_sonoma:  "e78d9a5d17fbcb4c5e0b3d17862e273b175ba0bac3397a194c19f806f701b09c"
+    sha256 cellar: :any,                 sonoma:        "eb008f50f1a79bcbe0feada48b20dcaa484a6f6863bb17e599756dfdc02ceec3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7311ce1a0a3e6f7b725e6202158c339a62e4d2d8601e8eb5e4bf3d84ed04cb32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98b42d79d8f46e560207e7bce7ec77a34030a9d8d8f10a7d6de8b2f2991c2142"
   end
 
   depends_on "cmake" => :build

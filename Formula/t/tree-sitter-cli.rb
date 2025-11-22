@@ -54,7 +54,7 @@ class TreeSitterCli < Formula
     assert_equal("(source_file [0, 0] - [1, 0])", parse_result)
 
     # test `tree-sitter test`
-    (testpath/"test"/"corpus"/"test_case.txt").write <<~EOS
+    (testpath/"test/corpus/test_case.txt").write <<~EOS
       =========
         hello
       =========

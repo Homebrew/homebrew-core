@@ -3,20 +3,18 @@ class Gptme < Formula
 
   desc "AI assistant in your terminal"
   homepage "https://gptme.org/docs/"
-  url "https://files.pythonhosted.org/packages/d0/a2/0dc222a2854c70bce25c00c9a1c3a86e66cdde077eebeda4eb9b5199387e/gptme-0.29.0.tar.gz"
-  sha256 "3cf7579f2eb5896f3c5c0b8ad6a3d27fc485b3a058da505c4183a83378f8fff0"
+  url "https://files.pythonhosted.org/packages/cf/48/95c9aa7ab0c6144de90fb56394720c570af139a453d1c5e2729c61df8780/gptme-0.30.0.tar.gz"
+  sha256 "02406e255091fc116b1bad4b8c5ec1d79f306045a354d9cb3d5a15797097b161"
   license "MIT"
-  revision 2
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "7c27cb6e0332f59c7b7494075ff657e99915238546301ea0ce4803f65984cba2"
-    sha256 cellar: :any,                 arm64_sequoia: "91d417ec2df316c4fea8171ed298e0306f73a82bbee79cb202a280accac6b078"
-    sha256 cellar: :any,                 arm64_sonoma:  "0da68eff72bd0c29d9d3b44a8b359b5e2cc031a64eb4b08074c85a7ee78718ba"
-    sha256 cellar: :any,                 sonoma:        "5cf1949b2ad931fe274e7ab835faf745a599cba96fd18999031c4e35b2591d87"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "729c544771589c7b61119b34c3a456e60922bd302bb3cb60771d4a3059cee2ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d194b082148a1e0b3dda71eab3c34dd54a5d8a10464000d7d14ae4c8e27431af"
+    sha256 cellar: :any,                 arm64_tahoe:   "ad56a3d23c904a24cae36af8cda0ba8fed7c80df2290638c8b20a27335b0d8c3"
+    sha256 cellar: :any,                 arm64_sequoia: "0172cf8e3b6cdf690131bc12096c4013b132b49933c004f5df4b5cecaeb946d0"
+    sha256 cellar: :any,                 arm64_sonoma:  "d4bf51be9d58073ede79eaa12a5192b2d09c021ea5ce7a8cc147153ad28c0d27"
+    sha256 cellar: :any,                 sonoma:        "4039b1b7610ce2cb18608be16dd9f5165587b55c12f20cddc82ddb64a3e761c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "21892b08514c85a4b993f270532a095a172abe254d8c3375c2d0c1f1beef667c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7846d6f25bf0f39bf4210fa1e6fb6afa7a060538ace5d815dfe65826268ef94b"
   end
 
   depends_on "rust" => :build # for jitter
@@ -44,8 +42,8 @@ class Gptme < Formula
   end
 
   resource "asttokens" do
-    url "https://files.pythonhosted.org/packages/4a/e7/82da0a03e7ba5141f05cce0d302e6eed121ae055e0456ca228bf693984bc/asttokens-3.0.0.tar.gz"
-    sha256 "0dcd8baa8d62b0c1d118b399b2ddba3c4aff271d0d7a9e0d4c1681c79035bbc7"
+    url "https://files.pythonhosted.org/packages/be/a5/8e3f9b6771b0b408517c82d97aed8f2036509bc247d46114925e32fe33f0/asttokens-3.0.1.tar.gz"
+    sha256 "71a4ee5de0bde6a31d64f6b13f2293ac190344478f081c3d1bccfcf5eacb0cb7"
   end
 
   resource "attrs" do
@@ -64,8 +62,8 @@ class Gptme < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "click-default-group" do
@@ -129,8 +127,8 @@ class Gptme < Formula
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/a3/68/0357982493a7b20925aece061f7fb7a2678e3b232f8d73a6edb7e5304443/jiter-0.11.1.tar.gz"
-    sha256 "849dcfc76481c0ea0099391235b7ca97d7279e0fa4c86005457ac7c88e8b76dc"
+    url "https://files.pythonhosted.org/packages/45/9d/e0660989c1370e25848bb4c52d061c71837239738ad937e83edca174c273/jiter-0.12.0.tar.gz"
+    sha256 "64dfcd7d5c168b38d3f9f8bba7fc639edb3418abcc74f22fdbe6b8938293f30b"
   end
 
   resource "json-repair" do
@@ -164,8 +162,8 @@ class Gptme < Formula
   end
 
   resource "mcp" do
-    url "https://files.pythonhosted.org/packages/f8/22/fae38092e6c2995c03232635028510d77e7decff31b4ae79dfa0ba99c635/mcp-1.20.0.tar.gz"
-    sha256 "9ccc09eaadbfbcbbdab1c9723cfe2e0d1d9e324d7d3ce7e332ef90b09ed35177"
+    url "https://files.pythonhosted.org/packages/15/bb/147bf5d47b8d6f3fb315204cd2f567b1ad85511acd8d59e85cccf7cce65c/mcp-1.21.2.tar.gz"
+    sha256 "b6497b7f7a77aabe263931a3335956dfd45fe8b1e2168931e455914ba1a7f4c9"
   end
 
   resource "mdurl" do
@@ -219,8 +217,8 @@ class Gptme < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/20/c5/dbbc27b814c71676593d1c3f718e6cd7d4f00652cefa24b75f7aa3efb25e/pydantic_settings-2.11.0.tar.gz"
-    sha256 "d0e87a1c7d33593beb7194adb8470fc426e95ba02af83a0f23474a04c9a08180"
+    url "https://files.pythonhosted.org/packages/43/4b/ac7e0aae12027748076d72a8764ff1c9d82ca75a7a52622e67ed3f765c54/pydantic_settings-2.12.0.tar.gz"
+    sha256 "005538ef951e3c2a68e1c08b292b5f2e71490def8589d4221b95dab00dafcfd0"
   end
 
   resource "pygments" do
@@ -344,8 +342,8 @@ class Gptme < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/49/19/5e5bcd855d808892fe02d49219f97a50f64cd6d8313d75df3494ee97b1a3/wrapt-2.0.0.tar.gz"
-    sha256 "35a542cc7a962331d0279735c30995b024e852cf40481e384fd63caaa391cbb9"
+    url "https://files.pythonhosted.org/packages/49/2a/6de8a50cb435b7f42c46126cf1a54b2aab81784e74c8595c8e025e8f36d3/wrapt-2.0.1.tar.gz"
+    sha256 "9c9c635e78497cacb81e84f8b11b23e0aacac7a136e73b8e5b2109a1d9fc468f"
   end
 
   def install

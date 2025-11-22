@@ -71,7 +71,7 @@ class AdrViewer < Formula
   end
 
   test do
-    adr_dir = testpath/"doc"/"adr"
+    adr_dir = testpath/"doc/adr"
     mkdir_p adr_dir
     (adr_dir/"0001-record.md").write <<~MARKDOWN
       # 1. Record architecture decisions

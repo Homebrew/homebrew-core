@@ -1,19 +1,17 @@
 class Qman < Formula
   desc "Modern man page viewer"
   homepage "https://github.com/plp13/qman"
-  url "https://github.com/plp13/qman/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "785441bf11e99ff27869c08f0d36ce3f5c75db1b045b8712fe515059cf396780"
+  url "https://github.com/plp13/qman/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "e550958523d0fef90fd0123a61a8f10099ed0c9735e06d8152662d8965b5a0e1"
   license "BSD-2-Clause"
 
   bottle do
-    sha256               arm64_tahoe:   "76e73e941c8644a419e621767c8fcf264fb6648bd2ac9d1ca45036f7771b9662"
-    sha256               arm64_sequoia: "242f89831ea2de296836320100941480578948076051262e9c5a4a55f099d7f5"
-    sha256               arm64_sonoma:  "d8ed1519a4e75f283581a084d86c58fcb4f9a99ea35fb11848688f1e7542d428"
-    sha256               arm64_ventura: "f80ec8da63ae6047755d58a238e6d668ad42f418a0ba2ee4effd1ab357fcce97"
-    sha256 cellar: :any, sonoma:        "8413046064145228637319223914e277a13ad7b0eadf201d1f633963d16c89b3"
-    sha256 cellar: :any, ventura:       "445caa196096dcbdbc4b3814cc2f2d1d41995fe3d1c4d4b5ce1c1eed911033a7"
-    sha256               arm64_linux:   "01382320e7a0ba1239144fcaeca19f9a2c4d4d044fb56ac2dcdf159c873d2ceb"
-    sha256               x86_64_linux:  "156d528908713d8438b6da5ca03cd92b9629a3c082f7b417f77e13d253067061"
+    sha256 arm64_tahoe:   "474565b62a04136b4c671d9ef6f7ff126bc5d31627a09c7903522cb517a9b89c"
+    sha256 arm64_sequoia: "998e6360a22025e0ca4565178f41038e38848b859b09cae6f51d89ad9ed9d765"
+    sha256 arm64_sonoma:  "b09e71d35bd2f8152b1a0aa686286e76882d3cafb83d153a7f37e372c1f03653"
+    sha256 sonoma:        "5dd30d9d62b7f12dc6c4e0ea0c6d78062c66fbbaf9e0ec568b069fa2fb9e35cd"
+    sha256 arm64_linux:   "66cb799fe63e479fa0e912354de09ae9b30f44aed24c8750589f5a0826c2f58e"
+    sha256 x86_64_linux:  "7a5205746e5f2dfd2ef241e9c279dc20dce11c6b58ae6ac32ecdcb526b78bc4a"
   end
 
   depends_on "cogapp" => :build

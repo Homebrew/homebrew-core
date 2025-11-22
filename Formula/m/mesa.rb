@@ -3,8 +3,6 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.2.6.tar.xz"
-  sha256 "361c97e8afa5fe20141c5362c5b489040751e12861c186a16c621a2fb182fc42"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -20,16 +18,33 @@ class Mesa < Formula
     { "GPL-1.0-or-later" => { with: "Linux-syscall-note" } }, # include/drm-uapi/sync_file.h
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # include/drm-uapi/{d3dkmthk.h,dma-buf.h,etnaviv_drm.h}
   ]
-  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
+  stable do
+    url "https://archive.mesa3d.org/mesa-25.3.0.tar.xz"
+    sha256 "0fd54fea7dbbddb154df05ac752b18621f26d97e27863db3be951417c6abe8ae"
+
+    on_macos do
+      # both patches are from https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/38429
+      patch do
+        url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/e70c5c722f403462cec2eb9496d4b70d2eb299a0.diff"
+        sha256 "f84670115455500fbc7dfbbf6d47fe651979e133b39285b13a67f328e11a052e"
+      end
+
+      patch do
+        url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/18c025b189852ef0b0f9b428fd7ec748004f1186.diff"
+        sha256 "156ebff695a4c498db3fa0be13593e97a568b86d9c3a3c2db089217c39563981"
+      end
+    end
+  end
+
   bottle do
-    sha256 arm64_tahoe:   "fe5460fa333c2872772c0a80b340d87cd220d80ac5c0f0d00f98347749cdc82f"
-    sha256 arm64_sequoia: "81c1f8913d8ffa38bd44d425af2c3f789b8db8a34047f4473a6b30d6c6a7a941"
-    sha256 arm64_sonoma:  "e2e8a673c34a6f7eaba5f5854135831b3ab59f67b2e4f5307e0ddb0b07a9918c"
-    sha256 sonoma:        "250249d9387d43b2ba28bdc551b61f9ea44ceb8be9211073810230f65c05c43d"
-    sha256 arm64_linux:   "244d24f5f7220c5c4ec79aa89b179df2ec2dc75df62bd92112911eda1bbd0134"
-    sha256 x86_64_linux:  "c8075c51f78f5e30080231cbc034782556b871d0e8ff11ef4d2400cdb40ec5ed"
+    sha256 arm64_tahoe:   "f61e795c822cd34be897d932e732e10ca64a7f5bb8d3ec6e550507bf0a5a3cfa"
+    sha256 arm64_sequoia: "79462d609f63359431b712428f501dc9be82c27342c646db7cca123cea3e2e1a"
+    sha256 arm64_sonoma:  "a126d98990bda13fa14af1902eb9d23c6d3bc2099c1e80b50d06116d44ed63bf"
+    sha256 sonoma:        "e6b9a4ac6a1f9553f3095b77d46942f4f67f01abee0bf831589086c82b5ee468"
+    sha256 arm64_linux:   "874a46c16c5232139c6317c11a694f4b26b6279c3cad381aa4ce64a0c8f7b8b1"
+    sha256 x86_64_linux:  "678d58f88df64ecc48389f06eb336567141755c2fa77d2f5646781eb31d7ac3f"
   end
 
   depends_on "bindgen" => :build
@@ -69,7 +84,6 @@ class Mesa < Formula
     depends_on "directx-headers" => :build
     depends_on "gzip" => :build
     depends_on "libva" => :build
-    depends_on "libvdpau" => :build
     depends_on "pycparser" => :build
     depends_on "valgrind" => :build
     depends_on "wayland-protocols" => :build
@@ -150,7 +164,7 @@ class Mesa < Formula
       %W[
         -Dgallium-drivers=llvmpipe,zink
         -Dmoltenvk-dir=#{Formula["molten-vk"].prefix}
-        -Dtools=etnaviv,glsl,nir,nouveau,imagination,dlclose-skip
+        -Dtools=etnaviv,glsl,nir,nouveau,dlclose-skip
         -Dvulkan-drivers=swrast
         -Dvulkan-layers=intel-nullhw,overlay,screenshot,vram-report-limit
       ]
@@ -164,7 +178,6 @@ class Mesa < Formula
         -Dgallium-drivers=#{drivers}
         -Dgallium-extra-hud=true
         -Dgallium-va=enabled
-        -Dgallium-vdpau=enabled
         -Dgbm=enabled
         -Dgles1=enabled
         -Dgles2=enabled

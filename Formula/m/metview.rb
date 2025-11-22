@@ -1,9 +1,9 @@
 class Metview < Formula
   desc "Meteorological workstation software"
   homepage "https://metview.readthedocs.io/en/latest/"
-  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2025.4.0-Source.tar.gz"
-  version "5.25.0"
-  sha256 "ebfa17e3db63c72a2caad5a13136d0e86f300cc8cdaa31c98ed4ff5034aebc09"
+  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2025.10.1-Source.tar.gz"
+  version "5.26.1"
+  sha256 "2dc2be8146cb7bcbae3d7cd833f521e426d8bb743452202f0e36e857b38f6d85"
   license "Apache-2.0"
 
   livecheck do
@@ -14,13 +14,12 @@ class Metview < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "d3a67d82260e52fb5492b4aacda4a269e610b0f815727626cdc0e11afa57c0d5"
-    sha256 arm64_sequoia: "58d68231a3f452c1d91fbefbfc393858e906fab3c6438007fa343607132ac262"
-    sha256 arm64_sonoma:  "7a9e6ed00db35e8b844d2700f694f6a7f8898a070343960a5b35997431b64862"
-    sha256 sonoma:        "7fff956e0fd60ca305b99743ad1cb1f0c7bb337b5dfe3bd56cc57780f12b0d40"
-    sha256 arm64_linux:   "944c3b1f8c06301e97e873d3d22dfcb127295a81f23fe761a48fb9ee2ec800f0"
-    sha256 x86_64_linux:  "6f16c80df89c3e659162ac7ed028d3a2617895642acdd8a444fe785169b7cc37"
+    sha256 arm64_tahoe:   "03ae4c9f90756a5b43d28f796be7c4f4dc98ad812ae7b6290e847847ea14857d"
+    sha256 arm64_sequoia: "43cebfd9535aaf4c1aa52f3f661b504f4f8c0d62e746bd9d072e6274b8b3fb7d"
+    sha256 arm64_sonoma:  "a492ac11d0145dd60799a8bb9785730de77cd9f7ded0969141cde08c06198c73"
+    sha256 sonoma:        "660db95d17dff905d649e6af1afa5e3b0d843a7a7ea727bd5917eded181d707a"
+    sha256 arm64_linux:   "e6be5334732b3bc810825675972a306fb2cb394f1cb5c9745467ca22acf7331a"
+    sha256 x86_64_linux:  "50733b952cd2ebb4027a4f1aa59561ca4657cfa54b1bb4b5de24c153666797a6"
   end
 
   depends_on "cmake" => :build
@@ -62,8 +61,6 @@ class Metview < Formula
   end
 
   def install
-    # https://jira.ecmwf.int/plugins/servlet/desk/portal/4/SD-110363
-    inreplace "metview/CMakeLists.txt", "cmake_policy(SET CMP0046 OLD)", "cmake_policy(SET CMP0046 NEW)"
     args = %W[
       -DBUNDLE_SKIP_ECCODES=1
       -DENABLE_MIR_DOWNLOAD_MASKS=OFF
@@ -73,9 +70,10 @@ class Metview < Formula
     ]
 
     if OS.linux?
-      args += [
-        "-DRPC_PATH=#{Formula["libtirpc"].opt_prefix}",
-        "-DRPC_INCLUDE_DIR=#{Formula["libtirpc"].opt_include}/tirpc",
+      args += %W[
+        -DENABLE_CLANG_TIDY=OFF
+        -DRPC_PATH=#{Formula["libtirpc"].opt_prefix}
+        -DRPC_INCLUDE_DIR=#{Formula["libtirpc"].opt_include}/tirpc
       ]
     end
 

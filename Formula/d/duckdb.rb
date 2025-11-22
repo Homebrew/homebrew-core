@@ -77,6 +77,6 @@ class Duckdb < Formula
 
     system "cmake", "-S", testpath, "-B", testpath/"build"
     system "cmake", "--build", testpath/"build"
-    assert_equal "45.0", shell_output(testpath/"build"/"test")
+    assert_equal "45.0", shell_output(testpath/"build/test")
   end
 end

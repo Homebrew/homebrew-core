@@ -31,7 +31,7 @@ class Pyinvoke < Formula
           for pattern in patterns:
               run("rm -rf {}".format(pattern))
     PYTHON
-    (testpath/"foo"/"bar").mkpath
+    (testpath/"foo/bar").mkpath
     (testpath/"baz").mkpath
     system bin/"invoke", "clean"
     refute_path_exists testpath/"foo", "\"pyinvoke clean\" should have deleted \"foo\""

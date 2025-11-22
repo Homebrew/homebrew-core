@@ -4,15 +4,15 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.82/vte-0.82.1.tar.xz"
   sha256 "79376d70402d271e2d38424418e1aea72357934d272e321e3906b71706a78e3a"
   license "LGPL-2.0-or-later"
-  revision 2
+  revision 4
 
   bottle do
-    sha256 arm64_tahoe:   "4c49cc2e94084e4e4d82a57d68eb4832ea12014c53f53741c57e7ac0558548d3"
-    sha256 arm64_sequoia: "c7113626c1d87333c8d1783c42d5e9df479c57fd7bfc6bf34cf51000595fbc07"
-    sha256 arm64_sonoma:  "bd55252c6bf32bb3cbc4fc5210f523d6115d2ec8442b69ee817335fcd59af830"
-    sha256 sonoma:        "d086efb07d6c638b334e0990c2c7bafe7c1d01755aa9a534d20dce969f48885c"
-    sha256 arm64_linux:   "c71182bfaf37c83b713296f5fedac08a1bfeccfebf589e14a1967782573b1785"
-    sha256 x86_64_linux:  "8d0365979ef1a7febd9d0a0c0c0fee5fcc2d82dff9525093fd6293d62b329348"
+    sha256 arm64_tahoe:   "91534f8bd0ea8921901e6744deb270843320704dc94ddd64f399920154c2d72e"
+    sha256 arm64_sequoia: "2ac75601a17414de2637f595499673ef61ad7b277a841b150c751a5010cb2b8d"
+    sha256 arm64_sonoma:  "3f41314ebd799e144474ce37ac133c1358db5cca356c627ace311f3dceaa9dd1"
+    sha256 sonoma:        "94d9ac50fda466515ec2a4856e055ab92f0e7e0acda957056aecf154a7c5f713"
+    sha256 arm64_linux:   "b33b32fed9504e34919c8a5445fcecee978cd9bfa1dc4d5c29c099018a6383b9"
+    sha256 x86_64_linux:  "ab86b32fc36c56f2f2f54f752d1379a1abbfd5a485a06d33905319e4e38567cc"
   end
 
   depends_on "fast_float" => :build

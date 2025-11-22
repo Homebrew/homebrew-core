@@ -1,6 +1,6 @@
 class Algolia < Formula
   desc "CLI for Algolia"
-  homepage "https://www.algolia.com/doc/tools/cli"
+  homepage "https://www.algolia.com/doc/tools/cli/get-started"
   url "https://github.com/algolia/cli/archive/refs/tags/v1.7.1.tar.gz"
   sha256 "3757d76ed2a9c341fb5f1a4cb8e2e7465ac17753eb489bb5fae2f4df10c6302b"
   license "MIT"

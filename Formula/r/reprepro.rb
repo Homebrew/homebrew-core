@@ -56,7 +56,7 @@ class Reprepro < Formula
   end
 
   test do
-    (testpath/"conf"/"distributions").write <<~EOF
+    (testpath/"conf/distributions").write <<~EOF
       Codename: test_codename
       Architectures: source
       Components: main

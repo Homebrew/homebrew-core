@@ -1,20 +1,18 @@
 class Kbld < Formula
   desc "Tool for building and pushing container images in development workflows"
   homepage "https://carvel.dev/kbld/"
-  url "https://github.com/carvel-dev/kbld/archive/refs/tags/v0.46.0.tar.gz"
-  sha256 "e3cdfe735e1711c321b86bf93176125fa262765f1e2df91368615e0fcb9cd41c"
+  url "https://github.com/carvel-dev/kbld/archive/refs/tags/v0.47.0.tar.gz"
+  sha256 "5f6d6c454c6005e18aae7e2a127415db22ed90f5e23849807ef32c7ece6c9164"
   license "Apache-2.0"
   head "https://github.com/carvel-dev/kbld.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ba0891da4d454f0be4f546629b93a7385a79c7ac0fced619c2c9de45a0330419"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5914c94a7d11a87cb50da141d7913119bc5fbddce61e675f7cfe1f089f6b763"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5914c94a7d11a87cb50da141d7913119bc5fbddce61e675f7cfe1f089f6b763"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e5914c94a7d11a87cb50da141d7913119bc5fbddce61e675f7cfe1f089f6b763"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e16f16bb84b8253db8d6880a2f7fd0b17453304854f5616eebc79b3309cee1a5"
-    sha256 cellar: :any_skip_relocation, ventura:       "e16f16bb84b8253db8d6880a2f7fd0b17453304854f5616eebc79b3309cee1a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8704e427596d7f345d96aafe92ad710253a6d0b71f2251aec0719f450854cd2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0563374feb038a4750aabfa4bad29dd930832fec19cbfae4f9d0d8b12eb963f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae6504ee900e0ca67ed05b149dbbf9a5765c78137bcef34b660cb10a07f55aae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae6504ee900e0ca67ed05b149dbbf9a5765c78137bcef34b660cb10a07f55aae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae6504ee900e0ca67ed05b149dbbf9a5765c78137bcef34b660cb10a07f55aae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a074ea43ed088607fe0b13a8e84b029af9e66c651e37a503df7907774b50a4fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "435a067570ae3a3726bc0abcfffbc8e5879d21894bc26d8329d36999970c6622"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62774dc7f8082a946fab059bd8944af4abc149bc14c49060311b2176a5bad1b2"
   end
 
   depends_on "go" => :build

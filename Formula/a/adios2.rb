@@ -4,6 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.10.2.tar.gz"
   sha256 "14cf0bcd94772194bce0f2c0e74dba187965d1cffd12d45f801c32929158579e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -12,15 +13,12 @@ class Adios2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "544926ccf1bc80eb6a66cadfbcd50452ca3ac79159dc50dbddc5ccf68c78a64d"
-    sha256 arm64_sequoia: "caf49db76e7ccd69679a897c33cae89ce8f6c3791b37e1e9e64f44b5ed1d3681"
-    sha256 arm64_sonoma:  "f1d5cea886ed8cd5f968a842aca88fe6a45ecb2bce617aec503b52bed5da7ed9"
-    sha256 arm64_ventura: "b1f76254ef5027a9f7b4975d78f978e08cb83fbabccf3f1c563b561ab894a27e"
-    sha256 sonoma:        "14dcca08d1cc8ec5c34bbb9fd652e67614fa300dcc4cc1764279021ebe4eb1d0"
-    sha256 ventura:       "7f46f4a0b3a3f652c98ad7ee92c0b7d12c32dd3ea35c990092f3194abc92940d"
-    sha256 arm64_linux:   "4d6e615acfb2490c76cf4489959c40fbcda944ed33ae983157a2cac241de6e6f"
-    sha256 x86_64_linux:  "9496dbfe1f33f6ee68f69692c979e083525425da1e3a8d220eab5d19f82e6a2b"
+    sha256 arm64_tahoe:   "fb192ffe0a0bc23c4cc56526c9a2b8346e53e5260874cc300bb0a065aeae7418"
+    sha256 arm64_sequoia: "61c5f21327298bf1f22d9ecbe76cf663de26fb497d6f627cca61f81757c434ba"
+    sha256 arm64_sonoma:  "125c9a9dd992a8fd49fd86481dba54839837a820b65cabc554661a3214c624ef"
+    sha256 sonoma:        "5ee13af0760b4bd1832c934036fda68e64ed02b6f0bbc16cab9b7b47205cb1e3"
+    sha256 arm64_linux:   "8d3519f6da5495d9fae6f5a090444aaaebbca838dabc5516d52adf12a4ee1109"
+    sha256 x86_64_linux:  "cbf4cd5b3bb96bb85cc986f7c74a53323c7b04fde0ab265c30e1dfca5f789b08"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +33,7 @@ class Adios2 < Formula
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "pugixml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "sqlite"
   depends_on "yaml-cpp"
   depends_on "zeromq"
@@ -55,11 +53,14 @@ class Adios2 < Formula
   fails_with :clang if DevelopmentTools.clang_build_version == 1400
 
   def python3
-    "python3.13"
+    "python3.14"
   end
 
   def install
     ENV.llvm_clang if DevelopmentTools.clang_build_version == 1400
+
+    # CMake FortranCInterface_VERIFY fails with LTO on Linux due to different GCC and GFortran versions
+    ENV.append "FFLAGS", "-fno-lto" if OS.linux?
 
     # fix `include/adios2/common/ADIOSConfig.h` file audit failure
     inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|

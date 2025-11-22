@@ -2,19 +2,17 @@ class Kopia < Formula
   desc "Fast and secure open-source backup"
   homepage "https://kopia.io"
   url "https://github.com/kopia/kopia.git",
-      tag:      "v0.21.1",
-      revision: "0733cb4d2a731dbb92d927f66230694e014f4df2"
+      tag:      "v0.22.0",
+      revision: "1aaf433cdc121e499ffad2f278ef7b373c07c2f1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e0ca9226b162822dfc826e71cbb0d42c88a368bc5b671e19e639523a13ece555"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fc1b7cf8b07306bb0dc8e07549761a6a15e957aa8b9fb74fcd27383af40baa8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f0c6e7024ab0c476314f6f2371b4b23f92bfa2d53dab3773f0cf50e4ad86898"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "91ad4779a6ab5dad37b91770949cc82bfb19b506dba84a854d0bb70c158fb94a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2bbdd7a23f7dda2d8f399d20f7534530f122d04ffa8076aad8c11e26e11e9047"
-    sha256 cellar: :any_skip_relocation, ventura:       "6bafcd38d320e1796a1703bb5b9170968a2e4abffcc2e910961376779b471c8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "becc2c114994a80330571cf7a5dbc943c81b93cf7fedd4524252309f381cd5cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "deede3e623d80038a966edbedfbdb208c9cddba64c2e7cb3f7a722a7c025dcec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "87876e5f9da88ea16acad18f9f58efa4ad64fd00b8f252dca5ae270f73f624b8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b8b8d86aa48cfbd2f77b49abbd09fad512ca881ec03e72946c53cd924aa84fc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf2cbc362aaa788f0b0a5418508cda662c59bda335c22eec38f5cd5baf4d2c0c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c64486f39db12e0efc7c7c1e5fcf1b23b58d9849af9d11744d95133547ce83a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a92b75974272f25f52c6097b8b60a4bedca28033123f306aba971dd992faa03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d06a75b93d2a339990b385ea54adbf34faa6d1a33630d2f354c918496f31dca"
   end
 
   depends_on "go" => :build

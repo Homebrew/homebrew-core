@@ -1,9 +1,9 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/community/"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.6.15.tar.gz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.6.15.tar.gz"
-  sha256 "e35513ee15995e3c71adfd8891b9f33522896c70b3baa2ed9a23c7a42c4d7bde"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.6.16.tar.gz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.6.16.tar.gz"
+  sha256 "05cb5fdf1ea33fcba719580b31a97feaa019c4a3050563e88bc3b34675e6fed4"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -12,12 +12,13 @@ class Openvpn < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e8fcc37e8cf1663a60bd2a828e45845953c3ed4c350dd82e96521fec9180c37b"
-    sha256 arm64_sequoia: "3307ef632ab113476a520edcab9bc50ca2901539ff205e2e2e76d4fed47af504"
-    sha256 arm64_sonoma:  "3e501aedc1dc2ee77461fd0af0e36426aa0551e0a5dd5b295b81b785cd061cf3"
-    sha256 sonoma:        "90822c5b010f1d64ceb4e4de8660f4925caf14386d468e3a80ed3fb717a27b5d"
-    sha256 arm64_linux:   "87b5366d804e3e29e68de5405bd8e480e02c2c573ca66c6f2281ce80069b845c"
-    sha256 x86_64_linux:  "ba2c4d6ca2615767b12685faa21ef9e03da963f686787796c4c2855c031559e5"
+    rebuild 1
+    sha256 arm64_tahoe:   "fa7092eb008e7d36a0ff45de0539942ec851c99d1014b99d4422f7755a72825d"
+    sha256 arm64_sequoia: "bb2995355cd9e517d2fe31b2af5612787c461e4329a554aaa47feb15ff660d32"
+    sha256 arm64_sonoma:  "ed795cbd79ad267632f40c3c0279e901cbed53287540735e277e8028ac3f414f"
+    sha256 sonoma:        "cf58fc0655034777ef08bd8cce6abff0ab6bb7121de7649dca2922b32021953a"
+    sha256 arm64_linux:   "fd4d9f9a4448e5cd828a863ae3c8d0440c55e2cb6b248f3ee2cf8622417f3c73"
+    sha256 x86_64_linux:  "b3d818f3be09ec0ceca56a8562663e0bb3ee88a80b932b6d01d44df3f4bbcb80"
   end
 
   depends_on "pkgconf" => :build
@@ -56,9 +57,7 @@ class Openvpn < Formula
 
     # We don't use mbedtls, so this file is unnecessary & somewhat confusing.
     rm doc/"README.mbedtls"
-  end
 
-  def post_install
     (var/"run/openvpn").mkpath
   end
 

@@ -1,9 +1,9 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.10.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.10.tar.xz"
-  sha256 "db7fab7cce791e7727ebbef2334301c821d79a550ec55c9ef096b610b03eb6b7"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.11.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.11.tar.xz"
+  sha256 "91bd23c4a86ebc6152e81303d20cf6ceaeb97bc8f84266d0faec6e29f17baa20"
   license all_of: ["LGPL-2.1-or-later", "GPL-3.0-only"]
 
   # The download page links to the directory listing pages for the "Next" and
@@ -30,14 +30,12 @@ class Gnutls < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0875a762fd9b56bff8c713e6d7679ffca27f5fa91b553646c8ecdedde243fd0e"
-    sha256 arm64_sequoia: "62b817f56075b97caddec5777728d0851de6d126a12458914e4a90f6f79a1312"
-    sha256 arm64_sonoma:  "d43ad0fa7a031d4448e9069b7292ab06c31b80fb87ce399b7a93e4e6e045b2c4"
-    sha256 arm64_ventura: "27dd9084ba8330e173ffd31d42d1dbb8df358c5f624a6b0cc4cccf077515d2a3"
-    sha256 sonoma:        "c51042eeda15d908411b453fa586237f046c2f4fb7f4083b43f454df95440291"
-    sha256 ventura:       "3391918b37750fc4b77247355c1caad1d1e67adcf0879301d70c4949b42eb4d1"
-    sha256 arm64_linux:   "23512f82143b660e68c0c00bd70e37a9dfc35a43d293492dd687b3f4a8194633"
-    sha256 x86_64_linux:  "6dc643f51d58c12c025c77234c6498b944c30bcd1bd22134df11fa4f6ac2dade"
+    sha256 arm64_tahoe:   "2cbd8812266cf05ac88579e45a894a55b998545676af011c7188fe9bee1279ca"
+    sha256 arm64_sequoia: "3db727d6ba2062832d38f6be44abf7397c828980e863d6d29403391158fd85c9"
+    sha256 arm64_sonoma:  "f3716f6776cd773452916736e2708ab2bc4201d7cf81ac416f70ee84dade1336"
+    sha256 sonoma:        "29ff0688784fc99571770c29bafa840805b4e425c55b5389c67ba2045716656a"
+    sha256 arm64_linux:   "87ac2e11290bed00b2487e39971c840b75ce555209f78d4ea840f1971cac945e"
+    sha256 x86_64_linux:  "35e2bf9bf64a839746860aab8554bd9e3c2069cc3138f8c06add6a9444f81555"
   end
 
   depends_on "pkgconf" => :build

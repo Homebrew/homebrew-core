@@ -1,20 +1,18 @@
 class Scilla < Formula
   desc "DNS, subdomain, port, directory enumeration tool"
   homepage "https://github.com/edoardottt/scilla"
-  url "https://github.com/edoardottt/scilla/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "244a15a966a9be849ac7f514d0b69137220d920a92a37126fbcf320e642e7e4f"
+  url "https://github.com/edoardottt/scilla/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "bab7c82be69f9a1978913480da1350fec4351fc689d7e7001e8bd455a7f88716"
   license "GPL-3.0-or-later"
   head "https://github.com/edoardottt/scilla.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b6651d35468758abd4e3705929076950a01f8bde061a27e8bf2e6133f51fb69"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e579131e2c41b493e3df24190c43ba8ca77214825c5dc3dca653b6c9a795ec3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e579131e2c41b493e3df24190c43ba8ca77214825c5dc3dca653b6c9a795ec3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e579131e2c41b493e3df24190c43ba8ca77214825c5dc3dca653b6c9a795ec3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3fbe9853916a2c00f9b47249d7a96ec65401d85363d148b1462ee85c7e445a8b"
-    sha256 cellar: :any_skip_relocation, ventura:       "3fbe9853916a2c00f9b47249d7a96ec65401d85363d148b1462ee85c7e445a8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b06c4575cabb0d84000fb7224481cd7cf0c4b2328ee12e59bb50ea5efd36870b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c97bdc1e96d5caca0a9b9e7dff9b28ec3d497d58d751d524bda25b89e9194d4a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f77581a0e63001d1f38c87d57f09ef186c95d0bbadfc6b6cdf31f12708d6b9ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f77581a0e63001d1f38c87d57f09ef186c95d0bbadfc6b6cdf31f12708d6b9ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f77581a0e63001d1f38c87d57f09ef186c95d0bbadfc6b6cdf31f12708d6b9ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "76fcea605faab109efe99cdfce6eda91dc0afd5680cb4e5cc362adabcce9dbce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "896627aa48caee970e920cdaac1d1e9f381aef84052987209e87120afb96502f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc7cad92f1b1def9e4f2c0b74c7c096b2d9a43aabd4bc99d2e8005a8eca39d3b"
   end
 
   depends_on "go" => :build

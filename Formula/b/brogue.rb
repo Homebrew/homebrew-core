@@ -7,16 +7,13 @@ class Brogue < Formula
   head "https://github.com/tmewett/BrogueCE.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:    "540751f5a285ad8340068b1cb9432f65cd8744ce629819c3f3938fe9903850d6"
-    sha256 arm64_sequoia:  "b2d2a8e6b65866cfbfba2eea171268017cb44f234dfdd85bd1943b5edcb8827f"
-    sha256 arm64_sonoma:   "4d5ec621a099c5016345730c32c48664cab885537d7633f00fa39fe930b905da"
-    sha256 arm64_ventura:  "1aec31252a24b39d4be968077507a343210733dfd068f31331e7dc7f5909a3a7"
-    sha256 arm64_monterey: "630b47e808445a9b131293d6e5637889d20c7168634981bd557b7df079d8c0d9"
-    sha256 sonoma:         "0dc69856645329fa45cd9011a59c84260b00f05ad5fbe2a2e22f0f6ce2544f9b"
-    sha256 ventura:        "9c7ee6f9de30fa3507aad6c3fbe863d0c5beea2e06ffdf34774974a83b4903b1"
-    sha256 monterey:       "b84fd290fb2f6e5ed03f24df0cf85e0ec4b3c094e9af51271dc8ae2ad23ae0b2"
-    sha256 arm64_linux:    "e32ab428d1e157b79b5f8837c820bff2573694ace1cbe4b258ba595171884dc6"
-    sha256 x86_64_linux:   "024fae31f907fa7176729178e4b7e442d9f5ea9a978be5bffaa8bf20c5c50006"
+    rebuild 1
+    sha256 arm64_tahoe:   "3e1dd9e90a669345ef16c27ef510e3e0ccf2200e8da4f3efbf0a92e5dd1af3e0"
+    sha256 arm64_sequoia: "7967fc966d7c139dfb78b937b92b0fb450ecf8a83adeaea333db7e89e1711f78"
+    sha256 arm64_sonoma:  "1211a93d5c0cf7b62221dfc15d3dfc0b327ac629efed065f2cd86eab238716b0"
+    sha256 sonoma:        "ff9f19efa068b04c6656f13b4d92245867320996d3c75cd395a35ad086e70654"
+    sha256 arm64_linux:   "fe2394596cd3dc627deebd97e7d627080614e1677d4d870cafd14b1ebadd011b"
+    sha256 x86_64_linux:  "0e6146845d9e59936b44983f2767d45aa90c19d71bb342dd005bbc46c0908bd3"
   end
 
   depends_on "sdl2"
@@ -24,32 +21,19 @@ class Brogue < Formula
 
   uses_from_macos "ncurses"
 
-  # build patch for sdl_image.h include, remove in next release
-  patch do
-    url "https://github.com/tmewett/BrogueCE/commit/baff9b5081c60ec3c0117913e419fa05126025db.patch?full_index=1"
-    sha256 "7b51b43ca542958cd2051d6edbe8de3cbe73a5f1ac3e0d8e3c9bff99554f877e"
-  end
-
   def install
-    system "make", "bin/brogue", "RELEASE=YES", "TERMINAL=YES", "DATADIR=#{libexec}"
+    # Use HOMEBREW_PREFIX path to get sdl2_image headers
+    sdl_config = HOMEBREW_PREFIX/"bin/sdl2-config"
+
+    system "make", "bin/brogue", "RELEASE=YES", "TERMINAL=YES", "DATADIR=#{libexec}", "SDL_CONFIG=#{sdl_config}"
     libexec.install "bin/brogue", "bin/keymap.txt", "bin/assets"
 
     # Use var directory to save highscores and replay files across upgrades
+    (var/"brogue").mkpath
     (bin/"brogue").write <<~SHELL
       #!/bin/bash
       cd "#{var}/brogue" && exec "#{libexec}/brogue" "$@"
     SHELL
-  end
-
-  def post_install
-    (var/"brogue").mkpath
-  end
-
-  def caveats
-    <<~EOS
-      If you are upgrading from 1.7.2, you need to copy your highscores file:
-          cp #{HOMEBREW_PREFIX}/Cellar/#{name}/1.7.2/BrogueHighScores.txt #{var}/brogue/
-    EOS
   end
 
   test do

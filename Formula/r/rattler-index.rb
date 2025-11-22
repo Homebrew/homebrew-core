@@ -1,8 +1,8 @@
 class RattlerIndex < Formula
   desc "Index conda channels using rattler"
   homepage "https://github.com/conda/rattler"
-  url "https://github.com/conda/rattler/archive/refs/tags/rattler_index-v0.27.1.tar.gz"
-  sha256 "f96cbbefacad97438882d08835f4a419d38c0c8383cfbc37e12359cc31d5a859"
+  url "https://github.com/conda/rattler/archive/refs/tags/rattler_index-v0.27.4.tar.gz"
+  sha256 "d3f5a815c8648daf75f4e253bc71504db669ef27db34b18cabf5b39798a1352a"
   license "BSD-3-Clause"
   head "https://github.com/conda/rattler.git", branch: "main"
 
@@ -12,12 +12,12 @@ class RattlerIndex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "25598b75c9dfa2f6d55349b58d8984f07a1acb4f70b4bc235c954aa1732c6ab0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4bbad93ad0b769f402c0b84f474a9c4cecdd21d4a7538134b9212e87d092cf1d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "977710e9680974784c3bcdaaa4d20a3b51eb4d2cac979fbcb95d39369d0688b1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "df3707ca94244ac015543c5565947ac3b6366103e08fafad9eab867b8b458b3c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f34c984ac90b766a603ba94a101fa314174b32bcedbdd9dd291a5561a7869e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3cc822641fd234b7af208c9836e4fdc777995e16326249633c769c6a8eaace6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "634c3674f45bc104469dac4e0b5dfa988dff38312465b925c0ed4a9637cb472b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8f6d2543050e73268e2e0a0629a790263bb43ee5cfcaaffc032a96f740da9cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef611c38dab0a36430934fa60478501666ca6005d2b7d8f0c3d6e1c67c51ed60"
+    sha256 cellar: :any_skip_relocation, sonoma:        "edc136598664594c673341bf68f382bb421dfd45cf7a1f3345fd111143eb0253"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9cbcfb3ad578ce56672f35c3202afba39cfd485194c2eae90fbbff416d33fcb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a19feadb39e4a8fd73e84738d20694740847034928d3c119e2104ab76c8f788"
   end
 
   depends_on "pkgconf" => :build

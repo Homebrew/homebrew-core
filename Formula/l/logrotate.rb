@@ -6,15 +6,13 @@ class Logrotate < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "bffe194962061413d87ebe10d449692a3652c2580946d1fa632de3d654bbd488"
-    sha256 cellar: :any,                 arm64_sequoia: "90ddfc2708f68326d05446c86b053187949aeaa8c3ed5463e7e827018a9ada51"
-    sha256 cellar: :any,                 arm64_sonoma:  "0439009653f0b4d9a2c3e0d298e4ffd2f784757c4f185dd6e6b87e0afe3e35d0"
-    sha256 cellar: :any,                 arm64_ventura: "9526d7d94fbbf4d77d45a5b1c9b997c1f9a837479ed26e19e0dace4ef8fe0f8b"
-    sha256 cellar: :any,                 sonoma:        "0cd0fdec8b7db339f1b64a71581284c69473956763a0cae5fcd7f79ae8d488fb"
-    sha256 cellar: :any,                 ventura:       "631dce1810fd6010e337ad777501f7806f607083069d2bb493b17f9fa760a073"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c047f99df0fdd830943259ac9e82e6313e759b9e6bd9305dd838424c594861f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcd529f16cb51591df2b5697669cba2847f8230dda31a92a36718479a78c7913"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_tahoe:   "956be5c37ef380ddac0212fb5016e5d4a6baaefb6abe55d081eb8d130e3c8790"
+    sha256 cellar: :any,                 arm64_sequoia: "f23f3fac084d295e4c386d0e0a2a95af2b54adfb732aed1549f2ecf7fb1738e2"
+    sha256 cellar: :any,                 arm64_sonoma:  "29629b2a739cf74d95eaf260872024ffeaf7b194f461d74d20cd07afa4d7361b"
+    sha256 cellar: :any,                 sonoma:        "83bb9be87509907cbb33a7ae78a4ff40ac00ac9da01f99d85817d2391cb2439f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a65380b56872b8ac8acbedc3400a24c32b278b2e241f631bbeb88e7b485b1b0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d507205d500b30fedd4f60fccb2e4667985bfaf9348b26b641ff357ce89a442b"
   end
 
   depends_on "popt"
@@ -28,9 +26,7 @@ class Logrotate < Formula
 
     inreplace "examples/logrotate.conf", "/etc/logrotate.d", "#{etc}/logrotate.d"
     etc.install "examples/logrotate.conf" => "logrotate.conf"
-  end
 
-  def post_install
     (etc/"logrotate.d").mkpath
     (var/"lib").mkpath
   end
@@ -49,7 +45,7 @@ class Logrotate < Formula
         copytruncate
       }
     EOS
-    system "#{sbin}/logrotate", "-s", "logstatus", "testlogrotate.conf"
-    assert(File.size?("test.log").nil?, "File is not zero length!")
+    system sbin/"logrotate", "-s", "logstatus", "testlogrotate.conf"
+    assert_predicate testpath/"test.log", :zero?
   end
 end

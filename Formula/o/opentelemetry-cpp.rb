@@ -1,19 +1,18 @@
 class OpentelemetryCpp < Formula
   desc "OpenTelemetry C++ Client"
   homepage "https://opentelemetry.io/"
-  url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.23.0.tar.gz"
-  sha256 "148ef298a4ef9e016228d53d7208ab9359d4fdf87f55649d60d07ffacc093b33"
+  url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.24.0.tar.gz"
+  sha256 "7b8e966affca1daf1906272f4d983631cad85fb6ea60fb6f55dcd1811a730604"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
-    sha256               arm64_tahoe:   "ffd38b9cad0bb741fd6d9f064b6b69cf89bfc496d58b7a74bd349ae9d60a3fa0"
-    sha256               arm64_sequoia: "3a72a3e2275a56315515902b49d0dc90e1226666c2115468cd49a04a1badaeea"
-    sha256               arm64_sonoma:  "dc3f551f6e0e5fa085e21a21abd557e30cb2b490eaba60eaf478a2121ae3345e"
-    sha256 cellar: :any, sonoma:        "462fede75e93811e941ecd4bddd617c0909f835377f948977983c63fd9e5d1f1"
-    sha256               arm64_linux:   "276e5535b40b050e3c5f69bb5fca674c131e693a597d8de82b41acd723cfcfa5"
-    sha256               x86_64_linux:  "9eab63414908c01e72c41ddefa58347a4fe801492c72c183d6008dd269502edb"
+    sha256               arm64_tahoe:   "2b034b5ac56424fd068fd3f380ff46f77ee6d493421dcb60d701b83c6bcd5940"
+    sha256               arm64_sequoia: "1892fb97e9dae24d1f4c897ad75629c8be6c2c57092de5ec7d207f660d8c2efa"
+    sha256               arm64_sonoma:  "c8df91c0ebb525721034c5e876d406cae43061cffa2faf9c9290114ccf6ccfb9"
+    sha256 cellar: :any, sonoma:        "3502a89952657ae481c9cf3d2ab99f1363f112676691be48f9a9b3977d22a05a"
+    sha256               arm64_linux:   "6063b97fbdc96f60a63e1198a807dbd6bd76c825aac0655b1b64aaf8006540a2"
+    sha256               x86_64_linux:  "fa8af55e68a6ff9460cc16aa2ea2118d13912ae6ddc22c25ac7e2f1b79a8ca33"
   end
 
   depends_on "cmake" => :build
@@ -32,8 +31,8 @@ class OpentelemetryCpp < Formula
   end
 
   resource "openetelemetry-proto" do
-    url "https://github.com/open-telemetry/opentelemetry-proto/archive/refs/tags/v1.8.0.tar.gz"
-    sha256 "057812cab50122c0fd504aae57b0b58424a5ec05d1b07889814bdfc7699abbe7"
+    url "https://github.com/open-telemetry/opentelemetry-proto/archive/refs/tags/v1.9.0.tar.gz"
+    sha256 "2d2220db196bdfd0aec872b75a5e614458f8396557fc718b28017e1a08db49e4"
   end
 
   def install

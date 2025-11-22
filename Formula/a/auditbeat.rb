@@ -8,12 +8,13 @@ class Auditbeat < Formula
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4f155d5e839efeffbb10f5e74fcc360b26f0595d7c79e09a3e9f3691f34b6e99"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53c66a7aecb6fe5d3bb25379c2484f44dc77dc9b67de2ab2d46501fe1ad34350"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd25ee3910e069f8835de6036046bcf087066c6f4b4de6460e41897e05e0a448"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2d6d736ebd00d820ebcfcfe139397242fbe892231866f8a5688dab200da2c044"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d69a208285cad3597818104484d9023b1f16299ae3217d4fe897ebfe3aab648d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6dc13f1f2c026e59dee4fd7baccde404e48c786568b3894c2cbc1b581fad9f38"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "681bee2ce36bfb88ca263b4cf86972eed16d70897ddf3501ea5e70a496f22bd0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ca6d4b82e3151bcd5a7ba0888513fdd7c24ef96b65751199aaac5ce6266c946"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0299027033caf64de96eb1a69eff47c54440ce66d825b797b072fcbb2fd5be11"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ac675888370f397968eea777033a6cbd1a6878813227ef2381a9d1f50b71c5a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "13900f025ad4cacfec0c4976870ad8a0bb3fa8ebe62f848e900eae01f8002044"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d20f3cc08a7b9888a638ff5d4b9712bf278fd2a51306ba220fd31f81e42540cb"
   end
 
   depends_on "go" => :build
@@ -51,9 +52,7 @@ class Auditbeat < Formula
 
     chmod 0555, bin/"auditbeat"
     generate_completions_from_executable(bin/"auditbeat", "completion", shells: [:bash, :zsh])
-  end
 
-  def post_install
     (var/"lib/auditbeat").mkpath
     (var/"log/auditbeat").mkpath
   end

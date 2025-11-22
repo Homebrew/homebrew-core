@@ -2,6 +2,7 @@ class Hashlink < Formula
   desc "Virtual machine for Haxe"
   homepage "https://hashlink.haxe.org/"
   license "MIT"
+  revision 1
   head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
 
   stable do
@@ -18,14 +19,12 @@ class Hashlink < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2207e6366046061911dea71457baa29a2b6fa39b515b49963e07a27b2be49b42"
-    sha256 cellar: :any,                 arm64_sequoia: "88ce0382363f5995731d0fc498aa87d0e3a63e5e1df9dcb850f9aae11f47ce4f"
-    sha256 cellar: :any,                 arm64_sonoma:  "74702f549d40fa1f1ca50bab1bf403f99b2ed87e2ff6ae9db26ee6ac417b4668"
-    sha256 cellar: :any,                 arm64_ventura: "97f8de5f331d21b2d857282e6b3bed1d8b47fd02c3e77aedb789b9711088aee9"
-    sha256 cellar: :any,                 sonoma:        "99ef63e02f0bbb6a3e54b02319796fed5660f992ee0e1dbe9097239044ad4faa"
-    sha256 cellar: :any,                 ventura:       "f7e72d266dc1e415280ee163dcbcc8ef6802751e8469229da7c75653b621dca0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "032ad206b3a17a214c1c0d0cf8256b7882b1d962306dd8ab5ca7f39c4e3fdc99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7e70f6faae35bb958d819576c54d06d9852415cbbc5e98c8846db377a83eed8"
+    sha256 cellar: :any,                 arm64_tahoe:   "e8e5a71b5aa8517f8d5dbecc2f5ccb41b903532663ae673e1470f0bb542470e1"
+    sha256 cellar: :any,                 arm64_sequoia: "76271bda73f86f73548ee686f1cd1077d9a74c52f0efde4f691218d190f5c666"
+    sha256 cellar: :any,                 arm64_sonoma:  "1b30d3767d3eb7794776235993e1389b25aef4630bed5dd2e40a49e985983d60"
+    sha256 cellar: :any,                 sonoma:        "e5052135ebcd62e610d2e672c4461880e4b9230def0ae4d9fb73b7db703c1ac8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "56507c5d62965324d6b3d55ae92d24489ec8ddb035f1a15f35ba88bef12897b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3a48b167dff041ff2080ec6c885ff94deae5a581677117ee69dbff14af9c91a"
   end
 
   depends_on "haxe" => :test
@@ -34,7 +33,7 @@ class Hashlink < Formula
   depends_on "libpng"
   depends_on "libuv"
   depends_on "libvorbis"
-  depends_on "mbedtls"
+  depends_on "mbedtls@3"
   depends_on "openal-soft"
   depends_on "sdl2"
 

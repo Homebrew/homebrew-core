@@ -40,7 +40,7 @@ class Publish < Formula
   test do
     mkdir testpath/"test" do
       system bin/"publish", "new"
-      assert_path_exists testpath/"test"/"Package.swift"
+      assert_path_exists testpath/"test/Package.swift"
     end
   end
 end

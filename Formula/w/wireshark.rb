@@ -1,11 +1,10 @@
 class Wireshark < Formula
   desc "Network analyzer and capture tool - without graphical user interface"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.6.0.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.0.tar.xz"
-  sha256 "ab016463062bb635285b9678dd45ddd84c65938911fd40b3cca9a903a08ad8d9"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.6.1.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.1.tar.xz"
+  sha256 "5f43055db213e16aed6a064a8b4fdb56092106f18c19e8890482c058b0a1dd85"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
   # Upstream indicates stable releases with an even-numbered minor (see:
@@ -16,13 +15,12 @@ class Wireshark < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "7ad14f77f29a9e1d52d89200642eae9bbaab3a330858ef065b41de57f95cd018"
-    sha256                               arm64_sequoia: "6f039e5f2958e20c53ca46a4eb58813b4fd7c935428ec72aaa5aeaf589bfad2d"
-    sha256                               arm64_sonoma:  "7f15de48c4835aa3bc4b0ff03c3e0243189fbf2d017d61f6f0425722890b1cbc"
-    sha256                               sonoma:        "cf033aa8326c5863e87664032f5a94b03d83ca86a7f955c70bd304291241b807"
-    sha256                               arm64_linux:   "4080025152fbbcf1daed0a13b83f669cf1d2bda0fcc1211632d80d0706738284"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "072bcdacf366270439295af7cb9cf9b59ebcfcca84a5b660755bc80ec09ec479"
+    sha256                               arm64_tahoe:   "8f73f7028fa45c2d11ffa260eec1c615d7e2740e9cf3732f02275ca1e3c8dfcb"
+    sha256                               arm64_sequoia: "e5a0162813428f6880a17cdf2bd1f8680c30500e17ff1b0fbe0b25e293874d40"
+    sha256                               arm64_sonoma:  "2fb18c5bd5a67892e4b4dc0933caa92544d44e75f097fb38b2bcdb6a71b5f48a"
+    sha256                               sonoma:        "2cb08e7ad5d5edf834b2096397c8173d0fec606c8d7e0b5b594ffc466f568f0e"
+    sha256                               arm64_linux:   "6f14763f130455e27f22a279fda16345a176b7d54f26a17c47fface7894e9ea8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0eb3105c3d0d5b0b20a180e0cdfdc0267cb3cba95105a1a99880757f7e1bfdd"
   end
 
   depends_on "cmake" => :build

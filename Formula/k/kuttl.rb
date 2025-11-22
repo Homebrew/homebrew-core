@@ -1,20 +1,18 @@
 class Kuttl < Formula
   desc "KUbernetes Test TooL"
-  homepage "https://kuttl.dev"
-  url "https://github.com/kudobuilder/kuttl/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "45777fdca82d14030b9661a2819b15e6380a9f4b0f8bbcfd826d8b21ffae7803"
+  homepage "https://github.com/kudobuilder/kuttl"
+  url "https://github.com/kudobuilder/kuttl/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "99d701c0fd9966e4ab77138a69137ec1f4d860f4fb6f6a9a89ef9141cb26eb08"
   license "Apache-2.0"
   head "https://github.com/kudobuilder/kuttl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "55b42b652be9f3a6aa0d811a7e501d67970c8d96e155a30f622b3291fd5116b5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a200c41971635ed7a3653587e733f9ba432eef06741e418c9ca76ff8f8164d54"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a200c41971635ed7a3653587e733f9ba432eef06741e418c9ca76ff8f8164d54"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a200c41971635ed7a3653587e733f9ba432eef06741e418c9ca76ff8f8164d54"
-    sha256 cellar: :any_skip_relocation, sonoma:        "02527ab79b8757cbdef026cf010d835ab249bcc7eef92c23900490afa334521f"
-    sha256 cellar: :any_skip_relocation, ventura:       "02527ab79b8757cbdef026cf010d835ab249bcc7eef92c23900490afa334521f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdd0cd38ae1c915ac7a95972ee3a8df7d04fc953f7dc596b4ff7b80c9416b81d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bda78e3404303c5bfcdc8f9a7d0c9b39c1315be6bce046589de118146e587712"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5fc83b23e0dcf3a43ccb3d9aa0defd614acef5c50c526c41cf08d51fce38aa29"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eae013c44eb16040c6f70a80d53ab0182f54ccd988d063c619dad7bd8dd862c1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c90198c1580096be4519f8f66dafdb9b852c1f9e7eb2dcf28ee7a616eaa4af73"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60243331a7317009607264bb242a181c5507ebd8b8f76e262f9e58a755f75df9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0af7eba6777470a949af6c589f1319f2f2bca1bae21c2a2067b9be81fec721a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "944893f74680dbf82a27b6ca83d06825631cf5f573bece00a5336f782f74b43f"
   end
 
   depends_on "go" => :build
@@ -24,9 +22,9 @@ class Kuttl < Formula
     project = "github.com/kudobuilder/kuttl"
     ldflags = %W[
       -s -w
-      -X #{project}/pkg/version.gitVersion=v#{version}
-      -X #{project}/pkg/version.gitCommit=#{tap.user}
-      -X #{project}/pkg/version.buildDate=#{time.iso8601}
+      -X #{project}/internal/version.gitVersion=v#{version}
+      -X #{project}/internal/version.gitCommit=#{tap.user}
+      -X #{project}/internal/version.buildDate=#{time.iso8601}
     ]
 
     system "go", "build", *std_go_args(output: bin/"kubectl-kuttl", ldflags:), "./cmd/kubectl-kuttl"

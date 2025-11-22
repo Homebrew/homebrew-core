@@ -1,20 +1,18 @@
 class KubectlRookCeph < Formula
   desc "Rook plugin for Ceph management"
   homepage "https://rook.io/"
-  url "https://github.com/rook/kubectl-rook-ceph/archive/refs/tags/v0.9.4.tar.gz"
-  sha256 "178b12b7beb225243cdedc7bb43b7ae7b475c9ab365b23f4a785d5a4ff75042f"
+  url "https://github.com/rook/kubectl-rook-ceph/archive/refs/tags/v0.9.5.tar.gz"
+  sha256 "877ca57eeefd44b1776b335dc7ea36d8431c268f37a7b77274e0f286a6e6053e"
   license "Apache-2.0"
   head "https://github.com/rook/kubectl-rook-ceph.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c54b1697213c861841f525bc7bee6513ad6044c07274d34e89501d128028309b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66846017ec19f2ad1b58b8124eb7a9ebe8a4974ae2e56258b28ab46d159630e7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66846017ec19f2ad1b58b8124eb7a9ebe8a4974ae2e56258b28ab46d159630e7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "66846017ec19f2ad1b58b8124eb7a9ebe8a4974ae2e56258b28ab46d159630e7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "de8ab2a58f43a6ef500d7e1606c56c5a01f946661195e8d739676f50cceb9fc9"
-    sha256 cellar: :any_skip_relocation, ventura:       "de8ab2a58f43a6ef500d7e1606c56c5a01f946661195e8d739676f50cceb9fc9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e990f9339e5d371a626b29f7056b5c0e1dab60a0729214ac1f51d739c99d683"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "417f22e25f795938c98bd6ce4d979aaa043696f3305f4ff2579a9a5d8ff46e61"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c49feed78f61fab9f69789adc602205c3f2fe27567c7902b3a50e1a6a35daa12"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c49feed78f61fab9f69789adc602205c3f2fe27567c7902b3a50e1a6a35daa12"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c49feed78f61fab9f69789adc602205c3f2fe27567c7902b3a50e1a6a35daa12"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fd8066e09c94c045b292558de6418d77f3ba833b4722dee51f8cd95a35eef37f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5a90b3d9ece647a7c2b7479dc4b7ed8369803ad86b3c67dd29e36101c1ddd3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e286057ec852ee1fff033e4904fa1c485c7186dc52bbac039a7ee93b91def35e"
   end
 
   depends_on "go" => :build

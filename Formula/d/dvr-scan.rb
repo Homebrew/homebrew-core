@@ -11,12 +11,13 @@ class DvrScan < Formula
   head "https://github.com/Breakthrough/DVR-Scan.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2e210a397dde0c60afe0ee0704a1852cb54eaaec8f553976e02fa06b8819f554"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "04f98810241dd317c2cb88282a9365cb1154655b4f305ecffaffc28b3a77c59e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cfc11e4b50e9e33fcd0a662600a5e5e7dc74b30299b0223dd8f3fc6c7c09c840"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c98c651cc27bec9c513815e64d3778a2a0f50e59bdfd73f70aa0628bde41a8b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ec6338f1139b8ccda025f75825630660324af33254d466dce066ce2465a321d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6ad7f441999cc36e830493ec9f8b41d1384275df7de6881f1a6f949d27e1363"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec1848f4c88957fcc74e970674d1d7291346d54514683961368af30db3a95451"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c851d508df6be4bcb569dd5111d6c5e5908bcda43ae52ddcb28e9d1bb9bf1b58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "26f70c09cdebe43e4adbbc50901556d05dc899bf214205cb51555a9aeaa43794"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6bcad6f56a72c1e0b0274bd6fa89cde2f13008ebdc274f5bf951fff7bf268c70"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b86ef516ae043d0a12206bac175ef23317e7bc92de1072af282abfe28941398a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63eeafe93e306fbee7c5d22e7391749db37e4f25e734efe98905a7bdc0175846"
   end
 
   depends_on "cmake" => :build
@@ -39,8 +40,8 @@ class DvrScan < Formula
   end
 
   resource "cython" do
-    url "https://files.pythonhosted.org/packages/4d/ab/4e980fbfbc894f95854aabff68a029dd6044a9550c480a1049a65263c72b/cython-3.1.5.tar.gz"
-    sha256 "7e73c7e6da755a8dffb9e0e5c4398e364e37671778624188444f1ff0d9458112"
+    url "https://files.pythonhosted.org/packages/83/36/cce2972e13e83ffe58bc73bfd9d37340b5e5113e8243841a57511c7ae1c2/cython-3.2.1.tar.gz"
+    sha256 "2be1e4d0cbdf7f4cd4d9b8284a034e1989b59fd060f6bd4d24bf3729394d2ed8"
   end
 
   resource "platformdirs" do
@@ -49,13 +50,13 @@ class DvrScan < Formula
   end
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/ab/dc/6d63019133e39e2b299dfbab786e64997fff0f145c45a417e1dd51faaf3f/pyobjc_core-12.0.tar.gz"
-    sha256 "7e05c805a776149a937b61b892a0459895d32d9002bedc95ce2be31ef1e37a29"
+    url "https://files.pythonhosted.org/packages/b8/b6/d5612eb40be4fd5ef88c259339e6313f46ba67577a95d86c3470b951fce0/pyobjc_core-12.1.tar.gz"
+    sha256 "2bb3903f5387f72422145e1466b3ac3f7f0ef2e9960afa9bcd8961c5cbf8bd21"
   end
 
   resource "pyobjc-framework-cocoa" do
-    url "https://files.pythonhosted.org/packages/37/6f/89837da349fe7de6476c426f118096b147de923139556d98af1832c64b97/pyobjc_framework_cocoa-12.0.tar.gz"
-    sha256 "02d69305b698015a20fcc8e1296e1528e413d8cf9fdcd590478d359386d76e8a"
+    url "https://files.pythonhosted.org/packages/02/a3/16ca9a15e77c061a9250afbae2eae26f2e1579eb8ca9462ae2d2c71e1169/pyobjc_framework_cocoa-12.1.tar.gz"
+    sha256 "5556c87db95711b985d5efdaaf01c917ddd41d148b1e52a0c66b1a2e2c5c1640"
   end
 
   resource "scenedetect" do

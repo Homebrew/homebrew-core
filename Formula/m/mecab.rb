@@ -50,6 +50,8 @@ class Mecab < Formula
     assert_equal "#{HOMEBREW_PREFIX}/lib/mecab/dic", shell_output("#{bin}/mecab-config --dicdir").chomp
     return if OS.linux?
 
-    assert_includes (bin/"mecab").dynamically_linked_libraries, "/usr/lib/libiconv.2.dylib"
+    require "utils/linkage"
+    library = "/usr/lib/libiconv.2.dylib"
+    assert Utils.binary_linked_to_library?(bin/"mecab", library), "No linkage with #{library}!"
   end
 end

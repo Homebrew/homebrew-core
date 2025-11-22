@@ -1,18 +1,18 @@
 class RubyLsp < Formula
   desc "Opinionated language server for Ruby"
   homepage "https://shopify.github.io/ruby-lsp"
-  url "https://github.com/Shopify/ruby-lsp/archive/refs/tags/v0.26.3.tar.gz"
-  sha256 "5e0ab4f3b1f03782fc9f5b199913f656f51bf2accab102622fbcf39261b3266e"
+  url "https://github.com/Shopify/ruby-lsp/archive/refs/tags/v0.26.4.tar.gz"
+  sha256 "ee9765866d2c4e843acf3b434a332142513bba4ada54d30fd68888a1a60672c1"
   license "MIT"
   head "https://github.com/Shopify/ruby-lsp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "aaa8bd49b3ecbc9d86e16ffbe6c8c300ef26fc17e94a861eba341b7f1a5c9dde"
-    sha256 cellar: :any,                 arm64_sequoia: "e062d564cf1f1f535999888ca7b098487a9357bbe4fe011459f588640269c19b"
-    sha256 cellar: :any,                 arm64_sonoma:  "09eedecd8512083b14515ce42bbca65424f905d2206e5d069e9243711807a029"
-    sha256 cellar: :any,                 sonoma:        "6398ac0fab4fc6cf866372f2c8a58d0462203b51e2e5f8ec2b8ba4723d6a9eee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb06e887494a9f599a75e2c12f8e440799f5103bf54052d6ae2fdf5cb011aff2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e184809509e4adb3ddea6f736b13d07b27a3b318454221701d744210b8bc5a9"
+    sha256 cellar: :any,                 arm64_tahoe:   "03eb830ae5d95418fadac01f8d66ac151438154d6ff9b7ebb56f8b3dbf91cc75"
+    sha256 cellar: :any,                 arm64_sequoia: "6593266c6e540f23a77836804953eed577c54bb10f9d56448f91838294672fe4"
+    sha256 cellar: :any,                 arm64_sonoma:  "72ecdb56d89268de71c9e7e1009828eba6eb84f72bcd01b412e14d6db66b5dd8"
+    sha256 cellar: :any,                 sonoma:        "e549c74ac122f852ca7c1d5fe142411d6013ebdfae40bb67f6ac3a31d8f2df97"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3de5e2dbf7725a9259a231ac6f592d332d11af0ea3c3d4ff45886f6df35b6b8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "235b393ec63d2f23007c6cae2553730212214a2d8f6a14833e0555f96d3e6756"
   end
 
   depends_on "ruby"

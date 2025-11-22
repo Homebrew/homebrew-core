@@ -3,19 +3,18 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/07/fa/25cfa71d899cbdc25affcc2327c8a5deebb836e15f71736ac4724a615ff2/cycode-3.6.0.tar.gz"
-  sha256 "eda03190995542f3635088bf69ca41af45c8831006043810a9e9fedadd2feaef"
+  url "https://files.pythonhosted.org/packages/2d/38/f9844048d071b8ed0728290148e817350a84d27855af4b566c721177fe34/cycode-3.7.0.tar.gz"
+  sha256 "461eb350722c2721d93bd18fbabb92f7e6dd1bd508e74f23f0cce8ef326a6c6f"
   license "MIT"
   head "https://github.com/cycodehq/cycode-cli.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "a0d95c594cd5082cb6bad90a85009b4e8352eb92d659cda9807599f73d28f68f"
-    sha256 cellar: :any,                 arm64_sequoia: "551774705d5bd35ff684a8494366790cd8dd6ed6659fc524fc28fe7a17ab5954"
-    sha256 cellar: :any,                 arm64_sonoma:  "b00544de817a4ccb0415c00dd24258a65d8c5b2d8bca6ac89c5a8795f4b4f809"
-    sha256 cellar: :any,                 sonoma:        "9bb7b7c844f3efb5e9464ca74304791172a07b3c0619944cbcaa2438af2a9c8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "202a4ee6998b6abc6e80e3833ea9d815c6a3516790d2269251a1468d7257b0e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5e990d8aed33668b27097338677304fc1f26caa3280a3876250adb09a988f7e"
+    sha256 cellar: :any,                 arm64_tahoe:   "02170f93725667f1f48dc5cb2d07a061398145414baf84f72425e99f82996598"
+    sha256 cellar: :any,                 arm64_sequoia: "c54415e0159fd4aa24a3667694bc580e21f50891ddcdb64ba9061802133c2ec0"
+    sha256 cellar: :any,                 arm64_sonoma:  "8285a1fc69baa82de8246b8e5df44fb03eb081eaa955e3e712e70c4a48e47f9b"
+    sha256 cellar: :any,                 sonoma:        "d18b73eab1ee7a4427c444e39d928464709589062a616a8f0994ab6c11fa29e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40a302b572d896ab3d1bb709b32e19759d11701e36a29797346fa0fe4b11f9d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "227cec9343dfb8066899e2727b45353cf0459fc808f184d8f69ea1553c6c91f3"
   end
 
   depends_on "certifi" => :no_linkage
@@ -123,8 +122,8 @@ class Cycode < Formula
   end
 
   resource "mcp" do
-    url "https://files.pythonhosted.org/packages/f8/22/fae38092e6c2995c03232635028510d77e7decff31b4ae79dfa0ba99c635/mcp-1.20.0.tar.gz"
-    sha256 "9ccc09eaadbfbcbbdab1c9723cfe2e0d1d9e324d7d3ce7e332ef90b09ed35177"
+    url "https://files.pythonhosted.org/packages/15/bb/147bf5d47b8d6f3fb315204cd2f567b1ad85511acd8d59e85cccf7cce65c/mcp-1.21.2.tar.gz"
+    sha256 "b6497b7f7a77aabe263931a3335956dfd45fe8b1e2168931e455914ba1a7f4c9"
   end
 
   resource "mdurl" do
@@ -148,8 +147,8 @@ class Cycode < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/20/c5/dbbc27b814c71676593d1c3f718e6cd7d4f00652cefa24b75f7aa3efb25e/pydantic_settings-2.11.0.tar.gz"
-    sha256 "d0e87a1c7d33593beb7194adb8470fc426e95ba02af83a0f23474a04c9a08180"
+    url "https://files.pythonhosted.org/packages/43/4b/ac7e0aae12027748076d72a8764ff1c9d82ca75a7a52622e67ed3f765c54/pydantic_settings-2.12.0.tar.gz"
+    sha256 "005538ef951e3c2a68e1c08b292b5f2e71490def8589d4221b95dab00dafcfd0"
   end
 
   resource "pygments" do
@@ -198,8 +197,8 @@ class Cycode < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/b3/18/09875b4323b03ca9025bae7e6539797b27e4fc032998a466b4b9c3d24653/sentry_sdk-2.43.0.tar.gz"
-    sha256 "52ed6e251c5d2c084224d73efee56b007ef5c2d408a4a071270e82131d336e20"
+    url "https://files.pythonhosted.org/packages/61/89/1561b3dc8e28bf7978d031893297e89be266f53650c87bb14a29406a9791/sentry_sdk-2.45.0.tar.gz"
+    sha256 "e9bbfe69d5f6742f48bad22452beffb525bbc5b797d817c7f1b1f7d210cdd271"
   end
 
   resource "shellingham" do
@@ -243,8 +242,8 @@ class Cycode < Formula
   end
 
   resource "types-python-dateutil" do
-    url "https://files.pythonhosted.org/packages/fc/83/24ed25dd0c6277a1a170c180ad9eef5879ecc9a4745b58d7905a4588c80d/types_python_dateutil-2.9.0.20251008.tar.gz"
-    sha256 "c3826289c170c93ebd8360c3485311187df740166dbab9dd3b792e69f2bc1f9c"
+    url "https://files.pythonhosted.org/packages/6a/36/06d01fb52c0d57e9ad0c237654990920fa41195e4b3d640830dabf9eeb2f/types_python_dateutil-2.9.0.20251115.tar.gz"
+    sha256 "8a47f2c3920f52a994056b8786309b43143faa5a64d4cbb2722d6addabdf1a58"
   end
 
   resource "urllib3" do
@@ -258,8 +257,9 @@ class Cycode < Formula
   end
 
   def install
-    # Unpin python for 3.14: https://github.com/cycodehq/cycode-cli/pull/354
-    inreplace "pyproject.toml", 'python = ">=3.9,<3.14"', 'python = ">=3.9"'
+    # hatch does not support a SOURCE_DATE_EPOCH before 1980.
+    # Remove after https://github.com/pypa/hatch/pull/1999 is released.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
 
     virtualenv_install_with_resources
     # `shellingham` auto-detection doesn't work in Homebrew CI build environment so

@@ -3,18 +3,18 @@ class Showcert < Formula
 
   desc "X.509 TLS certificate reader and creator"
   homepage "https://github.com/yaroslaff/showcert"
-  url "https://files.pythonhosted.org/packages/c6/d8/ed144620686777df74cb5b0e9b96ce04fde40d676158f8d0f9341372932a/showcert-0.4.9.tar.gz"
-  sha256 "84a4a5f792d45905af49e0ea788eaf6f195fff20aa800bd25b4e3ac639d0bdbe"
+  url "https://files.pythonhosted.org/packages/e9/81/2273fed814ab3e5426fb24aff3e853496aa51bf6ba27f950978df7698951/showcert-0.4.10.tar.gz"
+  sha256 "49ef9ff10a35bc6f538a56f529791d80a4f0b2e44e89ad6c0bb5b3adffd503bd"
   license "MIT"
   head "https://github.com/yaroslaff/showcert.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16ca8de0b93de515e0c216e5c4703bc7ecc28d497c51a50d86f145b1b1909e0e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16ca8de0b93de515e0c216e5c4703bc7ecc28d497c51a50d86f145b1b1909e0e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16ca8de0b93de515e0c216e5c4703bc7ecc28d497c51a50d86f145b1b1909e0e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c473d2e6e3f0b4334b4b36ad2b1dd846944fa4ae588875685fb3baa30bc98e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "007d45130c5ed6ae97dae1459478df005022dd27a882db9ce02b3ab56a3c2ed8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "007d45130c5ed6ae97dae1459478df005022dd27a882db9ce02b3ab56a3c2ed8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "65b03e75bf770f01712f6ce27c26f37cb4ac2679cd22f498e308936add899909"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65b03e75bf770f01712f6ce27c26f37cb4ac2679cd22f498e308936add899909"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65b03e75bf770f01712f6ce27c26f37cb4ac2679cd22f498e308936add899909"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b5e0f0c00be820f80ca026bbed9f7821431c28b04a8b67779ccc88dae661f5d7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "66053312dcfa79bd90aa039b81635436471c33da48cdc8de1a33957722fd295d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66053312dcfa79bd90aa039b81635436471c33da48cdc8de1a33957722fd295d"
   end
 
   depends_on "certifi" => :no_linkage

@@ -59,12 +59,9 @@ class GitBranchless < Formula
     system "git", "branchless", "init"
     assert_match "Initial Commit", shell_output("git sl").strip
 
-    linkage_with_libgit2 = (bin/"git-branchless").dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
-    end
-
-    assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
+    require "utils/linkage"
+    library = Formula["libgit2"].opt_lib/shared_library("libgit2")
+    assert Utils.binary_linked_to_library?(bin/"git-branchless", library),
+           "No linkage with #{library.basename}! Cargo is likely using a vendored version."
   end
 end

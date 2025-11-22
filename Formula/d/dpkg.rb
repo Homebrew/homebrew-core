@@ -14,14 +14,13 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b362544ad40b720b13bf3714ea6a57363e86f912f8c319123deb8fb138bb0463"
-    sha256 arm64_sequoia: "c99935cb16e3f8d32773f3dad83466058e43754309b35497de0d9656dfec6422"
-    sha256 arm64_sonoma:  "412ed4289f5dbf0c58ddacc4ef2eaa6bf21bb77fdc046e16700e8fa3b24a9f14"
-    sha256 arm64_ventura: "a95ed9e6898dfe3f16e530d453670c68a0baab6488c219ffd37447fe86132a1f"
-    sha256 sonoma:        "600f2217dce1fd62e49b82b253d81f4c86f322e05e46aea862e9363194c801f5"
-    sha256 ventura:       "5f1e6078677fbfe8a24a4a2c723d775942d2c712b1522113773600dc9f68c99b"
-    sha256 arm64_linux:   "fd4c80158a7febd75d90029e8449678cf372268a2e3d99754a92e07726d8abc3"
-    sha256 x86_64_linux:  "6bc26870ad3a2f16d478ad2f29d40fd55272a7f4c5e3b088778d1e5d553b34a2"
+    rebuild 1
+    sha256 arm64_tahoe:   "0e99a92adaa6eb1eafc3821e772966a70f4acc8d92ce629b9e6b9dcc8d6de3af"
+    sha256 arm64_sequoia: "67d085ad617f4f326f9d7f91e0cc3df0488c4fdd4e5dd45b280d0cf9288f76fd"
+    sha256 arm64_sonoma:  "a51bfd22dc552c71b8700a1855354a386d58d29cd6f029d1cacadb4263b2e8f8"
+    sha256 sonoma:        "17abddf7185113bab1cad4596d673d2f66500eb8536c059209d4c830f5e93e99"
+    sha256 arm64_linux:   "16b9549696eaf8523eaa2cc3fb5fe7a028a51b11f1346f1f19b9a4cf49039b20"
+    sha256 x86_64_linux:  "431a1a1042a427fa950ff1d17f996efb1792e9fafb6d120729d91b6f02f5f495"
   end
 
   depends_on "pkgconf" => :build
@@ -83,11 +82,8 @@ class Dpkg < Formula
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
 
     (buildpath/"dummy").write "Vendor: dummy\n"
-    (etc/"dpkg/origins").install "dummy"
-    (etc/"dpkg/origins").install_symlink "dummy" => "default"
-  end
-
-  def post_install
+    (pkgetc/"origins").install "dummy"
+    (pkgetc/"origins").install_symlink "dummy" => "default"
     (var/"lib/dpkg").mkpath
     (var/"log").mkpath
   end

@@ -1,20 +1,24 @@
 class GeminiCli < Formula
   desc "Interact with Google Gemini AI models from the command-line"
   homepage "https://github.com/google-gemini/gemini-cli"
-  url "https://registry.npmjs.org/@google/gemini-cli/-/gemini-cli-0.15.3.tgz"
-  sha256 "d80b73972ff7ce70c4d4c630a4223a6b2557a5169881cdddc63f3a9f959fae87"
+  url "https://registry.npmjs.org/@google/gemini-cli/-/gemini-cli-0.17.1.tgz"
+  sha256 "6e506cba746f3f24ef9ed0d8847e07003f34852de759af1923191e0d2bc2d95b"
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_tahoe:   "464d83e81c6420b0e813a34111e6f4c0ac9d69dd198eaebc6ee3f611a67f0b96"
-    sha256                               arm64_sequoia: "0a1b24e5d89fd856afd65625b966d8c52de76fa8fa25e45a5c7ef860ada0757b"
-    sha256                               arm64_sonoma:  "8143a3ebcdb933e1aadeb7291f16f79c2f2a0ed23622851972a0c80681272799"
-    sha256                               sonoma:        "28f381d0c03ac774471b1210da07285780a3ecb8dba83e5ce3f25bbd9fd7bbd0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7748b43bf198a387f7e300e1e138a626bc034f815b0404b7758e96aca29b5e58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8abec8c756b4954bb392dd45e04b7bf5ef28b19b2b1c7c356380be280ecd5f2c"
+    sha256                               arm64_tahoe:   "eae560d29780cf7828630cb67b1797963899e53d0cf82e1bd511e5ad86d8e399"
+    sha256                               arm64_sequoia: "617aa19eb40ff871fcd97b9b23d351edf9d894f93f27551a0b675cea8c7918c7"
+    sha256                               arm64_sonoma:  "f3c19cf5de43ef87c0250efc76adbf11b9344d6aed67f036dd43a7dbeb1497c4"
+    sha256                               sonoma:        "05c0b9834703ad811f8d1914d72bf1ab07a97ca60d558027aac21c38d0e6c76c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ababb7286a48da8d55520f60b3dec78548ea76a8e58990049d59601627145d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b1950afda3ee289f6d975758cd194e583721b7b2ad128917e85f6812b59b51b"
   end
 
   depends_on "node"
+
+  on_linux do
+    depends_on "xsel"
+  end
 
   def install
     system "npm", "install", *std_npm_args
@@ -26,6 +30,15 @@ class GeminiCli < Formula
     node_modules = libexec/"lib/node_modules/@google/gemini-cli/node_modules"
     libexec.glob("#{node_modules}/tree-sitter-bash/prebuilds/*")
            .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
+
+    clipboardy_fallbacks_dir = libexec/"lib/node_modules/@google/#{name}/node_modules/clipboardy/fallbacks"
+    rm_r(clipboardy_fallbacks_dir) # remove pre-built binaries
+    if OS.linux?
+      linux_dir = clipboardy_fallbacks_dir/"linux"
+      linux_dir.mkpath
+      # Replace the vendored pre-built xsel with one we build ourselves
+      ln_sf (Formula["xsel"].opt_bin/"xsel").relative_path_from(linux_dir), linux_dir
+    end
   end
 
   test do

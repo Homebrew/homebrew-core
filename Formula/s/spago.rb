@@ -69,8 +69,8 @@ class Spago < Formula
     system bin/"spago", "init"
     assert_path_exists testpath/"packages.dhall"
     assert_path_exists testpath/"spago.dhall"
-    assert_path_exists testpath/"src"/"Main.purs"
+    assert_path_exists testpath/"src/Main.purs"
     system bin/"spago", "build"
-    assert_path_exists testpath/"output"/"Main"/"index.js"
+    assert_path_exists testpath/"output/Main/index.js"
   end
 end

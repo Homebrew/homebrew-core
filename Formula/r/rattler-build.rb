@@ -1,8 +1,8 @@
 class RattlerBuild < Formula
   desc "Universal conda package builder"
   homepage "https://rattler.build"
-  url "https://github.com/prefix-dev/rattler-build/archive/refs/tags/v0.49.0.tar.gz"
-  sha256 "a766e8c198e99affca0b352cdba81302d9d729ec17ec1cc93756d565006e4276"
+  url "https://github.com/prefix-dev/rattler-build/archive/refs/tags/v0.51.0.tar.gz"
+  sha256 "805e0ba05534735afec06c1c8e0e93895e1ffb3388d28f17321adedacb5a0c42"
   license "BSD-3-Clause"
   head "https://github.com/prefix-dev/rattler-build.git", branch: "main"
 
@@ -15,12 +15,12 @@ class RattlerBuild < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ec40205f7fc174260e52d77eebae043c08f72a09c9cbbd8a2d3183a26614079b"
-    sha256 cellar: :any,                 arm64_sequoia: "99ac0493c9246445449c99e449d47ddd865439b134ab1c0f118d3851137f72e6"
-    sha256 cellar: :any,                 arm64_sonoma:  "9458eb4afde213ab6db98dfee9f28c0394fe10e4231f689b9e3c44a93dfe90cd"
-    sha256 cellar: :any,                 sonoma:        "7b117ed218c1320f2c8628464027c23d85dc97c32bac98d156342d34e487f691"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9eebce848f12894a3f43b73bb29d8a6661043fcae331c82d11ec4fe28fdd0fc7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7060e33ab03659a6032fe631852665f47f785046d62b0c6a529dee0cf94b942b"
+    sha256 cellar: :any,                 arm64_tahoe:   "32a34787a7efdef77551f395a4060dcb86c2c34b1198b060d63014bf5421b7f8"
+    sha256 cellar: :any,                 arm64_sequoia: "6c25be3285bf75846741338842a0ff5629d807e8381bce24d6f75fed2431bec1"
+    sha256 cellar: :any,                 arm64_sonoma:  "b71979325308049781f7e232247582dd389005a4ce2929ca5897edd5e2507708"
+    sha256 cellar: :any,                 sonoma:        "2c190a84adcb95276c7c5d7bcbaed2cddf895ef327d808c6060f17ad678844b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "217ee1b3ee8d551663393a76a761927c2a83022e7168f9c25043f56994a714c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e53f7aff7af64e06ad7cde4ccd052ddb50b26d91b3a67f1b56e3c3ad9d8805e"
   end
 
   depends_on "pkgconf" => :build
@@ -38,7 +38,7 @@ class RattlerBuild < Formula
   end
 
   test do
-    (testpath/"recipe"/"recipe.yaml").write <<~YAML
+    (testpath/"recipe/recipe.yaml").write <<~YAML
       package:
         name: test-package
         version: '0.1.0'

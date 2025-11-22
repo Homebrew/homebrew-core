@@ -4,6 +4,7 @@ class Librist < Formula
   url "https://code.videolan.org/rist/librist/-/archive/v0.2.11/librist-v0.2.11.tar.gz"
   sha256 "84e413fa9a1bc4e2607ecc0e51add363e1bc5ad42f7cc5baec7b253e8f685ad3"
   license "BSD-2-Clause"
+  revision 1
   head "https://code.videolan.org/rist/librist.git", branch: "master"
 
   livecheck do
@@ -12,21 +13,19 @@ class Librist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1a6941808a50bbb042a9a8e20309225a828c520f149709fb00a05c44368d79ed"
-    sha256 cellar: :any,                 arm64_sequoia: "5d585b8708b16c93ce9923a1ac8c1b8ce94e581c66966675b482da7464fee2ea"
-    sha256 cellar: :any,                 arm64_sonoma:  "5492e570120f87b3e8729e200304be55c2af9c20163b0292f8db746ae132aee9"
-    sha256 cellar: :any,                 arm64_ventura: "891def5dc77ba1e982ab1cb27efe8f47383988e7f503b91d844ceab49a3bac5a"
-    sha256 cellar: :any,                 sonoma:        "e3d7ba37bcb616c8e01ec27539761d081b734a33ea109ae7cb40a0794c97e4da"
-    sha256 cellar: :any,                 ventura:       "6c5a48f683db99c537f41f16056a48a645487e3f6c49742a68d9beafc8e7fb98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b20b6b0ec94438a5591f40fda416bbac8b05a078070227dcee776ee95a8cd49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16cee2bf08b7c7a1ac67d23025f25c71ca5af8fa2a6627376eb6cecd4cb26323"
+    sha256 cellar: :any,                 arm64_tahoe:   "a3ec6f80dbc0c4a2f462a6e1485383684404cbc2cf0bef1e8893a847cf40cbc0"
+    sha256 cellar: :any,                 arm64_sequoia: "bad9e900548801c915eb830471b6c77e87a9dc98b813625c81de70fbbed0432f"
+    sha256 cellar: :any,                 arm64_sonoma:  "a7b306a05984387478ebd318c5eadd09303bec36d67cc9830d49d85a1b2e9938"
+    sha256 cellar: :any,                 sonoma:        "de3c3d22ff646e823a60df6e77fee66031de804e73dc7580fc6ba89972acdf27"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18175c43e2082dfff0edb5f4a0d9c3558d792995bf9985fb0bf4aa059cd0cc9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f293ec4fefab0d33b17e43019ad4593e764506d5fdb336d1884d829ba9fe531"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "cjson"
   depends_on "libmicrohttpd"
-  depends_on "mbedtls"
+  depends_on "mbedtls@3"
 
   # remove brew setup
   patch :DATA

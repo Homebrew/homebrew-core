@@ -3,23 +3,23 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/07/32/9355c1309345622aaee6e997e1417dcd2382e05c14e09c49584c4fbe83a7/cfn_lint-1.40.4.tar.gz"
-  sha256 "7c8bcf3cf5f2cf8d96fd30fdee1115bfc2480a4c619afc8bce36d551fbb228e1"
+  url "https://files.pythonhosted.org/packages/ee/b5/436c192cdf8dbddd8e09a591384f126c5a47937c14953d87b1dacacd0543/cfn_lint-1.41.0.tar.gz"
+  sha256 "6feca1cf57f9ed2833bab68d9b1d38c8033611e571fa792e45ab4a39e2b8ab57"
   license "MIT-0"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "0cfb18f033db3b19e78e0ec773d5bca5d04e46428130c3aba61f926691b99ea2"
-    sha256 cellar: :any,                 arm64_sequoia: "7d7f5705f86e8aa5965bcb7f8285fa1f960c247c6fcc7931b28e50886d218fe7"
-    sha256 cellar: :any,                 arm64_sonoma:  "434c7f28d962404ab5c295331d56b81af24f6323916206983304ca2cdc9cbc5a"
-    sha256 cellar: :any,                 sonoma:        "f91d2b889442bfa39248a4545711e9c40bf903aa7d9cd1517d9c2b5e3d1d2e8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b7a286072843785708ac44bfeb23fdd51bda30adc301eadc609a11b07bc66d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0456aecc26082e5971f9c76b57bd1a47bf2380b7a29615ef824afd7a0ed7850"
+    sha256 cellar: :any,                 arm64_tahoe:   "a68a9da99e5267f215ce877db9a7ea08501f2b5df53f7c72ae9c207e95609cfa"
+    sha256 cellar: :any,                 arm64_sequoia: "0037b779ac780d30f0a8dc43708683e3c3f6876ac27e53012d667356088b6b0a"
+    sha256 cellar: :any,                 arm64_sonoma:  "d12867a40797c794c21b823a3fc0910273d812a8581a43985ab06efbbe2614e5"
+    sha256 cellar: :any,                 sonoma:        "e1e07a57f3ebd4c850cd9101ee60823e22a10747c10c6950bbda5f4af861e5fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "511e361712a67f5e3ac8913569c014d947326e75efac5b12dc1c89314c3317d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea4fc907574490734f82c9e78b199b98d29395a7782229e56b8694023d577610"
   end
 
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.13" # Pydantic v1 is incompatible with Python 3.14, issue ref: https://github.com/aws/serverless-application-model/issues/3831
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: ["pydantic", "rpds-py"]
@@ -35,13 +35,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/40/a5/0e87ff413d2ca57500b1ec9e583a83589ed56fc27af8bacf8f0681c28672/boto3-1.40.67.tar.gz"
-    sha256 "3e4317139ace6d44658b8e1f2b5b6612f05b45720721841c90cdee45b02aa514"
+    url "https://files.pythonhosted.org/packages/26/04/8cf6cf7e6390c71b9c958f3bfedc45d1182b51a35f7789354bf7b2ff4e8c/boto3-1.40.76.tar.gz"
+    sha256 "16f4cf97f8dd8e0aae015f4dc66219bd7716a91a40d1e2daa0dafa241a4761c5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/2d/aa/4d3d04e3fb2f497fbe574051d50180a6326ffef481caea80837605a0016d/botocore-1.40.67.tar.gz"
-    sha256 "cc086f39c877aee0ea8dc88ef69062c9f395b9d30d49bfcfac7b8b7e61864b3a"
+    url "https://files.pythonhosted.org/packages/07/eb/50e2d280589a3c20c3b649bb66262d2b53a25c03262e4cc492048ac7540a/botocore-1.40.76.tar.gz"
+    sha256 "2b16024d68b29b973005adfb5039adfe9099ebe772d40a90ca89f2e165c495dc"
   end
 
   resource "jmespath" do

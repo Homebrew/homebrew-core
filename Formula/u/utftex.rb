@@ -1,25 +1,17 @@
 class Utftex < Formula
   desc "Pretty print math in monospace fonts, using a TeX-like syntax"
   homepage "https://github.com/bartp5/libtexprintf"
-  url "https://github.com/bartp5/libtexprintf/archive/refs/tags/v1.25.tar.gz"
-  sha256 "c50a44e33eba551526ff553c0af0bdd3f3a219d8ed60f11fcd9d7b30cd028af1"
+  url "https://github.com/bartp5/libtexprintf/archive/refs/tags/v1.27.tar.gz"
+  sha256 "1ee792e5a4b1691272367c837e58fe5c7c90d1253bde522eca28c48aa244963f"
   license "GPL-3.0-only"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "810152b38fa50c074810e0955537874ef3b0022a8d704690a3b59a57f49be63d"
-    sha256 cellar: :any,                 arm64_sequoia:  "2600f08ffa67d205a11c72fb8edaa16bc5b25e0b1ef5b6a7d88e4dbee325d7cf"
-    sha256 cellar: :any,                 arm64_sonoma:   "fcefa68f71397e48ca164144e5c78eacc458462b440ee3406379e8fc281b0b5e"
-    sha256 cellar: :any,                 arm64_ventura:  "73dc2f438c0c50b6a443aa39a102520bd3f524bb2710729ecc8f2f908c7d497b"
-    sha256 cellar: :any,                 arm64_monterey: "0810afd3a4807c93ecaaf60b948ebc54d669b5b199c7e34ef06e3962abdb5b05"
-    sha256 cellar: :any,                 arm64_big_sur:  "2d42b33bf2be0776e1927f78d85e2a264b4a99cceaee85678c2f77d000863304"
-    sha256 cellar: :any,                 sonoma:         "651d5493ded02c7aa424c3f2c9c0c53eea8508d2116fdd05fd43320319958651"
-    sha256 cellar: :any,                 ventura:        "48ad8ca0fca773183943258a5000b80ac87a92fbcf643b5d5ae6308549f4679f"
-    sha256 cellar: :any,                 monterey:       "4612a84d1625b774f4eea4e64c764dad77ca3b85e3fb80eadba71cb7febcc31e"
-    sha256 cellar: :any,                 big_sur:        "972ff7102230d15986fd1cfe3b0275d47ca7c8fe99483e1009250cebcc96295a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2fcba65838ab58ed111d25293809ba66ff3640d6086d42d1fcdca08dd8e6f235"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "765d49e6c14eb18ed03f6898866b5f1ef95cf3e7e3355e1881e2a5c966b33719"
+    sha256 cellar: :any,                 arm64_tahoe:   "b097def87ce2a42d882f12c78914297ae95d7f544f281d80bb699c415dfbf5c1"
+    sha256 cellar: :any,                 arm64_sequoia: "1b632a10326e687284eec1088058933653ffe0fabe3696e42b1da39e63938680"
+    sha256 cellar: :any,                 arm64_sonoma:  "f06c29f006abf9b07d9bd4832ca82d08dad6021b9470aedcd9dea3a96782261d"
+    sha256 cellar: :any,                 sonoma:        "5f2b4dfb3f916dbdcbc3006a3f741a94e2f7947d61f4ba4af30dcee11b220516"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5c751c2580d67c56903ac82ba5673b42f6a3fab5ea021f25dc25138a37ac478"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99540b48b6874d68bfda00c3f13d13355965eba0627c5ba67d413890e7115874"
   end
 
   depends_on "autoconf" => :build

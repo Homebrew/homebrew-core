@@ -1,8 +1,8 @@
 class Pnpm < Formula
   desc "Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
-  url "https://registry.npmjs.org/pnpm/-/pnpm-10.22.0.tgz"
-  sha256 "053a8493e8e328a3c6d7ff5cb079bef28719152ccf831e4666b5c0332b77bb88"
+  url "https://registry.npmjs.org/pnpm/-/pnpm-10.23.0.tgz"
+  sha256 "a1cdd7b468386a9d78a081da05d6049d7e598db62a299db92df21a7062a4b183"
   license "MIT"
 
   livecheck do
@@ -13,12 +13,12 @@ class Pnpm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a2fca04a44a613c47d9ad3f3df7cd03c54bfd3299daebafcaea4b55bf18a13bc"
-    sha256 cellar: :any,                 arm64_sequoia: "869e56c7ed75f63413070f19262cc819fced862882b483172bc67c56266ea50d"
-    sha256 cellar: :any,                 arm64_sonoma:  "869e56c7ed75f63413070f19262cc819fced862882b483172bc67c56266ea50d"
-    sha256 cellar: :any,                 sonoma:        "7431278f22382d3b40eb781358274f6b51340663697fad269c92749ca6ad89db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7330e168642241a1937726e99852c51cc41186056c045465a4c7cc8ec182bcb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7330e168642241a1937726e99852c51cc41186056c045465a4c7cc8ec182bcb7"
+    sha256 cellar: :any,                 arm64_tahoe:   "ac890a2d9ff8076c9fa4f42a388d95ffb8fb9f6522f31eafdb9a3e353eb2f5fd"
+    sha256 cellar: :any,                 arm64_sequoia: "3fbc85286999d20213d5b3dba6e0b77821cac338b60bf96d75c15efa650f8cd7"
+    sha256 cellar: :any,                 arm64_sonoma:  "3fbc85286999d20213d5b3dba6e0b77821cac338b60bf96d75c15efa650f8cd7"
+    sha256 cellar: :any,                 sonoma:        "77087f7832cec09019986703924ffe7224ea6afe9bb968dd9622ec50e0099e54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf0d8ed70d43a9c27aa814af64a07fe23de52e6f0da54802a189a1a177a473cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf0d8ed70d43a9c27aa814af64a07fe23de52e6f0da54802a189a1a177a473cd"
   end
 
   depends_on "node" => [:build, :test]

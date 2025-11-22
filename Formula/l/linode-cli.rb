@@ -3,19 +3,18 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://github.com/linode/linode-cli"
-  url "https://files.pythonhosted.org/packages/65/8b/e63357543784ee3e01610d9203fdf20c75ac8272413eacda96dc1ee97f19/linode_cli-5.63.0.tar.gz"
-  sha256 "b23fd0ea791f09f6260dd6058368a111d8dfc7dfbc9d1b240157d525982db371"
+  url "https://files.pythonhosted.org/packages/32/03/d5a093199a0b934bd90f6bcb1714572be344d2049793168650723af74b7b/linode_cli-5.64.0.tar.gz"
+  sha256 "d91a5ec0d8cf291eeee8dd16ff0319185b58865f34a9f8f0d97b55c5715eb7c3"
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "dev"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "1c960c4e84f8203514f7ddea5be698c30752b6002d72bea5a25b869107d876f9"
-    sha256 cellar: :any,                 arm64_sequoia: "82431cfba3acd8d4c77be3780b50023f5a9f197738a2c487ddad721160451733"
-    sha256 cellar: :any,                 arm64_sonoma:  "03b30517506d5918e3dbda4b6949d05168cc8973eed595a22b351f1706f1aed3"
-    sha256 cellar: :any,                 sonoma:        "518c1f66422aa2593da43ff9f1e15d451c4ede7862d35a4717c7088f010f6fb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2bc6417d45760eb58a816f451eb6b4d09796912dd7f2766f36fee1a1c13a56f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "586d6f00a59fda251d348cbaf3f0b56dda37a1fa1de95c7b39acd7024fdb3245"
+    sha256 cellar: :any,                 arm64_tahoe:   "bbe0050a14e178fa442957027bef12233724baf0c6aa1307b4cc1c3b0231a49f"
+    sha256 cellar: :any,                 arm64_sequoia: "f179337906cfed4a072609a679b8d91cf6878a32c9a38354b3eb7c0ce34676c5"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd84f9fc829e134dd53f4b66bafa236daf7f70ce985e3281d7a8e57c907598bc"
+    sha256 cellar: :any,                 sonoma:        "c7203d6f0b0f175aed40b8f66fac272597b0095a7eaa548ba5d1bfffd389ba66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4bec6ffbc02b8573860539e4b7f40379b351cd5fc4ccbfebf234013c21acb85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e24898997131435d94d6daef36bbf0a417a1244590fdf99efb542a14cae25b60"
   end
 
   depends_on "certifi" => :no_linkage
@@ -55,8 +54,8 @@ class LinodeCli < Formula
   end
 
   resource "linode-metadata" do
-    url "https://files.pythonhosted.org/packages/c1/99/e65884e8b7b72ecf487d438fdafaa19b0c1154d76ea174bf39a296aa3747/linode_metadata-0.3.1.tar.gz"
-    sha256 "127396de8dd8ffac335fccf82485aacb4cd290fda2c9041f0f11c15e62adde64"
+    url "https://files.pythonhosted.org/packages/72/30/0707067f33ca0af20ca96bcfbc7bf699faa9e6cfbccfc3e0d8d9bdd36b19/linode_metadata-0.3.2.tar.gz"
+    sha256 "e7fb476303ff69c21dc825b5beefb32923f2c1ab475b0c5c50d6c2e7d4c87017"
   end
 
   resource "markdown-it-py" do

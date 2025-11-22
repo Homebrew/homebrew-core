@@ -1,22 +1,20 @@
 class Ndpi < Formula
   desc "Deep Packet Inspection (DPI) library"
   homepage "https://www.ntop.org/products/deep-packet-inspection/ndpi/"
-  url "https://github.com/ntop/nDPI/archive/refs/tags/4.14.tar.gz"
-  sha256 "954135ee14ad6bd74a78a10db560b534b8f2083ad0615f5c1a2c376fff0301e0"
+  url "https://github.com/ntop/nDPI/archive/refs/tags/5.0.tar.gz"
+  sha256 "8b0d3dc0c8a6a68578e09a18c922021ef6458d4aca1c7a20ce04efc267aa9ea5"
   license "LGPL-3.0-or-later"
   head "https://github.com/ntop/nDPI.git", branch: "dev"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "523cb102bf56d6162fb8e23ab771fde9acc61be5e7683ebba536993a948f9440"
-    sha256 cellar: :any,                 arm64_sequoia: "9a9e45fe338e7be68ec51aae2ad6d52cf95cdb90fe6f9e6815345aaaa63048ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "3be0627b16ed3db0bf4ed8f225d8bde0813771501c26025c6f0990b19b125d6f"
-    sha256 cellar: :any,                 arm64_ventura: "8c2583825dabae16fca840859c371de0a3f074f3301b8bce85eee801087604b2"
-    sha256 cellar: :any,                 sonoma:        "8a190f221789ad1f3322ea0a9838591d6f87c3c22060e8a89511699055e5759d"
-    sha256 cellar: :any,                 ventura:       "2cade3979a0b532070ed4b17df9a4f69eed173b743385aa4a5232ee6d4c359e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9428a7434774926bfae4b2784133615c7b0c8fce94ce6519d9a4fdc2facaf076"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bb8b4eee649008534dbada6d4ad79a7b996223d26944d4d49724e12e866c35e"
+    sha256 cellar: :any,                 arm64_tahoe:   "e36d749ae34d4213e05001e200919c6d9c96f7efbd44cd9225408e8691eceaeb"
+    sha256 cellar: :any,                 arm64_sequoia: "e62b6b4475ecf76666c907dd2902a12ecb340cc7dd313a65cffb273a456e8ff6"
+    sha256 cellar: :any,                 arm64_sonoma:  "ab4a5be202edd011b4171201c66f5ef7df058874ca0eb579de47a5d5825d70dc"
+    sha256 cellar: :any,                 sonoma:        "89b2916adee9e543900f7089ed517776a5943411817885121ae97153e1ed7a70"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab29c1a19ee2b0bf75071152e77ab23d0da4fd4a589a770bb7c2519710470755"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a58d36dd8c1cef5dae9bf5edc5f395b12a9b9568c753a4f4487ade46863b9c5"
   end
 
   depends_on "autoconf" => :build

@@ -3,12 +3,12 @@ class Abi3audit < Formula
 
   desc "Scans Python packages for abi3 violations and inconsistencies"
   homepage "https://github.com/pypa/abi3audit"
-  url "https://files.pythonhosted.org/packages/bc/46/d083e7ba7cea204782a23f5f4a3986a0ec6f0d6213d814f7bddb4136c668/abi3audit-0.0.23.tar.gz"
-  sha256 "1c27f59e09000f64064ba671ab7278c33dc1d623b505b08063bc6780dcedc3c3"
+  url "https://files.pythonhosted.org/packages/3a/e1/cf4215a7777f01fd69d92fe330eff30d45293f0adf1d6f26ef385dd098a7/abi3audit-0.0.24.tar.gz"
+  sha256 "ce1469313511e1ba6895c44320f8f74faa592ef22cfe11b3e9e14e4aed3a3b62"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dae4fc7264d62e81d76dc5d15203a6eabd8be656e27d8d50bf8763addc1338c4"
+    sha256 cellar: :any_skip_relocation, all: "aafd71612846bbb1b138c7d8c4149bf5a8a3c606122d58c1d376536b71def5ee"
   end
 
   depends_on "cmake" => :build

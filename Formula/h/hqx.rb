@@ -9,20 +9,13 @@ class Hqx < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:    "f947ff8c338f706284c73a7c115cba60b5d34fc468fcaa78269460579e5e2ce2"
-    sha256 cellar: :any,                 arm64_sequoia:  "d0546464bc8981a17a079d2e9264ae9bbca9cbd7db380b0c2d8c76addf18f4e5"
-    sha256 cellar: :any,                 arm64_sonoma:   "1d690216c9ec6dedb23e318b8d83da3687dcedf9f1a533ad59e58e6fcf6be39b"
-    sha256 cellar: :any,                 arm64_ventura:  "83b6c8f9ae3cfcf01fd4745bf1170829206069830a119324cf382c7a258ea66b"
-    sha256 cellar: :any,                 arm64_monterey: "09abea6af7106f8bdcf0e58e7b17cd91e1c22074139596a2c4f23afdbf9c9a07"
-    sha256 cellar: :any,                 arm64_big_sur:  "d782e36758fe3e2a3b354a3c9e021078230934c2bbc2bd4f7043cf7ad570f542"
-    sha256 cellar: :any,                 sonoma:         "4f96059b9bb168ee276f6cd0ea67f3f21240c03682dfb57ec3b672258100ef57"
-    sha256 cellar: :any,                 ventura:        "dcf39c5df3a0caa4b58e68cf62d77fb1f5c75fdfb1c2d1cd31dab8ad263d69f5"
-    sha256 cellar: :any,                 monterey:       "3d8f69b255851ecfcefd4ddaf2011eb70a2a038868001194fcff7f87c777c891"
-    sha256 cellar: :any,                 big_sur:        "8eccb719985ba896880e42efd7266c24ee920c3952441ac90f8fb327c875b1c0"
-    sha256 cellar: :any,                 catalina:       "d59524a43357e8590e15fbb039891261b2d3c6c33bf073fece8bfa568c3b9710"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "bb459e2d22d4afeebf2a798b5756a82bdb7658e33fd8c249fa99cac4594fc35f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d10418410cbd8fb6be975c40e233a41031491a307ef05a021f5be55e379063cc"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_tahoe:   "5ba31ed02cebc80553587975d7e1ea4085b44268a69b51d354049e245ab9b541"
+    sha256 cellar: :any,                 arm64_sequoia: "26d37d607203ed3b98a2d4c95179d450618364a40b47f1b786d62490d4089f6a"
+    sha256 cellar: :any,                 arm64_sonoma:  "096c40b5ec2a465a94ce4a00fd757898991dd427cc94be3c1e362417d75e9acb"
+    sha256 cellar: :any,                 sonoma:        "d6fbbc9e2d37a51909096d28fe0da09e1c50841e26067aae8742e6d046a063e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "41a81a59b54a05fba307d89d73008552a4a486b09695952a22f2db0c7270c0be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55439a7262c1a955fb22b374b737a614b63279a535828cf4c7ad10d31ab085c9"
   end
 
   depends_on "autoconf" => :build
@@ -52,6 +45,8 @@ class Hqx < Formula
           [bits] => 8
           [channels] => 3
           [mime] => image/jpeg
+          [width_unit] => px
+          [height_unit] => px
       )
     EOS
   end

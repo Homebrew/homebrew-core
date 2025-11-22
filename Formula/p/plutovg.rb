@@ -1,17 +1,17 @@
 class Plutovg < Formula
   desc "Tiny 2D vector graphics library in C"
   homepage "https://github.com/sammycage/plutovg"
-  url "https://github.com/sammycage/plutovg/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "bea672eb96ee36c2cbeb911b9bac66dfe989b3ad9a9943101e00aeb2df2aefdb"
+  url "https://github.com/sammycage/plutovg/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "7bd4e79ce18b1d47517e7e91fbb7cf19d4f01942804a519bc7c0bf32b6325dd5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "22711ec01c6c22f80d3d08b7dd9654f40b9ca652a739f6a69e5b78461f31ce05"
-    sha256 cellar: :any,                 arm64_sequoia: "774025b21d030a547097e0b34ee8cb92698daeef0a4f5e0de33f5795c5af3607"
-    sha256 cellar: :any,                 arm64_sonoma:  "a712898f39053da6b3910d408854e8e9b534720fe613ef755f4c144b0773b351"
-    sha256 cellar: :any,                 sonoma:        "448ad0244f6b6aecc8b3fde9de6ae55f447adbe8720f2d0b499968621808ec82"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a3aa64b816fcea3ca52c7ea9bc13db1bc0583a39c0426439b816fbda15c7df7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e453529bb5bfbdb2ce7651f6df369e2a02c14140e8434e309e8bb3eba08787a"
+    sha256 cellar: :any,                 arm64_tahoe:   "6f152f77d73192095314d68f309103f56fd4cdf9c72d109337c96cc1ce77ae61"
+    sha256 cellar: :any,                 arm64_sequoia: "01949b2a6657b3238515f7a6aca2b0fbeaa54b6d843690e13a5046ba5396ec72"
+    sha256 cellar: :any,                 arm64_sonoma:  "92905b52c972786451395a10f321dcf8b10dbd8042f1987a4f8b60687956e88c"
+    sha256 cellar: :any,                 sonoma:        "2e7e3cb897b94ff5aefc38c6e2ddf768d9fe8593208877777a0398cf67a7025a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "119e6c35d5c8dc051d244e5ae8a30ad374b4bdf9446adf59a0f5d05d96f7e9cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49ff00cd89be194a241c1cc4b96f0ea61263be83fe7d3cd3e1c7e25c8fa63129"
   end
 
   depends_on "cmake" => :build

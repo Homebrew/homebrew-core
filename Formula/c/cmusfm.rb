@@ -64,10 +64,10 @@ class Cmusfm < Formula
       server = fork do
         faketime_conf.write "+0"
         if OS.mac?
-          ENV["DYLD_INSERT_LIBRARIES"] = Formula["libfaketime"].lib/"faketime"/"libfaketime.1.dylib"
+          ENV["DYLD_INSERT_LIBRARIES"] = Formula["libfaketime"].lib/"faketime/libfaketime.1.dylib"
           ENV["DYLD_FORCE_FLAT_NAMESPACE"] = "1"
         else
-          ENV["LD_PRELOAD"] = Formula["libfaketime"].lib/"faketime"/"libfaketime.so.1"
+          ENV["LD_PRELOAD"] = Formula["libfaketime"].lib/"faketime/libfaketime.so.1"
         end
         ENV["FAKETIME_NO_CACHE"] = "1"
         exec bin/"cmusfm", "server"

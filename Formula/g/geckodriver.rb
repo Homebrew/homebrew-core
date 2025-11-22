@@ -56,11 +56,11 @@ class Geckodriver < Formula
       # we need to do this, because all archives are containing a top level testing directory
       %w[webdriver mozbase].each do |r|
         (buildpath/"staging").install resource(r)
-        mv buildpath/"staging"/"testing"/r, buildpath/"testing"
-        rm_r(buildpath/"staging"/"testing")
+        mv buildpath/"staging/testing"/r, buildpath/"testing"
+        rm_r(buildpath/"staging/testing")
       end
       rm_r(buildpath/"staging")
-      (buildpath/"testing"/"geckodriver").install resource("Cargo.lock")
+      (buildpath/"testing/geckodriver").install resource("Cargo.lock")
     end
 
     cd "testing/geckodriver" do

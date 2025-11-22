@@ -13,12 +13,13 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6eba212c347984073fc9d40e134202867ae0cbfb8e25cd247b5943335ae86e2f"
-    sha256 arm64_sequoia: "125e0626c3a093255a706cfd558ee53c75cec4adfa08e1f001c214c6d37a15a6"
-    sha256 arm64_sonoma:  "ddaeaf61ebbec2f0f02c63552c1e53cf341b36a89484873a4594d04417ed12d0"
-    sha256 sonoma:        "4b83b4b7c1f48bce2dd0e3a8d6fd854c4d57dac8addeafa93ee59693b6c35709"
-    sha256 arm64_linux:   "a44b90de3037d1f0247dbf2d94455f81ba45ffe332335a6075e1c0b3b559a0e9"
-    sha256 x86_64_linux:  "5da6935c2d96ed81f408b87a859613a16e730ff1a616b56350eca31a59951310"
+    rebuild 1
+    sha256 arm64_tahoe:   "1f4e8c8b8887350ccdb7390086e1b7801b222156d134442f267a7b9aed78a51b"
+    sha256 arm64_sequoia: "a6b6768dc8c34d29219ffe92dac699ceaaa47c1dc081a881a0242aa90645b56f"
+    sha256 arm64_sonoma:  "44258b442a01bcc0864c182993e4c50f46fdf0f844e577194ed17262c3fe48c0"
+    sha256 sonoma:        "d7d2ef0fa2d4cd4505042fd6dcfb3a0f1e8ab09eed7c2ef3c324006e0d01ee65"
+    sha256 arm64_linux:   "702b118e0dccb1554cd4298139176a0a55771f58fdaa8205c9bc1adaed702d2e"
+    sha256 x86_64_linux:  "5faab59789f3df52ad937170ab984012ebbaf69c1edb68e82341a4d6e11b5285"
   end
 
   depends_on "meson" => :build
@@ -33,22 +34,21 @@ class KnotResolver < Formula
   depends_on "luajit"
   depends_on "protobuf-c"
 
+  uses_from_macos "libedit"
+
   on_linux do
     depends_on "libcap-ng"
-    depends_on "libedit"
     depends_on "systemd"
   end
 
   def install
-    args = ["--default-library=static"]
+    args = []
     args << "-Dsystemd_files=enabled" if OS.linux?
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
-  end
 
-  def post_install
     (var/"knot-resolver").mkpath
   end
 

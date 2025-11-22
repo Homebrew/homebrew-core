@@ -1,8 +1,8 @@
 class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
-  url "https://github.com/dmlc/xgboost/releases/download/v3.1.1/xgboost-src-3.1.1.tar.gz"
-  sha256 "b2bb9c93f28fe7e401dbe592eb7990f5382baa712b02301eb8fd4cdb6c676731"
+  url "https://github.com/dmlc/xgboost/releases/download/v3.1.2/xgboost-src-3.1.2.tar.gz"
+  sha256 "12f2d6f735fa71e007c40171fd926c12306276dd299dc48f6c923e4f3891c33e"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Xgboost < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7c0f640db107022b4d002c42809f6cf0a626aa215a3dffd96100980ed49b1f5a"
-    sha256 cellar: :any,                 arm64_sequoia: "1339f216f2fb7297e97434ecd101102f314ba9e7d9aefbd0073bbcd0da45ca7c"
-    sha256 cellar: :any,                 arm64_sonoma:  "61a07a3112f0d7759a9963e816146dcfbb08f96bf30aeb1c0755fd52f59f8dd2"
-    sha256 cellar: :any,                 sonoma:        "2334f59aa986eeb42c1eeb8fe53519b6b8eaa20bfbed9916d42b2ebf2db8a7c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "89749cd336ae9751c0afa6b9cc9b664f11d489bcbd829e957c5fe4116eabbddd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2308ed167d7bf1701d546f36c4e4db0452fa3a3ec1651bfe065db5826a6c9ed"
+    sha256 cellar: :any,                 arm64_tahoe:   "69a8d50686d1e7a9a1891cce69e0dfae6a481c19750c24405b069d8fbda93df3"
+    sha256 cellar: :any,                 arm64_sequoia: "41ca8720cb5d93af050049cc686050f3c3923e9f157ad8c89f2213af3c4aec04"
+    sha256 cellar: :any,                 arm64_sonoma:  "19e16791812ee2a3bdd303d8bdf4141d4d8f93750948873e69209c12c0730969"
+    sha256 cellar: :any,                 sonoma:        "44f257577c7abf343a002edb4294793ae46e19cd4675da7feeecf4415d35ee20"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a2f627e7df7fddb9e6dc1480b9a664954c11405c060f8887766b786ee278772"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d37e6667cdac436dd23aea5d57548fc8c24566fc503942cc2c27b2721fc5101"
   end
 
   depends_on "cmake" => :build

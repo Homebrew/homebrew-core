@@ -6,17 +6,18 @@ class Harlequin < Formula
   url "https://files.pythonhosted.org/packages/84/81/0b2d50e4f0bef2d7ccda8e0364c1b2864a6cd0d6da4ea8366911f61ee68d/harlequin-2.4.1.tar.gz"
   sha256 "05a9f041021a8d7fa7bdb97cac8c26ca0233235fa553d9d7c53e238097297655"
   license "MIT"
+  revision 1
   head "https://github.com/tconbeer/harlequin.git", branch: "main"
 
   no_autobump! because: "has non-PyPI resources"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "075b7a6a37b2802cb26fc9ae518982b9c27a83f387cb43dd7db6e0c25d610f91"
-    sha256 cellar: :any, arm64_sequoia: "20077ae1c773501c2e1ac3a62925d1675cb0961147f04c4aeb70d97ddefaefd4"
-    sha256 cellar: :any, arm64_sonoma:  "87bb72bff358b0050ee6595e462ce70c301956874410f5eec4410b8e92b4e6ca"
-    sha256 cellar: :any, sonoma:        "4db8f1b0cab4fac219d7ab35aa80fff28f5dfdc02ce9c2c78a0c764eab219b0a"
-    sha256               arm64_linux:   "f54d4be144ffa52c553aefb82ab9f90dbb79bea257a97fe49b13edebd17475d5"
-    sha256               x86_64_linux:  "e042824b50f916ac544c26d3d1c43285090879ff38e1fe525b8ad89e63fa769c"
+    sha256 cellar: :any, arm64_tahoe:   "44a60cd93a8b33477e038d2a7165cbc3bfcb18f7a2748473540e8bd0fdd9f915"
+    sha256 cellar: :any, arm64_sequoia: "4cd4b782c29e75324a8c91af608200ec193bd3f7c296acd2ba05e6d964a9aa22"
+    sha256 cellar: :any, arm64_sonoma:  "8b1f5cadc7bda9105d5a593ec8307c1bc67432b67e9ca97c2992e5855b8e47d9"
+    sha256 cellar: :any, sonoma:        "1e6c2c590b443545aee81265fcc3ed7332bf43df0d15d9fe7a18eb870b474747"
+    sha256               arm64_linux:   "c16b05f3aef2e747e1099fffbab1f2a7af83fb49a0315babe7dc658609803fbe"
+    sha256               x86_64_linux:  "609168fe523a53d37a818514e98ef91d6872246c458667de39657beeeba86865"
   end
 
   depends_on "cmake" => :build
@@ -41,8 +42,8 @@ class Harlequin < Formula
   end
 
   resource "duckdb" do
-    url "https://files.pythonhosted.org/packages/e5/26/a28dae619f5f823d654e014299a91551ea990ed21e0e20c9d1ed084dcb26/duckdb-1.5.0.dev90.tar.gz"
-    sha256 "bce21b88266622663074b5fd38b271b7b1fc2e2954425b4bea07daad0d0672b9"
+    url "https://files.pythonhosted.org/packages/fc/23/690341f9d07eae3a33d07cce4f6730856c085331d5819ed09e68409ec6cf/duckdb-1.5.0.dev94.tar.gz"
+    sha256 "14f44ec532d2d151f65e4e55306f429f7b9fc3c38f1c1788bb87bf8d003bfbb8"
   end
 
   resource "harlequin-mysql" do
@@ -126,8 +127,8 @@ class Harlequin < Formula
   end
 
   resource "pyarrow" do
-    url "https://files.pythonhosted.org/packages/ef/c2/ea068b8f00905c06329a3dfcd40d0fcc2b7d0f2e355bdb25b65e0a0e4cd4/pyarrow-21.0.0.tar.gz"
-    sha256 "5051f2dccf0e283ff56335760cbc8622cf52264d67e359d5569541ac11b6d5bc"
+    url "https://files.pythonhosted.org/packages/30/53/04a7fdc63e6056116c9ddc8b43bc28c12cdd181b85cbeadb79278475f3ae/pyarrow-22.0.0.tar.gz"
+    sha256 "3d600dc583260d845c7d8a6db540339dd883081925da2bd1c5cb808f720b3cd9"
   end
 
   resource "pygments" do

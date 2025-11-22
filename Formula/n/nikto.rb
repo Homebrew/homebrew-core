@@ -1,11 +1,9 @@
 class Nikto < Formula
   desc "Web server scanner"
-  homepage "https://cirt.net/nikto2"
+  homepage "https://cirt.net/nikto/"
   url "https://github.com/sullo/nikto/archive/refs/tags/2.5.0.tar.gz"
   sha256 "fb0dc4b2bc92cb31f8069f64ea4d47295bcd11067a7184da955743de7d97709d"
   license "GPL-2.0-only"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

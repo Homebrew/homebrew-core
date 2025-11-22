@@ -6,14 +6,13 @@ class Nrpe < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "feeb66458c03b58979ff1a72f247e3d5ea334330c2afc4ca5e375e530e7ed8d3"
-    sha256 cellar: :any,                 arm64_sequoia: "4849e7eb841d00b2f10f7dd81c088226e6aebb683f5c29e64d72dc6bfb327f84"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc97d9570dfb3d1204feda1817e62fcebbf43898c3cbd00ee1592b1296654d8c"
-    sha256 cellar: :any,                 arm64_ventura: "6c5566eca3996b993eb04867452d5a10b2ecb3a12e325916ff70256a7af8178e"
-    sha256 cellar: :any,                 sonoma:        "e429d8acb7ba6187fc9118a86d36e891e79169353e3b736dd514604c8d2f5ff9"
-    sha256 cellar: :any,                 ventura:       "05cd704766c25bd45a0b73ad8869dc747ba70565445a10ff1af9538d0b4cdf10"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "961b74c9e9c9b6784f3ef4dba4e691390bc2d16d4cbe5f2d9f257caf20734209"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22362e8eb73fba3a3346049a7ac718c06068c2048b9e79e371b5309197d80e8f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "07fee8d6d39bfded2363a9ffb8c95ca5700948e889194f0f5f21d149bbffcf1f"
+    sha256 cellar: :any,                 arm64_sequoia: "13aae650600b1f2bba6c2ae01fb48b20be2ea55382ef85b930b3800ebac3629a"
+    sha256 cellar: :any,                 arm64_sonoma:  "2402923dcc08342f07df2ed6eca7be468ede9ab2446731dc1d6a5d09b445be32"
+    sha256 cellar: :any,                 sonoma:        "a1eb81992236474786db808dc9dfd8b5a605c08a30505c00383a8d2770d06764"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "21b4958641e1851b4cb580603b4cbe0eb4de0441bd01d67baa8f7625ce983cd7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "777c9bbafb34853267f741afdd9f3e9977c82b2a6e8892e522c582fde5f24e4e"
   end
 
   depends_on "nagios-plugins"
@@ -49,9 +48,7 @@ class Nrpe < Formula
 
     system "make", "all"
     system "make", "install", "install-config"
-  end
 
-  def post_install
     (var/"run").mkpath
   end
 

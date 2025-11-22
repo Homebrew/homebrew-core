@@ -3,17 +3,17 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.86/glib-2.86.1.tar.xz"
-  sha256 "119d1708ca022556d6d2989ee90ad1b82bd9c0d1667e066944a6d0020e2d5e57"
+  url "https://download.gnome.org/sources/glib/2.86/glib-2.86.2.tar.xz"
+  sha256 "8a724e970855357ea8101e27727202392a0ffd5410a98336aed54ec59113e611"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "1148746fd017ac01e854801f26d7e9837ee389dca780fe691f91735a63530dbf"
-    sha256 arm64_sequoia: "69180a746a740205498efc9be52f19c6f200c91700bc1743d6e3dce6dc0cb342"
-    sha256 arm64_sonoma:  "319b8baeab0531decb1c1351b77cffe2b9555cb6480d5e8271fd81d6460b2d65"
-    sha256 sonoma:        "2468ee427a8741ff97427ef78e4fe90445bb3dd65f4c80e55022b6fa8ed52b7d"
-    sha256 arm64_linux:   "690a6e078ec966cb3bf23b07abb9f66f552ed4aaefd7e84190f454f7fe967afd"
-    sha256 x86_64_linux:  "f579aed1abac9d64d8b305a01fa2c9e2d0958b9e70973a0564bf0ece34c8e79c"
+    sha256 arm64_tahoe:   "e41b5c6254335596b3fce735d2f497926187ea1846e10fa164ea05c6591b7f59"
+    sha256 arm64_sequoia: "346b96a8971a428c3dc4d1ed8b34b4cbe86c3c66bd3263d946c40ee566881543"
+    sha256 arm64_sonoma:  "59d6aecf2b25b2b603f651cc1c58f7254bd6a7af281071e000c70bda9a57484a"
+    sha256 sonoma:        "f7bd10ce03e77b3bbb4c4663ae4a6138f85ed83a0fc28b21e4a665518bb325ae"
+    sha256 arm64_linux:   "8f1e8b227dafcd8a29db4b56123b1386e6280be0b77f097c611d4d362d349098"
+    sha256 x86_64_linux:  "9264f62ce88528d47252e1956f20f589a5d427331fcfa6f6884951c367e678fa"
   end
 
   depends_on "bison" => :build # for gobject-introspection

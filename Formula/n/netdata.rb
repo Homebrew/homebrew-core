@@ -1,10 +1,9 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://www.netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v2.7.3/netdata-v2.7.3.tar.gz"
-  sha256 "f940fb0978c09f2353343cc4480dd3abfdba025f6690c90747fbc9a143e6bb9b"
+  url "https://github.com/netdata/netdata/releases/download/v2.8.1/netdata-v2.8.1.tar.gz"
+  sha256 "373b61241d5cc80addeb0cc6c9f434abf363333081056a7d7ba6ea1f46ba6f06"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -13,12 +12,12 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f7aafb84eb59dda4af94e6afae11123b84cbf27d6db9abf49a1626dafeb8e401"
-    sha256 arm64_sequoia: "bb1adf2766ecec51972ca46cf90742d623711d0b3e0cc32b71edbf1e008d3543"
-    sha256 arm64_sonoma:  "442f58fac87fcc7551b7d1e6419562ad17e90226d428154b14e16ed6a9a3e07c"
-    sha256 sonoma:        "ce86d06fe6871d4874705c747428a1d90490a1150e35181017e397b9c52f7adf"
-    sha256 arm64_linux:   "90918befcf80aa8014d609806909c86bb7f78cba11ee5deeb3ad25c03abdd72b"
-    sha256 x86_64_linux:  "fee05e30d02b299637aa75988ce3a7271bd14b49860ef93959ef91261ae1c18b"
+    sha256 arm64_tahoe:   "05be59919a0beaaf04aa2d5a43595bec2625690e7cc851efc320871cf83fcb2d"
+    sha256 arm64_sequoia: "e22380494efab3c6001fb93bf12113234d9de68e2d94bc2c542662070b985b27"
+    sha256 arm64_sonoma:  "c3894cd1facd88cbc0f273b5a0358ba0777ea1727c6377a369e230c836fe967e"
+    sha256 sonoma:        "7e1678b04f4bd8657f722299aacbe09e91f285d887320cc12fa3fd8469c3ddbe"
+    sha256 arm64_linux:   "02b5ea13d984a0a204a73b81059687d5c58256a07daacb08d5ec9aa1be639c6c"
+    sha256 x86_64_linux:  "54a766ddb3571de5e22949e949bfc6e3330a2469e1ecbc6253d9d0b501162361"
   end
 
   depends_on "cmake" => :build
@@ -52,12 +51,6 @@ class Netdata < Formula
     depends_on "systemd"
     depends_on "util-linux"
     depends_on "zstd"
-  end
-
-  # Backport fix for arm64 linux
-  patch do
-    url "https://github.com/netdata/netdata/commit/e8d12d47bf6b9c3105363ccafaa53cdc80b2237b.patch?full_index=1"
-    sha256 "b4a541f1528083665e29a5aa4d89786008114ea400aec8ae94d43e34ea7e3944"
   end
 
   def install

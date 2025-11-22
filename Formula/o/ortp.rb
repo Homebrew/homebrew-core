@@ -2,6 +2,7 @@ class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://linphone.org/"
   license "GPL-3.0-or-later"
+  revision 1
 
   stable do
     url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.4.60/ortp-5.4.60.tar.bz2"
@@ -24,12 +25,12 @@ class Ortp < Formula
   no_autobump! because: "resources cannot be updated automatically"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ee7c4366379cd49b757bb2038e58f07c07b7e45085537ff646919750b34709b5"
-    sha256 cellar: :any,                 arm64_sequoia: "1c3b5cfeb4cd8a6a9ef659b5ee4bed7919bb50a5291bd0424bfade2c108f1937"
-    sha256 cellar: :any,                 arm64_sonoma:  "3fdbbb1db21dc8deb5e27ce1802874ce99abf31ed25c92007416dc919efe18bf"
-    sha256 cellar: :any,                 sonoma:        "b9e55c3feca982499ae4d4d7d63947ab537574ae09e436b2a651df3c804a87aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e02f0769c5b473459599ba3c53750d8ed6e607420ae949b34768c2bb65482b4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68fa341323afd9377c3051772886e81596d5e720fbdd5a5751d4e8999707b017"
+    sha256 cellar: :any,                 arm64_tahoe:   "c64aafe6d207e1bcbca522f14bb4cfdd7b21410cb963d446d7b829573a21194b"
+    sha256 cellar: :any,                 arm64_sequoia: "f66c227e7ebfdb686d5bdf0e5f6acc6524b0f432d7dc231238efdeefd517c738"
+    sha256 cellar: :any,                 arm64_sonoma:  "f7c6e5d493e95514edc7ab93e828b7fb46770875179be00849c3937a0fb5b7ed"
+    sha256 cellar: :any,                 sonoma:        "523d86c65f04a268b4122d67d573a5e8d99acaaa40e725e042ffa2ede5226933"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4d610a59e3b75a901f2bde10fec8b44f79abb997a3f1af8623592d2fbd4e5b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d40ee817e26e7bf5c4f6f55029ddb58b3b9ee47a0d76a4bbdc235b37980c4f42"
   end
 
   head do
@@ -42,7 +43,7 @@ class Ortp < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "mbedtls"
+  depends_on "mbedtls@3"
 
   def install
     odie "bctoolbox resource needs to be updated" if build.stable? && version != resource("bctoolbox").version

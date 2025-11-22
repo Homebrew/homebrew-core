@@ -1,20 +1,19 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://github.com/xrootd/xrootd/releases/download/v5.9.0/xrootd-5.9.0.tar.gz"
-  mirror "https://xrootd.slac.stanford.edu/download/v5.9.0/xrootd-5.9.0.tar.gz"
-  sha256 "e08e6fc73aeab08e56f716adafa9476cdfd293e28c14d0af5b1a67c06b1e6831"
+  url "https://github.com/xrootd/xrootd/releases/download/v5.9.1/xrootd-5.9.1.tar.gz"
+  mirror "https://xrootd.slac.stanford.edu/download/v5.9.1/xrootd-5.9.1.tar.gz"
+  sha256 "39946509a50e790ab3fcc77ba0f4c9b66abef221262756aa8bb2494f00a0e321"
   license "LGPL-3.0-or-later"
-  revision 1
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3fa02ae35434b08ff0818a37de2b0a409c6b08123ba2a6cfb4d9a5a9cdc212ac"
-    sha256 cellar: :any,                 arm64_sequoia: "064000b37f6b32d656cbf759b09b22e776bb783856d2892dcee191c2d77ec45e"
-    sha256 cellar: :any,                 arm64_sonoma:  "b6d47f90d916f5f7b9c39f3dc0ffa9d8fa0b3cf953a33e466624020d5e1f82de"
-    sha256 cellar: :any,                 sonoma:        "1a22ffe56ca4b9f9cbe0bbf20452c9c4fb438031b747c171983b0352bf1a9a63"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bcc51ac16880f290f6f89c0cae095d85ed63742f143b9922cbde6ecd69a1e0ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c327ea1ba255eac2b6c4c89116d4a9f6bcf3ca462afde41bb967d4b776d02b84"
+    sha256 cellar: :any,                 arm64_tahoe:   "e17e1a006be3149a52d22d04b63778ccfb9ac702b391c22d40149ed8e0741610"
+    sha256 cellar: :any,                 arm64_sequoia: "2bcaa3a0e5f21d166a513bd4512fdb3428d93020b983e989330bbdfb719196c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "20372f4511f80bc1c3e6d9c3b65776756290179f6bd56bd5237a2009b28d98b3"
+    sha256 cellar: :any,                 sonoma:        "ba884b887699f4dc3767b1bc976cb602c56a777c8e2702078f44a067f59f970b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bee9840dfb63fdd91812e336caa3c9f71a6dc5c4d556827b2b0ff99f2572257"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e3fd497674e6051cb16c26ac7f9b34200d817bdc382a2332b8d4f75975eab77"
   end
 
   depends_on "cmake" => :build

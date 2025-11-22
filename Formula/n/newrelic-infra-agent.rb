@@ -2,8 +2,8 @@ class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
   url "https://github.com/newrelic/infrastructure-agent.git",
-      tag:      "1.71.0",
-      revision: "a2ce32e5cf2869d3d1abff9e8e29640813e3c034"
+      tag:      "1.71.1",
+      revision: "d252cea32d3671d8677ad2a13908183a973549b4"
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
@@ -15,12 +15,13 @@ class NewrelicInfraAgent < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f2c691c1123522b5429247e76cfd237ad409ccec144dd22bc1c300015693fb0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3625b9720d55ac174f12dd134f63b332e8362bd66e0858990dcc38d5cfac41c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "630a48630f94a25082acdd913f677ce028c3f83eabc6873b82319a0b00446771"
-    sha256 cellar: :any_skip_relocation, sonoma:        "892dcab0aee9de692e16244a0aa4913665ba4bdf3eb27102d8211d77be118766"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0836884a48643ac420a9c48beb45624767517719ec2be1d043fc74974eda3d07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "308a05a8a12d27c2de2b3c6586ecbc63350cb5aa6fd13d24d609bf93c58492a8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b2144f51a927227b96dcbaf3f865217e3664904155458c60dfc9173219a1aae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9fcb05c1f1a90b94d625b570374a5e1a3c8defeea177ede38882d2195b88c0f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f27892f439e52d33e15f7f598982f32c3516f7dddfdbfb6e994153662ce528ab"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9e7a48730d9e270c8f00a5c6457f7a8794d4e69dc0f9f008c523ba762eeed1d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b28ddff595bd7e64b1a744238c9054033ea6c40f32ef636b811776684524810b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67d9f412059630cb4327aa15f6febb712e28ad2eb05c6777028fe48c721997f8"
   end
 
   depends_on "go" => :build
@@ -38,9 +39,6 @@ class NewrelicInfraAgent < Formula
     bin.install "dist/#{os}-newrelic-infra-ctl_#{os}_#{goarch}/newrelic-infra-ctl"
     bin.install "dist/#{os}-newrelic-infra-service_#{os}_#{goarch}/newrelic-infra-service"
     (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt" if OS.mac?
-  end
-
-  def post_install
     (etc/"newrelic-infra").mkpath
     (var/"log/newrelic-infra").mkpath
   end

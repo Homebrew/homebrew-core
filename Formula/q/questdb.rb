@@ -11,7 +11,8 @@ class Questdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7aeb5080abdab263645562e919f17003b68d105f45e6cd882c5d137ac6e571d9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "05f49c6231d368cbb572519717dffc9709af75c61e9f042c17db07e530bacedf"
   end
 
   depends_on "openjdk"
@@ -21,9 +22,7 @@ class Questdb < Formula
     libexec.install Dir["*"]
     (bin/"questdb").write_env_script libexec/"questdb.sh", Language::Java.overridable_java_home_env
     inreplace libexec/"questdb.sh", "/usr/local/var/questdb", var/"questdb"
-  end
 
-  def post_install
     # Make sure the var/questdb directory exists
     (var/"questdb").mkpath
   end

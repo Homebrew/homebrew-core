@@ -7,7 +7,8 @@ class Solr < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4a4cc4a4b737bdc85b14b4823f4638ec3df685d4b083321accb3b23d72160484"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "592f957bb34ffc18114c262953a7d74870b82ac414951c48d3b2d4f64507aadd"
   end
 
   # Can be updated after https://github.com/apache/solr/pull/3153
@@ -16,6 +17,8 @@ class Solr < Formula
   def install
     pkgshare.install "bin/solr.in.sh"
     (var/"lib/solr").install "server/solr/README.md", "server/solr/solr.xml", "server/solr/zoo.cfg"
+    (var/"log/solr").mkpath
+    (var/"run/solr").mkpath
     prefix.install "licenses", "modules", "server"
     bin.install "bin/solr", "bin/post"
 
@@ -26,11 +29,6 @@ class Solr < Formula
     bin.env_script_all_files libexec, env
 
     inreplace libexec/"solr", "/usr/local/share/solr", pkgshare
-  end
-
-  def post_install
-    (var/"run/solr").mkpath
-    (var/"log/solr").mkpath
   end
 
   service do

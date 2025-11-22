@@ -7,12 +7,13 @@ class Autobrr < Formula
   head "https://github.com/autobrr/autobrr.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b6b740c77fd6e0ea0f1b32793160503113ae7e8f1048672dd517e75b5b6ba7a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b92a9da1d73c12febf9afe648ca96927a4c6f368bda8af94d947ef2df68975f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abb3cd6ad17847dabd3d213089946ec54b0a426ea1ae319a3e99b9303f235d49"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cc801092dfa38ce2de3a622d475637e1dd1f4f510b5570ea344c24fe51589157"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ce64ce3efe52d3b8e58feb431f568979b1cd8317a553c790d2d104392e1c97c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6904c337d63ade73e6af3962c34e1da2c3f9d3a994a48fc1cbb0d49a272798b1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4370a9125c5d5ae0c54f4aaee26e1923bee84b1af969e9c332d237e306289040"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f73b7f33aedefd15756815aad1ee5b77e38ec835a89a208f580a90376ebc376"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "933ef7216b4c387035681dfebb472f37c54a364a65823bcc0e33f508a569bcfe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "513db99e23ed914b01f2b96f35bb7c5d011533266d5437e47962889560bfb9e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c92d72e29c96c17804f7c8bdb0297a3038ab1ddc3e419da8c7a093766f7c592"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ea8d8f39f07245228d6253a8f042a8f48779b99fcbce0487762412cd82f5fe5"
   end
 
   depends_on "go" => :build
@@ -27,9 +28,7 @@ class Autobrr < Formula
 
     system "go", "build", *std_go_args(output: bin/"autobrr", ldflags:), "./cmd/autobrr"
     system "go", "build", *std_go_args(output: bin/"autobrrctl", ldflags:), "./cmd/autobrrctl"
-  end
 
-  def post_install
     (var/"autobrr").mkpath
   end
 
@@ -52,12 +51,9 @@ class Autobrr < Formula
       sessionSecret = "secret-session-key"
     TOML
 
-    pid = fork do
-      exec bin/"autobrr", "--config", "#{testpath}/"
-    end
-    sleep 4
-
+    pid = spawn bin/"autobrr", "--config", "#{testpath}/"
     begin
+      sleep 4
       system "curl", "-s", "--fail", "http://127.0.0.1:#{port}/api/healthz/liveness"
     ensure
       Process.kill("TERM", pid)

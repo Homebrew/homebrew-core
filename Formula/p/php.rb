@@ -2,11 +2,33 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.4.14.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.4.14.tar.xz"
-  sha256 "bac90ee7cf738e814c89b6b27d4d2c4b70e50942a420837e1a22f5fd5f9867a3"
-  license "PHP-3.01"
-  revision 1
+  url "https://www.php.net/distributions/php-8.5.0.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.5.0.tar.xz"
+  sha256 "39cb6e4acd679b574d3d3276f148213e935fc25f90403eb84fb1b836a806ef1e"
+  license all_of: [
+    "PHP-3.01",
+
+    # Extra licenses not documented in README.REDIST.BINS
+    "Zend-2.0", # Zend/LICENSE
+    "BSL-1.0",  # Zend/asm/LICENSE
+    "MIT",      # ext/date/lib/LICENSE.rst
+
+    # Extra licenses documented in README.REDIST.BINS ignoring unbundled pcre2lib (3) and gd (13)
+    # ref: https://github.com/php/php-src/blob/PHP-8.5/README.REDIST.BINS
+    "Apache-1.0",            # 10
+    "Apache-2.0",            # 20
+    "bcrypt-Solar-Designer", # 5
+    "BSD-2-Clause-Darwin",   # 1
+    "BSD-2-Clause",          # 14, 18, 19, 21; also TSRM/LICENSE
+    "BSD-3-Clause",          # 4, 6, 11, 12, 15, 22
+    "BSD-4-Clause-UC",       # 9
+    "ISC",                   # 10
+    "LGPL-2.1-only",         # 2
+    "LGPL-2.1-or-later",     # 16
+    "OLDAP-2.8",             # 17
+    "TCL",                   # 7
+    "Zlib",                  # 8
+  ]
 
   livecheck do
     url "https://www.php.net/downloads?source=Y"
@@ -14,12 +36,12 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "52320a2f51c34df3a6d1043fe9a428c9413d2da47f58ddb8a56ea8bd9dccd087"
-    sha256 arm64_sequoia: "254e19f347b729042bddc9cfb90dcb5758b8b9e03824b64ce0a6af59d496e4b3"
-    sha256 arm64_sonoma:  "0c8ae5a443f8c2fabbb59e78a8dc0ca8ca2efc61cd19dcf5833df6d83b62eef2"
-    sha256 sonoma:        "52e9795f76b53df0be4faff0cf4962dc2bf58936bd0140ff0f16ed73207508c2"
-    sha256 arm64_linux:   "3832c66cd7b79d6a9b037924083010a1f60fefd0e765595fa1c031b41d5604df"
-    sha256 x86_64_linux:  "611f82344e4ab859c25b499d50c22e446df5b7850647b06d6790eb9310980aa6"
+    sha256 arm64_tahoe:   "03b97964f87cb37c098baf62b9f169d2eba6d884f4081c66aff692f56bec9812"
+    sha256 arm64_sequoia: "451d75733fba64fb6e84a28333bb2b02ec83dd14137bc83c8473a26b83344829"
+    sha256 arm64_sonoma:  "4fe86395bd69087c9813c861d569f40bea798f2d5eb889f231013f31ee471c2c"
+    sha256 sonoma:        "802c83d269609153296be37dbcb14373d3d9589c1d158aeaa67218dcf9c3e3e3"
+    sha256 arm64_linux:   "f22af7b3c6b3dc169f8b44a7d21e53b0c677785cb5d0ae22dbffa30f08353cf9"
+    sha256 x86_64_linux:  "d5d380cdeefea8b7d1a264f9bff9d0cf867aae9effcf0491913de1cf4a12b99f"
   end
 
   head do
@@ -51,7 +73,7 @@ class Php < Formula
   depends_on "tidy-html5"
   depends_on "unixodbc"
 
-  uses_from_macos "xz" => :build
+  uses_from_macos "cyrus-sasl" => :build
   uses_from_macos "bzip2"
   uses_from_macos "libedit"
   uses_from_macos "libffi"
@@ -60,14 +82,7 @@ class Php < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "gcc" => :build # must never be a runtime dependency
     depends_on "gettext"
-  end
-
-  # https://github.com/Homebrew/homebrew-core/issues/235820
-  # https://clang.llvm.org/docs/UsersManual.html#gcc-extensions-not-implemented-yet
-  fails_with :clang do
-    cause "Performs worse due to lack of general global register variables"
   end
 
   def install
@@ -80,6 +95,17 @@ class Php < Formula
               "APXS_LIBEXECDIR='$(INSTALL_ROOT)#{lib}/httpd/modules'"
       s.gsub! "-z $($APXS -q SYSCONFDIR)",
               "-z ''"
+
+      # Workaround to enable TAILCALL VM, issue ref: https://github.com/php/php-src/issues/20546
+      s.gsub!(/("(?:call|bl)\s+)(fun\\n")/, "\\1_\\2") if OS.mac?
+
+      # NOTE: `versioned_formula?` conditionals are to make sure correct changes
+      # are applied if copied from `php`. Remove dead code when creating `php@x.y`
+      if versioned_formula?
+        # apxs will interpolate the @ in the versioned prefix: https://bz.apache.org/bugzilla/show_bug.cgi?id=61944
+        s.gsub! "LIBEXECDIR='$APXS_LIBEXECDIR'",
+                "LIBEXECDIR='" + "#{lib}/httpd/modules".gsub("\\", "\\\\").gsub("@", "\\@") + "'"
+      end
     end
 
     # Update error message in apache sapi to better explain the requirements
@@ -99,24 +125,25 @@ class Php < Formula
     # Prevent system pear config from inhibiting pear install
     (config_path/"pear.conf").delete if (config_path/"pear.conf").exist?
 
-    # Prevent homebrew from hardcoding path to sed shim in phpize script
-    ENV["lt_cv_path_SED"] = "sed"
-
     # Identify build provider in php -v output and phpinfo()
     ENV["PHP_BUILD_PROVIDER"] = tap.user
 
     if OS.mac?
-      ENV["SASL_CFLAGS"] = "-I#{MacOS.sdk_path_if_needed}/usr/include/sasl"
+      sdk_path = MacOS.sdk_for_formula(self).path
+      ENV["SASL_CFLAGS"] = "-I#{sdk_path}/usr/include/sasl"
       ENV["SASL_LIBS"] = "-lsasl2"
+
+      # Each extension needs a direct reference to the sdk path or it won't find the headers
+      headers_path = "=#{sdk_path}/usr"
+
+      # PHP build system incorrectly links system libraries: https://github.com/php/php-src/issues/10680
+      # Homebrew's superenv can only discard these if using realpath of SDK
+      ENV["HOMEBREW_SDKROOT"] = sdk_path.realpath
     else
       ENV["SQLITE_CFLAGS"] = "-I#{Formula["sqlite"].opt_include}"
       ENV["SQLITE_LIBS"] = "-lsqlite3"
       ENV["BZIP_DIR"] = Formula["bzip2"].opt_prefix
     end
-
-    # Each extension that is built on Mojave needs a direct reference to the
-    # sdk path or it won't find the headers
-    headers_path = "=#{MacOS.sdk_path_if_needed}/usr" if OS.mac?
 
     # `_www` only exists on macOS.
     fpm_user = OS.mac? ? "_www" : "www-data"
@@ -161,9 +188,10 @@ class Php < Formula
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-iconv#{headers_path}
       --with-layout=GNU
+      --with-ldap-sasl
       --with-ldap=#{Formula["openldap"].opt_prefix}
-      --with-libxml
       --with-libedit
+      --with-libxml
       --with-mhash#{headers_path}
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
@@ -189,10 +217,8 @@ class Php < Formula
 
     if OS.mac?
       args << "--enable-dtrace"
-      args << "--with-ldap-sasl"
     else
       args << "--disable-dtrace"
-      args << "--without-ldap-sasl"
       args << "--without-ndbm"
       args << "--without-gdbm"
     end
@@ -205,17 +231,13 @@ class Php < Formula
     extension_dir = Utils.safe_popen_read(bin/"php-config", "--extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
+    inreplace ["php.ini-development", "php.ini-production"] do |s|
+      s.gsub! %r{; ?extension_dir = "\./"}, "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
-    openssl = Formula["openssl@3"]
-    %w[development production].each do |mode|
-      inreplace "php.ini-#{mode}" do |s|
-        # Allow pecl to install outside of Cellar
-        s.gsub! %r{; ?extension_dir = "\./"}, "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
-
-        # Use OpenSSL cert bundle
-        s.gsub!(/; ?openssl\.cafile=/, "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\"")
-        s.gsub!(/; ?openssl\.capath=/, "openssl.capath = \"#{openssl.pkgetc}/certs\"")
-      end
+      # Use OpenSSL cert bundle
+      openssl = Formula["openssl@3"]
+      s.gsub!(/; ?openssl\.cafile=/, "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\"")
+      s.gsub!(/; ?openssl\.capath=/, "openssl.capath = \"#{openssl.pkgetc}/certs\"")
     end
 
     config_files = {
@@ -261,11 +283,11 @@ class Php < Formula
     ln_s pecl_path, prefix/"pecl" unless (prefix/"pecl").exist?
     extension_dir = Utils.safe_popen_read(bin/"php-config", "--extension-dir").chomp
     php_basename = File.basename(extension_dir)
-    php_ext_dir = opt_prefix/"lib/php"/php_basename
     (pecl_path/php_basename).mkpath
 
     # fix pear config to install outside cellar
-    pear_path = HOMEBREW_PREFIX/"share/pear"
+    pear_dir = versioned_formula? ? "pear@#{version.major_minor}" : "pear"
+    pear_path = HOMEBREW_PREFIX/"share"/pear_dir
     cp_r pkgshare/"pear/.", pear_path
     {
       "php_ini"  => etc/"php/#{version.major_minor}/php.ini",
@@ -285,22 +307,6 @@ class Php < Formula
     end
 
     system bin/"pear", "update-channels"
-
-    %w[
-      opcache
-    ].each do |e|
-      ext_config_path = etc/"php/#{version.major_minor}/conf.d/ext-#{e}.ini"
-      extension_type = (e == "opcache") ? "zend_extension" : "extension"
-      if ext_config_path.exist?
-        inreplace ext_config_path,
-          /#{extension_type}=.*$/, "#{extension_type}=#{php_ext_dir}/#{e}.so"
-      else
-        ext_config_path.write <<~INI
-          [#{e}]
-          #{extension_type}="#{php_ext_dir}/#{e}.so"
-        INI
-      end
-    end
   end
 
   def caveats
@@ -331,73 +337,74 @@ class Php < Formula
   end
 
   test do
-    assert_match(/^Zend OPcache$/, shell_output("#{bin}/php -i"),
-      "Zend OPCache extension not loaded")
-    # Test related to libxml2 and
-    # https://github.com/Homebrew/homebrew-core/issues/28398
-    assert_includes (bin/"php").dynamically_linked_libraries,
-                    (Formula["libpq"].opt_lib/shared_library("libpq", 5)).to_s
+    assert_match(/^Zend OPcache$/, shell_output("#{bin}/php -i"), "Zend OPCache extension not loaded")
 
-    system "#{sbin}/php-fpm", "-t"
+    # Test related to libxml2 and https://github.com/Homebrew/homebrew-core/issues/28398
+    require "utils/linkage"
+    libpq = Formula["libpq"].opt_lib/shared_library("libpq")
+    assert Utils.binary_linked_to_library?(bin/"php", libpq), "No linkage with Homebrew #{libpq.basename}!"
+
+    system sbin/"php-fpm", "-t"
     system bin/"phpdbg", "-V"
     system bin/"php-cgi", "-m"
 
+    port = free_port
+    port_fpm = free_port
+    expected_output = /^Hello world!$/
+
+    (testpath/"index.php").write <<~PHP
+      <?php
+      echo 'Hello world!' . PHP_EOL;
+      var_dump(ldap_connect());
+      $session = new SNMP(SNMP::VERSION_1, '127.0.0.1', 'public');
+      var_dump(@$session->get('sysDescr.0'));
+    PHP
+
+    main_config = <<~EOS
+      Listen #{port}
+      ServerName localhost:#{port}
+      DocumentRoot "#{testpath}"
+      ErrorLog "#{testpath}/httpd-error.log"
+      ServerRoot "#{Formula["httpd"].opt_prefix}"
+      PidFile "#{testpath}/httpd.pid"
+      LoadModule authz_core_module lib/httpd/modules/mod_authz_core.so
+      LoadModule unixd_module lib/httpd/modules/mod_unixd.so
+      LoadModule dir_module lib/httpd/modules/mod_dir.so
+      DirectoryIndex index.php
+    EOS
+
+    (testpath/"httpd.conf").write <<~EOS
+      #{main_config}
+      LoadModule mpm_prefork_module lib/httpd/modules/mod_mpm_prefork.so
+      LoadModule php_module #{lib}/httpd/modules/libphp.so
+      <FilesMatch \\.(php|phar)$>
+        SetHandler application/x-httpd-php
+      </FilesMatch>
+    EOS
+
+    (testpath/"fpm.conf").write <<~INI
+      [global]
+      daemonize=no
+      [www]
+      listen = 127.0.0.1:#{port_fpm}
+      pm = dynamic
+      pm.max_children = 5
+      pm.start_servers = 2
+      pm.min_spare_servers = 1
+      pm.max_spare_servers = 3
+    INI
+
+    (testpath/"httpd-fpm.conf").write <<~EOS
+      #{main_config}
+      LoadModule mpm_event_module lib/httpd/modules/mod_mpm_event.so
+      LoadModule proxy_module lib/httpd/modules/mod_proxy.so
+      LoadModule proxy_fcgi_module lib/httpd/modules/mod_proxy_fcgi.so
+      <FilesMatch \\.(php|phar)$>
+        SetHandler "proxy:fcgi://127.0.0.1:#{port_fpm}"
+      </FilesMatch>
+    EOS
+
     begin
-      port = free_port
-      port_fpm = free_port
-
-      expected_output = /^Hello world!$/
-      (testpath/"index.php").write <<~PHP
-        <?php
-        echo 'Hello world!' . PHP_EOL;
-        var_dump(ldap_connect());
-        $session = new SNMP(SNMP::VERSION_1, '127.0.0.1', 'public');
-        var_dump(@$session->get('sysDescr.0'));
-      PHP
-      main_config = <<~EOS
-        Listen #{port}
-        ServerName localhost:#{port}
-        DocumentRoot "#{testpath}"
-        ErrorLog "#{testpath}/httpd-error.log"
-        ServerRoot "#{Formula["httpd"].opt_prefix}"
-        PidFile "#{testpath}/httpd.pid"
-        LoadModule authz_core_module lib/httpd/modules/mod_authz_core.so
-        LoadModule unixd_module lib/httpd/modules/mod_unixd.so
-        LoadModule dir_module lib/httpd/modules/mod_dir.so
-        DirectoryIndex index.php
-      EOS
-
-      (testpath/"httpd.conf").write <<~EOS
-        #{main_config}
-        LoadModule mpm_prefork_module lib/httpd/modules/mod_mpm_prefork.so
-        LoadModule php_module #{lib}/httpd/modules/libphp.so
-        <FilesMatch \\.(php|phar)$>
-          SetHandler application/x-httpd-php
-        </FilesMatch>
-      EOS
-
-      (testpath/"fpm.conf").write <<~INI
-        [global]
-        daemonize=no
-        [www]
-        listen = 127.0.0.1:#{port_fpm}
-        pm = dynamic
-        pm.max_children = 5
-        pm.start_servers = 2
-        pm.min_spare_servers = 1
-        pm.max_spare_servers = 3
-      INI
-
-      (testpath/"httpd-fpm.conf").write <<~EOS
-        #{main_config}
-        LoadModule mpm_event_module lib/httpd/modules/mod_mpm_event.so
-        LoadModule proxy_module lib/httpd/modules/mod_proxy.so
-        LoadModule proxy_fcgi_module lib/httpd/modules/mod_proxy_fcgi.so
-        <FilesMatch \\.(php|phar)$>
-          SetHandler "proxy:fcgi://127.0.0.1:#{port_fpm}"
-        </FilesMatch>
-      EOS
-
       pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
       sleep 10
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")

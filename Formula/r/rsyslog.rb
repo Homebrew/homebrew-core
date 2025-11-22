@@ -11,12 +11,13 @@ class Rsyslog < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "52b056838647afd16db626576e9b224738b9ef3031edfee90446a36c97503501"
-    sha256 arm64_sequoia: "d8c7bfbaf7c2c384773cec928525e9b19b1ca0aa7b026271420d209eb07a29c5"
-    sha256 arm64_sonoma:  "aca061f730511b05e2e00a49239fdc2edc2a6f10bfed2faf09411e9b3a9dd90d"
-    sha256 sonoma:        "6e92f72b192788e7f4e0d65b2628b8ef8ee2dff0a2692f71464f0ed42dc87920"
-    sha256 arm64_linux:   "26ee6cabef387da7870b9570cf85220a146af9114ca58107a35751b7164d50f4"
-    sha256 x86_64_linux:  "c71f794e6984ae53eeb1cd0d7ef77a4a58a68a10b313454b35c6f330e6efd06e"
+    rebuild 1
+    sha256 arm64_tahoe:   "0b2e0bf5c8c9d2c08ce286f8d3ecafe9df9b289bca7e7af78341ab5d09ded214"
+    sha256 arm64_sequoia: "3f396b4ad295039d023feed5d79cb3f04c8c8228d93bf81b182faea1f9c5a27a"
+    sha256 arm64_sonoma:  "543a3fe12224e76dbebb2f8e3a20aea33bdb782966903de0acdb9f67be8f3069"
+    sha256 sonoma:        "164c28103f9a4a11fc69ed5b0c0bda884401da6dd9e71466db75716f7d29f2e5"
+    sha256 arm64_linux:   "3367a4af44d9307989ca72ad2ba30d2294b70abdcd6ca9b2e70bb7290d852371"
+    sha256 x86_64_linux:  "14c1f1b2fd17d541b8de9b8bf424760c8f7845410741eb075df5c65ed66a7197"
   end
 
   depends_on "pkgconf" => :build
@@ -42,13 +43,11 @@ class Rsyslog < Formula
       # minimal config file for receiving logs over UDP port 10514
       $ModLoad imudp
       $UDPServerRun 10514
-      *.* /usr/local/var/log/rsyslog-remote.log
+      *.* #{var}/log/rsyslog-remote.log
     EOS
     etc.install buildpath/"rsyslog.conf"
-  end
 
-  def post_install
-    mkdir_p var/"run"
+    (var/"run").mkpath
   end
 
   service do

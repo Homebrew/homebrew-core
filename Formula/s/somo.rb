@@ -1,18 +1,17 @@
 class Somo < Formula
   desc "Human-friendly alternative to netstat for socket and port monitoring"
   homepage "https://github.com/theopfr/somo"
-  url "https://github.com/theopfr/somo/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "6996b37cef43a62bfd2c99e7b93ec465a3d086ca5e7a0be35ce32ecf5685e5e0"
+  url "https://github.com/theopfr/somo/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "89476469318f3cc9d334ed39f415d0638d79df265929c05a27acb9a372544cc8"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1e4a32220ea96d4283cffda348749c885d43f2b3834f9e306691e5fc6ac763c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecb8e0c668adb150edd002fa4bc9b224f86cd141ee9421e00a107f00b2629eda"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "87af655d47845d6eacc5d7a217a0efc09a4088d7bdfdbe1ef9af898411010595"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eb59ce4399c33c94add85e8b5861196cfea87fc045dd2ef4b69bfcb71722df96"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e43ff516d2765ad335067b0545c272fd1a329b60d0b21ccb505f729687379d3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e59b3ca9e13adf08d2d0ea12ca81311e61ed092a2e059239abd9db73b2a79fce"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e79ca29c9937d4153f7c35da4dd8a5981fdf191cccfb3150a99daf99ca8de5af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67436ba102bbe520fb37b375e5c4478acf7a8f0f7d59482ecfb0ea74b5c79984"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2d2397f5ffc51d46337533fc9fa0338c77da5539a95115a8bb0777ac27b6cb9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0d3c573b6cb5dab40236133464a7cf48859612b1d8423a15672806175ea52028"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "556d85393b26d3f4b07d11a63fdd1c4138de58ef4d3e5788111abb4c5b7627fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "412f433f84e0c26abd8a2a2af8bec2107b30439aee4b411f2e7b7b2d6ee7acbe"
   end
 
   depends_on "rust" => :build

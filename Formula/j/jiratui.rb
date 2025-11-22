@@ -3,20 +3,20 @@ class Jiratui < Formula
 
   desc "Textual User Interface for interacting with Atlassian Jira from your shell"
   homepage "https://jiratui.sh/"
-  url "https://files.pythonhosted.org/packages/cd/2f/0448b1786e2856f17cec35b9676805fae57b5d8f112f6d3aeddc1ee468e4/jiratui-1.5.0.tar.gz"
-  sha256 "22bd60aff242530c762c6fc2c65cef964a0607635bd6ca8eed7d5aa0c8360bb7"
+  url "https://files.pythonhosted.org/packages/cb/0a/d4d546ff92c800b67a629d5e36540401592c27ff177456dfc3495ac76a91/jiratui-1.6.2.tar.gz"
+  sha256 "cd8ada771211eb56f30a91cdb35e9add29e32a99858c133efbff1ce36bcfb134"
   license "MIT"
+  head "https://github.com/whyisdifficult/jiratui.git", branch: "main"
 
   no_autobump! because: "has non-PyPI resources"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "5d9bed93df97d1823f3add8d9e6a6e0faf362ca5f74e502b1b707b91bde1885f"
-    sha256 cellar: :any,                 arm64_sequoia: "b75d4f2d57db1f79feda8abddbcc0815073d32a8979bec5ba8b50539d908372f"
-    sha256 cellar: :any,                 arm64_sonoma:  "9c293640009f53f0e79b1843b30748dfc2285d2a8baecfc07e11f6cc020959fa"
-    sha256 cellar: :any,                 sonoma:        "2f373dff49840ffc462c91c891b8e8ad49a9b1c767a54e96b16cd23577aefe52"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad45b18be8e7ca37fcb2e4f4f135f3a2bf0a51b34c5fe78ed880087130ae0451"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4cf667baa04d1e8174c9e6fc36a193889015a1946a70c42888a8d2fe753b9ad"
+    sha256 cellar: :any,                 arm64_tahoe:   "c368ed9ebad8d1fb26fa8b715fee0d06261dc17a0aeb9adc3f22f0e7b6a15a91"
+    sha256 cellar: :any,                 arm64_sequoia: "7a8425b315f5d92d7f2e4e3d86625abb1d7acbedc613f51a271a3591962d35c9"
+    sha256 cellar: :any,                 arm64_sonoma:  "69f3945001175edec3c0685c3992b7debaf9a104939f6e8ef0e67f1b1ba69384"
+    sha256 cellar: :any,                 sonoma:        "f9b6ccf5437cc5975a1a8dcc2b36a95b0eac4396c3f1442b96af93a6972f45e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f86a85d2a615da2738bcdb7eb7430833ef845a6bc943878c7e516b71d0e91d9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f8ffae0aebd2ea7eacbdfea988186a2e544a55a7ecb7b4f6c13b0cc32d6b903"
   end
 
   depends_on "rust" => :build
@@ -107,8 +107,8 @@ class Jiratui < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/20/c5/dbbc27b814c71676593d1c3f718e6cd7d4f00652cefa24b75f7aa3efb25e/pydantic_settings-2.11.0.tar.gz"
-    sha256 "d0e87a1c7d33593beb7194adb8470fc426e95ba02af83a0f23474a04c9a08180"
+    url "https://files.pythonhosted.org/packages/43/4b/ac7e0aae12027748076d72a8764ff1c9d82ca75a7a52622e67ed3f765c54/pydantic_settings-2.12.0.tar.gz"
+    sha256 "005538ef951e3c2a68e1c08b292b5f2e71490def8589d4221b95dab00dafcfd0"
   end
 
   resource "pygments" do
@@ -162,8 +162,8 @@ class Jiratui < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/af/90/59757aa887ddcea61428820274f1a2d1f986feb7880374a5420ab5d37132/textual-6.5.0.tar.gz"
-    sha256 "e5f152cdd47db48a635d23b839721bae4d0e8b6d855e3fede7285218289294e3"
+    url "https://files.pythonhosted.org/packages/f6/2f/f0b408f227edca21d1996c1cd0b65309f0cbff44264aa40aded3ff9ce2e1/textual-6.6.0.tar.gz"
+    sha256 "53345166d6b0f9fd028ed0217d73b8f47c3a26679a18ba3b67616dcacb470eec"
   end
 
   resource "textual-image" do
@@ -262,10 +262,6 @@ class Jiratui < Formula
   end
 
   def install
-    # Unpin Python for 3.14
-    # Issue ref: https://github.com/whyisdifficult/jiratui/issues/110
-    inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.14"', 'requires-python = ">=3.10"'
-
     # hatch does not support a SOURCE_DATE_EPOCH before 1980.
     # Remove after https://github.com/pypa/hatch/pull/1999 is released.
     ENV["SOURCE_DATE_EPOCH"] = "1451574000"

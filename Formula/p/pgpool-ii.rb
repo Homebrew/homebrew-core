@@ -11,14 +11,13 @@ class PgpoolIi < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "d4e452ae158f90ef4228717bbe6c9b9d3678dfe797abdda1e6dfd40faa1d0dd8"
-    sha256               arm64_sequoia: "3062a0e20358f8e941be43ebdafc4be5b332258494933a7ba1d5d35d1157c06e"
-    sha256               arm64_sonoma:  "263936a2aa00c0996b06cadc34a28cf70cd27389f69de3f10ab79d0cfe19a052"
-    sha256               arm64_ventura: "b0c66cc882f57bec2e56dcce1fb3487680b9e183e09bdcb6f96ec97f01e0f947"
-    sha256 cellar: :any, sonoma:        "82fcc1e906022b1a61ce212c0cb68350497c503a05be8405b12f10ec67e753bf"
-    sha256 cellar: :any, ventura:       "6ba91098cf31925d19ab65de6c9870428ef5422cd64e2415d5b30ef1ec10f4d3"
-    sha256               arm64_linux:   "95096edfd72538ac1b6c4e4226bd7e9ad7b7278ca138078c533538a8207869ba"
-    sha256               x86_64_linux:  "8959b7c3cb8529ef2f429b98097f070e716bd80af8e0a5e71720d8bc06634487"
+    rebuild 1
+    sha256               arm64_tahoe:   "a06a7dced7cb84105dbf2eb72ffb44e9fbab82609a800ba8f7aa157e9e96c713"
+    sha256               arm64_sequoia: "6287616f0bfad76a637ee26b2e9adc3f98648a30596bcc2fbc750128a311836e"
+    sha256               arm64_sonoma:  "118e68699416b5cd58ead4a47b0e1f22d89cc0983cf19a4f63b0fdad991f6fea"
+    sha256 cellar: :any, sonoma:        "9961d0426b00e5271709020b6e4a54c3ccd16cd20f8869043477ce27314a9984"
+    sha256               arm64_linux:   "ce6b27d65ebe473cff8285ce3e85eba0c16c6b2a087a9e0a7adf190530350ba2"
+    sha256               x86_64_linux:  "da527e1c84411626b9532e3fbdf708436efa229527081e864d3be70d08c8437a"
   end
 
   depends_on "libmemcached"
@@ -46,9 +45,7 @@ class PgpoolIi < Formula
       s.gsub! "#memqcache_max_num_cache = 1000000", "memqcache_max_num_cache = 1000"
     end
     etc.install etc/"pgpool.conf.sample" => "pgpool.conf"
-  end
 
-  def post_install
     (var/"log").mkpath
     (var/"pgpool-ii").mkpath
   end

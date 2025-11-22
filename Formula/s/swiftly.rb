@@ -54,11 +54,11 @@ class Swiftly < Formula
 
   test do
     # Test swiftly with a private installation
-    swiftly_bin = testpath/"swiftly"/"bin"
+    swiftly_bin = testpath/"swiftly/bin"
     mkdir_p swiftly_bin
     ENV["SWIFTLY_HOME_DIR"] = testpath/"swiftly"
     ENV["SWIFTLY_BIN_DIR"] = swiftly_bin
-    ENV["SWIFTLY_TOOLCHAINS_DIR"] = testpath/"swiftly"/"toolchains"
+    ENV["SWIFTLY_TOOLCHAINS_DIR"] = testpath/"swiftly/toolchains"
     system bin/"swiftly", "init", "--assume-yes", "--no-modify-profile", "--skip-install"
   end
 end

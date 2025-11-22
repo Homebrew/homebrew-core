@@ -1,7 +1,7 @@
 class Dcraw < Formula
   desc "Digital camera RAW photo decoding software"
-  homepage "https://www.dechifro.org/dcraw/"
-  url "https://www.dechifro.org/dcraw/archive/dcraw-9.28.0.tar.gz"
+  homepage "https://dechifro.org/dcraw/"
+  url "https://dechifro.org/dcraw/archive/dcraw-9.28.0.tar.gz"
   mirror "https://mirrorservice.org/sites/distfiles.macports.org/dcraw/dcraw-9.28.0.tar.gz"
   sha256 "2890c3da2642cd44c5f3bfed2c9b2c1db83da5cec09cc17e0fa72e17541fb4b9"
   license "GPL-2.0-or-later"

@@ -16,20 +16,13 @@ class Softhsm < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:    "9c4aca33b706be2a52f19a5b8b7f0c57f72508a97173574b431699d69192221e"
-    sha256 arm64_sequoia:  "469b96859edc8a37e5e3dd99aab7c7f615dad572d7ca71576fe7efa5059244a2"
-    sha256 arm64_sonoma:   "1b90ff62e89b9461223d118fa261551030e232218110b9366d7d097553d2e64e"
-    sha256 arm64_ventura:  "d41a143c3d5e8ea1b7f932c41cea27dbb64341d7e28bfb4c61af68aa68499b77"
-    sha256 arm64_monterey: "c4912791b41e00485fc4b07abf4a9f5ffd0e75d613dd3e316b15f837e4fcc95d"
-    sha256 arm64_big_sur:  "42a2031bb207ba74def4b64a1594c3827c6f2329995b52b7d84a16495c8d18df"
-    sha256 sonoma:         "2883177ca802dcf95f7fe8eaf5118399eaab1c6cf1e1d3f2d8b4a6771708f2d7"
-    sha256 ventura:        "6afda1d652a97fd5fbbe602d31d9efc675ffcc171c1978a447c864af97b8d883"
-    sha256 monterey:       "320f44fb1c860b9953b29260ca75fa947c728db78fea1a72c6796d5ea537624d"
-    sha256 big_sur:        "ceaa2a468dd99798cb775406dbeaf169565b35517d36b06fdd2abba6ed9d754a"
-    sha256 catalina:       "f18b5f1c33b98f07f14233e90e412900a22d79f4b04946bdd1fdd28a04dbda01"
-    sha256 arm64_linux:    "9fc20743d5a7ce1147876d8811fb186a22d37f7c8e55c1dbb8c07a64c08c0a0a"
-    sha256 x86_64_linux:   "87b3b85891df32b03e9b362ed76ed435095c6c72d40d460df18986869d701ee5"
+    rebuild 3
+    sha256 arm64_tahoe:   "b2bd259c0e4982412af4f69451373a1d2cc03e43889adb5262f8d8873c3ede4f"
+    sha256 arm64_sequoia: "34109f42f84fc58c9d6d9c9d668dab3ca9f71fce3d5f2962f679d730edcae3c4"
+    sha256 arm64_sonoma:  "2f329600e4d3ba0bc070d32692cf4805c43f0a25298d4d37b64a7445c0847fa6"
+    sha256 sonoma:        "210b718fbb84080b2a3b56fe0399047a7133423f4e7929e4d7ecd40e8a3357ea"
+    sha256 arm64_linux:   "a15ebcb5cb99c673cfa7aadcda2e0b1f2e8e6ba693d3d9fd91ed922c8de26ae3"
+    sha256 x86_64_linux:  "264fceddb0f4bce4bee697b2868f2d352768f4384088574b2f711b7af6894dd6"
   end
 
   head do
@@ -46,16 +39,14 @@ class Softhsm < Formula
   def install
     system "sh", "./autogen.sh" if build.head?
     system "./configure", "--disable-silent-rules",
-                          "--sysconfdir=#{etc}/softhsm",
                           "--localstatedir=#{var}",
+                          "--sysconfdir=#{pkgetc}",
                           "--with-crypto-backend=openssl",
                           "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "--disable-gost",
                           *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
     (var/"lib/softhsm/tokens").mkpath
   end
 

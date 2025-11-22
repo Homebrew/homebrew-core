@@ -170,7 +170,7 @@ jobs:
               path: Formula/.+@.+
               except:
                 - Formula/b/bash-completion@2.rb
-                - Formula/i/icu4c@77.rb
+                - Formula/i/icu4c@78.rb
                 - Formula/lib/libxml++@5.rb
                 - Formula/o/openssl@3.rb
                 - Formula/p/postgresql@18.rb
@@ -275,7 +275,6 @@ jobs:
               path: "Formula/.+/(\
                 agda|\
                 apache-pulsar|\
-                arangodb|\
                 aws-sdk-cpp|\
                 cbmc|\
                 cp2k|\
@@ -448,6 +447,10 @@ jobs:
             - label: alias
               path: Aliases/.+
               allow_any_match: true
+
+            - label: shell-completion
+              path: Formula/.+
+              content: (generate_completions_from_executable|bash_completion|zsh_completion|fish_completion|pwsh_completion)
 
   # Handle this separately since the `workflows` label affects bottle cache usage
   # and hardens us against cache poisoning attacks.

@@ -10,16 +10,18 @@ class OrganizeTool < Formula
   head "https://github.com/tfeldmann/organize.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "eba083def5194afdacbb1c42cf5ce83f2db76e0e917a34e1d70c9cda8d4fde4f"
-    sha256 cellar: :any,                 arm64_sequoia: "3071951cf4880b081c5bf1234f8123e3537f56fc466604fbcaa14efa8d873a2b"
-    sha256 cellar: :any,                 arm64_sonoma:  "2f85198f4f2b82898a05463dc897d22921c45314aec618261d0b86c9eaba6c10"
-    sha256 cellar: :any,                 sonoma:        "6fe7f4f6c082532b60f1255789eb832a04bca82abc77c4f1773768037f14a524"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "03a6fae92696f9ea7a3b6b2e4df45d17c2b57bec85990c9c05e10c7c22236a4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "534ed3a73e8a760402f50504a67a0db59393714b0adff05b09411efdcee0e16f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ce4788ed6da69ac197dc46c6e7b2b6d4d2b745a438417754c97b3f3487619697"
+    sha256 cellar: :any,                 arm64_sequoia: "7de2076d1a821d1fa08d10ad6c201eb36850b320391426fa31f2c5613f8cdd94"
+    sha256 cellar: :any,                 arm64_sonoma:  "19fe492eda25dfa3e136258e1be100d236b93748dcdf3de30bbc7967c10f2f48"
+    sha256 cellar: :any,                 sonoma:        "4b1d5f9f7cab148e6a38a006f1cc78ac74bd78d1dd5b20b4c29a1040ac410323"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b210602bdbc55e32ee03788c523e93853ba6bf7d455e1e727eb8d63bb15f7311"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b939aebdb3520dc47fd6a2c5916f6719206c94ff95b626407bdb4d160c80df3d"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build # for macos-tags
+  depends_on "rust" => :build
   depends_on "cryptography" => :no_linkage
   depends_on "freetype"
   depends_on "libyaml"
@@ -110,13 +112,13 @@ class OrganizeTool < Formula
   end
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/ab/dc/6d63019133e39e2b299dfbab786e64997fff0f145c45a417e1dd51faaf3f/pyobjc_core-12.0.tar.gz"
-    sha256 "7e05c805a776149a937b61b892a0459895d32d9002bedc95ce2be31ef1e37a29"
+    url "https://files.pythonhosted.org/packages/b8/b6/d5612eb40be4fd5ef88c259339e6313f46ba67577a95d86c3470b951fce0/pyobjc_core-12.1.tar.gz"
+    sha256 "2bb3903f5387f72422145e1466b3ac3f7f0ef2e9960afa9bcd8961c5cbf8bd21"
   end
 
   resource "pyobjc-framework-cocoa" do
-    url "https://files.pythonhosted.org/packages/37/6f/89837da349fe7de6476c426f118096b147de923139556d98af1832c64b97/pyobjc_framework_cocoa-12.0.tar.gz"
-    sha256 "02d69305b698015a20fcc8e1296e1528e413d8cf9fdcd590478d359386d76e8a"
+    url "https://files.pythonhosted.org/packages/02/a3/16ca9a15e77c061a9250afbae2eae26f2e1579eb8ca9462ae2d2c71e1169/pyobjc_framework_cocoa-12.1.tar.gz"
+    sha256 "5556c87db95711b985d5efdaaf01c917ddd41d148b1e52a0c66b1a2e2c5c1640"
   end
 
   resource "python-dateutil" do

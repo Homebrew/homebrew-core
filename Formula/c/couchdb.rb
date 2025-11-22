@@ -7,12 +7,13 @@ class Couchdb < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "97b1573e32fb1da37a5253623b38a3aa42b40bd6bb1b5718b1dea8186ab777be"
-    sha256 cellar: :any,                 arm64_sequoia: "9085a4adcf7c67f6aa95cdbc06144070f80a00eaa088d9906510b830cd0aee8f"
-    sha256 cellar: :any,                 arm64_sonoma:  "cd534b8b0d47fa6dcbca54914ae3b3cc56530196d6fdcc76b84d97ebc527d5f2"
-    sha256 cellar: :any,                 sonoma:        "053f692655f1b10d59f30cfb7bf2d9ba977d3ec76845b7db86f4652a6bb1cd2c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a5583eef463cc96ac241d8c4c0a3b326a3ead5c85295f58ab611938ced493dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed84543239fd30060f87a2db5122d183902070af334c9d65ead33bf18a8ddb93"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "c820b96084160809071315619ed09b6e94555f0325a5166d096422be4aebc4b2"
+    sha256 cellar: :any,                 arm64_sequoia: "1f1dbc597dcd626977b1611e6ef24b66d53646ecb3455442a70d9ec89651b03a"
+    sha256 cellar: :any,                 arm64_sonoma:  "7c2ba5172525d8f0188492d4aa4356e930895cee7d6fb1551d953db8dcb75e01"
+    sha256 cellar: :any,                 sonoma:        "5d6a38935df1a21d017c4aeebb560a40e9a60635f246b754f1d751158f97d537"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "765eafa2052c4c62cc001a8073fab62d9e3cc8eead91d7ddf04f34fa6fe483fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7a932cbacacade0dbda15f9c4d5a177457d267f102ae3795bea2ec11fd6cee2"
   end
 
   depends_on "autoconf" => :build
@@ -38,9 +39,6 @@ class Couchdb < Formula
     rm("rel/couchdb/bin/couchdb.cmd")
     # install files
     prefix.install Dir["rel/couchdb/*"]
-  end
-
-  def post_install
     # creating database directory
     (var/"couchdb/data").mkpath
   end

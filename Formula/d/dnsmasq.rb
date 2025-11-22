@@ -11,14 +11,13 @@ class Dnsmasq < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "718381498763305f247186fa9cb8129231288372456787f9191ef81201e98686"
-    sha256 arm64_sequoia: "482fb9095287d8a57943049c8eea8ea59f2c9f127b23e5c9820bcc79f514a0b9"
-    sha256 arm64_sonoma:  "0a155cd6f1100c05013a1522ef2cd49170d38cc17bbc8e6efe094a15d02a2dd8"
-    sha256 arm64_ventura: "cdab8f9171fdfdb0d3992f985bfa47f1e37a21ea8852b858dc99d3530fcdd90f"
-    sha256 sonoma:        "4aa45af1edb9037c600a7dfac19d606adf9ff99751868a21c69dfc3fbbd2aa3d"
-    sha256 ventura:       "00b9f8f1fa62a1e802697213e4f4a8efde894984a686246eca65d94184e7bfe4"
-    sha256 arm64_linux:   "d8dc8fbdd6b69cd8ecf6718792c5121065b4bf7cb06edc107a0de8683c92fc74"
-    sha256 x86_64_linux:  "c7ccd503b66d1e2096490ff52a0fb277fbc91ff7aa57c313fb1b3fdf531560ee"
+    rebuild 1
+    sha256 arm64_tahoe:   "cb56fd74e35d80af1e89152f461cfa9f77a4ec33a6dac3b33f06a00feeef77c7"
+    sha256 arm64_sequoia: "33f6b71563014d09360d028e613be61c7ed75e74360396efc4d3b9ce8899965e"
+    sha256 arm64_sonoma:  "b13b42d80e6be073357328442e047f4f7bad2646b03f799dca4b848a5a3d150b"
+    sha256 sonoma:        "4b2d8e61a8bb3601df2439914950fad6407edeae7db487dcfe6fd83987988cc9"
+    sha256 arm64_linux:   "6eb516dbfd16d9dd493604334be39927e6165c0f06fe631115aa3b40cd4185a5"
+    sha256 x86_64_linux:  "720d6acd1910592e9c17928a15433e0f2eabea814cf6e3e653f04be5d35d8d8b"
   end
 
   depends_on "pkgconf" => :build
@@ -50,9 +49,6 @@ class Dnsmasq < Formula
     system "make", "install", "PREFIX=#{prefix}"
 
     etc.install "dnsmasq.conf.example" => "dnsmasq.conf"
-  end
-
-  def post_install
     (var/"lib/misc/dnsmasq").mkpath
     (var/"run/dnsmasq").mkpath
     (etc/"dnsmasq.d/ppp").mkpath
@@ -68,6 +64,6 @@ class Dnsmasq < Formula
   end
 
   test do
-    system "#{sbin}/dnsmasq", "--test"
+    system sbin/"dnsmasq", "--test"
   end
 end

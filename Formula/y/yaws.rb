@@ -13,16 +13,13 @@ class Yaws < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bf81646ec0eecf981a68a3a3f5bab0eeb1f3f9ca5cea5b72ce7186798832d1ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1a1fbc355b338fa7065c584443271e285bb58a97f06f6ecee0d56463f8ae49c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f466561d44b576cba8fe45a1005e3ca5cd145c56847b412ee7dfc469941247a0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a98edfa26642f6927f31550e15dc17998536e6642487794f9a8dac03dcdfb5e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1215945f0993a225b510eec874c9e9422977fadab87ccd69c9f00964145bd31"
-    sha256 cellar: :any_skip_relocation, sonoma:         "78f9aeed03048a8ee5694bb72eeaf63722051ba849262b692f9a280202f4cb7d"
-    sha256 cellar: :any_skip_relocation, ventura:        "46107a726d6a380084466ba19a082db129dc5deee526ac9a0801240e4385bb33"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9a6516efc7a805c785d2a2080dce0bf4c2fc7df5ee7650433d50d97c94acf55"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "645fba5f0f938d597c54f3341742e6e7f62c56e88b39be42456038625fef62bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf623679c1cb98ce64347d7cd92cb3ebcbfd01c16a149632581da989d112cd26"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4479efc9ab84cd8f012651d05d28a2ce94dbe56eb3c5bbfba8bed95652dff27a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "845f04a03d4cc7fae790142bbeab2cc65efa0a51e0049e6a616138470089119d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78bf0b4af2d43b0a2bdc77134dc85b9fea30a672b9f19f62f8057a97b708e10a"
+    sha256                               sonoma:        "d2d4b74599fa98fdf09ac21cd21112418036dbfa5619cd3871810836b96172f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c69ad4c9bdbcfa150427057eda6fff5827d3b9e1548bc52124dd1a572e0c0c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5585acc49cfeca4dc82ffb280b1ade5a2f8cb6164b801435718b9ee97858c77"
   end
 
   depends_on "autoconf" => :build
@@ -53,21 +50,15 @@ class Yaws < Formula
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *extra_args, *std_configure_args
     system "make", "install", "WARNINGS_AS_ERRORS="
-
-    cd "applications/yapp" do
-      system "make"
-      system "make", "install"
-    end
+    system "make", "-C", "applications/yapp", "install"
 
     # the default config expects these folders to exist
     (lib/"yaws/examples/ebin").mkpath
     (lib/"yaws/examples/include").mkpath
 
     # Remove Homebrew shims references on Linux
-    inreplace Dir["#{prefix}/var/yaws/www/*/Makefile"], Superenv.shims_path, "/usr/bin" if OS.linux?
-  end
+    inreplace prefix.glob("var/yaws/www/*/Makefile"), Superenv.shims_path, "/usr/bin" if OS.linux?
 
-  def post_install
     (var/"log/yaws").mkpath
     (var/"yaws/www").mkpath
   end

@@ -11,12 +11,13 @@ class RpkiClient < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "386aed54aea55578ce811e6142d56de455e5ffcb741dd1ef7c7742d6093df26c"
-    sha256 arm64_sequoia: "22c0ecfc8181ea41b2b1820a36efeb70eb72ded706502cf2e750806680904728"
-    sha256 arm64_sonoma:  "99c30f0e4caf53f5487c9760e0a5eb3b6b693a90800d00531131dacfb52a7087"
-    sha256 sonoma:        "b99f81eb26b79235ef46dcb35b709b0a2aadebe44107e25e2f64b742415ed5ce"
-    sha256 arm64_linux:   "f80741224cd761de78a16c2b085e34098d13e2ee92499f17cccfe92d61d75d0a"
-    sha256 x86_64_linux:  "14dd3402ccdebb577ec400dfd337371266503e190021934669474999906d3468"
+    rebuild 1
+    sha256 arm64_tahoe:   "42d259bddcd32b86eb962546f4a088195fd7ca8125b3aefc1dde8625a86b6797"
+    sha256 arm64_sequoia: "35b00ae46c842aae7411c34ad5fe9255d4e180aa756f08daf5b1cbc080f34910"
+    sha256 arm64_sonoma:  "4f22703245950d0ebd7c5a7e662ecd6373cf94f518a4e22a7c54bd7c7974ee40"
+    sha256 sonoma:        "e154847feb5187f472c879a617a9a92e745da360c56800bab13b2b678c1f3d0a"
+    sha256 arm64_linux:   "e1a5721721fad2983f1490c8a13aef2abecbf31b34d723e99d9bd45cdf81c586"
+    sha256 x86_64_linux:  "a80ae44f8922d35091af5955e3ae1abdbab8e9ae15624d81b6726b047f91d465"
   end
 
   depends_on "pkgconf" => :build
@@ -34,9 +35,7 @@ class RpkiClient < Formula
                           "--localstatedir=#{var}",
                           *std_configure_args
     system "make", "install"
-  end
 
-  def post_install
     # make the var/db,cache/rpki-client dirs
     (var/"db/rpki-client").mkpath
     (var/"cache/rpki-client").mkpath

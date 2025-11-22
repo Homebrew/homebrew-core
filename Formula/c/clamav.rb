@@ -14,12 +14,13 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "1d8bfd2ecb4104a16db37182c3d4a3ff88bdf3b1c36c1cba1c0b88ce6122ab98"
-    sha256 arm64_sequoia: "c009af8083d6235331d389f17890c585ab30e45282b18f6d5730ab42b9b5a18c"
-    sha256 arm64_sonoma:  "4bfda2af646d967128cb2f4a83f03e57a3bb3a5858c74f0ece82122e18c7c209"
-    sha256 sonoma:        "d15aa15590dad8d82f7ef1b0c6e2a770d8fe6663e3579d3d544010fb5d56d34e"
-    sha256 arm64_linux:   "f9e10712b361e5a55066a4efd66579c033ec74fd2a69bea2e546f3087bbccf9d"
-    sha256 x86_64_linux:  "0f816d671608aa0b586e991b5b713b20679f17b3e88edfe4cae8916a51226894"
+    rebuild 1
+    sha256 arm64_tahoe:   "219df02b20bf1ab28fdc4a3b7b79708279992e921bcd40da94f90620e10b63b7"
+    sha256 arm64_sequoia: "94b255fa171b5e92b99986dd9b9f17773aa27f13bc0056c6b945728506b6ce6b"
+    sha256 arm64_sonoma:  "ddc866da4079b1cbccd104051c7d14d25f562a701e7d52c380b0d9f92191b7ff"
+    sha256 sonoma:        "b16dae0e12c7c0eb591dd75a2b262dff9dc2f1e93d5f62702dde7c4df2f5531d"
+    sha256 arm64_linux:   "2a910545e8050ba236ab3f1f5508b65b6a6f7daca9a2747ef304bd0b356663a3"
+    sha256 x86_64_linux:  "c9ff6614ebc2303d4546762ac6801e0485d94249e2bdffeb142369c8d242d9c6"
   end
 
   depends_on "cmake" => :build
@@ -40,7 +41,7 @@ class Clamav < Formula
 
   def install
     args = %W[
-      -DAPP_CONFIG_DIRECTORY=#{etc}/clamav
+      -DAPP_CONFIG_DIRECTORY=#{pkgetc}
       -DDATABASE_DIRECTORY=#{var}/lib/clamav
       -DENABLE_JSON_SHARED=ON
       -DENABLE_STATIC_LIB=ON
@@ -53,9 +54,7 @@ class Clamav < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-  end
 
-  def post_install
     (var/"lib/clamav").mkpath
   end
 
@@ -68,7 +67,7 @@ class Clamav < Formula
   def caveats
     <<~EOS
       To finish installation & run clamav you will need to edit
-      the example conf files at #{etc}/clamav/
+      the example conf files at #{pkgetc}/
     EOS
   end
 

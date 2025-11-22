@@ -1,18 +1,18 @@
 class Neocmakelsp < Formula
   desc "Another cmake lsp"
   homepage "https://neocmakelsp.github.io/"
-  url "https://github.com/neocmakelsp/neocmakelsp/archive/refs/tags/v0.8.26.tar.gz"
-  sha256 "a400e86420cc7d67008a2139c3d7d9853b2775ffb5b6c53964775ffb505e5a36"
+  url "https://github.com/neocmakelsp/neocmakelsp/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "323716e5aebf5487e3d2fe9dfd9451ee730a07ede22439193e6ec225343508fe"
   license "MIT"
   head "https://github.com/neocmakelsp/neocmakelsp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11c0b94120507fc287040e1e18f59eb253cb39a0af0c94a15fc70790aeb471f2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d07e3ec172dfc1fca59ab2735859408cb2fb410906a89e886936def39b8af8e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2fc387dffea4717157f8b9400d20197b3d8dc7bca7d76781b3a3c4bb0f2d5d5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "01ff660c12bc18ed4efe31521cac0a2d9133809112d00559513574023d82d8cf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f49e44a25b7760d34e884e394e5fdfc68567f196f6ce6513eb6fd3d91a2659e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0846f311d460e825908bad1ed146201f22c23fea5f87b3c2daf925985e2d0754"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f6796e714bd3b04b13d2790bfabc1a09574a8612e4adc6c7c6b58eb5b24a6f9f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa4b963989dce094f2df5c12e58d6284ee960384de12f3e6aebf0be24815191b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9787fcd143132eff5d97745a95eba98531e6aac7da9e5dc5e7e4641964e8d056"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8e339b6e20496e3aa7e4b9e4fc71f3567a065ddf6ddc5d19450696961ccda7bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d60865897c2ad2c232c5a1057ac25ebf276263c381bbb5da82b39109b29391f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46cd778b60181c2f37da6edb1f42be45302a90f664a27fb845a0224a992f9338"
   end
 
   depends_on "rust" => :build
