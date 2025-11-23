@@ -1,21 +1,11 @@
 class CdDiscid < Formula
   desc "Read CD and get CDDB discid information"
-  homepage "https://github.com/taem/cd-discid"
+  homepage "https://github.com/tiesjan/cd-discid"
+  url "https://github.com/tiesjan/cd-discid/archive/refs/tags/1.5.tar.gz"
+  sha256 "5eba0806e6b3e7f038d0e7248eb9838acf4ead58baa5cdb5b9a42229233564cb"
   license "GPL-2.0-or-later"
   revision 2
-  head "https://github.com/taem/cd-discid.git", branch: "master"
-
-  stable do
-    url "https://github.com/taem/cd-discid/archive/refs/tags/1.4.tar.gz"
-    sha256 "6f07df25ebf17b8336c17a50092ed288cc5a6b86f85705db7e1aa35ba26683cf"
-
-    # macOS fix; see https://github.com/Homebrew/homebrew/issues/46267
-    # Already fixed in upstream head; remove when bumping version to >1.4
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/cd-discid/1.4.patch"
-      sha256 "f53b660ae70e91174ab86453888dbc3b9637ba7fcaae4ea790855b7c3d3fe8e6"
-    end
-  end
+  head "https://github.com/tiesjan/cd-discid.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6296e37d4a08d066d58baffa8ea53abf75c592f126ffcee9418ef293a9528a8e"
