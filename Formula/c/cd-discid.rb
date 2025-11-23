@@ -4,7 +4,6 @@ class CdDiscid < Formula
   url "https://github.com/tiesjan/cd-discid/archive/refs/tags/1.5.tar.gz"
   sha256 "5eba0806e6b3e7f038d0e7248eb9838acf4ead58baa5cdb5b9a42229233564cb"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://github.com/tiesjan/cd-discid.git", branch: "master"
 
   bottle do
