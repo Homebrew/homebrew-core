@@ -5,16 +5,12 @@ class Ipmitool < Formula
   sha256 "ce13c710fea3c728ba03a2a65f2dd45b7b13382b6f57e25594739f2e4f20d010"
   license "BSD-3-Clause"
   revision 3
+  head "https://codeberg.org/IPMITool/ipmitool.git", branch: "master"
 
   livecheck do
-    url :stable
+    url :head
     regex(/^IPMITOOL[._-]v?(\d+(?:[._]\d+)+)$/i)
-    strategy :git do |tags, regex|
-      tags.map { |tag| tag[regex, 1]&.tr("_", ".") }
-    end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 arm64_tahoe:   "3e1a327a4ff22704b4c6868fc1e17a29f2d138106d8b9ea495916c7e4ce8d059"

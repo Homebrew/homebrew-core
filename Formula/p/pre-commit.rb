@@ -3,26 +3,26 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/a6/49/7845c2d7bf6474efd8e27905b51b11e6ce411708c91e829b93f324de9929/pre_commit-4.4.0.tar.gz"
-  sha256 "f0233ebab440e9f17cabbb558706eb173d19ace965c68cdce2c081042b4fab15"
+  url "https://files.pythonhosted.org/packages/f4/9b/6a4ffb4ed980519da959e1cf3122fc6cb41211daa58dbae1c73c0e519a37/pre_commit-4.5.0.tar.gz"
+  sha256 "dc5a065e932b19fc1d4c653c6939068fe54325af8e741e74e88db4d28a4dd66b"
   license "MIT"
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "84beef7286a41b6594cc63b37e5e8280608586a564b5b2a583e82c78da5f0fd7"
-    sha256 cellar: :any,                 arm64_sequoia: "b847fcfcb05c1814510fc92dbf1ed837f8a77de8352e2ae551a083229508c980"
-    sha256 cellar: :any,                 arm64_sonoma:  "f8657da3e7019d198498d05c8cae9dfe66461ae4aefed254098ed9a1286aa179"
-    sha256 cellar: :any,                 sonoma:        "7242caf968d1545eeab363d2354d648927e185342ec469dbcffbb8d035706a47"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1bf7f69499faafd7860b470b81cb4f73ef3e7cf8b0b2f25b5d145b0b0b670c5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a866a151c256f853fcc3561ff2daeb72bb3c1175d03702823605b477926b8e8d"
+    sha256 cellar: :any,                 arm64_tahoe:   "fb367c80949649e3ba5686ae210f0683bd55d1b9dce5edf106bb1ff55ed662b0"
+    sha256 cellar: :any,                 arm64_sequoia: "4d09380502652794dd36979e914505e95c346ce3d12068b4e7ac8fe28587a328"
+    sha256 cellar: :any,                 arm64_sonoma:  "ed95c8bb706765a764957fc38c89864437676e791b9476463842644c4afe83bc"
+    sha256 cellar: :any,                 sonoma:        "27ca7d2922b58b7e564ceb9ee45d19097f0ed9e6b4ccedc0779fb7530eeb973b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7118b091041efc06118a7b99609967543a12581b7ed673232114ac533482e31d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a25089b86db5043a8f6e2c2a551cc4527a36555f3df3d3497be05c14b1b13f6f"
   end
 
   depends_on "libyaml"
   depends_on "python@3.14"
 
   resource "cfgv" do
-    url "https://files.pythonhosted.org/packages/11/74/539e56497d9bd1d484fd863dd69cbbfa653cd2aa27abfe35653494d85e94/cfgv-3.4.0.tar.gz"
-    sha256 "e52591d4c5f5dead8e0f673fb16db7949d2cfb3f7da4582893288f0ded8fe560"
+    url "https://files.pythonhosted.org/packages/4e/b5/721b8799b04bf9afe054a3899c6cf4e880fcf8563cc71c15610242490a0c/cfgv-3.5.0.tar.gz"
+    sha256 "d5b1034354820651caa73ede66a6294d6e95c1b00acc5e9b098e917404669132"
   end
 
   resource "distlib" do

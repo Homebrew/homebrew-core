@@ -9,8 +9,8 @@ class Supervisor < Formula
   head "https://github.com/Supervisor/supervisor.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "3ad1418d9387810ffedc4e281eb309045371119ca80cf1fbac67141079aa66c9"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "9230f2d5ca368fe07907e906e02f3ef3aabee153d88e4d068587206a30a19b23"
   end
 
   depends_on "python@3.14"
@@ -27,18 +27,8 @@ class Supervisor < Formula
     virtualenv_install_with_resources
 
     etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.conf"
-  end
-
-  def post_install
     (var/"run").mkpath
     (var/"log").mkpath
-    conf_warn = <<~EOS
-      The default location for supervisor's config file is now:
-        #{etc}/supervisord.conf
-      Please move your config file to this location and restart supervisor.
-    EOS
-    old_conf = etc/"supervisord.ini"
-    opoo conf_warn if old_conf.exist?
   end
 
   service do

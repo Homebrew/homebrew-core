@@ -11,12 +11,13 @@ class Pgbouncer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e8771d1f42fe4d13edf36d0d3ecc82bc5d51a52369e937400499f7d7543437ab"
-    sha256 cellar: :any,                 arm64_sequoia: "1b99d9e9c8fe21c63b49bb6e9f3cd5927cf217f8a8369817a76e7140fd5673c3"
-    sha256 cellar: :any,                 arm64_sonoma:  "44331407e6f47922ded1f95e89fa5a4a6da9cdbf0a38bb18834844f7767dd516"
-    sha256 cellar: :any,                 sonoma:        "2f72d075f19614ac187bca2a3155fce26277e5e0bf5a4044da7ecc2bf900bea8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9150f758137c77a7d823532ef2e5ae7665d26069c461723a8d7119b3f40555dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bcf8b5317f58b7780b5a7613ce0c55d22c2603c8393dde37061beec4da3d91f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "f6989df36eaff7f94899191b401b7aa476302e48d2bc678b93a5c6fe4f072d96"
+    sha256 cellar: :any,                 arm64_sequoia: "f950e41b7d5be16bd933f19d3fda274bfd2575c6175162d3439a239c658e5a8c"
+    sha256 cellar: :any,                 arm64_sonoma:  "dbc57126f313169f5ce5e43afe231fbb44f51f2ee744d962a314563907bdc608"
+    sha256 cellar: :any,                 sonoma:        "2b9a87d20a4ae91a6b067bb5ab3334bda856824e203bc5d9b51a968d07e71c5d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f89e7c92d42cadb80a7d6c75f007b01b375f075752de0acbf9733ca597ed16a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25535e79314642f393ce2c26787362263f0466e11df8b63f8a40713dde85a877"
   end
 
   head do
@@ -45,9 +46,7 @@ class Pgbouncer < Formula
       s.gsub!(/auth_file = .*/, "auth_file = #{etc}/userlist.txt")
     end
     etc.install %w[etc/pgbouncer.ini etc/userlist.txt]
-  end
 
-  def post_install
     (var/"log").mkpath
     (var/"run").mkpath
   end

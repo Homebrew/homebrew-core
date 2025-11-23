@@ -1,6 +1,6 @@
 class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
-  homepage "https://www.coin-or.org/CppAD"
+  homepage "https://cppad.readthedocs.io/latest/"
   url "https://github.com/coin-or/CppAD/archive/refs/tags/20250000.2.tar.gz"
   sha256 "d6688c7530913dfd286f7db71b007fd96df10a9e8b43ad74539e4450c9917ebf"
   license "EPL-2.0"

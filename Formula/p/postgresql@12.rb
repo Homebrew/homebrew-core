@@ -19,6 +19,7 @@ class PostgresqlAT12 < Formula
 
   # https://www.postgresql.org/support/versioning/
   deprecate! date: "2024-11-14", because: :unsupported
+  disable! date: "2025-11-14", because: :unsupported
 
   depends_on "pkgconf" => :build
   depends_on "icu4c@77"

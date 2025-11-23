@@ -1,6 +1,6 @@
 class Serf < Formula
   desc "Service orchestration and management tool"
-  homepage "https://serfdom.io/"
+  homepage "https://github.com/hashicorp/serf"
   url "https://github.com/hashicorp/serf/archive/refs/tags/v0.10.2.tar.gz"
   sha256 "bcccbf847024af099e164faf6d6d111345edf166eb24e53e3ccc7f37d6e281a1"
   license "MPL-2.0"

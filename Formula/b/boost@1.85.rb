@@ -7,21 +7,21 @@ class BoostAT185 < Formula
   revision 3
 
   bottle do
-    sha256                               arm64_tahoe:   "db92e2332e0b99c30bb4329502aebb9d2b044b27a1cc85c1a72ed8c71b78354e"
-    sha256                               arm64_sequoia: "0d57280eb03360e23f3693d33604711f5912a47c6400fbcf7a78ce4829d35db6"
-    sha256                               arm64_sonoma:  "a4d8d3af279e68a17a5d177dfbb716757d59b91448ba82dc8c015bc8749b6e0c"
-    sha256                               arm64_ventura: "c60cdfef891f2f447509c8a460db5fd1b16e07111c7169457044eaa46674c9f3"
-    sha256 cellar: :any,                 sonoma:        "21d45293e2b2ded9f5ac1c8bfa04867fd0e5d02f15911aa24e73a69665968d69"
-    sha256 cellar: :any,                 ventura:       "834cb3ac5b69ae8a4768e2e1773798d7a1ae01aadb761a9e737ff84b8d07a837"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7fd2dc979f3b442f80669bfbb081f05eae3bfa4dd12fa46d21594154104600f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1afa1ddd0506aa3991d3e6b86941fb066fae250feecc9adeaad82780efac55da"
+    rebuild 1
+    sha256                               arm64_tahoe:   "58d3109bff4544bf3330a452e1f9adc7205f271cbd3bfcf3efca42266e60c4ef"
+    sha256                               arm64_sequoia: "59db8c58f97cd9926876fba5b7c96b3e1028bb0f3a799ff054c85ab0018e5954"
+    sha256                               arm64_sonoma:  "e40b504912e27f0af5b475316ae2f24d0e2eec764e52d273a82e0043e1211ea5"
+    sha256 cellar: :any,                 sonoma:        "80b1b546633fe8f6feb93d0d793da86515c9b2262558b48c8f2ecd901a4d21a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee190d6bd7f2de23a6b03263eb999858ecd9e53f8058e3e7d4805aa66acc0dd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1673a1419946e14c843250f401de857263618e6b0e7888ae1426c0e040348cd0"
   end
 
   keg_only :versioned_formula
 
   deprecate! date: "2025-04-05", because: :versioned_formula
+  disable! date: "2026-04-05", because: :versioned_formula
 
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "xz"
   depends_on "zstd"
 

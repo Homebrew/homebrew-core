@@ -1,18 +1,18 @@
 class Utf8proc < Formula
   desc "Clean C library for processing UTF-8 Unicode data"
   homepage "https://juliastrings.github.io/utf8proc/"
-  url "https://github.com/JuliaStrings/utf8proc/archive/refs/tags/v2.11.1.tar.gz"
-  sha256 "dc146fd279eacbbf399d3f70932ce66f516aac2d13f8ec2d26a30f8ed70aa5b4"
+  url "https://github.com/JuliaStrings/utf8proc/archive/refs/tags/v2.11.2.tar.gz"
+  sha256 "a9b8d8fd57fb3aeca2aede62fd58958036d3bd29871afc1b871e3916c48420a7"
   license all_of: ["MIT", "Unicode-DFS-2015"]
   head "https://github.com/JuliaStrings/utf8proc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3c8ae2f5d0c749b8ade14d7da4e96a16e534e6213d67720e5ba90c3dc49144fa"
-    sha256 cellar: :any,                 arm64_sequoia: "85342619eca43b1681d373f7568a00896059950352d82269d55d3096a331c90b"
-    sha256 cellar: :any,                 arm64_sonoma:  "796f12b03324647262ebf32ac7ca8e97d01cb5f83dea30e36dd1cac949e261d4"
-    sha256 cellar: :any,                 sonoma:        "8fbbfe7a92786fc3ad3a72d14e1ea74480b86d7966b292cdc3f0e5246f0b7bbc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5f0740e6eef18cdb4a3b886bfc9f8a0178c7722ca4cfcab1bfb7e1d6f497689"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4cb69b355bcfea3db4a960ebb903d8cb248677fa95dad4e5e28bf47b4cea345"
+    sha256 cellar: :any,                 arm64_tahoe:   "94d896c25b5923143b9b144a8a81368a0a1681cb660f80cd822d790871aaf13d"
+    sha256 cellar: :any,                 arm64_sequoia: "8e8cdcfe7126bf3e45bec8f25ae7bc35e0be0a9af4d01f62568d9d24712d4770"
+    sha256 cellar: :any,                 arm64_sonoma:  "b994a8e7634bef43d9ac6491caa0e5607cf26b60d6697865e5155a940e440fea"
+    sha256 cellar: :any,                 sonoma:        "a45a23b9e2479f1bd5d77e40e927da55b02c90efa52d60b624b6ca564a616e83"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "250f34822e47569f9259e08825ffb05474d53f47069f44b15697943ea992e8df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11c6a84a10fada96f33b3c9c261990dae718b20f74746cfb8d0b55fd090794d0"
   end
 
   def install

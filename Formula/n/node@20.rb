@@ -11,14 +11,13 @@ class NodeAT20 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "8d0dbbb89c386dba33d36aa7f2a73ff8e0c0d4ec86b5050e368b9715ea679f2e"
-    sha256 arm64_sequoia: "60022a7ebf3aabb93a056c4787f398ed4f4b8ebd064fa5a55a4ea882594bb3be"
-    sha256 arm64_sonoma:  "6d90b4f115316dbf59eaf860168191927b540d74ca1e600a78c97e2df5e976ca"
-    sha256 arm64_ventura: "857c08c4a6adf986603529735a28d6ee32783f3c45a24d7fdf7fed3edf32671e"
-    sha256 sonoma:        "6e35d56a97fee410d1157542ae1f892458fea90ea50612a923c5a34857c43c58"
-    sha256 ventura:       "d0254c738b1f4bab3969e9c83caab8d6643737d40d1db5c41d00cc7091e1e5cb"
-    sha256 arm64_linux:   "f9156ec5197ebc708346e6308c4b06303340320750588470892551951adeefa6"
-    sha256 x86_64_linux:  "d0a7e156cb5aaca2678478360c593410e6fbb115d42d40045ce3d6e4187c265e"
+    rebuild 1
+    sha256 arm64_tahoe:   "58f4b72e38d90bbe060cd2a96afd837385cecb14f93f13b9bc1509679ee5bcde"
+    sha256 arm64_sequoia: "b4699d3c93d593dad8f35d45fe1822d2a22c49c8dd6f6577e71318bdd6704b4e"
+    sha256 arm64_sonoma:  "15df531e1fbcd221f6e9c240928578afe2d82d5699a2d875a1103f2f7d9531a6"
+    sha256 sonoma:        "ad85dad10a8a846638236caf425a6853bdbf7f9ceb3ee9b6eff0f9766ca461eb"
+    sha256 arm64_linux:   "1c7a601d6ab3a0a561dafa4182a73d261cad25ba6d0e70093b13565fe081832a"
+    sha256 x86_64_linux:  "3b19a838e5eca12835fe01f456779525bd2c7220918ed2a0c436384dca5c5bb9"
   end
 
   keg_only :versioned_formula
@@ -31,7 +30,7 @@ class NodeAT20 < Formula
   depends_on "python@3.13" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
@@ -40,7 +39,7 @@ class NodeAT20 < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
   fails_with :clang do
@@ -95,9 +94,6 @@ class NodeAT20 < Formula
   end
 
   test do
-    # Make sure Mojave does not have `CC=llvm_clang`.
-    ENV.clang if OS.mac?
-
     path = testpath/"test.js"
     path.write "console.log('hello');"
 

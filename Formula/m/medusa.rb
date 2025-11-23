@@ -18,7 +18,7 @@ class Medusa < Formula
   end
 
   depends_on "go" => :build
-  depends_on "truffle" => :test
+  depends_on "solidity" => :test
   depends_on "crytic-compile"
 
   conflicts_with "bash-completion", because: "both install `medusa` bash completion"
@@ -29,9 +29,7 @@ class Medusa < Formula
   end
 
   test do
-    system "truffle", "init"
-
-    (testpath/"contracts/test.sol").write <<~SOLIDITY
+    (testpath/"test.sol").write <<~SOLIDITY
       pragma solidity ^0.8.0;
       contract Test {
         function assert_true() public {

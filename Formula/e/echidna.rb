@@ -25,8 +25,7 @@ class Echidna < Formula
 
   depends_on "ghc@9.8" => :build
   depends_on "haskell-stack" => :build
-
-  depends_on "truffle" => :test
+  depends_on "solidity" => :test
 
   depends_on "crytic-compile"
   depends_on "gmp"
@@ -60,14 +59,7 @@ class Echidna < Formula
   end
 
   test do
-    system "truffle", "init"
-
-    # echidna does not appear to work with 'shanghai' EVM targets yet, which became the
-    # default in solc 0.8.20 / truffle 5.9.1
-    # Use an explicit 'paris' EVM target meanwhile, which was the previous default
-    inreplace "truffle-config.js", %r{//\s*evmVersion:.*$}, "evmVersion: 'paris'"
-
-    (testpath/"contracts/test.sol").write <<~SOLIDITY
+    (testpath/"test.sol").write <<~SOLIDITY
       pragma solidity ^0.8.0;
       contract True {
         function f() public returns (bool) {

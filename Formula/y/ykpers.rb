@@ -6,28 +6,19 @@ class Ykpers < Formula
   license "BSD-2-Clause"
   revision 2
 
-  livecheck do
-    url "https://developers.yubico.com/yubikey-personalization/Releases/"
-    regex(/href=.*?ykpers[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "d7ff46bee401db439de4f88382d2efcbb74cdda8555434f9ea1728a73be55648"
-    sha256 cellar: :any,                 arm64_sequoia:  "b1a84b25eb98c3a81bb369743de29418fc21af87cc28e6596ee38a4595c793df"
-    sha256 cellar: :any,                 arm64_sonoma:   "e62f960d0e8851938c674e31e768bcc4bee8ed0e87a13430a9d59c5fba4d95da"
-    sha256 cellar: :any,                 arm64_ventura:  "ad5b67da47a110797570919026e4c78ec2220f858f804cca466ced27382170ca"
-    sha256 cellar: :any,                 arm64_monterey: "a244acc561a3c5e5d5b67ccc25b9b24ea16b037e10acd8e01510a4a34f96ec15"
-    sha256 cellar: :any,                 arm64_big_sur:  "512484b795857fd09d61e2fb5c186ff771295c90b809bdcc82fdcf76835b71a0"
-    sha256 cellar: :any,                 sonoma:         "f92a685ae27314905b9388e043cdf8d0e0068068a0a03446ef1d2154057d4f6c"
-    sha256 cellar: :any,                 ventura:        "0f4e3087830e58adda6999b618bc2ab80e90906f6d29dbbb5349adbbabcb9785"
-    sha256 cellar: :any,                 monterey:       "e45fba4f54b6e285c38879635f3b13588783cced19ded02b3899c8da282fb353"
-    sha256 cellar: :any,                 big_sur:        "31b2bafcc829e3cc6e85f5e1021075088a909ba4db51ec8f20b23db93f59d802"
-    sha256 cellar: :any,                 catalina:       "8c5ed1924d1059265589a221b8e2bb26a2bcd59f91ede210e3a1267412867f47"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "975467c8f02063b77d1d990642731133866564da4bb1d3537ecde9bec8387959"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eee945e8cc748d69622f20b470e327fee279b356b78be2df9a75dc10ab945f1d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "926db3e02f205b9e785c45dd758876a906c0892c0bb3c3d3dae64067adb3972e"
+    sha256 cellar: :any,                 arm64_sequoia: "55b5c0412c66507bcc30d4fad0b66787aa34ae962ad6ce088a4500d7c330f94c"
+    sha256 cellar: :any,                 arm64_sonoma:  "0c8854edfb7647c2a3f8cc27d38b8e6ef7ba6c61cc964341e738c3690f6092e4"
+    sha256 cellar: :any,                 sonoma:        "88d61b40ef7bcd1f6a7989af01b4ebbd8de1a15750b24a2203a1bd007e319c72"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c25183feab444d3d2850280b40eafdb86da032c75b1313c9302ab1e6bfb8e374"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aaf5715c54695f9f87a4a0a8b9e185a4985434ae5ab08abef60c95a91b292347"
   end
+
+  # https://www.yubico.com/support/terms-conditions/yubico-end-of-life-policy/eol-products/
+  deprecate! date: "2025-11-22", because: :unmaintained, replacement_formula: "ykman"
+  disable! date: "2026-11-22", because: :unmaintained, replacement_formula: "ykman"
 
   depends_on "pkgconf" => :build
   depends_on "json-c"

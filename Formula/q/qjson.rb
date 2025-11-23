@@ -25,8 +25,9 @@ class Qjson < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b64e82e4791c3dc66f6304add6ac44a993b82a9d88d02704af280daa080f5d64"
   end
 
-  # Can undeprecate if new release with Qt 6 support is available.
-  deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5"
+  # https://github.com/flavio/qjson/commit/6d188cb199a5248889689bd92b757cf0c17cfa27
+  deprecate! date: "2025-11-22", because: :repo_archived
+  disable! date: "2026-11-22", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "qt@5" # Qt6 issue: https://github.com/flavio/qjson/issues/122

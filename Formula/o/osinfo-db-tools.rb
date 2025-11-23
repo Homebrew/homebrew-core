@@ -12,12 +12,13 @@ class OsinfoDbTools < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b7fc390f20829e512e67af9a8f9a3b86855466c9d0e21eee106a0da42882b48c"
-    sha256 arm64_sequoia: "4ded91dcb5ceb1686f85986abe0250d2af57854ecc98c29b9b4ab578e3979843"
-    sha256 arm64_sonoma:  "a5829eb5c02044bbce9cbca10375cb9b0e7965a1a30c3ff072980e58c8dab76e"
-    sha256 sonoma:        "ae990850409e0acb30784517f24f8d528607d9eb1462af765e05402b69997a1d"
-    sha256 arm64_linux:   "26f1b31b01c82cdd183e3bba13791b37f2c2a4f1ee008ca988d22ec2c5bca928"
-    sha256 x86_64_linux:  "107cbd58ea53e8c4bf198c838e0bb995bf896604c86f617c8dd3c8118a8101e4"
+    rebuild 1
+    sha256 arm64_tahoe:   "5613764761db0551e4dd70012bf9088d11d03b38a3ab30af568d5b92cfac2b36"
+    sha256 arm64_sequoia: "4db19ac55829b9c4c19e6e8f20c1c0e9078d3c8dd25bd6335be2a275e2c7c2c6"
+    sha256 arm64_sonoma:  "02f32ab481a672e983fe9fdbff99bd4979ffbd9b178bad7f07a18bcb0c0fbd3e"
+    sha256 sonoma:        "197d84a4fa2c29c46477f2140366dff49d33050d1dfbe270c37777df1a0aaf20"
+    sha256 arm64_linux:   "298c576ca5746eb674c6c9bce5d51e6f1e4fcdcdd47367e50c74a6f7b4442e0f"
+    sha256 x86_64_linux:  "5432275a5e7c855af96a4eee2c464566ed2b46c379ad81fe86feb1f9f940fd49"
   end
 
   depends_on "meson" => :build
@@ -32,12 +33,11 @@ class OsinfoDbTools < Formula
   uses_from_macos "pod2man" => :build
   uses_from_macos "libxml2"
 
+  skip_clean "share/osinfo"
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "install", "-C", "build"
-  end
-
-  def post_install
     share.install_symlink HOMEBREW_PREFIX/"share/osinfo"
   end
 

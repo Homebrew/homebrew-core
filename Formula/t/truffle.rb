@@ -21,6 +21,10 @@ class Truffle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9db01e2a5e1d9ab923419eafc7a0588dd02bca55f62310277838a41d4cc5c653"
   end
 
+  # https://consensys.io/blog/consensys-announces-the-sunset-of-truffle-and-ganache-and-new-hardhat
+  deprecate! date: "2025-11-22", because: :unsupported
+  disable! date: "2026-11-22", because: :unsupported
+
   depends_on "node"
 
   def install

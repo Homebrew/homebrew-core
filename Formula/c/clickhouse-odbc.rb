@@ -16,20 +16,19 @@ class ClickhouseOdbc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c71ebb157e02d5764dbc6761479d4b5df17140fb166f2a9f41a62b297c950f54"
-    sha256 cellar: :any,                 arm64_sequoia: "823b627489c0eb6132863b4801bbb35d72d0a0a94e6a05e1db727626d6610a97"
-    sha256 cellar: :any,                 arm64_sonoma:  "e3319686c6b8b190cac07657b005815d52b5e9ae2cdce502dc0547b2beec2d33"
-    sha256 cellar: :any,                 arm64_ventura: "fd57a1b662562034e4438ef7a3f504a13b9bb41fd1fdf0fba65881457c3dbad9"
-    sha256 cellar: :any,                 sonoma:        "9e6d19fe3f32091196b620af7a2505a67e1bff07af8379a328f98e99ae5f8c6e"
-    sha256 cellar: :any,                 ventura:       "b05b85f7872bdea82c386d7f6f8a865237e6691539f9f7fa51d0b91513fabde0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83be34ed8d3397d1b48962b0c5584093442d667208061fab3f699401d943f580"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d8fcd33563bd470e0c3642123a9be187196aa6678061134a4590d4679e841a1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "dee2bd4e071f2585904621067570b9a92e675831f6405aaeac76ac1648dc26b3"
+    sha256 cellar: :any,                 arm64_sequoia: "15179848956db90fc46f2d8956f6f7bf4da08455b14eaed60efabdb34a352f1d"
+    sha256 cellar: :any,                 arm64_sonoma:  "51c55d0277110f5867a2738b53802a425db0c2fc6368a34e2109e139ab453dc8"
+    sha256 cellar: :any,                 sonoma:        "ded9b6716043ec3d6a52e32fd3390f1117c3824d2d66cde643e28e6cc6c65b8e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "63552c54a95bb8665ae1431c41b33004f505e45b29f55e6e9c30656759e28fef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1785a346aa9d198e22c04c7c493982484fc2300a8b828c3ea70723ae78dda737"
   end
 
   depends_on "cmake" => :build
   depends_on "folly" => :build
   depends_on "pkgconf" => :build
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "openssl@3"
   depends_on "poco"
   depends_on "utf8proc"
@@ -37,6 +36,12 @@ class ClickhouseOdbc < Formula
   on_macos do
     depends_on "libiodbc"
     depends_on "pcre2"
+  end
+
+  on_sequoia do
+    # Workaround until successful version bump to >= 1.4.3 to get
+    # https://github.com/ClickHouse/clickhouse-odbc/commit/574d58a6cfa94f27cc165374e32ef6eea7b7e0db
+    depends_on xcode: ["16.4", :build]
   end
 
   on_linux do

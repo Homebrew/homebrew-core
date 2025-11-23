@@ -7,19 +7,19 @@ class LibspellingAT02 < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "801f32a325683e391cc39e1f7f4d4b39b73aa48ff12d5a964fd313ebc363b33d"
-    sha256 cellar: :any, arm64_sequoia: "2743f798c8a8ab3afa19842bdddb996e868736ec1d95b324e18994b987625773"
-    sha256 cellar: :any, arm64_sonoma:  "87bcb552532a3c890664a0b16a858ff766f49fc595ced5b8a5c387da2e3c4ce3"
-    sha256 cellar: :any, arm64_ventura: "3fd146874edb16cefef9b8b2288fdcfbe0ef6811ee8e2d87635e6eb13acb2eb2"
-    sha256 cellar: :any, sonoma:        "00d924b8e7f5cd27fbbe087e60a343c5a10617ac99d3605340eac21d0e31c171"
-    sha256 cellar: :any, ventura:       "611812775575e4302a6612301a51d6036dc14dbbd4c031d848446e89219f08c5"
-    sha256               arm64_linux:   "40fee8eb0750567f7e799007e4961a924b9139d469a65608528a7a1396392698"
-    sha256               x86_64_linux:  "624143b2d621071b4239dbdf74b9adde6f7da4a8cbc42742bdee7435fd187749"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "4aa8612cf0ccef0652272022d796b87a0fd9bd52a32829a258f7b84566cd57df"
+    sha256 cellar: :any, arm64_sequoia: "c2ee5198fcc027b5301c70b7aaee4f80f8ce6382e95e926fb525a67116532530"
+    sha256 cellar: :any, arm64_sonoma:  "580a1509f154fb6986d09e643178e6fd8f92d29097371255d77efef147a2ae93"
+    sha256 cellar: :any, sonoma:        "a85f5638ccb202ba93ba3ecc0b7fba612b326b91771bcb13ccc7edd84e14d81a"
+    sha256               arm64_linux:   "bd8174c6c8fbea8cb4c22b7c117be85bbf36c071650a6753328dabf660ccc8c6"
+    sha256               x86_64_linux:  "906be58f7a2dd7c8c014cd968f82253808ab3c3d777c7104f647d30b5dac8b51"
   end
 
   keg_only :versioned_formula
 
   deprecate! date: "2025-01-11", because: :versioned_formula
+  disable! date: "2026-01-11", because: :versioned_formula
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
@@ -31,7 +31,7 @@ class LibspellingAT02 < Formula
   depends_on "glib"
   depends_on "gtk4"
   depends_on "gtksourceview5"
-  depends_on "icu4c@77"
+  depends_on "icu4c@78"
   depends_on "pango"
 
   on_macos do

@@ -2,8 +2,8 @@ class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
   url "https://github.com/mas-cli/mas.git",
-      tag:      "v3.0.1",
-      revision: "67e5dfd18882ad294c58441f5d2308d4dfccb862"
+      tag:      "v3.1.0",
+      revision: "d51db64fad628ce45599bede5d8319407f193d81"
   license "MIT"
   head "https://github.com/mas-cli/mas.git", branch: "main"
 
@@ -15,10 +15,10 @@ class Mas < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae10a5a0d268290095e2974c5f55a183ead471def9c8abb95c9b776e1be27743"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6de27da09ea41eeaf8096fad0bce5abf34aaeee80ff3fe0a23adaa301874a434"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b25f39c6267094e3fcfe477a252611a85bb58fe263691224e6d699d6dadd006"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7046b5239d663697d60d8a5e6266a0f6702368dcb4eaeb614a0cf05e1b890bb4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dfcf5d0b9331ab6e44e67a3dde0311a51fccaf0027ac1c096e8a3a23e3890622"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa364d0a297d4320ff5e7bd502819bdddddc442023218a4f20529d9e60e21cbf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de5ec30964de418df057cfa4b49210531db5b0e44c3d687ce3491b7a5e090c37"
+    sha256 cellar: :any_skip_relocation, sonoma:        "778ddc524eee626da7efbf8fabfc0ae6836645b67059939a725765f2a8a1a434"
   end
 
   depends_on xcode: ["15.0", :build]

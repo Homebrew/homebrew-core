@@ -10,9 +10,8 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://gitlab.com/muttmua/mutt/-/archive/mutt-2-2-15-rel/mutt-mutt-2-2-15-rel.tar.gz"
-  version "2.2.15"
-  sha256 "3c931dd65993d2e63a3dcd6bbf1fd88c033ae0f6e377c5d4f88b14fe9170817d"
+  url "http://ftp.mutt.org/pub/mutt/mutt-2.2.16.tar.gz"
+  sha256 "1d3109a743ad8b25eef97109b2bdb465db7837d0a8d211cd388be1b6faac3f32"
   license "GPL-2.0-or-later"
 
   # Livecheck uses GitLab tags to determine current version.
@@ -23,24 +22,24 @@ class Mutt < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "75669d6239c44d5f13c52565e1c4b19f36b2e552f3b853c9ac98813437a8e181"
-    sha256 arm64_sequoia: "4e9df72dad1e0e9629c46428b23aead3bed33732340a94df9b80d503035089b8"
-    sha256 arm64_sonoma:  "c760d241f11a8ecda970ac6710eae57fd21e0ee6fbf7d2403bb383a2507d30b4"
-    sha256 sonoma:        "d4252e6a4f29d2ed772b2e6cb35443050233172162a184d1b020ccbee53dfed3"
-    sha256 arm64_linux:   "256483eb0551b850f40b2c42f9c7e36846e521492b88ae15243a6b51cd9cb9a9"
-    sha256 x86_64_linux:  "250d93e09deab42ad9b07ab66db482f8f482b6f22e46518382e101148a6e706f"
+    sha256 arm64_tahoe:   "06ea8391b928c80af89ebd9a2a2a7453c68a96f2354caf3339897ea53675c0f1"
+    sha256 arm64_sequoia: "de913ddba41e3f6a1d0819a62bf65945dc3025869565e42358de41a0ce5d61df"
+    sha256 arm64_sonoma:  "10ef4e94a3371d85349b09d1131bc3bf995f0bb72a32c2c1b2da129aa6935991"
+    sha256 sonoma:        "3e41590dfed3a0e80fbd5edbb741912a6f9d9da22d78378a727af2108da52cb1"
+    sha256 arm64_linux:   "44ae949e70e0fd867ac5a36d26dedeaee7e0c867feaff1cd2978d82d348853dd"
+    sha256 x86_64_linux:  "363d6627599998ada6b02599e4e8587fa35e66c8c9fc3df9a40885b19ce4939d"
   end
 
   head do
     url "https://gitlab.com/muttmua/mutt.git", branch: "master"
 
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+
     resource "html" do
       url "https://muttmua.gitlab.io/mutt/manual-dev.html"
     end
   end
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
 
   depends_on "gpgme"
   depends_on "libgpg-error"
@@ -80,7 +79,8 @@ class Mutt < Formula
       --with-tokyocabinet
     ]
 
-    system "./prepare", *args, *std_configure_args
+    configure = build.head? ? "./prepare" : "./configure"
+    system configure, *args, *std_configure_args
     system "make"
 
     # This permits the `mutt_dotlock` file to be installed under a group

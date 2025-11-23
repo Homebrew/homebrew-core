@@ -30,6 +30,7 @@ class Rethinkdb < Formula
   # [^3]: https://github.com/rethinkdb/rethinkdb/issues/7155
   # [^4]: https://github.com/rethinkdb/rethinkdb/issues/7157
   deprecate! date: "2024-11-12", because: "uses unmaintained `protobuf@21`"
+  disable! date: "2025-11-12", because: "uses unmaintained `protobuf@21`"
 
   depends_on "boost" => :build
   depends_on "openssl@3"

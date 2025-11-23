@@ -3,20 +3,20 @@ class Jiratui < Formula
 
   desc "Textual User Interface for interacting with Atlassian Jira from your shell"
   homepage "https://jiratui.sh/"
-  url "https://files.pythonhosted.org/packages/a3/dd/fe01c8b84be044d3e6e890baf2990cfbd3dfc35d333a0de32e93b2a0cc00/jiratui-1.6.1.tar.gz"
-  sha256 "8241125acac5145ee81483ada6114ed3492dbfeaa486c1f82adf2d02358b760f"
+  url "https://files.pythonhosted.org/packages/cb/0a/d4d546ff92c800b67a629d5e36540401592c27ff177456dfc3495ac76a91/jiratui-1.6.2.tar.gz"
+  sha256 "cd8ada771211eb56f30a91cdb35e9add29e32a99858c133efbff1ce36bcfb134"
   license "MIT"
   head "https://github.com/whyisdifficult/jiratui.git", branch: "main"
 
   no_autobump! because: "has non-PyPI resources"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "637b4971b7c66a952d187c174e1e694658007da924bdf9ae21c5cc33e9c1d41f"
-    sha256 cellar: :any,                 arm64_sequoia: "deddd33fd6c30c087ec2e1f53c16e7cb26dc11565fd267be063b0d8ed001416f"
-    sha256 cellar: :any,                 arm64_sonoma:  "c116fb4c56166e7fb340a9af37cdf9e845ee35dacde00db3106c8374e4fbe07d"
-    sha256 cellar: :any,                 sonoma:        "9b103ad47549fb3c0efc7d70a54e1d768ccaec3bab61eab3725d47301a16c033"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1711753c555dfce46139c1c7ee54bac85887cbf0047861f6d5fa51cc245cdef4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c264a7208ba210324372025ee8c3cf281ab56e606693a9c539424078eb197685"
+    sha256 cellar: :any,                 arm64_tahoe:   "c368ed9ebad8d1fb26fa8b715fee0d06261dc17a0aeb9adc3f22f0e7b6a15a91"
+    sha256 cellar: :any,                 arm64_sequoia: "7a8425b315f5d92d7f2e4e3d86625abb1d7acbedc613f51a271a3591962d35c9"
+    sha256 cellar: :any,                 arm64_sonoma:  "69f3945001175edec3c0685c3992b7debaf9a104939f6e8ef0e67f1b1ba69384"
+    sha256 cellar: :any,                 sonoma:        "f9b6ccf5437cc5975a1a8dcc2b36a95b0eac4396c3f1442b96af93a6972f45e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f86a85d2a615da2738bcdb7eb7430833ef845a6bc943878c7e516b71d0e91d9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f8ffae0aebd2ea7eacbdfea988186a2e544a55a7ecb7b4f6c13b0cc32d6b903"
   end
 
   depends_on "rust" => :build

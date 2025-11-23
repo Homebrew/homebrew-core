@@ -4,7 +4,7 @@ class NodeAT22 < Formula
   url "https://nodejs.org/dist/v22.21.1/node-v22.21.1.tar.xz"
   sha256 "487d73fd4db00dc2420d659a8221b181a7937fbc5bc73f31c30b1680ad6ded6a"
   license "MIT"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -12,12 +12,12 @@ class NodeAT22 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f712449c59d668adbad12ed04f4dc034ecd58bfd84020ef7415485addca8f531"
-    sha256 arm64_sequoia: "748d79288716b34db0695b1a1ec62e0e6e522b8279cdd44716fa7bcb2f3d6a87"
-    sha256 arm64_sonoma:  "66a702af64d8d4e497856c8b4cfc676f51809d44bd356e5b807760c9cda83394"
-    sha256 sonoma:        "23a711915818b903e59501bf8e545a1393e12b0b7a62acd826fbeadd5d4a9142"
-    sha256 arm64_linux:   "5d1943ec53ed4c6fe759b511c4fd45114124c53f8d0a767dbf25543f6081a63a"
-    sha256 x86_64_linux:  "3f0c659b185762d0c1e27951f11f6319145079be65d44c5d003ee8b89ee29a9a"
+    sha256 arm64_tahoe:   "ebb6b895ce8252b5c63fe3105825eb2531eeda148d8642f4bbd2691f9af1c32b"
+    sha256 arm64_sequoia: "689be9ce6e5c302167df06ed91570ea203412db476d4b88d4add341f530ccd98"
+    sha256 arm64_sonoma:  "f2f649dacc39440167f36f809dfd5ae8d1621130a778a039094195115eda1b83"
+    sha256 sonoma:        "270d589d7dea2b95e8ae229e211d4496fe8536f223ac4a732fddfa8cbc82926d"
+    sha256 arm64_linux:   "ddd9022c83400f6d85d71d67d27a76f6536782bb3f996f1d03f812777e9e19cd"
+    sha256 x86_64_linux:  "efb446cf122e2d5242b3f50af48bc59ee4b94de0a61c9b202d396ee46e5945d3"
   end
 
   keg_only :versioned_formula

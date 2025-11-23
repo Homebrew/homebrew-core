@@ -20,7 +20,7 @@ class Pivy < Formula
   depends_on "swig" => :build
   depends_on "coin3d"
   depends_on "pyside"
-  depends_on "python@3.13"
+  depends_on "python@3.13" # `pyside` is not yet support for Python 3.14
   depends_on "qtbase"
 
   def python3

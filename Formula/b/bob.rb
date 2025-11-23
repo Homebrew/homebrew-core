@@ -1,17 +1,17 @@
 class Bob < Formula
   desc "Version manager for neovim"
   homepage "https://github.com/MordechaiHadad/bob"
-  url "https://github.com/MordechaiHadad/bob/archive/refs/tags/v4.1.4.tar.gz"
-  sha256 "8c235d68bc1f94199972753ed1a50475c4cd8e6729eb6b362ef442e21e08e107"
+  url "https://github.com/MordechaiHadad/bob/archive/refs/tags/v4.1.5.tar.gz"
+  sha256 "1d87878c81d5084eabdf2f11540fb3eb2b900d734217a9cd1c45386cf40ade0a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c1df6d3c524a6fb964a940cfaa0e27261949c70626ef9a916274e5ca8893545"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "551116855bf049e05a3c4af134824aab0027de3d0e37977ef6c90645ffba7b59"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55238d697646caf9ebb529369632d58321fc7ca54878b6a7d06a6ae723655231"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d5c35f5df459a2b9e5c2d63e327820d218b17e0154b0396726d844c4985379ce"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "78bf3941c9343411246e565986881ee6769b12cf3bc182e086d59f14682c1f32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6915c4fadbc935ddfc8bf3ca7ef7939885910941dae0c48fb29202332229831"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9e5986560f5ca568868fc264c5d0c4d79a9aa0c545a20e300f88037e5483ddf4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "102b9975a80719364ca6cf81aa7583c719aa6c842c0d6e321d9f734c1e629c11"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d7ab5713806ba872354a3de1eada32ddfec7dfc91f0a4504dd7afa2dfdce667b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fbe02540faf0e806373c1d8a514992523250f0f50107c25010b78b098e945603"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae43b3e71ff29608835717b547d8d910b73c992217e23a40129c3635249892df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b13219dfce3166ed045de9f21bdf923a22445eab0c7c5915b67ab19d11046e98"
   end
 
   depends_on "rust" => :build
