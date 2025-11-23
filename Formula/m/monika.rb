@@ -15,7 +15,11 @@ class Monika < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "98229abf3b9246bf3478688d12018043004695ce89588260ddea3346b4f207fd"
   end
 
-  depends_on "node@24"
+  depends_on "node"
+
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1700
+  end
 
   on_linux do
     # Workaround for old `node-gyp` that needs distutils.
@@ -24,6 +28,8 @@ class Monika < Formula
   end
 
   def install
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version < 1700)
+
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
