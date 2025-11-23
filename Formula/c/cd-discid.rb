@@ -1,8 +1,8 @@
 class CdDiscid < Formula
   desc "Read CD and get CDDB discid information"
   homepage "https://github.com/tiesjan/cd-discid"
-  url "https://github.com/tiesjan/cd-discid/archive/refs/tags/1.5.tar.gz"
-  sha256 "5eba0806e6b3e7f038d0e7248eb9838acf4ead58baa5cdb5b9a42229233564cb"
+  url "https://github.com/tiesjan/cd-discid/archive/refs/tags/1.5.1.tar.gz"
+  sha256 "8a3aa06e887d7a202c3c0b1e9310794a41103137d2df2bc542da3e88312c5045"
   license "GPL-2.0-or-later"
   head "https://github.com/tiesjan/cd-discid.git", branch: "master"
 
