@@ -4,7 +4,7 @@ class NetcdfCxx < Formula
   url "https://github.com/Unidata/netcdf-cxx4/archive/refs/tags/v4.3.1.tar.gz"
   sha256 "e3fe3d2ec06c1c2772555bf1208d220aab5fee186d04bd265219b0bc7a978edc"
   license "NetCDF"
-  revision 3
+  revision 4
 
   no_autobump! because: :requires_manual_review
 

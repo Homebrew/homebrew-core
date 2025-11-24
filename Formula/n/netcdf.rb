@@ -4,7 +4,7 @@ class Netcdf < Formula
   url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.3.tar.gz"
   sha256 "990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do

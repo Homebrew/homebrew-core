@@ -4,6 +4,7 @@ class Cdi < Formula
   url "https://code.mpimet.mpg.de/attachments/download/30127/cdi-2.5.4.tar.gz"
   sha256 "d0256f4ece04ccf0693f77b144a6d6db83296815f6a3742b49ed9c6d185066f3"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://code.mpimet.mpg.de/projects/cdi/files"

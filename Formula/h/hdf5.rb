@@ -1,8 +1,8 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/solutions/hdf5/"
-  url "https://github.com/HDFGroup/hdf5/releases/download/hdf5_1.14.6/hdf5-1.14.6.tar.gz"
-  sha256 "e4defbac30f50d64e1556374aa49e574417c9e72c6b1de7a4ff88c4b1bea6e9b"
+  url "https://github.com/HDFGroup/hdf5/releases/download/hdf5_2.0.0/hdf5-2.0.0.tar.gz"
+  sha256 "6e45a4213cb11bb5860e1b0a7645688ab55562cc2d55c6ff9bcb0984ed12b22b"
   license "BSD-3-Clause"
   version_scheme 1
 
@@ -37,12 +37,18 @@ class Hdf5 < Formula
   conflicts_with "hdf5-mpi", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 
   def install
+    gcc_version = Formula["gcc"].version.major
+    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{gcc_version}"
+    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{gcc_version}"
+    ENV["FC"] = Formula["gcc"].opt_bin/"gfortran"
+
     args = %w[
       -DHDF5_USE_GNU_DIRS:BOOL=ON
       -DHDF5_INSTALL_CMAKE_DIR=lib/cmake/hdf5
       -DHDF5_BUILD_FORTRAN:BOOL=ON
       -DHDF5_BUILD_CPP_LIB:BOOL=ON
       -DHDF5_ENABLE_SZIP_SUPPORT:BOOL=ON
+      -DHDF5_ENABLE_ZLIB_SUPPORT:BOOL=ON
     ]
 
     # https://github.com/HDFGroup/hdf5/issues/4310
@@ -55,14 +61,12 @@ class Hdf5 < Formula
       build/src/H5build_settings.c
       build/src/libhdf5.settings
       build/CMakeFiles/h5cc
-      build/CMakeFiles/h5hlcc
     ]
     inreplace inreplace_c_files, Superenv.shims_path/ENV.cc, ENV.cc
 
     # Avoid cpp shims in settings files
     inreplace_cxx_files = %w[
       build/CMakeFiles/h5c++
-      build/CMakeFiles/h5hlc++
     ]
     inreplace_cxx_files << "build/src/libhdf5.settings" if OS.linux?
     inreplace inreplace_cxx_files, Superenv.shims_path/ENV.cxx, ENV.cxx

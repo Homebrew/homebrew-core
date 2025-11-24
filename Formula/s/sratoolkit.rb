@@ -2,6 +2,7 @@ class Sratoolkit < Formula
   desc "Data tools for INSDC Sequence Read Archive"
   homepage "https://github.com/ncbi/sra-tools"
   license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
+  revision 1
 
   stable do
     url "https://github.com/ncbi/sra-tools/archive/refs/tags/3.2.1.tar.gz"
