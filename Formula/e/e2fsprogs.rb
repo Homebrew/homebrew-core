@@ -7,9 +7,9 @@ class E2fsprogs < Formula
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # lib/ex2fs
     "LGPL-2.0-only",     # lib/e2p
-    "BSD-3-Clause",      # lib/uuid
     "MIT",               # lib/et, lib/ss
   ]
+  revision 1
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git", branch: "master"
 
   livecheck do
@@ -31,18 +31,19 @@ class E2fsprogs < Formula
   keg_only :shadowed_by_macos
 
   depends_on "pkgconf" => :build
+  depends_on "libblkid"
+  depends_on "libuuid"
 
   on_macos do
     depends_on "gettext"
   end
 
-  on_linux do
-    keg_only "it conflicts with the bundled copy in `krb5`"
-
-    depends_on "util-linux"
-  end
+  link_overwrite "bin/compile_et", "include/com_err.h", "lib/libcom_err.so",
+                 "share/et/", "share/man/man1/compile_et.1"
 
   def install
+    rm_r(["lib/blkid", "lib/uuid"])
+
     # Enforce MKDIR_P to work around a configure bug
     # see https://github.com/Homebrew/homebrew-core/pull/35339
     # and https://sourceforge.net/p/e2fsprogs/discussion/7053/thread/edec6de279/
@@ -50,6 +51,8 @@ class E2fsprogs < Formula
       "--prefix=#{prefix}",
       "--sysconfdir=#{etc}",
       "--disable-e2initrd-helper",
+      "--disable-libblkid",
+      "--disable-libuuid",
       "MKDIR_P=mkdir -p",
     ]
     args += if OS.linux?
@@ -57,8 +60,6 @@ class E2fsprogs < Formula
         --enable-elf-shlibs
         --disable-fsck
         --disable-uuidd
-        --disable-libuuid
-        --disable-libblkid
         --without-crond-dir
       ]
     else
@@ -77,7 +78,6 @@ class E2fsprogs < Formula
   end
 
   test do
-    assert_equal 36, shell_output("#{bin}/uuidgen").strip.length if OS.mac?
     system bin/"lsattr", "-al"
   end
 end
