@@ -68,7 +68,8 @@ jobs:
             if [[ "$label" = "CI-published-bottle-commits" ]] ||
                [[ "$label" = "automerge-skip" ]] ||
                [[ "$label" = "maintainer feedback" ]] ||
-               [[ "$label" = "pre-release" ]]
+               [[ "$label" = "pre-release" ]] ||
+               [[ "$label" = "resource updates needed" ]]
             then
               publishable=false
               break

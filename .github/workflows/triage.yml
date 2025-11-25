@@ -444,6 +444,9 @@ jobs:
             - label: pip-audit
               pr_body_content: Created by `brew-pip-audit`
 
+            - label: resource updates needed
+              pr_body_content: \[ \] `resource` blocks have been checked for updates
+
             - label: alias
               path: Aliases/.+
               allow_any_match: true
