@@ -1,16 +1,10 @@
 class Root < Formula
   desc "Analyzing petabytes of data, scientifically"
   homepage "https://root.cern"
+  url "https://root.cern/download/root_v6.38.00.source.tar.gz"
+  sha256 "a4429422c460f832cde514a580dd202b1d3c96e8919c24363c3d42f8cf5accdc"
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git", branch: "master"
-
-  stable do
-    url "https://root.cern/download/root_v6.36.06.source.tar.gz"
-    sha256 "62f9d38d2f2ed3d46653529c98e8cbc9b8866776494eb40ba0c23e2f46b681c4"
-
-    # Backport part of https://github.com/root-project/root/commit/b2acf687d6b5f887b8f97f35d9b3b011adad5be4
-    patch :DATA
-  end
 
   livecheck do
     url "https://root.cern/install/all_releases/"
@@ -86,9 +80,6 @@ class Root < Formula
   end
 
   def install
-    # Workaround for CMake 4 due to VDT, https://github.com/dpiparo/vdt/blob/master/CMakeLists.txt
-    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
-
     # Skip modification of CLING_OSX_SYSROOT to the unversioned SDK path
     # Related: https://github.com/Homebrew/homebrew-core/issues/135714
     # Related: https://github.com/root-project/cling/issues/457
@@ -151,7 +142,6 @@ class Root < Formula
       -Dgnuinstall=ON
       -Dimt=ON
       -Dmathmore=ON
-      -Dmysql=ON
       -Docaml=OFF
       -Doracle=OFF
       -Dpgsql=OFF
@@ -235,53 +225,3 @@ class Root < Formula
     system python3, "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
   end
 end
-
-__END__
-diff --git a/bindings/pyroot/cppyy/CPyCppyy/CMakeLists.txt b/bindings/pyroot/cppyy/CPyCppyy/CMakeLists.txt
-index 911517294b..03406a9663 100644
---- a/bindings/pyroot/cppyy/CPyCppyy/CMakeLists.txt
-+++ b/bindings/pyroot/cppyy/CPyCppyy/CMakeLists.txt
-@@ -104,6 +104,11 @@ target_include_directories(${libname}
- 
- set_property(GLOBAL APPEND PROPERTY ROOT_EXPORTED_TARGETS ${libname})
- 
-+if(NOT MSVC)
-+  # Make sure that relative RUNPATH to main ROOT libraries is always correct.
-+  ROOT_APPEND_LIBDIR_TO_INSTALL_RPATH(${libname} ${CMAKE_INSTALL_PYTHONDIR})
-+endif()
-+
- # Install library
- install(TARGETS ${libname} EXPORT ${CMAKE_PROJECT_NAME}Exports
-                             RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT libraries
-diff --git a/bindings/pyroot/cppyy/cppyy-backend/CMakeLists.txt b/bindings/pyroot/cppyy/cppyy-backend/CMakeLists.txt
-index f296f3886d..25862bfa44 100644
---- a/bindings/pyroot/cppyy/cppyy-backend/CMakeLists.txt
-+++ b/bindings/pyroot/cppyy/cppyy-backend/CMakeLists.txt
-@@ -38,6 +38,11 @@ add_dependencies(${libname} move_headers)
- 
- set_property(GLOBAL APPEND PROPERTY ROOT_EXPORTED_TARGETS ${libname})
- 
-+if(NOT MSVC)
-+  # Make sure that relative RUNPATH to main ROOT libraries is always correct.
-+  ROOT_APPEND_LIBDIR_TO_INSTALL_RPATH(${libname} ${CMAKE_INSTALL_PYTHONDIR})
-+endif()
-+
- # Install library
- install(TARGETS ${libname} EXPORT ${CMAKE_PROJECT_NAME}Exports
-                             RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT libraries
-diff --git a/bindings/pyroot/pythonizations/CMakeLists.txt b/bindings/pyroot/pythonizations/CMakeLists.txt
-index e222e04c0e..30ef38edd9 100644
---- a/bindings/pyroot/pythonizations/CMakeLists.txt
-+++ b/bindings/pyroot/pythonizations/CMakeLists.txt
-@@ -210,6 +210,11 @@ endforeach()
- add_library(PyROOT INTERFACE)
- target_link_libraries(PyROOT INTERFACE cppyy_backend cppyy ROOTPythonizations)
- 
-+if(NOT MSVC)
-+  # Make sure that relative RUNPATH to main ROOT libraries is always correct.
-+  ROOT_APPEND_LIBDIR_TO_INSTALL_RPATH(${libname} ${CMAKE_INSTALL_PYTHONDIR})
-+endif()
-+
- # Install library
- install(TARGETS ${libname} EXPORT ${CMAKE_PROJECT_NAME}Exports
-                             RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT libraries
