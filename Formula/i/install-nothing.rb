@@ -1,8 +1,8 @@
 class InstallNothing < Formula
   desc "Simulates installing things but doesn't actually install anything"
   homepage "https://github.com/buyukakyuz/install-nothing"
-  url "https://github.com/buyukakyuz/install-nothing/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "40c36b13d3eb9516cf74370428971d94400d420885d578208a7fa611785ffd01"
+  url "https://github.com/buyukakyuz/install-nothing/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "1d4f6536d1ccb1cd0ec30d3ccb8c72b732bdcce14cdf8d48d6bab8482e7c9269"
   license "MIT"
   head "https://github.com/buyukakyuz/install-nothing.git", branch: "main"
 
