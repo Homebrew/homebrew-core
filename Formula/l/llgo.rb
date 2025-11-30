@@ -23,8 +23,8 @@ class Llgo < Formula
   depends_on "bdw-gc"
   depends_on "go@1.24"
   depends_on "libuv"
-  depends_on "lld@19"
-  depends_on "llvm@19"
+  depends_on "lld@20"
+  depends_on "llvm@20"
   depends_on "openssl@3"
   depends_on "pkgconf"
 
@@ -48,7 +48,7 @@ class Llgo < Formula
       -X github.com/goplus/llgo/internal/env.buildTime=#{time.iso8601}
       -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin/"llvm-config"}
     ]
-    tags = nil
+    tags = ["llvm#{llvm.version.major}"]
     if OS.linux?
       # Workaround to avoid patchelf corruption when cgo is required
       if Hardware::CPU.arch == :arm64
@@ -64,7 +64,7 @@ class Llgo < Formula
         "-D__STDC_FORMAT_MACROS " \
         "-D__STDC_LIMIT_MACROS"
       ENV.prepend "CGO_LDFLAGS", "-L#{llvm.opt_lib} -lLLVM"
-      tags = "byollvm"
+      tags << "byollvm"
     end
 
     system "go", "build", *std_go_args(ldflags:, tags:), "-o", libexec/"bin/", "./cmd/llgo"
