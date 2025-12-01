@@ -23,6 +23,7 @@ class PythonAT314 < Formula
     sha256 x86_64_linux:  "d8de299d64613daedb3c80622a9eaf280a5fabcd5590defd64ec2c85f2130409"
   end
 
+  depends_on "python@3.13" => :build
   depends_on "pkgconf" => :build
   depends_on "mpdecimal"
   depends_on "openssl@3"
