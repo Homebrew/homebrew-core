@@ -1,0 +1,114 @@
+name: Triage CI failure
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+concurrency:
+  group: triage-ci-${{ github.event.workflow_run.event }}-${{ github.event.workflow_run.id }}
+  cancel-in-progress: true
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  GH_REPO: ${{ github.repository }}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.event == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: write
+    env:
+      COMMENT_BODY_FILE: comment.txt
+    steps:
+      - uses: Homebrew/actions/find-related-workflow-run-id@main
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          workflow-name: Triage tasks
+
+      - name: Download `event_payload` artifact
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          name: event_payload
+          github-token: ${{ github.token }}
+          run-id: ${{ env.workflow_run_id }}
+
+      - run: echo "number=$(jq --raw-output .number event.json)" >> "$GITHUB_OUTPUT"
+        id: pr
+
+      - name: Check PR
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.pr.outputs.number }}
+          NEW_CONTRIBUTOR_MESSAGE: >
+            Thanks for contributing to Homebrew! :tada: It looks like you're having trouble
+            with a CI failure. See our [contribution guide](${{ github.event.repository.html_url }}/blob/HEAD/CONTRIBUTING.md)
+            for help. You may be most interested in the section on
+            [dealing with CI failures](${{ github.event.repository.html_url }}/blob/HEAD/CONTRIBUTING.md#dealing-with-ci-failures).
+            You can find the CI logs in the
+            [Checks tab](${{ github.event.repository.html_url }}/pull/${{ steps.pr.outputs.number }}/checks)
+            of your pull request.
+        run: |
+          rm -f "$COMMENT_BODY_FILE"
+          comment=false
+          response="$(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/$GITHUB_REPOSITORY/pulls/$PR"
+          )"
+          comments_api_url="$(jq --raw-output '.comments_url' <<< "$response")"
+
+          post_comment_if_not_posted() {
+            comment_condition_filter="$1"
+            message="$2"
+
+            if jq --exit-status "$comment_condition_filter"
+            then
+              # Check that we haven't posted the message yet.
+              if jq --exit-status \
+                --arg message "$message" \
+                'any(.[].body; contains($message)) | not'
+              then
+                echo "$message" >> "$COMMENT_BODY_FILE"
+              fi < <(
+                gh api \
+                  --header 'Accept: application/vnd.github+json' \
+                  --header 'X-GitHub-Api-Version: 2022-11-28' \
+                  "$comments_api_url"
+              )
+            fi <<< "$response"
+          }
+
+          post_comment_if_not_posted \
+            '.author_association == "FIRST_TIME_CONTRIBUTOR" or .author_association == "NONE"' \
+            "$NEW_CONTRIBUTOR_MESSAGE"
+
+          if [[ -s "$COMMENT_BODY_FILE" ]]
+          then
+            comment=true
+          fi
+
+          echo "comment=$comment" >> "$GITHUB_OUTPUT"
+
+      - name: Post comment
+        if: fromJson(steps.check.outputs.comment)
+        run: gh pr comment "$PR" --body-file "$COMMENT_BODY_FILE" --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.pr.outputs.number }}

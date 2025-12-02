@@ -1,0 +1,65 @@
+name: Bump formulae on schedule or request
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - .github/workflows/autobump.yml
+  workflow_dispatch:
+    inputs:
+      formulae:
+        description: Custom list of formulae to livecheck and bump if outdated
+        required: false
+  schedule:
+    # Every 3 hours from 1 through 23 with an offset of 45 minutes
+    - cron: "45 1-23/3 * * *"
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+jobs:
+  autobump:
+    if: github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    env:
+      GNUPGHOME: /tmp/gnupghome
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+
+      - name: Configure Git user
+        uses: Homebrew/actions/git-user-config@main
+        with:
+          username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'BrewTestBot' }}
+
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@main
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
+
+      - name: Bump formulae
+        env:
+          HOMEBREW_TEST_BOT_AUTOBUMP: 1
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_CORE_REPO_WORKFLOW_TOKEN }}
+          HOMEBREW_GIT_COMMITTER_NAME: BrewTestBot
+          HOMEBREW_GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
+          FORMULAE: ${{ inputs.formulae }}
+        run: |
+          BREW_BUMP=(brew bump --no-fork --open-pr --formulae --bump-synced)
+          if [[ -n "${FORMULAE-}" ]]; then
+            xargs -t "${BREW_BUMP[@]}" <<<"${FORMULAE}"
+          else
+            "${BREW_BUMP[@]}" --auto --tap=Homebrew/core
+          fi

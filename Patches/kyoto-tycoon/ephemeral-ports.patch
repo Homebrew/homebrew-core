@@ -1,0 +1,20 @@
+--- a/ktsocket.cc	2012-05-25 01:44:34.000000000 +0800
++++ b/ktsocket.cc	2020-12-03 19:17:12.907438645 +0800
+@@ -250,7 +250,7 @@
+   char addr[NAMEBUFSIZ];
+   int32_t port;
+   parseaddr(expr.c_str(), addr, &port);
+-  if (kc::atoi(addr) < 1 || port < 1 || port > kc::INT16MAX) {
++  if (kc::atoi(addr) < 1 || port < 1 || port > kc::UINT16MAX) {
+     sockseterrmsg(core, "invalid address expression");
+     return false;
+   }
+@@ -724,7 +724,7 @@
+     servseterrmsg(core, "invalid address expression");
+     return false;
+   }
+-  if (port < 1 || port > kc::INT16MAX) {
++  if (port < 1 || port > kc::UINT16MAX) {
+     servseterrmsg(core, "invalid address expression");
+     return false;
+   }

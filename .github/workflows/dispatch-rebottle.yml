@@ -1,0 +1,297 @@
+name: Dispatch rebottle (for all currently bottled OS versions)
+
+run-name: Rebuild bottles of ${{ inputs.formula }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      formula:
+        description: Formula name
+        required: true
+      reason:
+        description: Reason for rebottling
+        required: true
+      timeout:
+        description: "Build timeout (in minutes, default: 60 minutes)"
+        type: number
+        default: 60
+        required: false
+      issue:
+        description: Issue number, where comment on failure would be posted
+        type: number
+        required: false
+      upload:
+        description: "Upload built bottles? (default: false)"
+        type: boolean
+        default: false
+        required: false
+      fail-fast:
+        description: "Fail immediately on a single OS version failure? (default: true)"
+        type: boolean
+        default: true
+        required: false
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+# Intentionally the same as dispatch-build-bottle
+concurrency: bottle-${{ github.event.inputs.formula }}
+
+permissions:
+  contents: read
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_GITHUB_ACTIONS: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_FROM_API: 1
+  HOMEBREW_NO_BUILD_ERROR_ISSUES: 1
+  HOMEBREW_ARM64_TESTING: 1
+  RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
+  DISPATCH_REBOTTLE_SENDER: ${{ github.event.sender.login }}
+  DISPATCH_REBOTTLE_FORMULA: ${{ inputs.formula }}
+  DISPATCH_REBOTTLE_TIMEOUT: ${{ inputs.timeout }}
+  DISPATCH_REBOTTLE_ISSUE: ${{ inputs.issue }}
+  DISPATCH_REBOTTLE_UPLOAD: ${{ inputs.upload }}
+  DISPATCH_REBOTTLE_REASON: ${{ inputs.reason }}
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    outputs:
+      runners: ${{steps.determine-runners.outputs.runners}}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+
+      - name: Determine runners
+        id: determine-runners
+        run: brew determine-rebottle-runners "${DISPATCH_REBOTTLE_FORMULA}" "${DISPATCH_REBOTTLE_TIMEOUT}"
+
+  bottle:
+    permissions:
+      contents: read
+    needs: setup
+    strategy:
+      matrix:
+        include: ${{fromJson(needs.setup.outputs.runners)}}
+      fail-fast: ${{inputs.fail-fast}}
+    runs-on: ${{matrix.runner}}
+    container: ${{matrix.container}}
+    timeout-minutes: ${{fromJson(inputs.timeout)}}
+    defaults:
+      run:
+        shell: /bin/bash -xeuo pipefail {0}
+        working-directory: ${{matrix.workdir || github.workspace}}
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      BOTTLES_DIR: ${{ matrix.workdir || github.workspace }}/bottles
+    steps:
+      - name: ${{inputs.formula}}
+        id: print_details
+        run: |
+          echo sender="${DISPATCH_REBOTTLE_SENDER}"
+          echo formula="${DISPATCH_REBOTTLE_FORMULA}"
+          echo timeout="${DISPATCH_REBOTTLE_TIMEOUT}"
+          echo issue="${DISPATCH_REBOTTLE_ISSUE}"
+          echo upload="${DISPATCH_REBOTTLE_UPLOAD}"
+          echo reason="${DISPATCH_REBOTTLE_REASON}"
+
+      - name: Pre-test steps
+        uses: Homebrew/actions/pre-build@main
+        with:
+          bottles-directory: ${{ env.BOTTLES_DIR }}
+
+      - run: |
+          brew test-bot --only-formulae --only-json-tab --skip-online-checks \
+                        --skip-dependents \
+                        "${DISPATCH_REBOTTLE_FORMULA}"
+        working-directory: ${{ env.BOTTLES_DIR }}
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Post-build steps
+        if: always()
+        uses: Homebrew/actions/post-build@main
+        with:
+          runner: ${{ matrix.runner }}
+          bottles-directory: ${{ env.BOTTLES_DIR }}
+          logs-directory: ${{ env.BOTTLES_DIR }}/logs
+
+  upload:
+    permissions:
+      issues: write # for Homebrew/actions/post-comment
+      contents: write # for Homebrew/actions/git-try-push
+      packages: write # for brew pr-upload
+      pull-requests: write # for gh pr
+      attestations: write # for actions/attest-build-provenance
+      id-token: write # for actions/attest-build-provenance
+    runs-on: ubuntu-latest
+    needs: bottle
+    if: inputs.upload
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    env:
+      HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
+      GH_REPO: ${{github.repository}}
+      GH_NO_UPDATE_NOTIFIER: 1
+      GH_PROMPT_DISABLED: 1
+      BOTTLE_BRANCH: ${{github.actor}}/dispatch/${{inputs.formula}}/${{github.run_id}}
+      BOTTLES_DIR: ${{ github.workspace }}/bottles
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+
+      - name: Download bottles from GitHub Actions
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          pattern: bottles_*
+          path: ${{ env.BOTTLES_DIR }}
+          merge-multiple: true
+
+      - name: Setup git
+        id: git-user-config
+        uses: Homebrew/actions/git-user-config@main
+        with:
+          username: ${{ (github.actor != 'github-actions[bot]' && github.actor) || 'BrewTestBot' }}
+
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@main
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
+
+      - name: Generate build provenance
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
+        with:
+          subject-path: ${{ env.BOTTLES_DIR }}/*.tar.gz
+
+      - name: Checkout branch for bottle commit
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        run: git checkout -b "$BOTTLE_BRANCH" origin/HEAD
+
+      - name: Upload bottles to GitHub Packages
+        id: upload
+        env:
+          HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
+          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
+          BREWTESTBOT_NAME_EMAIL: "BrewTestBot <1589480+BrewTestBot@users.noreply.github.com>"
+          HOMEBREW_CORE_PATH: ${{steps.set-up-homebrew.outputs.repository-path}}
+        working-directory: ${{ env.BOTTLES_DIR }}
+        run: |
+          brew pr-upload --verbose --committer="$BREWTESTBOT_NAME_EMAIL" --root-url="https://ghcr.io/v2/homebrew/core" --debug
+          echo "title=$(git -C "$HOMEBREW_CORE_PATH" log -1 --format='%s' "$BOTTLE_BRANCH")" >> "$GITHUB_OUTPUT"
+          echo "head_sha=$(git -C "$HOMEBREW_CORE_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Push commits
+        uses: Homebrew/actions/git-try-push@main
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+          branch: ${{env.BOTTLE_BRANCH}}
+        env:
+          GIT_COMMITTER_NAME: BrewTestBot
+          GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
+
+      - name: Open PR with bottle commit
+        id: create-pr
+        uses: Homebrew/actions/create-pull-request@main
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          base: ${{github.ref}}
+          head: ${{env.BOTTLE_BRANCH}}
+          title: ${{steps.upload.outputs.title}}
+          body: |
+            Created by [`dispatch-rebottle.yml`](${{env.RUN_URL}})
+
+            -----
+
+            ${{env.DISPATCH_REBOTTLE_REASON}}
+          labels: CI-published-bottle-commits
+          reviewers: ${{github.actor}}
+
+      - name: Enable automerge
+        env:
+          GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          NODE_ID: ${{steps.create-pr.outputs.node_id}}
+          SHA: ${{steps.upload.outputs.head_sha}}
+          MUTATION: |-
+            mutation ($input: EnablePullRequestAutoMergeInput!) {
+              enablePullRequestAutoMerge(input: $input) {
+                clientMutationId
+              }
+            }
+        run: |
+          gh api graphql \
+            --field "input[pullRequestId]=$NODE_ID" \
+            --field "input[expectedHeadOid]=$SHA" \
+            --raw-field query="$MUTATION"
+
+      - name: Approve PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{steps.create-pr.outputs.number}}
+        run: |
+          gh api \
+            --method POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/$GITHUB_REPOSITORY/pulls/$PR/reviews" \
+            --field "event=APPROVE"
+
+      - name: Wait until PR is merged
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.create-pr.outputs.number }}
+        run: |
+          # Hold the `concurrency` lock for up to another 10 minutes while the PR has not yet been merged.
+          sleep 300
+
+          attempt=0
+          max_attempts=5
+          sleep_time=10
+
+          while (( attempt < max_attempts ))
+          do
+            if jq --exit-status .merged_at
+            then
+              break
+            fi < <( # We could use `gh pr view`, but that uses 2 API calls.
+              gh api \
+                --header "Accept: application/vnd.github+json" \
+                --header "X-GitHub-Api-Version: 2022-11-28" \
+                "/repos/$GITHUB_REPOSITORY/pulls/$PR"
+            )
+
+            sleep "$sleep_time"
+
+            sleep_time=$(( sleep_time * 2 ))
+            attempt=$(( attempt + 1 ))
+          done
+
+  comment:
+    permissions:
+      issues: write # for Homebrew/actions/post-comment
+      pull-requests: write # for Homebrew/actions/post-comment
+    needs: [bottle, upload]
+    if: failure() && inputs.issue > 0
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post comment on failure
+        uses: Homebrew/actions/post-comment@main
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          issue: ${{inputs.issue}}
+          body: ":x: @${{github.actor}} bottle request for ${{inputs.formula}} [failed](${{env.RUN_URL}})."
+          bot_body: ":x: Bottle request for ${{inputs.formula}} [failed](${{env.RUN_URL}})."
+          bot: BrewTestBot

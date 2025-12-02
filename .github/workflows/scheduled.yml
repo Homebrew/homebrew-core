@@ -1,0 +1,176 @@
+name: Scheduled online check
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - .github/workflows/scheduled.yml
+  schedule:
+    # Once every day at 1AM
+    - cron: "0 1 * * *"
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+concurrency:
+  group: scheduled
+  cancel-in-progress: true
+
+permissions: {}
+
+env:
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+  GH_REPO: ${{ github.repository }}
+  REPORTING_ISSUE: 139929
+  RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+jobs:
+  create_matrix:
+    if: startsWith( github.repository, 'Homebrew/' )
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    outputs:
+      json: ${{ steps.matrix.outputs.json }}
+    env:
+      TEST_COUNT: 50
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+
+      - name: Generate matrix
+        id: matrix
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        run: |
+          # Index all formulae so that we test (n ranges from 0 to TEST_COUNT - 1):
+          #   - formulae 0, 365, 630,..., 0 + 365 * n,... on the first day of the year
+          #   - formulae 1, 366, 631,..., 1 + 365 * n,... on the second day of the year
+          #   - formulae 2, 367, 632,..., 2 + 365 * n,... on the third day of the year
+          #   - ...
+          # This works fine as long as we have fewer than 365 * TEST_COUNT formulae.
+          mapfile -t formulae < <(find Formula -type f -execdir basename -s '.rb' {} + | sort)
+          formulae_count="${#formulae[@]}"
+
+          DAYS_PER_YEAR=365
+          if (( formulae_count > DAYS_PER_YEAR * TEST_COUNT )); then
+            required_test_count="$(( formulae_count / DAYS_PER_YEAR + 1 ))"
+            echo "::error ::Too many formulae (${formulae_count})! Adjust TEST_COUNT to a number greater than ${required_test_count}."
+            exit 1
+          fi
+
+          day="$(date +%j)"
+          testing_formulae=()
+          for (( i=0; i < TEST_COUNT; i++ )); do
+            index="$(( (day + i * DAYS_PER_YEAR - 1) % formulae_count ))"
+            testing_formulae+=("${formulae[${index}]}")
+          done
+
+          jq_filter='[.formulae[] | select(.deprecated or .disabled | not) | { name, curl: (.urls.stable.using == "homebrew_curl")}]'
+          json="$(brew info --json=v2 "${testing_formulae[@]}" | jq --compact-output "${jq_filter}")"
+          echo "json=${json}" >> "$GITHUB_OUTPUT"
+
+  comment_on_failure:
+    needs: create_matrix
+    if: needs.create_matrix.result == 'failure'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Post comment on failure
+        run: |
+          gh issue comment "$REPORTING_ISSUE" \
+                           --body "\`create_matrix\` job failed. Check $RUN_URL" \
+                           --repo "$GITHUB_REPOSITORY"
+
+  audit_online:
+    if: startsWith( github.repository, 'Homebrew/' )
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    permissions:
+      issues: write
+    needs: create_matrix
+    name: "Online check: ${{ matrix.name }}"
+    env:
+      HOMEBREW_GITHUB_API_TOKEN: "${{ github.token }}"
+      GH_TOKEN: "${{ github.token }}"
+      FORMULA: ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.create_matrix.outputs.json) }}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+
+      - name: Install and use Homebrew curl if needed
+        if: matrix.curl
+        run: |
+          brew install curl
+          echo "HOMEBREW_FORCE_BREWED_CURL=1" >>"${GITHUB_ENV}"
+
+      - name: Install Homebrew subversion if needed for downloading sources
+        run: |
+          if comm -23 <(brew deps --include-implicit --direct "$FORMULA" | sort) <(brew deps --direct "$FORMULA" | sort) | grep -Fqx subversion; then
+            brew install subversion
+          fi
+
+      - name: Check formula source is not archived.
+        id: archived
+        run: brew audit --online --skip-style --only github_repository_archived,gitlab_repository_archived "$FORMULA"
+
+      - name: Report online issues
+        if: failure() && steps.archived.conclusion == 'failure'
+        run: |
+          gh issue comment "$REPORTING_ISSUE" \
+                           --body "$FORMULA should be archived. Check $RUN_URL" \
+                           --repo "$GITHUB_REPOSITORY"
+
+      - name: Check formula for unavailable homepage.
+        id: homepage
+        run: brew audit --online --skip-style --only homepage "$FORMULA"
+
+      - name: Report homepage issues
+        if: failure() && steps.homepage.conclusion == 'failure'
+        run:  |
+          gh issue comment "$REPORTING_ISSUE" \
+                           --body "$FORMULA has homepage issues. Check $RUN_URL" \
+                           --repo "$GITHUB_REPOSITORY"
+
+      - name: Check formula for missing sources.
+        id: fetch
+        if: always() && steps.archived.conclusion != 'failure'
+        run: brew fetch --build-from-source "$FORMULA"
+
+      - name: Report fetch issues
+        if: failure() && steps.fetch.conclusion == 'failure'
+        run:  |
+          gh issue comment "$REPORTING_ISSUE" \
+                           --body "$FORMULA source has problems. Check $RUN_URL" \
+                           --repo "$GITHUB_REPOSITORY"
+
+      - name: Check bottle attestation
+        id: attestation
+        if: always()
+        run: brew verify --os=all --arch=all "$FORMULA"
+
+      - name: Report attestation issues
+        if: failure() && steps.attestation.conclusion == 'failure'
+        run:  |
+          gh issue comment "$REPORTING_ISSUE" \
+                           --body "$FORMULA attestation has problems. Check $RUN_URL" \
+                           --repo "$GITHUB_REPOSITORY"

@@ -1,0 +1,115 @@
+name: Recreate Linux self-hosted runners
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Once each 24 hours, at 1 during the night
+    - cron: "0 1 * * *"
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+concurrency:
+  group: recreate-linux-runners-${{ github.event.workflow_run.id || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  GH_REPO: ${{github.repository}}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+
+jobs:
+  check:
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.event == 'pull_request')
+    runs-on: ubuntu-latest
+    outputs:
+      recreate: ${{ steps.check.outputs.recreate }}
+    permissions:
+      actions: read # for `gh run download`
+      pull-requests: read # for `gh api`
+    steps:
+      - uses: Homebrew/actions/find-related-workflow-run-id@main
+        if: github.event_name == 'workflow_run'
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          workflow-name: Triage tasks
+
+      - name: Download `event_payload` artifact
+        if: github.event_name == 'workflow_run'
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          name: event_payload
+          github-token: ${{ github.token }}
+          run-id: ${{ env.workflow_run_id }}
+
+      - name: Check if runner needs to be recreated
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          recreate=true
+
+          if [[ "$GITHUB_EVENT_NAME" = "workflow_run" ]]
+          then
+            PR="$(jq --raw-output .number event.json)"
+
+            recreate="$(
+              gh api \
+                --header 'Accept: application/vnd.github+json' \
+                --header 'X-GitHub-Api-Version: 2022-11-28' \
+                "repos/$GITHUB_REPOSITORY/pulls/$PR" \
+                --jq 'any(.labels[].name; .== "CI-linux-self-hosted")'
+            )"
+          fi
+
+          echo "recreate=$recreate" >> "$GITHUB_OUTPUT"
+
+  recreate:
+    needs: check
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.event == 'pull_request') &&
+      fromJson(needs.check.outputs.recreate)
+    runs-on: ubuntu-latest
+    env:
+      # TODO agree on one label for all runners
+      RUNNER_LABEL: TODO
+    strategy:
+      matrix:
+        runner_name:
+          - linux-self-hosted-1
+    steps:
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba # v0.2.1
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+
+      - name: Wait for idle runner
+        id: killable
+        uses: Homebrew/actions/wait-for-idle-runner@main
+        with:
+          runner_name: ${{ matrix.runner_name }}
+          github_token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
+
+      - name: Kill runner and create a new one
+        if: ${{ steps.killable.outputs.runner-found == 'true' && steps.killable.outputs.runner-idle == 'true' }}
+        uses: Homebrew/actions/create-gcloud-instance@main
+        with:
+          runner_name: ${{ matrix.runner_name }}
+          gcp_project_id: ${{ secrets.GCP_PROJECT_ID }}
+          gcp_service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          gcp_sa_key: ${{ secrets.GCP_SA_KEY }}
+          github_token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}

@@ -1,0 +1,160 @@
+name: Remove unused patches
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/remove-unused-patches.yml
+  schedule:
+    - cron: "0 22 * * 1" # Once a week (Monday) at 10pm UTC.
+
+env:
+  RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+concurrency:
+  group: remove-unused-patches
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  remove-unused-patches:
+    if: github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    env:
+      REMOVAL_BRANCH: remove-unused-patches
+    permissions:
+      contents: write # for Homebrew/actions/git-try-push
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+
+      - name: Configure Git user
+        id: git-user-config
+        uses: Homebrew/actions/git-user-config@main
+        with:
+          username: BrewTestBot
+
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@main
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
+
+      - name: Checkout removal branch
+        run: git checkout -b "$REMOVAL_BRANCH" origin/HEAD
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+
+      - name: Remove unused patches
+        id: remove_unused
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        run: |
+          if [[ ! -d "Patches" ]]; then
+            echo "No Patches directory found"
+            echo "patches-removed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          
+          all_patches=$(mktemp)
+          referenced_patches=$(mktemp)
+          unused_patches=$(mktemp)
+          
+          # Exclude `LICENSE` as it's not a patch, and `proctools` patches as they're interpolated in the formula.
+          find Patches -type f ! -name "LICENSE" ! -path "Patches/proctools/*" > "$all_patches"
+
+          if [[ ! -s "$all_patches" ]]; then
+            echo "No patch files found in Patches directory"
+            echo "patches-removed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          
+          echo "Found $(wc -l < "$all_patches") total patch files"
+          
+          # Search for patch references in all formula files
+          # Look for patterns like "Patches/formula/patch.diff" in URLs
+          grep -r --include="*.rb" -h "Patches/" Formula/ | \
+            grep -o "Patches/[^\"'[:space:]]*" | \
+            sort -u > "$referenced_patches" || true
+          
+          echo "Found $(wc -l < "$referenced_patches") referenced patch paths"
+          
+          unused_count=0
+          while IFS= read -r patch_file; do
+            if ! grep -Fxq "$patch_file" "$referenced_patches"; then
+              echo "$patch_file" >> "$unused_patches"
+              ((++unused_count))
+            fi
+          done < "$all_patches"
+          
+          echo "Found $unused_count unused patch files"
+          
+          if [[ $unused_count -eq 0 ]]; then
+            echo "No unused patches found"
+            echo "patches-removed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Removing unused patches:"
+            while IFS= read -r unused_patch; do
+              echo "  - $unused_patch"
+              git rm "$unused_patch"
+            done < "$unused_patches"
+            
+            if git diff --cached --quiet; then
+              echo "patches-removed=false" >> "$GITHUB_OUTPUT"
+            else
+              git commit -m "Remove unused patches"
+              echo "patches-removed=true" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+          
+          rm "$all_patches" "$referenced_patches" "$unused_patches"
+
+      - name: Push commits
+        if: fromJson(steps.remove_unused.outputs.patches-removed)
+        uses: Homebrew/actions/git-try-push@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+          branch: ${{ env.REMOVAL_BRANCH }}
+        env:
+          GIT_COMMITTER_NAME: ${{ steps.git-user-config.outputs.name }}
+          GIT_COMMITTER_EMAIL: ${{ steps.git-user-config.outputs.email }}
+
+      - name: Create pull request
+        if: fromJson(steps.remove_unused.outputs.patches-removed)
+        uses: Homebrew/actions/create-pull-request@main
+        with:
+          token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
+          base: ${{ github.event.repository.default_branch }}
+          head: ${{ env.REMOVAL_BRANCH }}
+          title: Remove unused patches
+          labels: CI-no-bottles
+          body: This pull request was created automatically by the [`remove-unused-patches`](${{ env.RUN_URL }}) workflow.
+
+  create-issue:
+    permissions:
+      issues: write # for Homebrew/actions/create-or-update-issue
+    needs: remove-unused-patches
+    if: always() && github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create issue on failure
+        uses: Homebrew/actions/create-or-update-issue@main
+        with:
+          title: Unused patch removal failed
+          body: Run failed at ${{ env.RUN_URL }}
+          labels: bug,help wanted
+          update-existing: ${{ needs.remove-unused-patches.result == 'failure' }}
+          close-existing: ${{ needs.remove-unused-patches.result == 'success' }}
+          close-from-author: github-actions[bot]
+          close-comment: Run succeeded at ${{ env.RUN_URL }}, closing issue.

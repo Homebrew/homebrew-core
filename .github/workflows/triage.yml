@@ -1,0 +1,492 @@
+name: Triage tasks
+
+on: pull_request_target
+
+env:
+  GH_REPO: ${{ github.repository }}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+  HOMEBREW_DISABLE_LOAD_FORMULA: 1
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+concurrency:
+  group: "triage-${{ github.event.number }}"
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  upload-metadata:
+    permissions:
+      contents: read
+    if: always() && github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: event_payload
+          path: ${{ github.event_path }}
+
+  check-base-branch:
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    if: always() && github.repository_owner == 'Homebrew' && github.actor != 'BrewTestBot'
+    runs-on: ubuntu-latest
+    env:
+      PR: ${{ github.event.number }}
+    steps:
+      - name: Check pull request base branch
+        id: base
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          branch="$(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/$GITHUB_REPOSITORY/pulls/$PR" \
+              --jq '.base.ref'
+          )"
+          echo "branch=${branch}" >>"${GITHUB_OUTPUT}"
+
+      - name: Change base branch to `main`
+        id: change
+        if: steps.base.outputs.branch == 'master'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr edit "${PR}" --base main --repo "${GITHUB_REPOSITORY}"
+
+      - name: Post comment
+        if: steps.base.outputs.branch == 'master'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BODY: |-
+            > [!TIP]
+            > This pull request targets the `master` branch. For future pull requests, please target the `main` branch instead.
+        run: gh pr comment "${PR}" --body "${BODY}" --repo "${GITHUB_REPOSITORY}"
+
+      - name: Post failure comment
+        if: failure() && steps.change.conclusion == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BODY: |-
+            > [!CAUTION]
+            > Failed to change base branch to `main`. Please edit your pull request manually to target the `main` branch instead of the `master` branch.
+        run: gh pr comment "${PR}" --body "${BODY}" --repo "${GITHUB_REPOSITORY}"
+
+  check-bottle-block:
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    if: always() && github.repository_owner == 'Homebrew' && github.actor != 'BrewTestBot'
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    env:
+      PR: ${{ github.event.number }}
+    steps:
+      - name: Set up Homebrew
+        id: setup-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+
+      - name: Check that bottle block is not modified
+        id: bottle-block
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: brew check-bottle-modification "${PR}"
+
+      - name: Post comment
+        if: failure() && steps.bottle-block.conclusion == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BODY: |-
+            > [!CAUTION]
+            > Please **do not** modify the bottle block. Bottle block modifications can cause CI to misbehave.
+            > @BrewTestBot will handle updating the bottle block before this PR is merged.
+        run: gh pr comment "${PR}" --body "${BODY}" --repo "${GITHUB_REPOSITORY}"
+
+  triage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      statuses: write
+    steps:
+      - name: Check commit format
+        if: >
+          github.actor != 'BrewTestBot' &&
+          !contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits')
+        uses: Homebrew/actions/check-commit-format@main
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Label pull request
+        uses: Homebrew/actions/label-pull-requests@main
+        if: always()
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          def: |
+            - label: new formula
+              status: added
+              path: Formula/.+
+              allow_any_match: true
+
+            - label: marked for removal/rejection
+              status: removed
+              path: Formula/.+
+
+            - label: no ARM bottle
+              path: Formula/.+
+              content: '\n    sha256.* (?!.*(?:arm64_|_linux)).+: +"[a-fA-F0-9]+"\n'
+              missing_content: '\n    sha256.* (arm64_.+|all): +"[a-fA-F0-9]+"\n'
+
+            - label: no Linux bottle
+              path: Formula/.+
+              content: \n  bottle do\n
+              missing_content:
+                - '\n    sha256.* (x86_64|arm64)_linux: +"[a-fA-F0-9]+"\n'
+                - '\n    sha256.* all: +"[a-fA-F0-9]+"\n'
+                - depends_on :macos
+
+            - label: formula deprecated
+              path: Formula/.+
+              content: \n  deprecate!.*\n
+
+            - label: formula disabled
+              path: Formula/.+
+              content: \n  disable!.*\n
+
+            - label: legacy
+              path: Formula/.+@.+
+              except:
+                - Formula/b/bash-completion@2.rb
+                - Formula/i/icu4c@78.rb
+                - Formula/lib/libxml++@5.rb
+                - Formula/o/openssl@3.rb
+                - Formula/p/postgresql@18.rb
+                - Formula/p/python@3.14.rb
+                - Formula/p/python-gdbm@3.14.rb
+                - Formula/p/python-tk@3.14.rb
+
+            - label: missing license
+              path: Formula/.+
+              missing_content: \n  license .+\n
+
+            - label: deprecated license
+              path: Formula/.+
+              content: license .*"(GPL|LGPL|AGPL|GFDL)-[0-9].[0-9][+]?".*
+
+            - label: boost
+              path: Formula/.+
+              content: depends_on "boost(@[0-9.]+)?"
+
+            - label: ffmpeg
+              path: Formula/.+
+              content: depends_on "ffmpeg(@[0-9.]+)?"
+
+            - label: erlang
+              path: Formula/.+
+              content: depends_on "erlang(@[0-9.]+)?"
+
+            - label: go
+              path: Formula/.+
+              content: depends_on "go(@[0-9.]+)?"
+
+            - label: haskell
+              path: Formula/.+
+              content: depends_on "(ghc|haskell-stack)(@[0-9.]+)?"
+
+            - label: icu4c
+              path: Formula/.+
+              content: depends_on "icu4c(@[0-9.]+)?"
+
+            - label: java
+              path: Formula/.+
+              content: depends_on "openjdk(@[0-9.]+)?"
+
+            - label: linux-only
+              path: Formula/.+
+              content: depends_on :linux
+
+            - label: macos-only
+              path: Formula/.+
+              content: depends_on :macos
+
+            - label: meson
+              path: Formula/.+
+              content: depends_on "meson"
+
+            - label: lua
+              path: Formula/.+
+              content: depends_on "(lua|luajit|luajit-openresty)(@[0-9.]+)?"
+
+            - label: nodejs
+              path: Formula/.+
+              content: depends_on "node(@[0-9.]+)?"
+
+            - label: ocaml
+              path: Formula/.+
+              content: depends_on "ocaml(@[0-9.]+)?"
+
+            - label: perl
+              path: Formula/.+
+              content: (depends_on|uses_from_macos) "perl(@[0-9.]+)?"
+
+            - label: php
+              path: Formula/.+
+              content: (depends_on|uses_from_macos) "php(@[0-9.]+)?"
+
+            - label: python
+              path: Formula/.+
+              content: (depends_on|uses_from_macos) "python(@[0-9.]+)?"
+              missing_content: (depends_on|uses_from_macos) "python(@[0-9.]+)?" => \[?:(build|test)
+
+            - label: ruby
+              path: Formula/.+
+              content: (depends_on|uses_from_macos) "ruby(@[0-9.]+)?"
+
+            - label: rust
+              path: Formula/.+
+              content: depends_on "rust(@[0-9.]+)?"
+
+            - label: zig
+              path: Formula/.+
+              content: depends_on "zig(@[0-9.]+)?"
+
+            - label: dotnet
+              path: Formula/.+
+              content: depends_on "dotnet(@[0-9.]+)?"
+
+            - label: swift
+              path: Formula/.+
+              content: system "swift", "build"
+
+            - label: long build
+              path: "Formula/.+/(\
+                agda|\
+                apache-pulsar|\
+                aws-sdk-cpp|\
+                cbmc|\
+                cp2k|\
+                deno|\
+                dotnet|\
+                emscripten|\
+                envoy|\
+                gcc|\
+                gdb|\
+                ghc|\
+                graph-tool|\
+                gstreamer|\
+                haskell-language-server|\
+                libtensorflow|\
+                llvm@19|\
+                llvm|\
+                mame|\
+                metashell|\
+                mlkit|\
+                mpich|\
+                node|\
+                octave|\
+                opencascade|\
+                openfast|\
+                openvino|\
+                pcl|\
+                ponyc|\
+                pytorch|\
+                qtwebengine|\
+                root|\
+                rtabmap|\
+                rust|\
+                souffle|\
+                swift|\
+                texlive|\
+                v8|\
+                vtk\
+                )(@[0-9.]+)?.rb"
+              keep_if_no_match: true
+              allow_any_match: true
+
+            - label: long dependent tests
+              path: "Formula/.+/(\
+                aom|\
+                at-spi2-core|\
+                boost|\
+                brotli|\
+                c-ares|\
+                cabal-install|\
+                cmake|\
+                cryptography|\
+                dav1d|\
+                freetype|\
+                frei0r|\
+                gcc|\
+                gettext|\
+                ghc|\
+                glib|\
+                gsettings-desktop-schemas|\
+                gtk\\+3|\
+                harfbuzz|\
+                highway|\
+                hwloc|\
+                icu4c|\
+                imath|\
+                jasper|\
+                jpeg-turbo|\
+                jpeg-xl|\
+                libcap|\
+                libgcrypt|\
+                libgpg-error|\
+                libidn2|\
+                libmicrohttpd|\
+                librist|\
+                libnghttp2|\
+                libomp|\
+                libpng|\
+                libtool|\
+                libunistring|\
+                mpfr|\
+                mpg123|\
+                node|\
+                numpy|\
+                openblas|\
+                openjpeg|\
+                openssl@3|\
+                p11-kit|\
+                pango|\
+                pcre2|\
+                python@3.14|\
+                rav1e|\
+                rust|\
+                sdl2|\
+                shared-mime-info|\
+                sqlite|\
+                suite-sparse|\
+                qtbase|\
+                readline|\
+                unbound|\
+                xz|\
+                zstd\
+                ).rb"
+              keep_if_no_match: true
+              allow_any_match: true
+
+            - label: CI-build-dependents-from-source
+              path:
+                - 'Formula/.+/(cabal-install|docbook-xsl|emscripten|erlang|ocaml|ocaml-findlib|ocaml-num|openjdk|rust)\.rb'
+                - 'Aliases/(ghc|go)(@[0-9.]+)?$'
+              missing_content: '\n  revision [0-9]+\n'
+              keep_if_no_match: true
+              allow_any_match: true
+
+            - label: CI-skip-recursive-dependents
+              path: "Formula/.+/(\
+                ca-certificates|\
+                certifi|\
+                cmake|\
+                curl|\
+                gettext|\
+                glib|\
+                harfbuzz|\
+                openssl@3|\
+                wayland-protocols|\
+                sqlite|\
+                systemd\
+                ).rb"
+              keep_if_no_match: true
+              allow_any_match: true
+
+            - label: CI-linux-self-hosted
+              path: "Formula/.+/(\
+                dart-sdk|\
+                envoy|\
+                qt@5|\
+                qtwebengine|\
+                teleport|\
+                texlive\
+                ).rb"
+              keep_if_no_match: true
+              allow_any_match: true
+
+            - label: CI-linux-self-hosted-deps
+              path: "Formula/.+/(\
+                alsa-lib|\
+                glib|\
+                libcap|\
+                libva|\
+                libxml2|\
+                openssl@3|\
+                python@3.14|\
+                wayland-protocols|\
+                zlib|\
+                ).rb"
+              keep_if_no_match: true
+              allow_any_match: true
+
+            - label: CI-no-bottles
+              path: Formula/p/portable-.+
+              except:
+                - Formula/p/portable-ruby.rb
+              keep_if_no_match: true
+
+            - label: bump-formula-pr
+              pr_body_content: Created with `brew bump-formula-pr`
+
+            - label: pip-audit
+              pr_body_content: Created by `brew-pip-audit`
+
+            - label: alias
+              path: Aliases/.+
+              allow_any_match: true
+
+            - label: shell-completion
+              path: Formula/.+
+              patch_content: (generate_completions_from_executable|bash_completion|zsh_completion|fish_completion|pwsh_completion)
+
+  # Handle this separately since the `workflows` label affects bottle cache usage
+  # and hardens us against cache poisoning attacks.
+  workflows-label:
+    needs: triage
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    if: always() && github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    env:
+      PR: ${{ github.event.number }}
+    steps:
+      - name: Check pull request changed files
+        id: files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          workflow_modified="$(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/$GITHUB_REPOSITORY/pulls/$PR/files" \
+              --jq 'any(.[].filename; startswith(".github/workflows"))'
+          )"
+          # Fail closed.
+          echo "workflow_modified=${workflow_modified:-true}" >> "${GITHUB_OUTPUT}"
+
+      # Wait briefly in case of failure to make sure we don't end up
+      # hitting the same API error when trying `gh pr edit`.
+      - if: failure()
+        run: sleep 30
+
+      - name: Label PR
+        if: always() && fromJson(steps.files.outputs.workflow_modified)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr edit --add-label workflows "$PR" --repo "$GITHUB_REPOSITORY"

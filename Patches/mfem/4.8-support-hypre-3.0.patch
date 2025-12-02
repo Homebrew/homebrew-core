@@ -1,0 +1,288 @@
+From 0144ab834e8b438a7077d3afa1cb2b025540259c Mon Sep 17 00:00:00 2001
+From: Rui Chen <rui@chenrui.dev>
+Date: Sun, 28 Sep 2025 11:07:37 -0400
+Subject: [PATCH] Support hypre 3.0
+
+Signed-off-by: Rui Chen <rui@chenrui.dev>
+---
+ CMakeLists.txt                       |  10 +--
+ config/cmake/modules/FindHYPRE.cmake | 113 ++++++++++++++++++++++++++-
+ linalg/hypre.cpp                     |   4 +-
+ linalg/hypre.hpp                     |   8 +-
+ linalg/hypre_parcsr.cpp              |   6 +-
+ linalg/hypre_parcsr.hpp              |   4 +
+ 6 files changed, 129 insertions(+), 16 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 64c9a62..45b16bb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -261,6 +261,11 @@ if (MFEM_USE_OPENMP OR MFEM_USE_LEGACY_OPENMP)
+   endif()
+ endif()
+ 
++# Umpire (must be included before hypre, so hypre can use it if needed)
++if (MFEM_USE_UMPIRE)
++   find_package(UMPIRE REQUIRED)
++endif()
++
+ # MPI -> hypre; PETSc (optional)
+ if (MFEM_USE_MPI)
+   find_package(MPI REQUIRED)
+@@ -476,11 +481,6 @@ if (MFEM_USE_RAJA)
+    find_package(RAJA REQUIRED)
+ endif()
+ 
+-# UMPIRE
+-if (MFEM_USE_UMPIRE)
+-   find_package(UMPIRE REQUIRED)
+-endif()
+-
+ # GOOGLE-BENCHMARK
+ if (MFEM_USE_BENCHMARK)
+    find_package(Benchmark REQUIRED)
+diff --git a/config/cmake/modules/FindHYPRE.cmake b/config/cmake/modules/FindHYPRE.cmake
+index d13b623..1df0790 100644
+--- a/config/cmake/modules/FindHYPRE.cmake
++++ b/config/cmake/modules/FindHYPRE.cmake
+@@ -9,21 +9,25 @@
+ # terms of the BSD-3 license. We welcome feedback and contributions, see file
+ # CONTRIBUTING.md for details.
+ 
+-# Defines the following variables:
++# Defines the following variables if fetching of TPLs is disabled (default):
+ #   - HYPRE_FOUND
+ #   - HYPRE_LIBRARIES
+ #   - HYPRE_INCLUDE_DIRS
+ #   - HYPRE_VERSION
+ #   - HYPRE_USING_CUDA (internal)
+ #   - HYPRE_USING_HIP (internal)
++# otherwise, the following are defined:
++#   - HYPRE (imported library target)
++#   - HYPRE_VERSION (cache variable)
+ 
+-if (HYPRE_FOUND)
++if (HYPRE_FOUND OR TARGET HYPRE)
+   if (HYPRE_USING_CUDA)
+     find_package(CUDAToolkit REQUIRED)
+   endif()
+   if (HYPRE_USING_HIP)
+     find_package(rocsparse REQUIRED)
+     find_package(rocrand REQUIRED)
++    find_package(rocsolver REQUIRED)
+   endif()
+   if (HYPRE_LIBRARIES AND HYPRE_INCLUDE_DIRS AND HYPRE_VERSION)
+     find_package_handle_standard_args(HYPRE
+@@ -33,6 +37,95 @@ if (HYPRE_FOUND)
+   endif()
+ endif()
+ 
++if (HYPRE_FETCH OR FETCH_TPLS)
++  # Collect all HYPRE_ENABLE variables and pass them to hypre, assuming they are BOOL.
++  set(HYPRE_CMAKE_OPTIONS "")
++  get_cmake_property(all_vars VARIABLES)
++  foreach(var ${all_vars})
++    if(var MATCHES "^HYPRE_ENABLE")
++      list(APPEND HYPRE_CMAKE_OPTIONS "-D${var}:BOOL=${${var}}")
++    endif()
++  endforeach()
++
++  set(HYPRE_FETCH_VERSION 2.33.0)
++  set(HYPRE_FETCH_TAG "v${HYPRE_FETCH_VERSION}" CACHE STRING "Tag, branch, or commit for HYPRE")
++  add_library(HYPRE STATIC IMPORTED)
++  # set options and associated dependencies
++  list(APPEND HYPRE_CMAKE_OPTIONS -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE})
++  if (MFEM_USE_CUDA)
++    list(APPEND HYPRE_CMAKE_OPTIONS -DHYPRE_ENABLE_CUDA:BOOL=ON -DCMAKE_CUDA_ARCHITECTURES:STRING=${CMAKE_CUDA_ARCHITECTURES})
++    find_package(CUDAToolkit REQUIRED)
++    target_link_libraries(HYPRE INTERFACE CUDA::cusparse CUDA::curand CUDA::cublas)
++  elseif (MFEM_USE_HIP)
++    list(APPEND HYPRE_CMAKE_OPTIONS -DHYPRE_ENABLE_HIP:BOOL=ON)
++    find_package(rocsparse REQUIRED)
++    find_package(rocrand REQUIRED)
++    target_link_libraries(HYPRE INTERFACE rocsparse rocrand)
++  endif()
++  if (MFEM_USE_CUDA OR MFEM_USE_HIP)
++    if (MFEM_USE_UMPIRE)
++      if (EXISTS ${umpire_DIR})
++        list(APPEND HYPRE_CMAKE_OPTIONS -DHYPRE_ENABLE_UMPIRE:BOOL=ON -Dumpire_DIR:PATH=${umpire_DIR})
++      else()
++        message(FATAL_ERROR "MFEM_USE_UMPIRE=ON, however umpire_DIR isn't visible to HYPRE")
++      endif()
++    else()
++      list(APPEND HYPRE_CMAKE_OPTIONS -DHYPRE_ENABLE_UMPIRE:BOOL=OFF)
++      message(WARNING
++"================================================================================
++ Umpire is disabled while building HYPRE with GPU support.
++ This is not recommended for performance reasons!
++ Consider enabling Umpire with -DMFEM_USE_UMPIRE=ON and providing -DUMPIRE_DIR.
++================================================================================")
++    endif()
++  endif()
++  if (MFEM_USE_SINGLE)
++    list(APPEND HYPRE_CMAKE_OPTIONS -DHYPRE_ENABLE_SINGLE:BOOL=ON)
++  endif()
++  # define external project and create future include directory so it is present
++  # to pass CMake checks at end of MFEM configuration step
++  message(STATUS "Will fetch HYPRE ${HYPRE_FETCH_TAG} to be built with ${HYPRE_CMAKE_OPTIONS}")
++  set(HYPRE_INSTALL ${CMAKE_BINARY_DIR}/fetch/hypre)
++  include(ExternalProject)
++  ExternalProject_Add(hypre
++    GIT_REPOSITORY https://github.com/hypre-space/hypre.git
++    GIT_TAG ${HYPRE_FETCH_TAG}
++    GIT_SHALLOW TRUE
++    GIT_PROGRESS TRUE
++    UPDATE_DISCONNECTED TRUE
++    SOURCE_SUBDIR src
++    PREFIX ${HYPRE_INSTALL}
++    BUILD_COMMAND ${CMAKE_COMMAND} --build . -- -j${CMAKE_BUILD_PARALLEL_LEVEL}
++    CMAKE_CACHE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${HYPRE_INSTALL} -DCMAKE_INSTALL_LIBDIR:PATH=lib ${HYPRE_CMAKE_OPTIONS})
++  file(MAKE_DIRECTORY ${HYPRE_INSTALL}/include)
++  # set imported library target properties
++  add_dependencies(HYPRE hypre)
++  set_target_properties(HYPRE PROPERTIES
++    IMPORTED_LOCATION ${HYPRE_INSTALL}/lib/libHYPRE.a
++    INTERFACE_INCLUDE_DIRECTORIES ${HYPRE_INSTALL}/include)
++  # convert HYPRE version to integer
++  if (HYPRE_FETCH_TAG MATCHES "^v?([0-9]+)\\.([0-9]+)\\.([0-9]+)$")
++    # Exact release tag X.Y.Z
++    string(REGEX MATCHALL "[0-9]+" HYPRE_SPLIT_VERSION "${HYPRE_FETCH_TAG}")
++  elseif (HYPRE_FETCH_VERSION MATCHES "([0-9]+)\\.([0-9]+)(\\.([0-9]+))?")
++    string(REGEX MATCHALL "[0-9]+" HYPRE_SPLIT_VERSION "${HYPRE_FETCH_VERSION}")
++  else (NOT DEFINED HYPRE_VERSION)
++    message(FATAL_ERROR "Unable to find HYPRE release version. Please provide it via -DHYPRE_VERSION")
++  endif()
++  if (HYPRE_SPLIT_VERSION AND NOT DEFINED HYPRE_VERSION)
++    list(GET HYPRE_SPLIT_VERSION 0 HYPRE_MAJOR_VERSION)
++    list(GET HYPRE_SPLIT_VERSION 1 HYPRE_MINOR_VERSION)
++    if (HYPRE_SPLIT_VERSION GREATER 2)
++      list(GET HYPRE_SPLIT_VERSION 2 HYPRE_PATCH_VERSION)
++    else()
++      set(HYPRE_PATCH_VERSION 0)
++    endif()
++    math(EXPR HYPRE_VERSION "10000*${HYPRE_MAJOR_VERSION} + 100*${HYPRE_MINOR_VERSION} + ${HYPRE_PATCH_VERSION}")
++    set(HYPRE_VERSION ${HYPRE_VERSION} CACHE STRING "HYPRE version." FORCE)
++  endif()
++  return()
++endif()
++
+ include(MfemCmakeUtilities)
+ mfem_find_package(HYPRE HYPRE HYPRE_DIR "include" "HYPRE.h" "lib" "HYPRE"
+   "Paths to headers required by HYPRE." "Libraries required by HYPRE."
+@@ -86,8 +179,9 @@ if (HYPRE_FOUND AND HYPRE_USING_CUDA)
+   mfem_culib_set_libraries(CUSPARSE cusparse)
+   mfem_culib_set_libraries(CURAND curand)
+   mfem_culib_set_libraries(CUBLAS cublas)
++  mfem_culib_set_libraries(CUSOLVER cusolver)
+   list(APPEND HYPRE_LIBRARIES ${CUSPARSE_LIBRARIES} ${CURAND_LIBRARIES}
+-       ${CUBLAS_LIBRARIES})
++       ${CUBLAS_LIBRARIES} ${CUSOLVER_LIBRARIES})
+   set(HYPRE_LIBRARIES ${HYPRE_LIBRARIES} CACHE STRING
+       "HYPRE libraries + dependencies." FORCE)
+   message(STATUS "Updated HYPRE_LIBRARIES: ${HYPRE_LIBRARIES}")
+@@ -96,12 +190,23 @@ endif()
+ if (HYPRE_FOUND AND HYPRE_USING_HIP)
+   find_package(rocsparse REQUIRED)
+   find_package(rocrand REQUIRED)
+-  list(APPEND HYPRE_LIBRARIES ${rocsparse_LIBRARIES} ${rocrand_LIBRARIES})
++  find_package(rocsolver REQUIRED)
++  list(APPEND HYPRE_LIBRARIES ${rocsparse_LIBRARIES} ${rocrand_LIBRARIES} roc::rocsolver roc::rocblas)
+   set(HYPRE_LIBRARIES ${HYPRE_LIBRARIES} CACHE STRING
+       "HYPRE libraries + dependencies." FORCE)
+   message(STATUS "Updated HYPRE_LIBRARIES: ${HYPRE_LIBRARIES}")
+ endif()
+ 
++# Hypre+Umpire check
++if (HYPRE_FOUND AND (HYPRE_USING_CUDA OR HYPRE_USING_HIP) AND NOT MFEM_USE_UMPIRE)
++  message(WARNING
++"===============================================================
++ Detected GPU-enabled HYPRE build without Umpire support.
++ This is not recommended for performance reasons!
++ Consider rebuilding HYPRE with Umpire support.
++===============================================================")
++endif()
++
+ find_package_handle_standard_args(HYPRE
+   REQUIRED_VARS HYPRE_LIBRARIES HYPRE_INCLUDE_DIRS HYPRE_VERSION
+ )
+diff --git a/linalg/hypre.cpp b/linalg/hypre.cpp
+index c3f6067..a19c2bb 100644
+--- a/linalg/hypre.cpp
++++ b/linalg/hypre.cpp
+@@ -2324,10 +2324,10 @@ void HypreParMatrix::Threshold(real_t threshold)
+       ierr += hypre_CSRMatrixDestroy(csr_A);
+    }
+ 
+-   /* TODO: GenerateDiagAndOffd() uses an int array of size equal to the number
++   /* TODO: hypre_GenerateDiagAndOffd() uses an int array of size equal to the number
+       of columns in csr_A_wo_z which is the global number of columns in A. This
+       does not scale well. */
+-   ierr += GenerateDiagAndOffd(csr_A_wo_z,parcsr_A_ptr,
++   ierr += hypre_GenerateDiagAndOffd(csr_A_wo_z,parcsr_A_ptr,
+                                col_start,col_end);
+ 
+    ierr += hypre_CSRMatrixDestroy(csr_A_wo_z);
+diff --git a/linalg/hypre.hpp b/linalg/hypre.hpp
+index efbb0de..93e7c01 100644
+--- a/linalg/hypre.hpp
++++ b/linalg/hypre.hpp
+@@ -25,11 +25,11 @@
+ #define HYPRE_TIMING
+ 
+ // hypre header files
+-#include <seq_mv.h>
+-#include <temp_multivector.h>
+ #include <_hypre_parcsr_mv.h>
+ #include <_hypre_parcsr_ls.h>
+ 
++#include <HYPRE_parcsr_ls.h>
++
+ #ifdef HYPRE_COMPLEX
+ #error "MFEM does not work with HYPRE's complex numbers support"
+ #endif
+@@ -53,6 +53,10 @@
+ #error "MFEM_USE_HIP=YES is required when HYPRE is built with HIP!"
+ #endif
+ 
++#if MFEM_HYPRE_VERSION > 21500
++#define HYPRE_AssumedPartitionCheck() 1
++#endif
++
+ namespace mfem
+ {
+ 
+diff --git a/linalg/hypre_parcsr.cpp b/linalg/hypre_parcsr.cpp
+index a11eab8..2409e25 100644
+--- a/linalg/hypre_parcsr.cpp
++++ b/linalg/hypre_parcsr.cpp
+@@ -1916,9 +1916,9 @@ hypre_ParCSRMatrixAdd(hypre_ParCSRMatrix *A,
+       /* FIXME: GenerateDiagAndOffd() uses an int array of size equal to the
+          number of columns in csr_C_temp which is the global number of columns
+          in A and B. This does not scale well. */
+-      ierr += GenerateDiagAndOffd(csr_C_temp, C,
+-                                  hypre_ParCSRMatrixFirstColDiag(A),
+-                                  hypre_ParCSRMatrixLastColDiag(A));
++      ierr += hypre_GenerateDiagAndOffd(csr_C_temp, C,
++                                        hypre_ParCSRMatrixFirstColDiag(A),
++                                        hypre_ParCSRMatrixLastColDiag(A));
+ 
+       /* delete CSR version of C */
+       ierr += hypre_CSRMatrixDestroy(csr_C_temp);
+diff --git a/linalg/hypre_parcsr.hpp b/linalg/hypre_parcsr.hpp
+index 4dadd31..07b3217 100644
+--- a/linalg/hypre_parcsr.hpp
++++ b/linalg/hypre_parcsr.hpp
+@@ -21,6 +21,10 @@
+ // hypre header files
+ #include <_hypre_parcsr_mv.h>
+ 
++#if MFEM_HYPRE_VERSION < 30000
++#define hypre_GenerateDiagAndOffd GenerateDiagAndOffd
++#endif
++
+ // Older hypre versions do not define HYPRE_BigInt and HYPRE_MPI_BIG_INT, so we
+ // define them here for backward compatibility.
+ #if MFEM_HYPRE_VERSION < 21600
+-- 
+2.51.0
+

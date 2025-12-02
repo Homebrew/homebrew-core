@@ -1,0 +1,30 @@
+name: Trigger automerge
+
+on:
+  pull_request_review:
+    types:
+      - submitted
+  pull_request_target:
+    types:
+      - unlabeled
+      - ready_for_review
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+env:
+  HOMEBREW_DISABLE_LOAD_FORMULA: 1
+
+permissions: {}
+
+jobs:
+  check:
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      ((github.event_name == 'pull_request_review' && github.event.review.state == 'approved') ||
+       (github.event_name == 'pull_request_target' &&
+       (github.event.action == 'ready_for_review' || github.event.label.name == 'automerge-skip')))
+    runs-on: ubuntu-latest
+    steps:
+      - run: true # This suffices to trigger `automerge.yml`.

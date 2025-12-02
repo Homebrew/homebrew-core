@@ -1,0 +1,49 @@
+name: New issue for Reproducible Bug
+description: "If you're sure it's reproducible and not just your machine: submit an issue so we can investigate."
+type: "Bug"
+body:
+  - type: markdown
+    attributes:
+      value: Please note we will close your issue without comment if you do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you from ever submitting issues to Homebrew again.
+  - type: textarea
+    attributes:
+      render: shell
+      label: "`brew config` AND `brew doctor` output OR `brew gist-logs <formula>` link"
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Verification
+      description: Please verify that you've followed these steps. If you cannot truthfully check these boxes, open a discussion at https://github.com/orgs/Homebrew/discussions instead.
+      options:
+        - label: My `brew doctor` output says `Your system is ready to brew.` and am still able to reproduce my issue.
+          required: true
+        - label: I ran `brew update` and am still able to reproduce my issue.
+          required: true
+        - label: I have resolved all warnings from `brew doctor` and that did not fix my problem.
+          required: true
+        - label: I searched for recent similar issues at https://github.com/Homebrew/homebrew-core/issues?q=is%3Aissue and found no duplicates.
+          required: true
+        - label: My issue is not about a failure to build a formula from source.
+          required: true
+  - type: textarea
+    attributes:
+      label: What were you trying to do (and why)?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: What happened (include all command output)?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      render: shell
+      label: Step-by-step reproduction instructions (by running `brew` commands)
+    validations:
+      required: true

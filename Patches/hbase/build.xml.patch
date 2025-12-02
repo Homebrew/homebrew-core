@@ -1,0 +1,58 @@
+diff --git a/build.xml b/build.xml
+index e653229..7fafe68 100644
+--- a/build.xml
++++ b/build.xml
+@@ -83,7 +83,7 @@
+   <property name="javac.debug" value="on"/>
+   <property name="javac.optimize" value="on"/>
+   <property name="javac.deprecation" value="on"/>
+-  <property name="javac.version" value="1.6"/>
++  <property name="javac.version" value="11"/>
+   <property name="javac.args" value=""/>
+   <property name="javac.args.warnings" value="-Xlint:unchecked"/>
+ 
+@@ -93,7 +93,7 @@
+   <property name="ivy.dir" location="ivy" />
+   <loadproperties srcfile="${ivy.dir}/libraries.properties"/>
+   <property name="ivy.jar" location="${ivy.dir}/ivy-${ivy.version}.jar"/>
+-  <property name="ivy_repo_url" value="http://repo2.maven.org/maven2/org/apache/ivy/ivy/${ivy.version}/ivy-${ivy.version}.jar"/>
++  <property name="ivy_repo_url" value="https://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.version}/ivy-${ivy.version}.jar"/>
+   <property name="ivysettings.xml" location="${ivy.dir}/ivysettings.xml" />
+   <property name="ivy.org" value="com.hadoop.compression"/>
+   <property name="build.dir" location="build" />
+@@ -213,6 +213,7 @@
+      optimize="${javac.optimize}"
+      target="${javac.version}"
+      source="${javac.version}"
++     nativeHeaderDir="${build.native}/src/com/hadoop/compression/lzo"
+      deprecation="${javac.deprecation}">
+       <compilerarg line="${javac.args} ${javac.args.warnings}" />
+       <classpath refid="classpath"/>
+@@ -236,14 +237,6 @@
+     <mkdir dir="${build.native}/lib"/>
+     <mkdir dir="${build.native}/src/com/hadoop/compression/lzo"/>
+ 
+-    <javah classpath="${build.classes}"
+-  	   destdir="${build.native}/src/com/hadoop/compression/lzo"
+-           force="yes"
+-  	   verbose="yes">
+-      <class name="com.hadoop.compression.lzo.LzoCompressor" />
+-      <class name="com.hadoop.compression.lzo.LzoDecompressor" />
+-    </javah>
+-
+     <exec dir="${build.native}" executable="sh" failonerror="true">
+        <env key="OS_NAME" value="${os.name}"/>
+        <env key="OS_ARCH" value="${os.arch}"/>
+diff --git a/ivy/ivysettings.xml b/ivy/ivysettings.xml
+index 0422914..c704610 100644
+--- a/ivy/ivysettings.xml
++++ b/ivy/ivysettings.xml
+@@ -12,7 +12,7 @@
+           http://www.ibiblio.net/pub/packages/maven2
+   -->
+   <property name="repo.maven.org"
+-    value="http://repo1.maven.org/maven2/"
++    value="https://repo1.maven.org/maven2/"
+     override="false"/>
+   <property name="snapshot.apache.org"
+     value="http://people.apache.org/repo/m2-snapshot-repository/"

@@ -1,0 +1,60 @@
+From 718af3752dc0dd481dbb1d0e2327b570ff16f097 Mon Sep 17 00:00:00 2001
+From: rhuanjl <rhuan.l@gmail.com>
+Date: Sun, 11 Jul 2021 15:46:53 +0100
+Subject: [PATCH] python version agnostic
+
+Homebrew edit: backported to 1.11.
+---
+ build.sh | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/build.sh b/build.sh
+index 746666a66..0699198d8 100755
+--- a/build.sh
++++ b/build.sh
+@@ -1,6 +1,7 @@
+ #!/bin/bash
+ #-------------------------------------------------------------------------------------------------------
+ # Copyright (C) Microsoft. All rights reserved.
++# Copyright (c) 2021 ChakraCore Project Contributors. All rights reserved.
+ # Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+ #-------------------------------------------------------------------------------------------------------
+ 
+@@ -127,7 +128,7 @@ CMAKE_EXPORT_COMPILE_COMMANDS="-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+ LIBS_ONLY_BUILD=
+ ALWAYS_YES=
+ CCACHE_NAME=
+-PYTHON2_BINARY=$(which python2.7 || which python2 || which python 2> /dev/null)
++PYTHON_BINARY=$(which python3 || which python || which python2.7 || which python2 || which python 2> /dev/null)
+ 
+ UNAME_S=`uname -s`
+ if [[ $UNAME_S =~ 'Linux' ]]; then
+@@ -573,7 +574,7 @@ export TARGET_PATH
+ 
+ if [[ $HAS_LTTNG == 1 ]]; then
+     CHAKRACORE_ROOT=`dirname $0`
+-    "$PYTHON2_BINARY" $CHAKRACORE_ROOT/tools/lttng.py --man $CHAKRACORE_ROOT/manifests/Microsoft-Scripting-Chakra-Instrumentation.man --intermediate $TARGET_PATH/intermediate
++    "$PYTHON_BINARY" $CHAKRACORE_ROOT/tools/lttng.py --man $CHAKRACORE_ROOT/manifests/Microsoft-Scripting-Chakra-Instrumentation.man --intermediate $TARGET_PATH/intermediate
+     mkdir -p $TARGET_PATH/lttng
+     (diff -q $TARGET_PATH/intermediate/lttng/jscriptEtw.h $TARGET_PATH/lttng/jscriptEtw.h && echo "jscriptEtw.h up to date; skipping") || cp $TARGET_PATH/intermediate/lttng/* $TARGET_PATH/lttng/
+ fi
+@@ -582,8 +583,8 @@ fi
+ BUILD_DIRECTORY="${TARGET_PATH}/${BUILD_TYPE:0}"
+ echo "Build path: ${BUILD_DIRECTORY}"
+ 
+-BUILD_RELATIVE_DIRECTORY=$("$PYTHON2_BINARY" -c "import os.path;print \
+-    os.path.relpath('${CHAKRACORE_DIR}', '$BUILD_DIRECTORY')")
++BUILD_RELATIVE_DIRECTORY=$("$PYTHON_BINARY" -c "from __future__ import print_function; import os.path;\
++    print(os.path.relpath('${CHAKRACORE_DIR}', '$BUILD_DIRECTORY'))")
+ 
+ ################# Write-barrier check/analyze run #################
+ WB_FLAG=
+@@ -639,7 +640,7 @@ fi
+ 
+ # prepare DbgController.js.h
+ CH_DIR="${CHAKRACORE_DIR}/bin/ch"
+-"${CH_DIR}/jstoc.py" "${CH_DIR}/DbgController.js" controllerScript
++"$PYTHON_BINARY" "${CH_DIR}/jstoc.py" "${CH_DIR}/DbgController.js" controllerScript
+ if [[ $? != 0 ]]; then
+     exit 1
+ fi

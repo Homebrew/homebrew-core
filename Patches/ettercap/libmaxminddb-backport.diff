@@ -1,0 +1,850 @@
+diff --git a/cmake/Modules/EttercapLibCheck.cmake b/cmake/Modules/EttercapLibCheck.cmake
+index 3717e826636b5bb3eea08a4c36f7453b8b2c9832..2bc1dc9ac72a39206742bb2fbb557b92ccc4f078 100644
+--- a/cmake/Modules/EttercapLibCheck.cmake
++++ b/cmake/Modules/EttercapLibCheck.cmake
+@@ -205,13 +205,13 @@ else()
+ endif()
+ 
+ if(ENABLE_GEOIP)
+-    message(STATUS "GeoIP support requested. Will look for the legacy GeoIP C library")
++    message(STATUS "GeoIP support requested. Will look for the MaxMind GeoIP C library")
+     find_package(GEOIP)
+         if(GEOIP_FOUND)
+             set(HAVE_GEOIP 1)
+             set(EC_LIBS ${EC_LIBS} ${GEOIP_LIBRARIES})
+         else()
+-            message(FATAL_ERROR "GeoIP not found!")
++            message(FATAL_ERROR "MaxMind GeoIP not found!")
+         endif()
+ endif()
+ 
+diff --git a/cmake/Modules/FindGEOIP.cmake b/cmake/Modules/FindGEOIP.cmake
+index 96315ea8d32bc4e3bd9940c1bec4012dcc0a9f29..f5cd746737497c6d0a294f7ad3f00dfdb1b835e7 100644
+--- a/cmake/Modules/FindGEOIP.cmake
++++ b/cmake/Modules/FindGEOIP.cmake
+@@ -21,10 +21,10 @@ else()
+ endif()
+ 
+ find_package(PkgConfig)
+-pkg_search_module(GEOIP geoip)
++pkg_search_module(GEOIP libmaxminddb)
+ 
+ # Find the header
+-find_path(GEOIP_INCLUDE_DIR GeoIP.h
++find_path(GEOIP_INCLUDE_DIR maxminddb.h
+   HINTS
+     "${GEOIP_INCLUDEDIR}"
+     "${GEOIP_ROOT}"
+@@ -33,7 +33,7 @@ find_path(GEOIP_INCLUDE_DIR GeoIP.h
+ 
+ # Find the library
+ find_library(GEOIP_LIBRARY
+-  NAMES GeoIP libGeoIP-1
++  NAMES maxminddb
+   HINTS
+     "${GEOIP_LIBDIR}"
+     "${GEOIP_ROOT}"
+diff --git a/include/ec_geoip.h b/include/ec_geoip.h
+index 345894c48ea0e84836698f71cb1895e715b795c5..45999526d062bb5f9ab0e3b7f8ed2749a92e10a3 100644
+--- a/include/ec_geoip.h
++++ b/include/ec_geoip.h
+@@ -6,9 +6,12 @@
+ #include <ec_inet.h>
+ 
+ #ifdef HAVE_GEOIP
++#define MMDB_FILENAME "GeoLite2-Country.mmdb"
++#define MAX_GEOIP_STR_LEN 31
++#define GEOIP_CCODE 1
++#define GEOIP_CNAME 2
+ EC_API_EXTERN void geoip_init (void);
+-EC_API_EXTERN const char* geoip_ccode_by_ip (struct ip_addr *ip);
+-EC_API_EXTERN const char* geoip_country_by_ip (struct ip_addr *ip);
++EC_API_EXTERN char* geoip_get_by_ip (struct ip_addr *ip, const int get_type, char* buffer, size_t len);
+ #endif
+ 
+ #endif
+diff --git a/man/etter.conf.5.in b/man/etter.conf.5.in
+index 824c063b53a6b8ca356c8c6272b3dc06c59ecfac..2582eff8bb89df5c74eb3cc3d638f493cc7cc68d 100644
+--- a/man/etter.conf.5.in
++++ b/man/etter.conf.5.in
+@@ -317,6 +317,12 @@ However, sniffing can be stopped and started at any time while ettercap runs.
+ This option controls if GeoIP information shall be processed for IP addresses
+ whether or not ettercap has been built with GeoIP support.
+ 
++.TP
++.B geoip_data_file
++This option may point to a local GeoLite2 database downloaded from
++Maxmind which might be more recent than the database bundled with Ettercap.
++If the option is left blank, the bundled database file will be used.
++
+ .TP
+ .B gtkui_prefer_dark_theme
+ This option tries to enforce the dark variant of the applied theme. However
+diff --git a/share/CMakeLists.txt b/share/CMakeLists.txt
+index 55214ec9c0281cdadb72a55142b8371acefe0c9c..ac4d163fb00f033755f972b967e91f08378fd8be 100644
+--- a/share/CMakeLists.txt
++++ b/share/CMakeLists.txt
+@@ -37,6 +37,10 @@ if(NOT NO_INSTALL_LICENSE)
+   set(EC_DATAFILES ${EC_DATAFILES} ../LICENSE)
+ endif()
+ 
++if(HAVE_GEOIP)
++  set(EC_DATAFILES ${EC_DATAFILES} GeoLite2-Country.mmdb)
++endif()
++
+ foreach(f IN LISTS EC_DATAFILES EC_CONFFILES)
+   configure_file(${f} ${f} COPYONLY)
+ endforeach()
+diff --git a/share/etter.conf.v4 b/share/etter.conf.v4
+index 13798414e31e2d5362ebfcde843818c803baebc9..f5c3dcb36afb7a58d27173952acc5358c710ec8e 100644
+--- a/share/etter.conf.v4
++++ b/share/etter.conf.v4
+@@ -149,10 +149,8 @@ utf8_encoding = "ISO-8859-1"
+ # the command used by the remote_browser plugin
+ remote_browser = "xdg-open http://%host%url"
+ 
+-# location of the GeoIP database file in case it's not the standard location
+-# this is mostly necessary on Windows or if libgeoip is manually build
+-geoip_data_file = "/usr/local/share/GeoIP/GeoIP.dat"
+-geoip_data_file_v6 = "/usr/local/share/GeoIP/GeoIPv6.dat"
++# alternative location of the GeoIP database file
++geoip_data_file = ""
+ 
+ 
+ #####################################
+diff --git a/share/etter.conf.v6 b/share/etter.conf.v6
+index ccdf0976a9607bfb057f8dc9e13ad9295a24eca7..8664ca3058683095e278eb617ebf1415b8916bb1 100644
+--- a/share/etter.conf.v6
++++ b/share/etter.conf.v6
+@@ -155,10 +155,8 @@ utf8_encoding = "ISO-8859-1"
+ # the command used by the remote_browser plugin
+ remote_browser = "xdg-open http://%host%url"
+ 
+-# location of the GeoIP database file in case it's not the standard location
+-# this is mostly necessary on Windows or if libgeoip is manually build
+-geoip_data_file = "/usr/local/share/GeoIP/GeoIP.dat"
+-geoip_data_file_v6 = "/usr/local/share/GeoIP/GeoIPv6.dat"
++# alternative location of the GeoIP database file
++geoip_data_file = ""
+ 
+ 
+ #####################################
+diff --git a/src/ec_conntrack.c b/src/ec_conntrack.c
+index 02af8e9620ed944a55d008d89a39dae6d5d42196..5dd7c15590f6289c3914822bad3e3b5efa2aca44 100644
+--- a/src/ec_conntrack.c
++++ b/src/ec_conntrack.c
+@@ -617,6 +617,8 @@ void * conntrack_print(int mode, void *list, char **desc, size_t len)
+    char proto[2], status[8], flags[2];
+ #ifdef HAVE_GEOIP
+    size_t slen;
++   char src_ccode[3];
++   char dst_ccode[3];
+ #endif
+ 
+    /* NULL is used to retrieve the first element */
+@@ -650,8 +652,8 @@ void * conntrack_print(int mode, void *list, char **desc, size_t len)
+       /* check if enough space is available to append the GeoIP info */
+       if (len - slen > 14 && EC_GBL_CONF->geoip_support_enable) {
+          snprintf(*desc + slen, len - slen, ", CC: %2s > %2s", 
+-               geoip_ccode_by_ip(&c->co->L3_addr1),
+-               geoip_ccode_by_ip(&c->co->L3_addr2));
++               geoip_get_by_ip(&c->co->L3_addr1, GEOIP_CCODE, src_ccode, 3),
++               geoip_get_by_ip(&c->co->L3_addr2, GEOIP_CCODE, dst_ccode, 3));
+       }
+ #endif
+    }
+@@ -824,7 +826,9 @@ int conntrack_statusstr(struct conn_object *conn, char *pstr, int len)
+ int conntrack_countrystr(struct conn_object *conn, char *pstr, int len)
+ {
+ #ifdef HAVE_GEOIP
+-   const char *ccode_src, *ccode_dst = NULL;
++   char ccode_src[3];
++   char ccode_dst[3];
++   char *src, *dst;
+ #endif
+ 
+    if (pstr == NULL || conn == NULL || len < 8)
+@@ -834,13 +838,13 @@ int conntrack_countrystr(struct conn_object *conn, char *pstr, int len)
+    if (!EC_GBL_CONF->geoip_support_enable)
+       return -E_INITFAIL;
+ 
+-   if ((ccode_src = geoip_ccode_by_ip(&conn->L3_addr1)) == NULL)
++   if ((src = geoip_get_by_ip(&conn->L3_addr1, GEOIP_CCODE, ccode_src, 3)) == NULL)
+       return -E_INITFAIL;
+ 
+-   if ((ccode_dst = geoip_ccode_by_ip(&conn->L3_addr2)) == NULL)
++   if ((dst = geoip_get_by_ip(&conn->L3_addr2, GEOIP_CCODE, ccode_dst, 3)) == NULL)
+       return -E_INITFAIL;
+ 
+-   snprintf(pstr, len, "%2s > %2s", ccode_src, ccode_dst);
++   snprintf(pstr, len, "%2s > %2s", src, dst);
+ #endif
+ 
+    return E_SUCCESS;
+diff --git a/src/ec_geoip.c b/src/ec_geoip.c
+index 41b2b68d4e1dcfe447f4bc971e7afc8c1a58470b..5f91f00e76722b632b7a722ad9fee596d08249d1 100644
+--- a/src/ec_geoip.c
++++ b/src/ec_geoip.c
+@@ -21,186 +21,183 @@
+ 
+ #include <ec.h>
+ #include <ec_geoip.h>
++#include <ec_version.h>
+ 
+ #ifdef HAVE_GEOIP
+ 
+-#include <GeoIP.h>
++#include <maxminddb.h>
+ 
+-static GeoIP *gi  = NULL;
+-#ifdef WITH_IPV6
+-static GeoIP *gi6 = NULL;
+-#endif
+-
+-static void geoip_exit (void)
+-{
+-   GeoIP_delete (gi);
+-   gi = NULL;
+-#ifdef WITH_IPV6
+-   GeoIP_delete(gi6);
+-   gi6 = NULL;
+-#endif
+-   GeoIP_cleanup();
+-}
++static MMDB_s* mmdb = NULL;
+ 
+-void geoip_init (void)
++static int geoip_open(const char* filename)
+ {
+-   char *gi_info;
+-
+-   /* try to find and open it in the default location */
+-   gi = GeoIP_open_type(GEOIP_COUNTRY_EDITION, GEOIP_MEMORY_CACHE);
++   int ret;
+ 
+-   /* not found, fallback in the configuration file value */
+-   if(!gi) {
++   ret = MMDB_open(filename, MMDB_MODE_MMAP, mmdb);
++   if (ret != MMDB_SUCCESS) { // Default path to GeoIP Database didn't worked out
+ 
+-      if (!EC_GBL_CONF->geoip_data_file)
+-         return;
++      WARN_MSG("geoip_init: MaxMind database file %s cannot be opened: %s",
++            filename, MMDB_strerror(ret));
+ 
+-      gi = GeoIP_open (EC_GBL_CONF->geoip_data_file, GEOIP_MEMORY_CACHE);
+-      if (!gi)
+-      {
+-         DEBUG_MSG ("geoip_init: %s not found.", EC_GBL_CONF->geoip_data_file);
+-         GeoIP_cleanup();
+-         return;
+-      }
++      if (ret == MMDB_IO_ERROR)
++         DEBUG_MSG("geoip_init: IO Error opening database file '%s': %s",
++            filename, strerror(errno));
+    }
+-   gi_info = GeoIP_database_info (gi);
+ 
+-   DEBUG_MSG ("geoip_init: Description: %s.", 
+-         GeoIPDBDescription[GEOIP_COUNTRY_EDITION]);
+-   DEBUG_MSG ("geoip_init: Info:        %s. Countries: %u",
+-         gi_info ? gi_info : "<none>", GeoIP_num_countries());
++   return ret;
++}
+ 
+-   atexit (geoip_exit);
++static void geoip_exit (void)
++{
++   MMDB_close(mmdb);
++   SAFE_FREE(mmdb);
++}
+ 
+-   SAFE_FREE(gi_info);
+-   gi_info = NULL;
++void geoip_init (void)
++{
++   int ret;
++   const char* mmdb_default_file;
++   MMDB_description_s* descr;
+ 
+-#ifdef WITH_IPV6
++   SAFE_CALLOC(mmdb, 1, sizeof(MMDB_s));
+ 
+-   /* try to find and open it in the default location */
+-   gi6 = GeoIP_open_type(GEOIP_COUNTRY_EDITION_V6, GEOIP_MEMORY_CACHE);
++   /* Database file delivered with Ettercap installation */
++   mmdb_default_file = INSTALL_DATADIR "/" PROGRAM "/" MMDB_FILENAME;
+ 
+-   /* not found, fallback in the configuration file value */
+-   if (!gi6) {
+-      if (!EC_GBL_CONF->geoip_data_file_v6)
+-         return;
++   /* First try to open alternative database file if one is provided */
++   if (EC_GBL_CONF->geoip_data_file && strlen(EC_GBL_CONF->geoip_data_file)) {
+ 
+-      gi6 = GeoIP_open(EC_GBL_CONF->geoip_data_file_v6, GEOIP_MEMORY_CACHE);
+-      if (!gi6) {
+-         DEBUG_MSG("geoip_init: %s not found.\n", 
+-               EC_GBL_CONF->geoip_data_file_v6);
+-         return;
+-      }
+-   }
++      ret = geoip_open(EC_GBL_CONF->geoip_data_file);
+ 
+-   gi_info = GeoIP_database_info(gi6);
++      /* No success to open alternative database file - fallback to default */
++      if (ret != MMDB_SUCCESS)
++         ret = geoip_open(mmdb_default_file);
++   }
++   /* No alternative database file set - use default */
++   else
++      ret = geoip_open(mmdb_default_file);
++
++   /* No success opening the alternative or the default database file */
++   if (ret != MMDB_SUCCESS) {
++      SAFE_FREE(mmdb);
++      return;
++   }
+ 
+-   DEBUG_MSG("geoip_init: Description: %s.", 
+-         GeoIPDBDescription[GEOIP_COUNTRY_EDITION_V6]);
+-   DEBUG_MSG("geoip_init: Info:        %s. Countries: %u",
+-         gi_info ? gi_info : "<none>", GeoIP_num_countries());
++   /* Metainfo of MaxMind DB for debug purpose */
++   descr = mmdb->metadata.description.descriptions[0];
++   DEBUG_MSG("geoip_init: Description: %s Lang: %s.",
++         descr->description, descr->language);
++   DEBUG_MSG("geoip_init: Info: IP version: %d, Epoch: %lu",
++         mmdb->metadata.ip_version, mmdb->metadata.build_epoch);
+ 
+-   SAFE_FREE(gi_info);
+-   gi_info = NULL;
++   /* Output mandatory attribution for Maxmind Geolite2 database */
++   USER_MSG("This product includes GeoLite2 Data created by MaxMind, available from https://www.maxmind.com/.\n");
+ 
+-#endif
++   /* Cleanup */
++   atexit (geoip_exit);
+ }
+ 
+ /*
+- * returns the country code string for a given IP address ...
+- *  - the two letter country code from GeoIP database
+- *  - "00" if ip address is the default or undefined address
+- *  - "--" if ip address is not global
++ * returns the GeoIP information for a given IP address ...
+  * return NULL if GeoIP API isn't initialized properly
+  */
+-const char* geoip_ccode_by_ip (struct ip_addr *ip)
++char* geoip_get_by_ip (struct ip_addr *ip, const int get_type, char* buffer, size_t len)
+ {
+-   int id;
++   int ret, mmdb_error;
++   struct sockaddr_storage ss;
++   struct sockaddr* sa;
++   struct sockaddr_in* sa4;
+ #ifdef WITH_IPV6
+-   struct in6_addr geo_ip6;
++   struct sockaddr_in6* sa6;
+ #endif
+    char tmp[MAX_ASCII_ADDR_LEN];
+ 
+-   /* 0.0.0.0 or :: */
+-   if (ip_addr_is_zero(ip)) {
+-      return "00";
++   MMDB_lookup_result_s result;
++   MMDB_entry_data_s entry;
++
++   if (get_type == GEOIP_CCODE) {
++      /* 0.0.0.0 or :: */
++      if (ip_addr_is_zero(ip)) {
++         return "00";
++      }
++
++      /* only global IP addresses can have a location */
++      if (!ip_addr_is_global(ip)) {
++         return "--";
++      }
+    }
+ 
+-   /* only global IP addresses can have a location */
+-   if (!ip_addr_is_global(ip)) {
+-      return "--";
++   /* not initialized - database file couldn't be opened */
++   if (!mmdb) {
++      DEBUG_MSG("geoip_ccode_by_ip: MaxMind API not initialized");
++      return NULL;
+    }
+ 
+-   /* Determine country id by IP address */
++   /* Convert ip_addr struct to sockaddr struct */
++   sa = (struct sockaddr *) &ss;
+    switch (ntohs(ip->addr_type)) {
+       case AF_INET:
+-         if (!gi)
+-            return NULL;
+-         id = GeoIP_id_by_ipnum(gi, ntohl(*ip->addr32));
++         sa4 = (struct sockaddr_in *) &ss;
++         sa4->sin_family = ntohs(ip->addr_type);
++         ip_addr_cpy((u_char*)&sa4->sin_addr.s_addr, ip);
+          break;
+ #ifdef WITH_IPV6
+       case AF_INET6:
+-         if (!gi6)
+-            return NULL;
+-         ip_addr_cpy((u_char *)geo_ip6.s6_addr, ip);
+-         id = GeoIP_id_by_ipnum_v6(gi6, geo_ip6);
++         sa6 = (struct sockaddr_in6 *) &ss;
++         sa6->sin6_family = ntohs(ip->addr_type);
++         ip_addr_cpy((u_char*)&sa6->sin6_addr.s6_addr, ip);
+          break;
+ #endif
+       default:
+          return NULL;
+    }
+ 
+-   DEBUG_MSG("geoip_ccode_by_ip: GeoIP country code for ip %s: %s",
+-         ip_addr_ntoa(ip, tmp), GeoIP_code_by_id(id));
+-
+-   return GeoIP_code_by_id(id);
+-}
++   result = MMDB_lookup_sockaddr(mmdb, sa, &mmdb_error);
+ 
+-/*
+- * returns the country name string for a given IP address
+- * return NULL if GeoIP API isn't initialized properly
+- */
+-const char* geoip_country_by_ip (struct ip_addr *ip)
+-{
+-   int id;
+-#ifdef WITH_IPV6
+-   struct in6_addr geo_ip6;
+-#endif
+-   char tmp[MAX_ASCII_ADDR_LEN];
+-
+-   /* 0.0.0.0 or :: */
+-   if (ip_addr_is_zero(ip)) {
+-      return "No unique location";
++   if (mmdb_error != MMDB_SUCCESS) {
++      DEBUG_MSG("geoip_ccode_by_ip: Error looking up IP address %s in maxmind database",
++            ip_addr_ntoa(ip, tmp));
++      return NULL;
+    }
+ 
+-   /* only global IP addresses can have a location */
+-   if (!ip_addr_is_global(ip)) {
+-      return "No unique location";
+-   }
+-
+-   /* Determine country id by IP address */
+-   switch (ntohs(ip->addr_type)) {
+-      case AF_INET:
+-         if (!gi)
+-            return NULL;
+-         id = GeoIP_id_by_ipnum(gi, ntohl(*ip->addr32));
+-         break;
+-#ifdef WITH_IPV6
+-      case AF_INET6:
+-         if (!gi6)
++   if (result.found_entry) {
++      switch (get_type) {
++         case GEOIP_CCODE:
++            ret = MMDB_get_value(&result.entry, &entry, "country", "iso_code", NULL);
++            break;
++         case GEOIP_CNAME:
++            ret = MMDB_get_value(&result.entry, &entry, "country", "names", "en", NULL);
++            break;
++         default:
+             return NULL;
+-         ip_addr_cpy((u_char *)geo_ip6.s6_addr, ip);
+-         id = GeoIP_id_by_ipnum_v6(gi6, geo_ip6);
+-         break;
+-#endif
+-      default:
++            break;
++      }
++      if (ret != MMDB_SUCCESS) {
++         DEBUG_MSG("Error extracting entry from result: %s", MMDB_strerror(ret));
+          return NULL;
++      }
++      if (entry.has_data) {
++         if (entry.type == MMDB_DATA_TYPE_UTF8_STRING) {
++            /* zero buffer */
++            memset(buffer, 0, len);
++            /* make sure to copy the exact string or less */
++            if (len <= entry.data_size)
++               len = len-1;
++            else
++               len = entry.data_size;
++            memcpy(buffer, entry.utf8_string, len);
++         }
++      }
+    }
++   else
++      return "--";
+ 
+-   DEBUG_MSG("geoip_country_by_ip: GeoIP country name for ip %s: %s",
+-         ip_addr_ntoa(ip, tmp), GeoIP_name_by_id(id));
++   /* Determine country id by IP address */
++   DEBUG_MSG("geoip_get_by_ip(%d): GeoIP information for ip %s: %s",
++         get_type, ip_addr_ntoa(ip, tmp), buffer);
+ 
+-   return GeoIP_name_by_id(id);
++   return buffer;
+ }
+ 
++
+ #endif  /* HAVE_GEOIP */
+diff --git a/src/ec_passive.c b/src/ec_passive.c
+index ac61b694db9ff5c8bb338b38b883d291bcd95003..d2c6bfd0ae11118cd0f60982253ff88781b2ac02 100644
+--- a/src/ec_passive.c
++++ b/src/ec_passive.c
+@@ -83,6 +83,9 @@ void print_host(struct host_profile *h)
+    struct active_user *u;
+    char tmp[MAX_ASCII_ADDR_LEN];
+    char os[OS_LEN+1];
++#ifdef HAVE_GEOIP
++   char country[MAX_GEOIP_STR_LEN];
++#endif
+ 
+    memset(os, 0, sizeof(os));
+    
+@@ -93,7 +96,7 @@ void print_host(struct host_profile *h)
+ 
+ #ifdef HAVE_GEOIP
+    if (EC_GBL_CONF->geoip_support_enable)
+-      fprintf(stdout, " Location     : %s \n", geoip_country_by_ip(&h->L3_addr));
++      fprintf(stdout, " Location     : %s \n", geoip_get_by_ip(&h->L3_addr, GEOIP_CNAME, country, MAX_GEOIP_STR_LEN));
+ #endif
+ 
+    fprintf(stdout, "\n");
+@@ -161,6 +164,9 @@ void print_host_xml(struct host_profile *h)
+    struct active_user *u;
+    char tmp[MAX_ASCII_ADDR_LEN];
+    char os[OS_LEN+1];
++#ifdef HAVE_GEOIP
++   char country[MAX_GEOIP_STR_LEN];
++#endif
+ 
+    memset(os, 0, sizeof(os));
+    
+@@ -171,7 +177,7 @@ void print_host_xml(struct host_profile *h)
+ #ifdef HAVE_GEOIP
+    if (EC_GBL_CONF->geoip_support_enable)
+       fprintf(stdout, "\t\t<location>%s</location>\n", 
+-            geoip_country_by_ip(&h->L3_addr));
++            geoip_get_by_ip(&h->L3_addr, GEOIP_CNAME, country, MAX_GEOIP_STR_LEN));
+ #endif
+ 
+    if (h->type & FP_HOST_LOCAL || h->type == FP_UNKNOWN) {
+diff --git a/src/ec_profiles.c b/src/ec_profiles.c
+index ca53ee31a12b2770e9561d17c13b0f0b52c8cd95..342eb54fec96ccc5a5e67102fb7371053b1874ba 100644
+--- a/src/ec_profiles.c
++++ b/src/ec_profiles.c
+@@ -643,6 +643,7 @@ void * profile_print(int mode, void *list, char **desc, size_t len)
+       int found = 0;
+ #ifdef HAVE_GEOIP
+       size_t slen;
++      char country[MAX_GEOIP_STR_LEN];
+ #endif
+          
+       /* search at least one account */
+@@ -663,7 +664,7 @@ void * profile_print(int mode, void *list, char **desc, size_t len)
+       /* check if enough space is available to append the GeoIP info */
+       if (len - slen > 14 && EC_GBL_CONF->geoip_support_enable) {
+          snprintf(*desc + slen, len - slen, ", %s", 
+-               geoip_country_by_ip(&h->L3_addr));
++               geoip_get_by_ip(&h->L3_addr, GEOIP_CNAME, country, MAX_GEOIP_STR_LEN));
+       }
+ #endif
+ 
+diff --git a/src/interfaces/curses/ec_curses_view_connections.c b/src/interfaces/curses/ec_curses_view_connections.c
+index ae2171538dcd340a3428596dc23d304a3347c116..16937863acb4990fcf9576b04c345af0737af7bb 100644
+--- a/src/interfaces/curses/ec_curses_view_connections.c
++++ b/src/interfaces/curses/ec_curses_view_connections.c
+@@ -156,6 +156,10 @@ static void curses_connection_detail(void *conn)
+    char *proto = "";
+    char name[MAX_HOSTNAME_LEN];
+    unsigned int row = 0;
++#ifdef HAVE_GEOIP
++   char src_country[MAX_GEOIP_STR_LEN];
++   char dst_country[MAX_GEOIP_STR_LEN];
++#endif
+    
+    DEBUG_MSG("curses_connection_detail");
+ 
+@@ -196,7 +200,7 @@ static void curses_connection_detail(void *conn)
+ #ifdef HAVE_GEOIP
+    if (EC_GBL_CONF->geoip_support_enable)
+       wdg_window_print(wdg_conn_detail, 1, ++row, "Source location         :  %s", 
+-            geoip_country_by_ip(&c->co->L3_addr1));
++            geoip_get_by_ip(&c->co->L3_addr1, GEOIP_CNAME, src_country, MAX_GEOIP_STR_LEN));
+ #endif
+    
+    wdg_window_print(wdg_conn_detail, 1, ++row,    "Destination IP address  :  %s", 
+@@ -206,7 +210,7 @@ static void curses_connection_detail(void *conn)
+ #ifdef HAVE_GEOIP
+    if (EC_GBL_CONF->geoip_support_enable)
+       wdg_window_print(wdg_conn_detail, 1, ++row, "Destination location    :  %s",
+-            geoip_country_by_ip(&c->co->L3_addr2));
++            geoip_get_by_ip(&c->co->L3_addr2, GEOIP_CNAME, dst_country, MAX_GEOIP_STR_LEN));
+ #endif
+    ++row;
+ 
+diff --git a/src/interfaces/curses/ec_curses_view_profiles.c b/src/interfaces/curses/ec_curses_view_profiles.c
+index 61e123a82d82b6d7a7fb739fee4dd71ee2126605..5fa5dd1d03582370554ecb76228e076ef64c9283 100644
+--- a/src/interfaces/curses/ec_curses_view_profiles.c
++++ b/src/interfaces/curses/ec_curses_view_profiles.c
+@@ -137,6 +137,9 @@ static void curses_profile_detail(void *profile)
+    struct active_user *u;
+    char tmp[MAX_ASCII_ADDR_LEN];
+    char os[OS_LEN+1];
++#ifdef HAVE_GEOIP
++   char country[MAX_GEOIP_STR_LEN];
++#endif
+   
+    DEBUG_MSG("curses_profile_detail");
+ 
+@@ -170,7 +173,8 @@ static void curses_profile_detail(void *profile)
+       
+ #ifdef HAVE_GEOIP
+    if (EC_GBL_CONF->geoip_support_enable)
+-      wdg_scroll_print(wdg_pro_detail, EC_COLOR, " Location     : %s \n", geoip_country_by_ip(&h->L3_addr));
++      wdg_scroll_print(wdg_pro_detail, EC_COLOR, " Location     : %s \n",
++            geoip_get_by_ip(&h->L3_addr, GEOIP_CNAME, country, MAX_GEOIP_STR_LEN));
+ #endif
+ 
+    wdg_scroll_print(wdg_pro_detail, EC_COLOR, "\n");
+diff --git a/src/interfaces/gtk/ec_gtk.c b/src/interfaces/gtk/ec_gtk.c
+index a1a8f94062556220a80b3c96cd10a250df5b61e8..3ace9bf11049cfa89e3df13073d91db9c9a1a7e4 100644
+--- a/src/interfaces/gtk/ec_gtk.c
++++ b/src/interfaces/gtk/ec_gtk.c
+@@ -411,6 +411,14 @@ void gtkui_about(void)
+    label = gtk_label_new("www.ettercap-project.org");
+    gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+    gtk_box_pack_start(GTK_BOX(vbox), label, FALSE, FALSE, 0);
++#ifdef HAVE_GEOIP
++   if (EC_GBL_CONF->geoip_support_enable) {
++      label = gtk_label_new("This product includes GeoLite2 Data created by MaxMind,");
++      gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
++      label = gtk_label_new("available from https://www.maxmind.com/.");
++      gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
++   }
++#endif
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook), vbox, gtk_label_new("General"));
+ 
+    /* Authors page */
+diff --git a/src/interfaces/gtk/ec_gtk_view_connections.c b/src/interfaces/gtk/ec_gtk_view_connections.c
+index a73bff90386f65759fca61f97f648fd45beaf447..7ebd0019f7d445df75cc51ed2a632be617b0fe90 100644
+--- a/src/interfaces/gtk/ec_gtk_view_connections.c
++++ b/src/interfaces/gtk/ec_gtk_view_connections.c
+@@ -630,6 +630,10 @@ static void gtkui_connection_detail(void)
+    char name[MAX_HOSTNAME_LEN];
+    gchar *str, *markup;
+    guint nrows = 14, ncols = 3, row = 0, col = 0;
++#ifdef HAVE_GEOIP
++   char src_country[MAX_GEOIP_STR_LEN];
++   char dst_country[MAX_GEOIP_STR_LEN];
++#endif
+ 
+    DEBUG_MSG("gtk_connection_detail");
+ 
+@@ -742,7 +746,7 @@ static void gtkui_connection_detail(void)
+       gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+       gtk_table_attach(GTK_TABLE(table), label, col, col+1, row, row+1, GTK_FILL, GTK_FILL, 0, 0);
+ 
+-      label = gtk_label_new(geoip_country_by_ip(&c->co->L3_addr1));
++      label = gtk_label_new(geoip_get_by_ip(&c->co->L3_addr1, GEOIP_CNAME, src_country, MAX_GEOIP_STR_LEN));
+       gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+       gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+       gtk_table_attach_defaults(GTK_TABLE(table), label, col+1, col+3, row, row+1);
+@@ -790,7 +794,7 @@ static void gtkui_connection_detail(void)
+       gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+       gtk_table_attach(GTK_TABLE(table), label, col, col+1, row, row+1, GTK_FILL, GTK_FILL, 0, 0);
+ 
+-      label = gtk_label_new(geoip_country_by_ip(&c->co->L3_addr2));
++      label = gtk_label_new(geoip_get_by_ip(&c->co->L3_addr2, GEOIP_CNAME, dst_country, MAX_GEOIP_STR_LEN));
+       gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+       gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+       gtk_table_attach_defaults(GTK_TABLE(table), label, col+1, col+3, row, row+1);
+diff --git a/src/interfaces/gtk/ec_gtk_view_profiles.c b/src/interfaces/gtk/ec_gtk_view_profiles.c
+index b6ea41713501c31ff67606bde8c44736c6762be2..9d5ef1b33ff636e5dc19f501caa1ba65350e27cd 100644
+--- a/src/interfaces/gtk/ec_gtk_view_profiles.c
++++ b/src/interfaces/gtk/ec_gtk_view_profiles.c
+@@ -192,6 +192,9 @@ static gboolean refresh_profiles(gpointer data)
+    char tmp[MAX_ASCII_ADDR_LEN];
+    char name[MAX_HOSTNAME_LEN];
+    int found = 0;
++#ifdef HAVE_GEOIP
++   char country[MAX_GEOIP_STR_LEN];
++#endif
+ 
+    /* variable not used */
+    (void) data;
+@@ -271,7 +274,7 @@ static gboolean refresh_profiles(gpointer data)
+ #ifdef HAVE_GEOIP
+       if (EC_GBL_CONF->geoip_support_enable)
+          gtk_list_store_set(ls_profiles, &iter, 
+-               3, geoip_country_by_ip(&hcurr->L3_addr), -1);
++               3, geoip_get_by_ip(&hcurr->L3_addr, GEOIP_CNAME, country, MAX_GEOIP_STR_LEN), -1);
+ #endif
+ 
+       /* treat hostname resolution differently due to async processing */
+@@ -313,6 +316,9 @@ static void gtkui_profile_detail(void)
+    char os[OS_LEN+1];
+    gchar *str, *markup;
+    guint nrows = 2, ncols = 3, col = 0, row = 0;
++#ifdef HAVE_GEOIP
++   char country[MAX_GEOIP_STR_LEN];
++#endif
+ 
+    
+    DEBUG_MSG("gtkui_profile_detail");
+@@ -392,7 +398,7 @@ static void gtkui_profile_detail(void)
+       gtk_misc_set_alignment(GTK_MISC(label), 0, 0);
+       gtk_table_attach(GTK_TABLE(table), label, col, col+1, row, row+1, GTK_FILL, GTK_FILL, 0, 0);
+ 
+-      label = gtk_label_new(geoip_country_by_ip(&h->L3_addr));
++      label = gtk_label_new(geoip_get_by_ip(&h->L3_addr, GEOIP_CNAME, country, MAX_GEOIP_STR_LEN));
+       gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+       gtk_misc_set_alignment(GTK_MISC(label), 0, 0);
+       gtk_table_attach_defaults(GTK_TABLE(table), label, col+1, col+3, row, row+1);
+diff --git a/src/interfaces/gtk3/ec_gtk3.c b/src/interfaces/gtk3/ec_gtk3.c
+index a3ab2ed6e74d9e00541a8d62a22c03cc6a6ce887..f89618a44b4ca0495235d488aa06f378d76bbd02 100644
+--- a/src/interfaces/gtk3/ec_gtk3.c
++++ b/src/interfaces/gtk3/ec_gtk3.c
+@@ -24,6 +24,7 @@
+ #include <ec_gtk3.h>
+ #include <ec_capture.h>
+ #include <ec_version.h>
++#include <ec_geoip.h>
+ 
+ #include <pcap.h>
+ #include <string.h>
+@@ -433,6 +434,14 @@ void gtkui_about(GSimpleAction *action, GVariant *value, gpointer data)
+    gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
+    label = gtk_label_new("#ettercap on FreeNode IRC");
+    gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
++#ifdef HAVE_GEOIP
++   if (EC_GBL_CONF->geoip_support_enable) {
++      label = gtk_label_new("This product includes GeoLite2 Data created by MaxMind,");
++      gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
++      label = gtk_label_new("available from https://www.maxmind.com/.");
++      gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
++   }
++#endif
+    label = gtk_label_new(" ");
+    gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 30);
+    gtk_stack_add_titled(GTK_STACK(stack), vbox, "general", "General");
+diff --git a/src/interfaces/gtk3/ec_gtk3_view_connections.c b/src/interfaces/gtk3/ec_gtk3_view_connections.c
+index 4b8ecad8d10944c16c4f69bfdb28c9eca5782767..ed8617fc73c378e9d53f45fc4aa5257ce7927925 100644
+--- a/src/interfaces/gtk3/ec_gtk3_view_connections.c
++++ b/src/interfaces/gtk3/ec_gtk3_view_connections.c
+@@ -641,6 +641,10 @@ static void gtkui_connection_detail(void)
+    char name[MAX_HOSTNAME_LEN];
+    gchar *str, *markup;
+    guint row = 0, col = 0;
++#ifdef HAVE_GEOIP
++   char src_country[MAX_GEOIP_STR_LEN];
++   char dst_country[MAX_GEOIP_STR_LEN];
++#endif
+ 
+    DEBUG_MSG("gtk_connection_detail");
+ 
+@@ -759,7 +763,7 @@ static void gtkui_connection_detail(void)
+       gtk_widget_set_halign(label, GTK_ALIGN_START);
+       gtk_grid_attach(GTK_GRID(grid), label, col, row, 1, 1);
+ 
+-      label = gtk_label_new(geoip_country_by_ip(&c->co->L3_addr1));
++      label = gtk_label_new(geoip_get_by_ip(&c->co->L3_addr1, GEOIP_CNAME, src_country, MAX_GEOIP_STR_LEN));
+       gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+       gtk_widget_set_halign(label, GTK_ALIGN_START);
+       gtk_grid_attach(GTK_GRID(grid), label, col+1, row, 2, 1);
+@@ -807,7 +811,7 @@ static void gtkui_connection_detail(void)
+       gtk_widget_set_halign(label, GTK_ALIGN_START);
+       gtk_grid_attach(GTK_GRID(grid), label, col, row, 1, 1);
+ 
+-      label = gtk_label_new(geoip_country_by_ip(&c->co->L3_addr2));
++      label = gtk_label_new(geoip_get_by_ip(&c->co->L3_addr2, GEOIP_CNAME, dst_country, MAX_GEOIP_STR_LEN));
+       gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+       gtk_widget_set_halign(label, GTK_ALIGN_START);
+       gtk_grid_attach(GTK_GRID(grid), label, col+1, row, 2, 1);
+diff --git a/src/interfaces/gtk3/ec_gtk3_view_profiles.c b/src/interfaces/gtk3/ec_gtk3_view_profiles.c
+index 55c7b628202b886d4ad500aa4b74de9907e831d1..b8286387b9fd77717ee2fa3a200825654366fdf8 100644
+--- a/src/interfaces/gtk3/ec_gtk3_view_profiles.c
++++ b/src/interfaces/gtk3/ec_gtk3_view_profiles.c
+@@ -205,6 +205,9 @@ static gboolean refresh_profiles(gpointer data)
+    char tmp[MAX_ASCII_ADDR_LEN];
+    char name[MAX_HOSTNAME_LEN];
+    int found = 0;
++#ifdef HAVE_GEOIP
++   char country[MAX_GEOIP_STR_LEN];
++#endif
+ 
+    /* variable not used */
+    (void) data;
+@@ -284,7 +287,7 @@ static gboolean refresh_profiles(gpointer data)
+ #ifdef HAVE_GEOIP
+       if (EC_GBL_CONF->geoip_support_enable)
+          gtk_list_store_set(ls_profiles, &iter, 
+-               3, geoip_country_by_ip(&hcurr->L3_addr), -1);
++               3, geoip_get_by_ip(&hcurr->L3_addr, GEOIP_CNAME, country, MAX_GEOIP_STR_LEN), -1);
+ #endif
+ 
+       /* treat hostname resolution differently due to async processing */
+@@ -326,6 +329,9 @@ static void gtkui_profile_detail(void)
+    char os[OS_LEN+1];
+    gchar *str, *markup;
+    guint col = 0, row = 0;
++#ifdef HAVE_GEOIP
++   char country[MAX_GEOIP_STR_LEN];
++#endif
+ 
+    
+    DEBUG_MSG("gtkui_profile_detail");
+@@ -411,7 +417,7 @@ static void gtkui_profile_detail(void)
+       gtk_widget_set_halign(label, GTK_ALIGN_START);
+       gtk_grid_attach(GTK_GRID(grid), label, col, row, 1, 1);
+ 
+-      label = gtk_label_new(geoip_country_by_ip(&h->L3_addr));
++      label = gtk_label_new(geoip_get_by_ip(&h->L3_addr, GEOIP_CNAME, country, MAX_GEOIP_STR_LEN));
+       gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+       gtk_widget_set_halign(label, GTK_ALIGN_START);
+       gtk_grid_attach(GTK_GRID(grid), label, col+1, row, 2, 1);
+diff --git a/src/lua/share/core/ettercap_ffi.lua b/src/lua/share/core/ettercap_ffi.lua
+index eca9754cec7f751709db14c0b21435655bb2efcf..b74beca57b126fcebfd7fc99fb799a2d750f0a72 100644
+--- a/src/lua/share/core/ettercap_ffi.lua
++++ b/src/lua/share/core/ettercap_ffi.lua
+@@ -264,6 +264,7 @@ uint16_t ntohs(uint16_t netshort);
+ size_t tcp_create_ident(void **i, struct packet_object *po);            
+ int tcp_find_direction(void *ids, void *id);
+ int session_get(struct ec_session **s, void *ident, size_t ident_len);
++char *geoip_get_by_ip(struct ip_addr *ip, const int get_type, char* buffer, size_t len);
+ ]]
+ 
+ return ettercap_ffi
+diff --git a/src/lua/share/scripts/geoip_demo.lua b/src/lua/share/scripts/geoip_demo.lua
+index 08f6b38d6db82598c5afc762e6bdc38f2ff5726b..bf068f4401e2be6e3cac20f498aad16d79f5049c 100644
+--- a/src/lua/share/scripts/geoip_demo.lua
++++ b/src/lua/share/scripts/geoip_demo.lua
+@@ -31,13 +31,17 @@ end
+ -- Here's your action.
+ --
+ action = function (p)
++  local src_ccode = ffi.new("char[3]")
++  local dst_ccode = ffi.new("char[3]")
++  local epoch_sec = tonumber(p.ts.tv_sec)
++  local epoch_usec = tonumber(p.ts.tv_usec)
+ 
+-  tstamp = os.date ("%X", p.ts.tv_sec) .. string.format (".%06d", p.ts.tv_usec)
++  tstamp = os.date ("%X", epoch_sec) .. string.format (".%06d", epoch_usec)
+ 
+   src = string.format ("%s:%d", packet.src_ip(p), packet.src_port(p))
+   dst = string.format ("%s:%d", packet.dst_ip(p), packet.dst_port(p))
+-  src_c = ffi.string (ffi.C.geoip_ccode_by_ip(p.L3.src))
+-  dst_c = ffi.string (ffi.C.geoip_ccode_by_ip(p.L3.dst))
++  src_c = ffi.string (ffi.C.geoip_get_by_ip(p.L3.src, 1, src_ccode, 3))
++  dst_c = ffi.string (ffi.C.geoip_get_by_ip(p.L3.dst, 1, dst_ccode, 3))
+ 
+   ettercap.log("%s: %-20s -> %-20s: %s -> %s", tstamp, src, dst, src_c, dst_c)
+ end

@@ -1,0 +1,269 @@
+name: automerge from merge_queue
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+concurrency:
+  group: automerge-merge_queue-${{ github.event.workflow_run.event }}-${{ github.event.workflow_run.id }}
+  cancel-in-progress: true
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  GH_REPO: ${{ github.repository }}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+
+jobs:
+  status-check:
+    runs-on: ubuntu-latest
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      github.event.workflow_run.conclusion != 'success' &&
+      github.event.workflow_run.event == 'merge_group'
+    outputs:
+      pull-number: ${{ steps.pr.outputs.number }}
+      publishable: ${{ steps.check-labels.outputs.publishable }}
+      approved: ${{ steps.approval-status.outputs.approved }}
+      complete: ${{ steps.approval-status.outputs.complete }}
+      mergeable: ${{ steps.approval-status.outputs.mergeable }}
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: read
+    steps:
+      - name: Upload metadata
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: event_payload
+          path: ${{ github.event_path }}
+
+      - name: Dump metadata
+        run: jq . "$GITHUB_EVENT_PATH"
+
+      - name: Get PR number
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WORKFLOW_RUN_NODE_ID: ${{ github.event.workflow_run.node_id }}
+          QUERY: |-
+            query($id: ID!) {
+              node(id: $id) {
+                ... on WorkflowRun {
+                  checkSuite {
+                    commit {
+                      parents(last: 2) {
+                        nodes {
+                          oid
+                          associatedPullRequests(last: 1) {
+                            nodes {
+                              number
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        run: |
+          # Get the latest PR associated with the second parent of the merge commit created for the merge_group.
+          head_commit_data="$(
+            gh api graphql \
+              --field id="$WORKFLOW_RUN_NODE_ID" \
+              --raw-field query="$QUERY" \
+              --jq '.data.node.checkSuite.commit.parents.nodes | last'
+          )"
+          number="$(jq --raw-output '.associatedPullRequests.nodes[].number' <<<"$head_commit_data")"
+
+          # Fall back to using the commit SHA if the associated PR is not available from the GraphQL API.
+          if [[ -z "$number" ]]
+          then
+            commit_sha="$(jq --raw-output '.oid' <<<"$head_commit_data")"
+            number="$(gh pr list --search "$commit_sha" --state open --limit 1 --json number --jq '.[].number' --repo "$GITHUB_REPOSITORY")"
+          fi
+
+          if [[ -z "$number" ]]
+          then
+            echo "::error::Missing PR number!"
+            exit 1
+          fi
+
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+
+      - name: Check PR labels and timeline for merge queue events
+        id: check-labels
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.pr.outputs.number }}
+          QUERY: |-
+            query ($owner: String!, $name: String!, $pr: Int!) {
+              repository(owner: $owner, name: $name) {
+                pullRequest(number: $pr) {
+                  timelineItems(itemTypes: [REMOVED_FROM_MERGE_QUEUE_EVENT], last: 5) {
+                    totalCount
+                  }
+                }
+              }
+            }
+        run: |
+          publishable=true
+          GITHUB_REPOSITORY_NAME="${GITHUB_REPOSITORY#"${GITHUB_REPOSITORY_OWNER}"/}"
+
+          while IFS='' read -r label
+          do
+            if [[ "$label" = "pre-release" ]] ||
+               [[ "$label" = "CI-published-bottle-commits" ]]
+            then
+              publishable=false
+              break
+            fi
+          done < <(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/$GITHUB_REPOSITORY/pulls/$PR" \
+              --jq '.labels[].name'
+          )
+
+          removed_from_merge_queue_count="$(
+            gh api graphql \
+              --field owner="$GITHUB_REPOSITORY_OWNER" \
+              --field name="$GITHUB_REPOSITORY_NAME" \
+              --field pr="$PR" \
+              --raw-field query="$QUERY" \
+              --jq '.data.repository.pullRequest.timelineItems.totalCount'
+          )"
+
+          if [[ "$removed_from_merge_queue_count" -gt 3 ]]
+          then
+            # We've already tried to merge this PR multiple times.
+            publishable=false
+          fi
+
+          echo "publishable=$publishable" >> "$GITHUB_OUTPUT"
+
+      - name: Get approval and CI status
+        if: fromJson(steps.check-labels.outputs.publishable)
+        id: approval-status
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.pr.outputs.number }}
+          QUERY: |-
+            query ($owner: String!, $name: String!, $pr: Int!) {
+              repository(owner: $owner, name: $name) {
+                pullRequest(number: $pr) {
+                  reviewDecision
+                  commits(last: 1) {
+                    nodes {
+                      commit {
+                        checkSuites(last: 100) {
+                          nodes {
+                            conclusion
+                            workflowRun {
+                              workflow {
+                                name
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        run: |
+          attempt=0
+          max_attempts=5
+          timeout=5
+          GITHUB_REPOSITORY_NAME="${GITHUB_REPOSITORY#"${GITHUB_REPOSITORY_OWNER}"/}"
+
+          while [[ "$attempt" -lt "$max_attempts" ]]
+          do
+            attempt=$(( attempt + 1 ))
+
+            query_response="$(
+              gh api graphql \
+                --field owner="$GITHUB_REPOSITORY_OWNER" \
+                --field name="$GITHUB_REPOSITORY_NAME" \
+                --field pr="$PR" \
+                --raw-field query="$QUERY" \
+                --jq '.data.repository.pullRequest'
+            )"
+
+            approved="$(
+              jq --raw-output '.reviewDecision == "APPROVED"' <<< "$query_response"
+            )"
+            complete="$(
+              jq --raw-output \
+                '.commits.nodes[].commit.checkSuites.nodes |
+                   map(select(.workflowRun.workflow.name == "CI")) |
+                     last | .conclusion == "SUCCESS"' <<< "$query_response"
+            )"
+            # See https://github.com/octokit/octokit.net/issues/1763 for possible `mergeable_state` values.
+            mergeable="$(
+              gh api \
+                --header 'Accept: application/vnd.github+json' \
+                --header 'X-GitHub-Api-Version: 2022-11-28' \
+                "repos/$GITHUB_REPOSITORY/pulls/$PR" \
+                --jq '(.mergeable_state == "clean") and (.draft | not)'
+            )"
+
+            if [[ "$approved" = "true" ]] &&
+               [[ "$complete" = "true" ]] &&
+               [[ "$mergeable" = "true" ]] ||
+               [[ "$attempt" -eq "$max_attempts" ]]
+            then
+              break
+            fi
+
+            echo "::notice ::PR #$PR status:"
+            echo "::notice ::Approved?    $approved"
+            echo "::notice ::CI Complete? $complete"
+            echo "::notice ::Mergeable?   $mergeable"
+            echo "::notice ::Checking again in ${timeout}s..."
+            sleep "$timeout"
+            timeout=$(( timeout * 2 ))
+          done
+
+          {
+            echo "approved=$approved"
+            echo "complete=$complete"
+            echo "mergeable=$mergeable"
+          } >> "$GITHUB_OUTPUT"
+
+  merge:
+    runs-on: ubuntu-latest
+    needs: status-check
+    if: >
+      fromJson(needs.status-check.outputs.publishable) &&
+      fromJson(needs.status-check.outputs.approved) &&
+      fromJson(needs.status-check.outputs.complete) &&
+      fromJson(needs.status-check.outputs.mergeable)
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: write # to dispatch publish workflow
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: false
+          cask: false
+
+      - run: brew pr-publish --branch=main "$PR"
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ needs.status-check.outputs.pull-number }}

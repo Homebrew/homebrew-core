@@ -1,0 +1,47 @@
+WARNING: This patch contains a mix of CRLF and LF line endings.
+
+--- a/include/IrrCompileConfig.h
++++ b/include/IrrCompileConfig.h
+@@ -250,6 +250,7 @@ the engine will no longer read .jpeg images. */
+ /** If this is commented out, Irrlicht will try to compile using the jpeg lib installed in the system.
+ 	This is only used when _IRR_COMPILE_WITH_LIBJPEG_ is defined. */
+ #define _IRR_USE_NON_SYSTEM_JPEG_LIB_
++#define NO_IRR_USE_NON_SYSTEM_JPEG_LIB_
+ #ifdef NO_IRR_USE_NON_SYSTEM_JPEG_LIB_
+ #undef _IRR_USE_NON_SYSTEM_JPEG_LIB_
+ #endif
+@@ -266,6 +267,7 @@ the engine will no longer read .png images. */
+ /** If this is commented out, Irrlicht will try to compile using the libpng installed in the system.
+ 	This is only used when _IRR_COMPILE_WITH_LIBPNG_ is defined. */
+ #define _IRR_USE_NON_SYSTEM_LIB_PNG_
++#define NO_IRR_USE_NON_SYSTEM_LIB_PNG_
+ #ifdef NO_IRR_USE_NON_SYSTEM_LIB_PNG_
+ #undef _IRR_USE_NON_SYSTEM_LIB_PNG_
+ #endif
+@@ -603,6 +605,7 @@ ones. */
+ installed on the system. This is only used when _IRR_COMPILE_WITH_ZLIB_ is
+ defined. */
+ #define _IRR_USE_NON_SYSTEM_ZLIB_
++#define NO_IRR_USE_NON_SYSTEM_ZLIB_
+ #ifdef NO_IRR_USE_NON_SYSTEM_ZLIB_
+ #undef _IRR_USE_NON_SYSTEM_ZLIB_
+ #endif
+@@ -624,6 +627,7 @@ library. */
+ installed on the system. This is only used when _IRR_COMPILE_WITH_BZLIB_ is
+ defined. */
+ #define _IRR_USE_NON_SYSTEM_BZLIB_
++#define NO_IRR_USE_NON_SYSTEM_BZLIB_
+ #ifdef NO_IRR_USE_NON_SYSTEM_BZLIB_
+ #undef _IRR_USE_NON_SYSTEM_BZLIB_
+ #endif
+--- a/source/Irrlicht/CImageLoaderJPG.cpp
++++ b/source/Irrlicht/CImageLoaderJPG.cpp
+@@ -68,7 +68,7 @@ void CImageLoaderJPG::init_source (j_decompress_ptr cinfo)
+ boolean CImageLoaderJPG::fill_input_buffer (j_decompress_ptr cinfo)
+ {
+ 	// DO NOTHING
+-	return 1;
++	return TRUE;
+ }
+ 
+ 

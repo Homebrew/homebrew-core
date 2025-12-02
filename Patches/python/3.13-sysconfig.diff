@@ -1,0 +1,45 @@
+diff --git a/Lib/sysconfig/__init__.py b/Lib/sysconfig/__init__.py
+index 80aef34..4af9376 100644
+--- a/Lib/sysconfig/__init__.py
++++ b/Lib/sysconfig/__init__.py
+@@ -98,6 +98,16 @@ _INSTALL_SCHEMES = {
+         'scripts': '{base}/Scripts',
+         'data': '{base}',
+         },
++    'osx_framework_library': {
++        'stdlib': '{installed_base}/{platlibdir}/python{py_version_short}{abi_thread}',
++        'platstdlib': '{platbase}/{platlibdir}/python{py_version_short}{abi_thread}',
++        'purelib': '@@HOMEBREW_PREFIX@@/lib/python{py_version_short}{abi_thread}/site-packages',
++        'platlib': '@@HOMEBREW_PREFIX@@/{platlibdir}/python{py_version_short}{abi_thread}/site-packages',
++        'include': '{installed_base}/include/python{py_version_short}{abiflags}',
++        'platinclude': '{installed_platbase}/include/python{py_version_short}{abiflags}',
++        'scripts': '@@HOMEBREW_PREFIX@@/bin',
++        'data': '@@HOMEBREW_PREFIX@@',
++        },
+     }
+
+ # For the OS-native venv scheme, we essentially provide an alias:
+@@ -288,20 +298,20 @@ def _get_preferred_schemes():
+         }
+     if sys.platform == 'darwin' and sys._framework:
+         return {
+-            'prefix': 'posix_prefix',
++            'prefix': 'osx_framework_library',
+             'home': 'posix_home',
+             'user': 'osx_framework_user',
+         }
+
+     return {
+-        'prefix': 'posix_prefix',
++        'prefix': 'osx_framework_library',
+         'home': 'posix_home',
+         'user': 'posix_user',
+     }
+
+
+ def get_preferred_scheme(key):
+-    if key == 'prefix' and sys.prefix != sys.base_prefix:
++    if key == 'prefix' and (sys.prefix != sys.base_prefix or os.environ.get("ENSUREPIP_OPTIONS", None)):
+         return 'venv'
+     scheme = _get_preferred_schemes()[key]
+     if scheme not in _INSTALL_SCHEMES:

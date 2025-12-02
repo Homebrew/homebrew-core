@@ -1,0 +1,1094 @@
+From 98b2c86918044ee50de2c4f85a6adb140912a1c2 Mon Sep 17 00:00:00 2001
+From: Rui Chen <rui@chenrui.dev>
+Date: Sun, 14 Sep 2025 22:26:40 -0400
+Subject: [PATCH] fix build issue with rust 1.89.0 and bump git2 to 0.20
+
+Signed-off-by: Rui Chen <rui@chenrui.dev>
+---
+ Cargo.lock                            | 390 ++++++++++++++------------
+ Cargo.toml                            |   4 +-
+ flake.lock                            |   6 +-
+ git-branchless-invoke/src/lib.rs      |   8 +-
+ git-branchless-lib/Cargo.toml         |   2 +-
+ git-branchless-lib/src/core/dag.rs    |  27 +-
+ git-branchless-lib/src/git/repo.rs    |   2 +-
+ git-branchless-move/src/lib.rs        |   4 +-
+ git-branchless-revset/src/builtins.rs |   2 +-
+ git-branchless-revset/src/pattern.rs  |   4 +-
+ git-branchless/Cargo.toml             |   2 +-
+ rust-toolchain.toml                   |   2 +-
+ 12 files changed, 247 insertions(+), 206 deletions(-)
+
+diff --git a/Cargo.lock b/Cargo.lock
+index ecd3295..d0f7a3a 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -2,6 +2,17 @@
+ # It is not intended for manual editing.
+ version = 3
+ 
++[[package]]
++name = "abomonation_derive"
++version = "0.5.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "e50e2a046af56a864c62d97b7153fda72c596e646be1b0c7963736821f6e1efa"
++dependencies = [
++ "proc-macro2",
++ "quote",
++ "synstructure",
++]
++
+ [[package]]
+ name = "addr2line"
+ version = "0.21.0"
+@@ -129,6 +140,12 @@ version = "1.0.86"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "b3d1d046238990b9cf5bcde22a3fb3584ee5cf65fb2765f454ed428c7a0063da"
+ 
++[[package]]
++name = "arbitrary"
++version = "1.4.2"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "c3d036a3c4ab069c7b410a2ce876bd74808d2d0888a82667669f8e783a898bf1"
++
+ [[package]]
+ name = "arrayvec"
+ version = "0.7.4"
+@@ -167,7 +184,7 @@ checksum = "6e0c28dcc82d7c8ead5cb13beb15405b57b8546e93215673ff8ca0349a028107"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -231,9 +248,12 @@ checksum = "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a"
+ 
+ [[package]]
+ name = "bitflags"
+-version = "2.5.0"
++version = "2.9.4"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "cf4b9d6a944f767f8e5e0db018570623c85f3d925ac718db4e06d0187adb21c1"
++checksum = "2261d10cca569e4643e526d8dc2e62e433cc8aba21ab764233731f8d369bf394"
++dependencies = [
++ "serde",
++]
+ 
+ [[package]]
+ name = "block-buffer"
+@@ -442,7 +462,7 @@ dependencies = [
+  "heck",
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -678,7 +698,7 @@ version = "0.27.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "f476fe445d41c9e991fd07515a6f463074b782242ccf4a5b7b1d1012e70824df"
+ dependencies = [
+- "bitflags 2.5.0",
++ "bitflags 2.9.4",
+  "crossterm_winapi",
+  "libc",
+  "mio",
+@@ -810,7 +830,7 @@ dependencies = [
+  "ident_case",
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -832,7 +852,7 @@ checksum = "a668eda54683121533a393014d8692171709ff57a7d61f187b6e782719f8933f"
+ dependencies = [
+  "darling_core 0.20.8",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -987,7 +1007,7 @@ checksum = "f282cfdfe92516eb26c2af8589c274c7c17681f5ecc03c18255fe741c6aa64eb"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -1008,7 +1028,7 @@ dependencies = [
+  "darling 0.20.8",
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -1040,126 +1060,6 @@ dependencies = [
+  "windows-sys 0.52.0",
+ ]
+ 
+-[[package]]
+-name = "esl01-atomicfile"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "73020f11f072c66f335e7273c3509220c6c06db8e2f27e55f487d484c03c3ae2"
+-dependencies = [
+- "tempfile",
+- "tracing",
+-]
+-
+-[[package]]
+-name = "esl01-dag"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "2cf33c6d93aebed1408b6e6379d3083ea0dc48b3256eba858e24ff1ad0910c5c"
+-dependencies = [
+- "anyhow",
+- "async-trait",
+- "bitflags 1.3.2",
+- "byteorder",
+- "esl01-dag-types",
+- "esl01-drawdag",
+- "esl01-indexedlog",
+- "esl01-mincode",
+- "esl01-minibytes",
+- "esl01-nonblocking",
+- "esl01-renderdag",
+- "esl01-vlqencoding",
+- "fail",
+- "fs2",
+- "futures",
+- "indexmap 1.9.3",
+- "rand 0.8.5",
+- "serde",
+- "tempfile",
+- "thiserror",
+- "tracing",
+-]
+-
+-[[package]]
+-name = "esl01-dag-types"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "cd764f3e0441aa076242c5591e8c70e9250ece9a0298b9a118a636c97121608f"
+-dependencies = [
+- "esl01-minibytes",
+- "serde",
+-]
+-
+-[[package]]
+-name = "esl01-drawdag"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "58614a84fe70f0dcf8e4126950606bbe9339bf931002791e34bae0fab0a8c9a7"
+-
+-[[package]]
+-name = "esl01-indexedlog"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "ca189b77364e351675e0ac8274a8df0be0c88d3e66103d81f9bd265371f49389"
+-dependencies = [
+- "byteorder",
+- "esl01-atomicfile",
+- "esl01-minibytes",
+- "esl01-vlqencoding",
+- "fs2",
+- "hex",
+- "libc",
+- "memmap",
+- "once_cell",
+- "rand 0.8.5",
+- "tempfile",
+- "tracing",
+- "twox-hash",
+-]
+-
+-[[package]]
+-name = "esl01-mincode"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "238b140f1ced88489a0b3770b3a7613237d73919d6e4c9b8d295c44142264482"
+-dependencies = [
+- "byteorder",
+- "esl01-vlqencoding",
+- "serde",
+-]
+-
+-[[package]]
+-name = "esl01-minibytes"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "0068579525ef038377d270f31c6cf5062da1ac99f34c7bc83b31bc61aa701ad1"
+-dependencies = [
+- "bytes",
+- "memmap",
+- "serde",
+-]
+-
+-[[package]]
+-name = "esl01-nonblocking"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "2a2c37087d9d14a9d6bdf80e61dc7757763839cb528f6b866256b1773dd378ba"
+-
+-[[package]]
+-name = "esl01-renderdag"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "3a1840969ab8be31e186bb6d2f672d586dcd203dd4019a80dc1277a14686eca9"
+-dependencies = [
+- "bitflags 1.3.2",
+- "itertools 0.10.5",
+-]
+-
+-[[package]]
+-name = "esl01-vlqencoding"
+-version = "0.3.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "0ad8aca6f16078736d5e7762a45125eaa685dfe47155f4a72ec301f13a5f0749"
+-
+ [[package]]
+ name = "eyre"
+ version = "0.6.12"
+@@ -1257,6 +1157,12 @@ version = "0.1.1"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "a06f77d526c1a601b7c4cdd98f54b5eaabffc14d5f2f0296febdc7f357c6d3ba"
+ 
++[[package]]
++name = "futures"
++version = "0.1.31"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "3a471a38ef8ed83cd6e40aa59c1ffe17db6855c18e3604d9c4ed8c08ebc28678"
++
+ [[package]]
+ name = "futures"
+ version = "0.3.30"
+@@ -1313,7 +1219,7 @@ checksum = "162ee34ebcb7c64a8abebc059ce0fee27c2262618d7b60ed8faf72fef13c3650"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -1334,6 +1240,7 @@ version = "0.3.31"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "9fa08315bb612088cc391249efdc3bc77536f16c91f6cf495e6fbe85b20a4a81"
+ dependencies = [
++ "futures 0.1.31",
+  "futures-channel",
+  "futures-core",
+  "futures-io",
+@@ -1402,7 +1309,6 @@ dependencies = [
+  "color-eyre",
+  "console",
+  "cursive_core",
+- "esl01-dag",
+  "eyre",
+  "fslock",
+  "git-branchless-hook",
+@@ -1430,6 +1336,7 @@ dependencies = [
+  "rayon",
+  "regex",
+  "rusqlite",
++ "sapling-dag",
+  "scm-diff-editor",
+  "thiserror",
+  "tracing",
+@@ -1502,9 +1409,8 @@ dependencies = [
+  "console",
+  "criterion",
+  "cursive",
+- "esl01-dag",
+  "eyre",
+- "futures",
++ "futures 0.3.30",
+  "git2",
+  "indicatif",
+  "insta",
+@@ -1515,6 +1421,7 @@ dependencies = [
+  "rayon",
+  "regex",
+  "rusqlite",
++ "sapling-dag",
+  "scm-record",
+  "serde",
+  "shell-words",
+@@ -1532,13 +1439,13 @@ dependencies = [
+ name = "git-branchless-move"
+ version = "0.10.0"
+ dependencies = [
+- "esl01-dag",
+  "eyre",
+  "git-branchless-lib",
+  "git-branchless-opts",
+  "git-branchless-revset",
+  "insta",
+  "rayon",
++ "sapling-dag",
+  "tracing",
+ ]
+ 
+@@ -1547,13 +1454,13 @@ name = "git-branchless-navigation"
+ version = "0.10.0"
+ dependencies = [
+  "cursive",
+- "esl01-dag",
+  "eyre",
+  "git-branchless-lib",
+  "git-branchless-opts",
+  "git-branchless-revset",
+  "git-branchless-smartlog",
+  "itertools 0.13.0",
++ "sapling-dag",
+  "skim",
+  "tracing",
+ ]
+@@ -1573,7 +1480,6 @@ dependencies = [
+ name = "git-branchless-query"
+ version = "0.10.0"
+ dependencies = [
+- "esl01-dag",
+  "eyre",
+  "git-branchless-invoke",
+  "git-branchless-lib",
+@@ -1581,6 +1487,7 @@ dependencies = [
+  "git-branchless-revset",
+  "insta",
+  "itertools 0.13.0",
++ "sapling-dag",
+  "tracing",
+ ]
+ 
+@@ -1590,7 +1497,6 @@ version = "0.10.0"
+ dependencies = [
+  "cursive",
+  "cursive_buffered_backend",
+- "esl01-dag",
+  "eyre",
+  "git-branchless-invoke",
+  "git-branchless-lib",
+@@ -1599,6 +1505,7 @@ dependencies = [
+  "insta",
+  "itertools 0.13.0",
+  "rayon",
++ "sapling-dag",
+  "scm-record",
+  "tracing",
+ ]
+@@ -1611,9 +1518,8 @@ dependencies = [
+  "chrono",
+  "chrono-english",
+  "chronoutil",
+- "esl01-dag",
+  "eyre",
+- "futures",
++ "futures 0.3.30",
+  "git-branchless-lib",
+  "git-branchless-opts",
+  "glob",
+@@ -1624,6 +1530,7 @@ dependencies = [
+  "lazy_static",
+  "rayon",
+  "regex",
++ "sapling-dag",
+  "serde_json",
+  "thiserror",
+  "tracing",
+@@ -1635,13 +1542,13 @@ version = "0.10.0"
+ dependencies = [
+  "bstr",
+  "chrono",
+- "esl01-dag",
+  "eyre",
+  "git-branchless-lib",
+  "git-branchless-opts",
+  "git-branchless-revset",
+  "insta",
+  "rayon",
++ "sapling-dag",
+  "shell-words",
+  "tempfile",
+  "tracing",
+@@ -1652,13 +1559,13 @@ name = "git-branchless-smartlog"
+ version = "0.10.0"
+ dependencies = [
+  "cursive_core",
+- "esl01-dag",
+  "eyre",
+  "git-branchless-invoke",
+  "git-branchless-lib",
+  "git-branchless-opts",
+  "git-branchless-revset",
+  "insta",
++ "sapling-dag",
+  "tracing",
+ ]
+ 
+@@ -1668,7 +1575,6 @@ version = "0.10.0"
+ dependencies = [
+  "clap 4.5.9",
+  "cursive_core",
+- "esl01-dag",
+  "eyre",
+  "git-branchless-invoke",
+  "git-branchless-lib",
+@@ -1681,6 +1587,7 @@ dependencies = [
+  "lazy_static",
+  "rayon",
+  "regex",
++ "sapling-dag",
+  "serde",
+  "serde_json",
+  "tempfile",
+@@ -1697,7 +1604,6 @@ dependencies = [
+  "clap 4.5.9",
+  "crossbeam",
+  "cursive",
+- "esl01-dag",
+  "eyre",
+  "fslock",
+  "git-branchless-invoke",
+@@ -1711,6 +1617,7 @@ dependencies = [
+  "maplit",
+  "num_cpus",
+  "rayon",
++ "sapling-dag",
+  "scm-bisect",
+  "serde",
+  "serde_json",
+@@ -1751,16 +1658,16 @@ checksum = "53010ccb100b96a67bc32c0175f0ed1426b31b655d562898e57325f81c023ac0"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+ name = "git2"
+-version = "0.19.0"
++version = "0.20.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "b903b73e45dc0c6c596f2d37eccece7c1c8bb6e4407b001096387c63d0d93724"
++checksum = "3fda788993cc341f69012feba8bf45c0ba4f3291fcc08e214b4d5a7332d88aff"
+ dependencies = [
+- "bitflags 2.5.0",
++ "bitflags 2.9.4",
+  "libc",
+  "libgit2-sys",
+  "log",
+@@ -1902,8 +1809,11 @@ version = "2.2.6"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "168fb715dda47215e360912c096649d23d58bf392ac62f73919e831745e40f26"
+ dependencies = [
++ "arbitrary",
+  "equivalent",
+  "hashbrown 0.14.3",
++ "rayon",
++ "serde",
+ ]
+ 
+ [[package]]
+@@ -2063,9 +1973,9 @@ checksum = "9c198f91728a82281a64e1f4f9eeb25d82cb32a5de251c6bd1b5154d63a8e7bd"
+ 
+ [[package]]
+ name = "libgit2-sys"
+-version = "0.17.0+1.8.1"
++version = "0.18.0+1.9.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "10472326a8a6477c3c20a64547b0059e4b0d086869eee31e6d7da728a8eb7224"
++checksum = "e1a117465e7e1597e8febea8bb0c410f1c7fb93b1e1cddf34363f8390367ffec"
+ dependencies = [
+  "cc",
+  "libc",
+@@ -2085,7 +1995,7 @@ version = "0.1.3"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "c0ff37bd590ca25063e35af745c343cb7a0271906fb7b37e4813e8f79f00268d"
+ dependencies = [
+- "bitflags 2.5.0",
++ "bitflags 2.9.4",
+  "libc",
+ ]
+ 
+@@ -2186,13 +2096,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "6c8640c5d730cb13ebd907d8d04b52f55ac9a2eec55b440c8892f40d56c76c1d"
+ 
+ [[package]]
+-name = "memmap"
+-version = "0.7.0"
++name = "memmap2"
++version = "0.5.10"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "6585fd95e7bb50d6cc31e20d4cf9afb4e2ba16c5846fc76793f11218da9c475b"
++checksum = "83faa42c0a078c393f6b29d5db232d8be22776a891f8f56e5284faee4a20b327"
+ dependencies = [
+  "libc",
+- "winapi",
+ ]
+ 
+ [[package]]
+@@ -2612,9 +2521,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "proc-macro2"
+-version = "1.0.79"
++version = "1.0.101"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "e835ff2298f5721608eb1a980ecaee1aef2c132bf95ecc026a11b7bf3c01c02e"
++checksum = "89ae43fd86e4158d6db51ad8e2b80f313af9cc74f5c0e03ccb87de09998732de"
+ dependencies = [
+  "unicode-ident",
+ ]
+@@ -2627,7 +2536,7 @@ checksum = "b4c2511913b88df1637da85cc8d96ec8e43a3f8bb8ccb71ee1ac240d6f3df58d"
+ dependencies = [
+  "bit-set",
+  "bit-vec",
+- "bitflags 2.5.0",
++ "bitflags 2.9.4",
+  "lazy_static",
+  "num-traits",
+  "rand 0.8.5",
+@@ -2768,7 +2677,7 @@ version = "0.27.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "d16546c5b5962abf8ce6e2881e722b4e0ae3b6f1a08a26ae3573c55853ca68d3"
+ dependencies = [
+- "bitflags 2.5.0",
++ "bitflags 2.9.4",
+  "cassowary",
+  "compact_str",
+  "crossterm 0.27.0",
+@@ -2894,7 +2803,7 @@ version = "0.29.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "549b9d036d571d42e6e85d1c1425e2ac83491075078ca9a15be021c56b1641f2"
+ dependencies = [
+- "bitflags 2.5.0",
++ "bitflags 2.9.4",
+  "fallible-iterator",
+  "fallible-streaming-iterator",
+  "hashlink",
+@@ -2914,7 +2823,7 @@ version = "0.38.32"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "65e04861e65f21776e67888bfbea442b3642beaa0138fdb1dd7a84a52dffdb89"
+ dependencies = [
+- "bitflags 2.5.0",
++ "bitflags 2.9.4",
+  "errno",
+  "libc",
+  "linux-raw-sys",
+@@ -2954,6 +2863,127 @@ dependencies = [
+  "winapi-util",
+ ]
+ 
++[[package]]
++name = "sapling-atomicfile"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "4d91162bc6659937f86b9c85f0e8c31b605063ac8923b21cac7c482cbfda4407"
++dependencies = [
++ "tempfile",
++ "tracing",
++]
++
++[[package]]
++name = "sapling-dag"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "c90cc3ba9ec3cfa19cd9125d5b9df37750b3bb3e0e70462c0183ec7747a1702f"
++dependencies = [
++ "anyhow",
++ "async-trait",
++ "bitflags 2.9.4",
++ "byteorder",
++ "fail",
++ "fs2",
++ "futures 0.3.30",
++ "indexmap 2.2.6",
++ "rand 0.8.5",
++ "sapling-dag-types",
++ "sapling-drawdag",
++ "sapling-indexedlog",
++ "sapling-mincode",
++ "sapling-minibytes",
++ "sapling-nonblocking",
++ "sapling-renderdag",
++ "sapling-vlqencoding",
++ "serde",
++ "tempfile",
++ "thiserror",
++ "tracing",
++]
++
++[[package]]
++name = "sapling-dag-types"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "5ec65200f1f90d5719296a011e45ba61a29942b60fae7c3c5f90ca87656ff68d"
++dependencies = [
++ "abomonation_derive",
++ "sapling-minibytes",
++ "serde",
++]
++
++[[package]]
++name = "sapling-drawdag"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "761cba3dfbbbec1ddf1132711df226dd969c8e3620b8849dc3a8bb7be4a2032c"
++
++[[package]]
++name = "sapling-indexedlog"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "7e5f65ae962b8d889abb3db5cc8bf81bde40282055ece4617dac5e74eac0b790"
++dependencies = [
++ "byteorder",
++ "fs2",
++ "hex",
++ "libc",
++ "memmap2",
++ "once_cell",
++ "rand 0.8.5",
++ "sapling-atomicfile",
++ "sapling-minibytes",
++ "sapling-vlqencoding",
++ "tempfile",
++ "tracing",
++ "twox-hash",
++ "winapi",
++]
++
++[[package]]
++name = "sapling-mincode"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "172868196a99be4fa7118ad15cedc5c1d0e4a73f29e48b5efdcd5939a683c973"
++dependencies = [
++ "byteorder",
++ "sapling-vlqencoding",
++ "serde",
++]
++
++[[package]]
++name = "sapling-minibytes"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "51437efe022fb6d20f0873e99da2d0f856b7be819359988ddb86bc0db3cf5c2e"
++dependencies = [
++ "bytes",
++ "memmap2",
++ "serde",
++]
++
++[[package]]
++name = "sapling-nonblocking"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "5190595f39a20f732f54e969974aac6840731b20ab85fcac010728f0e1735c69"
++
++[[package]]
++name = "sapling-renderdag"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "edffb89cab87bd0901c5749d576f5d37a1f34e05160e936f463f4e94cc447b61"
++dependencies = [
++ "bitflags 2.9.4",
++]
++
++[[package]]
++name = "sapling-vlqencoding"
++version = "0.1.0"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "0971439fe0def46ccd69141e5f8c23c2b8d6e88606ddda6ea0670b5691686c4d"
++
+ [[package]]
+ name = "scanlex"
+ version = "0.1.4"
+@@ -3028,7 +3058,7 @@ checksum = "e0cd7e117be63d3c3678776753929474f3b04a43a080c744d6b0ae2a8c28e222"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -3240,7 +3270,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "2ff9eaf853dec4c8802325d8b6d3dffa86cc707fd7a1a4cdbf416e13b061787a"
+ dependencies = [
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -3299,7 +3329,7 @@ dependencies = [
+  "proc-macro2",
+  "quote",
+  "rustversion",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -3315,15 +3345,27 @@ dependencies = [
+ 
+ [[package]]
+ name = "syn"
+-version = "2.0.58"
++version = "2.0.106"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "44cfb93f38070beee36b3fef7d4f5a16f27751d94b187b666a5cc5e9b0d30687"
++checksum = "ede7c438028d4436d71104916910f5bb611972c5cfd7f89b8300a8186e6fada6"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+  "unicode-ident",
+ ]
+ 
++[[package]]
++name = "synstructure"
++version = "0.12.6"
++source = "registry+https://github.com/rust-lang/crates.io-index"
++checksum = "f36bdaa60a83aca3921b5259d5400cbf5e90fc51931376a9bd4a0eb79aa7210f"
++dependencies = [
++ "proc-macro2",
++ "quote",
++ "syn 1.0.109",
++ "unicode-xid",
++]
++
+ [[package]]
+ name = "sys-info"
+ version = "0.9.1"
+@@ -3394,22 +3436,22 @@ dependencies = [
+ 
+ [[package]]
+ name = "thiserror"
+-version = "1.0.63"
++version = "1.0.69"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "c0342370b38b6a11b6cc11d6a805569958d54cfa061a29969c3b5ce2ea405724"
++checksum = "b6aaf5339b578ea85b50e080feb250a3e8ae8cfcdff9a461c9ec2904bc923f52"
+ dependencies = [
+  "thiserror-impl",
+ ]
+ 
+ [[package]]
+ name = "thiserror-impl"
+-version = "1.0.63"
++version = "1.0.69"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "a4558b58466b9ad7ca0f102865eccc95938dca1a74a856f2b57b6629050da261"
++checksum = "4fee6c4efc90059e10f81e6d42c60a18f76588c3d74cb83a0b242a2b6c7504c1"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -3517,7 +3559,7 @@ checksum = "34704c8d6ebcbc939824180af020566b01a7c01f80641264eba0999f6c2b6be7"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+ 
+ [[package]]
+@@ -3799,7 +3841,7 @@ dependencies = [
+  "once_cell",
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+  "wasm-bindgen-shared",
+ ]
+ 
+@@ -3821,7 +3863,7 @@ checksum = "e94f17b526d0a461a191c78ea52bbce64071ed5c04c9ffe424dcb38f74171bb7"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+  "wasm-bindgen-backend",
+  "wasm-bindgen-shared",
+ ]
+@@ -4119,5 +4161,5 @@ checksum = "9ce1b18ccd8e73a9321186f97e46f9f04b778851177567b1975109d26a08d2a6"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+- "syn 2.0.58",
++ "syn 2.0.106",
+ ]
+diff --git a/Cargo.toml b/Cargo.toml
+index 1c806fa..90f879a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -51,7 +51,7 @@ cursive = { version = "0.20.0", default-features = false, features = [
+ ] }
+ cursive_buffered_backend = "0.6.1"
+ cursive_core = "0.3.7"
+-eden_dag = { package = "esl01-dag", version = "0.3.0" }
++eden_dag = { package = "sapling-dag", version = "0.1.0" }
+ eyre = "0.6.12"
+ fslock = "0.2.1"
+ futures = "0.3.30"
+@@ -69,7 +69,7 @@ git-branchless-smartlog = { version = "0.10.0", path = "git-branchless-smartlog"
+ git-branchless-submit = { version = "0.10.0", path = "git-branchless-submit" }
+ git-branchless-test = { version = "0.10.0", path = "git-branchless-test" }
+ git-branchless-undo = { version = "0.10.0", path = "git-branchless-undo" }
+-git2 = { version = "0.19.0", default-features = false }
++git2 = { version = "0.20.0", default-features = false }
+ glob = "0.3.0"
+ indexmap = "2.2.6"
+ indicatif = { version = "0.17.8", features = ["improved_unicode"] }
+diff --git a/flake.lock b/flake.lock
+index a0bc47e..8f8d5cd 100644
+--- a/flake.lock
++++ b/flake.lock
+@@ -2,11 +2,11 @@
+   "nodes": {
+     "nixpkgs": {
+       "locked": {
+-        "lastModified": 1708373374,
+-        "narHash": "sha256-yEyDvDj/YQc4GOZa/cXx6YUzexD8uv1rUvD6SJVr6UI=",
++        "lastModified": 1756636162,
++        "narHash": "sha256-mBecwgUTWRgClJYqcF+y4O1bY8PQHqeDpB+zsAn+/zA=",
+         "owner": "NixOS",
+         "repo": "nixpkgs",
+-        "rev": "93e1c2d08467d1117ebac45689469613a9fe8453",
++        "rev": "37ff64b7108517f8b6ba5705ee5085eac636a249",
+         "type": "github"
+       },
+       "original": {
+diff --git a/git-branchless-invoke/src/lib.rs b/git-branchless-invoke/src/lib.rs
+index eee43ff..a6cd973 100644
+--- a/git-branchless-invoke/src/lib.rs
++++ b/git-branchless-invoke/src/lib.rs
+@@ -117,12 +117,12 @@ fn install_tracing(effects: Effects) -> eyre::Result<impl Drop> {
+ 
+ #[instrument]
+ fn install_libgit2_tracing() {
+-    fn git_trace(level: git2::TraceLevel, msg: &str) {
+-        info!("[{:?}]: {}", level, msg);
++    fn git_trace(level: git2::TraceLevel, msg: &[u8]) {
++        info!("[{:?}]: {}", level, String::from_utf8_lossy(msg));
+     }
+ 
+-    if !git2::trace_set(git2::TraceLevel::Trace, git_trace) {
+-        warn!("Failed to install libgit2 tracing");
++    if let Err(err) = git2::trace_set(git2::TraceLevel::Trace, git_trace) {
++        warn!("Failed to install libgit2 tracing: {err}");
+     }
+ }
+ 
+diff --git a/git-branchless-lib/Cargo.toml b/git-branchless-lib/Cargo.toml
+index 15d8ee5..968e5be 100644
+--- a/git-branchless-lib/Cargo.toml
++++ b/git-branchless-lib/Cargo.toml
+@@ -6,7 +6,7 @@ keywords = ["git"]
+ license = "MIT OR Apache-2.0"
+ name = "git-branchless-lib"
+ repository = "https://github.com/arxanas/git-branchless"
+-rust-version = "1.64.0"
++rust-version = "1.82"
+ version = "0.10.0"
+ 
+ # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+diff --git a/git-branchless-lib/src/core/dag.rs b/git-branchless-lib/src/core/dag.rs
+index 8178054..3c1c28c 100644
+--- a/git-branchless-lib/src/core/dag.rs
++++ b/git-branchless-lib/src/core/dag.rs
+@@ -8,9 +8,8 @@ use std::future::Future;
+ use std::sync::{Arc, Mutex};
+ 
+ use async_trait::async_trait;
+-use eden_dag::namedag::MemNameDag;
+-use eden_dag::nameset::hints::Hints;
+ use eden_dag::ops::{DagPersistent, Parents};
++use eden_dag::set::hints::Hints;
+ use eden_dag::{DagAlgorithm, Group, VertexListWithOptions, VertexOptions};
+ use eyre::Context;
+ use futures::{StreamExt, TryStreamExt};
+@@ -24,26 +23,26 @@ use crate::git::{Commit, MaybeZeroOid, NonZeroOid, Repo, Time};
+ 
+ use super::repo_ext::RepoReferencesSnapshot;
+ 
+-impl From<NonZeroOid> for eden_dag::VertexName {
++impl From<NonZeroOid> for eden_dag::Vertex {
+     fn from(oid: NonZeroOid) -> Self {
+-        eden_dag::VertexName::copy_from(oid.as_bytes())
++        eden_dag::Vertex::copy_from(oid.as_bytes())
+     }
+ }
+ 
+-impl TryFrom<eden_dag::VertexName> for MaybeZeroOid {
++impl TryFrom<eden_dag::Vertex> for MaybeZeroOid {
+     type Error = eyre::Error;
+ 
+-    fn try_from(value: eden_dag::VertexName) -> Result<Self, Self::Error> {
++    fn try_from(value: eden_dag::Vertex) -> Result<Self, Self::Error> {
+         let oid = git2::Oid::from_bytes(value.as_ref())?;
+         let oid = MaybeZeroOid::from(oid);
+         Ok(oid)
+     }
+ }
+ 
+-impl TryFrom<eden_dag::VertexName> for NonZeroOid {
++impl TryFrom<eden_dag::Vertex> for NonZeroOid {
+     type Error = eyre::Error;
+ 
+-    fn try_from(value: eden_dag::VertexName) -> Result<Self, Self::Error> {
++    fn try_from(value: eden_dag::Vertex) -> Result<Self, Self::Error> {
+         let oid = MaybeZeroOid::try_from(value)?;
+         let oid = NonZeroOid::try_from(oid)?;
+         Ok(oid)
+@@ -51,10 +50,10 @@ impl TryFrom<eden_dag::VertexName> for NonZeroOid {
+ }
+ 
+ /// A compact set of commits, backed by the Eden DAG.
+-pub type CommitSet = eden_dag::NameSet;
++pub type CommitSet = eden_dag::Set;
+ 
+ /// A vertex referring to a single commit in the Eden DAG.
+-pub type CommitVertex = eden_dag::VertexName;
++pub type CommitVertex = eden_dag::Vertex;
+ 
+ impl From<NonZeroOid> for CommitSet {
+     fn from(oid: NonZeroOid) -> Self {
+@@ -123,8 +122,8 @@ impl Parents for GitParentsBlocking {
+     async fn hint_subdag_for_insertion(
+         &self,
+         _heads: &[CommitVertex],
+-    ) -> Result<MemNameDag, eden_dag::Error> {
+-        Ok(MemNameDag::new())
++    ) -> Result<eden_dag::MemDag, eden_dag::Error> {
++        Ok(eden_dag::MemDag::new())
+     }
+ }
+ 
+@@ -290,7 +289,7 @@ impl Dag {
+ 
+         let master_group_options = {
+             let mut options = VertexOptions::default();
+-            options.highest_group = Group::MASTER;
++            options.desired_group = Group::MASTER;
+             options
+         };
+         let master_heads = self
+@@ -449,7 +448,7 @@ impl Dag {
+     #[instrument]
+     pub fn set_count(&self, commit_set: &CommitSet) -> eden_dag::Result<usize> {
+         let result = self.run_blocking(commit_set.count())?;
+-        Ok(result)
++        Ok(result.try_into().unwrap())
+     }
+ 
+     /// Wrapper around NameSet method.
+diff --git a/git-branchless-lib/src/git/repo.rs b/git-branchless-lib/src/git/repo.rs
+index eb3ede0..ee6a6e1 100644
+--- a/git-branchless-lib/src/git/repo.rs
++++ b/git-branchless-lib/src/git/repo.rs
+@@ -630,7 +630,7 @@ impl Repo {
+     /// Get the directory where the DAG for the repository is stored.
+     #[instrument]
+     pub fn get_dag_dir(&self) -> Result<PathBuf> {
+-        // Updated from `dag` to `dag2` for `esl01-dag==0.3.0`, since it may
++        // Updated from `dag` to `dag2` for `sapling-dag==0.1.0`, since it may
+         // not be backwards-compatible.
+         Ok(self.get_branchless_dir()?.join("dag2"))
+     }
+diff --git a/git-branchless-move/src/lib.rs b/git-branchless-move/src/lib.rs
+index 86b081d..4dc6a1b 100644
+--- a/git-branchless-move/src/lib.rs
++++ b/git-branchless-move/src/lib.rs
+@@ -16,7 +16,7 @@ use std::collections::HashMap;
+ use std::fmt::Write;
+ use std::time::SystemTime;
+ 
+-use eden_dag::VertexName;
++use eden_dag::Vertex;
+ use lib::core::repo_ext::RepoExt;
+ use lib::util::{ExitCode, EyreExitOr};
+ use rayon::ThreadPoolBuilder;
+@@ -40,7 +40,7 @@ use lib::git::{GitRunInfo, NonZeroOid, Repo};
+ #[instrument]
+ fn resolve_base_commit(
+     dag: &Dag,
+-    merge_base_oid: Option<VertexName>,
++    merge_base_oid: Option<Vertex>,
+     oid: NonZeroOid,
+ ) -> eyre::Result<NonZeroOid> {
+     let bases = match merge_base_oid {
+diff --git a/git-branchless-revset/src/builtins.rs b/git-branchless-revset/src/builtins.rs
+index ec865e6..ccf8bc0 100644
+--- a/git-branchless-revset/src/builtins.rs
++++ b/git-branchless-revset/src/builtins.rs
+@@ -1,5 +1,5 @@
+ use bstr::ByteSlice;
+-use eden_dag::nameset::hints::Hints;
++use eden_dag::set::hints::Hints;
+ 
+ use lib::core::dag::CommitSet;
+ use lib::core::eventlog::{EventLogDb, EventReplayer};
+diff --git a/git-branchless-revset/src/pattern.rs b/git-branchless-revset/src/pattern.rs
+index 81db346..39769e9 100644
+--- a/git-branchless-revset/src/pattern.rs
++++ b/git-branchless-revset/src/pattern.rs
+@@ -4,7 +4,7 @@ use std::sync::{Arc, Mutex};
+ use chrono::{Local, NaiveDateTime};
+ use chrono_english::{parse_date_string, parse_duration, DateError, Dialect, Interval};
+ use chronoutil::RelativeDuration;
+-use eden_dag::nameset::hints::{Flags, Hints};
++use eden_dag::set::hints::{Flags, Hints};
+ use futures::StreamExt;
+ use lib::core::dag::{CommitSet, CommitVertex};
+ use lib::core::effects::{Effects, OperationType};
+@@ -153,7 +153,7 @@ pub(super) fn make_pattern_matcher_set(
+             let _effects = effects;
+ 
+             let len = self.commits_to_match.count().await?;
+-            progress.notify_progress(0, len);
++            progress.notify_progress(0, len.try_into().unwrap());
+ 
+             let stream = self.commits_to_match.iter().await?;
+             let commit_oids = stream.collect::<Vec<_>>().await;
+diff --git a/git-branchless/Cargo.toml b/git-branchless/Cargo.toml
+index 830f42c..8e78ace 100644
+--- a/git-branchless/Cargo.toml
++++ b/git-branchless/Cargo.toml
+@@ -11,7 +11,7 @@ license = "MIT OR Apache-2.0"
+ name = "git-branchless"
+ readme = "../README.md"
+ repository = "https://github.com/arxanas/git-branchless"
+-rust-version = "1.74"
++rust-version = "1.82"
+ version = "0.10.0"
+ 
+ # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+diff --git a/rust-toolchain.toml b/rust-toolchain.toml
+index 94ed871..59822bf 100644
+--- a/rust-toolchain.toml
++++ b/rust-toolchain.toml
+@@ -1,4 +1,4 @@
+ [toolchain]
+ # Current minimum-supported Rust version
+-channel = "1.74"
++channel = "1.82"
+ profile = "default"
+-- 
+2.51.0
+

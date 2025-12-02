@@ -1,0 +1,10 @@
+[
+  "apr",
+  "apr-util",
+  "libarchive",
+  "libressl",
+  "llvm",
+  "openblas",
+  "openssl@3.0",
+  "openssl@3"
+]

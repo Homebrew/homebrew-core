@@ -1,0 +1,16 @@
+{
+  "awscli": "v2",
+  "botan@2": "release-2",
+  "cabal-install": "3.16",
+  "flarectl": "v0",
+  "libngspice": "master",
+  "libpng": "libpng16",
+  "msgpack": "c_master",
+  "msgpack-cxx": "cpp_master",
+  "ngspice": "master",
+  "r3": "master",
+  "sdl2": "SDL2",
+  "stlink": "develop",
+  "swiftformat": "develop",
+  "xmrig": "dev"
+}
