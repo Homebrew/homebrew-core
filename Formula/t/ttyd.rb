@@ -20,7 +20,7 @@ class Ttyd < Formula
   depends_on "json-c"
   depends_on "libevent"
   depends_on "libuv"
-  depends_on "libwebsockets"
+  depends_on "libwebsockets" => :no_linkage
   depends_on "openssl@3"
 
   uses_from_macos "vim" # needed for xxd
