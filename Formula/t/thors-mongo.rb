@@ -2,12 +2,9 @@ class ThorsMongo < Formula
   desc "Mongo API and Serialization library"
   homepage "https://github.com/Loki-Astari/ThorsMongo"
   url "https://github.com/Loki-Astari/ThorsMongo.git",
-      tag:      "6.0.06",
-      revision: "9ff64c7f7d52415a9f09d764078a9d2b29b06f16"
+      tag:      "7.0.01",
+      revision: "0901231aafea4067ee74c891f46efd20046653e1"
   license "GPL-3.0-only"
-  revision 1
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "eb4b075302bd83e81f8035e2c7a581bc4bf48f0593364f68b1d703170b53d9f6"
@@ -20,10 +17,12 @@ class ThorsMongo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e075ff4433d7bfe5d4a31dc004ca0a3243e8de78d7046866174d493d90d57118"
   end
 
+  depends_on "cmake" => :build
   depends_on "libyaml"
   depends_on "magic_enum"
   depends_on "openssl@3"
   depends_on "snappy"
+
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
