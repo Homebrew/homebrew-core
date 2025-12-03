@@ -2,10 +2,9 @@ class ThorsMongo < Formula
   desc "Mongo API and Serialization library"
   homepage "https://github.com/Loki-Astari/ThorsMongo"
   url "https://github.com/Loki-Astari/ThorsMongo.git",
-      tag:      "6.0.06",
-      revision: "9ff64c7f7d52415a9f09d764078a9d2b29b06f16"
+      tag:      "7.0.07",
+      revision: "1cd1241650e43ea1c40b96294ecf942f87b4e992"
   license "GPL-3.0-only"
-  revision 1
 
   no_autobump! because: :requires_manual_review
 
@@ -20,6 +19,9 @@ class ThorsMongo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e075ff4433d7bfe5d4a31dc004ca0a3243e8de78d7046866174d493d90d57118"
   end
 
+  depends_on "cmake" => :build
+  depends_on "boost"
+  depends_on "libevent"
   depends_on "libyaml"
   depends_on "magic_enum"
   depends_on "openssl@3"
@@ -38,7 +40,9 @@ class ThorsMongo < Formula
                           "--disable-test-with-integration",
                           "--disable-test-with-mongo-query",
                           "--disable-Mongo-Service",
+                          "--disable-slacktest",
                           *std_configure_args
+    ENV.deparallelize
     system "make"
     system "make", "install"
   end
