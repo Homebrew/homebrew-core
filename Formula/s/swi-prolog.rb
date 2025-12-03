@@ -5,8 +5,8 @@ class SwiProlog < Formula
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
   stable do
-    url "https://www.swi-prolog.org/download/stable/src/swipl-9.2.9.tar.gz"
-    sha256 "53f428e2d9bbdf30e53b06c9c42def9a13ff82fc36a111d410fc8b0bc889ee2d"
+    url "https://www.swi-prolog.org/download/stable/src/swipl-10.0.0.tar.gz"
+    sha256 "98c552c48fc8b44dcd4440abbfed632cceb75055fde267be12f340bea8106590"
     depends_on maximum_macos: [:sequoia, :build] # Remove in 9.4.0
   end
 
