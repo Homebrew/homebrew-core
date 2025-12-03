@@ -57,10 +57,6 @@ class Binutils < Formula
       Dir["#{bin}/*"].each do |f|
         bin.install_symlink f => "g" + File.basename(f)
       end
-    else
-      # Reduce the size of the bottle.
-      bin_files = bin.children.select(&:elf?)
-      system "strip", *bin_files, *lib.glob("*.a")
     end
 
     # Allow ld to find brew glibc. A broken symlink falls back to /etc/ld.so.conf
