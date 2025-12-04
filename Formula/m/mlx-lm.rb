@@ -12,15 +12,15 @@ class MlxLm < Formula
     rebuild 1
     sha256 cellar: :any, arm64_tahoe:   "7a36e27a8350113180be35f99194240bf58bf845d050e09792ed572bad431e59"
     sha256 cellar: :any, arm64_sequoia: "5a029f3083a8bf6675c2b7ed0f60845ff67459398353c748efda798aab064fcf"
-    sha256 cellar: :any, arm64_sonoma:  "76c124083ab2d8c933f1ff347b161d9ef7cdbe10ac7f2c43d90ea2d544e570cc"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on arch: :arm64
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on :macos
-  depends_on macos: :ventura
+  depends_on macos: :sequoia
   depends_on "mlx"
   depends_on "numpy"
   depends_on "protobuf"
