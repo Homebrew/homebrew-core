@@ -1,22 +1,10 @@
 class CdDiscid < Formula
   desc "Read CD and get CDDB discid information"
-  homepage "https://linukz.org/cd-discid.shtml"
+  homepage "https://github.com/tiesjan/cd-discid"
+  url "https://github.com/tiesjan/cd-discid/archive/refs/tags/1.5.1.tar.gz"
+  sha256 "8a3aa06e887d7a202c3c0b1e9310794a41103137d2df2bc542da3e88312c5045"
   license "GPL-2.0-or-later"
-  revision 2
-  head "https://github.com/taem/cd-discid.git", branch: "master"
-
-  stable do
-    url "https://linukz.org/download/cd-discid-1.4.tar.gz"
-    mirror "https://deb.debian.org/debian/pool/main/c/cd-discid/cd-discid_1.4.orig.tar.gz"
-    sha256 "ffd68cd406309e764be6af4d5cbcc309e132c13f3597c6a4570a1f218edd2c63"
-
-    # macOS fix; see https://github.com/Homebrew/homebrew/issues/46267
-    # Already fixed in upstream head; remove when bumping version to >1.4
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/cd-discid/1.4.patch"
-      sha256 "f53b660ae70e91174ab86453888dbc3b9637ba7fcaae4ea790855b7c3d3fe8e6"
-    end
-  end
+  head "https://github.com/tiesjan/cd-discid.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6296e37d4a08d066d58baffa8ea53abf75c592f126ffcee9418ef293a9528a8e"
@@ -33,9 +21,6 @@ class CdDiscid < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "92144152a7fa53e3cbe4c6eced912ab7a569079a1d40fb9a72c73635f70027c3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6e37cc61545d58bebb66ffffada804ca5e39e47e503684c7ed84cfa856dbb14"
   end
-
-  # Last commit was 9 years ago, upstream site is gone
-  deprecate! date: "2025-10-16", because: :unmaintained
 
   def install
     system "make", "CC=#{ENV.cc}"
