@@ -16,7 +16,9 @@ class Cjdns < Formula
   end
 
   depends_on "node" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "libsodium"
 
   # remove inode check, upstream pr ref, https://github.com/cjdelisle/cjdns/pull/1272
   patch do
@@ -24,7 +26,14 @@ class Cjdns < Formula
     sha256 "4eb2abe4d52270018d8a1d1d938ee1323d9b1675f35e36f5c6bf2f0ba50a47e8"
   end
 
+  # patch to use system libsodium, upstream pr ref,https://github.com/cjdelisle/cjdns/pull/1273
+  patch do
+    url "https://github.com/cjdelisle/cjdns/commit/5ac5ce94028d507041ab4f24d30184b2a8b49c8a.patch?full_index=1"
+    sha256 "837f023cd073578282d2cdb217f8c8beece090abad329b1410de6976f56ca734"
+  end
+
   def install
+    ENV["SODIUM_USE_PKG_CONFIG"] = "1"
     ENV["NO_TEST"] = "1"
 
     system "./do"
