@@ -9,7 +9,7 @@ class Gnupg < Formula
   # (https://gnupg.org/download/#end-of-life).
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gnupg/"
-    regex(/href=.*?gnupg[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+    regex(/href=.*?gnupg[._-]v?(\d+\.\d*[024568](?:\.\d+)*)\.t/i)
   end
 
   bottle do
