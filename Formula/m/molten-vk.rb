@@ -4,8 +4,8 @@ class MoltenVk < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/KhronosGroup/MoltenVK/archive/refs/tags/v1.4.0.tar.gz"
-    sha256 "fc74aef926ee3cd473fe260a93819c09fdc939bff669271a587e9ebaa43d4306"
+    url "https://github.com/KhronosGroup/MoltenVK/archive/refs/tags/v1.4.1.tar.gz"
+    sha256 "9985f141902a17de818e264d17c1ce334b748e499ee02fcb4703e4dc0038f89c"
 
     # MoltenVK depends on very specific revisions of its dependencies.
     # For each resource the path to the file describing the expected
@@ -13,37 +13,73 @@ class MoltenVk < Formula
     resource "SPIRV-Cross" do
       # ExternalRevisions/SPIRV-Cross_repo_revision
       url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-          revision: "0a88b2d5c08708d45692b7096a0a84e7bfae366c"
+          revision: "adec7acbf41a988713cdb85f93f26c8ca5ea863e"
+      version "adec7acbf41a988713cdb85f93f26c8ca5ea863e"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/SPIRV-Cross_repo_revision"
+        regex(/^([0-9a-f]+)$/i)
+      end
     end
 
     resource "SPIRV-Headers" do
       # ExternalRevisions/SPIRV-Headers_repo_revision
       url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "bab63ff679c41eb75fc67dac76e1dc44426101e1"
+          revision: "b824a462d4256d720bebb40e78b9eb8f78bbb305"
+      version "b824a462d4256d720bebb40e78b9eb8f78bbb305"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/SPIRV-Headers_repo_revision"
+        regex(/^([0-9a-f]+)$/i)
+      end
     end
 
     resource "SPIRV-Tools" do
       # ExternalRevisions/SPIRV-Tools_repo_revision
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "783d7033613cedaa7147d0700b517abc5c32312d"
+          revision: "262bdab48146c937467f826699a40da0fdfc0f1a"
+      version "262bdab48146c937467f826699a40da0fdfc0f1a"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/SPIRV-Tools_repo_revision"
+        regex(/^([0-9a-f]+)$/i)
+      end
     end
 
     resource "Vulkan-Headers" do
       # ExternalRevisions/Vulkan-Headers_repo_revision
       url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-          revision: "088a00d81d1fc30ff77aacf31485871aebec7cb2"
+          revision: "6aefb8eb95c8e170d0805fd0f2d02832ec1e099a"
+      version "6aefb8eb95c8e170d0805fd0f2d02832ec1e099a"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/Vulkan-Headers_repo_revision"
+        regex(/^([0-9a-f]+)$/i)
+      end
     end
 
     resource "Vulkan-Tools" do
       # ExternalRevisions/Vulkan-Tools_repo_revision
       url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-          revision: "682e42f7ae70a8fadf374199c02de737daa5c70d"
+          revision: "013058f74e2356347f8d9317233bc769816c9dfb"
+      version "013058f74e2356347f8d9317233bc769816c9dfb"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/Vulkan-Tools_repo_revision"
+        regex(/^([0-9a-f]+)$/i)
+      end
     end
 
     resource "cereal" do
       # ExternalRevisions/cereal_repo_revision
       url "https://github.com/USCiLab/cereal.git",
-          revision: "51cbda5f30e56c801c07fe3d3aba5d7fb9e6cca4"
+          revision: "a56bad8bbb770ee266e930c95d37fff2a5be7fea"
+      version "a56bad8bbb770ee266e930c95d37fff2a5be7fea"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/cereal_repo_revision"
+        regex(/^([0-9a-f]+)$/i)
+      end
     end
   end
 
