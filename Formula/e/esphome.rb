@@ -6,6 +6,7 @@ class Esphome < Formula
   url "https://files.pythonhosted.org/packages/6a/42/581c64ef757d3998c691fd7304700d2180115e174d320f0c9a84183480fe/esphome-2025.11.4.tar.gz"
   sha256 "d4433daac71e8fc468d3ffc42dbbc06db8aafcd30152ab8249056a8ae62e4f17"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "08f1a973f0f9427432b86f9525ba3e090302907dc199ededda6bd47e4f57fb3f"
@@ -22,7 +23,12 @@ class Esphome < Formula
   depends_on "pillow" => :no_linkage
   depends_on "python@3.13" # <3.14 was added by upstream due to https://github.com/esphome/esphome/issues/11502
 
-  pypi_packages exclude_packages: ["certifi", "cryptography", "pillow"]
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+  end
+
+  pypi_packages exclude_packages: %w[certifi cryptography pillow],
+                extra_packages:   %w[chardet dbus-fast pyobjc-framework-corebluetooth pyobjc-framework-libdispatch]
 
   resource "aioesphomeapi" do
     url "https://files.pythonhosted.org/packages/c9/4a/8e8a9a2ad6f8bc55d5df9aac84fc058eb6df4ebc29b0942ea7757d9eb4f0/aioesphomeapi-42.7.0.tar.gz"
@@ -87,6 +93,11 @@ class Esphome < Formula
   resource "chacha20poly1305-reuseable" do
     url "https://files.pythonhosted.org/packages/c1/ff/6ca12ab8f4d804cfe423e67d7e5de168130b106a0cb749a1043943c23b6b/chacha20poly1305_reuseable-0.13.2.tar.gz"
     sha256 "dd8be876e25dfc51909eb35602b77a76e0d01a364584756ab3fa848e2407e4ec"
+  end
+
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
+    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
   end
 
   resource "charset-normalizer" do
@@ -210,8 +221,8 @@ class Esphome < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/0a/03/a1440979a3f74f16cab3b75b0da1a1a7f922d56a8ddea96092391998edc0/protobuf-6.33.1.tar.gz"
-    sha256 "97f65757e8d09870de6fd973aeddb92f85435607235d20b2dfed93405d00c85b"
+    url "https://files.pythonhosted.org/packages/34/44/e49ecff446afeec9d1a66d6bbf9adc21e3c7cea7803a920ca3773379d4f6/protobuf-6.33.2.tar.gz"
+    sha256 "56dc370c91fbb8ac85bc13582c9e373569668a290aa2e66a590c2a0d35ddb9e4"
   end
 
   resource "puremagic" do
@@ -227,6 +238,26 @@ class Esphome < Formula
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
     sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+  end
+
+  resource "pyobjc-core" do
+    url "https://files.pythonhosted.org/packages/b8/b6/d5612eb40be4fd5ef88c259339e6313f46ba67577a95d86c3470b951fce0/pyobjc_core-12.1.tar.gz"
+    sha256 "2bb3903f5387f72422145e1466b3ac3f7f0ef2e9960afa9bcd8961c5cbf8bd21"
+  end
+
+  resource "pyobjc-framework-cocoa" do
+    url "https://files.pythonhosted.org/packages/02/a3/16ca9a15e77c061a9250afbae2eae26f2e1579eb8ca9462ae2d2c71e1169/pyobjc_framework_cocoa-12.1.tar.gz"
+    sha256 "5556c87db95711b985d5efdaaf01c917ddd41d148b1e52a0c66b1a2e2c5c1640"
+  end
+
+  resource "pyobjc-framework-corebluetooth" do
+    url "https://files.pythonhosted.org/packages/4b/25/d21d6cb3fd249c2c2aa96ee54279f40876a0c93e7161b3304bf21cbd0bfe/pyobjc_framework_corebluetooth-12.1.tar.gz"
+    sha256 "8060c1466d90bbb9100741a1091bb79975d9ba43911c9841599879fc45c2bbe0"
+  end
+
+  resource "pyobjc-framework-libdispatch" do
+    url "https://files.pythonhosted.org/packages/26/e8/75b6b9b3c88b37723c237e5a7600384ea2d84874548671139db02e76652b/pyobjc_framework_libdispatch-12.1.tar.gz"
+    sha256 "4035535b4fae1b5e976f3e0e38b6e3442ffea1b8aa178d0ca89faa9b8ecdea41"
   end
 
   resource "pyparsing" do
@@ -310,8 +341,8 @@ class Esphome < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
-    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
+    url "https://files.pythonhosted.org/packages/1c/43/554c2569b62f49350597348fc3ac70f786e3c32e7f19d266e19817812dd3/urllib3-2.6.0.tar.gz"
+    sha256 "cb9bcef5a4b345d5da5d145dc3e30834f58e8018828cbc724d30b4cb7d4d49f1"
   end
 
   resource "uvicorn" do
@@ -340,7 +371,20 @@ class Esphome < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    if OS.mac?
+      # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
+      ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
+      # pyobjc-core uses "-fdisable-block-signature-string" introduced in clang 17
+      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1699
+    end
+
+    without = if OS.mac?
+      ["dbus-fast"]
+    else
+      %w[chardet pyobjc-core pyobjc-framework-cocoa pyobjc-framework-corebluetooth pyobjc-framework-libdispatch]
+    end
+
+    virtualenv_install_with_resources(without:)
 
     generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "esphome",
                                          shell_parameter_format: :arg)
