@@ -5,8 +5,8 @@ class Mupdf < Formula
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
 
   stable do
-    url "https://mupdf.com/downloads/archive/mupdf-1.26.11-source.tar.gz"
-    sha256 "eee47fdb64de309124df21081d4a4da4ad0e917824ab2ed68fc8008f6b523979"
+    url "https://mupdf.com/downloads/archive/mupdf-1.26.12-source.tar.gz"
+    sha256 "6baf910928f404167ba49be6340195dec340795724722b331f5a2143f5aa0d01"
 
     # libclang-20 patches
     patch do
