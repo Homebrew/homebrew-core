@@ -46,9 +46,6 @@ class Languagetool < Formula
 
     touch buildpath/"server.properties"
     pkgetc.install "server.properties"
-  end
-
-  def post_install
     (var/"log/languagetool").mkpath
   end
 
