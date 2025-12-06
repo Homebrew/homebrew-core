@@ -30,6 +30,7 @@ class Php < Formula
     "TCL",                   # 7
     "Zlib",                  # 8
   ]
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads?source=Y"
@@ -62,6 +63,7 @@ class Php < Formula
   depends_on "freetds"
   depends_on "gd"
   depends_on "gmp"
+  depends_on "icu4c@78"
   depends_on "libpq"
   depends_on "libsodium"
   depends_on "libzip"
@@ -152,7 +154,6 @@ class Php < Formula
       --with-config-file-path=#{config_path}
       --with-config-file-scan-dir=#{config_path}/conf.d
       --with-pear=#{pkgshare}/pear
-      --disable-intl
       --enable-bcmath
       --enable-calendar
       --enable-dba
@@ -160,6 +161,7 @@ class Php < Formula
       --enable-ftp
       --enable-fpm
       --enable-gd
+      --enable-intl
       --enable-mbregex
       --enable-mbstring
       --enable-mysqlnd
@@ -307,8 +309,6 @@ class Php < Formula
 
   def caveats
     <<~EOS
-      The PHP Internationalization extension is now in the `php-intl` formula.
-
       To enable PHP in Apache add the following to httpd.conf and restart Apache:
           LoadModule php_module #{opt_lib}/httpd/modules/libphp.so
 

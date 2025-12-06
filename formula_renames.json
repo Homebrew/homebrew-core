@@ -133,6 +133,7 @@
   "pangomm@2.42": "pangomm@2.46",
   "parallelstl": "onedpl",
   "pev": "readpe",
+  "php-intl": "php",
   "poac": "cabin",
   "polarssl": "mbedtls",
   "postgresql": "postgresql@14",
