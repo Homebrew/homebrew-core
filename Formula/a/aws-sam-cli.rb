@@ -3,8 +3,8 @@ class AwsSamCli < Formula
 
   desc "CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM"
   homepage "https://aws.amazon.com/serverless/sam/"
-  url "https://files.pythonhosted.org/packages/56/f1/90d98f3796b4112ee70151e287c8d0e83edee10e19196e4a3d4015b03b78/aws_sam_cli-1.149.0.tar.gz"
-  sha256 "f391a0c856db6820eb71fcc911d5b23d78f6bcf61c1aad7c5b1d02515d3ed349"
+  url "https://files.pythonhosted.org/packages/8f/93/e0e05b6ff46b03378027f18f49d3cc869be42fb161ce80d32d32553d50e0/aws_sam_cli-1.150.0.tar.gz"
+  sha256 "5d1df3d5729860b4746d5d0fe90725e3dbdcbbc3e274d9700cce5cda26e5aa42"
   license "Apache-2.0"
 
   bottle do
@@ -27,6 +27,7 @@ class AwsSamCli < Formula
   depends_on "rpds-py" => :no_linkage
 
   uses_from_macos "libffi"
+  uses_from_macos "zlib"
 
   pypi_packages exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
@@ -46,8 +47,8 @@ class AwsSamCli < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/19/ef/f1a5a0cf0ad21bc40d4a6e7ee47f73cf683343cb2e536527475aaf575970/aws_sam_translator-1.104.0.tar.gz"
-    sha256 "907c50e812f88514fa8f41b8adcb37ba0ee28e1b8c0144b011c4985471b1201d"
+    url "https://files.pythonhosted.org/packages/84/7e/f6bcee1f5ae7032ac66a4f1bd42bef7810504484c36004d22e81484adb0f/aws_sam_translator-1.105.0.tar.gz"
+    sha256 "472829abf114e7c47112d88f9b3c27585e9c9b44f9d090d1ab9bc4d235bc12b7"
   end
 
   resource "awscrt" do
@@ -66,8 +67,8 @@ class AwsSamCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f0/9b/eef5346ce3148bf4856318fe629e0fd7f6dd73ffd55ea08e316c967f8af0/boto3-1.42.0.tar.gz"
-    sha256 "9c67729a6112b7dced521ea70b0369fba138e89852b029a7876041cd1460c084"
+    url "https://files.pythonhosted.org/packages/28/b2/08e0d2e0ee0a189762e9c803a7980c835d94a8c395660cc115a4a6833f49/boto3-1.42.1.tar.gz"
+    sha256 "137fbea593a30afa1b75656ea1f1ff8796be608a8c77f1b606c4473289679898"
   end
 
   resource "boto3-stubs" do
@@ -76,18 +77,18 @@ class AwsSamCli < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/03/04/8e8ca38631eeb499a1099dcc2a081faaea399f9d46080720540ff54ec609/botocore-1.41.6.tar.gz"
-    sha256 "08fe47e9b306f4436f5eaf6a02cb6d55c7745d13d2d093ce5d917d3ef3d3df75"
+    url "https://files.pythonhosted.org/packages/8c/b5/3ce4e1eaf86953625b98fdcf40afc40a5682a76e140baf976d5e2dc6a9cc/botocore-1.42.1.tar.gz"
+    sha256 "3337df815c69dd87c314ee29329b8ea411ad3562fb6563d139bbe085dac14ce0"
   end
 
   resource "botocore-stubs" do
-    url "https://files.pythonhosted.org/packages/34/7b/e8ec783105bba9800624dbfb91661a01f45baec570c5f4adac0dac64abe5/botocore_stubs-1.41.6.tar.gz"
-    sha256 "2b53574c4ea4f8d5887e516ef2208b996fd988fc2a613f676ea9144597f20cd2"
+    url "https://files.pythonhosted.org/packages/5d/65/f2c02dae9371c396b98c73641c8c2d9692b0e22e75b60794749b83411fdb/botocore_stubs-1.42.1.tar.gz"
+    sha256 "f23dc7ecffde89918077c3f935a1aef1e4af672882cb98e2362a8b71d8ab0939"
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/ee/b5/436c192cdf8dbddd8e09a591384f126c5a47937c14953d87b1dacacd0543/cfn_lint-1.41.0.tar.gz"
-    sha256 "6feca1cf57f9ed2833bab68d9b1d38c8033611e571fa792e45ab4a39e2b8ab57"
+    url "https://files.pythonhosted.org/packages/c9/fb/8b244211d1af184b0d2d653a7552b1538187e3a9e5ff7222e70f4035d6de/cfn_lint-1.42.0.tar.gz"
+    sha256 "0bd373d34451e396c14a95be03fe4bcba8d2c00b2a4c61697a04deaa79ab67ed"
   end
 
   resource "chardet" do
@@ -410,6 +411,15 @@ class AwsSamCli < Formula
     venv.pip_install_and_link buildpath, build_isolation: false
 
     generate_completions_from_executable(bin/"sam", shell_parameter_format: :click)
+
+    # Remove binary built for a non-native architecture
+    if OS.linux?
+      arch = Hardware::CPU.arm? ? "arm64" : "x86_64"
+      rapid = libexec/"lib/python3.13/site-packages/samcli/local/rapid"
+      rapid.glob("aws-durable-execution-emulator-*").each do |file|
+        file.unlink unless file.basename.to_s.include?(arch)
+      end
+    end
   end
 
   test do
