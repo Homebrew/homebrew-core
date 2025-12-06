@@ -3,6 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
+  url "https://archive.mesa3d.org/mesa-25.3.1.tar.xz"
+  sha256 "059d0d985622f49588f01aa29152804f4da8ffe6add046e00a52923379c2d8da"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -19,24 +21,6 @@ class Mesa < Formula
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # include/drm-uapi/{d3dkmthk.h,dma-buf.h,etnaviv_drm.h}
   ]
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
-
-  stable do
-    url "https://archive.mesa3d.org/mesa-25.3.0.tar.xz"
-    sha256 "0fd54fea7dbbddb154df05ac752b18621f26d97e27863db3be951417c6abe8ae"
-
-    on_macos do
-      # both patches are from https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/38429
-      patch do
-        url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/e70c5c722f403462cec2eb9496d4b70d2eb299a0.diff"
-        sha256 "f84670115455500fbc7dfbbf6d47fe651979e133b39285b13a67f328e11a052e"
-      end
-
-      patch do
-        url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/18c025b189852ef0b0f9b428fd7ec748004f1186.diff"
-        sha256 "156ebff695a4c498db3fa0be13593e97a568b86d9c3a3c2db089217c39563981"
-      end
-    end
-  end
 
   bottle do
     sha256 arm64_tahoe:   "f61e795c822cd34be897d932e732e10ca64a7f5bb8d3ec6e550507bf0a5a3cfa"
