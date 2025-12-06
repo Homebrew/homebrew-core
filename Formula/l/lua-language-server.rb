@@ -3,12 +3,10 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/LuaLS/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/LuaLS/lua-language-server.git",
-      tag:      "3.15.0",
-      revision: "32fec3cc99af8b9a1e45c2455a8c3bd0d3e38f66"
+      tag:      "3.16.0",
+      revision: "5f1226d0c06bba55684db0779e048920d64f1dad"
   license "MIT"
   head "https://github.com/LuaLS/lua-language-server.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 2
@@ -20,7 +18,12 @@ class LuaLanguageServer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "91928c7baa9ab26fc967bf5967fa69918dc20038990762ddf9900032da51913d"
   end
 
+  depends_on "binutils" => :build
   depends_on "ninja" => :build
+
+  on_linux do
+    depends_on "libunwind"
+  end
 
   def install
     # Workaround until upstream can update bee.lua submodule
@@ -33,6 +36,7 @@ class LuaLanguageServer < Formula
       "os.exit(true, true)"
 
     chdir "3rd/luamake" do
+      ENV.append "LDFLAGS", "-lz" if OS.linux?
       system "compile/install.sh"
     end
     system "3rd/luamake/luamake", "rebuild"
