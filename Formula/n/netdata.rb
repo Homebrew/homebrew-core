@@ -4,6 +4,7 @@ class Netdata < Formula
   url "https://github.com/netdata/netdata/releases/download/v2.8.2/netdata-v2.8.2.tar.gz"
   sha256 "5c26c8db259607f39d55e7a2ab337523fe603846c442532cf948335eba408b9a"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
