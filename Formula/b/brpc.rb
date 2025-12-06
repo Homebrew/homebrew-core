@@ -4,6 +4,7 @@ class Brpc < Formula
   url "https://dlcdn.apache.org/brpc/1.15.0/apache-brpc-1.15.0-src.tar.gz"
   sha256 "0bc8c2aee810c96e6c77886f828fbfdf32ae353ce997eb46f2772c0088010c35"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do

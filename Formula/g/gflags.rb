@@ -1,11 +1,9 @@
 class Gflags < Formula
   desc "Library for processing command-line flags"
   homepage "https://gflags.github.io/gflags/"
-  url "https://github.com/gflags/gflags/archive/refs/tags/v2.2.2.tar.gz"
-  sha256 "34af2f15cf7367513b352bdcd2493ab14ce43692d2dcd9dfc499492966c64dcf"
+  url "https://github.com/gflags/gflags/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "f619a51371f41c0ad6837b2a98af9d4643b3371015d873887f7e8d3237320b2f"
   license "BSD-3-Clause"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 2
@@ -24,12 +22,6 @@ class Gflags < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-
-  # cmake 4.0 build patch, upstream pr ref, https://github.com/gflags/gflags/pull/367
-  patch do
-    url "https://github.com/gflags/gflags/commit/b14ff3f106149a0a0076aa232ce545580d6e5269.patch?full_index=1"
-    sha256 "84556b5cdfdbaaa154066d2fdd6b0d1d90991ac255600971c364a2c0f9549f84"
-  end
 
   def install
     args = %w[
