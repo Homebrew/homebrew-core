@@ -1,41 +1,19 @@
-class Dotnet < Formula
+class DotnetAT9 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.111.tar.gz"
+  sha256 "a18cbf9a48e58a516c1da3c58f0e46f66dcf1c5e7ef028e87101b1dc246e536a"
   license "MIT"
-  version_scheme 1
-  head "https://github.com/dotnet/dotnet.git", branch: "main"
-
-  stable do
-    # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    version "10.0.0"
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.100.tar.gz"
-    sha256 "e190b1f43a2230a7aa31a1075bf00dcd7f4f81d8ec250c1b858f2261cc27be53"
-
-    resource "release.json" do
-      version "10.0.0"
-      url "https://github.com/dotnet/dotnet/releases/download/v10.0.100/release.json"
-      sha256 "b3e85fc5226c1727afca22c04f7cce920988dd2c59e0cd273c6704cee9a0e6b4"
-
-      livecheck do
-        formula :parent
-      end
-    end
-  end
 
   livecheck do
     url :stable
-    regex(/^v?(\d+\.\d+\.\d{1,2})$/i)
+    regex(/^v?(9(?:\.\d+)+)$/i)
   end
 
-  bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "343566caa1011741a13303014ceee74a91d807de9cd77f0438324939f9ff65bb"
-    sha256 cellar: :any,                 arm64_sequoia: "0f23879804542b8e66c8521b87af973069165fc9379749083a25537aae9f94b1"
-    sha256 cellar: :any,                 arm64_sonoma:  "5fbde0a48d63af42c31612f0384e009d879ee9af741d22fc5422d5df4b41d6b5"
-    sha256 cellar: :any,                 arm64_ventura: "15e04bd0623d3981d7f19ccd7211e408113359382bd924ecf2df77c818d3c994"
-    sha256 cellar: :any,                 ventura:       "cf89f9ff2627bbc1c5deb19df544de345e7b59f0b2f701dac30742795d0ddbe0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1c0d7633d3c96929f02dc32132377889ee6585b9b9b6e115312434af40ca24f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22511e3d0ff36ec596f3cfdd8cfee282a67b4226f2916b94ebf162bc83c0f9c9"
-  end
+  keg_only :versioned_formula
+
+  # https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle
+  deprecate! date: "2026-11-10", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
@@ -57,15 +35,16 @@ class Dotnet < Formula
     depends_on "lttng-ust"
   end
 
-  conflicts_with cask: "dotnet-runtime"
-  conflicts_with cask: "dotnet-runtime@preview"
-  conflicts_with cask: "dotnet-sdk"
-  conflicts_with cask: "dotnet-sdk@preview"
+  resource "release.json" do
+    url "https://github.com/dotnet/dotnet/releases/download/v9.0.111/release.json"
+    sha256 "429d63f3d9d6d10921b6e0784f3343fe7a0676b888e726b1e4a20ff2ae9bbbf5"
+
+    livecheck do
+      formula :parent
+    end
+  end
 
   def install
-    # Fix `unbound variable` error if an array is empty:
-    # ./prep-source-build.sh: line 254: positional_args[@]: unbound variable
-    inreplace "prep-source-build.sh", '"${positional_args[@]}"', '"${positional_args[@]:-}"'
     if OS.mac?
       # Need GNU grep (Perl regexp support) to use release manifest rather than git repo
       ENV.prepend_path "PATH", Formula["grep"].libexec/"gnubin"
@@ -76,6 +55,14 @@ class Dotnet < Formula
     else
       icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
       ENV.append_path "LD_LIBRARY_PATH", icu4c_dep.to_formula.opt_lib
+
+      # Work around build script getting stuck when running shutdown command on Linux
+      # TODO: Try removing in the next release
+      # Ref: https://github.com/dotnet/source-build/discussions/3105#discussioncomment-4373142
+      inreplace "build.sh", '"$CLI_ROOT/dotnet" build-server shutdown', ""
+      inreplace "repo-projects/Directory.Build.targets",
+                '"$(DotnetTool) build-server shutdown --vbcscompiler"',
+                '"true"'
     end
 
     args = ["--clean-while-building", "--source-build", "--with-system-libs", "brotli+libunwind+rapidjson+zlib"]
