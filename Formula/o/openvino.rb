@@ -6,6 +6,7 @@ class Openvino < Formula
   url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.4.0.tar.gz"
   sha256 "f6f83e3ad8496a19713c45653c167a83774312abb547dc007fe30b62714a4030"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   livecheck do
