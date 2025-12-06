@@ -4,7 +4,7 @@ class Ncnn < Formula
   url "https://github.com/Tencent/ncnn/archive/refs/tags/20250916.tar.gz"
   sha256 "7d463f1e5061facd02b8af5e792e059088695cdcfcc152c8f4892f6ffe5eab1a"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
