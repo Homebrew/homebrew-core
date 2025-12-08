@@ -41,6 +41,9 @@ class KnotResolver < Formula
     depends_on "systemd"
   end
 
+  conflicts_with "knot-resolver6",
+    because: "different versions of Knot Resolver cannot be installed simultaneously"
+
   def install
     args = []
     args << "-Dsystemd_files=enabled" if OS.linux?
