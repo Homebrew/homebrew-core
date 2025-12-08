@@ -1,8 +1,8 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "https://www.zetetic.net/sqlcipher/"
-  url "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.6.1.tar.gz"
-  sha256 "d8f9afcbc2f4b55e316ca4ada4425daf3d0b4aab25f45e11a802ae422b9f53a3"
+  url "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.12.0.tar.gz"
+  sha256 "151a1c618c7ae175dfd0f862a8d52e8abd4c5808d548072290e8656032bb0f12"
   license "BSD-3-Clause"
   head "https://github.com/sqlcipher/sqlcipher.git", branch: "master"
 
@@ -29,7 +29,7 @@ class Sqlcipher < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --enable-tempstore=yes
+      --with-tempstore=yes
       --with-crypto-lib=#{Formula["openssl@3"].opt_prefix}
       --enable-load-extension
       --disable-tcl
