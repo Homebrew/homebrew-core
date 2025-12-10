@@ -4,6 +4,7 @@ class Sui < Formula
   url "https://github.com/MystenLabs/sui/archive/refs/tags/testnet-v1.62.0.tar.gz"
   sha256 "91077968de1c7567526d494c15522e24b6830b4cb0323f3ca1b12202e19c7a6f"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
