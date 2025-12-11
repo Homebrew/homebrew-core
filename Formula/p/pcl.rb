@@ -2,7 +2,7 @@ class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   stable do
