@@ -5,6 +5,7 @@ class ThorsMongo < Formula
       tag:      "7.0.07",
       revision: "2fbd6b84e2b154b36e03b5d8ab1aae97a62ff5da"
   license "GPL-3.0-only"
+  revision 1
 
   no_autobump! because: :requires_manual_review
 
