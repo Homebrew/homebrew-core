@@ -2,7 +2,7 @@ class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support"
   homepage "https://github.com/stack-of-tasks/eigenpy"
   license "BSD-2-Clause"
-  revision 3
+  revision 4
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "devel"
 
   stable do
