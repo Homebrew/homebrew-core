@@ -4,6 +4,7 @@ class Openvdb < Formula
   url "https://github.com/AcademySoftwareFoundation/openvdb/archive/refs/tags/v13.0.0.tar.gz"
   sha256 "4d6a91df5f347017496fe8d22c3dbb7c4b5d7289499d4eb4d53dd2c75bb454e1"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/AcademySoftwareFoundation/openvdb.git", branch: "master"
 
   bottle do
