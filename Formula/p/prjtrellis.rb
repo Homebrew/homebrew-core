@@ -4,7 +4,7 @@ class Prjtrellis < Formula
   url "https://github.com/YosysHQ/prjtrellis/archive/refs/tags/1.4.tar.gz"
   sha256 "46fe9d98676953e0cccf1d6332755d217a0861e420f1a12dabfda74d81ccc147"
   license all_of: ["ISC", "MIT"]
-  revision 7
+  revision 8
 
   no_autobump! because: :requires_manual_review
 
