@@ -4,6 +4,7 @@ class Ledger < Formula
   url "https://github.com/ledger/ledger/archive/refs/tags/v3.4.1.tar.gz"
   sha256 "1cf012cdc8445cab0efc445064ef9b2d3f46ed0165dae803c40fe3d2b23fdaad"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ledger/ledger.git", branch: "master"
 
   livecheck do
