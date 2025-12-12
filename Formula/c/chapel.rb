@@ -3,10 +3,9 @@ class Chapel < Formula
 
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/2.6.0/chapel-2.6.0.tar.gz"
-  sha256 "e469c35be601cf1f59af542ab885e8a14aa2b087b79af0d5372a4421976c74b6"
+  url "https://chapel-lang.org/tmp/chapel-2.7.0.tar.gz"
+  sha256 "85e2fe7fcffb7f71e9173abb455678c14a1a8aa4997e10ed4d96d29d81672d0e"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
@@ -78,10 +77,9 @@ class Chapel < Formula
       CHPL_LLVM=system
       CHPL_LLVM_CONFIG=#{llvm.opt_bin}/llvm-config
       CHPL_LLVM_GCC_PREFIX=none
+      CHPL_RUNTIME_CPU=none
       CHPL_TARGET_CPU=native
     EOS
-    # NOTE: CHPL_TARGET_CPU=native could cause problems for users cross-compiling,
-    # should we only set this for CHPL_COMM=none?
 
     # Must be built from within CHPL_HOME to prevent build bugs.
     # https://github.com/Homebrew/legacy-homebrew/pull/35166
