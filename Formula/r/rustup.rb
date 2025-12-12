@@ -36,7 +36,13 @@ class Rustup < Formula
        rust-gdb rust-gdbgui rust-lldb rustc rustdoc rustfmt rustup].each do |name|
       bin.install_symlink bin/"rustup-init" => name
     end
-    generate_completions_from_executable(bin/"rustup", "completions")
+    # Generate rustup completions
+    generate_completions_from_executable(bin/"rustup", "completions", shells: [:bash, :zsh, :fish, :pwsh])
+    (share/"elvish/lib/rustup.elv").write Utils.safe_popen_read(bin/"rustup", "completions", "elvish")
+    # Generate cargo completions
+    (bash_completion/"cargo").write Utils.safe_popen_read(bin/"rustup", "completions", "bash", "cargo")
+    (zsh_completion/"_cargo").write Utils.safe_popen_read(bin/"rustup", "completions", "zsh", "cargo")
+    end
   end
 
   def post_install
