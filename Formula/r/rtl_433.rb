@@ -1,20 +1,10 @@
 class Rtl433 < Formula
   desc "Program to decode radio transmissions from devices"
   homepage "https://github.com/merbanan/rtl_433"
+  url "https://github.com/merbanan/rtl_433/archive/refs/tags/25.12.tar.gz"
+  sha256 "d283ec7a41a02d398e8918b20b65df3bf684cf4478371830662004005dadcdd2"
   license "GPL-2.0-or-later"
   head "https://github.com/merbanan/rtl_433.git", branch: "master"
-
-  stable do
-    url "https://github.com/merbanan/rtl_433/archive/refs/tags/25.02.tar.gz"
-    sha256 "5a409ea10e6d3d7d4aa5ea91d2d6cc92ebb2d730eb229c7b37ade65458223432"
-
-    # Fix build with CMake 4.0+.
-    # Remove with `stable` block on next release.
-    patch do
-      url "https://github.com/merbanan/rtl_433/commit/42ac641452aa56afa04f7bad5a55f790ee639852.patch?full_index=1"
-      sha256 "7e93f6021b80a8e21e637f1be1f7239ca608887b69685781a2e5afcf38bb342d"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "9393179910f0f9f4fef924aadd7862b5ed72850d44dff3c4867b6da289fdd333"
@@ -47,7 +37,7 @@ class Rtl433 < Formula
 
     resource "homebrew-expected_json" do
       url "https://raw.githubusercontent.com/merbanan/rtl_433_tests/master/tests/oregon_scientific/uvr128/g001_433.92M_250k.json"
-      sha256 "5054c0f322030dd1ee3ca78261b64e691da832900a2c6e4d13cc22f0fbbfbbfa"
+      sha256 "08637818a2a268da4862bdb98c62a3afc9a4a0d751230451abbeacd47f58860c"
     end
 
     testpath.install resource("homebrew-test_cu8")
