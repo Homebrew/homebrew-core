@@ -2,7 +2,7 @@ class Pinocchio < Formula
   desc "Efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "devel"
 
   stable do

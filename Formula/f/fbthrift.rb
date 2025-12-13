@@ -4,7 +4,7 @@ class Fbthrift < Formula
   url "https://github.com/facebook/fbthrift/archive/refs/tags/v2025.11.10.00.tar.gz"
   sha256 "a6ad8db838dc92aea4f08fc11dcd1629e052d063498ea07daf48a4409f545eeb"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do

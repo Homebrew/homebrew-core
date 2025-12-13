@@ -2,7 +2,7 @@ class Supertux < Formula
   desc "Classic 2D jump'n run sidescroller game"
   homepage "https://www.supertux.org/"
   license "GPL-3.0-or-later"
-  revision 12
+  revision 13
 
   stable do
     url "https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz"

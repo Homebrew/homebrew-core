@@ -4,6 +4,7 @@ class Monero < Formula
   url "https://downloads.getmonero.org/cli/monero-source-v0.18.4.4.tar.bz2"
   sha256 "84570eee26238d8f686605b5e31d59569488a3406f32e7045852de91f35508a2"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://downloads.getmonero.org/cli/source"

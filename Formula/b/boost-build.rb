@@ -1,8 +1,8 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/refs/tags/boost-1.89.0.tar.gz"
-  sha256 "8a154f61e8adfcaba21a54fdbfdeb5cda7fdef374ff1ad79be69644d9c2a97e2"
+  url "https://github.com/boostorg/build/archive/refs/tags/boost-1.90.0.tar.gz"
+  sha256 "e7b6a6daf91ecb1ac036d659280b8d7f1b3c50728cb4b205ae33baf6cd9b016a"
   license "BSL-1.0"
   version_scheme 1
   head "https://github.com/boostorg/build.git", branch: "develop"
@@ -11,8 +11,6 @@ class BoostBuild < Formula
     url :stable
     regex(/^boost[._-]v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "10da335480790cb39789466ea5a3bdd0dce3b0359e91438bd9bd52a2c636fa7d"
