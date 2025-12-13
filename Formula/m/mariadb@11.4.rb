@@ -28,8 +28,9 @@ class MariadbAT114 < Formula
 
   keg_only :versioned_formula
 
-  # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-11-4/
-  # End-of-life on 2029-05-29: https://mariadb.org/about/#maintenance-policy
+  # From https://mariadb.org/about/#maintenance-policy:
+  # > For releases up to MariaDB 11.4, the binaries are released for 5 years
+  # > after the GA date (29 May 2024)
   deprecate! date: "2029-05-29", because: :unsupported
 
   depends_on "bison" => :build
