@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.5.0.tar.gz"
-  sha256 "e3596062dd1d673c348f1242918f85dc82258cd55075c8cd875634405aa9e53a"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.5.1.tar.gz"
+  sha256 "9f60b2e967cb6298903fc523792051abbd2bc60d9d2e4f252b16e25dca9bce58"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -26,6 +26,7 @@ class Teleport < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b16a0fdb09210519c03654a1c7d035d395c8f28a32e3eeff39e43f78653b964e"
   end
 
+  depends_on "binaryen" => :build
   depends_on "go" => :build
   depends_on "node@22" => :build # node 24 support issue, https://github.com/gravitational/teleport/issues/57202
   depends_on "pkgconf" => :build
