@@ -1,8 +1,8 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_3.6.4.tar.gz"
-  sha256 "c482f7aa0751aef263ec83dc5057c886fd3c862fa8ff73e15686e12a25c8e731"
+  url "https://gmic.eu/files/source/gmic_3.6.5.tar.gz"
+  sha256 "0987e54d64dc3a82df6a3052e6aa5d5b5f1e9115c6fd4155e1aceb78e462169a"
   license "CECILL-2.1"
   head "https://github.com/GreycLab/gmic.git", branch: "master"
 
@@ -35,6 +35,18 @@ class Gmic < Formula
 
   on_linux do
     depends_on "libx11"
+
+    on_arm do
+      depends_on "gcc" => :build if DevelopmentTools.gcc_version("gcc") < 13
+
+      fails_with :gcc do
+        version "12"
+        cause <<~CAUSE
+          Fails to compile because of undefined `_Float16` type
+          https://godbolt.org/z/nKbrjPTvG
+        CAUSE
+      end
+    end
   end
 
   def install
