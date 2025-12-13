@@ -22,6 +22,7 @@ class PythonAT314 < Formula
     sha256 x86_64_linux:  "0553ae247aa4909c616a27e587546bcd24b1e540f4ff9ccfcbec8d2806fbf770"
   end
 
+  depends_on "python@3.13" => :build
   depends_on "pkgconf" => :build
   depends_on "mpdecimal"
   depends_on "openssl@3"
@@ -153,6 +154,8 @@ class PythonAT314 < Formula
       args << "--enable-framework=#{frameworks}"
       args << "--with-dtrace"
       args << "--with-dbmliborder=ndbm"
+      # requires an external (older) Python to build, which macOS already has
+      args << "--enable-experimental-jit=yes-off"
 
       # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
       args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
