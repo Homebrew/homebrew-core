@@ -20,8 +20,6 @@ class Aom < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "jpeg-xl"
-  depends_on "libvmaf"
 
   on_intel do
     depends_on "yasm" => :build
@@ -38,7 +36,7 @@ class Aom < Formula
       "-DENABLE_TESTS=off",
       "-DENABLE_TOOLS=off",
       "-DBUILD_SHARED_LIBS=on",
-      "-DCONFIG_TUNE_VMAF=1",
+      "-DCONFIG_TUNE_VMAF=0",
     ]
 
     system "cmake", "-S", ".", "-B", "brewbuild", *args, *std_cmake_args
