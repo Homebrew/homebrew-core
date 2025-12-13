@@ -20,13 +20,8 @@ class Rv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "08441d39160ee98939516df3cc6840f65b89746d00b1c33e35528d7f0ac963e9"
   end
 
-  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on macos: :sonoma
-
-  on_linux do
-    depends_on "openssl@3"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/rv")
@@ -35,10 +30,7 @@ class Rv < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/rv --version")
-
     assert_match "No Ruby installations found.", shell_output("#{bin}/rv ruby list --installed-only 2>&1")
-
-    system bin/"rv", "ruby", "install", "3.4.5"
     assert_match "Homebrew", shell_output("#{bin}/rv ruby run 3.4.5 -- -e 'puts \"Homebrew\"'")
   end
 end
