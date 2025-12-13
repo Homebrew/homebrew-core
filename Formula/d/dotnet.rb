@@ -83,7 +83,13 @@ class Dotnet < Formula
                 '"true"'
     end
 
-    args = ["--clean-while-building", "--source-build", "--with-system-libs", "brotli+libunwind+rapidjson+zlib"]
+    args = %w[
+      --clean-while-building
+      --source-build
+      --with-system-libs
+      brotli+libunwind+rapidjson+zlib
+      /p:BundleNativeAotCompiler=false
+    ]
     if build.stable?
       args += ["--release-manifest", "release.json"]
       odie "Update release.json resource!" if resource("release.json").version != version
@@ -170,5 +176,9 @@ class Dotnet < Formula
     resource("docfx").stage do
       system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache"
     end
+
+    # Confirm that building/publishing with native AOT works
+    system bin/"dotnet", "new", "console", "-o", "TestConsoleAOT", "--aot"
+    system bin/"dotnet", "publish", "TestConsoleAOT"
   end
 end
