@@ -4,13 +4,13 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.91.1-src.tar.gz"
-    sha256 "38dce205d39f61571261f0444237a1ce9efecb970e760d8ec4d957af5b445723"
+    url "https://static.rust-lang.org/dist/rustc-1.92.0-src.tar.gz"
+    sha256 "9e0d2ca75c7e275fdc758255bf4b03afb3d65d1543602746907c933b6901c3b8"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
-      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.92.0.tar.gz"
-      sha256 "58048da121cf8707ae536e44220a5620d8102cfa6c7a3e32c404d357f0c5a286"
+      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.93.0.tar.gz"
+      sha256 "03a675ae1d0e34599f1fdd500a9b76d780314c1546ffe8230e36775fc4a29d71"
     end
   end
 
@@ -53,23 +53,23 @@ class Rust < Formula
   resource "rustc-bootstrap" do
     on_macos do
       on_arm do
-        url "https://static.rust-lang.org/dist/2025-09-18/rustc-1.90.0-aarch64-apple-darwin.tar.xz", using: :nounzip
-        sha256 "89551c0ba1cc6d0312aebc4a6cafe4497223217ea8e87c81f6afbe127dfaeeb6"
+        url "https://static.rust-lang.org/dist/2025-10-30/rustc-1.91.0-aarch64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "a68e3ada151e6eee10374529161d35dc26e8a185bddb14eabe6133f37144e02f"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2025-09-18/rustc-1.90.0-x86_64-apple-darwin.tar.xz", using: :nounzip
-        sha256 "594687a61b671445ea9fff0e6b6c6eef81cba30b005d22710217b4da8d2d2ecc"
+        url "https://static.rust-lang.org/dist/2025-10-30/rustc-1.91.0-x86_64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "de5afa548daca986e428728cf66e16cb5a9560e6bda2f61d0e55874b74811af5"
       end
     end
 
     on_linux do
       on_arm do
-        url "https://static.rust-lang.org/dist/2025-09-18/rustc-1.90.0-aarch64-unknown-linux-gnu.tar.xz", using: :nounzip
-        sha256 "4e1a9987a11d7d91f0d5afbf5333feb62f44172e4a31f33ce7246549003217f2"
+        url "https://static.rust-lang.org/dist/2025-10-30/rustc-1.91.0-aarch64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "f3ea3c964b7f3b884337f2d411764032bbd1722d7f55592a547cbb29afd87c03"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2025-09-18/rustc-1.90.0-x86_64-unknown-linux-gnu.tar.xz", using: :nounzip
-        sha256 "48c2a42de9e92fcae8c24568f5fe40d5734696a6f80e83cc6d46eef1a78f13c9"
+        url "https://static.rust-lang.org/dist/2025-10-30/rustc-1.91.0-x86_64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "a7169e8cb6174af2f45717703370363d8de82ce55f6ccba185893045b9370874"
       end
     end
   end
@@ -78,23 +78,23 @@ class Rust < Formula
   resource "cargo-bootstrap" do
     on_macos do
       on_arm do
-        url "https://static.rust-lang.org/dist/2025-09-18/cargo-1.90.0-aarch64-apple-darwin.tar.xz", using: :nounzip
-        sha256 "17a4410a27bf7dad4765f3809265c225f25f8b009da3d4b76cd0927acdae04b5"
+        url "https://static.rust-lang.org/dist/2025-10-30/cargo-1.91.0-aarch64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "2f50ee5fe07c2a8df9f67726aad0fd30d343ba52485f76d57c4d0ca1113b2343"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2025-09-18/cargo-1.90.0-x86_64-apple-darwin.tar.xz", using: :nounzip
-        sha256 "b2fa21c8fed854775e379bb4617145abd047d1be729e8383148139ba1d05c88f"
+        url "https://static.rust-lang.org/dist/2025-10-30/cargo-1.91.0-x86_64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "f8935229479bb5d76378e768a4cbf868daa1264fd2ea7635b353fe0d93c0cda8"
       end
     end
 
     on_linux do
       on_arm do
-        url "https://static.rust-lang.org/dist/2025-09-18/cargo-1.90.0-aarch64-unknown-linux-gnu.tar.xz", using: :nounzip
-        sha256 "bd8d1da6fe88ea7e29338f24277c22156267447adbfc47d690467ad32d02c2a7"
+        url "https://static.rust-lang.org/dist/2025-10-30/cargo-1.91.0-aarch64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "003d7008219ca0d225ad1dfa301f7c079b123499430ee0780c85782e0878eeff"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2025-09-18/cargo-1.90.0-x86_64-unknown-linux-gnu.tar.xz", using: :nounzip
-        sha256 "9853db03d68578a30972e2755c89c66aec035fec641cf8f3a7117c81eec2578d"
+        url "https://static.rust-lang.org/dist/2025-10-30/cargo-1.91.0-x86_64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "7103c03fb8abe85b23307005a9dfe4f01c826a89945d84b96fa2d03fd4d2d138"
       end
     end
   end
@@ -103,23 +103,23 @@ class Rust < Formula
   resource "rust-std-bootstrap" do
     on_macos do
       on_arm do
-        url "https://static.rust-lang.org/dist/2025-09-18/rust-std-1.90.0-aarch64-apple-darwin.tar.xz", using: :nounzip
-        sha256 "c36777aec17d617f85f94b7cb87bdd4270eeca30ef38c6f686809d163c881609"
+        url "https://static.rust-lang.org/dist/2025-10-30/rust-std-1.91.0-aarch64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "d2e1cbce8dda7a9f16df1393d003f6eb145b3b152a883a8791db326ebc03b549"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2025-09-18/rust-std-1.90.0-x86_64-apple-darwin.tar.xz", using: :nounzip
-        sha256 "dd731e6f9f30cb9b2928b92b084d2f12a3abf06a481ecbd8c3553c3e6f742139"
+        url "https://static.rust-lang.org/dist/2025-10-30/rust-std-1.91.0-x86_64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "fd490b52577ac1ba1aa3e420e9bee0099e3c2fbba613b8c3d9b10553cbd0c6ff"
       end
     end
 
     on_linux do
       on_arm do
-        url "https://static.rust-lang.org/dist/2025-09-18/rust-std-1.90.0-aarch64-unknown-linux-gnu.tar.xz", using: :nounzip
-        sha256 "4952abb7d9d3ed7cea4f7ea44dcb23dc67631fae4ac44a5f059b90a4b5e9223f"
+        url "https://static.rust-lang.org/dist/2025-10-30/rust-std-1.91.0-aarch64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "ff23dc81f796d64e34e866a44fd0bcae726e34014835369b8f9393a544167eca"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2025-09-18/rust-std-1.90.0-x86_64-unknown-linux-gnu.tar.xz", using: :nounzip
-        sha256 "663f4ab7945b392d5e5294dec1b050a66820a20e86f084ec37eeb0f2f7ff5569"
+        url "https://static.rust-lang.org/dist/2025-10-30/rust-std-1.91.0-x86_64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "89e6520b16c12b43526440298d2da0dcb70747c5cc2d0b8e47d39b5da9aeef49"
       end
     end
   end
