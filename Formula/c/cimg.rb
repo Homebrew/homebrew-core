@@ -1,8 +1,8 @@
 class Cimg < Formula
   desc "C++ toolkit for image processing"
   homepage "https://cimg.eu/"
-  url "https://cimg.eu/files/CImg_3.6.4.zip"
-  sha256 "8df9e81c4bd91ff02275d5d4496f51b2b1a0d462a3ea63e781672c5ca9e30483"
+  url "https://cimg.eu/files/CImg_3.6.5.zip"
+  sha256 "f1cfd17871032815f38f42a1924b75c64b942f4db5fecd9cacdcb41988624d8e"
   license "CECILL-2.0"
 
   livecheck do
@@ -12,6 +12,20 @@ class Cimg < Formula
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "9d92b69822c309335264fdd40fe70ef7123a8946ad889d23ad0adf7cafc1473e"
+  end
+
+  on_linux do
+    on_arm do
+      depends_on "gcc" => :build if DevelopmentTools.gcc_version("gcc") < 13
+
+      fails_with :gcc do
+        version "12"
+        cause <<~CAUSE
+          Fails to compile because of undefined `_Float16` type
+          https://godbolt.org/z/nKbrjPTvG
+        CAUSE
+      end
+    end
   end
 
   def install
