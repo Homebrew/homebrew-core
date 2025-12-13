@@ -4,7 +4,7 @@ class Glog < Formula
   url "https://github.com/google/glog/archive/refs/tags/v0.6.0.tar.gz"
   sha256 "8a83bf982f37bb70825df71a9709fa90ea9f4447fb3c099e1d720a439d88bad6"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/google/glog.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -17,6 +17,8 @@ class Glog < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "148610f0d05d41387d7dd402fec0b7cafbe2603a7a5745734ecd6db50f279425"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0624b3d83129dd0efe76d79ae8c8f5a406e98b0b6a49b7ad5d6915ed669f4e4c"
   end
+
+  keg_only "it conflicts with maintained, API-compatible `ng-log`"
 
   # deprecate! date: "2025-12-10", because: :repo_archived, replacement_formula: "abseil"
 
