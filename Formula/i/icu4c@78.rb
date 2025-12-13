@@ -28,6 +28,7 @@ class Icu4cAT78 < Formula
   keg_only :shadowed_by_macos, "macOS provides libicucore.dylib (but nothing else)"
 
   def install
+    # Dummy edit
     odie "Major version bumps need a new formula!" if version.major.to_s != name[/@(\d+)$/, 1]
 
     args = %w[
