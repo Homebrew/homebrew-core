@@ -3,12 +3,10 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/LuaLS/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/LuaLS/lua-language-server.git",
-      tag:      "3.15.0",
-      revision: "32fec3cc99af8b9a1e45c2455a8c3bd0d3e38f66"
+      tag:      "3.16.1",
+      revision: "0b067fd1e23154c8e5b39c56ede03f2313815d0b"
   license "MIT"
   head "https://github.com/LuaLS/lua-language-server.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 2
@@ -21,6 +19,11 @@ class LuaLanguageServer < Formula
   end
 
   depends_on "ninja" => :build
+
+  on_linux do
+    depends_on "binutils"
+    depends_on "libunwind"
+  end
 
   def install
     # Workaround until upstream can update bee.lua submodule
