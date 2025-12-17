@@ -18,9 +18,5 @@ class Ccswitch < Formula
     # Test help command
     help_output = shell_output("#{bin}/ccswitch --help 2>&1")
     assert_match "A command-line tool for managing", help_output
-
-    # Test that config directory can be created
-    (testpath/".config/ccswitch").mkdir
-    assert (testpath/".config/ccswitch").directory?
   end
 end
