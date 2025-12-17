@@ -1,8 +1,8 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/refs/tags/v1.28.2.tar.gz"
-  sha256 "0b7d1d73afa93c015814b99c97b88fa45bce822d7904e8fc4a95666ba8e3fb92"
+  url "https://github.com/ispc/ispc/archive/refs/tags/v1.29.0.tar.gz"
+  sha256 "416774690e27d67f76e8a224fbb6641ddcfb7733a1a220e4cef4edca90440ae4"
   license "BSD-3-Clause"
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
