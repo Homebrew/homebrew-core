@@ -22,16 +22,68 @@ class Mdfried < Formula
   end
 
   test do
+    require "pty"
+    require "io/console"
+
     assert_match version.to_s, shell_output("#{bin}/mdfried --version")
 
-    # IO error: `No such device or address (os error 6)`
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     (testpath/"test.md").write <<~MARKDOWN
-      # Hello World
+      Hello World
     MARKDOWN
 
-    output = shell_output("#{bin}/mdfried #{testpath}/test.md 2>&1")
-    assert_match "cursor position could not be read", output
+    # Use isolated HOME to trigger first-run font setup
+    PTY.spawn({ "HOME" => testpath.to_s }, bin/"mdfried", testpath/"test.md") do |r, w, _pid|
+      r.winsize = [80, 20]
+      output = ""
+      found_prompt = false
+      start_time = Time.now
+
+      found_hello = false
+
+      begin
+        loop do
+          break if Time.now - start_time > 10
+
+          next unless r.wait_readable(0.1)
+
+          chunk = r.read_nonblock(4096)
+          output += chunk
+
+          # Respond to the two required terminal queries:
+          # CPR (Cursor Position Report): doesn't matter, just needs a response
+          w.write "\e[1;1R" if chunk.include?("\e[6n")
+          # DSR (Device Status Report): \e[0n means "Terminal OK"
+          w.write "\e[0n" if chunk.include?("\e[5n")
+
+          # Check for prompt (strip ANSI sequences first)
+          stripped = output.gsub(/\e\[[0-9;?]*[A-Za-z]/, "")
+
+          # Once we see the font prompt, press Enter to continue
+          if !found_prompt && stripped.include?("Enter") && stripped.include?("font") && stripped.include?("name")
+            found_prompt = true
+            w.write "\r" # Press Enter to accept default font
+          end
+
+          # After font selection, look for Hello World
+          if found_prompt && stripped.include?("Hello") && stripped.include?("World")
+            found_hello = true
+            break
+          end
+        end
+      rescue IO::WaitReadable
+        retry if Time.now - start_time < 10
+      rescue EOFError, Errno::EIO
+        # PTY closed
+      end
+
+      w.write "q" # Exit mdfried
+
+      # Debug output for CI
+      $stderr.puts "DEBUG: output length=#{output.length}"
+      $stderr.puts "DEBUG: output=#{output.inspect}"
+
+      assert found_prompt, "Expected 'Enter font name' prompt in output"
+      assert found_hello, "Expected 'Hello World' in rendered output"
+    end
   end
 end
