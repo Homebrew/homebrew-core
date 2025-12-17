@@ -2,7 +2,7 @@ class Ccswitch < Formula
   desc "Command-line tool for managing Claude Code API profiles"
   homepage "https://github.com/huangdijia/ccswitch"
   url "https://github.com/huangdijia/ccswitch/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "dc035ee1de978240cdad7948e029a5470e2ebe1b8afa5d5bbf40387b0e373406"  # Replace with actual SHA256 after downloading
+  sha256 "dc035ee1de978240cdad7948e029a5470e2ebe1b8afa5d5bbf40387b0e373406"
   license "MIT"
 
   depends_on "go" => :build
