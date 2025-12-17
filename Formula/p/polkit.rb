@@ -1,8 +1,8 @@
 class Polkit < Formula
   desc "Toolkit for defining and handling authorizations"
   homepage "https://github.com/polkit-org/polkit"
-  url "https://github.com/polkit-org/polkit/archive/refs/tags/126.tar.gz"
-  sha256 "2814a7281989f6baa9e57bd33bbc5e148827e2721ccef22aaf28ab2b376068e8"
+  url "https://github.com/polkit-org/polkit/archive/refs/tags/127.tar.gz"
+  sha256 "9b7bc16f086479dcc626c575976568ba4a85d34297a750d8ab3d2e57f6d8b988"
   license "LGPL-2.0-or-later"
 
   bottle do
