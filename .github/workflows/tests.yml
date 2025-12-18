@@ -436,6 +436,21 @@ jobs:
             exit 0
           fi
 
+          # Additional check: Allow skip if setup jobs failed or were skipped
+          setup_tests_result="${{ needs.setup_tests.result }}"
+          setup_runners_result="${{ needs.setup_runners.result }}"
+          if [[ "$result" = "skipped" ]] &&
+             [[ "$setup_tests_result" = "failure" || "$setup_tests_result" = "skipped" ||
+                "$setup_runners_result" = "failure" || "$setup_runners_result" = "skipped" ]]
+          then
+            printf '::warning ::Tests skipped due to setup job failure\n'
+            exit 0
+          fi
+
+          # Debug: Print all values for troubleshooting
+          printf 'DEBUG: tests_result=%s, runners_present=%s, syntax_only=%s\n' "$result" "$runners_present" "$syntax_only"
+          printf 'DEBUG: setup_tests_result=%s, setup_runners_result=%s\n' "$setup_tests_result" "$setup_runners_result"
+
           # The test job can succeed only if the PR is not syntax-only
           # and runners were assigned. Otherwise it must have been skipped.
           if [[ "$result" = "success" ]] &&

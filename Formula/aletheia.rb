@@ -10,7 +10,14 @@ class Aletheia < Formula
 
   def install
     # Build the compiler
-    system "make", "CC=gcc"
+    # Try GCC first, fallback to system compiler
+    if Formula["gcc"].installed?
+      ENV["CC"] = Formula["gcc"].opt_bin/"gcc"
+    else
+      ENV["CC"] = ENV["HOMEBREW_CC"] || "cc"
+    end
+
+    system "make", "CC=#{ENV["CC"]}"
 
     # Install binaries
     bin.install "build/aletheia_compiler" => "aletheia"
