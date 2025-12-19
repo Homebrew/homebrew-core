@@ -42,6 +42,8 @@ class MingwW64 < Formula
 
   uses_from_macos "zlib"
 
+  conflicts_with "llvm-mingw-w64", because: "both install i686 and x86_64 Windows development tools"
+
   resource "binutils" do
     url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.45.tar.bz2"
     mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.45.tar.bz2"
