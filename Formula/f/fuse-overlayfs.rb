@@ -32,7 +32,7 @@ class FuseOverlayfs < Formula
     mkdir "merged"
     test_cmd = "fuse-overlayfs -o lowerdir=lowerdir/a:lowerdir/b,upperdir=up,workdir=workdir merged 2>&1"
     output = shell_output(test_cmd, 1)
-    assert_match "fuse: device not found, try 'modprobe fuse' first", output
-    assert_match "fuse-overlayfs: cannot mount: No such file or directory", output
+    assert_includes output, "fusermount3: mount failed: Operation not permitted"
+    assert_includes output, "fuse-overlayfs: cannot mount: Operation not permitted"
   end
 end
