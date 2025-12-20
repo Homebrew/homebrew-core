@@ -1,8 +1,8 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.4/dovecot-2.4.0.tar.gz"
-  sha256 "e90e49f8c31b09a508249a4fee8605faa65fe320819bfcadaf2524126253d5ae"
+  url "https://dovecot.org/releases/2.4/dovecot-2.4.2.tar.gz"
+  sha256 "2cd62e4d22b9fc1c80bd38649739950f0dbda34fbc3e62624fb6842264e93c6e"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
 
   livecheck do
@@ -53,8 +53,12 @@ class Dovecot < Formula
   end
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.4/dovecot-pigeonhole-2.4.0.tar.gz"
-    sha256 "0ed08ae163ac39a9447200fbb42d7b3b05d35e91d99818dd0f4afd7ad1dbc753"
+    url "https://pigeonhole.dovecot.org/releases/2.4/dovecot-pigeonhole-2.4.2.tar.gz"
+    sha256 "c2f90cf2a0154f94842ce0d8cafc81f282d0f98dfc3b51c3b7c2385c53316f97"
+
+    livecheck do
+      formula :parent
+    end
   end
 
   # `uoff_t` and `plugins/var-expand-crypt` patches, upstream pr ref, https://github.com/dovecot/core/pull/232
