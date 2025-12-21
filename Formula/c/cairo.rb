@@ -31,15 +31,18 @@ class Cairo < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "libpng"
-  depends_on "libx11"
-  depends_on "libxcb"
-  depends_on "libxext"
-  depends_on "libxrender"
   depends_on "lzo"
   depends_on "pixman"
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "libx11"
+    depends_on "libxcb"
+    depends_on "libxext"
+    depends_on "libxrender"
+  end
+  
   on_macos do
     depends_on "gettext"
   end
@@ -51,11 +54,9 @@ class Cairo < Formula
       -Dfreetype=enabled
       -Dpng=enabled
       -Dglib=enabled
-      -Dxcb=enabled
-      -Dxlib=enabled
       -Dzlib=enabled
-      -Dglib=enabled
     ]
+    args << "-Dxcb=enabled -Dxlib=enabled" if OS.linux?
     args << "-Dquartz=enabled" if OS.mac?
 
     system "meson", "setup", "build", *args, *std_meson_args
