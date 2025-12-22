@@ -4,6 +4,7 @@ class ZLua < Formula
   url "https://github.com/skywind3000/z.lua/archive/refs/tags/1.8.24.tar.gz"
   sha256 "ed749f4cdc9ca4315a74dca0918b1e12d5961b9c16754907ef492c4ae0bfccd3"
   license "MIT"
+  revision 1
   head "https://github.com/skywind3000/z.lua.git", branch: "master"
 
   bottle do
@@ -11,6 +12,13 @@ class ZLua < Formula
   end
 
   depends_on "lua"
+
+  # Support Lua 5.5
+  # https://github.com/skywind3000/z.lua/pull/228
+  patch do
+    url "https://github.com/skywind3000/z.lua/commit/e1eb7a2104a258d575b0217009ad63e10fd2339b.patch?full_index=1"
+    sha256 "3da693f9937aa3aefb958ab4814705ec3db712b0b36b40a8d3c763c073dc8ee1"
+  end
 
   def install
     # Avoid using Cellar paths at runtime. This breaks when z.lua is upgraded.
