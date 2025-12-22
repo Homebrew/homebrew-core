@@ -8,7 +8,7 @@ class Tracebox < Formula
     "GPL-2.0-only",
     "BSD-3-Clause", # noinst/libcrafter
   ]
-  revision 3
+  revision 4
   head "https://github.com/tracebox/tracebox.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
