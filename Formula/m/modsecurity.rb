@@ -4,7 +4,7 @@ class Modsecurity < Formula
   url "https://github.com/owasp-modsecurity/ModSecurity/releases/download/v3.0.14/modsecurity-v3.0.14.tar.gz"
   sha256 "f7599057b35e67ab61764265daddf9ab03c35cee1e55527547afb073ce8f04e8"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "9bb41a2f71c67c4e99049408bbe318e1cf2c0b10e4e90fe992b3f79fb7055a69"
@@ -20,7 +20,7 @@ class Modsecurity < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libmaxminddb"
-  depends_on "lua"
+  depends_on "lua@5.4"
   depends_on "pcre2"
   depends_on "yajl"
 
@@ -36,6 +36,8 @@ class Modsecurity < Formula
   end
 
   def install
+    ENV.append_to_cflags "-I#{Formula["lua@5.4"].opt_include}"
+
     system "autoreconf", "--force", "--install", "--verbose"
 
     libxml2 = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["libxml2"].opt_prefix
