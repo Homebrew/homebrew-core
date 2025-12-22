@@ -1,8 +1,8 @@
 class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
-  url "https://www.lua.org/ftp/lua-5.4.8.tar.gz"
-  sha256 "4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae"
+  url "https://www.lua.org/ftp/lua-5.5.0.tar.gz"
+  sha256 "57ccc32bbbd005cab75bcc52444052535af691789dba2b9016d5c50640d68b3d"
   license "MIT"
 
   livecheck do
@@ -23,16 +23,12 @@ class Lua < Formula
 
   uses_from_macos "unzip" => :build
 
-  on_linux do
-    depends_on "readline"
-  end
-
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
   patch do
     on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/lua/lua-dylib.patch"
-      sha256 "a39e2ae1066f680e5c8bf1749fe09b0e33a0215c31972b133a73d43b00bf29dc"
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/fe0310477aef61a9cbe85ff78f10187359b4ecae/Patches/lua/lua-dylib.patch?full_index=1"
+      sha256 "27a20d9365d53005d24f82c29876024421dabdf42bc1c35cb129b37ba72ab5a4"
     end
 
     # Add shared library for linux. Equivalent to the mac patch above.
@@ -66,7 +62,7 @@ class Lua < Formula
     os = if OS.mac?
       "macosx"
     else
-      "linux-readline"
+      "linux"
     end
 
     system "make", os, "INSTALL_TOP=#{prefix}"
