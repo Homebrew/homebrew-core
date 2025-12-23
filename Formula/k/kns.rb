@@ -30,6 +30,6 @@ class Kns < Formula
 
   test do
     # Test that kns is installed and executable
-    assert_match "kns - Kubernetes Namespace/Context Switcher", shell_output("#{bin}/kns help", 0)
+    assert_match "kns - Kubernetes Namespace/Context Switcher", shell_output("#{bin}/kns help")
   end
 end
