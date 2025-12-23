@@ -1,8 +1,8 @@
 class RakudoStar < Formula
   desc "Rakudo compiler and commonly used packages"
   homepage "https://rakudo.org/"
-  url "https://github.com/rakudo/star/releases/download/2025.11/rakudo-star-2025.11.tar.gz"
-  sha256 "d013513cca2fd92c67e87d1cc67204d249d912cd8de29ed60773ce8a1bc2d627"
+  url "https://github.com/rakudo/star/releases/download/2025.12/rakudo-star-2025.12.tar.gz"
+  sha256 "4dbfa9b39a704b5a3526a335444e0bf9e5a12a8a390ef33f8753a2b2c3a031e8"
   license "Artistic-2.0"
 
   livecheck do
@@ -44,7 +44,9 @@ class RakudoStar < Formula
 
   skip_clean "share/perl6/vendor/short"
 
-  # Allow adding arguments via inreplace to unbundle libraries in MoarVM
+  # 1. Allow adding arguments via inreplace to unbundle libraries in MoarVM
+  # 2. Fix build with a system provided libuv
+  # PR Ref: https://github.com/MoarVM/MoarVM/pull/1981
   patch :DATA
 
   def install
@@ -137,3 +139,65 @@ __END__
  		&& make \
  		&& make install \
  		> "$logfile" \
+
+diff --git a/src/moarvm-2025.12/MoarVM-2025.12/src/io/procops.c b/src/moarvm-2025.12/MoarVM-2025.12/src/io/procops.c
+index de8dd90b41d7c36b306ddee714b4acfc50854640..71d04d20f7eb98ecd3342c34f534869b202faaa9 100644
+--- a/src/moarvm-2025.12/MoarVM-2025.12/src/io/procops.c
++++ b/src/moarvm-2025.12/MoarVM-2025.12/src/io/procops.c
+@@ -773,13 +773,17 @@ static MVMint64 get_pipe_fd(MVMThreadContext *tc, uv_pipe_t *pipe) {
+         return 0;
+ }
+ static void spawn_setup(MVMThreadContext *tc, uv_loop_t *loop, MVMObject *async_task, void *data) {
+-    MVMint64 spawn_result;
++    MVMint64 spawn_result = 0;
+     char *error_str = NULL;
+ 
+     /* Process info setup. */
+     uv_process_t *process = MVM_calloc(1, sizeof(uv_process_t));
++#ifdef MVM_HAS_LIBUV_PTY
+     uv_process_options2_t process_options = {0};
+     process_options.version = UV_PROCESS_OPTIONS_VERSION;
++#else
++    uv_process_options_t process_options = {0};
++#endif
+     uv_stdio_container_t process_stdio[3];
+ 
+ #ifdef MVM_DO_PTY_OURSELF
+@@ -804,13 +808,13 @@ static void spawn_setup(MVMThreadContext *tc, uv_loop_t *loop, MVMObject *async_
+         goto spawn_setup_error;
+ #endif
+ 
+-        process_options.pty_cols =
++        int cols =
+             MVM_repr_exists_key(tc, si->callbacks, tc->instance->str_consts.pty_cols)
+             ? MVM_repr_get_int(tc, MVM_repr_at_key_o(tc,
+                                                      si->callbacks,
+                                                      tc->instance->str_consts.pty_cols))
+             : 80;
+-        process_options.pty_rows =
++        int rows =
+             MVM_repr_exists_key(tc, si->callbacks, tc->instance->str_consts.pty_rows)
+             ? MVM_repr_get_int(tc, MVM_repr_at_key_o(tc,
+                                                      si->callbacks,
+@@ -818,6 +822,9 @@ static void spawn_setup(MVMThreadContext *tc, uv_loop_t *loop, MVMObject *async_
+             : 24;
+ 
+ #ifdef MVM_HAS_LIBUV_PTY
++
++        process_options.pty_cols = cols;
++        process_options.pty_rows = rows;
+         uv_pipe_t *pipe = MVM_malloc(sizeof(uv_pipe_t));
+         uv_pipe_init(loop, pipe, 0);
+         pipe->data = si;
+@@ -995,7 +1002,11 @@ static void spawn_setup(MVMThreadContext *tc, uv_loop_t *loop, MVMObject *async_
+ 
+     /* Attach data, spawn, report any error. */
+     process->data = si;
++#ifdef MVM_HAS_LIBUV_PTY
+     spawn_result  = uv_spawn2(loop, process, &process_options);
++#else
++    spawn_result  = uv_spawn(loop, process, &process_options);
++#endif
+ 
+ #ifdef MVM_DO_PTY_OURSELF
+     if (pty_mode)
