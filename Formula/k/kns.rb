@@ -6,7 +6,7 @@ class Kns < Formula
   license "MIT"
 
   depends_on "bash"
-  depends_on "kubectl" => :recommended
+  depends_on "kubernetes-cli"
 
   def install
     # Install main kns script
@@ -33,4 +33,3 @@ class Kns < Formula
     assert_match "kns - Kubernetes Namespace/Context Switcher", shell_output("#{bin}/kns help", 0)
   end
 end
-
