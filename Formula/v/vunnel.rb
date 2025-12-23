@@ -3,18 +3,18 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/08/67/95a9a2da687bb890926677645b33b43bc79bc1bfa59cc75721663227c574/vunnel-0.45.2.tar.gz"
-  sha256 "e28f2af815c8d25c7a9aa24e8b683171b6613b5ba83a4e7e024081fbc0290e93"
+  url "https://files.pythonhosted.org/packages/7e/57/93a93483da01bcb9415c36d85ff2cae10b6b444011a9b4ac358d59e0459e/vunnel-0.46.0.tar.gz"
+  sha256 "7176b57c7ab30a1e46c34d2fcdfc62b6d9fdd6df55977fef4e875d67c7915ecb"
   license "Apache-2.0"
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9193db6f20b4961e9c9f1f8e842a6cc2367f02abaf9e5a7a3092fe6cee2a5320"
-    sha256 cellar: :any,                 arm64_sequoia: "673218e8c85454036612f910431274021f7fb8ac92c17ef0918951d19b646554"
-    sha256 cellar: :any,                 arm64_sonoma:  "06618a7f1d95f11c6f182b33b7404050644f704b250a181459bbcd8d77383a02"
-    sha256 cellar: :any,                 sonoma:        "ede976617041044da00641eabd3cdd7bad750b7fef026b3597f39f35874fdd75"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "476f4ceab3648006df44dbd79df8145a38b5787a811128679ce6e29038be16ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b302ffcb9fb6cf41cae1e3dec1e1bc56668c0c07acbe57897d2039bc0f69a081"
+    sha256 cellar: :any,                 arm64_tahoe:   "8efd63fb0fec324ec892a5f3dd0cb2e5371399377be2631134e6b723a285b7ab"
+    sha256 cellar: :any,                 arm64_sequoia: "3ef820f7dfac7bc3a7cedfbc62e03428288285ce39d544167d0ea88973c74e5e"
+    sha256 cellar: :any,                 arm64_sonoma:  "5a39669c8edf73a79db6d85d268d163ba03af51d42728292b87274e848bbe862"
+    sha256 cellar: :any,                 sonoma:        "96d6b6435e3650d1a2acfb853eff57b8707109fdccd15f44087e685b7742a497"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "511a92993178c943476ff6350fea582e61af2cfe45d17a6b65bf2c505301c80e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a324670d1bacce6e658496fe653a72add55ef559faee5bea9de09ebaee487fb"
   end
 
   depends_on "rust" => :build
@@ -68,6 +68,11 @@ class Vunnel < Formula
     sha256 "9dc71659d3b853c3018cd7b2ec34d5d054370128e12b79ee655498cb339cc711"
   end
 
+  resource "greenlet" do
+    url "https://files.pythonhosted.org/packages/c7/e5/40dbda2736893e3e53d25838e0f19a2b417dfc122b9989c91918db30b5d3/greenlet-3.3.0.tar.gz"
+    sha256 "a82bb225a4e9e4d653dd2fb7b8b2d36e4fb25bc0165422a11e48b88e9e6f78fb"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
     sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
@@ -79,8 +84,8 @@ class Vunnel < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/76/66/650a33bd90f786193e4de4b3ad86ea60b53c89b669a5c7be931fac31cdb0/importlib_metadata-8.7.0.tar.gz"
-    sha256 "d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000"
+    url "https://files.pythonhosted.org/packages/f3/49/3b30cad09e7771a4982d9975a8cbf64f00d4a1ececb53297f1d9a7be1b10/importlib_metadata-8.7.1.tar.gz"
+    sha256 "49fef1ae6440c182052f407c8d34a68f72efc36db9ca90dc0113398f2fdde8bb"
   end
 
   resource "iniconfig" do

@@ -1,18 +1,18 @@
 class Tbls < Formula
   desc "CI-Friendly tool to document a database"
   homepage "https://github.com/k1LoW/tbls"
-  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.92.1.tar.gz"
-  sha256 "1ce3c19cad9d0d96ed6884828fa15af7d88ed0fa6d01bc462239d5e0e232a27d"
+  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.92.2.tar.gz"
+  sha256 "068f4eb86146c917f29372dbdcda42f6a59a56a70841f3aa48021cf49975accd"
   license "MIT"
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03fa77c8d038e867c1ab86ac5918998ffa52354153082a23f31b720a6f98098a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9acb31e432c6a690aed5ccb9d0b04c6e9eb784c40b142d9115e0c75b9bd3d2bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d0480cff7474dc0a8331d67d5f504afb4bf68fd753341ff9171eb5bbef52d3a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "62fb0d9dc913becb43c28efd6486f927d07f6550a5dbe4ac4e7a7536bbfd226c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f2c4324e57a6a7c215b51128400bf7c4f006fa62f4b64a35b724ad095be71db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b3eb254929428f12a7cea7999cbaa0f68eb6f9832b5dea7d548242f742d5670"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "df1f4d6c069c4b6583363adc9628d878b2ef3a87c9f9a17237574978ebc9ee90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95b010f2c90bb8b61de1eb6a804111522a46d7e04541f942c59fc9a6a84bcccd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f12b7ecbef7bc3505587998a76a281f1ea189284c866976210e6912d3083582"
+    sha256 cellar: :any_skip_relocation, sonoma:        "47aea81fbf2a041de54b98459021f7ede91c40652f1d807ef93f834dc7981c70"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5dbb4c6e74846928db706a88feab33735f194194abcf3ccc571510ee8993079"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fcde201c8043b9578fc7ba34945b9e5118c5c226bba2fc89c4059b9beaecf15"
   end
 
   depends_on "go" => :build

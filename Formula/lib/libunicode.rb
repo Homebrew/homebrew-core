@@ -1,18 +1,17 @@
 class Libunicode < Formula
   desc "Modern C++20 Unicode library"
   homepage "https://github.com/contour-terminal/libunicode"
-  url "https://github.com/contour-terminal/libunicode/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "0c217f8264000f1b8c36e78969cb9cf91ac97de937cc141ab78e6b1ad7f404ef"
+  url "https://github.com/contour-terminal/libunicode/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "7b653d8cb3c620cc80118184ccab9c02f7e9a4bf9d1e4b190dae2d5681a0bca4"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "ea5fcaea62d8df857de80e1283e9e2ad9c76b0ba39c0c5ac4f067ee596dd8268"
-    sha256 cellar: :any,                 arm64_sequoia: "b13740bd4f2da17cfd0671cacc40a0cc153c8965225a0e3333ab38b99f8bb48d"
-    sha256 cellar: :any,                 arm64_sonoma:  "d03f19ed3d3d4397531d61d943f1eff14fa14762a496a2df7cfb23d0464b3ae5"
-    sha256 cellar: :any,                 sonoma:        "b175e397353176dd09255afbb507fe39c57f51535edbb88209d481909abd46de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7870c39db0a6d6202c3a364be566608f2a235c1870291eefe0889bc8b50ac62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce22e0ecd71d651779c581de2301af8f86549af6125ce5fb05271968107d9c68"
+    sha256 cellar: :any,                 arm64_tahoe:   "3cfe9a200d475b8174c7a0c1298475d489cb5b22cf349940158ed5e98762800d"
+    sha256 cellar: :any,                 arm64_sequoia: "199133e52e16eda0ccefc0e56c65f1da3c3a5b576bcb43119f661779599f378d"
+    sha256 cellar: :any,                 arm64_sonoma:  "32840c0a9239c1591156ddc4aa349d9770b9490265b50d427a3588b2cd8bb7e8"
+    sha256 cellar: :any,                 sonoma:        "be2b2a44285d930b5403dc4477dbaebd57631adad0530a8a88c6c5b6e206851b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "067367069973c9b8daf39808818ea3ceb5b78fe06d25cb89368ae414c77b74cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a201de65e18aaa11df26e12693473d2c9d9d9ec00a45e8da20692cec99b7502"
   end
 
   depends_on "cmake" => :build
