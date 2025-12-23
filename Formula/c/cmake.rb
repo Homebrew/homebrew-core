@@ -35,6 +35,10 @@ class Cmake < Formula
 
   conflicts_with cask: "cmake-app"
 
+  # Add Lua 5.5 support
+  # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/11550
+  patch :DATA
+
   # The completions were removed because of problems with system bash
 
   # The `with-qt` GUI option was removed due to circular dependencies if
@@ -85,3 +89,18 @@ class Cmake < Formula
     refute_path_exists man
   end
 end
+
+__END__
+diff --git a/Modules/FindLua.cmake b/Modules/FindLua.cmake
+index 33fd8fde9f5e698471e3e5cc418529a2aaf89aec..35dc52f54c41dc1a23861bb0abe399c9d4d56ade 100644
+--- a/Modules/FindLua.cmake
++++ b/Modules/FindLua.cmake
+@@ -144,7 +144,7 @@ unset(_lua_append_versions)
+ 
+ # this is a function only to have all the variables inside go away automatically
+ function(_lua_get_versions)
+-    set(LUA_VERSIONS5 5.4 5.3 5.2 5.1 5.0)
++    set(LUA_VERSIONS5 5.5 5.4 5.3 5.2 5.1 5.0)
+ 
+     if (Lua_FIND_VERSION_EXACT)
+         if (Lua_FIND_VERSION_COUNT GREATER 1)
