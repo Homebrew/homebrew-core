@@ -21,9 +21,10 @@ class AutoEditor < Formula
   depends_on "ffmpeg"
   depends_on "lame"
   depends_on "libvpx"
-  depends_on "llama.cpp"
   depends_on "opus"
   depends_on "svt-av1"
+
+  # auto-editor can't use whisper features unless ffmpeg is built with --enable-whisper
   depends_on "whisper-cpp"
   depends_on "x264"
   depends_on "x265"
