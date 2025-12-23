@@ -1,4 +1,4 @@
-class Kns < Formula
+﻿class Kns < Formula
   desc "Kubernetes Namespace Switcher - switches k8s context and namespace by directory"
   homepage "https://github.com/nbu/kns"
   url "https://github.com/nbu/kns/archive/refs/tags/v1.0.0.tar.gz"
