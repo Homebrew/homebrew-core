@@ -1,5 +1,5 @@
 class Kns < Formula
-  desc "Kubernetes Context Switcher - switches k8s context based on directory"
+  desc "Kubernetes Namespace Switcher - switches k8s context and namespace by directory"
   homepage "https://github.com/nbu/kns"
   url "https://github.com/nbu/kns/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "5d8175900d4a26347ae1eff6347d24d935ac0b2f8e983fa7be428d6487e4f142"
