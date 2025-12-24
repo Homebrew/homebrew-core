@@ -1,8 +1,8 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-  url "https://skarnet.org/software/s6/s6-2.13.2.0.tar.gz"
-  sha256 "c5114b8042716bb70691406931acb0e2796d83b41cbfb5c8068dce7a02f99a45"
+  url "https://skarnet.org/software/s6/s6-2.14.0.0.tar.gz"
+  sha256 "586bf8474d852655b89f1144c3d95461a1cee77f016dae6e75a3328b8a2f5df6"
   license "ISC"
   head "git://git.skarnet.org/s6.git", branch: "main"
 
