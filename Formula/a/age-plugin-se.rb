@@ -1,8 +1,8 @@
 class AgePluginSe < Formula
   desc "Age plugin for Apple Secure Enclave"
   homepage "https://github.com/remko/age-plugin-se"
-  url "https://github.com/remko/age-plugin-se/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "52d9b9583783988fbe5e94bbe72089a870d128a2eba197fc09a95c13926fb27a"
+  url "https://github.com/remko/age-plugin-se/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "981be3889ba91539e50bc33d77e56b46bc6b8ef4de9dc3cf31f489cb6042587c"
   license "MIT"
   head "https://github.com/remko/age-plugin-se.git", branch: "main"
 
@@ -16,7 +16,7 @@ class AgePluginSe < Formula
   end
 
   depends_on "scdoc" => :build
-  depends_on xcode: ["14.0", :build]
+  depends_on xcode: ["26.0", :build]
   depends_on "age" => :test
   depends_on :macos
   depends_on macos: :ventura
