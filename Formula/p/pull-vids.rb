@@ -50,3 +50,4 @@ class PullVids < Formula
     assert_match "Supports 1000+ sites", help_output
   end
 end
+
