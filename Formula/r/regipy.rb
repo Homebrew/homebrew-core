@@ -3,8 +3,8 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/9a/15/27bdafd21f4cb822ac0520487bea7b822a0f299a0f2a3083c855d00653e7/regipy-5.2.0.tar.gz"
-  sha256 "cf1e977625e9dcf6fe4facb0cffa21ce6300bf585dee6d451e5f03b26fc61336"
+  url "https://files.pythonhosted.org/packages/b3/f9/8ed95e3b70edb61cd94a9eeef7f021ff0ba8be0d2f8a2573b5b4a79ccbe4/regipy-6.0.0.tar.gz"
+  sha256 "da470c9798ee828e6cfe85662656c0a9b1fa49736352698bdc3d9993d759acea"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
@@ -16,11 +16,6 @@ class Regipy < Formula
   depends_on "python@3.14"
 
   pypi_packages package_name: "regipy[cli]"
-
-  resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
-  end
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
