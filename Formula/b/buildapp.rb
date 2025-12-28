@@ -4,7 +4,7 @@ class Buildapp < Formula
   url "https://github.com/xach/buildapp/archive/refs/tags/release-1.5.6.tar.gz"
   sha256 "d77fb6c151605da660b909af058206f7fe7d9faf972e2c30876d42cb03d6a3ed"
   license "BSD-2-Clause"
-  revision 3
+  revision 4
   head "https://github.com/xach/buildapp.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
