@@ -1,10 +1,9 @@
 class Dug < Formula
   desc "Global DNS propagation checker that gives pretty output"
   homepage "https://dug.unfrl.com"
-  url "https://github.com/unfrl/dug/archive/refs/tags/0.0.94.tar.gz"
-  sha256 "f97952be49d93ed66f1cc7e40bf7004928e6573077839a18f5be371c80e2c16b"
+  url "https://github.com/unfrl/dug/archive/refs/tags/0.0.97.tar.gz"
+  sha256 "c8305a198d7f43fbe9a900cab9097160c8ecc662dfaa36e3fddcfa078e7d9626"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
