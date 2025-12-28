@@ -28,9 +28,6 @@ class Asnmap < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/asnmap -version 2>&1")
 
-    # Skip linux CI test as test not working there
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     # need API key for IP lookup test, thus just run empty binary test
     assert_match "no input defined", shell_output("#{bin}/asnmap 2>&1", 1)
   end
