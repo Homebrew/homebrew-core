@@ -30,8 +30,6 @@ class Gurk < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/gurk --version")
 
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     begin
       output_log = testpath/"output.log"
       pid = spawn bin/"gurk", "--relink", [:out, :err] => output_log.to_s
