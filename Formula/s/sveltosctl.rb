@@ -1,9 +1,9 @@
 class Sveltosctl < Formula
   desc "Sveltos command-line interface"
   homepage "https://projectsveltos.github.io/sveltos/latest/getting_started/sveltosctl/sveltosctl/"
-  url "https://github.com/projectsveltos/sveltosctl.git",
-      tag: "v1.3.1",
-      revision: "56022d6c1384d4e901c5cd64fbf510144735ce7f"
+  url "https://github.com/projectsveltos/sveltosctl/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "61c214e59c5de2ced1247d10e938b3fc12904e78ff31bd20369854ce9fde0dbb"
+
   license "Apache-2.0"
 
   livecheck do
