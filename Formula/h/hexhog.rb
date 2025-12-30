@@ -24,22 +24,7 @@ class Hexhog < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/hexhog --version")
 
-    begin
-      output_log = testpath/"output.log"
-
-      (testpath/"testfile").write("Hello, Hexhog!")
-      if OS.mac?
-        pid = spawn bin/"hexhog", testpath/"testfile", [:out, :err] => output_log.to_s
-      else
-        require "pty"
-        r, _w, pid = PTY.spawn("#{bin}/hexhog #{testpath}/testfile > #{output_log}")
-        r.winsize = [80, 130]
-      end
-      sleep 1
-      assert_match "hexhog", output_log.read
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
-    end
+    (testpath/"testfile").write("Hello, Hexhog!")
+    assert_match "hexhog", pty_spawn_output("#{bin}/hexhog #{testpath}/testfile", timeout: 1)
   end
 end
