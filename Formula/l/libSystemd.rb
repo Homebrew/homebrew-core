@@ -1,25 +1,24 @@
 class Libsystemd < Formula
   include Language::Python::Virtualenv
-  
-  desc "Port of systemd libsystemd components to macOS"
+
+  desc "Port of libsystemd components to macOS"
   homepage "https://github.com/open-sources-port/systemd-port"
   url "https://github.com/open-sources-port/systemd-port/archive/refs/tags/v0.1.1.tar.gz"
   sha256 "be469667d6fa1a7f6ea48034b3eeedd4fa877d3aed8146dde8fa9dc3978d1fcd"
   license "LGPL-2.1-or-later"
 
-  depends_on :macos
-
-  depends_on "coreutils"
-  depends_on "libgcrypt"
-  depends_on "libxcrypt"
-  depends_on "ccrypt"
-  depends_on "gettext"
-  depends_on "util-linux" # provides libmount
+  depends_on "jinja2-cli" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.12" => :build
-  depends_on "jinja2-cli" => :build
+  depends_on "ccrypt"
+  depends_on "coreutils"
+  depends_on "gettext"
+  depends_on "libgcrypt"
+  depends_on "libxcrypt"
+  depends_on :macos
+  depends_on "util-linux"
 
   def install
     # Use Homebrew compiler toolchain
