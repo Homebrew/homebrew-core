@@ -29,18 +29,7 @@ class Hyx < Formula
   end
 
   test do
-    require "pty"
-    PTY.spawn(bin/"hyx", "test") do |r, w, pid|
-      r.winsize = [80, 43]
-      w.write "62726577:wq\n"
-      r.read
-    rescue Errno::EIO
-      # GNU/Linux raises EIO when read is done on closed pty
-    ensure
-      r.close
-      w.close
-      Process.wait(pid)
-    end
+    pty_spawn_output("#{bin}/hyx test", stdin_data: "62726577:wq\n")
     assert_equal "brew", (testpath/"test").read
   end
 end
