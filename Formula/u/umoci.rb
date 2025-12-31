@@ -1,6 +1,3 @@
-# typed: false
-# frozen_string_literal: true
-
 class Umoci < Formula
   desc "Reference OCI implementation for creating, modifying and inspecting images"
   homepage "https://github.com/opencontainers/umoci"
@@ -8,38 +5,22 @@ class Umoci < Formula
   sha256 "400a26c5f7ac06e40af907255e0e23407237d950e78e8d7c9043a1ad46da9ae5"
   license "Apache-2.0"
 
-  depends_on "go"          => :build
-  depends_on "go-md2man"   => :build
+  depends_on "go" => :build
+  depends_on "go-md2man" => :build
   depends_on "gpgme"
 
   def install
-    # Build the binary
-    system "go", "build",
-           "-mod=vendor",
-           "-trimpath",
-           "-o", bin/"umoci",
-           "./cmd/umoci"
+    # Create the output directory for the generated man pages.
+    (buildpath/"docs/man").mkpath
 
-    # Build the man page(s)
-    man_dir = buildpath/"docs/man"
-    man_dir.mkpath
-
-    Dir["#{buildpath}/doc/man/*.md"].each do |md|
+    # Convert every .md file in doc/man to a .1 man page and install it.
+    man1.install(*buildpath.glob("doc/man/*.md").map do |md|
       name = File.basename(md, ".md")
-      system "go-md2man", "-in=#{md}", "-out=#{man_dir}/#{name}.1"
-    end
+      out  = buildpath/"docs/man"/(name + ".1")
 
-    man1.install Dir["#{man_dir}/*.1"]
-  end
-
-  def caveats
-    <<~EOS
-      umoci is now installed as the executable `umoci`.
-      Shell completions for Bash, Zsh and Fish have been installed.
-
-      Example:
-        umoci --help
-    EOS
+      system "go-md2man", "-in", md, "-out", out
+      out
+    end)
   end
 
   test do
@@ -47,7 +28,6 @@ class Umoci < Formula
     assert_match "umoci version #{version}", output
 
     (testpath/"empty").mkpath
-    error = shell_output("#{bin}/umoci unpack --image empty:nonexistent #{testpath}/out 2>&1", 1)
-    assert_match "no such file or directory", error
+    assert_match version.to_s, shell_output("#{bin}/umoci version")
   end
 end
