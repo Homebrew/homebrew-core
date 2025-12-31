@@ -25,14 +25,19 @@ class Astroterm < Formula
   uses_from_macos "ncurses"
 
   resource "bsc5" do
-    url "http://tdc-www.harvard.edu/catalogs/BSC5", using: :nounzip
+    url "https://web.archive.org/web/20231007085824if_/http://tdc-www.harvard.edu/catalogs/BSC5", using: :nounzip
+    version "20231007085824"
     sha256 "e471d02eaf4eecb61c12f879a1cb6432ba9d7b68a9a8c5654a1eb42a0c8cc340"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/da-luce/astroterm/refs/tags/v#{LATEST_VERSION}/.github/workflows/ci.yml"
+      regex(%r{/(\d+)if_/http://tdc-www.harvard.edu/catalogs/BSC5}i)
+    end
   end
 
   def install
     resource("bsc5").stage do
-      (buildpath/"data").install "BSC5"
-      mv buildpath/"data/BSC5", buildpath/"data/bsc5" if OS.linux?
+      (buildpath/"data").install Dir["*"].first => "bsc5"
     end
 
     system "meson", "setup", "build", *std_meson_args
