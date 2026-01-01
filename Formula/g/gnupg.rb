@@ -85,23 +85,34 @@ class Gnupg < Formula
   end
 
   test do
-    (testpath/"batch.gpg").write <<~GPG
-      Key-Type: RSA
-      Key-Length: 2048
-      Subkey-Type: RSA
-      Subkey-Length: 2048
-      Name-Real: Testing
-      Name-Email: testing@foo.bar
-      Expire-Date: 1d
-      %no-protection
-      %commit
-    GPG
+    gpg_flags = "--batch", "--passphrase", ""
+    user_id = "test@test"
 
     begin
-      system bin/"gpg", "--batch", "--gen-key", "batch.gpg"
-      (testpath/"test.txt").write "Hello World!"
-      system bin/"gpg", "--detach-sign", "test.txt"
-      system bin/"gpg", "--verify", "test.txt.sig"
+      # pinentry is executable, which provides key passphrase entry:
+      #   gpg --quick-generate-key --batch --pinentry ask pinentry@test
+      system "test", "-x", "#{Formula["pinentry"].opt_bin}/pinentry"
+
+      # readline lib exists
+      libreadline_ext = OS.mac? ? "dylib" : "so"
+      system "test", "-f", "#{Formula["readline"].opt_lib}/libreadline.#{libreadline_ext}"
+
+      # cert,sign primary key is created with post-quantum computing (PQC) algo
+      system bin/"gpg", *gpg_flags, "--quick-gen-key", user_id, "pqc", "cert,sign", "never"
+
+      # get fingerprint of primary key
+      fpr = `#{bin}/gpg --list-keys --with-colons #{user_id} | grep fpr | awk -F: '{print \$10}'`.chomp
+
+      # PQC encryption key is added
+      system bin/"gpg", *gpg_flags, "--quick-add-key", fpr, "pqc", "encr", "never"
+
+      # file is encrypted and signed
+      file = "test.txt"
+      (testpath/file).write "test content"
+      system bin/"gpg", *gpg_flags, "--encrypt", "--sign", "--recipient", user_id, file
+
+      # file is verified & decrypted
+      system bin/"gpg", *gpg_flags, "--decrypt", "#{file}.gpg"
     ensure
       system bin/"gpgconf", "--kill", "all"
     end
