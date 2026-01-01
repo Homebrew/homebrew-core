@@ -1,11 +1,10 @@
 class Icecast < Formula
   desc "Streaming MP3 audio server"
   homepage "https://icecast.org/"
-  url "https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.4.4.tar.gz"
-  mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/icecast/icecast-2.4.4.tar.gz"
-  sha256 "49b5979f9f614140b6a38046154203ee28218d8fc549888596a683ad604e4d44"
+  url "https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.5.0.tar.gz"
+  mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/icecast/icecast-2.5.0.tar.gz"
+  sha256 "d9aa07c7429aec19d950ff6fd425c371f77158cd34ff220fc191b2c186c67c7a"
   license "GPL-2.0-only"
-  revision 3
 
   # Upstream has used a 999 patch version to presumably indicate an unstable
   # version. We've seen this in other projects that use a 90+ patch to indicate
