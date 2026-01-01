@@ -79,7 +79,9 @@ class Gnupg < Formula
 
   def post_install
     (var/"run").mkpath
-    quiet_system "killall", "gpg-agent"
+
+    # avoid conflicts with daemons started by other installed gnupg versions
+    quiet_system bin/"gpgconf", "--kill", "all"
   end
 
   test do
@@ -101,7 +103,7 @@ class Gnupg < Formula
       system bin/"gpg", "--detach-sign", "test.txt"
       system bin/"gpg", "--verify", "test.txt.sig"
     ensure
-      system bin/"gpgconf", "--kill", "gpg-agent"
+      system bin/"gpgconf", "--kill", "all"
     end
   end
 end
