@@ -7,10 +7,10 @@ class Basefwx < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@3"
-  depends_on "zlib"
   depends_on "ffmpeg"
+  depends_on "openssl@3"
   depends_on "xz"
+  depends_on "zlib"
 
   def install
     args = %W[
