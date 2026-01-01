@@ -24,24 +24,25 @@ class Gnupg < Formula
     sha256 x86_64_linux:  "d827c95a23f01c17c582082ec7b4d470ab4af3f44e95d6ffcdf1a076f3c62a35"
   end
 
-  depends_on "pkgconf" => :build
-  depends_on "gnutls"
-  depends_on "libassuan"
-  depends_on "libgcrypt"
-  depends_on "libgpg-error"
-  depends_on "libksba"
-  depends_on "libusb"
-  depends_on "npth"
-  depends_on "pinentry"
-  depends_on "readline"
-
-  uses_from_macos "bzip2"
-  uses_from_macos "openldap"
-  uses_from_macos "sqlite"
-  uses_from_macos "zlib"
+  depends_on "pkgconf" => :build    # enables: Keyboxd, TOFU support
+  depends_on "gnutls"               # enables: Dirmngr, LDAP support, TLS support, Tor support (complete)
+  depends_on "libassuan"            # required
+  depends_on "libgcrypt"            # required
+  depends_on "libgpg-error"         # required
+  depends_on "libksba"              # required
+  depends_on "libusb"               # enables: Smartcard (complete)
+  depends_on "npth"                 # required
+  depends_on "pinentry"             # ensures key passphrase entry
+  depends_on "readline"             # enables: Readline support
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "bzip2"
+    depends_on "sqlite"
+    depends_on "zlib"
   end
 
   conflicts_with cask: "gpg-suite"
