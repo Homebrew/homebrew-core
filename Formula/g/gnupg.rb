@@ -1,16 +1,19 @@
 class Gnupg < Formula
   desc "GNU Privacy Guard (OpenPGP)"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.9.tar.bz2"
-  sha256 "dd17ab2e9a04fd79d39d853f599cbc852062ddb9ab52a4ddeb4176fd8b302964"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.5.16.tar.bz2"
+  sha256 "05144040fedb828ced2a6bafa2c4a0479ee4cceacf3b6d68ccc75b175ac13b7e"
   license "GPL-3.0-or-later"
 
   # GnuPG appears to indicate stable releases with an even-numbered minor
   # (https://gnupg.org/download/#end-of-life).
-  livecheck do
-    url "https://gnupg.org/ftp/gcrypt/gnupg/"
-    regex(/href=.*?gnupg[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
-  end
+  #
+  # 2025-12-30 — gnupg 2.5.16+ is officially declared stable:
+  #   https://lists.gnupg.org/pipermail/gnupg-announce/2025q4/000500.html
+  # livecheck do
+  #   url "https://gnupg.org/ftp/gcrypt/gnupg/"
+  #   regex(/href=.*?gnupg[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  # end
 
   bottle do
     sha256 arm64_tahoe:   "8790cc919901b54d98374e720e1cfe11bd736349ed3b257022877cbbf28b7936"
