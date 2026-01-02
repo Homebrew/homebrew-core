@@ -58,6 +58,7 @@ class Ollama < Formula
     EOS
   end
 
+
   service do
     run [opt_bin/"ollama", "serve"]
     keep_alive true
