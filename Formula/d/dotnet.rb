@@ -7,12 +7,12 @@ class Dotnet < Formula
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.112.tar.gz"
-    sha256 "6b0d297661f16ad272212f491516f9932a93eab1c68af622b94190a566eb4d6f"
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.101.tar.gz"
+    sha256 "cac1181919374d061ff73e7e58cc9f7a5480acb0c8dc2e309c5bd844217f7962"
 
     resource "release.json" do
-      url "https://github.com/dotnet/dotnet/releases/download/v9.0.112/release.json"
-      sha256 "420355ac27b4756ad45c497c42361fbff02921fa78718ee36dcf6e2632259786"
+      url "https://github.com/dotnet/dotnet/releases/download/v10.0.101/release.json"
+      sha256 "9c27aa3643fa1562356bb8c4ab0a94fa22f7d2d23bdc546ecf61ed089cb4ffa1"
 
       livecheck do
         formula :parent
@@ -40,6 +40,7 @@ class Dotnet < Formula
   uses_from_macos "zlib"
 
   on_macos do
+    depends_on "bash" => :build
     depends_on "grep" => :build # grep: invalid option -- P
   end
 
@@ -52,13 +53,6 @@ class Dotnet < Formula
 
       fails_with :gcc do
         cause "Illegal instruction when running crossgen2"
-      end
-
-      # Backport fix for Clang 21
-      patch do
-        url "https://github.com/dotnet/runtime/commit/d4ff34564bcaf4ec5a02ecdca17ea63e5481cc42.patch?full_index=1"
-        sha256 "6b2485ca234b6dbab8ae5e2e5007c8e8d28130d14213cd5c5546cdefc27d8373"
-        directory "src/runtime"
       end
     end
   end
@@ -73,6 +67,26 @@ class Dotnet < Formula
     ENV["CLR_CC"] = which(ENV.cc)
     ENV["CLR_CXX"] = which(ENV.cxx)
 
+    # Fixes build error where member names shadow type names
+    # Error: declaration of '...' changes meaning of '...'
+    inreplace "src/runtime/src/coreclr/jit/gentree.h" do |s|
+      s.gsub! "    ExecutionContextHandling    ExecutionContextHandling",
+              "    ::ExecutionContextHandling    ExecutionContextHandling"
+      s.gsub! "= ExecutionContextHandling::None;",
+              "= ::ExecutionContextHandling::None;"
+
+      s.gsub! "    ContinuationContextHandling ContinuationContextHandling",
+              "    ::ContinuationContextHandling ContinuationContextHandling"
+      s.gsub! "= ContinuationContextHandling::None;",
+              "= ::ContinuationContextHandling::None;"
+    end
+
+    # Work around https://github.com/dotnet/dotnet/issues/4037 using the last
+    # valid version (2025-12-31 => 61231). Remove when upstream issue is fixed.
+    f = "src/source-build-reference-packages/src/externalPackages/src" \
+        "/azure-activedirectory-identitymodel-extensions-for-dotnet/build/common.props"
+    inreplace f, '.$([System.DateTime]::Now.AddYears(-2019).Year)$([System.DateTime]::Now.ToString("MMdd"))', ".61231"
+
     if OS.mac?
       # Need GNU grep (Perl regexp support) to use release manifest rather than git repo
       ENV.prepend_path "PATH", Formula["grep"].libexec/"gnubin"
@@ -80,19 +94,21 @@ class Dotnet < Formula
       # Avoid mixing CLT and Xcode.app when building CoreCLR component which can
       # cause undefined symbols, e.g. __swift_FORCE_LOAD_$_swift_Builtin_float
       ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
+
+      # Skip installer build on macOS - prevents CreatePkg target errors
+      # See: https://github.com/dotnet/source-build/issues/5286
+      inreplace "src/runtime/Directory.Build.props" do |s|
+        s.gsub! "</Project>",
+                "<PropertyGroup>\n    <SkipInstallerBuild>true</SkipInstallerBuild>\n  </PropertyGroup>\n</Project>"
+      end
+      inreplace "src/aspnetcore/Directory.Build.props" do |s|
+        s.gsub! "</Project>",
+                "<PropertyGroup>\n    <SkipInstallerBuild>true</SkipInstallerBuild>\n  </PropertyGroup>\n</Project>"
+      end
     else
       icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
       ENV.append_path "LD_LIBRARY_PATH", icu4c_dep.to_formula.opt_lib
-
-      # Work around build script getting stuck when running shutdown command on Linux
-      # TODO: Try removing in the next release
-      # Ref: https://github.com/dotnet/source-build/discussions/3105#discussioncomment-4373142
-      inreplace "build.sh", '"$CLI_ROOT/dotnet" build-server shutdown', ""
-      inreplace "repo-projects/Directory.Build.targets",
-                '"$(DotnetTool) build-server shutdown --vbcscompiler"',
-                '"true"'
     end
-
     args = ["--clean-while-building", "--source-build", "--with-system-libs", "brotli+libunwind+rapidjson+zlib"]
     if build.stable?
       args += ["--release-manifest", "release.json"]
@@ -101,12 +117,7 @@ class Dotnet < Formula
     end
 
     system "./prep-source-build.sh"
-    # We unset "CI" environment variable to work around aspire build failure
-    # error MSB4057: The target "GitInfo" does not exist in the project.
-    # Ref: https://github.com/Homebrew/homebrew-core/pull/154584#issuecomment-1815575483
-    with_env(CI: nil) do
-      system "./build.sh", *args
-    end
+    system "./build.sh", *args
 
     libexec.mkpath
     tarball = buildpath.glob("artifacts/*/Release/dotnet-sdk-*.tar.gz").first
