@@ -5,16 +5,6 @@ class Gnupg < Formula
   sha256 "05144040fedb828ced2a6bafa2c4a0479ee4cceacf3b6d68ccc75b175ac13b7e"
   license "GPL-3.0-or-later"
 
-  # GnuPG appears to indicate stable releases with an even-numbered minor
-  # (https://gnupg.org/download/#end-of-life).
-  #
-  # 2025-12-30 — gnupg 2.5.16+ is officially declared stable:
-  #   https://lists.gnupg.org/pipermail/gnupg-announce/2025q4/000500.html
-  # livecheck do
-  #   url "https://gnupg.org/ftp/gcrypt/gnupg/"
-  #   regex(/href=.*?gnupg[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
-  # end
-
   bottle do
     sha256 arm64_tahoe:   "8790cc919901b54d98374e720e1cfe11bd736349ed3b257022877cbbf28b7936"
     sha256 arm64_sequoia: "204bfd8654292c46f1d352443d0a63e1d96a666b20cf12540b2259a4a2718062"
@@ -24,16 +14,16 @@ class Gnupg < Formula
     sha256 x86_64_linux:  "d827c95a23f01c17c582082ec7b4d470ab4af3f44e95d6ffcdf1a076f3c62a35"
   end
 
-  depends_on "pkgconf" => :build    # enables: Keyboxd, TOFU support
-  depends_on "gnutls"               # enables: Dirmngr, LDAP support, TLS support, Tor support (complete)
-  depends_on "libassuan"            # required
-  depends_on "libgcrypt"            # required
-  depends_on "libgpg-error"         # required
-  depends_on "libksba"              # required
-  depends_on "libusb"               # enables: Smartcard (complete)
-  depends_on "npth"                 # required
-  depends_on "pinentry"             # ensures key passphrase entry
-  depends_on "readline"             # enables: Readline support
+  depends_on "pkgconf" => :build
+  depends_on "gnutls"
+  depends_on "libassuan"
+  depends_on "libgcrypt"
+  depends_on "libgpg-error"
+  depends_on "libksba"
+  depends_on "libusb"
+  depends_on "npth"
+  depends_on "pinentry"
+  depends_on "readline"
 
   on_macos do
     depends_on "gettext"
@@ -79,8 +69,6 @@ class Gnupg < Formula
 
   def post_install
     (var/"run").mkpath
-
-    # avoid conflicts with daemons started by other installed gnupg versions
     quiet_system bin/"gpgconf", "--kill", "all"
   end
 
@@ -89,29 +77,15 @@ class Gnupg < Formula
     user_id = "test@test"
 
     begin
-      # pinentry is executable, which provides key passphrase entry:
-      #   gpg --quick-generate-key --batch --pinentry ask pinentry@test
       system "test", "-x", "#{Formula["pinentry"].opt_bin}/pinentry"
-
-      # readline lib exists
       libreadline_ext = OS.mac? ? "dylib" : "so"
       system "test", "-f", "#{Formula["readline"].opt_lib}/libreadline.#{libreadline_ext}"
-
-      # cert,sign primary key is created with post-quantum computing (PQC) algo
       system bin/"gpg", *gpg_flags, "--quick-gen-key", user_id, "pqc", "cert,sign", "never"
-
-      # get fingerprint of primary key
       fpr = `#{bin}/gpg --list-keys --with-colons #{user_id} | grep fpr | awk -F: '{print \$10}'`.chomp
-
-      # PQC encryption key is added
       system bin/"gpg", *gpg_flags, "--quick-add-key", fpr, "pqc", "encr", "never"
-
-      # file is encrypted and signed
       file = "test.txt"
       (testpath/file).write "test content"
       system bin/"gpg", *gpg_flags, "--encrypt", "--sign", "--recipient", user_id, file
-
-      # file is verified & decrypted
       system bin/"gpg", *gpg_flags, "--decrypt", "#{file}.gpg"
     ensure
       system bin/"gpgconf", "--kill", "all"
