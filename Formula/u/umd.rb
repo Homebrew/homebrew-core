@@ -11,7 +11,7 @@ class Umd < Formula
   license "Apache-2.0"
   head "https://github.com/NK2552003/ULTIMATE-MEDIA-DOWNLOADER.git", branch: "main"
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build # curl-cffi wheels sometimes build from source
   depends_on "ffmpeg"
   depends_on "freetype"
