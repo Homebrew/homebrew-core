@@ -19,7 +19,6 @@ class Basefwx < Formula
       -DBASEFWX_REQUIRE_ARGON2=OFF
       -DBASEFWX_REQUIRE_OQS=OFF
       -DBASEFWX_REQUIRE_LZMA=ON
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
     ]
 
     system "cmake", "-S", "cpp", "-B", "build", *args
