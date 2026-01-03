@@ -21,6 +21,35 @@ class Kanata < Formula
     system "cargo", "install", *std_cargo_args
   end
 
+  def caveats
+    <<~EOS
+      Post Install Instructions:
+      Please see instructions for MacOS at https://github.com/jtroo/kanata/releases
+
+      1. Karabiner Driver
+      This formula requires a specific version of the Karabiner driver to be installed.
+
+      2. Permissions:
+      This formula requires Accessibility and Input Monitoring permissions to function correctly.
+      After installing, please grant these permissions in System Settings.
+
+       Drag and drop the kanata binary: #{opt_bin}/kanata
+       -> Into System Settings -> Privacy & Security -> Accessibility
+      and
+       -> System Settings -> Privacy & Security -> Input Monitoring
+    EOS
+  end
+
+  service do
+    require_root true
+    run [opt_bin/"kanata", "--no-wait"]
+    keep_alive successful_exit: true
+    environment_variables PATH: std_service_path_env
+    error_log_path var/"log/kanata.log"
+    log_path var/"log/kanata.log"
+    working_dir Dir.home
+  end
+
   test do
     (testpath/"kanata.kbd").write <<~LISP
       (defsrc
