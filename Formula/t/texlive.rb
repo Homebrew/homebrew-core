@@ -8,7 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2025/texlive-20250308-source.tar.xz"
   sha256 "fffdb1a3d143c177a4398a2229a40d6a88f18098e5f6dcfd57648c9f2417490f"
   license :cannot_represent
-  revision 2
+  revision 3
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do

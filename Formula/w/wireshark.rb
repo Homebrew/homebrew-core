@@ -5,6 +5,7 @@ class Wireshark < Formula
   mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.2.tar.xz"
   sha256 "e218e3b3899e5d6e35a5fe95eeeabead587ed084cbf5fc330ac827f9a3137de8"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
   # Upstream indicates stable releases with an even-numbered minor (see:

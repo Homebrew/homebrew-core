@@ -4,6 +4,7 @@ class Gnuplot < Formula
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.4/gnuplot-6.0.4.tar.gz"
   sha256 "458d94769625e73d5f6232500f49cbadcb2b183380d43d2266a0f9701aeb9c5b"
   license "gnuplot"
+  revision 1
 
   livecheck do
     url :stable

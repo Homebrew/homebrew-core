@@ -5,6 +5,7 @@ class Rpm < Formula
     "GPL-2.0-only",
     "LGPL-2.0-or-later", # rpm-sequoia
   ]
+  revision 1
   version_scheme 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
 
@@ -44,7 +45,7 @@ class Rpm < Formula
   depends_on "gmp"
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "lua"
+  depends_on "lua@5.4"
   # See https://github.com/rpm-software-management/rpm/issues/2222 for details.
   depends_on macos: :ventura
   depends_on "nettle" # for rpm-sequoia

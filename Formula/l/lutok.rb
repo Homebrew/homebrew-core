@@ -4,6 +4,7 @@ class Lutok < Formula
   url "https://github.com/freebsd/lutok/releases/download/lutok-0.6.2/lutok-0.6.2.tar.gz"
   sha256 "1ef51f3741d28e27b09dfaee61ab432966cff56f50940eca1cbacffc11baa2ad"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/freebsd/lutok.git", branch: "master"
 
   livecheck do

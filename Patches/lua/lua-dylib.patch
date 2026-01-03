@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index fed75b3..66691ea 100644
+index 388fa17..5af46e3 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -12,9 +12,9 @@ PLAT= guess
@@ -14,7 +14,7 @@ index fed75b3..66691ea 100644
  INSTALL_LMOD= $(INSTALL_TOP)/share/lua/$V
  INSTALL_CMOD= $(INSTALL_TOP)/lib/lua/$V
 
-@@ -41,7 +41,7 @@ PLATS= guess aix bsd c89 freebsd generic linux linux-readline macosx mingw posix
+@@ -41,7 +41,7 @@ PLATS= guess aix bsd c89 freebsd generic ios linux macosx mingw posix solaris
  # What to install.
  TO_BIN= lua luac
  TO_INC= lua.h luaconf.h lualib.h lauxlib.h lua.hpp
@@ -23,7 +23,7 @@ index fed75b3..66691ea 100644
  TO_MAN= lua.1 luac.1
 
  # Lua version and release.
-@@ -52,7 +52,7 @@ R= $V.3
+@@ -52,7 +52,7 @@ R= $V.0
  all:	$(PLAT)
 
  $(PLATS) help test clean:
@@ -42,11 +42,11 @@ index fed75b3..66691ea 100644
  uninstall:
  	cd src && cd $(INSTALL_BIN) && $(RM) $(TO_BIN)
 diff --git a/src/Makefile b/src/Makefile
-index f78c0b8..7f3faf5 100644
+index acf33e0..ed795a0 100644
 --- a/src/Makefile
 +++ b/src/Makefile
 @@ -33,6 +33,7 @@ CMCFLAGS=
- PLATS= guess aix bsd c89 freebsd generic linux linux-readline macosx mingw posix solaris
+ PLATS= guess aix bsd c89 freebsd generic ios linux macosx mingw posix solaris
 
  LUA_A=	liblua.a
 +LUA_DYLIB= liblua.dylib
@@ -64,32 +64,23 @@ index f78c0b8..7f3faf5 100644
 
  # Targets start here.
  default: $(PLAT)
-@@ -60,11 +61,15 @@ $(LUA_A): $(BASE_O)
+@@ -60,6 +61,10 @@ $(LUA_A): $(BASE_O)
  	$(AR) $@ $(BASE_O)
  	$(RANLIB) $@
 
--$(LUA_T): $(LUA_O) $(LUA_A)
--	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
 +$(LUA_DYLIB): $(BASE_O)
 +	$(CC) -o $@ -dynamiclib -install_name @OPT_LIB@/liblua.dylib \
 +		-compatibility_version $(V) -current_version $(R) $^
-
--$(LUAC_T): $(LUAC_O) $(LUA_A)
--	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)
-+$(LUA_T): $(LUA_O) $(LUA_DYLIB)
-+	$(CC) -fno-common -o $@ $(LDFLAGS) $(LUA_O) $(LUA_DYLIB) -L. -llua $(LIBS)
 +
-+$(LUAC_T): $(LUAC_O) $(LUA_DYLIB)
-+	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_DYLIB) $(LIBS)
+ $(LUA_T): $(LUA_O) $(LUA_A)
+	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
 
- test:
- 	./$(LUA_T) -v
-@@ -126,7 +131,7 @@ linux-readline:
- 	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_LINUX -DLUA_USE_READLINE" SYSLIBS="-Wl,-E -ldl -lreadline"
+@@ -124,7 +129,7 @@ Linux linux:
+	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_LINUX" SYSLIBS="-Wl,-E -ldl"
 
  Darwin macos macosx:
 -	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX -DLUA_USE_READLINE" SYSLIBS="-lreadline"
 +	$(MAKE) $(ALL) SYSCFLAGS="-fno-common -DLUA_USE_MACOSX -DLUA_USE_READLINE" SYSLIBS="-lreadline"
 
  mingw:
- 	$(MAKE) "LUA_A=lua54.dll" "LUA_T=lua.exe" \
+	$(MAKE) "LUA_A=lua55.dll" "LUA_T=lua.exe" \

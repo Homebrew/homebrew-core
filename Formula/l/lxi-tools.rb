@@ -4,6 +4,7 @@ class LxiTools < Formula
   url "https://github.com/lxi-tools/lxi-tools/archive/refs/tags/v2.8.tar.gz"
   sha256 "ef9d013189c9449f850d467dd35ac3840929e76a888cdb77e0edbce067da0b2d"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "8a6f6bda40e33933f6bc825a28e9a3622a1c5604cf6084e39e7afa1565c0a8d0"

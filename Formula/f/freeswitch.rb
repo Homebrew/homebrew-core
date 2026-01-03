@@ -2,6 +2,7 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   license "MPL-1.1"
+  revision 1
 
   stable do
     # TODO: Switch to `pcre2` on next release

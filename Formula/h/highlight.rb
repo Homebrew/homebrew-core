@@ -4,6 +4,7 @@ class Highlight < Formula
   url "http://andre-simon.de/zip/highlight-4.18.tar.bz2"
   sha256 "f52c211dcd5626526af45ab8e558253caa713d060709bbac22c23ceae35eb502"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://gitlab.com/saalen/highlight.git", branch: "master"
 
   livecheck do
