@@ -36,6 +36,10 @@ class Girara < Formula
     depends_on "gettext"
   end
 
+  on_linux do
+    depends_on "xorg-server" => :test
+  end
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -50,8 +54,8 @@ class Girara < Formula
 
       #include <girara/girara.h>
 
-      int main(int argc, char** argv) {
-        gtk_init(&argc, &argv);
+      int main(void) {
+        gtk_init(NULL, NULL);
 
         /* create girara session */
         girara_session_t* session = girara_session_create();
@@ -72,10 +76,10 @@ class Girara < Formula
     C
     pkg_config_flags = shell_output("pkg-config --cflags --libs girara-gtk3").chomp.split
     system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
-
-    # Gtk-WARNING **: cannot open display
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    system "./test"
+    if OS.linux? && ENV.exclude?("DISPLAY")
+      system Formula["xorg-server"].bin/"xvfb-run", "./test"
+    else
+      system "./test"
+    end
   end
 end
