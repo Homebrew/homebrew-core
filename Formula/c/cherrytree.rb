@@ -57,6 +57,10 @@ class Cherrytree < Formula
     depends_on "harfbuzz"
   end
 
+  on_linux do
+    depends_on "xorg-server" => :test
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
@@ -64,9 +68,6 @@ class Cherrytree < Formula
   end
 
   test do
-    # (cherrytree:46081): Gtk-WARNING **: 17:33:48.386: cannot open display
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     (testpath/"homebrew.ctd").write <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
       <cherrytree>
@@ -89,7 +90,10 @@ class Cherrytree < Formula
       </cherrytree>
     XML
 
-    system bin/"cherrytree", testpath/"homebrew.ctd", "--export_to_txt_dir", testpath, "--export_single_file"
+    cmd = "#{bin}/cherrytree #{testpath}/homebrew.ctd --export_to_txt_dir #{testpath} --export_single_file"
+    cmd = "#{Formula["xorg-server"].bin}/xvfb-run #{cmd}" if OS.linux? && ENV.exclude?("DISPLAY")
+    assert_match "export is done, closing app", shell_output(cmd)
+
     assert_path_exists testpath/"homebrew.ctd.txt"
     assert_match "rich text", (testpath/"homebrew.ctd.txt").read
     assert_match "this is a simple command line test for homebrew", (testpath/"homebrew.ctd.txt").read
