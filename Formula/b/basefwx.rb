@@ -16,9 +16,6 @@ class Basefwx < Formula
   def install
     args = %W[
       -DCMAKE_BUILD_TYPE=Release
-      -DBASEFWX_BUILD_CLI=ON
-      -DBASEFWX_REQUIRE_ARGON2=OFF
-      -DBASEFWX_REQUIRE_OQS=OFF
       -DBASEFWX_REQUIRE_LZMA=ON
     ]
 
