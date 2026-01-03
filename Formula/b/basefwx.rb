@@ -6,7 +6,7 @@ class Basefwx < Formula
   license "GPL-3.0-or-later"
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "ffmpeg"
   depends_on "openssl@3"
   depends_on "xz"
