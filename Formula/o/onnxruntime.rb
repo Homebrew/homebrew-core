@@ -2,10 +2,9 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.22.2",
-      revision: "5630b081cd25e4eccc7516a652ff956e51676794"
+      tag:      "v1.23.2",
+      revision: "a83fc4d58cb48eb68890dd689f94f28288cf2278"
   license "MIT"
-  revision 7
 
   livecheck do
     url :stable
@@ -82,6 +81,10 @@ class Onnxruntime < Formula
       (buildpath/"build/_deps/#{r.name}-src").install r
     end
 
+    inreplace "cmake/external/abseil-cpp.cmake",
+              "FIND_PACKAGE_ARGS 20250512 NAMES absl",
+              "FIND_PACKAGE_ARGS 20250814.1 NAMES absl"
+
     args = %W[
       -DHOMEBREW_ALLOW_FETCHCONTENT=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
@@ -93,6 +96,7 @@ class Onnxruntime < Formula
       -Donnxruntime_GENERATE_TEST_REPORTS=OFF
       -Donnxruntime_RUN_ONNX_TESTS=OFF
       -Donnxruntime_USE_FULL_PROTOBUF=ON
+      -Donnxruntime_USE_VCPKG=ON
     ]
 
     # Regenerate C++ bindings to use newer `flatbuffers`
