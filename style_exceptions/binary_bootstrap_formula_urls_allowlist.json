@@ -5,6 +5,7 @@
   "fastbuild",
   "fpc",
   "ghc",
+  "ghc@9.12",
   "ghc@9.10",
   "ghc@9.2",
   "ghc@9.4",
