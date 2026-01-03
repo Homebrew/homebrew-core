@@ -10,7 +10,8 @@ class Basefwx < Formula
   depends_on "ffmpeg"
   depends_on "openssl@3"
   depends_on "xz"
-  depends_on "zlib"
+
+  uses_from_macos "zlib"
 
   def install
     args = %W[
