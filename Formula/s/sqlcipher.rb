@@ -1,8 +1,8 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "https://www.zetetic.net/sqlcipher/"
-  url "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.6.1.tar.gz"
-  sha256 "d8f9afcbc2f4b55e316ca4ada4425daf3d0b4aab25f45e11a802ae422b9f53a3"
+  url "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.11.0.tar.gz"
+  sha256 "bfa85505001dfb6c7f4ab532a39af0ed11d255cd11763bb070d6bb6ac6739a64"
   license "BSD-3-Clause"
   head "https://github.com/sqlcipher/sqlcipher.git", branch: "master"
 
@@ -19,6 +19,8 @@ class Sqlcipher < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b698c95084d0ec890fc103429bb615a8c13c87bd13b6a29b246579feb5a0763"
   end
 
+  keg_only :shadowed_by_macos, "sqlite headers"
+
   depends_on "openssl@3"
 
   # Build scripts require tclsh. `--disable-tcl` only skips building extension
@@ -29,8 +31,7 @@ class Sqlcipher < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --enable-tempstore=yes
-      --with-crypto-lib=#{Formula["openssl@3"].opt_prefix}
+      --with-tempstore=yes
       --enable-load-extension
       --disable-tcl
     ]
@@ -43,10 +44,14 @@ class Sqlcipher < Formula
       -DSQLITE_ENABLE_FTS3_PARENTHESIS
       -DSQLITE_ENABLE_FTS5
       -DSQLITE_ENABLE_COLUMN_METADATA
+      -DSQLITE_EXTRA_INIT=sqlcipher_extra_init
+      -DSQLITE_EXTRA_SHUTDOWN=sqlcipher_extra_shutdown
     ].join(" ")
     args << "CFLAGS=#{cflags}"
 
-    args << "LIBS=-lm" if OS.linux?
+    ldflags = "-L#{Formula["openssl@3"].opt_lib} -lcrypto"
+    ldflags += " -lm" if OS.linux?
+    args << "LDFLAGS=#{ldflags}"
 
     system "./configure", *args
     system "make"
@@ -63,7 +68,7 @@ class Sqlcipher < Formula
       select name from students order by age asc;
     SQL
 
-    names = shell_output("#{bin}/sqlcipher < #{path}").strip.split("\n")
+    names = shell_output("#{bin}/sqlite3 < #{path}").strip.split("\n")
     assert_equal %w[Sue Tim Bob], names
   end
 end
