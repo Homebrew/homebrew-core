@@ -5,6 +5,13 @@ class Gnupg < Formula
   sha256 "05144040fedb828ced2a6bafa2c4a0479ee4cceacf3b6d68ccc75b175ac13b7e"
   license "GPL-3.0-or-later"
 
+  # GnuPG indicates stable releases with an even-numbered minor tag, eg "gnupg26"
+  # (https://dev.gnupg.org/T8007#210468, https://gnupg.org/download/#end-of-life)
+  livecheck do
+    url "https://versions.gnupg.org/swdb.lst"
+    regex(/gnupg\d+[02468]_ver\s+(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     sha256 arm64_tahoe:   "8790cc919901b54d98374e720e1cfe11bd736349ed3b257022877cbbf28b7936"
     sha256 arm64_sequoia: "204bfd8654292c46f1d352443d0a63e1d96a666b20cf12540b2259a4a2718062"
