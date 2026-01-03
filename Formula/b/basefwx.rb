@@ -21,7 +21,7 @@ class Basefwx < Formula
       -DBASEFWX_REQUIRE_LZMA=ON
     ]
 
-    system "cmake", "-S", "cpp", "-B", "build", *args
+    system "cmake", "-S", "cpp", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build", "--config", "Release"
     bin.install "build/basefwx_cpp" => "basefwx"
   end
