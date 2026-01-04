@@ -52,6 +52,6 @@ class Dagu < Formula
 
     system bin/"dagu", "start", "hello.yaml"
     shell_output = shell_output("#{bin}/dagu status hello.yaml")
-    assert_match "The DAG completed successfully", shell_output
+    assert_match "Result: Succeeded", shell_output
   end
 end
