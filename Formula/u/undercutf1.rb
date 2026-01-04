@@ -4,6 +4,7 @@ class Undercutf1 < Formula
   url "https://github.com/JustAman62/undercut-f1/archive/refs/tags/v3.4.32.tar.gz"
   sha256 "3e90ccd0c7f02240c9ff8b175c84a37b62cb82774a62d46b44ee7103996dd30a"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/JustAman62/undercut-f1.git", branch: "master"
 
   bottle do
@@ -18,6 +19,12 @@ class Undercutf1 < Formula
   depends_on "ffmpeg"
   depends_on "fontconfig"
   depends_on "mpg123"
+
+  # Support dotnet 10 - remove in next release
+  patch do
+    url "https://github.com/JustAman62/undercut-f1/commit/2ae7e47daab9250d31878a92943864fabd04db59.patch?full_index=1"
+    sha256 "b51d288893a1ce6e5abfe759f498ce79d2ebcc5c17ab6b328c16d5ad8f2a1a06"
+  end
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
