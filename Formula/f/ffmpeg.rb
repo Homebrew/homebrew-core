@@ -44,6 +44,7 @@ class Ffmpeg < Formula
   depends_on "libvpx"
   depends_on "libx11"
   depends_on "libxcb"
+  depends_on "llama.cpp"
   depends_on "opencore-amr"
   depends_on "openjpeg"
   depends_on "opus"
@@ -57,6 +58,7 @@ class Ffmpeg < Formula
   depends_on "tesseract"
   depends_on "theora"
   depends_on "webp"
+  depends_on "whisper-cpp"
   depends_on "x264"
   depends_on "x265"
   depends_on "xvid"
@@ -144,6 +146,7 @@ class Ffmpeg < Formula
       --enable-libsoxr
       --enable-libzmq
       --enable-libzimg
+      --enable-whisper
       --disable-libjack
       --disable-indev=jack
     ]
