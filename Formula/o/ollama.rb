@@ -19,7 +19,7 @@ class Ollama < Formula
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71110c338cdae29c28a2a53b63c7f5e50b90ef10338d8d1796abde10cc9fc96d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "91de1a7590b3faf3a24bda696af207bec349162a9330099f82455782f3a5069b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52c7c15a5b0dda5bd3f49907fcb38a02ce4fd23840faea36351aa9c0b54ddfa7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b6d458941e96770b169086afca1fc5caf25dcd18a2c6c43c228a58323bdc7a6a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b6d458941e96770b169086afca1fc5caf25dcd18a6a2c6c43c228a58323bdc7a6a"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "544482218e1f2c3131f10fe8c7e5aea364dc0f0895f0da98d82e47434e0040dd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b55602eefe88c9deaf5b0ebd31ffcf774c3836a655e4cb78f7019259dcf5600"
   end
@@ -46,6 +46,16 @@ class Ollama < Formula
 
     system "go", "generate", "./..."
     system "go", "build", *std_go_args(ldflags:)
+  end
+
+  def caveats
+    <<~EOS
+      This formula builds Ollama without GPU acceleration
+      (e.g. CUDA, ROCm, or Metal).
+
+      If you require GPU support, please use the official installer:
+        https://ollama.com/download
+    EOS
   end
 
   service do
