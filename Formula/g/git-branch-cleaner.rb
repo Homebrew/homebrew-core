@@ -5,7 +5,7 @@ class GitBranchCleaner < Formula
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.on_arm?
+    if on_arm?
       url "https://github.com/sinansonmez/git-branch-cleaner/releases/download/v1.0.0/git-branch-cleaner_darwin_arm64.tar.gz"
       sha256 "46f8d2e3674ef3524e62e2e994ce77fc47c332bb491e1f984348f251d56f465b"
     else
@@ -15,7 +15,7 @@ class GitBranchCleaner < Formula
   end
 
   on_linux do
-    if Hardware::CPU.on_arm?
+    if on_arm?
       url "https://github.com/sinansonmez/git-branch-cleaner/releases/download/v1.0.0/git-branch-cleaner_linux_arm64.tar.gz"
       sha256 "bae39012bb88fa2482467494ad1ef2806c74d2c664e4a650e9daa331582afe10"
     else
