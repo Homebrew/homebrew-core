@@ -4,6 +4,7 @@ class Czkawka < Formula
   url "https://github.com/qarmin/czkawka/archive/refs/tags/10.0.0.tar.gz"
   sha256 "66ff3c231abe2feaeb377f52bb188eb81686c162d7f3fd28ed5b7374f0046c48"
   license all_of: ["MIT", "CC-BY-4.0"]
+  head "https://github.com/qarmin/czkawka.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -40,8 +41,9 @@ class Czkawka < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "heif,libraw,libavif", *std_cargo_args(path: "czkawka_cli")
-    system "cargo", "install", "--features", "heif,libraw,libavif", *std_cargo_args(path: "czkawka_gui")
+    %w[czkawka_cli czkawka_gui krokiet].each do |cmd|
+      system "cargo", "install", "--features", "heif,libraw,libavif", *std_cargo_args(path: cmd)
+    end
   end
 
   def post_install
