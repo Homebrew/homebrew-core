@@ -23,6 +23,7 @@ class Dagu < Formula
     system "pnpm", "--dir=ui", "install", "--frozen-lockfile"
     system "pnpm", "--dir=ui", "run", "build"
     (buildpath/"internal/service/frontend/assets").install (buildpath/"ui/dist").children
+    (buildpath/"internal/service/frontend/assets").install buildpath/"schemas/dag.schema.json"
 
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd"
