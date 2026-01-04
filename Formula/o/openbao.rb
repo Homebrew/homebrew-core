@@ -22,15 +22,18 @@ class Openbao < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node@22" => :build # failed to build with node 23, https://github.com/openbao/openbao/issues/731
-  depends_on "yarn" => :build
 
   conflicts_with "bao", because: "both install `bao` binaries"
 
   def install
-    ENV.prepend_path "PATH", Formula["node@22"].opt_libexec/"bin" # for npm
-    system "make", "bootstrap", "static-dist", "dev-ui"
-    bin.install "bin/bao"
+    ldflags = %W[
+      -s -w
+      -X github.com/openbao/openbao/version.fullVersion=#{version}
+      -X github.com/openbao/openbao/version.GitCommit=#{Utils.git_head}
+      -X github.com/openbao/openbao/version.BuildDate=#{time.iso8601}
+    ]
+
+    system "go", "build", *std_go_args(ldflags:), "-o", bin/"bao"
   end
 
   service do
@@ -49,8 +52,6 @@ class Openbao < Formula
     pid = spawn bin/"bao", "server", "-dev"
     sleep 5
     system bin/"bao", "status"
-    # Check the ui was properly embedded
-    assert_match "User-agent", shell_output("curl #{addr}/robots.txt")
   ensure
     Process.kill("TERM", pid)
   end
