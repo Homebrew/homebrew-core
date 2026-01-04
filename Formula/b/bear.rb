@@ -1,10 +1,9 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/refs/tags/3.1.6.tar.gz"
-  sha256 "99cd891eec6e89b734d7cafe0e623dd8c2f27d8cbf3ee9bc4807e69e5c8fb55c"
+  url "https://github.com/rizsotto/Bear/archive/refs/tags/4.0.0.tar.gz"
+  sha256 "27dbb0b23c4d94018c764c429f7d6222b2736ffa7b9e101f746bc827c3bf83a0"
   license "GPL-3.0-or-later"
-  revision 15
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
@@ -16,40 +15,25 @@ class Bear < Formula
     sha256 x86_64_linux:  "0489f2c3ba1362f7858dfa31c3e79ce65c073fc268cea0d9bd9ee6d5e3cde8b3"
   end
 
-  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "abseil"
-  depends_on "fmt"
-  depends_on "grpc"
-  depends_on "nlohmann-json"
-  depends_on "protobuf"
-  depends_on "spdlog"
-
-  uses_from_macos "llvm" => :test
-
-  on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
-  end
-
-  fails_with :clang do
-    build 1100
-    cause <<~EOS
-      Undefined symbols for architecture x86_64:
-        "std::__1::__fs::filesystem::__current_path(std::__1::error_code*)"
-    EOS
-  end
+  depends_on "rust" => :build
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+    # Patch build.rs to use Homebrew's libexec path instead of /usr/local/libexec
+    inreplace "bear/build.rs",
+      'WRAPPER_EXECUTABLE_PATH=/usr/local/libexec/bear/wrapper");',
+      "WRAPPER_EXECUTABLE_PATH=#{libexec}/bear/wrapper\");"
 
-    args = %w[
-      -DENABLE_UNIT_TESTS=OFF
-      -DENABLE_FUNC_TESTS=OFF
-    ]
+    inreplace "bear/build.rs",
+      'PRELOAD_LIBRARY_PATH=/usr/local/libexec/bear/$LIB/libexec.so");',
+      "PRELOAD_LIBRARY_PATH=#{libexec}/bear/$LIB/libexec.so\");"
 
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    mkdir_p libexec/"bear"
+
+    system "cargo", "install", *std_cargo_args(path: "intercept-wrapper", root: libexec)
+    mv "#{libexec}/bin/wrapper", "#{libexec}/bear/wrapper"
+
+    system "cargo", "install", *std_cargo_args(path: "bear")
   end
 
   test do
