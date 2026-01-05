@@ -8,6 +8,8 @@ class Graphqlite < Formula
   depends_on "bison" => :build # macOS bison is too old
   depends_on "sqlite"          # macOS sqlite can't load extensions
 
+  uses_from_macos "flex" => :build
+
   def install
     system "make", "extension", "RELEASE=1"
     lib_ext = OS.mac? ? "dylib" : "so"
