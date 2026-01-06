@@ -2,8 +2,8 @@ class Vfkit < Formula
   desc "Command-line hypervisor using Apple's Virtualization Framework"
   homepage "https://github.com/crc-org/vfkit"
   url "https://github.com/crc-org/vfkit.git",
-      tag:      "v0.6.1",
-      revision: "97c536487a40f137bc12d6561aa70625a54a4b08"
+      tag:      "v0.6.2",
+      revision: "308d1d5f12cc1e9f3c398e42328484dd6463a3ee"
   license "Apache-2.0"
   head "https://github.com/crc-org/vfkit.git", branch: "main"
 
