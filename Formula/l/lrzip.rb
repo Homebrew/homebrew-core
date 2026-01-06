@@ -87,13 +87,14 @@ __END__
 diff --git a/stream.c b/stream.c
 --- stream.c
 +++ stream.c
-@@ -100,8 +100,26 @@
+@@ -100,6 +100,23 @@
 
  bool lock_mutex(rzip_control *control, pthread_mutex_t *mutex)
  {
--	if (unlikely(pthread_mutex_lock(mutex)))
--		fatal_return(("Failed to pthread_mutex_lock\n"), false);
-+	/* HB_MUTEX_DIAG v1 */
++	/*
++	 * macOS is strict: a zeroed pthread_mutex_t is not a valid initialized mutex.
++	 * Ensure the control mutex is initialized before first use.
++	 */
 +	if (control && mutex == &control->control_lock) {
 +		static pthread_mutex_t init_lock = PTHREAD_MUTEX_INITIALIZER;
 +		static int did_init = 0;
@@ -107,11 +108,6 @@ diff --git a/stream.c b/stream.c
 +		}
 +	}
 +
-+	{
-+		int rc = pthread_mutex_lock(mutex);
-+		if (unlikely(rc)) {
-+			failure_return(("HB_MUTEX_DIAG: pthread_mutex_lock rc=%d\n", rc), false);
-+		}
-+	}
+ 	if (unlikely(pthread_mutex_lock(mutex)))
+ 		fatal_return(("Failed to pthread_mutex_lock\n"), false);
  	return true;
- }
