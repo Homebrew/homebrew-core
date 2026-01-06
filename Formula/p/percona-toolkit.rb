@@ -43,7 +43,7 @@ class PerconaToolkit < Formula
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
                                       "INSTALLMAN1DIR=none", "INSTALLMAN3DIR=none",
                                       "NO_PERLLOCAL=1", "NO_PACKLIST=1"
-        system "make", "install"
+        system "make", "install", "GOOS=darwin", "GOARCH=arm64"
       end
     end
 
