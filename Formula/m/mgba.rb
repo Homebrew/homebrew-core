@@ -2,7 +2,7 @@ class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
   license "MPL-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.5.tar.gz"
@@ -43,7 +43,7 @@ class Mgba < Formula
   depends_on "libepoxy"
   depends_on "libpng"
   depends_on "libzip"
-  depends_on "lua"
+  depends_on "lua@5.4"
   depends_on "sdl2"
   depends_on "sqlite"
 

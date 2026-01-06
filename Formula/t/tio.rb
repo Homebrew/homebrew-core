@@ -4,6 +4,7 @@ class Tio < Formula
   url "https://github.com/tio/tio/releases/download/v3.9/tio-3.9.tar.xz"
   sha256 "06fe0c22e3e75274643c017928fbc85e86589bc1acd515d92f98eecd4bbab11b"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/tio/tio.git", branch: "master"
 
   bottle do

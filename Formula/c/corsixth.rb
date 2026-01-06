@@ -4,7 +4,7 @@ class Corsixth < Formula
   url "https://github.com/CorsixTH/CorsixTH/archive/refs/tags/v0.69.1.tar.gz"
   sha256 "08eec141bdd8adf265f341a8452601f844a3eaab0378535b2655198fd373a7f8"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
 
   # Upstream uses GitHub releases to indicate that a version is released
@@ -31,7 +31,7 @@ class Corsixth < Formula
   depends_on "ffmpeg"
   depends_on "freetype"
   depends_on "lpeg"
-  depends_on "lua"
+  depends_on "lua@5.4"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
 
@@ -48,7 +48,7 @@ class Corsixth < Formula
 
   def install
     # Make sure I point to the right version!
-    lua = Formula["lua"]
+    lua = Formula["lua@5.4"]
 
     ENV["TARGET_BUILD_DIR"] = "."
     ENV["FULL_PRODUCT_NAME"] = "CorsixTH.app"
@@ -99,7 +99,7 @@ class Corsixth < Formula
   test do
     if OS.mac?
       require "utils/linkage"
-      lua = Formula["lua"]
+      lua = Formula["lua@5.4"]
       app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
       assert Utils.binary_linked_to_library?(app, lua.opt_lib/"liblua.dylib"), "No linkage with lua!"
     end

@@ -4,6 +4,7 @@ class FennelLs < Formula
   url "https://git.sr.ht/~xerool/fennel-ls/archive/0.2.3.tar.gz"
   sha256 "80cba4a35873d0cb112e5aebc62bf616d07ab7c42d49bf032a8c3b04da9a121f"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "914bcad01ae125175f9370e5abbdc3e043ab0e90f2a29680971bd20e654b28ff"

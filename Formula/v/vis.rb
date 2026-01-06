@@ -4,6 +4,7 @@ class Vis < Formula
   url "https://github.com/martanne/vis/archive/refs/tags/v0.9.tar.gz"
   sha256 "bd37ffba5535e665c1e883c25ba5f4e3307569b6d392c60f3c7d5dedd2efcfca"
   license "ISC"
+  revision 1
   head "https://github.com/martanne/vis.git", branch: "master"
 
   bottle do
@@ -19,13 +20,14 @@ class Vis < Formula
   depends_on "pkgconf" => :build
   depends_on "libtermkey"
   depends_on "lpeg"
-  depends_on "lua"
+  depends_on "lua@5.4"
   depends_on "tre"
 
   uses_from_macos "unzip" => :build
   uses_from_macos "ncurses"
 
   def install
+    ENV.append_to_cflags "-I#{Formula["lua@5.4"].opt_include}"
     system "./configure", "--enable-lua", "--enable-lpeg-static=no", *std_configure_args
     system "make", "install"
 

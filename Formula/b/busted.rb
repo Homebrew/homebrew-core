@@ -4,6 +4,7 @@ class Busted < Formula
   url "https://github.com/lunarmodules/busted/archive/refs/tags/v2.2.0.tar.gz"
   sha256 "befca10f573bb476fa1db2e3149150d65f802a71d34d1682679e640665f2dc2b"
   license "MIT"
+  revision 1
   head "https://github.com/lunarmodules/busted.git", branch: "master"
 
   bottle do
@@ -23,6 +24,13 @@ class Busted < Formula
   depends_on "lua"
 
   uses_from_macos "unzip" => :build
+
+  # Lua 5.5 fix
+  # https://github.com/lunarmodules/busted/pull/760
+  patch do
+    url "https://github.com/lunarmodules/busted/commit/a287b00d0d1bece06fefa8bd25c2dae9ba087a19.patch?full_index=1"
+    sha256 "69e25a425cb38f4c11321218b3d1698a5fdb3b2abc2b73afa71bd22ff80402f2"
+  end
 
   def install
     system "luarocks", "make", "--tree=#{libexec}", "--local", "--lua-dir=#{Formula["lua"].opt_prefix}"

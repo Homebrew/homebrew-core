@@ -4,6 +4,7 @@ class Bozohttpd < Formula
   url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/LOCAL_PORTS/bozohttpd-20240126.tar.bz2"
   sha256 "576267bc5681c52b650294c3f2a85b8c8d8c239e75e71aaba7973771f852b56d"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/"

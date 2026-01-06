@@ -4,7 +4,7 @@ class OsrmBackend < Formula
   url "https://github.com/Project-OSRM/osrm-backend/archive/refs/tags/v6.0.0.tar.gz"
   sha256 "369192672c0041600740c623ce961ef856e618878b7d28ae5e80c9f6c2643031"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   livecheck do
@@ -27,7 +27,7 @@ class OsrmBackend < Formula
   depends_on "pkgconf" => :build
 
   depends_on "boost"
-  depends_on "lua"
+  depends_on "lua@5.4"
   depends_on "tbb"
 
   uses_from_macos "bzip2"
@@ -51,7 +51,7 @@ class OsrmBackend < Formula
   end
 
   def install
-    lua = Formula["lua"]
+    lua = Formula["lua@5.4"]
     luaversion = lua.version.major_minor
 
     system "cmake", "-S", ".", "-B", "build",

@@ -4,6 +4,7 @@ class Lcm < Formula
   url "https://github.com/lcm-proj/lcm/archive/refs/tags/v1.5.2.tar.gz"
   sha256 "d443261619080f1c0693237b2019436988e1b2b2ba5fc09a49bf23769e1796de"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/lcm-proj/lcm.git", branch: "master"
 
   livecheck do
