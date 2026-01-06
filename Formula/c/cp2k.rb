@@ -1,8 +1,8 @@
 class Cp2k < Formula
   desc "Quantum chemistry and solid state physics software package"
   homepage "https://www.cp2k.org/"
-  url "https://github.com/cp2k/cp2k/releases/download/v2025.1/cp2k-2025.1.tar.bz2"
-  sha256 "65c8ad5488897b0f995919b9fa77f2aba4b61677ba1e3c19bb093d5c08a8ce1d"
+  url "https://github.com/cp2k/cp2k/releases/download/v2026.1/cp2k-2026.1.tar.bz2"
+  sha256 "4364c74bcffaa474bc234e11686b09550e4d06932acf2147a341e4f7679dd88e"
   license "GPL-2.0-or-later"
 
   livecheck do
