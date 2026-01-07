@@ -2,8 +2,8 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   # Use the `-full` tarball to avoid having to download during the build.
-  url "https://github.com/JuliaLang/julia/releases/download/v1.12.3/julia-1.12.3-full.tar.gz"
-  sha256 "22778903ef8df828cb11341c977237bec2d11b1de238597c8ba4a938e49fd2a9"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.12.4/julia-1.12.4-full.tar.gz"
+  sha256 "6ea60c05395e29012b63934e686b0daa1cc155947be429ae0b247b3ea7e7be93"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
@@ -53,6 +53,13 @@ class Julia < Formula
   end
 
   conflicts_with "juliaup", because: "both install `julia` binaries"
+
+  # Fix build with USE_SYSTEM_P7ZIP=1
+  # PR ref: https://github.com/JuliaLang/julia/pull/60623
+  patch do
+    url "https://github.com/JuliaLang/julia/commit/425faa693076ea73cc53ac88ae470769c9adcc7e.patch?full_index=1"
+    sha256 "5ae0489ede0c48c42275162b1757ab9646aa73494c6a91ca9b2f5e8971b4bd68"
+  end
 
   def install
     # Build documentation available at
