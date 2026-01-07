@@ -58,6 +58,10 @@ class Gcc < Formula
 
   on_linux do
     depends_on "binutils"
+
+    patch do
+      url "file://#{HOMEBREW_REPOSITORY}/Patches/gcc/glibc-2.41-gthread-cond-init.patch"
+    end
   end
 
   def version_suffix
