@@ -1,23 +1,14 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
+  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-6.0.x/rpm-6.0.1.tar.bz2"
+  sha256 "44fd2e1425885288ce8e8da8f18e6b85bd380332c2972554a85860af10f86d0f"
   license all_of: [
     "GPL-2.0-only",
     "LGPL-2.0-or-later", # rpm-sequoia
   ]
   version_scheme 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
-
-  stable do
-    url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.20.x/rpm-4.20.1.tar.bz2"
-    sha256 "52647e12638364533ab671cbc8e485c96f9f08889d93fe0ed104a6632661124f"
-
-    # Backport commit needed to fix handling of -fhardened
-    patch do
-      url "https://github.com/rpm-software-management/rpm/commit/e1d7046ba6662eac9e5e7638e484eb792afa36cc.patch?full_index=1"
-      sha256 "ae5358bb8d2b4f1d1a80463adf6b4fa3f28872efad3f9157e822f9318876ad9c"
-    end
-  end
 
   livecheck do
     url "https://rpm.org/releases/"
@@ -51,6 +42,7 @@ class Rpm < Formula
   depends_on "pkgconf"
   depends_on "popt"
   depends_on "readline"
+  depends_on "scdoc"
   depends_on "sqlite"
   depends_on "xz"
   depends_on "zstd"
@@ -61,32 +53,30 @@ class Rpm < Formula
 
   on_macos do
     depends_on "gettext"
-    depends_on "libomp"
   end
 
   on_linux do
     depends_on "elfutils"
+    depends_on "libomp"
   end
 
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
 
-  resource "rpm-sequoia" do
-    url "https://github.com/rpm-software-management/rpm-sequoia/archive/refs/tags/v1.8.0.tar.gz"
-    sha256 "a34de2923f07b2610de82baa42f664850a4caedc23c35b39df315d94cb5dc751"
+  fails_with :gcc do
+    version "14"
+    cause "Requires C++20 <format> support (GCC 14+)"
   end
 
-  # Apply nixpkgs patch to work around build failure on macOS
-  # Issue ref: https://github.com/rpm-software-management/rpm/issues/3688
-  patch do
-    on_macos do
-      url "https://raw.githubusercontent.com/NixOS/nixpkgs/3d52077f5a6331c12eeb7b6a0723b49bea10d6fe/pkgs/tools/package-management/rpm/sighandler_t-macos.patch"
-      sha256 "701ffe03d546484aac57789f3489c86842945ad7fb6f2cd854b099c4efa0f4e5"
-    end
+  resource "rpm-sequoia" do
+    url "https://github.com/rpm-software-management/rpm-sequoia/archive/refs/tags/v1.10.0.tar.gz"
+    sha256 "efbc5ec47e7ca53c030d2a86d25702c811ee8f6046118ddbf3f983db3a7762fb"
   end
 
   def python3
     "python3.14"
   end
+
+  patch :DATA
 
   def install
     resource("rpm-sequoia").stage do |r|
@@ -102,10 +92,16 @@ class Rpm < Formula
       ENV.append_path "PKG_CONFIG_PATH", lib/"pkgconfig"
     end
 
-    ENV.append "LDFLAGS", "-lomp" if OS.mac?
-
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
     inreplace ["macros.in", "platform.in"], "@prefix@", HOMEBREW_PREFIX
+
+    if OS.linux?
+      ENV.append "CXXFLAGS", "-stdlib=libc++"
+      ENV.append "LDFLAGS", "-lc++ -lc++abi"
+    end
+
+    # fix error: static declaration of 'delete_key_compat' follows non-static declaration
+    inreplace "lib/keystore.cc", "static rpmRC rpm::delete_key_compat", "rpmRC rpm::delete_key_compat"
 
     # ensure that pkg-config binary is found for dep generators
     inreplace "scripts/pkgconfigdeps.sh",
@@ -130,7 +126,7 @@ class Rpm < Formula
       -DWITH_ACL=OFF
       -DWITH_CAP=OFF
     ]
-    args += %w[-DWITH_LIBELF=OFF -DWITH_LIBDW=OFF] if OS.mac?
+    args += %w[-DWITH_LIBELF=OFF -DWITH_LIBDW=OFF -DENABLE_OPENMP=OFF] if OS.mac?
 
     system "cmake", "-S", ".", "-B", "_build", *args, *std_cmake_args
     system "cmake", "--build", "_build"
@@ -203,3 +199,41 @@ class Rpm < Formula
     system python3, "-c", "import rpm"
   end
 end
+
+__END__
+
+diff --git a/rpmio/lposix.cc b/rpmio/lposix.cc
+index 3f66f70..c00364a 100644
+--- a/rpmio/lposix.cc
++++ b/rpmio/lposix.cc
+@@ -9,6 +9,16 @@
+ #include <config.h>
+ #endif
+ 
++#ifdef __APPLE__
++#include <crt_externs.h>
++#define environ (*_NSGetEnviron())
++#else
++extern "C" {
++extern char **environ;
++}
++#endif
++
++
+ #include <vector>
+ 
+ #include <dirent.h>
+@@ -422,12 +432,6 @@ static int Pgetenv(lua_State *L)		/** getenv([name]) */
+ {
+ 	if (lua_isnone(L, 1))
+ 	{
+-	#ifdef __APPLE__
+-		#include <crt_externs.h>
+-		#define environ (*_NSGetEnviron())
+-	#else
+-		extern char **environ;
+-	#endif /* __APPLE__ */
+ 		char **e;
+ 		if (*environ==NULL) lua_pushnil(L); else lua_newtable(L);
+ 		for (e=environ; *e!=NULL; e++)
+
