@@ -4,6 +4,7 @@ class Diamond < Formula
   url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.1.18.tar.gz"
   sha256 "aeae3a5f20bc8770b08ae14e563c8e86f26886b238492b43cd91218ebe891f46"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f359132ef2c414a56d6ea6683da82da8121837289cac5132c9354297653b6b56"
@@ -18,13 +19,6 @@ class Diamond < Formula
 
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
-
-  # Fixes building with Clang 17+
-  # Upstream PR ref: https://github.com/bbuchfink/diamond/pull/921
-  patch do
-    url "https://github.com/bbuchfink/diamond/commit/72b78f6b994984602f650fe664d5f83ea15b24b6.patch?full_index=1"
-    sha256 "606ffcfc8f68d6a043a0b2a48e3e93a68463017490da9e7be0c9782f825e3ee1"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
