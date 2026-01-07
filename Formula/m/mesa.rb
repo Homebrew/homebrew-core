@@ -20,6 +20,7 @@ class Mesa < Formula
     { "GPL-1.0-or-later" => { with: "Linux-syscall-note" } }, # include/drm-uapi/sync_file.h
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # include/drm-uapi/{d3dkmthk.h,dma-buf.h,etnaviv_drm.h}
   ]
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
@@ -151,6 +152,7 @@ class Mesa < Formula
         -Dtools=etnaviv,glsl,nir,nouveau,dlclose-skip
         -Dvulkan-drivers=swrast
         -Dvulkan-layers=intel-nullhw,overlay,screenshot,vram-report-limit
+        -Dinstall-mesa-clc=true
       ]
     else
       # Not all supported drivers are being auto-enabled on x86 Linux.
@@ -174,6 +176,7 @@ class Mesa < Formula
         -Dvalgrind=enabled
         -Dvulkan-drivers=#{drivers}
         -Dvulkan-layers=device-select,intel-nullhw,overlay,screenshot,vram-report-limit
+        -Dinstall-mesa-clc=true
         --force-fallback-for=indexmap,paste,pest_generator,roxmltree,rustc-hash,syn
       ]
     end
