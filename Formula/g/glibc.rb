@@ -165,7 +165,7 @@ class Glibc < Formula
     # Automatic bootstrapping is only supported for x86_64 and aarch64.
     if (Hardware::CPU.intel? || Hardware::CPU.arm?) && Hardware::CPU.is_64_bit?
       # Set up bootstrap resources in /tmp/homebrew.
-      bootstrap_dir = Pathname.new("/tmp/homebrew")
+      bootstrap_dir = Pathname.new("#{HOMEBREW_TEMP}/bootstrap")
       bootstrap_dir.mkpath
 
       resources.each do |r|
