@@ -1,8 +1,8 @@
 class Fastga < Formula
   desc "Pairwise whole genome aligner"
   homepage "https://github.com/thegenemyers/FASTGA"
-  url "https://github.com/thegenemyers/FASTGA/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "391a86ff3b9355f677e891fed23f3b9524b82f88b9905f1b482ce1144add1ab5"
+  url "https://github.com/thegenemyers/FASTGA/archive/refs/tags/v1.5.tar.gz"
+  sha256 "c12e8f54ff69f76e872a8878a5a2e68c4a7bce18f91e246d2e06b21871477a0e"
   license all_of: ["BSD-3-Clause", "MIT"]
   head "https://github.com/thegenemyers/FASTGA.git", branch: "main"
 
