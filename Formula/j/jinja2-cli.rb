@@ -3,10 +3,9 @@ class Jinja2Cli < Formula
 
   desc "CLI for the Jinja2 templating language"
   homepage "https://github.com/mattrobenolt/jinja2-cli"
-  url "https://files.pythonhosted.org/packages/a4/22/c922839761b311b72ccc95c2ca2239311a3e80916458878962626f96922a/jinja2-cli-0.8.2.tar.gz"
-  sha256 "a16bb1454111128e206f568c95938cdef5b5a139929378f72bb8cf6179e18e50"
+  url "https://files.pythonhosted.org/packages/cc/47/7d9eb78491492a30d661387abeaf86e1a2b6a6da9d167897173ba4fdcce0/jinja2_cli-1.0.0.tar.gz"
+  sha256 "e7dadec3f908602669b1518245c90a0c08bceecc2c40d35011e3bcb54bcdf52f"
   license "BSD-2-Clause"
-  revision 3
 
   bottle do
     rebuild 1
@@ -18,6 +17,7 @@ class Jinja2Cli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c284b0eee62b02969ce0b167081fd1b77f0d50647c32d17f65b7173b6d61dfd7"
   end
 
+  depends_on "rust" => :build # for uv-build backend
   depends_on "libyaml"
   depends_on "python@3.14"
 
@@ -36,11 +36,6 @@ class Jinja2Cli < Formula
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
     sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
-  end
-
-  resource "toml" do
-    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
-    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
   resource "xmltodict" do
