@@ -14,9 +14,9 @@ class Pake < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfaa1aae34c48a1355d63bed7b4aec5d70341d30ec314a6332e396f5ccdd5197"
   end
 
+  depends_on "rust" => :build
   depends_on "node"
   depends_on "pnpm"
-  depends_on "rust"
   depends_on "vips"
 
   # Resources needed to build sharp from source to avoid bundled vips
