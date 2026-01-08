@@ -14,7 +14,9 @@ class HelixDb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ac4a19092115426443ac3b839dab285cd255b3749cef82e7b7987a5960a30eb"
   end
 
-  depends_on "rust"
+  depends_on "pkgconf" => :build
+  depends_on "rust" => :build
+
   on_linux do
     depends_on "openssl@3"
   end
