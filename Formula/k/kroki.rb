@@ -1,20 +1,20 @@
 class Kroki < Formula
   desc "Create diagrams from textual descriptions"
   homepage "https://kroki.io"
-  url "https://github.com/yuzutech/kroki-cli/releases/download/v0.5.0/kroki-cli_0.5.0_darwin_amd64.tar.gz"
-  sha256 "d7d6f3c300cd34fe654bf3dfdce225b2a1a861f57301c25de711a9687fc5205f"
+  url "https://github.com/yuzutech/kroki-cli/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "f7b0fe1dd49eb5fe6d6cbc892e1e84d670d1a90f0c457c7c28e4201654da6c3e"
   license "MIT"
+  head "https://github.com/yuzutech/kroki-cli.git", branch: "main"
 
   livecheck do
     url :stable
     strategy :github_latest
   end
 
-  # Only x86_64 binary is provided for macOS
-  depends_on arch: :x86_64
+  depends_on "go" => :build
 
   def install
-    bin.install "kroki"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
