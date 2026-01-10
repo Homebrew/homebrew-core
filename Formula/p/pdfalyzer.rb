@@ -6,6 +6,7 @@ class Pdfalyzer < Formula
   url "https://files.pythonhosted.org/packages/88/46/5ff24274168f422b4ef31d020e85b63729849b065ee05331c05b697d54da/pdfalyzer-1.17.11.tar.gz"
   sha256 "2083e7321e01f07555de076c40e1b0bc3ad422873bc644672a65b8edddb960dd"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/michelcrypt4d4mus/pdfalyzer.git", branch: "master"
 
   bottle do
@@ -47,8 +48,8 @@ class Pdfalyzer < Formula
   end
 
   resource "pypdf" do
-    url "https://files.pythonhosted.org/packages/bd/c2/b59b02ff7f2dc006799d2c5dc3a8877686890abdd915176ef799070edf17/pypdf-6.4.2.tar.gz"
-    sha256 "c466ff1272ffb4712c2348d2bbc3019bc93f1c62ccfaf50808e3b9f13c3dc527"
+    url "https://files.pythonhosted.org/packages/d8/f4/801632a8b62a805378b6af2b5a3fcbfd8923abf647e0ed1af846a83433b2/pypdf-6.6.0.tar.gz"
+    sha256 "4c887ef2ea38d86faded61141995a3c7d068c9d6ae8477be7ae5de8a8e16592f"
   end
 
   resource "python-dotenv" do
