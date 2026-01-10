@@ -60,7 +60,7 @@ class Qtwebview < Formula
           url: "https://brew.sh/"
         }
         Timer {
-          interval: 2000
+          interval: 5000
           running: true
           onTriggered: Qt.quit()
         }
