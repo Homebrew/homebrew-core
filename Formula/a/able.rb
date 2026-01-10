@@ -1,5 +1,5 @@
 class Able < Formula
-  desc "Able programming language interpreter"
+  desc "Lightweight programming language interpreter"
   homepage "https://github.com/hofcoral/able"
   url "https://github.com/hofcoral/able/archive/refs/tags/v0.1.2.tar.gz"
   sha256 "b7e20687f7e7c9339ce371da563b66a93d3a30a2350b4747fae377e3d9baa2b4"
