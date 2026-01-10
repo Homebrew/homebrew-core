@@ -38,8 +38,10 @@ class Page < Formula
   end
 
   test do
-    # Disable this part of the test on Linux because display is not available.
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+    if OS.linux?
+      ENV["TERM"] = "xterm"
+      ENV["COLUMNS"] = "80"
+    end
 
     text = "test"
     assert_equal text, pipe_output("#{bin}/page -O 1", text)
