@@ -58,6 +58,8 @@ class Gcc < Formula
 
   on_linux do
     depends_on "binutils"
+
+    patch :DATA
   end
 
   def version_suffix
@@ -312,3 +314,18 @@ class Gcc < Formula
     assert_equal "Hello, world!\n", shell_output("./hello-m2")
   end
 end
+__END__
+diff --git a/libgcc/gthr-posix.h b/libgcc/gthr-posix.h
+index 0000000..1111111 100644
+--- a/libgcc/gthr-posix.h
++++ b/libgcc/gthr-posix.h
+@@ -50,6 +50,14 @@
+ #include <pthread.h>
+ #include <unistd.h>
+
++/* glibc 2.41 changed pthread_cond_t layout */
++#if defined(__GLIBC__) && defined(__GLIBC_PREREQ)
++#if __GLIBC_PREREQ(2, 41)
++#undef __GTHREAD_COND_INIT
++#define __GTHREAD_COND_INIT PTHREAD_COND_INITIALIZER
++#endif
