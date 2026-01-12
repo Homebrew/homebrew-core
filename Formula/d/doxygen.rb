@@ -29,7 +29,7 @@ class Doxygen < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
+                    "-DPython_EXECUTABLE=#{which("python3")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
