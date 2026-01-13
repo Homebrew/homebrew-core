@@ -1,8 +1,8 @@
 class VercelCli < Formula
   desc "Command-line interface for Vercel"
   homepage "https://vercel.com/home"
-  url "https://registry.npmjs.org/vercel/-/vercel-50.3.0.tgz"
-  sha256 "1cd2bd15ef38893966de744796d2e93acb2af09c2ac6853fb967b2e712a0cc44"
+  url "https://registry.npmjs.org/vercel/-/vercel-50.3.1.tgz"
+  sha256 "ee3fdac563044ce81e83ac2bcaedee891820bc55800ad71f6ead7e12a2c7584d"
   license "Apache-2.0"
 
   bottle do
@@ -23,20 +23,10 @@ class VercelCli < Formula
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
-    # Rebuild rolldown bindings from source so the Mach-O header has enough
-    # padding for install_name rewrites performed during relocation (macOS only).
+    # Remove incompatible deasync modules
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    if OS.mac?
-      cervel = libexec/"lib/node_modules/vercel/node_modules/@vercel/cervel"
-      rm cervel/"node_modules/@rolldown/binding-#{os}-#{arch}/rolldown-binding.#{os}-#{arch}.node"
-      cd cervel do
-        system "npm", "rebuild", "@rolldown/binding-#{os}-#{arch}", "--build-from-source"
-        system "npm", "rebuild", "@rolldown/rolldown", "--build-from-source"
-      end
-    end
 
-    # Remove incompatible deasync modules
     node_modules = libexec/"lib/node_modules/vercel/node_modules"
     node_modules.glob("deasync/bin/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
