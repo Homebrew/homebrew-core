@@ -6,7 +6,7 @@ class Dotkeeper < Formula
   sha256 "d25ddc2f7e211f648300a4a4a257495a237d3eb0a76df946c54c83f9d76826b8"
   license "MIT"
 
-  depends_on "swift" => :build
+  uses_from_macos "swift" => :build
 
   def install
     system "swift", "build", "--configuration", "release", "-Xswiftc", "-static-stdlib"
