@@ -9,7 +9,7 @@ class Dotkeeper < Formula
   depends_on "swift" => :build
 
   def install
-    system "swift", "build", "--configuration", "release"
+    system "swift", "build", "--configuration", "release", "-Xswiftc", "-static-stdlib"
     bin.install ".build/release/dotkeeper"
   end
 
