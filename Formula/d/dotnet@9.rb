@@ -2,8 +2,8 @@ class DotnetAT9 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.112.tar.gz"
-  sha256 "6b0d297661f16ad272212f491516f9932a93eab1c68af622b94190a566eb4d6f"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.113.tar.gz"
+  sha256 "24863f0953af24b22624f6c413bca9ce53a987f0b7ad44f4ee18a2cb42dbad4b"
   license "MIT"
 
   livecheck do
@@ -49,13 +49,6 @@ class DotnetAT9 < Formula
       fails_with :gcc do
         cause "Illegal instruction when running crossgen2"
       end
-
-      # Backport fix for Clang 21
-      patch do
-        url "https://github.com/dotnet/runtime/commit/d4ff34564bcaf4ec5a02ecdca17ea63e5481cc42.patch?full_index=1"
-        sha256 "6b2485ca234b6dbab8ae5e2e5007c8e8d28130d14213cd5c5546cdefc27d8373"
-        directory "src/runtime"
-      end
     end
   end
 
@@ -66,19 +59,12 @@ class DotnetAT9 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v9.0.112/release.json"
-    sha256 "420355ac27b4756ad45c497c42361fbff02921fa78718ee36dcf6e2632259786"
+    url "https://github.com/dotnet/dotnet/releases/download/v9.0.113/release.json"
+    sha256 "353c6da35b2077af72c64366cee13a64f3e58afa20825ce7dbe9f5880bbdb1c0"
 
     livecheck do
       formula :parent
     end
-  end
-
-  # Backport fix for https://github.com/dotnet/dotnet/issues/4037
-  patch do
-    url "https://github.com/dotnet/source-build-externals/commit/509ae3f3bf4e405e55b635699970a2d8014fba59.patch?full_index=1"
-    sha256 "83174ff071f181f720a77c01df46340c4410bc56908d7c10700498649734bda7"
-    directory "src/source-build-externals"
   end
 
   def install
