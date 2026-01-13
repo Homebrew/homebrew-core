@@ -14,6 +14,6 @@ class Dotkeeper < Formula
   end
 
   test do
-    system ".build/release/dotkeeper"
+    system bin/"dotkeeper"
   end
 end
