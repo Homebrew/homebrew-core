@@ -17,7 +17,7 @@ class PlinkNg < Formula
         if OS.linux?
           s.gsub! " -llapack -lcblas -lblas", "-L#{Formula["openblas"].opt_lib} -lopenblas"
           s.sub! "MAKE=make",
-                 "MAKE=make\n        LDFLAGS='-ldl -lpthread -lz -L#{Formula["zstd"].opt_lib} -lzstd"
+                 "MAKE=make\n        LDFLAGS='-ldl -lpthread -lz -L#{Formula["zstd"].opt_lib} -lzstd'"
         end
         s.gsub! "-framework Accelerate", "-L#{Formula["openblas"].opt_lib} -lopenblas"
       end
