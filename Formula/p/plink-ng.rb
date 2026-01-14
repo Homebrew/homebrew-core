@@ -9,7 +9,7 @@ class PlinkNg < Formula
 
   depends_on "zstd"
   uses_from_macos "zlib"
-
+  depends_on macos: :sequoia
   on_linux do
     depends_on "openblas"
   end
