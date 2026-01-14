@@ -1,17 +1,17 @@
 class Pgstream < Formula
   desc "PostgreSQL replication with DDL changes"
   homepage "https://github.com/xataio/pgstream"
-  url "https://github.com/xataio/pgstream/archive/refs/tags/v0.9.4.tar.gz"
-  sha256 "7b037e04c50f0543efb71d800b0630dd8c1f76d992cc1fb724d317be8484523d"
+  url "https://github.com/xataio/pgstream/archive/refs/tags/v0.9.5.tar.gz"
+  sha256 "09cbfaaa477c9c5d73df4ab3ebbb8d9e31497e0bbcf1ff51f3347c68be20fdab"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "311a2ebcd58708945b97cb22fb1809a629376fa22c6f624e8b7933af1a347090"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "311a2ebcd58708945b97cb22fb1809a629376fa22c6f624e8b7933af1a347090"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "311a2ebcd58708945b97cb22fb1809a629376fa22c6f624e8b7933af1a347090"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9dadaba7ac246a6e2897b2e83d585227eb9c2b6657f00666c45f8d2619ab4831"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "79369b0175d8b086afe6942501abb2a5ec7f31616e89f474f69c1a32beeaa599"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afbca20a2dd25711e8618aa0b9223161ee9ebc27ff64f2be5c3d802654629515"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f6ca5ee8c99d688f91f3dd398caf1f9bbe050e7056d81f7887a5d70669a53c0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f6ca5ee8c99d688f91f3dd398caf1f9bbe050e7056d81f7887a5d70669a53c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f6ca5ee8c99d688f91f3dd398caf1f9bbe050e7056d81f7887a5d70669a53c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d3a06cfbb546158fdfb86d3b445629e81d84d89269b262fd74b9b60952826e8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b9fbe7fc41df2b6579d35624a58a0b61c1eabc2269367532a5c708df08496c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4adb8553d83de3401509d70f228eb50a9da2cc3e98eba43602a15cd57381ca49"
   end
 
   depends_on "go" => :build
