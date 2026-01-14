@@ -7,9 +7,12 @@ class PlinkNg < Formula
   license "LGPL-3.0-only"
   head "https://github.com/chrchang/plink-ng.git", branch: "master"
 
-  depends_on "openblas"
   depends_on "zstd"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openblas"
+  end
 
   def install
     cd "2.0" do
