@@ -12,7 +12,7 @@ class PlinkNg < Formula
   uses_from_macos "zlib"
 
   def install
-   cd "2.0" do
+    cd "2.0" do
       inreplace "build.sh", " -llapack -lcblas -lblas", "-L#{Formula["openblas"].opt_lib} -lopenblas" if OS.linux?
       system "./build.sh"
       bin.install "bin/plink2" => "plink2"
