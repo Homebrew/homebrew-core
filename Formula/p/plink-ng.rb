@@ -31,7 +31,7 @@ class PlinkNg < Formula
   end
 
   test do
-    system "#{bin}/plink2", "--threads", "1", "--dummy", "513", "1423", "0.02", "--out", "dummy_cc1"
-    assert_path_exists testpath/"dummy_cc1.pvar"
+    system "#{bin}/plink2", "--threads", "1", "--memory", "640", "--dummy", "2", "2", "--freq", "--out", "test2"
+    assert_path_exists testpath/"test2.afreq"
   end
 end
