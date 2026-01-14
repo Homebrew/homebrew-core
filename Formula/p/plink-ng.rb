@@ -13,7 +13,14 @@ class PlinkNg < Formula
 
   def install
     cd "2.0" do
-      inreplace "build.sh", " -llapack -lcblas -lblas", "-L#{Formula["openblas"].opt_lib} -lopenblas" if OS.linux?
+      inreplace "build.sh" do |s|
+        if OS.linux?
+          s.gsub! " -llapack -lcblas -lblas", "-L#{Formula["openblas"].opt_lib} -lopenblas"
+          s.sub! "MAKE=make",
+                 "MAKE=make\n        LDFLAGS='-ldl -lpthread -lz -L#{Formula["zstd"].opt_lib} -lzstd"
+        end
+        s.gsub! "-framework Accelerate", "-L#{Formula["openblas"].opt_lib} -lopenblas"
+      end
       system "./build.sh"
       bin.install "bin/plink2" => "plink2"
       bin.install "bin/pgen_compress" => "pgen_compress"
@@ -21,7 +28,7 @@ class PlinkNg < Formula
   end
 
   test do
-    system "#{bin}/plink2", "--dummy", "513", "1423", "0.02", "--out", "dummy_cc1"
+    system "#{bin}/plink2", "--threads", "1", "--dummy", "513", "1423", "0.02", "--out", "dummy_cc1"
     assert_path_exists testpath/"dummy_cc1.pvar"
   end
 end
