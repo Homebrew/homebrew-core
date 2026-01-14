@@ -19,7 +19,6 @@ class PlinkNg < Formula
           s.sub! "MAKE=make",
                  "MAKE=make\n        LDFLAGS='-ldl -lpthread -lz -L#{Formula["zstd"].opt_lib} -lzstd'"
         end
-        s.gsub! "-framework Accelerate", "-L#{Formula["openblas"].opt_lib} -lopenblas"
       end
       system "./build.sh"
       bin.install "bin/plink2" => "plink2"
