@@ -1,8 +1,8 @@
 class Arturo < Formula
   desc "Simple, modern and portable programming language for efficient scripting"
   homepage "https://arturo-lang.io/"
-  url "https://github.com/arturo-lang/arturo/archive/refs/tags/v0.9.83.tar.gz"
-  sha256 "0bb3632f21a1556167fdcb82170c29665350beb44f15b4666b4e22a23c2063cf"
+  url "https://github.com/arturo-lang/arturo/archive/refs/tags/v0.9.84.tar.gz"
+  sha256 "0eff7c6965b37d174a19861c0d8834c9ac8f2c6222559983cc4451bda8341c6c"
   license "MIT"
 
   bottle do
@@ -19,60 +19,24 @@ class Arturo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "58f4a8c2fa4c22f00887c45852b4fe5326d1df941f484f5884bf5cab6df1c81a"
   end
 
+  depends_on "nim" => :build
   depends_on "gmp"
   depends_on "mpfr"
 
-  # TODO: switch to `depends_on "nim" => :build` in the next release
-  resource "nim" do
-    url "https://nim-lang.org/download/nim-1.6.14.tar.xz"
-    sha256 "d070d2f28ae2400df7fe4a49eceb9f45cd539906b107481856a0af7a8fa82dc9"
-  end
-
-  # Workaround for newer Clang
-  # upstream pr ref, https://github.com/arturo-lang/arturo/pull/1635
-  patch :DATA
-
   def install
-    (buildpath/"nim").install resource("nim")
-    cd "nim" do
-      system "./build.sh"
-      system "./bin/nim", "c", "-d:release", "koch"
-      system "./koch", "boot", "-d:release", "-d:useLinenoise"
-    end
-    ENV.prepend_path "PATH", buildpath/"nim/bin"
+    inreplace "build.nims", %r{getHomeDir\(\)/"\.arturo"}, "\"#{prefix}\""
 
-    inreplace "build.nims", /ROOT_DIR\s*=\s*r"\{getHomeDir\(\)\}.arturo".fmt/, "ROOT_DIR=\"#{prefix}\""
-
-    # Work around issues with Xcode 14.3
-    # @mhelpers@swebviews.nim.c:1116:2: error: call to undeclared function 'generateDefaultMainMenu';
-    # ISO C99 and later do not support implicit function declarations
-    inreplace "build.nims", "--passC:'-flto'", "--passC:'-flto' --passC:'-Wno-implicit-function-declaration'"
-
-    # Use mini install on Linux to avoid webkit2gtk dependency, which does not have a formula.
-    args = ["log", "release"]
-    args << "mini" if OS.linux?
-    system "./build.nims", "install", *args
+    args = ["--log", "--release", "--install"]
+    args << "--mode=mini" if OS.linux?
+    system "./build.nims", "build", *args
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/arturo --version")
+
     (testpath/"hello.art").write <<~EOS
       print "hello"
     EOS
     assert_equal "hello", shell_output("#{bin}/arturo #{testpath}/hello.art").chomp
   end
 end
-
-__END__
-diff --git a/build.nims b/build.nims
-index 9c3f812..c4ed4c0 100755
---- a/build.nims
-+++ b/build.nims
-@@ -104,7 +104,7 @@ var
-                           "--skipUserCfg:on --colors:off -d:danger " &
-                           "--panics:off --mm:orc -d:useMalloc --checks:off " &
-                           "-d:ssl --cincludes:extras --opt:speed --nimcache:.cache --passL:'-pthread' " & 
--                          "--path:src "
-+                          "--path:src --passC:\"-Wno-error=incompatible-pointer-types\""
-     CONFIG              ="@full"
- 
-     ARGS: seq[string]   = @[] 
