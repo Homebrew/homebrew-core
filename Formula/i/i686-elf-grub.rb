@@ -1,9 +1,9 @@
 class I686ElfGrub < Formula
   desc "GNU GRUB bootloader for i686-elf"
   homepage "https://savannah.gnu.org/projects/grub"
-  url "https://ftpmirror.gnu.org/gnu/grub/grub-2.12.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/gnu/grub/grub-2.12.tar.xz"
-  sha256 "f3c97391f7c4eaa677a78e090c7e97e6dc47b16f655f04683ebd37bef7fe0faa"
+  url "https://ftpmirror.gnu.org/gnu/grub/grub-2.14.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/gnu/grub/grub-2.14.tar.xz"
+  sha256 "bc8d3c73535b8838d8c8e2654d73edc4e6ae8c8acdb45d5df5dc9a1547446d43"
   license "GPL-3.0-or-later"
 
   no_autobump! because: :requires_manual_review
