@@ -22,10 +22,9 @@ class PlinkNg < Formula
           s.gsub! " -llapack -lcblas -lblas", "-L#{Formula["openblas"].opt_lib} -lopenblas"
           s.sub! "MAKE=make",
                  "MAKE=make\n        LDFLAGS='-ldl -lm -lpthread -lz -L#{Formula["zstd"].opt_lib} -lzstd'"
-          system "./build.sh", "netlib"
         end
       end
-      system "./build.sh" if OS.mac?
+      system "./build.sh"
       bin.install "bin/plink2" => "plink2"
       bin.install "bin/pgen_compress" => "pgen_compress"
     end
