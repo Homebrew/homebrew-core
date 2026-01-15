@@ -26,6 +26,7 @@ class Zeek < Formula
   depends_on "swig" => :build
   depends_on "c-ares"
   depends_on "libmaxminddb"
+  depends_on "node@24"
   depends_on "openssl@3"
   depends_on "python@3.14"
   depends_on "zeromq"
@@ -58,6 +59,8 @@ class Zeek < Formula
                     "-DPYTHON_EXECUTABLE=#{which("python3.14")}",
                     "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                     "-DZEEK_LOCAL_STATE_DIR=#{var}",
+                    "-DDISABLE_JAVASCRIPT=off",
+                    "-DNODEJS_ROOT_DIR=#{Formula["node@24"].opt_prefix}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
