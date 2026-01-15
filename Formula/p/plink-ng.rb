@@ -17,14 +17,15 @@ class PlinkNg < Formula
 
   def install
     cd "2.0" do
-      inreplace "build.sh" do |s|
-        if OS.linux?
+      if OS.linux?
+        inreplace "build.sh" do |s|
           s.gsub! " -llapack -lcblas -lblas", "-L#{Formula["openblas"].opt_lib} -lopenblas"
           s.sub! "MAKE=make",
-                 "MAKE=make\n        LDFLAGS='-ldl -lpthread -lz -L#{Formula["zstd"].opt_lib} -lzstd'"
+                 "MAKE=make\n        LDFLAGS='-ldl -lm -lpthread -lz -L#{Formula["zstd"].opt_lib} -lzstd'"
+          system "./build.sh", "netlib"
         end
       end
-      system "./build.sh"
+      system "./build.sh" if OS.mac?
       bin.install "bin/plink2" => "plink2"
       bin.install "bin/pgen_compress" => "pgen_compress"
     end
