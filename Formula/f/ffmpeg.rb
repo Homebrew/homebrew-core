@@ -33,6 +33,7 @@ class Ffmpeg < Formula
   depends_on "sdl2"
   depends_on "svt-av1"
   depends_on "x264"
+  depends_on "x265"
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
@@ -66,6 +67,7 @@ class Ffmpeg < Formula
       --enable-libsvtav1
       --enable-libopus
       --enable-libx264
+      --enable-libx265
       --enable-libmp3lame
     ]
 
