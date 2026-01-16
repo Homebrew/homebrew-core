@@ -1,8 +1,8 @@
 class Binsider < Formula
   desc "Analyzes ELF binaries"
   homepage "https://binsider.dev/"
-  url "https://github.com/orhun/binsider/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "af3b7ac468a5407324b49bbfb750c7426e7d3f08e598195e6a416f10a89afd57"
+  url "https://github.com/orhun/binsider/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "5ff2c2047bb57e20f0742e9b78f6929730575a768666f0dc7bcd141e64aa2948"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/orhun/binsider.git", branch: "main"
 
