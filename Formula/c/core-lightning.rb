@@ -3,8 +3,8 @@ class CoreLightning < Formula
 
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v25.09.3/clightning-v25.09.3.zip"
-  sha256 "d051a08f1432ddc7b26d1132ea9ad302de935f89a5a930eafcf92f68830649ab"
+  url "https://github.com/ElementsProject/lightning/releases/download/v25.12.1/clightning-v25.12.1.zip"
+  sha256 "e74adc347f5d5de45ecc9de7116fdc44ae6e13e2291a81c0ce45370bba78e0a6"
   license "MIT"
   head "https://github.com/ElementsProject/lightning.git", branch: "master"
 
@@ -62,15 +62,12 @@ class CoreLightning < Formula
     sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
-  # Configure script overwrites `PKG_CONFIG_PATH` on macOS
-  # PR: https://github.com/ElementsProject/lightning/pull/8146
-  patch do
-    url "https://github.com/botantony/lightning/commit/cca721a9f3c5a15f6792b0dc1941959dbd93ac2f.patch?full_index=1"
-    sha256 "ee375b92de3d49f4bdf33acf2eb672b693f5806ee418a380e37f3a6a4047c91d"
-  end
-
   def install
-    rm_r(["external/libsodium", "external/lowdown"])
+    # Fix error: default initialization of an object of type
+    # 'const secp256k1_ecdsa_signature' leaves the object uninitialized
+    inreplace "lightningd/dual_open_control.c",
+              "const secp256k1_ecdsa_signature sig;",
+              "secp256k1_ecdsa_signature sig;"
 
     venv = virtualenv_create(buildpath/"venv", "python3.14")
     venv.pip_install resources
