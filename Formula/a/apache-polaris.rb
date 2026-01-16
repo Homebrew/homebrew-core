@@ -1,8 +1,8 @@
 class ApachePolaris < Formula
   desc "Interoperable, open source catalog for Apache Iceberg"
   homepage "https://polaris.apache.org/"
-  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.1.0-incubating.tar.gz"
-  sha256 "cc4e0557e7a9cc36fd0d72412842f11cbbf5acb90f13f6e32fac14aa5f9ed77c"
+  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.3.0-incubating.tar.gz"
+  sha256 "4a502ceb521c09a179d8a4e0f6b75ff0b76b60b707179df9535b2553a9585032"
   license "Apache-2.0"
 
   livecheck do
@@ -19,7 +19,7 @@ class ApachePolaris < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c455b85be6a394de94a20a4e6badb785e93f791cd730a6782e44c84c904006d6"
   end
 
-  depends_on "gradle@8" => :build
+  depends_on "gradle" => :build
   depends_on "openjdk"
 
   def install
