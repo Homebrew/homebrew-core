@@ -1,10 +1,9 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-3.0.1.tar.xz"
-  sha256 "60a03d73883ea9c5dd94253907fc2002aa229e0fc41febb17d7baa341b228db1"
+  url "https://stian.cubic.org/ocp/ocp-3.1.0.tar.xz"
+  sha256 "74611dd50d56424297945582c352309ee646e6122b551fa350863723a567363d"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/mywave82/opencubicplayer.git", branch: "master"
 
   livecheck do
@@ -51,19 +50,20 @@ class Ocp < Formula
     depends_on "alsa-lib"
   end
 
-  # pin to 15.0.6 to use precompiled fonts
+  # pin to 16.0.02 to use precompiled fonts
+  # https://github.com/mywave82/opencubicplayer/blob/master/mingw/versionsconf.sh#L20
   resource "unifont" do
-    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-15.0.06/unifont-15.0.06.tar.gz"
-    sha256 "36668eb1326d22e1466b94b3929beeafd10b9838bf3d41f4e5e3b52406ae69f1"
+    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-16.0.02/unifont-16.0.02.tar.gz"
+    sha256 "f128ec8763f2264cd1fa069f3195631c0b1365366a689de07b1cb82387aba52d"
   end
 
   def install
     # Required for SDL2
     resource("unifont").stage do |r|
       cd "font/precompiled" do
-        share.install "unifont-#{r.version}.ttf" => "unifont.ttf"
-        share.install "unifont_csur-#{r.version}.ttf" => "unifont_csur.ttf"
-        share.install "unifont_upper-#{r.version}.ttf" => "unifont_upper.ttf"
+        share.install "unifont-#{r.version}.otf" => "unifont.otf"
+        share.install "unifont_csur-#{r.version}.otf" => "unifont_csur.otf"
+        share.install "unifont_upper-#{r.version}.otf" => "unifont_upper.otf"
       end
     end
 
