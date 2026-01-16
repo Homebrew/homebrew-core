@@ -1,8 +1,8 @@
 class Nak < Formula
   desc "CLI for doing all things nostr"
   homepage "https://github.com/fiatjaf/nak"
-  url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.17.4.tar.gz"
-  sha256 "b8fbd360984d9903a636cc7a0daa5ac123b2a31ead3424137fdcc31e2a36e71c"
+  url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.17.5.tar.gz"
+  sha256 "93b6430acbe6879651e0ba3be6d2525b5adb5110c727e47c035c44ffa5c74353"
   license "Unlicense"
   head "https://github.com/fiatjaf/nak.git", branch: "master"
 
@@ -18,6 +18,8 @@ class Nak < Formula
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
   end
 
