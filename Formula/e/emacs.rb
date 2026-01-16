@@ -65,6 +65,13 @@ class Emacs < Formula
       system "./autogen.sh"
     end
 
+    # when building from source, sometimes the libxml2 include path is not
+    # picked up by the compiler's system search path (<...>).
+    unless OS.mac?
+      ENV["LIBXML2_CFLAGS"] = "-isystem #{Formula["libxml2"].opt_include}/libxml2 \
+      -I#{Formula["zlib"].opt_include}/zlib"
+    end
+
     File.write "lisp/site-load.el", <<~EOS
       (setq exec-path (delete nil
         (mapcar
