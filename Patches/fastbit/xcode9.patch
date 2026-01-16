@@ -1,0 +1,24 @@
+diff -pur fastbit-2.0.3-old/src/array_t.cpp fastbit-2.0.3/src/array_t.cpp
+--- fastbit-2.0.3-old/src/array_t.cpp	2016-01-27 06:37:58.000000000 +0100
++++ fastbit-2.0.3/src/array_t.cpp	2018-03-13 16:20:39.000000000 +0100
+@@ -1694,7 +1694,7 @@ ibis::array_t<T>::insert(typename ibis::
+         }
+     }
+     else {      // need new memory, copy-and-swap
+-        const difference_type nold = (m_begin > 0 && m_end > m_begin ?
++        const difference_type nold = (m_begin != 0 && m_end > m_begin ?
+                                       m_end - m_begin : 0);
+         size_t nnew = static_cast<size_t>(nold + (nold>=n ? nold : n));
+         if (nnew > 0x7FFFFFFFU) {
+diff -pur fastbit-2.0.3-old/src/array_t.h fastbit-2.0.3/src/array_t.h
+--- fastbit-2.0.3-old/src/array_t.h	2016-01-27 06:37:58.000000000 +0100
++++ fastbit-2.0.3/src/array_t.h	2018-03-13 16:20:45.000000000 +0100
+@@ -67,7 +67,7 @@ public:
+ 
+     bool empty() const {return (m_begin == 0 || m_begin >= m_end);};
+     size_t size() const {	///!< Return the number of elements.
+-	return (m_begin > 0 && m_end > m_begin ? m_end - m_begin : 0);
++	return (m_begin != 0 && m_end > m_begin ? m_end - m_begin : 0);
+     };
+     inline void clear();
+ 

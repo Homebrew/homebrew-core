@@ -1,0 +1,18 @@
+{
+  "gcr": "all",
+  "gnome-autoar": "all",
+  "gom": "all",
+  "gtk-doc": "all",
+  "gtk-mac-integration": "all",
+  "gtk-vnc": "all",
+  "libadwaita": "all",
+  "libart": "all",
+  "libepoxy": "all",
+  "librsvg": "all",
+  "libsecret": "all",
+  "libshumate": "all",
+  "libxml2": "all",
+  "libxslt": "all",
+  "pango": "all",
+  "tinysparql": "all"
+}

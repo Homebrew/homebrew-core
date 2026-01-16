@@ -1,0 +1,11 @@
+--- uudecode.c.orig	2003-07-22 06:46:37.000000000 +1000
++++ uudecode.c	2012-08-01 20:05:39.000000000 +1000
+@@ -845,7 +845,7 @@ int uudecodeline(char *line, FILE *outfi
+ 	}
+ 	line += 4;
+     }
+-    return;
++    return 0;
+ }
+ 
+     

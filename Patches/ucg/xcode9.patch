@@ -1,0 +1,110 @@
+diff -pur universalcodegrep-0.3.3-old/src/FileScanner.cpp universalcodegrep-0.3.3/src/FileScanner.cpp
+--- universalcodegrep-0.3.3-old/src/FileScanner.cpp	2016-12-30 16:38:24.000000000 +0100
++++ universalcodegrep-0.3.3/src/FileScanner.cpp	2018-03-13 20:29:31.000000000 +0100
+@@ -246,7 +246,7 @@ bool FileScanner::IsPatternLiteral(const
+ 	return is_lit;
+ }
+ 
+-int FileScanner::LiteralMatch_default(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) noexcept
++int FileScanner::LiteralMatch_default(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) const noexcept
+ {
+ 	int rc = 0;
+ 
+@@ -283,10 +283,6 @@ extern "C" void * resolve_CountLinesSinc
+ 	{
+ 		retval = reinterpret_cast<void*>(&FileScanner::CountLinesSinceLastMatch_sse4_2_no_popcnt);
+ 	}
+-	else if(sys_has_sse2())
+-	{
+-		retval = reinterpret_cast<void*>(&FileScanner::CountLinesSinceLastMatch_sse2);
+-	}
+ 	else
+ 	{
+ 		retval = reinterpret_cast<void*>(&FileScanner::CountLinesSinceLastMatch_default);
+@@ -295,9 +291,9 @@ extern "C" void * resolve_CountLinesSinc
+ 	return retval;
+ }
+ 
+-FileScanner::LiteralMatch_type FileScanner::resolve_LiteralMatch(FileScanner * obj [[maybe_unused]]) noexcept
++decltype(FileScanner::LiteralMatch) FileScanner::resolve_LiteralMatch(FileScanner * obj [[maybe_unused]]) noexcept
+ {
+-	FileScanner::LiteralMatch_type retval;
++	decltype(FileScanner::LiteralMatch) retval;
+ 
+ 	if(sys_has_sse4_2())
+ 	{
+diff -pur universalcodegrep-0.3.3-old/src/FileScanner.h universalcodegrep-0.3.3/src/FileScanner.h
+--- universalcodegrep-0.3.3-old/src/FileScanner.h	2016-12-30 16:38:24.000000000 +0100
++++ universalcodegrep-0.3.3/src/FileScanner.h	2018-03-13 20:26:32.000000000 +0100
+@@ -145,17 +145,14 @@ protected:
+ 	const char * find_sse4_2_popcnt(const char * __restrict__ cbegin, size_t len) const noexcept;
+ 
+ 
+-	using LiteralMatch_type = std::function<int (FileScanner *obj, const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) noexcept>;
+-
+-	static LiteralMatch_type resolve_LiteralMatch(FileScanner *obj) noexcept;
+-
+-	LiteralMatch_type LiteralMatch;
++	int (FileScanner::*LiteralMatch)(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) const noexcept;
++	static decltype(LiteralMatch) resolve_LiteralMatch(FileScanner *obj) noexcept;
+ 
+ 	//int (*FileScanner::LiteralMatch)(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) const noexcept;
+ 
+-	int LiteralMatch_default(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) noexcept;
++	int LiteralMatch_default(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) const noexcept;
+ 
+-	int LiteralMatch_sse4_2(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) noexcept;
++	int LiteralMatch_sse4_2(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) const noexcept;
+ 
+ 	///@}
+ 
+diff -pur universalcodegrep-0.3.3-old/src/FileScannerPCRE2.cpp universalcodegrep-0.3.3/src/FileScannerPCRE2.cpp
+--- universalcodegrep-0.3.3-old/src/FileScannerPCRE2.cpp	2016-12-30 16:38:24.000000000 +0100
++++ universalcodegrep-0.3.3/src/FileScannerPCRE2.cpp	2018-03-13 20:20:26.000000000 +0100
+@@ -356,7 +356,7 @@ void FileScannerPCRE2::ScanFile(const ch
+ 		}
+ 		else
+ 		{
+-			rc = LiteralMatch(this, file_data, file_size, start_offset, ovector);
++			rc = (this->*LiteralMatch)(file_data, file_size, start_offset, ovector);
+ 		}
+ 
+ 		// Check for no match.
+diff -pur universalcodegrep-0.3.3-old/src/FileScanner_sse4_2.cpp universalcodegrep-0.3.3/src/FileScanner_sse4_2.cpp
+--- universalcodegrep-0.3.3-old/src/FileScanner_sse4_2.cpp	2016-12-30 16:38:24.000000000 +0100
++++ universalcodegrep-0.3.3/src/FileScanner_sse4_2.cpp	2018-03-13 20:26:55.000000000 +0100
+@@ -285,7 +285,7 @@ const char * MULTIVERSION(FileScanner::f
+ 
+ #ifndef __POPCNT__ // To eliminate multiple defs.
+ 
+-int FileScanner::LiteralMatch_sse4_2(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) noexcept
++int FileScanner::LiteralMatch_sse4_2(const char *file_data, size_t file_size, size_t start_offset, size_t *ovector) const noexcept
+ {
+ 	int rc = 0;
+ 	const char* str_match;
+diff -pur universalcodegrep-0.3.3-old/src/libext/DirTree.h universalcodegrep-0.3.3/src/libext/DirTree.h
+--- universalcodegrep-0.3.3-old/src/libext/DirTree.h	2016-12-30 08:19:05.000000000 +0100
++++ universalcodegrep-0.3.3/src/libext/DirTree.h	2018-03-13 20:15:45.000000000 +0100
+@@ -98,6 +98,10 @@ private:
+ #undef M_STATLIST
+ };
+ 
++/// Types of the file and directory include/exclude predicates.
++using file_basename_filter_type = std::function<bool (const std::string& name)>;
++using dir_basename_filter_type = std::function<bool (const std::string& name)>;
++
+ 
+ /**
+  * Multithreaded directory tree traversal class.
+@@ -105,10 +109,7 @@ private:
+ class DirTree
+ {
+ public:
+-	/// Type of the file and directory include/exclude predicates.
+-	using file_basename_filter_type = std::function<bool (const std::string& name) noexcept>;
+-	using dir_basename_filter_type = std::function<bool (const std::string& name) noexcept>;
+-
++	DirTree() = delete;
+ 	DirTree(sync_queue<std::shared_ptr<FileID>>& output_queue,
+ 			const file_basename_filter_type &file_basename_filter,
+ 			const dir_basename_filter_type &dir_basename_filter,
