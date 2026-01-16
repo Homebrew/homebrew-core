@@ -25,6 +25,6 @@ class Spry < Formula
   end
 
   test do
-    system "#{bin}/spry", "--version"
+    system bin/"spry", "--version"
   end
 end
