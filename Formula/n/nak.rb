@@ -1,8 +1,8 @@
 class Nak < Formula
   desc "CLI for doing all things nostr"
   homepage "https://github.com/fiatjaf/nak"
-  url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.17.4.tar.gz"
-  sha256 "b8fbd360984d9903a636cc7a0daa5ac123b2a31ead3424137fdcc31e2a36e71c"
+  url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.17.6.tar.gz"
+  sha256 "419f3f46184f61a77127967016b5db4f7c1d7f6ede2c65180c8cf4ef401c0ec3"
   license "Unlicense"
   head "https://github.com/fiatjaf/nak.git", branch: "master"
 
@@ -21,9 +21,20 @@ class Nak < Formula
   end
 
   depends_on "go" => :build
+  depends_on "libfuse" => :no_linkage # cgofuse uses dlopen
+  depends_on :linux # on macOS, requires closed-source macFUSE
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    ENV["CGO_ENABLED"] = "1"
+    ENV.append "CGO_CFLAGS", "-I#{Formula["libfuse"].opt_include}/fuse3"
+
+    # Workaround to avoid patchelf corruption when cgo is required
+    if Hardware::CPU.arm64?
+      ENV["GO_EXTLINK_ENABLED"] = "1"
+      ENV.append "GOFLAGS", "-buildmode=pie"
+    end
+
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}", tags: "fuse3")
   end
 
   def shell_output_with_tty(cmd)
