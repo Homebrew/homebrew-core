@@ -1,8 +1,8 @@
 class Gastown < Formula
   desc "Multi-agent workspace manager"
   homepage "https://github.com/steveyegge/gastown"
-  url "https://github.com/steveyegge/gastown/archive/refs/tags/v0.2.6.tar.gz"
-  sha256 "486bdf94f6777abd5b83f5a41af4edf0d080241f7a12b3c98f9b69dab5d346c0"
+  url "https://github.com/steveyegge/gastown/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "e42fda1503b603220fa32bf7df283c782c78b0f35b16c95df7251c7cf3746899"
   license "MIT"
 
   bottle do
@@ -25,7 +25,8 @@ class Gastown < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/gt version")
 
-    system bin/"gt", "install"
+    # Avoid `bd version check` flakiness/timeouts in `macos-14/Sonoma` run
+    system bin/"gt", "install", "--no-beads"
     assert_path_exists testpath/"mayor"
   end
 end
