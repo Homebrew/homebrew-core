@@ -1,0 +1,170 @@
+diff --git a/configure b/configure
+index 06a8497..cffea20 100755
+--- a/configure
++++ b/configure
+@@ -6380,7 +6380,7 @@ fi
+ done
+ 
+ 
+-# check for libncursesw
++# check for libncurses
+ case $host_os in
+   *bsd* | darwin*)
+ 
+@@ -6395,14 +6395,14 @@ else
+ fi
+ 
+ 
+-    # check for libncursesw
++    # check for libncurses
+     { $as_echo "$as_me:${as_lineno-$LINENO}: checking for add_wch in -lncursesw" >&5
+ $as_echo_n "checking for add_wch in -lncursesw... " >&6; }
+ if ${ac_cv_lib_ncursesw_add_wch+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lncursesw  $LIBS"
++LIBS="-lncurses  $LIBS"
+ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -6437,7 +6437,7 @@ if test "x$ac_cv_lib_ncursesw_add_wch" = xyes; then :
+ #define HAVE_LIBNCURSESW 1
+ _ACEOF
+ 
+-  LIBS="-lncursesw $LIBS"
++  LIBS="-lncurses $LIBS"
+ 
+ else
+   as_fn_error $? "ncursesw library is missing: See INSTALL file for further information" "$LINENO" 5
+@@ -6445,7 +6445,7 @@ fi
+ 
+     ;;
+   *)
+-    ac_fn_c_check_header_mongrel "$LINENO" "ncursesw/ncurses.h" "ac_cv_header_ncursesw_ncurses_h" "$ac_includes_default"
++    ac_fn_c_check_header_mongrel "$LINENO" "ncurses.h" "ac_cv_header_ncursesw_ncurses_h" "$ac_includes_default"
+ if test "x$ac_cv_header_ncursesw_ncurses_h" = xyes; then :
+   HAVE_NCURSESW_H=1
+ fi
+@@ -6457,7 +6457,7 @@ if ${ac_cv_lib_ncursesw_add_wch+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lncursesw  $LIBS"
++LIBS="-lncurses  $LIBS"
+ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -6492,7 +6492,7 @@ if test "x$ac_cv_lib_ncursesw_add_wch" = xyes; then :
+ fi
+ 
+     if test -n "$HAVE_NCURSESW_H" -a -n "$HAVE_LIBNCURSESW";  then
+-       LIBS="-lncursesw $LIBS"
++       LIBS="-lncurses $LIBS"
+     else
+        echo -e "Error:  both library and header files for the ncursesw library\n"\
+            "are required to build this package.  See INSTALL file for"\
+diff --git a/src/banner.c b/src/banner.c
+index 88d6f6f..00d1df4 100644
+--- a/src/banner.c
++++ b/src/banner.c
+@@ -32,7 +32,7 @@
+ #if defined(HAVE_PDCURSES) || defined(OS_BSD)
+ #include <curses.h>
+ #else
+-#include <ncursesw/ncurses.h>
++#include <ncurses.h>
+ #endif
+ 
+ #include "gettext.h"
+diff --git a/src/cursmenu.c b/src/cursmenu.c
+index 11b2d83..f01a398 100644
+--- a/src/cursmenu.c
++++ b/src/cursmenu.c
+@@ -28,7 +28,7 @@
+ #if defined(HAVE_PDCURSES) || defined(OS_BSD)
+ #include <curses.h>
+ #else
+-#include <ncursesw/ncurses.h>
++#include <ncurses.h>
+ #endif
+ 
+ #include "error.h"
+diff --git a/src/error.c b/src/error.c
+index 87844e0..fb5e3e7 100644
+--- a/src/error.c
++++ b/src/error.c
+@@ -30,7 +30,7 @@
+ #if defined(HAVE_PDCURSES) || defined(OS_BSD)
+ #include <curses.h>
+ #else
+-#include <ncursesw/ncurses.h>
++#include <ncurses.h>
+ #endif
+ 
+ #include <stdlib.h>
+diff --git a/src/gtypist.c b/src/gtypist.c
+index fa46c67..0549fac 100644
+--- a/src/gtypist.c
++++ b/src/gtypist.c
+@@ -35,7 +35,7 @@
+ #if defined(HAVE_PDCURSES) || defined(OS_BSD)
+ #include <curses.h>
+ #else
+-#include <ncursesw/ncurses.h>
++#include <ncurses.h>
+ #endif
+ 
+ #include <time.h>
+diff --git a/src/infoview.c b/src/infoview.c
+index fc1c0ea..90470ad 100644
+--- a/src/infoview.c
++++ b/src/infoview.c
+@@ -29,7 +29,7 @@
+ #if defined(HAVE_PDCURSES) || defined(OS_BSD)
+ #include <curses.h>
+ #else
+-#include <ncursesw/ncurses.h>
++#include <ncurses.h>
+ #endif
+ 
+ #include "infoview.h"
+diff --git a/src/script.c b/src/script.c
+index faae023..a17f943 100644
+--- a/src/script.c
++++ b/src/script.c
+@@ -29,7 +29,7 @@
+ #if defined(HAVE_PDCURSES) || defined(OS_BSD)
+ #include <curses.h>
+ #else
+-#include <ncursesw/ncurses.h>
++#include <ncurses.h>
+ #endif
+ 
+ #include "error.h"
+diff --git a/src/speedbox.c b/src/speedbox.c
+index 72b8c52..a1a2082 100644
+--- a/src/speedbox.c
++++ b/src/speedbox.c
+@@ -26,7 +26,7 @@
+ #if defined(HAVE_PDCURSES) || defined(OS_BSD)
+ #include <curses.h>
+ #else
+-#include <ncursesw/ncurses.h>
++#include <ncurses.h>
+ #endif
+ 
+ #include "speedbox.h"
+diff --git a/src/utf8.c b/src/utf8.c
+index 9aa6325..45de2a3 100644
+--- a/src/utf8.c
++++ b/src/utf8.c
+@@ -26,7 +26,7 @@
+ #if defined(HAVE_PDCURSES) || defined(OS_BSD)
+ #include <curses.h>
+ #else
+-#include <ncursesw/ncurses.h>
++#include <ncurses.h>
+ #endif
+ 
+ #include <stdlib.h>
