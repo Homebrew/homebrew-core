@@ -104,7 +104,7 @@ class Qemu < Formula
     end
 
     system "./configure", *args
-    system "make", "V=1", "install"
+    system "make", "V=1", "-j#{ENV.make_jobs}", "install"
   end
 
   test do
