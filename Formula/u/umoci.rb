@@ -10,17 +10,17 @@ class Umoci < Formula
   depends_on "gpgme"
 
   def install
-    # Create the output directory for the generated man pages.
+    system "go", "build", "-ldflags=-s -w", "./cmd/umoci"
+
+    bin.install "umoci" => "umoci"
+
     (buildpath/"docs/man").mkpath
-
-    # Convert every .md file in doc/man to a .1 man page and install it.
-    man1.install(*buildpath.glob("doc/man/*.md").map do |md|
-      name = File.basename(md, ".md")
-      out  = buildpath/"docs/man"/(name + ".1")
-
-      system "go-md2man", "-in", md, "-out", out
-      out
-    end)
+    Dir["doc/man/*.md"].each do |md|
+      name    = File.basename(md, ".md")
+      target  = buildpath/"docs/man"/(name + ".1")
+      system "go-md2man", "-in", md, "-out", target
+      man1.install target
+    end
   end
 
   test do
