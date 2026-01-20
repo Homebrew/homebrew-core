@@ -24,6 +24,7 @@ class Krb5 < Formula
     "OpenVision",
     any_of: ["BSD-2-Clause", "GPL-2.0-or-later"],
   ]
+  revision 1
 
   livecheck do
     url :homepage
@@ -45,9 +46,10 @@ class Krb5 < Formula
   depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
-  uses_from_macos "libedit"
 
   on_linux do
+    depends_on "pkgconf" => :build
+    depends_on "e2fsprogs"
     depends_on "keyutils"
   end
 
@@ -55,6 +57,8 @@ class Krb5 < Formula
     cd "src" do
       system "./configure", "--disable-nls",
                             "--disable-silent-rules",
+                            "--with-system-et",
+                            "--with-system-ss",
                             "--without-system-verto",
                             *std_configure_args
       system "make"
