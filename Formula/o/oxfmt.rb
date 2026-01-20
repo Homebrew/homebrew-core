@@ -1,9 +1,15 @@
 class Oxfmt < Formula
   desc "High-performance formatting tool for JavaScript and TypeScript"
   homepage "https://oxc.rs/"
-  url "https://registry.npmjs.org/oxfmt/-/oxfmt-0.26.0.tgz"
-  sha256 "ec27594735659b2a4afeb3af5ea7ca1e8b0bbaff6c624c3b10e3b8469af39ad4"
+  url "https://github.com/oxc-project/oxc/archive/refs/tags/oxfmt_v0.26.0.tar.gz"
+  sha256 "0b05bc8c8cd9732552aaf6f0fd2b97764c4f1603789dd96a2ce3e4ba59790a88"
   license "MIT"
+  head "https://github.com/oxc-project/oxc.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^oxfmt_v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "175106716eb50a0d1887f7f951eee7d8ec2fbade8440107ce62626a8530c1093"
@@ -14,11 +20,10 @@ class Oxfmt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "649e62711c2bbda7d5b7930c410ad4790c4d623b908bc0d6fd9d03485c122dbe"
   end
 
-  depends_on "node"
+  depends_on "rust" => :build
 
   def install
-    system "npm", "install", *std_npm_args
-    bin.install_symlink libexec.glob("bin/*")
+     system "cargo", "install", *std_cargo_args(path: "apps/oxfmt")
   end
 
   test do
