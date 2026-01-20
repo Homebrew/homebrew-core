@@ -1,8 +1,10 @@
 class Bazel < Formula
+  include Language::Python::Virtualenv
+
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/8.5.1/bazel-8.5.1-dist.zip"
-  sha256 "bf66a1cbaaafec32e1e103d0e07343082f1f0f3f20ad4c6b66c4eda3f690ed4d"
+  url "https://github.com/bazelbuild/bazel/releases/download/9.0.0/bazel-9.0.0-dist.zip"
+  sha256 "dfa496089624d726a158afcac353725166f81c5708ee1ecc9e662f2891b3544d"
   license "Apache-2.0"
 
   livecheck do
@@ -19,13 +21,14 @@ class Bazel < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "87ddf0923c606badd36e8ba0e680ef459292d6e776879e520428b9a1fc124930"
   end
 
+  depends_on "python@3.14" => :build
   depends_on "openjdk@21"
-
-  uses_from_macos "python" => :build
   uses_from_macos "unzip"
   uses_from_macos "zip"
 
   on_linux do
+    depends_on "binutils" => :build # Add this line
+
     on_arm do
       # Workaround for "/usr/bin/ld.gold: internal error in try_fix_erratum_843419_optimized"
       # Issue ref: https://sourceware.org/bugzilla/show_bug.cgi?id=31182
@@ -42,6 +45,11 @@ class Bazel < Formula
 
   conflicts_with "bazelisk", because: "Bazelisk replaces the bazel binary"
 
+  resource "absl-py" do
+    url "https://files.pythonhosted.org/packages/64/c7/8de93764ad66968d19329a7e0c147a2bb3c7054c554d4a119111b8f9440f/absl_py-2.4.0.tar.gz"
+    sha256 "8c6af82722b35cf71e0f4d1d47dcaebfff286e27110a99fc359349b247dfb5d4"
+  end
+
   def bazel_real
     libexec/"bin/bazel-real"
   end
@@ -56,7 +64,8 @@ class Bazel < Formula
     extra_bazel_args = ["--tool_java_runtime_version=local_jdk"]
     ENV.merge! java_home_env.transform_keys(&:to_s)
     # Bazel clears environment variables which breaks superenv shims
-    ENV.remove "PATH", Superenv.shims_path
+    ENV.remove "PATH", "#{Superenv.shims_path}:"
+    ENV.prepend_path "PATH", Formula["binutils"].opt_bin if OS.linux?
 
     # Workaround to build zlib < 1.3.1 with Apple Clang 1700
     # https://releases.llvm.org/18.1.0/tools/clang/docs/ReleaseNotes.html#clang-frontend-potentially-breaking-changes
@@ -75,27 +84,28 @@ class Bazel < Formula
       extra_bazel_args << "--host_linkopt=-fuse-ld=lld"
     end
 
+    if OS.linux?
+      extra_bazel_args << "--action_env=PATH=#{ENV["PATH"]}"
+      extra_bazel_args << "--host_action_env=PATH=#{ENV["PATH"]}"
+    end
     ENV["EXTRA_BAZEL_ARGS"] = extra_bazel_args.join(" ")
 
-    (buildpath/"sources").install buildpath.children
+    system "./compile.sh"
+    bin.install "scripts/packages/bazel.sh" => "bazel"
+    ln_s bazel_real, bin/"bazel-#{version}"
+    (libexec/"bin").install "output/bazel" => "bazel-real"
+    bin.env_script_all_files libexec/"bin", java_home_env
 
-    cd "sources" do
-      system "./compile.sh"
-      system "./output/bazel", "--output_user_root=#{buildpath}/output_user_root",
-                               "build",
-                               *extra_bazel_args,
-                               "scripts:bash_completion",
-                               "scripts:fish_completion"
+    venv = virtualenv_create(buildpath)
+    venv.pip_install resources
 
-      bin.install "scripts/packages/bazel.sh" => "bazel"
-      ln_s bazel_real, bin/"bazel-#{version}"
-      (libexec/"bin").install "output/bazel" => "bazel-real"
-      bin.env_script_all_files libexec/"bin", java_home_env
+    system "#{venv.root}/bin/python3", "scripts/generate_fish_completion.py", "--bazel=#{libexec/"bin"}/bazel-real",
+    "--output=bazel-out/bazel.fish"
+    system "scripts/generate_bash_completion.sh", "--bazel=#{libexec/"bin"}/bazel-real", "--output=bazel-out/bazel"
 
-      bash_completion.install "bazel-bin/scripts/bazel-complete.bash" => "bazel"
-      zsh_completion.install "scripts/zsh_completion/_bazel"
-      fish_completion.install "bazel-bin/scripts/bazel.fish"
-    end
+    zsh_completion.install "scripts/zsh_completion/_bazel"
+    bash_completion.install "bazel-out/bazel"
+    fish_completion.install "bazel-out/bazel.fish"
 
     # Workaround to avoid breaking the zip-appended `bazel-real` binary.
     # Can remove if brew correctly handles these binaries or if upstream
@@ -120,31 +130,28 @@ class Bazel < Formula
   end
 
   test do
-    touch testpath/"WORKSPACE"
+    # Bazel 9: ensure we're in a workspace. Keep MODULE.bazel minimal (no deps),
+    # and provide WORKSPACE for classic mode when bzlmod is disabled.
+    (testpath/"MODULE.bazel").write <<~STARLARK
+      module(
+        name = "homebrew_bazel_test",
+        version = "1.0.0",
+      )
+    STARLARK
+    (testpath/"WORKSPACE").write ""
 
-    (testpath/"ProjectRunner.java").write <<~JAVA
-      public class ProjectRunner {
-        public static void main(String args[]) {
-          System.out.println("Hi!");
-        }
-      }
-    JAVA
-
-    (testpath/"BUILD").write <<~STARLARK
-      java_binary(
+    (testpath/"BUILD.bazel").write <<~STARLARK
+      genrule(
         name = "bazel-test",
-        srcs = glob(["*.java"]),
-        main_class = "ProjectRunner",
+        outs = ["hello.txt"],
+        cmd = "echo 'Hello from the test' > $@",
       )
     STARLARK
 
-    # Explicitly disable repo contents cache
-    system bin/"bazel", "build", "//:bazel-test", "--repo_contents_cache="
-    assert_equal "Hi!\n", shell_output("bazel-bin/bazel-test")
+    system bin/"bazel", "build", "//:bazel-test", "--repo_contents_cache=", "--noenable_bzlmod"
+    assert_equal "Hello from the test\n", (testpath/"bazel-bin/hello.txt").read
 
-    # Verify that `bazel` invokes Bazel's wrapper script, which delegates to
-    # project-specific `tools/bazel` if present. Invoking `bazel-VERSION`
-    # bypasses this behavior.
+    # Verify wrapper script delegation behavior
     (testpath/"tools/bazel").write <<~SHELL
       #!/bin/bash
       echo "stub-wrapper"
