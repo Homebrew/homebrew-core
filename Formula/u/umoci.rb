@@ -24,6 +24,6 @@ class Umoci < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/umoci version")
+    assert_match version.to_s, shell_output("#{bin}/umoci --version")
   end
 end
