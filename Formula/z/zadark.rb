@@ -7,14 +7,15 @@ class Zadark < Formula
   head "https://github.com/quaric/zadark.git", branch: "main"
 
   depends_on "node" => :build
+  depends_on "yarn" => :build
   depends_on :macos
 
   def install
-    system "npm", "ci"
-    system "npm", "run", "build"
+    system "yarn", "install", "--frozen-lockfile"
+    system "yarn", "build"
 
     cd "build/pc" do
-      system "npm", "ci", "--omit=dev"
+      system "yarn", "install", "--frozen-lockfile", "--production"
     end
 
     target = Hardware::CPU.arm? ? "node-macos-arm64" : "node-macos-x64"
