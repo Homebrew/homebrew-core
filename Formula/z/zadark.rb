@@ -19,9 +19,9 @@ class Zadark < Formula
       system "yarn", "install", "--frozen-lockfile", "--production"
     end
 
-    # Use pkg to create executable
-    target = Hardware::CPU.arm? ? "node-macos-arm64" : "node-macos-x64"
-    system "npx", "pkg", "build/pc", "-t", target, "-o", "zadark", "-c", "pkg.config.json"
+    # Use pkg to create executable - must specify the entry file, not directory
+    target = Hardware::CPU.arm? ? "node18-macos-arm64" : "node18-macos-x64"
+    system "npx", "pkg", "build/pc/index.js", "-t", target, "-o", "zadark", "-c", "pkg.config.json"
 
     bin.install "zadark"
   end
