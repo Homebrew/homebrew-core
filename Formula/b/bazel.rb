@@ -50,20 +50,23 @@ class Bazel < Formula
     java_home_env = Language::Java.java_home_env("21")
 
     ENV["EMBED_LABEL"] = "#{version} #{tap.user}"
-    # Force Bazel ./compile.sh to put its temporary files in the buildpath
-    ENV["BAZEL_WRKDIR"] = buildpath/"work"
+
     # Force Bazel to use brewed OpenJDK and PATH
-    extra_bazel_args = %w[--tool_java_runtime_version=local_jdk --action_env=PATH --host_action_env=PATH --isatty=no]
+    # Ignore Xlint and external warnings. See https://github.com/bazelbuild/bazel/blob/726d5b3d31a57ee13e1a3cdc4607888368409bd1/.bazelrc#L61-L63
+    extra_bazel_args = %W[
+      --tool_java_runtime_version=local_jdk
+      --action_env=PATH
+      --host_action_env=PATH
+      --isatty=no
+      --jobs=#{ENV.make_jobs}
+      --per_file_copt=external/.*@-w
+      --host_per_file_copt=external/.*@-w
+      --javacopt=-Xlint:-removal
+      --host_javacopt=-Xlint:-removal
+    ]
     ENV.merge! java_home_env.transform_keys(&:to_s)
     # Bazel clears environment variables which breaks superenv shims
-    ENV.remove "PATH", Superenv.shims_path
-
-    # Workaround to build zlib < 1.3.1 with Apple Clang 1700
-    # https://releases.llvm.org/18.1.0/tools/clang/docs/ReleaseNotes.html#clang-frontend-potentially-breaking-changes
-    # Issue ref: https://github.com/bazelbuild/bazel/issues/25124
-    if DevelopmentTools.clang_build_version >= 1700
-      extra_bazel_args += %w[--copt=-fno-define-target-os-macros --host_copt=-fno-define-target-os-macros]
-    end
+    ENV.remove "PATH", "#{Superenv.shims_path}:"
 
     # Set dynamic linker similar to cc shim so that bottle works on older Linux
     if OS.linux? && build.bottle? && ENV["HOMEBREW_DYNAMIC_LINKER"]
@@ -77,25 +80,22 @@ class Bazel < Formula
 
     ENV["EXTRA_BAZEL_ARGS"] = extra_bazel_args.join(" ")
 
-    (buildpath/"sources").install buildpath.children
+    system "./compile.sh"
 
-    cd "sources" do
-      system "./compile.sh"
-      system "./output/bazel", "--output_user_root=#{buildpath}/output_user_root",
-                               "build",
-                               *extra_bazel_args,
-                               "scripts:bash_completion",
-                               "scripts:fish_completion"
+    bin.install "scripts/packages/bazel.sh" => "bazel"
+    ln_s bazel_real, bin/"bazel-#{version}"
+    (libexec/"bin").install "output/bazel" => "bazel-real"
+    bin.env_script_all_files libexec/"bin", java_home_env
 
-      bin.install "scripts/packages/bazel.sh" => "bazel"
-      ln_s bazel_real, bin/"bazel-#{version}"
-      (libexec/"bin").install "output/bazel" => "bazel-real"
-      bin.env_script_all_files libexec/"bin", java_home_env
+    bash_completion.mkpath
+    fish_completion.mkpath
+    zsh_completion.install "scripts/zsh_completion/_bazel"
 
-      bash_completion.install "bazel-bin/scripts/bazel-complete.bash" => "bazel"
-      zsh_completion.install "scripts/zsh_completion/_bazel"
-      fish_completion.install "bazel-bin/scripts/bazel.fish"
-    end
+    ENV["PYTHONPATH"] = buildpath/"third_party/py/abseil"
+    # Genenate shell completions without `bazel build` to avoid recompilation of dependencies
+    system "scripts/generate_bash_completion.sh", "--bazel=#{bazel_real}", "--output=#{bash_completion}/bazel"
+    system "python3", "scripts/generate_fish_completion.py", "--bazel=#{bazel_real}",
+    "--output=#{fish_completion}/bazel.fish"
 
     # Workaround to avoid breaking the zip-appended `bazel-real` binary.
     # Can remove if brew correctly handles these binaries or if upstream
@@ -142,13 +142,10 @@ class Bazel < Formula
       )
     STARLARK
 
-    # Explicitly disable repo contents cache
     system bin/"bazel", "build", "//:bazel-test", "--repo_contents_cache="
     assert_equal "Hi!\n", shell_output("bazel-bin/bazel-test")
 
-    # Verify that `bazel` invokes Bazel's wrapper script, which delegates to
-    # project-specific `tools/bazel` if present. Invoking `bazel-VERSION`
-    # bypasses this behavior.
+    # Verify wrapper script delegation behavior
     (testpath/"tools/bazel").write <<~SHELL
       #!/bin/bash
       echo "stub-wrapper"
