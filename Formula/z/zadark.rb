@@ -6,7 +6,7 @@ class Zadark < Formula
   license "MPL-2.0"
   head "https://github.com/quaric/zadark.git", branch: "main"
 
-  depends_on "node" => :build
+  depends_on "node@24" => :build
   depends_on "yarn" => :build
   depends_on :macos
 
@@ -18,7 +18,7 @@ class Zadark < Formula
       system "yarn", "install", "--frozen-lockfile", "--production"
     end
 
-    target = Hardware::CPU.arm? ? "node-macos-arm64" : "node-macos-x64"
+    target = Hardware::CPU.arm? ? "node24-macos-arm64" : "node24-macos-x64"
     system "npx", "pkg", "build/pc/index.js", "-t", target, "-o", "zadark", "-c", "pkg.config.json"
 
     bin.install "zadark"
