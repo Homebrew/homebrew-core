@@ -26,21 +26,8 @@ class Zadark < Formula
     bin.install "zadark"
   end
 
-  def caveats
-    <<~EOS
-      ZaDark has been installed successfully!
-
-      Usage:
-        1. Close Zalo completely
-        2. Run command: zadark
-        3. Follow on-screen instructions
-
-      Documentation: https://zadark.com/pc/macos
-      Support: https://zadark.com/contact
-    EOS
-  end
-
   test do
-    assert_match "ZaDark", shell_output("#{bin}/zadark --help 2>&1", 1)
+    # Test version output (install/uninstall commands require Zalo to be installed and would hang)
+    assert_match version.to_s, shell_output("#{bin}/zadark --version")
   end
 end
