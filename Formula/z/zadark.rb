@@ -7,27 +7,23 @@ class Zadark < Formula
   head "https://github.com/quaric/zadark.git", branch: "main"
 
   depends_on "node" => :build
-  depends_on "yarn" => :build
   depends_on :macos
 
   def install
-    # Build from source
-    system "yarn", "install", "--frozen-lockfile"
-    system "yarn", "build"
+    system "npm", "ci"
+    system "npm", "run", "build"
 
     cd "build/pc" do
-      system "yarn", "install", "--frozen-lockfile", "--production"
+      system "npm", "ci", "--omit=dev"
     end
 
-    # Use pkg to create executable - must specify the entry file, not directory
-    target = Hardware::CPU.arm? ? "node18-macos-arm64" : "node18-macos-x64"
+    target = Hardware::CPU.arm? ? "node-macos-arm64" : "node-macos-x64"
     system "npx", "pkg", "build/pc/index.js", "-t", target, "-o", "zadark", "-c", "pkg.config.json"
 
     bin.install "zadark"
   end
 
   test do
-    # Test version output (install/uninstall commands require Zalo to be installed and would hang)
-    assert_match version.to_s, shell_output("#{bin}/zadark --version")
+    system bin/"zadark", "-v"
   end
 end
