@@ -1,0 +1,13 @@
+diff --git a/src/lib/libfreehand_utils.cpp b/src/lib/libfreehand_utils.cpp
+index 439c457..32f23e0 100644
+--- a/src/lib/libfreehand_utils.cpp
++++ b/src/lib/libfreehand_utils.cpp
+@@ -162,7 +162,7 @@
+   while (j < length)
+   {
+     UChar32 c;
+-    U16_NEXT(s, j, length, c)
++    U16_NEXT(s, j, length, c);
+     unsigned char outbuf[U8_MAX_LENGTH+1];
+     int i = 0;
+     U8_APPEND_UNSAFE(&outbuf[0], i, c);

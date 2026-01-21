@@ -1,0 +1,82 @@
+diff --git a/Makefile.fip b/Makefile.fip
+index b59c419..0aee6e0 100644
+--- a/Makefile.fip
++++ b/Makefile.fip
+@@ -5,8 +5,9 @@ include fipMakefile.srcs
+ 
+ # General configuration variables:
+ DESTDIR ?= /
+-INCDIR ?= $(DESTDIR)/usr/include
+-INSTALLDIR ?= $(DESTDIR)/usr/lib
++PREFIX ?= /usr/local
++INCDIR ?= $(PREFIX)/include
++INSTALLDIR ?= $(PREFIX)/lib
+ 
+ # Converts cr/lf to just lf
+ DOS2UNIX = dos2unix
+@@ -37,7 +38,7 @@ TARGET  = freeimageplus
+ STATICLIB = lib$(TARGET).a
+ SHAREDLIB = lib$(TARGET)-$(VER_MAJOR).$(VER_MINOR).so
+ LIBNAME	= lib$(TARGET).so
+-VERLIBNAME = $(LIBNAME).$(VER_MAJOR)
++VERLIBNAME = lib$(TARGET).$(VER_MAJOR).so
+ HEADER = Source/FreeImage.h
+ HEADERFIP = Wrapper/FreeImagePlus/FreeImagePlus.h
+ 
+@@ -72,10 +73,11 @@ $(SHAREDLIB): $(MODULES)
+ 
+ install:
+ 	install -d $(INCDIR) $(INSTALLDIR)
+-	install -m 644 -o root -g root $(HEADER) $(INCDIR)
+-	install -m 644 -o root -g root $(HEADERFIP) $(INCDIR)
+-	install -m 644 -o root -g root $(STATICLIB) $(INSTALLDIR)
+-	install -m 755 -o root -g root $(SHAREDLIB) $(INSTALLDIR)
++	install -m 644 $(HEADER) $(INCDIR)
++	install -m 644 $(HEADERFIP) $(INCDIR)
++	install -m 644 $(STATICLIB) $(INSTALLDIR)
++	install -m 755 $(SHAREDLIB) $(INSTALLDIR)
++	ln -s $(SHAREDLIB) $(INSTALLDIR)/$(LIBNAME)
+	ln -sf $(SHAREDLIB) $(INSTALLDIR)/$(VERLIBNAME)
+	ln -sf $(VERLIBNAME) $(INSTALLDIR)/$(LIBNAME)
+
+
+
+
+diff --git a/Makefile.gnu b/Makefile.gnu
+index 92f6358..6a5890f 100644
+--- a/Makefile.gnu
++++ b/Makefile.gnu
+@@ -5,8 +5,9 @@ include Makefile.srcs
+ 
+ # General configuration variables:
+ DESTDIR ?= /
+-INCDIR ?= $(DESTDIR)/usr/include
+-INSTALLDIR ?= $(DESTDIR)/usr/lib
++PREFIX ?= /usr/local
++INCDIR ?= $(PREFIX)/include
++INSTALLDIR ?= $(PREFIX)/lib
+ 
+ # Converts cr/lf to just lf
+ DOS2UNIX = dos2unix
+@@ -37,7 +38,7 @@ TARGET  = freeimage
+ STATICLIB = lib$(TARGET).a
+ SHAREDLIB = lib$(TARGET)-$(VER_MAJOR).$(VER_MINOR).so
+ LIBNAME	= lib$(TARGET).so
+-VERLIBNAME = $(LIBNAME).$(VER_MAJOR)
++VERLIBNAME = lib$(TARGET).$(VER_MAJOR).so
+ HEADER = Source/FreeImage.h
+ 
+ 
+@@ -71,9 +72,9 @@ $(SHAREDLIB): $(MODULES)
+ 
+ install:
+ 	install -d $(INCDIR) $(INSTALLDIR)
+-	install -m 644 -o root -g root $(HEADER) $(INCDIR)
+-	install -m 644 -o root -g root $(STATICLIB) $(INSTALLDIR)
+-	install -m 755 -o root -g root $(SHAREDLIB) $(INSTALLDIR)
++	install -m 644 $(HEADER) $(INCDIR)
++	install -m 644 $(STATICLIB) $(INSTALLDIR)
++	install -m 755 $(SHAREDLIB) $(INSTALLDIR)
+ 	ln -sf $(SHAREDLIB) $(INSTALLDIR)/$(VERLIBNAME)
+ 	ln -sf $(VERLIBNAME) $(INSTALLDIR)/$(LIBNAME)	
+ #	ldconfig

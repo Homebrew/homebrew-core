@@ -1,0 +1,11 @@
+--- examples/pixmap-mixed.c.orig	2003-09-14 02:23:33.000000000 -0700
++++ examples/pixmap-mixed.c	2010-07-26 22:28:55.000000000 -0700
+@@ -154,7 +154,7 @@
+               gpointer        data)
+ {
+   gdk_draw_drawable (widget->window,
+-		     widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
++		     widget->style->fg_gc[gtk_widget_get_state (widget)],
+ 		     pixmap,
+ 		     event->area.x, event->area.y,
+ 		     event->area.x, event->area.y,

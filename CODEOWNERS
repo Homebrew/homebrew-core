@@ -1,0 +1,29 @@
+# Note that the naming of this file is incorrect for our case: these people do not "own" the provided files but are
+# people with write-access to this repository (i.e. @Homebrew/core) who wish to approve changes to these files.
+#
+# Their review is required to merge PRs that change these files.
+#
+# To be explicit: we will never accept changes to this file adding people from outside the Homebrew GitHub
+# organisation. If you are not a Homebrew maintainer: you do not personally "own" or "maintain" any formulae.
+#
+# Note: @Homebrew/plc does not have write-access to this repository, and therefore cannot be listed in this file.
+
+CODEOWNERS                        @Homebrew/lead-maintainers @MikeMcQuaid
+CONTRIBUTING.md                   @Homebrew/lead-maintainers @MikeMcQuaid
+tap_migrations.json               @Homebrew/lead-maintainers @MikeMcQuaid
+.github/ISSUE_TEMPLATE/           @Homebrew/lead-maintainers @MikeMcQuaid
+.github/PULL_REQUEST_TEMPLATE.md  @Homebrew/lead-maintainers @MikeMcQuaid
+LICENSE.txt                       @Homebrew/lead-maintainers @MikeMcQuaid
+.github/workflows/                @Homebrew/core @MikeMcQuaid
+.github/workflows/triage.yml      @Homebrew/lead-maintainers
+Formula/f/ffmpeg.rb               @MikeMcQuaid
+Formula/f/ffmpeg-full.rb          @MikeMcQuaid
+Formula/i/imagemagick.rb          @MikeMcQuaid
+Formula/i/imagemagick-full.rb     @MikeMcQuaid
+
+audit_exceptions/linux_only_gcc_dependency_allowlist.json               @Homebrew/lead-maintainers
+audit_exceptions/permitted_formula_license_mismatches.json              @Homebrew/lead-maintainers @MikeMcQuaid
+audit_exceptions/provided_by_macos_depends_on_allowlist.json            @Homebrew/lead-maintainers @MikeMcQuaid
+audit_exceptions/relicensed_formulae_versions.json                      @Homebrew/lead-maintainers @MikeMcQuaid
+audit_exceptions/universal_binary_allowlist.json                        @Homebrew/lead-maintainers @carlocab
+audit_exceptions/versioned_formula_dependent_conflicts_allowlist.json   @Homebrew/lead-maintainers @MikeMcQuaid
