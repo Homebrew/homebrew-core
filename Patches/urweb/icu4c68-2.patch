@@ -1,0 +1,40 @@
+diff --git a/src/c/urweb.c b/src/c/urweb.c
+index 0db5fc8..d79b35e 100644
+--- a/src/c/urweb.c
++++ b/src/c/urweb.c
+@@ -3089,13 +3089,13 @@ char *uw_Basis_sqlifyTimeN(uw_context ctx, uw_Basis_time *t) {
+ }
+ 
+ char *uw_Basis_ensqlBool(uw_Basis_bool b) {
+-  static uw_Basis_int true = 1;
+-  static uw_Basis_int false = 0;
++  static uw_Basis_int uw_true = 1;
++  static uw_Basis_int uw_false = 0;
+ 
+   if (!b)
+-    return (char *)&false;
++    return (char *)&uw_false;
+   else
+-    return (char *)&true;
++    return (char *)&uw_true;
+ }
+ 
+ uw_Basis_string uw_Basis_intToString(uw_context ctx, uw_Basis_int n) {
+@@ -3193,13 +3193,13 @@ uw_Basis_char *uw_Basis_stringToChar(uw_context ctx, uw_Basis_string s) {
+ 
+ uw_Basis_bool *uw_Basis_stringToBool(uw_context ctx, uw_Basis_string s) {
+   (void)ctx;
+-  static uw_Basis_bool true = uw_Basis_True;
+-  static uw_Basis_bool false = uw_Basis_False;
++  static uw_Basis_bool uw_true = uw_Basis_True;
++  static uw_Basis_bool uw_false = uw_Basis_False;
+ 
+   if (!strcasecmp (s, "True"))
+-    return &true;
++    return &uw_true;
+   else if (!strcasecmp (s, "False"))
+-    return &false;
++    return &uw_false;
+   else
+     return NULL;
+ }

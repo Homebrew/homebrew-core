@@ -1,0 +1,10 @@
+--- common.h.orig	2003-11-21 09:21:36.000000000 +1100
++++ common.h	2011-03-04 07:45:16.000000000 +1100
+@@ -23,6 +23,7 @@ extern "C" {
+ #ifdef NEED_FSEEKO
+ #include <stdio.h>
+ #endif
++#include <sys/types.h>
+ #include <ogg/ogg.h>
+ #include "ogmstreams.h"
+ 
