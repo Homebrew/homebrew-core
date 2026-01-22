@@ -1,12 +1,21 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v4.2.1/cmake-4.2.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/cmake-4.2.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.2.1.tar.gz"
-  sha256 "414aacfac54ba0e78e64a018720b64ed6bfca14b587047b8b3489f407a14a070"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
+
+  stable do
+    url "https://github.com/Kitware/CMake/releases/download/v4.2.1/cmake-4.2.1.tar.gz"
+    mirror "http://fresh-center.net/linux/misc/cmake-4.2.1.tar.gz"
+    mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.2.1.tar.gz"
+    sha256 "414aacfac54ba0e78e64a018720b64ed6bfca14b587047b8b3489f407a14a070"
+
+    # Backport support for Lua 5.5
+    patch do
+      url "https://github.com/Kitware/CMake/commit/6347854fa279cda0682c72dffbb402a0ce29ba51.patch?full_index=1"
+      sha256 "d0c0b08826fc16468dba8672f8a6b77c56062bead4c5c501360e868e511ee91e"
+    end
+  end
 
   # The "latest" release on GitHub has been an unstable version before, and
   # there have been delays between the creation of a tag and the corresponding
@@ -35,12 +44,6 @@ class Cmake < Formula
 
   conflicts_with cask: "cmake-app"
 
-  # The completions were removed because of problems with system bash
-
-  # The `with-qt` GUI option was removed due to circular dependencies if
-  # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
-  # For the GUI application please instead use `brew install --cask cmake`.
-
   def install
     args = %W[
       --prefix=#{prefix}
@@ -64,6 +67,9 @@ class Cmake < Formula
                                        "-DCMake_BUILD_LTO=ON"
     system "make"
     system "make", "install"
+
+    # Move ctest completion because of problems with macOS system bash 3
+    (share/"bash-completion/completions").install bash_completion/"ctest"
   end
 
   def caveats
