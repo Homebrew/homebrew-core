@@ -1,11 +1,10 @@
 class FortranStdlib < Formula
   desc "Fortran Standard Library"
   homepage "https://stdlib.fortran-lang.org"
-  url "https://github.com/fortran-lang/stdlib/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "07615b1fd0d9c78f04ec5a26234d091cb7e359933ba2caee311dcd6f58d87af0"
+  url "https://github.com/fortran-lang/stdlib/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "8edddb3b1e27175b6d54024ce307cf9e05ee05d535aa70f8a827cb7d255f9b42"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/fortran-lang/stdlib.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "633a47fa6b26208e6192b4b0793586ffcc7d706228e0b168d308f5820a930b68"
