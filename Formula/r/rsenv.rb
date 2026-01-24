@@ -26,7 +26,6 @@ class Rsenv < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/rsenv --version")
 
-    expected_output = "Vault:   (not initialized)"
-    assert_match expected_output, shell_output("#{bin}/rsenv info 2>&1")
+    assert_match(/Vault:\s+\(not initialized\)/, shell_output("#{bin}/rsenv info 2>&1"))
   end
 end
