@@ -7,12 +7,12 @@ class Datafusion < Formula
   head "https://github.com/apache/datafusion.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2f235b29ee9d2c48883ff992ace905bd7fab30741c501b33d9e8a0825c2f1f68"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5677e7ece071ca2e8109d110c6d6c09a9337664733bad356fc80207abf8fdf1b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "425e1c63c211742dfee272ac312d78fe41801e822e56b376c7ae421f771cbc16"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9eabb9172b891daf7e9ad38afdc96582446e3b1eadfcf171059997243c34f102"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3397041ad09f850889e0840cf7e071939cc91d07b053c962dc355b721a1ca12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6842d4053d5b35018336bf62c4a5c92378fb83e471355759551f820c7217fecd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d8ca6f44ce3eafc9431874529b29b050217910eb33b0f5cbb50a931cc11e1976"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "470789be1b2aad0145fe7c12d65022433ff34ccd0dcf9404f91f56bd0b0b6b68"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9eecc5f5f813db119dac8608ec8e21c0daa195159c654fdc49a1e654de80ea7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bc144670d439c2ba3fade5bae92fbfc58b2f48d09a7d2abee9a5d9666fd9390e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec39bffa8a119f005bbe2c1b9347c93ab27c4196c3fe9034f440869213ac9352"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "917cafefd9d3cb4ad8366da182aff5490f032093460630bcde5579cd3ea9a40d"
   end
 
   depends_on "rust" => :build
