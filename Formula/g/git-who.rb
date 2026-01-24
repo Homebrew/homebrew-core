@@ -12,15 +12,12 @@ class GitWho < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0abdd4cfd053b1f82f56a5fd94c2a33edb5539aa2224293d6476d920ef691093"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2cc6b40cc76044eaa90effece5d9dcdefc2240db4fdb73ef89ad56bae49664e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2cc6b40cc76044eaa90effece5d9dcdefc2240db4fdb73ef89ad56bae49664e6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2cc6b40cc76044eaa90effece5d9dcdefc2240db4fdb73ef89ad56bae49664e6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3f4259af8170e7a3b9586b623fa38cc198e1404e02c23f9d5fe57da2efc8e695"
-    sha256 cellar: :any_skip_relocation, ventura:       "3f4259af8170e7a3b9586b623fa38cc198e1404e02c23f9d5fe57da2efc8e695"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e6de8d87eac553be27eb87b97dd562e56be6653edc1b15f0580b7317a7e12ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8811cf655c04955970a6b77d3b004b9bfb91cb27c0aec9799ad0d2de2e1be21"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec34f46d1792d480bc256dfe1bdc810e533f97433ddbd6ac219b8a7c4d2c3789"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec34f46d1792d480bc256dfe1bdc810e533f97433ddbd6ac219b8a7c4d2c3789"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec34f46d1792d480bc256dfe1bdc810e533f97433ddbd6ac219b8a7c4d2c3789"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2a5f6d518915a9fa085664721c1df20b578fe8bfa36c7f104e07600321ebeca2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "024b64101d871ea36214c5a63067d3a07a42f2fe30fe216f6f0bdfff122a077c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebf7f36b22aff6e4fd4b8b2575680e00f02e674b808cd7d8cc3d92ddf92241f7"
   end
 
   depends_on "go" => :build
