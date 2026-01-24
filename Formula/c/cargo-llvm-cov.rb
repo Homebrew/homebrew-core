@@ -8,12 +8,12 @@ class CargoLlvmCov < Formula
   head "https://github.com/taiki-e/cargo-llvm-cov.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8f8c1d85b57046685a1422defc431d5429e0b418d6dc45540ed6bdc4378ca05"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "983ada9eedfa36644037a3986df70a870b4abb6548b789e781f9437408f0ebf6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4fbffc95345c0b5adb8d08665e2fbd3d5565afa6991c153ec870d58272ffb53"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f8acf7c27cc525db98a8f8d6bc4a47d67238f0ae45562ab2558d993efe41f9ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "741ab5332e244361bd633f03207deba9a651796af867fa4ca23a3c0d930fea29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd8c82062b1fb5a46126cdc72bf247719d4c09ff4a4407d0eef95ad680954443"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a0bc58ddd5c800d10f608942e4987ef851a5a26cb8b79bed44e4c8e3f11a1551"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07baddddbdcd3e02c12c3175b254da5fd79aa518c04b9c5f0b84d0c675c839a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6e151b141a9a51dfaea0d97c7cd828a9ea3ad581b043587fc024fe45e7275bf8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cd1468cea9eef9c5d58b88145bb4a57aae420f4f6263963b3fdc5696d36edd83"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7369e1ccd9c04d8db5300cccd4efa29c6e88dd9928102304737fe1b05fd57be3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd55081267f7243869823391cdd08a7f5bc2bb83ed4d1cb606edb3ddd06b0fdd"
   end
 
   depends_on "rust" => :build
