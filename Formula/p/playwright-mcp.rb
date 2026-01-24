@@ -1,8 +1,8 @@
 class PlaywrightMcp < Formula
   desc "MCP server for Playwright"
   homepage "https://github.com/microsoft/playwright-mcp"
-  url "https://registry.npmjs.org/@playwright/mcp/-/mcp-0.0.56.tgz"
-  sha256 "bed694ab65e1d8f28fc9397f38eb873a79f33d0f673eba89e0f8efcda7a52967"
+  url "https://registry.npmjs.org/@playwright/mcp/-/mcp-0.0.59.tgz"
+  sha256 "ee9121bc989220de56d8eeedc66262527d04a81284dd2b23a768988ae23fff6d"
   license "Apache-2.0"
 
   bottle do
@@ -18,14 +18,23 @@ class PlaywrightMcp < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink libexec.glob("bin/*")
+    bin.install_symlink libexec.glob("bin/*").reject { |f| f == libexec/"bin/mcp" }
+    bin.install_symlink libexec/"bin/mcp" => "playwright-mcp"
+    # Binary is renamed (0.0.57 -> 0.0.58) and so create a symlink to not break compatibility
+    bin.install_symlink libexec/"bin/mcp" => "mcp-server-playwright"
 
     node_modules = libexec/"lib/node_modules/@playwright/mcp/node_modules"
     deuniversalize_machos node_modules/"fsevents/fsevents.node" if OS.mac?
   end
 
+  def caveats
+    <<~EOS
+      The binary `mcp` have been renamed to `playwright-mcp` which is way too generic.
+    EOS
+  end
+
   test do
-    assert_match version.to_s, shell_output("#{bin}/mcp-server-playwright --version")
+    assert_match version.to_s, shell_output("#{bin}/playwright-mcp --version")
 
     json = <<~JSON
       {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"homebrew","version":"#{version}"}}}
@@ -33,6 +42,6 @@ class PlaywrightMcp < Formula
       {"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}
     JSON
 
-    assert_match "browser_close", pipe_output(bin/"mcp-server-playwright", json, 0)
+    assert_match "browser_close", pipe_output(bin/"playwright-mcp", json, 0)
   end
 end
