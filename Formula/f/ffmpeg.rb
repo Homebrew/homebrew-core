@@ -16,13 +16,13 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "357d928e81040097dc5a7095e7fe2034b55d6a9c0cdc0912c7be076483e134aa"
-    sha256 arm64_sequoia: "2be01a2367e2ce908a7a74f5944668348aa11aba8eb6996f85918319307a8aac"
-    sha256 arm64_sonoma:  "5618637ddd01d2641c35dbc1c2f77bc06c12fbd322657a4916761e106352c0b7"
-    sha256 sonoma:        "ed0e659304fa2e5698fdb342879ece26f63c5fa39d64014d6aaff20b4e83faa8"
-    sha256 arm64_linux:   "4a8cbf885a6f493baa11bea483ad6b404071a6f19d05eca18dc0fb1d21f586d3"
-    sha256 x86_64_linux:  "73ddf986d58dd8b70aee6585ad2d0ae6a83b9decf5d438c09beac47b4c56ae4f"
+    rebuild 2
+    sha256 arm64_tahoe:   "78852208a7d97374d3634476e0457b28434e05f12ce8e1c7e9245786a0414f5f"
+    sha256 arm64_sequoia: "9c0dba9d939066bec644acec9719b63de77ff9b4d7548bfa9204bd148e53634d"
+    sha256 arm64_sonoma:  "4445dedfd8c908c7a50777d1067677631c98af46c24ed333aec8b096ed0b3e27"
+    sha256 sonoma:        "d49e0af60ab4c7cf007c406532b6c764040f2e7a10c09704741eb6ebf2ae4499"
+    sha256 arm64_linux:   "48b15934d257788e38a4acd891d5e29f19d7ec48bfea2e44cbabfa02bc417140"
+    sha256 x86_64_linux:  "cc55f95b64376291b1c947e144b63feaedaacf075b6c33993221f5427c35456a"
   end
 
   depends_on "pkgconf" => :build
