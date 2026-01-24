@@ -12,12 +12,12 @@ class Juliaup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "556db176d99072b1f7e4cf5780730d4bf21ab01d62f6f67f090e5c47830c714f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14709fd8303d9501e01fb7932c5f6f9c32df9d3aa6b96e2da0e76cde99281dc3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11a013f54ae46c5808a5f3e5acd8ba2b3362a0cd651be009f55305511874bd4c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c832e7e71507554df85d139dff350c188ce5bce43e318e968640e37a3eefec8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3334d7e009d486e918258f582ea9cf01c9af5c2439be8e662a284296e380016"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3a5297148c0bdc306a842eae9ba28e4e8a774f841a60461b41928ddca6d9e06"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9abfd6044b3638a3f4e34b2a9e2ac44d9c26a3df3a00c6fe094d6f1e8fe532c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90a758c077f1b798c11fed33f3267d945e1cc423ec9b0987351fee02a8e8a99d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4786499e79f563537b579929c6c33197e19d66cdaf86c21a19048d5ca3aeee4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8737482da9fa84bc9fe1aeae0612feeb368b6f96b46c386c440ef5b25bf1049d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ceab4d199b5c37816b1f60c17a2e678b6e55fd6273e73bb50eca18424f62260b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34c4295ccab8ae580f098a52e4ceb18f9a6bdd17c7a3739f9203e40f02b66134"
   end
 
   depends_on "rust" => :build
