@@ -8,12 +8,12 @@ class Mfem < Formula
   head "https://github.com/mfem/mfem.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "101c8e3e83b62c40a3899fd0d95f168b66e529da589924380c9607d7bfb0eca8"
-    sha256 cellar: :any,                 arm64_sequoia: "21aa4adadf52b13e960f25b7816426b47bc05284de39e32552332f5523a799b2"
-    sha256 cellar: :any,                 arm64_sonoma:  "61d6abd79f70c44c460f9ec3f5e411b498a3ea7f704493d76f14ba35e35d7672"
-    sha256 cellar: :any,                 sonoma:        "ad4157f0519685df404faa70e5ad4806761fcf8b2769e54d0c8a6ed6894123a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "657a88fa562547e991d66bd11e23dc25f432055f28d87884ea7cfe4b523161fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c04f014021ebcd35574d4ba85e3a33932c4d48fb11eb4b863bcdf9fefe5ceb6"
+    sha256 cellar: :any,                 arm64_tahoe:   "8974f38b6753c04fcea78d3cea7e8f09e9d00200c7c20f3c04aef3f7af64afc4"
+    sha256 cellar: :any,                 arm64_sequoia: "2672c4cdedf6ae743fdf5de3d61bd1582c9edf08c484ec23a1fe174f2e274ebf"
+    sha256 cellar: :any,                 arm64_sonoma:  "f91e29927107cb64ab3c32c6e1c1227b0b9108d5c671114721b6889235589852"
+    sha256 cellar: :any,                 sonoma:        "e3fb59206a0af49d8b6d518b921b62533f38ac8f69c7e6d3615f147e75bb5560"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "80164924078003ac86b7197f2e6b077dec14c55e2b4cf1511fddd5af2bd0addc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dec7c79abbe13b993334d214016e5284f433424bc9bb21f4bdfbcf50b37a22cd"
   end
 
   depends_on "cmake" => :build
