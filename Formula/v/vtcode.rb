@@ -11,12 +11,12 @@ class Vtcode < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e44cc23293a1b6e49ea962fe2b89dc2123a95511a05761850f9224c3538d4b00"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d56ce58ab062280cdf8d11438178aa032ced0a13e80b1f870a2e128de43c81f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb5b31d2c256810349fa504117cccf1e9ceebcbebdaa14145cbb86ffcf71a84a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "18f11a5100bf0301ac9b898ae798b04d6883ee27fafd96ddaa2d8ef69df1f0de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cde61e3441b35d037f0d49cf7b63a9679dcaebd33c757a99fcdabb18755612f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3e67887f145d677ff792df417b571ae86671fbb39756de8350df24674aba62c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ef6a6721db6bdb8fc8c115a57a9896ad4967003c8103ddae57147866983481a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bcd495b4b99549f39d768168c96be5201acab5d9290c30fd63f84b82eefb173"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49ece1281021293ba2fe424f5d1c829059e7ca24c68e7782e4b28ae7a1d9b9f9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c8cda495c4e618a88bdd82dae2782608a741153580ef6d80cdbf7653c2a47177"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "99afdd418e86942531746ba6b07da61c3f40827dfa67d92894a33ef493146b39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6187303a76066ef8f163748c5f347e8961d8e32bd123d327c858da10cb1d7294"
   end
 
   depends_on "pkgconf" => :build
