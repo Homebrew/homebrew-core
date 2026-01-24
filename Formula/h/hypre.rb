@@ -12,12 +12,12 @@ class Hypre < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9e63fd1cc1cb3ea9de65cf75be9f7b37e5fb83f940b5c1338c097deda0b84e93"
-    sha256 cellar: :any,                 arm64_sequoia: "2361e794f4bb241e65415f19b9b0c95de56018c8daf5aa7bd2bdbea397aaedaa"
-    sha256 cellar: :any,                 arm64_sonoma:  "77cb6097397709b6f8b0fe713c2ebfc513734c0c6d5fe99361e8c314f42bebd4"
-    sha256 cellar: :any,                 sonoma:        "39d9063d7149e4afee2b9eb19021a0f6b0d9567634de8e837cf3498a90a8ab06"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de5e8eaea0851519ffea47be23ef7f0d53bc928993845e1602db0d95c7efa10c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f12e2544f97757c210e3f6fbf136eec98ba2e33fb338922fbb3ccbab19debf47"
+    sha256 cellar: :any,                 arm64_tahoe:   "ca82286770d54d33ffbbec6ae9da8087dc0fb72dab3c45980ccab7049983377e"
+    sha256 cellar: :any,                 arm64_sequoia: "4c7a60d7b6a506032ee9e252462a53bce6d4b14275c3e2b9254a2b0adb607394"
+    sha256 cellar: :any,                 arm64_sonoma:  "b5155a9395fa2aac62f082be1432fb69eb219be1c461829797c680e53b796601"
+    sha256 cellar: :any,                 sonoma:        "cc4e2dd22e0d13c072a3df29f13f33fa787a9263f070eeb447afb299b9303051"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71bb3b3e680b427a8a804f6c0d87213842f0f2f170eeed3e951fc69cd61a5781"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e08f288f4966b90af4fbb59000535df8f27e72b8a44831c0d20a027d7b75f20f"
   end
 
   depends_on "cmake" => :build
