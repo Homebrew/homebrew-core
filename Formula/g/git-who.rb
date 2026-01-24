@@ -1,8 +1,8 @@
 class GitWho < Formula
   desc "Git blame for file trees"
   homepage "https://github.com/sinclairtarget/git-who"
-  url "https://github.com/sinclairtarget/git-who/archive/refs/tags/v1.2.tar.gz"
-  sha256 "06c341ecbc81a518664b8facb49891fb94689da37c83978ee21a02916c0dbed3"
+  url "https://github.com/sinclairtarget/git-who/archive/refs/tags/v1.3.tar.gz"
+  sha256 "7af9950b8786a52e71e80457986f8b961064dc39923de1e330bc9fede42feef4"
   license "MIT"
   head "https://github.com/sinclairtarget/git-who.git", branch: "master"
 
