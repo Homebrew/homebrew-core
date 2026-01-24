@@ -7,13 +7,12 @@ class Garage < Formula
   head "https://git.deuxfleurs.fr/Deuxfleurs/garage.git", branch: "main-v2"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e40dbc789fce249bcd4f06dc8881402e2cbb1c8d399260f1a4c5cf31cda2436b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d2ad3548011c104c4046c2fa8cc481a2113cb43b8905d831595407de8f6d640"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a722cb57f6c41b9cffb42aa5d64651ec355729ab1879197741aa6ad43a3b9804"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ecc9478bd28f71a21dea8e761ff9b3d451f00d644aca3837060a747e2062e5fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "40cea06dceefd06e4f42938015d28f18b23c0ab02d3356ff04424899284471f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86fb767d900a02b13c7e9f88fe3bd1137e0a067352e97c3cb6ae2d620b3bfc4f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aaea47f576bc097b48ebc69ac3969fbe1384b50a6db452b898b41e0455436e40"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4c22777b9e6848a776f2058a9905966bc696527a9c4395d069522d960d99e89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53b8c38aa92d1f51778217b4852b3171252eb3b8717260fc3ec5ebcf988a0360"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e5cb293d845e1b4c2da8945b31f72c5ea0b6d7191ec58f923736abdf14b3cb10"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fc38f9d7826707a74b5577e794d1b69ae3522f4b523cf0e4392310c9261885f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da02dc0dfd278772fd1d528b5474605f0981d40cd679cd3ae6ada4d662579c0f"
   end
 
   depends_on "rust" => :build
