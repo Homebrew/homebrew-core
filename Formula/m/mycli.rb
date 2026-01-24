@@ -3,8 +3,8 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "https://www.mycli.net/"
-  url "https://files.pythonhosted.org/packages/d5/06/1c0c081164edf0fea183f88913ed84173ef7e3f87a233fd319cd7164e657/mycli-1.46.0.tar.gz"
-  sha256 "6b5ea0ab070f4b539430f7adb5d2a9886ce0ef5b6de31dbd2d03aca9bb2e47f2"
+  url "https://files.pythonhosted.org/packages/ff/c0/1137f6cee3919d32e9cf85eaee54b38a33df55fd935e4abf5cfb2cb3201e/mycli-1.47.0.tar.gz"
+  sha256 "6d1564c6168882ab1125010b5c1a2c0ed0ebe16ca13a522da67f12f151234ac0"
   license "BSD-3-Clause"
 
   bottle do
@@ -214,8 +214,8 @@ class Mycli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/25/6f/e1ea6dcb21da43d581284d8d5a715c2affb906aa3ed301f77f7f5ae0e7d5/wcwidth-0.3.1.tar.gz"
-    sha256 "5aedb626a9c0d941b990cfebda848d538d45c9493a3384d080aff809143bd3be"
+    url "https://files.pythonhosted.org/packages/05/07/0b5bcc9812b1b2fd331cc88289ef4d47d428afdbbf0216bb7d53942d93d6/wcwidth-0.3.2.tar.gz"
+    sha256 "d469b3059dab6b1077def5923ed0a8bf5738bd4a1a87f686d5e2de455354c4ad"
   end
 
   def install
