@@ -15,13 +15,10 @@ class Rsenv < Formula
   depends_on "openssl@3"
 
   def install
-    cd "rsenv" do
-      # Ensure that the `openssl` crate picks up the intended library.
-      # https://docs.rs/openssl/latest/openssl/#manual
-      ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
 
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "rsenv")
 
     generate_completions_from_executable(bin/"rsenv", "completion")
   end
