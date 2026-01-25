@@ -123,6 +123,7 @@
   "nimrod": "nim",
   "now-cli": "vercel-cli",
   "nova": "nova-fairwinds",
+  "nping": "nbping",
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
   "onedrive": "onedrive-cli",
