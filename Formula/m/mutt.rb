@@ -10,25 +10,23 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/mutt-2.2.16.tar.gz"
-  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.2.16.tar.gz"
-  sha256 "1d3109a743ad8b25eef97109b2bdb465db7837d0a8d211cd388be1b6faac3f32"
+  url "https://ftp.osuosl.org/pub/mutt/mutt-2.3.0.tar.gz"
+  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.3.0.tar.gz"
+  sha256 "5d5ebc40843f7156d5ede30e50016798ac7336467f7ad347e716510516cc2130"
   license "GPL-2.0-or-later"
 
-  # Livecheck uses GitLab tags to determine current version.
-  # They all have `-rel` suffix which needs to be omitted.
   livecheck do
-    url "https://gitlab.com/muttmua/mutt.git"
-    regex(/^mutt[._-]v?(\d+(?:-\d+)+)-rel$/i)
+    url "http://www.mutt.org/download.html"
+    regex(/href=.*?mutt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_tahoe:   "06ea8391b928c80af89ebd9a2a2a7453c68a96f2354caf3339897ea53675c0f1"
-    sha256 arm64_sequoia: "de913ddba41e3f6a1d0819a62bf65945dc3025869565e42358de41a0ce5d61df"
-    sha256 arm64_sonoma:  "10ef4e94a3371d85349b09d1131bc3bf995f0bb72a32c2c1b2da129aa6935991"
-    sha256 sonoma:        "3e41590dfed3a0e80fbd5edbb741912a6f9d9da22d78378a727af2108da52cb1"
-    sha256 arm64_linux:   "44ae949e70e0fd867ac5a36d26dedeaee7e0c867feaff1cd2978d82d348853dd"
-    sha256 x86_64_linux:  "363d6627599998ada6b02599e4e8587fa35e66c8c9fc3df9a40885b19ce4939d"
+    sha256 arm64_tahoe:   "40282c914f9881dde7e3d5030f63fde50c6847c0e750a0a8d2217d504d8f3218"
+    sha256 arm64_sequoia: "a14ee9f45c5cc72cf0ee0507a4ace0d88ab013ab6fd6a7f4d9c8c824ad793fdb"
+    sha256 arm64_sonoma:  "a725f196217b3c395bff34ef5866c3781529dc0089abbb280cc18f0f93ba9726"
+    sha256 sonoma:        "7d2853011485fd5d5c9439661e9ba8f2d5e9064e8d0d41528b15f46b96237267"
+    sha256 arm64_linux:   "0e0b9a0548c5d0c56ec2e27f105f78b3ea44acb3a472ade5501cf7cc87136619"
+    sha256 x86_64_linux:  "7859bd0243233d734331c22984cca2e6c3529e308878a8a4d9f82a5436217e9e"
   end
 
   head do

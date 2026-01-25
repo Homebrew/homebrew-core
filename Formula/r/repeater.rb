@@ -1,18 +1,18 @@
 class Repeater < Formula
   desc "Flashcard program that uses spaced repetition"
   homepage "https://shaankhosla.github.io/repeater/"
-  url "https://github.com/shaankhosla/repeater/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "22c487432743fcf6b5684daf23619fe7fe3427b1e54fb86b09dfe53dae8d9e95"
+  url "https://github.com/shaankhosla/repeater/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "9620fdbbbaf4befc28afde38905c2915a31fc551b44f1aa6838a2f2bb8993892"
   license "Apache-2.0"
   head "https://github.com/shaankhosla/repeater.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0949c3915c90068137b36e5fe5b46a81809ff481cc4c7d9f2842368a160a1939"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bfd59533909c4763ab8d68e031f7315e48d166e91cf6bc06f7b35ba69fdec1fa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "215c779c0e3ef6b1f320709812b5d359624b4eca1d6bd769f265441b0b7861d6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "25d6e2040d3b131c65cf960f40ad6637def70fdacd24b6b4018a9c99bbe4c6c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b91e30d5ea6ef5802312ef905670163b9620a33d920a2da84cc4f4cc76be27cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "910eba4d0509a730b23f0a0cd52d68651964753cf2eb067184b8bc008c776437"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b6b7b9b4e663d6ac2b1358b015dc91d61ccb0c8cf7cb7a09244b3448d341df5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "72951d823a1a3686df4aeab50866b04e3b18f8ace1e042056169b25e6258976d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc02b0a95deac63e43d0d3acefc28f4f7f240343f7a87ede4e47eed7829fb5f7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "722d1d291f5fb68e065e3dd4f2b73abbb704c759e62be20b1686ba29facb58a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a371e59424a7a173bf3f0b736f7e7ce29b3281464d0d91097a01782f2dd47dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53e72d870f45d412e0dc018acd7cc0b2cfe59dde367fa366ebc67d8823f0f17d"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +25,7 @@ class Repeater < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/repeater --version")
 
-    ENV["REPEATER_OPENAI_API_KEY"] = "Homebrew"
-    assert_match "Failed to validate API key with OpenAI", shell_output("#{bin}/repeater llm --test 2>&1", 1)
+    ENV["OPENAI_API_KEY"] = "Homebrew"
+    assert_match "Incorrect API key provided", shell_output("#{bin}/repeater llm --test 2>&1", 1)
   end
 end

@@ -1,21 +1,17 @@
 class Jansson < Formula
   desc "C library for encoding, decoding, and manipulating JSON"
   homepage "https://digip.org/jansson/"
-  url "https://github.com/akheron/jansson/releases/download/v2.14.1/jansson-2.14.1.tar.gz"
-  sha256 "2521cd51a9641d7a4e457f7215a4cd5bb176f690bc11715ddeec483e85d9e2b3"
+  url "https://github.com/akheron/jansson/releases/download/v2.15.0/jansson-2.15.0.tar.gz"
+  sha256 "070a629590723228dc3b744ae90e965a569efb9c535b3309b52e80e75d8eb3be"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1f891f8b33008f64dfea6f0767ea864ac2425436416d39b6c3a138bd25956c4d"
-    sha256 cellar: :any,                 arm64_sequoia: "2bc5197c2d2b866df7f529962479d0af3a81524fb84235c055d6a10ad21edd88"
-    sha256 cellar: :any,                 arm64_sonoma:  "613dd35360b87dc3b327f0129ab3b0d5758b056ac1413adb5bd073a2630044b8"
-    sha256 cellar: :any,                 arm64_ventura: "5d11fa69aa185323b0937cad8ed81a5159328c24acf171dd68ee5b3704c91eae"
-    sha256 cellar: :any,                 sonoma:        "e79d8c86563b8ef4e9b019c7cb39c2504cdaacdaf6fbb81bfa395ed7a642fb30"
-    sha256 cellar: :any,                 ventura:       "ea5ea240729d0dfd637dfee2d14fab5b047301b8a062d44a8d78597351e0aeaa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b915682e024ec87c583bf32398fb164a3978dbe2f7b6512fa9b8e684bac76c7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a841f8b0d0f57190fc62c0045e42b6e38a321ebe1949607e5771ef71b20aaf21"
+    sha256 cellar: :any,                 arm64_tahoe:   "1a1aa9d485c3bdc370ad50fc00667a284e343974db3fb5f492398d04759fb808"
+    sha256 cellar: :any,                 arm64_sequoia: "d50fc42e5f0fd4e7a2bb892c30d7af77acbbdc0b78ea98560d5c8517d3122ad5"
+    sha256 cellar: :any,                 arm64_sonoma:  "452a4f19fc5fa2a299cb6abcf0dde93f4b3b198b82c90046ade5c98d5b541993"
+    sha256 cellar: :any,                 sonoma:        "400c04c24f2676ea8bdc6293ea5625c4c3375f9f4e5f6fc8a263c54d3667bea3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f93d9bf83d35a0aed6bdfd062fc18dc1c02ccdfe139ab5cb5cb592e13e41d7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91b24e62741d5b67d096f8c2592d68a8589533b851b80fe7da9c3b3e5d3bfa5b"
   end
 
   def install

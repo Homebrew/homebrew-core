@@ -1,8 +1,8 @@
 class Tenv < Formula
   desc "OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager"
   homepage "https://tofuutils.github.io/tenv/"
-  url "https://github.com/tofuutils/tenv/archive/refs/tags/v4.9.0.tar.gz"
-  sha256 "c8cb262f7e851ea70e083390928959ee85d1e5bdacabe255515b479044f21a77"
+  url "https://github.com/tofuutils/tenv/archive/refs/tags/v4.9.1.tar.gz"
+  sha256 "fb2cb343857f6a668279d31d22998c2cf54a8af8d54c541334ccefa78105a63d"
   license "Apache-2.0"
   head "https://github.com/tofuutils/tenv.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Tenv < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ba012cb4aa497e16c74cedcdbc73985833b5b68e446359dc42c0818d92cadcb8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba012cb4aa497e16c74cedcdbc73985833b5b68e446359dc42c0818d92cadcb8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba012cb4aa497e16c74cedcdbc73985833b5b68e446359dc42c0818d92cadcb8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "84279c6c46997ad972f50376d20af6caa7c8531a1a0160930fd29fe9573c4494"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b62bd907c933a33db60ad630713b2341103a8370773274850403cd8df97a5a6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9a1c1fd851a368459edcf1a299713a1fac7260b09703159347bb3f989aa8b5f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06c1d6488e22f62b5ddc589f454b0525ecd1bc7c1b72534d74c7b85e6ce8d0f8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06c1d6488e22f62b5ddc589f454b0525ecd1bc7c1b72534d74c7b85e6ce8d0f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "06c1d6488e22f62b5ddc589f454b0525ecd1bc7c1b72534d74c7b85e6ce8d0f8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c237bd1a62abd8b74dd54fe63ae20bb14f70b4789b1e09357da080288ef13ce9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "def8a51cc120c2410bc0c5483a16d00b29437d0aafae95205af0806fadb033f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d44e89f60731c394caa106f1c46e2750d17835f17d7b97499f68d01d3348b7a7"
   end
 
   depends_on "go" => :build

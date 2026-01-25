@@ -1,17 +1,17 @@
 class CtagsLsp < Formula
   desc "LSP implementation using universal-ctags as backend"
   homepage "https://github.com/netmute/ctags-lsp"
-  url "https://github.com/netmute/ctags-lsp/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "8ec3fdcaca155811ad9b532c6e7b5366d2f0e52d4d673c97652c9f8af8a156b8"
+  url "https://github.com/netmute/ctags-lsp/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "86d1090c7281e65aa5f16bb3a06bb57b19b9dbb5f778c108a8f33662236523d9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "babde21b15a5e7a0030c1b66fa745d77200c516d2d76f20a514f82bbb0c86672"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "babde21b15a5e7a0030c1b66fa745d77200c516d2d76f20a514f82bbb0c86672"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "babde21b15a5e7a0030c1b66fa745d77200c516d2d76f20a514f82bbb0c86672"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a9fb858ef4ab14a587d7d7927f0f44a69aafc75ee426d106cf0dd63a895e2262"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "33d6be3e70c549404ecd9a8966cf0295e9d99102c2ab5774f716da1aefe1056f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "010b011513cafae9cc758d8f1c8198d5fe6c831f38a4f02f844c3c63a9526b66"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "07dec02591ecfd0dfa85f61ae84c1b5a70093b985f5f4660b55fce9e1e1b3d0d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07dec02591ecfd0dfa85f61ae84c1b5a70093b985f5f4660b55fce9e1e1b3d0d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07dec02591ecfd0dfa85f61ae84c1b5a70093b985f5f4660b55fce9e1e1b3d0d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2c1dcb54e6940f7844c2e6399bca9aa2f3463baaa40b30defc759e142e162d67"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b861f10435d1970114773831e30d7c4e24aafb1181d018c66bc4e976579b7fcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18ec0a3be1c4384944d03ded5b109091d28e4ef2e2d8991d2453bc01cea7cc4d"
   end
 
   depends_on "go" => :build

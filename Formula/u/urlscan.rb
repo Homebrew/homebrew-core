@@ -3,14 +3,13 @@ class Urlscan < Formula
 
   desc "View/select the URLs in an email message or file"
   homepage "https://github.com/firecat53/urlscan"
-  url "https://files.pythonhosted.org/packages/af/95/4c28f3cfdb866f9a6e301fbafedb0e537dd40c8cf9d33872e67ed38ec1d2/urlscan-1.0.7.tar.gz"
-  sha256 "041b932f94cb1e2e8dbb20f43322da85cb483be328fa10477c6e5e96a89891c3"
+  url "https://files.pythonhosted.org/packages/e9/17/ef014dd0323fd063c4948136dea6cb9fb0ef739539d3245e34dfbbd57349/urlscan-1.0.8.tar.gz"
+  sha256 "15c1dc59a2c0c9d697acec1e4823f4a801aa79c176eff603c93d79b413003757"
   license "GPL-2.0-or-later"
   head "https://github.com/firecat53/urlscan.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "17b62b76b4b04fc9fbce367ffbed2cc3514882e37eda4495d9232032eedf1011"
+    sha256 cellar: :any_skip_relocation, all: "1eacf4173845d925cae61292b6fb05a8b11322fbc76e220674f3c440c012e897"
   end
 
   depends_on "python@3.14"
@@ -21,8 +20,8 @@ class Urlscan < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
-    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
+    url "https://files.pythonhosted.org/packages/95/fc/44799c4a51ff0da0de0ff27e68c9dea3454f3d9bf15ffb606aeb6943e672/wcwidth-0.3.5.tar.gz"
+    sha256 "7c3463f312540cf21ddd527ea34f3ae95c057fa191aa7a9e043898d20d636e59"
   end
 
   def install

@@ -3,18 +3,18 @@ class Jupytext < Formula
 
   desc "Jupyter notebooks as Markdown documents, Julia, Python or R scripts"
   homepage "https://jupytext.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/2b/84/79a28abd8e6a9376fa623670ab8ac7ebcf45b10f2974e0121bb5e8e086a2/jupytext-1.19.0.tar.gz"
-  sha256 "724c1f75c850a12892ccbcdff33004ede33965d0da8520ab9ea74b39ff51283a"
+  url "https://files.pythonhosted.org/packages/13/a5/80c02f307c8ce863cb33e27daf049315e9d96979e14eead700923b5ec9cc/jupytext-1.19.1.tar.gz"
+  sha256 "82587c07e299173c70ed5e8ec7e75183edf1be289ed518bab49ad0d4e3d5f433"
   license "MIT"
   head "https://github.com/mwouts/jupytext.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "21ffece9b579cf2e463e1353c0ea8dd59beec58f11ed9b91ada09850ffecac3e"
-    sha256 cellar: :any,                 arm64_sequoia: "0cdac1b71602677c411555274a157bb86b0d4eb471391ca75c2efc15190cfc16"
-    sha256 cellar: :any,                 arm64_sonoma:  "54ce22c880e80b79e24faa995fb2f7291718cb19996286ebb645080deed7dcc6"
-    sha256 cellar: :any,                 sonoma:        "1d00bcec5d3874c13b8870e5b703027e8b904a7c8227f2a15befaec9350b1a9c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb95b6894d10570e27ebef887cb116ac0a91c512fa8c6153acfb433156fdcdc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f08cf1c1a7485faee44875adf663ba3f5e5b9ee3c37f32298f5b1a3851142ce6"
+    sha256 cellar: :any,                 arm64_tahoe:   "3df1e08b257e02727f81f6661fe657cf2389775cdf95b300bf767155e7994c0f"
+    sha256 cellar: :any,                 arm64_sequoia: "b7bc2fff8105591520b0acc8d74e3fb740657b6fcac669e3f9073c49d0749246"
+    sha256 cellar: :any,                 arm64_sonoma:  "dc34145af98613877a760952cb3c845c50de95fd8ba642184d2441dfbd256c5e"
+    sha256 cellar: :any,                 sonoma:        "0c0192fd18d04e9c60f6f3d30abbc543d3138b722e286198be13a02b7e8e32ad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4904e7890cc517fdc33c58e8c97dbfdbfbdf791256d30e2598bd0dea384380e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a14eb817bc0e457b9b693b6c1d5094eb4d6269b7fc60c0e649ffd33c678f1286"
   end
 
   depends_on "libyaml"

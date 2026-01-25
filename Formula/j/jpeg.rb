@@ -1,9 +1,9 @@
 class Jpeg < Formula
   desc "Image manipulation library"
   homepage "https://www.ijg.org/"
-  url "https://www.ijg.org/files/jpegsrc.v9f.tar.gz"
-  mirror "https://fossies.org/linux/misc/jpegsrc.v9f.tar.gz"
-  sha256 "04705c110cb2469caa79fb71fba3d7bf834914706e9641a4589485c1f832565b"
+  url "https://www.ijg.org/files/jpegsrc.v10.tar.gz"
+  mirror "https://fossies.org/linux/misc/jpegsrc.v10.tar.gz"
+  sha256 "8b9eaa13242690ebd03e1728ab1edf97a81a78ed6e83624d493655f31ac95ab5"
   license "IJG"
 
   livecheck do
@@ -11,19 +11,13 @@ class Jpeg < Formula
     regex(/href=.*?jpegsrc[._-]v?(\d+[a-z]?)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "a9c4c46243ca95babeaa9779c982c90b134ce326124d75af8cd1cce071d5941c"
-    sha256 cellar: :any,                 arm64_sequoia:  "0c2e03678c6b74d190096c547c337769d6678bd41eda71d6688e465825c4b003"
-    sha256 cellar: :any,                 arm64_sonoma:   "15c7bc3002bdb1f9281a9621d4d9c7722142aab09cc983e950b24d78c7a8744b"
-    sha256 cellar: :any,                 arm64_ventura:  "3492c054e815cb4843932d27bb943b5ae325acc25219049afd1790c2d549787e"
-    sha256 cellar: :any,                 arm64_monterey: "f698f979cdbeb8590ff70cc40ab87a747bf955f37473767673a1f315cce0503c"
-    sha256 cellar: :any,                 sonoma:         "bcdf0adaf6ef9dca1cf1dbf1416e1009cb5b1770ec9116d0e2f4d8c757784131"
-    sha256 cellar: :any,                 ventura:        "73cc0431645e763135f43442f3c9e135069a491eff2d885f4b91cece123482cf"
-    sha256 cellar: :any,                 monterey:       "b582d67ae81e6e165fe33ab760f557c06399f963b345d6a68ff6b63abbfdca24"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "beeefc584dc196ae25fdd83cbbc19d803aa076f9094a405002d4d37ad5a2a6d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0da8a41595d64ce98d7ce8ec9c8bfd0a60ffd0da99313ab923387fb588f0a29a"
+    sha256 cellar: :any,                 arm64_tahoe:   "9c9a77dbf6f8e31baaf5fcf343a8ce66d368a98239d70395f151a92931965757"
+    sha256 cellar: :any,                 arm64_sequoia: "bfff2e53bb277e547ff825933f99e02d8f8f38f42ca6d971f76ccfb09b4fd5f4"
+    sha256 cellar: :any,                 arm64_sonoma:  "a89d936c43d5bede6e4cbbf13c4c5da7a44ac7487560dfbaac56b86e0e4027ac"
+    sha256 cellar: :any,                 sonoma:        "ef3654b5d485d0e77cf5a7a06a9510b8f9c995e6df7566df10791ba25c61bf65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e84e7c9f5ec284afd4366e2f9830ed49d2dfda0e60bd433b6eb367a08d67d12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32588e95a61f3c5d96dcf9b07c444dad100e0ef26df995d74c4cd93d5e119575"
   end
 
   keg_only "it conflicts with `jpeg-turbo`"
