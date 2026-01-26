@@ -31,7 +31,7 @@ class ClaudeCodeAcp < Formula
       stdin.close
 
       line = Timeout.timeout(5) { stdout.gets }
-      assert_match ""protocolVersion":1", line
+      assert_match "\"protocolVersion\":1", line
     ensure
       if wait_thr&.alive?
         begin
