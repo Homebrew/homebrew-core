@@ -60,14 +60,14 @@ class Envoy < Formula
       --host_action_env=PATH=#{env_path}
     ]
 
-    if OS.linux?
-      ENV["CC"] = Formula["llvm"].opt_bin/"clang"
-      ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
-      args << "--action_env=CC=#{ENV["CC"]}"
-      args << "--action_env=CXX=#{ENV["CXX"]}"
-      args << "--host_action_env=CC=#{ENV["CC"]}"
-      args << "--host_action_env=CXX=#{ENV["CXX"]}"
-    end
+    #    if OS.linux?
+    #     ENV["CC"] = Formula["llvm"].opt_bin/"clang"
+    #    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
+    #   args << "--action_env=CC=#{ENV["CC"]}"
+    #  args << "--action_env=CXX=#{ENV["CXX"]}"
+    # args << "--host_action_env=CC=#{ENV["CC"]}"
+    # args << "--host_action_env=CXX=#{ENV["CXX"]}"
+    # end
 
     # Disable external LLVM toolchain download - use local toolchain
     # args << "--repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1"
