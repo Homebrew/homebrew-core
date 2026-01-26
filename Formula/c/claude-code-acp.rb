@@ -28,11 +28,12 @@ class ClaudeCodeAcp < Formula
 
     Open3.popen3(bin/"claude-code-acp") do |stdin, stdout, _stderr, wait_thr|
       stdin.write(json)
-      stdin.close
+      stdin.flush
 
       line = Timeout.timeout(5) { stdout.gets }
       assert_match "\"protocolVersion\":1", line
     ensure
+      stdin.close unless stdin.closed?
       if wait_thr&.alive?
         begin
           Process.kill("TERM", wait_thr.pid)
