@@ -4,6 +4,7 @@ class ClaudeCodeAcp < Formula
   url "https://registry.npmjs.org/@zed-industries/claude-code-acp/-/claude-code-acp-0.13.1.tgz"
   sha256 "a8a6596cd3b15a367f81c95806c6626453ef07bd2eb89d692c919cad9ac1f021"
   license "Apache-2.0"
+  head "https://github.com/zed-industries/claude-code-acp.git", branch: "main"
 
   depends_on "node"
   depends_on "ripgrep"
@@ -18,8 +19,27 @@ class ClaudeCodeAcp < Formula
   end
 
   test do
-    assert_path_exists bin/"claude-code-acp"
-    assert_predicate bin/"claude-code-acp", :executable?
-    assert_match "USE_BUILTIN_RIPGREP", (bin/"claude-code-acp").read
+    require "open3"
+    require "timeout"
+
+    json = <<~JSON
+      {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":1}}
+    JSON
+
+    Open3.popen3(bin/"claude-code-acp") do |stdin, stdout, _stderr, wait_thr|
+      stdin.write(json)
+      stdin.close
+
+      line = Timeout.timeout(5) { stdout.gets }
+      assert_match ""protocolVersion":1", line
+    ensure
+      if wait_thr&.alive?
+        begin
+          Process.kill("TERM", wait_thr.pid)
+        rescue Errno::ESRCH
+          # Process already exited between alive? check and kill.
+        end
+      end
+    end
   end
 end
