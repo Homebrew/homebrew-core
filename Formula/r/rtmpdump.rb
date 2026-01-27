@@ -1,20 +1,11 @@
 class Rtmpdump < Formula
   desc "Tool for downloading RTMP streaming media"
   homepage "https://rtmpdump.mplayerhq.hu/"
-  url "https://deb.debian.org/debian/pool/main/r/rtmpdump/rtmpdump_2.4+20151223.gitfa8646d.1.orig.tar.gz"
-  mirror "http://deb.debian.org/debian/pool/main/r/rtmpdump/rtmpdump_2.4+20151223.gitfa8646d.1.orig.tar.gz"
-  version "2.4-20151223"
-  sha256 "5c032f5c8cc2937eb55a81a94effdfed3b0a0304b6376147b86f951e225e3ab5"
+  url "https://git.ffmpeg.org/rtmpdump.git",
+      tag:      "v2.6",
+      revision: "138fdb258d9fc26f1843fd1b891180416c9dc575"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 3
   head "https://git.ffmpeg.org/rtmpdump.git", branch: "master"
-
-  livecheck do
-    url "https://cdn-aws.deb.debian.org/debian/pool/main/r/rtmpdump/"
-    regex(/href=.*?rtmpdump[._-]v?(\d+(?:[.+]\d+)+)[^"' >]*?\.orig\.t/i)
-  end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "5b227da74ef1d3c1338e803ac514d9576cb5892680460d24f35074d6243d0038"
@@ -36,13 +27,6 @@ class Rtmpdump < Formula
   uses_from_macos "zlib"
 
   conflicts_with "flvstreamer", because: "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
-
-  # Patch for OpenSSL 1.1 compatibility
-  # Taken from https://github.com/DJ-Huntress/RTMPDump-OpenSSL-1.1
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/rtmpdump/openssl-1.1.diff"
-    sha256 "3c9167e642faa9a72c1789e7e0fb1ff66adb11d721da4bd92e648cb206c4a2bd"
-  end
 
   def install
     ENV.deparallelize
