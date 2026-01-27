@@ -1,8 +1,8 @@
 class Libvpx < Formula
   desc "VP8/VP9 video codec"
   homepage "https://www.webmproject.org/code/"
-  url "https://github.com/webmproject/libvpx/archive/refs/tags/v1.15.2.tar.gz"
-  sha256 "26fcd3db88045dee380e581862a6ef106f49b74b6396ee95c2993a260b4636aa"
+  url "https://github.com/webmproject/libvpx/archive/refs/tags/v1.16.0.tar.gz"
+  sha256 "7a479a3c66b9f5d5542a4c6a1b7d3768a983b1e5c14c60a9396edc9b649e015c"
   license "BSD-3-Clause"
   head "https://chromium.googlesource.com/webm/libvpx.git", branch: "main"
 
@@ -20,9 +20,6 @@ class Libvpx < Formula
   on_intel do
     depends_on "yasm" => :build
   end
-
-  # Add Tahoe support (remove patch when supported in a `libvpx` version).
-  patch :DATA
 
   def install
     ENV.runtime_cpu_detection
@@ -55,45 +52,3 @@ class Libvpx < Formula
     system "ar", "-x", "#{lib}/libvpx.a"
   end
 end
-
-__END__
---- a/build/make/configure.sh
-+++ b/build/make/configure.sh
-@@ -832,7 +832,7 @@ process_common_toolchain() {
-         tgt_isa=x86_64
-         tgt_os=`echo $gcctarget | sed 's/.*\(darwin1[0-9]\).*/\1/'`
-         ;;
--      *darwin2[0-4]*)
-+      *darwin2[0-5]*)
-         tgt_isa=`uname -m`
-         tgt_os=`echo $gcctarget | sed 's/.*\(darwin2[0-9]\).*/\1/'`
-         ;;
-@@ -991,7 +991,7 @@ EOF
-       add_cflags  "-mmacosx-version-min=10.15"
-       add_ldflags "-mmacosx-version-min=10.15"
-       ;;
--    *-darwin2[0-4]-*)
-+    *-darwin2[0-5]-*)
-       add_cflags  "-arch ${toolchain%%-*}"
-       add_ldflags "-arch ${toolchain%%-*}"
-       ;;
-diff --git a/configure b/configure
-index 457bd6b380..df59f75a78 100755
---- a/configure
-+++ b/configure
-@@ -104,6 +104,7 @@ all_platforms="${all_platforms} arm64-darwin21-gcc"
- all_platforms="${all_platforms} arm64-darwin22-gcc"
- all_platforms="${all_platforms} arm64-darwin23-gcc"
- all_platforms="${all_platforms} arm64-darwin24-gcc"
-+all_platforms="${all_platforms} arm64-darwin25-gcc"
- all_platforms="${all_platforms} arm64-linux-gcc"
- all_platforms="${all_platforms} arm64-win64-gcc"
- all_platforms="${all_platforms} arm64-win64-vs15"
-@@ -169,6 +170,7 @@ all_platforms="${all_platforms} x86_64-darwin21-gcc"
- all_platforms="${all_platforms} x86_64-darwin22-gcc"
- all_platforms="${all_platforms} x86_64-darwin23-gcc"
- all_platforms="${all_platforms} x86_64-darwin24-gcc"
-+all_platforms="${all_platforms} x86_64-darwin25-gcc"
- all_platforms="${all_platforms} x86_64-iphonesimulator-gcc"
- all_platforms="${all_platforms} x86_64-linux-gcc"
- all_platforms="${all_platforms} x86_64-linux-icc"
