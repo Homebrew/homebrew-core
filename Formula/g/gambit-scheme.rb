@@ -33,10 +33,13 @@ class GambitScheme < Formula
   conflicts_with "gerbil-scheme", because: "both install `gsc` binary"
   conflicts_with "scheme48", because: "both install `scheme-r5rs` binaries"
 
-  # Clang is slower both for compiling and for running output binaries
-  fails_with :clang
+  fails_with :clang do
+    cause "resulting binaries are significantly worse in performance"
+  end
 
   def install
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+
     args = %W[
       --prefix=#{prefix}
       --docdir=#{doc}
@@ -47,13 +50,6 @@ class GambitScheme < Formula
     ]
 
     system "./configure", *args
-
-    # Fixed in gambit HEAD, but they haven't cut a release
-    inreplace "config.status" do |s|
-      s.gsub! %r{/usr/local/opt/openssl(@\d(\.\d)?)?}, Formula["openssl@3"].opt_prefix
-    end
-    system "./config.status"
-
     system "make"
     ENV.deparallelize
     system "make", "install"
