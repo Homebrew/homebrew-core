@@ -14,11 +14,29 @@ class Xcsift < Formula
   end
 
   depends_on xcode: ["16.0", :build]
-  depends_on :macos
+  uses_from_macos "swift" => :build, since: :sonoma
 
   def install
+    if OS.linux?
+      # Remove TOML/C++ interop dependency (Homebrew's Swift lacks libswiftCxx)
+      # Config files won't work on Linux, but CLI flags work fine
+      inreplace "Package.swift" do |s|
+        s.gsub!(/^.*swift-toml.*\n/, "")
+        s.gsub!(/^.*"TOML".*\n/, "")
+        s.gsub!(/swiftSettings: \[\n\s*\.interoperabilityMode\(\.Cxx\)\n\s*\],?\n/, "")
+      end
+      inreplace "Package.swift", /,\n\s*cxxLanguageStandard: \.cxx17/, ""
+    end
+
     inreplace "Sources/main.swift", "VERSION_PLACEHOLDER", version.to_s
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+
+    system "swift", "build", *args, "-c", "release"
     bin.install ".build/release/xcsift"
   end
 
