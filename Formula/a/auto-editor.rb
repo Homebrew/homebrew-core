@@ -4,6 +4,7 @@ class AutoEditor < Formula
   url "https://github.com/WyattBlue/auto-editor/archive/refs/tags/29.6.2.tar.gz"
   sha256 "71144d2deb1796ba289853507d15e74a45099d250d606eba2d6d8e3aaf3ed6a1"
   license "Unlicense"
+  revision 1
   head "https://github.com/WyattBlue/auto-editor.git", branch: "master"
 
   bottle do
