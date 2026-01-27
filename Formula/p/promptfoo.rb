@@ -1,8 +1,8 @@
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.120.14.tgz"
-  sha256 "74a29cd27ec9345b99a24544c5f73978a9dfcc74c039f4bb7cd7310e99504402"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.120.17.tgz"
+  sha256 "50b0b208301edef9c97d9b9c4b3417db08f28a4a582d3dea0903a00d504beb4f"
   license "MIT"
 
   bottle do
@@ -14,16 +14,35 @@ class Promptfoo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dfe06e030bde87b549968d55dca8e4f3d9a95c5d7bb529dfdfda966dd848bc8"
   end
 
+  depends_on "glib"
   depends_on "node"
+  depends_on "vips"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1700
+    depends_on "gettext"
+  end
+
+  fails_with :clang do
+    build 1699
+    cause "better-sqlite3 fails to build"
+  end
+
+  # Resources needed to build sharp from source to avoid bundled vips
+  # https://sharp.pixelplumbing.com/install/#building-from-source
+  resource "node-addon-api" do
+    url "https://registry.npmjs.org/node-addon-api/-/node-addon-api-8.5.0.tgz"
+    sha256 "d12f07c8162283b6213551855f1da8dac162331374629830b5e640f130f07910"
+  end
+
+  resource "node-gyp" do
+    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.1.0.tgz"
+    sha256 "492bca8e813411386e61e488f95b375262aa8f262e6e8b20d162e26bdf025f16"
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version < 1700)
-
-    system "npm", "install", *std_npm_args(ignore_scripts: false)
+    ENV["SHARP_FORCE_GLOBAL_LIBVIPS"] = "1"
+    system "npm", "install", *std_npm_args(ignore_scripts: false), *resources.map(&:cached_download)
     bin.install_symlink libexec.glob("bin/*")
 
     os = OS.mac? ? "apple-darwin" : "unknown-linux-musl"
@@ -34,6 +53,17 @@ class Promptfoo < Formula
     rm_r(node_modules/"@anthropic-ai/claude-agent-sdk/vendor/ripgrep")
     codex_vendor = node_modules/"@openai/codex-sdk/vendor"
     codex_vendor.children.each { |dir| rm_r dir if dir.basename.to_s != "#{arch}-#{os}" }
+
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    keep = node_modules.glob("onnxruntime-node/bin/napi-v*/#{OS.kernel_name.downcase}/#{arch}")
+    rm_r(node_modules.glob("onnxruntime-node/bin/napi-v*/*/*") - keep)
+    if OS.linux? && Hardware::CPU.intel?
+      rm(node_modules.glob("onnxruntime-node/bin/napi-v*/*/*/libonnxruntime_providers_{cuda,tensorrt}.so"))
+    end
+
+    # Remove unneeded pre-built binaries
+    rm_r(node_modules.glob("@img/sharp-*"))
+    rm_r(node_modules.glob("sharp/node_modules/@img/sharp-*"))
   end
 
   test do
