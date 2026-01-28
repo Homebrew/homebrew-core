@@ -20,13 +20,13 @@ class Heimdal < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "b94f54f75fb374686b5a64a556713af292e814be6604967231d82dc8eaaf8000"
-    sha256 arm64_sequoia: "2dd0cd88b20557be8d0a1cf8e7ea0d3a32804d0d0f6393a28a265bb57a9d699f"
-    sha256 arm64_sonoma:  "6db752f524be624dbb90053d8ccf743b4cf9ae455faadceb5d6fdb03dcee54f8"
-    sha256 sonoma:        "ee5f409471c9e71e1806d1da4b9f58cbff009cf6c2334e8ab70e0d1ff457ef64"
-    sha256 arm64_linux:   "be99b3cda9fa62786dc9a98397304f2e59813d91e574ddb879ee3c7cba820680"
-    sha256 x86_64_linux:  "07e0ed255ed4f2cf243aa534122ea42ac7b99655ca56a8dfc7e058c5a5a953a0"
+    rebuild 3
+    sha256 arm64_tahoe:   "494784674bf30f21015e779c12e571f66e440951a5d837a9b9fd3ed33454775b"
+    sha256 arm64_sequoia: "b98ef6f977b5c577651f8b4d14ada315d11eeb3155cdc1b2d80351cd21bcafb7"
+    sha256 arm64_sonoma:  "848f372439fb91e3758681e529350b9fcbeebae0e5a6100a114c124ca0ca7f9d"
+    sha256 sonoma:        "da71a50cfc7717bbd57c8c99d50c21ef705a95f14bf332380a932334d543edbe"
+    sha256 arm64_linux:   "db3a0eee434231a275600a3aaa8da18416cfc1d467c8a31631d0f8a8db03ae56"
+    sha256 x86_64_linux:  "938a68365f4def1622b54fbb92b83d6c444e8cf89c3bc693a935eeeea7e8109c"
   end
 
   keg_only "it conflicts with Kerberos"
