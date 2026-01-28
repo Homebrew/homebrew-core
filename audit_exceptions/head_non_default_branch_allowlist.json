@@ -6,6 +6,7 @@
   "garage": "main-v2",
   "libngspice": "master",
   "libpng": "libpng16",
+  "lmdb": "mdb.master",
   "msgpack": "c_master",
   "msgpack-cxx": "cpp_master",
   "ngspice": "master",
