@@ -17,6 +17,11 @@ class MypaintBrushes < Formula
 
   depends_on "libmypaint"
 
+  patch do
+    url "https://github.com/mypaint/mypaint-brushes/commit/ff9d830d78fcec17d87d5259ecfaa254c2a27276.patch?full_index=1"
+    sha256 "fac16aed9f9d6d35358d17cf8d83388f42bb03f5c8646bfd284f636df80a241b"
+  end
+
   def install
     ENV["ACLOCAL"] = "aclocal"
     ENV["AUTOMAKE"] = "automake"
