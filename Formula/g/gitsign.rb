@@ -7,13 +7,12 @@ class Gitsign < Formula
   head "https://github.com/sigstore/gitsign.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c7847cd2802db55c980085b250da07e1271e4520da78a6544782564b769fdb53"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7847cd2802db55c980085b250da07e1271e4520da78a6544782564b769fdb53"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c7847cd2802db55c980085b250da07e1271e4520da78a6544782564b769fdb53"
-    sha256 cellar: :any_skip_relocation, sonoma:        "62c704fa9d17bb814ddd3f1fd0ff6d855ddc3accd9c492a6f16bed211cb4446c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad07cfcbccfbb7aa38325c47faa37face71853be5a4b74bdf3512ee21132ba4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eccd294e00f5cef0ec73454a2e80ac13fc93ca287b20876fc473b0a874d111c2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3bacb71a978c2b7971220a61f2710d0ee57f242fa5d7c129ee5a8270bd57bd9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bacb71a978c2b7971220a61f2710d0ee57f242fa5d7c129ee5a8270bd57bd9b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bacb71a978c2b7971220a61f2710d0ee57f242fa5d7c129ee5a8270bd57bd9b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5e9965bfdcd0667a982743cdd836f0ec059f1c9780fac6b75949f224bf308dc8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bbddb53c8cfb0e35656cf3cff189e9d24e7862ecc77fcab61b9b1ab95c948c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19b45ca45444552cc4ae6ed18123f1af38b1a7791effe4f259d76890000bb727"
   end
 
   depends_on "go" => :build
