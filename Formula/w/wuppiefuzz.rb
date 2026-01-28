@@ -17,7 +17,6 @@ class Wuppiefuzz < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "z3"
 
   uses_from_macos "llvm" => :build # for libclang
 
@@ -26,8 +25,6 @@ class Wuppiefuzz < Formula
   end
 
   def install
-    ENV["Z3_LIBRARY_PATH_OVERRIDE"] = Formula["z3"].opt_lib
-    ENV["Z3_SYS_Z3_HEADER"] = Formula["z3"].opt_include
     system "cargo", "install", *std_cargo_args
   end
 
