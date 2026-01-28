@@ -60,7 +60,6 @@ class Grpc < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
     args = %W[
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
@@ -82,7 +81,7 @@ class Grpc < Formula
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
 
-    # `grpc_cli` fails to build on Linux. In any case, it looks like it isn't meant to be be installed.
+    # `grpc_cli` fails to build on Linux. In any case, it looks like it isn't meant to be installed.
     # TODO: consider dropping this on macOS too.
     return unless OS.mac?
 
