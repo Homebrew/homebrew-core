@@ -4,6 +4,7 @@ class Mpv < Formula
   url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.41.0.tar.gz"
   sha256 "ee21092a5ee427353392360929dc64645c54479aefdb5babc5cfbb5fad626209"
   license :cannot_represent
+  revision 1
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class Mpv < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on xcode: :build
-  depends_on "ffmpeg-full"
+  depends_on "ffmpeg"
   depends_on "jpeg-turbo"
   depends_on "libarchive"
   depends_on "libass"
@@ -120,7 +121,6 @@ class Mpv < Formula
     assert_match "vapoursynth", shell_output("#{bin}/mpv --vf=help")
 
     # Make sure `pkgconf` can parse `mpv.pc` after the `inreplace`.
-    ENV.append_path "PKG_CONFIG_PATH", Formula["ffmpeg-full"].opt_lib/"pkgconfig"
     system "pkgconf", "--print-errors", "mpv"
   end
 end
