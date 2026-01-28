@@ -11,12 +11,12 @@ class Zebra < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c8326002478598c438eba6b7e37ae7ed537a0d12cfc9ee10fbf36317ff7f5da7"
-    sha256 arm64_sequoia: "140dbff9b966af509fc339127a9b635e7efc6b59f71dd3c62ef7466a07587e88"
-    sha256 arm64_sonoma:  "4d725a25f3125ce873ddc2f1fcd05f300b1324b3cd2631ea03d5e099d82bcb9d"
-    sha256 sonoma:        "e39e9f5ce8d00f6c75c3ac59fcfadefe7b3954f4445d3a65c3532d3740a27bed"
-    sha256 arm64_linux:   "389bfe2f986b21676bf4b44335ad8623577d62df89b730bee514e368b5d832da"
-    sha256 x86_64_linux:  "4184eb6e9b8a971a34f021d82cb9e1927143459152780f5ec85184716c568c7b"
+    sha256 arm64_tahoe:   "2bb1f2eb84200a1f0169bccbf702dc2ec89d8e34b144d6a21c00e2c066381a28"
+    sha256 arm64_sequoia: "552581d5651e896f75ce988873559418b848bd322e718f7bec56f4cc03292ced"
+    sha256 arm64_sonoma:  "ad138cef511b4b5bfae11205561abb387c2f028fb2b58b7cff10c21bc774db22"
+    sha256 sonoma:        "78905f514a15d96e22fb589baa7fb2f07d7cfa0c4aa2d5a0cb1bda8f205219b5"
+    sha256 arm64_linux:   "787ad2d4c3da063d0ae40cfbe979442657144322877a11645ae522c853fa7994"
+    sha256 x86_64_linux:  "68497189bba9c077b4501c7980d9c9eab7518d6ae24af4ee2f7654501fb89267"
   end
 
   depends_on "pkgconf" => :build
