@@ -1,8 +1,8 @@
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.120.18.tgz"
-  sha256 "1aade283eef8a96873aea6b5e93d04a62b3cbcbbbc14a15e9682b213c175b57c"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.120.19.tgz"
+  sha256 "9f5af22119b3bd032a74c6046efb901b12f325d6462d9538664fb2b21498e053"
   license "MIT"
 
   bottle do
@@ -36,8 +36,8 @@ class Promptfoo < Formula
   end
 
   resource "node-gyp" do
-    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.1.0.tgz"
-    sha256 "492bca8e813411386e61e488f95b375262aa8f262e6e8b20d162e26bdf025f16"
+    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.2.0.tgz"
+    sha256 "8689bbeb45a3219dfeb5b05a08d000d3b2492e12db02d46c81af0bee5c085fec"
   end
 
   def install
