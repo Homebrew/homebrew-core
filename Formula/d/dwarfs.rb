@@ -85,8 +85,6 @@ class Dwarfs < Formula
       # No ASAN for folly
       ENV.append "CXXFLAGS", "-D_LIBCPP_HAS_NO_ASAN"
 
-      ENV.llvm_clang
-
       # Needed in order to find the C++ standard library
       # See: https://github.com/Homebrew/homebrew-core/issues/178435
       ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
