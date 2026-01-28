@@ -7,12 +7,12 @@ class Htmldoc < Formula
   head "https://github.com/michaelrsweet/htmldoc.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "395770fe9fa13483b1d58b5d4fbac5e62b813b27663bc542c6419406916abecb"
-    sha256 arm64_sequoia: "b0c98b4352681b91b74def0f85e057019dc2a7b93790cd187e1d53ebfcb8f594"
-    sha256 arm64_sonoma:  "d6b43ad11136fb19a1eb5eda6cef473111b6750e7001b2a9b8ea262f1ee1ae5d"
-    sha256 sonoma:        "1b340d9d27bdbf7d9b416ba45b5f87997895ffdb358e9f289a45236690adf816"
-    sha256 arm64_linux:   "20599abbfe7a4f67d482aa26b987cac45a3664583dd6a7823e0b9ebd2bdb03ea"
-    sha256 x86_64_linux:  "1570f66b9c4c6a3fc6913f18a94bb623a5e3b3d30e7187fe5bb67ded08cb46e3"
+    sha256 arm64_tahoe:   "b70afc8fea7f1dae9f701126342b2f6d0e9f14a2ddbc23f6e2af4d3e27203ee9"
+    sha256 arm64_sequoia: "34ec6b59478d71030efe78a378324729c07f80793fbe85bb10a60f4cff53a7e5"
+    sha256 arm64_sonoma:  "50983ac64886dc78c2d8d9bcb7db59443077734ffe3d95d8d7a3dfcacf23dccd"
+    sha256 sonoma:        "6d9387725fb117bac2c1b1fad87198d07dc1d457348424f2de50ba0f90273a4c"
+    sha256 arm64_linux:   "c66c45d948eddc8faa1b1b4db79a473994ff799d5eccffcee010f066bb00812e"
+    sha256 x86_64_linux:  "02036033fe6c031041822eae46a0c67fe785def16c084cd710167bda9a5e5dc6"
   end
 
   depends_on "pkgconf" => :build
