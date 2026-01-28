@@ -77,6 +77,7 @@ class Neovim < Formula
   depends_on "lpeg"
   depends_on "luajit"
   depends_on "luv"
+  depends_on "tree-sitter-cli"
   depends_on "unibilium"
   depends_on "utf8proc"
 
