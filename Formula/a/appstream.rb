@@ -1,10 +1,9 @@
 class Appstream < Formula
   desc "Tools and libraries to work with AppStream metadata"
   homepage "https://www.freedesktop.org/wiki/Distributions/AppStream/"
-  url "https://github.com/ximion/appstream/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "1615468b8d1e5edb9a9081f81841c8a22439c64bee5f02b008b3b8d5a5204c91"
+  url "https://github.com/ximion/appstream/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "564ec87b16e9e4ee81fb021e612250fd27f3a3ecd31c209a5dd1ff59def3022d"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_tahoe:   "8c4e52f27f3c8b071b8c541422bdbe35c48ffe882bc8461f74f90b1b4bf96e96"
@@ -61,6 +60,7 @@ class Appstream < Formula
       -Ddocs=false
       -Dapidocs=false
       -Dinstall-docs=false
+      -Dbash-completion=false
     ]
 
     args << "-Dsystemd=false" if OS.mac?
