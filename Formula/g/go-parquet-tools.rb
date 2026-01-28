@@ -7,12 +7,12 @@ class GoParquetTools < Formula
   head "https://github.com/hangxie/parquet-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d5e9a035480d83bdf59de788843706906baf662ebfd4631d09cc77c127618c95"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5e9a035480d83bdf59de788843706906baf662ebfd4631d09cc77c127618c95"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5e9a035480d83bdf59de788843706906baf662ebfd4631d09cc77c127618c95"
-    sha256 cellar: :any_skip_relocation, sonoma:        "69102be3e7a01735dfa3962f1d5e340b770535ef5a27a7045156aa37108d4f69"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0282ec1971c6defdc350fb9ca2c1b989675e59f6e52c3137e1c28e37071d0809"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b24b632ecbcdcd0b2458a232641206949e318dd94aaed4e6b005075899d0c1e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c2c158a8a175f81196bebef89ccb5d0cd4a403ee14f9063246321c74a0976cb2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2c158a8a175f81196bebef89ccb5d0cd4a403ee14f9063246321c74a0976cb2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2c158a8a175f81196bebef89ccb5d0cd4a403ee14f9063246321c74a0976cb2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "305254baf6d8efe571aaf89d3b91fa3ff1b2f0d5930d7e8ffdcefc17c46d338a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a6cd9cafd27702596fc891e1f704699f16816f636edb96d80bb8f593fd5f3e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2321bc0fd0cd317b04bf97ed5633eac9a52fcc2b9317f2152aa15cee26b2a0f1"
   end
 
   depends_on "go" => :build
