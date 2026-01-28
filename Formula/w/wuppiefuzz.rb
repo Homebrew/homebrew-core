@@ -17,6 +17,7 @@ class Wuppiefuzz < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "sqlite"
   depends_on "z3"
 
   uses_from_macos "llvm" => :build # for libclang
@@ -26,8 +27,28 @@ class Wuppiefuzz < Formula
   end
 
   def install
+    # Drop vendored features for openssl, rusqlite and z3 to use Homebrew-provided libraries
+    inreplace "Cargo.toml" do |s|
+      s.gsub!(
+        /^(\s*openssl\s*=\s*\{[^}]*?),\s*features\s*=\s*\[\s*"vendored"\s*\]([^}]*\})\s*$/,
+        '\1\2',
+      )
+
+      s.gsub!(
+        /^(\s*rusqlite\s*=\s*\{[^}]*?),\s*features\s*=\s*\[\s*"bundled"\s*\]([^}]*\})\s*$/,
+        '\1\2',
+      )
+
+      s.gsub!(
+        /^(\s*z3\s*=\s*\{[^}]*?),\s*features\s*=\s*\[\s*"bundled"\s*\]([^}]*\})\s*$/,
+        '\1\2',
+      )
+    end
+
     ENV["Z3_LIBRARY_PATH_OVERRIDE"] = Formula["z3"].opt_lib
-    ENV["Z3_SYS_Z3_HEADER"] = Formula["z3"].opt_include
+    ENV["Z3_SYS_Z3_HEADER"] = Formula["z3"].opt_include/"z3.h"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["z3"].opt_lib/"pkgconfig"
+
     system "cargo", "install", *std_cargo_args
   end
 
