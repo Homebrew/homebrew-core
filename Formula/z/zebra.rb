@@ -1,10 +1,9 @@
 class Zebra < Formula
   desc "Information management system"
   homepage "https://www.indexdata.com/resources/software/zebra/"
-  url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.8.tar.gz"
-  sha256 "879e402b91912e9074275753f24408ed2ac06b3b7c30b2a2d5a70718c869a542"
+  url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.9.tar.gz"
+  sha256 "315bd69f4e8a0fdd57a4d5e24a7235d651adb64cc25c0077f1bda265ee6cab27"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://ftp.indexdata.com/pub/zebra/"
@@ -19,6 +18,8 @@ class Zebra < Formula
     sha256 arm64_linux:   "389bfe2f986b21676bf4b44335ad8623577d62df89b730bee514e368b5d832da"
     sha256 x86_64_linux:  "4184eb6e9b8a971a34f021d82cb9e1927143459152780f5ec85184716c568c7b"
   end
+
+  depends_on "pkgconf" => :build
 
   depends_on "icu4c@78"
   depends_on "yaz"
