@@ -69,10 +69,10 @@ class Texlive < Formula
   depends_on "potrace"
   depends_on "pstoedit"
   depends_on "python@3.14"
+  depends_on "tcl-tk"
 
   uses_from_macos "ncurses"
   uses_from_macos "ruby"
-  uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
 
   on_linux do
@@ -399,10 +399,6 @@ class Texlive < Formula
               "TEXMFROOT = $SELFAUTOPARENT", "TEXMFROOT = $SELFAUTODIR/share"
     inreplace share/"texmf-dist/web2c/texmfcnf.lua",
               "selfautoparent:texmf", "selfautodir:share/texmf"
-
-    # icu4c 75+ needs C++17
-    # TODO: Remove in 2025 release
-    ENV.append "CXXFLAGS", "-std=gnu++17"
 
     # Work around build failure on Intel Sonoma after updating to Xcode 16
     # sh: line 1: 27478 Segmentation fault: 11  luajittex -ini -jobname=luajittex -progname=luajittex luatex.ini ...
