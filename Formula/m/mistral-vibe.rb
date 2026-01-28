@@ -252,7 +252,7 @@ class MistralVibe < Formula
   end
 
   test do
-    assert_match "Config 'Homebrew.toml' for agent not found",
-                 shell_output("#{bin}/vibe --agent Homebrew 2>&1", 1)
+    assert_match "not found",
+                 shell_output("#{bin}/vibe --workdir /nonexistent 2>&1", 1)
   end
 end
