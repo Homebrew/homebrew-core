@@ -32,6 +32,7 @@
   "dash": "dash-shell",
   "d-bus": "dbus",
   "docker-slim": "mintoolkit",
+  "dump1090-mutability": "dump1090-fa",
   "fbida": "exiftran",
   "fcct": "butane",
   "ffmpeg28": "ffmpeg@2.8",
