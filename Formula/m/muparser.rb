@@ -22,12 +22,11 @@ class Muparser < Formula
 
   on_macos do
     depends_on "libomp"
-    conflicts_with "gromacs", because: "gromacs ships its own copy of muparser"
   end
 
-  def install
-    ENV.cxx11 if OS.linux?
+  link_overwrite "lib/libmuparser.dylib", "lib/libmuparser.2.dylib"
 
+  def install
     system "cmake", "-S", ".", "-B", "build", "-DENABLE_OPENMP=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
