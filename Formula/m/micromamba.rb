@@ -56,8 +56,6 @@ class Micromamba < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1600
-
     args = %W[
       -DBUILD_LIBMAMBA=ON
       -DBUILD_LIBMAMBA_SPDLOG=ON
