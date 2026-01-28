@@ -6,12 +6,12 @@ class Dumbpipe < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "186ff902c4a7c5980045d40e1b01bbacf42f0a24b9bd02de4185c046fe36933e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9164fc23d8544c05829199db18d91cdcc0cc285e2dfc3a46bc31e605d68e0289"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2803d9fbf5c79bc29655e7a24ae7b2a3584720839b94a4e83664381e681d35d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bffaf95fd7210da7a4060784a85d220875f4c85c28667e0fa45d60c01c179025"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b8f470ecc8c619dbcff2e29fd0473578ab25fd873f36e6749b1a260484bc023"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0bb0c771dd1d443fca078f6e93bbfd1ff8d5cab9e61f64513ee0e88b2bd6ad3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "29ef54d4a9703603180e98e0090d1586a04e75e3b6099353d9da547072843ac5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64a0463bdcff85bf942ca5c2cb7749bdf6ec883251302be5711e040feef834cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "811b5a4e652b0de6e52384fbd05c972c64ba3cc7a3aca5f668024cde8d82b096"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e6ebc423c9924372dc5d2e3f872e78870580782071246e2eb7a689e4a7dc15ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "59e9cfb5ed8d37f7c29777de417e0669ea45832612a3aadb454608de9ed477ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0549e78b9a59a4311c16fdca9159d6aff5aa3046cdb541fa1178d49af8a77958"
   end
 
   depends_on "rust" => :build
