@@ -28,10 +28,7 @@ class Sqlpage < Formula
     ENV["PORT"] = port.to_s
     pid = spawn bin/"sqlpage"
 
-    sleep 2
-    sleep 3 if OS.mac? && Hardware::CPU.intel?
-
-    assert_match "It works", shell_output("curl -s http://localhost:#{port}")
+    assert_match "It works", shell_output("curl --retry-connrefused --retry 4 --silent http://localhost:#{port}")
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)
