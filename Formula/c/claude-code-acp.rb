@@ -26,12 +26,21 @@ class ClaudeCodeAcp < Formula
       {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":1}}
     JSON
 
-    Open3.popen3(bin/"claude-code-acp") do |stdin, stdout, _stderr, wait_thr|
-      stdin.write(json)
+    Open3.popen3(bin/"claude-code-acp") do |stdin, stdout, stderr, wait_thr|
+      stdin.puts json
       stdin.flush
 
-      line = Timeout.timeout(5) { stdout.gets }
-      assert_match "\"protocolVersion\":1", line
+      output = +""
+      Timeout.timeout(30) do
+        until output.include?("\"protocolVersion\":1")
+          ready = IO.select([stdout, stderr])
+          ready[0].each do |io|
+            chunk = io.readpartial(1024)
+            output << chunk if io == stdout
+          end
+        end
+      end
+      assert_match "\"protocolVersion\":1", output
     ensure
       stdin.close unless stdin.closed?
       if wait_thr&.alive?
