@@ -4,14 +4,12 @@ class Fftw < Formula
   url "https://fftw.org/fftw-3.3.10.tar.gz"
   sha256 "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
   license all_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
     regex(%r{latest official release.*? <b>v?(\d+(?:\.\d+)+)</b>}i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1
@@ -28,10 +26,8 @@ class Fftw < Formula
   depends_on "open-mpi"
 
   on_macos do
-    depends_on "gcc"
+    depends_on "libomp"
   end
-
-  fails_with :clang
 
   # Fix the cmake config file when configured with autotools, upstream pr ref, https://github.com/FFTW/fftw3/pull/338
   patch do
@@ -40,43 +36,38 @@ class Fftw < Formula
   end
 
   def install
-    ENV.runtime_cpu_detection
-
-    args = [
-      "--enable-shared",
-      "--disable-debug",
-      "--prefix=#{prefix}",
-      "--enable-threads",
-      "--disable-dependency-tracking",
-      "--enable-mpi",
-      "--enable-openmp",
-    ]
+    if OS.mac?
+      ENV["OPENMP_CFLAGS"] = "-Xpreprocessor -fopenmp"
+      ENV.append "LDFLAGS", "-lomp -Wl,-dead_strip_dylibs"
+    end
 
     # FFTW supports runtime detection of CPU capabilities, so it is safe to
     # use with --enable-avx and the code will still run on all CPUs
+    ENV.runtime_cpu_detection
     simd_args = []
     simd_args += %w[--enable-sse2 --enable-avx --enable-avx2] if Hardware::CPU.intel?
 
-    # single precision
-    # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
-    system "./configure", "--enable-single", *(args + simd_args)
-    system "make", "install"
+    common_args = %w[
+      --enable-shared
+      --enable-threads
+      --enable-mpi
+      --enable-openmp
+    ]
+    # Not default yet: https://github.com/FFTW/fftw3/pull/315#issuecomment-2630106315
+    common_args << "--enable-armv8-cntvct-el0" if Hardware::CPU.arm64?
 
-    # clean up so we can compile the double precision variant
-    system "make", "clean"
-
-    # double precision
-    # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
-    system "./configure", *(args + simd_args)
-    system "make", "install"
-
-    # clean up so we can compile the long-double precision variant
-    system "make", "clean"
-
-    # long-double precision
-    # no SIMD optimization available
-    system "./configure", "--enable-long-double", *args
-    system "make", "install"
+    # enable-sse2, enable-avx and enable-avx2 work for both single and double precision.
+    # long-double precision has no SIMD optimization available.
+    {
+      "single"      => ["--enable-single", *simd_args],
+      "double"      => simd_args,
+      "long-double" => ["--enable-long-double"],
+    }.each do |precision, args|
+      mkdir "build-#{precision}" do
+        system "../configure", *args, *common_args, *std_configure_args
+        system "make", "install"
+      end
+    end
   end
 
   test do
