@@ -17,21 +17,15 @@ class Ponyc < Formula
 
   depends_on "cmake" => :build
 
-  uses_from_macos "llvm" => [:build, :test]
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
-  # We use LLVM to work around an error while building bundled `google-benchmark` with GCC
-  fails_with :gcc do
-    cause <<~EOS
-      .../src/gbenchmark/src/thread_manager.h:50:31: error: expected ')' before '(' token
-         50 |   GUARDED_BY(GetBenchmarkMutex()) Result results;
-            |                               ^
-    EOS
-  end
-
   def install
-    inreplace "CMakeLists.txt", "PONY_COMPILER=\"${CMAKE_C_COMPILER}\"", "PONY_COMPILER=\"#{ENV.cc}\"" if OS.linux?
+    if OS.linux?
+      inreplace "CMakeLists.txt", "PONY_COMPILER=\"${CMAKE_C_COMPILER}\"", "PONY_COMPILER=\"#{ENV.cc}\""
+      inreplace "lib/CMakeLists.txt", "-DBENCHMARK_ENABLE_WERROR=OFF ", "\\0-DHAVE_CXX_FLAG_WTHREAD_SAFETY=OFF "
+      ENV["pic_flag"] = "-fPIC"
+    end
 
     ENV["CMAKE_FLAGS"] = "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
     ENV["MAKEFLAGS"] = "build_flags=-j#{ENV.make_jobs}"
@@ -43,10 +37,7 @@ class Ponyc < Formula
   end
 
   test do
-    # ENV["CC"] returns llvm_clang, which does not work in a test block.
-    ENV.clang
-
-    system bin/"ponyc", "-rexpr", "#{prefix}/packages/stdlib"
+    system bin/"ponyc", "-rexpr", prefix/"packages/stdlib"
 
     (testpath/"test/main.pony").write <<~PONY
       actor Main
