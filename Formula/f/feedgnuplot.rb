@@ -12,12 +12,12 @@ class Feedgnuplot < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf1aeed43aaa7cf8f3768bd466a78e9d111d8afc0fc0fed93b680a01c490f6e7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf1aeed43aaa7cf8f3768bd466a78e9d111d8afc0fc0fed93b680a01c490f6e7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf1aeed43aaa7cf8f3768bd466a78e9d111d8afc0fc0fed93b680a01c490f6e7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cf1aeed43aaa7cf8f3768bd466a78e9d111d8afc0fc0fed93b680a01c490f6e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "57d0e26eeb8359f7bca0de4034b7daca8f26f93d47a65856e1b907f030159b1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d72feb683b5f898eb85aade085b37c5194e3e7441fb6b51b85bb38981cac84be"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cc574aff748aabbe843444bece9a6f8780385de955de9c81d1a9b8574dabffa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6201cd96f7ebc4fd240944e10b530797484f4faefc03323bf5aef28b0223c52"
   end
 
   depends_on "gnuplot"
