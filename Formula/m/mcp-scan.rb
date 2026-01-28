@@ -3,10 +3,9 @@ class McpScan < Formula
 
   desc "Constrain, log and scan your MCP connections for security vulnerabilities"
   homepage "https://github.com/invariantlabs-ai/mcp-scan"
-  url "https://files.pythonhosted.org/packages/fe/45/8b5ab0d13fe214c855f627a2552b2165f1f0d40861642757fd9f713e476e/mcp_scan-0.3.37.tar.gz"
-  sha256 "d9164e47525acca0803b9485b01436ac1b7560d02a5114d6fcbbc0bc2b5434e2"
+  url "https://files.pythonhosted.org/packages/11/e1/68aa0ce16eb84a2dee85b5ab056a2d78652537be81cfc805289151e671a1/mcp_scan-0.3.38.tar.gz"
+  sha256 "0e60c5fa6e66ff3d712bca62fe3de14f82f304c28b188aea3d374fb230b6ea96"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/invariantlabs-ai/mcp-scan.git", branch: "main"
 
   bottle do
