@@ -28,8 +28,8 @@ class MariadbAT106 < Formula
 
   keg_only :versioned_formula
 
-  # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-106/
-  deprecate! date: "2026-06-01", because: :unsupported
+  # See: https://mariadb.org/about/#maintenance-policy
+  deprecate! date: "2026-07-06", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
