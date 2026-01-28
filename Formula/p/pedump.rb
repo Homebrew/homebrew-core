@@ -1,8 +1,8 @@
 class Pedump < Formula
   desc "Dump Windows PE files using Ruby"
   homepage "https://pedump.me"
-  url "https://github.com/zed-0xff/pedump/archive/refs/tags/v0.7.2.tar.gz"
-  sha256 "878796667ffedeb77414b2c2989303bd0a0620d5d6ab22a91ee0ce5bd1445116"
+  url "https://github.com/zed-0xff/pedump/archive/refs/tags/v0.7.6.tar.gz"
+  sha256 "a3ef939a7c26b3e5dc94629c1c554bdaed105da99b5c5f2bf856cf0631a206e8"
   license "MIT"
 
   bottle do
