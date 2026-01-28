@@ -7,14 +7,12 @@ class Bnfc < Formula
   head "https://github.com/BNFC/bnfc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f4527a1670a78475c265fc33d67b1c94ea25a589c476d1ac460dcfcfe42a20d3"
-    sha256 cellar: :any,                 arm64_sequoia: "c31434982bdab1d316d2d79f1d8099b3ac6f3594b5cb7f1c4e44dc8647915d24"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ba668bdd79f0631df24fc241d90a491886e4126123d070570609e6e4d4b0af8"
-    sha256 cellar: :any,                 arm64_ventura: "16570619aab4070fa4d4517dc650d53fa619d95f3e14fe1f0b46914d9079c8cc"
-    sha256 cellar: :any,                 sonoma:        "f24d3c0ff480f926217d9fe826760c6ab59b8ec6100f6c3e9d329da3100b8386"
-    sha256 cellar: :any,                 ventura:       "7ac68aa426aaca6251a69e6ad730ec582d2d6ae127b2d80f68c1c3aedba6df71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f79f089fe534748760af745ceebf7510828153f6f7e1bc898387480fed6aded1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b36466a041cf9cbbd8aadd038903c7f02a1a98873c61990ce4dd16615a9ebab"
+    sha256 cellar: :any,                 arm64_tahoe:   "fc1a05687a2bd431e6371fb5068f41ff0bf70648e809111d5453415d194e532e"
+    sha256 cellar: :any,                 arm64_sequoia: "2f04ec084ced7d76946370110ff81f016d7ed50292e2a772a706e07a98c20c8b"
+    sha256 cellar: :any,                 arm64_sonoma:  "a5148f425a9ce904eb4c861c5563cbf1676f9d87a2d4c85ce029bffbac9e955d"
+    sha256 cellar: :any,                 sonoma:        "e955c51e0323aef6c80360cc55765f46f1b3593df94b6044090078749767fd37"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0422a1119274343c4a342b076321170f9f987a8dd67f78a6d40c4e0efb391ac9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f523f3617e9b794c4aa57e752fb7e056adc60b2f48cf436b38692aa5de2904a3"
   end
 
   depends_on "cabal-install" => [:build, :test]
