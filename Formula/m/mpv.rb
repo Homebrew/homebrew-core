@@ -8,13 +8,12 @@ class Mpv < Formula
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256               arm64_tahoe:   "564a30afb1b03beb488917ccd2759b6d9e8b3083f41245ae0512a29c2b6ab18d"
-    sha256               arm64_sequoia: "13bdd939815343f1352cef1ec987ea97fc1fd99b697d8e466eb1602b4735bd08"
-    sha256               arm64_sonoma:  "88b9c084aa04c0eb29e6351709a0b4022ccf27198048ac2afa61315747afcfd2"
-    sha256 cellar: :any, sonoma:        "37965c940f710111b0f7af0ed67b140c979148ac9a00adc579ce2a3f0f8ce4fe"
-    sha256               arm64_linux:   "1aa15f14db12fdc770942a1ac450378407f516325e0ac21e1f533f48ddcf5456"
-    sha256               x86_64_linux:  "a93d1eacfec60583dceb4b48d8aa98c9e6d3fd28ff701cd31457830776cb6459"
+    sha256               arm64_tahoe:   "0ff98843bdf59e26cfe7c32fba419ad94e293d04fc327064e7070848eddd4d91"
+    sha256               arm64_sequoia: "f831d29c24e5f96b5a06ac37deb1cab56850656dbc09da0e8d1534cb497e47d3"
+    sha256               arm64_sonoma:  "2f45230e29fee9676e4a3f945b2d11871f5e3a63acad8de189cbd72bc97aa072"
+    sha256 cellar: :any, sonoma:        "501b6d1fe876b8c25129671538b66be34c0b998d6b68bce6d673ed41a7915e15"
+    sha256               arm64_linux:   "ff3a3ea88a8335bc8910f810ce183fb88fb611222ee03092e0f5309b35f9fd07"
+    sha256               x86_64_linux:  "5fc074ab939efde3b808b71c0a3ec8911b99d75b813caa914f50427ca8808b63"
   end
 
   depends_on "docutils" => :build
