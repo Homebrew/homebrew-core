@@ -1,15 +1,15 @@
 class Gnupg < Formula
   desc "GNU Privacy Guard (OpenPGP)"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.9.tar.bz2"
-  sha256 "dd17ab2e9a04fd79d39d853f599cbc852062ddb9ab52a4ddeb4176fd8b302964"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.5.17.tar.bz2"
+  sha256 "2c1fbe20e2958fd8fb53cf37d7c38e84a900edc0d561a1c4af4bc3a10888685d"
   license "GPL-3.0-or-later"
 
-  # GnuPG appears to indicate stable releases with an even-numbered minor
-  # (https://gnupg.org/download/#end-of-life).
+  # GnuPG indicates stable releases with an even-numbered minor tag, eg "gnupg26"
+  # (https://dev.gnupg.org/T8007#210468, https://gnupg.org/download/#end-of-life)
   livecheck do
-    url "https://gnupg.org/ftp/gcrypt/gnupg/"
-    regex(/href=.*?gnupg[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+    url "https://versions.gnupg.org/swdb.lst"
+    regex(/gnupg\d+[02468]_ver\s+(\d+(?:\.\d+)+)/i)
   end
 
   bottle do
@@ -32,13 +32,14 @@ class Gnupg < Formula
   depends_on "pinentry"
   depends_on "readline"
 
-  uses_from_macos "bzip2"
-  uses_from_macos "openldap"
-  uses_from_macos "sqlite"
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "bzip2"
+    depends_on "sqlite"
+    depends_on "zlib"
   end
 
   conflicts_with cask: "gpg-suite"
@@ -75,29 +76,26 @@ class Gnupg < Formula
 
   def post_install
     (var/"run").mkpath
-    quiet_system "killall", "gpg-agent"
+    quiet_system bin/"gpgconf", "--kill", "all"
   end
 
   test do
-    (testpath/"batch.gpg").write <<~GPG
-      Key-Type: RSA
-      Key-Length: 2048
-      Subkey-Type: RSA
-      Subkey-Length: 2048
-      Name-Real: Testing
-      Name-Email: testing@foo.bar
-      Expire-Date: 1d
-      %no-protection
-      %commit
-    GPG
+    gpg_flags = "--batch", "--passphrase", ""
+    user_id = "test@test"
 
     begin
-      system bin/"gpg", "--batch", "--gen-key", "batch.gpg"
-      (testpath/"test.txt").write "Hello World!"
-      system bin/"gpg", "--detach-sign", "test.txt"
-      system bin/"gpg", "--verify", "test.txt.sig"
+      system "test", "-x", "#{Formula["pinentry"].opt_bin}/pinentry"
+      libreadline_ext = OS.mac? ? "dylib" : "so"
+      system "test", "-f", "#{Formula["readline"].opt_lib}/libreadline.#{libreadline_ext}"
+      system bin/"gpg", *gpg_flags, "--quick-gen-key", user_id, "pqc", "cert,sign", "never"
+      fpr = `#{bin}/gpg --list-keys --with-colons #{user_id} | grep fpr | awk -F: '{print \$10}'`.chomp
+      system bin/"gpg", *gpg_flags, "--quick-add-key", fpr, "pqc", "encr", "never"
+      file = "test.txt"
+      (testpath/file).write "test content"
+      system bin/"gpg", *gpg_flags, "--encrypt", "--sign", "--recipient", user_id, file
+      system bin/"gpg", *gpg_flags, "--decrypt", "#{file}.gpg"
     ensure
-      system bin/"gpgconf", "--kill", "gpg-agent"
+      system bin/"gpgconf", "--kill", "all"
     end
   end
 end
