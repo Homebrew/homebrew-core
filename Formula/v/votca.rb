@@ -21,7 +21,7 @@ class Votca < Formula
   depends_on "boost"
   depends_on "eigen" => :no_linkage
   depends_on "fftw"
-  # add gromacs dep back once it was built with clang
+  depends_on "gromacs"
   depends_on "hdf5"
   depends_on "libecpint"
   depends_on "libint"
@@ -45,7 +45,6 @@ class Votca < Formula
       "-DINSTALL_RC_FILES=OFF",
       "-DINSTALL_CSGAPPS=ON",
       "-DBUILD_XTP=ON",
-      "-DCMAKE_DISABLE_FIND_PACKAGE_GROMACS=ON",
       "-DENABLE_RPATH_INJECT=ON",
       "-DPYrdkit_FOUND=OFF",
     ]
