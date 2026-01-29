@@ -16,6 +16,8 @@ class Air < Formula
 
   depends_on "rust" => :build
 
+  conflicts_with "go-air", because: "both install binaries with the same name"
+
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/air")
   end
