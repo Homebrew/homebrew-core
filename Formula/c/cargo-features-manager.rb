@@ -1,0 +1,47 @@
+class CargoFeaturesManager < Formula
+  desc "TUI like cli tool to manage the features of your rust-project dependencies"
+  homepage "https://github.com/ToBinio/cargo-features-manager"
+  url "https://github.com/ToBinio/cargo-features-manager/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "f0a0894a4bc5de422b6ac1cae8a28ff605715fedae14ed3a44dea0eeb734f91d"
+  license "MIT"
+  head "https://github.com/ToBinio/cargo-features-manager.git", branch: "master"
+
+  depends_on "rust" => :build
+  depends_on "rustup" => :test
+
+  def install
+    system "cargo", "install", *std_cargo_args
+  end
+
+  test do
+    # Show that we can use a different toolchain than the one provided by the `rust` formula.
+    # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
+    ENV.prepend_path "PATH", Formula["rustup"].bin
+    system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
+
+    crate = testpath/"demo-crate"
+    mkdir crate do
+      (crate/"Cargo.toml").write <<~TOML
+        [package]
+        name = "demo-crate"
+        version = "0.1.0"
+
+        [lib]
+        path = "lib.rs"
+
+        [dependencies]
+        libc = "0.1"
+        bear = "0.2"
+      TOML
+
+      (crate/"lib.rs").write "fn main() {}"
+
+      output = shell_output("cargo features prune")
+
+      assert_includes(output, "Creating temporary project...")
+      assert_includes(output, "workspace [1]")
+      assert_includes(output, "libc [0/1]")
+    end
+  end
+end
