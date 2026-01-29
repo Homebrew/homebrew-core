@@ -17,6 +17,7 @@ class UnifiedCourierTracker < Formula
   end
 
   test do
-    assert_match "usage", shell_output("#{bin}/unified-courier-tracker --help", 1)
+    # --help should print usage and exit 0
+    assert_match "usage", shell_output("#{bin}/unified-courier-tracker --help")
   end
 end
