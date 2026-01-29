@@ -7,12 +7,13 @@ class Votca < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "067055a10061071812d04bda29a0730da6e743fa6a9ec932ce18b4e4af5e9e57"
-    sha256 cellar: :any,                 arm64_sequoia: "86797174e26f6397651832504cb2ab99fda48280306843842f42afe455e94376"
-    sha256 cellar: :any,                 arm64_sonoma:  "b0580e45b89242251411af42e05d1bd95b59ac2c13d93e5febe0bccb36de51a5"
-    sha256 cellar: :any,                 sonoma:        "ead1dce31be6f1f57e960091c5dd09abbea1b792f158f2d8bf3a6ddeed2e26a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "04b5af079dcacba0b47bfdad2b1ffb470f44a367fcb64040e087c6159f8a22c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0f1100d6640b0dd64ed6479fd8a19338dd179f299af5e808ed39e873d1e39fe"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "ebedfd7a8f4a4a958f45c48b33f78d03e6689f90b0a5d1ab604adf7cece29ac1"
+    sha256 cellar: :any,                 arm64_sequoia: "4a1ccb8ae3de07ee243281f08d476a76aeff2ba65c2d4eaa1efd3576c4214d91"
+    sha256 cellar: :any,                 arm64_sonoma:  "2a18f6145466daa3bed03fc6bfdec3b0930612342708cb14c3d1701681033dc9"
+    sha256 cellar: :any,                 sonoma:        "caec123f9f6ddad1fcbdfacfcbf5d7d284d61f0c7f52f727c51b626c6d93021b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6cf0d5b39648c54d4f6aca3f671d56d4f58e2f4a6ec62db9ad28ae6983c40b71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f75816e6fe38c61a7b2647e1dcb40f856b39f92c12b0be29e33f20c7b0031fe2"
   end
 
   depends_on "cmake" => :build
