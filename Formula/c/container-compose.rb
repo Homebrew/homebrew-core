@@ -1,8 +1,8 @@
 class ContainerCompose < Formula
   desc "Manage Apple Container with Docker Compose files"
   homepage "https://github.com/mcrich23/container-compose"
-  url "https://github.com/Mcrich23/container-compose/archive/refs/tags/0.7.0.tar.gz"
-  sha256 "8e1db3797b135799f7df6ebad11934a474ec0344ae69866c46957a888d13a88d"
+  url "https://github.com/Mcrich23/container-compose/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "ee6863984c6d2d31ca998d0fd64d95ce4b098b86a77f1b747f9dafc8fe144b85"
   license "MIT"
   head "https://github.com/mcrich23/container-compose.git", branch: "main"
 
