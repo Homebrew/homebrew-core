@@ -11,7 +11,7 @@ class UnifiedCourierTracker < Formula
     libexec.install "track_shipments.py"
     (bin/"unified-courier-tracker").write <<~EOS
       #!/bin/bash
-      exec "#{Formula["python@3.12"].opt_bin}/python3" "#{libexec}/track_shipments.py" ""
+      exec "#{Formula["python@3.12"].opt_bin}/python3" "#{libexec}/track_shipments.py" "$@"
     EOS
     (bin/"unified-courier-tracker").chmod 0o755
   end
