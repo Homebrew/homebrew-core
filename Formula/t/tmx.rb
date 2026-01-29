@@ -6,12 +6,12 @@ class Tmx < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "59fd63f6b2a662a31a2fe3236c1de7ba84f6e77a2841aeff3b88887529c6ee0a"
-    sha256 cellar: :any,                 arm64_sequoia: "02fab021d2ec2f4b39dbf13c2b9413b8fb83dff9a6ef545c9cdd33a4b836f0c1"
-    sha256 cellar: :any,                 arm64_sonoma:  "113721aaa83e493f710b297e0d2380184ec6f833d60e00e29ff791df81678de4"
-    sha256 cellar: :any,                 sonoma:        "a73375f15292e0db390e8558cdbee774ef6de08263b01d0559e7fadd20c46ca7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09de5000a939def5e7509f5f5b1336ed49e1fe1971ee0edde526cc1d4eddf854"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc85e452c93cdf87fc8433f8ec600978b8083dc7b1d56797c6596270a48b62ae"
+    sha256 cellar: :any,                 arm64_tahoe:   "33622bf420772d45c0204fb92ec1590b87d3369a58f763a6e114741485a542e7"
+    sha256 cellar: :any,                 arm64_sequoia: "e6dc29611a21a58d607b8f909c28da5fe03747e11b3b5deb6fd1772a02b1808a"
+    sha256 cellar: :any,                 arm64_sonoma:  "9d60c6c581f835bf59b0bc732cd0c8137e11c5c4e4ae2a52556dd85e17122ccd"
+    sha256 cellar: :any,                 sonoma:        "b02700086955197cb6eaf260927995d83661e158785b5f187ed1160b25f7ba66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee63fd16c842235aea7f716fee0baccb34a34e6bc1902c0ba2902bc1c8cbea29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e57cc9a54b874ed75a89a4b559c02214b8535c52f44631d09a776c03a17f2a7"
   end
 
   depends_on "cmake" => :build
