@@ -1,8 +1,8 @@
 class Libxmu < Formula
   desc "X.Org: X miscellaneous utility routines library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXmu-1.3.0.tar.xz"
-  sha256 "983b090a245a33f2ea561895bf8aed5b709ef25ac06af0e1ccffecf15acc09d5"
+  url "https://www.x.org/archive/individual/lib/libXmu-1.3.1.tar.xz"
+  sha256 "81a99e94c4501e81c427cbaa4a11748b584933e94b7a156830c3621256857bc4"
   license "MIT"
 
   bottle do
