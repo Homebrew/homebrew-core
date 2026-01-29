@@ -7,12 +7,12 @@ class Kargo < Formula
   head "https://github.com/akuity/kargo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "92f227c0a233d356385a190323a0c92715b31049122c7b714548cb4594b73aac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d9e261625dc7c15e401156b6c21a8b5c0b7238800b22782d9003e4c44cd211d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28114366b729670904ae6a0cfa9bfc7f8b88a681ee51692c03d9f1dd71d857b7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1f6bf2c4456c1c19e90c4cb0f16752778c8d19ebcdcecc51bb0b4a375c28920e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "45eb7288b0c7c06d6583996f6d5417c5c3b564164cf1cb3654211f811aee7033"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab56bff3885ff7a9343cf88e915b4a35e2adf82ef68b8ffe5b01e9e09d41bf5b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "490ef997e908bcb5579f666d0e4ecf8553042385c521f959510cb183fc68aee3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f5c9332baad3cdae479a940af10b275b840181d25b34a3f6ffeb886a3368a89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd6996c723df431d697b7b74008793e20c8a1929b1d28c74c8e370556408910b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "614238b8d0795189e1acea548e328196b0120fc1930aacc15ff7793096057c12"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "063e7c3e22c593a7dddf8fb27e8b23ed8b63674a04f4f60115fd1808a38f169f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f056e59c48d96f21b2bc417bebf80ad2a3cd224806d413da4d311bda7af6172"
   end
 
   depends_on "go" => :build
