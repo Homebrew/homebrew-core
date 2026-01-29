@@ -12,12 +12,12 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "769850bfcb2c206941c31109107d6651f2627ad86b301ad473a3b33f0e12f5ac"
-    sha256                               arm64_sequoia: "c269bcf77c61b27fe58bd21bbdd54f824d0b10dfcd100e49b57e898d3018e486"
-    sha256                               arm64_sonoma:  "0c23078e1b96847eff00223efb758e3ed1c86f7bb87c869e45a748b35930c051"
-    sha256                               sonoma:        "d688d04c13f506fc22724aec6e59aab1c4cb83b184dc12e28d897ecc9b4e1383"
-    sha256                               arm64_linux:   "3724609388020fd8775179ada2bee950bbcd7a5ba2328c86bc05284cd56ec95a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbe6d9f3474b7001ac8e567bec80328dbd19ffe9adafb063208bd4cccfb4dc94"
+    sha256                               arm64_tahoe:   "785f5b5ddef0da296239ad358d8a168a0dd770d5c4ce69c320279db5973e0225"
+    sha256                               arm64_sequoia: "0b2e8c932507739b0473fbdaf4ce0362d98e212dd66c09f6c6a08ff866a8bfef"
+    sha256                               arm64_sonoma:  "bc1c5f92f0b19e63feede5752e31dff510e1cfd2cc1c2027acd840b797313b06"
+    sha256                               sonoma:        "3f365cbc801bf9f5706aad95bc827bf6017353f583bbff72e21df544928d2cbb"
+    sha256                               arm64_linux:   "d0902f4b969478ca8d1ef49de8ea5997775b40498d12338e5f40e3a32457dfaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b0e06bc9c5b70b78aef5cdc5dbef9a88b70d64efdcea0a7d840cb211cc175b8"
   end
 
   depends_on "cmake" => :build
