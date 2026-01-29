@@ -7,12 +7,12 @@ class FuncE < Formula
   head "https://github.com/tetratelabs/func-e.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa16144b9740297e39443c25bcdd3e73afee4e105f88a09221796c2480defef0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c94312275f4895b36dfe06ecd082c16511df49b6c1d34c2f33bc76b260296f30"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c11bfc292ab7c3b8d2f4a6cfdde45860ea716809fdf97f04ea6c0aa4adf5c33"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6fa50bff6d7e46378ed1de3385f634d6022cf9e22bb21e4cf7a6181fc4ff2def"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1af8e7a36e827f8d13f19403c4879395b8da1ba0acb7875ab7e5b2b94fd5d08a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f43e20940f27963a438b5e99db3119e0ae66378c0f320aeed27db844664fd41"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50312b58ab29066d403d2223ee4984ca03bfc44e96e3e3e2b9a6848b9c6fb4b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ba95e1ba41daa04ed7162604a23cf2eb49813093f4b0644c4ccc513d863ab16"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "23f3725f16951e27c77cf1d560a7353122fc6820cdaa70c4f49f9d2f2c6298e5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "159edb37bc2a32ee7cb161335fb98fec97c14606aae75b4db9e10591ce4e60be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "37abe96369388aa7a44b7fbcc53ee09ae2a523f94c090a420ff5533b8f7d0472"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fdbe813a99dcfa62b20860c1e349000a3cb88c9e60982cbae35c3cf952286a8"
   end
 
   depends_on "go" => :build
