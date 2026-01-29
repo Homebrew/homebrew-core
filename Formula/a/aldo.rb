@@ -1,8 +1,9 @@
 class Aldo < Formula
   desc "Morse code learning tool released under GPL"
   homepage "https://www.nongnu.org/aldo/"
-  url "https://download.savannah.gnu.org/releases/aldo/aldo-0.7.7.tar.bz2"
-  sha256 "f1b8849d09267fff3c1f5122097d90fec261291f51b1e075f37fad8f1b7d9f92"
+  url "https://https.git.savannah.gnu.org/git/aldo.git",
+      tag:      "v0.7.8",
+      revision: "c2cbeb215a66a606ed01b58fc0be513ebb373e7c"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -29,6 +30,8 @@ class Aldo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "660548eb8c93e2c78a50b925143a9b24400ee578790b62e7acde1d1aed360a98"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libao"
 
   # Reported upstream:
@@ -39,7 +42,12 @@ class Aldo < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "sh", "bootstrap"
+    # Remove the COPYING file which is a symlink to automake's file so fails to install.
+    # Also remove the VERSION file as it causes issues on case-insensitive macOS.
+    rm(["COPYING", "VERSION"])
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
