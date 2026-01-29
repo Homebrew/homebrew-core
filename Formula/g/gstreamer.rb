@@ -4,23 +4,17 @@ class Gstreamer < Formula
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.26.10/gstreamer-1.26.10.tar.bz2"
-    sha256 "9cdda214b0b843780e180c624932d96e8e3101a870048f2f207ac70c7abec645"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.0/gstreamer-1.28.0.tar.bz2"
+    sha256 "f1ab0903c789ee153e116963b8dbc02d40d7bf5e8bc25c70777585b5b61f5a15"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.26.10/gst-plugins-rs-gstreamer-1.26.10.tar.bz2"
-      sha256 "463abc9d388190c35c163e719d345198521078f7fd81585bfc3ead46d7e9cc60"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.0/gst-plugins-rs-gstreamer-1.28.0.tar.bz2"
+      sha256 "00c3e13cf2aeb5340159c046f01e6d41690157fc93a643727b03f32ac955197d"
 
       livecheck do
         formula :parent
       end
-    end
-
-    # patch to use `typing.Self` from stdlib on Python 3.11+, upstream pr ref, https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/10452
-    patch do
-      url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/a77a4f3f5388cde3c4592d1193ae82692fd2bdbb.diff"
-      sha256 "a874f85318ea56abdd19381b9ada24f93dfcc9ad4397e5591ca20e101152f0be"
     end
   end
 
