@@ -8,14 +8,13 @@ class Muparser < Formula
   head "https://github.com/beltoforion/muparser.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cc39c1ae9eafc52f447f685e3441fb31f980efd0fb0345c969871c9cc8d807f2"
-    sha256 cellar: :any,                 arm64_sequoia: "11733a36d494bbd6ff343b30f8e0ed776660c41e5e1ea88ffedc9eedadca2ce7"
-    sha256 cellar: :any,                 arm64_sonoma:  "b1b39c12aa16a0a6fd45b232594448b7c180a16f182246d9cf7e884a019be577"
-    sha256 cellar: :any,                 arm64_ventura: "c8f1479dae9c99b52c1e0efa102eeb876c5e721741fd805963e4f1694eba772c"
-    sha256 cellar: :any,                 sonoma:        "316542316198bbd354327695a2b3a1e8094e0f05b8f314c0cb3470e8d45c527e"
-    sha256 cellar: :any,                 ventura:       "d6854bf7ee7a512856309611cbbe6ae0aa5da588c6a886c70499779f34397dc0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ba22f437decb80c8ed700338c1213c2a19e4e260122acfe1732f1ca54f836ec4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aff0ff2ecd2d9717123b66a7d8cb5ac087519a198085e14c22ce5ed682c2fe19"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "23a51e97ef3d4ff02c8d8d6fb5dd53b142e89899927a9204eb4dd0018d21afe5"
+    sha256 cellar: :any,                 arm64_sequoia: "533245424ca9045f9e246b1c2092466b11b26fb13545b19d82469c8fd36eb2c6"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e95b519ddaac7419352a19803d374262d8edf9780e942b287046be0e2e5c9c5"
+    sha256 cellar: :any,                 sonoma:        "62577464227b08a4c38a09c93f7438e21c55cd3438fdf67f227ee6bc5c2a51ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9b39ed5b616e3f67f8429a33ed9c42b3f404c74881c4718e4f12444153611ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e7935fbf6a0c3698082df30fb1b5e7140e45c9b98d16377810efd80585691d5"
   end
 
   depends_on "cmake" => :build
