@@ -12,15 +12,12 @@ class Fftw < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "fd117eeb3d95627adacba7ac0acf898f85d0fb1abbcc9b2d3a4dd60e40de0d11"
-    sha256 cellar: :any,                 arm64_sequoia: "f6a6799b0982ed9e7941d8e98061fd286a5062971d9b8d24ea5dbf31b16e01fe"
-    sha256 cellar: :any,                 arm64_sonoma:  "e10f62334e9400d2206f97f27341f40a6a00313b3ba0841273719a378da72e92"
-    sha256 cellar: :any,                 arm64_ventura: "7a199712be0d1f3f939bd6b87713bce221a971a478490be5f0b9ab7957fcdcf7"
-    sha256 cellar: :any,                 sonoma:        "9da96486f698487496f226fac865a83be03898621e336030c9af62ff2330eff5"
-    sha256 cellar: :any,                 ventura:       "51f48b1e29b2fdea49be26e90a65644ed6983839d565b0b071a9ac12f1cc2d6a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "05293e1ec5bbf794d245cb750566afe30bab65fbcae78b6201b109832a19691b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5508eb65401d0b5df3c9e8ebe3e8474a4d5b91e10e03132e4f5032008926fdcf"
+    sha256 cellar: :any,                 arm64_tahoe:   "5cd394c2c385450a83f767935d5d6678aa5a8fb1eb6c687b26477370a881cb5f"
+    sha256 cellar: :any,                 arm64_sequoia: "09266ec049017eb0e54ee29249d66e44bde84081f7379a683acaba378c2834e8"
+    sha256 cellar: :any,                 arm64_sonoma:  "fffda09169aeed7f83343d88e8d7abe0f33c436fa3aa34a18c59093009aba067"
+    sha256 cellar: :any,                 sonoma:        "01d05e976e388312e41888856168f914c0c0e0fd4fd628cdc4159dbb25a614db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0518314dfcdfbc7926812980da07121706708ffda83cf0f600df909945d4a4f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "062535068e14404ec86b816c0c1987d9d90213d05c27cfaaa9767c22c7c8b636"
   end
 
   depends_on "open-mpi"
