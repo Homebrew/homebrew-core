@@ -16,5 +16,7 @@ class Tpix < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/tpix --version")
+    assert_match "\x1b", shell_output("#{bin}/tpix #{test_fixtures("test.png")}")
+    assert_match "Error: Unsupported image file format", shell_output("#{bin}/tpix #{test_fixtures("test.pdf")}")
   end
 end
