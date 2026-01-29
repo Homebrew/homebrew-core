@@ -8,8 +8,7 @@ class Shellshare < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "74bd14d6127d61de20dc99c0936450669eb5bbe22788f0ef64abdcacf2c1f7a0"
+    sha256 cellar: :any_skip_relocation, all: "ba4ddd42e53194b47c2128991ff4bc17e5eace09dd41819771fe3bd9fd02f54f"
   end
 
   uses_from_macos "python"
