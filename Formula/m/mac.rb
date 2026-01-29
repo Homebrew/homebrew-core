@@ -14,12 +14,12 @@ class Mac < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "45c54c21bdf13364c3e65cae567c7a29799c855dbe6489d7a8ac150b82ad0e01"
-    sha256 cellar: :any,                 arm64_sequoia: "22ca95fa35c8c349ddc4a7b6af8fd1df508a50b8667417cb32b58f0245735368"
-    sha256 cellar: :any,                 arm64_sonoma:  "b948d4c6ea412976de45b4b245c02c1318cfaacbb431d9f5e8eb382d4a439141"
-    sha256 cellar: :any,                 sonoma:        "5f90d6baf13614e63e110988a940c383f49039ee3284e02ddb194ccd276e2ec3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cc30034ee9cbfe6e700dcff05b27269d35704a636acfc9f21511b3b68d88835"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9a5cb18ab7b6b70ea24d4edb6517b8d89fb73f50b68cce0964b32c7feb7ff85"
+    sha256 cellar: :any,                 arm64_tahoe:   "8a25ee0b0634346be41f579a0581f5fba9a5f923a4d681bd29a97b89d200fa92"
+    sha256 cellar: :any,                 arm64_sequoia: "ce6add4791d70b99683eb20dc3a67fa8e2c0d0c51c22086877f319f7690d9191"
+    sha256 cellar: :any,                 arm64_sonoma:  "5a96d7e33f34dd871b6441a152e96aeb517ba556a1c67789f8d480a615a40fef"
+    sha256 cellar: :any,                 sonoma:        "97d4d6bd8492a1c41c32f888c635183d668b3795bf0b3411226e444cf7a0a26b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6efb8b43afd772a784bd5c6c4374c3d77de3302e874812dc2d82d07dabe4bfe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54a8f9d0a5293c69d06f76c1869d63894e9869a3cea0caf8a295aa4eed225310"
   end
 
   depends_on "cmake" => :build
