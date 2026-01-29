@@ -7,12 +7,12 @@ class Goat < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "385af0e081775d9e727f1f595cf26acbe5d44b39749bf82e46ace505bff60f58"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4adcc869d0e40384f0fcb49043e465c8c6b808f6ae6c3864c9adf0ca34f7641"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "868c7aef0b913faf78ecd99f39934df372c669897e6e3952c76855fa83f9b09c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "da10c34316399378f03891559cbef39786c405e91c527c5aba2707cd677e743a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5078ae31f5750b4f077086eb5f25b853ddf885e2da10d111a9da5d545cc5e066"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bcecd461f5faadd1a253a0a9c3347b238c2db514cbd899e297ffe9288f2ab50"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e39513caf89997046ba0ca71465786d825f508c802664f319c62930fd3adaabe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "902ffbc1806398617828ed3701e2c9752fa8da42348f1aaa472df5d996c38c82"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c210e93877c06a76749d39186ed861d196de8f1a30844c8068012937607782f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "70bc4af94d8a6abf480f57d28cc87ff10dac480e8f2d949082462fd44f75d453"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "05df26aa557900203f1bfff7f5838fc5668b6bbcee84dd8cd83139df9776772e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b72ea449365c79b6a117fc9da331d936418896af06d2827a43d3adeb157456c1"
   end
 
   depends_on "go" => :build
