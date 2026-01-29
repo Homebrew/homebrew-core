@@ -1,11 +1,10 @@
 class Aspell < Formula
   desc "Spell checker with better logic than ispell"
   homepage "http://aspell.net/"
-  url "https://ftpmirror.gnu.org/gnu/aspell/aspell-0.60.8.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.1.tar.gz"
-  sha256 "d6da12b34d42d457fa604e435ad484a74b2effcd120ff40acd6bb3fb2887d21b"
+  url "https://ftpmirror.gnu.org/gnu/aspell/aspell-0.60.8.2.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.2.tar.gz"
+  sha256 "57fe4863eae6048f72245a8575b44b718fb85ca14b9f8c0afc41b254dfd76919"
   license "LGPL-2.1-only"
-  revision 1
 
   bottle do
     sha256 arm64_tahoe:    "383f92d2e0a58c88f3d8022f0bbf068d8111fd754fc320d389a866c4b9bc5ca2"
