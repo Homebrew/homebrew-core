@@ -6,12 +6,12 @@ class Appstream < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "8c4e52f27f3c8b071b8c541422bdbe35c48ffe882bc8461f74f90b1b4bf96e96"
-    sha256 arm64_sequoia: "88c2bcf17734e28cd498b89fcef5a2ca15199802dae52e3f03ede04ec5d1a51a"
-    sha256 arm64_sonoma:  "47d268044f3c045eb0e4d854c8b48ad1f447185922f2c5e89a2d59d95256f960"
-    sha256 sonoma:        "e69177a89e1596edd262b0b7aaa03e28b02e580ecd8f12b2441b0b599a5dea93"
-    sha256 arm64_linux:   "a46d487b2d1846bb39b3774e584fc9e0d531440ed26b56eae7da741ade9a2966"
-    sha256 x86_64_linux:  "a002f56187b439ddfe14a789540f40785e5ac53af8ea301cbf898b354ad8f57d"
+    sha256 arm64_tahoe:   "f2c581be46ed6b1247e389b64e1ad6362873ab8c03302cbf0dedc0120ab92299"
+    sha256 arm64_sequoia: "796493bf50d9d0074104f9d531db5743535efd8331ca63e4f70cb1c5d4d37c91"
+    sha256 arm64_sonoma:  "cfa7613cb47ceeb7db8eddddc3a53e390aa765a2b94d8122bbfb4f9cfe7e7e0b"
+    sha256 sonoma:        "92b9ee15d004bc825753ae940b52a5ee6af25ff76baab576d7aacc5314515013"
+    sha256 arm64_linux:   "4570742f348cdfc3f3308550fdd3a87997f7b32a5f1cce32bf514989bcae08b6"
+    sha256 x86_64_linux:  "9739adf95825abbf49377ad78790e4878f40e871ead0f2f38dd547f021b97b9e"
   end
 
   depends_on "gobject-introspection" => :build
