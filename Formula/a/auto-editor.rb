@@ -18,16 +18,8 @@ class AutoEditor < Formula
 
   depends_on "nim" => :build
   depends_on "pkgconf" => :build
-  depends_on "dav1d"
-  depends_on "ffmpeg"
-  depends_on "lame"
-  depends_on "libvpx"
-  depends_on "llama.cpp"
-  depends_on "opus"
-  depends_on "svt-av1"
-  depends_on "whisper-cpp"
-  depends_on "x264"
-  depends_on "x265"
+  depends_on "ffmpeg-full" # Assumes whisper-cpp, x265, x264, svt-av1, opus, lame, etc. is built
+  depends_on "llama.cpp" # For whisper-cpp (Should it be bundled by default?)
 
   def install
     ENV["DISABLE_VPL"] = "1"
