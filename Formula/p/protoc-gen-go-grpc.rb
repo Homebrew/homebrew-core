@@ -4,7 +4,7 @@ class ProtocGenGoGrpc < Formula
   url "https://github.com/grpc/grpc-go/archive/refs/tags/cmd/protoc-gen-go-grpc/v1.6.0.tar.gz"
   sha256 "6e269733f8728b6583ce7e8ca4b2aafec286f4ac4e878a8d75477787ba8c389b"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
