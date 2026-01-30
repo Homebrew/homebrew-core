@@ -7,6 +7,7 @@ class Mysql < Formula
   mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_9.6.0.orig.tar.gz"
   sha256 "240061d869d5ae188c9a333845928899e9d963ccbd67865a8a2e4b6fcb67178c"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
