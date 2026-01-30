@@ -1,13 +1,12 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.22.tar.gz"
-  sha256 "2f752589ef7db40260b633fbdb536e9a04b446a315138d64a7ff3c14e2de6b68"
+  url "https://mosquitto.org/files/source/mosquitto-2.1.0.tar.gz"
+  sha256 "ceccf14f43b8ce21312d0dbf247025b8166536e9afba326f8b7c8b1d201fa6d9"
   # # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is pretty the same as BSD-3-Clause,
   # see discussions in https://github.com/spdx/license-list-XML/issues/1149
   license any_of: ["EPL-1.0", "BSD-3-Clause"]
-  revision 2
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -28,6 +27,7 @@ class Mosquitto < Formula
   depends_on "cjson"
   depends_on "libwebsockets"
   depends_on "openssl@3"
+  depends_on "readline"
 
   uses_from_macos "libxslt" => :build
 
@@ -40,6 +40,7 @@ class Mosquitto < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DWITH_PLUGINS=OFF
       -DWITH_WEBSOCKETS=ON
+      -DWITH_TESTS=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
