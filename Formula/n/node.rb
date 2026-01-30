@@ -187,9 +187,21 @@ class Node < Formula
     ln_s libexec/"lib/node_modules/npm/bin/npm-cli.js", bin/"npm"
     ln_s libexec/"lib/node_modules/npm/bin/npx-cli.js", bin/"npx"
 
+    # TODO: check if Bash completion needs a similar patch
     generate_completions_from_executable(bin/"npm", "completion",
                                          shells:                 [:bash, :zsh],
                                          shell_parameter_format: :none)
+
+    # Patch generated zsh completion as it's for explicit sourcing, e.g.
+    # `source <(npm completion)`. This difference is missing from the
+    # npm v11 doc, see https://github.com/npm/cli/issues/4620.
+    inreplace zsh_completion/"_npm", /\A/, "#compdef npm\n"
+    (zsh_completion/"_npm").append_lines <<~EOF
+
+      if [ "$funcstack[1]" = "_npm" ]; then
+        _npm_completion "$@"
+      fi
+    EOF
   end
 
   def post_install
