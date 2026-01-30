@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.13.0.tar.gz"
@@ -67,8 +67,6 @@ class Opencv < Formula
   depends_on "vtk"
   depends_on "webp"
 
-  uses_from_macos "zlib"
-
   on_macos do
     depends_on "glew"
     depends_on "imath"
@@ -80,6 +78,7 @@ class Opencv < Formula
     depends_on "gdk-pixbuf"
     depends_on "glib"
     depends_on "gtk+3"
+    depends_on "zlib-ng-compat"
   end
 
   def python3
