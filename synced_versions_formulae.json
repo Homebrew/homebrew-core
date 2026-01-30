@@ -33,6 +33,7 @@
   ["gnome-online-accounts", "libgoa"],
   ["hdf5", "hdf5-mpi"],
   ["imagemagick", "imagemagick-full"],
+  ["libblkid", "libuuid", "util-linux"],
   ["libmediainfo", "media-info"],
   ["libnetworkit", "networkit"],
   ["libnghttp2", "nghttp2"],

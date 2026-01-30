@@ -4,14 +4,20 @@ class UtilLinux < Formula
   url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.3.tar.xz"
   sha256 "3330d873f0fceb5560b89a7dc14e4f3288bbd880e96903ed9b50ec2b5799e58b"
   license all_of: [
-    "BSD-3-Clause",
-    "BSD-4-Clause-UC",
-    "GPL-2.0-only",
     "GPL-2.0-or-later",
-    "GPL-3.0-or-later",
-    "LGPL-2.1-or-later",
-    :public_domain,
+    "BSD-2-Clause",      # lib/xxhash.c; liblastlog2; misc-utils/lastlog2.c
+    "BSD-3-Clause",      # lib/randutils.c
+    "BSD-4-Clause-UC",   # sys-utils/renice.c
+    "EUPL-1.2",          # schedutils/coresched.c
+    "GPL-1.0-or-later",  # disk-utils/fdisk.c
+    "GPL-2.0-only",      # sys-utils/lscpu-dmi.c; sys-utils/nsenter.c
+    "GPL-3.0-or-later",  # sys-utils/hwclock-parse-date.c
+    "ISC",               # sys-utils/rfkill.c
+    "LGPL-2.1-or-later", # libfdisk/; libmount/; libsmartcols/; sys-utils/irqtop.c; ...
+    "MIT",               # lib/crc64.c; misc-utils/hardlink.c; sys-utils/flock.c
+    :public_domain,      # lib/; include/
   ]
+  revision 1
 
   # The directory listing where the `stable` archive is found uses major/minor
   # version directories, where it's necessary to check inside a directory to
@@ -32,7 +38,7 @@ class UtilLinux < Formula
     sha256 x86_64_linux:  "a5c653c4935f1b399174876915afd2a59fc5367d4aa12a477d0e3681cc6c748a"
   end
 
-  keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
+  keg_only :shadowed_by_macos, "macOS provides BSD utilities"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -40,6 +46,8 @@ class UtilLinux < Formula
   depends_on "gtk-doc" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
+  depends_on "libblkid"
+  depends_on "libuuid"
 
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
@@ -69,6 +77,17 @@ class UtilLinux < Formula
   end
 
   def install
+    # Workaround to avoid building another `libblkid` and `libuuid`.
+    # These should not be disabled as that will disable other utilities.
+    inreplace_libadd_files = %w[
+      disk-utils/Makemodule.am
+      libfdisk/src/Makemodule.am
+      misc-utils/Makemodule.am
+      sys-utils/Makemodule.am
+    ]
+    inreplace inreplace_libadd_files, /\blib(blkid|uuid)\.la\b/, "-l\\1"
+    inreplace "Makefile.am", %r{^include lib(blkid|uuid)/Makemodule.am}, "# \\0"
+
     system "autoreconf", "--force", "--install", "--verbose"
 
     args = %W[--disable-silent-rules --disable-asciidoc --with-bashcompletiondir=#{bash_completion}]
@@ -84,7 +103,6 @@ class UtilLinux < Formula
       args << "--disable-wall" # already comes with macOS
       args << "--disable-liblastlog2" # does not build on macOS
       args << "--disable-libmount" # does not build on macOS
-      args << "--enable-libuuid" # conflicts with ossp-uuid
     else
       args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
       args << "--disable-kill" # Conflicts with coreutils.
