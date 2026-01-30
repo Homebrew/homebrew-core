@@ -4,6 +4,7 @@ class GitCinnabar < Formula
   url "https://static.crates.io/crates/git-cinnabar/git-cinnabar-0.7.3.crate"
   sha256 "18adcda45eeb4a1e82f28f404f788ed9051125c6fd760e468fd2763f17dd6cfe"
   license all_of: ["MPL-2.0", "GPL-2.0-only"]
+  revision 1
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
