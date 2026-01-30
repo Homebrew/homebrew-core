@@ -6,7 +6,7 @@ class GitRemoteHg < Formula
   url "https://github.com/felipec/git-remote-hg/archive/refs/tags/v0.7.tar.gz"
   sha256 "ada593c2462bed5083ab0fbd50b9406b8e83b04a6c882de80483e7c77ce8bf07"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/felipec/git-remote-hg.git", branch: "master"
 
   bottle do
