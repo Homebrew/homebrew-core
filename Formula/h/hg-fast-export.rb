@@ -6,7 +6,7 @@ class HgFastExport < Formula
   url "https://github.com/frej/fast-export/archive/refs/tags/v250330.tar.gz"
   sha256 "1c4785f1e9e63e0ada87e0be5a7236d6889eea98975800671e3c3805b54bf801"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/frej/fast-export.git", branch: "master"
 
   bottle do
