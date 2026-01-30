@@ -2,7 +2,7 @@ class Bloaty < Formula
   desc "Size profiler for binaries"
   homepage "https://github.com/google/bloaty"
   license "Apache-2.0"
-  revision 46
+  revision 47
   head "https://github.com/google/bloaty.git", branch: "main"
 
   stable do
