@@ -4,6 +4,7 @@ class ProtocGenGrpcSwift < Formula
   url "https://github.com/grpc/grpc-swift-protobuf/archive/refs/tags/2.2.0.tar.gz"
   sha256 "b8b1b7ab4cfaa538b217c55b9a5010e89f5104125886b36303eae45c275d1bc2"
   license "Apache-2.0"
+  revision 1
   version_scheme 1
   head "https://github.com/grpc/grpc-swift-protobuf.git", branch: "main"
 
