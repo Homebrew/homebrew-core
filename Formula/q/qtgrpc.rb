@@ -11,7 +11,7 @@ class Qtgrpc < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qtgrpcgen; qtprotobufgen
     "BSD-3-Clause", # *.cmake
   ]
-  revision 2
+  revision 3
   head "https://code.qt.io/qt/qtgrpc.git", branch: "dev"
 
   livecheck do
