@@ -3,10 +3,9 @@ class Btcli < Formula
 
   desc "Bittensor command-line tool"
   homepage "https://docs.bittensor.com/btcli"
-  url "https://files.pythonhosted.org/packages/d8/89/75a59ca4db8776ed12ed6d6cf63185f65bd256ed7caa23834157bce5aa9a/bittensor_cli-9.17.0.tar.gz"
-  sha256 "ca0525d4d0c720a9550705dd24e3fa7ac11bf83ed568932865d5bddf5fcecea4"
+  url "https://files.pythonhosted.org/packages/69/bb/67b21a2ecfd0439b0087e1f79bba430e8791325e7d3fc112845253212157/bittensor_cli-9.18.0.tar.gz"
+  sha256 "f3ff38956a1ae2c8f98f7995bccf6346c766b37814afd99d70ef2724684d462f"
   license "MIT"
-  revision 3
   head "https://github.com/opentensor/btcli.git", branch: "main"
 
   bottle do
@@ -51,8 +50,8 @@ class Btcli < Formula
   end
 
   resource "async-substrate-interface" do
-    url "https://files.pythonhosted.org/packages/25/54/653d50a27dab6a7922f22d7932daeb66521b1e5c3d85ee5c652637180a6c/async_substrate_interface-1.5.15.tar.gz"
-    sha256 "1e093a873f3d768899b3b7574947f66ddd5b096580b2a3ea8ebd6d424e0e198e"
+    url "https://files.pythonhosted.org/packages/d0/a1/4f56397223ec14510c660b284a5525d4bd2b5ab57ff42f03861a0004b419/async_substrate_interface-1.6.0.tar.gz"
+    sha256 "f9c90d4835fcfdb82fde3dabba086bd90b6893c7153075bd9d7361cb1f31e6cf"
   end
 
   resource "attrs" do
@@ -141,8 +140,8 @@ class Btcli < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/80/1e/5492c365f222f907de1039b91f922b93fa4f764c713ee858d235495d8f50/multidict-6.7.0.tar.gz"
-    sha256 "c6e99d9a65ca282e578dfea819cfa9c0a62b2499d8677392e09feaf305e9e6f5"
+    url "https://files.pythonhosted.org/packages/1a/c2/c2d94cbe6ac1753f3fc980da97b3d930efe1da3af3c9f5125354436c073d/multidict-6.7.1.tar.gz"
+    sha256 "ec6652a1bee61c53a3e5776b6049172c53b6aaba34f18c9ad04f82712bac623d"
   end
 
   resource "narwhals" do
@@ -196,8 +195,8 @@ class Btcli < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/a1/84/4831f881aa6ff3c976f6d6809b58cdfa350593ffc0dc3c58f5f6586780fb/rich-14.3.1.tar.gz"
+    sha256 "b8c5f568a3a749f9290ec6bddedf835cec33696bfc1e48bcfecb276c7386e4b8"
   end
 
   resource "scalecodec" do
