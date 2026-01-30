@@ -4,7 +4,7 @@ class PerconaServer < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.4/Percona-Server-8.4.7-7/source/tarball/percona-server-8.4.7-7.tar.gz"
   sha256 "e5405e81c4f6e5ad5052de1043a2e529607b5060677d01ba3cafc7c69f4661a6"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
