@@ -4,7 +4,7 @@ class ProtocGenDoc < Formula
   url "https://github.com/pseudomuto/protoc-gen-doc/archive/refs/tags/v1.5.1.tar.gz"
   sha256 "75667f5e4f9b4fecf5c38f85a046180745fc73f518d85422d9c71cb845cd3d43"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/pseudomuto/protoc-gen-doc.git", branch: "master"
 
   bottle do
