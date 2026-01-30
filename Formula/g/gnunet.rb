@@ -15,10 +15,10 @@ class Gnunet < Formula
     sha256               x86_64_linux:  "7bd8dec99aad1a7e10c9a88935715f929819d59c5ec3955216400d1dfa52cd5c"
   end
 
+  depends_on "gettext" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "gettext"
   depends_on "gmp"
   depends_on "gnutls"
   depends_on "jansson"
@@ -35,6 +35,7 @@ class Gnunet < Formula
   uses_from_macos "zlib"
 
   on_macos do
+    depends_on "gettext"
     depends_on "libgpg-error"
   end
 
@@ -49,11 +50,11 @@ class Gnunet < Formula
   end
 
   test do
-    (testpath/"gnunet.conf").write <<~EOS
+    (testpath/"gnunet.conf").write <<~INI
       [arm]
       START_DAEMON = YES
       START_SERVICES = "dns,hostlist,ats"
-    EOS
+    INI
 
     system bin/"gnunet-arm", "-c", "gnunet.conf", "-s"
   end
