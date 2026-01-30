@@ -6,6 +6,7 @@ class SnowflakeCli < Formula
   url "https://files.pythonhosted.org/packages/df/79/30b7d1c12f50888252103dffbcc36901dae4cbdc0bcddcc8d2d0a00d3d34/snowflake_cli-3.14.0.tar.gz"
   sha256 "126ae3158354b512202bba9dffbcaf32a21e0f442206bbe3f6801ef84d811491"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/snowflakedb/snowflake-cli.git", branch: "main"
 
   bottle do
