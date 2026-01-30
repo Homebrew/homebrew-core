@@ -1,11 +1,10 @@
 class Kubesess < Formula
   desc "Manage multiple kubernetes cluster at the same time"
-  homepage "https://blog.rentarami.se/posts/2022-08-05-kube-context-2/"
-  url "https://github.com/Ramilito/kubesess/archive/refs/tags/2.0.3-1.tar.gz"
-  sha256 "a5cfbf0637968124d9655109a44222de49b97a882831b56ccf3f11360872dfcd"
+  homepage "https://github.com/Ramilito/kubesess"
+  url "https://github.com/Ramilito/kubesess/archive/refs/tags/3.0.0.tar.gz"
+  sha256 "827db2afb33e5dac69dd4690ffcbff91a17ad6b5c4fe21c61d1ed39c7a7bc099"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/Ramilito/kubesess.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5ff23bbfbe3dff533afe5971a0dde31a8768848402a4c796697c551a7aa18ba1"
@@ -23,13 +22,6 @@ class Kubesess < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    bash_completion.install "scripts/sh/completion.sh"
-    zsh_function.install "scripts/sh/kubesess.sh"
-
-    %w[kc kn knd kcd].each do |basename|
-      fish_completion.install "scripts/fish/completions/#{basename}.fish"
-      fish_function.install "scripts/fish/functions/#{basename}.fish"
-    end
   end
 
   test do
@@ -53,7 +45,7 @@ class Kubesess < Formula
         name: docker-desktop
     YAML
 
-    output = shell_output("#{bin}/kubesess -v docker-desktop context 2>&1")
+    output = shell_output("#{bin}/kubesess context -v docker-desktop 2>&1")
     assert_match "docker-desktop", output
   end
 end
