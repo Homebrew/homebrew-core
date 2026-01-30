@@ -6,6 +6,7 @@ class MlxLm < Formula
   url "https://github.com/ml-explore/mlx-lm/archive/refs/tags/v0.30.5.tar.gz"
   sha256 "9f290ceaf9591f6212983262ef1217426b8861249a4901cb7b43aa72c136fa36"
   license "MIT"
+  revision 1
   head "https://github.com/ml-explore/mlx-lm.git", branch: "main"
 
   bottle do
