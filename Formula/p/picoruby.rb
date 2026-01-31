@@ -7,6 +7,7 @@ class Picoruby < Formula
   head "https://github.com/picoruby/picoruby.git", branch: "master"
 
   depends_on "openssl@3"
+  
   uses_from_macos "ruby" => :build
 
   def install
