@@ -23,14 +23,21 @@ class Xgo < Formula
   depends_on "go"
 
   def install
-    ENV["GOPROOT_FINAL"] = libexec
+    ENV["CGO_ENABLED"] = "0"
 
-    # Add VERSION file
-    (buildpath/"VERSION").write version
+    ldflags = %W[
+      -X github.com/goplus/xgo/env.buildVersion=v#{version}
+      -X github.com/goplus/xgo/env.buildDate=#{time.strftime("%Y-%m-%d")}
+      -X github.com/goplus/xgo/env.defaultXGoRoot=#{libexec}
+    ]
 
-    system "go", "run", "cmd/make.go", "--install"
+    system "go", "build", *std_go_args(ldflags:, output: libexec/"bin/xgo"), "./cmd/xgo"
 
-    libexec.install Dir["*"] - Dir[".*"]
+    # gop is a symlink to xgo
+    (libexec/"bin").install_symlink "xgo" => "gop"
+
+    # Install source files (required for XGOROOT validation)
+    libexec.install Dir["*"] - Dir[".*"] - ["bin"]
     bin.install_symlink Dir[libexec/"bin/*"]
 
     generate_completions_from_executable(bin/"xgo", shell_parameter_format: :cobra)
