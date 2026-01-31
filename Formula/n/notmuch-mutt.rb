@@ -1,17 +1,14 @@
 class NotmuchMutt < Formula
   desc "Notmuch integration for Mutt"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.39.tar.xz"
-  sha256 "b88bb02a76c46bad8d313fd2bb4f8e39298b51f66fcbeb304d9f80c3eef704e3"
+  url "https://notmuchmail.org/releases/notmuch-0.40.tar.xz"
+  sha256 "4b4314bbf1c2029fdf793637e6c7bb15c1b1730d22be9aa04803c98c5bbc446f"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
     formula "notmuch"
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "61ccc4f9f98e51c4287dfa1412010e03f7c3753967b57a84c614b55397dc4c7d"
@@ -54,8 +51,8 @@ class NotmuchMutt < Formula
   end
 
   resource "Term::ReadLine::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.46.tar.gz"
-    sha256 "b13832132e50366c34feac12ce82837c0a9db34ca530ae5d27db97cf9c964c7b"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.47.tar.gz"
+    sha256 "3b07ac8a9b494c50aa87a40dccab3f879b92eb9527ac0f2ded5d4743d166b649"
   end
 
   resource "String::ShellQuote" do
@@ -64,28 +61,28 @@ class NotmuchMutt < Formula
   end
 
   resource "Mail::Box::Maildir" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Mail-Box-3.010.tar.gz"
-    sha256 "ae194fa250c545c9b9153e3fb5103cab29f79cf2acd4e9fd75cec532201a9564"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Mail-Box-4.01.tar.gz"
+    sha256 "ad66807dd830371278c7fc31f3df9048c16ce9d01430d5fb4414feae05f1fe0d"
   end
 
   resource "Mail::Header" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MailTools-2.21.tar.gz"
-    sha256 "4ad9bd6826b6f03a2727332466b1b7d29890c8d99a32b4b3b0a8d926ee1a44cb"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MailTools-2.22.tar.gz"
+    sha256 "3bf68bb212298fa699a52749dddff35583a74f36a92ca89c843b854f29d87c77"
   end
 
   resource "Mail::Reporter" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Mail-Message-3.015.tar.gz"
-    sha256 "b2858d7f877d3ed489f83404a40aaa95dd96ef61e00f141aef149a332399b25a"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Mail-Message-4.03.tar.gz"
+    sha256 "fc2f45df8a74a757bdf4fd13d342a4d013702a116425f4e2a649c1b61d15e3af"
   end
 
   resource "MIME::Types" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MIME-Types-2.26.tar.gz"
-    sha256 "bc738483cb4cdb47d61e85fe9304fa929aa9ab927e3171ec2ba2ab1cd7cefdff"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MIME-Types-2.30.tar.gz"
+    sha256 "f31b1666bdf420b4b65c373ce0129ee349dd24bab4cd16c7f01b698fe450be6f"
   end
 
   resource "Object::Realize::Later" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Object-Realize-Later-0.21.tar.gz"
-    sha256 "8f7b9640cc8e34ea92bcf6c01049a03c145e0eb46e562275e28dddd3a8d6d8d9"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/Object-Realize-Later-4.00.tar.gz"
+    sha256 "c4753d5a35f147eede09cdbd5e6d627dde3bdaaabfe9e56f2cff72b72d19979b"
   end
 
   def install

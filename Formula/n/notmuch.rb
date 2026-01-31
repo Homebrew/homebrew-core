@@ -3,18 +3,15 @@ class Notmuch < Formula
 
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.39.tar.xz"
-  sha256 "b88bb02a76c46bad8d313fd2bb4f8e39298b51f66fcbeb304d9f80c3eef704e3"
+  url "https://notmuchmail.org/releases/notmuch-0.40.tar.xz"
+  sha256 "4b4314bbf1c2029fdf793637e6c7bb15c1b1730d22be9aa04803c98c5bbc446f"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
     url "https://notmuchmail.org/releases/"
     regex(/href=.*?notmuch[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "7ce6d2376e4f4c259353d1e171048c85bf531f17ed15cca6548b98bc00d6c7be"
