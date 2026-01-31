@@ -8,6 +8,7 @@ class Curl < Formula
   mirror "http://fresh-center.net/linux/www/legacy/curl-8.18.0.tar.bz2"
   sha256 "ffd671a3dad424fb68e113a5b9894c5d1b5e13a88c6bdf0d4af6645123b31faf"
   license "curl"
+  revision 1
 
   livecheck do
     url "https://curl.se/download/"
@@ -40,7 +41,6 @@ class Curl < Formula
   depends_on "libngtcp2"
   depends_on "libssh2"
   depends_on "openssl@3"
-  depends_on "rtmpdump"
   depends_on "zstd"
 
   uses_from_macos "krb5"
@@ -70,7 +70,6 @@ class Curl < Formula
       --without-ca-path
       --with-ca-fallback
       --with-default-ssl-backend=openssl
-      --with-librtmp
       --with-libssh2
       --with-nghttp3
       --with-ngtcp2
@@ -122,7 +121,7 @@ class Curl < Formula
       assert_includes curl_features, feature
     end
     curl_protocols = shell_output("#{bin}/curl-config --protocols").split("\n")
-    %w[LDAPS RTMP SCP SFTP].each do |protocol|
+    %w[LDAPS SCP SFTP].each do |protocol|
       assert_includes curl_protocols, protocol
     end
 
