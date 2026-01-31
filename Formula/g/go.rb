@@ -1,9 +1,9 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.25.6.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.25.6.src.tar.gz"
-  sha256 "58cbf771e44d76de6f56d19e33b77d745a1e489340922875e46585b975c2b059"
+  url "https://go.dev/dl/go1.26rc2.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.26rc2.src.tar.gz"
+  sha256 "e25cc8c5ffe1241a5d87199209243d70c24847260fb1ea7b163a95b537de65ac"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/go.git", branch: "master"
 
@@ -34,13 +34,13 @@ class Go < Formula
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     checksums = {
-      "darwin-arm64" => "416c35218edb9d20990b5d8fc87be655d8b39926f15524ea35c66ee70273050d",
-      "darwin-amd64" => "e7bbe07e96f0bd3df04225090fe1e7852ed33af37c43a23e16edbbb3b90a5b7c",
-      "linux-arm64"  => "fd017e647ec28525e86ae8203236e0653242722a7436929b1f775744e26278e7",
-      "linux-amd64"  => "4fa4f869b0f7fc6bb1eb2660e74657fbf04cdd290b5aef905585c86051b34d43",
+      "darwin-arm64" => "098d0c039357c3652ec6c97d5451bc4dc24f7cf30ed902373ed9a8134aab2d29",
+      "darwin-amd64" => "4b9cc6771b56645da35a83a5424ae507f3250829b0d227e75f57b73e72da1f76",
+      "linux-arm64"  => "4e02e2979e53b40f3666bba9f7e5ea0b99ea5156e0824b343fd054742c25498d",
+      "linux-amd64"  => "bddf8e653c82429aea7aec2520774e79925d4bb929fe20e67ecc00dd5af44c50",
     }
 
-    version "1.22.12"
+    version "1.24.12"
 
     on_arm do
       on_macos do
