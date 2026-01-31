@@ -1,8 +1,8 @@
 class UrdfdomHeaders < Formula
   desc "Headers for Unified Robot Description Format (URDF) parsers"
   homepage "https://wiki.ros.org/urdfdom_headers/"
-  url "https://github.com/ros/urdfdom_headers/archive/refs/tags/2.0.2.tar.gz"
-  sha256 "e985295972b0fbdf29d93e96a6cb934791a339e5485cd2fb9552222271cf8c6d"
+  url "https://github.com/ros/urdfdom_headers/archive/refs/tags/2.1.0.tar.gz"
+  sha256 "aa5509d1931d31acb070d34cee9f46a08e1d62b1f89d50a1392405cdf4f02966"
   license "BSD-3-Clause"
 
   # Upstream uses Git tags (e.g. `1.0.0`) to indicate a new version. They
