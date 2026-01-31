@@ -12,7 +12,7 @@ class Semgrep < Formula
       tag:      "v1.146.0",
       revision: "079e05d08b86ec1b07509d2e755c631156d3705b"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
   livecheck do
@@ -389,15 +389,23 @@ class Semgrep < Formula
       system "opam", "init", "--no-setup", "--disable-sandboxing"
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.5.3.0" }
 
-      # Manually run steps from `opam exec -- make setup` to link Homebrew's tree-sitter
-      system "opam", "update", "-y"
-      system "opam", "install", "-y", "--deps-only", "./libs/ocaml-tree-sitter-core"
-      system "opam", "install", "-y", "--deps-only", "./"
+      # We can't use `make install-deps-for-semgrep-core` directly because it runs
+      # `./scripts/install-tree-sitter-lib` which would conflict with Homebrew's
+      # tree-sitter dependency. Instead, we manually replicate its steps:
+      # 1. Configure tree-sitter (using homebrew's tree-sitter)
       cd "./libs/ocaml-tree-sitter-core" do
         system "./configure"
       end
 
-      # Install semgrep-core and spacegrep
+      # 2. Proceed with installing opam dependencies (taken from the --deps-only
+      # invocation in the Semgrep Makefile's `install-opam-deps` target)
+      system "opam", "update", "-y"
+      ENV["LWT_DISCOVER_ARGUMENTS"] = "--use-libev true"
+      system "opam", "install", "--locked", "--update-invariant",
+             "--confirm-level=unsafe-yes", "-y", "--deps-only",
+             "./semgrep.opam", "./dev/required.opam"
+
+      # 3. Finally build semgrep-core using the usual Makefile targets
       system "opam", "exec", "--", "make", "core"
       system "opam", "exec", "--", "make", "copy-core-for-cli"
 
