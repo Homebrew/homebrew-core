@@ -17,6 +17,10 @@ class Gnuastro < Formula
   depends_on "pkgconf" => :build
   depends_on "cfitsio"
   depends_on "gsl"
+  depends_on "jpeg-turbo"
+  depends_on "libgit2"
+  depends_on "libtiff"
+  depends_on "libtool"
   depends_on "wcslib"
 
   def install
@@ -45,5 +49,14 @@ class Gnuastro < Formula
     min, max = shell_output("#{bin}/aststatistics addition.fits -h1 --minimum --maximum -q").split.map(&:to_f)
     assert_equal 10.0, min
     assert_equal 10.0, max
+
+    jpg_fits = testpath/"from-jpeg.fits"
+    tiff_fits = testpath/"from-tiff.fits"
+    system bin/"astconvertt", test_fixtures("test.jpg"), "--output=#{jpg_fits}"
+    system bin/"astconvertt", test_fixtures("test.tiff"), "--hdu=0", "--output=#{tiff_fits}"
+    assert_path_exists jpg_fits
+    assert_path_exists tiff_fits
+    assert_equal "1", shell_output("#{bin}/astfits #{jpg_fits} --hasimagehdu").strip
+    assert_equal "1", shell_output("#{bin}/astfits #{tiff_fits} --hasimagehdu").strip
   end
 end
