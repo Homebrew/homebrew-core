@@ -18,19 +18,17 @@ class Copyparty < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => :build
   depends_on "cryptography" => :no_linkage
-  depends_on "glib"
+  depends_on "pillow" => :no_linkage
   depends_on "python@3.14"
-  depends_on "vips"
   depends_on "zeromq"
 
   on_macos do
     depends_on "gettext"
   end
 
-  pypi_packages package_name:     "copyparty[thumbnails2,audiotags,ftpd,ftps,tftpd,pwhash,zeromq]",
-                exclude_packages: ["cffi", "cryptography", "pycparser"]
+  pypi_packages package_name:     "copyparty[thumbnails,audiotags,ftpd,ftps,tftpd,pwhash,zeromq]",
+                exclude_packages: %w[cffi cryptography pillow pycparser]
 
   resource "argon2-cffi" do
     url "https://files.pythonhosted.org/packages/0e/89/ce5af8a7d472a67cc819d5d998aa8c82c5d860608c4db9f46f1162d7dab9/argon2_cffi-25.1.0.tar.gz"
@@ -80,11 +78,6 @@ class Copyparty < Formula
   resource "pyopenssl" do
     url "https://files.pythonhosted.org/packages/80/be/97b83a464498a79103036bc74d1038df4a7ef0e402cfaf4d5e113fb14759/pyopenssl-25.3.0.tar.gz"
     sha256 "c981cb0a3fd84e8602d7afc209522773b94c1c2446a3c710a75b06fe1beae329"
-  end
-
-  resource "pyvips" do
-    url "https://files.pythonhosted.org/packages/2d/6a/282936de9faac6addf6bc8792c18e006489d0023ffd8856b8643f54d0558/pyvips-3.1.1.tar.gz"
-    sha256 "84fe744d023b1084ac2516bb17064cacd41c7f8aabf8e524dd383534941b9301"
   end
 
   resource "pyzmq" do
