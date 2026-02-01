@@ -1,8 +1,8 @@
 class Lume < Formula
   desc "Create and manage Apple Silicon-native virtual machines"
   homepage "https://github.com/trycua/cua"
-  url "https://github.com/trycua/cua/archive/refs/tags/lume-v0.2.52.tar.gz"
-  sha256 "bb73d4c7f3ae88d73d8945b3bf7f75658c8bc6514b0da94f559208d8e9fa6e50"
+  url "https://github.com/trycua/cua/archive/refs/tags/lume-v0.2.53.tar.gz"
+  sha256 "c609e4b4a501d087905c6fd62df759732207e4acd5dc441f5d162521e6639b7c"
   license "MIT"
   head "https://github.com/trycua/cua.git", branch: "main"
 
@@ -18,8 +18,10 @@ class Lume < Formula
   end
 
   depends_on xcode: ["16.0", :build]
-  depends_on arch: :arm64 # For Swift 6.0
+  depends_on arch: :arm64
   depends_on :macos
+
+  uses_from_macos "swift" => :build, since: :sequoia
 
   def install
     cd "libs/lume" do
