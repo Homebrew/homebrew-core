@@ -11,7 +11,7 @@ class Qtmultimedia < Formula
     "Apache-2.0",   # bundled resonance-audio
     "BSD-3-Clause", # bundled pffft; *.cmake
     "GPL-3.0-only", # Qt6MultimediaTestLib
-    "MIT",          # bundled signalsmith-stretch (Linux)
+    "MIT",          # bundled signalsmith-stretch
   ]
   head "https://code.qt.io/qt/qtmultimedia.git", branch: "dev"
 
@@ -34,6 +34,7 @@ class Qtmultimedia < Formula
   depends_on "vulkan-headers" => :build
   depends_on "pkgconf" => :test
 
+  depends_on "ffmpeg"
   depends_on macos: :ventura
   depends_on "qtbase"
   depends_on "qtdeclarative"
@@ -48,7 +49,6 @@ class Qtmultimedia < Formula
   end
 
   on_linux do
-    depends_on "ffmpeg"
     depends_on "glib"
     depends_on "gstreamer"
     depends_on "libx11"
@@ -60,10 +60,7 @@ class Qtmultimedia < Formula
 
   def install
     args = ["-DCMAKE_STAGING_PREFIX=#{prefix}"]
-    if OS.mac?
-      args << "-DQT_FEATURE_ffmpeg=OFF"
-      args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON"
-    end
+    args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
                     *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST")
