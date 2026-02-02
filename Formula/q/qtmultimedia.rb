@@ -55,6 +55,7 @@ class Qtmultimedia < Formula
     depends_on "libxext"
     depends_on "libxrandr"
     depends_on "mesa"
+    depends_on "pipewire"
     depends_on "pulseaudio"
   end
 
