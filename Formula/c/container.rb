@@ -15,13 +15,6 @@ class Container < Formula
   depends_on macos: :tahoe
   depends_on :macos
 
-  # Fixes services not stopping in different launchd domains
-  # PR ref: https://github.com/apple/container/pull/1077
-  patch do
-    url "https://github.com/apple/container/commit/048bdac921ccd8395b6c5f1305fe2473616a40fc.patch?full_index=1"
-    sha256 "1a02b062531cab7852768b724d2f57e26f37e1173f9e5b86f70e3b7171d8c331"
-  end
-
   def install
     if build.head?
       ENV["GIT_COMMIT"] = Utils.git_head
