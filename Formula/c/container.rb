@@ -1,10 +1,9 @@
 class Container < Formula
   desc "Create and run Linux containers using lightweight virtual machines"
   homepage "https://apple.github.io/container/documentation/"
-  url "https://github.com/apple/container/archive/refs/tags/0.8.0.tar.gz"
-  sha256 "f2673cf3c3ce95dfd07068d802873a4a0a0dd8b449c7a20819a75787865a24a1"
+  url "https://github.com/apple/container/archive/refs/tags/0.9.0.tar.gz"
+  sha256 "2199d9f7241d7363a7cd3687e4fc3dd571c0b6a52c971266b9f2fe24fdb66eda"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/apple/container.git", branch: "main"
 
   bottle do
