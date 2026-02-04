@@ -1,10 +1,17 @@
 class Seekdb < Formula
   desc "AI-Native Search Database - OceanBase SeekDB"
   homepage "https://github.com/oceanbase/seekdb"
-  url "https://mirrors.aliyun.com/oceanbase/community/stable/darwin/15/arm64/seekdb-1.1.0.0-beta-macos15-arm64.tar.gz"
+  url "https://github.com/oceanbase/seekdb/archive/refs/tags/v1.1.0.tar.gz"
   version "1.1.0.0"
-  sha256 "37de2d65b5eccdc0ffb2bb8d9641c308d5a01d2abd2594eaf2b9e927fca99ad4"
+  sha256 "b6d499736171763e9f6468ee16f4e5ef578d9d5f16cdbbdf5002ba7c50bf4969"
   license "Apache-2.0"
+
+  bottle do
+    root_url "https://github.com/oceanbase/seekdb/releases/download/v1.1.0/"
+    sha256 cellar: :any, arm64_sequoia: "536bede2b2b1dfd24458537c232e429f37bde10db3a8c738e55ac8d4d2c10c70"
+    sha256 cellar: :any, arm64_tahoe:   "59a6374ed26ea85bdaa82d67708cffff5687bac4fbe043a62f941f50ac6eae19"
+  end
+
   depends_on arch: :arm64
   depends_on "brotli"
   depends_on macos: :sequoia
@@ -14,6 +21,16 @@ class Seekdb < Formula
   depends_on "zstd"
 
   def install
+    # SeekDB only supports installation via bottle (pre-compiled binary)
+    # build.bottle? is true when: 1) pouring a bottle, or 2) using --build-bottle
+    unless build.bottle?
+      odie <<~EOS
+        SeekDB only provides pre-compiled binaries and must be installed via bottle.
+        Your system (#{OS.kernel_name} #{Hardware::CPU.arch}) may not have a bottle available.
+        Supported platforms: macOS Sequoia/Tahoe on Apple Silicon (arm64)
+      EOS
+    end
+
     # Install binaries from usr/bin/
     bin.install "usr/bin/seekdb"
     bin.install "usr/bin/obshell"
