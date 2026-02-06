@@ -4,6 +4,7 @@ class SequoiaSq < Formula
   url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v1.3.1/sequoia-sq-v1.3.1.tar.gz"
   sha256 "9f112096f413e195ec737c81abb5649604f16e1f6dbe64a8accc5bb3ad39e239"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/sequoia-pgp/sequoia-sq.git", branch: "main"
 
   livecheck do
