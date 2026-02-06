@@ -4,6 +4,7 @@ class SequoiaChameleonGnupg < Formula
   url "https://gitlab.com/sequoia-pgp/sequoia-chameleon-gnupg/-/archive/v0.13.1/sequoia-chameleon-gnupg-v0.13.1.tar.bz2"
   sha256 "8e204784c83b2f17cdd591bd9e2e3df01f9f68527bb5c97aa181c8bec5c6f857"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "28f73d4c9fe42708b00a6cc31b1944d40ef9ab28f19f555262580ffd02c7af8c"
