@@ -4,6 +4,7 @@ class Rdfind < Formula
   url "https://rdfind.pauldreik.se/rdfind-1.8.0.tar.gz"
   sha256 "0a2d0d32002cc2dc0134ee7b649bcc811ecfb2f8d9f672aa476a851152e7af35"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
