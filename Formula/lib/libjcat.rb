@@ -6,6 +6,7 @@ class Libjcat < Formula
   url "https://github.com/hughsie/libjcat/releases/download/0.2.5/libjcat-0.2.5.tar.xz"
   sha256 "066e402168c51bffddcf325190e5901402b266fbda2a4eed772fd06a88b941bf"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/hughsie/libjcat.git", branch: "main"
 
   bottle do
