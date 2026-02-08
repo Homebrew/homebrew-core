@@ -19,7 +19,7 @@ class YleDl < Formula
   end
 
   depends_on "certifi"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg-full"
   depends_on "python@3.14"
   depends_on "rtmpdump"
 
