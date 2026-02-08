@@ -16,6 +16,7 @@ class Gtranslator < Formula
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
+  depends_on "gettext" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -23,7 +24,6 @@ class Gtranslator < Formula
 
   depends_on "adwaita-icon-theme" => :no_linkage
   depends_on "cairo"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gtk4"
   depends_on "gtksourceview5"
@@ -35,6 +35,10 @@ class Gtranslator < Formula
   depends_on "sqlite"
 
   uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
