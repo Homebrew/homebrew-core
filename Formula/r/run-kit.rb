@@ -1,4 +1,4 @@
-class Run < Formula
+class RunKit < Formula
   desc "Universal multi-language runner and smart REPL"
   homepage "https://github.com/Esubaalew/run"
   url "https://github.com/Esubaalew/run/archive/refs/tags/v0.6.1.tar.gz"
@@ -7,11 +7,13 @@ class Run < Formula
 
   depends_on "rust" => :build
 
+  conflicts_with "run", because: "both install a `run` binary"
+
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    assert_match "run-kit #{version}", shell_output("#{bin}/run --version")
+    assert_match "brew", shell_output("#{bin}/run bash \"echo brew\"")
   end
 end
