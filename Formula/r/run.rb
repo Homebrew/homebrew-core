@@ -22,6 +22,8 @@ class Run < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab579ac93d7c9474a761d9b51e1fb347119b8f990af87d0bcd03043aa388dbe8"
   end
 
+  conflicts_with "run-kit", because: "both install a `run` binary"
+
   depends_on "go" => :build
 
   def install
