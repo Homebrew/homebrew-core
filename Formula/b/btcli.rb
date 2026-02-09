@@ -272,7 +272,7 @@ class Btcli < Formula
     ss58_address = "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty"
 
     # Disable caching
-    shell_output("#{bin}/btcli config set --no-disk-cache")
+    system bin/"btcli", "config", "set", "--no-disk-cache"
 
     # Create wallet
     create_args = %W[
