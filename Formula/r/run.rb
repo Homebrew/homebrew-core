@@ -7,8 +7,6 @@ class Run < Formula
 
   no_autobump! because: :requires_manual_review
 
-  conflicts_with "run-kit", because: "both install a `run` binary"
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c7170ed0911890c685fc627f44c00b89796c210945166670760d50d6f30de156"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "559da124641b371439fa38a4c23ec8c3f4edeb32bc2e7003d560b32808219004"
@@ -23,6 +21,8 @@ class Run < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "b2634ba0c62d494f9f77983a80f8e0248c2bfdbb729c49915a52e4f3676b48a6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab579ac93d7c9474a761d9b51e1fb347119b8f990af87d0bcd03043aa388dbe8"
   end
+
+  conflicts_with "run-kit", because: "both install a `run` binary"
 
   depends_on "go" => :build
 
