@@ -37,6 +37,9 @@ class Ibazel < Formula
       go_sdk.host()
     STARLARK
 
+    # Create empty WORKSPACE for compatibility with Bazel 9.0.0
+    (testpath/"WORKSPACE").write ""
+
     (testpath/"BUILD.bazel").write <<~STARLARK
       load("@rules_go//go:def.bzl", "go_binary")
 
