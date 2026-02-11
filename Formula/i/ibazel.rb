@@ -27,40 +27,28 @@ class Ibazel < Formula
   test do
     assert_match "Version #{version}", shell_output("#{bin}/ibazel --help 2>&1")
 
-    # Write MODULE.bazel with Bazel module dependencies
+    # Bazel 9.0.0: ensure we're in a workspace with minimal MODULE.bazel
+    # and WORKSPACE for compatibility
     (testpath/"MODULE.bazel").write <<~STARLARK
-      bazel_dep(name = "rules_cc", version = "0.2.16")
-      bazel_dep(name = "rules_go", version = "0.59.0")
-
-      # Register brewed go
-      go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
-      go_sdk.host()
+      module(
+        name = "homebrew_ibazel_test",
+        version = "1.0.0",
+      )
     STARLARK
-
-    # Create empty WORKSPACE for compatibility with Bazel 9.0.0
     (testpath/"WORKSPACE").write ""
 
     (testpath/"BUILD.bazel").write <<~STARLARK
-      load("@rules_go//go:def.bzl", "go_binary")
-
-      go_binary(
-          name = "bazel-test",
-          srcs = ["test.go"],
+      genrule(
+        name = "bazel-test",
+        outs = ["hello.txt"],
+        cmd = "echo 'Hi!' > $@",
       )
     STARLARK
 
-    (testpath/"test.go").write <<~GO
-      package main
-      import "fmt"
-      func main() {
-        fmt.Println("Hi!")
-      }
-    GO
-
-    pid = spawn bin/"ibazel", "build", "//:bazel-test", "--repo_contents_cache="
-    out_file = "bazel-bin/bazel-test_/bazel-test"
+    pid = spawn bin/"ibazel", "build", "//:bazel-test"
+    out_file = "bazel-bin/hello.txt"
     sleep 1 until File.exist?(out_file)
-    assert_equal "Hi!\n", shell_output(out_file)
+    assert_equal "Hi!\n", File.read(out_file)
   ensure
     Process.kill("TERM", pid) unless pid.nil?
   end
