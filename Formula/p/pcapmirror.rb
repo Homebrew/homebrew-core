@@ -7,7 +7,7 @@ class Pcapmirror < Formula
 
   depends_on "make" => :build
   uses_from_macos "libpcap"
-  
+
   on_linux do
      depends_on "libpcap"
   end
