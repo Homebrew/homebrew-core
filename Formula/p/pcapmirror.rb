@@ -6,11 +6,11 @@ class Pcapmirror < Formula
   license "BSD-3-Clause"
 
   depends_on "make" => :build
+  uses_from_macos "libpcap"
+  
   on_linux do
      depends_on "libpcap"
   end
-
-  uses_from_macos "libpcap"
 
   def install
      bin.mkpath
