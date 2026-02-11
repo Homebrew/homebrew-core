@@ -6,8 +6,8 @@ class Julia < Formula
 
   stable do
     # Use the `-full` tarball to avoid having to download during the build.
-    url "https://github.com/JuliaLang/julia/releases/download/v1.12.4/julia-1.12.4-full.tar.gz"
-    sha256 "6ea60c05395e29012b63934e686b0daa1cc155947be429ae0b247b3ea7e7be93"
+    url "https://github.com/JuliaLang/julia/releases/download/v1.12.5/julia-1.12.5-full.tar.gz"
+    sha256 "de3bf3693d938d7e15539a5c3ac2177c546acd0d7b7bc4e327e30d6a7238f1e3"
 
     # Backport fix for system p7zip
     patch do
