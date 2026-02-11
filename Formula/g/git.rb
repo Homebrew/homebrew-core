@@ -37,6 +37,9 @@ class Git < Formula
     depends_on "openssl@3" # Uses CommonCrypto on macOS
   end
 
+  # https://lore.kernel.org/git/pull.2046.v2.git.1770775169908.gitgitgadget@gmail.com/
+  patch :DATA if version == "2.53.0"
+
   resource "Authen::SASL" do
     url "https://cpan.metacpan.org/authors/id/E/EH/EHUELS/Authen-SASL-2.1900.tar.gz"
     sha256 "be3533a6891b2e677150b479c1a0d4bf11c8bbeebed3e7b8eba34053e93923b0"
@@ -230,3 +233,107 @@ class Git < Formula
     )
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 4ac44331ea..97196c6afa 100644
+--- a/Makefile
++++ b/Makefile
+@@ -4060,3 +4060,20 @@ $(LIBGIT_HIDDEN_EXPORT): $(LIBGIT_PARTIAL_EXPORT)
+ 
+ contrib/libgit-sys/libgitpub.a: $(LIBGIT_HIDDEN_EXPORT)
+ 	$(AR) $(ARFLAGS) $@ $^
++
++contrib/credential/osxkeychain/git-credential-osxkeychain: contrib/credential/osxkeychain/git-credential-osxkeychain.o $(LIB_FILE) GIT-LDFLAGS
++	$(QUIET_LINK)$(CC) $(ALL_CFLAGS) -o $@ $(ALL_LDFLAGS) \
++		$(filter %.o,$^) $(LIB_FILE) $(EXTLIBS) -framework Security -framework CoreFoundation
++
++contrib/credential/osxkeychain/git-credential-osxkeychain.o: contrib/credential/osxkeychain/git-credential-osxkeychain.c GIT-CFLAGS
++	$(QUIET_LINK)$(CC) -o $@ -c $(dep_args) $(compdb_args) $(ALL_CFLAGS) $(EXTRA_CPPFLAGS) $<
++
++install-git-credential-osxkeychain: contrib/credential/osxkeychain/git-credential-osxkeychain
++	$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(gitexec_instdir_SQ)'
++	$(INSTALL) $(INSTALL_STRIP) $< '$(DESTDIR_SQ)$(gitexec_instdir_SQ)'
++
++.PHONY: clean-git-credential-osxkeychain
++clean-git-credential-osxkeychain:
++	$(RM) \
++		contrib/credential/osxkeychain/git-credential-osxkeychain \
++		contrib/credential/osxkeychain/git-credential-osxkeychain.o
+diff --git a/contrib/credential/osxkeychain/Makefile b/contrib/credential/osxkeychain/Makefile
+index c68445b82d..2044a33f41 100644
+--- a/contrib/credential/osxkeychain/Makefile
++++ b/contrib/credential/osxkeychain/Makefile
+@@ -1,66 +1,13 @@
+ # The default target of this Makefile is...
+ all:: git-credential-osxkeychain
+ 
+-include ../../../config.mak.uname
+--include ../../../config.mak.autogen
+--include ../../../config.mak
++git-credential-osxkeychain:
++	$(MAKE) -C  ../../.. contrib/credential/osxkeychain/git-credential-osxkeychain
+ 
+-ifdef ZLIB_NG
+-	BASIC_CFLAGS += -DHAVE_ZLIB_NG
+-        ifdef ZLIB_NG_PATH
+-		BASIC_CFLAGS += -I$(ZLIB_NG_PATH)/include
+-		EXTLIBS += $(call libpath_template,$(ZLIB_NG_PATH)/$(lib))
+-        endif
+-	EXTLIBS += -lz-ng
+-else
+-        ifdef ZLIB_PATH
+-		BASIC_CFLAGS += -I$(ZLIB_PATH)/include
+-		EXTLIBS += $(call libpath_template,$(ZLIB_PATH)/$(lib))
+-        endif
+-	EXTLIBS += -lz
+-endif
+-ifndef NO_ICONV
+-        ifdef NEEDS_LIBICONV
+-                ifdef ICONVDIR
+-			BASIC_CFLAGS += -I$(ICONVDIR)/include
+-			ICONV_LINK = $(call libpath_template,$(ICONVDIR)/$(lib))
+-                else
+-			ICONV_LINK =
+-                endif
+-                ifdef NEEDS_LIBINTL_BEFORE_LIBICONV
+-			ICONV_LINK += -lintl
+-                endif
+-		EXTLIBS += $(ICONV_LINK) -liconv
+-        endif
+-endif
+-ifndef LIBC_CONTAINS_LIBINTL
+-	EXTLIBS += -lintl
+-endif
+-
+-prefix ?= /usr/local
+-gitexecdir ?= $(prefix)/libexec/git-core
+-
+-CC ?= gcc
+-CFLAGS ?= -g -O2 -Wall -I../../.. $(BASIC_CFLAGS)
+-LDFLAGS ?= $(BASIC_LDFLAGS) $(EXTLIBS)
+-INSTALL ?= install
+-RM ?= rm -f
+-
+-%.o: %.c
+-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+-
+-git-credential-osxkeychain: git-credential-osxkeychain.o ../../../libgit.a
+-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) \
+-		-framework Security -framework CoreFoundation
+-
+-install: git-credential-osxkeychain
+-	$(INSTALL) -d -m 755 $(DESTDIR)$(gitexecdir)
+-	$(INSTALL) -m 755 $< $(DESTDIR)$(gitexecdir)
+-
+-../../../libgit.a:
+-	cd ../../..; make libgit.a
++install:
++	$(MAKE) -C  ../../.. install-git-credential-osxkeychain
+ 
+ clean:
+-	$(RM) git-credential-osxkeychain git-credential-osxkeychain.o
++	$(MAKE) -C  ../../.. clean-git-credential-osxkeychain
+ 
+-.PHONY: all install clean
++.PHONY: all git-credential-osxkeychain install clean
