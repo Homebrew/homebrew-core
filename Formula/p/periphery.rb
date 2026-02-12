@@ -13,11 +13,13 @@ class Periphery < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf23dccbdd0680d6c04b73aade061b2beb864c25ce58b4f816204dc95ab21288"
   end
 
-  depends_on xcode: ["16.4", :build]
-
   uses_from_macos "swift" => [:build, :test]
   uses_from_macos "curl"
   uses_from_macos "libxml2"
+
+  on_sequoia :or_newer do
+    depends_on xcode: ["16.4", :build]
+  end
 
   def install
     args = if OS.mac?
