@@ -22,8 +22,8 @@ class Skip < Formula
   uses_from_macos "libxml2"
 
   def install
-    args = if OS.mac?
-      ["--disable-sandbox"]
+    if OS.mac?
+      args = ["--disable-sandbox"]
     else
       libxml2_lib = Formula["libxml2"].opt_lib
       args = [
