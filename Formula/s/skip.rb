@@ -18,12 +18,20 @@ class Skip < Formula
   depends_on "swiftly"
 
   uses_from_macos "swift" => :build
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
 
   def install
     args = if OS.mac?
       ["--disable-sandbox"]
     else
-      ["--static-swift-stdlib"]
+      libxml2_lib = Formula["libxml2"].opt_lib
+      args = [
+        "--static-swift-stdlib",
+        "-Xlinker", "-L#{Formula["curl"].opt_lib}",
+        "-Xlinker", "-L#{libxml2_lib}"
+      ]
+      ENV.prepend_path "LD_LIBRARY_PATH", libxml2_lib
     end
     system "swift", "build", *args, "-c", "release", "--product", "SkipRunner"
     bin.install ".build/release/SkipRunner" => "skip"
