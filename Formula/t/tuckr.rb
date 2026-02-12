@@ -6,6 +6,11 @@ class Tuckr < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/RaphGL/Tuckr.git", branch: "master"
 
+  livecheck do
+    url "https://github.com/RaphGL/Tuckr/releases/latest"
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ba342c8c41b3672c46158a076ecd403e59bb1fbee8707a068075682ea6cecdf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6f27026639472a51c3e6533cc6990ee5315f0682e3f43bf410003ae884799fb"
