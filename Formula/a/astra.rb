@@ -5,6 +5,11 @@ class Astra < Formula
   sha256 "21404f4d26b9608a85d8cd65d52c93555bc6030398cb1208b6d2e7ee07aed542"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "05f012277104085caa7577de3031dbef897ad77c6b3ead1c77cdd099310cd4aa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "eea64e938f064b8efb6ace7cd542c56858351185056536f43d040761124066a2"
