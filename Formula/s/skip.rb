@@ -20,6 +20,7 @@ class Skip < Formula
   uses_from_macos "swift" => :build
   uses_from_macos "curl"
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   def install
     if OS.mac?
@@ -29,7 +30,8 @@ class Skip < Formula
       args = [
         "--static-swift-stdlib",
         "-Xlinker", "-L#{Formula["curl"].opt_lib}",
-        "-Xlinker", "-L#{libxml2_lib}"
+        "-Xlinker", "-L#{libxml2_lib}",
+        "-Xlinker", "-L#{HOMEBREW_PREFIX}/lib"
       ]
       ENV.prepend_path "LD_LIBRARY_PATH", libxml2_lib
     end
