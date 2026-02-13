@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.108.2.tgz"
-  sha256 "b188d4da150211b510116619daa8c21c4bfe0a21b5aa41910b8acab60304d4f4"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.109.2.tgz"
+  sha256 "d6f189ee51e943abb8399bd6f6d2b3324942006c3724adc74b01a5d35d7ff357"
   license "MIT"
 
   bottle do
@@ -36,6 +36,13 @@ class CodeServer < Formula
 
     # Remove pre-built binaries which are unused as a source-built binary is available
     rm_r(libexec/"node_modules/argon2/prebuilds")
+    rm_r(libexec/"lib/vscode/node_modules/@parcel/watcher-{darwin,linux}*")
+
+    # Remove vendored seccomp helper for non-x86_64 to avoid foreign-binary audit failures.
+    unless Hardware::CPU.intel?
+      rm_r(libexec/"lib/vscode/node_modules/@anthropic-ai/sandbox-runtime/dist/vendor/seccomp/x64")
+      rm_r(libexec/"lib/vscode/node_modules/@anthropic-ai/sandbox-runtime/vendor/seccomp/x64")
+    end
 
     # Remove pre-built binaries where source in not available to allow compilation
     # https://www.npmjs.com/package/@azure/msal-node-runtime
