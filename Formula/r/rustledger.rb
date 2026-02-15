@@ -52,7 +52,7 @@ class Rustledger < Formula
     system bin/"bean-check", testpath/"test.beancount"
 
     # Test query functionality
-    output = shell_output("#{bin}/rledger query #{testpath}/test.beancount \"SELECT account, sum(position)\"")
+    output = shell_output("#{bin}/rledger query #{testpath/"test.beancount"} \"SELECT account, sum(position)\"")
     assert_match "Assets:Bank:Checking", output
   end
 end
