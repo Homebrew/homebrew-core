@@ -1,10 +1,9 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/refs/tags/v2026.01.12.00.tar.gz"
-  sha256 "4b694698c773a3236d6379316f67872db77070d56ea256bec5759964712f9c34"
+  url "https://github.com/facebook/folly/archive/refs/tags/v2026.02.16.00.tar.gz"
+  sha256 "d08766427a2a41ca8463613d86060f49958f63c1e950b831b9286fe366bee99e"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/facebook/folly.git", branch: "main"
 
   bottle do
@@ -33,10 +32,13 @@ class Folly < Formula
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do
