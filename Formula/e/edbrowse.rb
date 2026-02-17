@@ -17,11 +17,12 @@ class Edbrowse < Formula
 
   depends_on "pkgconf" => :build
   depends_on "quickjs" => :build
-  depends_on "curl"
   depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "readline"
   depends_on "unixodbc"
+
+  uses_from_macos "curl"
 
   def install
     ENV.append_to_cflags "-DQ_NG=0"
@@ -42,7 +43,7 @@ class Edbrowse < Formula
     (testpath/".ebrc").write("")
     (testpath/"test.txt").write("Hello from ed\n")
 
-    system "printf %s\\\\n 's/ed/edbrowse/' 'w' 'q' | #{bin}/edbrowse -c .ebrc test.txt"
+    assert_equal "14\n20\n", pipe_output("#{bin}/edbrowse -c .ebrc test.txt", "s/ed/edbrowse/\nw\nq\n", 0)
     assert_equal "Hello from edbrowse", (testpath/"test.txt").read.chomp
   end
 end
