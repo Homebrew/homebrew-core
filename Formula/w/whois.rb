@@ -6,6 +6,11 @@ class Whois < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/rfc1036/whois.git", branch: "next"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "3f7eecdec4dc6dec07980e2908f451df7a3e778fab47785fc6615c7b8db3ea72"
     sha256 cellar: :any,                 arm64_sequoia: "46f6549d331ea0d7b316d4bdee34afc953d3b7c9e3a35bece1089d63c767f4c7"
