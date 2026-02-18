@@ -188,7 +188,7 @@ jobs:
 
             - label: review no_autobump stanza
               path: Formula/.+
-              content: no_autobump! because: :requires_manual_review
+              content: "no_autobump! because: :requires_manual_review"
 
             - label: boost
               path: Formula/.+
