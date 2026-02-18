@@ -63,7 +63,7 @@ class ApacheArrow < Formula
       -DARROW_ORC=OFF
       -DARROW_PARQUET=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
-      -DARROW_S3=ON
+      -DARROW_S3=OFF
       -DARROW_WITH_BZ2=ON
       -DARROW_WITH_ZLIB=ON
       -DARROW_WITH_ZSTD=ON

@@ -149,6 +149,18 @@ class Pytorch < Formula
     # Avoid references to Homebrew shims
     inreplace "caffe2/core/macros.h.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
+    # Pybind11 / protobuf 33.5 compatibility: normalize tuple return types
+    inreplace "torch/csrc/jit/python/init.cpp",
+              "return py::make_tuple(func, overload_names);",
+              "return py::make_tuple(py::cast<py::object>(func), " \
+              "py::cast<py::object>(overload_names));"
+    inreplace "torch/csrc/jit/python/init.cpp",
+              "return py::make_tuple(true, *res);",
+              "return py::make_tuple(py::bool_(true), py::cast<py::object>(*res));"
+    inreplace "torch/csrc/jit/python/init.cpp",
+              "return py::make_tuple(false, py::none());",
+              "return py::make_tuple(py::bool_(false), py::none());"
+
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
