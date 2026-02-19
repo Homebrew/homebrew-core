@@ -1,8 +1,8 @@
 class Vals < Formula
   desc "Helm-like configuration values loader with support for various sources"
   homepage "https://github.com/helmfile/vals"
-  url "https://github.com/helmfile/vals/archive/refs/tags/v0.43.3.tar.gz"
-  sha256 "ed53a036c82d24384ccff3cc875213a467a97ba6745814b07ddb1d234e9aa1e6"
+  url "https://github.com/helmfile/vals/archive/refs/tags/v0.43.4.tar.gz"
+  sha256 "3e9c4b1821524c3f71de68b77b08e30a61488968cd26fa3bcc8f561e39640aa6"
   license "Apache-2.0"
   head "https://github.com/helmfile/vals.git", branch: "main"
 
@@ -18,6 +18,8 @@ class Vals < Formula
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version} -X main.commit=#{tap.user}"), "./cmd/vals"
   end
 
