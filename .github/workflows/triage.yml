@@ -194,6 +194,11 @@ jobs:
               path: Formula/.+
               patch_content: '^(?:(?:--- \S+|\+\+\+ \S+|[+-]  no_autobump! because: [^\n]+)\n?)+$'
 
+            - label: autobump
+              path: Formula/.+
+              patch_content: '^(?:(?:--- \S+|\+\+\+ \S+|[+-]  no_autobump! because: [^\n]+)\n?)+$'
+              keep_if_no_match: true
+
             - label: boost
               path: Formula/.+
               content: depends_on "boost(@[0-9.]+)?"
