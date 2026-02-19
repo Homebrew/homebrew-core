@@ -192,7 +192,7 @@ jobs:
 
             - label: CI-syntax-only
               path: Formula/.+
-              patch_content: '^(?:[+-]  no_autobump! because: [^\n]+(?:\n|$))+$'
+              patch_content: '^(?:(?:--- \S+|\+\+\+ \S+|[+-]  no_autobump! because: [^\n]+)\n?)+$'
 
             - label: boost
               path: Formula/.+
