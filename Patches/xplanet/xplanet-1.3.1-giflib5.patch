@@ -1,0 +1,38 @@
+--- a/src/libimage/gif.c.old	2017-04-05 00:02:06.000000000 +0200
++++ b/src/libimage/gif.c	2017-04-05 00:02:34.000000000 +0200
+@@ -179,7 +179,11 @@ read_gif(const char *filename, int *widt
+ 	}
+     }
+     
++#if GIFLIB_MAJOR >= 5
++    if (DGifCloseFile(GifFile, NULL) == GIF_ERROR) {
++#else
+     if (DGifCloseFile(GifFile) == GIF_ERROR) {
++#endif
+ 	return(0);
+     }
+ 
+@@ -493,7 +497,11 @@ SortCmpRtn(const void *Entry1,
+ static void QuitGifError(GifFileType *GifFile)
+ {
+     fprintf(stderr, "Error writing GIF file\n");
++#if GIFLIB_MAJOR >= 5
++    if (GifFile != NULL) EGifCloseFile(GifFile, NULL);
++#else
+     if (GifFile != NULL) EGifCloseFile(GifFile);
++#endif
+ }
+ 
+ int 
+@@ -589,7 +597,11 @@ write_gif(const char *filename, int widt
+ 	Ptr += width;
+     }
+ 
++#if GIFLIB_MAJOR >= 5
++    if (EGifCloseFile(GifFile, NULL) == GIF_ERROR)
++#else
+     if (EGifCloseFile(GifFile) == GIF_ERROR)
++#endif
+ 
+     {
+ 	QuitGifError(GifFile);

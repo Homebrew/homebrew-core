@@ -1,0 +1,57 @@
+--- makeicns/IconFamily.m	2012-01-19 22:16:19.000000000 +0100
++++ IconFamily.m	2013-10-29 15:51:30.000000000 +0100
+@@ -85,7 +85,9 @@
+ 
+ + (Handle) get32BitDataFromBitmapImageRep:(NSBitmapImageRep*)bitmapImageRep requiredPixelSize:(int)requiredPixelSize;
+ 
++#if MAC_OS_X_VERSION_MIN_REQUIRED < 1090
+ + (Handle) get8BitDataFromBitmapImageRep:(NSBitmapImageRep*)bitmapImageRep requiredPixelSize:(int)requiredPixelSize;
++#endif
+ 
+ + (Handle) get8BitMaskFromBitmapImageRep:(NSBitmapImageRep*)bitmapImageRep requiredPixelSize:(int)requiredPixelSize;
+ 
+@@ -675,10 +677,12 @@
+ 		hRawData = [IconFamily get1BitMaskFromBitmapImageRep:bitmapImageRep requiredPixelSize:32];
+ 		break;
+ 
++#if MAC_OS_X_VERSION_MIN_REQUIRED < 1090
+ 	// 'icl8' 32x32 8-bit indexed image data
+ 	case kLarge8BitData:
+ 		hRawData = [IconFamily get8BitDataFromBitmapImageRep:bitmapImageRep requiredPixelSize:32];
+ 		break;
++#endif
+ 
+ 	// 'is32' 16x16 32-bit RGB image
+ 	case kSmall32BitData:
+@@ -695,10 +699,12 @@
+ 		hRawData = [IconFamily get1BitMaskFromBitmapImageRep:bitmapImageRep requiredPixelSize:16];
+ 		break;
+ 
++#if MAC_OS_X_VERSION_MIN_REQUIRED < 1090
+ 	// 'ics8' 16x16 8-bit indexed image data
+ 	case kSmall8BitData:
+ 		hRawData = [IconFamily get8BitDataFromBitmapImageRep:bitmapImageRep requiredPixelSize:16];
+ 		break;
++#endif
+ 
+ 	default:
+ 		return NO;
+@@ -1323,6 +1329,10 @@
+ 	return hRawData;
+ }
+ 
++#if MAC_OS_X_VERSION_MIN_REQUIRED < 1090
++// This method is based on CGPaletteCreateDefaultColorPalette which is no longer
++// supported on 10.9, and provided a data structure to access old MacOS's 8 bits
++// palette.
+ + (Handle) get8BitDataFromBitmapImageRep:(NSBitmapImageRep*)bitmapImageRep requiredPixelSize:(int)requiredPixelSize
+ {
+ 	Handle hRawData;
+@@ -1411,6 +1421,7 @@
+ 
+ 	return hRawData;
+ }
++#endif
+ 
+ + (Handle) get8BitMaskFromBitmapImageRep:(NSBitmapImageRep*)bitmapImageRep requiredPixelSize:(int)requiredPixelSize
+ {

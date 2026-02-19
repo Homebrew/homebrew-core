@@ -1,0 +1,32 @@
+diff --git a/Package.swift b/Package.swift
+index 28ce8e24..aef12c4b 100644
+--- a/Package.swift
++++ b/Package.swift
+@@ -335,12 +335,12 @@ package.targets.first { $0.name == "llbuildBasic" }?.linkerSettings = [
+ // FIXME: when the SupportedPlatforms availability directive is updated and
+ // the platform port is in sync with this directive, these conditions can
+ // be folded up with .when(platforms:_) clauses.
+-#if os(FreeBSD) || os(OpenBSD)
++#if os(Linux)
+ package.targets.filter({ $0.name == "llbuildCore" || $0.name == "llbuildCoreTests" }).forEach {
+-    $0.cSettings = [.unsafeFlags(["-I/usr/local/include"])]
++    $0.cSettings = [.unsafeFlags(["-I@@HOMEBREW_PREFIX@@/opt/sqlite3/include"])]
+     $0.linkerSettings = [
+         .linkedLibrary("sqlite3"),
+-        .unsafeFlags(["-L/usr/local/lib"])
++        .unsafeFlags(["-L@@HOMEBREW_PREFIX@@/opt/sqlite3/lib"])
+     ]
+ 
+ }
+@@ -356,4 +356,11 @@ if let target = package.targets.first(where: { $0.name == "llvmSupport" }) {
+ package.targets.filter({ $0.name == "llbuild" || $0.name == "swift-build-tool" }).forEach {
+     $0.linkerSettings = [.linkedLibrary("dl"), .linkedLibrary("pthread")]
+ }
++#elseif os(Linux)
++if let target = package.targets.first(where: { $0.name == "llvmSupport" }) {
++    target.linkerSettings = [
++        .linkedLibrary("ncurses"),
++        .unsafeFlags(["-L@@HOMEBREW_PREFIX@@/opt/ncurses/lib"])
++    ]
++}
+ #endif

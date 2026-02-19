@@ -1,0 +1,11 @@
+--- id3lib-3.8.3.orig/src/mp3_parse.cpp.org	2003-03-02 01:23:00.000000000 +0100
++++ id3lib-3.8.3/src/mp3_parse.cpp	2009-09-27 19:44:18.000000000 +0200
+@@ -465,7 +465,7 @@
+   // from http://www.xingtech.com/developer/mp3/
+ 
+   const size_t VBR_HEADER_MIN_SIZE = 8;     // "xing" + flags are fixed
+-  const size_t VBR_HEADER_MAX_SIZE = 116;   // frames, bytes, toc and scale are optional
++  const size_t VBR_HEADER_MAX_SIZE = 120;   // frames, bytes, toc and scale are optional
+ 
+   if (mp3size >= vbr_header_offest + VBR_HEADER_MIN_SIZE) 
+   {

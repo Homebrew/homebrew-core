@@ -1,0 +1,87 @@
+From b351e132db164dd97a0e0a937c1551edbcfed583 Mon Sep 17 00:00:00 2001
+From: Rui Chen <rui@chenrui.dev>
+Date: Sun, 7 Jul 2024 15:59:06 -0400
+Subject: [PATCH] build patch for fixing `implicit function declarations`
+ errors
+
+Signed-off-by: Rui Chen <rui@chenrui.dev>
+---
+ enttbl.c    | 1 +
+ putu8.c     | 2 +-
+ putu8.h     | 8 ++++++++
+ uni2ascii.c | 5 +++--
+ 4 files changed, 13 insertions(+), 3 deletions(-)
+ create mode 100644 putu8.h
+
+diff --git a/enttbl.c b/enttbl.c
+index 13b7675..f6a644c 100644
+--- a/enttbl.c
++++ b/enttbl.c
+@@ -20,6 +20,7 @@
+ 
+ #include "config.h"
+ #include <stdlib.h>
++#include <string.h>
+ #include "unicode.h"
+ 
+ struct ent {
+diff --git a/putu8.c b/putu8.c
+index 1cf2795..45933e4 100644
+--- a/putu8.c
++++ b/putu8.c
+@@ -2,7 +2,7 @@
+ #include "config.h"
+ #include <stdio.h>
+ #include <stddef.h>
+-#include <wchar.h>
++#include "putu8.h"
+ 
+ /*
+  * Takes a UTF-32 code as input and outputs UTF-8.
+diff --git a/putu8.h b/putu8.h
+new file mode 100644
+index 0000000..2046f00
+--- /dev/null
++++ b/putu8.h
+@@ -0,0 +1,8 @@
++#ifndef PUTU8_H
++#define PUTU8_H
++
++#include <wchar.h>
++
++void putu8(wchar_t c);
++
++#endif /* PUTU8_H */
+diff --git a/uni2ascii.c b/uni2ascii.c
+index 650e40b..075a34d 100644
+--- a/uni2ascii.c
++++ b/uni2ascii.c
+@@ -44,6 +44,7 @@
+ #include "utf8error.h"
+ #include "exitcode.h"
+ #include "formats.h"
++#include "putu8.h"
+ 
+ #if defined(__DATE__) && defined(__TIME__)
+ #define HAVE_DATE_TIME
+@@ -2689,7 +2690,7 @@ int SubsAvailable = 0;
+  * search may be advisable. For the time being we just do a linear search.
+  */
+ 
+-SubstituteChar(UTF32 c) {
++int SubstituteChar(UTF32 c) {
+   int i;
+   for(i = 0; i < SubCnt; i++) {
+     if(c == SubList[i].u) {
+@@ -2703,7 +2704,7 @@ SubstituteChar(UTF32 c) {
+   return 0;
+ }
+ 
+-AddCustomSubstitution(char *str){
++int AddCustomSubstitution(char *str){
+   char *Left;
+   char *Right;
+   char *Delim;
+-- 
+2.45.2
+

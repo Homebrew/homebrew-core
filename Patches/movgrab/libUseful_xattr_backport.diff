@@ -1,0 +1,36 @@
+diff --git a/libUseful-2.8/FileSystem.c b/libUseful-2.8/FileSystem.c
+index 447db4c..487fc22 100755
+--- a/libUseful-2.8/FileSystem.c
++++ b/libUseful-2.8/FileSystem.c
+@@ -237,11 +237,19 @@ char *FileGetXAttribute(char *RetStr, const char *Path, const char *Name)
+ int len;
+ 
+ #ifdef HAVE_XATTR
++	#ifdef __APPLE__ //'cos some idiot's always got to 'think different'
++len=getxattr(Path, Name, NULL, 0, 0, 0);
++	#else
+ len=getxattr(Path, Name, NULL, 0);
++	#endif
+ if (len > 0)
+ {
+ 	RetStr=SetStrLen(RetStr,len);
++		#ifdef __APPLE__
++	getxattr(Path, Name, RetStr, len, 0, 0);
++		#else
+ 	getxattr(Path, Name, RetStr, len);
++		#endif
+ }
+ else RetStr=CopyStr(RetStr, "");
+ #else
+@@ -256,7 +264,11 @@ int FileSetXAttribute(const char *Path, const char *Name, const char *Value, int
+ {
+ #ifdef HAVE_XATTR
+ if (Len==0) Len=StrLen(Value);
++	#ifdef __APPLE__
++return(setxattr(Path, Name, Value, Len, 0, 0));
++	#else
+ return(setxattr(Path, Name, Value, Len, 0));
++	#endif
+ #else
+ RaiseError(0, "FileSetXAttribute", "xattr support not compiled in");
+ #endif

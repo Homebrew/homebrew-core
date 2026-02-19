@@ -1,0 +1,15 @@
+{
+  "afl++": "share/afl/testcases/others/elf/small_exec.elf",
+  "aws-sam-cli": "libexec/lib/python*/site-packages/samcli/local/rapid/aws-lambda-rie-*",
+  "balena-cli": "**/*",
+  "elf2uf2-rs": "share/elf2uf2-rs/examples/*.elf",
+  "faust": "share/faust/android/app/lib/libsndfile/lib/*/libsndfile.so",
+  "ghidra": "libexec/docs/GhidraClass/ExerciseFiles/Advanced/*",
+  "i686-elf-grub": "lib/i686-elf/grub/i386-pc/*",
+  "lima": "share/lima/lima-guestagent.Linux-*",
+  "picotool": "share/picotool/*.elf",
+  "preevy": "libexec/lib/node_modules/preevy/node_modules/@preevy/compose-tunnel-agent/out/*.node",
+  "prestodb": "libexec/bin/procname/Linux-*/libprocname.so",
+  "qemu": "share/qemu/*",
+  "x86_64-elf-grub": "lib/x86_64-elf/grub/i386-pc/*"
+}

@@ -1,0 +1,101 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 08965ac..acf6681 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,8 +1,8 @@
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.11)
+ cmake_policy(SET CMP0048 NEW)
+ project (Bloaty VERSION 1.0)
+ project (Bloaty VERSION 1.1)
+-set(CMAKE_CXX_STANDARD 11)
++set(CMAKE_CXX_STANDARD 11 CACHE STRING "C++ standard used to compile this project")
+ 
+ # Options we define for users.
+ option(BLOATY_ENABLE_ASAN "Enable address sanitizer." OFF)
+@@ -32,10 +32,17 @@ else(${PROTOBUF_FOUND})
+   MESSAGE(STATUS "System protobuf not found, using bundled version")
+ endif(${PROTOBUF_FOUND})
+ else(${PKG_CONFIG_FOUND})
+-  MESSAGE(STATUS "pkg-config not found, using bundled dependencies")
++  MESSAGE(STATUS "pkg-config not found, using bundled re2, capstone, protobuf")
+ endif(${PKG_CONFIG_FOUND})
+ endif(UNIX)
+ 
++find_package(absl CONFIG)
++if(${absl_FOUND})
++  MESSAGE(STATUS "System absl found, using")
++else(${absl_FOUND})
++  MESSAGE(STATUS "System absl not found, using bundled version")
++endif(${absl_FOUND})
++
+ # Set default build type.
+ if(NOT CMAKE_BUILD_TYPE)
+   message(STATUS "Setting build type to 'RelWithDebInfo' as none was specified.")
+@@ -89,7 +96,9 @@ endif(UNIX)
+ 
+ include_directories(.)
+ include_directories(src)
+-include_directories(third_party/abseil-cpp)
++if(NOT absl_FOUND)
++  include_directories(third_party/abseil-cpp)
++endif()
+ include_directories("${CMAKE_CURRENT_BINARY_DIR}/src")
+ 
+ # Baseline build flags.
+@@ -159,24 +168,6 @@ add_library(libbloaty
+     src/macho.cc
+     src/range_map.cc
+     src/webassembly.cc
+-    # Until Abseil has a proper CMake build system
+-    third_party/abseil-cpp/absl/base/internal/raw_logging.cc # Grrrr...
+-    third_party/abseil-cpp/absl/base/internal/throw_delegate.cc
+-    third_party/abseil-cpp/absl/numeric/int128.cc
+-    third_party/abseil-cpp/absl/strings/ascii.cc
+-    third_party/abseil-cpp/absl/strings/charconv.cc
+-    third_party/abseil-cpp/absl/strings/escaping.cc
+-    third_party/abseil-cpp/absl/strings/internal/charconv_bigint.cc
+-    third_party/abseil-cpp/absl/strings/internal/charconv_parse.cc
+-    third_party/abseil-cpp/absl/strings/internal/memutil.cc
+-    third_party/abseil-cpp/absl/strings/internal/utf8.cc
+-    third_party/abseil-cpp/absl/strings/match.cc
+-    third_party/abseil-cpp/absl/strings/numbers.cc
+-    third_party/abseil-cpp/absl/strings/str_cat.cc
+-    third_party/abseil-cpp/absl/strings/string_view.cc
+-    third_party/abseil-cpp/absl/strings/str_split.cc
+-    third_party/abseil-cpp/absl/strings/substitute.cc
+-    third_party/abseil-cpp/absl/types/bad_optional_access.cc
+     # One source file, no special build system needed.
+     third_party/demumble/third_party/libcxxabi/cxa_demangle.cpp
+     )
+@@ -202,6 +193,30 @@ else(UNIX)
+     set(LIBBLOATY_LIBS libbloaty libprotoc re2 capstone-static)
+ endif(UNIX)
+ 
++if(absl_FOUND)
++  set(LIBBLOATY_LIBS ${LIBBLOATY_LIBS} absl::strings absl::optional)
++else(absl_FOUND)
++  target_sources(libbloaty # Until Abseil has a proper CMake build system
++                 PRIVATE third_party/abseil-cpp/absl/base/internal/raw_logging.cc # Grrrr...
++                         third_party/abseil-cpp/absl/base/internal/throw_delegate.cc
++                         third_party/abseil-cpp/absl/numeric/int128.cc
++                         third_party/abseil-cpp/absl/strings/ascii.cc
++                         third_party/abseil-cpp/absl/strings/charconv.cc
++                         third_party/abseil-cpp/absl/strings/escaping.cc
++                         third_party/abseil-cpp/absl/strings/internal/charconv_bigint.cc
++                         third_party/abseil-cpp/absl/strings/internal/charconv_parse.cc
++                         third_party/abseil-cpp/absl/strings/internal/memutil.cc
++                         third_party/abseil-cpp/absl/strings/internal/utf8.cc
++                         third_party/abseil-cpp/absl/strings/match.cc
++                         third_party/abseil-cpp/absl/strings/numbers.cc
++                         third_party/abseil-cpp/absl/strings/str_cat.cc
++                         third_party/abseil-cpp/absl/strings/string_view.cc
++                         third_party/abseil-cpp/absl/strings/str_split.cc
++                         third_party/abseil-cpp/absl/strings/substitute.cc
++                         third_party/abseil-cpp/absl/types/bad_optional_access.cc
++  )
++endif(absl_FOUND)
++
+ if(UNIX)
+   if(${RE2_FOUND})
+     link_directories(${RE2_LIBRARY_DIRS})

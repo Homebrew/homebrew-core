@@ -1,0 +1,14 @@
+--- a/now.c	2015-05-24 09:40:25.000000000 +0200
++++ b/now.c	2017-10-08 13:02:23.000000000 +0200
+@@ -30,9 +30,11 @@
+ #  include <mach/mach.h>
+ #  include <mach/mach_time.h>
+ 
++#  if (__MAC_OS_X_VERSION_MAX_ALLOWED < 101200)
+    typedef int clockid_t;
+ #  define CLOCK_REALTIME 0
+ #  define CLOCK_MONOTONIC 1
++#  endif
+ 
+    static uint64_t mono_first = 0;
+ 

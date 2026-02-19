@@ -1,0 +1,76 @@
+--- a/configure.in.orig	2013-01-05 10:23:58.000000000 -0800
++++ a/configure.in	2013-01-05 10:25:32.000000000 -0800
+@@ -11,11 +11,12 @@
+ # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
+ # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ 
+-# require autoconf 2.13
+-AC_PREREQ(2.13)
++# require autoconf 2.63
++AC_PREREQ(2.63)
+ 
+ # init autoconf (and check for presence fo reconf)
+ AC_INIT(reconf)
++AC_CONFIG_MACRO_DIR([m4])
+ 
+ ID3LIB_NAME=id3lib
+ 
+@@ -83,7 +84,7 @@ ID3LIB_FULLNAME=$ID3LIB_NAME-$ID3LIB_VER
+ 
+ AC_SUBST(ID3LIB_FULLNAME)
+ 
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS([config.h])
+ 
+ AM_INIT_AUTOMAKE($PACKAGE,$VERSION)
+ 
+@@ -168,7 +169,7 @@ if test $has_iconv = 1; then
+ 		iconv_oldstyle=1, iconv_oldstyle=0)
+   if test $iconv_oldstyle = 1; then
+     AC_MSG_RESULT(const char **)
+-    AC_DEFINE(ID3LIB_ICONV_OLDSTYLE)
++    AC_DEFINE(ID3LIB_ICONV_OLDSTYLE, 1, [Desc])
+     #we'll check out the need of
+     #typecast in the call of iconv_open
+     AC_MSG_CHECKING(whether to typecast in iconv)
+@@ -184,7 +185,7 @@ if test $has_iconv = 1; then
+                    iconv_cast=0, iconv_cast=1)
+     if test $iconv_cast = 1; then
+       AC_MSG_RESULT(yes)
+-      AC_DEFINE(ID3LIB_ICONV_CAST_OK)
++      AC_DEFINE(ID3LIB_ICONV_CAST_OK, 1, [Desc])
+     else
+       AC_MSG_RESULT(no)
+     fi
+@@ -206,7 +207,7 @@ if test $has_iconv = 1; then
+                    iconv_cast=0, iconv_cast=1)
+     if test $iconv_cast = 1; then
+       AC_MSG_RESULT(yes)
+-      AC_DEFINE(ID3LIB_ICONV_CAST_OK)
++      AC_DEFINE(ID3LIB_ICONV_CAST_OK, 1, [Desc])
+     else
+       AC_MSG_RESULT(no)
+     fi
+@@ -296,12 +297,6 @@ AC_DEFINE_UNQUOTED(_ID3LIB_INTERFACE_AGE
+ AC_DEFINE_UNQUOTED(_ID3LIB_BINARY_AGE,            $ID3LIB_BINARY_AGE)
+ AC_DEFINE_UNQUOTED(_ID3_COMPILED_WITH_DEBUGGING, "${enable_debug}")
+ 
+-CONDITIONAL_SUBDIRS=
+-if test "x$ac_cv_lib_z_uncompress" = "xno"; then
+-  CONDITIONAL_SUBDIRS="$CONDITIONAL_SUBDIRS zlib"
+-fi
+-AC_CONFIG_SUBDIRS(zlib)
+-
+ CFLAGS="$CFLAGS -Wall"
+ 
+ AC_OUTPUT(                      \
+--- a/Makefile.am.orig	2013-01-05 10:25:44.000000000 -0800
++++ a/Makefile.am	2013-01-05 10:26:37.000000000 -0800
+@@ -11,6 +11,7 @@
+ 
+ # require automake 1.5
+ AUTOMAKE_OPTIONS = 1.5
++ACLOCAL_AMFLAGS = -I m4
+ 
+ EXTRA_DIST =                    \
+         HISTORY                 \
