@@ -8,11 +8,8 @@ class LlvmAT16 < Formula
   revision 1
 
   livecheck do
-    url :stable
-    regex(/^llvmorg[._-]v?(16(?:\.\d+)+)$/i)
+    skip "No longer developed or maintained"
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1
@@ -34,7 +31,7 @@ class LlvmAT16 < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "swig" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.14"
   depends_on "xz"
   depends_on "zstd"
 
@@ -66,7 +63,7 @@ class LlvmAT16 < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.14"
   end
 
   def install
