@@ -190,6 +190,10 @@ jobs:
               path: Formula/.+
               content: 'no_autobump! because: :requires_manual_review'
 
+            - label: CI-syntax-only
+              path: Formula/.+
+              patch_content: '^(?:[+-]  no_autobump! because: [^\n]+(?:\n|$))+$'
+
             - label: boost
               path: Formula/.+
               content: depends_on "boost(@[0-9.]+)?"
