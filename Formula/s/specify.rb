@@ -3,8 +3,8 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.com/github/spec-kit"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v0.0.98.tar.gz"
-  sha256 "3fdc964876fc502ee2eaaaed4177f8131127df3aa55276817cfaaccf74465be7"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v0.0.99.tar.gz"
+  sha256 "38d4ed2f1c8aa2323a4992ee14e948d30139599ca3cb2fcaded2e065de16a6a9"
   license "MIT"
 
   bottle do
@@ -93,8 +93,8 @@ class Specify < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/74/99/a4cab2acbb884f80e558b0771e97e21e939c5dfb460f488d19df485e8298/rich-14.3.2.tar.gz"
-    sha256 "e712f11c1a562a11843306f5ed999475f09ac31ffb64281f73ab29ffdda8b3b8"
+    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
+    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
   end
 
   resource "shellingham" do
