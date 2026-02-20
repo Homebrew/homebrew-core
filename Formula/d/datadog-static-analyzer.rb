@@ -6,6 +6,11 @@ class DatadogStaticAnalyzer < Formula
   license "Apache-2.0"
   head "https://github.com/DataDog/datadog-static-analyzer.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "e159cec7cde2ae8534adc13833ebbbd0d12121171dca8bd070cd806491376e31"
     sha256 cellar: :any,                 arm64_sequoia: "4858a2d67ea728c540ef41286fb19c42bd0cdd4ab79e6c69987c6ba96f2dd795"
