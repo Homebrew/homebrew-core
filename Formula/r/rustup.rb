@@ -37,10 +37,17 @@ class Rustup < Formula
       bin.install_symlink bin/"rustup-init" => name
     end
     generate_completions_from_executable(bin/"rustup", "completions")
+    generate_completions_from_executable(bin/"rustup", "completions", "bash", "cargo",
+                                         base_name: "cargo", shell_parameter_format: :none, shells: [:bash])
+    generate_completions_from_executable(bin/"rustup", "completions", "zsh", "cargo",
+                                         base_name: "cargo", shell_parameter_format: :none, shells: [:zsh])
   end
 
   def post_install
     (HOMEBREW_PREFIX/"bin").install_symlink bin/"rustup", bin/"rustup-init"
+    (HOMEBREW_PREFIX/"etc/bash_completion.d").install_symlink bash_completion/"rustup"
+    (HOMEBREW_PREFIX/"share/fish/vendor_completions.d").install_symlink fish_completion/"rustup.fish"
+    (HOMEBREW_PREFIX/"share/zsh/site-functions").install_symlink zsh_completion/"_rustup"
   end
 
   def caveats
