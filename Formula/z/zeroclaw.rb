@@ -1,8 +1,8 @@
 class Zeroclaw < Formula
   desc "Rust-first autonomous agent runtime"
   homepage "https://github.com/zeroclaw-labs/zeroclaw"
-  url "https://github.com/zeroclaw-labs/zeroclaw/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "2373223b178ea1f7e9b62df2839d26fe38a28fcbcab6ccf19235e969b1173745"
+  url "https://github.com/zeroclaw-labs/zeroclaw/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "38ecf1bdf52d5845410bd79725526eb08091834c12204808c4b3713f109531af"
   license "MIT"
   head "https://github.com/zeroclaw-labs/zeroclaw.git", branch: "main"
 
