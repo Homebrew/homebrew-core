@@ -26,11 +26,16 @@ class Surelog < Formula
   depends_on "capnp"
   depends_on "uhdm"
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   conflicts_with "open-babel", because: "both install `roundtrip` binaries"
 
   def install
+    ENV.O0
+    ENV.deparallelize
+
     antlr = Formula["antlr"]
     system "cmake", "-S", ".", "-B", "build",
                     "-DANTLR_JAR_LOCATION=#{antlr.opt_prefix}/antlr-#{antlr.version}-complete.jar",
