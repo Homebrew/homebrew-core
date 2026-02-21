@@ -26,6 +26,10 @@ class Surelog < Formula
   depends_on "capnp"
   depends_on "uhdm"
 
+  on_tahoe do
+    depends_on xcode: :build
+  end
+
   on_linux do
     depends_on "zlib-ng-compat"
   end
@@ -33,9 +37,6 @@ class Surelog < Formula
   conflicts_with "open-babel", because: "both install `roundtrip` binaries"
 
   def install
-    ENV.O0
-    ENV.deparallelize
-
     antlr = Formula["antlr"]
     system "cmake", "-S", ".", "-B", "build",
                     "-DANTLR_JAR_LOCATION=#{antlr.opt_prefix}/antlr-#{antlr.version}-complete.jar",
@@ -46,7 +47,11 @@ class Surelog < Formula
                     "-DSURELOG_USE_HOST_ALL=ON",
                     "-DSURELOG_WITH_ZLIB=ON",
                     *std_cmake_args
-    system "cmake", "--build", "build"
+    begin
+      system "cmake", "--build", "build"
+    ensure
+      Dir["build/**/*.log"].each { |log| system "cat", log }
+    end
     system "cmake", "--install", "build"
   end
 
