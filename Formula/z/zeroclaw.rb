@@ -3,8 +3,8 @@ class Zeroclaw < Formula
   homepage "https://github.com/zeroclaw-labs/zeroclaw"
   url "https://github.com/zeroclaw-labs/zeroclaw/archive/refs/tags/v0.1.6.tar.gz"
   sha256 "e4536eafb945e1a80ce6616197521a0be3267075ac9916be45232ba7448989d9"
-  license "MIT"
-  head "https://github.com/zeroclaw-labs/zeroclaw.git", branch: "main"
+  license "Apache-2.0 OR MIT"
+  head "https://github.com/zeroclaw-labs/zeroclaw.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f61f1c9b336b2139bbe433dbb15b23435ae7387757886bd914dfb9ff16e30f0"
