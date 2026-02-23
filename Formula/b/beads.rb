@@ -1,8 +1,8 @@
 class Beads < Formula
   desc "Memory upgrade for your coding agent"
   homepage "https://github.com/steveyegge/beads"
-  url "https://github.com/steveyegge/beads/archive/refs/tags/v0.55.4.tar.gz"
-  sha256 "aef59d95f42dd9f13712411faffc02840871e43060fababc80d7f70b06b4d2c4"
+  url "https://github.com/steveyegge/beads/archive/refs/tags/v0.56.1.tar.gz"
+  sha256 "f93efb39e4fe3f9509cde80b842c1a692f82be569b3eceadcb38b6fde90bff9f"
   license "MIT"
 
   bottle do
@@ -16,6 +16,13 @@ class Beads < Formula
 
   depends_on "go" => :build
   depends_on "icu4c@78"
+
+  # Fix to add self-managing Dolt server for standalone users
+  # Issue ref: https://github.com/steveyegge/beads/issues/2050
+  patch do
+    url "https://github.com/steveyegge/beads/commit/893f6fcdb45125ca5fb308b668f1f4a220574f04.patch?full_index=1"
+    sha256 "b6e3dce9d9c0bcf3ccf4ed53a39c448a172b1fa7f27300c484007dcd1ee611ca"
+  end
 
   def install
     if OS.linux? && Hardware::CPU.arm64?
