@@ -4,6 +4,7 @@ class ClawsMail < Formula
   url "https://www.claws-mail.org/releases/claws-mail-4.3.1.tar.gz"
   sha256 "8fc4f0e0f274297063e5e7682089a32b65ac1b2d21cfa13c54b980520952def2"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.claws-mail.org/releases.php"

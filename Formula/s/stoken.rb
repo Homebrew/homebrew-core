@@ -4,7 +4,7 @@ class Stoken < Formula
   url "https://github.com/stoken-dev/stoken/archive/refs/tags/v0.93.tar.gz"
   sha256 "102e2d112b275efcdc20ef438670e4f24f08870b9072a81fda316efcc38aef9c"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "120ccd4eea9a910df80ea95e8041919027ef03d74fa87f982e25da2dea11bd72"

@@ -5,6 +5,7 @@ class Rpm < Formula
     "GPL-2.0-only",
     "LGPL-2.0-or-later", # rpm-sequoia
   ]
+  revision 1
   version_scheme 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
 

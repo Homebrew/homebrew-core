@@ -4,6 +4,7 @@ class Opendht < Formula
   url "https://github.com/savoirfairelinux/opendht/archive/refs/tags/v3.6.0.tar.gz"
   sha256 "b02de211123191a53ad680226bc2f33145ee24f276a37cd7bbc64d0b7d2d4651"
   license "GPL-3.0-or-later"
+  revision 1
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead

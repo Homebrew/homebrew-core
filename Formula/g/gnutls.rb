@@ -5,6 +5,7 @@ class Gnutls < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.12.tar.xz"
   sha256 "a7b341421bfd459acf7a374ca4af3b9e06608dcd7bd792b2bf470bea012b8e51"
   license all_of: ["LGPL-2.1-or-later", "GPL-3.0-only"]
+  revision 1
 
   # The download page links to the directory listing pages for the "Next" and
   # "Current stable" versions. We use the "Next" version in the formula, so we
