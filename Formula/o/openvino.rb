@@ -3,10 +3,9 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.4.1.tar.gz"
-  sha256 "9926c8a8188d0baa9730623efaeb9f0bccf7059f5e4e957a8d238c3226c2b19b"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2026.0.0.tar.gz"
+  sha256 "529ce766bcca30991c21d0e065886e175b5210d81d6f6b3d7cdaaa89fe22ea8a"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   livecheck do
@@ -64,6 +63,10 @@ class Openvino < Formula
     end
   end
 
+  on_intel do
+    depends_on "xbyak" => :build
+  end
+
   # FIXME: depends_on "xbyak" => :build
   #
   # compute_hash.cpp:418:53: error: use of overloaded operator '+' is ambiguous
@@ -100,26 +103,19 @@ class Openvino < Formula
     "python3.14"
   end
 
-  # Fix to initialize HWCAP2_I8MM properly
-  # Remove patch when available in release.
-  patch do
-    url "https://github.com/openvinotoolkit/openvino/commit/168316c62b6022251dd11f4c5b9c0f85da3e425a.patch?full_index=1"
-    sha256 "d905df259b708851651f9544e2f43b9339ec1174c0dfa9879817279534fc702d"
-  end
-
   def install
     # Work around for Protobuf C++ 6.x until OpenVINO adds support
     inreplace "thirdparty/dependencies.cmake", "find_package(Protobuf 5.26.0 ",
                                                "find_package(Protobuf 6.30.0 "
 
     # cmake 4 build patch for third parties
-    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+    # ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
 
     # FIXME: workaround for
     #   CMake Error at cmake/developer_package/version.cmake:102 (message):
     # OpenVINO_VERSION_MAJOR parsed from CI_BUILD_NUMBER () and from
     # openvino/core/version.hpp (2025) are different
-    ENV["CI_BUILD_NUMBER"] = "#{version}-#{revision}-"
+    # ENV["CI_BUILD_NUMBER"] = "#{version}-#{revision}-"
 
     # Remove git cloned 3rd party to make sure formula dependencies are used
     dependencies = %w[thirdparty/ocl
@@ -141,9 +137,6 @@ class Openvino < Formula
     if Hardware::CPU.arm?
       resource("arm_compute").stage buildpath/"src/plugins/intel_cpu/thirdparty/ComputeLibrary"
       resource("arm_kleidiai").stage buildpath/"src/plugins/intel_cpu/thirdparty/kleidiai"
-    else
-      # TODO: Remove once able to build with xbyak >= 7.29
-      resource("xbyak").stage buildpath/"thirdparty/xbyak"
     end
 
     cmake_args = %w[
@@ -190,7 +183,7 @@ class Openvino < Formula
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(source: libexec/site_packages/"openvino/frontend/onnx")}"
 
     # Allow our newer `numpy`
-    inreplace "pyproject.toml", "numpy>=1.16.6,<2.4.0", "numpy>=1.16.6"
+    inreplace "pyproject.toml", "numpy>=1.16.6,<2.5.0", "numpy>=1.16.6"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources.select { |r| r.url.start_with?("https://files.pythonhosted.org/") }
     venv.pip_install_and_link "."
