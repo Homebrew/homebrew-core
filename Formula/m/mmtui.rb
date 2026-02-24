@@ -1,8 +1,8 @@
 class Mmtui < Formula
   desc "Terminal user interface for NCAA March Madness brackets"
   homepage "https://github.com/holynakamoto/mmtui"
-  url "https://github.com/holynakamoto/mmtui/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "9a67c83133f86d036cc7e98c0f961aa3a490bc8cc72ae8964087a3259adcd9d7"
+  url "https://github.com/holynakamoto/mmtui/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "ea401fb0adc4ca4ceec55eecbc27f711896b515c8a1d9d140ad8f88c1f90fe98"
   license "MIT"
 
   depends_on "rust" => :build
