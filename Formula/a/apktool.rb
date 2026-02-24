@@ -11,6 +11,10 @@ class Apktool < Formula
 
   depends_on "openjdk"
 
+  on_linux do
+    depends_on arch: :x86_64 # aapt2 is not supported on arm64 linux
+  end
+
   def install
     libexec.install "apktool_#{version}.jar"
     bin.write_jar_script libexec/"apktool_#{version}.jar", "apktool"
