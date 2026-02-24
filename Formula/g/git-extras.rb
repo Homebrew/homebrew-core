@@ -16,6 +16,7 @@ class GitExtras < Formula
   end
 
   conflicts_with "git-delete-merged-branches", because: "both install `git-delete-merged-branches` binaries"
+  conflicts_with "git-get", because: "both install `git-get` binaries"
   conflicts_with "git-ignore", because: "both install a `git-ignore` binary"
   conflicts_with "git-standup", because: "both install `git-standup` binaries"
   conflicts_with "git-sync", because: "both install a `git-sync` binary"
