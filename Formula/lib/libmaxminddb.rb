@@ -1,8 +1,8 @@
 class Libmaxminddb < Formula
   desc "C library for the MaxMind DB file format"
   homepage "https://github.com/maxmind/libmaxminddb"
-  url "https://github.com/maxmind/libmaxminddb/releases/download/1.12.2/libmaxminddb-1.12.2.tar.gz"
-  sha256 "1bfbf8efba3ed6462e04e225906ad5ce5fe958aa3d626a1235b2a2253d600743"
+  url "https://github.com/maxmind/libmaxminddb/releases/download/1.13.1/libmaxminddb-1.13.1.tar.gz"
+  sha256 "49a2347f015683d83c5a281c1b2d38ca766a1f42d5183417973bf4ca9b8c4ca7"
   license "Apache-2.0"
 
   bottle do
@@ -22,6 +22,13 @@ class Libmaxminddb < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  # Fix compilation failure on macOS
+  # https://github.com/maxmind/libmaxminddb/pull/419
+  patch do
+    url "https://github.com/maxmind/libmaxminddb/commit/0138e84e81f840e885d3a430f70189c1e82759a5.patch?full_index=1"
+    sha256 "8836251acb7610993494d378ec79f1a945fa7ddd542739e14a27cd274888233a"
   end
 
   def install
