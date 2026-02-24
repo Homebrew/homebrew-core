@@ -13,7 +13,21 @@ class HolRegistry < Formula
   end
 
   test do
-    output = shell_output("#{bin}/hol-registry --help")
-    assert_match "HOL Registry CLI - Universal Agent Discovery & Chat", output
+    skill_dir = testpath/"demo-skill"
+    system bin/"hol-registry", "skills", "init",
+           "--dir", skill_dir,
+           "--name", "demo-skill",
+           "--version", "0.1.0",
+           "--description", "Demo skill"
+
+    assert_path_exists skill_dir/"skill.json"
+    assert_path_exists skill_dir/"SKILL.md"
+
+    manifest = (skill_dir/"skill.json").read
+    assert_match "\"name\": \"demo-skill\"", manifest
+    assert_match "\"version\": \"0.1.0\"", manifest
+
+    lint_output = shell_output("#{bin}/hol-registry skills lint --dir #{skill_dir} --json")
+    assert_match "\"ok\": true", lint_output
   end
 end
