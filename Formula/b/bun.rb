@@ -27,7 +27,9 @@ class Bun < Formula
   depends_on "zstd"
 
   on_macos do
-    depends_on "llvm" => :build if MacOS.version < :sequoia
+    on_sonoma :or_older do
+      depends_on "llvm" => :build
+    end
   end
 
   on_linux do
