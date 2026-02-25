@@ -1596,9 +1596,9 @@ class Bun < Formula
                 #endif
               CPP
 
-    # Xcode 16.4 libc++ no longer declares std::__libcpp_verbose_abort as
-    # noexcept, so Bun's compatibility override must match that declaration.
-    if OS.mac? && MacOS.version >= :sequoia
+    # On macOS 15 (Sequoia), libc++ declares std::__libcpp_verbose_abort
+    # without noexcept. Newer SDKs (e.g. macOS 26) require noexcept.
+    if OS.mac? && MacOS.version == :sequoia
       inreplace "src/bun.js/bindings/workaround-missing-symbols.cpp",
                 /void std::__libcpp_verbose_abort\((?:char const\*|const char\*) format, \.\.\.\) noexcept/,
                 "void std::__libcpp_verbose_abort(char const* format, ...)"
