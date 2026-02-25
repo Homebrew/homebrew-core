@@ -21,11 +21,14 @@ class Bun < Formula
   depends_on "libuv"
   depends_on "lol-html"
   depends_on "ls-hpack"
-  depends_on macos: :sequoia # macOS 14 clang lacks required warning flags
   depends_on "mimalloc"
   depends_on "openssl@3"
   depends_on "sqlite"
   depends_on "zstd"
+
+  on_macos do
+    depends_on "llvm" => :build if MacOS.version < :sequoia
+  end
 
   on_linux do
     depends_on "lld" => :build
@@ -61,6 +64,10 @@ class Bun < Formula
 
   def install
     linux_warning_patch_applied = false
+    if OS.mac? && MacOS.version < :sequoia
+      # Use brewed clang with full C++23 support on older macOS.
+      ENV.llvm_clang
+    end
 
     # Populate cmake/sources/*.txt from cmake/Sources.json.  The release
     # tarball ships empty placeholder files; the upstream build expects
@@ -118,14 +125,14 @@ class Bun < Formula
                       set(BUN_BOOTSTRAP_SHA256 "cde6a4edf19cf64909158fa5a464a12026fd7f0d79a4a950c10cf0af04266d85")
                     else()
                       set(BUN_BOOTSTRAP_FILENAME "bun-darwin-x64.zip")
-                      set(BUN_BOOTSTRAP_SHA256 "4a0ecd703b37d66abaf51e5bc24fd1249e8dc392c17ee6235710cf51a0988b85")
+                      set(BUN_BOOTSTRAP_SHA256 "588f4a48740b9a0c366a00f878810ab3ab5e6734d29b7c3cbdd9484b74a007de")
                     endif()
                   elseif(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES "^(arm64|aarch64)$")
                     set(BUN_BOOTSTRAP_FILENAME "bun-linux-aarch64.zip")
                     set(BUN_BOOTSTRAP_SHA256 "a2c2862bcc1fd1c0b3a8dcdc8c7efb5e2acd871eb20ed2f17617884ede81c844")
                   else()
                     set(BUN_BOOTSTRAP_FILENAME "bun-linux-x64.zip")
-                    set(BUN_BOOTSTRAP_SHA256 "0322b17f0722da76a64298aad498225aedcbf6df1008a1dee45e16ecb226a3f1")
+                    set(BUN_BOOTSTRAP_SHA256 "4680e80e44e32aa718560ceae85d22ecfbf2efb8f3641782e35e4b7efd65a1aa")
                   endif()
                   set(BUN_BOOTSTRAP_URL "https://github.com/oven-sh/bun/releases/download/bun-v${VERSION}/${BUN_BOOTSTRAP_FILENAME}")
                   set(BUN_BOOTSTRAP_ARCHIVE "${CACHE_PATH}/${BUN_BOOTSTRAP_FILENAME}")
@@ -371,7 +378,7 @@ class Bun < Formula
     # tolerating newer Linux clang diagnostics seen in Homebrew CI.
     warning_line_replacement = <<~CMAKE.chomp
       #{OS.mac? ? "-Wno-vector-conversion" : "-Wno-character-conversion"}
-      -Wno-dangling-assignment-gsl
+      #{(OS.mac? && MacOS.version < :sequoia) ? "-Wno-dangling-gsl" : "-Wno-dangling-assignment-gsl"}
       -Wno-deprecated-declarations
     CMAKE
     buildbun_cmake = buildpath/"cmake/targets/BuildBun.cmake"
@@ -381,6 +388,33 @@ class Bun < Formula
                 warning_line_replacement,
                 global: true
       linux_warning_patch_applied = true
+    end
+    if OS.mac? && MacOS.version < :sequoia
+      compiler_flags = buildpath/"cmake/CompilerFlags.cmake"
+      if compiler_flags.read.include?("-Wno-c23-extensions")
+        inreplace "cmake/CompilerFlags.cmake",
+                  "-Wno-c23-extensions",
+                  "-Wno-c2x-extensions",
+                  global: true
+      end
+      if buildbun_cmake.read.include?("-Wno-c23-extensions")
+        inreplace "cmake/targets/BuildBun.cmake",
+                  "-Wno-c23-extensions",
+                  "-Wno-c2x-extensions",
+                  global: true
+      end
+      if buildbun_cmake.read.include?("-Wno-c++23-lambda-attributes")
+        inreplace "cmake/targets/BuildBun.cmake",
+                  "-Wno-c++23-lambda-attributes",
+                  "",
+                  global: true
+      end
+      if buildbun_cmake.read.include?("-Wno-dangling-assignment-gsl")
+        inreplace "cmake/targets/BuildBun.cmake",
+                  "-Wno-dangling-assignment-gsl",
+                  "-Wno-dangling-gsl",
+                  global: true
+      end
     end
     bun_error_esbuild_cmd = <<~'CMAKE'.gsub(/^/, "      ")
       bun-error.css
@@ -668,6 +702,20 @@ class Bun < Formula
                   return()
                 endif()
                 register_command(
+              CMAKE
+    inreplace "cmake/tools/SetupZig.cmake",
+              <<~CMAKE,
+                if(WIN32 AND DEFAULT_ZIG_OPTIMIZE STREQUAL "ReleaseFast")
+                  set(DEFAULT_ZIG_OPTIMIZE "ReleaseSafe")
+                endif()
+              CMAKE
+              <<~CMAKE
+                if(WIN32 AND DEFAULT_ZIG_OPTIMIZE STREQUAL "ReleaseFast")
+                  set(DEFAULT_ZIG_OPTIMIZE "ReleaseSafe")
+                endif()
+                if(LINUX AND DEFAULT_ZIG_OPTIMIZE STREQUAL "ReleaseFast")
+                  set(DEFAULT_ZIG_OPTIMIZE "ReleaseSafe")
+                endif()
               CMAKE
     inreplace "cmake/tools/SetupEsbuild.cmake",
               "if(CMAKE_HOST_WIN32)",
@@ -972,6 +1020,8 @@ class Bun < Formula
       args << "-DLLD_PROGRAM=#{linker_program}"
       args << "-DCMAKE_EXE_LINKER_FLAGS=--ld-path=#{linker_program}"
       args << "-DCMAKE_SHARED_LINKER_FLAGS=--ld-path=#{linker_program}"
+      # Zig ReleaseFast is unstable/OOM on Linux arm64 in CI; use ReleaseSafe.
+      args << "-DZIG_OPTIMIZE=ReleaseSafe"
       unless linux_warning_patch_applied
         linux_warning_flags = "-Wno-dangling-assignment-gsl " \
                               "-Wno-character-conversion " \
@@ -1050,11 +1100,20 @@ class Bun < Formula
     mkdir_p "vendor/zstd"
     ln_s Formula["zstd"].opt_include, "vendor/zstd/lib"
 
+    # Linux builds are memory intensive (bun-profile compile frequently OOMs).
+    # Serialize the build to keep peak RSS below CI limits.
+    build_args = []
+    if OS.linux?
+      ENV.deparallelize
+      ENV["CMAKE_BUILD_PARALLEL_LEVEL"] = "1"
+      build_args = ["--", "-j1"]
+    end
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
 
     # Generate codegen files first — they are Ninja build targets, not
     # produced during cmake configure.
-    system "cmake", "--build", "build", "--target", "bun-zig-generated-classes"
+    system "cmake", "--build", "build", "--target", "bun-zig-generated-classes", *build_args
 
     # root_certs.cpp and root_certs_darwin.cpp also use BoringSSL-specific APIs.
     # Add OpenSSL 3 compat shims to root_certs.cpp (includes + OPENSSL_PUT_ERROR + ERR_R_MALLOC_FAILURE).
@@ -1535,6 +1594,14 @@ class Bun < Formula
                 #endif
               CPP
 
+    # Xcode 16.4 libc++ no longer declares std::__libcpp_verbose_abort as
+    # noexcept, so Bun's compatibility override must match that declaration.
+    if OS.mac? && MacOS.version >= :sequoia
+      inreplace "src/bun.js/bindings/workaround-missing-symbols.cpp",
+                /void std::__libcpp_verbose_abort\((?:char const\*|const char\*) format, \.\.\.\) noexcept/,
+                "void std::__libcpp_verbose_abort(char const* format, ...)"
+    end
+
     # Create BoringSSL → OpenSSL 3 compatibility shim for pre-compiled bun-zig.o
     # which references BoringSSL-specific symbols not present in OpenSSL 3.
     # Also provides WTFTimer__fire which bridges Zig → C++ WTF::RunLoop::TimerBase.
@@ -1801,7 +1868,7 @@ class Bun < Formula
               "          --strip-all\n          --strip-debug\n          --discard-all\n",
               "          -x\n"
 
-    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", *build_args
 
     # Bun has no cmake install() rules; install the stripped binary manually
     bin.install "build/bun"
@@ -1834,7 +1901,7 @@ index 64536cc26b..05493136a6 100644
 +++ b/cmake/targets/BuildBun.cmake
 @@ -434,5 +434,9 @@ string(REPLACE ";" "," BUN_BINDGENV2_SOURCES_COMMA_SEPARATED
    "${BUN_BINDGENV2_SOURCES}")
-
+ 
 +if (BUN_BOOTSTRAP STREQUAL "OFF" OR BUN_EXECUTABLE STREQUAL "BUN_BOOTSTRAP_DISABLED")
 +  message(STATUS "BUN_BOOTSTRAP=OFF: bindgen-v2 codegen requires pre-generated outputs.")
 +endif()
@@ -1870,7 +1937,7 @@ index b57d29b9a1..c598b96798 100644
  find_command(
    VARIABLE
      BUN_EXECUTABLE
---
+-- 
 2.50.1 (Apple Git-155)
 
 
@@ -1918,7 +1985,7 @@ index ce4cd8da24..a848320388 100644
  register_cmake_command(
    TARGET
      sqlite
---
+-- 
 2.50.1 (Apple Git-155)
 
 
@@ -1938,7 +2005,7 @@ index ab78654512..ae6cfdf827 100644
 @@ -428,6 +428,10 @@ function(register_command)
    set(CMD_COMMANDS COMMAND ${CMD_COMMAND})
    set(CMD_EFFECTIVE_DEPENDS)
-
+ 
 +  if(CMD_TARGET)
 +    list(APPEND CMD_EFFECTIVE_DEPENDS ${CMD_TARGET})
 +  endif()
@@ -1946,13 +2013,13 @@ index ab78654512..ae6cfdf827 100644
    list(GET CMD_COMMAND 0 CMD_EXECUTABLE)
   if(CMD_EXECUTABLE MATCHES "/|\\\\")
     list(APPEND CMD_EFFECTIVE_DEPENDS ${CMD_EXECUTABLE})
---
+-- 
 2.50.1 (Apple Git-155)
 
 --- a/cmake/tools/SetupWebKit.cmake
 +++ b/cmake/tools/SetupWebKit.cmake
 @@ -25,6 +25,18 @@
-
+ 
  set(WEBKIT_INCLUDE_PATH ${WEBKIT_PATH}/include)
  set(WEBKIT_LIB_PATH ${WEBKIT_PATH}/lib)
 +if(WEBKIT_LOCAL)
@@ -1967,6 +2034,6 @@ index ab78654512..ae6cfdf827 100644
 +    endif()
 +  endif()
 +endif()
-
+ 
  if(WEBKIT_LOCAL)
    if(EXISTS ${WEBKIT_PATH}/cmakeconfig.h)
