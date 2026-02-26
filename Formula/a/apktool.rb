@@ -24,6 +24,9 @@ class Apktool < Formula
 
     resource("homebrew-test.apk").stage do
       system bin/"apktool", "d", "issue1157.apk"
+      # apktool b doesn't work on ARM Linux
+      return if OS.linux? && Hardware::CPU.arm?
+
       system bin/"apktool", "b", "issue1157"
       assert_path_exists "issue1157/dist/issue1157.apk"
     end
