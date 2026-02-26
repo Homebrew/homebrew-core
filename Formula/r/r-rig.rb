@@ -14,12 +14,39 @@ class RRig < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8f9fb4827b02f91ce993fc00131440b6344cbf27ed22e8cf2c3abfe4f107a05"
   end
 
+  depends_on "cbindgen" => :build
   depends_on "rust" => :build
+  depends_on xcode: :build
+  depends_on :macos
 
   conflicts_with "rig", because: "both install `rig` binary"
 
   def install
+    system "cargo", "build", "--lib", "--release"
+    system("cbindgen -l c > Rig.App/Rig/rig.h")
+    mkdir_p "Rig.app/lib"
+    cp "target/release/libriglib.a", "Rig.app/lib/libriglib.a"
+    Dir.chdir("Rig.app") do
+      xcodebuild "-arch", Hardware::CPU.arch,
+                 "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+                 "CODE_SIGN_IDENTITY=",
+                 "CODE_SIGNING_REQUIRED=NO",
+                 "-configuration", "Release",
+                 "-scheme", "Rig",
+                 "-IDEPackageSupportDisableManifestSandbox=1",
+                 "-IDEPackageSupportDisablePluginExecutionSandbox=1",
+                 "-derivedDataPath", "build",
+                 "clean", "build"
+      deuniversalize_machos "build/Build/Products/Release/Rig.app/Contents/Library/" \
+                            "LoginItems/LaunchAtLoginHelper.app/Contents/MacOS/LaunchAtLoginHelper"
+      prefix.install "build/Build/Products/Release/Rig.app"
+    end
     system "cargo", "install", *std_cargo_args
+  end
+
+  service do
+    run "#{opt_bin}/../Rig.app/Contents/MacOS/Rig"
+    keep_alive false
   end
 
   test do
