@@ -22,7 +22,8 @@ class PostgresqlAT14 < Formula
   # deprecating one year before the last release,
   # see: https://www.postgresql.org/support/versioning/
   deprecate! date: "2025-11-12", because: :unsupported
-  disable! date: "2026-11-12", because: :unsupported
+  # FIXME: brew currently cannot handle `disable!` on future deprecation
+  # disable! date: "2026-11-12", because: :unsupported
 
   depends_on "pkgconf" => :build
   depends_on "icu4c@78"
