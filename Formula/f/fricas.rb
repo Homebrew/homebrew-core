@@ -2,7 +2,7 @@ class Fricas < Formula
   desc "Advanced computer algebra system"
   homepage "https://fricas.github.io"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
   head "https://github.com/fricas/fricas.git", branch: "master"
 
   stable do
