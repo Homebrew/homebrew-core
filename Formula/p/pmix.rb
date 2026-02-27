@@ -1,19 +1,9 @@
 class Pmix < Formula
   desc "Process Management Interface for HPC environments"
   homepage "https://openpmix.github.io/"
+  url "https://github.com/openpmix/openpmix/releases/download/v6.1.0/pmix-6.1.0.tar.bz2"
+  sha256 "bb9021c8e100a376f5070ecca727f83a29b5f652dfe381793b88daa79a3b98a2"
   license "BSD-3-Clause"
-  revision 1
-
-  stable do
-    url "https://github.com/openpmix/openpmix/releases/download/v5.0.10/pmix-5.0.10.tar.bz2"
-    sha256 "78663f6b932589d68e24feaf7f8a948d60be68d91965f3effbacb4cd88cf9a95"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
 
   livecheck do
     url :stable
