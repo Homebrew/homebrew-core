@@ -1,8 +1,8 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "https://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/refs/tags/7.10.5.tar.gz"
-  sha256 "a827dc8a02f4b6110bce66a56d8d97e4526a5128e2f36fa698fd2b1dfb1b9044"
+  url "https://github.com/jtv/libpqxx/archive/refs/tags/8.0.0.tar.gz"
+  sha256 "f467c8133b31941324e40eb21f05db0b52e0fcfa070fd1a08490967c1f129977"
   license "BSD-3-Clause"
 
   bottle do
@@ -20,8 +20,26 @@ class Libpqxx < Formula
 
   uses_from_macos "python" => :build
 
+  on_macos do
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1500
+  end
+
+  on_linux do
+    depends_on "gcc" if DevelopmentTools.gcc_version < 13
+  end
+
+  fails_with :clang do
+    build 1500
+    cause "Requires C++20"
+  end
+
+  fails_with :gcc do
+    version "12"
+    cause "Requires C++20 std::format, https://gcc.gnu.org/gcc-13/changes.html#libstdcxx"
+  end
+
   def install
-    ENV.append "CXXFLAGS", "-std=c++17"
+    ENV.append "CXXFLAGS", "-std=c++20"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
 
     system "./configure", "--disable-silent-rules", "--enable-shared", *std_configure_args
@@ -36,7 +54,7 @@ class Libpqxx < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lpqxx",
+    system ENV.cxx, "-std=c++20", "test.cpp", "-L#{lib}", "-lpqxx",
            "-I#{include}", "-o", "test"
     # Running ./test will fail because there is no running postgresql server
     # system "./test"
