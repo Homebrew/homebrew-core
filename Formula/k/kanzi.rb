@@ -1,4 +1,4 @@
-class Kanzi< Formula
+class Kanzi < Formula
   desc "Fast lossless data compression"
   homepage "https://github.com/flanglet/kanzi-cpp"
   url "https://github.com/flanglet/kanzi-cpp/archive/refs/tags/2.5.0.tar.gz"
