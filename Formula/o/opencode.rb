@@ -1,12 +1,15 @@
 class Opencode < Formula
   desc "AI coding agent, built for the terminal"
   homepage "https://opencode.ai"
-  url "https://registry.npmjs.org/opencode-ai/-/opencode-ai-1.2.10.tgz"
-  sha256 "af65444345ce74d83f709f0f1f6d0679e2420a774aeb03b143d9c59364cf2628"
+  url "https://registry.npmjs.org/opencode-ai/-/opencode-ai-1.2.15.tgz"
+  sha256 "14443d5600f040dbf6f5f0faa78d51d0caf61f14b65fc7168fe593c4cbdcdbf3"
   license "MIT"
 
   livecheck do
-    throttle 10
+    url "https://registry.npmjs.org/opencode-ai/latest"
+    strategy :json do |json|
+      json["version"]
+    end
   end
 
   bottle do
