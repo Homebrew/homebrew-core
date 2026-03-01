@@ -1,8 +1,8 @@
 class Ascii < Formula
   desc "List ASCII idiomatic names and octal/decimal code-point forms"
   homepage "http://www.catb.org/~esr/ascii/"
-  url "https://gitlab.com/esr/ascii/-/archive/3.31/ascii-3.31.tar.bz2"
-  sha256 "d2e4341eea4978a0728fae8fb614ca54622f695948816dc9e338144fe53dd53a"
+  url "https://gitlab.com/esr/ascii/-/archive/3.32/ascii-3.32.tar.bz2"
+  sha256 "cde70847d7e91b14cd855addceb1c7a07470a192cb7d178168fa421c1c21c826"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/ascii.git", branch: "master"
 
