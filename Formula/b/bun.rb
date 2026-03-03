@@ -96,6 +96,9 @@ class Bun < Formula
     ENV["RANLIB"] = "ranlib"
 
     resource("bun-bootstrap").stage buildpath/"bootstrap"
+    if (bootstrap_zip = Dir[buildpath/"bootstrap"/"*.zip"].first)
+      system "unzip", "-q", bootstrap_zip, "-d", buildpath/"bootstrap"
+    end
     bootstrap_bin = Dir[buildpath/"bootstrap"/"**/bun"].first
     raise "bootstrap bun binary not found" if bootstrap_bin.nil?
 
