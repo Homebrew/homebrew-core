@@ -8,7 +8,7 @@ class FalcosecurityLibs < Formula
     { any_of: ["GPL-2.0-only", "MIT"] }, # driver/
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # userspace/libscap/compat/
   ]
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -37,7 +37,7 @@ class FalcosecurityLibs < Formula
     depends_on "curl"
     depends_on "elfutils"
     depends_on "grpc"
-    depends_on "protobuf@33"
+    depends_on "protobuf"
     depends_on "zlib-ng-compat"
   end
 
