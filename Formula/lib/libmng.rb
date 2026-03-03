@@ -6,8 +6,6 @@ class Libmng < Formula
   license "Zlib"
   revision 1
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_tahoe:   "c1e187e0cbf4b730d8116e16edab09cc0b774101d4af55605239de0afe858d8f"

@@ -6,8 +6,6 @@ class Libmpc < Formula
   sha256 "ab642492f5cf882b74aa0cb730cd410a81edcdbec895183ce930e706c1c759b8"
   license "LGPL-3.0-or-later"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "92a98d2c43dbf1f520d71d7b497fd263ee76665149227bc4b1efe171918c2676"
     sha256 cellar: :any,                 arm64_sequoia:  "5c8cdc4d460525025f69157ea5187c4119da8bffab33e7923dc374c011c9cdac"
