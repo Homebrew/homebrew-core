@@ -4,7 +4,7 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.8.tar.gz"
   sha256 "d16901b00963f395241c818d02ad2751f14e33fd32ed3cb3011641ab680e0d01"
   license "GPL-2.0-only"
-  revision 25
+  revision 26
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "fef5c92f145ce977fcc7aecdf8e1f137895af2943e9f075e63a6502afb08b71c"
@@ -25,7 +25,7 @@ class Fastnetmon < Formula
   depends_on macos: :big_sur # We need C++ 20 available for build which is available from Big Sur
   depends_on "mongo-c-driver"
   depends_on "openssl@3"
-  depends_on "protobuf@33"
+  depends_on "protobuf"
 
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
