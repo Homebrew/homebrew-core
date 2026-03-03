@@ -4,7 +4,7 @@ class Recc < Formula
   url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.3.53/buildbox-1.3.53.tar.gz"
   sha256 "cae712f9f4661b5051c8ffea262a808bca792de3ac122ffe20b51c38c87b13f2"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
   bottle do
@@ -27,7 +27,7 @@ class Recc < Formula
   depends_on "grpc"
   depends_on macos: :sonoma # Needs C++20 features not in Ventura
   depends_on "openssl@3"
-  depends_on "protobuf@33"
+  depends_on "protobuf"
   depends_on "re2"
 
   uses_from_macos "curl"
