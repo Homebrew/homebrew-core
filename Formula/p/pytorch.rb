@@ -34,12 +34,21 @@ class Pytorch < Formula
   depends_on macos: :monterey # MPS backend only supports 12.3 and above
   depends_on "numpy"
   depends_on "openblas"
-  depends_on "protobuf@33"
+  depends_on "protobuf"
   # TODO: depends_on "pybind11"
   depends_on "sleef"
 
   on_macos do
     depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "llvm" => :build if DevelopmentTools.gcc_version < 13
+  end
+
+  fails_with :gcc do
+    version "12"
+    cause "fails handling PROTOBUF_FUTURE_ADD_EARLY_WARN_UNUSED"
   end
 
   pypi_packages package_name:     "torch[opt-einsum]",
@@ -119,6 +128,10 @@ class Pytorch < Formula
 
     # Avoid bundling libomp
     inreplace "setup.py", /^(\s*)self\._embed_libomp\(\)$/, "\\1pass"
+
+    # TODO: Remove after moving CI to Ubuntu 24.04. Cannot use newer GCC as it
+    # will increase minimum GLIBCXX in bottle resulting in a runtime dependency.
+    ENV.llvm_clang if OS.linux? && deps.map(&:name).any?("llvm")
 
     ENV["ATEN_NO_TEST"] = "ON"
     ENV["BLAS"] = "OpenBLAS"
