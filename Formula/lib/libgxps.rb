@@ -12,8 +12,6 @@ class Libgxps < Formula
     regex(/libgxps[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_tahoe:   "edf7249cfe2f25f697df299831a0cfbd6d4fcf3803b1fcd3cfd7a9767e13e69a"
