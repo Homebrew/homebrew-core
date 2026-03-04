@@ -1,9 +1,9 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-12-16.tar.gz"
-  version "2025.12.16"
-  sha256 "4f427f25f79d06d01a55498289066ed4fa78410f711a4505801d421171ff123c"
+  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2026-03-04.tar.gz"
+  version "2026.03.04"
+  sha256 "4153367cbc0604561f5da1b112f246b55d13ba2dfd3b7307dd9c5f286fb76e10"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
@@ -36,6 +36,8 @@ class Vcpkg < Formula
   depends_on "fmt"
   depends_on "ninja" # This will install its own copy at runtime if one isn't found.
 
+  uses_from_macos "curl"
+
   # upstream pr ref, https://github.com/microsoft/vcpkg-tool/pull/1826
   patch do
     url "https://github.com/microsoft/vcpkg-tool/commit/7e5f9b42018d19172e87236783bb0c713f176b7a.patch?full_index=1"
@@ -47,6 +49,8 @@ class Vcpkg < Formula
     inreplace "include/vcpkg/base/message-data.inc.h",
               "If you are trying to use a copy of vcpkg that you've built, y",
               "Y"
+
+    ENV.append_path "CMAKE_PREFIX_PATH", Formula["curl"].opt_prefix if OS.linux?
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DVCPKG_DEVELOPMENT_WARNINGS=OFF",
