@@ -159,8 +159,8 @@ class Bun < Formula
                   file(WRITE ${WEBKIT_INCLUDE_PATH}/JavaScriptCore/JSArrayInlines.h "${JSARRAYINLINES_CONTENT}")
                 endif()
               EOS
-    if OS.mac? && Hardware::CPU.arm?
-      # Current Apple Silicon SDK headers declare this symbol without noexcept.
+    if OS.mac? && Hardware::CPU.arm? && MacOS.version <= :sequoia
+      # macOS 14/15 Apple Silicon SDK headers declare this symbol without noexcept.
       inreplace "src/bun.js/bindings/workaround-missing-symbols.cpp",
                 "void std::__libcpp_verbose_abort(char const* format, ...) noexcept",
                 "void std::__libcpp_verbose_abort(char const* format, ...)"
