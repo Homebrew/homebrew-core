@@ -159,12 +159,6 @@ class Bun < Formula
                   file(WRITE ${WEBKIT_INCLUDE_PATH}/JavaScriptCore/JSArrayInlines.h "${JSARRAYINLINES_CONTENT}")
                 endif()
               EOS
-    if OS.mac? && MacOS.version <= :sequoia
-      # macOS 14/15 SDK headers declare this symbol without noexcept.
-      inreplace "src/bun.js/bindings/workaround-missing-symbols.cpp",
-                "void std::__libcpp_verbose_abort(char const* format, ...) noexcept",
-                "void std::__libcpp_verbose_abort(char const* format, ...)"
-    end
     if OS.mac?
       # macOS 14's compiler does not support deducing-this syntax in this block.
       inreplace "src/bun.js/bindings/napi.h",
