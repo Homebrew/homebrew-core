@@ -62,7 +62,9 @@ class Qtmultimedia < Formula
     args = ["-DCMAKE_STAGING_PREFIX=#{prefix}"]
     if OS.mac?
       args << "-DQT_FEATURE_ffmpeg=OFF"
-      args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON"
+
+      # Qt uses deprecated macOS SDK APIs that have been removed in macOS 15 (QTBUG-136989)
+      args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=14.0" if MacOS.version >= :sequoia
     end
 
     system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
