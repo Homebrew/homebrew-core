@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 5
+  revision 6
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.13.0.tar.gz"
@@ -60,7 +60,7 @@ class Opencv < Formula
   depends_on "openexr"
   depends_on "openjpeg"
   depends_on "openvino"
-  depends_on "protobuf@33"
+  depends_on "protobuf"
   depends_on "python@3.14"
   depends_on "tbb"
   depends_on "tesseract"
@@ -152,9 +152,9 @@ class Opencv < Formula
         -DOPENEXR_ILMIMF_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmImf.so
         -DOPENEXR_ILMTHREAD_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmThread.so
         -DPNG_LIBRARY=#{Formula["libpng"].opt_lib}/libpng.so
-        -DPROTOBUF_LIBRARY=#{Formula["protobuf@33"].opt_lib}/libprotobuf.so
-        -DPROTOBUF_INCLUDE_DIR=#{Formula["protobuf@33"].include}
-        -DPROTOBUF_PROTOC_EXECUTABLE=#{Formula["protobuf@33"].bin}/protoc
+        -DPROTOBUF_LIBRARY=#{Formula["protobuf"].opt_lib}/libprotobuf.so
+        -DPROTOBUF_INCLUDE_DIR=#{Formula["protobuf"].include}
+        -DPROTOBUF_PROTOC_EXECUTABLE=#{Formula["protobuf"].bin}/protoc
         -DTIFF_LIBRARY=#{Formula["libtiff"].opt_lib}/libtiff.so
         -DWITH_V4L=OFF
         -DZLIB_LIBRARY=#{Formula["zlib-ng-compat"].opt_lib}/libz.so

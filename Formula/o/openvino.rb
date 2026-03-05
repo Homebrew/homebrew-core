@@ -6,6 +6,7 @@ class Openvino < Formula
   url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2026.0.0.tar.gz"
   sha256 "529ce766bcca30991c21d0e065886e175b5210d81d6f6b3d7cdaaa89fe22ea8a"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -31,7 +32,7 @@ class Openvino < Formula
   depends_on "nlohmann-json"
   depends_on "numpy"
   depends_on "onnx"
-  depends_on "protobuf@33"
+  depends_on "protobuf"
   depends_on "pugixml"
   depends_on "snappy"
   depends_on "tbb"
@@ -112,7 +113,7 @@ class Openvino < Formula
   def install
     # Work around for Protobuf C++ 6.x until OpenVINO adds support
     inreplace "thirdparty/dependencies.cmake", "find_package(Protobuf 5.26.0 ",
-                                               "find_package(Protobuf 6.30.0 "
+                                               "find_package(Protobuf 7.34.0 "
 
     # FIXME: workaround for
     #   CMake Error at cmake/developer_package/version.cmake:102 (message):
@@ -182,10 +183,7 @@ class Openvino < Formula
     end
 
     # Fix linking failure of certain binaries as Scons disables superenv
-    if OS.linux? && Hardware::CPU.arm?
-      cmake_args << "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
-      cmake_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-rpath,#{Formula["protobuf@33"].opt_lib}"
-    end
+    cmake_args << "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib" if OS.linux? && Hardware::CPU.arm?
 
     openvino_binary_dir = "#{buildpath}/build"
     system "cmake", "-S", ".", "-B", openvino_binary_dir, *cmake_args, *std_cmake_args

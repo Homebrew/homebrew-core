@@ -5,7 +5,7 @@ class Onnxruntime < Formula
       tag:      "v1.24.2",
       revision: "058787ceead760166e3c50a0a4cba8a833a6f53f"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -32,7 +32,7 @@ class Onnxruntime < Formula
   depends_on "safeint" => :build
   depends_on "abseil"
   depends_on "onnx"
-  depends_on "protobuf@33"
+  depends_on "protobuf"
   depends_on "re2"
 
   resource "pytorch_cpuinfo" do
@@ -69,7 +69,7 @@ class Onnxruntime < Formula
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
       -DFETCHCONTENT_SOURCE_DIR_MP11=#{Formula["boost"].opt_prefix}
       -DPython_EXECUTABLE=#{python3}
-      -DONNX_CUSTOM_PROTOC_EXECUTABLE=#{Formula["protobuf@33"].opt_bin}/protoc
+      -DONNX_CUSTOM_PROTOC_EXECUTABLE=#{Formula["protobuf"].opt_bin}/protoc
       -Donnxruntime_BUILD_SHARED_LIB=ON
       -Donnxruntime_BUILD_UNIT_TESTS=OFF
       -Donnxruntime_GENERATE_TEST_REPORTS=OFF

@@ -4,7 +4,7 @@ class OpentelemetryCpp < Formula
   url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.25.0.tar.gz"
   sha256 "a0c944a9de981fe1874b31d1fe44b830fc30ee030efa27ee23fc73012a3a13e9"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
@@ -21,7 +21,7 @@ class OpentelemetryCpp < Formula
   depends_on "grpc"
   depends_on "nlohmann-json"
   depends_on "prometheus-cpp"
-  depends_on "protobuf@33"
+  depends_on "protobuf"
 
   uses_from_macos "curl"
 

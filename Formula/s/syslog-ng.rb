@@ -6,7 +6,7 @@ class SyslogNg < Formula
   url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.11.0/syslog-ng-4.11.0.tar.gz"
   sha256 "37ea0d4588533316de122df4e1b249867b0a0575f646c7478d0cc4d747462943"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 1
+  revision 2
   head "https://github.com/syslog-ng/syslog-ng.git", branch: "develop"
 
   livecheck do
@@ -40,7 +40,7 @@ class SyslogNg < Formula
   depends_on "net-snmp"
   depends_on "openssl@3"
   depends_on "pcre2"
-  depends_on "protobuf@33"
+  depends_on "protobuf"
   depends_on "python@3.14"
   depends_on "rabbitmq-c"
   depends_on "riemann-client"

@@ -4,7 +4,7 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.15.4.tar.gz"
   sha256 "4516ecfa420826088c187efd42dad249367ca94ea6cdfc24e3030c3cf47af7b4"
   license "BSD-3-Clause"
-  revision 42
+  revision 43
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "86e44fefa84f9e1e00217e1ddfe920d6bf8f730d230c6a05eb795937f8067bba"
@@ -23,7 +23,7 @@ class EtcdCppApiv3 < Formula
   depends_on "cpprestsdk"
   depends_on "grpc"
   depends_on "openssl@3"
-  depends_on "protobuf@33"
+  depends_on "protobuf"
   depends_on "re2"
 
   # Fix for removal of GPR_ASSERT macro in grpc.
@@ -89,7 +89,6 @@ class EtcdCppApiv3 < Formula
     args = %W[
       -Wno-dev
       -DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib
-      -DCMAKE_PREFIX_PATH=#{Formula["protobuf@33"].opt_prefix}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args
