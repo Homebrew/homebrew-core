@@ -2,16 +2,15 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.93.1-src.tar.gz"
-    sha256 "4c230a44b3d9c9f3cef950943719f8380058d27c91fda5e36a9a947ef013e01f"
+    url "https://static.rust-lang.org/dist/rustc-1.94.0-src.tar.gz"
+    sha256 "b83f921cd3f321ff614f9c06a8b870d89299fc02888b48a5549683a36823474c"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
-      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.94.0.tar.gz"
-      sha256 "d60d883fed2916d8d0dd723fb98bdc81410c17660b9a020470b5af91f87026fa"
+      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.95.0.tar.gz"
+      sha256 "a646673df0564b6294d1810a33ca02a9e26c860c60c36769ca28bf58d6e73dcd"
     end
   end
 
