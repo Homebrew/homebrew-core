@@ -11,12 +11,13 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "78053e68539ec313674b4e05b98a309cb8802b4f8cfabddaa5d6b4b14c50a14a"
-    sha256 arm64_sequoia: "776e26d187ee97c5630885210c735b5dbd59033a66e8d25e074feccd3e7b75cd"
-    sha256 arm64_sonoma:  "41df03774ddd2c81f325e0a0e67589925165e5be7fc89cdc6662150ece975523"
-    sha256 sonoma:        "b56835b21500f3032b2e25adefed176497ca53901dd8f9ea3c0262cec44c7639"
-    sha256 arm64_linux:   "39bac453617bcdb345f1b19dd26ec37a5dd254e5b50973f08371fe718d510be5"
-    sha256 x86_64_linux:  "39b9666ddf72ecc12118ec1803d3f4d11d3324f96329aba184bc77ab4a8a0edf"
+    rebuild 1
+    sha256 arm64_tahoe:   "f96594ae6831348bebbd5ecdd97ed172b483f1790da9d3a034faf5e0eff19827"
+    sha256 arm64_sequoia: "6e25a04f5a7a52d71afac60bffe3d33a0a598946e85f714a7972c76641f80833"
+    sha256 arm64_sonoma:  "606ce0195cff8fd82a137d9d171efd9c92f3be85cccb5efd2fe7c18b5f9f54c1"
+    sha256 sonoma:        "b224f61433551dc0376cbbf36de587764f54f7d3edd7dc2a03c3b1a1e4e96faa"
+    sha256 arm64_linux:   "0522b3a485c9ef1735dc99df1d4e7504905a14453e36bb67969b96a8d3240464"
+    sha256 x86_64_linux:  "73c9af232d61f649aea14aa1153ccb742af9d12bd4f8cd7c4124bc6fd3a1af25"
   end
 
   keg_only "it conflicts with PostgreSQL"
@@ -34,6 +35,7 @@ class Libpq < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build # for xsltproc
+  uses_from_macos "curl"
 
   on_linux do
     depends_on "readline"
@@ -47,6 +49,7 @@ class Libpq < Formula
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--with-gssapi",
+                          "--with-libcurl",
                           "--with-openssl",
                           "--libdir=#{opt_lib}",
                           "--includedir=#{opt_include}"

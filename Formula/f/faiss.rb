@@ -1,8 +1,8 @@
 class Faiss < Formula
   desc "Efficient similarity search and clustering of dense vectors"
   homepage "https://github.com/facebookresearch/faiss"
-  url "https://github.com/facebookresearch/faiss/archive/refs/tags/v1.14.0.tar.gz"
-  sha256 "48db37fc2e7a2bab74cff79318f62bd4430dbd42942b0778241454079f5d05c8"
+  url "https://github.com/facebookresearch/faiss/archive/refs/tags/v1.14.1.tar.gz"
+  sha256 "fa61ba99973fc3f5cd8f54b112b02d9be162bf29c6cc7c393604cda2d11e0446"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Faiss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c563eb347a2a968e11d5e4ea86e5dc682726d18fa77c15b2306d10235fc3acd8"
-    sha256 cellar: :any,                 arm64_sequoia: "699c27462066185e4e192ef0ff80cea279f75e16d7a7bd1526fc3284e67d4e8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "33481b8cfb9949a970c6c217aaaf23813bc85744f7a3f6cb6b0878de44c7865d"
-    sha256 cellar: :any,                 sonoma:        "27e882672ecc18a11a599b56f43371c2b33b47c80e913d4e67ea58a4553061fc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ea0259f0c10b1b2ffc150ff793fdd3c94703f1fa09324fe133fdd3d63b89561"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60a837f5936d1aa302458224bceed9532bc9864a5f7e45e0d50f589b54399e77"
+    sha256 cellar: :any,                 arm64_tahoe:   "f9f8ae843b91c46fba4ae7ac8f5e863721099aa7db6c84ef9ac5840f69e43a7c"
+    sha256 cellar: :any,                 arm64_sequoia: "7e6f2343b410ba2648a3d8cf5ddb5019906cf335bb98670b585d0f9e2c03b282"
+    sha256 cellar: :any,                 arm64_sonoma:  "8c31b9cc01b4e4f349700bdf89fda46bf08fd1350a2d05f0b43ad80f3b6b9328"
+    sha256 cellar: :any,                 sonoma:        "dc01d70a4338c134bf51277cc3e23e3e721224fe36c8b67e7b4b6f6294edcc0c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca531cb4ccab1ce090f96146d862af48057f1110a827230bb0e71d1c7241b2eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a789aa1e023671b4c02894871f5a4c63f7886e8586cdabf60b4f0f792751ec75"
   end
 
   depends_on "cmake" => :build

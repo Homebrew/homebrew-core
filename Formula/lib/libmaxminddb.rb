@@ -1,17 +1,17 @@
 class Libmaxminddb < Formula
   desc "C library for the MaxMind DB file format"
   homepage "https://github.com/maxmind/libmaxminddb"
-  url "https://github.com/maxmind/libmaxminddb/releases/download/1.13.2/libmaxminddb-1.13.2.tar.gz"
-  sha256 "2c7aac2f1d97eb8127ae58710731c232648e1f02244c49b36f9b64e5facebf90"
+  url "https://github.com/maxmind/libmaxminddb/releases/download/1.13.3/libmaxminddb-1.13.3.tar.gz"
+  sha256 "a66502ea76eadbe17f2cd6fd708946777253972d2ae8157dee1b23a2fb528171"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4e04fc06c05a47561694a0595748bbe4ffb4be1555126dda44648e2d7cedc32c"
-    sha256 cellar: :any,                 arm64_sequoia: "b1bbea330b874e9c07cddcd5696097cedea6f6876be09e8adc1139e9937fecc6"
-    sha256 cellar: :any,                 arm64_sonoma:  "f0be5d36f842e54ee7080d0827e681ca919fea8d806c4f4e99c47789e71e0db4"
-    sha256 cellar: :any,                 sonoma:        "ef2e120d3c68c063c5a3d69d5d31e5ca025f58f0ff270b74f25ba469b5786737"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "86353fbb4bb3fedc3933c71d1f920ceb1a00d3660ea75180389bc9504138b1f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a6e38e8b1890b6c667f79530c86d7000079d2ed1388f6922dc1eca87c7cb564"
+    sha256 cellar: :any,                 arm64_tahoe:   "5936b3b75b64cab056955f2bb8c0b756fa60c53804dcd7dbde8abad2abceed84"
+    sha256 cellar: :any,                 arm64_sequoia: "490b3efc56371925d11362dd017550824c13573c4b76edb4fa2848c549d46692"
+    sha256 cellar: :any,                 arm64_sonoma:  "dd18810ef2ff421397f0841540e9a8ed078bee4d99943e45fbed763e39ba6a70"
+    sha256 cellar: :any,                 sonoma:        "7aa6d1a05efe76995a324af5ea06acdc8dc5428f2dbd9fad2d7c098af91c1f5a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9546178cbb2f9b8d6b585c18d109f5fcc8b7bce72431e97654c5da23cbc94b9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fbff53ca34d511f0c71bb801ef011da1808855abb303957cf783069bd4e35f7"
   end
 
   head do
