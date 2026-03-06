@@ -1,8 +1,8 @@
 class GtkGnutella < Formula
   desc "Share files in a peer-to-peer (P2P) network"
   homepage "https://gtk-gnutella.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.2.3/gtk-gnutella-1.2.3.tar.xz"
-  sha256 "dd4ba09de6ff7e928c746e6aaeb2fb6b023c7b3de4ad247ce9f0ee9ba0092ef0"
+  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.3.0/gtk-gnutella-1.3.0.tar.xz"
+  sha256 "4d2f503a4317029525214c61796136569b7a133a032708bc3fc847d2ef2ec2e0"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -33,6 +33,10 @@ class GtkGnutella < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # Fix type error with `va_list`
+  # TODO: submit patch to the upstream
+  patch :DATA
+
   def install
     # Work-around for build issue with Xcode 15.3: https://sourceforge.net/p/gtk-gnutella/bugs/583/
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
@@ -49,3 +53,22 @@ class GtkGnutella < Formula
     system bin/"gtk-gnutella", "--version"
   end
 end
+
+__END__
+
+diff --git a/src/lib/log.c b/src/lib/log.c
+index 15a0d538f..d8abf255e 100644
+--- a/src/lib/log.c
++++ b/src/lib/log.c
+@@ -2676,10 +2676,11 @@ log_handler(const char *domain, GLogLevelFlags level,
+ 
+ 	if (logfilter_supported()) {
+ 		logfilter_data_t data;
++		va_list args;
+ 		const void *pc = stacktrace_caller(3);
+ 
+ 		log_compute_data(pc, level, &data);
+-		logfilter_logv(level, &data, 1, message, FALSE, NULL);
++		logfilter_logv(level, &data, 1, message, FALSE, args);
+ 		goto logged;
+ 	}
