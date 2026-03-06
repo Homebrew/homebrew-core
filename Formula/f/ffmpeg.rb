@@ -6,7 +6,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
   compatibility_version 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
@@ -23,6 +23,8 @@ class Ffmpeg < Formula
     sha256 arm64_linux:   "f5a701c93d3cb1c8c7f7d0f28c4aa44252604214b01b44654d74ae44c6baf0bd"
     sha256 x86_64_linux:  "7db34826b4b98eb9f3bb1f5e758ee953f6ab36dc4bb97922fb3d1673b7af7bfc"
   end
+
+  keg_only :versioned_formula
 
   depends_on "pkgconf" => :build
 
