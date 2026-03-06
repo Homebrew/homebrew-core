@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.20.0.tar.gz"
-  sha256 "a640d1f97be316a09301dfc9347e3d929ad4d9a2336e3ca23c32c93b0ff7e5d0"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.21.0.tar.gz"
+  sha256 "ef3568bb4865d6c1b2564fb5689c19b6b9a5311572cd1f2ff9198636a8520921"
   license "Apache-2.0"
 
   bottle do
@@ -22,16 +22,11 @@ class Libtensorflow < Formula
     depends_on "gnu-getopt" => :build
   end
 
-  def install
-    # Workaround to build on Tahoe by using newer apple_support with following commit:
-    # https://github.com/bazelbuild/apple_support/commit/44c43c715aa58d16dc713ec0daa0a4373c39245a
-    # Issue ref: https://github.com/tensorflow/tensorflow/issues/100434
-    inreplace "tensorflow/workspace2.bzl" do |s|
-      s.gsub! "/1.18.1/apple_support.1.18.1.tar.gz", "/1.19.0/apple_support.1.19.0.tar.gz"
-      s.gsub! '"d71b02d6df0500f43279e22400db6680024c1c439115c57a9a82e9effe199d7b"',
-              '"dca96682317cc7112e6fae87332e13a8fefbc232354c2939b11b3e06c09e5949"'
-    end
+  on_linux do
+    depends_on "vim" => :build # for xxd, TODO: try to remove in next release
+  end
 
+  def install
     python3 = "python3.13"
     optflag = ENV["HOMEBREW_OPTFLAGS"].presence
     optflag ||= if Hardware::CPU.arm? && OS.mac?
@@ -41,26 +36,32 @@ class Libtensorflow < Formula
     end
     ENV["CC_OPT_FLAGS"] = optflag
     ENV["PYTHON_BIN_PATH"] = which(python3)
-    ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
-    ENV["TF_NEED_JEMALLOC"] = "1"
-    ENV["TF_NEED_GCP"] = "0"
-    ENV["TF_NEED_HDFS"] = "0"
-    ENV["TF_ENABLE_XLA"] = "0"
     ENV["USE_DEFAULT_PYTHON_LIB_PATH"] = "1"
-    ENV["TF_NEED_OPENCL"] = "0"
     ENV["TF_NEED_CUDA"] = "0"
-    ENV["TF_NEED_MKL"] = "0"
-    ENV["TF_NEED_VERBS"] = "0"
     ENV["TF_NEED_MPI"] = "0"
-    ENV["TF_NEED_S3"] = "1"
-    ENV["TF_NEED_GDR"] = "0"
-    ENV["TF_NEED_KAFKA"] = "0"
-    ENV["TF_NEED_OPENCL_SYCL"] = "0"
     ENV["TF_NEED_ROCM"] = "0"
     ENV["TF_NEED_CLANG"] = "0" if OS.linux?
     ENV["TF_DOWNLOAD_CLANG"] = "0"
     ENV["TF_SET_ANDROID_WORKSPACE"] = "0"
     ENV["TF_CONFIGURE_IOS"] = "0"
+
+    # `//xla/tsl/mkl:onednn` alias resolves to dummy on macOS; reference @onednn directly.
+    inreplace "third_party/xla/xla/tsl/framework/contraction/BUILD",
+              '"//conditions:default": ["//xla/tsl/mkl:onednn"],',
+              '"//conditions:default": ["@onednn//:mkl_dnn"],'
+
+    # Bump rules_ml_toolchain to bundle libxml2/libz/liblzma with LLVM 18 aarch64 toolchain.
+    # PR refs: https://github.com/google-ml-infra/rules_ml_toolchain/pull/209
+    #          https://github.com/google-ml-infra/rules_ml_toolchain/pull/220
+    inreplace "WORKSPACE" do |s|
+      s.gsub! "54c1a357f71f611efdb4891ebd4bcbe4aeb6dfa7e473f14fd7ecad5062096616",
+              "415ffc746fad15c3c847c993b4a1b898bdf85811c51bc2aeb5258ce4418c59fd"
+      s.gsub! "rules_ml_toolchain-d8cb9c2c168cd64000eaa6eda0781a9615a26ffe",
+              "rules_ml_toolchain-88c2e7a7ca80c164bddaeea8abdf802cafd7009b"
+      s.gsub! "d8cb9c2c168cd64000eaa6eda0781a9615a26ffe.tar.gz",
+              "88c2e7a7ca80c164bddaeea8abdf802cafd7009b.tar.gz"
+    end
+
     system "./configure"
 
     # Bazel clears environment variables which breaks superenv shims.
