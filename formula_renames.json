@@ -17,6 +17,7 @@
   "bigdata": "blazegraph",
   "boot2docker": "docker-machine",
   "bro": "zeek",
+  "cagent": "docker-agent",
   "cdiff": "ydiff",
   "chipmunk": "chipmunk-physics",
   "clawdbot-cli": "openclaw-cli",
