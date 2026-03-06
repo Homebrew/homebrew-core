@@ -18,6 +18,8 @@ class Ots < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "opentimestamps-client", because: "both install `ots` binaries"
+
   def install
     ldflags = "-s -w -X github.com/sniptt-official/ots/build.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
