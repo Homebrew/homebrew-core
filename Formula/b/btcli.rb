@@ -3,10 +3,9 @@ class Btcli < Formula
 
   desc "Bittensor command-line tool"
   homepage "https://docs.bittensor.com/btcli"
-  url "https://files.pythonhosted.org/packages/d8/89/75a59ca4db8776ed12ed6d6cf63185f65bd256ed7caa23834157bce5aa9a/bittensor_cli-9.17.0.tar.gz"
-  sha256 "ca0525d4d0c720a9550705dd24e3fa7ac11bf83ed568932865d5bddf5fcecea4"
+  url "https://files.pythonhosted.org/packages/10/86/a254c941d98303dfe9c2e75c0327214d8da5e407edb95971c49ad51dab87/bittensor_cli-9.18.1.tar.gz"
+  sha256 "f63fdb4345a010052555fe3dd238e2de8cbc10dbb5d694ffc7e983595a5e97fa"
   license "MIT"
-  revision 3
   head "https://github.com/opentensor/btcli.git", branch: "main"
 
   bottle do
@@ -51,8 +50,8 @@ class Btcli < Formula
   end
 
   resource "async-substrate-interface" do
-    url "https://files.pythonhosted.org/packages/25/54/653d50a27dab6a7922f22d7932daeb66521b1e5c3d85ee5c652637180a6c/async_substrate_interface-1.5.15.tar.gz"
-    sha256 "1e093a873f3d768899b3b7574947f66ddd5b096580b2a3ea8ebd6d424e0e198e"
+    url "https://files.pythonhosted.org/packages/f0/62/53873e57c91e31cae454d364101fcbd12f87d2409342dc97f7c6d39a8483/async_substrate_interface-1.6.1.tar.gz"
+    sha256 "abf27b99984232a80a7a529a414997b22a3f7065da88495d071369a47b676b84"
   end
 
   resource "attrs" do
@@ -141,13 +140,13 @@ class Btcli < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/80/1e/5492c365f222f907de1039b91f922b93fa4f764c713ee858d235495d8f50/multidict-6.7.0.tar.gz"
-    sha256 "c6e99d9a65ca282e578dfea819cfa9c0a62b2499d8677392e09feaf305e9e6f5"
+    url "https://files.pythonhosted.org/packages/1a/c2/c2d94cbe6ac1753f3fc980da97b3d930efe1da3af3c9f5125354436c073d/multidict-6.7.1.tar.gz"
+    sha256 "ec6652a1bee61c53a3e5776b6049172c53b6aaba34f18c9ad04f82712bac623d"
   end
 
   resource "narwhals" do
-    url "https://files.pythonhosted.org/packages/47/6d/b57c64e5038a8cf071bce391bb11551657a74558877ac961e7fa905ece27/narwhals-2.15.0.tar.gz"
-    sha256 "a9585975b99d95084268445a1fdd881311fa26ef1caa18020d959d5b2ff9a965"
+    url "https://files.pythonhosted.org/packages/fc/6f/713be67779028d482c6e0f2dde5bc430021b2578a4808c1c9f6d7ad48257/narwhals-2.16.0.tar.gz"
+    sha256 "155bb45132b370941ba0396d123cf9ed192bf25f39c4cea726f2da422ca4e145"
   end
 
   resource "netaddr" do
@@ -161,8 +160,8 @@ class Btcli < Formula
   end
 
   resource "plotille" do
-    url "https://files.pythonhosted.org/packages/8a/73/3f342572f7f916e387e546cc502d6cad35e7162ba0bcde203669e15aa3af/plotille-5.0.0.tar.gz"
-    sha256 "99e5ca51a2e4c922ead3a3b0863cc2c6a9a4b3f701944589df10f42ce02ab3dc"
+    url "https://files.pythonhosted.org/packages/f2/3c/4beee54dcc567d09547d9891d55efda56641633f6e58cc9ebcd689517ccd/plotille-6.0.3.tar.gz"
+    sha256 "e550371c54328bf2c229383e3aa8c056933e4cf4de68a975e7a61fd44a47bf96"
   end
 
   resource "plotly" do
@@ -196,8 +195,8 @@ class Btcli < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/fb/d2/8920e102050a0de7bfabeb4c4614a49248cf8d5d7a8d01885fbb24dc767a/rich-14.2.0.tar.gz"
-    sha256 "73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"
+    url "https://files.pythonhosted.org/packages/74/99/a4cab2acbb884f80e558b0771e97e21e939c5dfb460f488d19df485e8298/rich-14.3.2.tar.gz"
+    sha256 "e712f11c1a562a11843306f5ed999475f09ac31ffb64281f73ab29ffdda8b3b8"
   end
 
   resource "scalecodec" do
@@ -266,10 +265,14 @@ class Btcli < Formula
   end
 
   test do
+    ENV["DISK_CACHE"] = "0"
     require "json"
     wallet_path = testpath/"btcli-brew-test"
     test_wallet_name = "brew-test"
     ss58_address = "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty"
+
+    # Disable caching
+    system bin/"btcli", "config", "set", "--no-disk-cache"
 
     # Create wallet
     create_args = %W[
