@@ -4,6 +4,7 @@ class ImagemagickFull < Formula
   url "https://imagemagick.org/archive/releases/ImageMagick-7.1.2-15.tar.xz"
   sha256 "ccb9913bba578daa582b73b2a97e55db49765d926cbb8ebf54e4e79b458e6679"
   license "ImageMagick"
+  revision 1
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
   livecheck do
@@ -19,8 +20,6 @@ class ImagemagickFull < Formula
     sha256 arm64_linux:   "647fc418e11b89683ed8593908083d4720502e0a5f6dcc3fe8eae46d486bd661"
     sha256 x86_64_linux:  "add8ab3590d7371eac4772d2704d90ce113c8d8f4e45782ace34ed2b86375038"
   end
-
-  keg_only :versioned_formula
 
   depends_on "pkgconf" => :build
   depends_on "cairo"
