@@ -45,7 +45,7 @@ class NodeAT22 < Formula
   uses_from_macos "python"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
   end
 
   on_linux do
@@ -53,9 +53,14 @@ class NodeAT22 < Formula
   end
 
   fails_with :clang do
-    build 1100
+    build 1400
     cause <<~EOS
-      error: calling a private constructor of class 'v8::internal::(anonymous namespace)::RegExpParserImpl<uint8_t>'
+      In file included from ../src/inspector_profiler.h:
+      /usr/local/opt/simdjson/include/simdjson.h:
+
+      error: no member named 'input_range' in namespace 'std::ranges'
+
+      (since C++20) https://en.cppreference.com/w/cpp/ranges/input_range.html
     EOS
   end
 
