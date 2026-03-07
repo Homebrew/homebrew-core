@@ -8,10 +8,6 @@ class Awscli < Formula
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
-  bottle do
-    sha256 cellar: :any, sonoma: "f73499e4981ac2bdcdf54702b7887ce9cb17b61857855d5c8bed9687e02e321b"
-  end
-
   depends_on "cmake" => :build
   depends_on "openssl@3"
   depends_on "python@3.13" # Python 3.14 issue: https://github.com/aws/aws-cli/issues/9914
