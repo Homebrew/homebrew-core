@@ -1,4 +1,4 @@
-class VapoursynthBs < Formula
+class VapoursynthBestsource < Formula
   desc "Audio/video source and FFmpeg wrapper"
   homepage "https://github.com/vapoursynth/bestsource"
   url "https://github.com/vapoursynth/bestsource.git",
