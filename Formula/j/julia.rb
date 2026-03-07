@@ -52,11 +52,23 @@ class Julia < Formula
   on_linux do
     depends_on "patchelf" => :build
     depends_on "zlib-ng-compat"
+
+    on_arm do
+      depends_on "lld" => :build
+    end
   end
 
   conflicts_with "juliaup", because: "both install `julia` binaries"
 
   def install
+    # Avoid OOM on arm64 linux runner
+    if OS.linux? && Hardware::CPU.arm64?
+      ENV["JULIA_IMAGE_THREADS"] = "1"
+      ENV["JULIA_CPU_THREADS"] = "1"
+      ENV["JULIA_NUM_PRECOMPILE_TASKS"] = "1"
+      ENV.append "LDFLAGS", "-fuse-ld=lld"
+    end
+
     # Build documentation available at
     # https://github.com/JuliaLang/julia/blob/v#{version}/doc/build/build.md
     args = %W[
