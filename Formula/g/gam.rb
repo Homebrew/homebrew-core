@@ -3,6 +3,7 @@ class Gam < Formula
 
   desc "Command-line management for Google Workspace"
   homepage "https://github.com/GAM-team/GAM"
+  # PyPI package has different version `7.35.1` with the github release `7.35.01`, so we use the github one here.
   url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.35.01.tar.gz"
   sha256 "ff3bd3d41678e8b4b693bb1f3387cfa16c2ccd9429278d27f945a7b086b6fc05"
   license "Apache-2.0"
