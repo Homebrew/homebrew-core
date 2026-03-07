@@ -8,15 +8,15 @@ class Gam < Formula
   sha256 "ff3bd3d41678e8b4b693bb1f3387cfa16c2ccd9429278d27f945a7b086b6fc05"
   license "Apache-2.0"
 
-  depends_on "pkgconf" => :build
-  depends_on "rust" => :build
-  depends_on "openssl@3"
-
+  depends_on "cmake" => :build # for pyscard
+  depends_on "swig" => :build # for pyscard
+  depends_on "certifi" => :no_linkage
+  depends_on "cryptography" => :no_linkage
   depends_on "python@3.14"
 
-  uses_from_macos "libffi"
-  uses_from_macos "libxml2"
+  uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
+  uses_from_macos "pcsc-lite"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/b9/33/032cdc44182491aa708d06a68b62434140d8c50820a087fac7af37703357/arrow-1.4.0.tar.gz"
