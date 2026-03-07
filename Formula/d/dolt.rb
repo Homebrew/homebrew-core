@@ -31,10 +31,22 @@ class Dolt < Formula
 
     (var/"log").mkpath
     (var/"dolt").mkpath
+    (etc/"dolt").mkpath
+    (etc/"dolt/config.yaml").write(config_yaml) unless (etc/"dolt/config.yaml").exist?
+  end
+
+  def config_yaml
+    <<~YAML
+      # Dolt SQL Server configuration
+      # Full documentation: https://docs.dolthub.com/sql-reference/server/configuration
+      listener:
+        host: localhost
+        port: 3306
+    YAML
   end
 
   service do
-    run [opt_bin/"dolt", "sql-server"]
+    run [opt_bin/"dolt", "sql-server", "--config", etc/"dolt/config.yaml"]
     keep_alive true
     log_path var/"log/dolt.log"
     error_log_path var/"log/dolt.error.log"
