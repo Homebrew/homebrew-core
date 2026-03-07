@@ -3,8 +3,8 @@ class Chapel < Formula
 
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/2.7.0/chapel-2.7.0.tar.gz"
-  sha256 "5e3269babdae334c80fc3f25114698fdfe53e84ea06626af22d2b54eeb75bee6"
+  url "https://chapel-lang.org/tmp/chapel-2.8.0.tar.gz"
+  sha256 "3e5e8da6c56337c6eeb468f12e52ba70c9bc3b05a1cb4b9cd0f1a4b9bce77e9c"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
@@ -23,7 +23,7 @@ class Chapel < Formula
   depends_on "gmp"
   depends_on "hwloc"
   depends_on "jemalloc"
-  depends_on "llvm@20"
+  depends_on "llvm@21"
   depends_on "pkgconf"
   depends_on "python@3.14"
 
@@ -79,6 +79,17 @@ class Chapel < Formula
       CHPL_RUNTIME_CPU=none
       CHPL_TARGET_CPU=native
     EOS
+
+    if OS.linux?
+      # we get strange build errors when trying to build with libunwind on linux
+      # the bundled build gets weird linking errors. this seems to be the fault
+      # of the homebrew build environment. we also cant use the system libunwind
+      # due to it being keg-only and not found by default.
+      # for now, disable stack unwinding with linuxbrew
+      (libexec/"chplconfig").append_lines <<~EOS
+        CHPL_UNWIND=none
+      EOS
+    end
 
     # Must be built from within CHPL_HOME to prevent build bugs.
     # https://github.com/Homebrew/legacy-homebrew/pull/35166
@@ -178,9 +189,6 @@ class Chapel < Formula
   end
 
   test do
-    # Hide ld warning until formula uses LLVM 21+ or if we apply backports to `llvm@20`
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac? && MacOS.version >= :tahoe
-
     ENV["CHPL_HOME"] = libexec
     ENV["CHPL_INCLUDE_PATH"] = HOMEBREW_PREFIX/"include"
     ENV["CHPL_LIB_PATH"] = HOMEBREW_PREFIX/"lib"
