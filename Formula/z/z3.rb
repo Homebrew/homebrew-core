@@ -1,8 +1,8 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.15.4.tar.gz"
-  sha256 "dae526252cb0585c8c863292ebec84cace4901a014b190a73f14087dd08d252b"
+  url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.15.8.tar.gz"
+  sha256 "a0828f637de02d775646a65aaeed4b7e270eaced15a37edafd1b78eb5b297717"
   license "MIT"
   head "https://github.com/Z3Prover/z3.git", branch: "master"
 
@@ -26,11 +26,20 @@ class Z3 < Formula
   # which does not need Python.
   depends_on "python@3.14" => [:build, :test]
 
+  uses_from_macos "llvm" => :build
+
+  fails_with :gcc do
+    version "12"
+    cause "Requires C++20"
+  end
+
   def python3
     which("python3.14")
   end
 
   def install
+    ENV.llvm_clang if OS.linux?
+
     args = %W[
       -DZ3_LINK_TIME_OPTIMIZATION=ON
       -DZ3_INCLUDE_GIT_DESCRIBE=OFF
