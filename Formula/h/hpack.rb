@@ -6,6 +6,11 @@ class Hpack < Formula
   license "MIT"
   head "https://github.com/sol/hpack.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "6d24fee8d0bbb3e9e5effcf8ab18f845e9f31c2f769925496fbb109c887e4c61"
