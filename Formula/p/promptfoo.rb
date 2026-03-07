@@ -1,8 +1,8 @@
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.120.26.tgz"
-  sha256 "2835ee7da76c4af2d1c938cbb41f932b1e84a1b838da59e3fd48b504d3b772bd"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.120.27.tgz"
+  sha256 "c1c25d92975559e9199cc742597f59e9e5217aae2e99aaa6596c76c6946004c8"
   license "MIT"
 
   bottle do
@@ -14,9 +14,7 @@ class Promptfoo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "80f917ca68cf4192c7d9a2227adc9d44a2a389cf6bf9e2582e4625a87ce8795e"
   end
 
-  depends_on "glib"
   depends_on "node"
-  depends_on "vips"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1700
@@ -29,8 +27,7 @@ class Promptfoo < Formula
     cause "better-sqlite3 fails to build"
   end
 
-  # Resources needed to build sharp from source to avoid bundled vips
-  # https://sharp.pixelplumbing.com/install/#building-from-source
+  # Resources needed for optional native dependency builds during npm install.
   resource "node-addon-api" do
     url "https://registry.npmjs.org/node-addon-api/-/node-addon-api-8.5.0.tgz"
     sha256 "d12f07c8162283b6213551855f1da8dac162331374629830b5e640f130f07910"
@@ -42,7 +39,6 @@ class Promptfoo < Formula
   end
 
   def install
-    ENV["SHARP_FORCE_GLOBAL_LIBVIPS"] = "1"
     system "npm", "install", *std_npm_args(ignore_scripts: false), *resources.map(&:cached_download)
     bin.install_symlink libexec.glob("bin/*")
 
