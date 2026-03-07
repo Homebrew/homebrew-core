@@ -31,6 +31,14 @@ class CKermit < Formula
   # Apply patch to fix build failure with glibc 2.28+
   # Apply patch to fix build failure on Sonoma (missing headers)
   # Will be fixed in next release: https://www.kermitproject.org/ckupdates.html
+  # Apply patch to fix memory corruption on macos where -DNOUUCP is used where an unintended codepath was taken.
+  # Patch for this soruced from beta 10.0:
+  # Notes on the bugfixes can be found in C-Kermit 10.0 NOTES.TXT lines 2533-2538 and 3356-3370
+  # Or in the code:
+  # ckucmd.c#L1694-L1696
+  # ckufio.c#L2746-L2748
+  # ckufio.c#L2827
+
   patch :DATA
 
   def install
