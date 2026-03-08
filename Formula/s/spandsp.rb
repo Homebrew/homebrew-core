@@ -1,15 +1,13 @@
 class Spandsp < Formula
   desc "DSP functions library for telephony"
-  homepage "https://www.soft-switch.org/"
-  url "https://www.soft-switch.org/downloads/spandsp/spandsp-0.0.6.tar.gz"
-  sha256 "cc053ac67e8ac4bb992f258fd94f275a7872df959f6a87763965feabfdcc9465"
+  homepage "https://github.com/freeswitch/spandsp"
+  # Upstream only update commit hashes with fixed version currently. For next release, may need to revise.
+  url "https://github.com/freeswitch/spandsp/archive/797760168945c96e91af55bde9d4edaea2e654f9.tar.gz"
+  sha256 "667e3af3f59c9d40140cb4c3a86f7af0ea80aa7e637417f079d6d6881f91d404"
   license "LGPL-2.1-only"
-  revision 3
+  head "https://github.com/freeswitch/spandsp.git", branch: "master"
 
-  livecheck do
-    url "https://www.soft-switch.org/downloads/spandsp/"
-    regex(/href=.*?spandsp[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "7eb7c7c0692b996402f9debbb20b3d87f5a0e9c17c2c3c73c5ce0589175c104a"
@@ -26,19 +24,16 @@ class Spandsp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e56ef470947c1215482b5155d62c0c5a6c72485bbea7ce74bf6e8f1d629ab1e1"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
+  depends_on "jpeg-turbo"
   depends_on "libtiff"
 
-  on_macos do
-    depends_on "jpeg-turbo"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
-
   def install
+    system "./autogen.sh"
+
     ENV.deparallelize
     args = ["--disable-silent-rules"]
     # Help old config scripts identify arm64 linux
