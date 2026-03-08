@@ -99,6 +99,7 @@ class Freeswitch < Formula
   depends_on "pcre2"
   depends_on "signalwire-client-c"
   depends_on "sofia-sip"
+  depends_on "spandsp"
   depends_on "speex"
   depends_on "speexdsp"
   depends_on "sqlite"
@@ -179,33 +180,7 @@ class Freeswitch < Formula
 
   #------------------------ End sound file resources --------------------------
 
-  # There's no tags for now https://github.com/freeswitch/spandsp/issues/13
-  # Using same source tarball as upstream's `signalwire/signalwire/spandsp` formula:
-  # https://github.com/signalwire/homebrew-signalwire/blob/master/Formula/spandsp.rb
-  resource "spandsp" do
-    url "https://files.freeswitch.org/downloads/libs/spandsp-3.0.0-0d2e6ac65e.tar.gz"
-    version "3.0.0-0d2e6ac65e"
-    sha256 "29c728fab504eb83aa01eb4172315c2795c8be6ef9094005f21bd1e3463f5f2f"
-
-    livecheck do
-      url "https://raw.githubusercontent.com/signalwire/homebrew-signalwire/refs/heads/master/Formula/spandsp.rb"
-      regex(/url ".*?spandsp[._-]v?(\d+(?:\.\d+)+-\h+)\.t/i)
-    end
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
-
   def install
-    resource("spandsp").stage do
-      system "./configure", "--disable-silent-rules", *std_configure_args(prefix: libexec)
-      system "make", "install"
-      ENV.append_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-    end
-
     args = %W[
       --enable-shared
       --enable-static
