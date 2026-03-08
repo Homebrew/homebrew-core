@@ -10,13 +10,14 @@ class Rpm < Formula
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
 
   stable do
-    url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.20.x/rpm-4.20.1.tar.bz2"
-    sha256 "52647e12638364533ab671cbc8e485c96f9f08889d93fe0ed104a6632661124f"
+    # Using GitHub tarball rather than ftp.osuosl.org to support autobump
+    url "https://github.com/rpm-software-management/rpm/releases/download/rpm-6.0.1-release/rpm-6.0.1.tar.bz2"
+    sha256 "44fd2e1425885288ce8e8da8f18e6b85bd380332c2972554a85860af10f86d0f"
 
-    # Backport commit needed to fix handling of -fhardened
+    # Backport build fix
     patch do
-      url "https://github.com/rpm-software-management/rpm/commit/e1d7046ba6662eac9e5e7638e484eb792afa36cc.patch?full_index=1"
-      sha256 "ae5358bb8d2b4f1d1a80463adf6b4fa3f28872efad3f9157e822f9318876ad9c"
+      url "https://github.com/rpm-software-management/rpm/commit/9610233289717f82b5f633858b858ca7054c18be.patch?full_index=1"
+      sha256 "9f6951c2be6eb709f0a5323da7bfee90b96f73299eaf88b756c4ed5c31ffd804"
     end
   end
 
@@ -24,8 +25,6 @@ class Rpm < Formula
     url "https://rpm.org/releases/"
     regex(/RPM\s+v?(\d+(?:\.\d+)+)/i)
   end
-
-  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 arm64_tahoe:   "9c214ce074bddb955970b60106ebc155f0783a04e2af65080268ccecf7bd499b"
@@ -40,6 +39,7 @@ class Rpm < Formula
   depends_on "gettext" => :build
   depends_on "python@3.14" => [:build, :test]
   depends_on "rust" => :build # for rpm-sequoia
+  depends_on "scdoc" => :build
 
   depends_on "gmp"
   depends_on "libarchive"
@@ -71,18 +71,17 @@ class Rpm < Formula
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
 
   resource "rpm-sequoia" do
-    url "https://github.com/rpm-software-management/rpm-sequoia/archive/refs/tags/v1.8.0.tar.gz"
-    sha256 "a34de2923f07b2610de82baa42f664850a4caedc23c35b39df315d94cb5dc751"
-  end
+    url "https://github.com/rpm-software-management/rpm-sequoia/archive/refs/tags/v1.10.1.tar.gz"
+    sha256 "539705430ab061358c943d1a2f8140057756877a6acb074fd6fd7c4698f9f59f"
 
-  # Apply nixpkgs patch to work around build failure on macOS
-  # Issue ref: https://github.com/rpm-software-management/rpm/issues/3688
-  patch do
-    on_macos do
-      url "https://raw.githubusercontent.com/NixOS/nixpkgs/3d52077f5a6331c12eeb7b6a0723b49bea10d6fe/pkgs/tools/package-management/rpm/sighandler_t-macos.patch"
-      sha256 "701ffe03d546484aac57789f3489c86842945ad7fb6f2cd854b099c4efa0f4e5"
+    livecheck do
+      url :url
     end
   end
+
+  # Workaround to build on macOS until fixed upstream
+  # Issue ref: https://github.com/rpm-software-management/rpm/issues/4139
+  patch :DATA
 
   def python3
     "python3.14"
@@ -94,9 +93,10 @@ class Rpm < Formula
         build_args = ["build", "--release"] # there is no `cargo install`-able components
         system "cargo", *build_args, *std_cargo_args.reject { |arg| arg["--root"] || arg["--path"] }
       end
-      # Rename the library to match versioned soname
-      versioned_lib = shared_library("librpm_sequoia", OS.mac? ? r.version.to_s : r.version.major.to_s)
+      # Rename and symlink the library to work with soname/install_name
+      versioned_lib = shared_library("librpm_sequoia", r.version.to_s)
       lib.install "target/release/#{shared_library("librpm_sequoia")}" => versioned_lib
+      lib.install_symlink versioned_lib => shared_library("librpm_sequoia", r.version.major.to_s)
       lib.install_symlink versioned_lib => shared_library("librpm_sequoia")
       (lib/"pkgconfig").install "target/release/rpm-sequoia.pc"
       ENV.append_path "PKG_CONFIG_PATH", lib/"pkgconfig"
@@ -203,3 +203,36 @@ class Rpm < Formula
     system python3, "-c", "import rpm"
   end
 end
+
+__END__
+diff --git a/rpmio/lposix.cc b/rpmio/lposix.cc
+index 58badfd5e..82e41e490 100644
+--- a/rpmio/lposix.cc
++++ b/rpmio/lposix.cc
+@@ -43,6 +43,13 @@
+ 
+ #include "modemuncher.cc"
+ 
++#ifdef __APPLE__
++	#include <crt_externs.h>
++	#define environ (*_NSGetEnviron())
++#else
++	extern char **environ;
++#endif /* __APPLE__ */
++
+ extern int _rpmlua_have_forked;
+ 
+ static const char *filetype(mode_t m)
+@@ -422,12 +429,6 @@ static int Pgetenv(lua_State *L)		/** getenv([name]) */
+ {
+ 	if (lua_isnone(L, 1))
+ 	{
+-	#ifdef __APPLE__
+-		#include <crt_externs.h>
+-		#define environ (*_NSGetEnviron())
+-	#else
+-		extern char **environ;
+-	#endif /* __APPLE__ */
+ 		char **e;
+ 		if (*environ==NULL) lua_pushnil(L); else lua_newtable(L);
+ 		for (e=environ; *e!=NULL; e++)
