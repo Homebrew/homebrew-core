@@ -1,15 +1,21 @@
 class Spandsp < Formula
   desc "DSP functions library for telephony"
-  homepage "https://www.soft-switch.org/"
-  url "https://www.soft-switch.org/downloads/spandsp/spandsp-0.0.6.tar.gz"
-  sha256 "cc053ac67e8ac4bb992f258fd94f275a7872df959f6a87763965feabfdcc9465"
+  homepage "https://github.com/freeswitch/spandsp"
   license "LGPL-2.1-only"
-  revision 3
 
-  livecheck do
-    url "https://www.soft-switch.org/downloads/spandsp/"
-    regex(/href=.*?spandsp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  stable do
+    # Upstream only update commit hashes with fixed version currently. For next release, may need to revise.
+    url "https://files.freeswitch.org/downloads/libs/spandsp-3.0.0-0d2e6ac65e.tar.gz"
+    sha256 "29c728fab504eb83aa01eb4172315c2795c8be6ef9094005f21bd1e3463f5f2f"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "7eb7c7c0692b996402f9debbb20b3d87f5a0e9c17c2c3c73c5ce0589175c104a"
@@ -26,19 +32,20 @@ class Spandsp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e56ef470947c1215482b5155d62c0c5a6c72485bbea7ce74bf6e8f1d629ab1e1"
   end
 
+  head do
+    url "https://github.com/freeswitch/spandsp.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  depends_on "jpeg-turbo"
   depends_on "libtiff"
 
-  on_macos do
-    depends_on "jpeg-turbo"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
-
   def install
+    system "./autogen.sh" if build.head?
+
     ENV.deparallelize
     args = ["--disable-silent-rules"]
     # Help old config scripts identify arm64 linux
