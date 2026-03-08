@@ -1,8 +1,8 @@
 class Rad < Formula
   desc "Modern CLI scripts made easy"
   homepage "https://amterp.github.io/rad/"
-  url "https://github.com/amterp/rad/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "75dca31dbb0fb67ba6d6d27bf0073e0a59d3b9a78843fa034ed72c26799f2836"
+  url "https://github.com/amterp/rad/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "c492b3782636bc8d7a6ea30f6817c6624ddc05cde70ed5b6dece828c3b3f3590"
   license "Apache-2.0"
   head "https://github.com/amterp/rad.git", branch: "main"
 
