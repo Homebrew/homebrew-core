@@ -1,8 +1,8 @@
 class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
   homepage "https://gerbv.github.io/"
-  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.11.1.tar.gz"
-  sha256 "b9a01ed892702f21f78b6ef4ec701e2db3220b5702d1cf93b10e843cad1e69a1"
+  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.12.0.tar.gz"
+  sha256 "4c7c571233f4f7b9e1a0cb81df037053420dd723ba6791cc0ad45eb65b4dbb3a"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -28,12 +28,6 @@ class Gerbv < Formula
     depends_on "gettext"
     depends_on "harfbuzz"
     depends_on "pango"
-  end
-
-  # Backport CMake fixes, upstream pr ref, https://github.com/gerbv/gerbv/pull/303
-  patch do
-    url "https://github.com/chenrui333/gerbv/commit/13e73c2767f0170cd4ff660ba0ccceac7c080573.patch?full_index=1"
-    sha256 "d1e8adc4371cfa3b2cc033b06c26daf2aa219cdd8d7a58b3fadfbdc0cbf9f920"
   end
 
   def install
