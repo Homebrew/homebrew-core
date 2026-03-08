@@ -5,20 +5,23 @@ class Rpm < Formula
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # rpm-sequoia
   ]
-  revision 2
   version_scheme 1
   compatibility_version 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
 
   stable do
     # Using GitHub tarball rather than ftp.osuosl.org to support autobump
-    url "https://github.com/rpm-software-management/rpm/releases/download/rpm-4.20.1-release/rpm-4.20.1.tar.bz2"
-    sha256 "52647e12638364533ab671cbc8e485c96f9f08889d93fe0ed104a6632661124f"
+    url "https://github.com/rpm-software-management/rpm/releases/download/rpm-6.0.1-release/rpm-6.0.1.tar.bz2"
+    sha256 "44fd2e1425885288ce8e8da8f18e6b85bd380332c2972554a85860af10f86d0f"
 
-    # Backport commit needed to fix handling of -fhardened
+    # Backport build fixes. Remove on next release.
     patch do
-      url "https://github.com/rpm-software-management/rpm/commit/e1d7046ba6662eac9e5e7638e484eb792afa36cc.patch?full_index=1"
-      sha256 "ae5358bb8d2b4f1d1a80463adf6b4fa3f28872efad3f9157e822f9318876ad9c"
+      url "https://github.com/rpm-software-management/rpm/commit/9610233289717f82b5f633858b858ca7054c18be.patch?full_index=1"
+      sha256 "9f6951c2be6eb709f0a5323da7bfee90b96f73299eaf88b756c4ed5c31ffd804"
+    end
+    patch do
+      url "https://github.com/rpm-software-management/rpm/commit/9da41220489ae404b7c48fa8b9025432d9098650.patch?full_index=1"
+      sha256 "bde3ab106b105fb837e0bcbe4a69c0b61f0733a36ce377f09e20fc4b2fa4dd71"
     end
   end
 
@@ -40,6 +43,7 @@ class Rpm < Formula
   depends_on "gettext" => :build
   depends_on "python@3.14" => [:build, :test]
   depends_on "rust" => :build # for rpm-sequoia
+  depends_on "scdoc" => :build
 
   depends_on "libarchive"
   depends_on "libmagic"
@@ -74,15 +78,6 @@ class Rpm < Formula
 
     livecheck do
       url :url
-    end
-  end
-
-  # Apply nixpkgs patch to work around build failure on macOS
-  # Issue ref: https://github.com/rpm-software-management/rpm/issues/3688
-  patch do
-    on_macos do
-      url "https://raw.githubusercontent.com/NixOS/nixpkgs/3d52077f5a6331c12eeb7b6a0723b49bea10d6fe/pkgs/tools/package-management/rpm/sighandler_t-macos.patch"
-      sha256 "701ffe03d546484aac57789f3489c86842945ad7fb6f2cd854b099c4efa0f4e5"
     end
   end
 
