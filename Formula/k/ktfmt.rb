@@ -17,7 +17,11 @@ class Ktfmt < Formula
 
     system "gradle", "shadowJar", "--no-daemon"
     libexec.install "core/build/libs/ktfmt-#{version}-with-dependencies.jar"
-    bin.write_jar_script libexec/"ktfmt-#{version}-with-dependencies.jar", "ktfmt", java_version: "17"
+    # TODO: add a flag for Java 23 or above, see https://github.com/facebook/ktfmt/issues/533.
+    java_opts = "$(\"${JAVA_HOME}/bin/java\" -version 2>&1 | " \
+                "grep -q -E -e 'version \"(2[3-9]|[3-9][0-9])' && " \
+                "echo '--sun-misc-unsafe-memory-access=allow')"
+    bin.write_jar_script libexec/"ktfmt-#{version}-with-dependencies.jar", "ktfmt", java_opts: java_opts, java_version: "17"
   end
 
   test do
