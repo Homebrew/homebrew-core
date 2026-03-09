@@ -10,17 +10,17 @@ class Ktfmt < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk@17"
+  depends_on "openjdk@25"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@25"].opt_prefix
 
     system "gradle", "shadowJar", "--no-daemon"
     libexec.install "core/build/libs/ktfmt-#{version}-with-dependencies.jar"
     bin.write_jar_script libexec/"ktfmt-#{version}-with-dependencies.jar", "ktfmt",
                          # TODO: https://github.com/facebook/ktfmt/issues/533
                          "--sun-misc-unsafe-memory-access=allow",
-                         java_version: "17"
+                         java_version: "25"
   end
 
   test do
