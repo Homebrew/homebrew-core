@@ -5,6 +5,7 @@ class Onnxruntime < Formula
       tag:      "v1.24.3",
       revision: "3a728b75062256951b6e19ce718907cf1a1d4cf0"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -33,6 +34,42 @@ class Onnxruntime < Formula
   depends_on "onnx"
   depends_on "protobuf@33"
   depends_on "re2"
+
+  # Resources for the CoreML Execution Provider (enabled on macOS only)
+  on_macos do
+    resource "coremltools" do
+      # Version pinned to match onnxruntime's cmake/deps.txt
+      url "https://github.com/apple/coremltools/archive/refs/tags/7.1.tar.gz"
+      sha256 "d3222966982367b2be4ce62f1bd2b3dddc5a0ae018724a9acf850fbf2b0cc09a"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
+        regex(%r{^coremltools;.*/(\d[\d.]+)\.zip}i)
+      end
+    end
+
+    resource "fp16" do
+      url "https://github.com/Maratyszcza/FP16/archive/0a92994d729ff76a58f692d3028ca1b64b145d91.tar.gz"
+      version "0a92994d729ff76a58f692d3028ca1b64b145d91"
+      sha256 "a91f4770ff9c39f4d72e339c379f566b3bbb359fa66122d85fc0bae3dde7abc7"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
+        regex(%r{^fp16;.*/(\h+)\.zip}i)
+      end
+    end
+
+    resource "psimd" do
+      url "https://github.com/Maratyszcza/psimd/archive/072586a71b55b7f8c584153d223e95687148a900.tar.gz"
+      version "072586a71b55b7f8c584153d223e95687148a900"
+      sha256 "f6c4dab91ae9a03b3019e7cab0572743afd0e1b6e75b97fcca50259c737c924e"
+
+      livecheck do
+        url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
+        regex(%r{^psimd;.*/(\h+)\.zip}i)
+      end
+    end
+  end
 
   resource "pytorch_cpuinfo" do
     url "https://github.com/pytorch/cpuinfo/archive/403d652dca4c1046e8145950b1c0997a9f748b57.tar.gz"
@@ -75,6 +112,13 @@ class Onnxruntime < Formula
       -Donnxruntime_RUN_ONNX_TESTS=OFF
       -Donnxruntime_USE_FULL_PROTOBUF=OFF
     ]
+
+    if OS.mac?
+      args << "-Donnxruntime_USE_COREML=ON"
+      # fp16 and psimd CMakeLists.txt use cmake_minimum_required < 3.5
+      # which is no longer supported by modern cmake
+      args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    end
 
     # Regenerate C++ bindings to use newer `flatbuffers`
     flatc = Formula["flatbuffers"].opt_bin/"flatc"
