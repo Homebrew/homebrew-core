@@ -26,10 +26,12 @@ class GitDelta < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # support libgit2 1.9, https://github.com/dandavison/delta/pull/1930
-  patch do
-    url "https://github.com/dandavison/delta/commit/9d6101e82a79daecfa9e81fa54c440b2e0442a33.patch?full_index=1"
-    sha256 "1967b73aeaba44cf96a3f2866d436449668028d6f8a6fa77dbc0d5c3c386c0cf"
+  if build.stable?
+    # support libgit2 1.9, https://github.com/dandavison/delta/pull/1930
+    patch do
+      url "https://github.com/dandavison/delta/commit/9d6101e82a79daecfa9e81fa54c440b2e0442a33.patch?full_index=1"
+      sha256 "1967b73aeaba44cf96a3f2866d436449668028d6f8a6fa77dbc0d5c3c386c0cf"
+    end
   end
 
   def install
