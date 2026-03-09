@@ -1,8 +1,8 @@
 class Cagent < Formula
   desc "Agent Builder and Runtime by Docker Engineering"
   homepage "https://github.com/docker/cagent"
-  url "https://github.com/docker/cagent/archive/refs/tags/v1.29.0.tar.gz"
-  sha256 "308b5d53811f489fcb399f92814d6251205ed64bf110d83ef9905c1f8181771f"
+  url "https://github.com/docker/cagent/archive/refs/tags/v1.30.0.tar.gz"
+  sha256 "2ede2518180892ef140866495e0854076ca221cbafcdff35f212337430b2699d"
   license "Apache-2.0"
   head "https://github.com/docker/cagent.git", branch: "main"
 
@@ -22,8 +22,8 @@ class Cagent < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/docker/cagent/pkg/version.Version=v#{version}
-      -X github.com/docker/cagent/pkg/version.Commit=#{tap.user}
+      -X github.com/docker/docker-agent/pkg/version.Version=v#{version}
+      -X github.com/docker/docker-agent/pkg/version.Commit=#{tap.user}
     ]
 
     system "go", "build", *std_go_args(ldflags:)
@@ -40,7 +40,7 @@ class Cagent < Formula
     YAML
 
     assert_match version.to_s, shell_output("#{bin}/cagent version")
-    assert_match "UNAUTHORIZED: authentication required",
-      shell_output("#{bin}/cagent exec --dry-run agent.yaml hello 2>&1", 1)
+    assert_match "OPENAI_API_KEY",
+      shell_output("#{bin}/cagent run --exec --dry-run agent.yaml hello 2>&1", 1)
   end
 end
