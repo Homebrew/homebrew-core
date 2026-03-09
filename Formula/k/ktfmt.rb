@@ -17,7 +17,10 @@ class Ktfmt < Formula
 
     system "gradle", "shadowJar", "--no-daemon"
     libexec.install "core/build/libs/ktfmt-#{version}-with-dependencies.jar"
-    bin.write_jar_script libexec/"ktfmt-#{version}-with-dependencies.jar", "ktfmt", java_version: "17"
+    bin.write_jar_script libexec/"ktfmt-#{version}-with-dependencies.jar", "ktfmt",
+                         # TODO: https://github.com/facebook/ktfmt/issues/533
+                         "--sun-misc-unsafe-memory-access=allow",
+                         java_version: "17"
   end
 
   test do
