@@ -7,12 +7,12 @@ class Dotnet < Formula
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.103.tar.gz"
-    sha256 "92fbc35b1b7ede2f4995e32aaa354c7d227e99179aaaa4661282a9d0ec977e4e"
+    url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.200.tar.gz"
+    sha256 "8285c5321a077775787857afbf9e98a8d7d55037c37e77e68b4ae80e66936076"
 
     resource "release.json" do
-      url "https://github.com/dotnet/dotnet/releases/download/v10.0.103/release.json"
-      sha256 "05154d070eebb81ef7b1eff89466956db93ee42f9d03059a9eb91c0f2bd745ba"
+      url "https://github.com/dotnet/dotnet/releases/download/v10.0.200/release.json"
+      sha256 "427b002ecaf962ab723d28994b37aed9a756a74a59dd1fbebc93fbfbd57fd86c"
 
       livecheck do
         formula :parent
@@ -23,6 +23,7 @@ class Dotnet < Formula
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
@@ -73,20 +74,6 @@ class Dotnet < Formula
     ENV["CLR_CC"] = which(ENV.cc)
     ENV["CLR_CXX"] = which(ENV.cxx)
 
-    # Fixes build error where member names shadow type names
-    # Error: declaration of '...' changes meaning of '...'
-    inreplace "src/runtime/src/coreclr/jit/gentree.h" do |s|
-      s.gsub! "    ExecutionContextHandling    ExecutionContextHandling",
-              "    ::ExecutionContextHandling    ExecutionContextHandling"
-      s.gsub! "= ExecutionContextHandling::None;",
-              "= ::ExecutionContextHandling::None;"
-
-      s.gsub! "    ContinuationContextHandling ContinuationContextHandling",
-              "    ::ContinuationContextHandling ContinuationContextHandling"
-      s.gsub! "= ContinuationContextHandling::None;",
-              "= ::ContinuationContextHandling::None;"
-    end
-
     if OS.mac?
       # Need GNU grep (Perl regexp support) to use release manifest rather than git repo
       ENV.prepend_path "PATH", Formula["grep"].libexec/"gnubin"
@@ -94,12 +81,6 @@ class Dotnet < Formula
       # Avoid mixing CLT and Xcode.app when building CoreCLR component which can
       # cause undefined symbols, e.g. __swift_FORCE_LOAD_$_swift_Builtin_float
       ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
-
-      # Skip installer build on macOS - prevents CreatePkg target errors
-      # See: https://github.com/dotnet/runtime/issues/122832
-      inreplace ["src/aspnetcore/Directory.Build.props", "src/runtime/Directory.Build.props"],
-                "</Project>",
-                "<PropertyGroup>\n    <SkipInstallerBuild>true</SkipInstallerBuild>\n  </PropertyGroup>\n</Project>"
     else
       icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
       ENV.append_path "LD_LIBRARY_PATH", icu4c_dep.to_formula.opt_lib
