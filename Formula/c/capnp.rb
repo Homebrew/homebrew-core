@@ -1,10 +1,10 @@
 class Capnp < Formula
   desc "Data interchange format and capability-based RPC system"
   homepage "https://capnproto.org/"
-  url "https://github.com/capnproto/capnproto/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "01ab2ba7f52fcc3c51a10e22935aae56f3bc5e99b726b7e507fe6700cb12147d"
+  url "https://github.com/capnproto/capnproto/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "d14a9149b79c055fee9d5aa778defe8e8cee0d2a11f0729865cd30dcc345eef2"
   license "MIT"
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/capnproto/capnproto.git", branch: "v2"
 
   livecheck do
