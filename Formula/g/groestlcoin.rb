@@ -4,6 +4,7 @@ class Groestlcoin < Formula
   url "https://github.com/Groestlcoin/groestlcoin/releases/download/v31.0/groestlcoin-31.0.tar.gz"
   sha256 "9c8b3004f7ed640a24acdadccace49ea123feae66ba562ca967de4119f061be3"
   license "MIT"
+  revision 1
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
 
   bottle do
