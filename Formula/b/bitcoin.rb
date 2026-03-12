@@ -8,6 +8,7 @@ class Bitcoin < Formula
     "BSD-3-Clause", # src/crc32c, src/leveldb
     "BSL-1.0", # src/tinyformat.h
   ]
+  revision 1
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
   livecheck do
