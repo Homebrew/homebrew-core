@@ -1,8 +1,8 @@
 class Openj9 < Formula
   desc "High performance, scalable, Java virtual machine"
   homepage "https://www.eclipse.org/openj9/"
-  url "https://github.com/eclipse-openj9/openj9/archive/refs/tags/openj9-0.57.0.tar.gz"
-  sha256 "84650d5f8e623bec413b72e5486a40f0b3dcc71435fa4dfe5b9bba5bea4c398d"
+  url "https://github.com/eclipse-openj9/openj9/archive/refs/tags/openj9-0.58.0.tar.gz"
+  sha256 "515f839a03cbb06c5f3db4bdbf4f0dd1775977cfe4757732ecc588abdc5a838c"
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
@@ -65,8 +65,8 @@ class Openj9 < Formula
   end
 
   resource "omr" do
-    url "https://github.com/eclipse-openj9/openj9-omr/archive/refs/tags/openj9-0.57.0.tar.gz"
-    sha256 "7da11f270722c3d99570ef53af6dd84ae5ca865c7f9bc2982c4c415b7cb585c9"
+    url "https://github.com/eclipse-openj9/openj9-omr/archive/refs/tags/openj9-0.58.0.tar.gz"
+    sha256 "3fa1755c7168cee1bc210f74d3f53182c339516b621987c8927d6c8d5ae75397"
 
     livecheck do
       formula :parent
