@@ -56,6 +56,11 @@ class SqliteUtils < Formula
   def install
     virtualenv_install_with_resources
 
+    inreplace libexec/"lib/python3.14/site-packages/sqlite_utils/utils.py" do |s|
+      s.gsub!(%r{/(?:usr/local|opt/homebrew|home/linuxbrew/\.linuxbrew)/lib/mod_spatialite\.(dylib|so)},
+              "@@HOMEBREW_PREFIX@@/lib/mod_spatialite.\\1")
+    end
+
     generate_completions_from_executable(bin/"sqlite-utils", shell_parameter_format: :click)
   end
 
