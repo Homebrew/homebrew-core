@@ -1,10 +1,9 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.4.tar.xz"
-  sha256 "7017677753cdf7d1fdc355e4bfcdb1eba8369793a8df24d241427a939cbf4283"
+  url "https://download.gnome.org/sources/libgweather/4.6/libgweather-4.6.0.tar.xz"
+  sha256 "7f5d0e8c9685ef2ff46c2f3a57cae48d7bf3540b2d83921f889ef28e6a876788"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
   version_scheme 1
 
   # Ignore version 40 which is older than 4.0 as discussed in
