@@ -1,8 +1,8 @@
 class Sng < Formula
   desc "Enable lossless editing of PNGs via a textual representation"
   homepage "https://sng.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/sng/sng-1.1.1.tar.xz"
-  sha256 "c9bdfb80f5a17db1aab9337baed64a8ebea5c0ddf82915c6887b8cfb87ece61e"
+  url "https://downloads.sourceforge.net/project/sng/sng-1.1.2.tar.gz"
+  sha256 "e6938a66ce3b6fafb0c6e6b809f8ddf662c6a962279278c4a627924761336f93"
   license "Zlib"
 
   bottle do
@@ -25,7 +25,9 @@ class Sng < Formula
     # Fix RGBTXT ref to use Homebrew share path
     inreplace "Makefile", "/usr/share/X11/rgb.txt", "#{HOMEBREW_PREFIX}/share/X11/rgb.txt"
 
-    system "make", "install", "DESTDIR=#{prefix}", "prefix=/", "CC=#{ENV.cc}"
+    # 1.1.2 changed `install` to expect generated/manual files not in the release tarball.
+    system "make", "sng", "CC=#{ENV.cc}"
+    bin.install "sng"
   end
 
   test do
