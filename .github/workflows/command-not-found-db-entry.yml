@@ -139,14 +139,14 @@ jobs:
             executables=""
 
             manifest_file="$(
-              ls "$HOME/.cache/Homebrew/${formula_name}_bottle_manifest"--* 2>/dev/null | head -1 || true
+              find "$HOME/.cache/Homebrew" -maxdepth 1 -name "${formula_name}_bottle_manifest--*" 2>/dev/null | head -1 || true
             )"
 
             # Fetch manifest if not cached
             if [[ -z "$manifest_file" ]]; then
               brew fetch --bottle-tag="$BOTTLE_TAG" "$formula_name" 2>/dev/null || true
               manifest_file="$(
-                ls "$HOME/.cache/Homebrew/${formula_name}_bottle_manifest"--* 2>/dev/null | head -1 || true
+                find "$HOME/.cache/Homebrew" -maxdepth 1 -name "${formula_name}_bottle_manifest--*" 2>/dev/null | head -1 || true
               )"
             fi
 
