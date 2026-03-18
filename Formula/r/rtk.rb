@@ -1,18 +1,18 @@
 class Rtk < Formula
   desc "CLI proxy to minimize LLM token consumption"
   homepage "https://www.rtk-ai.app/"
-  url "https://github.com/rtk-ai/rtk/archive/refs/tags/v0.30.0.tar.gz"
-  sha256 "625f016f5c4db7677c0a99dea8ed233c8f7e619759340ac21f6e357d502e5bfe"
+  url "https://github.com/rtk-ai/rtk/archive/refs/tags/v0.30.1.tar.gz"
+  sha256 "f063ed2503d5c0e32569897dc3773755b8ddf144da442529cd7e9ae50c3854a9"
   license "MIT"
   head "https://github.com/rtk-ai/rtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "66eab770462cd9359861cb027777c35f404596389600a43ecb96970404ec9178"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1161efd54238c2efb76f6cf4d08d245d6cb6e65fb768109003abebb20b7a1e5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c0f4cdf4a4e91f7c7b894f5fa5c5593536aba9e659a9ef9d432cdb140f32921"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2dfdd304fd2264b14f6b4c133df2f6be2cee80ab8502cd4c1bb0124d7671b433"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f069d75cc74028e60fd9d5f8ca71257f3b9fe9b141b6787d36f8ddf4d100c6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e19b0ab045b6ef27e779bc7345b1cd6c505795049d0da462c1624fd03a8ce1e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f32278209bffad8c04a412fc8294a9c88f73f623327fe51251bc6eca9c79ace"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "357e9ee32579fc4449004e4d0b94b0fd2635b720c6d8778bdc85feda50f911e7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eebbc1961e58617401ff956ea191c25446fab9ada38343a41bc5cd609dd694d6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2aea0423853ce9d21ea4216e166db06a74170df12a81891fd5539b5d020be452"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "63c8ba250247affcad042d0f21744828ede66f8343802c59c331597f816b32c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96db15362f8ac7c2e42cb43048d4f426872fe44dbd46897a155d82f8511c2b3f"
   end
 
   depends_on "rust" => :build

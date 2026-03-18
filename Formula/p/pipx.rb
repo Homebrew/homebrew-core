@@ -3,13 +3,13 @@ class Pipx < Formula
 
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://pipx.pypa.io"
-  url "https://files.pythonhosted.org/packages/fe/83/dff0a4cc4e46aaf536999e4e8d34f754a32af0e0d29a263f00f843493770/pipx-1.9.0.tar.gz"
-  sha256 "b7a82e09ea61fadcdbdea1f9bb49a22aa8a327d1986c97e06123a42961319c4c"
+  url "https://files.pythonhosted.org/packages/bd/db/a5d8f6c114e80ea8a490925a665dde50b08e1a38f3f8fdc966eb20f5c8a2/pipx-1.10.0.tar.gz"
+  sha256 "38aa67c3db53c5debbbba996c18641ee79bb4515b17122ad7795ee693c18f820"
   license "MIT"
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7c095f643808df70475e0f03d66e1ffb86318403035676db051670bd1cf7a491"
+    sha256 cellar: :any_skip_relocation, all: "fb9dcf848be478d39d0db5f6aa90ebf3510c946ed681f69f8225dbc8e74298f2"
   end
 
   depends_on "python@3.14"

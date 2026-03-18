@@ -1,18 +1,18 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.7.5/deno_src.tar.gz"
-  sha256 "40fcc09009fbfcf925776721dbbc6e40a5979380f8d12fb01429b6f6a3e94dd2"
+  url "https://github.com/denoland/deno/releases/download/v2.7.6/deno_src.tar.gz"
+  sha256 "e458ae64f137f4905c0f02e9e67e9cb7c784b970d7bf72768f7ef2cd59e02bbd"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "43741bcf8e91e2b205a32a8ac4bf650450414deb33f93a25931acd095e30feb3"
-    sha256 cellar: :any,                 arm64_sequoia: "e58419e4740902a02c29d2e047d316d185da6572b39f9d3450ed2f0e3448295d"
-    sha256 cellar: :any,                 arm64_sonoma:  "393d20e7f21d2f2a51f235bfac0ef2fa5c5c945bc3be38aaf2b764a5d11c99d0"
-    sha256 cellar: :any,                 sonoma:        "733faf04d839c965fdf620411b23574336effa624538728efc140009a90508d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7571d040ca61d6bbfdf1e007c2d3ad06fd4d4115bd13b8e024cc8cdf08e5ca73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "185bf34c2de5ee95da3963c42acefd1767de41951595dd553d8d832a8ef38d31"
+    sha256 cellar: :any,                 arm64_tahoe:   "9a08d0be49e761f225620e74c0194751c85f5b4921633463cba202e718f83268"
+    sha256 cellar: :any,                 arm64_sequoia: "cf48ca62032be9c61a558cf79b6d66c30dcbfcbfcd7196cc7ed9b7c123f589b1"
+    sha256 cellar: :any,                 arm64_sonoma:  "88ade54f1e9b5eb3b52e233374444c905a398b0ce565496825f9ebede730d663"
+    sha256 cellar: :any,                 sonoma:        "dfa8c79f4d85c3855fb8db426acc4eac9f6f3e98c2eb90a8dadc79f6a2469221"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a58bd65ffe1e1125a2448768e7bb9f292743bf054d8c897f225018f44ac3d68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0c1c8b6aed9ae83a3a35b77056b7fa0988a7ad88f19497d3086e1fa3ed4d6da"
   end
 
   depends_on "cmake" => :build
