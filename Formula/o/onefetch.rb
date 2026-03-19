@@ -1,8 +1,8 @@
 class Onefetch < Formula
   desc "Command-line Git information tool"
   homepage "https://onefetch.dev/"
-  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.26.1.tar.gz"
-  sha256 "ff43255d7c138c448cfdd1abacb01c6abe0c3e3886024e98ff077b28d4dc0ddc"
+  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.27.0.tar.gz"
+  sha256 "1f05f54ccb9023852ca25fa8d2a81335d8d1ebef46ae107cb291783d970c5ea2"
   license "MIT"
   head "https://github.com/o2sh/onefetch.git", branch: "main"
 
