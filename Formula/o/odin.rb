@@ -1,12 +1,21 @@
 class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
-  url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2026-03",
-      revision: "1a5126c6b793ada0290984e66eedef5377e18838"
-  version "2026-03"
   license "Zlib"
   head "https://github.com/odin-lang/Odin.git", branch: "master"
+
+  stable do
+    url "https://github.com/odin-lang/Odin.git",
+        tag:      "dev-2026-03",
+        revision: "1a5126c6b793ada0290984e66eedef5377e18838"
+    version "2026-03"
+
+    # Backport support for LLVM 22
+    patch do
+      url "https://github.com/odin-lang/Odin/commit/c29fd7f87276115489c0bb2566ce2b78bf0b8b3c.patch?full_index=1"
+      sha256 "e5d70ad733db2a13d1c0ffc43c22fe5267b95773bb4847123b2629eaa47f5b84"
+    end
+  end
 
   bottle do
     sha256                               arm64_tahoe:   "2432901ed4cb2745f97a7618322b1b33fb516def8d3bf0a8046d8477818256fe"
@@ -18,8 +27,8 @@ class Odin < Formula
   end
 
   depends_on "glfw" => :no_linkage
-  depends_on "lld@21"
-  depends_on "llvm@21"
+  depends_on "lld"
+  depends_on "llvm"
   depends_on "raylib"
 
   fails_with :gcc do
