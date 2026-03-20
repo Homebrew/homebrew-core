@@ -1,10 +1,9 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.82/vte-0.82.3.tar.xz"
-  sha256 "6dc6278f6fee30d07d1a03e2ba3335b1ea4e8d2956ceb59d861943115d930a85"
+  url "https://download.gnome.org/sources/vte/0.84/vte-0.84.0.tar.xz"
+  sha256 "0414e31583836aeb7878da25f67c515f7e8879917ecc37c92e26b83e8d8fc3e3"
   license "LGPL-2.0-or-later"
-  revision 3
 
   bottle do
     sha256 arm64_tahoe:   "fb3a1e39f1d3902e6925125a636f0b1d498776bcfe62ff1bdb993dc99e95ee23"
@@ -18,6 +17,7 @@ class Vte3 < Formula
   depends_on "fast_float" => :build
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "llvm" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
@@ -44,22 +44,18 @@ class Vte3 < Formula
     depends_on "gettext"
   end
 
-  on_ventura :or_older do
-    depends_on "llvm" => :build
-
-    fails_with :clang do
-      cause "error: 'to_chars' is unavailable: introduced in macOS 13.3"
-    end
-  end
-
   on_linux do
     depends_on "systemd"
   end
 
-  # https://en.cppreference.com/w/cpp/compiler_support/23.html#cpp_lib_string_resize_and_overwrite_202110L
+  # https://en.cppreference.com/w/cpp/compiler_support/23.html#cpp_lib_out_ptr_202106L
+  fails_with :clang do
+    cause "Requires C++23 std::out_ptr"
+  end
+
   fails_with :gcc do
-    version "11"
-    cause "Requires C++23 basic_string::resize_and_overwrite()"
+    version "13"
+    cause "Requires C++23 std::out_ptr"
   end
 
   def install
