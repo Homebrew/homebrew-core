@@ -6,6 +6,7 @@ class Drogon < Formula
       tag:      "v1.9.12",
       revision: "89aca8c7993c8194f2c109c1d06a3b45bf363d5d"
   license "MIT"
+  revision 1
   head "https://github.com/drogonframework/drogon.git", branch: "master"
 
   bottle do
